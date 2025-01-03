@@ -4,69 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98203E7718F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 18:36:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 970ABE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 18:46:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=gHoifUrbB/ka64VaA0X1OggfLE/RxYrnIK7fpRKrH8M=; b=kolKoM0XCdkg5X
-	CLbEJy/zPca/qoPPzmjRufNGoYDHlimUu5u6PHGfCS+WFw7ND5VOVM7AJk0RTjz/tTimtq0EQVdwd
-	+p58kERdvROlyzo6BsJTs1D2AQ7R8ebbd+MHYzhd8nz5lzKzXzbo0pUIfg0ipEA116lpBBa1vG6KF
-	ZPz1CAa9+bEqqPDI58BZgqF611RngSAx05xQTJlrrIY4tM2zagkhial9eNMSsPLa4OPeSeccD8Sb6
-	RsluKg6lLX17K6xnsyY2lfVXjfGGCvlcb++NeF2d9eW/xSjF/MZ7fbz64Q9yy7Xji10i5QerhFEYz
-	Zn5SidENR10xtDqEPITg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZontuwCoinBEbae73Q0bAKKpV+MGIErfthpPUUzIUcI=; b=VmOQpAThyC/CbtCwAXGgVNbaln
+	rkyut+FheQwQrQV7rwOGA5wVpkEMHmFD4UP91q3FN++Kthro+vRsiaH23EgKHnHT4x4V9Zez/D8Et
+	nhz33EPbvaPB1KiUEQTiWlhC2MJ3uhXq8d7xGrT8dIbDXCce10aMHHA9NOflSi4sf0eZDKFRTVeRd
+	SkgLpWoV1+48lajEaDc7vssQ9uYiXtG8Ugs7axPyWXi/Y6ey0FNlksFQXdjbx9T8kLzUkT+Nk+wGL
+	uiJlJdw8fjVMi9akT/fGHxgGcQ1POdhjx4KiD4yP8zVPSvnM3GuNM0+BbhlN/AjuWP5JXj4tEBR3D
+	p2iduv+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTmXO-0000000DidR-11qX;
-	Fri, 03 Jan 2025 18:36:46 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTmWB-0000000DiZS-3Vy9;
-	Fri, 03 Jan 2025 18:35:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C59F45C077A;
-	Fri,  3 Jan 2025 18:34:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91611C4CECE;
-	Fri,  3 Jan 2025 18:35:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735929330;
-	bh=ibvW79eXJj9bVQweOC7IEhp7Vlli+LtSmdXNdcq9QEo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=Xx0pQfwXe3nUi4AxSJKfgoGsj5s6dtkSTxO4cKrT/aqGtOb4X5McUGs04OaP1J7jU
-	 2Xzu+QBsX6tTThEl7PjqQJRaWR+7pK5SPuYLSD6KzojpMq6cEm2sAtoq3A3cMSDV5Z
-	 mIDzYbT5B66q2E8FftvyNQ+4Q7KxYjxE1nK56uoiR1WyvKcpG7Up2IPTHERS31ACx2
-	 23wT8S3lC8frjB3fEExs5/7S8OurliP6NnsoUsCyNp0KdWuMF0mu6knHOl7EUGNK6/
-	 R6i6wMJYJfRLgfuWXZlcDkp8Pmv0O3P5bCqdCEyWlkovWtWDfNfizggj+C0x/4I/x7
-	 o8iNiXs6XXmQQ==
-Date: Fri, 3 Jan 2025 12:35:27 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Ryder Lee <ryder.lee@mediatek.com>,
-	Jianjun Wang <jianjun.wang@mediatek.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, linux-pci@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
-Subject: Re: [PATCH v5 5/6] PCI: mediatek-gen3: Add reset delay in
- mtk_pcie_en7581_power_up()
-Message-ID: <20250103183527.GA3959656@bhelgaas>
+	id 1tTmg7-0000000Djxz-07FL;
+	Fri, 03 Jan 2025 18:45:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tTmet-0000000DjGU-3rcu;
+	Fri, 03 Jan 2025 18:44:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 561C61480;
+	Fri,  3 Jan 2025 10:44:57 -0800 (PST)
+Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1D3DB3F673;
+	Fri,  3 Jan 2025 10:44:24 -0800 (PST)
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+To: linux-mm@kvack.org
+Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	"Mike Rapoport (IBM)" <rppt@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Will Deacon <will@kernel.org>,
+	Matthew Wilcox <willy@infradead.org>,
+	Qi Zheng <zhengqi.arch@bytedance.com>,
+	linux-alpha@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-um@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	x86@kernel.org
+Subject: [PATCH v2 0/6] Account page tables at all levels
+Date: Fri,  3 Jan 2025 18:44:09 +0000
+Message-ID: <20250103184415.2744423-1-kevin.brodsky@arm.com>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241130-pcie-en7581-fixes-v5-5-dbffe41566b3@kernel.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_103531_960700_B48794AE 
-X-CRM114-Status: GOOD (  21.12  )
+X-CRM114-CacheID: sfid-20250103_104432_058405_C4699145 
+X-CRM114-Status: GOOD (  11.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,71 +86,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+v1: https://lore.kernel.org/linux-mm/20241219164425.2277022-1-kevin.brodsky@arm.com/
 
-If you repost this series, here are a few comments/typos.  Otherwise
-we can do the trivial updates on the branch.
+This series should be considered in conjunction with Qi's series [1].
+Together, they ensure that page table ctor/dtor are called at all levels
+(PTE to PGD) and all architectures, where page tables are regular pages.
+Besides the improvement in accounting and general cleanup, this also
+create a single place where construction/destruction hooks can be called
+for all page tables, namely the now-generic pagetable_dtor() introduced
+by Qi, and __pagetable_ctor() introduced in this series.
 
-In subject: this patch doesn't *add* a delay; it *moves* it.
+v2 is essentially v1 rebased on top of mm-unstable, which includes Qi's
+v4 series. A number of patches from v1 were dropped:
 
-On Sat, Nov 30, 2024 at 12:20:14AM +0100, Lorenzo Bianconi wrote:
-> Airoha EN7581 has a hw bug asserting/releasing PCIE_PE_RSTB signal
-> causing occasional PCIe link down issues. In order to overcome the
-> problem, PCIe block is reset using REG_PCI_CONTROL (0x88) and
-> REG_RESET_CONTROL (0x834) registers available in the clock module
-> running clk_bulk_prepare_enable in mtk_pcie_en7581_power_up().
+* v1 patch 4 is superseded by patch 6 in Qi's series.
+* v1 patch 5 and 6 moved to Qi's series from v3 onwards.
+* v1 patch 7 is superseded by patch 4 in Qi's series.
 
-Add parens after clk_bulk_prepare_enable.
+Changes from v1 in the remaining patches:
 
-> In order to make the code more readable, move the wait for the time
-> needed to complete the PCIe reset from en7581_pci_enable() to
-> mtk_pcie_en7581_power_up().
-> Reduce reset timeout from 250ms to the standard PCIE_T_PVPERL_MS value
-> (100ms) since it has no impact on the driver behavior.
->
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> Acked-by: Stephen Boyd <sboyd@kernel.org>
-> Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> ---
->  drivers/clk/clk-en7523.c                    | 1 -
->  drivers/pci/controller/pcie-mediatek-gen3.c | 7 +++++++
->  2 files changed, 7 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/clk/clk-en7523.c b/drivers/clk/clk-en7523.c
-> index 22fbea61c3dcc05e63f8fa37e203c62b2a6fe79e..bf9d9594bef8a54316e28e56a1642ecb0562377a 100644
-> --- a/drivers/clk/clk-en7523.c
-> +++ b/drivers/clk/clk-en7523.c
-> @@ -393,7 +393,6 @@ static int en7581_pci_enable(struct clk_hw *hw)
->  	       REG_PCI_CONTROL_PERSTOUT;
->  	val = readl(np_base + REG_PCI_CONTROL);
->  	writel(val | mask, np_base + REG_PCI_CONTROL);
-> -	msleep(250);
->  
->  	return 0;
->  }
-> diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
-> index 01e8fde96080fa55f6c23c7d1baab6e22c49fcff..da01e741ff290464d28e172879520dbe0670cc41 100644
-> --- a/drivers/pci/controller/pcie-mediatek-gen3.c
-> +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
-> @@ -977,6 +977,13 @@ static int mtk_pcie_en7581_power_up(struct mtk_gen3_pcie *pcie)
->  		goto err_clk_prepare_enable;
->  	}
->  
-> +	/*
-> +	 * Airoha EN7581 performs PCIe reset via clk callabacks since it has a
-> +	 * hw issue with PCIE_PE_RSTB signal. Add wait for the time needed to
-> +	 * complete the PCIe reset.
+* Patch 1 only introduces __pagetable_ctor() as there is now a single
+  generic pagetable_dtor(). 
 
-s/callabacks/callbacks/
+* Patch 3 and 6: in arch/m68k/mm/motorola.c, free_pointer_table() can
+  now unconditionally call pagetable_dtor() since it is the same for all
+  levels.
 
-> +	 */
-> +	msleep(PCIE_T_PVPERL_MS);
-> +
->  	return 0;
->  
->  err_clk_prepare_enable:
-> 
-> -- 
-> 2.47.0
-> 
+* Patch 6 just uses pagetable_dtor() instead of introducing
+  pagetable_pgd_dtor().
+
+* Added Dave Hansen's Acked-by to all patches.
+
+- Kevin
+
+[1] https://lore.kernel.org/linux-mm/cover.1735549103.git.zhengqi.arch@bytedance.com/
+---
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Dave Hansen <dave.hansen@linux.intel.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>
+Cc: Andy Lutomirski <luto@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: "Mike Rapoport (IBM)" <rppt@kernel.org>
+Cc: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Will Deacon <will@kernel.org>
+Cc: Matthew Wilcox <willy@infradead.org>
+Cc: Qi Zheng <zhengqi.arch@bytedance.com>
+Cc: linux-alpha@vger.kernel.org
+Cc: linux-arch@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-csky@vger.kernel.org
+Cc: linux-hexagon@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-m68k@lists.linux-m68k.org
+Cc: linux-mips@vger.kernel.org
+Cc: linux-openrisc@vger.kernel.org
+Cc: linux-parisc@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-s390@vger.kernel.org
+Cc: linux-snps-arc@lists.infradead.org
+Cc: linux-um@lists.infradead.org
+Cc: loongarch@lists.linux.dev
+Cc: x86@kernel.org
+---
+Kevin Brodsky (6):
+  mm: Move common part of pagetable_*_ctor to helper
+  parisc: mm: Ensure pagetable_pmd_[cd]tor are called
+  m68k: mm: Add calls to pagetable_pmd_[cd]tor
+  ARM: mm: Rename PGD helpers
+  asm-generic: pgalloc: Provide generic __pgd_{alloc,free}
+  mm: Introduce ctor/dtor at PGD level
+
+ arch/alpha/mm/init.c                     |  2 +-
+ arch/arc/include/asm/pgalloc.h           |  9 ++----
+ arch/arm/mm/pgd.c                        | 16 +++++-----
+ arch/arm64/mm/pgd.c                      |  4 +--
+ arch/csky/include/asm/pgalloc.h          |  2 +-
+ arch/hexagon/include/asm/pgalloc.h       |  2 +-
+ arch/loongarch/mm/pgtable.c              |  7 ++---
+ arch/m68k/include/asm/mcf_pgalloc.h      |  3 +-
+ arch/m68k/include/asm/motorola_pgalloc.h |  6 ++--
+ arch/m68k/include/asm/sun3_pgalloc.h     |  2 +-
+ arch/m68k/mm/motorola.c                  | 21 +++++++++----
+ arch/microblaze/include/asm/pgalloc.h    |  7 +----
+ arch/mips/include/asm/pgalloc.h          |  6 ----
+ arch/mips/mm/pgtable.c                   |  8 ++---
+ arch/nios2/mm/pgtable.c                  |  3 +-
+ arch/openrisc/include/asm/pgalloc.h      |  6 ++--
+ arch/parisc/include/asm/pgalloc.h        | 39 ++++++++----------------
+ arch/riscv/include/asm/pgalloc.h         |  3 +-
+ arch/s390/include/asm/pgalloc.h          |  9 +++++-
+ arch/um/kernel/mem.c                     |  7 ++---
+ arch/x86/mm/pgtable.c                    | 24 +++++++--------
+ arch/xtensa/include/asm/pgalloc.h        |  2 +-
+ include/asm-generic/pgalloc.h            | 28 ++++++++++++++++-
+ include/linux/mm.h                       | 31 ++++++++++---------
+ 24 files changed, 126 insertions(+), 121 deletions(-)
+
+
+base-commit: e2ce19225db5818f5dc22864cd225f8c425c3775
+-- 
+2.47.0
+
 
