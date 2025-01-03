@@ -4,91 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61382E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 11:00:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29B3EE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 11:11:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h3u4oGWBQKjEPREELrdTT/cBTk6tLIvMbyFiElHLVLk=; b=eaacJhS80zqMW3EmumAddaie5K
-	gA+Trgs8Bd/b+djDsfqdOXI+h3PCGiZ0mkxmPUDU5TtJLlANMlnGqAFANKFcK2XuQPSn0ATKTJFxS
-	YRJRLR1Oo4Zw7P7RjVuXGe/noTSzDr0Mq60IJGNulUJgeWKBtdg1Wqkt8ak22aXuQlVLPv198YQ8d
-	hK3g3ZK13oGZJxdMotbsuEbniJTYpTjM3/JzHvzQdgZBBzT5qRBZCeMn9M4OMRiFCbQNrXpD9J8Yk
-	CU/REYoqlpEpM3r6ivHvai9eVII1Lsh7lN4+uQzqr/F5X/5U8Jz7QtClU9n63Rx8UK0AI4Cy9qcyC
-	jh3xzwkQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EiTWrdPd+yj2FHOvAvudpCJ9LLU2BCANkcALvO3hnXg=; b=tr3MgAmj/ZEW02U2/3kXt/idYL
+	LxI4St+kX6Tr3NJrFxAYatkIikqDvfZHRK7NvWchLjDvzoO2sI3CrGZLie8S5bAJ9ESR5bfveUNUW
+	YgBZPqlt4nLMEMiJkmXVC/GLhnmShkQMb7KlxRjIX5C5e3bakEJqSioUtHJXnF1oDs2aGWgrCd5mV
+	EnKqZZiXk8gSrlnZHOjFxluLhhxrPNRXiDsu/Dc2wjuN+Gmw+YK+IB+R0VgHa/1dp1RlJgtWARLsj
+	diMjkgRuQDfSrQ5iCYsK3mWPeQ5FFhIjUw8sF5AfATnFgLapCfswlwR6Mja9tiBBo0OkIEWZwU1e0
+	QW2LilFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTfPL-0000000CmaS-3CBT;
-	Fri, 03 Jan 2025 10:59:59 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1tTfaX-0000000CnI4-1jBS;
+	Fri, 03 Jan 2025 11:11:33 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTfO8-0000000CmTX-1IRa
+	id 1tTdOH-0000000CVt1-36Za
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jan 2025 10:58:46 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-436281c8a38so86995565e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jan 2025 02:58:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1735901922; x=1736506722; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:references
-         :in-reply-to:subject:cc:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=h3u4oGWBQKjEPREELrdTT/cBTk6tLIvMbyFiElHLVLk=;
-        b=yvv+Yvo7/O98vcGgDyN9gaRrFYfwdUsB7eJhF09Xvr8mKcNTlh3IJvofv7eqdRfQfF
-         kLgzvpGn9iDeJPPIOEkOyAPj6HtVN6R/eW06DTcPdaVl9TTkzF34gZpzIorhc3txxLd5
-         kHNaWoLrQYhv8ThwlcM+zs9csV+DJvdja/TujzVN1ejrdUCqo4CkQK38TvSi5t/EIzHX
-         Uf2F/vPRiLIl48CedImnOT444VH+KomvRXMZzNC1si4SFbZnjCGKZ2FmgPAfDb1KM4Ko
-         +KoD6ckkzLZVt3bI0hsujaX3E/pvStfzDIJTFDoxykIZH0EHM3AZ2snbuz8hV3vWy8Wt
-         Pkdw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735901922; x=1736506722;
-        h=content-transfer-encoding:mime-version:message-id:date:references
-         :in-reply-to:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=h3u4oGWBQKjEPREELrdTT/cBTk6tLIvMbyFiElHLVLk=;
-        b=fRDTtbwZnEgx++Eoz5qHPY5Hpij/Baw40pBdrkVAgBq/fvtpP0mHD8KzXSsNh1araU
-         gaO34s7U8eX/3mmAGtoxxBsMq0ySMst/oF/r///iwoeXKp2JN+R2PF5rYr2xaPqqRf2Z
-         sWs/Y1OObWi7qOeQ9CHU0XZsQkJWMDfJccnmfBxQL5gCXKKALnJe3aBaMTLGvNh1s68f
-         BWMEUcEaZ1E9GTClya7CwjWWoQ+Df6fdPQtU0fUmn9Y2qXJmRTSQg8LFgM/TT9NZY380
-         PMwdb9VAHlooJbMpzeKFb4fgCvaAfjS/fc8IJ8dWI4SNarQUtOe9eeTNaI4TjjSchHUx
-         5oIw==
-X-Forwarded-Encrypted: i=1; AJvYcCX6gBd2Ba9x2u6YT+/H2vLCnkR+eEGAI3XS7Ia90HrApNHsZuUtvqZQpXX4EN158YbqdPKehbctD3eSUNlhRrJM@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJg4BK4ufZMTM9QR7bTxgINYlghEKxT+h8PWL53GPGq6bFrPIR
-	h1tSajgotp/IQh9hVR/d78ch4nzmT7RrCClNcEzA6nQEBWXQuhUKVZ2n2YXnl7I=
-X-Gm-Gg: ASbGnctWFNosiwsXswbFQvG5Rq8sQ4qdebUStMQ2xPIhDLLUwAZQ5fMoqD36ZRbnRYp
-	GXq/MmsK/FfGL9WMNl5shfHfCGna2sDDpWGR5ToXVzVbAWZKNB3O4zSSG0FgGKPHLZn3KbW6oYV
-	DMZ3quDIVjiPk3198TEDz03CGlesOJ9jlOmYPWl5dFkl3yN1qY8bZDULrLlrEk5y75KUcUhDLUv
-	UG80aVhJBgBH2xsqefPOzehYVKp6QWFrSNwn50ddizDEGeIVaxAsZKqKDP92JyrCA==
-X-Google-Smtp-Source: AGHT+IFjtv32f9kYfRVKeyGYT0IEP5Qw+m/gGOhzKk2Cr8BmmZ9Jl41YENFOU1sjQfF0nAEj/HJdsw==
-X-Received: by 2002:a05:6000:4703:b0:38a:69a9:af91 with SMTP id ffacd0b85a97d-38a69a9b0a9mr1730131f8f.13.1735901920712;
-        Fri, 03 Jan 2025 02:58:40 -0800 (PST)
-Received: from localhost ([2a01:cb19:95ba:5000:d6dd:417f:52ac:335b])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a28f17315sm35078406f8f.108.2025.01.03.02.58.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Jan 2025 02:58:40 -0800 (PST)
-From: Mattijs Korpershoek <mkorpershoek@baylibre.com>
-To: Val Packett <val@packett.cool>
-Cc: Val Packett <val@packett.cool>, Dmitry Torokhov
- <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, Fabien Parent
- <fparent@baylibre.com>, Alexandre Mergnat <amergnat@baylibre.com>, Amjad
- Ouled-Ameur <aouledameur@baylibre.com>, linux-input@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 0/3] mt6779-keypad: fix compatibles and add to mt8516
-In-Reply-To: <20241225192631.25017-1-val@packett.cool>
-References: <20241225192631.25017-1-val@packett.cool>
-Date: Fri, 03 Jan 2025 11:58:39 +0100
-Message-ID: <87jzbcnoyo.fsf@baylibre.com>
+	Fri, 03 Jan 2025 08:50:48 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5037FfaZ010711;
+	Fri, 3 Jan 2025 08:50:34 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=EiTWrdPd+yj2FHOvAvudpC
+	J9LLU2BCANkcALvO3hnXg=; b=AIC0S8b3IAD6JaLfwl7qt0F4ciMStN5A2AfDLR
+	IjfQ7gImt5FfelRLKmmma0ibHhH/C2/QPs3QLVHlCx4WCkOBdRAWbGx1pVOLgkBD
+	uRZg5v40z2+LQ1Oyuoz5NH8IIJF5Pxyajxm3+lhx9K/6OFxbvyEIocycaT/RfLpW
+	dAL8FJdWl9y3x0mLM+UM0bivGBq7+gaeFvWv2dh/4PxzGj4RBy+Fj6CYZkFKKUYB
+	D9FqzueUbqIebYYbfj7A+QkGF4Rzm7SSsXFhOY8pPy5pDF+6gCnnREsT3hTDnDyk
+	2FH51hxkmb7n6t0+P7tGJ7FjgW40SmN6NdRsHLjQ5rw4aV0Q==
+Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43xbbp06qy-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 03 Jan 2025 08:50:33 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5038oWRY000962
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 3 Jan 2025 08:50:32 GMT
+Received: from ap-kernel-sh01-lnx.qualcomm.com (10.80.80.8) by
+ nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Fri, 3 Jan 2025 00:50:28 -0800
+From: Zhenhua Huang <quic_zhenhuah@quicinc.com>
+To: <anshuman.khandual@arm.com>, <catalin.marinas@arm.com>
+CC: <will@kernel.org>, <ardb@kernel.org>, <ryan.roberts@arm.com>,
+        <mark.rutland@arm.com>, <joey.gouly@arm.com>,
+        <dave.hansen@linux.intel.com>, <akpm@linux-foundation.org>,
+        <chenfeiyang@loongson.cn>, <chenhuacai@kernel.org>,
+        <linux-mm@kvack.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <quic_tingweiz@quicinc.com>,
+        Zhenhua Huang <quic_zhenhuah@quicinc.com>, <stable@vger.kernel.org>
+Subject: [PATCH v3] arm64: mm: Populate vmemmap at the page level for hotplugged sections
+Date: Fri, 3 Jan 2025 16:50:02 +0800
+Message-ID: <20250103085002.27243-1-quic_zhenhuah@quicinc.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: pbTVjusVWVeqDA3YjrrNTLMewUxKBtXN
+X-Proofpoint-GUID: pbTVjusVWVeqDA3YjrrNTLMewUxKBtXN
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 bulkscore=0
+ phishscore=0 lowpriorityscore=0 malwarescore=0 priorityscore=1501
+ mlxscore=0 suspectscore=0 impostorscore=0 adultscore=0 mlxlogscore=934
+ clxscore=1011 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501030076
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_025844_354014_59E965D3 
-X-CRM114-Status: GOOD (  15.63  )
+X-CRM114-CacheID: sfid-20250103_005045_898257_D90805D6 
+X-CRM114-Status: GOOD (  21.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,34 +99,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Val,
+Commit c1cc1552616d ("arm64: MMU initialisation") optimizes the
+vmemmap to populate at the PMD section level which was suitable
+initially since hotplugging granule is always 128M. However,
+commit ba72b4c8cf60 ("mm/sparsemem: support sub-section hotplug")
+which added 2M hotplugging granule disrupted the arm64 assumptions.
 
-Thank you for the patches.
+Considering the vmemmap_free -> unmap_hotplug_pmd_range path, when
+pmd_sect() is true, the entire PMD section is cleared, even if there is
+other effective subsection. For example pagemap1 and pagemap2 are part
+of a single PMD entry and they are hot-added sequentially. Then pagemap1
+is removed, vmemmap_free() will clear the entire PMD entry freeing the
+struct page metadata for the whole section, even though pagemap2 is still
+active.
 
-On mer., d=C3=A9c. 25, 2024 at 16:26, Val Packett <val@packett.cool> wrote:
+To address the issue, we need to prevent PMD/PUD/CONT mappings for both
+linear and vmemmap for non-boot sections if the size exceeds 2MB
+(considering sub-section is 2MB). We only permit 2MB blocks in a 4KB page
+configuration.
 
-> The mt8516 patch was previously sent in another series but rejected due
-> to not using an mt8516 specific compatible - which the other usages
-> of this driver (mt8183 and mt8365) weren't doing either.
->
-> It's only fair to add the SoC-specific compatibles to all of them then :)
->
-> Val Packett (3):
->   dt-bindings: mediatek,mt6779-keypad: add more compatibles
->   arm64: dts: mediatek: add per-SoC compatibles for keypad nodes
->   arm64: dts: mediatek: mt8516: add keypad node
+Cc: stable@vger.kernel.org # v5.4+
+Fixes: ba72b4c8cf60 ("mm/sparsemem: support sub-section hotplug")
+Signed-off-by: Zhenhua Huang <quic_zhenhuah@quicinc.com>
+---
+Hi Catalin and Anshuman,
+Based on your review comments, I concluded below patch and tested with my setup.
+I have not folded patchset #2 since this patch seems to be enough for backporting..
+Please see if you have further suggestions.
 
-For the series,
+ arch/arm64/mm/mmu.c | 33 +++++++++++++++++++++++++++++----
+ 1 file changed, 29 insertions(+), 4 deletions(-)
 
-Reviewed-by: Mattijs Korpershoek <mkorpershoek@baylibre.com>
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index e2739b69e11b..2b4d23f01d85 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -42,9 +42,11 @@
+ #include <asm/pgalloc.h>
+ #include <asm/kfence.h>
+ 
+-#define NO_BLOCK_MAPPINGS	BIT(0)
++#define NO_PMD_BLOCK_MAPPINGS	BIT(0)
+ #define NO_CONT_MAPPINGS	BIT(1)
+ #define NO_EXEC_MAPPINGS	BIT(2)	/* assumes FEAT_HPDS is not used */
++#define NO_PUD_BLOCK_MAPPINGS	BIT(3)  /* Hotplug case: do not want block mapping for PUD */
++#define NO_BLOCK_MAPPINGS (NO_PMD_BLOCK_MAPPINGS | NO_PUD_BLOCK_MAPPINGS)
+ 
+ u64 kimage_voffset __ro_after_init;
+ EXPORT_SYMBOL(kimage_voffset);
+@@ -254,7 +256,7 @@ static void init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+ 
+ 		/* try section mapping first */
+ 		if (((addr | next | phys) & ~PMD_MASK) == 0 &&
+-		    (flags & NO_BLOCK_MAPPINGS) == 0) {
++		    (flags & NO_PMD_BLOCK_MAPPINGS) == 0) {
+ 			pmd_set_huge(pmdp, phys, prot);
+ 
+ 			/*
+@@ -356,10 +358,11 @@ static void alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+ 
+ 		/*
+ 		 * For 4K granule only, attempt to put down a 1GB block
++		 * Hotplug case: do not attempt 1GB block
+ 		 */
+ 		if (pud_sect_supported() &&
+ 		   ((addr | next | phys) & ~PUD_MASK) == 0 &&
+-		    (flags & NO_BLOCK_MAPPINGS) == 0) {
++		   (flags & NO_PUD_BLOCK_MAPPINGS) == 0) {
+ 			pud_set_huge(pudp, phys, prot);
+ 
+ 			/*
+@@ -1175,9 +1178,16 @@ int __meminit vmemmap_check_pmd(pmd_t *pmdp, int node,
+ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
+ 		struct vmem_altmap *altmap)
+ {
++	unsigned long start_pfn;
++	struct mem_section *ms;
++
+ 	WARN_ON((start < VMEMMAP_START) || (end > VMEMMAP_END));
+ 
+-	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES))
++	start_pfn = page_to_pfn((struct page *)start);
++	ms = __pfn_to_section(start_pfn);
++
++	/* Hotplugged section not support hugepages */
++	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES) || !early_section(ms))
+ 		return vmemmap_populate_basepages(start, end, node, altmap);
+ 	else
+ 		return vmemmap_populate_hugepages(start, end, node, altmap);
+@@ -1339,9 +1349,24 @@ int arch_add_memory(int nid, u64 start, u64 size,
+ 		    struct mhp_params *params)
+ {
+ 	int ret, flags = NO_EXEC_MAPPINGS;
++	unsigned long start_pfn = page_to_pfn((struct page *)start);
++	struct mem_section *ms = __pfn_to_section(start_pfn);
+ 
+ 	VM_BUG_ON(!mhp_range_allowed(start, size, true));
+ 
++	/* Should not be invoked by early section */
++	WARN_ON(early_section(ms));
++
++	if (IS_ENABLED(CONFIG_ARM64_4K_PAGES))
++	/*
++	 * As per subsection granule is 2M, allow PMD block mapping in
++	 * case 4K PAGES.
++	 * Other cases forbid section mapping.
++	 */
++		flags |= NO_PUD_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
++	else
++		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
++
+ 	if (can_set_direct_map())
+ 		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
+ 
+-- 
+2.25.1
 
->
->  .../bindings/input/mediatek,mt6779-keypad.yaml        |  3 +++
->  arch/arm64/boot/dts/mediatek/mt8183.dtsi              |  3 ++-
->  arch/arm64/boot/dts/mediatek/mt8365.dtsi              |  3 ++-
->  arch/arm64/boot/dts/mediatek/mt8516.dtsi              | 11 +++++++++++
->  4 files changed, 18 insertions(+), 2 deletions(-)
->
-> --=20
-> 2.47.1
 
