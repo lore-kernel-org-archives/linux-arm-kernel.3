@@ -4,62 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AD66E7718F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 19:08:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A7C4E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 19:10:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jwydjmJT2YL2H6h0BlrDdpncfhiYCc095veUxdLYW/8=; b=SL/QpQ5WaMg3dgIleXZiQFcest
-	rzfNy0DfWZjwMmTnIyj5TZBgUfDm8s0RFlSLHhyUsCltXGEymXOyqHjjpzI1SgwUDaD1S3F9bUNE2
-	dKJBZlEs/T1UmDY3Pq1TiJc1lH1rkEbQaNzdv/5EmYePyv1deaC5v2WFCH6AfaZBQ4OR+esQxE7gk
-	cL7KQNw8705Qs3KvOSF5hS92HR/jqT0mjUe0UDqkXVYcdGKXhN9S3r8FtYm5yGAIfuZoueh+uCfps
-	ah+8KgK0B2kh12ZoaHLcPXkp6C22lkFInn43dvfQy+cD5DfVYr7utaT+aGSBfxBsaRIzWRz7ymrjd
-	9uvu26qw==;
+	bh=Qh1rISjteZFaE6ymo8YKzLbpah3itnfDmgq9mWUiCFw=; b=dXHMYOlYi86DP5BdgooRvNWEce
+	Bw31FsTKkjzh7Fiyqni6+Q53hmSYytjHkmCPASbiRwthHF8xtYJGHZBkF2bF5mrg/ZokLIgjkarDs
+	tmCd4PcNrRjq3h0sq+vUA0dXSw6Ng6evKbphT1FLSg04LczzUMv51o2rLRFt449s5CjlEl3rS2PeK
+	MYQjKK1Z2vZjJyOMt0f7uaMVVsEvZIuVrsqYLY1l5PN6I5Sg1OqttOqqap+qxP6QFuUT02UIj5GN7
+	/0iMoIkpg/C/NP2csV8htuQpM/3Fn2K7qGJ+Xx9KAOjqVvtJ7Ygiqj94jKB2Yc09tEgjKKf01bjrT
+	N4HUJ4RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTn2I-0000000Dnje-3RPp;
-	Fri, 03 Jan 2025 19:08:42 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tTn3f-0000000DnxF-2Iux;
+	Fri, 03 Jan 2025 19:10:07 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTmzf-0000000DnOq-3O9r;
-	Fri, 03 Jan 2025 19:06:01 +0000
+	id 1tTn2T-0000000Dnoe-2wjy
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 03 Jan 2025 19:08:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E5954A4109D;
-	Fri,  3 Jan 2025 19:04:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50F0DC4CECE;
-	Fri,  3 Jan 2025 19:05:58 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id C31E0A40FA1;
+	Fri,  3 Jan 2025 19:07:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D2A3C4CED2;
+	Fri,  3 Jan 2025 19:08:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735931158;
-	bh=wEfIxLmMivcYpaOCV9CS4L1pAWpwkcsxKCp/ORxJUpo=;
+	s=k20201202; t=1735931332;
+	bh=v5wF+YQohzZ0mdJx4XQP5J0oRgHYezO5srl/b5e8OME=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dSnaBOVLKv1sXfkbNkU702SW2cppnacEk1kLbvxHoRbk+m7v2N29TqmwyugVXEjTa
-	 aRhMbOl4tah0iLu1HKXuXNVXtIoVQ6ZlTRa8ZTpKrsj9poA+h3sqU0/zI/3IYtoygJ
-	 Hf5PM3JUY3azLrosAoBWyjnwOWUOk5iB3/hRyFu7r9o3PtodZV6vZkj2p//X0P7wmU
-	 KkNHDI4nIkmlPAIb61mEubM3zViMFMjsqU6F6FTg7L1CNo2vsmb3b38SQlwLT0wQdG
-	 Cvloga74Bm2AAG/0eHyF4xTHfccwBNHveLK8VFRqg+VHpsT8Oj8mLgRIi93F7PPjv0
-	 8MXlzB9wYQpmQ==
-Date: Fri, 3 Jan 2025 13:05:56 -0600
+	b=WYpYrA82uwU6Y8B/cQeF7Y5cZEwRwY0Rbw4uhWQQvihYQ1pAlLDe9f9ZNfqCm2uxe
+	 6iiM1kn5EORrc4E/Ef6cvSWgw4WncDBNiPPEGe36jEFWnK8dKS7GDDKTmYGt7BfO4h
+	 myx8EEElrri/EC+u3Tm41q0rbDxKoosy2G/0BNQGow0tkvDKH57p3KR+nyEVden4WK
+	 fy8YCz0IWVgS2/RqWz2EXBwpHlPVFjbEKIkblX37Mh26yo+yRzjo49PLRtDOKW2Wvo
+	 bUI76+a4aJxIycdU4II6L+0mUMuLYDO6BTB1ns/MmORKfWIp2vFJPLVD0hywaf1pNk
+	 mojrMIy/RiWSA==
+Date: Fri, 3 Jan 2025 13:08:50 -0600
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Andy Yan <andyshrk@163.com>
-Cc: kishon@kernel.org, vkoul@kernel.org, heiko@sntech.de,
-	linux-rockchip@lists.infradead.org, krzk+dt@kernel.org,
-	Andy Yan <andy.yan@rock-chips.com>,
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
-	linux-kernel@vger.kernel.org, cristian.ciocaltea@collabora.com,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v3] dt-bindings: phy: Add rk3576 hdptx phy
-Message-ID: <173593115586.2590023.9486538940303908638.robh@kernel.org>
-References: <20241231092721.252405-1-andyshrk@163.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Sam Protsenko <semen.protsenko@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+Subject: Re: [PATCH] dt-bindings: samsung: exynos-usi: Restrict possible
+ samsung,mode values
+Message-ID: <173593132982.2620574.29762646865027511.robh@kernel.org>
+References: <20250103082549.19419-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241231092721.252405-1-andyshrk@163.com>
+In-Reply-To: <20250103082549.19419-1-krzysztof.kozlowski@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_110559_911639_6DFF8BE0 
-X-CRM114-Status: GOOD (  12.61  )
+X-CRM114-CacheID: sfid-20250103_110853_798545_D3F328B2 
+X-CRM114-Status: UNSURE (   8.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,33 +80,17 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 31 Dec 2024 17:27:11 +0800, Andy Yan wrote:
-> From: Andy Yan <andy.yan@rock-chips.com>
+On Fri, 03 Jan 2025 09:25:49 +0100, Krzysztof Kozlowski wrote:
+> "samsung,mode" property defines the desired mode of the serial engine
+> (e.g. I2C or SPI) and only few values are allowed/used by Linux driver.
 > 
-> Add compatible for the HDPTX PHY on rk3576, which is compatible with
-> rk3588, but without rst_phy/rst_ropll/rst_lcpll.
-> 
-> In fact, these three reset lines are also optional on the rk3588,
-> they just used for debug, then they were removed on the rk3576 IC
-> design.
-> 
-> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
-> 
+> Cc: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 > ---
-> 
-> Changes in v3:
-> - Split from:
->   https://lore.kernel.org/linux-rockchip/3330586.aeNJFYEL58@diego/T/#m02151cd8591d7fe92cf30ab69701ed57c1944c06
-> 
-> Changes in v2:
-> - Wrap commit message according to Linux coding style
-> - Make "rockchip,rk3588-hdptx-phy" const for "rockchip,rk3576-hdptx-phy"
-> - Make declare phy/ropll/lcpll reset line are not exit on rk3576
-> 
->  .../phy/rockchip,rk3588-hdptx-phy.yaml        | 62 +++++++++++++------
->  1 file changed, 44 insertions(+), 18 deletions(-)
+>  Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 > 
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 
