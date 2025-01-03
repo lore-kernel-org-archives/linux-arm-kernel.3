@@ -4,147 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3D95E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 03:33:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7617E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 03:40:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VClTDqtsVt337smE9JJgA0ELO4R7gmBNJq7pGD0y0jE=; b=O91t/u0x8nIe5DeS+2C7JFYW3M
-	wXEHrNX50L8otma8fhd/rYzputVc3rHpFSwj6uL1KCKv4qrTAFHNgtZrwmpMesU0N73JNWKrfQa7E
-	FRQjSWEixWVm0d0tkuaHXNzKbneHMaJB2o0BdcVgQZxEmxeCzNcnA6aC0zCcYfpnY1hFpob/frMZU
-	p7GPa8nmxOf3V7cURgPEwOa49AqY7zuZ5lHxnWaFiokZW5WVHmV/3EqKby8avzD00SBXazU1TB09r
-	bp3B0fjDsYE3X96+nDVBdYnL4yu/64FgrVT9yXlk0BsPBIdvz9ATz4Pnn/93TyrmT0Q/pMJq4Avl0
-	JCIdJcSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fWwXRg1VmAks2w4R97EeyIv6mOzZzD/tfl3wr1RNSkc=; b=OwoPRGmIH4MyAj9V4CBAcvmEt1
+	ZfVaxatDFpOxkz71Zv6VVaVkzBppP71TG7oE5Vrv5sZGqqWmRmMipcOW2Q9IM0m0XEnFpFTgqwZ8h
+	Ab3T947IHyE2h7fzlxxP02k1wFSnQx2xqwUHRiM9dT0djIi60/K/zxZqXzWKPr1Ym8Jpu/jdyPxst
+	uPHHI5GZ330hnX7SHEq0RXQdZXBC7TAvMx7PsyCBpr9iCNrDY80KU5rLJY77JrMhIWiQL0pBsq4ZJ
+	hvoq94dLjMrZxQ+R4FyfhhmDaQqhUQ7dH3f3nPqQXLjOtOsc1LQi5+XB6xkYxphXbWw4MfYHlLPUl
+	AOMD3T5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTYQs-0000000C1HQ-180g;
-	Fri, 03 Jan 2025 03:33:06 +0000
-Received: from mail-bn8nam12on20600.outbound.protection.outlook.com ([2a01:111:f403:2418::600] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	id 1tTYY0-0000000C1l8-1iQ6;
+	Fri, 03 Jan 2025 03:40:28 +0000
+Received: from mail-oa1-x29.google.com ([2001:4860:4864:20::29])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTYOq-0000000C109-0jTw
+	id 1tTYWr-0000000C1en-2LfT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jan 2025 03:31:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LtfptRFuB+Uj7waYyGBj1wQxMW+/dH/iJCH6UL0bSHJX5aBdWQ7AYep27PkrMzQ1djOD9iODglQZeDv3ntWWxO14qKbAJ7dXTC2w2JpajO5jQ/zuF9kFRjvkYPPG1wVCBkTuu8hFK5rAedsmQMQEgX/MyG4t6A57ao0AHw6V3NaGpEU1YC0kpoMgKrMqTh/m2D79pf7ceR+wAXVXoBi4SnsMmvOU3bWyD4rW8s1LQFLdg6SQ0FGuBVz2weyf9faGrt4DFo0ipE8bSygqunbJOePe4ET/Tryi9X/yhD/VucBHIi5ZUCkhrjogOuUe/3Z4LLLoDN27GAwYFR/Zr2LQTA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VClTDqtsVt337smE9JJgA0ELO4R7gmBNJq7pGD0y0jE=;
- b=UjGnMyStCOPY22JbX91Dv7ifWPbKZkqyKT15vkYXyI5M76KE6YWb5xawBCJRsHlRkng+GmcU1p0KSGTIeoIrU7+H3TAUUVTU6s3pAfNYhGhlvPUBX44a8DMCNjS/gZGwmqRshzeYwVEaqEBhPWh7Q1P6Q88eg5vKxiW+SFLtL2J+ogH6tiW6N8NHgA+LsAX5tkCnvp+HaHcTTkC4z7k1UeszoW77adZ2s3R03Z8/oHfDAQl9Px4U99a5f++6iTByyzITacWHPK3CaewJ1yDji+ORRZ0fyOCWTdRjSsXSvF0VBfFDg8xfO35V8jdXVrxI751nhk1eZ8xyXBzNzVntgA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=redhat.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VClTDqtsVt337smE9JJgA0ELO4R7gmBNJq7pGD0y0jE=;
- b=m8hn85iaI4UAaf0W6zvWroMF9Kn0pkojPM+zN2S5fLMpP9SrqZGsyLIs+673nC5AOSwjknPSusdKaQviOtAc5rSwhVEydPb70TmFciUPgUi0N1+hzFPJaFqvXzJNcMewh3RXv06ErFmtrc0HCFeKCn00y6U/FYwMPZvMzZHir0jPLv+LExMC3/S/3Mf7rDeC2RCxxIiRvkC6yCC9q3nGpmc86CFUdSvxkDI8sttZx2U4aAC8xEPdsTnxtufLESIADWULKg6XHOxip8udWWDRkoaPfJgkFR6KxmkfiSGUCMMlvc8GRBQglGtVNlKsvgW62Vh1BO8o39oKUm0E8ZqHwg==
-Received: from MN2PR11CA0026.namprd11.prod.outlook.com (2603:10b6:208:23b::31)
- by BL1PR12MB5996.namprd12.prod.outlook.com (2603:10b6:208:39c::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8314.13; Fri, 3 Jan
- 2025 03:30:47 +0000
-Received: from BN1PEPF0000468B.namprd05.prod.outlook.com
- (2603:10b6:208:23b:cafe::bc) by MN2PR11CA0026.outlook.office365.com
- (2603:10b6:208:23b::31) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8314.13 via Frontend Transport; Fri,
- 3 Jan 2025 03:30:47 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- BN1PEPF0000468B.mail.protection.outlook.com (10.167.243.136) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8314.11 via Frontend Transport; Fri, 3 Jan 2025 03:30:47 +0000
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Thu, 2 Jan 2025
- 19:30:26 -0800
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail205.nvidia.com
- (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Thu, 2 Jan 2025
- 19:30:26 -0800
-Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.129.68.9)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4 via Frontend
- Transport; Thu, 2 Jan 2025 19:30:23 -0800
-Date: Thu, 2 Jan 2025 19:30:21 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <kevin.tian@intel.com>, <will@kernel.org>, <corbet@lwn.net>,
-	<joro@8bytes.org>, <suravee.suthikulpanit@amd.com>, <robin.murphy@arm.com>,
-	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>, <shuah@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, <eric.auger@redhat.com>,
-	<jean-philippe@linaro.org>, <mdf@kernel.org>, <mshavit@google.com>,
-	<shameerali.kolothum.thodi@huawei.com>, <smostafa@google.com>,
-	<ddutile@redhat.com>, <yi.l.liu@intel.com>, <patches@lists.linux.dev>
-Subject: Re: [PATCH v3 06/14] iommufd: Add IOMMUFD_OBJ_VIRQ and
- IOMMUFD_CMD_VIRQ_ALLOC
-Message-ID: <Z3dZzXblPIlxXEQ+@Asurada-Nvidia>
-References: <cover.1734477608.git.nicolinc@nvidia.com>
- <dc1252de7ff06c944cb7d91c91b4f61c25182f91.1734477608.git.nicolinc@nvidia.com>
- <20250102205246.GG5556@nvidia.com>
+	Fri, 03 Jan 2025 03:39:18 +0000
+Received: by mail-oa1-x29.google.com with SMTP id 586e51a60fabf-2a8690dcb35so2947820fac.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jan 2025 19:39:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1735875556; x=1736480356; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fWwXRg1VmAks2w4R97EeyIv6mOzZzD/tfl3wr1RNSkc=;
+        b=R6OkD+qYuT29HyY2FUgoUH7+n9HQJ8AgXOlAknWjx5vv/4Ebi+mfNUsDvSqX53fSXs
+         yEJ1tNQw2Bbzs7QfyiEAmNQJNwsYOPvvgZpEiSU5XsoahNm/cfC4nA+VGqPVhSwh/MkO
+         kfPXNMLTO0+rVvZT4xs9ZZLpGNTDuF0ZNGH0nWBrzoq3KwiQ7hRTXJiijaRfT3bd0hmn
+         L6lt1JuB102KmU9XFFW0VSajZSJgoyRHM8Xmqq2wZbnjM/51lciZsWgdRLjYJMAixkbf
+         7//4gicwMrCJRrf1HOJe1U/okXbmBpZ5NwHjfrw8D3dKlGF9V39EEKfcR7cXlRiRcDfw
+         YDPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735875556; x=1736480356;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=fWwXRg1VmAks2w4R97EeyIv6mOzZzD/tfl3wr1RNSkc=;
+        b=OQLNvajoQ9uUmzMAewY00AhzjL9di1kGuR23ptKU89uA8n2VSPmajWiYzWMflFCysF
+         cIcmlBKmyZuLgfHq9SNMHapoV50dBskjhnPmpYbwZ4ZsecGdpeJjzHSP1NJinIgBvxQN
+         Kr8LUC9lHCatE3jf4mKOo5WgLUx/T2PbECo/ynVIqCaSIIJsae85FrTPOvFjJRsPprSX
+         gBtYwIy2ALj0NzbCMSCyg01b55lfJHtQbHQBNadTWqS7HBVJkYt8+NJHrU5uK8QI5c/n
+         kUhiF3/iV8iSbiA4Z0YO8i6WvezCg8vg5C1ZoMVAruXuk6oh1+qj3ag+iySFHB3x8HVe
+         +OIA==
+X-Forwarded-Encrypted: i=1; AJvYcCWpIQ4nBW93Aa25OB9I/UbsNNvxDW6+Jij7yBuP8XB+Kf0RgUytxbVXjmmdA/MCDmOswYZ1ff4+Dm8fTpS0Bxx+@lists.infradead.org
+X-Gm-Message-State: AOJu0YyRJFYT4lMdItenHR8zKRm/8BRvp1UXB4W7Wqfj17iRiCHb9FCB
+	HBR3BOnGllmjzu5jbt6W7NDaoZu8zK5eREZx3GviwWH6zipbO1223f/O+TjSYSw5LljZ/KZh5dz
+	yEGXKN15z/0un9hqmYh77pWnJgVUpAGqJ
+X-Gm-Gg: ASbGncsAK1/CrgfMrxj6V6UEGJxPUbA+0QO3nArCCsIpBZx0bSbKWF55LCkaSevSLHZ
+	fk9Pz0Z+f2vm/RVNEXKpQRllyKo2PLm9T69O4wJQ=
+X-Google-Smtp-Source: AGHT+IHM1WCCKkxCeYI87hg9rwTax0tUBhbUiByr3hkQB9kRpKdWUFzlO6HSwMJZ0R/M6soUxC9LGmKn4xDFLQOUr50=
+X-Received: by 2002:a05:6871:522b:b0:29e:40f8:ad9b with SMTP id
+ 586e51a60fabf-2a7fb0bfc5emr24896900fac.14.1735875555689; Thu, 02 Jan 2025
+ 19:39:15 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250102205246.GG5556@nvidia.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN1PEPF0000468B:EE_|BL1PR12MB5996:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0bd02fda-d8fe-4b3e-edfb-08dd2ba703ad
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|36860700013|82310400026|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?AP10rSWv2wCR6rDunCXMhMAtY2hhFImzJrDFtNjIlD+UANJH2QfFTGv/gmMe?=
- =?us-ascii?Q?Vh2k+IH0lAqqeLEJBsXKrn+E8jOif7aiDEH7UyCsAqNXg6KAj6B9RehrSlxv?=
- =?us-ascii?Q?J8jMCGoQaeCpwrXjgxUr0NXbOES4livux+hSen+1XGHzLKl3TyLnO9sY9haP?=
- =?us-ascii?Q?0sQcMVujJqwZd1SYozz3y8M5xYGYarAPSd7l9ZByFseQOd7cb2xSwxp6FUA0?=
- =?us-ascii?Q?gWn2cVQvhJTDgGfvJVGoJaPSlWVJEcFCWpjmg0yYuA/n5VFpMBvlOAlNJQE5?=
- =?us-ascii?Q?dCvk1/Q5RMWR0p+D2CP+anePxA2xTJzgH5+8VAn6IWbTP9mrj5gp1Hh6vlx2?=
- =?us-ascii?Q?BgTR6ByOH8KIGCIvMe9p1yzUpul+j0P3FRWhB/heN7TFRcRh5trhHlDRcQSS?=
- =?us-ascii?Q?nOr+Thg9pSOBS7j4Bk2hUbQ45p7aMMeyLnwvq62orurrUWKM/8iL1tcr5H0K?=
- =?us-ascii?Q?5G0i78ZUhTThMmuQTmuSx2jsS0rFNyV+iU92fqMOsQgOsOcPsz4cBmL12GJP?=
- =?us-ascii?Q?jvNpAYHTu6zBTZlXRnd6ROcwWpUDG/eUbuvj6ptNflFipPPzif6f/2tJudPg?=
- =?us-ascii?Q?OG/ygJin3qiEFE3HL0SduOXjDssGtZEII5AeLfO6T2cGpnyZ2uU6pfKUop0d?=
- =?us-ascii?Q?8/am6YoO8SvQoWgXFzxNNBfHQcD2LbUHHIJ2O+HbtmmdJyyZOoPrWH9XHvMk?=
- =?us-ascii?Q?aicIBV6zB0S1ayLG9TDIQbkRCpfJCGQMtYie5jNFdmeQdiejWjr3hCNcU5Z5?=
- =?us-ascii?Q?9jPIKCq+RFsTRATfJ6mH0aMFwndQJVjYCQlLoLnY5eBvqByBtl92KmslTm7s?=
- =?us-ascii?Q?+gxdNXF0aN6hGMO6kTVVNcqu7mydZTKaqygN0DJISHiqnJg/T/cu/P7eyO2N?=
- =?us-ascii?Q?K1uGrMVBoKUPCDW9Z8cnRB0scAXXDL14XbO1LrFQy9DfzeCJcPbTK+4nyg7z?=
- =?us-ascii?Q?Tt9r8oNI30fdVnElva38bSigzdDxaqbsMaikqYD6c6KgSAAckjLU+EMZEEg1?=
- =?us-ascii?Q?snnLBcRTWf1RvqJNbYAeJ3Dil1EKwr1xzewKBUhX5pyHAwCoGPdBNRgk8A/i?=
- =?us-ascii?Q?kNZp4lHWT1UBWfJqt4H3YFmo57V9AZ322KnB6DDk3vVXGFNblhRtu6WISOV4?=
- =?us-ascii?Q?GNyhxI+FWtTrgwRdNRhlJSze3EqBrhpvzGhZYw4j6c+oLAxjLcIGIHvXmXfy?=
- =?us-ascii?Q?Msozz5x1AG90s6JRxw7XYIFkPSCNc7kmj/wBqPxL3uz9TIVyhj0gfevzWsWS?=
- =?us-ascii?Q?Gi4325N6Q8ncO6iEWmZnowVk0Lz5QeMPSA/fo5eUJhYEWBB8a2ziQ7D6uYZM?=
- =?us-ascii?Q?AqnG8SQKLmQ5g4xR9qpwPKwoICtruKgLQbRY1UtpoKoRfZMWLPFOrkNhhPYA?=
- =?us-ascii?Q?kyJ0yPjyvIoItQpmLFWj1xkybRsMNk7DH4ZvCUbJNsT3sgmvbetKZvoZxDTF?=
- =?us-ascii?Q?KMRpXA3Cs2OTryCyTgHt2ReDMpMGkz0xbcfLPfWXk1c7UqirswCBiHomb3a2?=
- =?us-ascii?Q?16HfmFujEdRp7S0=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(36860700013)(82310400026)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jan 2025 03:30:47.5710
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0bd02fda-d8fe-4b3e-edfb-08dd2ba703ad
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF0000468B.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR12MB5996
+References: <20241217-acpm-v4-upstream-mbox-v5-0-cd1d3951fe84@linaro.org>
+ <20241217-acpm-v4-upstream-mbox-v5-1-cd1d3951fe84@linaro.org>
+ <ec3cdfd1-df7a-466c-8581-c9546ca6b089@linaro.org> <CABb+yY0rBzP8JPAik5aaXp6GivQKEf++sgiMM9fTPgd_5YXT1w@mail.gmail.com>
+ <eaab647a-f6f4-4562-89fa-e64daa80bdf4@linaro.org>
+In-Reply-To: <eaab647a-f6f4-4562-89fa-e64daa80bdf4@linaro.org>
+From: Jassi Brar <jassisinghbrar@gmail.com>
+Date: Thu, 2 Jan 2025 21:39:04 -0600
+Message-ID: <CABb+yY0AkpqC_P-3cHeuWDu-gJzxCnarsNFNQWk45+tHKrDLmg@mail.gmail.com>
+Subject: Re: [PATCH v5 1/3] dt-bindings: mailbox: add google,gs101-mbox
+To: Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, linux-kernel@vger.kernel.org, 
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, andre.draszik@linaro.org, 
+	peter.griffin@linaro.org, kernel-team@android.com, willmcvicker@google.com, 
+	daniel.lezcano@linaro.org, vincent.guittot@linaro.org, ulf.hansson@linaro.org, 
+	arnd@arndb.de
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_193100_232655_D80CAF84 
-X-CRM114-Status: GOOD (  13.61  )
+X-CRM114-CacheID: sfid-20250102_193917_598249_565F46E4 
+X-CRM114-Status: GOOD (  26.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,41 +101,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 02, 2025 at 04:52:46PM -0400, Jason Gunthorpe wrote:
-> On Tue, Dec 17, 2024 at 09:00:19PM -0800, Nicolin Chen wrote:
-> > +/* An iommufd_virq_header packs a vIOMMU interrupt in an iommufd_virq queue */
-> > +struct iommufd_virq_header {
-> > +	struct list_head node;
-> > +	ssize_t irq_len;
-> > +	void *irq_data;
-> > +};
-> 
-> Based on how it is used in iommufd_viommu_report_irq()
-> 
-> +       header = kzalloc(sizeof(*header) + irq_len, GFP_KERNEL);
-> +       header->irq_data = (void *)header + sizeof(*header);
-> +       memcpy(header->irq_data, irq_ptr, irq_len);
-> 
-> It should be a flex array and use the various flexarray tools
-> 
-> struct iommufd_virq_header {
->        ssize_t irq_len;
->        u64 irq_data[] __counted_by(irq_len);
-> }
+On Sat, Dec 21, 2024 at 12:45=E2=80=AFAM Tudor Ambarus <tudor.ambarus@linar=
+o.org> wrote:
+>
+> Hi, Jassi,
+>
+> Thanks for the review!
+>
+> On 12/21/24 2:19 AM, Jassi Brar wrote:
+> > On Thu, Dec 19, 2024 at 4:51=E2=80=AFAM Tudor Ambarus <tudor.ambarus@li=
+naro.org> wrote:
+> >>
+> >> Hi, Krzysztof, Jassi,
+> >>
+> >> On 12/17/24 9:40 AM, Tudor Ambarus wrote:
+> >>
+> >>> diff --git a/Documentation/devicetree/bindings/mailbox/google,gs101-m=
+box.yaml b/Documentation/devicetree/bindings/mailbox/google,gs101-mbox.yaml
+> >>
+> >> cut
+> >>
+> >>> +
+> >>> +  '#mbox-cells':
+> >>> +    description: |
+> >>> +      <&phandle type channel>
+> >>> +      phandle : label name of controller.
+> >>> +      type    : channel type, doorbell or data-transfer.
+> >>> +      channel : channel number.
+> >>> +
+> >>> +      Here is how a client can reference them:
+> >>> +      mboxes =3D <&ap2apm_mailbox DOORBELL 2>;
+> >>> +      mboxes =3D <&ap2apm_mailbox DATA 3>;
+> >>> +    const: 2
+> >>> +
+> >>
+> >> Revisiting this, I think that for the ACPM interface mailbox client us=
+e
+> >> case, it would be better to introduce a mbox property where I referenc=
+e
+> >> just the phandle to the controller:
+> >>         mbox =3D <&ap2apm_mailbox>;
+> >>
+> >> The ACPM interface discovers the mailbox channel IDs at runtime by
+> >> parsing SRAM. And all ACPM's channels are of type DOORBELL, thus
+> >> specifying the type and channel in DT is redundant.
+> >>
+> >> It would require to extend a bit the mailbox core to provide a
+> >> mbox_request_channel_by_args() method. I already wrote a draft and
+> >> tested it.
+> >>
+> >> Do you find the idea fine?
+> >>
+> > Looking at v6, I prefer this version... maybe modify it a bit.
+>
+> Just to summarize for the readers, in the end I chose for the
+> controllers to allow #mbox-cells =3D <0>; and for the clients to still us=
+e
+> the mboxes property, but just to reference the phandle to the controller:
+>         mboxes =3D <&ap2apm_mailbox>;
+>
+This was already supported, see drivers/mailbox/bcm2835-mailbox.c for examp=
+le.
 
-Changed to
--------------------------------------------------------------------------
-/* An iommufd_vevent represents a vIOMMU event in an iommufd_veventq */
-struct iommufd_vevent {
-	struct list_head node;
-	ssize_t data_len;
-	u64 event_data[] __counted_by(data_len);
-};
-[...]
-	vevent = kmalloc(struct_size(vevent, event_data, data_len), GFP_KERNEL);
--	header->irq_data = (void *)header + sizeof(*header);
--------------------------------------------------------------------------
+> Then I updated the mailbox core to allow clients to request channels by
+> passing some args containing channel identifiers to the controllers,
+> that the controllers xlate() using their own method.
+>
+This is unnecessary.
+If you don't pass the doorbell number from DT, each channel populated
+by the driver is just a s/w construct or a 'virtual' channel. Make use
+of 'void *data'  in send_data() to specify the doorbell.
 
-Thanks
-Nicolin
+Cheers.
+Jassi
 
