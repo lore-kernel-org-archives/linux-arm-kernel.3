@@ -4,75 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCB48E7718F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 15:34:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E5E5E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 15:35:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WF98epXw3Qv4CPbGrRECANv2+XQKUkVYnJNebl2i+cY=; b=XJzgKnIfOGv77hPyyL6Fibul8w
-	SOIemQmEPPhP/7dJfSkalXFeEJ1gSFUMxXj0kyCd/IVBRFTyigvf8DRRJyMuQP91WYjkEt6Xc8qOf
-	FHcFsc63kFl95u8M7cCIpfuqLC+dGfq+Q9KZYILJpGo811I7l/DqQyzTTjsHIBgip/P3zLz4XxrMJ
-	rBJQYDkewT/sVcDZD7N4kJO/nGBypSdK9gIt65q7NuxqKe9kvdv+JrBhn0kIhv38vuKwYcdEYJq04
-	HsQW1d8y47/ZjTZtHyHsr4qtTN2Ghm3Av7n+oUhTiprxvy4G0LK3EmL63+oCYFhgJPy9fgFh+uMsx
-	GxmUbZRg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WedLBp6/AcoWN6QD67+gZHy89Fk8T1ZpqHMRD90+734=; b=LEvKjUh+s3wrakcuC8e86RAJwA
+	r0iD+bNjbQ/Qxx7HSbVwg5VIslaoucvNEFCxHyAPMfDjJC/5iI1e9C1cCNBH+jSJ2Z8vh8cW8tvqW
+	uWtsGr9LdvA4drKiW3EjpmtxFGv6NgVUjK4UJvUuwogY/GslZqPxp0+sQ4MfIn2EyVKIHU7m9Wgjn
+	znuJnvyqF32bORaDeyaN6oL54gjuuSbdtG/z/2Qtz4lnmTpIfmSDntVGASBUSJt5coA2du8aZZRYL
+	tmTcLwkWEauoCXQC90UEKKo73i+KHGSfjK41EF40gT6bitAFxGmKw4toWg75VxXZqoh8RhUxpeSFB
+	dA8csUHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTjgN-0000000DIUs-2ZV1;
-	Fri, 03 Jan 2025 15:33:51 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTjdo-0000000DHnp-1V8R;
-	Fri, 03 Jan 2025 15:31:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7AA685C645F;
-	Fri,  3 Jan 2025 15:30:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0917C4CECE;
-	Fri,  3 Jan 2025 15:31:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735918271;
-	bh=WF98epXw3Qv4CPbGrRECANv2+XQKUkVYnJNebl2i+cY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=tcpYtjvND1iL1I5IXZ1WoMXTgkM62MCXZoV9Cyi/B4KjjcCpfCkLfzmjCl07me2Nr
-	 Puyi2zLuPSpzWJxcMDpxx8JxqCiiLoi6l35mejj66mMjmxZ5Jvj0qUYwyJ2K2hPeFn
-	 t7WkXhUFRJszM90uWcxTlmV4DOta2asykROg+b4yyR5Xzkxo+UP69XY6XV8OSeqD+t
-	 ELOIiUaxp3XCKU9EhpTJOZlHsDDlRT2LZGjf9S4QhE63JBvoFiySMvwmAhOxQWwF1T
-	 fSzbWeEDIUzO1uv2FPUxMKJ5BEpOYNqNPwnMcQNJDYLnRfoayf1jos6st2H124B0OT
-	 hwR+HFZREtkfw==
-Message-ID: <8645aa77-eb46-4d87-94ce-97cd812fd69e@kernel.org>
-Date: Fri, 3 Jan 2025 08:31:09 -0700
+	id 1tTjha-0000000DIrJ-0UXo;
+	Fri, 03 Jan 2025 15:35:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tTjeL-0000000DHxb-0r5E
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 03 Jan 2025 15:31:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EBAA51480;
+	Fri,  3 Jan 2025 07:32:11 -0800 (PST)
+Received: from e133380.arm.com (e133380.arm.com [10.1.197.41])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 72DA63F6A8;
+	Fri,  3 Jan 2025 07:31:42 -0800 (PST)
+Date: Fri, 3 Jan 2025 15:31:39 +0000
+From: Dave Martin <Dave.Martin@arm.com>
+To: Zeng Heng <zengheng4@huawei.com>
+Cc: james.morse@arm.com, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, jonathan.cameron@huawei.com,
+	xiexiuqi@huawei.com,
+	"Wangshaobo (bobo)" <bobo.shaobowang@huawei.com>
+Subject: Re: [RFC PATCH mpam mpam/snapshot/v6.12-rc1 v3 2/5] arm_mpam: Read
+ monitor value with new closid/rmid pair
+Message-ID: <Z3gC25189W5UYENX@e133380.arm.com>
+References: <20241207092136.2488426-1-zengheng4@huawei.com>
+ <20241207092136.2488426-3-zengheng4@huawei.com>
+ <Z1sMxKM9o6lAiZGr@e133380.arm.com>
+ <8fa84731-1ae6-e40f-3594-3241b1ee8bb4@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2] ipv6: socket SO_BINDTODEVICE lookup routing fail
- without IPv6 rule.
-Content-Language: en-US
-To: =?UTF-8?B?U2hpbWluZyBDaGVuZyAo5oiQ6K+X5piOKQ==?=
- <Shiming.Cheng@mediatek.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "horms@kernel.org" <horms@kernel.org>, "kuba@kernel.org" <kuba@kernel.org>,
- "edumazet@google.com" <edumazet@google.com>,
- "pabeni@redhat.com" <pabeni@redhat.com>,
- "willemdebruijn.kernel@gmail.com" <willemdebruijn.kernel@gmail.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "davem@davemloft.net" <davem@davemloft.net>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- =?UTF-8?B?TGVuYSBXYW5nICjnjovlqJwp?= <Lena.Wang@mediatek.com>
-References: <20250103054413.31581-1-shiming.cheng@mediatek.com>
- <76edb53b44ba5f073206d70cee1839ecaabc7d2a.camel@mediatek.com>
-From: David Ahern <dsahern@kernel.org>
-In-Reply-To: <76edb53b44ba5f073206d70cee1839ecaabc7d2a.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <8fa84731-1ae6-e40f-3594-3241b1ee8bb4@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_073112_437069_09AC4C9E 
-X-CRM114-Status: UNSURE (   7.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250103_073145_329476_15199467 
+X-CRM114-Status: GOOD (  25.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,17 +68,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/3/25 3:27 AM, Shiming Cheng (成诗明) wrote:
-> Test cases will be provided later, below are the corresponding IP rule
-> configurations for IPv4 and IPv6 that i provided, as well as the
-> differences in ping results, the IPv4 result passed, but the IPv6 result
-> failed, after adding this patch, the IPv6 result passed.
+On Fri, Jan 03, 2025 at 02:55:17PM +0800, Zeng Heng wrote:
+> 
+> 
+> On 2024/12/13 0:18, Dave Martin wrote:
+> > Hi,
+> > 
+> > On Sat, Dec 07, 2024 at 05:21:33PM +0800, Zeng Heng wrote:
 
-I do not want the output of a complicated stack of ip rules with a ping
-a command.
+[...]
 
-Provide a simplistic set of commands that configure the stack and show
-what you believe is a problem. Anyone on this list should be able to
-quickly reproduce the setup to verify it is a problem and investigate
-what is happening.
+> > > Based on the example provided, the conversion relationship between
+> > > closid/rmid and (req)PARTID/PMG is:
+> > > 
+> > >      (req)PARTID = (rmid.req_idx * n) + closid,
+> > >      PMG = rmid.pmg.
+> > 
+> > It seemed more natural to me for the PARTIDs assigned to a particular
+> > CLOSID to be consecutively numbered (see [1]), though it works either
+> > way.
+> > 
+> > Otherwise, the approach makes sense.
+> > 
+> 
+> 
+> After attempting to change the mapping method in practice, I found that
+> there are some following advantages of the current method which keeps
+> intPARTIDs are mapped to the first n IDs:
+
+Thanks for having a go.
+
+> 1. Because closid is exactly equal to intPARTID, and the conversion
+> relationship between closid and intPARTID remains unchanged under the
+> current method (still only call the resctrl_get_config_index() for
+> conversion), maintaining the original semantics during the MPAM
+> configuration updating;
+
+You are right about this, but I think this is just moving complexity
+around rather than eliminating it?
+
+I've tried various approaches, and there there always seems to be one
+ugly step somewhere; either something in mpam_devices.c that feels like
+it should be in mpam_resctrl.c, or something in mpam_resctrl.c that
+feels like it should be in mpam_devices.c.
+
+> 2. Since there is no need to create a new transformation (like
+> closid2intpartid()) between closid and intPARTID, this can reduce the
+> work of function adaptations, such as in resctrl_arch_update_one(),
+> resctrl_arch_get_config(), and so on, which doesn't need any extra
+> adaptions and keeps things as simple as possible.
+> 
+> Looking forward to your comments.
+> 
+> 
+> Greeting for new year,
+> Zeng Heng
+> 
+
+Happy New Year to you too!
+
+What you say is true, but I think the runtime cost of the conversions
+is going to be trivial compared with the cost of the actual MSC
+programming.
+
+For context: I'm hoping to factor the code so that the conversion is as
+cleanly separated out as possible, so that it would be straightforward
+to move to an arbitrary mapping in the future if it is possible to
+agree changes in the core resctrl interface so that the PARTID/PMG
+allocations can be dynamic.  If we do that, the conversion would
+probably become a simple table lookup.
+
+This factoring seems more important than which precise mapping we
+choose right now.
+
+But in the interests of improving PARTID Narrowing support sooner,
+I think that going straight to dynamic allocation is not the best
+approach -- so my idea is to prepare for that on the MPAM driver side,
+but not prioritise developing a dynamic approach until after the
+resctrlfs refactoring and the MPAM driver are merged upstream.
+
+Does that make sense?
+
+Cheers
+---Dave
 
