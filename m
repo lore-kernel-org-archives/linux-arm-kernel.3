@@ -4,98 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50D26E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 01:46:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71037E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 02:03:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=k2Cl0qLA6Zse6X1mOHGAIPpGxF7+VgglAz9fd0zm31c=; b=oZhb2OXGNJy2x9HLIf4F1voqbf
-	OYns9HIpaK6q4xfNvqmJe6f515SLaPq7aOu0W6Y4Mx6LwjtYqdaGIAG2o8/gSmei+ClSk9UjvZxbe
-	S91QB5NjgDTY1b0w/hgmTyn43VhNSeOaaCIOzyExCP9QL9vteYZzNOk4kmqZHcgpMTf2eB/djh+/8
-	o+PKIlxhY1mMryVBkxJi9LqXPodBGyhpuVm33lN7eN9ncSa4WpbP2dR29yEMjN9HU95hR0sJoOFXl
-	Ne9E8sQq0gfrAjSuC1zfborCEzMstzz7xkRsjqX0glPTXBAEAbHRWu3u+IqmmYIs8KPDZZFfd31NY
-	OPhidExw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L3aeWnL+12/YsEuMWwQA9FCOS4/Unmsm+NwfFhN0+ws=; b=LZUbYfOWAdKOh8ZoR1idlzRIrS
+	THrQcj/iCbS1R3MjpUNHwsbUlz4ux96EB42zfouvxj/ZaVWANHxZHJne8WAPI4kW1/A1sJjhtMdZj
+	ml2UzmAlonF3MgIZfScw+oFyN1TMBobZ2KXIFnXo4VZhBhZ0pxfXe2E5tDLBXGtODwal1BJqv7nyl
+	ipU5XiEjoYVvASuOTm7qXc47NLAbC03B4L7oUz7MlGy96aHrNfEuNspStoA22OngorRS6A+ydrLPJ
+	YRddWQ2PwsQ4Ignh2wY6RA+S03QMuWh8+tysVSZyAHs4oCcR9+HG+eY4pqSrNEvmpWbLARkL3KnYq
+	i9t/1mAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTWlI-0000000BrEg-2eDF;
-	Fri, 03 Jan 2025 01:46:04 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1tTX22-0000000BscG-3tyg;
+	Fri, 03 Jan 2025 02:03:22 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTWk6-0000000Br6H-0Uig
+	id 1tTX0t-0000000BsU7-0oc2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jan 2025 01:44:51 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-2eec9b3a1bbso12914486a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jan 2025 17:44:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1735868688; x=1736473488; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=k2Cl0qLA6Zse6X1mOHGAIPpGxF7+VgglAz9fd0zm31c=;
-        b=Zt8cFfpegGSU4HN9SlHGlU5rEqOrNBa3mj2mpSNqhHwSq0v4Tdzbdg0qalU6DwIVgy
-         hWmBbGeqMPS6hjqPHqY/o7GddKkTlnXjdWD4IbZ30N0zY9asLHqUODi7uDwHsiO3iMMQ
-         VQ4F76fWH8C2lSR0WvFVr5sjnbdvKRAziGkr0Ye3n8CPr2Rw7fW9m57u+bcoC5hhdFDq
-         fabkfM/FbHQeVi2L0rQMLuYlDCZ10+dw72HylCSy2S5lvPv+ba9DvuB+eAMJx4YfvX2y
-         glhji52wikwrQEg7aI9d55iirZ6zUXyeJQWTjX46QMG2ObPeqbU/BCCgT/fK4KgkIgh8
-         fMyw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735868688; x=1736473488;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=k2Cl0qLA6Zse6X1mOHGAIPpGxF7+VgglAz9fd0zm31c=;
-        b=LD+fUhqTvR979C58oE1Ewlegp09he/ZHsFONmJ+iJv4ZtyjHoxIS8qbCFoqztcwSCj
-         rDhl6RScXBk6rIEbfNx49e5p6z2hvAgvI2fYu9BCsnmqX3NSLuNoTLk5hUCCHr+CDJDU
-         9cQMhQ8oHiEVVv4mGp2UC9yMFd8xSoG+2awWbY/ug2bGxzH0+WrPIo1jK9g5+JRW76Ij
-         z6TSiGUR7fItonMVQ8XAzCgqcox9lYBbY54a15Kdz1ioAxpudGikS4xinITq5VuLolsm
-         nxPfnhp9i92/q1XOQQs8jTB/BBGbYuSq5eGd/VJIjs0q9IMrKC1a7jxiVaZAbQQSGbCb
-         KLsQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXf0C6fGWV8bTqny30dxB5CVZfZJJnyE6ox0naUFBYtpNG/SYngJUpc5M/e22ZzbcREjDQPf6+5Dh6mmp8zvawB@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMKaLSNDs1DDXFNDxmeHs/8L6NqNTLcmEGz6PjHT/jrCpJneb3
-	nwgmnUyHA/lSNZXIcj69QoTG6jqruNV5vCG7bN55pOHXZyyLyvUM
-X-Gm-Gg: ASbGncuR038G1U539s+U+Plvk+ckS5ZQhQJ78gbvgSqdSpYeIQXn83sNfFmbProPMaF
-	tewHmYPyujNxSpqCNimDdp4Qn9WEXwTclpdOmHoiy+kIcgJQ+nBdUeFl98Qz3PpdFjUvlqmh2na
-	z/YY4Un4feOheBDJpIrDcIjwRRmfeYRp1dmjgXIT9uOfEI9pGc7KyYOm6ierpp3EOGhi1XGIqwn
-	SqC/OYr2WvQ9q5pvVyVFa8ZjqHYnquXHosHWF5dttCBNxnrmfFis+00SZgy6qo1TyRsC/7DcrWF
-	VfKuYKFNmcVVw2rOE6Ur835nC7/wKUhLGQ==
-X-Google-Smtp-Source: AGHT+IE+4fM40xvU28AzvOJIq0548U2gC/Q8aDCSFhqHoK9P+D4GoUQlU1aKGPee55+jqzqjHIgWuQ==
-X-Received: by 2002:a17:90b:5244:b0:2ee:f440:53ed with SMTP id 98e67ed59e1d1-2f452ed6a0dmr61484494a91.31.1735868688516;
-        Thu, 02 Jan 2025 17:44:48 -0800 (PST)
-Received: from localhost.localdomain (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-219dca02f8asm234551495ad.279.2025.01.02.17.44.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Jan 2025 17:44:48 -0800 (PST)
-From: Potin Lai <potin.lai.pt@gmail.com>
-Date: Fri, 03 Jan 2025 09:42:31 +0800
-Subject: [PATCH] ARM: dts: aspeed: catalina: update catalina dts file
+	Fri, 03 Jan 2025 02:02:12 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 502MjGrv030058;
+	Fri, 3 Jan 2025 02:01:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	L3aeWnL+12/YsEuMWwQA9FCOS4/Unmsm+NwfFhN0+ws=; b=X+l/p2UMoNpaqmYP
+	5xWNr+7/MLxdD+aHtA4kJpy1D0nvMZSRPxSNQdX6F6+pk40NPQHRUg2Ju+D+bheF
+	tE4biI11kWpm35nwh40hDkMvxP+Ut9NaejZXOlPyC63QOwxfgCco5i0Rx3u2fDgs
+	38dImeKU6UER4dZVBZCM0xJSiIZjF5KCcUY5lZnR9yuypvXMZTw0t4Dn7ROXsxn0
+	rVwBqCFzTt5jlVZ4sojNpD+7ylLqNXhUeueuhd4bZe/2WA8EZxcuaNuJgOoc+K9b
+	XgNS+eKIF/+Bvz0OLnbcPio0QSHwKrpoZSVjhPwn2AcnGaban++KEaRPB1frBvPr
+	q2Qydw==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43wvrbs7n1-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 03 Jan 2025 02:01:58 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 50321vWO016498
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 3 Jan 2025 02:01:57 GMT
+Received: from [10.239.132.245] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 2 Jan 2025
+ 18:01:54 -0800
+Message-ID: <6731e921-8ebd-4e98-a582-ca87f2a25d16@quicinc.com>
+Date: Fri, 3 Jan 2025 10:01:52 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] arm64: mm: vmemmap populate to page level if not
+ section aligned
+To: Catalin Marinas <catalin.marinas@arm.com>,
+        Anshuman Khandual
+	<anshuman.khandual@arm.com>
+CC: <will@kernel.org>, <ardb@kernel.org>, <ryan.roberts@arm.com>,
+        <mark.rutland@arm.com>, <joey.gouly@arm.com>,
+        <dave.hansen@linux.intel.com>, <akpm@linux-foundation.org>,
+        <chenfeiyang@loongson.cn>, <chenhuacai@kernel.org>,
+        <linux-mm@kvack.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>,
+        Tingwei Zhang <quic_tingweiz@quicinc.com>
+References: <20241209094227.1529977-1-quic_zhenhuah@quicinc.com>
+ <20241209094227.1529977-2-quic_zhenhuah@quicinc.com>
+ <Z2W3qA7wbBTaq6DQ@arm.com> <a720aaa5-a75e-481e-b396-a5f2b50ed362@quicinc.com>
+ <Z2rAr9APkgpkwOl8@arm.com> <971b9a05-4ae0-4e6c-8e48-e9e529896ecf@arm.com>
+ <Z3bh74I1YhGWLU4M@arm.com>
+Content-Language: en-US
+From: Zhenhua Huang <quic_zhenhuah@quicinc.com>
+In-Reply-To: <Z3bh74I1YhGWLU4M@arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250103-potin-catalina-dts-update-20250102-v1-1-b0b7a523c968@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAIZAd2cC/z2NQQrDIBAAvxL23AUVW0i+EnJY47ZZCCpqQyH49
- 0oOOQ4MMycUzsIFpuGEzIcUiaGDfgywbhQ+jOI7g1HmqbQymGKVgCtV2iUQ+lrwmzxVxlsZtXX
- qRdZ5R9BDKfNbftdkXlr7A1Frn790AAAA
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>, 
- Patrick Williams <patrick@stwcx.xyz>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- Cosmo Chou <cosmo.chou@quantatw.com>, Potin Lai <potin.lai@quantatw.com>, 
- Potin Lai <potin.lai.pt@gmail.com>
-X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1735868686; l=5772;
- i=potin.lai.pt@gmail.com; s=20240724; h=from:subject:message-id;
- bh=EWxIpZVzkObHrj3L3XnSjp1bXarY9ieZwL9MOGdfNcQ=;
- b=xLRs8zCBojbAOqgKdmTqa8vcJFMyCMitfwkdSmBkpFbK3jD0OBzbcb/9meKzqok8jfEm2f9Wa
- ILsB5P38XJWAMc9AP5VGhAC2QxyTvQ5tYWHwFeC/7JfPlT0FD4DTMHG
-X-Developer-Key: i=potin.lai.pt@gmail.com; a=ed25519;
- pk=6Z4H4V4fJwLteH/WzIXSsx6TkuY5FOcBBP+4OflJ5gM=
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: hDiWL_UumTYIOeHeMpZYw2bGtgztivbf
+X-Proofpoint-ORIG-GUID: hDiWL_UumTYIOeHeMpZYw2bGtgztivbf
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0
+ lowpriorityscore=0 malwarescore=0 suspectscore=0 spamscore=0
+ mlxlogscore=999 mlxscore=0 priorityscore=1501 impostorscore=0 phishscore=0
+ adultscore=0 clxscore=1015 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501030015
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_174450_166615_56633F97 
-X-CRM114-Status: GOOD (  10.92  )
+X-CRM114-CacheID: sfid-20250102_180211_230771_90E8D413 
+X-CRM114-Status: GOOD (  15.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,250 +110,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update device nodes list below for driver binding.
 
-- Add IOB NIC thermal nodes (TMP421)
-  - 24-001f, 26-001f, 36-001f, 38-001f
-- Add FIO Remote thermal node (TMP75)
-  - 23-001f
-- Add Power sensor node (MP5990)
-  - 16-0022
-- Add main source fan controllers (MAX31790)
-  - 18-0021, 18-0027
-- Add 2nd source fan controllers (NCT7363)
-  - 18-0001, 18-0002
-- Add 2nd source HSC nodes (XDP710)
-  - 20-0013, 20-001c
-- Remove all ina238 nodes, move to userspace
-  - 16-0041, 16-0042, 16-0044, 17-0041, 17-0043
 
-Signed-off-by: Potin Lai <potin.lai.pt@gmail.com>
----
-Updating the catalina system device nodes in dts file.
----
- .../dts/aspeed/aspeed-bmc-facebook-catalina.dts    | 149 +++++++++++++++++----
- 1 file changed, 126 insertions(+), 23 deletions(-)
+On 2025/1/3 2:58, Catalin Marinas wrote:
+> On Fri, Dec 27, 2024 at 01:19:30PM +0530, Anshuman Khandual wrote:
+>> On 12/24/24 19:39, Catalin Marinas wrote:
+>>> On Tue, Dec 24, 2024 at 05:32:06PM +0800, Zhenhua Huang wrote:
+>>>> I have two ideas:
+>>>> 1. Completely disable this PMD mapping optimization since there is no
+>>>> guarantee we must align 128M memory for hotplug ..
+>>>
+>>> I'd be in favour of this, at least if CONFIG_MEMORY_HOTPLUG is enabled.
+>>> I think the only advantage here is that we don't allocate a full 2MB
+>>> block for vmemmap when only plugging in a sub-section.
+>>
+>> Agreed, that will be the right fix for the problem which can be back ported.
+>> We will have to prevent PMD/PUD/CONT mappings for both linear and as well as
+>> vmemmap for all non-boot memory sections, that can be hot-unplugged.
+> 
+> I haven't read your diffs below yet but why not allow PMD mappings of
+> the hotplugged memory (not vmemmap)? SUBSECTION_SHIFT is 21, so we can
+> have 2MB blocks in a 4KB page configuration.
+> 
+Oh, Understood. We discussed the topic and I shared the same concern, 
+Anshuman actually preferred to wait for your decision.
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
-index 3822bb3c9243..23583665ba12 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
-@@ -190,6 +190,12 @@ i2c0mux0ch0: i2c@0 {
- 			#address-cells = <1>;
- 			#size-cells = <0>;
- 			reg = <0>;
-+
-+			// IOB0 NIC0 TEMP
-+			temperature-sensor@1f {
-+				compatible = "ti,tmp421";
-+				reg = <0x1f>;
-+			};
- 		};
- 		i2c0mux0ch1: i2c@1 {
- 			#address-cells = <1>;
-@@ -200,6 +206,12 @@ i2c0mux0ch2: i2c@2 {
- 			#address-cells = <1>;
- 			#size-cells = <0>;
- 			reg = <2>;
-+
-+			// IOB0 NIC1 TEMP
-+			temperature-sensor@1f {
-+				compatible = "ti,tmp421";
-+				reg = <0x1f>;
-+			};
- 		};
- 		i2c0mux0ch3: i2c@3 {
- 			#address-cells = <1>;
-@@ -361,6 +373,12 @@ i2c0mux3ch0: i2c@0 {
- 			#address-cells = <1>;
- 			#size-cells = <0>;
- 			reg = <0>;
-+
-+			// IOB1 NIC0 TEMP
-+			temperature-sensor@1f {
-+				compatible = "ti,tmp421";
-+				reg = <0x1f>;
-+			};
- 		};
- 		i2c0mux3ch1: i2c@1 {
- 			#address-cells = <1>;
-@@ -371,6 +389,12 @@ i2c0mux3ch2: i2c@2 {
- 			#address-cells = <1>;
- 			#size-cells = <0>;
- 			reg = <2>;
-+
-+			// IOB1 NIC1 TEMP
-+			temperature-sensor@1f {
-+				compatible = "ti,tmp421";
-+				reg = <0x1f>;
-+			};
- 		};
- 		i2c0mux3ch3: i2c@3 {
- 			#address-cells = <1>;
-@@ -464,40 +488,105 @@ i2c1mux0ch0: i2c@0 {
- 			#size-cells = <0>;
- 			reg = <0x0>;
- 
--			power-sensor@41 {
--				compatible = "ti,ina238";
--				reg = <0x41>;
--				shunt-resistor = <500>;
--			};
--			power-sensor@42 {
--				compatible = "ti,ina238";
--				reg = <0x42>;
--				shunt-resistor = <500>;
--			};
--			power-sensor@44 {
--				compatible = "ti,ina238";
--				reg = <0x44>;
--				shunt-resistor = <500>;
-+			power-sensor@22 {
-+				compatible = "mps,mp5990";
-+				reg = <0x22>;
- 			};
- 		};
- 		i2c1mux0ch1: i2c@1 {
- 			#address-cells = <1>;
- 			#size-cells = <0>;
- 			reg = <0x1>;
--
--			power-sensor@41 {
--				compatible = "ti,ina238";
--				reg = <0x41>;
--			};
--			power-sensor@43 {
--				compatible = "ti,ina238";
--				reg = <0x43>;
--			};
- 		};
- 		i2c1mux0ch2: i2c@2 {
- 			#address-cells = <1>;
- 			#size-cells = <0>;
- 			reg = <0x2>;
-+
-+			hwmon0: hwmon@1 {
-+				compatible = "nuvoton,nct7363";
-+				reg = <0x01>;
-+				#pwm-cells = <2>;
-+
-+				fan-9 {
-+					pwms = <&hwmon0 0 40000>;
-+					tach-ch = /bits/ 8 <0x09>;
-+				};
-+				fan-11 {
-+					pwms = <&hwmon0 0 40000>;
-+					tach-ch = /bits/ 8 <0x0b>;
-+				};
-+				fan-10 {
-+					pwms = <&hwmon0 4 40000>;
-+					tach-ch = /bits/ 8 <0x0a>;
-+				};
-+				fan-13 {
-+					pwms = <&hwmon0 4 40000>;
-+					tach-ch = /bits/ 8 <0x0d>;
-+				};
-+				fan-15 {
-+					pwms = <&hwmon0 6 40000>;
-+					tach-ch = /bits/ 8 <0x0f>;
-+				};
-+				fan-1 {
-+					pwms = <&hwmon0 6 40000>;
-+					tach-ch = /bits/ 8 <0x01>;
-+				};
-+				fan-0 {
-+					pwms = <&hwmon0 10 40000>;
-+					tach-ch = /bits/ 8 <0x00>;
-+				};
-+				fan-3 {
-+					pwms = <&hwmon0 10 40000>;
-+					tach-ch = /bits/ 8 <0x03>;
-+				};
-+			};
-+			hwmon1: hwmon@2 {
-+				compatible = "nuvoton,nct7363";
-+				reg = <0x02>;
-+				#pwm-cells = <2>;
-+
-+				fan-9 {
-+					pwms = <&hwmon1 0 40000>;
-+					tach-ch = /bits/ 8 <0x09>;
-+				};
-+				fan-11 {
-+					pwms = <&hwmon1 0 40000>;
-+					tach-ch = /bits/ 8 <0x0b>;
-+				};
-+				fan-10 {
-+					pwms = <&hwmon1 4 40000>;
-+					tach-ch = /bits/ 8 <0x0a>;
-+				};
-+				fan-13 {
-+					pwms = <&hwmon1 4 40000>;
-+					tach-ch = /bits/ 8 <0x0d>;
-+				};
-+				fan-15 {
-+					pwms = <&hwmon1 6 40000>;
-+					tach-ch = /bits/ 8 <0x0f>;
-+				};
-+				fan-1 {
-+					pwms = <&hwmon1 6 40000>;
-+					tach-ch = /bits/ 8 <0x01>;
-+				};
-+				fan-0 {
-+					pwms = <&hwmon1 10 40000>;
-+					tach-ch = /bits/ 8 <0x00>;
-+				};
-+				fan-3 {
-+					pwms = <&hwmon1 10 40000>;
-+					tach-ch = /bits/ 8 <0x03>;
-+				};
-+			};
-+			pwm@21{
-+				compatible = "maxim,max31790";
-+				reg = <0x21>;
-+			};
-+			pwm@27{
-+				compatible = "maxim,max31790";
-+				reg = <0x27>;
-+			};
- 		};
- 		i2c1mux0ch3: i2c@3 {
- 			#address-cells = <1>;
-@@ -509,6 +598,14 @@ i2c1mux0ch4: i2c@4 {
- 			#size-cells = <0>;
- 			reg = <0x4>;
- 
-+			power-monitor@13 {
-+				compatible = "infineon,xdp710";
-+				reg = <0x13>;
-+			};
-+			power-monitor@1c {
-+				compatible = "infineon,xdp710";
-+				reg = <0x1c>;
-+			};
- 			power-monitor@42 {
- 				compatible = "lltc,ltc4287";
- 				reg = <0x42>;
-@@ -580,6 +677,12 @@ temperature-sensor@4b {
- 				compatible = "ti,tmp75";
- 				reg = <0x4b>;
- 			};
-+
-+			// FIO REMOTE TEMP SENSOR
-+			temperature-sensor@4f {
-+				compatible = "ti,tmp75";
-+				reg = <0x4f>;
-+			};
- 		};
- 	};
- };
+See discussion:
+https://lore.kernel.org/lkml/3aadda40-c973-4703-8ed8-9cf2d3eb70a0@quicinc.com/
 
----
-base-commit: becaccc292bfbd12df81148746043c5221e49da8
-change-id: 20250102-potin-catalina-dts-update-20250102-914b06a4bdba
-
-Best regards,
--- 
-Potin Lai <potin.lai.pt@gmail.com>
+I see your favor now and will post V3 based on that.
 
 
