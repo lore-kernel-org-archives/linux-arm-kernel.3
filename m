@@ -4,74 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5E8FE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 05:47:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 483F2E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 05:57:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Eg4Oi75Mp1rTvatlYQI4XUjpgg0k+tOQGw3eIL+gTkE=; b=HzaKilzOAOG6/zehfhFzrmgfcY
-	jXqjdr+GA4HHM2Ah/yESJTM7ReAz0bHEH2hrcm1mkY5dhuP2PdmXw034Nx49JhpsTvL45AVE6pZ+V
-	uZ20lSmAvenTCFzxc9UeaV/nStSEguEvLySDOlxtkK4LlkmtQnm2SAT6E0HOELw5YsdpIs6Z/8X4Y
-	BC/+U90voTGvxY14gcvVvSd/WonYMaRKC9h5aaskxXVktEyUGQkxnXCyBjygq5oEXtHevZxEb4mgq
-	2l1Z9fcqNOc1m2GjRjx5GdCCRoyI4rAYkHV79s4qpCIZoIwmdvr328QfUP4fun1+PthpqOV5EuCeT
-	yCx7n3LA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8TNsIZyk5Im66QqQVkpCl5sYDDDKsswwbUK+aNtF7KE=; b=tNCMfgTgEkzunR/iuvEBuPCY5Q
+	synsrPxeq5Pq/pQ+LRW6Oc60+I9XcJZCFfQbieIT3L30c+OckFgBpleP0scKTuKJSv0Ady8Iwj9Px
+	JcEn0M/ca3QpblW11ZqU8sT0o0ut7y4VSlrWUx4Cewp+VAmeeNMnemu1IzTARG/TAlIFyJw9ow2uk
+	HxR5BEbO02ptpz6BKgDtOUmMQwR17s4Q0XcHPqvZmxlA7Ra4f90aCc7rkrRykvWny9RsFuroOmoEs
+	s98Z61CKF4yqb4MIb7bC7a5JjQwTIY2FXZ5hjNfAHJIUjiAS8Y6FiIspbU85Wop3IKHq6yNYQxH/W
+	694+2p0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTaWx-0000000C8yb-0lXW;
-	Fri, 03 Jan 2025 05:47:31 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1tTagC-0000000C9ZV-2xxo;
+	Fri, 03 Jan 2025 05:57:04 +0000
+Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTaQt-0000000C8Kb-31v9;
-	Fri, 03 Jan 2025 05:41:16 +0000
-X-UUID: 571382f4c99511ef9048ed6ed365623b-20250102
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=Eg4Oi75Mp1rTvatlYQI4XUjpgg0k+tOQGw3eIL+gTkE=;
-	b=KdgoD3eFnnRyhud7vYZxYUy1SqJIxLwgU1XhlcKKyjMtMncPS4k3DQi+Xz7395yZsc9WSQqDjyUU/HIRDWO5rKYbRT1BRqkqcxiN9/DVpwn12Y50lmZSslUtcE+Felu6a8yCf58BeLjampe/xaRfbDCdAf/qKfWk1oZHtICNv90=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.46,REQID:66bcb037-040a-4523-b78e-4e846e66de5c,IP:0,U
-	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-25
-X-CID-META: VersionHash:60aa074,CLOUDID:db904b37-e11c-4c1a-89f7-e7a032832c40,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
-	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
-	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 571382f4c99511ef9048ed6ed365623b-20250102
-Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw02.mediatek.com
-	(envelope-from <shiming.cheng@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1131111858; Thu, 02 Jan 2025 22:41:11 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.26; Fri, 3 Jan 2025 13:41:09 +0800
-Received: from mbjsdccf07.gcn.mediatek.inc (10.15.20.246) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1118.26 via Frontend Transport; Fri, 3 Jan 2025 13:41:08 +0800
-From: Shiming Cheng <shiming.cheng@mediatek.com>
-To: <willemdebruijn.kernel@gmail.com>, <davem@davemloft.net>,
-	<dsahern@kernel.org>, <edumazet@google.com>, <kuba@kernel.org>,
-	<pabeni@redhat.com>, <horms@kernel.org>, <matthias.bgg@gmail.com>,
-	<angelogioacchino.delregno@collabora.com>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-CC: <netdev@vger.kernel.org>, <lena.wang@mediatek.com>, Shiming Cheng
-	<shiming.cheng@mediatek.com>
-Subject: [PATCH net v2] ipv6: socket SO_BINDTODEVICE lookup routing fail without IPv6 rule.
-Date: Fri, 3 Jan 2025 13:43:49 +0800
-Message-ID: <20250103054413.31581-1-shiming.cheng@mediatek.com>
-X-Mailer: git-send-email 2.45.2
+	id 1tTaf2-0000000C9US-48So
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 03 Jan 2025 05:55:54 +0000
+Received: by mail-lj1-x229.google.com with SMTP id 38308e7fff4ca-2ffa49f623cso154374211fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jan 2025 21:55:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1735883751; x=1736488551; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=8TNsIZyk5Im66QqQVkpCl5sYDDDKsswwbUK+aNtF7KE=;
+        b=wTs+1paSUfoUQGsucxw/9I9q0xnX/MoZbqH6HWX8PcaTtumxwCwIdfNJRiyd+skznX
+         9++Rp0iXS36DKM2xLK8og2mBa4ETAHZDfoN6IB3YtRjFLWbpGSP2d3D9nqgsX2GPZ38C
+         X1841ljG0AK/A+mCXtbuKma960Cbl+fw5UUBOgbwmBElB3x1fggrh42SuUuEEEBxaZk4
+         /uHBIiqCgs0mEBJ1a2wxe7/8ED9MQqjUd0Gm8m0suvpcrJ4PiapTS26KCRa09G4L8Ssh
+         DLRgEvNgsEGFoteIh4H0F0n0I+3p0TmvCgr6tecZPzLQCLPR3MJ95CzuXeXrNv3jUvSf
+         BF9Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735883751; x=1736488551;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=8TNsIZyk5Im66QqQVkpCl5sYDDDKsswwbUK+aNtF7KE=;
+        b=feQUC8xraNwvOomArZnXYyqjnLWRm5OetWQh9Evt42qCH6XkP317veDVIu/bSA1cU/
+         pPKdJO7QsDpPURQnF1L2ootooia/re4nu2rfnQtz+wvmsp7Y9gEzzOonpvqamcOv58IS
+         v3esvRxj3HgAKlG2GVa86qNntNKJg0jhUOV68/c3TvOmmimJaI3/ktb/3JFgHmyY6OKL
+         z2bAss5q0KpjtO19FCIZWm9PvHVB9F/ihpTnMirFxsf/RvUjGtXeg1gaC+wLYrrq3ntu
+         AAvtBBYIw9/MWy5Fs/1Lv5ihtLiB4uU6Ol0OzXXTQkbjkaE9qH/34RZOWGqsiya5PMFV
+         b/5w==
+X-Forwarded-Encrypted: i=1; AJvYcCVgKp5v9bEbMJTBiIPrOPq0TTGy6GlqJaJnEJOste//PUIPeo4umZFvD86usp3URx/uD8ZrzXeW2Z98MwMhrtjk@lists.infradead.org
+X-Gm-Message-State: AOJu0YzNPkV/mxiZ9dCu5HgWW1TohmDSSkZJXs6JZwj4sQeNREy9uQBe
+	16uySrL/bsv5L+H3/Qoy5rG+d66eV9isOv9eoPN0fzsTw6GYgYnV145Tn1seR6s=
+X-Gm-Gg: ASbGncv5BPq9C5xm3VfusEyAi62qi9uA7+zaAz8+EXWK3idJw/HB4Gn7ybkHz8uVYM0
+	tdf3ix60tj06Q/HxE6Y9h7vktfFLsv9LbhNNcBOR3VNZnVZv5I1xnZYYd5uA6qJ3f4KDEzbyiLm
+	zXdoEvA19PzsdRTODwCB2fkOG8YR/WveQygWalG8tQ7WZDT3HBcI4F+sj2XnR/WkOGJKTBdoC/+
+	puY+Now5eUsDHJT5o76pIbAsjClzZastnKthgypgR4MpAQm+bEIZTfquZSle/GZzsk+Duf2BHqj
+	vP9KcWHDOApDn7GsqtT6/Y/IbR8f/LRYT0ki
+X-Google-Smtp-Source: AGHT+IFd8JD4I8sVveMannF81lqmEODVNWfMUqiYkHdf8QJydpiXFJoP8OozGkhJGA83xU2uw5LYtA==
+X-Received: by 2002:a05:651c:542:b0:302:3610:a50f with SMTP id 38308e7fff4ca-3046860efacmr177251481fa.30.1735883750994;
+        Thu, 02 Jan 2025 21:55:50 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3045b096026sm45044071fa.118.2025.01.02.21.55.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 02 Jan 2025 21:55:49 -0800 (PST)
+Date: Fri, 3 Jan 2025 07:55:47 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: Sudeep Holla <sudeep.holla@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
+	Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Arnd Bergmann <arnd@arndb.de>
+Subject: Re: [PATCH v2 0/2] ARM: implement cacheinfo support (for v7/v7m)
+Message-ID: <y74nrynys7srlwmtfzpjwklfkw33vijrnefjm3iyngn2y35mlz@joqsk74rwl2l>
+References: <20241014-armv7-cacheinfo-v2-0-38ab76d2b7fa@linaro.org>
+ <CACRpkdbfckBBW5W5sEvz1LwzdOvTKi_fi7tDu+9nPeKumYkPeA@mail.gmail.com>
+ <lkxm6m2u25o4qfvpja7qsldqm7zjxejkn6d5qihyxbg2zvntwh@icvun74e6rll>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+In-Reply-To: <lkxm6m2u25o4qfvpja7qsldqm7zjxejkn6d5qihyxbg2zvntwh@icvun74e6rll>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_214115_775571_5F8D6BD8 
-X-CRM114-Status: GOOD (  14.60  )
+X-CRM114-CacheID: sfid-20250102_215553_037286_789B5D24 
+X-CRM114-Status: GOOD (  25.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,100 +103,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When using socket IPv6 with SO_BINDTODEVICE, if IPv6 rule is not
-matched, it will return ENETUNREACH. In fact, IPv4 does not behave
-this way. IPv4 prioritizes looking up IP rules for routing and
-forwarding, if not matched it will use socket-bound out interface
-to send packets. The modification here is to make IPv6 behave the
-same as IPv4. If IP rule is not found, it will also use socket-bound
-out interface to send packts.
+On Thu, Nov 07, 2024 at 04:34:36PM +0200, Dmitry Baryshkov wrote:
+> On Thu, Nov 07, 2024 at 02:55:55PM +0100, Linus Walleij wrote:
+> > Hi Dmitry,
+> > 
+> > On Mon, Oct 14, 2024 at 3:55 PM Dmitry Baryshkov
+> > <dmitry.baryshkov@linaro.org> wrote:
+> > 
+> > > Follow the ARM64 platform and implement simple cache information driver.
+> > > As it reads data from CTR (ARMv6+) and CLIDR (ARMv7+) registers, it is
+> > > limited to the ARMv7 / ARMv7M, providing simple fallback or just
+> > > returning -EOPNOTSUPP in case of older platforms.
+> > >
+> > > In theory we should be able to skip CLIDR reading and assume that Dcache
+> > > and Icache (or unified L1 cache) always exist if CTR is supported and
+> > > returns sensible value. However I think this better be handled by the
+> > > maintainers of corresponding platforms.
+> > >
+> > > Other than just providing information to the userspace, this patchset is
+> > > required in order to implement L2 cache driver (and in the end CPU
+> > > frequency scaling) on ARMv7-based Qualcomm devices.
+> > >
+> > > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> > 
+> > I added my review tags to the v2 patches, can you put them
+> > into Russell's patch tracker?
+> 
+> Done, 9432/1 and 9433/1, thank you!
 
-Fixes: 6f21c96a78b8 ("ipv6: enforce flowi6_oif usage in ip6_dst_lookup_tail()")
-Signed-off-by: Shiming Cheng <shiming.cheng@mediatek.com>
----
- include/net/ip6_route.h |  2 ++
- net/ipv6/ip6_output.c   |  7 ++++++-
- net/ipv6/route.c        | 34 ++++++++++++++++++++++++++++++++++
- 3 files changed, 42 insertions(+), 1 deletion(-)
+These patches are still in the patch tracker in the "Incoming" state.
 
-diff --git a/include/net/ip6_route.h b/include/net/ip6_route.h
-index 6dbdf60b342f..0625597def6f 100644
---- a/include/net/ip6_route.h
-+++ b/include/net/ip6_route.h
-@@ -214,6 +214,8 @@ void rt6_multipath_rebalance(struct fib6_info *f6i);
- 
- void rt6_uncached_list_add(struct rt6_info *rt);
- void rt6_uncached_list_del(struct rt6_info *rt);
-+struct rt6_info *ip6_create_rt_oif_rcu(struct net *net, const struct sock *sk,
-+		struct flowi6 *fl6, int flags);
- 
- static inline const struct rt6_info *skb_rt6_info(const struct sk_buff *skb)
- {
-diff --git a/net/ipv6/ip6_output.c b/net/ipv6/ip6_output.c
-index f7b4608bb316..95728c8921cb 100644
---- a/net/ipv6/ip6_output.c
-+++ b/net/ipv6/ip6_output.c
-@@ -1156,8 +1156,13 @@ static int ip6_dst_lookup_tail(struct net *net, const struct sock *sk,
- 		*dst = ip6_route_output_flags(net, sk, fl6, flags);
- 
- 	err = (*dst)->error;
--	if (err)
-+	if (err && (flags & RT6_LOOKUP_F_IFACE)) {
-+		*dst = (struct dst_entry *)ip6_create_rt_oif_rcu(net, sk, fl6, flags);
-+		if (!*dst)
-+			goto out_err_release;
-+	} else if (err) {
- 		goto out_err_release;
-+	}
- 
- #ifdef CONFIG_IPV6_OPTIMISTIC_DAD
- 	/*
-diff --git a/net/ipv6/route.c b/net/ipv6/route.c
-index 67ff16c04718..7d7450fab44f 100644
---- a/net/ipv6/route.c
-+++ b/net/ipv6/route.c
-@@ -1214,6 +1214,40 @@ static struct rt6_info *ip6_create_rt_rcu(const struct fib6_result *res)
- 	return nrt;
- }
- 
-+struct rt6_info *ip6_create_rt_oif_rcu(struct net *net, const struct sock *sk,
-+				       struct flowi6 *fl6, int flags)
-+{
-+	struct rt6_info *rt;
-+	unsigned int prefs;
-+	int err;
-+	struct net_device *dev = dev_get_by_index_rcu(net, fl6->flowi6_oif);
-+
-+	if (!dev)
-+		return NULL;
-+	rt = ip6_dst_alloc(dev_net(dev), dev, flags);
-+
-+	if (!rt)
-+		return NULL;
-+	rt->dst.error = 0;
-+	rt->dst.output = ip6_output;
-+	rt->dst.lastuse = jiffies;
-+	prefs = sk ? inet6_sk(sk)->srcprefs : 0;
-+	err = ipv6_dev_get_saddr(net, dev, &fl6->daddr, prefs, &fl6->saddr);
-+
-+	if (err) {
-+		dst_release(&rt->dst);
-+		return NULL;
-+	}
-+	rt->rt6i_dst.addr = fl6->daddr;
-+	rt->rt6i_dst.plen = 128;
-+	rt->rt6i_src.addr = fl6->saddr;
-+	rt->rt6i_dst.plen = 128;
-+	rt->rt6i_idev = in6_dev_get(dev);
-+	rt->rt6i_flags = flags;
-+	return rt;
-+}
-+EXPORT_SYMBOL_GPL(ip6_create_rt_oif_rcu);
-+
- INDIRECT_CALLABLE_SCOPE struct rt6_info *ip6_pol_route_lookup(struct net *net,
- 					     struct fib6_table *table,
- 					     struct flowi6 *fl6,
+Russell, Linus (and Sudeep, Ard, Arnd), is there anything blocking them
+from being accepted?
+
 -- 
-2.45.2
-
+With best wishes
+Dmitry
 
