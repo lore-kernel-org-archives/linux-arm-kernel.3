@@ -4,65 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40E4EE7718F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 14:28:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F397FE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 14:29:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=30x72Lym8zuhQtPKTodnKBOIEUAKdFm4/6H/cCa+dEk=; b=FJgd+Z4A5uydfPbuTDfiTwrxKx
-	l3NSEsfH0gSQv5HkjJ0Ji1bxiHNGjSiGZP7+oyEBF2wvmmIFrf5zIZXZMU3lSI7WAi/OqxK8j8144
-	DiWAajfyhPJbP9eo2j6MrM+v2DQ+Maj7X0+pia1o+UX2qKP2JVwmrZKZddqSYZCb87X+CfDqSzQpy
-	kixOANcu3OU+PJPo409HJ5GRBcViAIGCK/9sb7fPUVbeDIE8WcaQ7ic8+wggHVqmhMr4c5iF8YcFq
-	piL9U5xbVi6IoqlxXx03+QYUwFBlX3XY/8PvWlmJZpbi6GAjAML69l9o8Lh8AZ7E43/qK8Ome7kVb
-	mvhqUFkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FW1o6DeB/Gni6nPen2ZGnKRS1nqUawozKOT6ffo3+5Y=; b=AGE/npxcmaCUV/F9AozDPzDPmC
+	69agW+oXZ7kjC0kI6EgAZYE0xsbJ4kp7BNvruT8038d4PR326ujTZNrKojYkDfRTZ95mKevIjjj4K
+	hI3GJnHYuT77oobNY6FwJod32RUj+DJwg1NWo7tfy++u7LRweIHC5vB+CiSfMy9CiyuFLMyLKgIY8
+	mtKDFb+n9c47JJ/knu4l0OkY0PExYrH29Mn58DH1bWZv0QEpQ8vE8wXXnD9MHLra89VxGXZyE/9D5
+	54MXnr3NgoC6snMi+ODDFccbMn0iKCeSCrGHQy2N0mrpsCLCPitfzBMJTm2YeDnL/e0cJ5bHTkKtW
+	MYSA3/tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTiey-0000000D719-1fM8;
-	Fri, 03 Jan 2025 14:28:20 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tTig9-0000000D7AW-1TCT;
+	Fri, 03 Jan 2025 14:29:33 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTidF-0000000D6fy-3ScS;
-	Fri, 03 Jan 2025 14:26:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=30x72Lym8zuhQtPKTodnKBOIEUAKdFm4/6H/cCa+dEk=; b=0h2nufZOd+AZ7pLIqEufrR8TND
-	Sl42gtR7yretBB8M42k/IFkk/brnNm86uvif8cEMCrejaS6ke+OmZqPSK8q3nC+h1keEws4y1EEOv
-	FlkPXaknzsZOPv41IxtbXzBJ2clINNDtrd/Xr10L6Yl7wYUH3N7cSMbihWlcy337GbQnYBgLm4cA1
-	FlPSPWzh/nSyzHV3QLpDjm6H4u2rKvBJYSdbU0C12MUFm/ZYd+fBTCNEaCZ/30LApvLA/yLtK7FQK
-	eGNrtoizleojWsPzUBza9HPTKWjM19UgK5/eovsOqJ0XDd8P+zwIeIorjzwMoP+1enyHsxqG/1rk2
-	ZCtAvwBg==;
-Received: from i53875aad.versanet.de ([83.135.90.173] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tTid1-00078E-Fx; Fri, 03 Jan 2025 15:26:19 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Niklas Cassel <cassel@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Damien Le Moal <dlemoal@kernel.org>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH] arm64: dts: rockchip: rk3588: add msi-parent for pcie3x4_ep
-Date: Fri, 03 Jan 2025 15:26:18 +0100
-Message-ID: <13674524.dW097sEU6C@diego>
-In-Reply-To: <Z2Uk2A7-YwkSfAOh@ryzen>
-References: <20241120171048.2839621-2-cassel@kernel.org>
- <173318214613.1403925.10026428339576666444.b4-ty@sntech.de>
- <Z2Uk2A7-YwkSfAOh@ryzen>
+	id 1tTidU-0000000D6iL-0kVV
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 03 Jan 2025 14:26:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id DC5715C63FF;
+	Fri,  3 Jan 2025 14:26:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D19FDC4CECE;
+	Fri,  3 Jan 2025 14:26:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735914406;
+	bh=3SSf2lU8RqANspOD06SsPV0f6XpSiVxM2RGnP/oeW5c=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Pm+pXBh7ynVMSryhfDQ9BjxlyGbnc1XzzJK0pJ4QWpDKoNpnwizA9fF5lcluf6uMF
+	 oYwThz75X3LKmfBTpiGakn0Tpl+ZEwGwM6eqZ/SKEyE0IZCZ+LnXOFTP3AlPm7cRZM
+	 lfso1udoxaW0YlU41wLbCb2U5AfRP8TmPuo6yLBbkWqpOvemxhoN1dM+CALZsk/17O
+	 5JniedJB+ylrCJVjlsoIv6ohMBe2z3NlhAE7Mynjpvg6AK4e/AjI6ZBWcXJe0+b+Tz
+	 S/xdaDlBUSUhzA60/n6RzdZ8Bsr1lznkG2GznU7XAdk+KCFmoEO0FdLfUoOwjh0Z9i
+	 AlJ/Fa/ffok2w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tTidQ-008iZ8-KQ;
+	Fri, 03 Jan 2025 14:26:44 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mark Brown <broonie@kernel.org>,
+	stable@vger.kernel.org
+Subject: [PATCH] arm64: Filter out SVE hwcaps when FEAT_SVE isn't implemented
+Date: Fri,  3 Jan 2025 14:26:35 +0000
+Message-Id: <20250103142635.1759674-1-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, broonie@kernel.org, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_062633_887410_8996AE6B 
-X-CRM114-Status: GOOD (  17.46  )
+X-CRM114-CacheID: sfid-20250103_062648_304744_AC852FC6 
+X-CRM114-Status: GOOD (  15.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,36 +82,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey Niklas,
+The hwcaps code that exposes SVE features to userspace only
+considers ID_AA64ZFR0_EL1, while this is only valid when
+ID_AA64PFR0_EL1.SVE advertises that SVE is actually supported.
 
-Am Freitag, 20. Dezember 2024, 09:03:36 CET schrieb Niklas Cassel:
-> On Tue, Dec 03, 2024 at 12:29:16AM +0100, Heiko Stuebner wrote:
-> > 
-> > On Wed, 20 Nov 2024 18:10:49 +0100, Niklas Cassel wrote:
-> > > Add msi-parent for the pcie3x4_ep PCI endpoint node.
-> > > 
-> > > The pcie3x4_ep node should use the same msi-parent as the pcie3x4 node
-> > > (which represents the PCIe controller running in Root Complex mode).
-> > > 
-> > > The GIC ITS can be used to trigger an IRQ on the endpoint when any of
-> > > the endpoint's PCI BARs are written to by the host[1].
-> > > 
-> > > [...]
-> > 
-> > Applied, thanks!
-> > 
-> > [1/1] arm64: dts: rockchip: rk3588: add msi-parent for pcie3x4_ep
-> >       commit: b6f09f497b07008aa65c31341138cecafa78222c
-> > 
+The expectations are that when ID_AA64PFR0_EL1.SVE is 0, the
+ID_AA64ZFR0_EL1 register is also 0. So far, so good.
 
-> Could you please drop this patch from your v6.14-armsoc/dts64 branch?
+Things become a bit more interesting if the HW implements SME.
+In this case, a few ID_AA64ZFR0_EL1 fields indicate *SME*
+features. And these fields overlap with their SVE interpretations.
+But the architecture says that the SME and SVE feature sets must
+match, so we're still hunky-dory.
 
-happy new year :-) .
+This goes wrong if the HW implements SME, but not SVE. In this
+case, we end-up advertising some SVE features to userspace, even
+if the HW has none. That's because we never consider whether SVE
+is actually implemented. Oh well.
 
-I've now dropped the patch from my queue
+Fix it by restricting all SVE capabilities to ID_AA64PFR0_EL1.SVE
+being non-zero.
 
+Reported-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Cc: Will Deacon <will@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Mark Brown <broonie@kernel.org>
+Cc: stable@vger.kernel.org
+---
+ arch/arm64/kernel/cpufeature.c | 58 ++++++++++++++++++++++++----------
+ 1 file changed, 41 insertions(+), 17 deletions(-)
 
-Heiko
-
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 6ce71f444ed84..d793ca08549cd 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -1593,14 +1593,19 @@ feature_matches(u64 reg, const struct arm64_cpu_capabilities *entry)
+ 	return val >= min && val <= max;
+ }
+ 
+-static u64
+-read_scoped_sysreg(const struct arm64_cpu_capabilities *entry, int scope)
++static u64 __read_scoped_sysreg(u64 reg, int scope)
+ {
+ 	WARN_ON(scope == SCOPE_LOCAL_CPU && preemptible());
+ 	if (scope == SCOPE_SYSTEM)
+-		return read_sanitised_ftr_reg(entry->sys_reg);
++		return read_sanitised_ftr_reg(reg);
+ 	else
+-		return __read_sysreg_by_encoding(entry->sys_reg);
++		return __read_sysreg_by_encoding(reg);
++}
++
++static u64
++read_scoped_sysreg(const struct arm64_cpu_capabilities *entry, int scope)
++{
++	return __read_scoped_sysreg(entry->sys_reg, scope);
+ }
+ 
+ static bool
+@@ -3022,6 +3027,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+ 		.matches = match,						\
+ 	}
+ 
++#define HWCAP_CAP_MATCH_ID(match, reg, field, min_value, cap_type, cap)		\
++	{									\
++		__HWCAP_CAP(#cap, cap_type, cap)				\
++		HWCAP_CPUID_MATCH(reg, field, min_value) 			\
++		.matches = match,						\
++	}
++
+ #ifdef CONFIG_ARM64_PTR_AUTH
+ static const struct arm64_cpu_capabilities ptr_auth_hwcap_addr_matches[] = {
+ 	{
+@@ -3050,6 +3062,18 @@ static const struct arm64_cpu_capabilities ptr_auth_hwcap_gen_matches[] = {
+ };
+ #endif
+ 
++#ifdef CONFIG_ARM64_SVE
++static bool has_sve(const struct arm64_cpu_capabilities *cap, int scope)
++{
++	u64 aa64pfr0 = __read_scoped_sysreg(SYS_ID_AA64PFR0_EL1, scope);
++
++	if (FIELD_GET(ID_AA64PFR0_EL1_SVE, aa64pfr0) < ID_AA64PFR0_EL1_SVE_IMP)
++		return false;
++
++	return has_user_cpuid_feature(cap, scope);
++}
++#endif
++
+ static const struct arm64_cpu_capabilities arm64_elf_hwcaps[] = {
+ 	HWCAP_CAP(ID_AA64ISAR0_EL1, AES, PMULL, CAP_HWCAP, KERNEL_HWCAP_PMULL),
+ 	HWCAP_CAP(ID_AA64ISAR0_EL1, AES, AES, CAP_HWCAP, KERNEL_HWCAP_AES),
+@@ -3092,19 +3116,19 @@ static const struct arm64_cpu_capabilities arm64_elf_hwcaps[] = {
+ 	HWCAP_CAP(ID_AA64MMFR2_EL1, AT, IMP, CAP_HWCAP, KERNEL_HWCAP_USCAT),
+ #ifdef CONFIG_ARM64_SVE
+ 	HWCAP_CAP(ID_AA64PFR0_EL1, SVE, IMP, CAP_HWCAP, KERNEL_HWCAP_SVE),
+-	HWCAP_CAP(ID_AA64ZFR0_EL1, SVEver, SVE2p1, CAP_HWCAP, KERNEL_HWCAP_SVE2P1),
+-	HWCAP_CAP(ID_AA64ZFR0_EL1, SVEver, SVE2, CAP_HWCAP, KERNEL_HWCAP_SVE2),
+-	HWCAP_CAP(ID_AA64ZFR0_EL1, AES, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEAES),
+-	HWCAP_CAP(ID_AA64ZFR0_EL1, AES, PMULL128, CAP_HWCAP, KERNEL_HWCAP_SVEPMULL),
+-	HWCAP_CAP(ID_AA64ZFR0_EL1, BitPerm, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEBITPERM),
+-	HWCAP_CAP(ID_AA64ZFR0_EL1, B16B16, IMP, CAP_HWCAP, KERNEL_HWCAP_SVE_B16B16),
+-	HWCAP_CAP(ID_AA64ZFR0_EL1, BF16, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEBF16),
+-	HWCAP_CAP(ID_AA64ZFR0_EL1, BF16, EBF16, CAP_HWCAP, KERNEL_HWCAP_SVE_EBF16),
+-	HWCAP_CAP(ID_AA64ZFR0_EL1, SHA3, IMP, CAP_HWCAP, KERNEL_HWCAP_SVESHA3),
+-	HWCAP_CAP(ID_AA64ZFR0_EL1, SM4, IMP, CAP_HWCAP, KERNEL_HWCAP_SVESM4),
+-	HWCAP_CAP(ID_AA64ZFR0_EL1, I8MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEI8MM),
+-	HWCAP_CAP(ID_AA64ZFR0_EL1, F32MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEF32MM),
+-	HWCAP_CAP(ID_AA64ZFR0_EL1, F64MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEF64MM),
++	HWCAP_CAP_MATCH_ID(has_sve, ID_AA64ZFR0_EL1, SVEver, SVE2p1, CAP_HWCAP, KERNEL_HWCAP_SVE2P1),
++	HWCAP_CAP_MATCH_ID(has_sve, ID_AA64ZFR0_EL1, SVEver, SVE2, CAP_HWCAP, KERNEL_HWCAP_SVE2),
++	HWCAP_CAP_MATCH_ID(has_sve, ID_AA64ZFR0_EL1, AES, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEAES),
++	HWCAP_CAP_MATCH_ID(has_sve, ID_AA64ZFR0_EL1, AES, PMULL128, CAP_HWCAP, KERNEL_HWCAP_SVEPMULL),
++	HWCAP_CAP_MATCH_ID(has_sve, ID_AA64ZFR0_EL1, BitPerm, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEBITPERM),
++	HWCAP_CAP_MATCH_ID(has_sve, ID_AA64ZFR0_EL1, B16B16, IMP, CAP_HWCAP, KERNEL_HWCAP_SVE_B16B16),
++	HWCAP_CAP_MATCH_ID(has_sve, ID_AA64ZFR0_EL1, BF16, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEBF16),
++	HWCAP_CAP_MATCH_ID(has_sve, ID_AA64ZFR0_EL1, BF16, EBF16, CAP_HWCAP, KERNEL_HWCAP_SVE_EBF16),
++	HWCAP_CAP_MATCH_ID(has_sve, ID_AA64ZFR0_EL1, SHA3, IMP, CAP_HWCAP, KERNEL_HWCAP_SVESHA3),
++	HWCAP_CAP_MATCH_ID(has_sve, ID_AA64ZFR0_EL1, SM4, IMP, CAP_HWCAP, KERNEL_HWCAP_SVESM4),
++	HWCAP_CAP_MATCH_ID(has_sve, ID_AA64ZFR0_EL1, I8MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEI8MM),
++	HWCAP_CAP_MATCH_ID(has_sve, ID_AA64ZFR0_EL1, F32MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEF32MM),
++	HWCAP_CAP_MATCH_ID(has_sve, ID_AA64ZFR0_EL1, F64MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEF64MM),
+ #endif
+ #ifdef CONFIG_ARM64_GCS
+ 	HWCAP_CAP(ID_AA64PFR1_EL1, GCS, IMP, CAP_HWCAP, KERNEL_HWCAP_GCS),
+-- 
+2.39.2
 
 
