@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69459E7718F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 11:27:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E13CE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 11:33:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y9iUvmwvW4biQrNT/OHy2aFphCCMWpxI2DGmSrhMXP8=; b=t6PZiYK9/fF2FypPGm90vXGiyr
-	a7WOgAqeqd0jv5/Vx2I9how/zcXBj7NJZLc248hOAv0IyRiKKurBQwC9EPdZUdo6PcFDmTMFvIYKc
-	3O1+kwA3GCbe5bdFGIRz8F13it4nBkORdXrvi6yX12xuNgtTABFmWxhu4w2A7RivVYcobDUYXwmvx
-	j7n4+GA8eyzTK6e9N1w2Yt5bqYbFY2fsk4fHMf+HL/DqLLfdrqPeIoHepQJSUHvEVXCyeDnyg0ksv
-	ZCK/N/B9YJbiluduqQPjJq5wq3xwiNekofdglrwOnnYB7ZtE2UqxczaP1VVpMN6M6FwPO9Ta5ZgWX
-	zXYzaKqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=06b5IGC+r5WPs1+wFYuGFkUKspjdnBpmxWB1RATJzr8=; b=2HMKy1dAuaqUzqkb1zsUr5vDs/
+	8Bc4mjjDzHCEydlS8p4Bmckeysuqk0xpv4zJiZl+ZX0+8PYUtGc7xdZYfRrI94NgL/EQTnTnWJJqU
+	sFv0xoh6/unglD53Lp76FaRg5oiQvH8LBA88Uz+cMsPpLQdINc3YKLUtXG9nDmpgwQC2vFd5VN5OM
+	imJTaEA2Djj136ZFphuEgJsUxhqyAq6tDcH2v3ucvZI7SZwukR4bIA/vZbxKjOCw3mqbYBn8WRwBp
+	AJS3e2E3s4pVxJwFr7WY2t46D9byRmxr/IclFqlPQ/54IWvBEaFSeZeO30vhf3aDqhoiNv+YImNa8
+	fIb6NwMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTfpx-0000000CpfD-42Sn;
-	Fri, 03 Jan 2025 11:27:29 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1tTfvA-0000000CqIX-15eg;
+	Fri, 03 Jan 2025 11:32:52 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTfkh-0000000Cp3n-0D6S;
-	Fri, 03 Jan 2025 11:22:04 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_128_GCM_SHA256:128)
-	 (Exim 4.98)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1tTfkQ-000000005Zl-06kY;
-	Fri, 03 Jan 2025 11:21:46 +0000
-Date: Fri, 03 Jan 2025 11:21:41 +0000
-From: Daniel Golle <daniel@makrotopia.org>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
- Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
-CC: Alexander Couzens <lynxis@fe80.eu>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Ioana Ciornei <ioana.ciornei@nxp.com>, Jakub Kicinski <kuba@kernel.org>,
- Jose Abreu <joabreu@synopsys.com>, Jose Abreu <Jose.Abreu@synopsys.com>,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com,
- Matthias Brugger <matthias.bgg@gmail.com>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
- Paolo Abeni <pabeni@redhat.com>
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_net-next_3/6=5D_net=3A_pcs=3A_mtk-?=
- =?US-ASCII?Q?lynxi=3A_fill_in_PCS_supported=5Finterfaces?=
-User-Agent: K-9 Mail for Android
-In-Reply-To: <E1tTffV-007RoP-8D@rmk-PC.armlinux.org.uk>
-References: <Z3fG9oTY9F9fCYHv@shell.armlinux.org.uk> <E1tTffV-007RoP-8D@rmk-PC.armlinux.org.uk>
-Message-ID: <0FB3C53E-2F15-4ACB-9567-C0400762C4C0@makrotopia.org>
+	id 1tTftv-0000000Cq4i-2puB;
+	Fri, 03 Jan 2025 11:31:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 9F269A40AE2;
+	Fri,  3 Jan 2025 11:29:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28306C4CECE;
+	Fri,  3 Jan 2025 11:31:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735903894;
+	bh=zYEH+HVQjOp1upkvfQMtNMfVF+BOz626fvcOYHVDo6U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=RO+H8Zv+AYqZ709oLqT2F7ocapWqt8d0OqGmNNoMpQcT9dVr27Uyr94u3PYCIi2Dk
+	 ijLF4XIHQQNgc0OG7ufYgPctEwAWmggExBPmOwX/WVHqto4qQY96Ok3A55xcfeVOdK
+	 ik7DNz9n4A0hzPvrrd/2fUN4P4BHCiHppPQuVUgsFK+PLZIEVAfhys7Wg8/iK4M44+
+	 gIYSwsWYOu7Xq2X9q2/okmC5cM9UdWyZq1PKQcyrv6LQipFRt2zVPu+jgqDvYKp1Kb
+	 ds+nf8go9SvpKEiUC4VjGkr3085EtR+5G96gEXPqobT2cV9QYNfBAl/J0/XTtqcFYN
+	 Sl+K5uRqSybbw==
+Date: Fri, 3 Jan 2025 12:31:29 +0100
+From: Niklas Cassel <cassel@kernel.org>
+To: Anand Moon <linux.amoon@gmail.com>
+Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] PCI: dw-rockchip: Enable async probe by default
+Message-ID: <Z3fKkTSFFcU9gQLg@ryzen>
+References: <20240809073610.2517-1-linux.amoon@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20240809073610.2517-1-linux.amoon@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_032203_096720_73EE4576 
-X-CRM114-Status: UNSURE (   6.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250103_033135_841094_7DDEBB18 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,38 +75,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 3 January 2025 11:16:41 UTC, "Russell King (Oracle)" <rmk+kernel@armlin=
-ux=2Eorg=2Euk> wrote:
->Fill in the new PCS supported_interfaces member with the interfaces
->that the Mediatek LynxI supports=2E
+On Fri, Aug 09, 2024 at 01:06:09PM +0530, Anand Moon wrote:
+> Rockchip DWC PCIe driver currently waits for the combo PHY link
+> (PCIe 3.0, PCIe 2.0, and SATA 3.0) to be established link training
+> during boot, it also waits for the link to be up, which could consume
+> several milliseconds during boot.
 >
->Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux=2Eorg=2Euk>
-
-Acked-by: Daniel Golle <daniel@makrotopia=2Eorg>
-
->---
-> drivers/net/pcs/pcs-mtk-lynxi=2Ec | 4 ++++
-> 1 file changed, 4 insertions(+)
+> To optimize boot time, this commit allows asynchronous probing.
+> This change enables the PCIe link establishment to occur in the
+> background while other devices are being probed.
 >
->diff --git a/drivers/net/pcs/pcs-mtk-lynxi=2Ec b/drivers/net/pcs/pcs-mtk-=
-lynxi=2Ec
->index 7de804535229=2E=2Ea6153e9999a7 100644
->--- a/drivers/net/pcs/pcs-mtk-lynxi=2Ec
->+++ b/drivers/net/pcs/pcs-mtk-lynxi=2Ec
->@@ -306,6 +306,10 @@ struct phylink_pcs *mtk_pcs_lynxi_create(struct devi=
-ce *dev,
-> 	mpcs->pcs=2Epoll =3D true;
-> 	mpcs->interface =3D PHY_INTERFACE_MODE_NA;
->=20
->+	__set_bit(PHY_INTERFACE_MODE_SGMII, mpcs->pcs=2Esupported_interfaces);
->+	__set_bit(PHY_INTERFACE_MODE_1000BASEX, mpcs->pcs=2Esupported_interface=
-s);
->+	__set_bit(PHY_INTERFACE_MODE_2500BASEX, mpcs->pcs=2Esupported_interface=
-s);
->+
-> 	return &mpcs->pcs;
-> }
-> EXPORT_SYMBOL(mtk_pcs_lynxi_create);
+> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+> ---
+> v2: update the commit message to describe the changs.
+> ---
+
+Hello Anand,
+
+I tried this patch.
+
+It gives me the following splat on rock5b (rk3588):
+
+[    1.412108] WARNING: CPU: 5 PID: 59 at kernel/module/kmod.c:143 __request_module+0x1c0/0x298
+[    1.412853] Modules linked in:
+[    1.413125] CPU: 5 UID: 0 PID: 59 Comm: kworker/u32:1 Not tainted 6.13.0-rc1+ #38
+[    1.413781] Hardware name: Radxa ROCK 5B (DT)
+[    1.414163] Workqueue: async async_run_entry_fn
+[    1.414565] pstate: 60400009 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+[    1.415175] pc : __request_module+0x1c0/0x298
+[    1.415559] lr : __request_module+0x1bc/0x298
+[    1.415943] sp : ffff8000804333f0
+[    1.416234] x29: ffff800080433470 x28: ffff42bec2e40000 x27: ffff42bec2e400c8
+[    1.416860] x26: ffff42bec1739000 x25: ffffb5bec9400e18 x24: 0000000000000000
+[    1.417485] x23: ffffb5bec93e1a90 x22: 0000000000000001 x21: ffffb5bec74298f8
+[    1.418111] x20: ffff800080433620 x19: ffff800080433410 x18: 0000000000000006
+[    1.418736] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
+[    1.419360] x14: 0000000000000001 x13: 0000000000000000 x12: 0000000000000000
+[    1.419985] x11: 0000000000000000 x10: 0000000000000000 x9 : ffffb5bec750b834
+[    1.420611] x8 : ffff800080433468 x7 : 0000000000000000 x6 : 0000000000000000
+[    1.421235] x5 : 0000000000000000 x4 : 0000000000000000 x3 : 0000000000000030
+[    1.421860] x2 : 0000000000000008 x1 : ffffb5bec750b708 x0 : 0000000000000001
+[    1.422486] Call trace:
+[    1.422701]  __request_module+0x1c0/0x298 (P)
+[    1.423086]  __request_module+0x1bc/0x298 (L)
+[    1.423471]  phy_request_driver_module+0x120/0x178
+[    1.423895]  phy_device_create+0x230/0x250
+[    1.424257]  get_phy_device+0x80/0x168
+[    1.424588]  mdiobus_scan+0x20/0xa0
+[    1.424896]  __mdiobus_register+0x21c/0x460
+[    1.425265]  __devm_mdiobus_register+0x78/0xf8
+[    1.425657]  rtl_init_one+0x7c8/0x1140
+[    1.425989]  local_pci_probe+0x48/0xc0
+[    1.426323]  pci_device_probe+0xcc/0x248
+[    1.426671]  really_probe+0xc4/0x2d0
+[    1.426989]  __driver_probe_device+0x80/0x130
+[    1.427374]  driver_probe_device+0x44/0x168
+[    1.427745]  __device_attach_driver+0xc0/0x148
+[    1.428138]  bus_for_each_drv+0x90/0x100
+[    1.428486]  __device_attach+0xa8/0x1a0
+[    1.428826]  device_attach+0x1c/0x38
+[    1.429143]  pci_bus_add_device+0xb4/0x1e0
+[    1.429505]  pci_bus_add_devices+0x48/0xa0
+[    1.429867]  pci_bus_add_devices+0x74/0xa0
+[    1.430228]  pci_host_probe+0x94/0x100
+[    1.430560]  dw_pcie_host_init+0x258/0x720
+[    1.430923]  rockchip_pcie_probe+0x2ec/0x510
+[    1.431300]  platform_probe+0x70/0xe8
+[    1.431623]  really_probe+0xc4/0x2d0
+[    1.431940]  __driver_probe_device+0x80/0x130
+[    1.432326]  driver_probe_device+0x44/0x168
+[    1.432696]  __device_attach_driver+0xc0/0x148
+[    1.433089]  bus_for_each_drv+0x90/0x100
+[    1.433436]  __device_attach_async_helper+0xbc/0xe8
+[    1.433865]  async_run_entry_fn+0x3c/0xf0
+[    1.434219]  process_one_work+0x158/0x3c8
+[    1.434574]  worker_thread+0x2d4/0x3f8
+[    1.434907]  kthread+0x118/0x128
+[    1.435193]  ret_from_fork+0x10/0x20
+
+
+Perhaps we should defer this patch until phylib core has been fixed?
+
+For more info, see:
+https://lore.kernel.org/netdev/Z3fJQEVV4ACpvP3L@ryzen/T/#u
+
+
+Kind regards,
+Niklas
 
