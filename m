@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABD95E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 14:27:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40E4EE7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 14:28:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3xh7AMjhGBMMRDFnYSTpxG5TBmo/F+SBMLUIfYd7Rnc=; b=WioBtCQCv6YBT/8yxOzjta4h38
-	y104edD0eeLMMxpwpPgAFky3898c/yCicWO518k5zSde7qvHNqxrSWnoQ3Ni0H5BPy5jbVDBAAZq3
-	RVYJ3nK5yxJj8/2H81QA3gmlB1exiXB8sq3WwG6CeobSeoigHFbdcffBdwk670G9rfCYrGRrL5yvU
-	ySj67O8guEgugwINTaLmN6vj3l+NXb7m16Mf6MqA0OYW1m9+rKcRAsYBJsQk8HMnyljAFqFx8frG6
-	GnWMprZ5eP2NEwliLvB9C2TiB3A84SGi66BTKSyqHOhwVol4Y63mVDT3zQYG1JMKAwWLAPJZv5a3o
-	bJxiTg1g==;
+	bh=30x72Lym8zuhQtPKTodnKBOIEUAKdFm4/6H/cCa+dEk=; b=FJgd+Z4A5uydfPbuTDfiTwrxKx
+	l3NSEsfH0gSQv5HkjJ0Ji1bxiHNGjSiGZP7+oyEBF2wvmmIFrf5zIZXZMU3lSI7WAi/OqxK8j8144
+	DiWAajfyhPJbP9eo2j6MrM+v2DQ+Maj7X0+pia1o+UX2qKP2JVwmrZKZddqSYZCb87X+CfDqSzQpy
+	kixOANcu3OU+PJPo409HJ5GRBcViAIGCK/9sb7fPUVbeDIE8WcaQ7ic8+wggHVqmhMr4c5iF8YcFq
+	piL9U5xbVi6IoqlxXx03+QYUwFBlX3XY/8PvWlmJZpbi6GAjAML69l9o8Lh8AZ7E43/qK8Ome7kVb
+	mvhqUFkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTidm-0000000D6nt-3tcc;
-	Fri, 03 Jan 2025 14:27:06 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tTiey-0000000D719-1fM8;
+	Fri, 03 Jan 2025 14:28:20 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTicZ-0000000D6Y9-0IbJ;
-	Fri, 03 Jan 2025 14:25:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4A7A55C63DF;
-	Fri,  3 Jan 2025 14:25:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03B28C4CECE;
-	Fri,  3 Jan 2025 14:25:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735914350;
-	bh=nh7JFxsfxQk/ZlfligC+BkTw6ydpwOx0Jol1iFdUeGw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ogVam2JWPIRaE878ZGs/aogLDJfox/EtVWaAZuVw+Zxb9KIjuJtCNkoApK4nh8Ab8
-	 UGaYuDRkJ1XJIA/Sqf4MOQXazdRELeumYKfDnfWnursfiEB6iWVXWg4kqnwi78aSmv
-	 16LiUBac3t1IJ6VaKmA28f60l4aK81WtxgaIS8jVAoNzjazRZyjALUaH1FjVgw/heJ
-	 8VwFJKbonb3+b/GHTbjLptdGr5cfHmB+z7DPajd/sPe4PHkQ//GaXhah07pXsPttVF
-	 Q6hEq54Nn9bQNVicnILk0MbDI5x3sMk2Dgza2PI/KZ72mvF11p5VGftOKVJOC+tlAb
-	 /ijFzh+Zv6LJQ==
-Date: Fri, 3 Jan 2025 15:25:45 +0100
-From: Niklas Cassel <cassel@kernel.org>
-To: Anand Moon <linux.amoon@gmail.com>
-Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] PCI: dw-rockchip: Enable async probe by default
-Message-ID: <Z3fzad51PIxccDGX@ryzen>
-References: <20240809073610.2517-1-linux.amoon@gmail.com>
- <Z3fKkTSFFcU9gQLg@ryzen>
- <CANAwSgS5ZWGTP+A11r_qFSrjWZH_DqsM89MLiP+1VAxhz+e+2A@mail.gmail.com>
+	id 1tTidF-0000000D6fy-3ScS;
+	Fri, 03 Jan 2025 14:26:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=30x72Lym8zuhQtPKTodnKBOIEUAKdFm4/6H/cCa+dEk=; b=0h2nufZOd+AZ7pLIqEufrR8TND
+	Sl42gtR7yretBB8M42k/IFkk/brnNm86uvif8cEMCrejaS6ke+OmZqPSK8q3nC+h1keEws4y1EEOv
+	FlkPXaknzsZOPv41IxtbXzBJ2clINNDtrd/Xr10L6Yl7wYUH3N7cSMbihWlcy337GbQnYBgLm4cA1
+	FlPSPWzh/nSyzHV3QLpDjm6H4u2rKvBJYSdbU0C12MUFm/ZYd+fBTCNEaCZ/30LApvLA/yLtK7FQK
+	eGNrtoizleojWsPzUBza9HPTKWjM19UgK5/eovsOqJ0XDd8P+zwIeIorjzwMoP+1enyHsxqG/1rk2
+	ZCtAvwBg==;
+Received: from i53875aad.versanet.de ([83.135.90.173] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tTid1-00078E-Fx; Fri, 03 Jan 2025 15:26:19 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Niklas Cassel <cassel@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Damien Le Moal <dlemoal@kernel.org>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH] arm64: dts: rockchip: rk3588: add msi-parent for pcie3x4_ep
+Date: Fri, 03 Jan 2025 15:26:18 +0100
+Message-ID: <13674524.dW097sEU6C@diego>
+In-Reply-To: <Z2Uk2A7-YwkSfAOh@ryzen>
+References: <20241120171048.2839621-2-cassel@kernel.org>
+ <173318214613.1403925.10026428339576666444.b4-ty@sntech.de>
+ <Z2Uk2A7-YwkSfAOh@ryzen>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CANAwSgS5ZWGTP+A11r_qFSrjWZH_DqsM89MLiP+1VAxhz+e+2A@mail.gmail.com>
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_062551_195876_4E726E40 
-X-CRM114-Status: GOOD (  24.82  )
+X-CRM114-CacheID: sfid-20250103_062633_887410_8996AE6B 
+X-CRM114-Status: GOOD (  17.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,128 +77,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Anand,
+Hey Niklas,
 
-On Fri, Jan 03, 2025 at 07:24:07PM +0530, Anand Moon wrote:
-> 
-> Thanks for testing this patch.
-> 
-> This patch should have been tested on hardware that includes all the
-> relevant controllers,
-> such as PCI 2.0, PCI 3.0, and the SATA controller.
-> I will test this patch again on all the Radxa devices I have.
-> 
-> This patch's dependency lies in deferring the probe until the PHY
-> controller initializes.
-> 
-> CONFIG_PHY_ROCKCHIP_NANENG_COMBO_PHY=m
+Am Freitag, 20. Dezember 2024, 09:03:36 CET schrieb Niklas Cassel:
+> On Tue, Dec 03, 2024 at 12:29:16AM +0100, Heiko Stuebner wrote:
+> > 
+> > On Wed, 20 Nov 2024 18:10:49 +0100, Niklas Cassel wrote:
+> > > Add msi-parent for the pcie3x4_ep PCI endpoint node.
+> > > 
+> > > The pcie3x4_ep node should use the same msi-parent as the pcie3x4 node
+> > > (which represents the PCIe controller running in Root Complex mode).
+> > > 
+> > > The GIC ITS can be used to trigger an IRQ on the endpoint when any of
+> > > the endpoint's PCI BARs are written to by the host[1].
+> > > 
+> > > [...]
+> > 
+> > Applied, thanks!
+> > 
+> > [1/1] arm64: dts: rockchip: rk3588: add msi-parent for pcie3x4_ep
+> >       commit: b6f09f497b07008aa65c31341138cecafa78222c
+> > 
 
+> Could you please drop this patch from your v6.14-armsoc/dts64 branch?
 
-Note that the splat, as reported in this thread, and in:
-https://lore.kernel.org/netdev/20250101235122.704012-1-francesco@valla.it/T/
+happy new year :-) .
 
-is related to the network PHY (CONFIG_REALTEK_PHY) on the RTL8125 NIC,
-which is connected to one of the PCIe Gen2 controllers, not the PCIe PHY
-on the PCIe controller (CONFIG_PHY_ROCKCHIP_NANENG_COMBO_PHY) itself.
-
-For the record, I run with all the relevant drivers as built-in:
-CONFIG_PCIE_ROCKCHIP_DW_HOST=y
-CONFIG_PHY_ROCKCHIP_NANENG_COMBO_PHY=y (for the PCIe Gen2 controllers)
-CONFIG_PHY_ROCKCHIP_SNPS_PCIE3=y (for the PCIe Gen3 controllers)
-CONFIG_R8169=y
-CONFIG_REALTEK_PHY=y
+I've now dropped the patch from my queue
 
 
-> 
-> To my surprise, we have not enabled mdio on Rock-5B boards.
-> can you check if these changes work on your end?
-
-I think these changes are wrong, at least for rock5b.
-
-On rock5b the RTL8125 NIC is connected via PCI, and PCI devices should not
-be specified in device tree, as PCI is a bus that can be enumerated.
+Heiko
 
 
-> 
-> -----8<----------8<----------8<----------8<----------8<----------8<-----
-> alarm@rock-5b:/media/nvme0/mainline/linux-rockchip-6.y-devel$ git diff
->    arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-> b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-> index c44d001da169..5008a05efd2a 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-> @@ -155,6 +155,19 @@ vcc_1v1_nldo_s3: regulator-vcc-1v1-nldo-s3 {
->         };
->  };
-> 
-> +&mdio1 {
-> +       rgmii_phy1: ethernet-phy@1 {
-> +               /* RTL8211F */
-> +               compatible = "ethernet-phy-id001c.c916";
-> +               reg = <0x1>;
-> +               pinctrl-names = "default";
-> +               pinctrl-0 = <&rtl8211f_rst>;
-> +               reset-assert-us = <20000>;
-> +               reset-deassert-us = <100000>;
-> +               reset-gpios = <&gpio3 RK_PB0 GPIO_ACTIVE_LOW>;
-> +       };
-> +};
-> +
->  &combphy0_ps {
->         status = "okay";
->  };
-> @@ -224,6 +237,21 @@ &hdptxphy_hdmi0 {
->         status = "okay";
->  };
-> 
-> +&gmac1 {
-> +       clock_in_out = "output";
-> +       phy-handle = <&rgmii_phy1>;
-> +       phy-mode = "rgmii";
-> +       pinctrl-0 = <&gmac1_miim
-> +                    &gmac1_tx_bus2
-> +                    &gmac1_rx_bus2
-> +                    &gmac1_rgmii_clk
-> +                    &gmac1_rgmii_bus>;
-> +       pinctrl-names = "default";
-> +       tx_delay = <0x3a>;
-> +       rx_delay = <0x3e>;
-> +       status = "okay";
-> +};
-> +
->  &i2c0 {
->         pinctrl-names = "default";
->         pinctrl-0 = <&i2c0m2_xfer>;
-> @@ -419,6 +447,12 @@ pcie3_vcc3v3_en: pcie3-vcc3v3-en {
->                 };
->         };
-> 
-> +       rtl8211f {
-> +               rtl8211f_rst: rtl8211f-rst {
-> +                       rockchip,pins = <3 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
-> +               };
-> +       };
-> +
->         usb {
->                 vcc5v0_host_en: vcc5v0-host-en {
->                         rockchip,pins = <4 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
-> >
-> > Kind regards,
-> > Niklas
-> 
-> Can you check this on your end
-> 
-> alarm@rock-5b:~$ sudo cat /sys/kernel/debug/devices_deferred
-> [sudo] password for alarm:
-> fc400000.usb    dwc3: failed to initialize core
-> alarm@rock-5b:~$ sudo cat /sys/kernel/debug/devices_deferred
-
-Sure:
-# cat /sys/kernel/debug/devices_deferred
-fc400000.usb    dwc3: failed to initialize core
-
-
-Kind regards,
-Niklas
 
