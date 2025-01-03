@@ -4,77 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 012CAE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 06:48:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0755E7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 06:56:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jru5kwZTRXJdfwuiwx+1xk6FRUBsJW+n1mD6zcJCVx8=; b=yhHOu3wpIvk2Wmkh7jMTUa/Equ
-	Awvu86RIODbQzyjvHYzZgwUO5syON7nFkOKwnIj7qhWeJ+txQJuoQx5pYUpVRlLY8g1jluPn47V46
-	753Qyk8FaQLolePHtQGCYbX+PMUJCA0cR+0raFhHhm3oyTkIVDboBCm0dyck3YBTnJ3x9Bs1l0NWC
-	GvubJ41+xrTNVNL27J6p7rHHqpLTzP/BJSBhCwV07rAO9/D4gHu2LEKyog4jscQ9l912oRFsmhe2H
-	oyvlv4hwhlXkDXXyBfGbjQPzWZgxa/yb8e5hCHaa3qrfL3lJzPvW6/hrul8TlyZ+Uv6IrJoDd5FP0
-	X4U9PzFw==;
+	bh=ZGF4lOzzz1YZlCr3bbOotj8ZWBnlbFvAc2hBy+O3AVg=; b=ZhvJC6le2d7cLVxiNQgNW8/b72
+	SC0dAYK6cXKvCnMXissbbp+SIV4GN9j9jucsr7i8opkmrDk+jZN3lAyNDOtcyd7q6CtiG3HAXRdQz
+	n9pqihbhlVOxnzGhZ/IGosVu+U51ka6Hail6Q99LpAESpFxNhY6WJGoGfrJlx5OZCEJr8uaB1Tszk
+	CJfe6wAEniDs2cx540BkJVcq3qJy13Goxhk0PhZeYrx898ankUl7HQwD1WNDryj/cxAHk0AZz5zbL
+	O8YNRYZKcinqFjZ4DOqogGvxXqbta5CWzbfV54BcdiMX/nk/kjyd1YW6NM1EEL1f/VUYUihCzOyeT
+	zuhCoFmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTbTh-0000000CFsS-3FUV;
-	Fri, 03 Jan 2025 06:48:13 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1tTbbw-0000000CGeZ-43ph;
+	Fri, 03 Jan 2025 06:56:44 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTbST-0000000CFje-0QtZ
+	id 1tTbak-0000000CGYJ-2DyA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jan 2025 06:46:58 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5036ikmW2284291
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 3 Jan 2025 00:44:46 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1735886686;
-	bh=jru5kwZTRXJdfwuiwx+1xk6FRUBsJW+n1mD6zcJCVx8=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=NAsXjhCYSiN43CZ4nUArSuLagC4OBZVyoLv1h/N9uJULy1dU0iMmKK/IdF42maB7F
-	 R/cQV1hZGoJ0MhYpe0kqNQW9aJXbfwxzSZ8M47Rs0ub7VQQuIr0N0Ne+CPjGUQECng
-	 a6FpyRAi13qt/oRs3okLLhmRS5BzSdzXp+cnbCiQ=
-Received: from DLEE106.ent.ti.com (dlee106.ent.ti.com [157.170.170.36])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5036ikiU002336
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 3 Jan 2025 00:44:46 -0600
-Received: from DLEE114.ent.ti.com (157.170.170.25) by DLEE106.ent.ti.com
- (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 3
- Jan 2025 00:44:45 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE114.ent.ti.com
- (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 3 Jan 2025 00:44:46 -0600
-Received: from [10.24.69.25] (danish-tpc.dhcp.ti.com [10.24.69.25])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5036ieZg024244;
-	Fri, 3 Jan 2025 00:44:41 -0600
-Message-ID: <7f71f386-02fb-4a3e-827a-2e9b3f8face4@ti.com>
-Date: Fri, 3 Jan 2025 12:14:40 +0530
+	Fri, 03 Jan 2025 06:55:32 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.234])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4YPZ544rppz2Djvj;
+	Fri,  3 Jan 2025 14:52:24 +0800 (CST)
+Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
+	by mail.maildlp.com (Postfix) with ESMTPS id 7DA4114011B;
+	Fri,  3 Jan 2025 14:55:19 +0800 (CST)
+Received: from [10.174.179.163] (10.174.179.163) by
+ kwepemf100008.china.huawei.com (7.202.181.222) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 3 Jan 2025 14:55:18 +0800
+Message-ID: <8fa84731-1ae6-e40f-3594-3241b1ee8bb4@huawei.com>
+Date: Fri, 3 Jan 2025 14:55:17 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/1] Add AM57xx Support to PRUSS driver
-To: Basharath Hussain Khaja <basharath@couthit.com>, <nm@ti.com>,
-        <ssantosh@kernel.org>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <pratheesh@ti.com>, <prajith@ti.com>, <vigneshr@ti.com>,
-        <praneeth@ti.com>, <srk@ti.com>, <rogerq@ti.com>, <afd@ti.com>,
-        <krishna@couthit.com>, <pmohan@couthit.com>, <mohan@couthit.com>,
-        <parvathi@couthit.com>
-References: <20241223135550.6898-1-basharath@couthit.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [RFC PATCH mpam mpam/snapshot/v6.12-rc1 v3 2/5] arm_mpam: Read
+ monitor value with new closid/rmid pair
 Content-Language: en-US
-From: MD Danish Anwar <danishanwar@ti.com>
-In-Reply-To: <20241223135550.6898-1-basharath@couthit.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+To: Dave Martin <Dave.Martin@arm.com>
+CC: <james.morse@arm.com>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <jonathan.cameron@huawei.com>,
+	<xiexiuqi@huawei.com>, "Wangshaobo (bobo)" <bobo.shaobowang@huawei.com>
+References: <20241207092136.2488426-1-zengheng4@huawei.com>
+ <20241207092136.2488426-3-zengheng4@huawei.com>
+ <Z1sMxKM9o6lAiZGr@e133380.arm.com>
+From: Zeng Heng <zengheng4@huawei.com>
+In-Reply-To: <Z1sMxKM9o6lAiZGr@e133380.arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.174.179.163]
+X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
+ kwepemf100008.china.huawei.com (7.202.181.222)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_224657_197989_B729A6B3 
-X-CRM114-Status: GOOD (  14.89  )
+X-CRM114-CacheID: sfid-20250102_225530_923649_E83B192B 
+X-CRM114-Status: GOOD (  13.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,33 +76,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Basharath,
 
-On 23/12/24 7:25 pm, Basharath Hussain Khaja wrote:
+
+On 2024/12/13 0:18, Dave Martin wrote:
 > Hi,
 > 
-> This patch adds support for AM57xx SOC compatibility in the PRUSS driver
-> which is a prerequisite for ICSSM Ethernet driver.
+> On Sat, Dec 07, 2024 at 05:21:33PM +0800, Zeng Heng wrote:
+>> The MPAM driver statically assigns all reqPARTIDs to respective intPARTIDs.
+>> For the new rmid allocation strategy, it will check if there is an
+>> available rmid of any reqPARTID which belongs to the input closid, not just
+>> the rmids belonging to the closid.
+>>
+>> For a mixture of MSCs system, for MSCs that do not support narrow-partid,
+>> we use the PARTIDs exceeding the number of closids as reqPARTIDs for
+>> expanding the monitoring groups.
+>>
+>> In order to keep the existing resctrl API interface, the rmid contains both
+>> req_idx and PMG information instead of PMG only under the MPAM driver. The
+>> req_idx represents the req_idx-th sub-monitoring group under the control
+>> group. The new rmid would be like:
+>>
+>>      rmid = (req_idx << shift | pmg).
+>>
+>> The mapping relationships between each group's closid/rmid and the
+>> respective MSCs' intPARTID/reqPARTID/PARTID are illustrated:
+>>
+>> n - Indicates the total number of intPARTIDs
+>> m - Indicates the number of reqPARTIDs per intPARTID
+>>
+>> P - Partition group (control group)
+>> M - Monitoring group
+>>
+>> Group closid rmid.req_idx (req)PARTID      MSCs with narrow-partid  MSCs without narrow-partid
+>> P1    0      -            0                   intPARTID_1              PARTID_1
+>> M1_1  0      0            0                       ├── reqPARTID_1_1       ├── PARTID_1_1
+>> M1_2  0      1            0+n                     ├── reqPARTID_1_2       ├── PARTID_1_2
+>> M1_3  0      2            0+n*2                   ├── reqPARTID_1_3       ├── PARTID_1_3
+>>   ...                                              ├── ...                 ├── ...
+>> M1_m  0      (m-1)        0+n*(m-1)               └── reqPARTID_1_m       └── PARTID_1_m
+>>
+>> P2    1      -            1                   intPARTID_2              PARTID_2
+>> M2_1  1      0            1                       ├── reqPARTID_2_1       ├── PARTID_2_1
+>> M2_2  1      1            1+n                     ├── reqPARTID_2_2       ├── PARTID_2_2
+>> M2_3  1      2            1+n*2                   ├── reqPARTID_2_3       ├── PARTID_2_3
+>>   ...                                              ├── ...                 ├── ...
+>> M2_m  1      (m-1)        1+n*(m-1)               └── reqPARTID_2_m       └── PARTID_2_m
+>>
+>> Pn    (n-1)  -            (n-1)               intPARTID_n              PARTID_n
+>> Mn_1  (n-1)  0            (n-1)                   ├── reqPARTID_n_1       ├── PARTID_n_1
+>> Mn_2  (n-1)  1            (n-1)+n                 ├── reqPARTID_n_2       ├── PARTID_n_2
+>> Mn_3  (n-1)  2            (n-1)+n*2               ├── reqPARTID_n_3       ├── PARTID_n_3
+>>   ...                                              ├── ...                 ├── ...
+>> Mn_m  (n-1)  (m-1)        (n-1)+n*(m-1) = n*m-1   └── reqPARTID_n_m       └── PARTID_n_m
+>>
+>> Based on the example provided, the conversion relationship between
+>> closid/rmid and (req)PARTID/PMG is:
+>>
+>>      (req)PARTID = (rmid.req_idx * n) + closid,
+>>      PMG = rmid.pmg.
 > 
-> I will submit the patch series of ICSSM Ethernet driver for AM57xx
-> subsequently in a separate thread after the merge of this patch.
+> It seemed more natural to me for the PARTIDs assigned to a particular
+> CLOSID to be consecutively numbered (see [1]), though it works either
+> way.
 > 
-> Thanks & Best Regards,
-> Basharath
-> 
-> Roger Quadros (1):
->   soc: ti: PRUSS OCP configuration
-> 
->  drivers/soc/ti/pruss.c       | 77 +++++++++++++++++++++++++++++++++++-
->  include/linux/pruss_driver.h |  6 +++
->  2 files changed, 82 insertions(+), 1 deletion(-)
+> Otherwise, the approach makes sense.
 > 
 
-For single patch, cover letter is not required. You can mention
-additional details below the tear line (---) in the patch itself.
+
+After attempting to change the mapping method in practice, I found that
+there are some following advantages of the current method which keeps
+intPARTIDs are mapped to the first n IDs:
+
+1. Because closid is exactly equal to intPARTID, and the conversion
+relationship between closid and intPARTID remains unchanged under the
+current method (still only call the resctrl_get_config_index() for
+conversion), maintaining the original semantics during the MPAM
+configuration updating;
+
+2. Since there is no need to create a new transformation (like
+closid2intpartid()) between closid and intPARTID, this can reduce the
+work of function adaptations, such as in resctrl_arch_update_one(),
+resctrl_arch_get_config(), and so on, which doesn't need any extra
+adaptions and keeps things as simple as possible.
+
+Looking forward to your comments.
 
 
--- 
-Thanks and Regards,
-Danish
+Greeting for new year,
+Zeng Heng
 
