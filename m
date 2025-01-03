@@ -4,60 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0439E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 15:24:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FA60E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 15:25:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GAfCkm3F2tBrB4IqBq5ZDr493pvoY3m22Zv2MoWoQdE=; b=LVuA82jeqbIgNDCkil+w8Q99Ld
-	sYRqwSIxAgaanG1tM/tiDUzhBUVHeLlpTuqwyfQgvWwSkI59ji/hdj1kJ+0VDTxqdlkKv1OtNF/JU
-	h+oLGcrtiBpjYd8E2uPhU0mIsBx5B6eIb1XyBqgQzcl3lbQKceChoiJq3bYpTxrFVb+KXJwPacMZM
-	FzNdw3Py/DlEWVCmlcM2ZMmQQz8Kbf60qSRHVpMBKDFaiM5S2+CgTzy+2AScaE9uohavrhT1cM91x
-	UgL5vJLLFZaE+TNCh5ZyMdjzfJNtKigvWes4o1goWjhNm35/m1nYtDERN25/Sm9PXmL7OSjAQDyjb
-	vC9fq6zA==;
+	bh=lneiYpvJbL2zXZaWZVk/RYhKs/nhEb5lKSQ3oUIerbg=; b=cbCvDtddo57cvou6RKpDDDWji1
+	UbfGUG5Jd6rQZIbVML8aSJJHjcl7xojWaL1Q3JaPZHbzs6X7Q9O/e5KYCzjCONOKnM5x8h8MciJxB
+	o9CRR0AXB9+gmmTZ3/7N8gyaUoAft6n4IzymG3b2JM7UOFCVQ9vaayz3m9btIcXSYeUciq4PIZK98
+	c3/25yYJvUu4ZjC++cp9DMeDIgJ3q9Rk3HdYW876eV0D1dFnWuhpTLdu6FaRl5bpC4xCOxSNc4wfE
+	rT8WmVZRhvbjxSAnOttOR4eMpbrEjxPWQvybDCKLlQE15StHxMzIy1p2b1PO4W0If5Cq/E9a4I1Mg
+	Tryp5FKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTjX9-0000000DGYC-0I99;
-	Fri, 03 Jan 2025 15:24:19 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tTjYL-0000000DGpu-2Blm;
+	Fri, 03 Jan 2025 15:25:34 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTjTY-0000000DFaG-2M2v;
-	Fri, 03 Jan 2025 15:20:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C250B5C6461;
-	Fri,  3 Jan 2025 15:19:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B95E0C4CEE3;
-	Fri,  3 Jan 2025 15:20:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735917635;
-	bh=el3W4jiKTFvgMk17ql8zwcLjJZEPe9R2tL1/ytsFm0A=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=gW3bTJJXXhJqwHA/o8w67zkkWOyYDtJgE3u9AQJb9QcOknB98NQMpjSw0d30yNGgv
-	 kHg4Lc+5EJU00jjz81uNQVk9lktSt4QUGbFdAsT5uC4cWzkT9FpjXi8y1D6dWCvrSz
-	 xmlthFSQd2Em7MlP84AfRzwsO1xRQtb2Oa8DI3CQ5e1swhp/gHqkuUiSnQCeBSVYYL
-	 XNpQd8VdyesfMv60dz3vyAjTkfIHA+JIcNwN65A4bGJpl7N80mEt+1VPQwu/0Jpp/J
-	 o6f78GWUx6+dN8akEnPZcIAFwBthcV0uckH/Jb5uaapIO7p8hqHAmaVgWjw+DBuLlA
-	 kd26iR8YDPLrw==
-Date: Fri, 03 Jan 2025 09:20:34 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1tTjWO-0000000DGNP-0F4X;
+	Fri, 03 Jan 2025 15:23:33 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 82381316;
+	Fri,  3 Jan 2025 16:22:37 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1735917757;
+	bh=i9kymvajo0n+q8tZsZ+ijeIsUcCEKGJTagFA0ES5SZU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Wkjf83bKsMJSqbD8hUCibEPlXcRcutwd9TuP0pjxy+jhrFmCGde9CZwNtX5VsQ2x2
+	 Dx2XQMKTFcW5yiP4I/eVFkZ+hSmVblOhdXxx9xMFu0UvcUwI0rBFI0ZOxiZ/XFNae9
+	 /T3RUsoPN0u7X++sUf+HARDP2rw4rVOiLkyvkh1Y=
+Date: Fri, 3 Jan 2025 17:23:26 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Mikhail Rudenko <mike.rudenko@gmail.com>
+Cc: Dafna Hirschfeld <dafna@fastmail.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] media: rkisp1: allow non-coherent video capture buffers
+Message-ID: <20250103152326.GP554@pendragon.ideasonboard.com>
+References: <20250102-b4-rkisp-noncoherent-v1-1-bba164f7132c@gmail.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, devicetree@vger.kernel.org, 
- Ondrej Jirman <megi@xff.cz>, linux-arm-kernel@lists.infradead.org, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- linux-rockchip@lists.infradead.org
-To: Jimmy Hon <honyuenkwun@gmail.com>
-In-Reply-To: <20250103004114.1902-1-honyuenkwun@gmail.com>
-References: <20250103004114.1902-1-honyuenkwun@gmail.com>
-Message-Id: <173591746023.2305391.8447160640005890243.robh@kernel.org>
-Subject: Re: [PATCH v5 0/4] Orange Pi 5 Max
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250102-b4-rkisp-noncoherent-v1-1-bba164f7132c@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_072036_684784_67785F55 
-X-CRM114-Status: GOOD (  16.20  )
+X-CRM114-CacheID: sfid-20250103_072332_245347_75050660 
+X-CRM114-Status: GOOD (  17.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,81 +68,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Thu, 02 Jan 2025 18:41:09 -0600, Jimmy Hon wrote:
-> Changes in v5:
-> - Include Orange Pi 5 Plus USB 3.0 change in baseline before refactor
-> - Defer Orange Pi 5 Ultra to a later series
-> - Defer Orange Pi 5 Plus HDMI1 to a later series
-> Link to v4: https://lore.kernel.org/linux-rockchip/20241229184256.1870-2-honyuenkwun@gmail.com/
+On Thu, Jan 02, 2025 at 06:35:00PM +0300, Mikhail Rudenko wrote:
+> Currently, the rkisp1 driver always uses coherent DMA allocations for
+> video capture buffers. However, on some platforms, using non-coherent
+> buffers can improve performance, especially when CPU processing of
+> MMAP'ed video buffers is required.
 > 
-> Changes in v4:
-> - Orange Pi 5 Ultra was released and does not use VP0 to HDMI0
-> - Move HDMI0 from common to the board level
-> - Make DTSI to be shared by the credit card sized 5 Max and 5 Ultra
-> - Updates for the newly submitted HDMI1 support
-> - Add Ack for dt-binding
+> For example, on the Rockchip RK3399 running at maximum CPU frequency,
+> the time to memcpy a frame from a 1280x720 XRGB32 MMAP'ed buffer to a
+> malloc'ed userspace buffer decreases from 7.7 ms to 1.1 ms when using
+> non-coherent DMA allocation. CPU usage also decreases accordingly.
+
+What's the time taken by the cache management operations ?
+
+> This change allows userspace to request the allocation of non-coherent
+> buffers. Note that the behavior for existing users will remain unchanged
+> unless they explicitly set the V4L2_MEMORY_FLAG_NON_COHERENT flag when
+> allocating buffers.
 > 
-> Changes in v3:
-> - Refactor to share common include with Orange Pi 5 Plus
+> Signed-off-by: Mikhail Rudenko <mike.rudenko@gmail.com>
+> ---
+>  drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c | 1 +
+>  1 file changed, 1 insertion(+)
 > 
-> Changes in v2:
-> - squashed commits together for initial board file
+> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c
+> index 6dcefd144d5abe358323e37ac6133c6134ac636e..c94f7d1d73a92646457a27da20726ec6f92e7717 100644
+> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c
+> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c
+> @@ -1563,6 +1563,7 @@ static int rkisp1_register_capture(struct rkisp1_capture *cap)
+>  	q->timestamp_flags = V4L2_BUF_FLAG_TIMESTAMP_MONOTONIC;
+>  	q->lock = &node->vlock;
+>  	q->dev = cap->rkisp1->dev;
+> +	q->allow_cache_hints = 1;
+>  	ret = vb2_queue_init(q);
+>  	if (ret) {
+>  		dev_err(cap->rkisp1->dev,
 > 
-> Link to v1: https://lore.kernel.org/linux-rockchip/20241026100310.52679-1-honyuenkwun@gmail.com/
-> 
-> Jimmy Hon (4):
->   arm64: dts: rockchip: refactor common rk3588-orangepi-5.dtsi
->   dt-bindings: arm: rockchip: Add Xunlong Orange Pi 5 Max
->   arm64: dts: rockchip: Add Orange Pi 5 Max board
->   arm64: dts: rockchip: Enable HDMI1 on Orange Pi 5 Max
-> 
->  .../devicetree/bindings/arm/rockchip.yaml     |   6 +-
->  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
->  .../rockchip/rk3588-orangepi-5-compact.dtsi   | 151 ++++
->  .../dts/rockchip/rk3588-orangepi-5-max.dts    | 101 +++
->  .../dts/rockchip/rk3588-orangepi-5-plus.dts   | 855 ++----------------
->  .../boot/dts/rockchip/rk3588-orangepi-5.dtsi  | 806 +++++++++++++++++
->  6 files changed, 1128 insertions(+), 792 deletions(-)
->  create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-compact.dtsi
->  create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-max.dts
->  create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-orangepi-5.dtsi
-> 
-> 
-> base-commit: 40384c840ea1944d7c5a392e8975ed088ecf0b37
-> prerequisite-patch-id: 6346d482f91509dec24bfe5d4f0ca0d345b90deb
-> prerequisite-patch-id: 4672b745f4308a7be527749279edb71625d120e6
-> prerequisite-patch-id: 2743fb64eba2a29eaf993ebc8a5d6ee445b69dfa
-> --
-> 2.47.1
-> 
-> 
-> 
+> ---
+> base-commit: 40ed9e9b2808beeb835bd0ed971fb364c285d39c
+> change-id: 20241231-b4-rkisp-noncoherent-ad6e7c7a68ba
 
+-- 
+Regards,
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
-
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-New warnings running 'make CHECK_DTBS=y rockchip/rk3588-orangepi-5-max.dtb rockchip/rk3588-orangepi-5-plus.dtb' for 20250103004114.1902-1-honyuenkwun@gmail.com:
-
-arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-max.dtb: audio-codec@11: 'clock-names' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/sound/everest,es8328.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dtb: audio-codec@11: 'clock-names' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/sound/everest,es8328.yaml#
-
-
-
-
-
+Laurent Pinchart
 
