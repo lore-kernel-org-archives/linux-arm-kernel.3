@@ -4,90 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D982BE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 08:27:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 245B5E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 08:31:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KYNO0guAuD1jSVG7+Mn2jJuelOVJmSNitmxA0BfO1/0=; b=e3UVtZIygXFbBEqxO7M2egAzWo
-	j37h1pO5nEADisqsKTDEA+0K+CiPiSuzsW8QWrsBSLjBGywkjfdIQFlIJ3nBaRcdF7W6mexHnWTyj
-	j6n2pV5fMmUH9jh8BASgGvM6FTisD4tOJqlPJRonU3eLTUHwLXcAqO36YDcxMc2QpmqncBSMwiL4k
-	H0KBWt8czIL7PVAiGThppWEy4DZMZSaE+BYjKFo0WctZFyifeYV/TpENKxV7GphKMVOw5+ln2erWk
-	DscVCX3dkXLU0reJtjW77raaA0gB0hK1SM1qDn9XZsQCB/o2t6CuD+KuEqKVMDcAAVUHLaHw705dA
-	cwC+yEjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3COfOGWDm8regjwsJKyQtrQX6XIkJ8lH56frMtUERmQ=; b=HUD3JHgnCT/RdZTpviUl/lFoCw
+	hso1j/WOlOhCXQUOw582edfclK9Ne+mRFjZ+IzeNMOaI+9rXWZHFjF/wYyABUZf4cAPN4ul3TvDk/
+	7UhkbXhjdqsrqLGlMDXIGIuQEH0ylK6x678tiHVuBScZxdkkSTeGE9eDENi8r8ckiTKgrqm9i0zGf
+	+LvBhV2YLQyV8qR7noMSUaL3CSolbzWlkDiMdfzDeHeucan0QItMS0H6Piy0G3HYhyVAf2+7bJ4XX
+	5skFx3i5CxE6mUCIFFqYcUSAT4Senb3q/ykyd1E7lE9zdlNdQDqwVNW8nXcK7UTu8ewGHWxcJKPEy
+	GLLIj4Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTd1Q-0000000CSlG-0rU3;
-	Fri, 03 Jan 2025 08:27:08 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1tTd5I-0000000CT8b-07KH;
+	Fri, 03 Jan 2025 08:31:08 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTd0F-0000000CShJ-0zko
+	id 1tTd45-0000000CT3y-1d7d
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jan 2025 08:25:56 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-aa680fafb3eso152180166b.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jan 2025 00:25:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1735892753; x=1736497553; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=KYNO0guAuD1jSVG7+Mn2jJuelOVJmSNitmxA0BfO1/0=;
-        b=LDABs43dBjvsuvcnfRUIdsOLcUm3IdkgQIJhVExumAKD9EVX6NG2qv0ox5xARdKXgL
-         oz8Fce599ecwjSvZGcA7cpqIMnaT6eyzJCtv00VRlqrQS9ERM8cgDjr3ElyyCyFfGE90
-         vB2iEdk4tzhS7ZBhUSG2d7llhO+3fxylaqCYtju9Kb7VUr38XTDvzlqjy/0uz6msY46d
-         VAI86Y/Rbht7SptWMwmemV+1Cw+S5Mj6pRjypWXHeIhTCTLEoDISYxjTyD6aZaB3yXPe
-         Sqyt6ByoNFdSsWnv06BD/4c0xuK+tFn58QomgCXaEQ+tP2SGcGUE5q8e5f0cGajQpm60
-         kF+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735892753; x=1736497553;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=KYNO0guAuD1jSVG7+Mn2jJuelOVJmSNitmxA0BfO1/0=;
-        b=DkNnMFmRDolEWbdN2pPgQJ+xUl74cEvgM7TaZzCRW8N7dfWhJohcHmz2oIph+jjwoV
-         1l3nG61zYEJUvKpEcDqxXmRDHzOrgY4vnxzhxvKsxRnzVEdbhxUbKglj6SfqL16wV1lY
-         lxm62aP03TgpHgtFlTyQV8f730Kymw+oRIQIoXRwUrMJO3EDOTHi6S+Mf2nYDojDBUhO
-         jKQQEcYidZCSBLX4HnqcV0bZ/51lSaBaJ1MviDfNbWcbKPt0bl2RodtwwxH/I+FPp/7F
-         xUKLWm1h00nR5O/mRv1JNvVvPEkS4CVQ3wga00DFIznMPwhQcL/CXoLRIVkzIUMMmHTO
-         2Pqw==
-X-Forwarded-Encrypted: i=1; AJvYcCV9CDzYenqYMqa1Db3a8vGoGgk+ysjJi5U5nEqvLBLGLU4sG1T4B5Af53+9mJdCYVLYA5ZNE3Cp0W0u0P+I7xF3@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJzz2REVREYob/JpcxWB7v4tVQSfNx1tFxFZIZL2xVXrWn5gMe
-	cNgfaf/C1vxe9BzrZSrqSmvTsMEDwyzsIc0kJ9ntRe89tUemnbY5t8RFEp7UD24=
-X-Gm-Gg: ASbGncssKf+8wzUwICO6nl+A05zPyZseL7l5v31sa+tEzg6Wv7yPqs6CEWJjtgpLRHS
-	+hzCfWnC6H+YpGIfTuik18CA2n7jtH0wFMwonPyRmmObpz6/fu1tM239NU2TNpqBsbXkeuLCzsA
-	s3SpID6kmt4y71jZzfXklE4aUkCX2i/upNs+9+KISU57zMYStTDt5lizDphGHZ1ri3QYw1xFGi9
-	AjEGbNCp8pLaQ3ieag9mI0vn6yAvwS6rkgkXVObQUptFw6/yC2YCLaEn3YmonJhBG6pGhE=
-X-Google-Smtp-Source: AGHT+IGWWm2fDcYRYaz/N7szhgJEWFmaFTDYJU8U6ZmPuis5+d3SHG8JFgAZM8+mDcm3BEoTvblddQ==
-X-Received: by 2002:a17:907:9692:b0:aa6:91ca:3674 with SMTP id a640c23a62f3a-aac2adb92a6mr1572179466b.4.1735892752966;
-        Fri, 03 Jan 2025 00:25:52 -0800 (PST)
-Received: from krzk-bin.. ([178.197.223.165])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0f06dc7esm1868462866b.193.2025.01.03.00.25.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Jan 2025 00:25:52 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Sam Protsenko <semen.protsenko@linaro.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-Subject: [PATCH] dt-bindings: samsung: exynos-usi: Restrict possible samsung,mode values
-Date: Fri,  3 Jan 2025 09:25:49 +0100
-Message-ID: <20250103082549.19419-1-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.43.0
+	Fri, 03 Jan 2025 08:29:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 152415C6217;
+	Fri,  3 Jan 2025 08:29:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 593F8C4CECE;
+	Fri,  3 Jan 2025 08:29:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735892992;
+	bh=NJIUi9yWwONAN4blHjHBMYlaQk8Lg/DXttoXfSi/gNw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jxd8C4tC2I8uagkE+gfa9sEyzxCicIrfybHNcx4774WjmwQLkBJPlc/Wb7HIWP9zP
+	 M34IerU+IW+3NN0O87AZw6UFTonlOx4VmWk2VZC+vGZEuxp5NSD+F3gO3nYLc0vWNU
+	 TXutekZWAA+3gwG5+LJsXqVXEERB1RR43tO2AMKHYgepadyIaVaOcCj5dARIYKuPCO
+	 XPhFdnQvYcHbghZzOXYB+tDYrmRQlbwlpYPVDAIGlJ1AUXdJ19X4TaEwtgbrpusM3Y
+	 q70pLYQSisYo5786bP7AH1wXoH5MCxsvE+MxR2R8fwaw785g9Hk7iID2uwvjlInkLa
+	 L0yG9EC59sZqw==
+Date: Fri, 3 Jan 2025 09:29:48 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Sam Protsenko <semen.protsenko@linaro.org>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 3/3] soc: samsung: usi: implement support for USIv1
+Message-ID: <utew7byz6kulmet76ayuc4obwavm5g5q2m5gk4metqulcgi4as@eml3cfd3vfaq>
+References: <20250102204015.222653-1-ivo.ivanov.ivanov1@gmail.com>
+ <20250102204015.222653-4-ivo.ivanov.ivanov1@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250102204015.222653-4-ivo.ivanov.ivanov1@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_002555_278165_48BDF690 
-X-CRM114-Status: UNSURE (   8.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250103_002953_745114_296AB949 
+X-CRM114-Status: GOOD (  15.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,28 +74,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-"samsung,mode" property defines the desired mode of the serial engine
-(e.g. I2C or SPI) and only few values are allowed/used by Linux driver.
+On Thu, Jan 02, 2025 at 10:40:15PM +0200, Ivaylo Ivanov wrote:
+>  /* USIv2: System Register: SW_CONF register bits */
+>  #define USI_V2_SW_CONF_NONE	0x0
+>  #define USI_V2_SW_CONF_UART	BIT(0)
+> @@ -34,7 +46,8 @@
+>  #define USI_OPTION_CLKSTOP_ON	BIT(2)
+>  
+>  enum exynos_usi_ver {
+> -	USI_VER2 = 2,
+> +	USI_VER1 = 1,
+> +	USI_VER2,
+>  };
+>  
+>  struct exynos_usi_variant {
+> @@ -66,6 +79,16 @@ struct exynos_usi_mode {
+>  	unsigned int val;		/* mode register value */
+>  };
+>  
+> +static const struct exynos_usi_mode exynos_usi_v1_modes[] = {
+> +	[USI_V1_NONE]		= { .name = "none", .val = USI_V1_SW_CONF_NONE },
+> +	[USI_V1_I2C0]		= { .name = "i2c0", .val = USI_V1_SW_CONF_I2C0 },
+> +	[USI_V1_I2C1]		= { .name = "i2c1", .val = USI_V1_SW_CONF_I2C1 },
+> +	[USI_V1_I2C0_1]		= { .name = "i2c0_1", .val = USI_V1_SW_CONF_I2C0_1 },
+> +	[USI_V1_SPI]		= { .name = "spi", .val = USI_V1_SW_CONF_SPI },
+> +	[USI_V1_UART]		= { .name = "uart", .val = USI_V1_SW_CONF_UART },
+> +	[USI_V1_UART_I2C1]	= { .name = "uart_i2c1", .val = USI_V1_SW_CONF_UART_I2C1 },
 
-Cc: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml | 1 +
- 1 file changed, 1 insertion(+)
+Now I see why you duplicated the IDs... With my approach your code here
+is even simpler. Allows to drop USI_VER1 as well.
 
-diff --git a/Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml b/Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml
-index f80fcbc3128b..5b046932fbc3 100644
---- a/Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml
-+++ b/Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml
-@@ -64,6 +64,7 @@ properties:
- 
-   samsung,mode:
-     $ref: /schemas/types.yaml#/definitions/uint32
-+    enum: [0, 1, 2, 3]
-     description:
-       Selects USI function (which serial protocol to use). Refer to
-       <include/dt-bindings/soc/samsung,exynos-usi.h> for valid USI mode values.
--- 
-2.43.0
+
+> +};
+> +
+>  static const struct exynos_usi_mode exynos_usi_modes[] = {
+>  	[USI_V2_NONE] =	{ .name = "none", .val = USI_V2_SW_CONF_NONE },
+>  	[USI_V2_UART] =	{ .name = "uart", .val = USI_V2_SW_CONF_UART },
+> @@ -83,11 +106,24 @@ static const struct exynos_usi_variant exynos850_usi_data = {
+>  	.clk_names	= exynos850_usi_clk_names,
+>  };
+>  
+> +static const struct exynos_usi_variant exynos8895_usi_data = {
+> +	.ver		= USI_VER1,
+> +	.sw_conf_mask	= USI_V1_SW_CONF_MASK,
+> +	.min_mode	= USI_V1_NONE,
+> +	.max_mode	= USI_V1_UART_I2C1,
+> +	.num_clks	= ARRAY_SIZE(exynos850_usi_clk_names),
+> +	.clk_names	= exynos850_usi_clk_names,
+> +};
+> +
+>  static const struct of_device_id exynos_usi_dt_match[] = {
+>  	{
+>  		.compatible = "samsung,exynos850-usi",
+>  		.data = &exynos850_usi_data,
+>  	},
+> +	{
+> +		.compatible = "samsung,exynos8895-usi",
+> +		.data = &exynos8895_usi_data,
+> +	},
+>  	{ } /* sentinel */
+>  };
+>  MODULE_DEVICE_TABLE(of, exynos_usi_dt_match);
+> @@ -105,18 +141,32 @@ static int exynos_usi_set_sw_conf(struct exynos_usi *usi, size_t mode)
+>  {
+>  	unsigned int val;
+>  	int ret;
+> +	const char *name;
+>  
+> +	usi->mode = mode;
+>  	if (mode < usi->data->min_mode || mode > usi->data->max_mode)
+>  		return -EINVAL;
+>  
+> -	val = exynos_usi_modes[mode].val;
+> +	switch (usi->data->ver) {
+> +	case USI_VER1:
+> +		val = exynos_usi_v1_modes[mode].val;
+> +		name = exynos_usi_v1_modes[usi->mode].name;
+> +		break;
+> +	case USI_VER2:
+> +		val = exynos_usi_modes[mode].val;
+> +		name = exynos_usi_modes[usi->mode].name;
+> +		break;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +
+>  	ret = regmap_update_bits(usi->sysreg, usi->sw_conf,
+>  				 usi->data->sw_conf_mask, val);
+> +
+
+No, why? Drop.
+
+Best regards,
+Krzysztof
 
 
