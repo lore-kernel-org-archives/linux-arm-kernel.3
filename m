@@ -4,87 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79E4EE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 13:57:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 468E3E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 14:00:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zJEWejicaBz6dmUxoJQXl7EdOTueBwQvHraBKvH38is=; b=mjLgNufGo5gEBmxZhJVr7Y8omd
-	FXBbKkKC6uL7gTkeYsTX2ZDSIhsFqyv8U4ngZ2l+Rn/WOHcDcw/X6h2C49b4KEC1Agr7xzIgmpakH
-	KYVN3jY/mnJU2s3kkbnsJTuDEKaDZqoR8WIfM5hxwuyuQcai+Lh0R2j0GZ5pwpkRBotaehUgK9Jxc
-	yLbaQZPuz2vn6ENZ116ZUI4q2SwQtRlZOLPdfD6qBC3BUgkW0kXIkQexhAqwu6SoLOQvfImr6XC9m
-	30GcQ7LtNkn31ClvISxlutI9GTOsxvRz6ybN4LjOKqQAjYSs9q8Y9s03WTPPq+FQR6+B7nstyTjTo
-	fB4KvYkg==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jK0s23VokbFuxovaEfAVFvmAMtNeeZT0/QSCobD0rPI=; b=x7ko8tssA0M6muvHk3WlLBtD/9
+	tFsDkDJC0rYQGL9SEIOuQjaEKH5O8DuwPtJgkupnrOiC9bqgn7okfFtYkaTzdVvV7lWnCY4pTrkVu
+	LHZkCrv+b1l5ToHtdGQAgOi/Ee9Z8Lvjzyok7Xumq6vL6pr1BATSCFrcswMnGDXm/DTn1X9624Ddj
+	AqkTUWk4JFr1guculSqG660Zt8UuJZ1CfKBSY3WDkIpGR05jJRW8hIc0QreP7bqYWi0cwQNlT9zH6
+	gmhUH6HXkhKzT+JryWxHCBDGIS0Nx8XTN4oPGowETcoVqpigylAMDrKWrAmTF4MunG+wCPurfoHD6
+	Vtp4LvEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tU4ea-0000000F4aF-2ol0;
-	Sat, 04 Jan 2025 13:57:24 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1tU4hc-0000000F4rf-39Pl;
+	Sat, 04 Jan 2025 14:00:32 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tU4dQ-0000000F4VG-0Nu6
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Jan 2025 13:56:14 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4361aa6e517so20366945e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 04 Jan 2025 05:56:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1735998970; x=1736603770; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=zJEWejicaBz6dmUxoJQXl7EdOTueBwQvHraBKvH38is=;
-        b=Vsr6e8TxjqAlY2P16cuG3Pkpnl2dI8Wcl65wt7cIeiuUUUYF8MynCKRv5ylDn2zWw7
-         kv4HPUOtEdDoZCLYl7bioGeA35gjujJ8qFOO2bf9U2MfGVVWwV59E1sy5d7XVcaaKIQZ
-         JTmUHpV7HFdW4+pm9AVKwGto2Qtb1B2m3/QOEsXw6qR3yFA5NJm6VkIXIowLnDPopGDy
-         4jAh/s+2oJAehFaD++lKR7kdGlYfLFJTsp4IDYMHeIlxiyokHGkyzikP13Sbmciv/vkx
-         X5wp1PG1ap31e1Rxv7+UhGVFlfmntsY7yQ3PoD5NYyWw98SlXd+8rPadcZWQpRPGSa8d
-         9UBA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735998970; x=1736603770;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=zJEWejicaBz6dmUxoJQXl7EdOTueBwQvHraBKvH38is=;
-        b=Ddh6mTlSPjMsho+TExzgJvpXlRGIy5DHC83czSEiJsVoUp/w6Dd1HCoxEWxy9eOFSa
-         Ifyk2qf68a8peZK8ZJr/CWyB/KpfCwuahWSA4vVcFFaDaHS9m1Pfefam8enWlAee5r5K
-         QJVtHACy+NWXJh044IuFWU/uHXrUzaOC/0unot8XkZJs2xVPMOmAp2pJHUw5OxMNKLXs
-         ogxskDBtkkVg9diGB1OLSKiIkdwACHPESszWCXDgtTIQuoiBhRJZhn2v9RZQdoxtw52i
-         oolcmdpI19LDuSGxEVpBfSroCGH9CHshQg7H9/ycIuhqcUuWC4KSWF9A1EomQsUKvimP
-         vq2g==
-X-Forwarded-Encrypted: i=1; AJvYcCV6vJazsu87/qBKIziPKjRpmEyk02ygNGWpgc8wbImQHdJajMPzkUczEclsTuksKd4AUFFiAFqdsnVRpupzcRal@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6mRQoIUX5Y1e0AMCDp0W+k6q1dneQHfGfoxLWhXMC8ogdXKOC
-	1XqIEXnMYcl3Ss0Sllf/HDQ9pbJcHYGAdY617VtIdMZp+i/vIOx2SS80dZkLaqY=
-X-Gm-Gg: ASbGncvsKdjI6Hq9zjb1vVjaruGKJ122yhqAzPFvtvY6VD041pd8c9jJBxM/n1tSZTW
-	uJu2SjSZbpltkaSATSu/vdbSKLntCVpn7rooPwCjdRY8JrKp02pGNsru2DhHn1n5KD+EqF1f08U
-	b35Ppi1mA4Sxh3NT2qKSxssJ6+ocEqg+M7EXwtDulrveQgUHtJISO07QkK+C7BNPa+tAP4aMhZb
-	CihLtesetWoV4EKMFFW50faH0jfIrQr724U+jEgUc0+5WH3CxaCAd+K4Zg6s20hv3stYs4=
-X-Google-Smtp-Source: AGHT+IEO/3u4qvFe5Vb1vURPH9ZBPG+ma9tc2SOelaqiPnyPkQaHdPOjLVZUFkyq61FMNDtN3/bC2w==
-X-Received: by 2002:adf:b601:0:b0:385:f7a3:fec1 with SMTP id ffacd0b85a97d-38a221e24demr13083083f8f.3.1735998970188;
-        Sat, 04 Jan 2025 05:56:10 -0800 (PST)
-Received: from krzk-bin.. ([178.197.223.165])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a1c89e375sm43946322f8f.73.2025.01.04.05.56.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 04 Jan 2025 05:56:08 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Sam Protsenko <semen.protsenko@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	stable@vger.kernel.org
-Subject: [PATCH] soc: samsung: exynos-pmu: Fix uninitialized ret in tensor_set_bits_atomic()
-Date: Sat,  4 Jan 2025 14:56:05 +0100
-Message-ID: <20250104135605.109209-1-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.43.0
+	id 1tU4gS-0000000F4kO-0ZCQ;
+	Sat, 04 Jan 2025 13:59:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 45D56A40AC6;
+	Sat,  4 Jan 2025 13:57:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3762EC4CED1;
+	Sat,  4 Jan 2025 13:59:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735999159;
+	bh=4n1bUXFAX1wVT1KsrzG+8WwspZWcX0SLePYj+L4Un+U=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=jTa8YRn1JZwSxkRuIT5DIPHiVeeRyilrkHcgh0hOQVUargj5dkAmfKINI/Moj8vdk
+	 /j5RvYC6ohzW8W6WXg0r86x0oS94gS8PXyqTyznpwRXdY0dLvBgnGHmAfheAbNoBJO
+	 Gj1NOqu2TM+W85SO3/ELFqzAExAgoG9Mt2XdDxEnNTD6vCwvvYVZVklbc6vqqk1MZ4
+	 0iioKgm4yCb8j9jcHpacG7MezcPIrdpHmqGNsO8J7Jz8hC2XgyqxsF8bZJXABK+b5C
+	 +0aAw9CK3l44HuCfHZVLB0Uk+rglW15+H9bGN9yFz9IZUMxtySLzNsBDYiSCOefq3G
+	 vXOdptBIGjQmg==
+Date: Sat, 4 Jan 2025 13:59:12 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-amlogic@lists.infradead.org, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, gnstark@salutedevices.com, lars@metafoo.de,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ christianshewitt@gmail.com
+Subject: Re: [RFC PATCH v1 2/2] iio: adc: meson: add support for the GXLX
+ SoC
+Message-ID: <20250104135912.390ec87c@jic23-huawei>
+In-Reply-To: <20241231194207.2772750-3-martin.blumenstingl@googlemail.com>
+References: <20241231194207.2772750-1-martin.blumenstingl@googlemail.com>
+	<20241231194207.2772750-3-martin.blumenstingl@googlemail.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250104_055612_177760_BDCD54BA 
-X-CRM114-Status: GOOD (  13.33  )
+X-CRM114-CacheID: sfid-20250104_055920_316548_771781CF 
+X-CRM114-Status: GOOD (  28.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,35 +76,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If tensor_set_bits_atomic() is called with a mask of 0 the function will
-just iterate over its bit, not perform any updates and return stack
-value of 'ret'.
+On Tue, 31 Dec 2024 20:42:07 +0100
+Martin Blumenstingl <martin.blumenstingl@googlemail.com> wrote:
 
-Also reported by smatch:
+> The SARADC IP on the GXLX SoC itself is identical to the one found on
+> GXL SoCs. However, GXLX SoCs require poking the first three bits in the
+> MESON_SAR_ADC_REG12 register to get the three MPLL clocks (used as clock
+> generators for the audio frequencies) to work.
+> 
+> The reason why there are MPLL clock bits in the ADC register space is
+> entirely unknown and it seems that nobody is able to comment on this.
+> So clearly mark this as a workaround and add a warning so users are
+> notified that this workaround can change (once we know what these bits
+> actually do).
 
-  drivers/soc/samsung/exynos-pmu.c:129 tensor_set_bits_atomic() error: uninitialized symbol 'ret'.
+So IIUC this is to make some non ADC component work.
+How are you handling dependencies?  The ADC driver might not be loaded or
+is there some reason it definitely is at the point where the audio driver
+loads?
 
-Fixes: 0b7c6075022c ("soc: samsung: exynos-pmu: Add regmap support for SoCs that protect PMU regs")
-Cc: <stable@vger.kernel.org>
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- drivers/soc/samsung/exynos-pmu.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Jonathan
 
-diff --git a/drivers/soc/samsung/exynos-pmu.c b/drivers/soc/samsung/exynos-pmu.c
-index d8c53cec7f37..dd5256e5aae1 100644
---- a/drivers/soc/samsung/exynos-pmu.c
-+++ b/drivers/soc/samsung/exynos-pmu.c
-@@ -126,7 +126,7 @@ static int tensor_set_bits_atomic(void *ctx, unsigned int offset, u32 val,
- 		if (ret)
- 			return ret;
- 	}
--	return ret;
-+	return 0;
- }
- 
- static bool tensor_is_atomic(unsigned int reg)
--- 
-2.43.0
+> 
+> Signed-off-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+> ---
+>  drivers/iio/adc/meson_saradc.c | 34 ++++++++++++++++++++++++++++++++++
+>  1 file changed, 34 insertions(+)
+> 
+> diff --git a/drivers/iio/adc/meson_saradc.c b/drivers/iio/adc/meson_saradc.c
+> index 997def4a4d2f..df15a2566ec7 100644
+> --- a/drivers/iio/adc/meson_saradc.c
+> +++ b/drivers/iio/adc/meson_saradc.c
+> @@ -160,6 +160,11 @@
+>  	#define MESON_SAR_ADC_REG11_EOC				BIT(1)
+>  	#define MESON_SAR_ADC_REG11_VREF_SEL			BIT(0)
+>  
+> +#define MESON_SAR_ADC_REG12					0x30
+> +	#define MESON_SAR_ADC_REG12_MPLL0_UNKNOWN		BIT(0)
+> +	#define MESON_SAR_ADC_REG12_MPLL1_UNKNOWN		BIT(1)
+> +	#define MESON_SAR_ADC_REG12_MPLL2_UNKNOWN		BIT(2)
+> +
+>  #define MESON_SAR_ADC_REG13					0x34
+>  	#define MESON_SAR_ADC_REG13_12BIT_CALIBRATION_MASK	GENMASK(13, 8)
+>  
+> @@ -326,6 +331,7 @@ struct meson_sar_adc_param {
+>  	u8					cmv_select;
+>  	u8					adc_eoc;
+>  	enum meson_sar_adc_vref_sel		vref_voltage;
+> +	bool					enable_mpll_clock_workaround;
+>  };
+>  
+>  struct meson_sar_adc_data {
+> @@ -995,6 +1001,15 @@ static int meson_sar_adc_init(struct iio_dev *indio_dev)
+>  				    priv->param->cmv_select);
+>  		regmap_update_bits(priv->regmap, MESON_SAR_ADC_REG11,
+>  				   MESON_SAR_ADC_REG11_CMV_SEL, regval);
+> +
+> +		if (priv->param->enable_mpll_clock_workaround) {
+> +			dev_warn(dev,
+> +				 "Enabling unknown bits to make the MPLL clocks work. This may change so always update dtbs and kernel together\n");
+> +			regmap_write(priv->regmap, MESON_SAR_ADC_REG12,
+> +				     MESON_SAR_ADC_REG12_MPLL0_UNKNOWN |
+> +				     MESON_SAR_ADC_REG12_MPLL1_UNKNOWN |
+> +				     MESON_SAR_ADC_REG12_MPLL2_UNKNOWN);
+> +		}
+>  	}
+>  
+>  	ret = clk_set_parent(priv->adc_sel_clk, priv->clkin);
+> @@ -1219,6 +1234,17 @@ static const struct meson_sar_adc_param meson_sar_adc_gxl_param = {
+>  	.cmv_select = 1,
+>  };
+>  
+> +static const struct meson_sar_adc_param meson_sar_adc_gxlx_param = {
+> +	.has_bl30_integration = true,
+> +	.clock_rate = 1200000,
+> +	.regmap_config = &meson_sar_adc_regmap_config_gxbb,
+> +	.resolution = 12,
+> +	.disable_ring_counter = 1,
+> +	.vref_voltage = VREF_VOLTAGE_1V8,
+> +	.cmv_select = true,
+> +	.enable_mpll_clock_workaround = true,
+> +};
+> +
+>  static const struct meson_sar_adc_param meson_sar_adc_axg_param = {
+>  	.has_bl30_integration = true,
+>  	.clock_rate = 1200000,
+> @@ -1267,6 +1293,11 @@ static const struct meson_sar_adc_data meson_sar_adc_gxl_data = {
+>  	.name = "meson-gxl-saradc",
+>  };
+>  
+> +static const struct meson_sar_adc_data meson_sar_adc_gxlx_data = {
+> +	.param = &meson_sar_adc_gxlx_param,
+> +	.name = "meson-gxlx-saradc",
+> +};
+> +
+>  static const struct meson_sar_adc_data meson_sar_adc_gxm_data = {
+>  	.param = &meson_sar_adc_gxl_param,
+>  	.name = "meson-gxm-saradc",
+> @@ -1298,6 +1329,9 @@ static const struct of_device_id meson_sar_adc_of_match[] = {
+>  	}, {
+>  		.compatible = "amlogic,meson-gxl-saradc",
+>  		.data = &meson_sar_adc_gxl_data,
+> +	}, {
+> +		.compatible = "amlogic,meson-gxlx-saradc",
+> +		.data = &meson_sar_adc_gxlx_data,
+>  	}, {
+>  		.compatible = "amlogic,meson-gxm-saradc",
+>  		.data = &meson_sar_adc_gxm_data,
 
 
