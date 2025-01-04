@@ -4,56 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 666C0E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 10:02:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83AC1E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 10:03:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=z3TZ/ttulaT47achgys7RcCkrw9yTIGSNlXm972gG1s=; b=iOsMjfbl/eC0RVk0znafnDPV2E
-	2TiAHdmbEXP04biyt5LWgFSx8a+IuENjQLXko2mf5+YfjMozc2XVPYwGoCwwxxKRDGKePNuam8ws5
-	k8iaFzvfn8DnfQQCsCGTfvIiEex8wUQMdz6bBA3QOTBgFPfMH0Gg9IbVKDHtkUESN5HxfGsg0MRzq
-	IEkk7adWhQ+uuf87AtoAksJ6POIcZ6fFq1KuUKZCyeKQWRp8IznyBb0yESnEEFry6azbOZamYBzW0
-	CZz3EigprKiOHIvp3mXSZX+NItuy22c9Xb2QK06NDMdw4YUeuTNU5nGE+Ao4fXgV28Hn1ANjFu4Rs
-	F6rhgHEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KK/XAkytN7SLMOdq6GNZZM30GbqCrqfsnra80chxLZI=; b=afm4iYxawNvbFmOkBM57DzZt49
+	y3ztd+cHTJz5O2R9QblXTegNaLU6mgm67XMWplwgozI5Sw9bIiYtUNzWUJmU7xTLkJ3ZUbcrhXGZj
+	OsJUeeemTJp8od3q5/5b8ksz0/80oW6D1Ir74sP8sUFrw5y9wwClH9nq+czQTFkmxsr5ziFMp6bnP
+	FxlPMtRX1hlw3KHBdxoyMyOqJTlexnq/ctZxBXVfsAI/NXhuHTS+TPNpudRQ/C4vVR40TrS1cINlH
+	odI1MsrPV1bJt1CN+hd3y9sPevg34FCAFdt1BKq4EiSUZUyaWOb43vp/onu4FfUJNu2pt71ZTzOQr
+	/fbnSS0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tU0z7-0000000EpnQ-1LEj;
-	Sat, 04 Jan 2025 10:02:21 +0000
-Received: from szxga04-in.huawei.com ([45.249.212.190])
+	id 1tU10G-0000000Epth-3rIj;
+	Sat, 04 Jan 2025 10:03:32 +0000
+Received: from szxga06-in.huawei.com ([45.249.212.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tU0xu-0000000EpXf-2rWG
+	id 1tU0xu-0000000EpXh-2rLQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Jan 2025 10:01:09 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.44])
-	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4YQG9l1kNBz22k3Z;
-	Sat,  4 Jan 2025 17:58:51 +0800 (CST)
+	Sat, 04 Jan 2025 10:01:10 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.112])
+	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4YQGDj0qwPz20n5Y;
+	Sat,  4 Jan 2025 18:01:25 +0800 (CST)
 Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
-	by mail.maildlp.com (Postfix) with ESMTPS id EB1D414011D;
-	Sat,  4 Jan 2025 18:01:01 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 33FB21402C7;
+	Sat,  4 Jan 2025 18:01:03 +0800 (CST)
 Received: from huawei.com (10.175.103.91) by kwepemf100008.china.huawei.com
  (7.202.181.222) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Sat, 4 Jan
- 2025 18:01:01 +0800
+ 2025 18:01:02 +0800
 From: Zeng Heng <zengheng4@huawei.com>
 To: <Dave.Martin@arm.com>, <james.morse@arm.com>
 CC: <bobo.shaobowang@huawei.com>, <linux-arm-kernel@lists.infradead.org>,
 	<jonathan.cameron@huawei.com>, <linux-kernel@vger.kernel.org>
-Subject: [RFC PATCH mpam mpam/snapshot/v6.12-rc1 v4 0/5] arm_mpam: Introduce the Narrow-PARTID feature for MPAM driver
-Date: Sat, 4 Jan 2025 18:12:19 +0800
-Message-ID: <20250104101224.873926-1-zengheng4@huawei.com>
+Subject: [RFC PATCH mpam mpam/snapshot/v6.12-rc1 v4 2/5] arm_mpam: Add limitation for the Narrow-PARTID feature
+Date: Sat, 4 Jan 2025 18:12:21 +0800
+Message-ID: <20250104101224.873926-3-zengheng4@huawei.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250104101224.873926-1-zengheng4@huawei.com>
+References: <20250104101224.873926-1-zengheng4@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-Originating-IP: [10.175.103.91]
 X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
  kwepemf100008.china.huawei.com (7.202.181.222)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250104_020106_875643_E0B0E62F 
-X-CRM114-Status: GOOD (  10.49  )
+X-CRM114-CacheID: sfid-20250104_020106_902854_DD9A6B91 
+X-CRM114-Status: GOOD (  14.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,72 +70,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The patch set is applied for mpam/snapshot/v6.12-rc1 branch of
-https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git
-repository.
+Because it needs to support mixed systems that include MSCs with and
+without Narrow-PARTID support, there are the following incompatible
+control issues.
 
-The narrow-partid feature in MPAM allows for a more efficient use of
-PARTIDs by enabling a many-to-one mapping of reqpartids (requested PARTIDs)
-to intpartids (internal PARTIDs). This mapping reduces the number of unique
-PARTIDs needed, thus allowing more tasks or processes to be monitored and
-managed with the available resources.
+If an MSC does not support Narrow-PARTID and its control method is not of
+the "partition bitmap" type, then delivering the resctrl control group
+configuration across multiple PARTIDs will change the user's expected
+behavior.
 
-For a mixture of MSCs system, for MSCs that do not support narrow-partid,
-we use the PARTIDs exceeding the number of closids as reqPARTIDs for
-expanding the monitoring groups.
+Currently, there is no way to solve this problem by programming different
+control values simply, so here decide to restrict the usage scenarios of
+this feature. When we find that the MATA MSC does not support the
+Narrow-PARTID feature, the driver will disable the feature, which means
+get_num_reqpartid() directly returns the number of intPARTIDs.
 
-In order to keep the existing resctrl API interface, the rmid contains both
-req_idx and PMG information instead of PMG only under the MPAM driver. The
-req_idx represents the req_idx-th sub-monitoring group under the control
-group. The new rmid would be like:
-
-    rmid = (req_idx << shift | pmg).
-
-The new conversion relationship between closid/rmid and (req)PARTID/PMG is:
-
-    (req)PARTID = (rmid.req_idx * n) + closid
-    PMG = rmid.pmg
-
-Each intPARTID has m reqPARTIDs, which are used to expand the number of
-monitoring groups under one control group. Therefore, the number of
-monitoring groups is no longer limited by the range of MPAM PMG, which
-enhances the extensibility of the system's monitoring capabilities.
-
+Signed-off-by: Zeng Heng <zengheng4@huawei.com>
 ---
-Compared with v1:
-  - Rebase this patch set on latest MPAM driver of the v6.12-rc1 branch.
+ drivers/platform/arm64/mpam/mpam_resctrl.c | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-Compared with v2:
-  - Refactor closid/rmid pair translation
-  - Simplify the logic of synchronize configuration
-  - Remove reqPARTID source bitmap
-
-Compared with v3:
-  - Add limitation of the Narrow-PARTID feature (See Patch 2).
-  - Remove redundant reqpartid2closid() and reqpartid_pmg2rmid().
-  - Refactor closid_rmid2reqpartid() partially.
-  - Merge the PARTID conversion-related patches into a single patch for
-    bisectability.
-  - Skip adaptation of resctrl_arch_set_rmid() which is going to be
-    removed.
----
-
-Dave Martin (1):
-  arm_mpam: Set INTERNAL as needed when setting MSC controls
-
-Zeng Heng (4):
-  arm_mpam: Introduce the definitions of intPARTID and reqPARTID
-  arm_mpam: Add limitation for the Narrow-PARTID feature
-  arm_mpam: Provide conversion method for new closid/rmid pairs
-  arm_mpam: Automatically synchronize the configuration of all
-    sub-monitoring groups
-
- drivers/platform/arm64/mpam/mpam_devices.c  |  61 ++++++--
- drivers/platform/arm64/mpam/mpam_internal.h |   5 +
- drivers/platform/arm64/mpam/mpam_resctrl.c  | 152 +++++++++++++++-----
- 3 files changed, 174 insertions(+), 44 deletions(-)
-
---
+diff --git a/drivers/platform/arm64/mpam/mpam_resctrl.c b/drivers/platform/arm64/mpam/mpam_resctrl.c
+index ac3d228befcf..b9a33001916b 100644
+--- a/drivers/platform/arm64/mpam/mpam_resctrl.c
++++ b/drivers/platform/arm64/mpam/mpam_resctrl.c
+@@ -168,6 +168,21 @@ u32 resctrl_arch_get_num_closid(struct rdt_resource *ignored)
+ 
+ static u32 get_num_reqpartid(void)
+ {
++	struct mpam_resctrl_res *res;
++	struct rdt_resource *r_mba;
++	struct mpam_props *cprops;
++
++	r_mba = resctrl_arch_get_resource(RDT_RESOURCE_MBA);
++	res = container_of(r_mba, struct mpam_resctrl_res, resctrl_res);
++	cprops = &res->class->props;
++
++	/*
++	 * If the MBA does not support Narrow-PARTID,
++	 * then the feature should be disabled at the system level.
++	 */
++	if (!mpam_has_feature(mpam_feat_partid_nrw, cprops))
++		return resctrl_arch_get_num_closid(NULL);
++
+ 	return mpam_partid_max + 1;
+ }
+ 
+-- 
 2.25.1
 
 
