@@ -4,58 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AD76E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 10:08:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D551E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 10:18:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P2E7xqnCjNDMrY4c8PkIGqRI88xAe9s6dstqytTnSo0=; b=eT6f/LkK8bsGQAP62diFxoco7t
-	f6CWbTbDH6zFqKKz34hKoSN+nxGVIslZLkx0Tvn7SyIa0HG6IGciNbk3Wc4ynD/MJwVtq/J97VcW2
-	VyyM8gSCFFslm3P9evNKVvhKZjuU9Q6VXhT+ddveETIe3JSKcZlpG9oRNqSTR2NDwbez++5gAzX2X
-	Cwp+Wyntdyyyb2mfKOoorsDBGtuEfBWuccfi9qroLO0KMBPTpcm/wm6dshCPtgQ+Wux2wUL/7AcPN
-	/qWKyOMHWh2KtWoC21I0f3gR163BVIF0Yi15YyLXkmS2U7AxW4Jds/ldOKaUT9kXDlG6lF/KWqLGU
-	YfitcmJw==;
+	bh=eDXdVMd8vOl5FoAmu9K6MFINvCbPi2pVuXWtSiL5lnE=; b=cs9IOwgKJMAQIslqm5zIfRDj9x
+	7nZiCsK41ramdM2vDNS2uSODtfs69h7XkpzrtV2hEB9s0WSQcn00oAPSFwBqYISA9A0unQRhF5Rd5
+	oR5OVPfXaurKQjaMT40K87XQl6gxBmcmDc01Y/R8FRavxOwknQppPttX5DePsuHNKBvYPoeLtL/HQ
+	ZafvE6sw0SalFFB0LcCjAg5Imi+0fSXqB9MIgEJpWwIdpGAhesd+en8LpN9asHwlX3T2iUADZYeCi
+	Y30dQ8Zm0+ZStL15gTxcQXx4XY2vvIht7JXiA8W/qTWjj4nhWJXLsIilmfNf6dTgQMGw08wrM6Xxz
+	Stt6n2iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tU14n-0000000EqKN-4BhU;
-	Sat, 04 Jan 2025 10:08:14 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1tU1EE-0000000EqxG-3XYX;
+	Sat, 04 Jan 2025 10:17:58 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tU0y0-0000000EpZ6-0Njd
+	id 1tU1D4-0000000Eqsg-1yfw
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Jan 2025 10:01:13 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.194])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4YQG9205cqz11RlV;
-	Sat,  4 Jan 2025 17:58:14 +0800 (CST)
-Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
-	by mail.maildlp.com (Postfix) with ESMTPS id 78E9E1401F3;
-	Sat,  4 Jan 2025 18:01:04 +0800 (CST)
-Received: from huawei.com (10.175.103.91) by kwepemf100008.china.huawei.com
- (7.202.181.222) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Sat, 4 Jan
- 2025 18:01:03 +0800
-From: Zeng Heng <zengheng4@huawei.com>
-To: <Dave.Martin@arm.com>, <james.morse@arm.com>
-CC: <bobo.shaobowang@huawei.com>, <linux-arm-kernel@lists.infradead.org>,
-	<jonathan.cameron@huawei.com>, <linux-kernel@vger.kernel.org>
-Subject: [RFC PATCH mpam mpam/snapshot/v6.12-rc1 v4 4/5] arm_mpam: Set INTERNAL as needed when setting MSC controls
-Date: Sat, 4 Jan 2025 18:12:23 +0800
-Message-ID: <20250104101224.873926-5-zengheng4@huawei.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250104101224.873926-1-zengheng4@huawei.com>
-References: <20250104101224.873926-1-zengheng4@huawei.com>
+	Sat, 04 Jan 2025 10:16:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5E973A4073C;
+	Sat,  4 Jan 2025 10:14:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 551F2C4CED1;
+	Sat,  4 Jan 2025 10:16:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735985805;
+	bh=2T3ciO6m0fCtPynwh9nbyV7VVGdi6rid7fRO8GjcpBM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lowWq/CE7cZBlIwEINO9y5sbUhfF1EDr8EmDShKB3l5+8YdWIwMFM0tliVJO5Kw5R
+	 ShhUSiOKMHWO99aY8bE6Y3KQhrMgZALSmmNiGtj2vtIK5+o37tczA3QqxZyYRZpKQs
+	 laJiCm7XlP2bB6L8I8Hmkc9YD2TIvcwWAlJXEXXYtspOjEhTg/etPocPmrj/R34Isq
+	 3Kj1E1iaiKhOYz42+VrGyo4DfByznGMx7ZBoUSmOsnL2PYJRfSxoKGRtaJs/6yaO1V
+	 nQrDA2PkYdWKaECuKcaVaD/n7q0EKPEBdQYBuXNIArYDgzVThDZmcB0zVgwYXdphZ5
+	 VjnYbfjQ5cZ2Q==
+Date: Sat, 4 Jan 2025 11:16:41 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Vasily Khoruzhick <anarsoul@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Maxime Ripard <mripard@kernel.org>, Roman Beranek <me@crly.cz>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-clk@vger.kernel.org, Dragan Simic <dsimic@manjaro.org>, 
+	Frank Oltmanns <frank@oltmanns.dev>, Stuart Gathman <stuart@gathman.org>
+Subject: Re: [PATCH v2 1/4] dt-bindings: clock: sunxi: Export PLL_VIDEO_2X
+ and PLL_MIPI
+Message-ID: <pc7en2jjvce6et6s22sdfooixxxos4u5bitcfhylt7ms65o7wt@bxdvnyeus7b3>
+References: <20250104074035.1611136-1-anarsoul@gmail.com>
+ <20250104074035.1611136-2-anarsoul@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.175.103.91]
-X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
- kwepemf100008.china.huawei.com (7.202.181.222)
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250104074035.1611136-2-anarsoul@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250104_020112_470852_E33AC5D6 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20250104_021646_582124_038409E4 
+X-CRM114-Status: UNSURE (   9.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,83 +80,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Dave Martin <Dave.Martin@arm.com>
+On Fri, Jan 03, 2025 at 11:36:57PM -0800, Vasily Khoruzhick wrote:
+> Export PLL_VIDEO_2X and PLL_MIPI, these will be used to explicitly
+> select TCON0 clock parent in dts
+> 
+> Fixes: ca1170b69968 ("clk: sunxi-ng: a64: force select PLL_MIPI in TCON0 mux")
+> Reviewed-by: Dragan Simic <dsimic@manjaro.org>
+> Reviewed-by: Chen-Yu Tsai <wens@csie.org>
 
-Currently, when an MSC implements PARTID narrowing, MPAMCFG_PART_SEL is
-left set to the reqPARTID while programming resource controls in
-an MSC.
+Where did this happen?
 
-The MPAM architecture does not guarantee that any particular resource
-controls will be updated correctly in this scenario.  Instead,
-MPAMCFG_PART_SEL must be written with the corresponding intPARTID and
-with the INTERNAL bit set before attempting to program resource controls.
-Only the PARTID->intPARTID mappings can be written without the INTERNAL
-bit set in MPAMCFG_PART_SEL.
+> Tested-by: Frank Oltmanns <frank@oltmanns.dev> # on PinePhone
+> Tested-by: Stuart Gathman <stuart@gathman.org> # on OG Pinebook
 
-Fix it, by rewriting MPAMCFG_PART_SEL appropriately after setting the
-intPARTID mapping.
+And these? I cannot find traces on the list.
 
-The MPAMCFG_INTPARTID_INTERNAL flag is not currently accepted as
-input to the __mpam_part_sel() helper.  In the interest of keeping
-the code clean, break this helper up.
-
-Signed-off-by: Dave Martin <Dave.Martin@arm.com>
-Signed-off-by: James Morse <james.morse@arm.com>
----
- drivers/platform/arm64/mpam/mpam_devices.c | 26 +++++++++++++++++-----
- 1 file changed, 20 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/platform/arm64/mpam/mpam_devices.c b/drivers/platform/arm64/mpam/mpam_devices.c
-index ca621bb132e9..781c9146718d 100644
---- a/drivers/platform/arm64/mpam/mpam_devices.c
-+++ b/drivers/platform/arm64/mpam/mpam_devices.c
-@@ -205,15 +205,27 @@ static u64 mpam_msc_read_esr(struct mpam_msc *msc)
- 	return (esr_high << 32) | esr_low;
- }
- 
-+static void __mpam_part_sel_raw(u32 partsel, struct mpam_msc *msc)
-+{
-+	lockdep_assert_held(&msc->part_sel_lock);
-+	mpam_write_partsel_reg(msc, PART_SEL, partsel);
-+}
-+
- static void __mpam_part_sel(u8 ris_idx, u16 partid, struct mpam_msc *msc)
- {
--	u32 partsel;
-+	u32 partsel = FIELD_PREP(MPAMCFG_PART_SEL_RIS, ris_idx) |
-+		      FIELD_PREP(MPAMCFG_PART_SEL_PARTID_SEL, partid);
- 
--	lockdep_assert_held(&msc->part_sel_lock);
-+	__mpam_part_sel_raw(partsel, msc);
-+}
- 
--	partsel = FIELD_PREP(MPAMCFG_PART_SEL_RIS, ris_idx) |
--		  FIELD_PREP(MPAMCFG_PART_SEL_PARTID_SEL, partid);
--	mpam_write_partsel_reg(msc, PART_SEL, partsel);
-+static void __mpam_intpart_sel(u8 ris_idx, u16 intpartid, struct mpam_msc *msc)
-+{
-+	u32 partsel = FIELD_PREP(MPAMCFG_PART_SEL_RIS, ris_idx) |
-+		      FIELD_PREP(MPAMCFG_PART_SEL_PARTID_SEL, intpartid) |
-+		      MPAMCFG_PART_SEL_INTERNAL;
-+
-+	__mpam_part_sel_raw(partsel, msc);
- }
- 
- int mpam_register_requestor(u16 partid_max, u8 pmg_max)
-@@ -1540,9 +1552,11 @@ static void mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16 partid,
- 	mutex_lock(&msc->part_sel_lock);
- 	__mpam_part_sel(ris->ris_idx, partid, msc);
- 
--	if (mpam_has_feature(mpam_feat_partid_nrw, rprops))
-+	if (mpam_has_feature(mpam_feat_partid_nrw, rprops)) {
- 		mpam_write_partsel_reg(msc, INTPARTID,
- 				       MPAMCFG_INTPARTID_INTERNAL | partid);
-+		__mpam_intpart_sel(ris->ris_idx, partid, msc);
-+	}
- 
- 	if (mpam_has_feature(mpam_feat_cpor_part, rprops)) {
- 		if (mpam_has_feature(mpam_feat_cpor_part, cfg))
--- 
-2.25.1
+Best regards,
+Krzysztof
 
 
