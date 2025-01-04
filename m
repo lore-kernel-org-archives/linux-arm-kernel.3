@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F1F0E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 16:46:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 722B6E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 16:47:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T64IvUv2v2ctLBX091YAC+zdH2GYdiIMlzETmbUeq5o=; b=sHXTokC6h7OdW3ByHMZZODaHk7
-	EI56v6ivhhwiHsJdzwB6SKf5do9awgbc1raf7f3P39SC9BuTlEwd3lIKh1bDx1r+i+IrHW2OadYg8
-	lnuQVLqBIsFdNtWWSalB48QL3XpYgkJxwH52abgopoBL2AsZvyEDeUqBFrGckBLzq/SsmUqTs45wk
-	PfPNLLSCOqbClM9n7eB+JUz0WB/MJMKkRQrP8Og81juc+pBdhEwamSiBNzotBz+pbt8AOe3NKmpZT
-	FnX0CiKFNXtMNjYnTQJBhSGhgO2NisInjXMYlKWQzaI9+35teC49Xtt0Sgjui9Vl3W6bxIFbLmVYp
-	ryHyUYUQ==;
+	bh=CCu8j5qgaYDYPnaPdDgFFNsAqlm/hMgJljoqnUl2UNc=; b=yIAjQzqfgFliAz7N++/FS4xJqd
+	E1n1RFbsN8z6utA1+hDk6XqBKwODXzqmXpmjzwD/oAEDKgH1Mw+3tQbuU+rZomR4G0YGj/+zTkzmS
+	da0S7kL0RInPtLEPMSJhjQnBZuHYfAgSdx+joSB0rc4kQ1+OtDQDIaucdpp8fl0GRfG/STUbl2Jd3
+	Ojobf2AOjw2DA3kl4NYXnhYaJezHX2m3u9wUoqYm9VCbi2N4x2DB35Gczm75YAtEp6MZhL+d6KhPP
+	50XE42Fz9O8fsIVERTBXcHBq6DuJP5DhnmwV3AhPOZi9//QoWn/NRo5DHWoVV9FS2ER56K0lcZ0fN
+	w91Oau5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tU7Ha-0000000FIOf-1mvo;
-	Sat, 04 Jan 2025 16:45:50 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1tU7Ij-0000000FITv-0Ptb;
+	Sat, 04 Jan 2025 16:47:01 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tU7FI-0000000FHuV-0jt4
+	id 1tU7FJ-0000000FHuv-3JtU
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Jan 2025 16:43:29 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-43625c4a50dso89732795e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 04 Jan 2025 08:43:27 -0800 (PST)
+	Sat, 04 Jan 2025 16:43:30 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4368a293339so95486025e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 04 Jan 2025 08:43:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736009006; x=1736613806; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1736009008; x=1736613808; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=T64IvUv2v2ctLBX091YAC+zdH2GYdiIMlzETmbUeq5o=;
-        b=QbI7sw4US45G/ioUZs/cFxHnuYOikecYDIjtZjI/ZkEkkKtusOUeDaH4Fv5WaE+1uX
-         HWnZqVGVge2f6YOL587fXkCKAQIY09f49A2Ggl2WfOE7JCePd4UWp78BtvkQukS8dHnM
-         g/owRDjIqxI97mrpKEj77KdNN/DMzdn00WnOyleqLEa54sqxJTjfLNjq80AMCwAxPlja
-         3VLV56aKsJwAp+l577m54TzfMtKgWE2Z+OIPucr59AOTIEFUqzlKY/4RlKMzhNTatMED
-         quRPLhLjWAStVH/8epDdtA0c9BJ+Jc3AW/OS24J4QX0PPxlE8J6j7XJeMuoiTFCxdIMo
-         wZCw==
+        bh=CCu8j5qgaYDYPnaPdDgFFNsAqlm/hMgJljoqnUl2UNc=;
+        b=cyM8wyrlnpK76VG16G6vz2Vkd4W02D5D0H5OBvJvbBVp4+qTlsNAqeO6Z2MJ7fJWIz
+         LdNBNEb7UiEqNrp5BAlS1+9E2SxCKD89EJ2NddFkSP6nKO0oi9OpubG33W7ZGkmD9EKX
+         SYehFgcu4sE7N99mCPrE2DGXjWjIbNsXPqilleFDMcLh0U8VWMZV9mIBVS/n5Dx9kaUe
+         bDJVlq9ynvbYhy4kEAmTLAzJQz9X19R2YSVgbuwfU4vFvPw8mGkvDTWlOC2S0IqjHh9R
+         nphPaqJpHzMuROjQnvM6cQ1O+tZm4+NbjZi7jGqrJu+SqW+r8tzsZukPP0TxBBNGzHHs
+         4Vhg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736009006; x=1736613806;
+        d=1e100.net; s=20230601; t=1736009008; x=1736613808;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=T64IvUv2v2ctLBX091YAC+zdH2GYdiIMlzETmbUeq5o=;
-        b=AE6i3vnOxLFqW0N3p2lgWWsYzIU1GHEooWpcRuUUeKrBzMqz1UvjA2a9BcYU2kVC5Q
-         nDE0iIlTjuWgUxG6GL6edZHT4Jtybn10UFwPZTZEhvonrkkcQjeQmX9jnIoReQ2h1K7e
-         C4Y/zJ3lDAJQoEenftSewwrtZsHjDqM3dVjbQdqp1TzUh8rMMvrpp+dwxZnyaBQbIW4V
-         jRZjQmHByl/6su9U+KFLsXA7DbS9AzgJMR6dY61y2I9XuujhtqYhJeHlrV4zUuhWtJYE
-         +b+y3CfPjurlXUsSRtJk/EEhpNT4Q5pa659QQ8z0d5JDstMw3ZiC3raaGpKnJry4hb5x
-         7s7A==
-X-Forwarded-Encrypted: i=1; AJvYcCUu9omoycr75S6Lw61aKY/iWUhGPq9VrjcimDD4+AocyPJaqxiB7/JvxPAIyH4Pu1IQP4FBisR8roD5mvYBhdm9@lists.infradead.org
-X-Gm-Message-State: AOJu0YzPvsn9g1GyXZsfF+j3tsbczGPM43jV9WwJsklJ9b6oC4MEsa6P
-	fLYF15PKq90e6eUGU/mTJxXGUMTmVEOZFqJuY2/wbKdfgj+RsHhq
-X-Gm-Gg: ASbGnctUUuSGC3S0ZQhEci7WjwFLRkivTLrlLOote/HZNEoqThksTTJ3BQVHhIjp85X
-	TgDs1puHA9SYBEs+qVqb2sv6S4a8xwmDrK0MHxObr3m2VB2nysKHFHQs85RkizGdhHFAnbgjpDO
-	WpEUVTVkUpJiz8bRZchiheEzRFfxa8pP6xZaNQSExIppEh3eZ9EBVW5HqpNNcTQjrQaCLnMyTaB
-	JndR84JLrLbr2rquCes0aQVr9XIFbsJ+IwxMOYWh1+ewFNrfeiVvdJiVDgwwAL2AfEXZgE=
-X-Google-Smtp-Source: AGHT+IGNe3+mHP1LxgFUUCsd51sywF6ztvk2U7DFVGXzDM7T3XZT/xcmNAAdPmEOgQ2IwjhCdUOS6g==
-X-Received: by 2002:a05:600c:450f:b0:434:f5c0:32b1 with SMTP id 5b1f17b1804b1-436686461f0mr493936935e9.15.1736009006271;
-        Sat, 04 Jan 2025 08:43:26 -0800 (PST)
+        bh=CCu8j5qgaYDYPnaPdDgFFNsAqlm/hMgJljoqnUl2UNc=;
+        b=qiYNMgRS57pVr4XnidsGapOM/35YBECsnw1P94HwJIwsXMavyU63+ItSw6ro7oKaex
+         WzHbjTi5liVuruZg68zxocZW2ufoXMlO/S3bc1cREswRdj405YcY+XVs0lijwlY4hjbT
+         EYbWLjt1+1vgXKdu8u3a0DowIZ959WLlzSR1FSmyNTTKV4h2q7WK93VyAOoF9DtPWKim
+         5Fje6MP52CYHDmF+hZWtmn0p+XCyfRgVk1YajksQyFoWvZKYtYIwqqv6EzcA4CnNtj+8
+         H0iyVU3r9IupQvCH/H+DqQ7tLMJsyqlXpiGmxYa12pz8AHiGMeSFFJoKzn92ax5iGgvh
+         nkPw==
+X-Forwarded-Encrypted: i=1; AJvYcCVIgPPhRCrlpgxuLm64OOcaDkDv6eVTUUPAMq76io0dwi63KSvf5MjkE6EevgmM+94sOQR283drF94NFNpuq/IQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz5GVIkCNxADoGxEAjvV5ysZa0ZfzI+N1QEM9+sUM3y/f85B8Sv
+	tWqN0ICwUgNXvKs1G8UDt6+A5gItqhIY9ol7DfDfCdM1UzPi0mGlVaV90A==
+X-Gm-Gg: ASbGnct5o9m7OtoY9zFrcvE315+cyHonZML0UX4LnMaQAhoJPP4rBXG9/PK1l2zy7YQ
+	8OminSDk8251f6OoOsugT0iwK38BCxcVHsRPm6OZtGp2pNEdXhqbRMKdfXx5N9hJqM2tvcEbevf
+	PIWv1e3NTkwXf6d40oT9lz79jW9UasFQW3m9EHqXiioXD5HljQ6PYCnNF/2PY6l4FoQQBb34dE+
+	xXVFqPlp1ofZ0u8x48Dgr7yKjcAK4M3/Xs84AMa9kVwmYK5q4NTC7RT2zM+wBupo0EnJ6A=
+X-Google-Smtp-Source: AGHT+IFdsIXpWhtVBKBADkN2xim5hg9rIrv0ODPLKZhGU0lkrGOTgVqV2MCfi/6pnaxRSohjyT+i5Q==
+X-Received: by 2002:a05:600c:468f:b0:434:a815:2b5d with SMTP id 5b1f17b1804b1-43668b785ddmr413028385e9.24.1736009007850;
+        Sat, 04 Jan 2025 08:43:27 -0800 (PST)
 Received: from ivaylo-T580.. ([94.131.202.183])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43661219a7csm513321455e9.24.2025.01.04.08.43.24
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43661219a7csm513321455e9.24.2025.01.04.08.43.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 04 Jan 2025 08:43:25 -0800 (PST)
+        Sat, 04 Jan 2025 08:43:27 -0800 (PST)
 From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 To: Ulf Hansson <ulf.hansson@linaro.org>,
 	Rob Herring <robh@kernel.org>,
@@ -79,16 +79,16 @@ Cc: linux-mmc@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-samsung-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 1/6] dt-bindings: mmc: samsung,exynos-dw-mshc: add specific compatible for exynos8895
-Date: Sat,  4 Jan 2025 18:43:16 +0200
-Message-ID: <20250104164321.333669-2-ivo.ivanov.ivanov1@gmail.com>
+Subject: [PATCH v2 2/6] arm64: dts: exynos8895: add syscon nodes for peric0/1 and fsys0/1
+Date: Sat,  4 Jan 2025 18:43:17 +0200
+Message-ID: <20250104164321.333669-3-ivo.ivanov.ivanov1@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250104164321.333669-1-ivo.ivanov.ivanov1@gmail.com>
 References: <20250104164321.333669-1-ivo.ivanov.ivanov1@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250104_084328_211875_413BF7FC 
+X-CRM114-CacheID: sfid-20250104_084329_820815_2E3F8359 
 X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -104,28 +104,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add samsung,exynos8895-dw-mshc-smu specific compatible to the bindings
-documentation. Since Samsung, as usual, likes reusing devices from older
-designs, use the samsung,exynos7-dw-mshc-smu compatible.
+Add syscon nodes for peric0/1, typically used for USI, and fsys0/1,
+typically used for PCI.
 
 Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- .../devicetree/bindings/mmc/samsung,exynos-dw-mshc.yaml          | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/boot/dts/exynos/exynos8895.dtsi | 24 ++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/mmc/samsung,exynos-dw-mshc.yaml b/Documentation/devicetree/bindings/mmc/samsung,exynos-dw-mshc.yaml
-index 5fe65795f..ef2d1d7c9 100644
---- a/Documentation/devicetree/bindings/mmc/samsung,exynos-dw-mshc.yaml
-+++ b/Documentation/devicetree/bindings/mmc/samsung,exynos-dw-mshc.yaml
-@@ -29,6 +29,7 @@ properties:
-               - samsung,exynos5433-dw-mshc-smu
-               - samsung,exynos7885-dw-mshc-smu
-               - samsung,exynos850-dw-mshc-smu
-+              - samsung,exynos8895-dw-mshc-smu
-           - const: samsung,exynos7-dw-mshc-smu
+diff --git a/arch/arm64/boot/dts/exynos/exynos8895.dtsi b/arch/arm64/boot/dts/exynos/exynos8895.dtsi
+index 4fb9be850..5302a8c1b 100644
+--- a/arch/arm64/boot/dts/exynos/exynos8895.dtsi
++++ b/arch/arm64/boot/dts/exynos/exynos8895.dtsi
+@@ -228,6 +228,12 @@ cmu_peric0: clock-controller@10400000 {
+ 				      "usi1", "usi2", "usi3";
+ 		};
  
-   reg:
++		syscon_peric0: syscon@10420000 {
++			compatible = "samsung,exynos8895-peric0-sysreg", "syscon";
++			reg = <0x10420000 0x2000>;
++			clocks = <&cmu_peric0 CLK_GOUT_PERIC0_SYSREG_PERIC0_PCLK>;
++		};
++
+ 		serial_0: serial@10430000 {
+ 			compatible = "samsung,exynos8895-uart";
+ 			reg = <0x10430000 0x100>;
+@@ -273,6 +279,12 @@ cmu_peric1: clock-controller@10800000 {
+ 				      "usi10", "usi11", "usi12", "usi13";
+ 		};
+ 
++		syscon_peric1: syscon@10820000 {
++			compatible = "samsung,exynos8895-peric1-sysreg", "syscon";
++			reg = <0x10820000 0x2000>;
++			clocks = <&cmu_peric1 CLK_GOUT_PERIC1_SYSREG_PERIC1_PCLK>;
++		};
++
+ 		serial_1: serial@10830000 {
+ 			compatible = "samsung,exynos8895-uart";
+ 			reg = <0x10830000 0x100>;
+@@ -380,6 +392,12 @@ cmu_fsys0: clock-controller@11000000 {
+ 				      "ufs", "usbdrd30";
+ 		};
+ 
++		syscon_fsys0: syscon@11020000 {
++			compatible = "samsung,exynos8895-fsys0-sysreg", "syscon";
++			reg = <0x11020000 0x2000>;
++			clocks = <&cmu_fsys0 CLK_GOUT_FSYS0_SYSREG_FSYS0_PCLK>;
++		};
++
+ 		pinctrl_fsys0: pinctrl@11050000 {
+ 			compatible = "samsung,exynos8895-pinctrl";
+ 			reg = <0x11050000 0x1000>;
+@@ -398,6 +416,12 @@ cmu_fsys1: clock-controller@11400000 {
+ 			clock-names = "oscclk", "bus", "pcie", "ufs", "mmc";
+ 		};
+ 
++		syscon_fsys1: syscon@11420000 {
++			compatible = "samsung,exynos8895-fsys1-sysreg", "syscon";
++			reg = <0x11420000 0x2000>;
++			clocks = <&cmu_fsys1 CLK_GOUT_FSYS1_SYSREG_FSYS1_PCLK>;
++		};
++
+ 		pinctrl_fsys1: pinctrl@11430000 {
+ 			compatible = "samsung,exynos8895-pinctrl";
+ 			reg = <0x11430000 0x1000>;
 -- 
 2.43.0
 
