@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7011DE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 10:07:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AD76E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 10:08:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pf3p1yxwL7clvdxq1c5cAaA7ibJIsPpx0t8k4P3P/iA=; b=biUhnig7JDBGKtAcvhIMov0Jsk
-	W1ktLBAQKGfPIdEWVa97gmjIaGU9LTHWuv6mqyvBa/IuPXtMFelJIcpT22ZmPaYZb787UDQWscL58
-	ItjK2e6D1Nf6TBHqXDxOOuVrerpe+lshOlfZRAcqzvBGvXnMZkhaJQOyXHSGSceEKfvbwHhd4QIpG
-	THO6dXcpDeRKcRlHZ3YGJncEA3Enij4VSJ97p6/AOp0fpgiuMkIknleg9O3tsEs7EmG2Y5IkBLqKS
-	RoxBOraf7Dr2Hli5nv5kG/FuRG/akRmFJyF4H65/NjZJxcF8QPzTzYImnePKXWNqLmtKeCg1vUtqg
-	9pU3ZSKA==;
+	bh=P2E7xqnCjNDMrY4c8PkIGqRI88xAe9s6dstqytTnSo0=; b=eT6f/LkK8bsGQAP62diFxoco7t
+	f6CWbTbDH6zFqKKz34hKoSN+nxGVIslZLkx0Tvn7SyIa0HG6IGciNbk3Wc4ynD/MJwVtq/J97VcW2
+	VyyM8gSCFFslm3P9evNKVvhKZjuU9Q6VXhT+ddveETIe3JSKcZlpG9oRNqSTR2NDwbez++5gAzX2X
+	Cwp+Wyntdyyyb2mfKOoorsDBGtuEfBWuccfi9qroLO0KMBPTpcm/wm6dshCPtgQ+Wux2wUL/7AcPN
+	/qWKyOMHWh2KtWoC21I0f3gR163BVIF0Yi15YyLXkmS2U7AxW4Jds/ldOKaUT9kXDlG6lF/KWqLGU
+	YfitcmJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tU13g-0000000EqCw-1cGl;
-	Sat, 04 Jan 2025 10:07:04 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1tU14n-0000000EqKN-4BhU;
+	Sat, 04 Jan 2025 10:08:14 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tU0xv-0000000EpXi-0uAk
+	id 1tU0y0-0000000EpZ6-0Njd
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Jan 2025 10:01:10 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.44])
-	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4YQGCT4XFNz1JGgr;
-	Sat,  4 Jan 2025 18:00:21 +0800 (CST)
+	Sat, 04 Jan 2025 10:01:13 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.194])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4YQG9205cqz11RlV;
+	Sat,  4 Jan 2025 17:58:14 +0800 (CST)
 Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
-	by mail.maildlp.com (Postfix) with ESMTPS id 97DCF14011D;
-	Sat,  4 Jan 2025 18:01:02 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 78E9E1401F3;
+	Sat,  4 Jan 2025 18:01:04 +0800 (CST)
 Received: from huawei.com (10.175.103.91) by kwepemf100008.china.huawei.com
  (7.202.181.222) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Sat, 4 Jan
- 2025 18:01:01 +0800
+ 2025 18:01:03 +0800
 From: Zeng Heng <zengheng4@huawei.com>
 To: <Dave.Martin@arm.com>, <james.morse@arm.com>
 CC: <bobo.shaobowang@huawei.com>, <linux-arm-kernel@lists.infradead.org>,
 	<jonathan.cameron@huawei.com>, <linux-kernel@vger.kernel.org>
-Subject: [RFC PATCH mpam mpam/snapshot/v6.12-rc1 v4 1/5] arm_mpam: Introduce the definitions of intPARTID and reqPARTID
-Date: Sat, 4 Jan 2025 18:12:20 +0800
-Message-ID: <20250104101224.873926-2-zengheng4@huawei.com>
+Subject: [RFC PATCH mpam mpam/snapshot/v6.12-rc1 v4 4/5] arm_mpam: Set INTERNAL as needed when setting MSC controls
+Date: Sat, 4 Jan 2025 18:12:23 +0800
+Message-ID: <20250104101224.873926-5-zengheng4@huawei.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250104101224.873926-1-zengheng4@huawei.com>
 References: <20250104101224.873926-1-zengheng4@huawei.com>
@@ -54,8 +54,8 @@ X-Originating-IP: [10.175.103.91]
 X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
  kwepemf100008.china.huawei.com (7.202.181.222)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250104_020107_572130_9CCADB96 
-X-CRM114-Status: GOOD (  18.00  )
+X-CRM114-CacheID: sfid-20250104_020112_470852_E33AC5D6 
+X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,166 +70,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The narrow-partid feature in MPAM allows for a more efficient use of
-PARTIDs by enabling a many-to-one mapping of reqpartids (requested PARTIDs)
-to intpartids (internal PARTIDs). This mapping reduces the number of unique
-PARTIDs needed, thus allowing more tasks or processes to be monitored and
-managed with the available resources.
+From: Dave Martin <Dave.Martin@arm.com>
 
-Regarding intPARTID, MPAM uses it as the unit for control group
-configuration delivery. MPAM will synchronize the delivered configuration
-to all reqPARTIDs mapped to the same intPARTIDs. The number of intPARTIDs
-is indicated by MPAMF_PARTID_NRW_IDR.INTPARTID_MAX if implemented, or
-directly use the number of PARTID as intpartid_max if narrow-partid feature
-is not supported.
+Currently, when an MSC implements PARTID narrowing, MPAMCFG_PART_SEL is
+left set to the reqPARTID while programming resource controls in
+an MSC.
 
-reqPARTIDs can be used to expand the number of monitors, for each control
-group is no longer simply restricted by the range of PMG. By mapping
-between intPARTID and reqPARTID, the number of monitors would be greatly
-expanded and more fine-grained monitoring under a control group will be
-achieved.
+The MPAM architecture does not guarantee that any particular resource
+controls will be updated correctly in this scenario.  Instead,
+MPAMCFG_PART_SEL must be written with the corresponding intPARTID and
+with the INTERNAL bit set before attempting to program resource controls.
+Only the PARTID->intPARTID mappings can be written without the INTERNAL
+bit set in MPAMCFG_PART_SEL.
 
-As a MPAM driver applicable to general scenarios, it needs to be compatible
-with systems not supporting narrow-partid and mixed MSCs (some MSCs support
-narrow-partid and some do not) systems.
+Fix it, by rewriting MPAMCFG_PART_SEL appropriately after setting the
+intPARTID mapping.
 
-We determine the number of closids in the following manner:
+The MPAMCFG_INTPARTID_INTERNAL flag is not currently accepted as
+input to the __mpam_part_sel() helper.  In the interest of keeping
+the code clean, break this helper up.
 
-  reqPARTID-np -- The number of reqPARTIDs supported by MSCs that support
-                  narrow-partid.
-  intPARTID-np -- The number of intPARTIDs supported by MSCs that support
-                  narrow partid.
-  PARTID-nnp   -- The number of PARTIDs supported by MSCs that do not
-                  support narrow partid.
-
-  n - Indicates the maximum number of control groups
-  l - Represents the total number of reqpartids
-  m - Indicates the number of reqpartids per control group
-
-  n = min(intPARTID-np, PARTID-nnp)
-  l = min(reqPARTID-np, PARTID-nnp)
-  m = l // n
-
-To illustrate how to determine n, l, and m through examples, we can assume
-a specific example:
-
-l3   - Does not support the narrow PARTID feature, supports a range of 256
-       PARTIDs.
-mata - Supports the narrow-partid feature, supports 32 intPARTIDs, and
-       supports 256 reqPARTIDs.
-
-Then,
-n = min(PARTID-l3, intPARTID-mata) = min(256, 32) = 32
-l = min(PARTID-l3, reqPARTID-mata) = min(256,256) = 256
-m = 256 / 32 = 8
-
-After initialization, the driver determines the 'n' parameter returned by
-resctrl_arch_get_num_closid() and the 'l' parameter returned by
-get_num_reqpartid().
-
-Signed-off-by: Zeng Heng <zengheng4@huawei.com>
+Signed-off-by: Dave Martin <Dave.Martin@arm.com>
+Signed-off-by: James Morse <james.morse@arm.com>
 ---
- drivers/platform/arm64/mpam/mpam_devices.c  | 12 +++++++++++-
- drivers/platform/arm64/mpam/mpam_internal.h |  2 ++
- drivers/platform/arm64/mpam/mpam_resctrl.c  |  9 +++++++--
- 3 files changed, 20 insertions(+), 3 deletions(-)
+ drivers/platform/arm64/mpam/mpam_devices.c | 26 +++++++++++++++++-----
+ 1 file changed, 20 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/platform/arm64/mpam/mpam_devices.c b/drivers/platform/arm64/mpam/mpam_devices.c
-index 9463045c0011..ca621bb132e9 100644
+index ca621bb132e9..781c9146718d 100644
 --- a/drivers/platform/arm64/mpam/mpam_devices.c
 +++ b/drivers/platform/arm64/mpam/mpam_devices.c
-@@ -67,6 +67,7 @@ static DEFINE_MUTEX(mpam_cpuhp_state_lock);
-  * Generating traffic outside this range will result in screaming interrupts.
-  */
- u16 mpam_partid_max;
-+u16 mpam_intpartid_max;
- u8 mpam_pmg_max;
- static bool partid_max_init, partid_max_published;
- static DEFINE_SPINLOCK(partid_max_lock);
-@@ -222,10 +223,16 @@ int mpam_register_requestor(u16 partid_max, u8 pmg_max)
- 	spin_lock(&partid_max_lock);
- 	if (!partid_max_init) {
- 		mpam_partid_max = partid_max;
-+		/*
-+		 * Update mpam_intpartid_max here, in case the
-+		 * system doesn't have narrow-partid feature.
-+		 */
-+		mpam_intpartid_max = partid_max;
- 		mpam_pmg_max = pmg_max;
- 		partid_max_init = true;
- 	} else if (!partid_max_published) {
- 		mpam_partid_max = min(mpam_partid_max, partid_max);
-+		mpam_intpartid_max = min(mpam_intpartid_max, partid_max);
- 		mpam_pmg_max = min(mpam_pmg_max, pmg_max);
- 	} else {
- 		/* New requestors can't lower the values */
-@@ -984,7 +991,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
- 		u16 partid_max = FIELD_GET(MPAMF_PARTID_NRW_IDR_INTPARTID_MAX, nrwidr);
+@@ -205,15 +205,27 @@ static u64 mpam_msc_read_esr(struct mpam_msc *msc)
+ 	return (esr_high << 32) | esr_low;
+ }
  
- 		mpam_set_feature(mpam_feat_partid_nrw, props);
--		msc->partid_max = min(msc->partid_max, partid_max);
-+		msc->intpartid_max = min(msc->partid_max, partid_max);
-+	} else {
-+		msc->intpartid_max = msc->partid_max;
- 	}
- 
- 	mpam_mon_sel_outer_unlock(msc);
-@@ -1046,6 +1055,7 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
- 
- 	spin_lock(&partid_max_lock);
- 	mpam_partid_max = min(mpam_partid_max, msc->partid_max);
-+	mpam_intpartid_max = min(mpam_intpartid_max, msc->intpartid_max);
- 	mpam_pmg_max = min(mpam_pmg_max, msc->pmg_max);
- 	spin_unlock(&partid_max_lock);
- 
-diff --git a/drivers/platform/arm64/mpam/mpam_internal.h b/drivers/platform/arm64/mpam/mpam_internal.h
-index 5af6ed60272e..5fc9f09b6945 100644
---- a/drivers/platform/arm64/mpam/mpam_internal.h
-+++ b/drivers/platform/arm64/mpam/mpam_internal.h
-@@ -86,6 +86,7 @@ struct mpam_msc
- 	bool			error_irq_requested;
- 	bool			error_irq_hw_enabled;
- 	u16			partid_max;
-+	u16			intpartid_max;
- 	u8			pmg_max;
- 	unsigned long		ris_idxs[128 / BITS_PER_LONG];
- 	u32			ris_max;
-@@ -466,6 +467,7 @@ static inline void mpam_assert_srcu_read_lock_held(void)
- 
- /* System wide partid/pmg values */
- extern u16 mpam_partid_max;
-+extern u16 mpam_intpartid_max;
- extern u8 mpam_pmg_max;
- 
- /* Scheduled work callback to enable mpam once all MSC have been probed */
-diff --git a/drivers/platform/arm64/mpam/mpam_resctrl.c b/drivers/platform/arm64/mpam/mpam_resctrl.c
-index 76ddbce0ea9c..ac3d228befcf 100644
---- a/drivers/platform/arm64/mpam/mpam_resctrl.c
-+++ b/drivers/platform/arm64/mpam/mpam_resctrl.c
-@@ -162,6 +162,11 @@ static bool mpam_resctrl_hide_cdp(enum resctrl_res_level rid)
-  * only the system wide safe value is safe to use.
-  */
- u32 resctrl_arch_get_num_closid(struct rdt_resource *ignored)
++static void __mpam_part_sel_raw(u32 partsel, struct mpam_msc *msc)
 +{
-+	return mpam_intpartid_max + 1;
++	lockdep_assert_held(&msc->part_sel_lock);
++	mpam_write_partsel_reg(msc, PART_SEL, partsel);
 +}
 +
-+static u32 get_num_reqpartid(void)
+ static void __mpam_part_sel(u8 ris_idx, u16 partid, struct mpam_msc *msc)
  {
- 	return mpam_partid_max + 1;
- }
-@@ -169,9 +174,9 @@ u32 resctrl_arch_get_num_closid(struct rdt_resource *ignored)
- u32 resctrl_arch_system_num_rmid_idx(void)
- {
- 	u8 closid_shift = fls(mpam_pmg_max);
--	u32 num_partid = resctrl_arch_get_num_closid(NULL);
-+	u32 num_reqpartid = get_num_reqpartid();
+-	u32 partsel;
++	u32 partsel = FIELD_PREP(MPAMCFG_PART_SEL_RIS, ris_idx) |
++		      FIELD_PREP(MPAMCFG_PART_SEL_PARTID_SEL, partid);
  
--	return num_partid << closid_shift;
-+	return num_reqpartid << closid_shift;
+-	lockdep_assert_held(&msc->part_sel_lock);
++	__mpam_part_sel_raw(partsel, msc);
++}
+ 
+-	partsel = FIELD_PREP(MPAMCFG_PART_SEL_RIS, ris_idx) |
+-		  FIELD_PREP(MPAMCFG_PART_SEL_PARTID_SEL, partid);
+-	mpam_write_partsel_reg(msc, PART_SEL, partsel);
++static void __mpam_intpart_sel(u8 ris_idx, u16 intpartid, struct mpam_msc *msc)
++{
++	u32 partsel = FIELD_PREP(MPAMCFG_PART_SEL_RIS, ris_idx) |
++		      FIELD_PREP(MPAMCFG_PART_SEL_PARTID_SEL, intpartid) |
++		      MPAMCFG_PART_SEL_INTERNAL;
++
++	__mpam_part_sel_raw(partsel, msc);
  }
  
- u32 resctrl_arch_rmid_idx_encode(u32 closid, u32 rmid)
+ int mpam_register_requestor(u16 partid_max, u8 pmg_max)
+@@ -1540,9 +1552,11 @@ static void mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16 partid,
+ 	mutex_lock(&msc->part_sel_lock);
+ 	__mpam_part_sel(ris->ris_idx, partid, msc);
+ 
+-	if (mpam_has_feature(mpam_feat_partid_nrw, rprops))
++	if (mpam_has_feature(mpam_feat_partid_nrw, rprops)) {
+ 		mpam_write_partsel_reg(msc, INTPARTID,
+ 				       MPAMCFG_INTPARTID_INTERNAL | partid);
++		__mpam_intpart_sel(ris->ris_idx, partid, msc);
++	}
+ 
+ 	if (mpam_has_feature(mpam_feat_cpor_part, rprops)) {
+ 		if (mpam_has_feature(mpam_feat_cpor_part, cfg))
 -- 
 2.25.1
 
