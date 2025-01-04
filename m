@@ -4,63 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA870E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 00:04:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E43BCE77198
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 02:07:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HKebJDhuxLBc+6tBl94uOkjKOFpskjJf8e6P9FOk/QQ=; b=yHidKRMkLAxHkTkpV1PViyKVIT
-	KhRLSMwRN1oH/0QmWcuwzxb0hS7vnBoVOOq66ah1Sob0EukMP0Cf1b4igm7IFkg1M8xFlKOXIObnS
-	vYGK2hjkWGXUQuv8Ag7Qd8bgg2WCX7yqJT1ut2vdJ+06g1KHFkTzZf2QjMHVjMlsxtple+dLuf+/C
-	duwVUAZkLInfVDyn1WB31nmuMtGa+qeIiB1Dj/5+KZ6L+e/SN5/go7om85oseaA/LhZ6++MhfY6BD
-	HnX+vVyre7zm54hfj8upQS0umcuinKQ/FlFDDkvh+A40nbY+Yyc5A5PLZyOwjTpFU6xmU1iiM8IFW
-	um2gKz8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OYb0qFT4xNRqbSd0yzfW3pxzgxiWHcPjDPKxST8NQXE=; b=wfUWQ51WnwbACNOkEL6oBboNTc
+	/BD5TQWYoPCuLEDtszTi4R9R9ORCJXJkokl3mWRIjpxeto5zBEGOHIwNJ6UFFGGat1+F7LLUyKxhf
+	szQ2ogJniXHBDjZ0kFwYsdHGHsMbAMFUkEu8P87lDMh19ONt+ZpsVAWnrtginpHDfodkrvvYXDRQ0
+	Ifoe79Qi01tNW+i+z5uGkIjWpgfRFYcK7mMZnaRa58pBNZ3M2OLqe/c75SuC9qb1ZiEL+/PDZ3uX1
+	r7jF25PhBEvFp23V/WmptvGY7OYFYqyeRkj711uDBb4OT0epGKjmgK86rjOM6aHoc0He8FjqhYifh
+	FNME/Maw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTreI-0000000EEtZ-2rmD;
-	Sat, 04 Jan 2025 00:04:14 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tTtZf-0000000ELNA-3xlb;
+	Sat, 04 Jan 2025 02:07:35 +0000
+Received: from mail-oi1-x232.google.com ([2607:f8b0:4864:20::232])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTrd3-0000000EEmj-0bg5
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Jan 2025 00:03:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 639475C05D9;
-	Sat,  4 Jan 2025 00:02:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E193CC4CEDE;
-	Sat,  4 Jan 2025 00:02:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735948975;
-	bh=TE63Ok9/k2mxRdrtTCnTzYnZSgktDJM8WGR5CCypWOI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LclNP1Vk5tmWjrsKW4K7ZB1NqpCMwbZW3yGH8htuNDU6CFDHM5brGg9/Hiaes1CLN
-	 +6bEWICChpndHl2pA50hXLIIsg2W6B/2mbuficfoBXHB8KkKe5KvzKZhB6GN7XUq69
-	 67fiet5wD58jq50X83XwbFVwsLbGIa21rO17f5O7qTmexQP0Kr+xbIdiBcDieUJZHk
-	 E4ez3/FzpjhX24jGU1apT8ZoFKzqX/9jQSkkzcO/EHbCQfgRI1OWxcm90pjUGlQ/Ql
-	 wQ/2SxKk0KQ05tHwO6Ch2Itl49iHaDiTyMcNp3EUDhlNgwNrIHeR3d5OsW5o1TwgZG
-	 JdAbOxiCUE6ng==
-Date: Sat, 4 Jan 2025 01:02:51 +0100
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Wolfram Sang <wsa@the-dreams.de>, linux-arm-kernel@lists.infradead.org, 
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH 1/3] i2c: davinci: kill platform data
-Message-ID: <fxj2tqrjfr23cxqmtmpj74bombtfjn3qtpz5iiegvhbap7v5md@pkmrskwamatl>
-References: <20241211102337.37956-1-brgl@bgdev.pl>
- <awney7utrl5n63xsgzxnnlpqajuqtjnrjsbpzloic5iqt4pv2u@ktkhejuihbde>
- <CAMRc=Mci6bPCirruk90hnjBvJW0=HKhqCq+9p4t2k9B=Oy8Ocw@mail.gmail.com>
+	id 1tTtYO-0000000ELCi-2FTN;
+	Sat, 04 Jan 2025 02:06:17 +0000
+Received: by mail-oi1-x232.google.com with SMTP id 5614622812f47-3eb87127854so4058232b6e.2;
+        Fri, 03 Jan 2025 18:06:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1735956375; x=1736561175; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=OYb0qFT4xNRqbSd0yzfW3pxzgxiWHcPjDPKxST8NQXE=;
+        b=OjMQ8ksby8EnTS4z0/0wht8cHK9jW3xNEohblKnUj+wyvxLqt4dsN0vpY1B/lnm1tE
+         74PptRog7HnxnpySnvI+VdHhG1VjXWgRlpcHtRiWkjc/WZw/8e/Y/R8eQy4wvxBHOsSo
+         eODK2bCaJYj7h3Z9lFoqeQ+/CA25avE9LNanDPj4yADlm0Eb37h3bLacp0sIkikwGwYQ
+         klG+eS8mGmWEEqipGzq8qvY2+G6en9j7j3yasUTkVk5NmppZRo9QdCYZf8JD4wmeN7iM
+         jYupcG/P/MEibX4ZDBjn1pqKA/EgXL1EDFBU4qVQlPU8JZCHutFAtmHgTnwwtEgpL71Q
+         GhiA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735956375; x=1736561175;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=OYb0qFT4xNRqbSd0yzfW3pxzgxiWHcPjDPKxST8NQXE=;
+        b=DlUCMUJhYHyoM7Cer3cDz4Uz6Shvhpelb9pO6soPYzK/y3WsheNVCWCXj1gR2Izdai
+         bBuarHb/d0TtGMfosaCK7nVkOy6wQt90GdZr66TPby53CfsgjsuzlMqaaCVMIz2bZ2kR
+         3oHJEEKq9AcYYfDBTIQmvZCKHPgsliperBdyWAZff1R7jEzyNAw0JmkY+yabGYAuzd9g
+         PJlPlVbBFa1orpk/DNoCuwTevK8oTsVsK4qzF4zbDjB6L8cYaQM/XwS2EYb/8SSSeDTK
+         eRVPXYI19WW6yMHjLJry6ozXcdClMhWJsVGDgjbY1UIrUjUlbqK6d2GOo1vcdZ4uQ/8X
+         dcVQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV7RbzYSkfA1eNoKTdwKT+Y4uB4Y++sHMLQymryfA8o3jwMHNG7qkpm5DzzYZN/B+fdq4olo2Y2iUybTDx0ZRa+@lists.infradead.org, AJvYcCVcN9f9NkZaet0pqP9oNBtfVD0LYx1wbAjZeNQaENKzIrtycEbH+0BVOt07QALjBss3MJXIJj0o1PX2cwWZ5pE=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxJK8cAjRnxP29gvAIWCCgBlqhKRSfdDeN5k8P34CX/iodgRW36
+	Uxba+VOQdZ4txX7ieuZQNIontg0YF1ZoyRItcT2D+ozbkfo4JhPd
+X-Gm-Gg: ASbGncvLaqJcnbDgqY2uHU1uZYqXEl4QMvIm8jvJVEilF+7TEOEXBVOd+BU7ACD+AaP
+	MBbvU4j7afoPXEF9DcE+oby0+rCkvC/3DApWGaNQ9kdK9GPgce4uLPiPEgLGVq+xkpSPkEskL/z
+	cj4ioVAScfpWRkGm8ZBBcXdqx1BeHtSHo3psTjxnhufWJXhOPn+i91T19fatlMtzbpm7KhkaOH7
+	A7uPb/CR2sOIMDZiReHw1NwbOe6zKfuKzGJik29a5TrkTGbz/jmtBLyE7DIHd2QHA==
+X-Google-Smtp-Source: AGHT+IHVvrnXzgaqHx2pTSSQxMbOCL2qiRxIqwKYT2ArKTJ/TAhARkxGQVgvgWyIgP+0ezHSfqi7xw==
+X-Received: by 2002:a05:6830:71a3:b0:71a:6845:7d7a with SMTP id 46e09a7af769-720ff6a7e98mr32360970a34.5.1735956374674;
+        Fri, 03 Jan 2025 18:06:14 -0800 (PST)
+Received: from tower.cjhon.com ([2603:8081:ad00:4a:7057:8598:1940:24f4])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-71fc998ef6asm8406568a34.50.2025.01.03.18.06.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 03 Jan 2025 18:06:13 -0800 (PST)
+From: Jimmy Hon <honyuenkwun@gmail.com>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Ondrej Jirman <megi@xff.cz>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Jimmy Hon <honyuenkwun@gmail.com>
+Subject: [PATCH v6 0/4] Orange Pi 5 Max
+Date: Fri,  3 Jan 2025 20:05:36 -0600
+Message-ID: <20250104020544.6777-1-honyuenkwun@gmail.com>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAMRc=Mci6bPCirruk90hnjBvJW0=HKhqCq+9p4t2k9B=Oy8Ocw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_160257_234467_C4AAE51E 
-X-CRM114-Status: GOOD (  20.25  )
+X-CRM114-CacheID: sfid-20250103_180616_588312_346D6538 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,62 +98,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bartosz,
+Add device-tree for Orange Pi 5 Max
 
-On Thu, Jan 02, 2025 at 01:44:10PM +0100, Bartosz Golaszewski wrote:
-> On Fri, Dec 27, 2024 at 12:41 AM Andi Shyti <andi.shyti@kernel.org> wrote:
-> >
-> > Hi Bartosz,
-> >
-> > ...
-> >
-> > >  struct davinci_i2c_dev {
-> > >       struct device           *dev;
-> > >       void __iomem            *base;
-> > > @@ -132,13 +133,10 @@ struct davinci_i2c_dev {
-> > >  #ifdef CONFIG_CPU_FREQ
-> > >       struct notifier_block   freq_transition;
-> > >  #endif
-> > > -     struct davinci_i2c_platform_data *pdata;
-> > > -};
-> > > -
-> > > -/* default platform data to use if not supplied in the platform_device */
-> > > -static struct davinci_i2c_platform_data davinci_i2c_platform_data_default = {
-> > > -     .bus_freq       = 100,
-> > > -     .bus_delay      = 0,
-> >
-> > what happened to bus_delay?
-> >
-> 
-> bus_delay is not set by means other than platform data and it defaults
-> to 0 so it's safe to just remove it.
+Orange Pi now has 3 SBCs using the RK3588 SOC. Refactor the common parts
+of the 5 Plus DTS so it can be shared with the 5 Max and the 5 Ultra.
+The 5 Max and 5 Ultra have a similar credit-card sized board layout and
+will also share a DTSI between them.
 
-yes, but how is it related to this patch? Can we put it on a
-different patch?
+5 Plus: HDMI0, HDMI1, HDMI RX, M.2 E-key, USB-C
+5 Max: HDMI0, HDMI1, WiFi/BT using SDIO/UART
+5 Ultra: HDMI1, HDMI RX, WiFi/BT using SDIO/UART
 
-Thanks,
-Andi
+Changes in v6:
+- Remove clock-names from incorrect merge conflict
 
-> > ...
-> >
-> > > +     /* standard bus frequency (kHz) */
-> > > +     unsigned int            bus_freq;
-> > > +     /* Chip has a ICPFUNC register */
-> > > +     bool                    has_pfunc;
-> > >  };
-> >
-> > > -static struct i2c_bus_recovery_info davinci_i2c_gpio_recovery_info = {
-> > > -     .recover_bus = i2c_generic_scl_recovery,
-> > > -     .prepare_recovery = davinci_i2c_prepare_recovery,
-> > > -     .unprepare_recovery = davinci_i2c_unprepare_recovery,
-> > > -};
-> > > -
-> >
-> > what happened to the gpio_recovery_info?
-> >
-> 
-> Similar story: it's only ever used if there's a pdata-provided
-> recovery GPIO line set but nobody does it anymore.
-> 
-> Bartosz
+Changes in v5:
+- Include Orange Pi 5 Plus USB 3.0 change in baseline before refactor
+- Defer Orange Pi 5 Ultra to a later series
+- Defer Orange Pi 5 Plus HDMI1 to a later series
+Link to v4: https://lore.kernel.org/linux-rockchip/20241229184256.1870-2-honyuenkwun@gmail.com/
+
+Changes in v4:
+- Orange Pi 5 Ultra was released and does not use VP0 to HDMI0
+- Move HDMI0 from common to the board level
+- Make DTSI to be shared by the credit card sized 5 Max and 5 Ultra
+- Updates for the newly submitted HDMI1 support
+- Add Ack for dt-binding
+
+Changes in v3:
+- Refactor to share common include with Orange Pi 5 Plus
+
+Changes in v2:
+- squashed commits together for initial board file
+
+Link to v1: https://lore.kernel.org/linux-rockchip/20241026100310.52679-1-honyuenkwun@gmail.com/
+
+Jimmy Hon (4):
+  arm64: dts: rockchip: refactor common rk3588-orangepi-5.dtsi
+  dt-bindings: arm: rockchip: Add Xunlong Orange Pi 5 Max
+  arm64: dts: rockchip: Add Orange Pi 5 Max board
+  arm64: dts: rockchip: Enable HDMI1 on Orange Pi 5 Max
+
+ .../devicetree/bindings/arm/rockchip.yaml     |   6 +-
+ arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+ .../rockchip/rk3588-orangepi-5-compact.dtsi   | 151 ++++
+ .../dts/rockchip/rk3588-orangepi-5-max.dts    | 101 +++
+ .../dts/rockchip/rk3588-orangepi-5-plus.dts   | 855 ++----------------
+ .../boot/dts/rockchip/rk3588-orangepi-5.dtsi  | 805 +++++++++++++++++
+ 6 files changed, 1127 insertions(+), 792 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-compact.dtsi
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-max.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-orangepi-5.dtsi
+
+
+base-commit: 40384c840ea1944d7c5a392e8975ed088ecf0b37
+prerequisite-patch-id: 6346d482f91509dec24bfe5d4f0ca0d345b90deb
+prerequisite-patch-id: 4672b745f4308a7be527749279edb71625d120e6
+prerequisite-patch-id: 2743fb64eba2a29eaf993ebc8a5d6ee445b69dfa
+-- 
+2.47.1
+
 
