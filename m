@@ -4,76 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1945AE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 20:46:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EFF0E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 20:49:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=479X+hAdJofqV9h3/6m3M+qID36G9eoeh5jRAoD4ftQ=; b=eO1DKYcW8f0g5CRfjKsOrHQytB
-	EGfVAmqTKGJ5+fSkHi6P6HjebGZBFNmC6/mxCo70IEYuEZ6gWTMhFTeiuVNj35/fga6e/R8negW6L
-	iugN2TEqQD4umKAsWiMVMHPzg2D4SKE1uYwakPMdhoowf3nL9LWUMVmC/w5X4nuSFF9if/YBFlWWS
-	HJvG7M45stDoj8Yr72Wn2C9rVueMoyEsaV8W3SPoE0KdMrQ8xqfPRrmWVKVsYS0TSb4oIuD712zcH
-	s6yeq6slwvGKt08zAKDcKtQotOgK/4LXOvgYJoLoCMywictHB00m5Zz3h4V1zaDM2X7ha1rZNH7RI
-	G5WZcRtA==;
+	bh=7qOGU9lSGU7clY77Ut7Cvj8lEKcDAuiG7L+BWvjj5ig=; b=lEe2LH3RfavpKGaEUdvhrOfAOC
+	e/WZ3N37aYdwzGm5e0ESEe+VlCaZ1m/sCmasI3M4K6kIFGJoslFWtJyjQVT4DB3JsIfysrwdOzB9E
+	srlDnE2sg2DdJ9OQ6i1yExGKIuF9H3qSV2od4CkNp8bfZVtOLICrmbCkgDiExISsSja7TBrAlCF0g
+	kNCuRyB3ZyPLILGyVKddN62Xcgsvh0U8XfJgEjD//C+a1pIaIEq1DNVKAUToolbfbfnESRuK7WnHd
+	oeZNRbQE0dM1g7wGH3AgcTQ4tVgs5M+yspneCN+3eLPY19E8/LZIj+Jh68eYqjz0lZctO3OJnpAx4
+	UowKpYbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUB2F-0000000FZqy-3b60;
-	Sat, 04 Jan 2025 20:46:15 +0000
-Received: from mail-oo1-xc2b.google.com ([2607:f8b0:4864:20::c2b])
+	id 1tUB5A-0000000FaFF-2U0N;
+	Sat, 04 Jan 2025 20:49:16 +0000
+Received: from mail-oa1-x2c.google.com ([2001:4860:4864:20::2c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUB15-0000000FZk1-0Ras
+	id 1tUB40-0000000Fa53-0ppp
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Jan 2025 20:45:04 +0000
-Received: by mail-oo1-xc2b.google.com with SMTP id 006d021491bc7-5f2dee7d218so6001698eaf.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 04 Jan 2025 12:45:02 -0800 (PST)
+	Sat, 04 Jan 2025 20:48:05 +0000
+Received: by mail-oa1-x2c.google.com with SMTP id 586e51a60fabf-29f7c3bcf45so6799225fac.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 04 Jan 2025 12:48:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736023502; x=1736628302; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1736023683; x=1736628483; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=479X+hAdJofqV9h3/6m3M+qID36G9eoeh5jRAoD4ftQ=;
-        b=AHG3btiirgDhF43UAToAbaCUzq4KS15W5DBL9oj0BB5WqMNos6oRcBQpEMXzGlWNZZ
-         o9gMuL9VQANj3O5+Z/FKl/GDrZq52VTQ9GJT2A+P2TWcSGBo5Kc0x8EBobtNMJhncjio
-         WIZ4Uwf+a42vI5QYIEp4ielUzZdtWapLWceEC6E+STJZC5fWnhQWBHvG7MZ6TurzF9Ar
-         CE3l6wYE6KfwLkwDoDqnC4WnAB0RJrfO4CgobsDKL+Y9BxGm8Vj3n6jWENyeY4rXblNE
-         RjofHB0fDOC01NxAp+tOhGfieRJEp0nplGmlg085BSGgn5CqrX6nDZikvWHhdB7Xaqkq
-         Ls1g==
+        bh=7qOGU9lSGU7clY77Ut7Cvj8lEKcDAuiG7L+BWvjj5ig=;
+        b=EtW5JFkl2f7YrSHMMg+betFeHASlu5TcEBeWUtp6+M6u+f3UanekuRkij9VncFrCqV
+         qK5tLU5w0vC62dZt4aP8twVlNwv5Ja4YxmR1DGcYjfAV92VXUEB3w3iPlVqNQT/W7ImC
+         bPcdqr07y77kDtqZ7F388zg3f2MQ0JgqimACk8eXxhp/Wg/q4byUWdT2Agq91kckO9SN
+         WdYcxcSzWD79MmdZr48s73gw5wU6/7I2C0UhED090U3QsXt09tH1ZFOnZc5JW2hz33f7
+         REsyuW7b5F5SounNN31+gXEW1d8VKZzyHtmxsg9Elj56+XMCL/EkjF4r63R5UxHsvE5G
+         Q2vw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736023502; x=1736628302;
+        d=1e100.net; s=20230601; t=1736023683; x=1736628483;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=479X+hAdJofqV9h3/6m3M+qID36G9eoeh5jRAoD4ftQ=;
-        b=TmCCI4wvL5m+tmpIO51kX1S8LKAv/E+PJPpJ8BmTuc7n9qQzta6bnh5KENhoakSY7y
-         zH6HsQueuapRzCO5IIg5VpxOOk5WYJvcgKy8ej95bgqXIWqnEUpsRnALRt7BNT9U98uz
-         sy9sg1hGAGeWWegIngTULCTszvIRPrBDq9+2FAGrMYXkGdeyciW9oi8fSmnSyrgVKwoh
-         9ro7E3Wep+DQaPdCuDKzoH8zvaU0JWkIk2tQFUu/4lFvYY7VeJxmEnv8yUXnkRmtRmyW
-         ZM1TwdudFp6R/oOHN5m/iIq4ZrW0RM2tazZBlEJQJBnyhbU08+w4AzxFWbGjikeiefC4
-         BG9Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXysRkhY7CYygV7VMJIi17AW4Zyn+hbVCzU7nHKNy29HcjPckaYh82UsneqjxHPIQtJOLuggm2SKSE4PHWJ9jmD@lists.infradead.org
-X-Gm-Message-State: AOJu0YwLDDP1SN7fMj2J4S+tdn38pKddbPOCi5ugXKdeRo93gAZ9bW4F
-	nO6RBOEpKRig1NLj+ak1Y2Z2GIPeqAIakMt0J00v0wl22Jt/NRl2vN9NN9fl3D3i4/QylV50RBA
-	inP2zBoDxZ0KFf+tou4oiA7yQ1ik=
-X-Gm-Gg: ASbGncvaP2Q1EonMm1UjhX7bCTYOmqIWaZMLNC4u2Yd5qRei6/SR1F05HhrWkI4YVdm
-	16t1BjaChIHBU03xMubzJZPVFwa13h7pQ68ka1QGEFfpW8b1S2T1o
-X-Google-Smtp-Source: AGHT+IET3PfD2lydjmB9lUAPFdSJsVQcRdVdEXojLiqSBWvz4vm97/5ujV9jy/Tj2jeiVODvP+E7drTMo/tGOD5/NwM=
-X-Received: by 2002:a05:6871:328c:b0:29d:c832:7ef6 with SMTP id
- 586e51a60fabf-2a7fb40f20emr28771169fac.39.1736023502000; Sat, 04 Jan 2025
- 12:45:02 -0800 (PST)
+        bh=7qOGU9lSGU7clY77Ut7Cvj8lEKcDAuiG7L+BWvjj5ig=;
+        b=OZqfqqKAcVz48/jRLH3i31mAqWJgFweC+qkqcD7Sz4VrcuwKH3iS10bSQ2oNVkA6U4
+         9aDvIFuMdbEYnb2QzkWQrglcEmDs01Hfi1RwhbHLDMA9uhNojPR/WeEaUIExq1eKP5UR
+         QL78WSHR319uPnviyqfT1aEB1efMfFmI8EOs7Ft6RM+5ZUjagpmA3zia/T3nECD17dUk
+         WVTyYFKnK+uZ36o3ZAFolsfjSha58jXZUeEeCE1YJJIyeIw3rp75VY9pxAs3T5wysC14
+         9NuVjClfH/VZH9CVtNR9chYUjhvyNMbiZFlGCi8LiMsF8MI6POJxX6yHAJMGd/YlUxrh
+         YcEQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU1ZfsrlTAg0Y8f19jh2wYHag4pDCTJ06ARF2g1RoXasZjlxiOu2ayhH36JnwDjMRnxx4l2/QRzx84iVhoOCjQ7@lists.infradead.org
+X-Gm-Message-State: AOJu0YwrQJO0/aW+BhMAhY+IAJrOtv5H7kaN/23qUBw3Y4pYslmo6JCQ
+	fQMUpymFxXg20UOZ2PwL+aXulP4iqw55fWnDlZ5sW5Ak+tP6/5r0MqtnxIsDNnHBRP+X72YXB0A
+	rmdcaM9/1wX/iiTnwOrxH8jgBiYM=
+X-Gm-Gg: ASbGnctytXjZEhGhN2sLMQ907N+cOkpneqzmY8gFPHhplnZeUqTSxt/+wN9s4IAeRfp
+	SwvQdrUlhSFDX8chKBve10EP8BYZVnJK3iLKHgSF0Ct5Myxz/7S88
+X-Google-Smtp-Source: AGHT+IFqdpx5RJdOsRI9uR/s22I3j6REd5BbLNXwPDGQxQawZM2Yl0ffyE3R+tpVxSAwvtmyO4+f1b43CRGilnVUCkA=
+X-Received: by 2002:a05:6870:2f09:b0:29e:3d0b:834 with SMTP id
+ 586e51a60fabf-2a7fb00b511mr31315329fac.5.1736023683128; Sat, 04 Jan 2025
+ 12:48:03 -0800 (PST)
 MIME-Version: 1.0
 References: <20250104074035.1611136-1-anarsoul@gmail.com> <20250104074035.1611136-2-anarsoul@gmail.com>
- <pc7en2jjvce6et6s22sdfooixxxos4u5bitcfhylt7ms65o7wt@bxdvnyeus7b3> <62d449d4-c764-4dda-bbad-22499101f3dd@kernel.org>
-In-Reply-To: <62d449d4-c764-4dda-bbad-22499101f3dd@kernel.org>
+ <CAGb2v66W9q-uQkepYgrD9QKnOwmpUdDakRoKjmsT_4=Adyj09Q@mail.gmail.com>
+ <ca0cad16-7c39-4635-8f09-f9f3c95c9fef@kernel.org> <20250104120256.65511a28@minigeek.lan>
+ <CAGb2v66h1k9Wm5Xr1NMYsOgV--2oaHrTfyVFmUisdKmsG1HBCw@mail.gmail.com>
+In-Reply-To: <CAGb2v66h1k9Wm5Xr1NMYsOgV--2oaHrTfyVFmUisdKmsG1HBCw@mail.gmail.com>
 From: Vasily Khoruzhick <anarsoul@gmail.com>
-Date: Sat, 4 Jan 2025 12:44:35 -0800
-Message-ID: <CA+E=qVfdh0OMM8ZuJdhFkjuuwNZKQBt--YMBw6T=NRvh8jb31Q@mail.gmail.com>
+Date: Sat, 4 Jan 2025 12:47:37 -0800
+Message-ID: <CA+E=qVdm5gf2+TL6ThaTdBy_3jPTSYdU6hj9Om9jPS=iyv8wMA@mail.gmail.com>
 Subject: Re: [PATCH v2 1/4] dt-bindings: clock: sunxi: Export PLL_VIDEO_2X and PLL_MIPI
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+To: wens@csie.org
+Cc: Andre Przywara <andre.przywara@arm.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
 	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
 	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
 	Maxime Ripard <mripard@kernel.org>, Roman Beranek <me@crly.cz>, devicetree@vger.kernel.org, 
@@ -84,8 +86,8 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250104_124503_146724_4F9F0EC7 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20250104_124804_240190_F77391CB 
+X-CRM114-Status: GOOD (  11.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,35 +102,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jan 4, 2025 at 2:18=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.org=
-> wrote:
->
-> On 04/01/2025 11:16, Krzysztof Kozlowski wrote:
-> > On Fri, Jan 03, 2025 at 11:36:57PM -0800, Vasily Khoruzhick wrote:
-> >> Export PLL_VIDEO_2X and PLL_MIPI, these will be used to explicitly
-> >> select TCON0 clock parent in dts
-> >>
-> >> Fixes: ca1170b69968 ("clk: sunxi-ng: a64: force select PLL_MIPI in TCO=
-N0 mux")
-> >> Reviewed-by: Dragan Simic <dsimic@manjaro.org>
-> >> Reviewed-by: Chen-Yu Tsai <wens@csie.org>
-> >
-> > Where did this happen?
-> >
-> >> Tested-by: Frank Oltmanns <frank@oltmanns.dev> # on PinePhone
-> >> Tested-by: Stuart Gathman <stuart@gathman.org> # on OG Pinebook
-> >
-> > And these? I cannot find traces on the list.
->
-> I found them, cover letter.
+On Sat, Jan 4, 2025 at 4:14=E2=80=AFAM Chen-Yu Tsai <wens@csie.org> wrote:
 
-Yeah, most of the tags are replies to v1 cover letter. Stuart's
-Tested-by comes from IRC. However all the mentioned people are on CC
-list, it's not like I'm trying to sneak in counterfeit tags :)
-
-
-> Acked-by: Krzysztof Kozlowski <krzk@kernel.org>
+> > Yes, IIRC the C standard allows repeated definitions with the same
+> > value. And I definitely tested this before (and hence recommended this
+> > approach to Vasily) and it compiled without any warnings here.
 >
-> Best regards,
-> Krzysztof
+> Hmm. Didn't know that. Good to know, and I just tried it on my end.
+
+Yeah, I don't like it either. It's an artefact of pretending that the
+device tree directory(ies) is a separate tree.
+
+> Thanks
+> ChenYu
 
