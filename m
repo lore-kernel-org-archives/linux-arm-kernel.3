@@ -4,74 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFBCCE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 22:25:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8276E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 22:28:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=czvChNqrTnVqBrG36tMy4XATCviKEogNfCQw5FJmBGs=; b=Vspdv2b6/hfwfXOpN7u2D0JcsY
-	depezu+BtmWnDiZUzuZXg+SbOdMUE3ER+hEQG0FRyv7MN9C6Ro0mf7U9yfe9rFF6Erl/ZI7TZli2m
-	vsccRxvQVpUouuHMe7jzwWnmYQN9C8FCRKdgMgevDNubf4M1zBiRha3o+8mbpCW7YD/wgsclQUdjx
-	bz4+Fezum2Ux8q9R+1UAGMeEFVCO6wB6pPcsnf5Wy7+E0c7GJBtN/+Ng14/bhz8m+U0YqT03+Wm4Q
-	XtcKOkgY7aOjWrKH7eu6rxN9fd2TZ3VqD9o+ZGLyocHf59ev7OsGBFq1N3IwtdeXr5ETbw4ZQ5tdJ
-	5g3c3qpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ujcfpRKEAeXT1T9589mAQuACGTaXWAGgYaTuHKcYIq4=; b=EmnfiZHLKIhhmoa67/nF+n3Ttm
+	810UtHsTH8NZQXlIkQxOEzM8GhKrd8ue04fdm4923HOo+SDz05u1U9v0oVZ7WRlgffAW92+rZmyfz
+	mn1q+OmXqRZ3EgFO8AU0QeUX+OJZiRrzGcfwPm5UogOi71gZPDSdzNsRl3+ix1+HuTs+9zIk7iVJS
+	FyL1PR+lR4qctshkC/HIMaE7tiQLmUHIN4goKS26J7oi5WFmDeutSUUjiFf3iUZIQ2b4qSi5InRp9
+	8MxSPP9RDQ0gc3DclTOTKq5a0/XqvYl6hqO+w/2o0eXwyDjHigseQMGWUU/1Ou4ahsuTyw4Ke/hya
+	g0sbUXZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUCaD-0000000FirF-29Rp;
-	Sat, 04 Jan 2025 22:25:25 +0000
-Received: from relay3-d.mail.gandi.net ([217.70.183.195])
+	id 1tUCcZ-0000000Fj5q-1eRI;
+	Sat, 04 Jan 2025 22:27:51 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUCZ0-0000000FihL-3Ps9
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Jan 2025 22:24:12 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 36F0260002;
-	Sat,  4 Jan 2025 22:24:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1736029444;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=czvChNqrTnVqBrG36tMy4XATCviKEogNfCQw5FJmBGs=;
-	b=dozAWfMDXRguNqllDMrxQa8OYymXUBIYiRVahigFVYfExjNGvrIpIRVnZat+EQZFoijqZD
-	wnNyMFaf+ICZv/iuLiwg7GWT6KphiCRUZt3z7CRUrw8A8GeTYL1/OeShn1QRuyD2ppcDfy
-	RyjDFmk9btDc3U542HVWQnCLxKsZswYuVDBB/AHGFigfl2GpPD6YPfg+xk8f6VcYvd3A4y
-	AqfB/f53LSSdwIsBpU2IhgQDuK6Q/mJFEFt61eGTdka9xjrvgsVona0e9YTNhAgud+MPkV
-	w2qz8QbMVx6N19cG2IkhgWXybXPiMMZCHW9dW8d+2y3uYqiFPXZM0IxCNwUF8g==
-Date: Sat, 4 Jan 2025 23:23:59 +0100
-From: Kory Maincent <kory.maincent@bootlin.com>
-To: Oleksij Rempel <o.rempel@pengutronix.de>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, davem@davemloft.net,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
- <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org, Christophe Leroy
- <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
- Florian Fainelli <f.fainelli@gmail.com>, Heiner Kallweit
- <hkallweit1@gmail.com>, Vladimir Oltean <vladimir.oltean@nxp.com>, Marek
- =?UTF-8?B?QmVow7pu?= <kabel@kernel.org>, =?UTF-8?B?Tmljb2zDsg==?= Veronese
- <nicveronese@gmail.com>, Simon Horman <horms@kernel.org>,
- mwojtas@chromium.org, Antoine Tenart <atenart@kernel.org>
-Subject: Re: [PATCH net-next RFC 0/5] net: phy: Introduce a port
- representation
-Message-ID: <20250104232359.2c7a7090@kmaincent-XPS-13-7390>
-In-Reply-To: <Z2hgbdeTXjqWKa14@pengutronix.de>
-References: <20241220201506.2791940-1-maxime.chevallier@bootlin.com>
-	<Z2g3b_t3KwMFozR8@pengutronix.de>
-	<Z2hgbdeTXjqWKa14@pengutronix.de>
-Organization: bootlin
-X-Mailer: Claws Mail 4.0.0 (GTK+ 3.24.33; x86_64-pc-linux-gnu)
+	id 1tUCbO-0000000Fj28-3MZZ;
+	Sat, 04 Jan 2025 22:26:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=ujcfpRKEAeXT1T9589mAQuACGTaXWAGgYaTuHKcYIq4=; b=i6iGQ2tPd85SXBX/OGgpILVT2A
+	QRQgN3I8cI1mVINs2U2DImtrA731rjtefzyd/7ms73qP7Gg0OBWoqcBDDEMAj7y8gdP1QTRzJE7aC
+	v5PEGI40HT4/OzEFE6gLvWZD+qYxCf84rlI9YkElDiDLjXct0N90FIuTcsBamYo/9XOLpZ0HmXdsK
+	Z6GfgjPRatEFbRpJCKirCDYr7fKMCvL945tD41Q5Nm0acrxn7oNqmOFJ/oxn4nDbpvQ0S8uyU9toS
+	0sOAI3cAUJO1/Rv4oxMOKcN65weCid1/+WngZ++o8mOkEi4ek6iytC5KcYrgIwwG68lcM9lu3/TPC
+	vM5CN2WQ==;
+Received: from i53875aad.versanet.de ([83.135.90.173] helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tUCb6-0005tm-J3; Sat, 04 Jan 2025 23:26:20 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: vkoul@kernel.org, Andy Yan <andyshrk@163.com>
+Cc: cristian.ciocaltea@collabora.com, kishon@kernel.org, krzk+dt@kernel.org,
+ robh@kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ Andy Yan <andy.yan@rock-chips.com>
+Subject: Re: [PATCH v3] dt-bindings: phy: Add rk3576 hdptx phy
+Date: Sat, 04 Jan 2025 23:26:19 +0100
+Message-ID: <2195662.yKVeVyVuyW@phil>
+In-Reply-To: <20241231092721.252405-1-andyshrk@163.com>
+References: <20241231092721.252405-1-andyshrk@163.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-Sasl: kory.maincent@bootlin.com
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250104_142411_258565_32CF0CCC 
-X-CRM114-Status: GOOD (  11.14  )
+X-CRM114-CacheID: sfid-20250104_142639_038970_443ACFEC 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,94 +75,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 22 Dec 2024 19:54:37 +0100
-Oleksij Rempel <o.rempel@pengutronix.de> wrote:
+Am Dienstag, 31. Dezember 2024, 10:27:11 CET schrieb Andy Yan:
+> From: Andy Yan <andy.yan@rock-chips.com>
+> 
+> Add compatible for the HDPTX PHY on rk3576, which is compatible with
+> rk3588, but without rst_phy/rst_ropll/rst_lcpll.
+> 
+> In fact, these three reset lines are also optional on the rk3588,
+> they just used for debug, then they were removed on the rk3576 IC
+> design.
+> 
+> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
 
->         transformer {
->             model =3D "ABC123"; /* Transformer model number */
->             manufacturer =3D "TransformerCo"; /* Manufacturer name */
->=20
->             pairs {
->                 pair@0 {
->                     name =3D "A"; /* Pair A */
->                     pins =3D <1 2>; /* Connector pins */
->                     phy-mapping =3D <PHY_TX0_P PHY_TX0_N>; /* PHY pin map=
-ping */
->                     center-tap =3D "CT0"; /* Central tap identifier */
->                     /* if pse-positive and pse-negative are present -
-> polarity is configurable */ pse-positive =3D <PSE_OUT0_0>; /* PSE-control=
-led
-> positive pin -> CT0 */ pse-negative =3D <PSE_OUT0_1>; /* PSE-controlled
-> negative pin -> CT0 */ };
->                 pair@1 {
->                     name =3D "B"; /* Pair B */
->                     pins =3D <3 6>; /* Connector pins */
->                     phy-mapping =3D <PHY_RX0_P PHY_RX0_N>;
->                     center-tap =3D "CT1"; /* Central tap identifier */
->                     pse-positive =3D <PSE_OUT1_0>;
->                     pse-negative =3D <PSE_OUT1_1>;
->                 };
->                 pair@2 {
->                     name =3D "C"; /* Pair C */
->                     pins =3D <4 5>; /* Connector pins */
->                     phy-mapping =3D <PHY_TXRX1_P PHY_TXRX1_N>; /* PHY
-> connection only */ center-tap =3D "CT2"; /* Central tap identifier */
->                     pse-positive =3D <PSE_OUT2_0>;
->                     pse-negative =3D <PSE_OUT2_1>;
->                 };
->                 pair@3 {
->                     name =3D "D"; /* Pair D */
->                     pins =3D <7 8>; /* Connector pins */
->                     phy-mapping =3D <PHY_TXRX2_P PHY_TXRX2_N>; /* PHY
-> connection only */ center-tap =3D "CT3"; /* Central tap identifier */
->                     pse-positive =3D <PSE_OUT3_0>;
->                     pse-negative =3D <PSE_OUT3_1>;
->                 };
->             };
->         };
->=20
->         pse =3D <&pse1>; /* Reference to the attached PSE controller */
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
 
-The PSE pairset and polarity are already described in the PSE bindings.
-https://elixir.bootlin.com/linux/v6.12.6/source/Documentation/devicetree/bi=
-ndings/net/pse-pd/pse-controller.yaml
 
-I am not sure it is a good idea to have PSE information at two different pl=
-aces.
-
->         leds {
->             ethernet-leds {
->                 link =3D <&eth_led0>; /* Link status LED */
->                 activity =3D <&eth_led1>; /* Activity LED */
->                 speed =3D <&eth_led2>; /* Speed indication LED */
->             };
->=20
->             poe-leds {
->                 power =3D <&poe_led0>; /* PoE power status LED */
->                 fault =3D <&poe_led1>; /* PoE fault indication LED */
->                 budget =3D <&poe_led2>; /* PoE budget usage LED */
->             };
->         };
-
-Maybe the PoE leds should also land in our pse-pis binding.
-
-> In case of PoDL, we will have something like this:
->=20
-> pair@0 {
->     name =3D "A"; /* Single pair for 10BaseT1L */
->     pins =3D <1 2>; /* Connector pins */
->     phy-mapping =3D <PHY_TXRX0_P PHY_TXRX0_N>; /* PHY pin mapping */
->     podl-mapping =3D <PODL_OUT0_P PODL_OUT0_N>; /* PoDL mapping: Positive=
- and
-> negative outputs */ };
-
-We should do the same for PoDL. Put all information in the same place, the =
-PSE
-bindings.
-
-Regards,
---=20
-K=C3=B6ry Maincent, Bootlin
-Embedded Linux and kernel engineering
-https://bootlin.com
 
