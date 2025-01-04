@@ -4,115 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3E37E77199
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 09:25:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA47DE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 09:31:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V5b++Y/CEivRA4wDmTB9gIiTbcEVH5XW9dZFKJCAJLM=; b=fhPrLcZDkuJFhxDnZeVFiz/Q3y
-	QDeybXJPBuRnGGNw9G32rP/PpGE/o7kcVkIylFx1QdV1RTTxveWc5Ng+bJ50XwoS+l/UoyvznwT7Q
-	3QcHmtNdxAmR4IuwXRJcjUGNYlhbRCkHDibPYzd9YANXTSRNCqro2n5tApu1V9xbF8XRiI9iXj5NM
-	6WP7z8b9YHNeyTHgssYwN/PfKsUp0NpC1mglxArQjol0qGtbJ1Qkzmnk0Zs+1NK4MnDcWOxjdgUKb
-	n5534Zou/8fjSZeojBcTi53LzNpzYgqBz77ZuLFiPHBDAGyyATqJgKYkJ9QgYRSTpM9q+nLc1B1S1
-	4t2E74dw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D66lKldlqY/lRvXpgksx9XpTtM9beeIE82TNkVjKxGk=; b=gSWlR4WGG/8KtWgG6tXgLHsG1p
+	/xJPv3Xsp8n7vuuraKuZneVHdWK93MOhEOkEYebW3M3mPB+264VdfQKcw1wz64xypZwsJ1tDLPO32
+	SbFiPoCWDqUQPciy+yrWUaVoBEHyqu0f18KSp3TagQE0oJyAbP9hfHmrXrYtXwChaoGEQZVKW5v/4
+	P/b3+ZbPGhODpCKEQQoLhZIKKfZXFWGirKxC4L9pCqFBOQtq6zDW29gjtT6tlqrr5YuPultofK/xq
+	/FCFoDJRjyBXvbknm3+coaG1T/nXLeFWvypmjcrdYSLqoBIAPHqJm5HTLeN0cyW8PWSvMUJFzW3zv
+	ai2S9jgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tU0P7-0000000EmRj-0PZl;
-	Sat, 04 Jan 2025 09:25:09 +0000
+	id 1tU0VQ-0000000EnIN-3F1s;
+	Sat, 04 Jan 2025 09:31:40 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tU0Nw-0000000EmK4-1umS
+	id 1tU0UG-0000000EmzP-1jZW
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Jan 2025 09:23:57 +0000
+	Sat, 04 Jan 2025 09:30:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B07845C4CC6;
-	Sat,  4 Jan 2025 09:23:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD35CC4CED1;
-	Sat,  4 Jan 2025 09:23:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735982634;
-	bh=2fizrOeFdxzxEs3HnJpNgKdl4YmsAb+Ih8fW5Ysihvw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=MLpCZw4Sc/O/jeOcI0lO9U8bnMNAkz359e7b9+//cZqBIe5yNu37G2l7502uVhKnH
-	 T59wsEMuxh7qKciiBwSD6CmtW5grCFFCeiCBEqKQ78nSSVLiMvj3QaKp1qm4fAwncu
-	 /vq+NqnlAgaTPB+22GqGWt18g9sldU+2/t4lthlOanrP1CC8JftjxvVfzcIVJsLHIv
-	 xZDYWGMDsyqL33+1fJepMwfZ00mKgRduK/q4FxymWSFp5BnYSl2RDLi3Ycz3u2dQDC
-	 r2U7FixD1S5T1LaG/vOMNKJowhZqmY8c9A1MsajXymFIvy8J8D7JWBmdt1MN+futP5
-	 7hD3Q8+hj8lnA==
-Message-ID: <9c881612-d80a-4656-aac2-f6134c274167@kernel.org>
-Date: Sat, 4 Jan 2025 10:23:46 +0100
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5A94F5C4DA1;
+	Sat,  4 Jan 2025 09:29:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67198C4CED1;
+	Sat,  4 Jan 2025 09:30:26 +0000 (UTC)
+Date: Sat, 4 Jan 2025 10:30:24 +0100
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Lukas Schmid <lukas.schmid@netcube.li>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Linus Walleij <linus.walleij@linaro.org>, Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-gpio@vger.kernel.org
+Subject: Re: [PATCH v3 1/4] dt-bindings: vendor-prefixes: Add NetCube Systems
+ Austria name
+Message-ID: <pvbpqlejn6r7yjzufdmialyvjlmitusltb3ljhwstxbtoglf6q@7tvjz6neolnp>
+References: <20250103204523.3779-1-lukas.schmid@netcube.li>
+ <20250103204523.3779-2-lukas.schmid@netcube.li>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/4] dt-bindings: power: supply: add max77759-fg flavor
-To: Thomas Antoine <t.antoine@uclouvain.be>,
- Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Dimitri Fedrau <dima.fedrau@gmail.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Peter Griffin <peter.griffin@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org
-References: <20250102-b4-gs101_max77759_fg-v2-0-87959abeb7ff@uclouvain.be>
- <20250102-b4-gs101_max77759_fg-v2-2-87959abeb7ff@uclouvain.be>
- <cf75f897-1c00-4a37-bce3-f1eb9855a3cd@kernel.org>
- <2eb1f056-4102-4536-90d1-9d5df1fd2cb5@uclouvain.be>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <2eb1f056-4102-4536-90d1-9d5df1fd2cb5@uclouvain.be>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250103204523.3779-2-lukas.schmid@netcube.li>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250104_012356_589575_3F3BC5F4 
-X-CRM114-Status: GOOD (  10.58  )
+X-CRM114-CacheID: sfid-20250104_013028_492467_DF52A6F6 
+X-CRM114-Status: UNSURE (   8.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,29 +68,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/01/2025 17:16, Thomas Antoine wrote:
->>> -  reg:
->>> -    items:
->>> -      - description: ModelGauge m5 registers
->>> -      - description: Nonvolatile registers
->>
->> Widest constraints always stay here.
->>
->> See:
->> https://elixir.bootlin.com/linux/v6.11-rc6/source/Documentation/devicetree/bindings/ufs/qcom,ufs.yaml#L127
->>
->> I did not say to remove it. I asked you to add allOf section restricting it.
+On Fri, Jan 03, 2025 at 08:45:17PM +0000, Lukas Schmid wrote:
+> Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
 > 
-> Thanks for the example. I think I understand now. I will put the reg section
-> back and use min/maxItems in the allOf:if: to set the number of reg/reg-names
-> to 1 for the MAX77759.
-> 
-> Do I keep shunt-resistor-micro-ohms as I did it here? I could move it in
+> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
 
 
-Depends, where does it come from? What does the other referenced schema say?
+Repeating again one of my comments:
 
+Please run scripts/checkpatch.pl and fix reported warnings. After that,
+run also 'scripts/checkpatch.pl --strict' and (probably) fix more
+warnings. Some warnings can be ignored, especially from --strict run,
+but the code here looks like it needs a fix. Feel free to get in touch
+if the warning is not clear.
+
+Please implement all comments.
 
 Best regards,
 Krzysztof
+
 
