@@ -4,89 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DE0AE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 14:22:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 703B8E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 14:45:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qNm4lO8LttsScN/mHpd035i5M1a7i15vRYx1Fsr1FUU=; b=3aKfG/2wJFxnsKKT7lcCie65Av
-	oXX5GJBo6dgfwM9U+lIudiERZNI8UMwySYg+ByY5hBcUtpTsDAV75feojygM/bhdU/rOwto/zuqnJ
-	gKppG/M80F7rvhG/gOY82VCprPNzzd0Qy6A33hJgBqnPQantX/lUQrPkWgPoig89N/pNqZzdAzjtn
-	SMV2Wy/wWIn8e2i8Z72XdMWa09Zy9+cD6fAwF738AIqxOfOIMsVUBnKtexLdB9LwxNgQCSbovxEGn
-	INZgXVtW7BEfbdbwxwPtRytUopHDpMlFSaNISiZkDLQRYXCtMWbHe301WmS7xmJ8QJ+KYFDkoMHiv
-	Qjo9gUiQ==;
+	bh=tHCRf6R7yF2hbyTmvVJFghSH438RHFJi8Euo7PEiFBo=; b=VhKpdCPCoztu1RMRIaa/6HedAc
+	Rm0VgCap98uFDSz9SnidzF55XgRyunpkjinNC/nriVn1hVJeBMCT1llvrWIwy5SZQo/5KM4rFDqrB
+	ix19s2u5cktHqG2orTwEemsmLBH+XMxePqok02+kQQ9nSHdU0elAsw90aJ6wFCb4G3r/BxRMQStva
+	ftRXyZc/ScDPGLcMz4SrAsciFijtydM1hhdJXKE1JxwdiS//vvN7uSlu8042yZymhw+xdSWLIgNT/
+	oW6Uz/LPP7lgs8mj3VZpRC561jyBXfX181seZ+/Kx78DRMDPhgPDY35U0OujLhuLt6nYpy9CA/CG7
+	oPhRLrSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tU535-0000000F6Mt-1Ult;
-	Sat, 04 Jan 2025 14:22:44 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1tU5Od-0000000F8NA-0ygb;
+	Sat, 04 Jan 2025 14:44:59 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tU50n-0000000F5t5-2fzk
+	id 1tU5NS-0000000F8Io-0sVR
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Jan 2025 14:20:23 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-5d0d6087ca3so2717215a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 04 Jan 2025 06:20:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736000420; x=1736605220; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qNm4lO8LttsScN/mHpd035i5M1a7i15vRYx1Fsr1FUU=;
-        b=aVDsmO3g3BHuWiDZF11Z52UKs/vT3i0YLqkiuNmnF+9/gjvke0f08AR4WLFqkGo2Fu
-         /5XVt7ZLQ6Zalfnri41d8q+oY3v4WHzDFA/1nsyCAr1nL4cfsKv4+dIJ7FNy0GU/1Pbf
-         uHpQIc8vS+2E6rip0MzvgufSnxKNiA0TeT8VJgOQfI32TIJ9NTJR0BoKb2Jrboab6qfI
-         PnDTD9e+O4Uj7pZ5UdtN9N9vssqxasglwkqPynGqhC4K+THJCBMhMikIOINSpcbLZlUQ
-         6lpyYkTndXW/WeGpf2Z+yuFqpcHKKaUobHQg6x3njznMbuArU3OGeyyykYAqkU/iqrbU
-         b6yQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736000420; x=1736605220;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=qNm4lO8LttsScN/mHpd035i5M1a7i15vRYx1Fsr1FUU=;
-        b=vufcuyCzNUzNJEv6iPhWOSJEXEABpxU+nGdz/88C2z6O0mrjiR5aShOTNOzcbbXtqm
-         w2woYxOVKrRnIcefhYOGl56u23x0iphsCOskUQ0m9PjAwJh53AFrpG4a7FJIfmkp+idO
-         TMF7DPr9ZXDzqtBq4YyLjxcPnMtHce6Q7egflpcdRZgVIXhoikEyy5+edEtjWkVMyOum
-         Y7K9nCJ0y9GwxRHCjiBdNmSj9xFNq+3GVOXHEDos2Ca97WMhCQvM1gMXCstoK2k2Rf+h
-         t0P7RDlGaMBZSV7ZDjT9Rp3Gw2p3QXEIRuLErKKKjqiAzP6y+dWDbf620GMU5EJJZ3p3
-         v3PQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVwlljL7JJenlt/TVQBzX6M12Alviti5x9RAWu7ZYJAAzLXvQd7BuQeJopzXoTq5uYhYtGwm9nZRjvsBpVd8VU4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxo97uHMc2AWMjbNxMDEBHmNoufFhA67GHKOPSTMgARrHHzEUvL
-	8h8GgR1BE7bLa1VFA65MxAU+KYbAAnGN633clvH+mol+qI4333CVYGey/w0Z21o=
-X-Gm-Gg: ASbGncsDwmZVLxaEO+xZreqVUOEvM7nRDOT59fOMQ9HvCYpdOyP5njZG6kKE6pkRFKg
-	798AjyLBRWmg96d8pyUYeKmJguKAV/5hS2oW7cfNzEy450U5r3WBRhxoLmBguziwLwfUHeRFFED
-	lmXyiyWNFC7HKf9ipiYG25JEdh/uEiACJjyTpVcu/iMV2OTHz05i3/ebSD6WIC8QvlInq9xklLf
-	EoFiePKwCMVw0LUAD5ejrUAM0y8AXFG85QFKDR7Iu64Jr2LLGY94UfSyDMCobU3U9BPtzM=
-X-Google-Smtp-Source: AGHT+IGPmJFIHjn+qicLAczIza9y3UfewpY8vqEm6a6NDH7ku9/Oq/dk8QplINPtjBf7vNpk6BgDGg==
-X-Received: by 2002:a05:6402:3221:b0:5ce:f524:c15d with SMTP id 4fb4d7f45d1cf-5d81de33f7fmr16791923a12.11.1736000419643;
-        Sat, 04 Jan 2025 06:20:19 -0800 (PST)
-Received: from krzk-bin.. ([178.197.223.165])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d806fed4e1sm21376270a12.70.2025.01.04.06.20.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 04 Jan 2025 06:20:19 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Neal Liu <neal.liu@mediatek.com>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	stable@vger.kernel.org
-Subject: [PATCH 2/2] soc: mediatek: mtk-devapc: Fix leaking IO map on driver remove
-Date: Sat,  4 Jan 2025 15:20:12 +0100
-Message-ID: <20250104142012.115974-2-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250104142012.115974-1-krzysztof.kozlowski@linaro.org>
-References: <20250104142012.115974-1-krzysztof.kozlowski@linaro.org>
+	Sat, 04 Jan 2025 14:43:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2598FA408EB;
+	Sat,  4 Jan 2025 14:41:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 926E6C4CED1;
+	Sat,  4 Jan 2025 14:43:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736001824;
+	bh=9vyKJIp5A3trkwUj/vySmv5/pKr00XO/j9e32R7kQ2w=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=fxFbc8FXRiCbagh6o8hc81EhzYHHXyptgub/vLjAfxP7Zg4ZmMoymjMmLMcSRAo4L
+	 bef//jE97Cgj1y5x6Wu2HV/k+QreLJWZTVS2IoiJrn2NKA2q/gSL2O6V9Q7Wk0Xqek
+	 JGY8ujPWfG5tEQHy1xQVu3tFYULhzCPjZsMaLo/S/KD3W16HfTZ+9/Wd/n8j8i7RV8
+	 +O4ufftYIvXkgoj2JPVOIeE3bbn61/HHq9DYkZLwE83fKjV7EsRteYGmCtecqk/xwq
+	 uDU6lxrTLOX79jQpNjJJ1UEPyXD+TTyJUztq0i0ko0kken09W8nG7dIh3oQl3NV3uX
+	 IobOGq5WYDw5A==
+Message-ID: <4666f8e9-d19e-45bd-be9c-a7f111168d66@kernel.org>
+Date: Sat, 4 Jan 2025 15:43:37 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] dt-bindings: arm: fsl: Update i.MX95 compatible
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ Peng Fan <peng.fan@nxp.com>
+References: <20250104-imx9-machine-v1-0-18a78e41456b@nxp.com>
+ <20250104-imx9-machine-v1-1-18a78e41456b@nxp.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
+ QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
+ gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
+ /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
+ iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
+ VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
+ 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
+ xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
+ eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
+ AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
+ MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
+ Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
+ ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
+ vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
+ oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
+ lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
+ t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
+ uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
+ 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
+ 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
+In-Reply-To: <20250104-imx9-machine-v1-1-18a78e41456b@nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250104_062021_672015_77109333 
-X-CRM114-Status: GOOD (  11.42  )
+X-CRM114-CacheID: sfid-20250104_064346_394698_3119EEB2 
+X-CRM114-Status: UNSURE (   8.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,28 +124,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Driver removal should fully clean up - unmap the memory.
+On 04/01/2025 13:13, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
+> 
+> i.MX95 features a System Controller and SCMI Spec 3.2 compatible
+> firmware System Manager(SM) runs on the controller.
+> Add "fsl,imx-sm" compatible string as fallback for "fsl,imx95" to
+> indicate it is compatible with i.MX System Manager.
 
-Fixes: 0890beb22618 ("soc: mediatek: add mt6779 devapc driver")
-Cc: <stable@vger.kernel.org>
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- drivers/soc/mediatek/mtk-devapc.c | 1 +
- 1 file changed, 1 insertion(+)
+I see little value in generic compatible like that. All these are
+aarch64 so why not adding that compatible?
 
-diff --git a/drivers/soc/mediatek/mtk-devapc.c b/drivers/soc/mediatek/mtk-devapc.c
-index 500847b41b16..f54c966138b5 100644
---- a/drivers/soc/mediatek/mtk-devapc.c
-+++ b/drivers/soc/mediatek/mtk-devapc.c
-@@ -305,6 +305,7 @@ static void mtk_devapc_remove(struct platform_device *pdev)
- 	struct mtk_devapc_context *ctx = platform_get_drvdata(pdev);
- 
- 	stop_devapc(ctx);
-+	iounmap(ctx->infra_base);
- }
- 
- static struct platform_driver mtk_devapc_driver = {
--- 
-2.43.0
+How this generic compatible would be used?
 
+And by what exactly?
+
+All this must be explained in the commit msg.
+
+Best regards,
+Krzysztof
 
