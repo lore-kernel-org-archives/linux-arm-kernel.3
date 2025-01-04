@@ -4,112 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 703B8E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 14:45:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 016B8E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 16:30:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tHCRf6R7yF2hbyTmvVJFghSH438RHFJi8Euo7PEiFBo=; b=VhKpdCPCoztu1RMRIaa/6HedAc
-	Rm0VgCap98uFDSz9SnidzF55XgRyunpkjinNC/nriVn1hVJeBMCT1llvrWIwy5SZQo/5KM4rFDqrB
-	ix19s2u5cktHqG2orTwEemsmLBH+XMxePqok02+kQQ9nSHdU0elAsw90aJ6wFCb4G3r/BxRMQStva
-	ftRXyZc/ScDPGLcMz4SrAsciFijtydM1hhdJXKE1JxwdiS//vvN7uSlu8042yZymhw+xdSWLIgNT/
-	oW6Uz/LPP7lgs8mj3VZpRC561jyBXfX181seZ+/Kx78DRMDPhgPDY35U0OujLhuLt6nYpy9CA/CG7
-	oPhRLrSg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=75kKbb31JP2zVHFIDZ/o0cPWp6patqfUDNdVfPTRa8g=; b=10dt9ecrU9aBNBMw5vBpX5QLrm
+	g19xXxlxEqLQr1V6+TItpSNANONWHVPjBSdDlUZy9lBWleDRcdcGrpG01GpcsiFvJN2hwIwaMCuxr
+	oUn8VUS7eE5m2EXgM2uhWcuu0AwSTJiNbRnQWfvFDRXM8IA2V/vsfajXqt/o1LJLSO2c5fIe0EB0x
+	7EEN0/4HyIasnafXpf88y+puh3ehmKkPzsn2ouZAJxHJVQi0WbVaqjL9zn0hsqCk8TQXpskxUDw1J
+	wbJy2O7X5LB9w3uGVlI3n2YL/tk459SrxIMzUIE/pWTAN8reUdw6/uAGePzr+jSpFQ/Sus0gjvRPS
+	XiiCKHLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tU5Od-0000000F8NA-0ygb;
-	Sat, 04 Jan 2025 14:44:59 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tU72n-0000000FH1u-0Z7w;
+	Sat, 04 Jan 2025 16:30:33 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tU5NS-0000000F8Io-0sVR
+	id 1tU71c-0000000FGpp-08rX
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Jan 2025 14:43:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2598FA408EB;
-	Sat,  4 Jan 2025 14:41:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 926E6C4CED1;
-	Sat,  4 Jan 2025 14:43:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736001824;
-	bh=9vyKJIp5A3trkwUj/vySmv5/pKr00XO/j9e32R7kQ2w=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=fxFbc8FXRiCbagh6o8hc81EhzYHHXyptgub/vLjAfxP7Zg4ZmMoymjMmLMcSRAo4L
-	 bef//jE97Cgj1y5x6Wu2HV/k+QreLJWZTVS2IoiJrn2NKA2q/gSL2O6V9Q7Wk0Xqek
-	 JGY8ujPWfG5tEQHy1xQVu3tFYULhzCPjZsMaLo/S/KD3W16HfTZ+9/Wd/n8j8i7RV8
-	 +O4ufftYIvXkgoj2JPVOIeE3bbn61/HHq9DYkZLwE83fKjV7EsRteYGmCtecqk/xwq
-	 uDU6lxrTLOX79jQpNjJJ1UEPyXD+TTyJUztq0i0ko0kken09W8nG7dIh3oQl3NV3uX
-	 IobOGq5WYDw5A==
-Message-ID: <4666f8e9-d19e-45bd-be9c-a7f111168d66@kernel.org>
-Date: Sat, 4 Jan 2025 15:43:37 +0100
+	Sat, 04 Jan 2025 16:29:21 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-436249df846so90723015e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 04 Jan 2025 08:29:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1736008158; x=1736612958; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=75kKbb31JP2zVHFIDZ/o0cPWp6patqfUDNdVfPTRa8g=;
+        b=gGLuBPYN+46fvi0LM7VLMh+v6CgqjpKjohx5TqbxB1hWWBU4evt4s48b8InxRXV9FB
+         0HUeY7AczoyrtSG9aQBTdW7UQSCHInScAipVBewxbcYFHyjPJeOQS+jjJXQmsVFRv7Y1
+         5Zu183JszKO87jugauS5I4d+Ru1k/Iy15zIUPqLO7wYNbN80RewkePIILE724/JDC6i+
+         O5tm8UKBVxiLNjlYjSsUlkIjVkpsHoMDFrQN1fUX2OvIW1qHTqXQCuGv54UKDtfSA+Y2
+         guzRpaoWgXbtI5S2VVPFwnzC3xx5ZtzTAgQ6u1Q7qtqRUUQmP3RuyXZa4UOsAuHOPieh
+         vq8g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736008158; x=1736612958;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=75kKbb31JP2zVHFIDZ/o0cPWp6patqfUDNdVfPTRa8g=;
+        b=JwWWY7ERhWUy3ZMvN304ga+3inx0x5eLAJCiDPO+rhYDR2snqq1J9A7KSvDflDScgl
+         Er19eMCO7OPE9fbgieAh3L1j4Qkv7o71ONJzKvPEIYphVBohRRs9uCezYC0mc6BGUusG
+         funN6dB8aAei+Igfor7pnAEzUm25G0FjKn/tE5Z+Uoci0UQNhtmdxX5K/jv5qyLraFbH
+         uX8zmtm6406FbprXXvULyuBnKhvdiYaCZZoMeTeEMYXxfBgQ+80UUPWQM/jFsR7COJgx
+         wJejP7qg2lAUlRlNl12xFk0HQyXwQcP7kOotqG5Ba/7nZprEAYLJm50F5XllFSKtixZG
+         bs5g==
+X-Forwarded-Encrypted: i=1; AJvYcCV5YmAI7LBItKE9DmCjFNfudWOEQh5EhFcPe4cWtHNMGz2/1CHDgQy0lGZJGbgIXWOEqghbDS192pJVx59+ZKOy@lists.infradead.org
+X-Gm-Message-State: AOJu0YxCdYQ+iq0oGBwI4pxxt1DnFAK/KnsrHyI2Y20F+UEm0EZVcCUQ
+	VlRKe+LUe2iqLRB/MULYqoPWFkferNNV9u/t0JtITmqdbRBQjz9m
+X-Gm-Gg: ASbGncvsSxyq5u3j9UwhgSxuywXJkE4wjncmCab6ocP7I+lz31FiL6g+1nRKgK80uuC
+	FYWX2dEWFJDC7x31nhVoZUR7748br+YEgp7Ib5SvbMGVOpBxJIa7/PGD3gOyhggMvWEzILjrbXK
+	qc9E7drPRumi7sRIZr1Hrl0hjIv5kJUlAUr+9W81V89KAG4+T/zPRG3S6zn3kOZNIlwnXcsYZTL
+	sFR/XTjj8cGo0Mq2+K5NC/eTupNSgPMvtSkW2YhzyDlolEPbX3c1rfvJ5cBiYI2huW2X98=
+X-Google-Smtp-Source: AGHT+IEwXbvJYKrDP+G3pOKdVCJMWC5VrzP8JtzhdZgCM4Ja2ck79MkUoLJzlgAPiaoTuEpTbft98Q==
+X-Received: by 2002:a05:600c:154c:b0:434:9f81:76d5 with SMTP id 5b1f17b1804b1-43668b49a47mr423056215e9.22.1736008158197;
+        Sat, 04 Jan 2025 08:29:18 -0800 (PST)
+Received: from ivaylo-T580.. ([94.131.202.183])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4366127c4fcsm522807895e9.29.2025.01.04.08.29.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 04 Jan 2025 08:29:17 -0800 (PST)
+From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Sam Protsenko <semen.protsenko@linaro.org>
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/3] soc: samsung: usi: implement support for USIv1
+Date: Sat,  4 Jan 2025 18:29:12 +0200
+Message-ID: <20250104162915.332005-1-ivo.ivanov.ivanov1@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: arm: fsl: Update i.MX95 compatible
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- Peng Fan <peng.fan@nxp.com>
-References: <20250104-imx9-machine-v1-0-18a78e41456b@nxp.com>
- <20250104-imx9-machine-v1-1-18a78e41456b@nxp.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250104-imx9-machine-v1-1-18a78e41456b@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250104_064346_394698_3119EEB2 
-X-CRM114-Status: UNSURE (   8.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250104_082920_070549_815381EF 
+X-CRM114-Status: GOOD (  13.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,23 +99,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/01/2025 13:13, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
-> 
-> i.MX95 features a System Controller and SCMI Spec 3.2 compatible
-> firmware System Manager(SM) runs on the controller.
-> Add "fsl,imx-sm" compatible string as fallback for "fsl,imx95" to
-> indicate it is compatible with i.MX System Manager.
+Hey folks,
 
-I see little value in generic compatible like that. All these are
-aarch64 so why not adding that compatible?
+This patch series adds support for USIv1 in the existing exynos-usi driver,
+as well as dedicated sysreg compatibles for exynos8895.
 
-How this generic compatible would be used?
+The USIv1 IP-core is found on some ARM64 Exynos SoCs (like Exynos8895).
+It provides selectable serial protocols (one of: HSI2C0, HSI2C1, HSI2C0_1,
+SPI, UART, UART_HSI2C1). It's a bit different from USIv2 as it doesn't
+have any known MMIO register map and the serial protocols that it
+implements share the same register base, hence why the way of modelling it
+in device trees will be with ranges, like so:
 
-And by what exactly?
+usi1: usi@10460000 {
+  compatible = "samsung,exynos8895-usi";
+  ranges = <0x0 0x10460000 0x11000>;
+  clocks = <1>, <2>;
+  clock-names = "pclk", "ipclk";
+  #address-cells = <1>;
+  #size-cells = <1>;
+  samsung,sysreg = <&syscon_peric0 0x1004>;
+  status = "disabled";
 
-All this must be explained in the commit msg.
+  hsi2c_5: i2c@0 {
+    compatible = "samsung,exynos8895-hsi2c";
+    reg = <0x0 0x1000>;
+    ...
+  };
+};
+
+This patchset also assumes that [1] and [2] have been merged before it.
 
 Best regards,
-Krzysztof
+Ivaylo
+
+[1]: https://lore.kernel.org/all/20241222145257.31451-1-krzysztof.kozlowski@linaro.org/
+[2]: https://lore.kernel.org/all/20250103082549.19419-1-krzysztof.kozlowski@linaro.org/
+
+Changes in v2:
+  - add r-b from Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+  - restrict the possible ids of samsung,mode with an allOf:if:then
+  - set the properties samsung,clkreq-on and reg to false for non-usiv2
+  - only make use of exynos_usi_modes
+  - make sure pclk and ipclk are enabled
+
+Ivaylo Ivanov (3):
+  dt-bindings: soc: samsung: exynos-sysreg: add sysreg compatibles for
+    exynos8895
+  dt-bindings: soc: samsung: usi: add USIv1 and samsung,exynos8895-usi
+  soc: samsung: usi: implement support for USIv1
+
+ .../bindings/soc/samsung/exynos-usi.yaml      | 55 +++++++++++++++----
+ .../soc/samsung/samsung,exynos-sysreg.yaml    |  8 +++
+ drivers/soc/samsung/exynos-usi.c              | 42 +++++++++++++-
+ include/dt-bindings/soc/samsung,exynos-usi.h  |  7 +++
+ 4 files changed, 97 insertions(+), 15 deletions(-)
+
+-- 
+2.43.0
+
 
