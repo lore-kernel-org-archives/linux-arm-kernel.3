@@ -4,59 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4820FE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 13:39:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79E4EE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 13:57:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=e+zahhJHj07HWvl7DNjhmnl0nAVHZGcBuWyOQqbroZ8=; b=dln+KFsSV4+91d
-	41JJOg7+C7NdihrlfrbsRjJ7R+9Ko9j3regUdx7MjtU8iiq1JW0yqE0qCr55OL6XGZTXfiFookn5o
-	E60oGdwmq7SioR/8ow8VFUteLrEuARsYuk4guoUi6XOAj8FSfvLc4QILTNGSGjdjkSwoTzQ7+dqiI
-	PYncqsIJFbNqsyQSIImoVPed718juTTqYKzJdk+7iKnkQ5lUSBwCCzkCz1vm7u0R1s1tMdW45y4Hd
-	QyaUzsO+xbHhvhFow+bXE0mS+fKjSa1zLIafJ4PI4AI7ILQoegK9jWLXI3EWmSOKfx4z0xDYEItvG
-	ryWJRJKPGBQRCyuMnfwQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zJEWejicaBz6dmUxoJQXl7EdOTueBwQvHraBKvH38is=; b=mjLgNufGo5gEBmxZhJVr7Y8omd
+	FXBbKkKC6uL7gTkeYsTX2ZDSIhsFqyv8U4ngZ2l+Rn/WOHcDcw/X6h2C49b4KEC1Agr7xzIgmpakH
+	KYVN3jY/mnJU2s3kkbnsJTuDEKaDZqoR8WIfM5hxwuyuQcai+Lh0R2j0GZ5pwpkRBotaehUgK9Jxc
+	yLbaQZPuz2vn6ENZ116ZUI4q2SwQtRlZOLPdfD6qBC3BUgkW0kXIkQexhAqwu6SoLOQvfImr6XC9m
+	30GcQ7LtNkn31ClvISxlutI9GTOsxvRz6ybN4LjOKqQAjYSs9q8Y9s03WTPPq+FQR6+B7nstyTjTo
+	fB4KvYkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tU4NE-0000000F3hd-1Cuk;
-	Sat, 04 Jan 2025 13:39:28 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tU4ea-0000000F4aF-2ol0;
+	Sat, 04 Jan 2025 13:57:24 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tU4M3-0000000F3cq-249V
+	id 1tU4dQ-0000000F4VG-0Nu6
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Jan 2025 13:38:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6B7ECA40691;
-	Sat,  4 Jan 2025 13:36:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C233C4CED1;
-	Sat,  4 Jan 2025 13:38:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735997894;
-	bh=DZ641ToUHGGIED25myr3uOrPZ32fWg2JpL6WpgLolKY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=HlGHfP9xizgNnOE+02G0SLHGaEHmxCwRd40Vo+pgpo7Am7HmR/cub6RSRG8zP+zgA
-	 icLL/MgUHmBnMW6rJG1KHmWZa7ajA8Z1OWe8Gjt6WkM6D06VrFcQZS1akOwVZQeWyL
-	 4SHAMcpcKLaEA2tQJ1knx2WF8jl5h1wr9KiUPkzHElDVqmt1Opxa4UQSudob/4CNDK
-	 BY7UlxHu4+ICOp1iQ+sht5F7pj1GqVoi96QplUShifUGySwpg7866hb3wpcVMLmI6b
-	 TkrdkdnNc2SDowJ8EDwCs6aFAnueTNXovIaI2NJB+0iY2DpDSK9bgub53Tv4euY0De
-	 2szrPU6AR2jDQ==
-Date: Sat, 4 Jan 2025 13:38:04 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Nayab Sayed via B4 Relay
- <devnull+nayabbasha.sayed.microchip.com@kernel.org>
-Subject: Re: [PATCH] iio: adc: at91-sama5d2_adc: fix sama7g5 realbits value
-Message-ID: <20250104133804.2a3c2ba3@jic23-huawei>
-In-Reply-To: <20250103-fix-sama7g5-adc-realbits-v1-1-1732d265c36a@microchip.com>
-References: <20250103-fix-sama7g5-adc-realbits-v1-1-1732d265c36a@microchip.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-pc-linux-gnu)
+	Sat, 04 Jan 2025 13:56:14 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4361aa6e517so20366945e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 04 Jan 2025 05:56:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1735998970; x=1736603770; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=zJEWejicaBz6dmUxoJQXl7EdOTueBwQvHraBKvH38is=;
+        b=Vsr6e8TxjqAlY2P16cuG3Pkpnl2dI8Wcl65wt7cIeiuUUUYF8MynCKRv5ylDn2zWw7
+         kv4HPUOtEdDoZCLYl7bioGeA35gjujJ8qFOO2bf9U2MfGVVWwV59E1sy5d7XVcaaKIQZ
+         JTmUHpV7HFdW4+pm9AVKwGto2Qtb1B2m3/QOEsXw6qR3yFA5NJm6VkIXIowLnDPopGDy
+         4jAh/s+2oJAehFaD++lKR7kdGlYfLFJTsp4IDYMHeIlxiyokHGkyzikP13Sbmciv/vkx
+         X5wp1PG1ap31e1Rxv7+UhGVFlfmntsY7yQ3PoD5NYyWw98SlXd+8rPadcZWQpRPGSa8d
+         9UBA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735998970; x=1736603770;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=zJEWejicaBz6dmUxoJQXl7EdOTueBwQvHraBKvH38is=;
+        b=Ddh6mTlSPjMsho+TExzgJvpXlRGIy5DHC83czSEiJsVoUp/w6Dd1HCoxEWxy9eOFSa
+         Ifyk2qf68a8peZK8ZJr/CWyB/KpfCwuahWSA4vVcFFaDaHS9m1Pfefam8enWlAee5r5K
+         QJVtHACy+NWXJh044IuFWU/uHXrUzaOC/0unot8XkZJs2xVPMOmAp2pJHUw5OxMNKLXs
+         ogxskDBtkkVg9diGB1OLSKiIkdwACHPESszWCXDgtTIQuoiBhRJZhn2v9RZQdoxtw52i
+         oolcmdpI19LDuSGxEVpBfSroCGH9CHshQg7H9/ycIuhqcUuWC4KSWF9A1EomQsUKvimP
+         vq2g==
+X-Forwarded-Encrypted: i=1; AJvYcCV6vJazsu87/qBKIziPKjRpmEyk02ygNGWpgc8wbImQHdJajMPzkUczEclsTuksKd4AUFFiAFqdsnVRpupzcRal@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6mRQoIUX5Y1e0AMCDp0W+k6q1dneQHfGfoxLWhXMC8ogdXKOC
+	1XqIEXnMYcl3Ss0Sllf/HDQ9pbJcHYGAdY617VtIdMZp+i/vIOx2SS80dZkLaqY=
+X-Gm-Gg: ASbGncvsKdjI6Hq9zjb1vVjaruGKJ122yhqAzPFvtvY6VD041pd8c9jJBxM/n1tSZTW
+	uJu2SjSZbpltkaSATSu/vdbSKLntCVpn7rooPwCjdRY8JrKp02pGNsru2DhHn1n5KD+EqF1f08U
+	b35Ppi1mA4Sxh3NT2qKSxssJ6+ocEqg+M7EXwtDulrveQgUHtJISO07QkK+C7BNPa+tAP4aMhZb
+	CihLtesetWoV4EKMFFW50faH0jfIrQr724U+jEgUc0+5WH3CxaCAd+K4Zg6s20hv3stYs4=
+X-Google-Smtp-Source: AGHT+IEO/3u4qvFe5Vb1vURPH9ZBPG+ma9tc2SOelaqiPnyPkQaHdPOjLVZUFkyq61FMNDtN3/bC2w==
+X-Received: by 2002:adf:b601:0:b0:385:f7a3:fec1 with SMTP id ffacd0b85a97d-38a221e24demr13083083f8f.3.1735998970188;
+        Sat, 04 Jan 2025 05:56:10 -0800 (PST)
+Received: from krzk-bin.. ([178.197.223.165])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a1c89e375sm43946322f8f.73.2025.01.04.05.56.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 04 Jan 2025 05:56:08 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Sam Protsenko <semen.protsenko@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	stable@vger.kernel.org
+Subject: [PATCH] soc: samsung: exynos-pmu: Fix uninitialized ret in tensor_set_bits_atomic()
+Date: Sat,  4 Jan 2025 14:56:05 +0100
+Message-ID: <20250104135605.109209-1-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250104_053815_678239_58D65AE5 
-X-CRM114-Status: GOOD (  17.23  )
+X-CRM114-CacheID: sfid-20250104_055612_177760_BDCD54BA 
+X-CRM114-Status: GOOD (  13.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,149 +96,38 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: nayabbasha.sayed@microchip.com, Alexandre Belloni <alexandre.belloni@bootlin.com>, Lars-Peter Clausen <lars@metafoo.de>, linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Eugen Hristev <eugen.hristev@linaro.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 03 Jan 2025 16:50:40 +0530
-Nayab Sayed via B4 Relay <devnull+nayabbasha.sayed.microchip.com@kernel.org> wrote:
+If tensor_set_bits_atomic() is called with a mask of 0 the function will
+just iterate over its bit, not perform any updates and return stack
+value of 'ret'.
 
-> From: Nayab Sayed <nayabbasha.sayed@microchip.com>
-> 
-> The number of valid bits in SAMA7G5 ADC channel data register are 16.
-> Hence changing the realbits value to 16
-> 
-> Signed-off-by: Nayab Sayed <nayabbasha.sayed@microchip.com>
-Please send an appropriate fixes tag so we know how far to backport.
-In reply to this mail is fine (no need to send a v2 for that)
+Also reported by smatch:
 
-Thanks,
+  drivers/soc/samsung/exynos-pmu.c:129 tensor_set_bits_atomic() error: uninitialized symbol 'ret'.
 
-Jonathan
+Fixes: 0b7c6075022c ("soc: samsung: exynos-pmu: Add regmap support for SoCs that protect PMU regs")
+Cc: <stable@vger.kernel.org>
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+---
+ drivers/soc/samsung/exynos-pmu.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> ---
->  drivers/iio/adc/at91-sama5d2_adc.c | 68 ++++++++++++++++++++++----------------
->  1 file changed, 40 insertions(+), 28 deletions(-)
-> 
-> diff --git a/drivers/iio/adc/at91-sama5d2_adc.c b/drivers/iio/adc/at91-sama5d2_adc.c
-> index 8e5aaf15a921..c3a1dea2aa82 100644
-> --- a/drivers/iio/adc/at91-sama5d2_adc.c
-> +++ b/drivers/iio/adc/at91-sama5d2_adc.c
-> @@ -329,7 +329,7 @@ static const struct at91_adc_reg_layout sama7g5_layout = {
->  #define AT91_HWFIFO_MAX_SIZE_STR	"128"
->  #define AT91_HWFIFO_MAX_SIZE		128
->  
-> -#define AT91_SAMA5D2_CHAN_SINGLE(index, num, addr)			\
-> +#define AT91_SAMA_CHAN_SINGLE(index, num, addr, rbits)			\
->  	{								\
->  		.type = IIO_VOLTAGE,					\
->  		.channel = num,						\
-> @@ -337,7 +337,7 @@ static const struct at91_adc_reg_layout sama7g5_layout = {
->  		.scan_index = index,					\
->  		.scan_type = {						\
->  			.sign = 'u',					\
-> -			.realbits = 14,					\
-> +			.realbits = rbits,				\
->  			.storagebits = 16,				\
->  		},							\
->  		.info_mask_separate = BIT(IIO_CHAN_INFO_RAW),		\
-> @@ -350,7 +350,13 @@ static const struct at91_adc_reg_layout sama7g5_layout = {
->  		.indexed = 1,						\
->  	}
->  
-> -#define AT91_SAMA5D2_CHAN_DIFF(index, num, num2, addr)			\
-> +#define AT91_SAMA5D2_CHAN_SINGLE(index, num, addr)			\
-> +	AT91_SAMA_CHAN_SINGLE(index, num, addr, 14)
-> +
-> +#define AT91_SAMA7G5_CHAN_SINGLE(index, num, addr)			\
-> +	AT91_SAMA_CHAN_SINGLE(index, num, addr, 16)
-> +
-> +#define AT91_SAMA_CHAN_DIFF(index, num, num2, addr, rbits)		\
->  	{								\
->  		.type = IIO_VOLTAGE,					\
->  		.differential = 1,					\
-> @@ -360,7 +366,7 @@ static const struct at91_adc_reg_layout sama7g5_layout = {
->  		.scan_index = index,					\
->  		.scan_type = {						\
->  			.sign = 's',					\
-> -			.realbits = 14,					\
-> +			.realbits = rbits,				\
->  			.storagebits = 16,				\
->  		},							\
->  		.info_mask_separate = BIT(IIO_CHAN_INFO_RAW),		\
-> @@ -373,6 +379,12 @@ static const struct at91_adc_reg_layout sama7g5_layout = {
->  		.indexed = 1,						\
->  	}
->  
-> +#define AT91_SAMA5D2_CHAN_DIFF(index, num, num2, addr)			\
-> +	AT91_SAMA_CHAN_DIFF(index, num, num2, addr, 14)
-> +
-> +#define AT91_SAMA7G5_CHAN_DIFF(index, num, num2, addr)			\
-> +	AT91_SAMA_CHAN_DIFF(index, num, num2, addr, 16)
-> +
->  #define AT91_SAMA5D2_CHAN_TOUCH(num, name, mod)				\
->  	{								\
->  		.type = IIO_POSITIONRELATIVE,				\
-> @@ -666,30 +678,30 @@ static const struct iio_chan_spec at91_sama5d2_adc_channels[] = {
->  };
->  
->  static const struct iio_chan_spec at91_sama7g5_adc_channels[] = {
-> -	AT91_SAMA5D2_CHAN_SINGLE(0, 0, 0x60),
-> -	AT91_SAMA5D2_CHAN_SINGLE(1, 1, 0x64),
-> -	AT91_SAMA5D2_CHAN_SINGLE(2, 2, 0x68),
-> -	AT91_SAMA5D2_CHAN_SINGLE(3, 3, 0x6c),
-> -	AT91_SAMA5D2_CHAN_SINGLE(4, 4, 0x70),
-> -	AT91_SAMA5D2_CHAN_SINGLE(5, 5, 0x74),
-> -	AT91_SAMA5D2_CHAN_SINGLE(6, 6, 0x78),
-> -	AT91_SAMA5D2_CHAN_SINGLE(7, 7, 0x7c),
-> -	AT91_SAMA5D2_CHAN_SINGLE(8, 8, 0x80),
-> -	AT91_SAMA5D2_CHAN_SINGLE(9, 9, 0x84),
-> -	AT91_SAMA5D2_CHAN_SINGLE(10, 10, 0x88),
-> -	AT91_SAMA5D2_CHAN_SINGLE(11, 11, 0x8c),
-> -	AT91_SAMA5D2_CHAN_SINGLE(12, 12, 0x90),
-> -	AT91_SAMA5D2_CHAN_SINGLE(13, 13, 0x94),
-> -	AT91_SAMA5D2_CHAN_SINGLE(14, 14, 0x98),
-> -	AT91_SAMA5D2_CHAN_SINGLE(15, 15, 0x9c),
-> -	AT91_SAMA5D2_CHAN_DIFF(16, 0, 1, 0x60),
-> -	AT91_SAMA5D2_CHAN_DIFF(17, 2, 3, 0x68),
-> -	AT91_SAMA5D2_CHAN_DIFF(18, 4, 5, 0x70),
-> -	AT91_SAMA5D2_CHAN_DIFF(19, 6, 7, 0x78),
-> -	AT91_SAMA5D2_CHAN_DIFF(20, 8, 9, 0x80),
-> -	AT91_SAMA5D2_CHAN_DIFF(21, 10, 11, 0x88),
-> -	AT91_SAMA5D2_CHAN_DIFF(22, 12, 13, 0x90),
-> -	AT91_SAMA5D2_CHAN_DIFF(23, 14, 15, 0x98),
-> +	AT91_SAMA7G5_CHAN_SINGLE(0, 0, 0x60),
-> +	AT91_SAMA7G5_CHAN_SINGLE(1, 1, 0x64),
-> +	AT91_SAMA7G5_CHAN_SINGLE(2, 2, 0x68),
-> +	AT91_SAMA7G5_CHAN_SINGLE(3, 3, 0x6c),
-> +	AT91_SAMA7G5_CHAN_SINGLE(4, 4, 0x70),
-> +	AT91_SAMA7G5_CHAN_SINGLE(5, 5, 0x74),
-> +	AT91_SAMA7G5_CHAN_SINGLE(6, 6, 0x78),
-> +	AT91_SAMA7G5_CHAN_SINGLE(7, 7, 0x7c),
-> +	AT91_SAMA7G5_CHAN_SINGLE(8, 8, 0x80),
-> +	AT91_SAMA7G5_CHAN_SINGLE(9, 9, 0x84),
-> +	AT91_SAMA7G5_CHAN_SINGLE(10, 10, 0x88),
-> +	AT91_SAMA7G5_CHAN_SINGLE(11, 11, 0x8c),
-> +	AT91_SAMA7G5_CHAN_SINGLE(12, 12, 0x90),
-> +	AT91_SAMA7G5_CHAN_SINGLE(13, 13, 0x94),
-> +	AT91_SAMA7G5_CHAN_SINGLE(14, 14, 0x98),
-> +	AT91_SAMA7G5_CHAN_SINGLE(15, 15, 0x9c),
-> +	AT91_SAMA7G5_CHAN_DIFF(16, 0, 1, 0x60),
-> +	AT91_SAMA7G5_CHAN_DIFF(17, 2, 3, 0x68),
-> +	AT91_SAMA7G5_CHAN_DIFF(18, 4, 5, 0x70),
-> +	AT91_SAMA7G5_CHAN_DIFF(19, 6, 7, 0x78),
-> +	AT91_SAMA7G5_CHAN_DIFF(20, 8, 9, 0x80),
-> +	AT91_SAMA7G5_CHAN_DIFF(21, 10, 11, 0x88),
-> +	AT91_SAMA7G5_CHAN_DIFF(22, 12, 13, 0x90),
-> +	AT91_SAMA7G5_CHAN_DIFF(23, 14, 15, 0x98),
->  	IIO_CHAN_SOFT_TIMESTAMP(24),
->  	AT91_SAMA5D2_CHAN_TEMP(AT91_SAMA7G5_ADC_TEMP_CHANNEL, "temp", 0xdc),
->  };
-> 
-> ---
-> base-commit: 0bc21e701a6ffacfdde7f04f87d664d82e8a13bf
-> change-id: 20250103-fix-sama7g5-adc-realbits-37f62f8925d7
-> 
-> Best regards,
+diff --git a/drivers/soc/samsung/exynos-pmu.c b/drivers/soc/samsung/exynos-pmu.c
+index d8c53cec7f37..dd5256e5aae1 100644
+--- a/drivers/soc/samsung/exynos-pmu.c
++++ b/drivers/soc/samsung/exynos-pmu.c
+@@ -126,7 +126,7 @@ static int tensor_set_bits_atomic(void *ctx, unsigned int offset, u32 val,
+ 		if (ret)
+ 			return ret;
+ 	}
+-	return ret;
++	return 0;
+ }
+ 
+ static bool tensor_is_atomic(unsigned int reg)
+-- 
+2.43.0
 
 
