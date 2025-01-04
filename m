@@ -4,100 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 448EAE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 07:46:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6338EE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 09:16:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qIxbJ2OQHNBv+4wB0JZ4sOT/J/UNSOHviGNvJzFTzY0=; b=0bpDLgFwrWpSvejNWenZsMtAyb
-	tM49z0/AHnEVUAFfsn1OzB7sxoqLD1Byf/Ttd+TEBfQo0Nu2rqUz/tmhiSeFoLlUC2nzQaQDVEcIL
-	OPjPcxnxR+N7KjnjkJog52Bt2je9zp/OGgEmFhbbbyr4BJ/eP1OPRwzVBhaA2yCaeQCcFglSDq1rp
-	RhiJTYn9CuuVjEsIalr0HFvnalB4pPK+prud6W4XO71PhRcinbq6l0GNC3PxXFKsoD9nCa4QMbezw
-	+QrM5mHhXd2rcdUajpi8k+RljeCVmhKhQnbnaOg1waos2lnjZuttXRpupq8IxIvrD8kU3jxYFmzfN
-	Ch5Ir18Q==;
+	bh=4ZU2BjFxRBUYF+LUDGVGsB7CSJF35vD0XK/l1+cd+/8=; b=aRS7c5lvF5cp7QjItRLZ74+VxA
+	xfh8++FT6PKm4P3aAC1+mP1wxwf5CBNol59qK778Ho1SkmNmwvK5Y4ZWxuA1WivRwaFX/jqzu2r5M
+	ut+dCoaw18TkB/wPH/bsju4CNedCEVjXZC9Pc8Koa+W7XtZlx0ieR5QM1f1hu/WSfhZSvxf0JBt7+
+	tyBs3a4a+pYqMhkLVVindjj0KgTSrayqMSMD/iPYtuL38PlroABG4tF9ozx+iJkcuidB8n1h+Zvju
+	io8a9v/jvpdgfk8+P9ubW4VKepZXuDvVe2XuBznPX6zL7/MUKfJ0cohW0KQ8jSrnY4qRbwHCo4aeM
+	y9gEVxEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTyro-0000000Efhj-1sBy;
-	Sat, 04 Jan 2025 07:46:40 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1tU0Gn-0000000Elui-3gr8;
+	Sat, 04 Jan 2025 09:16:33 +0000
+Received: from szxga07-in.huawei.com ([45.249.212.35])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTym8-0000000EezR-0jzI
+	id 1tU0Fc-0000000ElnZ-2Ena
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Jan 2025 07:40:49 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-216728b1836so162350415ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jan 2025 23:40:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1735976447; x=1736581247; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qIxbJ2OQHNBv+4wB0JZ4sOT/J/UNSOHviGNvJzFTzY0=;
-        b=PwBB4SLyPM9LXEHdoX3Z1MhSPCHWOYmrhz0iAgigtYamkdIixQGYzeyKvo+DI1Ealu
-         cHCTXPKR7CcA0lxlWazazD5GzPDgPFDNkqsJQR2lijv52YVHtgmnagdRONUYU7IvRsvg
-         QkSxB24ROAJ6lPSP2SmW1ogd2ZmHz/UlPGBCLVyF/KFM8s7lvX7SjtxgZYNFJiT7VPIo
-         ibcnw5RrwYU5Jf5nOH6rrZiBEDCloRdLSLXvuI+d7x+4bIHrozcEXp2FiPXR5yyLvlUO
-         SpGRCH2JexFNfqdqkQHVmMfKIrctsQkKLJNXrG9hAIrA8OTOjtKIbTNS+F6sBaAvZMA/
-         m19w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735976447; x=1736581247;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=qIxbJ2OQHNBv+4wB0JZ4sOT/J/UNSOHviGNvJzFTzY0=;
-        b=JldCVtf4/LGZ0cy/3fGnTC9MvX2FD9GZhW0GBDbLn1Yp6UvPPONvJCTZD91k/TNcz1
-         E/e9C5k3XcGGM7qZV+o9qgBfAF4kbGHUBAUh50a4RTg9FKBx3VrTxzLhwL1mvwN2tRYE
-         4GcrCEP8HvnKYEVKp/m8biHePbgr6AN32EV+5rh9PlFakDQdXLfHLToFv0l/t3rsMRoV
-         p6945ghKJrAxSn9Uod6qROupZVCvt3KQQ84oherQAj7+Vk3f8on36XxTlkGuW6G5O+aM
-         JHntnbz8LYehbXf1c0PJDzHxAUrNRlzGLitJnw2zHpdIz0ZL9BhsTno4ir7frUvbbvVf
-         Qc1w==
-X-Forwarded-Encrypted: i=1; AJvYcCWgfu4vKhaYkdqMBpAbGg5sj8yNIGrGBEILDBtczfUWsMd7zZe5XeGPlhWI59x+NdYBxOpPCCKbbMQ+PxUEdlNG@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy92PGLD0hshc428c3pGALFDmEgYci2MsnWLsTfUFWcHZKAnl0a
-	6H4qc/K5iLvoY1pdPhY3EAtcTIKul0E8JclZroqy3F0Q4SY7B8lp
-X-Gm-Gg: ASbGncvhTIGXasBJxQCVVkUqeJxYCAeyCq01n1VFj1iWg2IgTOrWHYnf7M40su8SutD
-	jOUSD6VpXS0Gu8amV1QlrlwI6CI2tMdsBb9Wl2savTWgjUygKmm9FcXcJUYECgGlAs54+vd/M0V
-	ievaChsWXSLnQTee9043VkM2IxnNSmAPpOHx2L0diz1foUYdS2nnQl5dBSlVqrBNKYQKC17TP6B
-	7QXA2SrzAOioKnIRF4wPIUxrgvyWMQuLlVg8VrhJxyfCpfXCg==
-X-Google-Smtp-Source: AGHT+IGzouKoKcczOFE/BlEmlBfzMQU1FzvtTcHjF3vHVcWHcn0aI0SCAElSuL8sd9OBoHBrGue/Jg==
-X-Received: by 2002:a17:903:2449:b0:218:a43c:571e with SMTP id d9443c01a7336-219e6ebd140mr793188505ad.28.1735976447244;
-        Fri, 03 Jan 2025 23:40:47 -0800 (PST)
-Received: from anarsoul-xps15.lan ([2604:3d08:7780:1ca9::398])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-219dca02b34sm256562565ad.252.2025.01.03.23.40.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Jan 2025 23:40:46 -0800 (PST)
-From: Vasily Khoruzhick <anarsoul@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Maxime Ripard <mripard@kernel.org>,
-	Roman Beranek <me@crly.cz>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org
-Cc: Vasily Khoruzhick <anarsoul@gmail.com>,
-	Dragan Simic <dsimic@manjaro.org>,
-	Frank Oltmanns <frank@oltmanns.dev>,
-	Stuart Gathman <stuart@gathman.org>
-Subject: [PATCH v2 4/4] clk: sunxi-ng: a64: stop force-selecting PLL-MIPI as TCON0 parent
-Date: Fri,  3 Jan 2025 23:37:00 -0800
-Message-ID: <20250104074035.1611136-5-anarsoul@gmail.com>
-X-Mailer: git-send-email 2.47.1
-In-Reply-To: <20250104074035.1611136-1-anarsoul@gmail.com>
-References: <20250104074035.1611136-1-anarsoul@gmail.com>
+	Sat, 04 Jan 2025 09:15:22 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.17])
+	by szxga07-in.huawei.com (SkyGuard) with ESMTP id 4YQF7t0vlyz1V4NW;
+	Sat,  4 Jan 2025 17:12:10 +0800 (CST)
+Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
+	by mail.maildlp.com (Postfix) with ESMTPS id E8F281A0188;
+	Sat,  4 Jan 2025 17:15:06 +0800 (CST)
+Received: from [10.174.179.163] (10.174.179.163) by
+ kwepemf100008.china.huawei.com (7.202.181.222) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Sat, 4 Jan 2025 17:15:06 +0800
+Message-ID: <108fa543-a086-2143-47bd-d525a58513c1@huawei.com>
+Date: Sat, 4 Jan 2025 17:15:05 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [RFC PATCH mpam mpam/snapshot/v6.12-rc1 v3 2/5] arm_mpam: Read
+ monitor value with new closid/rmid pair
+Content-Language: en-US
+To: Dave Martin <Dave.Martin@arm.com>
+CC: <james.morse@arm.com>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <jonathan.cameron@huawei.com>,
+	<xiexiuqi@huawei.com>, "Wangshaobo (bobo)" <bobo.shaobowang@huawei.com>
+References: <20241207092136.2488426-1-zengheng4@huawei.com>
+ <20241207092136.2488426-3-zengheng4@huawei.com>
+ <Z1sMxKM9o6lAiZGr@e133380.arm.com>
+ <8fa84731-1ae6-e40f-3594-3241b1ee8bb4@huawei.com>
+ <Z3gC25189W5UYENX@e133380.arm.com>
+From: Zeng Heng <zengheng4@huawei.com>
+In-Reply-To: <Z3gC25189W5UYENX@e133380.arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.174.179.163]
+X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+ kwepemf100008.china.huawei.com (7.202.181.222)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_234048_213051_FC7A45B4 
-X-CRM114-Status: GOOD (  15.80  )
+X-CRM114-CacheID: sfid-20250104_011520_892646_77393370 
+X-CRM114-Status: GOOD (  33.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,68 +78,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Stop force-selecting PLL-MIPI as TCON0 parent, since it breaks video
-output on Pinebook that uses RGB to eDP bridge.
 
-Partially revert commit ca1170b69968 ("clk: sunxi-ng: a64: force
-select PLL_MIPI in TCON0 mux"), while still leaving
-CLK_SET_RATE_NO_REPARENT flag set, since we do not want the clock to
-be reparented.
 
-The issue is that apparently different TCON0 outputs require a different
-clock, or the mux might be selecting the output type.
+On 2025/1/3 23:31, Dave Martin wrote:
+> On Fri, Jan 03, 2025 at 02:55:17PM +0800, Zeng Heng wrote:
+>>
+>>
+>> On 2024/12/13 0:18, Dave Martin wrote:
+>>> Hi,
+>>>
+>>> On Sat, Dec 07, 2024 at 05:21:33PM +0800, Zeng Heng wrote:
+> 
+> [...]
+> 
+>>>> Based on the example provided, the conversion relationship between
+>>>> closid/rmid and (req)PARTID/PMG is:
+>>>>
+>>>>       (req)PARTID = (rmid.req_idx * n) + closid,
+>>>>       PMG = rmid.pmg.
+>>>
+>>> It seemed more natural to me for the PARTIDs assigned to a particular
+>>> CLOSID to be consecutively numbered (see [1]), though it works either
+>>> way.
+>>>
+>>> Otherwise, the approach makes sense.
+>>>
+>>
+>>
+>> After attempting to change the mapping method in practice, I found that
+>> there are some following advantages of the current method which keeps
+>> intPARTIDs are mapped to the first n IDs:
+> 
+> Thanks for having a go.
+> 
+>> 1. Because closid is exactly equal to intPARTID, and the conversion
+>> relationship between closid and intPARTID remains unchanged under the
+>> current method (still only call the resctrl_get_config_index() for
+>> conversion), maintaining the original semantics during the MPAM
+>> configuration updating;
+> 
+> You are right about this, but I think this is just moving complexity
+> around rather than eliminating it?
+> 
+> I've tried various approaches, and there there always seems to be one
+> ugly step somewhere; either something in mpam_devices.c that feels like
+> it should be in mpam_resctrl.c, or something in mpam_resctrl.c that
+> feels like it should be in mpam_devices.c.
+> 
+>> 2. Since there is no need to create a new transformation (like
+>> closid2intpartid()) between closid and intPARTID, this can reduce the
+>> work of function adaptations, such as in resctrl_arch_update_one(),
+>> resctrl_arch_get_config(), and so on, which doesn't need any extra
+>> adaptions and keeps things as simple as possible.
+>>
+>> Looking forward to your comments.
+>>
+>>
+>> Greeting for new year,
+>> Zeng Heng
+>>
+> 
+> Happy New Year to you too!
+> 
+> What you say is true, but I think the runtime cost of the conversions
+> is going to be trivial compared with the cost of the actual MSC
+> programming.
+> 
+> For context: I'm hoping to factor the code so that the conversion is as
+> cleanly separated out as possible, so that it would be straightforward
+> to move to an arbitrary mapping in the future if it is possible to
+> agree changes in the core resctrl interface so that the PARTID/PMG
+> allocations can be dynamic.  If we do that, the conversion would
+> probably become a simple table lookup.
+> 
+> This factoring seems more important than which precise mapping we
+> choose right now.
+> 
+> But in the interests of improving PARTID Narrowing support sooner,
+> I think that going straight to dynamic allocation is not the best
+> approach -- so my idea is to prepare for that on the MPAM driver side,
+> but not prioritise developing a dynamic approach until after the
+> resctrlfs refactoring and the MPAM driver are merged upstream.
+> 
+> Does that make sense?
+> 
 
-I did an experiment: I manually configured PLL_MIPI and PLL_VIDEO0_2X
-to the same clock rate and flipped the switch with devmem. Experiment
-clearly showed that whenever PLL_MIPI is selected as TCON0 clock parent,
-the video output stops working.
+One of the main reasons for only being able to use static allocation is
+the constraint of the alloc_rmid(). Unless we switch to using another
+interface (such as resctrl_arch_alloc_rmid()) for rmid allocation, doing
+so would definitely break the existing public interface of resctrl.
 
-Therefore, TCON0 clock parent corresponding to the output type must be
-assigned in the device tree.
+Consequently, this would increase the difficulty of merging the MPAM
+driver into the mainline. (Of course, even after merging into the
+upstream, expectations for MPAM to change the common interface still
+remain cautious.)
 
-Fixes: ca1170b69968 ("clk: sunxi-ng: a64: force select PLL_MIPI in TCON0 mux")
-Reviewed-by: Dragan Simic <dsimic@manjaro.org>
-Reviewed-by: Chen-Yu Tsai <wens@csie.org>
-Tested-by: Frank Oltmanns <frank@oltmanns.dev> # on PinePhone
-Tested-by: Stuart Gathman <stuart@gathman.org> # on OG Pinebook
-Signed-off-by: Vasily Khoruzhick <anarsoul@gmail.com>
----
- drivers/clk/sunxi-ng/ccu-sun50i-a64.c | 13 ++++---------
- 1 file changed, 4 insertions(+), 9 deletions(-)
+But for how to support dynamic allocation in the future, I have the
+following preliminary views and possible directions for evolution:
 
-diff --git a/drivers/clk/sunxi-ng/ccu-sun50i-a64.c b/drivers/clk/sunxi-ng/ccu-sun50i-a64.c
-index 3a7d61c81667..ba1ad267f123 100644
---- a/drivers/clk/sunxi-ng/ccu-sun50i-a64.c
-+++ b/drivers/clk/sunxi-ng/ccu-sun50i-a64.c
-@@ -535,11 +535,11 @@ static SUNXI_CCU_M_WITH_MUX_GATE(de_clk, "de", de_parents,
- 				 CLK_SET_RATE_PARENT);
- 
- /*
-- * DSI output seems to work only when PLL_MIPI selected. Set it and prevent
-- * the mux from reparenting.
-+ * Experiments showed that RGB output requires pll-video0-2x, while DSI
-+ * requires pll-mipi. It will not work with incorrect clock, the screen will
-+ * be blank.
-+ * sun50i-a64.dtsi assigns pll-mipi as TCON0 parent by default
-  */
--#define SUN50I_A64_TCON0_CLK_REG	0x118
--
- static const char * const tcon0_parents[] = { "pll-mipi", "pll-video0-2x" };
- static const u8 tcon0_table[] = { 0, 2, };
- static SUNXI_CCU_MUX_TABLE_WITH_GATE_CLOSEST(tcon0_clk, "tcon0", tcon0_parents,
-@@ -959,11 +959,6 @@ static int sun50i_a64_ccu_probe(struct platform_device *pdev)
- 
- 	writel(0x515, reg + SUN50I_A64_PLL_MIPI_REG);
- 
--	/* Set PLL MIPI as parent for TCON0 */
--	val = readl(reg + SUN50I_A64_TCON0_CLK_REG);
--	val &= ~GENMASK(26, 24);
--	writel(val | (0 << 24), reg + SUN50I_A64_TCON0_CLK_REG);
--
- 	ret = devm_sunxi_ccu_probe(&pdev->dev, reg, &sun50i_a64_ccu_desc);
- 	if (ret)
- 		return ret;
--- 
-2.47.1
+1. The mapping between closid and intpartid will continue to be
+maintained as it is, supporting the NP feature, which should not lead to
+changes in the definition of closid, because essentially NP is just an
+enhanced feature for monitoring;
+
+2. rmid will no longer only contain pmg information. rmid would be
+composed of rmid.req_idx (or directly rmid.reqpartid) and rmid.pmg.
+
+Once the mapping between closid/rmid is determined, the allocation
+method will also be determined, and the dynamic allocation process can
+be like table lookup.
+
+Currently, I am prioritizing updating the issues you discussed
+previously on the basis of v3 and releasing it as v4 for further review.
+
+Both v3 and v4 include the above ideas, and we can continue discussions 
+in any direction based on v4.
+
+Thank you in advance.
+
+
+Best regards,
+Zeng Heng
 
 
