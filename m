@@ -4,66 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2B58E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 20:10:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1945AE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 20:46:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m9/wY8b3mdmN2zCij5++ibn+vpceK8XV3LHzciZCwO0=; b=MuIPggTcFYKPNU+f4foXU8QKww
-	LFzHwlttFIHbNChdh0n1pBySNmisk1tTRmSKzDziR51cK7yiFyxx4Ttp72chg5Nfpn1g1z9kjm4Qv
-	6SQecYD+/SSfRxAxh8G/2kbLozsWEkh32XOUxQekszm3ey6XDDaPRxCFx8YBeFyjENh8sNMrKlPtg
-	xoyz9I51JmtdfdqcsX9YrOMbfL81p1GfqupoAtE2Xorak54fB+IHmPOaeMxoTCvf2a4yGOUI6UDcM
-	4GPdWz+YzF73Yw3ZNZs/70OULY5Gxa3oktm0Ew4pI0tuP+61k7aRRkuRJPdB3KgS/jH+6MrKmS6d9
-	uWy6bD0g==;
+	bh=479X+hAdJofqV9h3/6m3M+qID36G9eoeh5jRAoD4ftQ=; b=eO1DKYcW8f0g5CRfjKsOrHQytB
+	EGfVAmqTKGJ5+fSkHi6P6HjebGZBFNmC6/mxCo70IEYuEZ6gWTMhFTeiuVNj35/fga6e/R8negW6L
+	iugN2TEqQD4umKAsWiMVMHPzg2D4SKE1uYwakPMdhoowf3nL9LWUMVmC/w5X4nuSFF9if/YBFlWWS
+	HJvG7M45stDoj8Yr72Wn2C9rVueMoyEsaV8W3SPoE0KdMrQ8xqfPRrmWVKVsYS0TSb4oIuD712zcH
+	s6yeq6slwvGKt08zAKDcKtQotOgK/4LXOvgYJoLoCMywictHB00m5Zz3h4V1zaDM2X7ha1rZNH7RI
+	G5WZcRtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUATt-0000000FVYC-3iru;
-	Sat, 04 Jan 2025 20:10:45 +0000
-Received: from sendmail.purelymail.com ([34.202.193.197])
+	id 1tUB2F-0000000FZqy-3b60;
+	Sat, 04 Jan 2025 20:46:15 +0000
+Received: from mail-oo1-xc2b.google.com ([2607:f8b0:4864:20::c2b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUAQU-0000000FV4W-3JIa
+	id 1tUB15-0000000FZk1-0Ras
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Jan 2025 20:07:15 +0000
-Authentication-Results: purelymail.com; auth=pass
-DKIM-Signature: a=rsa-sha256; b=Lj7C7datwbxMKOzTXhXO/oYf3Cs5jPZ5HYRLe6U9kzsJ/KS9P5hJw9eS5z+YeqWQmg+k2jShRNgqCFE7xRxsBKoYvj8demDbJ+diwYpjPrUt08vNHTnQJbU1ajQce+h7ZMlD9NxPtUH84GC1fuBYq8gfSBnYU6BG1RS2OLcy7sVnB18kSgAvWCHUKFFgxDNwrTj3x96d6NtD0CZJC4naKNeiT+PkoG2JqR5jj5otUx/OeNerBzFAxwsLGCJJqx9T4q2ll00lgoXneu01OUQOytqq80ZGceX5Jcejwt2VFnxfEvveJ4kecDZ+uXiKtbFt4/EWcSJxOaBy7DnSO/9Wqg==; s=purelymail3; d=purelymail.com; v=1; bh=asuc2fOVXebfJXE2z03+8hnOFP8k71tvUgxEg5/jiIQ=; h=Feedback-ID:Received:From:Date:Subject:To;
-Feedback-ID: 68247:10037:null:purelymail
-X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id -1683504375;
-          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
-          Sat, 04 Jan 2025 20:06:30 +0000 (UTC)
-From: Igor Belwon <igor.belwon@mentallysanemainliners.org>
-Date: Sat, 04 Jan 2025 21:05:57 +0100
-Subject: [PATCH 2/2] clk: samsung: exynos990: Add CMU_PERIS block
+	Sat, 04 Jan 2025 20:45:04 +0000
+Received: by mail-oo1-xc2b.google.com with SMTP id 006d021491bc7-5f2dee7d218so6001698eaf.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 04 Jan 2025 12:45:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1736023502; x=1736628302; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=479X+hAdJofqV9h3/6m3M+qID36G9eoeh5jRAoD4ftQ=;
+        b=AHG3btiirgDhF43UAToAbaCUzq4KS15W5DBL9oj0BB5WqMNos6oRcBQpEMXzGlWNZZ
+         o9gMuL9VQANj3O5+Z/FKl/GDrZq52VTQ9GJT2A+P2TWcSGBo5Kc0x8EBobtNMJhncjio
+         WIZ4Uwf+a42vI5QYIEp4ielUzZdtWapLWceEC6E+STJZC5fWnhQWBHvG7MZ6TurzF9Ar
+         CE3l6wYE6KfwLkwDoDqnC4WnAB0RJrfO4CgobsDKL+Y9BxGm8Vj3n6jWENyeY4rXblNE
+         RjofHB0fDOC01NxAp+tOhGfieRJEp0nplGmlg085BSGgn5CqrX6nDZikvWHhdB7Xaqkq
+         Ls1g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736023502; x=1736628302;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=479X+hAdJofqV9h3/6m3M+qID36G9eoeh5jRAoD4ftQ=;
+        b=TmCCI4wvL5m+tmpIO51kX1S8LKAv/E+PJPpJ8BmTuc7n9qQzta6bnh5KENhoakSY7y
+         zH6HsQueuapRzCO5IIg5VpxOOk5WYJvcgKy8ej95bgqXIWqnEUpsRnALRt7BNT9U98uz
+         sy9sg1hGAGeWWegIngTULCTszvIRPrBDq9+2FAGrMYXkGdeyciW9oi8fSmnSyrgVKwoh
+         9ro7E3Wep+DQaPdCuDKzoH8zvaU0JWkIk2tQFUu/4lFvYY7VeJxmEnv8yUXnkRmtRmyW
+         ZM1TwdudFp6R/oOHN5m/iIq4ZrW0RM2tazZBlEJQJBnyhbU08+w4AzxFWbGjikeiefC4
+         BG9Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXysRkhY7CYygV7VMJIi17AW4Zyn+hbVCzU7nHKNy29HcjPckaYh82UsneqjxHPIQtJOLuggm2SKSE4PHWJ9jmD@lists.infradead.org
+X-Gm-Message-State: AOJu0YwLDDP1SN7fMj2J4S+tdn38pKddbPOCi5ugXKdeRo93gAZ9bW4F
+	nO6RBOEpKRig1NLj+ak1Y2Z2GIPeqAIakMt0J00v0wl22Jt/NRl2vN9NN9fl3D3i4/QylV50RBA
+	inP2zBoDxZ0KFf+tou4oiA7yQ1ik=
+X-Gm-Gg: ASbGncvaP2Q1EonMm1UjhX7bCTYOmqIWaZMLNC4u2Yd5qRei6/SR1F05HhrWkI4YVdm
+	16t1BjaChIHBU03xMubzJZPVFwa13h7pQ68ka1QGEFfpW8b1S2T1o
+X-Google-Smtp-Source: AGHT+IET3PfD2lydjmB9lUAPFdSJsVQcRdVdEXojLiqSBWvz4vm97/5ujV9jy/Tj2jeiVODvP+E7drTMo/tGOD5/NwM=
+X-Received: by 2002:a05:6871:328c:b0:29d:c832:7ef6 with SMTP id
+ 586e51a60fabf-2a7fb40f20emr28771169fac.39.1736023502000; Sat, 04 Jan 2025
+ 12:45:02 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250104-exynos990-cmu-v1-2-9f54d69286d6@mentallysanemainliners.org>
-References: <20250104-exynos990-cmu-v1-0-9f54d69286d6@mentallysanemainliners.org>
-In-Reply-To: <20250104-exynos990-cmu-v1-0-9f54d69286d6@mentallysanemainliners.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- Igor Belwon <igor.belwon@mentallysanemainliners.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1736021184; l=10685;
- i=igor.belwon@mentallysanemainliners.org; s=20241206;
- h=from:subject:message-id; bh=asuc2fOVXebfJXE2z03+8hnOFP8k71tvUgxEg5/jiIQ=;
- b=+Ab0zfFi2o9oss/z4XovCvkActiYfaMvz6JE2AZ+OhoUauOIIkmjDwo8zALolpLDjyrkymady
- h2PODgc5dssB14H4DU2HHE3AemkPoZGd8EOkLgemS/YDODFZpQZekit
-X-Developer-Key: i=igor.belwon@mentallysanemainliners.org; a=ed25519;
- pk=qKAuSTWKTaGQM0vwBxV0p6hPKMN4vh0CwZ+bozrG5lY=
+References: <20250104074035.1611136-1-anarsoul@gmail.com> <20250104074035.1611136-2-anarsoul@gmail.com>
+ <pc7en2jjvce6et6s22sdfooixxxos4u5bitcfhylt7ms65o7wt@bxdvnyeus7b3> <62d449d4-c764-4dda-bbad-22499101f3dd@kernel.org>
+In-Reply-To: <62d449d4-c764-4dda-bbad-22499101f3dd@kernel.org>
+From: Vasily Khoruzhick <anarsoul@gmail.com>
+Date: Sat, 4 Jan 2025 12:44:35 -0800
+Message-ID: <CA+E=qVfdh0OMM8ZuJdhFkjuuwNZKQBt--YMBw6T=NRvh8jb31Q@mail.gmail.com>
+Subject: Re: [PATCH v2 1/4] dt-bindings: clock: sunxi: Export PLL_VIDEO_2X and PLL_MIPI
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Maxime Ripard <mripard@kernel.org>, Roman Beranek <me@crly.cz>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
+	Dragan Simic <dsimic@manjaro.org>, Frank Oltmanns <frank@oltmanns.dev>, 
+	Stuart Gathman <stuart@gathman.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250104_120714_906304_A7F7B7E9 
-X-CRM114-Status: GOOD (  14.07  )
+X-CRM114-CacheID: sfid-20250104_124503_146724_4F9F0EC7 
+X-CRM114-Status: GOOD (  14.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,232 +100,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The CMU_PERIS block is used for clocking the MCT, and has one dependency
-clock from CMU_TOP. As the MCT is initialized early, this CMU is also
-registered early.
+On Sat, Jan 4, 2025 at 2:18=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.org=
+> wrote:
+>
+> On 04/01/2025 11:16, Krzysztof Kozlowski wrote:
+> > On Fri, Jan 03, 2025 at 11:36:57PM -0800, Vasily Khoruzhick wrote:
+> >> Export PLL_VIDEO_2X and PLL_MIPI, these will be used to explicitly
+> >> select TCON0 clock parent in dts
+> >>
+> >> Fixes: ca1170b69968 ("clk: sunxi-ng: a64: force select PLL_MIPI in TCO=
+N0 mux")
+> >> Reviewed-by: Dragan Simic <dsimic@manjaro.org>
+> >> Reviewed-by: Chen-Yu Tsai <wens@csie.org>
+> >
+> > Where did this happen?
+> >
+> >> Tested-by: Frank Oltmanns <frank@oltmanns.dev> # on PinePhone
+> >> Tested-by: Stuart Gathman <stuart@gathman.org> # on OG Pinebook
+> >
+> > And these? I cannot find traces on the list.
+>
+> I found them, cover letter.
 
-While at it, make the parent clock list comment spaced out correctly,
-and add it to the HSI0 block.
+Yeah, most of the tags are replies to v1 cover letter. Stuart's
+Tested-by comes from IRC. However all the mentioned people are on CC
+list, it's not like I'm trying to sneak in counterfeit tags :)
 
-Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
----
- drivers/clk/samsung/clk-exynos990.c | 180 +++++++++++++++++++++++++++++++++++-
- 1 file changed, 179 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/clk/samsung/clk-exynos990.c b/drivers/clk/samsung/clk-exynos990.c
-index 8e2a2e8eccee36dd7d4bc7099af2672d222f4abe..76f22a4a4631fadf400420b977f3f59f40f840c7 100644
---- a/drivers/clk/samsung/clk-exynos990.c
-+++ b/drivers/clk/samsung/clk-exynos990.c
-@@ -19,6 +19,7 @@
- /* NOTE: Must be equal to the last clock ID increased by one */
- #define CLKS_NR_TOP (CLK_GOUT_CMU_VRA_BUS + 1)
- #define CLKS_NR_HSI0 (CLK_GOUT_HSI0_XIU_D_HSI0_ACLK + 1)
-+#define CLKS_NR_PERIS (CLK_GOUT_PERIS_OTP_CON_TOP_OSCCLK + 1)
- 
- /* ---- CMU_TOP ------------------------------------------------------------- */
- 
-@@ -449,7 +450,7 @@ static const struct samsung_pll_clock top_pll_clks[] __initconst = {
- 	    PLL_LOCKTIME_PLL_G3D, PLL_CON3_PLL_G3D, NULL),
- };
- 
--/* Parent clock list for CMU_TOP muxes*/
-+/* Parent clock list for CMU_TOP muxes */
- PNAME(mout_pll_shared0_p)		= { "oscclk", "fout_shared0_pll" };
- PNAME(mout_pll_shared1_p)		= { "oscclk", "fout_shared1_pll" };
- PNAME(mout_pll_shared2_p)		= { "oscclk", "fout_shared2_pll" };
-@@ -1192,6 +1193,7 @@ static const unsigned long hsi0_clk_regs[] __initconst = {
- 	CLK_CON_GAT_GOUT_BLK_HSI0_UID_XIU_D_HSI0_IPCLKPORT_ACLK,
- };
- 
-+/* Parent clock list for CMU_HSI0 muxes */
- PNAME(mout_hsi0_bus_user_p)		= { "oscclk", "dout_cmu_hsi0_bus" };
- PNAME(mout_hsi0_usb31drd_user_p)	= { "oscclk", "dout_cmu_hsi0_usb31drd" };
- PNAME(mout_hsi0_usbdp_debug_user_p)	= { "oscclk",
-@@ -1305,6 +1307,182 @@ static const struct samsung_cmu_info hsi0_cmu_info __initconst = {
- 	.clk_name		= "bus",
- };
- 
-+/* ---- CMU_PERIS ----------------------------------------------------------- */
-+
-+/* Register Offset definitions for CMU_PERIS (0x10020000) */
-+#define PLL_CON0_MUX_CLKCMU_PERIS_BUS_USER					0x0600
-+#define PLL_CON1_MUX_CLKCMU_PERIS_BUS_USER					0x0604
-+#define CLK_CON_MUX_MUX_CLK_PERIS_GIC						0x1000
-+#define CLK_CON_GAT_GOUT_BLK_PERIS_UID_SYSREG_PERIS_IPCLKPORT_PCLK		0x203c
-+#define CLK_CON_GAT_GOUT_BLK_PERIS_UID_WDT_CLUSTER2_IPCLKPORT_PCLK		0x204c
-+#define CLK_CON_GAT_GOUT_BLK_PERIS_UID_WDT_CLUSTER0_IPCLKPORT_PCLK		0x2048
-+#define CLK_CON_GAT_CLK_BLK_PERIS_UID_PERIS_CMU_PERIS_IPCLKPORT_PCLK		0x200c
-+#define CLK_CON_GAT_GOUT_BLK_PERIS_UID_RSTNSYNC_CLK_PERIS_BUSP_IPCLKPORT_CLK	0x2034
-+#define CLK_CON_GAT_CLK_BLK_PERIS_UID_RSTNSYNC_CLK_PERIS_OSCCLK_IPCLKPORT_CLK	0x2010
-+#define CLK_CON_GAT_GOUT_BLK_PERIS_UID_RSTNSYNC_CLK_PERIS_GIC_IPCLKPORT_CLK	0x2038
-+#define CLK_CON_GAT_GOUT_BLK_PERIS_UID_AD_AXI_P_PERIS_IPCLKPORT_ACLKM		0x2014
-+#define CLK_CON_GAT_GOUT_BLK_PERIS_UID_OTP_CON_BIRA_IPCLKPORT_PCLK		0x2028
-+#define CLK_CON_GAT_GOUT_BLK_PERIS_UID_GIC_IPCLKPORT_CLK			0x201c
-+#define CLK_CON_GAT_GOUT_BLK_PERIS_UID_LHM_AXI_P_PERIS_IPCLKPORT_I_CLK		0x2020
-+#define CLK_CON_GAT_GOUT_BLK_PERIS_UID_MCT_IPCLKPORT_PCLK			0x2024
-+#define CLK_CON_GAT_GOUT_BLK_PERIS_UID_OTP_CON_TOP_IPCLKPORT_PCLK		0x2030
-+#define CLK_CON_GAT_GOUT_BLK_PERIS_UID_D_TZPC_PERIS_IPCLKPORT_PCLK		0x2018
-+#define CLK_CON_GAT_GOUT_BLK_PERIS_UID_TMU_SUB_IPCLKPORT_PCLK			0x2040
-+#define CLK_CON_GAT_GOUT_BLK_PERIS_UID_TMU_TOP_IPCLKPORT_PCLK			0x2044
-+#define CLK_CON_GAT_CLK_BLK_PERIS_UID_OTP_CON_BIRA_IPCLKPORT_I_OSCCLK		0x2000
-+#define CLK_CON_GAT_CLK_BLK_PERIS_UID_OTP_CON_TOP_IPCLKPORT_I_OSCCLK		0x2008
-+#define QCH_CON_D_TZPC_PERIS_QCH						0x3004
-+#define QCH_CON_GIC_QCH								0x3008
-+#define QCH_CON_LHM_AXI_P_PERIS_QCH						0x300c
-+#define QCH_CON_MCT_QCH								0x3010
-+#define QCH_CON_OTP_CON_BIRA_QCH						0x3014
-+#define QCH_CON_OTP_CON_TOP_QCH							0x301c
-+#define QCH_CON_PERIS_CMU_PERIS_QCH						0x3020
-+#define QCH_CON_SYSREG_PERIS_QCH						0x3024
-+#define QCH_CON_TMU_SUB_QCH							0x3028
-+#define QCH_CON_TMU_TOP_QCH							0x302c
-+#define QCH_CON_WDT_CLUSTER0_QCH						0x3030
-+#define QCH_CON_WDT_CLUSTER2_QCH						0x3034
-+
-+static const unsigned long peris_clk_regs[] __initconst = {
-+	PLL_CON0_MUX_CLKCMU_PERIS_BUS_USER,
-+	PLL_CON1_MUX_CLKCMU_PERIS_BUS_USER,
-+	CLK_CON_MUX_MUX_CLK_PERIS_GIC,
-+	CLK_CON_GAT_GOUT_BLK_PERIS_UID_SYSREG_PERIS_IPCLKPORT_PCLK,
-+	CLK_CON_GAT_GOUT_BLK_PERIS_UID_WDT_CLUSTER2_IPCLKPORT_PCLK,
-+	CLK_CON_GAT_GOUT_BLK_PERIS_UID_WDT_CLUSTER0_IPCLKPORT_PCLK,
-+	CLK_CON_GAT_CLK_BLK_PERIS_UID_PERIS_CMU_PERIS_IPCLKPORT_PCLK,
-+	CLK_CON_GAT_GOUT_BLK_PERIS_UID_RSTNSYNC_CLK_PERIS_BUSP_IPCLKPORT_CLK,
-+	CLK_CON_GAT_CLK_BLK_PERIS_UID_RSTNSYNC_CLK_PERIS_OSCCLK_IPCLKPORT_CLK,
-+	CLK_CON_GAT_GOUT_BLK_PERIS_UID_RSTNSYNC_CLK_PERIS_GIC_IPCLKPORT_CLK,
-+	CLK_CON_GAT_GOUT_BLK_PERIS_UID_AD_AXI_P_PERIS_IPCLKPORT_ACLKM,
-+	CLK_CON_GAT_GOUT_BLK_PERIS_UID_OTP_CON_BIRA_IPCLKPORT_PCLK,
-+	CLK_CON_GAT_GOUT_BLK_PERIS_UID_GIC_IPCLKPORT_CLK,
-+	CLK_CON_GAT_GOUT_BLK_PERIS_UID_LHM_AXI_P_PERIS_IPCLKPORT_I_CLK,
-+	CLK_CON_GAT_GOUT_BLK_PERIS_UID_MCT_IPCLKPORT_PCLK,
-+	CLK_CON_GAT_GOUT_BLK_PERIS_UID_OTP_CON_TOP_IPCLKPORT_PCLK,
-+	CLK_CON_GAT_GOUT_BLK_PERIS_UID_D_TZPC_PERIS_IPCLKPORT_PCLK,
-+	CLK_CON_GAT_GOUT_BLK_PERIS_UID_TMU_SUB_IPCLKPORT_PCLK,
-+	CLK_CON_GAT_GOUT_BLK_PERIS_UID_TMU_TOP_IPCLKPORT_PCLK,
-+	CLK_CON_GAT_CLK_BLK_PERIS_UID_OTP_CON_BIRA_IPCLKPORT_I_OSCCLK,
-+	CLK_CON_GAT_CLK_BLK_PERIS_UID_OTP_CON_TOP_IPCLKPORT_I_OSCCLK,
-+	QCH_CON_D_TZPC_PERIS_QCH,
-+	QCH_CON_GIC_QCH,
-+	QCH_CON_LHM_AXI_P_PERIS_QCH,
-+	QCH_CON_MCT_QCH,
-+	QCH_CON_OTP_CON_BIRA_QCH,
-+	QCH_CON_OTP_CON_TOP_QCH,
-+	QCH_CON_PERIS_CMU_PERIS_QCH,
-+	QCH_CON_SYSREG_PERIS_QCH,
-+	QCH_CON_TMU_SUB_QCH,
-+	QCH_CON_TMU_TOP_QCH,
-+	QCH_CON_WDT_CLUSTER0_QCH,
-+	QCH_CON_WDT_CLUSTER2_QCH,
-+};
-+
-+/* Parent clock list for CMU_PERIS muxes */
-+PNAME(mout_peris_bus_user_p)		= { "oscclk", "mout_cmu_peris_bus" };
-+PNAME(mout_peris_clk_peris_gic_p)	= { "oscclk", "mout_peris_bus_user" };
-+
-+static const struct samsung_mux_clock peris_mux_clks[] __initconst = {
-+	MUX(CLK_MOUT_PERIS_BUS_USER, "mout_peris_bus_user",
-+	    mout_peris_bus_user_p, PLL_CON0_MUX_CLKCMU_PERIS_BUS_USER,
-+	    4, 1),
-+	MUX(CLK_MOUT_PERIS_CLK_PERIS_GIC, "mout_peris_clk_peris_gic",
-+	    mout_peris_clk_peris_gic_p, CLK_CON_MUX_MUX_CLK_PERIS_GIC,
-+	    4, 1),
-+};
-+
-+static const struct samsung_gate_clock peris_gate_clks[] __initconst = {
-+	GATE(CLK_GOUT_PERIS_SYSREG_PERIS_PCLK,
-+	     "gout_peris_sysreg_peris_pclk", "mout_peris_bus_user",
-+	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_SYSREG_PERIS_IPCLKPORT_PCLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERIS_WDT_CLUSTER2_PCLK,
-+	     "gout_peris_wdt_cluster2_pclk", "mout_peris_bus_user",
-+	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_WDT_CLUSTER2_IPCLKPORT_PCLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERIS_WDT_CLUSTER0_PCLK,
-+	     "gout_peris_wdt_cluster0_pclk", "mout_peris_bus_user",
-+	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_WDT_CLUSTER0_IPCLKPORT_PCLK,
-+	     21, 0, 0),
-+	GATE(CLK_CLK_PERIS_PERIS_CMU_PERIS_PCLK,
-+	     "clk_peris_peris_cmu_peris_pclk", "mout_peris_bus_user",
-+	     CLK_CON_GAT_CLK_BLK_PERIS_UID_PERIS_CMU_PERIS_IPCLKPORT_PCLK,
-+	     21, CLK_IGNORE_UNUSED, 0),
-+	GATE(CLK_GOUT_PERIS_CLK_PERIS_BUSP_CLK,
-+	     "gout_peris_clk_peris_busp_clk", "mout_peris_bus_user",
-+	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_RSTNSYNC_CLK_PERIS_BUSP_IPCLKPORT_CLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERIS_CLK_PERIS_OSCCLK_CLK,
-+	     "gout_peris_clk_peris_oscclk_clk", "mout_peris_bus_user",
-+	     CLK_CON_GAT_CLK_BLK_PERIS_UID_RSTNSYNC_CLK_PERIS_OSCCLK_IPCLKPORT_CLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERIS_CLK_PERIS_GIC_CLK,
-+	     "gout_peris_clk_peris_gic_clk", "mout_peris_bus_user",
-+	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_RSTNSYNC_CLK_PERIS_GIC_IPCLKPORT_CLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERIS_AD_AXI_P_PERIS_ACLKM,
-+	     "gout_peris_ad_axi_p_peris_aclkm", "mout_peris_bus_user",
-+	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_AD_AXI_P_PERIS_IPCLKPORT_ACLKM,
-+	     21, CLK_IGNORE_UNUSED, 0),
-+	GATE(CLK_GOUT_PERIS_OTP_CON_BIRA_PCLK,
-+	     "gout_peris_otp_con_bira_pclk", "mout_peris_bus_user",
-+	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_OTP_CON_BIRA_IPCLKPORT_PCLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERIS_GIC_CLK,
-+	     "gout_peris_gic_clk", "mout_peris_bus_user",
-+	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_GIC_IPCLKPORT_CLK,
-+	     21, CLK_IS_CRITICAL, 0),
-+	GATE(CLK_GOUT_PERIS_LHM_AXI_P_PERIS_CLK,
-+	     "gout_peris_lhm_axi_p_peris_clk", "oscclk",
-+	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_LHM_AXI_P_PERIS_IPCLKPORT_I_CLK,
-+	     21, CLK_IGNORE_UNUSED, 0),
-+	GATE(CLK_GOUT_PERIS_MCT_PCLK,
-+	     "gout_peris_mct_pclk", "mout_peris_clk_peris_gic",
-+	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_MCT_IPCLKPORT_PCLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERIS_OTP_CON_TOP_PCLK,
-+	     "gout_peris_otp_con_top_pclk", "mout_peris_clk_peris_gic",
-+	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_OTP_CON_TOP_IPCLKPORT_PCLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERIS_D_TZPC_PERIS_PCLK,
-+	     "gout_peris_d_tzpc_peris_pclk", "mout_peris_bus_user",
-+	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_D_TZPC_PERIS_IPCLKPORT_PCLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERIS_TMU_TOP_PCLK,
-+	     "gout_peris_tmu_top_pclk", "mout_peris_clk_peris_gic",
-+	     CLK_CON_GAT_GOUT_BLK_PERIS_UID_TMU_TOP_IPCLKPORT_PCLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERIS_OTP_CON_BIRA_OSCCLK,
-+	     "gout_peris_otp_con_bira_oscclk", "oscclk",
-+	     CLK_CON_GAT_CLK_BLK_PERIS_UID_OTP_CON_BIRA_IPCLKPORT_I_OSCCLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERIS_OTP_CON_TOP_OSCCLK,
-+	     "gout_peris_otp_con_top_oscclk", "oscclk",
-+	     CLK_CON_GAT_CLK_BLK_PERIS_UID_OTP_CON_TOP_IPCLKPORT_I_OSCCLK,
-+	     21, 0, 0),
-+};
-+
-+static const struct samsung_cmu_info peris_cmu_info __initconst = {
-+	.mux_clks = peris_mux_clks,
-+	.nr_mux_clks = ARRAY_SIZE(peris_mux_clks),
-+	.gate_clks = peris_gate_clks,
-+	.nr_gate_clks = ARRAY_SIZE(peris_gate_clks),
-+	.nr_clk_ids = CLKS_NR_PERIS,
-+	.clk_regs = peris_clk_regs,
-+	.nr_clk_regs = ARRAY_SIZE(peris_clk_regs),
-+};
-+
-+static void __init exynos990_cmu_peris_init(struct device_node *np)
-+{
-+	exynos_arm64_register_cmu(NULL, np, &peris_cmu_info);
-+}
-+
-+/* Register CMU_PERIS early, as it's a dependency for the MCT. */
-+CLK_OF_DECLARE(exynos990_cmu_peris, "samsung,exynos990-cmu-peris",
-+	       exynos990_cmu_peris_init);
-+
- /* ----- platform_driver ----- */
- 
- static int __init exynos990_cmu_probe(struct platform_device *pdev)
-
--- 
-2.45.2
-
+> Acked-by: Krzysztof Kozlowski <krzk@kernel.org>
+>
+> Best regards,
+> Krzysztof
 
