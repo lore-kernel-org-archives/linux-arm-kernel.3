@@ -4,47 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24867E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 20:57:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B68CE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 20:58:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=zAzNRdf+8/J9KdcDA9FBbNL/9MobuNkjfz385V8S/F4=; b=BuZD2450HolfVM
-	L/gpVmpE51a5F4Kmllag2OZhIriaKuMf9Wk9Sg62tniRhSiA60CNOyQu4MUVvh3FvWqd67GrTWqdF
-	/0idrFxXuybnB1e7fkxafXdNpIUYM4f+dOOGVn9imVWmqBq4AiEjeLurDaRo/FAsa0nirlSkvc25b
-	ZNg4zuWdewifPJkX0buv0DMQt7o8y/4RXBQI9+aRVVWF9C+C0M8Oiw++HTofyAvnMJcC5Lm4fzUUE
-	vYyRls4ClhJlJ7AQgcztxZBXv0OXQRlO4pivlNVRmTSYKWSrDgJaWDf/59otSwYKm+yDgeZClrBP6
-	ixPjsxcANq+VGEKqcNmA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sJxIM/LR3rNL4/B5PeqX+Pa1K0kId11djXpLSpm8P+8=; b=t470R0dWV02wt3bN3wuitZfAQi
+	JBiz2Xzz+6pvzckHzmd21KTnclDlQxDz4/XMm+YyAqhnFyMABeKwSGJIuof3lOjV4KNsSkNLf04I5
+	vIuAENOAySCgcw78R5ajO9lrFSrGDLGcZ0NQIHNlHs0JlnmwMRg87qoLFXL4MxSKcMItKKUNnDsKU
+	SVTlEr1PM6okPhoBmntLydy7cu/xYefqTYG5qhIyO5bHi/X1SH7ak0n/HD8vtymXhbW9s0CnIXJK+
+	ITlxOBj1PmFoWuuPVXR+EU2kZViIMRqxG69sU81iWeej2bkF8YRQz6hC7upIPRAVLQ1+QYeGD42eA
+	H0TozXwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUBCg-0000000FbJg-1mOi;
-	Sat, 04 Jan 2025 20:57:02 +0000
+	id 1tUBDq-0000000FbWC-090X;
+	Sat, 04 Jan 2025 20:58:14 +0000
 Received: from sendmail.purelymail.com ([34.202.193.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUBAL-0000000Faft-3JEN
+	id 1tUBAN-0000000Faga-0H1Q
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Jan 2025 20:54:39 +0000
+	Sat, 04 Jan 2025 20:54:40 +0000
 Authentication-Results: purelymail.com; auth=pass
-DKIM-Signature: a=rsa-sha256; b=2kDknmXQOVXsYODL14SC1+Rd7+fXsrD+Vao+W0vQxxUUW8aCIIe+kpvS2Qs313iqeXY5poIkNyvm0inALrK/7Z1P0Ibey4MP2Mz4Jo5Z3Nnb4wHT/dY/EG95CqKr8/CuqZiqNG2U5ORJ6W7cvku2sSg/JsN264MzzaO0XER5BWplKdtZp5PIMcQQt15/N7sAs+rwiqng0NVz6asEO6IaMzzwdBQJ5yymQlh0Gj0z3bln547KS8awdg/ULvbeTAiA+ktjiabDVVaxhlZ7VbIdkbGY0fTDXH694Y1LE1o2GD5bCPOMfCVc28rOzDzN70SKI3+rcMwOh/9XOFQ5ECQoDw==; s=purelymail3; d=purelymail.com; v=1; bh=mGxD6iwFtmjZyF9cnW1NHIRS1yBMvIhooC1Hp1N/A2I=; h=Feedback-ID:Received:From:Subject:Date:To;
+DKIM-Signature: a=rsa-sha256; b=KCWzH/NrfDRl0+2n/iVUM9pAtbsVro7gQCLC6SIXHPJjvIZEHSlFkzuolfgmZnZlg7X5vUeVgP5rYh73jHH3ZdiNTZErHhLFc9GF/6FPRvNsySLgbWZLHfW7dQL4mhEOzeP90mQWc3E4sR1CCuXJiTFxNubCVS57VbkMJb9wWSbYnqLbzYZLsucESY/WiCryLYZLoxk5Fz1K3oYO4GZcl8g2jF08d4quoB06nxkng9vf6tUU5A70rNMGYTchNWBIY29UwVWfiWv09DiKpfG7NbZMkDaNWLBRnUu2cQzC4fjTW4IAyjoRVkR2aMf5sKzXFd+vPfWo0k/Vdf+p5QoICw==; s=purelymail3; d=purelymail.com; v=1; bh=y7XGmitoB/d2FvK9oMBRHq/8yp1wqAV+TBRDnbZB5hI=; h=Feedback-ID:Received:From:Date:Subject:To;
 Feedback-ID: 68247:10037:null:purelymail
 X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
 Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 166263896;
           (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
-          Sat, 04 Jan 2025 20:54:28 +0000 (UTC)
+          Sat, 04 Jan 2025 20:54:32 +0000 (UTC)
 From: Igor Belwon <igor.belwon@mentallysanemainliners.org>
-Subject: [PATCH 0/2] Enable CMU_PERIS and MCT for Exynos990
-Date: Sat, 04 Jan 2025 21:54:15 +0100
-Message-Id: <20250104-cmu-nodes-v1-0-ae8af253bc25@mentallysanemainliners.org>
+Date: Sat, 04 Jan 2025 21:54:17 +0100
+Subject: [PATCH 2/2] arm64: dts: exynos990: Add CMU_PERIS and MCT nodes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAPefeWcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1MDQwMT3eTcUt28/JTUYl3T5LSkFPNkS9M0QyMloPqCotS0zAqwWdGxtbU
- ACd3DA1sAAAA=
-X-Change-ID: 20250104-cmu-nodes-5cfbd7c95f12
+Message-Id: <20250104-cmu-nodes-v1-2-ae8af253bc25@mentallysanemainliners.org>
+References: <20250104-cmu-nodes-v1-0-ae8af253bc25@mentallysanemainliners.org>
+In-Reply-To: <20250104-cmu-nodes-v1-0-ae8af253bc25@mentallysanemainliners.org>
 To: Daniel Lezcano <daniel.lezcano@linaro.org>, 
  Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -54,16 +52,16 @@ Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-kernel@vger.kernel.org,
  linux-samsung-soc@vger.kernel.org, 
  Igor Belwon <igor.belwon@mentallysanemainliners.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1736024066; l=944;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1736024066; l=2006;
  i=igor.belwon@mentallysanemainliners.org; s=20241206;
- h=from:subject:message-id; bh=mGxD6iwFtmjZyF9cnW1NHIRS1yBMvIhooC1Hp1N/A2I=;
- b=LN5tCyllQr3iJxSVRPhsL675StndfBt+aJFQf4pOgfuMeV6WzfdYJPn6cXJKE9W9aT7IpnHMm
- ROR/6QbhmqkCz4FMJ5YYr2BFTLED1tEjdCfCaEw0KksNBU8XiYbiqGO
+ h=from:subject:message-id; bh=y7XGmitoB/d2FvK9oMBRHq/8yp1wqAV+TBRDnbZB5hI=;
+ b=wp2LiSqexkr9nlHacMJNjzsq1rbdxz2rqG+owfiMvUU9d/JnivDj75Gj+YL+MCUHbOd/T6a4R
+ ISu+kItYJrcDs1YSZ0vQDqHEwKNs6b49ulHYnfWXL7UGuSX/+cCpHzK
 X-Developer-Key: i=igor.belwon@mentallysanemainliners.org; a=ed25519;
  pk=qKAuSTWKTaGQM0vwBxV0p6hPKMN4vh0CwZ+bozrG5lY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250104_125437_903519_CC7D504C 
-X-CRM114-Status: UNSURE (   7.80  )
+X-CRM114-CacheID: sfid-20250104_125439_180282_C73C0997 
+X-CRM114-Status: UNSURE (   8.46  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,33 +77,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all!
-
-This series enables a new clock block and the MCT for the Exynos990 SoC.
-The MCT design is reused from previous SoCs. It generates 12 timer
-interrupts.
-
-Compile-time and run-time dependency:
-[CMU_PERI] https://lore.kernel.org/linux-samsung-soc/20250104-exynos990-cmu-v1-0-9f54d69286d6@mentallysanemainliners.org/
-
-Best regards
-Igor
+CMU_PERIS is a new clock controller that clocks the MCT. The MCT has 9
+timers (1x count-up global timer, 8x count-down CPU local).
+The global timer generates 4 interrupts, and each local timer
+generates one interrupt. So, in total 12 interrupts.
 
 Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
 ---
-Igor Belwon (2):
-      dt-bindings: timer: exynos4210-mct: Add samsung,exynos990-mct compatible
-      arm64: dts: exynos990: Add CMU_PERIS and MCT nodes
+ arch/arm64/boot/dts/exynos/exynos990.dtsi | 30 ++++++++++++++++++++++++++++++
+ 1 file changed, 30 insertions(+)
 
- .../bindings/timer/samsung,exynos4210-mct.yaml     |  2 ++
- arch/arm64/boot/dts/exynos/exynos990.dtsi          | 30 ++++++++++++++++++++++
- 2 files changed, 32 insertions(+)
----
-base-commit: 77c5a1c131c3e0c955965b94365e0e7727b37dc5
-change-id: 20250104-cmu-nodes-5cfbd7c95f12
+diff --git a/arch/arm64/boot/dts/exynos/exynos990.dtsi b/arch/arm64/boot/dts/exynos/exynos990.dtsi
+index 9d017dbed9523e874891f13258d331c3e829ca03..0e18711cbdc98a65cbd2d709cdd53a7680b833f2 100644
+--- a/arch/arm64/boot/dts/exynos/exynos990.dtsi
++++ b/arch/arm64/boot/dts/exynos/exynos990.dtsi
+@@ -181,6 +181,36 @@ chipid@10000000 {
+ 			reg = <0x10000000 0x100>;
+ 		};
+ 
++		cmu_peris: clock-controller@10020000 {
++			compatible = "samsung,exynos990-cmu-peris";
++			reg = <0x10020000 0x8000>;
++			#clock-cells = <1>;
++
++			clocks = <&oscclk>,
++				 <&cmu_top CLK_DOUT_CMU_PERIS_BUS>;
++			clock-names = "oscclk", "bus";
++		};
++
++		timer@10040000 {
++			compatible = "samsung,exynos990-mct",
++				     "samsung,exynos4210-mct";
++			reg = <0x10040000 0x800>;
++			clocks = <&oscclk>, <&cmu_peris CLK_GOUT_PERIS_MCT_PCLK>;
++			clock-names = "fin_pll", "mct";
++			interrupts = <GIC_SPI 466 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 467 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 468 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 469 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 470 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 471 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 472 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 473 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 474 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 475 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 476 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 477 IRQ_TYPE_LEVEL_HIGH>;
++		};
++
+ 		gic: interrupt-controller@10101000 {
+ 			compatible = "arm,gic-400";
+ 			reg = <0x10101000 0x1000>,
 
-Best regards,
 -- 
-Igor Belwon <igor.belwon@mentallysanemainliners.org>
+2.45.2
 
 
