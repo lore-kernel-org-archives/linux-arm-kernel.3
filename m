@@ -4,64 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 468E3E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 14:00:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B2EAE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 14:21:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jK0s23VokbFuxovaEfAVFvmAMtNeeZT0/QSCobD0rPI=; b=x7ko8tssA0M6muvHk3WlLBtD/9
-	tFsDkDJC0rYQGL9SEIOuQjaEKH5O8DuwPtJgkupnrOiC9bqgn7okfFtYkaTzdVvV7lWnCY4pTrkVu
-	LHZkCrv+b1l5ToHtdGQAgOi/Ee9Z8Lvjzyok7Xumq6vL6pr1BATSCFrcswMnGDXm/DTn1X9624Ddj
-	AqkTUWk4JFr1guculSqG660Zt8UuJZ1CfKBSY3WDkIpGR05jJRW8hIc0QreP7bqYWi0cwQNlT9zH6
-	gmhUH6HXkhKzT+JryWxHCBDGIS0Nx8XTN4oPGowETcoVqpigylAMDrKWrAmTF4MunG+wCPurfoHD6
-	Vtp4LvEQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7vYfoIccjBDkjw6cbBAv2evM0j3S7+LR3G5bMrrAjuw=; b=TWyyDEoPVLoA0Mf+30xCRGA5dO
+	a3zz1pOfLJ4MphTen6lNaOYJHooCdpuUYfsgOCWZdyNKQSlgUu0qjEn1mX07pkJO87gnqfF4HQPJC
+	X+OHXNnQK+DHPtWNS09/NOBVC9+s4wcNWg/GhMVYUyMzMb8BLMg429rm4PezNaCfB2WFc3yLZieQN
+	kMJ4biHplUzlpyyM/+jBcx9fl2ppAfLuJYl1FV4URGI1p1uFEzNBzKyel2LRRDwUiunltAVA40mQT
+	AnEgmHCZacY6J2BPRxGUmZbhJns4qiP5EtzyO5iNhQOFKLvILFRYczE+Spm8kbtS7GoLUx5Uo6ONq
+	UGvDdCGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tU4hc-0000000F4rf-39Pl;
-	Sat, 04 Jan 2025 14:00:32 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tU51w-0000000F6BP-1t3W;
+	Sat, 04 Jan 2025 14:21:32 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tU4gS-0000000F4kO-0ZCQ;
-	Sat, 04 Jan 2025 13:59:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 45D56A40AC6;
-	Sat,  4 Jan 2025 13:57:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3762EC4CED1;
-	Sat,  4 Jan 2025 13:59:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735999159;
-	bh=4n1bUXFAX1wVT1KsrzG+8WwspZWcX0SLePYj+L4Un+U=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=jTa8YRn1JZwSxkRuIT5DIPHiVeeRyilrkHcgh0hOQVUargj5dkAmfKINI/Moj8vdk
-	 /j5RvYC6ohzW8W6WXg0r86x0oS94gS8PXyqTyznpwRXdY0dLvBgnGHmAfheAbNoBJO
-	 Gj1NOqu2TM+W85SO3/ELFqzAExAgoG9Mt2XdDxEnNTD6vCwvvYVZVklbc6vqqk1MZ4
-	 0iioKgm4yCb8j9jcHpacG7MezcPIrdpHmqGNsO8J7Jz8hC2XgyqxsF8bZJXABK+b5C
-	 +0aAw9CK3l44HuCfHZVLB0Uk+rglW15+H9bGN9yFz9IZUMxtySLzNsBDYiSCOefq3G
-	 vXOdptBIGjQmg==
-Date: Sat, 4 Jan 2025 13:59:12 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-amlogic@lists.infradead.org, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, gnstark@salutedevices.com, lars@metafoo.de,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- christianshewitt@gmail.com
-Subject: Re: [RFC PATCH v1 2/2] iio: adc: meson: add support for the GXLX
- SoC
-Message-ID: <20250104135912.390ec87c@jic23-huawei>
-In-Reply-To: <20241231194207.2772750-3-martin.blumenstingl@googlemail.com>
-References: <20241231194207.2772750-1-martin.blumenstingl@googlemail.com>
-	<20241231194207.2772750-3-martin.blumenstingl@googlemail.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-pc-linux-gnu)
+	id 1tU50l-0000000F5sQ-1hkQ
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 04 Jan 2025 14:20:21 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-5d3be7f663cso2673636a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 04 Jan 2025 06:20:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1736000417; x=1736605217; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=7vYfoIccjBDkjw6cbBAv2evM0j3S7+LR3G5bMrrAjuw=;
+        b=C2esGhh7PYxLxqHsMdv4IB1omYFNn6FjRDKYAU+hoL8VzHPUIKPigQZkN34+rxl9y4
+         5pU661Grd9dp4eLIDHCDKcyf/EL12Pd87sfyNgHtBB86FAbEHNdeYZchp5dXpTpZpKUa
+         WzW1dULGKf3/4BxxtbVOC0TXsw6/PlYklgdZShxzE1gO6OddP8jezPNqTphL9g1a7X0G
+         2CVJBL3XB/Tv0Guiv262y5LSqpLD6pRWzlPbWMquqzStDbAqFBny91TINXJSe8chN4sy
+         +wrcd1jYHRoo0caXR3DUTTa44bY1K6Jv5D+1yLAyXlA3abf4EjwMLt0Cyq8riNGxPyMw
+         wdGg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736000417; x=1736605217;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=7vYfoIccjBDkjw6cbBAv2evM0j3S7+LR3G5bMrrAjuw=;
+        b=NpkSaQEqz/30gXQO+4W2gbSJ0Lwu7f6rcg0NB6OPqsPjICiepVJN4vSZgaKSRpBj5p
+         DnJQqrliczeJsK0IPu/jupS88PKcyWdSspX8csXpe2ZolClzqsCVWrkQzAR6XuDTr1xI
+         mWEg3dvcVffFaXCqZ3pcL+PzUMiHzUc8WWRQBWRpeTbHnRynsdJrHzVPRBaXZfipGc4U
+         4QQEb4tELsdpFub6XOk9DwMvmtIxvAu4k7ouTFEpNuwu6ZHse/+eMpUqbUb2YVxwETeQ
+         iMargbV0JJICzU2PbOEncaO0b1bfpuZ5GDEZKhwGy+gYTy5IiQ3w2waUdGhiys0W30jq
+         fgrA==
+X-Forwarded-Encrypted: i=1; AJvYcCXSDstWu5KDj1I2FGNDad8xzYh0/J7nvXS6xCs+jQLE9r8cPpTJ6ko+idtZopJwdnCgoHvRtyUmCEL8771S3DvJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyvbxA2q0p0S/hbTSfOOk/uKaQgbV/eNF7B2DDLrjECL9mQe93b
+	to55cdd7n0iHd3HfIptIwynwrSv3NbaHW+uVzL0MQ8KoE5skAt+8ZZB5c5Ax5aDturExuwQcDtT
+	Q
+X-Gm-Gg: ASbGncuIdnN97fZyZZJDbbMX2XnKPhLhv1b5412krqISMXvNgYYn+a6uo3CBkLP9HZ8
+	KPdpTdHEy9zYuQUVsUrlv8sOY6UpI0OR0+LfzdLs3mE/zeebITj8S2kw05wuKeRnA0cH8KvqgqQ
+	0nlFnGTtgVAot09+XP804wITtBHHlrDa89C7R4WRM+uYdXZO/WmGlIFhOH1k1HwywIp+hzgwZ3u
+	Om8EHfh95qjUgeMYAdfIkBob7mO3sk3tzOZgAjhgrUiZfXc+nwr9mCpldfHiePAP+V0ImU=
+X-Google-Smtp-Source: AGHT+IGha3K/A9wzcwndXIIgjH9svK3Rsjac/aT49HWWAWPNoZX3f2AfqQT6YbI2NKa2kWUjRR+k4w==
+X-Received: by 2002:a05:6402:4309:b0:5d0:bcdd:ff9b with SMTP id 4fb4d7f45d1cf-5d81de1c2f0mr18117836a12.9.1736000417341;
+        Sat, 04 Jan 2025 06:20:17 -0800 (PST)
+Received: from krzk-bin.. ([178.197.223.165])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d806fed4e1sm21376270a12.70.2025.01.04.06.20.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 04 Jan 2025 06:20:15 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Neal Liu <neal.liu@mediatek.com>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	stable@vger.kernel.org
+Subject: [PATCH 1/2] soc: mediatek: mtk-devapc: Fix leaking IO map on error paths
+Date: Sat,  4 Jan 2025 15:20:11 +0100
+Message-ID: <20250104142012.115974-1-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250104_055920_316548_771781CF 
-X-CRM114-Status: GOOD (  28.30  )
+X-CRM114-CacheID: sfid-20250104_062019_441394_6053EE2D 
+X-CRM114-Status: GOOD (  12.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,112 +99,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 31 Dec 2024 20:42:07 +0100
-Martin Blumenstingl <martin.blumenstingl@googlemail.com> wrote:
+Error paths of mtk_devapc_probe() should unmap the memory.  Reported by
+Smatch:
 
-> The SARADC IP on the GXLX SoC itself is identical to the one found on
-> GXL SoCs. However, GXLX SoCs require poking the first three bits in the
-> MESON_SAR_ADC_REG12 register to get the three MPLL clocks (used as clock
-> generators for the audio frequencies) to work.
-> 
-> The reason why there are MPLL clock bits in the ADC register space is
-> entirely unknown and it seems that nobody is able to comment on this.
-> So clearly mark this as a workaround and add a warning so users are
-> notified that this workaround can change (once we know what these bits
-> actually do).
+  drivers/soc/mediatek/mtk-devapc.c:292 mtk_devapc_probe() warn: 'ctx->infra_base' from of_iomap() not released on lines: 277,281,286.
 
-So IIUC this is to make some non ADC component work.
-How are you handling dependencies?  The ADC driver might not be loaded or
-is there some reason it definitely is at the point where the audio driver
-loads?
+Fixes: 0890beb22618 ("soc: mediatek: add mt6779 devapc driver")
+Cc: <stable@vger.kernel.org>
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+---
+ drivers/soc/mediatek/mtk-devapc.c | 18 +++++++++++++-----
+ 1 file changed, 13 insertions(+), 5 deletions(-)
 
-Jonathan
-
-> 
-> Signed-off-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-> ---
->  drivers/iio/adc/meson_saradc.c | 34 ++++++++++++++++++++++++++++++++++
->  1 file changed, 34 insertions(+)
-> 
-> diff --git a/drivers/iio/adc/meson_saradc.c b/drivers/iio/adc/meson_saradc.c
-> index 997def4a4d2f..df15a2566ec7 100644
-> --- a/drivers/iio/adc/meson_saradc.c
-> +++ b/drivers/iio/adc/meson_saradc.c
-> @@ -160,6 +160,11 @@
->  	#define MESON_SAR_ADC_REG11_EOC				BIT(1)
->  	#define MESON_SAR_ADC_REG11_VREF_SEL			BIT(0)
->  
-> +#define MESON_SAR_ADC_REG12					0x30
-> +	#define MESON_SAR_ADC_REG12_MPLL0_UNKNOWN		BIT(0)
-> +	#define MESON_SAR_ADC_REG12_MPLL1_UNKNOWN		BIT(1)
-> +	#define MESON_SAR_ADC_REG12_MPLL2_UNKNOWN		BIT(2)
-> +
->  #define MESON_SAR_ADC_REG13					0x34
->  	#define MESON_SAR_ADC_REG13_12BIT_CALIBRATION_MASK	GENMASK(13, 8)
->  
-> @@ -326,6 +331,7 @@ struct meson_sar_adc_param {
->  	u8					cmv_select;
->  	u8					adc_eoc;
->  	enum meson_sar_adc_vref_sel		vref_voltage;
-> +	bool					enable_mpll_clock_workaround;
->  };
->  
->  struct meson_sar_adc_data {
-> @@ -995,6 +1001,15 @@ static int meson_sar_adc_init(struct iio_dev *indio_dev)
->  				    priv->param->cmv_select);
->  		regmap_update_bits(priv->regmap, MESON_SAR_ADC_REG11,
->  				   MESON_SAR_ADC_REG11_CMV_SEL, regval);
-> +
-> +		if (priv->param->enable_mpll_clock_workaround) {
-> +			dev_warn(dev,
-> +				 "Enabling unknown bits to make the MPLL clocks work. This may change so always update dtbs and kernel together\n");
-> +			regmap_write(priv->regmap, MESON_SAR_ADC_REG12,
-> +				     MESON_SAR_ADC_REG12_MPLL0_UNKNOWN |
-> +				     MESON_SAR_ADC_REG12_MPLL1_UNKNOWN |
-> +				     MESON_SAR_ADC_REG12_MPLL2_UNKNOWN);
-> +		}
->  	}
->  
->  	ret = clk_set_parent(priv->adc_sel_clk, priv->clkin);
-> @@ -1219,6 +1234,17 @@ static const struct meson_sar_adc_param meson_sar_adc_gxl_param = {
->  	.cmv_select = 1,
->  };
->  
-> +static const struct meson_sar_adc_param meson_sar_adc_gxlx_param = {
-> +	.has_bl30_integration = true,
-> +	.clock_rate = 1200000,
-> +	.regmap_config = &meson_sar_adc_regmap_config_gxbb,
-> +	.resolution = 12,
-> +	.disable_ring_counter = 1,
-> +	.vref_voltage = VREF_VOLTAGE_1V8,
-> +	.cmv_select = true,
-> +	.enable_mpll_clock_workaround = true,
-> +};
-> +
->  static const struct meson_sar_adc_param meson_sar_adc_axg_param = {
->  	.has_bl30_integration = true,
->  	.clock_rate = 1200000,
-> @@ -1267,6 +1293,11 @@ static const struct meson_sar_adc_data meson_sar_adc_gxl_data = {
->  	.name = "meson-gxl-saradc",
->  };
->  
-> +static const struct meson_sar_adc_data meson_sar_adc_gxlx_data = {
-> +	.param = &meson_sar_adc_gxlx_param,
-> +	.name = "meson-gxlx-saradc",
-> +};
-> +
->  static const struct meson_sar_adc_data meson_sar_adc_gxm_data = {
->  	.param = &meson_sar_adc_gxl_param,
->  	.name = "meson-gxm-saradc",
-> @@ -1298,6 +1329,9 @@ static const struct of_device_id meson_sar_adc_of_match[] = {
->  	}, {
->  		.compatible = "amlogic,meson-gxl-saradc",
->  		.data = &meson_sar_adc_gxl_data,
-> +	}, {
-> +		.compatible = "amlogic,meson-gxlx-saradc",
-> +		.data = &meson_sar_adc_gxlx_data,
->  	}, {
->  		.compatible = "amlogic,meson-gxm-saradc",
->  		.data = &meson_sar_adc_gxm_data,
+diff --git a/drivers/soc/mediatek/mtk-devapc.c b/drivers/soc/mediatek/mtk-devapc.c
+index 2a1adcb87d4e..500847b41b16 100644
+--- a/drivers/soc/mediatek/mtk-devapc.c
++++ b/drivers/soc/mediatek/mtk-devapc.c
+@@ -273,23 +273,31 @@ static int mtk_devapc_probe(struct platform_device *pdev)
+ 		return -EINVAL;
+ 
+ 	devapc_irq = irq_of_parse_and_map(node, 0);
+-	if (!devapc_irq)
+-		return -EINVAL;
++	if (!devapc_irq) {
++		ret = -EINVAL;
++		goto err;
++	}
+ 
+ 	ctx->infra_clk = devm_clk_get_enabled(&pdev->dev, "devapc-infra-clock");
+-	if (IS_ERR(ctx->infra_clk))
+-		return -EINVAL;
++	if (IS_ERR(ctx->infra_clk)) {
++		ret = -EINVAL;
++		goto err;
++	}
+ 
+ 	ret = devm_request_irq(&pdev->dev, devapc_irq, devapc_violation_irq,
+ 			       IRQF_TRIGGER_NONE, "devapc", ctx);
+ 	if (ret)
+-		return ret;
++		goto err;
+ 
+ 	platform_set_drvdata(pdev, ctx);
+ 
+ 	start_devapc(ctx);
+ 
+ 	return 0;
++
++err:
++	iounmap(ctx->infra_base);
++	return ret;
+ }
+ 
+ static void mtk_devapc_remove(struct platform_device *pdev)
+-- 
+2.43.0
 
 
