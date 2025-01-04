@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7E80E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 10:06:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7011DE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 10:07:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZTg0WQwY2H6K8bWHKgRdkl/IAS/FPcxjG4kq4IYr3t8=; b=2YxjaUKQvcaqjwPcv5w9dSPmOI
-	bWANjkdBEpR2ze4w2oUXOxxnbzUYw+0Gwg7iuFd69uxAf1oJroMXW3cNHPOtqbNHeM4wC11D4wN+1
-	eqkD/UHd6vg6RLHhyvGhnm+SLbpDvH8D+vc1+j3cMuZsfsP6uV9q4OAHKY1V5KlKXShQyiqv0ORBI
-	iJJnmdsCgS4odeO7gojBFrDiu2boJFyIla5ftpqlM+hly+LALFqVV4EwFt1qvvPcpArNfmtqz+P7y
-	hddtbPu4ZZUs9MJ68ondtba1RBTCCE81GMR8wa6LeHKU+POEhauNTNcPyVMPIhNDhEDyhjaVaJ+Jn
-	2/K1z+hA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pf3p1yxwL7clvdxq1c5cAaA7ibJIsPpx0t8k4P3P/iA=; b=biUhnig7JDBGKtAcvhIMov0Jsk
+	W1ktLBAQKGfPIdEWVa97gmjIaGU9LTHWuv6mqyvBa/IuPXtMFelJIcpT22ZmPaYZb787UDQWscL58
+	ItjK2e6D1Nf6TBHqXDxOOuVrerpe+lshOlfZRAcqzvBGvXnMZkhaJQOyXHSGSceEKfvbwHhd4QIpG
+	THO6dXcpDeRKcRlHZ3YGJncEA3Enij4VSJ97p6/AOp0fpgiuMkIknleg9O3tsEs7EmG2Y5IkBLqKS
+	RoxBOraf7Dr2Hli5nv5kG/FuRG/akRmFJyF4H65/NjZJxcF8QPzTzYImnePKXWNqLmtKeCg1vUtqg
+	9pU3ZSKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tU12Y-0000000Eq6e-0zTj;
-	Sat, 04 Jan 2025 10:05:54 +0000
-Received: from szxga06-in.huawei.com ([45.249.212.32])
+	id 1tU13g-0000000EqCw-1cGl;
+	Sat, 04 Jan 2025 10:07:04 +0000
+Received: from szxga05-in.huawei.com ([45.249.212.191])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tU0xu-0000000EpXg-2rGl
+	id 1tU0xv-0000000EpXi-0uAk
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 04 Jan 2025 10:01:10 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.17])
-	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4YQGDj5Qfdz20n8F;
-	Sat,  4 Jan 2025 18:01:25 +0800 (CST)
+Received: from mail.maildlp.com (unknown [172.19.163.44])
+	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4YQGCT4XFNz1JGgr;
+	Sat,  4 Jan 2025 18:00:21 +0800 (CST)
 Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
-	by mail.maildlp.com (Postfix) with ESMTPS id D1D6E1A0188;
-	Sat,  4 Jan 2025 18:01:03 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 97DCF14011D;
+	Sat,  4 Jan 2025 18:01:02 +0800 (CST)
 Received: from huawei.com (10.175.103.91) by kwepemf100008.china.huawei.com
  (7.202.181.222) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Sat, 4 Jan
- 2025 18:01:03 +0800
+ 2025 18:01:01 +0800
 From: Zeng Heng <zengheng4@huawei.com>
 To: <Dave.Martin@arm.com>, <james.morse@arm.com>
 CC: <bobo.shaobowang@huawei.com>, <linux-arm-kernel@lists.infradead.org>,
 	<jonathan.cameron@huawei.com>, <linux-kernel@vger.kernel.org>
-Subject: [RFC PATCH mpam mpam/snapshot/v6.12-rc1 v4 3/5] arm_mpam: Provide conversion method for new closid/rmid pairs
-Date: Sat, 4 Jan 2025 18:12:22 +0800
-Message-ID: <20250104101224.873926-4-zengheng4@huawei.com>
+Subject: [RFC PATCH mpam mpam/snapshot/v6.12-rc1 v4 1/5] arm_mpam: Introduce the definitions of intPARTID and reqPARTID
+Date: Sat, 4 Jan 2025 18:12:20 +0800
+Message-ID: <20250104101224.873926-2-zengheng4@huawei.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250104101224.873926-1-zengheng4@huawei.com>
 References: <20250104101224.873926-1-zengheng4@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-Originating-IP: [10.175.103.91]
 X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
  kwepemf100008.china.huawei.com (7.202.181.222)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250104_020107_065668_7E22C35F 
-X-CRM114-Status: GOOD (  19.73  )
+X-CRM114-CacheID: sfid-20250104_020107_572130_9CCADB96 
+X-CRM114-Status: GOOD (  18.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,321 +70,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MPAM driver statically assigns all reqPARTIDs to respective intPARTIDs.
-For the new rmid allocation strategy, it will check if there is an
-available rmid of any reqPARTID which belongs to the input closid, not just
-the rmids belonging to the closid.
+The narrow-partid feature in MPAM allows for a more efficient use of
+PARTIDs by enabling a many-to-one mapping of reqpartids (requested PARTIDs)
+to intpartids (internal PARTIDs). This mapping reduces the number of unique
+PARTIDs needed, thus allowing more tasks or processes to be monitored and
+managed with the available resources.
 
-For a mixture of MSCs system, for MSCs that do not support narrow-partid,
-we use the PARTIDs exceeding the number of closids as reqPARTIDs for
-expanding the monitoring groups.
+Regarding intPARTID, MPAM uses it as the unit for control group
+configuration delivery. MPAM will synchronize the delivered configuration
+to all reqPARTIDs mapped to the same intPARTIDs. The number of intPARTIDs
+is indicated by MPAMF_PARTID_NRW_IDR.INTPARTID_MAX if implemented, or
+directly use the number of PARTID as intpartid_max if narrow-partid feature
+is not supported.
 
-In order to keep the existing resctrl API interface, the rmid contains both
-req_idx and PMG information instead of PMG only under the MPAM driver. The
-req_idx represents the req_idx-th sub-monitoring group under the control
-group. The new rmid would be like:
+reqPARTIDs can be used to expand the number of monitors, for each control
+group is no longer simply restricted by the range of PMG. By mapping
+between intPARTID and reqPARTID, the number of monitors would be greatly
+expanded and more fine-grained monitoring under a control group will be
+achieved.
 
-    rmid = (req_idx << shift | pmg).
+As a MPAM driver applicable to general scenarios, it needs to be compatible
+with systems not supporting narrow-partid and mixed MSCs (some MSCs support
+narrow-partid and some do not) systems.
 
-The mapping relationships between each group's closid/rmid and the
-respective MSCs' intPARTID/reqPARTID/PARTID are illustrated:
+We determine the number of closids in the following manner:
 
-n - Indicates the total number of intPARTIDs
-m - Indicates the number of reqPARTIDs per intPARTID
+  reqPARTID-np -- The number of reqPARTIDs supported by MSCs that support
+                  narrow-partid.
+  intPARTID-np -- The number of intPARTIDs supported by MSCs that support
+                  narrow partid.
+  PARTID-nnp   -- The number of PARTIDs supported by MSCs that do not
+                  support narrow partid.
 
-P - Partition group (control group)
-M - Monitoring group
+  n - Indicates the maximum number of control groups
+  l - Represents the total number of reqpartids
+  m - Indicates the number of reqpartids per control group
 
-Group closid rmid.req_idx PARTID            MSCs with narrow-partid  MSCs without narrow-partid
-P1    0      -            0                   intPARTID_1              PARTID_1
-M1_1  0      0            0                       ├── reqPARTID_1_1       ├── PARTID_1_1
-M1_2  0      1            0+n                     ├── reqPARTID_1_2       ├── PARTID_1_2
-M1_3  0      2            0+n*2                   ├── reqPARTID_1_3       ├── PARTID_1_3
- ...                                              ├── ...                 ├── ...
-M1_m  0      (m-1)        0+n*(m-1)               └── reqPARTID_1_m       └── PARTID_1_m
+  n = min(intPARTID-np, PARTID-nnp)
+  l = min(reqPARTID-np, PARTID-nnp)
+  m = l // n
 
-P2    1      -            1                   intPARTID_2              PARTID_2
-M2_1  1      0            1                       ├── reqPARTID_2_1       ├── PARTID_2_1
-M2_2  1      1            1+n                     ├── reqPARTID_2_2       ├── PARTID_2_2
-M2_3  1      2            1+n*2                   ├── reqPARTID_2_3       ├── PARTID_2_3
- ...                                              ├── ...                 ├── ...
-M2_m  1      (m-1)        1+n*(m-1)               └── reqPARTID_2_m       └── PARTID_2_m
+To illustrate how to determine n, l, and m through examples, we can assume
+a specific example:
 
-Pn    (n-1)  -            (n-1)               intPARTID_n              PARTID_n
-Mn_1  (n-1)  0            (n-1)                   ├── reqPARTID_n_1       ├── PARTID_n_1
-Mn_2  (n-1)  1            (n-1)+n                 ├── reqPARTID_n_2       ├── PARTID_n_2
-Mn_3  (n-1)  2            (n-1)+n*2               ├── reqPARTID_n_3       ├── PARTID_n_3
- ...                                              ├── ...                 ├── ...
-Mn_m  (n-1)  (m-1)        (n-1)+n*(m-1) = n*m-1   └── reqPARTID_n_m       └── PARTID_n_m
+l3   - Does not support the narrow PARTID feature, supports a range of 256
+       PARTIDs.
+mata - Supports the narrow-partid feature, supports 32 intPARTIDs, and
+       supports 256 reqPARTIDs.
 
-Based on the example provided, the conversion relationship between
-closid/rmid and (req)PARTID/PMG is:
+Then,
+n = min(PARTID-l3, intPARTID-mata) = min(256, 32) = 32
+l = min(PARTID-l3, reqPARTID-mata) = min(256,256) = 256
+m = 256 / 32 = 8
 
-    (req)PARTID = (rmid.req_idx * n) + intPARTID
-    PMG = rmid.pmg
-
-and still,
-
-    intPARTID = resctrl_get_config_index(closid, resctrl_conf_type)
-
-The resctrl layer uses the new conversion functions(closid_rmid2reqpartid()
-and rmid2pmg() respectively) to gain the new (req)PARTID/PMG pair.
-
-It can be noted that the approach of allocating the first n IDs to
-intPARTIDs keeps the existing conversion between closid and intPARTID.
-We still use the resctrl_get_config_index() for conversion, maintaining
-the original semantics during the MPAM configuration updating. Essentially,
-the narrowing feature is an enhanced monitoring feature, we only expand the
-definition of rmid, while reqPARTID is only used in monitoring-related
-processes.
-
-Now each control group has m (req)PARTIDs, which are used to expand the
-number of monitoring groups under one control group. Therefore, the number
-of monitoring groups is no longer limited by the range of MPAM's PMG, which
-enhances the extensibility of the system's monitoring capabilities.
+After initialization, the driver determines the 'n' parameter returned by
+resctrl_arch_get_num_closid() and the 'l' parameter returned by
+get_num_reqpartid().
 
 Signed-off-by: Zeng Heng <zengheng4@huawei.com>
 ---
- drivers/platform/arm64/mpam/mpam_resctrl.c | 128 +++++++++++++++------
- 1 file changed, 95 insertions(+), 33 deletions(-)
+ drivers/platform/arm64/mpam/mpam_devices.c  | 12 +++++++++++-
+ drivers/platform/arm64/mpam/mpam_internal.h |  2 ++
+ drivers/platform/arm64/mpam/mpam_resctrl.c  |  9 +++++++--
+ 3 files changed, 20 insertions(+), 3 deletions(-)
 
+diff --git a/drivers/platform/arm64/mpam/mpam_devices.c b/drivers/platform/arm64/mpam/mpam_devices.c
+index 9463045c0011..ca621bb132e9 100644
+--- a/drivers/platform/arm64/mpam/mpam_devices.c
++++ b/drivers/platform/arm64/mpam/mpam_devices.c
+@@ -67,6 +67,7 @@ static DEFINE_MUTEX(mpam_cpuhp_state_lock);
+  * Generating traffic outside this range will result in screaming interrupts.
+  */
+ u16 mpam_partid_max;
++u16 mpam_intpartid_max;
+ u8 mpam_pmg_max;
+ static bool partid_max_init, partid_max_published;
+ static DEFINE_SPINLOCK(partid_max_lock);
+@@ -222,10 +223,16 @@ int mpam_register_requestor(u16 partid_max, u8 pmg_max)
+ 	spin_lock(&partid_max_lock);
+ 	if (!partid_max_init) {
+ 		mpam_partid_max = partid_max;
++		/*
++		 * Update mpam_intpartid_max here, in case the
++		 * system doesn't have narrow-partid feature.
++		 */
++		mpam_intpartid_max = partid_max;
+ 		mpam_pmg_max = pmg_max;
+ 		partid_max_init = true;
+ 	} else if (!partid_max_published) {
+ 		mpam_partid_max = min(mpam_partid_max, partid_max);
++		mpam_intpartid_max = min(mpam_intpartid_max, partid_max);
+ 		mpam_pmg_max = min(mpam_pmg_max, pmg_max);
+ 	} else {
+ 		/* New requestors can't lower the values */
+@@ -984,7 +991,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+ 		u16 partid_max = FIELD_GET(MPAMF_PARTID_NRW_IDR_INTPARTID_MAX, nrwidr);
+ 
+ 		mpam_set_feature(mpam_feat_partid_nrw, props);
+-		msc->partid_max = min(msc->partid_max, partid_max);
++		msc->intpartid_max = min(msc->partid_max, partid_max);
++	} else {
++		msc->intpartid_max = msc->partid_max;
+ 	}
+ 
+ 	mpam_mon_sel_outer_unlock(msc);
+@@ -1046,6 +1055,7 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
+ 
+ 	spin_lock(&partid_max_lock);
+ 	mpam_partid_max = min(mpam_partid_max, msc->partid_max);
++	mpam_intpartid_max = min(mpam_intpartid_max, msc->intpartid_max);
+ 	mpam_pmg_max = min(mpam_pmg_max, msc->pmg_max);
+ 	spin_unlock(&partid_max_lock);
+ 
+diff --git a/drivers/platform/arm64/mpam/mpam_internal.h b/drivers/platform/arm64/mpam/mpam_internal.h
+index 5af6ed60272e..5fc9f09b6945 100644
+--- a/drivers/platform/arm64/mpam/mpam_internal.h
++++ b/drivers/platform/arm64/mpam/mpam_internal.h
+@@ -86,6 +86,7 @@ struct mpam_msc
+ 	bool			error_irq_requested;
+ 	bool			error_irq_hw_enabled;
+ 	u16			partid_max;
++	u16			intpartid_max;
+ 	u8			pmg_max;
+ 	unsigned long		ris_idxs[128 / BITS_PER_LONG];
+ 	u32			ris_max;
+@@ -466,6 +467,7 @@ static inline void mpam_assert_srcu_read_lock_held(void)
+ 
+ /* System wide partid/pmg values */
+ extern u16 mpam_partid_max;
++extern u16 mpam_intpartid_max;
+ extern u8 mpam_pmg_max;
+ 
+ /* Scheduled work callback to enable mpam once all MSC have been probed */
 diff --git a/drivers/platform/arm64/mpam/mpam_resctrl.c b/drivers/platform/arm64/mpam/mpam_resctrl.c
-index b9a33001916b..064332e62c4d 100644
+index 76ddbce0ea9c..ac3d228befcf 100644
 --- a/drivers/platform/arm64/mpam/mpam_resctrl.c
 +++ b/drivers/platform/arm64/mpam/mpam_resctrl.c
-@@ -186,6 +186,11 @@ static u32 get_num_reqpartid(void)
- 	return mpam_partid_max + 1;
- }
- 
-+static u32 get_num_reqpartid_per_closid(void)
+@@ -162,6 +162,11 @@ static bool mpam_resctrl_hide_cdp(enum resctrl_res_level rid)
+  * only the system wide safe value is safe to use.
+  */
+ u32 resctrl_arch_get_num_closid(struct rdt_resource *ignored)
 +{
-+	return get_num_reqpartid() / resctrl_arch_get_num_closid(NULL);
++	return mpam_intpartid_max + 1;
 +}
 +
++static u32 get_num_reqpartid(void)
+ {
+ 	return mpam_partid_max + 1;
+ }
+@@ -169,9 +174,9 @@ u32 resctrl_arch_get_num_closid(struct rdt_resource *ignored)
  u32 resctrl_arch_system_num_rmid_idx(void)
  {
  	u8 closid_shift = fls(mpam_pmg_max);
-@@ -194,24 +199,73 @@ u32 resctrl_arch_system_num_rmid_idx(void)
- 	return num_reqpartid << closid_shift;
+-	u32 num_partid = resctrl_arch_get_num_closid(NULL);
++	u32 num_reqpartid = get_num_reqpartid();
+ 
+-	return num_partid << closid_shift;
++	return num_reqpartid << closid_shift;
  }
  
-+/*
-+ * Under MPAM driver, the rmid contains two pieces of information: one is
-+ * req_idx, and the other is pmg. Therefore,
-+ *     closid_shift = req_shift + pmg_shift.
-+ */
  u32 resctrl_arch_rmid_idx_encode(u32 closid, u32 rmid)
- {
--	u8 closid_shift = fls(mpam_pmg_max);
-+	u32 rmid_mask;
-+	u8 closid_shift;
-+	u8 pmg_shift = fls(mpam_pmg_max);
-+	u8 req_shift = fls(get_num_reqpartid_per_closid() - 1);
-+
-+	closid_shift = req_shift + pmg_shift;
-+	rmid_mask = ~(~0 << closid_shift);
- 
- 	BUG_ON(closid_shift > 8);
- 
--	return (closid << closid_shift) | rmid;
-+	return (closid << closid_shift) | (rmid & rmid_mask);
- }
- 
- void resctrl_arch_rmid_idx_decode(u32 idx, u32 *closid, u32 *rmid)
- {
--	u8 closid_shift = fls(mpam_pmg_max);
--	u32 pmg_mask = ~(~0 << closid_shift);
-+	u32 rmid_mask;
-+	u8 closid_shift;
-+	u8 pmg_shift = fls(mpam_pmg_max);
-+	u8 req_shift = fls(get_num_reqpartid_per_closid() - 1);
-+
-+	closid_shift = req_shift + pmg_shift;
-+	rmid_mask = ~(~0 << closid_shift);
- 
- 	BUG_ON(closid_shift > 8);
- 
--	*closid = idx >> closid_shift;
--	*rmid = idx & pmg_mask;
-+	if (closid)
-+		*closid = idx >> closid_shift;
-+	if (rmid)
-+		*rmid = idx & rmid_mask;
-+}
-+
-+static u32 closid_rmid2reqpartid(u32 closid, u32 rmid)
-+{
-+	u32 intpartid;
-+	u8 pmg_shift = fls(mpam_pmg_max);
-+	u32 req_idx = (rmid >> pmg_shift);
-+	u8 intpartid_shift = fls(mpam_intpartid_max);
-+
-+	if (!cdp_enabled)
-+		intpartid = resctrl_get_config_index(closid, CDP_NONE);
-+	else
-+		intpartid = resctrl_get_config_index(closid, CDP_DATA);
-+
-+	return (req_idx << intpartid_shift) | intpartid;
-+}
-+
-+static u32 rmid2pmg(u32 rmid)
-+{
-+	u8 pmg_shift = fls(mpam_pmg_max);
-+	u32 pmg_mask = ~(~0 << pmg_shift);
-+
-+	return rmid & pmg_mask;
-+}
-+
-+static u32 req2intpartid(u32 reqpartid)
-+{
-+	u8 intpartid_shift = fls(mpam_intpartid_max);
-+	u32 intpartid_mask = ~(~0 << intpartid_shift);
-+
-+	return reqpartid & intpartid_mask;
- }
- 
- void resctrl_arch_sched_in(struct task_struct *tsk)
-@@ -223,20 +277,24 @@ void resctrl_arch_sched_in(struct task_struct *tsk)
- 
- void resctrl_arch_set_cpu_default_closid_rmid(int cpu, u32 closid, u32 rmid)
- {
--	BUG_ON(closid > U16_MAX);
--	BUG_ON(rmid > U8_MAX);
-+	u32 reqpartid = closid_rmid2reqpartid(closid, rmid);
-+	u32 pmg = rmid2pmg(rmid);
-+	u32 partid_d, partid_i;
-+
-+	BUG_ON(reqpartid > U16_MAX);
-+	BUG_ON(pmg > U8_MAX);
- 
- 	if (!cdp_enabled) {
--		mpam_set_cpu_defaults(cpu, closid, closid, rmid, rmid);
-+		mpam_set_cpu_defaults(cpu, reqpartid, reqpartid, pmg, pmg);
- 	} else {
- 		/*
- 		 * When CDP is enabled, resctrl halves the closid range and we
- 		 * use odd/even partid for one closid.
- 		 */
--		u32 partid_d = resctrl_get_config_index(closid, CDP_DATA);
--		u32 partid_i = resctrl_get_config_index(closid, CDP_CODE);
-+		partid_d = reqpartid;
-+		partid_i = reqpartid + 1;
- 
--		mpam_set_cpu_defaults(cpu, partid_d, partid_i, rmid, rmid);
-+		mpam_set_cpu_defaults(cpu, partid_d, partid_i, pmg, pmg);
- 	}
- }
- 
-@@ -256,41 +314,45 @@ void resctrl_arch_sync_cpu_closid_rmid(void *info)
- 
- void resctrl_arch_set_closid_rmid(struct task_struct *tsk, u32 closid, u32 rmid)
- {
--	BUG_ON(closid > U16_MAX);
--	BUG_ON(rmid > U8_MAX);
-+	u32 reqpartid = closid_rmid2reqpartid(closid, rmid);
-+	u32 pmg = rmid2pmg(rmid);
-+	u32 partid_d, partid_i;
-+
-+	BUG_ON(reqpartid > U16_MAX);
-+	BUG_ON(pmg > U8_MAX);
- 
- 	if (!cdp_enabled) {
--		mpam_set_task_partid_pmg(tsk, closid, closid, rmid, rmid);
-+		mpam_set_task_partid_pmg(tsk, reqpartid, reqpartid, pmg, pmg);
- 	} else {
--		u32 partid_d = resctrl_get_config_index(closid, CDP_DATA);
--		u32 partid_i = resctrl_get_config_index(closid, CDP_CODE);
-+		partid_d = reqpartid;
-+		partid_i = partid_d + 1;
- 
--		mpam_set_task_partid_pmg(tsk, partid_d, partid_i, rmid, rmid);
-+		mpam_set_task_partid_pmg(tsk, partid_d, partid_i, pmg, pmg);
- 	}
- }
- 
- bool resctrl_arch_match_closid(struct task_struct *tsk, u32 closid)
- {
- 	u64 regval = mpam_get_regval(tsk);
--	u32 tsk_closid = FIELD_GET(MPAM1_EL1_PARTID_D, regval);
-+	u32 tsk_partid = FIELD_GET(MPAM1_EL1_PARTID_D, regval);
-+
-+	tsk_partid = req2intpartid(tsk_partid);
- 
- 	if (cdp_enabled)
--		tsk_closid >>= 1;
-+		tsk_partid >>= 1;
- 
--	return tsk_closid == closid;
-+	return tsk_partid == closid;
- }
- 
- /* The task's pmg is not unique, the partid must be considered too */
- bool resctrl_arch_match_rmid(struct task_struct *tsk, u32 closid, u32 rmid)
- {
- 	u64 regval = mpam_get_regval(tsk);
--	u32 tsk_closid = FIELD_GET(MPAM1_EL1_PARTID_D, regval);
--	u32 tsk_rmid = FIELD_GET(MPAM1_EL1_PMG_D, regval);
--
--	if (cdp_enabled)
--		tsk_closid >>= 1;
-+	u32 tsk_pmg = FIELD_GET(MPAM1_EL1_PMG_D, regval);
-+	u32 tsk_partid = FIELD_GET(MPAM1_EL1_PARTID_D, regval);
- 
--	return (tsk_closid == closid) && (tsk_rmid == rmid);
-+	return (tsk_partid == closid_rmid2reqpartid(closid, rmid)) &&
-+	       (tsk_pmg == rmid2pmg(rmid));
- }
- 
- struct rdt_resource *resctrl_arch_get_resource(enum resctrl_res_level l)
-@@ -412,7 +474,7 @@ int resctrl_arch_rmid_read(struct rdt_resource	*r, struct rdt_mon_domain *d,
- 		cfg.mon = resctrl_arch_rmid_idx_encode(closid, rmid);
- 
- 	cfg.match_pmg = true;
--	cfg.pmg = rmid;
-+	cfg.pmg = rmid2pmg(rmid);
- 	cfg.opts = resctrl_evt_config_to_mpam(dom->mbm_local_evt_cfg);
- 
- 	if (irqs_disabled()) {
-@@ -420,7 +482,7 @@ int resctrl_arch_rmid_read(struct rdt_resource	*r, struct rdt_mon_domain *d,
- 		err = -EIO;
- 	} else {
- 		if (cdp_enabled) {
--			cfg.partid = closid << 1;
-+			cfg.partid = closid_rmid2reqpartid(closid, rmid);
- 			err = mpam_msmon_read(dom->comp, &cfg, type, val);
- 			if (err)
- 				return err;
-@@ -430,7 +492,7 @@ int resctrl_arch_rmid_read(struct rdt_resource	*r, struct rdt_mon_domain *d,
- 			if (!err)
- 				*val += cdp_val;
- 		} else {
--			cfg.partid = closid;
-+			cfg.partid = closid_rmid2reqpartid(closid, rmid);
- 			err = mpam_msmon_read(dom->comp, &cfg, type, val);
- 		}
- 	}
-@@ -449,18 +511,18 @@ void resctrl_arch_reset_rmid(struct rdt_resource *r, struct rdt_mon_domain *d,
- 
- 	cfg.mon = resctrl_arch_rmid_idx_encode(closid, rmid);
- 	cfg.match_pmg = true;
--	cfg.pmg = rmid;
-+	cfg.pmg = rmid2pmg(rmid);
- 
- 	dom = container_of(d, struct mpam_resctrl_dom, resctrl_mon_dom);
- 
- 	if (cdp_enabled) {
--		cfg.partid = closid << 1;
-+		cfg.partid = closid_rmid2reqpartid(closid, rmid);
- 		mpam_msmon_reset_mbwu(dom->comp, &cfg);
- 
- 		cfg.partid += 1;
- 		mpam_msmon_reset_mbwu(dom->comp, &cfg);
- 	} else {
--		cfg.partid = closid;
-+		cfg.partid = closid_rmid2reqpartid(closid, rmid);
- 		mpam_msmon_reset_mbwu(dom->comp, &cfg);
- 	}
- }
 -- 
 2.25.1
 
