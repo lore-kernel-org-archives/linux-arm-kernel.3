@@ -4,66 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6338EE77197
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 09:16:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3E37E77199
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 09:25:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4ZU2BjFxRBUYF+LUDGVGsB7CSJF35vD0XK/l1+cd+/8=; b=aRS7c5lvF5cp7QjItRLZ74+VxA
-	xfh8++FT6PKm4P3aAC1+mP1wxwf5CBNol59qK778Ho1SkmNmwvK5Y4ZWxuA1WivRwaFX/jqzu2r5M
-	ut+dCoaw18TkB/wPH/bsju4CNedCEVjXZC9Pc8Koa+W7XtZlx0ieR5QM1f1hu/WSfhZSvxf0JBt7+
-	tyBs3a4a+pYqMhkLVVindjj0KgTSrayqMSMD/iPYtuL38PlroABG4tF9ozx+iJkcuidB8n1h+Zvju
-	io8a9v/jvpdgfk8+P9ubW4VKepZXuDvVe2XuBznPX6zL7/MUKfJ0cohW0KQ8jSrnY4qRbwHCo4aeM
-	y9gEVxEg==;
+	bh=V5b++Y/CEivRA4wDmTB9gIiTbcEVH5XW9dZFKJCAJLM=; b=fhPrLcZDkuJFhxDnZeVFiz/Q3y
+	QDeybXJPBuRnGGNw9G32rP/PpGE/o7kcVkIylFx1QdV1RTTxveWc5Ng+bJ50XwoS+l/UoyvznwT7Q
+	3QcHmtNdxAmR4IuwXRJcjUGNYlhbRCkHDibPYzd9YANXTSRNCqro2n5tApu1V9xbF8XRiI9iXj5NM
+	6WP7z8b9YHNeyTHgssYwN/PfKsUp0NpC1mglxArQjol0qGtbJ1Qkzmnk0Zs+1NK4MnDcWOxjdgUKb
+	n5534Zou/8fjSZeojBcTi53LzNpzYgqBz77ZuLFiPHBDAGyyATqJgKYkJ9QgYRSTpM9q+nLc1B1S1
+	4t2E74dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tU0Gn-0000000Elui-3gr8;
-	Sat, 04 Jan 2025 09:16:33 +0000
-Received: from szxga07-in.huawei.com ([45.249.212.35])
+	id 1tU0P7-0000000EmRj-0PZl;
+	Sat, 04 Jan 2025 09:25:09 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tU0Fc-0000000ElnZ-2Ena
+	id 1tU0Nw-0000000EmK4-1umS
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Jan 2025 09:15:22 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.17])
-	by szxga07-in.huawei.com (SkyGuard) with ESMTP id 4YQF7t0vlyz1V4NW;
-	Sat,  4 Jan 2025 17:12:10 +0800 (CST)
-Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
-	by mail.maildlp.com (Postfix) with ESMTPS id E8F281A0188;
-	Sat,  4 Jan 2025 17:15:06 +0800 (CST)
-Received: from [10.174.179.163] (10.174.179.163) by
- kwepemf100008.china.huawei.com (7.202.181.222) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Sat, 4 Jan 2025 17:15:06 +0800
-Message-ID: <108fa543-a086-2143-47bd-d525a58513c1@huawei.com>
-Date: Sat, 4 Jan 2025 17:15:05 +0800
+	Sat, 04 Jan 2025 09:23:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id B07845C4CC6;
+	Sat,  4 Jan 2025 09:23:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD35CC4CED1;
+	Sat,  4 Jan 2025 09:23:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735982634;
+	bh=2fizrOeFdxzxEs3HnJpNgKdl4YmsAb+Ih8fW5Ysihvw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=MLpCZw4Sc/O/jeOcI0lO9U8bnMNAkz359e7b9+//cZqBIe5yNu37G2l7502uVhKnH
+	 T59wsEMuxh7qKciiBwSD6CmtW5grCFFCeiCBEqKQ78nSSVLiMvj3QaKp1qm4fAwncu
+	 /vq+NqnlAgaTPB+22GqGWt18g9sldU+2/t4lthlOanrP1CC8JftjxvVfzcIVJsLHIv
+	 xZDYWGMDsyqL33+1fJepMwfZ00mKgRduK/q4FxymWSFp5BnYSl2RDLi3Ycz3u2dQDC
+	 r2U7FixD1S5T1LaG/vOMNKJowhZqmY8c9A1MsajXymFIvy8J8D7JWBmdt1MN+futP5
+	 7hD3Q8+hj8lnA==
+Message-ID: <9c881612-d80a-4656-aac2-f6134c274167@kernel.org>
+Date: Sat, 4 Jan 2025 10:23:46 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [RFC PATCH mpam mpam/snapshot/v6.12-rc1 v3 2/5] arm_mpam: Read
- monitor value with new closid/rmid pair
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/4] dt-bindings: power: supply: add max77759-fg flavor
+To: Thomas Antoine <t.antoine@uclouvain.be>,
+ Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Dimitri Fedrau <dima.fedrau@gmail.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org
+References: <20250102-b4-gs101_max77759_fg-v2-0-87959abeb7ff@uclouvain.be>
+ <20250102-b4-gs101_max77759_fg-v2-2-87959abeb7ff@uclouvain.be>
+ <cf75f897-1c00-4a37-bce3-f1eb9855a3cd@kernel.org>
+ <2eb1f056-4102-4536-90d1-9d5df1fd2cb5@uclouvain.be>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-To: Dave Martin <Dave.Martin@arm.com>
-CC: <james.morse@arm.com>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <jonathan.cameron@huawei.com>,
-	<xiexiuqi@huawei.com>, "Wangshaobo (bobo)" <bobo.shaobowang@huawei.com>
-References: <20241207092136.2488426-1-zengheng4@huawei.com>
- <20241207092136.2488426-3-zengheng4@huawei.com>
- <Z1sMxKM9o6lAiZGr@e133380.arm.com>
- <8fa84731-1ae6-e40f-3594-3241b1ee8bb4@huawei.com>
- <Z3gC25189W5UYENX@e133380.arm.com>
-From: Zeng Heng <zengheng4@huawei.com>
-In-Reply-To: <Z3gC25189W5UYENX@e133380.arm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <2eb1f056-4102-4536-90d1-9d5df1fd2cb5@uclouvain.be>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.179.163]
-X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
- kwepemf100008.china.huawei.com (7.202.181.222)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250104_011520_892646_77393370 
-X-CRM114-Status: GOOD (  33.69  )
+X-CRM114-CacheID: sfid-20250104_012356_589575_3F3BC5F4 
+X-CRM114-Status: GOOD (  10.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,126 +127,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2025/1/3 23:31, Dave Martin wrote:
-> On Fri, Jan 03, 2025 at 02:55:17PM +0800, Zeng Heng wrote:
+On 03/01/2025 17:16, Thomas Antoine wrote:
+>>> -  reg:
+>>> -    items:
+>>> -      - description: ModelGauge m5 registers
+>>> -      - description: Nonvolatile registers
 >>
+>> Widest constraints always stay here.
 >>
->> On 2024/12/13 0:18, Dave Martin wrote:
->>> Hi,
->>>
->>> On Sat, Dec 07, 2024 at 05:21:33PM +0800, Zeng Heng wrote:
-> 
-> [...]
-> 
->>>> Based on the example provided, the conversion relationship between
->>>> closid/rmid and (req)PARTID/PMG is:
->>>>
->>>>       (req)PARTID = (rmid.req_idx * n) + closid,
->>>>       PMG = rmid.pmg.
->>>
->>> It seemed more natural to me for the PARTIDs assigned to a particular
->>> CLOSID to be consecutively numbered (see [1]), though it works either
->>> way.
->>>
->>> Otherwise, the approach makes sense.
->>>
+>> See:
+>> https://elixir.bootlin.com/linux/v6.11-rc6/source/Documentation/devicetree/bindings/ufs/qcom,ufs.yaml#L127
 >>
->>
->> After attempting to change the mapping method in practice, I found that
->> there are some following advantages of the current method which keeps
->> intPARTIDs are mapped to the first n IDs:
+>> I did not say to remove it. I asked you to add allOf section restricting it.
 > 
-> Thanks for having a go.
+> Thanks for the example. I think I understand now. I will put the reg section
+> back and use min/maxItems in the allOf:if: to set the number of reg/reg-names
+> to 1 for the MAX77759.
 > 
->> 1. Because closid is exactly equal to intPARTID, and the conversion
->> relationship between closid and intPARTID remains unchanged under the
->> current method (still only call the resctrl_get_config_index() for
->> conversion), maintaining the original semantics during the MPAM
->> configuration updating;
-> 
-> You are right about this, but I think this is just moving complexity
-> around rather than eliminating it?
-> 
-> I've tried various approaches, and there there always seems to be one
-> ugly step somewhere; either something in mpam_devices.c that feels like
-> it should be in mpam_resctrl.c, or something in mpam_resctrl.c that
-> feels like it should be in mpam_devices.c.
-> 
->> 2. Since there is no need to create a new transformation (like
->> closid2intpartid()) between closid and intPARTID, this can reduce the
->> work of function adaptations, such as in resctrl_arch_update_one(),
->> resctrl_arch_get_config(), and so on, which doesn't need any extra
->> adaptions and keeps things as simple as possible.
->>
->> Looking forward to your comments.
->>
->>
->> Greeting for new year,
->> Zeng Heng
->>
-> 
-> Happy New Year to you too!
-> 
-> What you say is true, but I think the runtime cost of the conversions
-> is going to be trivial compared with the cost of the actual MSC
-> programming.
-> 
-> For context: I'm hoping to factor the code so that the conversion is as
-> cleanly separated out as possible, so that it would be straightforward
-> to move to an arbitrary mapping in the future if it is possible to
-> agree changes in the core resctrl interface so that the PARTID/PMG
-> allocations can be dynamic.  If we do that, the conversion would
-> probably become a simple table lookup.
-> 
-> This factoring seems more important than which precise mapping we
-> choose right now.
-> 
-> But in the interests of improving PARTID Narrowing support sooner,
-> I think that going straight to dynamic allocation is not the best
-> approach -- so my idea is to prepare for that on the MPAM driver side,
-> but not prioritise developing a dynamic approach until after the
-> resctrlfs refactoring and the MPAM driver are merged upstream.
-> 
-> Does that make sense?
-> 
+> Do I keep shunt-resistor-micro-ohms as I did it here? I could move it in
 
-One of the main reasons for only being able to use static allocation is
-the constraint of the alloc_rmid(). Unless we switch to using another
-interface (such as resctrl_arch_alloc_rmid()) for rmid allocation, doing
-so would definitely break the existing public interface of resctrl.
 
-Consequently, this would increase the difficulty of merging the MPAM
-driver into the mainline. (Of course, even after merging into the
-upstream, expectations for MPAM to change the common interface still
-remain cautious.)
-
-But for how to support dynamic allocation in the future, I have the
-following preliminary views and possible directions for evolution:
-
-1. The mapping between closid and intpartid will continue to be
-maintained as it is, supporting the NP feature, which should not lead to
-changes in the definition of closid, because essentially NP is just an
-enhanced feature for monitoring;
-
-2. rmid will no longer only contain pmg information. rmid would be
-composed of rmid.req_idx (or directly rmid.reqpartid) and rmid.pmg.
-
-Once the mapping between closid/rmid is determined, the allocation
-method will also be determined, and the dynamic allocation process can
-be like table lookup.
-
-Currently, I am prioritizing updating the issues you discussed
-previously on the basis of v3 and releasing it as v4 for further review.
-
-Both v3 and v4 include the above ideas, and we can continue discussions 
-in any direction based on v4.
-
-Thank you in advance.
+Depends, where does it come from? What does the other referenced schema say?
 
 
 Best regards,
-Zeng Heng
-
+Krzysztof
 
