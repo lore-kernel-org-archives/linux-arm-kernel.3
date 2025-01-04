@@ -4,90 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EFF0E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 20:49:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC207E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 20:56:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7qOGU9lSGU7clY77Ut7Cvj8lEKcDAuiG7L+BWvjj5ig=; b=lEe2LH3RfavpKGaEUdvhrOfAOC
-	e/WZ3N37aYdwzGm5e0ESEe+VlCaZ1m/sCmasI3M4K6kIFGJoslFWtJyjQVT4DB3JsIfysrwdOzB9E
-	srlDnE2sg2DdJ9OQ6i1yExGKIuF9H3qSV2od4CkNp8bfZVtOLICrmbCkgDiExISsSja7TBrAlCF0g
-	kNCuRyB3ZyPLILGyVKddN62Xcgsvh0U8XfJgEjD//C+a1pIaIEq1DNVKAUToolbfbfnESRuK7WnHd
-	oeZNRbQE0dM1g7wGH3AgcTQ4tVgs5M+yspneCN+3eLPY19E8/LZIj+Jh68eYqjz0lZctO3OJnpAx4
-	UowKpYbw==;
+	bh=hqMYWTit/aHWfXyDrLnrv4M960RHQNSuc+4InX9xelI=; b=2JKeIecKfGOu4BTv/mIvdTaWQI
+	oZgfXTNcHXt+V0FPCUF+0Wc7pEDF5ltX5lrsj4ODtsdwIIQKw0EB33wbUna2bR4uSqSveodHFjayB
+	+AyIJ4BqGT4iX5FJqYBdGfsLbbn1f+OOWYzN4xwVspzChZlKngyKNw4i8wbTHqsxU7dnh88fbeqV6
+	A9miqwuh5YcM5sH7TQlaHCOIK1smjozak9BQXJ0biC22lZVQPqlppTS5XoAhUvBReSfp7zhrCEd+k
+	H8iVon3OaBtiekjvs9ub/lplxLh2h4CSD3uUgtXry4EBA4cItPaR5wOke7FCqTiacD9fIWxPXyQMx
+	c64jkixw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUB5A-0000000FaFF-2U0N;
-	Sat, 04 Jan 2025 20:49:16 +0000
-Received: from mail-oa1-x2c.google.com ([2001:4860:4864:20::2c])
+	id 1tUBBX-0000000Fb2p-3O34;
+	Sat, 04 Jan 2025 20:55:51 +0000
+Received: from sendmail.purelymail.com ([34.202.193.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUB40-0000000Fa53-0ppp
+	id 1tUBAL-0000000Fafk-3JGf
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Jan 2025 20:48:05 +0000
-Received: by mail-oa1-x2c.google.com with SMTP id 586e51a60fabf-29f7c3bcf45so6799225fac.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 04 Jan 2025 12:48:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736023683; x=1736628483; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7qOGU9lSGU7clY77Ut7Cvj8lEKcDAuiG7L+BWvjj5ig=;
-        b=EtW5JFkl2f7YrSHMMg+betFeHASlu5TcEBeWUtp6+M6u+f3UanekuRkij9VncFrCqV
-         qK5tLU5w0vC62dZt4aP8twVlNwv5Ja4YxmR1DGcYjfAV92VXUEB3w3iPlVqNQT/W7ImC
-         bPcdqr07y77kDtqZ7F388zg3f2MQ0JgqimACk8eXxhp/Wg/q4byUWdT2Agq91kckO9SN
-         WdYcxcSzWD79MmdZr48s73gw5wU6/7I2C0UhED090U3QsXt09tH1ZFOnZc5JW2hz33f7
-         REsyuW7b5F5SounNN31+gXEW1d8VKZzyHtmxsg9Elj56+XMCL/EkjF4r63R5UxHsvE5G
-         Q2vw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736023683; x=1736628483;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=7qOGU9lSGU7clY77Ut7Cvj8lEKcDAuiG7L+BWvjj5ig=;
-        b=OZqfqqKAcVz48/jRLH3i31mAqWJgFweC+qkqcD7Sz4VrcuwKH3iS10bSQ2oNVkA6U4
-         9aDvIFuMdbEYnb2QzkWQrglcEmDs01Hfi1RwhbHLDMA9uhNojPR/WeEaUIExq1eKP5UR
-         QL78WSHR319uPnviyqfT1aEB1efMfFmI8EOs7Ft6RM+5ZUjagpmA3zia/T3nECD17dUk
-         WVTyYFKnK+uZ36o3ZAFolsfjSha58jXZUeEeCE1YJJIyeIw3rp75VY9pxAs3T5wysC14
-         9NuVjClfH/VZH9CVtNR9chYUjhvyNMbiZFlGCi8LiMsF8MI6POJxX6yHAJMGd/YlUxrh
-         YcEQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU1ZfsrlTAg0Y8f19jh2wYHag4pDCTJ06ARF2g1RoXasZjlxiOu2ayhH36JnwDjMRnxx4l2/QRzx84iVhoOCjQ7@lists.infradead.org
-X-Gm-Message-State: AOJu0YwrQJO0/aW+BhMAhY+IAJrOtv5H7kaN/23qUBw3Y4pYslmo6JCQ
-	fQMUpymFxXg20UOZ2PwL+aXulP4iqw55fWnDlZ5sW5Ak+tP6/5r0MqtnxIsDNnHBRP+X72YXB0A
-	rmdcaM9/1wX/iiTnwOrxH8jgBiYM=
-X-Gm-Gg: ASbGnctytXjZEhGhN2sLMQ907N+cOkpneqzmY8gFPHhplnZeUqTSxt/+wN9s4IAeRfp
-	SwvQdrUlhSFDX8chKBve10EP8BYZVnJK3iLKHgSF0Ct5Myxz/7S88
-X-Google-Smtp-Source: AGHT+IFqdpx5RJdOsRI9uR/s22I3j6REd5BbLNXwPDGQxQawZM2Yl0ffyE3R+tpVxSAwvtmyO4+f1b43CRGilnVUCkA=
-X-Received: by 2002:a05:6870:2f09:b0:29e:3d0b:834 with SMTP id
- 586e51a60fabf-2a7fb00b511mr31315329fac.5.1736023683128; Sat, 04 Jan 2025
- 12:48:03 -0800 (PST)
+	Sat, 04 Jan 2025 20:54:38 +0000
+Authentication-Results: purelymail.com; auth=pass
+DKIM-Signature: a=rsa-sha256; b=FEXNIqLbA2dho6TkleojVJU/mNabeFXI+ZNE1ovlYhYWGv6w+dSDF7Ao+DJsC9IkhHH6czuTO/nXxpeJEbpsalZgHGURIbCDWTaRBMcNSP3S1OBR3QcwpZ7OBcGljJ25BX41BlvQ6Hz6Puacv/fvUFxtI7TjpqGElO8AkcbU43BcyiGjPQlOdfCY4ckyvFCVmDwgCTiYPjKltJhEbwkJJojdVcjLB9j/ZRk1WDcBd9ZMQ8E9yiI1/5oyyQ2VmovZpW/ioM1tjdTfsqcTmWjj9URkPiTX/Fcvfw/rSckDX8F8GNuxk7S4WtNyTxwT9RcFYuk8bsNZLV/Z45zKmI7lqA==; s=purelymail3; d=purelymail.com; v=1; bh=u277CPLBGNkpYhIE1Rr/ra64g8X2BqQPgiL87IDzy5Q=; h=Feedback-ID:Received:From:Date:Subject:To;
+Feedback-ID: 68247:10037:null:purelymail
+X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 166263896;
+          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
+          Sat, 04 Jan 2025 20:54:30 +0000 (UTC)
+From: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+Date: Sat, 04 Jan 2025 21:54:16 +0100
+Subject: [PATCH 1/2] dt-bindings: timer: exynos4210-mct: Add
+ samsung,exynos990-mct compatible
 MIME-Version: 1.0
-References: <20250104074035.1611136-1-anarsoul@gmail.com> <20250104074035.1611136-2-anarsoul@gmail.com>
- <CAGb2v66W9q-uQkepYgrD9QKnOwmpUdDakRoKjmsT_4=Adyj09Q@mail.gmail.com>
- <ca0cad16-7c39-4635-8f09-f9f3c95c9fef@kernel.org> <20250104120256.65511a28@minigeek.lan>
- <CAGb2v66h1k9Wm5Xr1NMYsOgV--2oaHrTfyVFmUisdKmsG1HBCw@mail.gmail.com>
-In-Reply-To: <CAGb2v66h1k9Wm5Xr1NMYsOgV--2oaHrTfyVFmUisdKmsG1HBCw@mail.gmail.com>
-From: Vasily Khoruzhick <anarsoul@gmail.com>
-Date: Sat, 4 Jan 2025 12:47:37 -0800
-Message-ID: <CA+E=qVdm5gf2+TL6ThaTdBy_3jPTSYdU6hj9Om9jPS=iyv8wMA@mail.gmail.com>
-Subject: Re: [PATCH v2 1/4] dt-bindings: clock: sunxi: Export PLL_VIDEO_2X and PLL_MIPI
-To: wens@csie.org
-Cc: Andre Przywara <andre.przywara@arm.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Maxime Ripard <mripard@kernel.org>, Roman Beranek <me@crly.cz>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
-	Dragan Simic <dsimic@manjaro.org>, Frank Oltmanns <frank@oltmanns.dev>, 
-	Stuart Gathman <stuart@gathman.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250104-cmu-nodes-v1-1-ae8af253bc25@mentallysanemainliners.org>
+References: <20250104-cmu-nodes-v1-0-ae8af253bc25@mentallysanemainliners.org>
+In-Reply-To: <20250104-cmu-nodes-v1-0-ae8af253bc25@mentallysanemainliners.org>
+To: Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, 
+ Igor Belwon <igor.belwon@mentallysanemainliners.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1736024066; l=1238;
+ i=igor.belwon@mentallysanemainliners.org; s=20241206;
+ h=from:subject:message-id; bh=u277CPLBGNkpYhIE1Rr/ra64g8X2BqQPgiL87IDzy5Q=;
+ b=LmjPRu8Mc9V1XnLhYRXEnZgszVTkWv+64u5dFvrbNqNXJzVqL6r4jRSD41n4kiRqffrzMcZUN
+ ClRoiJQmxEGD67zArdb9WO7RM52IToo79RzKP82xSBa4TBPXaN5Wcc2
+X-Developer-Key: i=igor.belwon@mentallysanemainliners.org; a=ed25519;
+ pk=qKAuSTWKTaGQM0vwBxV0p6hPKMN4vh0CwZ+bozrG5lY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250104_124804_240190_F77391CB 
-X-CRM114-Status: GOOD (  11.52  )
+X-CRM114-CacheID: sfid-20250104_125437_904409_364FF5A4 
+X-CRM114-Status: UNSURE (   8.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,17 +78,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jan 4, 2025 at 4:14=E2=80=AFAM Chen-Yu Tsai <wens@csie.org> wrote:
+Add a dedicated compatible for the MCT of the Exynos 990 SoC.
+The design for the timer is reused from previous SoCs.
 
-> > Yes, IIRC the C standard allows repeated definitions with the same
-> > value. And I definitely tested this before (and hence recommended this
-> > approach to Vasily) and it compiled without any warnings here.
->
-> Hmm. Didn't know that. Good to know, and I just tried it on my end.
+Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+---
+ Documentation/devicetree/bindings/timer/samsung,exynos4210-mct.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Yeah, I don't like it either. It's an artefact of pretending that the
-device tree directory(ies) is a separate tree.
+diff --git a/Documentation/devicetree/bindings/timer/samsung,exynos4210-mct.yaml b/Documentation/devicetree/bindings/timer/samsung,exynos4210-mct.yaml
+index 02d1c355808e4eadd77b98247cd70e76aea72b21..12ff972bfefcc5dcef2a38582e963ea49a567d18 100644
+--- a/Documentation/devicetree/bindings/timer/samsung,exynos4210-mct.yaml
++++ b/Documentation/devicetree/bindings/timer/samsung,exynos4210-mct.yaml
+@@ -34,6 +34,7 @@ properties:
+               - samsung,exynos5433-mct
+               - samsung,exynos850-mct
+               - samsung,exynos8895-mct
++              - samsung,exynos990-mct
+               - tesla,fsd-mct
+           - const: samsung,exynos4210-mct
+ 
+@@ -135,6 +136,7 @@ allOf:
+               - samsung,exynos5433-mct
+               - samsung,exynos850-mct
+               - samsung,exynos8895-mct
++              - samsung,exynos990-mct
+     then:
+       properties:
+         interrupts:
 
-> Thanks
-> ChenYu
+-- 
+2.45.2
+
 
