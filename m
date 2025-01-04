@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9193DE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 20:59:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D39BEE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jan 2025 21:00:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BMnEf52UfAT7r8nhxUJ27WGRgof8roegZaPYvjI6+Zo=; b=bQMN+gdWUgMtgsF5IimMllZKwL
-	zVTOLrhkPINfCybKWJIC3zJKHtP4SzqsoHD29+qm92fciX3K77PAZ1qa11kERrME9pk+hgm+i/8bx
-	AiXm5oImOZKP5c1v/NSJ1P++dd+x6gcb7JzEI7zjiOVw66CZozTgHMnHd4+1dJqCmlI9msNm3Iviy
-	5DOPTN33ZKB7kaC1PpryynAfGetChKbWyv3FeBgbHMfKMjX7BVgf+cHB+Rd1F949LBXfCDq3i9dSZ
-	DqP46hRmMnKcKH3sjrmYSknTtnjSZIW8LOQ5Cz5MwfLLsyeMF4199fxaERKt0VZ2Jx1moYW120656
-	p4SlugZw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XLKX/DDFIRPvx5t6DaUjc92tk+3Aa7daTr762N5Ifkc=; b=Duk6fRLaKUAe3fBgajE+DmunV4
+	u8Pcv+CKXP+2m7QMG9n4iLFmvmA27OX4XwWBUerI2bxmNRbxVYKskgf2IvdXLx7Ot7S+3i+fFDWuD
+	RIcNKIZfoGkwpxJz0JlEvzpCXKih4DLv734gbCjKtx/tLnl08gqFc6bZG5BjsSIXtQce6HP3rjdyL
+	9jTPi+0NYlEh4DPxBO6au7kV451MEq8lqzVbzfZV773tdrZ6WxaWLWwvj3Y13OEFqJRbSXUccvKUM
+	aomjGK9blbDe8urahdBnRcvP8U72BqhXCOzvUF92uOKhGImTiUQVMr5XjARIuR7WWBOdFCvR+iOAK
+	xTlmIiRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUBEy-0000000Fbd2-2t1B;
-	Sat, 04 Jan 2025 20:59:24 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1tUBG7-0000000FblT-1F0g;
+	Sat, 04 Jan 2025 21:00:35 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUBAR-0000000FahP-2oOJ
+	id 1tUBAT-0000000Fahl-2ON0
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Jan 2025 20:54:45 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-5d8753e9e1fso1910932a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 04 Jan 2025 12:54:43 -0800 (PST)
+	Sat, 04 Jan 2025 20:54:46 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-5d0d6087ca3so2765711a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 04 Jan 2025 12:54:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736024082; x=1736628882; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=BMnEf52UfAT7r8nhxUJ27WGRgof8roegZaPYvjI6+Zo=;
-        b=MAldF4Vm3GoMU+3gPGMULakBM4uazhLYHPFLrRqGJDzKN9xkkpcGQ5RgtmS4QEFSf4
-         TXTQPZLkCPUYbK+EFzcyibRV2dEYBXpsV+QdbWIKUrzbwx/EmNZcJMrO4xwZnlGl3e6m
-         oQb2Abp9au7uv+tJgN720RmOM1xt0Lj6x07MvWFvIzVSO8mrThBvDhJtVc0PvvpCpixd
-         t6U5YyZCJV07Tj8gOK3x5OIeISBaXbnlbAzNpUkfKuMX+53KJi+1r2m+5XzI+709K86P
-         YiH5yL602yWpt8GG/M84FJ6vqhL0Dch3wvPRxE77tiE723u3FVxiUVmZeDvwg9mC68GD
-         tzng==
+        d=linaro.org; s=google; t=1736024084; x=1736628884; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=XLKX/DDFIRPvx5t6DaUjc92tk+3Aa7daTr762N5Ifkc=;
+        b=JV1YrOkBYW4Kk2SbPrNafhLNKYIyDa1eMofc9PxGA6XtODi5F+EC/lsy0YoyReyosA
+         zGCzs91FmNMX65/JscvUsTWk0Cdt7vXWQLK3CjzQMtaoyRthhu9GotmUaQdz9pg2o/cO
+         ZY+yfgDnA3AR6s5pljPEI53SvvKSiboThoPr7A2Pf4yWClHRKAtMoMHFHi1f1EhxFw+8
+         XP/1ySHXBPE+ak9GLkApAHU+oyaJ2V/WeU6hcv/RSbcaA4gOB9orOvb/mH3KjC6UlDrZ
+         w+E8COhNaOmOXKfqrMf6NsJ5Cbri2h17wCl+AO2mgIN0GBUDDBX1e2mQDkTlRUUICz1n
+         oC7A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736024082; x=1736628882;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=BMnEf52UfAT7r8nhxUJ27WGRgof8roegZaPYvjI6+Zo=;
-        b=HHUSkBw9bH7J6ZBE8GjVI1+EXgyu8/gJAdKzQfkoMmiYhm2lyDUgS0sHpZCzA0XJuK
-         x87RQo13rJYlz0wX/9pcKpuClsUi02xocpA4k7H8ic971z2C0HnK7PJB1OFzZ9Opwpf2
-         zqJk2w2UjcHO9ccgFncDW3bg8HP+msc7vb9QWtBvZBLgNfPAwrJG90HcifLq3T+P+5Ly
-         zdyTGbPYBFn2af+HXrf6XDmzcbZNs+cZbU+snZnmbWJfAOzrd2iI7+E67B0ippxKh0wb
-         DKNHhF9lXqnzfbo7QgVMUJxoFkI8E0sPsEzzua0y2vjScLHkl7VZHGbi+YlDpSthjNE8
-         W1qg==
-X-Forwarded-Encrypted: i=1; AJvYcCWru4swv9Kd0Z/0RPolTLeaEGeuZcQW4ApGZKxy592hjl1Fer4CHn6HMjfBFL1ZpeklPEG41jIa3fJVJu3zzM9z@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMGIi/XYBPpYoI6x0igHjnBaH19VvTaT/4n5QbKmsIjipw+yY6
-	uks15aErL4pPgr/Wd7lBOxxADNYcb9DCE7ZYi4u2GD/8UoavMZ1pmnbhclZANU46dEcxQCFKByx
-	+
-X-Gm-Gg: ASbGnctBRzwBBxHWan1YOxZg1ne0w6hNQbRaHy6HkMqR4JhNvEizCkDmxC+zsECLAGG
-	ZYVmt2d1kXeIsKYkGHQTS/E8UMd3wfsae0O/ytEC7NVoTxaNGmnuBnbraCYljYP5OYg3qKqH8J2
-	kb7NdaVwgX4oNfAqMZTzYAiFRRM+mMXjgX8kGZNwBJQXfKS7YQJHz9EOVEi64qsFodkatv6MBhD
-	1wCcD+SpxbcdNfaCV/SSA9c0hNfm/X2SP+3MebM9IuHlnudkN5yT9+FIn5dwvY39Md5tOQ=
-X-Google-Smtp-Source: AGHT+IFLOaiX+zI3DneKZWxfhc5l0F3vw+qCGBukNa5K0q1p/ZxNgoJYKPDQaaRdI+EszfqyaVTwdg==
-X-Received: by 2002:a05:6402:2801:b0:5d3:e79b:3b4f with SMTP id 4fb4d7f45d1cf-5d81de1695bmr17922824a12.8.1736024081142;
-        Sat, 04 Jan 2025 12:54:41 -0800 (PST)
+        d=1e100.net; s=20230601; t=1736024084; x=1736628884;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=XLKX/DDFIRPvx5t6DaUjc92tk+3Aa7daTr762N5Ifkc=;
+        b=Tkru6A03+cJ2ZKcHiYXhNl9Mazo5IIpzd4rwgYzJusOJtFBigoMRU4SKn3cK+Ay5VN
+         Jj4yemiGL3w4KFLUsjNiPcl+ClknMD9Agmo55VykJvpw9+rNZNvC7tzw/aaMTF/tCer6
+         6qXVwdlX5WrQ8IPvV2xvgkaZTQfGE+iHT8h3DFpEoSjn2BX29NJcJuLlniEkvdx4xXxM
+         mSRRm5yv6uhtm2nezmqZhLNBPmuurz7YD6uSA7qLjRqETrX1lUsqe2oUQXTI2xihZiE6
+         03Jdl+1I+bBNT23jGHXi8E7hVPsCdXSsKN2MAhPsauC9MAICaoyx/E1zlTlE4t3Z4/lT
+         GJFw==
+X-Forwarded-Encrypted: i=1; AJvYcCU/VY/gFgm5Yiy7UWqI4d7OWeDjHdJKBAg3/oonbukgGvGMeJgeDy1hep7L1VrJKfmAnJ9I3rU1meYSQ2JD7y3F@lists.infradead.org
+X-Gm-Message-State: AOJu0YyDbSOUEKgWqtg8QKPahrvAW6c2RP20rwGp5uS6f7LzesMBU4k2
+	kXIqhkUtLiV+HtCvKFdFOjei/8KWrSqArC2cPD9WX1dPznzUEAOcvM/P10S1BQ4=
+X-Gm-Gg: ASbGncuC8WuiFYF0uzefvKQpzu527+gHEdnN4JatEuXo31VM3GIwka895pBORtOpqAi
+	AErr35hf7UHzqCCPGOP5qgBwBkNG6g1z7LtbiR4rSlMr+YW9XUef9PgczDi2CjI0kakuZeEiGl5
+	+o/MQ6FwTGEbJxkAGayvxHIdKYvT6IGMsXuRCdMzX2aleRpm5TEhHfu8xFQBzCsrdeO4d8tgNMR
+	WHB1d2icm5XAuhq87xQYoI6YuLk6AyaNcj2p/jEdxb00y7EUesBqN4hYVbX5hv7sX9HWN0=
+X-Google-Smtp-Source: AGHT+IFmkhn29wqYEMmrNGScq5CXWT6m6SapSyW0XiDfeMVUzsZXK4EWiuoixIVsOEwexnWV5pkkww==
+X-Received: by 2002:a17:907:6d1f:b0:aa5:a60:ad6a with SMTP id a640c23a62f3a-aac2d4472c8mr1834711266b.8.1736024083242;
+        Sat, 04 Jan 2025 12:54:43 -0800 (PST)
 Received: from krzk-bin.. ([178.197.223.165])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aaf4a841749sm839666666b.137.2025.01.04.12.54.39
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aaf4a841749sm839666666b.137.2025.01.04.12.54.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 04 Jan 2025 12:54:40 -0800 (PST)
+        Sat, 04 Jan 2025 12:54:42 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 To: Mark Brown <broonie@kernel.org>,
 	Nicolas Ferre <nicolas.ferre@microchip.com>,
@@ -80,15 +80,17 @@ To: Mark Brown <broonie@kernel.org>,
 	linux-sound@vger.kernel.org,
 	patches@opensource.cirrus.com
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH 1/4] spi: atmel-quadspi: Fix struct atmel_qspi_pcal kerneldoc
-Date: Sat,  4 Jan 2025 21:54:34 +0100
-Message-ID: <20250104205437.184782-1-krzysztof.kozlowski@linaro.org>
+Subject: [PATCH 2/4] spi: atmel-quadspi: Fix printed error code during DMA setup
+Date: Sat,  4 Jan 2025 21:54:35 +0100
+Message-ID: <20250104205437.184782-2-krzysztof.kozlowski@linaro.org>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250104205437.184782-1-krzysztof.kozlowski@linaro.org>
+References: <20250104205437.184782-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250104_125443_719242_1E497AA4 
-X-CRM114-Status: GOOD (  11.59  )
+X-CRM114-CacheID: sfid-20250104_125445_605272_EE1851A1 
+X-CRM114-Status: GOOD (  12.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,30 +105,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Correct the typo in parameter name for 'struct atmel_qspi_pcal'
-kerneldoc and W=1 warnings:
+On dma_request_chan() failure driver NULL-ifies the 'rx_chan' and
+immediately uses it as PTR_ERR() so dev_err_probe() prints incorrect
+error code.  Rework the code so proper error code will be printed and
+NULL-ifying of 'rx_chan' will happen in common error handling block
+(failure of DMA setup is not fatal for the driver and further code
+depends on 'rx_chan' being non-NULL for DMA operations).
 
-  drivers/spi/atmel-quadspi.c:244: warning: Function parameter or struct member 'pclk_div' not described in 'atmel_qspi_pcal'
-  drivers/spi/atmel-quadspi.c:244: warning: Excess struct member 'pclkdiv' description in 'atmel_qspi_pcal'
+Reported by Smatch:
+  drivers/spi/atmel-quadspi.c:1287 atmel_qspi_dma_init() warn: passing zero to 'PTR_ERR'
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- drivers/spi/atmel-quadspi.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/spi/atmel-quadspi.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/spi/atmel-quadspi.c b/drivers/spi/atmel-quadspi.c
-index f46da363574f..d135cca4e454 100644
+index d135cca4e454..057bc20a74ce 100644
 --- a/drivers/spi/atmel-quadspi.c
 +++ b/drivers/spi/atmel-quadspi.c
-@@ -235,7 +235,7 @@
- /**
-  * struct atmel_qspi_pcal - Pad Calibration Clock Division
-  * @pclk_rate: peripheral clock rate.
-- * @pclkdiv: calibration clock division. The clock applied to the calibration
-+ * @pclk_div: calibration clock division. The clock applied to the calibration
-  *           cell is divided by pclkdiv + 1.
-  */
- struct atmel_qspi_pcal {
+@@ -1283,9 +1283,9 @@ static int atmel_qspi_dma_init(struct spi_controller *ctrl)
+ 
+ 	aq->rx_chan = dma_request_chan(&aq->pdev->dev, "rx");
+ 	if (IS_ERR(aq->rx_chan)) {
+-		aq->rx_chan = NULL;
+-		return dev_err_probe(&aq->pdev->dev, PTR_ERR(aq->rx_chan),
+-				     "RX DMA channel is not available\n");
++		ret = dev_err_probe(&aq->pdev->dev, PTR_ERR(aq->rx_chan),
++				    "RX DMA channel is not available\n");
++		goto null_rx_chan;
+ 	}
+ 
+ 	aq->tx_chan = dma_request_chan(&aq->pdev->dev, "tx");
+@@ -1306,8 +1306,9 @@ static int atmel_qspi_dma_init(struct spi_controller *ctrl)
+ 
+ release_rx_chan:
+ 	dma_release_channel(aq->rx_chan);
+-	aq->rx_chan = NULL;
+ 	aq->tx_chan = NULL;
++null_rx_chan:
++	aq->rx_chan = NULL;
+ 	return ret;
+ }
+ 
 -- 
 2.43.0
 
