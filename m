@@ -4,65 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87D61E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jan 2025 21:52:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEE86E77198
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jan 2025 22:28:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YkgO0Dr/gEnE1tJuIVv4smNd7nOA51NAoW/XISsoUGw=; b=DO6ZtHq2FiXzGe0tJhvZ3bqnx4
-	LW7wh+8JsSJKYWdMpvRqOQauf6FjP3+Y2JwAcAhk8tRs5gNvZy/hk4Aog4H0Agoc3gvTKlZitFeZu
-	lrs4BNtQxuNWAbYdFFQdjguXH34Ozh9aoUiRdi8tkKXCSbosJSWyyG7JAdP619wbtWBIIExohyYPX
-	tv4pMHQDzD/1GcSvo1cdYB27ZV9Rsh36r6MY4VSJcSx1HgsWY9dre5aoRXzSXOivIsLXFS5oI8WMK
-	kGdrRzpBOp8ALYKMZuYW9kL2V3TqqzAgO9nBEBSlHSk6xpadN8JCEKP/+no3j9nGavoUev+SfKa0R
-	pWmioQhA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yVwTqtMBmufKy+4+Qd4AnDnVsi8YGYtimBuBuOfsG0Q=; b=l2wekGuDcbEp48HJ5CLR0NtRiS
+	AVENgIBcFTL+f77ce68bPEAWr+zATc+z07ZJpA6aGtn74rPy8eCnSCdbMon/1tyesqFA78BgD1Ao/
+	9JcP4oF8MlODR9UZ4UiJVJ5AIeMEK19uTmujQ/85/XILqpw6O3V5yLG3yQMGxUqEWNMxg0gaMdE9G
+	RGuQc18XRtHVBtUc41yspkAGuEoOKlwhlaVxH2xKgefCS5Obp2WdrfYb061TUwqN8fKulrgx/x3qb
+	YmbPocpg58ZjPHlSJcJhY1sGYfZDtp5vlIcjVzshTWPbLlnZ4RKlAMOe1t03lU3EeVKuFhtPtbzAW
+	OJUKSeow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUYXN-0000000HRMy-0TVJ;
-	Sun, 05 Jan 2025 21:51:57 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tUZ6K-0000000HT1N-1TK1;
+	Sun, 05 Jan 2025 22:28:04 +0000
+Received: from mail-oi1-x229.google.com ([2607:f8b0:4864:20::229])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUYWB-0000000HRI2-1imK;
-	Sun, 05 Jan 2025 21:50:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=YkgO0Dr/gEnE1tJuIVv4smNd7nOA51NAoW/XISsoUGw=; b=mXrKcV8owCiOtvFBiI4pPz2Nh1
-	/eM5ykWCKZmGI8dy+UlMz5TMhsRpbSBSlkBUxbCyY4rOwUKEhGaz3g+TGNnQlhuG9UADtZRvKONnU
-	xpWTVV44elCH/8lLHCHw93ukS6sev/rbBEDIExlDMHju9+Kz5t8/kZTLOKckKCe3LyZviU9r3PH6c
-	32Z2XZpPKJyqlhVR1W/QyJQkEV+lA/r1B7reEXxrhckCTYqBoiBdjrFckMGoKxu0fxGrNhyqOUFlk
-	jMXA09loWL8C3VevO031p4m0jWV7MMrYooNxdWsTYk2ZdEFyGEH8mWjPtNiw9bUaE1Zg2OkCIanJW
-	h1DOYhrQ==;
-Received: from i53875aad.versanet.de ([83.135.90.173] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tUYVz-0002Fg-Pz; Sun, 05 Jan 2025 22:50:31 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Andy Yan <andyshrk@163.com>
-Cc: hjc@rock-chips.com, krzk+dt@kernel.org, devicetree@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
- derek.foreman@collabora.com, detlev.casanova@collabora.com,
- daniel@fooishbar.org, Andy Yan <andy.yan@rock-chips.com>,
- Michael Riesch <michael.riesch@wolfvision.net>
-Subject: Re: [PATCH v8 2/9] drm/rockchip: vop2: Add platform specific callback
-Date: Sun, 05 Jan 2025 22:50:30 +0100
-Message-ID: <17026630.geO5KgaWL5@diego>
-In-Reply-To: <20241231090802.251787-3-andyshrk@163.com>
-References: <20241231090802.251787-1-andyshrk@163.com>
- <20241231090802.251787-3-andyshrk@163.com>
+	id 1tUZ58-0000000HSwk-0ktl;
+	Sun, 05 Jan 2025 22:26:51 +0000
+Received: by mail-oi1-x229.google.com with SMTP id 5614622812f47-3eba0f09c3aso4655709b6e.1;
+        Sun, 05 Jan 2025 14:26:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1736116008; x=1736720808; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=yVwTqtMBmufKy+4+Qd4AnDnVsi8YGYtimBuBuOfsG0Q=;
+        b=ehfaAMTQQeluiCvB5F80qhQg+eqMzIpqMz5Hc2BDDdba90m3TpXNFPDmXCTTapVWWh
+         Mle4MorjlbUhX1OfWDdLOQDPmucmHC4okpkmTJkcoVLG90huF/t2Hdj6m2T5ldyGnYo1
+         GqNDsAONhqh5AgXNOn2t+OsmbRQ8/adpHTIVUxI87t5aVgaemWb+7xCuI7RGnRtcD4Oc
+         TniwUJt+SPcMyI8Ci5AhvZfpqCnZ0ktM9IenAuKuzxrOfb2SvuOmVwChKUEhtGFLO5Vf
+         ZHDNDjTNbaQguxgtaLrnmuafhiDIO1btoDGFpv+rlbmedaUE4kyYxz/BShEmXGKfwJKh
+         BOPA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736116008; x=1736720808;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=yVwTqtMBmufKy+4+Qd4AnDnVsi8YGYtimBuBuOfsG0Q=;
+        b=imER7pYS7DXE8CNSLJchLCaRwKUOJyHJ3/vqF4Z+YRflaxCJ1y+4s0+u2rDgZCqym/
+         ugj5oqhS4hA650YGCsD1uZyuOuMOfaT48TzItXANj3/tJo6dhdXrz4LAa2sys+MJzuCc
+         N3f9SV7kgfuqmCgHZr/wABm2mO0+OY6IEylcaxfRwUwbGmQUnSm6Dko590Kuqt40KDaa
+         U8qIpCVIJW8kxEGYmiJ32lfRxknijdFnlgSFSZQH0APcrrwNoWaGJ6gH1V3hDIyPoaSz
+         NMUODeEuhOoAAbgdbN8CMvxFHipyh9kqSsHWymSFxpXsqKetihPlzQAz9I+anmxDSttF
+         Og7g==
+X-Forwarded-Encrypted: i=1; AJvYcCV/fvDm8hoH6+hHRhAOMx4H/23dGF8DawD7ayECuWqfl4qdEArvoFUg6RwFbdxyVEvnhsOnDEWfvOmEhxWCMbMu@lists.infradead.org, AJvYcCWqtW3qID1GiflcGcqnh4A5YPvEtYdUnl9GLPxIYEmYIuxVlFE0NLwL3CgMBjCI27mo9SZNtY724cCWvfUuJrE=@lists.infradead.org
+X-Gm-Message-State: AOJu0YyMVzcop40dZAuz7iL15gQcceK8AuOF5MlW5ACS12UHCYnbeAFt
+	8txJP0OT+n8sV2xH58lY09UbUlrXQybVyDGefLgLZeYS0L3bzUL8
+X-Gm-Gg: ASbGncvLkCV2w0xHIZE8/xPMaztUpMlOUuii3IfZxdSTc+GS8nY9we5GNILscmHFlWh
+	0GtLQuo1pSMSaU0rnVG1gBAvcB6tKC6OaIJMB9Cu5qV2AFTt5qAapm1bqOeyaZXaYM9rw1Y8Jfc
+	RkCCsH4kcujMp294d4yB47kS2p8PNfc+DqXBag6x/cCVVEmAbSGmabMEJT/QsLPGGcPY8QE7GLV
+	wqsNLKHZMrypNnIM5R1L2jhMLs2Q7SjK2M14nsKV7+G9s+yDpwKMUt3shhu0MK9Fw==
+X-Google-Smtp-Source: AGHT+IHbBRJ9nMbE34acFF8TAd1PhbaT6XoSzAtuwlbwM0Aqvg9qf+IuJ+CehsLkJusQr87XsmRxqA==
+X-Received: by 2002:a05:6830:6d8d:b0:71d:5117:c07f with SMTP id 46e09a7af769-720ff4a6899mr40495188a34.0.1736116008135;
+        Sun, 05 Jan 2025 14:26:48 -0800 (PST)
+Received: from tower.cjhon.com ([2603:8081:ad00:4a:b377:72ce:54b5:bddf])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-71fc980a9e8sm9555227a34.43.2025.01.05.14.26.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 05 Jan 2025 14:26:46 -0800 (PST)
+From: Jimmy Hon <honyuenkwun@gmail.com>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Ondrej Jirman <megi@xff.cz>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Jimmy Hon <honyuenkwun@gmail.com>
+Subject: [PATCH v7 0/4] Orange Pi 5 Max
+Date: Sun,  5 Jan 2025 16:26:09 -0600
+Message-ID: <20250105222614.2359-1-honyuenkwun@gmail.com>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250105_135043_477210_D1126A1C 
-X-CRM114-Status: GOOD (  27.94  )
+X-CRM114-CacheID: sfid-20250105_142650_218752_F6D97BEE 
+X-CRM114-Status: GOOD (  12.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,157 +98,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andy,
+Add device-tree for Orange Pi 5 Max
 
-Am Dienstag, 31. Dezember 2024, 10:07:45 CET schrieb Andy Yan:
-> From: Andy Yan <andy.yan@rock-chips.com>
-> 
-> The VOP interface mux, overlay, background delay cycle configuration
-> of different SOC are much different. Add platform specific callback
-> ops to let the core driver look cleaner and more refined.
-> 
-> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
-> Tested-by: Michael Riesch <michael.riesch@wolfvision.net> # on RK3568
-> Tested-by: Detlev Casanova <detlev.casanova@collabora.com>
+Orange Pi now has 3 SBCs using the RK3588 SOC. Refactor the common parts
+of the 5 Plus DTS so it can be shared with the 5 Max and the 5 Ultra.
+The 5 Max and 5 Ultra have a similar credit-card sized board layout and
+will also share a DTSI between them.
 
->  static int vop2_cluster_init(struct vop2_win *win)
->  {
->  	struct vop2 *vop2 = win->vop2;
->  	struct reg_field *cluster_regs;
->  	int ret, i;
->  
-> -	cluster_regs = kmemdup(vop2_cluster_regs, sizeof(vop2_cluster_regs),
-> +	cluster_regs = kmemdup(vop2->data->cluster_reg,
-> +			       sizeof(struct reg_field) * vop2->data->nr_cluster_regs,
->  			       GFP_KERNEL);
->  	if (!cluster_regs)
->  		return -ENOMEM;
->  
-> -	for (i = 0; i < ARRAY_SIZE(vop2_cluster_regs); i++)
-> +	for (i = 0; i < vop2->data->nr_cluster_regs; i++)
->  		if (cluster_regs[i].reg != 0xffffffff)
->  			cluster_regs[i].reg += win->offset;
->  
->  	ret = devm_regmap_field_bulk_alloc(vop2->dev, vop2->map, win->reg,
->  					   cluster_regs,
-> -					   ARRAY_SIZE(vop2_cluster_regs));
-> -
-> +					   vop2->data->nr_cluster_regs);
->  	kfree(cluster_regs);
->  
->  	return ret;
->  };
+5 Plus: HDMI0, HDMI1, HDMI RX, M.2 E-key, USB-C
+5 Max: HDMI0, HDMI1, WiFi/BT using SDIO/UART
+5 Ultra: HDMI1, HDMI RX, WiFi/BT using SDIO/UART
 
-Even the original code, makes checkpatch really unhappy nowadays :-( .
+Changes in v7:
+- Add signed-off to first patch
+- Expand first patch description 
 
-As per
-https://lore.kernel.org/all/20240706-regmap-const-structs-v1-1-d08c776da787@weissschuh.net/
-reg_field should be considered const, so copying the original struct and
-then modifying it causes checkpatch warnings now.
+Changes in v6:
+- Remove clock-names from incorrect merge conflict
 
-I've tried to adapt the function as in the patch below. This should
-contain the same functionality as before, just with keeping the reg_field
-const.
+Changes in v5:
+- Include Orange Pi 5 Plus USB 3.0 change in baseline before refactor
+- Defer Orange Pi 5 Ultra to a later series
+- Defer Orange Pi 5 Plus HDMI1 to a later series
 
-As it's the weekend, I didn't have time to test that change, so it's more
-meant as an idea on how to proceed.
+Changes in v4:
+- Orange Pi 5 Ultra was released and does not use VP0 to HDMI0
+- Move HDMI0 from common to the board level
+- Make DTSI to be shared by the credit card sized 5 Max and 5 Ultra
+- Updates for the newly submitted HDMI1 support
+- Add Ack for dt-binding
 
+Changes in v3:
+- Refactor to share common include with Orange Pi 5 Plus
 
-> +	/* afbc regs */
-> +	[VOP2_WIN_AFBC_FORMAT] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_CTRL, 2, 6),
-> +	[VOP2_WIN_AFBC_RB_SWAP] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_CTRL, 9, 9),
-> +	[VOP2_WIN_AFBC_UV_SWAP] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_CTRL, 10, 10),
-> +	[VOP2_WIN_AFBC_AUTO_GATING_EN] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_OUTPUT_CTRL, 4, 4),
-> +	[VOP2_WIN_AFBC_HALF_BLOCK_EN] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_CTRL, 7, 7),
-> +	[VOP2_WIN_AFBC_BLOCK_SPLIT_EN] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_CTRL, 8, 8),
-> +	[VOP2_WIN_AFBC_HDR_PTR] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_HDR_PTR, 0, 31),
-> +	[VOP2_WIN_AFBC_PIC_SIZE] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_PIC_SIZE, 0, 31),
-> +	[VOP2_WIN_AFBC_PIC_VIR_WIDTH] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_VIR_WIDTH, 0, 15),
-> +	[VOP2_WIN_AFBC_TILE_NUM] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_VIR_WIDTH, 16, 31),
-> +	[VOP2_WIN_AFBC_PIC_OFFSET] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_PIC_OFFSET, 0, 31),
-> +	[VOP2_WIN_AFBC_DSP_OFFSET] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_DSP_OFFSET, 0, 31),
-> +	[VOP2_WIN_AFBC_TRANSFORM_OFFSET] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_TRANSFORM_OFFSET, 0, 31),
+Changes in v2:
+- squashed commits together for initial board file
 
-exceeds the 100 char line length, so I think we should have a line break
-after RK3568_CLUSTER_WIN_AFBCD_TRANSFORM_OFFSET
+Link to v1: https://lore.kernel.org/linux-rockchip/20241026100310.52679-1-honyuenkwun@gmail.com/
+
+Jimmy Hon (4):
+  arm64: dts: rockchip: refactor common rk3588-orangepi-5.dtsi
+  dt-bindings: arm: rockchip: Add Xunlong Orange Pi 5 Max
+  arm64: dts: rockchip: Add Orange Pi 5 Max board
+  arm64: dts: rockchip: Enable HDMI1 on Orange Pi 5 Max
+
+ .../devicetree/bindings/arm/rockchip.yaml     |   6 +-
+ arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+ .../rockchip/rk3588-orangepi-5-compact.dtsi   | 151 ++++
+ .../dts/rockchip/rk3588-orangepi-5-max.dts    | 101 +++
+ .../dts/rockchip/rk3588-orangepi-5-plus.dts   | 855 ++----------------
+ .../boot/dts/rockchip/rk3588-orangepi-5.dtsi  | 805 +++++++++++++++++
+ 6 files changed, 1127 insertions(+), 792 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-compact.dtsi
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-max.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-orangepi-5.dtsi
 
 
-Thanks
-Heiko
-
----------------- 8< ---------------
-From: Heiko Stuebner <heiko@sntech.de>
-Date: Sun, 5 Jan 2025 17:38:31 +0100
-Subject: [PATCH] drm/rockchip: vop2: use devm_regmap_field_alloc for cluster-regs
-
-Right now vop2_cluster_init() copies the base vop2_cluster_regs and adapts
-the reg value with the current window's offset before adding the fields to
-the regmap.
-
-This conflicts with the notion of reg_fields being const, see
-https://lore.kernel.org/all/20240706-regmap-const-structs-v1-1-d08c776da787@weissschuh.net/
-for reference, which now causes checkpatch to actually warn about that.
-
-So instead of creating one big copy and changing it afterwards, add the
-reg_fields individually using devm_regmap_field_alloc().
-
-Functional it is the same, just that the reg_field we're handling
-can stay const.
-
-Signed-off-by: Heiko Stuebner <heiko@sntech.de>
----
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 30 +++++++++-----------
- 1 file changed, 14 insertions(+), 16 deletions(-)
-
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index 17a98845fd31..c8da1ebb6013 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-@@ -3443,25 +3443,23 @@ static struct reg_field vop2_cluster_regs[VOP2_WIN_MAX_REG] = {
- static int vop2_cluster_init(struct vop2_win *win)
- {
- 	struct vop2 *vop2 = win->vop2;
--	struct reg_field *cluster_regs;
--	int ret, i;
--
--	cluster_regs = kmemdup(vop2_cluster_regs, sizeof(vop2_cluster_regs),
--			       GFP_KERNEL);
--	if (!cluster_regs)
--		return -ENOMEM;
-+	int i;
- 
--	for (i = 0; i < ARRAY_SIZE(vop2_cluster_regs); i++)
--		if (cluster_regs[i].reg != 0xffffffff)
--			cluster_regs[i].reg += win->offset;
-+	for (i = 0; i < ARRAY_SIZE(vop2_cluster_regs); i++) {
-+		const struct reg_field field = {
-+			.reg = (vop2_cluster_regs[i].reg != 0xffffffff) ?
-+					vop2_cluster_regs[i].reg + win->offset :
-+					vop2_cluster_regs[i].reg,
-+			.lsb = vop2_cluster_regs[i].lsb,
-+			.msb = vop2_cluster_regs[i].msb
-+		};
- 
--	ret = devm_regmap_field_bulk_alloc(vop2->dev, vop2->map, win->reg,
--					   cluster_regs,
--					   ARRAY_SIZE(vop2_cluster_regs));
--
--	kfree(cluster_regs);
-+		win->reg[i] = devm_regmap_field_alloc(vop2->dev, vop2->map, field);
-+		if (IS_ERR(win->reg[i]))
-+			return PTR_ERR(win->reg[i]);
-+	}
- 
--	return ret;
-+	return 0;
- };
- 
- static struct reg_field vop2_esmart_regs[VOP2_WIN_MAX_REG] = {
+base-commit: 40384c840ea1944d7c5a392e8975ed088ecf0b37
+prerequisite-patch-id: 6346d482f91509dec24bfe5d4f0ca0d345b90deb
+prerequisite-patch-id: 4672b745f4308a7be527749279edb71625d120e6
+prerequisite-patch-id: 2743fb64eba2a29eaf993ebc8a5d6ee445b69dfa
 -- 
-2.45.2
-
-
-
-
+2.47.1
 
 
