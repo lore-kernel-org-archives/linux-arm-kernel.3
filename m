@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9753E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jan 2025 09:53:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B519BE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jan 2025 09:55:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CRzs+lBteckHuBiMPASLvCpYpP9+LhqXWoobnD31UvA=; b=Z1VnHDa/OtUONRPUlpFFOeI4x0
-	MNMsqA5DfmUj9mzItccGZH3RAc/w4+ZTNAXiut7CyoszeQVKsr8ou2VcoOINA/ThXoIMvkb/fLArF
-	3Wqm5HUvWxo2WJOwSJOZefSU3MvMQUN8eD5xnpzgAckjLef3oMzRkHP7hXBarPLAEcXOjmtYox1l/
-	v2OwRdOibFRRq6d9JJfC8WI78qva6jEy+bpX+wcIQGm3MRTkAzl73YWkQGZwBxAWuk3MwM9xFSNYY
-	s9IXuM16ShIVZVVUbe6tWFiPhhu6VsWg5Cmxf5VVCnsqhTHeOFkH6dRbTZMB45PS4Tkp9zZYO7Voi
-	1i9G7aHA==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=69snuUwpsyIrkbZcnnFbbFnV//a9mRAcTgRbnMk9dG8=; b=JginE5NBRrfgNMwEwLiNOwjf4D
+	iuS0XwPyuwc+TaqQJaG7pn/DVizwn0QOKOi4QQA/gmeGVjByQrTb2TB0hnqqy/zMA7spSGeNnzKSJ
+	ZAUPdzcerc7qgDfOcuzkc8XQ+Rjtg5dnJYIjFmdYp7K2VlwY7RnObmxBd4p9ftT+43r9U0R49X8T6
+	2ueRy5uRR6CU8ipolP7fxfDiPPAOH2fszDyv6HY1ug3Mirj3MJJPbnwl5DJzYT8wRDRcMWbm4LmWG
+	d2SDXTtqFxxAnVWORqthu4ePEMVh/kknV2IEU1Rz1FTK7Ua5+kevxjBGZst2DqYdmtyJY5yYUabfy
+	dWYiBoXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUNKC-0000000GdXX-1Ibq;
-	Sun, 05 Jan 2025 09:53:36 +0000
-Received: from mail-m16.yeah.net ([220.197.32.18])
+	id 1tUNLM-0000000GdfR-187s;
+	Sun, 05 Jan 2025 09:54:48 +0000
+Received: from mail-m16.yeah.net ([220.197.32.19])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUNIg-0000000GdOe-0Zvj
+	id 1tUNIg-0000000GdOp-1Uab
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 05 Jan 2025 09:52:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=From:Subject:Date:Message-Id:MIME-Version; bh=CRzs+
-	lBteckHuBiMPASLvCpYpP9+LhqXWoobnD31UvA=; b=fLxZ+zBgWI8P5hD4HoLHb
-	L5eywEIW7d9KwzWNkGKdUwNJB0icGlTyO9CA0RMDZSenBydCrZJCMrjfhqlRzKZj
-	KqAbOgYeho959U8FNi6cM+8+vUTHchg8VF7kFyqvlaYORy/ACHNTUKUz/HVK+e7j
-	Z4EmkgBf41TRNUJc/Qoil0=
+	s=s110527; h=From:Subject:Date:Message-Id:MIME-Version; bh=69snu
+	UwpsyIrkbZcnnFbbFnV//a9mRAcTgRbnMk9dG8=; b=iYay7waFFvMKKIGcEWceB
+	RgxawlCM6JQiV1w0BNkINlXq1Jl3zmuz8TMIF1j0/6+/AC6VIZ9LNOoWfhivRyfZ
+	8tOozGD0fFxqhfyVazWcUlzly4YDdUChYf0qvIu6YHsk8oqTZYW/GxTF6QQeDFSv
+	4s3j1zBq0jM26rqN0Oxq+M=
 Received: from localhost.localdomain (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id M88vCgBXGWwuVnpnZZRPBg--.62165S2;
-	Sun, 05 Jan 2025 17:51:43 +0800 (CST)
+	by gzsmtp3 (Coremail) with SMTP id M88vCgBXGWwuVnpnZZRPBg--.62165S4;
+	Sun, 05 Jan 2025 17:51:44 +0800 (CST)
 From: Shawn Guo <shawnguo2@yeah.net>
 To: soc@kernel.org,
 	arm@kernel.org
@@ -44,22 +44,24 @@ Cc: Shawn Guo <shawnguo@kernel.org>,
 	kernel@pengutronix.de,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL 1/5] i.MX drivers change for 6.14
-Date: Sun,  5 Jan 2025 17:51:34 +0800
-Message-Id: <20250105095139.714590-1-shawnguo2@yeah.net>
+Subject: [GIT PULL 3/5] i.MX ARM device tree change for 6.14
+Date: Sun,  5 Jan 2025 17:51:36 +0800
+Message-Id: <20250105095139.714590-3-shawnguo2@yeah.net>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250105095139.714590-1-shawnguo2@yeah.net>
+References: <20250105095139.714590-1-shawnguo2@yeah.net>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: M88vCgBXGWwuVnpnZZRPBg--.62165S2
-X-Coremail-Antispam: 1Uf129KBjvdXoWrZryxXry8Jw4ftr4UArW7CFg_yoWDJwc_CF
-	y8Xa4UJryUJF17Ja45Cr10vryjyF47Jr97AF18KrWUJr47Jr15JF18Xr4xXr1DXr1UJF1D
-	Jr1UXr18Ar4UJjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUbc4S5UUUUU==
+X-CM-TRANSID: M88vCgBXGWwuVnpnZZRPBg--.62165S4
+X-Coremail-Antispam: 1Uf129KBjvJXoWxXr4rJrW7Gw1kuF4fAF4UXFb_yoW5Cr1fpr
+	1fZrsrJr4xGryfJ34DA3yjk3yYyw15Zr1fZr15Jay8Cr45Za47Xr9Igw1ft34UXFyrWay5
+	tr18ZF9rJrn5uF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jQ2-8UUUUU=
 X-Originating-IP: [114.216.146.204]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiBAjLZWd6TKsXngAAsR
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiBALLZWd6TKsXoQAAsk
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250105_015202_572332_576EB3D1 
-X-CRM114-Status: UNSURE (   5.70  )
+X-CRM114-CacheID: sfid-20250105_015202_760728_6E2DE42F 
+X-CRM114-Status: UNSURE (   8.30  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,24 +85,69 @@ The following changes since commit 40384c840ea1944d7c5a392e8975ed088ecf0b37:
 
 are available in the Git repository at:
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux.git tags/imx-drivers-6.14
+  git://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux.git tags/imx-dt-6.14
 
-for you to fetch changes up to 0b4dc35529f87d99fca91b259d50f54613bf9ec0:
+for you to fetch changes up to c7418a6e7ac9bca66a8a49793cbfa5a45c01bcbb:
 
-  soc: imx: Add SoC device register for i.MX9 (2024-12-09 20:31:39 +0800)
-
-----------------------------------------------------------------
-i.MX drivers change for 6.14:
-
-- Add a SoC driver for i.MX9 (Alice Guo)
+  ARM: dts: imx: Use the correct mdio pattern (2024-12-30 16:03:58 +0800)
 
 ----------------------------------------------------------------
-alice.guo (1):
-      soc: imx: Add SoC device register for i.MX9
+i.MX ARM device tree change for 6.14:
 
- drivers/soc/imx/Makefile   |   2 +-
- drivers/soc/imx/soc-imx9.c | 128 +++++++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 129 insertions(+), 1 deletion(-)
- create mode 100644 drivers/soc/imx/soc-imx9.c
+- Clean up TQMa7x device trees (Alexander Stein)
+- Correct node name pattern for mdio-gpio devices (Fabio Estevam)
+- Update deprecated GPIO properties for Generic ASoC Sound Card device
+  (Geert Uytterhoeven)
+- Set USB dr_mode property to OTG explicitly for imx6qdl-sabresd based
+  boards (Hui Wang)
+- Update MAINTAINERS entry for DH electronics DHSOM boards (Marek Vasut)
+- A series from Stefan Kerkmann to add phy-3p0-supply for usb phys
+
+----------------------------------------------------------------
+Alexander Stein (7):
+      ARM: dts: imx7-mba7: remove LVDS transmitter regulator
+      ARM: dts: imx7-tqma7: Remove superfluous status="okay" property
+      ARM: dts: imx7-tqma7: add missing vs-supply for LM75A (rev. 01xxx)
+      ARM: dts: imx7-mba7: Add 3.3V and 5.0V regulators
+      ARM: dts: imx7-mba7: Fix SD card vmmc-supply
+      ARM: dts: imx7-mba7: Remove duplicated power supply
+      ARM: dts: imx7[d]-mba7: add Ethernet PHY IRQ support
+
+Fabio Estevam (2):
+      ARM: dts: imx6qdl-apalis: Change to "adi,force-bt656-4"
+      ARM: dts: imx: Use the correct mdio pattern
+
+Geert Uytterhoeven (1):
+      ARM: dts: imx: Switch to {hp,mic}-det-gpios
+
+Hui Wang (1):
+      ARM: dts: imx6qdl-sabresd: add dr_mode to usbotg
+
+Marek Vasut (1):
+      MAINTAINERS: Update entry for DH electronics DHSOM SoMs and boards
+
+Stefan Kerkmann (3):
+      ARM: dts: imx6qdl: add phy-3p0-supply to usb phys
+      ARM: dts: imx6sl: add phy-3p0-supply to usb phys
+      ARM: dts: imx6sx: add phy-3p0-supply to usb phys
+
+ MAINTAINERS                                       | 13 ++---
+ arch/arm/boot/dts/nxp/imx/imx51-zii-rdu1.dts      |  2 +-
+ arch/arm/boot/dts/nxp/imx/imx51-zii-scu2-mezz.dts |  2 +-
+ arch/arm/boot/dts/nxp/imx/imx6q-bx50v3.dtsi       |  2 +-
+ arch/arm/boot/dts/nxp/imx/imx6qdl-apalis.dtsi     |  2 +-
+ arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi    |  5 +-
+ arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi            |  6 ++-
+ arch/arm/boot/dts/nxp/imx/imx6sl-evk.dts          |  2 +-
+ arch/arm/boot/dts/nxp/imx/imx6sl.dtsi             |  6 ++-
+ arch/arm/boot/dts/nxp/imx/imx6sll-evk.dts         |  2 +-
+ arch/arm/boot/dts/nxp/imx/imx6sx-sdb.dtsi         |  2 +-
+ arch/arm/boot/dts/nxp/imx/imx6sx.dtsi             |  6 ++-
+ arch/arm/boot/dts/nxp/imx/imx6ul-14x14-evk.dtsi   |  2 +-
+ arch/arm/boot/dts/nxp/imx/imx7-mba7.dtsi          | 61 +++++++----------------
+ arch/arm/boot/dts/nxp/imx/imx7-tqma7.dtsi         |  3 +-
+ arch/arm/boot/dts/nxp/imx/imx7d-mba7.dts          |  3 +-
+ arch/arm/boot/dts/nxp/imx/imx7d-sdb.dts           |  2 +-
+ 17 files changed, 48 insertions(+), 73 deletions(-)
 
 
