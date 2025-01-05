@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C010FE77197
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jan 2025 16:15:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 128BDE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jan 2025 16:16:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1lchnjuFpSdhQx9L/rOYviPRo396F7o6vIvEXCybU6U=; b=J+YgYLM3f4uDKaBxwmI6QqWbhN
-	RX2G3doIRLplb7TbINqH7ksnZz6fZFmdgTWNB8Gp76WppGJDrFjAR6YU0DfqI4/DGNYVd17ZB8WdT
-	QYrYFsg+K5t0UAUbanuLrMgErEUfXFJbkLigaKWKeXfVB+DFbVgBhOab6+Thu3ukgd9z524XEnOUj
-	bwmbagECyaA/kaqnnmW7jaZHU/gE1F04UQOdvTx3bnzjtqRkn0TNfwpqbNjHr9QXndd7Sptkxa7LV
-	0HVGBMAqePCYXjNj6xxjMLxpX1YeJHKbzC98dHplwoHO0JBQT8yCedoQeWR305q4p9VyKXkPRtJMf
-	5h73AYpA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T64IvUv2v2ctLBX091YAC+zdH2GYdiIMlzETmbUeq5o=; b=2dfoKByLPeuytt3iOEMPk4jJbz
+	+0uIFEHYpxrsryqN95zE+24Q9m78Q31uFOX+YziRFwc8xhFWojCeoDQnbhNShn60C/iyu6iCck00Z
+	KwLLhORHHZvb3wQ9RBBV5WTAWWw+fCGDibtt5LQfYFeKWUsLwxdwvBbQ/jQB/GoPqROAgC8YQI98y
+	8SjTRbQzNxjhUXoIHin02D5ef/hbwY5qfWBYoALURYKn1sBw7LOZLASuIkcVnegKyeFuGItEBerii
+	RQLUSU3hxM/t5ZhTZB6O2swiWa2T6M2T2X/9KaVLZXwbkfdir3y/MXSEIRHO9N9tkK36qUNLMFvCS
+	JvoL49zA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUTHL-0000000H3ly-0rwt;
-	Sun, 05 Jan 2025 16:15:03 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1tUTIU-0000000H3xg-3y0O;
+	Sun, 05 Jan 2025 16:16:14 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUTGA-0000000H3TL-01DU
+	id 1tUTGB-0000000H3Tb-35IR
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 05 Jan 2025 16:13:51 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4361815b96cso90138575e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 05 Jan 2025 08:13:49 -0800 (PST)
+	Sun, 05 Jan 2025 16:13:53 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-43690d4605dso56876245e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 05 Jan 2025 08:13:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736093628; x=1736698428; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=1lchnjuFpSdhQx9L/rOYviPRo396F7o6vIvEXCybU6U=;
-        b=aHJ4W5O5Epi4cFMN72TAHTRh3+FW9/nSNcAjVEa3od25Ih5ADRgJPNZIASa0+/lrlo
-         UirmLPMSUXHC5/ZMLCOX/cpFBkFPKD7s1H7SXBvO7RfEHjC0DZ3C3j5uZOOjRMVQqVVT
-         VIWO+i/c29AVuybIUZRe1o61hf1QYHtMVTBigQMKm9Y9+5X0tzSUJBDRq0JkSM8a5a8x
-         5HuHETpAWhlvdUJsPUGwhRSgGqN8EFX1icWrgFja28A5UwJU9OA/W6G0ZcA1J3+DxRD/
-         tGmLIW9YnqS6tzC0fFEiDlIpl/JfT9ifzk+8WGHLvYxhfHSkdwvDoI+y2ig2rnH+Ob3a
-         maEw==
+        d=gmail.com; s=20230601; t=1736093630; x=1736698430; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=T64IvUv2v2ctLBX091YAC+zdH2GYdiIMlzETmbUeq5o=;
+        b=Ib2we+W3ZK42G53ExVV3arFcwMqo/+emDj/yYQDL9TmjHooF8CgUygiRORY24XJjDY
+         5pyJetFd0EL8kUhmwqcITYfy9Tu+ImkbYObEgRinmnkxUgRoNIhNa6UimSZG4GX6ip+I
+         Z8Suzeptq9O8rZvw1J22UubHnrGcqz76Hw15SdH5Ajy+1mIbEYXZlKhb2qOJi6BvSd2J
+         wGPC10aUqjFokaeEcDbJntC3LmWz83y+U8GUj+5cL5a62hGa8sxPNiPpDaMuesfYg0M0
+         cLbYvsAj59114xBAlYqxBBTlFymeKvGc9QF7mnXFGArPwB50yO8Goer0lY6KzsSQ3gFb
+         oSDw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736093628; x=1736698428;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=1lchnjuFpSdhQx9L/rOYviPRo396F7o6vIvEXCybU6U=;
-        b=v1pNIMz+YUrwaNo4sDzpmzfjkdST0SsPA4FRdMWgF8KljKowvU3ACM5BcAKv+JvDCW
-         knGjM/1A/S6oH2gDkI+7Qmx6oaRWQoY+xIXvLOaHYq1gkvy0JJTLBml/CDzi5+gGYAYh
-         3p7nq5UoRhwQXgThtfatXtZ99lGjWN6uG/TDqN6Ytu1seI1Kg66Lo25q/bzMUAaVaM6D
-         iCZc90IfGoAiLt4Zd+KGLEnXZau+IcHbj9dJ9Y9wKikScHuJWSQOKFE3m33HgKcsrSc9
-         PYQqdAgaoL1M98jArTO/X/qbW2TSM+em2vzzHkTcLQmykalN/6SvE7bhr28HCyxnlUga
-         Q2dg==
-X-Forwarded-Encrypted: i=1; AJvYcCXi85uGEKu5s/h9zBb9bIt/yrvnCCS2z1yk2mvf8L23Nm303JDesVlWUku4SSWFvBoce4Np6YZnEFjsceKVxJ/X@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw4xeDRHm6dCNmsrejr84/6GjOHkoIafc5sdeo2vvui7gm1sZIl
-	dNRseYRzBcKhbdIQorZ+iXlZPruttW+jLUU2t2wlEhAbbyuWlWS9
-X-Gm-Gg: ASbGncsPucyr3irCAejUhr9DZ+I9N/1ojQkGoHioY93JRXXaFLtjHupwekoHn6cwcdO
-	QMCCVzAl9NvbFmX06LjVgAhgiEPfMYf+5wfERtc+oY5xdnCRREIWE0eBMyNZ8P9mCRzkZ3/zois
-	5s7DjY3lqfj+G2+7zcVqPiYKHXXTsh7HFk79SamTPqPnPCs1xRrrtnlK05CixdYWWTKEbGlD7PJ
-	xmylscy/yimvmKaQRrkVWIj0F0DgVj9WjMQQ02uMQ14PnEJImYv/8U7caFC8bWGpegaRuw=
-X-Google-Smtp-Source: AGHT+IGw2sZkN+3zUikmgjWtTwI/TC0FpreoFdTU9b17v9+gno+YL3QK9BsYjEcviI4Uu8upAU04EA==
-X-Received: by 2002:a05:600c:68d7:b0:434:f270:a513 with SMTP id 5b1f17b1804b1-4366d357401mr442740625e9.29.1736093628312;
-        Sun, 05 Jan 2025 08:13:48 -0800 (PST)
+        d=1e100.net; s=20230601; t=1736093630; x=1736698430;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=T64IvUv2v2ctLBX091YAC+zdH2GYdiIMlzETmbUeq5o=;
+        b=k3mporakPUAzfqiNFMdwU9j+e6QpzIE9eOOkuM9HnFH0plRmGpzQf02DFE8b79TVV7
+         ZFQK1hlPlxZw5GmHtG7zfNZA/PaWmC0Zx8rYmHsrLAmbEMOR0yOOLQwc/ezDY6wtLFjP
+         hvNE2yc4dMj85xQofghwhDzd9zGGLblRWsObQeVjwPzJ/vbj5XfkQwX3iDtwSxSMGimL
+         Kc38tWAJPaR5iK7mugWvK+3RQaDGv0pdzRRsutw0lX7hBOU1VttpS+aVDhA18E1CtzO/
+         UgNs0sulZHJcBuNEsB3SGkbM+2lELVFiX18SZPrEjP33U00rnWjGRrXHbcsk0vnR63DY
+         O9Dw==
+X-Forwarded-Encrypted: i=1; AJvYcCWNi07C+XT33cpAkMykkPqmEa7ADGliDsl830Wj6J67p9kWW3PXXqNM8K+H+GXZArjRxa6fUl9UdLUT0P8axcdb@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1/zNTl9BtXwOAzd7FMkeWvLHpf+myJy7XITnV8ou9GOkhG+MI
+	XzIdgeOAOwNICDgqZuodPsNnBm4VGFwDkFQzDU4jlvr2mL+LwFNaZNdqog==
+X-Gm-Gg: ASbGncvlvmw67PcvcdEstVqlUuMLt1HrGEnJkKEBuKp3bfYPTjWfw9hz/Uh0nm4g40u
+	brtwMlGoyBjBClSp5TRYvhRw+SVtJx0XC4SZJn0yA6coNj7DCzIE3VRd2zLysj0eKUSb9Hc1aj8
+	KNXBQVS3CqDxeZkALrLaWiyTyCGNtsI5nduJ+6GTjvvP4sberWGhp5DeHu3ZRg/hv4jjfGsCYR2
+	WteiefFjWoWFm7Ch9yk8uFie3VQpPJrTFn7kKHger2uMYZDhhsCxVoJocJy2BwTJTDcjFg=
+X-Google-Smtp-Source: AGHT+IGYEUv6t4l2l4U84ZaLAmR9bjEsT9ICGKfsb4L61QXf0dhxU7S0Y+nrRYmb/VzwneK6WaOL5A==
+X-Received: by 2002:a05:600c:3b23:b0:434:a525:7257 with SMTP id 5b1f17b1804b1-43668b49a05mr413168025e9.21.1736093629968;
+        Sun, 05 Jan 2025 08:13:49 -0800 (PST)
 Received: from ivaylo-T580.. ([94.131.202.183])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43656b4274csm578250565e9.38.2025.01.05.08.13.47
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43656b4274csm578250565e9.38.2025.01.05.08.13.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 05 Jan 2025 08:13:47 -0800 (PST)
+        Sun, 05 Jan 2025 08:13:49 -0800 (PST)
 From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 To: Ulf Hansson <ulf.hansson@linaro.org>,
 	Rob Herring <robh@kernel.org>,
@@ -78,15 +79,17 @@ Cc: linux-mmc@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-samsung-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 0/6] arm64: dts: exynos8895: define usi and mmc nodes
-Date: Sun,  5 Jan 2025 18:13:38 +0200
-Message-ID: <20250105161344.420749-1-ivo.ivanov.ivanov1@gmail.com>
+Subject: [PATCH v3 1/6] dt-bindings: mmc: samsung,exynos-dw-mshc: add specific compatible for exynos8895
+Date: Sun,  5 Jan 2025 18:13:39 +0200
+Message-ID: <20250105161344.420749-2-ivo.ivanov.ivanov1@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250105161344.420749-1-ivo.ivanov.ivanov1@gmail.com>
+References: <20250105161344.420749-1-ivo.ivanov.ivanov1@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250105_081350_065035_C8A76CA2 
-X-CRM114-Status: GOOD (  12.62  )
+X-CRM114-CacheID: sfid-20250105_081351_856680_CBBE2725 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,52 +104,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey folks,
+Add samsung,exynos8895-dw-mshc-smu specific compatible to the bindings
+documentation. Since Samsung, as usual, likes reusing devices from older
+designs, use the samsung,exynos7-dw-mshc-smu compatible.
 
-This patch series adds the required syscons for controlling USI, as well
-as defines all USIv1 nodes for Exynos8895 and adds support for utilizing
-the external SD card storage in dreamlte as well as touchscreen. Due to
-PMIC not being supported yet, we'll assume that the regulators are
-pre-enabled by the previous bootloader for vqmmc, ts_vdd/avdd
-(in our case uniLoader).
+Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+---
+ .../devicetree/bindings/mmc/samsung,exynos-dw-mshc.yaml          | 1 +
+ 1 file changed, 1 insertion(+)
 
-The patchset relies on [1]. I also expect the exynos mmc binding
-maintainer to pick the specific-compat patch.
-
-Best regards,
-Ivaylo
-
-[1]: https://lore.kernel.org/all/20250105160346.418829-1-ivo.ivanov.ivanov1@gmail.com/
-
-Changes since v3:
-  - change USI_V2 constant to USI_MODE in the touchscreen support patch
+diff --git a/Documentation/devicetree/bindings/mmc/samsung,exynos-dw-mshc.yaml b/Documentation/devicetree/bindings/mmc/samsung,exynos-dw-mshc.yaml
+index 5fe65795f..ef2d1d7c9 100644
+--- a/Documentation/devicetree/bindings/mmc/samsung,exynos-dw-mshc.yaml
++++ b/Documentation/devicetree/bindings/mmc/samsung,exynos-dw-mshc.yaml
+@@ -29,6 +29,7 @@ properties:
+               - samsung,exynos5433-dw-mshc-smu
+               - samsung,exynos7885-dw-mshc-smu
+               - samsung,exynos850-dw-mshc-smu
++              - samsung,exynos8895-dw-mshc-smu
+           - const: samsung,exynos7-dw-mshc-smu
  
-Changes since v2:
-  - add r-b from Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-  - drop hsi2c_pclk clock-name where it was left accidentally
-  - utilize _I_PCLK instead of _I_SCLK_USI for all usi hsi2c nodes
-  - move assigned-clocks properties to dtsi
-  - set mmc's clock-frequency to 800mhz as per vendor's dt
-  - add a pinctrl node describing cd-gpios
-  - drop the fixed gpio regulator
-  - add a new patch to the series for enabling s6sy761
-
-Ivaylo Ivanov (6):
-  dt-bindings: mmc: samsung,exynos-dw-mshc: add specific compatible for
-    exynos8895
-  arm64: dts: exynos8895: add syscon nodes for peric0/1 and fsys0/1
-  arm64: dts: exynos8895: define all usi nodes
-  arm64: dts: exynos8895: add a node for mmc
-  arm64: dts: exynos: exynos8895-dreamlte: enable support for microSD
-    storage
-  arm64: dts: exynos: exynos8895-dreamlte: enable support for the
-    touchscreen
-
- .../bindings/mmc/samsung,exynos-dw-mshc.yaml  |   1 +
- .../boot/dts/exynos/exynos8895-dreamlte.dts   |  72 ++
- arch/arm64/boot/dts/exynos/exynos8895.dtsi    | 908 ++++++++++++++++++
- 3 files changed, 981 insertions(+)
-
+   reg:
 -- 
 2.43.0
 
