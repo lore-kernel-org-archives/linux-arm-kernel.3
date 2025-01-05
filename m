@@ -4,81 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85C91E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jan 2025 02:03:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DD04E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jan 2025 02:46:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NRt+96Gegx7rRnN2Q/gp2rlKwaEMn38Kcq3DDDffPQM=; b=nwAxDBc3vsfO0l/Upr3UB/n4dj
-	nTHI9ivQqLePLEiaMnb+PbL0vjNZvYrjt4B1OJ/Kvw41QKnnzIKB7yMyVwB3n+AHWpgPC+eATGmY/
-	xCHbTZcD0XlB2nzUvA3UCZjIFbEegk1o3sgfuAoNUnSgqC3/tBQVUjLdvHA34hJ3H8DX6hDOCtdxx
-	vExwpD9At8DaSdMqUopSezmAF1DucDXIwH8MNpuAnpgXMjKuq+gZ1oQbNTGPWb9RfgX0+FnJLHY5D
-	V+7xIqk9ryAuIREHpmGd7tZxTG0oL8DVPwMi7tTSfZIVmkjk75JXplchaJGClPI4wMUx5n/PqfguA
-	n1H93C7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GUhUFqDCLLYcCKnTvKrRzZf5y8VDBYHwWNIj7mYbRr8=; b=DfHfds0DoMCKQJa8znJNqEvmr3
+	byZ8xkjLjgbOig86jvcxtOFAAEC5mRtu95D4G8wewU3lYLmKMwMvJXAPMGj0sAKL36MAhpNZoWuIS
+	sObMSpwD3MpOueWLWeqrEabMa+XS/mSFPfzfL1BYpfAm5+8wFzdFdjJbp8lNBeF6a8/XWLLEf1ktm
+	GfHfcRiDQS+u7SP2c7dH8ly0Rl38/l06czD1ufyBxWz5JJn4jpvoxwfwlWJWFwTO0EaAd7j33UGqg
+	vAIV+Ywsj+UTujYf6LSJ/9nAIL3nHO1MteZReWtRiBY69OuWOrkKC+bDESSmF3OxfjZegT5KbG5ID
+	3AL78ciw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUFyx-0000000G168-1SdW;
-	Sun, 05 Jan 2025 02:03:11 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1tUGev-0000000G44Y-2a2A;
+	Sun, 05 Jan 2025 02:46:33 +0000
+Received: from mail-yb1-xb30.google.com ([2607:f8b0:4864:20::b30])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUFxl-0000000G0zs-2YgH;
-	Sun, 05 Jan 2025 02:01:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1736042517; x=1767578517;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=LXcv4FdNNG3Tf6TIBN0iAcj8De3t94GyOe4c1VqhcLM=;
-  b=jLIbLRjvkZlpe0e5OaAbHAZLJbgzk3lQFPeAtk4SAyp7f5y7HlEXuqvW
-   JIneX3LEJPog8HkleICQ6jrvBcKM4v8FwjNfYCgRt7NajpCqGgcFWfK/i
-   /hxngz9/95FGJ1sQEuXMgBx7jqwzKU8FlVN2YmGQEQ3I9Y+x5Vh0+54ho
-   7CKoWqcRI/VltiWhb1//4LtgcOvvSpXiRxmqxq8vbpwIc5SwnXZHohIbF
-   8tr9aNcej/fRXhi63v4e68Hc/QTGHQOs6e70BLbtoBlboUknpSuV2zoTN
-   H6mfRs/AOUUJZKxaDCTNOAINfL/8Xqcm9u+Laq9aNsuyt1dQ/kn8WVpDD
-   Q==;
-X-CSE-ConnectionGUID: XPkq2i4eSEiFtgsqDNAxkA==
-X-CSE-MsgGUID: taP4p6kxRLytXOID5UJAvw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11305"; a="61605949"
-X-IronPort-AV: E=Sophos;i="6.12,289,1728975600"; 
-   d="scan'208";a="61605949"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Jan 2025 18:01:51 -0800
-X-CSE-ConnectionGUID: qLFuF0vNQA2LiuIb2jLmTA==
-X-CSE-MsgGUID: RPZ5+PsPT0yYnydOcdVMkA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,289,1728975600"; 
-   d="scan'208";a="102627239"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by fmviesa009.fm.intel.com with ESMTP; 04 Jan 2025 18:01:49 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tUFxa-000BO3-1e;
-	Sun, 05 Jan 2025 02:01:46 +0000
-Date: Sun, 5 Jan 2025 10:01:40 +0800
-From: kernel test robot <lkp@intel.com>
-To: Christian Marangi <ansuelsmth@gmail.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, upstream@airoha.com
-Cc: oe-kbuild-all@lists.linux.dev
-Subject: Re: [PATCH v8 1/2] pmdomain: airoha: Add Airoha CPU PM Domain support
-Message-ID: <202501050957.aylo1fso-lkp@intel.com>
-References: <20250104181305.28185-1-ansuelsmth@gmail.com>
+	id 1tUGdh-0000000G3qI-1YeI
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 05 Jan 2025 02:45:19 +0000
+Received: by mail-yb1-xb30.google.com with SMTP id 3f1490d57ef6-e398484b60bso16675829276.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 04 Jan 2025 18:45:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=paul-moore.com; s=google; t=1736045116; x=1736649916; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GUhUFqDCLLYcCKnTvKrRzZf5y8VDBYHwWNIj7mYbRr8=;
+        b=ejcSVKw2rjf70qvQSovfhZEAlOS6iegpdx8h+aRqIzEV4Qt9WmjdVAk6zdymwTAy1C
+         CCV83jLr7yYZAW5VoEnQ/5O0NKrn9tIG1+QrDmB34hvHX7cT+QOG9JMRUhZYEKPL4WG0
+         0oCmA4WT7ZelhrdIgnNd1NFwt62oMuyL1oFs4eQmN4Yk2On89djg81Op54/LFLpCKARJ
+         Wb9xqElmCg301fu9L6I/RJJHAdQRH2Xr6cDkqFDQBbzBuWCVIpE09qZfDQV3fj2e7p0I
+         jRBCnxiTT6xkI8wQJUd5jTi/kyaaLEcG1BRPzxzCm6f8SNKGn4rlgUvUomqJyyQNY9dt
+         1GGQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736045116; x=1736649916;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=GUhUFqDCLLYcCKnTvKrRzZf5y8VDBYHwWNIj7mYbRr8=;
+        b=bITYAQiLFV6iBFk3FXZJNn4FMyQLcmHPB7ATqpoyYdYX0GnWO/vNK9zVC6PXoYRfGN
+         /QUudC2nsjcP1zEINzMeAsC4mHMGpIPIovT+U3SMZhBGq9iNlGQCAH7HRIbzAmBOaqM7
+         FmbFDWrnj2Jjuf5xqAp88kVwevbmcnJs4Lk7589VPCw7tNI9xIJdlRpZYe/mbMzFm7u1
+         YXxRziNbcByEoTmOVMInXuHneTnRMHCWapb5zCf8DWDWov+HmQveK1qD0FkxymJ2ILtO
+         HLKvokm6R/yGvPTddeJtWA21QFYi+Jdc3hs0hPG40e5iW6xor1WULfFjdJIFt6R7Yee0
+         XTKQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWzwmYo272oEXJYRLrvp2Ji9mZ3OaBWXvPt4ALIxWS6cz2gpFmOXkX36/7yoNL4uLoeFP74oLazSucICCQOaLzH@lists.infradead.org
+X-Gm-Message-State: AOJu0YwS+crSu5gSssf2cKOyzOs91/PruU7ZXruepsxWskVvmH+s+ZT0
+	EXyii1PeesmtXCQUdBuZj47jsYz3+xUNlpQJ26FyRYUCL0AVCDaStoHMWjZ3tiMFrIf3Nlm67MG
+	u5BNI9TiHMT8M9SVAsqx8GowK4lefCzEi7IKa
+X-Gm-Gg: ASbGncsoxFCBBv+gCyamTBxOyyVd5Et529+05I1Hrf0tYltnzp0TbpoN/OFHY+rv5ZU
+	jMj9NnMOuuMusRTjCEXvIjNKN5K+KQ8NF0m6L
+X-Google-Smtp-Source: AGHT+IGThgi8HmQDrrdLZKo7/6iXHtT/+1efSKbFMBP4wTU/9vzStB4XDWagUs38rOJg1HKyWbfdsUnbP2IRzhgHd+w=
+X-Received: by 2002:a05:690c:4b05:b0:6ef:801f:437d with SMTP id
+ 00721157ae682-6f3f820e12amr435589197b3.26.1736045115828; Sat, 04 Jan 2025
+ 18:45:15 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250104181305.28185-1-ansuelsmth@gmail.com>
+References: <20241223070650.2810747-1-luogengkun@huaweicloud.com> <20241223070650.2810747-2-luogengkun@huaweicloud.com>
+In-Reply-To: <20241223070650.2810747-2-luogengkun@huaweicloud.com>
+From: Paul Moore <paul@paul-moore.com>
+Date: Sat, 4 Jan 2025 21:45:05 -0500
+Message-ID: <CAHC9VhRRu-UYEV_-0-QgOZ3ByVwp-ZdEphmsvy4NcdqynH_tDg@mail.gmail.com>
+Subject: Re: [PATCH linux-next 1/2] perf: Remove unnecessary parameter of
+ security check
+To: Luo Gengkun <luogengkun@huaweicloud.com>
+Cc: peterz@infradead.org, mingo@redhat.com, acme@kernel.org, 
+	namhyung@kernel.org, mark.rutland@arm.com, alexander.shishkin@linux.intel.com, 
+	jolsa@kernel.org, irogers@google.com, adrian.hunter@intel.com, 
+	kan.liang@linux.intel.com, tglx@linutronix.de, bp@alien8.de, 
+	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, will@kernel.org, 
+	jmorris@namei.org, serge@hallyn.com, rostedt@goodmis.org, mhiramat@kernel.org, 
+	mathieu.desnoyers@efficios.com, stephen.smalley.work@gmail.com, 
+	omosnace@redhat.com, linux-perf-users@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-security-module@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
+	selinux@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250104_180157_692894_CB0D498D 
-X-CRM114-Status: GOOD (  13.30  )
+X-CRM114-CacheID: sfid-20250104_184517_765541_77457B90 
+X-CRM114-Status: GOOD (  12.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,52 +102,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Christian,
+On Mon, Dec 23, 2024 at 1:57=E2=80=AFAM Luo Gengkun <luogengkun@huaweicloud=
+.com> wrote:
+>
+> It seems that the attr parameter was never been used in security
+> checks since it was first introduced by:
+>
+> commit da97e18458fb ("perf_event: Add support for LSM and SELinux checks"=
+)
+>
+> so remove it.
+>
+> Signed-off-by: Luo Gengkun <luogengkun@huaweicloud.com>
+> ---
+>  arch/x86/events/intel/bts.c     |  2 +-
+>  arch/x86/events/intel/core.c    |  2 +-
+>  arch/x86/events/intel/p4.c      |  2 +-
+>  drivers/perf/arm_spe_pmu.c      |  4 ++--
+>  include/linux/lsm_hook_defs.h   |  2 +-
+>  include/linux/perf_event.h      | 10 +++++-----
+>  include/linux/security.h        |  5 ++---
+>  kernel/events/core.c            | 14 +++++++-------
+>  kernel/trace/trace_event_perf.c |  4 ++--
+>  security/security.c             |  5 ++---
+>  security/selinux/hooks.c        |  2 +-
+>  11 files changed, 25 insertions(+), 27 deletions(-)
 
-kernel test robot noticed the following build errors:
+This patch seems fine to me from a LSM and SELinux perspective, but
+I'd want to see an ACK from the perf folks before I merge this.
 
-[auto build test ERROR on rafael-pm/linux-next]
-[also build test ERROR on rafael-pm/bleeding-edge linus/master v6.13-rc5 next-20241220]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+I'll also leave patch 2/2 for the perf folks as it seems largely
+unrelated to this patch.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Christian-Marangi/cpufreq-airoha-Add-EN7581-CPUFreq-SMCCC-driver/20250105-022153
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git linux-next
-patch link:    https://lore.kernel.org/r/20250104181305.28185-1-ansuelsmth%40gmail.com
-patch subject: [PATCH v8 1/2] pmdomain: airoha: Add Airoha CPU PM Domain support
-config: arm-randconfig-004-20250105 (https://download.01.org/0day-ci/archive/20250105/202501050957.aylo1fso-lkp@intel.com/config)
-compiler: arm-linux-gnueabi-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250105/202501050957.aylo1fso-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202501050957.aylo1fso-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> drivers/pmdomain/mediatek/airoha-cpu-pmdomain.c:135:10: error: 'struct platform_driver' has no member named 'remove_new'; did you mean 'remove'?
-     135 |         .remove_new = airoha_cpu_pmdomain_remove,
-         |          ^~~~~~~~~~
-         |          remove
-
-
-vim +135 drivers/pmdomain/mediatek/airoha-cpu-pmdomain.c
-
-   132	
-   133	static struct platform_driver airoha_cpu_pmdomain_driver = {
-   134		.probe = airoha_cpu_pmdomain_probe,
- > 135		.remove_new = airoha_cpu_pmdomain_remove,
-   136		.driver = {
-   137			.name = "airoha-cpu-pmdomain",
-   138			.of_match_table = airoha_cpu_pmdomain_of_match,
-   139		},
-   140	};
-   141	module_platform_driver(airoha_cpu_pmdomain_driver);
-   142	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+--=20
+paul-moore.com
 
