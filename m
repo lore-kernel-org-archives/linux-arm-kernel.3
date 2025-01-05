@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2F41E77198
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jan 2025 09:56:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2286E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jan 2025 09:57:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AvaoX9cLj1j/PbPbkHelZ5srVkW5zdoaCOit3aZBk9c=; b=3o7kbCp1/8r1usRS/4qSiVL/13
-	SBR9msMcK3ytPx3VrcVZGBYF0RXQPjXaIQnAUnozXbAMmEtHitsr4JS3gIIxFRmsmiETLq45JZJI4
-	SmJtadGpb5fzJJaOC9jfU5zaME2NGbh07IRKEEpxbPBBoIrxfiJCuM8QhxZjIUWCDCgqrXx0CvG3o
-	/SbQOwXpOOtuyGDAhXyixgqT9vGV3wkKcujixFPEGxTECh7LXTf/TC/y38BPVm5L+8IHonuk5aiFw
-	ABH6pCauaQtKQ4lFzbeo7CL5kPP34w2PW74UxWlNiyKzM9bWX3+xeC/DiOTQ2xbgV0wpcgzdL0AHO
-	6IVdNOeA==;
+	bh=LsIb6OZ4T07vFbCXdxpznnWsqzl75iiZFjf5L5ekvZg=; b=JpchR5p5KfeaZBbzCfm0CYQy+Q
+	F5V3R5+1PK2qXNlsxEWoapBLDjJVbGkuzlXSX4R2ysG2Mo7pZBQ6nFojjBN5SncaQtvAVZZaEPsh8
+	z0oXBkAQ4OZ09UmOzYQMzVHX8uCUj3jANnd6rWBQmFB4AgdPkB8DqZe/N5/a6VXCI8itW1dGV1/e8
+	U/MCb+5qxWqTfBF09ZEXVdeH6q1oVPqcxWaIonvMsZyl+2kez9mlNiXHAY4MqHoQ2NdVhkitu6OG4
+	IqglZIhpQyi728hcvjOCbjiyw1KH4ktyWIo1f4j+cNRydW5E9wqt7sdo1jYijNcRMvXw2Jq49yd4y
+	GIMwkVfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUNMU-0000000Gdnq-3wgA;
-	Sun, 05 Jan 2025 09:55:58 +0000
-Received: from mail-m16.yeah.net ([1.95.21.16])
+	id 1tUNNe-0000000GdvR-2P6f;
+	Sun, 05 Jan 2025 09:57:10 +0000
+Received: from mail-m16.yeah.net ([220.197.32.16])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUNIg-0000000GdOf-20v1
+	id 1tUNIh-0000000GdOm-1PeI
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 05 Jan 2025 09:52:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=From:Subject:Date:Message-Id:MIME-Version; bh=AvaoX
-	9cLj1j/PbPbkHelZ5srVkW5zdoaCOit3aZBk9c=; b=CvSpIHcIMM/+kmwy5nAMk
-	pre3HBNRo6x2XdEde1KmPj9BjQgf1b7GpOzbPkAxruhyrY8Ay8AGFSlVLS8/6hrY
-	SM6SgZr26f8eJ7l+ZoGu96t6PNi8Y6UHaGe0qhHaV/Zz31hnrNh8pzbRKfVEZEkx
-	CVdUFCYQ0X2Gm3R/wuoVDM=
+	s=s110527; h=From:Subject:Date:Message-Id:MIME-Version; bh=LsIb6
+	OZ4T07vFbCXdxpznnWsqzl75iiZFjf5L5ekvZg=; b=p+4mRzd3s/Fm8HKUSzUuK
+	99kyU1m3r5gYrDTwEBnqhBbpmsA5px5fvSxKj+qC6ebdGV1AolJh0TSXfjnBVNiM
+	A7o2MrNfeIdMtQkyhJ7uDt59VfvxFhlXr15zrNeg+ACcUcwI9IlKEkFx4gHbn73O
+	O/Zhnmsvi+cyeRGzXL3wfU=
 Received: from localhost.localdomain (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id M88vCgBXGWwuVnpnZZRPBg--.62165S3;
-	Sun, 05 Jan 2025 17:51:44 +0800 (CST)
+	by gzsmtp3 (Coremail) with SMTP id M88vCgBXGWwuVnpnZZRPBg--.62165S6;
+	Sun, 05 Jan 2025 17:51:45 +0800 (CST)
 From: Shawn Guo <shawnguo2@yeah.net>
 To: soc@kernel.org,
 	arm@kernel.org
@@ -44,24 +44,24 @@ Cc: Shawn Guo <shawnguo@kernel.org>,
 	kernel@pengutronix.de,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL 2/5] i.MX dt-bindings change for 6.14
-Date: Sun,  5 Jan 2025 17:51:35 +0800
-Message-Id: <20250105095139.714590-2-shawnguo2@yeah.net>
+Subject: [GIT PULL 5/5] i.MX defconfig change for 6.14
+Date: Sun,  5 Jan 2025 17:51:38 +0800
+Message-Id: <20250105095139.714590-5-shawnguo2@yeah.net>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250105095139.714590-1-shawnguo2@yeah.net>
 References: <20250105095139.714590-1-shawnguo2@yeah.net>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: M88vCgBXGWwuVnpnZZRPBg--.62165S3
-X-Coremail-Antispam: 1Uf129KBjvdXoWrZryxXry8Jw4ftr4UArW7CFg_yoWfWwb_Ga
-	4xA3WUJrWUZF1UtryDGr1xtr15Jw17JF1UZ3W5Jr47Ar17t3s8JryktrWfXF18XFs8JFsx
-	AF4kJw1kXr47AjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU8Tq2tUUUUU==
+X-CM-TRANSID: M88vCgBXGWwuVnpnZZRPBg--.62165S6
+X-Coremail-Antispam: 1Uf129KBjvdXoWrZryxXry8Jw4ftr4UArW7CFg_yoWkJrX_AF
+	y7Ga4DGrn8CrWUGF15Xwn7Gr4UKF1UX3WUJr1UtrW3Xr1aq3W5Aw18XrWfXr1UX3W8Gr1D
+	ArZ8Aw1DAr1UCjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU8TGQDUUUUU==
 X-Originating-IP: [114.216.146.204]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiAhnLZWd6LaNicgAAs2
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiCxnLZWd6UukIDwAAsd
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250105_015202_912703_A4EB11CA 
-X-CRM114-Status: UNSURE (   4.46  )
+X-CRM114-CacheID: sfid-20250105_015203_676547_B21E6813 
+X-CRM114-Status: UNSURE (   5.35  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,22 +85,29 @@ The following changes since commit 40384c840ea1944d7c5a392e8975ed088ecf0b37:
 
 are available in the Git repository at:
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux.git tags/imx-bindings-6.14
+  git://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux.git tags/imx-defconfig-6.14
 
-for you to fetch changes up to 9723142eae655bcf4d26feb6893acfa03e011587:
+for you to fetch changes up to 2b21c2306a9006e401c1ee3c694ecd327de4dc16:
 
-  dt-bindings: arm: fsl: Add ABB SoM and carrier (2024-12-09 16:35:30 +0800)
-
-----------------------------------------------------------------
-i.MX dt-bindings change for 6.14:
-
-- Add compatibles for i.MX8MP based SoM and carrier from ABB
+  arm64: defconfig: Enable ITE IT6263 driver (2024-12-09 19:51:03 +0800)
 
 ----------------------------------------------------------------
-Heiko Schocher (1):
-      dt-bindings: arm: fsl: Add ABB SoM and carrier
+i.MX defconfig change for 6.14:
 
- Documentation/devicetree/bindings/arm/fsl.yaml | 9 +++++++++
- 1 file changed, 9 insertions(+)
+- Enable JC42 temperature sensor driver support in imx_v6_v7_defconfig
+  (Alexander Stein)
+- Enable ITE IT6263 LVDS to HDMI converter driver support in arm64
+  defconfig (Liu Ying)
+
+----------------------------------------------------------------
+Alexander Stein (1):
+      ARM: imx_v6_v7_defconfig: enable JC42 for TQMa7x
+
+Liu Ying (1):
+      arm64: defconfig: Enable ITE IT6263 driver
+
+ arch/arm/configs/imx_v6_v7_defconfig | 1 +
+ arch/arm64/configs/defconfig         | 1 +
+ 2 files changed, 2 insertions(+)
 
 
