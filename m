@@ -4,64 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9393E77198
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jan 2025 17:59:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2CB3E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jan 2025 18:02:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T7UsKrbMGaYAZ3fGhh5FClLeroSco1WoimCzDT9Vf7U=; b=Yt7OpluqjR2um139d4lDjz8etF
-	bkI2x1O/GetY4uRReE52PQa5g9zmYK5RK2mp8p3qNxW6sd8XQS6wrDqULx7pfoKumwFsyR6iG3Kmo
-	nULFILFQo6BpnZKYUPlv8UlUE0K3cRptZQIfRprAXinjl0pUjIu0KZCfWWCpPAbwJ3B/km8McZop6
-	Du57qPAk2ZNs+kDJ2vmoUaUfEMPc7huENTwNeeaBMpFYEnzoHpdbWTcaL4qD1bh+yQWYhPqv/1djP
-	NJviJi2Hih//epqzCL/ag5PO2cVP2Q2u58MUVhmEGuqfmhv8c3VnQMxDLfG47eUY3daahbUnjhl7a
-	0v4wSLLw==;
+	bh=Nry6ZD5jx+IVUpy3t9HOyMzdyhtsHXVO0xqZKhrSmSQ=; b=IeZNKST3jWtJoPKJ3lW5eLdy+l
+	8DCUZOswaJQIceY59rSoi2brZBcgDmQmsiGGWcjYAdQBatBRjkSRj99Ohnihz3p8JtB6erQ0sH6nF
+	EQK7UvoS4aEAm6doixaX3hdNVIkebniwvf8XOIv+l2zKk6RvH7zzKtmvLc2CUnGr8ntBDGQISWxbJ
+	QItl694pzW39WBFDRkCfma9eHMu96WVjmffOSG+hNZKTAaQeNTTbHeHMuJ3/r4hytpHmzj2hh3/yT
+	7Rbezlpk1C0vDbBZNWlsKVkaUOgWCQCpZFlJhrbuBGTUpOpaJRqCnzXdd0rlu3udqWk9TpBbmOyea
+	LOnIgX7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUUtm-0000000HE8r-3JYs;
-	Sun, 05 Jan 2025 17:58:50 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tUUxL-0000000HESw-198E;
+	Sun, 05 Jan 2025 18:02:31 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUUsa-0000000HE18-3w6J;
-	Sun, 05 Jan 2025 17:57:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=T7UsKrbMGaYAZ3fGhh5FClLeroSco1WoimCzDT9Vf7U=; b=5OPUmOZ3o/p2aRzIxC2coxZwSb
-	iXPBt1P6j5PHapItsuOIhVh5ofmhzUoep7Ou153gc+mZFWbR0tmVR///7EfWDlN8U6y94gLQEdy4d
-	0r5YwgG9jVKYql3edBmad9lUO3B+L/du3yyam3IpUAgvmo2+TsMcE73Iy6o1r3iDIl7Y=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tUUsN-001dMh-VD; Sun, 05 Jan 2025 18:57:23 +0100
-Date: Sun, 5 Jan 2025 18:57:23 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Anand Moon <linux.amoon@gmail.com>
-Cc: Niklas Cassel <cassel@kernel.org>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] PCI: dw-rockchip: Enable async probe by default
-Message-ID: <c94570db-c0af-4d92-935c-5cc242356818@lunn.ch>
-References: <20240809073610.2517-1-linux.amoon@gmail.com>
- <Z3fKkTSFFcU9gQLg@ryzen>
- <CANAwSgS5ZWGTP+A11r_qFSrjWZH_DqsM89MLiP+1VAxhz+e+2A@mail.gmail.com>
- <5a3e8fda-f9e4-4c2f-847b-93f521b8313b@lunn.ch>
- <CANAwSgSUuEvJb2Vn58o0i7Soo3jGzM8EYHvDtUTPxRHekCpruA@mail.gmail.com>
+	id 1tUUw9-0000000HELu-2F2f;
+	Sun, 05 Jan 2025 18:01:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1736100078; x=1767636078;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=cspNj5F8aDJyAAQ4b/34Sfk3+U9AtmMxeKqzn6Bn/sg=;
+  b=GupHcCAdL2HwNSIbNiZycCsG0QIl8LeyqpvTsVPPtG2qnUencOMXiW2K
+   YFjx/9TWiHPoKx0ERkYI+QYsjha+vUXGmRYSCgwpyjilfn0FnNy5EjW9m
+   qZ/dC2y+uFLsbg20lwHTP8zu/wzDFS/XCSMXqjrEGBtO6A5lMpVSyJAbV
+   rRLuPxbv+5gIkMPZii+FgtbIfq80LCr6tbV9lSLKY/nLR0NCXLzkP36sl
+   cSJpCCD3w7M7uVjessJ0P4kdJF3qsIUxNQnZl81omLtCvC6q5vrWDBE9p
+   JnLJdH0XhJeHwpxNk0CVDq/u7kpdEmoos2HsdRJYm6aiKAGGvih9wFo6z
+   g==;
+X-CSE-ConnectionGUID: pH3FUh5xQSSuqnxtfY70hA==
+X-CSE-MsgGUID: N9YoIjNFTsyFhzhLVSUNkg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11306"; a="36414375"
+X-IronPort-AV: E=Sophos;i="6.12,291,1728975600"; 
+   d="scan'208";a="36414375"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Jan 2025 10:01:11 -0800
+X-CSE-ConnectionGUID: GDMyISq1QWqYzeHEk2plfQ==
+X-CSE-MsgGUID: 3KYqPRWERYqSP0EY+2XogA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,291,1728975600"; 
+   d="scan'208";a="133085080"
+Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
+  by orviesa002.jf.intel.com with ESMTP; 05 Jan 2025 10:01:07 -0800
+Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tUUvw-000Btv-2D;
+	Sun, 05 Jan 2025 18:01:04 +0000
+Date: Mon, 6 Jan 2025 02:00:27 +0800
+From: kernel test robot <lkp@intel.com>
+To: Jian Hu <jian.hu@amlogic.com>, Jerome Brunet <jbrunet@baylibre.com>,
+	Xianwei Zhao <xianwei.zhao@amlogic.com>,
+	Chuan Liu <chuan.liu@amlogic.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Dmitry Rokosov <ddrokosov@sberdevices.ru>,
+	robh+dt <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev, Jian Hu <jian.hu@amlogic.com>,
+	devicetree <devicetree@vger.kernel.org>,
+	linux-clk <linux-clk@vger.kernel.org>,
+	linux-amlogic <linux-amlogic@lists.infradead.org>,
+	linux-kernel <linux-kernel@vger.kernel.org>,
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH 5/5] clk: meson: t7: add t7 clock peripherals controller
+ driver
+Message-ID: <202501060104.R3FJGgmC-lkp@intel.com>
+References: <20241231060047.2298871-6-jian.hu@amlogic.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CANAwSgSUuEvJb2Vn58o0i7Soo3jGzM8EYHvDtUTPxRHekCpruA@mail.gmail.com>
+In-Reply-To: <20241231060047.2298871-6-jian.hu@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250105_095736_974739_B394B075 
-X-CRM114-Status: GOOD (  19.02  )
+X-CRM114-CacheID: sfid-20250105_100117_671887_6D8F8D4D 
+X-CRM114-Status: GOOD (  11.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,58 +99,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jan 05, 2025 at 11:16:21PM +0530, Anand Moon wrote:
-> Hi Andrew,
-> 
-> On Fri, 3 Jan 2025 at 21:34, Andrew Lunn <andrew@lunn.ch> wrote:
-> >
-> > > +&gmac1 {
-> > > +       clock_in_out = "output";
-> > > +       phy-handle = <&rgmii_phy1>;
-> > > +       phy-mode = "rgmii";
-> >
-> > rgmii is wrong. Please search the archives about this topic, it comes
-> > up every month. You need to remove the tx_delay and rx_delay
-> > properties, and use rgmii-id.
-> >
-> According to the RKRK3588 TRM-Part1 (section 25.6.11 Clock
-> Architecture), in RGMII mode,
-> the TX clock source is exclusively derived from the CRU (Clock Request Unit).
-> To dynamically adjust the timing alignment between TX/RX clocks and
-> data, delay lines are
-> integrated into both the TX and RX clock paths.
-> 
-> Register SYS_GRF_SOC_CON7[5:2] enables these delay lines,
-> while registers SYS_GRF_SOC_CON8[15:0] and SYS_GRF_SOC_CON9[15:0]
-> are used to configure the delay length for each path respectively.
-> Each delay line comprises 200 individual delay elements.
-> 
-> Therefore, it is necessary to configure both TX and RX delay values
-> appropriately
-> with phy-mode set as rgmii.
-> 
-> [1[ https://github.com/torvalds/linux/blob/master/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c#L1889-L1914
-> 
-> I have gone through a few of the archives about this topic
-> 
-> [2] https://lore.kernel.org/linux-rockchip/4fdcb631-16cd-d5f1-e2be-19ecedb436eb@linaro.org/T/
+Hi Jian,
 
-O.K, let me repeat what i have said a number of times over the last
-couple of years.
+kernel test robot noticed the following build warnings:
 
-phy-mode = "rgmii" means the PCB has extra long clock lines on the
-PCB, so the 2ns delay is provided by them.
+[auto build test WARNING on clk/clk-next]
+[also build test WARNING on linus/master v6.13-rc5 next-20241220]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-phy-mode = "rgmii-id" means the MAC/PHY pair need to arrange to add
-the 2ns delay. As far as the DT binding is concerned, it does not
-matter which of the two does the delay. However, there is a convention
-that the PHY adds the delay, if possible.
+url:    https://github.com/intel-lab-lkp/linux/commits/Jian-Hu/dt-bindings-clock-add-Amlogic-T7-PLL-clock-controller/20241231-141835
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/clk/linux.git clk-next
+patch link:    https://lore.kernel.org/r/20241231060047.2298871-6-jian.hu%40amlogic.com
+patch subject: [PATCH 5/5] clk: meson: t7: add t7 clock peripherals controller driver
+config: arm64-randconfig-r112-20250105 (https://download.01.org/0day-ci/archive/20250106/202501060104.R3FJGgmC-lkp@intel.com/config)
+compiler: clang version 17.0.6 (https://github.com/llvm/llvm-project 6009708b4367171ccdbf4b5905cb6a803753fe18)
+reproduce: (https://download.01.org/0day-ci/archive/20250106/202501060104.R3FJGgmC-lkp@intel.com/reproduce)
 
-So, does your PCB have extra long clock lines?
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202501060104.R3FJGgmC-lkp@intel.com/
 
-Vendors often just hack until it works. But works does not mean
-correct. I try to review as many .dts files as i can, but some do get
-passed me, so there are plenty of bad examples in mainline.
+sparse warnings: (new ones prefixed by >>)
+>> drivers/clk/meson/t7-peripherals.c:1276:26: sparse: sparse: Initializer entry defined twice
+   drivers/clk/meson/t7-peripherals.c:1277:26: sparse:   also defined here
 
-	Andrew
+vim +1276 drivers/clk/meson/t7-peripherals.c
+
+  1262	
+  1263	 static u32 eth_rmii_table[] = { 0, 7 };
+  1264	
+  1265	static struct clk_regmap eth_rmii_sel = {
+  1266		.data = &(struct clk_regmap_mux_data) {
+  1267			.offset = CLKCTRL_ETH_CLK_CTRL,
+  1268			.mask = 0x3,
+  1269			.shift = 9,
+  1270			.table = eth_rmii_table
+  1271		},
+  1272		.hw.init = &(struct clk_init_data){
+  1273			.name = "eth_rmii_sel",
+  1274			.ops = &clk_regmap_mux_ops,
+  1275			.parent_data = &(const struct clk_parent_data) {
+> 1276				.fw_name = "fdiv2",
+  1277				.fw_name = "rmii_pad"
+  1278			},
+  1279			.num_parents = 2
+  1280		},
+  1281	};
+  1282	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
