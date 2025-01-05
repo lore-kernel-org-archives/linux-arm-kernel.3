@@ -4,101 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49309E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jan 2025 16:29:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E625E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jan 2025 16:36:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=48i2+bbfQOsVn9kQtU3m2ql3/hd7Ql65fiI8cIu0j58=; b=UKgEJhwUqUgsl1RxBHzGU6Kzgd
-	ixGutPHqYRO/UfPU0PJm4IDnlp0/MYfX+NWrrjcpZ8Yaast35b8eFF2NXor6PmO5Ynn8GnVPS3R3f
-	z4AzIo8y/Cnoi+RIwatdyDUzsU/o4MKbNZv/qABZfHs+tI24V/KYsy/M5ehXhex7xDj0YQN+eKXhi
-	lXvtdcOo4C39hoFXoB0j8F3Cb6skc6cpjcSP8rhJAwwf7ydyY7mXVdPCBnk2hgQh6R/3/l4mGiEXg
-	D5dAuhvu3+t3APK89hYJTnnkdgrSUsGks+CXcFhFvwctsH1fJlvLGAEihu4Sgv1ku2AymZwrV3yKO
-	DzlJSDWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PnREJXO8gdOnlDXn6hPd7bSDzdru7IQfI4OFlA05/Zk=; b=PIyyiWAXUtm2Y5tv/UL4hGG7gZ
+	8zbYE5pGGsu/YDMkrklWOnuuPhlZuf7fDbEjzTyJx1yyZGVOpRFWPmKQ0DmB2mOqVIcNiOoiM3CTv
+	vFglxSZHy2zOTYEpFv1B2p3R5ApVs6tPvzQsjucCTVc0wLUBrsZPq0mCN62LixVR75Rpjau7Wifn6
+	9d8VrFpk7UhREKUySMgF4FSrH4bKOZQt8Zzr8wMPb1eIlzAUYR9kLptCcU6Er9KSnKaWPA4rDn0HB
+	gJD4pQIZBtvH7Av61logNE0sNuC5IP7EeE+ntvUmQcBZgQEULTHaQIhZTV+iJykdqWEjV8BA/jFb+
+	5njli4Cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUTUb-0000000H61H-0Iid;
-	Sun, 05 Jan 2025 16:28:45 +0000
-Received: from delivery.antispam.mailspamprotection.com ([185.56.87.10])
+	id 1tUTcA-0000000H6b1-41qS;
+	Sun, 05 Jan 2025 16:36:34 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUTTO-0000000H5u1-3iOO
+	id 1tUTay-0000000H6Sm-0AVQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 05 Jan 2025 16:27:32 +0000
-ARC-Seal: i=1; cv=none; a=rsa-sha256; d=instance-europe-west4-72m3.prod.antispam.mailspamprotection.com; s=arckey; t=1736094442;
-	 b=u3ayCYHnlvOpB7hyJ9kNIjVtazLB9L95YAnu+n5Bq8x6iPIL6WfBGmOYzxFCKsdUGmky6Y+88G
-	  V44M3KU9pYe7wJt3X+oJmcFC6OVyawWOhO/gRXYz+P7XLObY8nc84ROu60fj/IeaR6PSWGffov
-	  tCqUCNZNAI3nIwxIOadfyj425tcrgUVeRj6Sm1/dZi9v/k2tSmxpAT1xa+xWXH7BnnrOqu3eJJ
-	  Orem5p/sQ6qlV4K1ooHFdQFlrs3Dl7Q/QQRw+DsKDyAuZRh4As3sPfkkN4D+JGSU13nNROecyF
-	  9tQfrTsjpwoYijyTEbKG18679rjr/t/yu3wxDsqi9Q077A==;
-ARC-Authentication-Results: i=1; instance-europe-west4-72m3.prod.antispam.mailspamprotection.com; smtp.remote-ip=35.214.173.214;
-	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
-	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
-	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
-	arc=none
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=instance-europe-west4-72m3.prod.antispam.mailspamprotection.com; s=arckey; t=1736094442;
-	bh=3zXsEw/3Zreogf33S4hWe04mUilkn+cAgezjW9vC1fM=;
-	h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	  DKIM-Signature;
-	b=PJsI29GcBoZBxttjZ3T9xcnIH1/gAjcfbKpynn8U9fJJRY6p9uupn+4QwWuXVKfVqj2HcYXEou
-	  RCTux8htbvN/fuf+4s+98mMxSfV7bUele04lQmWYVTSS+qFGtn2Wx/V6x5eu/f2c5w/ZprTh6q
-	  ma5gRDVGOupL+F4jf8v1V9eVJ4yr0Y/LKUtqo59bWmL8qiSPdg4C8XrReEx/CpxSBMOHr+BwMe
-	  oi8PjkptrjS+lFXucv5OnIQ8bijDWzio8/T+XIvx/TATH9pDs0+4MkXscah63jIrdCKlZJi8c9
-	  4MbItV+60PeHAHym3funuuWSXlJeEXxLpnjIzl9gABMu1w==;
-Received: from 214.173.214.35.bc.googleusercontent.com ([35.214.173.214] helo=esm19.siteground.biz)
-	by instance-europe-west4-72m3.prod.antispam.mailspamprotection.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.98)
-	(envelope-from <francesco@valla.it>)
-	id 1tUTTC-0000000D38U-2gnv
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 05 Jan 2025 16:27:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=valla.it;
-	s=default; h=Date:Subject:Cc:To:From:list-help:list-unsubscribe:
-	list-subscribe:list-post:list-owner:list-archive;
-	bh=48i2+bbfQOsVn9kQtU3m2ql3/hd7Ql65fiI8cIu0j58=; b=fwCISfA2mIl4Cv0U2N0THYai2d
-	liDpzCpAP14nHCvkg/UBn11EQGFd2gwh2QluWV8uQppjY19LaZXQevzzLBokGHo6ob3usKyFWoiNw
-	5jcrR7g1x5VOG5rgSqfjHEF5KstC0/MEbt3YP6Wf/b0vc97BzlWVjYbOyVX+AQ3m5FrA=;
-Received: from [87.11.41.26] (port=63875 helo=fedora.fritz.box)
-	by esm19.siteground.biz with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.98)
-	(envelope-from <francesco@valla.it>)
-	id 1tUTT8-00000000Mmg-0qyJ;
-	Sun, 05 Jan 2025 16:27:14 +0000
-From: Francesco Valla <francesco@valla.it>
-To: Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] arm64: dts: ti: k3-am625-beagleplay: fix DP83TD510E reset time
-Date: Sun,  5 Jan 2025 17:26:30 +0100
-Message-ID: <20250105162630.243899-1-francesco@valla.it>
-X-Mailer: git-send-email 2.47.1
+	Sun, 05 Jan 2025 16:35:21 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-21649a7bcdcso187507385ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 05 Jan 2025 08:35:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1736094918; x=1736699718; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=PnREJXO8gdOnlDXn6hPd7bSDzdru7IQfI4OFlA05/Zk=;
+        b=Ny45JJQ7eZ1xje5Gay/1cqlIPgOdyrB+7J7ceIe1Q/NYujQ2TCFCPqbnsAHGs1Ir19
+         fNstl5mYbg74glVA+zclpVCxJwZo1I0C+db7Ns+UR7SSbPkK5PvodLQpmTD9ewpUadzF
+         VNWY9PaFEM2pZtayJNFQS53Buxe16Y6VsNAac8m8Lio7ypM4O+uiLxJSTqUEA63joXIR
+         vsNJ/VtIDYGVviq4TLUmP8lgPye4OIR63tzKQjiyR+hfNZMRr5AxWIInQCbSwVkqWUuN
+         qP+1IFbW4DO1HPZi/VnmpKpeODvvXyQkhKC50AmYMlKIlWXgkdN8jIYnNVSjlQyRyxP3
+         rrfg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736094918; x=1736699718;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=PnREJXO8gdOnlDXn6hPd7bSDzdru7IQfI4OFlA05/Zk=;
+        b=EYFhYhegElSTz22D59bXMDjlrOXOyogvZCT4ABNzHRO1Dt+1K4mCMBqe6e2sGr89iL
+         uLJXietn8CsBmVuOl0p7K7M5cFYGC9iFhTVpvWZfE/kQhnB+Hwnr09qRV4KIP1a891Vr
+         uGevMS64Z2ZDo8iRnLwibRhvu+/Rk8jzl1ZcOSISK6Dx1BKNQXwDLtjwb0FN8mvAlXk6
+         In6zUgzZikXKRHg0vFLCnSdM9+kBchRmzk55Qgd2uq9ffqtszBtzXP3ogceM3BRB94UJ
+         7A7S4CPbu/kLR87NNwOrD/3FZnV15SSP5ghoPGJPd0WRR9qkzk5jJC2tn/GaEpges70m
+         t6Ug==
+X-Forwarded-Encrypted: i=1; AJvYcCXM9IM9j8zCBdkIBgUw0PsRhGp77HPCAmzg3/WlJWf1QNHJFx8r8udMwP4U3FZTHrDboY9JD3WI/7eOSyTNPVR5@lists.infradead.org
+X-Gm-Message-State: AOJu0YweO0wv6E6JSJomFKHLsBjQ6/V4mgPkFtf+qf70Y1pNXo3hql+z
+	jSniwB4glSaI5pQT9/2UTXAmLGy4Irlub7iizN5HH5sUMVGG6ai1ZbQRUXNaLtJAPdzQe9WX4e4
+	=
+X-Gm-Gg: ASbGncuGU5f4qxWqzcV75CD90hAM5ThFSRTAXVy6Na9z6Fa/WL+jDQ49F+XUWsTEcGC
+	cXBuYaxsMn8RJkWvcNHoPT5zgPs2AVmW+RmwnVJzzSROfWphA0bn3m2LD73EfA1idIqh180q0Fd
+	3FwFqNwbgwGa1PpLc50K/TomKHLhBNJF3cSqjroeoNtnIXR5LosBvGQLaUlbXt7CEO3NWNaora4
+	XNxIfGL3cZP/gRgWi5xi0jRi3odjLQe+tX+G6VQhSVWJ9yqHPNspz8NaNDBYmE5K51EAQ==
+X-Google-Smtp-Source: AGHT+IEOtAp4w31CjTLB1aFWoVsatu6IG9r4c5kd2CVIdLrHft5tD4dMe9HJZQJaorB/J3Udvac1sQ==
+X-Received: by 2002:a17:903:2cc:b0:216:2e5e:971d with SMTP id d9443c01a7336-219e70dc3f7mr692735935ad.51.1736094918605;
+        Sun, 05 Jan 2025 08:35:18 -0800 (PST)
+Received: from thinkpad ([117.193.213.165])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-219dc9cde72sm277254345ad.130.2025.01.05.08.35.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 05 Jan 2025 08:35:18 -0800 (PST)
+Date: Sun, 5 Jan 2025 22:05:11 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Anand Moon <linux.amoon@gmail.com>
+Cc: Niklas Cassel <cassel@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] PCI: dw-rockchip: Enable async probe by default
+Message-ID: <20250105163511.rwer5pl6tevw4zp2@thinkpad>
+References: <20240809073610.2517-1-linux.amoon@gmail.com>
+ <Z3fKkTSFFcU9gQLg@ryzen>
+ <CANAwSgS5ZWGTP+A11r_qFSrjWZH_DqsM89MLiP+1VAxhz+e+2A@mail.gmail.com>
+ <Z3fzad51PIxccDGX@ryzen>
+ <CANAwSgQEunirUf3O3FJJAUsQu9mQYD_Y40uJ_zMYDZYVy5J=wQ@mail.gmail.com>
+ <Z3f4JQZ6yYV1BJ-b@ryzen>
+ <CANAwSgRTcHuDNLvPJAs7ZaV-NnepeOkHj_kVc5OAJtP03hd6pQ@mail.gmail.com>
+ <Z3f95RXj7GhZZHEP@ryzen>
+ <CANAwSgQEb7rWFaeEO3Mb8LAwK6A5mrCyQFEysmSpeVdhoRWrtw@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - esm19.siteground.biz
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - valla.it
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-SGantispam-id: 73709cb7f9118b7a4181dab19fa4dee8
-AntiSpam-DLS: false
-AntiSpam-DLSP: 
-AntiSpam-DLSRS: 
-AntiSpam-TS: 1.0
-Authentication-Results: instance-europe-west4-72m3.prod.antispam.mailspamprotection.com;
-	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
-	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
-	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
-	arc=none
+In-Reply-To: <CANAwSgQEb7rWFaeEO3Mb8LAwK6A5mrCyQFEysmSpeVdhoRWrtw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250105_082731_058982_85DD268E 
-X-CRM114-Status: UNSURE (   9.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250105_083520_137368_FA30B0F6 
+X-CRM114-Status: GOOD (  24.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,35 +111,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The reset deassert time for the DP83TD510E is incorrectly set to
-60000us, while the datasheet states that the minimum time required
-after an hard reset is 30us (while 60ms is the time required for the
-Power-On Reset after supply stabilization). The error probably arose
-from the two timings being indicated by the same symbol (T2).
+On Fri, Jan 03, 2025 at 08:59:51PM +0530, Anand Moon wrote:
+> Hi Niklas
+> 
+> On Fri, 3 Jan 2025 at 20:40, Niklas Cassel <cassel@kernel.org> wrote:
+> >
+> > On Fri, Jan 03, 2025 at 08:36:18PM +0530, Anand Moon wrote:
+> > > > >
+> > > > > We need to enable the GMAC PHY and reset it using the proper GPIO pin
+> > > > > (PCIE_PERST_L).
+> > > > > Please refer to the schematic for more details.
+> > > >
+> > > > The PERST# GPIO is already asserted + deasserted from the PCIe Root Complex
+> > > > (host) driver:
+> > > > https://github.com/torvalds/linux/blob/v6.13-rc5/drivers/pci/controller/dwc/pcie-dw-rockchip.c#L191-L206
+> > > >
+> > > > which will cause the endpoint device (a RTL8125 NIC in this case)
+> > > > to be reset during bootup.
+> > > >
+> > > Thanks for letting me know. It seems like a workaround.
+> > > I'll try to disable this and test it again.
+> > >
+> > > My point is that we haven't enabled the GMAC PHY (device nodes)
+> > > and must properly reset the GMAC.
+> > >
+> > > We're relying on the code above hack to do that job.
+> >
+> > I do not think it is a hack.
+> >
+> > If you look in most PCIe controller drivers, they toggle PERST before
+> > enumerating the bus:
+> > $ git grep gpiod_set_value drivers/pci/controller/
+> >
+> 
+> Ok, understood. However, we have multiple reset lines per controller,
+> so the PCIe driver will reset these lines using gpiod_set_value.
+> 
+> PCIE30X4_PERSTn_M1_L
+> PCIE30x1_0_PERSTn_M1_L
+> PCIE_PERST_L
 
-Lower the required time to 35us, aligning it to the value required for
-the PHY to complete the reset AND to be able to accept the RMII master
-clock. This saves ~60ms on boot if the MDIO driver is built-in.
+PERST# gpio is unique per controller instance and will be asserted/deasserted
+by the PCIe controller driver itself. Endpoint drivers should not touch these.
 
-Signed-off-by: Francesco Valla <francesco@valla.it>
----
- arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+And most of the PCIe endpoint devices do not need to be described in devicetree
+as PCIe is a discoverable bus. But we do define some of them if they require any
+special board configuration.
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts b/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts
-index ee96f4f6deb0..75c80290b12a 100644
---- a/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts
-@@ -610,7 +610,7 @@ cpsw3g_phy1: ethernet-phy@1 {
- 		reg = <1>;
- 		reset-gpios = <&main_gpio1 5 GPIO_ACTIVE_LOW>;
- 		reset-assert-us = <25>;
--		reset-deassert-us = <60000>; /* T2 */
-+		reset-deassert-us = <35>;
- 	};
- };
- 
+- Mani
+
 -- 
-2.47.1
-
+மணிவண்ணன் சதாசிவம்
 
