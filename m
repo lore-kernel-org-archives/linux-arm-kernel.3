@@ -4,95 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53D1CE77198
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jan 2025 15:07:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61D52E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jan 2025 15:51:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dgV3fyp9QtS77nooTd+FrX+WlOCv6xJXFUjdyHgxCR4=; b=c375UgV8hpcmeEqe6t8cjMRJzs
-	NIrT3HFUxKRWuplfnytvP/2Ug/XJOLvxPkQqwS5AsuxrDkNz+dfd7nkEfVpV3cYPhuTOPiOYJP5FK
-	IfJExelreSzRauHaSAFRfTediGwaEZlQoUcSKP1EV09Wy5MJQX1Qb4qwU2qIi3+HZpkdFMmKQKqDQ
-	6Ub43HaVHYRJn4uTIi2dKjBl8TRhyUKw4JcmyvMS/aseSEXdn101B6opoEukurncljC1RvsurQF23
-	BB6WZrzkKA6Kmj1HxdrzkqetaWrqdrydP3AESRYrHFi5EegRqMieQL4GIUwuFmGbh+0GiDvmKk4RS
-	IZtryBmA==;
+	bh=YywA5lTEdJWoFMmlp4DfxD/jE6edYt47y3+JzLz1vMk=; b=Og3RZxAceQPlNGmepT0KI5CnDD
+	osjZVUYcHlGA+TsakWIREyw1RfVdQ8J9gAm+iGVVd+psVmQRMfu9vbjmK9mpJQA35Bw52D55Scc+u
+	ZzpGLvSkpgzyWU9uKBoRi5OYhiZXWuxaQ1OaQEE1mccaCg2uPzmU86x62DvjDXIivxBQuIcjZ4sd9
+	BX3m5fqjVBKYI3haO0dCYvPbkOoQSjUxixbuVuHWVFYgUv4fXnob3IdJItHyiKJ+EUfoQQhYmRl4X
+	dbE24oUfJzG3ikNteWD/1iDPyZcL1E/aeGJfRjBt7oxAyUp5AZ6Fvk+o27wcFfr6BsGc6L8uwot2k
+	8jobb+KA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUSE5-0000000GxqC-1j2E;
-	Sun, 05 Jan 2025 15:07:37 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1tUSuJ-0000000H19r-2jB3;
+	Sun, 05 Jan 2025 15:51:15 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUSAe-0000000GxRb-3Udu;
-	Sun, 05 Jan 2025 15:04:05 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-38a25d4b9d4so4914443f8f.0;
-        Sun, 05 Jan 2025 07:04:04 -0800 (PST)
+	id 1tUSt7-0000000H11o-25yE;
+	Sun, 05 Jan 2025 15:50:02 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-216401de828so180596075ad.3;
+        Sun, 05 Jan 2025 07:50:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736089443; x=1736694243; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=dgV3fyp9QtS77nooTd+FrX+WlOCv6xJXFUjdyHgxCR4=;
-        b=ZZhL5PlXpXFIRjVvE3K8PKu+j5wi40d64u9qkdkor6u7JAiAPop1qoDr7LqOf6VyiU
-         eMT6z0PVWzMZUpEsvpKPZxO226PEj6UgN5bZ9XaQzSZuVZ3pk+k+sb1djdSYw/x9t08B
-         rwDKUoZ28PTI3ml/ofmvAdbWe7I4wiaFp++viNpybqSa686br02GVk3aoa80FCgCJpuH
-         kCNyutpzh3LTmn/FsYDuvdcl9OxCiZgIZBxTSI7KOL5hmFx550h91npOF5R4DBndjp78
-         HbraEF5UN1b8wD2yuXdyqD2tlJHIO1CwfbdBUicJYEjghdVc99/tI2e6/zpI+sksjxk7
-         jvYQ==
+        d=googlemail.com; s=20230601; t=1736092200; x=1736697000; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=YywA5lTEdJWoFMmlp4DfxD/jE6edYt47y3+JzLz1vMk=;
+        b=Ab/rLD7lrEowNJEt/xSwSR3wZZRKNxUXbDI1YWIP6gHhjzFP9Yj9FnSZg387U5HgqM
+         JYyts/ehe8CVCfPhftxn88+mNIQbpQrWSAZi6fNn/S9VBfEz6cuZk1usGJR0AvMryrGu
+         YmqGcMTMS1RQG1fc0dvbGyphvVkLsQTUnkGYRcqHR8fJf4hUPF2Pvr3FJqZCJgoPg3cq
+         tY8MSBaeNvcT0UlojAFRkWBBsbu0rRaCe+uZWbrlANL9qV2kBpnlUepl7ZsbmaS2MRWd
+         pGM68Hh70S/H71EYeSHA8ZkJXIavNE5VHbKhVNIqMXcDym2dmIysk24gPBR6+HDYky4R
+         +Ctw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736089443; x=1736694243;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1736092200; x=1736697000;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=dgV3fyp9QtS77nooTd+FrX+WlOCv6xJXFUjdyHgxCR4=;
-        b=ZLQskMu7hnU0cCSHFFoXQTmj+96R1fZtuziS0pMBVXn5/XrIKPx9V5b+xvp7100c6z
-         AtWT8ZJp7RqIYp4K90x0yJ+Ll9GfTZ/TO8owZ9KYW/lQ5Qe4v0vO0gpn7w+ppGP0IO9E
-         4T30/VQd6drHZTY43a3vYgl0J2jK8KB0KZTUw1rB4LdxDl9AzXSy8qtrAOF+h9xcx9yx
-         pkTFqD5sm2gnVqW/Q28FHQpvffHt4/09objpiAYs4lam3BryA/WOWr/Gn+NkxyZ1G01K
-         cXqmluZ1RPXrbRq9e8EIPQV1p2Zq1QQcfmZLg5s5F7BSOkeu1Xuva1nQVQzKZgiPZp2B
-         pyyQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWK53TdR792xPZKhV33hnhfk5gKrRL8F4ETDTjzHDF9/F8VdWMibp2XW7zXivV6ei0Rjvsr/AJNLDHhnKbz9Vs=@lists.infradead.org, AJvYcCXE+x/dFlEE6imckfOdmFE+YxFKEflCoxPEdjwhgleFXUgh7sH2frNntyl4VdxtOAkj32nbxf/TNrPtjJvoAJxN@lists.infradead.org
-X-Gm-Message-State: AOJu0YxIv/fscJeHK3AGjHCiUm/qwMT3tfkbsBCc8bnqXVq/Kt1naIJW
-	iluUIRSrhKmiOThnqMRT7Ty/+CJEglIlFFXUYJoEURKlhTByKG5m/DpVDQ==
-X-Gm-Gg: ASbGncsw/3q/eMlzT5amldzidP0cn1jz/jnybAoPEJjVKklbwkoQo0fWmHC5fUSkUsW
-	dpyV5bZZftQ4WjWrwWoil6xrxctXag+2VhP5QZjiOvjU3FH5era1vwX2HLQMhb4Q6uvT0yXtMbi
-	d/wYRXBLEE0ovJfDqj9Fi/rTM4g+C//R5+XKUj0rgC77SnklCZovg59OaPUVkyrgKrs6EaV3ylO
-	tKxB/xEk6TbjaqX+13VRo9VLpQo9W4J8Nn8EG3Ytt8O9FlPIapMOSYiKd0+5AcjqfFkTKn2/HZO
-	1s+c6GjwIrJKiJFC/RhBOc+rJf3T1GDeQkzlM+55BQ==
-X-Google-Smtp-Source: AGHT+IEAYRCYuZBs6aPItyM+728zSgzY+5DBza9P1rNuqmhIKpahYwEVfa1pvTPbfiMYlM0ImxNJeA==
-X-Received: by 2002:a5d:5f88:0:b0:385:f69a:7e5f with SMTP id ffacd0b85a97d-38a223ff3cbmr41311266f8f.38.1736089443323;
-        Sun, 05 Jan 2025 07:04:03 -0800 (PST)
-Received: from localhost.localdomain (host-95-246-253-26.retail.telecomitalia.it. [95.246.253.26])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4366128a62asm536258685e9.44.2025.01.05.07.04.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 05 Jan 2025 07:04:02 -0800 (PST)
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Christian Marangi <ansuelsmth@gmail.com>,
-	Daniel Danzberger <dd@embedd.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	upstream@airoha.com
-Subject: [PATCH 3/3] arm64: dts: airoha: en7581: Add default partition table for EVB board
-Date: Sun,  5 Jan 2025 16:03:04 +0100
-Message-ID: <20250105150328.15172-3-ansuelsmth@gmail.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20250105150328.15172-1-ansuelsmth@gmail.com>
-References: <20250105150328.15172-1-ansuelsmth@gmail.com>
+        bh=YywA5lTEdJWoFMmlp4DfxD/jE6edYt47y3+JzLz1vMk=;
+        b=tCWNsMdzY50hLESGnltSiIUjHYMx0fnWgzO1Q8mSOM9dZmveA2HCyqwULduEMdw6lr
+         4aZhAWdLbcniO6Eh+JsbR2WaBChIKrEmDQVyhE8gMIUH66YYoWrYkJHmRT4j8cwFynGG
+         rYJZf8DLLZf5S8xR+qz+CzCAXTfslLCxk5Rt1zUtjmVV+YIBguEoBvBiDNCxWZfbaD2U
+         4axkx6Zn6xtKAR6R4MRwdWZYb7QOqppMN8dTT61ym3z2JF+Xo8f/klj2InaJ2W9I2Zn9
+         b1ApNdMTa8Bqrk6v1qptPxPZzR2uISPp3UD/S4lv4h8LhqxqifNXrhI2QzUNLtyyg8/r
+         BuuA==
+X-Forwarded-Encrypted: i=1; AJvYcCV8sgeMStY5SQdJr+EXKdIY4fTswevwAspE/2HywddGnkn4QYZrMNyx12KLkTjFzgQJzPv23xnLJLvhp67tt35s@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz26RwA9jEf7OxpFXiH7K7S4I6KtFkq4+Va4ANmrZ+OmHo2q6HG
+	lKXA6i8GB2FFtYBUONWO4uAmZUei01MT9dnkVetpNfN93HmlzL6B3HzL/2F99IUVWdfMSurEe+w
+	gBBR/RN9lNty7xb1TRpuPrczLQt0UBw==
+X-Gm-Gg: ASbGncsg+MobNWgAN1uzmJphlnhcTuB2ovTlJf12QNkOY0IoTGDbnbkzyB6iWLaU5ST
+	597hDJ6jte5N2713XpbbUg+2rYCYX7V2nAzbcpiuLUBTHhcOeDLRs
+X-Google-Smtp-Source: AGHT+IHBq4Bpn7IMCuiOvWpCDfq6WSEWbk+kF8P/My012EE2LHfMCwEfjsvbXgI3Q5S8UqpawhTxxnoNTWpu5as8yyE=
+X-Received: by 2002:a17:902:d4c4:b0:216:7cbf:951f with SMTP id
+ d9443c01a7336-219e6ea195cmr764170955ad.21.1736092200275; Sun, 05 Jan 2025
+ 07:50:00 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20241231194207.2772750-1-martin.blumenstingl@googlemail.com>
+ <20241231194207.2772750-3-martin.blumenstingl@googlemail.com> <20250104135912.390ec87c@jic23-huawei>
+In-Reply-To: <20250104135912.390ec87c@jic23-huawei>
+From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Date: Sun, 5 Jan 2025 16:49:49 +0100
+Message-ID: <CAFBinCBxaVet9HxW98uCSDnv1XVXV6r4V9Z3BRmZJypTcxDZ0Q@mail.gmail.com>
+Subject: Re: [RFC PATCH v1 2/2] iio: adc: meson: add support for the GXLX SoC
+To: Jonathan Cameron <jic23@kernel.org>
+Cc: linux-amlogic@lists.infradead.org, linux-iio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, gnstark@salutedevices.com, lars@metafoo.de, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	christianshewitt@gmail.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250105_070404_879438_C1DC5BEE 
-X-CRM114-Status: UNSURE (   9.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250105_075001_576237_90143877 
+X-CRM114-Status: GOOD (  22.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,62 +95,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add default partition table for EN7581 SoC EVB board.
+Hi Jonathan,
 
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
----
- arch/arm64/boot/dts/airoha/en7581-evb.dts | 40 +++++++++++++++++++++++
- 1 file changed, 40 insertions(+)
+On Sat, Jan 4, 2025 at 2:59=E2=80=AFPM Jonathan Cameron <jic23@kernel.org> =
+wrote:
+>
+> On Tue, 31 Dec 2024 20:42:07 +0100
+> Martin Blumenstingl <martin.blumenstingl@googlemail.com> wrote:
+>
+> > The SARADC IP on the GXLX SoC itself is identical to the one found on
+> > GXL SoCs. However, GXLX SoCs require poking the first three bits in the
+> > MESON_SAR_ADC_REG12 register to get the three MPLL clocks (used as cloc=
+k
+> > generators for the audio frequencies) to work.
+> >
+> > The reason why there are MPLL clock bits in the ADC register space is
+> > entirely unknown and it seems that nobody is able to comment on this.
+> > So clearly mark this as a workaround and add a warning so users are
+> > notified that this workaround can change (once we know what these bits
+> > actually do).
+>
+> So IIUC this is to make some non ADC component work.
+That's correct
 
-diff --git a/arch/arm64/boot/dts/airoha/en7581-evb.dts b/arch/arm64/boot/dts/airoha/en7581-evb.dts
-index cf58e43dd5b2..a4cdcadd1ae5 100644
---- a/arch/arm64/boot/dts/airoha/en7581-evb.dts
-+++ b/arch/arm64/boot/dts/airoha/en7581-evb.dts
-@@ -24,3 +24,43 @@ memory@80000000 {
- 		reg = <0x0 0x80000000 0x2 0x00000000>;
- 	};
- };
-+
-+&spi_nand {
-+	partitions {
-+		compatible = "fixed-partitions";
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+
-+		bootloader@0 {
-+			label = "bootloader";
-+			reg = <0x00000000 0x00080000>;
-+			read-only;
-+		};
-+
-+		art@200000 {
-+			label = "art";
-+			reg = <0x00200000 0x00400000>;
-+		};
-+
-+		tclinux@600000 {
-+			label = "tclinux";
-+			reg = <0x00600000 0x03200000>;
-+		};
-+
-+		tclinux_slave@3800000 {
-+			label = "tclinux_alt";
-+			reg = <0x03800000 0x03200000>;
-+		};
-+
-+		rootfs_data@6a00000 {
-+			label = "rootfs_data";
-+			reg = <0x06a00000 0x01400000>;
-+		};
-+
-+		reserved_bmt@7e00000 {
-+			label = "reserved_bmt";
-+			reg = <0x07e00000 0x00200000>;
-+			read-only;
-+		};
-+	};
-+};
--- 
-2.45.2
+> How are you handling dependencies?  The ADC driver might not be loaded or
+> is there some reason it definitely is at the point where the audio driver
+> loads?
+Unfortunately there are no dependencies at the moment.
+To me it's not even 100% clear if those bits are a dependency for the
+audio IP or if they are instead linked with the clock controller (more
+background info: some of the MPLL clocks are - at least in theory, in
+practice we don't use that - are also used as input for the Mali GPU
+and video subsystem. The only practical usage that I'm aware of is the
+audio controller).
 
+Christian and I have both tried with all of our contacts at Amlogic
+but did not get any answers.
+If I knew the purpose of these bits I'd model them as whatever they
+are (resets, clock gates, ...) and provide proper dt-bindings.
+
+
+Best regards,
+Martin
 
