@@ -4,81 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D39FE77197
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jan 2025 14:48:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 877B6E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jan 2025 15:05:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dQWaM+PChHtbUOdo7doKQVaopQbSfa6dRRaSoCLd/Gc=; b=McjIS02GbZkXIc8WpektnwrE3I
-	GLIgrHfCSEeLC7vVVgum+btBXQDGVo5A95UuQfGiospHCMY9cpXQwDxN6YVUnl3K31UyDyuy1Hyqr
-	tqNluG6xQeSNiXPPqLM4t75JAdEsgpDazH6yn7pxtjN256zJnD3zX9N9Z44oEcqhorz6HzIavxm3X
-	OQ0Yk35j6QDSWVdsNayy6fCTJOlE+JsWO+rRkhPl7W3nmMU9On6xaSyjlpWNuwDslZh3nIyTg3E3g
-	Qk7LlTGbtLGMyMtLrWWUmdwEoUqSzV63Iwq18D6HjVitT0tlAehU8S1vVVhdh1nd+vNg/HXevo5Gd
-	fXkGycIA==;
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SZYwc4vBlldLtmS7t8q5HbKKN19HNEjLlzpxgjKSx50=; b=AVsl44fy5zauqJUK/ZaWRTf7Ie
+	h3Ejeap9VtLA52e9se/xy6nXXUByNdOqlj7Ez6Vxq4gQw95HwHiuOjrbAwn5cRbrsfLXwiqaoHX7p
+	8Lpx9i2Uei9T+aPa//gNG2ZdGDF23x4Kf1CcY/J3X9uRsjs8mKfVrCsSQW0+mnweXdKVOXZdzAUVb
+	Kv7ekoVZ0AKG0vxnqfpVXJTMdqaTO8RDy+QcVY0eZOXNkIRelkglJqI0a+ea0LZ11IlWUrCo1AcUI
+	vJDCEyLYhJFLKz+fYrb8uafjUjS8zyxRhZi12KmoO38a20jTN637Z/V3fSDXzudQZV1n28TbL5deL
+	sJexR4Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tURvF-0000000GwTB-3naK;
-	Sun, 05 Jan 2025 14:48:09 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1tUSBn-0000000GxbZ-09Iy;
+	Sun, 05 Jan 2025 15:05:15 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tURu4-0000000GwNW-2Mk6
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 05 Jan 2025 14:46:57 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43616bf3358so21181805e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 05 Jan 2025 06:46:55 -0800 (PST)
+	id 1tUSAb-0000000GxQv-2C2E;
+	Sun, 05 Jan 2025 15:04:03 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-436345cc17bso98274795e9.0;
+        Sun, 05 Jan 2025 07:04:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736088414; x=1736693214; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dQWaM+PChHtbUOdo7doKQVaopQbSfa6dRRaSoCLd/Gc=;
-        b=c+fGdGNdyZYxnDbeKb1X2U5wZTJFifPwf3k736QjibplWnWgxKd/UgAFOamhHvi6rJ
-         cAkTMKmaUaCqqW52Oz8iOqe+FQSRB3D4PWNe9Uol7bR6qXAs3jAU84TRyHUIT3lFVeLI
-         K1MRXXVbYykBYGNAl2aiPwreDIOFwR/VqTlD85Q7cmjTxI8eWQcolYKDkoVgrFXzasJP
-         RFOzdRp/8MBhR+/MHJQiJVUosCNSnKObV3f1q8SSVWNb60/wyElF9RN+OMhjLgmNZ9pi
-         tCJDWIuw3o2bgBnCn+UNWaZTzrRBxzjvRu9VghjUz0zV/mt6bmut9BJIfkoMDNWoqhFO
-         OTgQ==
+        d=gmail.com; s=20230601; t=1736089440; x=1736694240; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=SZYwc4vBlldLtmS7t8q5HbKKN19HNEjLlzpxgjKSx50=;
+        b=E8tlAwS+A8Vb1KCQYpNqThJNGAJIZWzjOWCzvbuaAT7tiBjkdhAC6+62JRBQjIrp3w
+         AL0O7mhtUBISM7SDVcpkUCNiYG9jG/5OoCgr7i3mbRt3vhLyAdCswAfQqpDfY0mgrUV3
+         yhPu7QlGNRGZDqEDjb8mw/WTSezIU536gXxrJGBLPRuNH4olmlMv/Vc/X655btt+OjGi
+         Z+MXD3R729eYxIxOkvcJYnutEM528iWxeG6Q//fuIT84np5R9AqVDTuLWhpxzVamWqt2
+         ZTG7slO+onbMVa5LwS9KHK1uPnh6ibQeciHvAawl/lwzyVxqcztjcuxMvN2No06e2anA
+         dtDg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736088414; x=1736693214;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=dQWaM+PChHtbUOdo7doKQVaopQbSfa6dRRaSoCLd/Gc=;
-        b=bU9/VQ6Nr+H2xU/dqbECf7nDQLym1K9UQT9/dnSdTNWtl08rmRtPRYNajoVZmtbFbn
-         nrFra6avc+4wnTIDbGkDaIRDxi0v5XtynoOfemjknKqnqep0ZCjWRg7RcBN6XgPQ2P+i
-         SSVrAMTh0KSUtqZhrq87j6/f5y3GCzctIslg3ENvDJEht25Ez+8qv3kNvW6OrSzKP9hH
-         lk+QfJSUVBMQEDZz6DftU2vwM+bWDDGLpEBk/oVD6rlhTe5+c0A/ghCBkV5mL/GSuVr9
-         jZ348tQxrfsqxGMxFnT86yDIinqJbpCGFd2vZdHftu+KVhU0ni/SibtIyNc9I58UlaFy
-         tT2Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXbp+yulNdR1LkuHjTcoJNZThyKxxSM9Xk7ooKMc/Yp7M7vofdB5F/HOnYK+4NUjbrYW2s/9Bp/cfzfJNOMguxi@lists.infradead.org
-X-Gm-Message-State: AOJu0YwpV9svtsONQM/xoGe6Lc0jTsxnB1OZBZlK+eUa74dQ9ExHHYt8
-	ZuMC5VTHPImtVad8vlMe0ehQNV3zCiWu+NcRNEoS1jaFW1sno+EuwjNp3cLz5zf5cd/+OtaVVLu
-	MDNVnVf0UkQ6xttI8TEatvGAjkiPZ66X7
-X-Gm-Gg: ASbGncsQcueixygmrmOUHo6C07mMBdgBYK7islprdjwjHQBBqBJyCXg2/diCnp0Qme2
-	E6AGoNfAq/1X6sYA+H8qCqbSGQ0aDWJR0HJTFrl4=
-X-Google-Smtp-Source: AGHT+IFRWJtMBXvKcYj1qoQVOlfnh+QijGnb7aioi+rpAS3P+MtWp+60aF7rN2Zll+mbhNisv0S/pthAg0xk3dl6LUk=
-X-Received: by 2002:a05:600c:4e8e:b0:434:f9c1:a5b1 with SMTP id
- 5b1f17b1804b1-43668642576mr193205435e9.3.1736088413987; Sun, 05 Jan 2025
- 06:46:53 -0800 (PST)
+        d=1e100.net; s=20230601; t=1736089440; x=1736694240;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=SZYwc4vBlldLtmS7t8q5HbKKN19HNEjLlzpxgjKSx50=;
+        b=Oy+gU4SbQbXwO5dcNNJ2DamaHKD6sPJUAKIxC5PFYmFMjHNtuT2dtbDB/v1G5vp8kH
+         9l79LO5fanubZML5TE7XdzVsmH1xeqVRYnCNz0GBMI4UEO9WoQ2rS1jVVLILdqTgnDlu
+         4FctHB1m3gSA8Un7mm7VcGIDr5JKW9kQCKVZmJcUvnPlsLlrqNxQS9nB+jlP22bCavD/
+         6rvErjFCZeGDDSkhncmEdNTI4KY8b8p4SSsHEDX4lmx1OBXyJuQ1WeVqgV7+n4HYCiXJ
+         zOCKxW0LFrVB9EKRMX7LhE2kKMTxMVhiphP7W9V4CzJs/bZ7aEbA7koNN9f0x+Jbo7Yt
+         N+Ww==
+X-Forwarded-Encrypted: i=1; AJvYcCUCwt1f6XNoodiv35PX7ny1BXSGbIbQ0WGVs2clsFpSLm6t7wvD7kggU9c1kdwgKDsXpB6mt9uBgkmDLWU7CD6t@lists.infradead.org, AJvYcCUgmxTPZELuQ8Wa38xQYpAgjwpD8FCOvlLSzjPjqctpkdfORJABgGpwsaeUNVybtH7le9j/gz0CK8U7rkDgak0=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwzVkmA1oZD+6cdwWoASNg0L0QJsLDThGSNAT2DZTBHRllK/frJ
+	5w4gBDdPEcuel23AP2fs0GFrbtBZ6N2JoHz7Je7aliZ3TVY87+8X
+X-Gm-Gg: ASbGncveNPd+DOZ6KjCVa+e1heRjUxnKVkeDgNvPWCgtfe3pYgHUGt4WZtSqlPJdRi7
+	6vMDf6RxuuMaF7sCsA16ZOyn1YOOjCE/YkiG+Ekc/YBIb5RAed64qd/oXJHgX9MwFaRj4lp0FWr
+	WEo3AbgX9jVlxKZenKjYrx3SZNbacBZN4kUeHhMnsFDQgXfkQGOexHYkH/YieFh+I8qkI2JAxYm
+	oWajRahGP2OwmzPRL3AoV3bTgzD2CH0TIHdBQ+V7ozllatDWAxoq25IQRyy3z/hPnguBFDUC4PD
+	d+BnOqdEJQNSnAfp+tf1GWTN4ob6UzshrNeKgKq6MQ==
+X-Google-Smtp-Source: AGHT+IHebaAAInYSXzL9iYrnBo2kfWHp3RSAI5cBP+sHWmXA2QcdnbuRh4mwWoMTcHs0UGfwg1l6cQ==
+X-Received: by 2002:a7b:cd95:0:b0:436:30e4:4590 with SMTP id 5b1f17b1804b1-43668b7a1d0mr407669125e9.32.1736089439765;
+        Sun, 05 Jan 2025 07:03:59 -0800 (PST)
+Received: from localhost.localdomain (host-95-246-253-26.retail.telecomitalia.it. [95.246.253.26])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4366128a62asm536258685e9.44.2025.01.05.07.03.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 05 Jan 2025 07:03:58 -0800 (PST)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	Daniel Danzberger <dd@embedd.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	upstream@airoha.com
+Subject: [PATCH 1/3] arm64: dts: airoha: en7581: Add Clock Controller node
+Date: Sun,  5 Jan 2025 16:03:02 +0100
+Message-ID: <20250105150328.15172-1-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-References: <CAFpOueSJFyAa2q=0S5Ch6cCy_ORKBV8Y-FUTq6bTky37LJ7M_A@mail.gmail.com>
- <20250103161637.GA3921@willie-the-truck>
-In-Reply-To: <20250103161637.GA3921@willie-the-truck>
-From: Itai Handler <itai.handler@gmail.com>
-Date: Sun, 5 Jan 2025 16:46:42 +0200
-Message-ID: <CAFpOueQa2EOSC7=5xsWU85B0FG8xsDoqk7btMQCEV7wBdT1GQw@mail.gmail.com>
-Subject: Re: Issues with kexec on arm64
-To: Will Deacon <will@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	mark.rutland@arm.com, ardb@kernel.org, usamaarif642@gmail.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250105_064656_607094_F59F152A 
-X-CRM114-Status: GOOD (  28.70  )
+X-CRM114-CacheID: sfid-20250105_070401_577004_1B01D9B0 
+X-CRM114-Status: GOOD (  10.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,103 +102,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 3, 2025 at 6:16=E2=80=AFPM Will Deacon <will@kernel.org> wrote:
->
-> On Tue, Dec 24, 2024 at 01:36:41PM +0200, Itai Handler wrote:
-> > [Sorry about my previous e-mail on this subject. It got corrupted.
-> > Please ignore it.]
-> >
-> > Hello,
-> >
-> > I'm encountering kernel panics / system hangs when attempting to
-> > kexec a vmlinux file on arm64 architecture.
-> >
-> > It happens both on qemu and on real hardware.
-> >
-> > These issues occur on all kernels from v4.19 to the latest mainline.
->
-> I think other folks have been using kexec on arm64, so something smells
-> fishy here. Is the issue intermittent?
+Add Clock Controller node for EN7581 SoC to correctly expose supported
+clock for any user in the SoC.
 
-No, it isn't intermittent. It's very easy to reproduce the panics/hangs.
-At most we need to perform two recursive kexec attempts of the vmlinux file=
-.
-In v6.6, using the configuration I supplied (config.sh), a single kexec
-attempt is sufficient to demonstrate the issue. In that case a panic occurs
-on the first kexec attempt. In newer versions I mostly see hangs but someti=
-mes
-panics as well.
-Please note that the configuration I supplied sets CONFIG_ARM64_64K_PAGES=
-=3Dy.
-But I saw issues also with 4K pages, but in that case only when enabling so=
-me
-debug options (KASAN, SCHED_DEBUG, KCSAN).Also please note that kexec with =
-the
-Image file (instead of the vmlinux file) seems to work properly, without an=
-y
-issue.
+Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+---
+ arch/arm64/boot/dts/airoha/en7581.dtsi | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
->
-> > A sample panic output looks as follows:
-> >   kernel BUG at arch/arm64/mm/mmu.c:217!
-> >   Internal error: Oops - BUG: 00000000f2000800 [#1] SMP
-> >   CPU: 0 PID: 0 Comm: swapper Not tainted 6.6.0 #292
-> >   Hardware name: linux,dummy-virt (DT)
-> >   pstate: 800000c5 (Nzcv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=3D--)
-> >   pc : __create_pgd_mapping+0xe8/0x3b0
-> >   lr : __create_pgd_mapping+0x44/0x3b0
-> >   sp : fffffe00804d3c20
-> >   x29: fffffe00804d3c20 x28: fffffe0080620000 x27: fffffffefdbc0000
-> >   x26: fffffe0080300000 x25: 0000000040010000 x24: fffffffefdbc8020
-> >   x23: fffffe0080010000 x22: 0000000000000040 x21: fffffe0080010000
-> >   x20: fffffe0080300000 x19: 0040000000000783 x18: 0000000000000000
-> >   x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
-> >   x14: fffffffefdde0000 x13: fffffe00804d3c78 x12: 0000000000001d68
-> >   x11: 0000000000001d64 x10: fffffe00804d3c2c x9 : fffffffefdde0000
-> >   x8 : 0000000040420000 x7 : 0000000000001d68 x6 : 0000000000000000
-> >   x5 : fffffe00a0010000 x4 : 0000000000001004 x3 : fffffe0480010000
-> >   x2 : fffffe00804f7ec0 x1 : 0000000000000000 x0 : 0000000000000000
-> >   Call trace:
-> >    __create_pgd_mapping+0xe8/0x3b0
-> >    map_kernel_segment+0x74/0xb0
-> >    paging_init+0xec/0x4f8
-> >    setup_arch+0x234/0x52c
-> >    start_kernel+0x64/0x500
-> >    __primary_switched+0xb4/0xbc
-> >   Code: f9400300 92400400 f1000c1f 54000060 (d4210000)
-> >   ---[ end trace 0000000000000000 ]---
-> >   Kernel panic - not syncing: Oops - BUG: Fatal exception
->
-> So this explodes because we find a page-table entry at the pmd level
-> that we don't like the look of:
->
->   - It's not a block entry
->   - It's not all zeroes
->   - It's also not a table
->
-> Sadly, the actual value is clobbered by the time we take the BUG():
->
->    0:   f9400300        ldr     x0, [x24]
->    4:   92400400        and     x0, x0, #0x3
->    8:   f1000c1f        cmp     x0, #0x3
->    c:   54000060        b.eq    0x18  // b.none
->   10:*  d4210000        brk     #0x800          <-- trapping instruction
->
-> Maybe dumping 'pmd_val(pmd)' before we crash would be instructive? Maybe
-> it's a pointer...
+diff --git a/arch/arm64/boot/dts/airoha/en7581.dtsi b/arch/arm64/boot/dts/airoha/en7581.dtsi
+index 55eb1762fb11..f584409e72cd 100644
+--- a/arch/arm64/boot/dts/airoha/en7581.dtsi
++++ b/arch/arm64/boot/dts/airoha/en7581.dtsi
+@@ -2,6 +2,7 @@
+ 
+ #include <dt-bindings/interrupt-controller/irq.h>
+ #include <dt-bindings/interrupt-controller/arm-gic.h>
++#include <dt-bindings/clock/en7523-clk.h>
+ 
+ / {
+ 	interrupt-parent = <&gic>;
+@@ -142,6 +143,13 @@ gic: interrupt-controller@9000000 {
+ 			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_LOW>;
+ 		};
+ 
++		scuclk: clock-controller@1fa20000 {
++			compatible = "airoha,en7581-scu";
++			reg = <0x0 0x1fb00000 0x0 0x970>;
++			#clock-cells = <1>;
++			#reset-cells = <1>;
++		};
++
+ 		uart1: serial@1fbf0000 {
+ 			compatible = "ns16550";
+ 			reg = <0x0 0x1fbf0000 0x0 0x30>;
+-- 
+2.45.2
 
-I dumped the bad pmd (on v6.6).
-It's always the same value: 128000017901ca60.
-
->
-> > I bisected those panics to 8eb7e28d4c642c310f25c18f80a44dd4b01c694e
-> > ("arm64/mm: move runtime pgds to rodata"), which was added on v4.19.
->
-> Hmm. I wonder if the rodata section isn't being loaded properly? Can you
-> add some traces to check that, please?
-
-Could you advise which traces are needed and how to add them?
-
-Thanks,
-Itai Handler
 
