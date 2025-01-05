@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 715A2E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jan 2025 16:20:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 801A9E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jan 2025 16:21:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rMcuEJIoEyeliFcoiN1rN1Xlq33F+vpylS/RXg2R5T8=; b=4zT2wA9D0kriG5CPIfnDHlib7p
-	Z7eN50cr3opul9nCMh26Y/W0k8RPdUA0y9lcQdvfbI67ObE5qypqoXxA0OmcGbrFmLQW/o3DAQUpT
-	/Zsi2FRYcRjvXMzpdkROCW9EXlOYQxG40pQQFKGZv43kZudM+aoCXCLp47rKMXX9sMMt5JZAoXulk
-	bmSrWveDHyqtCtgw80+ORmErmpy29ukec7JfXyILQNJG+FQLvSmm7EPDGzOFzhT44dNA0ScajJkiD
-	ZRGGXowNb4bJ9nfClC/d21i7qn6GiaZVuEbpIfzhYEuE74Wh1Yn0tZFBbjySNIVKDiXlRNZWgL1OU
-	/AIoPp1w==;
+	bh=tpWoGBpI5JjtqZNRK0ytQyJ2WYZd1lAvc/QlVyBoHrY=; b=u8uUyNCLb46xnMEICZlNpP0RnR
+	PeTZPIK9k5cXx+G590X6SGsiUJnPFOfx9Sbcx5ZjN8Cf2P34RJ0/CDwcWYd/0ZsDWzywitaNlXd6X
+	LN+6bfg1jt4oyeEp37Gki7KskDN4fMj2gLVpcj7y23YtvD5rrqWI/vqWS3Fh4mpTtrUpL3MopNzho
+	99VBqVwVu2QBNO7YQB6jYxhBKr+2B1cJBWnkapYAvwmQmDikJWqcKnXdibwhRcNLkeTz+B3dZeKhf
+	gVJILhuGL6t70qM4YDCTfg1wjrq3f70xX04zUf44t4E5gbzQ3zo3rex4dpUI4aY/PpMmB+G/LokpE
+	NfpUbIbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUTLx-0000000H4Ob-0KPH;
-	Sun, 05 Jan 2025 16:19:49 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1tUTN5-0000000H4X3-3Sot;
+	Sun, 05 Jan 2025 16:20:59 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUTGG-0000000H3Uf-2O7b
+	id 1tUTGI-0000000H3V3-2txv
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 05 Jan 2025 16:13:57 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-436ce2ab251so11851905e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 05 Jan 2025 08:13:56 -0800 (PST)
+	Sun, 05 Jan 2025 16:13:59 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-436326dcb1cso90214695e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 05 Jan 2025 08:13:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736093635; x=1736698435; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1736093637; x=1736698437; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=rMcuEJIoEyeliFcoiN1rN1Xlq33F+vpylS/RXg2R5T8=;
-        b=HoNX2iDutGJj8gafz4VgY4AW+YNQbUpLmGQ0/BBm0/G9rmFdL68oCHOCcomG1YdFHM
-         qMMtO27bfgQ1+b3cju7lDYpS9V6776fllwdRDe2QYYCfAO5DxPLva7SwM5Tb0V35CGr5
-         97iIYGxCAeNSKsoPCAzQrtsm7ldt4E18HpuVj1l60rdVuxy2AUa9dF44F1Rh1IWUjjeP
-         skLDk8Vophw8Q8YUUEQlaetYC/uEk3CajGc38CuBBkNxVdQL7bKLlk0xTlsOyN6UnuzW
-         bt0QoG2s2AD08WUtZski8/wd1ouXtof/OdRc5dsWWHEMjKHllW5GJGdyEk+lYgOF2n9U
-         JJDg==
+        bh=tpWoGBpI5JjtqZNRK0ytQyJ2WYZd1lAvc/QlVyBoHrY=;
+        b=LoWNrlFd42c82cBGDKRZN5vfP1HIdl06D9YFR9jydMK112+xt24ING4VDC18IMVZAh
+         dpxY8fWqmhr7uD9hc+lA3XxryHWs0siMsRmdpua9YzoGPZeiM7zKGSE+bnj9rXgck7+B
+         8ye29L9xGdwChKKWD6ut09diD45v+2qmkx7+c/Sf2Yv2Ofb25yOcvY14Ad1Xw2w0G8Jl
+         RC2O8sdWnTMm/m/IDMQvEa67o4IUjNYoRrFBDkLds41SK65BvwcNuIaPzo1IMHbsa6x4
+         Toa/HfZk/rpVFZI93e6VOXWmPwPNz1Pho4YnTS/gT6M84y74d2X3D2TsMk7waEHx30i1
+         giJw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736093635; x=1736698435;
+        d=1e100.net; s=20230601; t=1736093637; x=1736698437;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=rMcuEJIoEyeliFcoiN1rN1Xlq33F+vpylS/RXg2R5T8=;
-        b=JNm14fK3BNInPzh/Rcc9PkG6HQgZ8uEQW3EQdRcwDS4F20epA5k6VoZAMBpNPeQkYR
-         fXBMNdU0TQB6Gj32/zQ6p4OQ+bMOy6/Zc/+EC1NR0Ulhr1UNakD5NnmKWixQmzdnd2r+
-         y5YfRuMNDpjCqPKbBW8vzY2z25fFDjlIGm4y5IouR+g9kANdY5yL0a75OWHZG9MAukTU
-         52K6gNybAfb9EcwRGtpiTQnluthsxkDD1AjD+OpPSbRB79Jpp7AiEPozveAl3YlM/lnf
-         oZOLxXEVkUgkH7WEJflf70CWdEF4oVtfNV0El6QbM8XI75167QGoUPJA5+/O+JB6r1CR
-         6fSw==
-X-Forwarded-Encrypted: i=1; AJvYcCVjG77JbdEoP2S2F9lkp5LfSkeWI/ZVug7tVzNdnjWEd5qoCtaE+vqasYxcA/E3esA9Z3am97dhgChDUnMmVOqZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzH8vaBQ/Aggv06DMH6EKE2Dp2/HhNoSdKDqPXQ+3VGlha7C6fl
-	QGNL7n0IBhBgJ/fM+O/YdwsH/HLVCwQBMfe0/v53PJ3LGZCJ620m
-X-Gm-Gg: ASbGncu4ItKTP5mFcDxDbBXAODv930V76A3f8NDQKpLkjaeDB7kMfKO0JAWRJ5ogFH3
-	39UrUpt1DnWUS/DID7D4ytNwLIfb+dYLuHnwv4Xta+6FBDLhwRRkT9t+mIqDtC1Ihex5vHXKpZx
-	wQKYY02y6NOwAHEsbbsnDlwlY7s8SrjLpcNUzKDhF150Eg2ABunYYQnGEPnUeeE68i2cHV/doY/
-	hLOUC1A3LdGzjV4wx5Fu6tD+sHbqMxtQStDe5FlOKKX+QDt0M3PwspqYozIP48YEybKTeI=
-X-Google-Smtp-Source: AGHT+IGi2vV5nk3t35IRdS2EtJiGq1THtyKt4WXcE+8E93rhZ7B0ooKHzQcnIOVx/iet4T+BYNL+oQ==
-X-Received: by 2002:a05:600c:35cb:b0:436:1c04:aa9a with SMTP id 5b1f17b1804b1-4366864379bmr470705475e9.14.1736093634661;
-        Sun, 05 Jan 2025 08:13:54 -0800 (PST)
+        bh=tpWoGBpI5JjtqZNRK0ytQyJ2WYZd1lAvc/QlVyBoHrY=;
+        b=VlQZrW48WrF5ltqq8k1w11v6PSEfVyLWPbe24FXXy8tV0QFVQ4oUjYxp8hZBoYYbXx
+         JypvVygjpJBhoSF9RNTECUptw61H4dETXGSrDE8zeVAnfST/BP5ob5eGBoW45yros4fE
+         46ExRhPkNHRdI2cCFIkO0EPhjO0gtEVplpBzaMXNdqzpyoTUeKAOxaWyi6ITfd2HCkEe
+         ykCxkc3/odsvx3TKB9L4dxiEjYexZ76v+mhLU0Th7gRKgS/WAKaBlZKCXavmcrmhql1G
+         USdA2EVhaDIKtYpniUu9yIgPjUvrECgrF3EGiCXeMmHXRCYeq47rRxtjlahoBRm66mRc
+         VFgQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWtypCEi/KgaH7AsU5enR3chG3k0uZcUfwc4QalL8Yi72c5jsr5AlnGWZrJuwL++p+fFrpA5OWR8PGjeOsbl8Pn@lists.infradead.org
+X-Gm-Message-State: AOJu0YzhpEQPtF7KMcUNSdiFQs/CsKxhQVzB+T+7w4UQA/QnJZMHNHgR
+	As81rwnBaQ8W35q5cI8B1wk+3oouSXY1l7cvGPE1hO+iMKSvpSJQ
+X-Gm-Gg: ASbGncvJyi60ep64ASxQySz28MUrOW0BKu2d3N1fi8pFxtNG8UlfPVngpXJmt8Y9otK
+	S+9oBj9TKQa4gTFdhK8f9OcLQ6Z3DOFAjSlnBFGLGsQSubOqFjOjG/ilxy+xVD1oMqry1yEp1Cr
+	VBbw/IHg9T9IWYisxyEfFTDGMP9quhqPwg1BDAc9Ch8dvLkIjNozPlOOGWfxK1Ag/rJ7rKKWgVT
+	OixxPlk1QVroo6onbgspBQFidmEhkIkt2ysatbVcYOlCHvXH2vIrGpkEgIbSrAc2PSRDQg=
+X-Google-Smtp-Source: AGHT+IEIahAIdxXweRtn/KVasdlzqOJYFx1e5QhZ6PEatCcqDd10ca2+6lURrpEXAyef4HXhqfrY2A==
+X-Received: by 2002:a5d:6c65:0:b0:386:1cf9:b993 with SMTP id ffacd0b85a97d-38a221fff31mr46175844f8f.26.1736093636843;
+        Sun, 05 Jan 2025 08:13:56 -0800 (PST)
 Received: from ivaylo-T580.. ([94.131.202.183])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43656b4274csm578250565e9.38.2025.01.05.08.13.53
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43656b4274csm578250565e9.38.2025.01.05.08.13.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 05 Jan 2025 08:13:54 -0800 (PST)
+        Sun, 05 Jan 2025 08:13:56 -0800 (PST)
 From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 To: Ulf Hansson <ulf.hansson@linaro.org>,
 	Rob Herring <robh@kernel.org>,
@@ -79,17 +79,17 @@ Cc: linux-mmc@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-samsung-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 4/6] arm64: dts: exynos8895: add a node for mmc
-Date: Sun,  5 Jan 2025 18:13:42 +0200
-Message-ID: <20250105161344.420749-5-ivo.ivanov.ivanov1@gmail.com>
+Subject: [PATCH v3 5/6] arm64: dts: exynos: exynos8895-dreamlte: enable support for microSD storage
+Date: Sun,  5 Jan 2025 18:13:43 +0200
+Message-ID: <20250105161344.420749-6-ivo.ivanov.ivanov1@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250105161344.420749-1-ivo.ivanov.ivanov1@gmail.com>
 References: <20250105161344.420749-1-ivo.ivanov.ivanov1@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250105_081356_597957_0C4AE834 
-X-CRM114-Status: GOOD (  12.28  )
+X-CRM114-CacheID: sfid-20250105_081358_734479_12D61181 
+X-CRM114-Status: GOOD (  12.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,43 +104,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add an MMC node in order to allow devices with that SoC to make use of
-it. It's typically used as a secondary storage option for SD cards. In
-the vendor kernels, it's labelled as mmc_2, but since there don't seem to
-be any other blocks, treat it as the only MMC.
+Enable MMC for the Samsung Galaxy S8, used as external microSD card
+storage. Since the main PMIC is currently not supported, assume the
+required regulators are enabled by the previous bootloader.
 
 Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 ---
- arch/arm64/boot/dts/exynos/exynos8895.dtsi | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ .../boot/dts/exynos/exynos8895-dreamlte.dts   | 32 +++++++++++++++++++
+ 1 file changed, 32 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/exynos/exynos8895.dtsi b/arch/arm64/boot/dts/exynos/exynos8895.dtsi
-index eedbd1728..f92d2a8a2 100644
---- a/arch/arm64/boot/dts/exynos/exynos8895.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynos8895.dtsi
-@@ -1296,6 +1296,22 @@ pinctrl_fsys1: pinctrl@11430000 {
- 			interrupts = <GIC_SPI 342 IRQ_TYPE_LEVEL_HIGH>;
- 		};
+diff --git a/arch/arm64/boot/dts/exynos/exynos8895-dreamlte.dts b/arch/arm64/boot/dts/exynos/exynos8895-dreamlte.dts
+index 3a376ab2b..6c4f8d4a9 100644
+--- a/arch/arm64/boot/dts/exynos/exynos8895-dreamlte.dts
++++ b/arch/arm64/boot/dts/exynos/exynos8895-dreamlte.dts
+@@ -16,6 +16,10 @@ / {
+ 	compatible = "samsung,dreamlte", "samsung,exynos8895";
+ 	chassis-type = "handset";
  
-+		mmc: mmc@11500000 {
-+			compatible = "samsung,exynos8895-dw-mshc-smu",
-+				     "samsung,exynos7-dw-mshc-smu";
-+			reg = <0x11500000 0x2000>;
-+			assigned-clocks = <&cmu_top CLK_MOUT_CMU_FSYS1_MMC_CARD>;
-+			assigned-clock-parents = <&cmu_top CLK_FOUT_SHARED4_PLL>;
-+			clocks = <&cmu_fsys1 CLK_GOUT_FSYS1_MMC_CARD_I_ACLK>,
-+				 <&cmu_fsys1 CLK_GOUT_FSYS1_MMC_CARD_SDCLKIN>;
-+			clock-names = "biu", "ciu";
-+			fifo-depth = <64>;
-+			interrupts = <GIC_SPI 341 IRQ_TYPE_LEVEL_HIGH>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
++	aliases {
++		mmc0 = &mmc;
++	};
 +
- 		pinctrl_abox: pinctrl@13e60000 {
- 			compatible = "samsung,exynos8895-pinctrl";
- 			reg = <0x13e60000 0x1000>;
+ 	chosen {
+ 		#address-cells = <2>;
+ 		#size-cells = <1>;
+@@ -95,6 +99,27 @@ &oscclk {
+ 	clock-frequency = <26000000>;
+ };
+ 
++&mmc {
++	pinctrl-0 = <&sd2_clk &sd2_cmd &sd2_bus1 &sd2_bus4 &sd2_cd>;
++	pinctrl-names = "default";
++
++	bus-width = <4>;
++	card-detect-delay = <200>;
++	cd-gpios = <&gpa1 5 GPIO_ACTIVE_LOW>;
++	clock-frequency = <800000000>;
++	disable-wp;
++	sd-uhs-sdr50;
++	sd-uhs-sdr104;
++
++	/* TODO: Add regulators once PMIC is implemented */
++
++	samsung,dw-mshc-ciu-div = <3>;
++	samsung,dw-mshc-ddr-timing = <1 2>;
++	samsung,dw-mshc-sdr-timing = <0 3>;
++
++	status = "okay";
++};
++
+ &pinctrl_alive {
+ 	key_power: key-power-pins {
+ 		samsung,pins = "gpa2-4";
+@@ -123,4 +148,11 @@ key_wink: key-wink-pins {
+ 		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
+ 		samsung,pin-drv = <EXYNOS7_PIN_DRV_LV1>;
+ 	};
++
++	sd2_cd: sd2-cd-pins {
++		samsung,pins = "gpa1-5";
++		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
++		samsung,pin-pud = <EXYNOS_PIN_PULL_UP>;
++		samsung,pin-drv = <EXYNOS7_PIN_DRV_LV4>;
++	};
+ };
 -- 
 2.43.0
 
