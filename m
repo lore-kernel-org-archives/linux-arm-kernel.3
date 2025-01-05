@@ -4,96 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87A1AE77197
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jan 2025 16:27:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49309E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jan 2025 16:29:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hbu7641CeG8xNiROLSccwQDpo4bojGzR/nTssY8hmOI=; b=WMXlo6Gyw3MzRUH4h9aEYVg2jT
-	cI6trMDBE3Fg1AZWunjh4fJgHWeGwKRH56xu/xAshHyXu1T6Sg2ZVMJOuFSOVi/c100E9j5J4Uhvq
-	oq0JXwlRewjcQMGcylLB8SCuAJ1mq7uepGCEQcFjQ0WOY1SDfOXW/Ek7b7B1y/mS9BWWbVsb8nPoz
-	DTukdYky1RZHEv2Rm1TSz8nQI3Jc3Y7mFcVtdaNnhs6IaktE2KxW8582eNwqjDuEx1uDAOE2wZlUN
-	1biwQ+hl4p4AqvCecmqnEfJCQXlB1dECTh3E7zOVi3FOn+WJQF67wnHzlNcY5pHdCTmpHfGksdw4d
-	keN9fddA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=48i2+bbfQOsVn9kQtU3m2ql3/hd7Ql65fiI8cIu0j58=; b=UKgEJhwUqUgsl1RxBHzGU6Kzgd
+	ixGutPHqYRO/UfPU0PJm4IDnlp0/MYfX+NWrrjcpZ8Yaast35b8eFF2NXor6PmO5Ynn8GnVPS3R3f
+	z4AzIo8y/Cnoi+RIwatdyDUzsU/o4MKbNZv/qABZfHs+tI24V/KYsy/M5ehXhex7xDj0YQN+eKXhi
+	lXvtdcOo4C39hoFXoB0j8F3Cb6skc6cpjcSP8rhJAwwf7ydyY7mXVdPCBnk2hgQh6R/3/l4mGiEXg
+	D5dAuhvu3+t3APK89hYJTnnkdgrSUsGks+CXcFhFvwctsH1fJlvLGAEihu4Sgv1ku2AymZwrV3yKO
+	DzlJSDWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUTT3-0000000H5pE-0O3A;
-	Sun, 05 Jan 2025 16:27:09 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1tUTUb-0000000H61H-0Iid;
+	Sun, 05 Jan 2025 16:28:45 +0000
+Received: from delivery.antispam.mailspamprotection.com ([185.56.87.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUTRr-0000000H5XU-0liQ;
-	Sun, 05 Jan 2025 16:25:56 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-2f4409fc8fdso16571079a91.1;
-        Sun, 05 Jan 2025 08:25:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20230601; t=1736094354; x=1736699154; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Hbu7641CeG8xNiROLSccwQDpo4bojGzR/nTssY8hmOI=;
-        b=ICaozO5HHcgTMUVB4QF6pHUZVHu1DRKNpRZfwWT7QD0bcE5jcSnpYGzcUns+TtQHA8
-         aj2W1t9lzamT/GP38KFwxZhsvZfU9XUZRYB4awlQRncSOW+m5TYcNC2ZLr3EtuuVCS4c
-         I1cNMxCt3qTs4+OKnuGiH/FAVWZ5QCAvkpoaRTPZVqSiQ5kmEvcEGMbsdTFcgDcbnES9
-         vL1RdeveM7EznCHYcjcKkBjn8oz3eVWO/CgNuRrDmZngFw6lZBxFJyp4UrihMnD3PLMx
-         DJOeX1PEemJseHMzLJ2VKCt/PSVnRhFGfEH1B6wMPdNh6RSueUfmrQ8En1Q2Iemcgmbk
-         s6Eg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736094354; x=1736699154;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Hbu7641CeG8xNiROLSccwQDpo4bojGzR/nTssY8hmOI=;
-        b=l0mo+rMYuI4shJAqyvwZq3oUDvPZdf9yYR5ldzMk6oGznm7CAVkaj0y9f9ctTOHme4
-         Eyh2s4Y4Op+gBE3YjzuKxuPT6UfLBf3p067F0G/u1WQVhY06Pr1kP9i7YECGpX+psKOx
-         suAKIxmy5TxjXUNNhLifjyFa2jabgrVNbxI9gx10WdV+Lh9UXykoOFVEf91ax6rYYgRv
-         W+O9i+bSWvQwmyDsJf+HKs2dbPA8j1qNGqBH7nmcxN/+jPPlu7vytiiQ2OVVNG+9Xkxw
-         iTTaAyERFhebAF5ekMV7kmbwpaSv30XvaRkdoNSDgCIz0zvZtNX46wF/b/6eq9VW8NI3
-         294A==
-X-Forwarded-Encrypted: i=1; AJvYcCU9y1KadC8XIxTuySN0ASu9vVRcTs+jjKsC53qdCWI7xtfEhjOrx51hpyHUHSjSzInoCrROWKuS/saxjmdXqTfQ@lists.infradead.org, AJvYcCWSc9cPpSvlb/wHKtrFN0Sg1OdXohi1erA+dcVhJLpBZvdW/kHchfdR5tTr6W7j8RRhFygsS3Zq3g0Qg+sMCng=@lists.infradead.org, AJvYcCWel5bgbWwPEaXbehcX7nl3UGu69rZ+N1s3eVsq6UJKSv+0Mw5zofUgdF11UeLf1nNoyB6kTiO3fErWenBgYII=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwbCbxV/ebIQSa76PVkAE4v8GIoWrGTXLlg5spwNZUv9cyruGLD
-	2h7bu7CwQkWihorODwxQx3eojQI/czMfTfY4lO7vO853J/n2O9L4d14OKhpfavqEqDJv+7XgF1N
-	fung097gBgqMigWtE3+2Xh16NUZU=
-X-Gm-Gg: ASbGnctZkKJi+zoYo7Y7EomdZwBfdmg78fWuaTtKHE9VsreZsXM6lVjJEF9xP/lsXIU
-	7YMXj9KEGqRAyFyFvmLW/+UJ4XZ+CXI1XWllsgDVXBDW92HLqi+5p
-X-Google-Smtp-Source: AGHT+IFvM6SBJtTLap+Q+DAFUbWc5zkuC4KMXDzaQJdqhN7s7+4kdqDXZd2/wUV9q/FU9iZ8tCHqn6eI4aaM7ptY90Q=
-X-Received: by 2002:a17:90b:2545:b0:2e2:c2b0:d03e with SMTP id
- 98e67ed59e1d1-2f453633e61mr74488893a91.5.1736094354238; Sun, 05 Jan 2025
- 08:25:54 -0800 (PST)
+	id 1tUTTO-0000000H5u1-3iOO
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 05 Jan 2025 16:27:32 +0000
+ARC-Seal: i=1; cv=none; a=rsa-sha256; d=instance-europe-west4-72m3.prod.antispam.mailspamprotection.com; s=arckey; t=1736094442;
+	 b=u3ayCYHnlvOpB7hyJ9kNIjVtazLB9L95YAnu+n5Bq8x6iPIL6WfBGmOYzxFCKsdUGmky6Y+88G
+	  V44M3KU9pYe7wJt3X+oJmcFC6OVyawWOhO/gRXYz+P7XLObY8nc84ROu60fj/IeaR6PSWGffov
+	  tCqUCNZNAI3nIwxIOadfyj425tcrgUVeRj6Sm1/dZi9v/k2tSmxpAT1xa+xWXH7BnnrOqu3eJJ
+	  Orem5p/sQ6qlV4K1ooHFdQFlrs3Dl7Q/QQRw+DsKDyAuZRh4As3sPfkkN4D+JGSU13nNROecyF
+	  9tQfrTsjpwoYijyTEbKG18679rjr/t/yu3wxDsqi9Q077A==;
+ARC-Authentication-Results: i=1; instance-europe-west4-72m3.prod.antispam.mailspamprotection.com; smtp.remote-ip=35.214.173.214;
+	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
+	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
+	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
+	arc=none
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=instance-europe-west4-72m3.prod.antispam.mailspamprotection.com; s=arckey; t=1736094442;
+	bh=3zXsEw/3Zreogf33S4hWe04mUilkn+cAgezjW9vC1fM=;
+	h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	  DKIM-Signature;
+	b=PJsI29GcBoZBxttjZ3T9xcnIH1/gAjcfbKpynn8U9fJJRY6p9uupn+4QwWuXVKfVqj2HcYXEou
+	  RCTux8htbvN/fuf+4s+98mMxSfV7bUele04lQmWYVTSS+qFGtn2Wx/V6x5eu/f2c5w/ZprTh6q
+	  ma5gRDVGOupL+F4jf8v1V9eVJ4yr0Y/LKUtqo59bWmL8qiSPdg4C8XrReEx/CpxSBMOHr+BwMe
+	  oi8PjkptrjS+lFXucv5OnIQ8bijDWzio8/T+XIvx/TATH9pDs0+4MkXscah63jIrdCKlZJi8c9
+	  4MbItV+60PeHAHym3funuuWSXlJeEXxLpnjIzl9gABMu1w==;
+Received: from 214.173.214.35.bc.googleusercontent.com ([35.214.173.214] helo=esm19.siteground.biz)
+	by instance-europe-west4-72m3.prod.antispam.mailspamprotection.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.98)
+	(envelope-from <francesco@valla.it>)
+	id 1tUTTC-0000000D38U-2gnv
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 05 Jan 2025 16:27:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=valla.it;
+	s=default; h=Date:Subject:Cc:To:From:list-help:list-unsubscribe:
+	list-subscribe:list-post:list-owner:list-archive;
+	bh=48i2+bbfQOsVn9kQtU3m2ql3/hd7Ql65fiI8cIu0j58=; b=fwCISfA2mIl4Cv0U2N0THYai2d
+	liDpzCpAP14nHCvkg/UBn11EQGFd2gwh2QluWV8uQppjY19LaZXQevzzLBokGHo6ob3usKyFWoiNw
+	5jcrR7g1x5VOG5rgSqfjHEF5KstC0/MEbt3YP6Wf/b0vc97BzlWVjYbOyVX+AQ3m5FrA=;
+Received: from [87.11.41.26] (port=63875 helo=fedora.fritz.box)
+	by esm19.siteground.biz with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.98)
+	(envelope-from <francesco@valla.it>)
+	id 1tUTT8-00000000Mmg-0qyJ;
+	Sun, 05 Jan 2025 16:27:14 +0000
+From: Francesco Valla <francesco@valla.it>
+To: Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] arm64: dts: ti: k3-am625-beagleplay: fix DP83TD510E reset time
+Date: Sun,  5 Jan 2025 17:26:30 +0100
+Message-ID: <20250105162630.243899-1-francesco@valla.it>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-References: <20241224-drm-bridge-hdmi-connector-v10-3-dc89577cd438@linaro.org>
- <20241231004311.2574720-1-martin.blumenstingl@googlemail.com>
- <l3u3wtnxyhrwjynevkwfjwarisc4yt4xy2rbzf5kb7k5l5dw3n@lxqtimymyjg6>
- <CAFBinCAh8iazDNx6GtOOJyXh_V-NfUs6Uf=ywN9kvQGPEmjrKQ@mail.gmail.com> <x73a2utr5sp4iffk5626zqfth4ayu3x4jkxd7xwjti7ehrgnzi@ploxx4i5db5h>
-In-Reply-To: <x73a2utr5sp4iffk5626zqfth4ayu3x4jkxd7xwjti7ehrgnzi@ploxx4i5db5h>
-From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Date: Sun, 5 Jan 2025 17:25:43 +0100
-Message-ID: <CAFBinCBstfDa966+5wKLFdQNhnjW+d5Mpj=x3BDY+R5nHNnKLQ@mail.gmail.com>
-Subject: Re: [PATCH v10 03/10] drm/connector: implement generic HDMI audio helpers
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: Laurent.pinchart@ideasonboard.com, airlied@gmail.com, 
-	alain.volmat@foss.st.com, alim.akhtar@samsung.com, andrzej.hajda@intel.com, 
-	andy.yan@rock-chips.com, angelogioacchino.delregno@collabora.com, 
-	broonie@kernel.org, chunkuang.hu@kernel.org, dave.stevenson@raspberrypi.com, 
-	dri-devel@lists.freedesktop.org, heiko@sntech.de, hjc@rock-chips.com, 
-	inki.dae@samsung.com, jani.nikula@linux.intel.com, jernej.skrabec@gmail.com, 
-	jonas@kwiboo.se, kernel-list@raspberrypi.com, krzk@kernel.org, 
-	kyungmin.park@samsung.com, lgirdwood@gmail.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-sound@vger.kernel.org, 
-	linux@armlinux.org.uk, maarten.lankhorst@linux.intel.com, 
-	matthias.bgg@gmail.com, mcanal@igalia.com, mripard@kernel.org, 
-	neil.armstrong@linaro.org, p.zabel@pengutronix.de, perex@perex.cz, 
-	ple@baylibre.com, rfoss@kernel.org, rgallaispou@gmail.com, simona@ffwll.ch, 
-	sw0312.kim@samsung.com, tiwai@suse.com, tzimmermann@suse.de
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - esm19.siteground.biz
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - valla.it
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-SGantispam-id: 73709cb7f9118b7a4181dab19fa4dee8
+AntiSpam-DLS: false
+AntiSpam-DLSP: 
+AntiSpam-DLSRS: 
+AntiSpam-TS: 1.0
+Authentication-Results: instance-europe-west4-72m3.prod.antispam.mailspamprotection.com;
+	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
+	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
+	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
+	arc=none
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250105_082555_241178_F6B3E2FE 
-X-CRM114-Status: GOOD (  15.96  )
+X-CRM114-CacheID: sfid-20250105_082731_058982_85DD268E 
+X-CRM114-Status: UNSURE (   9.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,32 +113,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 3, 2025 at 1:37=E2=80=AFPM Dmitry Baryshkov
-<dmitry.baryshkov@linaro.org> wrote:
->
-> On Tue, Dec 31, 2024 at 07:49:40PM +0100, Martin Blumenstingl wrote:
-> > On Tue, Dec 31, 2024 at 3:34=E2=80=AFAM Dmitry Baryshkov
-> > <dmitry.baryshkov@linaro.org> wrote:
-> > [...]
-> > > > I checked all instances of struct hdmi_codec_ops in v6.13-rc3 and i=
-t
-> > > > seems that there is only a single driver which uses the .prepare
-> > > > callback (drivers/gpu/drm/vc4/vc4_hdmi.c). All other drivers seem t=
-o
-> > > > implement .hw_params instead.
-> > >
-> > > Yes. However .hw_params don't have access to the infoframe contents, =
-so
-> > > I had to settle on implementing .prepare.
-> > While debugging I noticed something unrelated to my problem:
-> > hdmi_codec_spdif_dai_ops does not implement .prepare().
-> > FYI just in case someone wants to use your patches and feed the
-> > hdmi-codec with SPDIF instead of I2S.
->
-> Could you please send submit a patch to the hdmi-codec driver?
-Sure, see [0]
+The reset deassert time for the DP83TD510E is incorrectly set to
+60000us, while the datasheet states that the minimum time required
+after an hard reset is 30us (while 60ms is the time required for the
+Power-On Reset after supply stabilization). The error probably arose
+from the two timings being indicated by the same symbol (T2).
 
+Lower the required time to 35us, aligning it to the value required for
+the PHY to complete the reset AND to be able to accept the RMII master
+clock. This saves ~60ms on boot if the MDIO driver is built-in.
 
-[0] https://lore.kernel.org/linux-sound/20250105162407.30870-1-martin.blume=
-nstingl@googlemail.com/T/#u
+Signed-off-by: Francesco Valla <francesco@valla.it>
+---
+ arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts b/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts
+index ee96f4f6deb0..75c80290b12a 100644
+--- a/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts
++++ b/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts
+@@ -610,7 +610,7 @@ cpsw3g_phy1: ethernet-phy@1 {
+ 		reg = <1>;
+ 		reset-gpios = <&main_gpio1 5 GPIO_ACTIVE_LOW>;
+ 		reset-assert-us = <25>;
+-		reset-deassert-us = <60000>; /* T2 */
++		reset-deassert-us = <35>;
+ 	};
+ };
+ 
+-- 
+2.47.1
+
 
