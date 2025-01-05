@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75D37E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jan 2025 19:11:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C84FE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jan 2025 19:12:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fh80/M+bjXGuXRz4PihlmmbyVd0aYHy4P1Io9cbXDy4=; b=MQnPyrBsKJcCIvWfcaYEiA+Jb1
-	1GTJhZebYkHuMZTfZUw1DDifPzgDOXR9ECrNHYXFkZgSG4/sZw4G1Jk2htE1XKBEq9YgiTrcojaqb
-	uxlFzWRPstijaaDKw6Jxf6Y2a/uxYwZcTFLveDMBXySRBJHWNkbARMDuHlkCqQookMm1+CRV3zfgB
-	+/jlVyVIC68Ky7rtx8Kni/fH3bkOGfvx32q1tAXTSG4jTdrsCaFlOMiz8lpU8A53IBBxNR2RY4EHo
-	iN3lawMipN7PE6ccOPZTrmrhc6d3YbV+QCs7kHD2bIUyW6yguyiEJI7YWlqSPIbrL/MMQiKrMsNda
-	liI8ED2A==;
+	bh=WVMN7MZLTYNaNECqZI8YdUNMyCnLmE0yhQ6oCZKfzpk=; b=I/yT5PgFT31ZjVPGhg6/iugEsQ
+	YIVy7vlgmfzPMfQqMsq8zwgrjsQyRF+8AkYFZtvmjTI9mKw/iYr/ZMVv1KcvWKVw6zBlayr144Hss
+	ovkhD0oz6oF5xj34tUrcuM8mwQYKcAf4ov2uct8bCVP4rEA8AGgQWrDb1qzrPNVeAw8RLwpSRt9ue
+	d2gFQHAEEM8/M4DfUjEIb6l+ugeg21lYtrlfTdQAXbLPqr6AmmxNC1N/FNkGBK0xa1U9eqdT/AO4s
+	v0ojrkEFM6eR6S+XQ1K3He1BAfc5T5fkItOeulkHYnWsQlrkHprWjynTIFvc5Sw4/qaCi2bWHeX3M
+	ewvpZnBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUW1k-0000000HIFZ-1xL4;
-	Sun, 05 Jan 2025 19:11:08 +0000
-Received: from mx.denx.de ([89.58.32.78])
+	id 1tUW2u-0000000HILf-0j2D;
+	Sun, 05 Jan 2025 19:12:20 +0000
+Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUVyM-0000000HHxp-355Q
+	id 1tUVyS-0000000HHyv-2JwQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 05 Jan 2025 19:07:40 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 709A6104839EE;
-	Sun,  5 Jan 2025 20:07:30 +0100 (CET)
+	Sun, 05 Jan 2025 19:07:46 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DB3C610408FB9;
+	Sun,  5 Jan 2025 20:07:36 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1736104056;
+	t=1736104062;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Fh80/M+bjXGuXRz4PihlmmbyVd0aYHy4P1Io9cbXDy4=;
-	b=By/EIuY8POky2LcfiA9LAlmGh2QCi0COKihtcKsGJ+cxBJSlnIFysb8sEi1PdOQjNhDuW0
-	M+A9mP5m39cEUElXWSI76n4ESXUycjug/fXKH5PLdutfKQJDI6Jil0SmR7sPySqjqtvlTm
-	jdKokeI+5ULcAzI59HFPGdxmE09xqIcxWp91+PuCgcqy+Lo+oEJaNtbNnWWUjpm7Sf9/X4
-	b5IfcPfRca556XNN8kDunrwkxkh7JuSThbO1scCo0hCA4iCErTGIl+NJ73EOPHo3GL+sWU
-	MpWjAnRVvNVLpBvLYn1NRN5iTT8vFNEy7OkYN9moSkglk2PwGHVEEsN225fXVw==
+	bh=WVMN7MZLTYNaNECqZI8YdUNMyCnLmE0yhQ6oCZKfzpk=;
+	b=iLYSLD6eTqvJkVi68zJV4FFFQTNNCQRJY92MzPeWmrcm8iUruFf+2GMrm0AJ+9p7vNMUji
+	9pWSY402DR5tXKZvwYfDK30x3DDJ5WvOulNEn4lH3Ymq4OJYqSe4UIB3Ujfota90mlBTbG
+	MRNhiMlgGEa0Iybw3PSV9V3gMWzpYD1T41XJcT7vKq0ll8eeT8sJfc0MhoQBvwANAAV7TP
+	e0TIZNmfZHArgxefMEXz6ijOZdus1e3FDX4xWSh3pUyQfuvvBDY3yRW/LbwhCKpmgHSlcx
+	+/vQfmNWDFHE1aj5mYppQy611wNxoxDPn8FI+DfAZXwNCwzfUEuBK2jX0/xjMg==
 From: Marek Vasut <marex@denx.de>
 To: dri-devel@lists.freedesktop.org
 Cc: Marek Vasut <marex@denx.de>,
@@ -64,9 +64,9 @@ Cc: Marek Vasut <marex@denx.de>,
 	Thomas Zimmermann <tzimmermann@suse.de>,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v4 3/4] drm/mxsfb: add DRM_BRIDGE_ATTACH_NO_CONNECTOR flag to drm_bridge_attach
-Date: Sun,  5 Jan 2025 20:06:05 +0100
-Message-ID: <20250105190659.99941-3-marex@denx.de>
+Subject: [PATCH v4 4/4] drm/lcdif: add DRM_BRIDGE_ATTACH_NO_CONNECTOR flag to drm_bridge_attach
+Date: Sun,  5 Jan 2025 20:06:06 +0100
+Message-ID: <20250105190659.99941-4-marex@denx.de>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20250105190659.99941-1-marex@denx.de>
 References: <20250105190659.99941-1-marex@denx.de>
@@ -74,8 +74,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250105_110739_052966_BD9FB684 
-X-CRM114-Status: GOOD (  20.45  )
+X-CRM114-CacheID: sfid-20250105_110744_891658_BF9E5507 
+X-CRM114-Status: GOOD (  20.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,7 +102,7 @@ by the display controller.
 
 Based on 2e87bf389e13 ("drm/rockchip: add DRM_BRIDGE_ATTACH_NO_CONNECTOR flag to drm_bridge_attach")
 
-This makes LT9611 work with i.MX8M Mini.
+This makes LT9611 work with i.MX8M Plus.
 
 Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 Signed-off-by: Marek Vasut <marex@denx.de>
@@ -128,25 +128,28 @@ Cc: dri-devel@lists.freedesktop.org
 Cc: imx@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org
 ---
-V2: Cache connector from drm_bridge_connector_init()
-V3: - Add RB from Dmitry
-    - Select DRM_DISPLAY_HELPER
+V2: Add RB from Dmitry
+V3: - Select DRM_DISPLAY_HELPER
     - Use return dev_err_probe() directly
-    - Drop the single use fail path
+    - Add missing of_node_put(ep)
+    - Add test using drm_bridge_get_next_bridge() to try and determine
+      if the HDMI connector was missing in DT or not, and if it was
+      missing, if it was created by the HDMI bridge driver.
 V4: - Swap the DRM_BRIDGE_CONNECTOR and DRM_DISPLAY_HELPER in the right symbols
     - Reorder the patches, swap 3/4 and 4/4 in the series
+    - Drop the HDMI bridge test, create connector here
 ---
  drivers/gpu/drm/mxsfb/Kconfig     |  2 ++
- drivers/gpu/drm/mxsfb/mxsfb_drv.c | 31 ++++++++++++++++++++-----------
- 2 files changed, 22 insertions(+), 11 deletions(-)
+ drivers/gpu/drm/mxsfb/lcdif_drv.c | 24 ++++++++++++++++++++++--
+ 2 files changed, 24 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/gpu/drm/mxsfb/Kconfig b/drivers/gpu/drm/mxsfb/Kconfig
-index 264e74f455547..26bb2dbba49e3 100644
+index 26bb2dbba49e3..eb51d38455a6c 100644
 --- a/drivers/gpu/drm/mxsfb/Kconfig
 +++ b/drivers/gpu/drm/mxsfb/Kconfig
-@@ -10,8 +10,10 @@ config DRM_MXSFB
+@@ -30,8 +30,10 @@ config DRM_IMX_LCDIF
  	depends on COMMON_CLK
- 	depends on ARCH_MXS || ARCH_MXC || COMPILE_TEST
+ 	depends on ARCH_MXC || COMPILE_TEST
  	select DRM_CLIENT_SELECTION
 +	select DRM_DISPLAY_HELPER
  	select DRM_MXS
@@ -155,67 +158,62 @@ index 264e74f455547..26bb2dbba49e3 100644
  	select DRM_GEM_DMA_HELPER
  	select DRM_PANEL
  	select DRM_PANEL_BRIDGE
-diff --git a/drivers/gpu/drm/mxsfb/mxsfb_drv.c b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-index 59020862cf65e..07784c4f5be48 100644
---- a/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-+++ b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-@@ -20,6 +20,7 @@
+diff --git a/drivers/gpu/drm/mxsfb/lcdif_drv.c b/drivers/gpu/drm/mxsfb/lcdif_drv.c
+index 8ee00f59ca821..d6a4100e6080a 100644
+--- a/drivers/gpu/drm/mxsfb/lcdif_drv.c
++++ b/drivers/gpu/drm/mxsfb/lcdif_drv.c
+@@ -17,6 +17,7 @@
  #include <drm/clients/drm_client_setup.h>
  #include <drm/drm_atomic_helper.h>
  #include <drm/drm_bridge.h>
 +#include <drm/drm_bridge_connector.h>
- #include <drm/drm_connector.h>
  #include <drm/drm_drv.h>
+ #include <drm/drm_encoder.h>
  #include <drm/drm_fbdev_dma.h>
-@@ -119,9 +120,9 @@ static const struct drm_mode_config_helper_funcs mxsfb_mode_config_helpers = {
- static int mxsfb_attach_bridge(struct mxsfb_drm_private *mxsfb)
+@@ -48,8 +49,10 @@ static const struct drm_encoder_funcs lcdif_encoder_funcs = {
+ static int lcdif_attach_bridge(struct lcdif_drm_private *lcdif)
  {
- 	struct drm_device *drm = mxsfb->drm;
--	struct drm_connector_list_iter iter;
--	struct drm_panel *panel;
+ 	struct device *dev = lcdif->drm->dev;
+-	struct device_node *ep;
++	struct drm_device *drm = lcdif->drm;
 +	struct drm_connector *connector;
  	struct drm_bridge *bridge;
-+	struct drm_panel *panel;
++	struct device_node *ep;
  	int ret;
  
- 	ret = drm_of_find_panel_or_bridge(drm->dev->of_node, 0, 0, &panel,
-@@ -139,19 +140,27 @@ static int mxsfb_attach_bridge(struct mxsfb_drm_private *mxsfb)
- 	if (!bridge)
- 		return -ENODEV;
+ 	for_each_endpoint_of_node(dev->of_node, ep) {
+@@ -97,13 +100,30 @@ static int lcdif_attach_bridge(struct lcdif_drm_private *lcdif)
+ 			return ret;
+ 		}
  
--	ret = drm_bridge_attach(&mxsfb->encoder, bridge, NULL, 0);
-+	ret = drm_bridge_attach(&mxsfb->encoder, bridge, NULL,
-+				DRM_BRIDGE_ATTACH_NO_CONNECTOR);
- 	if (ret)
- 		return dev_err_probe(drm->dev, ret, "Failed to attach bridge\n");
- 
--	mxsfb->bridge = bridge;
-+	connector = drm_bridge_connector_init(drm, &mxsfb->encoder);
-+	if (IS_ERR(connector)) {
-+		return dev_err_probe(drm->dev, PTR_ERR(connector),
-+				     "Failed to initialize bridge connector: %pe\n",
-+				     connector);
-+	}
- 
--	/*
--	 * Get hold of the connector. This is a bit of a hack, until the bridge
--	 * API gives us bus flags and formats.
--	 */
--	drm_connector_list_iter_begin(drm, &iter);
--	mxsfb->connector = drm_connector_list_iter_next(&iter);
--	drm_connector_list_iter_end(&iter);
-+	ret = drm_connector_attach_encoder(connector, &mxsfb->encoder);
-+	if (ret < 0) {
-+		drm_connector_cleanup(connector);
-+		return dev_err_probe(drm->dev, ret,
-+				     "Failed to attach encoder.\n");
-+	}
+-		ret = drm_bridge_attach(encoder, bridge, NULL, 0);
++		ret = drm_bridge_attach(encoder, bridge, NULL,
++					DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+ 		if (ret) {
+ 			of_node_put(ep);
+ 			return dev_err_probe(dev, ret,
+ 					     "Failed to attach bridge for endpoint%u\n",
+ 					     of_ep.id);
+ 		}
 +
-+	mxsfb->bridge = bridge;
-+	mxsfb->connector = connector;
++		connector = drm_bridge_connector_init(drm, encoder);
++		if (IS_ERR(connector)) {
++			of_node_put(ep);
++			return dev_err_probe(drm->dev, PTR_ERR(connector),
++					     "Failed to initialize bridge connector: %pe\n",
++					     connector);
++		}
++
++		ret = drm_connector_attach_encoder(connector, encoder);
++		if (ret < 0) {
++			of_node_put(ep);
++			drm_connector_cleanup(connector);
++			return dev_err_probe(drm->dev, ret,
++					     "Failed to attach encoder.\n");
++		}
+ 	}
  
  	return 0;
- }
 -- 
 2.45.2
 
