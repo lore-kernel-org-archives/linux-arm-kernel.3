@@ -4,64 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63913E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jan 2025 01:46:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85C91E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jan 2025 02:03:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SOBt5DPnUIGvC38vlr30QgnqV2+SG/MycZQ+czmsjrQ=; b=WNiSiYCVpUJ/Ck2t0EkDjfuKW1
-	yQk82/uEDvUGe7NHXS6PusqpmIKmhieDiFe3+ryrBAR5hEZ0Y56WVIhVB6jz25XGPZUk35qR2e0zK
-	XXe+ddeRPB0bkh3ASjFt1KkDgcleKWVrSuuLiYX6Tblr+Bfp4JsSW7NR3XmZ30HR7UGBvjPdtNwU0
-	0KCQV/AxVl15d/HghvEO4hJmd9GmX19Trzxb79qG+/UZ/1aoUUfHUAdcZ8k/C3wEPHEk8veIMuY/L
-	MwezGuRyVjTZiTF8cEi8JBSXKoD+e7QojeMdf2IsCUmbEWUXLARqwHKBN5gAwxu2sR+mMnJpYF3OB
-	11Wz6bcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NRt+96Gegx7rRnN2Q/gp2rlKwaEMn38Kcq3DDDffPQM=; b=nwAxDBc3vsfO0l/Upr3UB/n4dj
+	nTHI9ivQqLePLEiaMnb+PbL0vjNZvYrjt4B1OJ/Kvw41QKnnzIKB7yMyVwB3n+AHWpgPC+eATGmY/
+	xCHbTZcD0XlB2nzUvA3UCZjIFbEegk1o3sgfuAoNUnSgqC3/tBQVUjLdvHA34hJ3H8DX6hDOCtdxx
+	vExwpD9At8DaSdMqUopSezmAF1DucDXIwH8MNpuAnpgXMjKuq+gZ1oQbNTGPWb9RfgX0+FnJLHY5D
+	V+7xIqk9ryAuIREHpmGd7tZxTG0oL8DVPwMi7tTSfZIVmkjk75JXplchaJGClPI4wMUx5n/PqfguA
+	n1H93C7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUFie-0000000G0Gm-2QFl;
-	Sun, 05 Jan 2025 01:46:20 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tUFyx-0000000G168-1SdW;
+	Sun, 05 Jan 2025 02:03:11 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUFhR-0000000G09T-1SvP
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 05 Jan 2025 01:45:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4A3875C5780;
-	Sun,  5 Jan 2025 01:44:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AE66C4CED1;
-	Sun,  5 Jan 2025 01:45:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736041504;
-	bh=oq/Zazx3snTJ//HvVkRX0cBRbpMDsarbsm2tecQIdeI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=dzldYET2emHDIAf7pzP0JoImS29VgCeY5/sCXhrOSKaxR6uYeadUuElqftv4FLpGK
-	 fLXF6VYE8kqqFAQgqJ5ZPUAl6NcPe4N8yw63oF0pCNU7QCaQ3rUiaqrNkXAGZSAUpe
-	 pOml0TNelBOAPn8HO/MR/lobpU5ydKFYEuhZIIkndr2ok5amNRxKyyog/lE+QZ4Tz3
-	 Xt7sYf0lK3xoiLYHzahbLj3ljbjWtL4Z0eZvM4y4hwfBhihxbDjXJwBNr5R9HSE9Zb
-	 BZ6sVBRhXiQBLYpjk3km+425LXrZTM4OXYTHXwruV2TsbfxR1OMLFbkqUDq/PcpCaw
-	 W4mevP1ED11vQ==
-Date: Sat, 4 Jan 2025 17:45:02 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Wei Fang <wei.fang@nxp.com>
-Cc: claudiu.manoil@nxp.com, vladimir.oltean@nxp.com, xiaoning.wang@nxp.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- pabeni@redhat.com, christophe.leroy@csgroup.eu, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
-Subject: Re: [PATCH net-next 04/13] net: enetc: add MAC filter for i.MX95
- ENETC PF
-Message-ID: <20250104174502.0d43e7c0@kernel.org>
-In-Reply-To: <20250103060610.2233908-5-wei.fang@nxp.com>
-References: <20250103060610.2233908-1-wei.fang@nxp.com>
-	<20250103060610.2233908-5-wei.fang@nxp.com>
+	id 1tUFxl-0000000G0zs-2YgH;
+	Sun, 05 Jan 2025 02:01:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1736042517; x=1767578517;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=LXcv4FdNNG3Tf6TIBN0iAcj8De3t94GyOe4c1VqhcLM=;
+  b=jLIbLRjvkZlpe0e5OaAbHAZLJbgzk3lQFPeAtk4SAyp7f5y7HlEXuqvW
+   JIneX3LEJPog8HkleICQ6jrvBcKM4v8FwjNfYCgRt7NajpCqGgcFWfK/i
+   /hxngz9/95FGJ1sQEuXMgBx7jqwzKU8FlVN2YmGQEQ3I9Y+x5Vh0+54ho
+   7CKoWqcRI/VltiWhb1//4LtgcOvvSpXiRxmqxq8vbpwIc5SwnXZHohIbF
+   8tr9aNcej/fRXhi63v4e68Hc/QTGHQOs6e70BLbtoBlboUknpSuV2zoTN
+   H6mfRs/AOUUJZKxaDCTNOAINfL/8Xqcm9u+Laq9aNsuyt1dQ/kn8WVpDD
+   Q==;
+X-CSE-ConnectionGUID: XPkq2i4eSEiFtgsqDNAxkA==
+X-CSE-MsgGUID: taP4p6kxRLytXOID5UJAvw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11305"; a="61605949"
+X-IronPort-AV: E=Sophos;i="6.12,289,1728975600"; 
+   d="scan'208";a="61605949"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Jan 2025 18:01:51 -0800
+X-CSE-ConnectionGUID: qLFuF0vNQA2LiuIb2jLmTA==
+X-CSE-MsgGUID: RPZ5+PsPT0yYnydOcdVMkA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,289,1728975600"; 
+   d="scan'208";a="102627239"
+Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
+  by fmviesa009.fm.intel.com with ESMTP; 04 Jan 2025 18:01:49 -0800
+Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tUFxa-000BO3-1e;
+	Sun, 05 Jan 2025 02:01:46 +0000
+Date: Sun, 5 Jan 2025 10:01:40 +0800
+From: kernel test robot <lkp@intel.com>
+To: Christian Marangi <ansuelsmth@gmail.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, upstream@airoha.com
+Cc: oe-kbuild-all@lists.linux.dev
+Subject: Re: [PATCH v8 1/2] pmdomain: airoha: Add Airoha CPU PM Domain support
+Message-ID: <202501050957.aylo1fso-lkp@intel.com>
+References: <20250104181305.28185-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250104181305.28185-1-ansuelsmth@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250104_174505_450219_7CAFA86B 
-X-CRM114-Status: GOOD (  14.73  )
+X-CRM114-CacheID: sfid-20250104_180157_692894_CB0D498D 
+X-CRM114-Status: GOOD (  13.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,45 +93,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri,  3 Jan 2025 14:06:00 +0800 Wei Fang wrote:
-> The i.MX95 ENETC supports both MAC hash filter and MAC exact filter. MAC
-> hash filter is implenented through a 64-bits hash table to match against
-> the hashed addresses, PF and VFs each have two MAC hash tables, one is
-> for unicast and the other one is for multicast. But MAC exact filter is
-> shared between SIs (PF and VFs), each table entry contains a MAC address
-> that may be unicast or multicast and the entry also contains an SI bitmap
-> field that indicates for which SIs the entry is valid.
-> 
-> For i.MX95 ENETC, MAC exact filter only has 4 entries. According to the
-> observation of the system default network configuration, the MAC filter
-> will be configured with multiple multicast addresses, so MAC exact filter
-> does not have enough entries to implement multicast filtering. Therefore,
-> the current MAC exact filter is only used for unicast filtering. If the
-> number of unicast addresses exceeds 4, then MAC hash filter is used.
-> 
-> Note that both MAC hash filter and MAC exact filter can only be accessed
-> by PF, VFs can notify PF to set its corresponding MAC filter through the
-> mailbox mechanism of ENETC. But currently MAC filter is only added for
-> i.MX95 ENETC PF. The MAC filter support of ENETC VFs will be supported in
-> subsequent patches.
+Hi Christian,
 
-clang reports:
+kernel test robot noticed the following build errors:
 
-drivers/net/ethernet/freescale/enetc/enetc4_pf.c:1158:6: warning: variable 'pf' is used uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
- 1158 |         if (err)
-      |             ^~~
-drivers/net/ethernet/freescale/enetc/enetc4_pf.c:1179:24: note: uninitialized use occurs here
- 1179 |         enetc4_pf_struct_free(pf);
-      |                               ^~
-drivers/net/ethernet/freescale/enetc/enetc4_pf.c:1158:2: note: remove the 'if' if its condition is always false
- 1158 |         if (err)
-      |         ^~~~~~~~
- 1159 |                 goto err_wq_task_init;
-      |                 ~~~~~~~~~~~~~~~~~~~~~
-drivers/net/ethernet/freescale/enetc/enetc4_pf.c:1128:21: note: initialize the variable 'pf' to silence this warning
- 1128 |         struct enetc_pf *pf;
-      |                            ^
-      |                             = NULL
+[auto build test ERROR on rafael-pm/linux-next]
+[also build test ERROR on rafael-pm/bleeding-edge linus/master v6.13-rc5 next-20241220]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Christian-Marangi/cpufreq-airoha-Add-EN7581-CPUFreq-SMCCC-driver/20250105-022153
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git linux-next
+patch link:    https://lore.kernel.org/r/20250104181305.28185-1-ansuelsmth%40gmail.com
+patch subject: [PATCH v8 1/2] pmdomain: airoha: Add Airoha CPU PM Domain support
+config: arm-randconfig-004-20250105 (https://download.01.org/0day-ci/archive/20250105/202501050957.aylo1fso-lkp@intel.com/config)
+compiler: arm-linux-gnueabi-gcc (GCC) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250105/202501050957.aylo1fso-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202501050957.aylo1fso-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> drivers/pmdomain/mediatek/airoha-cpu-pmdomain.c:135:10: error: 'struct platform_driver' has no member named 'remove_new'; did you mean 'remove'?
+     135 |         .remove_new = airoha_cpu_pmdomain_remove,
+         |          ^~~~~~~~~~
+         |          remove
+
+
+vim +135 drivers/pmdomain/mediatek/airoha-cpu-pmdomain.c
+
+   132	
+   133	static struct platform_driver airoha_cpu_pmdomain_driver = {
+   134		.probe = airoha_cpu_pmdomain_probe,
+ > 135		.remove_new = airoha_cpu_pmdomain_remove,
+   136		.driver = {
+   137			.name = "airoha-cpu-pmdomain",
+   138			.of_match_table = airoha_cpu_pmdomain_of_match,
+   139		},
+   140	};
+   141	module_platform_driver(airoha_cpu_pmdomain_driver);
+   142	
+
 -- 
-pw-bot: cr
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
