@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2869E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 03:00:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27D83E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 03:01:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j6tIpNm8f3fA2BfCLVTw94dwWiqzNJYWlJihi3Jf7JQ=; b=UCW4l0vqUDojtpbMYeP2aT8XHX
-	iB2KymxYxkmiIwmyF00TnYZ7lC0rv2lw+1GsiFoJ2AFUxnewTpoIJLFLhvmS2Afj7LA2LhNEzn43o
-	BDWMexdWmXLtTuVh+XU7qHueNiZik2YjtYD0eQxWJNZG8HNThe49jpHqnWmRHZkM0kTNLB/B5fJBF
-	9HOWvIe8BNXjvnm2nLhCpV0wdZeuO1tvqu/4CGg13tenSCM9Ud0LpBYGG+AfkWOO4toqRuFPDHjFx
-	RBsqz6ByOpZfGfTpOy9+q+hQvwpWg+M4eoppLOZhP0W5nABQM5YZTTzNXdV2NYjQuGzDu87WRfuB+
-	KKaOAygA==;
+	bh=QgV85Nl0As6OtVQ9Lf76/StTWQ3lGWa2RIK4iy639Xk=; b=aqb1tDTud7iF7mD/0dg5mKtMca
+	P0wCvVC8iuGv9MozOeRRIivqUse8rOV89xN9d2wOFbNH9yZEVfKAZN3tknCeFWLdoT3IBskw8e2Dw
+	XLZxPtQA3O4dIWcT1VsDHougKqxiII3VJ5rRyGDdsISLTZs0ofqDaGrWDRYTkiiqSyjE3Nmk8O2EW
+	7Y5+lsk5B1GgAOBveoOah5sf98gp0cbeNZYpBqwlLgZe5QMRp2o/oGnNDcfU39XpIK8D2gzhbCUVL
+	7YFkfL60YriC5WT9K7oPQvCW5WApCuY0lm4oH7Lkf9HyG4bNoQkC3h/q3gdohESMmuKMKFbvrfl/D
+	SWT1plIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUdLO-000000006Rb-41Uv;
-	Mon, 06 Jan 2025 02:59:54 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1tUdMZ-000000006Yu-2bCa;
+	Mon, 06 Jan 2025 03:01:07 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUdEQ-000000005fT-0K6z
+	id 1tUdEq-000000005ma-3avn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 02:52:43 +0000
+	Mon, 06 Jan 2025 02:53:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1736131962; x=1767667962;
+  t=1736131989; x=1767667989;
   h=message-id:date:mime-version:subject:to:cc:references:
    from:in-reply-to:content-transfer-encoding;
-  bh=YlzyZ5VRctbcN5/cUfhWSOqbXSF88B8tOI+3HQdqnUQ=;
-  b=esKguS4IGyyUBgDpIkRgt9SnLDYQRz0H56sEAHpJ864Qx4lMpl5lEyDd
-   AJWfhEo6J8NBjQIMwX+XGYmOCA7AHtHBJf7jfIK1irz/xQTWUABvgYs7h
-   FeQXv/fvz7ciXzAxrN6s5/Wsr0zd0TA0hBeNqUeUrKw8Sboqt/JETG3qN
-   mwVs9R7khO5/NvqMM12F9DDj+g2o7HFI0uwi0/pP+/IvsMttLA/7DJYJ7
-   b8TZbqv5Wyc3Y0oePHQ/oZCl2LwwQGinBSFhus5kIHQPwm7rtl4sKxWhm
-   72asNJAQwC6VBTGBVodTLYv/UrDrCVVam6lUcLJDJAbmPJdoRsTCBs0at
-   w==;
-X-CSE-ConnectionGUID: 9sd/0LRWSXeUIPznEChnDQ==
-X-CSE-MsgGUID: S1PY1htUTI+vkjNg2Xd25g==
-X-IronPort-AV: E=McAfee;i="6700,10204,11306"; a="35575006"
+  bh=WJ1lnQpnjzSENphJqAYllxPMKCggrwJ0HwxYTWlZgOE=;
+  b=kTv6qivfCEJ3MzCCPhp9W+s3OOfC+xzOq+G8B4QRDX0GhA/AyrT5RPa4
+   QC2Yab7Tx33Cz1chyUPWf+uoVEHTFsjTipPYqyU7hyETEvxUrIVi/FBPg
+   16WYhVaFwpplFFrfN+i2c12rVXdKfU9QkEt5e8XdOeRxxc/TytYRbfCBx
+   ws3FQn8BoKXWjjOnLlWxU3P+K1iHOZQS8oefigNsnn88ChixxKN4s6BtT
+   1kZReikbYIgDPIpIlhqyFqEnA9EYMbTSqlFDUsCZIAZvSPyFE7cn+Mlf9
+   Sv6hRD+IeWT1w3XKCh0rplCIkkb8KATKLeR7NODCXit/VWPpyExfLUFXe
+   Q==;
+X-CSE-ConnectionGUID: Bb/2HMOtRJybZTt6ZBAwoQ==
+X-CSE-MsgGUID: c4DudSREToiqyevcL8u19g==
+X-IronPort-AV: E=McAfee;i="6700,10204,11306"; a="36172790"
 X-IronPort-AV: E=Sophos;i="6.12,292,1728975600"; 
-   d="scan'208";a="35575006"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Jan 2025 18:52:41 -0800
-X-CSE-ConnectionGUID: M3d25IsrRq+MSMFKSrI+gA==
-X-CSE-MsgGUID: fVeYsa7nREWJXtqMK1sngA==
+   d="scan'208";a="36172790"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Jan 2025 18:53:08 -0800
+X-CSE-ConnectionGUID: EFOsIFRfSFiwDCSH/Pl2tA==
+X-CSE-MsgGUID: 725LiNAKS8SO2bQgECxPQg==
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="103191699"
+X-IronPort-AV: E=Sophos;i="6.12,292,1728975600"; 
+   d="scan'208";a="107172729"
 Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
-  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Jan 2025 18:52:36 -0800
-Message-ID: <ef45763a-f64f-4efd-b3a2-f019bd791e94@linux.intel.com>
-Date: Mon, 6 Jan 2025 10:50:31 +0800
+  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Jan 2025 18:53:03 -0800
+Message-ID: <4df4d3cc-4e70-42a6-92f6-58e51b5d1048@linux.intel.com>
+Date: Mon, 6 Jan 2025 10:50:58 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 06/14] iommufd: Add IOMMUFD_OBJ_VEVENTQ and
- IOMMUFD_CMD_VEVENTQ_ALLOC
+Subject: Re: [PATCH v4 07/14] iommufd/viommu: Add iommufd_viommu_get_vdev_id
+ helper
 To: Nicolin Chen <nicolinc@nvidia.com>, jgg@nvidia.com, kevin.tian@intel.com,
  corbet@lwn.net, will@kernel.org
 Cc: joro@8bytes.org, suravee.suthikulpanit@amd.com, robin.murphy@arm.com,
@@ -71,15 +71,15 @@ Cc: joro@8bytes.org, suravee.suthikulpanit@amd.com, robin.murphy@arm.com,
  smostafa@google.com, ddutile@redhat.com, yi.l.liu@intel.com,
  patches@lists.linux.dev
 References: <cover.1735933254.git.nicolinc@nvidia.com>
- <d0edfde78e75b6941589392e618f6d43b3f10e6b.1735933254.git.nicolinc@nvidia.com>
+ <e29a931521365e7953cb993a61dadc72a53b66d9.1735933254.git.nicolinc@nvidia.com>
 Content-Language: en-US
 From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <d0edfde78e75b6941589392e618f6d43b3f10e6b.1735933254.git.nicolinc@nvidia.com>
+In-Reply-To: <e29a931521365e7953cb993a61dadc72a53b66d9.1735933254.git.nicolinc@nvidia.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250105_185242_136523_F8AAD3EF 
-X-CRM114-Status: UNSURE (   9.09  )
+X-CRM114-CacheID: sfid-20250105_185308_912483_AB3AFF29 
+X-CRM114-Status: UNSURE (   9.17  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,23 +96,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 1/4/25 03:43, Nicolin Chen wrote:
-> Introduce a new IOMMUFD_OBJ_VEVENTQ object for vIOMMU Event Queue that
-> provides user space (VMM) another FD to read the vIOMMU Events.
+> This is a reverse search v.s. iommufd_viommu_find_dev, as drivers may want
+> to convert a struct device pointer (physical) to its virtual device ID for
+> an event injection to the user space VM.
 > 
-> Allow a vIOMMU object to allocate vEVENTQs, with a condition that each
-> vIOMMU can only have one single vEVENTQ per type.
-> 
-> Add iommufd_veventq_alloc() with iommufd_veventq_ops for the new ioctl.
+> Again, this avoids exposing more core structures to the drivers, than the
+> iommufd_viommu alone.
 > 
 > Signed-off-by: Nicolin Chen<nicolinc@nvidia.com>
 > ---
->   drivers/iommu/iommufd/iommufd_private.h |  58 +++++++++++
->   include/linux/iommufd.h                 |   3 +
->   include/uapi/linux/iommufd.h            |  31 ++++++
->   drivers/iommu/iommufd/eventq.c          | 129 ++++++++++++++++++++++++
->   drivers/iommu/iommufd/main.c            |   7 ++
->   drivers/iommu/iommufd/viommu.c          |   2 +
->   6 files changed, 230 insertions(+)
+>   include/linux/iommufd.h        |  8 ++++++++
+>   drivers/iommu/iommufd/driver.c | 20 ++++++++++++++++++++
+>   2 files changed, 28 insertions(+)
 
 Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
 
