@@ -4,89 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4956E77198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 10:44:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06AA4E77198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 10:45:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=btkar9lW2qWD6xfk+/i4bskJnPD0JOAOTKhPpwxrwKA=; b=WJmoh1bGSNwnbKN44mGef9itJU
-	9lHl/rRs1Sle5vnRySOc0MjLE3lGZvmWmJFUe+dkJVyIkpYizbIPc2bYjtJG/V8GqxBpR7CPjbGyw
-	EgJQs+WqNuXRpJWmjOCxTJj8SBj6f1DsOCxysO66tMgnebQ9QmYJcZFTii65cZ/ri7I66423MkNwN
-	2xkV84IPdv7TN9qPhcom+VWFqjjXLP6iiOG5QKwkzAgAl84hLTE1+wBVcNSxpTMKpWY16h0/nmBCi
-	J2GLpwU3YjlPt6AXDi5bwO9H0zhi7NLc7DzK3Qc271fnpbkWGPDyUXzy6SXSxpkGaXVgV1qNLaqIV
-	ulcj1ejA==;
+	bh=e4BWUIt3a4alaSoTXNXzqXSXLt8Vt2F6N6a2ZBMyhV4=; b=vuQ45Xo2UAZLQTUVjqbgxgqQ0l
+	GWACS3X/U74owW18hX2bUT3a2DBC6SZQ/gqG8tM2GluM3hPTRZjEwzF3tznFRdZMdFPr9mah6ayPg
+	5q4p5IvM13m3EG06B9jIUe0+C0SV8GHpVKS25yDQ1iiI1fvobXQCDA3brtmS8G7sRD22XOSxKMs+i
+	O5xo01LJuY1ldqsxhgLqH33e9GsLsImCdEEDBoTt4W6+UMw61rlb8GrA6n+oytksbX8ZOIAH1bjm1
+	WkycSQs8vL3AtS9iimv3wbGqUD13RwBn8FT8hQiIpep1Nv/619PNoQLst5XgH+hAV6tj072/MmxtN
+	8oSHVD2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUkae-00000000tud-16x1;
-	Mon, 06 Jan 2025 10:44:08 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1tUkc2-00000000uHH-1fOd;
+	Mon, 06 Jan 2025 10:45:34 +0000
+Received: from mailout3.samsung.com ([203.254.224.33])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUkYf-00000000tgm-1bUH
+	id 1tUkao-00000000txG-3Ghx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 10:42:06 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5063qaLB004709;
-	Mon, 6 Jan 2025 11:41:55 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	btkar9lW2qWD6xfk+/i4bskJnPD0JOAOTKhPpwxrwKA=; b=6sTyJMOLsqffMKWj
-	v9GGlvavKkwZos3+6Q3ybRgCTg4rB4Ewp3o2BOQ5SRkQAr2iBv9dscAIDfmclvZa
-	x0RhjGqFX6Vam8dZYEojWFM0MSsMWYyq2tt9Ipd8sFiFrReDNStuJPLBaRCJPKCy
-	O0ZOAI4G5Tg+jPPGBaj8/EugKwPHe0CjwXI6f41wzhlNYY7ehfsgzpfzN7gIz6Qn
-	+Jl2NotBapAilT2/d1WYyLZWcaVkRygaavfNrOMy2lCw8BZKDCb+OPkBIYHHf55t
-	RxDDZgMFmp2AWmzI4CaPYI3WcFpXRLiC6VmVNYFwVyp0mMDeblwGJANmIODmkZOj
-	EZmtEA==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4407n9hajf-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 06 Jan 2025 11:41:55 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id B36FA40048;
-	Mon,  6 Jan 2025 11:40:30 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id C51E126E736;
-	Mon,  6 Jan 2025 11:39:34 +0100 (CET)
-Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Mon, 6 Jan
- 2025 11:39:33 +0100
-Message-ID: <9c6a316b-10bd-4ed0-b925-babf84b125e5@foss.st.com>
-Date: Mon, 6 Jan 2025 11:39:33 +0100
+	Mon, 06 Jan 2025 10:44:20 +0000
+Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250106104410epoutp032e78a7a734df482c0959f8d59bd29427~YFIy0aKKP2214022140epoutp03c
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  6 Jan 2025 10:44:10 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250106104410epoutp032e78a7a734df482c0959f8d59bd29427~YFIy0aKKP2214022140epoutp03c
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1736160250;
+	bh=e4BWUIt3a4alaSoTXNXzqXSXLt8Vt2F6N6a2ZBMyhV4=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=qpWMdW9S2ycS79Gz2+vCgjbUB0oDoiqf3I/rj4YuaxYJa8CzxAMZjx3MWx6UZBNb5
+	 sMT0263/j8RmA8n31kR8hfImUJVQaf0asnQAnHITz9oQgigeUQ73DG2JAf7hkM/T/n
+	 ns6+5qwh/m7cnm0vsrRMQGBki/MbYBwysUjJ8PuU=
+Received: from epsnrtp3.localdomain (unknown [182.195.42.164]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTP id
+	20250106104410epcas5p4cfe0087b625560f80848be4a3d93de15~YFIyjaeep0853608536epcas5p4D;
+	Mon,  6 Jan 2025 10:44:10 +0000 (GMT)
+Received: from epsmgec5p1-new.samsung.com (unknown [182.195.38.175]) by
+	epsnrtp3.localdomain (Postfix) with ESMTP id 4YRW544gb5z4x9Pr; Mon,  6 Jan
+	2025 10:44:08 +0000 (GMT)
+Received: from epcas5p3.samsung.com ( [182.195.41.41]) by
+	epsmgec5p1-new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	1D.E1.29212.8F3BB776; Mon,  6 Jan 2025 19:44:08 +0900 (KST)
+Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
+	20250106083954epcas5p302dfe186ca6cba248c4cfe1f8d5d4d7c~YDcSYVt7A2557925579epcas5p3G;
+	Mon,  6 Jan 2025 08:39:54 +0000 (GMT)
+Received: from epsmgms1p1new.samsung.com (unknown [182.195.42.41]) by
+	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20250106083954epsmtrp187144d38e5066499442d46dc618cc7e9~YDcSXqtOH2380823808epsmtrp11;
+	Mon,  6 Jan 2025 08:39:54 +0000 (GMT)
+X-AuditID: b6c32a50-7ebff7000000721c-f1-677bb3f8f03d
+Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
+	epsmgms1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	BD.05.18729.AD69B776; Mon,  6 Jan 2025 17:39:54 +0900 (KST)
+Received: from INBRO002520 (unknown [107.122.1.191]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250106083952epsmtip20e19c1ee60d6524a417d87cd4c7e7184~YDcQ7MF982695726957epsmtip2O;
+	Mon,  6 Jan 2025 08:39:52 +0000 (GMT)
+From: "Devang Tailor" <dev.tailor@samsung.com>
+To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, <alim.akhtar@samsung.com>,
+	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+Cc: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-samsung-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "'Faraz
+ Ata'" <faraz.ata@samsung.com>
+In-Reply-To: <743d9eb4-a7ee-4ce7-91a8-52ddcd353bb2@kernel.org>
+Subject: RE: [PATCH] arm64: dts: add cpu cache information to
+ ExynosAuto-v920
+Date: Mon, 6 Jan 2025 14:09:51 +0530
+Message-ID: <022701db6016$8ef576c0$ace06440$@samsung.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/3] ARM: dts: st: enable the MALI gpu on the
- stih410-b2260
-To: Alain Volmat <avolmat@me.com>, David Airlie <airlied@gmail.com>,
-        Daniel
- Vetter <daniel@ffwll.ch>,
-        Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-References: <20241006-sti-gpu-v2-0-c6bb408d6903@me.com>
- <20241006-sti-gpu-v2-3-c6bb408d6903@me.com>
-Content-Language: en-US
-From: Patrice CHOTARD <patrice.chotard@foss.st.com>
-In-Reply-To: <20241006-sti-gpu-v2-3-c6bb408d6903@me.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.87.62]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Content-Language: en-in
+Thread-Index: AQI/83o4x5VwoT348NLsA2YEs8clgwJT+GhSAnZHXs+yGfJmkA==
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrKJsWRmVeSWpSXmKPExsWy7bCmpu6PzdXpBmcnKFo8mLeNzWLN3nNM
+	FvOPnGO1uHZjIbvFy1n32CzOn9/AbrHp8TVWi8u75rBZzDi/j8ni/54d7A5cHptWdbJ5bF5S
+	79G3ZRWjx+dNcgEsUdk2GamJKalFCql5yfkpmXnptkrewfHO8aZmBoa6hpYW5koKeYm5qbZK
+	Lj4Bum6ZOUD3KCmUJeaUAoUCEouLlfTtbIryS0tSFTLyi0tslVILUnIKTAr0ihNzi0vz0vXy
+	UkusDA0MjEyBChOyM1YfmchWcJmzYvG/M2wNjK/Zuxg5OSQETCSeT5gIZHNxCAnsYZQ4vaWZ
+	FcL5xChxbspGNgjnG6NE29n7rDAt7xacgkrsZZS4tvQYM0hCSOAlo8TP4xwgNpuAnsT6WadZ
+	QIpEBLoYJXY+mAw2l1lgB6PE0z0v2ECqOAXsJLqbPzF1MXJwCAv4S2xaow4SZhFQkXiw9S0j
+	iM0rYClx5sl1ZghbUOLkzCcsIDazgLbEsoWvmSEuUpD4+XQZK0RcXOLozx6wuIiAk8T9+UvA
+	LpUQWMohsfz6QzaIBheJQy9mQUNAWOLV8S1QtpTEy/42KDtf4suhXVALciTWv5oBFbeXWL3g
+	DCvIzcwCmhLrd+lDhGUlpp5axwRxA59E7+8nTBBxXokd856AvSgB9Nf775Ywm17c28M0gVFp
+	FpLPZiH5bBaSb2YhLFvAyLKKUSq1oDg3PTXZtMBQNy+1HB7jyfm5mxjB6VUrYAfj6g1/9Q4x
+	MnEwHmKU4GBWEuHN0qhMF+JNSaysSi3Kjy8qzUktPsRoCgzvicxSosn5wASfVxJvaGJpYGJm
+	ZmZiaWxmqCTO+7p1boqQQHpiSWp2ampBahFMHxMHp1QDE0dq/d9j3xXy/d1k18xYxL3d9KBy
+	5e1YplPGf48dPvNWPTxd7s2FxskTL78ze3fj7uEL2qtfMa9Ot9x4dmWW+szJ+1TEQuYxH2pc
+	803SJTLC/f/XNhbr1Z8m7vkkPWMx+2Ltkg6dF+UC/9tnCdyZHpzy5n/VWhn59lXa8yMc+DdM
+	3W72rPukRu3HrR4efTO0H87feX2FNx/Hwcn3hVkfxXiedvwjx+xxLNt3u8mVz2ZzawWWKEe9
+	SvHuKJA1Eq0qf549gy9/x2mmy6/j5/JbvDOpSqk4nb30idp3qcOlutzyP7dyCMo6/LSKqwqu
+	2nLgI1+/5sxVcVqH/pw6fcdD+l3/uvYbjN8i+ILtHGpCTyqxFGckGmoxFxUnAgD3FRG9OAQA
+	AA==
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFupnkeLIzCtJLcpLzFFi42LZdlhJXvfWtOp0g78/BC0ezNvGZrFm7zkm
+	i/lHzrFaXLuxkN3i5ax7bBbnz29gt9j0+BqrxeVdc9gsZpzfx2Txf88Odgcuj02rOtk8Ni+p
+	9+jbsorR4/MmuQCWKC6blNSczLLUIn27BK6Mjj/TmAvmc1ZMPbWWtYFxO3sXIyeHhICJxLsF
+	p9i6GLk4hAR2M0osP3iaBSIhJdHRsoEJwhaWWPnvOTtE0XNGiftL9zCCJNgE9CTWzwJp4OIQ
+	EZjAKDFly0YmEIdZYA+jxInjd5ghWg4wSlyefZYVpIVTwE6iu/kT2FxhAV+Jr10NYDaLgIrE
+	g61vwcbyClhKnHlynRnCFpQ4OfMJ2E3MAtoSvQ9bGWHsZQtfM0PcpyDx8+kyVoi4uMTRnz1g
+	cREBJ4n785ewTWAUnoVk1Cwko2YhGTULSfsCRpZVjJKpBcW56bnFhgWGeanlesWJucWleel6
+	yfm5mxjBcaaluYNx+6oPeocYmTgYDzFKcDArifBmaVSmC/GmJFZWpRblxxeV5qQWH2KU5mBR
+	EucVf9GbIiSQnliSmp2aWpBaBJNl4uCUamDaNa22UW9a5paslU4drw+WaibPf3RS9wqriOFH
+	pidtSbNfXrB4enZnyNqOf11iApbGKx45TU7QVPtxUkT6jfIh7198rZOjJzQtPVTT/PlJ6xUX
+	znnXnh2x0Z73dNGdH//FnzxZnljmLvNguwPb2yS7R0feX9JfsH6Ow/G06p18npoi2bwcTfOv
+	yf+NLvaNXqMh/rBiivuNKUv5V3/yKBCy1ZrgvHwLg+5HKcU3Wwsd46WMU82ar8/5ffxFuPaK
+	4n/SL4s1762ZrH/q3q5Jq9O9P8rUyLw7mnVWoOfLtrPBx/fq9YYvPaZrZ1F3Zu8cgTCjp4zv
+	TJWO2YT0dz1wtf748GDbz0Rpp5UvWUOd7mdaK7EUZyQaajEXFScCACvltpQiAwAA
+X-CMS-MailID: 20250106083954epcas5p302dfe186ca6cba248c4cfe1f8d5d4d7c
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20241231063730epcas5p4137cc2e3d805cb08e1675b056ef186dc
+References: <CGME20241231063730epcas5p4137cc2e3d805cb08e1675b056ef186dc@epcas5p4.samsung.com>
+	<20241231064350.523713-1-dev.tailor@samsung.com>
+	<743d9eb4-a7ee-4ce7-91a8-52ddcd353bb2@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_024205_722707_D2B7C36E 
-X-CRM114-Status: GOOD (  13.72  )
+X-CRM114-CacheID: sfid-20250106_024419_148800_0C8A3ACF 
+X-CRM114-Status: GOOD (  12.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,35 +141,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi krzysztof,
 
 
-On 10/6/24 22:42, Alain Volmat wrote:
-> Enable the GPU on the stih410-b2260 board.
-> 
-> Signed-off-by: Alain Volmat <avolmat@me.com>
-> ---
->  arch/arm/boot/dts/st/stih410-b2260.dts | 4 ++++
->  1 file changed, 4 insertions(+)
-> 
-> diff --git a/arch/arm/boot/dts/st/stih410-b2260.dts b/arch/arm/boot/dts/st/stih410-b2260.dts
-> index 240b62040000b8c0357d39504d3475186958bf31..736b1e059b0a8f122d1b824e1f4e5db0a668ec2c 100644
-> --- a/arch/arm/boot/dts/st/stih410-b2260.dts
-> +++ b/arch/arm/boot/dts/st/stih410-b2260.dts
-> @@ -206,5 +206,9 @@ hdmiddc: i2c@9541000 {
->  		sata1: sata@9b28000 {
->  			status = "okay";
->  		};
+-----Original Message-----
+From: Krzysztof Kozlowski <krzk=40kernel.org>=20
+Sent: 31 December 2024 13:13
+To: Devang Tailor <dev.tailor=40samsung.com>; alim.akhtar=40samsung.com; ro=
+bh=40kernel.org; krzk+dt=40kernel.org; conor+dt=40kernel.org
+Cc: devicetree=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org; l=
+inux-samsung-soc=40vger.kernel.org; linux-kernel=40vger.kernel.org
+Subject: Re: =5BPATCH=5D arm64: dts: add cpu cache information to ExynosAut=
+o-v920
+
+On 31/12/2024 07:43, Devang Tailor wrote:
+> =20
+>  		cpu9: cpu=4020100 =7B
+> =40=40 -152,6 +215,22 =40=40 cpu9: cpu=4020100 =7B
+>  			compatible =3D =22arm,cortex-a78ae=22;
+>  			reg =3D <0x0 0x20100>;
+>  			enable-method =3D =22psci=22;
+> +			i-cache-size =3D <0x10000>;
+> +			i-cache-line-size =3D <64>;
+> +			i-cache-sets =3D <256>;
+> +			d-cache-size =3D <0x10000>;
+> +			d-cache-line-size =3D <64>;
+> +			d-cache-sets =3D <256>;
+> +			next-level-cache =3D <&cpu_l2>;
+> +		=7D;
 > +
-> +		gpu: gpu@9f00000 {
-> +			status = "okay";
-> +		};
->  	};
->  };
-> 
+> +		cpu_l2: l2-cache0 =7B
 
-Hi Alain
+Are there more l2-caches? '0' suggests that, so please add nodes for all of=
+ them.
+>
+Thank you Krzysztof for your review. I will update other caches in v2 patch=
+.
 
-Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>
 
-Thanks
+Best regards,
+Krzysztof
+
 
