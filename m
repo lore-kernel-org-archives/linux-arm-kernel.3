@@ -4,86 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB416E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 20:59:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E3B8E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 21:01:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DiqohGVrJhuzrDGTEf8iJUOT0kiba9U3wDyHV7/Xg5E=; b=XlNzumVcWc4wcd2Beulhy/6vIZ
-	+6DbVFkEskE+nx7VP3Sj2QieVJ7WkHeuQxH2DTZEHD7Us7SHn7GcaRacLfdt5yjTQhenSBaNwET3b
-	m6SNn1pNIvvMwGkLbgm3nbT7SYnymfTOqletsiPZAgiumoI/oL71COaOn7ZpiUTEEMSA/6n2kF+L0
-	sny8cqpJPC/D9oQHY5wtQjiYwzdGuhm6Hc/DRjPVyrgygGLOSxhOf+l5Ra3d2AAMImfioKrIwlTtg
-	u8yNHCySKQ1doO1FWEqGlHnOstC/sTtQ1EL6j+7tMb0ZWLAz4+nqfcYd5BVbVDtF/bHt69bzQMNMH
-	jNxxQVTw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QGYXaVM0zRhN5LB2AqsM+NfqTKsJxQEiTbVn2J1DL3k=; b=w5aj3aQkRFIrNdTznG9HbJ7Umo
+	hrwiM0KLvJ47G8OOZW2kQIGcGbO9yygZav2IPnCUfB7omX2d3ms8YSzQLwECtzCi7DYyV94eYQVQm
+	WrUVfBOQZz9Clw34tnJyugAvc90p9Qza7mRVxepAFON8QE5487abkjFKt/BbnrwilsAtINYEn2tC+
+	FK5aIpZWqTxruJU9yIqjUbTF5lTIGYxpBWdrQ8Vg5qwwty1cVFn61wWy4+gE8yiKu2LUOfnfYrHas
+	fLEVdWXfzt1McbFEVGo6WYIoULyc66C5m967R8CMPxj513UAb9vpU3dq9uXKJvs1uadsf7fHkJyn7
+	vC24lVvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUuCI-00000002fUi-0DVU;
-	Mon, 06 Jan 2025 20:59:38 +0000
-Received: from mail-vs1-xe2e.google.com ([2607:f8b0:4864:20::e2e])
+	id 1tUuDT-00000002fkS-33zA;
+	Mon, 06 Jan 2025 21:00:51 +0000
+Received: from mail-qk1-x72e.google.com ([2607:f8b0:4864:20::72e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUu9G-00000002esE-35qA
+	id 1tUu9O-00000002evi-1B55
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 20:56:31 +0000
-Received: by mail-vs1-xe2e.google.com with SMTP id ada2fe7eead31-4afd68271b6so3625095137.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jan 2025 12:56:30 -0800 (PST)
+	Mon, 06 Jan 2025 20:56:39 +0000
+Received: by mail-qk1-x72e.google.com with SMTP id af79cd13be357-7b6e8814842so1283088885a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jan 2025 12:56:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736196989; x=1736801789; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DiqohGVrJhuzrDGTEf8iJUOT0kiba9U3wDyHV7/Xg5E=;
-        b=ORu6A5Nxjt1DJBEvHduKk3yqtqM6SaUfTYEpBdg8BrNIKw0fchSGLB398xZIlkTnsK
-         cl4KnBKkpMUGWq3Ah9P88RqE8hSDXE0i2d6KyrS5Z41Mikyb5wqKZa4fxchpxMOuCRTG
-         ixAvxET07hEAjipvACZez4Ubp+kEqKCVA7tNGwmeyn4PKTUQhfl7z5prTM0eIvB5N0w8
-         FWPWVNohrDqvfd3TmJVe+63qTAUcos3vwcBfXCAqcmOHhqjVDQWmqH9p4bDfYDV7fbhz
-         AJPps9xeXdiecjNO0aLLDKAKLC3OCE3Dql9NvFxoXmMUmJXeRm7/a1fCQiyNKkQOa0Q6
-         jYOg==
+        d=gmail.com; s=20230601; t=1736196997; x=1736801797; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=QGYXaVM0zRhN5LB2AqsM+NfqTKsJxQEiTbVn2J1DL3k=;
+        b=RMWym6LDHqs3MqWlX58SeY3Zj9i1dWbDPXdMEenxff9TOByEJgdIdbTWr2sqo4hUmc
+         ZLV7uDdb9uEfkXNz7/jFHpiYT/UhDTSH7kaXHSZmX9YUC5EqoZxDbhayFMa6L49rZ7V/
+         9Lhm44FNhZNypKL67+Exdp7o1RrO2mpXkWZ7E8dzaCm4vFS4BLhX4drR+c1NRPmYJ5gs
+         Qil5rR14fY9dVn4Do/0PQVf091tHqIwsoRaAjZyausXLVCw6bLGJoG1rl5rfj30EoBSd
+         2vlb1YMPBl0vSvGBlsLaXUdjTjet3pVAOuWgqk/abZLlkA9BB/j6pLP0hpsVb4NBOB+y
+         xAIg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736196989; x=1736801789;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=DiqohGVrJhuzrDGTEf8iJUOT0kiba9U3wDyHV7/Xg5E=;
-        b=kDg99tARVS/b/AlIaPOfV5eASBVtiqFaw7z/pnQaylNNCrOfEAWREDuaTvnzOL+bjy
-         oj/kAodN8xbAMTVhbZIJmTvSPKWt1hh30QUDVS+vZKw87sb/mYJRaBiPPAuC0dmGgQgG
-         pFp04YcijDVKASFnvEifCi+iC/tycp1Oi6WHR7oIVZxew9fiPYjnQAWe6C3dxRCKQQJc
-         YclYzrac7t4n5NkYesahoOQfs/ZsxcY2o8PSApkKCBgW2vv4lSwJwnNghPKiVxMYdnJR
-         WhjHpkaDPYDjKQIViG4L7Ncl4u90Epw/8FSO0ZqBtJyfjsIR+kV27DIdf9uuzipxLKzI
-         wf6g==
-X-Forwarded-Encrypted: i=1; AJvYcCVNnaUiLB45DZJsX7BmEK0yfZZyG8yKO6dn2gCNXgu8dRiWFYEVT9614o0nOTzPPcl9jfjFj70eUefLaZ0dnldO@lists.infradead.org
-X-Gm-Message-State: AOJu0YzRrUw+IZXOtHPuu/bPHgsuyYoIRpwYHm9YilSyLaL2rnHLS/I/
-	AqFO0UjpKhR51xgkGUzEM7MD1AB0l25ZgqCo2HWzDHYRsFC453jdSweoJYEhOyZQMvlIdE6RMfv
-	HH2Fyc9hxT+QCZSOjKJaHkDFrnLo=
-X-Gm-Gg: ASbGncs3ZwO/hKpSDIZjt01Ea0xJI73bke6f5XvrBis7nqDCsRRxapjsCm4JkXx0+1r
-	/5MpsY4GBDpxeq7IWWGiDKBtz+Y7zfURCJMOYFnHVJos+Wu0zqxhCe6d0G5Zc2Vvtu2TtZdHr
-X-Google-Smtp-Source: AGHT+IGchQ0Bce7X1wuXttAt3aVwQiwbDDT1I62efkCM90IBmP4m5AWOgNoNmGlRI31N78EGqSjoMi4R6FPX4H90+PU=
-X-Received: by 2002:a05:6102:41a3:b0:4b2:7446:fc18 with SMTP id
- ada2fe7eead31-4b2cc4597f3mr48692637137.17.1736196989356; Mon, 06 Jan 2025
- 12:56:29 -0800 (PST)
+        d=1e100.net; s=20230601; t=1736196997; x=1736801797;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=QGYXaVM0zRhN5LB2AqsM+NfqTKsJxQEiTbVn2J1DL3k=;
+        b=vnj+/2oylBEa6siXk/nZ/NwSm8QxzsUgSMVarYs4Z9YGkw3zdkU5eQ44inzSnSr/iP
+         /E8RNzKls7HY/ked+Mz+RHe6X2ecbm3IUL5bl913M1QoH+ZssAdTRUStwTNbw8n3ZXa3
+         I8xh1mOz4YCdGjHp5wz6JldsJQuOUC7AEbULekWVEx9v3ODQahIYW+pYoD+mC1LakgQR
+         8VqXofDLmByOqbLSqZG7hn6UXCRMkFTEpGVLZQHCanjuVzPBQTpZt9ZBsWe27+s4nUoM
+         HD3nTi/RfH5D9o7kdEZ4eibsyHn4ORaBrkD/HY1sGAdGScggU/RYmcjuKS1ennGO4NVh
+         Yqkw==
+X-Forwarded-Encrypted: i=1; AJvYcCVBFdzK6aklbwGxOOGeMVM6N0+5I69Vm5Q5MDHCVhWwsuAP/SAU0VXNzs8aQrHLF0R3rIBVuP7Px4eEE+xLiXhU@lists.infradead.org
+X-Gm-Message-State: AOJu0YyCH0s1OgCeuYRQ2kGMSA8BBa8oOx10GEBcJzaTUVn1s6hvFeWv
+	FCiYESkV9LeTOhlo79mRWh8tDmKWF6ftgn8dDLh2QXmwo1pD6Ad1
+X-Gm-Gg: ASbGncuDTMjt+2ruIoA/MY2mP1jb+J67numTST2idmjMI1du78Es+3Jfmgsm56qBDdy
+	FNTBDZQJrC4r2l+gJNF6Tlj41pqeAW4CEeI78qjAADoXlaPEp1xdoV7dMg9mMGJgx13wt3IdF09
+	gXQhGB4ErsOeRPbRGYUqO69b1ClKqfEwEo/2b+IjJkp7sHK0dfQPR7I3l7a9FLbpHyKVVA38Xxl
+	wKHCCnw1E417bj01Z9NWH1Xx7JypjXPgkSs3mlpqLkmtx4pwXrZEz1k8q4TtaKRGYz/TG1KffWd
+	3EeK+FA6Zxj5mxX30NxOVicQP28yKef4M2GKUg==
+X-Google-Smtp-Source: AGHT+IELbgusOdDCViGqWCWb+1+z8xDfNVcf5K0XK1922cW3ojCmzZQ/KiW+9YniO+lVhx6xnwHvaw==
+X-Received: by 2002:a05:620a:318c:b0:7b6:de65:9ee7 with SMTP id af79cd13be357-7b9ba7ee78dmr10289860685a.43.1736196996749;
+        Mon, 06 Jan 2025 12:56:36 -0800 (PST)
+Received: from jesse-desktop.. (pool-108-26-179-17.bstnma.fios.verizon.net. [108.26.179.17])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7b9ac2d15a4sm1538745785a.35.2025.01.06.12.56.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 06 Jan 2025 12:56:36 -0800 (PST)
+From: Jesse Taube <mr.bossman075@gmail.com>
+X-Google-Original-From: Jesse Taube <Mr.Bossman075@gmail.com>
+To: devicetree@vger.kernel.org
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linus.walleij@linaro.org,
+	arnd@arndb.de,
+	--cc=imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jesse Taube <Mr.Bossman075@gmail.com>
+Subject: [RESEND PATCH v2] ARM: dts: imxrt1050: Fix clocks for mmc
+Date: Mon,  6 Jan 2025 15:56:35 -0500
+Message-ID: <20250106205635.2177321-1-Mr.Bossman075@gmail.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-References: <20250106031711.82855-1-21cnbao@gmail.com> <20250106031711.82855-2-21cnbao@gmail.com>
- <e68b8279-fe16-462a-bf99-6b4d90e96904@linux.alibaba.com> <CAGsJ_4wMuDYxuEMcA0jYvekt26Uvz86kjWbo0nz-ZZzuiyEOQQ@mail.gmail.com>
- <b65e145b-a754-41bb-8322-f93c24f6b7d1@linux.alibaba.com> <CAK1f24ksqXUKquPUu3hL3qZha6fOSz2xjRcy83CDg_rdOcZB6g@mail.gmail.com>
- <CAGsJ_4zxdPREb-jmjrjNWySiVwPLbXfj5pG541kYyXXPD4_vBg@mail.gmail.com>
-In-Reply-To: <CAGsJ_4zxdPREb-jmjrjNWySiVwPLbXfj5pG541kYyXXPD4_vBg@mail.gmail.com>
-From: Barry Song <21cnbao@gmail.com>
-Date: Tue, 7 Jan 2025 09:56:18 +1300
-Message-ID: <CAGsJ_4xT3M_PKAekAertMqJAafr6BqKnkjkn3gbs5o2LeRn3gQ@mail.gmail.com>
-Subject: Re: [PATCH 1/3] mm: set folio swapbacked iff folios are dirty in try_to_unmap_one
-To: Lance Yang <ioworker0@gmail.com>
-Cc: Baolin Wang <baolin.wang@linux.alibaba.com>, akpm@linux-foundation.org, 
-	linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org, x86@kernel.org, 
-	linux-kernel@vger.kernel.org, david@redhat.com, ryan.roberts@arm.com, 
-	zhengtangquan@oppo.com, kasong@tencent.com, chrisl@kernel.org, 
-	Barry Song <v-songbaohua@oppo.com>, Ying Huang <ying.huang@intel.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_125630_777514_0857076B 
-X-CRM114-Status: GOOD (  31.22  )
+X-CRM114-CacheID: sfid-20250106_125638_315054_0947787E 
+X-CRM114-Status: GOOD (  11.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,118 +106,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 7, 2025 at 9:52=E2=80=AFAM Barry Song <21cnbao@gmail.com> wrote=
-:
->
-> On Tue, Jan 7, 2025 at 3:40=E2=80=AFAM Lance Yang <ioworker0@gmail.com> w=
-rote:
-> >
-> > On Mon, Jan 6, 2025 at 5:34=E2=80=AFPM Baolin Wang
-> > <baolin.wang@linux.alibaba.com> wrote:
-> > >
-> > >
-> > >
-> > > On 2025/1/6 17:03, Barry Song wrote:
-> > > > On Mon, Jan 6, 2025 at 7:40=E2=80=AFPM Baolin Wang
-> > > > <baolin.wang@linux.alibaba.com> wrote:
-> > > >>
-> > > >>
-> > > >>
-> > > >> On 2025/1/6 11:17, Barry Song wrote:
-> > > >>> From: Barry Song <v-songbaohua@oppo.com>
-> > > >>>
-> > > >>> The refcount may be temporarily or long-term increased, but this =
-does
-> > > >>> not change the fundamental nature of the folio already being lazy=
--
-> > > >>> freed. Therefore, we only reset 'swapbacked' when we are certain =
-the
-> > > >>> folio is dirty and not droppable.
-> > > >>>
-> > > >>> Suggested-by: David Hildenbrand <david@redhat.com>
-> > > >>> Signed-off-by: Barry Song <v-songbaohua@oppo.com>
-> > > >>
-> > > >> The changes look good to me. While we are at it, could you also ch=
-ange
-> > > >> the __discard_anon_folio_pmd_locked() to follow the same strategy =
-for
-> > > >> lazy-freed PMD-sized folio?
-> > > >
-> > > > it seems you mean __discard_anon_folio_pmd_locked() is lacking
-> > > > folio_set_swapbacked(folio) for dirty pmd-mapped folios?
-> >
-> > Good catch!
-> >
-> > Hmm... I don't recall why we don't call folio_set_swapbacked for dirty
-> > THPs in __discard_anon_folio_pmd_locked() - possibly to align with
-> > previous behavior ;)
-> >
-> > If a dirty PMD-mapped THP cannot be discarded, we just split it and
-> > restart the page walk to process the PTE-mapped THP. After that, we
-> > will only mark each folio within the THP as swap-backed individually.
-> >
-> > It seems like we could cut the work by calling folio_set_swapbacked()
-> > for dirty THPs directly in __discard_anon_folio_pmd_locked(), skipping
-> > the restart of the page walk after splitting the THP, IMHO ;)
->
-> Yes, the existing code for PMD-mapped THPs seems quite inefficient. It sp=
-lits
-> the PMD-mapped THP into smaller folios, marks each split PTE as dirty, an=
-d
+One of the usdhc1 controller's clocks should be IMXRT1050_CLK_AHB_PODF not
+IMXRT1050_CLK_OSC.
 
-Apologies for the typo, I meant splitting a PMD-mapped THP into a PTE-mappe=
-d
-THP.
+Fixes: 1c4f01be3490 ("ARM: dts: imx: Add i.MXRT1050-EVK support")
+Signed-off-by: Jesse Taube <Mr.Bossman075@gmail.com>
+---
+V1 -> V2:
+ - Add Fixes tag
+ - Fix line wrap
+V2 -> RESEND V2:
+ - Add change log
+---
+ arch/arm/boot/dts/nxp/imx/imxrt1050.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> then iterates over each PTE. I=E2=80=99m not sure why it=E2=80=99s design=
-ed this way=E2=80=94could
-> there be a specific reason behind this approach?
->
-> However, it does appear to handle folio_set_swapbacked() correctly, as on=
-ly
-> a dirty PMD will result in dirty PTEs being generated in
-> __split_huge_pmd_locked():
->
->         } else {
->                 pte_t entry;
->
->                 entry =3D mk_pte(page, READ_ONCE(vma->vm_page_prot));
->                 if (write)
->                         entry =3D pte_mkwrite(entry, vma);
->
->                 if (!young)
->                         entry =3D pte_mkold(entry);
->
->                 /* NOTE: this may set soft-dirty too on some archs */
->                 if (dirty)
->                         entry =3D pte_mkdirty(entry);
->
->                 if (soft_dirty)
->                         entry =3D pte_mksoft_dirty(entry);
->
->                 if (uffd_wp)
->                         entry =3D pte_mkuffd_wp(entry);
->
->                 for (i =3D 0; i < HPAGE_PMD_NR; i++)
->                         VM_WARN_ON(!pte_none(ptep_get(pte + i)));
->
->                 set_ptes(mm, haddr, pte, entry, HPAGE_PMD_NR);
->         }
->
->
->
-> >
-> > Thanks,
-> > Lance
-> >
-> >
-> > > > and it seems !(vma->vm_flags & VM_DROPPABLE) is also not
-> > > > handled properly?
-> >
-> >
-> > >
-> > > Right.
->
-> Thanks
-> Barry
+diff --git a/arch/arm/boot/dts/nxp/imx/imxrt1050.dtsi b/arch/arm/boot/dts/nxp/imx/imxrt1050.dtsi
+index dd714d235d5f..b0bad0d1ba36 100644
+--- a/arch/arm/boot/dts/nxp/imx/imxrt1050.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imxrt1050.dtsi
+@@ -87,7 +87,7 @@ usdhc1: mmc@402c0000 {
+ 			reg = <0x402c0000 0x4000>;
+ 			interrupts = <110>;
+ 			clocks = <&clks IMXRT1050_CLK_IPG_PDOF>,
+-				<&clks IMXRT1050_CLK_OSC>,
++				<&clks IMXRT1050_CLK_AHB_PODF>,
+ 				<&clks IMXRT1050_CLK_USDHC1>;
+ 			clock-names = "ipg", "ahb", "per";
+ 			bus-width = <4>;
+-- 
+2.45.2
+
 
