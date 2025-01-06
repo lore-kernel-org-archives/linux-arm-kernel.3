@@ -4,79 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56BB0E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 13:13:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A412E77198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 13:14:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uNEZk5ddA3ly0m7I4Ts+PZ2QcYJquoLTFQCrFxQhjcE=; b=nZ1evhYy4Z3rKcphuHkErSaRX9
-	4eTRGoyTu6ENUh286GvueLoDbLkEWFLTdGtJx/mTugf8jjwq+s9duO4ta0H/QPOoZy/HONvndR2FB
-	+iuTNr6zBd0ImIS3+dcM2EJBngsiTW9cazl6vQ/eVVUWctvmUzkrS4E/OAQxaZP/8uHlJAtGIpoyk
-	PfKhE2rVIlUZMwS/eTdQGCfq4h5CI98ijac2e0AmpNA3Wlops4DvHhK7lqqcnBsIOQGVoKre5LxrC
-	jwetpiNhJw/G+z1e7UeQDoDtbGZbvcPy+VZ0w0Zs4lsjYmr9xztOIAdN7l1S0gahnSHfE7Qk36JyW
-	CkXI5CCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=AcDSjeks6TlFjnGYIqpnkk+EjNYuhIl6j1UVmh3/ZuE=; b=lYQyNvwOjrSUS2
+	yE5DGpplg10zieiQxTjkgqfG2lNPD7NV6fxrY2KxeuClBbQFYpLOcCpMb1rIs4hQXfCADcyJJkPHi
+	QXVf7HXF2D5vSYeAsf/r/7k4j3gJcUkBMfXm2XsW1IIM9CV8rsqMrDhqs16qVaI57FWpgv3enHWRt
+	i68T714JISslNxAbRruk/MKVX7TS3KGdShl9UYXwO2riM/bBiqwv62/DgrY77YfbxFPCcu0/okBnQ
+	B0pniri4/Nmg9gbmHcPAzBDam664P84QeAALGSqyfR/9z8fUYFaNvYcZQpzPS4W4F6K0f2Y18WgwZ
+	7jpyeuu2MABnoMW07PgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUmvH-00000001MDk-2Z2h;
-	Mon, 06 Jan 2025 13:13:35 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1tUmwQ-00000001MOi-31Bb;
+	Mon, 06 Jan 2025 13:14:46 +0000
+Received: from buffalo.ash.relay.mailchannels.net ([23.83.222.24])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUmYO-00000001HtV-1p9U;
-	Mon, 06 Jan 2025 12:49:58 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2165cb60719so208201065ad.0;
-        Mon, 06 Jan 2025 04:49:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20230601; t=1736167796; x=1736772596; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=uNEZk5ddA3ly0m7I4Ts+PZ2QcYJquoLTFQCrFxQhjcE=;
-        b=TnJgu7U3J/NwpC9gnLT3ug12l4UzaWLk3UZwI3brHKG/VauycyUN0t/6AiRN4c8B07
-         LeIbaqY3xWUuOBDFyQoRxxEDdu5QHtA+wqS6JSIePSaBvIptB5FgTq1KIzVFVoiHJHEb
-         B5+t9+q0ogpwAGRXZykgZHgnebd2j14KRv8fRUMWqRhXwovXCEK2YFUIb4WdyA5dJpDA
-         9drj4GBWZInZqUxztZ6HNTGlIqpMcmWU9j22nAnZTbK2B4KoHev6isng5DStBbO4qUo5
-         Ftu9OFSMA9pOMTVp1vN4TW+IdrU2wtnlAroDfAkSEg1JOFbCx6QRklzdcUOs5LyokISU
-         Zu+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736167796; x=1736772596;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=uNEZk5ddA3ly0m7I4Ts+PZ2QcYJquoLTFQCrFxQhjcE=;
-        b=AqF5BOl/OhX6V0m5FHIYqgHpwf3rXH7SZnMvZK8Nynwc0BJNYURP3EmBPf2niADF8F
-         Dm/gsw10Fcjojzbj3CZrz/RFi9ZCvI+YVlLDyMSkAwiAR1DRxQF0mTPP3oeYAK4Rh3ac
-         JWcqL1wdjlRs+dsrgp/f7wmhLEbJmGVC/vQFDP4tflARDiZ2F+Eww8uoH9NEzo/7Iuag
-         wCMiSx6urnuy5Bp4rQs17QE+HIoVMQL9pr99PgZArYVS6nsuAIVTRHSHuBHpCced+f6L
-         wLwPhHAngI83IwOBG5gecAKn9uN0LfMwvSO1EBEaMe+52UWQMJrb+C/q1xeusUPevSQq
-         OUdg==
-X-Forwarded-Encrypted: i=1; AJvYcCWhpDEbqsrSmkVVw0NeIdWwXywvYtacMmOgEkojOQvqQBd7zvBbwvCjouB9ddWHah0YNdjXc5YrZ8y59Jz93ppa@lists.infradead.org
-X-Gm-Message-State: AOJu0YzGDtqkTS2JvLqO02p9TNdEq7QIIntcIuKxXqms0wTKijU1px2p
-	iQYuLGsrCmab1B6av/H5VRMBdmyszufHMEIUHPgcITRRfWznEd1AVXDxeVyAlRA0EjsIyLBoZXN
-	T/Dm55KmYdQ20jhfKUu+BC0l8S6w=
-X-Gm-Gg: ASbGncuLVrhQRbgIoRnq5oWdmuV5STd7MhOTYHCEkBU1QDFYDOByQUKRYhQq55aDTR5
-	6c3FwFERZ+LY2nrD+4jsuKPf2YiDKjzWy37PPqvywrDvQdIBeDleF
-X-Google-Smtp-Source: AGHT+IEiBsuTS3ff1IHORBHdNPZnr464pawYcL5M4FmA7wQd0hDWTnZA/P5tSzmClXti0ljt5D65N86rEgJnLxZ2pCs=
-X-Received: by 2002:a17:902:ef08:b0:20b:6d82:acb with SMTP id
- d9443c01a7336-219e6e9f521mr786531895ad.23.1736167795584; Mon, 06 Jan 2025
- 04:49:55 -0800 (PST)
+	id 1tUmkL-00000001Jqj-19v7;
+	Mon, 06 Jan 2025 13:02:19 +0000
+X-Sender-Id: hostingeremail|x-authuser|chester.a.unal@arinc9.com
+Received: from relay.mailchannels.net (localhost [127.0.0.1])
+	by relay.mailchannels.net (Postfix) with ESMTP id 885B51641B7;
+	Mon,  6 Jan 2025 13:02:08 +0000 (UTC)
+Received: from uk-fast-smtpout8.hostinger.io (trex-7.trex.outbound.svc.cluster.local [100.109.217.170])
+	(Authenticated sender: hostingeremail)
+	by relay.mailchannels.net (Postfix) with ESMTPA id E86D2163474;
+	Mon,  6 Jan 2025 13:02:04 +0000 (UTC)
+ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1736168528; a=rsa-sha256;
+	cv=none;
+	b=+MGFwFRWxGnQkdzbUusmcuVsKaD6FqRQXym6aYXyqLZrJRseAwcgfWxW+3Sw03NgXcqS+W
+	OzCA3ZMkNwUy9aQfJhDxAIHQ7tMmoHgeJohGMr01IeAkaAHaDU+7kbmWtY23kbxvbtwUDT
+	gAmYCVppbOHkrdoJ7Ir9eI0Uuln3wxvExZOF4kMjLYLyoOKDf4UcsqGODojujtqeoZRT9I
+	uJFviwW6+4tickeFoKHvAa+OYL1opLkKeN7KtxZqrcJC9NdzUcJkOUGW/tkplYESVgJedc
+	cjGG9wL9vJo0hlcepBjQ/sxt6nokilD/mNGcU6Tpi89P+ckUK5fSdA6907qXpA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mailchannels.net;
+	s=arc-2022; t=1736168528;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:dkim-signature;
+	bh=AcDSjeks6TlFjnGYIqpnkk+EjNYuhIl6j1UVmh3/ZuE=;
+	b=uENe8QvJ9Lf5GumSpe8pye6l/HupodHK+lj90nHD65kAIdsfs0Edv3phRhro72yLJJY/ne
+	T+wzaY6TnEWY7y7vtFm/vyQXDNVN6sp+Ape8jz+fVi7YbRwnr6X2QXKDsDYdhn4yg68XM6
+	xAJbKAv/c41/NifN+Ny83P3R0hcySfytwpEWKRijGXnmHaD7T0E5dO7GrEkdkpWYMac1YH
+	kOx8VtlGrM7Bc6FUecdEvQ+SjnYW4+sYCXlRATTucZUlDNfK2ACQ1yguC9WUduugIALV7p
+	+muQ7tM8XKk/ojJHgtiT9CtvG1GQjLOm+5Ej5sGqbAwQbfzg60kKJ/WOOgmR3g==
+ARC-Authentication-Results: i=1;
+	rspamd-7c48484bf8-vlhwn;
+	auth=pass smtp.auth=hostingeremail smtp.mailfrom=chester.a.unal@arinc9.com
+X-Sender-Id: hostingeremail|x-authuser|chester.a.unal@arinc9.com
+X-MC-Relay: Neutral
+X-MailChannels-SenderId: hostingeremail|x-authuser|chester.a.unal@arinc9.com
+X-MailChannels-Auth-Id: hostingeremail
+X-Company-Spot: 7ca0a4c92aa3c7f7_1736168528359_1456431916
+X-MC-Loop-Signature: 1736168528359:626636087
+X-MC-Ingress-Time: 1736168528359
+Received: from uk-fast-smtpout8.hostinger.io (uk-fast-smtpout8.hostinger.io
+ [31.220.23.88])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
+	by 100.109.217.170 (trex/7.0.2);
+	Mon, 06 Jan 2025 13:02:08 +0000
+Message-ID: <bd07fea7-2473-458a-b0f2-f03afb6a8b32@arinc9.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arinc9.com;
+	s=hostingermail-a; t=1736168522;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=AcDSjeks6TlFjnGYIqpnkk+EjNYuhIl6j1UVmh3/ZuE=;
+	b=mlJ8qwQ5EvPAxtT10MwR1IlP8+211LJMFdbtycwM2pmJc48WD+M2zl6DiEc8LcNvo+Yypd
+	pddR5brQ+rQhMO6B4W23cvPjsaC+p0TEsW4fV8hg7Q1zs26KbDBg3RZFyfpq3YK76jCxtt
+	XTc+P5pKb0rsHr4TCAIdc8QEgXI9x5JE96+bMMYv3JEj7vE1cYC9aHyYLcv4FvfQ2ikL4j
+	HJX7ZnskyC5Ti5+qE3c7X/cX9y/VGkHf9pCEWKp8oBjC3iO9/N/W+ts2kpDbY147l307YX
+	fGidqp2ejtV2dH6X2yFVAJqMjkWmeZaDE1fa7x8Xlgj+ZqCZLNxOqM/gek4AVA==
 MIME-Version: 1.0
-References: <CAFBinCDdiJ3UNVUcShjq=7U2=oUwT3ciYdKSuZ5TdcrikxFBpg@mail.gmail.com>
- <1ja5c4b4rt.fsf@starbuckisacylon.baylibre.com>
-In-Reply-To: <1ja5c4b4rt.fsf@starbuckisacylon.baylibre.com>
-From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Date: Mon, 6 Jan 2025 13:49:44 +0100
-Message-ID: <CAFBinCCAAZHqrKHyfwHPqk9Ki9nDeGFFQfj34ZF58wj+6AjH-g@mail.gmail.com>
-Subject: Re: meson-aiu: HDMI codec .prepare() callback not called
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: linux-amlogic@lists.infradead.org, linux-sound@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	dmitry.baryshkov@linaro.org
-Content-Type: multipart/mixed; boundary="000000000000ba0f07062b09103d"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 2/9] net: dsa: mt753x: remove setting of tx_lpi
+ parameters
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+ Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Ar__n__ __NAL <arinc.unal@arinc9.com>, Daniel Golle <daniel@makrotopia.org>,
+ "David S. Miller" <davem@davemloft.net>, DENG Qingfang <dqfext@gmail.com>,
+ Eric Dumazet <edumazet@google.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, Matthias Brugger
+ <matthias.bgg@gmail.com>, netdev@vger.kernel.org,
+ Paolo Abeni <pabeni@redhat.com>, Sean Wang <sean.wang@mediatek.com>,
+ Simon Horman <horms@kernel.org>, UNGLinuxDriver@microchip.com,
+ Vladimir Oltean <olteanv@gmail.com>, Woojung Huh <woojung.huh@microchip.com>
+References: <Z3vDwwsHSxH5D6Pm@shell.armlinux.org.uk>
+ <E1tUlku-007Uyc-RP@rmk-PC.armlinux.org.uk>
+Content-Language: en-US
+From: "Chester A. Unal" <chester.a.unal@arinc9.com>
+In-Reply-To: <E1tUlku-007Uyc-RP@rmk-PC.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+Date: Mon, 06 Jan 2025 13:01:59 +0000 (UTC)
+X-CM-Analysis: v=2.4 cv=Ft9X/Hrq c=1 sm=1 tr=0 ts=677bd44a a=xjZdIgyYDteOtQQgkZ0oAw==:117 a=xjZdIgyYDteOtQQgkZ0oAw==:17 a=IkcTkHD0fZMA:10 a=PHq6YzTAAAAA:8 a=GvHEsTVZAAAA:8 a=4-z7pJFQCo3YSGV8thMA:9 a=QEXdDO2ut3YA:10 a=ZKzU8r6zoKMcqsNulkmm:22 a=aajZ2D0djhd3YR65f-bR:22
+X-CM-Envelope: MS4xfH9N1taU54asjLrGreSAV/TehiAi7J06EL3eyr/omZSHO8gLmfXKXvQ5bOAI2GJNp5Npok24rRkRfxgEZNYsmmuhu8FmWE96hejcxZi+ChZckJwfPgNK s4fCUM7Wi67jRRhPpmSjwaVPjlzvSDdUx2m0p6yaZgk0lCNF7Hz64D/AOFixAu7ioUOISioX6JPE+EOS0yHgjPVdp3Sh2mqg/3YuRrZbwMHQp0jagjrugYYc sgtyMCkI5Vpw9XC82MXAL228DXBQwubpDkKil5EqUTNp1GoCW4WsYZh7cDotLi/gAO11PwmeDq7QbZ0hWkc+zU3e4S8yCVfPAbYR+ynCb71QtDDEj226R7rj Xg6R6WNbu+GIMDVy9k491mo7mhPaMgudWViHLoxb7wYyseo1t/QO5mPyXv3HjNUL61iJsfwTKPJFW6rTCVzHiVw4Jgo1zHRjEb0MDmZN9tR/jZL2jXbhBkC/ 4zJiaw+ToNXTy4WJPt7UEW2LIYIVnh2nSFhHeiFFZbuBuHTVfOJRNSbyzme7318sbFkKy6IB/ufPRZgKd1XLi+Gpp/TtKvaPJDaRP/3mbRi0HndNpHw5d1T4 8U43j1IYQCYeUjqixfpWbKUQeYYYmzkhYv1Ik7NIK6OzNuIgnc76BYguUhWSsM/C77mrORhSp6DSBFTUl+5bce1PKQnYLdaSFpfEqK+oWaNBB0NbcfFFarYe NiuDv58o7r214sFoVRLYmMbXv6su2hgPKTRRsI/2eA29uzpwYwq4wMbZMl0ompHn+/0xLhmgyM98LM20HDur7Ws6CwiV944ypBhargPWj5vsaslDuvYZavb9 poABEHzwWaHz2/JPKVXW33ZHo8Yg1AlF8PY9332wLdC0XU+2NTdOJx37ZW+Z2HwPY8Pmv9ouPq+/z94dBX8=
+X-AuthUser: chester.a.unal@arinc9.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_044956_558755_458DA7FF 
-X-CRM114-Status: GOOD (  22.69  )
+X-CRM114-CacheID: sfid-20250106_050217_716378_6455E241 
+X-CRM114-Status: UNSURE (   6.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,99 +128,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---000000000000ba0f07062b09103d
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+On 06/01/2025 11:58, Russell King (Oracle) wrote:
+> dsa_user_get_eee() calls the DSA switch get_mac_eee() method followed
+> by phylink_ethtool_get_eee(), which goes on to call
+> phy_ethtool_get_eee(). This overwrites all members of the passed
+> ethtool_keee, which means anything written by the DSA switch
+> get_mac_eee() method will be discarded.
+> 
+> Remove setting any members in mt753x_get_mac_eee().
+> 
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-Hi Jerome,
+Reviewed-by: Chester A. Unal <chester.a.unal@arinc9.com>
 
-On Mon, Jan 6, 2025 at 11:44=E2=80=AFAM Jerome Brunet <jbrunet@baylibre.com=
-> wrote:
-[...]
-> > I have further verified that the gx-card parsing does find the HDMi
-> > controller and links it correctly.
-> > To me it's odd that only the .prepare() callback is not called, all
-> > others (as mentioned above: .hw_params, .startup, ...) are working
-> > fine.
->
-> I think the problem you are seeing comes from the quirk of
-> codec-to-codec links. The hdmi codec link is such a link on Amlogic
-> because further digital routing is required after the backend.
->
-> Those type of links are not used much beside some
-> CPU offloading on Samsung and Amlogic, as far as I know.
-> It is possible, even likely, that things are still missing there.
->
-> So those C2C links are operated by the DAPM events, not the regualar
-> ASoC code. You can start here:
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/s=
-ound/soc/soc-dapm.c#n3995
-Thank you - that is indeed the root cause!
-
-> You'll see that .prepare() is not called, same as .trigger()
-> That should propably be fixed :/
-Since I'm still very much clueless about all of this I just came up
-with an experimental patch. Any feedback on it is welcome (I can send
-it as RFC patch - but prepare for me needing support).
-With the attached patch I now see hdmi-codec's .prepare callback being call=
-ed:
-$ speaker-test -c2
-
-speaker-test 1.2.13
-
-Playback device is default
-Stream parameters are 48000Hz, S16_LE, 2 channels
-Using 16 octaves of pink noise
-Rate set to 48000Hz (requested 48000Hz)
-Buffer size range from 128 to 262144
-Period size range from 64 to 131072
-Periods =3D 4
-[   42.043413] hdmi-audio-codec hdmi-audio-codec.0.auto:
-hdmi_codec_hw_params() width 16 rate 48000 channels 2
-[   42.047916] hdmi-audio-codec hdmi-audio-codec.0.auto:
-hdmi_codec_prepare() width 16 rate 48000 channels 2
-
-
-
-Best regards,
-Martin
-
---000000000000ba0f07062b09103d
-Content-Type: text/x-patch; charset="US-ASCII"; name="soc-damp-call-prepare.diff"
-Content-Disposition: attachment; filename="soc-damp-call-prepare.diff"
-Content-Transfer-Encoding: base64
-Content-ID: <f_m5l1ck5a0>
-X-Attachment-Id: f_m5l1ck5a0
-
-ZGlmZiAtLWdpdCBhL2luY2x1ZGUvc291bmQvc29jLWRhaS5oIGIvaW5jbHVkZS9zb3VuZC9zb2Mt
-ZGFpLmgKaW5kZXggYWFiNTdjMTlmNjJiLi5hMTE1MDE3NTI2MzcgMTAwNjQ0Ci0tLSBhL2luY2x1
-ZGUvc291bmQvc29jLWRhaS5oCisrKyBiL2luY2x1ZGUvc291bmQvc29jLWRhaS5oCkBAIC0xOTMs
-NiArMTkzLDkgQEAgaW50IHNuZF9zb2NfZGFpX3NldF9jaGFubmVsX21hcChzdHJ1Y3Qgc25kX3Nv
-Y19kYWkgKmRhaSwKIAogaW50IHNuZF9zb2NfZGFpX3NldF90cmlzdGF0ZShzdHJ1Y3Qgc25kX3Nv
-Y19kYWkgKmRhaSwgaW50IHRyaXN0YXRlKTsKIAoraW50IHNuZF9zb2NfZGFpX3ByZXBhcmUoc3Ry
-dWN0IHNuZF9zb2NfZGFpICpkYWksCisJCQlzdHJ1Y3Qgc25kX3BjbV9zdWJzdHJlYW0gKnN1YnN0
-cmVhbSk7CisKIC8qIERpZ2l0YWwgQXVkaW8gSW50ZXJmYWNlIG11dGUgKi8KIGludCBzbmRfc29j
-X2RhaV9kaWdpdGFsX211dGUoc3RydWN0IHNuZF9zb2NfZGFpICpkYWksIGludCBtdXRlLAogCQkJ
-ICAgICBpbnQgZGlyZWN0aW9uKTsKZGlmZiAtLWdpdCBhL3NvdW5kL3NvYy9zb2MtZGFpLmMgYi9z
-b3VuZC9zb2Mvc29jLWRhaS5jCmluZGV4IDM0YmExYTkzYTRjOS4uOGU4MTc4M2U1YmU5IDEwMDY0
-NAotLS0gYS9zb3VuZC9zb2Mvc29jLWRhaS5jCisrKyBiL3NvdW5kL3NvYy9zb2MtZGFpLmMKQEAg
-LTM2MCw2ICszNjAsMTggQEAgaW50IHNuZF9zb2NfZGFpX3NldF90cmlzdGF0ZShzdHJ1Y3Qgc25k
-X3NvY19kYWkgKmRhaSwgaW50IHRyaXN0YXRlKQogfQogRVhQT1JUX1NZTUJPTF9HUEwoc25kX3Nv
-Y19kYWlfc2V0X3RyaXN0YXRlKTsKIAoraW50IHNuZF9zb2NfZGFpX3ByZXBhcmUoc3RydWN0IHNu
-ZF9zb2NfZGFpICpkYWksCisJCQlzdHJ1Y3Qgc25kX3BjbV9zdWJzdHJlYW0gKnN1YnN0cmVhbSkK
-K3sKKwlpbnQgcmV0ID0gMDsKKworCWlmIChkYWktPmRyaXZlci0+b3BzICYmCisJICAgIGRhaS0+
-ZHJpdmVyLT5vcHMtPnByZXBhcmUpCisJCXJldCA9IGRhaS0+ZHJpdmVyLT5vcHMtPnByZXBhcmUo
-c3Vic3RyZWFtLCBkYWkpOworCisJcmV0dXJuIHNvY19kYWlfcmV0KGRhaSwgcmV0KTsKK30KKwog
-LyoqCiAgKiBzbmRfc29jX2RhaV9kaWdpdGFsX211dGUgLSBjb25maWd1cmUgREFJIHN5c3RlbSBv
-ciBtYXN0ZXIgY2xvY2suCiAgKiBAZGFpOiBEQUkKZGlmZiAtLWdpdCBhL3NvdW5kL3NvYy9zb2Mt
-ZGFwbS5jIGIvc291bmQvc29jL3NvYy1kYXBtLmMKaW5kZXggOTk1MjFjNzg0YTliLi5hYzhlZWYy
-MTdkYzQgMTAwNjQ0Ci0tLSBhL3NvdW5kL3NvYy9zb2MtZGFwbS5jCisrKyBiL3NvdW5kL3NvYy9z
-b2MtZGFwbS5jCkBAIC00MDEzLDYgKzQwMTMsMTMgQEAgc3RhdGljIGludCBzbmRfc29jX2RhaV9s
-aW5rX2V2ZW50KHN0cnVjdCBzbmRfc29jX2RhcG1fd2lkZ2V0ICp3LAogCQlicmVhazsKIAogCWNh
-c2UgU05EX1NPQ19EQVBNX1BPU1RfUE1VOgorCQlzbmRfc29jX2RhcG1fd2lkZ2V0X2Zvcl9lYWNo
-X3NpbmtfcGF0aCh3LCBwYXRoKSB7CisJCQlzaW5rID0gcGF0aC0+c2luay0+cHJpdjsKKworCQkJ
-c25kX3NvY19kYWlfcHJlcGFyZShzaW5rLCBzdWJzdHJlYW0pOworCQkJcmV0ID0gMDsKKwkJfQor
-CiAJCXNuZF9zb2NfZGFwbV93aWRnZXRfZm9yX2VhY2hfc2lua19wYXRoKHcsIHBhdGgpIHsKIAkJ
-CXNpbmsgPSBwYXRoLT5zaW5rLT5wcml2OwogCg==
---000000000000ba0f07062b09103d--
+Chester A.
 
