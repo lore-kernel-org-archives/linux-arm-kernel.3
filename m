@@ -4,70 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA612E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 15:40:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1A95E77198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 15:41:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xIHJ3N6FbqQwLKdBookcSrozPRMb1anppfm1oqShOzQ=; b=iBtuwv91WYhUKnjRJFnK26f/PQ
-	aNcZHOeBYIi0ajhXNYPQbiTLY9gwpan9tUmx66AVqwwNynpY9Ll9sSPsQ+XqySKVeuGkZ29Q2Bwll
-	JvSFu6VCg31xfDXXJHexC8/UwReg46EbvTy8iJaR+KkQDwtda/l+SRUQZh80J98MXY2JWZ0GwCUYH
-	GLm+ZCYo2+LD/2BuVhEJZYCvAuaH007Q5rLgAcKfV53ET8O2rbadz8/AgtXQzNzYlqdozaKBq6bhm
-	PoSysP8b8+4bIGpOXG5AgGLnJwoRDL6c2HP6c3MhWW/wBCxytzJt8kJpaM7wEdUTo+0MhHSy2DVZk
-	8R90dhlg==;
+	bh=Tl7b9/uRfU9PjT0DsfX4Aw1ecJNaqnOdlVBiZttQ580=; b=mF891z/41qfOyav57WBsi/f8Gw
+	vhX1tsln8hSpQW976RmIzLjYPxOxugPkJ8TZjhXsLmwm10/76dOqeDqgTCHYWvdCioSIlJJJJl0/L
+	VTkgne+4cSl+ElhPdpbvzQGR6n3wmOpffnZ5ka9rHIW1Mmm5xWEftkIQc/TbKNBsDfxWOBmh2taSn
+	jGw6/4m+bh4b3dIPqCESKelMcB1nzmQburWvVNftBinR87OhcdZi9HJg6G6iyUJ7LTp5n60xTYeEj
+	VT665/lyLs6n1HEtiCnj4E8JxWzTH54NqRbgmCsM8POh9Eb0bq3s57Rx2jah/TufeGUKEz35yuRcK
+	f6t5KPHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUpCn-00000001nyb-3xj3;
-	Mon, 06 Jan 2025 15:39:49 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tUpDx-00000001oEU-3sxD;
+	Mon, 06 Jan 2025 15:41:01 +0000
+Received: from mx.denx.de ([89.58.32.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUpBc-00000001nlB-08rV;
-	Mon, 06 Jan 2025 15:38:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=xIHJ3N6FbqQwLKdBookcSrozPRMb1anppfm1oqShOzQ=; b=AdRV+Zs1KfV5w9RyuCicb7IK1Z
-	+PMU7vNfSRy8IV6SFLlggCMXeDf6Pmh2ruBGN8/XD9X/5CVAX2Uu6h269MkPrGjrbYMrOz5Uv0YEl
-	UKa4HhfRoTnXZDDMfHmkOhWbEAXP2rktYfQJlWoi+IO1sf+aBB4F5Wki1f92TDZ0YvKoUsaew85Ky
-	TOcws2XXplYBLYjrIYD8IwJ7zafd4j3xjZLxKhtCpx/uX8nNqmw5TqWcNO8QmNGBUzHIjKYTd7HC1
-	avLKuunwyzsToQwCMMPkiCi6JQz4Xx5WuzM2bM3Pnc/Jft4bqB6TAhpxD+06DIpBnflsSSjW0rdIl
-	h/csPflw==;
-Received: from i53875aad.versanet.de ([83.135.90.173] helo=localhost.localdomain)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tUpBQ-0006Va-4T; Mon, 06 Jan 2025 16:38:24 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: Andy Yan <andyshrk@163.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	krzk+dt@kernel.org,
-	mripard@kernel.org,
-	robh@kernel.org,
-	hjc@rock-chips.com,
-	devicetree@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	Andy Yan <andy.yan@rock-chips.com>
-Subject: Re: [PATCH v2 0/3] Add HDMI support for rk3576
-Date: Mon,  6 Jan 2025 16:38:11 +0100
-Message-ID: <173617782282.2587484.17610708009808824460.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20241231094425.253398-1-andyshrk@163.com>
-References: <20241231094425.253398-1-andyshrk@163.com>
+	id 1tUpC5-00000001nq5-25tW
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 06 Jan 2025 15:39:06 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9378A104839FD;
+	Mon,  6 Jan 2025 16:38:56 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1736177942;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Tl7b9/uRfU9PjT0DsfX4Aw1ecJNaqnOdlVBiZttQ580=;
+	b=J5Bc69JMzDz1JGBjuEG8POURFwwohBsDV7iwgOJ1wM64dUyGP6zajsQ6sN7IaumEBx7r0F
+	nEJl0cgtzI1qwksNgBWfJvNPAvXxpK194rKZVz/hdnC4WxFnFvuPFAE+z3xhFug+QpQM/Z
+	Q/PLZVVd5CP42opCzvcJIfGc+9+QMnLMehgMxhuAa9PS7XHP3EOYv9/rwbFwJPPqV9fgc8
+	1HZuAoufbXSdN5mmeS2727iCE0O8p+K6TaeNgWvGOM7GKRVJQY2/cEbe3cDQGVoc0TYW/I
+	+Gcf7cb6MwcgzFx3dXF92m2G9EQYJl65yJ28iIxwPBV11o2+4bwRePnTdHNWmg==
+Message-ID: <add68d4c-51d8-4c1a-9560-7c95213dd524@denx.de>
+Date: Mon, 6 Jan 2025 16:36:26 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/4] drm: bridge: dw_hdmi: Add flag to indicate output
+ port is optional
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: dri-devel@lists.freedesktop.org, Andrzej Hajda <andrzej.hajda@intel.com>,
+ David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Jonas Karlman <jonas@kwiboo.se>,
+ Liu Ying <victor.liu@nxp.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Robert Foss <rfoss@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Shawn Guo <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>,
+ Stefan Agner <stefan@agner.ch>, Thomas Zimmermann <tzimmermann@suse.de>,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+References: <20250105190659.99941-1-marex@denx.de>
+ <20250105232219.GC21164@pendragon.ideasonboard.com>
+ <a783fe47-89dc-479b-8e85-f956d95cf404@denx.de>
+ <20250106070514.GA5568@pendragon.ideasonboard.com>
+Content-Language: en-US
+From: Marek Vasut <marex@denx.de>
+In-Reply-To: <20250106070514.GA5568@pendragon.ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_073836_091077_EA95231B 
-X-CRM114-Status: GOOD (  11.78  )
+X-CRM114-CacheID: sfid-20250106_073905_688709_B12F4502 
+X-CRM114-Status: GOOD (  14.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,34 +87,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Tue, 31 Dec 2024 17:44:16 +0800, Andy Yan wrote:
-> RK3576 HDMI TX Controller is very similar to that of RK3588, but with
-> some control bits for IO and interrupts status scattered across different
-> GRF.
+On 1/6/25 8:05 AM, Laurent Pinchart wrote:
+> On Mon, Jan 06, 2025 at 03:48:52AM +0100, Marek Vasut wrote:
+>> On 1/6/25 12:22 AM, Laurent Pinchart wrote:
+>>> Hi Marek,
+>>
+>> Hi,
+>>
+>>> Thank you for the patch.
+>>>
+>>> On Sun, Jan 05, 2025 at 08:06:03PM +0100, Marek Vasut wrote:
+>>>> Add a flag meant purely to work around broken i.MX8MP DTs which enable
+>>>> HDMI but do not contain the HDMI connector node. This flag allows such
+>>>> DTs to work by creating the connector in the HDMI bridge driver. Do not
+>>>> use this flag, do not proliferate this flag, please fix your DTs and add
+>>>> the connector node this way:
+>>>>
+>>>> ```
+>>>> / {
+>>>>       hdmi-connector {
+>>>>           compatible = "hdmi-connector";
+>>>>           label = "FIXME-Board-Specific-Connector-Label"; // Modify this
+>>>>           type = "a";
+>>>>
+>>>>           port {
+>>>>               hdmi_connector_in: endpoint {
+>>>>                   remote-endpoint = <&hdmi_tx_out>;
+>>>>               };
+>>>>           };
+>>>>       };
+>>>> };
+>>>>
+>>>> &hdmi_tx {
+>>>>       ...
+>>>>
+>>>>       ports {
+>>>>           port@1 {
+>>>>               hdmi_tx_out: endpoint {
+>>>>                   remote-endpoint = <&hdmi_connector_in>;
+>>>>               };
+>>>>           };
+>>>>       };
+>>>> };
+>>>> ```
+>>>
+>>> Are there any in-tree DT sources that use the old bindings ?
+>>
+>> See
+>> https://lore.kernel.org/dri-devel/AM7PR04MB704688150ACD5D209290246A98092@AM7PR04MB7046.eurprd04.prod.outlook.com/
 > 
-> PATCH 1/3 is add platform ctrl callback for IO setting and interrupts
-> status handing.
-> PATCH 2/3 ~ 3/3 are add support for rk3576
-> 
-> [...]
-
-Applied, thanks!
-
-[1/3] drm/rockchip: dw_hdmi_qp: Add platform ctrl callback
-      commit: 3f60dbd40d3f7aca312d1aa1131e204eb97a68b3
-[2/3] dt-bindings: display: rockchip: Add rk3576 hdmi controller
-      commit: 3a5981b65f77bfb8abcc6f29c13f1b89ce9df3a3
-[3/3] drm/rockchip: Add basic RK3576 HDMI output support
-      commit: 36439120efbdc62e2f47053e7ddfcc4e34364640
-
-I've fixed some minor stuff
-patch1: my review nits (empty line + hardird)
-patch3: drop Detlev's Signed-off
-patches1+3: fixed some more checkpatch warnings
-
-
-Best regards,
--- 
-Heiko Stuebner <heiko@sntech.de>
+> Maybe I'm missing something obvious, but where is the patch series that
+> moves the DT sources mentioned in that mail thread to the new bindings ?
+Since this optional flag is added, that DT update series can be done 
+separately.
 
