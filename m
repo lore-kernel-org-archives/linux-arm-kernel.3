@@ -4,121 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DCE1E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 12:51:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F504E77198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 12:52:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h/BOtDPz3bGhLJwJKs/Io5emPw1W+INRfJn6qEQ+NWc=; b=FcFTLkxJhrrhMI1A7Ph2qWvp91
-	v+Ai1TKGowdLvEuIF92QvJ8vumknfBjay+9r2MfB+4a9E+bMc7Sb9NXQvub1AahUolG1nRDy6wTNy
-	iK5wSNx6GCl3A4mz6JhcSIphisGALAkDgaZPy4nqksCPgS6qO61WIvJckXUG2pb0JvmaCSO2othQn
-	cG6T2e9XNP8CQafMmapXIe/EP4HqYcopSR09//XdU1eEMLLPNx1N48QlGAq7DsnNMZwmb3UuCbkrs
-	o5dOM/ldWwzmZoIh58eXqQsq+fR/SGRJjbwRxn6NCKKqjg8dwKQrz3qYcwYPwWITVllDfWznyvz1d
-	pDoSaFjg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FaE6jA7/9ttNgKRSpfqIqxN/gQu26rH/PYdcqquPoas=; b=l1F9Cs46AwdrUfCZ8DsD9uU2Ie
+	sVhftQwBwf201MekJd2LO4Ytz5/4dh4/DLT0/UjKEaC3aPtUUw4x3s0MGDp99v8PuM3bHx4mD7alZ
+	THcI+TN8tJ77BInp0mqr2bIsUSXCEJc9ubgxiecL7OCWgyzPqgIM6pTxQkdl708Be49YW6uoyhq3t
+	z4w/fzl3dUHtVd9YRhs3vqKGUWgAUZb4R85XsK7um2ehjMRO9NcUuxHh7vp0pYuShpPGu8sak3zgX
+	1QnmihiLeQuyz08/Pt4m+/Kvtc6k3RO3jepDsEmDwMEWn1CflZVGQVeJws+Tyy0qx82WNlvt0YNsp
+	NFjHf7rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUmZO-00000001IGv-1AQV;
-	Mon, 06 Jan 2025 12:50:58 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tUmaY-00000001IcQ-0zRU;
+	Mon, 06 Jan 2025 12:52:10 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUmD3-00000001Dgi-2Zrc;
-	Mon, 06 Jan 2025 12:27:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E27CAA4169D;
-	Mon,  6 Jan 2025 12:26:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E66EC4CED2;
-	Mon,  6 Jan 2025 12:27:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736166472;
-	bh=h+O24JtZ3TfRLhv7+XOof/7y2A0nsspfqjh9AFtWnQU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ZpA0W1Dn0adQffp0rRzYA3Cnng24NfJuxeNCBxMBx0o4r9bfN5HFNK1W3N1FCuxbB
-	 yJnMK2cL8DjRYh/KY/6g22xs60MFwAsMb9Kv7tDb50cjwX5rDy0ZNiI7bOYP3nwee2
-	 xNM488r+G9r7bJly/D3PXD01SIkAo1d4IhRLyoF+X4WX8b0hgL+MIohIESjUm2Mhil
-	 DBIiXRzUvlLPZmr6wtsMjIXbV9mozcTKqalJjVsAdKpiHef32ve58LVXtGeXItm3yy
-	 49mgeQv5b/AnVpe8dNYHMGbMJQG/I0vgfsF/RZlk4te2fVaUVr/4rkVdyI09EYUuKf
-	 lej8aPDdnH2wg==
-Message-ID: <eb2088d3-81f6-4cb8-a4d7-6ef985aedbda@kernel.org>
-Date: Mon, 6 Jan 2025 13:27:43 +0100
+	id 1tUmDY-00000001DpJ-0Pld
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 06 Jan 2025 12:28:25 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-21683192bf9so201674585ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jan 2025 04:28:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1736166503; x=1736771303; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=FaE6jA7/9ttNgKRSpfqIqxN/gQu26rH/PYdcqquPoas=;
+        b=LJnwYq8UEyRQW8nsMAko748lzgq2pugX3HJQiK56Vl8MiM805YoCYW6f7wRkaO+U7x
+         xgUG+tYCNVtz6ddkYHQCx3YnFERAjeS6a2Vmzrb4MpZr9xsChowx5+agWL7IupzS/4xA
+         uX7uN5mGJ5jQstAd3YtBk65tNmAaAXhxlLSCfLwkVPNi21eoylmSnz5tSSGddfKjdATA
+         jaQo17AG4tgVKKwzC/mpfUT/7QVwtIaIKIQcHmHneDhIaGSKT+E4fu58hNb0X/sUl6Ih
+         bwq8DVGH5S8JYuOEeXj9P7K3j1LTgQGm4ka726/+2/aMzM2UV4owqo0MN8V4XjmjftJJ
+         E8yQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736166503; x=1736771303;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=FaE6jA7/9ttNgKRSpfqIqxN/gQu26rH/PYdcqquPoas=;
+        b=eozfVQFq9uJJOpPrRzzYmq8uvRmQHHCYNGfMPV0s8b+BBrEoaGOZftExsAzjywjzT+
+         QMRX7a7YBykSFydWBMdFMLDpcLFp+Qca5TrNAeqn0i6kI30WvPjkfty/CQb5VuUzqTOv
+         D2jAP5x6koK9hmEhPdyzNbolvPWEjb0koc+umTy1sSj+tMd4r2Gnelna8B2SUYSHs3RB
+         VcYvLP7WWI1ElmCGC2XjBYLni0rijNDFDfSolaCP+d2yexUMPwZrX/7BOgyH9zP96HUc
+         gE7qO034adanyqahdXXDvk7TjV1ByejyLRxrPZrMu40x93u4pPbP7LzotRz0wmgZrXFK
+         7aTg==
+X-Forwarded-Encrypted: i=1; AJvYcCVUo/QiHKsWhA79EuXbouucx3Dm/0DiYg+e9XETYHPZIfbu5sBVgSJecrmZDh6Zr+qBTzSlarhYjPQLsJ0RSpkB@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz6VBSpZvNVCcSf0xI9XTVQlE8GYERpDYIa6a29/JSXbx66XTiE
+	ebLcCkXc86gF4n/R/cYw1x8TwzjmzaIJLhgfxFXsDJAIPleaCvpZEprul42RxPM=
+X-Gm-Gg: ASbGncuogx006lcYxZLzu1MEEDxLsG3rBNQLO+cU5F9RAAdyluxo3s02EWgaxT5pENT
+	NkHYnvbzjgALaY+K1KvNCfEqZMD6enDs+XPJp5yT6Wq9WIPm/eLjv74s39AOGKw7gFu4g5Ov7/z
+	+zab4jEXHQfgbFYM8x8J41CB2XSxng4tBR9+fb91dPXJPgURTpFmoQ1IltlgqAeom6n9qgwbqcT
+	ZZXC+sBoU4sqMXqOHSmOU5L5+46XzHapwylYG9wdcgVIW52av4O+4rNog==
+X-Google-Smtp-Source: AGHT+IEtmv/rpXen4PxhtrgIHjNBw796XJqJRJF2YmhT/CZwKLvKOi2KzJX4cOgtxTYNo+/18MSJDw==
+X-Received: by 2002:a17:903:2345:b0:216:4e8d:4803 with SMTP id d9443c01a7336-219e70bf2e8mr696777205ad.42.1736166502616;
+        Mon, 06 Jan 2025 04:28:22 -0800 (PST)
+Received: from nick-mbp.. ([59.188.211.160])
+        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-219dc9650bcsm292678655ad.39.2025.01.06.04.28.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 06 Jan 2025 04:28:22 -0800 (PST)
+From: Nick Chan <towinchenmi@gmail.com>
+To: Hector Martin <marcan@marcan.st>,
+	Sven Peter <sven@svenpeter.dev>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Nick Chan <towinchenmi@gmail.com>
+Subject: [PATCH v7 00/11] Add PMGR nodes for Apple A7-A11, T2 SoCs
+Date: Mon,  6 Jan 2025 20:26:17 +0800
+Message-ID: <20250106122805.31688-1-towinchenmi@gmail.com>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/5] dt-bindings: PCI: mediatek-gen3: Add MT8196 support
-To: =?UTF-8?B?Smlhbmp1biBXYW5nICjnjovlu7rlhpsp?= <Jianjun.Wang@mediatek.com>
-Cc: "linux-mediatek@lists.infradead.org"
- <linux-mediatek@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- =?UTF-8?B?WGF2aWVyIENoYW5nICjlvLXnjbvmlocp?= <Xavier.Chang@mediatek.com>,
- "manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "robh@kernel.org" <robh@kernel.org>, "kw@linux.com" <kw@linux.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "bhelgaas@google.com" <bhelgaas@google.com>,
- "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Ryder Lee <Ryder.Lee@mediatek.com>
-References: <20250103060035.30688-1-jianjun.wang@mediatek.com>
- <20250103060035.30688-2-jianjun.wang@mediatek.com>
- <ndj6j2mmylipr7mxg42f3lcwgx55cvcjnuuofmlk6n6t5uz5pr@bxugolyfublc>
- <04ae2a07e2c2d3c03e82596034b1b7711450a0ae.camel@mediatek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
- QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
- gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
- /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
- iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
- VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
- 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
- xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
- eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
- AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
- MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
- Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
- ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
- vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
- oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
- lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
- t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
- uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
- 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
- 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <04ae2a07e2c2d3c03e82596034b1b7711450a0ae.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_042753_785668_3998166D 
-X-CRM114-Status: GOOD (  14.15  )
+X-CRM114-CacheID: sfid-20250106_042824_139906_B93B672B 
+X-CRM114-Status: GOOD (  14.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,46 +101,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/01/2025 10:26, Jianjun Wang (王建军) wrote:
-> On Fri, 2025-01-03 at 10:10 +0100, Krzysztof Kozlowski wrote:
->> External email : Please do not click links or open attachments until
->> you have verified the sender or the content.
->>
->>
->> On Fri, Jan 03, 2025 at 02:00:11PM +0800, Jianjun Wang wrote:
->>> +        clock-names:
->>> +          items:
->>> +            - const: pl_250m
->>> +            - const: tl_26m
->>> +            - const: peri_26m
->>> +            - const: peri_mem
->>> +            - const: ahb_apb
->>> +            - const: low_power
->>> +
->>> +        resets:
->>> +          minItems: 1
->>> +          maxItems: 2
->>> +
->>> +        reset-names:
->>> +          minItems: 1
->>> +          maxItems: 2
->>
->> Why resets are flexible?
-> 
-> There are two resets, one for MAC and another for PHY, some platforms
-> may only use one of them.
+This series adds the PMGR nodes and all known power state subnodes for
+Apple A7-A11 SoCs, along with the associated dt-bindings.
 
-Even more questions. What does it mean use? Is it there or is it not?
-Platform like SoC? But this is one specific SoC, it cannot be used on
-different SoC.
+Dependencies:
+- Split s8000/s8003 SoC DTS files
+https://lore.kernel.org/asahi/20241222172735.145764-1-towinchenmi@gmail.com/T
 
-> 
-> Would you prefer to set the number of resets to a fixed value for
-> specific platforms?
+- Device Tree for Apple T2 (T8012) devices.
+https://lore.kernel.org/asahi/20241222173240.147675-2-towinchenmi@gmail.com/T
 
-Everything should be constrained to match hardware.
+Changes since v6:
+- Now arch/arm64/boot/dts/apple/s800-0-3.dtsi builds, somehow this went
+under the radar this whole time... a bad merge after the bad rebase
+made this not noticed earlier.
+
+Link to v6: https://lore.kernel.org/asahi/20241222173750.148071-2-towinchenmi@gmail.com/T
+
+Changes since v5:
+- Rebase the series such that splitting s8000/s8003 device trees is the
+first patch to be applied. Now this series depends on Apple A9 device
+tree being split, and the T2 SoC PMGR nodes are added in this series.
+
+Link to v5: https://lore.kernel.org/asahi/20241203050640.109378-1-towinchenmi@gmail.com/T
+
+Changes since v4:
+- Use imperative mood in commit messages.
+
+Link to v4: https://lore.kernel.org/asahi/20241201161942.36027-1-towinchenmi@gmail.com/T
+
+Changes since v3:
+- Add "apple,always-on" property to "ps_spmi" in t8015 power domains.
+This is required for cpufreq to function correctly which will be added
+in a later series.
+
+Link to v3: https://lore.kernel.org/asahi/20241122095136.35046-1-towinchenmi@gmail.com/T
+
+Changes since v2:
+- Removed "apple,always-on" property from "ps_pmp" from s8001, t8011,
+t8015 power domains. It is not on at boot. (Mixed up with ps_pms which
+is required to be on)
+- Add asahi-soc/dt back into the subject prefix, missing from v2.
+
+Link to v2: https://lore.kernel.org/asahi/20241102011004.59339-1-towinchenmi@gmail.com/T
+
+Changes since v1:
+- Removed "framebuffer0" dt aliases. It is not standard and not needed.
+
+Link to v1: https://lore.kernel.org/asahi/20241029010526.42052-1-towinchenmi@gmail.com/T
+
+Nick Chan
+---
+
+Nick Chan (11):
+  dt-bindings: arm: apple: apple,pmgr: Add A7-A11, T2 compatibles
+  dt-bindings: arm: apple: apple,pmgr-pwrstate: Add A7-A11, T2
+    compatibles
+  arm64: dts: apple: s5l8960x: Add PMGR node
+  arm64: dts: apple: t7000: Add PMGR node
+  arm64: dts: apple: t7001: Add PMGR node
+  arm64: dts: apple: s800-0-3: Add PMGR nodes
+  arm64: dts: apple: s8001: Add PMGR nodes
+  arm64: dts: apple: t8010: Add PMGR nodes
+  arm64: dts: apple: t8011: Add PMGR nodes
+  arm64: dts: apple: t8012: Add PMGR nodes
+  arm64: dts: apple: t8015: Add PMGR nodes
+
+ .../bindings/arm/apple/apple,pmgr.yaml        |   5 +
+ .../bindings/power/apple,pmgr-pwrstate.yaml   |   5 +
+ arch/arm64/boot/dts/apple/s5l8960x-5s.dtsi    |   4 +
+ arch/arm64/boot/dts/apple/s5l8960x-air1.dtsi  |   4 +
+ arch/arm64/boot/dts/apple/s5l8960x-mini2.dtsi |   4 +
+ arch/arm64/boot/dts/apple/s5l8960x-pmgr.dtsi  | 610 ++++++++++++
+ arch/arm64/boot/dts/apple/s5l8960x.dtsi       |  13 +
+ arch/arm64/boot/dts/apple/s800-0-3-pmgr.dtsi  | 757 ++++++++++++++
+ arch/arm64/boot/dts/apple/s800-0-3.dtsi       |  22 +
+ arch/arm64/boot/dts/apple/s8001-common.dtsi   |   1 +
+ .../arm64/boot/dts/apple/s8001-j98a-j99a.dtsi |  26 +
+ arch/arm64/boot/dts/apple/s8001-j98a.dts      |   1 +
+ arch/arm64/boot/dts/apple/s8001-j99a.dts      |   1 +
+ arch/arm64/boot/dts/apple/s8001-pmgr.dtsi     | 822 ++++++++++++++++
+ arch/arm64/boot/dts/apple/s8001.dtsi          |  22 +
+ arch/arm64/boot/dts/apple/s800x-6s.dtsi       |   4 +
+ arch/arm64/boot/dts/apple/s800x-ipad5.dtsi    |   4 +
+ arch/arm64/boot/dts/apple/s800x-se.dtsi       |   4 +
+ arch/arm64/boot/dts/apple/t7000-6.dtsi        |   4 +
+ arch/arm64/boot/dts/apple/t7000-j42d.dts      |   1 +
+ arch/arm64/boot/dts/apple/t7000-mini4.dtsi    |   4 +
+ arch/arm64/boot/dts/apple/t7000-n102.dts      |   4 +
+ arch/arm64/boot/dts/apple/t7000-pmgr.dtsi     | 641 ++++++++++++
+ arch/arm64/boot/dts/apple/t7000.dtsi          |  14 +
+ arch/arm64/boot/dts/apple/t7001-air2.dtsi     |   1 +
+ arch/arm64/boot/dts/apple/t7001-pmgr.dtsi     | 650 ++++++++++++
+ arch/arm64/boot/dts/apple/t7001.dtsi          |  13 +
+ arch/arm64/boot/dts/apple/t8010-7.dtsi        |   4 +
+ arch/arm64/boot/dts/apple/t8010-ipad6.dtsi    |   4 +
+ arch/arm64/boot/dts/apple/t8010-n112.dts      |   4 +
+ arch/arm64/boot/dts/apple/t8010-pmgr.dtsi     | 772 +++++++++++++++
+ arch/arm64/boot/dts/apple/t8010.dtsi          |  22 +
+ arch/arm64/boot/dts/apple/t8011-common.dtsi   |   1 +
+ arch/arm64/boot/dts/apple/t8011-pmgr.dtsi     | 806 +++++++++++++++
+ arch/arm64/boot/dts/apple/t8011-pro2.dtsi     |   8 +
+ arch/arm64/boot/dts/apple/t8011.dtsi          |  22 +
+ arch/arm64/boot/dts/apple/t8012-pmgr.dtsi     | 837 ++++++++++++++++
+ arch/arm64/boot/dts/apple/t8012-touchbar.dtsi |   1 +
+ arch/arm64/boot/dts/apple/t8012.dtsi          |  22 +
+ arch/arm64/boot/dts/apple/t8015-common.dtsi   |   1 +
+ arch/arm64/boot/dts/apple/t8015-pmgr.dtsi     | 931 ++++++++++++++++++
+ arch/arm64/boot/dts/apple/t8015.dtsi          |  21 +
+ 42 files changed, 7097 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/apple/s5l8960x-pmgr.dtsi
+ create mode 100644 arch/arm64/boot/dts/apple/s800-0-3-pmgr.dtsi
+ create mode 100644 arch/arm64/boot/dts/apple/s8001-j98a-j99a.dtsi
+ create mode 100644 arch/arm64/boot/dts/apple/s8001-pmgr.dtsi
+ create mode 100644 arch/arm64/boot/dts/apple/t7000-pmgr.dtsi
+ create mode 100644 arch/arm64/boot/dts/apple/t7001-pmgr.dtsi
+ create mode 100644 arch/arm64/boot/dts/apple/t8010-pmgr.dtsi
+ create mode 100644 arch/arm64/boot/dts/apple/t8011-pmgr.dtsi
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-pmgr.dtsi
+ create mode 100644 arch/arm64/boot/dts/apple/t8015-pmgr.dtsi
 
 
-Best regards,
-Krzysztof
+base-commit: 657dda2ef61e9b9e7107b672a0c49d2c594508c9
+-- 
+2.47.1
+
 
