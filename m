@@ -4,60 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3124FE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 13:10:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51D05E77198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 13:11:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MXSIo0uKgCaA9dGNhZ0Opg2XC/JK5S+K0oyVOi7L6G8=; b=hhO8SwOkG3/McH6AVVMLtdQ4oi
-	3es8oVYOOpF/PwDU4wDnxHPevj55bhBgWTHOVl6Oj4C0qEjJISuxthvdCb4RUtsfvEY6xL+Bd3LRn
-	fPI5+BfRDzn3NuCCLitvnByN3Yhod7gbCSr9SWnfRaeF5QpfchmQ0SKequYtRH/zQaU0jcvFj0kNt
-	lu33hhMFSpk58cxEbvLPUEDdWh7dPnH32M0o8KvzE15QDSCD9C7RyVWuZ7MF+8CzqzuxwMkz9pHif
-	7zc0rQGXpUmtHskaA+x9x0wM5vTf/TV2/QbnV4joP/EtPKk8FE+fyvNMa7x4Iy6BGY9y+a0iRwJnZ
-	9DmNFoIw==;
+	bh=SHRVspXO3U3J22EWQcFrDH7XAHWgniRmJ5qosSJnn6g=; b=wepNovHlC0xTM1ZCH+2H3/uWzM
+	3fjGWFnpljFQsYIXR3Ipo+DfGLfknSm5JUvzmK7+ZlwHP2SN2Cfx5UwFep9qVc3DQP1fZ2LlLz/y/
+	iIBdh7GU3pH2UrRSWdqI7+UGo02AOrdxacrph6sXK3CTT7eap5p9j0Kgi9RCleZ6fjJ/CruYD1lO9
+	ofaYO24dftD+BZ28B6RYOAvh4j9vfFtZwj1Kq9IzUBNYj4URanGFQHqTw0ZsSw6EoQN4sfCK2rQz9
+	DmT7GCkM9v9HFxvSR5ufwi26bdyU43CNvS+1Tq2hHiOwL7kvQA74N4QRsGgMqstNYxhSj/EuXwkBs
+	W8uIUv7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUmrn-00000001LF6-07Gs;
-	Mon, 06 Jan 2025 13:09:59 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tUmsw-00000001LYW-2tjQ;
+	Mon, 06 Jan 2025 13:11:10 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUmKl-00000001FGM-1Xnt
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 12:35:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 796275C451F;
-	Mon,  6 Jan 2025 12:35:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4869AC4CED2;
-	Mon,  6 Jan 2025 12:35:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736166949;
-	bh=e6r4bgfMSt6jfSpc0BV4h8ov7eRV/zr34+P2Iggsre4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qzhuI2hKZv4kqRyUpVrnaZWJRr5NdjAstnvc3Ab8/4dpEo8ELGFns3C81vjUpyirM
-	 NEqR8KrN9Rhk+fRfR1o4oiEEPeWVM5kPeKeTriQpKrsy2L8ghxA58d8IafP2sd4CKa
-	 5c13RB73AEXXE5vUrWQDCH/0dcIqU1TMzpjfpJOkDWmBEsOdidPlX3ZkXRI9AN/OpQ
-	 Q7LKSybFr7aBwZtNEEfJI4yKNHYKuNw9hSulSB8PoMnB4/9+rDPfypnNJrIZfFzUuR
-	 plOXVstRIV2mS2wlJay1dL1lGWHTQ5WL/+133D1uhhBsgFdouj1OCNx52m//+Vst60
-	 MtxQQ8ZfBKbpw==
-Date: Mon, 6 Jan 2025 12:35:44 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH 1/4] spi: atmel-quadspi: Fix struct atmel_qspi_pcal
- kerneldoc
-Message-ID: <d5c8ebdc-942a-4bb1-80e9-6eb78fb4601c@sirena.org.uk>
-References: <20250104205437.184782-1-krzysztof.kozlowski@linaro.org>
+	id 1tUmMc-00000001FWH-1V95;
+	Mon, 06 Jan 2025 12:37:47 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5063qlTX013067;
+	Mon, 6 Jan 2025 12:37:03 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=SHRVspXO3U3J22EWQcFrDH7XAHWgni
+	RmJ5qosSJnn6g=; b=gylwNq3j8Ick4RHspj1WpowzwXtJldVyTnrF8QuvAYKM9D
+	cb8krtFCzCsoyxvh89UJl26z7qHWUqnN/ImInk6EwuS0vqp4PP2dgss2yasVDKW2
+	Lff3/BNOwZhA8CZ78PF3yjvRLK1XQw15T7aqhCvEf/yXs04EvpitmkPslxE8hb51
+	wgf5maxpIuSGfKzDGpse0DX4tM9gBITxyTYA+7bWfogitjj8uwIINly3796qqLPh
+	b77+nf7AsA9eS2XD7o5ZzopzbMCJakQIq7daMPDRVe0joP4ae60Avs8p9yEVq73l
+	VN9BQgghYULTXZUzQE9YkTytypyDPG5p2Q7BERgw==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4407nh1wst-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 06 Jan 2025 12:37:03 +0000 (GMT)
+Received: from m0356517.ppops.net (m0356517.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 506Cb2iQ020201;
+	Mon, 6 Jan 2025 12:37:02 GMT
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4407nh1wsr-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 06 Jan 2025 12:37:02 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 5069MVZp003593;
+	Mon, 6 Jan 2025 12:37:01 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 43yfaswvgm-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 06 Jan 2025 12:37:01 +0000
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 506Caxhn26870206
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 6 Jan 2025 12:36:59 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 98FB32004B;
+	Mon,  6 Jan 2025 12:36:59 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 402EF20040;
+	Mon,  6 Jan 2025 12:36:57 +0000 (GMT)
+Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.179.15.34])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Mon,  6 Jan 2025 12:36:57 +0000 (GMT)
+Date: Mon, 6 Jan 2025 13:36:55 +0100
+From: Alexander Gordeev <agordeev@linux.ibm.com>
+To: Qi Zheng <zhengqi.arch@bytedance.com>
+Cc: peterz@infradead.org, kevin.brodsky@arm.com, palmer@dabbelt.com,
+        tglx@linutronix.de, david@redhat.com, jannh@google.com,
+        hughd@google.com, yuzhao@google.com, willy@infradead.org,
+        muchun.song@linux.dev, vbabka@kernel.org, lorenzo.stoakes@oracle.com,
+        akpm@linux-foundation.org, rientjes@google.com, vishal.moola@gmail.com,
+        arnd@arndb.de, will@kernel.org, aneesh.kumar@kernel.org,
+        npiggin@gmail.com, dave.hansen@linux.intel.com, rppt@kernel.org,
+        ryan.roberts@arm.com, linux-mm@kvack.org,
+        linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+        sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org,
+        x86@kernel.org, linux-arch@vger.kernel.org, linux-csky@vger.kernel.org,
+        linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+        linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+        linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org,
+        linux-um@lists.infradead.org
+Subject: Re: [PATCH v4 07/15] mm: pgtable: introduce pagetable_dtor()
+Message-ID: <Z3vOZ18jcCpHIcPD@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+References: <cover.1735549103.git.zhengqi.arch@bytedance.com>
+ <8ada95453180c71b7fca92b9a9f11fa0f92d45a6.1735549103.git.zhengqi.arch@bytedance.com>
+ <Z3uxwiEhYHDqdTh3@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+ <e1de887c-6193-48ee-a9b3-04c8a0cdda45@bytedance.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="tt8UwXY8YAkoC5VF"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250104205437.184782-1-krzysztof.kozlowski@linaro.org>
-X-Cookie: Do not pick the flowers.
+In-Reply-To: <e1de887c-6193-48ee-a9b3-04c8a0cdda45@bytedance.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: mN1kYnlUlqSgV99r0ZXPtutQd1lOYK0_
+X-Proofpoint-GUID: 4h_GDpYFs18Yd8GMGP0i2nDMJVSwVuwn
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
+ definitions=2024-10-15_01,2024-10-11_01,2024-09-30_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 impostorscore=0
+ lowpriorityscore=0 priorityscore=1501 phishscore=0 spamscore=0
+ clxscore=1015 adultscore=0 suspectscore=0 malwarescore=0 mlxlogscore=643
+ mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501060110
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_043551_449560_6136E4B1 
-X-CRM114-Status: GOOD (  10.54  )
+X-CRM114-CacheID: sfid-20250106_043746_401418_C13F8D2B 
+X-CRM114-Status: GOOD (  17.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,38 +123,43 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, linux-spi@vger.kernel.org, Richard Fitzgerald <rf@opensource.cirrus.com>, patches@opensource.cirrus.com, Claudiu Beznea <claudiu.beznea@tuxon.dev>, David Rhodes <david.rhodes@cirrus.com>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jan 06, 2025 at 06:55:58PM +0800, Qi Zheng wrote:
+> > > +static inline void pagetable_dtor(struct ptdesc *ptdesc)
+> > > +{
+> > > +	struct folio *folio = ptdesc_folio(ptdesc);
+> > > +
+> > > +	ptlock_free(ptdesc);
+> > > +	__folio_clear_pgtable(folio);
+> > > +	lruvec_stat_sub_folio(folio, NR_PAGETABLE);
+> > > +}
+> > > +
+> > 
+> > If I am not mistaken, it is just pagetable_pte_dtor() rename.
+> > What is the point in moving the code around?
+> 
+> No, this is to unify pagetable_p*_dtor() into pagetable_dtor(), so
+> that we can move pagetable_dtor() to __tlb_remove_table(), and then
+> ptlock and PTE page can be freed together through RCU, which is
+> also the main purpose of this patch series.
 
---tt8UwXY8YAkoC5VF
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+I am only talking about this patch. pagetable_dtor() code above is
+the same pagetable_pte_dtor() below - it is only the function name
+that changed. So why to move the function body? Anyway, that is
+just a nit.
 
-On Sat, Jan 04, 2025 at 09:54:34PM +0100, Krzysztof Kozlowski wrote:
-> Correct the typo in parameter name for 'struct atmel_qspi_pcal'
-> kerneldoc and W=1 warnings:
+> Thanks!
 
-As mentioned in submitting-patches.rst when submitting a patch series
-you should supply a cover letter for that patch series which describes
-the overall content of the series.  This helps people understand what
-they are looking at and how things fit together.
+> > > -static inline void pagetable_pte_dtor(struct ptdesc *ptdesc)
+> > > -{
+> > > -	struct folio *folio = ptdesc_folio(ptdesc);
+> > > -
+> > > -	ptlock_free(ptdesc);
+> > > -	__folio_clear_pgtable(folio);
+> > > -	lruvec_stat_sub_folio(folio, NR_PAGETABLE);
+> > > -}
 
---tt8UwXY8YAkoC5VF
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmd7zh8ACgkQJNaLcl1U
-h9Avpwf/VmDQFYkimEztMucINFgvQmgRU4GtcluUB7aCNYIqxtIWpEd4wbxd7TOs
-C9tJkZxCIwnRPQ7++omH9um9XYuwj3z+uHSpnd5PzY9rTrQCggnwvVua9Yuxb1+p
-lnVaml6kjoKfLGjtSSAgmFq4qZ1Sye1SEjbgS8AHtFRwg74OEf9vI2ckiPbryAsD
-6zwe9px/GoZWWjhRsmgnmFl4ETAkZ3E6lEQ+odG4oUMl8mn39mbz0efxlAbhmM3+
-jSgghfYLdRcOyafdshmVdZyteaolzYKKPJaUPr5p3i9Q5D0Vq9tClQ/MLSCX9ymY
-Cn9EhGZ9VWnwTh5fHOY3n7z4kpMGcw==
-=EKsI
------END PGP SIGNATURE-----
-
---tt8UwXY8YAkoC5VF--
+Thank you!
 
