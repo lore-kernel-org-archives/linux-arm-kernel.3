@@ -4,85 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31D60E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 15:10:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC432E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 15:13:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bL3T+Fs+bH74d3/naEWqUYxBOE9ylMC4ULJhqo87sek=; b=b3rBAxD/4YOtYuczoITC5MAywb
-	BQCy2bGAVEhnq5EUrfcxHzG8c5nJ7gyZ/EsJtN2MCXS7g7kTpprTkQlv6ThVnoWneU2Z0EC2wYtLX
-	RMJ8Kr8m1p+MSDPUHtUHY9iWMaaG0g+eFrNgeZ3a8Dg/zUKBlCkdTZH0wUYkgV/2/AGO6e4Qx9rxR
-	NMo2p8Wp4n/v0qKdzhIq5kICl7aMh85YO2rLJpW12pe7VqmQccNokcI9Tmxb0lvdEekZ97W3fn0MC
-	rxHWBFqIUNoZHKV9OBgmTQsc+B/IhWGY8R5LHcKuelmGKnwiBzFXOyk04OnEsBMfejxVrc0/Qw3YF
-	znbNM+8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b9zJ6ZvlLtdNb0JAkcA9FWiAdy5oBB3xf3yt1VNB9JM=; b=1j4vxjw8QJgljjr6jJyXwyW9Q3
+	0aYnGyh8GP4SoHFVGLk6HRakgbsvLIHxXIX7sHmT0j2gAVD8a/U9kkbEhVqpLhSoDx28cs0pla7vE
+	Iw9qANj108Z2BI65zMxXzXsFbStoM1R8/4mnIglpxbhjyf+vKEXsRTSruwRDVMh/6ncbKxCUPGHEC
+	AqXvif3R1HSRVHcKecuHrkpk5FsbQFXyUuCaH15HbR+oFl4Q8aT9TytBG9Ays18AV6RIE65sNOvxq
+	F79gSLJ8d2/qZLJqc4bkmkXL3okSYAGV6p+9yN7cJ9IkkMokUm062tUIo212pn5dLbRNqNDhN24VN
+	CaEsOn7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUokW-00000001iIb-0z4a;
-	Mon, 06 Jan 2025 15:10:36 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUojL-00000001i8Z-21jq
+	id 1tUomk-00000001ic5-1r0Y;
+	Mon, 06 Jan 2025 15:12:54 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tUolZ-00000001iU1-1wDX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 15:09:24 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4361f796586so149875315e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jan 2025 07:09:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736176161; x=1736780961; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=bL3T+Fs+bH74d3/naEWqUYxBOE9ylMC4ULJhqo87sek=;
-        b=ZICyq6wlNFJL2Ep2aNUV81bcMskMpD4mMlGfF/UpwxMx0fIsDAtg88UKB93w6x1IV4
-         quogN+Nus4IqkN0ww+VyKYdfcig5enAuLRzApsAZd68mU3popWYuqWddkByY2e8erTUs
-         J81lDEGL8nqcdEu7lcr2GXqBHUWqGM/BL3Kb9XjIXmDC4L79klzgax3CRI+JBq98RNhB
-         z52ecvKkUzS+tXVHPinl/UVGyNCjCpXHow4ee9OTX/OF8kcvNMGbOIBHvY/ZXh/aaegr
-         V16gXtJ7vOwJ7vsJ5khr1WWPSb1xthIE4n4SET+fCULpAorljL5dFjxkQnFTyzjsDbVW
-         ByIg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736176161; x=1736780961;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bL3T+Fs+bH74d3/naEWqUYxBOE9ylMC4ULJhqo87sek=;
-        b=JqPFP2omXxjInXNB57a5lsTMo4A2tA8TbkoUZdDVR8f0EddCHIzB0P7h4K8eRLMsal
-         Kyjo4oxdC0pW6gETjZg3Pn4SL8KIIO6G3T0zt2vHnuRCQYy2bJfuesrlOavj/rpwak9W
-         RyQdeEauNY4yE//NJ9a+edfLWOJTdoEQm34cejBF0VePjevOERPH2xxv+7UcWLsmwqJc
-         psLUjBN+gsfjjNOeemEP4oKv/nWmolkPMlZ9jVddI68YMFxfSCiYpQ5i1gkhZylL3qXN
-         a5aYgMa2eYEyKYsSgAudeGgY1OZGf5ddkdJCDFd52zkoOAsxGh7MyflgL+mGhx9Mt3Ap
-         MELQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXdQb0FXLkMWLZavfmKhepSJIN/qDnjTVteLrw6asQohidn/KFcyqtb3bg5wG17xSDSE3zVPuFM1lDpnL12fNWN@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxlz3uxuT+LKqFqJMUBBuTwYNiCc9iQrbL+bfVeBdfmHbFqvFGl
-	r/5ciWOSAD5hxptvDVsiqAGs4Js7fDyf/z5MK//bVi6wDN/lgEq9Vvox5Y3VNcU=
-X-Gm-Gg: ASbGncsGUhg7xMgo0/O5MXwOkzCPxr2yvcHq71paYvQb7BwB5ex+cNbEkjshwUn17mY
-	q/QbjA37/AX27suwOYCPnoHVexyLNQQQPmvsPf0cuX6IqM7J8C48ftLkfat3Eax6X+q/WS5FFyW
-	o7Af64hTCUKZsTUs5bGqJ8aSIe2SiiKk7RY+mqI+mo9/X47wse416SZqJBnyTJ6e8IoD3ejeeMf
-	ATfJCZALrMMEnrXhvvt3aagmrwzu5OQPWh6/y7itgEXFKlx07l3dlhRQGMEGQ==
-X-Google-Smtp-Source: AGHT+IFYelyfnSD2yeDmiaHwuqRIu9gXypTjBqor/UZSJjgFrJJkIb6sEFAfDAMbDxcUvBHRw9qztA==
-X-Received: by 2002:a5d:6d84:0:b0:382:46ea:113f with SMTP id ffacd0b85a97d-38a221e2799mr60383379f8f.10.1736176161213;
-        Mon, 06 Jan 2025 07:09:21 -0800 (PST)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a1c8475cesm47793698f8f.57.2025.01.06.07.09.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Jan 2025 07:09:20 -0800 (PST)
-Date: Mon, 6 Jan 2025 18:09:17 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: sudeep.holla@arm.com, cristian.marussi@arm.com,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [RFC] firmware: arm_scmi: Optimize the iteration of
- scmi_requested_devices
-Message-ID: <094fc69e-a7b3-41bc-b5a7-cdc8a8deeef2@stanley.mountain>
-References: <20250106065724.3674510-1-peng.fan@oss.nxp.com>
+	Mon, 06 Jan 2025 15:11:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2F161143D;
+	Mon,  6 Jan 2025 07:12:05 -0800 (PST)
+Received: from [10.163.54.142] (unknown [10.163.54.142])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0EFC93F59E;
+	Mon,  6 Jan 2025 07:11:31 -0800 (PST)
+Message-ID: <34dab81b-1b53-4ff0-89fd-2b5279a29942@arm.com>
+Date: Mon, 6 Jan 2025 20:41:27 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250106065724.3674510-1-peng.fan@oss.nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] arm64: mm: Populate vmemmap at the page level for
+ hotplugged sections
+To: Zhenhua Huang <quic_zhenhuah@quicinc.com>, catalin.marinas@arm.com
+Cc: will@kernel.org, ardb@kernel.org, ryan.roberts@arm.com,
+ mark.rutland@arm.com, joey.gouly@arm.com, dave.hansen@linux.intel.com,
+ akpm@linux-foundation.org, chenfeiyang@loongson.cn, chenhuacai@kernel.org,
+ linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, quic_tingweiz@quicinc.com,
+ stable@vger.kernel.org
+References: <20250103085002.27243-1-quic_zhenhuah@quicinc.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20250103085002.27243-1-quic_zhenhuah@quicinc.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_070923_541491_523FA6D1 
-X-CRM114-Status: GOOD (  21.42  )
+X-CRM114-CacheID: sfid-20250106_071141_599579_773C4338 
+X-CRM114-Status: GOOD (  33.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,81 +69,194 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 06, 2025 at 02:57:24PM +0800, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
+Hello Zhenhua,
+
+On 1/3/25 14:20, Zhenhua Huang wrote:
+> Commit c1cc1552616d ("arm64: MMU initialisation") optimizes the
+> vmemmap to populate at the PMD section level which was suitable
+> initially since hotplugging granule is always 128M. However,
+
+A small nit s/hotplugging/hot plug/
+
+Also please do mention that 128M is SECTION_SIZE_BITS == 27 on arm64
+platform for 4K base pages which is the page size in context here.
+
+
+> commit ba72b4c8cf60 ("mm/sparsemem: support sub-section hotplug")
+> which added 2M hotplugging granule disrupted the arm64 assumptions.
+
+A small nit s/hotplugging/hot plug/
+
+Also please do mention that 2M is SUB_SECTION_SIZE.
+
 > 
-> scmi_requested_devices is organized in IDR based link lists, so only
-> need to search the link lists when there is a match protocol_id.
+> Considering the vmemmap_free -> unmap_hotplug_pmd_range path, when
+> pmd_sect() is true, the entire PMD section is cleared, even if there is
+> other effective subsection. For example pagemap1 and pagemap2 are part
+> of a single PMD entry and they are hot-added sequentially. Then pagemap1
+> is removed, vmemmap_free() will clear the entire PMD entry freeing the
+> struct page metadata for the whole section, even though pagemap2 is still
+> active.
+
+I guess pagemap1/2 here indicates the struct pages virtual regions for two
+different vmemmap mapped sub sections covered via a single PMD entry ? But
+please do update the above paragraph appropriately because pagemap<N> might
+be confused with /proc/<pid>/pagemap mechanism.
+
+Also please do mention that similar problems exist with linear mapping for
+16K (PMD = 32M) and 64K (PMD = 512M) base pages as their block mappings
+exceed SUBSECTION_SIZE. Hence tearing down the entire PMD mapping too will
+leave other subsections unmapped in the linear mapping.
+
 > 
-> Back to search the next id with 'continue' to save cpu cycles, if
-> protocol_id does not match.
+> To address the issue, we need to prevent PMD/PUD/CONT mappings for both
+> linear and vmemmap for non-boot sections if the size exceeds 2MB
+
+s/if the size/if corresponding size on the given base page/
+
+> (considering sub-section is 2MB). We only permit 2MB blocks in a 4KB page
+> configuration.
+
+PMD block in 4K page size config as it's PMD_SIZE matches the SUBSECTION_SIZE
+but only for linear mapping.
+
+
 > 
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> Cc: stable@vger.kernel.org # v5.4+
+> Fixes: ba72b4c8cf60 ("mm/sparsemem: support sub-section hotplug")
+> Signed-off-by: Zhenhua Huang <quic_zhenhuah@quicinc.com>
 > ---
+> Hi Catalin and Anshuman,
+> Based on your review comments, I concluded below patch and tested with my setup.
+> I have not folded patchset #2 since this patch seems to be enough for backporting..
+> Please see if you have further suggestions.
 > 
-> RFC:
->  Tested on i.MX95.
+>  arch/arm64/mm/mmu.c | 33 +++++++++++++++++++++++++++++----
+>  1 file changed, 29 insertions(+), 4 deletions(-)
 > 
->  drivers/firmware/arm_scmi/bus.c | 3 +++
->  1 file changed, 3 insertions(+)
-> 
-> diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
-> index 157172a5f2b5..42deab5903fb 100644
-> --- a/drivers/firmware/arm_scmi/bus.c
-> +++ b/drivers/firmware/arm_scmi/bus.c
-> @@ -79,6 +79,8 @@ static int scmi_protocol_device_request(const struct scmi_device_id *id_table)
->  			if (rdev->id_table->protocol_id ==
->  			    id_table->protocol_id)
->  				phead = head;
-> +			else
-> +				continue;
->  		}
->  		list_for_each_entry(rdev, head, node) {
->  			if (!strcmp(rdev->id_table->name, id_table->name)) {
-> @@ -89,6 +91,7 @@ static int scmi_protocol_device_request(const struct scmi_device_id *id_table)
->  				goto out;
->  			}
->  		}
-> +		break;
->  	}
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index e2739b69e11b..2b4d23f01d85 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -42,9 +42,11 @@
+>  #include <asm/pgalloc.h>
+>  #include <asm/kfence.h>
+>  
+> -#define NO_BLOCK_MAPPINGS	BIT(0)
+> +#define NO_PMD_BLOCK_MAPPINGS	BIT(0)
+>  #define NO_CONT_MAPPINGS	BIT(1)
+>  #define NO_EXEC_MAPPINGS	BIT(2)	/* assumes FEAT_HPDS is not used */
+> +#define NO_PUD_BLOCK_MAPPINGS	BIT(3)  /* Hotplug case: do not want block mapping for PUD */
+> +#define NO_BLOCK_MAPPINGS (NO_PMD_BLOCK_MAPPINGS | NO_PUD_BLOCK_MAPPINGS)
 
-I suspect your patch is correct but we could go further.  Removing the
-test for if (!phead) really helps readability.
 
-regards,
-dan carpenter
+Should not NO_PMD_BLOCK_MAPPINGS and NO_PUD_BLOCK_MAPPINGS be adjacent bits
+for better readability ? But that will also cause some additional churn.
 
-diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
-index a3386bf36de5..2c853c84b58f 100644
---- a/drivers/firmware/arm_scmi/bus.c
-+++ b/drivers/firmware/arm_scmi/bus.c
-@@ -72,14 +72,11 @@ static int scmi_protocol_device_request(const struct scmi_device_id *id_table)
- 	 */
- 	mutex_lock(&scmi_requested_devices_mtx);
- 	idr_for_each_entry(&scmi_requested_devices, head, id) {
--		if (!phead) {
--			/* A list found registered in the IDR is never empty */
--			rdev = list_first_entry(head, struct scmi_requested_dev,
--						node);
--			if (rdev->id_table->protocol_id ==
--			    id_table->protocol_id)
--				phead = head;
--		}
-+		/* A list found registered in the IDR is never empty */
-+		rdev = list_first_entry(head, struct scmi_requested_dev, node);
-+		if (rdev->id_table->protocol_id != id_table->protocol_id)
-+			continue;
-+
- 		list_for_each_entry(rdev, head, node) {
- 			if (!strcmp(rdev->id_table->name, id_table->name)) {
- 				pr_err("Ignoring duplicate request [%d] %s\n",
-@@ -89,6 +86,8 @@ static int scmi_protocol_device_request(const struct scmi_device_id *id_table)
- 				goto out;
- 			}
- 		}
-+		phead = head;
-+		break;
- 	}
- 
- 	/*
+>  
+>  u64 kimage_voffset __ro_after_init;
+>  EXPORT_SYMBOL(kimage_voffset);
+> @@ -254,7 +256,7 @@ static void init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+>  
+>  		/* try section mapping first */
+>  		if (((addr | next | phys) & ~PMD_MASK) == 0 &&
+> -		    (flags & NO_BLOCK_MAPPINGS) == 0) {
+> +		    (flags & NO_PMD_BLOCK_MAPPINGS) == 0) {
+
+Behavior will remain unchanged for all existing users of NO_BLOCK_MAPPINGS
+as it will now contain NO_PMD_BLOCK_MAPPINGS.
+
+>  			pmd_set_huge(pmdp, phys, prot);
+>  
+>  			/*
+> @@ -356,10 +358,11 @@ static void alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+>  
+>  		/*
+>  		 * For 4K granule only, attempt to put down a 1GB block
+> +		 * Hotplug case: do not attempt 1GB block
+>  		 */
+>  		if (pud_sect_supported() &&
+>  		   ((addr | next | phys) & ~PUD_MASK) == 0 &&
+> -		    (flags & NO_BLOCK_MAPPINGS) == 0) {
+> +		   (flags & NO_PUD_BLOCK_MAPPINGS) == 0) {
+
+Behavior will remain unchanged for all existing users of NO_BLOCK_MAPPINGS
+as it will now contain NO_PUD_BLOCK_MAPPINGS.
+
+>  			pud_set_huge(pudp, phys, prot);
+>  
+>  			/*
+> @@ -1175,9 +1178,16 @@ int __meminit vmemmap_check_pmd(pmd_t *pmdp, int node,
+>  int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
+>  		struct vmem_altmap *altmap)
+>  {
+> +	unsigned long start_pfn;
+> +	struct mem_section *ms;
+> +
+>  	WARN_ON((start < VMEMMAP_START) || (end > VMEMMAP_END));
+>  
+> -	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES))
+> +	start_pfn = page_to_pfn((struct page *)start);
+> +	ms = __pfn_to_section(start_pfn);
+> +
+> +	/* Hotplugged section not support hugepages */
+
+Please update the comment as
+
+	/*
+	 * Hotplugged section does not support hugepages as
+	 * PMD_SIZE (hence PUD_SIZE) section mapping covers
+	 * struct page range that exceeds a SUBSECTION_SIZE
+	 * i.e 2MB - for all available base page sizes.
+	 */
+
+> +	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES) || !early_section(ms))
+>  		return vmemmap_populate_basepages(start, end, node, altmap);
+>  	else
+>  		return vmemmap_populate_hugepages(start, end, node, altmap);
+> @@ -1339,9 +1349,24 @@ int arch_add_memory(int nid, u64 start, u64 size,
+>  		    struct mhp_params *params)
+>  {
+>  	int ret, flags = NO_EXEC_MAPPINGS;
+> +	unsigned long start_pfn = page_to_pfn((struct page *)start);
+> +	struct mem_section *ms = __pfn_to_section(start_pfn);
+>  
+>  	VM_BUG_ON(!mhp_range_allowed(start, size, true));
+>  
+> +	/* Should not be invoked by early section */
+> +	WARN_ON(early_section(ms));
+> +
+> +	if (IS_ENABLED(CONFIG_ARM64_4K_PAGES))
+> +	/*
+> +	 * As per subsection granule is 2M, allow PMD block mapping in
+> +	 * case 4K PAGES.
+> +	 * Other cases forbid section mapping.
+> +	 */
+
+IIUC subsection size is 2M regardless of the page size. But with 4K pages
+on arm64, PMD_SIZE happen to be 2M. Hence there is no problem in creating
+linear mappings at PMD block level, which will not be the case with other
+page sizes i.e 16K and 64K.
+
+include/linux/mmzone.h
+
+#define SUBSECTION_SHIFT 21
+#define SUBSECTION_SIZE (1UL << SUBSECTION_SHIFT)
+
+Please update the comment with following changes but above IS_ENABLED()
+statement as it talks about all page size configs.
+
+	/*
+	 * 4K base page's PMD_SIZE matches SUBSECTION_SIZE i.e 2MB. Hence
+	 * PMD section mapping can be allowed, but only for 4K base pages.
+	 * Where as PMD_SIZE (hence PUD_SIZE) for other page sizes exceed
+	 * SUBSECTION_SIZE.
+	 */
+> +		flags |= NO_PUD_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
+> +	else
+> +		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
+> +
+>  	if (can_set_direct_map())
+>  		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
+>  
 
