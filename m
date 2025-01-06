@@ -4,113 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A299E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 07:31:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEDCFE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 07:35:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e4/QNFlUMJw54uaqepli0Yh0eDO83y9gxXpfhXoLRms=; b=MLjh44oiXsH46LGTszS6wi5orm
-	khfCu8VvDGZtwdUBFT2wpsW4w4tSRRjRJWovmYmKmjYP8L6vwgY7bn+wNtoSGaX1keUJMZneUc39k
-	uFg18QVwfUrpzYDFkbBut922NS3sgFOleX8C1po9q/WPBnuAAb2/EWOZWng4u8mTZceRRLNXZGnCm
-	5gbgAznUEgqKSX1fj6PqagnZ0d3nV34+JAZ8bNM+AMLCr/OjLqZRhvl06EWA3oc6pl3sk3ozM1pv9
-	wScoUXdbpuBdLZu76KD547edI71574YhfapuEGlnuLyfd6VuyHQi2Sg922C1+pZJvproUWIseKFzS
-	H+hDKU8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ego/7LbmgWSlrLqYIjxRn2UqzB3UfTmZ5YmdwHmyy0Y=; b=ha7um5NJSi8TZ4WjN+rnqSTrBI
+	fpIdp5P1sM7gxr8qJGBV1vo1nxvCHBztUuzXt3dS9rGR2Qw62nGRvrU8cYJZdaC9gIjA2W49XDx4M
+	bP0KTSfj6kQdkMQEOZya2l+bf8Vn0wfSLCmCzAfHDETdtuhT7Q8mF2fqs7ma/6J8fNz7PKVk85cb/
+	bIfachHOvZz152HrZR89b6y1W5bu9WdjJrasfIs9yQb1Ce0AZ6QPh4tcxweDxevc7nL1TxvZqqu79
+	eu16ptfq8g7w4okzuvarj92NyAtoTOnssw1jluxu/9YC2C6RCmKTpk4xJBYgVAUb5sdTYTZLEL9QT
+	A5fKV6tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUhZa-00000000PUQ-07S0;
-	Mon, 06 Jan 2025 07:30:50 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tUhdc-00000000Pr3-2E5C;
+	Mon, 06 Jan 2025 07:35:00 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUhXg-00000000PIj-0k8r
+	id 1tUhcQ-00000000Phn-1GZm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 07:28:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 62A8FA41181;
-	Mon,  6 Jan 2025 07:27:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCBA3C4CED2;
-	Mon,  6 Jan 2025 07:28:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736148531;
-	bh=JkuPPjeyGGqi2dU62QPYG6DQ7v+k2w/UiVKWTL58x6k=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=oqdf4LQ7ycP08bRj1P/3J6zPNt6GhWwrYaCX3o+7kFqGlDtlMoLzSuBYU+cFts57L
-	 ffslCQoeUe+BD/O1HPsV/McD6t4OQl4UBIKqERCjMDHj++FY5EyDVWMuBFMrOcaAZz
-	 /yIEFS1iOwrBeA3GByAZAahogk7XAvVqy0xzfCpsYzbXu2fOnh+yH+t2UPLqwN8Rme
-	 Ma7GXsp0kZsY5EZijQtlgDymPXHZKXC3zYkaCbTkhNDhANs1OHq1WBIC4lVCNFa1EQ
-	 wsClGRalPMCjwLER0pIyCDRizUwU/69zJ8nzjOxx0442P6ad+uDUUJEFbBGNdN+GQz
-	 XdcIAIOQ3Hppw==
-Message-ID: <1cfc1e0a-1dcf-4e3b-b0ff-0a1a6860997b@kernel.org>
-Date: Mon, 6 Jan 2025 08:28:45 +0100
+	Mon, 06 Jan 2025 07:33:47 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1tUhcH-0003uU-Dy; Mon, 06 Jan 2025 08:33:37 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1tUhcF-0077qE-2M;
+	Mon, 06 Jan 2025 08:33:36 +0100
+Received: from pza by lupine with local (Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1tUhcG-00060I-1P;
+	Mon, 06 Jan 2025 08:33:36 +0100
+Message-ID: <2b04ca7fa5135c1194c39a9fbf2d6ab5630d6ef3.camel@pengutronix.de>
+Subject: Re: [PATCH 1/1] phy: rockchip: naneng-combphy: compatible with old
+ DT for RK3568
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Chukun Pan <amadeus@jmu.edu.cn>, Vinod Koul <vkoul@kernel.org>
+Cc: Heiko Stuebner <heiko@sntech.de>, Kishon Vijay Abraham I
+ <kishon@kernel.org>,  Jianfeng Liu <liujianfeng1994@gmail.com>,
+ linux-arm-kernel@lists.infradead.org,  linux-rockchip@lists.infradead.org,
+ linux-phy@lists.infradead.org,  linux-kernel@vger.kernel.org
+Date: Mon, 06 Jan 2025 08:33:36 +0100
+In-Reply-To: <20250106070000.605284-1-amadeus@jmu.edu.cn>
+References: <20250106070000.605284-1-amadeus@jmu.edu.cn>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/4] dt-bindings: soc: samsung: usi: replace USI_V2 in
- constants with USI_MODE
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- Sam Protsenko <semen.protsenko@linaro.org>,
- Peter Griffin <peter.griffin@linaro.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20250105160346.418829-1-ivo.ivanov.ivanov1@gmail.com>
- <20250105160346.418829-2-ivo.ivanov.ivanov1@gmail.com>
- <lvi72dmucagm6cxotqxmvc2yjdin3dvumivrfxjcsth2djaf54@n3i36ul3zkvl>
- <8d7670fa-ff4b-430a-b188-778d3922f905@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <8d7670fa-ff4b-430a-b188-778d3922f905@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250105_232852_353180_371077C5 
-X-CRM114-Status: UNSURE (   9.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250105_233346_355287_E9EA8FD1 
+X-CRM114-Status: GOOD (  14.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,32 +79,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/01/2025 08:09, Ivaylo Ivanov wrote:
->>>  
->>> -#define USI_V2_NONE		0
->>> -#define USI_V2_UART		1
->>> -#define USI_V2_SPI		2
->>> -#define USI_V2_I2C		3
->>> +#define USI_MODE_NONE		0
->>> +#define USI_MODE_UART		1
->>> +#define USI_MODE_SPI		2
->>> +#define USI_MODE_I2C		3
->> This breaks ABI and does not build. You still need also:
->> 	#define USI_V2_NONE 		USI_MODE_NONE
->> and same for the rest.
-> 
-> Alright, sounds good to me. That way I shouldn't s/USI_V2/USI_MODE/g
-> for the other SoC device trees, right? Should I also mention with a
+On Mo, 2025-01-06 at 15:00 +0800, Chukun Pan wrote:
+> The device tree of RK3568 did not specify reset-names before.
+> So add fallback to old behaviour to be compatible with old DT.
+>=20
+> Fixes: fbcbffbac994 ("phy: rockchip: naneng-combphy: fix phy reset")
+> Cc: Jianfeng Liu <liujianfeng1994@gmail.com>
+> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+> ---
+>  drivers/phy/rockchip/phy-rockchip-naneng-combphy.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+>=20
+> diff --git a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c b/drivers=
+/phy/rockchip/phy-rockchip-naneng-combphy.c
+> index a1532ef8bbe9..372f5c07b5bd 100644
+> --- a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
+> +++ b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
+> @@ -325,6 +325,10 @@ static int rockchip_combphy_parse_dt(struct device *=
+dev, struct rockchip_combphy
+>  	priv->ext_refclk =3D device_property_present(dev, "rockchip,ext-refclk"=
+);
+> =20
+>  	priv->phy_rst =3D devm_reset_control_get(dev, "phy");
 
-You can change them as well, because USI_MODE_XXX will be preferred from
-now on. The DTS commit will just wait one cycle till bindings get accepted.
+This should be devm_reset_control_get_exclusive().
 
-> comment that the V2 constants are deprecated?
+> +	/* fallback to old behaviour */
+> +	if (IS_ERR(ERR_PTR(priv->phy_rst)))
 
-Yes, this would be good.
+Drop superfluous ERR_PTR().
 
-Thanks for working on this.
+> +		priv->phy_rst =3D devm_reset_control_array_get_exclusive(dev);
+> +
 
-Best regards,
-Krzysztof
+I'd drop the empty line, keep error handling close.
+
+>  	if (IS_ERR(priv->phy_rst))
+>  		return dev_err_probe(dev, PTR_ERR(priv->phy_rst), "failed to get phy r=
+eset\n");
+> =20
+
+regards
+Philipp
 
