@@ -4,89 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCD2CE77198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 10:51:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EE16E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 10:57:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y33tiExBlwDEn8mFRQKrikauQkd7GqHJ6b8DdCrX10c=; b=N9xIRRsQfcGoagxI7PczPI+A9X
-	/Xj9jfmx5JanuDCjSGfIaritTJCbuQ6ZV+8+FQxILpwsM+72/LhF3ngy3o6jmcDRAaeeDZ9lgiE+G
-	srT6r/u6YlFeu5CYPoNTDSupBV70EMkuvLv/4rM/aqg8QRUiMaunW9hwRcxMaDbSJys0rLMEDSQOR
-	JiWFi4ySVGPsX9yliStvBN+6X0fNm+zl2PX4SEpcg2Ekf88v4ZAVJcwvgYoFnNbVKJNYQgx54DIv1
-	vmVm26WYQbdHzaOMTlknGxSytdfldbj4PKkfqf0Y7XLtrJXSmJqVqGNmQ5bIXXq52HUJ3n+tNt4b9
-	BVhLV/Ww==;
+	bh=AZLWPPKublXNhPBg34EaNBNy6TKJ9wneFJV35MDnpZc=; b=a2VH+4LnhkgmL7ZNpry4Qh69tN
+	ptyUrip4hq+x4UyuxFu4/6ErZgSDUq/LyvlYRLU+ohK9BUPZz4ya2+0HVKhfJsGGnd4LkUGxH+w75
+	YauwVq5u2fpXQyN5ylzEZmdm7rgQBMSRArqpzqysoOOTs/n5swN77qBtmZb2dJnTCPQ39MWdZKKfi
+	23O1aOkzvz4svJA+uJKxpyY8XOKeNx8vizEGVamLqEcQRIN5yThvzJI70AfwaMmcEUciD8qNIQwH5
+	SFRA/WBYbPwNh/OQ3DmwG79pOyfSxXjqcbElNeGzJDIexN2giwLIxEPCcmbJ3b2fKrKwhqI2PldVR
+	VZoIGl3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUkhv-00000000vXZ-17cm;
-	Mon, 06 Jan 2025 10:51:39 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1tUknY-00000000wPr-1fdc;
+	Mon, 06 Jan 2025 10:57:28 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUkgj-00000000vKH-3m6C
+	id 1tUkmM-00000000w8u-3lsn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 10:50:27 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5063qXc9004692;
-	Mon, 6 Jan 2025 11:50:14 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	Y33tiExBlwDEn8mFRQKrikauQkd7GqHJ6b8DdCrX10c=; b=3AaR3hKqYSQuzj/l
-	w3mE0WivaZBjUvTH/hzSnqda0W03W/82+RdH66suEIjYOhiPwZq67u6MwHP7tMgu
-	Kz6huLA1i+htrTcTQc/yOrg4yXfA45zJ3Tqc+xn9i/Eoy0Ryi5kFNB+71lEmBL+6
-	85WDWATAGOar0UmFGPswKtzti0l+g2xZZHBYBc1rL93YHLDDH8snF2d5dZN8LvUm
-	LX9st5YZcr0tSKf8XwdiaHLhyiAplKNvyt+IbwhRTOGApiLdy11+Izk+hVQOofiV
-	xW4g6iD9H8kakSGEXzH3Nmj3Va6tqTkkaYLBXm80/n7uGqVNWFXEDNKRhuouVjXF
-	HLjRfQ==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4407n9hbgv-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 06 Jan 2025 11:50:14 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id F39F34005A;
-	Mon,  6 Jan 2025 11:48:50 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id B948D26E53D;
-	Mon,  6 Jan 2025 11:47:09 +0100 (CET)
-Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Mon, 6 Jan
- 2025 11:47:08 +0100
-Message-ID: <d844f8f2-b5fd-460f-b31b-644bab871238@foss.st.com>
-Date: Mon, 6 Jan 2025 11:47:05 +0100
+	Mon, 06 Jan 2025 10:56:16 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-2ee8e8e29f6so16486079a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jan 2025 02:56:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1736160974; x=1736765774; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=AZLWPPKublXNhPBg34EaNBNy6TKJ9wneFJV35MDnpZc=;
+        b=fevafSpgI8/t6QGUMhu2BkIUaGH/NKaGQWh583WH2Ee4NgV7+Q2M/lkV+k9IcyRCgN
+         +Xn7NQ7vox5P7hQBKdkIgwpO8iLuBIQvVgoUW8a/kSrO4eWWJW0bjWtSUj3Y33YLKtlK
+         wzhKS55j+6A+sy6eJr5QzAbVoGbuL5Xw66kUu9UTsok7kJrk0q5WRgnZ4HHxDB+rUfvy
+         yEj97p48CuCJRm9qIBlpqUS21qznxYFDHqOovcMHjnE32bQC6oLbnhCo8Ty4fz3hXSrd
+         KnlQyaMIWrkstmPv5awugog2cLAII6e94R/7iCiFhjsJGWDo2sGIWFq4GthmVh86xmGn
+         pkfQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736160974; x=1736765774;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=AZLWPPKublXNhPBg34EaNBNy6TKJ9wneFJV35MDnpZc=;
+        b=QjEZFLAUjdGgGt71is4Tsqpk3tFqLV7nvxeGsb1ZjE5i3T1MbHOwRiupHD7An/7Omy
+         5WS8qd/upEjBS07W7zInTpMeW2QpJx7kBfvERRlTuUKM9+nU0t3c3Zf8t6tW66l/XbPx
+         h/KrtmTS9DRPqtNlBG2A3tUQb/nsbx0PexTY5aRwLJJnkicPuhXkj2+xZAzJnGGEE4Te
+         4Ym0mMfzyhbFpOfhNAu/GY+mBOIXYxvFkBI+NRs1MB2NwbpdYsytvV1q/glsclVxA+BE
+         5XKaj8KvhP5PXntHgS51cMxyKRXsmHBhcEhDqxh9jqDtoiCCACtJBp5P7l2d2WTEMHyG
+         o7kA==
+X-Forwarded-Encrypted: i=1; AJvYcCVNOEx0v+MjiOzkxGr9jEClDVPmLdVMypWeA83vUcfvb+FBubMITeuzQi07UjntjHM0y68MjqR+cECfgpXmSx9c@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZZ0yNjWb5vZmqGog99n488rtG8B8JLZZ4w3BFMu8xwSefOXzz
+	JLUr0l5tQ7vwMf4mCYUXrOHHkZYkv6YoRg5xSX2fAogRSn5lOSgk2wB775wihVI=
+X-Gm-Gg: ASbGncsNv0J5vD4W7nYJZElrZQZs5m9z/u1VDomOYdVpXHiG1/DlhH1SdPq9a5yb9J3
+	kPSOGYppouz0YHZKS30Pj+9NkuThwI+GnTAhz2hbNg5LfWoIF4GxUTmrmqfSlDew1wJgfzJmHY6
+	SgHGplkI0ef7kyQsdj+GNarwJjf/DTP0cgl0u9ATGOlmEz1gerc8VUOlnG5Tdo04cR8whSw/uEq
+	wU/xntUgX0UqtKdz8gDoHEwFSMy+13hktCedXhC7Iee73Br5dzvPo+Scx5p6FQk5I/7NmQmNQ5m
+	4S+6sA==
+X-Google-Smtp-Source: AGHT+IHHEGVNBdeeeMKsfSrtRayn5rgDW+sVv93AHdkC2kua4+TBudPLJJX1AZ3o0AE+Wq0oFkgydg==
+X-Received: by 2002:a17:90b:5347:b0:2ee:3fa7:ef4d with SMTP id 98e67ed59e1d1-2f452ec37bamr85837306a91.24.1736160973647;
+        Mon, 06 Jan 2025 02:56:13 -0800 (PST)
+Received: from [10.84.148.23] ([203.208.167.150])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-219dc96ead1sm290125115ad.91.2025.01.06.02.56.01
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 06 Jan 2025 02:56:13 -0800 (PST)
+Message-ID: <e1de887c-6193-48ee-a9b3-04c8a0cdda45@bytedance.com>
+Date: Mon, 6 Jan 2025 18:55:58 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] dt-bindings: gpu: mali-utgard: Add st,stih410-mali
- compatible
-To: Alain Volmat <avolmat@me.com>, David Airlie <airlied@gmail.com>,
-        Daniel
- Vetter <daniel@ffwll.ch>,
-        Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-References: <20241006-sti-gpu-v2-0-c6bb408d6903@me.com>
- <20241006-sti-gpu-v2-1-c6bb408d6903@me.com>
+Subject: Re: [PATCH v4 07/15] mm: pgtable: introduce pagetable_dtor()
 Content-Language: en-US
-From: Patrice CHOTARD <patrice.chotard@foss.st.com>
-In-Reply-To: <20241006-sti-gpu-v2-1-c6bb408d6903@me.com>
-Content-Type: text/plain; charset="UTF-8"
+To: Alexander Gordeev <agordeev@linux.ibm.com>
+Cc: peterz@infradead.org, kevin.brodsky@arm.com, palmer@dabbelt.com,
+ tglx@linutronix.de, david@redhat.com, jannh@google.com, hughd@google.com,
+ yuzhao@google.com, willy@infradead.org, muchun.song@linux.dev,
+ vbabka@kernel.org, lorenzo.stoakes@oracle.com, akpm@linux-foundation.org,
+ rientjes@google.com, vishal.moola@gmail.com, arnd@arndb.de, will@kernel.org,
+ aneesh.kumar@kernel.org, npiggin@gmail.com, dave.hansen@linux.intel.com,
+ rppt@kernel.org, ryan.roberts@arm.com, linux-mm@kvack.org,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org, x86@kernel.org,
+ linux-arch@vger.kernel.org, linux-csky@vger.kernel.org,
+ linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org,
+ linux-um@lists.infradead.org
+References: <cover.1735549103.git.zhengqi.arch@bytedance.com>
+ <8ada95453180c71b7fca92b9a9f11fa0f92d45a6.1735549103.git.zhengqi.arch@bytedance.com>
+ <Z3uxwiEhYHDqdTh3@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+From: Qi Zheng <zhengqi.arch@bytedance.com>
+In-Reply-To: <Z3uxwiEhYHDqdTh3@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.87.62]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_025026_236798_13204A6C 
-X-CRM114-Status: GOOD (  12.50  )
+X-CRM114-CacheID: sfid-20250106_025614_954586_49805DE4 
+X-CRM114-Status: GOOD (  16.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,31 +116,68 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 10/6/24 22:42, Alain Volmat wrote:
-> ST STiH410 SoC has a Mali400. Add a compatible for it.
+On 2025/1/6 18:34, Alexander Gordeev wrote:
+> On Mon, Dec 30, 2024 at 05:07:42PM +0800, Qi Zheng wrote:
+>> The pagetable_p*_dtor() are exactly the same except for the handling of
+>> ptlock. If we make ptlock_free() handle the case where ptdesc->ptl is
+>> NULL and remove VM_BUG_ON_PAGE() from pmd_ptlock_free(), we can unify
+>> pagetable_p*_dtor() into one function. Let's introduce pagetable_dtor()
+>> to do this.
+>>
+>> Later, pagetable_dtor() will be moved to tlb_remove_ptdesc(), so that
+>> ptlock and page table pages can be freed together (regardless of whether
+>> RCU is used). This prevents the use-after-free problem where the ptlock
+>> is freed immediately but the page table pages is freed later via RCU.
+>>
+>> Signed-off-by: Qi Zheng <zhengqi.arch@bytedance.com>
+>> Originally-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+> ...
+>> diff --git a/include/linux/mm.h b/include/linux/mm.h
+>> index 5d82f42ddd5cc..cad11fa10c192 100644
+>> --- a/include/linux/mm.h
+>> +++ b/include/linux/mm.h
+>> @@ -2992,6 +2992,15 @@ static inline bool ptlock_init(struct ptdesc *ptdesc) { return true; }
+>>   static inline void ptlock_free(struct ptdesc *ptdesc) {}
+>>   #endif /* defined(CONFIG_SPLIT_PTE_PTLOCKS) */
+>>   
+>> +static inline void pagetable_dtor(struct ptdesc *ptdesc)
+>> +{
+>> +	struct folio *folio = ptdesc_folio(ptdesc);
+>> +
+>> +	ptlock_free(ptdesc);
+>> +	__folio_clear_pgtable(folio);
+>> +	lruvec_stat_sub_folio(folio, NR_PAGETABLE);
+>> +}
+>> +
 > 
-> Signed-off-by: Alain Volmat <avolmat@me.com>
-> ---
->  Documentation/devicetree/bindings/gpu/arm,mali-utgard.yaml | 1 +
->  1 file changed, 1 insertion(+)
+> If I am not mistaken, it is just pagetable_pte_dtor() rename.
+> What is the point in moving the code around?
+
+No, this is to unify pagetable_p*_dtor() into pagetable_dtor(), so
+that we can move pagetable_dtor() to __tlb_remove_table(), and then
+ptlock and PTE page can be freed together through RCU, which is
+also the main purpose of this patch series.
+
+Thanks!
+
 > 
-> diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-utgard.yaml b/Documentation/devicetree/bindings/gpu/arm,mali-utgard.yaml
-> index abd4aa335fbcebafc9164bd4963f9db60f0450c4..9318817ea1357d4d66db951513d9bc033b222190 100644
-> --- a/Documentation/devicetree/bindings/gpu/arm,mali-utgard.yaml
-> +++ b/Documentation/devicetree/bindings/gpu/arm,mali-utgard.yaml
-> @@ -33,6 +33,7 @@ properties:
->                - rockchip,rk3188-mali
->                - rockchip,rk3228-mali
->                - samsung,exynos4210-mali
-> +              - st,stih410-mali
->                - stericsson,db8500-mali
->                - xlnx,zynqmp-mali
->            - const: arm,mali-400
-> 
-
-Hi Alain
-
-Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>
-
-Thanks
+>>   static inline bool pagetable_pte_ctor(struct ptdesc *ptdesc)
+>>   {
+>>   	struct folio *folio = ptdesc_folio(ptdesc);
+>> @@ -3003,15 +3012,6 @@ static inline bool pagetable_pte_ctor(struct ptdesc *ptdesc)
+>>   	return true;
+>>   }
+>>   
+>> -static inline void pagetable_pte_dtor(struct ptdesc *ptdesc)
+>> -{
+>> -	struct folio *folio = ptdesc_folio(ptdesc);
+>> -
+>> -	ptlock_free(ptdesc);
+>> -	__folio_clear_pgtable(folio);
+>> -	lruvec_stat_sub_folio(folio, NR_PAGETABLE);
+>> -}
+>> -
+>>   pte_t *___pte_offset_map(pmd_t *pmd, unsigned long addr, pmd_t *pmdvalp);
+>>   static inline pte_t *__pte_offset_map(pmd_t *pmd, unsigned long addr,
+>>   			pmd_t *pmdvalp)
 
