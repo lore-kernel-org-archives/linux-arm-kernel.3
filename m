@@ -4,95 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9442DE77197
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 03:22:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA690E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 03:32:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n0uoTlJkT3xJASppF2RyQQeqHMmR9kwA4pIBCxskX/8=; b=fylshq7Pu68yHR71sfQz6TeTd9
-	Ode7U+DNWe87zppuBlglDHX81XHKaWdzROORaaj3AovNmuAKMBFvbCj1cTkCz1AKQXjbYCdfPpcf+
-	tU3y4wYiOmtg5t/TbbUHS9qj2AOTpkerBiGsMhp0QATKPz6U/oaeBmCMnut7DinjDrwe7/c2pdFap
-	HCMeiDh4BvvzxDybh46S9c0ELOkH6W2eu1byX7AnRy+e94nrVzvGumaL5nsJoF9JzSGyIDGCWywqW
-	jpGCDf1sKDcEMX3XvGnhw5/IRkmc6ehiJrhkjvr+lE1XHuvS2Mediszxa2t0I1dsyP0LltGzQ4avn
-	p2wxFsvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=evBHFeKb+wX9CVojvuJ/rakK0ThK23pC8vP6uU+EdE8=; b=rehmc02vzyb69iXWNLi9bqOtR0
+	GA9CFtIYuEnUoW3lN/+8NNIC+CTNKtynFBV7myWC1sQzfiVmUhecj478z4G121GkOrKn9GsL9XstA
+	Sgf6I25XbKUB6V2mCJm803PQiLwt+1ZXUpdgFfxwhNsJcmTfdZJUwrc0NkzIjLQ0pJCCf+06mZW6/
+	BTmy93lTStIK7B4TVOiYq6PaSGOehEC1xaSRYZZSDsdbPDuIekVqQfp94tqcUUOiK/+Do9TaIvejX
+	hkwSCIuL/UugeyxJTBC36RqfbNvLpFwF7xtOEWTHf+/FkIXQbFl8RjzAQNho89j3t3lqQQF9cYzAW
+	46f2nETQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUdh0-0000000087z-3xG6;
-	Mon, 06 Jan 2025 03:22:14 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1tUdrB-000000008dI-1cj6;
+	Mon, 06 Jan 2025 03:32:45 +0000
+Received: from mail-vi1eur05on2061d.outbound.protection.outlook.com ([2a01:111:f403:2613::61d] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUdci-000000007gT-0cHB
+	id 1tUdpy-000000008Rt-43HT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 03:17:49 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-2ee989553c1so19834762a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 05 Jan 2025 19:17:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736133467; x=1736738267; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=n0uoTlJkT3xJASppF2RyQQeqHMmR9kwA4pIBCxskX/8=;
-        b=N1k22VJEPMZH1H7UOecHBNtgpVam9Uo4HaThxY0NaPWTnbeIzM8sQUBSPAJ/XEilVn
-         txH/BEApI5J9nODQmbI2jJEbYGqiZiSkShvpMgB3bJxvFXksEGTtUYbYagT6ncYKiN0p
-         zW7RGb/Lf4+zn1uG642mUYcXkKaY5BAZ3Uim80B8530zpozb325ddchRTYr7YLBt4NU8
-         sM1rGhzTGKI7b4NfH3S1gofPLJdDx65j5CAYi63DoLHlrF9RGUMgRadSjM5GBv55gux/
-         dVngyztK/vXtPOp8ytsSkjnLcEgT9yybTLDhiLsOR0abv9lxQ016cBVcVvPV5s7ZRXwB
-         m2qA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736133467; x=1736738267;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=n0uoTlJkT3xJASppF2RyQQeqHMmR9kwA4pIBCxskX/8=;
-        b=LiLH2jblgqJWRrVl15ql95lWfdooP4Q5rNVt4d+K4K/SNGKnpzwFW4NKlMyU3J3NCi
-         OCiIQuZzHjp0yyTfHbdlfEsfOz6U5PLOYFayTCrQVipvE0JLBUyRqox0YVxv2Qi0tupc
-         H/l9ooCoiYk6+xFOhX2NBwDJTleEk2N66oIBDqizNSJ6MPLUNOzhc/S5lvFsc5g56jZn
-         SinYz7np+LEQjYTzS+de+Lo+nlPtutzeB+rH9hrmp2gx43nYww4cgQM+skKTIrYqd2J2
-         moClxIYM1vogCo8jB7K0PHXs19MZLNKbno/2gAdF9tWHaIXawWxvnBB44Q2dJcamy4Yn
-         tPdA==
-X-Gm-Message-State: AOJu0YyWa7JE6U2z8mVv0W/Ov9RiXFAI3zdYkz/eypCkl0pQtD5E7Uag
-	b9s3SxuCq1iObYe3Wkvn1GuYJbDDTh7Rce1qv/L9O0lVa9czxc+w
-X-Gm-Gg: ASbGncsB23/gdsgu63t6Qk4I7IBtWlnvaI16QIPW19K0o/8v8hRQ6zI97EhZg9Kd3UJ
-	dNmyrwN94fdqBraySejOeHYE/PswJW6rw4udio+oCwokdUZeeAP/+suAad12V9GQKXFuCShLp8I
-	ycq0DOr8yR8CSeOqhAqnrM1vWbG5TwH61/bSgYvPca+iY8th8tVD7dAF0wcm7axDd465EcWn3/Z
-	E9tGNgg3eGBrg8SrHQp2jfGP4YeOVxVEkdrGa1AE6+kiVRiUbQHgSpzfX0kfa3XAjgnQl5NdG5v
-	MhF7oW2W
-X-Google-Smtp-Source: AGHT+IHWP7zdolqMJNXBm1PXeI0GcejV+nCAy9WuJHL0SUoSVOj1myQWg2/Wp3YfIF+X1TNQvseTgA==
-X-Received: by 2002:a17:90b:540f:b0:2ee:6db1:21d3 with SMTP id 98e67ed59e1d1-2f452ec922bmr79065291a91.25.1736133467432;
-        Sun, 05 Jan 2025 19:17:47 -0800 (PST)
-Received: from Barrys-MBP.hub ([2407:7000:af65:8200:a54c:5ad3:ad27:edb7])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f2ed62cde6sm38471399a91.13.2025.01.05.19.17.42
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sun, 05 Jan 2025 19:17:47 -0800 (PST)
-From: Barry Song <21cnbao@gmail.com>
-To: akpm@linux-foundation.org,
-	linux-mm@kvack.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	x86@kernel.org,
-	linux-kernel@vger.kernel.org,
-	ioworker0@gmail.com,
-	david@redhat.com,
-	ryan.roberts@arm.com,
-	zhengtangquan@oppo.com,
-	ying.huang@intel.com,
-	kasong@tencent.com,
-	chrisl@kernel.org,
-	baolin.wang@linux.alibaba.com,
-	Barry Song <v-songbaohua@oppo.com>
-Subject: [PATCH 3/3] mm: Support batched unmap for lazyfree large folios during reclamation
-Date: Mon,  6 Jan 2025 16:17:11 +1300
-Message-Id: <20250106031711.82855-4-21cnbao@gmail.com>
-X-Mailer: git-send-email 2.39.3 (Apple Git-146)
-In-Reply-To: <20250106031711.82855-1-21cnbao@gmail.com>
-References: <20250106031711.82855-1-21cnbao@gmail.com>
+	Mon, 06 Jan 2025 03:31:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=I9NCvCnqi5sJAhwKAZuh1RhL6St61Ky3IInIl7gykVv0WqhB7CTmW5fuJQnB0bvNLCqi5wsVDR8EX1OZpEFO9/9FadDi8T0pGPAg4TSww9cVTk9o515Q9eKnynpzlhlcuOQd+wUX0N1tHPqc8tG4OOIRq9Ocst4ChBm/9PcxXsy+Hvw/thwmMMqzRyt99hgSM2cozZEBX+iU2OdiexXKP29cojYwPzStdjbjybkCLFRs0feQRjNVo5SAw9jQ9c/OaKEiWclaPb6YVc0OYqouExoa/UkB+IublzAOfc+fNgiGPChgnJqwdFx0rV22Tge9m0ZJb7B92WPcmQVUJZjasw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=evBHFeKb+wX9CVojvuJ/rakK0ThK23pC8vP6uU+EdE8=;
+ b=HyMoKJ7UHL56pvD/jXyxmHK8RhjmKTbrRvRwaNICupsyustCg6KIZQhC3jXj8JzRWKTo62ExGRpg5/ZTrgfzXs0/NEdSwov3HOd0qdRAFYLULn6cXGvKf7KQN9T5aoSEObcQL2au3ZbyqBcrpvLX2Khk/vY1eSlELh7FqXcPFoEulN7FwN8nMlBCqAvdhJIiKKHfU+S4NBCG+yWar6TrPNyYPItraevS5Vq+hp6l2ZeoWg/hDB8J0D1+L+pSExtWLv7pN/PFLG84HDpLZlWCfVpMSXkj9mniq3+hQIYI6kpIyJlZj6hQQR361v4ely7SmCjo2C+44u1IkvEbVZMSxw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=evBHFeKb+wX9CVojvuJ/rakK0ThK23pC8vP6uU+EdE8=;
+ b=R/9d/vWhFRKjvmcBRTfAxYUc8yOQ0gtV8UME1nvuMRoqs0WyLw7ev3egChwUEwglcvE2F3tuXLZzuwkkWNRlncbg9c97O6tzoNQER3GRbqwu6+c8ZwtOljYwBKYC8BY6sv1psOMoWnrb7W1wCFBf+B7ggo77Ke0hr8LY69PKtiejp9pdG6G5XghQVykBa2TQe6ZWCLTQzeaIsrLaqGBQIhz9js2sXU0RCxef2Et6iu9j29IUEsfckPP5aBu3V1/8pevCTQRF/nefh5Hh2sH+Tett93iaNBQIDMqc2g00+ngrlM8T3+ToNZ6UUD8xtfc64UeW0qiwh9mYsvdXe8cxDw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by PR3PR04MB7482.eurprd04.prod.outlook.com (2603:10a6:102:8f::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8314.17; Mon, 6 Jan
+ 2025 03:31:19 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%5]) with mapi id 15.20.8314.015; Mon, 6 Jan 2025
+ 03:31:19 +0000
+Date: Mon, 6 Jan 2025 12:37:15 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: Peng Fan <peng.fan@nxp.com>, Sudeep Holla <sudeep.holla@arm.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Aisheng Dong <aisheng.dong@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	Jacky Bai <ping.bai@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>
+Subject: Re: [PATCH 1/4] firmware: arm_scmi: bus: Bypass setting fwnode for
+ scmi cpufreq
+Message-ID: <20250106043715.GA14389@localhost.localdomain>
+References: <20241225-scmi-fwdevlink-v1-0-e9a3a5341362@nxp.com>
+ <20241225-scmi-fwdevlink-v1-1-e9a3a5341362@nxp.com>
+ <20241227151306.jh2oabc64xd54dms@bogus>
+ <Z3Qy-br-wVCLpo7Q@pluto>
+ <PAXPR04MB8459AB05EEC7107D500A826688142@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <Z3bHsUMvajaOOhgO@pluto>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z3bHsUMvajaOOhgO@pluto>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: SG2P153CA0011.APCP153.PROD.OUTLOOK.COM (2603:1096::21) To
+ PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PR3PR04MB7482:EE_
+X-MS-Office365-Filtering-Correlation-Id: d035a444-ad3e-40c5-910f-08dd2e029598
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|376014|7416014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?wwFPZX3jG7eXcVhtadmRGSOmqSbwqKtc+vF4xxNdJNoRbl7HMECrgRvsMwWU?=
+ =?us-ascii?Q?jwvreiKHxglbC4tjpgYOrThhpPrUYabY0E7fiF+caoSAy9YfF5mH49HsV/h4?=
+ =?us-ascii?Q?BQsZLo5tMQy8HQCcbzW672xD6AjzPhGX6S7WzXGjQcshojrAZJw0QoqX6F0i?=
+ =?us-ascii?Q?oveg5fvBDTWuM0U4X8LiUAheufChtacu+MbbYWAnFr4C5g6jMjwXukfuftR8?=
+ =?us-ascii?Q?AG7qyQcJngHChaXq7snlUZMBQ5gtduGBE/1Awoorbcf9FAooMWi/zW5S7PGm?=
+ =?us-ascii?Q?xOFBzEqr4w/qk8/gsNcaGuJuYCKVPrK1/i1e7/ezUs9sBL1CO5833d4FAM2u?=
+ =?us-ascii?Q?LlqdNJEimtTyLLFqNIoFw5i2A1Yq+PSC7MLah/jXvkMCKmo0BSTex3Zceisi?=
+ =?us-ascii?Q?XcGuAkPRpxkX31F4DpCoVdx9hpYoNSLc0FxAaxpO0+Jo3AV0O1ns6U4UL2no?=
+ =?us-ascii?Q?iGGjpQqCvixzwxKrUre+oA9gIjjvKibfG9CNsiE5sa/A/oCi3GOtZZTuIULo?=
+ =?us-ascii?Q?rtEbPG2S0Dkgn1TGNJC6e9a5OSh9mExZ/Zl9pSqQWCQKjjmxSg80AtDH1nw5?=
+ =?us-ascii?Q?EVRwQDhsZzNbJdXD/62SX4XjiI6fldNqdcYBLqp9QoSvi1IfAGar4+78A56F?=
+ =?us-ascii?Q?xw23K+Y6v7izoM9MbudwcWKUzwz8bKR9gndwY0MMslsm0rHpc2y9McOQ8ld7?=
+ =?us-ascii?Q?2Fpx3kF5OVU8XmB+c//bxvjrYzzlMawGyeZpl2AzwAz+nmVrMkn5KoD+RZz4?=
+ =?us-ascii?Q?D1P0HNSnZ8rE34EzB5XnQMx6UsZU7EcVWFeDnFppSX9mpZwA1gexRrhomzio?=
+ =?us-ascii?Q?CU0roUcvjMDDIjBXS1HC4hvEIl39os5xvOq9bAAEgkLg+k+LY5FiIvB08fyp?=
+ =?us-ascii?Q?tX50AIiQFy9lSJTsZSfFxok0epexRp6gi1to5lNjdcb5A7xvKxHLHY8WhpTP?=
+ =?us-ascii?Q?4fIpMIDYLignlUWy4QZw2N7K5+kpgpMROlbK886BwdvwxGo2fu8GdyEjgt6N?=
+ =?us-ascii?Q?CIflSOtURRBazuzDhiLLJ6VT8x9QYPDt69UFAlD3e+MhCreGu40jJ69w2kQB?=
+ =?us-ascii?Q?Rt8+JLOR3Wx5crjonxP9jCILpLhv292rWegxj1ZkZyEh5ad2TRB9ymvxI55Z?=
+ =?us-ascii?Q?b22GqalbMHLa2+Cr9fQPlavGL0HZ09nFQkKDLRFou+yx5oKuo1huMuwMkDdI?=
+ =?us-ascii?Q?oB02eRnsr2P29YfcDcRg+Nbug0xtbju4PM4ybgJn8zJvTHomKAOe6VFynaUs?=
+ =?us-ascii?Q?E42XGTWIFqZTLR40pG0WpD2ciq0TYpBa1w1PhaqOp36O4oN4AIqSkzEapz2N?=
+ =?us-ascii?Q?2vHvo+YjJoj0qyloNOIXK8XYtqGUgplmwlJN8BsfdiscQKPPEdSO9u20/GZ4?=
+ =?us-ascii?Q?mFyViXirtz4KzNjxMDRq+myDgxOXjq8vaOu2xnhvCXGN4LxUezEt406Bitbv?=
+ =?us-ascii?Q?KZ1zfckWmYS5TBrcBt954e5mW6Cv19A6?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(376014)(7416014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?tWdYX8CtIgUpl/2JOrn8k4hJ9lCr/sShiBlwj58bZNIoEpI/yPbsRkisvFTb?=
+ =?us-ascii?Q?m0usLfiiWLDniEW8RuATkEJlVPXMmvtlwKcSxnYPqGQsbwoBrAladGCB1xkl?=
+ =?us-ascii?Q?9mO6BbEcg+G8xX9lFVRXR6k1P3p6hKm0ttsNq045oexMfOkdo/zZ30/goJnJ?=
+ =?us-ascii?Q?wJwnJQ0QxmOoaNNXjGU0cMiWcLyxAhD7Aw/jgc32/VSPFHCBcA5jBtWSNflU?=
+ =?us-ascii?Q?qrj3miTyxuxW/60A6j5q5gSOwFal9/EOPw80+TOr9VmuXTofLjh5MjNIHWYb?=
+ =?us-ascii?Q?NkSt14WeSxaIXOIlsMbmqlfNR+OfTynV1YDEuPcb5ueipWmkZGyOOf7ymorl?=
+ =?us-ascii?Q?Dgfm4eF8G4LZc+W3OikMqcz3TTs1U8J6kXqoWCG16661WJAUyNY+DqeLK5Lu?=
+ =?us-ascii?Q?MtWYKSXW5sYbibcmJ3u6h8NPb7jfFShZck4B4ant0y4RXbz2iOQziKrRkA4B?=
+ =?us-ascii?Q?9RUgeKdYw2t6SVFAf3tuP/s2oUEJWY7/4mXiHoLKsktNXo6J25HqsHBca8Yw?=
+ =?us-ascii?Q?0S+ibJ2EutHzrxE77RBmOf9ALnZorcfZQaYRllMNebRNPELuQ9cb7viuxKNt?=
+ =?us-ascii?Q?VDUtLBeCJqreDaMnu4QTUSmgGXnA3B6lxAqU+FDr8P7sFarG2mTUKiPTe8al?=
+ =?us-ascii?Q?pSL4pjuF9TrXL/CdkXyzi+Y7fApXF6FvPUkMRpIs4ElHcz4+UU/kLMTmALj8?=
+ =?us-ascii?Q?J5nbgMOxHpzxUUAcjqjTwPT+JZ83vxv0HJTj3EgPV/Yz23XcFFU+aR1/4FrM?=
+ =?us-ascii?Q?RTunGg5xAt3yNomlTVgHcjT4pSq4wyvDWqnpclqgHmVoWRrNBJ6+VRQitPFT?=
+ =?us-ascii?Q?Dx2IDyQy8gQ9vXWUcnlXTmdLj29iuKIkOqVFwSynUEppXd8qvIPLuyRCDGH7?=
+ =?us-ascii?Q?wFBnT+OiliDlFfVuqP9koIxxRMWMw1DKV9Z7FRgCk1W5v2BLDclNCjYACxEt?=
+ =?us-ascii?Q?FhXUUEpyNXoJFLHDKnD+847AJovUdPbCN7KVDkdCxRYf0DxeBeGuGpMQAEZj?=
+ =?us-ascii?Q?ryvU5Fyp+UO/earyV4jlM83BHaOnTeVvGSrT4cKPFgC9KJtfxnautYRqoSdy?=
+ =?us-ascii?Q?FZVswitAfp5k65tSXzUgLMQaHMenSrshnu/R7wKpHxBo9cXV4OZBrsmfFepz?=
+ =?us-ascii?Q?0dJhmw06SeZgSM0gT23J8vjBLig8rbGkSwfzJftB2Q5/rructwsNSIqA2umO?=
+ =?us-ascii?Q?BXY1JxNPAAOWom58DT77bzWE3FvRfO7mcio9OEpPRQdxLYh/0cgerrzRUzvY?=
+ =?us-ascii?Q?oDYB8EavYBDBxbOkz8DExlrjLITirl2iaVH1S0BOlZDXZvgaTX9vuj8U0szS?=
+ =?us-ascii?Q?p370tVggiszY5iacymhK8tqk200Zu54HWZ4H+DlpmpconoJ02J84MIp7rQQR?=
+ =?us-ascii?Q?qtDLuQYcXbH8yo27oxUSw230/g7MjRx0d5fhbbY2fPv3lIpdvjUxPNiXe3rN?=
+ =?us-ascii?Q?o03bWgMGbZYf99I0/zterQ3IE+xWZEqul6WrwsLkv9v3Ll9u1vMMg0qjBqwD?=
+ =?us-ascii?Q?5nnwOI5yFY0Lhqa+JA6/sSL/C+qMoXeTeeQ5hrKrK3bxNgbH0UGyRqimVkX+?=
+ =?us-ascii?Q?75eq35vND/+6rZ5ZVGvxPMtIcINs/+Ard4V5D977?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d035a444-ad3e-40c5-910f-08dd2e029598
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jan 2025 03:31:19.4851
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: pZsG67zIfcSvqwWdv7hXKHbBLNBb8o1fBaIzyECtOcsfisIrAupxOUr6p4DAStVygJCsYKlxZK9YRJczed+6nw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7482
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250105_191748_187239_58FBDACD 
-X-CRM114-Status: GOOD (  19.85  )
+X-CRM114-CacheID: sfid-20250105_193131_207615_CEE2A2B2 
+X-CRM114-Status: GOOD (  45.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,217 +176,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Barry Song <v-songbaohua@oppo.com>
+On Thu, Jan 02, 2025 at 05:06:57PM +0000, Cristian Marussi wrote:
+>On Thu, Jan 02, 2025 at 07:38:06AM +0000, Peng Fan wrote:
+>> > Subject: Re: [PATCH 1/4] firmware: arm_scmi: bus: Bypass setting
+>> > fwnode for scmi cpufreq
+>> > 
+>> > On Fri, Dec 27, 2024 at 03:13:06PM +0000, Sudeep Holla wrote:
+>> > > On Wed, Dec 25, 2024 at 04:20:44PM +0800, Peng Fan (OSS) wrote:
+>> > > > From: Peng Fan <peng.fan@nxp.com>
+>> > > >
+>> > > > Two drivers scmi_cpufreq.c and scmi_perf_domain.c both use
+>> > > > SCMI_PROTCOL_PERF protocol, but with different name, so two
+>> > scmi
+>> > > > devices will be created. But the fwnode->dev could only point to
+>> > one device.
+>> > > >
+>> > > > If scmi cpufreq device created earlier, the fwnode->dev will point
+>> > > > to the scmi cpufreq device. Then the fw_devlink will link
+>> > > > performance domain user device(consumer) to the scmi cpufreq
+>> > device(supplier).
+>> > > > But actually the performance domain user device, such as GPU,
+>> > should
+>> > > > use the scmi perf device as supplier. Also if 'cpufreq.off=1' in
+>> > > > bootargs, the GPU driver will defer probe always, because of the
+>> > > > scmi cpufreq device not ready.
+>> > > >
+>> > > > Because for cpufreq, no need use fw_devlink. So bypass setting
+>> > > > fwnode for scmi cpufreq device.
+>> > > >
+>> > 
+>> > Hi,
+>> > 
+>> > > > Fixes: 96da4a99ce50 ("firmware: arm_scmi: Set fwnode for the
+>> > > > scmi_device")
+>> > > > Signed-off-by: Peng Fan <peng.fan@nxp.com>
+>> > > > ---
+>> > > >  drivers/firmware/arm_scmi/bus.c | 15 ++++++++++++++-
+>> > > >  1 file changed, 14 insertions(+), 1 deletion(-)
+>> > > >
+>> > > > diff --git a/drivers/firmware/arm_scmi/bus.c
+>> > > > b/drivers/firmware/arm_scmi/bus.c index
+>> > > >
+>> > 157172a5f2b577ce4f04425f967f548230c1ebed..12190d4dabb654845
+>> > 43044b442
+>> > > > 4fbe3b67245466 100644
+>> > > > --- a/drivers/firmware/arm_scmi/bus.c
+>> > > > +++ b/drivers/firmware/arm_scmi/bus.c
+>> > > > @@ -345,6 +345,19 @@ static void __scmi_device_destroy(struct
+>> > scmi_device *scmi_dev)
+>> > > >  	device_unregister(&scmi_dev->dev);
+>> > > >  }
+>> > > >
+>> > > > +static int
+>> > > > +__scmi_device_set_node(struct scmi_device *scmi_dev, struct
+>> > device_node *np,
+>> > > > +		       int protocol, const char *name) {
+>> > > > +	/* cpufreq device does not need to be supplier from devlink
+>> > perspective */
+>> > > > +	if ((protocol == SCMI_PROTOCOL_PERF) && !strcmp(name,
+>> > "cpufreq"))
+>> > > > +		return 0;
+>> > > >
+>> > >
+>> > > This is just a assumption based on current implementation. What
+>> > > happens if this is needed. Infact, it is used in the current
+>> > > implementation to create a dummy clock provider, so for sure with
+>> > this
+>> > > change that will break IMO.
+>> > 
+>> > I agree with Sudeep on this: if you want to exclude some SCMI device
+>> > from the fw_devlink handling to address the issues with multiple SCMI
+>> > devices created on the same protocol nodes, cant we just flag this
+>> > requirement here and avoid to call device_link_add in
+>> > driver:scmi_set_handle(), instead of killing completely any possibility of
+>> > referencing phandles (and having device_link_add failing as a
+>> > consequence of having a NULL supplier)
+>> > 
+>> > i.e. something like:
+>> > 
+>> > @bus.c
+>> > ------
+>> > static int
+>> > __scmi_device_set_node(struct scmi_device *scmi_dev, struct
+>> > device_node *np,
+>> > 		       int protocol, const char *name) {
+>> > 	if ((protocol == SCMI_PROTOCOL_PERF) && !strcmp(name,
+>> > "cpufreq"))
+>> > 		scmi_dev->avoid_devlink = true;
+>> > 
+>> > 	device_set_node(&scmi_dev->dev, of_fwnode_handle(np));
+>> > 	....
+>> > 
+>> > 
+>> > and @driver.c
+>> > -------------
+>> > 
+>> > static void scmi_set_handle(struct scmi_device *scmi_dev) {
+>> > 	scmi_dev->handle = scmi_handle_get(&scmi_dev->dev);
+>> > 	if (scmi_dev->handle && !scmi_dev->avoid_devlink)
+>> > 		scmi_device_link_add(&scmi_dev->dev, scmi_dev-
+>> > >handle->dev); }
+>> > 
+>> > .... so that you can avoid fw_devlink BUT keep the device_node NON-
+>> > null for the device.
+>> > 
+>> > This would mean also restoring the pre-existing explicit blacklisting in
+>> > pinctrl-imx to avoid issues when pinctrl subsystem searches by
+>> > device_node...
+>> > 
+>> > ..or I am missing something ?
+>> 
+>> link_ret = device_links_check_suppliers(dev); to check fw_devlink
+>> is before "ret = driver_sysfs_add(dev);" which
+>> issue bus notify.
+>> 
+>> The link is fw_devlink, the devlink is created in 'device_add'
+>>         if (dev->fwnode && !dev->fwnode->dev) {                                                     
+>>                 dev->fwnode->dev = dev;                                                             
+>>                 fw_devlink_link_device(dev);                                                        
+>>         }
+>> The check condition is fwnode.
+>> 
+>> I think scmi_dev->avoid_devlink not help here.
+>> 
+>
+>Ah right...my bad, the issue comes from the device_links created by
+>fw_devlink indirectly while walking the phandles backrefs...still...
+>...cant we keep the device_node reference while keep on dropping the
+>fw_node as you did:
+>
+> 	if ((protocol == SCMI_PROTOCOL_PERF) && !strcmp(name, "cpufreq")) {
+>		scmi_dev->dev.of_node = np;
+> 		return 0;
+>	}
+> 
+> 	device_set_node(&scmi_dev->dev, of_fwnode_handle(np));
+> 	....
+>
+>...so that the fw_devlink machinery is disabled but still we create a
+>device with an underlying related device_node that can be referred in a
+>phandle.
 
-Currently, the PTEs and rmap of a large folio are removed one at a time.
-This is not only slow but also causes the large folio to be unnecessarily
-added to deferred_split, which can lead to races between the
-deferred_split shrinker callback and memory reclamation. This patch
-releases all PTEs and rmap entries in a batch.
-Currently, it only handles lazyfree large folios.
+ok, I will add "scmi_dev->dev.of_node = np" for cpufreq device.
 
-The below microbench tries to reclaim 128MB lazyfree large folios
-whose sizes are 64KiB:
+>
+>I wonder also if it was not even more clean to DO initialize fw_devlink
+>instead, BUT add some of the existent fw_devlink/devlink flags to inhibit
+>all the checks...but I am not familiar with fw_devlink so much and I
+>have not experimented in these regards...so I may have just said
+>something unfeasible.
 
- #include <stdio.h>
- #include <sys/mman.h>
- #include <string.h>
- #include <time.h>
+fw_devlink is based on device tree node, so there is no way, unless
+add subnodes for a protocol node, but this is not welcomed.
 
- #define SIZE 128*1024*1024  // 128 MB
+Thanks,
+Peng
 
- unsigned long read_split_deferred()
- {
- 	FILE *file = fopen("/sys/kernel/mm/transparent_hugepage"
-			"/hugepages-64kB/stats/split_deferred", "r");
- 	if (!file) {
- 		perror("Error opening file");
- 		return 0;
- 	}
-
- 	unsigned long value;
- 	if (fscanf(file, "%lu", &value) != 1) {
- 		perror("Error reading value");
- 		fclose(file);
- 		return 0;
- 	}
-
- 	fclose(file);
- 	return value;
- }
-
- int main(int argc, char *argv[])
- {
- 	while(1) {
- 		volatile int *p = mmap(0, SIZE, PROT_READ | PROT_WRITE,
- 				MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
-
- 		memset((void *)p, 1, SIZE);
-
- 		madvise((void *)p, SIZE, MADV_FREE);
-
- 		clock_t start_time = clock();
- 		unsigned long start_split = read_split_deferred();
- 		madvise((void *)p, SIZE, MADV_PAGEOUT);
- 		clock_t end_time = clock();
- 		unsigned long end_split = read_split_deferred();
-
- 		double elapsed_time = (double)(end_time - start_time) / CLOCKS_PER_SEC;
- 		printf("Time taken by reclamation: %f seconds, split_deferred: %ld\n",
- 			elapsed_time, end_split - start_split);
-
- 		munmap((void *)p, SIZE);
- 	}
- 	return 0;
- }
-
-w/o patch:
-~ # ./a.out
-Time taken by reclamation: 0.177418 seconds, split_deferred: 2048
-Time taken by reclamation: 0.178348 seconds, split_deferred: 2048
-Time taken by reclamation: 0.174525 seconds, split_deferred: 2048
-Time taken by reclamation: 0.171620 seconds, split_deferred: 2048
-Time taken by reclamation: 0.172241 seconds, split_deferred: 2048
-Time taken by reclamation: 0.174003 seconds, split_deferred: 2048
-Time taken by reclamation: 0.171058 seconds, split_deferred: 2048
-Time taken by reclamation: 0.171993 seconds, split_deferred: 2048
-Time taken by reclamation: 0.169829 seconds, split_deferred: 2048
-Time taken by reclamation: 0.172895 seconds, split_deferred: 2048
-Time taken by reclamation: 0.176063 seconds, split_deferred: 2048
-Time taken by reclamation: 0.172568 seconds, split_deferred: 2048
-Time taken by reclamation: 0.171185 seconds, split_deferred: 2048
-Time taken by reclamation: 0.170632 seconds, split_deferred: 2048
-Time taken by reclamation: 0.170208 seconds, split_deferred: 2048
-Time taken by reclamation: 0.174192 seconds, split_deferred: 2048
-...
-
-w/ patch:
-~ # ./a.out
-Time taken by reclamation: 0.074231 seconds, split_deferred: 0
-Time taken by reclamation: 0.071026 seconds, split_deferred: 0
-Time taken by reclamation: 0.072029 seconds, split_deferred: 0
-Time taken by reclamation: 0.071873 seconds, split_deferred: 0
-Time taken by reclamation: 0.073573 seconds, split_deferred: 0
-Time taken by reclamation: 0.071906 seconds, split_deferred: 0
-Time taken by reclamation: 0.073604 seconds, split_deferred: 0
-Time taken by reclamation: 0.075903 seconds, split_deferred: 0
-Time taken by reclamation: 0.073191 seconds, split_deferred: 0
-Time taken by reclamation: 0.071228 seconds, split_deferred: 0
-Time taken by reclamation: 0.071391 seconds, split_deferred: 0
-Time taken by reclamation: 0.071468 seconds, split_deferred: 0
-Time taken by reclamation: 0.071896 seconds, split_deferred: 0
-Time taken by reclamation: 0.072508 seconds, split_deferred: 0
-Time taken by reclamation: 0.071884 seconds, split_deferred: 0
-Time taken by reclamation: 0.072433 seconds, split_deferred: 0
-Time taken by reclamation: 0.071939 seconds, split_deferred: 0
-...
-
-Signed-off-by: Barry Song <v-songbaohua@oppo.com>
----
- mm/rmap.c | 48 ++++++++++++++++++++++++++++++++++++++++++------
- 1 file changed, 42 insertions(+), 6 deletions(-)
-
-diff --git a/mm/rmap.c b/mm/rmap.c
-index 365112af5291..9424b96f8482 100644
---- a/mm/rmap.c
-+++ b/mm/rmap.c
-@@ -1642,6 +1642,27 @@ void folio_remove_rmap_pmd(struct folio *folio, struct page *page,
- #endif
- }
- 
-+/* We support batch unmapping of PTEs for lazyfree large folios */
-+static inline bool can_batch_unmap_folio_ptes(unsigned long addr,
-+			struct folio *folio, pte_t *ptep)
-+{
-+	const fpb_t fpb_flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
-+	int max_nr = folio_nr_pages(folio);
-+	pte_t pte = ptep_get(ptep);
-+
-+	if (pte_none(pte))
-+		return false;
-+	if (!pte_present(pte))
-+		return false;
-+	if (!folio_test_anon(folio))
-+		return false;
-+	if (folio_test_swapbacked(folio))
-+		return false;
-+
-+	return folio_pte_batch(folio, addr, ptep, pte, max_nr, fpb_flags, NULL,
-+			       NULL, NULL) == max_nr;
-+}
-+
- /*
-  * @arg: enum ttu_flags will be passed to this argument
-  */
-@@ -1655,6 +1676,7 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
- 	bool anon_exclusive, ret = true;
- 	struct mmu_notifier_range range;
- 	enum ttu_flags flags = (enum ttu_flags)(long)arg;
-+	int nr_pages = 1;
- 	unsigned long pfn;
- 	unsigned long hsz = 0;
- 
-@@ -1780,6 +1802,15 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
- 				hugetlb_vma_unlock_write(vma);
- 			}
- 			pteval = huge_ptep_clear_flush(vma, address, pvmw.pte);
-+		} else if (folio_test_large(folio) &&
-+				can_batch_unmap_folio_ptes(address, folio, pvmw.pte)) {
-+			nr_pages = folio_nr_pages(folio);
-+			flush_cache_range(vma, range.start, range.end);
-+			pteval = get_and_clear_full_ptes(mm, address, pvmw.pte, nr_pages, 0);
-+			if (should_defer_flush(mm, flags))
-+				set_tlb_ubc_flush_pending(mm, pteval, address, folio_size(folio));
-+			else
-+				flush_tlb_range(vma, range.start, range.end);
- 		} else {
- 			flush_cache_page(vma, address, pfn);
- 			/* Nuke the page table entry. */
-@@ -1875,7 +1906,7 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
- 					 * redirtied either using the page table or a previously
- 					 * obtained GUP reference.
- 					 */
--					set_pte_at(mm, address, pvmw.pte, pteval);
-+					set_ptes(mm, address, pvmw.pte, pteval, nr_pages);
- 					folio_set_swapbacked(folio);
- 					goto walk_abort;
- 				} else if (ref_count != 1 + map_count) {
-@@ -1888,10 +1919,10 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
- 					 * We'll come back here later and detect if the folio was
- 					 * dirtied when the additional reference is gone.
- 					 */
--					set_pte_at(mm, address, pvmw.pte, pteval);
-+					set_ptes(mm, address, pvmw.pte, pteval, nr_pages);
- 					goto walk_abort;
- 				}
--				dec_mm_counter(mm, MM_ANONPAGES);
-+				add_mm_counter(mm, MM_ANONPAGES, -nr_pages);
- 				goto discard;
- 			}
- 
-@@ -1943,13 +1974,18 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
- 			dec_mm_counter(mm, mm_counter_file(folio));
- 		}
- discard:
--		if (unlikely(folio_test_hugetlb(folio)))
-+		if (unlikely(folio_test_hugetlb(folio))) {
- 			hugetlb_remove_rmap(folio);
--		else
--			folio_remove_rmap_pte(folio, subpage, vma);
-+		} else {
-+			folio_remove_rmap_ptes(folio, subpage, nr_pages, vma);
-+			folio_ref_sub(folio, nr_pages - 1);
-+		}
- 		if (vma->vm_flags & VM_LOCKED)
- 			mlock_drain_local();
- 		folio_put(folio);
-+		/* We have already batched the entire folio */
-+		if (nr_pages > 1)
-+			goto walk_done;
- 		continue;
- walk_abort:
- 		ret = false;
--- 
-2.39.3 (Apple Git-146)
-
+>
+>Thanks,
+>Cristian
+>
 
