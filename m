@@ -4,64 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6C0DE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 19:22:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C46BBE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 19:27:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7BcoHlr5mqONKZTSzBUb5jY6jJZN9tS++KsS1iH+yJY=; b=vODSVc401zuAxpWaXR2NdVX8Ko
-	hdpziDlwuPyTHftweLvs0oBbUw+8Yy/6eyFzbkJslbziugSMlqtL2aVGqcgmaKarrTYN5PblhI3dy
-	7Z6p+b7rAjA1jWiyH5m0PGVXCdnWc7J2iw35yuAguzUG47NGIhUcxjRza61F//jnRXGGA91mFP+xC
-	p6pBQsJR9moRCo2aC6SzcHu5ggFWynYElR0Wje1I55gFCPF3XZyIfvrQpMIs4dbTbVnDBRKcO9ik2
-	sdWGhr8AMS81WEC5f9Lbn5Zh4uA+AICrB28Ue9XFX04RLIe3/L+ueN5RsxJzw04DKoZO3xdlrfffU
-	heGNaUhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dEeC2ukI5ZmjqAIH3frqZPd6crzzbKaq5apFahgAFw8=; b=TcYjkV/cMr8ZfuBNMJhXQmzNNK
+	qFCqaj1oOAtB6l2RBy2eEYFYthXLVU+8FCuo9XbgbXJCGW97XX4OHdNaXxgb1+4f4wlT03JFFHDeR
+	ufKrUiRXhYUzXHFtYeika4ik0KkaB9KH7YtR209XdbaQXaTkTy5dDX/I3pO9llkWP+NY+uQzLeag+
+	iEOQ4SFumQ8nJtTpYQb8BCVs8GT2Ta1S0P+Y05VyrQTTBu5AKP4f+Y8ycChWyMLHwUCaFhLYERsDi
+	xKZZD4Ioq0eVc7izCbPCJGrZlPld5Oz20qC32wDvJJvW6VrQ3JmDV0UdHhZt3mOjNcIOhg9eX0LaL
+	XOSB0+TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUsgU-00000002Qv9-1GyB;
-	Mon, 06 Jan 2025 19:22:42 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tUskt-00000002RYz-0s6U;
+	Mon, 06 Jan 2025 19:27:15 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUsb8-00000002Pi1-1RGB
+	id 1tUsjh-00000002RN1-0dB7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 19:17:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BC586A41CE2;
-	Mon,  6 Jan 2025 19:15:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0335FC4CED2;
-	Mon,  6 Jan 2025 19:17:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736191029;
-	bh=6qqkycaChU04ByYjXtkPjgTjS4Ua9uw484eT8onPDKs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uzqfclh7A68HZXspO39YAG3pSFL2wOfsLq8oX0mIJ7rrwOgqEpyKqeTtB4QcQnkNI
-	 YVs2MzkIM1TipZLgcUlWucIA7yAf/+Zdiw3wpFS0S4ZW+y56XXb64MtAxRzvawO7Ko
-	 FruGwNDAnfSRFl5qbupeBDpBk81ijRm/1B22JAo5cdaBkCJtGFoYIFdGRiZelzePmB
-	 OMv+lYcR7QhaQlhy3i5iZcK/xheJEh75hrU829nvAYA6jwbe7rL6btFFpft6K80GfA
-	 P1c+JQi71nPm6DyOdwz4kn0Np/xLX7eAJg82yvGXEUHLWGVJeRv6LUKr3AXuIS5K19
-	 iGiRQxkyFvL4A==
-Date: Mon, 6 Jan 2025 19:17:05 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v3] arm64: Filter out SVE hwcaps when FEAT_SVE isn't
- implemented
-Message-ID: <f36c5201-940e-43c2-acf3-b117d5cc3573@sirena.org.uk>
-References: <20250106174020.1793678-1-maz@kernel.org>
+	Mon, 06 Jan 2025 19:26:02 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <a.fatoum@pengutronix.de>)
+	id 1tUsjL-0001KR-8T; Mon, 06 Jan 2025 20:25:39 +0100
+Message-ID: <957ad153-17f3-4cb8-8878-73093a9a2724@pengutronix.de>
+Date: Mon, 6 Jan 2025 20:25:38 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="vZFIhnK71t2UBznl"
-Content-Disposition: inline
-In-Reply-To: <20250106174020.1793678-1-maz@kernel.org>
-X-Cookie: Do not pick the flowers.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/6] dt-bindings: clock: imx8m: document
+ nominal/overdrive properties
+To: Frank Li <Frank.li@nxp.com>
+Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Abel Vesa <abel.vesa@linaro.org>,
+ Marek Vasut <marex@denx.de>, linux-clk@vger.kernel.org, imx@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>
+References: <20250106-imx8m-clk-v2-0-6aaeadac65fe@pengutronix.de>
+ <20250106-imx8m-clk-v2-1-6aaeadac65fe@pengutronix.de>
+ <Z3wHp6eLQuV9GGvh@lizhi-Precision-Tower-5810>
+Content-Language: en-US
+From: Ahmad Fatoum <a.fatoum@pengutronix.de>
+In-Reply-To: <Z3wHp6eLQuV9GGvh@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_111710_448204_A78DF4D8 
-X-CRM114-Status: GOOD (  16.40  )
+X-CRM114-CacheID: sfid-20250106_112601_193405_7B26DF57 
+X-CRM114-Status: GOOD (  20.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,55 +78,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello Frank,
 
---vZFIhnK71t2UBznl
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On 06.01.25 17:41, Frank Li wrote:
+> On Mon, Jan 06, 2025 at 03:21:42PM +0100, Ahmad Fatoum wrote:
 
-On Mon, Jan 06, 2025 at 05:40:20PM +0000, Marc Zyngier wrote:
+[snip]
 
-> Things become a bit more interesting if the HW implements SME.
-> In this case, a few ID_AA64ZFR0_EL1 fields indicate *SME*
-> features. And these fields overlap with their SVE interpretations.
-> But the architecture says that the SME and SVE feature sets must
-> match, so we're still hunky-dory.
+>> Allowing for absence of both properties is
+>> needed, because there is no default suitable for all boards:
+>>
+>> For i.MX8M Mini and Nano, the kernel SoC DTSIs has assigned-clock-rates
+>> that are all achievable in nominal mode. For i.MX8MP, there are some
+>> rates only validated for overdrive mode.
+>>
+>> But even for the i.MX8M Mini/Nano boards, we don't know what rates they
+>> may configure at runtime, so it has not been possible so far to infer from
+>> just the device tree what the mode is.
 
-> This goes wrong if the HW implements SME, but not SVE. In this
-> case, we end-up advertising some SVE features to userspace, even
-> if the HW has none. That's because we never consider whether SVE
-> is actually implemented. Oh well.
+[snip]
 
-> Fix it by restricting all SVE capabilities to ID_AA64PFR0_EL1.SVE
-> being non-zero. The HWCAPS documentation is amended to reflect the
-> actually checks performed by the kernel.
+>> +  fsl,nominal-mode:
+>> +    description: Set if SoC is operated in nominal mode
+>> +    $ref: /schemas/types.yaml#/definitions/flag
+>> +
+>> +  fsl,overdrive-mode:
+>> +    description: Set if SoC is operated in overdrive mode
+>> +    $ref: /schemas/types.yaml#/definitions/flag
+>> +
+> 
+> why need two flags? suppose "not set fsl,overdrive-mode" is equal to
+> fsl,nominal-mode
 
-Reviewed-by: Mark Brown <broonie@kernel.org>
+Conor had the same question on v1[1] and I have addressed this in the commit
+message of v2, see above.
 
-This is probably our best option here, it's what we really meant anyway
-- SME did retroactively complicate the meaning of the fields so it's not
-unreasaonable for userspace to get confused.  For SME specific usage we
-should implement separate SME capabilities that have a similar has_sme()
-check, I'll look into that.
+In short, there is unfortunately no universally applicable default.
 
-I agree with the discussion on v2 that anything reading the ID registers
-=66rom userspace needs to have a similar understanding that SME only
-systems exist so we shouldn't do anything there.
+[1]: https://lore.kernel.org/all/4e2250b3-5170-4e88-aa0a-dd796b81e78b@pengutronix.de/
 
---vZFIhnK71t2UBznl
-Content-Type: application/pgp-signature; name="signature.asc"
+Thanks,
+Ahmad
 
------BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmd8LDAACgkQJNaLcl1U
-h9AjWQf7B82mmLxvEvpghzPsMNERTf/lPPS7nYAi8h/sDfAuP4OfpP7GsSbQGmJ1
-QAk0U60pmoOKIKqSeBA5DOYXE1Nf6iJDPraJDgtOSY8iVulXlKbT0mE4WYbtcLXH
-LRwwfwrnb9PXONqmKQD/nD6qNElAs+yet7BhE9ROxvrto1Ndht1viZRQgt9y/gM7
-fi7Eyzr/iNP7RZqc4BmOAwi8YkLrsKt/y8hV2LI8tbxfATUCizl1K+oh4pNSwxg3
-sNnRwqYR7N8Cm3YqhSQEKMw4JAUGnCp0J5iB+0unmvOQjp8XD8O83qs9HhWARyXw
-798pCr5lCZJb7/ZmisMMbEKim5YSyg==
-=SojD
------END PGP SIGNATURE-----
+> 
+> Frank
+> 
+>>  required:
+>>    - compatible
+>>    - reg
+>> @@ -95,6 +103,12 @@ allOf:
+>>              - const: clk_ext2
+>>              - const: clk_ext3
+>>              - const: clk_ext4
+>> +  - if:
+>> +      required:
+>> +        - fsl,overdrive-mode
+>> +    then:
+>> +      properties:
+>> +        fsl,nominal-mode: false
+>>
+>>  additionalProperties: false
+>>
+>>
+>> --
+>> 2.39.5
+>>
+> 
 
---vZFIhnK71t2UBznl--
+
+-- 
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
