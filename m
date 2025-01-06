@@ -4,162 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6682E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 03:36:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7306E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 03:51:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ET0R2iKrLBKnjjQXSOk56XWa88UUHti3xYGH2/U9IXo=; b=1usQLhW4m8PeArxvO4uk8uLytM
-	OACZchBdX1r9irgd2GgX4j9I32lpQBCaORVE4pUZWWdkNZcbpd3nySL7zzIckmzGDfhRQSZPztz/E
-	M46Z5EmnCEVxIAW6sx5HinYGgjUJGUl9j+Xd2/KdPy/OcEd87u+CccfemVdR8Z4pbWnrw41OKfXj7
-	gx7gl5nrSgTZ3Uvj5r2Gb3sBurxQWXyW1eLPhaR0RKVK274XFp8KGja49giQp5WLceYc41oPVcEx2
-	0DIqZ7vGsgH1xwnubdKxJ/lI/+1bzJojzQecbRY1V3X4oNW6n4oE+WwX09+QxFmrH0rdWS36vBige
-	rMhl9+kg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M/CQCfwbCGmNbncAnjTVlLDBhrllfolDtdV4jFWfmgY=; b=26Mr8CCN2UdnBf1tQk11DlS9R9
+	0nkgndKHyNkWfLEQro0Ss1g58UwWICZz1qZ81s96TpNllbO7dDIHRHHPgZFE7P4EnrPPujPGiDYu8
+	hYSzhNFDtJSShaah6h3/dujfDDmTHp4H3qXvRhvDhXPox4LLssmRWbgW5ShyRTPcAjCK79iqJ8R00
+	KdPo65PRqYe4jePJ1zCut2PXTJmQ9XL/9wtM27tbZK2gTBjvKJI7MNE8wcDg+kGH7qfa+2DDF/1j8
+	28KD+JuVJ5fO8XrkaH4TYPIGC65AF5720G1xvtenOo9pJ1gXnkuLKgn4g90xk8wJV/byIPcL1j5DU
+	BtQZLkXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUdv0-000000008wk-3IHI;
-	Mon, 06 Jan 2025 03:36:42 +0000
-Received: from mail-dbaeur03on2061a.outbound.protection.outlook.com ([2a01:111:f403:260d::61a] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
+	id 1tUe9A-000000009vM-2jLN;
+	Mon, 06 Jan 2025 03:51:20 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUdto-000000008ry-3h2J
+	id 1tUe7w-000000009lx-2BIu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 03:35:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fyUFVAaOH1lnSjKrhqKy1S/VJUKGju5SDrsddC7lb7tyyiDo5NqrKUptLyYNNPfkrNsvhNG2gUwNmGV1BSycXCumt7gXmCQFlgG7H70XPWf7WhtvQot+fiqYoA0n/NqF2Fbwk7Rz8HPJq7wITRsYwBqvF/tWxfYCJtTCQeOg6jYZHLG776GxOU6BKPmKFEVW43Lr2+cNrw7jD0yIBajr32O2XL29N9RGUxE0kgj7ESpoIxxyByE6E8XQpEzndne5QNlw1x83X2z4JWcQPYDuGNExduJZmbqYqPemVAJYAkbWTDIptzXwaz1bZwtnkYmBrJOs41Tdi20kZEQ0bWH7Qg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ET0R2iKrLBKnjjQXSOk56XWa88UUHti3xYGH2/U9IXo=;
- b=X+5+nNfE22zydlAyEPiv2dN+5/tIEr14uEtiQ0N/pyz8rpwFMfB33GaTFDVbb2Z8JERpZCuUCck46Zmw2cUnP8wWokDE4EViK31rPrhLZIQmCMDj75NLtiYlFT+rklLTIf5RSKLgjxC+Osb00URyQun4Pzu9cznRq9lM8oJ342zJ3lFAhLKH+vP/onZG0poXUp7uN48VyJCRA7skbXnmYPBMn5UIlXbYcL88zGhwfycrRvAdhbHUjUGjWSckX0NcAWcnPDlK6H15VavZKM8KgLZ9R+pGtXfdRTQ0789ncCFj2ZiMOouTeJC2TYFW6X01FwkbwBOLhE+7kDLDEbrBJg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ET0R2iKrLBKnjjQXSOk56XWa88UUHti3xYGH2/U9IXo=;
- b=dOjGTap5SMNieOKdbHgD/rNnz/aBHRIHZIn5Yj4OYdtghq/H/9DuaJKNCFzHcbuDdSzcVNytx0JMyV2g95ptfGdg3mUI2Tle53YF2JXu8dLBIUW4lM3Ug3j1S8jS1x1fOtKb/N0r5WWm34mTGzp9RavqrTdYVhqecWalaJav4XpkeDZGN0o3Zl3SwmN2xAhikqyubE5bY1yz7s1ZEwfWZWCH56I6n2BEx3xx2Q07J79Fot8ReNjoqCn6+mQgkdA/mjcqKnHjQIwF7BRblILPMcqUWXkY8zfQybfkFXzRAYcgZefdgprTBdmaKE5ScWMJVmYptqvqHsCYrap90gkmIg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by PR3PR04MB7482.eurprd04.prod.outlook.com (2603:10a6:102:8f::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8314.17; Mon, 6 Jan
- 2025 03:35:21 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%5]) with mapi id 15.20.8314.015; Mon, 6 Jan 2025
- 03:35:21 +0000
-Date: Mon, 6 Jan 2025 12:41:20 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Cristian Marussi <cristian.marussi@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
-	Jacky Bai <ping.bai@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org, imx@lists.linux.dev,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 2/4] firmware: arm_scmi: bus: Bypass setting fwnode for
- pinctrl
-Message-ID: <20250106044120.GB14389@localhost.localdomain>
-References: <20241225-scmi-fwdevlink-v1-0-e9a3a5341362@nxp.com>
- <20241225-scmi-fwdevlink-v1-2-e9a3a5341362@nxp.com>
- <20241227152807.xoc7gaatejdrxglg@bogus>
- <Z3Q07EDfN0kTiVRV@pluto>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z3Q07EDfN0kTiVRV@pluto>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: SI2PR02CA0051.apcprd02.prod.outlook.com
- (2603:1096:4:196::10) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Mon, 06 Jan 2025 03:50:06 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-2eec9b3a1bbso15658635a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 05 Jan 2025 19:49:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1736135398; x=1736740198; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=M/CQCfwbCGmNbncAnjTVlLDBhrllfolDtdV4jFWfmgY=;
+        b=VTWjw4+E8suzl8KY7F/aL4w0g+nRgiS8BdE00CTrZ0MKJIZE5143ZlM6WEMQ6tdPTn
+         g05g0uitwOBkCxOuv7TlqlySkjXFm+DhXloIvPOQbOkdQm1zreRUYDqc3dTwXkDnf5dp
+         ew6d8TC1WJsQsnoMqdyzg9rhZwFS1MLBisrFsYN4DkoNDbQHepd39Q3mG1MLnV+5cVwv
+         /L4HWBul2AXFDXYY0wc2pHmPUQvtnw76m/qRmaeQXOL6JlV0yUbaCKa4LBYhwBSsckkS
+         yZKvAXIfTGTvSYtUPx2/bVIgU5Zl1AIpwmjD5sbGZzSHRrCx93weWJ9ZelUh3/UGH4I9
+         BCxg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736135398; x=1736740198;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=M/CQCfwbCGmNbncAnjTVlLDBhrllfolDtdV4jFWfmgY=;
+        b=sHBPWd4HxuehWKdOBTr0dRVOY0b2q6WHzKaXi6D5rWYz60CRoXPNhEFGYQmH/XXY5r
+         ce85Pe6d+mfDFSoULtC3W0KhUPOM8DADsQyO2zEEl33AQ/3QVAh/CkrP73vB3LnHni7b
+         zw9+b79fB6vfk/pa3rKYmq5U3YiqF3id1QMJrCr0zy0bUsNcacvajHPHOa98ptyFPs2E
+         /qTQ0vA9G6UTu2eGMNLklH5DF2QdibSf/guYjff054LzrlgJTafXxJA5cBNJbV7ptLuf
+         T5nLy/qj2n5ng9Sc4SvCH+udOUJ8xLN711ZtRnP+MmMthOB5lFi6JzOoKpMCABOTbf8s
+         ioKw==
+X-Forwarded-Encrypted: i=1; AJvYcCWWPtUAmolWDonBbD8G5bUvRCeFE+K/XzDpbq4GmgpV80yLdFIKZxRv1ypGs1a3hYqC16ebznHuYHOUJDhxBf3f@lists.infradead.org
+X-Gm-Message-State: AOJu0YymvT6elA0drk8o8oQeLCoUBp4vqSLUpYph63BA8yfhks4aOpA2
+	erufM/FVnen9SFC1jAy/zzx59Gh7+kzGt+brrdMxHmM3C6hpSYuwWXdIq0aQ7GM=
+X-Gm-Gg: ASbGncuq0L3ZEUpdGRfmP4wIwfpYj5SWh2unB79Fov1ahqL7NbTDD8SELH3j/AIE43f
+	pvyZ0eILuJrLmDbg9nzp6lHIp0gdfOMY3XqO4aGCcAFgLOLTsptgnUr1hbDCbnUrXpcNYDEUqXM
+	/ED1FD65xZ95M3ym+T2DxeQz0F5SYNbotKx7vjOEjBUiRm1f2wvgu6BTHkf75jYMS9PsFdbYD/E
+	Qj3GGRFuv7WJu0ELnSfOeQi3QVTb7KJbS86rHU5GtoK/XJsYtMmDVYYl5VQlafQDu0nNEJsSoYe
+	tZFxSA==
+X-Google-Smtp-Source: AGHT+IHpHJsHb9mpdlPf1WMyDHeUmOQ71xKKXnSQB+gdiLoxCAO6i7uhLAJzOXuDIN6Nxvn4zgv7zA==
+X-Received: by 2002:a17:90b:53c8:b0:2ee:c2df:5d30 with SMTP id 98e67ed59e1d1-2f452eb11e2mr54849162a91.26.1736135398510;
+        Sun, 05 Jan 2025 19:49:58 -0800 (PST)
+Received: from [10.84.148.23] ([203.208.167.150])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f447799048sm32821110a91.10.2025.01.05.19.49.45
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 05 Jan 2025 19:49:58 -0800 (PST)
+Message-ID: <de8756aa-dbf7-4f6f-91f0-934270397192@bytedance.com>
+Date: Mon, 6 Jan 2025 11:49:41 +0800
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PR3PR04MB7482:EE_
-X-MS-Office365-Filtering-Correlation-Id: bdab594f-7acf-4185-5f58-08dd2e03259d
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|376014|7416014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?D+HN7/V/YZXHB+Yd9IM7DEZgphwByy3Oc03SSHIdu5OGebTfPZqkEy/L2xi1?=
- =?us-ascii?Q?w4YAKPCuZ/4IjUJjS77PIqokgVw10jr0dwCUqEOmDvl2YbkWzxn+2HsEtM+h?=
- =?us-ascii?Q?Q3PvdCavql2X01pakGvwjCwXSXXd9+MIKqfa9j5Y2BIysLEaXaL/+/HcUWwC?=
- =?us-ascii?Q?6wpUyN1rf5WZFdN/lAczLLZUgjcR0ZPq1CEU8EIh+ysNoeSppVhIo25FMIDP?=
- =?us-ascii?Q?MBmr2VUQ9Jhb7Lv6hJxZedqD3N+IGYHjrIgmUTWGoEJLRv69w7eh619VCxWD?=
- =?us-ascii?Q?CzOGEYeczu4+QHN+A4andZgKWdETn3ZnB8BNDZATVAbu5uC1uhZPMmzF36gO?=
- =?us-ascii?Q?5vFNrWa2SMikLdL/uNUXnQ2pEtqI5mFheesjBP5jw5DFquFx9cVfRpaCy640?=
- =?us-ascii?Q?I/uBGbZLd7QtOpCdkXQKngx3elICFOVAHCmmubW+iUi6C5MipX5QixqM1/si?=
- =?us-ascii?Q?d+BEcVgQWWZid6tzLEapLnKAzkSI9GF0Bc3DYIm4WUg98OPZwjTa84fBOR2N?=
- =?us-ascii?Q?Bu6vyiehBLM2CJ1ZfaIxa7L2U7LbXR1kttt7rzt79gDjMpI4eQk6xyymFkJi?=
- =?us-ascii?Q?W/xEkuV4+43d+vK2gyRqwRXzXhYP7upQp58f1bL+jmgpldaAgWdkC7ILKJup?=
- =?us-ascii?Q?qv6BTsoMeKj7UPY71P2V3cDRYlEQ506EGdiSLX5AByeVQ0KjMOVQ2Un/5MKL?=
- =?us-ascii?Q?uA9k34u/toVcVgCmAEwj3gdP20Yryl0FbO85uQZsypKR8M3Kiko9sr9pqo1a?=
- =?us-ascii?Q?9xQzJ79DGQpe56CmxzV0Bc6NtAAOw2bMMlEBwhwYdw/JLIwGxmNxklTShUz/?=
- =?us-ascii?Q?64KfBStjHfz2J+CqK6VrkxdsGf6Zs0YqEsz8zl5LPiPYlJiue2I/HZNLovwT?=
- =?us-ascii?Q?cKRU5tqz6ANRoCI8UBt/ln3CIxHVeccS+qYfWiDp/B2QfFVSkCpfZmo8XujQ?=
- =?us-ascii?Q?OzU41yjitIfq2tmk7pXhtQK4rjOXL3/WIcNa3hXX6Xim0lUhygGzWODKlJ5E?=
- =?us-ascii?Q?jkpUW48GFq+utp0nOMZv9iARfe83jCtxPqp6lsvooOtFIPRzgQzFdgXJSjUv?=
- =?us-ascii?Q?FmumQclN9RYejD7iApXulGiQm5yTksij6IzrcCCacsnOqOvye9Us0lG4xXPm?=
- =?us-ascii?Q?ka+bBwBH0Kjq/l/dBcEyBDTh7hyJkcMTirmKJ3+J4D3DqBMH0FRp4qhvufyl?=
- =?us-ascii?Q?EkQDAIX4UlwCFAAwtacr8mkJvJWSACMayodJHblmdQ0718FzWoa0wn57G+i0?=
- =?us-ascii?Q?UXoI205gQqeH8F66d4cSk6zw5LyDhYoHKuOpqpGSvOBQEOD+dDy7ZJzAeGP+?=
- =?us-ascii?Q?MuGI5cDDRi2jY6rC1J0gME1QKow8hGzqsMGDpM+fenCZ4sU32E3EAcrnt+1e?=
- =?us-ascii?Q?bsbGNr1fDjbaEoTcPUUbfUunoDyXCmcLgenmX4k+7kRv6Du0pjshmd5GX9f3?=
- =?us-ascii?Q?IDcUPlHVZ5vhgLIzFSGhytX8/OgQIqyb?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(376014)(7416014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?KvAkzNEff70vVhuv4/DVAeKD8k79fcOlFn3HgGvNiT7jFuauF3Q/mqP29k4M?=
- =?us-ascii?Q?Ye3aG8RBEUyOhxHHsXBdrWjLCFp6zKfg36crO8LRTpvnG4ySXHPc6uAtPT4p?=
- =?us-ascii?Q?7p7xr9gtEzxgrBpWLaukfaWWFiUc+F1G0pO3u2/Vdiu8l2VDmOAPBZ8CvkqU?=
- =?us-ascii?Q?4hWahtxavv4Fd/6xbq7yUosFfdAiL1t10iuHsAFhLAa9Xp9RqxWknzaK7V9E?=
- =?us-ascii?Q?6uTD48uui6FWvH2QqVFvtJ99IeZnmgA4WvO/YbSakEbc/kf0S3Zn71o1c2Lt?=
- =?us-ascii?Q?QKt/nATICFdY1zYwcFGxVdBuhLZU90ycQ1MvAPe2EI/fR/gSLMBdUElRUGg8?=
- =?us-ascii?Q?pZjjNefdkm1D470r20kG0+II2MogjZiz/BmiwkMvvTdJOBz63n0RXb7KG03l?=
- =?us-ascii?Q?4hZep2beIaRjJVk1uXRuHa3/6ULePHwWvnI8by2KYDE19G/uDNCX0lceDCCU?=
- =?us-ascii?Q?w3N9hZZekdQZCu21P5qLs6y9w+GXDa8d0Ct7zB2u10xBF5Rc0QvsTMs8nctp?=
- =?us-ascii?Q?VLQXnU1NwFGnD7qoc9DlloyfWp1NchSBw1Umj1ShH79yz+kbv0tTXnE/6WRP?=
- =?us-ascii?Q?wscCxHneJhl+ohXJ5760OMb3TsBeKTvgdBUDGF2Gb+9pkC+5M0PwioiJCLiA?=
- =?us-ascii?Q?kJGS2+WsSRAh9fJ98bgRZuNAikzbIRdohT8q2lG1hkVm/fjBg/7IHUR1ztR7?=
- =?us-ascii?Q?Knn8MK+f/ixH2IHSZOja9tls2Wn61lK8hyc83/LWPO3NCC8Gf1ggITjlwzkK?=
- =?us-ascii?Q?k+TcArS1L+e5phoYyG70kEr7SMW2jCmHm2jtB3jMsvmW9a1WMa8xqCqe+hW9?=
- =?us-ascii?Q?we1rP2bMTiLy6SefAul5KX4y5gTazDgoUuULkGxVryx21OmcWnJnIIQM96XC?=
- =?us-ascii?Q?No7m+7AUS3Uqp0Q+kLH0RihIqt9yjmEAUXkAULk+sfY10XH7uFMpZINTDeU9?=
- =?us-ascii?Q?I4k37p/Gv77Blgk6Ffic3k1QI3r4ScrI4zUiriNTW77rCn9n1xWlr98Ou/FB?=
- =?us-ascii?Q?rElrqnfmTT8tLNHc2vSZWhmkEXfKpgEdmB5ID8C98sVhlgL/WXvdHTxNF34r?=
- =?us-ascii?Q?ucwpOXu5cV4h9fH/m+HHqiRjgHxvJEEJd3ABq9IQ0BRVEnz0Yf3HpEtvzOo7?=
- =?us-ascii?Q?COXTHs9ZaBGQ2tjk09LCCw2xpWDVmnBdLB+kE1XlFdFHWxCt9uyF1mpUNR2C?=
- =?us-ascii?Q?ZMH2ia9w0TBtI1ofGRwwQkDtWWI2y8UM7RgFubix2hyrnDXyOsMK42VZx1+L?=
- =?us-ascii?Q?jncon4WbxcoEr2IeIwcZ77jK8c9rm1+h0Ewgz9OJF8OodtaffczPvKoIIagL?=
- =?us-ascii?Q?e6FcJoTR1II9Mwp/jF1v93c9jkdnfx1Q9t9ZWsnpInjvgWSsDz1MjtdJDPhV?=
- =?us-ascii?Q?+l1fzVufIjQ7nfzISo9AMf5aQbGLbGH4g1xbrObllYfjj96eov5PWSKB/drm?=
- =?us-ascii?Q?Y9MScb7/OITOX5qEWQ8pf8LF1dEkTL1BUdpms5jCRmoJUfTyo1W4U2io5krr?=
- =?us-ascii?Q?0k8nPz556R0JhXYkMbtvqBu3evSnQESUR5F8WZK3YdiRNDR4Bka/GsWxu0FJ?=
- =?us-ascii?Q?WK0M/ZSHG38SKXNBlpbGR07/KbYImZsYVm6EXjB0?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bdab594f-7acf-4185-5f58-08dd2e03259d
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jan 2025 03:35:21.0856
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: y6gbYFIXLCsg9I6/n86g7LDqcdYZprU3QcZbBxP+lOiK1wlvv6Lq+N9mH9XTZhEQBTlLP42FwwKUBAHEQbCVHA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7482
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 10/15] riscv: pgtable: move pagetable_dtor() to
+ __tlb_remove_table()
+Content-Language: en-US
+To: Kevin Brodsky <kevin.brodsky@arm.com>, peterz@infradead.org,
+ akpm@linux-foundation.org
+Cc: agordeev@linux.ibm.com, palmer@dabbelt.com, tglx@linutronix.de,
+ david@redhat.com, jannh@google.com, hughd@google.com, yuzhao@google.com,
+ willy@infradead.org, muchun.song@linux.dev, vbabka@kernel.org,
+ lorenzo.stoakes@oracle.com, rientjes@google.com, vishal.moola@gmail.com,
+ arnd@arndb.de, will@kernel.org, aneesh.kumar@kernel.org, npiggin@gmail.com,
+ dave.hansen@linux.intel.com, rppt@kernel.org, ryan.roberts@arm.com,
+ linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-kernel@vger.kernel.org, x86@kernel.org, linux-arch@vger.kernel.org,
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+ linux-sh@vger.kernel.org, linux-um@lists.infradead.org
+References: <cover.1735549103.git.zhengqi.arch@bytedance.com>
+ <0e8f0b3835c15e99145e0006ac1020ae45a2b166.1735549103.git.zhengqi.arch@bytedance.com>
+ <1b09335c-f0b6-4ccb-9800-5fb22f7e8083@arm.com>
+ <ebce5e05-5e46-4c6e-94a0-bcf3655a862b@bytedance.com>
+ <7e2c26c8-f5df-4833-a93f-3409b00b58fd@arm.com>
+ <e9fe97d4-99d5-443e-b722-43903655a76e@bytedance.com>
+ <31e1a033-00a7-4953-81e7-0caedd0227a9@bytedance.com>
+ <d9a14211-4bbd-4fb6-ba87-a555a40bb67a@arm.com>
+From: Qi Zheng <zhengqi.arch@bytedance.com>
+In-Reply-To: <d9a14211-4bbd-4fb6-ba87-a555a40bb67a@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250105_193528_926031_1F55ABC0 
-X-CRM114-Status: GOOD (  18.82  )
+X-CRM114-CacheID: sfid-20250105_195004_560529_E2545E92 
+X-CRM114-Status: GOOD (  30.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,72 +120,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 31, 2024 at 06:16:12PM +0000, Cristian Marussi wrote:
->On Fri, Dec 27, 2024 at 03:28:07PM +0000, Sudeep Holla wrote:
->> On Wed, Dec 25, 2024 at 04:20:45PM +0800, Peng Fan (OSS) wrote:
->> > From: Peng Fan <peng.fan@nxp.com>
->> >
->> > pinctrl-scmi.c and pinctrl-imx-scmi.c, both use SCMI_PROTOCOL_PINCTRL.
->> > If both drivers are built in, and the scmi device with name "pinctrl-imx"
->> > is created earlier, and the fwnode device points to the scmi device,
->> > non-i.MX platforms will never have the pinctrl supplier ready.
->> >
->> 
->> I wonder if we can prevent creation of "pinctrl-imx" scmi device on non
->> i.MX platforms instead of this hack which IMO is little less hackier
->> (and little more cleaner as we don't create problem and then fix here)
->> than this change.
->
->...or indeed this is another possibility
+Hi Kevin,
 
-I am doing a patch as below, how to do you think?
+On 2025/1/3 21:27, Kevin Brodsky wrote:
+> On 03/01/2025 10:35, Qi Zheng wrote:
+>> On 2025/1/3 17:13, Qi Zheng wrote:
+>>> On 2025/1/3 16:02, Kevin Brodsky wrote:
+>>>> On 03/01/2025 04:48, Qi Zheng wrote:
+>>>>> [...]
+>>>>>
+>>>>> In __tlb_batch_free_encoded_pages(), we can indeed detect PageTable()
+>>>>> and call pagetable_dtor() to dtor the page table pages.
+>>>>> But __tlb_batch_free_encoded_pages() is also used to free normal pages
+>>>>> (not page table pages), so I don't want to add overhead there.
+>>>>
+>>>> Interesting, can a tlb batch refer to pages than are not PTPs then?
+>>>
+>>> Yes, you can see the caller of __tlb_remove_folio_pages() or
+>>> tlb_remove_page_size().
+> 
+> I had a brief look but clearly not a good enough one! I hadn't realised
+> that "table" in tlb_remove_table() means PTP, while "page" in
+> tlb_remove_page() can mean any page, and it's making more sense now.
+> 
+> [...]
+> 
+>>>
+>>> For arm, the call to pagetable_dtor() is indeed missed in the
+>>> non-MMU_GATHER_RCU_TABLE_FREE case. This needs to be fixed. But we
+>>> can't fix this by adding pagetable_dtor() to tlb_remove_table(),
+>>> because some architectures call tlb_remove_table() but don't support
+>>> page table statistics, like sparc.
+> 
+> When I investigated this for my own series, I found that the only case
+> where ctor/dtor are not called for page-sized page tables is 32-bit
+> sparc (see table at the end of [1]). However only 64-bit sparc makes use
+> of tlb_remove_table() (at PTE level, where ctor/dtor are already called).
 
-With below patch, we could resolve the devlink issue and also support mutitple
-vendor drivers built in, with each vendor driver has a machine_allowlist.
+Thanks for providing this information.
 
-diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
-index 1d2aedfcfdb4..c1c45b545480 100644
---- a/drivers/firmware/arm_scmi/bus.c
-+++ b/drivers/firmware/arm_scmi/bus.c
-@@ -55,6 +55,20 @@ static int scmi_protocol_device_request(const struct scmi_device_id *id_table)
-        unsigned int id = 0;
-        struct list_head *head, *phead = NULL;
-        struct scmi_requested_dev *rdev;
-+       const char * const *allowlist = id_table->machine_allowlist;
-+       const char * const *blocklist = id_table->machine_blocklist;
-+
-+       if (blocklist && of_machine_compatible_match(blocklist)) {
-+               pr_debug("block SCMI device (%s) for protocol %x\n",
-+                        id_table->name, id_table->protocol_id);
-+               return 0;
-+       }
-+
-+       if (allowlist && !of_machine_compatible_match(allowlist)) {
-+               pr_debug("block SCMI device (%s) for protocol %x\n",
-+                        id_table->name, id_table->protocol_id);
-+               return 0;
-+       }
+> 
+> So really calling pagetable_dtor() from tlb_remove_table() in the
+> non-MMU_GATHER_TABLE_FREE case seems to be the obvious thing to do.
 
-        pr_debug("Requesting SCMI device (%s) for protocol %x\n",
-                 id_table->name, id_table->protocol_id);
-diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-index 688466a0e816..e1b822d3522f 100644
---- a/include/linux/scmi_protocol.h
-+++ b/include/linux/scmi_protocol.h
-@@ -950,6 +950,9 @@ struct scmi_device {
- struct scmi_device_id {
-        u8 protocol_id;
-        const char *name;
-+       /* Optional */
-+       const char * const *machine_blocklist;
-+       const char * const *machine_allowlist;
- };
+Right. Currently, only powerpc, sparc and x86 will directly call
+tlb_remove_table(), and all of them are in the MMU_GATHER_TABLE_FREE
+case. Therefore, I think the modification you mentioned below is
+feasible.
 
- struct scmi_driver {
+In summary, currently only arm calls tlb_remove_table() in the
+non-MMU_GATHER_RCU_TABLE_FREE case. So I think we can add this fix
+directly to patch #8. If I haven't missed anything, I'll send an
+updated patch #8.
 
-Thanks,
-Peng
->
->Thanks,
->Cristian
+> 
+> Once this is done, we should be able to replace all those confusing
+> calls to tlb_remove_page() on PTPs with tlb_remove_table() and remove
+> the explicit call to pagetable_dtor(). AIUI this is essentially what
+> Peter suggested on v3 [2].
+
+Since this patch series is mainly for bug fix, I think that these things
+can be done in separate patch series later.
+
+> 
+> [1]
+> https://lore.kernel.org/linux-mm/20241219164425.2277022-1-kevin.brodsky@arm.com/
+> [2]
+> https://lore.kernel.org/linux-mm/20250103111457.GC22934@noisy.programming.kicks-ass.net/
+> 
+> [...]
+> 
+>> Or can we just not let tlb_remove_table() fall back to
+>> tlb_remove_page()? Like the following:
+>>
+>> diff --git a/include/asm-generic/tlb.h b/include/asm-generic/tlb.h
+>> index a59205863f431..354ffaa4bd120 100644
+>> --- a/include/asm-generic/tlb.h
+>> +++ b/include/asm-generic/tlb.h
+>> @@ -195,8 +195,6 @@
+>>    *  various ptep_get_and_clear() functions.
+>>    */
+>>
+>> -#ifdef CONFIG_MMU_GATHER_TABLE_FREE
+>> -
+>>   struct mmu_table_batch {
+>>   #ifdef CONFIG_MMU_GATHER_RCU_TABLE_FREE
+>>          struct rcu_head         rcu;
+>> @@ -219,16 +217,6 @@ static inline void __tlb_remove_table(void *table)
+>>
+>>   extern void tlb_remove_table(struct mmu_gather *tlb, void *table);
+>>
+>> -#else /* !CONFIG_MMU_GATHER_HAVE_TABLE_FREE */
+>> -
+>> -/*
+>> - * Without MMU_GATHER_TABLE_FREE the architecture is assumed to have
+>> page based
+>> - * page directories and we can use the normal page batching to free
+>> them.
+>> - */
+>> -#define tlb_remove_table(tlb, page) tlb_remove_page((tlb), (page))
+> 
+> We still need a different implementation of tlb_remove_table() in this
+> case. We could define it inline here:
+> 
+> static inline void tlb_remove_table(struct mmu_gather *tlb, void *table)
+> {
+>      struct page *page = table;
+> 
+>      pagetable_dtor(page_ptdesc(page));
+>      tlb_remove_page(page);
+> }
+
+Right. As I said above, will add this to the updated patch #8.
+
+Thanks!
+
+> 
+> - Kevin
 
