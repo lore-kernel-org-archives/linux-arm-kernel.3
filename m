@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C7C2E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 12:24:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B3ABE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 12:25:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oGYg4VihaN9XekRqQm/v8gi29KzPEeuneKq4SGL6rdA=; b=w+ffETFjkgkj76y5ZiqWNUQCav
-	YsOkZFMMQtv2mvkgy3TM0ifFq86aQTtF1CfKKyixyDE1ciKiKiKn2AzTGtFsAQ8RPkPBdm8ih7Cfh
-	5Dh0REngf68tZxMu8PubfbqldWaDeDbzo0LpRBLdRVrVSOmayL7MPB3Fwx7LrU4BBBNbyNZf1Lg80
-	UoK8Zs7H+nTNL9DdP/qxGqE8OhtEeY4U3tZIkb1myhPUefaM2HlyBXveJRhOo/q6iM7GZ6rSyRRDg
-	DKXERHh9bZZpJ9fBrGXFpu6roDOPTDNIYAre5zvkahj7pdUYN/t5B/shXvZa2KWGWRnzoHuLmBfrG
-	m1UPEVCA==;
+	bh=Rc1+M96hPW/NgUOvF5iyc2pg/S/m3NoyEhd/HwdepQk=; b=S1BUrPMxRqbX0plHsBuCtzz9yw
+	UAD67QZHbcIfkSN0Xk6fxWXaTdyxgA87jBb8TKHk9PrF8BaT4y6MuZa5GoI5TP0Za2xaY08/FYKTp
+	qJ24exI8kPr+VPQv2ZlfLOVaZGn2oPfbuK+wpjOOMkMRv7cJvbiPJ6UCPTWScyvlNLQXn2+NcMtfR
+	f28LkP/EzJlMzRloCEnfh0+x0GgJKj+cph0heG4CM5GOPdyi+1odoqNgr4iECWQuqFL3uqGeibePo
+	7WJfR1FGF/HTlJQFWYLErwCr2L7Chk3Nek4U1zXjFyozezNiwXvk8qsffbIKe44XehY7/1tgUxj1w
+	yWzb0V0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUm9j-00000001CvI-2kxu;
-	Mon, 06 Jan 2025 12:24:27 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tUmAt-00000001DCK-2Pgm;
+	Mon, 06 Jan 2025 12:25:39 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUlyZ-00000001A8L-0nwu;
-	Mon, 06 Jan 2025 12:12:56 +0000
+	id 1tUm6k-00000001CAL-2nOT
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 06 Jan 2025 12:21:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3CE765C060D;
-	Mon,  6 Jan 2025 12:12:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E73A5C4CED2;
-	Mon,  6 Jan 2025 12:12:48 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id E087D5C5539;
+	Mon,  6 Jan 2025 12:20:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7786C4CEDD;
+	Mon,  6 Jan 2025 12:21:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736165574;
-	bh=oGYg4VihaN9XekRqQm/v8gi29KzPEeuneKq4SGL6rdA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=guOseR4UG0uXGKRR23FZgdM6BoLTyaxbU1wGbXA/2JTs6envVsy11jvxhXZE/xRhm
-	 q+RTP46onPVsM5lZHKRVE5j9SNAT2b7QgxZIhJMIYOMzx2Lp8cFrgXw3GZiZW+hghR
-	 ZWdSuZWF8GSQ7t4uIdMptKgtOCbUWggS0kUhON1qsnOVA9cMX0+m30ZbcFDU6BtFOJ
-	 3A2KWtJiK+LnUcETVr7ZfeoKTob9ZCbHnm0Rjcj9j4GJlmTv0UZtrYQjdbe9qLBKwn
-	 anGb12ucv9UmTbo3XAaCH5daqLX8F3a3IpzWguOba9vNJEuO4r+t6xyZWZ7UqWtxiw
-	 FzCxZ8Ue+9P7w==
-Date: Mon, 6 Jan 2025 12:12:45 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Val Packett <val@packett.cool>
-Cc: Fabien Parent <parent.f@gmail.com>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Sen Chu <sen.chu@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Eddie Huang <eddie.huang@mediatek.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Javier Carrasco <javier.carrasco.cruz@gmail.com>,
-	Yassine Oudjana <y.oudjana@protonmail.com>,
-	Chen Zhong <chen.zhong@mediatek.com>, linux-input@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-rtc@vger.kernel.org
-Subject: Re: [PATCH 6/9] regulator: mt6392: Add support for MT6392 regulator
-Message-ID: <70a3dc99-4e2e-44f0-ab9d-7770d2df94c0@sirena.org.uk>
-References: <20241226050205.30241-1-val@packett.cool>
- <20241226050205.30241-7-val@packett.cool>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="/vYbwmcb+QbC4fzk"
-Content-Disposition: inline
-In-Reply-To: <20241226050205.30241-7-val@packett.cool>
-X-Cookie: Do not pick the flowers.
+	s=k20201202; t=1736166081;
+	bh=SsSu1bU8yVRhTN4/R4t8TeAnvWJwycFZGahCtkC0OGU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=EwMLmJMASu69qXLn8mxRuRGiOpP60zW6NoQCkM5eOJQHNJVxLhi/duHJpq6pf8ByR
+	 lEjkzhaOUgWcudPjnmgtbEm3w+6JxjFWOBRK8CTq1EQx5SAJBNsXUmgzI5y/G+DfrX
+	 w8Y5y1K8TTalBcKQxdXHNvdQtTDVTfNAk8M48pU7SB6eUrYYZKmPsDoFkYzUE6b70j
+	 /As14FkcgHLgZy3qP8NeqfZ0EzucV8bljrj9U212qaks8aE6Tjs0sFOoHukhFnkrHc
+	 t0hXlun9X3OWeUKg3nxplz68eNO715bOj7oYfASY2xtFpWTXC4esUuInqKDKpN44bc
+	 iR9+x2PK/4y8Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tUm6h-009OvS-Jz;
+	Mon, 06 Jan 2025 12:21:19 +0000
+Date: Mon, 06 Jan 2025 12:21:19 +0000
+Message-ID: <867c78p1z4.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: Filter out SVE hwcaps when FEAT_SVE isn't implemented
+In-Reply-To: <Z3vGeFUBd9YSIgg_@J2N7QTR9R3>
+References: <20250103182255.1763739-1-maz@kernel.org>
+	<Z3ulKMeKQcHFErgr@J2N7QTR9R3>
+	<868qrop556.wl-maz@kernel.org>
+	<Z3vGeFUBd9YSIgg_@J2N7QTR9R3>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_041255_290764_E23FE8C0 
-X-CRM114-Status: GOOD (  10.61  )
+X-CRM114-CacheID: sfid-20250106_042122_791205_93247B5C 
+X-CRM114-Status: GOOD (  50.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,35 +89,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, 06 Jan 2025 12:03:44 +0000,
+Mark Rutland <mark.rutland@arm.com> wrote:
+> 
+> On Mon, Jan 06, 2025 at 11:12:53AM +0000, Marc Zyngier wrote:
+> > On Mon, 06 Jan 2025 09:40:56 +0000,
+> > Mark Rutland <mark.rutland@arm.com> wrote:
+> > > 
+> > > On Fri, Jan 03, 2025 at 06:22:55PM +0000, Marc Zyngier wrote:
+> > > > The hwcaps code that exposes SVE features to userspace only
+> > > > considers ID_AA64ZFR0_EL1, while this is only valid when
+> > > > ID_AA64PFR0_EL1.SVE advertises that SVE is actually supported.
+> > > > 
+> > > > The expectations are that when ID_AA64PFR0_EL1.SVE is 0, the
+> > > > ID_AA64ZFR0_EL1 register is also 0. So far, so good.
+> > > > 
+> > > > Things become a bit more interesting if the HW implements SME.
+> > > > In this case, a few ID_AA64ZFR0_EL1 fields indicate *SME*
+> > > > features. And these fields overlap with their SVE interpretations.
+> > > > But the architecture says that the SME and SVE feature sets must
+> > > > match, so we're still hunky-dory.
+> > > > 
+> > > > This goes wrong if the HW implements SME, but not SVE. In this
+> > > > case, we end-up advertising some SVE features to userspace, even
+> > > > if the HW has none. That's because we never consider whether SVE
+> > > > is actually implemented. Oh well.
+> > > 
+> > > Ugh; this is a massive pain. :(
+> > > 
+> > > Was this found by inspection, or is some real software going wrong?
+> > 
+> > Catalin can comment on that -- I understand that he found existing SW
+> > latching on SVE2 being wrongly advertised as hwcaps.
+> > 
+> > > > Fix it by restricting all SVE capabilities to ID_AA64PFR0_EL1.SVE
+> > > > being non-zero.
+> > > 
+> > > Unfortunately, I'm not sure this fix is correct+complete.
+> > > 
+> > > We expose ID_AA64PFR0_EL1 and ID_AA64ZFR0_EL1 via ID register emulation,
+> > > so any userspace software reading ID_AA64ZFR0_EL1 will encounter the
+> > > same surprise. If we hide that I'm worried we might hide some SME-only
+> > > information that isn't exposed elsewhere, and I'm not sure we can
+> > > reasonably hide ID_AA64ZFR0_EL1 emulation for SME-only (more on that
+> > > below).
+> > 
+> > I don't understand where things go wrong. EL0 SW that looks at the ID
+> > registers should perform similar checks, and we are not trying to make
+> > things better on that front (we can't). Unless you invent time travel
+> > and fix the architecture 5 years ago... :-/
+> 
+> Fair enough; if we say software consuming ID_AA64ZFR0_EL1 must check
+> ID_AA64PFR0_EL1.SVE or ID_AA64PFR1_EL1.SME first, and we leave the
+> emulation of ID_AA64ZFR0_EL1 as-is, that's fine by me.
 
---/vYbwmcb+QbC4fzk
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I think that's what the architecture forces on us, unfortunately.
 
-On Thu, Dec 26, 2024 at 01:58:06AM -0300, Val Packett wrote:
-> From: Fabien Parent <parent.f@gmail.com>
->=20
-> The MT6392 is a regulator found on boards based on the MediaTek
-> MT8167, MT8516, and probably other SoCs. It is a so called PMIC and
-> connects as a slave to a SoC using SPI, wrapped inside PWRAP.
+> 
+> > The hwcaps are effectively demultiplexing the ID registers, and they
+> > have to be exact, which is what this patch provides (SVE2 doesn't get
+> > wrongly advertised when not present).
+> 
+> > > Secondly, all our HWCAP documentation is written in the form:
+> > > 
+> > > | HWCAP2_SVEBF16
+> > > |     Functionality implied by ID_AA64ZFR0_EL1.BF16 == 0b0001.
+> > > 
+> > > ... so while the architectural behaviour is a surprise, the kernel is
+> > > (techincallyy) behaving exactly as documented prior to this patch. Maybe
+> > > we need to change that documentation?
+> > 
+> > Again, I don't see what goes wrong here. BF16 is only implemented for
+> > SVE or SME+FA64, and FA64 requires SVE2. So at least for that one, we
+> > should be good.
+> 
+> That was probably a bad example. What I was trying to get at is that the
+> HWCAPs are behavind exactly *as documented*, but that's not what we
+> actually want them to describe. For example, SVE2 is described as:
+> 
+> | Functionality implied by ID_AA64ZFR0_EL1.SVEver == 0b0001.
+> 
+> ... which is exactly what we check today, but that doesn't
+> architecturally imply FEAT_SVE2 on SME-only HW where it can apparently
+> be 0b0001 due to FEAT_SME alone.
+> 
+> So to match the code change we'd need to change that to something like:
+> 
+> | Functionality impled by ID_AA64PFR0_EL1 == 0b0001 and
+> | ID_AA64ZFR0_EL1.SVEver == 0b0001
+> 
+> ... with similar for other hwcaps.
 
-Acked-by: Mark Brown <broonie@kernel.org>
+Yeah, seems like a decent addition. I'll fold that in.
 
---/vYbwmcb+QbC4fzk
-Content-Type: application/pgp-signature; name="signature.asc"
+> 
+> > > Do we have equivalent SME hwcaps for the relevant features?
+> > >
+> > > ... looking at:
+> > > 
+> > >   https://developer.arm.com/documentation/ddi0601/2024-12/AArch64-Registers/ID-AA64ZFR0-EL1--SVE-Feature-ID-Register-0?lang=en
+> > > 
+> > > ... I see that ID_AA64ZFR0_EL1.B16B16 >= 0b0010 implies the presence of
+> > > SME BFMUL and BFSCALE instructions, but I don't see something equivalent
+> > > in ID_AA64SMFR0_EL1 per:
+> > > 
+> > >   https://developer.arm.com/documentation/ddi0601/2024-12/AArch64-Registers/ID-AA64SMFR0-EL1--SME-Feature-ID-Register-0?lang=en
+> > > 
+> > > ... so I suspect ID_AA64ZFR0_EL1 might be the only source of truth for
+> > > this.
+> > 
+> > Indeed, and the SME HWCAPs are not doing the right thing either. Or
+> > rather, we have no way to tell userspace that BFMUL/BFSCALE are
+> > available.
+> 
+> To be clear, I'm happy to punt on adding SME-specific HWCAPs, I just
+> want to make sure we're agreed as to whether the existing HWCAPs should
+> be SVE-specific, which it sounds like we are?
 
------BEGIN PGP SIGNATURE-----
+I think we're aligned here. I'll respin something shortly, once I've
+made some progress on the state of my Inbox... :-/
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmd7yL0ACgkQJNaLcl1U
-h9AoUgf9E5E6xhnmqTj1rf9LLDmAhOGp/lZ9yE5VY7gE1bCykncwvblk6l9QuC9X
-fPYWdX6juy9GMMTcMVRyPojqI87AQ0/8/wNo4gPirl/B5Dd9Co7iExwWDmOLxPw5
-a7ddRO2vZtowXdwfnKa3kMl/BY/GVSl1BveULOCiqQphB19siW68OROHgPQyDVEn
-K1NowlyYiJkKqievI1RDhyHiOqwrniY+QIjDS2Umoka/PW+/dykRF2mvrGbkST1E
-tDs2HQKZUwjffJxMKPKbyP37yM1v8XgmSTq8dy8WU3BQub+eGQS/SO+jINwv2kKx
-v7DXLjDwH51s1Oxx01Rc14JvWpTRYQ==
-=HUz0
------END PGP SIGNATURE-----
+Thanks,
 
---/vYbwmcb+QbC4fzk--
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
