@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 282AFE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 09:22:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32951E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 09:25:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6jLNNoS68mqUuAnGJODnzyrSE9CHkQjCVrNAZw1kJxU=; b=GoeKDHTPfDtiEoGv2FWJzYjJza
-	K80xlzRBCjIr04EMeVs8U628p0B4nQxj57y9AH5HmMSc6Hdd4eTcvvqVpWYCwVeUz9X7eSsY4ZYU/
-	dieLjEfSXi86eEMTAUQZgDgTJicK9y+D2rZtPg0XhH1rtbbVi96q6QbLLnPNG+9QPG00G6C+hA/z8
-	G3IffXws83ipS7GtDHvCWa8C0udXbHFFCgn/jeMWlJbHJu4BOq9nunZGOQErQV0une9c1k9WITSrI
-	uENiK2pYguQVCcpRznkIDC91e1xI6EAz/o1xdFPJcMowqRXkJChn14ShSimw38f5UVMiXqYQAJPJ3
-	X0ixW+Fw==;
+	bh=VBnkfPPwd/0z0UzRp7pSBtfbNp5mlwbhbYUinjn7t6s=; b=U3Yqupu9vGbsqq0QzSpgXXy4GS
+	5w7lnksRu2jkVjJE4G4EXUNc9ub83kP2z8OqzGORyg6OAOHrteqlkQvwqelqD8DME2zpyDITCavzi
+	YfPdMuPkZt3srxmVsELOHRHCqpmW8+nV7I9MH28r0FixIT7p5SeT80X8y9SBmBK036/9Gs1i0LDAc
+	7P1YJK+5zX9BUTz3azGlUzBkJ+ltOdjCDfBAeN1b9tJsKbqp9By5d1Wpua9sY+3wjM30Tjml2/mfq
+	uzj4qtO1SmYVWZZQRFBzctWu8qs4Oxh8bzm1bR97f+e3ifqVX5/KO2MEaM7wu+eoafT9nEQDLRkiP
+	A0BDTgug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUjJG-00000000fEb-3aE8;
-	Mon, 06 Jan 2025 09:22:06 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tUjMS-00000000fqH-1PiV;
+	Mon, 06 Jan 2025 09:25:24 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUjGx-00000000efY-2pAa
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 09:19:44 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1tUjGr-0003ug-Qe; Mon, 06 Jan 2025 10:19:37 +0100
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1tUjGq-0078rL-02;
-	Mon, 06 Jan 2025 10:19:36 +0100
-Received: from pza by lupine with local (Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1tUjGq-000B7m-2G;
-	Mon, 06 Jan 2025 10:19:36 +0100
-Message-ID: <0b5eaa41745209a5a5368516d8433bb3319ca9b5.camel@pengutronix.de>
-Subject: Re: [PATCH 1/2] Re: [PATCH 1/1] phy: rockchip: naneng-combphy:
- compatible with old DT for RK3568
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: heiko@sntech.de, kishon@kernel.org,
- linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org,  linux-rockchip@lists.infradead.org,
- liujianfeng1994@gmail.com, vkoul@kernel.org
-Date: Mon, 06 Jan 2025 10:19:36 +0100
-In-Reply-To: <20250106075015.1061630-1-amadeus@jmu.edu.cn>
-References: <2b04ca7fa5135c1194c39a9fbf2d6ab5630d6ef3.camel@pengutronix.de>
-	 <20250106075015.1061630-1-amadeus@jmu.edu.cn>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+	id 1tUjLF-00000000fbM-1UmN;
+	Mon, 06 Jan 2025 09:24:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=VBnkfPPwd/0z0UzRp7pSBtfbNp5mlwbhbYUinjn7t6s=; b=C6PgRuatqaL/JCQeSBgq90fYbR
+	cgS9RBnuNFoNmBPp82CGyMEIE98ptU4gncieb/wDBgYHeNrMAgDiOfjWNR4H1pvLRbqz16DhI6ziZ
+	lVH+IdsGn+z4Q0WMmKaGPekvYreupbWXQl3ZVKd70kqq+j6yRCSOu0o9zU40Oc/HSOgVMHzTOf0Hn
+	j1gcFw88ylpQUZAEAwnUNLm0S5dc4OhH03UcUE97EJ7B0azFCG7qamRBaX/M0HyBrGZS86vcR/5bS
+	WSpJP1Vs8zHOkuB3WK1+/UXhMv16JmpmJYBexATgN45dORXy7Yb/Dm1c+t0O7Vj/kmKo1umLIM82a
+	MoPAvHJA==;
+Received: from i53875aad.versanet.de ([83.135.90.173] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tUjKx-0003r1-RV; Mon, 06 Jan 2025 10:23:51 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Andy Yan <andyshrk@163.com>
+Cc: cristian.ciocaltea@collabora.com, krzk+dt@kernel.org, mripard@kernel.org,
+ hjc@rock-chips.com, devicetree@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ Andy Yan <andy.yan@rock-chips.com>
+Subject: Re: [PATCH 1/3] drm/rockchip: dw_hdmi_qp: Add platform ctrl callback
+Date: Mon, 06 Jan 2025 10:23:50 +0100
+Message-ID: <2263586.72vocr9iq0@diego>
+In-Reply-To: <2f23fa41.82d9.1943ac12d62.Coremail.andyshrk@163.com>
+References: <20241225103741.364597-1-andyshrk@163.com> <2175680.OBFZWjSADL@diego>
+ <2f23fa41.82d9.1943ac12d62.Coremail.andyshrk@163.com>
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_011943_720703_0215BE4E 
-X-CRM114-Status: GOOD (  16.60  )
+X-CRM114-CacheID: sfid-20250106_012409_412735_67422BCC 
+X-CRM114-Status: GOOD (  20.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,38 +76,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mo, 2025-01-06 at 15:50 +0800, Chukun Pan wrote:
-> Hi,
-> > > diff --git a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c b/dri=
-vers/phy/rockchip/phy-rockchip-naneng-combphy.c
-> > > index a1532ef8bbe9..372f5c07b5bd 100644
-> > > --- a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-> > > +++ b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-> > > @@ -325,6 +325,10 @@ static int rockchip_combphy_parse_dt(struct devi=
-ce *dev, struct rockchip_combphy
-> > >  	priv->ext_refclk =3D device_property_present(dev, "rockchip,ext-ref=
-clk");
-> > > =20
-> > >  	priv->phy_rst =3D devm_reset_control_get(dev, "phy");
-> >=20
-> > This should be devm_reset_control_get_exclusive().
+Am Montag, 6. Januar 2025, 09:35:26 CET schrieb Andy Yan:
 >=20
-> I will change this.
+> Hi Heiko,
 >=20
-> > > +	/* fallback to old behaviour */
-> > > +	if (IS_ERR(ERR_PTR(priv->phy_rst)))
-> >=20
-> > Drop superfluous ERR_PTR().
+> At 2025-01-02 19:51:58, "Heiko St=FCbner" <heiko@sntech.de> wrote:
+> >Hi Andy,
+> >
+> >Am Mittwoch, 25. Dezember 2024, 11:37:29 CET schrieb Andy Yan:
+> >> From: Andy Yan <andy.yan@rock-chips.com>
+> >>=20
+> >> There are some control bits for IO and interrupts status scattered
+> >> across different GRF on differt SOC.
+> >> Add platform callback for this IO setting and interrupts status
+> >> handling.
+> >>=20
+> >> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+> >>=20
+> >> ---
+> >>=20
+> >>  .../gpu/drm/rockchip/dw_hdmi_qp-rockchip.c    | 81 ++++++++++++-------
+> >>  1 file changed, 54 insertions(+), 27 deletions(-)
+> >>=20
+> >> diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/=
+gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+> >> index c36fc130b734..b21e868e7c16 100644
+> >> --- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+> >> +++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+> >> @@ -62,6 +62,12 @@ struct rockchip_hdmi_qp {
+> >>  	int port_id;
+> >>  };
+> >> =20
+> >> +struct rockchip_hdmi_qp_ctrl_ops {
+> >> +	void (*io_init)(struct rockchip_hdmi_qp *hdmi);
+> >> +	irqreturn_t (*irq_callback)(int irq, void *dev_id);
+> >> +	irqreturn_t (*hardirq_callback)(int irq, void *dev_id);
+> >> +};
+> >> +
+> >>  static struct rockchip_hdmi_qp *to_rockchip_hdmi_qp(struct drm_encode=
+r *encoder)
+> >>  {
+> >>  	struct rockchip_encoder *rkencoder =3D to_rockchip_encoder(encoder);
+> >> @@ -226,9 +232,47 @@ static irqreturn_t dw_hdmi_qp_rk3588_irq(int irq,=
+ void *dev_id)
+> >>  	return IRQ_HANDLED;
+> >>  }
+> >> =20
+> >> +static void dw_hdmi_qp_rk3588_io_init(struct rockchip_hdmi_qp *hdmi)
+> >> +{
+> >> +	u32 val;
+> >> +
+> >> +	val =3D HIWORD_UPDATE(RK3588_SCLIN_MASK, RK3588_SCLIN_MASK) |
+> >> +	      HIWORD_UPDATE(RK3588_SDAIN_MASK, RK3588_SDAIN_MASK) |
+> >> +	      HIWORD_UPDATE(RK3588_MODE_MASK, RK3588_MODE_MASK) |
+> >> +	      HIWORD_UPDATE(RK3588_I2S_SEL_MASK, RK3588_I2S_SEL_MASK);
+> >> +
+> >
+> >nit: below val =3D ... and regmap_write don't have a blank line between =
+them
+> >which makes sense to show that they belong together. So the blank above
+> >can probably also go away.
 >=20
-> I think it would be better if I changed it to this?
->=20
-> if (PTR_ERR(priv->phy_rst) =3D=3D -ENOENT)
-> 	priv->phy_rst =3D devm_reset_control_array_get_exclusive(dev);
+> Okay, it will be removed in V2.
 
-I agree, otherwise this would ignore a broken reset-names property in
-the device tree. When the resets property is broken, the fallback would
-fail anyway.
+just realized that I commented on the "wrong" version :-)
 
-regards
-Philipp
+https://lore.kernel.org/r/20241231094425.253398-1-andyshrk@163.com
+seems to be the most recent one.
+
+Heiko
+
+
 
