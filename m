@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95974E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 12:07:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91930E77198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 12:09:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tpla/p5jBbXU8PHtAJsqJXMShZ+2IQdFhklawDkmOxI=; b=ZqcRCJkfowoePl76VXE7oJ0yYw
-	Hp20of9/2cNrGY1kewro3sYZsy0trTiM3o8UtlUlx0xY8+2CaEvb9dKGcMKCOPt8GZ/xlBgA7NT2C
-	wGSOucoupua/gYzw3rxYtb6UidIVU6M0dGa8NI/mLPMfHh063rlGx1ke0I4r4wj8HJiJsyOx/7+Jq
-	PpYFRFb6BEehCU5urgBczxBAe/QqFdGGyhy4LFM3/gBn1KY4nsD8mmnuJUGKtDBg6wtuG9nF8m25X
-	QKvoTS4adykn8jPac8NMuku56Y6fR/jeG/nOev6hsONp+fJAQzByJ0ss9BDDmVeOR/xN/G0NRffY0
-	dk4g6tGQ==;
+	bh=aVjjOeVo8Ce/t55+rQVszo5wPlO5d2hOsrXlSpvC7mI=; b=C2X2BRKWUuqtA5ohvF/GoJVYD+
+	bwlthrI9678fODYADmYpMdxr+DoXUAuTKuPkRGgqVIQUXjm2oPcoljyFurGDPUMLagUwRaw+/PK/v
+	jBtwAGYKCRnx/F6Aer7JwDHgB6d4a/7rZ40rVoKzl+RXd0rGkqAybacHXRJFCqzZ4mK666EBB427J
+	sQwllnC99lljFMclGxPxL8XqPUNhGzpFiXCMenhFlXbEQn11TSJRPQGU31IFs901xyaCUj+kqq2eh
+	Wdy7Qd12lY7u1Hffm6FRNJ0smDlYnxqLMp2+j/DwQBgwfhf5aXhbPlsUk6kv3lDln5ZpW8Jqvr1z6
+	xrX7zwPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUltY-000000018u1-0jzQ;
-	Mon, 06 Jan 2025 12:07:44 +0000
+	id 1tUlui-000000019GX-0ZtG;
+	Mon, 06 Jan 2025 12:08:56 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUln3-00000001772-17LZ;
-	Mon, 06 Jan 2025 12:01:02 +0000
+	id 1tUln9-0000000177C-0efa;
+	Mon, 06 Jan 2025 12:01:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=Tpla/p5jBbXU8PHtAJsqJXMShZ+2IQdFhklawDkmOxI=; b=kim957CCwJw2F0uyW8on/x6ptj
-	CdMTQGZpQXlS9VWnCYJBE011UoxOC6m07+lSBaeF6L5uwIt+DhvqgNuwhtl70BVvt45+7iQFxYcxh
-	6ngHHDU+nzgUqkKvfk5uys7pmF9zHOfOgU57V29i82m0tXnaGXzRH+q2OHmN9rZziHaUfKh+W7ejn
-	HHdnPpJad9vwjhhWjmK0JN+MRLzHRn7uyG1vbw0v/AHVOa0XZN+fPx5yrlvbpTvWYvpmSo6HGPW17
-	RzEP2zohaZHNyVu5xpp/HCQCWIs/3Qt1E5ejCU7kRuHsDz84TbgKxdpHYVWxO+yV42CNS6Kfz0eqk
-	YusGlGqg==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:52330 helo=rmk-PC.armlinux.org.uk)
+	bh=aVjjOeVo8Ce/t55+rQVszo5wPlO5d2hOsrXlSpvC7mI=; b=oKKT4YfxbWhUxoDLZSBzfK+lqz
+	17rq6kc5RsA+Oi3YMKsANec3Le4fCnGQOnKAlWpCxjtz6HNSxcbc50e/bBt243XG3n6aQg64W9Q30
+	GNnHtJ7dHUSbP7rVvTB0IvdjnirMEeB9yDHVg3MQ9Yn476K/0B7VF7uroevYF5RA1cfbScnE8+zpz
+	9+A4QBgXuuBZWzLV/uCn3BCltzkyQa3iqUjTDRuLPZNg4JBjnQ+TJX8Xi9zIMwYBhAVYdAU5osB4M
+	5FWV0wVXf1u9PNpQiGs+pR78UKEFYKsMxL24WpOTZtxGstXtsRRNBVXoRz9dVekk6i8enTNTSz6ED
+	KSQP0IHw==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:52332 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tUlkx-0005kC-2p;
-	Mon, 06 Jan 2025 11:58:51 +0000
+	id 1tUll2-0005kU-2w;
+	Mon, 06 Jan 2025 11:58:56 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tUlku-007Uyc-RP; Mon, 06 Jan 2025 11:58:48 +0000
+	id 1tUlkz-007Uyl-UA; Mon, 06 Jan 2025 11:58:53 +0000
 In-Reply-To: <Z3vDwwsHSxH5D6Pm@shell.armlinux.org.uk>
 References: <Z3vDwwsHSxH5D6Pm@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -70,18 +70,16 @@ Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
 	UNGLinuxDriver@microchip.com,
 	Vladimir Oltean <olteanv@gmail.com>,
 	Woojung Huh <woojung.huh@microchip.com>
-Subject: [PATCH net-next 2/9] net: dsa: mt753x: remove setting of tx_lpi
- parameters
+Subject: [PATCH net-next 3/9] net: dsa: no longer call ds->ops->get_mac_eee()
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tUlku-007Uyc-RP@rmk-PC.armlinux.org.uk>
-Date: Mon, 06 Jan 2025 11:58:48 +0000
+Message-Id: <E1tUlkz-007Uyl-UA@rmk-PC.armlinux.org.uk>
+Date: Mon, 06 Jan 2025 11:58:53 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_040101_307896_4ABA2EAB 
-X-CRM114-Status: UNSURE (   9.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250106_040107_187472_9750B847 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,34 +94,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-dsa_user_get_eee() calls the DSA switch get_mac_eee() method followed
-by phylink_ethtool_get_eee(), which goes on to call
-phy_ethtool_get_eee(). This overwrites all members of the passed
-ethtool_keee, which means anything written by the DSA switch
-get_mac_eee() method will be discarded.
-
-Remove setting any members in mt753x_get_mac_eee().
+All implementations of get_mac_eee() now just return zero without doing
+anything useful. Remove the call to this method in preparation to
+removing the method from each DSA driver.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/dsa/mt7530.c | 6 ------
- 1 file changed, 6 deletions(-)
+ net/dsa/user.c | 8 --------
+ 1 file changed, 8 deletions(-)
 
-diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
-index 9605febd3573..4c78d049b9f4 100644
---- a/drivers/net/dsa/mt7530.c
-+++ b/drivers/net/dsa/mt7530.c
-@@ -3088,12 +3088,6 @@ mt753x_setup(struct dsa_switch *ds)
- static int mt753x_get_mac_eee(struct dsa_switch *ds, int port,
- 			      struct ethtool_keee *e)
+diff --git a/net/dsa/user.c b/net/dsa/user.c
+index 4a8de48a6f24..c74f2b2b92de 100644
+--- a/net/dsa/user.c
++++ b/net/dsa/user.c
+@@ -1251,7 +1251,6 @@ static int dsa_user_get_eee(struct net_device *dev, struct ethtool_keee *e)
  {
--	struct mt7530_priv *priv = ds->priv;
--	u32 eeecr = mt7530_read(priv, MT753X_PMEEECR_P(port));
+ 	struct dsa_port *dp = dsa_user_to_port(dev);
+ 	struct dsa_switch *ds = dp->ds;
+-	int ret;
+ 
+ 	/* Check whether the switch supports EEE */
+ 	if (!ds->ops->support_eee || !ds->ops->support_eee(ds, dp->index))
+@@ -1261,13 +1260,6 @@ static int dsa_user_get_eee(struct net_device *dev, struct ethtool_keee *e)
+ 	if (!dev->phydev)
+ 		return -ENODEV;
+ 
+-	if (!ds->ops->get_mac_eee)
+-		return -EOPNOTSUPP;
 -
--	e->tx_lpi_enabled = !(eeecr & LPI_MODE_EN);
--	e->tx_lpi_timer = LPI_THRESH_GET(eeecr);
+-	ret = ds->ops->get_mac_eee(ds, dp->index, e);
+-	if (ret)
+-		return ret;
 -
- 	return 0;
+ 	return phylink_ethtool_get_eee(dp->pl, e);
  }
  
 -- 
