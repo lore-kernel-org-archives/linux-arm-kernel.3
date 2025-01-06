@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59771E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 12:42:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC43FE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 12:43:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SvAOfuk/gG22WA/IG+mdfXq2MSJzE4kmQ+mvTvKuMFY=; b=mXJuNKzYN7Vmyoqq5KXw/13tEI
-	quXgk6GdfcIitSw3XWnQbcV9tNMBb9iIQGgmDUnUeV9xqR0yxoZVixrkzJRw2jSbCCd1V1NvY7Aja
-	EuFELSABtgmdLtwk5F0//LfPIONUxr4nCjxbg3t597aSjg0xsBDCNhltzvqEUnMOVNE4YCs+QRW2m
-	2Zte06wH+MJxJSEZGUqsMvrBFBWbV/gcTBjdrJTrAeO/c4K70c0v4okzu+XLgAkQR+IWUJiXmczm4
-	WGNJvNrfptnY58awvGu/yxztKIc4TZdbI1/UkSm0O9+M4H1rD6lI7uvowCWBmELUvT1b0gyf8Yp18
-	d/G4dxAw==;
+	bh=eKXXjy/uKptM2YnzYmRo9ocTbTaqXsBTlP/WP9Ye8Nk=; b=IDwOlp3GJB7kDIsh0tTs/04kwx
+	4v2pU5NLfa01G6zyvaqUPAhRmL//LIpnuCUJHdFTyZPYd6On/x4Ka/gJO/LYCJbBw+uJ0tdJjLxbL
+	ilDqHVQdPsJfEYRPk7d/KXGUxcp31NG2ujtkkdp/lYx3LZFagQ1c+AoPCYaHMcLvK+z8LvqTaLrt+
+	VP3ckBdmhQjlQDNzq4pRfI4baVsMcUyjgdAZj0+7QjjIMuOXH9y/5tkoQITzVYo2VjGARFrohedxn
+	hXB9HoPhB/70qd8tsSFLAtgiZrjKlB0avdZEVHTVJUj7b9K8q1YSVriZeKO+l4D6Npd0kGqYATBCr
+	8sxwgTTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUmRA-00000001GCa-2uQ7;
-	Mon, 06 Jan 2025 12:42:28 +0000
+	id 1tUmSK-00000001GVv-1RfY;
+	Mon, 06 Jan 2025 12:43:40 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUmB3-00000001DFS-2ibP
+	id 1tUmB8-00000001DHk-0cId
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 12:25:50 +0000
+	Mon, 06 Jan 2025 12:25:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=SvAOfuk/gG22WA/IG+mdfXq2MSJzE4kmQ+mvTvKuMFY=; b=HQj0GLqH4EYc6NFoSFE+2c/JYV
-	eKetogjHxORanqxFGxIReDq6aegl3nXWj1xosQAhOD52WiVzOdGQhXX3DXmxLPw4Mb2rHdPpjxW8t
-	K3AnpGIh/qNWRuaFvy53W1HFqCW+Lzp/WPtIwmyy4BTXqKYkbrzc1WW/HZ5rN3nuDjkpFWU67jilG
-	bM4GICGWUC9B4fV1uQUHIqR2XJmzHF8GZN5OJXC/Dc0+6zyozrrwiaMkMx2pmWBCHT2CKglX+wtuc
-	CKg+VcRobxAqq17cvQsgyj75zamooZbofNkWNJoSAuniBTUWuH1qpQYdnOV2TphtU/4D9+RtAcnED
-	RtcNRcXA==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:37410 helo=rmk-PC.armlinux.org.uk)
+	bh=eKXXjy/uKptM2YnzYmRo9ocTbTaqXsBTlP/WP9Ye8Nk=; b=gZXTgFinuKQ/y5exjaBo1n5QZR
+	KKT0eQ5c4HsCxovqCEVXOaR2vgbCupl2WwaCyELwYEQ5uQ3TlC16RkzgU6NJ2gB5jI3Es+yP847d1
+	DtmS9nsJV6cHh5m7oYt+8IYZxS69XvtR8qmFsRdKbd8jK1JkAuo0HUk2mTU+EnQeXPB2c/4LNA5w9
+	EtTlh35fP7uysjN+6CWEWNOmUDkYbEZaEDOcb9GjQ80Kum4XGzYK0hetIifUilrUu+/wGav+HZwGW
+	0UpRnb+QKRHd6WavF8osljEfGvY5JAekLjzo7Joj7mZt4qlKgd34XSbWo4AMVQ4j4dpM6oJum8eY1
+	IyQxgGVQ==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:37426 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tUmAw-0005t1-2k;
-	Mon, 06 Jan 2025 12:25:42 +0000
+	id 1tUmB1-0005tL-3D;
+	Mon, 06 Jan 2025 12:25:48 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tUmAt-007VXh-TZ; Mon, 06 Jan 2025 12:25:39 +0000
+	id 1tUmAz-007VXn-0o; Mon, 06 Jan 2025 12:25:45 +0000
 In-Reply-To: <Z3vLbRQ9Ctl-Rpdg@shell.armlinux.org.uk>
 References: <Z3vLbRQ9Ctl-Rpdg@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -64,17 +64,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next v2 11/17] net: stmmac: move priv->eee_enabled into
+Subject: [PATCH net-next v2 12/17] net: stmmac: move priv->eee_active into
  stmmac_eee_init()
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tUmAt-007VXh-TZ@rmk-PC.armlinux.org.uk>
-Date: Mon, 06 Jan 2025 12:25:39 +0000
+Message-Id: <E1tUmAz-007VXn-0o@rmk-PC.armlinux.org.uk>
+Date: Mon, 06 Jan 2025 12:25:45 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_042549_684300_0B89E203 
-X-CRM114-Status: GOOD (  12.31  )
+X-CRM114-CacheID: sfid-20250106_042554_182372_323EDF18 
+X-CRM114-Status: GOOD (  11.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,81 +89,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-All call sites for stmmac_eee_init() assign the return code to
-priv->eee_enabled. Rather than having this coded at each call site,
-move the assignment inside stmmac_eee_init().
-
-Since stmmac_init_eee() takes priv->lock before checking the state of
-priv->eee_enabled, move the assignment within the locked region. Also,
-stmmac_suspend() checks the state of this member under the lock. While
-two concurrent calls to stmmac_init_eee() aren't possible, there is
-a possibility that stmmac_suspend() may run concurrently with a change
-of priv->eee_enabled unless we modify it under the lock.
+Since all call sites of stmmac_eee_init() assign priv->eee_active
+immediately before, pass this state into stmmac_eee_init() and
+assign priv->eee_active within this function.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- .../net/ethernet/stmicro/stmmac/stmmac_main.c  | 18 +++++++++++-------
- 1 file changed, 11 insertions(+), 7 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 7cce2eb3d82e..cf294fe3f726 100644
+index cf294fe3f726..1aedb49944ec 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -464,11 +464,13 @@ static void stmmac_eee_ctrl_timer(struct timer_list *t)
+@@ -464,8 +464,10 @@ static void stmmac_eee_ctrl_timer(struct timer_list *t)
   *  can also manage EEE, this function enable the LPI state and start related
   *  timer.
   */
--static bool stmmac_eee_init(struct stmmac_priv *priv)
-+static void stmmac_eee_init(struct stmmac_priv *priv)
+-static void stmmac_eee_init(struct stmmac_priv *priv)
++static void stmmac_eee_init(struct stmmac_priv *priv, bool active)
  {
- 	/* Check if MAC core supports the EEE feature. */
--	if (!priv->dma_cap.eee)
--		return false;
-+	if (!priv->dma_cap.eee) {
-+		priv->eee_enabled = false;
-+		return;
-+	}
- 
- 	mutex_lock(&priv->lock);
- 
-@@ -485,8 +487,9 @@ static bool stmmac_eee_init(struct stmmac_priv *priv)
- 						priv->plat->mult_fact_100ns,
- 						false);
- 		}
-+		priv->eee_enabled = false;
- 		mutex_unlock(&priv->lock);
--		return false;
-+		return;
- 	}
- 
- 	if (priv->eee_active && !priv->eee_enabled) {
-@@ -509,9 +512,10 @@ static bool stmmac_eee_init(struct stmmac_priv *priv)
- 			  STMMAC_LPI_T(priv->tx_lpi_timer));
- 	}
- 
-+	priv->eee_enabled = true;
++	priv->eee_active = active;
 +
- 	mutex_unlock(&priv->lock);
- 	netdev_dbg(priv->dev, "Energy-Efficient Ethernet initialized\n");
--	return true;
- }
- 
- /* stmmac_get_tx_hwtstamp - get HW TX timestamps
-@@ -969,7 +973,7 @@ static void stmmac_mac_link_down(struct phylink_config *config,
+ 	/* Check if MAC core supports the EEE feature. */
+ 	if (!priv->dma_cap.eee) {
+ 		priv->eee_enabled = false;
+@@ -972,8 +974,7 @@ static void stmmac_mac_link_down(struct phylink_config *config,
+ 	struct stmmac_priv *priv = netdev_priv(to_net_dev(config->dev));
  
  	stmmac_mac_set(priv, priv->ioaddr, false);
- 	priv->eee_active = false;
--	priv->eee_enabled = stmmac_eee_init(priv);
-+	stmmac_eee_init(priv);
+-	priv->eee_active = false;
+-	stmmac_eee_init(priv);
++	stmmac_eee_init(priv, false);
  	stmmac_set_eee_pls(priv, priv->hw, false);
  
  	if (stmmac_fpe_supported(priv))
-@@ -1082,7 +1086,7 @@ static void stmmac_mac_link_up(struct phylink_config *config,
+@@ -1085,8 +1086,7 @@ static void stmmac_mac_link_up(struct phylink_config *config,
+ 		phy_eee_rx_clock_stop(phy, !(priv->plat->flags &
  					     STMMAC_FLAG_RX_CLK_RUNS_IN_LPI));
  		priv->tx_lpi_timer = phy->eee_cfg.tx_lpi_timer;
- 		priv->eee_active = phy->enable_tx_lpi;
--		priv->eee_enabled = stmmac_eee_init(priv);
-+		stmmac_eee_init(priv);
+-		priv->eee_active = phy->enable_tx_lpi;
+-		stmmac_eee_init(priv);
++		stmmac_eee_init(priv, phy->enable_tx_lpi);
  		stmmac_set_eee_pls(priv, priv->hw, true);
  	}
  
