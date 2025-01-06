@@ -4,66 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 825DEE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 16:01:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A52DE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 16:02:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G9FQwqjUqSa5HM+3t6gdgYNnhVzilmnGq4sS+ChYJ0Q=; b=MzH9uvOeCHYX4OEC1skPzpYwSh
-	YscVqF3f6jayzevz4e4wTCCuESLCw/cWqyQMosvNIBOrhubbz4SJ9fJfuhIcW9zVkuqiIL+BU0+v1
-	FR9Psl1tteIYPFolwZKNxL6e3ffD/FdgFir+hNsajr3FNvs1tEQhGe+3Ew7DrQHiq1xdszF+p8Z2c
-	XWPFXmfc6h3zgjpQVMMoR0vVK51Aw49Tr6awn/2y7Voowi5MyHX2DQsQuQCht6HsdqlFBwtB/YHJd
-	acU2Ib7umCUaXM3FspD/kYmQ0ibzmqcEWVual3TMjM0+UjdpmuwomJQCU4TRiv8llj/MU9JMpvsBL
-	1bxVA8pQ==;
+	bh=cL83fy9fUiyWAQO9Y10o5TV/KydC3Qa+Hru6k+93+SU=; b=PqBwDd06E7uMjZ7aaxJaetE0q7
+	VBL4ay+CRcgYRQNzHVmda4thvBrQNLdPwwc9/fFLK/x8u/naAWcEGn+UlfjT76yHp4lT647CLkmvy
+	MMOCLgSzT773lP80+RI4ZzHQENZxzWJbRZnWkt+KDmNh6jShQJA7rrvThlaHRsOK4g6baHS2yMhGh
+	9yM3OS19zI0g+KOCcSGgNw14DdVCGaaKM2wowjizS0xCvUpH+nPchce08FXlFW2h9ahUXf1aJ9zlg
+	bu2ggErFDU/NvA2jpKldAkp5RM/21lH8MTYZ0kuURUQeEvK0VW1AfsxV64Ou3m4U/vGoHON3X7/y1
+	KxB/BYeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUpX4-00000001sA4-0ItH;
-	Mon, 06 Jan 2025 16:00:46 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tUpYE-00000001sIF-2rrU;
+	Mon, 06 Jan 2025 16:01:58 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUpVs-00000001rz1-1JoE
+	id 1tUpW8-00000001s1m-3OJX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 15:59:33 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tUpVe-0007Hv-59; Mon, 06 Jan 2025 16:59:18 +0100
-Message-ID: <cccf92df-4a20-4bed-9122-6b7d89bdf28d@pengutronix.de>
-Date: Mon, 6 Jan 2025 16:59:17 +0100
+	Mon, 06 Jan 2025 15:59:50 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-435f8f29f8aso105243665e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jan 2025 07:59:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1736179187; x=1736783987; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=cL83fy9fUiyWAQO9Y10o5TV/KydC3Qa+Hru6k+93+SU=;
+        b=PWdYJSc2eTivLd9nvYiECsQT4RNDhzvihm2wa99bqb8tT/7zNyB+o7hnwskE9n+fNJ
+         hEId/44QvMhBaVxKoP4LuAZ6czvG4nGy1nlO1ZhlfVjSjfien+oqw0jJovtFQaixCXwJ
+         Fth2p1IGME4D9xGzgfsEfdis+wNT2DaN4EQJVLgVGR3rPC3X21ulb9GbvVLOousFCoeR
+         yLKCckLzM7XicINeKhAk2PXGX8g0G0S30jRw8SJh2hWyPkeVWOApGqjRXqxoETHtCoLz
+         CZbTIpFkBdoZ9ZRZXRYAttWXVS1Jq7RlE3NqDMEsRptGYf1+OHOnQWbPjJCKiPNpqhkP
+         +RQA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736179187; x=1736783987;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=cL83fy9fUiyWAQO9Y10o5TV/KydC3Qa+Hru6k+93+SU=;
+        b=PR8q/rELWHukQcAcubyYVtL0vIUwj1pbyyn3NX3lPemBKhDMAxgdAGzvkJOykarLMd
+         UKpoCH2uOwGP+SL9FxS2U1Sx1BSAYUmwBWcmBlOSl6fntGUZsbbWKpQZdhpfdKpgtvDH
+         MwZQQO2gqdy5HFBBPyAa025HEWF7drKO9q3An1u24+U7KLj+h3DQVEVaqIrS5Y3Y+zQw
+         Y1aPnW/gFdxbgzwN9AoDffUd1okxf482wmZB12Q3DlcG6cYnJts/JP4g4sTlBkizUOwQ
+         n7G2eLTLfmPiZHtYzQEnYBd6WgAn8jCvNF2UpcXwgaDOg7WvC3/gw0mewmpyUPLfILEO
+         eWvQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUNoEknqzUM4lJkUZZB/FqkjK/C5Nom+od/wWY+DXQUdsugBrM0okxV5pJNFJAIcva/gQuz2L/zDnqB/orwbZbW@lists.infradead.org
+X-Gm-Message-State: AOJu0YyqZaDn4YklchTZ+xYe0efxD6S0PXXAD2EWv95kyXU47v2UOza0
+	6c4qPDWbV7dsqjQuSOiIpaGHZ6zvbc8GfGyaP3lVD2Pz2Z/7X2q4zX7Ej8B0sXo=
+X-Gm-Gg: ASbGncuLm6krStj6QfmuFT3j89LXIW+3xcczhzxIrK/KO0Je9aqvUwM8Jvb7UkZXodm
+	IKqYI0TMfYjzNIlGbgroUloNhLe82hD6zPkh7fW1qGgjr9+Zij+TO0Y7sBvWEwr4t1UE1MwTO8J
+	KCFltdUzbayMrBYaLRZSLisNNYxPAZ4FEOpTkOq7m0i/UYnVGbgZ13P/9JAMqWcnysW+V0C6vtg
+	dHIXOgQwIJFAe+D2F6sBlhPOQ1iGnmIUYWnUrl0s4dRFDxYlNwBUfomZTd4Uynkjl4=
+X-Google-Smtp-Source: AGHT+IFuwfTtqezqCyqXjnvoll9stdZwnDMHbjcpJGGm/Jkum+CB4+ty+n/TPU5uXnz6f5z8AKwJSA==
+X-Received: by 2002:a05:600c:1d1d:b0:431:5044:e388 with SMTP id 5b1f17b1804b1-43668b5e172mr471554025e9.22.1736179186712;
+        Mon, 06 Jan 2025 07:59:46 -0800 (PST)
+Received: from [192.168.68.163] ([145.224.66.180])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4364b14f241sm535958045e9.1.2025.01.06.07.59.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 06 Jan 2025 07:59:46 -0800 (PST)
+Message-ID: <57627eec-10b5-4eb0-bfe2-f404a3492eee@linaro.org>
+Date: Mon, 6 Jan 2025 15:59:43 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Subject: Re: [PATCH 10/10] arm64: dts: imx8mp-skov: increase I2C clock
- frequency for RTC
-To: Frank Li <Frank.li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Oleksij Rempel
- <o.rempel@pengutronix.de>, devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20241219-skov-dt-updates-v1-0-38bf80dc22df@pengutronix.de>
- <20241219-skov-dt-updates-v1-10-38bf80dc22df@pengutronix.de>
- <Z2RcJCaYC2FW3Ks6@lizhi-Precision-Tower-5810>
- <30dbe486-7e36-426d-8fa4-3ecd83193a10@pengutronix.de>
- <Z2Rw8qnn9hULyh8l@lizhi-Precision-Tower-5810>
- <2ae085fa-6f13-4eb7-88c1-e625309fc35e@pengutronix.de>
- <Z2WPbB9cV0hcP2UB@lizhi-Precision-Tower-5810>
+Subject: Re: [PATCH linux-next 2/2] perf: Return EACCESS when need perfmon
+ capability
+To: Luo Gengkun <luogengkun@huaweicloud.com>
+Cc: mingo@redhat.com, acme@kernel.org, namhyung@kernel.org,
+ mark.rutland@arm.com, alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+ irogers@google.com, adrian.hunter@intel.com, kan.liang@linux.intel.com,
+ tglx@linutronix.de, bp@alien8.de, dave.hansen@linux.intel.com,
+ x86@kernel.org, hpa@zytor.com, will@kernel.org, paul@paul-moore.com,
+ jmorris@namei.org, serge@hallyn.com, rostedt@goodmis.org,
+ mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
+ stephen.smalley.work@gmail.com, omosnace@redhat.com,
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-security-module@vger.kernel.org,
+ linux-trace-kernel@vger.kernel.org, selinux@vger.kernel.org,
+ Peter Zijlstra <peterz@infradead.org>
+References: <20241223070650.2810747-1-luogengkun@huaweicloud.com>
+ <20241223070650.2810747-3-luogengkun@huaweicloud.com>
 Content-Language: en-US
-In-Reply-To: <Z2WPbB9cV0hcP2UB@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20241223070650.2810747-3-luogengkun@huaweicloud.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_075932_355093_B61AFDE8 
-X-CRM114-Status: GOOD (  39.13  )
+X-CRM114-CacheID: sfid-20250106_075948_852098_95172699 
+X-CRM114-Status: GOOD (  18.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,181 +110,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Frank,
 
-On 20.12.24 16:38, Frank Li wrote:
-> On Fri, Dec 20, 2024 at 10:12:49AM +0100, Ahmad Fatoum wrote:
->> On 19.12.24 20:16, Frank Li wrote:
->>> On Thu, Dec 19, 2024 at 06:51:35PM +0100, Ahmad Fatoum wrote:
->>>> On 19.12.24 18:47, Frank Li wrote:
->>>>> On Thu, Dec 19, 2024 at 08:25:34AM +0100, Ahmad Fatoum wrote:
->>>>>> From: Oleksij Rempel <o.rempel@pengutronix.de>
->>> According to
->>> https://docs.kernel.org/process/submitting-patches.html
->>>
->>> Describe your changes in imperative mood, e.g. “make xyzzy do frotz”
->>> instead of “[This patch] makes xyzzy do frotz” or
->>> “[I] changed xyzzy to do frotz”, as if you are giving orders to the
->>> codebase to change its behaviour.
->>
->> I have to disagree with your interpretation. The imperative mood is primarily
->> expected for commit message titles, but if you take a look at normal commit
->> message _bodies_ that make it into the kernel, you'll find that a whole lot
->> of them start off like I do: Describe the situation and then what's done about
->> it.
+
+On 23/12/2024 7:06 am, Luo Gengkun wrote:
+> For perf_allow_kernel and perf_allow_cpu, both return EACCES when require
+> CAP_PERFMON or CAP_SYS_ADMIN permissions, so update perf_allow_tracepoint
+> to keep them the same.
 > 
-> I was got many similar feedback from difference maintainer to be required
-> change my commit message _bodies_ in past years.
+> Signed-off-by: Luo Gengkun <luogengkun@huaweicloud.com>
+> ---
+>   include/linux/perf_event.h | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> https://lore.kernel.org/imx/3c9fe85a-5f86-4df6-92fb-e4ceb033f161@kernel.org/
+> diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
+> index 5d2ec4283ebf..c1bc0d7a275b 100644
+> --- a/include/linux/perf_event.h
+> +++ b/include/linux/perf_event.h
+> @@ -1685,7 +1685,7 @@ static inline int perf_allow_cpu(void)
+>   static inline int perf_allow_tracepoint(void)
+>   {
+>   	if (sysctl_perf_event_paranoid > -1 && !perfmon_capable())
+> -		return -EPERM;
+> +		return -EACCES;
+>   
 
-Surely, you can see a difference between marketing fluff and the commit
-messages in my series?
+Is this necessary other than for consistency? If not it might be best to 
+leave it inconsistent even if it's wrong. I see quite a few "if EPERM do 
+this..." type things in Perf, so changing this would break error 
+messages being shown to users.
 
-> https://lore.kernel.org/imx/117dd6f3-8829-4000-a05b-6cb421ca7de6@kernel.org/
+If anything, EPERM seems more correct because EACCESS is more about file 
+access.
 
-Agreed, I don't see where I talked about my patches in the third person though?
+Thanks
+James
 
-> https://lore.kernel.org/linux-pci/20240807025423.GF3412@thinkpad/
-
-Did you check out how the final version of that commit log looked
-like? Here it is:
-
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=64706ba771f5e8f
-
-You may notice that the maintainer has edited it for readability instead
-of just having a few imperatives follow each other. :-)
-
-> https://lore.kernel.org/linux-pci/YnvyrSTAxJmGxful@lpieralisi/
-> 
-> At beginning, I can't understand this. But after follow these expertor
-> suggestion, I found some beanfit.
-
-This commit message is indeed very vague. I agree that patch 09/10 in my
-series is vague too, so this will be fixed for v2. I don't see this applicable
-to other patches though.
-
-> - sentense will be shorter and easy to capture most important part. for
-> example:
-> 
->   "The NXP PCF85063TP RTC we use is capable of up to 400 kHz of SCL clock
->   frequency, so let's make use of this instead of the 100 kHz bus frequency
->   we are currently using."
-> 
->   34 words
-> 
->   "Increase I2C frequency to 400khz from 100kHz because NXP PCF85063TP RTC
->    support it"
-> 
->   13 words
-
-The commit message will be shortened a bit for v2.
-
->   Linux is big community, even reduce 1 minutes to read it, multi by
-> totall reviewer/reader will be very big numbers.
-> 
-> - empahse the important change first to help understand whole patch
-> quickly.
-> 
-> You can choose what you want if maintainer don't reject it. Generally I
-> just send such kind comments for v1 patch, because it is less possible to
-> be accepted by by maintainer to accept (except some critial fixes).> 
->>
->> I personally find that this is often easier to follow than just having two
->> imperatives back-to-back.
-> 
-> Basic principle is clear, simple, and straightforward.
-
-I still believe you are misunderstanding the guidelines in submitting-patches.rst
-and that asking for all commit message bodies to be rewritten in imperative mood
-doesn't help anyone.
-
-I would have liked for both my patches against submitting-patches.rst to be accepted
-to clarify this, but you can check out Jon's answer and compare with commit messages
-not authored by you and perhaps see that one needn't golf the commit messages
-at the expense of readability.
-
-Thanks,
-Ahmad
-
-> 
-> Frank
-> 
->>
->> I have just Cc'd you on an RFC patch to amend the documentation you linked
->> to reflect this. I am happy to continue the discussion over there:
->>
->> https://lore.kernel.org/workflows/20241220-submitting-patches-imperative-v1-0-ee874c1859b3@pengutronix.de/T/#t
->>
->> Thanks,
->> Ahmad
->>
->>>
->>> Generally, avoid use
->>>
->>> "this patch ..."
->>> "let's ...."
->>> "we do ... for ... "
->>>
->>> Just simple said
->>>
->>> Do ... to ...
->>> Do ... because ...
->>>
->>> Frank
->>>
->>>>
->>>> Thanks,
->>>> Ahmad
->>>>
->>>>
->>>>>
->>>>> Frank
->>>>>
->>>>>>
->>>>>> Signed-off-by: Oleksij Rempel <o.rempel@pengutronix.de>
->>>>>> Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
->>>>>> ---
->>>>>>  arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi | 2 +-
->>>>>>  1 file changed, 1 insertion(+), 1 deletion(-)
->>>>>>
->>>>>> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
->>>>>> index a683f46fcbab..ec7857db7bf0 100644
->>>>>> --- a/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
->>>>>> +++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
->>>>>> @@ -333,7 +333,7 @@ reg_nvcc_sd2: LDO5 {
->>>>>>  };
->>>>>>
->>>>>>  &i2c3 {
->>>>>> -	clock-frequency = <100000>;
->>>>>> +	clock-frequency = <400000>;
->>>>>>  	pinctrl-names = "default";
->>>>>>  	pinctrl-0 = <&pinctrl_i2c3>;
->>>>>>  	status = "okay";
->>>>>>
->>>>>> --
->>>>>> 2.39.5
->>>>>>
->>>>>
->>>>
->>>>
->>>> --
->>>> Pengutronix e.K.                           |                             |
->>>> Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
->>>> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
->>>> Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
->>>
->>
->>
->> --
->> Pengutronix e.K.                           |                             |
->> Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
->> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
->> Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
-
--- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
