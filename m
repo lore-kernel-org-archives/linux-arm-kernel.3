@@ -4,69 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01C50E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 19:20:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 651B9E77198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 19:21:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wj5tZG7Np2ka3R5MzhJPJa0pjGDTN8gpGTXh9bLqjco=; b=dynuci5JVfM8tjK29AP6tRuvWm
-	q2937YRpvKH/19SHqOE4XPnBfECfOb/+HiQl183+DvzxCZGQ96QMIpx/RRRKWkq/0m3UfXm5pRGIo
-	Qdzx7UIBG94Wz33E75VUGJNtznvGurkEr13VbI48lslPWpweVwh+b4evKFRkeWvIUPSq8va+VMj/5
-	p5ESmXkWq21ZVzhdj6ynR1U6jge5AHwjuYW2aA3AWFo0lpkMZK7IiYRVZgYjY+LjRCpu66mnxouoP
-	iQk/7IAlHsVw4vX0bLD7fJokLBM9W37iyMuJNSf+ETNmsSXYZeZS09YRAMt4Kur9Sz2ggDPUjSS1T
-	qX3iHebg==;
+	bh=AcqApmbWKT3sk0GInf43OOPg0TCNmwV698Dx8iiW9/8=; b=CkcznW42rV/Kzhu64LEtQvffL5
+	qXyWlUb4NQQ4Kr52+nuVkxeWEJlZiDmG7Hg+miRGnkDko54w7kHkhcsT4ykRkn+lPSLRhzvGG2hWN
+	5xKQIVq1VqHsmGRwilksKFvAAzrdRBUMuI+w/fIieo4XHL5uNav58uxC96xPyKrvLT2Kewqm4i7I0
+	f3xTbnrCWdbaRNXGCsTn+P2QWxGTQZsHSIuwk8IFgo+ayvyyl5Pyn5byr/PE2StKDinl3P+RXruPE
+	pkZ/g5E8F7/Ku0v7WEhCHGc0XHg8+uQ3qQgOCX0tzNeRRMx5s0cdByBhJxinIQDOVSvDifnxQ2kBr
+	0AzBsOsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUse8-00000002QF7-43oY;
-	Mon, 06 Jan 2025 19:20:16 +0000
-Received: from mail.netcube.li ([173.249.15.149])
+	id 1tUsfJ-00000002QZv-2b6G;
+	Mon, 06 Jan 2025 19:21:29 +0000
+Received: from mail-vk1-xa2d.google.com ([2607:f8b0:4864:20::a2d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUsXq-00000002P0A-3yyX
+	id 1tUsZk-00000002PRD-3sF5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 19:13:48 +0000
-dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
-	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Type:Content-Transfer-Encoding:In-Reply-To:References;
-	bh=wj5tZG7Np2ka3R5MzhJPJa0pjGDTN8gpGTXh9bLqjco=;
-	b=r4pmh3hx4BZK2+hTwLE26umEKEMZ54+UFuz9NzOgG8V8mRs53gVi+3NMTKB5vdnyGQ6rx0COCBmwIx3rsNc3JYkc9IkxBrLieKufioLmBZ0yW19qNk9oXAiANWI+BOzbaElSdKKU2pzs2GXDnwClpBCaLQl9MCV/eufIEBoHolw=
-Received: from webmail.netcube.li (WIN-IJ7TS3MJ5LT [127.0.0.1])
-	by mail.netcube.li with ESMTPA
-	; Mon, 6 Jan 2025 20:13:45 +0100
+	Mon, 06 Jan 2025 19:15:46 +0000
+Received: by mail-vk1-xa2d.google.com with SMTP id 71dfb90a1353d-5189a440a65so8582058e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jan 2025 11:15:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1736190943; x=1736795743; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=AcqApmbWKT3sk0GInf43OOPg0TCNmwV698Dx8iiW9/8=;
+        b=jL4wgs7NSbT3uSDqDlZCZjddkzPq1sP1TAkFIlEzSyiYbzMjtx1p9qNYIJEgh1u7oS
+         uNsN/NUdEmjTo7lCnrHa3AscIeNmWk/oSO023wZ7pNIFQuAin5flrVycMQ9D1dvTHjE2
+         LYsq9xKX33rTt+uEXSUd0iRYBH08zTMSY6E6OIbbk4xPGqJVfygnKzGGFyCHJSMibDZm
+         kEFIddNnmubYUK7CydHVSKZPUoobC7PvciSVQz2E2gMCNwmThIx9vQdAKziEJIHSoERS
+         GPz+SZSjroDfFZroT1iks0ikx5ygoosVT2HLpvMdAcZZTCjKBJqbEI6oXt3/UNR5Jnr9
+         ubCA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736190943; x=1736795743;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=AcqApmbWKT3sk0GInf43OOPg0TCNmwV698Dx8iiW9/8=;
+        b=Ki33TsBnluigz8C3P9T5gU4eDJrGpcYpJ6JbugGChLCh70ZjAxUXnT5wXMnUvRAy9L
+         fRSv8EAzqcub33VeaWiD2Wr4L1YtE5KtNRCxjP1BfQFEomvm54pwAt0/8MicyX92Qg44
+         m1pkPwgX8toDO6PF1J8OjoptP8KR1pRgcEGaqjhT9EzmgHsP94H8i6lscbXK4F+LwYbr
+         20cWtm2WPxxp/la1BIUdYw4cPmgCzDseH36IuGUcwPqCCUBkzdO/YPRea+OsqNKpnF0w
+         IPfrRnr5Xy/f75FZjnYchpK6mZVNChPDnZhoM8SGQpkN67Xoi4mt4MTMesn/KkAsxUKj
+         t23g==
+X-Forwarded-Encrypted: i=1; AJvYcCWBtGDC/vna1PMsyvcDNycoLO0BTyF1qFKxJO2UJg6H4Qv1GIaHq9O8Nmrbefhb/XFkJ9PVa7jCnWXHLe4ZZVcf@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxzs00DHxsc8kKQb18Y/CxRjQMhruIK0XUt7bji3DUm1ZxSPBdA
+	WHnNsiIx9ZahXpy1VfdCn+OUWskGBmj9PJBQ2hA6xvK0Dnxkz+gVYy4YmQQaN7GTkKC9Df8tH8J
+	ucPiZwD260Rrk4XYQ15UWiZk2h/M=
+X-Gm-Gg: ASbGncshNUnA0/VT2J13Z12ekA33ZnUBvhR3dKuepOVK9dhP8EvqVFFDkGmh3fqg9AQ
+	uWAZo47neGfDwwqcwe9+kYLZxLCvvRrnQ61AK1vH5M34oNPHMji2YSQaNte1fediHStRVlZOt
+X-Google-Smtp-Source: AGHT+IGI4L9aG9KQIYmcNGvadzGYb122Qid6REXJuL0qufX+aQeAZdnpQA5Rs3oza+4oIfLW73+wS3vWEJ8BQ270kb4=
+X-Received: by 2002:a05:6122:1992:b0:516:2d4e:448a with SMTP id
+ 71dfb90a1353d-51b75c3a30cmr47151828e0c.3.1736190943561; Mon, 06 Jan 2025
+ 11:15:43 -0800 (PST)
 MIME-Version: 1.0
-Date: Mon, 06 Jan 2025 20:13:43 +0100
-From: Lukas Schmid <lukas.schmid@netcube.li>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Icenowy Zheng <icenowy@aosc.io>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec
- <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Linus
- Walleij <linus.walleij@linaro.org>, Maxime Ripard <mripard@kernel.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-gpio@vger.kernel.org
-Subject: Re: [PATCH v3 4/4] ARM: dts: sunxi: add support for NetCube Systems
- Kumquat
-In-Reply-To: <431fdf8c83178155cd731800be03b8ef@netcube.li>
-References: <20250103204523.3779-1-lukas.schmid@netcube.li>
- <20250103204523.3779-5-lukas.schmid@netcube.li>
- <20250103235723.6a893773@minigeek.lan>
- <bed2886fa15d4f72cf34e468e8bfd2153cb1494c.camel@aosc.io>
- <083add26c987bfbfedcda3ddbe5b9880@netcube.li>
- <aa2612f39a81332f4eabe7314210fde480c000da.camel@aosc.io>
- <9191d32ae352f311ad2c2751bca23a7d@netcube.li>
- <20250106004705.10a8c616@minigeek.lan>
- <431fdf8c83178155cd731800be03b8ef@netcube.li>
-User-Agent: Roundcube Webmail/1.4.11
-Message-ID: <aab46bf50c7a284744319e8a62ff9ba0@netcube.li>
-X-Sender: lukas.schmid@netcube.li
-Content-Type: text/plain; charset=UTF-8;
- format=flowed
-Content-Transfer-Encoding: 8bit
+References: <20250106031711.82855-1-21cnbao@gmail.com> <8dafd991-9d2a-48f2-b35d-5c2049992c84@lucifer.local>
+In-Reply-To: <8dafd991-9d2a-48f2-b35d-5c2049992c84@lucifer.local>
+From: Barry Song <21cnbao@gmail.com>
+Date: Tue, 7 Jan 2025 08:15:32 +1300
+Message-ID: <CAGsJ_4wNzfwWOL33LHK+omnCdO9QB4_jTes5gVHQXtJ8=G5D_w@mail.gmail.com>
+Subject: Re: [PATCH 0/3] mm: batched unmap lazyfree large folios during reclamation
+To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: akpm@linux-foundation.org, linux-mm@kvack.org, 
+	linux-arm-kernel@lists.infradead.org, x86@kernel.org, 
+	linux-kernel@vger.kernel.org, ioworker0@gmail.com, david@redhat.com, 
+	ryan.roberts@arm.com, zhengtangquan@oppo.com, ying.huang@intel.com, 
+	kasong@tencent.com, chrisl@kernel.org, baolin.wang@linux.alibaba.com, 
+	Barry Song <v-songbaohua@oppo.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_111347_328970_1C21F251 
-X-CRM114-Status: GOOD (  51.68  )
+X-CRM114-CacheID: sfid-20250106_111544_962460_4650E96E 
+X-CRM114-Status: GOOD (  20.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,628 +96,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 2025-01-06 18:25, schrieb Lukas Schmid:
-> Am 2025-01-06 01:47, schrieb Andre Przywara:
->> On Sun, 05 Jan 2025 12:25:26 +0100
->> Lukas Schmid <lukas.schmid@netcube.li> wrote:
->> 
->>> Am 2025-01-05 05:17, schrieb Icenowy Zheng:
->>> > 在 2025-01-04星期六的 14:03 +0100，Lukas Schmid写道：
->>> >> Am 2025-01-04 06:12, schrieb Icenowy Zheng:
->>> >> > 在 2025-01-03星期五的 23:57 +0000，Andre Przywara写道：
->>> >> > > On Fri,  3 Jan 2025 20:45:20 +0000
->>> >> > > Lukas Schmid <lukas.schmid@netcube.li> wrote:
->>> >> > >
->>> >> > > (CC:ing Icenowy for a question about the RTC below ...)
->>> >> > >
->>> >> > > > NetCube Systems Kumquat is a board based on the Allwinner V3s
->>> >> > > > SoC,
->>> >> > > > including:
->>> >> > > >
->>> >> > > > - 64MB DDR2 included in SoC
->>> >> > > > - 10/100 Mbps Ethernet
->>> >> > > > - USB-C DRD
->>> >> > > > - Audio Codec
->>> >> > > > - Isolated CAN-FD
->>> >> > > > - ESP32 over SDIO
->>> >> > > > - 8MB SPI-NOR Flash for bootloader
->>> >> > > > - I2C EEPROM for MAC addresses
->>> >> > > > - SDIO Connector for eMMC or SD-Card
->>> >> > > > - 8x 12/24V IOs, 4x normally open relays
->>> >> > > > - DS3232 RTC
->>> >> > > > - QWIIC connectors for external I2C devices
->>> >> > > >
->>> >> > > > Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
->>> >> > > > ---
->>> >> > > >  arch/arm/boot/dts/allwinner/Makefile          |   2 +
->>> >> > > >  .../allwinner/sun8i-v3s-netcube-kumquat.dts   | 290
->>> >> > > > ++++++++++++++++++
->>> >> > > >  arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi    |   6 +
->>> >> > > >  3 files changed, 298 insertions(+)
->>> >> > > >  create mode 100644 arch/arm/boot/dts/allwinner/sun8i-v3s-
->>> >> > > > netcube-
->>> >> > > > kumquat.dts
->>> >> > > >
->>> >> > > > diff --git a/arch/arm/boot/dts/allwinner/Makefile
->>> >> > > > b/arch/arm/boot/dts/allwinner/Makefile
->>> >> > > > index 48666f73e638..d799ad153b37 100644
->>> >> > > > --- a/arch/arm/boot/dts/allwinner/Makefile
->>> >> > > > +++ b/arch/arm/boot/dts/allwinner/Makefile
->>> >> > > > @@ -199,6 +199,7 @@ DTC_FLAGS_sun8i-h3-nanopi-r1 := -@
->>> >> > > >  DTC_FLAGS_sun8i-h3-orangepi-pc := -@
->>> >> > > >  DTC_FLAGS_sun8i-h3-bananapi-m2-plus-v1.2 := -@
->>> >> > > >  DTC_FLAGS_sun8i-h3-orangepi-pc-plus := -@
->>> >> > > > +DTC_FLAGS_sun8i-v3s-netcube-kumquat := -@
->>> >> > > >  dtb-$(CONFIG_MACH_SUN8I) += \
->>> >> > > >         sun8i-a23-evb.dtb \
->>> >> > > >         sun8i-a23-gt90h-v4.dtb \
->>> >> > > > @@ -261,6 +262,7 @@ dtb-$(CONFIG_MACH_SUN8I) += \
->>> >> > > >         sun8i-v3s-anbernic-rg-nano.dtb \
->>> >> > > >         sun8i-v3s-licheepi-zero.dtb \
->>> >> > > >         sun8i-v3s-licheepi-zero-dock.dtb \
->>> >> > > > +       sun8i-v3s-netcube-kumquat.dtb \
->>> >> > > >         sun8i-v40-bananapi-m2-berry.dtb
->>> >> > > >  dtb-$(CONFIG_MACH_SUN9I) += \
->>> >> > > >         sun9i-a80-optimus.dtb \
->>> >> > > > diff --git a/arch/arm/boot/dts/allwinner/sun8i-v3s-netcube-
->>> >> > > > kumquat.dts b/arch/arm/boot/dts/allwinner/sun8i-v3s-netcube-
->>> >> > > > kumquat.dts
->>> >> > > > new file mode 100644
->>> >> > > > index 000000000000..e5d2a716eb69
->>> >> > > > --- /dev/null
->>> >> > > > +++ b/arch/arm/boot/dts/allwinner/sun8i-v3s-netcube-kumquat.dts
->>> >> > > > @@ -0,0 +1,290 @@
->>> >> > > > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
->>> >> > > > +/*
->>> >> > > > + * Copyright (C) 2025 Lukas Schmid <lukas.schmid@netcube.li>
->>> >> > > > + */
->>> >> > > > +
->>> >> > > > +/dts-v1/;
->>> >> > > > +#include "sun8i-v3s.dtsi"
->>> >> > > > +
->>> >> > > > +#include <dt-bindings/input/input.h>
->>> >> > > > +#include <dt-bindings/leds/common.h>
->>> >> > > > +#include <dt-bindings/gpio/gpio.h>
->>> >> > > > +
->>> >> > > > +/{
->>> >> > > > +       model = "NetCube Systems Kumquat";
->>> >> > > > +       compatible = "netcube,kumquat", "allwinner,sun8i-v3s";
->>> >> > > > +
->>> >> > > > +       aliases {
->>> >> > > > +               serial0 = &uart0;
->>> >> > > > +               ethernet0 = &emac;
->>> >> > > > +               rtc0 = &ds3232;
->>> >> > > > +       };
->>> >> > > > +
->>> >> > > > +       chosen {
->>> >> > > > +               stdout-path = "serial0:115200n8";
->>> >> > > > +       };
->>> >> > > > +
->>> >> > > > +       /* 40 MHz Crystal Oscillator on PCB */
->>> >> > > > +       clk_can0: clock-can0 {
->>> >> > > > +               compatible = "fixed-clock";
->>> >> > > > +               #clock-cells = <0>;
->>> >> > > > +               clock-frequency  = <40000000>;
->>> >> > > > +       };
->>> >> > > > +
->>> >> > > > +       gpio-keys {
->>> >> > > > +               compatible = "gpio-keys";
->>> >> > > > +               autorepeat;
->>> >> > > > +
->>> >> > > > +               key-user {
->>> >> > > > +                       label = "GPIO Key User";
->>> >> > > > +                       linux,code = <KEY_PROG1>;
->>> >> > > > +                       gpios = <&pio 1 2 (GPIO_ACTIVE_LOW |
->>> >> > > > GPIO_PULL_UP)>; /* PB2 */
->>> >> > > > +               };
->>> >> > > > +       };
->>> >> > > > +
->>> >> > > > +       leds {
->>> >> > > > +               compatible = "gpio-leds";
->>> >> > > > +
->>> >> > > > +               led-heartbeat {
->>> >> > > > +                       gpios = <&pio 4 4 GPIO_ACTIVE_HIGH>; /*
->>> >> > > > PE4
->>> >> > > > */
->>> >> > > > +                       linux,default-trigger = "heartbeat";
->>> >> > > > +                       color = <LED_COLOR_ID_GREEN>;
->>> >> > > > +                       function = LED_FUNCTION_HEARTBEAT;
->>> >> > > > +               };
->>> >> > > > +
->>> >> > > > +               led-mmc0-act {
->>> >> > > > +                       gpios = <&pio 5 6 GPIO_ACTIVE_HIGH>; /*
->>> >> > > > PF6
->>> >> > > > */
->>> >> > > > +                       linux,default-trigger = "mmc0";
->>> >> > > > +                       color = <LED_COLOR_ID_GREEN>;
->>> >> > > > +                       function = LED_FUNCTION_DISK;
->>> >> > > > +               };
->>> >> > > > +       };
->>> >> > > > +
->>> >> > > > +       /* XC6206-3.0 Linear Regualtor */
->>> >> > > > +       reg_vcc3v0: regulator-3v0 {
->>> >> > > > +               compatible = "regulator-fixed";
->>> >> > > > +               regulator-name = "vcc3v0";
->>> >> > > > +               regulator-min-microvolt = <3000000>;
->>> >> > > > +               regulator-max-microvolt = <3000000>;
->>> >> > > > +               vin-supply = <&reg_vcc3v3>;
->>> >> > > > +       };
->>> >> > > > +
->>> >> > > > +       /* EA3036C Switching 3 Channel Regulator - Channel 2 */
->>> >> > > > +       reg_vcc3v3: regulator-3v3 {
->>> >> > > > +               compatible = "regulator-fixed";
->>> >> > > > +               regulator-name = "vcc3v3";
->>> >> > > > +               regulator-min-microvolt = <3300000>;
->>> >> > > > +               regulator-max-microvolt = <3300000>;
->>> >> > > > +               vin-supply = <&reg_vcc5v0>;
->>> >> > > > +       };
->>> >> > > > +
->>> >> > > > +       /* K7805-1000R3 Switching Regulator supplied from main
->>> >> > > > 12/24V terminal block */
->>> >> > > > +       reg_vcc5v0: regulator-5v0 {
->>> >> > > > +               compatible = "regulator-fixed";
->>> >> > > > +               regulator-name = "vcc5v0";
->>> >> > > > +               regulator-min-microvolt = <5000000>;
->>> >> > > > +               regulator-max-microvolt = <5000000>;
->>> >> > > > +       };
->>> >> > > > +};
->>> >> > > > +
->>> >> > > > +&mmc0 {
->>> >> > > > +       pinctrl-names = "default";
->>> >> > > > +       pinctrl-0 = <&mmc0_pins>;
->>> >> > > > +       vmmc-supply = <&reg_vcc3v3>;
->>> >> > > > +       bus-width = <4>;
->>> >> > > > +       broken-cd;
->>> >> > > > +       status = "okay";
->>> >> > > > +};
->>> >> > > > +
->>> >> > > > +&mmc1 {
->>> >> > >
->>> >> > > what's connected here? Are both MMC ports on headers/connectors,
->>> >> > > and
->>> >> > > it's up to the user to connect some SDIO device or an SD/eMMC
->>> >> > > card/slot? Or is this port connected to the ESP32?
->>> >> > >
->>> >> > > > +       pinctrl-names = "default";
->>> >> > > > +       pinctrl-0 = <&mmc1_pins>;
->>> >> > > > +       vmmc-supply = <&reg_vcc3v3>;
->>> >> > > > +       bus-width = <4>;
->>> >> > > > +       broken-cd;
->>> >> > > > +       status = "okay";
->>> >> > > > +};
->>> >> > > > +
->>> >> > > > +&usb_otg {
->>> >> > >
->>> >> > > I think traditionally referenced nodes in the board .dts files
->>> >> > > are
->>> >> > > ordered by label name, so usb_otg is but-last. Yes, this is in
->>> >> > > contrast
->>> >> > > to nodes in the SoC .dtsi file, which are ordered by MMIO
->>> >> > > addresses.
->>> >> > >
->>> >> > > > +       extcon = <&tusb320 0>;
->>> >> > > > +       dr_mode = "otg";
->>> >> > > > +       status = "okay";
->>> >> > > > +};
->>> >> > > > +
->>> >> > > > +&usbphy {
->>> >> > > > +       usb0_id_det-gpios = <&pio 1 4 GPIO_ACTIVE_HIGH>; /* PB4
->>> >> > > > */
->>> >> > > > +       status = "okay";
->>> >> > > > +};
->>> >> > > > +
->>> >> > > > +&ehci {
->>> >> > > > +       status = "okay";
->>> >> > > > +};
->>> >> > > > +
->>> >> > > > +&ohci {
->>> >> > > > +       status = "okay";
->>> >> > > > +};
->>> >> > > > +
->>> >> > > > +&rtc {
->>> >> > > > +       status = "disabled";
->>> >> > >
->>> >> > > Please can you explain a bit more what's going on here? I saw you
->>> >> > > mentioning in the cover letter that you brought the "disabled"
->>> >> > > back,
->>> >> > > but I still don't see how this is working when the CCU and the
->>> >> > > pinctrl
->>> >> > > nodes reference the RTC clocks? So what is broken, exactly? Is
->>> >> > > this
->>> >> > > some bug in the SoC? Or don't you supply the SoC's VCC_RTC, so
->>> >> > > the
->>> >> > > calendar is not working when the board is not powered - in
->>> >> > > contrast
->>> >> > > to
->>> >> > > the external RTC?
->>> >> >
->>> >> > Maybe a lack of crystal? But I can understand nothing here, and a
->>> >> > detailed explaination is needed.
->>> >> >
->>> >>
->>> >> I have tried to enable the RTC, but I get a "RTC still busy" from the
->>> >> sunxi-rtc module. The RTC Power is connected, and the 32kHz Crystal
->>> >> is
->> 
->> That sounds actually like a bug somewhere, which should be 
->> investigated
->> and fixed. Disabling the RTC is a quick and dirty workaround, but
->> nothing for upstream.
->> There is a 50ms timeout, which sounds plenty, although you could
->> experiment whether it's too short here:
->> drivers/rtc/rtc-sun6i.c:sun6i_rtc_settime()
->> My hunch is that even longer timeouts won't change that, so we should
->> have a look what's going wrong here, why the RTC does not respond.
->> Don't you supply VCC_RTC to the SoC at all, maybe? Maybe we need
->> the 3.3V for the RTC to work, regardless of whether that is battery
->> backed or not?
->> 
->>> > Weird... Never heard such kind of things...
->>> >
->>> > How do modules in the main SoC that depend on LOSC (32768 Hz osc)
->>> > perform?
->>> >
->>> 
->>> I didn't notice anything running the board. I had one running for
->>> about a month on Kernel 6.8.7 without issues, with the rtc disabled
->>> 
->>> Do you have anything I should check in particular? From the
->>> Datasheet it seems to me that all peripherals in the SoC should
->>> be able to run from the hosc too.
->> 
->> That's a DT issue, you don't *need* the LOSC crystal for operation:
->> The clock controller and the GPIO device reference the RTC LOSC clock,
->> so the respective drivers go ahead and request them, which triggers
->> probing the RTC. If that now fails, because the RTC is disabled, that
->> clock cannot be used, and this has consequences:
->> - The (combinded) GPIO/pinctrl driver only needs the LOSC clock for 
->> the
->>   debouncing part. If that fails, the debouncing init routine will 
->> bail
->>   out (I guess it will not work), but the driver ignores that error 
->> and
->>   proceeds probing, so you are saved, but more by accident. I wonder 
->> if
->>   we should at least print a message here.
->> - The CCU clock driver only uses the LOSC as a potential parent for
->>   some muxes (CPU, AHB, APB2), and the kernel will probably never
->> change
->>   those muxes, and even if, not to the LOSC. So again saved here, by
->>   chance.
->> 
->> So this means your system continues working, but it's very sketchy, 
->> and
->> technically wrong. So disabling the RTC is not really an option for
->> mainline, I'd say.
-> 
-> Okay, I'll submit v4 with all changes now, and keep the rtc enabled.
-> I will try to find out what causes the issue and hopefull create
-> another patch.
-> 
-> I just checked, and the rtc does not throw the error in 6.8.7, so
-> that's something to go by...
-> 
+On Tue, Jan 7, 2025 at 6:28=E2=80=AFAM Lorenzo Stoakes
+<lorenzo.stoakes@oracle.com> wrote:
+>
+> On Mon, Jan 06, 2025 at 04:17:08PM +1300, Barry Song wrote:
+> > From: Barry Song <v-songbaohua@oppo.com>
+> >
+> > Commit 735ecdfaf4e80 ("mm/vmscan: avoid splitting lazyfree THP during
+> > shrink_folio_list()") prevents the splitting of MADV_FREE'd THP in madv=
+ise.c.
+> > However, those folios are still added to the deferred_split list in
+> > try_to_unmap_one() because we are unmapping PTEs and removing rmap entr=
+ies
+> > one by one. This approach is not only slow but also increases the risk =
+of a
+> > race condition where lazyfree folios are incorrectly set back to swapba=
+cked,
+> > as a speculative folio_get may occur in the shrinker's callback.
+> >
+> > This patchset addresses the issue by only marking truly dirty folios as
+> > swapbacked as suggested by David and shifting to batched unmapping of t=
+he
+> > entire folio in  try_to_unmap_one(). As a result, we've observed
+> > deferred_split dropping to  zero and significant performance improvemen=
+ts
+> > in memory reclamation.
+>
+> You've not provided any numbers? What performance improvements? Under wha=
+t
+> workloads?
 
-So I do not know what the issue with the rtc was. I assume it's a
-fault on my development-board. I tried it again with a production
-pcb, and on it the rtc in the SoC works as intended. I have sent the
-new patches with the rtc node removed, and another alias to force the
-internal rtc to be rtc1, as the sun6i-rtc seems to get loaded before
-the ds3232+.
+The number can be found in patch 3/3 at the following link:
+https://lore.kernel.org/linux-mm/20250106031711.82855-4-21cnbao@gmail.com/
 
->> 
->>> >> also
->>> >> on Board. If the RTC's driver wouldn't throw the error I have no
->>> >> issue
->>> >> with
->>> >> leaving the rtc enabled. It would however loose it's memory after
->>> >> power
->>> >> cycle as the Battery is only connected to the DS3232+, hence the
->>> >> alias
->>> >> to
->>> >> rtc0
->>> >>
->>> >> > >
->>> >> > > > +};
->>> >> > > > +
->>> >> > > > +&pio {
->>> >> > > > +       vcc-pb-supply = <&reg_vcc3v3>;
->>> >> > > > +       vcc-pc-supply = <&reg_vcc3v3>;
->>> >> > > > +       vcc-pe-supply = <&reg_vcc3v3>;
->>> >> > > > +       vcc-pf-supply = <&reg_vcc3v3>;
->>> >> > > > +       vcc-pg-supply = <&reg_vcc3v3>;
->>> >> > > > +
->>> >> > > > +       gpio-reserved-ranges = <0 32>, <42 22>, <68 28>, <96
->>> >> > > > 32>,
->>> >> > > > <153 7>, <167 25>, <198 26>;
->>> >> > >
->>> >> > > As mentioned in the reply to the previous patch, this doesn't
->>> >> > > look
->>> >> > > right here. Why do you need this, exactly?
->>> >> >
->>> >> > Ah? I don't think there's any tradition on Allwinner platforms to
->>> >> > reserve any GPIOs, except if you have another firmware running on
->>> >> > another processor (e.g. AR100) that needs some GPIO.
->>> >> >
->>> >> > My previous sight of such property is on Qualcomm smartphones,
->>> >> > where a
->>> >> > few GPIOs are reserved for "Trusted" thingy.
->>> >> >
->>> >>
->>> >> My intention here was to have the GPIOs which are not accessible on
->>> >> the
->>> >> SoC's
->>> >> package disabled so that stuff like libgpiod cannot try to access
->>> >> them.
->>> >> The
->>> >> gpiodetect tool did show me them as 'used' when I added the
->>> >> reserved-ranges,
->>> >> so I thought the driver does understand this tag.
->>> >
->>> > Interesting point... Maybe this kind of things should enter the per-
->>> > SoC(package) DTSI?
->> 
->> Our sunxi pinctrl driver does not use this information, we have the
->> number of pins per port and their availability hardcoded in that large
->> table in pinctrl-sun8i-v3s.c.
->> 
->> If there is more code in the kernel that uses this DT property to
->> filter the (userspace?) view of the GPIOs, that's a side effect. If we
->> want this filtering, this code should query the pinctrl driver for 
->> this
->> map, but that's a separate issue. The binding pretty clearly speaks of
->> some per-port GPIO drivers to use this map, ours it not one of them.
->> 
->>> > Although technically they are not "used" but "unavailable".
->>> >
->>> 
->>> Sure, I think I'll remove it from my Patchset for now
->> 
->> Yes, please, do that, I think it's wrong here.
->> 
->>> , but maybe will create another set in the future.
->> 
->> If that solves a problem for you, it should be investigated why, to me
->> it looks like it's a side effect, and that should be done properly
->> instead - for instance by using all those empty strings below as an
->> indicator for availability.
->> But I don't think insisting on that property is the right thing.
->> 
->> Cheers,
->> Andre
->> 
->>> >> > > > +       gpio-line-names = "", "", "", "", // PA
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "CAN_nCS", "CAN_nINT", "USER_SW",
->>> >> > > > "PB3",
->>> >> > > > // PB
->>> >> > > > +                         "USB_ID", "USBC_nINT", "I2C0_SCL",
->>> >> > > > "I2C0_SDA",
->>> >> > > > +                         "UART0_TX", "UART0_RX", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "SPI_MISO", "SPI_SCK", "FLASH_nCS",
->>> >> > > > "SPI_MOSI", // PC
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "", "", "", "", // PD
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "Q12", "Q11", "Q10", "Q9", // PE
->>> >> > > > +                         "LED_SYS0", "I1", "Q1", "Q2",
->>> >> > > > +                         "I2", "I3", "Q3", "Q4",
->>> >> > > > +                         "I4", "I5", "Q5", "Q6",
->>> >> > > > +                         "I6", "I7", "Q7", "Q8",
->>> >> > > > +                         "I8", "UART1_TXD", "UART1_RXD",
->>> >> > > > "ESP_nRST",
->>> >> > > > +                         "ESP_nBOOT", "", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "SD_D1", "SD_D0", "SD_CLK", "SD_CMD",
->>> >> > > > //
->>> >> > > > PF
->>> >> > > > +                         "SD_D3", "SD_D2", "LED_SYS1", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "ESP_CLK", "ESP_CMD", "ESP_D0",
->>> >> > > > "ESP_D1",
->>> >> > > > // PG
->>> >> > > > +                         "ESP_D2", "ESP_D3", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "", "", "", "",
->>> >> > > > +                         "", "", "", "";
->>> >> > > > +};
->>> >> > > > +
->>> >> > > > +&lradc {
->>> >> > > > +       vref-supply = <&reg_vcc3v0>;
->>> >> > > > +       status = "okay";
->>> >> > > > +};
->>> >> > > > +
->>> >> > > > +&codec {
->>> >> > > > +       allwinner,audio-routing =
->>> >> > > > +               "Headphone", "HP",
->>> >> > > > +               "Headphone", "HPCOM",
->>> >> > > > +               "MIC1", "Mic",
->>> >> > > > +               "Mic", "HBIAS";
->>> >> > > > +       status = "okay";
->>> >> > > > +};
->>> >> > > > +
->>> >> > > > +&uart0 {
->>> >> > > > +       pinctrl-0 = <&uart0_pb_pins>;
->>> >> > > > +       pinctrl-names = "default";
->>> >> > > > +       status = "okay";
->>> >> > > > +};
->>> >> > > > +
->>> >> > > > +&uart1 {
->>> >> > > > +       pinctrl-0 = <&uart1_pe_pins>;
->>> >> > > > +       pinctrl-names = "default";
->>> >> > > > +       status = "okay";
->>> >> > > > +};
->>> >> > > > +
->>> >> > > > +&i2c0 {
->>> >> > > > +       pinctrl-0 = <&i2c0_pins>;
->>> >> > > > +       pinctrl-names = "default";
->>> >> > > > +       status = "okay";
->>> >> > > > +
->>> >> > > > +       ds3232: rtc@68 {
->>> >> > > > +               compatible = "dallas,ds3232";
->>> >> > > > +               reg = <0x68>;
->>> >> > > > +       };
->>> >> >
->>> >> > If you're afraid of the non-running internal RTC superseding this
->>> >> > external RTC, you can use an alias rtc0 = &ds3232 to force the ext.
->>> >> > one
->>> >> > to be the first.
->>> >> >
->>> >>
->>> >> Yes exactly, I already have an alias to this rtc as rtc0
->>> >>
->>> >> > > > +
->>> >> > > > +       eeprom0: eeprom@50 {
->>> >> > > > +               compatible = "atmel,24c02";             /*
->>> >> > > > actually
->>> >> > > > it's a 24AA02E48 */
->>> >> > > > +               pagesize = <16>;
->>> >> > > > +               read-only;
->>> >> > > > +               reg = <0x50>;
->>> >> > > > +               vcc-supply = <&reg_vcc3v3>;
->>> >> > > > +
->>> >> > > > +               #address-cells = <1>;
->>> >> > > > +               #size-cells = <1>;
->>> >> > > > +
->>> >> > > > +               eth0_macaddress: macaddress@fa {
->>> >> > > > +                       reg = <0xfa 0x06>;
->>> >> > > > +               };
->>> >> > > > +       };
->>> >> > > > +
->>> >> > > > +       tusb320: typec@60 {
->>> >> > > > +               compatible = "ti,tusb320";
->>> >> > > > +               reg = <0x60>;
->>> >> > > > +               interrupt-parent = <&pio>;
->>> >> > > > +               interrupts = <1 5 IRQ_TYPE_EDGE_FALLING>;
->>> >> > > > +       };
->>> >> > > > +};
->>> >> > > > +
->>> >> > > > +&emac {
->>> >> > > > +       allwinner,leds-active-low;
->>> >> > > > +       nvmem-cells = <&eth0_macaddress>;               /*
->>> >> > > > custom
->>> >> > > > nvmem reference */
->>> >> > > > +       nvmem-cell-names = "mac-address";               /* see
->>> >> > > > ethernet-controller.yaml */
->>> >> > > > +       status = "okay";
->>> >> > > > +};
->>> >> > > > +
->>> >> > > > +&spi0 {
->>> >> > > > +       #address-cells = <1>;
->>> >> > > > +       #size-cells = <0>;
->>> >> > > > +       pinctrl-names = "default";
->>> >> > > > +       pinctrl-0 = <&spi0_pins>;
->>> >> > >
->>> >> > > Those two lines look redundant, as they are already specified in
->>> >> > > the
->>> >> > > .dtsi file.
->>> >> > >
->>> >> > > > +       cs-gpios = <0>, <&pio 1 0 GPIO_ACTIVE_LOW>; /* PB0 */
->>> >> > > > +       status = "okay";
->>> >> > > > +
->>> >> > > > +       flash@0 {
->>> >> > > > +               #address-cells = <1>;
->>> >> > > > +               #size-cells = <1>;
->>> >> > > > +               compatible = "jedec,spi-nor";
->>> >> > >
->>> >> > > I think traditionally we have the compatible first, and #a-c and
->>> >> > > #s-c
->>> >> > > last in the node.
->>> >> > > And do you have anything partitioned in there? If not, you
->>> >> > > wouldn't
->>> >> > > need the #a-c and #s-c properties, I think.
->>> >> > >
->>> >> > > > +               reg = <0>;
->>> >> > > > +               label = "firmware";
->>> >> > > > +               spi-max-frequency = <40000000>;
->>> >> > > > +       };
->>> >> > > > +
->>> >> > > > +       can@1 {
->>> >> > > > +               compatible = "microchip,mcp2518fd";
->>> >> > > > +               reg = <1>;
->>> >> > > > +               clocks = <&clk_can0>;
->>> >> > > > +               interrupt-parent = <&pio>;
->>> >> > > > +               interrupts = <1 1 IRQ_TYPE_LEVEL_LOW>;  /* PB1
->>> >> > > > */
->>> >> > > > +               spi-max-frequency = <20000000>;
->>> >> > > > +               vdd-supply = <&reg_vcc3v3>;
->>> >> > > > +               xceiver-supply = <&reg_vcc3v3>;
->>> >> > > > +       };
->>> >> > > > +};
->>> >> > > > \ No newline at end of file
->>> >> > >
->>> >> > > Please add a newline at the end.
->>> >> >
->>> >> > Well maybe this file is written with some non-Unix-traditional
->>> >> > editor,
->>> >> > well Linux is something Unix-traditional, and for these editors
->>> >> > manual
->>> >> > insertion of an empty line will be needed (on Unix-traditional
->>> >> > things
->>> >> > e.g. Vim, no empty lines should be presented at all.)
->>> >> >
->>> >> > >
->>> >> > > > diff --git a/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
->>> >> > > > b/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
->>> >> > >
->>> >> > > I don't know for sure if people want SoC .dtsi patches
->>> >> > > separately?
->>> >> > >
->>> >> > > Cheers,
->>> >> > > Andre
->>> >> > >
->>> >> > > > index 9e13c2aa8911..f909b1d4dbca 100644
->>> >> > > > --- a/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
->>> >> > > > +++ b/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
->>> >> > > > @@ -416,6 +416,12 @@ uart0_pb_pins: uart0-pb-pins {
->>> >> > > >                                 function = "uart0";
->>> >> > > >                         };
->>> >> > > >  
->>> >> > > > +                       /omit-if-no-ref/
->>> >> > > > +                       uart1_pe_pins: uart1-pe-pins {
->>> >> > > > +                               pins = "PE21", "PE22";
->>> >> > > > +                               function = "uart1";
->>> >> > > > +                       };
->>> >> > > > +
->>> >> > > >                         uart2_pins: uart2-pins {
->>> >> > > >                                 pins = "PB0", "PB1";
->>> >> > > >                                 function = "uart2";
->>> >> > >
->>> >> > >
->>> >>
->>> >>
->>> 
->>> 
+Reclaiming lazyfree mTHP will now be significantly faster.
+Additionally, this patch
+addresses the issue with the misleading split_deferred counter. The
+split_deferred
+counter was intended to track operations like unaligned unmap/madvise, but =
+in
+practice, the majority of split_deferred cases result from memory reclamati=
+on
+of aligned lazyfree mTHP. This discrepancy rendered the split_deferred
+counter highly
+misleading.
 
+>
+> You're adding a bunch of complexity here, so I feel like we need to see
+> some numbers, background, etc.?
+
+I agree that I can provide more details in v2. In the meantime, you can
+find additional background information here:
+
+https://lore.kernel.org/linux-mm/CAGsJ_4wOL6TLa3FKQASdrGfuqqu=3D14EuxAtpKmn=
+ebiGLm0dnfA@mail.gmail.com/
+
+>
+> Thanks!
+>
+> >
+> > Barry Song (3):
+> >   mm: set folio swapbacked iff folios are dirty in try_to_unmap_one
+> >   mm: Support tlbbatch flush for a range of PTEs
+> >   mm: Support batched unmap for lazyfree large folios during reclamatio=
+n
+> >
+> >  arch/arm64/include/asm/tlbflush.h |  26 ++++----
+> >  arch/arm64/mm/contpte.c           |   2 +-
+> >  arch/x86/include/asm/tlbflush.h   |   3 +-
+> >  mm/rmap.c                         | 103 ++++++++++++++++++++----------
+> >  4 files changed, 85 insertions(+), 49 deletions(-)
+> >
+> > --
+> > 2.39.3 (Apple Git-146)
+
+Thanks
+Barry
 
