@@ -4,103 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1F46E77198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 03:55:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA8D3E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 06:14:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/q466ctbH84kLf48L1cXJtHFTRzDl7be/n0cI3LGmOM=; b=gtq4pkO7kL2dOhqu3+ek7ssPk5
-	2hTA42NhHB9D9vBJ0FqJA3tTdD4sXei3EtXqOU/jxHRe2IelgeyclmPga/JUqIgU2O48ssgVoR+yH
-	RkIvrgRE3j6I87OWKD7m3T4KAx8CeOIGf9YQS5lMgw2aFYHwVNuGu9Ks5+jJRNmjAO+06cyrVx5Zq
-	tGfNRuhj8aMG7PHMk0TF7GrnV+/yEENCZZyM2e8RmCQHVllD6mUS40GSojBnItmKxSs+viaD8b3zF
-	BIdMEgGhGfi75AaWIMJTjZbv5CfbRsQRZFUE7aO/hYuRa5KmaUWcBIMHyjrnlZTOZhs/U34E35EcU
-	fYzCielg==;
+	bh=PvR+/3JZQFVywV37RDOWAs4fh6ITpDlf9cWcRgoZrNM=; b=qHujxaMGVBeoZsVv+PK/Zr703u
+	DBS8cCAEsgSc9C4qnx1B4R6JotWC3MdJ6+uTdpVDfFvQayNq//CWi9uU77TOd6BtlM40gETINYMGn
+	nVS7VrfvAgNsVDxkc/7WYxjAv9mf/SaPWGP9AQUU7vI4pkGufsXxjT76KuJa9YzX0KyAhwc1+HuX0
+	6zR0DD3kOChmwlXFNkN0KBwdINGL7PxcvEOuAkVvnMFimb/IcmYeH8aEPekcCKMSZ3fm4OEmpQNx+
+	snCG32qmMpsyLinBQlpplR/lBfTEuYWYznX1uwGReh5ewTIj3O2L2qhhXvzxrApNDjnYSPbFmuthp
+	0xV4UArg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUeCn-00000000AH7-0KbY;
-	Mon, 06 Jan 2025 03:55:05 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1tUgN7-00000000HG3-01bp;
+	Mon, 06 Jan 2025 06:13:53 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUeBb-00000000A8h-008o
+	id 1tUgLt-00000000H90-13nW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 03:53:52 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-2ee397a82f6so20360658a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 05 Jan 2025 19:53:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1736135630; x=1736740430; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=/q466ctbH84kLf48L1cXJtHFTRzDl7be/n0cI3LGmOM=;
-        b=isoXtO3CuYLqt2tyJbp+2B5dmXhmABhJ9wZmXt2QOme+TqUw/AraFkM8Kt+m+Iu866
-         moWp8FhZ1aMm/ejkaK180kDGL5OW+KMOvYUbCejAbRc+ZXFfYxr18PHfX1m34qC2T+fM
-         wY9It39AP4+BxYIMkX3jvLhF3dDahRttZqsGZj4jq9R/v3LRVeFykTqDSFvZ/VWF7COS
-         5F0gOA3N3ua6eFjmwnzVh/wBD/efKXcczvrPhgimM4vLnfFnXOzB7ypZUuMgrMcdCnau
-         F0y665LbLVlUMTNJvZeqBRu+0+6BWeCuBBqLKkQxxOGaTPNFUfV+QWC4l+jdjRiSmDZk
-         amdQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736135630; x=1736740430;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=/q466ctbH84kLf48L1cXJtHFTRzDl7be/n0cI3LGmOM=;
-        b=mIEzjdaJ6EFE9627UaIR9gODGClhdDM/UcIR09jQOD2bBsTyAnF/hBNvQP3MON5Aat
-         ZOxev2zhTqvbJ7ZQW0Cr2AxSIarArSovvay54EU5YmiqrSPsl0HFiq133FVec8Zp56NZ
-         UMWPwvW45ggV/9ewSMkzaiCmYDwtwgzjv4ECngeAk0qzSRKfUEv/4ol8b0+822nWS6eD
-         K/tH4D6C41RdT7fvYhPyFanyX6P0xBt3YL3PoimnR4xjJqHtvkjddlXEh/6I9KczqBfF
-         ToHniOKZEjB/pskG5Cz/+uACXtetpjIXsd5kLMDtN47MgwzpnTQ3P4FBRPWUmBp/n0w9
-         41mA==
-X-Forwarded-Encrypted: i=1; AJvYcCUuRq7U+cqKEZlkVdEkc6/QkMNBStFydZpPE1joCkgIRnJKpYHEHIy2GirT7HTRYdudGAuDQ+vdFmvRoy8Ljslc@lists.infradead.org
-X-Gm-Message-State: AOJu0YxkHCYOLvrjGe7uj4J3Df//ym6ADSeghRAxexBL+XBGFhcHhHoU
-	Vttm/1qsI+S3B9r7TPK0QyRf181dW+0FYu6vntK94LD2++JiED96Rx+JcgVI0Wo=
-X-Gm-Gg: ASbGncuOblIPMcSa2K/A9Bq/8VT7Ru069Ow3NQzEOE0+Yrnx2Ext3LNKswDo/avED+1
-	EYLMay7GpQcLWx+jMNRlWEzhNt0fd8qLO1DbfM/YC7kSbwnkgL8bzIIn0X0CGqSsUqpMYtHHbX9
-	0Kba6/F1etyHK2S419DYYSblHO9bEzAOGxjiTuWMPcgABANOZcUjC1Nxd1I88hj3LdtyCfxgOvx
-	KpOTi0D8vck17iw3q+P4R9XsJg3QcoFbk/2ICK+4Tjjok1aACIzgaw8SoUYpO8r3Cj9wqA5PmEq
-	6tmABQ==
-X-Google-Smtp-Source: AGHT+IE2eKUVGb+J7TSGZASTVnkByt6mt8YLIy++PUNY+VFfsnF7zlybMe8WL3Umwm8kwi4ry/BkkA==
-X-Received: by 2002:a17:90b:54c3:b0:2ee:a127:ba8b with SMTP id 98e67ed59e1d1-2f452ee83d9mr71788615a91.36.1736135630440;
-        Sun, 05 Jan 2025 19:53:50 -0800 (PST)
-Received: from [10.84.148.23] ([203.208.167.150])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-219dca02f72sm283551435ad.249.2025.01.05.19.53.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 05 Jan 2025 19:53:49 -0800 (PST)
-Message-ID: <a84a7b0f-dad5-4100-9d0c-3b515e7fb71f@bytedance.com>
-Date: Mon, 6 Jan 2025 11:53:36 +0800
+	Mon, 06 Jan 2025 06:12:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2E3845C4067;
+	Mon,  6 Jan 2025 06:11:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90D9FC4CED2;
+	Mon,  6 Jan 2025 06:12:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736143956;
+	bh=jp5C9gdHsVMKS8jVTp+3NZItTKeeryMDnozp0PeUoc0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=UmbuCXzVw8NGwcnPA/qqF7oNuu+67cBQtj2xuZUU7NEeUkXspWEOpLan3jFzeBHDX
+	 AIBisDlNkxW1w+1TqEKxoGxwya2MsVw7TL783P5jW4Gz+z6tF/zOSz/V70Eskx2ewY
+	 qsPAU/JOnUQ0XoVrMS0h+YY4kegnQziG/YxHjPeUJzoqw1REMZnNpA8B2dQSZgb5DB
+	 nlzyiSed8QgjsdsUlKzJuh67Ef3+DLdXP6zlAEpsPsZBWMBHwuYDIVYK5xENLDh4vB
+	 GNMDDRr8TG6kRn6AKzJzs2/nIXdlCl4zULO6VErBu9uNYvJC3rIPzZL8LCvit1O/W7
+	 Hhmwer5KvBJ4w==
+Message-ID: <8d2746ba-47d2-429b-9df0-9448a4516ef1@kernel.org>
+Date: Mon, 6 Jan 2025 07:12:29 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 15/17] mm: pgtable: remove tlb_remove_page_ptdesc()
+Subject: Re: [PATCH 1/2] dt-bindings: arm: fsl: Update i.MX95 compatible
+To: Peng Fan <peng.fan@nxp.com>, "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+References: <20250104-imx9-machine-v1-0-18a78e41456b@nxp.com>
+ <20250104-imx9-machine-v1-1-18a78e41456b@nxp.com>
+ <4666f8e9-d19e-45bd-be9c-a7f111168d66@kernel.org>
+ <PAXPR04MB845922D5BCAA88C26C0149B488102@PAXPR04MB8459.eurprd04.prod.outlook.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-To: Peter Zijlstra <peterz@infradead.org>, Mike Rapoport <rppt@kernel.org>
-Cc: agordeev@linux.ibm.com, kevin.brodsky@arm.com, tglx@linutronix.de,
- david@redhat.com, jannh@google.com, hughd@google.com, yuzhao@google.com,
- willy@infradead.org, muchun.song@linux.dev, vbabka@kernel.org,
- lorenzo.stoakes@oracle.com, akpm@linux-foundation.org, rientjes@google.com,
- vishal.moola@gmail.com, arnd@arndb.de, will@kernel.org,
- aneesh.kumar@kernel.org, npiggin@gmail.com, dave.hansen@linux.intel.com,
- ryan.roberts@arm.com, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org, x86@kernel.org,
- linux-arch@vger.kernel.org, linux-csky@vger.kernel.org,
- linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org,
- linux-um@lists.infradead.org
-References: <cover.1734945104.git.zhengqi.arch@bytedance.com>
- <b37435768345e0fcf7ea358f69b4a71767f0f530.1734945104.git.zhengqi.arch@bytedance.com>
- <Z2_EPmOTUHhcBegW@kernel.org>
- <20250103111457.GC22934@noisy.programming.kicks-ass.net>
-From: Qi Zheng <zhengqi.arch@bytedance.com>
-In-Reply-To: <20250103111457.GC22934@noisy.programming.kicks-ass.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <PAXPR04MB845922D5BCAA88C26C0149B488102@PAXPR04MB8459.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250105_195351_048188_67EE2035 
-X-CRM114-Status: GOOD (  19.26  )
+X-CRM114-CacheID: sfid-20250105_221237_437158_5A6A14A8 
+X-CRM114-Status: GOOD (  12.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,47 +126,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2025/1/3 19:14, Peter Zijlstra wrote:
-> On Sat, Dec 28, 2024 at 11:26:22AM +0200, Mike Rapoport wrote:
->> On Mon, Dec 23, 2024 at 05:41:01PM +0800, Qi Zheng wrote:
->>> Here we are explicitly dealing with struct page, and the following logic
->>> semms strange:
->>>
->>> tlb_remove_page_ptdesc((tlb), (page_ptdesc(pte)));
->>>
->>> tlb_remove_page_ptdesc
->>> --> tlb_remove_page(tlb, ptdesc_page(pt));
->>>
->>> So remove tlb_remove_page_ptdesc() and make callers call tlb_remove_page()
->>> directly.
+On 06/01/2025 03:51, Peng Fan wrote:
+>> Subject: Re: [PATCH 1/2] dt-bindings: arm: fsl: Update i.MX95
+>> compatible
 >>
->> Please don't. The ptdesc wrappers are there as a part of reducing the size
->> of struct page project [1].
+>> On 04/01/2025 13:13, Peng Fan (OSS) wrote:
+>>> From: Peng Fan <peng.fan@nxp.com>
+>>>
+>>> i.MX95 features a System Controller and SCMI Spec 3.2 compatible
+>>> firmware System Manager(SM) runs on the controller.
+>>> Add "fsl,imx-sm" compatible string as fallback for "fsl,imx95" to
+>>> indicate it is compatible with i.MX System Manager.
 >>
->> For now struct ptdesc overlaps struct page, but the goal is to have them
->> separate and always operate on struct ptdesc when working with page tables.
+>> I see little value in generic compatible like that. All these are
+>> aarch64 so why not adding that compatible?
+>>
+>> How this generic compatible would be used?
+>>
+>> And by what exactly?
 > 
-> I don't see how the current idiotic code helps with that at all.
+> There will be more i.MX9 chips with System Manager. I would
+> not expand the list here each time to support a new SoC.
 > 
-> Fundamentally tlb_remove_page() is about removing *pages* as from a PTE,
-> there should not be a page-table anywhere near here *ever*.
-> 
-> Yes, some architectures use tlb_remove_page() for page-tables too, but
-> that is more or less an implementation detail that can be fixed.
-> 
-> So no, please keep these patches and kill this utterly idiotic code.
-> 
-> The only thing that should eventually care about page-tables is
-> tlb_remove_table(), and that takes a 'void *' and is expected to match
-> whatever __tlb_remove_table() does.
-> 
-> Flipping those to pgdesc, once its actually a thing, should be fairly
-> straight forward.
+> https://elixir.bootlin.com/linux/v6.13-rc3/source/drivers/pinctrl/pinctrl-scmi.c#L508
+> https://elixir.bootlin.com/linux/v6.13-rc3/source/drivers/pinctrl/freescale/pinctrl-imx-scmi.c#L290
 
-Well, since I've already sent v4, and that patch series is mainly for
-bug fix, I'll send a separate patch series to do this.
+Problem is that compatible is way too generic to be used by Linux drivers.
 
-Thanks!
+Best regards,
+Krzysztof
 
