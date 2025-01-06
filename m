@@ -4,58 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7A16E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 01:17:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C25AE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 01:56:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vD+BrY2ZV0XpDErkvdNsbcIrnvb92QoNAGdec+5eWM0=; b=CTo3SLQqKiA3tYik4L0QWWzaP5
-	vJNoXITxrHXAmvtUHlWtiH0wMeyCdly/LP8MHuFYb9jg6Xw2QbGrNYwecc0a+qRu5XyxkeuuIeL56
-	INXEjlC/3aeEwsvHtIPPVhxSus3Cg1WmCd2BsTl15wp/OkCuZwkT1vaQ2jEXMn11dpvuI5CrWrBTV
-	4Cvwn/dKpczaWC+AZBSRXMFKEBP2e+7WWQu2I8nZM3VlrOOnArL4PNH3o+7b2HTKbiSgAVXI/A9p6
-	6lB9+CqWdUtktlu6PwRoZEbpmSzJjcUBkKr+l04JDesUXsMHJgoujiihqM10Na7peXyhfkiRkIGIO
-	UxHt6thg==;
+	bh=K/EEiXnkCgEeH4Rqeb/CCTNHeBVQw04+OdIpocbsKpM=; b=GQDIwA81sERoevxqttNB41dV5z
+	AFQr/PAU295ivDYR0+aw2nbkZWG0VBLNA38yV8h1PF3f3MIakeM8r8TU/VyMOjaqwOIPBM6B5E97p
+	2gdAGZ2AzIBlU1O4hRxrKtof/2IpZSsTq+FqwdxbHMhCBWwE9Cx4EcURGU4roP7UNARG7ux0vu18+
+	23T/s2yLuJ3bi3q+hzXZVErdf592Q+GlfzuM0Yc/repa3PlfCDi6VwKpvTPkxbyRdnS7fOdPzY2dC
+	KPYWYuu9mCFsDzdPLDEd2OvIHRSAU5AWgpJfMELyzCsEQo3c/UKdHjS6j7kgUvYVE6RvBlnzU4d3A
+	bHGSL5lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUbjj-0000000Ha52-1HoG;
-	Mon, 06 Jan 2025 01:16:55 +0000
-Received: from foss.arm.com ([217.140.110.172])
+	id 1tUcM8-000000000fr-1ami;
+	Mon, 06 Jan 2025 01:56:36 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUbiW-0000000HZza-3QA1
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 01:15:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5F7FB1063;
-	Sun,  5 Jan 2025 17:16:07 -0800 (PST)
-Received: from minigeek.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A8F333F66E;
-	Sun,  5 Jan 2025 17:15:37 -0800 (PST)
-Date: Mon, 6 Jan 2025 01:14:26 +0000
-From: Andre Przywara <andre.przywara@arm.com>
-To: Stefan Gloor <code@stefan-gloor.ch>
-Cc: Chen-Yu Tsai <wens@csie.org>, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ARM: dts: sunxi: Add MMC alias for consistent
- enumeration
-Message-ID: <20250106011426.4767d6a6@minigeek.lan>
-In-Reply-To: <d4cafa3f-d17c-4f80-bb30-98c28ede1077@stefan-gloor.ch>
-References: <20241219105622.13691-2-code@stefan-gloor.ch>
-	<CAGb2v67dBhL3-AhLeHg3xOgbNZ3qu0aj9+kA+MoOMRYfr_Z_zQ@mail.gmail.com>
-	<20250101232836.76c7fd0e@minigeek.lan>
-	<d4cafa3f-d17c-4f80-bb30-98c28ede1077@stefan-gloor.ch>
-Organization: Arm Ltd.
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
+	id 1tUcKw-000000000Wj-1bWQ;
+	Mon, 06 Jan 2025 01:55:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=2+jPJaDNPRoa2e/xJ7JfAYxWPYcZ2HI4Ii1YR3dIhnE=; b=I
+	CZbcTw9q1o8Kj84GCppTaMQLbmiSjwic0Kix8Z7oawU0xObyf6XZCSmVTsCZIOvC
+	HI0qT45D6lADFQ3V+pUhPNcdNV9hQrqTRUG2TScVv/3akvnDv564qk0x5AFF7cUk
+	T7bb66xaZfKNf6+LLECuEKP14tm45z8YNdBk0WNgos=
+Received: from andyshrk$163.com ( [58.22.7.114] ) by
+ ajax-webmail-wmsvr-40-127 (Coremail) ; Mon, 6 Jan 2025 09:54:26 +0800 (CST)
+X-Originating-IP: [58.22.7.114]
+Date: Mon, 6 Jan 2025 09:54:26 +0800 (CST)
+From: "Andy Yan" <andyshrk@163.com>
+To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
+Cc: hjc@rock-chips.com, krzk+dt@kernel.org, devicetree@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, derek.foreman@collabora.com, 
+	detlev.casanova@collabora.com, daniel@fooishbar.org, 
+	"Andy Yan" <andy.yan@rock-chips.com>, 
+	"Michael Riesch" <michael.riesch@wolfvision.net>
+Subject: Re:Re: [PATCH v8 2/9] drm/rockchip: vop2: Add platform specific
+ callback
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20240801(9da12a7b)
+ Copyright (c) 2002-2025 www.mailtech.cn 163com
+In-Reply-To: <17026630.geO5KgaWL5@diego>
+References: <20241231090802.251787-1-andyshrk@163.com>
+ <20241231090802.251787-3-andyshrk@163.com> <17026630.geO5KgaWL5@diego>
+X-NTES-SC: AL_Qu2YBP2Zt0wt4CScY+kfmkcVgOw9UcO5v/Qk3oZXOJF8jA/p6xkmTEJSJHT08860Ox+OmgmGeyZR1f9lbItUQKMqaQM2maiKtN+/ULUDZ8Ac9Q==
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Message-ID: <1e42c77c.1a60.19439520e14.Coremail.andyshrk@163.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: fygvCgD3_67SN3tnNOlQAA--.7378W
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqQrMXmd7IuTTsAAEsM
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250105_171540_947498_8DE13E38 
-X-CRM114-Status: GOOD (  32.84  )
+X-CRM114-CacheID: sfid-20250105_175522_790823_F1BE029A 
+X-CRM114-Status: GOOD (  20.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,93 +79,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 5 Jan 2025 13:47:55 +0100
-Stefan Gloor <code@stefan-gloor.ch> wrote:
-
-Hi,
-
-> Hi Chen-Yu and Andre, thank you for your input.
-> 
-> On 01.01.25 09:58, Chen-Yu Tsai wrote:
-> 
-> > IIRC we have chosen against adding explicit MMC aliases for the sunxi
-> > platforms. Please try using UUID= or PARTUUID= for root partition
-> > references.  
-> 
-> I see, no problem. Out of curiosity, what is the reason for this 
-> decision? I couldn't find related discussions on the mailing list.
-
-There were quite some discussions a while ago, I remember Maxime being
-involved back then. But I am too lazy to dig those out now, maybe I
-find some pointers later.
-
-There are arguments for and against this, and it's not crystal clear.
-Some platforms (Rockchip?) decided to allow them, but we said no.
-One key argument was that the kernel never promised any kind of
-consistent numbering, whether it's /dev/mmcblk0 or /dev/mmcblk1 is
-entirely up to the kernel to decide. And we don't have this connection
-for other devices, for instance USB disks. The plug and play nature of
-those makes it obvious that we cannot guarantee this anyway, and I have
-seen systems where a USB stick at boot became /dev/sda, and the first
-SATA disk was enumerated as /dev/sdb.
-Which means the reliance on numbering if ill-fated, and we need (and
-have!) better and more sustainable methods anyway, so why not use them
-everywhere? The mainline kernel tends to push against sketchy solutions
-to very particular problems, because they often come back and bite us
-later, and then nobody of the original people are around anymore to fix
-them.
-
-I see your point of "but it's such an easy solution", and there is an
-argument that the hardware dictates some kind of ordering (SDC0 vs.
-SDC3), but I don't think it outweighs the argument above, and lures
-people into relying on things that the kernel doesn't want to promise.
- 
-> Personally, I like the UUID= or PARTUUID= method and I do have a working 
-> Yocto setup that uses PARTUUID to find the rootfs. It integrates nicely 
-> with the automatic disk/uuid creation and U-boot using extlinux.conf 
-> [1]. I do however understand that this requires major changes to the 
-> meta-sunxi layer and the maintainers don't like breaking a working 
-> system with U-boot scripts. So I went with the easier way of adding 
-> aliases. For future reference to anyone, this patch has now been added 
-> downstream to meta-sunxi [2].
-
-That's a shame, and I really wish Yocto people wouldn't just take
-patches that have not been reviewed or even NAK'ed upstream. Those
-meta layers becoming a pool of unreviewed or rejected patches is
-really a bad side effect of Yocto making it easy to apply patches.
-
-Another point: this is fixing the problem for just this particular
-board. What about the other V3s boards, and in extension the other
-Allwinner boards? I count 240 DTs for 32-bit boards alone in the repo,
-so a more generic solutions sounds much more reasonable than applying
-band-aid to one board.
-
-Cheers,
-Andre
-
-> [1] https://github.com/linux-sunxi/meta-sunxi/pull/431
-> 
-> [2] https://github.com/linux-sunxi/meta-sunxi/pull/432
-> 
-> 
-> On 02.01.25 00:28, Andre Przywara wrote:
-> > Yes, and LABEL= would be another way.
-> >
-> > Alternatively you could use U-Boot's DT when booting the board. U-Boot
-> > will add those aliases during build time (because it needs them for its
-> > own purposes), and by using $fdtcontroladdr (instead of $fdt_addr_r,
-> > on the bootz command line) you get this for free, and even save yourself
-> > from loading some DT.
-> > We sync the DTs regularly from the kernel to U-Boot now, and at the
-> > moment they are identical between the kernel and U-Boot, so you don't
-> > lose anything.  
-> 
-> Thanks Andre for the helpful tips. I'll remember this for future reference.
-> 
-> Best,
-> 
-> Stefan
-> 
-> 
-
+SGkgSGVpa28sCgpBdCAyMDI1LTAxLTA2IDA1OjUwOjMwLCAiSGVpa28gU3TDvGJuZXIiIDxoZWlr
+b0BzbnRlY2guZGU+IHdyb3RlOgo+SGkgQW5keSwKPgo+QW0gRGllbnN0YWcsIDMxLiBEZXplbWJl
+ciAyMDI0LCAxMDowNzo0NSBDRVQgc2NocmllYiBBbmR5IFlhbjoKPj4gRnJvbTogQW5keSBZYW4g
+PGFuZHkueWFuQHJvY2stY2hpcHMuY29tPgo+PiAKPj4gVGhlIFZPUCBpbnRlcmZhY2UgbXV4LCBv
+dmVybGF5LCBiYWNrZ3JvdW5kIGRlbGF5IGN5Y2xlIGNvbmZpZ3VyYXRpb24KPj4gb2YgZGlmZmVy
+ZW50IFNPQyBhcmUgbXVjaCBkaWZmZXJlbnQuIEFkZCBwbGF0Zm9ybSBzcGVjaWZpYyBjYWxsYmFj
+awo+PiBvcHMgdG8gbGV0IHRoZSBjb3JlIGRyaXZlciBsb29rIGNsZWFuZXIgYW5kIG1vcmUgcmVm
+aW5lZC4KPj4gCj4+IFNpZ25lZC1vZmYtYnk6IEFuZHkgWWFuIDxhbmR5LnlhbkByb2NrLWNoaXBz
+LmNvbT4KPj4gVGVzdGVkLWJ5OiBNaWNoYWVsIFJpZXNjaCA8bWljaGFlbC5yaWVzY2hAd29sZnZp
+c2lvbi5uZXQ+ICMgb24gUkszNTY4Cj4+IFRlc3RlZC1ieTogRGV0bGV2IENhc2Fub3ZhIDxkZXRs
+ZXYuY2FzYW5vdmFAY29sbGFib3JhLmNvbT4KPgo+PiAgc3RhdGljIGludCB2b3AyX2NsdXN0ZXJf
+aW5pdChzdHJ1Y3Qgdm9wMl93aW4gKndpbikKPj4gIHsKPj4gIAlzdHJ1Y3Qgdm9wMiAqdm9wMiA9
+IHdpbi0+dm9wMjsKPj4gIAlzdHJ1Y3QgcmVnX2ZpZWxkICpjbHVzdGVyX3JlZ3M7Cj4+ICAJaW50
+IHJldCwgaTsKPj4gIAo+PiAtCWNsdXN0ZXJfcmVncyA9IGttZW1kdXAodm9wMl9jbHVzdGVyX3Jl
+Z3MsIHNpemVvZih2b3AyX2NsdXN0ZXJfcmVncyksCj4+ICsJY2x1c3Rlcl9yZWdzID0ga21lbWR1
+cCh2b3AyLT5kYXRhLT5jbHVzdGVyX3JlZywKPj4gKwkJCSAgICAgICBzaXplb2Yoc3RydWN0IHJl
+Z19maWVsZCkgKiB2b3AyLT5kYXRhLT5ucl9jbHVzdGVyX3JlZ3MsCj4+ICAJCQkgICAgICAgR0ZQ
+X0tFUk5FTCk7Cj4+ICAJaWYgKCFjbHVzdGVyX3JlZ3MpCj4+ICAJCXJldHVybiAtRU5PTUVNOwo+
+PiAgCj4+IC0JZm9yIChpID0gMDsgaSA8IEFSUkFZX1NJWkUodm9wMl9jbHVzdGVyX3JlZ3MpOyBp
+KyspCj4+ICsJZm9yIChpID0gMDsgaSA8IHZvcDItPmRhdGEtPm5yX2NsdXN0ZXJfcmVnczsgaSsr
+KQo+PiAgCQlpZiAoY2x1c3Rlcl9yZWdzW2ldLnJlZyAhPSAweGZmZmZmZmZmKQo+PiAgCQkJY2x1
+c3Rlcl9yZWdzW2ldLnJlZyArPSB3aW4tPm9mZnNldDsKPj4gIAo+PiAgCXJldCA9IGRldm1fcmVn
+bWFwX2ZpZWxkX2J1bGtfYWxsb2Modm9wMi0+ZGV2LCB2b3AyLT5tYXAsIHdpbi0+cmVnLAo+PiAg
+CQkJCQkgICBjbHVzdGVyX3JlZ3MsCj4+IC0JCQkJCSAgIEFSUkFZX1NJWkUodm9wMl9jbHVzdGVy
+X3JlZ3MpKTsKPj4gLQo+PiArCQkJCQkgICB2b3AyLT5kYXRhLT5ucl9jbHVzdGVyX3JlZ3MpOwo+
+PiAgCWtmcmVlKGNsdXN0ZXJfcmVncyk7Cj4+ICAKPj4gIAlyZXR1cm4gcmV0Owo+PiAgfTsKPgo+
+RXZlbiB0aGUgb3JpZ2luYWwgY29kZSwgbWFrZXMgY2hlY2twYXRjaCByZWFsbHkgdW5oYXBweSBu
+b3dhZGF5cyA6LSggLgo+Cj5BcyBwZXIKPmh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC8yMDI0
+MDcwNi1yZWdtYXAtY29uc3Qtc3RydWN0cy12MS0xLWQwOGM3NzZkYTc4N0B3ZWlzc3NjaHVoLm5l
+dC8KPnJlZ19maWVsZCBzaG91bGQgYmUgY29uc2lkZXJlZCBjb25zdCwgc28gY29weWluZyB0aGUg
+b3JpZ2luYWwgc3RydWN0IGFuZAo+dGhlbiBtb2RpZnlpbmcgaXQgY2F1c2VzIGNoZWNrcGF0Y2gg
+d2FybmluZ3Mgbm93Lgo+Cj5JJ3ZlIHRyaWVkIHRvIGFkYXB0IHRoZSBmdW5jdGlvbiBhcyBpbiB0
+aGUgcGF0Y2ggYmVsb3cuIFRoaXMgc2hvdWxkCj5jb250YWluIHRoZSBzYW1lIGZ1bmN0aW9uYWxp
+dHkgYXMgYmVmb3JlLCBqdXN0IHdpdGgga2VlcGluZyB0aGUgcmVnX2ZpZWxkCj5jb25zdC4KPgo+
+QXMgaXQncyB0aGUgd2Vla2VuZCwgSSBkaWRuJ3QgaGF2ZSB0aW1lIHRvIHRlc3QgdGhhdCBjaGFu
+Z2UsIHNvIGl0J3MgbW9yZQo+bWVhbnQgYXMgYW4gaWRlYSBvbiBob3cgdG8gcHJvY2VlZC4KClRo
+YW5rIHlvdSBzbyBtdWNoLCBJIHdpbGwgdHJ5IGl0IGluIHRoZSBmb2xsb3dpbmcgZGF5cy4KCj4K
+Pgo+PiArCS8qIGFmYmMgcmVncyAqLwo+PiArCVtWT1AyX1dJTl9BRkJDX0ZPUk1BVF0gPSBSRUdf
+RklFTEQoUkszNTY4X0NMVVNURVJfV0lOX0FGQkNEX0NUUkwsIDIsIDYpLAo+PiArCVtWT1AyX1dJ
+Tl9BRkJDX1JCX1NXQVBdID0gUkVHX0ZJRUxEKFJLMzU2OF9DTFVTVEVSX1dJTl9BRkJDRF9DVFJM
+LCA5LCA5KSwKPj4gKwlbVk9QMl9XSU5fQUZCQ19VVl9TV0FQXSA9IFJFR19GSUVMRChSSzM1Njhf
+Q0xVU1RFUl9XSU5fQUZCQ0RfQ1RSTCwgMTAsIDEwKSwKPj4gKwlbVk9QMl9XSU5fQUZCQ19BVVRP
+X0dBVElOR19FTl0gPSBSRUdfRklFTEQoUkszNTY4X0NMVVNURVJfV0lOX0FGQkNEX09VVFBVVF9D
+VFJMLCA0LCA0KSwKPj4gKwlbVk9QMl9XSU5fQUZCQ19IQUxGX0JMT0NLX0VOXSA9IFJFR19GSUVM
+RChSSzM1NjhfQ0xVU1RFUl9XSU5fQUZCQ0RfQ1RSTCwgNywgNyksCj4+ICsJW1ZPUDJfV0lOX0FG
+QkNfQkxPQ0tfU1BMSVRfRU5dID0gUkVHX0ZJRUxEKFJLMzU2OF9DTFVTVEVSX1dJTl9BRkJDRF9D
+VFJMLCA4LCA4KSwKPj4gKwlbVk9QMl9XSU5fQUZCQ19IRFJfUFRSXSA9IFJFR19GSUVMRChSSzM1
+NjhfQ0xVU1RFUl9XSU5fQUZCQ0RfSERSX1BUUiwgMCwgMzEpLAo+PiArCVtWT1AyX1dJTl9BRkJD
+X1BJQ19TSVpFXSA9IFJFR19GSUVMRChSSzM1NjhfQ0xVU1RFUl9XSU5fQUZCQ0RfUElDX1NJWkUs
+IDAsIDMxKSwKPj4gKwlbVk9QMl9XSU5fQUZCQ19QSUNfVklSX1dJRFRIXSA9IFJFR19GSUVMRChS
+SzM1NjhfQ0xVU1RFUl9XSU5fQUZCQ0RfVklSX1dJRFRILCAwLCAxNSksCj4+ICsJW1ZPUDJfV0lO
+X0FGQkNfVElMRV9OVU1dID0gUkVHX0ZJRUxEKFJLMzU2OF9DTFVTVEVSX1dJTl9BRkJDRF9WSVJf
+V0lEVEgsIDE2LCAzMSksCj4+ICsJW1ZPUDJfV0lOX0FGQkNfUElDX09GRlNFVF0gPSBSRUdfRklF
+TEQoUkszNTY4X0NMVVNURVJfV0lOX0FGQkNEX1BJQ19PRkZTRVQsIDAsIDMxKSwKPj4gKwlbVk9Q
+Ml9XSU5fQUZCQ19EU1BfT0ZGU0VUXSA9IFJFR19GSUVMRChSSzM1NjhfQ0xVU1RFUl9XSU5fQUZC
+Q0RfRFNQX09GRlNFVCwgMCwgMzEpLAo+PiArCVtWT1AyX1dJTl9BRkJDX1RSQU5TRk9STV9PRkZT
+RVRdID0gUkVHX0ZJRUxEKFJLMzU2OF9DTFVTVEVSX1dJTl9BRkJDRF9UUkFOU0ZPUk1fT0ZGU0VU
+LCAwLCAzMSksCj4KPmV4Y2VlZHMgdGhlIDEwMCBjaGFyIGxpbmUgbGVuZ3RoLCBzbyBJIHRoaW5r
+IHdlIHNob3VsZCBoYXZlIGEgbGluZSBicmVhawo+YWZ0ZXIgUkszNTY4X0NMVVNURVJfV0lOX0FG
+QkNEX1RSQU5TRk9STV9PRkZTRVQKPgo+Cj5UaGFua3MKPkhlaWtvCj4KPi0tLS0tLS0tLS0tLS0t
+LS0gODwgLS0tLS0tLS0tLS0tLS0tCj5Gcm9tOiBIZWlrbyBTdHVlYm5lciA8aGVpa29Ac250ZWNo
+LmRlPgo+RGF0ZTogU3VuLCA1IEphbiAyMDI1IDE3OjM4OjMxICswMTAwCj5TdWJqZWN0OiBbUEFU
+Q0hdIGRybS9yb2NrY2hpcDogdm9wMjogdXNlIGRldm1fcmVnbWFwX2ZpZWxkX2FsbG9jIGZvciBj
+bHVzdGVyLXJlZ3MKPgo+UmlnaHQgbm93IHZvcDJfY2x1c3Rlcl9pbml0KCkgY29waWVzIHRoZSBi
+YXNlIHZvcDJfY2x1c3Rlcl9yZWdzIGFuZCBhZGFwdHMKPnRoZSByZWcgdmFsdWUgd2l0aCB0aGUg
+Y3VycmVudCB3aW5kb3cncyBvZmZzZXQgYmVmb3JlIGFkZGluZyB0aGUgZmllbGRzIHRvCj50aGUg
+cmVnbWFwLgo+Cj5UaGlzIGNvbmZsaWN0cyB3aXRoIHRoZSBub3Rpb24gb2YgcmVnX2ZpZWxkcyBi
+ZWluZyBjb25zdCwgc2VlCj5odHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvMjAyNDA3MDYtcmVn
+bWFwLWNvbnN0LXN0cnVjdHMtdjEtMS1kMDhjNzc2ZGE3ODdAd2Vpc3NzY2h1aC5uZXQvCj5mb3Ig
+cmVmZXJlbmNlLCB3aGljaCBub3cgY2F1c2VzIGNoZWNrcGF0Y2ggdG8gYWN0dWFsbHkgd2FybiBh
+Ym91dCB0aGF0Lgo+Cj5TbyBpbnN0ZWFkIG9mIGNyZWF0aW5nIG9uZSBiaWcgY29weSBhbmQgY2hh
+bmdpbmcgaXQgYWZ0ZXJ3YXJkcywgYWRkIHRoZQo+cmVnX2ZpZWxkcyBpbmRpdmlkdWFsbHkgdXNp
+bmcgZGV2bV9yZWdtYXBfZmllbGRfYWxsb2MoKS4KPgo+RnVuY3Rpb25hbCBpdCBpcyB0aGUgc2Ft
+ZSwganVzdCB0aGF0IHRoZSByZWdfZmllbGQgd2UncmUgaGFuZGxpbmcKPmNhbiBzdGF5IGNvbnN0
+Lgo+Cj5TaWduZWQtb2ZmLWJ5OiBIZWlrbyBTdHVlYm5lciA8aGVpa29Ac250ZWNoLmRlPgo+LS0t
+Cj4gZHJpdmVycy9ncHUvZHJtL3JvY2tjaGlwL3JvY2tjaGlwX2RybV92b3AyLmMgfCAzMCArKysr
+KysrKystLS0tLS0tLS0tLQo+IDEgZmlsZSBjaGFuZ2VkLCAxNCBpbnNlcnRpb25zKCspLCAxNiBk
+ZWxldGlvbnMoLSkKPgo+ZGlmZiAtLWdpdCBhL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9yb2Nr
+Y2hpcF9kcm1fdm9wMi5jIGIvZHJpdmVycy9ncHUvZHJtL3JvY2tjaGlwL3JvY2tjaGlwX2RybV92
+b3AyLmMKPmluZGV4IDE3YTk4ODQ1ZmQzMS4uYzhkYTFlYmI2MDEzIDEwMDY0NAo+LS0tIGEvZHJp
+dmVycy9ncHUvZHJtL3JvY2tjaGlwL3JvY2tjaGlwX2RybV92b3AyLmMKPisrKyBiL2RyaXZlcnMv
+Z3B1L2RybS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1fdm9wMi5jCj5AQCAtMzQ0MywyNSArMzQ0Mywy
+MyBAQCBzdGF0aWMgc3RydWN0IHJlZ19maWVsZCB2b3AyX2NsdXN0ZXJfcmVnc1tWT1AyX1dJTl9N
+QVhfUkVHXSA9IHsKPiBzdGF0aWMgaW50IHZvcDJfY2x1c3Rlcl9pbml0KHN0cnVjdCB2b3AyX3dp
+biAqd2luKQo+IHsKPiAJc3RydWN0IHZvcDIgKnZvcDIgPSB3aW4tPnZvcDI7Cj4tCXN0cnVjdCBy
+ZWdfZmllbGQgKmNsdXN0ZXJfcmVnczsKPi0JaW50IHJldCwgaTsKPi0KPi0JY2x1c3Rlcl9yZWdz
+ID0ga21lbWR1cCh2b3AyX2NsdXN0ZXJfcmVncywgc2l6ZW9mKHZvcDJfY2x1c3Rlcl9yZWdzKSwK
+Pi0JCQkgICAgICAgR0ZQX0tFUk5FTCk7Cj4tCWlmICghY2x1c3Rlcl9yZWdzKQo+LQkJcmV0dXJu
+IC1FTk9NRU07Cj4rCWludCBpOwo+IAo+LQlmb3IgKGkgPSAwOyBpIDwgQVJSQVlfU0laRSh2b3Ay
+X2NsdXN0ZXJfcmVncyk7IGkrKykKPi0JCWlmIChjbHVzdGVyX3JlZ3NbaV0ucmVnICE9IDB4ZmZm
+ZmZmZmYpCj4tCQkJY2x1c3Rlcl9yZWdzW2ldLnJlZyArPSB3aW4tPm9mZnNldDsKPisJZm9yIChp
+ID0gMDsgaSA8IEFSUkFZX1NJWkUodm9wMl9jbHVzdGVyX3JlZ3MpOyBpKyspIHsKPisJCWNvbnN0
+IHN0cnVjdCByZWdfZmllbGQgZmllbGQgPSB7Cj4rCQkJLnJlZyA9ICh2b3AyX2NsdXN0ZXJfcmVn
+c1tpXS5yZWcgIT0gMHhmZmZmZmZmZikgPwo+KwkJCQkJdm9wMl9jbHVzdGVyX3JlZ3NbaV0ucmVn
+ICsgd2luLT5vZmZzZXQgOgo+KwkJCQkJdm9wMl9jbHVzdGVyX3JlZ3NbaV0ucmVnLAo+KwkJCS5s
+c2IgPSB2b3AyX2NsdXN0ZXJfcmVnc1tpXS5sc2IsCj4rCQkJLm1zYiA9IHZvcDJfY2x1c3Rlcl9y
+ZWdzW2ldLm1zYgo+KwkJfTsKPiAKPi0JcmV0ID0gZGV2bV9yZWdtYXBfZmllbGRfYnVsa19hbGxv
+Yyh2b3AyLT5kZXYsIHZvcDItPm1hcCwgd2luLT5yZWcsCj4tCQkJCQkgICBjbHVzdGVyX3JlZ3Ms
+Cj4tCQkJCQkgICBBUlJBWV9TSVpFKHZvcDJfY2x1c3Rlcl9yZWdzKSk7Cj4tCj4tCWtmcmVlKGNs
+dXN0ZXJfcmVncyk7Cj4rCQl3aW4tPnJlZ1tpXSA9IGRldm1fcmVnbWFwX2ZpZWxkX2FsbG9jKHZv
+cDItPmRldiwgdm9wMi0+bWFwLCBmaWVsZCk7Cj4rCQlpZiAoSVNfRVJSKHdpbi0+cmVnW2ldKSkK
+PisJCQlyZXR1cm4gUFRSX0VSUih3aW4tPnJlZ1tpXSk7Cj4rCX0KPiAKPi0JcmV0dXJuIHJldDsK
+PisJcmV0dXJuIDA7Cj4gfTsKPiAKPiBzdGF0aWMgc3RydWN0IHJlZ19maWVsZCB2b3AyX2VzbWFy
+dF9yZWdzW1ZPUDJfV0lOX01BWF9SRUddID0gewo+LS0gCj4yLjQ1LjIKPgo+Cj4KPgo+Cg==
 
