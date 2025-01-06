@@ -4,76 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCDF6E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 18:33:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2649E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 18:48:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mMBHoWGKqgX/Qc6KXJyNk8iaddCY/jFnFkKsjyLo+bs=; b=G+SE6fXBIvJhlDwIl8NAvgPIaU
-	7CBImZJ6hBDJWG0iNXVIivud0pVY3dM4XX5/Rd5XWI/r6mYaW3rLvOmI9SXRgRINvHyLkvOI1sf5e
-	/9jwG+bMZxIQGugLcOmTwQ42myQ2T66wz3+7Jm9JzzTeWqw8ce8RDPg4u373yxDcuvUDF2S0rQUkF
-	TVfrm6Ah+uODzdkN96tOElctujqcCVnaV8DCzj6ROL9eJRjzOkbHziLvGPF0CKAjRzgfRzCUF4GJY
-	EPqe6VxvTxpQP1/0NlV4Oe5cJFcvP7G8v32D6mMOOzvM/fgqFh3vDAfYdVjoxACjbq1ns/UJMxv16
-	Vki8AljQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G4pyQMQesI0VN6u/oMLqzRbScdAPSCw9Xw8P39SllYc=; b=Hq1Qcr0UM5nBDVIbmY8DEDtKXZ
+	dS1rc/MfV0vFiK+x2xLeg2l0Jf09lZksvK7VlJp5lUmCn+Gajn/6rw5+zUGv40jfkg6HuySkgWU/y
+	p24HSjPIbaX1mK4sMFNzNWbOqVZC5U6B+QIuEqDFFgCOxMaQzzNeJLqoMKo6zeQGlgOjo5iv+0VvH
+	274zxtYOYH+dN6YRryu+BUMrPjW1X1zE7zjDGm5FwMRpaeMmdsicvG/MtiDTtUZB9RhfLSPp4Itr6
+	XJaNzHi/mR0PSJQNVCKNb+JwL71ZFY5dCrlMX6lx9GXLdf0B9Tt1XX527ffBnGqrZnTDpkkJbUV3W
+	AvijtxlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUruv-00000002IrQ-23NR;
-	Mon, 06 Jan 2025 18:33:33 +0000
-Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
+	id 1tUs8p-00000002L12-28SU;
+	Mon, 06 Jan 2025 18:47:55 +0000
+Received: from mail-dm6nam12on20628.outbound.protection.outlook.com ([2a01:111:f403:2417::628] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUrtj-00000002IhF-15SB
+	id 1tUs7e-00000002Kp9-0jm8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 18:32:20 +0000
-Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-385ed79291eso7374398f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jan 2025 10:32:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1736188337; x=1736793137; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=mMBHoWGKqgX/Qc6KXJyNk8iaddCY/jFnFkKsjyLo+bs=;
-        b=KRybCpJoSWp1NfchwX2frusVUCgJsIRa4OY6v0YDwGtOST0keI+RwqMCMWgy+ZobnR
-         sVh02BOx+JUDio2VtjtT+crmlC1/Bs8cdcjesmgaFyNyuRZPcDauNVVnHvAFea9RwjfW
-         PG6c4Y11vQltRhro5BjFiul6dSY4I1SsGBrYF9X4tdnbir6ExfxRuyq0hkIxw87A3xww
-         maOnKItT8haemon5+j7WEggWfozQ1iEbPgEJc2CA9JSQH8B4jnJXvb2E87wff7aGrtTj
-         Aub6Gdj0LMoxv1oRaYQHiFh98XNDakd2gecFzWVFFhXsxpEHnxfFVoyy5M9ONu6LOFZy
-         Qs4A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736188337; x=1736793137;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=mMBHoWGKqgX/Qc6KXJyNk8iaddCY/jFnFkKsjyLo+bs=;
-        b=dnIReH9xPE6yszCfsYqH40boFV1xlzDjdinctCceZ39A+iD3DLvmNzuC82hf6rE/vL
-         AvVrEz+ircRi0qTdrUfakdOfrvytvll7yU5gMpy/iSTZw7n/nIImRIBJWmnNOmR361Va
-         zAJOb5DompfSUXQVCgAcUn80LPNVHhdbG1l0j0YxIKCQdGoLZH8Rj+dcWPkPWwMu3vc1
-         bbI/B8RqtpJ0QvOXiYkjAXViNGyDmBSarnbaIaNCAwRES7eULegTFATLvDlH3dqJhQaL
-         zncd0oaeg0HRu0qM+mGMUrFw+e7Q/JoLCQ+FUamEUeo9IvHGqE0vcLWpXQHbKco2Z6T+
-         cybA==
-X-Forwarded-Encrypted: i=1; AJvYcCW7Yda8oB5AWJ+n3+fBgzEQQNm55drXgXZEChjXfD6WoqTD4kEFcG5QTTq2x4wsDkgyRxCz9n3N39MK6cvTLLzs@lists.infradead.org
-X-Gm-Message-State: AOJu0YwnQL/oNm3uo6IhlpcY9TVFZQt7wo6aQsKQGoOxEk85xdlzWixG
-	1QfL3PI1Tj0A3I/eEJCHdwHg+HdkruxGaGrJMD7zy7U+qzNckkIPRt7XCPbr5lMk5f81ISZRnZd
-	QnYh3uyXx+4YgbUYboQ==
-X-Google-Smtp-Source: AGHT+IG5n82ztTIgQ8mNVnITN9/jqp+oTUnhPTHVxgRvKMcf4+SVIsSRmIj/SKnm+YL5qePo6RJCpb6nXQrhC9Pv
-X-Received: from wmqb1.prod.google.com ([2002:a05:600c:4e01:b0:434:ef30:4be3])
- (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:1446:b0:388:cacf:24b0 with SMTP id ffacd0b85a97d-38a791253dbmr235580f8f.2.1736188336997;
- Mon, 06 Jan 2025 10:32:16 -0800 (PST)
-Date: Mon,  6 Jan 2025 18:32:13 +0000
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
-Message-ID: <20250106183213.4094616-1-vdonnefort@google.com>
-Subject: [PATCH] KVM: arm64: Fix nVHE stacktrace VA bits mask
-From: Vincent Donnefort <vdonnefort@google.com>
-To: maz@kernel.org, oliver.upton@linux.dev
-Cc: kvmarm@lists.linux.dev, kernel-team@android.com, 
-	linux-arm-kernel@lists.infradead.org, 
-	Vincent Donnefort <vdonnefort@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Mon, 06 Jan 2025 18:46:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HE+TK9aiKl8/7KpEfnEtNGI+sGOHualbyKBzeneViVa91C2qt9ep6hPJ0AViouJqCIp2+8My1DJoITYDUyFOneaPAj3WfXpMqydDK4yNMqqvaWQL1BfQ8NCPTWbWejMXnSRbDFc4VHwsGa49Hn0uFPmTv2jX5UtklGTi4y5lIhJab/JKZHB7r1DHiKwGJhj5xlTHhcPclF3DKafehb/l6i+oBhZe0o2J9ccB1EE4MEC/RxQGR1gVYw2LYJi0mvVyYOAaxh8kjSYY24BVjehF/G1IcGscEafbU2BoPe+/Bwd9GPa527DBr5xBcE9rWxpq4hV5vQa/Wr7UPWq+EyUo3Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=G4pyQMQesI0VN6u/oMLqzRbScdAPSCw9Xw8P39SllYc=;
+ b=MssWKiyI4sG/SrNB0slqZ11POqt3WL68z3AkXyiRLpWGOKQOR7bS9bsle91WMmRIae7wpQr6dFlXCGiaorH/CmTWBBZ31VDnaLk4X+bbFpxJeNqEg4mXw3UuHE5Z/lwYiAHVKhW4NEEn8g5DCZ6FTnmkKzOx8zTru6HMHBtk4Czo996gxEA9qegOc2RKtY1ka5XrGMkOcmaeuVh1bVxhkh66Qrd1kyL7PIN61Jz/Jq+54lWtYDK8CviWLw7EhGkIgezlr3Z2s4m2Sj+0jRdvQa8ABAbMMmxtv4nJfiK2OgLxDX2t2Q9QOJKUvGu4z8sjeURzgJ3W8uDjdOQI1piEJw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=linux.intel.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=G4pyQMQesI0VN6u/oMLqzRbScdAPSCw9Xw8P39SllYc=;
+ b=mR86ZsHzIerCdRlHXJwq+LQ8ItceV28iTOT+JSKbFcxJdiuhp4y8AK/wfLUprddF0OvArWJPCmAR8MSysY/LTd6Jxt5lz2suSuucDPixtbuBmzWN8JzJwgvwE2mcV2hOZLWoxruW/MY2iL+gx3CD4847jRiRnWM3dCdrmYUSyLZ/zerByJ45zGB7mHVoSR901ubALKprPJlgH8cSwzPS1KRF2syfebE71+S8oiAKnr7Ny9am2aCtYI8SCCCO4NQMelSTFBd09mKvD5f2wCqt5I75904IQnmHV8DFY+g4Ea89Z93YttH0/wCBV0Pkq3VfS1Bhg2cxwAOItakUo5iQhQ==
+Received: from SA0PR11CA0094.namprd11.prod.outlook.com (2603:10b6:806:d1::9)
+ by SA0PR12MB4350.namprd12.prod.outlook.com (2603:10b6:806:92::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8314.17; Mon, 6 Jan
+ 2025 18:46:31 +0000
+Received: from SA2PEPF00003AEB.namprd02.prod.outlook.com
+ (2603:10b6:806:d1:cafe::d) by SA0PR11CA0094.outlook.office365.com
+ (2603:10b6:806:d1::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8314.18 via Frontend Transport; Mon,
+ 6 Jan 2025 18:46:31 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ SA2PEPF00003AEB.mail.protection.outlook.com (10.167.248.11) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8335.7 via Frontend Transport; Mon, 6 Jan 2025 18:46:31 +0000
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 6 Jan 2025
+ 10:46:18 -0800
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail204.nvidia.com
+ (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 6 Jan 2025
+ 10:46:17 -0800
+Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.129.68.10)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4 via Frontend
+ Transport; Mon, 6 Jan 2025 10:46:15 -0800
+Date: Mon, 6 Jan 2025 10:46:13 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Baolu Lu <baolu.lu@linux.intel.com>
+CC: <jgg@nvidia.com>, <kevin.tian@intel.com>, <corbet@lwn.net>,
+	<will@kernel.org>, <joro@8bytes.org>, <suravee.suthikulpanit@amd.com>,
+	<robin.murphy@arm.com>, <dwmw2@infradead.org>, <shuah@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>, <eric.auger@redhat.com>,
+	<jean-philippe@linaro.org>, <mdf@kernel.org>, <mshavit@google.com>,
+	<shameerali.kolothum.thodi@huawei.com>, <smostafa@google.com>,
+	<ddutile@redhat.com>, <yi.l.liu@intel.com>, <patches@lists.linux.dev>
+Subject: Re: [PATCH v4 14/14] iommu/arm-smmu-v3: Report events that belong to
+ devices attached to vIOMMU
+Message-ID: <Z3wk9TvmUhB3/zlk@Asurada-Nvidia>
+References: <cover.1735933254.git.nicolinc@nvidia.com>
+ <69a46c72e43ed086840be462eef731167d90a9d8.1735933254.git.nicolinc@nvidia.com>
+ <585fc99f-c2dc-459c-929a-c7c7631b9caf@linux.intel.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <585fc99f-c2dc-459c-929a-c7c7631b9caf@linux.intel.com>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA2PEPF00003AEB:EE_|SA0PR12MB4350:EE_
+X-MS-Office365-Filtering-Correlation-Id: 77764df7-e657-45ff-f8ff-08dd2e826fc3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|36860700013|82310400026|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?BGOlOI6BMW2nbGCbJ20oaNvRebmWx/aSrVKG/eZtEMBj2YLTPiMM/s41SfJj?=
+ =?us-ascii?Q?gO81cPJU81IV8Wz0JCSUxnIHtbGHja0KE4Uoui5aTlOt5zOavXwxiNZAhF9n?=
+ =?us-ascii?Q?1VSdPrqZlDlBnjNORbTr0gObWzc7YcjGuaGl5Gn0AZjT6TDw8jW1Pz0K5qh5?=
+ =?us-ascii?Q?IcNnl4ELRD5WimUfWelXNX8ZIk6JT3FLefadOewQeOz0rhWJsHjpZqAyI1JR?=
+ =?us-ascii?Q?waTO+WRy37xXnz0HWiOUSDgm5mZXGA2wAtWui9+IClGsqN/E/IvWROW9P1O7?=
+ =?us-ascii?Q?RGQq6bauU6G7UrES8x3JS32pJvX4lkL3Yhss0oL8zBKIsjc3QPtGdLQKNxhS?=
+ =?us-ascii?Q?1z6r4hgg9zrsYdfXWYhn5Exdm4YSdLh32FjszModqG8sqz9+AYAhKQ0Nm/my?=
+ =?us-ascii?Q?UEVyDYIV731UO/AiilNsjJnBBbRsq/ljDwn5vDh03BnmKxHNSH3joNJDHxp6?=
+ =?us-ascii?Q?Cla+kEsa5VhWKpAyDG7eNFS43eJH8ZatXqO5SaBZFeZ3PbpgxLH2536TSMOx?=
+ =?us-ascii?Q?50Nbbqf9SvwztiVwTYh2cA8ypJ7yNQcsZCS3xF28CIEEdAjCgadWXddsN7R0?=
+ =?us-ascii?Q?0NedL2nT4NneDLiAP9ovo4Xm80Lz7V84av87zu/RymbGW1S+sYl4Mmgno8Dg?=
+ =?us-ascii?Q?+l3EatahAORr2E2JgnCVrIo88i7e1B0OijJaGxgzBEjEcpHF/COl1Y5RhmW0?=
+ =?us-ascii?Q?0qdtDAbB+rirEDgL8OwrRSxURuvRHrn/suNynF9cShTGIpEhtrYjsYzq0JpZ?=
+ =?us-ascii?Q?WgkzQK01vM0NbtSzWmw3d2lx0XXQ2ut+DTJlfVR6miwd5EJCl252ZnpyXkUl?=
+ =?us-ascii?Q?3Ng60aaEwW+iXZWoCm1Hkc29oVoRbUj+JllBzwf+M2LzTIK8YBezdaatK2Jj?=
+ =?us-ascii?Q?hbcmB61AnsDoZ2rmmezTdUr5/PiHqEdIy3Ex47ICvMvh6/sB8dvNYaZLseOc?=
+ =?us-ascii?Q?cTqVKQdHvzObg+Qctl0s4Rd4l7a4v9AoRUhcz23nXvyN+z7JjDz45frhHQZ8?=
+ =?us-ascii?Q?Bo4BK0U/874Bj69418kJlxCHGe1PITVNXG06B+k5+c3Xh8RHjsavHMBy9jt2?=
+ =?us-ascii?Q?wFTsauhJQWquobjF+LAO1Q0zUgOyhHan9qeplO5W46jvsrNZG4eNj8/9wCyV?=
+ =?us-ascii?Q?Uq8vCoSrKxP/AXUaW5/pYktEFG6HFPp9vGRLeXxeeUNLlcz5Dzggp3h1Vn+7?=
+ =?us-ascii?Q?0taLbFfoQwhQvPcvzvBE09EqKH6R7iRUXx31W/VqfjSj//0zVKQy5GXb5kiz?=
+ =?us-ascii?Q?H33vv0iXZdWsSapO7wJ4rwbvtVZPBDjAZ7NEcKSHZ1GrNgeBx1T6Nb4dY6bL?=
+ =?us-ascii?Q?8SmIXMIFe7icRW33hsAXK99WQLBLFeEtjId5dq5j9yIo7HaCeh7mAfnNqPXb?=
+ =?us-ascii?Q?TVloh6YAqFG/yWAe0OZj4QO/3/RIY+slSocvEIKZXtdtrkmK3m6mi4ddb8UC?=
+ =?us-ascii?Q?Ks0PCpY6HcX4asta82hg0/pTyXPYpSBg69bhu0iFQNWSAxIGOPnn4M40rZ5R?=
+ =?us-ascii?Q?duWGRkUn4M+xnpo=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700013)(82310400026)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jan 2025 18:46:31.0812
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 77764df7-e657-45ff-f8ff-08dd2e826fc3
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003AEB.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR12MB4350
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_103219_304944_19468877 
-X-CRM114-Status: GOOD (  16.43  )
+X-CRM114-CacheID: sfid-20250106_104642_230367_32D9FFAF 
+X-CRM114-Status: GOOD (  22.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,181 +159,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The hypervisor VA space size depends on both the ID map's
-(IDMAP_VA_BITS) and the kernel stage-1 (VA_BITS). When VA_BITS is
-smaller than IDMAP_VA_BITS (i.e. 39-bit), the stacktrace can contain
-addresses bigger than the current VA_BITS mask.
+On Mon, Jan 06, 2025 at 11:01:32AM +0800, Baolu Lu wrote:
+> On 1/4/25 03:43, Nicolin Chen wrote:
+> > diff --git a/include/uapi/linux/iommufd.h b/include/uapi/linux/iommufd.h
+> > index 0a08aa82e7cc..55e3d5a14cca 100644
+> > --- a/include/uapi/linux/iommufd.h
+> > +++ b/include/uapi/linux/iommufd.h
+> > @@ -1016,9 +1016,24 @@ struct iommu_ioas_change_process {
+> >   /**
+> >    * enum iommu_veventq_type - Virtual Event Queue Type
+> >    * @IOMMU_VEVENTQ_TYPE_DEFAULT: Reserved for future use
+> > + * @IOMMU_VEVENTQ_TYPE_ARM_SMMUV3: ARM SMMUv3 Virtual Event Queue
+> >    */
+> >   enum iommu_veventq_type {
+> >   	IOMMU_VEVENTQ_TYPE_DEFAULT = 0,
+> > +	IOMMU_VEVENTQ_TYPE_ARM_SMMUV3 = 1,
+> > +};
+> > +
+> > +/**
+> > + * struct iommu_vevent_arm_smmuv3 - ARM SMMUv3 Virtual Event
+> > + *                                  (IOMMU_VEVENTQ_TYPE_ARM_SMMUV3)
+> > + * @evt: 256-bit ARM SMMUv3 Event record, little-endian.
+> > + *       (Refer to "7.3 Event records" in SMMUv3 HW Spec)
+> > + *
+> > + * StreamID field reports a virtual device ID. To receive a virtual event for a
+> > + * device, a vDEVICE must be allocated via IOMMU_VDEVICE_ALLOC.
+> > + */
+> > +struct iommu_vevent_arm_smmuv3 {
+> > +	__aligned_le64 evt[4];
+> >   };
+> 
+> Nit: I think it would be more readable to add a check in the vevent
+> reporting helper.
+> 
+> diff --git a/drivers/iommu/iommufd/driver.c b/drivers/iommu/iommufd/driver.c
+> index 77c34f8791ef..ccada0ada5ff 100644
+> --- a/drivers/iommu/iommufd/driver.c
+> +++ b/drivers/iommu/iommufd/driver.c
+> @@ -86,6 +86,9 @@ int iommufd_viommu_report_event(struct iommufd_viommu
+> *viommu,
+>         if (WARN_ON_ONCE(!data_len || !event_data))
+>                 return -EINVAL;
+> 
+> +       if (WARN_ON_ONCE(type != IOMMU_VEVENTQ_TYPE_ARM_SMMUV3))
+> +               return -EINVAL;
+> +
 
-As the hyp_va_bits value needs to be used outside of the init code now,
-use a global variable, shared by all the kvm users in mmu.c, arm.c and
-now stacktrace.c.
+Hmm, that's a good point I think.
 
-Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+>         down_read(&viommu->veventqs_rwsem);
+> 
+>         veventq = iommufd_viommu_find_veventq(viommu, type);
+		    ^
+		    |
+We actually have been missing a type validation entirely, so the
+type could have been rejected by this function. Perhaps we should
+add a static list of supported types to struct iommufd_viommu_ops
+for drivers to report so that then the core could reject from the
+first place during a vEVENTQ allocation.
 
-diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
-index 66d93e320ec8..8195a77056a9 100644
---- a/arch/arm64/include/asm/kvm_mmu.h
-+++ b/arch/arm64/include/asm/kvm_mmu.h
-@@ -139,6 +139,8 @@ static __always_inline unsigned long __kern_hyp_va(unsigned long v)
- 
- #define kern_hyp_va(v) 	((typeof(v))(__kern_hyp_va((unsigned long)(v))))
- 
-+extern u32 hyp_va_bits;
-+
- /*
-  * We currently support using a VM-specified IPA size. For backward
-  * compatibility, the default IPA size is fixed to 40bits.
-@@ -182,7 +184,7 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu);
- 
- phys_addr_t kvm_mmu_get_httbr(void);
- phys_addr_t kvm_get_idmap_vector(void);
--int __init kvm_mmu_init(u32 *hyp_va_bits);
-+int __init kvm_mmu_init(void);
- 
- static inline void *__kvm_vector_slot2addr(void *base,
- 					   enum arm64_hyp_spectre_vector slot)
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index a102c3aebdbc..90d28c35c5b5 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -1987,7 +1987,7 @@ static int kvm_init_vector_slots(void)
- 	return 0;
- }
- 
--static void __init cpu_prepare_hyp_mode(int cpu, u32 hyp_va_bits)
-+static void __init cpu_prepare_hyp_mode(int cpu)
- {
- 	struct kvm_nvhe_init_params *params = per_cpu_ptr_nvhe_sym(kvm_init_params, cpu);
- 	u64 mmfr0 = read_sanitised_ftr_reg(SYS_ID_AA64MMFR0_EL1);
-@@ -2351,7 +2351,7 @@ static void __init teardown_hyp_mode(void)
- 	}
- }
- 
--static int __init do_pkvm_init(u32 hyp_va_bits)
-+static int __init do_pkvm_init(void)
- {
- 	void *per_cpu_base = kvm_ksym_ref(kvm_nvhe_sym(kvm_arm_hyp_percpu_base));
- 	int ret;
-@@ -2412,7 +2412,7 @@ static void kvm_hyp_init_symbols(void)
- 	kvm_nvhe_sym(kvm_arm_vmid_bits) = kvm_arm_vmid_bits;
- }
- 
--static int __init kvm_hyp_init_protection(u32 hyp_va_bits)
-+static int __init kvm_hyp_init_protection(void)
- {
- 	void *addr = phys_to_virt(hyp_mem_base);
- 	int ret;
-@@ -2421,7 +2421,7 @@ static int __init kvm_hyp_init_protection(u32 hyp_va_bits)
- 	if (ret)
- 		return ret;
- 
--	ret = do_pkvm_init(hyp_va_bits);
-+	ret = do_pkvm_init();
- 	if (ret)
- 		return ret;
- 
-@@ -2505,7 +2505,6 @@ static void pkvm_hyp_init_ptrauth(void)
- /* Inits Hyp-mode on all online CPUs */
- static int __init init_hyp_mode(void)
- {
--	u32 hyp_va_bits;
- 	int cpu;
- 	int err = -ENOMEM;
- 
-@@ -2519,7 +2518,7 @@ static int __init init_hyp_mode(void)
- 	/*
- 	 * Allocate Hyp PGD and setup Hyp identity mapping
- 	 */
--	err = kvm_mmu_init(&hyp_va_bits);
-+	err = kvm_mmu_init();
- 	if (err)
- 		goto out_err;
- 
-@@ -2633,7 +2632,7 @@ static int __init init_hyp_mode(void)
- 		}
- 
- 		/* Prepare the CPU initialization parameters */
--		cpu_prepare_hyp_mode(cpu, hyp_va_bits);
-+		cpu_prepare_hyp_mode(cpu);
- 	}
- 
- 	kvm_hyp_init_symbols();
-@@ -2654,7 +2653,7 @@ static int __init init_hyp_mode(void)
- 		if (err)
- 			goto out_err;
- 
--		err = kvm_hyp_init_protection(hyp_va_bits);
-+		err = kvm_hyp_init_protection();
- 		if (err) {
- 			kvm_err("Failed to init hyp memory protection\n");
- 			goto out_err;
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index c9d46ad57e52..62a99c86cd1d 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -29,6 +29,8 @@ static unsigned long __ro_after_init hyp_idmap_start;
- static unsigned long __ro_after_init hyp_idmap_end;
- static phys_addr_t __ro_after_init hyp_idmap_vector;
- 
-+u32 __ro_after_init hyp_va_bits;
-+
- static unsigned long __ro_after_init io_map_base;
- 
- static phys_addr_t __stage2_range_addr_end(phys_addr_t addr, phys_addr_t end,
-@@ -1986,7 +1988,7 @@ static struct kvm_pgtable_mm_ops kvm_hyp_mm_ops = {
- 	.virt_to_phys		= kvm_host_pa,
- };
- 
--int __init kvm_mmu_init(u32 *hyp_va_bits)
-+int __init kvm_mmu_init(void)
- {
- 	int err;
- 	u32 idmap_bits;
-@@ -2020,9 +2022,9 @@ int __init kvm_mmu_init(u32 *hyp_va_bits)
- 	 */
- 	idmap_bits = IDMAP_VA_BITS;
- 	kernel_bits = vabits_actual;
--	*hyp_va_bits = max(idmap_bits, kernel_bits);
-+	hyp_va_bits = max(idmap_bits, kernel_bits);
- 
--	kvm_debug("Using %u-bit virtual addresses at EL2\n", *hyp_va_bits);
-+	kvm_debug("Using %u-bit virtual addresses at EL2\n", hyp_va_bits);
- 	kvm_debug("IDMAP page: %lx\n", hyp_idmap_start);
- 	kvm_debug("HYP VA range: %lx:%lx\n",
- 		  kern_hyp_va(PAGE_OFFSET),
-@@ -2047,7 +2049,7 @@ int __init kvm_mmu_init(u32 *hyp_va_bits)
- 		goto out;
- 	}
- 
--	err = kvm_pgtable_hyp_init(hyp_pgtable, *hyp_va_bits, &kvm_hyp_mm_ops);
-+	err = kvm_pgtable_hyp_init(hyp_pgtable, hyp_va_bits, &kvm_hyp_mm_ops);
- 	if (err)
- 		goto out_free_pgtable;
- 
-diff --git a/arch/arm64/kvm/stacktrace.c b/arch/arm64/kvm/stacktrace.c
-index 3ace5b75813b..ef7a22598d89 100644
---- a/arch/arm64/kvm/stacktrace.c
-+++ b/arch/arm64/kvm/stacktrace.c
-@@ -19,6 +19,7 @@
- #include <linux/kvm.h>
- #include <linux/kvm_host.h>
- 
-+#include <asm/kvm_mmu.h>
- #include <asm/stacktrace/nvhe.h>
- 
- static struct stack_info stackinfo_get_overflow(void)
-@@ -145,7 +146,7 @@ static void unwind(struct unwind_state *state,
-  */
- static bool kvm_nvhe_dump_backtrace_entry(void *arg, unsigned long where)
- {
--	unsigned long va_mask = GENMASK_ULL(vabits_actual - 1, 0);
-+	unsigned long va_mask = GENMASK_ULL(hyp_va_bits - 1, 0);
- 	unsigned long hyp_offset = (unsigned long)arg;
- 
- 	/* Mask tags and convert to kern addr */
+> Or perhaps the compiler could automatically make a warning if the @type
+> is not one of those values in enum iommu_veventq_type?
 
-base-commit: 13563da6ffcf49b8b45772e40b35f96926a7ee1e
--- 
-2.47.1.613.gc27f4b7a9f-goog
+Just gave that a try. Mine doesn't give any warning. Not sure if
+needs to be some "-W" augment though..
 
+> Others look good to me.
+
+Thanks for the review!
+
+Nicolin
 
