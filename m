@@ -4,66 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBFDCE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 17:13:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FB6DE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 17:14:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uR83ZQY2JorQdRsksaSEreSd1nBld6M8x11g1V8kzYc=; b=o3JM5haBKno03AG5DIF9bzHktn
-	ECZGozETbddecxvU8YndJJ8+KUdJUhlzph1fP46D55hZgNiif9HWHQpCYmGM+f/VCcS6yB/ST83tu
-	8e1vfOZc9uV3b7pRw15Ae+PD8KGZHgxqvPs5ghEubTK2a+gGXLPlmvPmpc6XsqhlLt5R5SQXh7x8+
-	viXF62jxy1hEtx9ZDZWxOwdtEuPtXIhc/xiDF0Zq3ZPAFeycqYRgQSqMblzdJJyM2E8qCAPzXfWmX
-	kgZl62e2+/hQrkk45363LrwxwGgNeZIfr2idAc+l62Fl/JpxaZHDMM/zk81w8tV+yaljJu1VkY0cM
-	pKsUGibQ==;
+	bh=SCFCSybsihzG30lxXs/Y/ooR3wBGkO/dKCHgAWOgiwg=; b=jthUUa99wW7EKXjdShPfEQl5Xw
+	bZf0uRMJOPJhON2ZHvZi3YflAcUxuoP0vAF8KdW0u61Nq2zoZxVfs2R17P0A7WxBDYdV4F/TQiELw
+	JpmwpAHMdRJSxBls3PEaK2cU31rCOkrkVKq2jK3aliuvFUNB33XGBaboKYSnQFgleHQhhYpbgeX9z
+	1lVXzhM7vE2PDEGduDDo0IgVZSVsh3Hsvp7hsGBRjf2+fr4L6GwBezgNSI/cNeEbXEaKiNT/TI4A9
+	JFMyFQD20OD7NLl6iIMsEp9oOQkSc4NFEQIps7URdGRkjtcMOtfw5GgwNtK1CNGH4B/GP028ZXqW+
+	TeQkqbwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUqf0-000000024xf-36Pb;
-	Mon, 06 Jan 2025 17:13:02 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tUqgP-000000025Hd-3ka0;
+	Mon, 06 Jan 2025 17:14:29 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUqaS-000000024Qe-3POM
+	id 1tUqfC-0000000250O-2Tql
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 17:08:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=uR83ZQY2JorQdRsksaSEreSd1nBld6M8x11g1V8kzYc=; b=J3/Z2c2kzweO/0Ytn4k/MBs3Nw
-	HS5oFmINvDhYCKt+644a289nHAVJl5bRdWMVtSqAEjB3xIXWvUnVMaBDRhKFodwziblGQ3gAJ4cCt
-	S7LXBRe3ZPJcKyFTV+IYHszk6T2J7VGOOWSW0x/86p6zrqoCagwibNUTtiMNOAtQntdM=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tUqaL-001wTU-Fh; Mon, 06 Jan 2025 18:08:13 +0100
-Date: Mon, 6 Jan 2025 18:08:13 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next v2 17/17] net: stmmac: remove
- stmmac_lpi_entry_timer_config()
-Message-ID: <60abc93e-35f9-4e99-93bf-177c9545bdcc@lunn.ch>
-References: <Z3vLbRQ9Ctl-Rpdg@shell.armlinux.org.uk>
- <E1tUmBO-007VYH-Kj@rmk-PC.armlinux.org.uk>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <E1tUmBO-007VYH-Kj@rmk-PC.armlinux.org.uk>
+	Mon, 06 Jan 2025 17:13:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E11B05C0286;
+	Mon,  6 Jan 2025 17:12:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9449BC4CED2;
+	Mon,  6 Jan 2025 17:13:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736183593;
+	bh=Dwnnr5kiXC1fjmc09CMLSRDw65OhSZzQ1RkgRz4mSvc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=MYKTRX+w+baHYyivC3bP0r6cj+gE/F4d3h0T9UH1rCZZazfxSifyTpo6CdcTcYLU0
+	 2FUbH2FfYEPM27FrUNEOns3C+IItUogJLN3OM37+ZACTojnSZDVPXnAKjdE+14eXdS
+	 Vj9jXR0ydwXW7TQHk93sM0CKbfHqpaabQUOu57oXiXDDmDq0AzZVv8FAT92OtihP4q
+	 oJ8JuISw3JLIBCgtNNdL6Lr3U56qNWH7Pv9sY2VJW6hL5T9k8QiqhjXAIZN71Wx5vk
+	 UlVURy2I7qoS8OHH7zHdgAbooSDht16G0INokLkFTna8PiRcadbA0DHmerKxupAgZ3
+	 osRW3vLo+RaFQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tUqf9-009UnQ-2p;
+	Mon, 06 Jan 2025 17:13:11 +0000
+Date: Mon, 06 Jan 2025 17:13:10 +0000
+Message-ID: <861pxfq315.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,	Krzysztof
+ =?UTF-8?B?V2lsY3p5xYRza2k=?= <kw@linux.com>,	Kishon Vijay Abraham I
+ <kishon@kernel.org>,	Bjorn Helgaas <bhelgaas@google.com>,	Arnd Bergmann
+ <arnd@arndb.de>,	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,	Thomas Gleixner
+ <tglx@linutronix.de>,	Anup Patel <apatel@ventanamicro.com>,
+	linux-kernel@vger.kernel.org,	linux-pci@vger.kernel.org,
+	imx@lists.linux.dev,	Niklas Cassel <cassel@kernel.org>,	dlemoal@kernel.org,
+	jdmason@kudzu.us,	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v13 4/9] irqchip/gic-v3-its: Add DOMAIN_BUS_DEVICE_PCI_EP_MSI support
+In-Reply-To: <Z3wG6pMbjsldqU/n@lizhi-Precision-Tower-5810>
+References: <20241218-ep-msi-v13-0-646e2192dc24@nxp.com>
+	<20241218-ep-msi-v13-4-646e2192dc24@nxp.com>
+	<868qscq70x.wl-maz@kernel.org>
+	<Z2RRimPlT41Ru281@lizhi-Precision-Tower-5810>
+	<Z3wG6pMbjsldqU/n@lizhi-Precision-Tower-5810>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Frank.li@nxp.com, manivannan.sadhasivam@linaro.org, kw@linux.com, kishon@kernel.org, bhelgaas@google.com, arnd@arndb.de, gregkh@linuxfoundation.org, rafael@kernel.org, tglx@linutronix.de, apatel@ventanamicro.com, linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, imx@lists.linux.dev, cassel@kernel.org, dlemoal@kernel.org, jdmason@kudzu.us, linux-arm-kernel@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_090820_849262_A699DFB0 
-X-CRM114-Status: UNSURE (   7.02  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250106_091314_722563_95C2AB53 
+X-CRM114-Status: GOOD (  56.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,14 +95,303 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 06, 2025 at 12:26:10PM +0000, Russell King (Oracle) wrote:
-> Remove stmmac_lpi_entry_timer_config(), setting priv->eee_sw_timer_en
-> at the original call sites, and calling the appropriate
-> stmmac_xxx_hw_lpi_timer() function. No functional change.
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+On Mon, 06 Jan 2025 16:38:02 +0000,
+Frank Li <Frank.li@nxp.com> wrote:
+>=20
+> On Thu, Dec 19, 2024 at 12:02:02PM -0500, Frank Li wrote:
+> > On Thu, Dec 19, 2024 at 10:52:30AM +0000, Marc Zyngier wrote:
+> > > On Wed, 18 Dec 2024 23:08:39 +0000,
+> > > Frank Li <Frank.Li@nxp.com> wrote:
+> > > >
+> > > >            =E2=94=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=90
+> > > >            =E2=94=82                                =E2=94=82
+> > > >            =E2=94=82     PCI Endpoint Controller    =E2=94=82
+> > > >            =E2=94=82                                =E2=94=82
+> > > >            =E2=94=82   =E2=94=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=90  =E2=94=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=90     =E2=94=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=90 =E2=94=82
+> > > > PCI Bus    =E2=94=82   =E2=94=82     =E2=94=82  =E2=94=82     =E2=
+=94=82     =E2=94=82     =E2=94=82 =E2=94=82
+> > > > =E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=96=BA =E2=94=82   =E2=94=82Func1=E2=94=82  =E2=94=82Func=
+2=E2=94=82 ... =E2=94=82Func =E2=94=82 =E2=94=82
+> > > > Doorbell   =E2=94=82   =E2=94=82     =E2=94=82  =E2=94=82     =E2=
+=94=82     =E2=94=82<n>  =E2=94=82 =E2=94=82
+> > > >            =E2=94=82   =E2=94=82     =E2=94=82  =E2=94=82     =E2=
+=94=82     =E2=94=82     =E2=94=82 =E2=94=82
+> > > >            =E2=94=82   =E2=94=94=E2=94=80=E2=94=80=E2=94=AC=E2=94=
+=80=E2=94=80=E2=94=98  =E2=94=94=E2=94=80=E2=94=80=E2=94=AC=E2=94=80=E2=94=
+=80=E2=94=98     =E2=94=94=E2=94=80=E2=94=80=E2=94=AC=E2=94=80=E2=94=80=E2=
+=94=98 =E2=94=82
+> > > >            =E2=94=82      =E2=94=82        =E2=94=82           =E2=
+=94=82    =E2=94=82
+> > > >            =E2=94=94=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=BC=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=BC=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=BC=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=98
+> > > >                   =E2=94=82        =E2=94=82           =E2=94=82
+> > > >                   =E2=96=BC        =E2=96=BC           =E2=96=BC
+> > > >                =E2=94=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=90
+> > > >                =E2=94=82    MSI Controller      =E2=94=82
+> > > >                =E2=94=94=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=98
+> > > >
+> > > > Add domain DOMAIN_BUS_DEVICE_PCI_EP_MSI to allocate MSI domain for =
+Endpoint
+> > > > function in PCI Endpoint (EP) controller, So PCI Root Complex (RC) =
+can
+> > > > write MSI message to MSI controller to trigger doorbell IRQ for dif=
+ference
+> > > > EP functions.
+> > > >
+> > > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > > > ---
+> > > > change from v12 to v13
+> > > > - new patch
+> > >
+> > > This might be v13, but after all this time, I have no idea what you
+> > > are trying to do. You keep pasting this non-ASCII drawing in commit
+> > > messages, but I still have no idea what this PCI Bus Doorbell
+> > > represents.
+> >
+> > PCI Bus/Doorbell is two words. Basic over picture is a PCI EP devices (=
+such
+> > as imx95), which run linux and PCI Endpoint framework. i.MX95 connect to
+> > PCI Host, such as PC (x86).
+> >
+> > i.MX95 can use standard PCI MSI framework to issue a irq to X86. but th=
+ere
+> > are not reverse direction. X86 try write some MMIO register ( mapped PCI
+> > bar0). But i.MX95 don't know it have been modified. So currently soluti=
+on
+> > is create a polling thread to check every 10ms.
+> >
+> > So this patches try resolve this problem at the platform, which have MSI
+> > controller such as ITS.
+> >
+> > after this patches, i.MX95 can create a PCI Bar1, which map to MSI
+> > controller register space,  when X86 write data to Bar1 (call as doorbe=
+ll),
+> > a irq will be triggered at i.MX95.
+> >
+> > Doorbell in diagram means 'push doorbell' (write data to bar<n>).
+> >
+> > >
+> > > I appreciate the knowledge shortage is on my end, but it would
+> > > definitely help if someone would take the time to explain what this is
+> > > all about.
+> >
+> > I am not sure if diagram in corver letter can help this, or above
+> > descriptions is enough.
+> >
+> >
+> > =E2=94=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=90   =E2=94=8C=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=90   =E2=94=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=90
+> > =E2=94=82            =E2=94=82   =E2=94=82                             =
+      =E2=94=82   =E2=94=82                =E2=94=82
+> > =E2=94=82            =E2=94=82   =E2=94=82 PCI Endpoint                =
+      =E2=94=82   =E2=94=82 PCI Host       =E2=94=82
+> > =E2=94=82            =E2=94=82   =E2=94=82                             =
+      =E2=94=82   =E2=94=82                =E2=94=82
+> > =E2=94=82            =E2=94=82=E2=97=84=E2=94=80=E2=94=80=E2=94=A4 1.pl=
+atform_msi_domain_alloc_irqs()=E2=94=82   =E2=94=82                =E2=94=82
+> > =E2=94=82            =E2=94=82   =E2=94=82                             =
+      =E2=94=82   =E2=94=82                =E2=94=82
+> > =E2=94=82 MSI        =E2=94=9C=E2=94=80=E2=94=80=E2=96=BA=E2=94=82 2.wr=
+ite_msi_msg()                 =E2=94=9C=E2=94=80=E2=94=80=E2=96=BA=E2=94=9C=
+=E2=94=80BAR<n>         =E2=94=82
+> > =E2=94=82 Controller =E2=94=82   =E2=94=82   update doorbell register a=
+ddress=E2=94=82   =E2=94=82                =E2=94=82
+> > =E2=94=82            =E2=94=82   =E2=94=82   for BAR                   =
+      =E2=94=82   =E2=94=82                =E2=94=82
+> > =E2=94=82            =E2=94=82   =E2=94=82                             =
+      =E2=94=82   =E2=94=82 3. Write BAR<n>=E2=94=82
+> > =E2=94=82            =E2=94=82=E2=97=84=E2=94=80=E2=94=80=E2=94=BC=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=BC=E2=94=80=E2=94=80=E2=94=80=E2=94=A4                =
+=E2=94=82
+> > =E2=94=82            =E2=94=82   =E2=94=82                             =
+      =E2=94=82   =E2=94=82                =E2=94=82
+> > =E2=94=82            =E2=94=9C=E2=94=80=E2=94=80=E2=96=BA=E2=94=82 4.Ir=
+q Handle                      =E2=94=82   =E2=94=82                =E2=94=82
+> > =E2=94=82            =E2=94=82   =E2=94=82                             =
+      =E2=94=82   =E2=94=82                =E2=94=82
+> > =E2=94=82            =E2=94=82   =E2=94=82                             =
+      =E2=94=82   =E2=94=82                =E2=94=82
+> > =E2=94=94=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=98   =E2=94=94=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=98   =E2=94=94=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=98
+> > (* some detail have been changed and don't affect understand overall
+> > picture)
+> >
+> > >
+> > > From what I gather, the ITS is actually on an end-point, and get
+> > > writes from the host, but that doesn't answer much.
+> >
+> > Yes, baisc it is correct. PCI RC -> PCIe Bus TLP -> PCI Endpoint Ctrl ->
+> > AXI transaction -> ITS MMIO map register -> CPU IRQ.
+> >
+> > The major problem how to distingiush from difference PCI Endpoint funct=
+ion
+> > driver. There are have many EP functions as much as 8, which quite simi=
+lar
+> > standard PCI, one PCIe device can have 8 physical functions.
+> >
+> > >
+> > > > ---
+> > > >  drivers/irqchip/irq-gic-v3-its-msi-parent.c | 19 +++++++++++++++++=
++-
+> > > >  1 file changed, 18 insertions(+), 1 deletion(-)
+> > > >
+> > > > diff --git a/drivers/irqchip/irq-gic-v3-its-msi-parent.c b/drivers/=
+irqchip/irq-gic-v3-its-msi-parent.c
+> > > > index b2a4b67545b82..16e7d53f0b133 100644
+> > > > --- a/drivers/irqchip/irq-gic-v3-its-msi-parent.c
+> > > > +++ b/drivers/irqchip/irq-gic-v3-its-msi-parent.c
+> > > > @@ -5,6 +5,7 @@
+> > > >  // Copyright (C) 2022 Intel
+> > > >
+> > > >  #include <linux/acpi_iort.h>
+> > > > +#include <linux/pci-ep-msi.h>
+> > > >  #include <linux/pci.h>
+> > > >
+> > > >  #include "irq-gic-common.h"
+> > > > @@ -173,6 +174,19 @@ static int its_pmsi_prepare(struct irq_domain =
+*domain, struct device *dev,
+> > > >  	return its_pmsi_prepare_devid(domain, dev, nvec, info, dev_id);
+> > > >  }
+> > > >
+> > > > +static int its_pci_ep_msi_prepare(struct irq_domain *domain, struc=
+t device *dev,
+> > > > +				  int nvec, msi_alloc_info_t *info)
+> > > > +{
+> > > > +	u32 dev_id;
+> > > > +	int ret;
+> > > > +
+> > > > +	ret =3D pci_epf_msi_domain_get_msi_rid(dev, &dev_id);
+> > >
+> > > What this doesn't express is *how* are the writes conveyed to the ITS.
+> > > Specifically, the DevID is normally sampled as sideband information at
+> > > during the write transaction.
+> >
+> > Like PCI host, there msi-map in dts file, which descript how map PCI RID
+> > to DevID, such as
+> > 	msi-map =3D <0 $its 0x80 8>;
+> >
+> > This informtion should be descripted in DTS or ACPI ...
+> >
+> > >
+> > > Obviously, you can't do that over PCI. So there is a lot of
+> > > undisclosed assumption about how the ITS is integrated, and how it
+> > > samples the DevID.
+> >
+> > Yes, it should be platform PCI endpoint ctrl driver jobs.  Platform EP
+> > driver should implement this type of covert. Such as i.MX95, there are
+> > hardware call LUT in PCI ctrl,  which can convert PCI' request ID to De=
+vID
+> > here.
+> >
+> > On going patch may help understand these
+> > https://lore.kernel.org/linux-pci/20241210-imx95_lut-v8-0-2e730b2e5fde@=
+nxp.com/
+> >
+> > If use latest ITS MSI64 should be simple, only need descript it at DTS
+> > (I have not hardware to test this case yet).
+> > pci-ep {
+> > 	...
+> > 	msi-map =3D <0 &its, 0x<8_0000, 0xff>;
+> > 			      ^, ctrl ID.
+> > 	msi-mask =3D <0xff>;
+> > 	...
+> > }
+> >
+> > >
+> > > My conclusion is that this is not as generic as it seems to be. It is
+> > > definitely tied to implementation-specific behaviours, none of which
+> > > are explained.
+> >
+> > Compared to standard PCI MSI, which also have implementation-specific
+> > behaviours, which convert PCI request ID to DevID Or stream ID.
+> > https://lore.kernel.org/linux-pci/20241210-imx95_lut-v8-0-2e730b2e5fde@=
+nxp.com/
+> > (I have struggle this for almost one year for this implementation-speci=
+fic
+> > part)
+> >
+> > Well defined and mature PCI standard, MSI still need two parts, common =
+part
+> > and "implementation-specific" part.
+> >
+> > Common part of standard PCI is at several place, such its driver/msi
+> > libary/ kernel msi code ...
+> >
+> > "implementation-specific" part is in PCI host bridge driver, such as
+> > drivers/pci/controller/dwc/pcie-qcom.c
+> >
+> > This solution already test by Tested-by: Niklas Cassel <cassel@kernel.o=
+rg>
+> > who use another dwc controller, which they already implemented
+> > "implementation-specific" by only update dts to provide hardware
+> > information.(I guest he use ITS's MSI64)
+> >
+> > Because it is new patches, I have not added Niklas's test-by tag. There
+> > are not big functional change since Nikas test. The major change is make
+> > msi part better align current MSI framework according to Thomas's
+> > suggestion.
+>=20
+> Thomas Gleixner and Marc Zyngier:
+>=20
+> Happy new year! Do you have additioinal comments for this?
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+I think this is pretty pointless.
 
-    Andrew
+- DOMAIN_BUS_DEVICE_PCI_EP_MSI is just a reinvention of platform MSI,
+  and I don't see why we need to have *two* square wheels
+
+- The whole thing relies on IMPDEF behaviours that are not described,
+  making it impossible to write a *host* driver that works
+  universally.  Specifically, you completely ignored my comment about
+  *how* is the DevID sampled on the ITS side. How is that supposed to
+  work when the DevID is carried as AXI user bits instead of data? How
+  can the host provide that information?
+
+- your "but it's been tested by..." argument doesn't carry much
+  weight, as the kernel has at least one critical bug per "Tested-by"
+  tag
+
+Given that, I don't see how this series is fit for purpose.
+
+Thanks,
+
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
