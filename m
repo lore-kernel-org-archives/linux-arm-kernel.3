@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFC3AE77197
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jan 2025 23:23:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62832E77198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 00:28:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Un5/64g9V3uQ7DFC69I0RBCZQfmsmPHVhtmk5Szk3tc=; b=10eMS+7rK6H5N4l8mdV12Idhdd
-	KCOsRMzguJ/cEbTQ+I/YYVodeN5TxQelYCNvnZyeV94qjXzDHvNpYTGRlDd/GpKWprLOIOXVvGl19
-	0HNozKYiGNIkRXoDcwqWxwqrzvVgwMqZPQMSPQwU0weHI1/Uzh5JcjkhTP8vrWBiHm6yZ7DGlt06w
-	J3mjXieuxtrxo5wWVspG20cZN7qZu5ZQ85sD8rMdh8yzVbYmwMbkF6vVVsF356AX7Op+aaQ+IdNFT
-	3PGkCVew4XZzOJrUqHOfkbpZkQXY2/GkUhMdH5dxlB4W9bcJ9OQK+/ByGUCUiHSrHMKX6aeC/qbJJ
-	Ukp4Yq3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E3cYz6N7b3iWDDwpn84JiQntMlRdH334rgEOQ5CT7fY=; b=x1TxWTCQmAvrl+XZUZ8Y0UxxdT
+	YDQzBD5z3ZJHy1GIkBCVkAG0etXKM7HLwr0+qRjLK+/wtrbQ+H0XuLSbcZZTDXphkwtqYcDTK3P9a
+	X07tZ9dbOuICHf03vBTryMMKRSh+RK5iijD9VeOoN7FnysiWnfmyCH+VrRNnnwgZUYl4bt2YOLLyD
+	bB3oziKls8oQfJ39cUS8a/QZELs2A0QcXzcAbIAniDiyZj46vEEsaTeiwyhdxb5+qZ0FkFd5/l10e
+	sw3/DqziVKfXHYONadTOoixIqQANvZrR+SUZ3Uh6opDBc+2ROHR9AoNtvDfhhnUb6koO949v6O8iM
+	SjMyPt2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUZy5-0000000HVwv-1For;
-	Sun, 05 Jan 2025 23:23:37 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1tUay9-0000000HY6q-2SQR;
+	Mon, 06 Jan 2025 00:27:45 +0000
+Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUZws-0000000HVuk-3WsP
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 05 Jan 2025 23:22:24 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 6A7B4594;
-	Mon,  6 Jan 2025 00:21:30 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1736119290;
-	bh=i+mmSnetEJ2wYr6KUP6A42oOjaPOpfLk2IUU7cgmPXM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=S360THjpWADamVJ+TSvowC9wx3ORxzsxua0OpNpA++42F7LO4tcQB02GrAC66qFug
-	 tHQe06v7ywUgUVfV3jm6bewxqJbemV/r4pPjUlc5lM1W3OJ0OqFIlkP5qE9XQkDmvC
-	 YfJc0cGPo9NHdtVpyxYGdLm6NvuT5V1KqhTKx+Mo=
-Date: Mon, 6 Jan 2025 01:22:19 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Marek Vasut <marex@denx.de>
-Cc: dri-devel@lists.freedesktop.org,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	David Airlie <airlied@gmail.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jonas Karlman <jonas@kwiboo.se>, Liu Ying <victor.liu@nxp.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Robert Foss <rfoss@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>,
-	Stefan Agner <stefan@agner.ch>,
-	Thomas Zimmermann <tzimmermann@suse.de>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 1/4] drm: bridge: dw_hdmi: Add flag to indicate output
- port is optional
-Message-ID: <20250105232219.GC21164@pendragon.ideasonboard.com>
-References: <20250105190659.99941-1-marex@denx.de>
+	id 1tUawx-0000000HY1F-27Bx;
+	Mon, 06 Jan 2025 00:26:33 +0000
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4YRFNL74gHz9svW;
+	Mon,  6 Jan 2025 01:26:26 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=timsurber.de;
+	s=MBO0001; t=1736123187;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=E3cYz6N7b3iWDDwpn84JiQntMlRdH334rgEOQ5CT7fY=;
+	b=uziCZDDSnVcA4tdMDNJQ5+3SnjcyCsfnXl/eAqHODi3cOGO37AWxiqp9pEC33vJSnxBPFL
+	/f+KvDVFpeS4P8gYJ4dds1uRIipujKIsb12P40IqRABfKlETLVbLwbimcW03OizG0e2EPC
+	J/4o8JOKH9LMjw7lTVHjArsg0vRF/Xcrk28JQKcyjiSkKq3xbl6G0g3U1fv6DPAnv3KhoB
+	xIS1JHuQn8TY5/Q13K6lBcCXQCSIWsX7Zm4yh1mp4g1y9Vt890eqaFIc0T5QSgkY660qnh
+	o5vJ6CVHkjcIu9/Gphk+YQtfbYIVaNszXFmBGSvtURPsyCMuoQ0O2VWI8CTnQg==
+Message-ID: <c71a3f79-71f3-4fd2-a509-c42b24636a2f@timsurber.de>
+Date: Mon, 6 Jan 2025 01:26:21 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250105190659.99941-1-marex@denx.de>
+Subject: Re: [RESEND PATCH v5 0/4] Add Synopsys DesignWare HDMI RX Controller
+To: Shreeya Patel <shreeya.patel@collabora.com>, heiko@sntech.de,
+ mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, mturquette@baylibre.com, sboyd@kernel.org,
+ p.zabel@pengutronix.de, jose.abreu@synopsys.com, nelson.costa@synopsys.com,
+ shawn.wen@rock-chips.com, nicolas.dufresne@collabora.com,
+ hverkuil@xs4all.nl, hverkuil-cisco@xs4all.nl
+Cc: kernel@collabora.com, linux-kernel@vger.kernel.org,
+ linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ dmitry.osipenko@collabora.com
+References: <20241210193904.883225-1-shreeya.patel@collabora.com>
+Content-Language: en-US
+From: Tim Surber <me@timsurber.de>
+In-Reply-To: <20241210193904.883225-1-shreeya.patel@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Rspamd-Queue-Id: 4YRFNL74gHz9svW
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250105_152223_032507_0C7934CC 
-X-CRM114-Status: GOOD (  27.54  )
+X-CRM114-CacheID: sfid-20250105_162631_897342_F7C87B41 
+X-CRM114-Status: GOOD (  40.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,127 +82,375 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
 
-Thank you for the patch.
 
-On Sun, Jan 05, 2025 at 08:06:03PM +0100, Marek Vasut wrote:
-> Add a flag meant purely to work around broken i.MX8MP DTs which enable
-> HDMI but do not contain the HDMI connector node. This flag allows such
-> DTs to work by creating the connector in the HDMI bridge driver. Do not
-> use this flag, do not proliferate this flag, please fix your DTs and add
-> the connector node this way:
-> 
-> ```
-> / {
->     hdmi-connector {
->         compatible = "hdmi-connector";
->         label = "FIXME-Board-Specific-Connector-Label"; // Modify this
->         type = "a";
-> 
->         port {
->             hdmi_connector_in: endpoint {
->                 remote-endpoint = <&hdmi_tx_out>;
->             };
->         };
->     };
-> };
-> 
-> &hdmi_tx {
->     ...
-> 
->     ports {
->         port@1 {
->             hdmi_tx_out: endpoint {
->                 remote-endpoint = <&hdmi_connector_in>;
->             };
->         };
->     };
-> };
-> ```
+Hi Shreeya,
 
-Are there any in-tree DT sources that use the old bindings ?
+I applied your patch to rockchip/next on an FriendlyElec CM3588 device 
+with arm-trusted-firmware 2.12. This is the same hardware/cable/sources 
+I used previously
+Sadly I could not get it to work at all.
 
-> Signed-off-by: Marek Vasut <marex@denx.de>
+After connection to a HDMI source I get the following error with all 
+devices and resolutions I tested
+# dmesg
+snps_hdmirx fdee0000.hdmi_receiver: hdmirx_controller_init wait timer 
+base lock failed
+snps_hdmirx fdee0000.hdmi_receiver: hdmirx_phy_register_write wait cr 
+write done failed (repeating multiple times)
+
+
+# v4l2-ctl --list-devices
+[...]
+snps_hdmirx (platform:fdee0000.hdmi_receiver):
+     /dev/video2
+
+
+With the source set to 1920x1080, 60hz RGB I get the following output, 
+it freezes and creates no file. Notice the wrong resolution
+
+# v4l2-ctl --verbose -d /dev/video2 
+--set-fmt-video=width=1920,height=1080,pixelformat='BGR3' 
+--stream-mmap=4 --stream-skip=3 --stream-count=100 
+--stream-to=hdmiin4k.raw --stream-poll
+VIDIOC_QUERYCAP: ok
+VIDIOC_G_FMT: ok
+VIDIOC_S_FMT: ok
+Format Video Capture Multiplanar:
+     Width/Height      : 640/480
+     Pixel Format      : 'BGR3' (24-bit BGR 8-8-8)
+     Field             : None
+     Number of planes  : 1
+     Flags             :
+     Colorspace        : sRGB
+     Transfer Function : Default
+     YCbCr/HSV Encoding: Default
+     Quantization      : Default
+     Plane 0           :
+        Bytes per Line : 1920
+        Size Image     : 921600
+
+Sometimes I could get a very distorted picture with gstreamer
+# dmesg
+fdee0000.hdmi_receiver: hdmirx_query_dv_timings: signal is not locked
+rockchip-rga fdb80000.rga: [CAPTURE] fmt - BGR3 little-endian 
+(0x33524742) 1920x1080 (stride 5760, sizeimage 6220800)
+rockchip-rga fdb80000.rga: plane[0]: size 6220800, bytesperline 5760
+
+
+# v4l2-ctl --all -L --list-formats-ext -d /dev/video2
+Driver Info:
+     Driver name      : snps_hdmirx
+     Card type        : snps_hdmirx
+     Bus info         : platform:fdee0000.hdmi_receiver
+     Driver version   : 6.13.0
+     Capabilities     : 0x84201000
+         Video Capture Multiplanar
+         Streaming
+         Extended Pix Format
+         Device Capabilities
+     Device Caps      : 0x04201000
+         Video Capture Multiplanar
+         Streaming
+         Extended Pix Format
+Priority: 2
+Video input : 0 (HDMI IN: ok)
+DV timings:
+     Active width: 640
+     Active height: 480
+     Total width: 800
+     Total height: 525
+     Frame format: progressive
+     Polarities: -vsync -hsync
+     Pixelclock: 25175000 Hz (59.94 frames per second)
+     Horizontal frontporch: 16
+     Horizontal sync: 96
+     Horizontal backporch: 48
+     Vertical frontporch: 10
+     Vertical sync: 2
+     Vertical backporch: 33
+     Standards: CTA-861, DMT
+     CTA-861 VIC: 1
+     Flags: has CTA-861 VIC
+DV timings capabilities:
+     Minimum Width: 640
+     Maximum Width: 4096
+     Minimum Height: 480
+     Maximum Height: 2160
+     Minimum PClock: 20000000
+     Maximum PClock: 600000000
+     Standards: CTA-861
+     Capabilities: Interlaced, Progressive
+Format Video Capture Multiplanar:
+     Width/Height      : 640/480
+     Pixel Format      : 'BGR3' (24-bit BGR 8-8-8)
+     Field             : None
+     Number of planes  : 1
+     Flags             :
+     Colorspace        : sRGB
+     Transfer Function : Default
+     YCbCr/HSV Encoding: Default
+     Quantization      : Default
+     Plane 0           :
+        Bytes per Line : 1920
+        Size Image     : 921600
+
+Digital Video Controls
+
+                   power_present 0x00a00964 (bitmask): max=0x00000001 
+default=0x00000000 value=1 flags=read-only
+       rx_rgb_quantization_range 0x00a00965 (menu)   : min=0 max=2 
+default=0 value=0 (Automatic) flags=read-only
+                 0: Automatic
+                 1: RGB Limited Range (16-235)
+                 2: RGB Full Range (0-255)
+              rx_it_content_type 0x00a00966 (menu)   : min=0 max=4 
+default=4 value=4 (No IT Content) flags=read-only
+                 0: Graphics
+                 1: Photo
+                 2: Cinema
+                 3: Game
+                 4: No IT Content
+ioctl: VIDIOC_ENUM_FMT
+     Type: Video Capture Multiplanar
+
+     [0]: 'BGR3' (24-bit BGR 8-8-8)
+
+
+Best regards,
+Tim
+
+
+On 12/10/24 20:39, Shreeya Patel wrote:
+> This series implements support for the Synopsys DesignWare
+> HDMI RX Controller, being compliant with standard HDMI 1.4b
+> and HDMI 2.0.
+> 
+> Features that are currently supported by the HDMI RX driver
+> have been tested on rock5b board using a HDMI to micro-HDMI cable.
+> It is recommended to use a good quality cable as there were
+> multiple issues seen during testing the driver.
+> 
+> Please note the below information :-
+> * HDMIRX driver now only works with the opensource TF-A.
+> * We have tested the working of OBS studio with HDMIRX driver and
+> there were no issues seen.
+> * We also tested and verified the support for interlaced video.
+> 
+> To test the HDMI RX Controller driver, following example commands can be used :-
+> 
+> root@debian-rockchip-rock5b-rk3588:~# v4l2-ctl --verbose -d /dev/video0 \
+> --set-fmt-video=width=1920,height=1080,pixelformat='BGR3' --stream-mmap=4 \
+> --stream-skip=3 --stream-count=100 --stream-to=/home/hdmiin4k.raw --stream-poll
+> 
+> root@debian-rockchip-rock5b-rk3588:~# ffmpeg -f rawvideo -vcodec rawvideo \
+> -s 1920x1080 -r 60 -pix_fmt bgr24 -i /home/hdmiin4k.raw output.mkv
+> 
+> CEC compliance test results :-
+> 
+> * https://gitlab.collabora.com/-/snippets/380
+> * https://gitlab.collabora.com/-/snippets/381
+> 
+> Following is the v4l2-compliance test result :-
+> 
+> root@debian-rockchip-rock5b-rk3588:~# v4l2-compliance -d /dev/video0
+> v4l2-compliance 1.29.0-5278, 64 bits, 64-bit time_t
+> v4l2-compliance SHA: 791da13728d9 2024-11-25 10:01:57
+> 
+> Compliance test for snps_hdmirx device /dev/video0:
+> 
+> Driver Info:
+> 	Driver name      : snps_hdmirx
+> 	Card type        : snps_hdmirx
+> 	Bus info         : platform:fdee0000.hdmi_receiver
+> 	Driver version   : 6.12.0
+> 	Capabilities     : 0x84201000
+> 		Video Capture Multiplanar
+> 		Streaming
+> 		Extended Pix Format
+> 		Device Capabilities
+> 	Device Caps      : 0x04201000
+> 		Video Capture Multiplanar
+> 		Streaming
+> 		Extended Pix Format
+> 
+> Required ioctls:
+> 	test VIDIOC_QUERYCAP: OK
+> 	test invalid ioctls: OK
+> 
+> Allow for multiple opens:
+> 	test second /dev/video0 open: OK
+> 	test VIDIOC_QUERYCAP: OK
+> 	test VIDIOC_G/S_PRIORITY: OK
+> 	test for unlimited opens: OK
+> 
+> Debug ioctls:
+> 	test VIDIOC_DBG_G/S_REGISTER: OK (Not Supported)
+> 	test VIDIOC_LOG_STATUS: OK
+> 
+> Input ioctls:
+> 	test VIDIOC_G/S_TUNER/ENUM_FREQ_BANDS: OK (Not Supported)
+> 	test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+> 	test VIDIOC_S_HW_FREQ_SEEK: OK (Not Supported)
+> 	test VIDIOC_ENUMAUDIO: OK (Not Supported)
+> 	test VIDIOC_G/S/ENUMINPUT: OK
+> 	test VIDIOC_G/S_AUDIO: OK (Not Supported)
+> 	Inputs: 1 Audio Inputs: 0 Tuners: 0
+> 
+> Output ioctls:
+> 	test VIDIOC_G/S_MODULATOR: OK (Not Supported)
+> 	test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+> 	test VIDIOC_ENUMAUDOUT: OK (Not Supported)
+> 	test VIDIOC_G/S/ENUMOUTPUT: OK (Not Supported)
+> 	test VIDIOC_G/S_AUDOUT: OK (Not Supported)
+> 	Outputs: 0 Audio Outputs: 0 Modulators: 0
+> 
+> Input/Output configuration ioctls:
+> 	test VIDIOC_ENUM/G/S/QUERY_STD: OK (Not Supported)
+> 	test VIDIOC_ENUM/G/S/QUERY_DV_TIMINGS: OK
+> 	test VIDIOC_DV_TIMINGS_CAP: OK
+> 	test VIDIOC_G/S_EDID: OK
+> 
+> Control ioctls (Input 0):
+> 	test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK
+> 	test VIDIOC_QUERYCTRL: OK
+> 	test VIDIOC_G/S_CTRL: OK
+> 	test VIDIOC_G/S/TRY_EXT_CTRLS: OK
+> 	test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK
+> 	test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+> 	Standard Controls: 4 Private Controls: 0
+> 
+> Format ioctls (Input 0):
+> 	test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
+> 	test VIDIOC_G/S_PARM: OK
+> 	test VIDIOC_G_FBUF: OK (Not Supported)
+> 	test VIDIOC_G_FMT: OK
+> 	test VIDIOC_TRY_FMT: OK
+> 	test VIDIOC_S_FMT: OK
+> 	test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+> 	test Cropping: OK (Not Supported)
+> 	test Composing: OK (Not Supported)
+> 	test Scaling: OK (Not Supported)
+> 
+> Codec ioctls (Input 0):
+> 	test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
+> 	test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+> 	test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
+> 
+> Buffer ioctls (Input 0):
+> 	test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
+> 	test CREATE_BUFS maximum buffers: OK
+> 	test VIDIOC_REMOVE_BUFS: OK
+> 	test VIDIOC_EXPBUF: OK
+> 	test Requests: OK (Not Supported)
+> 	test blocking wait: OK
+> 
+> Total for snps_hdmirx device /dev/video0: 48, Succeeded: 48, Failed: 0, Warnings: 0
+> 
 > ---
-> Cc: Andrzej Hajda <andrzej.hajda@intel.com>
-> Cc: David Airlie <airlied@gmail.com>
-> Cc: Fabio Estevam <festevam@gmail.com>
-> Cc: Jernej Skrabec <jernej.skrabec@gmail.com>
-> Cc: Jonas Karlman <jonas@kwiboo.se>
-> Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
-> Cc: Liu Ying <victor.liu@nxp.com>
-> Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-> Cc: Maxime Ripard <mripard@kernel.org>
-> Cc: Neil Armstrong <neil.armstrong@linaro.org>
-> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-> Cc: Robert Foss <rfoss@kernel.org>
-> Cc: Sascha Hauer <s.hauer@pengutronix.de>
-> Cc: Shawn Guo <shawnguo@kernel.org>
-> Cc: Simona Vetter <simona@ffwll.ch>
-> Cc: Stefan Agner <stefan@agner.ch>
-> Cc: Thomas Zimmermann <tzimmermann@suse.de>
-> Cc: dri-devel@lists.freedesktop.org
-> Cc: imx@lists.linux.dev
-> Cc: linux-arm-kernel@lists.infradead.org
-> ---
-> V3: New patch
-> V4: - Add HDMI connector node addition example into commit message
->     - Bail from dw_hdmi_bridge_attach() if DRM_BRIDGE_ATTACH_NO_CONNECTOR
->       is set and there is no hdmi->next_bridge , so the connector can
->       be created in scanout driver.
-> ---
->  drivers/gpu/drm/bridge/synopsys/dw-hdmi.c | 8 ++++++--
->  include/drm/bridge/dw_hdmi.h              | 2 ++
->  2 files changed, 8 insertions(+), 2 deletions(-)
 > 
-> diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
-> index 996733ed2c004..e84693faf46dc 100644
-> --- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
-> +++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
-> @@ -2893,9 +2893,13 @@ static int dw_hdmi_bridge_attach(struct drm_bridge *bridge,
->  {
->  	struct dw_hdmi *hdmi = bridge->driver_private;
->  
-> -	if (flags & DRM_BRIDGE_ATTACH_NO_CONNECTOR)
-> +	if (flags & DRM_BRIDGE_ATTACH_NO_CONNECTOR) {
-> +		if (!hdmi->next_bridge)
-> +			return 0;
-> +
->  		return drm_bridge_attach(bridge->encoder, hdmi->next_bridge,
->  					 bridge, flags);
-> +	}
->  
->  	return dw_hdmi_connector_create(hdmi);
->  }
-> @@ -3298,7 +3302,7 @@ static int dw_hdmi_parse_dt(struct dw_hdmi *hdmi)
->  					  hdmi->plat_data->output_port,
->  					  -1);
->  	if (!remote)
-> -		return -ENODEV;
-> +		return hdmi->plat_data->output_port_optional ? 0 : -ENODEV;
+> Resending the patch series due to mail server timeout issue
+> when sending v5 patchset
+> 
+> Changes in v5 :-
+> - Fix the interrupt IRQ number in the dt-bindings and device tree
+> - Add alignment property to ensure hdmi-receiver-cma
+>    starts at a 64KB-aligned address
+> - Change the MODULE_DESCRIPTION
+> - Add VIDEO_SYNOPSYS_HDMIRX as prefix to the default edid config
+> - Drop the enabling of default edid in the Kconfig
+> - Replace the default EDID with hdmi-4k-300mhz EDID produced
+>    by v4l2-ctl tool for better compatibility with various HDMI
+>    cables and adapters
+> - Rework the write_edid and set_edid functions
+> - During format change, retrieve the current pixel format,
+>    color depth, and AVI infoframe details instead of only
+>    detecting the format
+> - Improve the logging mechanism and delays in the
+>    hdmirx_wait_signal_lock function
+> - Fix the 4K@60 capturing for RGB format
+> - Document what hdmirx_check_timing_valid function does
+> - Rework the hdmirx_get_detected_timings function
+> - Fix the NV16/24 size image value
+> - Add the implementation from Benjamin Hoff to expose the
+>    ITC type to v4l2
+> - Remove all the firmware related code
+> 
+> Changes in v4 :-
+> - Remove DTS changes included in the device tree patch
+> - Remove the hdmi rx pin info as it's already present
+> in the rk3588-base-pinctrl.dtsi
+> - Create a separate config option for selecting the EDID
+> and enable it by default
+> - Improve the comment related to DV timings and move it
+> to the side of hdmirx_get_detected_timings
+> - Add 100ms delay before pulling the HPD high
+> - Do not return the detected timings from VIDIOC_G_DV_TIMINGS
+> - Drop the bus info from hdmirx_querycap
+> - If *num_planes != 0 then return 0 in hdmirx_queue_setup
+> - Set queue->min_queued_buffers to 1
+> - Drop q->allow_cache_hints = 0; as it's always 0 by default
+> - Add a comment for q->dma_attrs = DMA_ATTR_FORCE_CONTIGUOUS;
+> - Drop .read = vb2_fop_read as it's not supported by driver
+> - Remove redundant edid_init_data_600M
+> - Make HPD low when driver is loaded
+> - Add support for reading AVI Infoframe
+> - Remove msg_len checks from hdmirx_cec_transmit
+> - Add info about the CEC compliance test in the cover letter
+> - Add arbitration lost status
+> - Validate the physical address inside the EDID
+> 
+> Changes in v3 :-
+> - Use v4l2-common helpers in the HDMIRX driver
+> - Rename cma node and phandle names
+> - Elaborate the comment to explain 160MiB calculation
+> - Move &hdmi_receiver_cma to the rock5b dts file
+> - Add information about interlaced video testing in the
+> cover-letter
+> 
+> Changes in v2 :-
+> - Fix checkpatch --strict warnings
+> - Move the dt-binding include file changes in a separate patch
+> - Add a description for the hardware in the dt-bindings file
+> - Rename resets, vo1 grf and HPD properties
+> - Add a proper description for grf and vo1-grf phandles in the
+> bindings
+> - Rename the HDMI RX node name to hdmi-receiver
+> - Include gpio header file in binding example to fix the
+> dt_binding_check failure
+> - Move hdmirx_cma node to the rk3588.dtsi file
+> - Add an entry to MAINTAINERS file for the HDMIRX driver
+> 
+> Shreeya Patel (4):
+>    MAINTAINERS: Add entry for Synopsys DesignWare HDMI RX Driver
+>    dt-bindings: media: Document bindings for HDMI RX Controller
+>    arm64: dts: rockchip: Add device tree support for HDMI RX Controller
+>    media: platform: synopsys: Add support for HDMI input driver
+> 
+>   .../bindings/media/snps,dw-hdmi-rx.yaml       |  132 +
+>   MAINTAINERS                                   |    8 +
+>   .../dts/rockchip/rk3588-base-pinctrl.dtsi     |   14 +
+>   .../arm64/boot/dts/rockchip/rk3588-extra.dtsi |   57 +
+>   drivers/media/platform/Kconfig                |    1 +
+>   drivers/media/platform/Makefile               |    1 +
+>   drivers/media/platform/synopsys/Kconfig       |    3 +
+>   drivers/media/platform/synopsys/Makefile      |    2 +
+>   .../media/platform/synopsys/hdmirx/Kconfig    |   27 +
+>   .../media/platform/synopsys/hdmirx/Makefile   |    4 +
+>   .../platform/synopsys/hdmirx/snps_hdmirx.c    | 2662 +++++++++++++++++
+>   .../platform/synopsys/hdmirx/snps_hdmirx.h    |  394 +++
+>   .../synopsys/hdmirx/snps_hdmirx_cec.c         |  283 ++
+>   .../synopsys/hdmirx/snps_hdmirx_cec.h         |   44 +
+>   14 files changed, 3633 insertions(+)
+>   create mode 100644 Documentation/devicetree/bindings/media/snps,dw-hdmi-rx.yaml
+>   create mode 100644 drivers/media/platform/synopsys/Kconfig
+>   create mode 100644 drivers/media/platform/synopsys/Makefile
+>   create mode 100644 drivers/media/platform/synopsys/hdmirx/Kconfig
+>   create mode 100644 drivers/media/platform/synopsys/hdmirx/Makefile
+>   create mode 100644 drivers/media/platform/synopsys/hdmirx/snps_hdmirx.c
+>   create mode 100644 drivers/media/platform/synopsys/hdmirx/snps_hdmirx.h
+>   create mode 100644 drivers/media/platform/synopsys/hdmirx/snps_hdmirx_cec.c
+>   create mode 100644 drivers/media/platform/synopsys/hdmirx/snps_hdmirx_cec.h
+> 
 
-Let's complain loudly with a WARN_ON if output_port_optional is set.
-
->  
->  	hdmi->next_bridge = of_drm_find_bridge(remote);
->  	of_node_put(remote);
-> diff --git a/include/drm/bridge/dw_hdmi.h b/include/drm/bridge/dw_hdmi.h
-> index 6a46baa0737cd..3bb6e633424a8 100644
-> --- a/include/drm/bridge/dw_hdmi.h
-> +++ b/include/drm/bridge/dw_hdmi.h
-> @@ -127,6 +127,8 @@ struct dw_hdmi_plat_data {
->  	struct regmap *regm;
->  
->  	unsigned int output_port;
-> +	/* Used purely by MX8MP HDMI to work around broken DTs without HDMI connector node. */
-> +	bool output_port_optional;
->  
->  	unsigned long input_bus_encoding;
->  	bool use_drm_infoframe;
-
--- 
-Regards,
-
-Laurent Pinchart
 
