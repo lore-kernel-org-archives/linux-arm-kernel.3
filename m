@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79C1AE77198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 14:01:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9617CE77198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 14:02:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=oOOSCdK8/MdEd5mLIWruc0Y4cjtDY8rdZJwUNZdP9r0=; b=tRMuINNNtqhrSHRG4ekcp7yquC
-	jH7dOccQ+CxDx7k0Hj77tboSjjQ+5KMPKgJzRE20hboxfqHPUJ97lM0Baxe03/WlEzjJ6TJuKGkEm
-	pSzaGqVAgrmXEUeidUIdpR2zn/u0bQJBYW8ZloJSsIK0hNyTPDHHQFxtvn+R3FjD6MevpfRJJDKGw
-	IXhGPI+vrqNv5l8ynMsHBtsn2XQufCesNfi8Q7LlPMeJlaD3L3HKg7nVal60/Q388Nbd1QgOyphQq
-	0tZanEJvKcMtmbGXqAvxk01y7vmfyVf3cOaz6j2YvEgnWdvaNoqMieSlt94DANNQ/P3YMfDCAVPsj
-	PxGXj57w==;
+	bh=4C5FyZ9zpL0WI0kqjxT0tLMHStA5KPm50HM8ww9BAbI=; b=EF2sM6iEwNhQMl0pLuM/ThW+zN
+	n+ygNvWnOtpVOpHiZw8d1D4bwSdOdAkiLYBsb2bU08VNixk4yCOKNOnozj7LGoR8h3gPlNdUbgha6
+	3zed/H8ihQPK/k2xC6iYX+QWUpF16eu/aCiQXetjmLuUk9RUDITEQfuPvAGR0HfVDHAOuV6focqv/
+	Rnfz+jp64gpQpl5NAdepIc4iG9MIgCQ37qqGhpAQ4PsWYPXieMTP6mYMBFr0I1m8DQN/KpYI0m9uH
+	T0jHukL2hxnssWSi8GXI3xEqTYDozamcKBHJ5DVKXCoS+6vBtO0rFHbSg7xwZ/sJXykLUtiwr3oTg
+	TaI021Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUnfZ-00000001UJr-1KS7;
-	Mon, 06 Jan 2025 14:01:25 +0000
-Received: from mgamail.intel.com ([192.198.163.17])
+	id 1tUngi-00000001UdT-49Sn;
+	Mon, 06 Jan 2025 14:02:36 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUnbT-00000001TYz-2HBI
+	id 1tUnbv-00000001Th4-0jtf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 13:57:12 +0000
+	Mon, 06 Jan 2025 13:57:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1736171831; x=1767707831;
+  t=1736171860; x=1767707860;
   h=from:to:cc:subject:date:message-id:mime-version:
    content-transfer-encoding;
-  bh=/+i8FYAafrrfqRSuGKBUIfPXgTCEk4S697hIJh7teK4=;
-  b=kabvQL0ofaeFTlOgNLeSACBCPjX2su1ZjgoP1HPXVS2jOjmgIPQnQP5c
-   hE1V/5vnek5fY8wVtwt2c8DpwD+pdasFCCjOmgdCkjqRdYY2dMK2KMaxI
-   t3dgaQK+LfxYptTHLA6uPo1qmJ3xjh6IWdYLoIFrE8k4RYbcOPPlxB9dh
-   QDbTY0esZWGt6NbOJEH7l0KOLRVQY+RyD7ETGUD3AOVRzT1/0+CfShHji
-   TId/i0qbgwcII7B4fOSXlqqfLl4h2tGqcaZlL+I/U8hNyWhT8bC1GX5kt
-   v8XFCMYm/BDymWbzqXQ4An99iKw9e9tmORAm6/XygTRTQzDZmmWTSlcC0
+  bh=qGCwaypJFSzHfD7SuLIe+AzV2lEwzPgKj63Q4p347so=;
+  b=bUNl52Evms9UTlJzGmkGzX65iJF65THJZQp/fYVjNSxmVQbUli4+od2t
+   fA4xhQQ0xYWzZSO2NI2kVb8kmpR4wcSBjz9t1v+Gn3xWSvNfk12jsEx6R
+   vx4mM8LEaG56qiodJsKgzMBmBzHHgFj5zHGf5sJ9VCWZyvAj80v8TZF/5
+   /2QJa8tbK2OFQiP0soAj/QTKq7YlFZ98ZUrWdVrDbxoa6tvM1L7RkGUek
+   /iIViblxphAbS2bLNWvwXSF9NUfofceED2C44MNahZlReOfQfEOH7L7Y8
+   7nYmxABiF8xOZNE0a7QGYlWugbQvrSAbn6ObZmfEcI8ouMo19SVHGr3Bl
    g==;
-X-CSE-ConnectionGUID: XiAyvj6kR6i14JUM4y0Qaw==
-X-CSE-MsgGUID: iPixkZ73RDi1iTilOMAb5Q==
-X-IronPort-AV: E=McAfee;i="6700,10204,11307"; a="36214394"
+X-CSE-ConnectionGUID: al0tOawgSKGKmWb9/zZWMA==
+X-CSE-MsgGUID: TKFOHsm+T3KI5Qi5PTOOMQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11307"; a="36473842"
 X-IronPort-AV: E=Sophos;i="6.12,292,1728975600"; 
-   d="scan'208";a="36214394"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Jan 2025 05:57:11 -0800
-X-CSE-ConnectionGUID: M6+cb+MjRTC9JvS0857Mbg==
-X-CSE-MsgGUID: FJybESsMTdaPa83cjklrFw==
+   d="scan'208";a="36473842"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Jan 2025 05:57:39 -0800
+X-CSE-ConnectionGUID: 5mNEh76+SQOPHNjCosOwZg==
+X-CSE-MsgGUID: 7Q1uLqm2TRCloWfgYIj/Pg==
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="125728751"
+X-IronPort-AV: E=Sophos;i="6.12,292,1728975600"; 
+   d="scan'208";a="107408167"
 Received: from unknown (HELO P12ILL20yoongsia.png.intel.com) ([10.88.227.38])
-  by fmviesa002.fm.intel.com with ESMTP; 06 Jan 2025 05:57:01 -0800
+  by orviesa004.jf.intel.com with ESMTP; 06 Jan 2025 05:57:27 -0800
 From: Song Yoong Siang <yoong.siang.song@intel.com>
 To: "David S . Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
@@ -104,15 +104,15 @@ Cc: netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	intel-wired-lan@lists.osuosl.org,
 	xdp-hints@xdp-project.net
-Subject: [PATCH bpf-next v4 3/4] net: stmmac: Add launch time support to XDP ZC
-Date: Mon,  6 Jan 2025 21:56:58 +0800
-Message-Id: <20250106135658.9734-1-yoong.siang.song@intel.com>
+Subject: [PATCH bpf-next v4 4/4] igc: Add launch time support to XDP ZC
+Date: Mon,  6 Jan 2025 21:57:24 +0800
+Message-Id: <20250106135724.9749-1-yoong.siang.song@intel.com>
 X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_055711_594397_6281213D 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20250106_055739_261816_A7A99017 
+X-CRM114-Status: GOOD (  16.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,107 +127,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable launch time (Time-Based Scheduling) support to XDP zero copy via XDP
-Tx metadata framework.
+Enable Launch Time Control (LTC) support to XDP zero copy via XDP Tx
+metadata framework.
 
 This patch is tested with tools/testing/selftests/bpf/xdp_hw_metadata on
 Intel Tiger Lake platform. Below are the test steps and result.
 
 Test Steps:
 1. Add mqprio qdisc:
-   $ sudo tc qdisc add dev enp0s30f4 handle 8001: parent root mqprio num_tc
-     4 map 0 1 2 3 3 3 3 3 3 3 3 3 3 3 3 3 queues 1@0 1@1 1@2 1@3 hw 0
+   $ sudo tc qdisc add dev enp2s0 handle 8001: parent root mqprio num_tc 4
+     map 3 2 1 0 0 0 0 0 0 0 0 0 0 0 0 0 queues 1@0 1@1 1@2 1@3 hw 0
 
 2. Enable launch time hardware offload on hardware queue 1:
-   $ sudo tc qdisc replace dev enp0s30f4 parent 8001:2 etf offload clockid
+   $ sudo tc qdisc replace dev enp2s0 parent 8001:2 etf offload clockid
      CLOCK_TAI delta 500000
 
-3. Add an ingress qdisc:
-   $ sudo tc qdisc add dev enp0s30f4 ingress
+3. Change RSS to route all incoming IP packets into hardware queue 1:
+   $ sudo ethtool -X enp2s0 start 1 equal 1
 
-4. Add a flower filter to route incoming packet with VLAN priority 1 into
-   hardware queue 1:
-   $ sudo tc filter add dev enp0s30f4 parent ffff: protocol 802.1Q flower
-     vlan_prio 1 hw_tc 1
+4. Start xdp_hw_metadata selftest application:
+   $ sudo ./xdp_hw_metadata enp2s0 -l 1000000000
 
-5. Enable VLAN tag stripping:
-   $ sudo ethtool -K enp0s30f4 rxvlan on
-
-6. Start xdp_hw_metadata selftest application:
-   $ sudo ./xdp_hw_metadata enp0s30f4 -l 1000000000
-
-7. Send an UDP packet with VLAN priority 1 to port 9091 of DUT.
+5. Send an UDP packet to port 9091 of DUT.
+   $ echo -n xdp | nc -u -q0 169.254.1.1 9091
 
 When launch time is set to 1s in the future, the delta between launch time
-and transmit hardware timestamp is equal to 16.963us, as shown in result
+and transmit hardware timestamp is equal to 0.016us, as shown in result
 below:
-  0x55b5864717a8: rx_desc[4]->addr=88100 addr=88100 comp_addr=88100 EoP
-  No rx_hash, err=-95
-  HW RX-time:   1734579065767717328 (sec:1734579065.7677) delta to User RX-time sec:0.0004 (375.624 usec)
-  XDP RX-time:   1734579065768004454 (sec:1734579065.7680) delta to User RX-time sec:0.0001 (88.498 usec)
+  0x562ff5dc8880: rx_desc[4]->addr=84110 addr=84110 comp_addr=84110 EoP
+  rx_hash: 0xE343384 with RSS type:0x1
+  HW RX-time:   1734578015467548904 (sec:1734578015.4675) delta to User RX-time sec:0.0002 (183.103 usec)
+  XDP RX-time:   1734578015467651698 (sec:1734578015.4677) delta to User RX-time sec:0.0001 (80.309 usec)
   No rx_vlan_tci or rx_vlan_proto, err=-95
-  0x55b5864717a8: ping-pong with csum=5619 (want 0000) csum_start=34 csum_offset=6
-  HW RX-time:   1734579065767717328 (sec:1734579065.7677) delta to HW Launch-time sec:1.0000 (1000000.000 usec)
-  0x55b5864717a8: complete tx idx=4 addr=4018
-  HW Launch-time:   1734579066767717328 (sec:1734579066.7677) delta to HW TX-complete-time sec:0.0000 (16.963 usec)
-  HW TX-complete-time:   1734579066767734291 (sec:1734579066.7677) delta to User TX-complete-time sec:0.0001 (130.408 usec)
-  XDP RX-time:   1734579065768004454 (sec:1734579065.7680) delta to User TX-complete-time sec:0.9999 (999860.245 usec)
-  HW RX-time:   1734579065767717328 (sec:1734579065.7677) delta to HW TX-complete-time sec:1.0000 (1000016.963 usec)
-  0x55b5864717a8: complete rx idx=132 addr=88100
+  0x562ff5dc8880: ping-pong with csum=561c (want c7dd) csum_start=34 csum_offset=6
+  HW RX-time:   1734578015467548904 (sec:1734578015.4675) delta to HW Launch-time sec:1.0000 (1000000.000 usec)
+  0x562ff5dc8880: complete tx idx=4 addr=4018
+  HW Launch-time:   1734578016467548904 (sec:1734578016.4675) delta to HW TX-complete-time sec:0.0000 (0.016 usec)
+  HW TX-complete-time:   1734578016467548920 (sec:1734578016.4675) delta to User TX-complete-time sec:0.0000 (32.546 usec)
+  XDP RX-time:   1734578015467651698 (sec:1734578015.4677) delta to User TX-complete-time sec:0.9999 (999929.768 usec)
+  HW RX-time:   1734578015467548904 (sec:1734578015.4675) delta to HW TX-complete-time sec:1.0000 (1000000.016 usec)
+  0x562ff5dc8880: complete rx idx=132 addr=84110
 
 Signed-off-by: Song Yoong Siang <yoong.siang.song@intel.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac.h      |  2 ++
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 13 +++++++++++++
- 2 files changed, 15 insertions(+)
+ drivers/net/ethernet/intel/igc/igc_main.c | 78 ++++++++++++++++-------
+ 1 file changed, 56 insertions(+), 22 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-index 1d86439b8a14..c80462d42989 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-@@ -106,6 +106,8 @@ struct stmmac_metadata_request {
- 	struct stmmac_priv *priv;
- 	struct dma_desc *tx_desc;
- 	bool *set_ic;
-+	struct dma_edesc *edesc;
-+	int tbs;
- };
- 
- struct stmmac_xsk_tx_complete {
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index c81ea8cdfe6e..3a083e3684ed 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -2445,9 +2445,20 @@ static u64 stmmac_xsk_fill_timestamp(void *_priv)
- 	return 0;
+diff --git a/drivers/net/ethernet/intel/igc/igc_main.c b/drivers/net/ethernet/intel/igc/igc_main.c
+index 27872bdea9bd..6857f5f5b4b2 100644
+--- a/drivers/net/ethernet/intel/igc/igc_main.c
++++ b/drivers/net/ethernet/intel/igc/igc_main.c
+@@ -1566,6 +1566,26 @@ static bool igc_request_tx_tstamp(struct igc_adapter *adapter, struct sk_buff *s
+ 	return false;
  }
  
-+static void stmmac_xsk_request_launch_time(u64 launch_time, void *_priv)
++static void igc_insert_empty_packet(struct igc_ring *tx_ring)
 +{
-+	struct stmmac_metadata_request *meta_req = _priv;
-+	struct timespec64 ts = ns_to_timespec64(launch_time);
++	struct igc_tx_buffer *empty_info;
++	struct sk_buff *empty;
++	void *data;
 +
-+	if (meta_req->tbs & STMMAC_TBS_EN)
-+		stmmac_set_desc_tbs(meta_req->priv, meta_req->edesc, ts.tv_sec,
-+				    ts.tv_nsec);
++	empty_info = &tx_ring->tx_buffer_info[tx_ring->next_to_use];
++	empty = alloc_skb(IGC_EMPTY_FRAME_SIZE, GFP_ATOMIC);
++	if (!empty)
++		return;
++
++	data = skb_put(empty, IGC_EMPTY_FRAME_SIZE);
++	memset(data, 0, IGC_EMPTY_FRAME_SIZE);
++
++	igc_tx_ctxtdesc(tx_ring, 0, false, 0, 0, 0);
++
++	if (igc_init_tx_empty_descriptor(tx_ring, empty, empty_info) < 0)
++		dev_kfree_skb_any(empty);
 +}
 +
- static const struct xsk_tx_metadata_ops stmmac_xsk_tx_metadata_ops = {
- 	.tmo_request_timestamp		= stmmac_xsk_request_timestamp,
- 	.tmo_fill_timestamp		= stmmac_xsk_fill_timestamp,
-+	.tmo_request_launch_time	= stmmac_xsk_request_launch_time,
+ static netdev_tx_t igc_xmit_frame_ring(struct sk_buff *skb,
+ 				       struct igc_ring *tx_ring)
+ {
+@@ -1603,26 +1623,8 @@ static netdev_tx_t igc_xmit_frame_ring(struct sk_buff *skb,
+ 	skb->tstamp = ktime_set(0, 0);
+ 	launch_time = igc_tx_launchtime(tx_ring, txtime, &first_flag, &insert_empty);
+ 
+-	if (insert_empty) {
+-		struct igc_tx_buffer *empty_info;
+-		struct sk_buff *empty;
+-		void *data;
+-
+-		empty_info = &tx_ring->tx_buffer_info[tx_ring->next_to_use];
+-		empty = alloc_skb(IGC_EMPTY_FRAME_SIZE, GFP_ATOMIC);
+-		if (!empty)
+-			goto done;
+-
+-		data = skb_put(empty, IGC_EMPTY_FRAME_SIZE);
+-		memset(data, 0, IGC_EMPTY_FRAME_SIZE);
+-
+-		igc_tx_ctxtdesc(tx_ring, 0, false, 0, 0, 0);
+-
+-		if (igc_init_tx_empty_descriptor(tx_ring,
+-						 empty,
+-						 empty_info) < 0)
+-			dev_kfree_skb_any(empty);
+-	}
++	if (insert_empty)
++		igc_insert_empty_packet(tx_ring);
+ 
+ done:
+ 	/* record the location of the first descriptor for this packet */
+@@ -2955,9 +2957,33 @@ static u64 igc_xsk_fill_timestamp(void *_priv)
+ 	return *(u64 *)_priv;
+ }
+ 
++static void igc_xsk_request_launch_time(u64 launch_time, void *_priv)
++{
++	struct igc_metadata_request *meta_req = _priv;
++	struct igc_ring *tx_ring = meta_req->tx_ring;
++	__le32 launch_time_offset;
++	bool insert_empty = false;
++	bool first_flag = false;
++
++	if (!tx_ring->launchtime_enable)
++		return;
++
++	launch_time_offset = igc_tx_launchtime(tx_ring,
++					       ns_to_ktime(launch_time),
++					       &first_flag, &insert_empty);
++	if (insert_empty) {
++		igc_insert_empty_packet(tx_ring);
++		meta_req->tx_buffer =
++			&tx_ring->tx_buffer_info[tx_ring->next_to_use];
++	}
++
++	igc_tx_ctxtdesc(tx_ring, launch_time_offset, first_flag, 0, 0, 0);
++}
++
+ const struct xsk_tx_metadata_ops igc_xsk_tx_metadata_ops = {
+ 	.tmo_request_timestamp		= igc_xsk_request_timestamp,
+ 	.tmo_fill_timestamp		= igc_xsk_fill_timestamp,
++	.tmo_request_launch_time	= igc_xsk_request_launch_time,
  };
  
- static bool stmmac_xdp_xmit_zc(struct stmmac_priv *priv, u32 queue, u32 budget)
-@@ -2531,6 +2542,8 @@ static bool stmmac_xdp_xmit_zc(struct stmmac_priv *priv, u32 queue, u32 budget)
- 		meta_req.priv = priv;
- 		meta_req.tx_desc = tx_desc;
- 		meta_req.set_ic = &set_ic;
-+		meta_req.tbs = tx_q->tbs;
-+		meta_req.edesc = &tx_q->dma_entx[entry];
- 		xsk_tx_metadata_request(meta, &stmmac_xsk_tx_metadata_ops,
+ static void igc_xdp_xmit_zc(struct igc_ring *ring)
+@@ -2980,7 +3006,7 @@ static void igc_xdp_xmit_zc(struct igc_ring *ring)
+ 	ntu = ring->next_to_use;
+ 	budget = igc_desc_unused(ring);
+ 
+-	while (xsk_tx_peek_desc(pool, &xdp_desc) && budget--) {
++	while (xsk_tx_peek_desc(pool, &xdp_desc) && budget >= 4) {
+ 		struct igc_metadata_request meta_req;
+ 		struct xsk_tx_metadata *meta = NULL;
+ 		struct igc_tx_buffer *bi;
+@@ -3004,6 +3030,12 @@ static void igc_xdp_xmit_zc(struct igc_ring *ring)
+ 		xsk_tx_metadata_request(meta, &igc_xsk_tx_metadata_ops,
  					&meta_req);
- 		if (set_ic) {
+ 
++		/* xsk_tx_metadata_request() may have updated next_to_use */
++		ntu = ring->next_to_use;
++
++		/* xsk_tx_metadata_request() may have updated Tx buffer info */
++		bi = meta_req.tx_buffer;
++
+ 		tx_desc = IGC_TX_DESC(ring, ntu);
+ 		tx_desc->read.cmd_type_len = cpu_to_le32(meta_req.cmd_type);
+ 		tx_desc->read.olinfo_status = cpu_to_le32(olinfo_status);
+@@ -3021,9 +3053,11 @@ static void igc_xdp_xmit_zc(struct igc_ring *ring)
+ 		ntu++;
+ 		if (ntu == ring->count)
+ 			ntu = 0;
++
++		ring->next_to_use = ntu;
++		budget = igc_desc_unused(ring);
+ 	}
+ 
+-	ring->next_to_use = ntu;
+ 	if (tx_desc) {
+ 		igc_flush_tx_descriptors(ring);
+ 		xsk_tx_release(pool);
 -- 
 2.34.1
 
