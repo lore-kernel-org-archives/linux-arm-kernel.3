@@ -4,70 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62832E77198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 00:28:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0D76E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 00:50:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E3cYz6N7b3iWDDwpn84JiQntMlRdH334rgEOQ5CT7fY=; b=x1TxWTCQmAvrl+XZUZ8Y0UxxdT
-	YDQzBD5z3ZJHy1GIkBCVkAG0etXKM7HLwr0+qRjLK+/wtrbQ+H0XuLSbcZZTDXphkwtqYcDTK3P9a
-	X07tZ9dbOuICHf03vBTryMMKRSh+RK5iijD9VeOoN7FnysiWnfmyCH+VrRNnnwgZUYl4bt2YOLLyD
-	bB3oziKls8oQfJ39cUS8a/QZELs2A0QcXzcAbIAniDiyZj46vEEsaTeiwyhdxb5+qZ0FkFd5/l10e
-	sw3/DqziVKfXHYONadTOoixIqQANvZrR+SUZ3Uh6opDBc+2ROHR9AoNtvDfhhnUb6koO949v6O8iM
-	SjMyPt2A==;
+	bh=0WtDQgQde96qYyokYN17EA4kAFpko3TljP0ynBjWi/0=; b=EY/ZKztRpNSqHXuKJVUwdq7CxP
+	uMLGHfuMfrq6S0ZQ8yfdAe0/o6uTLYSryey5P0Y10H23K8dxsVBLVJ+aCordE9wwSdRDeFMw9I85/
+	SfxlZ0WYaBf/gMXTx6E51ILTzw30HWlvjz+hMqOlcKy+WxVa5tVZ/Qjrlx9NS4nHLcAL9jC5nBY6N
+	qyU/OqgPkVBypbs3LPc8or9vgb9qr8vViCEK6WCPcqK1OHOAHunPRG/F4CirKgAhhccaTSi+Woi7V
+	C97DyyGfgmLZAPU+qsW7ZjlKS1TeIktpkVKKHAju0iFiIFBQBmhsREK8MhVPFYYqZnz74vbIsDVMc
+	l57hQ8ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUay9-0000000HY6q-2SQR;
-	Mon, 06 Jan 2025 00:27:45 +0000
-Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUawx-0000000HY1F-27Bx;
-	Mon, 06 Jan 2025 00:26:33 +0000
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4YRFNL74gHz9svW;
-	Mon,  6 Jan 2025 01:26:26 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=timsurber.de;
-	s=MBO0001; t=1736123187;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=E3cYz6N7b3iWDDwpn84JiQntMlRdH334rgEOQ5CT7fY=;
-	b=uziCZDDSnVcA4tdMDNJQ5+3SnjcyCsfnXl/eAqHODi3cOGO37AWxiqp9pEC33vJSnxBPFL
-	/f+KvDVFpeS4P8gYJ4dds1uRIipujKIsb12P40IqRABfKlETLVbLwbimcW03OizG0e2EPC
-	J/4o8JOKH9LMjw7lTVHjArsg0vRF/Xcrk28JQKcyjiSkKq3xbl6G0g3U1fv6DPAnv3KhoB
-	xIS1JHuQn8TY5/Q13K6lBcCXQCSIWsX7Zm4yh1mp4g1y9Vt890eqaFIc0T5QSgkY660qnh
-	o5vJ6CVHkjcIu9/Gphk+YQtfbYIVaNszXFmBGSvtURPsyCMuoQ0O2VWI8CTnQg==
-Message-ID: <c71a3f79-71f3-4fd2-a509-c42b24636a2f@timsurber.de>
-Date: Mon, 6 Jan 2025 01:26:21 +0100
+	id 1tUbJS-0000000HZ7p-3Gj4;
+	Mon, 06 Jan 2025 00:49:46 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tUbIF-0000000HZ3s-3iNg
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 06 Jan 2025 00:48:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E65EA1063;
+	Sun,  5 Jan 2025 16:48:56 -0800 (PST)
+Received: from minigeek.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 90CF83F66E;
+	Sun,  5 Jan 2025 16:48:26 -0800 (PST)
+Date: Mon, 6 Jan 2025 00:47:05 +0000
+From: Andre Przywara <andre.przywara@arm.com>
+To: Lukas Schmid <lukas.schmid@netcube.li>
+Cc: Icenowy Zheng <icenowy@aosc.io>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Linus
+ Walleij <linus.walleij@linaro.org>, Maxime Ripard <mripard@kernel.org>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-gpio@vger.kernel.org
+Subject: Re: [PATCH v3 4/4] ARM: dts: sunxi: add support for NetCube Systems
+ Kumquat
+Message-ID: <20250106004705.10a8c616@minigeek.lan>
+In-Reply-To: <9191d32ae352f311ad2c2751bca23a7d@netcube.li>
+References: <20250103204523.3779-1-lukas.schmid@netcube.li>
+	<20250103204523.3779-5-lukas.schmid@netcube.li>
+	<20250103235723.6a893773@minigeek.lan>
+	<bed2886fa15d4f72cf34e468e8bfd2153cb1494c.camel@aosc.io>
+	<083add26c987bfbfedcda3ddbe5b9880@netcube.li>
+	<aa2612f39a81332f4eabe7314210fde480c000da.camel@aosc.io>
+	<9191d32ae352f311ad2c2751bca23a7d@netcube.li>
+Organization: Arm Ltd.
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
-Subject: Re: [RESEND PATCH v5 0/4] Add Synopsys DesignWare HDMI RX Controller
-To: Shreeya Patel <shreeya.patel@collabora.com>, heiko@sntech.de,
- mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, mturquette@baylibre.com, sboyd@kernel.org,
- p.zabel@pengutronix.de, jose.abreu@synopsys.com, nelson.costa@synopsys.com,
- shawn.wen@rock-chips.com, nicolas.dufresne@collabora.com,
- hverkuil@xs4all.nl, hverkuil-cisco@xs4all.nl
-Cc: kernel@collabora.com, linux-kernel@vger.kernel.org,
- linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- dmitry.osipenko@collabora.com
-References: <20241210193904.883225-1-shreeya.patel@collabora.com>
-Content-Language: en-US
-From: Tim Surber <me@timsurber.de>
-In-Reply-To: <20241210193904.883225-1-shreeya.patel@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Rspamd-Queue-Id: 4YRFNL74gHz9svW
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250105_162631_897342_F7C87B41 
-X-CRM114-Status: GOOD (  40.29  )
+X-CRM114-CacheID: sfid-20250105_164832_082314_D48701E8 
+X-CRM114-Status: GOOD (  29.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,375 +77,877 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sun, 05 Jan 2025 12:25:26 +0100
+Lukas Schmid <lukas.schmid@netcube.li> wrote:
 
+> Am 2025-01-05 05:17, schrieb Icenowy Zheng:
+> > =E5=9C=A8 2025-01-04=E6=98=9F=E6=9C=9F=E5=85=AD=E7=9A=84 14:03 +0100=EF=
+=BC=8CLukas Schmid=E5=86=99=E9=81=93=EF=BC=9A =20
+> >> Am 2025-01-04 06:12, schrieb Icenowy Zheng: =20
+> >> > =E5=9C=A8 2025-01-03=E6=98=9F=E6=9C=9F=E4=BA=94=E7=9A=84 23:57 +0000=
+=EF=BC=8CAndre Przywara=E5=86=99=E9=81=93=EF=BC=9A =20
+> >> > > On Fri,=C2=A0 3 Jan 2025 20:45:20 +0000
+> >> > > Lukas Schmid <lukas.schmid@netcube.li> wrote:
+> >> > >
+> >> > > (CC:ing Icenowy for a question about the RTC below ...)
+> >> > > =20
+> >> > > > NetCube Systems Kumquat is a board based on the Allwinner V3s
+> >> > > > SoC,
+> >> > > > including:
+> >> > > >
+> >> > > > - 64MB DDR2 included in SoC
+> >> > > > - 10/100 Mbps Ethernet
+> >> > > > - USB-C DRD
+> >> > > > - Audio Codec
+> >> > > > - Isolated CAN-FD
+> >> > > > - ESP32 over SDIO
+> >> > > > - 8MB SPI-NOR Flash for bootloader
+> >> > > > - I2C EEPROM for MAC addresses
+> >> > > > - SDIO Connector for eMMC or SD-Card
+> >> > > > - 8x 12/24V IOs, 4x normally open relays
+> >> > > > - DS3232 RTC
+> >> > > > - QWIIC connectors for external I2C devices
+> >> > > >
+> >> > > > Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
+> >> > > > ---
+> >> > > > =C2=A0arch/arm/boot/dts/allwinner/Makefile=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 2 +
+> >> > > > =C2=A0.../allwinner/sun8i-v3s-netcube-kumquat.dts=C2=A0=C2=A0 | =
+290
+> >> > > > ++++++++++++++++++
+> >> > > > =C2=A0arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi=C2=A0=C2=A0=C2=
+=A0 |=C2=A0=C2=A0 6 +
+> >> > > > =C2=A03 files changed, 298 insertions(+)
+> >> > > > =C2=A0create mode 100644 arch/arm/boot/dts/allwinner/sun8i-v3s-
+> >> > > > netcube-
+> >> > > > kumquat.dts
+> >> > > >
+> >> > > > diff --git a/arch/arm/boot/dts/allwinner/Makefile
+> >> > > > b/arch/arm/boot/dts/allwinner/Makefile
+> >> > > > index 48666f73e638..d799ad153b37 100644
+> >> > > > --- a/arch/arm/boot/dts/allwinner/Makefile
+> >> > > > +++ b/arch/arm/boot/dts/allwinner/Makefile
+> >> > > > @@ -199,6 +199,7 @@ DTC_FLAGS_sun8i-h3-nanopi-r1 :=3D -@
+> >> > > > =C2=A0DTC_FLAGS_sun8i-h3-orangepi-pc :=3D -@
+> >> > > > =C2=A0DTC_FLAGS_sun8i-h3-bananapi-m2-plus-v1.2 :=3D -@
+> >> > > > =C2=A0DTC_FLAGS_sun8i-h3-orangepi-pc-plus :=3D -@
+> >> > > > +DTC_FLAGS_sun8i-v3s-netcube-kumquat :=3D -@
+> >> > > > =C2=A0dtb-$(CONFIG_MACH_SUN8I) +=3D \
+> >> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0sun8i-a23-evb.dt=
+b \
+> >> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0sun8i-a23-gt90h-=
+v4.dtb \
+> >> > > > @@ -261,6 +262,7 @@ dtb-$(CONFIG_MACH_SUN8I) +=3D \
+> >> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0sun8i-v3s-anbern=
+ic-rg-nano.dtb \
+> >> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0sun8i-v3s-lichee=
+pi-zero.dtb \
+> >> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0sun8i-v3s-lichee=
+pi-zero-dock.dtb \
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0sun8i-v3s-netcube-kum=
+quat.dtb \
+> >> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0sun8i-v40-banana=
+pi-m2-berry.dtb
+> >> > > > =C2=A0dtb-$(CONFIG_MACH_SUN9I) +=3D \
+> >> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0sun9i-a80-optimu=
+s.dtb \
+> >> > > > diff --git a/arch/arm/boot/dts/allwinner/sun8i-v3s-netcube-
+> >> > > > kumquat.dts b/arch/arm/boot/dts/allwinner/sun8i-v3s-netcube-
+> >> > > > kumquat.dts
+> >> > > > new file mode 100644
+> >> > > > index 000000000000..e5d2a716eb69
+> >> > > > --- /dev/null
+> >> > > > +++ b/arch/arm/boot/dts/allwinner/sun8i-v3s-netcube-kumquat.dts
+> >> > > > @@ -0,0 +1,290 @@
+> >> > > > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> >> > > > +/*
+> >> > > > + * Copyright (C) 2025 Lukas Schmid <lukas.schmid@netcube.li>
+> >> > > > + */
+> >> > > > +
+> >> > > > +/dts-v1/;
+> >> > > > +#include "sun8i-v3s.dtsi"
+> >> > > > +
+> >> > > > +#include <dt-bindings/input/input.h>
+> >> > > > +#include <dt-bindings/leds/common.h>
+> >> > > > +#include <dt-bindings/gpio/gpio.h>
+> >> > > > +
+> >> > > > +/{
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0model =3D "NetCube Sy=
+stems Kumquat";
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0compatible =3D "netcu=
+be,kumquat", "allwinner,sun8i-v3s";
+> >> > > > +
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0aliases {
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0serial0 =3D &uart0;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0ethernet0 =3D &emac;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0rtc0 =3D &ds3232;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0};
+> >> > > > +
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0chosen {
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0stdout-path =3D "serial0:115200n8";
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0};
+> >> > > > +
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0/* 40 MHz Crystal Osc=
+illator on PCB */
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0clk_can0: clock-can0 {
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0compatible =3D "fixed-clock";
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0#clock-cells =3D <0>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0clock-frequency=C2=A0 =3D <40000000>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0};
+> >> > > > +
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0gpio-keys {
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0compatible =3D "gpio-keys";
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0autorepeat;
+> >> > > > +
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0key-user {
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+label =3D "GPIO Key User";
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+linux,code =3D <KEY_PROG1>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+gpios =3D <&pio 1 2 (GPIO_ACTIVE_LOW | =20
+> >> > > > GPIO_PULL_UP)>; /* PB2 */ =20
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0};
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0};
+> >> > > > +
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0leds {
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0compatible =3D "gpio-leds";
+> >> > > > +
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0led-heartbeat {
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+gpios =3D <&pio 4 4 GPIO_ACTIVE_HIGH>; /*
+> >> > > > PE4
+> >> > > > */
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+linux,default-trigger =3D "heartbeat";
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+color =3D <LED_COLOR_ID_GREEN>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+function =3D LED_FUNCTION_HEARTBEAT;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0};
+> >> > > > +
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0led-mmc0-act {
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+gpios =3D <&pio 5 6 GPIO_ACTIVE_HIGH>; /*
+> >> > > > PF6
+> >> > > > */
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+linux,default-trigger =3D "mmc0";
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+color =3D <LED_COLOR_ID_GREEN>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+function =3D LED_FUNCTION_DISK;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0};
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0};
+> >> > > > +
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0/* XC6206-3.0 Linear =
+Regualtor */
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0reg_vcc3v0: regulator=
+-3v0 {
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0compatible =3D "regulator-fixed";
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0regulator-name =3D "vcc3v0";
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0regulator-min-microvolt =3D <3000000>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0regulator-max-microvolt =3D <3000000>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0vin-supply =3D <&reg_vcc3v3>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0};
+> >> > > > +
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0/* EA3036C Switching =
+3 Channel Regulator - Channel 2 */
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0reg_vcc3v3: regulator=
+-3v3 {
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0compatible =3D "regulator-fixed";
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0regulator-name =3D "vcc3v3";
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0regulator-min-microvolt =3D <3300000>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0regulator-max-microvolt =3D <3300000>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0vin-supply =3D <&reg_vcc5v0>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0};
+> >> > > > +
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0/* K7805-1000R3 Switc=
+hing Regulator supplied from main
+> >> > > > 12/24V terminal block */
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0reg_vcc5v0: regulator=
+-5v0 {
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0compatible =3D "regulator-fixed";
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0regulator-name =3D "vcc5v0";
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0regulator-min-microvolt =3D <5000000>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0regulator-max-microvolt =3D <5000000>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0};
+> >> > > > +};
+> >> > > > +
+> >> > > > +&mmc0 {
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0pinctrl-names =3D "de=
+fault";
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0pinctrl-0 =3D <&mmc0_=
+pins>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0vmmc-supply =3D <&reg=
+_vcc3v3>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0bus-width =3D <4>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0broken-cd;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0status =3D "okay";
+> >> > > > +};
+> >> > > > +
+> >> > > > +&mmc1 { =20
+> >> > >
+> >> > > what's connected here? Are both MMC ports on headers/connectors,
+> >> > > and
+> >> > > it's up to the user to connect some SDIO device or an SD/eMMC
+> >> > > card/slot? Or is this port connected to the ESP32?
+> >> > > =20
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0pinctrl-names =3D "de=
+fault";
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0pinctrl-0 =3D <&mmc1_=
+pins>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0vmmc-supply =3D <&reg=
+_vcc3v3>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0bus-width =3D <4>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0broken-cd;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0status =3D "okay";
+> >> > > > +};
+> >> > > > +
+> >> > > > +&usb_otg { =20
+> >> > >
+> >> > > I think traditionally referenced nodes in the board .dts files
+> >> > > are
+> >> > > ordered by label name, so usb_otg is but-last. Yes, this is in
+> >> > > contrast
+> >> > > to nodes in the SoC .dtsi file, which are ordered by MMIO
+> >> > > addresses.
+> >> > > =20
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0extcon =3D <&tusb320 =
+0>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0dr_mode =3D "otg";
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0status =3D "okay";
+> >> > > > +};
+> >> > > > +
+> >> > > > +&usbphy {
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0usb0_id_det-gpios =3D=
+ <&pio 1 4 GPIO_ACTIVE_HIGH>; /* PB4
+> >> > > > */
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0status =3D "okay";
+> >> > > > +};
+> >> > > > +
+> >> > > > +&ehci {
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0status =3D "okay";
+> >> > > > +};
+> >> > > > +
+> >> > > > +&ohci {
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0status =3D "okay";
+> >> > > > +};
+> >> > > > +
+> >> > > > +&rtc {
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0status =3D "disabled"=
+; =20
+> >> > >
+> >> > > Please can you explain a bit more what's going on here? I saw you
+> >> > > mentioning in the cover letter that you brought the "disabled"
+> >> > > back,
+> >> > > but I still don't see how this is working when the CCU and the
+> >> > > pinctrl
+> >> > > nodes reference the RTC clocks? So what is broken, exactly? Is
+> >> > > this
+> >> > > some bug in the SoC? Or don't you supply the SoC's VCC_RTC, so
+> >> > > the
+> >> > > calendar is not working when the board is not powered - in
+> >> > > contrast
+> >> > > to
+> >> > > the external RTC? =20
+> >> >
+> >> > Maybe a lack of crystal? But I can understand nothing here, and a
+> >> > detailed explaination is needed.
+> >> > =20
+> >>=20
+> >> I have tried to enable the RTC, but I get a "RTC still busy" from the
+> >> sunxi-rtc module. The RTC Power is connected, and the 32kHz Crystal
+> >> is =20
 
-Hi Shreeya,
+That sounds actually like a bug somewhere, which should be investigated
+and fixed. Disabling the RTC is a quick and dirty workaround, but
+nothing for upstream.
+There is a 50ms timeout, which sounds plenty, although you could
+experiment whether it's too short here:
+drivers/rtc/rtc-sun6i.c:sun6i_rtc_settime()
+My hunch is that even longer timeouts won't change that, so we should
+have a look what's going wrong here, why the RTC does not respond.
+Don't you supply VCC_RTC to the SoC at all, maybe? Maybe we need
+the 3.3V for the RTC to work, regardless of whether that is battery
+backed or not?
 
-I applied your patch to rockchip/next on an FriendlyElec CM3588 device 
-with arm-trusted-firmware 2.12. This is the same hardware/cable/sources 
-I used previously
-Sadly I could not get it to work at all.
+> > Weird... Never heard such kind of things...
+> >=20
+> > How do modules in the main SoC that depend on LOSC (32768 Hz osc)
+> > perform?
+> >  =20
+>=20
+> I didn't notice anything running the board. I had one running for
+> about a month on Kernel 6.8.7 without issues, with the rtc disabled
+>=20
+> Do you have anything I should check in particular? From the
+> Datasheet it seems to me that all peripherals in the SoC should
+> be able to run from the hosc too.
 
-After connection to a HDMI source I get the following error with all 
-devices and resolutions I tested
-# dmesg
-snps_hdmirx fdee0000.hdmi_receiver: hdmirx_controller_init wait timer 
-base lock failed
-snps_hdmirx fdee0000.hdmi_receiver: hdmirx_phy_register_write wait cr 
-write done failed (repeating multiple times)
+That's a DT issue, you don't *need* the LOSC crystal for operation:
+The clock controller and the GPIO device reference the RTC LOSC clock,
+so the respective drivers go ahead and request them, which triggers
+probing the RTC. If that now fails, because the RTC is disabled, that
+clock cannot be used, and this has consequences:
+- The (combinded) GPIO/pinctrl driver only needs the LOSC clock for the
+  debouncing part. If that fails, the debouncing init routine will bail
+  out (I guess it will not work), but the driver ignores that error and
+  proceeds probing, so you are saved, but more by accident. I wonder if
+  we should at least print a message here.
+- The CCU clock driver only uses the LOSC as a potential parent for
+  some muxes (CPU, AHB, APB2), and the kernel will probably never change
+  those muxes, and even if, not to the LOSC. So again saved here, by
+  chance.
 
+So this means your system continues working, but it's very sketchy, and
+technically wrong. So disabling the RTC is not really an option for
+mainline, I'd say.
 
-# v4l2-ctl --list-devices
-[...]
-snps_hdmirx (platform:fdee0000.hdmi_receiver):
-     /dev/video2
+> >> also
+> >> on Board. If the RTC's driver wouldn't throw the error I have no
+> >> issue
+> >> with
+> >> leaving the rtc enabled. It would however loose it's memory after
+> >> power
+> >> cycle as the Battery is only connected to the DS3232+, hence the
+> >> alias
+> >> to
+> >> rtc0
+> >>  =20
+> >> > > =20
+> >> > > > +};
+> >> > > > +
+> >> > > > +&pio {
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0vcc-pb-supply =3D <&r=
+eg_vcc3v3>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0vcc-pc-supply =3D <&r=
+eg_vcc3v3>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0vcc-pe-supply =3D <&r=
+eg_vcc3v3>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0vcc-pf-supply =3D <&r=
+eg_vcc3v3>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0vcc-pg-supply =3D <&r=
+eg_vcc3v3>;
+> >> > > > +
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0gpio-reserved-ranges =
+=3D <0 32>, <42 22>, <68 28>, <96 =20
+> >> > > > 32>, =20
+> >> > > > <153 7>, <167 25>, <198 26>; =20
+> >> > >
+> >> > > As mentioned in the reply to the previous patch, this doesn't
+> >> > > look
+> >> > > right here. Why do you need this, exactly? =20
+> >> >
+> >> > Ah? I don't think there's any tradition on Allwinner platforms to
+> >> > reserve any GPIOs, except if you have another firmware running on
+> >> > another processor (e.g. AR100) that needs some GPIO.
+> >> >
+> >> > My previous sight of such property is on Qualcomm smartphones,
+> >> > where a
+> >> > few GPIOs are reserved for "Trusted" thingy.
+> >> > =20
+> >>=20
+> >> My intention here was to have the GPIOs which are not accessible on
+> >> the
+> >> SoC's
+> >> package disabled so that stuff like libgpiod cannot try to access
+> >> them.
+> >> The
+> >> gpiodetect tool did show me them as 'used' when I added the
+> >> reserved-ranges,
+> >> so I thought the driver does understand this tag. =20
+> >=20
+> > Interesting point... Maybe this kind of things should enter the per-
+> > SoC(package) DTSI?
 
+Our sunxi pinctrl driver does not use this information, we have the
+number of pins per port and their availability hardcoded in that large
+table in pinctrl-sun8i-v3s.c.
 
-With the source set to 1920x1080, 60hz RGB I get the following output, 
-it freezes and creates no file. Notice the wrong resolution
+If there is more code in the kernel that uses this DT property to
+filter the (userspace?) view of the GPIOs, that's a side effect. If we
+want this filtering, this code should query the pinctrl driver for this
+map, but that's a separate issue. The binding pretty clearly speaks of
+some per-port GPIO drivers to use this map, ours it not one of them.
 
-# v4l2-ctl --verbose -d /dev/video2 
---set-fmt-video=width=1920,height=1080,pixelformat='BGR3' 
---stream-mmap=4 --stream-skip=3 --stream-count=100 
---stream-to=hdmiin4k.raw --stream-poll
-VIDIOC_QUERYCAP: ok
-VIDIOC_G_FMT: ok
-VIDIOC_S_FMT: ok
-Format Video Capture Multiplanar:
-     Width/Height      : 640/480
-     Pixel Format      : 'BGR3' (24-bit BGR 8-8-8)
-     Field             : None
-     Number of planes  : 1
-     Flags             :
-     Colorspace        : sRGB
-     Transfer Function : Default
-     YCbCr/HSV Encoding: Default
-     Quantization      : Default
-     Plane 0           :
-        Bytes per Line : 1920
-        Size Image     : 921600
+> > Although technically they are not "used" but "unavailable".
+> >  =20
+>=20
+> Sure, I think I'll remove it from my Patchset for now
 
-Sometimes I could get a very distorted picture with gstreamer
-# dmesg
-fdee0000.hdmi_receiver: hdmirx_query_dv_timings: signal is not locked
-rockchip-rga fdb80000.rga: [CAPTURE] fmt - BGR3 little-endian 
-(0x33524742) 1920x1080 (stride 5760, sizeimage 6220800)
-rockchip-rga fdb80000.rga: plane[0]: size 6220800, bytesperline 5760
+Yes, please, do that, I think it's wrong here.=20
 
+> , but maybe will create another set in the future.
 
-# v4l2-ctl --all -L --list-formats-ext -d /dev/video2
-Driver Info:
-     Driver name      : snps_hdmirx
-     Card type        : snps_hdmirx
-     Bus info         : platform:fdee0000.hdmi_receiver
-     Driver version   : 6.13.0
-     Capabilities     : 0x84201000
-         Video Capture Multiplanar
-         Streaming
-         Extended Pix Format
-         Device Capabilities
-     Device Caps      : 0x04201000
-         Video Capture Multiplanar
-         Streaming
-         Extended Pix Format
-Priority: 2
-Video input : 0 (HDMI IN: ok)
-DV timings:
-     Active width: 640
-     Active height: 480
-     Total width: 800
-     Total height: 525
-     Frame format: progressive
-     Polarities: -vsync -hsync
-     Pixelclock: 25175000 Hz (59.94 frames per second)
-     Horizontal frontporch: 16
-     Horizontal sync: 96
-     Horizontal backporch: 48
-     Vertical frontporch: 10
-     Vertical sync: 2
-     Vertical backporch: 33
-     Standards: CTA-861, DMT
-     CTA-861 VIC: 1
-     Flags: has CTA-861 VIC
-DV timings capabilities:
-     Minimum Width: 640
-     Maximum Width: 4096
-     Minimum Height: 480
-     Maximum Height: 2160
-     Minimum PClock: 20000000
-     Maximum PClock: 600000000
-     Standards: CTA-861
-     Capabilities: Interlaced, Progressive
-Format Video Capture Multiplanar:
-     Width/Height      : 640/480
-     Pixel Format      : 'BGR3' (24-bit BGR 8-8-8)
-     Field             : None
-     Number of planes  : 1
-     Flags             :
-     Colorspace        : sRGB
-     Transfer Function : Default
-     YCbCr/HSV Encoding: Default
-     Quantization      : Default
-     Plane 0           :
-        Bytes per Line : 1920
-        Size Image     : 921600
+If that solves a problem for you, it should be investigated why, to me
+it looks like it's a side effect, and that should be done properly
+instead - for instance by using all those empty strings below as an
+indicator for availability.
+But I don't think insisting on that property is the right thing.
 
-Digital Video Controls
+Cheers,
+Andre
 
-                   power_present 0x00a00964 (bitmask): max=0x00000001 
-default=0x00000000 value=1 flags=read-only
-       rx_rgb_quantization_range 0x00a00965 (menu)   : min=0 max=2 
-default=0 value=0 (Automatic) flags=read-only
-                 0: Automatic
-                 1: RGB Limited Range (16-235)
-                 2: RGB Full Range (0-255)
-              rx_it_content_type 0x00a00966 (menu)   : min=0 max=4 
-default=4 value=4 (No IT Content) flags=read-only
-                 0: Graphics
-                 1: Photo
-                 2: Cinema
-                 3: Game
-                 4: No IT Content
-ioctl: VIDIOC_ENUM_FMT
-     Type: Video Capture Multiplanar
-
-     [0]: 'BGR3' (24-bit BGR 8-8-8)
-
-
-Best regards,
-Tim
-
-
-On 12/10/24 20:39, Shreeya Patel wrote:
-> This series implements support for the Synopsys DesignWare
-> HDMI RX Controller, being compliant with standard HDMI 1.4b
-> and HDMI 2.0.
-> 
-> Features that are currently supported by the HDMI RX driver
-> have been tested on rock5b board using a HDMI to micro-HDMI cable.
-> It is recommended to use a good quality cable as there were
-> multiple issues seen during testing the driver.
-> 
-> Please note the below information :-
-> * HDMIRX driver now only works with the opensource TF-A.
-> * We have tested the working of OBS studio with HDMIRX driver and
-> there were no issues seen.
-> * We also tested and verified the support for interlaced video.
-> 
-> To test the HDMI RX Controller driver, following example commands can be used :-
-> 
-> root@debian-rockchip-rock5b-rk3588:~# v4l2-ctl --verbose -d /dev/video0 \
-> --set-fmt-video=width=1920,height=1080,pixelformat='BGR3' --stream-mmap=4 \
-> --stream-skip=3 --stream-count=100 --stream-to=/home/hdmiin4k.raw --stream-poll
-> 
-> root@debian-rockchip-rock5b-rk3588:~# ffmpeg -f rawvideo -vcodec rawvideo \
-> -s 1920x1080 -r 60 -pix_fmt bgr24 -i /home/hdmiin4k.raw output.mkv
-> 
-> CEC compliance test results :-
-> 
-> * https://gitlab.collabora.com/-/snippets/380
-> * https://gitlab.collabora.com/-/snippets/381
-> 
-> Following is the v4l2-compliance test result :-
-> 
-> root@debian-rockchip-rock5b-rk3588:~# v4l2-compliance -d /dev/video0
-> v4l2-compliance 1.29.0-5278, 64 bits, 64-bit time_t
-> v4l2-compliance SHA: 791da13728d9 2024-11-25 10:01:57
-> 
-> Compliance test for snps_hdmirx device /dev/video0:
-> 
-> Driver Info:
-> 	Driver name      : snps_hdmirx
-> 	Card type        : snps_hdmirx
-> 	Bus info         : platform:fdee0000.hdmi_receiver
-> 	Driver version   : 6.12.0
-> 	Capabilities     : 0x84201000
-> 		Video Capture Multiplanar
-> 		Streaming
-> 		Extended Pix Format
-> 		Device Capabilities
-> 	Device Caps      : 0x04201000
-> 		Video Capture Multiplanar
-> 		Streaming
-> 		Extended Pix Format
-> 
-> Required ioctls:
-> 	test VIDIOC_QUERYCAP: OK
-> 	test invalid ioctls: OK
-> 
-> Allow for multiple opens:
-> 	test second /dev/video0 open: OK
-> 	test VIDIOC_QUERYCAP: OK
-> 	test VIDIOC_G/S_PRIORITY: OK
-> 	test for unlimited opens: OK
-> 
-> Debug ioctls:
-> 	test VIDIOC_DBG_G/S_REGISTER: OK (Not Supported)
-> 	test VIDIOC_LOG_STATUS: OK
-> 
-> Input ioctls:
-> 	test VIDIOC_G/S_TUNER/ENUM_FREQ_BANDS: OK (Not Supported)
-> 	test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
-> 	test VIDIOC_S_HW_FREQ_SEEK: OK (Not Supported)
-> 	test VIDIOC_ENUMAUDIO: OK (Not Supported)
-> 	test VIDIOC_G/S/ENUMINPUT: OK
-> 	test VIDIOC_G/S_AUDIO: OK (Not Supported)
-> 	Inputs: 1 Audio Inputs: 0 Tuners: 0
-> 
-> Output ioctls:
-> 	test VIDIOC_G/S_MODULATOR: OK (Not Supported)
-> 	test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
-> 	test VIDIOC_ENUMAUDOUT: OK (Not Supported)
-> 	test VIDIOC_G/S/ENUMOUTPUT: OK (Not Supported)
-> 	test VIDIOC_G/S_AUDOUT: OK (Not Supported)
-> 	Outputs: 0 Audio Outputs: 0 Modulators: 0
-> 
-> Input/Output configuration ioctls:
-> 	test VIDIOC_ENUM/G/S/QUERY_STD: OK (Not Supported)
-> 	test VIDIOC_ENUM/G/S/QUERY_DV_TIMINGS: OK
-> 	test VIDIOC_DV_TIMINGS_CAP: OK
-> 	test VIDIOC_G/S_EDID: OK
-> 
-> Control ioctls (Input 0):
-> 	test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK
-> 	test VIDIOC_QUERYCTRL: OK
-> 	test VIDIOC_G/S_CTRL: OK
-> 	test VIDIOC_G/S/TRY_EXT_CTRLS: OK
-> 	test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK
-> 	test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
-> 	Standard Controls: 4 Private Controls: 0
-> 
-> Format ioctls (Input 0):
-> 	test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
-> 	test VIDIOC_G/S_PARM: OK
-> 	test VIDIOC_G_FBUF: OK (Not Supported)
-> 	test VIDIOC_G_FMT: OK
-> 	test VIDIOC_TRY_FMT: OK
-> 	test VIDIOC_S_FMT: OK
-> 	test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
-> 	test Cropping: OK (Not Supported)
-> 	test Composing: OK (Not Supported)
-> 	test Scaling: OK (Not Supported)
-> 
-> Codec ioctls (Input 0):
-> 	test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
-> 	test VIDIOC_G_ENC_INDEX: OK (Not Supported)
-> 	test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
-> 
-> Buffer ioctls (Input 0):
-> 	test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
-> 	test CREATE_BUFS maximum buffers: OK
-> 	test VIDIOC_REMOVE_BUFS: OK
-> 	test VIDIOC_EXPBUF: OK
-> 	test Requests: OK (Not Supported)
-> 	test blocking wait: OK
-> 
-> Total for snps_hdmirx device /dev/video0: 48, Succeeded: 48, Failed: 0, Warnings: 0
-> 
-> ---
-> 
-> Resending the patch series due to mail server timeout issue
-> when sending v5 patchset
-> 
-> Changes in v5 :-
-> - Fix the interrupt IRQ number in the dt-bindings and device tree
-> - Add alignment property to ensure hdmi-receiver-cma
->    starts at a 64KB-aligned address
-> - Change the MODULE_DESCRIPTION
-> - Add VIDEO_SYNOPSYS_HDMIRX as prefix to the default edid config
-> - Drop the enabling of default edid in the Kconfig
-> - Replace the default EDID with hdmi-4k-300mhz EDID produced
->    by v4l2-ctl tool for better compatibility with various HDMI
->    cables and adapters
-> - Rework the write_edid and set_edid functions
-> - During format change, retrieve the current pixel format,
->    color depth, and AVI infoframe details instead of only
->    detecting the format
-> - Improve the logging mechanism and delays in the
->    hdmirx_wait_signal_lock function
-> - Fix the 4K@60 capturing for RGB format
-> - Document what hdmirx_check_timing_valid function does
-> - Rework the hdmirx_get_detected_timings function
-> - Fix the NV16/24 size image value
-> - Add the implementation from Benjamin Hoff to expose the
->    ITC type to v4l2
-> - Remove all the firmware related code
-> 
-> Changes in v4 :-
-> - Remove DTS changes included in the device tree patch
-> - Remove the hdmi rx pin info as it's already present
-> in the rk3588-base-pinctrl.dtsi
-> - Create a separate config option for selecting the EDID
-> and enable it by default
-> - Improve the comment related to DV timings and move it
-> to the side of hdmirx_get_detected_timings
-> - Add 100ms delay before pulling the HPD high
-> - Do not return the detected timings from VIDIOC_G_DV_TIMINGS
-> - Drop the bus info from hdmirx_querycap
-> - If *num_planes != 0 then return 0 in hdmirx_queue_setup
-> - Set queue->min_queued_buffers to 1
-> - Drop q->allow_cache_hints = 0; as it's always 0 by default
-> - Add a comment for q->dma_attrs = DMA_ATTR_FORCE_CONTIGUOUS;
-> - Drop .read = vb2_fop_read as it's not supported by driver
-> - Remove redundant edid_init_data_600M
-> - Make HPD low when driver is loaded
-> - Add support for reading AVI Infoframe
-> - Remove msg_len checks from hdmirx_cec_transmit
-> - Add info about the CEC compliance test in the cover letter
-> - Add arbitration lost status
-> - Validate the physical address inside the EDID
-> 
-> Changes in v3 :-
-> - Use v4l2-common helpers in the HDMIRX driver
-> - Rename cma node and phandle names
-> - Elaborate the comment to explain 160MiB calculation
-> - Move &hdmi_receiver_cma to the rock5b dts file
-> - Add information about interlaced video testing in the
-> cover-letter
-> 
-> Changes in v2 :-
-> - Fix checkpatch --strict warnings
-> - Move the dt-binding include file changes in a separate patch
-> - Add a description for the hardware in the dt-bindings file
-> - Rename resets, vo1 grf and HPD properties
-> - Add a proper description for grf and vo1-grf phandles in the
-> bindings
-> - Rename the HDMI RX node name to hdmi-receiver
-> - Include gpio header file in binding example to fix the
-> dt_binding_check failure
-> - Move hdmirx_cma node to the rk3588.dtsi file
-> - Add an entry to MAINTAINERS file for the HDMIRX driver
-> 
-> Shreeya Patel (4):
->    MAINTAINERS: Add entry for Synopsys DesignWare HDMI RX Driver
->    dt-bindings: media: Document bindings for HDMI RX Controller
->    arm64: dts: rockchip: Add device tree support for HDMI RX Controller
->    media: platform: synopsys: Add support for HDMI input driver
-> 
->   .../bindings/media/snps,dw-hdmi-rx.yaml       |  132 +
->   MAINTAINERS                                   |    8 +
->   .../dts/rockchip/rk3588-base-pinctrl.dtsi     |   14 +
->   .../arm64/boot/dts/rockchip/rk3588-extra.dtsi |   57 +
->   drivers/media/platform/Kconfig                |    1 +
->   drivers/media/platform/Makefile               |    1 +
->   drivers/media/platform/synopsys/Kconfig       |    3 +
->   drivers/media/platform/synopsys/Makefile      |    2 +
->   .../media/platform/synopsys/hdmirx/Kconfig    |   27 +
->   .../media/platform/synopsys/hdmirx/Makefile   |    4 +
->   .../platform/synopsys/hdmirx/snps_hdmirx.c    | 2662 +++++++++++++++++
->   .../platform/synopsys/hdmirx/snps_hdmirx.h    |  394 +++
->   .../synopsys/hdmirx/snps_hdmirx_cec.c         |  283 ++
->   .../synopsys/hdmirx/snps_hdmirx_cec.h         |   44 +
->   14 files changed, 3633 insertions(+)
->   create mode 100644 Documentation/devicetree/bindings/media/snps,dw-hdmi-rx.yaml
->   create mode 100644 drivers/media/platform/synopsys/Kconfig
->   create mode 100644 drivers/media/platform/synopsys/Makefile
->   create mode 100644 drivers/media/platform/synopsys/hdmirx/Kconfig
->   create mode 100644 drivers/media/platform/synopsys/hdmirx/Makefile
->   create mode 100644 drivers/media/platform/synopsys/hdmirx/snps_hdmirx.c
->   create mode 100644 drivers/media/platform/synopsys/hdmirx/snps_hdmirx.h
->   create mode 100644 drivers/media/platform/synopsys/hdmirx/snps_hdmirx_cec.c
->   create mode 100644 drivers/media/platform/synopsys/hdmirx/snps_hdmirx_cec.h
-> 
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0gpio-line-names =3D "=
+", "", "", "", // PA
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "CAN_nCS", "CAN_nINT", "USER_SW",
+> >> > > > "PB3",
+> >> > > > // PB
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "USB_ID", "USBC_nINT", "I2C0_SCL",
+> >> > > > "I2C0_SDA",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "UART0_TX", "UART0_RX", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "SPI_MISO", "SPI_SCK", "FLASH_nCS",
+> >> > > > "SPI_MOSI", // PC
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "", // PD
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "Q12", "Q11", "Q10", "Q9", // PE
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "LED_SYS0", "I1", "Q1", "Q2",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "I2", "I3", "Q3", "Q4",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "I4", "I5", "Q5", "Q6",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "I6", "I7", "Q7", "Q8",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "I8", "UART1_TXD", "UART1_RXD",
+> >> > > > "ESP_nRST",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "ESP_nBOOT", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "SD_D1", "SD_D0", "SD_CLK", "SD_CMD",
+> >> > > > //
+> >> > > > PF
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "SD_D3", "SD_D2", "LED_SYS1", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "ESP_CLK", "ESP_CMD", "ESP_D0",
+> >> > > > "ESP_D1",
+> >> > > > // PG
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "ESP_D2", "ESP_D3", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 "", "", "", "";
+> >> > > > +};
+> >> > > > +
+> >> > > > +&lradc {
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0vref-supply =3D <&reg=
+_vcc3v0>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0status =3D "okay";
+> >> > > > +};
+> >> > > > +
+> >> > > > +&codec {
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0allwinner,audio-routi=
+ng =3D
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0"Headphone", "HP",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0"Headphone", "HPCOM",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0"MIC1", "Mic",
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0"Mic", "HBIAS";
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0status =3D "okay";
+> >> > > > +};
+> >> > > > +
+> >> > > > +&uart0 {
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0pinctrl-0 =3D <&uart0=
+_pb_pins>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0pinctrl-names =3D "de=
+fault";
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0status =3D "okay";
+> >> > > > +};
+> >> > > > +
+> >> > > > +&uart1 {
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0pinctrl-0 =3D <&uart1=
+_pe_pins>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0pinctrl-names =3D "de=
+fault";
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0status =3D "okay";
+> >> > > > +};
+> >> > > > +
+> >> > > > +&i2c0 {
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0pinctrl-0 =3D <&i2c0_=
+pins>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0pinctrl-names =3D "de=
+fault";
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0status =3D "okay";
+> >> > > > +
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0ds3232: rtc@68 {
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0compatible =3D "dallas,ds3232";
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0reg =3D <0x68>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0}; =20
+> >> >
+> >> > If you're afraid of the non-running internal RTC superseding this
+> >> > external RTC, you can use an alias rtc0 =3D &ds3232 to force the ext.
+> >> > one
+> >> > to be the first.
+> >> > =20
+> >>=20
+> >> Yes exactly, I already have an alias to this rtc as rtc0
+> >>  =20
+> >> > > > +
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0eeprom0: eeprom@50 {
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0compatible =3D "atmel,24c02";=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0/*
+> >> > > > actually
+> >> > > > it's a 24AA02E48 */
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0pagesize =3D <16>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0read-only;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0reg =3D <0x50>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0vcc-supply =3D <&reg_vcc3v3>;
+> >> > > > +
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0#address-cells =3D <1>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0#size-cells =3D <1>;
+> >> > > > +
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0eth0_macaddress: macaddress@fa {
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+reg =3D <0xfa 0x06>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0};
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0};
+> >> > > > +
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0tusb320: typec@60 {
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0compatible =3D "ti,tusb320";
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0reg =3D <0x60>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0interrupt-parent =3D <&pio>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0interrupts =3D <1 5 IRQ_TYPE_EDGE_FALLING>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0};
+> >> > > > +};
+> >> > > > +
+> >> > > > +&emac {
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0allwinner,leds-active=
+-low;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0nvmem-cells =3D <&eth=
+0_macaddress>;=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0/*
+> >> > > > custom
+> >> > > > nvmem reference */
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0nvmem-cell-names =3D =
+"mac-address";=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0/* see
+> >> > > > ethernet-controller.yaml */
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0status =3D "okay";
+> >> > > > +};
+> >> > > > +
+> >> > > > +&spi0 {
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0#address-cells =3D <1=
+>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0#size-cells =3D <0>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0pinctrl-names =3D "de=
+fault";
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0pinctrl-0 =3D <&spi0_=
+pins>; =20
+> >> > >
+> >> > > Those two lines look redundant, as they are already specified in
+> >> > > the
+> >> > > .dtsi file.
+> >> > > =20
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0cs-gpios =3D <0>, <&p=
+io 1 0 GPIO_ACTIVE_LOW>; /* PB0 */
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0status =3D "okay";
+> >> > > > +
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0flash@0 {
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0#address-cells =3D <1>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0#size-cells =3D <1>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0compatible =3D "jedec,spi-nor"; =20
+> >> > >
+> >> > > I think traditionally we have the compatible first, and #a-c and
+> >> > > #s-c
+> >> > > last in the node.
+> >> > > And do you have anything partitioned in there? If not, you
+> >> > > wouldn't
+> >> > > need the #a-c and #s-c properties, I think.
+> >> > > =20
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0reg =3D <0>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0label =3D "firmware";
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0spi-max-frequency =3D <40000000>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0};
+> >> > > > +
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0can@1 {
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0compatible =3D "microchip,mcp2518fd";
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0reg =3D <1>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0clocks =3D <&clk_can0>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0interrupt-parent =3D <&pio>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0interrupts =3D <1 1 IRQ_TYPE_LEVEL_LOW>;=C2=A0 /=
+* PB1
+> >> > > > */
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0spi-max-frequency =3D <20000000>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0vdd-supply =3D <&reg_vcc3v3>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0xceiver-supply =3D <&reg_vcc3v3>;
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0};
+> >> > > > +};
+> >> > > > \ No newline at end of file =20
+> >> > >
+> >> > > Please add a newline at the end. =20
+> >> >
+> >> > Well maybe this file is written with some non-Unix-traditional
+> >> > editor,
+> >> > well Linux is something Unix-traditional, and for these editors
+> >> > manual
+> >> > insertion of an empty line will be needed (on Unix-traditional
+> >> > things
+> >> > e.g. Vim, no empty lines should be presented at all.)
+> >> > =20
+> >> > > =20
+> >> > > > diff --git a/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
+> >> > > > b/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi =20
+> >> > >
+> >> > > I don't know for sure if people want SoC .dtsi patches
+> >> > > separately?
+> >> > >
+> >> > > Cheers,
+> >> > > Andre
+> >> > > =20
+> >> > > > index 9e13c2aa8911..f909b1d4dbca 100644
+> >> > > > --- a/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
+> >> > > > +++ b/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
+> >> > > > @@ -416,6 +416,12 @@ uart0_pb_pins: uart0-pb-pins {
+> >> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0function =3D "uart0";
+> >> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0};
+> >> > > > =C2=A0
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+/omit-if-no-ref/
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+uart1_pe_pins: uart1-pe-pins {
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0pins =3D "PE21", "PE22";
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0function =3D "uart1";
+> >> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+};
+> >> > > > +
+> >> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0uart2_pins: uart2-pins {
+> >> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0pins =3D "PB0", "PB1";
+> >> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0function =3D "uart2";=
+ =20
+> >> > >
+> >> > > =20
+> >>=20
+> >>  =20
+>=20
+>=20
 
 
