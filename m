@@ -4,66 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE404E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 22:02:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F820E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 22:05:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QnVrWEUtFgMvDpm5kd+ZvPWkuuGKmlEREXeXjJ/9WLQ=; b=Hgv/vhLsnyjZE0a2y1eWpYADVV
-	U0skl8YU1g/7L/lFEDe00r7BWMC9OpIg1R2yPuJIBlaT4Tia1k5iMa26zcZZDyeYXTObpkewT6yiy
-	/QsGcMs9sVha5UFLoBfiSewA3i7YtkRtzLd95xIfbM1sG0SlpmmodvKl9P9zkagsKGq3UivFaxett
-	JCPcATdXQcFrsOmMgDb7MdOYsD8g7tDzP3KCJdU3M9G6gq+7cis5y0lsX++TqWPzL6Y7G/TKCF9Tc
-	8ICNHUCfKWyic+2CvF5r6ACSJwiEV/MtMvQ1dNwvN6mMIfELfcNTuP8z4rjvlfus8wYoWXypopoC3
-	HpCAbweg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gE972PSUI18MWZ+RwXKg9FgJGGHphELoFtgsgAWfKDc=; b=eWJxlNeKS/NBDO8hQMW9nsB03b
+	U1wxk9frMNzPOr39zddqteMG2nPgdTKi23ZdQ75J6LlZ7kk5MZ9mKpTKsqqBjBQ6jdkidXU0xjo4L
+	ARQGIwNVYq8otVHN/7FqgRShw8lLlCcpo/GfhlaPJhNbISARhKDwLouFDEWldA0H9kxBIY8NYGq7P
+	EVytXtiPdxW18uYYIFAAGsoGKrIuDYdF06vkeUwc29ptIhGIbufg0Usd7eV+qymDz10X0nxJngdkV
+	22aPAKIHvJ/ofOqC5Bfb43LTTia9gmE/ChKCYltFd+wItbXOKB4m4MUIrVn4mFT0g+irOLYI8hfjR
+	gIRvoSOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUvAU-00000002oMF-1ZyF;
-	Mon, 06 Jan 2025 22:01:50 +0000
-Received: from smtp-66.smtpout.orange.fr ([80.12.242.66] helo=smtp.smtpout.orange.fr)
+	id 1tUvDy-00000002owN-26M5;
+	Mon, 06 Jan 2025 22:05:26 +0000
+Received: from mail-qk1-x731.google.com ([2607:f8b0:4864:20::731])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUv9E-00000002o1j-0Qrw;
-	Mon, 06 Jan 2025 22:00:34 +0000
-Received: from [192.168.1.37] ([90.11.132.44])
-	by smtp.orange.fr with ESMTPA
-	id Uv8xtgasrGcOqUv91t2CGv; Mon, 06 Jan 2025 23:00:21 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1736200821;
-	bh=QnVrWEUtFgMvDpm5kd+ZvPWkuuGKmlEREXeXjJ/9WLQ=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From;
-	b=Knj/XA/gpVUzVe4EkuDhwlNFpl7y04M6/5moZxeMxboXoZUWYOr6qlzRTqtNuWBG3
-	 /MnW8YwGCMviEcnoV2JqsUluyeTkycD2nxfjYZNiruOjvLaYogZZzY8oAl9m4Td24Y
-	 pYg4Z/jrut/XM9F6y3h1nqdZjtdy8lAW3t1w2sAQOXYO8ydYIYuV9CEMwd1PVh76v4
-	 dqN9MflSQIWoZLVHXI3jOeiNuM5l8w4ZDt4Z1lfzhl3nfXKopCzzM8JLePvtwthV7G
-	 LgXUMF95kAPUbB/M3yziRIliIN0woQ5by3smNzPMLz37eOdsxGpb4RgmhK0oBuSvy/
-	 QfRYsK8viiV7g==
-X-ME-Helo: [192.168.1.37]
-X-ME-Auth: bWFyaW9uLmphaWxsZXRAd2FuYWRvby5mcg==
-X-ME-Date: Mon, 06 Jan 2025 23:00:21 +0100
-X-ME-IP: 90.11.132.44
-Message-ID: <1483780d-115f-4555-82b3-3e9cffe82dce@wanadoo.fr>
-Date: Mon, 6 Jan 2025 23:00:14 +0100
+	id 1tUvCj-00000002okT-3h7x
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 06 Jan 2025 22:04:11 +0000
+Received: by mail-qk1-x731.google.com with SMTP id af79cd13be357-7b6ea711805so1673338285a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jan 2025 14:04:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1736201048; x=1736805848; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=gE972PSUI18MWZ+RwXKg9FgJGGHphELoFtgsgAWfKDc=;
+        b=WovVJY87l/JJILR8NFJ7on9eVZZmpCGCLB0UHnoZWq3ULttZaDBNoUX8/kZlylx1qX
+         n66lrCBUw4loflLWmDtHE95NMgqrIcpE2l7Pcz8VGPgcbod73Thv9buIjNfnfX2IW5qZ
+         ikejvcUFt1p1YjWvl7LdYJ0t/V9QP+2LGlRPYqvM+jBwmmS19mPXXR8geyG+uXLqtnBB
+         OhsRHu0lmaLsRAWIWzS0GJUZ8CFhEjeR4W4660wExbOHpZgyXX9Mzhkfqtncxl2qxP2c
+         gK0ywlLHVsnthH1Y7RUaoDSMIg9rxysc9rOjECX14XTJfaOfXEI91gRPnufu/ZLOQhxO
+         nhJQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736201048; x=1736805848;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=gE972PSUI18MWZ+RwXKg9FgJGGHphELoFtgsgAWfKDc=;
+        b=vChYkYHs5iyNEYEsXpHLkThJ+ViZROQ00FWL6gOtKS6ZSyY/EBCKR7MVgVu79qyT7n
+         UwryZFdrOwrjFET5WEAlYnMrCNkPE2A8gmgWEwZGb7GNChmXnwVVEa0Qlya4cDye7FJ1
+         DBIGL/T7MQ3klad0t2nbE+EXhF5XGdbBjpCnJnkK+VrxhL7pwI9659PH76YpWtO5uQje
+         Tb7vtr1h82FAz47ZCUkjnfNQ4mxoIghvgZAi3XKvH5PUxG4k78jTkHjazcSqL0Q0hCYx
+         WI6P8elxkZmsYQ4m03uR6nUUP8P140f6lmgULkWRt/OppqSPRI6c2SjC0NmfbQwUEL2D
+         G42w==
+X-Forwarded-Encrypted: i=1; AJvYcCXEN7l3AVNH291F2tHTTRmOijvMMUC7cmbohRT8nmPMQtBzLphzLczZOkVPowrGpLjjtW0iY1eEvj4739TaODn2@lists.infradead.org
+X-Gm-Message-State: AOJu0YwtGhfEYYZkv3of1PVzPi/t5KehvKUNfwib6CDw+2i95uqmzmzX
+	vMzth17mRQKE48iKSTZLLOfW06LA8htDZKmiAqNfZ5QOYsd3xi0K
+X-Gm-Gg: ASbGncsqYtI5ehglOJHQUA2TmHd2OdQs2ncvWPt9FKqfeBAr+GU1i+HV+3uf9oAxOQ+
+	u8ODnG7aeQMxF6BRX1+rVvbPvYisNni+yxOLV90Ma5uWy3FOckDhq1tuLeP3NqoUcFkmvk6sRHR
+	hPdvPSypomRSfNcru0mfTqh4cRMX2LE1C+3wndsJVD/3vtJT6S+MExCr91164woYypbxmfZmqGz
+	DwgpTiTshP6WmkFQN5ieTtkMPGZRs1c5q+UrXGT7BRX9OvXckF/b9/WJCRTnHrZayY7
+X-Google-Smtp-Source: AGHT+IGn0g8TEC3Aj/0e3OGDC3eL91fHDnZHW118aKg0tjM+B8b8FsO0SH7lTvnA8lvipg/jwXVjnQ==
+X-Received: by 2002:a05:620a:19a0:b0:7b1:52a9:ae1d with SMTP id af79cd13be357-7b9ba716a1bmr10201657485a.6.1736201047754;
+        Mon, 06 Jan 2025 14:04:07 -0800 (PST)
+Received: from localhost.localdomain ([128.10.127.250])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7b9ac30d378sm1541912685a.56.2025.01.06.14.04.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 06 Jan 2025 14:04:06 -0800 (PST)
+From: Mingwei Zheng <zmw12306@gmail.com>
+To: antonio.borneo@foss.st.com
+Cc: marex@denx.de,
+	linus.walleij@linaro.org,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	make24@iscas.ac.cn,
+	peng.fan@nxp.com,
+	fabien.dessenne@foss.st.com,
+	linux-gpio@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Mingwei Zheng <zmw12306@gmail.com>,
+	Jiasheng Jiang <jiashengjiangcool@gmail.com>
+Subject: [PATCH v10] pinctrl: stm32: Add check for clk_enable()
+Date: Mon,  6 Jan 2025 17:06:59 -0500
+Message-Id: <20250106220659.2640365-1-zmw12306@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] phy: cadence-torrent: Add PCIe multilink
- configuration for 100 MHz refclk
-To: Siddharth Vadapalli <s-vadapalli@ti.com>, vkoul@kernel.org,
- kishon@kernel.org, sjakhade@cadence.com, rogerq@kernel.org,
- thomas.richard@bootlin.com, u.kleine-koenig@baylibre.com, eballetb@redhat.com
-Cc: linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, srk@ti.com
-References: <20250106131925.263240-1-s-vadapalli@ti.com>
- <20250106131925.263240-2-s-vadapalli@ti.com>
-Content-Language: en-US, fr-FR
-From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-In-Reply-To: <20250106131925.263240-2-s-vadapalli@ti.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_140032_414856_C53F1DA0 
-X-CRM114-Status: GOOD (  15.98  )
+X-CRM114-CacheID: sfid-20250106_140409_921574_9A56761D 
+X-CRM114-Status: GOOD (  19.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,76 +104,232 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le 06/01/2025 à 14:19, Siddharth Vadapalli a écrit :
-> From: Swapnil Jakhade <sjakhade@cadence.com>
-> 
-> Add register sequences to support PCIe multilink configuration for 100MHz
-> reference clock. Maximum two PCIe links are supported.
-> 
-> Signed-off-by: Swapnil Jakhade <sjakhade@cadence.com>
-> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> ---
-> 
-> ***NOTE***
-> Since I don't have the hardware required to validate PCIe Multilink +
-> USB functionality, kindly *do not merge* this series until it gets a
-> "Tested-by" tag with proper validation of the functionality.
-> 
-> Regards,
-> Siddharth.
-> 
->   drivers/phy/cadence/phy-cadence-torrent.c | 130 +++++++++++++++++++++-
->   1 file changed, 129 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/phy/cadence/phy-cadence-torrent.c b/drivers/phy/cadence/phy-cadence-torrent.c
-> index a281c0dfae97..b0b5f4bdd7e2 100644
-> --- a/drivers/phy/cadence/phy-cadence-torrent.c
-> +++ b/drivers/phy/cadence/phy-cadence-torrent.c
-> @@ -197,6 +197,7 @@
->   #define RX_SDCAL1_INIT_TMR		0x004CU
->   #define RX_SDCAL1_ITER_TMR		0x004DU
->   #define RX_CDRLF_CNFG			0x0080U
-> +#define RX_CDRLF_CNFG2			0x0081U
->   #define RX_CDRLF_CNFG3			0x0082U
->   #define RX_SIGDET_HL_FILT_TMR		0x0090U
->   #define RX_REE_GCSM1_CTRL		0x0108U
-> @@ -204,6 +205,7 @@
->   #define RX_REE_GCSM1_EQENM_PH2		0x010AU
->   #define RX_REE_GCSM2_CTRL		0x0110U
->   #define RX_REE_PERGCSM_CTRL		0x0118U
-> +#define RX_REE_PEAK_UTHR		0x0142U
->   #define RX_REE_ATTEN_THR		0x0149U
->   #define RX_REE_TAP1_CLIP		0x0171U
->   #define RX_REE_TAP2TON_CLIP		0x0172U
-> @@ -212,6 +214,7 @@
->   #define RX_DIAG_DFE_CTRL		0x01E0U
->   #define RX_DIAG_DFE_AMP_TUNE_2		0x01E2U
->   #define RX_DIAG_DFE_AMP_TUNE_3		0x01E3U
-> +#define RX_DIAG_REE_DAC_CTRL		0x01E4U
->   #define RX_DIAG_NQST_CTRL		0x01E5U
->   #define RX_DIAG_SIGDET_TUNE		0x01E8U
->   #define RX_DIAG_PI_RATE			0x01F4U
-> @@ -3131,6 +3134,101 @@ static void cdns_torrent_phy_remove(struct platform_device *pdev)
->   	cdns_torrent_clk_cleanup(cdns_phy);
->   }
->   
-> +/* Multi link PCIe configuration */
-> +static struct cdns_reg_pairs ml_pcie_link_cmn_regs[] = {
-> +	{0x0002, PHY_PLL_CFG},
-> +	{0x0601, CMN_PDIAG_PLL0_CLK_SEL_M0}
-> +};
+Convert the driver to clk_bulk*() API.
+Add check for the return value of clk_bulk_enable() to catch
+the potential error.
 
-I think that some, if not all, of these new struct could be const, as 
-elsewhere in this file.
+Fixes: 05d8af449d93 ("pinctrl: stm32: Keep pinctrl block clock enabled when LEVEL IRQ requested")
+Signed-off-by: Mingwei Zheng <zmw12306@gmail.com>
+Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
+---
+Changelog:
 
-> +
-> +static struct cdns_reg_pairs ml_pcie_xcvr_diag_ln_regs[] = {
-> +	{0x0100, XCVR_DIAG_HSCLK_SEL},
-> +	{0x0001, XCVR_DIAG_HSCLK_DIV},
-> +	{0x0812, XCVR_DIAG_PLLDRC_CTRL}
-> +};
+v9 -> v10:
+1. Move the id assignment into pctl->clks[i].clk assignment loop.
+2. Remove empty lines.
 
-...
+v8 -> v9:
+1. Revert changes from v5 to v6.
+2. Add assignment for clk id to avoid NULL pointer dereference.
 
-CJ
+v7 -> v8:
+1. Remove all previously registered GPIO chips before disabling 
+the clocks.
+
+v6 -> v7:
+1. Move clk_bulk_prepare_enable() before calling 
+stm32_gpiolib_register_bank().
+
+v5 -> v6:
+1. Call devm_clk_bulk_get_all in stm32_pctl_probe().
+
+v4 -> v5:
+1. Move the clock handling from stm32_gpiolib_register_bank()
+and moving it to its caller.
+2. Call clk_bulk_prepare_enable() in stm32_pctl_probe() 
+and clk_bulk_disable_unprepare() for error.
+
+v3 -> v4:
+1. Add initialization for pctl->clks.
+2. Adjust alignment.
+
+v2 -> v3:
+
+1. Convert clk_disable_unprepare to clk_bulk_disable
+and clk_bulk_unprepare.
+
+v1 -> v2:
+
+1. Move int ret declaration into if block.
+---
+ drivers/pinctrl/stm32/pinctrl-stm32.c | 76 +++++++++++++--------------
+ 1 file changed, 38 insertions(+), 38 deletions(-)
+
+diff --git a/drivers/pinctrl/stm32/pinctrl-stm32.c b/drivers/pinctrl/stm32/pinctrl-stm32.c
+index 5b7fa77c1184..03f3f707d275 100644
+--- a/drivers/pinctrl/stm32/pinctrl-stm32.c
++++ b/drivers/pinctrl/stm32/pinctrl-stm32.c
+@@ -86,7 +86,6 @@ struct stm32_pinctrl_group {
+ 
+ struct stm32_gpio_bank {
+ 	void __iomem *base;
+-	struct clk *clk;
+ 	struct reset_control *rstc;
+ 	spinlock_t lock;
+ 	struct gpio_chip gpio_chip;
+@@ -108,6 +107,7 @@ struct stm32_pinctrl {
+ 	unsigned ngroups;
+ 	const char **grp_names;
+ 	struct stm32_gpio_bank *banks;
++	struct clk_bulk_data *clks;
+ 	unsigned nbanks;
+ 	const struct stm32_pinctrl_match_data *match_data;
+ 	struct irq_domain	*domain;
+@@ -1308,12 +1308,6 @@ static int stm32_gpiolib_register_bank(struct stm32_pinctrl *pctl, struct fwnode
+ 	if (IS_ERR(bank->base))
+ 		return PTR_ERR(bank->base);
+ 
+-	err = clk_prepare_enable(bank->clk);
+-	if (err) {
+-		dev_err(dev, "failed to prepare_enable clk (%d)\n", err);
+-		return err;
+-	}
+-
+ 	bank->gpio_chip = stm32_gpio_template;
+ 
+ 	fwnode_property_read_string(fwnode, "st,bank-name", &bank->gpio_chip.label);
+@@ -1360,26 +1354,20 @@ static int stm32_gpiolib_register_bank(struct stm32_pinctrl *pctl, struct fwnode
+ 							   bank->fwnode, &stm32_gpio_domain_ops,
+ 							   bank);
+ 
+-		if (!bank->domain) {
+-			err = -ENODEV;
+-			goto err_clk;
+-		}
++		if (!bank->domain)
++			return -ENODEV;
+ 	}
+ 
+ 	names = devm_kcalloc(dev, npins, sizeof(char *), GFP_KERNEL);
+-	if (!names) {
+-		err = -ENOMEM;
+-		goto err_clk;
+-	}
++	if (!names)
++		return -ENOMEM;
+ 
+ 	for (i = 0; i < npins; i++) {
+ 		stm32_pin = stm32_pctrl_get_desc_pin_from_gpio(pctl, bank, i);
+ 		if (stm32_pin && stm32_pin->pin.name) {
+ 			names[i] = devm_kasprintf(dev, GFP_KERNEL, "%s", stm32_pin->pin.name);
+-			if (!names[i]) {
+-				err = -ENOMEM;
+-				goto err_clk;
+-			}
++			if (!names[i])
++				return -ENOMEM;
+ 		} else {
+ 			names[i] = NULL;
+ 		}
+@@ -1390,15 +1378,11 @@ static int stm32_gpiolib_register_bank(struct stm32_pinctrl *pctl, struct fwnode
+ 	err = gpiochip_add_data(&bank->gpio_chip, bank);
+ 	if (err) {
+ 		dev_err(dev, "Failed to add gpiochip(%d)!\n", bank_nr);
+-		goto err_clk;
++		return err;
+ 	}
+ 
+ 	dev_info(dev, "%s bank added\n", bank->gpio_chip.label);
+ 	return 0;
+-
+-err_clk:
+-	clk_disable_unprepare(bank->clk);
+-	return err;
+ }
+ 
+ static struct irq_domain *stm32_pctrl_get_irq_domain(struct platform_device *pdev)
+@@ -1621,6 +1605,11 @@ int stm32_pctl_probe(struct platform_device *pdev)
+ 	if (!pctl->banks)
+ 		return -ENOMEM;
+ 
++	pctl->clks = devm_kcalloc(dev, banks, sizeof(*pctl->clks),
++				  GFP_KERNEL);
++	if (!pctl->clks)
++		return -ENOMEM;
++
+ 	i = 0;
+ 	for_each_gpiochip_node(dev, child) {
+ 		struct stm32_gpio_bank *bank = &pctl->banks[i];
+@@ -1632,24 +1621,27 @@ int stm32_pctl_probe(struct platform_device *pdev)
+ 			return -EPROBE_DEFER;
+ 		}
+ 
+-		bank->clk = of_clk_get_by_name(np, NULL);
+-		if (IS_ERR(bank->clk)) {
++		pctl->clks[i].clk = of_clk_get_by_name(np, NULL);
++		if (IS_ERR(pctl->clks[i].clk)) {
+ 			fwnode_handle_put(child);
+-			return dev_err_probe(dev, PTR_ERR(bank->clk),
++			return dev_err_probe(dev, PTR_ERR(pctl->clks[i].clk),
+ 					     "failed to get clk\n");
+ 		}
++		pctl->clks[i].id = "pctl";
+ 		i++;
+ 	}
+ 
++	ret = clk_bulk_prepare_enable(banks, pctl->clks);
++	if (ret) {
++		dev_err(dev, "failed to prepare_enable clk (%d)\n", ret);
++		return ret;
++	}
++
+ 	for_each_gpiochip_node(dev, child) {
+ 		ret = stm32_gpiolib_register_bank(pctl, child);
+ 		if (ret) {
+ 			fwnode_handle_put(child);
+-
+-			for (i = 0; i < pctl->nbanks; i++)
+-				clk_disable_unprepare(pctl->banks[i].clk);
+-
+-			return ret;
++			goto err_register;
+ 		}
+ 
+ 		pctl->nbanks++;
+@@ -1658,6 +1650,15 @@ int stm32_pctl_probe(struct platform_device *pdev)
+ 	dev_info(dev, "Pinctrl STM32 initialized\n");
+ 
+ 	return 0;
++err_register:
++	for (i = 0; i < pctl->nbanks; i++) {
++		struct stm32_gpio_bank *bank = &pctl->banks[i];
++
++		gpiochip_remove(&bank->gpio_chip);
++	}
++
++	clk_bulk_disable_unprepare(banks, pctl->clks);
++	return ret;
+ }
+ 
+ static int __maybe_unused stm32_pinctrl_restore_gpio_regs(
+@@ -1726,10 +1727,8 @@ static int __maybe_unused stm32_pinctrl_restore_gpio_regs(
+ int __maybe_unused stm32_pinctrl_suspend(struct device *dev)
+ {
+ 	struct stm32_pinctrl *pctl = dev_get_drvdata(dev);
+-	int i;
+ 
+-	for (i = 0; i < pctl->nbanks; i++)
+-		clk_disable(pctl->banks[i].clk);
++	clk_bulk_disable(pctl->nbanks, pctl->clks);
+ 
+ 	return 0;
+ }
+@@ -1738,10 +1737,11 @@ int __maybe_unused stm32_pinctrl_resume(struct device *dev)
+ {
+ 	struct stm32_pinctrl *pctl = dev_get_drvdata(dev);
+ 	struct stm32_pinctrl_group *g = pctl->groups;
+-	int i;
++	int i, ret;
+ 
+-	for (i = 0; i < pctl->nbanks; i++)
+-		clk_enable(pctl->banks[i].clk);
++	ret = clk_bulk_enable(pctl->nbanks, pctl->clks);
++	if (ret)
++		return ret;
+ 
+ 	for (i = 0; i < pctl->ngroups; i++, g++)
+ 		stm32_pinctrl_restore_gpio_regs(pctl, g->pin);
+-- 
+2.34.1
+
 
