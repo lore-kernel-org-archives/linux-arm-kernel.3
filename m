@@ -4,68 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63194E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 19:56:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14FD0E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 20:12:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1EgYclgex2DiNfvcJW45qzaISiGRO/YVArx3m7ZTovI=; b=XUSTp34DyYchZLII1zMDnk5SaU
-	GQFG+HvICeF7SX/A5/jEp9xL0KTcCOGwX9TAV9br6xJx7sBxKS5E/PQMsyqVqWNCibj8tkFffcPJd
-	jJ9RxNTOK1urQbd/WIYcjgwGuSEqX8IaJsq5+BwsNKlnjHMTzsfJAO9z0w9MTSUFkAbUB1/wg9XtJ
-	NQLZRBm1VyTwkvO6Eh7kBNHGKbEaqqiSMyawudL4hcP79g86GI5KSW0uRjGo6jlb88pn3mjqBS2MW
-	55MhPnXUc3pzFHshgRYxuwJzw8fAepIE9N0Kr0fos9HBBW4HFZWOxlXYb1sp5/QmIoJiSZWhYrcSB
-	MLT/iaZw==;
+	bh=OKShWIVvgC0hd8TSAF8wwXIgWBFjhPDo296N/okMqfU=; b=jScs1GMidsDmEFAGfHMgD1a7bd
+	xcm/cLNggO/fLVc7dG5w0Gh4KESOS4P5HUHF938YoFN1jGhmqUzoJZqrtdY2D6lAovHoRmFCSQDvA
+	pmUBTH1LTR/rn2DElZ0vyC0O719fbtgtu/8DiLK2URAETOIbclGzxrOrZ1mX9N5Am/0vNybN/JWYe
+	T75EcnkOlFgxJ6QGS+jl8zehBNZ3s+d0sXAx5uQQAIprbvr0wd2RgEg7cBE8Z/g6dSBl+NpHwsxE3
+	ZIidznV06zVGOW1MXKomYUfP3CAt15Jvh8WzX9oLD+6LYZbqjc+EnDsvtDGbMA0Ns0dxIt8okaAyg
+	G10uYotw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUtDM-00000002WFl-0wBq;
-	Mon, 06 Jan 2025 19:56:40 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tUtSj-00000002Yza-2Pj7;
+	Mon, 06 Jan 2025 20:12:33 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUtCA-00000002W3q-2lm0
+	id 1tUtRY-00000002Yox-1os7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 19:55:28 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tUtBt-00069T-Pa; Mon, 06 Jan 2025 20:55:09 +0100
-Message-ID: <6fddfd9a-8a8c-4dae-9f74-e8019b7ed404@pengutronix.de>
-Date: Mon, 6 Jan 2025 20:55:08 +0100
+	Mon, 06 Jan 2025 20:11:21 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 506JOg64024445;
+	Mon, 6 Jan 2025 20:10:55 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	OKShWIVvgC0hd8TSAF8wwXIgWBFjhPDo296N/okMqfU=; b=VNKYLYNXaursvtDr
+	QZwRukHb9CM8+iECtftz9azCeyMCPKBNpewzN+AJCQs5a/XUMRoz0brQNaoWHnbL
+	r8i6IfeeEwJvS9KzKh7/S6mOMI+LnSMDN0yxhs8+fREkipq10zxWWeKc2++h5hMe
+	ZBojQq2bBnOsW758pTz+kq5NHwyL/UA70zWdubqXlu//R7cX7+J3Cnk59dJorDc0
+	WwN5mZbpTYS21VvK2yV4/E769GKIowZGEM0yb8bB3LDpsJb69VJwRipRB1iWGYs5
+	dv4JtSpKUqJhVlITyfL47hEKfKF+wKapPi4gJJVqcwq5d2gvpfdKLyBjmKq3vx5M
+	B6+6lQ==
+Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 440nadg2p9-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 06 Jan 2025 20:10:54 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 506KArrY029637
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 6 Jan 2025 20:10:53 GMT
+Received: from [10.216.24.147] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 6 Jan 2025
+ 12:10:50 -0800
+Message-ID: <48373519-2867-419d-9f51-e7bd330b311c@quicinc.com>
+Date: Tue, 7 Jan 2025 01:40:47 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/6] dt-bindings: clock: imx8m: document
- nominal/overdrive properties
-To: Frank Li <Frank.li@nxp.com>, Conor Dooley <conor+dt@kernel.org>
-Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Abel Vesa <abel.vesa@linaro.org>,
- Marek Vasut <marex@denx.de>, linux-clk@vger.kernel.org, imx@lists.linux.dev,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>
-References: <20250106-imx8m-clk-v2-0-6aaeadac65fe@pengutronix.de>
- <20250106-imx8m-clk-v2-1-6aaeadac65fe@pengutronix.de>
- <Z3wHp6eLQuV9GGvh@lizhi-Precision-Tower-5810>
- <957ad153-17f3-4cb8-8878-73093a9a2724@pengutronix.de>
- <Z3wyG61QEzgCJFh+@lizhi-Precision-Tower-5810>
+Subject: Re: [PATCH v2] iommu/arm-smmu-qcom: Only enable stall on smmu-v2
+From: Akhil P Oommen <quic_akhilpo@quicinc.com>
+To: Rob Clark <robdclark@gmail.com>, <iommu@lists.linux.dev>
+CC: <linux-arm-msm@vger.kernel.org>, <freedreno@lists.freedesktop.org>,
+        Robin
+ Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>,
+        Rob Clark
+	<robdclark@chromium.org>, Joerg Roedel <joro@8bytes.org>,
+        "moderated list:ARM
+ SMMU DRIVERS" <linux-arm-kernel@lists.infradead.org>,
+        open list
+	<linux-kernel@vger.kernel.org>
+References: <20250102183232.115279-1-robdclark@gmail.com>
+ <76b822f0-c4c5-4d47-8e0b-c1eee513e228@quicinc.com>
 Content-Language: en-US
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-In-Reply-To: <Z3wyG61QEzgCJFh+@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8
+In-Reply-To: <76b822f0-c4c5-4d47-8e0b-c1eee513e228@quicinc.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: 0zZpxDVwd0sIlNSE1sDlJoY_CJ80Fchs
+X-Proofpoint-GUID: 0zZpxDVwd0sIlNSE1sDlJoY_CJ80Fchs
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 malwarescore=0
+ impostorscore=0 suspectscore=0 phishscore=0 clxscore=1015
+ priorityscore=1501 bulkscore=0 lowpriorityscore=0 mlxscore=0 spamscore=0
+ mlxlogscore=823 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501060175
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_115526_709902_FAF004B8 
-X-CRM114-Status: GOOD (  23.60  )
+X-CRM114-CacheID: sfid-20250106_121120_599443_B353C230 
+X-CRM114-Status: GOOD (  11.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,114 +106,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Frank,
-
-On 06.01.25 20:42, Frank Li wrote:
-> On Mon, Jan 06, 2025 at 08:25:38PM +0100, Ahmad Fatoum wrote:
->> On 06.01.25 17:41, Frank Li wrote:
->>> On Mon, Jan 06, 2025 at 03:21:42PM +0100, Ahmad Fatoum wrote:
->>>> Allowing for absence of both properties is
->>>> needed, because there is no default suitable for all boards:
->>>>
->>>> For i.MX8M Mini and Nano, the kernel SoC DTSIs has assigned-clock-rates
->>>> that are all achievable in nominal mode. For i.MX8MP, there are some
->>>> rates only validated for overdrive mode.
->>>>
->>>> But even for the i.MX8M Mini/Nano boards, we don't know what rates they
->>>> may configure at runtime, so it has not been possible so far to infer from
->>>> just the device tree what the mode is.
+On 1/3/2025 1:00 AM, Akhil P Oommen wrote:
+> On 1/3/2025 12:02 AM, Rob Clark wrote:
+>> From: Rob Clark <robdclark@chromium.org>
 >>
->> [snip]
+>> On mmu-500, stall-on-fault seems to stall all context banks, causing the
+>> GMU to misbehave.  So limit this feature to smmu-v2 for now.
 >>
->>>> +  fsl,nominal-mode:
->>>> +    description: Set if SoC is operated in nominal mode
->>>> +    $ref: /schemas/types.yaml#/definitions/flag
->>>> +
->>>> +  fsl,overdrive-mode:
->>>> +    description: Set if SoC is operated in overdrive mode
->>>> +    $ref: /schemas/types.yaml#/definitions/flag
->>>> +
->>>
->>> why need two flags? suppose "not set fsl,overdrive-mode" is equal to
->>> fsl,nominal-mode
+>> This fixes an issue with an older mesa bug taking outo the system
+>> because of GMU going off into the weeds.
 >>
->> Conor had the same question on v1[1] and I have addressed this in the commit
->> message of v2, see above.
+>> What we _think_ is happening is that, if the GPU generates 1000's of
+>> faults at ~once (which is something that GPUs can be good at), it can
+>> result in a sufficient number of stalled translations preventing other
+>> transactions from entering the same TBU.
 >>
->> In short, there is unfortunately no universally applicable default.
->>
->> [1]: https://lore.kernel.org/all/4e2250b3-5170-4e88-aa0a-dd796b81e78b@pengutronix.de/
->>
+>> Signed-off-by: Rob Clark <robdclark@chromium.org>
 > 
-> But there are problem if use dts overlay because dts overlay can't support
-> delete property.
-> 
-> If one dts file use "fsl,overdrive-mode", dts overlay file can't delete
-> this property. "mutually exclusive optional properties" was not preferred.
-> 
-> mode = ["normal" | "overdrive"]
-
-I don't see myself setting this via overlay, but if you say it's useful, we can
-adjust the binding.
-
-I am not sure what's the preference is though, should we have
-
-  fsl,operating-mode = "normal" / "overdrive"
-
-or 
-
-  fsl,operating-mode = <IMX_OPMODE_NORMAL> / <IMX_OPMODE_OVERDRIVE>
-
-
-Any idea? Conor?
-
-Cheers,
-Ahmad
-
-> 
-> Frank
-> 
->> Thanks,
->> Ahmad
->>
->>
->>>
->>> Frank
->>>
->>>>  required:
->>>>    - compatible
->>>>    - reg
->>>> @@ -95,6 +103,12 @@ allOf:
->>>>              - const: clk_ext2
->>>>              - const: clk_ext3
->>>>              - const: clk_ext4
->>>> +  - if:
->>>> +      required:
->>>> +        - fsl,overdrive-mode
->>>> +    then:
->>>> +      properties:
->>>> +        fsl,nominal-mode: false
->>>>
->>>>  additionalProperties: false
->>>>
->>>>
->>>> --
->>>> 2.39.5
->>>>
->>>
->>
->>
->> --
->> Pengutronix e.K.                           |                             |
->> Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
->> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
->> Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+> Reviewed-by: Akhil P Oommen <quic_akhilpo@quicinc.com>
 > 
 
+Btw, if stall is not enabled, I think there is no point in capturing
+coredump from adreno pagefault handler. By the time we start coredump,
+gpu might have switched context.
 
--- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+-Akhil.
+
+> -Akhil
+> 
 
