@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AD65E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 19:29:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AD13E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 19:30:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4m9OqiwFQH6PlG0tJPa3ll0iyy4Enjyf73LBjtm//80=; b=uZXRVsMdA+pLc2zJ/RASnrjoNQ
-	990zDw9sLEtL79YYmjdIkqK91ej5Hbq74pfxjL/u8mfH9UiisSOI9+a6j4nubLVv3T0pvC+ztPWPG
-	qD9+8e9Wklo9QsOLWiFPOAFSNnVZ/fyEtLEbjqfMWa0YfWZbFHMoT0bJbi43r/9cD54Nh1fvyANqB
-	qS+w2U2Sn9mQq0B0cGY8KDJBnLTwaIFq8gNmE2dg7gUY0kKnMySLXZ8JYtsFu+VTBfmRolh8kXIdN
-	ewVDZc24pr0sgYB+SRY72n0VSBa7Mrq3GC4NWX4gqdA4o99EriZpl0HdXOd5yNfY7RaPmfeUtMRbY
-	6KTj9tnQ==;
+	bh=mqoUEBSQZIsop5h7cyh3uwVMLcksY9eE0elSsXyzhlM=; b=YZVgYZEyFxRqx0E6Kejse4hQr/
+	YubdyiGglbU5GjJGcAuB3XtWjJhyJ8znPJHl09k4mFArvBy3I7s/3z5QppiljMHrv/CThduyuQZNc
+	falL+w6mnN0srKxQEwWyvslvl5Y8+92xrUPA5esit+PgYQJjfKG5Yea5NF55rzevn39/3B+Bf4HnD
+	KY+YSvUBhYfQxuz2410uEUBWsdIDlGZVGJxDdQyaHt1cgDhoUkuY6ceZkKroWEMeo/+ynPEoFbd5J
+	xUc75n3rZMqCdLyXlqr03wxendgYo8aoU9pm+D+DJr1Vn9Rkz9EpwK0BARwjWJzWp7vmeKBNB60cc
+	MiOGNN6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUsmp-00000002Rs9-1IJP;
-	Mon, 06 Jan 2025 19:29:15 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tUsnz-00000002S1h-1FAQ;
+	Mon, 06 Jan 2025 19:30:27 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUsld-00000002Rdt-05Qi;
+	id 1tUsld-00000002Rds-0bou;
 	Mon, 06 Jan 2025 19:28:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6207F5C0644;
-	Mon,  6 Jan 2025 19:27:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D257BC4CEEC;
-	Mon,  6 Jan 2025 19:27:58 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7CD24A41D88;
+	Mon,  6 Jan 2025 19:26:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3CAEC4CED6;
+	Mon,  6 Jan 2025 19:27:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736191679;
-	bh=rsXG31WH7wfyTDNrN8YIiWEPDkdjB/Gf7A7Pi2iMbIk=;
+	s=k20201202; t=1736191680;
+	bh=5tsX07eTkRoFq5Nm38qev6WjEZVcUzeCa6oqpna7Ed8=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=oyTFwFGjHshqZLl6kWwazxmVcUO1HWN8CR+4P6qWhdh6SxT70rczFKCCQ7v3vn/Kc
-	 KYrdvmLH1qoT2h7bwQSPRMrSSeQ7/lJfUSlNVlP1vht/OgI9cHAZCvp5Io8PrhYp3N
-	 sX45dmPwW69Vo1z0AaRa9yxjfCNP+1KjfaCgbMQXWtpWDA0miryzJuhlWL3A1OBHI4
-	 ABBbTdIB91bwoJNZnKxsSj/6BlvJBOmV3hf1X4uHFjQNa9LLLctXfFj0/gdb7HQePG
-	 5S66n+tp+y+mNlfl24j1RDbGsbSQE451qEJ0jtuFHe/hGXx8kvq2XcBf+VL6Knd5iz
-	 PmKZhmApT/kCg==
-Date: Mon, 06 Jan 2025 13:27:58 -0600
+	b=kgRlgU8GU1TddcQJm0LiALzx0MqBz6jPBo89Q7e/Hkl+AJZc3RVrJtwjodqAkU3c4
+	 Y3lftu93fHXW79FbIhDfGSXri633ulM9+eXy+anXy3iXQuyECl3EeM6zbw+v+F5RVP
+	 mPFJqdHUPyqX9LFROjM3icAhY0LkhsvtrvsFBFA8XxCrXhp1Tl/OjUtmCG7DZEyBjo
+	 /zmLu2XcCTfmEwInaUb2F4tx1hOOQN9LqVpLic3BysOkyjM3/IeH1hlP93jQzdnMjJ
+	 ZJuiw3fhZqGEE7oF+mA4NsdZuTTortuiquR9MF+TuzxGHgAuRnlhaLDTMZVhq/KymB
+	 6suevT9PiD80g==
+Date: Mon, 06 Jan 2025 13:27:59 -0600
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+Cc: devicetree@vger.kernel.org, Heiko Stuebner <heiko@sntech.de>, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Conor Dooley <conor+dt@kernel.org>, linux-rockchip@lists.infradead.org
-To: Ivan Sergeev <ivan8215145640@gmail.com>
-In-Reply-To: <20250105-bigtreetech-cb2-v6-0-ee7bc9c4df46@gmail.com>
-References: <20250105-bigtreetech-cb2-v6-0-ee7bc9c4df46@gmail.com>
-Message-Id: <173619154629.838782.15013037487294078992.robh@kernel.org>
-Subject: Re: [PATCH v6 0/2] arm64: dts: rockchip: Add BigTreeTech CB2 and
- Pi2
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ linux-rockchip@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>
+To: Alexey Charkov <alchark@gmail.com>
+In-Reply-To: <20250106-rk3588-h96-max-v58-v1-0-d25255f851fc@gmail.com>
+References: <20250106-rk3588-h96-max-v58-v1-0-d25255f851fc@gmail.com>
+Message-Id: <173619154694.838812.1604486663887944578.robh@kernel.org>
+Subject: Re: [PATCH 0/2] arm64: dts: rockchip: Add H96 Max V58 (RK3588
+ based TV box)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_112801_153106_64319829 
-X-CRM114-Status: GOOD (  19.05  )
+X-CRM114-CacheID: sfid-20250106_112801_342483_B068AB7F 
+X-CRM114-Status: GOOD (  21.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,62 +74,47 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sun, 05 Jan 2025 13:40:29 +0300, Ivan Sergeev wrote:
-> BigTreeTech CB2 and Pi2 are Rockchip RK3566 SoM and SBC boards made by
-> BigTreeTech for the intent of using as a 3d printer control board.
-> It is a successor to the Allwinner H616-based BigTreeTech CB1 and Pi, so
-> the device trees for CB2 and Pi2 are also done in the same manner: the
-> common nodes and properties are put into a dtsi file that the
-> board-specific device trees include.
+On Mon, 06 Jan 2025 01:07:16 +0400, Alexey Charkov wrote:
+> H96 Max V58 is a compact TV box based on Rockchip RK3588 SoC [1]
+> that ships with Android by default. Add support for it.
 > 
-> Changes in v6:
-> - Fixed node names missed in v5
-> - Link to v5: https://lore.kernel.org/r/20250105-bigtreetech-cb2-v5-0-923f911b10c0@gmail.com
+> Note that there is no publicly available hardware documentation,
+> nor vendor sources to be used as a reference, so this implementation
+> is best effort based on poking around my board and staring at the
+> decompiled stock DTB. It works for me, but improvement suggestions
+> are very much welcome.
 > 
-> Changes in v5:
-> - Applied requested changes
-> - Fixed usb `phy-supply` format
-> - Removed improperly named pinctrl nodes that were unused.
-> - Fixed names of other pinctrl nodes
-> - Link to v4: https://lore.kernel.org/r/20241230-bigtreetech-cb2-v4-0-26d2d30e07ce@gmail.com
+> HDMI output is not tested, but expected to work.
 > 
-> Changes in v4:
-> - Removed invalid `i2c,ignore-nak` properties
-> - Set `#address-cells` and `size-cells` on `sdmmc1`
-> - Fixed `phy-supply` properties of usb host nodes
-> - Link to v3: https://lore.kernel.org/r/20241227-bigtreetech-cb2-v3-0-91c556adcffe@gmail.com
+> SPDIF output is not enabled (base RK3588 .dtsi needs amendment)
 > 
-> Changes in v3:
-> - Proper formatting and patch series sending (using b4)
-> - Converted spaces to tab indentation in the dtsi file
-> - Fixed empty line where the license identifier should be
-> - Link to v2 1/2: https://lore.kernel.org/linux-rockchip/20241224135751.350379-2-ivan8215145640@gmail.com/
-> - Link to v2 2/2: https://lore.kernel.org/linux-rockchip/20241224140057.350667-2-ivan8215145640@gmail.com/
+> Auxiliary LED display is not enabled (no mainline driver available).
+> The controller used is FD6551 connected to GPIO3 RK_PC7 (clk) and
+> GPIO3 RK_PD0 (data), which happen to be the right pins for
+> i2c5m0_xfer pinctrl config, and thus might potentially be used with
+> the hardware I2C5 controller (to be verified). Out of tree userspace
+> driver is available at [2].
 > 
-> Changes in v2:
-> - Added bigtreetech cb2 and pi2 boards to the list of platforms
-> - Split BigTreeTech CB2 and Pi2 into two device trees using common dtsi
-> - Link to v1: https://lore.kernel.org/linux-rockchip/20241222203952.84217-2-ivan8215145640@gmail.com/
+> [1] https://www.h96tvbox.com/product/h96max-v58/
+> [2] https://github.com/arthur-liberman/linux_openvfd/blob/master/driver/controllers/fd650.c
 > 
-> Signed-off-by: Ivan Sergeev <ivan8215145640@gmail.com>
+> Signed-off-by: Alexey Charkov <alchark@gmail.com>
 > ---
-> Ivan Sergeev (2):
->       dt-bindings: arm: rockchip: Add BigTreeTech CB2 and Pi2
->       arm64: dts: rockchip: Add BigTreeTech CB2 and Pi2
+> Alexey Charkov (2):
+>       dt-bindings: arm: rockchip: Add H96 Max V58 TV box
+>       arm64: dts: rockchip: Add H96 Max V58 TV Box based on RK3588 SoC
 > 
->  .../devicetree/bindings/arm/rockchip.yaml          |  11 +
->  arch/arm64/boot/dts/rockchip/Makefile              |   2 +
->  .../dts/rockchip/rk3566-bigtreetech-cb2-manta.dts  |  10 +
->  .../boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi  | 919 +++++++++++++++++++++
->  .../boot/dts/rockchip/rk3566-bigtreetech-pi2.dts   |  10 +
->  5 files changed, 952 insertions(+)
+>  .../devicetree/bindings/arm/rockchip.yaml          |   5 +
+>  arch/arm64/boot/dts/rockchip/Makefile              |   1 +
+>  .../arm64/boot/dts/rockchip/rk3588-h96-max-v58.dts | 785 +++++++++++++++++++++
+>  3 files changed, 791 insertions(+)
 > ---
-> base-commit: 63676eefb7a026d04b51dcb7aaf54f358517a2ec
-> change-id: 20241224-bigtreetech-cb2-18944b349916
+> base-commit: af349ca4d3f8659d84abc667125c826fda155109
+> change-id: 20240618-rk3588-h96-max-v58-c2c1bf8e6996
 > 
 > Best regards,
 > --
-> Ivan Sergeev <ivan8215145640@gmail.com>
+> Alexey Charkov <alchark@gmail.com>
 > 
 > 
 > 
@@ -150,14 +134,16 @@ make sure dt-schema is up to date:
   pip3 install dtschema --upgrade
 
 
-New warnings running 'make CHECK_DTBS=y rockchip/rk3566-bigtreetech-cb2-manta.dtb rockchip/rk3566-bigtreetech-pi2.dtb' for 20250105-bigtreetech-cb2-v6-0-ee7bc9c4df46@gmail.com:
+New warnings running 'make CHECK_DTBS=y rockchip/rk3588-h96-max-v58.dtb' for 20250106-rk3588-h96-max-v58-v1-0-d25255f851fc@gmail.com:
 
-arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2-manta.dtb: /i2c@fe5c0000/touchscreen@48: failed to match any schema with compatible: ['ti,tsc2007']
-arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-pi2.dtb: /i2c@fe5c0000/touchscreen@48: failed to match any schema with compatible: ['ti,tsc2007']
-arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-pi2.dtb: pmic: soc-slppin-gpio: {'rockchip,pins': [[0, 2, 0, 196]]} is not of type 'array'
-	from schema $id: http://devicetree.org/schemas/gpio/gpio-consumer.yaml#
-arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2-manta.dtb: pmic: soc-slppin-gpio: {'rockchip,pins': [[0, 2, 0, 196]]} is not of type 'array'
-	from schema $id: http://devicetree.org/schemas/gpio/gpio-consumer.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-h96-max-v58.dtb: syscon@fd5d0000: usb2phy@0:otg-port: 'vbus-supply' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/soc/rockchip/grf.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-h96-max-v58.dtb: usb2phy@0: otg-port: 'vbus-supply' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/phy/rockchip,inno-usb2phy.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-h96-max-v58.dtb: regulator-3v3-pcie: gpios: [[267, 1, 0], [187, 20, 0]] is too long
+	from schema $id: http://devicetree.org/schemas/regulator/fixed-regulator.yaml#
+arch/arm64/boot/dts/rockchip/rk3588-h96-max-v58.dtb: regulator-3v3-pcie: Unevaluated properties are not allowed ('gpios' was unexpected)
+	from schema $id: http://devicetree.org/schemas/regulator/fixed-regulator.yaml#
 
 
 
