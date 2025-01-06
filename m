@@ -4,93 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F218E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 02:34:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1114E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 02:47:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hizUyDaKTky7G883O428eVAJirBV+mTazBL7cmKBgjA=; b=NQAmbibvm9A6vg94GPJHsyXJBw
-	paXdZHeWCHN222+1pTp/LjrX7cHFCVu+icss0/u+JbcX70Eifb/u5s97WX3biyOt+tnYLVIn9zmRL
-	x0QDGwYoKmgbiHoYRgTpC+rutYXek+NDzAvwX408THKhFvQYuXGuVIHc+gMYD5eY2jcxIgUJbRtLL
-	Pl6ayYwxy2SPZAQpYHLwgipENAGD4pY5t6ETIQJM5JCVR6ZtBwvU6CuzYxHzc2Qq3UBHHq8Ignkkr
-	NlqeBB4nfjAFuF1nS17mOaegOek8ScjP+AQ8xD1nF2Cx4xCukzvGd/xvXl254+59A7AM/35DeySh0
-	bYqNgKKQ==;
+	bh=ruEDSCum9xValD/8fje29AdFDnXw69Zf56J/1DXr/w4=; b=w0bUELKdRZb+edi80lpfbX9jPp
+	GV7QFVr6jQVY75S/0Ia4eSFYh4qTuyhL+UnWzQ0PW28+Essl/wh9+IELyfF8giJ4opnpn02LM1xge
+	liuZNKfLnw72gSnGCsjWFbqoBsXJga8dfpxwo5otgEWVT/CfRLPoHMwlgjh6AWujMf7hScH8P4syV
+	P7eMO6H+SIXoapMOO7LJi3Qrq7cNbKXI2/o4Yg8bT7ztUUYiAUSCzKUJ41nmZaF8iX+KhSinVSOFk
+	CtT8fsRNDAUnUSsi9lP+QOnnXTt39b9/Sxw1n81nInqG1kbCd5hjGadeHNjltETUHeGqaZo03i8p4
+	wic5RSNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUcwT-000000003Z9-2urj;
-	Mon, 06 Jan 2025 02:34:09 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1tUd96-0000000053N-1NYP;
+	Mon, 06 Jan 2025 02:47:12 +0000
+Received: from mail-am6eur05on2060f.outbound.protection.outlook.com ([2a01:111:f403:2612::60f] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUcvG-000000003D2-0Dto
+	id 1tUd7t-000000004xi-2VcX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 02:32:55 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-2f43d17b0e3so20308459a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 05 Jan 2025 18:32:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=csie.ntu.edu.tw; s=google; t=1736130773; x=1736735573; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=hizUyDaKTky7G883O428eVAJirBV+mTazBL7cmKBgjA=;
-        b=kj72TBPbfQOrYICJIEk5Jwuw7vumsmNr+1N/8ik0wP4xPOL84dlSmZFxBPm1DQbjIU
-         0qGaYWSo3VTcyJFhZzubyK2X/QgiwKfhiqwFz5t535qvQRQynMz5r0tNTPj/pBlgVjwN
-         bhte+uzOpbXxXMLBxpoVlFhQFBI4mWnWPQ/iSvxpFVv0a02+MVgESSwy0rwJFTl5cQU4
-         sY6N2dBM0D1g54pHT4VCyH4uRbk+0qdkPUCgcLO5rzx2z0ff8bqsZBHqntsMt6CkwSEK
-         cZveutCSbzxDjcLfzicQJeVYl1PtJHpPFtpPci0PQiE5Lsif4iPS9arnKTWQAxR4eg/f
-         Awpg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736130773; x=1736735573;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hizUyDaKTky7G883O428eVAJirBV+mTazBL7cmKBgjA=;
-        b=aoQERl10ICuM6Ev3eHLczFZFAze/i/V+eQBbtvhBOEvFx4FiYP56kEC3saEFTb6uiS
-         8Dd1zjO6L0MH80qUJbRJYFsa+WLD/ej9QvAhuytTahaBH+RADOJ82AR++fMLHHZInvAt
-         +u2zs7B4SozyDMDLljY01vBWVaAlBgFNPXnkfKOKjD3YlNDbHu1wlil841/PgsmqxuPE
-         BIDGsuwwerTZ5kcMTf3N48RYi8CZVqOW8r8B9KQzV5rxe59XTrdEBbb2/k4T8tY1OLlM
-         /6a5jggx7TAg7f04ks6mNknoGyZtHoJbk2KGYWmXjkjmGRHBUzClc2DeHKv7pbzddDEQ
-         qbPQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUbExgkg5YV3olwAJZ7HS3G4EdAWs5PFMo0FYCyddZqrMg/dzntg4OheOLpPHWZVBDfHpmQoOcNO1ZthZvsLitP@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzh8sgoA3HcCWZWFEisLO6JAxRAfCsxai2KCC/AOSG18coM73Ab
-	3AdTlbDfvQV3jy5ssAVtbO/6JOmslgHPQxq22+4maIwq1daXNHv8iMwvk6XTOPxN/XUYyJl/70V
-	zdAYdT12f1ffEysRheT7IeR030PmZeqKk+Cc5VVnLbJDdL4zRRWIpl8l0tVpLxoVaYg==
-X-Gm-Gg: ASbGnctspYWOLOssUUhVoHY2ygfkw8/afGs3/Hpc28BIImhJ7Pul/ICwytiM+7BLVL5
-	2K80jbdXRph+H+gR9GSSIwVdMXeRLJsdX9OwvhbYoJLZgvP2XKPdNM0qZ84iMtMmehuSzoEZ6h2
-	mWa2OXf1ti74exPPI30LF3rG6u0UrqwvBNFo2+25TRURf6IzTYe5+BRKr/2pU+UB4bWjtpD7TL0
-	V9k1/IsK1Q2hj5Bcpw6lTAuLqnMCJUdy+jNzkBDQIxUQEYBsq+1WFCx1KCsZOl5/G1pjuZQRH1/
-	tQ7GLqqfTo0mBcIR1Oo=
-X-Google-Smtp-Source: AGHT+IFlKEWP1PZp3HGGHASjNs+dk5FEFAFR9mW7wibwp+bi2To37zelGhRWfoPjkS8UwpaDLhX/vg==
-X-Received: by 2002:a17:90a:d647:b0:2ee:c9dd:b7ea with SMTP id 98e67ed59e1d1-2f452eb12famr84759397a91.24.1736130773115;
-        Sun, 05 Jan 2025 18:32:53 -0800 (PST)
-Received: from zenbook (118-163-61-247.hinet-ip.hinet.net. [118.163.61.247])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f4478a9108sm36139009a91.43.2025.01.05.18.32.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 05 Jan 2025 18:32:52 -0800 (PST)
-Date: Mon, 6 Jan 2025 10:33:39 +0800
-From: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
-To: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
-Cc: Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Bjorn Andersson <andersson@kernel.org>, 
-	Christoffer Dall <christoffer.dall@arm.com>, Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, 
-	Chase Conklin <chase.conklin@arm.com>, Eric Auger <eauger@redhat.com>, r09922117@csie.ntu.edu.tw
-Subject: Re: [PATCH v2 09/12] KVM: arm64: nv: Propagate
- CNTHCTL_EL2.EL1NV{P,V}CT bits
-Message-ID: <qbmqsm3llnpy2t4ig3uyggkapwlbox2wnfu52gksbhcq4vfpqx@dz5bbn3asn5s>
-References: <20241217142321.763801-1-maz@kernel.org>
- <20241217142321.763801-10-maz@kernel.org>
+	Mon, 06 Jan 2025 02:45:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KjSRhGXTTkuU3DXyrjQmVL04zE325aU3i4yzOmzRQNyJRw7s3MdCanxoEa/UjwDNqAOCxjVgAU7vGvlOtiN3F5TodzX+u/NJiBOxn455TCzUJgV8cdEC0NGrlRrYnBFOTWdxivtD0vs0sQe+kYFVxrUa6zMPDctHiLDaaej4odsgY3oVitZ2bB8i41JkpLIcguI0SKITI4L1i83tG2AF9yf9812fHV6fdH+7NIzgBO5vVkbjx+jl24pU1DD11x8o6eeisCWj6Nz+iPP9x2jPI/uN9HrobJweVMkt+sTIq44Sc0dt55rqRlaFt7Cn4uLogs8/VfBnzKAyQ63J9jdMAg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ruEDSCum9xValD/8fje29AdFDnXw69Zf56J/1DXr/w4=;
+ b=s4nfcVYav4lk9xSpjT3kGT1ImjJy4kdJYeQUPZEohMsnS+LZcaaM6Z0OtuEkCTBhb1p9Q9JlQG9kd1tg9TAz070yVhOoKBslT2i5b9SKXxrQkyZSC/iEWsUw27bgAEjjQuhinQ5eVyQVe8RjII8RKLzFqGN6Sr1ZYvpatuvYyE35Rw0r4SBxs9Ht2oIeL3V8VsT2pVo/8KUz/EJe9KYdKD1F7iSY71Gnlz0EAu7rNubKQ5u4rTR/8VB6QPvoYApmFxtjvM0xLP6k+zUI/ULXQd/8RyF7NpBouAj2MeT/Cwnjm0s5A9Al4eelwPue5inBKTuHyKejfaIdvlwVDP/7RQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ruEDSCum9xValD/8fje29AdFDnXw69Zf56J/1DXr/w4=;
+ b=YZxH78915l9q/g0cZahBk7FQC/sqnM+OJo5eEExBf8BXmvfI2vNywjG93ds+4S7yNmL5kKM18qLBI+TK1Yug5VPjb1Y1FznCicwYJreq3Q5z0K4R/c04/qKDQrmWolBlfsvcgwbBuv9dyq8IkQSgIoSgHRuifmbz5uvz1wB50EC2leI+QnnrNspAsdyx0L+pN8HTnjTeCA2UspoqkV9bwyq2j3WGhDugAn/VaaINj07E6VwXWVUDMZFRsoUweNbEb9A1IXIIRUX5DXtUhJxyKwKcyvgfFZtCFnOzERz/OyW/gVW8Uun8nHmaUgcSVR86DOaUArRNUA3NxmkoW8eDug==
+Received: from PAXPR04MB8510.eurprd04.prod.outlook.com (2603:10a6:102:211::7)
+ by DB9PR04MB8493.eurprd04.prod.outlook.com (2603:10a6:10:2c5::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8293.17; Mon, 6 Jan
+ 2025 02:45:45 +0000
+Received: from PAXPR04MB8510.eurprd04.prod.outlook.com
+ ([fe80::a7c2:e2fa:8e04:40db]) by PAXPR04MB8510.eurprd04.prod.outlook.com
+ ([fe80::a7c2:e2fa:8e04:40db%6]) with mapi id 15.20.8314.015; Mon, 6 Jan 2025
+ 02:45:45 +0000
+From: Wei Fang <wei.fang@nxp.com>
+To: Andrew Lunn <andrew@lunn.ch>
+CC: Claudiu Manoil <claudiu.manoil@nxp.com>, Vladimir Oltean
+	<vladimir.oltean@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
+	<davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
+	"kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
+	"christophe.leroy@csgroup.eu" <christophe.leroy@csgroup.eu>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>
+Subject: RE: [PATCH net-next 01/13] net: enetc: add initial netc-lib driver to
+ support NTMP
+Thread-Topic: [PATCH net-next 01/13] net: enetc: add initial netc-lib driver
+ to support NTMP
+Thread-Index: AQHbXafxW8MqA7bx7kqd2V4Q9Gz5GrMFO4aAgAPM3kA=
+Date: Mon, 6 Jan 2025 02:45:45 +0000
+Message-ID: <PAXPR04MB851069DEC17319C96837BE9B88102@PAXPR04MB8510.eurprd04.prod.outlook.com>
+References: <20250103060610.2233908-1-wei.fang@nxp.com>
+ <20250103060610.2233908-2-wei.fang@nxp.com>
+ <829ccd93-8b4e-4dd9-bd15-58d345797aca@lunn.ch>
+In-Reply-To: <829ccd93-8b4e-4dd9-bd15-58d345797aca@lunn.ch>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB8510:EE_|DB9PR04MB8493:EE_
+x-ms-office365-filtering-correlation-id: 4b329604-b56d-41d9-7e98-08dd2dfc37fc
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?/r1FhjH9kILmIMlxNO/cHjnKOn0EcNWD854/2L/WHXGgGDI58CITQR3VeV6c?=
+ =?us-ascii?Q?u2+nfNlVLR0ZCBGaEzJxGat+9HrIG8xenP4aG2uQ7+jdL0tiYUqYN62/H+mR?=
+ =?us-ascii?Q?7YHFDq5O6xi54WY9LllXWiY9gZjN/BX7M7FvB+ujeRpqrKQ+V2yzbl9/fqBo?=
+ =?us-ascii?Q?N6jLaGaFM8NwG9ByeQBAGbgp8PyBNpy7vnPrYhnCVMLOjpFnQnE3+QwWQ+YI?=
+ =?us-ascii?Q?YPWqBfrE0dUayCR/XRvpDR5son87yHXaOI2CdrLm6dL2YiafwhWJq/gyxZXx?=
+ =?us-ascii?Q?kYRkjV/Iv7E45TYk1kyl0SSm0kDKYetVEw81VVLyHkatIh3Obf/zw89op/aw?=
+ =?us-ascii?Q?O/sq1typHcJej/XeG/+/oHJHusMGbF+7GsChyp0bPw9jubTJmALNqf+np63V?=
+ =?us-ascii?Q?2vXdgTD+24RtIv27qsomkBgyMiUhd1kNqS8hJ0NHofxdVFWBVL45xHvG8vPQ?=
+ =?us-ascii?Q?CkkQOxkOgfkIvrjkIcc/nRy208OFZKwBZu6y/J+vyGg78AdFihROTOhVdiLy?=
+ =?us-ascii?Q?9rlygUt2raWWfrujmkHZrT1UYoFizBz29xCH7BgwDGdnpuF+W8EaGiq9TDYf?=
+ =?us-ascii?Q?hzTgN2RZpOVwmtfw3CLrEToY28ateXguL/xgDaNs8JvfVB2xUkh2e/blRWx5?=
+ =?us-ascii?Q?uHdus17mXqWwL42ZNseG+OgH64WT8oj76qOCvx9Im5QAve516FbWv1xEqrUM?=
+ =?us-ascii?Q?oiByJgSWO/JxM8ujSnSnksrONn3cD2RLwiFVlUyYmXyzc5l/a2diYjzViqU0?=
+ =?us-ascii?Q?Cjez1JXXiqXm4bbgP8NuFoLxhlhUOHTa/mzX/gcPKsFj02v1xbdoRUKucX03?=
+ =?us-ascii?Q?XEJ4EYL3YReEdiigRg8sUhZQmGkT3EIpr1xJ9xV8OHsX8MUbkGDegRHnzW5F?=
+ =?us-ascii?Q?6Alyx3hh14FlA0TXc2tDA+pl/mXXWGXy8MkapxaovimWabq+ZlqAMR8MO6Ca?=
+ =?us-ascii?Q?bxPq9YW9EkGvH93jEZNh/CW+xaCusgGVJgQh68V+jiEVbbVBE3/mSRdDBZbg?=
+ =?us-ascii?Q?8K8HgQ/ieXMFrwgT8mzxKjiXssozkzQR6Pr7x5ad6T4WHAeMXtVPpvigQlSx?=
+ =?us-ascii?Q?UXX9QRuAQyKOMEQ6M+fa01d94MxhjGAreBZMSz9vpp8B83bJK26J+azB17vf?=
+ =?us-ascii?Q?OzEwiAgjgLsj6LP8wRSVjcVJgqRmtUAPtVVx9Q7FCmK3QtgRVlQ1/8K8AYLi?=
+ =?us-ascii?Q?5+pzjGgvCKL3zbMtjTAlINZBAbWYG3NTpyE3RxMkpuBBIIBYlUPdHM0vuXNU?=
+ =?us-ascii?Q?HE5bfLHZpLwVHGBfffThrsxJp3jBbO4YimGSt+/gfmegzdGqs2M8qqjhBMu1?=
+ =?us-ascii?Q?ZQbYZ9rmv3wcCJm/doA8AAyX/2HFhtK4vfPF0YaA3nxKbQNd+8cKFbTZHfFS?=
+ =?us-ascii?Q?6bq84DOgZ8xisoLTOY4tM2WJ6bzDaNtojjUXgF/hwPTwC2mAILAUQOWCgRfe?=
+ =?us-ascii?Q?zB97rl9UGyPhJOY5ySXWyeOXpZ11lSe0?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8510.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?fIXKDNXa/m3kg1oX3qtUabfKaR0h/unAwTemdBPQ5GjGPdLq1SxWvYoW14ed?=
+ =?us-ascii?Q?NXK6+O2kXgATL1yy7o+19ybNdNoj1So8mpVsT+/9gX0jZVLF3YAQoQR3NPx1?=
+ =?us-ascii?Q?GCD1pKhaDcu/GFF0EWPLJJ+WN1PSGrtSqywaQCGcT1xlXVggTuuxelb4sBfW?=
+ =?us-ascii?Q?iXFwJ2fRXyN46gnrP0wy1bFF1+DGRF3Ejmbw5bKwkQAnlnBLA8tjgPX3rChG?=
+ =?us-ascii?Q?C90hS3BMnAi9u9kdlh9wWw04pOl7Xug5k2OTitGnEIh7gfCd8HBGzFBRlUUe?=
+ =?us-ascii?Q?jiDWwLIQfgM1dQRtsoqS5sSni6gpX1ifqidJAAAtdM5jQSIhOTEWph0fQqy8?=
+ =?us-ascii?Q?+YRmT35ZkQU0Bj7kklF4NEmAJoI9dV1zY7YDLSGX6ZQV8MDLelZppYPmHnAG?=
+ =?us-ascii?Q?FCbCr78aGSVnCClfvMsWaLxT62X4/THUdjAhP1QYJGGEwklvUxlU3tFdXnVH?=
+ =?us-ascii?Q?1Hxx052qOl0WsXvS2VdpQa+g4b6Ts4arWWEIzPF5lFga0qN4p5PtLi9kE0TT?=
+ =?us-ascii?Q?tL8Yrdd+E5zNuXl3EMJAIWxteY+sMbMPAl7SDqIea3FTVwLEFE3mQicYZlid?=
+ =?us-ascii?Q?9+H91RsViXcP0C8bI6OgbNrfDDbY9g/2JWohYDct010x+jJhZ4BMvWZfOuw/?=
+ =?us-ascii?Q?egdC5nrMYsMs86p9xbCWJPKxUpM5p4A4k1HfyyvPDdi20G5osIOGuDV/Bz0p?=
+ =?us-ascii?Q?V58ZM0/ZefoH4cgwRIBQMGg/4qxXdd6HftmfAcmJqFYJMJIJluUFTgyTt+I/?=
+ =?us-ascii?Q?rfAFJ6z4H4Q20L/VvX5D2PmsWO1wHyXXRtHUk4fTlug2UIZbozD6MAUtJPg3?=
+ =?us-ascii?Q?PQp4swULzpA0zEnGM0yfpzQVtunhZ+PsfGSI0rchFWV7uJiDlMrz3xxw6fMZ?=
+ =?us-ascii?Q?Te4tWt5HNoiZU6bfxlCbRScJoOQLHwV7BZoaP0WG+D3tPRFT4IHzPi2ucODG?=
+ =?us-ascii?Q?2sTc3WiJKbVUbFGdNCDgcKnRzbCPAidCKT1l8QjHLUHHVAUf+pHhEyQz2hOr?=
+ =?us-ascii?Q?ldKgRePB4ZubrcTnHig1+V3JG6jhBVc8UBMyav1AyYoKbpuueJ+t1vSv0oZo?=
+ =?us-ascii?Q?vivZSaPeLITJ8V34doaegjQXjZBuD3A3vxn/O8M0yfI0sdx4PjAiXdQASNAZ?=
+ =?us-ascii?Q?fJvjmdNm8LcMR/8TbjPKuRjEhXwlEmZ16NNeXNBY3OlCHTLZaln31cNTO9yH?=
+ =?us-ascii?Q?MIxVdZXqKFVDepSiauda98pKBnZ3vtcTAxBoOem8gkSNYkZL1vSTEjlGe/bv?=
+ =?us-ascii?Q?zFb2wTkHNECiUpn6QsKvhu3OmY6jXx4ELq9XVwLKPH0YbpBNEHPFlTJV3Bfp?=
+ =?us-ascii?Q?XjJb/xc3wt7ZCim9lBV8jWRdVANOls506DAKbuPDj6brQcXmscoRFgcq3Yob?=
+ =?us-ascii?Q?5kZghj3piWMnpwzwDElHFo1V7HPakcfiN4pKCM2PBujk0KoWy7E+5qVOc8y5?=
+ =?us-ascii?Q?h9UL/68jhkuMq+IHoNkfO0OU9mG5AexeZ66hymkX2eIidhX0MK4Ef+IJ8naY?=
+ =?us-ascii?Q?R3Ks6ncnBP5oAggQjhqk4xtO8QWXG2iCL8B/M/vvQ8P8mgsdyWlwFln97WxQ?=
+ =?us-ascii?Q?M33/l8+Whsk+zOXfHp8=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241217142321.763801-10-maz@kernel.org>
-X-Gm-Spam: 0
-X-Gm-Phishy: 0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8510.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4b329604-b56d-41d9-7e98-08dd2dfc37fc
+X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Jan 2025 02:45:45.0640
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: L6DHWNV0XWvxE1BfeIpdKOcmnO3ksveOyMXSajGyn+ZpIV9YQbkYMJQ4bP9AsQCdR/Zkj36n24QMkBlqgHmLlQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8493
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250105_183254_714659_1D973527 
-X-CRM114-Status: GOOD (  25.61  )
+X-CRM114-CacheID: sfid-20250105_184557_647102_16E3BBF4 
+X-CRM114-Status: GOOD (  26.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,60 +172,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc and other KVM ARM developers,
+> > +#define NTMP_FILL_CRD(crd, tblv, qa, ua) \
+> > +({ \
+> > +	typeof(crd) _crd =3D (crd); \
+> > +	(_crd)->update_act =3D cpu_to_le16(ua); \
+> > +	(_crd)->tblv_qact =3D NTMP_TBLV_QACT(tblv, qa); \
+> > +})
+> > +
+> > +#define NTMP_FILL_CRD_EID(req, tblv, qa, ua, eid) \
+> > +({ \
+> > +	typeof(req) _req =3D (req); \
+> > +	NTMP_FILL_CRD(&(_req)->crd, tblv, qa, ua); \
+> > +	(_req)->entry_id =3D cpu_to_le32(eid); \
+> > +})
+>=20
+>=20
+> These are pretty complex for #defines. Can they be made into
+> functions? That will get you type checking, finding bugs where
+> parameters are swapped.
 
-I have a question while learning about NV and reading the code:
+The problem is that different tables have different types of 'req'
+parameters. Of course, since the headers of these request data
+are the same, we can force these pointers to be converted to
+common type pointers, but I think the forced conversion has made
+this pointless.
 
-On Tue, Dec 17, 2024 at 02:23:17PM +0000, Marc Zyngier wrote:
-> Allow a guest hypervisor to trap accesses to CNT{P,V}CT_EL02 by
-> propagating these trap bits to the host trap configuration.
-> 
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->  arch/arm64/kvm/arch_timer.c | 7 +++++++
->  1 file changed, 7 insertions(+)
-> 
-> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-> index 6f04f31c0a7f2..e5951e6eaf236 100644
-> --- a/arch/arm64/kvm/arch_timer.c
-> +++ b/arch/arm64/kvm/arch_timer.c
-> @@ -824,6 +824,10 @@ static void timer_set_traps(struct kvm_vcpu *vcpu, struct timer_map *map)
->  	 * Apply the enable bits that the guest hypervisor has requested for
->  	 * its own guest. We can only add traps that wouldn't have been set
->  	 * above.
-> +	 * Implementation choices: we do not support NV when E2H=0 in the
-> +	 * guest, and we don't support configuration where E2H is writable
-> +	 * by the guest (either FEAT_VHE or FEAT_E2H0 is implemented, but
-> +	 * not both). This simplifies the handling of the EL1NV* bits.
+>=20
+> > +int netc_setup_cbdr(struct device *dev, int cbd_num,
+> > +		    struct netc_cbdr_regs *regs,
+> > +		    struct netc_cbdr *cbdr)
+> > +{
+> > +	int size;
+> > +
+> > +	size =3D cbd_num * sizeof(union netc_cbd) + NTMP_BASE_ADDR_ALIGN;
+> > +
+> > +	cbdr->addr_base =3D dma_alloc_coherent(dev, size, &cbdr->dma_base,
+> > +					     GFP_KERNEL);
+> > +	if (!cbdr->addr_base)
+> > +		return -ENOMEM;
+> > +
+> > +	cbdr->dma_size =3D size;
+> > +	cbdr->bd_num =3D cbd_num;
+> > +	cbdr->regs =3D *regs;
+> > +
+> > +	/* The base address of the Control BD Ring must be 128 bytes aligned =
+*/
+> > +	cbdr->dma_base_align =3D  ALIGN(cbdr->dma_base,
+> NTMP_BASE_ADDR_ALIGN);
+> > +	cbdr->addr_base_align =3D PTR_ALIGN(cbdr->addr_base,
+> > +					  NTMP_BASE_ADDR_ALIGN);
+> > +
+> > +	cbdr->next_to_clean =3D 0;
+> > +	cbdr->next_to_use =3D 0;
+> > +	spin_lock_init(&cbdr->ring_lock);
+> > +
+> > +	/* Step 1: Configure the base address of the Control BD Ring */
+> > +	netc_write(cbdr->regs.bar0, lower_32_bits(cbdr->dma_base_align));
+> > +	netc_write(cbdr->regs.bar1, upper_32_bits(cbdr->dma_base_align));
+> > +
+> > +	/* Step 2: Configure the producer index register */
+> > +	netc_write(cbdr->regs.pir, cbdr->next_to_clean);
+> > +
+> > +	/* Step 3: Configure the consumer index register */
+> > +	netc_write(cbdr->regs.cir, cbdr->next_to_use);
+> > +
+> > +	/* Step4: Configure the number of BDs of the Control BD Ring */
+> > +	netc_write(cbdr->regs.lenr, cbdr->bd_num);
+> > +
+> > +	/* Step 5: Enable the Control BD Ring */
+> > +	netc_write(cbdr->regs.mr, NETC_CBDR_MR_EN);
+> > +
+> > +	return 0;
+> > +}
+> > +EXPORT_SYMBOL_GPL(netc_setup_cbdr);
+>=20
+> I assume there is a version 3 in development, which will need a
+> different library, or at least different symbols. Maybe you should
+> think about the naming issues now?
 
-Previously I was not aware that KVM ARM has these constraints on guest's
-view of NV and E2H, so I appreciate this comment very much. However,
-after digging through the code I could not find anywhere where these
-constraints are enforced, for example initially I thought I would find
-ID_AA64MMFR2_EL1_NV being zeroed in limit_nv_id_regs(), or HCR_NV added
-to the res0 mask of HCR_EL2, base on whether FEAT_VHE or FEAT_E2H0 is
-available to the guest. But seems like in these places the code applies
-constraints looking at the host's capabilities, not the guest's.
-Do you mind providing some pointers for me to investigate the code mode?
+I think that version 3 will not exist for a long time or will never exist.
+The reason for developing NTMP 2.0 is that NTMP 1.0 cannot be
+extended, so its table format is fixed, but for NTMP 2.0, its table
+format supports extension. For the same table, multiple versions
+can be expanded.
 
-Thank you so much, I'd appreciate any help.
+>=20
+> > diff --git a/include/linux/fsl/ntmp.h b/include/linux/fsl/ntmp.h
+> > new file mode 100644
+> > index 000000000000..7cf322a1c8e3
+> > --- /dev/null
+> > +++ b/include/linux/fsl/ntmp.h
+> > @@ -0,0 +1,178 @@
+> > +/* SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause) */
+> > +/* Copyright 2025 NXP */
+> > +#ifndef __NETC_NTMP_H
+> > +#define __NETC_NTMP_H
+>=20
+> Does this header need to be global? What else will use it outside of
+> drivers/net/ethernet/freescale/enetc?
+>=20
+Yes, this library will be used by NETC Switch driver, although there is
+no NETC switch driver in the upstream yet, this is already in the plan.
 
-Wei-Lin Chang
-
->  	 */
->  	if (vcpu_has_nv(vcpu) && !is_hyp_ctxt(vcpu)) {
->  		u64 val = __vcpu_sys_reg(vcpu, CNTHCTL_EL2);
-> @@ -834,6 +838,9 @@ static void timer_set_traps(struct kvm_vcpu *vcpu, struct timer_map *map)
->  
->  		tpt |= !(val & (CNTHCTL_EL1PCEN << 10));
->  		tpc |= !(val & (CNTHCTL_EL1PCTEN << 10));
-> +
-> +		tpt02 |= (val & CNTHCTL_EL1NVPCT);
-> +		tvt02 |= (val & CNTHCTL_EL1NVVCT);
->  	}
->  
->  	/*
-> -- 
-> 2.39.2
-> 
 
