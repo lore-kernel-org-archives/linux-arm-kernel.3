@@ -4,85 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBC60E77199
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 20:56:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F678E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 20:57:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b2Rfd2Cv9eccj61P+e/MPmJwn2zXrpKlX2wizShaDUM=; b=4gsN1ikcqJxzlDbj6V+1B5EKMi
-	2j1FkMhmCErbsRWix/KJTRGdiQqItAx0BSCkeYfDZ/Kt+y2I7TGl9H57JU2ubj8lk8lVsOWvYPhUF
-	8pEeyoGs26CtZ4EP2xxXFWUItLvbCyIEOeiV5pZiJHVQBTy8VYLx/hpKlJhk9C6Ms39z3A4ALkX6z
-	hPx1w78axCckv2wZ4NQZuM30CE+stbrj6oDkV16lfBL6Cif1kVCJ4cvOZndnq62JDpSOk8WqCDcrK
-	7hTHucC85WwQkZZAcgQlnIGvydzvnLaMtltBuEMlGYPsNxeeqC1g6Y7akEorkVniQ9hL4oKZyhGNr
-	36O/Wvrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=giG6Xr6qKpnwxFJ2rgydlTUajc1DsU8QvRnJMssmFGk=; b=FyJAQ2tRqcURWe4RXejnvB0i2q
+	Qey6M+H33eWTHSJhuNAj8CdmEcecgmUC8GZ8VriN+lM32txIpeaoIZhgcNZFsFuZlCVycb5N6E85N
+	foIu+2xwYZHhgSdf9h9oQoJ/pCkzEo7OxOLO6cUlWMfREbXG8AFwHsfPUDPKYPv5L9Kg4FxjIQpCk
+	6bckAFiAqpvrQ9WuLXTxJV+SK228HjdiACRPynCb2Eyr+q5bdmhfcXZqJXy3zI2HVXRjLYX8UuOnT
+	wdGip7oeV5Rbi8YS7O3iS3tHp6WhNjH1OHVo1+qQpS6KYDtEvrZDtvHnVjzJ2rGik5ClfdO6wj7Hl
+	5Nz1UtJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUu8k-00000002ejp-15pR;
-	Mon, 06 Jan 2025 20:55:58 +0000
-Received: from mail-vk1-xa2f.google.com ([2607:f8b0:4864:20::a2f])
+	id 1tUu9v-00000002f48-48aZ;
+	Mon, 06 Jan 2025 20:57:11 +0000
+Received: from mail-qv1-xf36.google.com ([2607:f8b0:4864:20::f36])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUu5Z-00000002e5Y-26Ve
+	id 1tUu5a-00000002e5w-3h4j
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 20:52:42 +0000
-Received: by mail-vk1-xa2f.google.com with SMTP id 71dfb90a1353d-51640f7bbd3so4548722e0c.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jan 2025 12:52:41 -0800 (PST)
+	Mon, 06 Jan 2025 20:52:44 +0000
+Received: by mail-qv1-xf36.google.com with SMTP id 6a1803df08f44-6d92cd1e811so134526256d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jan 2025 12:52:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736196760; x=1736801560; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=b2Rfd2Cv9eccj61P+e/MPmJwn2zXrpKlX2wizShaDUM=;
-        b=F/yo+Ip+yjtHR2OxUUSQ1KjvgLKDhIqxo1fzimvpCJVr+6UxkluK1Y0lkb1TjHlUL5
-         4n6BvXiFLrayZnKm1U2rxl3YxYok4ixmmUPTBFHiQnRCOY5R2EI5WEnV9TUQ49K1Ms/c
-         mTVH/nVs23NoKH8F6UB7LOj9i1VR62F0w97yfiaBwfTTdq4Hse6HbS4oQfRoFFS5O1m9
-         Y08MAtnA6QY0+f/JaM5tRW8O7Rfe06wwWwJsVn/bcnlzWTB3HyIwwzDHVwW707FfacDm
-         e35ONYu+GI83QyyxLY0IX1xuxkm3p10F/OnoO9kP92vJtpqJKz4Y63FvVCjbaiVTHPy0
-         TFnA==
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1736196761; x=1736801561; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=giG6Xr6qKpnwxFJ2rgydlTUajc1DsU8QvRnJMssmFGk=;
+        b=GROd7M1Z4KrF0e72/99D7pCvAeZC9CeH3pZ/pVap3NFvL8pxinSwFQmbGut3u7yNcX
+         KQ4PCkk12MquHt2tNLVRccFQ6tUHz9BsBivbL2GbNQoJpZH66rDsfZHR2lXxvgDxAeku
+         XjJj0FO7nSVcCMP6M2efh0NVoyby/2dTjYhKK9w4cYPx3jviB2JjRf300Y1iO0JgbT8U
+         U6fkeGUygDnPcIxApKT82hlz1KOfxX3Dkd3oQHs4nPJ/oqUQsnSNldo7c3fNUADanCzr
+         IYOqAI8kDfXO7MSM/foPHo8kIRqMFIkMH9fSQ3fJxxijKigc0W50bN7eJnAASNYoAZ2m
+         zd+w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736196760; x=1736801560;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=b2Rfd2Cv9eccj61P+e/MPmJwn2zXrpKlX2wizShaDUM=;
-        b=by/Npjgzhxwaqvvlwl6//yctJtnzHCoYy4yLdVEf9VButjEOGzRUBlZ4so5CPx1DIV
-         Axjm9hF1CXMrjsPlNQZ08d8UPqef6juS2oDNAeo5cmpRTAHcD5N83dmi6F+5b4Y9TkuE
-         xp63bRrgxLFagMhVW9ugU5dkkTd+wJcaXKHx+XORGHlvLcN2Y/iiDHFT7tAELts3bvMK
-         Uk+3EoX7NiGs3hy39L0AIEtkCvPE7YbnTI0T61+QinUvJzrhaIlRSWfs6jaaNjfl3lIM
-         tsK0lBJDsLj0zi5yARMXZtGGIErlSds+IXBI9QkrDUiw8Yw+89GJRmeuJ9yBUO72mwQT
-         0Vsw==
-X-Forwarded-Encrypted: i=1; AJvYcCUhqtv660BgemnuRPXgB37/Oc7jVqasfgAuO2Dmby3UaIfUU4Mqwcd1sDA+TYh8LucdhDh3becc3ZTaIW2ALIC/@lists.infradead.org
-X-Gm-Message-State: AOJu0YyYVeG13M0z/0yQ75yRprAgTI/kMab4YZhh4CfNsL+QBEtHqO3z
-	gxJthFPhtOujhPUkk9hqvyH3a5RaQF3PH6kpEQSQ6vLUnDRM9x95S0RiS9IcfvcnRN9ecxUTzSJ
-	k7GKDBMmdq36bjjPqQKy1fV11yBGhtKZSmjc=
-X-Gm-Gg: ASbGncvRcWKAQPaokLQ/J6vaPoZm2dhNW4dIWQ0RbnqW7fi1rNWZXvkoGE6PADsOLl1
-	PjwpLdmrRIm8Uok+P26i2iCtqdDOwqvA9y5DwPa/Xp+3VSvL3h+CORQzOBoZc+gROrFHjm+18
-X-Google-Smtp-Source: AGHT+IFLiLwyTBvPtX7l0P7EQ8rMXvaqE9UNBWkLkHbTzS/r3LHIOdCrvyM+xTKCfcE6uvzj056mhsUlEnnOYlPNiIk=
-X-Received: by 2002:a05:6122:8c07:b0:516:157c:a72e with SMTP id
- 71dfb90a1353d-51b75c308b3mr40676401e0c.3.1736196760165; Mon, 06 Jan 2025
- 12:52:40 -0800 (PST)
-MIME-Version: 1.0
-References: <20250106031711.82855-1-21cnbao@gmail.com> <20250106031711.82855-2-21cnbao@gmail.com>
- <e68b8279-fe16-462a-bf99-6b4d90e96904@linux.alibaba.com> <CAGsJ_4wMuDYxuEMcA0jYvekt26Uvz86kjWbo0nz-ZZzuiyEOQQ@mail.gmail.com>
- <b65e145b-a754-41bb-8322-f93c24f6b7d1@linux.alibaba.com> <CAK1f24ksqXUKquPUu3hL3qZha6fOSz2xjRcy83CDg_rdOcZB6g@mail.gmail.com>
-In-Reply-To: <CAK1f24ksqXUKquPUu3hL3qZha6fOSz2xjRcy83CDg_rdOcZB6g@mail.gmail.com>
-From: Barry Song <21cnbao@gmail.com>
-Date: Tue, 7 Jan 2025 09:52:29 +1300
-Message-ID: <CAGsJ_4zxdPREb-jmjrjNWySiVwPLbXfj5pG541kYyXXPD4_vBg@mail.gmail.com>
-Subject: Re: [PATCH 1/3] mm: set folio swapbacked iff folios are dirty in try_to_unmap_one
-To: Lance Yang <ioworker0@gmail.com>
-Cc: Baolin Wang <baolin.wang@linux.alibaba.com>, akpm@linux-foundation.org, 
-	linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org, x86@kernel.org, 
-	linux-kernel@vger.kernel.org, david@redhat.com, ryan.roberts@arm.com, 
-	zhengtangquan@oppo.com, ying.huang@intel.com, kasong@tencent.com, 
-	chrisl@kernel.org, Barry Song <v-songbaohua@oppo.com>
+        d=1e100.net; s=20230601; t=1736196761; x=1736801561;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=giG6Xr6qKpnwxFJ2rgydlTUajc1DsU8QvRnJMssmFGk=;
+        b=ZRZHRDLDtEJXAX16rHvyyNWPYvtsQ6q8YFXzMAFBf2l2i2furV3NWnMqZF8PRpCP5i
+         nAQGo0p0vNyFBdCQFxueCKrBHSbDTmOArgw9vAJV4OQ3s8YVLkApafIukFtgKFjRqLi0
+         iL5MyR/k+3Yb7FnMz84UH/AWBiw3gmfj+kGar0VsjlOgZI1Wgk4RJf4OHINn/YpVGKEa
+         cjrlNAHx3EPNkpfL+mGqA/Ys6oFVtwIg26jkJA9didH+gopdYgk9sEEUea1tJzEZUHP1
+         WrFDco+YR0fdfX6AmbWsoMkXpiuMo/D29uxOmh3rGr/PwhLh4qs+qaj/NFsjpwtH8EEV
+         BNfQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXleoZBrlLSyTfpXpXwQXg82ET+ZWy8NInJ/FVHxMZiyknCUXNu1zDmXJzowDR8Gu8ZmfXK8e4QuT1eHdolLF3F@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQ8DKN3qhYng4+/urozwKxLnoXSWU913CK4oyOgLrYsfGRakM+
+	Ii7J6yoXZySBSvT0kk9pk7e5TVr6GfvyK8Yzzd0FgsaHq6MXuFwDWYrHgTihfoU=
+X-Gm-Gg: ASbGncszITr8s7man/oHj13iWC3DgNPaJIX6IX3R993xicyKmkxegkqy1E1TRHKmoSl
+	XvndbVDUcX23o26klqbFAuhzNzAOR8JLfo5yeDwok8Pph04mzZ1aV2gN75OAO+LltlXVS8O/5/j
+	i7fT/w8X11+4vWXZMPVoyHxGA+mVZKPFlK8mJmq7r3l2M14FK2bJmSHltLihrcRoblzC5rujZD2
+	NHAKfvdJSVlyk970TA+f6RuWsS7FQ5nvxA6ez/Buk6SXbDnKz/30LOoKg==
+X-Google-Smtp-Source: AGHT+IEIInkPocHyFdCklKrx/YmrGw+uUM4krY58O8WCdt8yNm1sL3igRegISVWjyVZhUSTTP71cpw==
+X-Received: by 2002:a05:6214:3b8a:b0:6d8:8a0b:db25 with SMTP id 6a1803df08f44-6df8e8be44bmr11681446d6.21.1736196761471;
+        Mon, 06 Jan 2025 12:52:41 -0800 (PST)
+Received: from nicolas-tpx395.localdomain ([2606:6d00:15:862e::7a9])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6dd181d5aabsm174516886d6.108.2025.01.06.12.52.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 06 Jan 2025 12:52:41 -0800 (PST)
+Message-ID: <cfa4e4ebd9015a291e513fc22ec70821976e56ce.camel@ndufresne.ca>
+Subject: Re: [PATCH 3/7] media: ioctl: Add pixel formats NV12MT_COL128 and
+ NV12MT_10_COL128
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Dave Stevenson <dave.stevenson@raspberrypi.com>, Robert Mader
+	 <robert.mader@collabora.com>
+Cc: Sakari Ailus <sakari.ailus@linux.intel.com>, Laurent Pinchart	
+ <laurent.pinchart@ideasonboard.com>, Mauro Carvalho Chehab
+ <mchehab@kernel.org>,  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,  Florian Fainelli
+ <florian.fainelli@broadcom.com>, Broadcom internal kernel review list	
+ <bcm-kernel-feedback-list@broadcom.com>, John Cox
+ <john.cox@raspberrypi.com>,  Dom Cobley <dom@raspberrypi.com>, review list
+ <kernel-list@raspberrypi.com>, Ezequiel Garcia	
+ <ezequiel@vanguardiasur.com.ar>, John Cox <jc@kynesim.co.uk>, 
+	linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org
+Date: Mon, 06 Jan 2025 15:52:40 -0500
+In-Reply-To: <CAPY8ntBNse4Dq9E49QO3ipDbb+uMipe+MuLxW_Jpszu9gQgpww@mail.gmail.com>
+References: <20241220-media-rpi-hevc-dec-v1-0-0ebcc04ed42e@raspberrypi.com>
+	 <20241220-media-rpi-hevc-dec-v1-3-0ebcc04ed42e@raspberrypi.com>
+	 <d2f047cd-5c50-454f-95be-601edb79466d@collabora.com>
+	 <CAPY8ntBNse4Dq9E49QO3ipDbb+uMipe+MuLxW_Jpszu9gQgpww@mail.gmail.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.54.2 (3.54.2-1.fc41) 
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_125241_539919_2D0E99B4 
-X-CRM114-Status: GOOD (  24.20  )
+X-CRM114-CacheID: sfid-20250106_125242_929289_D05635E3 
+X-CRM114-Status: GOOD (  27.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,107 +112,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 7, 2025 at 3:40=E2=80=AFAM Lance Yang <ioworker0@gmail.com> wro=
-te:
->
-> On Mon, Jan 6, 2025 at 5:34=E2=80=AFPM Baolin Wang
-> <baolin.wang@linux.alibaba.com> wrote:
-> >
-> >
-> >
-> > On 2025/1/6 17:03, Barry Song wrote:
-> > > On Mon, Jan 6, 2025 at 7:40=E2=80=AFPM Baolin Wang
-> > > <baolin.wang@linux.alibaba.com> wrote:
-> > >>
-> > >>
-> > >>
-> > >> On 2025/1/6 11:17, Barry Song wrote:
-> > >>> From: Barry Song <v-songbaohua@oppo.com>
-> > >>>
-> > >>> The refcount may be temporarily or long-term increased, but this do=
-es
-> > >>> not change the fundamental nature of the folio already being lazy-
-> > >>> freed. Therefore, we only reset 'swapbacked' when we are certain th=
-e
-> > >>> folio is dirty and not droppable.
-> > >>>
-> > >>> Suggested-by: David Hildenbrand <david@redhat.com>
-> > >>> Signed-off-by: Barry Song <v-songbaohua@oppo.com>
-> > >>
-> > >> The changes look good to me. While we are at it, could you also chan=
-ge
-> > >> the __discard_anon_folio_pmd_locked() to follow the same strategy fo=
-r
-> > >> lazy-freed PMD-sized folio?
-> > >
-> > > it seems you mean __discard_anon_folio_pmd_locked() is lacking
-> > > folio_set_swapbacked(folio) for dirty pmd-mapped folios?
->
-> Good catch!
->
-> Hmm... I don't recall why we don't call folio_set_swapbacked for dirty
-> THPs in __discard_anon_folio_pmd_locked() - possibly to align with
-> previous behavior ;)
->
-> If a dirty PMD-mapped THP cannot be discarded, we just split it and
-> restart the page walk to process the PTE-mapped THP. After that, we
-> will only mark each folio within the THP as swap-backed individually.
->
-> It seems like we could cut the work by calling folio_set_swapbacked()
-> for dirty THPs directly in __discard_anon_folio_pmd_locked(), skipping
-> the restart of the page walk after splitting the THP, IMHO ;)
+Le jeudi 02 janvier 2025 =C3=A0 12:52 +0000, Dave Stevenson a =C3=A9crit=C2=
+=A0:
+> Hi Robert
+>=20
+> Resending this reply as replying from my phone before the Christmas
+> break sent it as HTML :-(
+>=20
+> On Sat, 21 Dec 2024 at 17:38, Robert Mader <robert.mader@collabora.com> w=
+rote:
+> >=20
+> > Hi, thanks for the patch.
+> >=20
+> > On 20.12.24 17:21, Dave Stevenson wrote:
+> >=20
+> > Add V4L2_PIXFMT_NV12MT_COL128 and V4L2_PIXFMT_NV12MT_10_COL128
+> > to describe the Raspberry Pi HEVC decoder NV12 multiplanar formats.
+> >=20
+> > Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+> > ---
+> >  drivers/media/v4l2-core/v4l2-ioctl.c | 2 ++
+> >  include/uapi/linux/videodev2.h       | 5 +++++
+> >  2 files changed, 7 insertions(+)
+> >=20
+> > diff --git a/drivers/media/v4l2-core/v4l2-ioctl.c b/drivers/media/v4l2-=
+core/v4l2-ioctl.c
+> > index 0304daa8471d..e510e375a871 100644
+> > --- a/drivers/media/v4l2-core/v4l2-ioctl.c
+> > +++ b/drivers/media/v4l2-core/v4l2-ioctl.c
+> > @@ -1377,7 +1377,9 @@ static void v4l_fill_fmtdesc(struct v4l2_fmtdesc =
+*fmt)
+> >   case V4L2_PIX_FMT_NV16M: descr =3D "Y/UV 4:2:2 (N-C)"; break;
+> >   case V4L2_PIX_FMT_NV61M: descr =3D "Y/VU 4:2:2 (N-C)"; break;
+> >   case V4L2_PIX_FMT_NV12MT: descr =3D "Y/UV 4:2:0 (64x32 MB, N-C)"; bre=
+ak;
+> > + case V4L2_PIX_FMT_NV12MT_COL128: descr =3D "Y/CbCr 4:2:0 (128b cols)"=
+; break;
+> >   case V4L2_PIX_FMT_NV12MT_16X16: descr =3D "Y/UV 4:2:0 (16x16 MB, N-C)=
+"; break;
+> > + case V4L2_PIX_FMT_NV12MT_10_COL128: descr =3D "10-bit Y/CbCr 4:2:0 (1=
+28b cols)"; break;
+> >   case V4L2_PIX_FMT_P012M: descr =3D "12-bit Y/UV 4:2:0 (N-C)"; break;
+> >   case V4L2_PIX_FMT_YUV420M: descr =3D "Planar YUV 4:2:0 (N-C)"; break;
+> >   case V4L2_PIX_FMT_YVU420M: descr =3D "Planar YVU 4:2:0 (N-C)"; break;
+> > diff --git a/include/uapi/linux/videodev2.h b/include/uapi/linux/videod=
+ev2.h
+> > index e7c4dce39007..f8f97aa6a616 100644
+> > --- a/include/uapi/linux/videodev2.h
+> > +++ b/include/uapi/linux/videodev2.h
+> > @@ -687,6 +687,11 @@ struct v4l2_pix_format {
+> >  #define V4L2_PIX_FMT_NV12MT_16X16 v4l2_fourcc('V', 'M', '1', '2') /* 1=
+2  Y/CbCr 4:2:0 16x16 tiles */
+> >  #define V4L2_PIX_FMT_NV12M_8L128      v4l2_fourcc('N', 'A', '1', '2') =
+/* Y/CbCr 4:2:0 8x128 tiles */
+> >  #define V4L2_PIX_FMT_NV12M_10BE_8L128 v4l2_fourcc_be('N', 'T', '1', '2=
+') /* Y/CbCr 4:2:0 10-bit 8x128 tiles */
+> > +#define V4L2_PIX_FMT_NV12MT_COL128 v4l2_fourcc('N', 'c', '1', '2') /* =
+12  Y/CbCr 4:2:0 128 pixel wide column */
+> > +#define V4L2_PIX_FMT_NV12MT_10_COL128 v4l2_fourcc('N', 'c', '3', '0')
+> >=20
+> > Should these be upper-case Cs instead? So they compatible with the prev=
+iously used downstream values?
+>=20
+> No, this is deliberate.
+>=20
+> Downstream was using a single planar format, with extra complexity for
+> determining the chroma offset per column, and weird handling required
+> on bytesperline.
+> Having had discussions, switching to a multiplanar format (hence MT in
+> the name) removes those complexities and means we don't need to do
+> anything weird in the v4l2 format definitions.
+>=20
+> Reusing NC12 and NC30 fourccs will give us grief over backwards
+> compatibility, hence lower case for the new version.
+>=20
+> I have a patch on [1] that adds back in NC12 and NC30 for downstream
+> just so we don't break existing users, but see no point in upstreaming
+> that.
 
-Yes, the existing code for PMD-mapped THPs seems quite inefficient. It spli=
-ts
-the PMD-mapped THP into smaller folios, marks each split PTE as dirty, and
-then iterates over each PTE. I=E2=80=99m not sure why it=E2=80=99s designed=
- this way=E2=80=94could
-there be a specific reason behind this approach?
+Yes, I think its fair to avoid incompatibility there. Are there matching Me=
+sa
+patches coming, since without that we are back to square one, where the for=
+mat
+remains unusable. NC12 have a matching (mainline) DRM_FORMAT_NV12=20
+DRM_FORMAT_MOD_BROADCOM_SAND128 pair. I believe a new modifier is needed an=
+d
+will serve both Nc12/30.
 
-However, it does appear to handle folio_set_swapbacked() correctly, as only
-a dirty PMD will result in dirty PTEs being generated in
-__split_huge_pmd_locked():
+Nicolas
 
-        } else {
-                pte_t entry;
+>=20
+> > P.S.: Coincidentally Gstreamer just landed support for NC12 in https://=
+gitlab.freedesktop.org/gstreamer/gstreamer/-/merge_requests/7355 and there =
+is also a link to experimental NC30 patches. So happy to see this series ap=
+pear upstream :)
+>=20
+> Ooh, nice. I'll give it a test when I'm back in the office.
+>=20
+> Dave
+>=20
+> [1] https://github.com/6by9/linux/commits/rpi-6.12.y-hevc_dec/
+>=20
+> > + /* Y/CbCr 4:2:0 10bpc, 3x10 packed as 4 bytes in
+> > + * a 128 bytes / 96 pixel wide column */
+> > +
+> >=20
+> >  /* Bayer formats - see http://www.siliconimaging.com/RGB%20Bayer.htm *=
+/
+> >  #define V4L2_PIX_FMT_SBGGR8  v4l2_fourcc('B', 'A', '8', '1') /*  8  BG=
+BG.. GRGR.. */
+> >=20
+>=20
 
-                entry =3D mk_pte(page, READ_ONCE(vma->vm_page_prot));
-                if (write)
-                        entry =3D pte_mkwrite(entry, vma);
-
-                if (!young)
-                        entry =3D pte_mkold(entry);
-
-                /* NOTE: this may set soft-dirty too on some archs */
-                if (dirty)
-                        entry =3D pte_mkdirty(entry);
-
-                if (soft_dirty)
-                        entry =3D pte_mksoft_dirty(entry);
-
-                if (uffd_wp)
-                        entry =3D pte_mkuffd_wp(entry);
-
-                for (i =3D 0; i < HPAGE_PMD_NR; i++)
-                        VM_WARN_ON(!pte_none(ptep_get(pte + i)));
-
-                set_ptes(mm, haddr, pte, entry, HPAGE_PMD_NR);
-        }
-
-
-
->
-> Thanks,
-> Lance
->
->
-> > > and it seems !(vma->vm_flags & VM_DROPPABLE) is also not
-> > > handled properly?
->
->
-> >
-> > Right.
-
-Thanks
-Barry
 
