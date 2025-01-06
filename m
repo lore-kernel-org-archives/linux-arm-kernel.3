@@ -4,66 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C46BBE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 19:27:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AD65E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 19:29:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dEeC2ukI5ZmjqAIH3frqZPd6crzzbKaq5apFahgAFw8=; b=TcYjkV/cMr8ZfuBNMJhXQmzNNK
-	qFCqaj1oOAtB6l2RBy2eEYFYthXLVU+8FCuo9XbgbXJCGW97XX4OHdNaXxgb1+4f4wlT03JFFHDeR
-	ufKrUiRXhYUzXHFtYeika4ik0KkaB9KH7YtR209XdbaQXaTkTy5dDX/I3pO9llkWP+NY+uQzLeag+
-	iEOQ4SFumQ8nJtTpYQb8BCVs8GT2Ta1S0P+Y05VyrQTTBu5AKP4f+Y8ycChWyMLHwUCaFhLYERsDi
-	xKZZD4Ioq0eVc7izCbPCJGrZlPld5Oz20qC32wDvJJvW6VrQ3JmDV0UdHhZt3mOjNcIOhg9eX0LaL
-	XOSB0+TQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4m9OqiwFQH6PlG0tJPa3ll0iyy4Enjyf73LBjtm//80=; b=uZXRVsMdA+pLc2zJ/RASnrjoNQ
+	990zDw9sLEtL79YYmjdIkqK91ej5Hbq74pfxjL/u8mfH9UiisSOI9+a6j4nubLVv3T0pvC+ztPWPG
+	qD9+8e9Wklo9QsOLWiFPOAFSNnVZ/fyEtLEbjqfMWa0YfWZbFHMoT0bJbi43r/9cD54Nh1fvyANqB
+	qS+w2U2Sn9mQq0B0cGY8KDJBnLTwaIFq8gNmE2dg7gUY0kKnMySLXZ8JYtsFu+VTBfmRolh8kXIdN
+	ewVDZc24pr0sgYB+SRY72n0VSBa7Mrq3GC4NWX4gqdA4o99EriZpl0HdXOd5yNfY7RaPmfeUtMRbY
+	6KTj9tnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUskt-00000002RYz-0s6U;
-	Mon, 06 Jan 2025 19:27:15 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tUsmp-00000002Rs9-1IJP;
+	Mon, 06 Jan 2025 19:29:15 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUsjh-00000002RN1-0dB7
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 19:26:02 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tUsjL-0001KR-8T; Mon, 06 Jan 2025 20:25:39 +0100
-Message-ID: <957ad153-17f3-4cb8-8878-73093a9a2724@pengutronix.de>
-Date: Mon, 6 Jan 2025 20:25:38 +0100
+	id 1tUsld-00000002Rdt-05Qi;
+	Mon, 06 Jan 2025 19:28:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6207F5C0644;
+	Mon,  6 Jan 2025 19:27:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D257BC4CEEC;
+	Mon,  6 Jan 2025 19:27:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736191679;
+	bh=rsXG31WH7wfyTDNrN8YIiWEPDkdjB/Gf7A7Pi2iMbIk=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=oyTFwFGjHshqZLl6kWwazxmVcUO1HWN8CR+4P6qWhdh6SxT70rczFKCCQ7v3vn/Kc
+	 KYrdvmLH1qoT2h7bwQSPRMrSSeQ7/lJfUSlNVlP1vht/OgI9cHAZCvp5Io8PrhYp3N
+	 sX45dmPwW69Vo1z0AaRa9yxjfCNP+1KjfaCgbMQXWtpWDA0miryzJuhlWL3A1OBHI4
+	 ABBbTdIB91bwoJNZnKxsSj/6BlvJBOmV3hf1X4uHFjQNa9LLLctXfFj0/gdb7HQePG
+	 5S66n+tp+y+mNlfl24j1RDbGsbSQE451qEJ0jtuFHe/hGXx8kvq2XcBf+VL6Knd5iz
+	 PmKZhmApT/kCg==
+Date: Mon, 06 Jan 2025 13:27:58 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/6] dt-bindings: clock: imx8m: document
- nominal/overdrive properties
-To: Frank Li <Frank.li@nxp.com>
-Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Abel Vesa <abel.vesa@linaro.org>,
- Marek Vasut <marex@denx.de>, linux-clk@vger.kernel.org, imx@lists.linux.dev,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>
-References: <20250106-imx8m-clk-v2-0-6aaeadac65fe@pengutronix.de>
- <20250106-imx8m-clk-v2-1-6aaeadac65fe@pengutronix.de>
- <Z3wHp6eLQuV9GGvh@lizhi-Precision-Tower-5810>
-Content-Language: en-US
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-In-Reply-To: <Z3wHp6eLQuV9GGvh@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Conor Dooley <conor+dt@kernel.org>, linux-rockchip@lists.infradead.org
+To: Ivan Sergeev <ivan8215145640@gmail.com>
+In-Reply-To: <20250105-bigtreetech-cb2-v6-0-ee7bc9c4df46@gmail.com>
+References: <20250105-bigtreetech-cb2-v6-0-ee7bc9c4df46@gmail.com>
+Message-Id: <173619154629.838782.15013037487294078992.robh@kernel.org>
+Subject: Re: [PATCH v6 0/2] arm64: dts: rockchip: Add BigTreeTech CB2 and
+ Pi2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_112601_193405_7B26DF57 
-X-CRM114-Status: GOOD (  20.70  )
+X-CRM114-CacheID: sfid-20250106_112801_153106_64319829 
+X-CRM114-Status: GOOD (  19.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,78 +74,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Frank,
 
-On 06.01.25 17:41, Frank Li wrote:
-> On Mon, Jan 06, 2025 at 03:21:42PM +0100, Ahmad Fatoum wrote:
-
-[snip]
-
->> Allowing for absence of both properties is
->> needed, because there is no default suitable for all boards:
->>
->> For i.MX8M Mini and Nano, the kernel SoC DTSIs has assigned-clock-rates
->> that are all achievable in nominal mode. For i.MX8MP, there are some
->> rates only validated for overdrive mode.
->>
->> But even for the i.MX8M Mini/Nano boards, we don't know what rates they
->> may configure at runtime, so it has not been possible so far to infer from
->> just the device tree what the mode is.
-
-[snip]
-
->> +  fsl,nominal-mode:
->> +    description: Set if SoC is operated in nominal mode
->> +    $ref: /schemas/types.yaml#/definitions/flag
->> +
->> +  fsl,overdrive-mode:
->> +    description: Set if SoC is operated in overdrive mode
->> +    $ref: /schemas/types.yaml#/definitions/flag
->> +
+On Sun, 05 Jan 2025 13:40:29 +0300, Ivan Sergeev wrote:
+> BigTreeTech CB2 and Pi2 are Rockchip RK3566 SoM and SBC boards made by
+> BigTreeTech for the intent of using as a 3d printer control board.
+> It is a successor to the Allwinner H616-based BigTreeTech CB1 and Pi, so
+> the device trees for CB2 and Pi2 are also done in the same manner: the
+> common nodes and properties are put into a dtsi file that the
+> board-specific device trees include.
 > 
-> why need two flags? suppose "not set fsl,overdrive-mode" is equal to
-> fsl,nominal-mode
-
-Conor had the same question on v1[1] and I have addressed this in the commit
-message of v2, see above.
-
-In short, there is unfortunately no universally applicable default.
-
-[1]: https://lore.kernel.org/all/4e2250b3-5170-4e88-aa0a-dd796b81e78b@pengutronix.de/
-
-Thanks,
-Ahmad
-
-
+> Changes in v6:
+> - Fixed node names missed in v5
+> - Link to v5: https://lore.kernel.org/r/20250105-bigtreetech-cb2-v5-0-923f911b10c0@gmail.com
 > 
-> Frank
+> Changes in v5:
+> - Applied requested changes
+> - Fixed usb `phy-supply` format
+> - Removed improperly named pinctrl nodes that were unused.
+> - Fixed names of other pinctrl nodes
+> - Link to v4: https://lore.kernel.org/r/20241230-bigtreetech-cb2-v4-0-26d2d30e07ce@gmail.com
 > 
->>  required:
->>    - compatible
->>    - reg
->> @@ -95,6 +103,12 @@ allOf:
->>              - const: clk_ext2
->>              - const: clk_ext3
->>              - const: clk_ext4
->> +  - if:
->> +      required:
->> +        - fsl,overdrive-mode
->> +    then:
->> +      properties:
->> +        fsl,nominal-mode: false
->>
->>  additionalProperties: false
->>
->>
->> --
->> 2.39.5
->>
+> Changes in v4:
+> - Removed invalid `i2c,ignore-nak` properties
+> - Set `#address-cells` and `size-cells` on `sdmmc1`
+> - Fixed `phy-supply` properties of usb host nodes
+> - Link to v3: https://lore.kernel.org/r/20241227-bigtreetech-cb2-v3-0-91c556adcffe@gmail.com
+> 
+> Changes in v3:
+> - Proper formatting and patch series sending (using b4)
+> - Converted spaces to tab indentation in the dtsi file
+> - Fixed empty line where the license identifier should be
+> - Link to v2 1/2: https://lore.kernel.org/linux-rockchip/20241224135751.350379-2-ivan8215145640@gmail.com/
+> - Link to v2 2/2: https://lore.kernel.org/linux-rockchip/20241224140057.350667-2-ivan8215145640@gmail.com/
+> 
+> Changes in v2:
+> - Added bigtreetech cb2 and pi2 boards to the list of platforms
+> - Split BigTreeTech CB2 and Pi2 into two device trees using common dtsi
+> - Link to v1: https://lore.kernel.org/linux-rockchip/20241222203952.84217-2-ivan8215145640@gmail.com/
+> 
+> Signed-off-by: Ivan Sergeev <ivan8215145640@gmail.com>
+> ---
+> Ivan Sergeev (2):
+>       dt-bindings: arm: rockchip: Add BigTreeTech CB2 and Pi2
+>       arm64: dts: rockchip: Add BigTreeTech CB2 and Pi2
+> 
+>  .../devicetree/bindings/arm/rockchip.yaml          |  11 +
+>  arch/arm64/boot/dts/rockchip/Makefile              |   2 +
+>  .../dts/rockchip/rk3566-bigtreetech-cb2-manta.dts  |  10 +
+>  .../boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi  | 919 +++++++++++++++++++++
+>  .../boot/dts/rockchip/rk3566-bigtreetech-pi2.dts   |  10 +
+>  5 files changed, 952 insertions(+)
+> ---
+> base-commit: 63676eefb7a026d04b51dcb7aaf54f358517a2ec
+> change-id: 20241224-bigtreetech-cb2-18944b349916
+> 
+> Best regards,
+> --
+> Ivan Sergeev <ivan8215145640@gmail.com>
+> 
+> 
 > 
 
 
--- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
+
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+New warnings running 'make CHECK_DTBS=y rockchip/rk3566-bigtreetech-cb2-manta.dtb rockchip/rk3566-bigtreetech-pi2.dtb' for 20250105-bigtreetech-cb2-v6-0-ee7bc9c4df46@gmail.com:
+
+arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2-manta.dtb: /i2c@fe5c0000/touchscreen@48: failed to match any schema with compatible: ['ti,tsc2007']
+arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-pi2.dtb: /i2c@fe5c0000/touchscreen@48: failed to match any schema with compatible: ['ti,tsc2007']
+arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-pi2.dtb: pmic: soc-slppin-gpio: {'rockchip,pins': [[0, 2, 0, 196]]} is not of type 'array'
+	from schema $id: http://devicetree.org/schemas/gpio/gpio-consumer.yaml#
+arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2-manta.dtb: pmic: soc-slppin-gpio: {'rockchip,pins': [[0, 2, 0, 196]]} is not of type 'array'
+	from schema $id: http://devicetree.org/schemas/gpio/gpio-consumer.yaml#
+
+
+
+
+
 
