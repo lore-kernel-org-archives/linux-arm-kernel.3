@@ -4,113 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D75FE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 08:52:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15480E77198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 08:59:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7PEpuMMLl1HXI2pDdgEhA38M1d3tO5ZiApNypVZzNDc=; b=QOMZmrG0ilcEl/ikX5H3p0jZRR
-	lmhmd0Hmw2ekc1QKyU+zE5e6FSPR1Opnov3vp0zEMS1KbsBs4vmA7YwWKqUO2wr9aAkkDs9ckJD+2
-	0YocXlKhG2gp+pcFn3s7EWFDa86r6qDkfaZ75grT9a+Po1DE4FkqI59hkVFbrAp6Be7EfILC2Waf5
-	te92f+o67EOaVSuBSTOkQK5H1D+DtDxQZxEHiZ7+8JD/Dk8ow5rW5AJAGpISr8vyV3JiJz58fjO3f
-	5vdmr3uwLvoydpsYRvQd3CAWD8edoOnh6vUq8bg5Mlqp+JNB3lflPdHQAYHmAgqtMEqW3hunj6JgN
-	3rCR3L1w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=m2jqZGltg1cOzex+4I71K9tCYpJ4QXYI6zWTRv4NdOU=; b=X5OUR2U/5HNbIJZ0Gqr3phdNdF
+	9rjJcF2VDbRKzBQeGD7ykZCZ4bzmfVPt7s4tWdOK0M9u6Zi4pryogS2uOTNeE3g2i8sn+XthaNC+w
+	CJ+bFw0Cbn8RcphW7D1slYfseFPOEUwhsjvOF0LbjctQ9CVIae95ZGRixI9gwR5mRuGjStfdoRgCc
+	c7FNg7OpkzjeehHh7pHwH+e1oLu7Puf6bP1ibeddOczI+lLT1uKOkAKP2ubM5lrgvxJ2tQt0op8ry
+	X7XXnq3KvU0Z7VLVPvkH0/5dMFZxJgiLFg/FduH0AqDc/s7Mcy/NtgGOOP1NKi4MxqN6iJvZU8Q6M
+	f6Wb30/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUiq7-00000000ZKR-3G2r;
-	Mon, 06 Jan 2025 08:51:59 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tUiwp-00000000a7e-2NZK;
+	Mon, 06 Jan 2025 08:58:55 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUiox-00000000ZE8-2neO
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 08:50:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C7D0A5C55C5;
-	Mon,  6 Jan 2025 08:50:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3BF2C4CEDF;
-	Mon,  6 Jan 2025 08:50:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736153446;
-	bh=Vm7Pm0lC/yhBdqvH/eDmNy17XhJIxxx7Z4NkaNgWL0g=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qZ1CqEkcpjC+2hWsCuPLhbot8uflSmktOD+VT6Gs0J45Jim/2xU375FzOdoLMfesP
-	 zlcEXxlmD9qe1aza/gXEoIJeXsp5jPSo22+JJJQCmGpEeq5o4L5LmAhusmfWIdXmYT
-	 DLM+hP2aNGtS2M8xk1fFRUI+BmY1rxqfzr/qW181rpqj1ytDBcwKeCHLTvE5bux0Ln
-	 xR7Cfj2RA03S7Xxqqa8c4rVFnpqLwWfPZk9PRnBGuMQAeiKrQ7PsI4dvrJzhzz2sfA
-	 F7QL0AyhHkZCsZkICP6Wx0PgRCDxzA/IvjjAACE8Ytno77cBYOWdq0teYx2WpkDhzh
-	 vmh+6634Eh3PQ==
-Message-ID: <56e13a29-c087-4fe3-abf5-ebbad28ddfdb@kernel.org>
-Date: Mon, 6 Jan 2025 09:50:40 +0100
+	id 1tUive-00000000Zyg-1vTy;
+	Mon, 06 Jan 2025 08:57:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1736153859;
+	bh=LqO93PKZFzajhO0Q5bvrw7jf6gFJfNjdg6AaXE7AJoQ=;
+	h=From:To:Cc:Subject:Date:From;
+	b=TJgx4xSzwvwUD5scxZT27VfTMcSeR7TjO3x6u0jHgvGATyKB2oYj8kDuRoxsYdaPi
+	 s6iZf/YVW7wHyzFM/ttp0+yuJFEOYX2MWgcb42+yrSNYkM3qH41OSeneaGuNhzU7XT
+	 50rk6TlplXymLwgrM5oyHlD7yezotol3Ume7ZNUQRy9hCHmfZ2+/vr/VfJJaM9+bHL
+	 fzOzl1vGoeQqcy1Q5pE6b3RVT3iw1WnusEMPKgyO+kiReiavjHu0legHOPiejcMRX7
+	 NNn26hcGmfl5MyRTNaiqL52PWRjxQUde8kS1NG2JCH0VadOwSQqDCK8P3JWTo55NJT
+	 BFnooA5GYDaQQ==
+Received: from beast.luon.net (unknown [IPv6:2a10:3781:2531::8])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: sjoerd)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5CCDB17E1534;
+	Mon,  6 Jan 2025 09:57:39 +0100 (CET)
+Received: by beast.luon.net (Postfix, from userid 1000)
+	id 084D4D979399; Mon, 06 Jan 2025 09:57:38 +0100 (CET)
+From: Sjoerd Simons <sjoerd@collabora.com>
+To: linux-mediatek@lists.infradead.org
+Cc: kernel@collabora.com,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] arm64: dts: mediatek: mt8365-evk: Set ethernet alias
+Date: Mon,  6 Jan 2025 09:57:31 +0100
+Message-ID: <20250106085737.227622-1-sjoerd@collabora.com>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/4] dt-bindings: soc: samsung: usi: replace USI_V2 in
- constants with USI_MODE
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
- Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Sam Protsenko <semen.protsenko@linaro.org>,
- Peter Griffin <peter.griffin@linaro.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250105160346.418829-1-ivo.ivanov.ivanov1@gmail.com>
- <20250105160346.418829-2-ivo.ivanov.ivanov1@gmail.com>
- <f0702bdb-846e-4817-a76c-5ce17dea38c8@linaro.org>
- <a7686593-ab07-4e18-912d-745576c6a450@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <a7686593-ab07-4e18-912d-745576c6a450@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_005047_846762_152381E2 
-X-CRM114-Status: UNSURE (   9.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250106_005742_680059_17F29979 
+X-CRM114-Status: GOOD (  10.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,25 +79,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/01/2025 08:41, Ivaylo Ivanov wrote:
-> On 1/6/25 09:36, Tudor Ambarus wrote:
->> Hiya,
->>
->> On 1/5/25 4:03 PM, Ivaylo Ivanov wrote:
->>> +#define USI_MODE_NONE		0
->>> +#define USI_MODE_UART		1
->>> +#define USI_MODE_SPI		2
->>> +#define USI_MODE_I2C		3
->> USI_CONFIG register refers to the protocol selection with USI_I2C,
->> USI_SPI, USI_UART. How about getting rid of the MODE from the name?
-> 
-> I thought about that too but I believe that mentioning that these constants
-> are for mode selection in their name is generally a good practice. Let me know
-> if dropping _MODE is really needed.
+Configure an the ethernet alias to match the ethernet controller (even
+if it's off by default). This allows e.g. u-boot to configure the mac
+address on boot properly
 
-I am fine with both, MODE feels a bit more descriptive indicating how
-the USI should be configured.
+Signed-off-by: Sjoerd Simons <sjoerd@collabora.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
 
-Best regards,
-Krzysztof
+Changes in v2:
+- Update commit subject
+
+ arch/arm64/boot/dts/mediatek/mt8365-evk.dts | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/arm64/boot/dts/mediatek/mt8365-evk.dts b/arch/arm64/boot/dts/mediatek/mt8365-evk.dts
+index 7d90112a7e27..44c61094c4d5 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8365-evk.dts
++++ b/arch/arm64/boot/dts/mediatek/mt8365-evk.dts
+@@ -21,6 +21,7 @@ / {
+ 
+ 	aliases {
+ 		serial0 = &uart0;
++		ethernet = &ethernet;
+ 	};
+ 
+ 	chosen {
+-- 
+2.47.1
+
 
