@@ -4,115 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 810F7E77198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 13:37:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0BB5E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 13:39:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lrftkFSyTk2s/yfIapFP+84J+Q9Pn5cd9LVcrQZ2iI8=; b=zT9ODn3LpAZ3pWSdBL9/SEULTx
-	qmnQoZyBJsvc4eoy2FgeDDP3kiBztDGJgRjhC7DMHgZdVugQAxoQL57GCG8djLw6VbW+2+bQnsgZV
-	KeUxNrd+CXnxjjsPbKBoTRArmdl5lRhJNr9hQJhBYSX3fXb5Ur5JFtEEbC0VXrtxDTSuJ5XcZjv5M
-	5PItZjV2GrUsCGLFwcuwQiehiKyh/dtgBev7F3n/Omj0jwwWObR0ossnicADQ2pW5hgzV9yX+xvtV
-	4eNT+HRnKziA1a9QfaG/3zbrp/hit02irFOtSmUFQ1vEqljS/e1n0lFNLBtAS+07rAnNF8HHOiN0T
-	GooxZqdg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QD/5MkV3XJDYofXBpXzLtH+lvDmfTz6segHHG3APers=; b=P+oZ4PEKqJMYbYyjH24gbbYZoR
+	0KqyoE7o+5K8F1DCC0h1PlP+GIuFaiMUNqrMk55fav/QorG0LahCwe7/xv9lW8g4LT+XlRUxoNGu2
+	SMae0cA6aB8q77t/no6c6u88vDhE641snwp1uLzUPcoaiIPIB7WLM4Ie0YGy1d0Re3O8fxs2C1V3o
+	LrxW45EpoA6KIsLhfAipe24AxPorBQtCcY9iGopHz2jmxYndTq8BxTYdfNfqA9He0IDCZ3LfyjtEs
+	Ldl+Lqmj2F4nSW4M5fyuyUGt6M9G2cdHcbkDd4uhk77jROaCUm0Q+9YFWB4CtdvYdt0qsqLhFr62V
+	U0VQDo3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUnIU-00000001QAc-2tQ2;
-	Mon, 06 Jan 2025 13:37:34 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUnGb-00000001Psu-2iPe;
-	Mon, 06 Jan 2025 13:35:38 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 506BoOUG007085;
-	Mon, 6 Jan 2025 13:35:01 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=lrftkFSyTk2s/yfIapFP+84J+Q9Pn5
-	cd9LVcrQZ2iI8=; b=PDtlb5Bs7aIfNSK6IDvwDAT5115xFIn9zs/UvICAM0v+eC
-	g+1dQHbRORY4WtYTVHnBGKFMHlsum17PMdPkHxGG8c+Hk1qp9gIgNYqampQyph/L
-	7+Iyu3Eh2EL1ZpXOQqlTp9xf9jcs+nnkA/SqlGB9wfOgk1Z76TLVBFPp6KnEhUsl
-	sep4v9WCj9iFJA/3XWeaTiTAe7D25ZLWuotAgyhqA1PeYHgzC7zVd2fp37ltKmwk
-	1OHrieDYwJU2jzFyuqubKBLa6kUkQKGeQoJ14ralKi0q47s3GP2C4b4LbiHXFbXr
-	ywPBX6l8sMXsvIHzw6tl4sOCH2VAVHQCEGwb2Spw==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4403wajp6s-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 06 Jan 2025 13:35:00 +0000 (GMT)
-Received: from m0356516.ppops.net (m0356516.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 506DZ01B000336;
-	Mon, 6 Jan 2025 13:35:00 GMT
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4403wajp6m-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 06 Jan 2025 13:35:00 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 5069PNdl003571;
-	Mon, 6 Jan 2025 13:34:59 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 43yfasx25x-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 06 Jan 2025 13:34:58 +0000
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 506DYvtv53149954
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 6 Jan 2025 13:34:57 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 4295C2004B;
-	Mon,  6 Jan 2025 13:34:57 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id A410720043;
-	Mon,  6 Jan 2025 13:34:53 +0000 (GMT)
-Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.179.26.127])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Mon,  6 Jan 2025 13:34:53 +0000 (GMT)
-Date: Mon, 6 Jan 2025 14:34:51 +0100
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: Qi Zheng <zhengqi.arch@bytedance.com>
-Cc: peterz@infradead.org, kevin.brodsky@arm.com, palmer@dabbelt.com,
-        tglx@linutronix.de, david@redhat.com, jannh@google.com,
-        hughd@google.com, yuzhao@google.com, willy@infradead.org,
-        muchun.song@linux.dev, vbabka@kernel.org, lorenzo.stoakes@oracle.com,
-        akpm@linux-foundation.org, rientjes@google.com, vishal.moola@gmail.com,
-        arnd@arndb.de, will@kernel.org, aneesh.kumar@kernel.org,
-        npiggin@gmail.com, dave.hansen@linux.intel.com, rppt@kernel.org,
-        ryan.roberts@arm.com, linux-mm@kvack.org,
-        linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-        sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org,
-        x86@kernel.org, linux-arch@vger.kernel.org, linux-csky@vger.kernel.org,
-        linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
-        linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
-        linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org,
-        linux-um@lists.infradead.org
-Subject: Re: [PATCH v4 06/15] s390: pgtable: add statistics for PUD and P4D
- level page table
-Message-ID: <Z3vb+0MktvDNysQD@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
-References: <cover.1735549103.git.zhengqi.arch@bytedance.com>
- <35be22a2b1666df729a9fc108c2da5cce266e4be.1735549103.git.zhengqi.arch@bytedance.com>
- <Z3uxVkg3i7zXI92e@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
- <a3a2bd64-9952-4c66-8626-f2436ce07d1d@bytedance.com>
+	id 1tUnJt-00000001QgG-1rLX;
+	Mon, 06 Jan 2025 13:39:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tUnIg-00000001QGJ-0PXw
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 06 Jan 2025 13:37:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 33BB1143D;
+	Mon,  6 Jan 2025 05:38:11 -0800 (PST)
+Received: from [10.57.4.137] (unknown [10.57.4.137])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id BC6773F673;
+	Mon,  6 Jan 2025 05:37:41 -0800 (PST)
+Message-ID: <208b72a1-06eb-4ac0-8104-20ae3f0cf174@arm.com>
+Date: Mon, 6 Jan 2025 13:37:40 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <a3a2bd64-9952-4c66-8626-f2436ce07d1d@bytedance.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: XFfmZXEbdi1lmX4sTCZJHlLIWFA4SLIH
-X-Proofpoint-ORIG-GUID: N1gUawSn25jz-02tMlFh_LT5dfHmG37b
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
- definitions=2024-10-15_01,2024-10-11_01,2024-09-30_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 mlxlogscore=703
- lowpriorityscore=0 spamscore=0 suspectscore=0 bulkscore=0 mlxscore=0
- clxscore=1015 adultscore=0 impostorscore=0 priorityscore=1501
- malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2501060120
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/1] coresight: prevent deactivate active config while
+ enable the config
+Content-Language: en-GB
+To: Yeo Reum Yun <YeoReum.Yun@arm.com>,
+ "mike.leach@linaro.org" <mike.leach@linaro.org>,
+ "james.clark@linaro.org" <james.clark@linaro.org>,
+ "alexander.shishkin@linux.intel.com" <alexander.shishkin@linux.intel.com>
+Cc: "coresight@lists.linaro.org" <coresight@lists.linaro.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ nd <nd@arm.com>
+References: <20241218084833.609876-1-yeoreum.yun@arm.com>
+ <GV1PR08MB1052128A5BBEC4E0A9090387FFB0A2@GV1PR08MB10521.eurprd08.prod.outlook.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <GV1PR08MB1052128A5BBEC4E0A9090387FFB0A2@GV1PR08MB10521.eurprd08.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_053537_795702_3BAA9207 
-X-CRM114-Status: GOOD (  15.17  )
+X-CRM114-CacheID: sfid-20250106_053746_241124_07EF8D80 
+X-CRM114-Status: GOOD (  26.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,19 +72,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 06, 2025 at 07:05:16PM +0800, Qi Zheng wrote:
-> > I understand that you want to sort p.._free_tlb() routines, but please
-> 
-> Yes, I thought it was a minor change, so I just did it.
-> 
-> > do not move the code around or make a separate follow-up patch.
-> 
-> Well, if you have a strong opinion about this, I can send an updated
-> patch.
+Hi Yeo,
 
-If you ever send v5, then please update this patch.
 
-> Thanks!
+On 31/12/2024 14:37, Yeo Reum Yun wrote:
+> Gentle ping in case of forgotten.
+> 
 
-Thank you!
+Gentle reminder: Please avoid top posting.
+
+I thought there is a v2 of this one ? I am now confused.
+
+Kind regards
+Suzuki
+
+> ________________________________________
+> From: Yeoreum Yun <yeoreum.yun@arm.com>
+> Sent: 18 December 2024 08:48
+> To: Suzuki Poulose; mike.leach@linaro.org; james.clark@linaro.org; alexander.shishkin@linux.intel.com
+> Cc: coresight@lists.linaro.org; linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org; nd; Yeo Reum Yun
+> Subject: [PATCH 1/1] coresight: prevent deactivate active config while enable the config
+> 
+> While enable active config via cscfg_csdev_enable_active_config(),
+> active config could be deactivated via configfs' sysfs interface.
+> This could make UAF issue in below scenario:
+> 
+> CPU0                                          CPU1
+> (perf or sysfs enable)                        load module
+>                                                cscfg_load_config_sets()
+>                                                activate config. // sysfs
+>                                                (sys_active_cnt == 1)
+> ...
+> cscfg_csdev_enable_active_config()
+>    lock(csdev->cscfg_csdev_lock)
+>    // here load config activate by CPU1
+>    unlock(csdev->cscfg_csdev_lock)
+> 
+>                                                deactivate config // sysfs
+>                                                (sys_activec_cnt == 0)
+>                                                cscfg_unload_config_sets()
+>                                                unload module
+> 
+>    // access to config_desc which freed
+>    // while unloading module.
+>    cfs_csdev_enable_config
+> 
+> To address this, introduce sys_enable_cnt in cscfg_mgr to prevent
+> deactivate while there is enabled configuration.
+> 
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> ---
+>   .../hwtracing/coresight/coresight-etm4x-core.c |  3 +++
+>   drivers/hwtracing/coresight/coresight-syscfg.c | 18 ++++++++++++++++--
+>   drivers/hwtracing/coresight/coresight-syscfg.h |  2 ++
+>   3 files changed, 21 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> index 86893115df17..6218ef40acbc 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> @@ -986,6 +986,9 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
+>          smp_call_function_single(drvdata->cpu, etm4_disable_hw, drvdata, 1);
+> 
+>          raw_spin_unlock(&drvdata->spinlock);
+> +
+> +       cscfg_csdev_disable_active_config(csdev);
+> +
+>          cpus_read_unlock();
+> 
+>          /*
+> diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtracing/coresight/coresight-syscfg.c
+> index a70c1454b410..dfa7dcbaf25d 100644
+> --- a/drivers/hwtracing/coresight/coresight-syscfg.c
+> +++ b/drivers/hwtracing/coresight/coresight-syscfg.c
+> @@ -953,7 +953,8 @@ int cscfg_config_sysfs_activate(struct cscfg_config_desc *config_desc, bool acti
+>                          cscfg_mgr->sysfs_active_config = cfg_hash;
+>          } else {
+>                  /* disable if matching current value */
+> -               if (cscfg_mgr->sysfs_active_config == cfg_hash) {
+> +               if (cscfg_mgr->sysfs_active_config == cfg_hash &&
+> +                   !atomic_read(&cscfg_mgr->sys_enable_cnt)) {
+>                          _cscfg_deactivate_config(cfg_hash);
+>                          cscfg_mgr->sysfs_active_config = 0;
+>                  } else
+> @@ -1055,6 +1056,12 @@ int cscfg_csdev_enable_active_config(struct coresight_device *csdev,
+>          if (!atomic_read(&cscfg_mgr->sys_active_cnt))
+>                  return 0;
+> 
+> +       /*
+> +        * increment sys_enable_cnt first to prevent deactivate the config
+> +        * while enable active config.
+> +        */
+> +       atomic_inc(&cscfg_mgr->sys_enable_cnt);
+> +
+>          /*
+>           * Look for matching configuration - set the active configuration
+>           * context if found.
+> @@ -1098,6 +1105,10 @@ int cscfg_csdev_enable_active_config(struct coresight_device *csdev,
+>                          raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
+>                  }
+>          }
+> +
+> +       if (!config_csdev_active || err)
+> +               atomic_dec(&cscfg_mgr->sys_enable_cnt);
+> +
+>          return err;
+>   }
+>   EXPORT_SYMBOL_GPL(cscfg_csdev_enable_active_config);
+> @@ -1129,8 +1140,10 @@ void cscfg_csdev_disable_active_config(struct coresight_device *csdev)
+>          if (config_csdev) {
+>                  if (!config_csdev->enabled)
+>                          config_csdev = NULL;
+> -               else
+> +               else {
+>                          config_csdev->enabled = false;
+> +                       atomic_dec(&cscfg_mgr->sys_enable_cnt);
+> +               }
+>          }
+>          csdev->active_cscfg_ctxt = NULL;
+>          raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
+> @@ -1179,6 +1192,7 @@ static int cscfg_create_device(void)
+>          INIT_LIST_HEAD(&cscfg_mgr->config_desc_list);
+>          INIT_LIST_HEAD(&cscfg_mgr->load_order_list);
+>          atomic_set(&cscfg_mgr->sys_active_cnt, 0);
+> +       atomic_set(&cscfg_mgr->sys_enable_cnt, 0);
+>          cscfg_mgr->load_state = CSCFG_NONE;
+> 
+>          /* setup the device */
+> diff --git a/drivers/hwtracing/coresight/coresight-syscfg.h b/drivers/hwtracing/coresight/coresight-syscfg.h
+> index 66e2db890d82..2fc397919985 100644
+> --- a/drivers/hwtracing/coresight/coresight-syscfg.h
+> +++ b/drivers/hwtracing/coresight/coresight-syscfg.h
+> @@ -38,6 +38,7 @@ enum cscfg_load_ops {
+>    * @config_desc_list:  List of system configuration descriptors to load into registered devices.
+>    * @load_order_list:    Ordered list of owners for dynamically loaded configurations.
+>    * @sys_active_cnt:    Total number of active config descriptor references.
+> + * @sys_enable_cnt:    Total number of enable of active config descriptor references.
+>    * @cfgfs_subsys:      configfs subsystem used to manage configurations.
+>    * @sysfs_active_config:Active config hash used if CoreSight controlled from sysfs.
+>    * @sysfs_active_preset:Active preset index used if CoreSight controlled from sysfs.
+> @@ -50,6 +51,7 @@ struct cscfg_manager {
+>          struct list_head config_desc_list;
+>          struct list_head load_order_list;
+>          atomic_t sys_active_cnt;
+> +       atomic_t sys_enable_cnt;
+>          struct configfs_subsystem cfgfs_subsys;
+>          u32 sysfs_active_config;
+>          int sysfs_active_preset;
+> --
+> LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+> 
+
 
