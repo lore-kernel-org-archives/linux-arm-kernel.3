@@ -4,80 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 490ACE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 12:19:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1B0EE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 12:21:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9wa7hfNfdAkvYDhnJzACXro4CnaDjBA2nVrf01MbtUM=; b=MfRCBgd5rN0WZVLBIA3IDloSrV
-	Ir4jDDKiRMNYFBuLnt2EfDJPCs4V6VkcRNezNVym/425r7VvnJ6ySm3patU9NqK7oZoAO+20/yON1
-	NDfM5kH+INFRxqY+UgAtjrKLIUNviRXs6bpd0lNLeyAirURcgod+/lP6saVd6LjsxDY42peXtFFMN
-	8/jhZf2o58qNswzvewo9l9dsuh1j93CA+5MnPI4mdmA7WB09H3/CmUVDycYKlEYyTBsp32oY4lRvD
-	h2bRYoA038UtopulQ24XpSMp8vSOz7ENcHNALy4LvVArfY58/n18oEFOaqx5gldm17S1F6ENBtZKJ
-	pKjgDKzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gZMi0/+lFeaKbLjqyUotA2pLGSRlDX1aBpiWIb0bBSY=; b=cH9fGJmkcKRGV4rGYYok4XT0cD
+	W0YTCuQ6DjTTiEfZXoHZP966ANo6H0+Wc3vTj0K97JyfslPUoJqCvwj7CYhMhzhjyz7V96fVkpv6T
+	2hkVBzMmW5hJum6eycnuYNPh25WZvhOGSsrQq6+UcFJQsU2dWmKaqyVYwdEuHKse56QkqMwWxhPTC
+	816gUReGQosxDjHoRvqkJvG+CfBKXuR1vvD+vgrrbqew6BC4n+0GYr8qZJyGiMMog+vbguLiBAZGS
+	eqviAuddroE3z7cvvpHE1+QeRaBvUAHwYppkoDqZqsgVAbw8uxgcEOzgYWHy+6NsE5RP0PvtD4Hp1
+	fjDXNbVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUm57-00000001BqE-2nYY;
-	Mon, 06 Jan 2025 12:19:41 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUlp2-000000017xJ-3eeH
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 06 Jan 2025 12:03:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=9wa7hfNfdAkvYDhnJzACXro4CnaDjBA2nVrf01MbtUM=; b=Z1wPLhrRoAhMbsFnJhtgbw2OXr
-	cbmv3schVXj1J/OmCOLv1xXA4LRRuzxtXQjImH2GacmUIGksuBRmypDzsJv9RszM+XXbAqcxeuSMP
-	UPLoTWLDJV1zJmDr6DH3Q6XArglhWAxpCkNw8Zlut5HQcr12T2uC767zacMpeTCAOt/PhoovvA5nz
-	kY09JPYS27v6Kvlp7flD9nmOgAK/n/MD4xkgTOmI33hMASz5j8ZYmMGABt9m9JvSsOYWsqPbOVs7U
-	TuIhNho+Tbx7PmFWPo4Bfae0HvGy+2Y8fmTXgOY3L4qy+o4AhWHhh8HspMvn8ydTOgrMxEP8MV9p/
-	sZXOX29Q==;
+	id 1tUm6G-00000001C3Q-2BeG;
+	Mon, 06 Jan 2025 12:20:52 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by casper.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUloy-00000009JXP-3rnT
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tUlps-000000018BR-09bD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 12:03:03 +0000
+	Mon, 06 Jan 2025 12:03:57 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AC5B322C8;
-	Mon,  6 Jan 2025 04:03:24 -0800 (PST)
-Received: from e128066.arm.com (unknown [10.57.93.133])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 675443F673;
-	Mon,  6 Jan 2025 04:02:52 -0800 (PST)
-From: mark.barnett@arm.com
-To: peterz@infradead.org,
-	mingo@redhat.com,
-	acme@kernel.org,
-	namhyung@kernel.org,
-	irogers@google.com
-Cc: ben.gainey@arm.com,
-	deepak.surti@arm.com,
-	ak@linux.intel.com,
-	will@kernel.org,
-	james.clark@arm.com,
-	mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org,
-	adrian.hunter@intel.com,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Mark Barnett <mark.barnett@arm.com>
-Subject: [PATCH v2 4/5] tools/perf: Modify event parser to support alt-period-jitter term
-Date: Mon,  6 Jan 2025 12:01:55 +0000
-Message-Id: <20250106120156.227273-5-mark.barnett@arm.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250106120156.227273-1-mark.barnett@arm.com>
-References: <20250106120156.227273-1-mark.barnett@arm.com>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C614222D9;
+	Mon,  6 Jan 2025 04:04:23 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 870B33F673;
+	Mon,  6 Jan 2025 04:03:54 -0800 (PST)
+Date: Mon, 6 Jan 2025 12:03:44 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Brown <broonie@kernel.org>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: Filter out SVE hwcaps when FEAT_SVE isn't
+ implemented
+Message-ID: <Z3vGeFUBd9YSIgg_@J2N7QTR9R3>
+References: <20250103182255.1763739-1-maz@kernel.org>
+ <Z3ulKMeKQcHFErgr@J2N7QTR9R3>
+ <868qrop556.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <868qrop556.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_120301_470900_594227BA 
-X-CRM114-Status: GOOD (  17.95  )
+X-CRM114-CacheID: sfid-20250106_040356_181907_C586E6BF 
+X-CRM114-Status: GOOD (  41.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,246 +67,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ben Gainey <ben.gainey@arm.com>
+On Mon, Jan 06, 2025 at 11:12:53AM +0000, Marc Zyngier wrote:
+> On Mon, 06 Jan 2025 09:40:56 +0000,
+> Mark Rutland <mark.rutland@arm.com> wrote:
+> > 
+> > On Fri, Jan 03, 2025 at 06:22:55PM +0000, Marc Zyngier wrote:
+> > > The hwcaps code that exposes SVE features to userspace only
+> > > considers ID_AA64ZFR0_EL1, while this is only valid when
+> > > ID_AA64PFR0_EL1.SVE advertises that SVE is actually supported.
+> > > 
+> > > The expectations are that when ID_AA64PFR0_EL1.SVE is 0, the
+> > > ID_AA64ZFR0_EL1 register is also 0. So far, so good.
+> > > 
+> > > Things become a bit more interesting if the HW implements SME.
+> > > In this case, a few ID_AA64ZFR0_EL1 fields indicate *SME*
+> > > features. And these fields overlap with their SVE interpretations.
+> > > But the architecture says that the SME and SVE feature sets must
+> > > match, so we're still hunky-dory.
+> > > 
+> > > This goes wrong if the HW implements SME, but not SVE. In this
+> > > case, we end-up advertising some SVE features to userspace, even
+> > > if the HW has none. That's because we never consider whether SVE
+> > > is actually implemented. Oh well.
+> > 
+> > Ugh; this is a massive pain. :(
+> > 
+> > Was this found by inspection, or is some real software going wrong?
+> 
+> Catalin can comment on that -- I understand that he found existing SW
+> latching on SVE2 being wrongly advertised as hwcaps.
+> 
+> > > Fix it by restricting all SVE capabilities to ID_AA64PFR0_EL1.SVE
+> > > being non-zero.
+> > 
+> > Unfortunately, I'm not sure this fix is correct+complete.
+> > 
+> > We expose ID_AA64PFR0_EL1 and ID_AA64ZFR0_EL1 via ID register emulation,
+> > so any userspace software reading ID_AA64ZFR0_EL1 will encounter the
+> > same surprise. If we hide that I'm worried we might hide some SME-only
+> > information that isn't exposed elsewhere, and I'm not sure we can
+> > reasonably hide ID_AA64ZFR0_EL1 emulation for SME-only (more on that
+> > below).
+> 
+> I don't understand where things go wrong. EL0 SW that looks at the ID
+> registers should perform similar checks, and we are not trying to make
+> things better on that front (we can't). Unless you invent time travel
+> and fix the architecture 5 years ago... :-/
 
-parse-events is modified, adding the "alt-period-jitter" term which
-can be used to enable random jitter of the alternative sample
-period.
+Fair enough; if we say software consuming ID_AA64ZFR0_EL1 must check
+ID_AA64PFR0_EL1.SVE or ID_AA64PFR1_EL1.SME first, and we leave the
+emulation of ID_AA64ZFR0_EL1 as-is, that's fine by me.
 
-Signed-off-by: Ben Gainey <ben.gainey@arm.com>
-Signed-off-by: Mark Barnett <mark.barnett@arm.com>
----
- tools/include/uapi/linux/perf_event.h             |  7 ++++++-
- tools/perf/tests/shell/attr/base-record           |  1 +
- tools/perf/tests/shell/attr/base-record-spe       |  1 +
- tools/perf/tests/shell/attr/base-stat             |  1 +
- tools/perf/tests/shell/attr/system-wide-dummy     |  1 +
- .../shell/attr/test-record-alt-period-jitter-term | 13 +++++++++++++
- tools/perf/tests/shell/attr/test-record-dummy-C0  |  1 +
- tools/perf/tests/shell/lib/attr.py                |  1 +
- tools/perf/util/evsel.c                           |  1 +
- tools/perf/util/parse-events.c                    | 15 +++++++++++++++
- tools/perf/util/parse-events.h                    |  3 ++-
- tools/perf/util/parse-events.l                    |  1 +
- tools/perf/util/pmu.c                             |  3 ++-
- 13 files changed, 46 insertions(+), 3 deletions(-)
- create mode 100644 tools/perf/tests/shell/attr/test-record-alt-period-jitter-term
+> The hwcaps are effectively demultiplexing the ID registers, and they
+> have to be exact, which is what this patch provides (SVE2 doesn't get
+> wrongly advertised when not present).
 
-diff --git a/tools/include/uapi/linux/perf_event.h b/tools/include/uapi/linux/perf_event.h
-index 499a8673df8e..c0076ce8f80a 100644
---- a/tools/include/uapi/linux/perf_event.h
-+++ b/tools/include/uapi/linux/perf_event.h
-@@ -461,7 +461,12 @@ struct perf_event_attr {
- 				inherit_thread :  1, /* children only inherit if cloned with CLONE_THREAD */
- 				remove_on_exec :  1, /* event is removed from task on exec */
- 				sigtrap        :  1, /* send synchronous SIGTRAP on event */
--				__reserved_1   : 26;
-+				/*
-+				 * Add a limited amount of jitter on each alternate period, where
-+				 * the jitter is between [0, (2<<jitter_alt_period) - 1]
-+				 */
-+				jitter_alt_period : 3,
-+				__reserved_1   : 23;
- 
- 	union {
- 		__u32		wakeup_events;	  /* wakeup every n events */
-diff --git a/tools/perf/tests/shell/attr/base-record b/tools/perf/tests/shell/attr/base-record
-index 28a7233f7bc1..1f5ab125c78d 100644
---- a/tools/perf/tests/shell/attr/base-record
-+++ b/tools/perf/tests/shell/attr/base-record
-@@ -40,3 +40,4 @@ branch_sample_type=0
- sample_regs_user=0
- sample_stack_user=0
- alt_sample_period=0
-+jitter_alt_period=0
-diff --git a/tools/perf/tests/shell/attr/base-record-spe b/tools/perf/tests/shell/attr/base-record-spe
-index ad8eb72e655a..b35ca04b2ce4 100644
---- a/tools/perf/tests/shell/attr/base-record-spe
-+++ b/tools/perf/tests/shell/attr/base-record-spe
-@@ -39,3 +39,4 @@ branch_sample_type=*
- sample_regs_user=*
- sample_stack_user=*
- alt_sample_period=0
-+jitter_alt_period=0
-diff --git a/tools/perf/tests/shell/attr/base-stat b/tools/perf/tests/shell/attr/base-stat
-index 2de92c5c300d..2d90a055686a 100644
---- a/tools/perf/tests/shell/attr/base-stat
-+++ b/tools/perf/tests/shell/attr/base-stat
-@@ -40,3 +40,4 @@ branch_sample_type=0
- sample_regs_user=0
- sample_stack_user=0
- alt_sample_period=0
-+jitter_alt_period=0
-diff --git a/tools/perf/tests/shell/attr/system-wide-dummy b/tools/perf/tests/shell/attr/system-wide-dummy
-index c0a17bb3c022..527707b505e0 100644
---- a/tools/perf/tests/shell/attr/system-wide-dummy
-+++ b/tools/perf/tests/shell/attr/system-wide-dummy
-@@ -51,3 +51,4 @@ branch_sample_type=0
- sample_regs_user=0
- sample_stack_user=0
- alt_sample_period=0
-+jitter_alt_period=0
-diff --git a/tools/perf/tests/shell/attr/test-record-alt-period-jitter-term b/tools/perf/tests/shell/attr/test-record-alt-period-jitter-term
-new file mode 100644
-index 000000000000..6b31c898c905
---- /dev/null
-+++ b/tools/perf/tests/shell/attr/test-record-alt-period-jitter-term
-@@ -0,0 +1,13 @@
-+[config]
-+command = record
-+args    = --no-bpf-event -e cycles/period=3,alt-period=2,alt-period-jitter=7/ -- kill >/dev/null 2>&1
-+ret     = 1
-+kernel_since = 6.11
-+
-+[event-10:base-record]
-+sample_period=3
-+alt_sample_period=2
-+jitter_alt_period=7
-+
-+freq=0
-+sample_type=7
-diff --git a/tools/perf/tests/shell/attr/test-record-dummy-C0 b/tools/perf/tests/shell/attr/test-record-dummy-C0
-index e6315918a95e..436534df0434 100644
---- a/tools/perf/tests/shell/attr/test-record-dummy-C0
-+++ b/tools/perf/tests/shell/attr/test-record-dummy-C0
-@@ -54,3 +54,4 @@ branch_sample_type=0
- sample_regs_user=0
- sample_stack_user=0
- alt_sample_period=0
-+jitter_alt_period=0
-diff --git a/tools/perf/tests/shell/lib/attr.py b/tools/perf/tests/shell/lib/attr.py
-index 04e95f76005a..d15363e925fe 100644
---- a/tools/perf/tests/shell/lib/attr.py
-+++ b/tools/perf/tests/shell/lib/attr.py
-@@ -92,6 +92,7 @@ class Event(dict):
-         'sample_regs_user',
-         'sample_stack_user',
-         'alt_sample_period',
-+        'jitter_alt_period',
-     ]
- 
-     def add(self, data):
-diff --git a/tools/perf/util/evsel.c b/tools/perf/util/evsel.c
-index a796e49ef2f6..420bf0ce55eb 100644
---- a/tools/perf/util/evsel.c
-+++ b/tools/perf/util/evsel.c
-@@ -181,6 +181,7 @@ static int store_event(struct perf_event_attr *attr, pid_t pid, struct perf_cpu
- 	WRITE_ASS(sample_regs_user,   "llu");
- 	WRITE_ASS(sample_stack_user,  PRIu32);
- 	WRITE_ASS(alt_sample_period,  "llu");
-+	WRITE_ASS(jitter_alt_period,  "d");
- 
- 	fclose(file);
- 	return 0;
-diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
-index 41e82347a020..53079053a044 100644
---- a/tools/perf/util/parse-events.c
-+++ b/tools/perf/util/parse-events.c
-@@ -800,6 +800,7 @@ const char *parse_events__term_type_str(enum parse_events__term_type term_type)
- 		[PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE]          = "legacy-cache",
- 		[PARSE_EVENTS__TERM_TYPE_HARDWARE]              = "hardware",
- 		[PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD]	= "alt-period",
-+		[PARSE_EVENTS__TERM_TYPE_ALT_PERIOD_JITTER]	= "alt-period-jitter",
- 	};
- 	if ((unsigned int)term_type >= __PARSE_EVENTS__TERM_TYPE_NR)
- 		return "unknown term";
-@@ -829,6 +830,7 @@ config_term_avail(enum parse_events__term_type term_type, struct parse_events_er
- 	case PARSE_EVENTS__TERM_TYPE_METRIC_ID:
- 	case PARSE_EVENTS__TERM_TYPE_SAMPLE_PERIOD:
- 	case PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD:
-+	case PARSE_EVENTS__TERM_TYPE_ALT_PERIOD_JITTER:
- 	case PARSE_EVENTS__TERM_TYPE_PERCORE:
- 		return true;
- 	case PARSE_EVENTS__TERM_TYPE_USER:
-@@ -987,6 +989,16 @@ do {									   \
- 		}
- 		attr->alt_sample_period = term->val.num;
- 		break;
-+	case PARSE_EVENTS__TERM_TYPE_ALT_PERIOD_JITTER:
-+		CHECK_TYPE_VAL(NUM);
-+		if ((unsigned int)term->val.num > 7) {
-+			parse_events_error__handle(err, term->err_val,
-+						strdup("expected a value between 0-7"),
-+						NULL);
-+			return -EINVAL;
-+		}
-+		attr->jitter_alt_period = (unsigned int)term->val.num;
-+		break;
- 	case PARSE_EVENTS__TERM_TYPE_DRV_CFG:
- 	case PARSE_EVENTS__TERM_TYPE_USER:
- 	case PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE:
-@@ -1115,6 +1127,7 @@ static int config_term_tracepoint(struct perf_event_attr *attr,
- 	case PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE:
- 	case PARSE_EVENTS__TERM_TYPE_HARDWARE:
- 	case PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD:
-+	case PARSE_EVENTS__TERM_TYPE_ALT_PERIOD_JITTER:
- 	default:
- 		if (err) {
- 			parse_events_error__handle(err, term->err_term,
-@@ -1250,6 +1263,7 @@ do {								\
- 		case PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE:
- 		case PARSE_EVENTS__TERM_TYPE_HARDWARE:
- 		case PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD:
-+		case PARSE_EVENTS__TERM_TYPE_ALT_PERIOD_JITTER:
- 		default:
- 			break;
- 		}
-@@ -1305,6 +1319,7 @@ static int get_config_chgs(struct perf_pmu *pmu, struct parse_events_terms *head
- 		case PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE:
- 		case PARSE_EVENTS__TERM_TYPE_HARDWARE:
- 		case PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD:
-+		case PARSE_EVENTS__TERM_TYPE_ALT_PERIOD_JITTER:
- 		default:
- 			break;
- 		}
-diff --git a/tools/perf/util/parse-events.h b/tools/perf/util/parse-events.h
-index d00bb6c5d9ab..dafd4b4d0f0e 100644
---- a/tools/perf/util/parse-events.h
-+++ b/tools/perf/util/parse-events.h
-@@ -81,7 +81,8 @@ enum parse_events__term_type {
- 	PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE,
- 	PARSE_EVENTS__TERM_TYPE_HARDWARE,
- 	PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD,
--#define	__PARSE_EVENTS__TERM_TYPE_NR (PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD + 1)
-+	PARSE_EVENTS__TERM_TYPE_ALT_PERIOD_JITTER,
-+#define	__PARSE_EVENTS__TERM_TYPE_NR (PARSE_EVENTS__TERM_TYPE_ALT_PERIOD_JITTER + 1)
- };
- 
- struct parse_events_term {
-diff --git a/tools/perf/util/parse-events.l b/tools/perf/util/parse-events.l
-index 3538f5bca5df..ceb19d41766a 100644
---- a/tools/perf/util/parse-events.l
-+++ b/tools/perf/util/parse-events.l
-@@ -325,6 +325,7 @@ aux-action		{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_AUX_ACTION); }
- aux-sample-size		{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_AUX_SAMPLE_SIZE); }
- metric-id		{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_METRIC_ID); }
- alt-period		{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD); }
-+alt-period-jitter	{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_ALT_PERIOD_JITTER); }
- cpu-cycles|cycles				{ return hw_term(yyscanner, PERF_COUNT_HW_CPU_CYCLES); }
- stalled-cycles-frontend|idle-cycles-frontend	{ return hw_term(yyscanner, PERF_COUNT_HW_STALLED_CYCLES_FRONTEND); }
- stalled-cycles-backend|idle-cycles-backend	{ return hw_term(yyscanner, PERF_COUNT_HW_STALLED_CYCLES_BACKEND); }
-diff --git a/tools/perf/util/pmu.c b/tools/perf/util/pmu.c
-index 376cdec933c2..d8e145d6abff 100644
---- a/tools/perf/util/pmu.c
-+++ b/tools/perf/util/pmu.c
-@@ -1400,7 +1400,7 @@ static int pmu_config_term(const struct perf_pmu *pmu,
- 			break;
- 		case PARSE_EVENTS__TERM_TYPE_USER: /* Not hardcoded. */
- 			return -EINVAL;
--		case PARSE_EVENTS__TERM_TYPE_NAME ... PARSE_EVENTS__TERM_TYPE_HARDWARE:
-+		case PARSE_EVENTS__TERM_TYPE_NAME ... PARSE_EVENTS__TERM_TYPE_ALT_PERIOD_JITTER:
- 			/* Skip non-config terms. */
- 			break;
- 		default:
-@@ -1776,6 +1776,7 @@ int perf_pmu__for_each_format(struct perf_pmu *pmu, void *state, pmu_format_call
- 		"aux-action=(pause|resume|start-paused)",
- 		"aux-sample-size=number",
- 		"alt-period=number",
-+		"alt-period-jitter=number",
- 	};
- 	struct perf_pmu_format *format;
- 	int ret;
--- 
-2.43.0
+> > Secondly, all our HWCAP documentation is written in the form:
+> > 
+> > | HWCAP2_SVEBF16
+> > |     Functionality implied by ID_AA64ZFR0_EL1.BF16 == 0b0001.
+> > 
+> > ... so while the architectural behaviour is a surprise, the kernel is
+> > (techincallyy) behaving exactly as documented prior to this patch. Maybe
+> > we need to change that documentation?
+> 
+> Again, I don't see what goes wrong here. BF16 is only implemented for
+> SVE or SME+FA64, and FA64 requires SVE2. So at least for that one, we
+> should be good.
 
+That was probably a bad example. What I was trying to get at is that the
+HWCAPs are behavind exactly *as documented*, but that's not what we
+actually want them to describe. For example, SVE2 is described as:
+
+| Functionality implied by ID_AA64ZFR0_EL1.SVEver == 0b0001.
+
+... which is exactly what we check today, but that doesn't
+architecturally imply FEAT_SVE2 on SME-only HW where it can apparently
+be 0b0001 due to FEAT_SME alone.
+
+So to match the code change we'd need to change that to something like:
+
+| Functionality impled by ID_AA64PFR0_EL1 == 0b0001 and
+| ID_AA64ZFR0_EL1.SVEver == 0b0001
+
+... with similar for other hwcaps.
+
+> > Do we have equivalent SME hwcaps for the relevant features?
+> >
+> > ... looking at:
+> > 
+> >   https://developer.arm.com/documentation/ddi0601/2024-12/AArch64-Registers/ID-AA64ZFR0-EL1--SVE-Feature-ID-Register-0?lang=en
+> > 
+> > ... I see that ID_AA64ZFR0_EL1.B16B16 >= 0b0010 implies the presence of
+> > SME BFMUL and BFSCALE instructions, but I don't see something equivalent
+> > in ID_AA64SMFR0_EL1 per:
+> > 
+> >   https://developer.arm.com/documentation/ddi0601/2024-12/AArch64-Registers/ID-AA64SMFR0-EL1--SME-Feature-ID-Register-0?lang=en
+> > 
+> > ... so I suspect ID_AA64ZFR0_EL1 might be the only source of truth for
+> > this.
+> 
+> Indeed, and the SME HWCAPs are not doing the right thing either. Or
+> rather, we have no way to tell userspace that BFMUL/BFSCALE are
+> available.
+
+To be clear, I'm happy to punt on adding SME-specific HWCAPs, I just
+want to make sure we're agreed as to whether the existing HWCAPs should
+be SVE-specific, which it sounds like we are?
+
+Mark.
 
