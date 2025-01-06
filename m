@@ -4,75 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9B70E77198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 10:34:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E3CEE77199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 10:35:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s8OvT6nqTvt4THKta0J+BzOgjH2GLGBt6NTNzJjzsws=; b=jQe2vO6i7RPI5YZZ/GSjSNSVbu
-	Suk/N2IRsvvHByYBZ5e/ZffYDnBZoKQEK4g6Ue/2RvWvNm1qStQXPQZmJYh+C8Pt76iO15HvxaqcP
-	LLBkM9z51Hm9lmqTejgu+gBkJ/zqzLg5YZgcEAfUPmRRps6NIyfe49jQ4fT7bWlb6MPGvtRSvJIjw
-	hLu5bHnlzlUBvpjiEHJQ6x9OMIiwJ+N2Me0u4iRBo0wUsb9s8tRj4gxlUWETE1hUoJu56WbqJ7P0q
-	oty9j3+O39+vUx6v4GaUHQKJBKQsQFpA/E2EC7Dus7d02YNtu0tRanKdzOX/NeqtjRm5H5Z5Ak997
-	KOLuvEVA==;
+	bh=T/dIATF0B0cb2CjV4kpJjZfFPga/hCk4zk30iJIHW7w=; b=rri3s/AcYubiZf/aJe5olskHEW
+	mwi1gH6o7OqiEYIrVusmYIWaA7r/Mj4FUoJoj4JKu4z1tCboZyjwXEQOAJr8jY6BKjjK8E197B5da
+	5MrokYWpUJLwEQU9n6ik/iiYquDW9gtqQ2gW/act+OLCBD6+Ucx1M6ylXvHUkAgNsxF83u2yk/t9v
+	u9EHlKDNrnhC4mNl7mYLqJeHc1LHk/ITHh65Wb6/jBidxDODX56kNiFPOOra9WErZKZ3OZmcK/YTx
+	XRGGbyoEjhIKsv79IVCf+TD6POgOi0euchvDrl67hE1vaS5LfZJU/8cyFJqQtumLJQoda2BFizikk
+	SJzl9t0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUkQs-00000000rzv-2XJM;
-	Mon, 06 Jan 2025 10:34:02 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tUkS1-00000000sFi-10kK;
+	Mon, 06 Jan 2025 10:35:13 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUkPS-00000000rh8-2N6C
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 10:32:36 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <sha@pengutronix.de>)
-	id 1tUkPG-0006cA-5y; Mon, 06 Jan 2025 11:32:22 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <sha@pengutronix.de>)
-	id 1tUkPF-0079Mx-05;
-	Mon, 06 Jan 2025 11:32:21 +0100
-Received: from sha by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <sha@pengutronix.de>)
-	id 1tUkPF-007Zgy-2D;
-	Mon, 06 Jan 2025 11:32:21 +0100
-Date: Mon, 6 Jan 2025 11:32:21 +0100
-From: Sascha Hauer <s.hauer@pengutronix.de>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v4 2/2] nvmem: imx-ocotp-ele: Support accessing
- controller for i.MX9
-Message-ID: <Z3uxNZLM6-HHnRZM@pengutronix.de>
-References: <20241223-imx-ocotp-v4-0-f504c1420640@nxp.com>
- <20241223-imx-ocotp-v4-2-f504c1420640@nxp.com>
+	id 1tUkQe-00000000rxs-35Yb;
+	Mon, 06 Jan 2025 10:33:49 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 505NaE33006668;
+	Mon, 6 Jan 2025 10:33:02 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=T/dIATF0B0cb2CjV4kpJjZfFPga/hC
+	k4zk30iJIHW7w=; b=UNSjWw3irJn0V+Dm8j5t3FNW5/wXx/WChR9S+1E2fwnee6
+	3YnxLlHQxOWH5zrs+0j3Lht+s4UrTI6g7Yg1KPB8FMCugDt75nNJJWZKMmbDbPht
+	aD4e1ztejD6AY9RigrcvvmP08x+kE9ZPTuYPeo60tFTmnQ8k4Cpe4cZrulHW0baX
+	bOFNUKH9z8P8+JW+mRFxmH7ld8nXAdzH+SB/wWVmxjkHXf+l7Q0PcRAwggyYoIXJ
+	RPu2iCOjOnvWnlY1gzTc7zEiBMqw+MBx8ifutL9cQhg4trkc8IU7fa53qIVbDErN
+	zLxsI17bxYOGqDtgLVqTsRSbTQbHdK5UUjCL9AUQ==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4403waj0t2-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 06 Jan 2025 10:33:02 +0000 (GMT)
+Received: from m0356516.ppops.net (m0356516.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 506AX1FB005709;
+	Mon, 6 Jan 2025 10:33:01 GMT
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4403waj0sx-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 06 Jan 2025 10:33:01 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 506A0LB9008869;
+	Mon, 6 Jan 2025 10:33:00 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 43yfpyndxu-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 06 Jan 2025 10:33:00 +0000
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 506AWwE135127994
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 6 Jan 2025 10:32:58 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 8AC1920049;
+	Mon,  6 Jan 2025 10:32:58 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 535C720040;
+	Mon,  6 Jan 2025 10:32:56 +0000 (GMT)
+Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.179.15.34])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Mon,  6 Jan 2025 10:32:56 +0000 (GMT)
+Date: Mon, 6 Jan 2025 11:32:54 +0100
+From: Alexander Gordeev <agordeev@linux.ibm.com>
+To: Qi Zheng <zhengqi.arch@bytedance.com>
+Cc: peterz@infradead.org, kevin.brodsky@arm.com, palmer@dabbelt.com,
+        tglx@linutronix.de, david@redhat.com, jannh@google.com,
+        hughd@google.com, yuzhao@google.com, willy@infradead.org,
+        muchun.song@linux.dev, vbabka@kernel.org, lorenzo.stoakes@oracle.com,
+        akpm@linux-foundation.org, rientjes@google.com, vishal.moola@gmail.com,
+        arnd@arndb.de, will@kernel.org, aneesh.kumar@kernel.org,
+        npiggin@gmail.com, dave.hansen@linux.intel.com, rppt@kernel.org,
+        ryan.roberts@arm.com, linux-mm@kvack.org,
+        linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+        sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org,
+        x86@kernel.org, linux-arch@vger.kernel.org, linux-csky@vger.kernel.org,
+        linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+        linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+        linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org,
+        linux-um@lists.infradead.org
+Subject: Re: [PATCH v4 06/15] s390: pgtable: add statistics for PUD and P4D
+ level page table
+Message-ID: <Z3uxVkg3i7zXI92e@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+References: <cover.1735549103.git.zhengqi.arch@bytedance.com>
+ <35be22a2b1666df729a9fc108c2da5cce266e4be.1735549103.git.zhengqi.arch@bytedance.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241223-imx-ocotp-v4-2-f504c1420640@nxp.com>
-X-Sent-From: Pengutronix Hildesheim
-X-URL: http://www.pengutronix.de/
-X-Accept-Language: de,en
-X-Accept-Content-Type: text/plain
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: sha@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+In-Reply-To: <35be22a2b1666df729a9fc108c2da5cce266e4be.1735549103.git.zhengqi.arch@bytedance.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: 3z7EZUf66yDmnmtJgcHtcRdfzcBMN59A
+X-Proofpoint-ORIG-GUID: jOq3BOzX-nfrjMJZAlUBmLDYevP81AVQ
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
+ definitions=2024-10-15_01,2024-10-11_01,2024-09-30_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 mlxlogscore=650
+ lowpriorityscore=0 spamscore=0 suspectscore=0 bulkscore=0 mlxscore=0
+ clxscore=1011 adultscore=0 impostorscore=0 priorityscore=1501
+ malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501060093
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_023234_759589_14200790 
-X-CRM114-Status: GOOD (  44.07  )
+X-CRM114-CacheID: sfid-20250106_023348_892441_04992112 
+X-CRM114-Status: GOOD (  20.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,317 +125,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 23, 2024 at 08:46:14AM +0800, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
-> 
-> i.MX9 OCOTP supports a specific peripheral or function being fused
-> which means disabled, so
->  - Introduce ocotp_access_gates to be container of efuse gate info
->  - Iterate all nodes to check accessing permission. If not
->    allowed to be accessed, detach the node
-> 
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
->  drivers/nvmem/imx-ocotp-ele.c | 184 +++++++++++++++++++++++++++++++++++++++++-
->  1 file changed, 183 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/nvmem/imx-ocotp-ele.c b/drivers/nvmem/imx-ocotp-ele.c
-> index ca6dd71d8a2e29888c6e556aaea116c1a967cb5f..5a07d8b780ecfc13874cff338d6926d0e2a87c8a 100644
-> --- a/drivers/nvmem/imx-ocotp-ele.c
-> +++ b/drivers/nvmem/imx-ocotp-ele.c
-> @@ -5,6 +5,8 @@
->   * Copyright 2023 NXP
->   */
->  
-> +#include <dt-bindings/nvmem/fsl,imx93-ocotp.h>
-> +#include <dt-bindings/nvmem/fsl,imx95-ocotp.h>
->  #include <linux/device.h>
->  #include <linux/io.h>
->  #include <linux/module.h>
-> @@ -27,6 +29,7 @@ struct ocotp_map_entry {
->  };
->  
->  struct ocotp_devtype_data {
-> +	const struct ocotp_access_gates *access_gates;
->  	u32 reg_off;
->  	char *name;
->  	u32 size;
-> @@ -36,11 +39,26 @@ struct ocotp_devtype_data {
->  	struct ocotp_map_entry entry[];
->  };
->  
-> +#define OCOTP_MAX_NUM_GATE_WORDS 4
-> +#define IMX93_OCOTP_NUM_GATES 17
-> +#define IMX95_OCOTP_NUM_GATES 36
-> +
-> +struct ocotp_access_gates {
-> +	u32 num_words;
-> +	u32 words[OCOTP_MAX_NUM_GATE_WORDS];
-> +	u32 num_gates;
-> +	struct access_gate {
-> +		u32 word;
-> +		u32 mask;
-> +	} gates[];
-> +};
-
-Make gates[] a pointer so you can use ARRAY_SIZE() for determining the
-number of gates rather than having to define num_gates manually.
-
-> +
->  struct imx_ocotp_priv {
->  	struct device *dev;
->  	void __iomem *base;
->  	struct nvmem_config config;
->  	struct mutex lock;
-> +	u32 value[OCOTP_MAX_NUM_GATE_WORDS];
-
-'value' is a poor naming choice. Is storing the register values in the
-private data necessary at all? You could read the values when you need
-them.
-
->  	const struct ocotp_devtype_data *data;
->  };
->  
-> @@ -131,6 +149,97 @@ static void imx_ocotp_fixup_dt_cell_info(struct nvmem_device *nvmem,
->  	cell->read_post_process = imx_ocotp_cell_pp;
+On Mon, Dec 30, 2024 at 05:07:41PM +0800, Qi Zheng wrote:
+> Like PMD and PTE level page table, also add statistics for PUD and P4D
+> page table.
+...
+> diff --git a/arch/s390/include/asm/tlb.h b/arch/s390/include/asm/tlb.h
+> index e95b2c8081eb8..b946964afce8e 100644
+> --- a/arch/s390/include/asm/tlb.h
+> +++ b/arch/s390/include/asm/tlb.h
+> @@ -110,24 +110,6 @@ static inline void pmd_free_tlb(struct mmu_gather *tlb, pmd_t *pmd,
+>  	tlb_remove_ptdesc(tlb, pmd);
 >  }
 >  
-> +static int imx_ele_ocotp_check_access(struct platform_device *pdev, u32 id)
-> +{
-> +	struct imx_ocotp_priv *priv = platform_get_drvdata(pdev);
-> +	const struct ocotp_access_gates *access_gates = priv->data->access_gates;
-> +	u32 word, mask;
-> +
-> +	if (id >= access_gates->num_gates) {
-> +		dev_err(&pdev->dev, "Index %d too large\n", id);
-> +		return -EACCES;
-> +	}
-> +
-> +	word = access_gates->gates[id].word;
-> +	mask = access_gates->gates[id].mask;
-> +
-> +	dev_dbg(&pdev->dev, "id:%d word:%d mask:0x%08x\n", id, word, mask);
-> +	/* true means not allow access */
-> +	if (priv->value[word] & mask)
-> +		return -EACCES;
-
-priv->value[] is an array with 4 entries whereas 'word' is some value
-between 17 and 21.
-
-As said above, just read needed register value here instead of storing
-all register values upfront in an array.
-
-> +
-> +	return 0;
-> +}
-> +
-> +static int imx_ele_ocotp_grant_access(struct platform_device *pdev, struct device_node *parent)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +
-> +	for_each_available_child_of_node_scoped(parent, child) {
-> +		struct of_phandle_iterator it;
-> +		int err;
-> +		u32 id;
-> +
-> +		of_for_each_phandle(&it, err, child, "access-controllers",
-> +				    "#access-controller-cells", 0) {
-> +			struct of_phandle_args provider_args;
-> +			struct device_node *provider = it.node;
-> +
-> +			if (err) {
-> +				dev_err(dev, "Unable to get access-controllers property for node %s\n, err: %d",
-> +					child->full_name, err);
-
-You can print device nodes with %pOF
-
-> +				of_node_put(provider);
-
-On error it.node will be NULL. No of_node_put() necessary here.
-
-> +				return err;
-> +			}
-
-You don't check if the provider actually matches the fsl,imx9x-ocotp
-node, otherwise it breaks when multiple access providers are in the
-system, i.e. do a
-
-			if (provider != dev->of_node)
-				continue;
-
-> +
-> +			/* Only support one cell */
-> +			if (of_phandle_iterator_args(&it, provider_args.args, 1) != 1) {
-> +				dev_err(dev, "wrong args count\n");
-> +				of_node_put(provider);
-> +				return -EINVAL;
-> +			}
-
-When there's a node that has he wrong number of arguments in the
-access-controllers property then there's no need to fail the others.
-Just continue instead of returning an error.
-
-> +
-> +			id = provider_args.args[0];
-> +
-> +			dev_dbg(dev, "Checking node: %s gate: %d\n", child->full_name, id);
-> +
-> +			if (imx_ele_ocotp_check_access(pdev, id)) {
-> +				of_detach_node(child);
-> +				dev_err(dev, "%s: Not granted, device driver will not be probed\n",
-> +					child->full_name);
-
-It's not an error when a specific unit is not present on a particular
-SoC. This should be dev_info at maximum.
-
-> +			}
-> +		}
-> +
-> +		imx_ele_ocotp_grant_access(pdev, child);
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int imx_ele_ocotp_access_control(struct platform_device *pdev)
-> +{
-
-Use imx_ocotp_priv *priv as context pointer to this function and to
-imx_ele_ocotp_grant_access().
-
-Sascha
-
-> +	struct imx_ocotp_priv *priv = platform_get_drvdata(pdev);
-> +	struct device_node *root __free(device_node) = of_find_node_by_path("/");
-> +	const struct ocotp_access_gates *access_gates = priv->data->access_gates;
-> +	void __iomem *reg = priv->base + priv->data->reg_off;
-> +	u32 off;
-> +	int i;
-> +
-> +	if (!priv->data->access_gates)
-> +		return 0;
-> +
-> +	/* This should never happen */
-> +	WARN_ON(!root);
-> +
-> +	for (i = 0; i < access_gates->num_words; i++) {
-> +		off = access_gates->words[i] << 2;
-> +		priv->value[i] = readl(reg + off);
-> +		dev_dbg(&pdev->dev, "word:%d 0x%08x\n", access_gates->words[i], priv->value[i]);
-> +	}
-> +
-> +	return imx_ele_ocotp_grant_access(pdev, root);
-> +}
-> +
->  static int imx_ele_ocotp_probe(struct platform_device *pdev)
+> -/*
+> - * p4d_free_tlb frees a pud table and clears the CRSTE for the
+> - * region second table entry from the tlb.
+> - * If the mm uses a four level page table the single p4d is freed
+> - * as the pgd. p4d_free_tlb checks the asce_limit against 8PB
+> - * to avoid the double free of the p4d in this case.
+> - */
+> -static inline void p4d_free_tlb(struct mmu_gather *tlb, p4d_t *p4d,
+> -				unsigned long address)
+> -{
+> -	if (mm_p4d_folded(tlb->mm))
+> -		return;
+> -	__tlb_adjust_range(tlb, address, PAGE_SIZE);
+> -	tlb->mm->context.flush_mm = 1;
+> -	tlb->freed_tables = 1;
+> -	tlb_remove_ptdesc(tlb, p4d);
+> -}
+> -
+>  /*
+>   * pud_free_tlb frees a pud table and clears the CRSTE for the
+>   * region third table entry from the tlb.
+> @@ -140,11 +122,30 @@ static inline void pud_free_tlb(struct mmu_gather *tlb, pud_t *pud,
 >  {
->  	struct device *dev = &pdev->dev;
-> @@ -161,14 +270,43 @@ static int imx_ele_ocotp_probe(struct platform_device *pdev)
->  	priv->config.fixup_dt_cell_info = imx_ocotp_fixup_dt_cell_info;
->  	mutex_init(&priv->lock);
->  
-> +	platform_set_drvdata(pdev, priv);
-> +
->  	nvmem = devm_nvmem_register(dev, &priv->config);
->  	if (IS_ERR(nvmem))
->  		return PTR_ERR(nvmem);
->  
-> -	return 0;
-> +
-> +	return imx_ele_ocotp_access_control(pdev);
+>  	if (mm_pud_folded(tlb->mm))
+>  		return;
+> +	pagetable_pud_dtor(virt_to_ptdesc(pud));
+>  	tlb->mm->context.flush_mm = 1;
+>  	tlb->freed_tables = 1;
+>  	tlb->cleared_p4ds = 1;
+>  	tlb_remove_ptdesc(tlb, pud);
 >  }
 >  
-> +static const struct ocotp_access_gates imx93_access_gates = {
-> +	.num_words = 3,
-> +	.words = {19, 20, 21},
-> +	.num_gates = IMX93_OCOTP_NUM_GATES,
-> +	.gates = {
-> +		[IMX93_OCOTP_NPU_GATE]		= { .word = 19, .mask = BIT(13) },
-> +		[IMX93_OCOTP_A550_GATE]		= { .word = 19, .mask = BIT(14) },
-> +		[IMX93_OCOTP_A551_GATE]		= { .word = 19, .mask = BIT(15) },
-> +		[IMX93_OCOTP_M33_GATE]		= { .word = 19, .mask = BIT(24) },
-> +		[IMX93_OCOTP_CAN1_FD_GATE]	= { .word = 19, .mask = BIT(28) },
-> +		[IMX93_OCOTP_CAN2_FD_GATE]	= { .word = 19, .mask = BIT(29) },
-> +		[IMX93_OCOTP_CAN1_GATE]		= { .word = 19, .mask = BIT(30) },
-> +		[IMX93_OCOTP_CAN2_GATE]		= { .word = 19, .mask = BIT(31) },
-> +		[IMX93_OCOTP_USB1_GATE]		= { .word = 20, .mask = BIT(3) },
-> +		[IMX93_OCOTP_USB2_GATE]		= { .word = 20, .mask = BIT(4) },
-> +		[IMX93_OCOTP_ENET1_GATE]	= { .word = 20, .mask = BIT(5) },
-> +		[IMX93_OCOTP_ENET2_GATE]	= { .word = 20, .mask = BIT(6) },
-> +		[IMX93_OCOTP_PXP_GATE]		= { .word = 20, .mask = BIT(10) },
-> +		[IMX93_OCOTP_MIPI_CSI1_GATE]	= { .word = 20, .mask = BIT(17) },
-> +		[IMX93_OCOTP_MIPI_DSI1_GATE]	= { .word = 20, .mask = BIT(19) },
-> +		[IMX93_OCOTP_LVDS1_GATE]	= { .word = 20, .mask = BIT(24) },
-> +		[IMX93_OCOTP_ADC1_GATE]		= { .word = 21, .mask = BIT(7) },
-> +	},
-> +};
-> +
->  static const struct ocotp_devtype_data imx93_ocotp_data = {
-> +	.access_gates = &imx93_access_gates,
->  	.reg_off = 0x8000,
->  	.reg_read = imx_ocotp_reg_read,
->  	.size = 2048,
-> @@ -183,7 +321,51 @@ static const struct ocotp_devtype_data imx93_ocotp_data = {
->  	},
->  };
->  
-> +static const struct ocotp_access_gates imx95_access_gates = {
-> +	.num_words = 3,
-> +	.words = {17, 18, 19},
-> +	.num_gates = IMX95_OCOTP_NUM_GATES,
-> +	.gates = {
-> +		[IMX95_OCOTP_CANFD1_GATE]	= { .word = 17, .mask = BIT(20) },
-> +		[IMX95_OCOTP_CANFD2_GATE]	= { .word = 17, .mask = BIT(21) },
-> +		[IMX95_OCOTP_CANFD3_GATE]	= { .word = 17, .mask = BIT(22) },
-> +		[IMX95_OCOTP_CANFD4_GATE]	= { .word = 17, .mask = BIT(23) },
-> +		[IMX95_OCOTP_CANFD5_GATE]	= { .word = 17, .mask = BIT(24) },
-> +		[IMX95_OCOTP_CAN1_GATE]		= { .word = 17, .mask = BIT(25) },
-> +		[IMX95_OCOTP_CAN2_GATE]		= { .word = 17, .mask = BIT(26) },
-> +		[IMX95_OCOTP_CAN3_GATE]		= { .word = 17, .mask = BIT(27) },
-> +		[IMX95_OCOTP_CAN4_GATE]		= { .word = 17, .mask = BIT(28) },
-> +		[IMX95_OCOTP_CAN5_GATE]		= { .word = 17, .mask = BIT(29) },
-> +		[IMX95_OCOTP_NPU_GATE]		= { .word = 18, .mask = BIT(0) },
-> +		[IMX95_OCOTP_A550_GATE]		= { .word = 18, .mask = BIT(1) },
-> +		[IMX95_OCOTP_A551_GATE]		= { .word = 18, .mask = BIT(2) },
-> +		[IMX95_OCOTP_A552_GATE]		= { .word = 18, .mask = BIT(3) },
-> +		[IMX95_OCOTP_A553_GATE]		= { .word = 18, .mask = BIT(4) },
-> +		[IMX95_OCOTP_A554_GATE]		= { .word = 18, .mask = BIT(5) },
-> +		[IMX95_OCOTP_A555_GATE]		= { .word = 18, .mask = BIT(6) },
-> +		[IMX95_OCOTP_M7_GATE]		= { .word = 18, .mask = BIT(9) },
-> +		[IMX95_OCOTP_DCSS_GATE]		= { .word = 18, .mask = BIT(22) },
-> +		[IMX95_OCOTP_LVDS1_GATE]	= { .word = 18, .mask = BIT(27) },
-> +		[IMX95_OCOTP_ISP_GATE]		= { .word = 18, .mask = BIT(29) },
-> +		[IMX95_OCOTP_USB1_GATE]		= { .word = 19, .mask = BIT(2) },
-> +		[IMX95_OCOTP_USB2_GATE]		= { .word = 19, .mask = BIT(3) },
-> +		[IMX95_OCOTP_NETC_GATE]		= { .word = 19, .mask = BIT(4) },
-> +		[IMX95_OCOTP_PCIE1_GATE]	= { .word = 19, .mask = BIT(6) },
-> +		[IMX95_OCOTP_PCIE2_GATE]	= { .word = 19, .mask = BIT(7) },
-> +		[IMX95_OCOTP_ADC1_GATE]		= { .word = 19, .mask = BIT(8) },
-> +		[IMX95_OCOTP_EARC_RX_GATE]	= { .word = 19, .mask = BIT(11) },
-> +		[IMX95_OCOTP_GPU3D_GATE]	= { .word = 19, .mask = BIT(16) },
-> +		[IMX95_OCOTP_VPU_GATE]		= { .word = 19, .mask = BIT(17) },
-> +		[IMX95_OCOTP_JPEG_ENC_GATE]	= { .word = 19, .mask = BIT(18) },
-> +		[IMX95_OCOTP_JPEG_DEC_GATE]	= { .word = 19, .mask = BIT(19) },
-> +		[IMX95_OCOTP_MIPI_CSI1_GATE]	= { .word = 19, .mask = BIT(21) },
-> +		[IMX95_OCOTP_MIPI_CSI2_GATE]	= { .word = 19, .mask = BIT(22) },
-> +		[IMX95_OCOTP_MIPI_DSI1_GATE]	= { .word = 19, .mask = BIT(23) },
-> +	}
-> +};
-> +
->  static const struct ocotp_devtype_data imx95_ocotp_data = {
-> +	.access_gates = &imx95_access_gates,
->  	.reg_off = 0x8000,
->  	.reg_read = imx_ocotp_reg_read,
->  	.size = 2048,
-> 
-> -- 
-> 2.37.1
-> 
-> 
+> +/*
+> + * p4d_free_tlb frees a p4d table and clears the CRSTE for the
+> + * region second table entry from the tlb.
+> + * If the mm uses a four level page table the single p4d is freed
+> + * as the pgd. p4d_free_tlb checks the asce_limit against 8PB
+> + * to avoid the double free of the p4d in this case.
+> + */
+> +static inline void p4d_free_tlb(struct mmu_gather *tlb, p4d_t *p4d,
+> +				unsigned long address)
+> +{
+> +	if (mm_p4d_folded(tlb->mm))
+> +		return;
+> +	pagetable_p4d_dtor(virt_to_ptdesc(p4d));
+> +	__tlb_adjust_range(tlb, address, PAGE_SIZE);
+> +	tlb->mm->context.flush_mm = 1;
+> +	tlb->freed_tables = 1;
+> +	tlb_remove_ptdesc(tlb, p4d);
+> +}
 
--- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+I understand that you want to sort p.._free_tlb() routines, but please
+do not move the code around or make a separate follow-up patch.
+
+Thanks!
 
