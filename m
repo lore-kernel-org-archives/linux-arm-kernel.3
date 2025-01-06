@@ -4,70 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C39A2E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 12:15:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B48FE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 12:16:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Si2BgBS96MX5JH7PxORJ/lrXYG0aQa4ucaLVQm7L3Sk=; b=oNUebk0kYAIQYejGRHbJtG3a7C
-	ENI1SCJ5ba1gQlTIptQ1hm5qYYgK7w0cyFy2noYZMrbFRtCm5OIDTfltZF9XKbB0e9NcW4UE9WreO
-	66+7MV+1hCIRF9Sy6OmJJ3bi4xkehRPt9/F+1iQrjvyKIw4kuzpMwVA4j3ApBYQaRE5tuCjDVkU2y
-	32dJfPE1gjl8lKg6TlflURQiZ9cpe6f7FKq1uvBmy2ts27ea/S3f35vE9+gga666fUhWv+P+UsXP/
-	O/I+CuwXIyP9R0crcmTLPLJQZ3J7lmzQDjZcdWkJg/0kZjug9gyAWydDFPQCa7zmFIiqGFNmlPmG2
-	rmLAuQ0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7GWzQc3j0ZQBZhVA1MHyYSYiySgsOIkfonT+o5pM98o=; b=qT9DnexDf5uGsoirT4EYY9ZafI
+	kj0bBIH1QfCwcygPsQTekHg0JFKgLFFGlL2exTOz9ZnN2lBIzU6TLmM841zB/wvZGiC7XmuQANUpW
+	55Mis0/TT0TFKZNnEWRfk+cYPZvXfbvYnTFfSYJDftvacaTiHQ5sTDYktDYzt1l5i8DKDUGp7CZTd
+	XBhF8VTkH13pd+X4FFQoxWDxwQzXEDTXJ6jBdMwa5XB5nn5ky7wISYZIYAHrgyFUb5h1mm0ZtHMVB
+	yOK+HfyJMWDdLIKIaz+mrYw+5BMcJxB3wVqDNjd6bnBqx7NdfioryUkWh5JHBYeZu3hl3lwPEzMY4
+	bSuneUEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUm0U-00000001AjA-3V6p;
-	Mon, 06 Jan 2025 12:14:54 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUloh-000000017nc-2tuH;
-	Mon, 06 Jan 2025 12:02:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1095D5C5E5F;
-	Mon,  6 Jan 2025 12:02:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62F3BC4CED2;
-	Mon,  6 Jan 2025 12:02:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736164962;
-	bh=8hbnYnhhNRS1odBlOsB2AFOK7uZwrgUA7KpMr9M2iM4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QCnnh718JfWjisbFGKiHgltXcFr004DU7UAgvYqtPvUq2cA7TsG5gikaWdxwS1t6T
-	 J8zbTN5MXEP90VKg5mPPF1NKz2GEohpWoLE3LCJx/F2ynWRYPMOFuxMp+mU8zvyRn+
-	 z3G6FzJ96CrqcfV/h3Sd3p1ACarU+BkMcy1WyItlcUPEc9HGvasZFctrKEek6JlzEN
-	 OPIJ43ALFRXCD0ZJfCZGK7mS5kNi6YHzKDtv7n+sOY0Uxu/Ijg7LpPzOv+S+7F0QJX
-	 BTregMZBJCeuJTPNUbH8Syj/zS5QQxIpNiX2wwQwqacvQHH4uUnyLBqW10+2IEmTGl
-	 zoZVZtc5m6Ezw==
-Date: Mon, 6 Jan 2025 13:02:38 +0100
-From: Niklas Cassel <cassel@kernel.org>
-To: Anand Moon <linux.amoon@gmail.com>
-Cc: Andrew Lunn <andrew@lunn.ch>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>, linux-pci@vger.kernel.org,
+	id 1tUm1e-00000001B5o-3UBX;
+	Mon, 06 Jan 2025 12:16:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tUlom-000000017pV-0zZW
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 06 Jan 2025 12:02:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2185F22C7;
+	Mon,  6 Jan 2025 04:03:16 -0800 (PST)
+Received: from e128066.arm.com (unknown [10.57.93.133])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id C911B3F673;
+	Mon,  6 Jan 2025 04:02:43 -0800 (PST)
+From: mark.barnett@arm.com
+To: peterz@infradead.org,
+	mingo@redhat.com,
+	acme@kernel.org,
+	namhyung@kernel.org,
+	irogers@google.com
+Cc: ben.gainey@arm.com,
+	deepak.surti@arm.com,
+	ak@linux.intel.com,
+	will@kernel.org,
+	james.clark@arm.com,
+	mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com,
+	jolsa@kernel.org,
+	adrian.hunter@intel.com,
+	linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] PCI: dw-rockchip: Enable async probe by default
-Message-ID: <Z3vGXrUIII4ixNnF@ryzen>
-References: <20240809073610.2517-1-linux.amoon@gmail.com>
- <Z3fKkTSFFcU9gQLg@ryzen>
- <CANAwSgS5ZWGTP+A11r_qFSrjWZH_DqsM89MLiP+1VAxhz+e+2A@mail.gmail.com>
- <5a3e8fda-f9e4-4c2f-847b-93f521b8313b@lunn.ch>
- <CANAwSgSUuEvJb2Vn58o0i7Soo3jGzM8EYHvDtUTPxRHekCpruA@mail.gmail.com>
- <c94570db-c0af-4d92-935c-5cc242356818@lunn.ch>
- <CANAwSgQ_gojVxvi_OyHTyTSdzRrno=Yymn0AdEXyTHTgDTyFcA@mail.gmail.com>
+	Mark Barnett <mark.barnett@arm.com>
+Subject: [PATCH v2 3/5] tools/perf: Modify event parser to support alt-period term
+Date: Mon,  6 Jan 2025 12:01:54 +0000
+Message-Id: <20250106120156.227273-4-mark.barnett@arm.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250106120156.227273-1-mark.barnett@arm.com>
+References: <20250106120156.227273-1-mark.barnett@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CANAwSgQ_gojVxvi_OyHTyTSdzRrno=Yymn0AdEXyTHTgDTyFcA@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_040243_818860_9C3ACB57 
-X-CRM114-Status: GOOD (  32.95  )
+X-CRM114-CacheID: sfid-20250106_040248_366995_46CB7E51 
+X-CRM114-Status: GOOD (  18.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,104 +77,287 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 06, 2025 at 01:28:27PM +0530, Anand Moon wrote:
-> Hi Andrew,
-> 
-> On Sun, 5 Jan 2025 at 23:27, Andrew Lunn <andrew@lunn.ch> wrote:
-> >
-> > On Sun, Jan 05, 2025 at 11:16:21PM +0530, Anand Moon wrote:
-> > > Hi Andrew,
-> > >
-> > > On Fri, 3 Jan 2025 at 21:34, Andrew Lunn <andrew@lunn.ch> wrote:
-> > > >
-> > > > > +&gmac1 {
-> > > > > +       clock_in_out = "output";
-> > > > > +       phy-handle = <&rgmii_phy1>;
-> > > > > +       phy-mode = "rgmii";
-> > > >
-> > > > rgmii is wrong. Please search the archives about this topic, it comes
-> > > > up every month. You need to remove the tx_delay and rx_delay
-> > > > properties, and use rgmii-id.
-> > > >
-> > > According to the RKRK3588 TRM-Part1 (section 25.6.11 Clock
-> > > Architecture), in RGMII mode,
-> > > the TX clock source is exclusively derived from the CRU (Clock Request Unit).
-> > > To dynamically adjust the timing alignment between TX/RX clocks and
-> > > data, delay lines are
-> > > integrated into both the TX and RX clock paths.
-> > >
-> > > Register SYS_GRF_SOC_CON7[5:2] enables these delay lines,
-> > > while registers SYS_GRF_SOC_CON8[15:0] and SYS_GRF_SOC_CON9[15:0]
-> > > are used to configure the delay length for each path respectively.
-> > > Each delay line comprises 200 individual delay elements.
-> > >
-> > > Therefore, it is necessary to configure both TX and RX delay values
-> > > appropriately
-> > > with phy-mode set as rgmii.
-> > >
-> > > [1[ https://github.com/torvalds/linux/blob/master/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c#L1889-L1914
-> > >
-> > > I have gone through a few of the archives about this topic
-> > >
-> > > [2] https://lore.kernel.org/linux-rockchip/4fdcb631-16cd-d5f1-e2be-19ecedb436eb@linaro.org/T/
-> >
-> > O.K, let me repeat what i have said a number of times over the last
-> > couple of years.
-> >
-> > phy-mode = "rgmii" means the PCB has extra long clock lines on the
-> > PCB, so the 2ns delay is provided by them.
-> >
-> > phy-mode = "rgmii-id" means the MAC/PHY pair need to arrange to add
-> > the 2ns delay. As far as the DT binding is concerned, it does not
-> > matter which of the two does the delay. However, there is a convention
-> > that the PHY adds the delay, if possible.
-> >
-> > So, does your PCB have extra long clock lines?
-> >
-> > Vendors often just hack until it works. But works does not mean
-> > correct. I try to review as many .dts files as i can, but some do get
-> > passed me, so there are plenty of bad examples in mainline.
-> >
-> >         Andrew
-> 
-> Thanks for this tip, I am no expert in hardware design.
-> 
-> Here is the schematic design of the board, it looks like RTL8125B page 24
-> is controlled by a PCIe 2.0 bus
+From: Ben Gainey <ben.gainey@arm.com>
 
-As both me an Manivannan said earlier in this thread,
-PCIe endpoint devices should not be described in device tree
-(the exception is an FPGA, and when you need to describe devices
-within the FPGA).
+parse-events is modified, adding the "alt-period" term which can be used
+to specify the alternative sampling period.
 
-So I think that adding a "ethernet-phy" device tree node in this case is
-wrong (as the Ethernet PHY in this case is integrated in the PCIe connected
-NIC, and not a discrete component on the SoC).
+Signed-off-by: Ben Gainey <ben.gainey@arm.com>
+Signed-off-by: Mark Barnett <mark.barnett@arm.com>
+---
+ tools/include/uapi/linux/perf_event.h             |  3 +++
+ tools/perf/tests/shell/attr/base-record           |  3 ++-
+ tools/perf/tests/shell/attr/base-record-spe       |  1 +
+ tools/perf/tests/shell/attr/base-stat             |  3 ++-
+ tools/perf/tests/shell/attr/system-wide-dummy     |  3 ++-
+ .../tests/shell/attr/test-record-alt-period-term  | 12 ++++++++++++
+ tools/perf/tests/shell/attr/test-record-dummy-C0  |  3 ++-
+ tools/perf/tests/shell/lib/attr.py                |  1 +
+ tools/perf/util/evsel.c                           |  1 +
+ tools/perf/util/parse-events.c                    | 15 +++++++++++++++
+ tools/perf/util/parse-events.h                    |  3 ++-
+ tools/perf/util/parse-events.l                    |  1 +
+ tools/perf/util/perf_event_attr_fprintf.c         |  1 +
+ tools/perf/util/pmu.c                             |  1 +
+ 14 files changed, 46 insertions(+), 5 deletions(-)
+ create mode 100644 tools/perf/tests/shell/attr/test-record-alt-period-term
 
+diff --git a/tools/include/uapi/linux/perf_event.h b/tools/include/uapi/linux/perf_event.h
+index 0524d541d4e3..499a8673df8e 100644
+--- a/tools/include/uapi/linux/perf_event.h
++++ b/tools/include/uapi/linux/perf_event.h
+@@ -379,6 +379,7 @@ enum perf_event_read_format {
+ #define PERF_ATTR_SIZE_VER6	120	/* add: aux_sample_size */
+ #define PERF_ATTR_SIZE_VER7	128	/* add: sig_data */
+ #define PERF_ATTR_SIZE_VER8	136	/* add: config3 */
++#define PERF_ATTR_SIZE_VER9	144	/* add: alt_sample_period */
+ 
+ /*
+  * Hardware event_id to monitor via a performance monitoring event:
+@@ -531,6 +532,8 @@ struct perf_event_attr {
+ 	__u64	sig_data;
+ 
+ 	__u64	config3; /* extension of config2 */
++
++	__u64	alt_sample_period;
+ };
+ 
+ /*
+diff --git a/tools/perf/tests/shell/attr/base-record b/tools/perf/tests/shell/attr/base-record
+index b44e4e6e4443..28a7233f7bc1 100644
+--- a/tools/perf/tests/shell/attr/base-record
++++ b/tools/perf/tests/shell/attr/base-record
+@@ -5,7 +5,7 @@ group_fd=-1
+ flags=0|8
+ cpu=*
+ type=0|1
+-size=136
++size=144
+ config=0|1
+ sample_period=*
+ sample_type=263
+@@ -39,3 +39,4 @@ config2=0
+ branch_sample_type=0
+ sample_regs_user=0
+ sample_stack_user=0
++alt_sample_period=0
+diff --git a/tools/perf/tests/shell/attr/base-record-spe b/tools/perf/tests/shell/attr/base-record-spe
+index 08fa96b59240..ad8eb72e655a 100644
+--- a/tools/perf/tests/shell/attr/base-record-spe
++++ b/tools/perf/tests/shell/attr/base-record-spe
+@@ -38,3 +38,4 @@ config2=*
+ branch_sample_type=*
+ sample_regs_user=*
+ sample_stack_user=*
++alt_sample_period=0
+diff --git a/tools/perf/tests/shell/attr/base-stat b/tools/perf/tests/shell/attr/base-stat
+index fccd8ec4d1b0..2de92c5c300d 100644
+--- a/tools/perf/tests/shell/attr/base-stat
++++ b/tools/perf/tests/shell/attr/base-stat
+@@ -5,7 +5,7 @@ group_fd=-1
+ flags=0|8
+ cpu=*
+ type=0
+-size=136
++size=144
+ config=0
+ sample_period=0
+ sample_type=65536
+@@ -39,3 +39,4 @@ config2=0
+ branch_sample_type=0
+ sample_regs_user=0
+ sample_stack_user=0
++alt_sample_period=0
+diff --git a/tools/perf/tests/shell/attr/system-wide-dummy b/tools/perf/tests/shell/attr/system-wide-dummy
+index a1e1d6a263bf..c0a17bb3c022 100644
+--- a/tools/perf/tests/shell/attr/system-wide-dummy
++++ b/tools/perf/tests/shell/attr/system-wide-dummy
+@@ -7,7 +7,7 @@ cpu=*
+ pid=-1
+ flags=8
+ type=1
+-size=136
++size=144
+ config=9
+ sample_period=1
+ # PERF_SAMPLE_IP | PERF_SAMPLE_TID | PERF_SAMPLE_TIME |
+@@ -50,3 +50,4 @@ config2=0
+ branch_sample_type=0
+ sample_regs_user=0
+ sample_stack_user=0
++alt_sample_period=0
+diff --git a/tools/perf/tests/shell/attr/test-record-alt-period-term b/tools/perf/tests/shell/attr/test-record-alt-period-term
+new file mode 100644
+index 000000000000..fcdb790adcd3
+--- /dev/null
++++ b/tools/perf/tests/shell/attr/test-record-alt-period-term
+@@ -0,0 +1,12 @@
++[config]
++command = record
++args    = --no-bpf-event -e cycles/period=3,alt-period=2/ -- kill >/dev/null 2>&1
++ret     = 1
++kernel_since = 6.11
++
++[event-10:base-record]
++sample_period=3
++alt_sample_period=2
++
++freq=0
++sample_type=7
+diff --git a/tools/perf/tests/shell/attr/test-record-dummy-C0 b/tools/perf/tests/shell/attr/test-record-dummy-C0
+index 91499405fff4..e6315918a95e 100644
+--- a/tools/perf/tests/shell/attr/test-record-dummy-C0
++++ b/tools/perf/tests/shell/attr/test-record-dummy-C0
+@@ -10,7 +10,7 @@ cpu=0
+ pid=-1
+ flags=8
+ type=1
+-size=136
++size=144
+ config=9
+ sample_period=4000
+ # PERF_SAMPLE_IP | PERF_SAMPLE_TID | PERF_SAMPLE_TIME |
+@@ -53,3 +53,4 @@ config2=0
+ branch_sample_type=0
+ sample_regs_user=0
+ sample_stack_user=0
++alt_sample_period=0
+diff --git a/tools/perf/tests/shell/lib/attr.py b/tools/perf/tests/shell/lib/attr.py
+index 3db9a7d78715..04e95f76005a 100644
+--- a/tools/perf/tests/shell/lib/attr.py
++++ b/tools/perf/tests/shell/lib/attr.py
+@@ -91,6 +91,7 @@ class Event(dict):
+         'branch_sample_type',
+         'sample_regs_user',
+         'sample_stack_user',
++        'alt_sample_period',
+     ]
+ 
+     def add(self, data):
+diff --git a/tools/perf/util/evsel.c b/tools/perf/util/evsel.c
+index 697428efa644..a796e49ef2f6 100644
+--- a/tools/perf/util/evsel.c
++++ b/tools/perf/util/evsel.c
+@@ -180,6 +180,7 @@ static int store_event(struct perf_event_attr *attr, pid_t pid, struct perf_cpu
+ 	WRITE_ASS(branch_sample_type, "llu");
+ 	WRITE_ASS(sample_regs_user,   "llu");
+ 	WRITE_ASS(sample_stack_user,  PRIu32);
++	WRITE_ASS(alt_sample_period,  "llu");
+ 
+ 	fclose(file);
+ 	return 0;
+diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
+index 1e23faa364b1..41e82347a020 100644
+--- a/tools/perf/util/parse-events.c
++++ b/tools/perf/util/parse-events.c
+@@ -799,6 +799,7 @@ const char *parse_events__term_type_str(enum parse_events__term_type term_type)
+ 		[PARSE_EVENTS__TERM_TYPE_RAW]                   = "raw",
+ 		[PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE]          = "legacy-cache",
+ 		[PARSE_EVENTS__TERM_TYPE_HARDWARE]              = "hardware",
++		[PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD]	= "alt-period",
+ 	};
+ 	if ((unsigned int)term_type >= __PARSE_EVENTS__TERM_TYPE_NR)
+ 		return "unknown term";
+@@ -827,6 +828,7 @@ config_term_avail(enum parse_events__term_type term_type, struct parse_events_er
+ 	case PARSE_EVENTS__TERM_TYPE_NAME:
+ 	case PARSE_EVENTS__TERM_TYPE_METRIC_ID:
+ 	case PARSE_EVENTS__TERM_TYPE_SAMPLE_PERIOD:
++	case PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD:
+ 	case PARSE_EVENTS__TERM_TYPE_PERCORE:
+ 		return true;
+ 	case PARSE_EVENTS__TERM_TYPE_USER:
+@@ -975,6 +977,16 @@ do {									   \
+ 			return -EINVAL;
+ 		}
+ 		break;
++	case PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD:
++		CHECK_TYPE_VAL(NUM);
++		if (term->val.num == 0) {
++			parse_events_error__handle(err, term->err_val,
++						strdup("expected a non-zero value"),
++						NULL);
++			return -EINVAL;
++		}
++		attr->alt_sample_period = term->val.num;
++		break;
+ 	case PARSE_EVENTS__TERM_TYPE_DRV_CFG:
+ 	case PARSE_EVENTS__TERM_TYPE_USER:
+ 	case PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE:
+@@ -1102,6 +1114,7 @@ static int config_term_tracepoint(struct perf_event_attr *attr,
+ 	case PARSE_EVENTS__TERM_TYPE_RAW:
+ 	case PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE:
+ 	case PARSE_EVENTS__TERM_TYPE_HARDWARE:
++	case PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD:
+ 	default:
+ 		if (err) {
+ 			parse_events_error__handle(err, term->err_term,
+@@ -1236,6 +1249,7 @@ do {								\
+ 		case PARSE_EVENTS__TERM_TYPE_RAW:
+ 		case PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE:
+ 		case PARSE_EVENTS__TERM_TYPE_HARDWARE:
++		case PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD:
+ 		default:
+ 			break;
+ 		}
+@@ -1290,6 +1304,7 @@ static int get_config_chgs(struct perf_pmu *pmu, struct parse_events_terms *head
+ 		case PARSE_EVENTS__TERM_TYPE_RAW:
+ 		case PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE:
+ 		case PARSE_EVENTS__TERM_TYPE_HARDWARE:
++		case PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD:
+ 		default:
+ 			break;
+ 		}
+diff --git a/tools/perf/util/parse-events.h b/tools/perf/util/parse-events.h
+index e176a34ab088..d00bb6c5d9ab 100644
+--- a/tools/perf/util/parse-events.h
++++ b/tools/perf/util/parse-events.h
+@@ -80,7 +80,8 @@ enum parse_events__term_type {
+ 	PARSE_EVENTS__TERM_TYPE_RAW,
+ 	PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE,
+ 	PARSE_EVENTS__TERM_TYPE_HARDWARE,
+-#define	__PARSE_EVENTS__TERM_TYPE_NR (PARSE_EVENTS__TERM_TYPE_HARDWARE + 1)
++	PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD,
++#define	__PARSE_EVENTS__TERM_TYPE_NR (PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD + 1)
+ };
+ 
+ struct parse_events_term {
+diff --git a/tools/perf/util/parse-events.l b/tools/perf/util/parse-events.l
+index bf7f73548605..3538f5bca5df 100644
+--- a/tools/perf/util/parse-events.l
++++ b/tools/perf/util/parse-events.l
+@@ -324,6 +324,7 @@ aux-output		{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_AUX_OUTPUT); }
+ aux-action		{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_AUX_ACTION); }
+ aux-sample-size		{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_AUX_SAMPLE_SIZE); }
+ metric-id		{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_METRIC_ID); }
++alt-period		{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD); }
+ cpu-cycles|cycles				{ return hw_term(yyscanner, PERF_COUNT_HW_CPU_CYCLES); }
+ stalled-cycles-frontend|idle-cycles-frontend	{ return hw_term(yyscanner, PERF_COUNT_HW_STALLED_CYCLES_FRONTEND); }
+ stalled-cycles-backend|idle-cycles-backend	{ return hw_term(yyscanner, PERF_COUNT_HW_STALLED_CYCLES_BACKEND); }
+diff --git a/tools/perf/util/perf_event_attr_fprintf.c b/tools/perf/util/perf_event_attr_fprintf.c
+index c7f3543b9921..e823240b7dd8 100644
+--- a/tools/perf/util/perf_event_attr_fprintf.c
++++ b/tools/perf/util/perf_event_attr_fprintf.c
+@@ -334,6 +334,7 @@ int perf_event_attr__fprintf(FILE *fp, struct perf_event_attr *attr,
+ 	PRINT_ATTRf(aux_start_paused, p_unsigned);
+ 	PRINT_ATTRf(aux_pause, p_unsigned);
+ 	PRINT_ATTRf(aux_resume, p_unsigned);
++	PRINT_ATTRf(alt_sample_period, p_unsigned);
+ 
+ 	return ret;
+ }
+diff --git a/tools/perf/util/pmu.c b/tools/perf/util/pmu.c
+index 6206c8fe2bf9..376cdec933c2 100644
+--- a/tools/perf/util/pmu.c
++++ b/tools/perf/util/pmu.c
+@@ -1775,6 +1775,7 @@ int perf_pmu__for_each_format(struct perf_pmu *pmu, void *state, pmu_format_call
+ 		"aux-output",
+ 		"aux-action=(pause|resume|start-paused)",
+ 		"aux-sample-size=number",
++		"alt-period=number",
+ 	};
+ 	struct perf_pmu_format *format;
+ 	int ret;
+-- 
+2.43.0
 
-Kind regards,
-Niklas
-
-> 
-> [0] https://dl.radxa.com/rock5/5b/docs/hw/radxa_rock5b_v13_sch.pdf
-> 
-> PERSTB              ---<< PCIE_PERST_L (GPIO3_B0_u)
-> LANWAKER        --->> PCIE20_1_2_WAKEn_M1_L (GPIO3_D0_u)
-> LAN_CLKREQB  --->> PCIE20_1_2_CLKREQn_M1_L( GPIO3_C7_u)
-> IOLATEB             --->> +V3P3A
-> 
-> PCIE2.0 DATA Impedance 85 R
-> 
-> PCIE_WLAN_TX_C_DP  ----->PCIE20_0_TXP
-> PCIE_WLAN_TX_C_DN  ----->PCIE20_0_TXN
-> 
-> PCIE2.0 CLK Impedance 100 R
-> 
-> PCIE3_WLAN_REFCLK0_DP --> PCIE20_0_REFCLKP
-> PCIE3_WLAN_REFCLK0_DN--->PCIE20_0_REFCLKN
-> 
-> I have no idea about the grf clk and data path delay over here.
-> 
-> Thanks
-> -Anand
 
