@@ -4,160 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 151A1E77199
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 02:20:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66C21E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 02:28:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r44BQ4A4x63V0/itwoiDFTeWVR0qqDMnO+p4SqveV5Y=; b=t7fjhV+2Gbvq2ZbgT7lY1XCva0
-	PM9E/hZWt6HSoqS0MIznCYYDNq6enSe7La9WysNc/l3SihKpI7FoGwUGtLkfR7lt0CstHx9E8MFTP
-	1GjP2js59qq4qalk9TqZ8JrzeJ2cYDeT0+0AKb8JOqAAWYhLEqAJtlahAMGSNxOai/dU7W01EDPG7
-	r9mW6JOond60U+QYgDlqwQVWf61yrcZQiynF/PdfFOmA6JoCAEOnXogjCj24J00k+QFUBZpIdjMZC
-	Z9Cet6cGb/djDNMlSyDbRcyODMpgE/DwLVb9wQs9JgWFG8QWNFA61OcnptsvBPV4Y0NShVvgNH/ko
-	g9P2GX4A==;
+	bh=c3FJfKlQLbEvoXC4i0ViMWpomAcv0lK5A9XqztX79Kg=; b=a7hgusgG7YR8aLJOGQSK/ygSeJ
+	G8A3mVnIHXDZpLWV02BUayh/Zcr9Of0bdTkhZohJm6IwTsv/C2j+sXhSAFR3dX8eMQKtx0pPLiSng
+	O3Z7PQd1DeoVh+yOMorAgMI5ndjz8FDXL7xxGDNIpHPYpPnnAs5Rnjtp+Vw6ZuFgaCCXu707D2GtL
+	0PIevPfJktBP5hfsPQw7gD82oOnCTyQkG57P2aHYKLtEDaa7bBKzcL9mew82b5MAZ7VP5pe7H12wo
+	YmsilFy/0w0f8qGt37Rd+vikrCwPO/T5UrsAKWjEzOmwuov4lCEREldV2/uQgv22uPkmcKsA2SMcT
+	mdbplomw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUcjF-0000000029G-3LRc;
-	Mon, 06 Jan 2025 02:20:29 +0000
-Received: from mail-dbaeur03on2061a.outbound.protection.outlook.com ([2a01:111:f403:260d::61a] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
+	id 1tUcqd-000000002jr-3mHJ;
+	Mon, 06 Jan 2025 02:28:07 +0000
+Received: from mail-vs1-xe34.google.com ([2607:f8b0:4864:20::e34])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUci4-0000000020D-0r4h
+	id 1tUcpQ-000000002gK-0oRo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 02:19:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xNSv61Ifh1jKq8jIpXUfN+AsqM3QLfJo4dQ1N6DqDxWJ+wCy7PbSyV4QetBIvy/juEI+1b2lPXFylh07oRTYjKNMQOTNYX7cke0EEzDlwWnoR8ZoBdn7L8L6jic1K/1Sd/KNfTJ8+Ku6kiiNqiowdSHJ8M+itV2eFfrr5kQZ+LMWHiIqqW6likGlT6HsImrQib4AohyjWgzVV9x+IrX7MNQVXaK/TW/4OFVPQlvhWt/eMwngR5fJjNUuuNXRnA/c3leTbOlnkiwRgAR2NT60BmRuxw5vYqbYm+ACAm97mU9WHN09osn0HZ9hMlxqOY0Q54eBv6iYJgUauECE6d5Chw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=r44BQ4A4x63V0/itwoiDFTeWVR0qqDMnO+p4SqveV5Y=;
- b=lMAiI+QqeFSdlyK+k6zI/UQgsySHq/YeN3hMHA/u+Pd5BX+39oxXJxa7LLY1CPG6WhtWWHAntQqWB+sNC/L2zWYOwL6/ErmqbO+rYiVrE83J1BQwN0NBCl9TBKWyJU2E0+Vx3ODWRz/lyo+21/WJuDT/P/jLJCDsSXEVVj+Qf/S44F+rhyNDEuWcO3OLsG8rKQ4WLWGLoixVc5rCtN/7ZjJYmlMQTmAXIX4KQQByBef2+ZF5ryY/plyytGuhGlh1JpKCUlmQ/vZZT/kF/JHEhJ04TKe25u6RhG/HWMOUzYADAXMnTCJymnL3+RSZoB+uov2oE5Z3vxi1JqQSAkGqTg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=r44BQ4A4x63V0/itwoiDFTeWVR0qqDMnO+p4SqveV5Y=;
- b=QJpDvDZFruyfFa+1lyIrGJR24rj/Bb1Au+CocxxFOWI5rjjMt3J/MCvoJ1P6n/yZ1ZvbsdIFyzxYpTkADiwkPW3gBcadcrt+3iagVS0SPNMJBCtfmyl5FOs+QbH0lUxsFl1gK9ke3sBwtrdbVK4PSLFhpNnV+AZ7ZIeGzlnI+nokbAbRoMVYit+U8ZW83YVUms5spFHxhi2iDdP+hw43YL0mLVPvD8OENa4iv6OoK/edPHYXdvW3bfWbwglTpt8dtAdY+wsJSNwQJAkfvBT1TdlntFouxxZvZvasv+aUCk2+JNk+kxXmJhYKw9iuzW8qjkG6/IOeUtIe7DF0NR62uQ==
-Received: from PAXPR04MB8510.eurprd04.prod.outlook.com (2603:10a6:102:211::7)
- by DBAPR04MB7269.eurprd04.prod.outlook.com (2603:10a6:10:1a4::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8314.17; Mon, 6 Jan
- 2025 02:19:07 +0000
-Received: from PAXPR04MB8510.eurprd04.prod.outlook.com
- ([fe80::a7c2:e2fa:8e04:40db]) by PAXPR04MB8510.eurprd04.prod.outlook.com
- ([fe80::a7c2:e2fa:8e04:40db%6]) with mapi id 15.20.8314.015; Mon, 6 Jan 2025
- 02:19:06 +0000
-From: Wei Fang <wei.fang@nxp.com>
-To: Andrew Lunn <andrew@lunn.ch>
-CC: Claudiu Manoil <claudiu.manoil@nxp.com>, Vladimir Oltean
-	<vladimir.oltean@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>,
-	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
-	<davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
-	"kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
-	"christophe.leroy@csgroup.eu" <christophe.leroy@csgroup.eu>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>
-Subject: RE: [PATCH net-next 05/13] net: enetc: add debugfs interface to dump
- MAC filter
-Thread-Topic: [PATCH net-next 05/13] net: enetc: add debugfs interface to dump
- MAC filter
-Thread-Index: AQHbXaf8wsu7OhVxNE6rUk/X61GqHrMFPNAAgAPDL4A=
-Date: Mon, 6 Jan 2025 02:19:06 +0000
-Message-ID: <PAXPR04MB8510C38BC40EB0E6D95F726888102@PAXPR04MB8510.eurprd04.prod.outlook.com>
-References: <20250103060610.2233908-1-wei.fang@nxp.com>
- <20250103060610.2233908-6-wei.fang@nxp.com>
- <696fb436-40f6-4a9c-af0b-2851f8450bd1@lunn.ch>
-In-Reply-To: <696fb436-40f6-4a9c-af0b-2851f8450bd1@lunn.ch>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8510:EE_|DBAPR04MB7269:EE_
-x-ms-office365-filtering-correlation-id: 605b17cc-aca5-4140-a8a3-08dd2df87f68
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?GphpTNf4/6JegBiwWHLVBD2A38I8lZodOE8lyfdmx71cP9x3UNcbxvbZOlkZ?=
- =?us-ascii?Q?RL72UAEKE/rKUH/cWsWbsjLgQbFz6+v1xnDgCoyj9UZ5dTXeUigweBbW2UKy?=
- =?us-ascii?Q?Urg9aWNlqik6O1HCC+AAIx96DE2v6ME8wglDihKdGF/9gGKgO8VDQPNWHrMR?=
- =?us-ascii?Q?RTnokmtRbK67J+0vYEDRh+IjuBVV/DuP6V4TALq0699aHfuATKoz+uTdzKhA?=
- =?us-ascii?Q?EzQha52cB+7eOwzwjTdf2OdnZx9qmVuDqYApqey1R2ntD/Wxa3SIcxspYDZE?=
- =?us-ascii?Q?bJZHzmGfFPRTvrEbLE4xmaAkvbtfk51IL14VvIsr5Kba5rPvf1vGeMc1HPBH?=
- =?us-ascii?Q?1QBsPyG0JHkPMMBfOA4oh2I0zXuYg4qQsIZZW5W9JwT4LqxBN69EiYI+zFNt?=
- =?us-ascii?Q?xM64bk0XZcQNyjg4mso4VBDZ84WFOEc5ecnOrB4jOzm1PhHbSYy4IE58Uwzl?=
- =?us-ascii?Q?pfCGJEdvhfOZJ/S5gtVBkTjMAOS+ShmACEGZLHZzB/pYdWm8Ph+Xhy3AY3oQ?=
- =?us-ascii?Q?b3IQrSzZDwy4to7hEe3Fq7u9lMRGw5ziLhIBZsOS5trUXjL9Avn6s4zZUjvC?=
- =?us-ascii?Q?QxmZmlWQT6JE22i1dHwMMpj+iEHTgmCoU0B8aJaEIS02qrcU5vfqPXSPYQ8w?=
- =?us-ascii?Q?40Q6jwDcf8k8E7jSS4wVpm+CZQmO1tJjXqAEZ86ov/96WIr0QlQjqM1CV8uJ?=
- =?us-ascii?Q?UU/nmbdR0r+sIrBI88//aX1islIXwicTokz2VnzS/MYSPVanMkskgalCpb+c?=
- =?us-ascii?Q?bv5UoHLpVKUEfQOhZdLl/6qpfUY+RpwO1D0NrJojVCPwAh3IK8t0hjixhxvQ?=
- =?us-ascii?Q?8bf4Vyb55yACyDTAXeNag8lAFnkrO12AuwMqmmangimFYVjJBD/xfw0oIkNh?=
- =?us-ascii?Q?wdqzvKQQ/sCANnHOFxn9EEVtiXQGI8Qo4jAcPcpy5JCEnsyO2RaLiKqcVsKZ?=
- =?us-ascii?Q?IB/EIsAinbg50JMRSzBTpf7rniqsYTpgb4K+nfV3OjJPwgL3HL7l0+BW3QfE?=
- =?us-ascii?Q?s77ocac0+o4MmpeFg1rHoyZNqdQ2mSyDbnTArO/bmBfAgSO5igJuluXRxHjZ?=
- =?us-ascii?Q?bykYVamDdS2w2Dj4/rZiEF3cc9pEboIOmWUk6L5B2WF/Rmz8Up3YlR2ydPLA?=
- =?us-ascii?Q?24n34h0O46NOeg3i0XSRnuWBstt0ayYfI5bj5ktQMsdgvIYbfbJpTFgGU4Dt?=
- =?us-ascii?Q?eM8AVtX9+KWN0yKQMwLk4iWG42Pk342uGUdqQP3JF5xjgn7kA/ZieTjRrwFN?=
- =?us-ascii?Q?rds2daE22igV5LL1ZfcAoNULD2D06gS+/3uOqhZlvUgMjDIj5okNH91dpEEa?=
- =?us-ascii?Q?9Ji5TuZWCpKc47iQNmAiRBa6kiqWYiu2LNnEPg89X98tmOSEboA2YLagCo+Y?=
- =?us-ascii?Q?uPIg4odtZTIiHeFN4GlImdMA5B51jL4QyWQkZrm9HrAtzpk+5cE/7fdhWlBV?=
- =?us-ascii?Q?tY56VEjgbgnFFal7CarbuicLQInnIWib?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8510.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?UQ7vKghIOjBdIEY8TmysBHU1P8In97pQ9gKO5767Lot3m6dmg+7e25V3getw?=
- =?us-ascii?Q?MEdPCAaBlExVFpTPtBY9ebY7rVaBBRIha3N/aOvtXri2GEKKfQOcMrg1/WnH?=
- =?us-ascii?Q?tD587BuEjhgsjqSSoL9t4LS64tQgOqh4ZRvyLcwUDscadML/gbtY8ai4YF7Z?=
- =?us-ascii?Q?lSTQYiHPg2TIISLTDzwDjHWfP5ab3RFa/N8jP1DAaaFBjgnBEf1vNcWSKGDQ?=
- =?us-ascii?Q?/sCvZ4QGOJ/jYJwux4hgY7XVEmJltilDFh9qMeYEtgpSceZz+xwnGQmx/Q4e?=
- =?us-ascii?Q?B4kKToVUfDpWOzutN/CPYDt9OCBWXawFetOgyApnH2mm6gGkmVMt2fnt6cdW?=
- =?us-ascii?Q?WtL/z/FKlhFR+TQmpnXw592FGU7kplP0c7+2n0XT6TxHCnnsvVzQEBOCrlXq?=
- =?us-ascii?Q?jXrbiDCXNC91ZZx/NRjPbmeTpxcyc0oiw/QVsgroltF93Qj8QfcNUUYhYnu2?=
- =?us-ascii?Q?CeBBmpMMrS3lq1poxjPt8eoIpXy0XeWySUiX2KYpsbqSQi4GVUMCC8WH26tA?=
- =?us-ascii?Q?EU7oBuSKvKgmm3e/W2mIltFH+3/ZVJ93md7KwpL1New5wWZtCbUGWzx2WzBW?=
- =?us-ascii?Q?FnES7tA29xRn9in05diOUu4PS7EnXuZvjOhzTcp75lQS33eX2Y0WJAnZbJ4W?=
- =?us-ascii?Q?vZaEken7Tir8FyNAwtSgJUHHZBjrtdujQAOtcGcAS0dLy2m17OHDfrDmst4m?=
- =?us-ascii?Q?RUPT5abnV3GohfIgXsnGJeyA1RcQk25MO0lohA1n1ctjt2hwnQC/o2MyhJPB?=
- =?us-ascii?Q?dOt0hrIGJTNhmJPITPxd6r3aGc0iT0vh5tY3HXvyGyUPbsjPBDo5UE/vTNgS?=
- =?us-ascii?Q?HMcowsuXousMgbfFuGrbHRBqrLvm4k7Ps/vxaSyVKqszvFTHdek06WXJURl1?=
- =?us-ascii?Q?aKfb0iohrlyKQsXZ9mYE7IFt7JR1CzNqZc4+nQtbaXPpCQRWpciWLjqxB3Nk?=
- =?us-ascii?Q?X5chEnSQNDjYWhnDt9tLxN91QY+pqIFFcJMm8SDC9730OjLyfzNfawwfZy9g?=
- =?us-ascii?Q?8/S4lRhdJp8uEQ4pYBKhZExivfIQz/VygDBGD+Nzl/y7Qe3Sr476tDUrlu8k?=
- =?us-ascii?Q?qd6moO3ZR0UwOZ0ZiTpexOIuWkMxcLcusrgckUD9NBWbkxfZYr38Tc0gL+u+?=
- =?us-ascii?Q?djS/nGOHLNmvY0Q0DrIzNxVgmovnc4Znvg60UajbBTNm4dNHpa7hhM51lzbb?=
- =?us-ascii?Q?K0JYfY9G+fmcypSGcbC8/ZMfmXfYvPrnBAb+AqhRiIC8KiJelJga8TzZBFFS?=
- =?us-ascii?Q?fh3oeWIGd0nnvF7WZ0Z4TsjYZbFY7MSH85M9o/5s2gEuNZdlGWF3P/3K8k17?=
- =?us-ascii?Q?hd1ZbuP0YAkbuw9jTKCwJT0yIYbFay/NS3RKbfNVRdHYezkudAOR0azOnlvr?=
- =?us-ascii?Q?0ZLXvakkeFDVmiBY68HlkU2yC9y55mKaIvqxW4e7IGumRFGoLs/gaTA58sMr?=
- =?us-ascii?Q?6KgsVzTy2UhjWopTy/a7mCn1MVupkzdFdodvfJH17UFj760w1O5OuJ9k1LPx?=
- =?us-ascii?Q?BMODDffFYeCkB1A70pdOnG6evmDrxchotItY/GH3NpmH13gX9Q60oeQHzcPf?=
- =?us-ascii?Q?RJCw4QNPISNX0YAIVSY=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Mon, 06 Jan 2025 02:26:53 +0000
+Received: by mail-vs1-xe34.google.com with SMTP id ada2fe7eead31-4afeccfeda2so8252791137.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 05 Jan 2025 18:26:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=csie.ntu.edu.tw; s=google; t=1736130408; x=1736735208; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=c3FJfKlQLbEvoXC4i0ViMWpomAcv0lK5A9XqztX79Kg=;
+        b=EHxDWwIEJElf0dHGmORrJwLQlOR1rr1i1DvYUhdTNDj6zId40TkkqmBcPGN5HXDg9M
+         b1dGbpmCMbOiAcze8ztsE7RckXqRcitdTrZTq5mqkb9oAffvKTUc3WV8W+dQ7Xsrs/Hi
+         Bq4x1sEJMEyiURvvcjDN04pWXSuw8wETd7KRkXzy/5Z2MJCDVphZU1ApnQkFcbxdJ+lM
+         /63NGv4HSzK8TDrRdwz6EpWLS4K8qFIbywsGO1P3HZsBC+8fTBiqtIeLgsS6gg3bEAXM
+         DfAsMy0Hz0bvAFzbMMUtJJDLPj+mkTFphvmqxTONMpdYc759pZlJCYKK67+UvmjU30V/
+         is1A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736130408; x=1736735208;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=c3FJfKlQLbEvoXC4i0ViMWpomAcv0lK5A9XqztX79Kg=;
+        b=kx7NO4xMolSYqhI/sB22TJhunzcQNbUIk3nr1sPPVD/vspHe+d8B3RhXXjx/jvkJeX
+         /ZwD/jvnawrtjkh8AqxKXnFDE6PBu/BRjnx5+mHtrs2uYdPAnrI0QUeqVrQtKWtnwahK
+         kFEgDlmxOTUC193bVkjo0ybo5tGcZwJlqvAodpiPVglDTWoypVi1bocQZZsyncVoSWhH
+         pcwjfpgClykbbL4KJ01xAg6UYwaRhbNXjRYhlEKhGFXdDvDdtW5z+sjXGrti5Z0Ee//T
+         J+wUjTWFIq6QQ0cdDny15Oesm4Gl0+Zxn4llXVDFnqQDuIm7F1gDCUQLWAhcWD78QXDj
+         2oHg==
+X-Forwarded-Encrypted: i=1; AJvYcCVaWwjnz3JU2yAHOJtOf9s8l7tOyMK6Ar9Ip8/ZAKLuDGIMg4GGFB+RG6W1FwMEnRO6wInq5VvsqqBToSx7ucYX@lists.infradead.org
+X-Gm-Message-State: AOJu0YwnYQIaiT8Cd+SeqyCvvdmmGgkZWX3X401DzsT2IjyaBSuMboqX
+	gMp+1XKfeOETw7skyE9Oly1Mgxwj57SbkdSaQrkqo2nP9y6faprgmgHZ0yLMeMjATTlVECaJBnK
+	duOlmf2awg5HTUufFr3ieFJedcv6t17DJ36U8DVJtNmhwcXvmUdy98nn5uE9FikWiFthw+RLZ3F
+	ToGNmlaw==
+X-Gm-Gg: ASbGncs3uSZZgqFoKLBSKtGqD/GasRjClo0nwLyosHgdLK/IZav5cLDTPRcUoWKN177
+	PbKcwDyqo3I9C3SqpwFB6K061g4rBHWtlL3jfTTK/6Qzyuqz6P+LQ3Erd3abpAgPfUtKJoehQyB
+	ci6++ysvEnE9hA/fmd1Z2+QUTdowYtgbz2Sw4sl665FZsoozkDbu5aqOLcF+FEMMeZMWgTTZz31
+	PrP/m4HTeREsVY+m5PzN0zh5wiMCg7r4v/UKRSb/ytxVh+0z4ndSDhxEKPPsC4Dp9BlQaetSFjA
+	hAvSPqgxdBIevwbnA7A=
+X-Google-Smtp-Source: AGHT+IGE8R9wiGHsmz58x7rugsfqF4Xs7KaBBCUmHfCSZU9wMJhEA7KbG8rFzAqei36mZzEJGHa3mQ==
+X-Received: by 2002:a17:90a:d88c:b0:2ea:59e3:2d2e with SMTP id 98e67ed59e1d1-2f452e22528mr87032884a91.10.1736129906353;
+        Sun, 05 Jan 2025 18:18:26 -0800 (PST)
+Received: from zenbook (118-163-61-247.hinet-ip.hinet.net. [118.163.61.247])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f4477ec656sm32253706a91.30.2025.01.05.18.18.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 05 Jan 2025 18:18:25 -0800 (PST)
+Date: Mon, 6 Jan 2025 10:19:10 +0800
+From: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
+To: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
+Cc: Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Bjorn Andersson <andersson@kernel.org>, 
+	Christoffer Dall <christoffer.dall@arm.com>, Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, 
+	Chase Conklin <chase.conklin@arm.com>, Eric Auger <eauger@redhat.com>, r09922117@csie.ntu.edu.tw
+Subject: Re: [PATCH v2 02/12] KVM: arm64: nv: Sync nested timer state with
+ FEAT_NV2
+Message-ID: <fqiqfjzwpgbzdtouu2pwqlu7llhnf5lmy4hzv5vo6ph4v3vyls@jdcfy3fjjc5k>
+References: <20241217142321.763801-1-maz@kernel.org>
+ <20241217142321.763801-3-maz@kernel.org>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8510.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 605b17cc-aca5-4140-a8a3-08dd2df87f68
-X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Jan 2025 02:19:06.8705
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: LNeWOsQvMLTo68FPaZK1PCe4pAqMtpIl3xypRrk3ZQ3chdLCkduey6yHfYLuhAVeOfSNs/Pl/5QXOOkNOaJeqA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7269
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241217142321.763801-3-maz@kernel.org>
+X-Gm-Spam: 0
+X-Gm-Phishy: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250105_181916_269480_E57EF881 
-X-CRM114-Status: GOOD (  22.16  )
+X-CRM114-CacheID: sfid-20250105_182652_262656_F6E8E56E 
+X-CRM114-Status: GOOD (  34.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,47 +106,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: Re: [PATCH net-next 05/13] net: enetc: add debugfs interface to =
-dump
-> MAC filter
->=20
-> On Fri, Jan 03, 2025 at 02:06:01PM +0800, Wei Fang wrote:
-> > ENETC's MAC filter consists of hash MAC filter and exact MAC filter. Ha=
-sh
-> > MAC filter is a 64-entry hash table consisting of two 32-bit registers.
-> > Exact MAC filter is implemented by configuring MAC address filter table
-> > through command BD ring. The table is stored in ENETC's internal memory
-> > and needs to be read through command BD ring. In order to facilitate
-> > debugging, added a debugfs interface to get the relevant information
-> > about MAC filter.
->=20
-> How do other drivers do this?
+Hi Marc and other KVM ARM developers,
 
-I don't know about other vendor's hardware, but IMO, if the configuration i=
-s
-done through registers, we only need to debug through some tools that read
-and write registers, such as devmem2. I also saw some drivers added debugfs
-interface, such as Intel, Huawei, Marvell, etc. I think they also added it =
-to
-facilitate obtaining some debugging information.
+I am trying to learn about NV and I have a few questions wile reading
+the code and comments:
 
->=20
-> You should only use debugfs if there is no standard way to accomplish
-> something. And if there is no standard way, you should be thinking is
-> this a common feature other drivers will need, and if so, add a
-> standard mechanism.
->=20
-> You will get pushback for using debugfs as a bumping ground without
-> adding some justification that debugfs is the only possible solution.
->=20
+On Tue, Dec 17, 2024 at 02:23:10PM +0000, Marc Zyngier wrote:
+> Emulating the timers with FEAT_NV2 is a bit odd, as the timers
+> can be reconfigured behind our back without the hypervisor even
+> noticing. In the VHE case, that's an actual regression in the
+> architecture...
 
-IMO, standard methods are only suitable for extracting common
-information, but each vendor's implementation is not uniform, and the
-specific details are also different. It is impossible to obtain every detai=
-l
-information through standard methods. The purpose of adding debugfs
-is just to facilitate debugging, so we need to obtain all the detailed
-information, so I think the debugfs interface is good, which allows us to
-obtain every specific information in all NETC tables.
+I'm curious why you implied NV2 isn't a regression in the nVHE case? In
+my understanding without NV2 and ECV, an nVHE guest hypervisor would
+directly program CNT{P, V}_*_EL0 registers without traps, and with NV2,
+those accesses would be turned into memory accesses to the VNCR page,
+delaying the set up of the timer until the next exit.
+So NV2 also makes it worse for an nVHE guest hypervisor. What have I
+missed here?
 
+> 
+> Co-developed-by: Christoffer Dall <christoffer.dall@arm.com>
+> Signed-off-by: Christoffer Dall <christoffer.dall@arm.com>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/kvm/arch_timer.c  | 44 ++++++++++++++++++++++++++++++++++++
+>  arch/arm64/kvm/arm.c         |  3 +++
+>  include/kvm/arm_arch_timer.h |  1 +
+>  3 files changed, 48 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+> index 1215df5904185..ee5f732fbbece 100644
+> --- a/arch/arm64/kvm/arch_timer.c
+> +++ b/arch/arm64/kvm/arch_timer.c
+> @@ -905,6 +905,50 @@ void kvm_timer_vcpu_put(struct kvm_vcpu *vcpu)
+>  		kvm_timer_blocking(vcpu);
+>  }
+>  
+> +void kvm_timer_sync_nested(struct kvm_vcpu *vcpu)
+> +{
+> +	/*
+> +	 * When NV2 is on, guest hypervisors have their EL1 timer register
+> +	 * accesses redirected to the VNCR page. Any guest action taken on
+> +	 * the timer is postponed until the next exit, leading to a very
+> +	 * poor quality of emulation.
+> +	 */
+> +	if (!is_hyp_ctxt(vcpu))
+> +		return;
+> +
+> +	if (!vcpu_el2_e2h_is_set(vcpu)) {
+> +		/*
+> +		 * A non-VHE guest hypervisor doesn't have any direct access
+> +		 * to its timers: the EL2 registers trap (and the HW is
+> +		 * fully emulated), while the EL0 registers access memory
+> +		 * despite the access being notionally direct. Boo.
+
+Reading this part of the comment I understand it as for an nVHE guest
+hypervisor, the timer map would look like:
+
+map->emul_vtimer == vcpu_hvtimer(vcpu)  /* EL2 HW is fully emulated */
+map->emul_ptimer == vcpu_hptimer(vcpu)  /* EL2 HW is fully emulated */
+map->direct_vtimer == vcpu_vtimer(vcpu) /* EL0 notionally direct */
+map->direct_ptimer == vcpu_ptimer(vcpu) /* EL0 notionally direct */
+
+But looking at get_timer_map() I see we enter the first nested if
+statement, regardless of whether the guest hypervisor is VHE or nVHE,
+since it checks like the following:
+
+if (vcpu_has_nv(vcpu)) {
+	if (is_hyp_ctxt(vcpu)) {
+		map->direct_vtimer == vcpu_hvtimer(vcpu);
+		map->direct_ptimer == vcpu_hptimer(vcpu);
+		map->emul_vtimer == vcpu_vtimer(vcpu);
+		map->emul_ptimer == vcpu_ptimer(vcpu);
+	} else {
+		[...]
+	}
+} else if (...) {
+	[...]
+} else {
+	[...]
+}
+
+Which contradicts what the above comment says.
+What did I misunderstand?
+
+Thank you so much, any guidance is much appreciated.
+
+Wei-Lin Chang
+
+> +		 *
+> +		 * We update the hardware timer registers with the
+> +		 * latest value written by the guest to the VNCR page
+> +		 * and let the hardware take care of the rest.
+> +		 */
+> +		write_sysreg_el0(__vcpu_sys_reg(vcpu, CNTV_CTL_EL0),  SYS_CNTV_CTL);
+> +		write_sysreg_el0(__vcpu_sys_reg(vcpu, CNTV_CVAL_EL0), SYS_CNTV_CVAL);
+> +		write_sysreg_el0(__vcpu_sys_reg(vcpu, CNTP_CTL_EL0),  SYS_CNTP_CTL);
+> +		write_sysreg_el0(__vcpu_sys_reg(vcpu, CNTP_CVAL_EL0), SYS_CNTP_CVAL);
+> +	} else {
+> +		/*
+> +		 * For a VHE guest hypervisor, the EL2 state is directly
+> +		 * stored in the host EL1 timers, while the emulated EL0
+> +		 * state is stored in the VNCR page. The latter could have
+> +		 * been updated behind our back, and we must reset the
+> +		 * emulation of the timers.
+> +		 */
+> +		struct timer_map map;
+> +		get_timer_map(vcpu, &map);
+> +
+> +		soft_timer_cancel(&map.emul_vtimer->hrtimer);
+> +		soft_timer_cancel(&map.emul_ptimer->hrtimer);
+> +		timer_emulate(map.emul_vtimer);
+> +		timer_emulate(map.emul_ptimer);
+> +	}
+> +}
+> +
+>  /*
+>   * With a userspace irqchip we have to check if the guest de-asserted the
+>   * timer and if so, unmask the timer irq signal on the host interrupt
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index a102c3aebdbc4..fa3089822f9f3 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -1228,6 +1228,9 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+>  		if (unlikely(!irqchip_in_kernel(vcpu->kvm)))
+>  			kvm_timer_sync_user(vcpu);
+>  
+> +		if (vcpu_has_nv(vcpu))
+> +			kvm_timer_sync_nested(vcpu);
+> +
+>  		kvm_arch_vcpu_ctxsync_fp(vcpu);
+>  
+>  		/*
+> diff --git a/include/kvm/arm_arch_timer.h b/include/kvm/arm_arch_timer.h
+> index fd650a8789b91..6e3f6b7ff2b22 100644
+> --- a/include/kvm/arm_arch_timer.h
+> +++ b/include/kvm/arm_arch_timer.h
+> @@ -98,6 +98,7 @@ int __init kvm_timer_hyp_init(bool has_gic);
+>  int kvm_timer_enable(struct kvm_vcpu *vcpu);
+>  void kvm_timer_vcpu_reset(struct kvm_vcpu *vcpu);
+>  void kvm_timer_vcpu_init(struct kvm_vcpu *vcpu);
+> +void kvm_timer_sync_nested(struct kvm_vcpu *vcpu);
+>  void kvm_timer_sync_user(struct kvm_vcpu *vcpu);
+>  bool kvm_timer_should_notify_user(struct kvm_vcpu *vcpu);
+>  void kvm_timer_update_run(struct kvm_vcpu *vcpu);
+> -- 
+> 2.39.2
+> 
 
