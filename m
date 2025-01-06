@@ -4,70 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 576DEE77198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 11:05:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAFF2E77198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 11:06:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1OhHA3tQesHAm8R0yHAK/Yz9C8LSErY0JbzzLjsKDBE=; b=XeCPxUREz1LiJ5BVmKrOYTNXHj
-	d5Ic8mN719gwkDKu+SZEbhno9WroNvIORAah4RBopJTDVIpiDkyrTP/On/zaqN4MM+cV5O+XgLvqp
-	d4hA/PzB0VW+C1HOagllv4vzAN+LeOP+5Wco+tpkE5gAtkapibBw7ettxJ71vEKWgdloA4vfhX+Gn
-	Lcux4BkFknos1NZbb+T928wp/1jI6kZXrfpPZ3L//yRypBpNV1lLnIfG1aUtAkkWC2p1wYjNYhSOT
-	L/ZVLSwL5PnYPfvZWR8Q6anUENftmkZ/6vxGzgvQQNt8ncehNzjkJdIcNgPaV+M/9Dg8z7alZ/Fzn
-	Nfw9KOIA==;
+	bh=vrz4WaCr3xa3fBLW8MwU/j2Uew4MZOt0oEvE48Id2qE=; b=LcEZ8qeBmGs5KNwfwRPdeYS/Pr
+	X3fYuwI6if04BHjG8Z/PbikBCNRTjeJ+zluuFNMHIs4plhsu0su0/NudS4RcS/G16i2uCcFLX5AQ4
+	xqA4lC9fT7/+MiaTphHTVaHFxgJAlxLYKlhwYTHfsBEH71MOtplTAcnxwUbq2Q4UmEjq572J1q8XO
+	jE+ehfu1J9exaH93d2418lv9ex3fVhYAYC59RzhVhNzZxW4QOEComBjT/3NH+3wjz79CPvO3slnCy
+	+YCz8WFHPc3CHCU6IdANy1SHWHjJHX8AVTbUng2bxKWfdHbDpfdLCo1xrvjk0+zWp+hIAJsSpNwgb
+	rohg20Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUkvK-00000000yiT-31vw;
-	Mon, 06 Jan 2025 11:05:30 +0000
-Received: from mail-m49211.qiye.163.com ([45.254.49.211])
+	id 1tUkwV-00000000z2o-1n96;
+	Mon, 06 Jan 2025 11:06:43 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUku7-00000000yKf-2PlP;
-	Mon, 06 Jan 2025 11:04:17 +0000
-Received: from [172.16.12.26] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 7d7b0b78;
-	Mon, 6 Jan 2025 19:04:10 +0800 (GMT+08:00)
-Message-ID: <e2a18f8c-dc38-4b12-968e-dd369cb34cb4@rock-chips.com>
-Date: Mon, 6 Jan 2025 19:04:09 +0800
+	id 1tUkuL-00000000yRH-3qqg
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 06 Jan 2025 11:04:31 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5069DNA2025256;
+	Mon, 6 Jan 2025 12:04:18 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	vrz4WaCr3xa3fBLW8MwU/j2Uew4MZOt0oEvE48Id2qE=; b=rVMfvvgdAm4++vQF
+	5CNrUlSL0Glzl7b/Y5ylpg4ZFvNiPEIez9NnB1QHk3SYxGBE/nWdHJH/oSwY8Wiz
+	OunfY86Pw61Fbw+vs1fwXyyCa5rphZGhW0sXDXVzYc8bVBvlyGmWQlBqeMGgrp9M
+	xykBFSe/MzMqChHEEUlmIR4erjLIjD3BwXx0B7ncRBWWbDUZeH9LwcacVtUf0s5t
+	3v0xncGvv9BdHV14Llm6rd5PzDJT2z5EhuLPeZVi3XxCFCrhKPlVtGTeWGejsfKz
+	VyxipjJB9AEUz6oPSNwT7C6TuDZlLTAMu5mr+4CHkE2fIUHvC+mCnpIGT2y7BsRL
+	wvCSuQ==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 440cbrresw-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 06 Jan 2025 12:04:18 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 7EBAE40048;
+	Mon,  6 Jan 2025 12:02:04 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 0B370270316;
+	Mon,  6 Jan 2025 12:01:08 +0100 (CET)
+Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Mon, 6 Jan
+ 2025 12:01:07 +0100
+Message-ID: <6a6888c2-609b-4c2a-8776-4b3028edcb00@foss.st.com>
+Date: Mon, 6 Jan 2025 12:01:06 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 13/17] drm/bridge: analogix_dp: Convert
- &analogix_dp_device.aux into a pointer
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, rfoss@kernel.org, vkoul@kernel.org,
- sebastian.reichel@collabora.com, cristian.ciocaltea@collabora.com,
- l.stach@pengutronix.de, andy.yan@rock-chips.com, hjc@rock-chips.com,
- algea.cao@rock-chips.com, kever.yang@rock-chips.com,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org
-References: <20241226063313.3267515-1-damon.ding@rock-chips.com>
- <20241226063313.3267515-14-damon.ding@rock-chips.com>
- <e52pbjnusvuoqiyoorjr5msrfmgeqs2jt5sk6zcesvzy7cszzk@fzrtpsjoklgu>
+Subject: Re: [PATCH v2 1/3] dt-bindings: gpu: mali-utgard: Add st,stih410-mali
+ compatible
+From: Patrice CHOTARD <patrice.chotard@foss.st.com>
+To: Alain Volmat <avolmat@me.com>, David Airlie <airlied@gmail.com>,
+        Daniel
+ Vetter <daniel@ffwll.ch>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+References: <20241006-sti-gpu-v2-0-c6bb408d6903@me.com>
+ <20241006-sti-gpu-v2-1-c6bb408d6903@me.com>
+ <d844f8f2-b5fd-460f-b31b-644bab871238@foss.st.com>
 Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <e52pbjnusvuoqiyoorjr5msrfmgeqs2jt5sk6zcesvzy7cszzk@fzrtpsjoklgu>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+In-Reply-To: <d844f8f2-b5fd-460f-b31b-644bab871238@foss.st.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ0tLSVZDS0NCSxhKGkofS0hWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCSE
-	NVSktLVUpCS0tZBg++
-X-HM-Tid: 0a943b49590403a3kunm7d7b0b78
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Pgg6EQw4DDINKR4eEDJKEShL
-	Kx0KFBZVSlVKTEhNSk1KT05KQklMVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFJTEpLNwY+
-DKIM-Signature: a=rsa-sha256;
-	b=O4iWLR2mvf8gW6QrD6uiWKKWfEubi4Xv418QKLOFVVODdPN0nrxq/xAJw1I1hx9LMfpEMn1jUXRd/nM5VynrtZOzMJG1Pi5KQbhHVXNPUb+KNLoKh8N7dsPcOFMqCuNy4i6GaiYBIcihV8fNO0k8P/1sZVVt8Rm8HLOhp0ywR64=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=1OhHA3tQesHAm8R0yHAK/Yz9C8LSErY0JbzzLjsKDBE=;
-	h=date:mime-version:subject:message-id:from;
+X-Originating-IP: [10.48.87.62]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_030416_152767_EEAE2C1B 
-X-CRM114-Status: GOOD (  20.31  )
+X-CRM114-CacheID: sfid-20250106_030430_257600_2C7A44F9 
+X-CRM114-Status: GOOD (  11.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,82 +102,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dmitry,
 
-On 2024/12/30 21:35, Dmitry Baryshkov wrote:
-> On Thu, Dec 26, 2024 at 02:33:09PM +0800, Damon Ding wrote:
->> With the previous patch related to the support of getting panel from
->> the DP AUX bus, the &analogix_dp_device.aux can be obtained from the
->> &analogix_dp_plat_data.aux.
+
+On 1/6/25 11:47, Patrice CHOTARD wrote:
+> 
+> 
+> On 10/6/24 22:42, Alain Volmat wrote:
+>> ST STiH410 SoC has a Mali400. Add a compatible for it.
 >>
->> Furthermore, the assignment of &analogix_dp_plat_data.connector is
->> intended to obtain the pointer of struct analogix_dp_device within the
->> analogix_dpaux_transfer() function.
->>
->> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+>> Signed-off-by: Alain Volmat <avolmat@me.com>
 >> ---
->>   .../drm/bridge/analogix/analogix_dp_core.c    | 92 ++++++++++---------
->>   .../drm/bridge/analogix/analogix_dp_core.h    |  2 +-
->>   .../gpu/drm/bridge/analogix/analogix_dp_reg.c |  2 +-
->>   3 files changed, 50 insertions(+), 46 deletions(-)
+>>  Documentation/devicetree/bindings/gpu/arm,mali-utgard.yaml | 1 +
+>>  1 file changed, 1 insertion(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-utgard.yaml b/Documentation/devicetree/bindings/gpu/arm,mali-utgard.yaml
+>> index abd4aa335fbcebafc9164bd4963f9db60f0450c4..9318817ea1357d4d66db951513d9bc033b222190 100644
+>> --- a/Documentation/devicetree/bindings/gpu/arm,mali-utgard.yaml
+>> +++ b/Documentation/devicetree/bindings/gpu/arm,mali-utgard.yaml
+>> @@ -33,6 +33,7 @@ properties:
+>>                - rockchip,rk3188-mali
+>>                - rockchip,rk3228-mali
+>>                - samsung,exynos4210-mali
+>> +              - st,stih410-mali
+>>                - stericsson,db8500-mali
+>>                - xlnx,zynqmp-mali
+>>            - const: arm,mali-400
 >>
 > 
-> [...]
+> Hi Alain
 > 
->> @@ -1127,6 +1128,7 @@ static int analogix_dp_bridge_attach(struct drm_bridge *bridge,
->>   
->>   	if (!dp->plat_data->skip_connector) {
->>   		connector = &dp->connector;
->> +		dp->plat_data->connector = &dp->connector;
->>   		connector->polled = DRM_CONNECTOR_POLL_HPD;
->>   
->>   		ret = drm_connector_init(dp->drm_dev, connector,
->> @@ -1535,7 +1537,9 @@ static int analogix_dp_dt_parse_pdata(struct analogix_dp_device *dp)
->>   static ssize_t analogix_dpaux_transfer(struct drm_dp_aux *aux,
->>   				       struct drm_dp_aux_msg *msg)
->>   {
->> -	struct analogix_dp_device *dp = to_dp(aux);
->> +	struct analogix_dp_plat_data *plat_data = to_pdata(aux);
->> +	struct drm_connector *connector = plat_data->connector;
->> +	struct analogix_dp_device *dp = to_dp(connector);
+> Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>
 > 
-> I see that Analogix DP driver doesn't support
-> DRM_BRIDGE_ATTACH_NO_CONNECTOR, but at the same time I don't think this
-> is the step in the right direction. Instead please keep the AUX bus on
-> the Analogix side and add an API to go from struct drm_dp_aux to struct
-> analogix_dp_plat_data. Then your done_probing() callback can use that
-> function.
-> 
+> Thanks
 
-It is truly a more concise way.
 
-In the next version, I will add the following functions on the Analogix 
-side in order to get the pointers of struct analogix_dp_plat_data and 
-struct drm_dp_aux on the Rockchip side. And the way has already been 
-verified.
-
-struct analogix_dp_plat_data *analogix_dp_aux_to_plat_data(struct 
-drm_dp_aux *aux)
-{
-	struct analogix_dp_device *dp = to_dp(aux);
-
-	return dp->plat_data;
-}
-EXPORT_SYMBOL_GPL(analogix_dp_aux_to_plat_data);
-
-struct drm_dp_aux *analogix_dp_get_aux(struct analogix_dp_device *dp)
-{
-	return &dp->aux;
-}
-EXPORT_SYMBOL_GPL(analogix_dp_get_aux);
-
->>   	int ret;
->>   
->>   	pm_runtime_get_sync(dp->dev);
->>
-> 
-
-Best regards
-Damon
-
+Applied on sti-next
 
