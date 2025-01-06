@@ -4,64 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1606E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 15:38:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA612E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 15:40:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3bht1/DmHfs62jqKaT3oBEf1uFsmsmgXdgn5VwtTt7Q=; b=WJCop/cqCZnK5UArLrmDrDUPQL
-	qaBdFqJ2mNxDoOpy+/7pB8oMqxjMAdEMn+i2ZnnLbfrrpuqiiHuN8zQlLkRohHmbaAcKtkT67KMIQ
-	1BCfRYPH8pjlGLy+Wegnva6wwUhwoz250eVXjDlkqJRsrR/E0w3i5shtzUCEdMCvszPYqlgoVIGx2
-	HSNCmB7oKiU0hz5qAVhyht+6TZQyqJbkV9bZ9lSmPEvSjqfjZ6bsCz4pPl9iq6bboXa6/AgZMQzIs
-	YK+TSwL7HlmH3vtbSoSl/Y+IJZUjeiuJOkrpI5e07Z93h1SXTT8Hd1IKWhNvFhOYiA29Zm+gPv/kP
-	XSEhTJlw==;
+	bh=xIHJ3N6FbqQwLKdBookcSrozPRMb1anppfm1oqShOzQ=; b=iBtuwv91WYhUKnjRJFnK26f/PQ
+	aNcZHOeBYIi0ajhXNYPQbiTLY9gwpan9tUmx66AVqwwNynpY9Ll9sSPsQ+XqySKVeuGkZ29Q2Bwll
+	JvSFu6VCg31xfDXXJHexC8/UwReg46EbvTy8iJaR+KkQDwtda/l+SRUQZh80J98MXY2JWZ0GwCUYH
+	GLm+ZCYo2+LD/2BuVhEJZYCvAuaH007Q5rLgAcKfV53ET8O2rbadz8/AgtXQzNzYlqdozaKBq6bhm
+	PoSysP8b8+4bIGpOXG5AgGLnJwoRDL6c2HP6c3MhWW/wBCxytzJt8kJpaM7wEdUTo+0MhHSy2DVZk
+	8R90dhlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUpBL-00000001nhb-09SI;
-	Mon, 06 Jan 2025 15:38:19 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tUpCn-00000001nyb-3xj3;
+	Mon, 06 Jan 2025 15:39:49 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUpA8-00000001nKK-3jwn
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 15:37:06 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tUp9w-00031f-TD; Mon, 06 Jan 2025 16:36:52 +0100
-Message-ID: <c0068bd7-a49a-49b0-889f-a864dd9170a8@pengutronix.de>
-Date: Mon, 6 Jan 2025 16:36:52 +0100
+	id 1tUpBc-00000001nlB-08rV;
+	Mon, 06 Jan 2025 15:38:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=xIHJ3N6FbqQwLKdBookcSrozPRMb1anppfm1oqShOzQ=; b=AdRV+Zs1KfV5w9RyuCicb7IK1Z
+	+PMU7vNfSRy8IV6SFLlggCMXeDf6Pmh2ruBGN8/XD9X/5CVAX2Uu6h269MkPrGjrbYMrOz5Uv0YEl
+	UKa4HhfRoTnXZDDMfHmkOhWbEAXP2rktYfQJlWoi+IO1sf+aBB4F5Wki1f92TDZ0YvKoUsaew85Ky
+	TOcws2XXplYBLYjrIYD8IwJ7zafd4j3xjZLxKhtCpx/uX8nNqmw5TqWcNO8QmNGBUzHIjKYTd7HC1
+	avLKuunwyzsToQwCMMPkiCi6JQz4Xx5WuzM2bM3Pnc/Jft4bqB6TAhpxD+06DIpBnflsSSjW0rdIl
+	h/csPflw==;
+Received: from i53875aad.versanet.de ([83.135.90.173] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tUpBQ-0006Va-4T; Mon, 06 Jan 2025 16:38:24 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: Andy Yan <andyshrk@163.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	krzk+dt@kernel.org,
+	mripard@kernel.org,
+	robh@kernel.org,
+	hjc@rock-chips.com,
+	devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: Re: [PATCH v2 0/3] Add HDMI support for rk3576
+Date: Mon,  6 Jan 2025 16:38:11 +0100
+Message-ID: <173617782282.2587484.17610708009808824460.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20241231094425.253398-1-andyshrk@163.com>
+References: <20241231094425.253398-1-andyshrk@163.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 06/10] arm64: dts: imx8mp-skov: describe LVDS display
- pipeline
-To: Frank Li <Frank.li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Oleksij Rempel
- <o.rempel@pengutronix.de>, devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20241219-skov-dt-updates-v1-0-38bf80dc22df@pengutronix.de>
- <20241219-skov-dt-updates-v1-6-38bf80dc22df@pengutronix.de>
- <Z2RZ1o6AWGRe0ww9@lizhi-Precision-Tower-5810>
- <1b5236db-9a2c-475c-825c-3feae22ea32e@pengutronix.de>
- <Z2RzA5S/ch1YDdUD@lizhi-Precision-Tower-5810>
-Content-Language: en-US
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-In-Reply-To: <Z2RzA5S/ch1YDdUD@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_073704_935408_2B5A24C6 
-X-CRM114-Status: GOOD (  19.47  )
+X-CRM114-CacheID: sfid-20250106_073836_091077_EA95231B 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,143 +82,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Frank,
 
-On 19.12.24 20:24, Frank Li wrote:
-> On Thu, Dec 19, 2024 at 06:45:24PM +0100, Ahmad Fatoum wrote:
->> On 19.12.24 18:37, Frank Li wrote:
->>> On Thu, Dec 19, 2024 at 08:25:30AM +0100, Ahmad Fatoum wrote:
->>>> From: Oleksij Rempel <o.rempel@pengutronix.de>
->>>>
->>>> The Skov i.MX8MP LT6 device tree so far described the touch screen, but
->>>> didn't describe the screen itself. Fill out these missing pieces.
->>>
->>> Add "ti,sn65lvds822" touch screen description for i.MX8MP LT6 board.
->>
->> This is not what this patch does. Touch screen was already described
->> and now the remainder is being added, just like what my message said.
+On Tue, 31 Dec 2024 17:44:16 +0800, Andy Yan wrote:
+> RK3576 HDMI TX Controller is very similar to that of RK3588, but with
+> some control bits for IO and interrupts status scattered across different
+> GRF.
 > 
-> My main means, use below order to descript commit message
+> PATCH 1/3 is add platform ctrl callback for IO setting and interrupts
+> status handing.
+> PATCH 2/3 ~ 3/3 are add support for rk3576
 > 
-> Add ... for ...
+> [...]
 
-Sorry, I won't start every sentence with a verb. The commit message
-is fine IMO.
+Applied, thanks!
 
-Thanks,
-Ahmad
+[1/3] drm/rockchip: dw_hdmi_qp: Add platform ctrl callback
+      commit: 3f60dbd40d3f7aca312d1aa1131e204eb97a68b3
+[2/3] dt-bindings: display: rockchip: Add rk3576 hdmi controller
+      commit: 3a5981b65f77bfb8abcc6f29c13f1b89ce9df3a3
+[3/3] drm/rockchip: Add basic RK3576 HDMI output support
+      commit: 36439120efbdc62e2f47053e7ddfcc4e34364640
 
-> 
-> Frank
-> 
->>
->> Thanks,
->> Ahmad
->>
->>>
->>> Frank
->>>
->>>> Signed-off-by: Oleksij Rempel <o.rempel@pengutronix.de>
->>>> Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
->>>> ---
->>>>  .../boot/dts/freescale/imx8mp-skov-revb-lt6.dts    | 60 ++++++++++++++++++++++
->>>>  1 file changed, 60 insertions(+)
->>>>
->>>> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-lt6.dts b/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-lt6.dts
->>>> index ccbd3abedd69..baecf768a2ee 100644
->>>> --- a/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-lt6.dts
->>>> +++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-lt6.dts
->>>> @@ -8,6 +8,45 @@ / {
->>>>  	model = "SKOV IMX8MP CPU revB - LT6";
->>>>  	compatible = "skov,imx8mp-skov-revb-lt6", "fsl,imx8mp";
->>>>
->>>> +	lvds-decoder {
->>>> +		compatible = "ti,sn65lvds822", "lvds-decoder";
->>>> +		power-supply = <&reg_3v3>;
->>>> +
->>>> +		ports {
->>>> +			#address-cells = <1>;
->>>> +			#size-cells = <0>;
->>>> +
->>>> +			port@0 {
->>>> +				reg = <0>;
->>>> +
->>>> +				in_lvds1: endpoint {
->>>> +					data-mapping = "vesa-24";
->>>> +					remote-endpoint = <&ldb_lvds_ch1>;
->>>> +				};
->>>> +			};
->>>> +
->>>> +			port@1 {
->>>> +				reg = <1>;
->>>> +
->>>> +				lvds_decoder_out: endpoint {
->>>> +					remote-endpoint = <&panel_in>;
->>>> +				};
->>>> +			};
->>>> +		};
->>>> +	};
->>>> +
->>>> +	panel {
->>>> +		compatible = "logictechno,lttd800480070-l6wh-rt";
->>>> +		backlight = <&backlight>;
->>>> +		power-supply = <&reg_tft_vcom>;
->>>> +
->>>> +		port {
->>>> +			panel_in: endpoint {
->>>> +				remote-endpoint = <&lvds_decoder_out>;
->>>> +			};
->>>> +		};
->>>> +	};
->>>> +
->>>>  	touchscreen {
->>>>  		compatible = "resistive-adc-touch";
->>>>  		io-channels = <&adc_ts 1>, <&adc_ts 3>, <&adc_ts 4>, <&adc_ts 5>;
->>>> @@ -78,6 +117,27 @@ channel@5 {
->>>>  	};
->>>>  };
->>>>
->>>> +&lcdif2 {
->>>> +	status = "okay";
->>>> +};
->>>> +
->>>> +&lvds_bridge {
->>>> +	assigned-clocks = <&clk IMX8MP_CLK_MEDIA_LDB>,
->>>> +				 <&clk IMX8MP_VIDEO_PLL1>;
->>>> +	assigned-clock-parents = <&clk IMX8MP_VIDEO_PLL1_OUT>;
->>>> +	/* IMX8MP_VIDEO_PLL1 = IMX8MP_CLK_MEDIA_DISP2_PIX * 2 * 7 */
->>>> +	assigned-clock-rates = <0>, <462000000>;
->>>> +	status = "okay";
->>>> +
->>>> +	ports {
->>>> +		port@2 {
->>>> +			ldb_lvds_ch1: endpoint {
->>>> +				remote-endpoint = <&in_lvds1>;
->>>> +			};
->>>> +		};
->>>> +	};
->>>> +};
->>>> +
->>>>  &pwm1 {
->>>>  	status = "okay";
->>>>  };
->>>>
->>>> --
->>>> 2.39.5
->>>>
->>>
->>
->>
->> --
->> Pengutronix e.K.                           |                             |
->> Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
->> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
->> Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+I've fixed some minor stuff
+patch1: my review nits (empty line + hardird)
+patch3: drop Detlev's Signed-off
+patches1+3: fixed some more checkpatch warnings
 
 
+Best regards,
 -- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+Heiko Stuebner <heiko@sntech.de>
 
