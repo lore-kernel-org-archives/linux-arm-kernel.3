@@ -4,69 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3B44E77198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 14:21:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EBD4E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 14:22:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GI1l4lgGpTtJDBl3eixmiNVuGS9dnUuuN/r5rQWBbUI=; b=XLWLMe9OrHvN/jqJPSJdCdsKtc
-	7djZiMOETX6gA5ewnBRWy3W/yvRfQqxKwVP17aJYvulGXntfEoKVR1DFbSsaXt7wqP6d183ZBwYFJ
-	8M+9sVomhIZ2JDJKpr8ridSLvP/XQGx/+FLCUeFHQRsuojPaF5RHfLnhRQeOFoV6de/+EMmLFh1pd
-	Jdz3/COywvjYcK10JHlMhx3Wv3MuUfEMitWcjqaYB8WY4pyAMRr2AXN0eaZ6t+ZtOKzidLT5kSso0
-	4yjzV/rcHP+7YgjjIbCeaPx421E/cQ0+O5AEoozhfs58IJfQPiFMEM3T10KlL+h+2qeF7MZ1coa0Q
-	0UyW4DiQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=oeHiTUaspxw3YHA9Av4He8MumgYB5Gh2jqQAtY0KVLI=; b=mFYL8hYz8FH2P0
+	JqzXV+aPhYQqP12VW2aVjTcEYNuShQlJR0JeJvYjIeQNjqYW/5iBikOgbwzgtK43q3n6vyZdz0wGu
+	FFUZC4lNClmZb42s0hnlLsfLrpPrjubVEAtEQ+jFc6isQxFt96SfKZ1W6CNSAWo8oV0c5rd7Jbwv5
+	Z3RWTRpqnipyUT4ZVP14d35el6/nbHgN0zWGKfWWq4d1+adQCbFgIQm0EgL+UzyB7tIKQIfLofr5p
+	UZ/yxeZVAmbBoXxs5jkgn8vFm0OT0M6zSHpemUP04jF4i/laPvF5Dd7acxnrLYOjNHJqnLf0CFpub
+	Dv9PCml1FgNF2WIFhAvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUnyv-00000001Xrb-1Efd;
-	Mon, 06 Jan 2025 14:21:25 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tUo05-00000001YDj-13an;
+	Mon, 06 Jan 2025 14:22:37 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUnxj-00000001XWn-0yDl
+	id 1tUnyg-00000001Xo0-3hMS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 14:20:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1C8F1A41895;
-	Mon,  6 Jan 2025 14:18:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 999CBC4CED2;
-	Mon,  6 Jan 2025 14:20:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736173209;
-	bh=RKd7knf1LcOLKPssmb/Vq2FTYvbMnTcKGAZPremeTsY=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=rX0i1QG37+O46vITWZvwj7oCSpTvSPXyDRIb+QtnK7tdMNxN0o4sRXcfNyzuuEgHj
-	 41loxt4nzIjAh9nPDgfIt3SRWGjJqDRB8Hqulj0HtS1nOOvaB29NLuO+MAjeswSr+z
-	 Z9zL8pTK76aJpIYRJbOdWw2lj72jaXRQReXXp32m3hBsZq4nQduBEQhHkuLRk/i3jn
-	 3PdaSlmMRAmDcL4ck3VR5pDXfzrromsjGcSgVeXRwgVsTU75eO/2Bn18xV97bohfl2
-	 hAZxh3y1nryadMuoRB9ClAYoHluHa2+MH8pqfHAjm8kZ3qbqodS/CYmkfkDsRdA6Fr
-	 OsMeDLkPsi7RA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB104380A97D;
-	Mon,  6 Jan 2025 14:20:31 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Mon, 06 Jan 2025 14:21:13 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4361815b96cso95953785e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jan 2025 06:21:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1736173269; x=1736778069; darn=lists.infradead.org;
+        h=content-transfer-encoding:organization:autocrypt:content-language
+         :cc:to:reply-to:subject:from:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=oeHiTUaspxw3YHA9Av4He8MumgYB5Gh2jqQAtY0KVLI=;
+        b=u60DTBnAYtcN8EhBQR9URMnMLRWgDnJ+vzIecPfJbJOhJnlDW0voO+9gL+3ZkuCxku
+         WrWvu4dpG2iy/Egdcp5zzk8BA/Q1n9S0ikL8RYpiU7Ce2RIC0uiKnlKXPZ6KUh+kv3wK
+         /PUJrmFQ/tSPh4CPp6TM/fPiyOEIpl6gHSCVAkzx+r6cEfJINgT0OKIfCKk0Wi+TpFL6
+         KW3uRfbI5qnERYuN0FJTqmTqquhH/NtnSm6KdgT6ZyJ/1zLNaKOQS/NVf8reseTjojr0
+         sd43Qwfh/dk7TnCwjE1btcQrjS6ji2eCP4QHs3Oem86Se4b5CQGbagugXqnfL7oxYgNW
+         Jrzw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736173269; x=1736778069;
+        h=content-transfer-encoding:organization:autocrypt:content-language
+         :cc:to:reply-to:subject:from:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=oeHiTUaspxw3YHA9Av4He8MumgYB5Gh2jqQAtY0KVLI=;
+        b=sfzuFUPCgF372Ms8GyIBXgkRSzTT+5GAayBU4PHKNQOYpZlBVK2+66QksiCzyO8GoN
+         +4pFR+MveDHmnSKeLz3NBtZbt+PcIvvXxNkj42GFSWq4/ugk2dI0eCHVGJVlq9PHc1M5
+         Aihq6VvOlq2RflVV8/Bzgm6Ztno0eILHTMdX8+ru9k56Lf03F5PIHXeXdJU6x6kwholC
+         d4BCQJK+/eU/OdsPjt09Xp8sGPOg+ne4W5gmx2nAGy2o9Ho6QVMUkVNxeUA61ttv94L7
+         MUPFD1wxvtcku9QeC91ORsgVnuap6mqM5I77KcnYuUDVu0mJQWwt4yoCBG3YzBQ3BFda
+         Qh3w==
+X-Forwarded-Encrypted: i=1; AJvYcCWXqMvhYYQ7AO2g0IIfqi4Uzb4Qpm0G9LMQdN5HsVHBLZX4mfdD/e4hGJNAbkhOMsFEEOZyC9UGQtjLfVAUJNGQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw+2HF4BxZsoUYWgG7nvrfLf8u08RnIvldQdchL/5SscBeOxuS6
+	81Z03JMVeHGWeJ+yMDiIxRB4MKTU2SFJXdeARVumrmkFbsVCGpO2ixQfycCx2/s=
+X-Gm-Gg: ASbGncvJcM0vltsue17hoxFu1Lna+d4oMs8R32csP+VmEqzih9ZwvxLrxBT+otwfluH
+	RbqkEE3yAT3I2b7Ej+CskIa4D9wAKvUVqbWSU1FRU1FFGY76/RxY9kFqQCmGQc/gA8ccY/2laOa
+	AVT9aKK+EVHX+eWhm32NGhFeWK2BacatJf9HnzZ/tRxUmd35OLKpLlJxO3rebxgOXiNqWqGwEuN
+	yQTeKiCL9n+VyEwKnxdln+a8QftrFUd4XujnkZZvM3s7vb83NyZWnGnLrauMIL13pRpvloTSvYW
+	JJ2FZXo9n4QKmHYHgN7BSfi186/6
+X-Google-Smtp-Source: AGHT+IF5Lh+oWFRck0Vw/8+lvOoj6CBwPIpbpPWwc94r3tUU4OIFk9lTAnr5Rp6BiofrhtN1DtywvQ==
+X-Received: by 2002:a05:600c:548e:b0:431:5e3c:2ff0 with SMTP id 5b1f17b1804b1-436686431a0mr463290275e9.8.1736173268595;
+        Mon, 06 Jan 2025 06:21:08 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:982:cbb0:95:e905:1421:811c? ([2a01:e0a:982:cbb0:95:e905:1421:811c])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43656b11aecsm601987765e9.23.2025.01.06.06.21.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 06 Jan 2025 06:21:08 -0800 (PST)
+Message-ID: <77c645b3-0cdf-49f4-84e9-11c74074b9a8@linaro.org>
+Date: Mon, 6 Jan 2025 15:21:07 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH bpf-next v2 1/3] bpf,
- arm64: Simplify if logic in emit_lse_atomic()
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <173617323051.3507566.4440450851266640533.git-patchwork-notify@kernel.org>
-Date: Mon, 06 Jan 2025 14:20:30 +0000
-References: <e8520e5503a489e2dea8526077976ae5a0ab1849.1735868489.git.yepeilin@google.com>
-In-Reply-To: <e8520e5503a489e2dea8526077976ae5a0ab1849.1735868489.git.yepeilin@google.com>
-To: Peilin Ye <yepeilin@google.com>
-Cc: bpf@vger.kernel.org, xukuohai@huaweicloud.com, ast@kernel.org,
- daniel@iogearbox.net, andrii@kernel.org, martin.lau@linux.dev,
- eddyz87@gmail.com, song@kernel.org, yonghong.song@linux.dev,
- john.fastabend@gmail.com, kpsingh@kernel.org, sdf@fomichev.me,
- haoluo@google.com, jolsa@kernel.org, puranjay@kernel.org,
- catalin.marinas@arm.com, will@kernel.org, joshdon@google.com,
- brho@google.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: [GIT PULL] amlogic ARM DT updates for v6.14
+To: soc@kernel.org, arm@kernel.org
+Cc: linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_062011_335470_F9B609A6 
-X-CRM114-Status: UNSURE (   8.48  )
+X-CRM114-CacheID: sfid-20250106_062110_941614_39E2DDAA 
+X-CRM114-Status: UNSURE (   7.02  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,34 +119,38 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Hi,
 
-This series was applied to bpf/bpf-next.git (master)
-by Daniel Borkmann <daniel@iogearbox.net>:
+Here's a single change for Amlogic ARM DT, simply removing size and address cells
+from USB nodes when not needed.
 
-On Fri,  3 Jan 2025 02:02:53 +0000 you wrote:
-> Delete that unnecessary outer if clause.  No functional change.
-> 
-> Signed-off-by: Peilin Ye <yepeilin@google.com>
-> ---
->  arch/arm64/net/bpf_jit_comp.c | 18 ++++++++----------
->  1 file changed, 8 insertions(+), 10 deletions(-)
+Thanks,
+Neil
 
-Here is the summary with links:
-  - [bpf-next,v2,1/3] bpf, arm64: Simplify if logic in emit_lse_atomic()
-    https://git.kernel.org/bpf/bpf-next/c/0a5807219a86
-  - [bpf-next,v2,2/3] bpf, arm64: Factor out emit_a64_add_i()
-    https://git.kernel.org/bpf/bpf-next/c/66bb58ac06c2
-  - [bpf-next,v2,3/3] bpf, arm64: Emit A64_{ADD,SUB}_I when possible in emit_{lse,ll_sc}_atomic()
-    https://git.kernel.org/bpf/bpf-next/c/8c21f88407d2
+The following changes since commit 40384c840ea1944d7c5a392e8975ed088ecf0b37:
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+   Linux 6.13-rc1 (2024-12-01 14:28:56 -0800)
 
+are available in the Git repository at:
 
+   https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git tags/amlogic-arm-dt-for-v6.14
+
+for you to fetch changes up to 3a4bb81850662bebab74f1ad27071652b1825d58:
+
+   ARM: dts: amlogic: meson: remove size and address cells from USB nodes (2024-12-30 11:00:12 +0100)
+
+----------------------------------------------------------------
+Amlogic ARM DT changes for v6.14:
+- remove size and address cells from USB nodes
+
+----------------------------------------------------------------
+Martin Blumenstingl (1):
+       ARM: dts: amlogic: meson: remove size and address cells from USB nodes
+
+  arch/arm/boot/dts/amlogic/meson.dtsi | 4 ----
+  1 file changed, 4 deletions(-)
 
