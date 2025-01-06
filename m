@@ -4,153 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CBA7E7719B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 21:12:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 005CDE77198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 21:39:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qbaCUdewMAbxpK2RtMF4rx7SyzY7OFTCQ1W+a3JPopw=; b=L2bQGSygTdnh/+TzsoTofwaPXY
-	rgSH+gzMA+8RcMG+OKix//gMhoRYxw1UfT+VVkl3qeMt6MBnS60fj1yWvn934kvsf4YBOI1+rpsnN
-	IYOpZefumGvv8P28KOeUDYKK5/uvCDzuojK46yJAQvWERQ0fcMfNKAglDqQT1xh+oz/jolTPB/Jqa
-	W7Jiq5sALI6kB83SXxYwEDj5mxxvmdt1xZ5Dza006ENHbGqB4WYptPOUJqcPawE2MGzCfCQpNqXp+
-	WOX51M9VuhUwkfACQzmUPO7t5wTjeTXN3HBIi2oQPu217Sjmzal/wjXsa6nnlnm2Rur5Zs0kNP11p
-	UOpHKGOw==;
+	bh=opS3vibTnLli0endV0DEJk8g10qyZfILYO/Wajj227c=; b=ABDRHdxVbTL9pRpEqq6l6zEcqu
+	1FiIejq8Tm9o8VM23tg8+8+6zrbEiPtbSaGrJgKV0mY5xxeSG10Q1KAiSMmIuRkr2DKThG092lDJx
+	329YA6Xs0Jkz90Y5mS3yhIsozsvP5QklXosIRuK0zfWLcJ5xYXsJUXHDk6SRr+frpBgIdccAjYQcu
+	Vj0rRelK+7z1EZpKlpiGUR5frJBl3ItzPu/TCdz7EgD3rEMYd6ZNXfDvAxq+33gz1OeoiOOZx3qps
+	Y/LG1dlqkYMQECP8lliq/TyQ7neNBmWRr1ZSZKYhi6gEFAk4Wqlo2ttDl5eIywlv+xzHyvIeQbGBC
+	q3GzS+gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUuOc-00000002hnx-3ybg;
-	Mon, 06 Jan 2025 21:12:22 +0000
-Received: from mail-db8eur05on2061e.outbound.protection.outlook.com ([2a01:111:f403:2614::61e] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1tUuor-00000002l5U-3AQz;
+	Mon, 06 Jan 2025 21:39:29 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUuMX-00000002hRh-1fuK
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 21:10:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=K7LdFA2RZQuHn6MBqrJ86Cs1MAWjGXStyknrsKWGc6WL1hCp+r7ggi3iMD2Mj0IsSr49AaS06EckZXJq3pGwuUO8FTv1sewRO5pqvsCe16j/LmCfG6+HCoFRtPenaub3Gu1IiIa0kNPrBY2Ddugs/juJnh/AjnWOp8Y55iP+LHFKcSwzOJsW+n7kcHZB+tt9AlJAkn0ojNJjiuZy4DdqgmxGBfszWHDArgh564ayIg34bKPtfikv70wb2VT2PFGPF4s5z5MiFgnSrs/UM1q5zVJiYqy0QcYVmMQNeJVA+R+38vn38siZwuuYLQ4XGxHHeqcmgIx/EbriJ9XliU8cgw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qbaCUdewMAbxpK2RtMF4rx7SyzY7OFTCQ1W+a3JPopw=;
- b=aCDXK2M9sN7Jq5LA1c5Wjg1MbokhigUAj+vabaEN2kTCPiQp17yZ/JqI6ZvzyQ3rJIQKAxndrme3aDob95n7+KILi8qjvhGucRu1Q4CVUNkDHZZr84V7sojAiyoieOFTwviuZzig0Hhfupi4+9+SG1DjQufifrAVsz3SGo6O0DGpyRqZGvWYhns7zBDGpd4zBUeLxcRs/LVKG+SDnA6n+01QXFHpeACQ8h7PqmqV8RZJ2uVha/xIhrSxqUtQz5fzhSNcTHXI+xLbPsHluU18j4n+ttgyedrfSJVQiRXNT+Y3G+C0GRoajG2C2Gp19KhfoqDhdXxQYZjC/FCZUIT99Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qbaCUdewMAbxpK2RtMF4rx7SyzY7OFTCQ1W+a3JPopw=;
- b=OYWX+fajE1HHSaaVGVvPZbyltqcdxHX/GC4ZT5acTLLTWEpO8/3wQE+neUJZfPs9fRU38k8aONXIe0xsC6UD8kMn/+59aWWb3YwCnrGfnmoqhId8vrPQf4QWczVFrOjd1JH97k4Dp1g76NMo/n3AOURoKLz9IoL+g9kGZaKe0+ngzKsgv9XjiqL20TC1/4QU9ZwZF5T2Exv+nzjlPZ8GVZvjjFikjafpI1GJWXT83Ap73bfo41nZ67MR3jQud2hVt5Fg/ZnEBxyVlaj783dEe7Lxj/XLr+XmrHMlOZHTGf4STr9ihVsKEuWe4Q2/h8v+OfaUZdqFBPCisuHh2pcZGg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by PAXPR04MB8926.eurprd04.prod.outlook.com (2603:10a6:102:20d::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8314.17; Mon, 6 Jan
- 2025 21:10:02 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d%6]) with mapi id 15.20.8314.015; Mon, 6 Jan 2025
- 21:10:02 +0000
-Date: Mon, 6 Jan 2025 16:09:54 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Shawn Guo <shawnguo2@yeah.net>
-Cc: Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
-	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 1/1] arm64: dts: imx8mq-librem5: remove undocument
- property 'extcon' for usb-pd@3f
-Message-ID: <Z3xGotP/5GaID323@lizhi-Precision-Tower-5810>
-References: <20241023220252.1392585-1-Frank.Li@nxp.com>
- <ZyS/jGUf2C2VlJ4J@dragon>
+	id 1tUund-00000002kxy-2AvE;
+	Mon, 06 Jan 2025 21:38:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1736199493; x=1767735493;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=HvONposlKuJw4Y+dSo+jkkd/aq1cJfkDp0GXQPM1m7g=;
+  b=c8W/l5OvXlUBRgeKoaJUs7IErUePU5giZiuzSySJqMtKS/loh7xuurKH
+   2Ao9xFK7EB9iLfm+xZdrIUpsGhKtHFw4GFAbON3MuodV/L3FDnCOQpzMg
+   IFdlyC4hpRVEGvAnQpVSnpuPkZkPI6KO0eMdGUfUIOuZ3WjFGwXz03msS
+   oGxdzYVwD1gW2/MfRtG6wWKMuF2SY21kT3IyAh3sEC1PP7tQF7OCLqhl6
+   jTliJkzX82w9LrwuhEqAtFx1Rv1TYSMGywnpD05jUg8xTkJ7Dpq0R3OLI
+   1zyvH2lDGdfL0r64sDtRDnpCcXy/9/3xumFN4v1XMlbNmx7vvsL/bVNPq
+   w==;
+X-CSE-ConnectionGUID: 0bQPJu+lRIeZz/qTxU40GQ==
+X-CSE-MsgGUID: HX/cV7DCS62OSTARvlF6lA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11307"; a="53780328"
+X-IronPort-AV: E=Sophos;i="6.12,293,1728975600"; 
+   d="scan'208";a="53780328"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Jan 2025 13:38:11 -0800
+X-CSE-ConnectionGUID: QPWSosUcR8GXShDSJc/YYQ==
+X-CSE-MsgGUID: fPwO4tSLSAarkRVBMlbf0Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,293,1728975600"; 
+   d="scan'208";a="103079957"
+Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
+  by fmviesa009.fm.intel.com with ESMTP; 06 Jan 2025 13:38:08 -0800
+Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tUunW-000Dwh-1W;
+	Mon, 06 Jan 2025 21:38:06 +0000
+Date: Tue, 7 Jan 2025 05:37:46 +0800
+From: kernel test robot <lkp@intel.com>
+To: Chukun Pan <amadeus@jmu.edu.cn>, Vinod Koul <vkoul@kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev, Heiko Stuebner <heiko@sntech.de>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Jianfeng Liu <liujianfeng1994@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-phy@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Chukun Pan <amadeus@jmu.edu.cn>
+Subject: Re: [PATCH 1/1] phy: rockchip: naneng-combphy: compatible with old
+ DT for RK3568
+Message-ID: <202501070458.qKEuL2HH-lkp@intel.com>
+References: <20250106070000.605284-1-amadeus@jmu.edu.cn>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <ZyS/jGUf2C2VlJ4J@dragon>
-X-ClientProxiedBy: SJ0PR05CA0086.namprd05.prod.outlook.com
- (2603:10b6:a03:332::31) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|PAXPR04MB8926:EE_
-X-MS-Office365-Filtering-Correlation-Id: f3e9b786-6b31-48c4-4e38-08dd2e967c5d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?oAdLKngpyBEJEevj2k9pESp/zMfJfD9DboPsWN4JTsGntFqZ2NYk0lgrcSix?=
- =?us-ascii?Q?n6dC2HREXxLFG0W6iOBC4dkvCgDtNNi4j45j2KeWcaQ6iIVht5TFX9vUOEgH?=
- =?us-ascii?Q?KkFbAtJTWnOu5XvqyRYrzm7z1QPfZ/CDbe6opkZrMlON0l3KmDKhlF+eMIql?=
- =?us-ascii?Q?Vk23bVhAOilJdPDWj/shICGjWU+KR9ROl7FIKrODzcC4DfeD8fR9jCyTVUKc?=
- =?us-ascii?Q?rsjTVbEJxUUYRbWry0a5B5px2pkvB6YO8wBbuJd4mf/zLYk+Bw+/stDSpI46?=
- =?us-ascii?Q?GXSqtwgsLtPLBUp9OD3UA8N3rBc0WzRe3aofYSSWWr8JOkuABsJ3VZz4BvTR?=
- =?us-ascii?Q?h9WuOTP4dJK1S4OhCLRBeXNdAAmEv5ZmKrGnnUFaMS49Iid+uGKz/wzZZBGg?=
- =?us-ascii?Q?iBtUJSHuwwBmnKzsF6/fWlnchbVIOhVmO9p+8aLDW8zlzYG3H17S+vw7GEZR?=
- =?us-ascii?Q?Zm+XKgEwX6ykOOA/OMv1pHm7KEDpzXYkMmSPN2cTUtQzlodotK9mOefYpfcU?=
- =?us-ascii?Q?ljjZUcPveDuIdaYM0jR7DewwRbeWiJ5hY8pW4mrUYYX47sWyCdufM4F+rR/V?=
- =?us-ascii?Q?OJOVOQE0pBMB6OKftdvqIrVH/Wo53KxG/l3sFDc/JjaS/AFOtQW33Kimj+mS?=
- =?us-ascii?Q?gIlu2BkrE1EYhsm/kje3dFyAFMqwEvkBmdvtwtgbO873TDuOBmeeOIKKQrPp?=
- =?us-ascii?Q?7olt9GOhy9RbxcMycjWTXE53+joAlT2Es8e6vemhPH9aF54/pE3A3jrCPckH?=
- =?us-ascii?Q?eSZBkAs9ycHNTuPtE9wpgpxGsN/eLwWA6nD4v6pVzt6ZrXcn/OFB3Pk+Uax8?=
- =?us-ascii?Q?1SsPXNQN5xwTOxMK5tZ33NjSigyfGF4dP+akxOqZqqOlU3IqL4f6CqtW9RIr?=
- =?us-ascii?Q?zIvPcLadcDTwCTk134L8iu5qlUQ3aqO0KrUyEoUTGDVvebSAUduqPNnL9f84?=
- =?us-ascii?Q?hJlwlMYUGw+SLgXKSip/X/YcCdx3SpzJ4MqRUMIDpgtOOs08H9KYEAaeFmL6?=
- =?us-ascii?Q?/l2mA47vPoiaFxIW4FBp1vDRjCJjwVjLZ6PW0kHtzC+7PRqCBwwhdhMjVkzv?=
- =?us-ascii?Q?fG1YPhKtsPyqWOvmN01RQE+Q59T2tAdyrvMNgZj1KvAPgJ9w2+G2eiQkZO/X?=
- =?us-ascii?Q?rf07u6eeDjbsya5pA2R8rbNgeLX/RMiWRJR1fWvl1MQWGz0JthlFDEXPW+iQ?=
- =?us-ascii?Q?Mqr/r43QztAgzXDeRHtlFXRGhA6FvzhxJqFQaEdLD2JpHNRGyBoZAfOeOJJk?=
- =?us-ascii?Q?Q8Y8b23OZOZz9+WStyAG8fghqvp7D2VVhGKNei0IgK9V90jo7VmsIqvyTEtv?=
- =?us-ascii?Q?FpafL/TmKgsMWhNkqv8+WykuNJ28PS23cDP8p76hS9xSbgSTOYfpfO2pN5xX?=
- =?us-ascii?Q?N6aZbTqdzcdEewRfYlHHK3UDPdZx?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?yKibkKcRrE7uFyzdsJxrPCCtf4+hcczf/G8j/0bgA5muBzAi2isgOHpuLghJ?=
- =?us-ascii?Q?+Zd3Gxwt86Px8Ylhpd4f7WQfSiDuZbdfY4WvV6McwKO3TNK9AFDBkVYB4LAK?=
- =?us-ascii?Q?BCoVX0L0HH/K83qBKwggXj2FPSZdsOLUcwKXZS+hkR2+lBj7lVDjB9mSqCf1?=
- =?us-ascii?Q?mpjh7kIt8dDCqL1CGjSZjEkLmiWecTUu8HARDJ93gnr6vSMllyICyzaOVMZr?=
- =?us-ascii?Q?RZoALRY47qNbuEtscPhf4jbMrjdeMHQaeVzhzH9SGi7iScHFxJbFt2lwqTqf?=
- =?us-ascii?Q?NQvCNQsDDgQhRsOPgX/cWJNv5Cya/zfjTchjiv+tAPr4rNSH1lB3ki8uHbMx?=
- =?us-ascii?Q?r4iPW+RAwzdpirZTKFFPSHMc7zaa1/ONZRnHzX3HxSEQ3Ot27dAVAEpcfAdI?=
- =?us-ascii?Q?Lw/9kdq6ybToqjtnEfWEoqRfBWzDjWl526U419sRRmNIWSKj/aUlYwEB1JRR?=
- =?us-ascii?Q?OC6kLVG1eOHdZ+NSArAyvCmQzcqJSxtdoKY6j8vsOXdkAEqZZXERsa5/Z9ap?=
- =?us-ascii?Q?p9HxL6zVkKo5ueruIfs4GaIP9mFZFvL743yH0oO1i60fAjtCZg+56kaPglbw?=
- =?us-ascii?Q?px2t0SoRthkizRHoE8nG49Von69+kCUjEqMQwxgG1Zvm50CtbzUZm1umzV7o?=
- =?us-ascii?Q?3lkzkL2NS5wf8ZZFoOm+OnD7LKhX06tKX3/5CD3MZw1R/SYCU1RDBnocHqkm?=
- =?us-ascii?Q?bODYjvhxelKdFGPwGaLqPGDK+OgUBukVusxvzwlqIXkU4rHEYhztQ2VsMFux?=
- =?us-ascii?Q?FRXC7kjEbnXeFX7Ac4v1UhxC26CV2RAQb1vcpGF1yixXh5E0fYXKAuEtHLYV?=
- =?us-ascii?Q?Lum9nsZ1J5VONiYdl8kW0ll55Pyyc7399s/Id17xJo63aZVzr3DRjLAlDPl6?=
- =?us-ascii?Q?HVNcyZ32Mg3XOgt6wR6ZcE7eGD3f0ge3GgOlXgXwEUnNig1vQ91LF7J8uyM7?=
- =?us-ascii?Q?qQ4ATwtIn+Bz5g/LaWm3Aajrc4UDq94W5+/jkZhogAFSCMGf2Dh/DjmjMjkk?=
- =?us-ascii?Q?CdCFRpH2bZ1mlL4M7JG17ccXH3+ngt96ITlukZiLgH0ZdIvffRcwVQv/n+TN?=
- =?us-ascii?Q?SFf+3HMnpmlJz5limV0RdQjHlx7WTcLgXgPJpjqDwEK9mGShiLI2AO02dEiU?=
- =?us-ascii?Q?wuzxJEz0g1+nj7vWY4hkvHAfpx4UtwLm20T3fr/pM1sVcegf7HOw2EFmQF0Y?=
- =?us-ascii?Q?6i2zWdc8gL9wQwX/AEpfAWc2cqY8kYw+poyMERvSje1+vZlwwJHGx49n9vtj?=
- =?us-ascii?Q?YoLkeTihhGL3DY9b37PC7uwsk3iss+8pTidekki3p8bt0Xj8UaEqcds2PKyv?=
- =?us-ascii?Q?VNndqoxR/HPwP3oMwoouIK5p/bminxNaDT0MFzJ8O0b3vU+VBGWImlAX35QD?=
- =?us-ascii?Q?7RFOsubrDdiwEN/fdR347yvUCfX1nURGjYF285rHAz6IbJAlbnie/CEEHtfQ?=
- =?us-ascii?Q?i4nFmgB6MdtRE4hw8zo4zQ5zCRSqFp1EWIFkdXGxeOynVWdM5+SdIn6VhbwG?=
- =?us-ascii?Q?fCXmdxz7K9mu1x69R0nZhcH5cLBy2CCyXXG3lKTEEy3UuuQOOfBnhuSheCBh?=
- =?us-ascii?Q?xXyYwiWeQqxZG6EFQ8WLNcOErYjRvbEclWk+qlBy?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f3e9b786-6b31-48c4-4e38-08dd2e967c5d
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jan 2025 21:10:02.4153
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: MFHR6z9m+ggfPWqvPuplGREEj6NMoo1yJ0mCyGvLEF5Mgz1HR2QyzIG/bhWiTmR+nnBYVv4oULSvMWYZZ+8z4A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8926
+In-Reply-To: <20250106070000.605284-1-amadeus@jmu.edu.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_131013_454521_19E160EB 
-X-CRM114-Status: GOOD (  17.58  )
+X-CRM114-CacheID: sfid-20250106_133813_608837_571D32F4 
+X-CRM114-Status: GOOD (  14.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,43 +92,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 01, 2024 at 07:46:20PM +0800, Shawn Guo wrote:
-> Copy Sebastian for comment if any.
->
-> Shawn
+Hi Chukun,
 
-Sascha Hauer:
+kernel test robot noticed the following build errors:
 
-   Do you have comments for this?
+[auto build test ERROR on linus/master]
+[also build test ERROR on v6.13-rc6 next-20250106]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Frank
+url:    https://github.com/intel-lab-lkp/linux/commits/Chukun-Pan/phy-rockchip-naneng-combphy-compatible-with-old-DT-for-RK3568/20250106-150311
+base:   linus/master
+patch link:    https://lore.kernel.org/r/20250106070000.605284-1-amadeus%40jmu.edu.cn
+patch subject: [PATCH 1/1] phy: rockchip: naneng-combphy: compatible with old DT for RK3568
+config: arm64-defconfig (https://download.01.org/0day-ci/archive/20250107/202501070458.qKEuL2HH-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250107/202501070458.qKEuL2HH-lkp@intel.com/reproduce)
 
->
-> On Wed, Oct 23, 2024 at 06:02:52PM -0400, Frank Li wrote:
-> > Remove undocment property 'extcon' for usb-pd@3f to fix below CHECK_DTBS
-> > warnings:
-> > arch/arm64/boot/dts/freescale/imx8mq-librem5-r2.dtb: usb-pd@3f: 'extcon' does not match any of the regexes: 'pinctrl-[0-9]+'
-> >         from schema $id: http://devicetree.org/schemas/usb/ti,tps6598x.yaml#
-> >
-> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > ---
-> >  arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi | 1 -
-> >  1 file changed, 1 deletion(-)
-> >
-> > diff --git a/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi b/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
-> > index 1b39514d5c12a..61bdb43dec31d 100644
-> > --- a/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
-> > +++ b/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
-> > @@ -794,7 +794,6 @@ typec_pd: usb-pd@3f {
-> >  		interrupt-parent = <&gpio1>;
-> >  		interrupts = <10 IRQ_TYPE_LEVEL_LOW>;
-> >  		interrupt-names = "irq";
-> > -		extcon = <&usb3_phy0>;
-> >  		wakeup-source;
-> >
-> >  		connector {
-> > --
-> > 2.34.1
-> >
->
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202501070458.qKEuL2HH-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   drivers/phy/rockchip/phy-rockchip-naneng-combphy.c: In function 'rockchip_combphy_parse_dt':
+>> drivers/phy/rockchip/phy-rockchip-naneng-combphy.c:314:32: error: passing argument 1 of 'ERR_PTR' makes integer from pointer without a cast [-Wint-conversion]
+     314 |         if (IS_ERR(ERR_PTR(priv->phy_rst)))
+         |                            ~~~~^~~~~~~~~
+         |                                |
+         |                                struct reset_control *
+   In file included from include/linux/clk.h:12,
+                    from drivers/phy/rockchip/phy-rockchip-naneng-combphy.c:9:
+   include/linux/err.h:39:48: note: expected 'long int' but argument is of type 'struct reset_control *'
+      39 | static inline void * __must_check ERR_PTR(long error)
+         |                                           ~~~~~^~~~~
+
+
+vim +/ERR_PTR +314 drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
+
+   274	
+   275	static int rockchip_combphy_parse_dt(struct device *dev, struct rockchip_combphy_priv *priv)
+   276	{
+   277		int i;
+   278	
+   279		priv->num_clks = devm_clk_bulk_get_all(dev, &priv->clks);
+   280		if (priv->num_clks < 1)
+   281			return -EINVAL;
+   282	
+   283		priv->refclk = NULL;
+   284		for (i = 0; i < priv->num_clks; i++) {
+   285			if (!strncmp(priv->clks[i].id, "ref", 3)) {
+   286				priv->refclk = priv->clks[i].clk;
+   287				break;
+   288			}
+   289		}
+   290	
+   291		if (!priv->refclk) {
+   292			dev_err(dev, "no refclk found\n");
+   293			return -EINVAL;
+   294		}
+   295	
+   296		priv->pipe_grf = syscon_regmap_lookup_by_phandle(dev->of_node, "rockchip,pipe-grf");
+   297		if (IS_ERR(priv->pipe_grf)) {
+   298			dev_err(dev, "failed to find peri_ctrl pipe-grf regmap\n");
+   299			return PTR_ERR(priv->pipe_grf);
+   300		}
+   301	
+   302		priv->phy_grf = syscon_regmap_lookup_by_phandle(dev->of_node, "rockchip,pipe-phy-grf");
+   303		if (IS_ERR(priv->phy_grf)) {
+   304			dev_err(dev, "failed to find peri_ctrl pipe-phy-grf regmap\n");
+   305			return PTR_ERR(priv->phy_grf);
+   306		}
+   307	
+   308		priv->enable_ssc = device_property_present(dev, "rockchip,enable-ssc");
+   309	
+   310		priv->ext_refclk = device_property_present(dev, "rockchip,ext-refclk");
+   311	
+   312		priv->phy_rst = devm_reset_control_get(dev, "phy");
+   313		/* fallback to old behaviour */
+ > 314		if (IS_ERR(ERR_PTR(priv->phy_rst)))
+   315			priv->phy_rst = devm_reset_control_array_get_exclusive(dev);
+   316	
+   317		if (IS_ERR(priv->phy_rst))
+   318			return dev_err_probe(dev, PTR_ERR(priv->phy_rst), "failed to get phy reset\n");
+   319	
+   320		return 0;
+   321	}
+   322	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
