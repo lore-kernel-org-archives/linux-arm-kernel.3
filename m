@@ -4,90 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EB73E77198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 21:57:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE404E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 22:02:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fW8hdI6OqJh0dWWDQGRvo9CrT55Jt23ggLAYk7qjGXo=; b=qTQlK9CsTU4f5rCJsbdADGgIuy
-	D2RAhrsQz7BroCMzxTm4nZi7+95Z8nMsGkWW9HChWrKi8IDeH9p5i9zWY2OyTjpE2d0mWTEcAAha0
-	rS1UMXnq6bSwiVm5+MRyVii/9MLtScJ52WSv7cTvPQmEZQniPE/566EloDZy8Z7wD1tPDN87U6FC2
-	KS+m38Uro2vSKopa9MIe4luaVDyBC4mdc7BdJ1ekfqLFRNFfeB1pQAbeyYr8h/3kYK+Pl6sqZSuxL
-	UPR/iFPPHHUJsPw8SdXzRs0Q5DOZOVa5CUf1AafoHf9pEDR1g1jVIpLY/43A9F/mFzt+nWxj37e74
-	M1TXfwhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QnVrWEUtFgMvDpm5kd+ZvPWkuuGKmlEREXeXjJ/9WLQ=; b=Hgv/vhLsnyjZE0a2y1eWpYADVV
+	U0skl8YU1g/7L/lFEDe00r7BWMC9OpIg1R2yPuJIBlaT4Tia1k5iMa26zcZZDyeYXTObpkewT6yiy
+	/QsGcMs9sVha5UFLoBfiSewA3i7YtkRtzLd95xIfbM1sG0SlpmmodvKl9P9zkagsKGq3UivFaxett
+	JCPcATdXQcFrsOmMgDb7MdOYsD8g7tDzP3KCJdU3M9G6gq+7cis5y0lsX++TqWPzL6Y7G/TKCF9Tc
+	8ICNHUCfKWyic+2CvF5r6ACSJwiEV/MtMvQ1dNwvN6mMIfELfcNTuP8z4rjvlfus8wYoWXypopoC3
+	HpCAbweg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUv5T-00000002nJZ-18ag;
-	Mon, 06 Jan 2025 21:56:39 +0000
-Received: from mail-qv1-xf2e.google.com ([2607:f8b0:4864:20::f2e])
+	id 1tUvAU-00000002oMF-1ZyF;
+	Mon, 06 Jan 2025 22:01:50 +0000
+Received: from smtp-66.smtpout.orange.fr ([80.12.242.66] helo=smtp.smtpout.orange.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUv48-00000002n3N-42yq
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 21:55:21 +0000
-Received: by mail-qv1-xf2e.google.com with SMTP id 6a1803df08f44-6dcd4f1aaccso87724906d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jan 2025 13:55:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1736200515; x=1736805315; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=fW8hdI6OqJh0dWWDQGRvo9CrT55Jt23ggLAYk7qjGXo=;
-        b=16PEfRix2JqC9UhTy5cyjEJSRNCyv4PlZ0e9MxK/PffveyIvm65lEH7pa+GFQ8dWXZ
-         6CFrS6XYKk7WxmIEG9ie9CgYa8CzVIJwi2CX80xU6dKG/j1iDt8gOwhONzBxjM6vkaUJ
-         W7+H9WDL5z+WKBfESR/hnNGsu2SvalX0pRmv+ruB2qu56oq7+irWPGdqeGBBXVczesqS
-         t0j3jOUSj7HVPvidPKSETLSzxYTZgXNfQH3BE8q5GBAG9kPywrvy2Srn4sb6kyRQtmea
-         4ClqfoVsUUBHA5VAGgMv5Wa/WAlB8LaShzuwcIKBWfuq9368i7lx4ZcOaWUbfTwLjadD
-         ooLg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736200515; x=1736805315;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=fW8hdI6OqJh0dWWDQGRvo9CrT55Jt23ggLAYk7qjGXo=;
-        b=D0oJLNktUhUnmtHjdU5XsAUlDHHb23/ky1J069BBlWB1jsdVJduVnDzFE4yiGHqIaf
-         Vfx20dWpOqfl2PluwWo31jZivLbdSKAf/VQDvcEctK7W0CTbmNyjC4ARrla14sQXzc1t
-         DZFz9WyzuvULVvlrEG9JEMXhSJ1yq3ltPgyaX5wcKz1Iz++sYynxHcwCxy2emi+OXNfg
-         H2+eQhfLnYO2dQx4jqtADoAlCmZm8r6EFAfDd9XSZDo8Z5/KiA3/e7GRKStDOcYS/iH/
-         8lBLyS7BuIxR6TjLkRQi+ATb9EycOO8Mcyxq8Ywm0RLm5IlLOTboirV1/uSpAjFEdSqf
-         erXQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU1/ox8MB987R/upzcKNGMkPfxjfT8Y7TK64yWPAC+JhUEoJNIYihOccHbLwy7OVSDuINiTlZXHsa12Ns2uIRN7@lists.infradead.org
-X-Gm-Message-State: AOJu0YzDrBOKSV/bctQOTVgUKvLN7kOo9ZqLm/0xPfcsdc5gkg2s9AAe
-	Gu0j7X1mfT4/5pNWWGWTesuUuWXmwZKqnqcN/PV0bCvETJZedIP7ggmopkMrJAM=
-X-Gm-Gg: ASbGnctytog5M2KRRzzhNbWOrGrujFySha2hBr9h9FVkc2iK3gyfgy2NbhwEhQrnbFU
-	/y/AjEUTAOsl/U3RWLKCYAOS0DCtWbEy6s4ZHE2Jk0w+Cx8KWF2q9679eWiXkWDfslZ3qQCcoc/
-	m/7j0nXMtFjkb9/cGF3M5HgtbPWN06HwHBgnkQ6OxKa8Og/iXJkTYKwkZbVxRk/PRJq5QPx7DJ7
-	dqOqfp8EJMxsnpB/mZ6MvcBiIZTpEFCofuQawitF3ix4y3SBq0cm8knrA==
-X-Google-Smtp-Source: AGHT+IHyFImGpVyVS4whWQuQGwntMIAkoFAJllux2YC1p18fREEsO7LZFvVepwsLojmnuxwhQdAo0A==
-X-Received: by 2002:a05:6214:240e:b0:6d8:9838:d3a9 with SMTP id 6a1803df08f44-6dd23356042mr869489616d6.26.1736200515342;
-        Mon, 06 Jan 2025 13:55:15 -0800 (PST)
-Received: from nicolas-tpx395.localdomain ([2606:6d00:15:862e::7a9])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6dd181c1e99sm174072366d6.93.2025.01.06.13.55.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Jan 2025 13:55:14 -0800 (PST)
-Message-ID: <e6548df223ca891427aab1e145db04814a9eb67b.camel@ndufresne.ca>
-Subject: Re: [PATCH v2] media: amphion: Support dmabuf and v4l2 buffer
- without binding
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Ming Qian <ming.qian@oss.nxp.com>, mchehab@kernel.org, 
-	hverkuil-cisco@xs4all.nl
-Cc: shawnguo@kernel.org, robh+dt@kernel.org, s.hauer@pengutronix.de, 
-	kernel@pengutronix.de, festevam@gmail.com, linux-imx@nxp.com,
- xiahong.bao@nxp.com, 	eagle.zhou@nxp.com, tao.jiang_2@nxp.com,
- imx@lists.linux.dev, 	linux-media@vger.kernel.org,
- linux-kernel@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org
-Date: Mon, 06 Jan 2025 16:55:13 -0500
-In-Reply-To: <20241213091030.2936864-1-ming.qian@oss.nxp.com>
-References: <20241213091030.2936864-1-ming.qian@oss.nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.54.2 (3.54.2-1.fc41) 
+	id 1tUv9E-00000002o1j-0Qrw;
+	Mon, 06 Jan 2025 22:00:34 +0000
+Received: from [192.168.1.37] ([90.11.132.44])
+	by smtp.orange.fr with ESMTPA
+	id Uv8xtgasrGcOqUv91t2CGv; Mon, 06 Jan 2025 23:00:21 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
+	s=t20230301; t=1736200821;
+	bh=QnVrWEUtFgMvDpm5kd+ZvPWkuuGKmlEREXeXjJ/9WLQ=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From;
+	b=Knj/XA/gpVUzVe4EkuDhwlNFpl7y04M6/5moZxeMxboXoZUWYOr6qlzRTqtNuWBG3
+	 /MnW8YwGCMviEcnoV2JqsUluyeTkycD2nxfjYZNiruOjvLaYogZZzY8oAl9m4Td24Y
+	 pYg4Z/jrut/XM9F6y3h1nqdZjtdy8lAW3t1w2sAQOXYO8ydYIYuV9CEMwd1PVh76v4
+	 dqN9MflSQIWoZLVHXI3jOeiNuM5l8w4ZDt4Z1lfzhl3nfXKopCzzM8JLePvtwthV7G
+	 LgXUMF95kAPUbB/M3yziRIliIN0woQ5by3smNzPMLz37eOdsxGpb4RgmhK0oBuSvy/
+	 QfRYsK8viiV7g==
+X-ME-Helo: [192.168.1.37]
+X-ME-Auth: bWFyaW9uLmphaWxsZXRAd2FuYWRvby5mcg==
+X-ME-Date: Mon, 06 Jan 2025 23:00:21 +0100
+X-ME-IP: 90.11.132.44
+Message-ID: <1483780d-115f-4555-82b3-3e9cffe82dce@wanadoo.fr>
+Date: Mon, 6 Jan 2025 23:00:14 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] phy: cadence-torrent: Add PCIe multilink
+ configuration for 100 MHz refclk
+To: Siddharth Vadapalli <s-vadapalli@ti.com>, vkoul@kernel.org,
+ kishon@kernel.org, sjakhade@cadence.com, rogerq@kernel.org,
+ thomas.richard@bootlin.com, u.kleine-koenig@baylibre.com, eballetb@redhat.com
+Cc: linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, srk@ti.com
+References: <20250106131925.263240-1-s-vadapalli@ti.com>
+ <20250106131925.263240-2-s-vadapalli@ti.com>
+Content-Language: en-US, fr-FR
+From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+In-Reply-To: <20250106131925.263240-2-s-vadapalli@ti.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_135517_247140_D0C79465 
-X-CRM114-Status: GOOD (  28.75  )
+X-CRM114-CacheID: sfid-20250106_140032_414856_C53F1DA0 
+X-CRM114-Status: GOOD (  15.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,609 +78,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le vendredi 13 d=C3=A9cembre 2024 =C3=A0 18:10 +0900, Ming Qian a =C3=A9cri=
-t=C2=A0:
-> From: Ming Qian <ming.qian@nxp.com>
->=20
-> When using VB2_DMABUF, the relationship between dma-buf and v4l2 buffer
-> may not one-to-one, a single dma-buf may be queued via different
-> v4l2 buffers, and different dma-bufs may be queued via the same
-> v4l2 buffer, so it's not appropriate to use the v4l2 buffer index
-> as the frame store id.
->=20
-> We can generate a frame store id according to the dma address.
-> Then for a given dma-buf, the id is fixed.
->=20
-> Driver now manages the frame store and vb2-buffer states independently.
->=20
-> When a dmabuf is queued via another v4l2 buffer before the buffer is
-> released by firmware, need to pend it until firmware release it.
->=20
-> Signed-off-by: Ming Qian <ming.qian@nxp.com>
+Le 06/01/2025 à 14:19, Siddharth Vadapalli a écrit :
+> From: Swapnil Jakhade <sjakhade@cadence.com>
+> 
+> Add register sequences to support PCIe multilink configuration for 100MHz
+> reference clock. Maximum two PCIe links are supported.
+> 
+> Signed-off-by: Swapnil Jakhade <sjakhade@cadence.com>
+> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
 > ---
-> v2
-> -- fix an uninitialized issue reported by media-ci
->=20
->  drivers/media/platform/amphion/vdec.c     | 232 ++++++++++++++++++----
->  drivers/media/platform/amphion/vpu.h      |   7 +-
->  drivers/media/platform/amphion/vpu_dbg.c  |  15 +-
->  drivers/media/platform/amphion/vpu_v4l2.c |  11 +
->  4 files changed, 218 insertions(+), 47 deletions(-)
->=20
-> diff --git a/drivers/media/platform/amphion/vdec.c b/drivers/media/platfo=
-rm/amphion/vdec.c
-> index 61d5598ee6a1..a26cb0c264c9 100644
-> --- a/drivers/media/platform/amphion/vdec.c
-> +++ b/drivers/media/platform/amphion/vdec.c
-> @@ -26,6 +26,7 @@
->  #include "vpu_cmds.h"
->  #include "vpu_rpc.h"
-> =20
-> +#define VDEC_SLOT_CNT_DFT		32
->  #define VDEC_MIN_BUFFER_CAP		8
->  #define VDEC_MIN_BUFFER_OUT		8
-> =20
-> @@ -41,6 +42,14 @@ struct vdec_fs_info {
->  	u32 tag;
->  };
-> =20
-> +struct vdec_frame_store_t {
-> +	struct vpu_vb2_buffer *curr;
-> +	struct vpu_vb2_buffer *pend;
-> +	dma_addr_t addr;
-> +	unsigned int state;
-> +	u32 tag;
+> 
+> ***NOTE***
+> Since I don't have the hardware required to validate PCIe Multilink +
+> USB functionality, kindly *do not merge* this series until it gets a
+> "Tested-by" tag with proper validation of the functionality.
+> 
+> Regards,
+> Siddharth.
+> 
+>   drivers/phy/cadence/phy-cadence-torrent.c | 130 +++++++++++++++++++++-
+>   1 file changed, 129 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/phy/cadence/phy-cadence-torrent.c b/drivers/phy/cadence/phy-cadence-torrent.c
+> index a281c0dfae97..b0b5f4bdd7e2 100644
+> --- a/drivers/phy/cadence/phy-cadence-torrent.c
+> +++ b/drivers/phy/cadence/phy-cadence-torrent.c
+> @@ -197,6 +197,7 @@
+>   #define RX_SDCAL1_INIT_TMR		0x004CU
+>   #define RX_SDCAL1_ITER_TMR		0x004DU
+>   #define RX_CDRLF_CNFG			0x0080U
+> +#define RX_CDRLF_CNFG2			0x0081U
+>   #define RX_CDRLF_CNFG3			0x0082U
+>   #define RX_SIGDET_HL_FILT_TMR		0x0090U
+>   #define RX_REE_GCSM1_CTRL		0x0108U
+> @@ -204,6 +205,7 @@
+>   #define RX_REE_GCSM1_EQENM_PH2		0x010AU
+>   #define RX_REE_GCSM2_CTRL		0x0110U
+>   #define RX_REE_PERGCSM_CTRL		0x0118U
+> +#define RX_REE_PEAK_UTHR		0x0142U
+>   #define RX_REE_ATTEN_THR		0x0149U
+>   #define RX_REE_TAP1_CLIP		0x0171U
+>   #define RX_REE_TAP2TON_CLIP		0x0172U
+> @@ -212,6 +214,7 @@
+>   #define RX_DIAG_DFE_CTRL		0x01E0U
+>   #define RX_DIAG_DFE_AMP_TUNE_2		0x01E2U
+>   #define RX_DIAG_DFE_AMP_TUNE_3		0x01E3U
+> +#define RX_DIAG_REE_DAC_CTRL		0x01E4U
+>   #define RX_DIAG_NQST_CTRL		0x01E5U
+>   #define RX_DIAG_SIGDET_TUNE		0x01E8U
+>   #define RX_DIAG_PI_RATE			0x01F4U
+> @@ -3131,6 +3134,101 @@ static void cdns_torrent_phy_remove(struct platform_device *pdev)
+>   	cdns_torrent_clk_cleanup(cdns_phy);
+>   }
+>   
+> +/* Multi link PCIe configuration */
+> +static struct cdns_reg_pairs ml_pcie_link_cmn_regs[] = {
+> +	{0x0002, PHY_PLL_CFG},
+> +	{0x0601, CMN_PDIAG_PLL0_CLK_SEL_M0}
 > +};
-> +
->  struct vdec_t {
->  	u32 seq_hdr_found;
->  	struct vpu_buffer udata;
-> @@ -48,7 +57,8 @@ struct vdec_t {
->  	struct vpu_dec_codec_info codec_info;
->  	enum vpu_codec_state state;
-> =20
-> -	struct vpu_vb2_buffer *slots[VB2_MAX_FRAME];
-> +	struct vdec_frame_store_t *slots;
-> +	u32 slot_count;
->  	u32 req_frame_count;
->  	struct vdec_fs_info mbi;
->  	struct vdec_fs_info dcp;
-> @@ -289,6 +299,64 @@ static int vdec_ctrl_init(struct vpu_inst *inst)
->  	return 0;
->  }
-> =20
-> +static void vdec_attach_frame_store(struct vpu_inst *inst, struct vb2_bu=
-ffer *vb)
-> +{
-> +	struct vb2_v4l2_buffer *vbuf =3D to_vb2_v4l2_buffer(vb);
-> +	struct vpu_vb2_buffer *vpu_buf =3D to_vpu_vb2_buffer(vbuf);
-> +	struct vdec_t *vdec =3D inst->priv;
-> +	struct vdec_frame_store_t *new_slots =3D NULL;
-> +	dma_addr_t addr;
-> +	int i;
-> +
-> +	addr =3D vpu_get_vb_phy_addr(vb, 0);
-> +	for (i =3D 0; i < vdec->slot_count; i++) {
-> +		if (addr =3D=3D vdec->slots[i].addr) {
-> +			if (vdec->slots[i].curr && vdec->slots[i].curr !=3D vpu_buf) {
-> +				vpu_set_buffer_state(vbuf, VPU_BUF_STATE_CHANGED);
-> +				vdec->slots[i].pend =3D vpu_buf;
-> +			} else {
-> +				vpu_set_buffer_state(vbuf, vdec->slots[i].state);
-> +			}
-> +			vpu_buf->fs_id =3D i;
-> +			return;
-> +		}
-> +	}
-> +
-> +	for (i =3D 0; i < vdec->slot_count; i++) {
-> +		if (!vdec->slots[i].addr) {
-> +			vdec->slots[i].addr =3D addr;
-> +			vpu_buf->fs_id =3D i;
-> +			return;
-> +		}
-> +	}
-> +
-> +	new_slots =3D vzalloc(sizeof(*vdec->slots) * vdec->slot_count * 2);
 
-To avoid open coding arithmetics (see Documentation/process/deprecated.rst)=
- you
-may be able to use flex_array_size(vdec, slots, vdec->slot_count * 2)
+I think that some, if not all, of these new struct could be const, as 
+elsewhere in this file.
 
-> +	if (!vdec->slots) {
-> +		dev_err(inst->dev, "fail to alloc frame store\n");
-> +		vpu_set_buffer_state(vbuf, VPU_BUF_STATE_ERROR);
-> +		return;
-> +	}
 > +
-> +	memcpy(new_slots, vdec->slots, sizeof(*vdec->slots) * vdec->slot_count)=
-;
-> +	vfree(vdec->slots);
-> +	vdec->slots =3D new_slots;
-> +	vdec->slot_count *=3D 2;
-> +
-> +	vdec->slots[i].addr =3D addr;
-> +	vpu_buf->fs_id =3D i;
-> +}
-> +
-> +static void vdec_reset_frame_store(struct vpu_inst *inst)
-> +{
-> +	struct vdec_t *vdec =3D inst->priv;
-> +
-> +	if (!vdec->slots || !vdec->slot_count)
-> +		return;
-> +
-> +	vpu_trace(inst->dev, "inst[%d] reset slots\n", inst->id);
-> +	memset(vdec->slots, 0, sizeof(*vdec->slots) * vdec->slot_count);
+> +static struct cdns_reg_pairs ml_pcie_xcvr_diag_ln_regs[] = {
+> +	{0x0100, XCVR_DIAG_HSCLK_SEL},
+> +	{0x0001, XCVR_DIAG_HSCLK_DIV},
+> +	{0x0812, XCVR_DIAG_PLLDRC_CTRL}
+> +};
 
+...
 
-Same here, flex_array_size() would calculate the size for you.
-
-> +}
-> +
->  static void vdec_handle_resolution_change(struct vpu_inst *inst)
->  {
->  	struct vdec_t *vdec =3D inst->priv;
-> @@ -745,11 +813,11 @@ static int vdec_frame_decoded(struct vpu_inst *inst=
-, void *arg)
->  	struct vb2_v4l2_buffer *src_buf;
->  	int ret =3D 0;
-> =20
-> -	if (!info || info->id >=3D ARRAY_SIZE(vdec->slots))
-> +	if (!info || info->id >=3D vdec->slot_count)
->  		return -EINVAL;
-> =20
->  	vpu_inst_lock(inst);
-> -	vpu_buf =3D vdec->slots[info->id];
-> +	vpu_buf =3D vdec->slots[info->id].curr;
->  	if (!vpu_buf) {
->  		dev_err(inst->dev, "[%d] decoded invalid frame[%d]\n", inst->id, info-=
->id);
->  		ret =3D -EINVAL;
-> @@ -770,11 +838,13 @@ static int vdec_frame_decoded(struct vpu_inst *inst=
-, void *arg)
->  	if (vpu_get_buffer_state(vbuf) =3D=3D VPU_BUF_STATE_DECODED)
->  		dev_info(inst->dev, "[%d] buf[%d] has been decoded\n", inst->id, info-=
->id);
->  	vpu_set_buffer_state(vbuf, VPU_BUF_STATE_DECODED);
-> +	vdec->slots[info->id].state =3D VPU_BUF_STATE_DECODED;
->  	vdec->decoded_frame_count++;
->  	if (vdec->params.display_delay_enable) {
->  		struct vpu_format *cur_fmt;
-> =20
->  		cur_fmt =3D vpu_get_format(inst, inst->cap_format.type);
-> +		vdec->slots[info->id].state =3D VPU_BUF_STATE_READY;
->  		vpu_set_buffer_state(vbuf, VPU_BUF_STATE_READY);
->  		for (int i =3D 0; i < vbuf->vb2_buf.num_planes; i++)
->  			vb2_set_plane_payload(&vbuf->vb2_buf,
-> @@ -797,11 +867,11 @@ static struct vpu_vb2_buffer *vdec_find_buffer(stru=
-ct vpu_inst *inst, u32 luma)
->  	struct vdec_t *vdec =3D inst->priv;
->  	int i;
-> =20
-> -	for (i =3D 0; i < ARRAY_SIZE(vdec->slots); i++) {
-> -		if (!vdec->slots[i])
-> +	for (i =3D 0; i < vdec->slot_count; i++) {
-> +		if (!vdec->slots[i].curr)
->  			continue;
-> -		if (luma =3D=3D vdec->slots[i]->luma)
-> -			return vdec->slots[i];
-> +		if (luma =3D=3D vdec->slots[i].addr)
-> +			return vdec->slots[i].curr;
->  	}
-> =20
->  	return NULL;
-> @@ -835,11 +905,11 @@ static void vdec_buf_done(struct vpu_inst *inst, st=
-ruct vpu_frame_info *frame)
-> =20
->  	cur_fmt =3D vpu_get_format(inst, inst->cap_format.type);
->  	vbuf =3D &vpu_buf->m2m_buf.vb;
-> -	if (vbuf->vb2_buf.index !=3D frame->id)
-> -		dev_err(inst->dev, "[%d] buffer id(%d, %d) dismatch\n",
-> -			inst->id, vbuf->vb2_buf.index, frame->id);
-> +	if (vpu_buf->fs_id !=3D frame->id)
-> +		dev_err(inst->dev, "[%d] buffer id(%d(%d), %d) dismatch\n",
-> +			inst->id, vpu_buf->fs_id, vbuf->vb2_buf.index, frame->id);
-> =20
-> -	if (vpu_get_buffer_state(vbuf) =3D=3D VPU_BUF_STATE_READY && vdec->para=
-ms.display_delay_enable)
-> +	if (vdec->params.display_delay_enable)
->  		return;
-> =20
->  	if (vpu_get_buffer_state(vbuf) !=3D VPU_BUF_STATE_DECODED)
-> @@ -852,10 +922,11 @@ static void vdec_buf_done(struct vpu_inst *inst, st=
-ruct vpu_frame_info *frame)
->  	vbuf->sequence =3D vdec->sequence;
->  	dev_dbg(inst->dev, "[%d][OUTPUT TS]%32lld\n", inst->id, vbuf->vb2_buf.t=
-imestamp);
-> =20
-> -	v4l2_m2m_buf_done(vbuf, VB2_BUF_STATE_DONE);
->  	vpu_inst_lock(inst);
-> +	vdec->slots[vpu_buf->fs_id].state =3D VPU_BUF_STATE_READY;
->  	vdec->display_frame_count++;
->  	vpu_inst_unlock(inst);
-> +	v4l2_m2m_buf_done(vbuf, VB2_BUF_STATE_DONE);
->  	dev_dbg(inst->dev, "[%d] decoded : %d, display : %d, sequence : %d\n",
->  		inst->id, vdec->decoded_frame_count, vdec->display_frame_count, vdec->=
-sequence);
->  }
-> @@ -1083,18 +1154,30 @@ static int vdec_response_frame(struct vpu_inst *i=
-nst, struct vb2_v4l2_buffer *vb
->  	if (!vbuf)
->  		return -EINVAL;
-> =20
-> -	if (vdec->slots[vbuf->vb2_buf.index]) {
-> -		dev_err(inst->dev, "[%d] repeat alloc fs %d\n",
-> -			inst->id, vbuf->vb2_buf.index);
-> +	vpu_buf =3D to_vpu_vb2_buffer(vbuf);
-> +	if (vpu_buf->fs_id < 0 || vpu_buf->fs_id >=3D vdec->slot_count) {
-> +		dev_err(inst->dev, "invalid fs %d for v4l2 buffer %d\n",
-> +			vpu_buf->fs_id, vbuf->vb2_buf.index);
->  		return -EINVAL;
->  	}
-> =20
-> +	if (vdec->slots[vpu_buf->fs_id].curr) {
-> +		if (vdec->slots[vpu_buf->fs_id].curr !=3D vpu_buf) {
-> +			vpu_set_buffer_state(vbuf, VPU_BUF_STATE_CHANGED);
-> +			vdec->slots[vpu_buf->fs_id].pend =3D vpu_buf;
-> +		} else {
-> +			vpu_set_buffer_state(vbuf, vdec->slots[vpu_buf->fs_id].state);
-> +		}
-> +		dev_err(inst->dev, "[%d] repeat alloc fs %d (v4l2 index %d)\n",
-> +			inst->id, vpu_buf->fs_id, vbuf->vb2_buf.index);
-> +		return -EAGAIN;
-> +	}
-> +
->  	dev_dbg(inst->dev, "[%d] state =3D %s, alloc fs %d, tag =3D 0x%x\n",
->  		inst->id, vpu_codec_state_name(inst->state), vbuf->vb2_buf.index, vdec=
-->seq_tag);
-> -	vpu_buf =3D to_vpu_vb2_buffer(vbuf);
-> =20
->  	memset(&info, 0, sizeof(info));
-> -	info.id =3D vbuf->vb2_buf.index;
-> +	info.id =3D vpu_buf->fs_id;
->  	info.type =3D MEM_RES_FRAME;
->  	info.tag =3D vdec->seq_tag;
->  	info.luma_addr =3D vpu_get_vb_phy_addr(&vbuf->vb2_buf, 0);
-> @@ -1109,12 +1192,13 @@ static int vdec_response_frame(struct vpu_inst *i=
-nst, struct vb2_v4l2_buffer *vb
->  	if (ret)
->  		return ret;
-> =20
-> -	vpu_buf->tag =3D info.tag;
->  	vpu_buf->luma =3D info.luma_addr;
->  	vpu_buf->chroma_u =3D info.chroma_addr;
->  	vpu_buf->chroma_v =3D 0;
->  	vpu_set_buffer_state(vbuf, VPU_BUF_STATE_INUSE);
-> -	vdec->slots[info.id] =3D vpu_buf;
-> +	vdec->slots[info.id].tag =3D info.tag;
-> +	vdec->slots[info.id].curr =3D vpu_buf;
-> +	vdec->slots[info.id].state =3D VPU_BUF_STATE_INUSE;
->  	vdec->req_frame_count--;
-> =20
->  	return 0;
-> @@ -1175,25 +1259,47 @@ static void vdec_recycle_buffer(struct vpu_inst *=
-inst, struct vb2_v4l2_buffer *v
->  	v4l2_m2m_buf_queue(inst->fh.m2m_ctx, vbuf);
->  }
-> =20
-> -static void vdec_clear_slots(struct vpu_inst *inst)
-> +static void vdec_release_curr_frame_store(struct vpu_inst *inst, u32 id)
->  {
->  	struct vdec_t *vdec =3D inst->priv;
->  	struct vpu_vb2_buffer *vpu_buf;
->  	struct vb2_v4l2_buffer *vbuf;
-> +
-> +	if (id >=3D vdec->slot_count)
-> +		return;
-> +	if (!vdec->slots[id].curr)
-> +		return;
-> +
-> +	vpu_buf =3D vdec->slots[id].curr;
-> +	vbuf =3D &vpu_buf->m2m_buf.vb;
-> +
-> +	vdec_response_fs_release(inst, id, vdec->slots[id].tag);
-> +	if (vpu_buf->fs_id =3D=3D id) {
-> +		if (vpu_buf->state !=3D VPU_BUF_STATE_READY)
-> +			vdec_recycle_buffer(inst, vbuf);
-> +		vpu_set_buffer_state(vbuf, VPU_BUF_STATE_IDLE);
-> +	}
-> +
-> +	vdec->slots[id].curr =3D NULL;
-> +	vdec->slots[id].state =3D VPU_BUF_STATE_IDLE;
-> +
-> +	if (vdec->slots[id].pend) {
-> +		vpu_set_buffer_state(&vdec->slots[id].pend->m2m_buf.vb, VPU_BUF_STATE_=
-IDLE);
-> +		vdec->slots[id].pend =3D NULL;
-> +	}
-> +}
-> +
-> +static void vdec_clear_slots(struct vpu_inst *inst)
-> +{
-> +	struct vdec_t *vdec =3D inst->priv;
->  	int i;
-> =20
-> -	for (i =3D 0; i < ARRAY_SIZE(vdec->slots); i++) {
-> -		if (!vdec->slots[i])
-> +	for (i =3D 0; i < vdec->slot_count; i++) {
-> +		if (!vdec->slots[i].curr)
->  			continue;
-> =20
-> -		vpu_buf =3D vdec->slots[i];
-> -		vbuf =3D &vpu_buf->m2m_buf.vb;
-> -
->  		vpu_trace(inst->dev, "clear slot %d\n", i);
-> -		vdec_response_fs_release(inst, i, vpu_buf->tag);
-> -		vdec_recycle_buffer(inst, vbuf);
-> -		vdec->slots[i]->state =3D VPU_BUF_STATE_IDLE;
-> -		vdec->slots[i] =3D NULL;
-> +		vdec_release_curr_frame_store(inst, i);
->  	}
->  }
-> =20
-> @@ -1324,39 +1430,29 @@ static void vdec_event_req_fs(struct vpu_inst *in=
-st, struct vpu_fs_info *fs)
->  static void vdec_evnet_rel_fs(struct vpu_inst *inst, struct vpu_fs_info =
-*fs)
->  {
->  	struct vdec_t *vdec =3D inst->priv;
-> -	struct vpu_vb2_buffer *vpu_buf;
-> -	struct vb2_v4l2_buffer *vbuf;
-> =20
-> -	if (!fs || fs->id >=3D ARRAY_SIZE(vdec->slots))
-> +	if (!fs || fs->id >=3D vdec->slot_count)
->  		return;
->  	if (fs->type !=3D MEM_RES_FRAME)
->  		return;
-> =20
-> -	if (fs->id >=3D vpu_get_num_buffers(inst, inst->cap_format.type)) {
-> +	if (fs->id >=3D vdec->slot_count) {
->  		dev_err(inst->dev, "[%d] invalid fs(%d) to release\n", inst->id, fs->i=
-d);
->  		return;
->  	}
-> =20
->  	vpu_inst_lock(inst);
-> -	vpu_buf =3D vdec->slots[fs->id];
-> -	vdec->slots[fs->id] =3D NULL;
-> -
-> -	if (!vpu_buf) {
-> +	if (!vdec->slots[fs->id].curr) {
->  		dev_dbg(inst->dev, "[%d] fs[%d] has bee released\n", inst->id, fs->id)=
-;
->  		goto exit;
->  	}
-> =20
-> -	vbuf =3D &vpu_buf->m2m_buf.vb;
-> -	if (vpu_get_buffer_state(vbuf) =3D=3D VPU_BUF_STATE_DECODED) {
-> +	if (vdec->slots[fs->id].state =3D=3D VPU_BUF_STATE_DECODED) {
->  		dev_dbg(inst->dev, "[%d] frame skip\n", inst->id);
->  		vdec->sequence++;
->  	}
-> =20
-> -	vdec_response_fs_release(inst, fs->id, vpu_buf->tag);
-> -	if (vpu_get_buffer_state(vbuf) !=3D VPU_BUF_STATE_READY)
-> -		vdec_recycle_buffer(inst, vbuf);
-> -
-> -	vpu_set_buffer_state(vbuf, VPU_BUF_STATE_IDLE);
-> +	vdec_release_curr_frame_store(inst, fs->id);
->  	vpu_process_capture_buffer(inst);
-> =20
->  exit:
-> @@ -1552,6 +1648,11 @@ static void vdec_cleanup(struct vpu_inst *inst)
->  		return;
-> =20
->  	vdec =3D inst->priv;
-> +	if (vdec) {
-> +		vfree(vdec->slots);
-> +		vdec->slots =3D NULL;
-> +		vdec->slot_count =3D 0;
-> +	}
->  	vfree(vdec);
->  	inst->priv =3D NULL;
->  	vfree(inst);
-> @@ -1683,6 +1784,38 @@ static int vdec_stop_session(struct vpu_inst *inst=
-, u32 type)
->  	return 0;
->  }
-> =20
-> +static int vdec_get_slot_debug_info(struct vpu_inst *inst, char *str, u3=
-2 size, u32 i)
-> +{
-> +	struct vdec_t *vdec =3D inst->priv;
-> +	struct vpu_vb2_buffer *vpu_buf;
-> +	int num =3D -1;
-> +
-> +	vpu_inst_lock(inst);
-> +	if (i >=3D vdec->slot_count || !vdec->slots[i].addr)
-> +		goto exit;
-> +
-> +	vpu_buf =3D vdec->slots[i].curr;
-> +
-> +	num =3D scnprintf(str, size, "slot[%2d] :", i);
-> +	if (vpu_buf) {
-> +		num +=3D scnprintf(str + num, size - num, " %2d",
-> +				 vpu_buf->m2m_buf.vb.vb2_buf.index);
-> +		num +=3D scnprintf(str + num, size - num, "; state =3D %d", vdec->slot=
-s[i].state);
-> +	} else {
-> +		num +=3D scnprintf(str + num, size - num, " -1");
-> +	}
-> +
-> +	if (vdec->slots[i].pend)
-> +		num +=3D scnprintf(str + num, size - num, "; %d",
-> +				 vdec->slots[i].pend->m2m_buf.vb.vb2_buf.index);
-> +
-> +	num +=3D scnprintf(str + num, size - num, "\n");
-> +exit:
-> +	vpu_inst_unlock(inst);
-> +
-> +	return num;
-> +}
-> +
->  static int vdec_get_debug_info(struct vpu_inst *inst, char *str, u32 siz=
-e, u32 i)
->  {
->  	struct vdec_t *vdec =3D inst->priv;
-> @@ -1741,6 +1874,7 @@ static int vdec_get_debug_info(struct vpu_inst *ins=
-t, char *str, u32 size, u32 i
->  				vdec->codec_info.vui_present);
->  		break;
->  	default:
-> +		num =3D vdec_get_slot_debug_info(inst, str, size, i - 10);
->  		break;
->  	}
-> =20
-> @@ -1764,6 +1898,8 @@ static struct vpu_inst_ops vdec_inst_ops =3D {
->  	.get_debug_info =3D vdec_get_debug_info,
->  	.wait_prepare =3D vpu_inst_unlock,
->  	.wait_finish =3D vpu_inst_lock,
-> +	.attach_frame_store =3D vdec_attach_frame_store,
-> +	.reset_frame_store =3D vdec_reset_frame_store,
->  };
-> =20
->  static void vdec_init(struct file *file)
-> @@ -1804,6 +1940,14 @@ static int vdec_open(struct file *file)
->  		return -ENOMEM;
->  	}
-> =20
-> +	vdec->slots =3D vzalloc(sizeof(*vdec->slots) * VDEC_SLOT_CNT_DFT);
-> +	if (!vdec->slots) {
-> +		vfree(vdec);
-> +		vfree(inst);
-> +		return -ENOMEM;
-> +	}
-> +	vdec->slot_count =3D VDEC_SLOT_CNT_DFT;
-> +
->  	inst->ops =3D &vdec_inst_ops;
->  	inst->formats =3D vdec_formats;
->  	inst->type =3D VPU_CORE_TYPE_DEC;
-> diff --git a/drivers/media/platform/amphion/vpu.h b/drivers/media/platfor=
-m/amphion/vpu.h
-> index 22f0da26ccec..76bfd6b26170 100644
-> --- a/drivers/media/platform/amphion/vpu.h
-> +++ b/drivers/media/platform/amphion/vpu.h
-> @@ -223,6 +223,8 @@ struct vpu_inst_ops {
->  	int (*get_debug_info)(struct vpu_inst *inst, char *str, u32 size, u32 i=
-);
->  	void (*wait_prepare)(struct vpu_inst *inst);
->  	void (*wait_finish)(struct vpu_inst *inst);
-> +	void (*attach_frame_store)(struct vpu_inst *inst, struct vb2_buffer *vb=
-);
-> +	void (*reset_frame_store)(struct vpu_inst *inst);
->  };
-> =20
->  struct vpu_inst {
-> @@ -296,7 +298,8 @@ enum {
->  	VPU_BUF_STATE_DECODED,
->  	VPU_BUF_STATE_READY,
->  	VPU_BUF_STATE_SKIP,
-> -	VPU_BUF_STATE_ERROR
-> +	VPU_BUF_STATE_ERROR,
-> +	VPU_BUF_STATE_CHANGED
->  };
-> =20
->  struct vpu_vb2_buffer {
-> @@ -305,8 +308,8 @@ struct vpu_vb2_buffer {
->  	dma_addr_t chroma_u;
->  	dma_addr_t chroma_v;
->  	unsigned int state;
-> -	u32 tag;
->  	u32 average_qp;
-> +	s32 fs_id;
->  };
-> =20
->  void vpu_writel(struct vpu_dev *vpu, u32 reg, u32 val);
-> diff --git a/drivers/media/platform/amphion/vpu_dbg.c b/drivers/media/pla=
-tform/amphion/vpu_dbg.c
-> index 940e5bda5fa3..497ae4e8a229 100644
-> --- a/drivers/media/platform/amphion/vpu_dbg.c
-> +++ b/drivers/media/platform/amphion/vpu_dbg.c
-> @@ -48,6 +48,7 @@ static char *vpu_stat_name[] =3D {
->  	[VPU_BUF_STATE_READY] =3D "ready",
->  	[VPU_BUF_STATE_SKIP] =3D "skip",
->  	[VPU_BUF_STATE_ERROR] =3D "error",
-> +	[VPU_BUF_STATE_CHANGED] =3D "changed",
->  };
-> =20
->  static inline const char *to_vpu_stat_name(int state)
-> @@ -164,6 +165,7 @@ static int vpu_dbg_instance(struct seq_file *s, void =
-*data)
->  	for (i =3D 0; i < vb2_get_num_buffers(vq); i++) {
->  		struct vb2_buffer *vb;
->  		struct vb2_v4l2_buffer *vbuf;
-> +		struct vpu_vb2_buffer *vpu_buf;
-> =20
->  		vb =3D vb2_get_buffer(vq, i);
->  		if (!vb)
-> @@ -173,13 +175,24 @@ static int vpu_dbg_instance(struct seq_file *s, voi=
-d *data)
->  			continue;
-> =20
->  		vbuf =3D to_vb2_v4l2_buffer(vb);
-> +		vpu_buf =3D to_vpu_vb2_buffer(vbuf);
-> =20
->  		num =3D scnprintf(str, sizeof(str),
-> -				"capture[%2d] state =3D %10s, %8s\n",
-> +				"capture[%2d] state =3D %10s, %8s",
->  				i, vb2_stat_name[vb->state],
->  				to_vpu_stat_name(vpu_get_buffer_state(vbuf)));
->  		if (seq_write(s, str, num))
->  			return 0;
-> +
-> +		if (vpu_buf->fs_id >=3D 0) {
-> +			num =3D scnprintf(str, sizeof(str), "; fs %d", vpu_buf->fs_id);
-> +			if (seq_write(s, str, num))
-> +				return 0;
-> +		}
-> +
-> +		num =3D scnprintf(str, sizeof(str), "\n");
-> +		if (seq_write(s, str, num))
-> +			return 0;
->  	}
-> =20
->  	num =3D scnprintf(str, sizeof(str), "sequence =3D %d\n", inst->sequence=
-);
-> diff --git a/drivers/media/platform/amphion/vpu_v4l2.c b/drivers/media/pl=
-atform/amphion/vpu_v4l2.c
-> index 45707931bc4f..74668fa362e2 100644
-> --- a/drivers/media/platform/amphion/vpu_v4l2.c
-> +++ b/drivers/media/platform/amphion/vpu_v4l2.c
-> @@ -501,14 +501,25 @@ static int vpu_vb2_queue_setup(struct vb2_queue *vq=
-,
->  		call_void_vop(inst, release);
->  	}
-> =20
-> +	if (V4L2_TYPE_IS_CAPTURE(vq->type))
-> +		call_void_vop(inst, reset_frame_store);
-> +
->  	return 0;
->  }
-> =20
->  static int vpu_vb2_buf_init(struct vb2_buffer *vb)
->  {
->  	struct vb2_v4l2_buffer *vbuf =3D to_vb2_v4l2_buffer(vb);
-> +	struct vpu_vb2_buffer *vpu_buf =3D to_vpu_vb2_buffer(vbuf);
-> +	struct vpu_inst *inst =3D vb2_get_drv_priv(vb->vb2_queue);
-> =20
-> +	vpu_buf->fs_id =3D -1;
->  	vpu_set_buffer_state(vbuf, VPU_BUF_STATE_IDLE);
-> +
-> +	if (!inst->ops->attach_frame_store || V4L2_TYPE_IS_OUTPUT(vb->type))
-> +		return 0;
-> +
-> +	call_void_vop(inst, attach_frame_store, vb);
->  	return 0;
->  }
-> =20
-
-Just a general question, was the choice for a flexible array because the IP=
- does
-not provide enough per-codec information to calculate the number of needed =
-slots
-or to actually avoid needing to do per codec array sizing ?
-
-Nicolas
-
+CJ
 
