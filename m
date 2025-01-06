@@ -4,53 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EA2AE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 16:10:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AFBEE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 16:11:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7YWatZLp2V5JZKNZ+uUSW1zZzN1P0nohwKE2UshAzKI=; b=f59BrlS1oAZ64+/UlVZLgcVzg0
-	VVOAF42EENqwBlNmVPjpo/aZ06t2iWXHnhIktCR0o0N11sUIGIocAUVT4t1lxD567eXdi0ModFBHS
-	AOGGnJNMx6wMqHqZ18nstGXr1sKxXUglK88v9AnHQLMovk3nw+aFAw1yfcZHeKSGqsKa40TOQMIc/
-	O7HpOMWZflfl73ryuVvvg4Mk6lKUyuTme0tcA3uB/ptlf/OgnTBQKLABL+N6N3lGngOegYdx2rQYe
-	972Nm9SMCaFrQnBLDpXc9w3MaxMAvW8+iMJfyWf4NxMr4uPYWdKVj5PE3xxHemnpdfJylZgfCP9K9
-	pb1f7mTQ==;
+	bh=S4VywW6Q3uhsR76RyLbYuQ6LTme7CpciQBgugDZCDNM=; b=onyczmzxh++DBCwj6aMsSE56rH
+	U5cqodhbXYGB4b/r6ts1SMOEv1EnS3PPfGKlOx6BeDinm7sFvYQ/1NroJ2wNxXFJ+6vPjk+mI4SxG
+	OEAFj8vhJsTcxHqOBX8Ve2/ie4d5alXMdW0BOA1kyFJusuu2JPhDmWC5uJ28F1Qva752CXOg2wHtA
+	OujRtrrCkeu/GQfLMHFQ7g1HLggLMg1oPOFSoQpWGo7oFn5Um0k5abhHVnJiCEfegLKNySCdaR8tC
+	H9YXlqkxoO7Kajduw+m4de3CoFgqsjrroP4JMv5++AqCKkPA2/xP7NH8OhDXuqQjXCacHH8/XPSqI
+	8/wVYsOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUpgV-00000001u8d-1yRr;
-	Mon, 06 Jan 2025 16:10:31 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tUphf-00000001uLP-0xwo;
+	Mon, 06 Jan 2025 16:11:43 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUpd9-00000001tVb-25Jg
+	id 1tUpdD-00000001tWt-2faA
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 06 Jan 2025 16:07:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=S4VywW6Q3uhsR76RyLbYuQ6LTme7CpciQBgugDZCDNM=; b=bTed8KC5iOpf2OM1iFUAavzNbd
+	Fvmu9NfU8JLKuga5JnwGgFip6kWQGaFhnFf96ggF+OIcnN6ESswQrD3UNOpAQWxNd1+dLPCAyB2Cr
+	8eRA18U1cnEIPSBtN0fw9+MqHusdQELXiWSTqGLYwrcikDUxo1i7SVBnIhS6WflpXNX+sWiiAaG35
+	yTHyowjBI0txF235LRbAZgt9iEKNHP2R8kven9vPRyCgojYMrvWFEo18dLWLsWSpeYE11DX+6Kg14
+	i05WpaIgKrBFfVylM7RSr48EbAQ548jfJ1lbspkXoiCjFPwBvSffsurQuUbgx3As/+qswvMEen6KE
+	H473Ib7g==;
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tUpdA-00000008xpS-2pT7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 16:07:05 +0000
+	Mon, 06 Jan 2025 16:07:06 +0000
 Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
 	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
 	(Exim 4.92)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tUpcx-0000C9-KB; Mon, 06 Jan 2025 17:06:51 +0100
+	id 1tUpcx-0000C3-KF; Mon, 06 Jan 2025 17:06:51 +0100
 Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
 	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tUpcw-007C9q-14;
+	id 1tUpcw-007C9k-0k;
 	Mon, 06 Jan 2025 17:06:51 +0100
 Received: from localhost ([::1] helo=dude05.red.stw.pengutronix.de)
 	by dude05.red.stw.pengutronix.de with esmtp (Exim 4.96)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tUpcw-009dVc-37;
+	id 1tUpcw-009dVc-32;
 	Mon, 06 Jan 2025 17:06:50 +0100
 From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Date: Mon, 06 Jan 2025 17:06:41 +0100
-Subject: [PATCH v2 06/10] arm64: dts: imx8mp-skov: describe LVDS display
- pipeline
+Date: Mon, 06 Jan 2025 17:06:36 +0100
+Subject: [PATCH v2 01/10] arm64: dts: imx8mp-skov: correct PMIC board
+ limits
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250106-skov-dt-updates-v2-6-4504d3f00ecb@pengutronix.de>
+Message-Id: <20250106-skov-dt-updates-v2-1-4504d3f00ecb@pengutronix.de>
 References: <20250106-skov-dt-updates-v2-0-4504d3f00ecb@pengutronix.de>
 In-Reply-To: <20250106-skov-dt-updates-v2-0-4504d3f00ecb@pengutronix.de>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -69,8 +84,8 @@ X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_080703_539568_E6B31422 
-X-CRM114-Status: GOOD (  11.89  )
+X-CRM114-CacheID: sfid-20250106_160704_981528_A308CBE3 
+X-CRM114-Status: GOOD (  13.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,98 +100,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Oleksij Rempel <o.rempel@pengutronix.de>
+The PMIC voltage constraints in the device tree currently describe the
+permissible range of the PMIC. This is unnecessary as this information
+already exists in the driver and wrong as it doesn't account for
+board-specific constraints, e.g. a 2.1V on VDD_SOC would fry the SoC and
+a maximum voltage of 3.4V on the VDD_3V3 rail may be unexpected across
+the board.
 
-The Skov i.MX8MP LT6 device tree so far described the touch screen, but
-didn't describe the screen itself. Fill out these missing pieces.
+Fix this by adjusting constraints to reflect the board limits.
 
-Signed-off-by: Oleksij Rempel <o.rempel@pengutronix.de>
+Fixes: 6d382d51d979 ("arm64: dts: freescale: Add SKOV IMX8MP CPU revB board")
 Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
 ---
 v1 -> v2:
   - no change
 ---
- .../boot/dts/freescale/imx8mp-skov-revb-lt6.dts    | 60 ++++++++++++++++++++++
- 1 file changed, 60 insertions(+)
+ .../arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi | 24 +++++++++++-----------
+ 1 file changed, 12 insertions(+), 12 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-lt6.dts b/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-lt6.dts
-index ccbd3abedd69411d1f04e5aa765bcd1b0c2c403c..baecf768a2ee08a16c9333e8a1f20fbfef19f865 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-lt6.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-lt6.dts
-@@ -8,6 +8,45 @@ / {
- 	model = "SKOV IMX8MP CPU revB - LT6";
- 	compatible = "skov,imx8mp-skov-revb-lt6", "fsl,imx8mp";
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
+index 59813ef8e2bb3a3d5672ba1c5776cf0e45fb6862..ae82166b5c266a96441809958c56b6c8a7ef5e3d 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
+@@ -247,8 +247,8 @@ reg_vdd_soc: BUCK1 {
  
-+	lvds-decoder {
-+		compatible = "ti,sn65lvds822", "lvds-decoder";
-+		power-supply = <&reg_3v3>;
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			port@0 {
-+				reg = <0>;
-+
-+				in_lvds1: endpoint {
-+					data-mapping = "vesa-24";
-+					remote-endpoint = <&ldb_lvds_ch1>;
-+				};
-+			};
-+
-+			port@1 {
-+				reg = <1>;
-+
-+				lvds_decoder_out: endpoint {
-+					remote-endpoint = <&panel_in>;
-+				};
-+			};
-+		};
-+	};
-+
-+	panel {
-+		compatible = "logictechno,lttd800480070-l6wh-rt";
-+		backlight = <&backlight>;
-+		power-supply = <&reg_tft_vcom>;
-+
-+		port {
-+			panel_in: endpoint {
-+				remote-endpoint = <&lvds_decoder_out>;
-+			};
-+		};
-+	};
-+
- 	touchscreen {
- 		compatible = "resistive-adc-touch";
- 		io-channels = <&adc_ts 1>, <&adc_ts 3>, <&adc_ts 4>, <&adc_ts 5>;
-@@ -78,6 +117,27 @@ channel@5 {
- 	};
- };
+ 			reg_vdd_arm: BUCK2 {
+ 				regulator-name = "VDD_ARM";
+-				regulator-min-microvolt = <600000>;
+-				regulator-max-microvolt = <2187500>;
++				regulator-min-microvolt = <850000>;
++				regulator-max-microvolt = <1000000>;
+ 				vin-supply = <&reg_5v_p>;
+ 				regulator-boot-on;
+ 				regulator-always-on;
+@@ -259,8 +259,8 @@ reg_vdd_arm: BUCK2 {
  
-+&lcdif2 {
-+	status = "okay";
-+};
-+
-+&lvds_bridge {
-+	assigned-clocks = <&clk IMX8MP_CLK_MEDIA_LDB>,
-+				 <&clk IMX8MP_VIDEO_PLL1>;
-+	assigned-clock-parents = <&clk IMX8MP_VIDEO_PLL1_OUT>;
-+	/* IMX8MP_VIDEO_PLL1 = IMX8MP_CLK_MEDIA_DISP2_PIX * 2 * 7 */
-+	assigned-clock-rates = <0>, <462000000>;
-+	status = "okay";
-+
-+	ports {
-+		port@2 {
-+			ldb_lvds_ch1: endpoint {
-+				remote-endpoint = <&in_lvds1>;
-+			};
-+		};
-+	};
-+};
-+
- &pwm1 {
- 	status = "okay";
- };
+ 			reg_vdd_3v3: BUCK4 {
+ 				regulator-name = "VDD_3V3";
+-				regulator-min-microvolt = <600000>;
+-				regulator-max-microvolt = <3400000>;
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
+ 				vin-supply = <&reg_5v_p>;
+ 				regulator-boot-on;
+ 				regulator-always-on;
+@@ -268,8 +268,8 @@ reg_vdd_3v3: BUCK4 {
+ 
+ 			reg_vdd_1v8: BUCK5 {
+ 				regulator-name = "VDD_1V8";
+-				regulator-min-microvolt = <600000>;
+-				regulator-max-microvolt = <3400000>;
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <1800000>;
+ 				vin-supply = <&reg_5v_p>;
+ 				regulator-boot-on;
+ 				regulator-always-on;
+@@ -277,8 +277,8 @@ reg_vdd_1v8: BUCK5 {
+ 
+ 			reg_nvcc_dram_1v1: BUCK6 {
+ 				regulator-name = "NVCC_DRAM_1V1";
+-				regulator-min-microvolt = <600000>;
+-				regulator-max-microvolt = <3400000>;
++				regulator-min-microvolt = <1100000>;
++				regulator-max-microvolt = <1100000>;
+ 				vin-supply = <&reg_5v_p>;
+ 				regulator-boot-on;
+ 				regulator-always-on;
+@@ -286,8 +286,8 @@ reg_nvcc_dram_1v1: BUCK6 {
+ 
+ 			reg_nvcc_snvs_1v8: LDO1 {
+ 				regulator-name = "NVCC_SNVS_1V8";
+-				regulator-min-microvolt = <1600000>;
+-				regulator-max-microvolt = <3300000>;
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <1800000>;
+ 				vin-supply = <&reg_5v_p>;
+ 				regulator-boot-on;
+ 				regulator-always-on;
+@@ -295,8 +295,8 @@ reg_nvcc_snvs_1v8: LDO1 {
+ 
+ 			reg_vdda_1v8: LDO3 {
+ 				regulator-name = "VDDA_1V8";
+-				regulator-min-microvolt = <800000>;
+-				regulator-max-microvolt = <3300000>;
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <1800000>;
+ 				vin-supply = <&reg_5v_p>;
+ 				regulator-boot-on;
+ 				regulator-always-on;
 
 -- 
 2.39.5
