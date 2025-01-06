@@ -4,75 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1A95E77198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 15:41:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71F37E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 15:47:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tl7b9/uRfU9PjT0DsfX4Aw1ecJNaqnOdlVBiZttQ580=; b=mF891z/41qfOyav57WBsi/f8Gw
-	vhX1tsln8hSpQW976RmIzLjYPxOxugPkJ8TZjhXsLmwm10/76dOqeDqgTCHYWvdCioSIlJJJJl0/L
-	VTkgne+4cSl+ElhPdpbvzQGR6n3wmOpffnZ5ka9rHIW1Mmm5xWEftkIQc/TbKNBsDfxWOBmh2taSn
-	jGw6/4m+bh4b3dIPqCESKelMcB1nzmQburWvVNftBinR87OhcdZi9HJg6G6iyUJ7LTp5n60xTYeEj
-	VT665/lyLs6n1HEtiCnj4E8JxWzTH54NqRbgmCsM8POh9Eb0bq3s57Rx2jah/TufeGUKEz35yuRcK
-	f6t5KPHA==;
+	bh=27zSPfsDIasiQLrztxpd6KsLCVSNZmztVN6Xdb041vg=; b=nvbm0tPtORpFJfbs6TafYsTl/V
+	nlsdIzb4OWIatyxxwOOSBh3h7VVgoLfjYuyKLs8Fukx5X0BOJCsQmr+OOlDtig9K7iorFwH69JM+9
+	WNQw3UmmPfKyrYYyupLaOLHH4x9LeDbwZnUfIeWMaZKBwkZHdF3zi7rbDg5b9R/SstMHcfp0X2wWF
+	EYO2P2C0pBkDe4vOaadZDegez68XAzn2GB9FiTvD6q8ePc0CSTXb5tBjzpkCPf7RgsnY9WSifjTvT
+	U/qhVzqRwCjYDRq6skxwIyT/3r1k0XbgWSCii4iWsldFU+6IF5c7DVpxf4mLgLiBssMbhqUASwiXb
+	Fz74HxDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUpDx-00000001oEU-3sxD;
-	Mon, 06 Jan 2025 15:41:01 +0000
-Received: from mx.denx.de ([89.58.32.78])
+	id 1tUpJp-00000001phw-2LHj;
+	Mon, 06 Jan 2025 15:47:05 +0000
+Received: from mxout4.routing.net ([2a03:2900:1:a::9])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUpC5-00000001nq5-25tW
+	id 1tUpId-00000001paQ-0AO7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 15:39:06 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9378A104839FD;
-	Mon,  6 Jan 2025 16:38:56 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1736177942;
+	Mon, 06 Jan 2025 15:45:52 +0000
+Received: from mxbox4.masterlogin.de (unknown [192.168.10.79])
+	by mxout4.routing.net (Postfix) with ESMTP id 714D010092F;
+	Mon,  6 Jan 2025 15:45:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
+	s=20200217; t=1736178346;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Tl7b9/uRfU9PjT0DsfX4Aw1ecJNaqnOdlVBiZttQ580=;
-	b=J5Bc69JMzDz1JGBjuEG8POURFwwohBsDV7iwgOJ1wM64dUyGP6zajsQ6sN7IaumEBx7r0F
-	nEJl0cgtzI1qwksNgBWfJvNPAvXxpK194rKZVz/hdnC4WxFnFvuPFAE+z3xhFug+QpQM/Z
-	Q/PLZVVd5CP42opCzvcJIfGc+9+QMnLMehgMxhuAa9PS7XHP3EOYv9/rwbFwJPPqV9fgc8
-	1HZuAoufbXSdN5mmeS2727iCE0O8p+K6TaeNgWvGOM7GKRVJQY2/cEbe3cDQGVoc0TYW/I
-	+Gcf7cb6MwcgzFx3dXF92m2G9EQYJl65yJ28iIxwPBV11o2+4bwRePnTdHNWmg==
-Message-ID: <add68d4c-51d8-4c1a-9560-7c95213dd524@denx.de>
-Date: Mon, 6 Jan 2025 16:36:26 +0100
+	bh=27zSPfsDIasiQLrztxpd6KsLCVSNZmztVN6Xdb041vg=;
+	b=L3ynFVIoB5wGNLo4IbBxboWIntP5qzxtwKEvdDJ7T/QuH7PvKQcGmnTVOktde6ZkhFTPDt
+	6c+abdE4Vb3HNZH3NG9gq3dfW+vMEP7Wzs+yQ6+1NZZaD9bqCOkKi28MpFKwC9YJAqJ/Sx
+	cNpUqqpsrhHLxyW3JRxS7CFiAdtLuwQ=
+Received: from [127.0.0.1] (fttx-pool-80.245.79.38.bambit.de [80.245.79.38])
+	by mxbox4.masterlogin.de (Postfix) with ESMTPSA id 4C9E480155;
+	Mon,  6 Jan 2025 15:45:45 +0000 (UTC)
+Date: Mon, 06 Jan 2025 16:45:45 +0100
+From: Frank Wunderlich <linux@fw-web.de>
+To: Gregory CLEMENT <gregory.clement@bootlin.com>,
+ Frank Wunderlich <frank-w@public-files.de>, frank-w@public-files.de,
+ robh@kernel.org
+CC: dlemoal@kernel.org, cassel@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, andrew@lunn.ch, sebastian.hesselbarth@gmail.com,
+ linux@armlinux.org.uk, hdegoede@redhat.com, axboe@kernel.dk,
+ linux-ide@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: =?US-ASCII?Q?Re=3A_Aw=3A_Aw=3A_Re=3A_=5BPATCH_v1_1/3=5D_arm64=3A_dt?=
+ =?US-ASCII?Q?s=3A_marvell=3A_Fix_anyOf_conditional_failed?=
+User-Agent: K-9 Mail for Android
+In-Reply-To: <87wmf8x8p2.fsf@BLaptop.bootlin.com>
+References: <20241109094623.37518-1-linux@fw-web.de> <20241109094623.37518-2-linux@fw-web.de> <20241111203611.GB1887580-robh@kernel.org> <trinity-796b046d-1857-413e-bb82-78e700d6b5ac-1733138371404@msvc-mesg-gmx005> <trinity-a84b41b3-79c5-49b5-9786-eb89f85578cc-1735843472332@trinity-msg-rest-gmx-gmx-live-548599f845-gxsb9> <87wmf8x8p2.fsf@BLaptop.bootlin.com>
+Message-ID: <B9E245AC-1487-41B5-A30D-41F03FAA0A2C@fw-web.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/4] drm: bridge: dw_hdmi: Add flag to indicate output
- port is optional
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: dri-devel@lists.freedesktop.org, Andrzej Hajda <andrzej.hajda@intel.com>,
- David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>,
- Jernej Skrabec <jernej.skrabec@gmail.com>, Jonas Karlman <jonas@kwiboo.se>,
- Liu Ying <victor.liu@nxp.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Robert Foss <rfoss@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Shawn Guo <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>,
- Stefan Agner <stefan@agner.ch>, Thomas Zimmermann <tzimmermann@suse.de>,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20250105190659.99941-1-marex@denx.de>
- <20250105232219.GC21164@pendragon.ideasonboard.com>
- <a783fe47-89dc-479b-8e85-f956d95cf404@denx.de>
- <20250106070514.GA5568@pendragon.ideasonboard.com>
-Content-Language: en-US
-From: Marek Vasut <marex@denx.de>
-In-Reply-To: <20250106070514.GA5568@pendragon.ideasonboard.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Mail-ID: 8e3ec3fd-240f-4d2b-8e17-bdd50b875e02
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_073905_688709_B12F4502 
-X-CRM114-Status: GOOD (  14.27  )
+X-CRM114-CacheID: sfid-20250106_074551_242111_12D9C297 
+X-CRM114-Status: UNSURE (   7.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,57 +82,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/6/25 8:05 AM, Laurent Pinchart wrote:
-> On Mon, Jan 06, 2025 at 03:48:52AM +0100, Marek Vasut wrote:
->> On 1/6/25 12:22 AM, Laurent Pinchart wrote:
->>> Hi Marek,
->>
->> Hi,
->>
->>> Thank you for the patch.
->>>
->>> On Sun, Jan 05, 2025 at 08:06:03PM +0100, Marek Vasut wrote:
->>>> Add a flag meant purely to work around broken i.MX8MP DTs which enable
->>>> HDMI but do not contain the HDMI connector node. This flag allows such
->>>> DTs to work by creating the connector in the HDMI bridge driver. Do not
->>>> use this flag, do not proliferate this flag, please fix your DTs and add
->>>> the connector node this way:
->>>>
->>>> ```
->>>> / {
->>>>       hdmi-connector {
->>>>           compatible = "hdmi-connector";
->>>>           label = "FIXME-Board-Specific-Connector-Label"; // Modify this
->>>>           type = "a";
->>>>
->>>>           port {
->>>>               hdmi_connector_in: endpoint {
->>>>                   remote-endpoint = <&hdmi_tx_out>;
->>>>               };
->>>>           };
->>>>       };
->>>> };
->>>>
->>>> &hdmi_tx {
->>>>       ...
->>>>
->>>>       ports {
->>>>           port@1 {
->>>>               hdmi_tx_out: endpoint {
->>>>                   remote-endpoint = <&hdmi_connector_in>;
->>>>               };
->>>>           };
->>>>       };
->>>> };
->>>> ```
->>>
->>> Are there any in-tree DT sources that use the old bindings ?
->>
->> See
->> https://lore.kernel.org/dri-devel/AM7PR04MB704688150ACD5D209290246A98092@AM7PR04MB7046.eurprd04.prod.outlook.com/
-> 
-> Maybe I'm missing something obvious, but where is the patch series that
-> moves the DT sources mentioned in that mail thread to the new bindings ?
-Since this optional flag is added, that DT update series can be done 
-separately.
+Am 6=2E Januar 2025 16:28:57 MEZ schrieb Gregory CLEMENT <gregory=2Eclement=
+@bootlin=2Ecom>:
+>Hello Frank,
+>
+>> is there any new state here? got no answer for my last 2 Messages
+>
+>Actually I waited for a new version following the review and I didn't
+>saw it=2E Maybe I missed it=2E
+
+No,sent v2 last days as the suggestion from rob was imho not matching what=
+ the patch does (i do not add phys property)=2E So i wrote back, but there =
+it hangs=2E
+
+I hope new title is better=2E
+
+<https://patchwork=2Ekernel=2Eorg/project/linux-arm-kernel/patch/202501031=
+03724=2E6223-2-linux@fw-web=2Ede/>
+
+Anyone with marvell boards have tested it?
+
+>Gr=C3=A9gory
+
+
+regards Frank
 
