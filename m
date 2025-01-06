@@ -4,63 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF6F9E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 15:29:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6097FE77198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 15:30:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=doKqOtbmtdZeFs8BJV5D5NDjyYbH2KQ6uLFTpD5rQ10=; b=fAjokf1WM8liN6lB/c5rqbWqH9
-	MyAbXbZb4n/7AX9mi6BdFWC/Yf+aiYvPzz5HcgIjYIZygyMxyslL7NiCgTYDJAn9mvswqvo/huAOA
-	+A8SSHjD18WQv5hoKPY8JisJzoABTq89ymj3UZo+ukMLNS3P1ljyzxuTCaD6cuNL37gOzDS29CHBJ
-	cRIkRA21M6X4mvLaDkYnb49GU6/2+xslu4ZWnbxeI5yZ+igMD2eYG3fzsAUGpkyG+3y8VGxf/4aj0
-	WhA615pUK0BAPb7Tfi/2Mizy1QDq9/nhuOOITit/89fiU1aZ7YS9Q883CNE9OwT3DMVO4cAYMVmK5
-	EHoxSDBA==;
+	bh=r8skViHkHUdTzDUwE6oxnQAwKjn+7wyUOhiP2qZ6VJs=; b=xglMAyeB21ALPo46oD4tj1/2qx
+	Ddr9nsHNaCsFOkd2I5I39In7wSXcCF/YT/9yzDD8Fn7/u19P06LhxmrZEtCiJrIOqFUUV2BeT3KFp
+	4zd3bZW/TjubqLsCymSIQgh7D9UjFgLObWfQh3bJvBxqQ6HTkRgES38pOAppXI1bzqLw6u/Qrke2H
+	18i1GYf0PfusbuBR8m/CPvnhwMrBd5pGklsQZ8Nm81Dt3v727J39uU6DrYTh3gS1S8Vg79WpugxVl
+	GI6SWQNZWCeDRSYDPGYArlSVXIRHsdPBLfK4vq+XngzkGexagTgUWB4QplT/jO1v+PK5VtdjDGloY
+	E+wanxLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUp2T-00000001lvz-24ud;
-	Mon, 06 Jan 2025 15:29:09 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tUp3e-00000001mCC-0lp2;
+	Mon, 06 Jan 2025 15:30:22 +0000
+Received: from relay6-d.mail.gandi.net ([217.70.183.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUp1H-00000001lbd-2wiA
+	id 1tUp2N-00000001lth-24Ue
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 15:27:57 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tUp14-0001QG-DH; Mon, 06 Jan 2025 16:27:42 +0100
-Message-ID: <d4728cc0-8f1b-4c0a-8133-527d68643d26@pengutronix.de>
-Date: Mon, 6 Jan 2025 16:27:41 +0100
+	Mon, 06 Jan 2025 15:29:04 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id E11C9C0006;
+	Mon,  6 Jan 2025 15:28:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1736177339;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=r8skViHkHUdTzDUwE6oxnQAwKjn+7wyUOhiP2qZ6VJs=;
+	b=ezpS4D9hDotHMMLeCvK29RNsk/GClufpghlnuVKXrCNppd94dObGHEflvQPfEDo+xQjW4L
+	7N+TCKDYGZYiMF5HY9NTDjEf7xz+X62oNAltUPPSx9T03FbJjWfbpssbXs0eXQTJGi06JN
+	rex37pwWVJdlnzdtfKLSlhF4DiCSG3rkPzlBvHHu84h9Rn4u3agjF88BLPuO1d7JMSeSfy
+	j9L9mIyNBU6pLe8gfy6i/SjrUwYMiJVOhHJ+/2i5KkYuLj1VhsAl+Q3cwVIBYov3IxH+QW
+	SvlPcBC+AMeZCus+vTnKmawxpOnvV4hIHCkAZIBQWSD7TYWJXzRoKSZkd9g2uQ==
+From: Gregory CLEMENT <gregory.clement@bootlin.com>
+To: Frank Wunderlich <frank-w@public-files.de>, frank-w@public-files.de,
+ robh@kernel.org, linux@fw-web.de
+Cc: dlemoal@kernel.org, cassel@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, andrew@lunn.ch, sebastian.hesselbarth@gmail.com,
+ linux@armlinux.org.uk, hdegoede@redhat.com, axboe@kernel.dk,
+ linux-ide@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: Aw: Aw: Re: [PATCH v1 1/3] arm64: dts: marvell: Fix anyOf
+ conditional failed
+In-Reply-To: <trinity-a84b41b3-79c5-49b5-9786-eb89f85578cc-1735843472332@trinity-msg-rest-gmx-gmx-live-548599f845-gxsb9>
+References: <20241109094623.37518-1-linux@fw-web.de>
+ <20241109094623.37518-2-linux@fw-web.de>
+ <20241111203611.GB1887580-robh@kernel.org>
+ <trinity-796b046d-1857-413e-bb82-78e700d6b5ac-1733138371404@msvc-mesg-gmx005>
+ <trinity-a84b41b3-79c5-49b5-9786-eb89f85578cc-1735843472332@trinity-msg-rest-gmx-gmx-live-548599f845-gxsb9>
+Date: Mon, 06 Jan 2025 16:28:57 +0100
+Message-ID: <87wmf8x8p2.fsf@BLaptop.bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 03/10] arm64: dts: imx8mp-skov: use I2C5 for DDC
-To: Frank Li <Frank.li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Oleksij Rempel
- <o.rempel@pengutronix.de>, devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20241219-skov-dt-updates-v1-0-38bf80dc22df@pengutronix.de>
- <20241219-skov-dt-updates-v1-3-38bf80dc22df@pengutronix.de>
- <Z2RZG7pAElG3TGLx@lizhi-Precision-Tower-5810>
- <a30baba6-6252-4c69-b6a7-e4099e823920@pengutronix.de>
- <Z2RzoITPUmZFoX09@lizhi-Precision-Tower-5810>
-Content-Language: en-US
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-In-Reply-To: <Z2RzoITPUmZFoX09@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-GND-Sasl: gregory.clement@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_072755_739258_C96A0863 
-X-CRM114-Status: GOOD (  23.49  )
+X-CRM114-CacheID: sfid-20250106_072903_663679_96EADE53 
+X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,136 +81,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19.12.24 20:27, Frank Li wrote:
-> On Thu, Dec 19, 2024 at 06:43:56PM +0100, Ahmad Fatoum wrote:
->> Hello Frank,
->>
->> On 19.12.24 18:34, Frank Li wrote:
->>> On Thu, Dec 19, 2024 at 08:25:27AM +0100, Ahmad Fatoum wrote:
->>>> The HDMI DDC pads can be muxed either to an i.MX I2C controller or
->>>> to a limited I2C controller within the Designware HDMI bridge.
->>>>
->>>> So far we muxed the pads to the HDMI bridge, but the i.MX I2C controller
->>>> is the better choice:
->>>
->>> Switch to the i.MX I2C controller because
->>>
->>>>
->>>>   - We use DDC/CI commands for display brightness configuration, but the
->>>>     Linux driver refuses[1] transfers to/from address 0x37, because the
->>>>     controller doesn't support multi-byte requests.
->>>
->>>       Designware HDMI Limited I2C controller doesn't support multi-byte
->>> requests and display brightness configuration by DDC/CI command need it.
->>>
->>>>
->>>>   - The driver doesn't support I2C bus recovery, but we need that,
->>>>     because some HDMI panels used with the board can be flaky.
->>>
->>>       Designware HDMI Limited I2C controller doesn't support I2C bus
->>> recovery.
->>>
->>>>
->>>> As the i.MX I2C controller doesn't have either of these limitations,
->>>> let's make use of it instead.
->>>
->>> Reduntant. can be removed.
->>
->> Sorry, I am very much open to review feedback, but I fail to see how
->> your subjective take improves things.
-> 
-> Ref https://docs.kernel.org/process/submitting-patches.html
-> 
-> "Describe your changes in imperative mood, e.g. “make xyzzy do frotz”
-> instead of “[This patch] makes xyzzy do frotz” or “[I] changed xyzzy to do
-> frotz”, as if you are giving orders to the codebase to change its behaviour."
-> 
-> Avoid use "we(same as "I" in above example) ..."
+Hello Frank,
 
-We is replaced by passive voice in v2.
+> is there any new state here? got no answer for my last 2 Messages
 
-Cheers,
-Ahmad
+Actually I waited for a new version following the review and I didn't
+saw it. Maybe I missed it.
 
-> 
-> Frank
-> 
->>
->> Thanks,
->> Ahmad
->>
->>
->>
->>
->>>
->>> Frank
->>>>
->>>> [1]: https://lore.kernel.org/all/20190722181945.244395-1-mka@chromium.org/
->>>>
->>>> Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
->>>> ---
->>>>  .../boot/dts/freescale/imx8mp-skov-revb-hdmi.dts   | 26 ++++++++++++++++++++--
->>>>  1 file changed, 24 insertions(+), 2 deletions(-)
->>>>
->>>> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-hdmi.dts b/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-hdmi.dts
->>>> index c1ca69da3cb8..206116be8166 100644
->>>> --- a/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-hdmi.dts
->>>> +++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-hdmi.dts
->>>> @@ -9,12 +9,34 @@ / {
->>>>  	compatible = "skov,imx8mp-skov-revb-hdmi", "fsl,imx8mp";
->>>>  };
->>>>
->>>> +&i2c5 {
->>>> +	pinctrl-names = "default", "gpio";
->>>> +	pinctrl-0 = <&pinctrl_i2c5>;
->>>> +	pinctrl-1 = <&pinctrl_i2c5_gpio>;
->>>> +	scl-gpios = <&gpio3 26 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
->>>> +	sda-gpios = <&gpio3 27 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
->>>> +	clock-frequency = <100000>;
->>>> +	status = "okay";
->>>> +};
->>>> +
->>>>  &iomuxc {
->>>>  	pinctrl_hdmi: hdmigrp {
->>>>  		fsl,pins = <
->>>> -			MX8MP_IOMUXC_HDMI_DDC_SCL__HDMIMIX_HDMI_SCL		0x1c3
->>>> -			MX8MP_IOMUXC_HDMI_DDC_SDA__HDMIMIX_HDMI_SDA		0x1c3
->>>>  			MX8MP_IOMUXC_HDMI_HPD__HDMIMIX_HDMI_HPD			0x19
->>>>  		>;
->>>>  	};
->>>> +
->>>> +	pinctrl_i2c5: i2c5grp {
->>>> +		fsl,pins = <
->>>> +			MX8MP_IOMUXC_HDMI_DDC_SCL__I2C5_SCL			0x400001c2
->>>> +			MX8MP_IOMUXC_HDMI_DDC_SDA__I2C5_SDA			0x400001c2
->>>> +		>;
->>>> +	};
->>>> +
->>>> +	pinctrl_i2c5_gpio: i2c5gpiogrp {
->>>> +		fsl,pins = <
->>>> +			MX8MP_IOMUXC_HDMI_DDC_SCL__GPIO3_IO26			0x400001c2
->>>> +			MX8MP_IOMUXC_HDMI_DDC_SDA__GPIO3_IO27			0x400001c2
->>>> +		>;
->>>> +	};
->>>>  };
->>>>
->>>> --
->>>> 2.39.5
->>>>
->>>
->>
->>
->> --
->> Pengutronix e.K.                           |                             |
->> Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
->> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
->> Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
-> 
+Gr=C3=A9gory
 
+>
+> https://patchwork.kernel.org/project/linux-arm-kernel/patch/2024110909462=
+3.37518-2-linux@fw-web.de/
+>
+> sorry for the html-entities...they came from my gmx webmailer, it is repo=
+rted multiple times, but i cannot do more here :(
+>
+> regards Frank
+>
+>
+>> Gesendet: Montag, 2. Dezember 2024 um 12:19
+>> Betreff: Aw: Re: [PATCH v1 1/3] arm64: dts: marvell: Fix anyOf condition=
+al failed
+>>
+>> Hi,
+>>
+>> just a gentle ping to have it finally merged
+>>
+>> regards Frank
 
--- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+--=20
+Gr=C3=A9gory CLEMENT, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
