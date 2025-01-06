@@ -4,156 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C89AE77198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 16:42:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB0F4E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 16:44:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kLtaA30x46OOm+qM0sXZm9uumesTb8ZvPVaSoItN0AE=; b=JFR1caPyrfufmz5XoTMXaKhKOt
-	r8CfiirhwHt1/hvpAlZEwNl92pMHzexWMh51w4l1+gQ1FSyuL48fIkJWAdTqk1kCJOGlWoF4D7oSx
-	TuSvrzmJGkj5riQaXM6KEu92hQBUf15vEzm7XBzSkFqQH7+lo1mEVtG1V0GdzN4fQQsVEXS8mmOWz
-	jmwJnTqvKSSptfxBhD5cw/32jTbHfgQ5s4pmRXzPribG03RnNxlO8KKdzEIQFn4h7NomHMA05AcqB
-	j2JI24lEoUTco8LIM3REzj+HAUw6c+YliRm9rtmZvZI2JybiJTP35Z7dioqVYaCATW1LUp/X3vLGD
-	VlHYkSIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2TVELzHCA4aZQ2g5XugjPtl5eBfsMF+kuJW/sAUoIE0=; b=SjMc82JtkwqAkHFtxKDwnPTQri
+	wzyKsYp+p8WDTgXTtmoz029Wg22XLgitza0FOYh4y8feIdm0Lh6j/gX82FXE4S/nntYeaMP8uHN02
+	Sh40QTPsuDU5NChLYJwnWTwTfO8+KSv5QoQEUd3pat7/ZAhCglqKiH/Jy3n05kq14slLMs5u/kY4Z
+	uQ6HQDGL2bMdFt+oaRPd1mTIYSi/d1kub2a0UWaUabfY4dL9y6U2cVURHCVF+Hu92QByzxAVvPsIf
+	c4JctldqtiFj444xudJQJC+9/vnO6vTwrCatedzCn87976Oa/LzApc4TYMEzr8l0YLpUfet1bS+PY
+	ZBJlN9nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUqBd-00000001z8W-2Kx7;
-	Mon, 06 Jan 2025 16:42:41 +0000
-Received: from mail-am0eur02on2062d.outbound.protection.outlook.com ([2a01:111:f403:2606::62d] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
+	id 1tUqCn-00000001zUK-3LFe;
+	Mon, 06 Jan 2025 16:43:53 +0000
+Received: from weierstrass.telenet-ops.be ([2a02:1800:110:4::f00:11])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUqAS-00000001yq5-0Hh0
+	id 1tUqB4-00000001yxX-0ANw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 16:41:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CWWf7odixQII/7wvedLULj7iXaab46Pdm7m5HcE6YKYBQYHcg10v8gN8tXR3S2bmaIkYcf9bLmBQCocOY+RP3PmSFLweEgmC4i/BfefMyeAkuAvwcwQ0NsOAGNUiaC5Bw2fCBp0kVcOxWD+0RhbJn347sKXXtsXQG7U4Gd1loc59vxBws+6qH/t2pOw4pahZiAkTNlNJ56+dKnUJMILja6eBVcSFi8pJozRip2BHI1TJ92TcbTUUIVIHSCvJftkGoVQnLtNKy/gOIhMtCQe+IZOGeY/fi+b8E+dO+n8Mf3VTvYBDGazUzGDm+Xdsaa5qNjrEprxZrd/Els4LfOMW8Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kLtaA30x46OOm+qM0sXZm9uumesTb8ZvPVaSoItN0AE=;
- b=Cn4nR8unLHIVE49wCyhmLRG7l4pgI8FGFvrZ9S1W+4gi05EKQCmo6wrYuXRTaz+Zcqf2IiR52+OKqczTHDSoDtLSyroyzstyokHhx0YIvlQ7AZQMqFIRejTWphS90ixbOWUVZDd/7aGeuzTNqO37y1Kf8XW0Rd7i9a2pl8jwplDGX1OTUhxCk2tohE6Qf4XKoMiZJYjDjgWMTNYssevdZwGud6PbIGuEjPbFg+DCkJ8xi1qQ8uFZDfUDRUKsFUkzem01BupfXXsTo9OMyqVlytzRYaJavoqccgzFqfCd5RbUvq3In9oGAlIky7Z5zZDFsrasg0necTQhTVtqfrLdMQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kLtaA30x46OOm+qM0sXZm9uumesTb8ZvPVaSoItN0AE=;
- b=e39KPEytvH7EfNFsVsdFB3p90132xv2LUmxF1jNx40Xebpu7b3Pu7YyoHjSqbR1ZYrEr/uv4eghe2lu3IYMNRprbRmxw+AF8DK2t3ZNs67bhNJkieSsRzHECrcQhDDU7rkIPYdnQbRN0EyvP1rXVcr2By333XdvrzdKAfc+XLeuskJvrg+MimaJ6q0YFKUJupWn2iA4AffdO+zpJdj+mUMtd5mJXn7hZo3DbmoebKtfY5HkjPpd2WpNgDpVzRimshn17PCv1BHNC5r2pzut4JDG9IDTPFWFSceLv4qZnH3BpAAivahriteEO4xFo5RhcUDg2pCs/GdBwBBtM9kHYDQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by PAXPR04MB8125.eurprd04.prod.outlook.com (2603:10a6:102:1cc::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8314.17; Mon, 6 Jan
- 2025 16:41:20 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8314.015; Mon, 6 Jan 2025
- 16:41:20 +0000
-Date: Mon, 6 Jan 2025 11:41:11 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Abel Vesa <abel.vesa@linaro.org>, Marek Vasut <marex@denx.de>,
-	linux-clk@vger.kernel.org, imx@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v2 1/6] dt-bindings: clock: imx8m: document
- nominal/overdrive properties
-Message-ID: <Z3wHp6eLQuV9GGvh@lizhi-Precision-Tower-5810>
-References: <20250106-imx8m-clk-v2-0-6aaeadac65fe@pengutronix.de>
- <20250106-imx8m-clk-v2-1-6aaeadac65fe@pengutronix.de>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250106-imx8m-clk-v2-1-6aaeadac65fe@pengutronix.de>
-X-ClientProxiedBy: SJ0PR13CA0117.namprd13.prod.outlook.com
- (2603:10b6:a03:2c5::32) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Mon, 06 Jan 2025 16:42:07 +0000
+Received: from laurent.telenet-ops.be (laurent.telenet-ops.be [IPv6:2a02:1800:110:4::f00:19])
+	by weierstrass.telenet-ops.be (Postfix) with ESMTPS id 4YRg206ZDnz4x2cb
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jan 2025 17:42:00 +0100 (CET)
+Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed80:39d4:dc4e:b4ce:1377])
+	by laurent.telenet-ops.be with cmsmtp
+	id xshx2D00L3AZZFy01shxk2; Mon, 06 Jan 2025 17:41:57 +0100
+Received: from rox.of.borg ([192.168.97.57])
+	by ramsan.of.borg with esmtp (Exim 4.97)
+	(envelope-from <geert@linux-m68k.org>)
+	id 1tUqAs-00000008NTv-3A5o;
+	Mon, 06 Jan 2025 17:41:57 +0100
+Received: from geert by rox.of.borg with local (Exim 4.97)
+	(envelope-from <geert@linux-m68k.org>)
+	id 1tUqAv-00000004YZR-0Irs;
+	Mon, 06 Jan 2025 17:41:57 +0100
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: soc@lists.linux.dev,
+	soc <soc@kernel.org>
+Cc: Magnus Damm <magnus.damm@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [GIT PULL] Renesas DTS updates for v6.14 (take two)
+Date: Mon,  6 Jan 2025 17:41:53 +0100
+Message-ID: <cover.1736180859.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PAXPR04MB8125:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5dcb2b4f-92a5-4663-62f3-08dd2e70f2ca
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|1800799024|366016|376014|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?RecqRILwGSZsbJBHWMjqtIG6C5IIxZyT85Gb+ZPJaqTmH7xML4bBJtANtonF?=
- =?us-ascii?Q?ft/x8QnL5iJ0Sm/nnA+kt3ISJ7HuATSLylcOscu4zPqSljx2WRpSjTGw4Y3/?=
- =?us-ascii?Q?ODdpcstA2TuP8/0I6vkW2Nmq4uOD1+WRcjpci9fz9d0ReGjlENP7AJzJOKET?=
- =?us-ascii?Q?IDwCxk9Z2He3EpRD8o5CDav648PNCoiM9uYMPvxjE9i8gTbXUJMZnCx+IgbU?=
- =?us-ascii?Q?a0dpQ5wnmQIgVTc0wcXhsRyGDkco3Ng9VyoJu7cHZZLvsat3RzO/UGy97MFk?=
- =?us-ascii?Q?bKkue66+9B/f+5eRGKTkEsG/SJ/qNv1GRvvX+nyQEEW3F7BSFd9kKmVQk7SO?=
- =?us-ascii?Q?aA0nbIQKq2tkWY/MtbzZL1RwOdRVmi7YRzoDtGPLD9jIe+YBZSd773dvrru5?=
- =?us-ascii?Q?teQXf4bQwS/dsmkRDTAjsTYWELBCJWLrCHi/0OqpPMI121GIVnAe2lWTU5AO?=
- =?us-ascii?Q?eXYFnq/4BYpOuzVQCRShV29zOXJdOgFBdpfJ3qmkELI+IcVlFUXLZnr8xT5q?=
- =?us-ascii?Q?73UriSLd7wWmzp2v+pYUVMY85cNE++hislvY6Bv1MeVp29sKdbEHylgBN/tt?=
- =?us-ascii?Q?09ewBSFdfVto5TfZTrZBwaB4vpKqAeBjGJwLYiQN6pjV7UIojRAmxNwEKrHt?=
- =?us-ascii?Q?rG/WpKwIacTGCVeHGJtMl/FozowbH9k6G9Vcb9qWkT015auiv9pzWMZhiWqM?=
- =?us-ascii?Q?QiCpHGcK0r4mgrlczOp9PJNvliXD6Vsa3domhYl61ncHu2mdt11OFI45dVde?=
- =?us-ascii?Q?fCnWScQn+ta1odEkUVInNsGsVyl1sx8FKz/+QB9+dEB0TDnJ1Tqd9L79TxXf?=
- =?us-ascii?Q?ExkoVLAfGDQk2oRsrmkLkW7jzpm0Ov5VX+Yw1gypYz0HWECaqxY12ymTzYa/?=
- =?us-ascii?Q?WD1og3pTlK13OANEjJY889nCMnUHKfwV1MMXvDoxwVL5MTVrHbFH2N/5EaLi?=
- =?us-ascii?Q?IqufXTKrporXQBTg97Q8BXgwvdPH7MIgkgBXP/HVbV1ioLz/skFWGTMtSh88?=
- =?us-ascii?Q?UiJ5oZ0dRm88sSuddBif74OPuyWj6Vw6LNCvAcwsUV3o4M/KNcxGYnHyv9+c?=
- =?us-ascii?Q?HqNB0EDvWuRKg8P/88xyYRGf1IAZReq3jvlsBq1VcILuy0ydS7kWBawcjFVe?=
- =?us-ascii?Q?3oPqJe2teWcSVnnDKF+3PdgOXWnj5luURD36yQMPH1OFD7xmVx+rqC0sK/bF?=
- =?us-ascii?Q?FRDLamjQI3CXvsHjv6A9lClCiqMjKwM5sF/pqcNR5GYaBDn1wTldDBsry0ft?=
- =?us-ascii?Q?6M9udmS+Ob7KkvzMByEhnEzY+PZ3GdqxyG3FG9v2OBsuE51GmYy5cFAEV+n3?=
- =?us-ascii?Q?/H3z6/VyYmgB9WujVZWEnd2jHiQ+yQvpIQN4ohAKPW8lT2j5Y4ryn/7+AM+p?=
- =?us-ascii?Q?z8m3Vt3MYWBj3FDQXcL9lvzTTNfZEesYFyLE7ernvDVaLbmsYz3g8zLniKOs?=
- =?us-ascii?Q?ECfY0kyeR7aBGlrRqon7VW6TC0vql30x?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(1800799024)(366016)(376014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?vKC0+xzaPLtyLQHquwpBD24Df3fKC9eIOKyfo1Qk8Kxk6SeTBkGFDh8DnT9O?=
- =?us-ascii?Q?w7kHtNlkqNBTxwqVE9Zg1ADubt6pt57NGUXXQCCYcfyjqn2uWIRa64TQB0zN?=
- =?us-ascii?Q?6t4vD0gYudZAreDrEj3ZS8gRqc+QqK6us5nEFZUzm0eVv20EvkQp8ly0kkKX?=
- =?us-ascii?Q?JLGEmFI2T5oE0qYS36ayZEANahrRUr+jvZcZqPR5I0zAdpAby4UNVfsXZiZf?=
- =?us-ascii?Q?V0c3rXzyE7X17o7HRpYFKt3hHhm18uIk9ToZQfJnkhEj8m9Po6IiR/rd0hcB?=
- =?us-ascii?Q?b3QoeYZL4YHzHLGZ7e6uhHrk5HaDJXwzx2+jo88h8ZerCDDAU/M9geHUaQPC?=
- =?us-ascii?Q?zq8OFgVlOqBpUAJGJefC19F+QPuoVJEJ5By2ilk24/1xsueC83bJYTVhakxc?=
- =?us-ascii?Q?1SaI6ZebNIFmB+/35QsSPthJhju3nMhjd+YutcHRD6zOHOXfxqOdT7lm5UwA?=
- =?us-ascii?Q?oJgSy+4kEWp475QeOn5Xs/E5p21lx6/Wkyi8LaLL3jzahXGnmpuGZZ3c4pAA?=
- =?us-ascii?Q?uqmQOCQquaexs19AC/tdgWQVqVchnGvTrOsM8FDx4l7PeK6c6cQfESWQihff?=
- =?us-ascii?Q?1Fwk3zWiav7sVm+CKoPbqJRK4vc8u/LnGq3gff1u7ueramJwwUcYqKsiylYB?=
- =?us-ascii?Q?A+3JHYjJ2/mdatKMYyq5ijvM51bS1Lezo+RYvC2cRp8U527uK4u4VyZV6o1k?=
- =?us-ascii?Q?uvdHUx4Z4KfMPaK0v+nnPQ6K/pQaWoAIO3wwRju0bEKDDBvmymc+uV2m/uqC?=
- =?us-ascii?Q?qjvc/A14wPK8/e4pEO04uKG/GLzUJnZBP83JVyn2oH3TfvQnznb2fTca52yq?=
- =?us-ascii?Q?sFxcenmISTgyN6ObNq3Bnshj/OHwGMyumkaEbY4TAhhHFWPcFDXlPaKtHJT7?=
- =?us-ascii?Q?mOSx83ozGQhfY+tTooDase4viq8Mq7N5hU2F+dVT7PGS/UongfeGgBnq5UwA?=
- =?us-ascii?Q?BnqqmDNy+LpAoX90RKNlHJFAZHT+TpVt/tph2EZtdfP7GCaGFnB2/GhTLGS4?=
- =?us-ascii?Q?03IdamOJpFKIOwdTOzYihoJEGImxx5Q8bHboLDbg0HjquVFr64w3mZvSNYNm?=
- =?us-ascii?Q?m5ivoG7MSykreDia3LDVtTkOKT0JRNckzHs9qwhpjx+m8MLRw4o4vpN3ZDQw?=
- =?us-ascii?Q?qWqwSICdrjfGpnafB+OtuuG95dSM1gALZtRgrRuwjAnPH88ShymcfZcWHs1Z?=
- =?us-ascii?Q?zV6N68aCP1a9mBxWDA0hG95Qrhcl5gmzCtTtGOTaX4RU/hWCRhlR4V47kY6U?=
- =?us-ascii?Q?9PFKr3CifutQd/o/kqlflI+gLlApWKt6032F7sfkTHKXoVKXjaz2nNvfsbz5?=
- =?us-ascii?Q?cqmDUB0RJRNJqgru6kbjVJkVDSnlfeAhNnDJPzn7il0ehInTMTJzYu7GfOHz?=
- =?us-ascii?Q?T8kQgd6VE7DORvZpTpBK+DuiqiQ2ft6hG08hrrr9R+/0g6IQFSMG7zcQ6noW?=
- =?us-ascii?Q?20mz2uMsOlsM1VD8fTewapXhZN2Cx2gOODX4OyhVpkPMA+cdFtz5crB6I7qs?=
- =?us-ascii?Q?srngLVU+5aUkssb2B8FaUfJIitBrIEtwVSqZajgUU9RUPdxxSlo7kP6T5JaC?=
- =?us-ascii?Q?hZwZEYOXKOK45R/23UA=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5dcb2b4f-92a5-4663-62f3-08dd2e70f2ca
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jan 2025 16:41:20.2072
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: CnXU0iGZsV/4do9eyNsH6/52rEkCfIsTMYqUH1Y9x25nzuDdCS0OU6m1FwmVwejFdUMd6f4IT4GKnlytPzmamw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8125
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_084128_109176_2C767922 
-X-CRM114-Status: GOOD (  26.71  )
+X-CRM114-CacheID: sfid-20250106_084206_214678_57526414 
+X-CRM114-Status: GOOD (  19.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,78 +73,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 06, 2025 at 03:21:42PM +0100, Ahmad Fatoum wrote:
-> The imx8m-clock.yaml binding covers the clock controller inside all
-> of the i.MX8M Q/M/N/P SoCs. All of them have in common that they
-> support two operating modes: nominal and overdrive mode.
->
-> While the overdrive mode allows for higher frequencies for many IPs,
-> the nominal mode needs a lower SoC voltage, thereby reducing
-> heat generation and power usage.
->
-> As increasing clock rates beyond the maximum permitted by the supplied
-> SoC voltage can lead to difficult to debug issues, device tree consumers
-> would benefit from knowing what mode is active to enforce the clock rate
-> limits that come with it.
->
-> To facilitate this, extend the clock controller bindings with two mutually
-> exclusive optional properties. Allowing for absence of both properties is
-> needed, because there is no default suitable for all boards:
->
-> For i.MX8M Mini and Nano, the kernel SoC DTSIs has assigned-clock-rates
-> that are all achievable in nominal mode. For i.MX8MP, there are some
-> rates only validated for overdrive mode.
->
-> But even for the i.MX8M Mini/Nano boards, we don't know what rates they
-> may configure at runtime, so it has not been possible so far to infer from
-> just the device tree what the mode is.
->
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
-> ---
->  Documentation/devicetree/bindings/clock/imx8m-clock.yaml | 14 ++++++++++++++
->  1 file changed, 14 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/clock/imx8m-clock.yaml b/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
-> index c643d4a814786a1fc7e559140fe58911990f71bb..a6ae5257ef531f3fa8506d515d202f5b7842c4fa 100644
-> --- a/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
-> +++ b/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
-> @@ -43,6 +43,14 @@ properties:
->        ID in its "clocks" phandle cell. See include/dt-bindings/clock/imx8m-clock.h
->        for the full list of i.MX8M clock IDs.
->
-> +  fsl,nominal-mode:
-> +    description: Set if SoC is operated in nominal mode
-> +    $ref: /schemas/types.yaml#/definitions/flag
-> +
-> +  fsl,overdrive-mode:
-> +    description: Set if SoC is operated in overdrive mode
-> +    $ref: /schemas/types.yaml#/definitions/flag
-> +
+	Hi SoC folks,
 
-why need two flags? suppose "not set fsl,overdrive-mode" is equal to
-fsl,nominal-mode
+This is my second pull request for the inclusion of Renesas SoC updates
+for v6.14.
 
-Frank
+The following changes since commit acb247afab5bc2b4462f4dfc17a9d930e1153e52:
 
->  required:
->    - compatible
->    - reg
-> @@ -95,6 +103,12 @@ allOf:
->              - const: clk_ext2
->              - const: clk_ext3
->              - const: clk_ext4
-> +  - if:
-> +      required:
-> +        - fsl,overdrive-mode
-> +    then:
-> +      properties:
-> +        fsl,nominal-mode: false
->
->  additionalProperties: false
->
->
-> --
-> 2.39.5
->
+  arm64: dts: renesas: r9a09g047: Add I2C nodes (2024-12-17 09:42:52 +0100)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git tags/renesas-dts-for-v6.14-tag2
+
+for you to fetch changes up to c357e2295b7880b1d9d365c3389f06ef2eb464d0:
+
+  arm64: dts: renesas: white-hawk-csi-dsi: Define CSI-2 data line orders (2025-01-06 16:26:29 +0100)
+
+----------------------------------------------------------------
+Renesas DTS updates for v6.14 (take two)
+
+  - Add pin control support for the RZ/G3E SoC and the RZ/G3E SMARC
+    Carrier-II EVK development board,
+  - Add Image Signal Processor helper block (FCPVX and VSPX) support for
+    the R-Car V4H SoC,
+  - Describe odd C-PHY wiring on the White Hawk CSI/DSI sub-board,
+  - Miscellaneous fixes and improvements.
+
+Note that this includes Pin Control DT binding and bindings definitions
+for the RZ/G3E and RZ/V2H SoCs, which are shared by DT source files and
+the pin control driver.
+
+Thanks for pulling!
+
+----------------------------------------------------------------
+Biju Das (5):
+      dt-bindings: pinctrl: renesas: Add alpha-numerical port support for RZ/V2H
+      dt-bindings: pinctrl: renesas: Document RZ/G3E SoC
+      arm64: dts: renesas: r9a09g057h44-rzv2h-evk: Replace RZG2L macros
+      arm64: dts: renesas: r9a09g047: Add pincontrol node
+      arm64: dts: renesas: r9a09g047e57-smarc: Add SCIF pincontrol
+
+Geert Uytterhoeven (2):
+      Merge tag 'renesas-r9a09g057-dt-binding-defs-tag2' into renesas-dts-for-v6.14
+      Merge tag 'renesas-r9a09g047-dt-binding-defs-tag2' into renesas-dts-for-v6.14
+
+Jacopo Mondi (2):
+      arm64: dts: renesas: r8a779g0: Add FCPVX instances
+      arm64: dts: renesas: r8a779g0: Add VSPX instances
+
+Niklas Söderlund (1):
+      arm64: dts: renesas: white-hawk-csi-dsi: Define CSI-2 data line orders
+
+ .../bindings/pinctrl/renesas,rzg2l-pinctrl.yaml    |  7 ++--
+ arch/arm64/boot/dts/renesas/r8a779g0.dtsi          | 40 +++++++++++++++++++++
+ arch/arm64/boot/dts/renesas/r9a09g047.dtsi         | 13 +++++++
+ arch/arm64/boot/dts/renesas/r9a09g047e57-smarc.dts | 13 +++++++
+ .../boot/dts/renesas/r9a09g057h44-rzv2h-evk.dts    | 36 +++++++++----------
+ .../arm64/boot/dts/renesas/white-hawk-csi-dsi.dtsi |  2 ++
+ .../pinctrl/renesas,r9a09g047-pinctrl.h            | 41 ++++++++++++++++++++++
+ .../pinctrl/renesas,r9a09g057-pinctrl.h            | 31 ++++++++++++++++
+ 8 files changed, 163 insertions(+), 20 deletions(-)
+ create mode 100644 include/dt-bindings/pinctrl/renesas,r9a09g047-pinctrl.h
+ create mode 100644 include/dt-bindings/pinctrl/renesas,r9a09g057-pinctrl.h
+
+Gr{oetje,eeting}s,
+
+						Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+							    -- Linus Torvalds
 
