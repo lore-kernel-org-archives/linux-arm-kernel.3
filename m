@@ -4,67 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15480E77198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 08:59:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CACDE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 09:05:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=m2jqZGltg1cOzex+4I71K9tCYpJ4QXYI6zWTRv4NdOU=; b=X5OUR2U/5HNbIJZ0Gqr3phdNdF
-	9rjJcF2VDbRKzBQeGD7ykZCZ4bzmfVPt7s4tWdOK0M9u6Zi4pryogS2uOTNeE3g2i8sn+XthaNC+w
-	CJ+bFw0Cbn8RcphW7D1slYfseFPOEUwhsjvOF0LbjctQ9CVIae95ZGRixI9gwR5mRuGjStfdoRgCc
-	c7FNg7OpkzjeehHh7pHwH+e1oLu7Puf6bP1ibeddOczI+lLT1uKOkAKP2ubM5lrgvxJ2tQt0op8ry
-	X7XXnq3KvU0Z7VLVPvkH0/5dMFZxJgiLFg/FduH0AqDc/s7Mcy/NtgGOOP1NKi4MxqN6iJvZU8Q6M
-	f6Wb30/g==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eFxTtDgk1DzZsZQ3ygFGMHqYYaI93o+Qf7G7yIH5Azk=; b=hce14rRJsGucvnbXsGz++ky38k
+	6AvMHLloBFNMDEWyGZafa4wCtGEHdHqluTr6HIySqFnE+NGHgArCWKLlKVOD7AoOWQvoRtEqfZUTW
+	ATScM76vxT/Ie3mSVl1aZOB+HFtnO7ziA1fS4dxr2AsMW/EbpHfotxPHPGl8q5WvqwaLW3plopCuH
+	513Om+4SYCBrp8Xg++6VpONQD6o9M+FubADdVK1oERIMGuF/ZhohB16sh09RbyUglxMwOh1WDYOXl
+	mEwRphYzZcoJP68aKNq7kViVygwKNC6/W6Gk4qBMOt5sS/s+Er5G0GumJa0MtZZPAK44Qkvaj7zF7
+	SyQxZE9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUiwp-00000000a7e-2NZK;
-	Mon, 06 Jan 2025 08:58:55 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tUj2z-00000000bWP-156R;
+	Mon, 06 Jan 2025 09:05:17 +0000
+Received: from mail-ua1-x931.google.com ([2607:f8b0:4864:20::931])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUive-00000000Zyg-1vTy;
-	Mon, 06 Jan 2025 08:57:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1736153859;
-	bh=LqO93PKZFzajhO0Q5bvrw7jf6gFJfNjdg6AaXE7AJoQ=;
-	h=From:To:Cc:Subject:Date:From;
-	b=TJgx4xSzwvwUD5scxZT27VfTMcSeR7TjO3x6u0jHgvGATyKB2oYj8kDuRoxsYdaPi
-	 s6iZf/YVW7wHyzFM/ttp0+yuJFEOYX2MWgcb42+yrSNYkM3qH41OSeneaGuNhzU7XT
-	 50rk6TlplXymLwgrM5oyHlD7yezotol3Ume7ZNUQRy9hCHmfZ2+/vr/VfJJaM9+bHL
-	 fzOzl1vGoeQqcy1Q5pE6b3RVT3iw1WnusEMPKgyO+kiReiavjHu0legHOPiejcMRX7
-	 NNn26hcGmfl5MyRTNaiqL52PWRjxQUde8kS1NG2JCH0VadOwSQqDCK8P3JWTo55NJT
-	 BFnooA5GYDaQQ==
-Received: from beast.luon.net (unknown [IPv6:2a10:3781:2531::8])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: sjoerd)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5CCDB17E1534;
-	Mon,  6 Jan 2025 09:57:39 +0100 (CET)
-Received: by beast.luon.net (Postfix, from userid 1000)
-	id 084D4D979399; Mon, 06 Jan 2025 09:57:38 +0100 (CET)
-From: Sjoerd Simons <sjoerd@collabora.com>
-To: linux-mediatek@lists.infradead.org
-Cc: kernel@collabora.com,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] arm64: dts: mediatek: mt8365-evk: Set ethernet alias
-Date: Mon,  6 Jan 2025 09:57:31 +0100
-Message-ID: <20250106085737.227622-1-sjoerd@collabora.com>
-X-Mailer: git-send-email 2.47.1
+	id 1tUj1k-00000000b13-1f6k
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 06 Jan 2025 09:04:01 +0000
+Received: by mail-ua1-x931.google.com with SMTP id a1e0cc1a2514c-85bb13573fbso2739017241.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jan 2025 01:03:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1736154239; x=1736759039; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=eFxTtDgk1DzZsZQ3ygFGMHqYYaI93o+Qf7G7yIH5Azk=;
+        b=lmKiOG1U7EDBY8oLblclqwiE94bf0k87w78D0dEw2NxzD8DrgTdFBL5/j14tpFs5gn
+         c1imhUiBICjrc+wowgIRLlTwaxNEsf2n+k3jZtsXAGBgaqbaXL1xxEmBZWG00lJmUZfS
+         NIWn7cF3Y1OCZlkLZgJeeVTgWDl3nPL4V4DaQ590PjwQLunIr55Q13pRY/WI0gFuPbIa
+         M1SRdVhmACVcR1JoVaC8kBHhFvZ9rcGTBLe08cr+CiVC+b6OKP7PxVE/G5pJeXHxQxB+
+         dGDMW4SmPqE4D7o8uR1t+UeeT4v/PDtK5/xC2ET9jgCri6t9F36cs7yuX1sHcAFJI6Nc
+         hY7Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736154239; x=1736759039;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=eFxTtDgk1DzZsZQ3ygFGMHqYYaI93o+Qf7G7yIH5Azk=;
+        b=jqpSupfCgOEKOAePrGtbdyCjrbl+JJ74NLfEWSc1DmE9SCd77ZNVIchP/gC/xhf+vJ
+         s9rZQoBCEHWePl41zXRUehRbXRgGaJmFUOu2pFlz8GZgPLYSkSSWeSL11vMJShArGInS
+         WfgrVhaj4s+gMGpAmL744blvsQMtbcBhAWAgl3HSAuaohntS17qpRqJ1DgwjSHPulCpk
+         RFxS1U7DBYwAs6HjO+NRaq2pqvqsXJkN3vhqNp+PtI8vyLz8h0iGZLD0zKzFtaezhaH9
+         /Ejr4Oe5bnmphyMjGyMLSRt2t+vWRUAmQ6Q8VQ2IMCYO7ce64i/c692yRYELh5h7JADe
+         Tqwg==
+X-Forwarded-Encrypted: i=1; AJvYcCUrSVLSABpEh1ZPhgaKyD9EL3mJkNzdSf8tIzJpQv6FB4u80Ou/jM/irVJR7I1L2eUi5EZQut2xGEHkoqMny2LX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw03/rDWje9QRM0eKI0cfLCanDTestkb/9jMsyHAOFMAcSmANAU
+	Bi3x1LQQBikSgsnbtv1KBmMcPQpIRq+FD7N9zEz8KL6bnrUrwUzu3jzB6WITzdhUiXk/QSt7Ors
+	g4EHLrVaHHQEDv3CTgAcM+8034lQ=
+X-Gm-Gg: ASbGncv/2pvqipMTCwLAjWgZHiDlgqaiTdnpPejDDSWgNxvvO0TJGuC23LsfR43D6HC
+	pCwzyqCd4JmJaP//KWpnTkY0roZzUcYyTCJWgg+CXVJl/HPXJxMQaUUXw7XK5XLcoAjlzHf8i
+X-Google-Smtp-Source: AGHT+IGwF5u5tAifgOYHybaFWllpmt6FYSuR30rbFw3ny0sRMYsqv6sxNn2xOvl/ZEYg65NFBsY/fXPifuwkCo/Lph4=
+X-Received: by 2002:a05:6102:508d:b0:4af:e0d4:70df with SMTP id
+ ada2fe7eead31-4b2cc49c342mr33101717137.27.1736154239114; Mon, 06 Jan 2025
+ 01:03:59 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250106031711.82855-1-21cnbao@gmail.com> <20250106031711.82855-2-21cnbao@gmail.com>
+ <e68b8279-fe16-462a-bf99-6b4d90e96904@linux.alibaba.com>
+In-Reply-To: <e68b8279-fe16-462a-bf99-6b4d90e96904@linux.alibaba.com>
+From: Barry Song <21cnbao@gmail.com>
+Date: Mon, 6 Jan 2025 22:03:48 +1300
+Message-ID: <CAGsJ_4wMuDYxuEMcA0jYvekt26Uvz86kjWbo0nz-ZZzuiyEOQQ@mail.gmail.com>
+Subject: Re: [PATCH 1/3] mm: set folio swapbacked iff folios are dirty in try_to_unmap_one
+To: Baolin Wang <baolin.wang@linux.alibaba.com>
+Cc: akpm@linux-foundation.org, linux-mm@kvack.org, 
+	linux-arm-kernel@lists.infradead.org, x86@kernel.org, 
+	linux-kernel@vger.kernel.org, ioworker0@gmail.com, david@redhat.com, 
+	ryan.roberts@arm.com, zhengtangquan@oppo.com, ying.huang@intel.com, 
+	kasong@tencent.com, chrisl@kernel.org, Barry Song <v-songbaohua@oppo.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_005742_680059_17F29979 
-X-CRM114-Status: GOOD (  10.25  )
+X-CRM114-CacheID: sfid-20250106_010400_471440_6314AFD5 
+X-CRM114-Status: GOOD (  14.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,33 +96,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Configure an the ethernet alias to match the ethernet controller (even
-if it's off by default). This allows e.g. u-boot to configure the mac
-address on boot properly
+On Mon, Jan 6, 2025 at 7:40=E2=80=AFPM Baolin Wang
+<baolin.wang@linux.alibaba.com> wrote:
+>
+>
+>
+> On 2025/1/6 11:17, Barry Song wrote:
+> > From: Barry Song <v-songbaohua@oppo.com>
+> >
+> > The refcount may be temporarily or long-term increased, but this does
+> > not change the fundamental nature of the folio already being lazy-
+> > freed. Therefore, we only reset 'swapbacked' when we are certain the
+> > folio is dirty and not droppable.
+> >
+> > Suggested-by: David Hildenbrand <david@redhat.com>
+> > Signed-off-by: Barry Song <v-songbaohua@oppo.com>
+>
+> The changes look good to me. While we are at it, could you also change
+> the __discard_anon_folio_pmd_locked() to follow the same strategy for
+> lazy-freed PMD-sized folio?
 
-Signed-off-by: Sjoerd Simons <sjoerd@collabora.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
+it seems you mean __discard_anon_folio_pmd_locked() is lacking
+folio_set_swapbacked(folio) for dirty pmd-mapped folios?
+and it seems !(vma->vm_flags & VM_DROPPABLE) is also not
+handled properly?
 
-Changes in v2:
-- Update commit subject
-
- arch/arm64/boot/dts/mediatek/mt8365-evk.dts | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/arch/arm64/boot/dts/mediatek/mt8365-evk.dts b/arch/arm64/boot/dts/mediatek/mt8365-evk.dts
-index 7d90112a7e27..44c61094c4d5 100644
---- a/arch/arm64/boot/dts/mediatek/mt8365-evk.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt8365-evk.dts
-@@ -21,6 +21,7 @@ / {
- 
- 	aliases {
- 		serial0 = &uart0;
-+		ethernet = &ethernet;
- 	};
- 
- 	chosen {
--- 
-2.47.1
-
+Thanks
+barry
 
