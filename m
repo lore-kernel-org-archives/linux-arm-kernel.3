@@ -4,113 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFCBFE77198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 10:38:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94D6DE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 10:43:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RryxP58J6OnCln8Pqlo5t61Qkdx5FcBQVf8+7yUkQC4=; b=FmpCBgTgpfV/ZLYNVn8UFd5n6l
-	twdhgwcAd5SxbxNOtl2Divght9hVo0ceJ+9Vygqv67v4kQQ+1xah+zwevorbxcDTLRQzHHKKU4btQ
-	sK2DFBTLqSihbvknNLeHR/Y7VjG9uTEq5/qZcj683Ha8KAl8W5w4xP6xXVnRvMxfmp+XvmOqm9882
-	h7gpP5Ay3w4fw5cwnU/m7+3HMq/CkMXqg0d5AL+KYBF8KWtVpftFDGdVkPHlUaL3YfKd2HX3cUjSG
-	OahHV1wjWF04iMv0oKNR8MY0d9yi8wiaIzWyKgzPatUS58ahF+AUt16Gn91WyLykQBar8xLlgOSj8
-	wXKuDycA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TJml0PBmXuMv4A11WWoV7KaNcI5rKzbslCWhFCYnuBU=; b=QQdMFEW4kOM0IrofgerpnbJZ+L
+	CrUh0nElR15wau1mPPG4HxYvFcDwBh7fVwnfvZM8rb5bOTw53UUvfU78qrRs0RuB4dG/LzdO26My5
+	mXdAEbTSv66AfDowTYhDZn/J30A2JDu8Ln0dKinSxgflDS7KPqg/aswLtw0gPnCK7hqZAi+B3zNHY
+	QkpfuEFjNVBi+Ant1h9yBzUaOCm0Fb6XghpsPdtVPJxhAvwDApeav+1rdP4xOF8n2y6J64HPhROj/
+	MZjbJ/0QJTDOEaZyyi1U/ahfiSNPea60+9MZgVrGYWvUFQS+rELFAjZ2VFuUTOY7Ru2a1gW4qhL9u
+	Z/2UaTFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUkUr-00000000t0F-1ZmI;
-	Mon, 06 Jan 2025 10:38:09 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1tUkZV-00000000tpD-2Or0;
+	Mon, 06 Jan 2025 10:42:57 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUkTf-00000000ske-0jTt;
-	Mon, 06 Jan 2025 10:36:56 +0000
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5068Lt7i026633;
-	Mon, 6 Jan 2025 10:36:32 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=RryxP58J6OnCln8Pqlo5t61Qkdx5Fc
-	BQVf8+7yUkQC4=; b=qBCXpVvdPbt+ywixcDwnQL6Z9ZlbqjoTKd2P0szWJ5PG7K
-	HrQ1dU1lfCN1w8QdSGyr0DPgqO66Ie3q/rewjUdpPXV9XDc280aXNb7xaTJA7VBs
-	Apmo4/OJijEJhq+G0tWODsOXDI0M6JF8OhuoQwzpyTtJ6p890/4l5MBsiXCoaPdA
-	jWrav9CzXcn/gEDNtXvu3d6gHy7ENTCfUp3F/4dtHAicfe3a1lPqMC72/3iWTlQM
-	92BjmrYfEN7dxjeYXZgtqtc4DB5H338vNnKVg4GId9wHaKoWlSUxSjz7nK2elinr
-	7l9jgdC7oG1Qk16vMHzYBWtDa+b9EVRm1Gss1x4Q==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 43yuj5360w-1
+	id 1tUkYK-00000000tf9-0gSm
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 06 Jan 2025 10:41:46 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5069EEDI023833;
+	Mon, 6 Jan 2025 11:41:21 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	TJml0PBmXuMv4A11WWoV7KaNcI5rKzbslCWhFCYnuBU=; b=ajuQd6VFp/aROeUu
+	uarVOb0JeoGTf5OBft4wSLSDzfZ+7fnMc8J15fObHwh+b1cFhbRFxUcSAEsv56Au
+	kVIOScL8WBLZXea/HdnK53UOpuGM9e+DR3FFUG69UffClny9AwdZ4JuXq4Kw5YjO
+	ek9XcZMvFMGocUrPePfN2tYbFvl6JieCIT61KqB2lfzIaQaD9SjjohJBfi5fj6PJ
+	iTYiwSz+K5xU9LNfw4jpyTy1ai/ac6XAcw4vEsDrpKOapqfkN3edOW/ogY59OF3r
+	Jl0lIskmxFcMT7mwj9/7QYO4xraMJ8541bxdLUoi6UUdMQMHNbaYCPx821DU1Ece
+	LWsMuA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 440cc78c5g-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 06 Jan 2025 10:36:31 +0000 (GMT)
-Received: from m0353725.ppops.net (m0353725.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 506AVZkY030738;
-	Mon, 6 Jan 2025 10:36:30 GMT
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 43yuj5360r-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 06 Jan 2025 10:36:30 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 5066jHrP027971;
-	Mon, 6 Jan 2025 10:36:29 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 43yhhjw3xg-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 06 Jan 2025 10:36:29 +0000
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 506AaRat55837070
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 6 Jan 2025 10:36:28 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id CB29A20049;
-	Mon,  6 Jan 2025 10:36:27 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 6187320040;
-	Mon,  6 Jan 2025 10:36:25 +0000 (GMT)
-Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.179.15.34])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Mon,  6 Jan 2025 10:36:25 +0000 (GMT)
-Date: Mon, 6 Jan 2025 11:36:23 +0100
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: Qi Zheng <zhengqi.arch@bytedance.com>
-Cc: peterz@infradead.org, kevin.brodsky@arm.com, palmer@dabbelt.com,
-        tglx@linutronix.de, david@redhat.com, jannh@google.com,
-        hughd@google.com, yuzhao@google.com, willy@infradead.org,
-        muchun.song@linux.dev, vbabka@kernel.org, lorenzo.stoakes@oracle.com,
-        akpm@linux-foundation.org, rientjes@google.com, vishal.moola@gmail.com,
-        arnd@arndb.de, will@kernel.org, aneesh.kumar@kernel.org,
-        npiggin@gmail.com, dave.hansen@linux.intel.com, rppt@kernel.org,
-        ryan.roberts@arm.com, linux-mm@kvack.org,
-        linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-        sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org,
-        x86@kernel.org, linux-arch@vger.kernel.org, linux-csky@vger.kernel.org,
-        linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
-        linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
-        linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org,
-        linux-um@lists.infradead.org
-Subject: Re: [PATCH v4 12/15] s390: pgtable: also move pagetable_dtor() of
- PxD to __tlb_remove_table()
-Message-ID: <Z3uyJ2BjslzsjkZI@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
-References: <cover.1735549103.git.zhengqi.arch@bytedance.com>
- <ad21b9392096336cf15aee46f68f9989a9cf877e.1735549103.git.zhengqi.arch@bytedance.com>
+	Mon, 06 Jan 2025 11:41:21 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 1B97940049;
+	Mon,  6 Jan 2025 11:39:55 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 034A126E738;
+	Mon,  6 Jan 2025 11:39:14 +0100 (CET)
+Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Mon, 6 Jan
+ 2025 11:39:13 +0100
+Message-ID: <13598662-b9ee-4dc6-93be-a54842c90c18@foss.st.com>
+Date: Mon, 6 Jan 2025 11:39:11 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ad21b9392096336cf15aee46f68f9989a9cf877e.1735549103.git.zhengqi.arch@bytedance.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: RDtAwTXGBq-o50c3MhVc3_C2qJNd4B3w
-X-Proofpoint-ORIG-GUID: BH90a8PnsJG6ZogqWB6Telp_r4uMcgo3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/3] ARM: dts: st: add node for the MALI gpu on
+ stih410.dtsi
+To: Alain Volmat <avolmat@me.com>, David Airlie <airlied@gmail.com>,
+        Daniel
+ Vetter <daniel@ffwll.ch>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+References: <20241006-sti-gpu-v2-0-c6bb408d6903@me.com>
+ <20241006-sti-gpu-v2-2-c6bb408d6903@me.com>
+Content-Language: en-US
+From: Patrice CHOTARD <patrice.chotard@foss.st.com>
+In-Reply-To: <20241006-sti-gpu-v2-2-c6bb408d6903@me.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.62]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
 X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
- definitions=2024-10-15_01,2024-10-11_01,2024-09-30_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 clxscore=1011
- malwarescore=0 priorityscore=1501 bulkscore=0 spamscore=0 impostorscore=0
- mlxlogscore=745 phishscore=0 suspectscore=0 mlxscore=0 lowpriorityscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
- definitions=main-2501060093
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_023655_382116_3B57BD50 
-X-CRM114-Status: GOOD (  16.96  )
+X-CRM114-CacheID: sfid-20250106_024144_811244_BE6ABD60 
+X-CRM114-Status: GOOD (  15.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,46 +101,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 30, 2024 at 05:07:47PM +0800, Qi Zheng wrote:
-> To unify the PxD and PTE TLB free path, also move the pagetable_dtor() of
-> PMD|PUD|P4D to __tlb_remove_table().
 
-The above and Subject are still incorrect: pagetable_dtor() is
-called from pagetable_dtor_free(), not from __tlb_remove_table().
 
-...
-> diff --git a/arch/s390/mm/pgalloc.c b/arch/s390/mm/pgalloc.c
-> index 569de24d33761..c73b89811a264 100644
-> --- a/arch/s390/mm/pgalloc.c
-> +++ b/arch/s390/mm/pgalloc.c
-> @@ -180,7 +180,7 @@ unsigned long *page_table_alloc(struct mm_struct *mm)
->  	return table;
->  }
->  
-> -static void pagetable_pte_dtor_free(struct ptdesc *ptdesc)
-> +static void pagetable_dtor_free(struct ptdesc *ptdesc)
->  {
->  	pagetable_dtor(ptdesc);
->  	pagetable_free(ptdesc);
-> @@ -190,20 +190,14 @@ void page_table_free(struct mm_struct *mm, unsigned long *table)
->  {
->  	struct ptdesc *ptdesc = virt_to_ptdesc(table);
->  
-> -	pagetable_pte_dtor_free(ptdesc);
-> +	pagetable_dtor_free(ptdesc);
->  }
->  
->  void __tlb_remove_table(void *table)
->  {
->  	struct ptdesc *ptdesc = virt_to_ptdesc(table);
-> -	struct page *page = ptdesc_page(ptdesc);
->  
-> -	if (compound_order(page) == CRST_ALLOC_ORDER) {
-> -		/* pmd, pud, or p4d */
-> -		pagetable_free(ptdesc);
-> -		return;
-> -	}
-> -	pagetable_pte_dtor_free(ptdesc);
-> +	pagetable_dtor_free(ptdesc);
->  }
+On 10/6/24 22:42, Alain Volmat wrote:
+> Add the entry for the GPU (Mali400) on the stih410.dtsi
+> 
+> Signed-off-by: Alain Volmat <avolmat@me.com>
+> ---
+>  arch/arm/boot/dts/st/stih410.dtsi | 34 ++++++++++++++++++++++++++++++++++
+>  1 file changed, 34 insertions(+)
+> 
+> diff --git a/arch/arm/boot/dts/st/stih410.dtsi b/arch/arm/boot/dts/st/stih410.dtsi
+> index a69231854f783b1b9fd685ba2822eb406e0ffdf5..d56343f44fda4e9e1de2e5efc86e2d984bad14b4 100644
+> --- a/arch/arm/boot/dts/st/stih410.dtsi
+> +++ b/arch/arm/boot/dts/st/stih410.dtsi
+> @@ -285,5 +285,39 @@ cec@94a087c {
+>  			resets = <&softreset STIH407_LPM_SOFTRESET>;
+>  			hdmi-phandle = <&sti_hdmi>;
+>  		};
+> +
+> +		gpu: gpu@9f00000 {
+> +			compatible = "st,stih410-mali", "arm,mali-400";
+> +			reg = <0x9f00000 0x10000>;
+> +			/* LIMA driver needs 2 clocks, use the same for both */
+> +			clocks = <&clk_s_c0_flexgen CLK_ICN_GPU>,
+> +				 <&clk_s_c0_flexgen CLK_ICN_GPU>;
+> +			clock-names = "bus", "core";
+> +			assigned-clocks = <&clk_s_c0_flexgen CLK_ICN_GPU>;
+> +			assigned-clock-rates = <400000000>;
+> +			resets = <&softreset STIH407_GPU_SOFTRESET>;
+> +			interrupts = <GIC_SPI 49 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 50 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 41 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 45 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 42 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 46 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 43 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 47 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 48 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupt-names = "gp",
+> +					  "gpmmu",
+> +					  "pp0",
+> +					  "ppmmu0",
+> +					  "pp1",
+> +					  "ppmmu1",
+> +					  "pp2",
+> +					  "ppmmu2",
+> +					  "pp3",
+> +					  "ppmmu3";
+> +
+> +			status = "disabled";
+> +		};
+>  	};
+>  };
+> 
+Hi Alain
+
+Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>
+
+Thanks
+PAtrice
 
