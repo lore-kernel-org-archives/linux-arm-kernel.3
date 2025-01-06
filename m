@@ -4,55 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61537E77198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 11:53:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21463E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 12:00:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ukh1qgZ0Pyc6AEGHQTNHG7mtyRNJrHvmAWhwQAtmx+I=; b=1XvBsS41864+fhmW7QUaIILEur
-	L9IkmwctETPV8bSRzemAVVVIb9byyQ3+ghjSKmNUT5ne0jSJk9Bt9YAZON5Zb9a6ApCtD44rBiJcU
-	skSqyivcqUa2arlV33SsqabNLKEwPNziRuDGLSpae+9AxosuYOzOmsc+KZnDIz09ydR0TxqclYf5d
-	RP1UwcQ/nt8CwUq5yqnR9tOwRWyemTUcGldZmlsm7YZsyadLLC+ym/Y25L5fhAo/yir2NLNefALaN
-	C/OI+dWpdbvX7qSLs0sanaE/qFVXyY+Q+W/qYenzrXg7I28ajoNsBChlP0dyk43xAwDZEe5M2fNTz
-	egX+SXCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7lzBF/ZfPmOGT3qEEXdOPpNB7JC83GfpLdkUGGHF2us=; b=npCAdOO1uyk/k+B5xd+FHjWd5C
+	anF5SegevwtuBSFdq9Apki+6yNz+fercyk3MrcnMqUl09wVKT3+6e47ho9wdmRG28n++QuaOtz/o9
+	Yg38MdkowqHNCDROExXHekAiTQj9Ljrdsy9v/kRxHvQ2Il5mp9LL6lj/XLm5A9jo9hBcdDAwxfBXk
+	9upcbyP5qz19y8SrfJlJBMXZrwK3Z0eM/ha8VPnAU+EZm7ZV91WOvQ77nY7xAZ9Dmb47RABhEdoL2
+	klhag3aCTWAe06vTpeGMXtU/PPyRKSwNzuaU8rjMTDejOBTO4aHuHMFZYb4tGXeY7o18ratUti6hF
+	g70VHNKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUlfP-000000016SM-0Ve5;
-	Mon, 06 Jan 2025 11:53:07 +0000
+	id 1tUlmc-000000017QC-1mVO;
+	Mon, 06 Jan 2025 12:00:34 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUleC-000000016JT-3jqk;
-	Mon, 06 Jan 2025 11:51:54 +0000
+	id 1tUllR-0000000179W-2mZf;
+	Mon, 06 Jan 2025 11:59:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=ukh1qgZ0Pyc6AEGHQTNHG7mtyRNJrHvmAWhwQAtmx+I=; b=BZTwCfG3bkIuyi+CJHakP1R3ns
-	hTOmH653YysrU0BwA2ihN6FdnGy9C88m67hLbo0EOuvbP8Kp88Zv2CTfAJdcBkJnGyXGFGMvkh+bk
-	+cOJvlNNwQQM8kpvtGTrA0jYHsC2y/yT3TfAcKqGRrKzNSYLqkmytQMW4OkyQ7irrWMA9Qa0JR4t7
-	cgyjMQcXdoYqbK8tZ9q2y4nt4/mgoECoFqIYzYJnWtS71NjP/B09cQOpx2Spwq1wZU54xV4p8wrXV
-	HkOrYgMN3vcXMb47pb6aUCc/ymUE28abFG3LuyXmobO9y7tYFKkplj+92baoYb4r7uJQZWKvnyH1J
-	7rYZpjDw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:35088)
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=7lzBF/ZfPmOGT3qEEXdOPpNB7JC83GfpLdkUGGHF2us=; b=Q76wFISMmElzVYjnPgxScXr2JI
+	lH44fEbSFJdd6DQjtxq85z4XN3HKQKwc3nKVDxpn9fUUnkBTVPGM8vU6ZgSmglbnekhbq0K3R/8Qz
+	h02WZobkklr6rhOWFheKLTS2LtEcBgFDS+Hdnb1D6bQPVR5fXDMlchDQsj/5gLSmYb2d/9Vx66PIi
+	Kuy/cVaziM+yxtykBo6oiTmkk/XR0Otr71N9ny13dARnyBh67CSSn9k5mV6wXkxqBXvAF9p+e42BP
+	j4xuVLRbikxSs/h3qvqi4jqrdYobwPKiCBwZYj4Y9s1/ZKb1UGrxuhmE/HhVoj6+elVLev0qsw7vt
+	GVJSkBsA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:53186 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tUldx-0005jL-2L;
-	Mon, 06 Jan 2025 11:51:37 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tUldr-0004FT-16;
-	Mon, 06 Jan 2025 11:51:31 +0000
-Date: Mon, 6 Jan 2025 11:51:31 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1tUllD-0005l6-2Y;
+	Mon, 06 Jan 2025 11:59:07 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1tUllA-007Uyx-4o; Mon, 06 Jan 2025 11:59:04 +0000
+In-Reply-To: <Z3vDwwsHSxH5D6Pm@shell.armlinux.org.uk>
+References: <Z3vDwwsHSxH5D6Pm@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
 Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	=?utf-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>,
+	"Ar__n__ __NAL" <arinc.unal@arinc9.com>,
 	Daniel Golle <daniel@makrotopia.org>,
 	"David S. Miller" <davem@davemloft.net>,
 	DENG Qingfang <dqfext@gmail.com>,
@@ -61,19 +62,24 @@ Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
 	Jakub Kicinski <kuba@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
-	Matthias Brugger <matthias.bgg@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>, Sean Wang <sean.wang@mediatek.com>,
-	Simon Horman <horms@kernel.org>, UNGLinuxDriver@microchip.com,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Simon Horman <horms@kernel.org>,
+	UNGLinuxDriver@microchip.com,
 	Vladimir Oltean <olteanv@gmail.com>,
 	Woojung Huh <woojung.huh@microchip.com>
-Subject: [PATCH net-next 0/9] net: dsa: cleanup EEE (part 2)
-Message-ID: <Z3vDwwsHSxH5D6Pm@shell.armlinux.org.uk>
+Subject: [PATCH net-next 5/9] net: dsa: ksz: remove ksz_get_mac_eee()
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1tUllA-007Uyx-4o@rmk-PC.armlinux.org.uk>
+Date: Mon, 06 Jan 2025 11:59:04 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_035152_929264_AAFE2097 
-X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-CacheID: sfid-20250106_035921_698602_59475F14 
+X-CRM114-Status: UNSURE (   8.31  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,42 +95,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is part 2 of the DSA EEE cleanups, removing what has become dead
-code as a result of the EEE management phylib now does.
+ksz_get_mac_eee() is no longer called by the core DSA code. Remove it.
 
-Patch 1 removes the useless setting of tx_lpi parameters in the
-ksz driver.
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ drivers/net/dsa/microchip/ksz_common.c | 7 -------
+ 1 file changed, 7 deletions(-)
 
-Patch 2 does the same for mt753x.
-
-Patch 3 removes the DSA core code that calls the get_mac_eee() operation.
-This needs to be done before removing the implementations because doing
-otherwise would cause dsa_user_get_eee() to return -EOPNOTSUPP.
-
-Patches 4..8 remove the trivial get_mac_eee() implementations from DSA
-drivers.
-
-Patch 9 finally removes the get_mac_eee() method from struct
-dsa_switch_ops.
-
- drivers/net/dsa/b53/b53_common.c       |  7 -------
- drivers/net/dsa/b53/b53_priv.h         |  1 -
- drivers/net/dsa/bcm_sf2.c              |  1 -
- drivers/net/dsa/microchip/ksz_common.c | 15 ---------------
- drivers/net/dsa/mt7530.c               | 13 -------------
- drivers/net/dsa/mv88e6xxx/chip.c       |  8 --------
- drivers/net/dsa/qca/qca8k-8xxx.c       |  1 -
- drivers/net/dsa/qca/qca8k-common.c     |  7 -------
- drivers/net/dsa/qca/qca8k.h            |  1 -
- include/net/dsa.h                      |  2 --
- net/dsa/user.c                         |  8 --------
- 11 files changed, 64 deletions(-)
-
-Changes since RFC:
-- Removed removal of phydev check in net/dsa/user.c
-- Addition of mt753x changes
-
+diff --git a/drivers/net/dsa/microchip/ksz_common.c b/drivers/net/dsa/microchip/ksz_common.c
+index 60a4630dd7ba..89f0796894af 100644
+--- a/drivers/net/dsa/microchip/ksz_common.c
++++ b/drivers/net/dsa/microchip/ksz_common.c
+@@ -3489,12 +3489,6 @@ static bool ksz_support_eee(struct dsa_switch *ds, int port)
+ 	return false;
+ }
+ 
+-static int ksz_get_mac_eee(struct dsa_switch *ds, int port,
+-			   struct ethtool_keee *e)
+-{
+-	return 0;
+-}
+-
+ static int ksz_set_mac_eee(struct dsa_switch *ds, int port,
+ 			   struct ethtool_keee *e)
+ {
+@@ -4664,7 +4658,6 @@ static const struct dsa_switch_ops ksz_switch_ops = {
+ 	.cls_flower_del		= ksz_cls_flower_del,
+ 	.port_setup_tc		= ksz_setup_tc,
+ 	.support_eee		= ksz_support_eee,
+-	.get_mac_eee		= ksz_get_mac_eee,
+ 	.set_mac_eee		= ksz_set_mac_eee,
+ 	.port_get_default_prio	= ksz_port_get_default_prio,
+ 	.port_set_default_prio	= ksz_port_set_default_prio,
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.30.2
+
 
