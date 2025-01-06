@@ -4,65 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2446CE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 18:08:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F3CAE77198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 18:19:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=psZSmkilvcDdXohdN3+BmnbDzvJ1EVoZ2W73bI7eFpY=; b=jVSjdf+QqdCIDgwz/2lVCV4PAf
-	NGZ2klYXifXs0fehsIqzk39cJYKRDqWyMWXUCxdgryFHgAgQpK3d6bqa3Mu53jNfk7d2e8dIjoqfS
-	KutKGPu6JgfcnjZZ0uhaFAJvWwymjbnPV1IoeTGlDWRe1mLEUqpK9/yWfX5d634X6pvjlQK0lpAF2
-	/0ag2ltTkme9/vilRW59/AB8i247gyNI4PVEulcws1cKqQOxUeAyTNYU23CSyqM96Pj1kXW/rcpH2
-	3QgFjylmqtKXSAgXqOr2f+sd58hpccFisus5ne+LiJtBJJs3/69EWuccOdQCsPtWVyoIynkCCm0mK
-	7lJthqOA==;
+	bh=ZNGPObBWC347+yfAF+Rst9DVWfQV7XHxF9dhpWCHwz8=; b=tN0FyjX8l9OQD2AVEHUEfH5VAJ
+	2B8Df2ubYFFy/tNN8nEvQtsRBsa/usAHoyGzR/i6Vz+zTZa2BvVB72/235mUBaouIpl31zq3MSPIA
+	tC7vIjQRYLC6fwM2bbCktEU8SpN3tCzcFtJpBFvLP7mVT67KLYsv/weDJfoHD+RQGIlZVabbNP5Se
+	RbpT0mcEx3OeFka/ldveQD+gUZ2Z5MubH4sQfIHR4utAW5lv600Vp9iNbRA74dTL6BkMGwOOgYVHB
+	HFqyc5YKU5E72hQ0TiW0IDsUZdKM3ifHNcQv+r+nmc6RhCJTN5RMmFviS/kpizw9Iy/Cfw/t/8umv
+	d4aMywkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUrWL-00000002Dvy-0gNw;
-	Mon, 06 Jan 2025 18:08:09 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tUrgu-00000002GEO-2ERG;
+	Mon, 06 Jan 2025 18:19:04 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUrV8-00000002Dqr-2znE
+	id 1tUrfi-00000002Fxz-24e8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 18:06:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B929B5C5FBA;
-	Mon,  6 Jan 2025 18:06:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4346FC4CED2;
-	Mon,  6 Jan 2025 18:06:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736186813;
-	bh=IYBstVCYrspgWhZSdpjgcQcvE2+H3d+Eb8ozdPQwSSk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WIIpyGYg4A0HSXK+GbaXaVsI7rlmV0ozDlF6Uji2MoYBbeY53IbCAbjABtlxuA71m
-	 RrFVPwDkpoHaHT7BTIJL7ruVIy964XL03t8P22IJn3ZhWtsoO1wMh+FleuJYbTpxkX
-	 et6dswvL7KrgmABKFEBnUt2h0HNjCXAkfdWcU1V3TBv+u5tmV/hmMgxHTPEEEkJhpm
-	 PcMGpzTwnJrvJrmfKPVNTUhyncASpV2TYDqipsDk20jjo/2NjWd1DkEhDZhdfvO9Ko
-	 iR9TQw4XSIV3wDmzyHLtWDrCQrvFVpdY0CN7H1aeULUiouaPRhfgYQWgH3scfe69ic
-	 SF0pmz3l16ZDA==
-Date: Mon, 6 Jan 2025 18:06:49 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	Mark Rutland <mark.rutland@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v2] arm64: Add basic JSON register parser
-Message-ID: <467ffed2-933a-4f45-8802-3b799dfd6753@sirena.org.uk>
-References: <20250102144339.1564778-1-maz@kernel.org>
- <63543c41-607e-45cd-9266-a60838ff233e@sirena.org.uk>
- <8634hvq50l.wl-maz@kernel.org>
+	Mon, 06 Jan 2025 18:17:51 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ore@pengutronix.de>)
+	id 1tUrfV-00070y-Fp; Mon, 06 Jan 2025 19:17:37 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <ore@pengutronix.de>)
+	id 1tUrfS-007DDy-2w;
+	Mon, 06 Jan 2025 19:17:35 +0100
+Received: from ore by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <ore@pengutronix.de>)
+	id 1tUrfT-007iFk-1m;
+	Mon, 06 Jan 2025 19:17:35 +0100
+Date: Mon, 6 Jan 2025 19:17:35 +0100
+From: Oleksij Rempel <o.rempel@pengutronix.de>
+To: Kory Maincent <kory.maincent@bootlin.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, davem@davemloft.net,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>,
+	=?utf-8?Q?Nicol=C3=B2?= Veronese <nicveronese@gmail.com>,
+	Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
+	Antoine Tenart <atenart@kernel.org>
+Subject: Re: [PATCH net-next RFC 0/5] net: phy: Introduce a port
+ representation
+Message-ID: <Z3weP2JpURuRgHnb@pengutronix.de>
+References: <20241220201506.2791940-1-maxime.chevallier@bootlin.com>
+ <Z2g3b_t3KwMFozR8@pengutronix.de>
+ <Z2hgbdeTXjqWKa14@pengutronix.de>
+ <20250104232359.2c7a7090@kmaincent-XPS-13-7390>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="PQfbZOQezoF/RsuD"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <8634hvq50l.wl-maz@kernel.org>
-X-Cookie: Do not pick the flowers.
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250104232359.2c7a7090@kmaincent-XPS-13-7390>
+X-Sent-From: Pengutronix Hildesheim
+X-URL: http://www.pengutronix.de/
+X-Accept-Language: de,en
+X-Accept-Content-Type: text/plain
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ore@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_100654_794459_2825F259 
-X-CRM114-Status: GOOD (  23.02  )
+X-CRM114-CacheID: sfid-20250106_101750_530178_D11A9791 
+X-CRM114-Status: GOOD (  24.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,59 +98,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sat, Jan 04, 2025 at 11:23:59PM +0100, Kory Maincent wrote:
+> On Sun, 22 Dec 2024 19:54:37 +0100
+> Oleksij Rempel <o.rempel@pengutronix.de> wrote:
+> >         pse = <&pse1>; /* Reference to the attached PSE controller */
+> 
+> The PSE pairset and polarity are already described in the PSE bindings.
+> https://elixir.bootlin.com/linux/v6.12.6/source/Documentation/devicetree/bindings/net/pse-pd/pse-controller.yaml
+> 
+> I am not sure it is a good idea to have PSE information at two different places.
 
---PQfbZOQezoF/RsuD
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
 
-On Mon, Jan 06, 2025 at 04:30:18PM +0000, Marc Zyngier wrote:
+You are right, the PSE PI node already covers the IEEE specifications. But
+there are still some missing pieces. These are not directly tied to the PSE but
+are important for port functionality, like LEDs, thermal sensors, and
+transformer characteristics.  
 
-> The moment you use a general purpose language, you end-up reinventing
-> JSON in another way, and I didn't have the courage to do that. Also,
-> jq feels like an exotic mix of functional programming and Forth,
-> something toxic enough to be irresistible.
+### Why Link to the Port Node  
 
-Yeah, it's super neat for the inline processing stuff.
+While LEDs, thermal zones, and other components can be described in the Device
+Tree, there’s currently no clear way to indicate which ones belong to a
+specific port. For single-port devices, this isn’t a big issue, but for devices
+like switches with multiple ports, it gets messy very quickly.  
 
-> Mark Brown <broonie@kernel.org> wrote:
+For example:  
+- LEDs: Each port may have multiple LEDs for link, activity, and PoE
+status. Without linking them to specific ports, the software cannot correctly
+map these LEDs to their respective functionalities.
+ 
+- Thermal Sensors: Sensors located near specific ports or magnetics are crucial
+for thermal management. If they aren’t linked to a port, it’s unclear which
+sensor data applies to which port.  
 
-> > then we can hopefully use that for things like diffing two architecture
-> > versions while handling cases where we've intentionally diverged from
-> > how the architecture describes things. It'd be nice to have something
-> > that'd go through and check for updates to registers we already have
-> > mapped and provide an updated sysreg file.  It might however just be
-> > easier to use something like this and then work with sysreg files using
-> > text processing tools.
+### Why Transformer Characteristics Matter  
 
-> My current plan is somehow different: extract all the trapping
-> information for each register handled by KVM, and *automatically*
-> generate tests that check that KVM is doing the right thing. Or rather
-> convince someone to do that.
+Transformers (magnetics) are critical for Ethernet and affect software in these
+ways:  
 
-> Then get rid of all such manually implemented tests from the kernel,
-> once and for all.
+1. Signal Integrity:  
+   - Transformers influence noise and insertion loss.
+   - Some PHYs allow analog tuning for the connected transformer. Software
+     needs this information to configure PHY registers for optimal performance.  
 
-That would be awesome - there's far too much stuff needs typing in
-there.  There's a bunch of these places where we either already use
-register data or could use it if it required less typing/verification to
-do so, the ideas I mentioned were just the first things that popped into
-my mind.  Having a reliable machine readable data source for this
-information is going to be *so* helpful.
+2. Power Delivery:  
+   - Transformers have power and current limits.  
+   - Software must ensure the power budget stays within these limits and detect
+     overcurrent conditions.  
 
---PQfbZOQezoF/RsuD
-Content-Type: application/pgp-signature; name="signature.asc"
+3. Thermal Management:  
+   - Transformers can overheat under load.
+   - Software should monitor nearby sensors and reduce power if temperatures
+     exceed safe levels.  
 
------BEGIN PGP SIGNATURE-----
+This functionality does not need to be added right now. However, I’ve
+encountered some of these issues and believe they may impact others sooner or
+later. It would be good if newly added specifications avoid conflicting with or
+blocking potential solutions to these known issues.
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmd8G7gACgkQJNaLcl1U
-h9BrgQf/bv5vWOvyO9cU7dNIbkh1TXkpAgkTON9IqDitBobS4uT9In8Kp5yTUbgs
-4B9Tly5vaLM1hfCCU8Nyy/UnPqqG8gKyS330oSkdHsBa1nr5n5aJXcgXqRznrj1E
-/kWGSiG3QXPNwe69C3GL2E7FY8LAu0dMCKAL1IBlpz8nV/rhak5yR4f6gNxinn5O
-BDO6JwH/UFIO3KctwS1nrX9cRCeXpRs6NAA5dnlSz0a2udt3rxRuTatn7GSzt/4u
-lfnEsI/+3A4cBPBFHx22t7MpeiJutrHWAoraKuM2LDm0mpqEomutaJKqXysiqA7Q
-vZPXjHfAKBklRMThzbMMnwG8B/XicA==
-=/UTO
------END PGP SIGNATURE-----
+> > In case of PoDL, we will have something like this:
+> > 
+> > pair@0 {
+> >     name = "A"; /* Single pair for 10BaseT1L */
+> >     pins = <1 2>; /* Connector pins */
+> >     phy-mapping = <PHY_TXRX0_P PHY_TXRX0_N>; /* PHY pin mapping */
+> >     podl-mapping = <PODL_OUT0_P PODL_OUT0_N>; /* PoDL mapping: Positive and
+> > negative outputs */ };
+> 
+> We should do the same for PoDL. Put all information in the same place, the PSE
+> bindings.
 
---PQfbZOQezoF/RsuD--
+Ack.
+
+Since IEEE does not provide anything beyond pinout and polarity description for
+PSE PI specifications (at least for PoE variants), let's keep those details
+there. Magnetics, being a shared component, should be described as part of the
+port. Thermal sensors located near magnetics or physical ports are port-related
+and should also be linked to the port. LEDs, however, fall into different
+groups: some are connected to PHYs, others to PSE, and they may be controlled
+by PHYs, PSE, or external controllers with software. These LEDs need a clear
+linkage to their corresponding port functionality. What would be the best way
+to establish this linkage without introducing unnecessary complexity?
+
+Best regards,  
+Oleksij  
+-- 
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
