@@ -4,73 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE228E77198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 11:33:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82D0CE77198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 11:37:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2uYJOiM/HbfgHfKrJI1xrTj5cr9v5VZf2W3BJkrW/wE=; b=YWxYmUyKXVZmppV14qh3Rgc1B/
-	yDXf94J0RLdBpX734mMq7OK0+8HSwQh7/8D6GYBWlZu56z9wkE/s5ygUJl5Gs04Y7EH8ZAXIzecno
-	D6Dqk+TkFnCSQQCoapVQeC/1ah2/m/gDavoW4YhD7hcuvy0q9WC4X4dYxWkzr5Tyl0k3P6BQJtbg/
-	Y7fPr1xfx+q8xgNzthoRQvvMQ++EdYTONmbRTN7JKu+3Pk3e3uib+ljzCFNMUNQl7xWPgy+XgHh/k
-	OiSh6VeTc9EK4ai72v6rEQ7EzsYt2hj1VRo4VkTt/ffN5TRpz4TkSPPfsaLZviaj2/OXxBDg1+pLP
-	9NdjEvuA==;
+	bh=j/c006fkpwPHko2StBk2yiyzz1OqXMJcx3rgwnGaZD0=; b=gqZnm1MQ5V1/6cK2U2cPfcQKZb
+	6ouuuhOayKmZY6W06SMNwu4PSULQIrHFJ49ytcM0LdUzEppVwyPePy7ukGvtZNAJmT/nBKC3FkOAC
+	oIBJBskJI2LFuGxJswP2+sS0hr7v0Aqct8a0AtbrUeRq8jsLeR4m7dUR6NGKPHwQkZOl2BK6QNjuq
+	dFNlCwa8nZTF0UPC75fdKbW/MwAmPHHdr7Rgyfc1U92j/O+KEFjqYYboAQCvQK8j50rVNY/PHClQ/
+	nymulshzq5Z9nS0UDx+F+4gOlL/8KS28gPk8hLy/zabxOWC7FqJGckeBl9FsP3nzkErGAZGLeygo8
+	BOgOoiGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUlMc-000000013Mr-0k4g;
-	Mon, 06 Jan 2025 11:33:42 +0000
-Received: from mx0a-001ae601.pphosted.com ([67.231.149.25] helo=mx0b-001ae601.pphosted.com)
+	id 1tUlQB-0000000145F-2FpJ;
+	Mon, 06 Jan 2025 11:37:23 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUlLQ-000000013Aw-1FAA
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 11:32:30 +0000
-Received: from pps.filterd (m0077473.ppops.net [127.0.0.1])
-	by mx0a-001ae601.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5064rhaA021827;
-	Mon, 6 Jan 2025 05:32:16 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cirrus.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=PODMain02222019; bh=2uYJOiM/HbfgHfKrJI
-	1xrTj5cr9v5VZf2W3BJkrW/wE=; b=iCpYwVj4vBbQzhXeGv7EHzyI5VlgS7kpRR
-	8s4EsgjuikitbrZBjkNeKjSA1ITMimEIUy3W7njEMe36Uk0xtYogChunI6et2j84
-	ONhUEoodlSZUwYk+u3rY7G6JjsgljyOFRginAXu1SBWUSHDxi6FHFgwYbzOpkOGN
-	BCakjF8JtACf5tuONR0Hk7UCz0DC5jCmtMWxdEf6Nhgp7ExQ0h1819cxei6sf+qR
-	ZLuDnUmjrQtD1/Yeprnm5eUtYXQxYeKBE0ZFAKL6+8yqKRDGe+01fCt2E2b0pAJH
-	xNrU17Hl1NBjbA+pt12aKwPsv8Q5gT5hgz6lINtUPD+R6nAMqN9A==
-Received: from ediex01.ad.cirrus.com ([84.19.233.68])
-	by mx0a-001ae601.pphosted.com (PPS) with ESMTPS id 43y3929mx4-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 06 Jan 2025 05:32:15 -0600 (CST)
-Received: from ediex02.ad.cirrus.com (198.61.84.81) by ediex01.ad.cirrus.com
- (198.61.84.80) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.13; Mon, 6 Jan
- 2025 11:32:13 +0000
-Received: from ediswmail9.ad.cirrus.com (198.61.86.93) by
- anon-ediex02.ad.cirrus.com (198.61.84.81) with Microsoft SMTP Server id
- 15.2.1544.13 via Frontend Transport; Mon, 6 Jan 2025 11:32:13 +0000
-Received: from opensource.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
-	by ediswmail9.ad.cirrus.com (Postfix) with ESMTPS id 23024820248;
-	Mon,  6 Jan 2025 11:32:13 +0000 (UTC)
-Date: Mon, 6 Jan 2025 11:32:12 +0000
-From: Charles Keepax <ckeepax@opensource.cirrus.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH 3/4] spi: cs42l43: Make handling missing spk-id GPIOs
- explicit
-Message-ID: <Z3u/PNryXkda7GyO@opensource.cirrus.com>
-References: <20250104205437.184782-1-krzysztof.kozlowski@linaro.org>
- <20250104205437.184782-3-krzysztof.kozlowski@linaro.org>
+	id 1tUlOy-000000013nV-1sQd;
+	Mon, 06 Jan 2025 11:36:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 86382A41595;
+	Mon,  6 Jan 2025 11:34:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2479BC4CED2;
+	Mon,  6 Jan 2025 11:36:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736163367;
+	bh=LBUAxpsmYNXZIFglggMMgniIO0kuiGahee6e3Q3OKnI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MlWRZbjtf4gKUzYYZH+8KgpJiXwlSsEJyANSob7yODDCDbUlHN+ikT7MdfO22zqZi
+	 jcJ1UobMrlmUCNb69sLUOtvqJOqHC2nUfcA3Anx1hsfR76jVeh2fiboToNB3kjhZg/
+	 RUT3CqE5oockJapAyDM/wBE/gn2ATj4jLtEfFo/PE0iaOLl++ABclgMkyvZ6nt845z
+	 Sb2QBdD6/qk1zOtA2tIXccSGQZlrFMH9DqkItq9uEYtZNdOTOyliWdnlB2E96TbM78
+	 3YLF5EVLKT5zaprK7L7Q7cIsW7uzwuX5GFOuvQwG9MIqfgY6AypnYjtwbkRrqi2uGS
+	 kfKBU91gKN6rg==
+Date: Mon, 6 Jan 2025 12:36:02 +0100
+From: Niklas Cassel <cassel@kernel.org>
+To: Pei Xiao <xiaopei01@kylinos.cn>
+Cc: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	lpieralisi@kernel.org, kw@linux.com, heiko@sntech.de,
+	kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH v2] PCI: dw-rockchip: remove redundant dev_err
+Message-ID: <Z3vAIksxz9rVqLF9@ryzen>
+References: <327718207d3cd72847c079ff9d56eb246744c182.1736126067.git.xiaopei01@kylinos.cn>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250104205437.184782-3-krzysztof.kozlowski@linaro.org>
-X-Proofpoint-GUID: h7sDSYWgJBRQ--r7QsqI2YX9f7ladere
-X-Proofpoint-ORIG-GUID: h7sDSYWgJBRQ--r7QsqI2YX9f7ladere
-X-Proofpoint-Spam-Reason: safe
+In-Reply-To: <327718207d3cd72847c079ff9d56eb246744c182.1736126067.git.xiaopei01@kylinos.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_033228_400043_B3F5B840 
-X-CRM114-Status: GOOD (  21.51  )
+X-CRM114-CacheID: sfid-20250106_033608_564628_3AA8C134 
+X-CRM114-Status: GOOD (  17.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,40 +69,60 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, David Rhodes <david.rhodes@cirrus.com>, Richard Fitzgerald <rf@opensource.cirrus.com>, Mark Brown <broonie@kernel.org>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, linux-spi@vger.kernel.org, patches@opensource.cirrus.com, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jan 04, 2025 at 09:54:36PM +0100, Krzysztof Kozlowski wrote:
-> gpiod_get_array_optional() for spk-id GPIOs can return NULL, if they are
-> missing, so do not pass the value to PTR_ERR but instead explicitly
-> treat NULL as acceptable condition.  The old code was correct, but
-> misleading because PTR_ERR usually is used on errors.
+On Mon, Jan 06, 2025 at 04:14:04PM +0800, Pei Xiao wrote:
+> dev_err is redundant because platform_get_irq_byname() already prints an
+> error.
 > 
-> Reported by Smatch:
->   drivers/spi/spi-cs42l43.c:241 cs42l43_get_speaker_id_gpios() warn: passing zero to 'PTR_ERR'
+> cocci warnings:
+> 	drivers/pci/controller/dwc/pcie-dw-rockchip.c:454:2-9:line 454 is
+> redundant because platform_get_irq() already prints an error
 > 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> so remove redundant dev_err.
+> 
+> Fixes: 8719dbc54668 ("PCI: dw-rockchip: Enumerate endpoints based on dll_link_up irq in the combined sys irq")
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202412312343.najrW1Db-lkp@intel.com/
+> Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
 > ---
->  drivers/spi/spi-cs42l43.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
+> V2:add to pci list
+> ---
+>  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 8 ++------
+>  1 file changed, 2 insertions(+), 6 deletions(-)
 > 
-> diff --git a/drivers/spi/spi-cs42l43.c b/drivers/spi/spi-cs42l43.c
-> index ceefc253c549..90180662c4c2 100644
-> --- a/drivers/spi/spi-cs42l43.c
-> +++ b/drivers/spi/spi-cs42l43.c
-> @@ -237,7 +237,9 @@ static int cs42l43_get_speaker_id_gpios(struct cs42l43_spi *priv, int *result)
->  	int i, ret;
+> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> index ce4b511bff9b..a9795866e915 100644
+> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> @@ -458,10 +458,8 @@ static int rockchip_pcie_configure_rc(struct platform_device *pdev,
+>  		return -ENODEV;
 >  
->  	descs = gpiod_get_array_optional(priv->dev, "spk-id", GPIOD_IN);
-> -	if (IS_ERR_OR_NULL(descs))
-> +	if (!descs)
-> +		return 0;
-> +	else if (IS_ERR_OR_NULL(descs))
+>  	irq = platform_get_irq_byname(pdev, "sys");
+> -	if (irq < 0) {
+> -		dev_err(dev, "missing sys IRQ resource\n");
+> +	if (irq < 0)
+>  		return irq;
+> -	}
+>  
+>  	ret = devm_request_threaded_irq(dev, irq, NULL,
+>  					rockchip_pcie_rc_sys_irq_thread,
+> @@ -504,10 +502,8 @@ static int rockchip_pcie_configure_ep(struct platform_device *pdev,
+>  		return -ENODEV;
+>  
+>  	irq = platform_get_irq_byname(pdev, "sys");
+> -	if (irq < 0) {
+> -		dev_err(dev, "missing sys IRQ resource\n");
+> +	if (irq < 0)
+>  		return irq;
+> -	}
+>  
+>  	ret = devm_request_threaded_irq(dev, irq, NULL,
+>  					rockchip_pcie_ep_sys_irq_thread,
+> -- 
+> 2.25.1
+> 
 
-Should switch to using just IS_ERR() if adding an explicit case
-for the NULL. Otherwise looks good to me.
-
-Thanks,
-Charles
+Reviewed-by: Niklas Cassel <cassel@kernel.org>
 
