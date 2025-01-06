@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26A85E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 15:25:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF6F9E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 15:29:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L72ba9T/btVaZ0v7zbxCUtLo4e4u4BCECDvuXWYYoyM=; b=HNhOsN3CEYsa9veZkdtm5pNl/4
-	sLsK1peLOk1sD7KN1sipkyKvPW5i+dQl3lBP+DvteTN3dR00LNYvX/t0awIh1JnYUFEPoAI4rECE4
-	JGDFBnAplcx0HRZ+cTJQrIPqV9sJI1rumhYuy4V1pa3XxcFhKhLYcCTZgzc3lvXJ4BHZes0GD5HnL
-	ZqPCPxvdwT0BA2nfd3XUF42OKTvy/slwZFugmgl+LMOdpVld1D+IG+FbzDTgldCL2LB3aTobfIeyK
-	jrcgAc4yPM2WaAsoGS6c2JdJNgA5QfIdAsx7P5IQj98pLoYHVdVacZTnzUliMcAiV8RO60ji73V2O
-	yVSAV/OQ==;
+	bh=doKqOtbmtdZeFs8BJV5D5NDjyYbH2KQ6uLFTpD5rQ10=; b=fAjokf1WM8liN6lB/c5rqbWqH9
+	MyAbXbZb4n/7AX9mi6BdFWC/Yf+aiYvPzz5HcgIjYIZygyMxyslL7NiCgTYDJAn9mvswqvo/huAOA
+	+A8SSHjD18WQv5hoKPY8JisJzoABTq89ymj3UZo+ukMLNS3P1ljyzxuTCaD6cuNL37gOzDS29CHBJ
+	cRIkRA21M6X4mvLaDkYnb49GU6/2+xslu4ZWnbxeI5yZ+igMD2eYG3fzsAUGpkyG+3y8VGxf/4aj0
+	WhA615pUK0BAPb7Tfi/2Mizy1QDq9/nhuOOITit/89fiU1aZ7YS9Q883CNE9OwT3DMVO4cAYMVmK5
+	EHoxSDBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUoyK-00000001km0-0RC7;
-	Mon, 06 Jan 2025 15:24:52 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUox6-00000001kMI-2na0
+	id 1tUp2T-00000001lvz-24ud;
+	Mon, 06 Jan 2025 15:29:09 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tUp1H-00000001lbd-2wiA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 15:23:37 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F007E1476;
-	Mon,  6 Jan 2025 07:24:03 -0800 (PST)
-Received: from [10.57.32.219] (unknown [10.57.32.219])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 84A823F7BD;
-	Mon,  6 Jan 2025 07:23:34 -0800 (PST)
-Message-ID: <dfbca7cc-1e9d-4c78-9790-adcfdf0e2fa4@arm.com>
-Date: Mon, 6 Jan 2025 15:23:33 +0000
+	Mon, 06 Jan 2025 15:27:57 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <a.fatoum@pengutronix.de>)
+	id 1tUp14-0001QG-DH; Mon, 06 Jan 2025 16:27:42 +0100
+Message-ID: <d4728cc0-8f1b-4c0a-8133-527d68643d26@pengutronix.de>
+Date: Mon, 6 Jan 2025 16:27:41 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/1] coresight: prevent deactivate active config while
- enable the config
-To: Yeo Reum Yun <YeoReum.Yun@arm.com>,
- "mike.leach@linaro.org" <mike.leach@linaro.org>,
- "james.clark@linaro.org" <james.clark@linaro.org>,
- "alexander.shishkin@linux.intel.com" <alexander.shishkin@linux.intel.com>
-Cc: "coresight@lists.linaro.org" <coresight@lists.linaro.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- nd <nd@arm.com>
-References: <20241218084833.609876-1-yeoreum.yun@arm.com>
- <GV1PR08MB1052128A5BBEC4E0A9090387FFB0A2@GV1PR08MB10521.eurprd08.prod.outlook.com>
- <208b72a1-06eb-4ac0-8104-20ae3f0cf174@arm.com>
- <GV1PR08MB1052189E5AE025F139F0A3526FB102@GV1PR08MB10521.eurprd08.prod.outlook.com>
-Content-Language: en-GB
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <GV1PR08MB1052189E5AE025F139F0A3526FB102@GV1PR08MB10521.eurprd08.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH 03/10] arm64: dts: imx8mp-skov: use I2C5 for DDC
+To: Frank Li <Frank.li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Oleksij Rempel
+ <o.rempel@pengutronix.de>, devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20241219-skov-dt-updates-v1-0-38bf80dc22df@pengutronix.de>
+ <20241219-skov-dt-updates-v1-3-38bf80dc22df@pengutronix.de>
+ <Z2RZG7pAElG3TGLx@lizhi-Precision-Tower-5810>
+ <a30baba6-6252-4c69-b6a7-e4099e823920@pengutronix.de>
+ <Z2RzoITPUmZFoX09@lizhi-Precision-Tower-5810>
+Content-Language: en-US
+From: Ahmad Fatoum <a.fatoum@pengutronix.de>
+In-Reply-To: <Z2RzoITPUmZFoX09@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_072336_795442_6E8FD3DE 
-X-CRM114-Status: GOOD (  25.41  )
+X-CRM114-CacheID: sfid-20250106_072755_739258_C96A0863 
+X-CRM114-Status: GOOD (  23.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,184 +75,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/01/2025 13:41, Yeo Reum Yun wrote:
-> Hi Suzuki,
+On 19.12.24 20:27, Frank Li wrote:
+> On Thu, Dec 19, 2024 at 06:43:56PM +0100, Ahmad Fatoum wrote:
+>> Hello Frank,
+>>
+>> On 19.12.24 18:34, Frank Li wrote:
+>>> On Thu, Dec 19, 2024 at 08:25:27AM +0100, Ahmad Fatoum wrote:
+>>>> The HDMI DDC pads can be muxed either to an i.MX I2C controller or
+>>>> to a limited I2C controller within the Designware HDMI bridge.
+>>>>
+>>>> So far we muxed the pads to the HDMI bridge, but the i.MX I2C controller
+>>>> is the better choice:
+>>>
+>>> Switch to the i.MX I2C controller because
+>>>
+>>>>
+>>>>   - We use DDC/CI commands for display brightness configuration, but the
+>>>>     Linux driver refuses[1] transfers to/from address 0x37, because the
+>>>>     controller doesn't support multi-byte requests.
+>>>
+>>>       Designware HDMI Limited I2C controller doesn't support multi-byte
+>>> requests and display brightness configuration by DDC/CI command need it.
+>>>
+>>>>
+>>>>   - The driver doesn't support I2C bus recovery, but we need that,
+>>>>     because some HDMI panels used with the board can be flaky.
+>>>
+>>>       Designware HDMI Limited I2C controller doesn't support I2C bus
+>>> recovery.
+>>>
+>>>>
+>>>> As the i.MX I2C controller doesn't have either of these limitations,
+>>>> let's make use of it instead.
+>>>
+>>> Reduntant. can be removed.
+>>
+>> Sorry, I am very much open to review feedback, but I fail to see how
+>> your subjective take improves things.
 > 
-> Sorry this ping was my mistake.
-> As you said, v2 is the recent one.
-> You can ignore this.
+> Ref https://docs.kernel.org/process/submitting-patches.html
 > 
+> "Describe your changes in imperative mood, e.g. “make xyzzy do frotz”
+> instead of “[This patch] makes xyzzy do frotz” or “[I] changed xyzzy to do
+> frotz”, as if you are giving orders to the codebase to change its behaviour."
+> 
+> Avoid use "we(same as "I" in above example) ..."
 
-Thanks, will respond on v2.
+We is replaced by passive voice in v2.
 
-Also, fyi, your emails not plain text ! Please fix your email client.
+Cheers,
+Ahmad
 
-Suzuki
-
-
-> Thanks!
-> ------------------------------------------------------------------------
-> *보낸 사람:* Suzuki K Poulose <suzuki.poulose@arm.com>
-> *보낸 날짜:* Monday, January 6, 2025 1:37:40 PM
-> *받는 사람:* Yeo Reum Yun <YeoReum.Yun@arm.com>; mike.leach@linaro.org 
-> <mike.leach@linaro.org>; james.clark@linaro.org 
-> <james.clark@linaro.org>; alexander.shishkin@linux.intel.com 
-> <alexander.shishkin@linux.intel.com>
-> *참조:* coresight@lists.linaro.org <coresight@lists.linaro.org>; linux- 
-> arm-kernel@lists.infradead.org <linux-arm-kernel@lists.infradead.org>; 
-> linux-kernel@vger.kernel.org <linux-kernel@vger.kernel.org>; nd <nd@arm.com>
-> *제목:* Re: [PATCH 1/1] coresight: prevent deactivate active config 
-> while enable the config
-> Hi Yeo,
 > 
+> Frank
 > 
-> On 31/12/2024 14:37, Yeo Reum Yun wrote:
->> Gentle ping in case of forgotten.
->> 
-> 
-> Gentle reminder: Please avoid top posting.
-> 
-> I thought there is a v2 of this one ? I am now confused.
-> 
-> Kind regards
-> Suzuki
-> 
->> ________________________________________
->> From: Yeoreum Yun <yeoreum.yun@arm.com>
->> Sent: 18 December 2024 08:48
->> To: Suzuki Poulose; mike.leach@linaro.org; james.clark@linaro.org; alexander.shishkin@linux.intel.com
->> Cc: coresight@lists.linaro.org; linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org; nd; Yeo Reum Yun
->> Subject: [PATCH 1/1] coresight: prevent deactivate active config while enable the config
->> 
->> While enable active config via cscfg_csdev_enable_active_config(),
->> active config could be deactivated via configfs' sysfs interface.
->> This could make UAF issue in below scenario:
->> 
->> CPU0                                          CPU1
->> (perf or sysfs enable)                        load module
->>                                                cscfg_load_config_sets()
->>                                                activate config. // sysfs
->>                                                (sys_active_cnt == 1)
->> ...
->> cscfg_csdev_enable_active_config()
->>    lock(csdev->cscfg_csdev_lock)
->>    // here load config activate by CPU1
->>    unlock(csdev->cscfg_csdev_lock)
->> 
->>                                                deactivate config // sysfs
->>                                                (sys_activec_cnt == 0)
->>                                                cscfg_unload_config_sets()
->>                                                unload module
->> 
->>    // access to config_desc which freed
->>    // while unloading module.
->>    cfs_csdev_enable_config
->> 
->> To address this, introduce sys_enable_cnt in cscfg_mgr to prevent
->> deactivate while there is enabled configuration.
->> 
->> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
->> ---
->>   .../hwtracing/coresight/coresight-etm4x-core.c |  3 +++
->>   drivers/hwtracing/coresight/coresight-syscfg.c | 18 ++++++++++++++++--
->>   drivers/hwtracing/coresight/coresight-syscfg.h |  2 ++
->>   3 files changed, 21 insertions(+), 2 deletions(-)
->> 
->> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
->> index 86893115df17..6218ef40acbc 100644
->> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
->> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
->> @@ -986,6 +986,9 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
->>          smp_call_function_single(drvdata->cpu, etm4_disable_hw, drvdata, 1);
->> 
->>          raw_spin_unlock(&drvdata->spinlock);
->> +
->> +       cscfg_csdev_disable_active_config(csdev);
->> +
->>          cpus_read_unlock();
->> 
->>          /*
->> diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtracing/coresight/coresight-syscfg.c
->> index a70c1454b410..dfa7dcbaf25d 100644
->> --- a/drivers/hwtracing/coresight/coresight-syscfg.c
->> +++ b/drivers/hwtracing/coresight/coresight-syscfg.c
->> @@ -953,7 +953,8 @@ int cscfg_config_sysfs_activate(struct cscfg_config_desc *config_desc, bool acti
->>                          cscfg_mgr->sysfs_active_config = cfg_hash;
->>          } else {
->>                  /* disable if matching current value */
->> -               if (cscfg_mgr->sysfs_active_config == cfg_hash) {
->> +               if (cscfg_mgr->sysfs_active_config == cfg_hash &&
->> +                   !atomic_read(&cscfg_mgr->sys_enable_cnt)) {
->>                          _cscfg_deactivate_config(cfg_hash);
->>                          cscfg_mgr->sysfs_active_config = 0;
->>                  } else
->> @@ -1055,6 +1056,12 @@ int cscfg_csdev_enable_active_config(struct coresight_device *csdev,
->>          if (!atomic_read(&cscfg_mgr->sys_active_cnt))
->>                  return 0;
->> 
->> +       /*
->> +        * increment sys_enable_cnt first to prevent deactivate the config
->> +        * while enable active config.
->> +        */
->> +       atomic_inc(&cscfg_mgr->sys_enable_cnt);
->> +
->>          /*
->>           * Look for matching configuration - set the active configuration
->>           * context if found.
->> @@ -1098,6 +1105,10 @@ int cscfg_csdev_enable_active_config(struct coresight_device *csdev,
->>                          raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
->>                  }
->>          }
->> +
->> +       if (!config_csdev_active || err)
->> +               atomic_dec(&cscfg_mgr->sys_enable_cnt);
->> +
->>          return err;
->>   }
->>   EXPORT_SYMBOL_GPL(cscfg_csdev_enable_active_config);
->> @@ -1129,8 +1140,10 @@ void cscfg_csdev_disable_active_config(struct coresight_device *csdev)
->>          if (config_csdev) {
->>                  if (!config_csdev->enabled)
->>                          config_csdev = NULL;
->> -               else
->> +               else {
->>                          config_csdev->enabled = false;
->> +                       atomic_dec(&cscfg_mgr->sys_enable_cnt);
->> +               }
->>          }
->>          csdev->active_cscfg_ctxt = NULL;
->>          raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
->> @@ -1179,6 +1192,7 @@ static int cscfg_create_device(void)
->>          INIT_LIST_HEAD(&cscfg_mgr->config_desc_list);
->>          INIT_LIST_HEAD(&cscfg_mgr->load_order_list);
->>          atomic_set(&cscfg_mgr->sys_active_cnt, 0);
->> +       atomic_set(&cscfg_mgr->sys_enable_cnt, 0);
->>          cscfg_mgr->load_state = CSCFG_NONE;
->> 
->>          /* setup the device */
->> diff --git a/drivers/hwtracing/coresight/coresight-syscfg.h b/drivers/hwtracing/coresight/coresight-syscfg.h
->> index 66e2db890d82..2fc397919985 100644
->> --- a/drivers/hwtracing/coresight/coresight-syscfg.h
->> +++ b/drivers/hwtracing/coresight/coresight-syscfg.h
->> @@ -38,6 +38,7 @@ enum cscfg_load_ops {
->>    * @config_desc_list:  List of system configuration descriptors to load into registered devices.
->>    * @load_order_list:    Ordered list of owners for dynamically loaded configurations.
->>    * @sys_active_cnt:    Total number of active config descriptor references.
->> + * @sys_enable_cnt:    Total number of enable of active config descriptor references.
->>    * @cfgfs_subsys:      configfs subsystem used to manage configurations.
->>    * @sysfs_active_config:Active config hash used if CoreSight controlled from sysfs.
->>    * @sysfs_active_preset:Active preset index used if CoreSight controlled from sysfs.
->> @@ -50,6 +51,7 @@ struct cscfg_manager {
->>          struct list_head config_desc_list;
->>          struct list_head load_order_list;
->>          atomic_t sys_active_cnt;
->> +       atomic_t sys_enable_cnt;
->>          struct configfs_subsystem cfgfs_subsys;
->>          u32 sysfs_active_config;
->>          int sysfs_active_preset;
+>>
+>> Thanks,
+>> Ahmad
+>>
+>>
+>>
+>>
+>>>
+>>> Frank
+>>>>
+>>>> [1]: https://lore.kernel.org/all/20190722181945.244395-1-mka@chromium.org/
+>>>>
+>>>> Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
+>>>> ---
+>>>>  .../boot/dts/freescale/imx8mp-skov-revb-hdmi.dts   | 26 ++++++++++++++++++++--
+>>>>  1 file changed, 24 insertions(+), 2 deletions(-)
+>>>>
+>>>> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-hdmi.dts b/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-hdmi.dts
+>>>> index c1ca69da3cb8..206116be8166 100644
+>>>> --- a/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-hdmi.dts
+>>>> +++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-hdmi.dts
+>>>> @@ -9,12 +9,34 @@ / {
+>>>>  	compatible = "skov,imx8mp-skov-revb-hdmi", "fsl,imx8mp";
+>>>>  };
+>>>>
+>>>> +&i2c5 {
+>>>> +	pinctrl-names = "default", "gpio";
+>>>> +	pinctrl-0 = <&pinctrl_i2c5>;
+>>>> +	pinctrl-1 = <&pinctrl_i2c5_gpio>;
+>>>> +	scl-gpios = <&gpio3 26 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+>>>> +	sda-gpios = <&gpio3 27 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+>>>> +	clock-frequency = <100000>;
+>>>> +	status = "okay";
+>>>> +};
+>>>> +
+>>>>  &iomuxc {
+>>>>  	pinctrl_hdmi: hdmigrp {
+>>>>  		fsl,pins = <
+>>>> -			MX8MP_IOMUXC_HDMI_DDC_SCL__HDMIMIX_HDMI_SCL		0x1c3
+>>>> -			MX8MP_IOMUXC_HDMI_DDC_SDA__HDMIMIX_HDMI_SDA		0x1c3
+>>>>  			MX8MP_IOMUXC_HDMI_HPD__HDMIMIX_HDMI_HPD			0x19
+>>>>  		>;
+>>>>  	};
+>>>> +
+>>>> +	pinctrl_i2c5: i2c5grp {
+>>>> +		fsl,pins = <
+>>>> +			MX8MP_IOMUXC_HDMI_DDC_SCL__I2C5_SCL			0x400001c2
+>>>> +			MX8MP_IOMUXC_HDMI_DDC_SDA__I2C5_SDA			0x400001c2
+>>>> +		>;
+>>>> +	};
+>>>> +
+>>>> +	pinctrl_i2c5_gpio: i2c5gpiogrp {
+>>>> +		fsl,pins = <
+>>>> +			MX8MP_IOMUXC_HDMI_DDC_SCL__GPIO3_IO26			0x400001c2
+>>>> +			MX8MP_IOMUXC_HDMI_DDC_SDA__GPIO3_IO27			0x400001c2
+>>>> +		>;
+>>>> +	};
+>>>>  };
+>>>>
+>>>> --
+>>>> 2.39.5
+>>>>
+>>>
+>>
+>>
 >> --
->> LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
->> 
+>> Pengutronix e.K.                           |                             |
+>> Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+>> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+>> Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 > 
 
+
+-- 
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
