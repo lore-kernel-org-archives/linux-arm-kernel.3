@@ -4,67 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88BF8E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 08:30:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 010C3E77198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 08:31:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vaBeVCSplEp3t7Uq+vEaU7dsL2qpySgP1thAmWfrdbE=; b=k5CN0fmQVXtjNOy32BoFiW7pvf
-	c2dra7kgUz1clxlSwVVsTeHSIZxuUreEFs2nhx/2GWFpGzBvrka1vGTMsMMK0y9q87we5UtWoxhPr
-	oa7SFYo1Zrfq/0KSdzhQWoonB23CjhsTz1lidpKjlMo3XqIwWHbyCXFQ4W0yKV8DGfIzj+yKWhnjN
-	Z/XEnSFJeWdM+MUm9zV3A3hrb/hQ06ay0FBHMMSrZFtNMFiaeNWXOW6eIDnS2Wtbvz1RKBlK5OulL
-	muWNEuePDxQmqcaV7EFhesKDBXiXXZcHRLrDcjJbagv+oGKnZTSbCMpoAM+h9m6oQhgsvKdbQHHrI
-	DRYbT2MQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kpW+I2cXpprDB6fqzzdSF5AgL9mo0sDBEMmxYPdOYBQ=; b=TRt/Jn8TdTFd8PZbzNr5lfLrh0
+	0Y20qh/jW8Er0YO5SwNVVBrvOyctJvaZIlh8JxUSbAe3pmn7kbqbUDAfVEniuMclIh22kNkC+R/eS
+	vamW+vqrVwuUkjYmXZGtsFlN7xj0IegXm2f8X5ddEGjcPyoDV4cZ+NlqIf6eLjEosvSSWHifKMPro
+	i04ttDsMoMwkCA4d5SlEKG6CxrCKD3XYXJiFZMI7vJiLxyNHEXSJ+l4sA6sdzFHivbwCLIFAPZ44Q
+	263Zzvs3irvO8/EW+h0AwX2XGhBhOSs8po04U+Mizkn4vTcJwuf8M85iPyG5gvg5hyJaKbFU1N4hn
+	OGh1oZ2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUiVF-00000000Vuu-1Ej7;
-	Mon, 06 Jan 2025 08:30:25 +0000
-Received: from m16.mail.163.com ([117.135.210.3])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUiU2-00000000VdJ-2T5g;
-	Mon, 06 Jan 2025 08:29:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=QvvUjMVsalABWPAxsfiqW0PxVYwaEEqoYzHX78bIU04=; b=B
-	s75cxANUPFl4nGG4RgCX/qGCkfd0lk59mxr0vdE4CAP/hlBBrmL/6d2HAnYubNkA
-	mtscE4Xt/qDsvkoxd7tlxADsluvWK2jct+qwoKIStnqK7SZmw81zgvUfuNs8IFQ6
-	1A08cUZqZsxUTra6EaZTeAjazJL8FTA7v5ROUXady4=
-Received: from andyshrk$163.com ( [58.22.7.114] ) by
- ajax-webmail-wmsvr-40-127 (Coremail) ; Mon, 6 Jan 2025 16:28:30 +0800 (CST)
-X-Originating-IP: [58.22.7.114]
-Date: Mon, 6 Jan 2025 16:28:30 +0800 (CST)
-From: "Andy Yan" <andyshrk@163.com>
-To: "Rob Herring" <robh@kernel.org>
-Cc: heiko@sntech.de, hjc@rock-chips.com, krzk+dt@kernel.org, 
-	devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, derek.foreman@collabora.com, 
-	detlev.casanova@collabora.com, daniel@fooishbar.org, 
-	"Andy Yan" <andy.yan@rock-chips.com>
-Subject: Re:Re: [PATCH v8 8/9] dt-bindings: display: vop2: Add rk3576
- support
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20240801(9da12a7b)
- Copyright (c) 2002-2025 www.mailtech.cn 163com
-In-Reply-To: <20250103163449.GA2382623-robh@kernel.org>
-References: <20241231090802.251787-1-andyshrk@163.com>
- <20241231090802.251787-9-andyshrk@163.com>
- <20250103163449.GA2382623-robh@kernel.org>
-X-NTES-SC: AL_Qu2YBP2evUkq5iCYYukfmkcVgOw9UcO5v/Qk3oZXOJF8jA/p6xkmTEJSJHT08860Ox+OmgmGeyZR1f9lbItUQKMqPAiBNQJ6LlncQ60jPnVgsw==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	id 1tUiWQ-00000000W8f-0rk1;
+	Mon, 06 Jan 2025 08:31:38 +0000
+Received: from mail-bn8nam04on20613.outbound.protection.outlook.com ([2a01:111:f403:2408::613] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tUiUv-00000000Vpq-2bg7
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 06 Jan 2025 08:30:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=w6kuyX5jqkNZuqAa+790jkoX+gHegAN5Mfa3prY8igVspVDwm+5jXlIyr/blUzFmhAH+9z6krqZBkIAAUTJpgk9YI5Zy1W1+vwdriItu9woSRRZCXC79piQMTEL5lxP2cZ79Su4Ea/wWFYYFmRUw8tDvPEkDc/N35eQ3edjSDpdPax5rVEu0+VbMvj5axgl9QRcS2vVQfOVw3CQRIRfEk/muWCDbIZH6rUUnEYbjj7pRZ2K7ga69RuE2nXOU75NTNJ1SUz3wwpgylanD5YzodDQKM9TT/mNWN/p4Judp6d5zJ/au0OxesI7p4AnB9wp3zDQcM1HGbfzzOPGhpc8Zkw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=kpW+I2cXpprDB6fqzzdSF5AgL9mo0sDBEMmxYPdOYBQ=;
+ b=p4uzN3itAZSczQIrGtWkUeItDWG/EmLAEu4LWgDyUynFuTwJM2ecQzR86cZMYOoJQPaUVfd9UwHGEYH5RYcGC9Kwvq3fdsvhOY74dvEgDKPRxYkrkCt3Gdtd3javLjiBoYLSgxRmPpX3kniQdPjITEo3C9U80lkqcKv7vOYXzS+99D8lx5dKIEI6UNfKKYJ7E7DELiEXjZexVJ/egApJOOgT2aC2UkSL7NaEieZZmj2tymNwJdudgRuNNhcCycgQDMo6gOFjRzSFW6gMhgfHV43N/rLAZDQI33B1CKpLQAtK7XI3an+PODf74FwdplMMKuXMqCXQq2Yh3Ydf8cMMaQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=baylibre.com smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=kpW+I2cXpprDB6fqzzdSF5AgL9mo0sDBEMmxYPdOYBQ=;
+ b=pLafkotncHzgQFRHNao9apSgjFPeh/PcQIl+LVMggnrgtTYkknXFosttkJApIfZoawYB34I/QFSQg77RMMgZcIHFnd/SSOsbIdBC0vx6nO3yJSTewsLwWnW1mC5x0/tf27LRrgjPmLE07kN4ooFZjmcZ97/Hpcen1e81Ct5Yg6w=
+Received: from BN9PR03CA0525.namprd03.prod.outlook.com (2603:10b6:408:131::20)
+ by DM6PR12MB4298.namprd12.prod.outlook.com (2603:10b6:5:21e::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8293.17; Mon, 6 Jan
+ 2025 08:29:54 +0000
+Received: from BL02EPF00029927.namprd02.prod.outlook.com
+ (2603:10b6:408:131:cafe::8c) by BN9PR03CA0525.outlook.office365.com
+ (2603:10b6:408:131::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8314.17 via Frontend Transport; Mon,
+ 6 Jan 2025 08:29:54 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=SATLEXMB03.amd.com; pr=C
+Received: from SATLEXMB03.amd.com (165.204.84.17) by
+ BL02EPF00029927.mail.protection.outlook.com (10.167.249.52) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.8335.7 via Frontend Transport; Mon, 6 Jan 2025 08:29:54 +0000
+Received: from SATLEXMB06.amd.com (10.181.40.147) by SATLEXMB03.amd.com
+ (10.181.40.144) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 6 Jan
+ 2025 02:29:53 -0600
+Received: from SATLEXMB04.amd.com (10.181.40.145) by SATLEXMB06.amd.com
+ (10.181.40.147) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 6 Jan
+ 2025 02:29:52 -0600
+Received: from xhdshubhraj40.xilinx.com (10.180.168.240) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
+ Transport; Mon, 6 Jan 2025 02:29:49 -0600
+From: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
+To: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+	<sboyd@kernel.org>, Michal Simek <michal.simek@amd.com>,
+	<linux-clk@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+CC: <git@amd.com>, Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>, "Anatoliy
+ Klymenko" <anatoliy.klymenko@amd.com>
+Subject: [PATCH] clk: clocking-wizard: calculate dividers fractional parts
+Date: Mon, 6 Jan 2025 13:59:37 +0530
+Message-ID: <20250106082937.29555-1-shubhrajyoti.datta@amd.com>
+X-Mailer: git-send-email 2.17.1
 MIME-Version: 1.0
-Message-ID: <2f8b8305.80ab.1943abad3ba.Coremail.andyshrk@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: fygvCgD3_64ulHtnIHlRAA--.9238W
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqAnMXmd7ju+DVQAEsc
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL02EPF00029927:EE_|DM6PR12MB4298:EE_
+X-MS-Office365-Filtering-Correlation-Id: a7fff115-ca30-4bf9-f40e-08dd2e2c4be0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|1800799024|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?p8PPWfVJlQrZjKEwDY/hyokpCjyNHx75m7BNu9rdmMs49D706LX8D6y/QfPy?=
+ =?us-ascii?Q?7Nt5kqwyHChYhhvXZhlAeANupN8QbUKQ0vmucGgErgX6vkGGNavZ2wE1mRLR?=
+ =?us-ascii?Q?wwh7bIwHvIW2WHAVkSzIF88+sA8ueRSJm443VpaYawvrkdkQ886gvN+vDLuY?=
+ =?us-ascii?Q?FBuyI/nE0cIftgoJpcd/DivnlINa+WTVG8QSDKIKdAduNtPRp1vaM+3ek9Kc?=
+ =?us-ascii?Q?lPADhPLYDy7BWSXnQw7Wx+nvJ+7Tyu0es/sLmTsMvGLMHVP0p4bGtuAnLKh7?=
+ =?us-ascii?Q?OMalKxG0mduK/RDSQbwAS6DvXsFp8GvmXdolrVCqMonpJNwIlKU3aNi9Zk5D?=
+ =?us-ascii?Q?R5qVz58SZqtGu3WkQzSofSXOmguoseYdzYf6K2fK9j8BmJpw8mP06mJMIAEm?=
+ =?us-ascii?Q?XkUJTD8yzi9rNuuPwaFVnLqurvQ9fPcraZePWvcFk+WrC45MQJY6UWCq4O3v?=
+ =?us-ascii?Q?JGMBWQQMW64qKlSKxukdg2k8FRT4Etf4yzPgXhbdicfF8z73hukTY2XZhjYw?=
+ =?us-ascii?Q?Xa2LAZyBjijtZfc07YV25PO5uKlZlWG1MrUlpPQ6qIvLJtEdbY/q/El7k1h4?=
+ =?us-ascii?Q?9zCVb7Do7iuKCWjwlid6rID7BjuaakJtv2JBPEivnDT+b7KLksEDZyIGesDT?=
+ =?us-ascii?Q?av4UZpkEAYdAp6kYl1SobE/4qa91UOb0GqqPi9/aKNXyw9Qn1cdx4GnxO2ZU?=
+ =?us-ascii?Q?+uTIbeQ0DdiUk0q5k/svu7HbPP9IYYTd3F2g0fO50ZLCsfQeiwCkeML5Au/3?=
+ =?us-ascii?Q?DMSS1agc9uDJZH7Ys0KO//cazz7zeDBswfMqdZJXqCLCxs218c3SdFpDDibH?=
+ =?us-ascii?Q?vfihayxZo+RhOHvfjydRXrvOJoHOjBUmx6Qi1r2rj6PjjcLr6Jf1tb+2Gj3J?=
+ =?us-ascii?Q?mV/ZayilZS5SG/JHHdzEnl7EB8LFnFaGec8LXPBwZR+d3yWi1+04J1gwX4rr?=
+ =?us-ascii?Q?o4UX75HtmaF/BVC2dG1fS46qYEOITgjVYEvXlSpl3yWzMePOwV9Q8gYv6tYi?=
+ =?us-ascii?Q?zY4Tslkn5CebB459FCvn1/1qU5kVPuD+zyC6cbgW9JB2myINQ8UT8PsLiSjN?=
+ =?us-ascii?Q?jd74Psj+YY3o3gV4FpJTCEY9hMXjajXfI+YakUR9QJ79Fy0yw1KKbaoVgOsT?=
+ =?us-ascii?Q?lXsdMoqNAoKbALo7OoHGPGRy6N7FA7QEkVCDspaFzEc7Cme+pIBkSSF7nw9U?=
+ =?us-ascii?Q?MFe9q0wT1/8YOoxbfxIjNwRPg9YifE5WRG5S0cOiwvRGJMDNXXBysitqxHsN?=
+ =?us-ascii?Q?EGW53QojHe7E1+HpCX598bCa+wo2nFeMGvLOvQQ1C4rHKtQlCtxHxgDxr9Uf?=
+ =?us-ascii?Q?stpEuHzBtY4Lc4nkoCjqSRH3lwqWzL+TjAqBtSVqmZ0oc5412RNJIb2VWCax?=
+ =?us-ascii?Q?R8E6Cve/8WScyEbkcFokqSB+RIcQ3KMZPnof7rbZbC9s/6Jf4E+8eH2X6rKt?=
+ =?us-ascii?Q?AZzwOceA6ZA02x3CPEyXlsxE4ghQ3BK6zfmt+vvLckc/dF58B2zvKij+J0cF?=
+ =?us-ascii?Q?LiV4FONO4nXdUT4=3D?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB03.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(1800799024)(376014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jan 2025 08:29:54.2169
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a7fff115-ca30-4bf9-f40e-08dd2e2c4be0
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB03.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL02EPF00029927.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4298
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_002911_023519_1CCDDBD3 
-X-CRM114-Status: GOOD (  17.31  )
+X-CRM114-CacheID: sfid-20250106_003005_768663_EF2CD3B4 
+X-CRM114-Status: GOOD (  16.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,107 +147,242 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgUm9iLAoKQXQgMjAyNS0wMS0wNCAwMDozNDo0OSwgIlJvYiBIZXJyaW5nIiA8cm9iaEBrZXJu
-ZWwub3JnPiB3cm90ZToKPk9uIFR1ZSwgRGVjIDMxLCAyMDI0IGF0IDA1OjA3OjUxUE0gKzA4MDAs
-IEFuZHkgWWFuIHdyb3RlOgo+PiBGcm9tOiBBbmR5IFlhbiA8YW5keS55YW5Acm9jay1jaGlwcy5j
-b20+Cj4+IAo+PiBBZGQgdm9wIGZvdW5kIG9uIHJrMzU3NiwgdGhlIG1haW4gZGlmZmVyZW5jZSBi
-ZXR3ZWVuIHJrMzU3NiBhbmQgdGhlCj4+IHByZXZpb3VzIHZvcCBpcyB0aGF0IGVhY2ggVlAgaGFz
-IGl0cyBvd24gaW50ZXJydXB0IGxpbmUuCj4+IAo+PiBTaWduZWQtb2ZmLWJ5OiBBbmR5IFlhbiA8
-YW5keS55YW5Acm9jay1jaGlwcy5jb20+Cj4+IAo+PiAtLS0KPj4gCj4+IENoYW5nZXMgaW4gdjg6
-Cj4+IC0gRml4IGR0X2JpbmRpbmdfY2hlY2sgZXJyb3JzCj4+IC0gb3JkZXJlZCBieSBzb2MgbmFt
-ZQo+PiAtIExpbmsgdG8gdGhlIHByZXZpb3VzIHZlcnNpb246Cj4+ICAgaHR0cHM6Ly9sb3JlLmtl
-cm5lbC5vcmcvbGludXgtcm9ja2NoaXAvNnBuM3FqeG90ZHRwenVjcHVsMjR5cm83cHBkZGV6d3Vp
-em5lb3Zxdm1nZHd5djJqN3BAenRnNG1xeWlxbWpmL1QvI3UKPj4gCj4+IENoYW5nZXMgaW4gdjQ6
-Cj4+IC0gZGVzY3JpYmUgY29uc3RyYWludCBTT0MgYnkgU09DLCBhcyBpbnRlcnJ1cHRzIG9mIHJr
-MzU3NiBpcyB2ZXJ5Cj4+ICAgZGlmZmVyZW50IGZyb20gb3RoZXJzCj4+IC0gRHJvcCBLcnp5c3p0
-b2YncyBSZXZpZXdlZC1ieSwgYXMgdGhpcyB2ZXJzaW9uIGNoYW5nZWQgYSBsb3QuCj4+IAo+PiBD
-aGFuZ2VzIGluIHYzOgo+PiAtIG9yZGVyZWQgYnkgc29jIG5hbWUKPj4gLSBBZGQgZGVzY3JpcHRp
-b24gZm9yIG5ld2x5IGFkZGVkIGludGVycnVwdAo+PiAKPj4gQ2hhbmdlcyBpbiB2MjoKPj4gLSBB
-ZGQgZHQgYmluZGluZ3MKPj4gCj4+ICAuLi4vZGlzcGxheS9yb2NrY2hpcC9yb2NrY2hpcC12b3Ay
-LnlhbWwgICAgICAgfCA4MSArKysrKysrKysrKysrKy0tLS0tCj4+ICAxIGZpbGUgY2hhbmdlZCwg
-NjMgaW5zZXJ0aW9ucygrKSwgMTggZGVsZXRpb25zKC0pCj4+IAo+PiBkaWZmIC0tZ2l0IGEvRG9j
-dW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2Rpc3BsYXkvcm9ja2NoaXAvcm9ja2NoaXAt
-dm9wMi55YW1sIGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2Rpc3BsYXkvcm9j
-a2NoaXAvcm9ja2NoaXAtdm9wMi55YW1sCj4+IGluZGV4IDI1MzE3MjZhZjMwNi4uNGNkZDljY2Vk
-MTBjIDEwMDY0NAo+PiAtLS0gYS9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvZGlz
-cGxheS9yb2NrY2hpcC9yb2NrY2hpcC12b3AyLnlhbWwKPj4gKysrIGIvRG9jdW1lbnRhdGlvbi9k
-ZXZpY2V0cmVlL2JpbmRpbmdzL2Rpc3BsYXkvcm9ja2NoaXAvcm9ja2NoaXAtdm9wMi55YW1sCj4+
-IEBAIC0yMCw2ICsyMCw3IEBAIHByb3BlcnRpZXM6Cj4+ICAgICAgZW51bToKPj4gICAgICAgIC0g
-cm9ja2NoaXAscmszNTY2LXZvcAo+PiAgICAgICAgLSByb2NrY2hpcCxyazM1Njgtdm9wCj4+ICsg
-ICAgICAtIHJvY2tjaGlwLHJrMzU3Ni12b3AKPj4gICAgICAgIC0gcm9ja2NoaXAscmszNTg4LXZv
-cAo+PiAgCj4+ICAgIHJlZzoKPj4gQEAgLTM3LDEwICszOCwyMSBAQCBwcm9wZXJ0aWVzOgo+PiAg
-ICAgICAgLSBjb25zdDogZ2FtbWEtbHV0Cj4+ICAKPj4gICAgaW50ZXJydXB0czoKPj4gLSAgICBt
-YXhJdGVtczogMQo+PiArICAgIG1pbkl0ZW1zOiAxCj4+ICsgICAgbWF4SXRlbXM6IDQKPj4gICAg
-ICBkZXNjcmlwdGlvbjoKPj4gLSAgICAgIFRoZSBWT1AgaW50ZXJydXB0IGlzIHNoYXJlZCBieSBz
-ZXZlcmFsIGludGVycnVwdCBzb3VyY2VzLCBzdWNoIGFzCj4+IC0gICAgICBmcmFtZSBzdGFydCAo
-VlNZTkMpLCBsaW5lIGZsYWcgYW5kIG90aGVyIHN0YXR1cyBpbnRlcnJ1cHRzLgo+PiArICAgICAg
-Rm9yIFZPUCB2ZXJzaW9uIHVuZGVyIHJrMzU3NiwgdGhlIGludGVycnVwdCBpcyBzaGFyZWQgYnkg
-c2V2ZXJhbCBpbnRlcnJ1cHQKPj4gKyAgICAgIHNvdXJjZXMsIHN1Y2ggYXMgZnJhbWUgc3RhcnQg
-KFZTWU5DKSwgbGluZSBmbGFnIGFuZCBvdGhlciBpbnRlcnJ1cHQgc3RhdHVzLgo+PiArICAgICAg
-Rm9yIFZPUCB2ZXJzaW9uIGZyb20gcmszNTc2IHRoZXJlIGlzIGEgc3lzdGVtIGludGVycnVwdCBm
-b3IgYnVzIGVycm9yLCBhbmQKPj4gKyAgICAgIGV2ZXJ5IHZpZGVvIHBvcnQgaGFzIGl0J3MgaW5k
-ZXBlbmRlbnQgaW50ZXJydXB0cyBmb3IgdnN5bmMgYW5kIG90aGVyIHZpZGVvCj4+ICsgICAgICBw
-b3J0IHJlbGF0ZWQgZXJyb3IgaW50ZXJydXB0cy4KPj4gKwo+PiArICBpbnRlcnJ1cHQtbmFtZXM6
-Cj4+ICsgICAgaXRlbXM6Cj4+ICsgICAgICAtIGNvbnN0OiB2b3Atc3lzCj4+ICsgICAgICAtIGNv
-bnN0OiB2b3AtdnAwCj4+ICsgICAgICAtIGNvbnN0OiB2b3AtdnAxCj4+ICsgICAgICAtIGNvbnN0
-OiB2b3AtdnAyCj4KPkRyb3AgJ3ZvcC0nIGFzIGl0IGlzIHJlZHVuZGFudC4KCiBPa2F5LCAndm9w
-LScgd2lsbCBiZSBkcm9wcGVkIGluIG5leHQgdmVyc2lvbi4KCj4KPj4gIAo+PiAgICAjIFNlZSBj
-b21wYXRpYmxlLXNwZWNpZmljIGNvbnN0cmFpbnRzIGJlbG93Lgo+PiAgICBjbG9ja3M6Cj4+IEBA
-IC0xMjAsNDMgKzEzMiw3NiBAQCBhbGxPZjoKPj4gICAgICAgIHByb3BlcnRpZXM6Cj4+ICAgICAg
-ICAgIGNvbXBhdGlibGU6Cj4+ICAgICAgICAgICAgY29udGFpbnM6Cj4+IC0gICAgICAgICAgICBj
-b25zdDogcm9ja2NoaXAscmszNTg4LXZvcAo+PiArICAgICAgICAgICAgZW51bToKPj4gKyAgICAg
-ICAgICAgICAgLSByb2NrY2hpcCxyazM1NjYtdm9wCj4+ICsgICAgICAgICAgICAgIC0gcm9ja2No
-aXAscmszNTY4LXZvcAo+PiAgICAgIHRoZW46Cj4+ICAgICAgICBwcm9wZXJ0aWVzOgo+PiAgICAg
-ICAgICBjbG9ja3M6Cj4+IC0gICAgICAgICAgbWluSXRlbXM6IDcKPj4gKyAgICAgICAgICBtaW5J
-dGVtczogNQo+PiAgICAgICAgICBjbG9jay1uYW1lczoKPj4gLSAgICAgICAgICBtaW5JdGVtczog
-Nwo+PiAtCj4KPktlZXAgdGhlIGJsYW5rIGxpbmUgYmV0d2VlbiBEVCBwcm9wZXJ0aWVzCgpXaWxs
-IGRvIGluIHRoZSBuZXh0IHZlcnNpb24uCj4KPj4gKyAgICAgICAgICBtaW5JdGVtczogNQo+PiAg
-ICAgICAgICBwb3J0czoKPj4gICAgICAgICAgICByZXF1aXJlZDoKPj4gICAgICAgICAgICAgIC0g
-cG9ydEAwCj4+ICAgICAgICAgICAgICAtIHBvcnRAMQo+PiAgICAgICAgICAgICAgLSBwb3J0QDIK
-Pj4gLSAgICAgICAgICAgIC0gcG9ydEAzCj4+ICAKPj4gKyAgLSBpZjoKPj4gKyAgICAgIHByb3Bl
-cnRpZXM6Cj4+ICsgICAgICAgIGNvbXBhdGlibGU6Cj4+ICsgICAgICAgICAgY29udGFpbnM6Cj4+
-ICsgICAgICAgICAgICBlbnVtOgo+PiArICAgICAgICAgICAgICAtIHJvY2tjaGlwLHJrMzU3Ni12
-b3AKPj4gKyAgICB0aGVuOgo+PiArICAgICAgcHJvcGVydGllczoKPj4gKyAgICAgICAgY2xvY2tz
-Ogo+PiArICAgICAgICAgIG1pbkl0ZW1zOiA1Cj4KPmJsYW5rIGxpbmUKCldpbGwgZG8uCj4KPj4g
-KyAgICAgICAgY2xvY2stbmFtZXM6Cj4+ICsgICAgICAgICAgbWluSXRlbXM6IDUKPgo+Ymxhbmsg
-bGluZSwgYW5kIHNvIG9uLgoKV2lsbCBkby4KCj4KPj4gKyAgICAgICAgcG9ydHM6Cj4+ICsgICAg
-ICAgICAgcmVxdWlyZWQ6Cj4+ICsgICAgICAgICAgICAtIHBvcnRAMAo+PiArICAgICAgICAgICAg
-LSBwb3J0QDEKPj4gKyAgICAgICAgICAgIC0gcG9ydEAyCj4+ICsgICAgICAgIGludGVycnVwdHM6
-Cj4+ICsgICAgICAgICAgaXRlbXM6Cj4+ICsgICAgICAgICAgICAtIGRlc2NyaXB0aW9uOiB2b3Ag
-c3lzdGVtIGludGVycnVwdCwgc3VjaCBhcyBheGkgYnVzIGVycm9yCj4+ICsgICAgICAgICAgICAt
-IGRlc2NyaXB0aW9uOiBpbnRlcnJ1cHRzIGZvciB2aWRlbyBwb3J0MCwgc3VjaCBhcyB2c3luYywg
-ZHNwX2hvbGQuCj4+ICsgICAgICAgICAgICAtIGRlc2NyaXB0aW9uOiBpbnRlcnJ1cHRzIGZvciB2
-aWRlbyBwb3J0MSwgc3VjaCBhcyB2c3luYywgZHNwX2hvbGQuCj4+ICsgICAgICAgICAgICAtIGRl
-c2NyaXB0aW9uOiBpbnRlcnJ1cHRzIGZvciB2aWRlbyBwb3J0Miwgc3VjaCBhcyB2c3luYywgZHNw
-X2hvbGQuCj4KPlRoZXNlIGRlc2NyaXB0aW9ucyBiZWxvbmcgYXQgdGhlIHRvcCBsZXZlbC4KCkkg
-c2F3IHNhbXN1bmcsdWZzLXBoeS55YW1sICBkZXNjcmlwdGUgY2xvY2tzIGxpa2UgdGhpcywgIElm
-IHRoaXMgc3R5bGUgaXMgbm90IHByZWZlcnJlZO+8jApJIHdpbGwgY2hhbmdlIGl0Lgo+Cj4+ICsg
-ICAgICAgIGludGVycnVwdC1uYW1lczoKPj4gKyAgICAgICAgICBpdGVtczoKPj4gKyAgICAgICAg
-ICAgIC0gY29uc3Q6IHZvcC1zeXMKPj4gKyAgICAgICAgICAgIC0gY29uc3Q6IHZvcC12cDAKPj4g
-KyAgICAgICAgICAgIC0gY29uc3Q6IHZvcC12cDEKPj4gKyAgICAgICAgICAgIC0gY29uc3Q6IHZv
-cC12cDIKPgo+V2h5IGFyZSB0aGVzZSBuYW1lcyBkZWZpbmVkIHR3aWNlPwoKTWF5YmUgSSBzaG91
-bGQgcmVtb3ZlIHRoZSBpbnRlcnJ1cHQtbmFtZXMgYXQgdGhlIHRvcC4KPgo+WW91IGp1c3QgbmVl
-ZCAnbWluSXRlbXM6IDQnIGluIGJvdGggb2YgdGhlc2UuCj4KPj4gICAgICAgIHJlcXVpcmVkOgo+
-PiAgICAgICAgICAtIHJvY2tjaGlwLGdyZgo+PiAtICAgICAgICAtIHJvY2tjaGlwLHZvMS1ncmYK
-Pj4gLSAgICAgICAgLSByb2NrY2hpcCx2b3AtZ3JmCj4+ICAgICAgICAgIC0gcm9ja2NoaXAscG11
-Cj4+ICAKPj4gLSAgICBlbHNlOgo+PiArICAtIGlmOgo+PiArICAgICAgcHJvcGVydGllczoKPj4g
-KyAgICAgICAgY29tcGF0aWJsZToKPj4gKyAgICAgICAgICBjb250YWluczoKPj4gKyAgICAgICAg
-ICAgIGNvbnN0OiByb2NrY2hpcCxyazM1ODgtdm9wCj4+ICsgICAgdGhlbjoKPj4gICAgICAgIHBy
-b3BlcnRpZXM6Cj4+IC0gICAgICAgIHJvY2tjaGlwLHZvMS1ncmY6IGZhbHNlCj4+IC0gICAgICAg
-IHJvY2tjaGlwLHZvcC1ncmY6IGZhbHNlCj4+IC0gICAgICAgIHJvY2tjaGlwLHBtdTogZmFsc2UK
-Pgo+SG93IGlzIHRoZXJlIG5vIGxvbmcgYSBjYXNlIHdpdGhvdXQgdGhlc2UgcHJvcGVydGllcz8K
-CkknbSBzb3JyeSwgSSdtIG5vdCBxdWl0ZSBzdXJlIHdoYXQgeW91IG1lYW4gaGVyZSwKcHJvcGVy
-dGllcyB2bzEtZ3JmLCB2b3AtZ3JmIGFyZSBuZWVkZWQgYnkgcmszNTg4ICwgYW5kIHJrMzU2eCBk
-b24ndCBuZWVkIGl0Lgoncm9ja2NoaXAscG11JyAgYW5kICdyb2NrY2hpcCxncmYnIGFyZSBuZWVk
-ZWQgYnkgcmszNTc2IGFuZCByazM1ODgsIHJrMzU2eCBkb24ndCBuZWVkIHRoZW0uClNvIEkgY2hh
-bmdlZCB0byBkZXNjcml0cGUgdGhlbSBTb0MgYnkgU29DLiAKClRoYW5rcyBmb3IgeW91ciByZXZp
-ZXcuCgoKPgo+PiAtCj4+ICAgICAgICAgIGNsb2NrczoKPj4gLSAgICAgICAgICBtYXhJdGVtczog
-NQo+PiArICAgICAgICAgIG1pbkl0ZW1zOiA3Cj4+ICAgICAgICAgIGNsb2NrLW5hbWVzOgo+PiAt
-ICAgICAgICAgIG1heEl0ZW1zOiA1Cj4+IC0KPj4gKyAgICAgICAgICBtaW5JdGVtczogNwo+PiAg
-ICAgICAgICBwb3J0czoKPj4gICAgICAgICAgICByZXF1aXJlZDoKPj4gICAgICAgICAgICAgIC0g
-cG9ydEAwCj4+ICAgICAgICAgICAgICAtIHBvcnRAMQo+PiAgICAgICAgICAgICAgLSBwb3J0QDIK
-Pj4gKyAgICAgICAgICAgIC0gcG9ydEAzCj4+ICsgICAgICByZXF1aXJlZDoKPj4gKyAgICAgICAg
-LSByb2NrY2hpcCxncmYKPj4gKyAgICAgICAgLSByb2NrY2hpcCx2bzEtZ3JmCj4+ICsgICAgICAg
-IC0gcm9ja2NoaXAsdm9wLWdyZgo+PiArICAgICAgICAtIHJvY2tjaGlwLHBtdQo+PiAgCj4+ICBh
-ZGRpdGlvbmFsUHJvcGVydGllczogZmFsc2UKPj4gIAo+PiAtLSAKPj4gMi4zNC4xCj4+IAo=
+Calculate dividers fractional parts to optimally modulate output frequency.
+Clocking wizard supports having multiplier m and divisors d and o.
+Currently the fractional parts of m and o are not utilised.
+For the pixel clock usecases a higher accuracy is needed..
+Adding support for m and o to have fractional values.
+
+Co-developed-by: Anatoliy Klymenko <anatoliy.klymenko@amd.com>
+Signed-off-by: Anatoliy Klymenko <anatoliy.klymenko@amd.com>
+Signed-off-by: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
+Tested-by: Anatoliy Klymenko <anatoliy.klymenko@amd.com>
+---
+
+ drivers/clk/xilinx/clk-xlnx-clock-wizard.c | 121 ++++++++++++---------
+ 1 file changed, 69 insertions(+), 52 deletions(-)
+
+diff --git a/drivers/clk/xilinx/clk-xlnx-clock-wizard.c b/drivers/clk/xilinx/clk-xlnx-clock-wizard.c
+index b2233d3ff9a9..bbf7714480e7 100644
+--- a/drivers/clk/xilinx/clk-xlnx-clock-wizard.c
++++ b/drivers/clk/xilinx/clk-xlnx-clock-wizard.c
+@@ -52,6 +52,8 @@
+ 
+ #define WZRD_CLKFBOUT_MULT_SHIFT	8
+ #define WZRD_CLKFBOUT_MULT_MASK		(0xff << WZRD_CLKFBOUT_MULT_SHIFT)
++#define WZRD_CLKFBOUT_MULT_FRAC_MASK	GENMASK(25, 16)
++#define WZRD_CLKFBOUT_O_MASK		GENMASK(7, 0)
+ #define WZRD_CLKFBOUT_L_SHIFT	0
+ #define WZRD_CLKFBOUT_H_SHIFT	8
+ #define WZRD_CLKFBOUT_L_MASK	GENMASK(7, 0)
+@@ -87,14 +89,14 @@
+ #define DIV_O				0x01
+ #define DIV_ALL				0x03
+ 
+-#define WZRD_M_MIN			2
+-#define WZRD_M_MAX			128
+-#define WZRD_D_MIN			1
+-#define WZRD_D_MAX			106
+-#define WZRD_VCO_MIN			800000000
+-#define WZRD_VCO_MAX			1600000000
+-#define WZRD_O_MIN			1
+-#define WZRD_O_MAX			128
++#define WZRD_M_MIN			2ULL
++#define WZRD_M_MAX			128ULL
++#define WZRD_D_MIN			1ULL
++#define WZRD_D_MAX			106ULL
++#define WZRD_VCO_MIN			800000000ULL
++#define WZRD_VCO_MAX			1600000000ULL
++#define WZRD_O_MIN			2ULL
++#define WZRD_O_MAX			128ULL
+ #define VER_WZRD_M_MIN			4
+ #define VER_WZRD_M_MAX			432
+ #define VER_WZRD_D_MIN			1
+@@ -153,8 +155,10 @@ struct clk_wzrd {
+  * @flags:	clk_wzrd divider flags
+  * @table:	array of value/divider pairs, last entry should have div = 0
+  * @m:	value of the multiplier
++ * @m_frac:	fractional value of the multiplier
+  * @d:	value of the common divider
+  * @o:	value of the leaf divider
++ * @o_frac:	value of the fractional leaf divider
+  * @lock:	register lock
+  */
+ struct clk_wzrd_divider {
+@@ -166,8 +170,10 @@ struct clk_wzrd_divider {
+ 	u8 flags;
+ 	const struct clk_div_table *table;
+ 	u32 m;
++	u32 m_frac;
+ 	u32 d;
+ 	u32 o;
++	u32 o_frac;
+ 	spinlock_t *lock;  /* divider lock */
+ };
+ 
+@@ -372,38 +378,40 @@ static int clk_wzrd_get_divisors(struct clk_hw *hw, unsigned long rate,
+ 				 unsigned long parent_rate)
+ {
+ 	struct clk_wzrd_divider *divider = to_clk_wzrd_divider(hw);
+-	u64 vco_freq, freq, diff, vcomin, vcomax;
+-	u32 m, d, o;
+-	u32 mmin, mmax, dmin, dmax, omin, omax;
++	u64 vco_freq, freq, diff, vcomin, vcomax, best_diff = -1ULL;
++	u64 m, d, o;
++	u64 mmin, mmax, dmin, dmax, omin, omax, mdmin, mdmax;
+ 
+-	mmin = WZRD_M_MIN;
+-	mmax = WZRD_M_MAX;
++	mmin = WZRD_M_MIN << 3;
++	mmax = WZRD_M_MAX << 3;
+ 	dmin = WZRD_D_MIN;
+ 	dmax = WZRD_D_MAX;
+-	omin = WZRD_O_MIN;
+-	omax = WZRD_O_MAX;
+-	vcomin = WZRD_VCO_MIN;
+-	vcomax = WZRD_VCO_MAX;
++	omin = WZRD_O_MIN << 3;
++	omax = WZRD_O_MAX << 3;
++	vcomin = WZRD_VCO_MIN << 3;
++	vcomax = WZRD_VCO_MAX << 3;
+ 
+ 	for (m = mmin; m <= mmax; m++) {
+-		for (d = dmin; d <= dmax; d++) {
+-			vco_freq = DIV_ROUND_CLOSEST((parent_rate * m), d);
+-			if (vco_freq >= vcomin && vco_freq <= vcomax) {
+-				for (o = omin; o <= omax; o++) {
+-					freq = DIV_ROUND_CLOSEST_ULL(vco_freq, o);
+-					diff = abs(freq - rate);
+-
+-					if (diff < WZRD_MIN_ERR) {
+-						divider->m = m;
+-						divider->d = d;
+-						divider->o = o;
+-						return 0;
+-					}
+-				}
++		mdmin = max(dmin, div64_u64(parent_rate * m + vcomax / 2, vcomax));
++		mdmax = min(dmax, div64_u64(parent_rate * m + vcomin / 2, vcomin));
++		for (d = mdmin; d <= mdmax; d++) {
++			vco_freq = DIV_ROUND_CLOSEST_ULL((parent_rate * m), d);
++			o = DIV_ROUND_CLOSEST_ULL(vco_freq, rate);
++			if (o < omin || o > omax)
++				continue;
++			freq = DIV_ROUND_CLOSEST_ULL(vco_freq, o);
++			diff = freq - rate;
++			if (diff < best_diff) {
++				best_diff = diff;
++				divider->m = m >> 3;
++				divider->m_frac = (m - (divider->m << 3)) * 125;
++				divider->d = d;
++				divider->o = o >> 3;
++				divider->o_frac = (o - (divider->o << 3)) * 125;
+ 			}
+ 		}
+ 	}
+-	return -EBUSY;
++	return best_diff < WZRD_MIN_ERR ? 0 : -EBUSY;
+ }
+ 
+ static int clk_wzrd_reconfig(struct clk_wzrd_divider *divider, void __iomem *div_addr)
+@@ -496,33 +504,22 @@ static int clk_wzrd_dynamic_all_nolock(struct clk_hw *hw, unsigned long rate,
+ 				       unsigned long parent_rate)
+ {
+ 	struct clk_wzrd_divider *divider = to_clk_wzrd_divider(hw);
+-	unsigned long vco_freq, rate_div, clockout0_div;
+ 	void __iomem *div_addr;
+-	u32 reg, pre, f;
++	u32 reg;
+ 	int err;
+ 
+ 	err = clk_wzrd_get_divisors(hw, rate, parent_rate);
+ 	if (err)
+ 		return err;
+ 
+-	vco_freq = DIV_ROUND_CLOSEST(parent_rate * divider->m, divider->d);
+-	rate_div = DIV_ROUND_CLOSEST_ULL((vco_freq * WZRD_FRAC_POINTS), rate);
+-
+-	clockout0_div = div_u64(rate_div,  WZRD_FRAC_POINTS);
+-
+-	pre = DIV_ROUND_CLOSEST_ULL(vco_freq * WZRD_FRAC_POINTS, rate);
+-	f = (pre - (clockout0_div * WZRD_FRAC_POINTS));
+-	f &= WZRD_CLKOUT_FRAC_MASK;
+-
+-	reg = FIELD_PREP(WZRD_CLKOUT_DIVIDE_MASK, clockout0_div) |
+-	      FIELD_PREP(WZRD_CLKOUT0_FRAC_MASK, f);
++	reg = FIELD_PREP(WZRD_CLKOUT_DIVIDE_MASK, divider->o) |
++	      FIELD_PREP(WZRD_CLKOUT0_FRAC_MASK, divider->o_frac);
+ 
+ 	writel(reg, divider->base + WZRD_CLK_CFG_REG(0, 2));
+-	/* Set divisor and clear phase offset */
+ 	reg = FIELD_PREP(WZRD_CLKFBOUT_MULT_MASK, divider->m) |
++	      FIELD_PREP(WZRD_CLKFBOUT_MULT_FRAC_MASK, divider->m_frac) |
+ 	      FIELD_PREP(WZRD_DIVCLK_DIVIDE_MASK, divider->d);
+ 	writel(reg, divider->base + WZRD_CLK_CFG_REG(0, 0));
+-	writel(divider->o, divider->base + WZRD_CLK_CFG_REG(0, 2));
+ 	writel(0, divider->base + WZRD_CLK_CFG_REG(0, 3));
+ 	div_addr = divider->base + WZRD_DR_INIT_REG_OFFSET;
+ 	return clk_wzrd_reconfig(divider, div_addr);
+@@ -564,18 +561,19 @@ static unsigned long clk_wzrd_recalc_rate_all(struct clk_hw *hw,
+ 					      unsigned long parent_rate)
+ {
+ 	struct clk_wzrd_divider *divider = to_clk_wzrd_divider(hw);
+-	u32 m, d, o, div, reg, f;
++	u32 m, d, o, reg, f, mf;
++	u64 mul;
+ 
+ 	reg = readl(divider->base + WZRD_CLK_CFG_REG(0, 0));
+ 	d = FIELD_GET(WZRD_DIVCLK_DIVIDE_MASK, reg);
+ 	m = FIELD_GET(WZRD_CLKFBOUT_MULT_MASK, reg);
++	mf = FIELD_GET(WZRD_CLKFBOUT_MULT_FRAC_MASK, reg);
+ 	reg = readl(divider->base + WZRD_CLK_CFG_REG(0, 2));
+ 	o = FIELD_GET(WZRD_DIVCLK_DIVIDE_MASK, reg);
+ 	f = FIELD_GET(WZRD_CLKOUT0_FRAC_MASK, reg);
+ 
+-	div = DIV_ROUND_CLOSEST(d * (WZRD_FRAC_POINTS * o + f), WZRD_FRAC_POINTS);
+-	return divider_recalc_rate(hw, parent_rate * m, div, divider->table,
+-		divider->flags, divider->width);
++	mul = m * 1000 + mf;
++	return DIV_ROUND_CLOSEST_ULL(parent_rate * mul, d * (o * 1000 + f));
+ }
+ 
+ static unsigned long clk_wzrd_recalc_rate_all_ver(struct clk_hw *hw,
+@@ -646,6 +644,25 @@ static unsigned long clk_wzrd_recalc_rate_all_ver(struct clk_hw *hw,
+ 
+ static long clk_wzrd_round_rate_all(struct clk_hw *hw, unsigned long rate,
+ 				    unsigned long *prate)
++{
++	struct clk_wzrd_divider *divider = to_clk_wzrd_divider(hw);
++	u32 m, d, o;
++	int err;
++
++	err = clk_wzrd_get_divisors(hw, rate, *prate);
++	if (err)
++		return err;
++
++	m = divider->m;
++	d = divider->d;
++	o = divider->o;
++
++	rate = div_u64(*prate * (m * 1000 + divider->m_frac), d * (o * 1000 + divider->o_frac));
++	return rate;
++}
++
++static long clk_wzrd_ver_round_rate_all(struct clk_hw *hw, unsigned long rate,
++					unsigned long *prate)
+ {
+ 	struct clk_wzrd_divider *divider = to_clk_wzrd_divider(hw);
+ 	unsigned long int_freq;
+@@ -678,7 +695,7 @@ static const struct clk_ops clk_wzrd_ver_divider_ops = {
+ };
+ 
+ static const struct clk_ops clk_wzrd_ver_div_all_ops = {
+-	.round_rate = clk_wzrd_round_rate_all,
++	.round_rate = clk_wzrd_ver_round_rate_all,
+ 	.set_rate = clk_wzrd_dynamic_all_ver,
+ 	.recalc_rate = clk_wzrd_recalc_rate_all_ver,
+ };
+-- 
+2.17.1
+
 
