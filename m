@@ -4,80 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 005CDE77198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 21:39:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EB73E77198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 21:57:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=opS3vibTnLli0endV0DEJk8g10qyZfILYO/Wajj227c=; b=ABDRHdxVbTL9pRpEqq6l6zEcqu
-	1FiIejq8Tm9o8VM23tg8+8+6zrbEiPtbSaGrJgKV0mY5xxeSG10Q1KAiSMmIuRkr2DKThG092lDJx
-	329YA6Xs0Jkz90Y5mS3yhIsozsvP5QklXosIRuK0zfWLcJ5xYXsJUXHDk6SRr+frpBgIdccAjYQcu
-	Vj0rRelK+7z1EZpKlpiGUR5frJBl3ItzPu/TCdz7EgD3rEMYd6ZNXfDvAxq+33gz1OeoiOOZx3qps
-	Y/LG1dlqkYMQECP8lliq/TyQ7neNBmWRr1ZSZKYhi6gEFAk4Wqlo2ttDl5eIywlv+xzHyvIeQbGBC
-	q3GzS+gg==;
+	bh=fW8hdI6OqJh0dWWDQGRvo9CrT55Jt23ggLAYk7qjGXo=; b=qTQlK9CsTU4f5rCJsbdADGgIuy
+	D2RAhrsQz7BroCMzxTm4nZi7+95Z8nMsGkWW9HChWrKi8IDeH9p5i9zWY2OyTjpE2d0mWTEcAAha0
+	rS1UMXnq6bSwiVm5+MRyVii/9MLtScJ52WSv7cTvPQmEZQniPE/566EloDZy8Z7wD1tPDN87U6FC2
+	KS+m38Uro2vSKopa9MIe4luaVDyBC4mdc7BdJ1ekfqLFRNFfeB1pQAbeyYr8h/3kYK+Pl6sqZSuxL
+	UPR/iFPPHHUJsPw8SdXzRs0Q5DOZOVa5CUf1AafoHf9pEDR1g1jVIpLY/43A9F/mFzt+nWxj37e74
+	M1TXfwhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUuor-00000002l5U-3AQz;
-	Mon, 06 Jan 2025 21:39:29 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1tUv5T-00000002nJZ-18ag;
+	Mon, 06 Jan 2025 21:56:39 +0000
+Received: from mail-qv1-xf2e.google.com ([2607:f8b0:4864:20::f2e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUund-00000002kxy-2AvE;
-	Mon, 06 Jan 2025 21:38:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1736199493; x=1767735493;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=HvONposlKuJw4Y+dSo+jkkd/aq1cJfkDp0GXQPM1m7g=;
-  b=c8W/l5OvXlUBRgeKoaJUs7IErUePU5giZiuzSySJqMtKS/loh7xuurKH
-   2Ao9xFK7EB9iLfm+xZdrIUpsGhKtHFw4GFAbON3MuodV/L3FDnCOQpzMg
-   IFdlyC4hpRVEGvAnQpVSnpuPkZkPI6KO0eMdGUfUIOuZ3WjFGwXz03msS
-   oGxdzYVwD1gW2/MfRtG6wWKMuF2SY21kT3IyAh3sEC1PP7tQF7OCLqhl6
-   jTliJkzX82w9LrwuhEqAtFx1Rv1TYSMGywnpD05jUg8xTkJ7Dpq0R3OLI
-   1zyvH2lDGdfL0r64sDtRDnpCcXy/9/3xumFN4v1XMlbNmx7vvsL/bVNPq
-   w==;
-X-CSE-ConnectionGUID: 0bQPJu+lRIeZz/qTxU40GQ==
-X-CSE-MsgGUID: HX/cV7DCS62OSTARvlF6lA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11307"; a="53780328"
-X-IronPort-AV: E=Sophos;i="6.12,293,1728975600"; 
-   d="scan'208";a="53780328"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Jan 2025 13:38:11 -0800
-X-CSE-ConnectionGUID: QPWSosUcR8GXShDSJc/YYQ==
-X-CSE-MsgGUID: fPwO4tSLSAarkRVBMlbf0Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,293,1728975600"; 
-   d="scan'208";a="103079957"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by fmviesa009.fm.intel.com with ESMTP; 06 Jan 2025 13:38:08 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tUunW-000Dwh-1W;
-	Mon, 06 Jan 2025 21:38:06 +0000
-Date: Tue, 7 Jan 2025 05:37:46 +0800
-From: kernel test robot <lkp@intel.com>
-To: Chukun Pan <amadeus@jmu.edu.cn>, Vinod Koul <vkoul@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, Heiko Stuebner <heiko@sntech.de>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Jianfeng Liu <liujianfeng1994@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-phy@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Chukun Pan <amadeus@jmu.edu.cn>
-Subject: Re: [PATCH 1/1] phy: rockchip: naneng-combphy: compatible with old
- DT for RK3568
-Message-ID: <202501070458.qKEuL2HH-lkp@intel.com>
-References: <20250106070000.605284-1-amadeus@jmu.edu.cn>
+	id 1tUv48-00000002n3N-42yq
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 06 Jan 2025 21:55:21 +0000
+Received: by mail-qv1-xf2e.google.com with SMTP id 6a1803df08f44-6dcd4f1aaccso87724906d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jan 2025 13:55:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1736200515; x=1736805315; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=fW8hdI6OqJh0dWWDQGRvo9CrT55Jt23ggLAYk7qjGXo=;
+        b=16PEfRix2JqC9UhTy5cyjEJSRNCyv4PlZ0e9MxK/PffveyIvm65lEH7pa+GFQ8dWXZ
+         6CFrS6XYKk7WxmIEG9ie9CgYa8CzVIJwi2CX80xU6dKG/j1iDt8gOwhONzBxjM6vkaUJ
+         W7+H9WDL5z+WKBfESR/hnNGsu2SvalX0pRmv+ruB2qu56oq7+irWPGdqeGBBXVczesqS
+         t0j3jOUSj7HVPvidPKSETLSzxYTZgXNfQH3BE8q5GBAG9kPywrvy2Srn4sb6kyRQtmea
+         4ClqfoVsUUBHA5VAGgMv5Wa/WAlB8LaShzuwcIKBWfuq9368i7lx4ZcOaWUbfTwLjadD
+         ooLg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736200515; x=1736805315;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=fW8hdI6OqJh0dWWDQGRvo9CrT55Jt23ggLAYk7qjGXo=;
+        b=D0oJLNktUhUnmtHjdU5XsAUlDHHb23/ky1J069BBlWB1jsdVJduVnDzFE4yiGHqIaf
+         Vfx20dWpOqfl2PluwWo31jZivLbdSKAf/VQDvcEctK7W0CTbmNyjC4ARrla14sQXzc1t
+         DZFz9WyzuvULVvlrEG9JEMXhSJ1yq3ltPgyaX5wcKz1Iz++sYynxHcwCxy2emi+OXNfg
+         H2+eQhfLnYO2dQx4jqtADoAlCmZm8r6EFAfDd9XSZDo8Z5/KiA3/e7GRKStDOcYS/iH/
+         8lBLyS7BuIxR6TjLkRQi+ATb9EycOO8Mcyxq8Ywm0RLm5IlLOTboirV1/uSpAjFEdSqf
+         erXQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU1/ox8MB987R/upzcKNGMkPfxjfT8Y7TK64yWPAC+JhUEoJNIYihOccHbLwy7OVSDuINiTlZXHsa12Ns2uIRN7@lists.infradead.org
+X-Gm-Message-State: AOJu0YzDrBOKSV/bctQOTVgUKvLN7kOo9ZqLm/0xPfcsdc5gkg2s9AAe
+	Gu0j7X1mfT4/5pNWWGWTesuUuWXmwZKqnqcN/PV0bCvETJZedIP7ggmopkMrJAM=
+X-Gm-Gg: ASbGnctytog5M2KRRzzhNbWOrGrujFySha2hBr9h9FVkc2iK3gyfgy2NbhwEhQrnbFU
+	/y/AjEUTAOsl/U3RWLKCYAOS0DCtWbEy6s4ZHE2Jk0w+Cx8KWF2q9679eWiXkWDfslZ3qQCcoc/
+	m/7j0nXMtFjkb9/cGF3M5HgtbPWN06HwHBgnkQ6OxKa8Og/iXJkTYKwkZbVxRk/PRJq5QPx7DJ7
+	dqOqfp8EJMxsnpB/mZ6MvcBiIZTpEFCofuQawitF3ix4y3SBq0cm8knrA==
+X-Google-Smtp-Source: AGHT+IHyFImGpVyVS4whWQuQGwntMIAkoFAJllux2YC1p18fREEsO7LZFvVepwsLojmnuxwhQdAo0A==
+X-Received: by 2002:a05:6214:240e:b0:6d8:9838:d3a9 with SMTP id 6a1803df08f44-6dd23356042mr869489616d6.26.1736200515342;
+        Mon, 06 Jan 2025 13:55:15 -0800 (PST)
+Received: from nicolas-tpx395.localdomain ([2606:6d00:15:862e::7a9])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6dd181c1e99sm174072366d6.93.2025.01.06.13.55.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 06 Jan 2025 13:55:14 -0800 (PST)
+Message-ID: <e6548df223ca891427aab1e145db04814a9eb67b.camel@ndufresne.ca>
+Subject: Re: [PATCH v2] media: amphion: Support dmabuf and v4l2 buffer
+ without binding
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Ming Qian <ming.qian@oss.nxp.com>, mchehab@kernel.org, 
+	hverkuil-cisco@xs4all.nl
+Cc: shawnguo@kernel.org, robh+dt@kernel.org, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, festevam@gmail.com, linux-imx@nxp.com,
+ xiahong.bao@nxp.com, 	eagle.zhou@nxp.com, tao.jiang_2@nxp.com,
+ imx@lists.linux.dev, 	linux-media@vger.kernel.org,
+ linux-kernel@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org
+Date: Mon, 06 Jan 2025 16:55:13 -0500
+In-Reply-To: <20241213091030.2936864-1-ming.qian@oss.nxp.com>
+References: <20241213091030.2936864-1-ming.qian@oss.nxp.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.54.2 (3.54.2-1.fc41) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250106070000.605284-1-amadeus@jmu.edu.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_133813_608837_571D32F4 
-X-CRM114-Status: GOOD (  14.89  )
+X-CRM114-CacheID: sfid-20250106_135517_247140_D0C79465 
+X-CRM114-Status: GOOD (  28.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,97 +102,609 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Chukun,
+Le vendredi 13 d=C3=A9cembre 2024 =C3=A0 18:10 +0900, Ming Qian a =C3=A9cri=
+t=C2=A0:
+> From: Ming Qian <ming.qian@nxp.com>
+>=20
+> When using VB2_DMABUF, the relationship between dma-buf and v4l2 buffer
+> may not one-to-one, a single dma-buf may be queued via different
+> v4l2 buffers, and different dma-bufs may be queued via the same
+> v4l2 buffer, so it's not appropriate to use the v4l2 buffer index
+> as the frame store id.
+>=20
+> We can generate a frame store id according to the dma address.
+> Then for a given dma-buf, the id is fixed.
+>=20
+> Driver now manages the frame store and vb2-buffer states independently.
+>=20
+> When a dmabuf is queued via another v4l2 buffer before the buffer is
+> released by firmware, need to pend it until firmware release it.
+>=20
+> Signed-off-by: Ming Qian <ming.qian@nxp.com>
+> ---
+> v2
+> -- fix an uninitialized issue reported by media-ci
+>=20
+>  drivers/media/platform/amphion/vdec.c     | 232 ++++++++++++++++++----
+>  drivers/media/platform/amphion/vpu.h      |   7 +-
+>  drivers/media/platform/amphion/vpu_dbg.c  |  15 +-
+>  drivers/media/platform/amphion/vpu_v4l2.c |  11 +
+>  4 files changed, 218 insertions(+), 47 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/amphion/vdec.c b/drivers/media/platfo=
+rm/amphion/vdec.c
+> index 61d5598ee6a1..a26cb0c264c9 100644
+> --- a/drivers/media/platform/amphion/vdec.c
+> +++ b/drivers/media/platform/amphion/vdec.c
+> @@ -26,6 +26,7 @@
+>  #include "vpu_cmds.h"
+>  #include "vpu_rpc.h"
+> =20
+> +#define VDEC_SLOT_CNT_DFT		32
+>  #define VDEC_MIN_BUFFER_CAP		8
+>  #define VDEC_MIN_BUFFER_OUT		8
+> =20
+> @@ -41,6 +42,14 @@ struct vdec_fs_info {
+>  	u32 tag;
+>  };
+> =20
+> +struct vdec_frame_store_t {
+> +	struct vpu_vb2_buffer *curr;
+> +	struct vpu_vb2_buffer *pend;
+> +	dma_addr_t addr;
+> +	unsigned int state;
+> +	u32 tag;
+> +};
+> +
+>  struct vdec_t {
+>  	u32 seq_hdr_found;
+>  	struct vpu_buffer udata;
+> @@ -48,7 +57,8 @@ struct vdec_t {
+>  	struct vpu_dec_codec_info codec_info;
+>  	enum vpu_codec_state state;
+> =20
+> -	struct vpu_vb2_buffer *slots[VB2_MAX_FRAME];
+> +	struct vdec_frame_store_t *slots;
+> +	u32 slot_count;
+>  	u32 req_frame_count;
+>  	struct vdec_fs_info mbi;
+>  	struct vdec_fs_info dcp;
+> @@ -289,6 +299,64 @@ static int vdec_ctrl_init(struct vpu_inst *inst)
+>  	return 0;
+>  }
+> =20
+> +static void vdec_attach_frame_store(struct vpu_inst *inst, struct vb2_bu=
+ffer *vb)
+> +{
+> +	struct vb2_v4l2_buffer *vbuf =3D to_vb2_v4l2_buffer(vb);
+> +	struct vpu_vb2_buffer *vpu_buf =3D to_vpu_vb2_buffer(vbuf);
+> +	struct vdec_t *vdec =3D inst->priv;
+> +	struct vdec_frame_store_t *new_slots =3D NULL;
+> +	dma_addr_t addr;
+> +	int i;
+> +
+> +	addr =3D vpu_get_vb_phy_addr(vb, 0);
+> +	for (i =3D 0; i < vdec->slot_count; i++) {
+> +		if (addr =3D=3D vdec->slots[i].addr) {
+> +			if (vdec->slots[i].curr && vdec->slots[i].curr !=3D vpu_buf) {
+> +				vpu_set_buffer_state(vbuf, VPU_BUF_STATE_CHANGED);
+> +				vdec->slots[i].pend =3D vpu_buf;
+> +			} else {
+> +				vpu_set_buffer_state(vbuf, vdec->slots[i].state);
+> +			}
+> +			vpu_buf->fs_id =3D i;
+> +			return;
+> +		}
+> +	}
+> +
+> +	for (i =3D 0; i < vdec->slot_count; i++) {
+> +		if (!vdec->slots[i].addr) {
+> +			vdec->slots[i].addr =3D addr;
+> +			vpu_buf->fs_id =3D i;
+> +			return;
+> +		}
+> +	}
+> +
+> +	new_slots =3D vzalloc(sizeof(*vdec->slots) * vdec->slot_count * 2);
 
-kernel test robot noticed the following build errors:
+To avoid open coding arithmetics (see Documentation/process/deprecated.rst)=
+ you
+may be able to use flex_array_size(vdec, slots, vdec->slot_count * 2)
 
-[auto build test ERROR on linus/master]
-[also build test ERROR on v6.13-rc6 next-20250106]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Chukun-Pan/phy-rockchip-naneng-combphy-compatible-with-old-DT-for-RK3568/20250106-150311
-base:   linus/master
-patch link:    https://lore.kernel.org/r/20250106070000.605284-1-amadeus%40jmu.edu.cn
-patch subject: [PATCH 1/1] phy: rockchip: naneng-combphy: compatible with old DT for RK3568
-config: arm64-defconfig (https://download.01.org/0day-ci/archive/20250107/202501070458.qKEuL2HH-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250107/202501070458.qKEuL2HH-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202501070458.qKEuL2HH-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   drivers/phy/rockchip/phy-rockchip-naneng-combphy.c: In function 'rockchip_combphy_parse_dt':
->> drivers/phy/rockchip/phy-rockchip-naneng-combphy.c:314:32: error: passing argument 1 of 'ERR_PTR' makes integer from pointer without a cast [-Wint-conversion]
-     314 |         if (IS_ERR(ERR_PTR(priv->phy_rst)))
-         |                            ~~~~^~~~~~~~~
-         |                                |
-         |                                struct reset_control *
-   In file included from include/linux/clk.h:12,
-                    from drivers/phy/rockchip/phy-rockchip-naneng-combphy.c:9:
-   include/linux/err.h:39:48: note: expected 'long int' but argument is of type 'struct reset_control *'
-      39 | static inline void * __must_check ERR_PTR(long error)
-         |                                           ~~~~~^~~~~
+> +	if (!vdec->slots) {
+> +		dev_err(inst->dev, "fail to alloc frame store\n");
+> +		vpu_set_buffer_state(vbuf, VPU_BUF_STATE_ERROR);
+> +		return;
+> +	}
+> +
+> +	memcpy(new_slots, vdec->slots, sizeof(*vdec->slots) * vdec->slot_count)=
+;
+> +	vfree(vdec->slots);
+> +	vdec->slots =3D new_slots;
+> +	vdec->slot_count *=3D 2;
+> +
+> +	vdec->slots[i].addr =3D addr;
+> +	vpu_buf->fs_id =3D i;
+> +}
+> +
+> +static void vdec_reset_frame_store(struct vpu_inst *inst)
+> +{
+> +	struct vdec_t *vdec =3D inst->priv;
+> +
+> +	if (!vdec->slots || !vdec->slot_count)
+> +		return;
+> +
+> +	vpu_trace(inst->dev, "inst[%d] reset slots\n", inst->id);
+> +	memset(vdec->slots, 0, sizeof(*vdec->slots) * vdec->slot_count);
 
 
-vim +/ERR_PTR +314 drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
+Same here, flex_array_size() would calculate the size for you.
 
-   274	
-   275	static int rockchip_combphy_parse_dt(struct device *dev, struct rockchip_combphy_priv *priv)
-   276	{
-   277		int i;
-   278	
-   279		priv->num_clks = devm_clk_bulk_get_all(dev, &priv->clks);
-   280		if (priv->num_clks < 1)
-   281			return -EINVAL;
-   282	
-   283		priv->refclk = NULL;
-   284		for (i = 0; i < priv->num_clks; i++) {
-   285			if (!strncmp(priv->clks[i].id, "ref", 3)) {
-   286				priv->refclk = priv->clks[i].clk;
-   287				break;
-   288			}
-   289		}
-   290	
-   291		if (!priv->refclk) {
-   292			dev_err(dev, "no refclk found\n");
-   293			return -EINVAL;
-   294		}
-   295	
-   296		priv->pipe_grf = syscon_regmap_lookup_by_phandle(dev->of_node, "rockchip,pipe-grf");
-   297		if (IS_ERR(priv->pipe_grf)) {
-   298			dev_err(dev, "failed to find peri_ctrl pipe-grf regmap\n");
-   299			return PTR_ERR(priv->pipe_grf);
-   300		}
-   301	
-   302		priv->phy_grf = syscon_regmap_lookup_by_phandle(dev->of_node, "rockchip,pipe-phy-grf");
-   303		if (IS_ERR(priv->phy_grf)) {
-   304			dev_err(dev, "failed to find peri_ctrl pipe-phy-grf regmap\n");
-   305			return PTR_ERR(priv->phy_grf);
-   306		}
-   307	
-   308		priv->enable_ssc = device_property_present(dev, "rockchip,enable-ssc");
-   309	
-   310		priv->ext_refclk = device_property_present(dev, "rockchip,ext-refclk");
-   311	
-   312		priv->phy_rst = devm_reset_control_get(dev, "phy");
-   313		/* fallback to old behaviour */
- > 314		if (IS_ERR(ERR_PTR(priv->phy_rst)))
-   315			priv->phy_rst = devm_reset_control_array_get_exclusive(dev);
-   316	
-   317		if (IS_ERR(priv->phy_rst))
-   318			return dev_err_probe(dev, PTR_ERR(priv->phy_rst), "failed to get phy reset\n");
-   319	
-   320		return 0;
-   321	}
-   322	
+> +}
+> +
+>  static void vdec_handle_resolution_change(struct vpu_inst *inst)
+>  {
+>  	struct vdec_t *vdec =3D inst->priv;
+> @@ -745,11 +813,11 @@ static int vdec_frame_decoded(struct vpu_inst *inst=
+, void *arg)
+>  	struct vb2_v4l2_buffer *src_buf;
+>  	int ret =3D 0;
+> =20
+> -	if (!info || info->id >=3D ARRAY_SIZE(vdec->slots))
+> +	if (!info || info->id >=3D vdec->slot_count)
+>  		return -EINVAL;
+> =20
+>  	vpu_inst_lock(inst);
+> -	vpu_buf =3D vdec->slots[info->id];
+> +	vpu_buf =3D vdec->slots[info->id].curr;
+>  	if (!vpu_buf) {
+>  		dev_err(inst->dev, "[%d] decoded invalid frame[%d]\n", inst->id, info-=
+>id);
+>  		ret =3D -EINVAL;
+> @@ -770,11 +838,13 @@ static int vdec_frame_decoded(struct vpu_inst *inst=
+, void *arg)
+>  	if (vpu_get_buffer_state(vbuf) =3D=3D VPU_BUF_STATE_DECODED)
+>  		dev_info(inst->dev, "[%d] buf[%d] has been decoded\n", inst->id, info-=
+>id);
+>  	vpu_set_buffer_state(vbuf, VPU_BUF_STATE_DECODED);
+> +	vdec->slots[info->id].state =3D VPU_BUF_STATE_DECODED;
+>  	vdec->decoded_frame_count++;
+>  	if (vdec->params.display_delay_enable) {
+>  		struct vpu_format *cur_fmt;
+> =20
+>  		cur_fmt =3D vpu_get_format(inst, inst->cap_format.type);
+> +		vdec->slots[info->id].state =3D VPU_BUF_STATE_READY;
+>  		vpu_set_buffer_state(vbuf, VPU_BUF_STATE_READY);
+>  		for (int i =3D 0; i < vbuf->vb2_buf.num_planes; i++)
+>  			vb2_set_plane_payload(&vbuf->vb2_buf,
+> @@ -797,11 +867,11 @@ static struct vpu_vb2_buffer *vdec_find_buffer(stru=
+ct vpu_inst *inst, u32 luma)
+>  	struct vdec_t *vdec =3D inst->priv;
+>  	int i;
+> =20
+> -	for (i =3D 0; i < ARRAY_SIZE(vdec->slots); i++) {
+> -		if (!vdec->slots[i])
+> +	for (i =3D 0; i < vdec->slot_count; i++) {
+> +		if (!vdec->slots[i].curr)
+>  			continue;
+> -		if (luma =3D=3D vdec->slots[i]->luma)
+> -			return vdec->slots[i];
+> +		if (luma =3D=3D vdec->slots[i].addr)
+> +			return vdec->slots[i].curr;
+>  	}
+> =20
+>  	return NULL;
+> @@ -835,11 +905,11 @@ static void vdec_buf_done(struct vpu_inst *inst, st=
+ruct vpu_frame_info *frame)
+> =20
+>  	cur_fmt =3D vpu_get_format(inst, inst->cap_format.type);
+>  	vbuf =3D &vpu_buf->m2m_buf.vb;
+> -	if (vbuf->vb2_buf.index !=3D frame->id)
+> -		dev_err(inst->dev, "[%d] buffer id(%d, %d) dismatch\n",
+> -			inst->id, vbuf->vb2_buf.index, frame->id);
+> +	if (vpu_buf->fs_id !=3D frame->id)
+> +		dev_err(inst->dev, "[%d] buffer id(%d(%d), %d) dismatch\n",
+> +			inst->id, vpu_buf->fs_id, vbuf->vb2_buf.index, frame->id);
+> =20
+> -	if (vpu_get_buffer_state(vbuf) =3D=3D VPU_BUF_STATE_READY && vdec->para=
+ms.display_delay_enable)
+> +	if (vdec->params.display_delay_enable)
+>  		return;
+> =20
+>  	if (vpu_get_buffer_state(vbuf) !=3D VPU_BUF_STATE_DECODED)
+> @@ -852,10 +922,11 @@ static void vdec_buf_done(struct vpu_inst *inst, st=
+ruct vpu_frame_info *frame)
+>  	vbuf->sequence =3D vdec->sequence;
+>  	dev_dbg(inst->dev, "[%d][OUTPUT TS]%32lld\n", inst->id, vbuf->vb2_buf.t=
+imestamp);
+> =20
+> -	v4l2_m2m_buf_done(vbuf, VB2_BUF_STATE_DONE);
+>  	vpu_inst_lock(inst);
+> +	vdec->slots[vpu_buf->fs_id].state =3D VPU_BUF_STATE_READY;
+>  	vdec->display_frame_count++;
+>  	vpu_inst_unlock(inst);
+> +	v4l2_m2m_buf_done(vbuf, VB2_BUF_STATE_DONE);
+>  	dev_dbg(inst->dev, "[%d] decoded : %d, display : %d, sequence : %d\n",
+>  		inst->id, vdec->decoded_frame_count, vdec->display_frame_count, vdec->=
+sequence);
+>  }
+> @@ -1083,18 +1154,30 @@ static int vdec_response_frame(struct vpu_inst *i=
+nst, struct vb2_v4l2_buffer *vb
+>  	if (!vbuf)
+>  		return -EINVAL;
+> =20
+> -	if (vdec->slots[vbuf->vb2_buf.index]) {
+> -		dev_err(inst->dev, "[%d] repeat alloc fs %d\n",
+> -			inst->id, vbuf->vb2_buf.index);
+> +	vpu_buf =3D to_vpu_vb2_buffer(vbuf);
+> +	if (vpu_buf->fs_id < 0 || vpu_buf->fs_id >=3D vdec->slot_count) {
+> +		dev_err(inst->dev, "invalid fs %d for v4l2 buffer %d\n",
+> +			vpu_buf->fs_id, vbuf->vb2_buf.index);
+>  		return -EINVAL;
+>  	}
+> =20
+> +	if (vdec->slots[vpu_buf->fs_id].curr) {
+> +		if (vdec->slots[vpu_buf->fs_id].curr !=3D vpu_buf) {
+> +			vpu_set_buffer_state(vbuf, VPU_BUF_STATE_CHANGED);
+> +			vdec->slots[vpu_buf->fs_id].pend =3D vpu_buf;
+> +		} else {
+> +			vpu_set_buffer_state(vbuf, vdec->slots[vpu_buf->fs_id].state);
+> +		}
+> +		dev_err(inst->dev, "[%d] repeat alloc fs %d (v4l2 index %d)\n",
+> +			inst->id, vpu_buf->fs_id, vbuf->vb2_buf.index);
+> +		return -EAGAIN;
+> +	}
+> +
+>  	dev_dbg(inst->dev, "[%d] state =3D %s, alloc fs %d, tag =3D 0x%x\n",
+>  		inst->id, vpu_codec_state_name(inst->state), vbuf->vb2_buf.index, vdec=
+->seq_tag);
+> -	vpu_buf =3D to_vpu_vb2_buffer(vbuf);
+> =20
+>  	memset(&info, 0, sizeof(info));
+> -	info.id =3D vbuf->vb2_buf.index;
+> +	info.id =3D vpu_buf->fs_id;
+>  	info.type =3D MEM_RES_FRAME;
+>  	info.tag =3D vdec->seq_tag;
+>  	info.luma_addr =3D vpu_get_vb_phy_addr(&vbuf->vb2_buf, 0);
+> @@ -1109,12 +1192,13 @@ static int vdec_response_frame(struct vpu_inst *i=
+nst, struct vb2_v4l2_buffer *vb
+>  	if (ret)
+>  		return ret;
+> =20
+> -	vpu_buf->tag =3D info.tag;
+>  	vpu_buf->luma =3D info.luma_addr;
+>  	vpu_buf->chroma_u =3D info.chroma_addr;
+>  	vpu_buf->chroma_v =3D 0;
+>  	vpu_set_buffer_state(vbuf, VPU_BUF_STATE_INUSE);
+> -	vdec->slots[info.id] =3D vpu_buf;
+> +	vdec->slots[info.id].tag =3D info.tag;
+> +	vdec->slots[info.id].curr =3D vpu_buf;
+> +	vdec->slots[info.id].state =3D VPU_BUF_STATE_INUSE;
+>  	vdec->req_frame_count--;
+> =20
+>  	return 0;
+> @@ -1175,25 +1259,47 @@ static void vdec_recycle_buffer(struct vpu_inst *=
+inst, struct vb2_v4l2_buffer *v
+>  	v4l2_m2m_buf_queue(inst->fh.m2m_ctx, vbuf);
+>  }
+> =20
+> -static void vdec_clear_slots(struct vpu_inst *inst)
+> +static void vdec_release_curr_frame_store(struct vpu_inst *inst, u32 id)
+>  {
+>  	struct vdec_t *vdec =3D inst->priv;
+>  	struct vpu_vb2_buffer *vpu_buf;
+>  	struct vb2_v4l2_buffer *vbuf;
+> +
+> +	if (id >=3D vdec->slot_count)
+> +		return;
+> +	if (!vdec->slots[id].curr)
+> +		return;
+> +
+> +	vpu_buf =3D vdec->slots[id].curr;
+> +	vbuf =3D &vpu_buf->m2m_buf.vb;
+> +
+> +	vdec_response_fs_release(inst, id, vdec->slots[id].tag);
+> +	if (vpu_buf->fs_id =3D=3D id) {
+> +		if (vpu_buf->state !=3D VPU_BUF_STATE_READY)
+> +			vdec_recycle_buffer(inst, vbuf);
+> +		vpu_set_buffer_state(vbuf, VPU_BUF_STATE_IDLE);
+> +	}
+> +
+> +	vdec->slots[id].curr =3D NULL;
+> +	vdec->slots[id].state =3D VPU_BUF_STATE_IDLE;
+> +
+> +	if (vdec->slots[id].pend) {
+> +		vpu_set_buffer_state(&vdec->slots[id].pend->m2m_buf.vb, VPU_BUF_STATE_=
+IDLE);
+> +		vdec->slots[id].pend =3D NULL;
+> +	}
+> +}
+> +
+> +static void vdec_clear_slots(struct vpu_inst *inst)
+> +{
+> +	struct vdec_t *vdec =3D inst->priv;
+>  	int i;
+> =20
+> -	for (i =3D 0; i < ARRAY_SIZE(vdec->slots); i++) {
+> -		if (!vdec->slots[i])
+> +	for (i =3D 0; i < vdec->slot_count; i++) {
+> +		if (!vdec->slots[i].curr)
+>  			continue;
+> =20
+> -		vpu_buf =3D vdec->slots[i];
+> -		vbuf =3D &vpu_buf->m2m_buf.vb;
+> -
+>  		vpu_trace(inst->dev, "clear slot %d\n", i);
+> -		vdec_response_fs_release(inst, i, vpu_buf->tag);
+> -		vdec_recycle_buffer(inst, vbuf);
+> -		vdec->slots[i]->state =3D VPU_BUF_STATE_IDLE;
+> -		vdec->slots[i] =3D NULL;
+> +		vdec_release_curr_frame_store(inst, i);
+>  	}
+>  }
+> =20
+> @@ -1324,39 +1430,29 @@ static void vdec_event_req_fs(struct vpu_inst *in=
+st, struct vpu_fs_info *fs)
+>  static void vdec_evnet_rel_fs(struct vpu_inst *inst, struct vpu_fs_info =
+*fs)
+>  {
+>  	struct vdec_t *vdec =3D inst->priv;
+> -	struct vpu_vb2_buffer *vpu_buf;
+> -	struct vb2_v4l2_buffer *vbuf;
+> =20
+> -	if (!fs || fs->id >=3D ARRAY_SIZE(vdec->slots))
+> +	if (!fs || fs->id >=3D vdec->slot_count)
+>  		return;
+>  	if (fs->type !=3D MEM_RES_FRAME)
+>  		return;
+> =20
+> -	if (fs->id >=3D vpu_get_num_buffers(inst, inst->cap_format.type)) {
+> +	if (fs->id >=3D vdec->slot_count) {
+>  		dev_err(inst->dev, "[%d] invalid fs(%d) to release\n", inst->id, fs->i=
+d);
+>  		return;
+>  	}
+> =20
+>  	vpu_inst_lock(inst);
+> -	vpu_buf =3D vdec->slots[fs->id];
+> -	vdec->slots[fs->id] =3D NULL;
+> -
+> -	if (!vpu_buf) {
+> +	if (!vdec->slots[fs->id].curr) {
+>  		dev_dbg(inst->dev, "[%d] fs[%d] has bee released\n", inst->id, fs->id)=
+;
+>  		goto exit;
+>  	}
+> =20
+> -	vbuf =3D &vpu_buf->m2m_buf.vb;
+> -	if (vpu_get_buffer_state(vbuf) =3D=3D VPU_BUF_STATE_DECODED) {
+> +	if (vdec->slots[fs->id].state =3D=3D VPU_BUF_STATE_DECODED) {
+>  		dev_dbg(inst->dev, "[%d] frame skip\n", inst->id);
+>  		vdec->sequence++;
+>  	}
+> =20
+> -	vdec_response_fs_release(inst, fs->id, vpu_buf->tag);
+> -	if (vpu_get_buffer_state(vbuf) !=3D VPU_BUF_STATE_READY)
+> -		vdec_recycle_buffer(inst, vbuf);
+> -
+> -	vpu_set_buffer_state(vbuf, VPU_BUF_STATE_IDLE);
+> +	vdec_release_curr_frame_store(inst, fs->id);
+>  	vpu_process_capture_buffer(inst);
+> =20
+>  exit:
+> @@ -1552,6 +1648,11 @@ static void vdec_cleanup(struct vpu_inst *inst)
+>  		return;
+> =20
+>  	vdec =3D inst->priv;
+> +	if (vdec) {
+> +		vfree(vdec->slots);
+> +		vdec->slots =3D NULL;
+> +		vdec->slot_count =3D 0;
+> +	}
+>  	vfree(vdec);
+>  	inst->priv =3D NULL;
+>  	vfree(inst);
+> @@ -1683,6 +1784,38 @@ static int vdec_stop_session(struct vpu_inst *inst=
+, u32 type)
+>  	return 0;
+>  }
+> =20
+> +static int vdec_get_slot_debug_info(struct vpu_inst *inst, char *str, u3=
+2 size, u32 i)
+> +{
+> +	struct vdec_t *vdec =3D inst->priv;
+> +	struct vpu_vb2_buffer *vpu_buf;
+> +	int num =3D -1;
+> +
+> +	vpu_inst_lock(inst);
+> +	if (i >=3D vdec->slot_count || !vdec->slots[i].addr)
+> +		goto exit;
+> +
+> +	vpu_buf =3D vdec->slots[i].curr;
+> +
+> +	num =3D scnprintf(str, size, "slot[%2d] :", i);
+> +	if (vpu_buf) {
+> +		num +=3D scnprintf(str + num, size - num, " %2d",
+> +				 vpu_buf->m2m_buf.vb.vb2_buf.index);
+> +		num +=3D scnprintf(str + num, size - num, "; state =3D %d", vdec->slot=
+s[i].state);
+> +	} else {
+> +		num +=3D scnprintf(str + num, size - num, " -1");
+> +	}
+> +
+> +	if (vdec->slots[i].pend)
+> +		num +=3D scnprintf(str + num, size - num, "; %d",
+> +				 vdec->slots[i].pend->m2m_buf.vb.vb2_buf.index);
+> +
+> +	num +=3D scnprintf(str + num, size - num, "\n");
+> +exit:
+> +	vpu_inst_unlock(inst);
+> +
+> +	return num;
+> +}
+> +
+>  static int vdec_get_debug_info(struct vpu_inst *inst, char *str, u32 siz=
+e, u32 i)
+>  {
+>  	struct vdec_t *vdec =3D inst->priv;
+> @@ -1741,6 +1874,7 @@ static int vdec_get_debug_info(struct vpu_inst *ins=
+t, char *str, u32 size, u32 i
+>  				vdec->codec_info.vui_present);
+>  		break;
+>  	default:
+> +		num =3D vdec_get_slot_debug_info(inst, str, size, i - 10);
+>  		break;
+>  	}
+> =20
+> @@ -1764,6 +1898,8 @@ static struct vpu_inst_ops vdec_inst_ops =3D {
+>  	.get_debug_info =3D vdec_get_debug_info,
+>  	.wait_prepare =3D vpu_inst_unlock,
+>  	.wait_finish =3D vpu_inst_lock,
+> +	.attach_frame_store =3D vdec_attach_frame_store,
+> +	.reset_frame_store =3D vdec_reset_frame_store,
+>  };
+> =20
+>  static void vdec_init(struct file *file)
+> @@ -1804,6 +1940,14 @@ static int vdec_open(struct file *file)
+>  		return -ENOMEM;
+>  	}
+> =20
+> +	vdec->slots =3D vzalloc(sizeof(*vdec->slots) * VDEC_SLOT_CNT_DFT);
+> +	if (!vdec->slots) {
+> +		vfree(vdec);
+> +		vfree(inst);
+> +		return -ENOMEM;
+> +	}
+> +	vdec->slot_count =3D VDEC_SLOT_CNT_DFT;
+> +
+>  	inst->ops =3D &vdec_inst_ops;
+>  	inst->formats =3D vdec_formats;
+>  	inst->type =3D VPU_CORE_TYPE_DEC;
+> diff --git a/drivers/media/platform/amphion/vpu.h b/drivers/media/platfor=
+m/amphion/vpu.h
+> index 22f0da26ccec..76bfd6b26170 100644
+> --- a/drivers/media/platform/amphion/vpu.h
+> +++ b/drivers/media/platform/amphion/vpu.h
+> @@ -223,6 +223,8 @@ struct vpu_inst_ops {
+>  	int (*get_debug_info)(struct vpu_inst *inst, char *str, u32 size, u32 i=
+);
+>  	void (*wait_prepare)(struct vpu_inst *inst);
+>  	void (*wait_finish)(struct vpu_inst *inst);
+> +	void (*attach_frame_store)(struct vpu_inst *inst, struct vb2_buffer *vb=
+);
+> +	void (*reset_frame_store)(struct vpu_inst *inst);
+>  };
+> =20
+>  struct vpu_inst {
+> @@ -296,7 +298,8 @@ enum {
+>  	VPU_BUF_STATE_DECODED,
+>  	VPU_BUF_STATE_READY,
+>  	VPU_BUF_STATE_SKIP,
+> -	VPU_BUF_STATE_ERROR
+> +	VPU_BUF_STATE_ERROR,
+> +	VPU_BUF_STATE_CHANGED
+>  };
+> =20
+>  struct vpu_vb2_buffer {
+> @@ -305,8 +308,8 @@ struct vpu_vb2_buffer {
+>  	dma_addr_t chroma_u;
+>  	dma_addr_t chroma_v;
+>  	unsigned int state;
+> -	u32 tag;
+>  	u32 average_qp;
+> +	s32 fs_id;
+>  };
+> =20
+>  void vpu_writel(struct vpu_dev *vpu, u32 reg, u32 val);
+> diff --git a/drivers/media/platform/amphion/vpu_dbg.c b/drivers/media/pla=
+tform/amphion/vpu_dbg.c
+> index 940e5bda5fa3..497ae4e8a229 100644
+> --- a/drivers/media/platform/amphion/vpu_dbg.c
+> +++ b/drivers/media/platform/amphion/vpu_dbg.c
+> @@ -48,6 +48,7 @@ static char *vpu_stat_name[] =3D {
+>  	[VPU_BUF_STATE_READY] =3D "ready",
+>  	[VPU_BUF_STATE_SKIP] =3D "skip",
+>  	[VPU_BUF_STATE_ERROR] =3D "error",
+> +	[VPU_BUF_STATE_CHANGED] =3D "changed",
+>  };
+> =20
+>  static inline const char *to_vpu_stat_name(int state)
+> @@ -164,6 +165,7 @@ static int vpu_dbg_instance(struct seq_file *s, void =
+*data)
+>  	for (i =3D 0; i < vb2_get_num_buffers(vq); i++) {
+>  		struct vb2_buffer *vb;
+>  		struct vb2_v4l2_buffer *vbuf;
+> +		struct vpu_vb2_buffer *vpu_buf;
+> =20
+>  		vb =3D vb2_get_buffer(vq, i);
+>  		if (!vb)
+> @@ -173,13 +175,24 @@ static int vpu_dbg_instance(struct seq_file *s, voi=
+d *data)
+>  			continue;
+> =20
+>  		vbuf =3D to_vb2_v4l2_buffer(vb);
+> +		vpu_buf =3D to_vpu_vb2_buffer(vbuf);
+> =20
+>  		num =3D scnprintf(str, sizeof(str),
+> -				"capture[%2d] state =3D %10s, %8s\n",
+> +				"capture[%2d] state =3D %10s, %8s",
+>  				i, vb2_stat_name[vb->state],
+>  				to_vpu_stat_name(vpu_get_buffer_state(vbuf)));
+>  		if (seq_write(s, str, num))
+>  			return 0;
+> +
+> +		if (vpu_buf->fs_id >=3D 0) {
+> +			num =3D scnprintf(str, sizeof(str), "; fs %d", vpu_buf->fs_id);
+> +			if (seq_write(s, str, num))
+> +				return 0;
+> +		}
+> +
+> +		num =3D scnprintf(str, sizeof(str), "\n");
+> +		if (seq_write(s, str, num))
+> +			return 0;
+>  	}
+> =20
+>  	num =3D scnprintf(str, sizeof(str), "sequence =3D %d\n", inst->sequence=
+);
+> diff --git a/drivers/media/platform/amphion/vpu_v4l2.c b/drivers/media/pl=
+atform/amphion/vpu_v4l2.c
+> index 45707931bc4f..74668fa362e2 100644
+> --- a/drivers/media/platform/amphion/vpu_v4l2.c
+> +++ b/drivers/media/platform/amphion/vpu_v4l2.c
+> @@ -501,14 +501,25 @@ static int vpu_vb2_queue_setup(struct vb2_queue *vq=
+,
+>  		call_void_vop(inst, release);
+>  	}
+> =20
+> +	if (V4L2_TYPE_IS_CAPTURE(vq->type))
+> +		call_void_vop(inst, reset_frame_store);
+> +
+>  	return 0;
+>  }
+> =20
+>  static int vpu_vb2_buf_init(struct vb2_buffer *vb)
+>  {
+>  	struct vb2_v4l2_buffer *vbuf =3D to_vb2_v4l2_buffer(vb);
+> +	struct vpu_vb2_buffer *vpu_buf =3D to_vpu_vb2_buffer(vbuf);
+> +	struct vpu_inst *inst =3D vb2_get_drv_priv(vb->vb2_queue);
+> =20
+> +	vpu_buf->fs_id =3D -1;
+>  	vpu_set_buffer_state(vbuf, VPU_BUF_STATE_IDLE);
+> +
+> +	if (!inst->ops->attach_frame_store || V4L2_TYPE_IS_OUTPUT(vb->type))
+> +		return 0;
+> +
+> +	call_void_vop(inst, attach_frame_store, vb);
+>  	return 0;
+>  }
+> =20
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Just a general question, was the choice for a flexible array because the IP=
+ does
+not provide enough per-codec information to calculate the number of needed =
+slots
+or to actually avoid needing to do per codec array sizing ?
+
+Nicolas
+
 
