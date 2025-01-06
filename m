@@ -4,61 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5403DE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 19:16:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F343E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 19:18:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r8uHDg/x40TevlTefyWB2n9w7vCjeuz91hItU9OU7bQ=; b=evM25cBdHHjT3T0HUDWLqbuudY
-	iCZnP5Di6ZfRYl4LYzho1dZQ325S29w0yDDMv8L/xE/qhZIhGdwovxLsfQ3e6XyMz7vCxpjt651pe
-	wekyBwit2GfSjgan5DVuF0H68Ekr6UtawkuRXV+wsWXypZoUuBjuG2FZLAWELbleKCoDygazewtp5
-	2+yeQ4pgBgfDQCIn0F4FGHLyuCJaxFRI6kZ4tnL5KJz6YcEndDUV7knHoz6Icpbgvx8EY9X3gCAx5
-	FWDNLsJOK5oORuaUQhuIGkSQe3FBtL3+cdQuuuGau9HBHkDNYj8UCHHROyrVg6K1VtSk3saFaBezh
-	xlmqtn8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LEQcfrbUYcF1N4UKK0TYqmCVJANB4eKWrWPIx+1vEWE=; b=d8hNqO5ywv1fP2FmPBdu57Ii+g
+	sVkLtG81a2Hv3wdaH/W6Oj8j+//9XvI1APMNsxM58fXysYzT+/DVE5FA+ZTbwPlm+lb/XnDV7TQEf
+	mXEhCnj/pGrwpcuAl09/sDMZzG4YMB7+0S7By4VkhSEVFL+sn+PzayAu5KJ+i/u+pRO0tJU09CFmL
+	3ZF7BVsFKUEMSml/5qi24UgA+Vx0YgdiKF0eAO2wYCh228sWujuKfbWY45qpXvWCIZNWkj1IAnex0
+	pOcfE13DEG8uY+HxeLfiUocgDZX0BTX3cfN8GSgV80/AuGs2LUR8NXHM2586IztAnAPXF7z0JeODX
+	yCIZmYcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUsaf-00000002PZP-4C7x;
-	Mon, 06 Jan 2025 19:16:42 +0000
-Received: from mail.netcube.li ([173.249.15.149])
+	id 1tUsbp-00000002PlM-2wQ4;
+	Mon, 06 Jan 2025 19:17:53 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUsV4-00000002OLj-1Hf1
+	id 1tUsV7-00000002ONQ-1XLq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 19:10:55 +0000
-dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
-	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Transfer-Encoding:In-Reply-To:References;
-	bh=r8uHDg/x40TevlTefyWB2n9w7vCjeuz91hItU9OU7bQ=;
-	b=t0WF6L+CLmIpygiUfB0vGEh0jF3MvSvB1uyHvGfkxTjG1nInkFpXjMEXKfWlOlszW3vxZqFkc26eNhqU154ZLgSO1G7+g3Vcvu8d4sm5AHqixXkhy/HRH/YcSoUHMqFlbTGdwmYusKDjOheBV2zDB8M0lWwVUHtwzOHOXHVUcjQ=
-Received: from 854af3ed5e24.lan.sk100508.local (cm70-231.liwest.at [212.241.70.231])
-	by mail.netcube.li with ESMTPA
-	; Mon, 6 Jan 2025 20:10:42 +0100
-From: Lukas Schmid <lukas.schmid@netcube.li>
-To: Rob Herring <robh@kernel.org>,
+	Mon, 06 Jan 2025 19:10:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id C85165C5A51;
+	Mon,  6 Jan 2025 19:10:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 718FFC4CED6;
+	Mon,  6 Jan 2025 19:10:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736190655;
+	bh=2Y7A97aMbUWW+oSyFhzbH5y7x4SdYncWayLow7TnTOQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pg7XiA2IUs1V4wKMOUU7b3qaPJd2WrHbExu/gHdjUU3qv+zp+yl9DiR3elHGduA2m
+	 mhav29JdmWzuf/Zz2Jiveb65/a55XcJhQrOdehwJoWdTBfX/uWCdm22BkKlvV/jmjE
+	 PzSDaR0go3VHs1cFBgjU3wfGHpciu1pBwfZYHIxQ+hjfBCe0OeoeBEbHTl9iFzyiKP
+	 JFThpjyuHsW2xdUe3Pf93JWn50bs/QJwUmuBdB3s5lHdQvnC1mh2xB8c1TDPxVLCFT
+	 ZDlvrO6fawpbHjKZ/tx1p9wypQ+CkHtE6Ba2bYLLGrUVEng4vAg8TJbq5bBDzlj0/q
+	 S76XCxB+cevvw==
+Date: Mon, 6 Jan 2025 13:10:54 -0600
+From: Rob Herring <robh@kernel.org>
+To: Lijuan Gao <quic_lijuang@quicinc.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Maxime Ripard <mripard@kernel.org>
-Cc: Lukas Schmid <lukas.schmid@netcube.li>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v5 3/4] ARM: dts: sunxi: add uart1_pe pinctrl for sun8i-v3s
-Date: Mon,  6 Jan 2025 19:07:01 +0000
-Message-Id: <20250106190703.4015-4-lukas.schmid@netcube.li>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250106190703.4015-1-lukas.schmid@netcube.li>
-References: <20250106190703.4015-1-lukas.schmid@netcube.li>
+	Thomas Gleixner <tglx@linutronix.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, kernel@quicinc.com,
+	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v5 2/5] dt-bindings: qcom,pdc: document QCS615 Power
+ Domain Controller
+Message-ID: <20250106191054.GA820925-robh@kernel.org>
+References: <20241104-add_initial_support_for_qcs615-v5-0-9dde8d7b80b0@quicinc.com>
+ <20241104-add_initial_support_for_qcs615-v5-2-9dde8d7b80b0@quicinc.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241104-add_initial_support_for_qcs615-v5-2-9dde8d7b80b0@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_111054_638438_BED4CE09 
-X-CRM114-Status: UNSURE (   9.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250106_111057_444747_526C7A00 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,33 +81,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Added the uart1_pe_pins pinctrl for use by the NetCube
-Systems Kumquat board
+On Mon, Nov 04, 2024 at 05:10:09PM +0800, Lijuan Gao wrote:
+> Add a compatible for the Power Domain Controller on QCS615 platform.
+> 
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Signed-off-by: Lijuan Gao <quic_lijuang@quicinc.com>
+> ---
+>  Documentation/devicetree/bindings/interrupt-controller/qcom,pdc.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 
-Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
----
- arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi | 6 ++++++
- 1 file changed, 6 insertions(+)
-
-diff --git a/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi b/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
-index 9e13c2aa8911..f909b1d4dbca 100644
---- a/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
-+++ b/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
-@@ -416,6 +416,12 @@ uart0_pb_pins: uart0-pb-pins {
- 				function = "uart0";
- 			};
- 
-+			/omit-if-no-ref/
-+			uart1_pe_pins: uart1-pe-pins {
-+				pins = "PE21", "PE22";
-+				function = "uart1";
-+			};
-+
- 			uart2_pins: uart2-pins {
- 				pins = "PB0", "PB1";
- 				function = "uart2";
--- 
-2.47.1
-
-
+Applied, thanks.
 
