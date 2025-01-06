@@ -4,75 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C84FE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 15:37:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1606E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 15:38:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aVACOVNF3iosJwGrzNQ3kbSFQ7Wdthdx1wHxrTp5rl0=; b=l74GVbvFIMlGOWBQB/aZoWBRMN
-	MzSPImEJGQXi8DqYrZaclAOhmzqkdWFPqX4cdQnby17zetWU1uvCV4nk6IxmcslG/f1h3MAIOMB5A
-	Gx5SMfsDn9oAoBkpV5yQka65qTt+VV/oDJ8Nu91//YL4acux/cqCJcHXnzIvAGhY/PxIATQxImHBN
-	eCWfUYFTH0A39Ib+pUHl8lwqc2R7dPY7/LShfXKxrV7fX9/lDb8XCvuY8q+mn0xuRRtryP8i4wMHh
-	5ILSFSAt14S/Nv5YW43EdrGmet8+y1fypxH3kcMHS+WF/y6ayYuREc6Pth60adAesjq7JeSoHzj9E
-	g3VHps/Q==;
+	bh=3bht1/DmHfs62jqKaT3oBEf1uFsmsmgXdgn5VwtTt7Q=; b=WJCop/cqCZnK5UArLrmDrDUPQL
+	qaBdFqJ2mNxDoOpy+/7pB8oMqxjMAdEMn+i2ZnnLbfrrpuqiiHuN8zQlLkRohHmbaAcKtkT67KMIQ
+	1BCfRYPH8pjlGLy+Wegnva6wwUhwoz250eVXjDlkqJRsrR/E0w3i5shtzUCEdMCvszPYqlgoVIGx2
+	HSNCmB7oKiU0hz5qAVhyht+6TZQyqJbkV9bZ9lSmPEvSjqfjZ6bsCz4pPl9iq6bboXa6/AgZMQzIs
+	YK+TSwL7HlmH3vtbSoSl/Y+IJZUjeiuJOkrpI5e07Z93h1SXTT8Hd1IKWhNvFhOYiA29Zm+gPv/kP
+	XSEhTJlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUp9t-00000001nD3-3lyF;
-	Mon, 06 Jan 2025 15:36:49 +0000
+	id 1tUpBL-00000001nhb-09SI;
+	Mon, 06 Jan 2025 15:38:19 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUnzZ-00000001Y3Q-14dU
+	id 1tUpA8-00000001nKK-3jwn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 14:22:06 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
+	Mon, 06 Jan 2025 15:37:06 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tUnzF-0003vR-CM; Mon, 06 Jan 2025 15:21:45 +0100
-Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tUnzE-007BR1-0N;
-	Mon, 06 Jan 2025 15:21:44 +0100
-Received: from localhost ([::1] helo=dude05.red.stw.pengutronix.de)
-	by dude05.red.stw.pengutronix.de with esmtp (Exim 4.96)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tUnzE-008rLw-2X;
-	Mon, 06 Jan 2025 15:21:44 +0100
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Date: Mon, 06 Jan 2025 15:21:43 +0100
-Subject: [PATCH v2 2/6] arm64: dts: imx8mp: Add optional nominal drive mode
- DTSI
+	id 1tUp9w-00031f-TD; Mon, 06 Jan 2025 16:36:52 +0100
+Message-ID: <c0068bd7-a49a-49b0-889f-a864dd9170a8@pengutronix.de>
+Date: Mon, 6 Jan 2025 16:36:52 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 06/10] arm64: dts: imx8mp-skov: describe LVDS display
+ pipeline
+To: Frank Li <Frank.li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Oleksij Rempel
+ <o.rempel@pengutronix.de>, devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20241219-skov-dt-updates-v1-0-38bf80dc22df@pengutronix.de>
+ <20241219-skov-dt-updates-v1-6-38bf80dc22df@pengutronix.de>
+ <Z2RZ1o6AWGRe0ww9@lizhi-Precision-Tower-5810>
+ <1b5236db-9a2c-475c-825c-3feae22ea32e@pengutronix.de>
+ <Z2RzA5S/ch1YDdUD@lizhi-Precision-Tower-5810>
+Content-Language: en-US
+From: Ahmad Fatoum <a.fatoum@pengutronix.de>
+In-Reply-To: <Z2RzA5S/ch1YDdUD@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250106-imx8m-clk-v2-2-6aaeadac65fe@pengutronix.de>
-References: <20250106-imx8m-clk-v2-0-6aaeadac65fe@pengutronix.de>
-In-Reply-To: <20250106-imx8m-clk-v2-0-6aaeadac65fe@pengutronix.de>
-To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Abel Vesa <abel.vesa@linaro.org>, 
- Marek Vasut <marex@denx.de>
-Cc: linux-clk@vger.kernel.org, imx@lists.linux.dev, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Ahmad Fatoum <a.fatoum@pengutronix.de>
-X-Mailer: b4 0.14.2
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
 X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_062205_303104_9EE0D75D 
-X-CRM114-Status: GOOD (  14.12  )
+X-CRM114-CacheID: sfid-20250106_073704_935408_2B5A24C6 
+X-CRM114-Status: GOOD (  19.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,94 +76,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Unlike the i.MX8MM and i.MX8MN SoCs added earlier, the device tree for
-the i.MX8MP configures some clocks at frequencies that are only validated
-for overdrive mode, i.e. when VDD_SOC is 950 mV.
+Hello Frank,
 
-Boards may want to run their SoC at the lower voltage of 850 mV though
-to reduce heat generation and power usage. For this to work, clock rates
-need to adhere to the limits of the nominal drive mode.
+On 19.12.24 20:24, Frank Li wrote:
+> On Thu, Dec 19, 2024 at 06:45:24PM +0100, Ahmad Fatoum wrote:
+>> On 19.12.24 18:37, Frank Li wrote:
+>>> On Thu, Dec 19, 2024 at 08:25:30AM +0100, Ahmad Fatoum wrote:
+>>>> From: Oleksij Rempel <o.rempel@pengutronix.de>
+>>>>
+>>>> The Skov i.MX8MP LT6 device tree so far described the touch screen, but
+>>>> didn't describe the screen itself. Fill out these missing pieces.
+>>>
+>>> Add "ti,sn65lvds822" touch screen description for i.MX8MP LT6 board.
+>>
+>> This is not what this patch does. Touch screen was already described
+>> and now the remainder is being added, just like what my message said.
+> 
+> My main means, use below order to descript commit message
+> 
+> Add ... for ...
 
-Add an optional DTSI file which can be included by various boards to run
-in this mode.
+Sorry, I won't start every sentence with a verb. The commit message
+is fine IMO.
 
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
-Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
----
- arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi | 63 +++++++++++++++++++++++
- 1 file changed, 63 insertions(+)
+Thanks,
+Ahmad
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi
-new file mode 100644
-index 0000000000000000000000000000000000000000..f9a82a663033a1dfb72163eebb62e4aee66cee2f
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi
-@@ -0,0 +1,63 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (C) 2024 Pengutronix, Ahmad Fatoum <kernel@pengutronix.de>
-+ */
-+
-+&clk {
-+	assigned-clocks = <&clk IMX8MP_CLK_A53_SRC>,
-+			  <&clk IMX8MP_CLK_A53_CORE>,
-+			  <&clk IMX8MP_SYS_PLL3>,
-+			  <&clk IMX8MP_CLK_NOC>,
-+			  <&clk IMX8MP_CLK_NOC_IO>,
-+			  <&clk IMX8MP_CLK_GIC>;
-+	assigned-clock-parents = <&clk IMX8MP_SYS_PLL1_800M>,
-+				 <&clk IMX8MP_ARM_PLL_OUT>,
-+				 <0>,
-+				 <&clk IMX8MP_SYS_PLL1_800M>,
-+				 <&clk IMX8MP_SYS_PLL3_OUT>,
-+				 <&clk IMX8MP_SYS_PLL1_800M>;
-+	assigned-clock-rates = <0>, <0>,
-+			       <600000000>,
-+			       <800000000>,
-+			       <600000000>,
-+			       <400000000>;
-+};
-+
-+&pgc_hdmimix {
-+	assigned-clocks = <&clk IMX8MP_CLK_HDMI_AXI>,
-+			  <&clk IMX8MP_CLK_HDMI_APB>;
-+	assigned-clock-parents = <&clk IMX8MP_SYS_PLL1_800M>,
-+				 <&clk IMX8MP_SYS_PLL1_133M>;
-+	assigned-clock-rates = <400000000>, <133000000>;
-+};
-+
-+&pgc_hsiomix {
-+	assigned-clocks = <&clk IMX8MP_CLK_HSIO_AXI>;
-+	assigned-clock-parents = <&clk IMX8MP_SYS_PLL1_800M>;
-+	assigned-clock-rates = <400000000>;
-+};
-+
-+&pgc_gpumix {
-+	assigned-clocks = <&clk IMX8MP_CLK_GPU_AXI>,
-+			  <&clk IMX8MP_CLK_GPU_AHB>;
-+	assigned-clock-parents = <&clk IMX8MP_SYS_PLL3_OUT>,
-+				 <&clk IMX8MP_SYS_PLL3_OUT>;
-+	assigned-clock-rates = <600000000>, <300000000>;
-+};
-+
-+&media_blk_ctrl {
-+	assigned-clocks = <&clk IMX8MP_CLK_MEDIA_AXI>,
-+			  <&clk IMX8MP_CLK_MEDIA_APB>,
-+			  <&clk IMX8MP_CLK_MEDIA_DISP1_PIX>,
-+			  <&clk IMX8MP_CLK_MEDIA_DISP2_PIX>,
-+			  <&clk IMX8MP_CLK_MEDIA_ISP>,
-+			  <&clk IMX8MP_VIDEO_PLL1>;
-+	assigned-clock-parents = <&clk IMX8MP_SYS_PLL1_800M>,
-+				 <&clk IMX8MP_SYS_PLL1_800M>,
-+				 <&clk IMX8MP_VIDEO_PLL1_OUT>,
-+				 <&clk IMX8MP_VIDEO_PLL1_OUT>,
-+				 <&clk IMX8MP_SYS_PLL1_800M>;
-+	assigned-clock-rates = <400000000>, <200000000>,
-+			       <0>, <0>, <400000000>,
-+			       <1039500000>;
-+};
+> 
+> Frank
+> 
+>>
+>> Thanks,
+>> Ahmad
+>>
+>>>
+>>> Frank
+>>>
+>>>> Signed-off-by: Oleksij Rempel <o.rempel@pengutronix.de>
+>>>> Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
+>>>> ---
+>>>>  .../boot/dts/freescale/imx8mp-skov-revb-lt6.dts    | 60 ++++++++++++++++++++++
+>>>>  1 file changed, 60 insertions(+)
+>>>>
+>>>> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-lt6.dts b/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-lt6.dts
+>>>> index ccbd3abedd69..baecf768a2ee 100644
+>>>> --- a/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-lt6.dts
+>>>> +++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-lt6.dts
+>>>> @@ -8,6 +8,45 @@ / {
+>>>>  	model = "SKOV IMX8MP CPU revB - LT6";
+>>>>  	compatible = "skov,imx8mp-skov-revb-lt6", "fsl,imx8mp";
+>>>>
+>>>> +	lvds-decoder {
+>>>> +		compatible = "ti,sn65lvds822", "lvds-decoder";
+>>>> +		power-supply = <&reg_3v3>;
+>>>> +
+>>>> +		ports {
+>>>> +			#address-cells = <1>;
+>>>> +			#size-cells = <0>;
+>>>> +
+>>>> +			port@0 {
+>>>> +				reg = <0>;
+>>>> +
+>>>> +				in_lvds1: endpoint {
+>>>> +					data-mapping = "vesa-24";
+>>>> +					remote-endpoint = <&ldb_lvds_ch1>;
+>>>> +				};
+>>>> +			};
+>>>> +
+>>>> +			port@1 {
+>>>> +				reg = <1>;
+>>>> +
+>>>> +				lvds_decoder_out: endpoint {
+>>>> +					remote-endpoint = <&panel_in>;
+>>>> +				};
+>>>> +			};
+>>>> +		};
+>>>> +	};
+>>>> +
+>>>> +	panel {
+>>>> +		compatible = "logictechno,lttd800480070-l6wh-rt";
+>>>> +		backlight = <&backlight>;
+>>>> +		power-supply = <&reg_tft_vcom>;
+>>>> +
+>>>> +		port {
+>>>> +			panel_in: endpoint {
+>>>> +				remote-endpoint = <&lvds_decoder_out>;
+>>>> +			};
+>>>> +		};
+>>>> +	};
+>>>> +
+>>>>  	touchscreen {
+>>>>  		compatible = "resistive-adc-touch";
+>>>>  		io-channels = <&adc_ts 1>, <&adc_ts 3>, <&adc_ts 4>, <&adc_ts 5>;
+>>>> @@ -78,6 +117,27 @@ channel@5 {
+>>>>  	};
+>>>>  };
+>>>>
+>>>> +&lcdif2 {
+>>>> +	status = "okay";
+>>>> +};
+>>>> +
+>>>> +&lvds_bridge {
+>>>> +	assigned-clocks = <&clk IMX8MP_CLK_MEDIA_LDB>,
+>>>> +				 <&clk IMX8MP_VIDEO_PLL1>;
+>>>> +	assigned-clock-parents = <&clk IMX8MP_VIDEO_PLL1_OUT>;
+>>>> +	/* IMX8MP_VIDEO_PLL1 = IMX8MP_CLK_MEDIA_DISP2_PIX * 2 * 7 */
+>>>> +	assigned-clock-rates = <0>, <462000000>;
+>>>> +	status = "okay";
+>>>> +
+>>>> +	ports {
+>>>> +		port@2 {
+>>>> +			ldb_lvds_ch1: endpoint {
+>>>> +				remote-endpoint = <&in_lvds1>;
+>>>> +			};
+>>>> +		};
+>>>> +	};
+>>>> +};
+>>>> +
+>>>>  &pwm1 {
+>>>>  	status = "okay";
+>>>>  };
+>>>>
+>>>> --
+>>>> 2.39.5
+>>>>
+>>>
+>>
+>>
+>> --
+>> Pengutronix e.K.                           |                             |
+>> Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+>> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+>> Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+
 
 -- 
-2.39.5
-
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
