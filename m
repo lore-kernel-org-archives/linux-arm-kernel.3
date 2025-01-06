@@ -4,83 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6070CE77198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 06:44:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 244F2E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 06:45:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KiAV08T5VRR9d0O03+oXWl0muSUJxK+zYN5oKgt3eFU=; b=VYrOrFHkjxn69/I53PQbNdEXGw
-	PpnJb6dfkFmZfK4/KtEENen2k7LkPqCUNb7eI5sC1KL30EV8wgvz4z8EdFxIa9swAvcxYTF/oN1KA
-	x72Ec6K5MPOU4UCNY2uyeF3SsPY61Mk3G+Nicsm4trc2xfnQWoLuhfaAfMHM9+rbn8Wiwg8/POAVB
-	1tIpziPmjhXJPw7/b0Mt6AuJadIVY8skWX89VDHqS9kCfQCQgZeQey4Cx9UkLu2T16q1V6mvBGcNU
-	ADj+H21Jz3Wf1heyZiGPw9v6ewoWh1iUPHFe0ABUHIVS2MmRqEqJphbDvffXwLOlsRbAIchyqvsuk
-	CAhTveZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JCcXG3JIFkEbKyh+uur/Wu+q8UM9XaBlD9VZ5VT4/Zc=; b=Ah8u5BfC+w12GT4gccWDlCgEJf
+	+NCRxplZXPcX6BjLg8w++foTcYYS5h/E1h6dBN2Hcs1OjlnlUwMxrwm4mBax9EUz3Y/NeOkswaeXm
+	hNfP9wEs/zFwjbdhM70z/7IRNBbYpKbHSjXoRrnC5NASfH9vIyqJzTXtyO7+ac4ytYz6unSQN/QSg
+	XwXXDlpllqKCUx3jBFLgW+7uI/8Z9c82/zJJtDhdzj/ZDATgrtBUv7lA+80ZuwmYo6twYg7wKHxSG
+	rRd+EBHWpBYeDHuC/fy+jmlaggeyOB9J2mhKA/sJdB77/riqtAWWZYfiX7wUn82fRHR0B2eS5dNZC
+	iP3hr5yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUgqc-00000000K28-3mBI;
-	Mon, 06 Jan 2025 06:44:22 +0000
-Received: from dggsgout11.his.huawei.com ([45.249.212.51])
+	id 1tUgrm-00000000K8s-2DKu;
+	Mon, 06 Jan 2025 06:45:34 +0000
+Received: from mail-dm6nam11on20610.outbound.protection.outlook.com ([2a01:111:f403:2415::610] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUgpP-00000000Jo3-1vfs
+	id 1tUgpq-00000000Jsg-02sF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 06:43:09 +0000
-Received: from mail.maildlp.com (unknown [172.19.93.142])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4YRPkM21tzz4f3jMK
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  6 Jan 2025 14:42:35 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.75])
-	by mail.maildlp.com (Postfix) with ESMTP id 8E5CD1A0ACF
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  6 Jan 2025 14:42:56 +0800 (CST)
-Received: from [10.67.111.192] (unknown [10.67.111.192])
-	by APP2 (Coremail) with SMTP id Syh0CgD3AGRve3tn+wG3AA--.5981S2;
-	Mon, 06 Jan 2025 14:42:56 +0800 (CST)
-Message-ID: <4a3f8848-7d3f-42ae-ac30-93d9bef83fc9@huaweicloud.com>
-Date: Mon, 6 Jan 2025 14:42:55 +0800
+	Mon, 06 Jan 2025 06:43:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SrzWKZFRSxGhxXwG1DDuAG/txA/cDvsKMN7dEbX0mfa/908bpoDOg7C0bzHAsy/F2/VbKS2+ifiTEOExk0UJo1S+Igp6AKuRuo1g05tuULhBHvoSBzfNhPA/fzlf2N2fkppMUnXNK+SVNZO3sVSc30qW84shuw76VAWdtkH+Lp/MLELnXv9A4468/XhFAb1B71WViTePTbI62TOxtaKjWZlZMgMnQ6vRJRcSNsh7twu5/xSWkrwiry17rDFBvGzEDjtSZGhib9qrgOFx1nfVFg03puR0cCbKyCB+hu96fOGHQUZmu2CU6ddRbpiCrW6G31rUQ+SlhvT89URd36q5IA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JCcXG3JIFkEbKyh+uur/Wu+q8UM9XaBlD9VZ5VT4/Zc=;
+ b=POJvYVHwVbQbXTz/reX1MWqDW9QQYwIrguH3FkBXGUEj9xa61jX2BLZhiTzCDmxSDbmYJElGGinr7+EH6EJhv6Uf6nH5tdQHvoX7NgDDWehJr5PAnVCfaasWH1Jc2VCbzXLe8rj5hrT59nJvesgrM75UQx+p64DXOlWOZt65VgmzryjoLMDTZYJZx/LFlgWo5IsYfO5RCgIEkP9hAlMknESrESrzIIOayT0LwKyM90F+3WzuKE/7L5k/FiP4uddF/yf5R+Ey0LPhpNZntRNqp5vZvCFbz3wQ/5nfyJPYPtlYXYd/3MGGqrkHrjKrBRz7w+qYOr7pVCOSdfXWCMGPlQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=JCcXG3JIFkEbKyh+uur/Wu+q8UM9XaBlD9VZ5VT4/Zc=;
+ b=NLTDt9A7kncEHwE+gzy1McQOOdj9PNst/BFBS1w0gmCY1ixviVpAODoSkzaKd9SS4BfQZxovcJ1RGl6bas3qTGtPJVefxSsbht8okskTuXWmX1Z+VZ8tloAGfoZ6fnfUOXNX8PzCJmLmYLln7faZfXA5OOWYNQglu8uqlFsEvqcgXbffU07hE1aKtgUIeZjUYmwVjvzfUOdnZ9p7sIeKVKVsQMd08gaQz7IIDPMPTZCZelWy7xg+PY1rBnP17h5+RRm0SbmCwF/zzbPCyAxM/WQiImOhu/PkvustDVe+hF8qq0+GD8W1RA6emdOLgQy/G0/5j4Oajb/tcY70b3JvPQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS0PR12MB7726.namprd12.prod.outlook.com (2603:10b6:8:130::6) by
+ SJ0PR12MB6989.namprd12.prod.outlook.com (2603:10b6:a03:448::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8314.17; Mon, 6 Jan
+ 2025 06:43:25 +0000
+Received: from DS0PR12MB7726.namprd12.prod.outlook.com
+ ([fe80::953f:2f80:90c5:67fe]) by DS0PR12MB7726.namprd12.prod.outlook.com
+ ([fe80::953f:2f80:90c5:67fe%6]) with mapi id 15.20.8314.015; Mon, 6 Jan 2025
+ 06:43:24 +0000
+Date: Mon, 6 Jan 2025 17:43:20 +1100
+From: Alistair Popple <apopple@nvidia.com>
+To: David Hildenbrand <david@redhat.com>, a@nvdebian.thelocal
+Cc: akpm@linux-foundation.org, dan.j.williams@intel.com, 
+	linux-mm@kvack.org, lina@asahilina.net, zhang.lyra@gmail.com, 
+	gerald.schaefer@linux.ibm.com, vishal.l.verma@intel.com, dave.jiang@intel.com, 
+	logang@deltatee.com, bhelgaas@google.com, jack@suse.cz, jgg@ziepe.ca, 
+	catalin.marinas@arm.com, will@kernel.org, mpe@ellerman.id.au, npiggin@gmail.com, 
+	dave.hansen@linux.intel.com, ira.weiny@intel.com, willy@infradead.org, djwong@kernel.org, 
+	tytso@mit.edu, linmiaohe@huawei.com, peterx@redhat.com, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, nvdimm@lists.linux.dev, 
+	linux-cxl@vger.kernel.org, linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org, 
+	linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de, david@fromorbit.com
+Subject: Re: [PATCH v4 19/25] proc/task_mmu: Ignore ZONE_DEVICE pages
+Message-ID: <54hi667mw7agwueoo4ijmogdvrt4unmw35xekwyiycrxe7o2i7@novwkzibndz5>
+References: <cover.18cbcff3638c6aacc051c44533ebc6c002bf2bd9.1734407924.git-series.apopple@nvidia.com>
+ <f3ebda542373feb70ed3e5d83b276a2e8347609f.1734407924.git-series.apopple@nvidia.com>
+ <c7bd9b00-6920-4dc0-8e2e-36c16ef7ad5a@redhat.com>
+ <37rxl2bjda3psdknhboexhbg3hahf5ifmublp5fw7ltdoyqllc@udbz76jklmnu>
+ <36334f20-2b9e-4529-89c4-120678bc5985@redhat.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <36334f20-2b9e-4529-89c4-120678bc5985@redhat.com>
+X-ClientProxiedBy: SY5P300CA0055.AUSP300.PROD.OUTLOOK.COM
+ (2603:10c6:10:1fe::10) To DS0PR12MB7726.namprd12.prod.outlook.com
+ (2603:10b6:8:130::6)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next v2 1/3] bpf, arm64: Simplify if logic in
- emit_lse_atomic()
-Content-Language: en-US
-To: Peilin Ye <yepeilin@google.com>, bpf@vger.kernel.org
-Cc: Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
- Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman
- <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
- Yonghong Song <yonghong.song@linux.dev>,
- John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
- Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>,
- Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Josh Don <joshdon@google.com>, Barret Rhoden <brho@google.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <e8520e5503a489e2dea8526077976ae5a0ab1849.1735868489.git.yepeilin@google.com>
-From: Xu Kuohai <xukuohai@huaweicloud.com>
-In-Reply-To: <e8520e5503a489e2dea8526077976ae5a0ab1849.1735868489.git.yepeilin@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CM-TRANSID: Syh0CgD3AGRve3tn+wG3AA--.5981S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7GFy3WFW5KF43Zr1kAFykAFb_yoWkZFc_GF
-	WxGa12grs3tr1fZrWUCF15GFyIkw4DGF1fJry7KFWDt3sIqr18JrWkKryfWryfXrsFkrWr
-	ZrykJas7tw1jvjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbxxYFVCjjxCrM7AC8VAFwI0_Xr0_Wr1l1xkIjI8I6I8E6xAIw20E
-	Y4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM28CjxkF64kEwV
-	A0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWDJVCq3wA2z4x0Y4vE2Ix0cI8IcVCY1x02
-	67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I
-	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
-	x7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
-	0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AF
-	wI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4
-	xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5
-	MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I
-	0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWU
-	JVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUIa
-	0PDUUUU
-X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB7726:EE_|SJ0PR12MB6989:EE_
+X-MS-Office365-Filtering-Correlation-Id: c5bed9a7-f6ff-494b-e593-08dd2e1d6b4e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Ncdyri868tJYUgjU/AS/aewgUGj97phEP5wqelOR1xhFnpqXJHbkZJnkeAnW?=
+ =?us-ascii?Q?ISJPy+svP4NLd02F4wwLFOOkZ3WWGeTjwbaeEbbDpHTdWz0Op0uDZXn6oe1F?=
+ =?us-ascii?Q?4xhgl8z+bn9+7bzWNQt0fWdReXkYVg0ohryfrqvZQhh0IL/F2UCrTvc3Bmy8?=
+ =?us-ascii?Q?Y/ot/7lLBcLw1AkNLkiTdiztcp8Rr/qwumAAhcUz74XJJn9/3h+Agkncz+bF?=
+ =?us-ascii?Q?IRIMXjGG6YivoF9H1TZ+AxoUkYZnJ+a+AX/zAX50FlriG/ArpOpE+PVH2ah7?=
+ =?us-ascii?Q?lcnAOwXqGD+8fjxPDd25Fq0BKDtdfkexoaNoVV4HxNWaZ/Emw+N/BgHg+YeA?=
+ =?us-ascii?Q?3rwUH6I04f/keZAof0oL/mW/SsausMDyvGK7s6hnaxR5OHB48Sit22QpcAgd?=
+ =?us-ascii?Q?5YzZ9jzD9QKH+FydF9VVsppkf9L6qFY2fKKZcyc7NqridAfrPWG7pO1Ws71W?=
+ =?us-ascii?Q?JulKfx02G+aH7Tf9ic6JXXVaxSXDQfuP6CXPIP31bCZVNvosBop2IKALMoPf?=
+ =?us-ascii?Q?9FWKUjbBYfHEKXa/FfepTELPqaZuRrt5IGb/H68a3kyi5we/iNfC2AZYHd7k?=
+ =?us-ascii?Q?Pjo80bEJVeC/7T4a+qKLK1PArAb+8d73uRdVglrtA8kKa21ejOiFoMJ3jyN/?=
+ =?us-ascii?Q?GcEIIWcjUndIicMNreMVPK4vVDECvwxeXwaRlzrfzRdplZ9lN6fmNyhoYwQg?=
+ =?us-ascii?Q?DD2p2EA7IJs3h6I6w7vEm/NorLimZ6IdHR6lVk1wWQiCPQyyidie0U2Y6wb+?=
+ =?us-ascii?Q?XaX8ul1t4PYPMyoDcEql0ObucZqVLrGIOh03UahM5UZi1IzNyd2INos1xuKN?=
+ =?us-ascii?Q?hfxhIAfmrSYToYTl+BU4WorbNq1lM8y/dafqJn+n4TZJiJy1nhnmVK+t3ijH?=
+ =?us-ascii?Q?jyOww0rmpHQR/WV0ZcAYnBUtj2G7/KVtVPhodUE5JtUODliKetTYT+bF9C9f?=
+ =?us-ascii?Q?UQmqTMF2HlVWBPleXIT39nGpfj77VpqappmguakX3p8YZrTcLLjFStEw2OQ7?=
+ =?us-ascii?Q?W+PoAzsaE1vOpfskfYcdOwxya6/YFsISzXLhIVL3E6ubqAxA2ksy4njX8E7I?=
+ =?us-ascii?Q?FDQfu4P9pUH94N2hdcbthPjvjuASCXJCCitpkwd1Ef2ckVwImgPe3Lm6KPZf?=
+ =?us-ascii?Q?hVoHiFTPKZ41hLdjbaKDB97zfE5MnE22vkvof9sBhMLAVDhKSzVLFX9yQS6t?=
+ =?us-ascii?Q?zihPfOmTq8H2bwKugGCSCVDQ2/U0e1KbDoKbprxJXQRcRPEjrEjvt65je4fs?=
+ =?us-ascii?Q?UDwJlpRvDLsBjEk0kncDKcKynFtHHcYiOXT5tsUVPFtMFUK+kK446V0Yy+cN?=
+ =?us-ascii?Q?3GQXDggCewI4vXtXfHrKIICu7wAHbC3Nnfo+EGiKnS7KT+Go5kAdKV4gBxzn?=
+ =?us-ascii?Q?0hHy6RvhIfy0ZUR1nKsj9+9I+Lww?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB7726.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LtCegbPKFp0togHtIa15iB24W0Rh3Sg36cMDf4i/nqCKVHu/gslMgPc1p0yb?=
+ =?us-ascii?Q?eKGSTz4wukWvQ/hsAvK/hJHkN8OXbGOyNJeF6DIlOjxb77qIr7X6NDskSvg3?=
+ =?us-ascii?Q?BAcYAPG0Gq99f3tusGaCnkIl3NrJ6E0cEbtePcSBYmJGshYhBHNwkAnKYkqR?=
+ =?us-ascii?Q?HJ0Vlau0ESYvYdsv3D2rLdogJr937HR/xBxBxLLtVnv4RjchkDLe93zYxFTg?=
+ =?us-ascii?Q?CJ8YvguSwxjMgNb7hQphOkRkBDXPxTQvl+iizLDOYqxbDiBstoaiapR8qilS?=
+ =?us-ascii?Q?sBoL6aP5R7LHr1Y/o1s33lZwxtZq0zMj3DoSoBdX7sC6u97AwfXT1mQ5O3bB?=
+ =?us-ascii?Q?k5+4EIUZbgm5sTtjnEsk3i8LLDEv2+bPTZJbkXMdeuxx7oer6mSXE8CHbgqA?=
+ =?us-ascii?Q?iAoEmZcRD7IF+0SnGZYHickerllRT5zQS9aNeXMkg4lzHdrddBivrWQw2c9M?=
+ =?us-ascii?Q?6Wm4dP1PuWnYb68oGDOGK/0Y1xrDeZ7hZSnw0zofJL2ki1e8BQetshPu1M+9?=
+ =?us-ascii?Q?qwGq35zTQ94yGztSFAT0DGcWaHqbOayUmuWYKZ88HbuOVjHAZL2yTSYmL0Dz?=
+ =?us-ascii?Q?ziWWCyDvE3YovIC0q5MBwfkLKsc7bBSeGmNIFkUyNDqJq/30HJMZarGsODp5?=
+ =?us-ascii?Q?5yN90chjDklPM4O83KwSI110BLARXv3T1EqD8TsVJ1Br5brj9UGKOVsrpGhB?=
+ =?us-ascii?Q?dK7sqqcC5uQh8o57Bcc3wwonblm5eiHuUtbzesdCoM7dXDzKjzmAobtFmAkk?=
+ =?us-ascii?Q?fiIIZbqQ+Z7vZWYsXweRd80oUMMuw6lPCy3yZGbY/S/E1PQjUqW7MH/spk8N?=
+ =?us-ascii?Q?nt0YVJRWvO2Q9i5S89ckh5PWwZ6l0unn5NrL0Y8C8OZm4gG7ZxaeaIyR+pLE?=
+ =?us-ascii?Q?CJCAtqfmZM6dHIYUUCj+q2TaOD2Qv04YGP4uUUmWYycfAP6eZmNo6FECSw8n?=
+ =?us-ascii?Q?M047Vt4hQbklbX1Yh8F6F0Lia3NO50rf6VS/BO9TNygL0slqqi8pd0/V14NO?=
+ =?us-ascii?Q?GXJg7DOMRYxBrAWoz2VyJ1QJRaenW7YBgIHtjtXXq3BFeIDIYm98LMGz3LWJ?=
+ =?us-ascii?Q?dNF9p3l8n1fm7Ks9HDYQhEgsBOcNx/hqxyHoptufNiIzrtUX2Z4uq2XlFBQF?=
+ =?us-ascii?Q?g6ESmA88YofrxWxL6FH2sxNJi8uByvkqZIqHwkJQdkPMPK5nqUt3mXLbrsDN?=
+ =?us-ascii?Q?6VR+T62AcwUdq2sjYH9AbowDjWMYHCrqIAB9VY7Wm3gNK+u/vIex6wPTr0ar?=
+ =?us-ascii?Q?kYljzHAomvTLZp9LwMoD8MxlTFoDuZXM/batwEzYypmhCyQxOFrFhrtChr0I?=
+ =?us-ascii?Q?q88td4nbwZSuTTeStt7CEu/1z6XA4ZgDqlNtcss/bX94ckXfh0G8sZ9RUoQD?=
+ =?us-ascii?Q?wfP4lu4Bz2B58mlmTxfoUPbA6l9ZfsfriFWchX9DU32TGthDZINVw8nxBc2j?=
+ =?us-ascii?Q?NOeGh2mFYoGBXHs+ea51AlLjMcVPpR6FB54LhVjjzB5Pl3WbcKvFmS40UIoV?=
+ =?us-ascii?Q?2nPL/XnuEjXuIiAK+2NpxiDbwXsKeQ4F7tnDzUq6Ga/epf/lXZpP8UVfUopF?=
+ =?us-ascii?Q?Fkh6zouS1teQecAUMmwxF3b5uf+Y2gkSaSG/B5O9?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c5bed9a7-f6ff-494b-e593-08dd2e1d6b4e
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB7726.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jan 2025 06:43:24.9172
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: xew9SqsYOzwEXBZwBE9a5GoZbdqd1svaYPGY5YX/R1QDrRpr10vHFRBHi+vTfsETdLUDPPdLwsf4W2J+RL5v+Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB6989
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250105_224307_842359_1373B5B9 
-X-CRM114-Status: GOOD (  12.72  )
+X-CRM114-CacheID: sfid-20250105_224334_097400_D00E0D4B 
+X-CRM114-Status: GOOD (  37.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,48 +168,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/3/2025 10:02 AM, Peilin Ye wrote:
-> Delete that unnecessary outer if clause.  No functional change.
+On Fri, Dec 20, 2024 at 07:32:52PM +0100, David Hildenbrand wrote:
+> On 19.12.24 00:11, Alistair Popple wrote:
+> > On Tue, Dec 17, 2024 at 11:31:25PM +0100, David Hildenbrand wrote:
+> > > On 17.12.24 06:13, Alistair Popple wrote:
+> > > > The procfs mmu files such as smaps currently ignore device dax and fs
+> > > > dax pages because these pages are considered special. To maintain
+> > > > existing behaviour once these pages are treated as normal pages and
+> > > > returned from vm_normal_page() add tests to explicitly skip them.
+> > > > 
+> > > > Signed-off-by: Alistair Popple <apopple@nvidia.com>
+> > > > ---
+> > > >    fs/proc/task_mmu.c | 18 ++++++++++++++----
+> > > >    1 file changed, 14 insertions(+), 4 deletions(-)
+> > > > 
+> > > > diff --git a/fs/proc/task_mmu.c b/fs/proc/task_mmu.c
+> > > > index 38a5a3e..c9b227a 100644
+> > > > --- a/fs/proc/task_mmu.c
+> > > > +++ b/fs/proc/task_mmu.c
+> > > > @@ -801,6 +801,8 @@ static void smaps_pte_entry(pte_t *pte, unsigned long addr,
+> > > >    	if (pte_present(ptent)) {
+> > > >    		page = vm_normal_page(vma, addr, ptent);
+> > > > +		if (page && (is_device_dax_page(page) || is_fsdax_page(page)))
+> > > 
+> > > This "is_device_dax_page(page) || is_fsdax_page(page)" is a common theme
+> > > here, likely we should have a special helper?
+> > 
+> > Sounds good, will add is_dax_page() if there are enough callers left after any
+> > review comments.
 > 
-> Signed-off-by: Peilin Ye <yepeilin@google.com>
-> ---
->   arch/arm64/net/bpf_jit_comp.c | 18 ++++++++----------
->   1 file changed, 8 insertions(+), 10 deletions(-)
+> :)
+
+In the end there was only a single caller so I will leave this open-coded.
+
+> > > But, don't we actually want to include them in the smaps output now? I think
+> > > we want.
+> > 
+> > I'm not an expert in what callers of vm_normal_page() think of as a "normal"
+> > page.
 > 
-> diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
-> index 66708b95493a..9040033eb1ea 100644
-> --- a/arch/arm64/net/bpf_jit_comp.c
-> +++ b/arch/arm64/net/bpf_jit_comp.c
-> @@ -648,16 +648,14 @@ static int emit_lse_atomic(const struct bpf_insn *insn, struct jit_ctx *ctx)
->   	const s16 off = insn->off;
->   	u8 reg = dst;
->   
-> -	if (off || arena) {
-> -		if (off) {
-> -			emit_a64_mov_i(1, tmp, off, ctx);
-> -			emit(A64_ADD(1, tmp, tmp, dst), ctx);
-> -			reg = tmp;
-> -		}
-> -		if (arena) {
-> -			emit(A64_ADD(1, tmp, reg, arena_vm_base), ctx);
-> -			reg = tmp;
-> -		}
-> +	if (off) {
-> +		emit_a64_mov_i(1, tmp, off, ctx);
-> +		emit(A64_ADD(1, tmp, tmp, dst), ctx);
-> +		reg = tmp;
-> +	}
-> +	if (arena) {
-> +		emit(A64_ADD(1, tmp, reg, arena_vm_base), ctx);
-> +		reg = tmp;
->   	}
->   
->   	switch (insn->imm) {
+> Yeah, it's tricky. It means "this is abnormal, don't look at the struct
+> page". We're moving away from that, such that these folios/pages will be ...
+> mostly normal :)
+> 
+> > So my philosphy here was to ensure anything calling vm_normal_page()
+> > didn't accidentally start seeing DAX pages, either by checking existing filters
+> > (lots of callers already call vma_is_special_huge() or some equivalent) or
+> > explicitly filtering them out in the hope someone smarter than me could tell me
+> > it was unneccssary.
+> > 
+> > That stategy seems to have worked, and so I agree we likely do want them in
+> > smaps. I just didn't want to silently do it without this kind of discussion
+> > first.
+> 
+> Yes, absolutely.
+> 
+> > 
+> > > The rmap code will indicate these pages in /proc/meminfo, per-node info, in
+> > > the memcg ... as "Mapped:" etc.
+> > > 
+> > > So likely we just want to also indicate them here, or is there any downsides
+> > > we know of?
+> > 
+> > I don't know of any, and I think it makes sense to also indicate them so will
+> > drop this check in the respin.
+> 
+> It will be easy to hide them later, at least we talked about it. Thanks for
+> doing all this!
 
-Thanks for the improvements.
+Not a problem. The other main thing in this patch is also hiding them from
+/proc/<PID>/pagemap. Based on this discussion I can't think of any good reason
+why we would want to hide them there so will also remove the checks in the
+pagemap walker.
 
-For the series:
-
-Acked-by: Xu Kuohai <xukuohai@huawei.com>
-
+> -- 
+> Cheers,
+> 
+> David / dhildenb
+> 
 
