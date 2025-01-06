@@ -4,70 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF621E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 17:36:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88DE0E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 17:37:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YHbfba2And8Zt61kt2iQlQFV09J2mMoF5FODcPSTfG4=; b=fSyO646RuGwsPsv+zCnHqYCM53
-	sb+3V4VMQjWDCVzlr7RHLHF3HeZTpjDN1TvvXIHK1gVNxpkd8G3ZI84eXATywJ6Sa3kWTAt6n7yIj
-	kE4BThAimdBh9PRERrWj3U9O9mB22r49UCVQu6BP+CN7K+upQT3ZfpXOwuuHJCKtBmpH8c+fkE8qU
-	Op0GRJ8tyiUqov2bEI7i2MKb/gc+wR9AkEJQncXXUC2wL20cr+SaYrgZM0Ggh4jL/CtZqoDb2fZpH
-	X/X9PBGQYXHpKnuhYnvbScWR/385Jo60SNWI0vP//aYhzW1GQWb5jTBavDlSkyv8j2ExJ3+uajX18
-	3FmeXo2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bWOzFRZTiAsZM9ZZnHqipT0abAP9hBU/QGVHlb0lWAk=; b=PrbLd9spncBtsa1TdPzxhdt/gC
+	z949QQeH/cWog1XizetGsR9S/qQ/SQWb29OEzhIwU/5i6X+LpmPMzm6diuq3KJaUI2UR/t1QZ8PJW
+	4hja6g0gvTrWVgbJnxmhh93YnItkNiFyB8GQUwhWOSc7Etl8VAt6QaNa7IAn7/YgTpJ0ym01O51Rq
+	sr8vXto8Kssns37it13kvZuP9ykW+ek9xhb3Db3q0S7/mHrBsOOHHVLiT3N8iylNMk8rUTBkwhcfE
+	yaQJ3fST9jGo3zVoM24WHoclNC37EpihRY7OTsYygmlIeUT+qymU48RheS/3zJPXZZKd5CkGp8Wqv
+	rGne6QRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUr1h-000000029a0-0dON;
-	Mon, 06 Jan 2025 17:36:29 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tUr2r-000000029ql-0NXH;
+	Mon, 06 Jan 2025 17:37:41 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUqyc-000000028xg-3zNz;
-	Mon, 06 Jan 2025 17:33:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1736184796;
-	bh=raQLplo3YHOodoFbQHsJDY5RmZFdu7k7k0Vckr3LSak=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kDFkE5aJYDigmfNcmJgranJ0zk6OGy24hbawUOhJcOWil7PyDjnBDsvmHO6Jlrm4L
-	 ZSBHl+utX0uxSdH3gLio+HX82zPFbYwalLRUXT9BQjZG+g9ZyhwAXT1Rjj2+93oafn
-	 rGqEhVmjMYcU8rFpHx3+Sm6tT9I/2VBPl5FJo3F/ZkOzd3G7AZdZzj36w/7pZGXXUI
-	 P9fJSZdFp/f0Pf0YU2FvpJIryrg1UtNC2iWia/Iwq/mMU8wZ/PiMIGhL5s6I+PvdE/
-	 2OsYJd4PdQIFYemReHB3Xa8q5mScj3HKE+wlqO6GZIUAiXEDrzmnpTa1BzYr+5buml
-	 HkqUiXnxJAXlw==
-Received: from notapiano (unknown [IPv6:2804:14c:1a9:53ee::1001])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nfraprado)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 68E3817E15B6;
-	Mon,  6 Jan 2025 18:33:13 +0100 (CET)
-Date: Mon, 6 Jan 2025 14:33:10 -0300
-From: =?utf-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Trevor Wu <trevor.wu@mediatek.com>, kernel@collabora.com,
-	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
+	id 1tUqzs-000000029Cz-0k1U
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 06 Jan 2025 17:34:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2112F5C5D60;
+	Mon,  6 Jan 2025 17:33:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C60BBC4CEE3;
+	Mon,  6 Jan 2025 17:34:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736184875;
+	bh=YzBD69Ati05p96MYx7b6sryRrVaWQZkIv/X1D/dyxCw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=CaNOnMmTPChtOxc6VXw5sN6+sip0t3gP7/xenKzXHT04wWkfbYaDx+UQPpcDTC+ih
+	 fxY/JRoDmHTpBvyqBp/tDANWUOm98neX/C/gtarb/nz/E9ktU2CEcKOERRoe1Bxss0
+	 BghJg1wghE6V7GwtoVRGjeuD/Cspr2AaTN1S0MQgkzTIVvXsZLrSKNGQE74dC+VhUD
+	 PYGVEl4zKBENBCQZDzNlOCOq10aVKjuj6zPtfBvKL8+sBTthILzpeKkp+29ch6SO9j
+	 rKFk3WIMtZQW4czywzbteaMa9wZ2X18nIGBq/xzJ/q/6wmgTb+BPl0l7/dWdUInBJL
+	 PxZ5p5Cfs0B5Q==
+From: Bjorn Andersson <andersson@kernel.org>
+To: Konrad Dybcio <konradybcio@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Satya Durga Srinivasu Prabhala <quic_satyap@quicinc.com>,
+	Trilok Soni <quic_tsoni@quicinc.com>,
+	Melody Olvera <quic_molvera@quicinc.com>
+Cc: linux-arm-msm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, Fei Shao <fshao@chromium.org>
-Subject: Re: [PATCH] ASoC: mediatek: mt8188-mt6359: Remove hardcoded dmic
- codec
-Message-ID: <f60f4242-9e4e-4846-b1f0-949daf68f6f5@notapiano>
-References: <20241203-mt8188-6359-unhardcode-dmic-v1-1-346e3e5cbe6d@collabora.com>
- <CAGXv+5EG8LbgaWc-Lp_KQc8Yf+m_4TRo8R7B0S7-rXYpnak+7g@mail.gmail.com>
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Jishnu Prakash <quic_jprakash@quicinc.com>,
+	Taniya Das <quic_tdas@quicinc.com>,
+	Raviteja Laggyshetty <quic_rlaggysh@quicinc.com>
+Subject: Re: (subset) [PATCH v3 0/7] dts: qcom: Introduce SM8750 device trees
+Date: Mon,  6 Jan 2025 11:34:29 -0600
+Message-ID: <173618486756.8645.2856249152434296360.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.1
+In-Reply-To: <20241204-sm8750_master_dt-v3-0-4d5a8269950b@quicinc.com>
+References: <20241204-sm8750_master_dt-v3-0-4d5a8269950b@quicinc.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGXv+5EG8LbgaWc-Lp_KQc8Yf+m_4TRo8R7B0S7-rXYpnak+7g@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_093319_957428_930F54D6 
-X-CRM114-Status: GOOD (  23.06  )
+X-CRM114-CacheID: sfid-20250106_093436_259238_825F917D 
+X-CRM114-Status: GOOD (  11.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,55 +86,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 26, 2024 at 04:30:17PM +0800, Chen-Yu Tsai wrote:
-> Hi,
+
+On Wed, 04 Dec 2024 15:18:00 -0800, Melody Olvera wrote:
+> This series adds the initial device tree support for the SM8750 SoCs
+> needed to boot to shell. This specifically adds support for clocks,
+> pinctrl, rpmhpd, regulators, interconnects, and SoC and board
+> compatibles.
 > 
-> On Wed, Dec 4, 2024 at 3:22 AM Nícolas F. R. A. Prado
-> <nfraprado@collabora.com> wrote:
-> >
-> > Remove hardcoded dmic codec from the UL_SRC dai link to avoid requiring
-> > a dmic codec to be present for the driver to probe, as not every
-> > MT8188-based platform might need a dmic codec. The codec can be assigned
-> > to the dai link through the dai-link property in Devicetree on the
-> > platforms where it is needed.
+> The Qualcomm Technologies, Inc. SM8750 SoC is the latest in the line of
+> consumer mobile device SoCs. See more at:
+> https://www.qualcomm.com/content/dam/qcomm-martech/dm-assets/images/company/news-media/media-center/press-kits/snapdragon-summit-2024/day-1/documents/Snapdragon8EliteProductBrief.pdf
 > 
-> A followup question about this. The DMICs on the Chromebooks are attached
-> to the PMIC codec's input side, which then converts the signals to standard
-> I2S and passes them out to the SoC through its AIF1. So the original code
-> was somewhat incorrect, though it works.
-> 
-> How should we describe such a connection, given that the MediaTek sound
-> bindings aren't a full graph?
+> [...]
 
-What you're describing is that the hardware topology looks like this:
+Applied, thanks!
 
---------------------      --------------------
-|    SoC           |      |   MT6359 PMIC    |
-|        UL_SRC BE | <--- | AIF1   AIN0_DMIC | <-- DMic
---------------------      --------------------
+[1/7] dt-bindings: arm: qcom: Document SM8750 SoC and boards
+      commit: 5202bca52a6b48bf51500e302dca24d722c40990
+[2/7] arm64: dts: qcom: Add PMD8028 PMIC
+      commit: 167466c07085d76ce41989edb0a9598f37b56185
+[3/7] arm64: dts: qcom: Add PMIH0108 PMIC
+      commit: 2cf3496e50f308d80142bad85946a3a3ad7d7248
+[4/7] arm64: dts: qcom: Add base SM8750 dtsi
+      commit: 068c3d3c83be47fe933679d6cf6f324f60941176
+[5/7] arm64: dts: qcom: sm8750: Add pmic dtsi
+      commit: 7f9738e0a8dbd78d47b95981792dee013f28981c
+[6/7] arm64: dts: qcom: Add board dts files for SM8750 MTP and QRD
+      commit: 6a02becf4b42f1664d9443e7d2049dd4e31e5ff5
 
-But that the dailink definition in the machine driver had the DMic codec
-connected directly to the UL_SRC BE instead, alongside the connection to the
-PMIC, unlike the topology above.
-
-My understanding is that the dmic codec was added simply to allow the usage of
-the wakeup-delays. From [1] it appears that DAI connections between two codecs
-are possible, though rare. So the PMIC -> DMic connection description might be
-possible in that way, although I'm not sure it brings any benefits besides
-closer resembling the hardware topology.
-
-[1] https://www.kernel.org/doc/html/latest/sound/soc/codec-to-codec.html
-
-> 
-> > No Devicetree currently relies on it so it is safe to remove without
-> > worrying about backward compatibility.
-> 
-> Removing it didn't seem to cause any issues for the Chromebooks that
-> do actually have DMICs. I suspect the only difference would be that
-> the wakeup-delays no longer apply correctly.
-
-That's my guess too.
-
-Thanks,
-Nícolas
+Best regards,
+-- 
+Bjorn Andersson <andersson@kernel.org>
 
