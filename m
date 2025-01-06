@@ -4,98 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A52DE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 16:02:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14438E77198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jan 2025 16:04:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cL83fy9fUiyWAQO9Y10o5TV/KydC3Qa+Hru6k+93+SU=; b=PqBwDd06E7uMjZ7aaxJaetE0q7
-	VBL4ay+CRcgYRQNzHVmda4thvBrQNLdPwwc9/fFLK/x8u/naAWcEGn+UlfjT76yHp4lT647CLkmvy
-	MMOCLgSzT773lP80+RI4ZzHQENZxzWJbRZnWkt+KDmNh6jShQJA7rrvThlaHRsOK4g6baHS2yMhGh
-	9yM3OS19zI0g+KOCcSGgNw14DdVCGaaKM2wowjizS0xCvUpH+nPchce08FXlFW2h9ahUXf1aJ9zlg
-	bu2ggErFDU/NvA2jpKldAkp5RM/21lH8MTYZ0kuURUQeEvK0VW1AfsxV64Ou3m4U/vGoHON3X7/y1
-	KxB/BYeQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=IDylzkpcXQemmYGkj+LuUTlUnvPEmFKvHAQHgm5c9sY=; b=3KdXRZw89wDLm8
+	ZMRsr2g4XTj3HFPqMurWs+eof0bxCz1BnWp01HH9zrXAYqBWicjvhYWkNIQj8dmL9eWiYUoX4sTWr
+	ynvMDYbHTR73IaF/upzOmi5DuWDm4JT0kmmvH70wD00AbbtxHTpyIvIxA2wy9hp3JDiYhIXRTbhO1
+	RlGuxhVCm7hsDjB3K9eGE8ygE1IVVA0YW9UHNmOnUJ4ypdmiWlbBzEr1+murgiUVori+TdL9cw6A3
+	kuDctp4V2LvQ4h95MsQUijWiRoux/2v5H1VtrBK4D2ezZJGUwxywHs9QqSYldTGwzB68EBv1yZf6+
+	5mAKB/4Eb8HRtw3uRTfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUpYE-00000001sIF-2rrU;
-	Mon, 06 Jan 2025 16:01:58 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1tUpa4-00000001soH-0VIP;
+	Mon, 06 Jan 2025 16:03:52 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUpW8-00000001s1m-3OJX
+	id 1tUpYq-00000001sdN-1cTf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jan 2025 15:59:50 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-435f8f29f8aso105243665e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jan 2025 07:59:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736179187; x=1736783987; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=cL83fy9fUiyWAQO9Y10o5TV/KydC3Qa+Hru6k+93+SU=;
-        b=PWdYJSc2eTivLd9nvYiECsQT4RNDhzvihm2wa99bqb8tT/7zNyB+o7hnwskE9n+fNJ
-         hEId/44QvMhBaVxKoP4LuAZ6czvG4nGy1nlO1ZhlfVjSjfien+oqw0jJovtFQaixCXwJ
-         Fth2p1IGME4D9xGzgfsEfdis+wNT2DaN4EQJVLgVGR3rPC3X21ulb9GbvVLOousFCoeR
-         yLKCckLzM7XicINeKhAk2PXGX8g0G0S30jRw8SJh2hWyPkeVWOApGqjRXqxoETHtCoLz
-         CZbTIpFkBdoZ9ZRZXRYAttWXVS1Jq7RlE3NqDMEsRptGYf1+OHOnQWbPjJCKiPNpqhkP
-         +RQA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736179187; x=1736783987;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=cL83fy9fUiyWAQO9Y10o5TV/KydC3Qa+Hru6k+93+SU=;
-        b=PR8q/rELWHukQcAcubyYVtL0vIUwj1pbyyn3NX3lPemBKhDMAxgdAGzvkJOykarLMd
-         UKpoCH2uOwGP+SL9FxS2U1Sx1BSAYUmwBWcmBlOSl6fntGUZsbbWKpQZdhpfdKpgtvDH
-         MwZQQO2gqdy5HFBBPyAa025HEWF7drKO9q3An1u24+U7KLj+h3DQVEVaqIrS5Y3Y+zQw
-         Y1aPnW/gFdxbgzwN9AoDffUd1okxf482wmZB12Q3DlcG6cYnJts/JP4g4sTlBkizUOwQ
-         n7G2eLTLfmPiZHtYzQEnYBd6WgAn8jCvNF2UpcXwgaDOg7WvC3/gw0mewmpyUPLfILEO
-         eWvQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUNoEknqzUM4lJkUZZB/FqkjK/C5Nom+od/wWY+DXQUdsugBrM0okxV5pJNFJAIcva/gQuz2L/zDnqB/orwbZbW@lists.infradead.org
-X-Gm-Message-State: AOJu0YyqZaDn4YklchTZ+xYe0efxD6S0PXXAD2EWv95kyXU47v2UOza0
-	6c4qPDWbV7dsqjQuSOiIpaGHZ6zvbc8GfGyaP3lVD2Pz2Z/7X2q4zX7Ej8B0sXo=
-X-Gm-Gg: ASbGncuLm6krStj6QfmuFT3j89LXIW+3xcczhzxIrK/KO0Je9aqvUwM8Jvb7UkZXodm
-	IKqYI0TMfYjzNIlGbgroUloNhLe82hD6zPkh7fW1qGgjr9+Zij+TO0Y7sBvWEwr4t1UE1MwTO8J
-	KCFltdUzbayMrBYaLRZSLisNNYxPAZ4FEOpTkOq7m0i/UYnVGbgZ13P/9JAMqWcnysW+V0C6vtg
-	dHIXOgQwIJFAe+D2F6sBlhPOQ1iGnmIUYWnUrl0s4dRFDxYlNwBUfomZTd4Uynkjl4=
-X-Google-Smtp-Source: AGHT+IFuwfTtqezqCyqXjnvoll9stdZwnDMHbjcpJGGm/Jkum+CB4+ty+n/TPU5uXnz6f5z8AKwJSA==
-X-Received: by 2002:a05:600c:1d1d:b0:431:5044:e388 with SMTP id 5b1f17b1804b1-43668b5e172mr471554025e9.22.1736179186712;
-        Mon, 06 Jan 2025 07:59:46 -0800 (PST)
-Received: from [192.168.68.163] ([145.224.66.180])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4364b14f241sm535958045e9.1.2025.01.06.07.59.44
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 06 Jan 2025 07:59:46 -0800 (PST)
-Message-ID: <57627eec-10b5-4eb0-bfe2-f404a3492eee@linaro.org>
-Date: Mon, 6 Jan 2025 15:59:43 +0000
+	Mon, 06 Jan 2025 16:02:37 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id CF80EA0F58;
+	Mon,  6 Jan 2025 17:02:34 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=mail; bh=IDylzkpcXQemmYGkj+LuUTlUnvPEmFKvHAQHgm5c9sY=; b=
+	YJKu8mY5cLcSJq3YHF+Rg4ipJnoTAly9lz/2r1VphjU/aHrUFJVddan7I5exO20p
+	v9rGbp7V5p/AodOutV5mPyk3Ae/Emd/Av9el7QvthC99LKdJpzR0GcVe/i4cDdsY
+	Juh8kYdvYrcxPsUSa4QUHVTcZJFOsF+anqFqwK3+hzzkUCpm6JpqyMZKB5MFG4C0
+	7b7L+J9fd3odSlFutu3nxGeMJE0GKquzegekp4nYULkWXo0lJLqA2X5st+oB6wev
+	bUEM2t8hG7ircIJi7ZbD+lJYIhkc21LgGLcTSq5hOjuIwbyVgp3M3sHkGZ2c+1pW
+	g/eAQCKs0XS1HEUoxpkh9FTV4UqiDdoh+BVBvT8Y+H35jXOCfmWyn1mwEpMOn3jy
+	fLmBWMLXQCOl+cLqGXx6jrHKUA7wjrUbm5WDraRmIg3SiKroufE852nOuz4xAg5l
+	eU0bJjZkZPtOv3ymYm0EsbENFsCGSjQeVq+VXx3vHuXelSvDw4YNs+l5sjv52c4J
+	N3xuMynWPhWslXyV/O9/4GsJDBPt9OXD2W+bMG+LzCQvlxWMcz0l2RiU2R3Wn5f6
+	Gj/svlsH1nu8S79clDr7anh72uTV659kNgxc2k+iKUhVxPN2asR/VnNGUxQXJzzz
+	thD7tHz475e2Kl1grfsqQmuFDTb+ConiNE7cl8qlwJM=
+From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+To: <linux-spi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: [PATCH resubmit] spi: atmel-quadspi: Use devm_ clock management
+Date: Mon, 6 Jan 2025 16:54:16 +0100
+Message-ID: <20250106155416.1959803-1-csokas.bence@prolan.hu>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH linux-next 2/2] perf: Return EACCESS when need perfmon
- capability
-To: Luo Gengkun <luogengkun@huaweicloud.com>
-Cc: mingo@redhat.com, acme@kernel.org, namhyung@kernel.org,
- mark.rutland@arm.com, alexander.shishkin@linux.intel.com, jolsa@kernel.org,
- irogers@google.com, adrian.hunter@intel.com, kan.liang@linux.intel.com,
- tglx@linutronix.de, bp@alien8.de, dave.hansen@linux.intel.com,
- x86@kernel.org, hpa@zytor.com, will@kernel.org, paul@paul-moore.com,
- jmorris@namei.org, serge@hallyn.com, rostedt@goodmis.org,
- mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
- stephen.smalley.work@gmail.com, omosnace@redhat.com,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-security-module@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, selinux@vger.kernel.org,
- Peter Zijlstra <peterz@infradead.org>
-References: <20241223070650.2810747-1-luogengkun@huaweicloud.com>
- <20241223070650.2810747-3-luogengkun@huaweicloud.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20241223070650.2810747-3-luogengkun@huaweicloud.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1736179354;VERSION=7982;MC=3965097876;ID=214303;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-Antispam: OK
+X-EsetResult: clean, is OK
+X-EsetId: 37303A29ACD94852657067
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_075948_852098_95172699 
-X-CRM114-Status: GOOD (  18.22  )
+X-CRM114-CacheID: sfid-20250106_080236_578898_7105F5EF 
+X-CRM114-Status: GOOD (  15.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,42 +73,140 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Alexandre
+ Belloni <alexandre.belloni@bootlin.com>, Mark Brown <broonie@kernel.org>, =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, Claudiu Beznea <claudiu.beznea@tuxon.dev>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Clean up error handling by using the new devm_
+clock handling functions. This should make it
+easier to add new code, as we can eliminate the
+"goto ladder" in probe().
 
+Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
+---
 
-On 23/12/2024 7:06 am, Luo Gengkun wrote:
-> For perf_allow_kernel and perf_allow_cpu, both return EACCES when require
-> CAP_PERFMON or CAP_SYS_ADMIN permissions, so update perf_allow_tracepoint
-> to keep them the same.
-> 
-> Signed-off-by: Luo Gengkun <luogengkun@huaweicloud.com>
-> ---
->   include/linux/perf_event.h | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
-> index 5d2ec4283ebf..c1bc0d7a275b 100644
-> --- a/include/linux/perf_event.h
-> +++ b/include/linux/perf_event.h
-> @@ -1685,7 +1685,7 @@ static inline int perf_allow_cpu(void)
->   static inline int perf_allow_tracepoint(void)
->   {
->   	if (sysctl_perf_event_paranoid > -1 && !perfmon_capable())
-> -		return -EPERM;
-> +		return -EACCES;
->   
+Notes:
+    Resubmit: rebased to current spi-next
 
-Is this necessary other than for consistency? If not it might be best to 
-leave it inconsistent even if it's wrong. I see quite a few "if EPERM do 
-this..." type things in Perf, so changing this would break error 
-messages being shown to users.
+ drivers/spi/atmel-quadspi.c | 42 ++++++++++---------------------------
+ 1 file changed, 11 insertions(+), 31 deletions(-)
 
-If anything, EPERM seems more correct because EACCESS is more about file 
-access.
+diff --git a/drivers/spi/atmel-quadspi.c b/drivers/spi/atmel-quadspi.c
+index f46da363574f..93604ffb7106 100644
+--- a/drivers/spi/atmel-quadspi.c
++++ b/drivers/spi/atmel-quadspi.c
+@@ -1386,50 +1386,37 @@ static int atmel_qspi_probe(struct platform_device *pdev)
+ 	aq->mmap_phys_base = (dma_addr_t)res->start;
+ 
+ 	/* Get the peripheral clock */
+-	aq->pclk = devm_clk_get(&pdev->dev, "pclk");
++	aq->pclk = devm_clk_get_enabled(&pdev->dev, "pclk");
+ 	if (IS_ERR(aq->pclk))
+-		aq->pclk = devm_clk_get(&pdev->dev, NULL);
++		aq->pclk = devm_clk_get_enabled(&pdev->dev, NULL);
+ 
+ 	if (IS_ERR(aq->pclk))
+ 		return dev_err_probe(&pdev->dev, PTR_ERR(aq->pclk),
+ 				     "missing peripheral clock\n");
+ 
+-	/* Enable the peripheral clock */
+-	err = clk_prepare_enable(aq->pclk);
+-	if (err)
+-		return dev_err_probe(&pdev->dev, err,
+-				     "failed to enable the peripheral clock\n");
+-
+ 	if (aq->caps->has_qspick) {
+ 		/* Get the QSPI system clock */
+-		aq->qspick = devm_clk_get(&pdev->dev, "qspick");
++		aq->qspick = devm_clk_get_enabled(&pdev->dev, "qspick");
+ 		if (IS_ERR(aq->qspick)) {
+ 			dev_err(&pdev->dev, "missing system clock\n");
+ 			err = PTR_ERR(aq->qspick);
+-			goto disable_pclk;
++			return err;
+ 		}
+ 
+-		/* Enable the QSPI system clock */
+-		err = clk_prepare_enable(aq->qspick);
+-		if (err) {
+-			dev_err(&pdev->dev,
+-				"failed to enable the QSPI system clock\n");
+-			goto disable_pclk;
+-		}
+ 	} else if (aq->caps->has_gclk) {
+ 		/* Get the QSPI generic clock */
+ 		aq->gclk = devm_clk_get(&pdev->dev, "gclk");
+ 		if (IS_ERR(aq->gclk)) {
+ 			dev_err(&pdev->dev, "missing Generic clock\n");
+ 			err = PTR_ERR(aq->gclk);
+-			goto disable_pclk;
++			return err;
+ 		}
+ 	}
+ 
+ 	if (aq->caps->has_dma) {
+ 		err = atmel_qspi_dma_init(ctrl);
+ 		if (err == -EPROBE_DEFER)
+-			goto disable_qspick;
++			return err;
+ 	}
+ 
+ 	/* Request the IRQ */
+@@ -1469,10 +1456,6 @@ static int atmel_qspi_probe(struct platform_device *pdev)
+ dma_release:
+ 	if (aq->caps->has_dma)
+ 		atmel_qspi_dma_release(aq);
+-disable_qspick:
+-	clk_disable_unprepare(aq->qspick);
+-disable_pclk:
+-	clk_disable_unprepare(aq->pclk);
+ 
+ 	return err;
+ }
+@@ -1511,7 +1494,6 @@ static int atmel_qspi_sama7g5_suspend(struct atmel_qspi *aq)
+ 	if (ret)
+ 		return ret;
+ 
+-	clk_disable_unprepare(aq->pclk);
+ 	return 0;
+ }
+ 
+@@ -1536,8 +1518,6 @@ static void atmel_qspi_remove(struct platform_device *pdev)
+ 		}
+ 
+ 		atmel_qspi_write(QSPI_CR_QSPIDIS, aq, QSPI_CR);
+-		clk_disable(aq->qspick);
+-		clk_disable(aq->pclk);
+ 	} else {
+ 		/*
+ 		 * atmel_qspi_runtime_{suspend,resume} just disable and enable
+@@ -1547,9 +1527,6 @@ static void atmel_qspi_remove(struct platform_device *pdev)
+ 		dev_warn(&pdev->dev, "Failed to resume device on remove\n");
+ 	}
+ 
+-	clk_unprepare(aq->qspick);
+-	clk_unprepare(aq->pclk);
+-
+ 	pm_runtime_disable(&pdev->dev);
+ 	pm_runtime_dont_use_autosuspend(&pdev->dev);
+ 	pm_runtime_put_noidle(&pdev->dev);
+@@ -1565,8 +1542,11 @@ static int __maybe_unused atmel_qspi_suspend(struct device *dev)
+ 	if (ret < 0)
+ 		return ret;
+ 
+-	if (aq->caps->has_gclk)
+-		return atmel_qspi_sama7g5_suspend(aq);
++	if (aq->caps->has_gclk) {
++		ret = atmel_qspi_sama7g5_suspend(aq);
++		clk_disable_unprepare(aq->pclk);
++		return ret;
++	}
+ 
+ 	atmel_qspi_write(QSPI_CR_QSPIDIS, aq, QSPI_CR);
+ 
+-- 
+2.34.1
 
-Thanks
-James
 
 
