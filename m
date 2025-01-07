@@ -4,76 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EACAE77198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 10:14:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9F90E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 10:15:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JMT4PCSSjbqf8W79ja5QYvNX8ZzwiayCa6wY1VSVH3k=; b=sxo5+slIFzEBjmFnwNjdN5wYBf
-	SLUNEHAP4v9KdgSLDo+Y5c9UPZgXhkX0AaIMd4SPTtp3yhbJxjfU8fDMwOnx6+2tC9edWD50/w/Vw
-	0MYzYDh40dMjdvbA1jn9jTABQK6dIiTqgjsWXqKT0i69YbuDt3V+efJBNe1MFEoTOzgx8XhHeRNIu
-	SEwoHUi9VlPQLS9ioaJN/UXtb1NTHIQtPKIQ6/tjsRYNTIfDWQz2i80avaphiIHo5nzr3lnRFBUGW
-	ZgSoXVMirsWpC0uQ6NyDIpAvc4RsBfwVQJGG0TACjgDrS+TkHePLpvDoz8di2wg79wsvhI9yen8F5
-	i0zODh6A==;
+	bh=33vNghdTGkjvHLzGCYW2qoDNw0mlPHElmOb2schp32s=; b=jxP0IpZi77zUhahgCrxHvJ+TgW
+	0SfSU8OsKCFTeB5JMfiXQ90FdRROZ0ZGvshLgBbl/n5R1FpkXdsHRNQJgpZ9bAytUHeDoWMpwOyH0
+	ClvaXpMmkWL/GMSZ3WfNgJrcB9YDReeXJwltLdu3tM7duzjnJjX3hp0SmB/Dw32vBtuartN1G/ov7
+	fnkTibN/GilQDM4LpMV7V4fd4DJb06QlRXcyjOWhoPScNxHqX1XKJjnv/EHy5KvaH61dt+gcVmjjF
+	qsKxEivNLe3jAqsMJYWi8PmbNbN0bfUh/0kkWIeIxfLHvlGyo+90T995t4P8E3fU0OT64HQtgKRqv
+	4+XqCYlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV6at-00000004HyC-0pu2;
-	Tue, 07 Jan 2025 10:13:51 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1tV6c3-00000004IDI-3aCM;
+	Tue, 07 Jan 2025 10:15:03 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV666-00000004Aaj-1AEZ
+	id 1tV667-00000004Abi-1Fjw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 09:42:08 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-5d88c355e0dso8521639a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 01:42:02 -0800 (PST)
+	Tue, 07 Jan 2025 09:42:09 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-aa6c0dbce1fso2145121866b.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 01:42:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736242921; x=1736847721; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1736242922; x=1736847722; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=JMT4PCSSjbqf8W79ja5QYvNX8ZzwiayCa6wY1VSVH3k=;
-        b=tfxeczEPukmpdl7JYSEqXS6r1MkRIMn1cLfMW8MrCVZeu2xXP8q8TaRsQE0VDjyY1G
-         2X7uYCnyd2r0yiNMPJO98U9F6Tihq6OvMao1B57NEWydTlJrJnh2tYKwmgyTT1xz10IR
-         hjPI6IrwS3zGfSU0Lbst3P/PGyqeDHMZTiqwAudQaw/hRnn6WLGOQvamX2PxEvAC5qAz
-         uZMFUE42gdQ5nyR60LtO+sektg+ZEkrYKi+QDRx7oKepCBKFGPEpRwnv73N/k9n81Gl3
-         qbwGBbmpoMMF+SSrXxmTerrBqfl2TZAYWXw/03b53jdg0YFzv/uYZrooVmspiFFtYTWk
-         f88A==
+        bh=33vNghdTGkjvHLzGCYW2qoDNw0mlPHElmOb2schp32s=;
+        b=SfCz5P55KdwepC/u+pO8jtOdVXJnv3SynLCDVlqN00u86adUTwR+BROW3d+3J26AeZ
+         6jz5GzaMMB1L1wJL9pOSHRgp5N2r1oe5DdDuE35JveC5rewPs44SOyMMmVWLio4KCdti
+         P6io/OmtddukCAonuRDT4DbmKrIyO6wBcPFvqOq7XhQnpuVwqjhfSI2AepsXlbQm+rck
+         eCw1HXmbfHjDUky9GMql/3ybUSTOUgoMHRGMBnW6O9TtfetlfxoDCEZPmiB5lRhVJBFU
+         jI1gDI72r+dIn0PdvYrTkea0QDscjsSnd+uXpexo/gLfzqdzV8PakUF/v4b8crAJYbnp
+         roEA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736242921; x=1736847721;
+        d=1e100.net; s=20230601; t=1736242922; x=1736847722;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=JMT4PCSSjbqf8W79ja5QYvNX8ZzwiayCa6wY1VSVH3k=;
-        b=L88GqxAnaj8Y9xY4aTDBH5r9fmpFD+DT7wa3t8rRCeygJu33Qj45e/oNybsam5gUeY
-         Jep5Ads2H92XFZMa+VDyQCcTwWnPpYteoyHH3k3Y313JyD3jFjGTRvVZtMpF38FkG4L+
-         1G4Z+fmIB+idxAQxSx/TLgIurFFiu7U6cEe3e17tUPpzNwe9o+DuOXaeK9AAPv6cwUjQ
-         amOFnuzXyPwWRQ5TgAi85EO4JxLapjjoO9dRbOqkC7Opv7HbqjMyNnavrnhs0bvp2Kqu
-         n/huKRK4F36l0lsvx8LkvX30O84YKpkwZgDXbL1XuU8t1EUx9L9Jx8khkcILx/Vm0hES
-         f5GA==
-X-Gm-Message-State: AOJu0Yzi3kaWhQeN/c9BoD7lI/+er9N+WSkFsZ60Ja13U4cCR73QrVOi
-	Uz+31/giCBHdUZvGjCt0hQr5dqYOZpYKW79B7/5B7/aYKO/bzP7gX3GFUojG2ZM=
-X-Gm-Gg: ASbGncuR6ZfiyzyhRN2AjPb88puTNnIyzOPMbol48n1XmydlRXKblv9sAoTBFzMe7kS
-	wJZ+NqzKkH7BSjpyxQUHmSymtIfO/qOlPoPbemXZvYLZNEGeOpqaOIMxWvfh/6OS1yVHrxnKmQY
-	ihv8JPVxuEcd5Wp8iBCyMbypzwR9zrzFF0LrzX2kHchqs7FmiQworI+fWTwPjuUnsXy24vsLZho
-	bb7OjeQPP67hpAK2HuCWf3NT6iArDIAra90FICKiFs7ms8QJXWw02P7m/ycsz9KJs8=
-X-Google-Smtp-Source: AGHT+IGHMqa0/ZiWplVpsWLK3xTllHfRhzv23loJzX9+Mz5N8MCuV6AGOtz4HX0TG5tn5XTLx0fc0A==
-X-Received: by 2002:a17:907:1c91:b0:aa6:5d30:d976 with SMTP id a640c23a62f3a-aac270278edmr6059701866b.10.1736242920686;
-        Tue, 07 Jan 2025 01:42:00 -0800 (PST)
+        bh=33vNghdTGkjvHLzGCYW2qoDNw0mlPHElmOb2schp32s=;
+        b=HPKIQH61dic8g/4sqRTUr/H1z1WxFYaspCFlx/Tgzx3S6yA0f7D9dH8enPS3Y9YzX1
+         Xfx66AN1Tk4SfXVHTZP0H7oSQOiDHdxHodnTVr0P9F0ifyl5MlXY9/l2kFiKRWxiiSeE
+         PMH+wLB7mIgon/JLzyotokJWXEEy2hgkqsdq0dt4FxefiTXtNhCeYLgtDCUOqhWHkAgQ
+         Ib6js4L6gdOEIWk5IL4dqSvngn31c3mK0G9iLAThLzxJEXwHHPe8Y/9aSX8pyB7xySQN
+         HSSLCqWGEq+uPiwPmbZ8naj7pRhYcfn5/btKaOhsNFUorYenH/P/FgP3RZZ7OlxyJs1s
+         IfIg==
+X-Gm-Message-State: AOJu0YyksPKgJmnP2lV7v70+8XLBc5UyccTKqtXKj8um4EgHl9ThG32f
+	M3Jy2ung7Mj7xPUROgwgZsJYMfliFE2CAWwVePlSTTyaveAlX+aGs0BUqnbuxVk=
+X-Gm-Gg: ASbGncuMb3tP7meGOrs7MLxoCYK45fJthVQbXmDdJY+Jrl8xPIY3gTFgJ7ZKpeDfBBS
+	Md8XbZRbrpu1RkE2SjebkKcWFNJQxIYkEnZhyhFMp89UEIdh8+WYy4zO4jv6AVIlG7q91u1erlH
+	IosrXcR/w1fxa+7AtC5twVZXg2mh++WgXMVZenoyOiN09UfvVN9CfuIPQXgB3BfbewCuT2UnjSg
+	pfyCSwBzx9KEWTY+gGaWksOE1+d6b58/wlYJ78CpASa8RFrhM2/TMz4D+sKXxDqXx4=
+X-Google-Smtp-Source: AGHT+IEXSqMDdLWEVOLm+/ypfhPzotrgNQdcTuiEWGVxTX1sQzs6KiT8mG4S8teEme0iKBSwiJOMbA==
+X-Received: by 2002:a05:6402:35c2:b0:5d0:ea4f:972f with SMTP id 4fb4d7f45d1cf-5d81dd9af30mr132628782a12.8.1736242921817;
+        Tue, 07 Jan 2025 01:42:01 -0800 (PST)
 Received: from [192.168.1.140] ([85.235.12.238])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0f012229sm2356901166b.133.2025.01.07.01.41.59
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0f012229sm2356901166b.133.2025.01.07.01.42.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Jan 2025 01:41:59 -0800 (PST)
+        Tue, 07 Jan 2025 01:42:01 -0800 (PST)
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 07 Jan 2025 10:41:42 +0100
-Subject: [PATCH RFC v3 26/30] ARM: entry: Move in-kernel hardirq tracing to
- C
+Date: Tue, 07 Jan 2025 10:41:43 +0100
+Subject: [PATCH RFC v3 27/30] ARM: irq: Add irqstack helpers
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250107-arm-generic-entry-v3-26-4e5f3c15db2d@linaro.org>
+Message-Id: <20250107-arm-generic-entry-v3-27-4e5f3c15db2d@linaro.org>
 References: <20250107-arm-generic-entry-v3-0-4e5f3c15db2d@linaro.org>
 In-Reply-To: <20250107-arm-generic-entry-v3-0-4e5f3c15db2d@linaro.org>
 To: Dmitry Vyukov <dvyukov@google.com>, Oleg Nesterov <oleg@redhat.com>, 
@@ -87,8 +86,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Linus Walleij <linus.walleij@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_014202_333877_84826E13 
-X-CRM114-Status: GOOD (  14.57  )
+X-CRM114-CacheID: sfid-20250107_014203_355963_2E2E4985 
+X-CRM114-Status: GOOD (  18.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,127 +102,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the code tracing hardirqs on/off into the C callbacks
-for irqentry_enter_from_kernel_mode() and
-irqentry_exit_to_kernel_mode().
+Add two helpers that essentially re-implement some IRQ
+dispatch code in C: on_irq_stack() that checks if a regs
+context is on the IRQ stack, and call_on_irq_stack()
+so we can explicitly issue handle_irq() on the IRQ
+stack from a C program.
 
-The semantic difference occurred is that we alsways check
-the PSR_I_BIT to determine if (hard) interrupts were enabled
-or not. The assembly has a tweak to avoid this if we are
-exiting an IRQ since it is obvious that IRQs must have been
-enabled to get there, but for simplicity we just check it
-for all exceptions.
-
+Cc: Ard Biesheuvel <ardb@kernel.org>
 Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 ---
- arch/arm/kernel/entry-armv.S   | 13 ++++---------
- arch/arm/kernel/entry-header.S | 19 ++-----------------
- arch/arm/kernel/entry.c        |  5 +++++
- 3 files changed, 11 insertions(+), 26 deletions(-)
+ arch/arm/kernel/irq.c | 31 +++++++++++++++++++++++++++++++
+ arch/arm/kernel/irq.h |  3 +++
+ 2 files changed, 34 insertions(+)
 
-diff --git a/arch/arm/kernel/entry-armv.S b/arch/arm/kernel/entry-armv.S
-index f64c4cc8beda6bcd469e6ff1a1f337d52dbbaf9c..2a789c8834b93475c32dcb6ba5854e24ddd8d6e9 100644
---- a/arch/arm/kernel/entry-armv.S
-+++ b/arch/arm/kernel/entry-armv.S
-@@ -158,7 +158,7 @@ ENDPROC(__und_invalid)
- #define SPFIX(code...)
- #endif
+diff --git a/arch/arm/kernel/irq.c b/arch/arm/kernel/irq.c
+index e1993e28a9ecfd80b55b2677253ac582467e6c14..4c1a678b72b326e42c871b994c09d1fa4b0863f6 100644
+--- a/arch/arm/kernel/irq.c
++++ b/arch/arm/kernel/irq.c
+@@ -43,6 +43,7 @@
+ #include <asm/mach/irq.h>
+ #include <asm/mach/time.h>
  
--	.macro	svc_entry, stack_hole=0, trace=1, uaccess=1, overflow_check=1
-+	.macro	svc_entry, stack_hole=0 uaccess=1, overflow_check=1
-  UNWIND(.fnstart		)
- 	sub	sp, sp, #(SVC_REGS_SIZE + \stack_hole)
-  THUMB(	add	sp, r1		)	@ get SP in a GPR without
-@@ -208,11 +208,6 @@ ENDPROC(__und_invalid)
- 	mov	r0, sp				@ 'regs'
- 	bl	irqentry_enter_from_kernel_mode
++#include "irq.h"
+ #include "reboot.h"
  
--	.if \trace
--#ifdef CONFIG_TRACE_IRQFLAGS
--	bl	trace_hardirqs_off
--#endif
--	.endif
- 	.endm
+ unsigned long irq_err_count;
+@@ -71,6 +72,36 @@ static void __init init_irq_stacks(void)
+ 	}
+ }
  
- 	.align	5
-@@ -239,7 +234,7 @@ __irq_svc:
- 	blne	svc_preempt
- #endif
- 
--	svc_exit r5, irq = 1			@ return from exception
-+	svc_exit r5				@ return from exception
-  UNWIND(.fnend		)
- ENDPROC(__irq_svc)
- 
-@@ -303,7 +298,7 @@ ENDPROC(__pabt_svc)
- 
- 	.align	5
- __fiq_svc:
--	svc_entry trace=0
-+	svc_entry
- 	mov	r0, sp				@ struct pt_regs *regs
- 	bl	handle_fiq_as_nmi
- 	svc_exit_via_fiq
-@@ -321,7 +316,7 @@ ENDPROC(__fiq_svc)
- @
- 	.align 5
- __fiq_abt:
--	svc_entry trace=0
-+	svc_entry
- 
-  ARM(	msr	cpsr_c, #ABT_MODE | PSR_I_BIT | PSR_F_BIT )
-  THUMB( mov	r0, #ABT_MODE | PSR_I_BIT | PSR_F_BIT )
-diff --git a/arch/arm/kernel/entry-header.S b/arch/arm/kernel/entry-header.S
-index 49a9c5cf6fd5fbb917f2ada6c0d6cc400b7d3fb3..cfaf14d71378ba14bbb2a42cd36d48a23838eee1 100644
---- a/arch/arm/kernel/entry-header.S
-+++ b/arch/arm/kernel/entry-header.S
-@@ -199,26 +199,11 @@
- 	.endm
- 
- 
--	.macro	svc_exit, rpsr, irq = 0
--	.if	\irq != 0
--	@ IRQs already off
--#ifdef CONFIG_TRACE_IRQFLAGS
--	@ The parent context IRQs must have been enabled to get here in
--	@ the first place, so there's no point checking the PSR I bit.
--	bl	trace_hardirqs_on
--#endif
--	.else
-+	.macro	svc_exit, rpsr
++/*
++ * on_irq_stack() - check if a regs context is using the IRQ stack
++ * @regs: the context to check
++ * Returns true if regs is using the IRQ stack
++ */
++bool on_irq_stack(struct pt_regs *regs)
++{
++	u8 *high = __this_cpu_read(irq_stack_ptr);
++	u8 *low = high - THREAD_SIZE;
++	u8 *sp = (u8 *)regs->ARM_sp;
++	bool on_stack;
 +
- 	@ IRQs off again before pulling preserved data off the stack
- 	disable_irq_notrace
- 
--#ifdef CONFIG_TRACE_IRQFLAGS
--	tst	\rpsr, #PSR_I_BIT
--	bleq	trace_hardirqs_on
--	tst	\rpsr, #PSR_I_BIT
--	blne	trace_hardirqs_off
--#endif
--	.endif
--
- 	mov	r0, sp				@ 'regs'
- 	bl	irqentry_exit_to_kernel_mode
- 
-diff --git a/arch/arm/kernel/entry.c b/arch/arm/kernel/entry.c
-index 674b5adcec0001b7d075d6936bfb4e318cb7ce74..1e1284cc4caed6e602ce36e812d535e6fe324f34 100644
---- a/arch/arm/kernel/entry.c
-+++ b/arch/arm/kernel/entry.c
-@@ -59,8 +59,13 @@ noinstr void irqentry_exit_to_user_mode(struct pt_regs *regs)
- 
- noinstr void irqentry_enter_from_kernel_mode(struct pt_regs *regs)
++	on_stack = (low <= sp && sp <= high);
++
++	if (on_stack && IS_ENABLED(CONFIG_VMAP_STACK))
++		/*
++		 * Also check that SP is inside the linear kernel memory
++		 * if using VMAP:ed stacks.
++		 * TODO: Ask Ard to explain why we need to do this
++		 */
++		on_stack = (sp > (u8 *)high_memory);
++
++	return on_stack;
++}
++
++void call_on_irq_stack(void (*fn)(void *), void *arg)
++{
++	call_with_stack(fn, arg, __this_cpu_read(irq_stack_ptr));
++}
++
+ #ifdef CONFIG_SOFTIRQ_ON_OWN_STACK
+ static void ____do_softirq(void *arg)
  {
-+	trace_hardirqs_off();
- }
- 
- noinstr void irqentry_exit_to_kernel_mode(struct pt_regs *regs)
- {
-+	if (interrupts_enabled(regs))
-+		trace_hardirqs_on();
-+	else
-+		trace_hardirqs_off();
- }
+diff --git a/arch/arm/kernel/irq.h b/arch/arm/kernel/irq.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..c5186b67242a2976fe702154ed4f2a22eca51add
+--- /dev/null
++++ b/arch/arm/kernel/irq.h
+@@ -0,0 +1,3 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++bool on_irq_stack(struct pt_regs *regs);
++void call_on_irq_stack(void (*fn)(void *), void *arg);
 
 -- 
 2.47.1
