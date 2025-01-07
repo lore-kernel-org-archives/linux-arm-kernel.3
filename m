@@ -4,72 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C871E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 12:01:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AD17E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 12:03:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AyaCVBO7oWHWvc6bh2eiIo3LwDMxtIJ0UProiroXyHo=; b=NRynVy2gEjIRLJMPinzQPzjThQ
-	IkwvjlXbaRT5guwxUnyIjtlGIj2ib9sj7zGEfVnsbILfTYUwTTgGIvInBXrT0rW2G0+ID/09qvyS5
-	wrXQcukjLzz4uDJu/b2hhsI/d9eLn1kjMxc4bgrf5nYJPum3dHGgXLiPtrmCsAmazdZLuDSLwfES0
-	8/t4k4nnovXSdUdhY7gps5YKtaFfGfgnr8gX6esUqCm1fd+PjVd/MslnvhIUAOLPfeEMp3Uxl5pNe
-	Q00SgUBN0ojNRw+w/1wEjJhLIvegiyhfk1gDZ5JnD7mRNm4WwCzXmdtAkfbb1yNnHXUE136vMGnaS
-	FVJguQaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QLtTms1oagCCMUbZu1+NlcnSpCszvP6VSl8saVCxzMk=; b=SGtKrXnWsZ9M0xPu3coPik5rmq
+	JMrV76XLVzZT78wZwmm7kSlEHA5EawPzhZnPV5q3f6FFrs41X+SpCMv58XdSG/2LpM1SUgKlhL62/
+	J52i4m/tGzje7cbuvBnd9mdE3OTWZuG7KEKup60GLKgZGtep5Geucau5w2a5XIjorK9wGyqJu4kEZ
+	tvOt7qAV9uiG7ZM+dNAQaIlRNVB9Zvqu68fvyt4d7AY580ofYdXu1Qwug0ENZ576OOlyoF4n0Edd2
+	Smq1xOdktwljcEEw3mapfX/76UGepnay6Pgnn/ILfA0gzx5i3DFKT8dARVkV0C77ev1Xk7JGOyMGd
+	xSqwioUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV8H9-00000004fsV-0HQx;
-	Tue, 07 Jan 2025 12:01:35 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tV8IL-00000004g70-04an;
+	Tue, 07 Jan 2025 12:02:49 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV83P-00000004crn-3E7e;
-	Tue, 07 Jan 2025 11:47:27 +0000
+	id 1tV80s-00000004c9N-2lWc;
+	Tue, 07 Jan 2025 11:44:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1736250441;
-	bh=0TrZCAQ8WrM1LVeDaQMb9nE1S6brNmw6AnHjH6a6Fg0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LW/OkmuPaFhGWT8QxW+Ex4JfwpJKnGLdogXm+UszlR33SmmKKetmcdqQXbFSrb9A/
-	 QJsuncfkKV2EcU/UTTBbmkpwfO+4DkgE6UFadjtWL16jXnZgD10LyJnFrR6KHGtC8H
-	 2xJOAoMK66QfC9q7Hm7YpZBg7JYOJFzwxXpdAv3qVZO6b0HtR2Onz+c3QpAhsko2cE
-	 cJ4AyDHDbulTUT3T7n4bZhQb3VtTg7fgRc55b/nMXFGHjzXJMIB37hrs80cGBKQFB4
-	 NDgdouUYrO2tFGkE0MYfza8BW2nRpAdI9UM/emmGO0kLGINT/XsfsrSJzsC7KVQkZU
-	 U5yUm/5RMQzDw==
-Received: from notapiano (unknown [IPv6:2804:14c:1a9:53ee::1000])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	s=mail; t=1736250285;
+	bh=nvqMeuDTfZgH1m0kgkeC9rUI30xVUZ5If34vfsgD108=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=EFuOI6mN+NcYESN+8h5Lm8qNaeVahsukk+9CT10YTgVzCyd+4f7/sDH9+bQujFO/b
+	 fs5W4sudz5V5xsdbHVZB2aXZfYakIjViPDwXxQDntq+r3SMr5lgCMJY3aAG68Onkng
+	 hR4jp9m3rHf5NVDvwwimGRzZIIKpUr47Omh+E4zKnB8RWmuWsqYeLW0bEX+YKVdieU
+	 t1sz2Xm7HY06OUFJycn91NMyXWp9HThlOqBEbE1XPE0mW1ZIUvwdE5udJp1kqV6HOT
+	 wWbEhOBSpLmIVG2HT7DP+qG6PHBHqxO5x2B3AtugpRBdIjba78ySFEieWEj7N/Gdh1
+	 EBUiqSVn9+Gag==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
-	(Authenticated sender: nfraprado)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4F98D17E1562;
-	Tue,  7 Jan 2025 12:47:18 +0100 (CET)
-Date: Tue, 7 Jan 2025 08:47:15 -0300
-From: =?utf-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Trevor Wu <trevor.wu@mediatek.com>, kernel@collabora.com,
-	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, Fei Shao <fshao@chromium.org>
-Subject: Re: [PATCH] ASoC: mediatek: mt8188-mt6359: Remove hardcoded dmic
- codec
-Message-ID: <2c305aa4-860d-49a7-b20e-c5df58110533@notapiano>
-References: <20241203-mt8188-6359-unhardcode-dmic-v1-1-346e3e5cbe6d@collabora.com>
- <CAGXv+5EG8LbgaWc-Lp_KQc8Yf+m_4TRo8R7B0S7-rXYpnak+7g@mail.gmail.com>
- <f60f4242-9e4e-4846-b1f0-949daf68f6f5@notapiano>
- <CAGXv+5E5L5nNCT54O+LW6DdaWifLuA46pXcRNpSw1okGUp+JFQ@mail.gmail.com>
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3965017E1562;
+	Tue,  7 Jan 2025 12:44:44 +0100 (CET)
+Message-ID: <1a48feae-f55f-4df8-b165-84c1cb2f6658@collabora.com>
+Date: Tue, 7 Jan 2025 12:44:43 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/5] PCI: mediatek-gen3: Disable ASPM L0s
+To: =?UTF-8?B?Smlhbmp1biBXYW5nICjnjovlu7rlhpsp?= <Jianjun.Wang@mediatek.com>,
+ "manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "robh@kernel.org" <robh@kernel.org>, "kw@linux.com" <kw@linux.com>,
+ "bhelgaas@google.com" <bhelgaas@google.com>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "lpieralisi@kernel.org" <lpieralisi@kernel.org>
+Cc: "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ Ryder Lee <Ryder.Lee@mediatek.com>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ =?UTF-8?B?WGF2aWVyIENoYW5nICjlvLXnjbvmlocp?= <Xavier.Chang@mediatek.com>
+References: <20250103060035.30688-1-jianjun.wang@mediatek.com>
+ <20250103060035.30688-4-jianjun.wang@mediatek.com>
+ <b5ef9501-e07d-4150-9518-dd982518919e@collabora.com>
+ <cecd7ebf0ccac9638b8e93b28fcf4df5bb81a794.camel@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <cecd7ebf0ccac9638b8e93b28fcf4df5bb81a794.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGXv+5E5L5nNCT54O+LW6DdaWifLuA46pXcRNpSw1okGUp+JFQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_034723_952112_787B82C2 
-X-CRM114-Status: GOOD (  35.42  )
+X-CRM114-CacheID: sfid-20250107_034446_853781_9CCB48A7 
+X-CRM114-Status: GOOD (  21.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,105 +90,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 07, 2025 at 01:03:08PM +0800, Chen-Yu Tsai wrote:
-> On Tue, Jan 7, 2025 at 1:33 AM Nícolas F. R. A. Prado
-> <nfraprado@collabora.com> wrote:
-> >
-> > On Thu, Dec 26, 2024 at 04:30:17PM +0800, Chen-Yu Tsai wrote:
-> > > Hi,
-> > >
-> > > On Wed, Dec 4, 2024 at 3:22 AM Nícolas F. R. A. Prado
-> > > <nfraprado@collabora.com> wrote:
-> > > >
-> > > > Remove hardcoded dmic codec from the UL_SRC dai link to avoid requiring
-> > > > a dmic codec to be present for the driver to probe, as not every
-> > > > MT8188-based platform might need a dmic codec. The codec can be assigned
-> > > > to the dai link through the dai-link property in Devicetree on the
-> > > > platforms where it is needed.
-> > >
-> > > A followup question about this. The DMICs on the Chromebooks are attached
-> > > to the PMIC codec's input side, which then converts the signals to standard
-> > > I2S and passes them out to the SoC through its AIF1. So the original code
-> > > was somewhat incorrect, though it works.
-> > >
-> > > How should we describe such a connection, given that the MediaTek sound
-> > > bindings aren't a full graph?
-> >
-> > What you're describing is that the hardware topology looks like this:
-> >
-> > --------------------      --------------------
-> > |    SoC           |      |   MT6359 PMIC    |
-> > |        UL_SRC BE | <--- | AIF1   AIN0_DMIC | <-- DMic
-> > --------------------      --------------------
+Il 07/01/25 03:18, Jianjun Wang (王建军) ha scritto:
+> On Fri, 2025-01-03 at 10:16 +0100, AngeloGioacchino Del Regno wrote:
+>> External email : Please do not click links or open attachments until
+>> you have verified the sender or the content.
+>>
+>>
+>> Il 03/01/25 07:00, Jianjun Wang ha scritto:
+>>> Disable ASPM L0s support because it does not significantly save
+>>> power
+>>> but impacts performance.
+>>>
+>>
+>> That may be a good idea but, without numbers to support your
+>> statement, it's a bit
+>> difficult to say.
+>>
+>> How much power does ASPM L0s save on MediaTek SoCs, in microwatts?
+>> How is the performance impacted, and on which specific device(s) on
+>> the PCIe bus?
 > 
-> Correct.
+> It's hard to tell the exact number because it is difficult to measure,
+> and the number of entries into the L0s state may vary even in the same
+> test scenario.
 > 
-> > But that the dailink definition in the machine driver had the DMic codec
-> > connected directly to the UL_SRC BE instead, alongside the connection to the
-> > PMIC, unlike the topology above.
-> >
-> > My understanding is that the dmic codec was added simply to allow the usage of
-> > the wakeup-delays. From [1] it appears that DAI connections between two codecs
-> > are possible, though rare. So the PMIC -> DMic connection description might be
-> > possible in that way, although I'm not sure it brings any benefits besides
-> > closer resembling the hardware topology.
+> However, we have encountered some compatibility issues when connected
+> with some PCIe EPs, and disabling the L0s can fix it. I think disabling
+> L0s might be the better way, since we usually use L1ss for power-saving
+> when the link is idle.
 > 
-> I suspect we would want to keep the wakeup delays though. AFAICT they aren't
-> the same number across the board (no pun intended), but actually differ
-> between devices, perhaps due to differences in the actual DMIC used.
 
-We can still keep the delays. We can keep assigning the dmic codec to the UL_SRC
-BE, only through the DT now rather than hardcoded in the driver:
+To actually decide, we should know what's actually broken, then.
 
-	dmic: dmic-codec {
-		compatible = "dmic-codec";
-		num-channels = <2>;
-		wakeup-delay-ms = <50>;
-		#sound-dai-cells = <0>;
-	};
+Is the MediaTek controller broken, or is the device broken?
+So, is it a MTK quirk, or a device quirk?
 
-	&sound {
-		...
+If the problem is actually device-related, then this should be handled as
+a device-specific quirk, as not just MediaTek platforms would be affected
+by compatibility issues.
 
-		dai-link-1 {
-			link-name = "UL_SRC_BE";
+If the MediaTek PCIe controller is at fault, instead, I agree about just
+disabling L0s at the controller level - but then this shall be mentioned
+in the commit message, and should have a Fixes tag as well.
 
-			codec {
-				sound-dai = <&pmic 0>, <&dmic>;
-			};
-		};
-	};
+Cheers,
+Angelo
 
-It still doesn't match the hardware topology, but the delay should work the same
-as before.
-
+> Thanks.
 > 
-> If we don't want the full description, maybe we add the wakeup delay to
-> the PMIC codec then?
-> 
-> AFAICT [1] is basically hardcoding in the dmic-codec in a different way,
-> so basically reverting your original patch.
+>>
+>> Cheers,
+>> Angelo
+>>
+>>> Signed-off-by: Jianjun Wang <jianjun.wang@mediatek.com>
+>>> ---
+>>>    drivers/pci/controller/pcie-mediatek-gen3.c | 11 +++++++++++
+>>>    1 file changed, 11 insertions(+)
+>>>
+>>> diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c
+>>> b/drivers/pci/controller/pcie-mediatek-gen3.c
+>>> index ed3c0614486c..4bd3b39eebe2 100644
+>>> --- a/drivers/pci/controller/pcie-mediatek-gen3.c
+>>> +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
+>>> @@ -84,6 +84,9 @@
+>>>    #define PCIE_MSI_SET_ENABLE_REG             0x190
+>>>    #define PCIE_MSI_SET_ENABLE         GENMASK(PCIE_MSI_SET_NUM - 1,
+>>> 0)
+>>>
+>>> +#define PCIE_LOW_POWER_CTRL_REG              0x194
+>>> +#define PCIE_FORCE_DIS_L0S           BIT(8)
+>>> +
+>>>    #define PCIE_PIPE4_PIE8_REG         0x338
+>>>    #define PCIE_K_FINETUNE_MAX         GENMASK(5, 0)
+>>>    #define PCIE_K_FINETUNE_ERR         GENMASK(7, 6)
+>>> @@ -458,6 +461,14 @@ static int mtk_pcie_startup_port(struct
+>>> mtk_gen3_pcie *pcie)
+>>>        val &= ~PCIE_INTX_ENABLE;
+>>>        writel_relaxed(val, pcie->base + PCIE_INT_ENABLE_REG);
+>>>
+>>> +     /*
+>>> +      * Disable L0s support because it does not significantly save
+>>> power
+>>> +      * but impacts performance.
+>>> +      */
+>>> +     val = readl_relaxed(pcie->base + PCIE_LOW_POWER_CTRL_REG);
+>>> +     val |= PCIE_FORCE_DIS_L0S;
+>>> +     writel_relaxed(val, pcie->base + PCIE_LOW_POWER_CTRL_REG);
+>>> +
+>>>        /* Disable DVFSRC voltage request */
+>>>        val = readl_relaxed(pcie->base + PCIE_MISC_CTRL_REG);
+>>>        val |= PCIE_DISABLE_DVFSRC_VLT_REQ;
+>>
+>>
 
-Hm, on a second look I think you're right.
-
-Thanks,
-Nícolas
-
-> 
-> ChenYu
-> 
-> > [1] https://www.kernel.org/doc/html/latest/sound/soc/codec-to-codec.html
-> >
-> > >
-> > > > No Devicetree currently relies on it so it is safe to remove without
-> > > > worrying about backward compatibility.
-> > >
-> > > Removing it didn't seem to cause any issues for the Chromebooks that
-> > > do actually have DMICs. I suspect the only difference would be that
-> > > the wakeup-delays no longer apply correctly.
-> >
-> > That's my guess too.
-> >
-> > Thanks,
-> > Nícolas
 
