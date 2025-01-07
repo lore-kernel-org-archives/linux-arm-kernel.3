@@ -4,92 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FED3E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 09:24:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC37BE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 09:25:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A4jDBOd4uA6iWq10QaHFHWmxRK0/Onl9k6WANOitcUI=; b=SajlecflwEG6ZWwlKT6SJgK6zz
-	dOzXYTFNP7IO6igtzkWbbclfM/NnodjSg6adIwxcrw7qQtfF1UB1ZSNLIVhX3Mk1rTroKuguKG5CC
-	uAlYrC64KJb4SxkmT/RMmVzmneD5Fm+HnlPNYXbMJe8IrCLknBK3cSKHI5DwOJdQh6txVutooLRhB
-	7u895nCadzOshh4eSU3ZbYvi86liPzuSa4aG68tv02x+gAMp9YRm0cEp5owZRFI4nYf2Ye0gRYXLt
-	9974GermcSDnyp5L/tXNOuHbW/Uk6svHGP32dG7Rl4JHoVX+3AP+hXxXPT8n7zyQszkDhtIYz0TtI
-	xE4NZTag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5knQv7ge1Bw29A3+VSYl2cWOfYHZyvbmpFvhnZtIFXc=; b=g0x0Rxdos/64suN4WJCGEX/3Q/
+	Hw0b4hFOxj7+4TWA0Tg0Zq0noDFmrXyksjJCaAKlAAEt0byaw73dBsi7J7N3A4rWxWmCEqOYZ3yIc
+	0FzU9uhaNJ/AVEY86FcRGW0akT6BMhw1RPzymrPfnk3UBwveCu/mX+jVKojwrLi6wRKtf7NsP7bYW
+	IPn9BoThLmgqNJXH//eku17z5asRRs+FNjS9YggYofKJ/w88OzS4ia6l6mg+cz+I4uAd0IjxpwKlH
+	21M5LpeM4AZpudGDLv5CIuyrGMPk3VLsmjjeVQD0oqENrdXQgVjl0EP/oNFKs5+OxSsfHl+oTEF38
+	tMYPduOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV5oz-000000046da-2CUn;
-	Tue, 07 Jan 2025 09:24:21 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV5Y3-000000042nm-3CGk
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 09:06:55 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-3862df95f92so6688063f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 01:06:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736240810; x=1736845610; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=A4jDBOd4uA6iWq10QaHFHWmxRK0/Onl9k6WANOitcUI=;
-        b=HCLq5g7CUiavXdvYOK2111CartFOMaZV4PHxzojO/723D9hipmPMMpjKqJ6BF6RL4N
-         fI6VUPLU6C9CnPr6iq4snliXTR1VlCD2xGk2boQq5ry+4PYC3l6EHd9F96G0zW0pOJ1U
-         oW4qkxmmrpuVrK/tLvRn6tRlBGK7hgKr9Vci+fNPPuoeLKcqxiwNKfTaiKln9Cv0LRUB
-         c7ekJhPotvQlMtoqSOdr/i0B829DAuYYTTrAp+cSxcqzFlqFCW50+xfgk8afatkKAAPg
-         aLR/iJ734bmnl/hjqnf8vuCuKSvpq1sHynbwgeIMic1vu0Sv/kLFfiYbYReGoEL7rFnk
-         lOYA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736240810; x=1736845610;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=A4jDBOd4uA6iWq10QaHFHWmxRK0/Onl9k6WANOitcUI=;
-        b=a+iXTcJzNDX4pJChDHFINKVGkbeNIKVynRl/3JEuF26uM/g4flwgv//bASOTRiIGC6
-         ImeWJDZS602jxH4lsy9s1kV3HoYqdrqdWj2rzEjaI4c9qiO6C3/Rv8jeH4K2mKseMIa0
-         2+pg6cEr/IrWT47XZ0vthuHvkOPmqv+z+AdeOhx/njGp69lQ0mV9pJrmnyXKFVahGY1j
-         NEce6KAzVH7BB1MeHH/rF7SJhToHyOkZeRDr0SXaHgcvQp9RwbvfCQt70AAod+Nq2OEw
-         7uSnQR1W6hOre7iipej4D/B3g6NJ7fgjilANOMGOqi2P8/lZ1KynMjNcz3mig1S/rq8B
-         5/3A==
-X-Forwarded-Encrypted: i=1; AJvYcCVgLKChcQgo2JNZQuepZ5XRtkB144j5LyvF4L53tZ+UhdTiN0V6RKOPWfwVqqXop/vS9pZQ1SSCkqGS0kUFtdEJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxAhi1CprAGnsPB5GcQJnxg4uyatptf8EbGt1xppyJdoRJkDAYa
-	hEJumMoIPLV24AmyGnRGBR0Ly2Budg3GH+SV/DbBbWeENGzYvG7vYLPKXw5o7pY=
-X-Gm-Gg: ASbGncv6xJtkf0zazunFDF22zIBKNmTh1Kz2adaRYI4Twnw3ESFbfiDJeHK8Y55K/hC
-	jzMenL0gXv9wMfSiIcYX+VrDq6G9bModC67IVHuxBc5xft7/5SWwz8mi1qTIPiEUPi37Zafz5vq
-	kdMo+FZRMharcgD1E9thcwkoh4Z8bzfp+qCzAi8zvSi+F0JMW0akg66BMMd+GTwEEGuTSJ1kGwM
-	uLmDCH0EoSRk5XLqNwwWQA6iYGh6A2BnJJshgPh0NRTtpqwFmNVxEIQSrr54w==
-X-Google-Smtp-Source: AGHT+IHZAZxqzkt43hjIPdmiX16LWtAmIlQjSGTOiM5YyAVZqEoQExXofh761RH379rxPGTtkqw/RA==
-X-Received: by 2002:a05:6000:480a:b0:386:1cd3:89fa with SMTP id ffacd0b85a97d-38a221fa8c6mr57479039f8f.33.1736240809665;
-        Tue, 07 Jan 2025 01:06:49 -0800 (PST)
-Received: from [10.1.1.109] ([80.111.64.44])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43656b013e1sm619089305e9.12.2025.01.07.01.06.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Jan 2025 01:06:49 -0800 (PST)
-Message-ID: <74430be84cb49dc0a7413656a2923facc021cd15.camel@linaro.org>
-Subject: Re: [PATCH v2 4/4] arm64: dts: exynos: gs101-oriole: enable Maxim
- max77759 fuel gauge
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: t.antoine@uclouvain.be, Sebastian Reichel <sre@kernel.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Dimitri Fedrau <dima.fedrau@gmail.com>, Catalin
- Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Peter
- Griffin <peter.griffin@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org
-Date: Tue, 07 Jan 2025 09:06:48 +0000
-In-Reply-To: <20250102-b4-gs101_max77759_fg-v2-4-87959abeb7ff@uclouvain.be>
-References: <20250102-b4-gs101_max77759_fg-v2-0-87959abeb7ff@uclouvain.be>
-	 <20250102-b4-gs101_max77759_fg-v2-4-87959abeb7ff@uclouvain.be>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.1-4 
+	id 1tV5q9-000000046tn-0omH;
+	Tue, 07 Jan 2025 09:25:33 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tV5h1-000000044uo-0itq;
+	Tue, 07 Jan 2025 09:16:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AEFBD143D;
+	Tue,  7 Jan 2025 01:16:32 -0800 (PST)
+Received: from [10.57.93.53] (unknown [10.57.93.53])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 194C03F66E;
+	Tue,  7 Jan 2025 01:15:56 -0800 (PST)
+Message-ID: <98c59677-b0a2-4c87-b828-0503505529da@arm.com>
+Date: Tue, 7 Jan 2025 10:15:54 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/6] Account page tables at all levels
+To: Qi Zheng <zhengqi.arch@bytedance.com>
+Cc: linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Andy Lutomirski <luto@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>, "Mike Rapoport (IBM)"
+ <rppt@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
+ Matthew Wilcox <willy@infradead.org>, linux-alpha@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+ linux-um@lists.infradead.org, loongarch@lists.linux.dev, x86@kernel.org
+References: <20250103184415.2744423-1-kevin.brodsky@arm.com>
+ <ae8aa8d7-4121-4939-9890-c54e0aee7896@bytedance.com>
+Content-Language: en-GB
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+In-Reply-To: <ae8aa8d7-4121-4939-9890-c54e0aee7896@bytedance.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_010651_799082_39B6E3D1 
-X-CRM114-Status: GOOD (  15.81  )
+X-CRM114-CacheID: sfid-20250107_011607_262521_B14091EC 
+X-CRM114-Status: UNSURE (   5.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,62 +78,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Thomas,
+On 06/01/2025 09:38, Qi Zheng wrote:
+> For this series:
+>
+> Acked-by: Qi Zheng <zhengqi.arch@bytedance.com>
 
-Thanks for your patch!
+Thank you for the review, appreciated!
 
-On Thu, 2025-01-02 at 12:15 +0100, Thomas Antoine via B4 Relay wrote:
-> From: Thomas Antoine <t.antoine@uclouvain.be>
->=20
-> Add the node for the max77759 fuel gauge as a slave of the i2c.
->=20
-> The todo is still applicable given there are other slaves on the
-> bus (pca9468, other max77759 functions and the max20339 OVP).
->=20
-> The fuel gauge has been tested and seems to give coherent results.
-> Manual activation of the charger via i2cset shows that the sign of
-> the current does indicate charging/discharging status.
->=20
-> Signed-off-by: Thomas Antoine <t.antoine@uclouvain.be>
-> ---
-> =C2=A0arch/arm64/boot/dts/exynos/google/gs101-oriole.dts | 10 ++++++++++
-> =C2=A01 file changed, 10 insertions(+)
->=20
-> diff --git a/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts b/arch/ar=
-m64/boot/dts/exynos/google/gs101-oriole.dts
-> index 387fb779bd29ea3812331a7951f03b181c5fe659..6c83ee6f8a6b0327c576573d0=
-3a8d2bcc93f9e16 100644
-> --- a/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts
-> +++ b/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts
-> @@ -10,6 +10,7 @@
-> =C2=A0
-> =C2=A0#include <dt-bindings/gpio/gpio.h>
-> =C2=A0#include <dt-bindings/input/input.h>
-> +#include <dt-bindings/interrupt-controller/irq.h>
-> =C2=A0#include "gs101-pinctrl.h"
-> =C2=A0#include "gs101.dtsi"
-> =C2=A0
-> @@ -90,6 +91,15 @@ eeprom: eeprom@50 {
-> =C2=A0&hsi2c_12 {
-> =C2=A0	status =3D "okay";
-> =C2=A0	/* TODO: add the devices once drivers exist */
-> +
-> +	fuel-gauge@36 {
-> +		compatible =3D "maxim,max77759-fg";
-> +		reg =3D <0x36>;
-> +		reg-names =3D "m5";
-> +		shunt-resistor-micro-ohms =3D <5000>;
-> +		interrupt-parent =3D <&gpa9>;
-> +		interrupts =3D <3 IRQ_TYPE_LEVEL_LOW>;
-> +	};
-
-The order of properties within a node should follow
-Documentation/devicetree/bindings/dts-coding-style.rst
-
-In particular shunt-resistor-micro-ohms should come last in
-this case.
-
-Cheers,
-Andre'
+- Kevin
 
 
