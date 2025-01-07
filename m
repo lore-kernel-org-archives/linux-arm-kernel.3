@@ -4,110 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91EC6E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 21:35:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C91FE77198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 21:52:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g6ya314sxovkhWFQqUN3Lszhjpeui25J0XtZ38dBwj0=; b=2HwJKjWEnK93ao6sR2s+CK/Z+i
-	PH3QeZEP8rAg0OKgWWeaMp903GMvrskq5Sa70t8r5itFx70WexwDpFp5dHX8jbASkJ3BlazLYrTKG
-	9OzeRO5j4wqYc2TkBB4oEDtSiSsSGQLuDaWj8BkDtyeEBWIl07mfUmEqSLeMIh1WNBLkLFQOz4skL
-	lFzrgQtH5YR+DOFCi20PiaDs6AtLFP6lfyQCwi5RtEPaCTEFJmfrsM8Sj4Bhdh0HNzUAE3gcyUqc1
-	EtxAqBHGH/okj57ZehD8kMbhy3/zGLk7Zj+tFbzJyJBNxU+Pw8aQpjcbd5KLBi14d2IPewdf0uGAa
-	DuhdCq5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ecMY+qe6V2ZZwm4eOG11+5a28KrQW4B2FtTiZbt4gz8=; b=W/vnbgy8ys2H6Kvh2HWLS/bSoc
+	+seRMvMzj9TndDdZGsdp0RBOS26U9RGVZ2BRDBuSzOCeEPK+aUEC2P5Tn/FtBwVsNbpm56kMWESut
+	u0bfKDUgUory8o4Pcy0D3JB0BIqxfi7DmMyJW+eOLV5RDf38SXJTVPvsMOR1iiBqvf5RlShUD/Sa4
+	vcEGcz08yXwUVvqg6DkYfScpbFNtqAInzBoFpng+Ppo4+ujXPZ4FDL31tsSsbFqFOeGIg4jIXIMFQ
+	oekHblERZRExUcuk2ckPVSE9vwqk2pT7yzUvH7Xt8ECOX5DdVOsPU2oYKLeJBK17UjVr2E3r9Go5q
+	0mRp1Baw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVHEO-00000006LlH-2YCe;
-	Tue, 07 Jan 2025 21:35:20 +0000
-Received: from fout-a3-smtp.messagingengine.com ([103.168.172.146])
+	id 1tVHUg-00000006Mpu-1UPf;
+	Tue, 07 Jan 2025 21:52:10 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVHCf-00000006LT8-2r3N
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 21:33:35 +0000
-Received: from phl-compute-04.internal (phl-compute-04.phl.internal [10.202.2.44])
-	by mailfout.phl.internal (Postfix) with ESMTP id 21A7C1380231;
-	Tue,  7 Jan 2025 16:33:30 -0500 (EST)
-Received: from phl-imap-07 ([10.202.2.97])
-  by phl-compute-04.internal (MEProxy); Tue, 07 Jan 2025 16:33:30 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=testtoast.com;
-	 h=cc:cc:content-transfer-encoding:content-type:content-type
-	:date:date:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:subject:subject:to:to; s=fm2;
-	 t=1736285610; x=1736372010; bh=g6ya314sxovkhWFQqUN3Lszhjpeui25J
-	0XtZ38dBwj0=; b=Exzc//ApsdyM4zlHLFXoh4XrYrxEJsK9gtyJXwbIGDHwO8EJ
-	yNhJ4qHXXxFfEXyET+Ydvi+/9b5ONKzA+nRhIN9QzYCLOhxmx8+NLgTO0smmtLz+
-	iQ3H+Dj6HmYxg55kXdPSaYo0H1wzClx6yWUHAgRbgMAk0Fw90gve1K3sGdMQP1Ai
-	eLJ7wNmILgjLG8yMs9FwYGq3/yekurcgOPPw6xp7gSAnujhdmmTVmiWKv9ruXj3e
-	+t0JfUj2I911MQO9W/eYjv9ZDh7luJDd4Lf6mKy9qO/3XSOk/qcYx6BWnJmn39mt
-	KbnLBGmP09nNGXc0xvJgoapY9Hu8nHguWS9/GA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1736285610; x=
-	1736372010; bh=g6ya314sxovkhWFQqUN3Lszhjpeui25J0XtZ38dBwj0=; b=f
-	0pcpNIJuZA5XkE8jOoelmg48wq/4fAlKDwAaxq91KX2RzdEnrhCglsOnBKz/oQNj
-	QU6li75sqXqbcyG+Y1tjt3+iL+i38WMRWdTGjUGT1HwvI59W/PkNT28XK9eX6P21
-	ERs+S+gQQYDKyfFykwhNllkk+AJLwTaFvpe/eyV7J8iKxoyHFQGBkCUMqyNtoN+m
-	8h0/tqbkc8j4+EGKnNN7HTBPe1ChvjE9CNnjyMvCMec5PuHxheeGoqjGAXfMYsYC
-	Bxwn3YcG5v5I7ZJmnl0Ojw7m1+2LUB4sz6UV06Wi4b4RhxnEtaxFdLTux9ldpYQq
-	lhmkMN1IsQ/683PFnvOUQ==
-X-ME-Sender: <xms:qJ19Z4hNC8ujXE3Fkrj6P19E5d1Ykp4AtCRHK-Wx7Z-pxXXGxPWXiA>
-    <xme:qJ19ZxBPzkwLufaC0evox0xv0gk2M7gQ17VRjqGCtwDm-r96-0-8FvGqekKSI-Agm
-    ZEYCN6Mnv1CxLz5Fw>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrudegvddgudehtdcutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthhqredtredt
-    jeenucfhrhhomhepfdfthigrnhcuhggrlhhklhhinhdfuceorhihrghnsehtvghsthhtoh
-    grshhtrdgtohhmqeenucggtffrrghtthgvrhhnpeeghffgkedtueeiudeukedvveevhfdu
-    uefhhedviefgffduheeuieeihefhfefgveenucevlhhushhtvghrufhiiigvpedtnecurf
-    grrhgrmhepmhgrihhlfhhrohhmpehrhigrnhesthgvshhtthhorghsthdrtghomhdpnhgs
-    pghrtghpthhtohepuddvpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopeifvghnsh
-    estghsihgvrdhorhhgpdhrtghpthhtohepjhgvrhhnvghjrdhskhhrrggsvggtsehgmhgr
-    ihhlrdgtohhmpdhrtghpthhtoheplhhgihhrugifohhougesghhmrghilhdrtghomhdprh
-    gtphhtthhopehmrggtrhhomhhorhhgrghnsehhohhtmhgrihhlrdgtohhmpdhrtghpthht
-    ohepsghrohhonhhivgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrg
-    hrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthht
-    oheplhhinhhugidqshhunhigiheslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtth
-    hopehpvghrvgigsehpvghrvgigrdgtiidprhgtphhtthhopehsrghmuhgvlhesshhhohhl
-    lhgrnhgurdhorhhg
-X-ME-Proxy: <xmx:qZ19ZwFiAMkkNG82OEvAfw3ngKKVsjEk6bxbReGfWef4uubn7hoahw>
-    <xmx:qZ19Z5QMBmmvGJR9zAMEUZHe3g0V34cfmNcI_WXp5H1Zep_vf-4vWQ>
-    <xmx:qZ19Z1wXlFNVdLGcjIuPS62K_6zS7FlYibGKUrNAZd8yfHqq_UmwvA>
-    <xmx:qZ19Z342wXR-85w0iXqK54eLT4lR5-T6d72G0yu3wl9aLQvHgUm1EA>
-    <xmx:qp19Z77kKVdhitixBBCPtzkd33VN6IPu1oKwIZqCFnVPM-6cN4Ir2KX0>
-Feedback-ID: idc0145fc:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id E2681BA0072; Tue,  7 Jan 2025 16:33:28 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1tVHTU-00000006Mjl-1ISw;
+	Tue, 07 Jan 2025 21:50:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id BAE5AA41496;
+	Tue,  7 Jan 2025 21:49:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7B86C4CED6;
+	Tue,  7 Jan 2025 21:50:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736286655;
+	bh=TsCpx7aKGUcwB6mW8YLBLjC9e8pZ6xstkV3qO1nZsG0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lvYfmm0kNt473KUEQpk9r7jj5m1XOUbMX1J0ej8kCZO/3PcWsvZbvaBKbYYwy3FB7
+	 H4W2BvEjbEpsgcGB03DkO1p5RqcM1SutTFfAGnrkDN22CO5WFonk0HceIg+UH4nXW+
+	 Bb/VuXarWE2h5W7ky21Twnc5c8dsfIdPN1NR9IexGhcUyq1lrPOXzCuC1LHtdmsGe1
+	 3gMSvnZxAnQIciXUTlNm303nBwm9Jw4OWHAiwd8gQkCLTz0bhWYC/DAb/lsfWgw5hu
+	 JRM99JVcAkpreyL8gcN8DqSzievz5Kl/i1A6BQy2JAY7M4GdXMQ4ZDIXJxTSzBUtcb
+	 LEE0RN3JTCK1g==
+Date: Tue, 7 Jan 2025 22:50:51 +0100
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Zoie Lin <zoie.lin@mediatek.com>
+Cc: Qii Wang <qii.wang@mediatek.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Project_Global_Chrome_Upstream_Group@mediatek.com, 
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, teddy.chen@mediatek.com
+Subject: Re: [PATCH v3 1/1] i2c: mediatek: add runtime PM operations and bus
+ regulator control
+Message-ID: <puotk7kms35fh3mgmsg24uxwadmcqjfr5iuijr2zknezcg7dtg@zlbrphpd6jn5>
+References: <20250103143250.1521287-1-zoie.lin@mediatek.com>
+ <20250103143250.1521287-2-zoie.lin@mediatek.com>
 MIME-Version: 1.0
-Date: Wed, 08 Jan 2025 10:33:08 +1300
-From: "Ryan Walklin" <ryan@testtoast.com>
-To: "Chen-Yu Tsai" <wens@csie.org>
-Cc: "Liam Girdwood" <lgirdwood@gmail.com>, "Mark Brown" <broonie@kernel.org>,
- "Jaroslav Kysela" <perex@perex.cz>, "Takashi Iwai" <tiwai@suse.com>,
- "Jernej Skrabec" <jernej.skrabec@gmail.com>,
- "Samuel Holland" <samuel@sholland.org>, linux-sound@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- devicetree@vger.kernel.org, "Chris Morgan" <macromorgan@hotmail.com>
-Message-Id: <ddf34135-13b0-4a1a-801e-c2c454196ee3@app.fastmail.com>
-In-Reply-To: <CAGb2v661eZPh8+ScJNUTXwm_y_RtrL7yo7EE4i_zg-=LrBhBhg@mail.gmail.com>
-References: <20241221094122.27325-1-ryan@testtoast.com>
- <20241221094122.27325-3-ryan@testtoast.com>
- <CAGb2v64qf0jNv72uHUK+aSj0Xt-bf+DW0NCnsZmLf-6xHZF_ew@mail.gmail.com>
- <982a7d32-ab58-434e-a125-4f7143928caf@app.fastmail.com>
- <CAGb2v661eZPh8+ScJNUTXwm_y_RtrL7yo7EE4i_zg-=LrBhBhg@mail.gmail.com>
-Subject: Re: [PATCH 2/3] ASoC: sun4i-codec: support hp-det-gpios property
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250103143250.1521287-2-zoie.lin@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_133334_125729_75EC4512 
-X-CRM114-Status: GOOD (  24.83  )
+X-CRM114-CacheID: sfid-20250107_135056_417261_47019AB0 
+X-CRM114-Status: GOOD (  16.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,74 +75,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 1 Jan 2025, at 9:56 PM, Chen-Yu Tsai wrote:
-> On Mon, Dec 23, 2024 at 5:20=E2=80=AFAM Ryan Walklin <ryan@testtoast.c=
-om> wrote:
+Hi Zoie,
 
->> >> @@ -1635,10 +1681,11 @@ static const struct snd_soc_component_driv=
-er sun50i_h616_codec_codec =3D {
->> >>  };
->> >>
->> >>  static const struct snd_kcontrol_new sun50i_h616_card_controls[] =
-=3D {
->> >> -       SOC_DAPM_PIN_SWITCH("LINEOUT"),
->> >> +       SOC_DAPM_PIN_SWITCH("Speaker"),
->> >
->> > Why?
->>
->> The speaker amp is controlled by a GPIO, this needs a specific card c=
-ontrol to toggle on and off, discrete from the line-out volume. Muting t=
-he output entirely is not what is required, hence the separate control. =
-I also understand (although it is IMO not well documented on the user-sp=
-ace side) that "Speaker" has a specific meaning to the user-space routin=
-g. Can add this to the merge message.
->
-> It should be documented, and probably a separate patch. This patch is
-> for the headphone. Also, "Speaker" is a DAPM widget name and that widg=
-et
-> is what toggles the GPIO. So it's actually the kernel side routing.
+On Fri, Jan 03, 2025 at 10:32:34PM +0800, Zoie Lin wrote:
+> This commit introduces support for runtime PM operations in
+> the I2C driver, enabling runtime suspend and resume functionality.
 
-Thanks, happy to add a separate patch, but think it is appropriate inclu=
-ded in this series as it only makes sense to power off the amplifier if =
-there is no sound output or if we plug in headphones.
+Please, don't start the commit log with "This patch...", please
+use the informative form.
 
-> And also, you can't remove the "LINEOUT" pin because it is referenced =
-from
-> existing device trees.
+> Although in the most platforms, the bus power of i2c are always
 
-I am not entirely sure and not an expert here, but I think the LINEOUT r=
-eference in the existing trees is for the output route, not a DAPM switc=
-h? This was added to the prior H616 enablement patch largely because it =
-was in the vendor code, but given the H616 only has a single audio route=
- also called "LINEOUT in the manual) this is somewhat redundant, as the =
-analog and digital parts of the codec already have DAPM widgets, and my =
-understanding was that ALSA would then correctly enable and disable comp=
-onents based on the routing, not that the routing had to refer to specif=
-ic DAPM controls/widgets.
+/the//
+/are/is/
 
->> >> @@ -1684,7 +1731,7 @@ static struct snd_soc_card *sun50i_h616_code=
-c_create_card(struct device *dev)
->> >>
->> >>         card->dev               =3D dev;
->> >>         card->owner             =3D THIS_MODULE;
->> >> -       card->name              =3D "H616 Audio Codec";
->> >> +       card->name              =3D "h616-audio-codec";
->> >
->> > Why?
->>
->> As mentioned in the cover letter, ALSA UCM in user space uses the car=
-d name to detect and apply the relevant configuration, by loading /usr/s=
-hare/alsa/ucm2/conf.d/<driver_name>/<card_name>.conf. Spaces are therefo=
-re removed in the card name to make this easier to manage. Happy to add =
-this to the commit message too, and this could be changed to card->long_=
-name if it is desired to maintain a human-readable card->name.
->
-> This should also be a separate patch. And yes please add `long_name` to
-> keep the human friendly name.
+> on, some platforms disable the i2c bus power in order to meet
+> low power request.
+> 
+> This implementation includes bus regulator control to facilitate
+> proper handling of the bus power based on platform requirements.
+> 
+> Signed-off-by: Zoie Lin <zoie.lin@mediatek.com>
 
-Thanks, will do.
+...
 
-Regards,
+> +static int mtk_i2c_runtime_resume(struct device *dev)
+> +{
+> +	int ret = 0;
 
-Ryan
+initialization is not needed.
+
+> +	struct mtk_i2c *i2c = dev_get_drvdata(dev);
+> +
+> +	if (i2c->adap.bus_regulator) {
+> +		ret = regulator_enable(i2c->adap.bus_regulator);
+> +		if (ret) {
+> +			dev_err(dev, "enable regulator failed!\n");
+> +			return ret;
+> +		}
+> +	}
+> +
+> +	ret = clk_bulk_enable(I2C_MT65XX_CLK_MAX, i2c->clocks);
+> +	if (ret) {
+> +		if (i2c->adap.bus_regulator)
+> +			regulator_disable(i2c->adap.bus_regulator);
+> +		return ret;
+
+no need to return here...
+
+> +	}
+
+... you can remove the brackets...
+
+> +	return 0;
+
+... return ret;
+
+Andi
+
+> +}
 
