@@ -4,105 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A1C5E77198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 16:40:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35FBCE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 16:41:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RIzROz9khoj2BhgYd0nISvi0RDBvOsblgFIn28Lq6mo=; b=MvJSnfzsV+2/zUclHyB4OC+eDq
-	cFjNfjqtXBypG7N59mbsk897D6scMfpelgxG/tOInSk+/kOkincETncGZqL/vUcU/0Vzl1rnLxIFV
-	uO7qK8YRw4SiaHZ1sIzyECMeO8WquAXDM1xSj5bIToB3NQTqNThh/5bLqNANklZk9nr55Ygzrt2Gw
-	dTZ4xz0SPsZE+wlUrUcp4Jfmmrw/ARQOjluGF1Iw2pP2YoMU/UdyAO8QM4uV6Lf0OCNTDRM97HtJn
-	wB+9txsphstI03rl44J2GEMpT3FK4dhfGc1Sbrr4xFQDu/RAxDTq9gqCCV95WbRknX/JGI0GHzhTV
-	qSbZHbZA==;
+	bh=LCQNSFiJK1wVazMzeWrjqKUTHSmNi8tCis8dxNj946c=; b=DJyL9iy9h5WCNTkOnvxJrzAp4a
+	U3MLI1BMO5vBEGL5nj8xV3wDpuFvLY2aM1YFatmlFSsJ4CBpimqjMX/s8Z43QPNmhSFOVt+14+RZt
+	6pzoKkBvvulbY+huAbvFnwrpg/ECBZomCuwmYicl8vJq/usnBZNuECkr1tPafY4dPqzKH0K7NzxiC
+	js6NwoffH9vIP5IBZU9JvMTsPOKkh5aDyzYLUWYIZd78E7wvtNngOsyzNZu+uKoxW2qHvWRs3K2E6
+	ehm6QlHMle3wpO64aNhGFqPM73QdpsdgcUGb0C4KaOJNFSz4axPqRQPLOjy1+F2CmrggLSQl4keRE
+	4TVnRPqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVCd4-00000005fuM-45uM;
-	Tue, 07 Jan 2025 16:40:30 +0000
-Received: from fout-a8-smtp.messagingengine.com ([103.168.172.151])
+	id 1tVCeF-00000005gBN-2YUF;
+	Tue, 07 Jan 2025 16:41:43 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVCQT-00000005cw7-3Gt2
+	id 1tVCQj-00000005d2K-1B4a
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 16:27:34 +0000
-Received: from phl-compute-12.internal (phl-compute-12.phl.internal [10.202.2.52])
-	by mailfout.phl.internal (Postfix) with ESMTP id 8B6A5138021D;
-	Tue,  7 Jan 2025 11:27:28 -0500 (EST)
-Received: from phl-mailfrontend-02 ([10.202.2.163])
-  by phl-compute-12.internal (MEProxy); Tue, 07 Jan 2025 11:27:28 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=stwcx.xyz; h=cc
-	:cc:content-transfer-encoding:content-type:date:date:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to; s=fm1; t=1736267248; x=1736353648; bh=RIzROz9khoj2BhgYd0nIS
-	vi0RDBvOsblgFIn28Lq6mo=; b=JgJYzyfb6uWDMn3aPzlcl/3MJiH2QRXXcmkSK
-	I0kdbVlIvZ7X79l4EIKV9TQSUQ3D/hgLZrGsE2BBPn1VHqf7Jc6d1HcExifAI1PO
-	OE9q8rYyxLGuN73nUDDivs5+XYpFz6l4KIBJwT01fF4lDlX1ijgRZ4UGOYGYvC33
-	bGnDwM7yKi+5WCxfsVWZaR2W2/4HkTgcJRIadJYespfqKUTXbAtY2PhnIkQ+UUqy
-	rSj0+mF7g4xXp7A2XWd5CqBXctNlxt9qKvCx3tWAB+4dLovrXjMKzZ35yUHLp+xO
-	s+bOUJJU1WSQdDEmeNKwBtPMXi4tMvYCXeNLjtF6PHJ9q1i+g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=
-	1736267248; x=1736353648; bh=RIzROz9khoj2BhgYd0nISvi0RDBvOsblgFI
-	n28Lq6mo=; b=v7fL1/cFRe3LyWeEDJqbN+BHz84S4WxdXb/p2y2oyHbnQj7pIeb
-	RUg9q8dSrlCzbFr99KizNdUXCWV2/k9UgcWNPOtNvdVqeD6ErQsvzjxymNQ6w5ou
-	Z2vXTZwRhYdIBEaW1YLoH4wvMtsou8v7UhyJk8ksg9Q5IrDQgkYEk1ZFO5Mmjqpz
-	YYp/gY2Dy8C4M3TyjoBH4at9tQP7yNvfbEqTDl0/YzfvWZZKIvC6sBSRSg2SIPpf
-	OBmMf73L/QvH8IAMeN+d17mdMWlUVE63SMF1uQEvtgDcHM8BFMx9NuTn+W5GoGUW
-	zxa/VCMEmFThJ2F+QAVk5wZItGXWnywtiTQ==
-X-ME-Sender: <xms:8FV9Z1o58OmcY7bOpfDguii-4Dyq9EwnbKb2Rlia05Gm21v-ixVeqQ>
-    <xme:8FV9Z3pjvaGGvKkTq73WqoYzNFeC3e4iojEfGBlDjf2Lt14Wr0Q7InFJrJR-BJ2hJ
-    h1TSHm01SQFljv3v80>
-X-ME-Received: <xmr:8FV9ZyNP23xLO3nAt_k5WbX6SXsU2lnNr4fel_B8nM5WdGDi7mjgAMR7mwM>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrudegvddgkeeiucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
-    rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
-    htshculddquddttddmnegfrhhlucfvnfffucdljedtmdenucfjughrpefhvfevufffkffo
-    ggfgsedtkeertdertddtnecuhfhrohhmpefrrghtrhhitghkucghihhllhhirghmshcuoe
-    hprghtrhhitghksehsthiftgigrdighiiiqeenucggtffrrghtthgvrhhnpeevtdevgfdt
-    hfefveejudelheeghefhhfdtteetheehudeiueefhfetkeejleefteenucevlhhushhtvg
-    hrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehprghtrhhitghksehsthif
-    tgigrdighiiipdhnsggprhgtphhtthhopedutddpmhhouggvpehsmhhtphhouhhtpdhrtg
-    hpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdought
-    sehkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrd
-    horhhgpdhrtghpthhtohepjhhovghlsehjmhhsrdhiugdrrghupdhrtghpthhtoheprghn
-    ughrvgifsegtohguvggtohhnshhtrhhutghtrdgtohhmrdgruhdprhgtphhtthhopehprg
-    htrhhitghksehsthiftgigrdighiiipdhrtghpthhtohepuggvvhhitggvthhrvggvsehv
-    ghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrh
-    hnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhu
-    gidqrghsphgvvggusehlihhsthhsrdhoiihlrggsshdrohhrgh
-X-ME-Proxy: <xmx:8FV9Zw6QocUaHzH3d5RerqE4_65ciJ2PP1FhCYjR4buSwlZCzyAkrA>
-    <xmx:8FV9Z06uYnqS91cIQ4aayYyOJP4doFTlVJpORD90oeKneZUjvlY8Yg>
-    <xmx:8FV9Z4jnbJkStym_1S2pHwtjzWRHvnu6bkb9dx1K0bC8vklsDMaF3A>
-    <xmx:8FV9Z25WYP8x5t4Io_naP6_mjO72FfUC1q5B4XAo1OBZS6DlO07Klw>
-    <xmx:8FV9ZxxwKaQde-S-bbq_i_gl61gnJfILwioB6CCwFQKbwmmaL8X9x4NQ>
-Feedback-ID: i68a1478a:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 7 Jan 2025 11:27:27 -0500 (EST)
-From: Patrick Williams <patrick@stwcx.xyz>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: Patrick Williams <patrick@stwcx.xyz>,
-	devicetree@vger.kernel.org,
+	Tue, 07 Jan 2025 16:27:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=LCQNSFiJK1wVazMzeWrjqKUTHSmNi8tCis8dxNj946c=; b=SionutgcYLBpSakb3Cg5cRHkim
+	XWOzzJ1X3g+pMun4svccxMgbPUUkorGKVwtWDx62uhyEMGseNEgrbmkTtbBYXo5uxqnLGanB33K3Q
+	hgEmFJRIsqoIB3iXFpAviFuVJjABuwKqEqAAV+z6yIS7/VovlKMaIUaqoM7pZLq51pAwKaUsv0MBk
+	dAo7uosD1hzkLoHkazEkENKbbGWxgkJyAazi2pZ5EFE+aOc96t4SRZPZM806USn7Cz/TW4nKIxamj
+	Xpq2R2tA2yDHAPs35ro+jzkbz9XqhCVtLM7LtKNRcapunTPEAyh/30oTzidagYKHMspgNPYgiZMH7
+	uEcBsfVw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:48338)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tVCQa-0007kS-1Y;
+	Tue, 07 Jan 2025 16:27:36 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tVCQW-0005Qn-19;
+	Tue, 07 Jan 2025 16:27:32 +0000
+Date: Tue, 7 Jan 2025 16:27:32 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 REBASE] ARM: dts: aspeed: yosemite4: adjust secondary flash name
-Date: Tue,  7 Jan 2025 11:27:25 -0500
-Message-ID: <20250107162726.232402-1-patrick@stwcx.xyz>
-X-Mailer: git-send-email 2.44.2
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next v3 00/18] net: stmmac: clean up and fix EEE
+ implementation
+Message-ID: <Z31V9O8SATRbu2L3@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_082729_897516_5D2209E2 
-X-CRM114-Status: GOOD (  10.59  )
+X-CRM114-CacheID: sfid-20250107_082745_317521_681C737C 
+X-CRM114-Status: GOOD (  21.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,32 +84,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Meta (Facebook) has a preference for all of our secondary flash
-chips to be labelled "alt-bmc" for consistency of userspace tools
-deal with updates.  Bletchley, Harma, Minerva, and Catalina all
-follow this convention but for some reason Yosemite4 is different.
+Hi,
 
-Adjust the label in the dts to match the other platforms.
+This is a rework of stmmac's EEE support in light of the addition of EEE
+management to phylib. It's slightly more than 15 patches, but I think it
+makes sense to be so.
 
-Signed-off-by: Patrick Williams <patrick@stwcx.xyz>
----
- arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Patch 1 adds configuration of the receive clock phy_eee_rx_clock_stop()
+(which was part of another series, but is necessary for this patch set.)
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
-index ab4904cf2c0e..29f224bccd63 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
-@@ -159,7 +159,7 @@ flash@0 {
- 	flash@1 {
- 		status = "okay";
- 		m25p,fast-read;
--		label = "bmc2";
-+		label = "alt-bmc";
- 		spi-tx-bus-width = <2>;
- 		spi-rx-bus-width = <2>;
- 		spi-max-frequency = <50000000>;
+Patch 2 converts stmmac to use phylib's tracking of tx_lpi_timer.
+
+Patch 3 corrects the data type used for things involving the LPI
+timer. The user API uses u32, so stmmac should do too, rather than
+blindly converting it to "int". eee_timer is left for patch 4.
+
+Patch 4 (new) uses an unsigned int for eee_timer.
+
+Patch 5 makes stmmac EEE state depend on phylib's enable_tx_lpi flag,
+thus using phylib's resolution of EEE state.
+
+Patch 6 removes redundant code from the ethtool EEE operations.
+
+Patch 7 removes some redundant code in stmmac_disable_eee_mode()
+and renames it to stmmac_disable_sw_eee_mode() to better reflect its
+purpose.
+
+Patch 8 removes the driver private tx_lpi_enabled, which is managed by
+phylib since patch 4.
+
+Patch 9 removes the dependence of EEE error statistics on the EEE
+enable state, instead depending on whether EEE is supported by the
+hardware.
+
+Patch 10 removes phy_init_eee(), instead using phy_eee_rx_clock_stop()
+to configure whether the PHY may stop the receive clock.
+
+Patch 11 removes priv->eee_tw_timer, which is only ever set to one
+value at probe time, effectively it is a constant. Hence this is
+unnecessary complexity.
+
+Patch 12 moves priv->eee_enabled into stmmac_eee_init(), and placing
+it under the protection of priv->lock, except when EEE is not
+supported (where it becomes constant-false.)
+
+Patch 13 moves priv->eee_active also into stmmac_eee_init(), so
+the indication whether EEE should be enabled or not is passed in
+to this function.
+
+Since both priv->eee_enabled and priv->eee_active are assigned
+true/false values, they should be typed "bool". Make it sew in
+patch 14. No Singer machine required.
+
+Patch 15 moves the initialisation of priv->eee_ctrl_timer to the
+probe function - it makes no sense to re-initialise the timer each
+time we want to start using it.
+
+Patch 16 removes the unnecessary EEE handling in the driver tear-down
+method. The core net code will have brought the interface down
+already, meaning EEE has already been disabled.
+
+Patch 17 reorganises the code to split the hardware LPI timer
+control paths from the software LPI timer paths.
+
+Patch 18 works on this further by eliminating
+stmmac_lpi_entry_timer_config() and making direct calls to the new
+functions. This reveals a potential bug where priv->eee_sw_timer_en
+is set true when EEE is disabled. This is not addressed in this
+series, but will be in a future separate patch - so that if fixing
+that causes a regression, it can be handled separately.
+
+ drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c  |   4 +-
+ drivers/net/ethernet/stmicro/stmmac/hwif.h         |   2 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h       |  10 +-
+ .../net/ethernet/stmicro/stmmac/stmmac_ethtool.c   |  25 +----
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  | 103 +++++++++++----------
+ drivers/net/phy/phy.c                              |  27 +++++-
+ include/linux/phy.h                                |   1 +
+ 7 files changed, 85 insertions(+), 87 deletions(-)
+
+Changes in v3:
+- fix kerneldoc issue in old patch 12.
+- add Andrew's r-bs.
+- split eee_timer from other u32 conversions, remove check for
+  negative eee_timer.
+
 -- 
-2.44.2
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
