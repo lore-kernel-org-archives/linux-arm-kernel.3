@@ -4,159 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F4C3E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 17:41:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9FB4E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 17:42:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SD8L+p94ij/cRbnTaS398W97mnn1eUsxlqmIjapeULU=; b=BCQ1TV3S/Fehpp8H1tFGsdC9eX
-	PMFTxk2gi/T5JYOpJ+XEXbPYtgfU3MkPlz4Z+91hxxhWQVUAicn3E2ccAAPQ9IPa5nSVPDMMS9YVf
-	X06FBvxERGpnSG5pC+lL/Lq+RNm0LEtxpMxHQaOzzLjJcaRWwz2IXFZV4K6u0xCoi+vJK6REx1por
-	eudMIq4WK5nVApkrYbyaEPnXZq0+MVQz/16reMR+u7MYwYSe3emb9Gjy0h3last/IReFJ1U+EBVrq
-	pUq1OrpKkL4jGxIehh2wFWrgHsPunu8J3w97xByISwBhIhf0JWhxRaip263q/A9OFwVw5tpzeOCuP
-	MurSWABg==;
+	bh=dohsdzN02KhA5S245x+4KWZtTQtJdpx1jvO/l6ArgiE=; b=Q+8ZKuMfuCODRsu3cJZa7fmdEZ
+	qwVvZBlAS/nM83TLqEt/9XlyFEmycTrt5krrILl5Mueu5BhjcFEDQCkXXqCBK6hpc/UbyjvANZTob
+	WHLsbvEExb3HXhirJ8IUV05f5wjOnEoBuk4rO1xlrxKlBJz+yKDv8MFd9EqWvm2qtsj5Q/i/5Wqx5
+	L9n8vjZYNPzcmykCSWf2Qfxoj+UgLEAex6BeK+CDrr90ptZTqwsilh1B2E15EZzs2HwbWBUShTwtL
+	gA9Cxlk16bZM0z7Emi12R5edfqlL19NnTvHcrCJ5GA4GEPhx1dpItGHVAQy2zisUrd2xCdse7HeeM
+	wI6HMHVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVDZn-00000005tYp-1pN2;
-	Tue, 07 Jan 2025 17:41:11 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tVDay-00000005tgs-0DKx;
+	Tue, 07 Jan 2025 17:42:24 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVD76-00000005mVe-2HUu
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 07 Jan 2025 17:11:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=SD8L+p94ij/cRbnTaS398W97mnn1eUsxlqmIjapeULU=; b=js/Zm1JKbPuHIJeuXYy1CJ18zo
-	wRATGV1YUWdVlhF2dQJSHlmn/zKHcyiMfA3x/KvZxRI0m0uW0NyC92wP697gcayAsJ4zqP1B5+ZV6
-	JVhGUdWG5mhPXDcdClb9ZgFQ7uJGiIsd7LgJL8+oW6c3n51m7Gyf/IwRNyGLJ8nmXuPi+yqyemAWl
-	QiiaoWmDKMp5Qpba/eLRvPIAtk6yU5ury+dRu/+DGczha14u2PZoHVK0wUL6eWTqsXy/fwcRbpVON
-	YfZqKJaJvUaGyR03rRIfLo7YDdC3cSY+tXDEMqTsdmjwHCRwbkDZ1GHYii3I+w7JQVFshlLGcNnC4
-	JvqOJ7/A==;
-Received: from mail-bn8nam12on20607.outbound.protection.outlook.com ([2a01:111:f403:2418::607] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVD6n-00000009B2C-1UdC
+	id 1tVDE7-00000005pdF-2ndQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 17:11:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=i/d6ffaomR7UJa698u+jR5mJcZ7fNiQgvAEMJr9eRq94zYpzGUBrVCT7kt24jtvg7QY1uirAGVkg+RXHzwZHSdC4A19bEwJv+vofulteM61eaq06RjxjKNbFDbq67PQ6WY79POdijDvcDz0yOic2uR8E8U9Nmkx96zsZKnDEU6ssNapztLklPsYrz7jP+qfgtOCMC6mnUyrwlYM1OK+VCsOom+EUq3gv0NJj9F2O1e1aAhbrwQIAOrntS0gK0lpu44sBQZIfTlNfpk62y1GyY9HiQyjTV/CnUQ09oI8QTuPIueq7FL18TUt79nbKBiz25pMjF3wkJMtyoYjM6zwkEA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SD8L+p94ij/cRbnTaS398W97mnn1eUsxlqmIjapeULU=;
- b=es2q/AX1h9GpkiTXfCk7PA8WHsFPGwf9NwoTeFnp+STsSXkwEZtu/k5TdeY942zFgKW2inXcYM9NGa2YaKwMHd9cKyU56SIFDmCmimwI9+DxLBiGDz5MEFVVZX57tkZM+o6+WjPnaddrQEq1XiGmXoijyMjC9zP0m9jSzESGGMpgGa7Qu9CqRFv6xTSW4N+FzAPUS7AOWmqViq5hIXXUxF6SUZDNHLuq+eJfMOFztA5bs8hPVEMS3VNBg1WBVmlcNTfXqSsgIooMqANiN9jqu1iDW4FyR5U7toEiRrQJfKMVH/EARTkPuUIaJtkBn/gV+eqgmfNSz/il1FoEkOO9fA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=redhat.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SD8L+p94ij/cRbnTaS398W97mnn1eUsxlqmIjapeULU=;
- b=C4OyfDcd9cSPN4TuQ/iYUXnfQl+Zmtxlk/VYsRR6xqyqgCE0774B/XH4ASPjfAxDw6RhY4dukZKs72PHhBw7EOKf0i5xtZLtHoa7J6n0jUFRaHBhNaKrTeBzasnKRyWODDQ3nCb3N/XjaD7Q+/gbc0J13abFb/uAcyb7daoCBCcJ8tEGJGxfy8nqLb9mNYFB7xJIOZVMJ9vw+pTl/vD79QzLThVMjenKFsI5/c6TcONazt5s2icrSN+TxE9yMV9UFSemucalwwYEJZFHe3FOCFnTm0nDnW7qpXP33/NskpekISN0CkcYget/gpi1PFL7zdDaljf0UGptQySIJ2/kKg==
-Received: from SA9PR13CA0123.namprd13.prod.outlook.com (2603:10b6:806:27::8)
- by PH7PR12MB6443.namprd12.prod.outlook.com (2603:10b6:510:1f9::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8314.17; Tue, 7 Jan
- 2025 17:10:59 +0000
-Received: from SA2PEPF00003F68.namprd04.prod.outlook.com
- (2603:10b6:806:27:cafe::84) by SA9PR13CA0123.outlook.office365.com
- (2603:10b6:806:27::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8335.10 via Frontend Transport; Tue,
- 7 Jan 2025 17:10:59 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- SA2PEPF00003F68.mail.protection.outlook.com (10.167.248.43) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8335.7 via Frontend Transport; Tue, 7 Jan 2025 17:10:58 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 7 Jan 2025
- 09:10:42 -0800
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 7 Jan 2025
- 09:10:42 -0800
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.9) by mail.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
- Transport; Tue, 7 Jan 2025 09:10:39 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <jgg@nvidia.com>, <kevin.tian@intel.com>, <corbet@lwn.net>,
-	<will@kernel.org>
-CC: <joro@8bytes.org>, <suravee.suthikulpanit@amd.com>,
-	<robin.murphy@arm.com>, <dwmw2@infradead.org>, <baolu.lu@linux.intel.com>,
-	<shuah@kernel.org>, <linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, <eric.auger@redhat.com>,
-	<jean-philippe@linaro.org>, <mdf@kernel.org>, <mshavit@google.com>,
-	<shameerali.kolothum.thodi@huawei.com>, <smostafa@google.com>,
-	<ddutile@redhat.com>, <yi.l.liu@intel.com>, <patches@lists.linux.dev>
-Subject: [PATCH v5 06/14] iommufd: Add IOMMUFD_OBJ_VEVENTQ and IOMMUFD_CMD_VEVENTQ_ALLOC
-Date: Tue, 7 Jan 2025 09:10:09 -0800
-Message-ID: <86e78625c48d0c8fb815496dbc57708b98a46ec7.1736237481.git.nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1736237481.git.nicolinc@nvidia.com>
-References: <cover.1736237481.git.nicolinc@nvidia.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF00003F68:EE_|PH7PR12MB6443:EE_
-X-MS-Office365-Filtering-Correlation-Id: 365e6b84-5a7f-423e-694b-08dd2f3e4180
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|7416014|1800799024|376014|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?gYmXyEFC4JBly8RZeHijW4iB2cZeMGxjz1hQsFiG5hkwXcSMtIDwqttJ+8EV?=
- =?us-ascii?Q?k4LRb5c34vdpWda5PAtG6vrK6d3D6zE44X1PvcQAK01fkjoQBMOpzspvsHUx?=
- =?us-ascii?Q?pjmPFFYw0SDrCifj/u7y2pWVLB3Tp4hBC8/za637Y7bjngqEOw7nCYRIX45X?=
- =?us-ascii?Q?S++Owgk/QNX3NzvvnoqNfaSIvpj2f8kc2nEwYeZ9p8WfFkg3pLoxQ++SdwwA?=
- =?us-ascii?Q?J1tWL2ikZ8DViW1YhZIi4SQ5ei4Xz77mIruLxyMKvfwo4gHGRULuMIDu2+Lc?=
- =?us-ascii?Q?HN0DMJ+2vBR02/G25qOMT/y8X0yLps8A6bDfN+9FqltqBvxyyiVca940NGH5?=
- =?us-ascii?Q?C1+P2IZSlpJpsCLQ+Gdjvbxfj8OvTtTeTtFiaaXhHVETmJHDzETEnjtky2Lm?=
- =?us-ascii?Q?EH+0ngMdpSRrQbtMzvtPZUPWTtGhNjV5pVxS5XDPLi2xiQMGJpARSVcfWUCz?=
- =?us-ascii?Q?YgkOiwYNMj9WtoxzZ49gkfpNiyDkvvPdgsqfTgq9v3ksklUptq4Qk5YTjGBN?=
- =?us-ascii?Q?ZWGdRzEJvo65KtiAaVLiLxQ0mBwUhgQ6MepMGMlMb5w5aNS4TpKGZM/AKRn/?=
- =?us-ascii?Q?xJJYE6U580h/u57UPz7yp+SQ/UWZmlSs/Pe8SAmUMbjtl8GUnTFSa1oegbf5?=
- =?us-ascii?Q?AadWQjB0Cer+bYqsExStpJXSBfHXqvkRCg0RbtzK/n/UrvdsE8LDr9dAh89i?=
- =?us-ascii?Q?rIO2EZJBfc3PtYodYMbyMXAMhjdbi7UcEafFQj4QUXAF2+UIttK56r7vuFTV?=
- =?us-ascii?Q?fs286P5qMX9QiMuIU+RPt3xhcDpQJaZd7mO51dNDgC7pzgry22ARavQQmF7S?=
- =?us-ascii?Q?A79l+bMU4lwRRAjp1muEe9OYP1AqZCKDZk8uHJqrF/UQAVR4uHI0klTkkvSu?=
- =?us-ascii?Q?BmwUAI/otdlDUGPURBBhsg1UHEiBUatzyXjKqVhyCeCeLT9e6LGa3Wh8Opfb?=
- =?us-ascii?Q?YNsDQ5qvkVHkjryK3ZGjpchjMn/w7L9OA/f4mXmomjIaDF4NWRt4rMfXpNLR?=
- =?us-ascii?Q?FTiraOcLTACzbnbVChSp8T7rrZxiCaj7ZEPWaf/Px6KySzYTqTSeoYEatbGR?=
- =?us-ascii?Q?HHYA6h9Rb7xFzHtMTrGQrRIMI4weKGkr3jv019zftzREJHBC+b88cKL45edp?=
- =?us-ascii?Q?gYBBUgs1J0IfV3IaonYnHAXnoCTG4UV6nPEYliJWP4784ghQOyHLPJhsztDt?=
- =?us-ascii?Q?S7YAKiWRXyvlT1b+QOXAK6qukS8uUU6K96zkkY5/xieaOr6CeGyep0Q9cT+g?=
- =?us-ascii?Q?pjktTvVBQbycVXtDcHVg57KHEfft1ceG9e3v4da899MpJNNlirKGpuNkgN5T?=
- =?us-ascii?Q?WgCBnMwUBWpvgLzyMlviWRmRQryb99MbyalFbMpCm6i092cGhj5dEeIJWOzW?=
- =?us-ascii?Q?vrJQn/kpiFRIv8Jneq8SfKizVRNn18E//lZMlJWDbMZOWdIJAbFb7AmPcSP6?=
- =?us-ascii?Q?vMTuCbegW/nN8EgFv0BcVSD6+38g5Os79Jse1nISiQSPx52Lo3gnE50bxQQ4?=
- =?us-ascii?Q?tqX/PrKdlIUUndQ=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(7416014)(1800799024)(376014)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jan 2025 17:10:58.8328
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 365e6b84-5a7f-423e-694b-08dd2f3e4180
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003F68.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB6443
+	Tue, 07 Jan 2025 17:18:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0A8F7A41ABB;
+	Tue,  7 Jan 2025 17:16:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6434FC4CED6;
+	Tue,  7 Jan 2025 17:18:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736270326;
+	bh=rcX8ixVRnBXLhZk41AKtcgO9a3ngIO7uwqWcHOz69Ec=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=L53kt8aDnVLWtXngveoCegXYkz8KwTsfho0anKyXn8H3mB+sEgDsL5AOHQ/5rngHJ
+	 fpm9F9JEgkeVS9/TfO0l5ruUCk1yRfDojpy0KzIjv+hpMsm+CC8NGEQ1EjBZYbE/WQ
+	 Q97epwwpsnjSkyXfqpgU5BDiKEautbJc1tj0owzrTIaKxH1Nap7llXGBoYWw2YPRmo
+	 WAx7epIVRbQ3W2o+2cyELw+5un0UB7WT2m0U6GmX9nYtgP/YNgqZIEAdCrtFE9ZJxK
+	 bEbKq2qUm+vt96mqwPGECVJOcQ5cr9/zvTWqAIh/IWLz0QTlPqgHgaFaa9z1OwvWqR
+	 yhXT6xVJkoJWw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tVDE4-009sW7-1R;
+	Tue, 07 Jan 2025 17:18:44 +0000
+Date: Tue, 07 Jan 2025 17:18:43 +0000
+Message-ID: <86zfk2wnik.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	kernel-team@android.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v4 0/9] arm64: Support 2024 dpISA extensions
+In-Reply-To: <173626298431.2741856.11908646584681839796.b4-ty@kernel.org>
+References: <20241211-arm64-2024-dpisa-v4-0-0fd403876df2@kernel.org>
+	<173626298431.2741856.11908646584681839796.b4-ty@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: will@kernel.org, catalin.marinas@arm.com, corbet@lwn.net, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, shuah@kernel.org, broonie@kernel.org, kernel-team@android.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_171113_942127_ABDE8BAD 
-X-CRM114-Status: GOOD (  19.12  )
+X-CRM114-CacheID: sfid-20250107_091847_834272_76863F9B 
+X-CRM114-Status: GOOD (  18.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,383 +95,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce a new IOMMUFD_OBJ_VEVENTQ object for vIOMMU Event Queue that
-provides user space (VMM) another FD to read the vIOMMU Events.
+On Tue, 07 Jan 2025 16:42:38 +0000,
+Will Deacon <will@kernel.org> wrote:
+> 
+> On Wed, 11 Dec 2024 01:02:45 +0000, Mark Brown wrote:
+> > The 2024 architecture release includes a number of data processing
+> > extensions, mostly SVE and SME additions with a few others.  These are
+> > all very straightforward extensions which add instructions but no
+> > architectural state so only need hwcaps and exposing of the ID registers
+> > to KVM guests and userspace.
+> > 
+> > 
+> > [...]
+> 
+> For the sysreg definitions that Marc's fantastic script is happy with,
+> applied to arm64 (for-next/cpufeature), thanks!
+> 
+> [1/9] arm64/sysreg: Update ID_AA64PFR2_EL1 to DDI0601 2024-09
+>       https://git.kernel.org/arm64/c/1ad9a56442a0
+> [2/9] arm64/sysreg: Update ID_AA64ISAR3_EL1 to DDI0601 2024-09
+>       https://git.kernel.org/arm64/c/054339beae58
+> [3/9] arm64/sysreg: Update ID_AA64FPFR0_EL1 to DDI0601 2024-09
+>       https://git.kernel.org/arm64/c/12b5ff517a19
+> [4/9] arm64/sysreg: Update ID_AA64ZFR0_EL1 to DDI0601 2024-09
+>       https://git.kernel.org/arm64/c/9a43ee864349
+> 
+> [6/9] arm64/sysreg: Update ID_AA64ISAR2_EL1 to DDI0601 2024-09
+>       https://git.kernel.org/arm64/c/d66e21d59ed0
+> 
+> The KVM patch needs an Ack from the maintainers and the hwcap change
+> probably needs checking in light of [1].
 
-Allow a vIOMMU object to allocate vEVENTQs, with a condition that each
-vIOMMU can only have one single vEVENTQ per type.
+I've now acked the KVM patch in case you want to take it, or I can add
+it to the KVM queue, since I already have a merge of the cpufeature
+branch.
 
-Add iommufd_veventq_alloc() with iommufd_veventq_ops for the new ioctl.
+Thanks,
 
-And add a supports_veventq viommu op for drivers to help the core code
-validate the input vEVENTQ type.
+	M.
 
-Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
----
- drivers/iommu/iommufd/iommufd_private.h |  58 ++++++++++
- include/linux/iommufd.h                 |   5 +
- include/uapi/linux/iommufd.h            |  31 ++++++
- drivers/iommu/iommufd/eventq.c          | 134 ++++++++++++++++++++++++
- drivers/iommu/iommufd/main.c            |   7 ++
- drivers/iommu/iommufd/viommu.c          |   2 +
- 6 files changed, 237 insertions(+)
-
-diff --git a/drivers/iommu/iommufd/iommufd_private.h b/drivers/iommu/iommufd/iommufd_private.h
-index dfbc5cfbd164..3c0374154a94 100644
---- a/drivers/iommu/iommufd/iommufd_private.h
-+++ b/drivers/iommu/iommufd/iommufd_private.h
-@@ -547,6 +547,50 @@ static inline int iommufd_hwpt_replace_device(struct iommufd_device *idev,
- 	return iommu_group_replace_domain(idev->igroup->group, hwpt->domain);
- }
- 
-+/*
-+ * An iommufd_veventq object represents an interface to deliver vIOMMU events to
-+ * the user space. It is created/destroyed by the user space and associated with
-+ * vIOMMU object(s) during the allocations.
-+ */
-+struct iommufd_veventq {
-+	struct iommufd_eventq common;
-+	struct iommufd_viommu *viommu;
-+	struct list_head node; /* for iommufd_viommu::veventqs */
-+
-+	unsigned int type;
-+};
-+
-+static inline struct iommufd_veventq *
-+eventq_to_veventq(struct iommufd_eventq *eventq)
-+{
-+	return container_of(eventq, struct iommufd_veventq, common);
-+}
-+
-+static inline struct iommufd_veventq *
-+iommufd_get_veventq(struct iommufd_ucmd *ucmd, u32 id)
-+{
-+	return container_of(iommufd_get_object(ucmd->ictx, id,
-+					       IOMMUFD_OBJ_VEVENTQ),
-+			    struct iommufd_veventq, common.obj);
-+}
-+
-+int iommufd_veventq_alloc(struct iommufd_ucmd *ucmd);
-+void iommufd_veventq_destroy(struct iommufd_object *obj);
-+void iommufd_veventq_abort(struct iommufd_object *obj);
-+
-+/* An iommufd_vevent represents a vIOMMU event in an iommufd_veventq */
-+struct iommufd_vevent {
-+	struct list_head node; /* for iommufd_eventq::deliver */
-+	ssize_t data_len;
-+	u64 event_data[] __counted_by(data_len);
-+};
-+
-+static inline int iommufd_vevent_handler(struct iommufd_veventq *veventq,
-+					 struct iommufd_vevent *vevent)
-+{
-+	return iommufd_eventq_notify(&veventq->common, &vevent->node);
-+}
-+
- static inline struct iommufd_viommu *
- iommufd_get_viommu(struct iommufd_ucmd *ucmd, u32 id)
- {
-@@ -555,6 +599,20 @@ iommufd_get_viommu(struct iommufd_ucmd *ucmd, u32 id)
- 			    struct iommufd_viommu, obj);
- }
- 
-+static inline struct iommufd_veventq *
-+iommufd_viommu_find_veventq(struct iommufd_viommu *viommu, u32 type)
-+{
-+	struct iommufd_veventq *veventq, *next;
-+
-+	lockdep_assert_held(&viommu->veventqs_rwsem);
-+
-+	list_for_each_entry_safe(veventq, next, &viommu->veventqs, node) {
-+		if (veventq->type == type)
-+			return veventq;
-+	}
-+	return NULL;
-+}
-+
- int iommufd_viommu_alloc_ioctl(struct iommufd_ucmd *ucmd);
- void iommufd_viommu_destroy(struct iommufd_object *obj);
- int iommufd_vdevice_alloc_ioctl(struct iommufd_ucmd *ucmd);
-diff --git a/include/linux/iommufd.h b/include/linux/iommufd.h
-index 11110c749200..941f2ed29914 100644
---- a/include/linux/iommufd.h
-+++ b/include/linux/iommufd.h
-@@ -34,6 +34,7 @@ enum iommufd_object_type {
- 	IOMMUFD_OBJ_FAULT,
- 	IOMMUFD_OBJ_VIOMMU,
- 	IOMMUFD_OBJ_VDEVICE,
-+	IOMMUFD_OBJ_VEVENTQ,
- #ifdef CONFIG_IOMMUFD_TEST
- 	IOMMUFD_OBJ_SELFTEST,
- #endif
-@@ -93,6 +94,8 @@ struct iommufd_viommu {
- 	const struct iommufd_viommu_ops *ops;
- 
- 	struct xarray vdevs;
-+	struct list_head veventqs;
-+	struct rw_semaphore veventqs_rwsem;
- 
- 	unsigned int type;
- };
-@@ -113,6 +116,7 @@ struct iommufd_viommu {
-  *                    array->entry_num to report the number of handled requests.
-  *                    The data structure of the array entry must be defined in
-  *                    include/uapi/linux/iommufd.h
-+ * @supports_veventq: Whether the vIOMMU supports a given vEVENTQ type
-  */
- struct iommufd_viommu_ops {
- 	void (*destroy)(struct iommufd_viommu *viommu);
-@@ -121,6 +125,7 @@ struct iommufd_viommu_ops {
- 		const struct iommu_user_data *user_data);
- 	int (*cache_invalidate)(struct iommufd_viommu *viommu,
- 				struct iommu_user_data_array *array);
-+	bool (*supports_veventq)(unsigned int type);
- };
- 
- #if IS_ENABLED(CONFIG_IOMMUFD)
-diff --git a/include/uapi/linux/iommufd.h b/include/uapi/linux/iommufd.h
-index 34810f6ae2b5..0a08aa82e7cc 100644
---- a/include/uapi/linux/iommufd.h
-+++ b/include/uapi/linux/iommufd.h
-@@ -55,6 +55,7 @@ enum {
- 	IOMMUFD_CMD_VIOMMU_ALLOC = 0x90,
- 	IOMMUFD_CMD_VDEVICE_ALLOC = 0x91,
- 	IOMMUFD_CMD_IOAS_CHANGE_PROCESS = 0x92,
-+	IOMMUFD_CMD_VEVENTQ_ALLOC = 0x93,
- };
- 
- /**
-@@ -1012,4 +1013,34 @@ struct iommu_ioas_change_process {
- #define IOMMU_IOAS_CHANGE_PROCESS \
- 	_IO(IOMMUFD_TYPE, IOMMUFD_CMD_IOAS_CHANGE_PROCESS)
- 
-+/**
-+ * enum iommu_veventq_type - Virtual Event Queue Type
-+ * @IOMMU_VEVENTQ_TYPE_DEFAULT: Reserved for future use
-+ */
-+enum iommu_veventq_type {
-+	IOMMU_VEVENTQ_TYPE_DEFAULT = 0,
-+};
-+
-+/**
-+ * struct iommu_veventq_alloc - ioctl(IOMMU_VEVENTQ_ALLOC)
-+ * @size: sizeof(struct iommu_veventq_alloc)
-+ * @flags: Must be 0
-+ * @viommu: virtual IOMMU ID to associate the vEVENTQ with
-+ * @type: Type of the vEVENTQ. Must be defined in enum iommu_veventq_type
-+ * @out_veventq_id: The ID of the new vEVENTQ
-+ * @out_veventq_fd: The fd of the new vEVENTQ. User space must close the
-+ *                  successfully returned fd after using it
-+ *
-+ * Explicitly allocate a virtual event queue interface for a vIOMMU. A vIOMMU
-+ * can have multiple FDs for different types, but is confined to one per @type.
-+ */
-+struct iommu_veventq_alloc {
-+	__u32 size;
-+	__u32 flags;
-+	__u32 viommu_id;
-+	__u32 type;
-+	__u32 out_veventq_id;
-+	__u32 out_veventq_fd;
-+};
-+#define IOMMU_VEVENTQ_ALLOC _IO(IOMMUFD_TYPE, IOMMUFD_CMD_VEVENTQ_ALLOC)
- #endif
-diff --git a/drivers/iommu/iommufd/eventq.c b/drivers/iommu/iommufd/eventq.c
-index e386b6c3e6ab..b5be629f38ed 100644
---- a/drivers/iommu/iommufd/eventq.c
-+++ b/drivers/iommu/iommufd/eventq.c
-@@ -346,6 +346,73 @@ static const struct iommufd_eventq_ops iommufd_fault_ops = {
- 	.write = &iommufd_fault_fops_write,
- };
- 
-+/* IOMMUFD_OBJ_VEVENTQ Functions */
-+
-+void iommufd_veventq_abort(struct iommufd_object *obj)
-+{
-+	struct iommufd_eventq *eventq =
-+		container_of(obj, struct iommufd_eventq, obj);
-+	struct iommufd_veventq *veventq = eventq_to_veventq(eventq);
-+	struct iommufd_viommu *viommu = veventq->viommu;
-+	struct iommufd_vevent *cur, *next;
-+
-+	lockdep_assert_held_write(&viommu->veventqs_rwsem);
-+
-+	list_for_each_entry_safe(cur, next, &eventq->deliver, node) {
-+		list_del(&cur->node);
-+		kfree(cur);
-+	}
-+
-+	refcount_dec(&viommu->obj.users);
-+	mutex_destroy(&eventq->mutex);
-+	list_del(&veventq->node);
-+}
-+
-+void iommufd_veventq_destroy(struct iommufd_object *obj)
-+{
-+	struct iommufd_veventq *veventq = eventq_to_veventq(
-+		container_of(obj, struct iommufd_eventq, obj));
-+
-+	down_write(&veventq->viommu->veventqs_rwsem);
-+	iommufd_veventq_abort(obj);
-+	up_write(&veventq->viommu->veventqs_rwsem);
-+}
-+
-+static ssize_t iommufd_veventq_fops_read(struct iommufd_eventq *eventq,
-+					 char __user *buf, size_t count,
-+					 loff_t *ppos)
-+{
-+	size_t done = 0;
-+	int rc = 0;
-+
-+	if (*ppos)
-+		return -ESPIPE;
-+
-+	mutex_lock(&eventq->mutex);
-+	while (!list_empty(&eventq->deliver) && count > done) {
-+		struct iommufd_vevent *cur = list_first_entry(
-+			&eventq->deliver, struct iommufd_vevent, node);
-+
-+		if (cur->data_len > count - done)
-+			break;
-+
-+		if (copy_to_user(buf + done, cur->event_data, cur->data_len)) {
-+			rc = -EFAULT;
-+			break;
-+		}
-+		done += cur->data_len;
-+		list_del(&cur->node);
-+		kfree(cur);
-+	}
-+	mutex_unlock(&eventq->mutex);
-+
-+	return done == 0 ? rc : done;
-+}
-+
-+static const struct iommufd_eventq_ops iommufd_veventq_ops = {
-+	.read = &iommufd_veventq_fops_read,
-+};
-+
- /* Common Event Queue Functions */
- 
- static ssize_t iommufd_eventq_fops_read(struct file *filep, char __user *buf,
-@@ -473,3 +540,70 @@ int iommufd_fault_alloc(struct iommufd_ucmd *ucmd)
- 
- 	return rc;
- }
-+
-+int iommufd_veventq_alloc(struct iommufd_ucmd *ucmd)
-+{
-+	struct iommu_veventq_alloc *cmd = ucmd->cmd;
-+	struct iommufd_veventq *veventq;
-+	struct iommufd_viommu *viommu;
-+	int fdno;
-+	int rc;
-+
-+	if (cmd->flags || cmd->type == IOMMU_VEVENTQ_TYPE_DEFAULT)
-+		return -EOPNOTSUPP;
-+
-+	viommu = iommufd_get_viommu(ucmd, cmd->viommu_id);
-+	if (IS_ERR(viommu))
-+		return PTR_ERR(viommu);
-+
-+	if (!viommu->ops || !viommu->ops->supports_veventq ||
-+	    !viommu->ops->supports_veventq(cmd->type))
-+		return -EOPNOTSUPP;
-+
-+	down_write(&viommu->veventqs_rwsem);
-+
-+	if (iommufd_viommu_find_veventq(viommu, cmd->type)) {
-+		rc = -EEXIST;
-+		goto out_unlock_veventqs;
-+	}
-+
-+	veventq = __iommufd_object_alloc(ucmd->ictx, veventq,
-+					 IOMMUFD_OBJ_VEVENTQ, common.obj);
-+	if (IS_ERR(veventq)) {
-+		rc = PTR_ERR(veventq);
-+		goto out_unlock_veventqs;
-+	}
-+
-+	veventq->type = cmd->type;
-+	veventq->viommu = viommu;
-+	refcount_inc(&viommu->obj.users);
-+	list_add_tail(&veventq->node, &viommu->veventqs);
-+
-+	fdno = iommufd_eventq_init(&veventq->common, "[iommufd-viommu-event]",
-+				   ucmd->ictx, &iommufd_veventq_ops);
-+	if (fdno < 0) {
-+		rc = fdno;
-+		goto out_abort;
-+	}
-+
-+	cmd->out_veventq_id = veventq->common.obj.id;
-+	cmd->out_veventq_fd = fdno;
-+
-+	rc = iommufd_ucmd_respond(ucmd, sizeof(*cmd));
-+	if (rc)
-+		goto out_put_fdno;
-+
-+	iommufd_object_finalize(ucmd->ictx, &veventq->common.obj);
-+	fd_install(fdno, veventq->common.filep);
-+	goto out_unlock_veventqs;
-+
-+out_put_fdno:
-+	put_unused_fd(fdno);
-+	fput(veventq->common.filep);
-+out_abort:
-+	iommufd_object_abort_and_destroy(ucmd->ictx, &veventq->common.obj);
-+out_unlock_veventqs:
-+	up_write(&viommu->veventqs_rwsem);
-+	iommufd_put_object(ucmd->ictx, &viommu->obj);
-+	return rc;
-+}
-diff --git a/drivers/iommu/iommufd/main.c b/drivers/iommu/iommufd/main.c
-index a11e9cfd790f..0d451601fb9a 100644
---- a/drivers/iommu/iommufd/main.c
-+++ b/drivers/iommu/iommufd/main.c
-@@ -308,6 +308,7 @@ union ucmd_buffer {
- 	struct iommu_ioas_unmap unmap;
- 	struct iommu_option option;
- 	struct iommu_vdevice_alloc vdev;
-+	struct iommu_veventq_alloc veventq;
- 	struct iommu_vfio_ioas vfio_ioas;
- 	struct iommu_viommu_alloc viommu;
- #ifdef CONFIG_IOMMUFD_TEST
-@@ -363,6 +364,8 @@ static const struct iommufd_ioctl_op iommufd_ioctl_ops[] = {
- 	IOCTL_OP(IOMMU_OPTION, iommufd_option, struct iommu_option, val64),
- 	IOCTL_OP(IOMMU_VDEVICE_ALLOC, iommufd_vdevice_alloc_ioctl,
- 		 struct iommu_vdevice_alloc, virt_id),
-+	IOCTL_OP(IOMMU_VEVENTQ_ALLOC, iommufd_veventq_alloc,
-+		 struct iommu_veventq_alloc, out_veventq_fd),
- 	IOCTL_OP(IOMMU_VFIO_IOAS, iommufd_vfio_ioas, struct iommu_vfio_ioas,
- 		 __reserved),
- 	IOCTL_OP(IOMMU_VIOMMU_ALLOC, iommufd_viommu_alloc_ioctl,
-@@ -505,6 +508,10 @@ static const struct iommufd_object_ops iommufd_object_ops[] = {
- 	[IOMMUFD_OBJ_VDEVICE] = {
- 		.destroy = iommufd_vdevice_destroy,
- 	},
-+	[IOMMUFD_OBJ_VEVENTQ] = {
-+		.destroy = iommufd_veventq_destroy,
-+		.abort = iommufd_veventq_abort,
-+	},
- 	[IOMMUFD_OBJ_VIOMMU] = {
- 		.destroy = iommufd_viommu_destroy,
- 	},
-diff --git a/drivers/iommu/iommufd/viommu.c b/drivers/iommu/iommufd/viommu.c
-index 69b88e8c7c26..01df2b985f02 100644
---- a/drivers/iommu/iommufd/viommu.c
-+++ b/drivers/iommu/iommufd/viommu.c
-@@ -59,6 +59,8 @@ int iommufd_viommu_alloc_ioctl(struct iommufd_ucmd *ucmd)
- 	viommu->ictx = ucmd->ictx;
- 	viommu->hwpt = hwpt_paging;
- 	refcount_inc(&viommu->hwpt->common.obj.users);
-+	INIT_LIST_HEAD(&viommu->veventqs);
-+	init_rwsem(&viommu->veventqs_rwsem);
- 	/*
- 	 * It is the most likely case that a physical IOMMU is unpluggable. A
- 	 * pluggable IOMMU instance (if exists) is responsible for refcounting
 -- 
-2.43.0
-
+Without deviation from the norm, progress is not possible.
 
