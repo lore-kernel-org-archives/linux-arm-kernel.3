@@ -4,92 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C89B2E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 10:50:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD9EBE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 10:51:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qDN/P01jWJPJ5QM/7LmOZ2v2J1xabNeKNPYeVf5XVEs=; b=HPYAOsF9ENFRiZTUihAlwxFoNQ
-	AQaKRaOVsWINbVGRG5t8q/tq+xzF0uMAAotZCJHfp/Tt2pQLvLvVf/EZGsuuhd0j3YFlPrCDc+gvq
-	wnn0QFNY/SBRflsaz4+ecKBvpuy43HxYcH/mMumOUv283VCXZlk44L7us6Gt8lp0JLIOG3He0zGbH
-	HDr69eOlvHgak62n3epOIYM8OvZPcg7YWrQsmTUH9LUfBJru+jjNCI6J063Wx0NY2VzFN32G01QuX
-	lTekMNpQJ+II2qogshAqgdt1rA0npVEvKU7oSsiS8q1aKQZzktMBbk+HdPXskrJFm8eZhu5vZayGa
-	avareffw==;
+	bh=FvZr/dVKDpLXbb03C5T6q3T96NxB6hILwFKtXlC/Ynk=; b=HieLj4RwdKLvM9OvFOpi+KScJr
+	uyCQHThcm7L+7TySv3YEVd5F070ORpPIIE8MitdV1bgjYbBtWNv/GqK7qCCgAt/a9GnDIdhViToWF
+	sc0lo2gAtc5oZRix/6VrzzRQsVePXK/LI2irz3eqEZ65VmYutD6W0BjwJUH7sFkvtOp68wZDoLQZu
+	qlGbsueKE9yUbwpfIiret6YlclEcN6wnRJj2zKs12FJxSwY2g8PfhcdPpNRVOPkN4v6vXkYMCxW4V
+	kti/YN8K5UU7stUsYhBlSCDikin3JvdJbSuDFH8xlRs4jg2IYZV7tUAuKj0I7glYz1sJpjfSp2TuN
+	6qMXg4VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV79q-00000004RTq-1KxJ;
-	Tue, 07 Jan 2025 10:49:58 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1tV7BB-00000004RsP-477N;
+	Tue, 07 Jan 2025 10:51:21 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV77x-00000004QxL-2YVj
+	id 1tV79w-00000004RWq-2bIb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 10:48:05 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 507AlgBS2632561
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 7 Jan 2025 04:47:42 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1736246862;
-	bh=qDN/P01jWJPJ5QM/7LmOZ2v2J1xabNeKNPYeVf5XVEs=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=sxz6WjWr6N23QQO76D37TFFVL+wbdeWvkfr4NLTzLILqrMlEdlszu0QlLrmhZh28A
-	 xYwSy1BZROUFbxtR1JAM3QFjhLa+6a4tGRN/N4kcRX5dYtaT4sZkKim7inl1rGH3/7
-	 gTvkx+1GaOsVhCc3ZoLLylZ4rzxMaeocPzDwBDfk=
-Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 507AlgT1080432
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 7 Jan 2025 04:47:42 -0600
-Received: from DFLE106.ent.ti.com (10.64.6.27) by DFLE105.ent.ti.com
- (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 7
- Jan 2025 04:47:41 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE106.ent.ti.com
- (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 7 Jan 2025 04:47:41 -0600
-Received: from [10.24.69.25] (danish-tpc.dhcp.ti.com [10.24.69.25])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 507AlaUH004144;
-	Tue, 7 Jan 2025 04:47:36 -0600
-Message-ID: <31a45fb4-acb6-4eb6-9ffb-ff1be798a064@ti.com>
-Date: Tue, 7 Jan 2025 16:17:35 +0530
+	Tue, 07 Jan 2025 10:50:09 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-385d7f19f20so6778341f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 02:50:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1736247002; x=1736851802; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=FvZr/dVKDpLXbb03C5T6q3T96NxB6hILwFKtXlC/Ynk=;
+        b=EdGlaWQ71lII6DbnnGosVt7UikVa7i35D6hMDGjmvEmI/st+VsD/O1CUHXwR3o1HTd
+         7r2fHSDbDqN90VfqjSovGdnHPo8cZeG7KP4XKS/n7CJ0lTchVwB4N9OHbJyJveFO+nRH
+         RCur7g8+F9JjUaWvg4Vo7psrdzI0tbPeUX0W03suW9FYj4SpI8FmSrrAmHYh4wA5rsZ5
+         IY7u/qReR13AizjbgXEQ4f8hyGOFJ884PEePINYZx0PSV38w0K4nwfWgavqeEEXyg3Ic
+         shhs8XYlAdXEaxgDP0frybbLbySXdrpJPB40dpkZKKpJgNu6auRtB+UlYTug5vQohCiP
+         zGHQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736247002; x=1736851802;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=FvZr/dVKDpLXbb03C5T6q3T96NxB6hILwFKtXlC/Ynk=;
+        b=LnhvnBoMrRJJTcLIs0SwmyGWEDUXDSRwPyLyxc8oWDyByiJixLRfZZScvyX+Hq0TIc
+         EpKoenW+91lkWL82wNjSjjtKlSeG7XMbhj2PTGflLnTHMJ8xSwrqcQbcaTVBLwrjds99
+         gpH/c9TXvsBsJ8mMvJLmkC8+oK4LzWedWjCStmdzT3LAaNTMpGmfvRj1f2xc0FxudIke
+         tN2JqIEZlV13mWjBeNx2lEgPMFyl5eElhV75VQ5/gYA7vcfxw4IHkcn42hnyFgBEq8le
+         Kmd0hTCWSbtkpgBwejAVMI5lZHgzxmErL8qqMBWVlQMoDRJekGutsgvTvDiTpHXUpn1h
+         iQ6g==
+X-Forwarded-Encrypted: i=1; AJvYcCUH+XVsyROr+eKipuE93Xo2g7Powhqmpfqj+BRUB9UoNuxzgeyA5YgUOz0U/FgkW0l4tXiR56UQxAppZMUednBm@lists.infradead.org
+X-Gm-Message-State: AOJu0YzkVS5XMpG4ipQPBKk+p1kmZM9U6mm4MNNb0Ir6Zj6AYZOO8S20
+	+Fl7KEMLdZIKZINfibto5IPSgxbY43E/uVH6YvdVCfSZnYvRj882YcALa/9JTJ0=
+X-Gm-Gg: ASbGncsKxe37yH8yS/DQYX1mw9x/nrrm+SXu01PB1URwHozbr8ewqWiVgL9KR5qS2sS
+	RPTjQYyqbdqiQo2lkUFWL5jeaRsYVb0ZOy3ZKHyvL39FsIcoxihxV3CdPAbb74L8bZuD/cSxy51
+	ZTa7Oo6a+C/qZv31YOtKDwNsdgUeuyu/BgBB7vT3WXZKkOB5PyRNrtSbYyhYdGmd9b38uSSBPUc
+	mKgciFUs98zMqvISriFOWy8uIms76/LW1mj4nulWbs1HCGFoCbgIUZwxQEB6i4R
+X-Google-Smtp-Source: AGHT+IFWWsclrAudf9l2fMtvDlof68qSNuL9I0XDi2SzEiGNLoR/MT68Eprzp2TyquFNjFKf6bXUlQ==
+X-Received: by 2002:a5d:5885:0:b0:385:ef8e:a641 with SMTP id ffacd0b85a97d-38a221ffb82mr55164693f8f.28.1736247002474;
+        Tue, 07 Jan 2025 02:50:02 -0800 (PST)
+Received: from [192.168.0.14] ([188.26.61.92])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43656b119d7sm626870095e9.20.2025.01.07.02.50.00
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 07 Jan 2025 02:50:02 -0800 (PST)
+Message-ID: <366ab35f-b881-4694-9d36-573f9922175d@linaro.org>
+Date: Tue, 7 Jan 2025 10:50:00 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3 2/3] net: ti: icssg-prueth: Add Multicast
- Filtering support for VLAN in MAC mode
-To: Paolo Abeni <pabeni@redhat.com>, Jeongjun Park <aha310510@gmail.com>,
-        Alexander Lobakin <aleksander.lobakin@intel.com>,
-        Lukasz Majewski
-	<lukma@denx.de>, Meghana Malladi <m-malladi@ti.com>,
-        Diogo Ivo
-	<diogo.ivo@siemens.com>, Simon Horman <horms@kernel.org>,
-        Jakub Kicinski
-	<kuba@kernel.org>, Eric Dumazet <edumazet@google.com>,
-        "David S. Miller"
-	<davem@davemloft.net>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        Roger Quadros
-	<rogerq@kernel.org>
-CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>,
-        Michal Swiatkowski <michal.swiatkowski@linux.intel.com>,
-        Larysa Zaremba <larysa.zaremba@intel.com>
-References: <20250103092033.1533374-1-danishanwar@ti.com>
- <20250103092033.1533374-3-danishanwar@ti.com>
- <133b8da8-a2da-4bac-b0bb-7dcaebc219b9@redhat.com>
+Subject: Re: [PATCH v5 2/3] firmware: add Exynos ACPM protocol driver
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Jassi Brar <jassisinghbrar@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ andre.draszik@linaro.org, kernel-team@android.com, willmcvicker@google.com,
+ peter.griffin@linaro.org, daniel.lezcano@linaro.org,
+ vincent.guittot@linaro.org, ulf.hansson@linaro.org, arnd@arndb.de
+References: <20241220-gs101-acpm-v5-0-4f26b7fb3f5f@linaro.org>
+ <20241220-gs101-acpm-v5-2-4f26b7fb3f5f@linaro.org>
+ <8e6bade0-5184-4bf7-b1f0-103a77d0f98b@kernel.org>
+ <060c7a96-c1ed-4c97-8a3f-f510102466f9@linaro.org>
+ <24963d4d-9d53-4d07-a756-3eb1fc50c3dc@linaro.org>
+ <d41fd615-2e6a-4cfb-90c9-fc0122ea992f@linaro.org>
 Content-Language: en-US
-From: MD Danish Anwar <danishanwar@ti.com>
-In-Reply-To: <133b8da8-a2da-4bac-b0bb-7dcaebc219b9@redhat.com>
-Content-Type: text/plain; charset="UTF-8"
+In-Reply-To: <d41fd615-2e6a-4cfb-90c9-fc0122ea992f@linaro.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_024801_818860_81E5572D 
-X-CRM114-Status: GOOD (  27.45  )
+X-CRM114-CacheID: sfid-20250107_025004_671182_FCF32B17 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,180 +109,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Paolo,
 
-On 07/01/25 3:12 pm, Paolo Abeni wrote:
-> On 1/3/25 10:20 AM, MD Danish Anwar wrote:
->> Add multicast filtering support for VLAN interfaces in dual EMAC mode
->> for ICSSG driver.
->>
->> The driver uses vlan_for_each() API to get the list of available
->> vlans. The driver then sync mc addr of vlan interface with a locally
->> mainatined list emac->vlan_mcast_list[vid] using __hw_addr_sync_multiple()
->> API.
->>
->> The driver then calls the sync / unsync callbacks and based on whether
->> the ndev is vlan or not, driver passes appropriate vid to FDB helper
->> functions.
->>
->> This commit also exports __hw_addr_sync_multiple() in order to use it
->> from the ICSSG driver.
->>
->> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
->> ---
->>  drivers/net/ethernet/ti/icssg/icssg_prueth.c | 67 ++++++++++++++++----
->>  drivers/net/ethernet/ti/icssg/icssg_prueth.h |  6 ++
->>  include/linux/netdevice.h                    |  3 +
->>  net/core/dev_addr_lists.c                    |  7 +-
->>  4 files changed, 66 insertions(+), 17 deletions(-)
->>
->> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
->> index 1663941e59e3..ed8b5a3184d6 100644
->> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
->> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
->> @@ -472,30 +472,44 @@ const struct icss_iep_clockops prueth_iep_clockops = {
->>  
->>  static int icssg_prueth_add_mcast(struct net_device *ndev, const u8 *addr)
->>  {
->> -	struct prueth_emac *emac = netdev_priv(ndev);
->> -	int port_mask = BIT(emac->port_id);
->> +	struct net_device *real_dev;
->> +	struct prueth_emac *emac;
->> +	int port_mask;
->> +	u8 vlan_id;
->>  
->> -	port_mask |= icssg_fdb_lookup(emac, addr, 0);
->> -	icssg_fdb_add_del(emac, addr, 0, port_mask, true);
->> -	icssg_vtbl_modify(emac, 0, port_mask, port_mask, true);
->> +	vlan_id = is_vlan_dev(ndev) ? vlan_dev_vlan_id(ndev) : PRUETH_DFLT_VLAN_MAC;
->> +	real_dev = is_vlan_dev(ndev) ? vlan_dev_real_dev(ndev) : ndev;
->> +	emac = netdev_priv(real_dev);
->> +
->> +	port_mask = BIT(emac->port_id) | icssg_fdb_lookup(emac, addr, vlan_id);
->> +	icssg_fdb_add_del(emac, addr, vlan_id, port_mask, true);
->> +	icssg_vtbl_modify(emac, vlan_id, port_mask, port_mask, true);
->>  
->>  	return 0;
->>  }
->>  
->>  static int icssg_prueth_del_mcast(struct net_device *ndev, const u8 *addr)
->>  {
->> -	struct prueth_emac *emac = netdev_priv(ndev);
->> -	int port_mask = BIT(emac->port_id);
->> +	struct net_device *real_dev;
->> +	struct prueth_emac *emac;
->>  	int other_port_mask;
->> +	int port_mask;
->> +	u8 vlan_id;
->> +
->> +	vlan_id = is_vlan_dev(ndev) ? vlan_dev_vlan_id(ndev) : PRUETH_DFLT_VLAN_MAC;
->> +	real_dev = is_vlan_dev(ndev) ? vlan_dev_real_dev(ndev) : ndev;
->> +	emac = netdev_priv(real_dev);
->>  
->> -	other_port_mask = port_mask ^ icssg_fdb_lookup(emac, addr, 0);
->> +	port_mask = BIT(emac->port_id);
->> +	other_port_mask = port_mask ^ icssg_fdb_lookup(emac, addr, vlan_id);
->>  
->> -	icssg_fdb_add_del(emac, addr, 0, port_mask, false);
->> -	icssg_vtbl_modify(emac, 0, port_mask, port_mask, false);
->> +	icssg_fdb_add_del(emac, addr, vlan_id, port_mask, false);
->> +	icssg_vtbl_modify(emac, vlan_id, port_mask, port_mask, false);
->>  
->>  	if (other_port_mask) {
->> -		icssg_fdb_add_del(emac, addr, 0, other_port_mask, true);
->> -		icssg_vtbl_modify(emac, 0, other_port_mask, other_port_mask, true);
->> +		icssg_fdb_add_del(emac, addr, vlan_id, other_port_mask, true);
->> +		icssg_vtbl_modify(emac, vlan_id, other_port_mask,
->> +				  other_port_mask, true);
->>  	}
->>  
->>  	return 0;
->> @@ -531,6 +545,25 @@ static int icssg_prueth_hsr_del_mcast(struct net_device *ndev, const u8 *addr)
->>  	return 0;
->>  }
->>  
->> +static int icssg_update_vlan_mcast(struct net_device *vdev, int vid,
->> +				   void *args)
->> +{
->> +	struct prueth_emac *emac = args;
->> +
->> +	if (!vdev || !vid)
->> +		return 0;
->> +
->> +	netif_addr_lock_bh(vdev);
->> +	__hw_addr_sync_multiple(&emac->vlan_mcast_list[vid], &vdev->mc,
->> +				vdev->addr_len);
->> +	netif_addr_unlock_bh(vdev);
-> 
-> At this point, isn't emac->vlan_mcast_list[vid] == vdev->mc?
-> 
->> +
->> +	__hw_addr_sync_dev(&emac->vlan_mcast_list[vid], vdev,
->> +			   icssg_prueth_add_mcast, icssg_prueth_del_mcast);
-> 
-> If so, can this function be reduced to just:
-> 
-> 	__dev_mc_sync(vdev, icssg_prueth_add_mcast, icssg_prueth_del_mcast);
-> 
-> ?
-> 
 
-I don't know but for some reason __dev_mc_sync() doesn't work here. My
-initial approach was to use __dev_mc_sync(vdev, sync, unsync) however it
-didn't work.
+On 1/6/25 10:20 AM, Tudor Ambarus wrote:
+>>>>> +static const struct acpm_handle *acpm_get_by_phandle(struct device_node *np,
+>>>>> +						     const char *property)
+>>>>> +{
+>>>>> +	struct acpm_handle *handle = NULL;
+>>>>> +	struct device_node *acpm_np;
+>>>>> +	struct acpm_info *info;
+>>>>> +
+>>>>> +	if (!np) {
+>>>>> +		pr_err("I need a device pointer\n");
+>>>>> +		return ERR_PTR(-EINVAL);
+>>>>> +	}
+>>>>> +
+>>>>> +	acpm_np = of_parse_phandle(np, property, 0);
+>>>>> +	if (!acpm_np)
+>>>>> +		return ERR_PTR(-ENODEV);
+>>>>> +
+>>>>> +	mutex_lock(&acpm_list_mutex);
+>>>>> +	list_for_each_entry(info, &acpm_list, node) {
+>>>>> +		if (acpm_np == info->dev->of_node) {
+>>>>> +			handle = &info->handle;
+>>>>> +			info->users++;
+>>>>> +			break;
+>>>>> +		}
+>>>>> +	}
+>>>>> +	mutex_unlock(&acpm_list_mutex);
+>>>>> +	of_node_put(acpm_np);
+>>>>> +
+>>>>
+>>>> You also need device links and probably try_module_get. See clk.c
+>>>> clk_hw_create_clk() or of_qcom_ice_get(). Interestingly, none of them
+>>>> perform both operations, which I think is necessary.
+>>>>
+>>>> I think you could also avoid entire list and mutex by using
+>>>> platform_get_drvdata(), see of_qcom_ice_get().
 
-When I use __dev_mc_sync() and print the vlan_id in function
-icssg_prueth_add_mcast(). It always prints vlan_id as 0 implying
-__dev_mc_sync from here never gets called. Whereas when using
-__hw_addr_sync_dev() I see the appropriate vlan_id in
-icssg_prueth_add_mcast()
+[snip, irrelevant now]
 
-Anyways, Even if I use __dev_mc_sync(), we will still need the export. I
-am exporting __hw_addr_sync_multiple() not __hw_addr_sync_dev(). The API
-being used by me `__hw_addr_sync_dev()` is already exported.
+I made my mind, I think the solution is threefold.
+1/ use kref with a release callback so that the firmware drvdata will be
+destroyed only when there are no consumers. Example:
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=1e7c57355a3bc617fc220234889e49fe722a6305
 
->> diff --git a/net/core/dev_addr_lists.c b/net/core/dev_addr_lists.c
->> index 166e404f7c03..90716bd736f3 100644
->> --- a/net/core/dev_addr_lists.c
->> +++ b/net/core/dev_addr_lists.c
->> @@ -242,9 +242,9 @@ static void __hw_addr_unsync_one(struct netdev_hw_addr_list *to_list,
->>  	__hw_addr_del_entry(from_list, ha, false, false);
->>  }
->>  
->> -static int __hw_addr_sync_multiple(struct netdev_hw_addr_list *to_list,
->> -				   struct netdev_hw_addr_list *from_list,
->> -				   int addr_len)
->> +int __hw_addr_sync_multiple(struct netdev_hw_addr_list *to_list,
->> +			    struct netdev_hw_addr_list *from_list,
->> +			    int addr_len)
->>  {
->>  	int err = 0;
->>  	struct netdev_hw_addr *ha, *tmp;
->> @@ -260,6 +260,7 @@ static int __hw_addr_sync_multiple(struct netdev_hw_addr_list *to_list,
->>  	}
->>  	return err;
->>  }
->> +EXPORT_SYMBOL(__hw_addr_sync_multiple);
-> 
-> I'm asking because this additional export looks suspect. How other
-> drivers cope with similar situation?
-> 
+2/ In get_handle() after kref_get_unless_zero() succeeds, I'll be
+calling try_module_get() for supplier. Even if kref will make sure that
+consumers will still have a valid supplier drvdata, I'd like to delete
+the supplier module when there are no consumers left.
 
-To avoid exporting I will need to use dev_mc_sync_multiple() which was
-in fact suggested by Michal Swiatkowski in [1]. However that won't work
-in this case as explained by me in the reply to Michal [2]
+3/ use device_link_add() so that when the supplier device unbinds, to
+unbind the consumer devices as well.
 
-[1]
-https://lore.kernel.org/all/Z2PLDqqrLdXhLtAF@mev-dev.igk.intel.com/#:~:text=Only%20question%2C%20why%20dev_mc_sync_multiple%20can%27t%20be%20used%20here%3F
-[2]
-https://lore.kernel.org/all/cb319ffd-ac67-42b3-9786-e8c9970086d2@ti.com/#:~:text=nice%20to%20have.%0A%3E-,I,-don%27t%20think%20that%27s
-
-> Thanks!
-> 
-> Paolo
-> 
-
--- 
-Thanks and Regards,
-Danish
+I'll implement these. Cheers,
+ta
 
