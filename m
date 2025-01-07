@@ -4,92 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DC01E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 14:11:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66771E77198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 14:12:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2rOUVlJtZ8uljbYcwOtBufLmiKSlIWfZvWmApMuUFrM=; b=EUpkCPghK7F/BwFcbUpZXK9jRq
-	3j1Y7cQzaSjHAS1tzHf6SYVn7fmt1kklWZizSjuYrX7cbrh7yBX8+4gPYL5Fa4+fOJqmwTGZqRlbt
-	1Sd+dca89OgzJbXmlBkoWpP+/evpHopq3s43mxMfzkDAdgg7TU8a44r/apbZ6zxS4uJeyqA7oqMpX
-	mE3TDM7iEKo0QC/mEjU3R7s5Xh1I8Uz/4FU9GTo34NVjMPhZ9ypkQKlyGJspUKa8MNahnf0s4DA5+
-	BwHgytHMboYaD5Ofkl64Y2+xZTzPf+0dCooiOFtYXOolFMWmv7GSbXUA1FPCcXR/FU36tdQoSTAmR
-	48k+a5mw==;
+	bh=GX+3JukbnYzy8nobXAdigQ/517cLWUzoIO8tkMTU270=; b=tbRGTEHUHOfroUmt8uIIS97y1h
+	7R5g2uYdGIRyGfCoBpTbw9jq6HWxVM+OYI5TLTfGd1jiv3fZPrdvhubPMDOsA/HQOjvNcKkObo6z4
+	Uz2HZWFH+bcMllIYjv44zpU3+7RPBPmDOs4yP3WzNovpbMCarisWcQorkYllp8ZSmWvLexEpBn/IM
+	CJFoyF+IaED8RZYDAhX8tDajocwFVspkeCyHf3ZM3OBUfugF79ROtKmahuisvHx6AZVj4qxoKIPXW
+	I/D4XlQeO/LyeNEiIpbB/5s5mG6mZq1Yp/kiRQWkHPvbxOMwaQV/Kfb60PtSwYoA41nxYLAaybR3r
+	GM6QsWfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVAIN-000000057qE-3Xqh;
-	Tue, 07 Jan 2025 14:10:59 +0000
-Received: from lelv0142.ext.ti.com ([198.47.23.249])
+	id 1tVAJY-000000058Bf-1tlT;
+	Tue, 07 Jan 2025 14:12:12 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVAA4-000000055hy-4ANJ
+	id 1tVAAQ-000000055ny-3lKz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 14:02:28 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id 507E1w6I016352;
-	Tue, 7 Jan 2025 08:01:58 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1736258518;
-	bh=2rOUVlJtZ8uljbYcwOtBufLmiKSlIWfZvWmApMuUFrM=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=T3CXUnR0gYOTdLBETqJF9pSz61jcO3F0K7B9XT+gbyJ7bGVi+MWA7BpgBYJmwC6a6
-	 oQcUUqnsgsXSu5B776R8QcSrmccqgG9bALfzl4I6C5nacV0V9BZbxFsB9gSN4Yl7bj
-	 xcZkc3+jrUzezQHy39T5+6xSQuozYDUtIU4ZLXl0=
-Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 507E1wqk054341
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 7 Jan 2025 08:01:58 -0600
-Received: from DFLE105.ent.ti.com (10.64.6.26) by DFLE105.ent.ti.com
- (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 7
- Jan 2025 08:01:57 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE105.ent.ti.com
- (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 7 Jan 2025 08:01:57 -0600
-Received: from [10.249.129.69] ([10.249.129.69])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 507E1oVJ078399;
-	Tue, 7 Jan 2025 08:01:51 -0600
-Message-ID: <5cc13a7f-b3f9-42d5-b9e2-7da5cb54af5b@ti.com>
-Date: Tue, 7 Jan 2025 19:31:49 +0530
+	Tue, 07 Jan 2025 14:02:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 44EC8A41372;
+	Tue,  7 Jan 2025 14:00:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9F02C4CEDD;
+	Tue,  7 Jan 2025 14:02:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736258565;
+	bh=1y1trmqo4VZPTWM5xAydMhMQsybEilrtQDjuW11FTX4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=mYtQjzn3Kr0oMbufGyVBS0J8tFdem8M6ETYf8k+gYZ9WSTcZ0ACMT4yTVBdIlHIpt
+	 JvK93tMzH50rvi8BNPyszkS07D04AzXTiNPGbmefbrL5dkKGyazQWLRS+rjJOVayFS
+	 LtXS6kYgsmb480EJpSTO/AcZSRCQpnOcU0tgcnybfU4jowvV3Zmqj/IA43v5A11n1L
+	 CGRDW9o55qVRSPW4WkEqBTaLgCdDoc65HtdUgJTVx3twmuA7mp3buRMHkLgE5vcyCQ
+	 Y+hXNQX90Z7AnaZhAZqDf2rjYeoR5rT1niXxcMHsbCtaA8hqp4G4uXQXhK9TpCU0VX
+	 eWuA1F4ePxXrQ==
+Message-ID: <f4a7e47c-f843-43cd-aac2-a98b8153a535@kernel.org>
+Date: Tue, 7 Jan 2025 16:02:40 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3 3/3] net: ti: icssg-prueth: Add Support for
- Multicast filtering with VLAN in HSR mode
-To: Roger Quadros <rogerq@kernel.org>, MD Danish Anwar <danishanwar@ti.com>,
-        Jeongjun Park <aha310510@gmail.com>,
-        Alexander Lobakin
-	<aleksander.lobakin@intel.com>,
-        Lukasz Majewski <lukma@denx.de>, Meghana
- Malladi <m-malladi@ti.com>,
-        Diogo Ivo <diogo.ivo@siemens.com>, Simon Horman
-	<horms@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>, Jakub Kicinski
-	<kuba@kernel.org>,
-        Eric Dumazet <edumazet@google.com>,
-        "David S. Miller"
-	<davem@davemloft.net>,
-        Andrew Lunn <andrew+netdev@lunn.ch>
-CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>,
-        Michal Swiatkowski <michal.swiatkowski@linux.intel.com>,
-        Larysa Zaremba <larysa.zaremba@intel.com>
-References: <20250103092033.1533374-1-danishanwar@ti.com>
- <20250103092033.1533374-4-danishanwar@ti.com>
- <31bb8a3e-5a1c-4c94-8c33-c0dfd6d643fb@kernel.org>
+Subject: Re: [PATCH 2/2] arm64: dts: ti: k3-am62p5*/k3-j722s: Add bootph-all
+ property to necessary nodes to enable Ethernet boot
+To: Chintan Vankar <c-vankar@ti.com>, Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+ Tero Kristo <kristo@kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Nishanth Menon <nm@ti.com>
+Cc: srk@ti.com, s-vadapalli@ti.com, danishanwar@ti.com,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20250106123122.3531845-1-c-vankar@ti.com>
+ <20250106123122.3531845-3-c-vankar@ti.com>
 Content-Language: en-US
-From: "Anwar, Md Danish" <a0501179@ti.com>
-In-Reply-To: <31bb8a3e-5a1c-4c94-8c33-c0dfd6d643fb@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+From: Roger Quadros <rogerq@kernel.org>
+In-Reply-To: <20250106123122.3531845-3-c-vankar@ti.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_060225_122256_BEA2FBE6 
-X-CRM114-Status: GOOD (  19.81  )
+X-CRM114-CacheID: sfid-20250107_060247_098614_0AAF5BEF 
+X-CRM114-Status: GOOD (  13.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,59 +81,102 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 1/7/2025 6:53 PM, Roger Quadros wrote:
+On 06/01/2025 14:31, Chintan Vankar wrote:
+> Ethernet boot requires CPSW nodes to be present starting from R5 SPL
+> stage. Add bootph-all property to necessary nodes for CPSW to enable those
+> nodes during SPL stage along with later boot stages for AM62p-SK and
+> J722s.
 > 
+> Signed-off-by: Chintan Vankar <c-vankar@ti.com>
+> ---
+>  arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi | 3 +++
+>  arch/arm64/boot/dts/ti/k3-am62p5-sk.dts                | 2 ++
+>  arch/arm64/boot/dts/ti/k3-j722s-evm.dts                | 3 +++
+>  3 files changed, 8 insertions(+)
 > 
-> On 03/01/2025 11:20, MD Danish Anwar wrote:
->> Add multicast filtering support for VLAN interfaces in HSR offload mode
->> for ICSSG driver.
->>
->> The driver calls vlan_for_each() API on the hsr device's ndev to get the
->> list of available vlans for the hsr device. The driver then sync mc addr of
->> vlan interface with a locally mainatined list emac->vlan_mcast_list[vid]
->> using __hw_addr_sync_multiple() API.
->>
->> The driver then calls the sync / unsync callbacks.
->>
->> In the sync / unsync call back, driver checks if the vdev's real dev is
->> hsr device or not. If the real dev is hsr device, driver gets the per
->> port device using hsr_get_port_ndev() and then driver passes appropriate
->> vid to FDB helper functions.
->>
->> This commit makes below changes in the hsr files.
->> - Move enum hsr_port_type from net/hsr/hsr_main.h to include/linux/if_hsr.h
->>   so that the enum can be accessed by drivers using hsr.
->> - Create hsr_get_port_ndev() API that can be used to get the ndev
->>   pointer to the slave port from ndev pointer to the hsr net device.
->> - Export hsr_get_port_ndev() API so that the API can be accessed by
->>   drivers using hsr.
->>
->> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
->> ---
->>  drivers/net/ethernet/ti/icssg/icssg_prueth.c | 83 +++++++++++++++-----
->>  drivers/net/ethernet/ti/icssg/icssg_prueth.h |  2 +
->>  include/linux/if_hsr.h                       | 18 +++++
->>  net/hsr/hsr_device.c                         | 13 +++
->>  net/hsr/hsr_main.h                           |  9 ---
-> 
-> Should we be splitting hsr core changes into separate patch first,
-> then followed by a patch with icssg driver changes?
-> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+> index 6e3beb5c2e01..96ddc5c17991 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+> @@ -50,6 +50,7 @@ phy_gmii_sel: phy@4044 {
+>  			compatible = "ti,am654-phy-gmii-sel";
+>  			reg = <0x4044 0x8>;
+>  			#phy-cells = <1>;
+> +			bootph-all;
 
-I wanted to make sure that the changes to hsr core are done with the
-driver change so that any one looking at the commit can understand why
-these changes are done.
 
-If we split the changes and someone looks at the commit modifying hsr
-core, they will not be able to understand why this is done. We will be
-creating and exporting API hsr_get_port_ndev() but there will be no
-caller for this.
+Shouldn't bootph-all be the first property in the DT node?
 
->>  5 files changed, 97 insertions(+), 28 deletions(-)
-> 
+>  		};
+>  
+>  		epwm_tbclk: clock-controller@4130 {
+> @@ -714,6 +715,7 @@ ethernet-ports {
+>  			#size-cells = <0>;
+>  
+>  			cpsw_port1: port@1 {
+> +				bootph-all;
+>  				reg = <1>;
+>  				ti,mac-only;
+>  				label = "port1";
+> @@ -742,6 +744,7 @@ cpsw3g_mdio: mdio@f00 {
+>  			clock-names = "fck";
+>  			bus_freq = <1000000>;
+>  			status = "disabled";
+> +			bootph-all;
+>  		};
+>  
+>  		cpts@3d000 {
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+> index ad71d2f27f53..28b08eb79da3 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+> @@ -226,6 +226,7 @@ main_mdio1_pins_default: main-mdio1-default-pins {
+>  			AM62PX_IOPAD(0x0160, PIN_OUTPUT, 0) /* (F17) MDIO0_MDC */
+>  			AM62PX_IOPAD(0x015c, PIN_INPUT, 0) /* (F16) MDIO0_MDIO */
+>  		>;
+> +		bootph-all;
+>  	};
+>  
+>  	main_mmc1_pins_default: main-mmc1-default-pins {
+> @@ -495,6 +496,7 @@ &cpsw3g_mdio {
+>  
+>  	cpsw3g_phy0: ethernet-phy@0 {
+>  		reg = <0>;
+> +		bootph-all;
+>  		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
+>  		ti,fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
+>  		ti,min-output-impedance;
+> diff --git a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+> index 796287c76b69..1785c9848664 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+> @@ -303,6 +303,7 @@ mdio_pins_default: mdio-default-pins {
+>  			J722S_IOPAD(0x0160, PIN_OUTPUT, 0) /* (AC24) MDIO0_MDC */
+>  			J722S_IOPAD(0x015c, PIN_INPUT, 0) /* (AD25) MDIO0_MDIO */
+>  		>;
+> +		bootph-all;
+>  	};
+>  
+>  	ospi0_pins_default: ospi0-default-pins {
+> @@ -337,6 +338,7 @@ J722S_IOPAD(0x0140, PIN_OUTPUT, 0) /* (AF24) RGMII1_TD3 */
+>  			J722S_IOPAD(0x0130, PIN_OUTPUT, 0) /* (AG26) RGMII1_TXC */
+>  			J722S_IOPAD(0x012c, PIN_OUTPUT, 0) /* (AF25) RGMII1_TX_CTL */
+>  		>;
+> +		bootph-all;
+>  	};
+>  
+>  	main_usb1_pins_default: main-usb1-default-pins {
+> @@ -374,6 +376,7 @@ &cpsw3g_mdio {
+>  
+>  	cpsw3g_phy0: ethernet-phy@0 {
+>  		reg = <0>;
+> +		bootph-all;
+>  		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
+>  		ti,fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
+>  		ti,min-output-impedance;
 
 -- 
-Thanks and Regards,
-Md Danish Anwar
+cheers,
+-roger
 
 
