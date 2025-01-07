@@ -4,83 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E0DBE77198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 15:29:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0CF1E77199
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 15:30:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bYd26+ANvMzt3bh8JMGQhBXRVd6LUHx6ZcNpu+1HZ/s=; b=AmyAKivRNOcut4Djed725vyjlr
-	B+YkAmxyZ4hZ+/qXpN3m5FQtzjMs3S4zOWgel1Zh/7jp4jJufCfElBHtpzG0+H5C8xta/dPFzdDSJ
-	5HTxP43ZiIDyVSWKCYqkb+WaEyHmDmW8N04cgikaKSnDXx9TUXY6zWFW77F7uLHwsBvmiHM/quUUW
-	RNvlGMY1hDI4uglmyX68MtO54GSpcH+tpW+AnwdhUbYzy575O3PypLh0J4d/9JUJ33NVQURgqx222
-	xtZnIR6Lfit6FThHP4pdXxiTwxNmCO995Y5iBoYYBOZIGwjQSc0JVzL8CSH1PxJM4vXQ13lmL3/h+
-	YSttFxyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N/6XPJ85Rq8WiLNIrO3Lx2eRBJVsdpBUiKmI2/RgmY4=; b=f0RucrTnNxQPgSJCE/wDhdzO27
+	cYzAI3ohJb8Px3fIB5ZthkFG90g6kpEZ4zk8m0fHgriKTw95LRIh4k9B3hnQXKrS5MzcwvUwquXHX
+	OaJ2ckvzgUwQjetEH342XCZVI0Rb4RuE7uIuLeXeHHyeTQivXu3x2m5Gk8Yu3y2RFJEicyLoU+Zfs
+	ShK5AfgbNkBMrMznBRjpqQifjpdlwuePKhJGYxj+DL+97hLsHkhpvNSoEMWtWmcc0lSjf+w/Q/Ium
+	DJcSBrgjL6V0cwGbHVMhj0jsQF81aER/6fg8oUjtZ9Utm/KZmC2hCVYJO+xD7E7uuO4vkTzEKCw0p
+	rHq+ZDdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVBW2-00000005Qwr-32RE;
-	Tue, 07 Jan 2025 15:29:10 +0000
-Received: from mail-io1-xd36.google.com ([2607:f8b0:4864:20::d36])
+	id 1tVBXD-00000005RDZ-1Pew;
+	Tue, 07 Jan 2025 15:30:23 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVBTt-00000005QTx-0dq1
+	id 1tVBVE-00000005QME-1Vgr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 15:26:58 +0000
-Received: by mail-io1-xd36.google.com with SMTP id ca18e2360f4ac-844dfe4b136so481984539f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 07:26:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736263616; x=1736868416; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bYd26+ANvMzt3bh8JMGQhBXRVd6LUHx6ZcNpu+1HZ/s=;
-        b=EyoqQw9e+8s+nvwYH4FKF+RVqLkD85XMPGlEq+kDqaJyoEDS5+0E5dz3GSROPGdDxV
-         irPeb3joKk0WKO1YzqXwJNpPq+aDcMUewQKgaeStTjIUSXU1tuxmlpYIRVbgHk/YkAo3
-         P08xy1+mWrJ543e0hK6jjNTbvz7BJzzK/wAZJXX3SmnW5gtT3vNsWGtR8VcyZotdddNi
-         jaJrVFAqXRj4YA6/iyHynUUtDc2SFOmaC9BPnO1ChvOKkhgkWpFbMsA9vM8qoC4GAQLt
-         UImcWbBfM0/T2iB1P/YlyklNy2zQ/eUhsLn+kUdSHyyWJPDiJ1gLBQK+h5ye/d2qD+ZJ
-         rXMg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736263616; x=1736868416;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=bYd26+ANvMzt3bh8JMGQhBXRVd6LUHx6ZcNpu+1HZ/s=;
-        b=PWhLoZEGQO6s8r7MHQJ8wJU8RygLXcjyL+Wm/UlMk0dHAwudOsjw5lMRFbbDHZchbo
-         YNzeSjHCq91QiZIJhEdmejHTxxidh1r8E9QQZxYMvpG7y2pI0n6riuFQUETzNIDp5muL
-         Z+g+kECdOYkSj//+pn0P3PK7kTyDw06xI6UV9FWhBfpIPe5iTO4ChwfQTcnyyvljNzv1
-         YopxcMSadZIOQ35t744D33d3mx0uYUDKNIrunmFYoUWyppJby/Z9VJs/xN6IB3zEtvHF
-         luHOfO1GeW75ZTwpWK7AGp7Lde9I0RdLuxPLrbYifVPgzPEQ0ro5QnCdkF3dOCG49hlI
-         o0QQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV478TtzlMPmCIYAm3W2xsQN+pzskpuh6rlRvEtuJcvFKQ2RXgi/gY8UiYy1pBtgWo37Ln4sF7A1Kg18cYGeNhw@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3LRAQxJ3DPM41rwCsRghPv68/m+UsCd2JDpGWgg0GsvOuGjf+
-	EPrM62knt9FYu/oVUj++Xq8/CPg9x8viUEd17HRkYK9Ibs2TbsOPLsLd0fYypMrG69DeUF9KooD
-	UGNKXfgxIF5DnB3LKmNowOzqsW08=
-X-Gm-Gg: ASbGnct7CX2DfqCy5ukeywtVFEDCth/jLUVf2JwUYDlzwpuFJLt1WVDPxkaDmZ3ep+z
-	iYhwdzqNh6tMjAvtE2bn5Nhkd/Pu/YmilvOa1ip2xpo5Zq5oiAgR4t4Wigobm8KAgZxse
-X-Google-Smtp-Source: AGHT+IHwuMLCJR6Vl2J967epV117Dufpeur0fSxmS2hJJtoEYpotAHxco0Dw2fvR3j5a3grMMCdXDq+mOt2AdoHs9GI=
-X-Received: by 2002:a05:6e02:20eb:b0:3a7:6c6a:e2a2 with SMTP id
- e9e14a558f8ab-3c2d2568e30mr508063205ab.9.1736263615657; Tue, 07 Jan 2025
- 07:26:55 -0800 (PST)
+	Tue, 07 Jan 2025 15:28:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=N/6XPJ85Rq8WiLNIrO3Lx2eRBJVsdpBUiKmI2/RgmY4=; b=jo2HXdS6rkT3QNwp/AyDHIzAPL
+	akHlZDBZ1qktngD1Uxnj16POZ34pApA//rO/1ank552xVpXGqmZwy6oneJNcR/doSCoJdBm5laHJc
+	rMxxuCWyvylF68mokRcNbgfOWSFH67fpyGZZTc41RcYF3B9JjxQkX3sN4ZnI48qaMGfv/wWPJsCK/
+	EqYOohemm6k2EU3qfSA/R6ukZJTVvzrkBq+YU/gPIWXc1A4I0+L5DQ/qgMFTjtDkk37ySGQnwNdjy
+	gywclq5XLFX7WwGxO5dsCQlDN5KwPyBIj6BPyZTeosUGcG8v1jNRsWAZH80CMy+h4iX1D1dBSon0l
+	Z7iSK0Xg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:58202)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tVBT7-0007gS-0d;
+	Tue, 07 Jan 2025 15:26:09 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tVBT4-0005Ob-0f;
+	Tue, 07 Jan 2025 15:26:06 +0000
+Date: Tue, 7 Jan 2025 15:26:06 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Simon Horman <horms@kernel.org>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next v2 03/17] net: stmmac: use correct type for
+ tx_lpi_timer
+Message-ID: <Z31Hjlp_3jIeSpWH@shell.armlinux.org.uk>
+References: <Z3vLbRQ9Ctl-Rpdg@shell.armlinux.org.uk>
+ <E1tUmAE-007VWv-UW@rmk-PC.armlinux.org.uk>
+ <20250107112851.GE33144@kernel.org>
+ <Z30WmPpMp_BRgrOI@shell.armlinux.org.uk>
+ <20250107144103.GB5872@kernel.org>
 MIME-Version: 1.0
-References: <20250102183232.115279-1-robdclark@gmail.com> <20250107125738.GA6991@willie-the-truck>
-In-Reply-To: <20250107125738.GA6991@willie-the-truck>
-From: Rob Clark <robdclark@gmail.com>
-Date: Tue, 7 Jan 2025 07:26:44 -0800
-Message-ID: <CAF6AEGtZSOMi-=AOmjoXSVkwfyvKOymSuRRMZ7jOcM2wyhu5qg@mail.gmail.com>
-Subject: Re: [PATCH v2] iommu/arm-smmu-qcom: Only enable stall on smmu-v2
-To: Will Deacon <will@kernel.org>
-Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
-	freedreno@lists.freedesktop.org, Robin Murphy <robin.murphy@arm.com>, 
-	Rob Clark <robdclark@chromium.org>, Joerg Roedel <joro@8bytes.org>, 
-	"moderated list:ARM SMMU DRIVERS" <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250107144103.GB5872@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_072657_188749_A4F84813 
-X-CRM114-Status: GOOD (  21.08  )
+X-CRM114-CacheID: sfid-20250107_072820_399343_DF7254AD 
+X-CRM114-Status: GOOD (  37.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,43 +91,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 7, 2025 at 4:57=E2=80=AFAM Will Deacon <will@kernel.org> wrote:
->
-> On Thu, Jan 02, 2025 at 10:32:31AM -0800, Rob Clark wrote:
-> > From: Rob Clark <robdclark@chromium.org>
-> >
-> > On mmu-500, stall-on-fault seems to stall all context banks, causing th=
-e
-> > GMU to misbehave.  So limit this feature to smmu-v2 for now.
-> >
-> > This fixes an issue with an older mesa bug taking outo the system
-> > because of GMU going off into the weeds.
-> >
-> > What we _think_ is happening is that, if the GPU generates 1000's of
-> > faults at ~once (which is something that GPUs can be good at), it can
-> > result in a sufficient number of stalled translations preventing other
-> > transactions from entering the same TBU.
->
-> MMU-500 is an implementation of the SMMUv2 architecture, so this feels
-> upside-down to me. That is, it should always be valid to probe with
-> the less specific "SMMUv2" compatible string (modulo hardware errata)
-> and be limited to the architectural behaviour.
+On Tue, Jan 07, 2025 at 02:41:03PM +0000, Simon Horman wrote:
+> On Tue, Jan 07, 2025 at 11:57:12AM +0000, Russell King (Oracle) wrote:
+> > On Tue, Jan 07, 2025 at 11:28:51AM +0000, Simon Horman wrote:
+> > > On Mon, Jan 06, 2025 at 12:24:58PM +0000, Russell King (Oracle) wrote:
+> > > > The ethtool interface uses u32 for tx_lpi_timer, and so does phylib.
+> > > > Use u32 to store this internally within stmmac rather than "int"
+> > > > which could misinterpret large values.
+> > > > 
+> > > > Since eee_timer is used to initialise priv->tx_lpi_timer, this also
+> > > > should be unsigned to avoid a negative number being interpreted as a
+> > > > very large positive number.
+> > > > 
+> > > > Also correct "value" in dwmac4_set_eee_lpi_entry_timer() to use u32
+> > > > rather than int, which is derived from tx_lpi_timer, even though
+> > > > masking with STMMAC_ET_MAX will truncate the sign bits. u32 is the
+> > > > value argument type for writel().
+> > > > 
+> > > > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> > > 
+> > > ...
+> > > 
+> > > > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > > > index 9a9169ca7cd2..b0ef439b715b 100644
+> > > > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > > > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > > > @@ -111,8 +111,8 @@ static const u32 default_msg_level = (NETIF_MSG_DRV | NETIF_MSG_PROBE |
+> > > >  				      NETIF_MSG_IFDOWN | NETIF_MSG_TIMER);
+> > > >  
+> > > >  #define STMMAC_DEFAULT_LPI_TIMER	1000
+> > > > -static int eee_timer = STMMAC_DEFAULT_LPI_TIMER;
+> > > > -module_param(eee_timer, int, 0644);
+> > > > +static unsigned int eee_timer = STMMAC_DEFAULT_LPI_TIMER;
+> > > > +module_param(eee_timer, uint, 0644);
+> > > >  MODULE_PARM_DESC(eee_timer, "LPI tx expiration time in msec");
+> > > >  #define STMMAC_LPI_T(x) (jiffies + usecs_to_jiffies(x))
+> > > >  
+> > > 
+> > > Hi Russell,
+> > > 
+> > > now that eee_timer is unsigned the following check in stmmac_verify_args()
+> > > can never be true. I guess it should be removed.
+> > > 
+> > >         if (eee_timer < 0)
+> > >                 eee_timer = STMMAC_DEFAULT_LPI_TIMER;
+> > > 
+> > 
+> > Thanks for finding that. The parameter description doesn't seem to
+> > detail whether this is intentional behaviour or not, or whether it is
+> > "because someone used int and we shouldn't have negative values here".
+> > 
+> > I can't see why someone would pass a negative number for eee_timer
+> > given that it already defaults to STMMAC_DEFAULT_LPI_TIMER.
+> > 
+> > So, I'm tempted to remove this.
+> 
+> I'm not sure either. It did cross my mind that the check could be changed,
+> to disallow illegal values (if the range of legal values is not all
+> possible unsigned integer values). But it was just an idea without any
+> inspection of the code or thought about it's practicality. And my first
+> instinct was the same as yours: remove the check.
 
-I should have been more specific and referred to qcom,smmu-v2
+My reasoning is as follows:
 
-> So what is about MMU-500 that means stalling doesn't work when compared
-> to any other SMMUv2 implementation?
+In the existing code with the module paramter is a signed int, then it
+take a value up to INT_MAX. Provided sizeof(int) == sizeof(u32), then
+this can be reported through the ethtool API. However, ethtool can set
+the timer to U32_MAX which can exceed INT_MAX in this case. The driver
+doesn't stop this, and uses a software based timer for any delay greater
+than the capabilities of the hardware timer (if any.)
 
-Well, I have a limited # of data points, in the sense that there
-aren't too many a6xx devices prior to the switch to qcom,smmu-500..
-but I have access to crash metrics for a lot of sc7180 devices
-(qcom,smmu-v2), and I've been unable to find any signs of this sort of
-stall related issue.
+So, through ethtool one can set the LPI delay to anything between 0 and
+U32_MAX, whereas through the module parameter it's between 0 and
+INT_MAX. values between INT_MIN and -1 inclusive result in the default
+being used.
 
-So maybe I can't 100% say this is qcom,smmu-500 vs qcom,smmu-v2, vs
-some other change in later gens that used qcom,smmu-500 or some other
-factor, I'm not sure what other conclusion to draw.
+It is, of course, absurd to have a negative delay, or even a delay
+anywhere near INT_MAX or U32_MAX.
 
-BR,
--R
+I'll separate out the change to eee_timer so if necessary, that can be
+reverted without reverting the entire patch. Oh goodo, an extra patch
+for a patchset which already exceeds netdev's 15 patches...
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
