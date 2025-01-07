@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D945E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 09:03:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D31BE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 09:04:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3UCEm3eFJ/K1dbabHvxRqJatAGq05o5L4VYUe8y+MXM=; b=Esqys1A4B0f9UTBYwM/BwxZoWq
-	D8M5R7k95fdixAeGqJ9u6LQbMN+U5QpFvBBOD9iRBqlIc3u/MtR0vDdn4k3F9pdbFM/HKOZWzRgX+
-	uTUGxa6oRfl3S9jjhABUY5DDXsOnuaoBIBvbYNyhJFLsHtG1UaYwThKYyn78ZKP9x615ozhQKzUaP
-	AVAyQ7rzOM83JH7Jxx9NnGDfDcGWVrWEyyNqyetl9mZg5Regc2hc02BaqbZLCnTNXNZfaLZKuCPWF
-	AZX5SsO3VfG+ojDZif3wsU3VcLzJrXAySCTJ6O1lopdcE2GcUmpHt3kj3PB2AYq+IUp5JFIzcvm7/
-	DXJwnVvg==;
+	bh=ONtvBmEpLEuBJuRqyxCedTQd5Ryvcwwn8bWWyBgw+9M=; b=WakW0JwACXKCKapBsbM/6CFEvS
+	QSjdRBjHm4JOT1XD6XX80Eix0cLVCoH2221agoHU1OMcHUpGAhXuXz/AWe2vsxYkwPIhErBF7/d11
+	BkUS9GjmFrIKSi+8xJWX2L8oqCGhr7CBk6XMhkf23q4RSQX1zr/7CHk8Bukcoahb+sFw08nu23qTN
+	bFzwaFD4D5JMvcfLIn0s97vBVGjk99WW/bjErXh8aH1kNcCbuur/0pSxnIMoNjYNDzPwKTifQvhKR
+	ASr1SBwFIrrBnLjhJbnTcoTnNlXTlkQA8wO2iA3cgBSlftnGChvBFrRELCcfbqINHgtIHgroh4P/C
+	nyNGBPKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV5Ul-000000041iN-36Z6;
-	Tue, 07 Jan 2025 09:03:27 +0000
+	id 1tV5Vv-0000000428G-1kox;
+	Tue, 07 Jan 2025 09:04:39 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV5SO-0000000410N-1O7f
+	id 1tV5ST-00000004129-3VHQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 09:01:04 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 506Mv1lL022313;
-	Tue, 7 Jan 2025 09:00:53 GMT
+	Tue, 07 Jan 2025 09:01:10 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5078cJ1Q012488;
+	Tue, 7 Jan 2025 09:00:58 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=3UCEm3eFJ/K1dbabHvxRqJat
-	AGq05o5L4VYUe8y+MXM=; b=P0f62+FFwmL7kMHYkgHSc7YzK/ZKz/fVh61Fgnjz
-	EMtyNzMnph6BzX0X+9b8ELiQY6IvAdroD0p2nJtJr9xUvTn1yIxb8RmNqp9v4ZUC
-	TAQ3zZWSRxeMwYGizN6FuN1A+c8QGJT314eL6Sb8mEwD3AAoDEokEUGg/1Qd+Qku
-	WO45KdW9I9KDU8u3DBVLAQolv7nzJ0Cqa0djw1ZeTQBqIscrlewxbFFQAzRkk3nv
-	tS2LHP+lqSOlUUit8IJYMLIHft/SGGin632WL++qKBSUnWQmy+JhHgnQJtUDpfYs
-	Wd/kLWtI9mb1TEAG+37hkIGHI1LzVaO2fGhLf31DagoIRQ==
-Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 440rdq971g-1
+	:references:subject:to; s=qcppdkim1; bh=ONtvBmEpLEuBJuRqyxCedTQd
+	5Ryvcwwn8bWWyBgw+9M=; b=j0iJOxHKO159o7TFC/PKiR546mV6FCxKHpESCtvy
+	DQIkEEh58PgC2VW2Tj14S0QUX6TOJMe4N/sN3Y8xK7D8/+n1CTeUKiZxAPjWT7zG
+	cjtENGe7IGbzNzHC95G3Kyce2gwO5nsUHtkU4cmAhytTxh2BfpT+L/GkLY1O+ElD
+	zhKfq8xA1YARt1FQ+jbH9tkaqsv5LFLNExvSOt268bZVFXAEA+Ec60NSyVvC2QIK
+	H7KcAPxkEgj5WC/wAoIAgYQRQmm362rrnfZ0RjEl+To458Mb+7G1L5b/9w4fUzX8
+	tjILaSf7yTxN/vZH40zU9c86wEf/IcgTnUtdentA3HLdRw==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4410x2r1u0-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 07 Jan 2025 09:00:53 +0000 (GMT)
+	Tue, 07 Jan 2025 09:00:58 +0000 (GMT)
 Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 50790qT4015469
+	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 50790v8k020923
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 7 Jan 2025 09:00:52 GMT
+	Tue, 7 Jan 2025 09:00:57 GMT
 Received: from jinlmao-gv.qualcomm.com (10.80.80.8) by
  nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Tue, 7 Jan 2025 01:00:48 -0800
+ 15.2.1544.9; Tue, 7 Jan 2025 01:00:52 -0800
 From: Mao Jinlong <quic_jinlmao@quicinc.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>,
         Mike Leach
@@ -67,9 +67,9 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 CC: Mao Jinlong <quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
         <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>
-Subject: [PATCH v6 1/2] dt-bindings: arm: coresight: Update the pattern of ete node name
-Date: Tue, 7 Jan 2025 17:00:30 +0800
-Message-ID: <20250107090031.3319-2-quic_jinlmao@quicinc.com>
+Subject: [PATCH v6 2/2] arm64: dts: qcom: sm8450: Add coresight nodes
+Date: Tue, 7 Jan 2025 17:00:31 +0800
+Message-ID: <20250107090031.3319-3-quic_jinlmao@quicinc.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20250107090031.3319-1-quic_jinlmao@quicinc.com>
 References: <20250107090031.3319-1-quic_jinlmao@quicinc.com>
@@ -80,19 +80,19 @@ X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
  nalasex01a.na.qualcomm.com (10.47.209.196)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: 1yM8Pf3hgSJ2Hu9Vko0tHkwtX1vGHp8F
-X-Proofpoint-GUID: 1yM8Pf3hgSJ2Hu9Vko0tHkwtX1vGHp8F
+X-Proofpoint-GUID: QNJSyaBGthVvzPASBHQ1fBHuaQP7O1xZ
+X-Proofpoint-ORIG-GUID: QNJSyaBGthVvzPASBHQ1fBHuaQP7O1xZ
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
- bulkscore=0 phishscore=0 mlxlogscore=999 impostorscore=0 malwarescore=0
- spamscore=0 mlxscore=0 suspectscore=0 clxscore=1015 adultscore=0
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 spamscore=0
+ lowpriorityscore=0 bulkscore=0 mlxscore=0 malwarescore=0 clxscore=1015
+ phishscore=0 adultscore=12 mlxlogscore=983 impostorscore=0
  priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
  engine=8.19.0-2411120000 definitions=main-2501070074
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_010100_488286_11A458FC 
-X-CRM114-Status: GOOD (  13.75  )
+X-CRM114-CacheID: sfid-20250107_010106_001431_80126410 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,47 +107,758 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The device full name is embedded trace extension. There is no good fit
-in generic names list for the embedded trace extension. ETE is abbreviation
-of embedded trace extension and the number is the CPU number that ete is
-associated. Change the pattern of the node name as it won't affect any
-device tree node as of now.
+Add coresight components on Qualcomm SM8450 Soc. The components include
+TMC ETF/ETR, ETE, STM, TPDM, CTI.
 
 Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
-Reviewed-by: Krzysztof Kozlowski <krzk@kernel.org>
 ---
- .../bindings/arm/arm,embedded-trace-extension.yaml          | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ arch/arm64/boot/dts/qcom/sm8450.dtsi | 726 +++++++++++++++++++++++++++
+ 1 file changed, 726 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/arm/arm,embedded-trace-extension.yaml b/Documentation/devicetree/bindings/arm/arm,embedded-trace-extension.yaml
-index f725e6940993..9c2c9ac9705a 100644
---- a/Documentation/devicetree/bindings/arm/arm,embedded-trace-extension.yaml
-+++ b/Documentation/devicetree/bindings/arm/arm,embedded-trace-extension.yaml
-@@ -23,7 +23,7 @@ description: |
+diff --git a/arch/arm64/boot/dts/qcom/sm8450.dtsi b/arch/arm64/boot/dts/qcom/sm8450.dtsi
+index 53147aa6f7e4..d5379be114fe 100644
+--- a/arch/arm64/boot/dts/qcom/sm8450.dtsi
++++ b/arch/arm64/boot/dts/qcom/sm8450.dtsi
+@@ -287,6 +287,192 @@
+ 		};
+ 	};
  
- properties:
-   $nodename:
--    pattern: "^ete([0-9a-f]+)$"
-+    pattern: "^ete(-[0-9]+)?$"
-   compatible:
-     items:
-       - const: arm,embedded-trace-extension
-@@ -55,13 +55,13 @@ examples:
++	ete-0 {
++		compatible = "arm,embedded-trace-extension";
++		cpu = <&cpu0>;
++
++		out-ports {
++			port {
++				ete0_out_funnel_ete: endpoint {
++					remote-endpoint = <&funnel_ete_in_ete0>;
++				};
++			};
++		};
++	};
++
++	ete-1 {
++		compatible = "arm,embedded-trace-extension";
++		cpu = <&cpu1>;
++
++		out-ports {
++			port {
++				ete1_out_funnel_ete: endpoint {
++					remote-endpoint = <&funnel_ete_in_ete1>;
++				};
++			};
++		};
++	};
++
++	ete-2 {
++		compatible = "arm,embedded-trace-extension";
++		cpu = <&cpu2>;
++
++		out-ports {
++			port {
++				ete2_out_funnel_ete: endpoint {
++					remote-endpoint = <&funnel_ete_in_ete2>;
++				};
++			};
++		};
++	};
++
++	ete-3 {
++		compatible = "arm,embedded-trace-extension";
++		cpu = <&cpu3>;
++
++		out-ports {
++			port {
++				ete3_out_funnel_ete: endpoint {
++					remote-endpoint = <&funnel_ete_in_ete3>;
++				};
++			};
++		};
++	};
++
++	ete-4 {
++		compatible = "arm,embedded-trace-extension";
++		cpu = <&cpu4>;
++
++		out-ports {
++			port {
++				ete4_out_funnel_ete: endpoint {
++					remote-endpoint = <&funnel_ete_in_ete4>;
++				};
++			};
++		};
++	};
++
++	ete-5 {
++		compatible = "arm,embedded-trace-extension";
++		cpu = <&cpu5>;
++
++		out-ports {
++			port {
++				ete5_out_funnel_ete: endpoint {
++					remote-endpoint = <&funnel_ete_in_ete5>;
++				};
++			};
++		};
++	};
++
++	ete-6 {
++		compatible = "arm,embedded-trace-extension";
++		cpu = <&cpu6>;
++
++		out-ports {
++			port {
++				ete6_out_funnel_ete: endpoint {
++					remote-endpoint = <&funnel_ete_in_ete6>;
++				};
++			};
++		};
++	};
++
++	ete-7 {
++		compatible = "arm,embedded-trace-extension";
++		cpu = <&cpu7>;
++
++		out-ports {
++			port {
++				ete7_out_funnel_ete: endpoint {
++					remote-endpoint = <&funnel_ete_in_ete7>;
++				};
++			};
++		};
++	};
++
++	funnel-ete {
++		compatible = "arm,coresight-static-funnel";
++
++		out-ports {
++			port {
++				funnel_ete_out_funnel_apss: endpoint {
++					remote-endpoint =
++						<&funnel_apss_in_funnel_ete>;
++				};
++			};
++		};
++
++		in-ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			port@0 {
++				reg = <0>;
++				funnel_ete_in_ete0: endpoint {
++					remote-endpoint =
++						<&ete0_out_funnel_ete>;
++				};
++			};
++
++			port@1 {
++				reg = <1>;
++				funnel_ete_in_ete1: endpoint {
++					remote-endpoint =
++						<&ete1_out_funnel_ete>;
++				};
++			};
++
++			port@2 {
++				reg = <2>;
++				funnel_ete_in_ete2: endpoint {
++					remote-endpoint =
++						<&ete2_out_funnel_ete>;
++				};
++			};
++
++			port@3 {
++				reg = <3>;
++				funnel_ete_in_ete3: endpoint {
++					remote-endpoint =
++						<&ete3_out_funnel_ete>;
++				};
++			};
++
++			port@4 {
++				reg = <4>;
++				funnel_ete_in_ete4: endpoint {
++					remote-endpoint =
++						<&ete4_out_funnel_ete>;
++				};
++			};
++
++			port@5 {
++				reg = <5>;
++				funnel_ete_in_ete5: endpoint {
++					remote-endpoint =
++						<&ete5_out_funnel_ete>;
++				};
++			};
++
++			port@6 {
++				reg = <6>;
++				funnel_ete_in_ete6: endpoint {
++					remote-endpoint =
++						<&ete6_out_funnel_ete>;
++				};
++			};
++
++			port@7 {
++				reg = <7>;
++				funnel_ete_in_ete7: endpoint {
++					remote-endpoint =
++						<&ete7_out_funnel_ete>;
++				};
++			};
++		};
++	};
++
+ 	firmware {
+ 		scm: scm {
+ 			compatible = "qcom,scm-sm8450", "qcom,scm";
+@@ -4144,6 +4330,546 @@
+ 			};
+ 		};
  
- # An ETE node without legacy CoreSight connections
-   - |
--    ete0 {
-+    ete-0 {
-       compatible = "arm,embedded-trace-extension";
-       cpu = <&cpu_0>;
-     };
- # An ETE node with legacy CoreSight connections
-   - |
--   ete1 {
-+   ete-1 {
-       compatible = "arm,embedded-trace-extension";
-       cpu = <&cpu_1>;
- 
++		stm@10002000 {
++			compatible = "arm,coresight-stm", "arm,primecell";
++			reg = <0x0 0x10002000 0x0 0x1000>,
++				<0x0 0x16280000 0x0 0x180000>;
++			reg-names = "stm-base", "stm-stimulus-base";
++
++			clocks = <&aoss_qmp>;
++			clock-names = "apb_pclk";
++
++			out-ports {
++				port {
++					stm_out_funnel_in0: endpoint {
++						remote-endpoint =
++							<&funnel_in0_in_stm>;
++					};
++				};
++			};
++		};
++
++		funnel@10041000 {
++			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
++			reg = <0x0 0x10041000 0x0 0x1000>;
++
++			clocks = <&aoss_qmp>;
++			clock-names = "apb_pclk";
++
++			in-ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				port@7 {
++					reg = <7>;
++					funnel_in0_in_stm: endpoint {
++						remote-endpoint =
++							<&stm_out_funnel_in0>;
++					};
++				};
++			};
++
++			out-ports {
++				port {
++					funnel_in0_out_funnel_qdss: endpoint {
++						remote-endpoint =
++							<&funnel_qdss_in_funnel_in0>;
++					};
++				};
++			};
++		};
++
++		funnel@10042000 {
++			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
++
++			reg = <0x0 0x10042000 0x0 0x1000>;
++
++			clocks = <&aoss_qmp>;
++			clock-names = "apb_pclk";
++
++			in-ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				port@4 {
++					reg = <4>;
++					funnel_in1_in_funnel_apss: endpoint {
++						remote-endpoint =
++							<&funnel_apss_out_funnel_in1>;
++					};
++				};
++
++				port@6 {
++					reg = <6>;
++					funnel_in1_in_funnel_dl_center: endpoint {
++						remote-endpoint =
++							<&funnel_dl_center_out_funnel_in1>;
++					};
++				};
++			};
++
++			out-ports {
++				port {
++					funnel_in1_out_funnel_qdss: endpoint {
++						remote-endpoint =
++							<&funnel_qdss_in_funnel_in1>;
++					};
++				};
++			};
++		};
++
++		funnel@10045000 {
++			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
++			reg = <0x0 0x10045000 0x0 0x1000>;
++
++			clocks = <&aoss_qmp>;
++			clock-names = "apb_pclk";
++
++			in-ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				port@0 {
++					reg = <0>;
++					funnel_qdss_in_funnel_in0: endpoint {
++						remote-endpoint =
++							<&funnel_in0_out_funnel_qdss>;
++					};
++				};
++
++				port@1 {
++					reg = <1>;
++					funnel_qdss_in_funnel_in1: endpoint {
++						remote-endpoint =
++							<&funnel_in1_out_funnel_qdss>;
++					};
++				};
++			};
++
++			out-ports {
++				port {
++					funnel_qdss_out_funnel_aoss: endpoint {
++						remote-endpoint =
++							<&funnel_aoss_in_funnel_qdss>;
++					};
++				};
++			};
++		};
++
++		replicator@10046000 {
++			compatible = "arm,coresight-dynamic-replicator", "arm,primecell";
++			reg = <0x0 0x10046000 0x0 0x1000>;
++
++			clocks = <&aoss_qmp>;
++			clock-names = "apb_pclk";
++
++			in-ports {
++				port {
++					replicator_qdss_in_replicator_swao: endpoint {
++						remote-endpoint =
++							<&replicator_swao_out_replicator_qdss>;
++					};
++				};
++			};
++
++			out-ports {
++
++				port {
++					replicator_qdss_out_replicator_etr: endpoint {
++						remote-endpoint =
++							<&replicator_etr_in_replicator_qdss>;
++					};
++				};
++			};
++		};
++
++		tmc_etr: tmc@10048000 {
++			compatible = "arm,coresight-tmc", "arm,primecell";
++			reg = <0x0 0x10048000 0x0 0x1000>;
++
++			iommus = <&apps_smmu 0x0600 0>;
++			arm,buffer-size = <0x10000>;
++
++			arm,scatter-gather;
++			clocks = <&aoss_qmp>;
++			clock-names = "apb_pclk";
++
++			in-ports {
++				port {
++					tmc_etr_in_replicator_etr: endpoint {
++						remote-endpoint =
++							<&replicator_etr_out_tmc_etr>;
++					};
++				};
++			};
++		};
++
++		replicator@1004e000 {
++			compatible = "arm,coresight-dynamic-replicator", "arm,primecell";
++			reg = <0x0 0x1004e000 0x0 0x1000>;
++
++			clocks = <&aoss_qmp>;
++			clock-names = "apb_pclk";
++
++			in-ports {
++				port {
++					replicator_etr_in_replicator_qdss: endpoint {
++						remote-endpoint =
++							<&replicator_qdss_out_replicator_etr>;
++					};
++				};
++			};
++
++			out-ports {
++
++				port {
++
++					replicator_etr_out_tmc_etr: endpoint {
++						remote-endpoint =
++							<&tmc_etr_in_replicator_etr>;
++					};
++				};
++			};
++		};
++
++		funnel@10b04000 {
++			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
++
++			reg = <0x0 0x10b04000 0x0 0x1000>;
++
++			clocks = <&aoss_qmp>;
++			clock-names = "apb_pclk";
++
++			in-ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				port@6 {
++					reg = <6>;
++					funnel_aoss_in_tpda_aoss: endpoint {
++						remote-endpoint =
++							<&tpda_aoss_out_funnel_aoss>;
++					};
++				};
++
++				port@7 {
++					reg = <7>;
++					funnel_aoss_in_funnel_qdss: endpoint {
++						remote-endpoint =
++							<&funnel_qdss_out_funnel_aoss>;
++					};
++				};
++			};
++
++			out-ports {
++				port {
++					funnel_aoss_out_tmc_etf: endpoint {
++						remote-endpoint =
++							<&tmc_etf_in_funnel_aoss>;
++					};
++				};
++			};
++		};
++
++		tmc@10b05000 {
++			compatible = "arm,coresight-tmc", "arm,primecell";
++			reg = <0x0 0x10b05000 0x0 0x1000>;
++
++			clocks = <&aoss_qmp>;
++			clock-names = "apb_pclk";
++
++			in-ports {
++				port {
++					tmc_etf_in_funnel_aoss: endpoint {
++						remote-endpoint =
++							<&funnel_aoss_out_tmc_etf>;
++					};
++				};
++			};
++
++			out-ports {
++				port {
++					tmc_etf_out_replicator_swao: endpoint {
++						remote-endpoint =
++							<&replicator_swao_in_tmc_etf>;
++					};
++				};
++			};
++		};
++
++		replicator@10b06000 {
++			compatible = "arm,coresight-dynamic-replicator", "arm,primecell";
++			reg = <0x0 0x10b06000 0x0 0x1000>;
++
++			qcom,replicator-loses-context;
++			clocks = <&aoss_qmp>;
++			clock-names = "apb_pclk";
++
++			in-ports {
++				port {
++					replicator_swao_in_tmc_etf: endpoint {
++						remote-endpoint =
++							<&tmc_etf_out_replicator_swao>;
++					};
++				};
++			};
++
++			out-ports {
++
++				port {
++					replicator_swao_out_replicator_qdss: endpoint {
++						remote-endpoint =
++							<&replicator_qdss_in_replicator_swao>;
++					};
++				};
++			};
++		};
++
++		tpda@10b08000 {
++			compatible = "qcom,coresight-tpda", "arm,primecell";
++
++			reg = <0x0 0x10b08000 0x0 0x1000>;
++
++			clocks = <&aoss_qmp>;
++			clock-names = "apb_pclk";
++
++			in-ports {
++
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				port@0 {
++					reg = <0>;
++					tpda_aoss_in_tpdm_swao_prio_0: endpoint {
++						remote-endpoint =
++							<&tpdm_swao_prio_0_out_tpda_aoss>;
++					};
++				};
++
++				port@4 {
++					reg = <4>;
++					tpda_aoss_in_tpdm_swao: endpoint {
++						remote-endpoint =
++							<&tpdm_swao_out_tpda_aoss>;
++					};
++				};
++			};
++
++			out-ports {
++
++				port {
++					tpda_aoss_out_funnel_aoss: endpoint {
++						remote-endpoint =
++							<&funnel_aoss_in_tpda_aoss>;
++					};
++				};
++			};
++		};
++
++		tpdm@10b09000 {
++			compatible = "qcom,coresight-tpdm", "arm,primecell";
++			reg = <0x0 0x10b09000 0x0 0x1000>;
++
++
++			clocks = <&aoss_qmp>;
++			clock-names = "apb_pclk";
++
++			out-ports {
++				port {
++					tpdm_swao_prio_0_out_tpda_aoss: endpoint {
++						remote-endpoint =
++							<&tpda_aoss_in_tpdm_swao_prio_0>;
++					};
++				};
++			};
++		};
++
++		tpdm@10b0d000 {
++			compatible = "qcom,coresight-tpdm", "arm,primecell";
++			reg = <0x0 0x10b0d000 0x0 0x1000>;
++
++			clocks = <&aoss_qmp>;
++			clock-names = "apb_pclk";
++
++			out-ports {
++				port {
++					tpdm_swao_out_tpda_aoss: endpoint {
++						remote-endpoint =
++							<&tpda_aoss_in_tpdm_swao>;
++					};
++				};
++			};
++		};
++
++		tpdm@10c28000 {
++			compatible = "qcom,coresight-tpdm", "arm,primecell";
++			reg = <0x0 0x10c28000 0x0 0x1000>;
++
++			clocks = <&aoss_qmp>;
++			clock-names = "apb_pclk";
++
++			out-ports {
++				port {
++					tpdm_dlct_out_tpda_dl_center_26: endpoint {
++						remote-endpoint =
++							<&tpda_dl_center_26_in_tpdm_dlct>;
++					};
++				};
++			};
++		};
++
++		tpdm@10c29000 {
++			compatible = "qcom,coresight-tpdm", "arm,primecell";
++			reg = <0x0 0x10c29000 0x0 0x1000>;
++
++			clocks = <&aoss_qmp>;
++			clock-names = "apb_pclk";
++
++			out-ports {
++				port {
++					tpdm_ipcc_out_tpda_dl_center_27: endpoint {
++						remote-endpoint =
++							<&tpda_dl_center_27_in_tpdm_ipcc>;
++					};
++				};
++			};
++		};
++
++		cti@10c2a000 {
++			compatible = "arm,coresight-cti", "arm,primecell";
++			reg = <0x0 0x10c2a000 0x0 0x1000>;
++
++			clocks = <&aoss_qmp>;
++			clock-names = "apb_pclk";
++		};
++
++		cti@10c2b000 {
++			compatible = "arm,coresight-cti", "arm,primecell";
++			reg = <0x0 0x10c2b000 0x0 0x1000>;
++
++			clocks = <&aoss_qmp>;
++			clock-names = "apb_pclk";
++		};
++
++		tpda@10c2e000 {
++			compatible = "qcom,coresight-tpda", "arm,primecell";
++			reg = <0x0 0x10c2e000 0x0 0x1000>;
++
++			clocks = <&aoss_qmp>;
++			clock-names = "apb_pclk";
++
++			in-ports {
++
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				port@1a {
++					reg = <26>;
++					tpda_dl_center_26_in_tpdm_dlct: endpoint {
++						remote-endpoint =
++							<&tpdm_dlct_out_tpda_dl_center_26>;
++					};
++				};
++
++				port@1b {
++					reg = <27>;
++					tpda_dl_center_27_in_tpdm_ipcc: endpoint {
++						remote-endpoint =
++							<&tpdm_ipcc_out_tpda_dl_center_27>;
++					};
++				};
++			};
++
++			out-ports {
++
++				port {
++					tpda_dl_center_out_funnel_dl_center: endpoint {
++						remote-endpoint =
++							<&funnel_dl_center_in_tpda_dl_center>;
++					};
++				};
++			};
++		};
++
++		funnel@10c2f000 {
++			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
++			reg = <0x0 0x10c2f000 0x0 0x1000>;
++
++			clocks = <&aoss_qmp>;
++			clock-names = "apb_pclk";
++
++			in-ports {
++
++				port {
++					funnel_dl_center_in_tpda_dl_center: endpoint {
++						remote-endpoint =
++							<&tpda_dl_center_out_funnel_dl_center>;
++					};
++				};
++			};
++
++			out-ports {
++				port {
++					funnel_dl_center_out_funnel_in1: endpoint {
++						remote-endpoint =
++							<&funnel_in1_in_funnel_dl_center>;
++					};
++				};
++			};
++		};
++
++		funnel@13810000 {
++			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
++
++			reg = <0x0 0x13810000 0x0 0x1000>;
++
++			clocks = <&aoss_qmp>;
++			clock-names = "apb_pclk";
++
++			in-ports {
++
++				port {
++					funnel_apss_in_funnel_ete: endpoint {
++						remote-endpoint =
++							<&funnel_ete_out_funnel_apss>;
++					};
++				};
++			};
++
++			out-ports {
++				port {
++					funnel_apss_out_funnel_in1: endpoint {
++						remote-endpoint =
++							<&funnel_in1_in_funnel_apss>;
++					};
++				};
++			};
++		};
++
++		cti@138e0000 {
++			compatible = "arm,coresight-cti", "arm,primecell";
++			reg = <0x0 0x138e0000 0x0 0x1000>;
++
++			clocks = <&aoss_qmp>;
++			clock-names = "apb_pclk";
++		};
++
++		cti@138f0000 {
++			compatible = "arm,coresight-cti", "arm,primecell";
++			reg = <0x0 0x138f0000 0x0 0x1000>;
++
++			clocks = <&aoss_qmp>;
++			clock-names = "apb_pclk";
++		};
++
++		cti@13900000 {
++			compatible = "arm,coresight-cti", "arm,primecell";
++			reg = <0x0 0x13900000 0x0 0x1000>;
++
++			clocks = <&aoss_qmp>;
++			clock-names = "apb_pclk";
++		};
++
+ 		sram@146aa000 {
+ 			compatible = "qcom,sm8450-imem", "syscon", "simple-mfd";
+ 			reg = <0 0x146aa000 0 0x1000>;
 -- 
 2.17.1
 
