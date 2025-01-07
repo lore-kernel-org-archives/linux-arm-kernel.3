@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57143E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 17:16:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA652E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 17:17:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1kkw8OsqKUstZ6+HR7QBUZKdgqA2L6g+toZ/3deeQ/o=; b=rgRgbvRZq00MQ5TCEwyRVYcbMx
-	9+nmNdjA3dADhVdSgQ3/8i3wSSuFMSN1vGljbhnDBXKS+7QI4ZaDnQVoRAqyL2tpYvh55ROCdpDDY
-	tfMhk96YJGnTNAgiG76+vwOwdp0SyhEJ4zS2JpRSMa22+845j1Edq0zcJMYc5XYKfZpxcQS6KVDXN
-	dz737RGN6WFKwbA+JQnhIIsqFZEd5l6YUId4PQtCIv1MyOFbtJPH2qB4Xfiwy262SlJsYfko/NE3K
-	+AY4ReDZhHYt6O+sD6EuIGtZ+U20jSqJoKFYhVtz4TMLF6W/8zy2I4JhEBl+Vr91WKRWjA19pP74Z
-	d4vAVJ0g==;
+	bh=Rb1pOcXu31lYFeGfpMgDjeg52e6mYQb5OHgfqtIS2po=; b=A4soVmAPForejse/nKSpjq1202
+	RK5+bCNL/L36KbdHGEsgVcxhS3JO8vqwA0MJ8aDduNiZvYHZTZrB+UioOho4+H/5/C6dGnGMczSx9
+	nipU5tDlBRCgS50ahLHcMQuv+8Pl6trO5euFmbrOHGP+GlsB4S3z2nLncHIXfnOrl6zQFoPwN9ucG
+	lcc59bVpbju80JRXD5hX1Q8qoDj4NzPP9DYQPPJdyx9BuD43HLZhFun4qd2oRyoy1eS+8BMEbuqpw
+	fU5xKxww6/6+9W0Z6Qp5uB242iHTcXQTBzXuk3G7WDky+A6ZXTSiZtJ+evbl6NB4gTwTRxQnMTsaO
+	pQ9k00qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVDBT-00000005oiy-3tD5;
-	Tue, 07 Jan 2025 17:16:03 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1tVDCe-00000005p4f-461x;
+	Tue, 07 Jan 2025 17:17:16 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVCmU-00000005i9z-2aoT
+	id 1tVCtd-00000005jeF-3odt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 16:50:15 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2166f1e589cso13838275ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 08:50:13 -0800 (PST)
+	Tue, 07 Jan 2025 16:57:39 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2161eb95317so239431375ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 08:57:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736268613; x=1736873413; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1736269057; x=1736873857; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=1kkw8OsqKUstZ6+HR7QBUZKdgqA2L6g+toZ/3deeQ/o=;
-        b=lvsh7oKpZzTfeaG9iZJFHxkSJwgMk4qkmBT+71GDsQ9/05IdS3Ybk5OlTNRW0zAWTt
-         gWKU15AkijtvpcBCAuJhwMk0iusPinukq6iat6ekJsYLHQAI/FaJhzLYOM4JLOZ241zv
-         nCVeonYEFD8IC3eanhojEYnBb8fQNK6whDRvHkPPYCYUqOC8s4l8lM9yF5cXlsblXurS
-         zyIp8qnaWUvbI5iKccYdOwTUq9V9lwJnQPCVi2+dZvhTUr6AEch1UgHcldXq55WP6ozy
-         d9rgJEOzUiggLbGEQCuKGePHzqQHx95C1AC9bFX6f161I8nGt7fDC128iCFvy9bk6ufd
-         penQ==
+        bh=Rb1pOcXu31lYFeGfpMgDjeg52e6mYQb5OHgfqtIS2po=;
+        b=dmcp1cn5a2kNa0smVBSvKDfHKzqcJzFsKFMzS9c0bEJauPDZyf09pruk4ECB/tWwSa
+         wylMxF0SG8VyOGFuidHR/D04T2l2v4PjFJ7zWxIOY13NusYPEn1g7xhW+xNSrioFq1J5
+         jTXmVg7WPoJgr83gvJHAX9UuNckY86LDenACcNANqddaBsphGYawmS4G8k+yX9uWhShb
+         SOk3y0r0IUMLXpRMwDch2iy8Fo/nY9Nalgscae3NxRHgqO5LyGzhpbR/dpfiF6DpZQaT
+         yBk/3GfjS6otyqTVlN1pEdmUitMMjkKUBiBS+/4uwsPVRP8f7d/wP6UPVG+12JNQDf1Z
+         oyUw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736268613; x=1736873413;
+        d=1e100.net; s=20230601; t=1736269057; x=1736873857;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=1kkw8OsqKUstZ6+HR7QBUZKdgqA2L6g+toZ/3deeQ/o=;
-        b=Obo6oAySuXeQL7SR/kR3RsOWyPjmBZuQ1iCDG6jFN3NQlhbpRWyR5wpp3+CtrK5PtA
-         eooydkw6Y4BcrSYMu89PGb+ojFaSmSkW0BkuCvhKeQzNbFSXqSz4XdKaKXG6Qyrg5Nqm
-         NDJSp+7oPczlwAmDFul2HIED+IoQLZKi+s7/vSTMfpJZCLHu6KzMXQuji1Gi4neNA09W
-         xdp8UcKiS4CMpmWl2eGL5zDt4zM0uiV4+KbnHEr/Sm8g0x/XqgoH+8hEUn9EIaMKTsGH
-         iy4GWglSao8v9LMCsI/a83U27hEZPkfdfF3Lyrxggr/RbVKi+TmmMVHS290YcJ85/+p0
-         y/pg==
-X-Forwarded-Encrypted: i=1; AJvYcCU/Wpm7tU9HBApDnWlYjiRiKJu2j+iVymScr/vq+bzYftCc3ifrxCEh3xqKqbqQ+FGZhDA98frFUTXFf9hbmSZf@lists.infradead.org
-X-Gm-Message-State: AOJu0YxrP6A9bCuv6DXiZhYd2qOzNgJFM6iPNeHWBV2E0DM1oCcF9tm9
-	KIXUeMb3Q8VCGJruo4moIqonSSKuKqpL7Cf4EZCZYYxa6OSkCwY=
-X-Gm-Gg: ASbGnctIyVjUjuR+sYL1ra6l5wn9p8L1/csVuyaJtN1TyaBZVvUOhTO1a/lqk25vl6Q
-	gscl2R3irc+BncUGxXkndgG1y/sMn7k5tA5PRLxJnCGgK87NxyciMYpWxpoDZdY/SgdHvSbGtuJ
-	chVG6HvXnDKtEALuB3q6AVll2H/Sn4tADUe+GblyjenxM+Lc34dotVCYry+JdDc6opBQdTqIrjM
-	LdMpVFMGabOZn5xrX/1S/KlsrcNaSXXSzytXtKWXfyW2IGYf9uqkuFi
-X-Google-Smtp-Source: AGHT+IFENMHtBxMqOYbLnyZklK8TxKhy57F1FhvRUtYUInQIrUA9rU8ymAx4xYOehq+j+0FGzA2uug==
-X-Received: by 2002:a17:903:41d1:b0:217:8557:5246 with SMTP id d9443c01a7336-219e6f4979amr721019265ad.55.1736268612929;
-        Tue, 07 Jan 2025 08:50:12 -0800 (PST)
+        bh=Rb1pOcXu31lYFeGfpMgDjeg52e6mYQb5OHgfqtIS2po=;
+        b=qRIPS8BKKnwKefkpPJ0I19Ix5I1qTVE03Fpx6dfqBgp87aEbs0AjGLP/6i70BCk3Q6
+         4hGdmPz4OFHV9RyeKaC+1AlFxPZNOllq8enRKDbODyW4S1WJFavsJ7bAoYlOOM6kPDs3
+         uTwOmdlcfljl5Yc4+uo2zr88Q5VoBWntDW3BtX6hqp7gcefi6EYLD0pdLkp9SMgWxln2
+         HrqtlUpYRyrDoncp6Ssi0waVs863tks51ENcTismwoE6C2PL58x2NAKj3m4AmfzbNjgI
+         LN8l2fjNG7h1rHPT/x1pDFzS3dK2LkjL9IG7L1tkZu91EFKvHNOxKWNJL1gPK9ElwMmN
+         fChw==
+X-Forwarded-Encrypted: i=1; AJvYcCUN3SkOlETWK8MgKvY/rmuJjybAvcFrwcFd/IJ0MDbvCK22ZpXEcZwrxubWTw0uabuPSHQrDJta2eXEGDPYbaVi@lists.infradead.org
+X-Gm-Message-State: AOJu0YwUzeGLWmC2lcaMbhAz7V5h6KSpjTCNbVQMKOJbCK9FC5K+dcFK
+	+Oqi2crMdwQknTpTeZVWjgY1sNpVX6bK1NvW4A8RAfjwVd6Vz1s=
+X-Gm-Gg: ASbGncs90o5J+HtBbfQp5Qsk1GsaG5nO3UcgtqmEsqAdO8TVgQBBYaXT5EfXL99eejY
+	i6QKFgMw2hKopONdzM7V7Og1P/gJe4reh0z1PMfnKA5Wj9MEvem+2bzT7kMvxyW7Qojp8/3ACef
+	+dDAl9KM+c7qGgyMxjsXYl32zhb0rSqmTNhjfQ/rYVDqr9g+WdFbgBkFNF+f0l1EN4vL2kRc5Pk
+	4wwHnPDeos0F1efbxdZHSwtICQ8O4l1ldnfYhUe+503npAR3Tmnu1zg
+X-Google-Smtp-Source: AGHT+IFlhKI33ii68VDZqo5j2PH+n5VdBpF5kgNaO5PfE/xaemL0ooS2ho/W9ZBFXWggOucM2FsUEA==
+X-Received: by 2002:a17:903:182:b0:216:1eb9:4a48 with SMTP id d9443c01a7336-219e6f289a0mr710448725ad.56.1736269056620;
+        Tue, 07 Jan 2025 08:57:36 -0800 (PST)
 Received: from localhost ([2601:646:9e00:f56e:123b:cea3:439a:b3e3])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-219dc9f7d83sm314319215ad.226.2025.01.07.08.50.12
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-219dc962d0asm314014085ad.53.2025.01.07.08.57.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Jan 2025 08:50:12 -0800 (PST)
-Date: Tue, 7 Jan 2025 08:50:11 -0800
+        Tue, 07 Jan 2025 08:57:36 -0800 (PST)
+Date: Tue, 7 Jan 2025 08:57:35 -0800
 From: Stanislav Fomichev <stfomichev@gmail.com>
 To: Song Yoong Siang <yoong.siang.song@intel.com>
 Cc: "David S . Miller" <davem@davemloft.net>,
@@ -109,17 +109,17 @@ Cc: "David S . Miller" <davem@davemloft.net>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	intel-wired-lan@lists.osuosl.org, xdp-hints@xdp-project.net
-Subject: Re: [PATCH bpf-next v4 1/4] xsk: Add launch time hardware offload
- support to XDP Tx metadata
-Message-ID: <Z31bQ6xEkyQvbutN@mini-arch>
-References: <20250106135606.9704-1-yoong.siang.song@intel.com>
+Subject: Re: [PATCH bpf-next v4 2/4] selftests/bpf: Add Launch Time request
+ to xdp_hw_metadata
+Message-ID: <Z31c_3j9MEP7Z3bd@mini-arch>
+References: <20250106135638.9719-1-yoong.siang.song@intel.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250106135606.9704-1-yoong.siang.song@intel.com>
+In-Reply-To: <20250106135638.9719-1-yoong.siang.song@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_085014_661584_C6A89EFB 
-X-CRM114-Status: GOOD (  35.51  )
+X-CRM114-CacheID: sfid-20250107_085737_954768_8959D720 
+X-CRM114-Status: GOOD (  24.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,129 +135,118 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 01/06, Song Yoong Siang wrote:
-> Extend the XDP Tx metadata framework so that user can requests launch time
-> hardware offload, where the Ethernet device will schedule the packet for
-> transmission at a pre-determined time called launch time. The value of
-> launch time is communicated from user space to Ethernet driver via
-> launch_time field of struct xsk_tx_metadata.
+> Add Launch Time hw offload request to xdp_hw_metadata. User can configure
+> the delta of launch time to HW RX-time by using "-l" argument. The default
+> delta is 100,000,000 nanosecond.
 > 
-> Suggested-by: Stanislav Fomichev <sdf@google.com>
 > Signed-off-by: Song Yoong Siang <yoong.siang.song@intel.com>
 > ---
->  Documentation/netlink/specs/netdev.yaml      |  4 ++
->  Documentation/networking/xsk-tx-metadata.rst | 64 ++++++++++++++++++++
->  include/net/xdp_sock.h                       | 10 +++
->  include/net/xdp_sock_drv.h                   |  1 +
->  include/uapi/linux/if_xdp.h                  | 10 +++
->  include/uapi/linux/netdev.h                  |  3 +
->  net/core/netdev-genl.c                       |  2 +
->  net/xdp/xsk.c                                |  3 +
->  tools/include/uapi/linux/if_xdp.h            | 10 +++
->  tools/include/uapi/linux/netdev.h            |  3 +
->  10 files changed, 110 insertions(+)
+>  tools/testing/selftests/bpf/xdp_hw_metadata.c | 30 +++++++++++++++++--
+>  1 file changed, 27 insertions(+), 3 deletions(-)
 > 
-> diff --git a/Documentation/netlink/specs/netdev.yaml b/Documentation/netlink/specs/netdev.yaml
-> index cbb544bd6c84..e59c8a14f7d1 100644
-> --- a/Documentation/netlink/specs/netdev.yaml
-> +++ b/Documentation/netlink/specs/netdev.yaml
-> @@ -70,6 +70,10 @@ definitions:
->          name: tx-checksum
->          doc:
->            L3 checksum HW offload is supported by the driver.
-> +      -
-> +        name: tx-launch-time
-> +        doc:
-> +          Launch time HW offload is supported by the driver.
->    -
->      name: queue-type
->      type: enum
-> diff --git a/Documentation/networking/xsk-tx-metadata.rst b/Documentation/networking/xsk-tx-metadata.rst
-> index e76b0cfc32f7..3cec089747ce 100644
-> --- a/Documentation/networking/xsk-tx-metadata.rst
-> +++ b/Documentation/networking/xsk-tx-metadata.rst
-> @@ -50,6 +50,10 @@ The flags field enables the particular offload:
->    checksum. ``csum_start`` specifies byte offset of where the checksumming
->    should start and ``csum_offset`` specifies byte offset where the
->    device should store the computed checksum.
-> +- ``XDP_TXMD_FLAGS_LAUNCH_TIME``: requests the device to schedule the
-> +  packet for transmission at a pre-determined time called launch time. The
-> +  value of launch time is indicated by ``launch_time`` field of
-> +  ``union xsk_tx_metadata``.
+> diff --git a/tools/testing/selftests/bpf/xdp_hw_metadata.c b/tools/testing/selftests/bpf/xdp_hw_metadata.c
+> index 6f7b15d6c6ed..795c1d14e02d 100644
+> --- a/tools/testing/selftests/bpf/xdp_hw_metadata.c
+> +++ b/tools/testing/selftests/bpf/xdp_hw_metadata.c
+> @@ -13,6 +13,7 @@
+>   * - UDP 9091 packets trigger TX reply
+>   * - TX HW timestamp is requested and reported back upon completion
+>   * - TX checksum is requested
+> + * - TX launch time HW offload is requested for transmission
+>   */
 >  
->  Besides the flags above, in order to trigger the offloads, the first
->  packet's ``struct xdp_desc`` descriptor should set ``XDP_TX_METADATA``
-> @@ -65,6 +69,65 @@ In this case, when running in ``XDK_COPY`` mode, the TX checksum
->  is calculated on the CPU. Do not enable this option in production because
->  it will negatively affect performance.
+>  #include <test_progs.h>
+> @@ -64,6 +65,8 @@ int rxq;
+>  bool skip_tx;
+>  __u64 last_hw_rx_timestamp;
+>  __u64 last_xdp_rx_timestamp;
+> +__u64 last_launch_time;
+> +__u64 launch_time_delta_to_hw_rx_timestamp = 100000000; /* 0.1 second */
 >  
-> +Launch Time
-> +===========
+>  void test__fail(void) { /* for network_helpers.c */ }
+>  
+> @@ -298,6 +301,8 @@ static bool complete_tx(struct xsk *xsk, clockid_t clock_id)
+>  	if (meta->completion.tx_timestamp) {
+>  		__u64 ref_tstamp = gettime(clock_id);
+>  
+> +		print_tstamp_delta("HW Launch-time", "HW TX-complete-time",
+> +				   last_launch_time, meta->completion.tx_timestamp);
+>  		print_tstamp_delta("HW TX-complete-time", "User TX-complete-time",
+>  				   meta->completion.tx_timestamp, ref_tstamp);
+>  		print_tstamp_delta("XDP RX-time", "User TX-complete-time",
+> @@ -395,6 +400,14 @@ static void ping_pong(struct xsk *xsk, void *rx_packet, clockid_t clock_id)
+>  	       xsk, ntohs(udph->check), ntohs(want_csum),
+>  	       meta->request.csum_start, meta->request.csum_offset);
+>  
+> +	/* Set the value of launch time */
+> +	meta->flags |= XDP_TXMD_FLAGS_LAUNCH_TIME;
+> +	meta->request.launch_time = last_hw_rx_timestamp +
+> +				    launch_time_delta_to_hw_rx_timestamp;
+> +	last_launch_time = meta->request.launch_time;
+> +	print_tstamp_delta("HW RX-time", "HW Launch-time", last_hw_rx_timestamp,
+> +			   meta->request.launch_time);
 > +
-> +The value of the requested launch time should be based on the device's PTP
-> +Hardware Clock (PHC) to ensure accuracy. AF_XDP takes a different data path
-> +compared to the ETF queuing discipline, which organizes packets and delays
-> +their transmission. Instead, AF_XDP immediately hands off the packets to
-> +the device driver without rearranging their order or holding them prior to
-> +transmission. In scenarios where the launch time offload feature is
-> +disabled, the device driver is expected to disregard the launch time
-> +request. For correct interpretation and meaningful operation, the launch
-> +time should never be set to a value larger than the farthest programmable
-> +time in the future (the horizon). Different devices have different hardware
-> +limitations on the launch time offload feature.
+>  	memcpy(data, rx_packet, len); /* don't share umem chunk for simplicity */
+>  	tx_desc->options |= XDP_TX_METADATA;
+>  	tx_desc->len = len;
+> @@ -402,10 +415,14 @@ static void ping_pong(struct xsk *xsk, void *rx_packet, clockid_t clock_id)
+>  	xsk_ring_prod__submit(&xsk->tx, 1);
+>  }
+>  
+> +#define SLEEP_PER_ITERATION_IN_US 10
+> +#define SLEEP_PER_ITERATION_IN_NS (SLEEP_PER_ITERATION_IN_US * 1000)
+> +#define MAX_ITERATION(x) (((x) / SLEEP_PER_ITERATION_IN_NS) + 500)
+>  static int verify_metadata(struct xsk *rx_xsk, int rxq, int server_fd, clockid_t clock_id)
+>  {
+>  	const struct xdp_desc *rx_desc;
+>  	struct pollfd fds[rxq + 1];
+> +	int max_iterations;
+>  	__u64 comp_addr;
+>  	__u64 addr;
+>  	__u32 idx = 0;
+> @@ -418,6 +435,9 @@ static int verify_metadata(struct xsk *rx_xsk, int rxq, int server_fd, clockid_t
+>  		fds[i].revents = 0;
+>  	}
+>  
+> +	/* Calculate max iterations to wait for transmit completion */
+> +	max_iterations = MAX_ITERATION(launch_time_delta_to_hw_rx_timestamp);
 > +
-> +stmmac driver
-> +-------------
-> +
-> +For stmmac, TSO and launch time (TBS) features are mutually exclusive for
-> +each individual Tx Queue. By default, the driver configures Tx Queue 0 to
-> +support TSO and the rest of the Tx Queues to support TBS. The launch time
-> +hardware offload feature can be enabled or disabled by using the tc-etf
-> +command to call the driver's ndo_setup_tc() callback.
-> +
-> +The value of the launch time that is programmed in the Enhanced Normal
-> +Transmit Descriptors is a 32-bit value, where the most significant 8 bits
-> +represent the time in seconds and the remaining 24 bits represent the time
-> +in 256 ns increments. The programmed launch time is compared against the
-> +PTP time (bits[39:8]) and rolls over after 256 seconds. Therefore, the
-> +horizon of the launch time for dwmac4 and dwxlgmac2 is 128 seconds in the
-> +future.
-> +
-> +The stmmac driver maintains FIFO behavior and does not perform packet
-> +reordering. This means that a packet with a launch time request will block
-> +other packets in the same Tx Queue until it is transmitted.
-> +
-> +igc driver
-> +----------
-> +
-> +For igc, all four Tx Queues support the launch time feature. The launch
-> +time hardware offload feature can be enabled or disabled by using the
-> +tc-etf command to call the driver's ndo_setup_tc() callback. When entering
-> +TSN mode, the igc driver will reset the device and create a default Qbv
-> +schedule with a 1-second cycle time, with all Tx Queues open at all times.
-> +
-> +The value of the launch time that is programmed in the Advanced Transmit
-> +Context Descriptor is a relative offset to the starting time of the Qbv
-> +transmission window of the queue. The Frst flag of the descriptor can be
-> +set to schedule the packet for the next Qbv cycle. Therefore, the horizon
-> +of the launch time for i225 and i226 is the ending time of the next cycle
-> +of the Qbv transmission window of the queue. For example, when the Qbv
-> +cycle time is set to 1 second, the horizon of the launch time ranges
-> +from 1 second to 2 seconds, depending on where the Qbv cycle is currently
-> +running.
-> +
-> +The igc driver maintains FIFO behavior and does not perform packet
-> +reordering. This means that a packet with a launch time request will block
-> +other packets in the same Tx Queue until it is transmitted.
+>  	fds[rxq].fd = server_fd;
+>  	fds[rxq].events = POLLIN;
+>  	fds[rxq].revents = 0;
+> @@ -477,10 +497,10 @@ static int verify_metadata(struct xsk *rx_xsk, int rxq, int server_fd, clockid_t
+>  					if (ret)
+>  						printf("kick_tx ret=%d\n", ret);
+>  
 
-Since two devices we initially support are using FIFO mode, should we more
-explicitly target this case? Maybe even call netdev features
-tx-launch-time-fifo? In the future, if/when we get support timing-wheel-like
-queues, we can export another tx-launch-time-wheel?
+[..]
 
-It seems important for the userspace to know which mode it's running.
-In a fifo mode, it might make sense to allocate separate queues
-for scheduling things far into the future/etc.
+> -					for (int j = 0; j < 500; j++) {
+> +					for (int j = 0; j < max_iterations; j++) {
+>  						if (complete_tx(xsk, clock_id))
+>  							break;
+> -						usleep(10);
+> +						usleep(SLEEP_PER_ITERATION_IN_US);
 
-Thoughts? No code changes required, just more explicitly state the
-expectations.
+nit: instead of doing MAX_ITERATION/max_iterations, can we simplify this
+to the following?
+
+static u64 now(void)
+{
+	clock_gettime(...);
+	return ts.tv_sec * NSEC_PER_SEC + ts.tv_nsec;
+}
+
+/* wait 5 seconds + cover launch time */
+deadline = now() + 5 * NSEC_PER_SEC + launch_time_delta_to_hw_rx_timestamp;
+while (true) {
+	if (complete_tx())
+		break;
+	if (now() >= deadline)
+		break;
+	usleep(10);
+}
+
+It is a bit more readable than converting time to wait to the
+iterations..
 
