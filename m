@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8517BE77198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 23:11:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AC93E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 23:12:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=PCrEa2eqiGdRhCaAuf73LiJEX1P4cmcw8rxMXvN3h20=; b=IvihTliXjAYgo4kC0wePxzO0Bs
-	RdylmZOLYZ/8fyUvDbEtW8Cci7mX/9bMdn3YPyDCBenZnm4K1Eit25ZDbPTNa4H7cCjIDSDW+B8/O
-	1fsIit6dxOVXkcM8XqyFB2lr5wG8RD6rucV3QxHWk3RCcZGU9HwdbRzgX3v9faphC+NdFN1wa7wdU
-	D8nfBSyRFTISvwT3ZSp9yXQmhHpdKHEgZCEdpBHJg4DbRc2km7c3cKNDe1hf3TpKYZtpQXgu9U3s0
-	fC4rIziQ5HC37lJL+Jw7A4FHvxPo4hHO1H9vTIljYb66C+POWBl0YT0/QQqDvPVds+b1Ja+WzGvZC
-	ANh0o24w==;
+	bh=p1Kkoignyrr80sETDjSCu3E4vA6Ej0aacljRgloDpT4=; b=O3lWjulZ+IgocnjdA4NK9Izywa
+	Ml9UpSjOzrLHhCkm+9kgv/6AOVNo5xT+iRWraYcqmJzFiy7Y7EtsTIY8cPIyzbMQrR2SyGffA8Prh
+	Qiy1nrB4TsrIAgB/G+CvGlZUlxw9+GEp1ZONbwx/+LbkbQSWtxOONP8Q6SKB7LCZdvbkjQlgh98At
+	ZYQhV86Gio/6V0uV/YPHNUUghGlO5dS8LjGPi7ug+ZXz6LYKDIjHUNyEphKAvZIYy59sTZuj75F5i
+	3uVq4Vr/dUnsbNM7ODUtXP/koDPzGWP3LJjqbpZ0A6sRZk9vNGJ6ruReBp2y+wnsmP+x7I0qixS+F
+	O79M2EMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVIjF-00000006VHC-0Yjk;
-	Tue, 07 Jan 2025 23:11:17 +0000
+	id 1tVIkQ-00000006VTJ-0FN3;
+	Tue, 07 Jan 2025 23:12:30 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVIea-00000006UND-35r8;
-	Tue, 07 Jan 2025 23:06:29 +0000
+	id 1tVIfo-00000006UXy-2K1d;
+	Tue, 07 Jan 2025 23:07:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9F31F5C060E;
-	Tue,  7 Jan 2025 23:05:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46902C4CEDF;
-	Tue,  7 Jan 2025 23:06:25 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id F08B95C0FD3;
+	Tue,  7 Jan 2025 23:07:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99020C4CEDF;
+	Tue,  7 Jan 2025 23:07:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736291185;
-	bh=VfAnBfuX08F+R34YGFjPDdCZbCRXPGtckNSQu09Cp8k=;
+	s=k20201202; t=1736291263;
+	bh=qCOsJ/wKHOi3SAkDBRYfIUDYbFC/ozgvyeH4knr/FXA=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=cOXT9/e9xxyBFaU6ZRyl43N5yOhkdSW3pm+L4KFDvPaD4x4bhaPDx6vsx/+XK15JB
-	 ufQhgPuoW8HeB5VsOY57a1OQnNFYyGITDl/MGXWbZcc8V+rKTVX7tK4/fNWSL5cRJT
-	 YtgV0laPpn4XfecnAbcURnxone1ng/4plt6Eiae1K14ASLBiDClGM0r/kZMxZNAJx8
-	 B8rJG874PHgtYWGEiEBgv8D2hwmFL2CI3yGqY+uirRMi1sBDWdPxXwGN9CofAI4udG
-	 MkB8aA5vkzdhC9sPCpCx7WjD3gUDWyW00nopCYQjAS9Xqe7QR07g3Aplq0O/3ma3Yw
-	 VlpA8jCaUFgFQ==
-Date: Tue, 7 Jan 2025 17:06:23 -0600
+	b=Lbv4lvYyU3hdnUYszWRuxX22YRUZGI6KXGwtAZ0QayGT7PHOTKKa0IPoqG2EmSchl
+	 3Pk0IAVh3ynu5a8qsvbVQP++4PaPE443CgJi9TVTTWGQzlKlrGgvo4osLY/vyk+2Ae
+	 s5krWEJBDP+TCUCS1YTlph1APAIQQ61PXi4BCdyPtzWJzAvC2Uta6zK6MzxXxwCr6C
+	 EAPGePwBBXgrMCetp9aLHjjMHQgqLXnt1AGjcrr9nInknI5OvElB86o160HIRO2cA/
+	 Tngd46xXYTVXCCH2EcaYrvWGXqVztxxk+xxl5jSodUU/D0RvS8VeWoGF49vYkMeQVg
+	 1mvrlRa1FVllA==
+Date: Tue, 7 Jan 2025 17:07:42 -0600
 From: Bjorn Helgaas <helgaas@kernel.org>
-To: Jianjun Wang =?utf-8?B?KOeOi+W7uuWGmyk=?= <Jianjun.Wang@mediatek.com>
-Cc: "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	Xavier Chang =?utf-8?B?KOW8teeNu+aWhyk=?= <Xavier.Chang@mediatek.com>,
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Jianjun Wang =?utf-8?B?KOeOi+W7uuWGmyk=?= <Jianjun.Wang@mediatek.com>,
 	"manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>,
 	"conor+dt@kernel.org" <conor+dt@kernel.org>,
 	"robh@kernel.org" <robh@kernel.org>, "kw@linux.com" <kw@linux.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
 	"bhelgaas@google.com" <bhelgaas@google.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
 	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Ryder Lee <Ryder.Lee@mediatek.com>
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	Ryder Lee <Ryder.Lee@mediatek.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	Xavier Chang =?utf-8?B?KOW8teeNu+aWhyk=?= <Xavier.Chang@mediatek.com>
 Subject: Re: [PATCH 3/5] PCI: mediatek-gen3: Disable ASPM L0s
-Message-ID: <20250107230623.GA189234@bhelgaas>
+Message-ID: <20250107230742.GA189563@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <8b7b0d1bca5088bda46a651481b9a42f3be1a75d.camel@mediatek.com>
+In-Reply-To: <1a48feae-f55f-4df8-b165-84c1cb2f6658@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_150628_823028_9DBAF112 
-X-CRM114-Status: GOOD (  19.85  )
+X-CRM114-CacheID: sfid-20250107_150744_640329_D65073BA 
+X-CRM114-Status: GOOD (  23.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,44 +83,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 07, 2025 at 02:44:37AM +0000, Jianjun Wang (王建军) wrote:
-> On Fri, 2025-01-03 at 13:15 -0600, Bjorn Helgaas wrote:
-> > On Fri, Jan 03, 2025 at 02:00:13PM +0800, Jianjun Wang wrote:
-> > > Disable ASPM L0s support because it does not significantly save
-> > > power but impacts performance.
+On Tue, Jan 07, 2025 at 12:44:43PM +0100, AngeloGioacchino Del Regno wrote:
+> Il 07/01/25 03:18, Jianjun Wang (王建军) ha scritto:
+> > On Fri, 2025-01-03 at 10:16 +0100, AngeloGioacchino Del Regno wrote:
+> > > Il 03/01/25 07:00, Jianjun Wang ha scritto:
+> > > > Disable ASPM L0s support because it does not significantly save
+> > > > power
+> > > > but impacts performance.
+> > > 
+> > > That may be a good idea but, without numbers to support your
+> > > statement, it's a bit
+> > > difficult to say.
+> > > 
+> > > How much power does ASPM L0s save on MediaTek SoCs, in microwatts?
+> > > How is the performance impacted, and on which specific device(s) on
+> > > the PCIe bus?
 > > 
-> > This seems like a user/administrator decision, not a driver
-> > decision.
+> > It's hard to tell the exact number because it is difficult to measure,
+> > and the number of entries into the L0s state may vary even in the same
+> > test scenario.
 > > 
-> > L0s reduces power at the cost of performance for *all* PCIe
-> > devices, although the actual numbers may vary.
+> > However, we have encountered some compatibility issues when connected
+> > with some PCIe EPs, and disabling the L0s can fix it. I think disabling
+> > L0s might be the better way, since we usually use L1ss for power-saving
+> > when the link is idle.
 > 
-> We have encountered some compatibility issues when connected with
-> some PCIe EPs, these issues are probabilistic and disabling the L0s
-> can fix them.
+> To actually decide, we should know what's actually broken, then.
+> 
+> Is the MediaTek controller broken, or is the device broken?
+> So, is it a MTK quirk, or a device quirk?
+> 
+> If the problem is actually device-related, then this should be handled as
+> a device-specific quirk, as not just MediaTek platforms would be affected
+> by compatibility issues.
+> 
+> If the MediaTek PCIe controller is at fault, instead, I agree about just
+> disabling L0s at the controller level - but then this shall be mentioned
+> in the commit message, and should have a Fixes tag as well.
 
-This sounds like either a software problem in ASPM or a hardware
-problem in one of the devices.  If it's a Linux ASPM issue, obviously
-we should find and fix that.  If it's an endpoint hardware issue, we
-should fix the driver or quirk it to avoid L0s on all platforms, not
-just this one.
-
-If it's a mediatek-gen3 hardware issue, we should disable L0s as you
-do here.  But if the reason is to work around a hardware erratum, we
-should describe it as such.
-
-Justifying it as "L0s really doesn't save much power, so disable it"
-is an invitation for somebody to come back and ask why L0s doesn't
-work when the lspci output claims it *should* work.
-
-> Users may not be aware of these issues, so I think disabling L0s
-> through the driver might be the better way, since it does not
-> significantly save power and we usually use L1ss for power-saving
-> when the link is idle.
-
-Users should not need to be aware of probabilistic behavior problems
-related to ASPM.  It's *our* problem to make sure users never see
-issues like that :)
+100% agreed, sorry for repeating what you just said before I finished
+reading the thread!
 
 Bjorn
 
