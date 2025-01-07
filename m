@@ -4,67 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67766E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 21:57:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA697E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 22:15:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FkDBWKwAmmDzOrLOk18A/F49yWqkCfBKpPfknDBfP7o=; b=UTKTVmeLjFMrAt2J16aPFG8vM+
-	giVQiJL/0nUdrrB+8E5MBopqaMAbo1LkN01VoiU4V+7ngPQwjJFH9Fee1ULpoZVS5d/+YUvIDfzCq
-	nAFTJSOns+qVk0yPOVY6q9PaQss9t2+zzt4SYTAYw5QMWtNXayUTheYsjf9f11QzcG5oCgeEfwtL3
-	+VzKhPiV5S6AqFBPyksMgIpMworWqDwGqFu28QGog/uHDS82GISihWpNkTX/YdlnQHrgAdBSYAsBZ
-	54YDiiLZuyQbHiaArXBuIqacbngjl3WgZ6f5pB4ULo0mtra0VQ0F9iqrYp10R0WnpdKxK4myACsAn
-	dCtwZTJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GrK3cwSOj8eKidweyAUqrBu5vw26Zn2oAnClPaIzrTw=; b=UcL+GDClfhJE6rPr4+mK9/36xE
+	tOhbtF2SUlIx079S4ilXcsjCnojdyjo9OgCi66Vk1MnWAaBspzPfKFtk3TDcQ9JtsP7yWqPiJFy3n
+	aswnKD4cCYe+vh88VC3ufPnEWmlQ5liZojxy5+hONea7zWLqs66Bm2wc3NelHpdy4u6vtTsWT3G7l
+	+kmG6OJO0y+rTSvBxhP7QXQN5DpTHz3Pgbm3wREZ7FKj2BiGhWZnkYPup9fkHp8pa7X+3Za/4Gz+Y
+	QiZHprO+lbfmVZFJoqdaahlC+ylPojW3rDHaze8hSdV96vK0yue9cWg/t+csLVaxXe+AXa1ffoeqQ
+	TJ/1kM4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVHZL-00000006N8Y-37Vl;
-	Tue, 07 Jan 2025 21:56:59 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tVHr2-00000006OlX-2mQ2;
+	Tue, 07 Jan 2025 22:15:16 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVHY8-00000006N4v-2opx;
-	Tue, 07 Jan 2025 21:55:45 +0000
+	id 1tVHpo-00000006OZg-3l9D
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 07 Jan 2025 22:14:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5247B5C6018;
-	Tue,  7 Jan 2025 21:55:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0CFFC4CED6;
-	Tue,  7 Jan 2025 21:55:42 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id E733CA41E1D
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  7 Jan 2025 22:12:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D7BDC4CED6
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  7 Jan 2025 22:13:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736286943;
-	bh=jtmnWEARWEmD43FDdt9F+BHYo1jphXJeqPvu4IFcjkY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fVoYtMb2lHtH0/uYJDLRVOiHAMjmdE1b0iUlXhpMQ15n/SMSqRrR2b004IrUwheGd
-	 qyg/hyC8QZCOGZiFjr7cqJbGvUlmoiZqKKxdy2QLY89ciGs725kz8Z6DVGldgvIgo2
-	 vBRB4/f3lXTMCi61aD3GVtFioYTbZ6zw+DYSgebyZ08eaBZ6L+tC4/YN+1uAwNmzzp
-	 I/xDuStj50j3hR7Ix/3kN61S6MtMPpJvyqwDAej80IYiUHvriyNTMaNaHF+nURV6dn
-	 tLW0z2PzXTDJ7+Q4oTJb0KM/6gBR9Jps2zWosoX5ftn+N/yiy5I1ce9fdw6+UzC018
-	 ksBbCeT5r4wHg==
-Date: Tue, 7 Jan 2025 22:55:40 +0100
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Davide Caratti <dcaratti@redhat.com>
-Cc: patchwork-bot+netdevbpf@kernel.org, nbd@nbd.name,
-	sean.wang@mediatek.com, Mark-MC.Lee@mediatek.com,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	upstream@airoha.com
-Subject: Re: [PATCH net-next 0/4] net: airoha: Add Qdisc offload support
-Message-ID: <Z32i3EGrLfE2OlLN@lore-desk>
-References: <20250103-airoha-en7581-qdisc-offload-v1-0-608a23fa65d5@kernel.org>
- <173625003251.4120801.586359106755098449.git-patchwork-notify@kernel.org>
- <CAKa-r6v0bEjQfbSG75E9kV1Qki-5eAbrqiy2maB2iG2O4Wf5Xw@mail.gmail.com>
+	s=k20201202; t=1736288039;
+	bh=HdwVvS5YRWYy+X66YIRHR2jVXTWZeiPKiRtuluGslOM=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=OpgPdyoI/qXFxuUK81gR/mdcIXwSac7xdGwvvzlqkTsJ7l/XMqD8X/V4uak7N+RBH
+	 w+22MTJmLffp6nc/8w+LcZgGQIcyOWBeklFCU814y1beSb2mZjEbMb4P9JL+Ub/WnI
+	 +8gObIc0+nZP/apsne0U+LSf9xyhuIL1hz7lXKlP44B/pPAyV1OcMpU64Jcb2MsNTK
+	 En67oY+tT0jTfLQIylts6UNtBikn9/hOWuS5gJ6mQBjkcmT9W3fyT2f5qih2eqPjeX
+	 Iho/V/uK8PKVhoMPKHzwtmNy52IfuUJWscCISuTCV8QMmArMT0URbw0f9rw+z1aUpQ
+	 E98VKc5MYxhYg==
+Received: by mail-yb1-f182.google.com with SMTP id 3f1490d57ef6-e54bd61e793so4516856276.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 14:13:59 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCX4Xzj9J2m2T52YyYJouMtj/5oaj54twNlvE8XcuJF6HrHgHoRzkRhUdSENNRSARbKlJpzJdBhJzfkA37rFGpMF@lists.infradead.org
+X-Gm-Message-State: AOJu0YxVY6RJR+WSI2CfAc83Uc4PlQ8bE7RGQf2WEVPZfcDm/RcCu4H9
+	1qPcvQfWbdIIBsp1M1vkJoNlcFHQ6ZOxyI5M38afIr00hU+tY9ivZk99ZFKLGhrkiFDC2pYMizC
+	7zQglOqLsCYN25oNLgdG5OE5Lrw==
+X-Google-Smtp-Source: AGHT+IFsh1HXmQAP2bGRyE7hz1zGs5lIpyqneBnIDxdxSA54RLNAftmVAVswBtYnrPy5s6t9RW1k/So8Ym4UnckSWiI=
+X-Received: by 2002:a05:690c:4509:b0:6ef:4a57:fc98 with SMTP id
+ 00721157ae682-6f5312246ebmr6224027b3.16.1736288038565; Tue, 07 Jan 2025
+ 14:13:58 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Rv8LOhYFLOQcML4d"
-Content-Disposition: inline
-In-Reply-To: <CAKa-r6v0bEjQfbSG75E9kV1Qki-5eAbrqiy2maB2iG2O4Wf5Xw@mail.gmail.com>
+References: <20241220072240.1003352-1-anshuman.khandual@arm.com>
+ <20250102160402.GB3990035-robh@kernel.org> <Z30adHnQ7ZFaU9UR@arm.com>
+In-Reply-To: <Z30adHnQ7ZFaU9UR@arm.com>
+From: Rob Herring <robh@kernel.org>
+Date: Tue, 7 Jan 2025 16:13:47 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqLLnh1o4L1=PpNt5brBwZZCgp7mOygByOYakchrzc29Ow@mail.gmail.com>
+X-Gm-Features: AbW1kvYLKFdW_S3KNw6GmCK3ZvUZjTNYLuDcgaEWTnLEiyEGd8fjimnTAOW_1VM
+Message-ID: <CAL_JsqLLnh1o4L1=PpNt5brBwZZCgp7mOygByOYakchrzc29Ow@mail.gmail.com>
+Subject: Re: [PATCH 0/7] arm64/boot: Enable EL2 requirements for FEAT_PMUv3p9
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>, linux-arm-kernel@lists.infradead.org, 
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, 
+	Mark Rutland <mark.rutland@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	Jonathan Corbet <corbet@lwn.net>, Eric Auger <eric.auger@redhat.com>, kvmarm@lists.linux.dev, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_135544_752243_D7E55492 
-X-CRM114-Status: GOOD (  15.16  )
+X-CRM114-CacheID: sfid-20250107_141401_071008_F087B195 
+X-CRM114-Status: GOOD (  27.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,64 +87,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---Rv8LOhYFLOQcML4d
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-> hi,
->=20
-> On Tue, Jan 7, 2025 at 12:40=E2=80=AFPM <patchwork-bot+netdevbpf@kernel.o=
-rg> wrote:
-> >
-> > Hello:
-> >
-> > This series was applied to netdev/net-next.git (main)
-> > by Paolo Abeni <pabeni@redhat.com>:
-> >
-> > On Fri, 03 Jan 2025 13:17:01 +0100 you wrote:
-> > > Introduce support for ETS and HTB Qdisc offload available on the Airo=
-ha
-> > > EN7581 ethernet controller.
+On Tue, Jan 7, 2025 at 6:13=E2=80=AFAM Catalin Marinas <catalin.marinas@arm=
+.com> wrote:
+>
+> On Thu, Jan 02, 2025 at 10:04:02AM -0600, Rob Herring wrote:
+> > On Fri, Dec 20, 2024 at 12:52:33PM +0530, Anshuman Khandual wrote:
+> > > This series adds fine grained trap control in EL2 required for FEAT_P=
+MUv3p9
+> > > registers like PMICNTR_EL0, PMICFILTR_EL0, and PMUACR_EL1 which are a=
+lready
+> > > being used in the kernel. This is required to prevent their EL1 acces=
+s trap
+> > > into EL2.
 > > >
-> > > ---
-> > > Lorenzo Bianconi (4):
-> > >       net: airoha: Enable Tx drop capability for each Tx DMA ring
-> > >       net: airoha: Introduce ndo_select_queue callback
-> > >       net: airoha: Add sched ETS offload support
->=20
-> I was about to comment that ETS offload code probably still lacks
-> validation of priomap [1]. Otherwise every ETS priomap will behave
-> like the one that's implemented in hardware. It can be addressed in a
-> follow-up commit, probably.
+> > > PMZR_EL0 register trap control i.e HDFGWTR2_EL2.nPMZR_EL0 remains unc=
+hanged
+> > > for now as it does not get accessed in the kernel, and there is no pl=
+an for
+> > > its access from user space.
+> > >
+> > > I have taken the liberty to pick up all the review tags for patches r=
+elated
+> > > to tools sysreg update from the KVM FGT2 V2 patch series posted earli=
+er.
+> > >
+> > > https://lore.kernel.org/all/20241210055311.780688-1-anshuman.khandual=
+@arm.com/
+> > >
+> > > Rob had earler mentioned about FEAT_FGT2 based trap control requireme=
+nt for
+> > > FEAT_PMUv3p9 registers that are currently being used in kernel. The c=
+ontext
+> > > can be found here.
+> > >
+> > > https://lore.kernel.org/all/20241216234251.GA629562-robh@kernel.org/
+> > >
+> > > This series is based on v6.13-rc3
+> > >
+> > > Cc: Catalin Marinas <catalin.marinas@arm.com>
+> > > Cc: Will Deacon <will@kernel.org>
+> > > Cc: Marc Zyngier <maz@kernel.org>
+> > > Cc: Ryan Roberts <ryan.roberts@arm.com>
+> > > Cc: Mark Rutland <mark.rutland@arm.com>
+> > > Cc: Mark Brown <robh@kernel.org>
+> > > Cc: Rob Herring <robh@kernel.org>
+> > > Cc: Oliver Upton <oliver.upton@linux.dev>
+> > > Cc: Jonathan Corbet <corbet@lwn.net>
+> > > Cc: Eric Auger <eric.auger@redhat.com>
+> > > Cc: kvmarm@lists.linux.dev
+> > > Cc: linux-doc@vger.kernel.org
+> > > Cc: linux-kernel@vger.kernel.org
+> > > Cc: linux-arm-kernel@lists.infradead.org
+> > >
+> > > Anshuman Khandual (7):
+> > >   arm64/sysreg: Update register fields for ID_AA64MMFR0_EL1
+> > >   arm64/sysreg: Add register fields for HDFGRTR2_EL2
+> > >   arm64/sysreg: Add register fields for HDFGWTR2_EL2
+> > >   arm64/sysreg: Add register fields for HFGITR2_EL2
+> > >   arm64/sysreg: Add register fields for HFGRTR2_EL2
+> > >   arm64/sysreg: Add register fields for HFGWTR2_EL2
+> > >   arm64/boot: Enable EL2 requirements for FEAT_PMUv3p9
+> >
+> > In case it is not clear, this series should be applied to 6.13 as the 2
+> > PMUv3p9 features already landed in 6.13 (per counter EL0 control) and
+> > 6.12 (ICNTR).
+>
+> So is this a fix that needs backporting to 6.12 or 6.13, e.g. fix for
+> d8226d8cfbaf ("perf: arm_pmuv3: Add support for Armv9.4 PMU instruction
+> counter")? It's pretty late in the cycle to take the series for 6.13.
 
-sorry, I forgot about it. I am fine to enforce priomap if it is required wi=
-th a
-follow-up patch.=20
+Ideally, yes. But given the state of h/w implementations, backporting
+it later is probably fine if that is your preference.
 
-Regards,
-Lorenzo
+> But does KVM actually expose the feature to EL1 in ID_AA64DFR1_EL1 and
+> than traps it at EL2?
 
->=20
-> thanks,
-> --
-> davide
->=20
-> [1] https://lore.kernel.org/netdev/CAKa-r6shd3+2zgeEzVVJR7fKWdpjKv1YJxS3z=
-+y7QWqDf8zDZQ@mail.gmail.com/
->=20
+As Marc pointed out KVM only advertises PMUv3.8. Regardless, guest
+accesses to these registers are trapped with or without this series.
 
---Rv8LOhYFLOQcML4d
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ32i3AAKCRA6cBh0uS2t
-rIr6AQD7Gjch5GSpHsIaSEqrXwCHjxSHuhrQdfBAepQ5SPB4UgD+Ox/WGqd9I9jr
-x8iG9A7gy4ZsLv9KHdYITc7HfixhugA=
-=ibn2
------END PGP SIGNATURE-----
-
---Rv8LOhYFLOQcML4d--
+Rob
 
