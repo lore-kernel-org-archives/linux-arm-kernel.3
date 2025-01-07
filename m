@@ -4,94 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B1C9E77198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 13:02:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56777E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 13:03:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=iVaSFtlZM3/VWeZtMCCVy8JYGseLcw26+eMrw9jztfQ=; b=Y9Sf67W1IgKUUiQ8IeR3bS+Fic
-	9gRgcGPBFapf7YgxGWVImfszOvnzrLTGerZWasvOKK2jvP0FIn/T072BYKgwX+CR0+hflDgQMb2QF
-	YO7+9Lr3ZzsOTO3bL3lAakRENafyTXRhn91HVmjJQPsY1hVDeUYhSLjPArkWAZWw5sX6W1cB3qH2S
-	K/z3D09L8HTu59lnNU3ISMkUvrGK2rP6EDqrxpkYFIUMWumMPqU7AMqKKkgIwr9yFKANpLSdxwdfx
-	PZxJPjbDSGoPKWqzztkSeGMJ+JNMVDMTpV58Xm2rwkRt7R6dqkkq8xGzK9k/MjJCb3n0tl4YuLb7C
-	/ZnliNZw==;
+	bh=G3SlO4HnSa1d2nIOviPDkVVh3M8sGqwGmKll7Eiqgd0=; b=jph+rAkSd1Be5W3i3HzJM2ezrg
+	NLofG9VpJnjvNMN+Ux7jMHUIKEqYbKaHlsGo4+0nDCCMwYt6mR3v5nRY9pPfxQbKJa7M4CXy+8CdH
+	jtSw4/sYa6AGTeDIroEG+/b+d5BcZghDTu9VmLDeQPLz31Bj5YtDCuH7dy8n4nerhUt7qikyXfC78
+	ty0tyE4/TFoukzTCVcS5/LJ368ReXBvRNoDxTayMQXbW2DXQChHPoxRI/0ouQ9gF+hHg+Tlt1KOqB
+	tf78k8rGchfzpSyT3tUqge3vCzxBSjGlkstKpQGJfb7eqg5n3aBSC2ZliSZhX0aM6JRdPpQFVyaui
+	7+gRlyng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV9Du-00000004tNM-2HsE;
-	Tue, 07 Jan 2025 13:02:18 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1tV9F6-00000004tcp-0kK3;
+	Tue, 07 Jan 2025 13:03:32 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV9AJ-00000004sCX-202Z
+	id 1tV9AO-00000004sEA-0gTN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 12:58:39 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-385e44a1a2dso1789751f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 04:58:35 -0800 (PST)
+	Tue, 07 Jan 2025 12:58:44 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-3862c78536bso784413f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 04:58:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736254714; x=1736859514; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1736254719; x=1736859519; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=iVaSFtlZM3/VWeZtMCCVy8JYGseLcw26+eMrw9jztfQ=;
-        b=Ys51TMGz7Arg3minLWhwOE486/dJEf3K4wKgDWYhtutigVrHWuDJ26HZoCRikf2TIL
-         j9lLOmMhQIz1wtqo/2SeQqHsDx0GE50B+8/pcFI+LjeZ+8GOBOz4isDu1A39EZ6W9g56
-         MxjWPFkUvJ1BQTV4Ku0kAv/GyCLARHVX575Mfh0FQTHZDNzeBdkOZWzEGuW61HaVow/+
-         Q7wSPnCX5ynOBovhAMdRGDRdl1A1EXm2e3Jv3OHCj4M4ZjKIUY7QAA1MCvvK80UjMP8N
-         FTaDxsU9gO0uQwRCuqyEO45C8yWedH3EnVSal2/nIQJLmTCD+28GUosABqupjZVbafPm
-         7H0g==
+        bh=G3SlO4HnSa1d2nIOviPDkVVh3M8sGqwGmKll7Eiqgd0=;
+        b=xi4qDYSnx7o8AmhRmBAy+bvk152+wKdksJfcouk3wFu8yAazCWY9Zg+xCAuJWHInz0
+         3MqZ1m3jixtl2v89umz0KaLcLKMH3d4NgpypLv+tvnzkh1pDZbRJ27dSIYqXCmYdIhy9
+         RMkKI2gAqmg3N8aYzhqcqnzVgMFVQojn9IENhQj0lCeEigQBLmws3tBw+pMIE1NGnSYl
+         yu350RO9m+xZDjWy1R4galA+M55DKPK2YeddUCPTHa/urzgKuBxipGAvDQOg422YZ/Ah
+         fvI06lfyR0oCT554Yjz0Qv7fLzwFDQEhxQYv0hwwPd9NBZUXtL33c2D+p5lrQgZYblqs
+         p+Cw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736254714; x=1736859514;
+        d=1e100.net; s=20230601; t=1736254719; x=1736859519;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=iVaSFtlZM3/VWeZtMCCVy8JYGseLcw26+eMrw9jztfQ=;
-        b=gOX32gb/puu3sE8CZ42UFa/gtxBqe0vW2Z+pVf36wNk4FCHxwMGxZzAmgfyb6n2dnV
-         v0v3ue3ut8ZgF9I2H6uxTEBCHgE3byMFJqVXVfP9QBhR1ink7R5FR8rTPU3wojsxw6eX
-         PYMK/R6bi3ImKA6lKVr9tYN9yYT+M9iovPAoIq4C9lohYkFNl6jsqeEBG4gr6HvRA39U
-         qb5IhmYJRXZQE5bPFZmRXpJWTiqX/0GEsga5zievAtXg0QCwrBQPWlvc4KmX7qO5dgKS
-         sjquD6xCogsH7qCc7h0JZYaAe8Mxcz0SCUa8HiW/s3SKa78ddZWE6qHu57yMZT05uUN2
-         DZ6Q==
-X-Forwarded-Encrypted: i=1; AJvYcCX8A54x2EG0f4Bewd/Wa/2+iss2lQGBMPn4dC1IN/oOWTis52efG7Mwb0r9wn7lYvKDyN+Hvj3z+i6cW8nHbiJA@lists.infradead.org
-X-Gm-Message-State: AOJu0YxCi/jUbxS7rkqN93VQjU5C124hSbf6E6uuTFLQod2WjieDxOAI
-	krULfZGqFRl837WDTsHoxU1l0eu/nBbSn6BZSOJX2hVkV1x7GUI2Bf4Dap5LnOw=
-X-Gm-Gg: ASbGncsOKvTyHrAeP9UdbFEgvggvuviy+zGTa6SlH9HpxRK00c7p6TwECoRUXpmoKXK
-	fBt9/4/P8mJUtGEdBA0xEn/EfwpmH8P/MOZ2SGyQUxRroq22vK2LHNkwk7zb/bQA9Iho57gkvDn
-	i3UpZlgE717w/2YWHEFwaamGPZHGY/elh91c1W3KOyTxLXUbIBYznYULNrH6baLblDveIH5THWF
-	3iORxt5VoJStWRjbfLG2s3OLocJK681YdBhrUEtXrt+Zf1Db0m4VNrPjal3jkraGu1xBYM=
-X-Google-Smtp-Source: AGHT+IFPBeJaMEFcgs9P5ku/eO7a9THMpLvlhXfK01aXSRTSwOvnAsWvnf3VluFuAxi1Ku/w/nWpEA==
-X-Received: by 2002:a5d:5e09:0:b0:385:f479:ef46 with SMTP id ffacd0b85a97d-38a223fedbemr21216203f8f.13.1736254713733;
-        Tue, 07 Jan 2025 04:58:33 -0800 (PST)
+        bh=G3SlO4HnSa1d2nIOviPDkVVh3M8sGqwGmKll7Eiqgd0=;
+        b=GOLRzB9OtqNMVifWO9uL0e8ckMlB2FUwxE9OTlWm6+tw3sHrbO9zC6e/kdv4+ZEHhH
+         PqkN9ZpJFvFkl1M6AWlBHu7eEW7Em+QvFBHvUwWA/x/MITScu2hQTvQZu3xIH0GA9U6c
+         UXW17zQ+M+DzKT8UidPZ0EQ105xIWWdvJdqMwqQB/IM6GSzFPw2OVIE0JSAB2x9BCY8c
+         ugUOuJqBGhTjneCOD8SYcI6Lme7rrn1RDk8yIDZUfLL4Cske8Q6+fSfERddwzWc49gjb
+         tLgGr+SZ4OF84vIX7aQUpG+iw3q7QYmWGR1D6xs1y43eiRzLJ+U1zP8SGoEBY0CDly7a
+         VTQg==
+X-Forwarded-Encrypted: i=1; AJvYcCURblVPUeyj9MBh+OGCGqev3L8KhWYaIYJfVCt+t6agHf2d9uFs6+ZIhrLrddBMi8rMkTJBrpdqwGJtbJmqhWG8@lists.infradead.org
+X-Gm-Message-State: AOJu0YzUYnv4hLmNvAj8rhHcTgpVUjakZWn2fE8OrtLqso6M4EQJxbQV
+	o3UOFcCc1jZ4d5FyieNetCJHyO4zlKfDwljQp8lQBk6pVbybP5yimiwGWNGG/b4=
+X-Gm-Gg: ASbGnctvvCVinLojXrHvQ+bGbfg6MWbJ/mKhMMz14JycUOPeorjMGX4tn8bF1urUFNj
+	REchQgJPq2ue0b6u3zGJ7+A/aZkF3+Td3gGVWQw15JVvuG2FRkwcpHxO6JkRVr/AoA2iuvIT3S3
+	T+cQyyuBfwOC2qQGHtQLNUSLGapc/fJFZ/6IkO+uYGVqPnlPlFr1TqUwx9yeQYa6Sz4WUbs21u/
+	dtxVmMjiXfvekFs5nPJIspKbTDuEs1RsW1c7ppNHh3WwAVbeSdDH808jMp2xq7jCZP03hU=
+X-Google-Smtp-Source: AGHT+IFBgFMLu8HlVu9HOURYvLjoD0imDZ6+YJAzt2WRpsX31FXXQcdZsYTJ8VsoNLNcJAAIeJY15g==
+X-Received: by 2002:a5d:588a:0:b0:385:f79d:21a2 with SMTP id ffacd0b85a97d-38a222070a3mr17537706f8f.11.1736254718636;
+        Tue, 07 Jan 2025 04:58:38 -0800 (PST)
 Received: from krzk-bin.. ([178.197.223.165])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a1c8474c2sm49738610f8f.55.2025.01.07.04.58.32
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a1c89e2f9sm51598511f8f.81.2025.01.07.04.58.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Jan 2025 04:58:33 -0800 (PST)
+        Tue, 07 Jan 2025 04:58:38 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Michael Hennerich <michael.hennerich@analog.com>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Trevor Gamblin <tgamblin@baylibre.com>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+To: Linus Walleij <linus.walleij@linaro.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	linux-pwm@vger.kernel.org,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Michal Simek <michal.simek@amd.com>,
+	Manikandan Muralidharan <manikandan.m@microchip.com>,
+	TY Chang <tychang@realtek.com>,
+	Krishna Potthuri <sai.krishna.potthuri@amd.com>,
+	linux-gpio@vger.kernel.org,
 	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH] dt-bindings: pwm: Correct indentation and style in DTS example
-Date: Tue,  7 Jan 2025 13:58:30 +0100
-Message-ID: <20250107125831.225068-1-krzysztof.kozlowski@linaro.org>
+Subject: [PATCH] dt-bindings: pinctrl: Correct indentation and style in DTS example
+Date: Tue,  7 Jan 2025 13:58:34 +0100
+Message-ID: <20250107125836.225447-1-krzysztof.kozlowski@linaro.org>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_045835_524148_4D9A9E9A 
-X-CRM114-Status: GOOD (  11.81  )
+X-CRM114-CacheID: sfid-20250107_045840_216701_A0E2CF5B 
+X-CRM114-Status: GOOD (  11.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,63 +115,336 @@ new patches built on existing code.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- Documentation/devicetree/bindings/pwm/adi,axi-pwmgen.yaml | 8 ++++----
- .../devicetree/bindings/pwm/brcm,bcm7038-pwm.yaml         | 8 ++++----
- Documentation/devicetree/bindings/pwm/brcm,kona-pwm.yaml  | 8 ++++----
- 3 files changed, 12 insertions(+), 12 deletions(-)
+ .../pinctrl/atmel,at91rm9200-pinctrl.yaml     | 64 +++++++++----------
+ .../pinctrl/realtek,rtd1315e-pinctrl.yaml     | 50 +++++++--------
+ .../pinctrl/realtek,rtd1319d-pinctrl.yaml     | 50 +++++++--------
+ .../pinctrl/realtek,rtd1619b-pinctrl.yaml     | 50 +++++++--------
+ .../bindings/pinctrl/xlnx,pinctrl-zynq.yaml   | 53 +++++++--------
+ 5 files changed, 130 insertions(+), 137 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/pwm/adi,axi-pwmgen.yaml b/Documentation/devicetree/bindings/pwm/adi,axi-pwmgen.yaml
-index aa35209f74cf..45e112d0efb4 100644
---- a/Documentation/devicetree/bindings/pwm/adi,axi-pwmgen.yaml
-+++ b/Documentation/devicetree/bindings/pwm/adi,axi-pwmgen.yaml
-@@ -41,8 +41,8 @@ unevaluatedProperties: false
- examples:
-   - |
-     pwm@44b00000 {
--       compatible = "adi,axi-pwmgen-2.00.a";
--       reg = <0x44b00000 0x1000>;
--       clocks = <&spi_clk>;
--       #pwm-cells = <3>;
-+        compatible = "adi,axi-pwmgen-2.00.a";
-+        reg = <0x44b00000 0x1000>;
-+        clocks = <&spi_clk>;
-+        #pwm-cells = <3>;
-     };
-diff --git a/Documentation/devicetree/bindings/pwm/brcm,bcm7038-pwm.yaml b/Documentation/devicetree/bindings/pwm/brcm,bcm7038-pwm.yaml
-index 119de3d7f9dd..44548a9da158 100644
---- a/Documentation/devicetree/bindings/pwm/brcm,bcm7038-pwm.yaml
-+++ b/Documentation/devicetree/bindings/pwm/brcm,bcm7038-pwm.yaml
-@@ -35,8 +35,8 @@ additionalProperties: false
- examples:
-   - |
-     pwm: pwm@f0408000 {
--       compatible = "brcm,bcm7038-pwm";
--       reg = <0xf0408000 0x28>;
--       #pwm-cells = <2>;
--       clocks = <&upg_fixed>;
-+        compatible = "brcm,bcm7038-pwm";
-+        reg = <0xf0408000 0x28>;
-+        #pwm-cells = <2>;
-+        clocks = <&upg_fixed>;
-     };
-diff --git a/Documentation/devicetree/bindings/pwm/brcm,kona-pwm.yaml b/Documentation/devicetree/bindings/pwm/brcm,kona-pwm.yaml
-index e86c8053b366..fd785da5d3d7 100644
---- a/Documentation/devicetree/bindings/pwm/brcm,kona-pwm.yaml
-+++ b/Documentation/devicetree/bindings/pwm/brcm,kona-pwm.yaml
-@@ -43,9 +43,9 @@ examples:
-     #include <dt-bindings/clock/bcm281xx.h>
+diff --git a/Documentation/devicetree/bindings/pinctrl/atmel,at91rm9200-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/atmel,at91rm9200-pinctrl.yaml
+index 1bb386b42039..a7ede29c1444 100644
+--- a/Documentation/devicetree/bindings/pinctrl/atmel,at91rm9200-pinctrl.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/atmel,at91rm9200-pinctrl.yaml
+@@ -145,40 +145,40 @@ additionalProperties:
  
-     pwm@3e01a000 {
--       compatible = "brcm,bcm11351-pwm", "brcm,kona-pwm";
--       reg = <0x3e01a000 0xcc>;
--       clocks = <&slave_ccu BCM281XX_SLAVE_CCU_PWM>;
--       #pwm-cells = <3>;
-+        compatible = "brcm,bcm11351-pwm", "brcm,kona-pwm";
-+        reg = <0x3e01a000 0xcc>;
-+        clocks = <&slave_ccu BCM281XX_SLAVE_CCU_PWM>;
-+        #pwm-cells = <3>;
-     };
+ examples:
+   - |
+-     #include <dt-bindings/clock/at91.h>
+-     #include <dt-bindings/interrupt-controller/irq.h>
+-     #include <dt-bindings/pinctrl/at91.h>
++    #include <dt-bindings/clock/at91.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
++    #include <dt-bindings/pinctrl/at91.h>
+ 
+-     pinctrl@fffff400 {
+-       #address-cells = <1>;
+-       #size-cells = <1>;
+-       compatible = "atmel,at91rm9200-pinctrl", "simple-mfd";
+-       ranges = <0xfffff400 0xfffff400 0x600>;
++    pinctrl@fffff400 {
++        #address-cells = <1>;
++        #size-cells = <1>;
++        compatible = "atmel,at91rm9200-pinctrl", "simple-mfd";
++        ranges = <0xfffff400 0xfffff400 0x600>;
+ 
+-       atmel,mux-mask = <
+-         /*    A         B     */
+-         0xffffffff 0xffc00c3b  /* pioA */
+-         0xffffffff 0x7fff3ccf  /* pioB */
+-         0xffffffff 0x007fffff  /* pioC */
+-         >;
++        atmel,mux-mask = <
++          /*    A         B     */
++          0xffffffff 0xffc00c3b  /* pioA */
++          0xffffffff 0x7fff3ccf  /* pioB */
++          0xffffffff 0x007fffff  /* pioC */
++          >;
+ 
+-       dbgu {
+-         pinctrl_dbgu: dbgu-0 {
+-           atmel,pins =
+-             <AT91_PIOB 14 AT91_PERIPH_A AT91_PINCTRL_PULL_UP
+-              AT91_PIOB 15 AT91_PERIPH_A AT91_PINCTRL_NONE>;
+-         };
+-       };
++        dbgu {
++            dbgu-0 {
++                atmel,pins =
++                  <AT91_PIOB 14 AT91_PERIPH_A AT91_PINCTRL_PULL_UP
++                   AT91_PIOB 15 AT91_PERIPH_A AT91_PINCTRL_NONE>;
++            };
++        };
+ 
+-       pioA: gpio@fffff400 {
+-         compatible = "atmel,at91rm9200-gpio";
+-         reg = <0xfffff400 0x200>;
+-         interrupts = <2 IRQ_TYPE_LEVEL_HIGH 1>;
+-         #gpio-cells = <2>;
+-         gpio-controller;
+-         interrupt-controller;
+-         #interrupt-cells = <2>;
+-         clocks = <&pmc PMC_TYPE_PERIPHERAL 2>;
+-       };
+-     };
++        gpio@fffff400 {
++            compatible = "atmel,at91rm9200-gpio";
++            reg = <0xfffff400 0x200>;
++            interrupts = <2 IRQ_TYPE_LEVEL_HIGH 1>;
++            #gpio-cells = <2>;
++            gpio-controller;
++            interrupt-controller;
++            #interrupt-cells = <2>;
++            clocks = <&pmc PMC_TYPE_PERIPHERAL 2>;
++        };
++    };
  ...
+diff --git a/Documentation/devicetree/bindings/pinctrl/realtek,rtd1315e-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/realtek,rtd1315e-pinctrl.yaml
+index fc6c65fea73b..90bd49d87d2e 100644
+--- a/Documentation/devicetree/bindings/pinctrl/realtek,rtd1315e-pinctrl.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/realtek,rtd1315e-pinctrl.yaml
+@@ -159,30 +159,30 @@ additionalProperties: false
+ 
+ examples:
+   - |
+-     pinctrl@4e000 {
+-         compatible = "realtek,rtd1315e-pinctrl";
+-         reg = <0x4e000 0x130>;
++    pinctrl@4e000 {
++        compatible = "realtek,rtd1315e-pinctrl";
++        reg = <0x4e000 0x130>;
+ 
+-         emmc-hs200-pins {
+-             pins = "emmc_clk",
+-                    "emmc_cmd",
+-                    "emmc_data_0",
+-                    "emmc_data_1",
+-                    "emmc_data_2",
+-                    "emmc_data_3",
+-                    "emmc_data_4",
+-                    "emmc_data_5",
+-                    "emmc_data_6",
+-                    "emmc_data_7";
+-             function = "emmc";
+-             realtek,drive-strength-p = <0x2>;
+-             realtek,drive-strength-n = <0x2>;
+-         };
++        emmc-hs200-pins {
++            pins = "emmc_clk",
++                   "emmc_cmd",
++                   "emmc_data_0",
++                   "emmc_data_1",
++                   "emmc_data_2",
++                   "emmc_data_3",
++                   "emmc_data_4",
++                   "emmc_data_5",
++                   "emmc_data_6",
++                   "emmc_data_7";
++            function = "emmc";
++            realtek,drive-strength-p = <0x2>;
++            realtek,drive-strength-n = <0x2>;
++        };
+ 
+-         i2c-0-pins {
+-             pins = "gpio_12",
+-                    "gpio_13";
+-             function = "i2c0";
+-             drive-strength = <4>;
+-         };
+-     };
++        i2c-0-pins {
++            pins = "gpio_12",
++                   "gpio_13";
++            function = "i2c0";
++            drive-strength = <4>;
++        };
++    };
+diff --git a/Documentation/devicetree/bindings/pinctrl/realtek,rtd1319d-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/realtek,rtd1319d-pinctrl.yaml
+index f07361d60acd..b6211c8544ca 100644
+--- a/Documentation/devicetree/bindings/pinctrl/realtek,rtd1319d-pinctrl.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/realtek,rtd1319d-pinctrl.yaml
+@@ -158,30 +158,30 @@ additionalProperties: false
+ 
+ examples:
+   - |
+-     pinctrl@4e000 {
+-         compatible = "realtek,rtd1319d-pinctrl";
+-         reg = <0x4e000 0x130>;
++    pinctrl@4e000 {
++        compatible = "realtek,rtd1319d-pinctrl";
++        reg = <0x4e000 0x130>;
+ 
+-         emmc-hs200-pins {
+-             pins = "emmc_clk",
+-                    "emmc_cmd",
+-                    "emmc_data_0",
+-                    "emmc_data_1",
+-                    "emmc_data_2",
+-                    "emmc_data_3",
+-                    "emmc_data_4",
+-                    "emmc_data_5",
+-                    "emmc_data_6",
+-                    "emmc_data_7";
+-             function = "emmc";
+-             realtek,drive-strength-p = <0x2>;
+-             realtek,drive-strength-n = <0x2>;
+-         };
++        emmc-hs200-pins {
++            pins = "emmc_clk",
++                   "emmc_cmd",
++                   "emmc_data_0",
++                   "emmc_data_1",
++                   "emmc_data_2",
++                   "emmc_data_3",
++                   "emmc_data_4",
++                   "emmc_data_5",
++                   "emmc_data_6",
++                   "emmc_data_7";
++            function = "emmc";
++            realtek,drive-strength-p = <0x2>;
++            realtek,drive-strength-n = <0x2>;
++        };
+ 
+-         i2c-0-pins {
+-             pins = "gpio_12",
+-                    "gpio_13";
+-             function = "i2c0";
+-             drive-strength = <4>;
+-         };
+-     };
++        i2c-0-pins {
++            pins = "gpio_12",
++                   "gpio_13";
++            function = "i2c0";
++            drive-strength = <4>;
++        };
++    };
+diff --git a/Documentation/devicetree/bindings/pinctrl/realtek,rtd1619b-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/realtek,rtd1619b-pinctrl.yaml
+index 671e4ec84624..e88bc649cc73 100644
+--- a/Documentation/devicetree/bindings/pinctrl/realtek,rtd1619b-pinctrl.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/realtek,rtd1619b-pinctrl.yaml
+@@ -157,30 +157,30 @@ additionalProperties: false
+ 
+ examples:
+   - |
+-     pinctrl@4e000 {
+-         compatible = "realtek,rtd1619b-pinctrl";
+-         reg = <0x4e000 0x130>;
++    pinctrl@4e000 {
++        compatible = "realtek,rtd1619b-pinctrl";
++        reg = <0x4e000 0x130>;
+ 
+-         emmc-hs200-pins {
+-             pins = "emmc_clk",
+-                    "emmc_cmd",
+-                    "emmc_data_0",
+-                    "emmc_data_1",
+-                    "emmc_data_2",
+-                    "emmc_data_3",
+-                    "emmc_data_4",
+-                    "emmc_data_5",
+-                    "emmc_data_6",
+-                    "emmc_data_7";
+-             function = "emmc";
+-             realtek,drive-strength-p = <0x2>;
+-             realtek,drive-strength-n = <0x2>;
+-         };
++        emmc-hs200-pins {
++            pins = "emmc_clk",
++                   "emmc_cmd",
++                   "emmc_data_0",
++                   "emmc_data_1",
++                   "emmc_data_2",
++                   "emmc_data_3",
++                   "emmc_data_4",
++                   "emmc_data_5",
++                   "emmc_data_6",
++                   "emmc_data_7";
++            function = "emmc";
++            realtek,drive-strength-p = <0x2>;
++            realtek,drive-strength-n = <0x2>;
++        };
+ 
+-         i2c-0-pins {
+-             pins = "gpio_12",
+-                    "gpio_13";
+-             function = "i2c0";
+-             drive-strength = <4>;
+-         };
+-     };
++        i2c-0-pins {
++            pins = "gpio_12",
++                   "gpio_13";
++            function = "i2c0";
++            drive-strength = <4>;
++        };
++    };
+diff --git a/Documentation/devicetree/bindings/pinctrl/xlnx,pinctrl-zynq.yaml b/Documentation/devicetree/bindings/pinctrl/xlnx,pinctrl-zynq.yaml
+index de6c10ba36c4..70548cb37ada 100644
+--- a/Documentation/devicetree/bindings/pinctrl/xlnx,pinctrl-zynq.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/xlnx,pinctrl-zynq.yaml
+@@ -180,38 +180,31 @@ additionalProperties: false
+ examples:
+   - |
+     #include <dt-bindings/pinctrl/pinctrl-zynq.h>
+-    pinctrl0: pinctrl@700 {
+-       compatible = "xlnx,pinctrl-zynq";
+-       reg = <0x700 0x200>;
+-       syscon = <&slcr>;
++    pinctrl@700 {
++        compatible = "xlnx,pinctrl-zynq";
++        reg = <0x700 0x200>;
++        syscon = <&slcr>;
+ 
+-       pinctrl_uart1_default: uart1-default {
+-           mux {
+-               groups = "uart1_10_grp";
+-               function = "uart1";
+-           };
++        uart1-default {
++            mux {
++                groups = "uart1_10_grp";
++                function = "uart1";
++            };
+ 
+-           conf {
+-               groups = "uart1_10_grp";
+-               slew-rate = <0>;
+-               power-source = <IO_STANDARD_LVCMOS18>;
+-           };
++            conf {
++                groups = "uart1_10_grp";
++                slew-rate = <0>;
++                power-source = <IO_STANDARD_LVCMOS18>;
++            };
+ 
+-           conf-rx {
+-               pins = "MIO49";
+-               bias-high-impedance;
+-           };
++            conf-rx {
++                pins = "MIO49";
++                bias-high-impedance;
++            };
+ 
+-           conf-tx {
+-               pins = "MIO48";
+-               bias-disable;
+-           };
+-       };
++            conf-tx {
++                pins = "MIO48";
++                bias-disable;
++            };
++        };
+     };
+-
+-    uart1 {
+-         pinctrl-names = "default";
+-         pinctrl-0 = <&pinctrl_uart1_default>;
+-    };
+-
+-...
 -- 
 2.43.0
 
