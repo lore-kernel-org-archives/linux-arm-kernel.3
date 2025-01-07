@@ -4,167 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97FDFE77198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 14:49:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DAC9E77198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 14:50:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GWZBalUbL5FQUMfhe76loyd44YXEqrndkxbvkp2pHf0=; b=iyMP8L+DxwFHlBTdLPEqQPfJuX
-	ad1DXPol6ACmErWRyXCYovyYypI48GKAmMP8lgkgT61CimacUPyX0Q1RG2gBYERUjb5zlimpE4owF
-	2KdJZVBSRQtENFWUQc9AZOxbKDbWtMFnboz0sDS7jtLxKZfPD6YhweM+qYWwltbDC4C9TlSAD3ClN
-	wBYvAfH5+lKQswnVjziFV88PS3TMcbulJLmEtuUHrdbkxU1CIcMU2R2Pg/clP+ZdjAGSXD2eekimY
-	w0FHpTWeB3n9mnuiFZ92HqespRqU2DPiWL6PPzYBaKnNBsVkmApAefCDiE17xHW9UhSAYlt/nffA9
-	pNjjYhuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=p5uq4PW9wrTvSgrbfTYLzSaeh2LuYKlH6oEw/KT9e74=; b=tGAtd5Gh+BNftyPq3nEuditrfB
+	84QGqnau0D8w2Dqo8Ks9+r9UORCPLxvFzPaeJVFupVQgAU4e0hbgKLDcyA7zM+ssf7HbblWcL7moy
+	hM/pFqkC/OHqtr3+aMVezGLSim33J65y2dIpz0y/eKVosoEdYpPV2xdzkuBiVYHCrQmiqglomtdc4
+	vA9c2yZopPpNq4YH6iDaumV7LZRh4659W6XFWU4c9HBEWYbwrSmFx8eq2Moz1CpttCuFeZ0Qg3P0Z
+	fvDYj3R9MjWlon7IMlv/ynC7UTYmDixOB/zmdNxnd4H5Uo5MdsgAKVbNl8GLxLSIs+O+VOTP2m0YG
+	vfM22cDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVAtH-00000005ILV-1BbE;
-	Tue, 07 Jan 2025 14:49:07 +0000
-Received: from mail-db8eur05on2060a.outbound.protection.outlook.com ([2a01:111:f403:2614::60a] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1tVAuR-00000005IbV-0gQw;
+	Tue, 07 Jan 2025 14:50:19 +0000
+Received: from relay9-d.mail.gandi.net ([217.70.183.199])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVAnQ-00000005Gg3-0BdR;
-	Tue, 07 Jan 2025 14:43:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=n6KmiMWMe0PnRDk6u0fT9VG5Ia6bkpBjH/pJpm869jqVULlg0RuMjVRBfBiMnCkP4p8kPiSYyguqugEe+KtWsmyFuuzqMWXeh5yiU2pHacTNc4WqXp8FTOZO5ZSmmGP0veD1aB+2NjDefSY1FEKUU3nRf9lktezMsIZrvaoZhWrtg3q/v23q4gxK4UvUQSFwt8FKCakvHEtlJDvzETL/+PqJ8O1wr800udrU4v4MqMBKSsWc59ty5ggIj9nW6RWx0dYVfn4PZgINPl5PEufuGEpA9nxXWOI0JEPJsg/aLLX3wqEropRcHJYMRU+5KKaZuRraOr0AHqZD75ZeFjdLeQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GWZBalUbL5FQUMfhe76loyd44YXEqrndkxbvkp2pHf0=;
- b=t584VbLBeoqtXBQRVh+F+36chd8SVvBGi/Brhu7cwpXh4MIYKgSq920fd8f5+8N/GRuIuFFxSKkNF2rT4oU30U2GLjPf+1y5OM7oYMJiml26mSEidNgHSletiic36YOcrTczuz37r53B2CtvfhlmmshbP3Utm/mdAAbDhXSQ91IuT1IuiBPDcjoLl+CGl9WH9Bqe+iLGqoD7IgBKkLWhRMhqLyRXYV4njWpO7+kQjrM7ID5HNVWKmgU6zCJ5Z6v1gvEDp4i9jBZE0ChkHwI+JsJg4rtFKZbgyuc/PM0Z+kQXPbyibpiywbWWOsnZw0+3koz8cyCcC4OBmX7RoJpRSQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GWZBalUbL5FQUMfhe76loyd44YXEqrndkxbvkp2pHf0=;
- b=KNNmTEPJut4pYcl5b6A/leCf3X4jDcU3Jjabvy9JoY5nhrBylZNukAJy22x9dKiHxMhtwznXI5Nmo7sCqPRiYqUpMDOIRg3zS+aKI/DK/Mx1OIJgxpSHufXWwG8h56r4NGsKkWFMqMEt9FEW4ln/w2OsvJij2xBGnUdDvk0eQGCAhhcAhyUVqqUUW6i12nC6mBaTfULw/fpZ8XBH16aXYdq0Pokqq6EK+5XiKmF25PWG39qdOOkTdqu6psnueHBSj7qgf1jebi6LECYO2UQ/e7fWbK+ziP3awGVIQLFOnv0XaWkIhKXeBq9IH/M6sIvF8EMOx7uY/J5pwteVPJWMjA==
-Received: from PAXPR04MB9448.eurprd04.prod.outlook.com (2603:10a6:102:2b1::21)
- by DB8PR04MB6986.eurprd04.prod.outlook.com (2603:10a6:10:116::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8314.17; Tue, 7 Jan
- 2025 14:42:57 +0000
-Received: from PAXPR04MB9448.eurprd04.prod.outlook.com
- ([fe80::51ae:5f12:9744:1abc]) by PAXPR04MB9448.eurprd04.prod.outlook.com
- ([fe80::51ae:5f12:9744:1abc%3]) with mapi id 15.20.8314.015; Tue, 7 Jan 2025
- 14:42:57 +0000
-From: Sandor Yu <sandor.yu@nxp.com>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	"dmitry.baryshkov@linaro.org" <dmitry.baryshkov@linaro.org>,
-	"andrzej.hajda@intel.com" <andrzej.hajda@intel.com>,
-	"neil.armstrong@linaro.org" <neil.armstrong@linaro.org>, Laurent Pinchart
-	<laurent.pinchart@ideasonboard.com>, "jonas@kwiboo.se" <jonas@kwiboo.se>,
-	"jernej.skrabec@gmail.com" <jernej.skrabec@gmail.com>, "airlied@gmail.com"
-	<airlied@gmail.com>, "daniel@ffwll.ch" <daniel@ffwll.ch>,
-	"robh+dt@kernel.org" <robh+dt@kernel.org>,
-	"krzysztof.kozlowski+dt@linaro.org" <krzysztof.kozlowski+dt@linaro.org>,
-	"shawnguo@kernel.org" <shawnguo@kernel.org>, "s.hauer@pengutronix.de"
-	<s.hauer@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>,
-	"vkoul@kernel.org" <vkoul@kernel.org>, "dri-devel@lists.freedesktop.org"
-	<dri-devel@lists.freedesktop.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-phy@lists.infradead.org"
-	<linux-phy@lists.infradead.org>, "mripard@kernel.org" <mripard@kernel.org>
-CC: "kernel@pengutronix.de" <kernel@pengutronix.de>, dl-linux-imx
-	<linux-imx@nxp.com>, Oliver Brown <oliver.brown@nxp.com>, "sam@ravnborg.org"
-	<sam@ravnborg.org>
-Subject: RE: [EXT] Re: [PATCH v20 0/8] Initial support Cadence
- MHDP8501(HDMI/DP) for i.MX8MQ
-Thread-Topic: [EXT] Re: [PATCH v20 0/8] Initial support Cadence
- MHDP8501(HDMI/DP) for i.MX8MQ
-Thread-Index: AQHbUFBYEMByPt5N/EC0iD35ugqWV7MLCy0AgAAAWlA=
-Date: Tue, 7 Jan 2025 14:42:56 +0000
-Message-ID: <PAXPR04MB94483B3704FB62E12A009390F4112@PAXPR04MB9448.eurprd04.prod.outlook.com>
-References: <cover.1734340233.git.Sandor.yu@nxp.com>
- <2381464.ElGaqSPkdT@steina-w>
-In-Reply-To: <2381464.ElGaqSPkdT@steina-w>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB9448:EE_|DB8PR04MB6986:EE_
-x-ms-office365-filtering-correlation-id: 53e0ec4b-0ff0-4829-fcf3-08dd2f299365
-x-ld-processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|921020|38070700018;
-x-microsoft-antispam-message-info: =?iso-8859-1?Q?fGGxleUj0BDlzkG81YDZGTOF3UPjqp/+R8UvLXFHTvDyf5Q2DhpF2/Z8vB?=
- =?iso-8859-1?Q?LKpxnT2EZTCsdRhL9BIewD4c278OA1yeZPcIucEPIDUzMBCtYvU+qpGnI3?=
- =?iso-8859-1?Q?PFhmUCO1Vpw9FFnhbOlMQ6bqw2+ej8pWwuWsaY+CNaLdapb/xGqxxZO2ux?=
- =?iso-8859-1?Q?VMMD7xkNs1mn7kcoEqJmG2TfD0dRECGlrvsL2LLmMFPUk4OVoK/UCKXnXD?=
- =?iso-8859-1?Q?qg2hr/zsu0KyQgR0dAZmJQ6lzu2uE1/O6HK5CqG2FmDeFiK6qx/by5fBv6?=
- =?iso-8859-1?Q?jde+mpoQ2eFH5gKyLGy5XGB+75p5gKSJ8rNDYbrWGC5wlK0NYRqfpbLpPD?=
- =?iso-8859-1?Q?bswrYDjp6o8FfhiNlOPM7QqfwciESy3BO9R2SFANZAmIys4ewMjtIlE7S8?=
- =?iso-8859-1?Q?aL5zTf8/marXS+uXDNnc0AZxyDzHwDK5+qexblAAopm7uA+kpfzRC1DwoW?=
- =?iso-8859-1?Q?z7cfBVrrbIkWuHKEovwHb7+olUxZ6hJtA6QoQycHz0Q7ShuX1VXKD+qWJs?=
- =?iso-8859-1?Q?h/o3QLyvUQj6DeM3kd3ZqaXz3XTqAoly9sPYo2/Wt7B8Zd2MbgE7yApJ2+?=
- =?iso-8859-1?Q?bpqadnJ9SmDSkE+eseo+17tigQ1bXX1ra4KnX+hfFzg6D3+cnlA0SiyHde?=
- =?iso-8859-1?Q?nYEy6KhLapZHyTcPNMREmH8pEgcLcRWfQ+AMaBEwoQhsREpHkEHWqqbseY?=
- =?iso-8859-1?Q?M9SLFHnIT52HaByg3pqVRS6Wm33Gn28FmuIHZeKTvDNx9Qf0MXY4n4IbYJ?=
- =?iso-8859-1?Q?Y2Y03HWKhAK9uOM9fYJ0XQTTfj5HMYqn9itY/GdXaySOXrxj6qn+KIcptM?=
- =?iso-8859-1?Q?3tHQkc3BTMWQHkb3Gf7MV2H0I6y+24LlSuV3EH8HQoXivtg585C5/opITW?=
- =?iso-8859-1?Q?Q8JZLdRL52s6eqdl5Ge5q/S8sP0REJi0UvEx5V9PNhhK8rSoh3rkNn0GV/?=
- =?iso-8859-1?Q?DZewKFWjVqOjoEakNHAGlsaSc4h5Zezsdk6bdLsY0LR5mjHTjHUaPYW+8Z?=
- =?iso-8859-1?Q?P6b5si5upZ1nO1jXAmEV0ThEdMoGy8Q0Zj4EK0OOFrsJQYCvNB3t4STGYS?=
- =?iso-8859-1?Q?Qi4IPTeiZV6OnVNxRxY+0k5TObIVtdp1SOQpp7xxOIFDJyTAu6xbW9ahqM?=
- =?iso-8859-1?Q?bTXNQBtPakVPLcOIKGpfMC1dDOZaebuEXYdlLduoOhgARCa/QEF0BVOc31?=
- =?iso-8859-1?Q?Q9mKYl+GARGqVwdslqJskR2IzHOKX9pyv+/yo4O7km90BXbzyDKBcY6wo3?=
- =?iso-8859-1?Q?m6TBQvioLHtNsr8Kem3C5h9T3RiiaQhG64rNI60yz7vYXYqXA657qw2nkC?=
- =?iso-8859-1?Q?iX8lylkvF8HGxUWM6ASUpdVQtiw//4Y2mNpkROeEg2mLsrk9qEyKVqrvyC?=
- =?iso-8859-1?Q?ALptbdoR2nVfTXN9F93erRuq6Qo7g57fitdNh4h8GCg3IkuXrH3mBjzDhE?=
- =?iso-8859-1?Q?EfVZ3tOJ9IGhMU2t6xiXCpGEexAVcIWSfY49aw=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9448.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(921020)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?g352m904vjqJQdG1H5DAmBJ4fSYV7P8RMePP/F9qfZ9+QXnmMVoDXsQN6b?=
- =?iso-8859-1?Q?fZ5YLCMnrTIUvYXpJ82BpB/0Kra5sFXyrUdA2BqSmBWeHi4cr8cm1qMDjF?=
- =?iso-8859-1?Q?pxzHSiyAqBe4DbkVToTgdEIJL5oAfdx/h2DZOUPg3k0PlKOIErLibox/eA?=
- =?iso-8859-1?Q?F/Wu174rE8wS9IfrVtyNHv/fJHVxXR4TYkoqbceQy+Iw/rSOtyDZk5LNt+?=
- =?iso-8859-1?Q?60D07raCqACgqWkvHUvTxNXxTKq/tu+cc8PZrwin3tVkofzMigJQ8Z7sJD?=
- =?iso-8859-1?Q?zpDXbJRI8JpF4oPA5JcusioAP7mHgi3DoHILuadGG+uJVOwlFsTzTx3tnL?=
- =?iso-8859-1?Q?LnS8W/HFS55H/2GYJoeW0tdpMxGytak75NJFpp/tPf0cckHG1PTqo/jdjS?=
- =?iso-8859-1?Q?s6hejVMZmzJyd251+pJXKZV1Smpzk+NYYtdEHX6dQd3xgqFZVDOX3UcOXO?=
- =?iso-8859-1?Q?Jncobcjff+OO7N22UgEmptXTbXlqpAlDCIk/oyGdtGf8ltKIzTt6s5w2Gu?=
- =?iso-8859-1?Q?Bs6pAb3+0ZCu7VXijh2/OpM6VSi6O81+gJiqjv14807sFl5Bo8MXGF3j1n?=
- =?iso-8859-1?Q?esVfHyhaWXR74N1ZdCjWYcsdRGzhgfJ1PtraIbEckY6PCGwOm/1lsZ6pYj?=
- =?iso-8859-1?Q?zem+wOyVuRvy4W2Z5uRPZe/cL8L9NJjvI/bDJaoceazr2k2xMzjsXOTe/6?=
- =?iso-8859-1?Q?cEOwNjJUFKwPvRnZ7hOX1z1kkqgBz8Yt+FLRbACu//Dmk5BmOsM/QVdmsc?=
- =?iso-8859-1?Q?idHUKTAQhJApZfzL6Cn2zdMUvPIVbpQR6nEv0qvGxorMuX04m4kq43ZdD7?=
- =?iso-8859-1?Q?da5VcWn/B9MsLjujKXfTqbP/lMqQFUgMVzFqlAvTvkuwri77Su7RlJTvo9?=
- =?iso-8859-1?Q?/4TW2rsjSLp7Hj1RIwdzo246ejGhxqvU4phua+L7smEVpAapBsh7ZBVFIT?=
- =?iso-8859-1?Q?y2JuOQP6g/hDCp9t+yF6soBa1sw/dYBtYvCfANJ5wUjZIa4eeyays6djSU?=
- =?iso-8859-1?Q?OWEkpF6xk0gspWQtXRX3+p4XZFXDAlFMieJI96BGzb+UJ/k6g4FY+NAQDA?=
- =?iso-8859-1?Q?gAEM5u+i3/pR1rHGXz31BO5pzo/5kmiFmxw0NAOmDPG3J1M5PDGEu73ma6?=
- =?iso-8859-1?Q?D8pj3xQkC7G8njYW2nuKmGMtnqaaPO70T+rEbCiFvh8FPXxxC+KhCPpguB?=
- =?iso-8859-1?Q?oZ2PbiyFsM0oo4PMdHphpcZt0Du/nmoA7APvqmUdX9qUjYbzfpcc7bcLuQ?=
- =?iso-8859-1?Q?Bzmt7ptRhlgMO36ODXLUhoT0Hh8yHg8enUcBaT3ooml4YYGB/6BoO3ahAw?=
- =?iso-8859-1?Q?2qIQZ2RtDhFe6/QQpWM8lLsVsMXm+fc5nNLHo6xHEi9gWu15nudMXhse1J?=
- =?iso-8859-1?Q?MehvCkQv3/3y+TAoK+uNUojgmEImhnVbPWJHMakjlrYFSrOmI5ecMDFwFx?=
- =?iso-8859-1?Q?R/RkX2HQ2/1wg7tgdToUaAPIdfqts/QmF+0JWuwQy5+ENzG6QFF24fCZ5p?=
- =?iso-8859-1?Q?D9pe8MPHOWCktWRS0nRzw3j3fYvJQG34SCiOWclwH4cg6/SpnOWtGFkSWU?=
- =?iso-8859-1?Q?FCspIH/9rzRfmcHK4NH5F5DHkFfMGX/YqpjijHWC8nJIIeOKwfQH+yXGO4?=
- =?iso-8859-1?Q?qoJ3zkzqy0Cmk=3D?=
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	id 1tVAnU-00000005Gig-329Y
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 07 Jan 2025 14:43:13 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 7E4D0FF805;
+	Tue,  7 Jan 2025 14:43:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1736260985;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=p5uq4PW9wrTvSgrbfTYLzSaeh2LuYKlH6oEw/KT9e74=;
+	b=ebOWH577A/9JaunDKYgh0KOM9UjJTC/gFEseIFKocB5C1haiwDg460GKE8QSn60/6fbRxz
+	5VlADaY/j2v2/kFmoHmn46iOGA3ngb9vLqccWygDKk6gywsn8m/XtRefXjzlufaU0FEa6P
+	GnSAP74nAxR44Cjjq3EzjSr2zTu+3ptu+xwc4G4mqtav5MMmaUqErZHCyFQh0/XdapwSaX
+	veLmEhBKelHhW6qnlFbOuKIUcQeyTaebvr/8vaODUfqdyvgkbSSSfjL7hNQzCns5gM5Mnk
+	lO3PHdvow1nmoI0pBLBBxDom1Jy9Df8s01o7UX0+qpuq2sQAZDwyRyFt7JtN9g==
+Date: Tue, 7 Jan 2025 15:43:02 +0100
+From: Kory Maincent <kory.maincent@bootlin.com>
+To: Oleksij Rempel <o.rempel@pengutronix.de>
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>, Maxime Chevallier
+ <maxime.chevallier@bootlin.com>, davem@davemloft.net,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
+ <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, linux-arm-kernel@lists.infradead.org, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
+ Florian Fainelli <f.fainelli@gmail.com>, Heiner Kallweit
+ <hkallweit1@gmail.com>, Vladimir Oltean <vladimir.oltean@nxp.com>, Marek
+ =?UTF-8?B?QmVow7pu?= <kabel@kernel.org>, =?UTF-8?B?Tmljb2zDsg==?= Veronese
+ <nicveronese@gmail.com>, Simon Horman <horms@kernel.org>,
+ mwojtas@chromium.org, Antoine Tenart <atenart@kernel.org>
+Subject: Re: [PATCH net-next RFC 0/5] net: phy: Introduce a port
+ representation
+Message-ID: <20250107154302.628e7982@kmaincent-XPS-13-7390>
+In-Reply-To: <Z300BuATJoVDc_4S@pengutronix.de>
+References: <20241220201506.2791940-1-maxime.chevallier@bootlin.com>
+	<Z2g3b_t3KwMFozR8@pengutronix.de>
+	<Z2hgbdeTXjqWKa14@pengutronix.de>
+	<Z3Zu5ZofHqy4vGoG@shell.armlinux.org.uk>
+	<Z3bG-B0E2l47znkE@pengutronix.de>
+	<20250107142605.6c605eaf@kmaincent-XPS-13-7390>
+	<Z300BuATJoVDc_4S@pengutronix.de>
+Organization: bootlin
+X-Mailer: Claws Mail 4.0.0 (GTK+ 3.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9448.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 53e0ec4b-0ff0-4829-fcf3-08dd2f299365
-X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Jan 2025 14:42:56.9493
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: yY+1hSe4QYpYETnY8SpyLXcl1ohFDOOg6QV17reem5c56GWZbnfMG428DCanB5Yn26mX7mqB0kI2cVzgVDSh6A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6986
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-GND-Sasl: kory.maincent@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_064304_119591_A99923E9 
-X-CRM114-Status: GOOD (  18.60  )
+X-CRM114-CacheID: sfid-20250107_064309_021388_724AE912 
+X-CRM114-Status: GOOD (  22.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,66 +90,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alexander
+On Tue, 7 Jan 2025 15:02:46 +0100
+Oleksij Rempel <o.rempel@pengutronix.de> wrote:
 
-It may cause by the first preferred mode in EDID is not supported by driver=
-.
-Please use modetest or other user application to change the video mode to C=
-TA standard modes.
-Such as148.5MHz 1080p60 or 594MHz 3840x2160p60.
+> On Tue, Jan 07, 2025 at 02:26:05PM +0100, Kory Maincent wrote:
+> > On Thu, 2 Jan 2025 18:03:52 +0100
+> > Oleksij Rempel <o.rempel@pengutronix.de> wrote:
+> >  =20
+> > > On Thu, Jan 02, 2025 at 10:48:05AM +0000, Russell King (Oracle) wrote=
+: =20
+>  [...] =20
+>  [...] =20
+> >=20
+> > Couldn't we begin with something simple like the following and add all =
+the
+> > transformers and pairs information as you described later if the commun=
+ity
+> > feels we need it?
+> >=20
+> > mdis {
+> >=20
+> >     /* 1000BaseT Port with Ethernet and PoE */
+> >     mdi0: ethernet-mdi@0 {
+> >         reg =3D <0>; /* Port index */
+> >         label =3D "ETH0"; /* Physical label on the device */
+> >         connector =3D "RJ45"; /* Connector type */
+> >         supported-modes =3D <10BaseT 100BaseTX 1000BaseT>; /* Supported=
+ modes
+> > */ lanes =3D <2>;
+> >         variant =3D "MDI-X"; /* MDI or MDI-X */
+> >         pse =3D <&pse1>;
+> >     };
+> > }; =20
+>=20
+> The problematic properties are lanes and variants.
+>=20
+> Lanes seems to not provide any additional information which is not
+> provided by the supported-modes.
+>=20
+> We have at least following working variants, which are supported by (some=
+?)
+> microchip PHYs:
+> https://microchip.my.site.com/s/article/1000Base-T-Differential-Pair-Swap=
+ping
+> For swapping A and B pairs, we may use MDI/MDI-X. What is about swapped
+> C and D pairs?
+>=20
+> The IEEE 802.3 - 2022 has following variants:
+> 14.5.2 Crossover function - only A<>B swap is supported
+> 40.4.4 Automatic MDI/MDI-X Configuration - only A<>B swap is supported?
+> 55.4.4 Automatic MDI/MDI-X configuration - 4 swap variants are supported
+> 113.4.4 Automatic MDI/MDI-X configuration - 4 swap variants are supported
+> 126.4.4 Automatic MDI/MDI-X configuration - 4 swap variants are supported
+>=20
+> This was only the pair swap. How to reflect the polarity swap withing
+> the pairs?
 
-B.R
-Sandor
+Indeed I see what you mean. Maybe we could add it later as optional binding=
+ and
+only focus for now on the current needs.
+According to Maxime proposition he wants the connector types and the
+supported modes (or number of lanes). On my side I am interested in the PSE
+phandle.
 
->
-> Hi Sandor,
->
-> thanks for the updates.
->
-> Am Dienstag, 17. Dezember 2024, 07:51:42 CET schrieb Sandor Yu:
-> > The patch set initial support Cadence MHDP8501(HDMI/DP) DRM bridge
-> > driver and Cadence HDP-TX PHY(HDMI/DP) driver for Freescale i.MX8MQ.
-> >
-> > The patch set compose of DRM bridge drivers and PHY driver.
-> >
-> > Both of them need by patch #1 and #3 to pass build.
-> >
-> > DRM bridges driver patches:
-> >   #1: soc: cadence: Create helper functions for Cadence MHDP
-> >   #2: drm: bridge: cadence: Update mhdp8546 mailbox access functions
-> >   #3: phy: Add HDMI configuration options
-> >   #4: dt-bindings: display: bridge: Add Cadence MHDP8501
-> >   #5: drm: bridge: Cadence: Add MHDP8501 DP/HDMI driver
-> >
-> > PHY driver patches:
-> >   #1: soc: cadence: Create helper functions for Cadence MHDP
-> >   #3: phy: Add HDMI configuration options
-> >   #6: dt-bindings: phy: Add Freescale iMX8MQ DP and HDMI PHY
-> >   #7: phy: freescale: Add DisplayPort/HDMI Combo-PHY driver for
-> > i.MX8MQ
-> >
-> > i.MX8M/TQMa8Mx DT patches:
-> >   #8: Add DT nodes for DCSS/HDMI pipeline
-> >   #9: Enable HDMI for TQMa8Mx/MBa8Mx
-> >
->
-> I gave this version a new try but unfortunately the display stays black.
-> Although the display pipeline is intialized and even wayland starts.
-> Do you have any idea where to start looking?
->
-> Best regards,
-> Alexander
-> --
-> TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-> Amtsgericht M=FCnchen, HRB 105018
-> Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-> http://www.tq/
-> -group.com%2F&data=3D05%7C02%7CSandor.yu%40nxp.com%7C734ea27ba98
-> 140b7483e08dd2eed1276%7C686ea1d3bc2b4c6fa92cd99c5c301635%7C0%
-> 7C0%7C638718317967624410%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU
-> 1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIs
-> IldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=3D1HdQdbye9p5AHoT7JCF3Md%
-> 2FB9k9tyN%2FW25YKCEngvWM%3D&reserved=3D0
->
+We could begin with this:
+mdis {
+    /* 1000BaseT Port with Ethernet and PoE */
+    mdi0: ethernet-mdi@0 {
+        reg =3D <0>; /* Port index */
+        label =3D "ETH0"; /* Physical label on the device */
+        connector =3D "RJ45"; /* Connector type */
+        supported-modes =3D <10BaseT 100BaseTX 1000BaseT>; /* Supported mod=
+es */
+        pse =3D <&pse1>;
+    };
+}; =20
 
+Your proposition will stay in our mind for future development on the subjec=
+t.
+I think we currently don't have enough time available to develop the full
+package.
+What do you think?
+
+Regards,
+--=20
+K=C3=B6ry Maincent, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
 
