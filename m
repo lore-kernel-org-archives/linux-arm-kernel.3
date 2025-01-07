@@ -4,108 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11DF0E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 10:20:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2187E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 10:21:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NwivxpxVIYDF+4TpEnDi3wGOpGpoKj4iIBPxkHPp/HU=; b=4CatCkANHPOapS2o/fxxFJkWnD
-	qqBOmNcyGp/Lz4jmigceEVqoLuch+7Z6weul92kCXjH8y5Js2pO1D0D92G+f2pXXLYWBz9UG2ODNz
-	/nPmY3L08NRcdNqUov9BnLE84Lx24XKOKnbRvk4czTTQkiHR8vNYFhCBL24aUv7DCVZAbXHrdXygI
-	4AHL87zQ8+/CVK1gYNIUW6mqmjISPW0m4aBjFz38Dp1NMYeBKjoafMkCEwZ/h67+oFk3+dvRNoZeR
-	H3vHdVEt/BwJo15LieDGNmqN0uuh81R9WAI9mYxn55WIhJcRq0Q1ZCfX4yW8ieKMDRs/RYb9qvv7J
-	uXlbCCvw==;
+	bh=9w4owW7rFGgngEtY8J365asAFIY4hLvAsEH7uazMVB4=; b=HygBXDttd7ALdtHR+/0WiHbmM2
+	LD1RlqgB+Ta403hqlOQhNeQia24k0Intn3G0uWb27SX8Wta6PKQZknfyxDNbGUA4TKr+nuDiP+9yA
+	LC0EKW3VByrRiCjDpoxCz3xXgGzQJ/LlgisSmTnS5w6I1Ht0svs6YTM254YCRErbv8ud/7X9o0dhB
+	gqFi7tbaGTpzejpbtnwW+iFg+PaCi8Kxir+gBLIS6rn6TbZSfIEpmeaEAJjRzpW6HmRrqmJT+RE3I
+	AgXlAOuL6RYGsMLxUSvzvJxMREV3m/YA/2DKDW16mfawD81YZRrSjud8cx8PR9KAG9zpEPXeKJWgJ
+	5cpkZMlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV6gi-00000004JFj-2AJP;
-	Tue, 07 Jan 2025 10:19:52 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1tV6ht-00000004JUn-0p1x;
+	Tue, 07 Jan 2025 10:21:05 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV66e-00000004AlW-0F4v
+	id 1tV6AA-00000004CE0-1urw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 09:42:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1736242954;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=NwivxpxVIYDF+4TpEnDi3wGOpGpoKj4iIBPxkHPp/HU=;
-	b=WMkLantrECi+3aYZ/cMWYI2YrEppF6c7LrNg1r7uXXBkYLNS3n19gW7EWwRcKeVJ5uMmlX
-	xi6y7BdpsZSAt3z45/CBDosOIWCr9c+ppheB3qT02JGBPOJ+Ke6PJc8fJenogmXUG4s4tI
-	9JpFPKImyxCxM+wnFHLQtMkXwgjNfYM=
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com
- [209.85.222.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-591-1Y6NiJjuNfqL8_CtjVAJSw-1; Tue, 07 Jan 2025 04:42:32 -0500
-X-MC-Unique: 1Y6NiJjuNfqL8_CtjVAJSw-1
-X-Mimecast-MFC-AGG-ID: 1Y6NiJjuNfqL8_CtjVAJSw
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-7b6e6cf6742so4293107785a.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 01:42:32 -0800 (PST)
+	Tue, 07 Jan 2025 09:46:15 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-43616c12d72so24265625e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 01:46:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1736243172; x=1736847972; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9w4owW7rFGgngEtY8J365asAFIY4hLvAsEH7uazMVB4=;
+        b=UqBPowNPNEZu3e/9tkjnEgXGsn+i5V1G2aeU+9W71jfHY4/sEPHEZy5CHjQnfA4mva
+         OewA0RX0UG2ojT7jB6JBJRh9Eb9s3OV1LthWcdqYkHBm09WFoMf4j5c8IsNVpSMtYLem
+         qHZpAZC7c3oqQAqkPZJLkgmmljzyFFnb0O2FKOHGHUHfpMNB2Z9zAJ6RewGaEiZi4IOF
+         Abc/e3M8C4OA9vDO/7hz5taBwHM1aUBS4yCB6S1HtQS6jMM66/VOoY205/SMkB31qbL8
+         NA/lCpMKQQe0f98soU6MpyPzDLk/aZQZ3AKK4QoZpezPsW4/mtXE4OgV2ldDLLME76fv
+         2sTA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736242952; x=1736847752;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=NwivxpxVIYDF+4TpEnDi3wGOpGpoKj4iIBPxkHPp/HU=;
-        b=ShRu+btEhGYuGHpz9CuVrFX48qNvInLUmSUfNMy5S30ymVKvycjHB62CksqH8Mkw2b
-         VkEvJZdXCZsKY6zctKOxzO4hJlrxkS2xV1jLcKjv0txk0irBWhqYU03FFoaCFHAFU2wu
-         Md9u+obomtbF9v/zckPYH6zep0l3ugK9B7N2FZ0n2gDqd/Bc+F9YL+felJmolZ5dIg/M
-         AWj7ApUeYYgmF7t/x6DpkI7z2IE1TYIXORKd3x2ucWncrXGtykGZsLkiP3dI15HKtpll
-         /g+G4mVnyna2VUT/NwtcFosCRVPooLabUyemlLQHQrf8Li2HRNQIGDv0pEPtO2lZ4K55
-         wPnw==
-X-Forwarded-Encrypted: i=1; AJvYcCW4ix4KDPeD7P3tAdhY3FBFC80zmYs01nVs2wnKRXHzRv+QtpPBzEctV3Q2F4BEicjP0joOD/FQvb2abznimkyR@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVWwObtV5blV3tgYZXYk+Y8tH6VWtkklDOJd+D222msppCHeW0
-	g8WUCdec6i9YjxOQsHTKMCmR8Y6nY+Nely2/g+Vl+nQ0W57pBY8aowS3KWUFj667wkHceWpcOQJ
-	+kUu4cbixQbeYl3mAugCpGMDVEs0zfg1A4mcD6n+cKIBSPQXHxSxLrK1/J3naqxWSr91vgAOb
-X-Gm-Gg: ASbGnct64s9A7r1HxN0a7/21eUZTqFfxSZIMf4ZX1j76+2Tjmbc06DE1zj+TGnfe7+l
-	3P2rDFyyLH4vPA80Yg1o2zlKj7/0ItVGHqHl4AMx6qKK2xHQggXjD2BIJlIUpv9/GPSDnIVPUSt
-	e4YIQ3w5THCADOW4JYPBylXsYTvE//FvlGt1053dc96kfdL/2AYgTB69RRgYaZgM3x5frxzE8Ku
-	KhZneQAU8/f32YKy2nOjHbLyrmWdh1msjHgi3beIQYGYuzxZ6V1SBSTSJqKbuHzUYB1hh3BeluN
-	GckpwQ==
-X-Received: by 2002:a05:620a:1b91:b0:7b6:c6f8:1d29 with SMTP id af79cd13be357-7b9ba7eaea9mr9969596785a.47.1736242952032;
-        Tue, 07 Jan 2025 01:42:32 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFoL4ryQ13tVszimld4P2XN/R8atx7/aOaPqZkrzZtIyUBTS11aRRGpCcA8MFJnXniJJtibCQ==
-X-Received: by 2002:a05:620a:1b91:b0:7b6:c6f8:1d29 with SMTP id af79cd13be357-7b9ba7eaea9mr9969594385a.47.1736242951690;
-        Tue, 07 Jan 2025 01:42:31 -0800 (PST)
-Received: from [192.168.88.253] (146-241-73-5.dyn.eolo.it. [146.241.73.5])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7b9ac30d87bsm1578478885a.53.2025.01.07.01.42.28
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 07 Jan 2025 01:42:31 -0800 (PST)
-Message-ID: <133b8da8-a2da-4bac-b0bb-7dcaebc219b9@redhat.com>
-Date: Tue, 7 Jan 2025 10:42:27 +0100
+        d=1e100.net; s=20230601; t=1736243172; x=1736847972;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=9w4owW7rFGgngEtY8J365asAFIY4hLvAsEH7uazMVB4=;
+        b=JnuffZMuRudzNg3LbviFNnKBClBDiTEQKa1pfTroClHsjxQ7Tp8zHQMwVwX6x8Q2c+
+         I1sXY4Z4W9lYfcyuYrr97nYbNgO/JI0DY/mv+Yye4gZjpZpWKIhNf99Tj5QX0kbG8yzb
+         PqWjK5MlMELA8PHxnsg1CsL+kHOS1NDryCJaZjMaTUV1hziDFj06x18Lw1CctOxZ2Gdc
+         zKLmLUI+5jKXSO0y0glo7fxTe143uJ/1hCb+3bgI4sFwzHH5Cu6yha4K2m3B/dAAQ6a+
+         DIYHnkrC9/4yQwqA3M7dd2K6MtMLhxXjQBi0Rxf3tb3rE7gHUcytj9SAMCrgLSnXywLz
+         1oWw==
+X-Forwarded-Encrypted: i=1; AJvYcCW88a1MGVLDwHI8gnToAlZq0E6XgyiXQEBcRqEVxSuQJgikbPLkqp5hl04a9vhED1XpRkTNNZxJQm16ONnOe/3w@lists.infradead.org
+X-Gm-Message-State: AOJu0YxGbFEt+4h1QWEOr7skVC0QA8M/6XZQ2NWKMwtBpzY5lvBP083W
+	rbkN2Ime2FGi2n5+2r4IE69+B0YBSas+AdTNhTJ7lBriXpDMW+JpJANld1RduWVyuQv03imimzV
+	k65AnNnAol9U89iSCtQvkiD7U3Sk=
+X-Gm-Gg: ASbGncvXgjViADiguH8ZLG/kYR9mkmvWR4BCl7OR+tBfPzXEgQkylT5Tx0q6Lkw6dk2
+	+XHpEdmfi/loWnRSWJNkpgkw7kt1emAZF/pdTbaM=
+X-Google-Smtp-Source: AGHT+IEU23PnPZsgS3wKiyuLpWpCtHViFuyHtcOJbAZx59MVGnZCC7mkqviUqy9gs43LyhQgdvSC6lqW7rWmlarBOzQ=
+X-Received: by 2002:a05:600c:3b18:b0:434:ff85:dd77 with SMTP id
+ 5b1f17b1804b1-436686431e0mr218844175e9.3.1736243171993; Tue, 07 Jan 2025
+ 01:46:11 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3 2/3] net: ti: icssg-prueth: Add Multicast
- Filtering support for VLAN in MAC mode
-To: MD Danish Anwar <danishanwar@ti.com>, Jeongjun Park
- <aha310510@gmail.com>, Alexander Lobakin <aleksander.lobakin@intel.com>,
- Lukasz Majewski <lukma@denx.de>, Meghana Malladi <m-malladi@ti.com>,
- Diogo Ivo <diogo.ivo@siemens.com>, Simon Horman <horms@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>,
- "David S. Miller" <davem@davemloft.net>, Andrew Lunn
- <andrew+netdev@lunn.ch>, Roger Quadros <rogerq@kernel.org>
-Cc: linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, srk@ti.com,
- Vignesh Raghavendra <vigneshr@ti.com>,
- Michal Swiatkowski <michal.swiatkowski@linux.intel.com>,
- Larysa Zaremba <larysa.zaremba@intel.com>
-References: <20250103092033.1533374-1-danishanwar@ti.com>
- <20250103092033.1533374-3-danishanwar@ti.com>
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20250103092033.1533374-3-danishanwar@ti.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: RKmPPguRTyVKlBE-Oy8et93hWV6ypByzmHxn0GqxFDY_1736242952
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <CAFpOueSJFyAa2q=0S5Ch6cCy_ORKBV8Y-FUTq6bTky37LJ7M_A@mail.gmail.com>
+ <Z3vidU68gtR9Neih@J2N7QTR9R3>
+In-Reply-To: <Z3vidU68gtR9Neih@J2N7QTR9R3>
+From: Itai Handler <itai.handler@gmail.com>
+Date: Tue, 7 Jan 2025 11:46:01 +0200
+X-Gm-Features: AbW1kvZOVP4ih6YQ54necZLfgFC62KIVTnuV_on-vasVzKr5Zo315QjH5M5wVco
+Message-ID: <CAFpOueR32hZj5=fnSQqwD7zitkaeGkzj9W_D1RW5q72RLxkmgg@mail.gmail.com>
+Subject: Re: Issues with kexec on arm64
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Will Deacon <will@kernel.org>, ardb@kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_014236_174591_B874E043 
-X-CRM114-Status: GOOD (  26.05  )
+X-CRM114-CacheID: sfid-20250107_014614_493930_6A838654 
+X-CRM114-Status: GOOD (  25.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,148 +94,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/3/25 10:20 AM, MD Danish Anwar wrote:
-> Add multicast filtering support for VLAN interfaces in dual EMAC mode
-> for ICSSG driver.
-> 
-> The driver uses vlan_for_each() API to get the list of available
-> vlans. The driver then sync mc addr of vlan interface with a locally
-> mainatined list emac->vlan_mcast_list[vid] using __hw_addr_sync_multiple()
-> API.
-> 
-> The driver then calls the sync / unsync callbacks and based on whether
-> the ndev is vlan or not, driver passes appropriate vid to FDB helper
-> functions.
-> 
-> This commit also exports __hw_addr_sync_multiple() in order to use it
-> from the ICSSG driver.
-> 
-> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
-> ---
->  drivers/net/ethernet/ti/icssg/icssg_prueth.c | 67 ++++++++++++++++----
->  drivers/net/ethernet/ti/icssg/icssg_prueth.h |  6 ++
->  include/linux/netdevice.h                    |  3 +
->  net/core/dev_addr_lists.c                    |  7 +-
->  4 files changed, 66 insertions(+), 17 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-> index 1663941e59e3..ed8b5a3184d6 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-> @@ -472,30 +472,44 @@ const struct icss_iep_clockops prueth_iep_clockops = {
->  
->  static int icssg_prueth_add_mcast(struct net_device *ndev, const u8 *addr)
->  {
-> -	struct prueth_emac *emac = netdev_priv(ndev);
-> -	int port_mask = BIT(emac->port_id);
-> +	struct net_device *real_dev;
-> +	struct prueth_emac *emac;
-> +	int port_mask;
-> +	u8 vlan_id;
->  
-> -	port_mask |= icssg_fdb_lookup(emac, addr, 0);
-> -	icssg_fdb_add_del(emac, addr, 0, port_mask, true);
-> -	icssg_vtbl_modify(emac, 0, port_mask, port_mask, true);
-> +	vlan_id = is_vlan_dev(ndev) ? vlan_dev_vlan_id(ndev) : PRUETH_DFLT_VLAN_MAC;
-> +	real_dev = is_vlan_dev(ndev) ? vlan_dev_real_dev(ndev) : ndev;
-> +	emac = netdev_priv(real_dev);
-> +
-> +	port_mask = BIT(emac->port_id) | icssg_fdb_lookup(emac, addr, vlan_id);
-> +	icssg_fdb_add_del(emac, addr, vlan_id, port_mask, true);
-> +	icssg_vtbl_modify(emac, vlan_id, port_mask, port_mask, true);
->  
->  	return 0;
->  }
->  
->  static int icssg_prueth_del_mcast(struct net_device *ndev, const u8 *addr)
->  {
-> -	struct prueth_emac *emac = netdev_priv(ndev);
-> -	int port_mask = BIT(emac->port_id);
-> +	struct net_device *real_dev;
-> +	struct prueth_emac *emac;
->  	int other_port_mask;
-> +	int port_mask;
-> +	u8 vlan_id;
-> +
-> +	vlan_id = is_vlan_dev(ndev) ? vlan_dev_vlan_id(ndev) : PRUETH_DFLT_VLAN_MAC;
-> +	real_dev = is_vlan_dev(ndev) ? vlan_dev_real_dev(ndev) : ndev;
-> +	emac = netdev_priv(real_dev);
->  
-> -	other_port_mask = port_mask ^ icssg_fdb_lookup(emac, addr, 0);
-> +	port_mask = BIT(emac->port_id);
-> +	other_port_mask = port_mask ^ icssg_fdb_lookup(emac, addr, vlan_id);
->  
-> -	icssg_fdb_add_del(emac, addr, 0, port_mask, false);
-> -	icssg_vtbl_modify(emac, 0, port_mask, port_mask, false);
-> +	icssg_fdb_add_del(emac, addr, vlan_id, port_mask, false);
-> +	icssg_vtbl_modify(emac, vlan_id, port_mask, port_mask, false);
->  
->  	if (other_port_mask) {
-> -		icssg_fdb_add_del(emac, addr, 0, other_port_mask, true);
-> -		icssg_vtbl_modify(emac, 0, other_port_mask, other_port_mask, true);
-> +		icssg_fdb_add_del(emac, addr, vlan_id, other_port_mask, true);
-> +		icssg_vtbl_modify(emac, vlan_id, other_port_mask,
-> +				  other_port_mask, true);
->  	}
->  
->  	return 0;
-> @@ -531,6 +545,25 @@ static int icssg_prueth_hsr_del_mcast(struct net_device *ndev, const u8 *addr)
->  	return 0;
->  }
->  
-> +static int icssg_update_vlan_mcast(struct net_device *vdev, int vid,
-> +				   void *args)
-> +{
-> +	struct prueth_emac *emac = args;
-> +
-> +	if (!vdev || !vid)
-> +		return 0;
-> +
-> +	netif_addr_lock_bh(vdev);
-> +	__hw_addr_sync_multiple(&emac->vlan_mcast_list[vid], &vdev->mc,
-> +				vdev->addr_len);
-> +	netif_addr_unlock_bh(vdev);
+On Mon, Jan 6, 2025 at 4:02=E2=80=AFPM Mark Rutland <mark.rutland@arm.com> =
+wrote:
+>
+> On Tue, Dec 24, 2024 at 01:36:41PM +0200, Itai Handler wrote:
+> > [Sorry about my previous e-mail on this subject. It got corrupted.
+> > Please ignore it.]
+> >
+> > Hello,
+>
+> Hi,
+>
+> >
+> > I'm encountering kernel panics / system hangs when attempting to
+> > kexec a vmlinux file on arm64 architecture.
+> >
+> > It happens both on qemu and on real hardware.
+> >
+> > These issues occur on all kernels from v4.19 to the latest mainline.
+> > A sample panic output looks as follows:
+> >   kernel BUG at arch/arm64/mm/mmu.c:217!
+> >   Internal error: Oops - BUG: 00000000f2000800 [#1] SMP
+> >   CPU: 0 PID: 0 Comm: swapper Not tainted 6.6.0 #292
+> >   Hardware name: linux,dummy-virt (DT)
+> >   pstate: 800000c5 (Nzcv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=3D--)
+> >   pc : __create_pgd_mapping+0xe8/0x3b0
+> >   lr : __create_pgd_mapping+0x44/0x3b0
+> >   sp : fffffe00804d3c20
+> >   x29: fffffe00804d3c20 x28: fffffe0080620000 x27: fffffffefdbc0000
+> >   x26: fffffe0080300000 x25: 0000000040010000 x24: fffffffefdbc8020
+> >   x23: fffffe0080010000 x22: 0000000000000040 x21: fffffe0080010000
+> >   x20: fffffe0080300000 x19: 0040000000000783 x18: 0000000000000000
+> >   x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
+> >   x14: fffffffefdde0000 x13: fffffe00804d3c78 x12: 0000000000001d68
+> >   x11: 0000000000001d64 x10: fffffe00804d3c2c x9 : fffffffefdde0000
+> >   x8 : 0000000040420000 x7 : 0000000000001d68 x6 : 0000000000000000
+> >   x5 : fffffe00a0010000 x4 : 0000000000001004 x3 : fffffe0480010000
+> >   x2 : fffffe00804f7ec0 x1 : 0000000000000000 x0 : 0000000000000000
+> >   Call trace:
+> >    __create_pgd_mapping+0xe8/0x3b0
+> >    map_kernel_segment+0x74/0xb0
+> >    paging_init+0xec/0x4f8
+> >    setup_arch+0x234/0x52c
+> >    start_kernel+0x64/0x500
+> >    __primary_switched+0xb4/0xbc
+> >   Code: f9400300 92400400 f1000c1f 54000060 (d4210000)
+> >   ---[ end trace 0000000000000000 ]---
+> >   Kernel panic - not syncing: Oops - BUG: Fatal exception
+> >
+> > I bisected those panics to 8eb7e28d4c642c310f25c18f80a44dd4b01c694e
+> > ("arm64/mm: move runtime pgds to rodata"), which was added on v4.19.
+> >
+> > I also reconstructed the full call trace (by adding "noinline" to the
+> > relevant functions):
+> >   alloc_init_cont_pte+0x6c/0x1e0
+> >   init_pmd+0x154/0x1c8
+> >   alloc_init_cont_pmd+0x11c/0x174
+> >   alloc_init_pud+0xc4/0x148
+> >   __create_pgd_mapping+0xa8/0x130
+> >   map_kernel_segment+0xc8/0x168
+> >   map_kernel+0x98/0x1a8
+> >   paging_init+0x7c/0x418
+> >   setup_arch+0x224/0x570
+> >   start_kernel+0x5c/0x4f0
+> >
+>
+> Does your system have GICv3 and an ITS? If so, and assuming you're not
+> using EFI to boot in the first place, what *might* be happening here is
+> that the GIC is still using property/pending tables allocated bye the
+> first kernel, and after that memory gets reallocated, the GIC writes
+> back and corrupts that memory. That would be very sensitive to memory
+> layout, which could explain why the bisect leads to something that
+> changes that.
+>
+> We have a solution for that with EFI (where we can use a configuration
+> table to indicate that the memory is in use), but we don't currently
+> have a solution in the absence of EFI, and we should probably forbid
+> kexec in that case...
+>
+> Mark.
+>
 
-At this point, isn't emac->vlan_mcast_list[vid] == vdev->mc?
+Hi Mark,
 
-> +
-> +	__hw_addr_sync_dev(&emac->vlan_mcast_list[vid], vdev,
-> +			   icssg_prueth_add_mcast, icssg_prueth_del_mcast);
+No, both the real hardware and the qemu VM do not have GICv3.
+They both have GICv2.
+Is kexec supported with GICv2 (assuming I'm not using EFI to boot)?
 
-If so, can this function be reduced to just:
-
-	__dev_mc_sync(vdev, icssg_prueth_add_mcast, icssg_prueth_del_mcast);
-
-?
-
-> diff --git a/net/core/dev_addr_lists.c b/net/core/dev_addr_lists.c
-> index 166e404f7c03..90716bd736f3 100644
-> --- a/net/core/dev_addr_lists.c
-> +++ b/net/core/dev_addr_lists.c
-> @@ -242,9 +242,9 @@ static void __hw_addr_unsync_one(struct netdev_hw_addr_list *to_list,
->  	__hw_addr_del_entry(from_list, ha, false, false);
->  }
->  
-> -static int __hw_addr_sync_multiple(struct netdev_hw_addr_list *to_list,
-> -				   struct netdev_hw_addr_list *from_list,
-> -				   int addr_len)
-> +int __hw_addr_sync_multiple(struct netdev_hw_addr_list *to_list,
-> +			    struct netdev_hw_addr_list *from_list,
-> +			    int addr_len)
->  {
->  	int err = 0;
->  	struct netdev_hw_addr *ha, *tmp;
-> @@ -260,6 +260,7 @@ static int __hw_addr_sync_multiple(struct netdev_hw_addr_list *to_list,
->  	}
->  	return err;
->  }
-> +EXPORT_SYMBOL(__hw_addr_sync_multiple);
-
-I'm asking because this additional export looks suspect. How other
-drivers cope with similar situation?
-
-Thanks!
-
-Paolo
-
+Thanks,
+Itai Handler
 
