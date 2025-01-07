@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF1FAE77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 10:27:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7772E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 10:29:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zkl+kOv8ByuZs/we/Zb5NNLc2fCz89sKm3EfDHeceZk=; b=UWoLrKY0nyOQsptQMmJ1DpxCrW
-	LMa8LOssjEFpMk3BGGWoBpKDG3mTdppU1jXVzrFtfbmqACoWCHve6CE0XuheRBrIu2mncTnxn8yAv
-	6cmJp77suvVNUQ2MFX8PZvhnnyVlRc7VRKjONctipC71LF5OzogkGf4mx2hgo0OVaNY7gI5FwfHhG
-	Y62hJHbtEfWdGuWVhyAOZQh0EhsA1pWe4Px+6wZQx35Au/+wPbqDiI1DmAiJjkqzS/oWA2xRgxa+p
-	yVm1eudPwG9AuH5n7/NBuDyhINRt7x0NBZ7T93o17HlkizMLMCBDf1ENjsLqC6OOaHFqTS00KLwfM
-	HGhJ4Wzw==;
+	bh=0snWdHDwer8Q7HICGIujVxvtp8NgPbDkvlKPXjwUr+Q=; b=Do+AXKf387f4eQ5dgv9FwdckuY
+	Ijk57LriT41JB1pIy9hIqg84zCUjno8LoUKupBfsA/qDuXzi7iUVhjptux9CANwTYUAb5zaZAxch2
+	qLcANBj1Tf2BbTcrAHs3R6bHQlL0lvD2JdIcRGUI+PTRnfmaYifOlhwyW1j3yjBptt2Ye5CLo1Jy0
+	pUWUJu48fDqoIYu2YEwfqT9E09BOs68VWtz+ctZNDk6LTc1k72wZHHkC8xYIfMkRjOz8YJrRyrumV
+	ilYbTvjPGljHBrGvZyxnKxN3Z5a6IH4WbTPSbJlXz0fEowh8s1K+4xkRLJXSmqo5EErhZlNEULT/G
+	rYV7iWwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV6oB-00000004LJC-2Ycd;
-	Tue, 07 Jan 2025 10:27:35 +0000
+	id 1tV6pM-00000004Lc0-13oZ;
+	Tue, 07 Jan 2025 10:28:48 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV6U5-00000004GRa-30Vm
+	id 1tV6UY-00000004GdS-3Lae
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 10:06:57 +0000
+	Tue, 07 Jan 2025 10:07:24 +0000
 Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id EA182675;
-	Tue,  7 Jan 2025 11:05:49 +0100 (CET)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id DAEF6675;
+	Tue,  7 Jan 2025 11:06:23 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1736244350;
-	bh=QqSkUATka6qZ3THnYQjNaS1tgXdFm8leweOVniajL38=;
+	s=mail; t=1736244384;
+	bh=yDZqAaJ6tTqJ5WB2IdGR/NNDcObNkuXn8z62tq8KHWI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=alvwVcp6Sbwkq7axwKYZthiZVcon5np0R/z5lZcgVhz9slp/SfgJmBP5GfkU3iT6e
-	 QrPFeMVqqBASNCvH+xBDdtM2WyFfeyidvwhDnqpoLAVHN8g6n4jqWRIN6GWic/HVMV
-	 IAnfg3vsUy5mS3npiaaclMLnlTym/1D0Yf/Fyzf8=
-Date: Tue, 7 Jan 2025 12:06:39 +0200
+	b=nzFenzmLO0QhV30CV4bZymvJf4wGW3VZOyUYl0kFLqUMGsSv64cBCB2Ir9xm61Z6n
+	 +ZnnBrUKt9JX7dkYpDDZlyvVxE/mEWKz3hC8CM4+OgyxH0h+pkLElWT9BA8Ll8yTkW
+	 RFswXKo7UiQ5kcqyjvmmauo4uShA/DcKUaSttO0s=
+Date: Tue, 7 Jan 2025 12:07:13 +0200
 From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 To: Alexander Stein <alexander.stein@ew.tq-group.com>
 Cc: Inki Dae <inki.dae@samsung.com>,
@@ -59,17 +59,18 @@ Cc: Inki Dae <inki.dae@samsung.com>,
 	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/2] ARM: dts: imx7s: Move csi-mux to below root
-Message-ID: <20250107100639.GC23309@pendragon.ideasonboard.com>
+Subject: Re: [PATCH 2/2] dt-bindings: samsung,mipi-dsim: Add imx7d specific
+ compatible
+Message-ID: <20250107100713.GD23309@pendragon.ideasonboard.com>
 References: <20250107094943.518474-1-alexander.stein@ew.tq-group.com>
- <20250107094943.518474-2-alexander.stein@ew.tq-group.com>
+ <20250107094943.518474-3-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250107094943.518474-2-alexander.stein@ew.tq-group.com>
+In-Reply-To: <20250107094943.518474-3-alexander.stein@ew.tq-group.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_020649_886562_8ED3581F 
-X-CRM114-Status: GOOD (  17.60  )
+X-CRM114-CacheID: sfid-20250107_020718_970322_54CBD332 
+X-CRM114-Status: GOOD (  16.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,95 +89,35 @@ Hi Alexander,
 
 Thank you for the patch.
 
-On Tue, Jan 07, 2025 at 10:49:41AM +0100, Alexander Stein wrote:
-> fsl,imx-iomuxc-gpr.yaml only contains the mux-controller but the actual
-> video-mux is not part of it. So move it below root node.
-> Fixes the dtbs_check warning:
-> arch/arm/boot/dts/nxp/imx/imx7s-mba7.dtb: iomuxc-gpr@30340000: 'csi-mux' does not match any of the regexes: 'pinctrl-[0-9]+'
->   from schema $id: http://devicetree.org/schemas/soc/imx/fsl,imx-iomuxc-gpr.yaml#
+On Tue, Jan 07, 2025 at 10:49:42AM +0100, Alexander Stein wrote:
+> This add a imx7(d) specific compatible which is compatible to imx8mm.
+> This silences the dtbs_check warning:
+> arch/arm/boot/dts/nxp/imx/imx7s-mba7.dtb: dsi@30760000: compatible: 'oneOf' conditional failed, one must be fixed:
+>  ['fsl,imx7d-mipi-dsim', 'fsl,imx8mm-mipi-dsim'] is too long
 > 
 > Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 
 Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 
 > ---
->  arch/arm/boot/dts/nxp/imx/imx7s.dtsi | 56 ++++++++++++++--------------
->  1 file changed, 28 insertions(+), 28 deletions(-)
+>  .../devicetree/bindings/display/bridge/samsung,mipi-dsim.yaml | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
 > 
-> diff --git a/arch/arm/boot/dts/nxp/imx/imx7s.dtsi b/arch/arm/boot/dts/nxp/imx/imx7s.dtsi
-> index 22dd72499ef27..2629968001a74 100644
-> --- a/arch/arm/boot/dts/nxp/imx/imx7s.dtsi
-> +++ b/arch/arm/boot/dts/nxp/imx/imx7s.dtsi
-> @@ -176,6 +176,34 @@ timer {
->  			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>;
->  	};
+> diff --git a/Documentation/devicetree/bindings/display/bridge/samsung,mipi-dsim.yaml b/Documentation/devicetree/bindings/display/bridge/samsung,mipi-dsim.yaml
+> index 4ed7a799ba26b..e43fec5609417 100644
+> --- a/Documentation/devicetree/bindings/display/bridge/samsung,mipi-dsim.yaml
+> +++ b/Documentation/devicetree/bindings/display/bridge/samsung,mipi-dsim.yaml
+> @@ -27,7 +27,9 @@ properties:
+>            - fsl,imx8mm-mipi-dsim
+>            - fsl,imx8mp-mipi-dsim
+>        - items:
+> -          - const: fsl,imx8mn-mipi-dsim
+> +          - enum:
+> +              - fsl,imx7d-mipi-dsim
+> +              - fsl,imx8mn-mipi-dsim
+>            - const: fsl,imx8mm-mipi-dsim
 >  
-> +	video_mux: csi-mux {
-> +		compatible = "video-mux";
-> +		mux-controls = <&mux 0>;
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +		status = "disabled";
-> +
-> +		port@0 {
-> +			reg = <0>;
-> +		};
-> +
-> +		port@1 {
-> +			reg = <1>;
-> +
-> +			csi_mux_from_mipi_vc0: endpoint {
-> +				remote-endpoint = <&mipi_vc0_to_csi_mux>;
-> +			};
-> +		};
-> +
-> +		port@2 {
-> +			reg = <2>;
-> +
-> +			csi_mux_to_csi: endpoint {
-> +				remote-endpoint = <&csi_from_csi_mux>;
-> +			};
-> +		};
-> +	};
-> +
->  	soc: soc {
->  		#address-cells = <1>;
->  		#size-cells = <1>;
-> @@ -529,34 +557,6 @@ mux: mux-controller {
->  					#mux-control-cells = <1>;
->  					mux-reg-masks = <0x14 0x00000010>;
->  				};
-> -
-> -				video_mux: csi-mux {
-> -					compatible = "video-mux";
-> -					mux-controls = <&mux 0>;
-> -					#address-cells = <1>;
-> -					#size-cells = <0>;
-> -					status = "disabled";
-> -
-> -					port@0 {
-> -						reg = <0>;
-> -					};
-> -
-> -					port@1 {
-> -						reg = <1>;
-> -
-> -						csi_mux_from_mipi_vc0: endpoint {
-> -							remote-endpoint = <&mipi_vc0_to_csi_mux>;
-> -						};
-> -					};
-> -
-> -					port@2 {
-> -						reg = <2>;
-> -
-> -						csi_mux_to_csi: endpoint {
-> -							remote-endpoint = <&csi_from_csi_mux>;
-> -						};
-> -					};
-> -				};
->  			};
->  
->  			ocotp: efuse@30350000 {
+>    reg:
 
 -- 
 Regards,
