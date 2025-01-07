@@ -4,113 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35E29E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 14:27:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF63CE77198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 14:28:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2B7QsXhwZNID9hkdJMhXhhx17J8OxXWuj8JjzDXzWQA=; b=cJ8QZXMgEo1NmdL8hMuhj676Wt
-	H1ROH8ykqct231OWN0Aq/fe3nIHHrvTpwFERgYYkaPs8+HJ6QYitxU8rVsPrZJsxVCYyMzeN3UcvW
-	/ZhGU+dha5Bncr6OLf07xmwD2NhoCyLodo3eiE9AwbXKjDVs07rQO2PGITm8cE4QZ7NVGWeXetS+X
-	pwQ9jgG3F6crJaa0Ytm6DblS0jySL8R2/YV+lZrDn+2+bPReetp88MJXMoRtFXPSIMk2uSXHpvuDb
-	+s48PRhWyUyWeUyVaw3/exuhHcmWmTSvjSItPDmcOSyl5WNdzbep+9SDTqkY5VJuxoET17DbQcsfe
-	oGYizm2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XE2LBycvBfRVASiRxD8GRnH5rQbRkw6izbBARG4PHOM=; b=p7NE0/ydF8JBwue0/NYqUbMRdi
+	RJd2GOpEhSuxnc+f6sdnqBaeVfPygAvFisjJhelLbrc1knt+t99mcY03uIcw5nqtgbUJ9MwVA6hAI
+	h0ZEwEs1oJdu7E/VB5B8OWmAERGSeWzlpN1FN1HDyuohnzZqxei1jwyEa6WOXRtD+AMRaEBzpvM2N
+	44ZELOyzkMZrDVov8xUGCKfNnPG5Gz0ZgTSZFcE6MtjNMnyfJ++P3X4OB3bXOarvT2m3N5Qz2lrOK
+	OeSE5qAB8TxDg2uBkeVnWlsWDTaBTZMB9PIOppyzxcEFm6wXQjgrGxZIoGqdQKVSDwcD7P6jWzvfo
+	SR2HtRxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVAXc-00000005CUV-2WqA;
-	Tue, 07 Jan 2025 14:26:44 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1tVAYn-00000005CuG-1x3a;
+	Tue, 07 Jan 2025 14:27:57 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVATt-00000005BJ4-3o2M;
-	Tue, 07 Jan 2025 14:22:58 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50785ZGY017710;
-	Tue, 7 Jan 2025 14:22:21 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=2B7QsXhwZNID9hkdJMhXhhx17J8OxX
-	Wuj8JjzDXzWQA=; b=m0f+8NRkRQ5k6iEjZnjbuEmNBycrqf76ItjYHFoPDUTOdH
-	tsDcx5zUcXHTnSo13TQHIktaMW3Ad5Lgiteov3XI7UyYvcHfs7tupMQKv7w+lpWi
-	4YLFjjrj3XJCNnlUHzBTj+CqV5Wfk1Tu9P3NK58XARBZIsYIoNvUqA/O4coLLn3B
-	ZSyQoHvvvyoIu5c9lj7lHuDq6Jy7QSdEt4aDTyu6zAC3xDyVGqw+EC8rnEQUvB4M
-	qTx/kRHnKTqWC1L1KpzOVhfnwVqqgCP8PkyNrpobTfKho0LfDQVBy1vGN7qwBYGb
-	bQQ9LoXaqcbGbf/ddlkC1nG1T6m79jZRlMxk0gng==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4410f39jwh-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 07 Jan 2025 14:22:20 +0000 (GMT)
-Received: from m0360072.ppops.net (m0360072.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 507E7cHb024539;
-	Tue, 7 Jan 2025 14:22:20 GMT
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4410f39jwe-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 07 Jan 2025 14:22:20 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 507AEgaT027976;
-	Tue, 7 Jan 2025 14:22:19 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 43yhhk2m6g-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 07 Jan 2025 14:22:19 +0000
-Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 507EMHnJ39453010
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 7 Jan 2025 14:22:17 GMT
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 3E19420043;
-	Tue,  7 Jan 2025 14:22:17 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 584C920040;
-	Tue,  7 Jan 2025 14:22:16 +0000 (GMT)
-Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.155.204.135])
-	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Tue,  7 Jan 2025 14:22:16 +0000 (GMT)
-Date: Tue, 7 Jan 2025 15:22:15 +0100
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: Qi Zheng <zhengqi.arch@bytedance.com>
-Cc: peterz@infradead.org, kevin.brodsky@arm.com, palmer@dabbelt.com,
-        tglx@linutronix.de, david@redhat.com, jannh@google.com,
-        hughd@google.com, yuzhao@google.com, willy@infradead.org,
-        muchun.song@linux.dev, vbabka@kernel.org, lorenzo.stoakes@oracle.com,
-        akpm@linux-foundation.org, rientjes@google.com, vishal.moola@gmail.com,
-        arnd@arndb.de, will@kernel.org, aneesh.kumar@kernel.org,
-        npiggin@gmail.com, dave.hansen@linux.intel.com, rppt@kernel.org,
-        ryan.roberts@arm.com, linux-mm@kvack.org,
-        linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-        sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org,
-        x86@kernel.org, linux-arch@vger.kernel.org, linux-csky@vger.kernel.org,
-        linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
-        linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
-        linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org,
-        linux-um@lists.infradead.org
-Subject: Re: [PATCH v4 15/15] mm: pgtable: introduce generic
- pagetable_dtor_free()
-Message-ID: <Z304l1Y6DHosXlBh@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
-References: <cover.1735549103.git.zhengqi.arch@bytedance.com>
- <cb5700c21d0eed9eb50bac385be1fb6cdef7e530.1735549103.git.zhengqi.arch@bytedance.com>
+	id 1tVAUM-00000005BV2-1pQb;
+	Tue, 07 Jan 2025 14:23:25 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-aa689a37dd4so317126866b.3;
+        Tue, 07 Jan 2025 06:23:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1736259800; x=1736864600; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=XE2LBycvBfRVASiRxD8GRnH5rQbRkw6izbBARG4PHOM=;
+        b=d1OhV/G55O71tVL+NLL9gTStbeQD4/Etxfb4AxrFDcFyOClYauyLsrA8QKCAbYAkk9
+         JKcijAMEc22b/dQ3Lryyyl4zSH73+RMILUB9+RriHAQSnFJ1kBMwjgyj0XrY3Upn8KcF
+         xmnJfdmRJCQgRJCc+s8Ig1s6SKoK+0zdL21KkVXEDk9GsUy9ruId7BCr72K0v3x//l8Y
+         BP1KkFlyNabsabNNp4zW+nwiIC8aabfKU4j32VwooAZj31iPgfCs+3TBBCp493rZajnZ
+         9o+DWmPK9747Pj51OSzBDSFyXUhAFt5JtsLTugJqeFcM8qwB5paOTwsaPxdTfItqQEft
+         jeeQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736259800; x=1736864600;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=XE2LBycvBfRVASiRxD8GRnH5rQbRkw6izbBARG4PHOM=;
+        b=NnmIw5CKP1L9QMJ5RaK5VpZxJFgxtkwfWVILEesWpAFGqiD1RgAR1g8ZDT2CfA82cW
+         WA9BC0kVTX76J4VXKrRLeNq2DVa1GUfRp5XG3qsL8t+pSR/6FHl89lFKCpvZ0O61wgt+
+         Ht2GouRImlm8wmKAFbKvvS8o2fpATvE/K4rqNft0LzN63eamcaDuATBNAhbibtK47low
+         2a2x38w9mcm6iMkeaPdre3cSn1e1W06yqnH6wtZqvQuJ//C3YMlwJ8/rb0F7COn2JP3l
+         WtotESq1I422E5GXByXkO2KooMEmYwBce81VqLKnjO2rq/RWpXCpiw/aiq87wdVO5drk
+         SGWg==
+X-Forwarded-Encrypted: i=1; AJvYcCUt70B+ps1eMooRdlac4xc8et+SxC+3AYNp6V/JZNqiBP14FQPFsPxPhr537y7xKwE42zBhufTh5mRbMbVMk2g=@lists.infradead.org, AJvYcCXsNAbj0q1FKdyVSqCGuKp9xp7Av0MXgY23boqExrui5p1LN8NbxhTR4VaHoQ6AjqddLyeEEeIePDkLgOlAMrWW@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyyu0tiLe5jBHhX71QNIRZm1lDNZMfOmKYKIjeyjliZvCzFY6RN
+	OwoyqSMaO1kCOquoWDJC27eV3sMK/V/sXDjNIGCVKckW+zV6q3Me
+X-Gm-Gg: ASbGncu3Gy6AKTbw94clTmDOYBvqkyt3DvH7XK3yPA36dHObDLA77yxaeYH/3ipwiYi
+	hLu2dl5Iapv6diwiCUW/Kzx07wNgmzPBDAdf8ta5DCCRa0EryzDiA+35K/8sdqgTz8ecb5jd0xg
+	ZHkhZW1gieTVkv7hnz9BE680NRSJ7RvqYvBm0bfNGmUSB+B/qqNJiCRAK8tNDn2V/9NpRpMas6y
+	XzpUCFcqsd5rOJUCtn27uTgUAtQcoLUde99inAqdlvOtvmLAX6kYlnPADKpAxZpt89fCSEw6WFA
+	zR3iHP02NN0U9VPn7VmcDuetdaooLmODaoKgDljreqa/gacJ8+nKSt264Wq5EBuzGtw2cvS2wm+
+	6eNNMadx0SUVFSW8rDowwWVPSW/Q9YDc=
+X-Google-Smtp-Source: AGHT+IFTKXq+cflhxmBLnsZ30k5zI/b1GmBG/qIWiM0wUuk9AhpVGKtgpK8+7CvsgQoYKL8T/INBNA==
+X-Received: by 2002:a17:907:d87:b0:aab:71fc:47a3 with SMTP id a640c23a62f3a-aac3379034dmr5727225766b.60.1736259800081;
+        Tue, 07 Jan 2025 06:23:20 -0800 (PST)
+Received: from ?IPV6:2001:1c00:20d:1300:1b1c:4449:176a:89ea? (2001-1c00-020d-1300-1b1c-4449-176a-89ea.cable.dynamic.v6.ziggo.nl. [2001:1c00:20d:1300:1b1c:4449:176a:89ea])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d806fede4csm25126108a12.63.2025.01.07.06.23.19
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 07 Jan 2025 06:23:19 -0800 (PST)
+Message-ID: <b7705a4e-5559-4fe3-a302-4c60d7224e49@gmail.com>
+Date: Tue, 7 Jan 2025 15:23:18 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cb5700c21d0eed9eb50bac385be1fb6cdef7e530.1735549103.git.zhengqi.arch@bytedance.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: yROkuy-wyK9H6Q7dEn2Q7Ir9AUmTd7MT
-X-Proofpoint-ORIG-GUID: J54oxTq0KOpExrJ-UIH_1SyWDONwdbzM
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
- definitions=2024-10-15_01,2024-10-11_01,2024-09-30_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 mlxlogscore=578
- spamscore=0 lowpriorityscore=0 adultscore=0 malwarescore=0 impostorscore=0
- bulkscore=0 phishscore=0 suspectscore=0 priorityscore=1501 clxscore=1015
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
- definitions=main-2501070118
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC net-next] net: phylink: always config mac for
+ (delayed) phy
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
+ Heiner Kallweit <hkallweit1@gmail.com>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Frank Wunderlich <frank-w@public-files.de>,
+ Daniel Golle <daniel@makrotopia.org>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, netfilter-devel@vger.kernel.org,
+ coreteam@netfilter.org, bridge@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20250107123615.161095-1-ericwouds@gmail.com>
+ <Z30iUj6DE9-fRp0n@shell.armlinux.org.uk>
+ <4b9b2a9a-061b-43ad-b402-a49aee317f41@gmail.com>
+ <ed29e632-332b-4af1-bf7f-97498297e731@lunn.ch>
+From: Eric Woudstra <ericwouds@gmail.com>
+Content-Language: en-US
+In-Reply-To: <ed29e632-332b-4af1-bf7f-97498297e731@lunn.ch>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_062254_059500_F266C574 
-X-CRM114-Status: GOOD (  19.00  )
+X-CRM114-CacheID: sfid-20250107_062322_476181_8182B212 
+X-CRM114-Status: GOOD (  16.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,119 +112,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 30, 2024 at 05:07:50PM +0800, Qi Zheng wrote:
-> The pte_free(), pmd_free(), __pud_free() and __p4d_free() in
-> asm-generic/pgalloc.h and the generic __tlb_remove_table() are basically
-> the same, so let's introduce pagetable_dtor_free() to deduplicate them.
-> 
-> In addition, the pagetable_dtor_free() in s390 does the same thing, so
-> let's s390 also calls generic pagetable_dtor_free().
-> 
-> Signed-off-by: Qi Zheng <zhengqi.arch@bytedance.com>
-> Suggested-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-> ---
->  arch/s390/mm/pgalloc.c        |  6 ------
->  include/asm-generic/pgalloc.h | 12 ++++--------
->  include/asm-generic/tlb.h     |  3 +--
->  include/linux/mm.h            |  6 ++++++
->  4 files changed, 11 insertions(+), 16 deletions(-)
-> 
-> diff --git a/arch/s390/mm/pgalloc.c b/arch/s390/mm/pgalloc.c
-> index 3e002dea6278f..a4e7619020931 100644
-> --- a/arch/s390/mm/pgalloc.c
-> +++ b/arch/s390/mm/pgalloc.c
-> @@ -180,12 +180,6 @@ unsigned long *page_table_alloc(struct mm_struct *mm)
->  	return table;
->  }
->  
-> -static void pagetable_dtor_free(struct ptdesc *ptdesc)
-> -{
-> -	pagetable_dtor(ptdesc);
-> -	pagetable_free(ptdesc);
-> -}
-> -
->  void page_table_free(struct mm_struct *mm, unsigned long *table)
->  {
->  	struct ptdesc *ptdesc = virt_to_ptdesc(table);
-> diff --git a/include/asm-generic/pgalloc.h b/include/asm-generic/pgalloc.h
-> index 4afb346eae255..e3977ddca15e4 100644
-> --- a/include/asm-generic/pgalloc.h
-> +++ b/include/asm-generic/pgalloc.h
-> @@ -109,8 +109,7 @@ static inline void pte_free(struct mm_struct *mm, struct page *pte_page)
->  {
->  	struct ptdesc *ptdesc = page_ptdesc(pte_page);
->  
-> -	pagetable_dtor(ptdesc);
-> -	pagetable_free(ptdesc);
-> +	pagetable_dtor_free(ptdesc);
->  }
->  
->  
-> @@ -153,8 +152,7 @@ static inline void pmd_free(struct mm_struct *mm, pmd_t *pmd)
->  	struct ptdesc *ptdesc = virt_to_ptdesc(pmd);
->  
->  	BUG_ON((unsigned long)pmd & (PAGE_SIZE-1));
-> -	pagetable_dtor(ptdesc);
-> -	pagetable_free(ptdesc);
-> +	pagetable_dtor_free(ptdesc);
->  }
->  #endif
->  
-> @@ -202,8 +200,7 @@ static inline void __pud_free(struct mm_struct *mm, pud_t *pud)
->  	struct ptdesc *ptdesc = virt_to_ptdesc(pud);
->  
->  	BUG_ON((unsigned long)pud & (PAGE_SIZE-1));
-> -	pagetable_dtor(ptdesc);
-> -	pagetable_free(ptdesc);
-> +	pagetable_dtor_free(ptdesc);
->  }
->  
->  #ifndef __HAVE_ARCH_PUD_FREE
-> @@ -248,8 +245,7 @@ static inline void __p4d_free(struct mm_struct *mm, p4d_t *p4d)
->  	struct ptdesc *ptdesc = virt_to_ptdesc(p4d);
->  
->  	BUG_ON((unsigned long)p4d & (PAGE_SIZE-1));
-> -	pagetable_dtor(ptdesc);
-> -	pagetable_free(ptdesc);
-> +	pagetable_dtor_free(ptdesc);
->  }
->  
->  #ifndef __HAVE_ARCH_P4D_FREE
-> diff --git a/include/asm-generic/tlb.h b/include/asm-generic/tlb.h
-> index 69de47c7ef3c5..a96d4b440f3da 100644
-> --- a/include/asm-generic/tlb.h
-> +++ b/include/asm-generic/tlb.h
-> @@ -213,8 +213,7 @@ static inline void __tlb_remove_table(void *table)
->  {
->  	struct ptdesc *ptdesc = (struct ptdesc *)table;
->  
-> -	pagetable_dtor(ptdesc);
-> -	pagetable_free(ptdesc);
-> +	pagetable_dtor_free(ptdesc);
->  }
->  #endif
->  
-> diff --git a/include/linux/mm.h b/include/linux/mm.h
-> index cad11fa10c192..94078c488e904 100644
-> --- a/include/linux/mm.h
-> +++ b/include/linux/mm.h
-> @@ -3001,6 +3001,12 @@ static inline void pagetable_dtor(struct ptdesc *ptdesc)
->  	lruvec_stat_sub_folio(folio, NR_PAGETABLE);
->  }
->  
-> +static inline void pagetable_dtor_free(struct ptdesc *ptdesc)
-> +{
-> +	pagetable_dtor(ptdesc);
-> +	pagetable_free(ptdesc);
-> +}
-> +
->  static inline bool pagetable_pte_ctor(struct ptdesc *ptdesc)
->  {
->  	struct folio *folio = ptdesc_folio(ptdesc);
 
-For s390:
 
-Acked-by: Alexander Gordeev <agordeev@linux.ibm.com>
+On 1/7/25 2:20 PM, Andrew Lunn wrote:
+>> I think it is because pl->act_link_an_mode stays at MLO_AN_INBAND, but
+>> it needs to be set to MLO_AN_PHY, so that only the phy determines the
+>> link state:
+>>
+>> phylink_resolve() {
+>>     ...
+>> 	} else if (pl->act_link_an_mode == MLO_AN_PHY) {
+>> 		link_state = pl->phy_state;
+>>     ...
+>> }
+> 
+> phylink tries to determine the whole chain is up. As Russell says, it
+> could be the PCS has not got sync with the PHY for some reason. So
+> even if you ignore the PCS state, it might not work. This is actually
+> a useful pieces of information. Does the link actually work end to end
+> if you only look at the media state? If it does, that would indicate
+> the PCS is maybe missing an interrupt, or needs polling for change in
+> state.
+> 
+> 	Andrew
 
-Thanks!
+After phylink_mac_initial_config() is re-triggered with the phy
+attached, either by the patch, or even with:
+
+ethtool -s eth1 advertise 0x28
+(switches to sgmii)
+ethtool -s eth1 advertise 0x800000000028
+(switches mac back to 2500base-x)
+
+mode is set to MLO_AN_PHY in phylink_pcs_neg_mode() and the link works
+end to end.
+
+So the an-mode can be 2 different values, one after link up and another
+after these ethtool commands.
+
 
