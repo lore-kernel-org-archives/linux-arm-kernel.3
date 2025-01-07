@@ -4,77 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60901E77199
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 11:29:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65422E77198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 11:31:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6RWe0aov1XUyPINE327G3Q+w+KMS4G74JxHKr2TJ/zY=; b=2Pt+hUhwMFPnDVwB4HOhEtl93Z
-	iohxWvo7scN+QR6ucUAgMDziMGJgzwRnQele5YVjvMGGMu3Jq9RVQuRqIRVhLSOXuWrUQRK5u2G5i
-	mrWZine7lTzRtrGe3ag95eBi4wn47yd2QIOdWS5ti4UhcjhUeoZDi+1JLSZMY8oF7IHoEGYyL6IgE
-	StN6igLnpeHAS/aqMMq3dS4fqIlRvkhVeqdD4f8TAuTFAgVADVDHEl6OPFvsT7DMJKYW2zZXsscMP
-	VVCpIGRDVQbw86DpegvutkJb7DbM8hX6sErmtEsyYxs2Ya/HiAdodjWgwlTBK9VkAAad8sIhN5QQW
-	CTBNr5iQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=p0CAjk3X1Da4pfjgTSIhgq/wctR6IO/zVhEcA9rA6Fo=; b=1hMKmotnoiZJWh4O3UT9vk38BU
+	SlTzWJ7/liFufsih53kmSEgduU9fCHg/j95Q3pOSHZ0WsKGaQJNCcrkVA+G4zA/zNTa812B4BRC9l
+	ys2Mitar37tIMoXx1GdgGBqCmMgpz6eGwNBLf14kd4xtukCX+baCCKqAgc3Ekl09cBZrDJHN6chDi
+	diwDT7tZlz5cKy7Um1tAWadW+LOMK3ZFfsNR7Wh+XmLCHvmkks69Lp0KIvhN8CHzl8eNDZBGRqHc8
+	9yVHQFhudC0VbTPbiO4tmrn4skfAAEBhMmcsl4S8p+EvcJ59/ci6uXWMnB3mks3Ig2CyzEiZ2XWIR
+	xGMWnttw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV7mJ-00000004YU2-2ezZ;
-	Tue, 07 Jan 2025 11:29:43 +0000
-Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	id 1tV7nV-00000004YqG-1KuD;
+	Tue, 07 Jan 2025 11:30:57 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV7l7-00000004YEk-1aMb
+	id 1tV7la-00000004YN5-0QvU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 11:28:30 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-3862b364578so7591683f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 03:28:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1736249307; x=1736854107; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=6RWe0aov1XUyPINE327G3Q+w+KMS4G74JxHKr2TJ/zY=;
-        b=jTP38Baaohuz5ysI+ULEZc8SngJ4vAZNV5e2VdhJ45ch9kIkL6NjJE6y0B/MxLMITa
-         egFvSB5j38uFJtdNDmSp9S22HjvUB4EWp4CF2s/UigKy8VzCGZwcaqVTy73crDiRv3/2
-         hZT9uOctjNmGkxepv6+oQM2TZrRHrRnd5V3x88+9uMlEnEKkyLmSS6ONlwJcBCU3ZWs/
-         /Qo335Wo7cPeS/bCB26kqGz/Vvxn48EUHymF3Jr6sqE4lmXbmQpl1vR+7osKJYV9L/LU
-         hY50r0PupuQEnG3V6eM4y2jeO4yFC0w51VNjcHoQtFlXmCCPM4fEBTYjfKs55MIM9ilj
-         HviA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736249307; x=1736854107;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=6RWe0aov1XUyPINE327G3Q+w+KMS4G74JxHKr2TJ/zY=;
-        b=v3jqQ8+KqIDlktcEbz/9MJFsRVOoKd/u/vxuwznMnGUecCp6EJ4ybD1JkLilD4xGOt
-         t+pbpMIpg8a3qxJRgitbGIZXUMRUn9DxO49WMZEwTRwcl/Mkyqsc06NUEVjikA2g8rDM
-         +u4/OukG3aOcFshsrMfK2FP0ooj5ZXloY7naRNRLyiaJhtsT7AFg0NGWJlPzAgePfDpj
-         SN/FnxHu/5HoalBK9ldaeyWEzPWWkdSsNAKktdT0U9bEMuDoKUVIHLhoNH145qO0xbC0
-         O+BRTR6pe03Nw1UI0FRBlH2tYH9gGUbKFL98Sgg8N/6smmzqN9V5eN8enXshluE26ho/
-         dkqA==
-X-Forwarded-Encrypted: i=1; AJvYcCVOaYFQcwnh6v9Wlay13AgCu7S4E6qazkcmJOGQBMRdSPbkkAGIidsS/5TuE15O6TiGJBUhEU1Sbx5ruMgU+4XR@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVoorNGCfkvWNRi2f2i/zWQceF7tC9Wti14A+Xxk955KnLaBp7
-	Y59f4hiWsAv+MAEJ3WEqY0Iuk6xqjebiKEqql6yUp1itUHWBOfV60z7sa2n7hiyTzg87vyQqpZg
-	i9f5BPlzPtgCdROKnbw==
-X-Google-Smtp-Source: AGHT+IFaQ4XQ8bYbMRP59ehwt2favLhOBx+hmOWfdOiaSTTQVYQBJvmJGyD9CEXh9o9vauz+1OQ207ChACxpCbDs
-X-Received: from wrbeh15.prod.google.com ([2002:a05:6000:410f:b0:386:33bc:1c9b])
- (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:2c1:b0:385:e90a:b7de with SMTP id ffacd0b85a97d-38a7912c97emr2229999f8f.5.1736249307164;
- Tue, 07 Jan 2025 03:28:27 -0800 (PST)
-Date: Tue,  7 Jan 2025 11:28:21 +0000
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
-Message-ID: <20250107112821.416591-1-vdonnefort@google.com>
-Subject: [PATCH v2] KVM: arm64: Fix nVHE stacktrace VA bits mask
-From: Vincent Donnefort <vdonnefort@google.com>
-To: maz@kernel.org, oliver.upton@linux.dev
-Cc: joey.gouly@arm.com, suzuki.poulose@arm.com, zenghui.yu@linux.dev, 
-	kvmarm@lists.linux.dev, kernel-team@android.com, 
-	linux-arm-kernel@lists.infradead.org, 
-	Vincent Donnefort <vdonnefort@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Tue, 07 Jan 2025 11:28:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 25E8DA40AC8;
+	Tue,  7 Jan 2025 11:27:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF24DC4CED6;
+	Tue,  7 Jan 2025 11:28:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736249336;
+	bh=a/nUa1LpYlu8s73KEhuvs+6oTFnQ69UQk445ZrCficQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gImPgzFWKdaLfhzGloiicMj18CgRTePlPywu2sxqZzJB7pXfAAPZTTzPlM2C7keyA
+	 AAwwEKlIqBk+qKD6ZN670879wOhRm2SVeuE1Q5WW5BVoso2KdTqx5BOD6XMEKOpQD7
+	 vcrMImtbS9DRqzk2wHZjJp7TnPk+xw2R6tOrquuOIIxtuzSEVLhvw4KxP1I9u2r0mR
+	 A0zSxUozsvlgs/KDIbGMSn3t5vIhlNGvSN2Teu0WhSqU4STXkemsvEqruKTHLnWZ/4
+	 efI7l28N48n3OW3n7inOwPcRKmfyLLpiDbkhBA049t33h1iAmYfpV3CFTvjUg/Xk7T
+	 hk7erpGh03HAw==
+Date: Tue, 7 Jan 2025 11:28:51 +0000
+From: Simon Horman <horms@kernel.org>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next v2 03/17] net: stmmac: use correct type for
+ tx_lpi_timer
+Message-ID: <20250107112851.GE33144@kernel.org>
+References: <Z3vLbRQ9Ctl-Rpdg@shell.armlinux.org.uk>
+ <E1tUmAE-007VWv-UW@rmk-PC.armlinux.org.uk>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <E1tUmAE-007VWv-UW@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_032829_447193_ED8146C1 
-X-CRM114-Status: GOOD (  10.73  )
+X-CRM114-CacheID: sfid-20250107_032858_211479_52C2EE19 
+X-CRM114-Status: GOOD (  17.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,75 +81,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The hypervisor VA space size depends on both the ID map's
-(IDMAP_VA_BITS) and the kernel stage-1 (VA_BITS). However, the
-hypervisor stacktrace decoding is solely relying on VA_BITS. This is
-especially an issue when VA_BITS < IDMAP_VA_BITS (i.e. VA_BITS is
-39-bit): the hypervisor may have addresses bigger than the stacktrace is
-masking.
+On Mon, Jan 06, 2025 at 12:24:58PM +0000, Russell King (Oracle) wrote:
+> The ethtool interface uses u32 for tx_lpi_timer, and so does phylib.
+> Use u32 to store this internally within stmmac rather than "int"
+> which could misinterpret large values.
+> 
+> Since eee_timer is used to initialise priv->tx_lpi_timer, this also
+> should be unsigned to avoid a negative number being interpreted as a
+> very large positive number.
+> 
+> Also correct "value" in dwmac4_set_eee_lpi_entry_timer() to use u32
+> rather than int, which is derived from tx_lpi_timer, even though
+> masking with STMMAC_ET_MAX will truncate the sign bits. u32 is the
+> value argument type for writel().
+> 
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-Align this mask with hyp_va_bits.
+...
 
-Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 9a9169ca7cd2..b0ef439b715b 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -111,8 +111,8 @@ static const u32 default_msg_level = (NETIF_MSG_DRV | NETIF_MSG_PROBE |
+>  				      NETIF_MSG_IFDOWN | NETIF_MSG_TIMER);
+>  
+>  #define STMMAC_DEFAULT_LPI_TIMER	1000
+> -static int eee_timer = STMMAC_DEFAULT_LPI_TIMER;
+> -module_param(eee_timer, int, 0644);
+> +static unsigned int eee_timer = STMMAC_DEFAULT_LPI_TIMER;
+> +module_param(eee_timer, uint, 0644);
+>  MODULE_PARM_DESC(eee_timer, "LPI tx expiration time in msec");
+>  #define STMMAC_LPI_T(x) (jiffies + usecs_to_jiffies(x))
+>  
 
-diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
-index 66d93e320ec8..2ddd98fd2df4 100644
---- a/arch/arm64/include/asm/kvm_mmu.h
-+++ b/arch/arm64/include/asm/kvm_mmu.h
-@@ -139,6 +139,8 @@ static __always_inline unsigned long __kern_hyp_va(unsigned long v)
- 
- #define kern_hyp_va(v) 	((typeof(v))(__kern_hyp_va((unsigned long)(v))))
- 
-+extern u32 __hyp_va_bits;
-+
- /*
-  * We currently support using a VM-specified IPA size. For backward
-  * compatibility, the default IPA size is fixed to 40bits.
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index c9d46ad57e52..d36be6d2ac91 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -29,6 +29,8 @@ static unsigned long __ro_after_init hyp_idmap_start;
- static unsigned long __ro_after_init hyp_idmap_end;
- static phys_addr_t __ro_after_init hyp_idmap_vector;
- 
-+u32 __ro_after_init __hyp_va_bits;
-+
- static unsigned long __ro_after_init io_map_base;
- 
- static phys_addr_t __stage2_range_addr_end(phys_addr_t addr, phys_addr_t end,
-@@ -2056,6 +2058,7 @@ int __init kvm_mmu_init(u32 *hyp_va_bits)
- 		goto out_destroy_pgtable;
- 
- 	io_map_base = hyp_idmap_start;
-+	__hyp_va_bits = *hyp_va_bits;
- 	return 0;
- 
- out_destroy_pgtable:
-diff --git a/arch/arm64/kvm/stacktrace.c b/arch/arm64/kvm/stacktrace.c
-index 3ace5b75813b..fdedd8a3ed6f 100644
---- a/arch/arm64/kvm/stacktrace.c
-+++ b/arch/arm64/kvm/stacktrace.c
-@@ -19,6 +19,7 @@
- #include <linux/kvm.h>
- #include <linux/kvm_host.h>
- 
-+#include <asm/kvm_mmu.h>
- #include <asm/stacktrace/nvhe.h>
- 
- static struct stack_info stackinfo_get_overflow(void)
-@@ -145,7 +146,7 @@ static void unwind(struct unwind_state *state,
-  */
- static bool kvm_nvhe_dump_backtrace_entry(void *arg, unsigned long where)
- {
--	unsigned long va_mask = GENMASK_ULL(vabits_actual - 1, 0);
-+	unsigned long va_mask = GENMASK_ULL(__hyp_va_bits - 1, 0);
- 	unsigned long hyp_offset = (unsigned long)arg;
- 
- 	/* Mask tags and convert to kern addr */
+Hi Russell,
 
-base-commit: 13563da6ffcf49b8b45772e40b35f96926a7ee1e
--- 
-2.47.1.613.gc27f4b7a9f-goog
+now that eee_timer is unsigned the following check in stmmac_verify_args()
+can never be true. I guess it should be removed.
 
+        if (eee_timer < 0)
+                eee_timer = STMMAC_DEFAULT_LPI_TIMER;
+
+Flagged by Smatch.
+
+...
 
