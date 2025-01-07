@@ -4,84 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA0AEE77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 08:17:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F4CE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 08:18:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=p+eEl3nkq/agt0SmzNMgL2PSlQlRVr5odYS+3eeCDxs=; b=gBNuFEC7W35Z5b
-	uO9We5heOjkDLefbz+fb5ceuLBaU+0bx8bn1cSqLk6yGpy64qRMfL3HFm7xXHbgEKgse92fNyGzZr
-	s0KnreAi5AROBYnJ/YBLaF8jhF1BhohO9lLxTQoRUjXGOauD3iHxOJcFMoQrj+RO/BkR1zH7ae1FK
-	vrqdFvgr/7fNitduREAasPkFPq0JEsqcJ1JRVsGFiN+iSa/49RhpJd2oxqsZDHZgM2VnLA779kpXg
-	vfiIJnq8HQ+VZ7JMr4ThKbFpnjGIP5QYz42v70nbMMcFlRiLyk5AjtJS8D5oaRqrMG0NiskOj0lgq
-	jhxNvs8mkjPhbJrkpQ5g==;
+	List-Owner; bh=gXcF/zg8iZUBkhFDZzmxx+J2cDTkM6h59kKvLz1r0as=; b=h26rpDbDQgLWBM
+	RMDQ4ytkXMyy5j8CCBU95BTCcEI/XjdQYiGRXOE/ONDFxll6mM3Id6+/s3xTTjxy8UT2sOKSKGUT7
+	4+teAaK8Jevcb6Ox/Gfv59d+UizN31CT2XZCLbc0RlNuk+VOVTnbwUlFnFTJPWP3ay4oeRR0RAhjn
+	GaGvJKVgFYCpFsNL5BH5UNgT/PlabW7yiZlKqSLyGfLIobKN/MfSaMFmNXCerwKVFF/95uHoDJ4jT
+	tQu3Nv859WSc+I3kw7qHo0Y35dXqc0FmMBZshyQKhRXdccrpMPiENLnHsQAi34Ea1mqPgGSg91cyQ
+	ru4TCSrFmve3gyG85nhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV4lq-00000003tao-2fCL;
-	Tue, 07 Jan 2025 08:17:02 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1tV4n2-00000003ts0-1XNJ;
+	Tue, 07 Jan 2025 08:18:16 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV4jO-00000003tCc-3ZF5
+	id 1tV4jQ-00000003tDF-2fQu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 08:14:34 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-385e0e224cbso7561122f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 00:14:30 -0800 (PST)
+	Tue, 07 Jan 2025 08:14:37 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-43622267b2eso159093195e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 00:14:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1736237669; x=1736842469; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1736237671; x=1736842471; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=p+eEl3nkq/agt0SmzNMgL2PSlQlRVr5odYS+3eeCDxs=;
-        b=avTKX0xmGLgP9aaQI0gK+L+1CEOKAq1Tf/t7YNTIy7VRTXFvAsV2pw5kE3JY6iDuE4
-         yjd/hwcHtmvUxY3YAbiem5G2YmYzmojz2K2MyqIjYNeDxRQky0lEC0FXlnuQHIRvEcVH
-         OzEWlv5JtMre3exM7n3j3CTF3BNzp0uYPGdtoGhyqSWEE7YXajoT4IpRlCvb8E+gmKvt
-         WnQgDLCuiqjEAhrjwIFgaa55EdBobujx8T4GDPfqcwCZtIyxs6GIkpesnkH3o9jhq9cy
-         5GWFLmiRNlPL4XWXW+SHQ3kqU/O1K5SzU83n2O2/QDZG4bYwfDJllIO8iptvAAgMtVnX
-         RPyg==
+        bh=gXcF/zg8iZUBkhFDZzmxx+J2cDTkM6h59kKvLz1r0as=;
+        b=PbP+4XVBmHPPi5cywpk3dJA4vb6iTUGN0OOGztguCanl69hHjapV0rH1J+PkGW4+hK
+         NaBpbYLAyAkM4L+ofb5zeuXvAtGMmAQyRIFxz4TtH7J0AnghiiA5XxVlVeriWr2W0dgk
+         TW4sx71HU3g9c4QgIYCCLwYG56mP9eJe/SOFuJmHeIG3l4Jyl4G8h0v9uJ98qVwAgas/
+         g1g+CBgjGRtXdTsix/rvOt5ga/4qZ7KLKD1CAWDnCllY8X+voHjEUhQq+VugMeZBJd5z
+         ERXgmcesPU3wlyTxSAGDcnp9x6GF44p40AfAxkmo3o7W4EkvdjGq5O5Wkv4ZPeeMhFlU
+         +M/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736237669; x=1736842469;
+        d=1e100.net; s=20230601; t=1736237671; x=1736842471;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=p+eEl3nkq/agt0SmzNMgL2PSlQlRVr5odYS+3eeCDxs=;
-        b=hiL0V2TKCtqnDVYwT3H04Hg6oPARFZBPGq5y8GC4yJJiII7PuitG0HhH3W/Md89VOh
-         GSNkqXV8hCnLb+jRWgHcMS9YfREG2acK0sJ8RWaqEShv64mElwTD/fUsX77qnFYl6S41
-         Q8vt0b3Yr8naU/XOuznKyQOAxnxUcwxZP57u1CZ2ZWgivBwDzw4hIg4DdI+c4XpS5SwK
-         L5A6UR7kbzcZCnY8iuvMsQ+dyJVFvQ3ZY7H/BvNev0d4112bApoma3Z4cnpAOtk/qNMa
-         LUc0hP8Vl1fNG/s2eUnOVC1KcZzH2LP0DXRQU2rZNKw5NzYx7YVWDpcMfLB0lVdzF2/c
-         GFkA==
-X-Gm-Message-State: AOJu0Yzf30Dbu9z5eQebKwQTeIm5rAc8LkiqKT96Sk4Mnp5Gii1oMmxj
-	xSG0P5ezNCpwiLSIPdAB0vN+NSuG1CRfz2496gAqNl8yEQE4CDBiYaeBcivJhv4=
-X-Gm-Gg: ASbGnct5XfRlw8dU42d8WCsBNKBoCEGfUoQNs45BhkpVJWhrSdT8xpLbh+HRyT6fdqj
-	2sFF0BJFqKiWWCyroCKrtV2nDizy8uqaMuVsj3CrDRlMPeVeefwGFpxxPtLlkMDkUd4J9uZSciQ
-	LdUfZ1GLOtBMTb4gb70nNYgDfv83pkOGM9amevACuP53HavEfLd+e+KOLPy2WXRnPzvtW8AEZst
-	Axh9vnzw8m8gdQhPmAx7Glq5Q/1wINPh/cQkTZv+xs+3zWl3AxYjx9wvbE8pyNIX4u3btFg1/zg
-X-Google-Smtp-Source: AGHT+IEoRaWgSkB/1em1s2I2OX80coPWVVkfFGHT1Swcy1r3bQ/xULPY3bTt9+lWQF5mNDPUaUH3bw==
-X-Received: by 2002:a5d:6da1:0:b0:386:4a0c:fe17 with SMTP id ffacd0b85a97d-38a2220039fmr49983719f8f.27.1736237669030;
-        Tue, 07 Jan 2025 00:14:29 -0800 (PST)
+        bh=gXcF/zg8iZUBkhFDZzmxx+J2cDTkM6h59kKvLz1r0as=;
+        b=qdQHky6YwFA+kyJHVrN3lXUQbpfHhgbM2nCgNBTFlQlE7DNPoNhmF6wqf+puHHcl32
+         VaFPNBvcp1z6jhkVudYU/tnUIqWvPyDXjJSPB02IYd+PNvhgANc2Gj2HhYKD3S+uXoSo
+         nmv5RmyckuGmGZpHHo59X5OE31f1GO+cdQ184am/OuXlmAYaS9asY08qfwTjm1yo9UKW
+         8YDKydl615gDaBJzd9gmqqivxhCUw3aJEZYkcSYgkNAa+IyxEMcn440ZdHP6zFikvCkV
+         I2jSLa+lllClULLnBV3W+6CpcVFJZaYEklQGuVCQLnMc01HQzlXVKbZq5h4uGTa4INKU
+         ZVGw==
+X-Gm-Message-State: AOJu0YwgIbJZsj5tKt/4/1r0UY3ldRAnOGgbdkWDr2B7OpeHqB4TwAoO
+	79AQyi+N33lsXOldilYBbnGvQFdLhFOVQMZqq+FsdGXh9lCHPgRfLL4tg7hao1I=
+X-Gm-Gg: ASbGnctAhEPO7QBR1cRBaErCvw3kMA4ESgxcfkl8yJEzkDHSRIJ/29m2aEaTOiRQ4Rg
+	NhX843t0OqfE+GI1FvHnardgGu6YvUZS7M/Dt7pR7TFr9jCY7sp2ER+dK8JGX0QzZ1OrcHAiIXS
+	/9tVQyBuCauGfUZU31vPddEyGBzF6uRwHZHPVak2y1DM/I1pmUCUSgZuIX32x+Azf3xWZcuBCMb
+	WkWGnokk6fXNymNumnI5z6bTk93df0A7L2+NZvqusl3Sm5kDPppnNJ4JH2SG5KocyNRzfUe1Hw7
+X-Google-Smtp-Source: AGHT+IH7acLezt/XoaaQVIdn6IgtSq2a87yjQeYiM1StsMAqE09iPlejhkyAkuDB+tNY0i8edcwdsg==
+X-Received: by 2002:a05:600c:3b20:b0:434:fa73:a907 with SMTP id 5b1f17b1804b1-43668643bccmr506037945e9.13.1736237670709;
+        Tue, 07 Jan 2025 00:14:30 -0800 (PST)
 Received: from claudiu-X670E-Pro-RS.. ([82.78.167.102])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a75a47943sm3541314f8f.87.2025.01.07.00.14.27
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a75a47943sm3541314f8f.87.2025.01.07.00.14.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Jan 2025 00:14:28 -0800 (PST)
+        Tue, 07 Jan 2025 00:14:29 -0800 (PST)
 From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 To: arnd@arndb.de,
 	olof@lixom.net,
 	arm@kernel.org,
 	soc@kernel.org
-Subject: [GIT PULL] Microchip AT91 DT updates for v6.14
-Date: Tue,  7 Jan 2025 10:14:23 +0200
-Message-ID: <20250107081424.758980-2-claudiu.beznea@tuxon.dev>
+Subject: [GIT PULL] Microchip AT91 SoC updates for v6.14
+Date: Tue,  7 Jan 2025 10:14:24 +0200
+Message-ID: <20250107081424.758980-3-claudiu.beznea@tuxon.dev>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250107081424.758980-1-claudiu.beznea@tuxon.dev>
 References: <20250107081424.758980-1-claudiu.beznea@tuxon.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_001430_888717_97B2FAD1 
-X-CRM114-Status: GOOD (  11.00  )
+X-CRM114-CacheID: sfid-20250107_001432_672933_3710B668 
+X-CRM114-Status: UNSURE (   9.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,51 +104,34 @@ The following changes since commit 40384c840ea1944d7c5a392e8975ed088ecf0b37:
 
 are available in the Git repository at:
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/at91/linux.git tags/at91-dt-6.14
+  https://git.kernel.org/pub/scm/linux/kernel/git/at91/linux.git tags/at91-soc-6.14
 
-for you to fetch changes up to f72aada7bee42c4b43a272ef58bc4c9e1caa53d4:
+for you to fetch changes up to 452d18c78a469cd18b3f7bc7bc9427f9af390f7e:
 
-  ARM: dts: microchip: sam9x7: Add address/size to spi-controller nodes (2025-01-02 12:33:57 +0200)
+  ARM: at91: add new SoC sama7d65 (2025-01-02 12:30:01 +0200)
 
 ----------------------------------------------------------------
-Microchip AT91 device tree updates for v6.14
+Microchip AT91 SoC updates for v6.14
 
 This update includes:
-- power monitor support for the SAM9X75 Curiosity board (using the PAC1934
-  device)
-- fix the VDDSDMMC rail to 3.3V to avoid breaking USB (for SAMA5D27 WLSOM1
-  EK and SAMA5D29 Curiosity boards)
-- partial support for the SAMA7D65 SoC
-- cleanups
+- support for the SAMA7D65 SoC
+- support for automatic mode in the backup unit power switch, eliminating
+  the need for software intervention when entering low power mode
+- a fix to release a device node reference in the failure path of the
+  SoC driver initialization
 
 ----------------------------------------------------------------
-Cristian Birsan (2):
-      ARM: dts: microchip: sama5d29_curiosity: Add no-1-8-v property to sdmmc0 node
-      ARM: dts: microchip: sama5d27_wlsom1_ek: Add no-1-8-v property to sdmmc0 node
+Javier Carrasco (1):
+      soc: atmel: fix device_node release in atmel_soc_device_init()
 
-Dharma Balasubiramani (1):
-      dt-bindings: atmel-sysreg: add sama7d65 RAM and PIT
-
-Mihai Sain (4):
-      ARM: dts: microchip: sam9x7: Move i2c address/size to dtsi
-      ARM: dts: microchip: sam9x75_curiosity: Add power monitor support
-      ARM: dts: microchip: sam9x60: Add address/size to spi-controller nodes
-      ARM: dts: microchip: sam9x7: Add address/size to spi-controller nodes
-
-Romain Sioen (1):
-      dt-bindings: ARM: at91: Document Microchip SAMA7D65 Curiosity
+Nicolas Ferre (1):
+      ARM: at91: pm: change BU Power Switch to automatic mode
 
 Ryan Wanner (1):
-      ARM: dts: at91: Add sama7d65 pinmux
+      ARM: at91: add new SoC sama7d65
 
- .../devicetree/bindings/arm/atmel-at91.yaml        |   7 +
- .../devicetree/bindings/arm/atmel-sysregs.txt      |  14 +-
- .../boot/dts/microchip/at91-sam9x75_curiosity.dts  |  54 +-
- .../boot/dts/microchip/at91-sama5d27_wlsom1_ek.dts |   1 +
- .../boot/dts/microchip/at91-sama5d29_curiosity.dts |   1 +
- arch/arm/boot/dts/microchip/sam9x60.dtsi           |  12 +
- arch/arm/boot/dts/microchip/sam9x7.dtsi            |  38 +
- arch/arm/boot/dts/microchip/sama7d65-pinfunc.h     | 947 +++++++++++++++++++++
- 8 files changed, 1066 insertions(+), 8 deletions(-)
- create mode 100644 arch/arm/boot/dts/microchip/sama7d65-pinfunc.h
+ arch/arm/mach-at91/Kconfig | 11 +++++++++++
+ arch/arm/mach-at91/pm.c    | 31 ++++++++++++++++++++-----------
+ drivers/soc/atmel/soc.c    |  2 +-
+ 3 files changed, 32 insertions(+), 12 deletions(-)
 
