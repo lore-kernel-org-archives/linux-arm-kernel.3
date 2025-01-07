@@ -4,58 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D64EDE77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 12:12:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D339E77198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 12:14:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SrDFVudZB9lOwXm72CKCvVxtHO6ZVO8pTQWX/LlxrX8=; b=V0o1IlzLrEOCzPaCUseTh8Dnom
-	IFXYU3+437c/d1Ox1wf8A/hGXcX5N7X/+PsVpwYBQ2tgGkIYpwwRhBC6cOWbjCo6pjl87tcpnS7xZ
-	OUrIypzl5P6Pok7Ybc7mtaUhl6PPNmNDFCDU/vTQVyyLsuOTkwv+LC9ecB7T/5WNFP819DWFnKZ8A
-	27c3gqk/n9+hC4d/rjYV20eq50Sbgjk+s5/sucY75tf6nPkQlwDwjL/CICBC1KbSnpE2UCcVil4im
-	P8ZMCGndLT22h1Qp904tSSi/8hc2YEzewyUJCdsKgJsti/OlVsnFDptlisVcPT0wRd8DQuIePRGs/
-	rFOkVx7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FVP6lv0BGm7ObhUv1WGBJ81iAq+cnfwWqMbnE3d8Ihw=; b=k1pyJeKzHXiGudaJOy0MVDE7Uj
+	6ho7olJnBFeFpEaYUrSFOTRERFLQOKJz/pJQ7Tri/9oBw9sfUcJ89eP8J5CEce6Az4mz0xsGvPtwB
+	rQBAAzA4q1/0nTfWi/WaPR9bhIfxWh9/8HsAKXipziX0eAjvSX5j6Pa2I63HiQHvTP6FOvDH+yl55
+	gvAWgVp9fe6GFroSibW2lWzFcUVvh1PfTofkbs+GZougyTfBZPm9XWb3A4oF/cVmNbe4VsF2uXWG5
+	m36RKdIxustHoAEMJwwqvTZqJ/Cdn8puelFzrhxXhRcKOXoVITtoJAe3h8N4Rnr948LJPg65btJR0
+	HGYYt2LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV8Rs-00000004itG-0PnY;
-	Tue, 07 Jan 2025 12:12:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV8I6-00000004g3q-159w
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 12:02:35 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EE211143D;
-	Tue,  7 Jan 2025 04:03:01 -0800 (PST)
-Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D0C0C3F673;
-	Tue,  7 Jan 2025 04:02:31 -0800 (PST)
-Date: Tue, 7 Jan 2025 12:02:28 +0000
-From: Andre Przywara <andre.przywara@arm.com>
-To: Lukas Schmid <lukas.schmid@netcube.li>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej
- Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
- Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 4/4] ARM: dts: sunxi: add support for NetCube Systems
- Kumquat
-Message-ID: <20250107120228.503e0918@donnerap.manchester.arm.com>
-In-Reply-To: <20250106190703.4015-5-lukas.schmid@netcube.li>
-References: <20250106190703.4015-1-lukas.schmid@netcube.li>
-	<20250106190703.4015-5-lukas.schmid@netcube.li>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	id 1tV8T2-00000004j8k-3izP;
+	Tue, 07 Jan 2025 12:13:52 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tV8KK-00000004gXb-3mpR;
+	Tue, 07 Jan 2025 12:04:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1736251490;
+	bh=tQFTVQklOFJuS0fnyGbP+5Y5K99avOFLQwUn/VZ/qmI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qMqWO5jgf/B8kNJP7HOObfAsnWQXwBl9msxJiVk6IJYdDwv6KtOjIPi4GZuS1lueo
+	 9g0tjA+/9PItLTU6T8+/YRhm2Azput50yR11gGBBx292LaP2piShJ8XI+QidL2cRYe
+	 XINgqnge7Rt96Jqnnp3XKF4zK82eXFeLkI8+IE9g6LRaQ0bhHMA5KVa3xbpSh8jbbZ
+	 SH4U54hhfBdyMkxVTlKNKZGvoXZh1VewWV/WFFl8H07b8LUE636Itot7Iex3zbQl7V
+	 pewff/vMkoxHElvAa71VzUMmD23llvcqT1KxZIKwa3QqFfKyG9Xwqs6pw0t5c5Cwjb
+	 W+LZNEPHT8AyA==
+Received: from notapiano (unknown [IPv6:2804:14c:1a9:53ee::1000])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nfraprado)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9CD1117E1567;
+	Tue,  7 Jan 2025 13:04:47 +0100 (CET)
+Date: Tue, 7 Jan 2025 09:04:45 -0300
+From: =?utf-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	kernel@collabora.com, Chen-Yu Tsai <wenst@chromium.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Rob Herring <robh+dt@kernel.org>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Subject: Re: [PATCH v4 14/19] arm64: dts: mediatek: asurada: Enable PCIe and
+ add WiFi
+Message-ID: <042ee88b-61b4-436b-8d34-a5cfd5fd953e@notapiano>
+References: <a58d5fa4-0d00-4ca1-941b-3ad69e65de80@notapiano>
+ <20250106205607.GA132098@bhelgaas>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250106205607.GA132098@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_040234_393302_1D9E8732 
-X-CRM114-Status: GOOD (  27.55  )
+X-CRM114-CacheID: sfid-20250107_040453_083706_6EA48EE9 
+X-CRM114-Status: GOOD (  23.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,379 +81,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon,  6 Jan 2025 19:07:02 +0000
-Lukas Schmid <lukas.schmid@netcube.li> wrote:
-
-Hi,
-
-> NetCube Systems Kumquat is a board based on the Allwinner V3s SoC,
-> including:
+On Mon, Jan 06, 2025 at 02:56:07PM -0600, Bjorn Helgaas wrote:
+> [+cc Mani]
 > 
-> - 64MB DDR2 included in SoC
-> - 10/100 Mbps Ethernet
-> - USB-C DRD
-> - Audio Codec
-> - Isolated CAN-FD
-> - ESP32 over SDIO
-> - 8MB SPI-NOR Flash for bootloader
-> - I2C EEPROM for MAC addresses
-> - SDIO Connector for eMMC or SD-Card
-> - 8x 12/24V IOs, 4x normally open relays
-> - DS3232 RTC
-> - QWIIC connectors for external I2C devices
+> On Mon, Jan 06, 2025 at 04:10:32PM -0300, Nícolas F. R. A. Prado wrote:
+> > On Fri, Jan 03, 2025 at 03:14:46PM -0600, Bjorn Helgaas wrote:
+> > > On Wed, Jun 29, 2022 at 11:59:51AM -0400, Nícolas F. R. A. Prado wrote:
+> > > > Enable MT8192's PCIe controller and add support for the MT7921e WiFi
+> > > > card that is present on that bus for the Asurada platform.
+> > > 
+> > > > +&pcie {
+> > > > +	pinctrl-names = "default";
+> > > > +	pinctrl-0 = <&pcie_pins>;
+> > > > +
+> > > > +	pcie0: pcie@0,0 {
+> > > > +		device_type = "pci";
+> > > > +		reg = <0x0000 0 0 0 0>;
+> > > > +		num-lanes = <1>;
+> > > > +		bus-range = <0x1 0x1>;
+> > > 
+> > > Hi Nícolas, what's the purpose of this bus-range?  IIUC this describes
+> > > a Root Port, where we can read and configure the secondary/subordinate
+> > > bus numbers from the RP config space, so it seems like we don't need
+> > > to describe them here.
+> > 
+> > Hi Bjorn,
+> > 
+> > that was carried over from the downstream sources. I just tried
+> > removing it and indeed I don't see any difference in the PCI log
+> > messages, or the bus number, and the wifi works just fine. I can
+> > send a follow up patch removing it.
 > 
-> Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
-> ---
->  arch/arm/boot/dts/allwinner/Makefile          |   2 +
->  .../allwinner/sun8i-v3s-netcube-kumquat.dts   | 274 ++++++++++++++++++
->  2 files changed, 276 insertions(+)
->  create mode 100644 arch/arm/boot/dts/allwinner/sun8i-v3s-netcube-kumquat.dts
+> There might be a DTC check issue if we remove the bus-range:
+> https://lore.kernel.org/r/20250105101612.t6c4pw5uxhb5rdde@thinkpad
+
+Ah yes, indeed there is:
+
+arch/arm64/boot/dts/mediatek/mt8192-asurada.dtsi:643.18-647.5: Warning (pci_device_bus_num): /soc/pcie@11230000/pcie@0,0/wifi@0,0: PCI bus number 1 out of range, expected (0 - 0)
+
+Thanks,
+Nícolas
+
 > 
-> diff --git a/arch/arm/boot/dts/allwinner/Makefile b/arch/arm/boot/dts/allwinner/Makefile
-> index 48666f73e638..d799ad153b37 100644
-> --- a/arch/arm/boot/dts/allwinner/Makefile
-> +++ b/arch/arm/boot/dts/allwinner/Makefile
-> @@ -199,6 +199,7 @@ DTC_FLAGS_sun8i-h3-nanopi-r1 := -@
->  DTC_FLAGS_sun8i-h3-orangepi-pc := -@
->  DTC_FLAGS_sun8i-h3-bananapi-m2-plus-v1.2 := -@
->  DTC_FLAGS_sun8i-h3-orangepi-pc-plus := -@
-> +DTC_FLAGS_sun8i-v3s-netcube-kumquat := -@
->  dtb-$(CONFIG_MACH_SUN8I) += \
->  	sun8i-a23-evb.dtb \
->  	sun8i-a23-gt90h-v4.dtb \
-> @@ -261,6 +262,7 @@ dtb-$(CONFIG_MACH_SUN8I) += \
->  	sun8i-v3s-anbernic-rg-nano.dtb \
->  	sun8i-v3s-licheepi-zero.dtb \
->  	sun8i-v3s-licheepi-zero-dock.dtb \
-> +	sun8i-v3s-netcube-kumquat.dtb \
->  	sun8i-v40-bananapi-m2-berry.dtb
->  dtb-$(CONFIG_MACH_SUN9I) += \
->  	sun9i-a80-optimus.dtb \
-> diff --git a/arch/arm/boot/dts/allwinner/sun8i-v3s-netcube-kumquat.dts b/arch/arm/boot/dts/allwinner/sun8i-v3s-netcube-kumquat.dts
-> new file mode 100644
-> index 000000000000..b778bfa8e830
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/allwinner/sun8i-v3s-netcube-kumquat.dts
-> @@ -0,0 +1,274 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +/*
-> + * Copyright (C) 2025 Lukas Schmid <lukas.schmid@netcube.li>
-> + */
-> +
-> +/dts-v1/;
-> +#include "sun8i-v3s.dtsi"
-> +
-> +#include <dt-bindings/input/input.h>
-> +#include <dt-bindings/leds/common.h>
-> +#include <dt-bindings/gpio/gpio.h>
-> +
-> +/{
-> +	model = "NetCube Systems Kumquat";
-> +	compatible = "netcube,kumquat", "allwinner,sun8i-v3s";
-> +
-> +	aliases {
-> +		serial0 = &uart0;
-> +		ethernet0 = &emac;
-> +		rtc0 = &ds3232;
-> +		rtc1 = &rtc;
-
-Please add a brief comment as to why you de-prioritise the internal RTC,
-something like "not battery backed" or so.
-
-> +	};
-> +
-> +	chosen {
-> +		stdout-path = "serial0:115200n8";
-> +	};
-> +
-> +	/* 40 MHz Crystal Oscillator on PCB */
-> +	clk_can0: clock-can0 {
-> +		compatible = "fixed-clock";
-> +		#clock-cells = <0>;
-> +		clock-frequency  = <40000000>;
-> +	};
-> +
-> +	gpio-keys {
-> +		compatible = "gpio-keys";
-> +		autorepeat;
-> +
-> +		key-user {
-> +			label = "GPIO Key User";
-> +			linux,code = <KEY_PROG1>;
-> +			gpios = <&pio 1 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* PB2 */
-> +		};
-> +	};
-> +
-> +	leds {
-> +		compatible = "gpio-leds";
-> +
-> +		led-heartbeat {
-> +			gpios = <&pio 4 4 GPIO_ACTIVE_HIGH>; /* PE4 */
-> +			linux,default-trigger = "heartbeat";
-> +			color = <LED_COLOR_ID_GREEN>;
-> +			function = LED_FUNCTION_HEARTBEAT;
-> +		};
-> +
-> +		led-mmc0-act {
-> +			gpios = <&pio 5 6 GPIO_ACTIVE_HIGH>; /* PF6 */
-> +			linux,default-trigger = "mmc0";
-> +			color = <LED_COLOR_ID_GREEN>;
-> +			function = LED_FUNCTION_DISK;
-> +		};
-> +	};
-> +
-> +	/* EA3036C Switching 3 Channel Regulator - Channel 2 */
-> +	reg_vcc3v3: regulator-3v3 {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vcc3v3";
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		vin-supply = <&reg_vcc5v0>;
-> +	};
-> +
-> +	/* K7805-1000R3 Switching Regulator supplied from main 12/24V terminal block */
-> +	reg_vcc5v0: regulator-5v0 {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vcc5v0";
-> +		regulator-min-microvolt = <5000000>;
-> +		regulator-max-microvolt = <5000000>;
-> +	};
-> +};
-> +
-> +/* Exposed as the Flash/SD Header on the board */
-> +&mmc0 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&mmc0_pins>;
-
-The pinctrl properties are already in the .dtsi file, because there is only
-one set of pins connected to this MMC controller. So please remove those
-two lines here, as they are redundant.
-
-> +	vmmc-supply = <&reg_vcc3v3>;
-> +	bus-width = <4>;
-> +	broken-cd;
-> +	status = "okay";
-> +};
-> +
-> +/* Connected to the on-board ESP32 */
-> +&mmc1 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&mmc1_pins>;
-
-Same here, only one set of pins, so they are in the .dtsi already.
-
-> +	vmmc-supply = <&reg_vcc3v3>;
-> +	bus-width = <4>;
-> +	broken-cd;
-> +	status = "okay";
-> +};
-> +
-> +&usb_otg {
-
-Please keep the nodes ordered by their node name alias, as this is what
-the other .dts files do (ignoring some single node outliers).
-The DTS coding style indeed says:
-=================
-3. When extending nodes in the board DTS via &label, the entries shall be
-   ordered either alpha-numerically or by keeping the order from DTSI, ...
-=================
-but it continues:
-=================
-   ... where the choice depends on the subarchitecture.
-=================
-
-So in this case sunxi decided to order .dts label references by the label
-name, because that's the only thing visible in this file.
-
-> +	extcon = <&tusb320 0>;
-> +	dr_mode = "otg";
-> +	status = "okay";
-> +};
-> +
-> +&usbphy {
-> +	usb0_id_det-gpios = <&pio 1 4 GPIO_ACTIVE_HIGH>; /* PB4 */
-> +	status = "okay";
-> +};
-> +
-> +&ehci {
-> +	status = "okay";
-> +};
-> +
-> +&ohci {
-> +	status = "okay";
-> +};
-> +
-> +&pio {
-> +	vcc-pb-supply = <&reg_vcc3v3>;
-> +	vcc-pc-supply = <&reg_vcc3v3>;
-> +	vcc-pe-supply = <&reg_vcc3v3>;
-> +	vcc-pf-supply = <&reg_vcc3v3>;
-> +	vcc-pg-supply = <&reg_vcc3v3>;
-> +
-> +	gpio-line-names = "", "", "", "", // PA
-> +			  "", "", "", "",
-> +			  "", "", "", "",
-> +			  "", "", "", "",
-> +			  "", "", "", "",
-> +			  "", "", "", "",
-> +			  "", "", "", "",
-> +			  "", "", "", "",
-> +			  "CAN_nCS", "CAN_nINT", "USER_SW", "PB3", // PB
-> +			  "USB_ID", "USBC_nINT", "I2C0_SCL", "I2C0_SDA",
-> +			  "UART0_TX", "UART0_RX", "", "",
-> +			  "", "", "", "",
-> +			  "", "", "", "",
-> +			  "", "", "", "",
-> +			  "", "", "", "",
-> +			  "", "", "", "",
-> +			  "SPI_MISO", "SPI_SCK", "FLASH_nCS", "SPI_MOSI", // PC
-> +			  "", "", "", "",
-> +			  "", "", "", "",
-> +			  "", "", "", "",
-> +			  "", "", "", "",
-> +			  "", "", "", "",
-> +			  "", "", "", "",
-> +			  "", "", "", "",
-> +			  "", "", "", "", // PD
-> +			  "", "", "", "",
-> +			  "", "", "", "",
-> +			  "", "", "", "",
-> +			  "", "", "", "",
-> +			  "", "", "", "",
-> +			  "", "", "", "",
-> +			  "", "", "", "",
-> +			  "Q12", "Q11", "Q10", "Q9", // PE
-> +			  "LED_SYS0", "I1", "Q1", "Q2",
-> +			  "I2", "I3", "Q3", "Q4",
-> +			  "I4", "I5", "Q5", "Q6",
-> +			  "I6", "I7", "Q7", "Q8",
-> +			  "I8", "UART1_TXD", "UART1_RXD", "ESP_nRST",
-> +			  "ESP_nBOOT", "", "", "",
-> +			  "", "", "", "",
-> +			  "SD_D1", "SD_D0", "SD_CLK", "SD_CMD", // PF
-> +			  "SD_D3", "SD_D2", "LED_SYS1", "",
-> +			  "", "", "", "",
-> +			  "", "", "", "",
-> +			  "", "", "", "",
-> +			  "", "", "", "",
-> +			  "", "", "", "",
-> +			  "", "", "", "",
-> +			  "ESP_CLK", "ESP_CMD", "ESP_D0", "ESP_D1", // PG
-> +			  "ESP_D2", "ESP_D3", "", "",
-> +			  "", "", "", "",
-> +			  "", "", "", "",
-> +			  "", "", "", "",
-> +			  "", "", "", "",
-> +			  "", "", "", "",
-> +			  "", "", "", "";
-> +};
-> +
-> +&codec {
-> +	allwinner,audio-routing =
-> +		"Headphone", "HP",
-> +		"Headphone", "HPCOM",
-> +		"MIC1", "Mic",
-> +		"Mic", "HBIAS";
-> +	status = "okay";
-> +};
-> +
-> +/* Exposed as a USB-C connector with USB-Serial converter */
-> +&uart0 {
-> +	pinctrl-0 = <&uart0_pb_pins>;
-> +	pinctrl-names = "default";
-> +	status = "okay";
-> +};
-> +
-> +/* Connected to the Bootloader/Console of the ESP32 */
-> +&uart1 {
-> +	pinctrl-0 = <&uart1_pe_pins>;
-> +	pinctrl-names = "default";
-> +	status = "okay";
-> +};
-> +
-> +&i2c0 {
-> +	pinctrl-0 = <&i2c0_pins>;
-> +	pinctrl-names = "default";
-
-Those two properties are redundant, since the .dtsi already defines them.
-
-> +	status = "okay";
-> +
-> +	ds3232: rtc@68 {
-> +		compatible = "dallas,ds3232";
-> +		reg = <0x68>;
-> +	};
-> +
-> +	eeprom0: eeprom@50 {
-> +		compatible = "atmel,24c02";		/* actually it's a 24AA02E48 */
-> +		pagesize = <16>;
-> +		read-only;
-> +		reg = <0x50>;
-
-Please move "reg" up, to appear after "compatible", to comply with the DTS
-coding style. It makes it easier to read the DT and see the most important
-infos first.
-
-> +		vcc-supply = <&reg_vcc3v3>;
-> +
-> +		#address-cells = <1>;
-> +		#size-cells = <1>;
-> +
-> +		eth0_macaddress: macaddress@fa {
-> +			reg = <0xfa 0x06>;
-> +		};
-> +	};
-> +
-> +	tusb320: typec@60 {
-> +		compatible = "ti,tusb320";
-> +		reg = <0x60>;
-> +		interrupt-parent = <&pio>;
-> +		interrupts = <1 5 IRQ_TYPE_EDGE_FALLING>;
-> +	};
-> +};
-> +
-> +&emac {
-> +	allwinner,leds-active-low;
-> +	nvmem-cells = <&eth0_macaddress>;		/* custom nvmem reference */
-> +	nvmem-cell-names = "mac-address";		/* see ethernet-controller.yaml */
-
-I don't think you need those comments.
-
-> +	status = "okay";
-> +};
-> +
-> +&spi0 {
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +	cs-gpios = <0>, <&pio 1 0 GPIO_ACTIVE_LOW>; /* PB0 */
-> +	status = "okay";
-> +
-> +	flash@0 {
-> +		#address-cells = <1>;
-> +		#size-cells = <1>;
-> +		compatible = "jedec,spi-nor";
-> +		reg = <0>;
-
-The DTS coding style says that compatible and reg should come first, then
-common properties. So please move #address-cells and #size-cells down here.
-
-Cheers,
-Andre
-
-> +		label = "firmware";
-> +		spi-max-frequency = <40000000>;
-> +	};
-> +
-> +	can@1 {
-> +		compatible = "microchip,mcp2518fd";
-> +		reg = <1>;
-> +		clocks = <&clk_can0>;
-> +		interrupt-parent = <&pio>;
-> +		interrupts = <1 1 IRQ_TYPE_LEVEL_LOW>;  /* PB1 */
-> +		spi-max-frequency = <20000000>;
-> +		vdd-supply = <&reg_vcc3v3>;
-> +		xceiver-supply = <&reg_vcc3v3>;
-> +	};
-> +};
-
+> We might need to figure out how to resolve that first.
+> 
+> Bjorn
 
