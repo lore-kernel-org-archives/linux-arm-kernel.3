@@ -4,100 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09F85E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 14:02:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC623E77198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 14:03:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PONbj5QCzOjK109Tn5NW3nu/38X2dLM5U7DJFVkleg8=; b=pl0BA3TBLiTdMaOExwuNvJL3mT
-	tQg2DzFb+Qws4suD53fomfI0aMZHgP2nZQ2y51ReGWlHNquDQtJL4kBgE6Yl1vo43vRuuKKjtF/li
-	rkRcXtmOTbZ4uWiIOrWOhR98VtThqZY2hzqeHuqRxoWHkmv/ZCIaBoTZJHZRWacbGNMbaCnEEFYms
-	/PlfzBp8h9yBaXnfOerfDVIHrgZAOzBG2/CQ2olZ+cVMKD9jBxG1L0Dr1tUMRwmWLY44hlZTaijPo
-	NM1QSzYmpS28GlUD6x0mZef0MowR+OgAX+M9CC1wrB7ub5hCpAnKmrb44WxtfnaqlHH5+mQplhHcF
-	8qFkCoXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5dWVUsjgYCfyghVbl/aVOvjNHhBfWKNBo9KEyUYVOsQ=; b=OClZVzG4TYtGOp0Sp256YVkD4N
+	E9m7MqxMN8gedSqgMxCbzv6lDQlKr6+KLIX5ZdGzm+OFpRF89Tn6cz32o/0zITdnjtH+TPEhEH8iw
+	T4Q6wRHxKKI6HUobZ/jTVg4xZVNxQgvdAm077HExG8AhlbOZ6YAu0Ku5LHHgWG2kx/sI2lSAvdMq6
+	qF5PC5OusFJUffFjA6o8Piu1klr9E8imeTYmYfWYeKXMMx/tBGoOr94hKvphnKCebqMaBmYwgUzJg
+	7/OXCMm3HF4uZ2UID84JzS3F06LYmMh5+ltfrv+/zEkwi0s6PRY0lcPTppaJ3SFKuNGmfpGlcv7ew
+	Qey8MPtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVAAC-000000055kG-0CaM;
-	Tue, 07 Jan 2025 14:02:32 +0000
-Received: from fout-a6-smtp.messagingengine.com ([103.168.172.149])
+	id 1tVABM-0000000562I-398U;
+	Tue, 07 Jan 2025 14:03:44 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVA8w-000000055Qm-0d3F
+	id 1tVA94-000000055Sx-3rzX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 14:01:18 +0000
-Received: from phl-compute-01.internal (phl-compute-01.phl.internal [10.202.2.41])
-	by mailfout.phl.internal (Postfix) with ESMTP id 3D55F13802BF;
-	Tue,  7 Jan 2025 09:01:13 -0500 (EST)
-Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-01.internal (MEProxy); Tue, 07 Jan 2025 09:01:13 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ragnatech.se; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1736258473;
-	 x=1736344873; bh=PONbj5QCzOjK109Tn5NW3nu/38X2dLM5U7DJFVkleg8=; b=
-	dYWH7FbD5s7A9l1qktPAuv0Z4UckSJ4PmUzpCxn8OlSRmlOt0y+lYChnvE0TtdX6
-	YajNqgxuZDJmQbJk/Spe7jr6NbQjk/IHuEEgGRqpw0rapjzxxKQfN7P8jcsqnf6O
-	rA4IGag/BmjYwmdpavjrXKINO+94jr0n0yFSHwi8U1bdejKoCDznIQoAfdoyeHMx
-	fdl/o75/uW/Ax6RMAhF4hGWGVV/Ih6y5Ac1YPggRg7+tXgxh4K2ZunjAIcEmjQlF
-	QqZqVQT4OUGm4CjsN635LZGAIgGJ3kWv5yjwAZPeum3N/BgrInzBtD744kDF1zrh
-	BS/ZvU67kMrooDjas2W4dw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1736258473; x=
-	1736344873; bh=PONbj5QCzOjK109Tn5NW3nu/38X2dLM5U7DJFVkleg8=; b=o
-	kB4KPHSDyjLMHHxpMKtKn0JTYbTDI63MACgCrLS4VOIkBw45eAonITjKKcS1eCUm
-	YhuMMEzNtnhcj0AoOIa/cn3r6KRRaiCAOpKvPT4IRxAkC1DPwb8AJaxdSb7hiUEg
-	VtBsUUVIYjVqpF4ZRFqnuHZL+YbpYMOvdrZVRztYmnu1SZ7KqerMsEknSCFwgq+/
-	gRwnzgxPMCOsis6LoG5hi9cbSowps6N8gi7kZDoW0IqAIEt7N45RbABW3Mkz071C
-	2+T5WBhss73I1GWEh2w4O6QMRii8idegscsHXRKu5Bt+ucc1KITC9Oh4DvOJtpgw
-	9mSLuPXeeg5CVbL3PoOkw==
-X-ME-Sender: <xms:qDN9Z8GWZIrUYy_yDLajXRQFOmgIaFI8Za_FYJmUnQqmgtoHth6yPA>
-    <xme:qDN9Z1WyJ-yDvKeM5GHiu6Pq_NPLT5rr58KDwGptEnPXhUD-DQF55xIoeIPeK0YHv
-    cCpnV0Mm35kTvOqmN4>
-X-ME-Received: <xmr:qDN9Z2Kk20qvfsSSfbbj5hHNwunLp74Y5uEqG7K0w0MTus1yXd9dTeRLfypKZ89t7ze8LssGE-oEOVRMH7KBTATnuofLJccHKQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrudegvddgheekucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
-    rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
-    htshculddquddttddmnecujfgurhepfffhvfevuffkfhggtggugfgjsehtkeertddttdej
-    necuhfhrohhmpefpihhklhgrshcuufpnuggvrhhluhhnugcuoehnihhklhgrshdrshhoug
-    gvrhhluhhnugesrhgrghhnrghtvggthhdrshgvqeenucggtffrrghtthgvrhhnpeevteeg
-    tddvvdfhtdekgefhfeefheetheekkeegfeejudeiudeuleegtdehkeekteenucevlhhush
-    htvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehnihhklhgrshdrshho
-    uggvrhhluhhnugesrhgrghhnrghtvggthhdrshgvpdhnsggprhgtphhtthhopeegpdhmoh
-    guvgepshhmthhpohhuthdprhgtphhtthhopehgvggvrhhtodhrvghnvghsrghssehglhhi
-    uggvrhdrsggvpdhrtghpthhtohepmhgrghhnuhhsrdgurghmmhesghhmrghilhdrtghomh
-    dprhgtphhtthhopehlihhnuhigqdhrvghnvghsrghsqdhsohgtsehvghgvrhdrkhgvrhhn
-    vghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsth
-    hsrdhinhhfrhgruggvrggurdhorhhg
-X-ME-Proxy: <xmx:qTN9Z-F1cAAVeLBL88JNJDbpQGpY2bJdi-v-8UA3j23he2Bs6_k8HA>
-    <xmx:qTN9ZyUbej9g-k5IBIU8tYPangPWRrfj7VA0Df0UsV3QdEA3FRJS7A>
-    <xmx:qTN9ZxNpY1jiG-GNtEsU8GyYQ22aazrrab4R7E7Uq1moIqq8YkBn1w>
-    <xmx:qTN9Z51g3LwoRnMVSq8aIs4iLouH0GTO78VvkVyVKb24nBWAVEqHMw>
-    <xmx:qTN9ZwyGDAdpKdld9kcCeqdm-oJPZ32q4OSQFHZ--a5QkD8GePIi0t7x>
-Feedback-ID: i80c9496c:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 7 Jan 2025 09:01:12 -0500 (EST)
-Date: Tue, 7 Jan 2025 15:01:11 +0100
-From: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Magnus Damm <magnus.damm@gmail.com>, linux-renesas-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH/RFC] ARM: shmobile: rcar-gen2: Remove CMA reservation code
-Message-ID: <20250107140111.GJ2766897@ragnatech.se>
-References: <3d38f4fec20c4af46e4570012de7017eee9a39e9.1736249109.git.geert+renesas@glider.be>
+	Tue, 07 Jan 2025 14:01:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1736258482; x=1767794482;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=5dWVUsjgYCfyghVbl/aVOvjNHhBfWKNBo9KEyUYVOsQ=;
+  b=AMbnaIkcQZq+irCxgTSvRpeE0oNUdT7vYY+relinCeRd7yS8wFPrL+MS
+   +Tikj3G8njxDEOdCUXkIbKKILor9FT7tocQ/uVXd255eLCSi5pJu0w7be
+   SIZUNscS5Vpr6ZU1oi89UUrDTQtYyt39ipbXjd1y5OeI6rYR/i8+CUvV/
+   gaRB6h6OMg7hITJgKjEHFsL17PRp3IxILp+1VlJjG2L6/Ud+08SQFgS6W
+   lqTFcwr5i1RLBR2EU6oYVCLBURn2bPEpM1aJ6jKc9LeF9pUVejZtmLYW/
+   J4lyc77as9CoUz0btP2e2/GeFvKxVmf8nenu/1mIu/ZnFlxvQAbXzMXs7
+   Q==;
+X-CSE-ConnectionGUID: K0rj5RPgSYezIE56GMO7qw==
+X-CSE-MsgGUID: nS7yo3ndQ/eDyIYEfEslOQ==
+X-IronPort-AV: E=Sophos;i="6.12,295,1728943200"; 
+   d="scan'208";a="40896215"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 07 Jan 2025 15:01:20 +0100
+X-CheckPoint: {677D33B0-43-1D00F64B-E6C57517}
+X-MAIL-CPID: 4747FB3F406B0D7ACCA7EA030A363758_3
+X-Control-Analysis: str=0001.0A682F17.677D33B0.00C5,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5A175160B22;
+	Tue,  7 Jan 2025 15:01:15 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1736258476;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=5dWVUsjgYCfyghVbl/aVOvjNHhBfWKNBo9KEyUYVOsQ=;
+	b=KO5rrJF5ND2e3Vm/STvtn6q9zoYW4P/7BzrdeT/Qd+0L1Q7ZXHYujXmtek1qVz4PjQ7N2x
+	/f+vlBucbloVM0GZAEuwtkTwjDsQv9qHUGt6JzCDbgFM9ucWDSlZkmogPX0UpduXDq+mzX
+	8/iG9NMYTRYGIEG2H1qxnsTJln23WfBa7NSzAV+hmR4GhEtSeIkqY4owP3lBcMysCND+i6
+	cqnLhGpoWha0UitJUOs5XR5omKAYClplKo3EOP0voavmW1YP35lurZG8zC3PPbaXVlxKtb
+	NjFSu7zqDt8nnzc5PDLnMwyY26Ei/z7QqTgKLmpUaASNoByk/8L71O5icKhYLw==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux@ew.tq-group.com
+Subject: [PATCH 0/5] TQMa8Xx update
+Date: Tue,  7 Jan 2025 15:01:05 +0100
+Message-Id: <20250107140110.982215-1-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <3d38f4fec20c4af46e4570012de7017eee9a39e9.1736249109.git.geert+renesas@glider.be>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_060114_323958_37F7881B 
-X-CRM114-Status: GOOD (  32.34  )
+X-CRM114-CacheID: sfid-20250107_060123_305723_4524E478 
+X-CRM114-Status: UNSURE (   8.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,180 +101,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Geert,
+Hi,
 
-Thanks for your work.
+this small series updates the TQMa8Xx support:
+* Add vcc-supply for spi-nor
+* Enable JPEG decoder/encoder
+* Remove obsolete TODO
+* Add PCIe support on Mini-PCIe slot
 
-On 2025-01-07 12:26:55 +0100, Geert Uytterhoeven wrote:
-> If CONFIG_HIGHMEM=y, two reserved blocks are allocated on R-Car Gen2:
-> 
->     cma: Reserved 256 MiB at 0x70000000 on node -1
->     cma: Reserved 64 MiB at 0x6c000000 on node -1
-> 
-> The first block is reserved by the family-specific rcar_gen2_reserve(),
-> the second by the common arm_memblock_init() (shmobile_defconfig sets
-> CONFIG_CMA_SIZE_MBYTES=64).  As both blocks are reserved (eventually)
-> using dma_contiguous_reserve_area(), they both have the same name
-> ("reserved").  Hence if CONFIG_CMA_SYSFS=y:
-> 
->   sysfs: cannot create duplicate filename '/kernel/mm/cma/reserved'
->    ...
->    cma_sysfs_init from do_one_initcall+0x84/0x178
->    ...
->   kobject: kobject_add_internal failed for reserved with -EEXIST, don't try to register things with the same name in the same directory.
-> 
-> This causes cma_sysfs_init() to fail completely, and not to create
-> /sys/kernel/mm/cma/ at all.
-> 
-> Fix this by dropping the R-Car Gen2-specific reservation.  Compared to
-> when it was introduced, now there exist more flexible mechanisms to
-> control the size of memory reserved for CMA.  Users can reserve more
-> memory by increasing CONFIG_CMA_SIZE_MBYTES, passing the cma=<N> kernel
-> command line parameter, or adding a reserved-memory/linux,cma node to
-> DT.
-> 
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+The first patch is not necessary for PCIe support, but fixes the warning
+> imx6q-pcie 5f010000.pcie: Invalid eDMA IRQs found
 
-Tested-by: Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
+Best regards,
+Alexander
 
-> ---
-> Note that increasing CONFIG_CMA_SIZE_MBYTES in shmobile_defconfig is not
-> a good idea, as it can also be used on other Renesas platforms that are
-> more memory-constrained than R-Car Gen2.
-> 
-> Should we add reserved-memory/linux,cma nodes to DT on all affected
-> boards?
+Alexander Stein (5):
+  arm64: dts: imx8-ss-hsio: Wire up DMA IRQ for PCIe
+  arm64: dts: tqma8xx: Add vcc-supply for spi-nor
+  arm64: dts: tqma8xx: enable jpeg encode and decode
+  arm64: dts: tqma8xx: Remove GPU TODO
+  arm64: dts: mba8xx: Add PCIe support
 
-For what it's worth I always set CONFIG_CMA_SIZE_MBYTES=128 to allow my 
-capture tests enough CMA memory to operate correctly. I would not be 
-against adding this to the upstream DTS files.
-
-> ---
->  arch/arm/mach-shmobile/setup-rcar-gen2.c | 76 ------------------------
->  1 file changed, 76 deletions(-)
-> 
-> diff --git a/arch/arm/mach-shmobile/setup-rcar-gen2.c b/arch/arm/mach-shmobile/setup-rcar-gen2.c
-> index c38367a10c794162..3cd34a42e39bb1d7 100644
-> --- a/arch/arm/mach-shmobile/setup-rcar-gen2.c
-> +++ b/arch/arm/mach-shmobile/setup-rcar-gen2.c
-> @@ -8,19 +8,15 @@
->   */
->  
->  #include <linux/clocksource.h>
-> -#include <linux/device.h>
-> -#include <linux/dma-map-ops.h>
->  #include <linux/io.h>
->  #include <linux/kernel.h>
->  #include <linux/memblock.h>
->  #include <linux/of.h>
->  #include <linux/of_clk.h>
-> -#include <linux/of_fdt.h>
->  #include <linux/psci.h>
->  #include <asm/mach/arch.h>
->  #include <asm/secure_cntvoff.h>
->  #include "common.h"
-> -#include "rcar-gen2.h"
->  
->  static const struct of_device_id cpg_matches[] __initconst = {
->  	{ .compatible = "renesas,r8a7742-cpg-mssr", .data = "extal" },
-> @@ -122,76 +118,6 @@ static void __init rcar_gen2_timer_init(void)
->  	timer_probe();
->  }
->  
-> -struct memory_reserve_config {
-> -	u64 reserved;
-> -	u64 base, size;
-> -};
-> -
-> -static int __init rcar_gen2_scan_mem(unsigned long node, const char *uname,
-> -				     int depth, void *data)
-> -{
-> -	const char *type = of_get_flat_dt_prop(node, "device_type", NULL);
-> -	const __be32 *reg, *endp;
-> -	int l;
-> -	struct memory_reserve_config *mrc = data;
-> -	u64 lpae_start = 1ULL << 32;
-> -
-> -	/* We are scanning "memory" nodes only */
-> -	if (type == NULL || strcmp(type, "memory"))
-> -		return 0;
-> -
-> -	reg = of_get_flat_dt_prop(node, "linux,usable-memory", &l);
-> -	if (reg == NULL)
-> -		reg = of_get_flat_dt_prop(node, "reg", &l);
-> -	if (reg == NULL)
-> -		return 0;
-> -
-> -	endp = reg + (l / sizeof(__be32));
-> -	while ((endp - reg) >= (dt_root_addr_cells + dt_root_size_cells)) {
-> -		u64 base, size;
-> -
-> -		base = dt_mem_next_cell(dt_root_addr_cells, &reg);
-> -		size = dt_mem_next_cell(dt_root_size_cells, &reg);
-> -
-> -		if (base >= lpae_start)
-> -			continue;
-> -
-> -		if ((base + size) >= lpae_start)
-> -			size = lpae_start - base;
-> -
-> -		if (size < mrc->reserved)
-> -			continue;
-> -
-> -		if (base < mrc->base)
-> -			continue;
-> -
-> -		/* keep the area at top near the 32-bit legacy limit */
-> -		mrc->base = base + size - mrc->reserved;
-> -		mrc->size = mrc->reserved;
-> -	}
-> -
-> -	return 0;
-> -}
-> -
-> -static void __init rcar_gen2_reserve(void)
-> -{
-> -	struct memory_reserve_config mrc;
-> -
-> -	/* reserve 256 MiB at the top of the physical legacy 32-bit space */
-> -	memset(&mrc, 0, sizeof(mrc));
-> -	mrc.reserved = SZ_256M;
-> -
-> -	of_scan_flat_dt(rcar_gen2_scan_mem, &mrc);
-> -#ifdef CONFIG_DMA_CMA
-> -	if (mrc.size && memblock_is_region_memory(mrc.base, mrc.size)) {
-> -		static struct cma *rcar_gen2_dma_contiguous;
-> -
-> -		dma_contiguous_reserve_area(mrc.size, mrc.base, 0,
-> -					    &rcar_gen2_dma_contiguous, true);
-> -	}
-> -#endif
-> -}
-> -
->  static const char * const rcar_gen2_boards_compat_dt[] __initconst = {
->  	"renesas,r8a7790",
->  	"renesas,r8a7791",
-> @@ -204,7 +130,6 @@ static const char * const rcar_gen2_boards_compat_dt[] __initconst = {
->  DT_MACHINE_START(RCAR_GEN2_DT, "Generic R-Car Gen2 (Flattened Device Tree)")
->  	.init_late	= shmobile_init_late,
->  	.init_time	= rcar_gen2_timer_init,
-> -	.reserve	= rcar_gen2_reserve,
->  	.dt_compat	= rcar_gen2_boards_compat_dt,
->  MACHINE_END
->  
-> @@ -220,6 +145,5 @@ static const char * const rz_g1_boards_compat_dt[] __initconst = {
->  DT_MACHINE_START(RZ_G1_DT, "Generic RZ/G1 (Flattened Device Tree)")
->  	.init_late	= shmobile_init_late,
->  	.init_time	= rcar_gen2_timer_init,
-> -	.reserve	= rcar_gen2_reserve,
->  	.dt_compat	= rz_g1_boards_compat_dt,
->  MACHINE_END
-> -- 
-> 2.43.0
-> 
-> 
+ .../boot/dts/freescale/imx8-ss-hsio.dtsi      |  5 +--
+ arch/arm64/boot/dts/freescale/mba8xx.dtsi     | 32 ++++++++++++++++---
+ arch/arm64/boot/dts/freescale/tqma8xx.dtsi    | 12 +++++--
+ 3 files changed, 40 insertions(+), 9 deletions(-)
 
 -- 
-Kind Regards,
-Niklas Söderlund
+2.34.1
+
 
