@@ -4,84 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8989E77198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 14:57:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71DA1E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 14:59:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZtY/dTGdpigf++m9/HYVL1sEfcqNn5ZD1yZ5BGh2v6I=; b=CsSu0Dy0jKYQBxj9vlVoqrgEGs
-	dVaOAAH55B47swosuoEmeRrgNkNkFrInz7qMrgM1mWNE0gCuvZBi9QXgVh0xgZHrJXCrWpHcPdP87
-	bRTQTQLsnPq7XEuGehYHWJgI0zptNQqpeF717z4u8FSl3PQJDeg5bmfaknisJGruhdS+4lv5BfoOV
-	KkEyOHJzYDitNhZumuGwCvfek/4nQ554neXZ59dUFdAug04X8u1rFeTHoYjN08VWU+aH7967mcaS9
-	jZPQNP0NXASgpuN61ugSCurMthwn/cchtvtx7QNx72DY1lVkaRQGMg5kbxF2QpWcsqEyR5gzZQW/w
-	+ZZytZng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+4Gg20KiFE6gVMYr4V4rZaknsO1TvSlGmAwG0tVYAE8=; b=jnG9uTRxnO20+/nRznEWXfjsc4
+	CQs8j7SpAdzal/c80Yyo4qlBP/RZjBUtlKxiey72512P2fLCDTbww/mB8H82MDGyrQ/hmZ9mjKBrU
+	Ks4yB0dz7dYghBNmJNm33wnY4ZqzcpMNgbx87frzz1QSw/XBYHaY4GDEjWZzmC+Zxo2fEZLedI5Et
+	shfs61bUyj70nHJfzKalKbFwiaqKxxHQ4sKyc7kYIm6Nwqe2AfjQ/cdwQr++FV+Jpk23IrAKPPWO6
+	xfl25rOvdnofaCKzSfwIusOCi+QqpJd0x7WVKth9/8WAmqrGxdA5IpU4DS5lk3xdBw/aiKpFnAgbl
+	WKH93+IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVB1T-00000005KWi-3QN3;
-	Tue, 07 Jan 2025 14:57:35 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tVB2d-00000005KnS-4AdA;
+	Tue, 07 Jan 2025 14:58:47 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVAwZ-00000005JGN-1LB7;
-	Tue, 07 Jan 2025 14:52:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9C2E35C6331;
-	Tue,  7 Jan 2025 14:51:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFB03C4CED6;
-	Tue,  7 Jan 2025 14:52:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736261550;
-	bh=WxQAHvKNDf1t1y8WP8kQLuS53Cn56vM/HgaXsAHmZu0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DJ5a28p5C1p3qCfa8LQJ394zZ/jabUsHQ9XSSnPY6jxqQjGkXKBNrLbl5sPl1Pitn
-	 f20Uxn92kTDumq0VBTngaUAIK0G17qi1lCrL+ztyW/bV13vHfbuVOwxBxhMhZ8a6lw
-	 ugnObBQzN6unU3idmrKZnnXPImvquLAWlG4c5DZW1cEJuTrlvbLnlKwar+lal66IAM
-	 WvPCehI17rTQ+M5FsSmolNp0pm/VkSzcgGU47LQqUaJQn01r4Q/VSN5CwmSxCZBWil
-	 tsNTk4s8VZuG9K8PIlIA4vOrDon6IFavxkSzotHbTbkj6gVLk5FIKt7ihCdc8+eNSD
-	 4P7F8SrHOZjVw==
-Message-ID: <02896f96-57dd-47d5-8fa0-8a8aed30fa9a@kernel.org>
-Date: Tue, 7 Jan 2025 15:52:20 +0100
+	id 1tVAy7-00000005Jj1-0IfR
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 07 Jan 2025 14:54:10 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ore@pengutronix.de>)
+	id 1tVAxy-00032F-BC; Tue, 07 Jan 2025 15:53:58 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <ore@pengutronix.de>)
+	id 1tVAxx-007MWH-0E;
+	Tue, 07 Jan 2025 15:53:57 +0100
+Received: from ore by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <ore@pengutronix.de>)
+	id 1tVAxx-009auF-2K;
+	Tue, 07 Jan 2025 15:53:57 +0100
+Date: Tue, 7 Jan 2025 15:53:57 +0100
+From: Oleksij Rempel <o.rempel@pengutronix.de>
+To: Kory Maincent <kory.maincent@bootlin.com>
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	davem@davemloft.net, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
+	Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>,
+	=?utf-8?Q?Nicol=C3=B2?= Veronese <nicveronese@gmail.com>,
+	Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
+	Antoine Tenart <atenart@kernel.org>
+Subject: Re: [PATCH net-next RFC 0/5] net: phy: Introduce a port
+ representation
+Message-ID: <Z31ABd8pdBjJtTiE@pengutronix.de>
+References: <20241220201506.2791940-1-maxime.chevallier@bootlin.com>
+ <Z2g3b_t3KwMFozR8@pengutronix.de>
+ <Z2hgbdeTXjqWKa14@pengutronix.de>
+ <Z3Zu5ZofHqy4vGoG@shell.armlinux.org.uk>
+ <Z3bG-B0E2l47znkE@pengutronix.de>
+ <20250107142605.6c605eaf@kmaincent-XPS-13-7390>
+ <Z300BuATJoVDc_4S@pengutronix.de>
+ <20250107154302.628e7982@kmaincent-XPS-13-7390>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v6 1/8] page_pool: introduce page_pool_get_pp()
- API
-To: Yunsheng Lin <linyunsheng@huawei.com>, davem@davemloft.net,
- kuba@kernel.org, pabeni@redhat.com
-Cc: liuyonglong@huawei.com, fanghaiqing@huawei.com, zhangkun09@huawei.com,
- Wei Fang <wei.fang@nxp.com>, Shenwei Wang <shenwei.wang@nxp.com>,
- Clark Wang <xiaoning.wang@nxp.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- Eric Dumazet <edumazet@google.com>, Jeroen de Borst <jeroendb@google.com>,
- Praveen Kaligineedi <pkaligineedi@google.com>,
- Shailend Chand <shailend@google.com>,
- Tony Nguyen <anthony.l.nguyen@intel.com>,
- Przemek Kitszel <przemyslaw.kitszel@intel.com>,
- Alexander Lobakin <aleksander.lobakin@intel.com>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- John Fastabend <john.fastabend@gmail.com>, Saeed Mahameed
- <saeedm@nvidia.com>, Leon Romanovsky <leon@kernel.org>,
- Tariq Toukan <tariqt@nvidia.com>, Felix Fietkau <nbd@nbd.name>,
- Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>,
- Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
- Kalle Valo <kvalo@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Simon Horman <horms@kernel.org>,
- Ilias Apalodimas <ilias.apalodimas@linaro.org>, imx@lists.linux.dev,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- intel-wired-lan@lists.osuosl.org, bpf@vger.kernel.org,
- linux-rdma@vger.kernel.org, linux-wireless@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20250106130116.457938-1-linyunsheng@huawei.com>
- <20250106130116.457938-2-linyunsheng@huawei.com>
-Content-Language: en-US
-From: Jesper Dangaard Brouer <hawk@kernel.org>
-In-Reply-To: <20250106130116.457938-2-linyunsheng@huawei.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250107154302.628e7982@kmaincent-XPS-13-7390>
+X-Sent-From: Pengutronix Hildesheim
+X-URL: http://www.pengutronix.de/
+X-Accept-Language: de,en
+X-Accept-Content-Type: text/plain
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ore@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_065231_401708_827D8A20 
-X-CRM114-Status: GOOD (  10.25  )
+X-CRM114-CacheID: sfid-20250107_065407_114845_BBA5082E 
+X-CRM114-Status: GOOD (  25.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,34 +101,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jan 07, 2025 at 03:43:02PM +0100, Kory Maincent wrote:
+> On Tue, 7 Jan 2025 15:02:46 +0100
+> Oleksij Rempel <o.rempel@pengutronix.de> wrote:
+> 
+> > On Tue, Jan 07, 2025 at 02:26:05PM +0100, Kory Maincent wrote:
+> > > On Thu, 2 Jan 2025 18:03:52 +0100
+> > > Oleksij Rempel <o.rempel@pengutronix.de> wrote:
+> > >   
+> > > > On Thu, Jan 02, 2025 at 10:48:05AM +0000, Russell King (Oracle) wrote:  
+> >  [...]  
+> >  [...]  
+> > > 
+> > > Couldn't we begin with something simple like the following and add all the
+> > > transformers and pairs information as you described later if the community
+> > > feels we need it?
+> > > 
+> > > mdis {
+> > > 
+> > >     /* 1000BaseT Port with Ethernet and PoE */
+> > >     mdi0: ethernet-mdi@0 {
+> > >         reg = <0>; /* Port index */
+> > >         label = "ETH0"; /* Physical label on the device */
+> > >         connector = "RJ45"; /* Connector type */
+> > >         supported-modes = <10BaseT 100BaseTX 1000BaseT>; /* Supported modes
+> > > */ lanes = <2>;
+> > >         variant = "MDI-X"; /* MDI or MDI-X */
+> > >         pse = <&pse1>;
+> > >     };
+> > > };  
+> > This was only the pair swap. How to reflect the polarity swap withing
+> > the pairs?
+> 
+> Indeed I see what you mean. Maybe we could add it later as optional binding and
+> only focus for now on the current needs.
+> According to Maxime proposition he wants the connector types and the
+> supported modes (or number of lanes). On my side I am interested in the PSE
+> phandle.
+> 
+> We could begin with this:
+> mdis {
+>     /* 1000BaseT Port with Ethernet and PoE */
+>     mdi0: ethernet-mdi@0 {
+>         reg = <0>; /* Port index */
+>         label = "ETH0"; /* Physical label on the device */
+>         connector = "RJ45"; /* Connector type */
+>         supported-modes = <10BaseT 100BaseTX 1000BaseT>; /* Supported modes */
+>         pse = <&pse1>;
+>     };
+> };  
+> 
+> Your proposition will stay in our mind for future development on the subject.
 
-On 06/01/2025 14.01, Yunsheng Lin wrote:
- > introduce page_pool_get_pp() API to avoid caller accessing
- > page->pp directly.
- >
-[...]
+Perfect :)
 
-> diff --git a/include/net/page_pool/helpers.h b/include/net/page_pool/helpers.h
-> index 543f54fa3020..9c4dbd2289b1 100644
-> --- a/include/net/page_pool/helpers.h
-> +++ b/include/net/page_pool/helpers.h
-> @@ -83,6 +83,11 @@ static inline u64 *page_pool_ethtool_stats_get(u64 *data, const void *stats)
->   }
->   #endif
->   
-> +static inline struct page_pool *page_pool_get_pp(struct page *page)
-> +{
-> +	return page->pp;
-> +}
+> I think we currently don't have enough time available to develop the full
+> package.
 
-IMHO the function name "page_pool_get_pp" is problematic. As calling it 
-"get" indicate to me that we are taking some reference on the pp object. 
-Is this you plan in later patches?
+Yes, no one do.
 
-If it is simply a dereference of page->pp ... then we could call it 
-page2pp ?
-... but I'm uncertain why we need this change.
+> What do you think?
 
---Jesper
+Sounds good!
 
+-- 
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
