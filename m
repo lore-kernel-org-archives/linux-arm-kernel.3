@@ -4,101 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 706DFE77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 17:43:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BC1CE77198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 17:45:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a2x6Czl6GO65kHVW9zAO9v64ouXW8ETVJWZJ2hxoejQ=; b=uF47E6D8IhZB+0vUQ9isO4r+Jq
-	oOC4WYvrBGquFGnaaoUV+uuuzKALErXR+zxKU28rF6UOk4rF+BQByYBCXC+owQVtxQXFxg4TCsDQj
-	5TbKo/Xcev61sRfJHvp8yphUa2jmqGgYkgh1Wb0i8ufjnMpPn9Pqkpdrpxp9KDDor6Z4KkkJKWQMF
-	8zgxPGGSIi2jsxEg401U2RBWhOQVE+OApfU9AJw4aMOTEOhNML0KZCEB5S5xZuH/R0oYxZ+MntK1I
-	r8Gil058sS9DLDj18Jw/tGvluddVsGNHIeUBnjKx1H97/K6PIqx38IFGp0U3Lp/Te/+iSB4P5GTzP
-	52jxOTIg==;
+	bh=AnFDI1orT78UbMz4dvewuX8lguog+6111daL66A0sXs=; b=rrzCxRPhgxc2YRvqzXrY/f/vnz
+	9gGuXtmwe6SAAYdmxzAj5t2vF0JIG2AavqEaM0ut3I7LSfGB1uK2thVHYUudl47LPDyX4sL7OHCXc
+	1k2VL2dD31GfGqRvpRvcW4pvoCBNYN7AhXB53HSbk9nxGq+4jNs+Ox5cFrlwXl2KebQ7t/hhJ5vT2
+	jthy1zDRGCPxXKk8DDiELjCvXY2AHD07Qg5AbPMU48tH/3GaAZFqEDblBoC+QMSf4J+/nvGKCqO1F
+	vsbaw5ut6DHRs5L8sgvJHH+wDcRBPMSVWR56vRnTRH49a5KbJ5ZYxsuzH7WGrGNXGgkTHl8hWpsal
+	ZEC541YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVDc8-00000005tqr-48OR;
-	Tue, 07 Jan 2025 17:43:36 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1tVDdJ-00000005u4N-2noR;
+	Tue, 07 Jan 2025 17:44:49 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVDLM-00000005qpB-0tyh
+	id 1tVDLv-00000005qxn-1w6L
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 17:26:20 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-21670dce0a7so57213595ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 09:26:15 -0800 (PST)
+	Tue, 07 Jan 2025 17:26:55 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-21644aca3a0so56511335ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 09:26:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1736270775; x=1736875575; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1736270811; x=1736875611; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:to:subject:user-agent:mime-version:date
          :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=a2x6Czl6GO65kHVW9zAO9v64ouXW8ETVJWZJ2hxoejQ=;
-        b=Gh9iIGfZDxLOMdj9bcWNV8BhC+Cn4/mWE/WOwhisbusWaaosJ8lGx7aJbp1NXmg82h
-         lwt5c9zS+ncswxWdD3TYk2FYXjXYD1PZVt7PROToQS9FCCS5cngE7M2ghhc4q23BEinJ
-         xPK0fzss0OPrdWnsbJZTl36pyG/ksqe1ztbD0=
+        bh=AnFDI1orT78UbMz4dvewuX8lguog+6111daL66A0sXs=;
+        b=PbmplfOPnWmRkz4Q2RI8fTAC2B+k0BOb/YxfoJfTUnRpfb6ofojxpLzy59LfHDoyjd
+         I1qUjnTgzwONlUrqKERfH9jpS3gIsHOG+f06CvlXniIY9Wwr6Iv/4+l3YR7lTrIr+T9k
+         XO5LJo9pjN1wm7lDU/9RxJoT9bdoqFV97BcJw=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736270775; x=1736875575;
+        d=1e100.net; s=20230601; t=1736270811; x=1736875611;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:to:subject:user-agent:mime-version:date
          :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=a2x6Czl6GO65kHVW9zAO9v64ouXW8ETVJWZJ2hxoejQ=;
-        b=w9deGUwqBMUmPMEyQwNEKag9eMNhNW6THqT6pyhBWmPMIXNQh1ZwgkSt0MEExgTO5u
-         BYleQUUta3zDnu0am2pluIScDFMCLBwNjxocv3enUPOyIaaDDiKXsGULFhJ5mPVyVjgh
-         tGNMiTZ4rlTCIuBdD8nM4hwdXH2keB3sOlsmN0FpuMn4HEfPfrMbWPqx/eg85xV4KvOB
-         nfh7k8YxeOVGntuM1/m8U/U7MnjPEuyIKZGB5hTMTnMatBPSvYKc3+cjHNaF1Kxphh5b
-         xym2Pay2HgjWcE7W1nWpw4X1cGVvZTvVnwayWipKuJd0SGFTsXJ/0vcPqLcwR6eH9PrX
-         pUdw==
-X-Forwarded-Encrypted: i=1; AJvYcCWuumFU0a92TQAT/wmj7nxOR4g+6Qru/AjpnQy/Ag55CBEEfmKTMk8D1RQNCtLIOG2wrJKzn+Xn9/5zEXa+ArWV@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywmx0Da9s1JQhtP3IVWqBJrBnKLgReVxAm1/uIHMBV/L/+Zw1ii
-	pz7xjC3TvWNL0Jz7Jce57hrJ0JNuLDvQE/m7O1VB3F0W7CMYpw6mVNS7s9RG3w==
-X-Gm-Gg: ASbGnctFh8CWwXp4YzG7C4Sw+aGgKP8ys09ruuOcRb58y6tBGnNH1sviDwgRdjtNeaz
-	l4IXaTjZzKc1t0VzUoB/tHl9BFWdT9Xe88HZeql7+1REAJJql0u9Pn31rbB9ZmnypSzaW1ylPeZ
-	5JJXt6g0PCrFfVb3UCnvn+VMC5ak7U7/s6wASSR6Vyfrdo6/yU323Fv4MWSDfPF0JJcHh55J1GP
-	eZpu/CcOj6oJQg6FqSIuEca1OqlG6QsmojF+msKiST7vCcMe+RfnAZDEp2iBAN8x364JLBWIelF
-	i9cDeNUV3kDVcRSi7tYL
-X-Google-Smtp-Source: AGHT+IFzu1VIJT9VJiC2aXWDy+NgNyxkD0g/GqwTMrp+Om0AwR+ht03XX6NjXXazKeHe7i80AzxoTg==
-X-Received: by 2002:a17:902:e886:b0:216:5e6e:68cb with SMTP id d9443c01a7336-219e6e9fd95mr929686065ad.16.1736270774736;
-        Tue, 07 Jan 2025 09:26:14 -0800 (PST)
+        bh=AnFDI1orT78UbMz4dvewuX8lguog+6111daL66A0sXs=;
+        b=X2pmF9LotKlYMb9A0EKzI/lzZbbVH5FEAJYnh+dRKfJV2DSTsIJKbkc/5hqa/2jL4W
+         L55hl4I24Ck0Bd1j+u4uoZobSC2O56kBlQjKPja8C+azM5Fykok6AqnUxDjeSSJ1j1Hl
+         OSziof+xc5DpqYbluUqSObv3S18SHY2vppwRdLhFQAYkTOZUvvonWMrjmzExxmgXWucE
+         kgIhOBpyd3lBDmQ5zSREy9+TREffetfenl7/7CZ/L4a9cwG+wnQLR62b6xnTfcHNGkMl
+         q/QMfBusQD3ASG/psicmKxiQMpT+ubVMyKRrSWKGM097jFtb0vDLcHDGrHF18voriwkZ
+         n8CA==
+X-Forwarded-Encrypted: i=1; AJvYcCUN+mrpx3gRs2/cgcKjBTJfiCSl/M2/hZhnGSjVs/w9NsYSmyUcj+2YTNyQEGeotCTb1KNXMlG37NLtkU1jDULu@lists.infradead.org
+X-Gm-Message-State: AOJu0YwBrweDdtEi9GGNtfy6tDT6JKTT7MxmdBDsLAL7z1G9afbM8f9R
+	yepi7pbS1qIHoucwOFlbiiJyYWLF2IhMyGMxgbA+hDqRvOHMnx88tHRRV7q7+g==
+X-Gm-Gg: ASbGncu2NYQXdB5He2u8px74m8P4AZiMFsqZKiuTF26WDE8pO7BMNUwpuD31lSiLfsu
+	ax5OtwLqRPhDIXffIlCwBd19ioTviSEj0uqQR/7FVrJ1AJNfjlXZMb+Kh4oHPBrop8mDhoW7Wph
+	fKEO/CmQjyVH/kta6k496u4vkNw81qRJX6F4wMnSbmcR5Y6aO8Qk+q1kFpTOOY9daVAnTtFu3F1
+	QD9XxpwVc51wBr5WduKaTHx9alrgF1q/qMBJPfjwJD7VFxARTZ28L1nUAN04cuejTy6eB+mWWNp
+	2giWwDgF+dKVc89jex3y
+X-Google-Smtp-Source: AGHT+IEPaGgB9Qa+1DpEpRgPYql8+QmamIMyRh5C1Rx/DzqtHoRCh+8H9eqIioceJgqABRLUqu9iOw==
+X-Received: by 2002:a17:902:c408:b0:216:4d1f:5c83 with SMTP id d9443c01a7336-219e6f26814mr803886345ad.47.1736270810779;
+        Tue, 07 Jan 2025 09:26:50 -0800 (PST)
 Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-219dc9716b3sm314412505ad.90.2025.01.07.09.26.11
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-219dc9cdeccsm314093865ad.144.2025.01.07.09.26.47
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 07 Jan 2025 09:26:14 -0800 (PST)
-Message-ID: <901992c2-4c48-4534-bbfb-7b6b70d15d48@broadcom.com>
-Date: Tue, 7 Jan 2025 09:26:10 -0800
+        Tue, 07 Jan 2025 09:26:49 -0800 (PST)
+Message-ID: <e2d33d2f-6b30-495e-a089-b1185b22130f@broadcom.com>
+Date: Tue, 7 Jan 2025 09:26:46 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] dt-bindings: net: Correct indentation and style
- in DTS example
+Subject: Re: [PATCH] dt-bindings: usb: Correct indentation and style in DTS
+ example
 To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Doug Berger <opendmb@gmail.com>,
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Justin Chen <justin.chen@broadcom.com>, Al Cooper <alcooperx@gmail.com>,
  Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
- Scott Branden <sbranden@broadcom.com>, Marc Kleine-Budde
- <mkl@pengutronix.de>, Vincent Mailhol <mailhol.vincent@wanadoo.fr>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Kalle Valo <kvalo@kernel.org>, Oleksij Rempel <o.rempel@pengutronix.de>,
- Dario Binacchi <dariobin@libero.it>,
- Christophe Roullier <christophe.roullier@foss.st.com>,
- Grygorii Strashko <grygorii.strashko@ti.com>,
- Siddharth Vadapalli <s-vadapalli@ti.com>, Roger Quadros <rogerq@kernel.org>,
- Brian Norris <briannorris@chromium.org>, Frank Li <Frank.Li@nxp.com>,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-can@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com, linux-wireless@vger.kernel.org
-References: <20250107125613.211478-1-krzysztof.kozlowski@linaro.org>
+ <bcm-kernel-feedback-list@broadcom.com>,
+ Thierry Reding <thierry.reding@gmail.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Magnus Damm <magnus.damm@gmail.com>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Florian Fainelli <f.fainelli@gmail.com>,
+ Benjamin Bara <benjamin.bara@skidata.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Ahmad Zainie <wan.ahmad.zainie.wan.mohamad@intel.com>,
+ Del Regno <angelogioacchino.delregno@collabora.com>,
+ Tianping Fang <tianping.fang@mediatek.com>,
+ Jassi Brar <jaswinder.singh@linaro.org>,
+ Biju Das <biju.das.jz@bp.renesas.com>,
+ Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+ Francesco Dolcini <francesco.dolcini@toradex.com>,
+ Macpaul Lin <macpaul.lin@mediatek.com>,
+ Alexander Stein <alexander.stein@ew.tq-group.com>,
+ linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org
+References: <20250107131015.246461-1-krzysztof.kozlowski@linaro.org>
 Content-Language: en-US
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
@@ -133,12 +136,12 @@ Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
  MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
  7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
  95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20250107125613.211478-1-krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20250107131015.246461-1-krzysztof.kozlowski@linaro.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_092616_347931_6259E5F9 
-X-CRM114-Status: GOOD (  10.28  )
+X-CRM114-CacheID: sfid-20250107_092651_503745_A6AD3448 
+X-CRM114-Status: GOOD (  10.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,7 +156,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/7/25 04:56, Krzysztof Kozlowski wrote:
+On 1/7/25 05:10, Krzysztof Kozlowski wrote:
 > DTS example in the bindings should be indented with 2- or 4-spaces and
 > aligned with opening '- |', so correct any differences like 3-spaces or
 > mixtures 2- and 4-spaces in one binding.
@@ -163,12 +166,10 @@ On 1/7/25 04:56, Krzysztof Kozlowski wrote:
 > 
 > Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 > ---
->   .../bindings/net/amlogic,meson-dwmac.yaml     | 14 +--
->   .../devicetree/bindings/net/asix,ax88178.yaml |  4 +-
->   .../bindings/net/brcm,bcmgenet.yaml           | 32 +++----
->   .../bindings/net/brcm,mdio-mux-iproc.yaml     | 46 ++++-----
+>   .../bindings/usb/aspeed,usb-vhub.yaml         | 40 +++++++++----------
+>   .../devicetree/bindings/usb/brcm,bdc.yaml     | 14 +++----
 
-Acked-by: Florian Fainelli <florian.fainelli@broadcom.com> # net/brcm,*
+Acked-by: Florian Fainelli <florian.fainelli@broadcom.com> # brcm,bdc.yaml
 -- 
 Florian
 
