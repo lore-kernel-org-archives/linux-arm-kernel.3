@@ -4,83 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DE11E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 15:13:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 531B1E7719A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 15:14:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QZm9XMFo/ciEBfGF3Y+lnkNF8U3UY3ReBsxl649KajQ=; b=tX9Spd0Okl/fCOXPK5QRvt3FD4
-	//O2paFXP84+Piy3pYYcaEkyMYb5SwyFald3WAZ3rXAO+2tAKJxaRSfBc2dYO4MvB0Jsn7WKBklq2
-	uXCiySr68bWrAva+qdf4aR3z1TmrqwMiRNDLVQdzlGzhUW2SS1UsS9GRfG0W5vanioAhXNLTnAQZm
-	rQGu5O4N9g2rwTfTS+fBzTsxWOHQlZjdq2Sqdm8yECwQQkfljpL8k6HMs1apa9BR/qpREE0Mrtc24
-	WWdS065EhOkp5kEqWIntJAWgzz99pvIM/dunrozzDBPworeXxQP6eTN1SL8ZunKgAS0XwWmiBb2eN
-	YyphK8VQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4gSoWQY/eDDpwLtJoE6aiLAjnCc8d40/2W7DJFumW/I=; b=MJEAYAfJoD/bwBrXt84k1PbY2D
+	VuMyhoos8OTFY6ULdK63qsDlDLaJ5yFWZnAJwnLuf/loyUwwg5JctMUkwuwVgvmt2bTuvJMl1Om28
+	RdrpS/zanqyhN9K84qf5n+6on+0chfHOsb4LnlZSaaz/uSzajeJCeHcBGIdGXladP6DXRzAy8ijH2
+	5tFKJXNG3l+gUgv3iLIHri0f1vprD/MajzCLPz/jxKO9cJqAxd727NmeMKZvLmUQUdVK4xxAN2jRC
+	ptNXAzRHnwUewJMxl4V5PHAv1Jg2c3MaixaKfs+4lZ0QygY4+RzRapwSTYWtPlxOakOApFnLK+m7Y
+	O2uSp8Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVBGb-00000005NeO-0ZQ4;
-	Tue, 07 Jan 2025 15:13:13 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1tVBHl-00000005NwQ-3AAd;
+	Tue, 07 Jan 2025 15:14:25 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVBFL-00000005NJS-0Cm9
+	id 1tVBFy-00000005NV1-3nib
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 15:11:59 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-54024ecc33dso1901790e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 07:11:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736262713; x=1736867513; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QZm9XMFo/ciEBfGF3Y+lnkNF8U3UY3ReBsxl649KajQ=;
-        b=YMvoMJd/aEfbTw7iWP9p7E+qMmBc0beUc7trBtPZngVUJgN2ulQ+Wa3xi7+I3XLrsY
-         TjWqRWJnB3NaAK/0nYm081v+/bn+1InJ6bPxUeJ7L7qkAMBqJR+WHkO+bPtv/i/IoVQB
-         ZdM2Dv6GlX71iBjiP867Wdid3M3wmg79cQsM3cy8eaZ9UyVDjLBPsbjBDi9VwQPTSc6D
-         X09M44xC+bTMO9/egNOEi1EWk2tWUteQvrmZdU9cWVB8XroHtXPVI4Ne1isecdcCrTMm
-         ZWvr7Sa6BCvsR/L9gycwrL/eqBGzOCpokdTYSLFBtb6+CuzwOhiylAKhBAK1fhS2MfIg
-         VvZw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736262713; x=1736867513;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=QZm9XMFo/ciEBfGF3Y+lnkNF8U3UY3ReBsxl649KajQ=;
-        b=wIIhR5mMMJJqgLGYfmeNJdEEpiwsS9xVpG+Ni3zgVzKS3FMiZPcBIPp2p/e3k7jE8p
-         4buwkYl8DNDaybPm9nh8BQu9qXJCMpq86YZMRCl5HZDiIyCJvZOBKd5LMAoPsaW4NRV5
-         D299sq79jc5/1Fif1dVq3XvX2voX5gUC508rkJFgpjZf8aEcF3N1tp0GB0WO0tZGwiOg
-         Acyk3n3Ic7Ib/YWPfrL9dklCYYUjIvOpJ9nNEN2C7J1Nm08UUhB5nvhNIVAMWRE9/425
-         2FyuVdiric7Jb+FpsQrX67cQKOowhvgluB6nX2V6176t1WM7Dug0AqjhlE3+nUi4RiwI
-         j3Qw==
-X-Forwarded-Encrypted: i=1; AJvYcCUz0X5gi1913dwL6l7KWJRtyK7+qT8wm6/oEnvumGMcpWo9bNZfd5SvTDLL0I/frvuaiptrWkE8moItJNK2YNnH@lists.infradead.org
-X-Gm-Message-State: AOJu0YyqUO8DAHS5qRakwsVUJSU1TLdhGhHU1vrw0usN4J7TX0ZnWR/t
-	/VfC2anqmzI6ECiZsn5b4aF0o1v8tpPstqAbovRFpxz4Lo2pIzP9/dnSMbg91cMGsdh9wbbxo4X
-	8Bk4FR3RKx+cAJzWsbz7aLyTXldNxqSX1rUD/ww==
-X-Gm-Gg: ASbGncsL4RDocn7Icn6ptPkzGKti7M5Fua+I44dRAUxOEq7KJeAXgNmS/m+N6ieCj7v
-	60jntZ0DCIGhLbUCyZIT3rGlXhRf/X3R5vifJ
-X-Google-Smtp-Source: AGHT+IFehNeFi1I1U8aRoGxDWj9mUKo0jrkw2SzoaqZnp8E335DNw61G6ky+He7/h1LD9gQ8ZxOLYHtYW+T3a9Y3M0g=
-X-Received: by 2002:a05:6512:33d1:b0:540:17ac:b374 with SMTP id
- 2adb3069b0e04-54229540453mr15473106e87.25.1736262712723; Tue, 07 Jan 2025
- 07:11:52 -0800 (PST)
+	Tue, 07 Jan 2025 15:12:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=4gSoWQY/eDDpwLtJoE6aiLAjnCc8d40/2W7DJFumW/I=; b=OoLAg7KzDfXcPCgCVhCIwSnKBx
+	/SXiH72xU1dmqGQrJcWQAE9z1ltDlAaelJlcXcr1GNYeHqyBv2+3qCufu0SqKzjlDXT6et5/kc2BW
+	RnSDv+VJh6DLtmS8+A1OH0keI2BuU6FSStBLTPt4isOvObCVcFk2Ay3p9UhU/om3eeQaZHnQDEsrX
+	tZ56HkISeDwBkJIjy4O/kMRC5sFu1QNqZSXZZPkg2pRcCa+du+W4jupPcyJJwsYegLOH8TkE5lsdB
+	ZHNO/NvfPaoH1PuQ+48a7qjTAUn/ug6GOrZNF+IsRYE+Xdbuce6+zgL5IYx8sr69svb1YMZ0w9jw4
+	aiJp2P9Q==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:53354)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tVBFo-0007eg-0H;
+	Tue, 07 Jan 2025 15:12:24 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tVBFk-0005OB-2j;
+	Tue, 07 Jan 2025 15:12:20 +0000
+Date: Tue, 7 Jan 2025 15:12:20 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Kory Maincent <kory.maincent@bootlin.com>
+Cc: Oleksij Rempel <o.rempel@pengutronix.de>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	davem@davemloft.net, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
+	Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
+	=?iso-8859-1?Q?Nicol=F2?= Veronese <nicveronese@gmail.com>,
+	Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
+	Antoine Tenart <atenart@kernel.org>
+Subject: Re: [PATCH net-next RFC 0/5] net: phy: Introduce a port
+ representation
+Message-ID: <Z31EVPD-3CGGXxnq@shell.armlinux.org.uk>
+References: <20241220201506.2791940-1-maxime.chevallier@bootlin.com>
+ <Z2g3b_t3KwMFozR8@pengutronix.de>
+ <Z2hgbdeTXjqWKa14@pengutronix.de>
+ <Z3Zu5ZofHqy4vGoG@shell.armlinux.org.uk>
+ <Z3bG-B0E2l47znkE@pengutronix.de>
+ <20250107142605.6c605eaf@kmaincent-XPS-13-7390>
 MIME-Version: 1.0
-References: <20241203131302.16022-1-ot_chhao.chang@mediatek.com>
- <CACRpkdZy7HgkT-FFJh=ubXhdcBRa-vbaNmHC32E3djZdHnwdYg@mail.gmail.com> <47ca3129-245f-481f-9ca1-ed9d8db6e990@collabora.com>
-In-Reply-To: <47ca3129-245f-481f-9ca1-ed9d8db6e990@collabora.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 7 Jan 2025 16:11:41 +0100
-Message-ID: <CACRpkdarstoQW+ZBi+MWxEff_=h8bPo9+fwy=LW2uhWRuQ6YSQ@mail.gmail.com>
-Subject: Re: [PATCH] v1 pinctrl: mtk-eint: add eint new design for mt8196
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: chang hao <ot_chhao.chang@mediatek.com>, matthias.bgg@gmail.com, 
-	sean.wang@kernel.org, linux-mediatek@lists.infradead.org, 
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250107142605.6c605eaf@kmaincent-XPS-13-7390>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_071155_096309_568FFCA8 
-X-CRM114-Status: GOOD (  17.08  )
+X-CRM114-CacheID: sfid-20250107_071234_943510_EB99BC2A 
+X-CRM114-Status: GOOD (  27.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,47 +98,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 19, 2024 at 1:39=E2=80=AFPM AngeloGioacchino Del Regno
-<angelogioacchino.delregno@collabora.com> wrote:
+On Tue, Jan 07, 2025 at 02:26:05PM +0100, Kory Maincent wrote:
+> On Thu, 2 Jan 2025 18:03:52 +0100
+> Oleksij Rempel <o.rempel@pengutronix.de> wrote:
+> 
+> > On Thu, Jan 02, 2025 at 10:48:05AM +0000, Russell King (Oracle) wrote:
+> > > On Sun, Dec 22, 2024 at 07:54:37PM +0100, Oleksij Rempel wrote:  
+> > > > Here is updated version:
+> > > > 
+> > > > ports {
+> > > >     /* 1000BaseT Port with Ethernet and simple PoE */
+> > > >     port0: ethernet-port@0 {
+> > > >         reg = <0>; /* Port index */
+> > > >         label = "ETH0"; /* Physical label on the device */
+> > > >         connector = "RJ45"; /* Connector type */
+> > > >         supported-modes = <10BaseT 100BaseTX 1000BaseT>; /* Supported
+> > > > modes */
+> > > > 
+> > > >         transformer {
+> > > >             model = "ABC123"; /* Transformer model number */
+> > > >             manufacturer = "TransformerCo"; /* Manufacturer name */
+> > > > 
+> > > >             pairs {
+> > > >                 pair@0 {
+> > > >                     name = "A"; /* Pair A */
+> > > >                     pins = <1 2>; /* Connector pins */
+> > > >                     phy-mapping = <PHY_TX0_P PHY_TX0_N>; /* PHY pin
+> > > > mapping */ center-tap = "CT0"; /* Central tap identifier */
+> > > >                     pse-negative = <PSE_GND>; /* CT0 connected to GND */
+> > > >                 };
+> > > >                 pair@1 {
+> > > >                     name = "B"; /* Pair B */
+> > > >                     pins = <3 6>; /* Connector pins */
+> > > >                     phy-mapping = <PHY_RX0_P PHY_RX0_N>;
+> > > >                     center-tap = "CT1"; /* Central tap identifier */
+> > > >                     pse-positive = <PSE_OUT0>; /* CT1 connected to
+> > > > PSE_OUT0 */ };
+> > > >                 pair@2 {
+> > > >                     name = "C"; /* Pair C */
+> > > >                     pins = <4 5>; /* Connector pins */
+> > > >                     phy-mapping = <PHY_TXRX1_P PHY_TXRX1_N>; /* PHY
+> > > > connection only */ center-tap = "CT2"; /* Central tap identifier */
+> > > >                     /* No power connection to CT2 */
+> > > >                 };
+> > > >                 pair@3 {
+> > > >                     name = "D"; /* Pair D */
+> > > >                     pins = <7 8>; /* Connector pins */
+> > > >                     phy-mapping = <PHY_TXRX2_P PHY_TXRX2_N>; /* PHY
+> > > > connection only */ center-tap = "CT3"; /* Central tap identifier */
+> > > >                     /* No power connection to CT3 */
+> > > >                 };
+> > > >             };
+> > > >         };  
+> 
+> Couldn't we begin with something simple like the following and add all the
+> transformers and pairs information as you described later if the community feels
+> we need it?
 
-> Il 17/12/24 14:45, Linus Walleij ha scritto:
-> > Hi Chang,
-> >
-> > thanks for your patch!
-> >
-> > On Tue, Dec 3, 2024 at 2:13=E2=80=AFPM chang hao <ot_chhao.chang@mediat=
-ek.com> wrote:
-> >
-> >> From: Chhao Chang <ot_chhao.chang@mediatek.com>
-> >>
-> >> Change 1: change EINT from 1 address to 5 addresses,
-> >> Eint number is stored on each base.
-> >> Change 2: Compatible with 1 address design
-> >>
-> >> Signed-off-by: Chhao Chang <ot_chhao.chang@mediatek.com>
-> >
-> > This patch looks good to me, as preparation for mt8196,
-> > but can one of the Mediatek experts please
-> > review it? If nothing happens I will just apply it I guess...
-> >
->
-> Linus, that's something like the fourth time that he pushes variations of=
- this
-> patch which do break all MediaTek SoCs in a way or another, leaving only =
-MT8196
-> hopefully-functional.
++1.
 
-That's unfortunate, and I see there is some annoyance building
-up.
+> mdis {
+> 
+>     /* 1000BaseT Port with Ethernet and PoE */
+>     mdi0: ethernet-mdi@0 {
+>         reg = <0>; /* Port index */
+>         label = "ETH0"; /* Physical label on the device */
+>         connector = "RJ45"; /* Connector type */
+>         supported-modes = <10BaseT 100BaseTX 1000BaseT>; /* Supported modes */
+>         lanes = <2>;
+>         variant = "MDI-X"; /* MDI or MDI-X */
+>         pse = <&pse1>;
+>     };
+> };
 
-The maintainers are here to protect the code and the change
-would have anyway just been reverted soon if it breaks stuff.
+We already manage well enough without anything like this level of
+detail of a RJ45 socket, so why don't we start off with something
+very simple. I'm thinking that even giving the supported-modes
+argument is too much here - have we *ever* had the case where an
+ethernet port can't support all the speeds that it's associated
+PHY supports?
 
-How can we get this contribution on a better path?
+> We can also add led, thermal and fuse subnodes later.
+> Let's begin with something simple for the initial support, considering
+> that it has places for additional details in the future.
 
-Chhao: maybe you can split your idea into smaller changes
-that can be reviewed and tested one by one?
+What I think we both fear is having a complex DT description of a
+port that the kernel mostly ignores. While we can come out with the
+"but DT describes the hardware" claptrap, it's no good trying to
+describe the hardware in a firmware description unless there is some
+way to validate that the firmware description is correct - which
+means there must be something that depends on it in order to work.
 
-Yours,
-Linus Walleij
+If we describe stuff that doesn't get used, there's no way to know
+if it is actually correct. We then end up with a lot of buggy DT
+descriptions with properties that can't be relied upon to be
+correct, and that makes those properties utterly useless.
+
+I'm sure DT maintainers will disagree due to the "DT describes the
+hardware" but... I've said it here, and if we end up with stuff
+over-described wrongly creating a mess, I'll be able to point back
+at this!
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
