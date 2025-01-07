@@ -4,87 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E81C2E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 15:17:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7315E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 15:18:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r9RmLQOMfl0rWJpIYvWk4KZnHv3ahfnPTCrPG72CVSU=; b=0ePhwrHgDv/kJuf/fyE3lRkYXR
-	9kN1dJm//hgWE725sE4UrGICF6ZDe/FluAK6S9lcF8gC2xnAD9hJ8IUlsVR1ASgutTNhzDfX+0eo/
-	iYPwMOHzpS26b+ZG4rG79cGM/hPvLEuw09m4/4qJ8POl8OACwnhx6nEJBOfgYkzb2ZeFhKzpkOaGM
-	5hA6CKS+vsf1M8HiUlx3NXuJKq31k65X8TcWEviQvXuZiwRDjgC/+/ZfDgXxYZctROv9giD//5KFn
-	vDjrxqHTcLZUhAbEqvfcT9H5ELYsqumb6oKpVYda4OCdMfvueg+X2QF1lA3ZrgO9qwVhmsSnJaXOU
-	Ak+7eYSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VEpmGsnYD20KF98YPxRoScx17fqF75iFjcKl5Un5Rwc=; b=ifFJ5F3kbnOrKfFDCKvFYLAe1H
+	i5Lup0EvxR+OiNJNlcma8s/fvDKDGGuFKWuw0/RlbFxCoGx5H2pTqi0JFNKQDrw3kjohDJK2mu4T1
+	YQCM0GQ3B8Isdq+nw2qXKGP27JjmJCXCIzeDKK6AaBfbtNz3z08eh4E5Lx1VzVJrx3WOeRk9zbNuz
+	GvDw+mHGVXdfkkQI/5Y6vTalkl1On3N3a9CESBHbShzBiJfLj2zeV/tFX0cuE+GpSMziQf7WHTjuN
+	Ft3ojSeLZjaXrWiQc8niOW/KX2Ak1H5QUhVeUJbjXsg/56p6GHuUSjLG4EejAjyMtY7hq5do7+zGC
+	XzD49m2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVBK7-00000005OYk-0wOR;
-	Tue, 07 Jan 2025 15:16:51 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tVBLH-00000005Oqc-45DA;
+	Tue, 07 Jan 2025 15:18:03 +0000
+Received: from mail-il1-x12c.google.com ([2607:f8b0:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVBIF-00000005O64-2PCz
+	id 1tVBJi-00000005OUU-0vPf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 15:14:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=r9RmLQOMfl0rWJpIYvWk4KZnHv3ahfnPTCrPG72CVSU=; b=vhJbGUgWXA5FWGaLKa5wloDXsK
-	UGdrPSDKf7OacsPThP1pQikbaFRHW0RXiIowiwPjyaXpZVbisTfrJGY1AFZtZzREdi/lQSZ+xWNo0
-	35puHZlNqahsb6gIvivcFHijIjhdF7umOCvt+k04qsrPX9nkjT4Ho8nhl3QHPCnj7gP9Y5s0cD7yO
-	7/rRhnwW0mk7a8WRp0xDfoQo0twWf50mwlKf31vp2oyCJM4ns5X6bQN5OKrhkSFuXmSvS9YD4RytP
-	qYI3og+KvdgAedcdpyZFUWoP5sfVGSC0eJGiQqBhMcl5GOiZ2J5NTkWQGuhmDvzDGHSqjYV98A+8P
-	M2m56bug==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:48082)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tVBI5-0007fG-21;
-	Tue, 07 Jan 2025 15:14:45 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tVBI3-0005OL-2x;
-	Tue, 07 Jan 2025 15:14:43 +0000
-Date: Tue, 7 Jan 2025 15:14:43 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Oleksij Rempel <o.rempel@pengutronix.de>
-Cc: Kory Maincent <kory.maincent@bootlin.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	davem@davemloft.net, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
-	Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
-	=?iso-8859-1?Q?Nicol=F2?= Veronese <nicveronese@gmail.com>,
-	Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
-	Antoine Tenart <atenart@kernel.org>
-Subject: Re: [PATCH net-next RFC 0/5] net: phy: Introduce a port
- representation
-Message-ID: <Z31E4_oWPmFgvfxl@shell.armlinux.org.uk>
-References: <20241220201506.2791940-1-maxime.chevallier@bootlin.com>
- <Z2g3b_t3KwMFozR8@pengutronix.de>
- <Z2hgbdeTXjqWKa14@pengutronix.de>
- <Z3Zu5ZofHqy4vGoG@shell.armlinux.org.uk>
- <Z3bG-B0E2l47znkE@pengutronix.de>
- <20250107142605.6c605eaf@kmaincent-XPS-13-7390>
- <Z300BuATJoVDc_4S@pengutronix.de>
+	Tue, 07 Jan 2025 15:16:30 +0000
+Received: by mail-il1-x12c.google.com with SMTP id e9e14a558f8ab-3a8146a8ddaso57404065ab.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 07:16:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1736262985; x=1736867785; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=VEpmGsnYD20KF98YPxRoScx17fqF75iFjcKl5Un5Rwc=;
+        b=SmAGsGcbnhAJj2wZ/HNdeHp77QfvIX2XBMr5DhIFUILFG15h7dPyo/aTSbTtbUztSn
+         7hKQOvCjNLPMh2DTAecrk5o4vgA0A9aRghIQrrewChIcGtYknV1/4ArfGWPB2irKtlIF
+         iPjHMfJWg8gKI4mBInCCdRynsty70tCDHkI1+dF0U2bbFRYcNuwLv/X/zmnMqaxPN9lm
+         NpY0cgDdxF6sFYWgVRVbtZIBzzE637bXNPxJYFLYnReMf/Z+yehnbM17FSd2gSITYjzk
+         Xc0c4BtgU4Ff41FiGRQwEvSnwMqFhkSRhBmq0crKHdSeHpkhAaAzvpgawKmLXzHrWIdW
+         kPHg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736262985; x=1736867785;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=VEpmGsnYD20KF98YPxRoScx17fqF75iFjcKl5Un5Rwc=;
+        b=qx8d5FQK7tlHMxT+8afSFLW+5Hu2jaBWWxNRo04TWOaofnV8MSwXaM1INlHGoF+a++
+         ONZ6ovLt+u/xFjxZ42Dp8JV7qCqyZHDvaKOnI+b4O3nKwlbu/GQJ2/7t0hLae4TCtiiG
+         wHYCknT4VMVnwoXf21kUX0RxArjCPuXJHBY7l8zrNGNFctl1pp1aRciIKiZQoAgG7ebj
+         Z0Fwem82GwRJfzS0ZwvSFvIv7thqqzYHgyOrUy2QGQuXeqqw5Sb3toGCQjIKflipjdqF
+         B5a7hezS+y/6jOiFF2jMnXlj35L/ZOqpMaHXs8Iwvxz4zCY99ABav6LgjE99jreUgfhE
+         d72Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXW24vJfvmUks1bvI6Zo/qADNCe9GJSu8EHuAmS6abLtFfDNQfmJB1ZWdfJrUaFk/DftWqh9l0UJV0QB9b0N1D4@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1/0Vhn0m5QH5e6hH2b1Ds71B3K1N8mOAcVpIi4LHKpPjXuYYF
+	21WtWbmEzVQyfAyKnwk3oaJZV2P62zdYYvQkoFnrTHTSyi+jaDEFaIJ1YOEYQXKalFCtilLyjKp
+	mDrurfbHIEinNQa0Oc/nCqvIwA3I=
+X-Gm-Gg: ASbGncv670duUpu5tQQ+sjjfzP/IkwuXBQbtRALRFvuCJ2WzK/FPg8g9bXamhRXPDsx
+	CQPjjebomoQuxSqSuuMuMIlKf1m2FNNfNYlWAF8pdsz7Duhl5e+quBgQeRV+oFgz8ikp1
+X-Google-Smtp-Source: AGHT+IHlytIOa8SLJD6ilASbLpCUQevKgStkuVESsGuRpq4383tKFP0QuXLkBBL6bO1X1rxhpJ3kjld29+v9vpnSuz8=
+X-Received: by 2002:a05:6e02:2384:b0:3a7:fe8c:b014 with SMTP id
+ e9e14a558f8ab-3c2d5917533mr523633585ab.21.1736262984845; Tue, 07 Jan 2025
+ 07:16:24 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z300BuATJoVDc_4S@pengutronix.de>
+References: <20241210165127.600817-1-robdclark@gmail.com> <Z30kWxVxwJXO_z2_@google.com>
+ <20250107125840.GB6991@willie-the-truck>
+In-Reply-To: <20250107125840.GB6991@willie-the-truck>
+From: Rob Clark <robdclark@gmail.com>
+Date: Tue, 7 Jan 2025 07:16:13 -0800
+Message-ID: <CAF6AEGuXD6rCx8yABH338XSr0Wq6fyFe9Z6fWCh1KPNMbJgiOg@mail.gmail.com>
+Subject: Re: [PATCH v11 0/4] io-pgtable-arm + drm/msm: Extend iova fault debugging
+To: Will Deacon <will@kernel.org>
+Cc: Mostafa Saleh <smostafa@google.com>, iommu@lists.linux.dev, 
+	linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org, 
+	Rob Clark <robdclark@chromium.org>, 
+	"open list:DRM DRIVER for Qualcomm Adreno GPUs" <dri-devel@lists.freedesktop.org>, Jason Gunthorpe <jgg@ziepe.ca>, 
+	Joao Martins <joao.m.martins@oracle.com>, Kevin Tian <kevin.tian@intel.com>, 
+	Konrad Dybcio <konradybcio@kernel.org>, 
+	"moderated list:ARM SMMU DRIVERS" <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>, 
+	"open list:SUSPEND TO RAM" <linux-pm@vger.kernel.org>, Marijn Suijten <marijn.suijten@somainline.org>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	Ryan Roberts <ryan.roberts@arm.com>, Sean Paul <sean@poorly.run>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_071455_611186_E1703147 
-X-CRM114-Status: GOOD (  25.21  )
+X-CRM114-CacheID: sfid-20250107_071626_274732_6C7E148E 
+X-CRM114-Status: GOOD (  23.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,106 +102,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 07, 2025 at 03:02:46PM +0100, Oleksij Rempel wrote:
-> On Tue, Jan 07, 2025 at 02:26:05PM +0100, Kory Maincent wrote:
-> > On Thu, 2 Jan 2025 18:03:52 +0100
-> > Oleksij Rempel <o.rempel@pengutronix.de> wrote:
-> > 
-> > > On Thu, Jan 02, 2025 at 10:48:05AM +0000, Russell King (Oracle) wrote:
-> > > > On Sun, Dec 22, 2024 at 07:54:37PM +0100, Oleksij Rempel wrote:  
-> > > > > Here is updated version:
-> > > > > 
-> > > > > ports {
-> > > > >     /* 1000BaseT Port with Ethernet and simple PoE */
-> > > > >     port0: ethernet-port@0 {
-> > > > >         reg = <0>; /* Port index */
-> > > > >         label = "ETH0"; /* Physical label on the device */
-> > > > >         connector = "RJ45"; /* Connector type */
-> > > > >         supported-modes = <10BaseT 100BaseTX 1000BaseT>; /* Supported
-> > > > > modes */
-> > > > > 
-> > > > >         transformer {
-> > > > >             model = "ABC123"; /* Transformer model number */
-> > > > >             manufacturer = "TransformerCo"; /* Manufacturer name */
-> > > > > 
-> > > > >             pairs {
-> > > > >                 pair@0 {
-> > > > >                     name = "A"; /* Pair A */
-> > > > >                     pins = <1 2>; /* Connector pins */
-> > > > >                     phy-mapping = <PHY_TX0_P PHY_TX0_N>; /* PHY pin
-> > > > > mapping */ center-tap = "CT0"; /* Central tap identifier */
-> > > > >                     pse-negative = <PSE_GND>; /* CT0 connected to GND */
-> > > > >                 };
-> > > > >                 pair@1 {
-> > > > >                     name = "B"; /* Pair B */
-> > > > >                     pins = <3 6>; /* Connector pins */
-> > > > >                     phy-mapping = <PHY_RX0_P PHY_RX0_N>;
-> > > > >                     center-tap = "CT1"; /* Central tap identifier */
-> > > > >                     pse-positive = <PSE_OUT0>; /* CT1 connected to
-> > > > > PSE_OUT0 */ };
-> > > > >                 pair@2 {
-> > > > >                     name = "C"; /* Pair C */
-> > > > >                     pins = <4 5>; /* Connector pins */
-> > > > >                     phy-mapping = <PHY_TXRX1_P PHY_TXRX1_N>; /* PHY
-> > > > > connection only */ center-tap = "CT2"; /* Central tap identifier */
-> > > > >                     /* No power connection to CT2 */
-> > > > >                 };
-> > > > >                 pair@3 {
-> > > > >                     name = "D"; /* Pair D */
-> > > > >                     pins = <7 8>; /* Connector pins */
-> > > > >                     phy-mapping = <PHY_TXRX2_P PHY_TXRX2_N>; /* PHY
-> > > > > connection only */ center-tap = "CT3"; /* Central tap identifier */
-> > > > >                     /* No power connection to CT3 */
-> > > > >                 };
-> > > > >             };
-> > > > >         };  
-> > 
-> > Couldn't we begin with something simple like the following and add all the
-> > transformers and pairs information as you described later if the community feels
-> > we need it?
-> > 
-> > mdis {
-> > 
-> >     /* 1000BaseT Port with Ethernet and PoE */
-> >     mdi0: ethernet-mdi@0 {
-> >         reg = <0>; /* Port index */
-> >         label = "ETH0"; /* Physical label on the device */
-> >         connector = "RJ45"; /* Connector type */
-> >         supported-modes = <10BaseT 100BaseTX 1000BaseT>; /* Supported modes */
-> >         lanes = <2>;
-> >         variant = "MDI-X"; /* MDI or MDI-X */
-> >         pse = <&pse1>;
-> >     };
-> > };
-> 
-> The problematic properties are lanes and variants.
-> 
-> Lanes seems to not provide any additional information which is not
-> provided by the supported-modes.
-> 
-> We have at least following working variants, which are supported by (some?)
-> microchip PHYs:
-> https://microchip.my.site.com/s/article/1000Base-T-Differential-Pair-Swapping
-> For swapping A and B pairs, we may use MDI/MDI-X. What is about swapped
-> C and D pairs?
-> 
-> The IEEE 802.3 - 2022 has following variants:
-> 14.5.2 Crossover function - only A<>B swap is supported
-> 40.4.4 Automatic MDI/MDI-X Configuration - only A<>B swap is supported?
-> 55.4.4 Automatic MDI/MDI-X configuration - 4 swap variants are supported
-> 113.4.4 Automatic MDI/MDI-X configuration - 4 swap variants are supported
-> 126.4.4 Automatic MDI/MDI-X configuration - 4 swap variants are supported
-> 
-> This was only the pair swap. How to reflect the polarity swap withing
-> the pairs?
+On Tue, Jan 7, 2025 at 4:58=E2=80=AFAM Will Deacon <will@kernel.org> wrote:
+>
+> On Tue, Jan 07, 2025 at 12:55:55PM +0000, Mostafa Saleh wrote:
+> > On Tue, Dec 10, 2024 at 08:51:18AM -0800, Rob Clark wrote:
+> > > From: Rob Clark <robdclark@chromium.org>
+> > >
+> > > This series extends io-pgtable-arm with a method to retrieve the page
+> > > table entries traversed in the process of address translation, and th=
+en
+> > > beefs up drm/msm gpu devcore dump to include this (and additional inf=
+o)
+> > > in the devcore dump.
+> > >
+> > > This is a respin of https://patchwork.freedesktop.org/series/94968/
+> > > (minus a patch that was already merged)
+> > >
+> > > v2:  Fix an armv7/32b build error in the last patch
+> > > v3:  Incorperate Will Deacon's suggestion to make the interface
+> > >      callback based.
+> > > v4:  Actually wire up the callback
+> > > v5:  Drop the callback approach
+> > > v6:  Make walk-data struct pgtable specific and rename
+> > >      io_pgtable_walk_data to arm_lpae_io_pgtable_walk_data
+> > > v7:  Re-use the pgtable walker added for arm_lpae_read_and_clear_dirt=
+y()
+> > > v8:  Pass pte pointer to callback so it can modify the actual pte
+> > > v9:  Fix selftests_running case
+> > > v10: Call visit cb for all nodes traversed, leave the decision about
+> > >      whether to care about non-leaf nodes to the callback
+> > > v11: Adjust logic in 3/4 [smostafa@]
+> >
+> > I see the level initialization was not removed as it was in the diff[1]=
+, so it
+> > seems to me that=E2=80=99s redundant as the level is set anyway in the =
+callback, and
+> > actually looking at that I see it=E2=80=99s not used or printed from th=
+e driver,
+> > so may it can be removed all together, anyway that=E2=80=99s nit that m=
+ay be Will can
+> > fix it up while merging.
+> >
+> > Otherwise, For the whole series
+> > Reviewed-by: Mostafa Saleh <smostafa@google.com>
+>
+> I'm happy to drop the 'level' field if it's not used. We can add it back
+> if/when it's needed. Rob?
 
-802.3 supports this because of the problems caused by miswired cables,
-which are typically a user thing. It's not really there to give freedom
-to designers to wire their sockets incorrectly.
+That works for me, thx
 
-Do we have any real cases where a socket has been wired incorrectly?
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+BR,
+-R
 
