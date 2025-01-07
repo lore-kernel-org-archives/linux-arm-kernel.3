@@ -4,80 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D14CE77198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 07:33:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27E5EE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 07:40:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nP3a904pW+4NeZpIzj2rL1y4z2Ox21R2Xnv72pkxwco=; b=zgu4xBSFWiNGek9DrKqziJWV47
-	bivKoNtlyVvMkFA8tZrhQbNlZL9VhxL8/ZGKM2mLSuEn6E68fFBIgYvHf9o+eMIb8EINOW33Fhfjq
-	GFR/nBWxAYt1E/H2kS+7L19BBNhq3dUVMcwDWGrrJT6Abixm5WkbaGFRRFYI2VzLv1Ej3lTnZW2Pn
-	YPwrAuYiLcvrP1eyDg7fl2Pv8KCOWLebWQivyZsZkFhwDGapBaH/iRuxlXVnvalg36JXJHTVSHLo9
-	bujfVdwPu10CUm3wgI2yot3R54fUMoLnMjElYSbeS2iB2+1Gq/9rMRU/DNkHdGzHP27YdN+az9NiN
-	ksqrlQcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LK6g3SrM3wf80kTlvLYW2iCr64iThkszp8lpJMbFBWs=; b=iirzOdosaDTOYupyD27LZp8Ffr
+	kuXiNUY6RGVZVYedPi4NJj0ESr1C6NZRmBHnbNRBREO6l48z/d/SA+8V36145VX8gR2vaD2syk2lT
+	EWo4QRitiwwucsPH1T43gShsycBj0i0jkMDAHbVI0pn59DNUD0fl7Vhx4w2wtmbvvALBG2xsEn3XR
+	LWgAbZGQXQD5gxYRqSn1OGjzhr8czvx3Z+BSkd4MhEFuxlkLQY1XYD8fwisxv2+lCKZ60OOfKxsDP
+	CyxKXhtRlXm25Hwm5h1TexddOXz5+0/edFxyfxNs6FLBbOGHAk+yh/U4q5SM2D0Btay9Y74MkI+SN
+	KxwX1uEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV45E-00000003lca-1P48;
-	Tue, 07 Jan 2025 07:33:00 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1tV4Bo-00000003mOo-1b0o;
+	Tue, 07 Jan 2025 07:39:48 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV429-00000003lF2-0L2L;
-	Tue, 07 Jan 2025 07:29:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1736234989; x=1767770989;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=nP3a904pW+4NeZpIzj2rL1y4z2Ox21R2Xnv72pkxwco=;
-  b=ee2FIquH9i21Tt1oI67MC4K04R8ooLYfYbYvpE6dZOFRcYfhXFcasv6E
-   EkGoBcD5Zl1ZNrZAxs2U9ISQihEzqf7C1HPQ2/eNJTyeO4RpcKoyueClN
-   WeMcgxg3AHooqhHUjYSj6NW7bfNHoExR9OOBwEl7k0ozKr3u0t3yeN5EQ
-   JPEENtuaSx6FhRMDshVrKFHAXkdNF6MnV9rneTVgkI6n5CvbSbeLDF6t5
-   ptfZzVu0r2Ndi4H/V12sdIFZle3cKWew+zje4SnMXIJUYTsyzsP/yOYIC
-   37vH/K3cQe/Lr2NqNCQFjgL6bFGwRlzLJ9KQ1OOmp2bI2U6Oggb/DtPkd
-   g==;
-X-CSE-ConnectionGUID: Izfo4A+rSCy3NyDPZAJESA==
-X-CSE-MsgGUID: xzEX+6reTZOhb7p1aXK/6Q==
-X-IronPort-AV: E=Sophos;i="6.12,294,1728943200"; 
-   d="scan'208";a="40884099"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 07 Jan 2025 08:29:46 +0100
-X-CheckPoint: {677CD7EA-9-1647E5E1-CA16D1A6}
-X-MAIL-CPID: 1AEEC7B410713E20B959F122062910D3_2
-X-Control-Analysis: str=0001.0A682F28.677CD7EA.00B1,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 11EEF16127F;
-	Tue,  7 Jan 2025 08:29:37 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1736234981;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nP3a904pW+4NeZpIzj2rL1y4z2Ox21R2Xnv72pkxwco=;
-	b=kUQqq3eFKQVewMaUchSw5EAUYGP9HHxGRg6hRebVznMHtHICrD6XdTKTAfwJWtI0GoTpcs
-	ImBdTuEMqD8JIzytM1HTt//DoWwt+Ci/ReXj6QXX/RS4A6rrQCKNyOrnZe9dUG8qMZrHnW
-	VygnZzh72HPDs8KMeLlV3U6HG3BiPFJO/QuqnFcti7RLBBG2t8UvwZqoXZLKzXBdS05ohy
-	8vXM3XG6VH8PWNBlNxaB5L5HFIWUgLX4NG3cnkPTlMnHI6/br9uYw39Vgl58GQvgy74fEj
-	Mq7udal6QZYZOLG+gGpfEKVaWTCuEFNS0fgAVNYIRD8CUcd8DuKhxuh1z+I52g==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: dmitry.baryshkov@linaro.org, andrzej.hajda@intel.com, neil.armstrong@linaro.org, Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, jernej.skrabec@gmail.com, airlied@gmail.com, daniel@ffwll.ch, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, shawnguo@kernel.org, s.hauer@pengutronix.de, festevam@gmail.com, vkoul@kernel.org, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, mripard@kernel.org, Sandor Yu <Sandor.yu@nxp.com>
-Cc: kernel@pengutronix.de, linux-imx@nxp.com, Sandor.yu@nxp.com, oliver.brown@nxp.com, sam@ravnborg.org
-Subject: Re: [PATCH v20 0/8] Initial support Cadence MHDP8501(HDMI/DP) for i.MX8MQ
-Date: Tue, 07 Jan 2025 08:29:36 +0100
-Message-ID: <2381464.ElGaqSPkdT@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <cover.1734340233.git.Sandor.yu@nxp.com>
-References: <cover.1734340233.git.Sandor.yu@nxp.com>
+	id 1tV4AW-00000003mBX-2hhJ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 07 Jan 2025 07:38:34 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 506Mv1cG022313;
+	Tue, 7 Jan 2025 07:38:15 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	LK6g3SrM3wf80kTlvLYW2iCr64iThkszp8lpJMbFBWs=; b=YIydElkEtQCdEOGu
+	oC8MBaUMs8g4Kp1LD0uBVY6G6YyiLZsuMGA4e9JKWlaaml1gZzt52M6+NC4LrwqM
+	+4H3G+GsEdWl4H3FTTZpgrSk/t5gnI34rHJIXekIXE+Iq3alZ8NWfiyMtLrLrU0F
+	uwMiLgYj8wPz9bvSmeZqLp5YAUOaqesJwyDScSKFLLlrrApTQeCEMsjLRsZ4FH4F
+	ejK3GWzwzzh5lGV7n0Ytky3HLuCxk1y/oNv+8gnrt/9mMLN8RisuN2ma+mkNKCQd
+	NiDQXl8zUg0xMs3RI3gw3UUfboN0bI6fmE/DzsB0Eoi9P2tgEGzHXOzCl7ciQVpw
+	yyVMVw==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 440rdq9105-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 07 Jan 2025 07:38:15 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5077cEZ7018763
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 7 Jan 2025 07:38:14 GMT
+Received: from [10.239.132.245] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 6 Jan 2025
+ 23:38:10 -0800
+Message-ID: <248221a5-5ff6-479a-ab23-96ce357d1b16@quicinc.com>
+Date: Tue, 7 Jan 2025 15:38:03 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] arm64: mm: Populate vmemmap at the page level for
+ hotplugged sections
+To: Anshuman Khandual <anshuman.khandual@arm.com>, <catalin.marinas@arm.com>
+CC: <will@kernel.org>, <ardb@kernel.org>, <ryan.roberts@arm.com>,
+        <mark.rutland@arm.com>, <joey.gouly@arm.com>,
+        <dave.hansen@linux.intel.com>, <akpm@linux-foundation.org>,
+        <chenfeiyang@loongson.cn>, <chenhuacai@kernel.org>,
+        <linux-mm@kvack.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <quic_tingweiz@quicinc.com>,
+        <stable@vger.kernel.org>
+References: <20250103085002.27243-1-quic_zhenhuah@quicinc.com>
+ <34dab81b-1b53-4ff0-89fd-2b5279a29942@arm.com>
+Content-Language: en-US
+From: Zhenhua Huang <quic_zhenhuah@quicinc.com>
+In-Reply-To: <34dab81b-1b53-4ff0-89fd-2b5279a29942@arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: FapkS_o3CGVr_FVC8dDsOWxMP_5pT2_s
+X-Proofpoint-GUID: FapkS_o3CGVr_FVC8dDsOWxMP_5pT2_s
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
+ bulkscore=0 phishscore=0 mlxlogscore=876 impostorscore=0 malwarescore=0
+ spamscore=0 mlxscore=0 suspectscore=0 clxscore=1015 adultscore=0
+ priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501070062
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_232949_485503_EBD8D040 
-X-CRM114-Status: GOOD (  10.66  )
+X-CRM114-CacheID: sfid-20250106_233828_794366_5ABD120F 
+X-CRM114-Status: GOOD (  38.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,47 +105,218 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sandor,
+Thanks Anshuman for your detailed review!
 
-thanks for the updates.
+On 2025/1/6 23:11, Anshuman Khandual wrote:
+> Hello Zhenhua,
+> 
+> On 1/3/25 14:20, Zhenhua Huang wrote:
+>> Commit c1cc1552616d ("arm64: MMU initialisation") optimizes the
+>> vmemmap to populate at the PMD section level which was suitable
+>> initially since hotplugging granule is always 128M. However,
+> 
+> A small nit s/hotplugging/hot plug/
+> 
+> Also please do mention that 128M is SECTION_SIZE_BITS == 27 on arm64
+> platform for 4K base pages which is the page size in context here.
+> 
+> 
+>> commit ba72b4c8cf60 ("mm/sparsemem: support sub-section hotplug")
+>> which added 2M hotplugging granule disrupted the arm64 assumptions.
+> 
+> A small nit s/hotplugging/hot plug/
+> 
+> Also please do mention that 2M is SUB_SECTION_SIZE.
+> 
+>>
+>> Considering the vmemmap_free -> unmap_hotplug_pmd_range path, when
+>> pmd_sect() is true, the entire PMD section is cleared, even if there is
+>> other effective subsection. For example pagemap1 and pagemap2 are part
+>> of a single PMD entry and they are hot-added sequentially. Then pagemap1
+>> is removed, vmemmap_free() will clear the entire PMD entry freeing the
+>> struct page metadata for the whole section, even though pagemap2 is still
+>> active.
+> 
+> I guess pagemap1/2 here indicates the struct pages virtual regions for two
+> different vmemmap mapped sub sections covered via a single PMD entry ? But
+> please do update the above paragraph appropriately because pagemap<N> might
+> be confused with /proc/<pid>/pagemap mechanism.
+> 
+> Also please do mention that similar problems exist with linear mapping for
+> 16K (PMD = 32M) and 64K (PMD = 512M) base pages as their block mappings
+> exceed SUBSECTION_SIZE. Hence tearing down the entire PMD mapping too will
+> leave other subsections unmapped in the linear mapping.
 
-Am Dienstag, 17. Dezember 2024, 07:51:42 CET schrieb Sandor Yu:
-> The patch set initial support Cadence MHDP8501(HDMI/DP) DRM bridge
-> driver and Cadence HDP-TX PHY(HDMI/DP) driver for Freescale i.MX8MQ.
->=20
-> The patch set compose of DRM bridge drivers and PHY driver.
->=20
-> Both of them need by patch #1 and #3 to pass build.
->=20
-> DRM bridges driver patches:
->   #1: soc: cadence: Create helper functions for Cadence MHDP
->   #2: drm: bridge: cadence: Update mhdp8546 mailbox access functions
->   #3: phy: Add HDMI configuration options
->   #4: dt-bindings: display: bridge: Add Cadence MHDP8501
->   #5: drm: bridge: Cadence: Add MHDP8501 DP/HDMI driver
->=20
-> PHY driver patches:
->   #1: soc: cadence: Create helper functions for Cadence MHDP
->   #3: phy: Add HDMI configuration options
->   #6: dt-bindings: phy: Add Freescale iMX8MQ DP and HDMI PHY
->   #7: phy: freescale: Add DisplayPort/HDMI Combo-PHY driver for i.MX8MQ
->=20
-> i.MX8M/TQMa8Mx DT patches:
->   #8: Add DT nodes for DCSS/HDMI pipeline
->   #9: Enable HDMI for TQMa8Mx/MBa8Mx
->=20
+Make sense to me, will update comments.
 
-I gave this version a new try but unfortunately the display stays black.
-Although the display pipeline is intialized and even wayland starts.
-Do you have any idea where to start looking?
+> 
+>>
+>> To address the issue, we need to prevent PMD/PUD/CONT mappings for both
+>> linear and vmemmap for non-boot sections if the size exceeds 2MB
+> 
+> s/if the size/if corresponding size on the given base page/
+> 
+>> (considering sub-section is 2MB). We only permit 2MB blocks in a 4KB page
+>> configuration.
+> 
+> PMD block in 4K page size config as it's PMD_SIZE matches the SUBSECTION_SIZE
+> but only for linear mapping.
+> 
+> 
+>>
+>> Cc: stable@vger.kernel.org # v5.4+
+>> Fixes: ba72b4c8cf60 ("mm/sparsemem: support sub-section hotplug")
+>> Signed-off-by: Zhenhua Huang <quic_zhenhuah@quicinc.com>
+>> ---
+>> Hi Catalin and Anshuman,
+>> Based on your review comments, I concluded below patch and tested with my setup.
+>> I have not folded patchset #2 since this patch seems to be enough for backporting..
+>> Please see if you have further suggestions.
+>>
+>>   arch/arm64/mm/mmu.c | 33 +++++++++++++++++++++++++++++----
+>>   1 file changed, 29 insertions(+), 4 deletions(-)
+>>
+>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>> index e2739b69e11b..2b4d23f01d85 100644
+>> --- a/arch/arm64/mm/mmu.c
+>> +++ b/arch/arm64/mm/mmu.c
+>> @@ -42,9 +42,11 @@
+>>   #include <asm/pgalloc.h>
+>>   #include <asm/kfence.h>
+>>   
+>> -#define NO_BLOCK_MAPPINGS	BIT(0)
+>> +#define NO_PMD_BLOCK_MAPPINGS	BIT(0)
+>>   #define NO_CONT_MAPPINGS	BIT(1)
+>>   #define NO_EXEC_MAPPINGS	BIT(2)	/* assumes FEAT_HPDS is not used */
+>> +#define NO_PUD_BLOCK_MAPPINGS	BIT(3)  /* Hotplug case: do not want block mapping for PUD */
+>> +#define NO_BLOCK_MAPPINGS (NO_PMD_BLOCK_MAPPINGS | NO_PUD_BLOCK_MAPPINGS)
+> 
+> 
+> Should not NO_PMD_BLOCK_MAPPINGS and NO_PUD_BLOCK_MAPPINGS be adjacent bits
+> for better readability ? But that will also cause some additional churn.
 
-Best regards,
-Alexander
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
+Agree, I see these macros are only used in this file, it's safe to update.
 
+> 
+>>   
+>>   u64 kimage_voffset __ro_after_init;
+>>   EXPORT_SYMBOL(kimage_voffset);
+>> @@ -254,7 +256,7 @@ static void init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+>>   
+>>   		/* try section mapping first */
+>>   		if (((addr | next | phys) & ~PMD_MASK) == 0 &&
+>> -		    (flags & NO_BLOCK_MAPPINGS) == 0) {
+>> +		    (flags & NO_PMD_BLOCK_MAPPINGS) == 0) {
+> 
+> Behavior will remain unchanged for all existing users of NO_BLOCK_MAPPINGS
+> as it will now contain NO_PMD_BLOCK_MAPPINGS.
+
+Hmm... do you want me to include these in comments? The code appears to 
+be clear as it is.
+
+> 
+>>   			pmd_set_huge(pmdp, phys, prot);
+>>   
+>>   			/*
+>> @@ -356,10 +358,11 @@ static void alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+>>   
+>>   		/*
+>>   		 * For 4K granule only, attempt to put down a 1GB block
+>> +		 * Hotplug case: do not attempt 1GB block
+>>   		 */
+>>   		if (pud_sect_supported() &&
+>>   		   ((addr | next | phys) & ~PUD_MASK) == 0 &&
+>> -		    (flags & NO_BLOCK_MAPPINGS) == 0) {
+>> +		   (flags & NO_PUD_BLOCK_MAPPINGS) == 0) {
+> 
+> Behavior will remain unchanged for all existing users of NO_BLOCK_MAPPINGS
+> as it will now contain NO_PUD_BLOCK_MAPPINGS.
+> 
+
+Ditto.
+
+>>   			pud_set_huge(pudp, phys, prot);
+>>   
+>>   			/*
+>> @@ -1175,9 +1178,16 @@ int __meminit vmemmap_check_pmd(pmd_t *pmdp, int node,
+>>   int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
+>>   		struct vmem_altmap *altmap)
+>>   {
+>> +	unsigned long start_pfn;
+>> +	struct mem_section *ms;
+>> +
+>>   	WARN_ON((start < VMEMMAP_START) || (end > VMEMMAP_END));
+>>   
+>> -	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES))
+>> +	start_pfn = page_to_pfn((struct page *)start);
+>> +	ms = __pfn_to_section(start_pfn);
+>> +
+>> +	/* Hotplugged section not support hugepages */
+> 
+> Please update the comment as
+> 
+> 	/*
+> 	 * Hotplugged section does not support hugepages as
+> 	 * PMD_SIZE (hence PUD_SIZE) section mapping covers
+> 	 * struct page range that exceeds a SUBSECTION_SIZE
+> 	 * i.e 2MB - for all available base page sizes.
+> 	 */
+> 
+>> +	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES) || !early_section(ms))
+>>   		return vmemmap_populate_basepages(start, end, node, altmap);
+>>   	else
+>>   		return vmemmap_populate_hugepages(start, end, node, altmap);
+>> @@ -1339,9 +1349,24 @@ int arch_add_memory(int nid, u64 start, u64 size,
+>>   		    struct mhp_params *params)
+>>   {
+>>   	int ret, flags = NO_EXEC_MAPPINGS;
+>> +	unsigned long start_pfn = page_to_pfn((struct page *)start);
+>> +	struct mem_section *ms = __pfn_to_section(start_pfn);
+>>   
+>>   	VM_BUG_ON(!mhp_range_allowed(start, size, true));
+>>   
+>> +	/* Should not be invoked by early section */
+>> +	WARN_ON(early_section(ms));
+>> +
+>> +	if (IS_ENABLED(CONFIG_ARM64_4K_PAGES))
+>> +	/*
+>> +	 * As per subsection granule is 2M, allow PMD block mapping in
+>> +	 * case 4K PAGES.
+>> +	 * Other cases forbid section mapping.
+>> +	 */
+> 
+> IIUC subsection size is 2M regardless of the page size. But with 4K pages
+> on arm64, PMD_SIZE happen to be 2M. Hence there is no problem in creating
+> linear mappings at PMD block level, which will not be the case with other
+> page sizes i.e 16K and 64K.
+
+Yes.
+
+> 
+> include/linux/mmzone.h
+> 
+> #define SUBSECTION_SHIFT 21
+> #define SUBSECTION_SIZE (1UL << SUBSECTION_SHIFT)
+> 
+> Please update the comment with following changes but above IS_ENABLED()
+> statement as it talks about all page size configs.
+> 
+> 	/*
+> 	 * 4K base page's PMD_SIZE matches SUBSECTION_SIZE i.e 2MB. Hence
+> 	 * PMD section mapping can be allowed, but only for 4K base pages.
+> 	 * Where as PMD_SIZE (hence PUD_SIZE) for other page sizes exceed
+> 	 * SUBSECTION_SIZE.
+> 	 */
+
+Nice comments! Thanks.
+
+>> +		flags |= NO_PUD_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
+>> +	else
+>> +		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
+>> +
+>>   	if (can_set_direct_map())
+>>   		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
+>>   
+> 
 
 
