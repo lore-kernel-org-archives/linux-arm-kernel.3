@@ -4,91 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C27C6E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 13:18:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2DF4E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 13:19:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BPSDsnf8xMzpznIKoQbetYMFd7ZBSAYbuVYrJIoIquU=; b=RlU2D2N73h3gA322vmFNmJ8yip
-	Rxtx/2Pc70nSkIjwGN+fc+B0hEM+H1BWRzoZrJviX5K3Wb1MS/YaaCYiZPovHUx2KJ5p3zdfPI1pK
-	EL52sQjLvx2zwsS0w3pYRz9WewAHN3M82kC4jSEPJwa6NdGDCN0RnBADKiFp+vBRjFNEdLOBIRB7j
-	ib0HXhxyX0EYu1e/JYr7oAYxE48qystrSnlgj8wLxC4veqwf1nYNlRyEA/jfYAnLA4Lzt6YQBJNq4
-	X2Tu7ksYN4CZlJVZ/hDwKwjnih0YpF6E03wKVpTmz3/aaUhkiHhcBYFQjFCCB4E5sBVjg8Lyz5A+g
-	dmoL3FGw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OzbkvkrBP9cwmFXRob+AcrT2UZB7yjxkVCUuh7fKz7U=; b=XFowxFm6+QuInHBc0Tpyi9XxBt
+	gvFZyYk7ev4WJBx8nZgQTXZ90LjfOqkpYdHnEcCBkH0pSaa+Z90O5wpNK5Tpu67r7wk659vO/17aR
+	gIV0cgd1JWdEIZPW/YYXT5L3sDlMdbbmCE6wGDWNZ7pteSj0Jg6QONbAVxint8cCIkayQ1GFXrM9A
+	jp+8xo5GnJMx9ZPxzkdPnXkyPrShM9RY9TNPlUpuemxcx25zYYKNPMX49lIAEYUg/XVcJ9AlNrrdS
+	SCCKuoxNSojGBbS8TdJ41auteZodLOIVkxCpdKScy9ZpuCXby7WOQ4pOQNNzo/vMdixvPxX5sKa16
+	mfi9sDgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV9Sw-00000004yNQ-1N1o;
-	Tue, 07 Jan 2025 13:17:50 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1tV9U8-00000004ybU-03uZ;
+	Tue, 07 Jan 2025 13:19:04 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV9MW-00000004wkt-2Om2
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 13:11:15 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-436246b1f9bso24474775e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 05:11:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736255471; x=1736860271; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=BPSDsnf8xMzpznIKoQbetYMFd7ZBSAYbuVYrJIoIquU=;
-        b=xhzg7BOA1NQ1VjSWHleBpVLC8Cq4C0iYy5R3jXl8NdLpbOJxGdKl7egfhUZZpmAIVM
-         9jXjBIjKcI4DfFh6dcsDjwS8FjHLeBVQ3eXdHAopSq5fk1V76qpByYuZuc0sv4osqopa
-         vPTz0E76IWS5LkYljn4Rfe0jvBFEiR2lNmbVZLROPMrt6nJdHaJQanLrPOELnMi60ouc
-         Vh15oELE5IsANfMCygTAlfvPkRfGQyomjaT/qYjVIZtKCC381dF8hC+snMlpmyCz6vsu
-         mQnwoon7ahpu82saWGU5SOVzGJyBqUyCXHL9JjriDws9cbKy0Yl5GTGBxzLOSTpXoAEx
-         BX4Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736255471; x=1736860271;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=BPSDsnf8xMzpznIKoQbetYMFd7ZBSAYbuVYrJIoIquU=;
-        b=Rn6sfDNgXcz3uAFUnSnlmX4E7QhIfLmde4WafOMWqI3wrFcV2k2u8TOdBuPAcyXT2a
-         vz/Fo7sUqGn3CK0drpVbly/C2sjyjna6GQ6m9oHve4srDzftWx4xEr81YeIeIinERUH0
-         HjDBNDj59ubl+Vfumihhy6vWA1mRhk98rN1qs0L3Qiqq6lN9blrLfc/B2/Izyu9lODTD
-         m6MdThMQWCImC9Bao4Z3jBMepSv2JN3pdW1fCfSEWrjn6HrxqqxvD6eUW/VjwztKrI3G
-         wJC6YUMWHhYCSen8AodvLD9n8WCf8MEN2+KOtSQz8JXPsE//K+3injai8MwCnDljQgZZ
-         0y8g==
-X-Forwarded-Encrypted: i=1; AJvYcCXt7ZfCpQoW08nzhBS5GLL4dLRl5Wo4xkL1Upi9ZyFrobTlz3G3AUOGi+qneCWI/joBAds5UiAYZh5HcWQaqRd7@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywwkp5jFjafTDNzua3JYm2hTbmqJ9zmJE/fTQgs7hhyw9F73nh2
-	CTlA3bqjpQTNop/Xt63QH9IfmStitvc+Qk5vP6P9X7AkpJFrbVDJJs4Lhbza6FU=
-X-Gm-Gg: ASbGncuzK71VRjjgwLC7tCKWzzgf6kVVSEyYNBN1CvtFD/6YBNr5ecai8wmRLLnFhQS
-	GomZJ7IPp62i0VlgTi8z8YwG+zxoqWfP8DmClM1J2oL+mrwwM+NEJXBdz9wkewtzHE7X5ehPGSR
-	9i1/uaZTUM/hWgrjFQPEr3GhYvSApXecyS2CjTVaVDHYjljkUMHBTYEvre6bfuoPelAwCEZy8t3
-	8ru8Jwl5tUKbKH3JF1UhXEWMrVIlg94wKlKSZfDP/PizXy9wS6DzzZ6ALLoiNcDEoDR8d8=
-X-Google-Smtp-Source: AGHT+IFcDu8xWuN0TunF1FW8lTPc9ujrnA78CGY24BiMzjjLy9sHjT+/sVzeAlZ8ODcnc2aRlSGLHg==
-X-Received: by 2002:a05:600c:5103:b0:431:4983:e8fe with SMTP id 5b1f17b1804b1-43668b93cb8mr217094915e9.9.1736255471085;
-        Tue, 07 Jan 2025 05:11:11 -0800 (PST)
-Received: from krzk-bin.. ([178.197.223.165])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436dd1682e4sm10229135e9.1.2025.01.07.05.11.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Jan 2025 05:11:10 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH] dt-bindings: interrupt-controller: Correct indentation and style in DTS example
-Date: Tue,  7 Jan 2025 14:11:08 +0100
-Message-ID: <20250107131108.246898-1-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.43.0
+	id 1tV9Nb-00000004x2S-0VBS;
+	Tue, 07 Jan 2025 13:12:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1736255537;
+	bh=/yaQvBxN92WBph6vXqky+w7V6dYWSvkNwdgX/ZOAW9M=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Hq/irzVoEOQUNndEXpvhYpZJZ+dRSDryELIilqoMSAyskCJ+Z+RZvXikChS/Wc5t1
+	 te++ypatMZc9BExcx6+IIb6w7ZYmhBUfhJal+FI0eBi3asIj4yYi1C/MeGQBWtRUh8
+	 lgERLUBkqex86n/ywFni0doKfpGvGjXKy0BbxNglOU+XCuvu5+oREGMsKoSs8X+Hbt
+	 ZQ0fFTRLKofTI67/KUTiSXw1RpI1egfMqLm9emXD1qn/hJqi0xuvilCLW3PPzUx0l1
+	 /FWNBzkWxYQ8DBA2CCxPeNDSNglC7kigB9zrMQ9Bpl/hCI8ickvr1vcPyzwmpzTX/L
+	 A5K2uNGV74vwA==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 28EA517E1574;
+	Tue,  7 Jan 2025 14:12:17 +0100 (CET)
+Message-ID: <eda10efe-a301-45d3-9bf6-088275db7af5@collabora.com>
+Date: Tue, 7 Jan 2025 14:12:16 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] nvmem: mtk-efuse: Enable GPU speed bin post-processing
+ for MT8188
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ stable@vger.kernel.org
+References: <20241223100648.2166754-1-wenst@chromium.org>
+ <481a6eec-c428-45cd-98a6-5a91f3ceb187@collabora.com>
+ <CAGXv+5Fj5s9FUyaxmEkGimxjEcS6OEfm4_5Zso+YocSi+Vt4pg@mail.gmail.com>
+ <bbc6aa2a-fe48-4e06-b070-fd66dbd00e15@collabora.com>
+ <CAGXv+5FoOM=ZUCWigdCaPbc4FCBtLVX2xnUJnVnVsBH=7yoZ=Q@mail.gmail.com>
+ <efb88dd0-3b66-49fe-b279-e66c4574cf9d@collabora.com>
+ <CAGXv+5HWcYrCzWJD4e=WP1WVNfqG5Y2_z+_oetWZq2ZKjXP75g@mail.gmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <CAGXv+5HWcYrCzWJD4e=WP1WVNfqG5Y2_z+_oetWZq2ZKjXP75g@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_051112_607552_CDA90684 
-X-CRM114-Status: GOOD (  11.22  )
+X-CRM114-CacheID: sfid-20250107_051219_298942_F00DC8F7 
+X-CRM114-Status: GOOD (  24.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,84 +83,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-DTS example in the bindings should be indented with 2- or 4-spaces and
-aligned with opening '- |', so correct any differences like 3-spaces or
-mixtures 2- and 4-spaces in one binding.
+Il 23/12/24 17:15, Chen-Yu Tsai ha scritto:
+> On Tue, Dec 24, 2024 at 12:08 AM AngeloGioacchino Del Regno
+> <angelogioacchino.delregno@collabora.com> wrote:
+>>
+>> Il 23/12/24 16:57, Chen-Yu Tsai ha scritto:
+>>> On Mon, Dec 23, 2024 at 7:43 PM AngeloGioacchino Del Regno
+>>> <angelogioacchino.delregno@collabora.com> wrote:
+>>>>
+>>>> Il 23/12/24 12:24, Chen-Yu Tsai ha scritto:
+>>>>> On Mon, Dec 23, 2024 at 7:11 PM AngeloGioacchino Del Regno
+>>>>> <angelogioacchino.delregno@collabora.com> wrote:
+>>>>>>
+>>>>>> Il 23/12/24 11:06, Chen-Yu Tsai ha scritto:
+>>>>>>> Like the MT8186, the MT8188 stores GPU speed binning data in its efuse.
+>>>>>>> The data needs post-processing into a format that the OPP framework can
+>>>>>>> use.
+>>>>>>>
+>>>>>>> Add a compatible match for MT8188 efuse with post-processing enabled.
+>>>>>>>
+>>>>>>
+>>>>>> Let's just change the MT8188 compatible list to
+>>>>>>
+>>>>>> compatible = "mediatek,mt8188-efuse", "mediatek,mt8186-efuse";
+>>>>>
+>>>>> That would be "mediatek,mt8188-efuse", "mediatek,mt8186-efuse", "mediatek,efuse"
+>>>>> then?
+>>>>>
+>>>>
+>>>> No, we're dropping the generic "mediatek,efuse".
+>>>
+>>> That means we also drop it for MT8186?
+>>>
+>>> Thinking about it more, I think it's stretching things a bit. The hardware
+>>> is clearly backwards compatible, or we wouldn't even be reading values
+>>> out correctly. The only difference now with MT8186 and MT8188 is that
+>>> they have a speed-bin field with a value that we want passed to the OPP
+>>> framework, and the interpretation of that value is not really part of
+>>> the efuse's hardware. We chose to do the conversion in the efuse driver,
+>>> but we could also have done it in the GPU driver.
+>>>
+>>> What I'm saying is that we should not need to change the compatible strings
+>>> to make this work.
+>>>
+>>
+>> No we don't forcefully have to drop it from MT8186, and doing so would be kind
+>> of hard and actually producing unnecessary breakages with (very) old kernels.
+>>
+>> Just add a `deprecated: true` to the binding that wants `mediatek,efuse` and
+>> start with MT8188, where 8188 is in enum and 8186 is const.
+>>
+>> We can do MT8188 because that'll still work even with old kernels (since MT8186
+>> is there since before MT8188 was introduced), and it's something to enable a new
+>> feature.
+>> This means that there's not going to be any breakage with new DT and old kernel.
+>>
+>> I want the mediatek,efuse binding to be like the majority of the others across
+>> the kernel, so, no generic compatible.
+> 
+> In that case shouldn't the fallback be the oldest SoC in the list?
+> Maybe MT8173, which is currently marked as deprecated, so we undeprecate it?
+> 
+> Certainly not the MT8186.
+> 
 
-No functional changes here, but saves some comments during reviews of
-new patches built on existing code.
+MT8173 doesn't have the post processing enabled.... if you can test that the code
+actually works for MT8173 as well, giving meaningful results, then we can just use
+the MT8173 compatible :-)
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- .../aspeed,ast2400-vic.yaml                   | 10 +++----
- .../brcm,bcm7120-l2-intc.yaml                 | 30 +++++++++----------
- 2 files changed, 20 insertions(+), 20 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2400-vic.yaml b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2400-vic.yaml
-index 73e8b9a39bd7..86516cd44b9d 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2400-vic.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2400-vic.yaml
-@@ -52,11 +52,11 @@ additionalProperties: false
- examples:
-   - |
-     interrupt-controller@1e6c0080 {
--         compatible = "aspeed,ast2400-vic";
--         reg = <0x1e6c0080 0x80>;
--         interrupt-controller;
--         #interrupt-cells = <1>;
--         valid-sources = <0xffffffff 0x0007ffff>;
-+        compatible = "aspeed,ast2400-vic";
-+        reg = <0x1e6c0080 0x80>;
-+        interrupt-controller;
-+        #interrupt-cells = <1>;
-+        valid-sources = <0xffffffff 0x0007ffff>;
-     };
- 
- ...
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/brcm,bcm7120-l2-intc.yaml b/Documentation/devicetree/bindings/interrupt-controller/brcm,bcm7120-l2-intc.yaml
-index 786f2426399b..0fcbe304cd05 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/brcm,bcm7120-l2-intc.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/brcm,bcm7120-l2-intc.yaml
-@@ -130,23 +130,23 @@ required:
- examples:
-   - |
-     irq0_intc: interrupt-controller@f0406800 {
--      compatible = "brcm,bcm7120-l2-intc";
--      interrupt-parent = <&intc>;
--      #interrupt-cells = <1>;
--      reg = <0xf0406800 0x8>;
--      interrupt-controller;
--      interrupts = <0x0 0x42 0x0>, <0x0 0x40 0x0>;
--      brcm,int-map-mask = <0xeb8>, <0x140>;
--      brcm,int-fwd-mask = <0x7>;
-+        compatible = "brcm,bcm7120-l2-intc";
-+        interrupt-parent = <&intc>;
-+        #interrupt-cells = <1>;
-+        reg = <0xf0406800 0x8>;
-+        interrupt-controller;
-+        interrupts = <0x0 0x42 0x0>, <0x0 0x40 0x0>;
-+        brcm,int-map-mask = <0xeb8>, <0x140>;
-+        brcm,int-fwd-mask = <0x7>;
-     };
- 
-   - |
-     irq1_intc: interrupt-controller@10000020 {
--       compatible = "brcm,bcm3380-l2-intc";
--       reg = <0x10000024 0x4>, <0x1000002c 0x4>,
--             <0x10000020 0x4>, <0x10000028 0x4>;
--       interrupt-controller;
--       #interrupt-cells = <1>;
--       interrupt-parent = <&cpu_intc>;
--       interrupts = <2>;
-+        compatible = "brcm,bcm3380-l2-intc";
-+        reg = <0x10000024 0x4>, <0x1000002c 0x4>,
-+              <0x10000020 0x4>, <0x10000028 0x4>;
-+        interrupt-controller;
-+        #interrupt-cells = <1>;
-+        interrupt-parent = <&cpu_intc>;
-+        interrupts = <2>;
-     };
--- 
-2.43.0
+>> Cheers,
+>> Angelo
+>>
+>>>
+>>> ChenYu
+>>>
+>>>> Cheers!
+>>>>
+>>>>> Fine by me. :D
+>>>>>
+>>>>> ChenYu
+>>>>>
+>>>>>> instead :-)
+>>>>>>
+>>>>>> Cheers,
+>>>>>> Angelo
+>>>>>>
+>>>>>>> Cc: <stable@vger.kernel.org>
+>>>>>>> Fixes: ff1df1886f43 ("dt-bindings: nvmem: mediatek: efuse: Add support for MT8188")
+>>>>>>> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+>>>>>>> ---
+>>>>>>>
+>>>>>>> I'm not exactly sure about pointing to the dt bindings commit for the
+>>>>>>> fixes tag.
+>>>>>>> ---
+>>>>>>>      drivers/nvmem/mtk-efuse.c | 1 +
+>>>>>>>      1 file changed, 1 insertion(+)
+>>>>>>>
+>>>>>>> diff --git a/drivers/nvmem/mtk-efuse.c b/drivers/nvmem/mtk-efuse.c
+>>>>>>> index af953e1d9230..e8409e1e7fac 100644
+>>>>>>> --- a/drivers/nvmem/mtk-efuse.c
+>>>>>>> +++ b/drivers/nvmem/mtk-efuse.c
+>>>>>>> @@ -112,6 +112,7 @@ static const struct mtk_efuse_pdata mtk_efuse_pdata = {
+>>>>>>>      static const struct of_device_id mtk_efuse_of_match[] = {
+>>>>>>>          { .compatible = "mediatek,mt8173-efuse", .data = &mtk_efuse_pdata },
+>>>>>>>          { .compatible = "mediatek,mt8186-efuse", .data = &mtk_mt8186_efuse_pdata },
+>>>>>>> +     { .compatible = "mediatek,mt8188-efuse", .data = &mtk_mt8186_efuse_pdata },
+>>>>>>>          { .compatible = "mediatek,efuse", .data = &mtk_efuse_pdata },
+>>>>>>>          {/* sentinel */},
+>>>>>>>      };
+>>>>>>
+>>>>
+
 
 
