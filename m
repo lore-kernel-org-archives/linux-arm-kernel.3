@@ -4,84 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FC74E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 05:05:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CFC7E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 05:08:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l96aDxgtPyGtmhQmKxg5Ir9C+VzTtQ4ciP6aZGSnXTA=; b=gRZiNNpV+vWLm39L0qJYjv8Il2
-	pbW8U7uXLbVX0OkhkUqcc4D0ykWjd+EREugU0INP7rtyxjziweWHegk3eZT+ZB6dwFSzdt3qvqOJi
-	mAGAepLe+Ri6E57dxlAc8c9+ouA0Jjf+Ji/ZQTtlthRKptuqQHnAxir6L+M0mCkivNlg9mwSYa2S0
-	ZE9Y5tiIG7rvD2w5GUGjsxMejI+F6qC/6wunClmOM5HExRneP/N3KJEkvCiVALvIalZWd2wm6+Tc8
-	//9PN4vU0OTJkf+8Dz0JdGCvwSu6CEKyx6F1Ln6m6bIU6/6Psetb5bEzRGxM+bxkxwY+quXAxqu4c
-	pjlwgJ3A==;
+	bh=7wg678tNAXdRZkkapitg96TNog1Ghit92yl5gbeQUJs=; b=MohO5xaasD9ddObpXn68DstNPN
+	KtAJ5QgDK1QPeEg4RVTxKKLiZlrlX3JDOgNy64lg0yZ3V33knb+1RTuqcugT17z8dztPtlQU4qmrZ
+	kS9ucIxwIaKhxnARs/fZvcW0Zaw9WYVZyMuHPUkZc98e5WHw8hTgy6j6JKem/AP2AJcmr753l4HmD
+	Mkoizdr+alzxScGdUxTfZrOhi921MSsrlIWLmWL/8UR3yNKOC0EOxcTGQxVaiOgk4zF+LNn0NynMN
+	BgBAAiKDs5rViweqUHHnWDZ5QrEA/W/vN4OuPV9A+dMWDbEbfGSvVqdI2mtYip7XrVDz/QzBLn26/
+	pJAt4+FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV1lj-00000003VzX-31DK;
-	Tue, 07 Jan 2025 05:04:43 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1tV1pb-00000003WGt-2gbA;
+	Tue, 07 Jan 2025 05:08:43 +0000
+Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV1kQ-00000003VtR-2HEU
+	id 1tV1oM-00000003W9w-2NjG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 05:03:26 +0000
-Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-54026562221so16218217e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jan 2025 21:03:21 -0800 (PST)
+	Tue, 07 Jan 2025 05:07:30 +0000
+Received: by mail-lj1-x229.google.com with SMTP id 38308e7fff4ca-3003d7ca01cso158607181fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jan 2025 21:07:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1736226200; x=1736831000; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1736226444; x=1736831244; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=l96aDxgtPyGtmhQmKxg5Ir9C+VzTtQ4ciP6aZGSnXTA=;
-        b=fupKwAO8MBW+fSe6dK9BHLuiKkwK1RsB8rct+5KF//G4sdKlHhCG0QZdFmdNOOA5GA
-         /WyDB3p1QzePPDES0Casxc2XhTPIeoEbT3P70MMbEjr3s0LcHgIzoPSoJfTJTaEUeIXH
-         IgNUAPuaLXTR2ZxQLFrzitSoTg8skV8wL0YIM=
+        bh=7wg678tNAXdRZkkapitg96TNog1Ghit92yl5gbeQUJs=;
+        b=QJUqm8j26U46bXgB9bzy8DIEd/JkYrXVzf81tF+vLazaFsR1Vg9J8KYJmqVnRuljWZ
+         TTwOBIr82Kh1lkWy+btNIg6dF/N5TWafT8+sbJUl1XiZLWcnaKJjffHepNTcE8W5jAEu
+         l5/D6jK1k8hlksf2mxRjFtwDF41i79g3bxTkM=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736226200; x=1736831000;
+        d=1e100.net; s=20230601; t=1736226444; x=1736831244;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=l96aDxgtPyGtmhQmKxg5Ir9C+VzTtQ4ciP6aZGSnXTA=;
-        b=dHO23rPVK8kYwBBWKVjtENTXiATSH8U2WvUII4de0BwDhJJ4x45r0MNDojjDZC6KAt
-         8IJ3o1ZgWh60N+us6K+aNt93U+La7aN6gOOQkA7oaJdN7FElVjvu/CO+xYJYmlovG65C
-         ISqahLxbYqwDMaTT8E/59oUpBYbuRWWxs7NNmTHQoc43ruvxaBuoHp5jOrkumf+wnxf8
-         nLYnykW9AqKwtWK2D4Jfu3WACiWEpaAaU1tvtgEQxy4J9cXKfVlkUARb5hh5yqM0pOEV
-         FNmQiJemPB9G2at1kiGtgk5swm7Hm2Ge3rgqYUe19733vsxVPbwx3ebYrqHgh2INHlUu
-         gVUw==
-X-Forwarded-Encrypted: i=1; AJvYcCXqcJNVrSeD++fW4egAc/hkY/Lg0K/SOsUujp06M2OA6YuWiukNt+Zx0dGvDJv5G1G7jsqAkle85i53E4oIuUCA@lists.infradead.org
-X-Gm-Message-State: AOJu0YySoZQszV3BGwYSfzpOy2cDF0na4qXJUbzroA+1Q0TPfr8jy/XL
-	J6xj6k97XCmEqAvzU24z3L1rUHEnOhtI/dNOV6/btfxmMl2h6skICW9k1a51uIRQTMnU6Tk74TI
-	KkSyAdEbhWsdionwWUNanG7mMjkr1LF8yQnfa
-X-Gm-Gg: ASbGncuV7umjoHB/SsmYzwQ9h856PlD6jIGt1OrohI1WMpJif6ggWxP4phj6EHLVoex
-	f/2nWMSqkvwjn+FiFhaZElKZlim2MiY0QnazqCqO+qxf7iiHPr46OfvzXS58Ys389
-X-Google-Smtp-Source: AGHT+IFuVqIzLmO0Yramox//ee4/O3h23KsvSyQuha2+kpZxvOtrGLzpdtD8WFdSLs2fPfAPih1M9PDh71qbUvNQtpc=
-X-Received: by 2002:ac2:4c50:0:b0:542:28dc:a2b3 with SMTP id
- 2adb3069b0e04-54229530148mr21627152e87.22.1736226199865; Mon, 06 Jan 2025
- 21:03:19 -0800 (PST)
+        bh=7wg678tNAXdRZkkapitg96TNog1Ghit92yl5gbeQUJs=;
+        b=GRduwFAaPrvoDsX4KHjdVNAS6dwY6gKPTZBfSWjqseR2Z0kSo30yqzG+3DP0FRuyms
+         rIfSGSF0lnCIyWfoIv2jO6dCvllfmGsC8soXhoYIlIGRxq4eFMFoNx6QEs7HHFdHSrw0
+         weWLJDrUq0WmkitQh0vPYtHueyfbzEygMNRvv+7yirFbzLcBTiiAIgfodIz5pp5jVmlu
+         +mm8fZHBh1ZH13eQrFSiUB9Pm3ume3LrMjmUPrhfe6WobPt1dhZ4dbEoEkEMoo8jkpdK
+         WYSSGF++qUdo1HDBG6T3sHVUSPzvJcvvXJV2+ChaVHtBHzvpq3hxSCYbK6Q9CCAVhBtf
+         zw9A==
+X-Forwarded-Encrypted: i=1; AJvYcCWKzmzUkNCbqU7idPvNZoUWeRKdviwXrtnCHAhpYn1fwA9FiUlgCc27zftyMb8wXwicZKqvLtJMic0i45B2uomf@lists.infradead.org
+X-Gm-Message-State: AOJu0YzrVlted/nd1c3WwsjIB1ftIgSEyLJQ5KBjgvOUYyGzi3FzQ/Ul
+	233wjMH053yyy/mRf6mUKlq4N+vFSggrKfg1TDZIbL6ZRBTiApvWIUY28c9X7eqNkNsDNFUKIlm
+	ICJhO341Ay4ByA4/n7bz5bNuSwIjFnFKF29lx
+X-Gm-Gg: ASbGncs9owVT95t69rItk6lpe2BWdrSJhSaUH+AGs05N/iP7uSeEDI6SvOUw8PYwj32
+	NJUmH/ictO4iLc4/cHiTQSQsJD9q5cXswzYbDJUGBUiuu3YC9xFpIOk2tuDsEaT5x
+X-Google-Smtp-Source: AGHT+IFLiMjxu40TM+UVieh0Bd7i1lzubM2AaOkks8cek/BeR7xzlhz5A3bDMGs9Q7HwEqfELllu4ST8mmu2IBdFiYQ=
+X-Received: by 2002:a05:6512:b0f:b0:540:17ac:b379 with SMTP id
+ 2adb3069b0e04-5422953c451mr13347762e87.25.1736226444371; Mon, 06 Jan 2025
+ 21:07:24 -0800 (PST)
 MIME-Version: 1.0
-References: <20241203-mt8188-6359-unhardcode-dmic-v1-1-346e3e5cbe6d@collabora.com>
- <CAGXv+5EG8LbgaWc-Lp_KQc8Yf+m_4TRo8R7B0S7-rXYpnak+7g@mail.gmail.com> <f60f4242-9e4e-4846-b1f0-949daf68f6f5@notapiano>
-In-Reply-To: <f60f4242-9e4e-4846-b1f0-949daf68f6f5@notapiano>
+References: <20241126025507.29605-1-chunfeng.yun@mediatek.com>
+ <20241126025507.29605-2-chunfeng.yun@mediatek.com> <207f9e96-3165-440d-8576-545bf2bc9dee@collabora.com>
+ <0820cf224ae9022fc34fb31d97d4c6f8f6e2eec1.camel@mediatek.com>
+In-Reply-To: <0820cf224ae9022fc34fb31d97d4c6f8f6e2eec1.camel@mediatek.com>
 From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Tue, 7 Jan 2025 13:03:08 +0800
-X-Gm-Features: AbW1kva84os3VCZ6M58WLraDevj5vJ7ZZRyOV-JzVdUbyuXDzp4hplu0A48ga_8
-Message-ID: <CAGXv+5E5L5nNCT54O+LW6DdaWifLuA46pXcRNpSw1okGUp+JFQ@mail.gmail.com>
-Subject: Re: [PATCH] ASoC: mediatek: mt8188-mt6359: Remove hardcoded dmic codec
-To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, Trevor Wu <trevor.wu@mediatek.com>, kernel@collabora.com, 
-	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	Fei Shao <fshao@chromium.org>
+Date: Tue, 7 Jan 2025 13:07:13 +0800
+X-Gm-Features: AbW1kvYyYtMKXXkgB8owp0uoo9z3s18dWodz3XR3LaPnMpcD1THVU7CSsiHgTFU
+Message-ID: <CAGXv+5FUuqDbVRQdkkdM9SRV6N3H8Gx_rMpx6rw-hNu45SKVNA@mail.gmail.com>
+Subject: Re: [PATCH 2/2] usb: mtk-xhci: add support remote wakeup of mt8196
+To: =?UTF-8?B?Q2h1bmZlbmcgWXVuICjkupHmmKXls7Ap?= <Chunfeng.Yun@mediatek.com>
+Cc: "robh@kernel.org" <robh@kernel.org>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	"gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>, 
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>, 
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
+	"mathias.nyman@intel.com" <mathias.nyman@intel.com>, "conor+dt@kernel.org" <conor+dt@kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_210322_589714_A726B848 
-X-CRM114-Status: GOOD (  30.71  )
+X-CRM114-CacheID: sfid-20250106_210726_609510_83B8BBE9 
+X-CRM114-Status: GOOD (  31.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,83 +100,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 7, 2025 at 1:33=E2=80=AFAM N=C3=ADcolas F. R. A. Prado
-<nfraprado@collabora.com> wrote:
+On Mon, Jan 6, 2025 at 10:58=E2=80=AFPM Chunfeng Yun (=E4=BA=91=E6=98=A5=E5=
+=B3=B0)
+<Chunfeng.Yun@mediatek.com> wrote:
 >
-> On Thu, Dec 26, 2024 at 04:30:17PM +0800, Chen-Yu Tsai wrote:
-> > Hi,
+> On Tue, 2024-11-26 at 09:50 +0100, AngeloGioacchino Del Regno wrote:
+> > External email : Please do not click links or open attachments until
+> > you have verified the sender or the content.
 > >
-> > On Wed, Dec 4, 2024 at 3:22=E2=80=AFAM N=C3=ADcolas F. R. A. Prado
-> > <nfraprado@collabora.com> wrote:
+> >
+> > Il 26/11/24 03:55, Chunfeng Yun ha scritto:
+> > > There are 2 USB controllers on mt8196, each controller's wakeup
+> > > control is
+> > > different, add some specific versions for them.
 > > >
-> > > Remove hardcoded dmic codec from the UL_SRC dai link to avoid requiri=
-ng
-> > > a dmic codec to be present for the driver to probe, as not every
-> > > MT8188-based platform might need a dmic codec. The codec can be assig=
-ned
-> > > to the dai link through the dai-link property in Devicetree on the
-> > > platforms where it is needed.
 > >
-> > A followup question about this. The DMICs on the Chromebooks are attach=
-ed
-> > to the PMIC codec's input side, which then converts the signals to stan=
-dard
-> > I2S and passes them out to the SoC through its AIF1. So the original co=
-de
-> > was somewhat incorrect, though it works.
+> > Is there any MTU3 controller in MT8196, like all other MediaTek SoCs?
+> Yes.
 > >
-> > How should we describe such a connection, given that the MediaTek sound
-> > bindings aren't a full graph?
+> > If so, then please just add the wakeup control to the MTU3 driver,
+> > otherwise
+> > we are going to duplicate this for yet another SoC, like we've done
+> > for MT8192,
+> > MT8195, MT8188 and MT8186 already...
+> Even I add it in MTU3 driver, I still need add it in xhci-mtk driver,
+> some projects only use host mode;
 >
-> What you're describing is that the hardware topology looks like this:
+> I can also add it in MTU3 driver and send out new patches.
 >
-> --------------------      --------------------
-> |    SoC           |      |   MT6359 PMIC    |
-> |        UL_SRC BE | <--- | AIF1   AIN0_DMIC | <-- DMic
-> --------------------      --------------------
+> But it's not a good idea to duplicate it into MTU3 driver directly for
+> some SoC which has limitation on dual-role switch when using upstream
+> driver.
 
-Correct.
-
-> But that the dailink definition in the machine driver had the DMic codec
-> connected directly to the UL_SRC BE instead, alongside the connection to =
-the
-> PMIC, unlike the topology above.
->
-> My understanding is that the dmic codec was added simply to allow the usa=
-ge of
-> the wakeup-delays. From [1] it appears that DAI connections between two c=
-odecs
-> are possible, though rare. So the PMIC -> DMic connection description mig=
-ht be
-> possible in that way, although I'm not sure it brings any benefits beside=
-s
-> closer resembling the hardware topology.
-
-I suspect we would want to keep the wakeup delays though. AFAICT they aren'=
-t
-the same number across the board (no pun intended), but actually differ
-between devices, perhaps due to differences in the actual DMIC used.
-
-If we don't want the full description, maybe we add the wakeup delay to
-the PMIC codec then?
-
-AFAICT [1] is basically hardcoding in the dmic-codec in a different way,
-so basically reverting your original patch.
+I think the idea behind Angelo's point is that MTU3 should be used for
+all projects, regardless whether they are host mode only or not.
+The hardware is there. Don't hide it.
 
 ChenYu
 
-> [1] https://www.kernel.org/doc/html/latest/sound/soc/codec-to-codec.html
+> Thanks
 >
 > >
-> > > No Devicetree currently relies on it so it is safe to remove without
-> > > worrying about backward compatibility.
+> > Cheers,
+> > Angelo
 > >
-> > Removing it didn't seem to cause any issues for the Chromebooks that
-> > do actually have DMICs. I suspect the only difference would be that
-> > the wakeup-delays no longer apply correctly.
->
-> That's my guess too.
->
-> Thanks,
-> N=C3=ADcolas
+> > > Signed-off-by: Chunfeng Yun <chunfeng.yun@mediatek.com>
+> > > ---
+> > >   drivers/usb/host/xhci-mtk.c | 18 ++++++++++++++++++
+> > >   1 file changed, 18 insertions(+)
+> > >
+> > > diff --git a/drivers/usb/host/xhci-mtk.c b/drivers/usb/host/xhci-
+> > > mtk.c
+> > > index 3252e3d2d79c..31223912b0b4 100644
+> > > --- a/drivers/usb/host/xhci-mtk.c
+> > > +++ b/drivers/usb/host/xhci-mtk.c
+> > > @@ -113,6 +113,12 @@
+> > >   #define WC1_IS_P_95         BIT(12)
+> > >   #define WC1_IS_EN_P0_95             BIT(6)
+> > >
+> > > +/* mt8196 */
+> > > +#define PERI_WK_CTRL0_8196   0x08
+> > > +#define UWK_V1_7_CTRL2_MASK  0x5
+> > > +
+> > > +#define WCP1_IS_EN           BIT(7) /* port1 en bit */
+> > > +
+> > >   /* mt2712 etc */
+> > >   #define PERI_SSUSB_SPM_CTRL 0x0
+> > >   #define SSC_IP_SLEEP_EN     BIT(4)
+> > > @@ -129,6 +135,8 @@ enum ssusb_uwk_vers {
+> > >       SSUSB_UWK_V1_4,         /* mt8195 IP1 */
+> > >       SSUSB_UWK_V1_5,         /* mt8195 IP2 */
+> > >       SSUSB_UWK_V1_6,         /* mt8195 IP3 */
+> > > +     SSUSB_UWK_V1_7,         /* mt8196 IP0 */
+> > > +     SSUSB_UWK_V1_8,         /* mt8196 IP1 */
+> > >   };
+> > >
+> > >   /*
+> > > @@ -381,6 +389,16 @@ static void usb_wakeup_ip_sleep_set(struct
+> > > xhci_hcd_mtk *mtk, bool enable)
+> > >               msk =3D WC0_IS_EN_P3_95 | WC0_IS_C_95(0x7) |
+> > > WC0_IS_P_95;
+> > >               val =3D enable ? (WC0_IS_EN_P3_95 | WC0_IS_C_95(0x1)) :
+> > > 0;
+> > >               break;
+> > > +     case SSUSB_UWK_V1_7:
+> > > +             reg =3D mtk->uwk_reg_base + PERI_WK_CTRL0_8196;
+> > > +             msk =3D UWK_V1_7_CTRL2_MASK;
+> > > +             val =3D enable ? msk : 0;
+> > > +             break;
+> > > +     case SSUSB_UWK_V1_8:
+> > > +             reg =3D mtk->uwk_reg_base + PERI_WK_CTRL0_8196;
+> > > +             msk =3D WCP1_IS_EN;
+> > > +             val =3D enable ? msk : 0;
+> > > +             break;
+> > >       case SSUSB_UWK_V2:
+> > >               reg =3D mtk->uwk_reg_base + PERI_SSUSB_SPM_CTRL;
+> > >               msk =3D SSC_IP_SLEEP_EN | SSC_SPM_INT_EN;
+> >
+> >
+> >
 
