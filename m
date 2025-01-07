@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C65F5E77198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 07:49:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9558E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 07:51:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7dY7cGRSnsKC1U8wn2NYn8pujnABECXqtMmusYeeylE=; b=Jvt17R/FPvnlJ1rbdMG/yJLtbk
-	cY3ZhsKEg2Whlk4gxLrrkAIksQSQlhAhKqOBVSPImT/AWuItXIAEB6ysH6Hh5LxHGwnQgXlkfkuvJ
-	43j40JzwnZOnbquCZd65vkW1t1BOE7K/sGsdRE+as6FLbCx0+Lj3mE+LdNbEUZ65tCzRNqUdj1+3J
-	WdHqsOIR25LvV8cdubmiBE/Vg8928ia1xiLLk2C+iLW8vkVsKRbbHX6TG5a8GU58QVxMIkbMcWDlq
-	dJEwtNKxd8XsDwQLazm1sRGW2dl17feGRzSnkIZsIBWjPJMkWc95ToK1KDshShUi0Er4gRzTClMkJ
-	MlisJFUw==;
+	bh=W7Waz4qoMm7Thy7CdWwhTSGFNbjxkVcZlwArb6siD10=; b=AR76NWR2Ajb149nAqzo91QumW/
+	ljgJ+C3UNpcuYQZSOZogYw36p6G0EHnPQ1dYc2Cab0kYVK6wL9LcpIivAJvq/e959bDQOnWEZ30t7
+	vXqWyt9D8YMmW5O9zzkYqi5oG+93TqZyEZumVnTbdgp9vx7yW6/OtgI2D5pMhlVmhiuC44JTzKBXa
+	EofOhAVDzNNRy51cXAjS9uD/zWqoKaveGSSDqw0jix+4AfjEnS2ynqngXId9o8oE35D8Nsw80d08A
+	2j282wshRwJI1lEVmjEL3EQWhqr3cwTTcEFSZzN51US8yhj9YNFNiYn27CQrFA6SWFzg/97J0yZnW
+	q8P/RImg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV4LG-00000003noG-3Tkp;
-	Tue, 07 Jan 2025 07:49:34 +0000
-Received: from mail-m15573.qiye.163.com ([101.71.155.73])
+	id 1tV4MS-00000003o0d-3slc;
+	Tue, 07 Jan 2025 07:50:48 +0000
+Received: from mail-m49228.qiye.163.com ([45.254.49.228])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV4Jx-00000003nX9-0npp;
-	Tue, 07 Jan 2025 07:48:17 +0000
+	id 1tV4KA-00000003ncn-4A6v;
+	Tue, 07 Jan 2025 07:48:31 +0000
 Received: from [172.16.12.67] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 7f39843f;
-	Tue, 7 Jan 2025 15:48:08 +0800 (GMT+08:00)
-Message-ID: <82848f35-73d8-4254-a818-59495f96bcf2@rock-chips.com>
-Date: Tue, 7 Jan 2025 15:48:08 +0800
+	by smtp.qiye.163.com (Hmail) with ESMTP id 7f39847a;
+	Tue, 7 Jan 2025 15:48:22 +0800 (GMT+08:00)
+Message-ID: <1f75f634-5de1-4fd7-949c-123b44a770f8@rock-chips.com>
+Date: Tue, 7 Jan 2025 15:48:22 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 From: Kever Yang <kever.yang@rock-chips.com>
-Subject: Re: [PATCH v3 2/7] dt-bindings: PCI: dw: rockchip: Add rk3576 support
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-kernel@vger.kernel.org, heiko@sntech.de,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- linux-arm-kernel@lists.infradead.org, Simon Xue <xxm@rock-chips.com>,
- linux-rockchip@lists.infradead.org,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
- linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
- Conor Dooley <conor+dt@kernel.org>, Shawn Lin <shawn.lin@rock-chips.com>
+Subject: Re: [PATCH v3 5/7] dt-bindings: arm: rockchip: Sort for boards not in
+ correct order
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: heiko@sntech.de, linux-rockchip@lists.infradead.org,
+ devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+ Chris Morgan <macromorgan@hotmail.com>, Rob Herring <robh@kernel.org>,
+ Dragan Simic <dsimic@manjaro.org>, Jonas Karlman <jonas@kwiboo.se>,
+ linux-kernel@vger.kernel.org, Tim Lunn <tim@feathertop.org>,
+ linux-arm-kernel@lists.infradead.org,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Andy Yan <andyshrk@163.com>
 References: <20241223110637.3697974-1-kever.yang@rock-chips.com>
- <20241223110637.3697974-3-kever.yang@rock-chips.com>
- <173495701750.480868.16123444058526675248.robh@kernel.org>
+ <20241223110637.3697974-6-kever.yang@rock-chips.com>
+ <dzrmlapgca6vwqpfxi7sub37z4taerinslfthqwqi7jltb4xxh@wtry22ybpd2r>
 Content-Language: en-US
-In-Reply-To: <173495701750.480868.16123444058526675248.robh@kernel.org>
+In-Reply-To: <dzrmlapgca6vwqpfxi7sub37z4taerinslfthqwqi7jltb4xxh@wtry22ybpd2r>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ08ZSVYaThhKGhoYT0NDTkJWFRQJFh
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGR1NS1YYHUkZS0NNT0MdQkpWFRQJFh
 	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCSE
-	NVSktLVUpCS0tZBg++
-X-HM-Tid: 0a943fbc3d6a03afkunm7f39843f
+	JVSktLVUpCS0tZBg++
+X-HM-Tid: 0a943fbc743603afkunm7f39847a
 X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NDY6HAw4EzIXVhMwIjJISE02
-	GCtPCgxVSlVKTEhNSUhNS0JLT09LVTMWGhIXVRAeDR4JVQIaFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFJS0pNNwY+
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Ni46HTo*SDIVORM#FDEuSE0*
+	PgtPFAlVSlVKTEhNSUhNSktPSE5LVTMWGhIXVRAeDR4JVQIaFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFMTE03Bg++
 DKIM-Signature: a=rsa-sha256;
-	b=StPlvgmgCk5NjJLGBsbH6e3x0WpRSjrU469Y9tqJ9Aq67rrJyxLlDernhB6kB+Sl0M+l6f4NjPGze89Qz1Vx/j6HzIh4b6iCY2k8Wm3hLVy4kb/z90+aLL4LYWcARNQue3FGR2L34kCCkBsaq4HBomb0fOpCWsyymIo/uDADHEU=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=7dY7cGRSnsKC1U8wn2NYn8pujnABECXqtMmusYeeylE=;
+	b=gepdztKqe2bERtuGHBs4iUoDmWFbxRAHq74BJzuNjZScZCckT2jVZtz9xN1Z5eqBgsthK+VNQdE93chKMSn71rIagS5b1JhFtzAxtNGPQw3yD/t8or3MpIcvXfZ/tNDKXcGHUfk+71cM7CQEwPBuX74GnPIx6mrm7G7Mvlg/DcM=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=W7Waz4qoMm7Thy7CdWwhTSGFNbjxkVcZlwArb6siD10=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_234813_763366_DCD02273 
-X-CRM114-Status: GOOD (  17.91  )
+X-CRM114-CacheID: sfid-20250106_234827_242517_8257FCFE 
+X-CRM114-Status: GOOD (  10.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,61 +81,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
+Hi Krzysztof
 
-On 2024/12/23 20:30, Rob Herring (Arm) wrote:
-> On Mon, 23 Dec 2024 19:06:32 +0800, Kever Yang wrote:
->> rk3576 is using dwc controller, with msi interrupt directly to gic instead
->> of to gic its, so
->> - no its suport is required and the 'msi-map' is not need anymore,
->> - a new 'msi' interrupt is needed.
->>
->> Signed-off-by: Kever Yang<kever.yang@rock-chips.com>
->> ---
->>
->> Changes in v3:
->> - Fix dtb check broken on rk3588
->> - Update commit message
->>
->> Changes in v2:
->> - remove required 'msi-map'
->> - add interrupt name 'msi'
->>
->>   .../devicetree/bindings/pci/rockchip-dw-pcie-common.yaml      | 4 +++-
->>   Documentation/devicetree/bindings/pci/rockchip-dw-pcie.yaml   | 4 +---
->>   2 files changed, 4 insertions(+), 4 deletions(-)
->>
-> My bot found errors running 'make dt_binding_check' on your patch:
->
-> yamllint warnings/errors:
-> ./Documentation/devicetree/bindings/pci/rockchip-dw-pcie-common.yaml:85:9: [warning] wrong indentation: expected 10 but found 8 (indentation)
+On 2024/12/23 22:58, Krzysztof Kozlowski wrote:
+> On Mon, Dec 23, 2024 at 07:06:35PM +0800, Kever Yang wrote:
+>> The board entries should be sort in correct order.
+> And what is the sorting rule for this file? Board name? SoC compatible?
 
-Sorry, I'm not so good at the yaml grammar, I will fix it in next version.
+This is sort by the description msg, which should be easy to find out if 
+look at
 
-But when I run the make dt_binding_check, I can't find this warning in 
-my side, maybe the tool has version required?
+the content in the file instead of the patch.
 
+Will update the commit msg.
+
+> Explain this in commit msg... and please test your patches before
+> posting. Public infrastructure is not replacement of your tests (see
+> failiure reported by Rob).
+I do run the test in my side, but the tool does not show this warning,
+not sure if because of my tool not up to date.
 
 Thanks,
 - Kever
-> dtschema/dtc warnings/errors:
 >
-> doc reference errors (make refcheckdocs):
->
-> Seehttps://patchwork.ozlabs.org/project/devicetree-bindings/patch/20241223110637.3697974-3-kever.yang@rock-chips.com
->
-> The base for the series is generally the latest rc1. A different dependency
-> should be noted in *this* patch.
->
-> If you already ran 'make dt_binding_check' and didn't see the above
-> error(s), then make sure 'yamllint' is installed and dt-schema is up to
-> date:
->
-> pip3 install dtschema --upgrade
->
-> Please check and re-submit after running the above command yourself. Note
-> that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-> your schema. However, it must be unset to test all examples with your schema.
+> Best regards,
+> Krzysztof
 >
 >
 
