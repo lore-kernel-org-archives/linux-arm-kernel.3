@@ -4,105 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB5CAE77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 11:40:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00219E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 11:41:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TYKAYFSavL2qrh7QKasXIoDw8tHxDZ9ErXkuN1nzLXI=; b=r/mew7Z0f4JR4XxYvLGkqeU8HK
-	T+JdMy3/qJMOyIgfwCws4UxnhfB/Xq75wtiidnkUWPtYs6UMSBkdExuI9q6S0AsFH2CBuCXzPmjN2
-	xvhfzlsnchZGpmdutCUi6ALYPXGcEnKEX7R6ekuQ2cTqYBc3sKVJ+WAZ5wpdNTGA+Y9BD6XrjldlQ
-	anVOgc4hhquudKlAQUYHNjmuJWV2nJwrlupdKeF8GPl166bGN9UUmN7wApg49zpQ9YNwlgcGXaJdf
-	nVPAM50DyjeFJVrlSmsLkwf5rkZ9q6rQtvIRm3h3mDsBAqti5MfpcVsoVKh9+6vhSh1m0GnmR7ZIT
-	itTEX/ZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wiXxJICog3a/eIKOwNzjWVpixEqqn1fFp/qnieHT+38=; b=2Qyb8v2U3/uIx/rHAfHYKX5y31
+	XycfjPSlzNLzpTTHHkorGpoylY4KQYQEcblDF/9XrJxH21cnf89zpNig8dWafuKxOxAXme3RKK+dh
+	eteBaeLOQLKNt0joMRbjEDmG7P4B+Bfx/1IsYj0ZfDVjtCn/u4uk1iOoLRC6yCuj+ubx2Ubjdo5KE
+	Ts19LzhRe0EZoiDqv8kkL/wxhtbNZ6Vp9czdayDtveI+lOA+SuKoSOUITGC/OIkI1q9VR34/au3Jf
+	e0zJ+cQG9XIVURPG8AcdH9pbpIIWn812N38I+r8Bq79RH1yipvPdLFe9xoBqqt1Em36aSTJkcF0V6
+	QHTUVxZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV7wg-00000004bTy-3Kcy;
-	Tue, 07 Jan 2025 11:40:26 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1tV7xs-00000004bgG-1nL6;
+	Tue, 07 Jan 2025 11:41:40 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV7r7-00000004Zp3-3v6S
+	id 1tV7r8-00000004ZoL-18Ss
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 11:34:45 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-3863c36a731so11833039f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 03:34:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736249680; x=1736854480; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TYKAYFSavL2qrh7QKasXIoDw8tHxDZ9ErXkuN1nzLXI=;
-        b=NeNYZ86ON7ELx8paxzkETWnjjo/XGkAzf/DTluF7MxFWuzw3g+zFR7UOA3Tc9xDvx6
-         F5wXlSBx/EcwRkczjClhXoJj5nrtiigy5SRe7R5xZBm5v/uKykiQpSjsKpltL/CfjzFd
-         HBCqIi3eS1Sw5ZmowSv5drSOPBqzlqTLnndp5b7306u2Q0qltQqzYtwRJebzZbiNOy47
-         1tqbNWBJg+tC/4XjWBptbd6Zm5k+X4do0i9qF8bVG5aZU1pNgLYHg63Cy60YOENHkoES
-         AqWIokzdwwk/SQoFJ9t0qSjSovZH6Pc8w/yX4F5BnOrjmt4wzwWMZn/tka/f4bN5XNH1
-         LPwQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736249680; x=1736854480;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TYKAYFSavL2qrh7QKasXIoDw8tHxDZ9ErXkuN1nzLXI=;
-        b=X4PXsrRDstmNSQQkAd+odkx/aHeHYo05SeueL0voUH0no6GIKjbUE9hw5CnLBU48C4
-         MxJ4TYagh0ItO4PW5v8rDCYkqLKLGD0x9aYDC1ztuUC1RkhwTgeG2Z02XUt4g8g+Vy0t
-         qEawYR4gbefDHEFkFCGfwl8QOi3BAlYvAXwKjKzIDHzDn+GJnOlpm9cbQEqv3kKBVMBZ
-         bmxKoT+30irbOpWNROfqkGH9Bcl7TVInAw0CqIjG3ZYbbRoOmb91iZV9Fg5eKImpEuVo
-         0e5Fn1jhbsI+D8qoweaM+A/53t/JuPP+OrUdviLuJb84bWRXtNMuag2z1vHy9b15sq68
-         yQNg==
-X-Forwarded-Encrypted: i=1; AJvYcCV044PovMKuVxDhpCZLs1Ja9xTu0TBfoyYEbN9NhAr9XMKL+6A86mMPa56BAu//3ffoT0bFhYvdQzuu/ypFUHB1@lists.infradead.org
-X-Gm-Message-State: AOJu0YydEbvipEjmTMuaZi9D4FnwWr/suIMfSP3lFZS7BCp02ozFMjoS
-	cO3b3h2yXcSW8uerhqy1Iy2qJ26TmzRb7kqhEqh+YXjHwS7u9D+v7NUKFr+Qdk0SdkUlBuWB1rY
-	x
-X-Gm-Gg: ASbGncs4U0jARoAJ2SY3NTiemPnzmZtE8HGk2QWZsUrYKvu+KvQPV2ThzQxjNYXEH4h
-	DKeUBoFZOU25pVFofzGJLV0Gkhsnjh+Ieil5qSN1nlh+uZa/52QoNrbAWp78Y0ojfwLkEIj2Jhm
-	xEHqxzTiTqypvvgjDlgUSeVDFbIL7ZSIuqLW4pZZ3TG88klJKmbnklFXyh3kRWJm4OD2Q+XOzKv
-	ee1Y+chjx+dbgEH+1l7kR+ZxIPKox9P+PrfGz6/+qvZUOINGUycklVf
-X-Google-Smtp-Source: AGHT+IEWzbMoPmYqwdpQNkR1Kz5LG27JaD30WaVdSux7OQkOmE0VOl2PoerHtsX2D+CBixf6WOUzdA==
-X-Received: by 2002:a5d:64eb:0:b0:386:3711:ff8c with SMTP id ffacd0b85a97d-38a221f1fddmr44591980f8f.23.1736249680458;
-        Tue, 07 Jan 2025 03:34:40 -0800 (PST)
-Received: from pop-os.. ([145.224.66.180])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a1c89e1acsm50299218f8f.68.2025.01.07.03.34.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Jan 2025 03:34:40 -0800 (PST)
-From: James Clark <james.clark@linaro.org>
-To: maz@kernel.org,
-	kvmarm@lists.linux.dev,
-	oliver.upton@linux.dev,
-	suzuki.poulose@arm.com,
-	coresight@lists.linaro.org
-Cc: James Clark <james.clark@arm.com>,
-	Mark Brown <broonie@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mike Leach <mike.leach@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	"Rob Herring (Arm)" <robh@kernel.org>,
-	Shiqi Liu <shiqiliu@hust.edu.cn>,
-	James Morse <james.morse@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v10 04/10] arm64/sysreg: Add a comment that the sysreg file should be sorted
-Date: Tue,  7 Jan 2025 11:32:41 +0000
-Message-Id: <20250107113252.260631-5-james.clark@linaro.org>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250107113252.260631-1-james.clark@linaro.org>
-References: <20250107113252.260631-1-james.clark@linaro.org>
+	Tue, 07 Jan 2025 11:34:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=wiXx
+	JICog3a/eIKOwNzjWVpixEqqn1fFp/qnieHT+38=; b=M93RzCx7j3YGkDIXalQl
+	kmXiNFmXbHYOJ7MfYgD2ryj6GbgKxPs1/UX6A6TeHinIYXb8J39sTR9HHT5KF7bs
+	OXyE4KfXx3cH+SBCv8lSN3I9TtWliiANdL1mk5o6wODn18NCPgDel6zJvtJRWCyZ
+	WWTyR+KWkSK8lpJN2Y9TsYyM4z6UrTx5kGSZ+DThReMjAgJz5hjlg3aAsMC+gGyp
+	6RqE2G4n7Xt+ndShWpjfiFNPIQcMmlvdgX1pqf6EFLpYZaUhDIXHq4BeKeoaVzXt
+	HzqPQCMbbRecj1qgfGi4uIvKyLfutQ4f9+4avwUczUkPhjTXuHjixev9llqXgs9t
+	cw==
+Received: (qmail 2184330 invoked from network); 7 Jan 2025 12:34:38 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 7 Jan 2025 12:34:38 +0100
+X-UD-Smtp-Session: l3s3148p1@eBdMIRwr8sEgAwDPXw20AOMQ2KO98fSH
+Date: Tue, 7 Jan 2025 12:34:37 +0100
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Magnus Damm <magnus.damm@gmail.com>, linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH/RFC] ARM: shmobile: rcar-gen2: Remove CMA reservation code
+Message-ID: <Z30RTcU-lBD2KTCq@shikoro>
+Mail-Followup-To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+References: <3d38f4fec20c4af46e4570012de7017eee9a39e9.1736249109.git.geert+renesas@glider.be>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="TBHB6wWVwj21RDVa"
+Content-Disposition: inline
+In-Reply-To: <3d38f4fec20c4af46e4570012de7017eee9a39e9.1736249109.git.geert+renesas@glider.be>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_033441_969014_8A6B5F82 
-X-CRM114-Status: GOOD (  13.52  )
+X-CRM114-CacheID: sfid-20250107_033443_174732_EFBC206D 
+X-CRM114-Status: GOOD (  18.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,33 +75,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: James Clark <james.clark@arm.com>
 
-There are a few entries particularly at the end of the file that aren't
-in order. To avoid confusion, add a comment that might help new entries
-to be added in the right place.
+--TBHB6wWVwj21RDVa
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Reviewed-by: Mark Brown <broonie@kernel.org>
-Signed-off-by: James Clark <james.clark@arm.com>
-Signed-off-by: James Clark <james.clark@linaro.org>
----
- arch/arm64/tools/sysreg | 2 ++
- 1 file changed, 2 insertions(+)
+On Tue, Jan 07, 2025 at 12:26:55PM +0100, Geert Uytterhoeven wrote:
+> If CONFIG_HIGHMEM=3Dy, two reserved blocks are allocated on R-Car Gen2:
+>=20
+>     cma: Reserved 256 MiB at 0x70000000 on node -1
+>     cma: Reserved 64 MiB at 0x6c000000 on node -1
+>=20
+> The first block is reserved by the family-specific rcar_gen2_reserve(),
+> the second by the common arm_memblock_init() (shmobile_defconfig sets
+> CONFIG_CMA_SIZE_MBYTES=3D64).  As both blocks are reserved (eventually)
+> using dma_contiguous_reserve_area(), they both have the same name
+> ("reserved").  Hence if CONFIG_CMA_SYSFS=3Dy:
+>=20
+>   sysfs: cannot create duplicate filename '/kernel/mm/cma/reserved'
+>    ...
+>    cma_sysfs_init from do_one_initcall+0x84/0x178
+>    ...
+>   kobject: kobject_add_internal failed for reserved with -EEXIST, don't t=
+ry to register things with the same name in the same directory.
+>=20
+> This causes cma_sysfs_init() to fail completely, and not to create
+> /sys/kernel/mm/cma/ at all.
+>=20
+> Fix this by dropping the R-Car Gen2-specific reservation.  Compared to
+> when it was introduced, now there exist more flexible mechanisms to
+> control the size of memory reserved for CMA.  Users can reserve more
+> memory by increasing CONFIG_CMA_SIZE_MBYTES, passing the cma=3D<N> kernel
+> command line parameter, or adding a reserved-memory/linux,cma node to
+> DT.
+>=20
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 
-diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index b081b54d6d22..4ba167089e2a 100644
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -48,6 +48,8 @@
- # feature that introduces them (eg, FEAT_LS64_ACCDATA introduces enumeration
- # item ACCDATA) though it may be more taseful to do something else.
- 
-+# Please try to keep entries in this file sorted by sysreg encoding.
-+
- Sysreg	OSDTRRX_EL1	2	0	0	0	2
- Res0	63:32
- Field	31:0	DTRRX
--- 
-2.34.1
+Acked-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
 
+> Note that increasing CONFIG_CMA_SIZE_MBYTES in shmobile_defconfig is not
+> a good idea, as it can also be used on other Renesas platforms that are
+> more memory-constrained than R-Car Gen2.
+
+Ack.
+
+
+--TBHB6wWVwj21RDVa
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmd9EU0ACgkQFA3kzBSg
+KbbNhQ//VT8NXrOOgTF42rqx2+xsOR/Z+36cBpsE6jRplTJr6mMGCBQKB2ZPvmYQ
+9JFOge48b/ev4DQi4jxm5aKf1gcofMKC1/OsMuozs0BRPY693I3NupIK6TaMo3yq
+lvnT/dkKXq9dGxLlle8R6FOaH/9gB//iZfiWJ8cIOfv0Du+BJddXQCMwOK0mmG+w
+P7vE6VQJqw59VSoV3Bx8bJOYnSZzJftfWGi+oL6ddA5EK3PABxg2xPqLKmHkgCNS
+zXb3+ZLro5P0hmVxeKMD+fspiAGw86/CKSBroewNGl+lgWIwWo0D24DNxlsD3aH9
+WcQqXiRYN9fsMeNoALcsY7wOoVewn9BLUJ5oaGRb67HSUZg59EN+XH+a/6W8YSeC
+jFsigWWQaSQAUyKGp8ZwKzHZEHqBy0zQ5uubLLpreBkaaTuxlPDLBV/lRFb4PyPX
+3V2RCh3PSHj4YiE9JqVmZyxFTJCX0c0+vq3+jIVdL61NBpfL9IwvapcTE8Jcg/iB
+FhySbtZ1NKsN7xG7bKihAAg79VFzWLn8S+qch1eSVSzlf/+kVSu7qzB/RzNYOR0D
+jDPV5iW0O1+VUPO6ftLA5UWOkCdzzPnDxSYzFtRMTamaDDBTDwatuTh38A+75x5x
+lxSBnxFu5yPQmg327z7zYNzxyWo7nePE1fVbdoNW2bKUFxW5rqY=
+=bKFv
+-----END PGP SIGNATURE-----
+
+--TBHB6wWVwj21RDVa--
 
