@@ -4,150 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 312E7E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 06:02:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 744C1E77198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 06:09:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xN1rSDIOtE4a2+r6ElLHHcu4KVTk3T5lTG+NsVGy5DI=; b=pmXY08TGVkl78Ngr64oP6XNb6p
-	f66dz/YhlhDKXgDPHfOQv4cmJbTDrccjbZ5RLc3M6jVuc8PQU0tkf111M/MbIn/hj8Nhm22eYw/Cy
-	jYjhj3es13imm4gABnrEJE6vLQerFEIdI+AXW0N0FBly2HeQWH1D81cuyvuQ5m9T9Yl4pnwh9Kuzj
-	RCCuxRSCrAPq+V3OXQGfAOtVfoNjO51Y3wk6bN5acqqc2F/x/OcC4+6oA67wX+oAjqwoqYS1lopb2
-	L9X9I8SYzl/UCoOYno29JFqljtHGX1G+5V775f7uInm0HBZijmUhGbohL5YujAxqUyXfkOOWKniqm
-	CLpKfGoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GRVwfwslXJGI74kLFIi5nDLkpW6F2l/Qx8c6R/av2xg=; b=UmWK7wEdQsfMquxuia8sHBR+Yz
+	NmdOOA39sh4WIzwgFVKdO4U/fXUFP/nFyhzh06fQCeVS8G1/5SefRlp3hf0jfpsTWppP7q5/Qi9sR
+	cWoLKD2cEO3b2EZKMeclUr8/kAR4wdRsetWtgI0Ufl3hjyVG75SOtag6QYYF4I3hf3ULubGWAY0NI
+	n05hq+Q8J5Oy622ui0Zn+5nia/s/ZIKVwJB8//oFHIekVcMlKAVXb8NbnKzvdtWI0f3GQ9ClvmLW9
+	8wnpK5v5XZnBLCX6DHI9CZorAmH9Yv54oqNcbsUxgZSBvtA0jnbG805ffUiX3KCpEP3cmZ0GkeM0a
+	hwsvkcMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV2fa-00000003b3Q-2Ket;
-	Tue, 07 Jan 2025 06:02:26 +0000
-Received: from mail-bn8nam12on2062b.outbound.protection.outlook.com ([2a01:111:f403:2418::62b] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	id 1tV2mR-00000003boK-2pVB;
+	Tue, 07 Jan 2025 06:09:31 +0000
+Received: from mail-vs1-xe30.google.com ([2607:f8b0:4864:20::e30])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV2eL-00000003auj-1ttI
+	id 1tV2lC-00000003bXz-2id6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 06:01:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=y/uzvSzrgzFBeRLpJu0ZxMMBqn1mn+5KTdbamMqiqs2ulprj29JY0cGI3Dm5SyRAduacWGR2e5q0YFAZEkr80WjHNTS7VVA6AHMaBWi2XkOiUCq5DmrZHsoZJpK9x8wSaMcRJ87QK82mep+26x4mX7nEOE0xZxh5oGiO9QVqFDs/qpVfaBiCRYnEr18LCHPVdEnn73mY6PU4pwhvQqjcUYFq0PdBYI89CEdGOzKURCh3lA113mwh6mjxwqPaGseP3QbRnAio9KgwymsD/TEnlvRLyh0LEvLJ1kBG73D+f7U1LTXWu1Nal35EPaDPVLARtWgPsKoZ7F08y2gTksFcBg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xN1rSDIOtE4a2+r6ElLHHcu4KVTk3T5lTG+NsVGy5DI=;
- b=gthsEqM93CTJFujY5wOMiND4w2IZRBBkA3JnJeall1IuaFUlmUHdR/B/Pon+H8AuWnrZLHraNCNpwbfzzKBmxDUvco4oqDJOo+PKlnTuebiIYHzM4f1mettNvi7TsA89yg398DVXU1pdTNOYfbGgGigNnp9Ub1fpcC8Y2H+hYmeC841EjQdERQJ7LIVh3mmdyJfIxKc5Lhc4wj9oHoFRwbFncSpU4FZ+W7kvTDL295y5VkdHWDKN5GzUv8z2GUXGK0DImjkmApbNRNf2P1hH0XLZggdcj2Mb0vhV/sEDwVn6Srj8Ao5cMSiwDpK534VszRQXHX2DibjB+0LFUaBDbQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=linux.intel.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xN1rSDIOtE4a2+r6ElLHHcu4KVTk3T5lTG+NsVGy5DI=;
- b=cnRqlWFVrH354nBZEgqUxtKVVK2xCC6x842prd0ihjEnEd6VL/3/N6IGM5KY3KfXkN3QV0rrdAq+Qyt4BLTL70vvunIuuUaQnV8MC29+tWGzy/cAeD/IlMBU33zbUQHJkRiidhVCZZl7CgDa5Zg/nkqlgiltsdnhtYwQSD8w75L9R6zO0SVJxRYY3Xh90nxGSOT5FCXxLr/kh5jlfmN55/0+veYVsgSLT4rS93glxoknpED6TrCHYNHjew9k8Hm/nvGAIDS33rRFHTTA27fg7WnJ3nTmbdjIqJYy1Z6aNRTV5mRAVekpBbP7MfuDa48amBCrZzGKfVVCjZnhlxPhZA==
-Received: from CH0PR04CA0105.namprd04.prod.outlook.com (2603:10b6:610:75::20)
- by SA0PR12MB4430.namprd12.prod.outlook.com (2603:10b6:806:70::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8314.18; Tue, 7 Jan
- 2025 06:01:00 +0000
-Received: from CH3PEPF0000000C.namprd04.prod.outlook.com
- (2603:10b6:610:75:cafe::31) by CH0PR04CA0105.outlook.office365.com
- (2603:10b6:610:75::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8335.10 via Frontend Transport; Tue,
- 7 Jan 2025 06:00:59 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- CH3PEPF0000000C.mail.protection.outlook.com (10.167.244.39) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8335.7 via Frontend Transport; Tue, 7 Jan 2025 06:00:59 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 6 Jan 2025
- 22:00:39 -0800
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 6 Jan 2025
- 22:00:39 -0800
-Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.129.68.9)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4 via Frontend
- Transport; Mon, 6 Jan 2025 22:00:37 -0800
-Date: Mon, 6 Jan 2025 22:00:35 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Baolu Lu <baolu.lu@linux.intel.com>
-CC: <jgg@nvidia.com>, <kevin.tian@intel.com>, <corbet@lwn.net>,
-	<will@kernel.org>, <joro@8bytes.org>, <suravee.suthikulpanit@amd.com>,
-	<robin.murphy@arm.com>, <dwmw2@infradead.org>, <shuah@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, <eric.auger@redhat.com>,
-	<jean-philippe@linaro.org>, <mdf@kernel.org>, <mshavit@google.com>,
-	<shameerali.kolothum.thodi@huawei.com>, <smostafa@google.com>,
-	<ddutile@redhat.com>, <yi.l.liu@intel.com>, <patches@lists.linux.dev>
-Subject: Re: [PATCH v4 14/14] iommu/arm-smmu-v3: Report events that belong to
- devices attached to vIOMMU
-Message-ID: <Z3zDA3xx6w6dSQY+@Asurada-Nvidia>
-References: <cover.1735933254.git.nicolinc@nvidia.com>
- <69a46c72e43ed086840be462eef731167d90a9d8.1735933254.git.nicolinc@nvidia.com>
- <585fc99f-c2dc-459c-929a-c7c7631b9caf@linux.intel.com>
- <Z3wk9TvmUhB3/zlk@Asurada-Nvidia>
- <Z3yvZsq77bpnaoAb@Asurada-Nvidia>
- <75456867-8993-4be4-bcdf-14df28fe92cc@linux.intel.com>
+	Tue, 07 Jan 2025 06:08:16 +0000
+Received: by mail-vs1-xe30.google.com with SMTP id ada2fe7eead31-4afeb79b52fso4273345137.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jan 2025 22:08:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1736230093; x=1736834893; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GRVwfwslXJGI74kLFIi5nDLkpW6F2l/Qx8c6R/av2xg=;
+        b=XxqU7Cctznpj24PoicjXwWxsns31krp4/VVMWJIuuSfG2lxsMFGfQi6f1TNos6D1qd
+         NPrmqxhmoANk0wKdg+PyrysIWlVtGGYQrrP5FCqs6HcQ0Lng/Qd1r6+JR0cWnCWoV2G1
+         FjGRl/UYC+ih7ZS28GzgUE7rR90lky6g5ejFfPgskV2578iRjuDRxziGtXJKiTzgapV3
+         DelCT1YgB12sj8B7SdffGvNa4+WrI7kj2kUR1HbhVW6uqxoPapNR7gp2hyFii4+JPwh0
+         m0WPvCQH5odz02WLv4iA9S0JqnHCpwSiyLKRs/M18BMf/vWhuObBxYfrxfX78m7wj9J2
+         8ZoA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736230093; x=1736834893;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=GRVwfwslXJGI74kLFIi5nDLkpW6F2l/Qx8c6R/av2xg=;
+        b=rue1Q3w36LfGC+ortuQwIzGwZjjjsQcM/ugsqNdwhvOpJ6+WYCDzo3Ms+3rnRI7Ar5
+         nWS2JgFZRwhroFWcr2zwoxEqH4A7MXfr1tX8bNfjaucNjiem25E5KMs+YESMPXtYey94
+         qLBA0VTb5oYLjOU3uGDbKnGTpjRjvarGuktvI/kCRIQfLKSqn9bgLnHHTZvKH/qqtnPk
+         QTLucniurVy6rF3PSgiXIFj0l4W5qpOwFHZP2oUu6duZcmu1110h3vCbdsx4R1+ybpYL
+         z55INoftzWAqdEVAKP2Ira0oYT9yA7UhgQk+WsmHq+yXEK5miaHzi+SdcIAakV+PxWvO
+         BBKQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXazlOtM/0uRcaWdHHRMuplFu13NBPGoiLrfcTeKhy4xzw3UvTTRFEODFisYuY5+qXJ+j6CC+Q5cmU/vJYQvLci@lists.infradead.org
+X-Gm-Message-State: AOJu0YziJo2OqfRpObuijT5yAQCzI4sYtQZERBPn05FfkgqiXga7KcPo
+	TINaZifiSWdlKRxvytrjA4CuMGpUZrXfQuHVyG1qYnQFrlK9MGFo7KtxK73UZbP7CLNCK8AI1C8
+	SaZtsz+5+f1P0JCtsMDmlSjnzGJqGI/QpmroI
+X-Gm-Gg: ASbGncsk56t1iUqCiHyovtHeLzxPLgyEgLbmMHIGEY+oLz0fjL8cB8nHq86KOHWWxKI
+	RtS1ENHcMGAEOUznBPaUvJt6ShRJoc4RGdQyd1Qv5po7tv+7HL6hWNjubYfYKlTgureA7r1s=
+X-Google-Smtp-Source: AGHT+IEZaqmWCdbsnlneTQG3404W2PKonER8bomGI+FtnJ1u//oEs3rufk2b98smus/r1ny3nrGHnU/2nnAkoAcwgVE=
+X-Received: by 2002:a05:6102:e13:b0:4b2:4877:80f4 with SMTP id
+ ada2fe7eead31-4b2cc116628mr52396664137.0.1736230093357; Mon, 06 Jan 2025
+ 22:08:13 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <75456867-8993-4be4-bcdf-14df28fe92cc@linux.intel.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PEPF0000000C:EE_|SA0PR12MB4430:EE_
-X-MS-Office365-Filtering-Correlation-Id: 72b9c086-db9b-45bd-ba89-08dd2ee0a8e0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|82310400026|1800799024|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?wZ6pvNx9+p+nqytPaAO8IoGubhr0SBGnBM3AL2I19g+J2q3AqY9eYmzzqysT?=
- =?us-ascii?Q?wmNoVe6xSHKShGFH3b76B/XxLFNemov2Ir4LzvaGbiUBsZX4PDg3/mix9xMp?=
- =?us-ascii?Q?sqOTw4lJTeVjeWg/vE4QWuttElHRuyPDrq22/42zXkC2gDpl4i9iSOgiIh7S?=
- =?us-ascii?Q?J+HxAXXAjHr74HPc7Y0kllPVnGiJjWTe9SzwIkLfjSUo/2mVEgNHlUCLyFoB?=
- =?us-ascii?Q?rufOBewvVW8LhbtGhBZN/WbXFAZSd01A3nlznwB4g8FnmDto9V4EdB2vmYyL?=
- =?us-ascii?Q?0f3VJdBgCwskQccVXUgYFiRzBJx4OpMFNEssfozHyxKHfEAGpDhF89VyjTeh?=
- =?us-ascii?Q?d1W8u3iou2LEcsh9TfVSIEp0vevipl1fJXs6rj8n0Ehq/41w+zQB82wACt/K?=
- =?us-ascii?Q?ms1owHJ/bKvS7ov8PGSJnnDZKTDVJVozRkT6qC29tirMWdyG3aHFAW7haFHl?=
- =?us-ascii?Q?1hNXLkW9NKsvl8L6MVNhaeix+kS+imtyybegcthjSXwqs4REAX90jfFc+OJD?=
- =?us-ascii?Q?ihEmrZUP+kRx9p3Bc1jKqV5/GqIoB61Y74WNARcqlpbSTpgH1F/6q4NFawQD?=
- =?us-ascii?Q?go5MIzrgX1c9yjaWFNcObWMX8N5oXMKJqQVvGeLKgYGe5skAWn1uVkthwh+G?=
- =?us-ascii?Q?zv1SC8EGrYVCSy1UJ5fqXqWXba0ZhslU88iCZ90E0hrrSopUZlfEcUtTjBlB?=
- =?us-ascii?Q?7OaXKvzCvDM/kxigUkRVZJxOFrIT5+EuiDNV5SEzyh8bQEaPDmvlbzXTwEbs?=
- =?us-ascii?Q?08mSGx60o5ohy4ESyZ00J7FoeJz7CbwekPh6zhoMMgUOfPV9O5JZw0or77GW?=
- =?us-ascii?Q?REsEc/w2tySKDKcXIt1DktGFZKjGIUBcr9NS4vD0WFpZc+OUho9ExjpXvgIL?=
- =?us-ascii?Q?qGpSVSpcm2zvEW7oE6wOWmrzIoaHRFjqvH83rOMpvVDIwFFKiG2doZWG/UN4?=
- =?us-ascii?Q?yfSKk/imsY8IxzYRgAgNsHQizoppAwcq1cenbrkJ4qOQluo5vW6VtOmhwLKZ?=
- =?us-ascii?Q?QwJry4H3HcVVC1wNxGmkyRsUUFVyn6h/e5BiCLw427RZDDu7urYhc7v69+R+?=
- =?us-ascii?Q?N28G63dQ0VIxD4hYnZZmfcR2sLK5IxENGavxdlYpH/WOcT2Po9z14I1dsmaG?=
- =?us-ascii?Q?J3Ecd7nPYGVTjXcbsK4EdKcTuMmNLdGpbPzSeFRXGB5lpkuEasOG2UbErfbG?=
- =?us-ascii?Q?mrU4/+3r9SCbv006gcAeVRKxZGV67gP7uIDxVDzauA8k+9hCHu6mrlGGiqnX?=
- =?us-ascii?Q?SA/sMMbdvQyO5KIGzybIGjnbkMRw/ViyEhSIJccYd1lIzRIEPVOA+3M24I3M?=
- =?us-ascii?Q?Cj3DywapFyKI8Eq3tfVBJcWj7zxTfg7GO/rSwtJRXPYN3kMFK9oDEMsfTZbO?=
- =?us-ascii?Q?ViH6a2pc7keAbP+MY49bouLFG/tsiA7KdKjvdhpCPXqdN1Egwi3eZiw77qym?=
- =?us-ascii?Q?tyf2jCtk7ovZOQjD86oF9VgYlBDy138XkNaewMaoDf3nob2WeUqjzdtWm/ep?=
- =?us-ascii?Q?NrPnUEm6+QyLHxw=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(376014)(82310400026)(1800799024)(7416014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jan 2025 06:00:59.5768
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 72b9c086-db9b-45bd-ba89-08dd2ee0a8e0
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF0000000C.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR12MB4430
+References: <20241107202033.2721681-1-yuzhao@google.com> <20241125152203.GA954@willie-the-truck>
+ <CAOUHufYUMYcf=uF7=2zj-PsGXePCDdsRHJGa8t-e-k9VUvYyQQ@mail.gmail.com> <20241128142028.GA3506@willie-the-truck>
+In-Reply-To: <20241128142028.GA3506@willie-the-truck>
+From: Yu Zhao <yuzhao@google.com>
+Date: Mon, 6 Jan 2025 23:07:36 -0700
+Message-ID: <CAOUHufbUOBy1DweSV4CF4LMK3kxi7EGCDDztmtuYXXe=fZM7zA@mail.gmail.com>
+Subject: Re: [PATCH v2 0/6] mm/arm64: re-enable HVO
+To: Will Deacon <will@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Marc Zyngier <maz@kernel.org>, Muchun Song <muchun.song@linux.dev>, 
+	Thomas Gleixner <tglx@linutronix.de>, Douglas Anderson <dianders@chromium.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Nanyong Sun <sunnanyong@huawei.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-mm@kvack.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_220109_488172_7A8F3769 
-X-CRM114-Status: GOOD (  13.55  )
+X-CRM114-CacheID: sfid-20250106_220814_708311_AB002936 
+X-CRM114-Status: GOOD (  39.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,30 +97,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 07, 2025 at 01:54:00PM +0800, Baolu Lu wrote:
-> On 1/7/25 12:36, Nicolin Chen wrote:
-> > +static bool arm_vsmmu_supports_veventq(unsigned int type)
-> > +{
-> > +	return type == IOMMU_VIOMMU_TYPE_ARM_SMMUV3;
-> 
-> Do you need to check the hardware capabilities before reporting this? I
-> am not familiar with the ARM architecture, but typically it's better to
-> make it like this,
-> 
-> static bool arm_vsmmu_supports_veventq(struct iommufd_viommu *viommu,
->                                        enum iommu_veventq_type type)
-> {
-> 	if (type != IOMMU_VEVENTQ_TYPE_ARM_SMMUV3)
-> 		return false;
-> 
-> 	if (hardware_not_capable(viommu))
-> 		return false;
+On Thu, Nov 28, 2024 at 7:20=E2=80=AFAM Will Deacon <will@kernel.org> wrote=
+:
+>
+> On Mon, Nov 25, 2024 at 03:22:47PM -0700, Yu Zhao wrote:
+> > On Mon, Nov 25, 2024 at 8:22=E2=80=AFAM Will Deacon <will@kernel.org> w=
+rote:
+> > > On Thu, Nov 07, 2024 at 01:20:27PM -0700, Yu Zhao wrote:
+> > > > HVO was disabled by commit 060a2c92d1b6 ("arm64: mm: hugetlb: Disab=
+le
+> > > > HUGETLB_PAGE_OPTIMIZE_VMEMMAP") due to the following reason:
+> > > >
+> > > >   This is deemed UNPREDICTABLE by the Arm architecture without a
+> > > >   break-before-make sequence (make the PTE invalid, TLBI, write the
+> > > >   new valid PTE). However, such sequence is not possible since the
+> > > >   vmemmap may be concurrently accessed by the kernel.
+> > > >
+> > > > This series presents one of the previously discussed approaches to
+> > > > re-enable HugeTLB Vmemmap Optimization (HVO) on arm64.
+> > >
+> > > Before jumping into the new mechanisms here, I'd really like to
+> > > understand how the current code is intended to work in the relatively
+> > > simple case where the vmemmap is page-mapped to start with (i.e. when=
+ we
+> > > don't need to worry about block-splitting).
+> > >
+> > > In that case, who are the concurrent users of the vmemmap that we nee=
+d
+> > > to worry about?
+> >
+> > Any speculative PFN walkers who either only read `struct page[]` or
+> > attempt to increment page->_refcount if it's not zero.
+> >
+> > > Is it solely speculative references via
+> > > page_ref_add_unless() or are there others?
+> >
+> > page_ref_add_unless() needs to be successful before writes can follow;
+> > speculative reads are always allowed.
+> >
+> > > Looking at page_ref_add_unless(), what serialises that against
+> > > __hugetlb_vmemmap_restore_folio()? I see there's a synchronize_rcu()
+> > > call in the latter, but what prevents an RCU reader coming in
+> > > immediately after that?
+> >
+> > In page_ref_add_unless(), the condtion `!page_is_fake_head(page) &&
+> > page_ref_count(page)` returns false before a PTE becomes RO.
+> >
+> > For HVO, i.e., a PTE being switched from RW to RO, page_ref_count() is
+> > frozen (remains zero), followed by synchronize_rcu(). After the
+> > switch, page_is_fake_head() is true and it appears before
+> > page_ref_count() is unfrozen (become non-zero), so the condition
+> > remains false.
+> >
+> > For de-HVO, i.e., a PTE being switched from RO to RW, page_ref_count()
+> > again is frozen, followed by synchronize_rcu(). Only this time
+> > page_is_fake_head() is false after the switch, and again it appears
+> > before page_ref_count() is unfrozen. To answer your question, readers
+> > coming in immediately after that won't be able to see non-zero
+> > page_ref_count() before it sees page_is_fake_head() being false. IOW,
+> > regarding whether it is RW, the condition can be false negative but
+> > never false positive.
+>
+> Thanks, but I'm still not seeing how this works. When you say "appears
+> before", I don't see any memory barriers in page_ref_add_unless() that
+> enforce that e.g. the refcount and the flags are checked in order and
 
-I think the ARM version of viommu_alloc op has already implemented
-enough capability checks and rejected any of hardware_not_capable.
-So, viommu shouldn't be a thing that the driver could actually use
-to call this helper :)
+Right, there is a missing barrier in page_ref_add_unless() and the
+order of those two checks, i.e., page_is_fake_head() and then
+page_ref_count() is wrong.
 
-Thanks
-Nicolin
+I posted a fix here [1].
+
+[1] https://lore.kernel.org/20250107043505.351925-1-yuzhao@google.com/
+
+> I can't see how the synchronize_rcu() helps either as it's called really
+> earlyi (I think that's just there for the static key).
+
+That fix makes sure no speculative PFN walkers will try to modify
+page->_refcount during the transition from the counter being frozen to
+modifiable. synchronize_rcu() makes sure something similar won't
+happen during the transition from the counter being modifiable to
+frozen.
+
+> If page_is_fake_head() is reliable, then I'm thinking we could use that
+> to steer page_ref_add_unless() away from the tail pages during the
+> remapping operations and it would be fine to use a break-before-make
+> sequence.
+
+The struct page pointer passed into page_is_fake_head() would become
+inaccessible during BBM. So it would just crash there. That's why I
+think we either have to handle kernel PFs or pause other CPUs.
+
+(page_is_fake_head() works by detecting whether it's accessing the
+original struct page or a remapped (r/o) one, and the latter has a
+signature for it to tell.)
 
