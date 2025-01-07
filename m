@@ -4,86 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E2E9E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 01:47:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CE01E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 01:50:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e30zrr3MrpDzUxxHon9mXRcs2qZJ9Cd2f6UwE4Tw9SU=; b=h0U4LoGYdMDYLmG6QkIu6e6e2C
-	ubk1UjwNe9hYMN4UIGmv/Jj4Xqwp9dSsARxv0L6OTIlDAQJw2L6FpGOeAKCdEgI59ea38EJBKBubM
-	J9o5qWu5gF6LdvAkn1fpngVrf5MqNltDs6qsSnid2IvK0ifQKgPv8iW6aA9g/mI2e5kqgZjSEYmo3
-	ax0mvWC/RK4p6mqnKMJTA1cq3g77GFaer9X2fqbRQLJqSjDU8Z0M8YSZFMvSNIq97LJEKyjd2NPk1
-	e+n1q7SXsWxuPI+cxkRr9LqYBVgvzjkupJJ046R3tnM39M5WW1NZ75+EMFF4qMT3kBXJgKRwqgxwJ
-	IDs0iomQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SiodhvZbaK4WZ11DrA/PEmHwBRisZUaQdNJx4kBuVPU=; b=N+Lm3erQVlmrKsOUQb2ksw5qbY
+	pgEXJYIxpZLV1TrddcZFfmRx/8KsQ6qltzoeDX3YwKxegeMBxMz14oIChAGJzCyohjfHuonScy3Py
+	MER6XY/ZvT5rRhg5gS8Jg6VkgA6snTnkzyGkOcTLVVTVf8BbmVKMl2PKq/gPnDDyzSCCxgaY1XLBC
+	3AgIB5M5j9R1hUc3mGHZYqIbvN7X4vkEPgaOtVO5pHLIYNiJgF+yZfNE5zJHUtno1uC7Yn/7M9a6Z
+	q85khTortLyNJM/FbmwJkoYPWHciwgjQMIYUboA5IHn65P8FnbSr3scMpxJNfwIy45YzIN3CIY61s
+	IakIHxNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUyh1-000000038tT-1wTv;
-	Tue, 07 Jan 2025 01:47:39 +0000
-Received: from dggsgout11.his.huawei.com ([45.249.212.51])
+	id 1tUyji-0000000399O-0uQr;
+	Tue, 07 Jan 2025 01:50:26 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUyfm-000000038iP-41rN
+	id 1tUyiT-00000003934-0Non
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 01:46:24 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.235])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4YRv5N4Pmsz4f3jLq
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  7 Jan 2025 09:45:44 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.128])
-	by mail.maildlp.com (Postfix) with ESMTP id E571B1A0C24
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  7 Jan 2025 09:46:05 +0800 (CST)
-Received: from [10.67.108.244] (unknown [10.67.108.244])
-	by APP4 (Coremail) with SMTP id gCh0CgC3Gl9ch3xnFggDAQ--.39405S3;
-	Tue, 07 Jan 2025 09:46:05 +0800 (CST)
-Message-ID: <f035cbed-bff9-426d-9da2-1bc34ef644d3@huaweicloud.com>
-Date: Tue, 7 Jan 2025 09:46:03 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH linux-next 2/2] perf: Return EACCESS when need perfmon
- capability
-To: James Clark <james.clark@linaro.org>
-Cc: mingo@redhat.com, acme@kernel.org, namhyung@kernel.org,
- mark.rutland@arm.com, alexander.shishkin@linux.intel.com, jolsa@kernel.org,
- irogers@google.com, adrian.hunter@intel.com, kan.liang@linux.intel.com,
- tglx@linutronix.de, bp@alien8.de, dave.hansen@linux.intel.com,
- x86@kernel.org, hpa@zytor.com, will@kernel.org, paul@paul-moore.com,
- jmorris@namei.org, serge@hallyn.com, rostedt@goodmis.org,
- mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
- stephen.smalley.work@gmail.com, omosnace@redhat.com,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-security-module@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, selinux@vger.kernel.org,
- Peter Zijlstra <peterz@infradead.org>
-References: <20241223070650.2810747-1-luogengkun@huaweicloud.com>
- <20241223070650.2810747-3-luogengkun@huaweicloud.com>
- <57627eec-10b5-4eb0-bfe2-f404a3492eee@linaro.org>
+	Tue, 07 Jan 2025 01:49:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PD65GcRIm2512Sp09+xb0qxadgbkp6W65gyH7WwGBcMl3KQIKSV34hQQhvpjVJ914Bi2D7W1NXqvgN9/1Km5eJKNIOcipGEc5or6qYcNqr520WTpOJHpAy/ErEydwTAOPOYIYLKKLYGz6hCn7onlsFE6/CnSGLWwux4YJoChopdeQxOPqKziuoB6ZCSN2MQX1Ha4Yzx0fEWQ5bM3LTP0h3ha4lY0JJYDO9frm73Iy0mqtJr8AREvAyJXgxO6ti7q8pCS+f7y/TpOa8o1UVUmpMa7yB8nfurCElVr9uHBs9C95FaJvgoM+UfRCDy145ETkOd88jRAivaz02C+rZUyag==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=SiodhvZbaK4WZ11DrA/PEmHwBRisZUaQdNJx4kBuVPU=;
+ b=Jat4JVG/FRUEyoV0lEzQCpqTryZfuxp2T6iQ/dOiiEZvQFFjTbROCBJJz6EAqKE6B531Avuwt/xvyTsUJ3bczGRALsYBJYV2BXDXoQvTqzTeUaTTKrWpdTz++4CbJPgWtt4+zIvNcBzVN6DO35YD6CW72GhUwloaVBPaHxvKqrgxWT7HTMJXmbU5dEZM3UwhTWP+HamiQyg9xBlG7a/HLXcL4uGWOhQOWMn8znWo3C9A8Pz38iLR0Ok0MaYGbFdawFqKKwmwDRHAqVOFJFmx4BMBZeCBSGPVF2IolzjUuRUVA42h/dFdBE8qTiZcOQNj2e0HPN8hd5PYT0uJ5z04FQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=SiodhvZbaK4WZ11DrA/PEmHwBRisZUaQdNJx4kBuVPU=;
+ b=j4NHl5026tWX2K0siyhJNJntqvfswROZKWJiLYdqaJG/v3Pl6Yxr4yb78DRupmlHf4+EFr+yK/Ngm4gZ0tbREw0tcVc3RaEc5h9wGnmMEanlXVB4Ql8B7P8Ae4mkiLI3YwGRvkHUc3+l5DJ5KvyTUwFcv5x0f2IBfT3qStG19F9wk6nJJ2AcZSzSDqE3VaXp8ZJA+dmZ3Cl//oJkoP+2ifq8j+w9UPOjgrtUxFQoBHm8CjfIIB+hCshsazGDZwS257BXl+0qP7DsCSvYSVFQleZg7qoCwL+9w7Me3R1ZQQKcgEtwzdq4SCsmTABhDh+OL7Gw7KFoyS12r8z1FnWMZQ==
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by DBAPR04MB7397.eurprd04.prod.outlook.com (2603:10a6:10:1a9::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8314.18; Tue, 7 Jan
+ 2025 01:49:05 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%5]) with mapi id 15.20.8314.018; Tue, 7 Jan 2025
+ 01:49:04 +0000
+From: Peng Fan <peng.fan@nxp.com>
+To: Dan Carpenter <dan.carpenter@linaro.org>, "Peng Fan (OSS)"
+	<peng.fan@oss.nxp.com>
+CC: "sudeep.holla@arm.com" <sudeep.holla@arm.com>, "cristian.marussi@arm.com"
+	<cristian.marussi@arm.com>, "arm-scmi@vger.kernel.org"
+	<arm-scmi@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [RFC] firmware: arm_scmi: Optimize the iteration of
+ scmi_requested_devices
+Thread-Topic: [RFC] firmware: arm_scmi: Optimize the iteration of
+ scmi_requested_devices
+Thread-Index: AQHbYAhZZ5ahNneqjkC0am8GhShmhbMJ2deAgACx7qA=
+Date: Tue, 7 Jan 2025 01:49:04 +0000
+Message-ID: <PAXPR04MB84591748D80473930E1E450488112@PAXPR04MB8459.eurprd04.prod.outlook.com>
+References: <20250106065724.3674510-1-peng.fan@oss.nxp.com>
+ <094fc69e-a7b3-41bc-b5a7-cdc8a8deeef2@stanley.mountain>
+In-Reply-To: <094fc69e-a7b3-41bc-b5a7-cdc8a8deeef2@stanley.mountain>
+Accept-Language: en-US
 Content-Language: en-US
-From: Luo Gengkun <luogengkun@huaweicloud.com>
-In-Reply-To: <57627eec-10b5-4eb0-bfe2-f404a3492eee@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: gCh0CgC3Gl9ch3xnFggDAQ--.39405S3
-X-Coremail-Antispam: 1UD129KBjvJXoW7Aw13Jw1xGF4UAFW3ZrW3GFg_yoW8Wr4xpF
-	s3Cr1YkayxKr97A34Yvwsru34UJr4Ivr4UJF9YgFs8AF1YgFZ0qF4UW34agr1DuF4xCayj
-	ya1DXF98urWDZaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUv0b4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
-	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
-	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
-	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS
-	14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I
-	8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWr
-	XwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x
-	0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_
-	Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU0
-	4xRDUUUUU==
-X-CM-SenderInfo: 5oxrwvpqjn3046kxt4xhlfz01xgou0bp/
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|DBAPR04MB7397:EE_
+x-ms-office365-filtering-correlation-id: fb8b267a-0153-42f8-443c-08dd2ebd77aa
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|366016|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?kMoGYxZbpAVxM0ku2SZARjG4mLy1sowPJpahmlRZqp17B452tddOuOhvclcS?=
+ =?us-ascii?Q?XEtz7g9dODyyD+fKdoDzAMi25JSsA5COFRoMFWmuMeJ2OpGhSF3h4sAVG8pF?=
+ =?us-ascii?Q?zSHuE4Pw+L1vcLk6rKrjwi0c6sAfTSsuG1wtUu2ON07xj7tcj1ywkjvP/RgK?=
+ =?us-ascii?Q?vpZD9UojSuIQrdru8e6x3u543A2BjyW7ufoMuUAirmYSNSa71POYJG05vUFy?=
+ =?us-ascii?Q?Nknr+okLw17WiU70PA1PZPnO8PSO9umlPwJhMTdVP0h7r34UU/ktUrvbIq7j?=
+ =?us-ascii?Q?juZv1JDwyTheunMlD70XXD3zfh3aUaRM0+T+DQfuSYB+taaKeFi21SN+nX13?=
+ =?us-ascii?Q?VEN+bSpyF3UMv4u9pevlz7m1zotPp7k1+jpKocWD6F24S+GTOi/t6Dj2ihus?=
+ =?us-ascii?Q?7X/SZlXI0njSS2BOSXQhSXhoFPxiupIUweXsgXPBT17LaQd7i3Vw0/F5RFg6?=
+ =?us-ascii?Q?UdUGQZIYZJfrd190+8f+Vp+/iXsTPnReVafppVq6dMrWhHNERDdfdj+nWx7X?=
+ =?us-ascii?Q?05nqjrcEZvtzRVAC3THQ2Z4rBkoSjjMC5YaLOKAj3c5adIfXlFyU5YuAI3hT?=
+ =?us-ascii?Q?Caop7ZGED87QHqXNQNIpjl8oi9YW98Z74KTIcVoGKJPqV8+WLUEpOwNIN8Gm?=
+ =?us-ascii?Q?f7gqR39JrKoLzWs+0dwLmxfNDcaBgveKXjS6DT3i0U0sdGfkQWA8dfac30si?=
+ =?us-ascii?Q?ec3avDp2u6sBJ0eVuRaEI+uNsDZ4INRN57g5Cmm62JiIQmYTsbO4/OhwvAHE?=
+ =?us-ascii?Q?nj36P1ycUkSjFlGUUEFQT5Eu7m7fP7NOP+kcHuwEmX9lT/qdv8coTTkSl/3I?=
+ =?us-ascii?Q?BAXthB7Fgl/+X3wwZpCNHPP0+dzfZp97GH6AJLFqSrblvpLT/YNDM61BoDe5?=
+ =?us-ascii?Q?MyOZw+dlLOe7zCQMto8f2M/9LB8/e95abg4FR+QOhV3aEZ/SlfHmDp1x5nYv?=
+ =?us-ascii?Q?IBULnXFoVl9WRUfnP3+Bj9sanbmJ+nSz3sWNU3whSMUOfWn5pRdN3/J9iXlG?=
+ =?us-ascii?Q?cCTKDDzovi8/NQp4rOjMi/T/NxuuY97CegvicNNoOwTWqc9w8gjyh5vQxr8F?=
+ =?us-ascii?Q?qWlaICu5l0oHvqY+tXuXWNq/aQygH/7JfYxhE2kIHGcJmmAi9rnjmO24JrIM?=
+ =?us-ascii?Q?jZwf6i07GjdFaHZVblUIv5wTD+u12BK6PzbCrcJAxgKSDvVl9TNzBVBT1ur8?=
+ =?us-ascii?Q?K10jHrVxRYuwXXa8o6P0F7wZ/eukZrN3cZ5R7hvnRSCPedEV2SQawNIao/LU?=
+ =?us-ascii?Q?U3ke2urdEM0pjSMi2R+tj5sG19nzS1pohdJp0sWfsYe6bLdWWRf0kDZ01NlW?=
+ =?us-ascii?Q?oFQp3PGGJN5nWfqzxmB1iqmTY6Wi/TjPuCYcYIf5VBN365SVADJ4+ciFHjnt?=
+ =?us-ascii?Q?CBN2qdXX6zeIAR4E7Y1rqp+k7GZXUkkd4e3OqUjeat27ppVZO1uSgBdpqUbT?=
+ =?us-ascii?Q?QBjoY/i211nWxmFvUN48Oacs1aK9J41W?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?hYaKa9wgLNyAO46lx0GH+aHIAodxoXycX0rJxLC7sKHupTlT4o4Fy288jSql?=
+ =?us-ascii?Q?vosnVtLB81wVkwutRbX18HT0kSkOAImDJjHH4Xb/teM+BWXNWHQShFVQd+q6?=
+ =?us-ascii?Q?jlui3YUTEOFdXNelUz3jrtU6/sqT1ISVHxJAZoJYlSo+sfewsaeEKGPANZuJ?=
+ =?us-ascii?Q?MtzUSdIS2o+Fpb+0cfIu8VHza/bBJOi7pr8Elim/2lzG8K2SUoAtK3OaHf5B?=
+ =?us-ascii?Q?sSHf2Hg1XaMCO385ei62uKAvRNoQ0GrjkMXZqtLf2gSqTszjqQzmCpJyFvSp?=
+ =?us-ascii?Q?AabPZu/syLQHHDtR3mDvERvjP1iCAhXRRFyfkoU4eDfEA10D5E2FWyASteJH?=
+ =?us-ascii?Q?YY7FFIMrMo5cHiH11uSdehFYSM7hxZK5Kt/+CeQGkNgFDWxZ9SrjueiZk4Uw?=
+ =?us-ascii?Q?SQK0O5Tybpzv4vn9qjOKmfwH1+qYFlUJefEu8KKDT7veTYuymesJgbO4KeM4?=
+ =?us-ascii?Q?sBS0jxiX54JMQMBk5DF5E3yGCXhMtI/S7yMIcHPiUBuwQ7a9p4p4sg6kWrOP?=
+ =?us-ascii?Q?l0Pyd6VCEvMqJl8nzL4gx2bCOTRjcDBCTHTOWxt+kk1n/DO0Ord3WwEWNtkD?=
+ =?us-ascii?Q?dDweqa3F3tMcQ6DgxkPivrrEZQGnnswhzxrFKBBFT8FPgJJho7ARfnXmtcZG?=
+ =?us-ascii?Q?PXaiMWXPYdM0qYQgCMT1lPKPeFZOI1mE+sjBZw8G3ERVW+8sOLGrmUeZjJ2B?=
+ =?us-ascii?Q?ebpzwIIZDzrp2mPfvMnNkJUcN+/jXCXtKOYUBOxjwuXHOQGgEWJFOqRziLJK?=
+ =?us-ascii?Q?WJRuh1+xdvXUkCQmOUMJH0gl7KzLMW8y4uYLioHpBHAfIv9mr7CQUvAIi+Oa?=
+ =?us-ascii?Q?N0gzk3IpnCNOKy/fR/UZQefJOw/u1VUapYmCE7IGd276XBZs6YIy6S1YSXeO?=
+ =?us-ascii?Q?u8CiCQHNmh71t0TfEt7I4bm8JjsPVA9g7zcsq9eKQ6/dDsDcW7lq3KtirqYS?=
+ =?us-ascii?Q?wX+wmAnAioCHVDpxaAy9xFK9TVE/dRs5sbqDNzsRyNn1dn5w0JEgADfTpmHe?=
+ =?us-ascii?Q?aCfCE0pRhtk+avUeqvQ6e3uHvLpM0a0B3v5J7HURMw0nnVF6Ir5/TWE9HWpX?=
+ =?us-ascii?Q?cLxdSgLoipW/3BMuptwW+Nm5Oa7Ljlv+AVtcRpqr/Tyg8bwgE/loONa06dft?=
+ =?us-ascii?Q?3RFGizTZqGCKIEJc3PKJu1C1tl75ipcK4ZPz7QC89LYnq129oaV4eLHFjyl2?=
+ =?us-ascii?Q?sfC+MRGAqF0VGAVr0daAeWYiACTAGqfDoebpA02w+k0l5AIv4ulZB9CWZobe?=
+ =?us-ascii?Q?N2yaGshta/D4JzchAns+MM2/cSzTTiQlOgmgqUGJWfcMtRyxuYOaUWD+duX9?=
+ =?us-ascii?Q?RwMINzkoD8sxVHr/JiVNCB5Nc+Dt7s+jDKJGGlaBao952oXvpTbRgftJZzDO?=
+ =?us-ascii?Q?5I2I2e/iuXB47T2dkJgzq+P9Lg3E2MbsEFCRXKKw7OePJWfrilwoCNlRfgJY?=
+ =?us-ascii?Q?WEG9/iFkpHez4f1mOZ7kbPiMCMGYRa7nUU+XXvTm1Hak/4IIprfCqnYZW4f7?=
+ =?us-ascii?Q?zVSGhqJ+PCIqAmxPnyGr5/S9T78360zqkil2LAyxRA/VEkLGnncuKaJm3gHV?=
+ =?us-ascii?Q?XvN0/QZfphDb//w3e48=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fb8b267a-0153-42f8-443c-08dd2ebd77aa
+X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Jan 2025 01:49:04.7252
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: INhmLDDvtIeJalUNsJLTgbYXWg5lbJtL6IqzcctH4Bh6KHRaPwK5X9xlKi/CBx6urbTCSyUYM2ySEL3Q+tfJEw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7397
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_174623_301856_5180F7B9 
-X-CRM114-Status: GOOD (  19.25  )
+X-CRM114-CacheID: sfid-20250106_174909_143713_0C44286D 
+X-CRM114-Status: GOOD (  24.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,56 +165,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Dan,
 
-On 2025/1/6 23:59, James Clark wrote:
->
->
-> On 23/12/2024 7:06 am, Luo Gengkun wrote:
->> For perf_allow_kernel and perf_allow_cpu, both return EACCES when 
->> require
->> CAP_PERFMON or CAP_SYS_ADMIN permissions, so update 
->> perf_allow_tracepoint
->> to keep them the same.
->>
->> Signed-off-by: Luo Gengkun <luogengkun@huaweicloud.com>
->> ---
->>   include/linux/perf_event.h | 2 +-
->>   1 file changed, 1 insertion(+), 1 deletion(-)
->>
->> diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
->> index 5d2ec4283ebf..c1bc0d7a275b 100644
->> --- a/include/linux/perf_event.h
->> +++ b/include/linux/perf_event.h
->> @@ -1685,7 +1685,7 @@ static inline int perf_allow_cpu(void)
->>   static inline int perf_allow_tracepoint(void)
->>   {
->>       if (sysctl_perf_event_paranoid > -1 && !perfmon_capable())
->> -        return -EPERM;
->> +        return -EACCES;
->
-> Is this necessary other than for consistency? If not it might be best 
-> to leave it inconsistent even if it's wrong. I see quite a few "if 
-> EPERM do this..." type things in Perf, so changing this would break 
-> error messages being shown to users.
->
-> If anything, EPERM seems more correct because EACCESS is more about 
-> file access.
-I think so, from the perspective of capabilities and 
-sysctl_perf_event_paranoid, EPERM is more appropriate.
->
-> Thanks
-> James
+> Subject: Re: [RFC] firmware: arm_scmi: Optimize the iteration of
+> scmi_requested_devices
+>=20
+> On Mon, Jan 06, 2025 at 02:57:24PM +0800, Peng Fan (OSS) wrote:
+> > From: Peng Fan <peng.fan@nxp.com>
+> >
+> > scmi_requested_devices is organized in IDR based link lists, so only
+> > need to search the link lists when there is a match protocol_id.
+> >
+> > Back to search the next id with 'continue' to save cpu cycles, if
+> > protocol_id does not match.
+> >
+> > Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> > ---
+> >
+> > RFC:
+> >  Tested on i.MX95.
+> >
+> >  drivers/firmware/arm_scmi/bus.c | 3 +++
+> >  1 file changed, 3 insertions(+)
+> >
+> > diff --git a/drivers/firmware/arm_scmi/bus.c
+> > b/drivers/firmware/arm_scmi/bus.c index
+> 157172a5f2b5..42deab5903fb
+> > 100644
+> > --- a/drivers/firmware/arm_scmi/bus.c
+> > +++ b/drivers/firmware/arm_scmi/bus.c
+> > @@ -79,6 +79,8 @@ static int scmi_protocol_device_request(const
+> struct scmi_device_id *id_table)
+> >  			if (rdev->id_table->protocol_id =3D=3D
+> >  			    id_table->protocol_id)
+> >  				phead =3D head;
+> > +			else
+> > +				continue;
+> >  		}
+> >  		list_for_each_entry(rdev, head, node) {
+> >  			if (!strcmp(rdev->id_table->name, id_table-
+> >name)) { @@ -89,6
+> > +91,7 @@ static int scmi_protocol_device_request(const struct
+> scmi_device_id *id_table)
+> >  				goto out;
+> >  			}
+> >  		}
+> > +		break;
+> >  	}
+>=20
+> I suspect your patch is correct but we could go further.  Removing the
+> test for if (!phead) really helps readability.
 
+Thanks. Looks better.
 
-Thanks for your review.
+Thanks,
+Peng.
 
-Actually, I am not sure if it's typo or intentional, so this patch is 
-more like a consultation. It's okay to keep it the same so it doesn't 
-torture the user.
-
-
-Thanks
-
-Gengkun
-
+>=20
+> regards,
+> dan carpenter
+>=20
+> diff --git a/drivers/firmware/arm_scmi/bus.c
+> b/drivers/firmware/arm_scmi/bus.c index
+> a3386bf36de5..2c853c84b58f 100644
+> --- a/drivers/firmware/arm_scmi/bus.c
+> +++ b/drivers/firmware/arm_scmi/bus.c
+> @@ -72,14 +72,11 @@ static int scmi_protocol_device_request(const
+> struct scmi_device_id *id_table)
+>  	 */
+>  	mutex_lock(&scmi_requested_devices_mtx);
+>  	idr_for_each_entry(&scmi_requested_devices, head, id) {
+> -		if (!phead) {
+> -			/* A list found registered in the IDR is never
+> empty */
+> -			rdev =3D list_first_entry(head, struct
+> scmi_requested_dev,
+> -						node);
+> -			if (rdev->id_table->protocol_id =3D=3D
+> -			    id_table->protocol_id)
+> -				phead =3D head;
+> -		}
+> +		/* A list found registered in the IDR is never empty */
+> +		rdev =3D list_first_entry(head, struct
+> scmi_requested_dev, node);
+> +		if (rdev->id_table->protocol_id !=3D id_table-
+> >protocol_id)
+> +			continue;
+> +
+>  		list_for_each_entry(rdev, head, node) {
+>  			if (!strcmp(rdev->id_table->name, id_table-
+> >name)) {
+>  				pr_err("Ignoring duplicate request
+> [%d] %s\n", @@ -89,6 +86,8 @@ static int
+> scmi_protocol_device_request(const struct scmi_device_id *id_table)
+>  				goto out;
+>  			}
+>  		}
+> +		phead =3D head;
+> +		break;
+>  	}
+>=20
+>  	/*
 
