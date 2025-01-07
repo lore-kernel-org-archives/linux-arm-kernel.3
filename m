@@ -4,77 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB3EBE77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 12:06:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27FB9E77198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 12:07:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rt0/m2Ur3xOciFGnYgCU4bKBYglBzbBymgd9Uo9+dy8=; b=Wmj/BeTIbS1rM/xo0dtOmf9Xn2
-	GJwaVTO/Al7CBOXrzTIxUrgUI3W1J0ajk5mSw9oAyyv3iI0itpfU7DGXLnfIX2QtdWfHo6cnoDDPh
-	iOTto9fPVF2z6XyuMJaR4n+NlEHcSTmVtSOhrtgm4YebdmqA/dSHUN1JVhO3eiS16uT9Ct8ciIimi
-	FkCntNqhU3VtDbr7efw9HDfjxPnRDdw/pwC2cqV9DfkfbB175psnbf8CS9E8BX+nT3G5HAu2Y8PqN
-	iAJMZQ5WLK3HHGLJy5xtDDEh466XFUnP0LY6NpGzyvtYzUGuV+wUJhID6GeKyN25uzza+UIQmXoYz
-	wh4uxzvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TGGJkJPzJ/ul/QAPsmtmQeMD95tQCTIq4WEnha2ywd0=; b=umTI0YMMPv2tzgdClktLbkc+cX
+	+b/Bl8ucMmozbr/x0xlYb082wbfCq5G42MeI0T+I+rezEzM065R3MYRwzIPkQEHdat1/PjgS4hkV1
+	7eqY8qiDwS3wIxgTmBt9KJRICp3NUmX6h09WZzATgLmDMOftyVAG7EGbOXOwh6PzlHKNqYjr8aGwh
+	HITxTOvT6pIHyEbKFH9TmdaPL3TyNt/HkaE19hYdU2zXpeaiP6JE5206Zk7p5+QrRFKw6uAsGHg4D
+	/sYbb3bT+DR1+eVBdmjltzzg/8Uiy5C52rETJeTL35l43cP/3oNWflGnHYQD4WirGMc7J2hFf2UMw
+	umgk5QuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV8Lt-00000004h0B-3NNz;
-	Tue, 07 Jan 2025 12:06:29 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV8DA-00000004erM-416B
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 11:57:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=Rt0/m2Ur3xOciFGnYgCU4bKBYglBzbBymgd9Uo9+dy8=; b=KqBecdSB8IPGU3TLqYufcE250X
-	L8FjFnrCvCmlwFzsHJsSPeLZnFEyAjY/CqcY/tdqZcI5BDjHtx0Sfcqd8rRNpx++b6wLAeYLCobcz
-	ga/vcKx/Td9Tk2Wz6kFF4+X7NOXMmhXtxdDVX7yHEC4QAXgIOry3SWOXLskF8m+47nQBiR8GNfetZ
-	b/+3k5DjNDNdfV+iX/C80SZEa8OLqnwTE9QHUKGebd1RFADCNBKxv+7GSKNRWiDM08F3aj1IPvA/8
-	RkAQ53VOxwGg14bEjWtHv0T0cVe9fR6RyUmOBZLoFJObCvivZ+VCeFojq9z4rRPnehF7qjiORvNDC
-	7dsLtgew==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:33040)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tV8Cy-0007Li-2x;
-	Tue, 07 Jan 2025 11:57:17 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tV8Cu-0005G3-0o;
-	Tue, 07 Jan 2025 11:57:12 +0000
-Date: Tue, 7 Jan 2025 11:57:12 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Simon Horman <horms@kernel.org>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next v2 03/17] net: stmmac: use correct type for
- tx_lpi_timer
-Message-ID: <Z30WmPpMp_BRgrOI@shell.armlinux.org.uk>
-References: <Z3vLbRQ9Ctl-Rpdg@shell.armlinux.org.uk>
- <E1tUmAE-007VWv-UW@rmk-PC.armlinux.org.uk>
- <20250107112851.GE33144@kernel.org>
+	id 1tV8N5-00000004hGQ-2M1L;
+	Tue, 07 Jan 2025 12:07:43 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tV8Dz-00000004f0V-0tl7;
+	Tue, 07 Jan 2025 11:58:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E9DC6143D;
+	Tue,  7 Jan 2025 03:58:45 -0800 (PST)
+Received: from [10.44.160.93] (e126510-lin.lund.arm.com [10.44.160.93])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 187FC3F673;
+	Tue,  7 Jan 2025 03:58:09 -0800 (PST)
+Message-ID: <4a0b5edb-6fc7-4df4-93d9-ca834e6a760b@arm.com>
+Date: Tue, 7 Jan 2025 12:58:08 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250107112851.GE33144@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 10/15] riscv: pgtable: move pagetable_dtor() to
+ __tlb_remove_table()
+To: Qi Zheng <zhengqi.arch@bytedance.com>
+Cc: agordeev@linux.ibm.com, palmer@dabbelt.com, tglx@linutronix.de,
+ david@redhat.com, jannh@google.com, hughd@google.com, yuzhao@google.com,
+ willy@infradead.org, muchun.song@linux.dev, vbabka@kernel.org,
+ lorenzo.stoakes@oracle.com, rientjes@google.com, vishal.moola@gmail.com,
+ arnd@arndb.de, will@kernel.org, aneesh.kumar@kernel.org, npiggin@gmail.com,
+ dave.hansen@linux.intel.com, rppt@kernel.org, ryan.roberts@arm.com,
+ linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-kernel@vger.kernel.org, x86@kernel.org, linux-arch@vger.kernel.org,
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+ linux-sh@vger.kernel.org, linux-um@lists.infradead.org,
+ peterz@infradead.org, akpm@linux-foundation.org
+References: <cover.1735549103.git.zhengqi.arch@bytedance.com>
+ <0e8f0b3835c15e99145e0006ac1020ae45a2b166.1735549103.git.zhengqi.arch@bytedance.com>
+ <1b09335c-f0b6-4ccb-9800-5fb22f7e8083@arm.com>
+ <ebce5e05-5e46-4c6e-94a0-bcf3655a862b@bytedance.com>
+ <7e2c26c8-f5df-4833-a93f-3409b00b58fd@arm.com>
+ <e9fe97d4-99d5-443e-b722-43903655a76e@bytedance.com>
+ <31e1a033-00a7-4953-81e7-0caedd0227a9@bytedance.com>
+ <d9a14211-4bbd-4fb6-ba87-a555a40bb67a@arm.com>
+ <de8756aa-dbf7-4f6f-91f0-934270397192@bytedance.com>
+ <ee393a7f-d01e-4e5d-9bf8-779795613af1@arm.com>
+ <07e0c05f-cb69-4263-885d-6d20d4442152@bytedance.com>
+Content-Language: en-GB
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+In-Reply-To: <07e0c05f-cb69-4263-885d-6d20d4442152@bytedance.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_035729_280642_80CC8384 
-X-CRM114-Status: GOOD (  24.06  )
+X-CRM114-CacheID: sfid-20250107_035819_344021_134F1E8B 
+X-CRM114-Status: GOOD (  17.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,60 +87,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 07, 2025 at 11:28:51AM +0000, Simon Horman wrote:
-> On Mon, Jan 06, 2025 at 12:24:58PM +0000, Russell King (Oracle) wrote:
-> > The ethtool interface uses u32 for tx_lpi_timer, and so does phylib.
-> > Use u32 to store this internally within stmmac rather than "int"
-> > which could misinterpret large values.
-> > 
-> > Since eee_timer is used to initialise priv->tx_lpi_timer, this also
-> > should be unsigned to avoid a negative number being interpreted as a
-> > very large positive number.
-> > 
-> > Also correct "value" in dwmac4_set_eee_lpi_entry_timer() to use u32
-> > rather than int, which is derived from tx_lpi_timer, even though
-> > masking with STMMAC_ET_MAX will truncate the sign bits. u32 is the
-> > value argument type for writel().
-> > 
-> > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> 
-> ...
-> 
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > index 9a9169ca7cd2..b0ef439b715b 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > @@ -111,8 +111,8 @@ static const u32 default_msg_level = (NETIF_MSG_DRV | NETIF_MSG_PROBE |
-> >  				      NETIF_MSG_IFDOWN | NETIF_MSG_TIMER);
-> >  
-> >  #define STMMAC_DEFAULT_LPI_TIMER	1000
-> > -static int eee_timer = STMMAC_DEFAULT_LPI_TIMER;
-> > -module_param(eee_timer, int, 0644);
-> > +static unsigned int eee_timer = STMMAC_DEFAULT_LPI_TIMER;
-> > +module_param(eee_timer, uint, 0644);
-> >  MODULE_PARM_DESC(eee_timer, "LPI tx expiration time in msec");
-> >  #define STMMAC_LPI_T(x) (jiffies + usecs_to_jiffies(x))
-> >  
-> 
-> Hi Russell,
-> 
-> now that eee_timer is unsigned the following check in stmmac_verify_args()
-> can never be true. I guess it should be removed.
-> 
->         if (eee_timer < 0)
->                 eee_timer = STMMAC_DEFAULT_LPI_TIMER;
-> 
+On 07/01/2025 11:51, Qi Zheng wrote:
+> [...]
+>
+> Author: Qi Zheng <zhengqi.arch@bytedance.com>
+> Date:   Fri Dec 13 17:13:48 2024 +0800
+>
+>     mm: pgtable: completely move pagetable_dtor() to generic
+> tlb_remove_table()
+>
+>     For the generic tlb_remove_table(), it is implemented in the
+> following two
+>     forms:
+>
+>     1) CONFIG_MMU_GATHER_TABLE_FREE is enabled
+>
+>     tlb_remove_table
+>     --> generic __tlb_remove_table()
+>
+>     2) CONFIG_MMU_GATHER_TABLE_FREE is disabled
+>
+>     tlb_remove_table
+>     --> tlb_remove_page
+>
+>     For case 1), the pagetable_dtor() has already been moved to generic
+>     __tlb_remove_table().
+>
+>     For case 2), now only arm will call
+> tlb_remove_table()/tlb_remove_ptdesc()
+>     when CONFIG_MMU_GATHER_TABLE_FREE is disabled. Let's move
+> pagetable_dtor()
+>     completely to generic tlb_remove_table(), so that the
+> architectures can
+>     follow more easily.
+>
+>     Signed-off-by: Qi Zheng <zhengqi.arch@bytedance.com>
+>
+> diff --git a/arch/arm/include/asm/tlb.h b/arch/arm/include/asm/tlb.h
+> index b8eebdb598631..ea4fbe7b17f6f 100644
+> --- a/arch/arm/include/asm/tlb.h
+> +++ b/arch/arm/include/asm/tlb.h
+> @@ -34,10 +34,6 @@ __pte_free_tlb(struct mmu_gather *tlb, pgtable_t
+> pte, unsigned long addr)
+>  {
+>         struct ptdesc *ptdesc = page_ptdesc(pte);
+>
+> -#ifndef CONFIG_MMU_GATHER_TABLE_FREE
+> -       pagetable_dtor(ptdesc);
+> -#endif
 
-Thanks for finding that. The parameter description doesn't seem to
-detail whether this is intentional behaviour or not, or whether it is
-"because someone used int and we shouldn't have negative values here".
+I guess this hunk will disappear since this call isn't present to start
+with.
 
-I can't see why someone would pass a negative number for eee_timer
-given that it already defaults to STMMAC_DEFAULT_LPI_TIMER.
+> -
+>  #ifndef CONFIG_ARM_LPAE
+>         /*
+>          * With the classic ARM MMU, a pte page has two corresponding pmd
+> diff --git a/include/asm-generic/tlb.h b/include/asm-generic/tlb.h
+> index 69de47c7ef3c5..53ae7748f555b 100644
+> --- a/include/asm-generic/tlb.h
+> +++ b/include/asm-generic/tlb.h
+> @@ -220,14 +220,20 @@ static inline void __tlb_remove_table(void *table)
+>
+>  extern void tlb_remove_table(struct mmu_gather *tlb, void *table);
+>
+> -#else /* !CONFIG_MMU_GATHER_HAVE_TABLE_FREE */
+> +#else /* !CONFIG_MMU_GATHER_TABLE_FREE */
 
-So, I'm tempted to remove this.
+Good catch!
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+>
+> +static inline void tlb_remove_page(struct mmu_gather *tlb, struct
+> page *page);
+
+Nit: might be better to move the declaration up, e.g. above #ifdef
+CONFIG_MMU_GATHER_TABLE_FREE.
+
+>  /*
+>   * Without MMU_GATHER_TABLE_FREE the architecture is assumed to have
+> page based
+>   * page directories and we can use the normal page batching to free
+> them.
+>   */
+> -#define tlb_remove_table(tlb, page) tlb_remove_page((tlb), (page))
+> +static inline void tlb_remove_table(struct mmu_gather *tlb, void *table)
+> +{
+> +       struct page *page = (struct page *)table;
+>
+> +       pagetable_dtor(page_ptdesc(page));
+> +       tlb_remove_page(tlb, page);
+> +}
+>  #endif /* CONFIG_MMU_GATHER_TABLE_FREE */
+>
+>  #ifdef CONFIG_MMU_GATHER_RCU_TABLE_FREE
+
+Looks good to me otherwise.
+
+- Kevin
 
