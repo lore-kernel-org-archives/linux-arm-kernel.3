@@ -4,92 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F314BE77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 10:39:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BBDBE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 10:44:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xje32BOdw7wAqN9VcKNPAq9+7Mpm31xiFrYaEG4gc8o=; b=1u2DtjY0LHQO+XQeevGeSSlGqC
-	LMhZu1ECaD78MYxWkhpjVjZsxD2nvSCCDLdMwF4ZKk2GAqsH4tnDa9egs/72GNlkpPk2+B89T9H1f
-	iJjNfDFB/q7qikmXUDv0dhdUZdL/d9mOoZer7gT+83H7YnXWPh+dfVgVpUPcQCeJ1T2dFzXACMxb2
-	k9dl7+nNHsX99X2K8cxWtllLddeWZ6rni+9Ij5bzubyXp8yvSpFYBOdMMRqMfWwFQRa63Sbz5zs/G
-	CbJG4mne/uFLoK3M6WWf5XfKmRUjJVDyJKQc3AEdWpBF50VAwHD4KV1k1jiCjSZBZV7XEKLeTZ0U5
-	W6e01pYQ==;
+	bh=ZaPcJ9YnE+yQY3VPWtEd1cIwsl0rUjT3qST+O9vnW7Y=; b=dJQDo0rssKAZNepuuiZnnH8JVr
+	DpgXBSnTHdISuhU+KJbdeh/PRFpntk4k77gdvU3o7dCtEIlAFQHgPMf9KKy+JscnYi4qEuii4MqZ5
+	bV6Q4cd3n+ByZQl4im1yuMpnUS/R/VuakzAxpRPkH4OUpDCYqHfvHgMxAJz/ykQT8p0NPkaByiUfj
+	M9B0bqr1Rh8j8nrjNk7Xkw1dxk9ANVTITslBCTNqeFP2tTtwceCkZ22+h9/rZHElwOGiSLh1lq8Ok
+	HKxTaDIMogAoyL3GNOxX+jB0wvqqbx+IxT06AbJxwFLwig2L8Npwims5AYWYjxVcYsmG3riIPpFyw
+	2RSCWeZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV6yz-00000004Omy-1iuw;
-	Tue, 07 Jan 2025 10:38:45 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV6xb-00000004OIS-1a9i
+	id 1tV74o-00000004Q7n-2CDI;
+	Tue, 07 Jan 2025 10:44:46 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tV73b-00000004Po7-2SzN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 10:37:25 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-5401c52000dso17064075e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 02:37:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736246237; x=1736851037; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Xje32BOdw7wAqN9VcKNPAq9+7Mpm31xiFrYaEG4gc8o=;
-        b=IgBdRD4oczr+oQ7+LnYzVDG6QAayt8Xo4geIBEkXL+LktKSzaWM2OhaLoJhDHRaamg
-         5Ak6zZ4647OHyRQJFRhrcYoKM4Aw/dMdYh0zjVtjfjAIzHIL09QUFgJYFg8o8+UBN1IH
-         sXSxOXL//7a9WoXhJvozI1of7o/3fziDE7P9Y73bf6aW8k2tNoLwbJS1DDyNygThaUR+
-         2eC+rhyOwGMXdyARMhOknRbGu+oMMdyvAOX1ynlKs0R7lbifSJ5O6f2HxPbm1hFQiouv
-         VKYfzO1lUBSVrE2DFZETQ9cInkoCHf6PRE2bC95/7M0B/p/zmroNun0lBhYPT9NqXxb1
-         Bapw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736246237; x=1736851037;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Xje32BOdw7wAqN9VcKNPAq9+7Mpm31xiFrYaEG4gc8o=;
-        b=TGatUYqzILncANbIPddgF2Z2lBUFMeV1cM+cMD4nQ4Gwz6PUuXRUVR0B1SXfWd9RHz
-         ZSbwofP+sFjukdLiu43B4D1VVRpMQaDCBFbPGk07eq0BCkQ0xG211jUC/SfK7WR3s5Vp
-         VN0sMCBt162gc8KVt3tY05891vMPRFFHcrofTKfaRhAENCUun0pyBLBeOo5+H4yHDNMS
-         6XAEKv2xnpsqN7bT6M3ZKUHLWZTZdyzR1XEwjKnzHdskowsBz2a4Yiq2mWQkfCY2SdUp
-         b09IwEKDRX2uMUwxCePRQHqBZsybGZXdmGhKrCBmRLRJfzGdBBeeTbNYb6AtkrFeXMlK
-         Owuw==
-X-Forwarded-Encrypted: i=1; AJvYcCVHNnMy2QQ93XOJ8JFciUmR7HAxXDYS/MQwTFSjvZMXBzwomfkgYE5HJN6lyCkTgr551qiKDr5u6uNXgeX/NUda@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzq/Y5vuRUIgQ8qyXKoBtOh/HDBsXCN8lmW5HYVkH1gCFiqXQtX
-	S1TvI6RvGoJiY7lZKhHXQvmAiuLHmL136WR/RACFtTPjebomKRTz9KL8LJ0vmhZxZphMa/fNVPf
-	PQhBx64bJM2vHkHZzJ46R2vHCRng=
-X-Gm-Gg: ASbGncv1hYYqcSu0pjm2M2lQO4AH3MdWE8usY2e10mlF6jXbHkf7pJX8IbsJv09E+uW
-	EondmHLW4quR843dW6aXT7z5bmlyNuKRJ0CCeNy/TTzbRWLdGzvvjDw/SumORYzkpGFFurg==
-X-Google-Smtp-Source: AGHT+IHS3njRhHL7YfFO0iWHF22sHLsH5C52QKY9UxYlGlYE//joyWAtO538qgeg1ERJpfJproNazJyxMl4X57hOWEc=
-X-Received: by 2002:a05:6512:1110:b0:540:75d3:95c0 with SMTP id
- 2adb3069b0e04-5422956b7cfmr16752741e87.47.1736246237133; Tue, 07 Jan 2025
- 02:37:17 -0800 (PST)
+	Tue, 07 Jan 2025 10:43:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 90A2C143D;
+	Tue,  7 Jan 2025 02:43:55 -0800 (PST)
+Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 715F43F673;
+	Tue,  7 Jan 2025 02:43:25 -0800 (PST)
+Date: Tue, 7 Jan 2025 10:43:20 +0000
+From: Andre Przywara <andre.przywara@arm.com>
+To: Lukas Schmid <lukas.schmid@netcube.li>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej
+ Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
+ Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 3/4] ARM: dts: sunxi: add uart1_pe pinctrl for
+ sun8i-v3s
+Message-ID: <20250107104320.4e74a87c@donnerap.manchester.arm.com>
+In-Reply-To: <20250106190703.4015-4-lukas.schmid@netcube.li>
+References: <20250106190703.4015-1-lukas.schmid@netcube.li>
+	<20250106190703.4015-4-lukas.schmid@netcube.li>
+Organization: ARM
+X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-References: <20250107094943.518474-1-alexander.stein@ew.tq-group.com> <20250107094943.518474-2-alexander.stein@ew.tq-group.com>
-In-Reply-To: <20250107094943.518474-2-alexander.stein@ew.tq-group.com>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Tue, 7 Jan 2025 07:37:05 -0300
-X-Gm-Features: AbW1kvZdLxR4RaObsuUJc1Glb-jI0wjh8lFemgvwEzpoXOeKA2MO9ZmwnSRVm90
-Message-ID: <CAOMZO5Csc+cOmOaRofWZW7Z9HL6d2NjMhZUdcomuyS_rtZwz0w@mail.gmail.com>
-Subject: Re: [PATCH 1/2] ARM: dts: imx7s: Move csi-mux to below root
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Inki Dae <inki.dae@samsung.com>, Jagan Teki <jagan@amarulasolutions.com>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, dri-devel@lists.freedesktop.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_023719_427098_8E5853F6 
-X-CRM114-Status: UNSURE (   9.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250107_024332_072994_C45D5823 
+X-CRM114-Status: GOOD (  14.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,18 +70,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 7, 2025 at 6:50=E2=80=AFAM Alexander Stein
-<alexander.stein@ew.tq-group.com> wrote:
->
-> fsl,imx-iomuxc-gpr.yaml only contains the mux-controller but the actual
-> video-mux is not part of it. So move it below root node.
-> Fixes the dtbs_check warning:
-> arch/arm/boot/dts/nxp/imx/imx7s-mba7.dtb: iomuxc-gpr@30340000: 'csi-mux' =
-does not match any of the regexes: 'pinctrl-[0-9]+'
->   from schema $id: http://devicetree.org/schemas/soc/imx/fsl,imx-iomuxc-g=
-pr.yaml#
->
-> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+On Mon,  6 Jan 2025 19:07:01 +0000
+Lukas Schmid <lukas.schmid@netcube.li> wrote:
 
-Reviewed-by: Fabio Estevam <festevam@gmail.com>
+> Added the uart1_pe_pins pinctrl for use by the NetCube
+> Systems Kumquat board
+> 
+> Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
+
+Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+
+Cheers,
+Andre
+
+> ---
+>  arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi | 6 ++++++
+>  1 file changed, 6 insertions(+)
+> 
+> diff --git a/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi b/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
+> index 9e13c2aa8911..f909b1d4dbca 100644
+> --- a/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
+> +++ b/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
+> @@ -416,6 +416,12 @@ uart0_pb_pins: uart0-pb-pins {
+>  				function = "uart0";
+>  			};
+>  
+> +			/omit-if-no-ref/
+> +			uart1_pe_pins: uart1-pe-pins {
+> +				pins = "PE21", "PE22";
+> +				function = "uart1";
+> +			};
+> +
+>  			uart2_pins: uart2-pins {
+>  				pins = "PB0", "PB1";
+>  				function = "uart2";
+
 
