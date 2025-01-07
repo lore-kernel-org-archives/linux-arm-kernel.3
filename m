@@ -4,67 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09236E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 17:46:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEBBCE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 17:47:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EVYVEipvd5H4q20DXz8KjWI0d541jihGaq7GP8u3Bkc=; b=k9eEzgsFYAV0ZwSpqRLsNGKf5l
-	Jpi4HRjE23HmG7wc9btTBU2l4+yXM3oDN5yS3u8o14FEhFR6K2AMGTmMnfACExjKJQ5Rz9M0ZR7u7
-	ctG6WDZfy/ZLPpXVL+Aj2LEQzagV3BXLDTSfxurbGUwRlFLNT2eptaMRSLoqH4bSFs37zn/JSY741
-	Bw+u+/IddClwplJeP3zHottb/2W+ZHaDPZv/2S7iwuOgQ0LFcV+B2cS73pLsqXE94Vtmx9m+RcTba
-	Q1sHU/ILfe0KmE8uQVB1BO4y/Nr+tcCfqlfBLpb0rmzbKPkiUORaw7YRPp+SHMVbGohBTFzrKm4KC
-	E3VubsiA==;
+	bh=YpsA1hCVY3ewqxQ7j406xH50/PlVnUrpfZDhJ2TaT4A=; b=K2WcTopPrNAu3gej+cpL74SPlN
+	lyXgmM16VrtjmN7sZwtZLLiK1ET/LX+JlzagMSWcKXKCChvc3jB9JgFuuub6IfbTU0mkPJ00pUgBz
+	vdHIWlJ2xInUtZLWSRYqewbqlVZpQG7IwVmGTyVEkx/gGaqmuSxlGEGalhaglxrHT6WaUDlp0lnSt
+	hSS8px+owm0DoeQbJkecJ6qCu9DRSVRleCuitrm9txEpO4D6MX1NkyvmaOl8XG8+RWTURmSxz+FWT
+	ijk24ko8Ij6ub7r5czwNPpd3y6rVmOVThGLDOfNktG739q1GrJ88Uz2MO3R0dILfYugFbnA5YMvcE
+	2reiSMlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVDeU-00000005uHm-2qPC;
-	Tue, 07 Jan 2025 17:46:02 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tVDff-00000005uPR-294P;
+	Tue, 07 Jan 2025 17:47:15 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVDOe-00000005rgF-45oD
+	id 1tVDSE-00000005sIS-089w
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 17:29:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=EVYVEipvd5H4q20DXz8KjWI0d541jihGaq7GP8u3Bkc=; b=MepFbkWtfGkzFWwnw8iMfC8KPN
-	jN4aHEUkXdwNwBa1HCM4LwbMqfcHPoMdU/TiIbG/kFQ41YJho1cZyrnwXmVd7b8JNa1GjRZBDJd1s
-	fEZgkP2BNzTdiOIjZdaA03/y0Owmdy1LD+Ml1OUUPVQ6U8n61nekWpGwcmE/y8jwjX76PR3lV5Yzu
-	sklqoWT2Z/wTVkkHC7vhTg+9wqpeMkhJy6WVAat9GtSW/hcq5Kxv8VBWf2P3MFfvx0zwShqT2heyj
-	aU24jRDLJk5t2p3GqyjM6epAYk8vzLg3cS4Amywo+b8eZr5Q5UEHNA0D8vOnC0KlPY4OD4NDftTuO
-	WH9OBnww==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:57138)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tVDOa-0007w3-05;
-	Tue, 07 Jan 2025 17:29:36 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tVDOX-0005TI-2a;
-	Tue, 07 Jan 2025 17:29:33 +0000
-Date: Tue, 7 Jan 2025 17:29:33 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Ma Ke <make24@iscas.ac.cn>
-Cc: elder@kernel.org, sumit.garg@linaro.org, gregkh@linuxfoundation.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v3] [ARM] fix reference leak in locomo_init_one_child()
-Message-ID: <Z31kfQiLA6pddH_a@shell.armlinux.org.uk>
-References: <20250107020714.662708-1-make24@iscas.ac.cn>
+	Tue, 07 Jan 2025 17:33:27 +0000
+Received: from francesco-nb (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id BEB121F948;
+	Tue,  7 Jan 2025 18:33:14 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1736271195;
+	bh=YpsA1hCVY3ewqxQ7j406xH50/PlVnUrpfZDhJ2TaT4A=; h=From:To:Subject;
+	b=dZXZV8FCflkSbXZf2ez6Y/NLj/wwpNR69lN/ozvq6wc0hHsv7aNHN7bcmznN1fdB1
+	 8nR/aEIIP3JLTbzZhig7PZp7yrl0IFr4Zr1/jDq7/s4oA3XAZKIk27q1Yl8knhi4Cm
+	 /UyHsYkvK+OMnN01osdNq0nQH6wZLtjMutCoy5r5VyrM6fNWTibTQhWJTC0coHFvM8
+	 AMa/AAx+f+KLs2A38kPgagH0qrkgOm+K/deSLLzj1Uhk2rHErYdrWDDkqDkkVSWOH6
+	 y/dvfV7H0prkHth0t+jSdD20DJp085U9PyAYfNDEnuYZqi34cJY+/bpQG9CK5LGqW9
+	 av41Gza7na4cg==
+Date: Tue, 7 Jan 2025 18:33:11 +0100
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Justin Chen <justin.chen@broadcom.com>,
+	Al Cooper <alcooperx@gmail.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Benjamin Bara <benjamin.bara@skidata.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Ahmad Zainie <wan.ahmad.zainie.wan.mohamad@intel.com>,
+	Del Regno <angelogioacchino.delregno@collabora.com>,
+	Tianping Fang <tianping.fang@mediatek.com>,
+	Jassi Brar <jaswinder.singh@linaro.org>,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Macpaul Lin <macpaul.lin@mediatek.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH] dt-bindings: usb: Correct indentation and style in DTS
+ example
+Message-ID: <20250107173311.GA72209@francesco-nb>
+References: <20250107131015.246461-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250107020714.662708-1-make24@iscas.ac.cn>
+In-Reply-To: <20250107131015.246461-1-krzysztof.kozlowski@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_092941_013337_40BFE547 
-X-CRM114-Status: GOOD (  19.19  )
+X-CRM114-CacheID: sfid-20250107_093323_106697_251A0E1B 
+X-CRM114-Status: GOOD (  10.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,54 +96,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 07, 2025 at 10:07:14AM +0800, Ma Ke wrote:
-> Once device_register() failed, we should call put_device() to
-> decrement reference count for cleanup. Or it could cause memory leak.
+On Tue, Jan 07, 2025 at 02:10:13PM +0100, Krzysztof Kozlowski wrote:
+> DTS example in the bindings should be indented with 2- or 4-spaces and
+> aligned with opening '- |', so correct any differences like 3-spaces or
+> mixtures 2- and 4-spaces in one binding.
 > 
-> device_register() includes device_add(). As comment of device_add()
-> says, 'if device_add() succeeds, you should call device_del() when you
-> want to get rid of it. If device_add() has not succeeded, use only
-> put_device() to drop the reference count'.
+> No functional changes here, but saves some comments during reviews of
+> new patches built on existing code.
 > 
-> Found by code review.
-> 
-> Cc: stable@vger.kernel.org
-> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-> Signed-off-by: Ma Ke <make24@iscas.ac.cn>
-> ---
-> Changes in v3:
-> - modified the patch as suggestions;
-> Changes in v2:
-> - modified the patch as suggestions.
-> ---
->  arch/arm/common/locomo.c | 15 ++++++---------
->  1 file changed, 6 insertions(+), 9 deletions(-)
-> 
-> diff --git a/arch/arm/common/locomo.c b/arch/arm/common/locomo.c
-> index cb6ef449b987..9e275b2105c2 100644
-> --- a/arch/arm/common/locomo.c
-> +++ b/arch/arm/common/locomo.c
-> @@ -220,13 +220,11 @@ static int
->  locomo_init_one_child(struct locomo *lchip, struct locomo_dev_info *info)
->  {
->  	struct locomo_dev *dev;
-> -	int ret;
-> +	int ret = 0;
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-The code around "ret" becomes:
+Acked-by: Francesco Dolcini <francesco.dolcini@toradex.com> # ti,tusb73x0-pci.yaml
 
-	int ret = 0;
 
-...
-
-        ret = device_register(&dev->dev);
-
-Nothing between these two statements references "ret", and the present
-goto is eliminated in your patch.
-
-So, why do we need to initialise ret to zero where it is declared?
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
