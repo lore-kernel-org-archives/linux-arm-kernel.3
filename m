@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D035E77199
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 16:54:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 883A4E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 16:55:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ecrgOpPZJ++e0c3wZgjy52va9WtAhn5oj3/YTdAkwvw=; b=CrcJHVpOYB24I3U6gfZ4D3bSti
-	W+uAP4z7e6G/e7KJof8A5prcCLiZseI/UKikkfxS9/j1EsVEgMrJV2HfJzhEUnUgQ/Kogex2jJCDA
-	4SMHxegsnPzedh7JaDi0yoOPfptfOceUdoL7dUvl4f1t1MEhKqxDVSDfSQ+ndlD8JLRxw7bucxmdH
-	oE4vteePxVVJY3+YGxGDEPVF+rm7cfTpdwnhf2wv3AXy5EgZlSg6yWnnbJzKGzwz85GQap/lysvhw
-	3acluPo+rOYSNuplMFTJ7TOn9tVqON0MXJc+YMXevUtLa/M/G9fwuzUdtdUHxY0/Ejee1IPOo2RPq
-	F/8a/AzA==;
+	bh=7d7BQ/BETeIV65nPIiOzm00NlijFDRQ+qTkPLKa/GqA=; b=ru+o7MHtiTzfQDjN7V2ugmAI2/
+	x/McdmT/38zQ9WKPLGgAMNIyP2/h6pj0ZGzlF7SsOS3qvz/vqHCIi+eOdhbb/YPGaMaJtMCWNwGt0
+	hMrd5VfhVOd5maoKZyb/QczhCaowROjzbyOzONA2ffSD85gc2ZntjffANH08SyhjqQh5/sy5/ChPg
+	C8gcQGjA3dMypkHQh6xyXaCS72zmh/w5nmtsyzsTd4KNoWEoqsOd6+FUK0jtoBe2dIkShT7kHLi0f
+	+Bj31elHuNMxxXSGDLCYJNZNz0KZOEtHnEznatROn4eBNOmjA2TdQs0emt/yV0PN0TE+iB+mE+ZFo
+	67P8qq1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVCq2-00000005iz5-2kgt;
-	Tue, 07 Jan 2025 16:53:54 +0000
+	id 1tVCrE-00000005jCf-1FIT;
+	Tue, 07 Jan 2025 16:55:08 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVCSG-00000005dUg-3LKu
+	id 1tVCSL-00000005dWb-47Tv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 16:29:24 +0000
+	Tue, 07 Jan 2025 16:29:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=ecrgOpPZJ++e0c3wZgjy52va9WtAhn5oj3/YTdAkwvw=; b=HMfrrG++GHUU8rvUXEPEhQRWlS
-	gatTbS6rXa9MSNTF1488eUMQoOQbtQhJnpx6sXvFPDvzmkGkkYXG/QQDUXZ1/VF22M+8Eimd4ATBN
-	pnWnN0AsEnXP/Z7oRCCtiOrOtSeOpfMCI1Wi53KOWKZSkl7HGplnhGrDGR+AOQ07CYQD/dO94r3aK
-	TOC28ioo5pceGwByoyjzAMfEQKf9XVZaLcln2p/yGrWdYx/NjAXsflMaUgW4O2KOfzZOX3j6LbAs/
-	XcqDvW3NpQt5gI2vKxG5gQ9lKG4Eqz4uX9RbvD11Te7RsiTRqm0f1RYBhgCP7Zj9U4tZocmkRgnVP
-	SwZH/xHw==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:51146 helo=rmk-PC.armlinux.org.uk)
+	bh=7d7BQ/BETeIV65nPIiOzm00NlijFDRQ+qTkPLKa/GqA=; b=nT36DyoO7lQAsXQtF3lEL6XxzT
+	b8nLupooWuvs9EvGJA9qpperJjbyL8XznPcoKtDDA2IOGxa1T8tBq4LCCrzoLwUYOY7qFqzSWbqLb
+	Ol1CsoxA40XUEDqGRjPwC0j+Fc+oJfu+jAubAGMce2ml5GNrVQTfFNjeCyG0nc59QgGqGDpx+ZoSC
+	oN/+oHKPqnfCHVyIv7dg+tsEhar0wZ3ObggT82HIsXla0guTZwOskzL2u11Y/XVMgN4O7yXDytTh9
+	gCqiCWUJozg1rP6jsWsIcG0UVo0FNUy9EmzrG9rGFq7yOGKuHR5nfUuLxTgCJRdOY57JuYwaKzy8S
+	JpuFNzlw==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:43520 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tVCSC-0007n6-0h;
-	Tue, 07 Jan 2025 16:29:16 +0000
+	id 1tVCSH-0007nN-0v;
+	Tue, 07 Jan 2025 16:29:21 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tVCS9-007Y3l-3Z; Tue, 07 Jan 2025 16:29:13 +0000
+	id 1tVCSE-007Y3r-8D; Tue, 07 Jan 2025 16:29:18 +0000
 In-Reply-To: <Z31V9O8SATRbu2L3@shell.armlinux.org.uk>
 References: <Z31V9O8SATRbu2L3@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -64,17 +64,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next v3 09/18] net: stmmac: report EEE error statistics if
- EEE is supported
+Subject: [PATCH net-next v3 10/18] net: stmmac: convert to use
+ phy_eee_rx_clock_stop()
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tVCS9-007Y3l-3Z@rmk-PC.armlinux.org.uk>
-Date: Tue, 07 Jan 2025 16:29:13 +0000
+Message-Id: <E1tVCSE-007Y3r-8D@rmk-PC.armlinux.org.uk>
+Date: Tue, 07 Jan 2025 16:29:18 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_082920_832358_860CE887 
-X-CRM114-Status: GOOD (  12.50  )
+X-CRM114-CacheID: sfid-20250107_082926_047045_9DA11E2A 
+X-CRM114-Status: GOOD (  10.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,29 +89,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Report the number of EEE error statistics in the xstats even when EEE
-is not enabled in hardware, but is supported. The PHY maintains this
-counter even when EEE is not enabled.
+Convert stmmac to use phy_eee_rx_clock_stop() to set the PHY receive
+clock stop in LPI setting, rather than calling the legacy
+phy_init_eee() function.
 
 Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-index 693f59c3c47a..918a32f8fda8 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-@@ -654,7 +654,7 @@ static void stmmac_get_ethtool_stats(struct net_device *dev,
- 					     (*(u32 *)p);
- 			}
- 		}
--		if (priv->eee_enabled) {
-+		if (priv->dma_cap.eee) {
- 			int val = phylink_get_eee_err(priv->phylink);
- 			if (val)
- 				priv->xstats.phy_eee_wakeup_error_n = val;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index fc80ed101a79..adc51087f2ba 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -1077,10 +1077,10 @@ static void stmmac_mac_link_up(struct phylink_config *config,
+ 
+ 	stmmac_mac_set(priv, priv->ioaddr, true);
+ 	if (phy && priv->dma_cap.eee) {
+-		priv->eee_active = phy->enable_tx_lpi &&
+-			phy_init_eee(phy, !(priv->plat->flags &
+-				STMMAC_FLAG_RX_CLK_RUNS_IN_LPI)) >= 0;
++		phy_eee_rx_clock_stop(phy, !(priv->plat->flags &
++					     STMMAC_FLAG_RX_CLK_RUNS_IN_LPI));
+ 		priv->tx_lpi_timer = phy->eee_cfg.tx_lpi_timer;
++		priv->eee_active = phy->enable_tx_lpi;
+ 		priv->eee_enabled = stmmac_eee_init(priv);
+ 		stmmac_set_eee_pls(priv, priv->hw, true);
+ 	}
 -- 
 2.30.2
 
