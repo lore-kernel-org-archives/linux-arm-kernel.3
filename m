@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BCD2E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 23:04:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A174FE77198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 23:05:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QKiTxGz+xt040Z43TR7S/D+qVDNFiRAhIFHthUStzJ4=; b=NA4SezDXOuQIKQjwJvDGd7J3jT
-	TFfMwAdqp1KTbebq6FF07Mo87x41DZ7iugV2BDhkath96uh2SPP3GUucFKE6oe9Nr7eTWRHdG9vBO
-	In6jCn+v98692U+6b2roqqFJ28P6ZtgnM2LHT2qrIgzeCTnAQ7FmtoehpTIhc3iodPzPKxZb9lbrS
-	h3X1Izkbyw19TjSfNe30PkuEHqL7BRFJXK2eWFTAIUDoDcTvUNDR1FqRk+TtBBtBY2gVUnEO/KxsH
-	taHZkSvkCo7No41U/5emNuqcoksbE2UuxmbYkgucNsVBHQfJPY3SfSdAMP5EQe0kY3t7hQ2O/qdDg
-	5P9/M2iw==;
+	bh=2E02G4WK/YmamUQGewM1TUlvL1hL8wBguhuxwHCIF9w=; b=XWerT+h3MJnLitmNzE8vefEjAQ
+	HS4qE0GiOWusHbF54NvyAsKAYYbtcseBlcvoEIIp6t/pAzajUK0UypH5Ap9aGjveKt8kf0TtsLU06
+	qLw3tFlcKg8aB5wnh+NsaldgNNissYNwzqlo6IiXoCECWbi1W0yMXjpEr+ZMEFeMbMiEjnzixMJzI
+	TPoLkjeT9uIrfz67x7ZtGmpncifc4EUNYxicp6y94Cf6kWV8MdCIPVIBNwnaTTxMtSt7ctAY7ahgP
+	q2D9AC0nWJRIsII7hOUXOglJzEEZmpm/c3IUmzxN1RG2HbDVgiZeVMaujzIuKvRNjM2VX8JYFqa0O
+	UWkGrz5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVIcA-00000006Toi-1q1q;
-	Tue, 07 Jan 2025 23:03:58 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tVIdL-00000006U7l-2qAX;
+	Tue, 07 Jan 2025 23:05:11 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVIZZ-00000006T7E-0yHn
+	id 1tVIZc-00000006T9u-0ako
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 23:01:18 +0000
+	Tue, 07 Jan 2025 23:01:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6A5385C2722;
-	Tue,  7 Jan 2025 23:00:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07640C4CEE2;
-	Tue,  7 Jan 2025 23:01:12 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 833765C2738;
+	Tue,  7 Jan 2025 23:00:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0D01C4CEE0;
+	Tue,  7 Jan 2025 23:01:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736290876;
-	bh=/PE/f+ZWSAV9lOu0Pr6XxoJi6baQXDZRz3cOotgwqps=;
+	s=k20201202; t=1736290879;
+	bh=Tdj0gsQusE+OTNKaaxYQHJeLR3638cCJdDZCEhI+hKA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=lEjfAI7aY8mIp3lUtQUQN9YWk03AC3kp2B9bnjbBXBYFuq9ZxlHCM9798ftMf7CQ1
-	 HQT86Ihnx+++jeFLbOKrcy0Lax/HV2nEuJyTysstI3oLekY8+CRNxCvLkY8/RClJyu
-	 Hj146YU4ujrKqE8hOLtBDSh2KfMM/oyd4EHt3hfWlzMfcv+yr4gidEVFDEie7JEtXF
-	 VFxQQXOdTfH7t8OkmkBNxObIdAamqwohrmWcYM1N1/RJQog6+rfXrNqyfklPwQit7e
-	 AFkYxRP1Nfk7tPoaeSabckYPqw5uv0FE72FpQH8JQC/bHnvGZGGSvwZq2zBj7GbUxE
-	 gpUEm/CZZwkkw==
+	b=VZDC2cPsURmmI0WKlaTZfael4OflXSNL6zsjL6pGHTSAdjvcCqZSN03jo8fBFY9nl
+	 YTjMdEqIkH+5gJKFF9MoleWuxlurlneP+i8CpmR17WE2Qis2kzR+TeoQjLXucGTaii
+	 W+LOlkau/vrklBxQF/ONTSMG9+kv1LXgBRKjks+IPMXusaD5QFYcsa+Ye2K55OCqVC
+	 FH7mdF2qEjQhA2I0yEzA5j6QRpn0m6qPOyC2uG0nb5easgWmQx3AONMOofefDwlEig
+	 Ao7mMtIEnyhhk6MMiPE0GXphAM6eETwbrtzh85tMiELfHEnBymGUZNyJnn2XnRvlo8
+	 gj28QfAfxvncQ==
 From: Mark Brown <broonie@kernel.org>
-Date: Tue, 07 Jan 2025 22:59:41 +0000
-Subject: [PATCH v5 1/5] arm64: Filter out SVE hwcaps when FEAT_SVE isn't
- implemented
+Date: Tue, 07 Jan 2025 22:59:42 +0000
+Subject: [PATCH v5 2/5] arm64/sysreg: Update ID_AA64SMFR0_EL1 to DDI0601
+ 2024-12
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250107-arm64-2024-dpisa-v5-1-7578da51fc3d@kernel.org>
+Message-Id: <20250107-arm64-2024-dpisa-v5-2-7578da51fc3d@kernel.org>
 References: <20250107-arm64-2024-dpisa-v5-0-7578da51fc3d@kernel.org>
 In-Reply-To: <20250107-arm64-2024-dpisa-v5-0-7578da51fc3d@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -59,23 +59,23 @@ To: Catalin Marinas <catalin.marinas@arm.com>,
  Shuah Khan <shuah@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  linux-doc@vger.kernel.org, kvmarm@lists.linux.dev, 
- linux-kselftest@vger.kernel.org, Mark Brown <broonie@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, stable@vger.kernel.org
+ linux-kselftest@vger.kernel.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-1b0d6
-X-Developer-Signature: v=1; a=openpgp-sha256; l=9139; i=broonie@kernel.org;
- h=from:subject:message-id; bh=KPLPweZz2OWzlgIW3ef3HQ9oYQnthPVdhzQN55FV6YY=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnfbIxcBmi4yGfpIU5bpaTLz4Fo2GePztaqWvOdA49
- M1Ut1aSJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ32yMQAKCRAk1otyXVSH0BwWB/
- wJLLkEk6r9y1461fGEcnLtqZ7COxhAD3U4rD3TyTBquaNCSzPaVvfylkmjDXO4G8wT9GuEkNOEB3pA
- I6HTaHBRD+gwREtzP6s/3G2vTxqi6qEM3yb5OLksv+8ptCy57Vxf+QlenrNe+iusZPpvveQ0Gp16GQ
- G5wMHJVJHzfqq/Ynq2EqxbZ+p2n6OiZq195Lt6k5qDEDb42+BJcaHLkREkh1lDHWqQ79AWDDRUCPC5
- YlTJ06DzplX4s4/KoaoqZyPW5NCfRtnHJKObUuniLZe+PYkQHtRCHHA/1TfjtkfSatYMZjuHfHwEnc
- oXLjc2YMTcKxCe3iu9ErFjTax5x7Vl
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1188; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=Tdj0gsQusE+OTNKaaxYQHJeLR3638cCJdDZCEhI+hKA=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnfbIyGLWxt+KD7zEe3ZkNYsyIxEbNBf+rpjPYk5T8
+ qV5MPOKJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ32yMgAKCRAk1otyXVSH0PvPB/
+ 9cO0dEz2VOmNK+2Wb0VSKbYqBEbmaBg1yBtY9V0pWZPGRmqcseLTnhSHAMtM80dj04aROvUXe31pZJ
+ eKME0dQZco5A/L4EyoJnZ1uQhm6FYfuNiruI2udbw7BoJ/qSpq6uI2Mn9GD5mUg404vRAv4QlrwyMs
+ fwKFDwwUbtdAcUT2HSZn3r80jQYcF2HI7xfOpTsCLJks7113bypfzIiehnOlFl29N2gAXQu9PrcLU1
+ 5PEMN0LyQTJ0LMs9wkypBY9/Qs4lthHfRHzGJ4kCqNp+3hTvjmtBXIrwRIXN0a9vu00ZhxGFI9Uq8H
+ /OJyGo3p3aQzfI3895IWAE4hGCbpfu
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_150117_368652_51DB5305 
-X-CRM114-Status: GOOD (  14.71  )
+X-CRM114-CacheID: sfid-20250107_150120_228547_99FE6D20 
+X-CRM114-Status: UNSURE (   8.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,201 +90,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Marc Zyngier <maz@kernel.org>
+DDI0601 2024-12 introduces SME 2.2 as well as a few new optional features,
+update sysreg to reflect the changes in ID_AA64SMFR0_EL1 enumerating them.
 
-The hwcaps code that exposes SVE features to userspace only
-considers ID_AA64ZFR0_EL1, while this is only valid when
-ID_AA64PFR0_EL1.SVE advertises that SVE is actually supported.
-
-The expectations are that when ID_AA64PFR0_EL1.SVE is 0, the
-ID_AA64ZFR0_EL1 register is also 0. So far, so good.
-
-Things become a bit more interesting if the HW implements SME.
-In this case, a few ID_AA64ZFR0_EL1 fields indicate *SME*
-features. And these fields overlap with their SVE interpretations.
-But the architecture says that the SME and SVE feature sets must
-match, so we're still hunky-dory.
-
-This goes wrong if the HW implements SME, but not SVE. In this
-case, we end-up advertising some SVE features to userspace, even
-if the HW has none. That's because we never consider whether SVE
-is actually implemented. Oh well.
-
-Fix it by restricting all SVE capabilities to ID_AA64PFR0_EL1.SVE
-being non-zero. The HWCAPS documentation is amended to reflect the
-actually checks performed by the kernel.
-
-Fixes: 06a916feca2b ("arm64: Expose SVE2 features for userspace")
-Reported-by: Catalin Marinas <catalin.marinas@arm.com>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
 Signed-off-by: Mark Brown <broonie@kernel.org>
-Cc: Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: stable@vger.kernel.org
 ---
- Documentation/arch/arm64/elf_hwcaps.rst | 39 +++++++++++++++++++++-----------
- arch/arm64/kernel/cpufeature.c          | 40 ++++++++++++++++++++++-----------
- 2 files changed, 53 insertions(+), 26 deletions(-)
+ arch/arm64/tools/sysreg | 26 ++++++++++++++++++++++++--
+ 1 file changed, 24 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/arch/arm64/elf_hwcaps.rst b/Documentation/arch/arm64/elf_hwcaps.rst
-index 2ff922a406ad83d0dff8104a6e362ac6b02d0e1f..1a31723e79fd24894df5223588b9e1255943875e 100644
---- a/Documentation/arch/arm64/elf_hwcaps.rst
-+++ b/Documentation/arch/arm64/elf_hwcaps.rst
-@@ -178,22 +178,28 @@ HWCAP2_DCPODP
-     Functionality implied by ID_AA64ISAR1_EL1.DPB == 0b0010.
+diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+index 8c2db201665fd5d44eb937549d25421924569498..94ca9cdb0b167f88d79e23ea4cef1abaeea5c13c 100644
+--- a/arch/arm64/tools/sysreg
++++ b/arch/arm64/tools/sysreg
+@@ -1113,7 +1113,7 @@ UnsignedEnum	59:56	SMEver
+ 	0b0000	SME
+ 	0b0001	SME2
+ 	0b0010	SME2p1
+-	0b0000	IMP
++	0b0011	SME2p2
+ EndEnum
+ UnsignedEnum	55:52	I16I64
+ 	0b0000	NI
+@@ -1177,7 +1177,29 @@ UnsignedEnum	28	SF8DP2
+ 	0b0	NI
+ 	0b1	IMP
+ EndEnum
+-Res0	27:0
++Res0	27:26
++UnsignedEnum	25	SBitPerm
++	0b0	NI
++	0b1	IMP
++EndEnum
++UnsignedEnum	24	AES
++	0b0	NI
++	0b1	IMP
++EndEnum
++UnsignedEnum	23	SFEXPA
++	0b0	NI
++	0b1	IMP
++EndEnum
++Res0	22:17
++UnsignedEnum	16	STMOP
++	0b0	NI
++	0b1	IMP
++EndEnum
++Res0	15:1
++UnsignedEnum	0	SMOP4
++	0b0	NI
++	0b1	IMP
++EndEnum
+ EndSysreg
  
- HWCAP2_SVE2
--    Functionality implied by ID_AA64ZFR0_EL1.SVEver == 0b0001.
-+    Functionality implied by ID_AA64PFR0_EL1.SVE == 0b0001 and
-+    ID_AA64ZFR0_EL1.SVEver == 0b0001.
- 
- HWCAP2_SVEAES
--    Functionality implied by ID_AA64ZFR0_EL1.AES == 0b0001.
-+    Functionality implied by ID_AA64PFR0_EL1.SVE == 0b0001 and
-+    ID_AA64ZFR0_EL1.AES == 0b0001.
- 
- HWCAP2_SVEPMULL
--    Functionality implied by ID_AA64ZFR0_EL1.AES == 0b0010.
-+    Functionality implied by ID_AA64PFR0_EL1.SVE == 0b0001 and
-+    ID_AA64ZFR0_EL1.AES == 0b0010.
- 
- HWCAP2_SVEBITPERM
--    Functionality implied by ID_AA64ZFR0_EL1.BitPerm == 0b0001.
-+    Functionality implied by ID_AA64PFR0_EL1.SVE == 0b0001 and
-+    ID_AA64ZFR0_EL1.BitPerm == 0b0001.
- 
- HWCAP2_SVESHA3
--    Functionality implied by ID_AA64ZFR0_EL1.SHA3 == 0b0001.
-+    Functionality implied by ID_AA64PFR0_EL1.SVE == 0b0001 and
-+    ID_AA64ZFR0_EL1.SHA3 == 0b0001.
- 
- HWCAP2_SVESM4
--    Functionality implied by ID_AA64ZFR0_EL1.SM4 == 0b0001.
-+    Functionality implied by ID_AA64PFR0_EL1.SVE == 0b0001 and
-+    ID_AA64ZFR0_EL1.SM4 == 0b0001.
- 
- HWCAP2_FLAGM2
-     Functionality implied by ID_AA64ISAR0_EL1.TS == 0b0010.
-@@ -202,16 +208,20 @@ HWCAP2_FRINT
-     Functionality implied by ID_AA64ISAR1_EL1.FRINTTS == 0b0001.
- 
- HWCAP2_SVEI8MM
--    Functionality implied by ID_AA64ZFR0_EL1.I8MM == 0b0001.
-+    Functionality implied by ID_AA64PFR0_EL1.SVE == 0b0001 and
-+    ID_AA64ZFR0_EL1.I8MM == 0b0001.
- 
- HWCAP2_SVEF32MM
--    Functionality implied by ID_AA64ZFR0_EL1.F32MM == 0b0001.
-+    Functionality implied by ID_AA64PFR0_EL1.SVE == 0b0001 and
-+    ID_AA64ZFR0_EL1.F32MM == 0b0001.
- 
- HWCAP2_SVEF64MM
--    Functionality implied by ID_AA64ZFR0_EL1.F64MM == 0b0001.
-+    Functionality implied by ID_AA64PFR0_EL1.SVE == 0b0001 and
-+    ID_AA64ZFR0_EL1.F64MM == 0b0001.
- 
- HWCAP2_SVEBF16
--    Functionality implied by ID_AA64ZFR0_EL1.BF16 == 0b0001.
-+    Functionality implied by ID_AA64PFR0_EL1.SVE == 0b0001 and
-+    ID_AA64ZFR0_EL1.BF16 == 0b0001.
- 
- HWCAP2_I8MM
-     Functionality implied by ID_AA64ISAR1_EL1.I8MM == 0b0001.
-@@ -277,7 +287,8 @@ HWCAP2_EBF16
-     Functionality implied by ID_AA64ISAR1_EL1.BF16 == 0b0010.
- 
- HWCAP2_SVE_EBF16
--    Functionality implied by ID_AA64ZFR0_EL1.BF16 == 0b0010.
-+    Functionality implied by ID_AA64PFR0_EL1.SVE == 0b0001 and
-+    ID_AA64ZFR0_EL1.BF16 == 0b0010.
- 
- HWCAP2_CSSC
-     Functionality implied by ID_AA64ISAR2_EL1.CSSC == 0b0001.
-@@ -286,7 +297,8 @@ HWCAP2_RPRFM
-     Functionality implied by ID_AA64ISAR2_EL1.RPRFM == 0b0001.
- 
- HWCAP2_SVE2P1
--    Functionality implied by ID_AA64ZFR0_EL1.SVEver == 0b0010.
-+    Functionality implied by ID_AA64PFR0_EL1.SVE == 0b0001 and
-+    ID_AA64ZFR0_EL1.SVEver == 0b0010.
- 
- HWCAP2_SME2
-     Functionality implied by ID_AA64SMFR0_EL1.SMEver == 0b0001.
-@@ -313,7 +325,8 @@ HWCAP2_HBC
-     Functionality implied by ID_AA64ISAR2_EL1.BC == 0b0001.
- 
- HWCAP2_SVE_B16B16
--    Functionality implied by ID_AA64ZFR0_EL1.B16B16 == 0b0001.
-+    Functionality implied by ID_AA64PFR0_EL1.SVE == 0b0001 and
-+    ID_AA64ZFR0_EL1.B16B16 == 0b0001.
- 
- HWCAP2_LRCPC3
-     Functionality implied by ID_AA64ISAR1_EL1.LRCPC == 0b0011.
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 13de0c7af053122379c922ee7e69a3dd41af850e..f088f0f5a118284cd711da029f8cb6958ec32551 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -3021,6 +3021,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
- 		.matches = match,						\
- 	}
- 
-+#define HWCAP_CAP_MATCH_ID(match, reg, field, min_value, cap_type, cap)		\
-+	{									\
-+		__HWCAP_CAP(#cap, cap_type, cap)				\
-+		HWCAP_CPUID_MATCH(reg, field, min_value) 			\
-+		.matches = match,						\
-+	}
-+
- #ifdef CONFIG_ARM64_PTR_AUTH
- static const struct arm64_cpu_capabilities ptr_auth_hwcap_addr_matches[] = {
- 	{
-@@ -3049,6 +3056,13 @@ static const struct arm64_cpu_capabilities ptr_auth_hwcap_gen_matches[] = {
- };
- #endif
- 
-+#ifdef CONFIG_ARM64_SVE
-+static bool has_sve_feature(const struct arm64_cpu_capabilities *cap, int scope)
-+{
-+	return system_supports_sve() && has_user_cpuid_feature(cap, scope);
-+}
-+#endif
-+
- static const struct arm64_cpu_capabilities arm64_elf_hwcaps[] = {
- 	HWCAP_CAP(ID_AA64ISAR0_EL1, AES, PMULL, CAP_HWCAP, KERNEL_HWCAP_PMULL),
- 	HWCAP_CAP(ID_AA64ISAR0_EL1, AES, AES, CAP_HWCAP, KERNEL_HWCAP_AES),
-@@ -3091,19 +3105,19 @@ static const struct arm64_cpu_capabilities arm64_elf_hwcaps[] = {
- 	HWCAP_CAP(ID_AA64MMFR2_EL1, AT, IMP, CAP_HWCAP, KERNEL_HWCAP_USCAT),
- #ifdef CONFIG_ARM64_SVE
- 	HWCAP_CAP(ID_AA64PFR0_EL1, SVE, IMP, CAP_HWCAP, KERNEL_HWCAP_SVE),
--	HWCAP_CAP(ID_AA64ZFR0_EL1, SVEver, SVE2p1, CAP_HWCAP, KERNEL_HWCAP_SVE2P1),
--	HWCAP_CAP(ID_AA64ZFR0_EL1, SVEver, SVE2, CAP_HWCAP, KERNEL_HWCAP_SVE2),
--	HWCAP_CAP(ID_AA64ZFR0_EL1, AES, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEAES),
--	HWCAP_CAP(ID_AA64ZFR0_EL1, AES, PMULL128, CAP_HWCAP, KERNEL_HWCAP_SVEPMULL),
--	HWCAP_CAP(ID_AA64ZFR0_EL1, BitPerm, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEBITPERM),
--	HWCAP_CAP(ID_AA64ZFR0_EL1, B16B16, IMP, CAP_HWCAP, KERNEL_HWCAP_SVE_B16B16),
--	HWCAP_CAP(ID_AA64ZFR0_EL1, BF16, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEBF16),
--	HWCAP_CAP(ID_AA64ZFR0_EL1, BF16, EBF16, CAP_HWCAP, KERNEL_HWCAP_SVE_EBF16),
--	HWCAP_CAP(ID_AA64ZFR0_EL1, SHA3, IMP, CAP_HWCAP, KERNEL_HWCAP_SVESHA3),
--	HWCAP_CAP(ID_AA64ZFR0_EL1, SM4, IMP, CAP_HWCAP, KERNEL_HWCAP_SVESM4),
--	HWCAP_CAP(ID_AA64ZFR0_EL1, I8MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEI8MM),
--	HWCAP_CAP(ID_AA64ZFR0_EL1, F32MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEF32MM),
--	HWCAP_CAP(ID_AA64ZFR0_EL1, F64MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEF64MM),
-+	HWCAP_CAP_MATCH_ID(has_sve_feature, ID_AA64ZFR0_EL1, SVEver, SVE2p1, CAP_HWCAP, KERNEL_HWCAP_SVE2P1),
-+	HWCAP_CAP_MATCH_ID(has_sve_feature, ID_AA64ZFR0_EL1, SVEver, SVE2, CAP_HWCAP, KERNEL_HWCAP_SVE2),
-+	HWCAP_CAP_MATCH_ID(has_sve_feature, ID_AA64ZFR0_EL1, AES, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEAES),
-+	HWCAP_CAP_MATCH_ID(has_sve_feature, ID_AA64ZFR0_EL1, AES, PMULL128, CAP_HWCAP, KERNEL_HWCAP_SVEPMULL),
-+	HWCAP_CAP_MATCH_ID(has_sve_feature, ID_AA64ZFR0_EL1, BitPerm, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEBITPERM),
-+	HWCAP_CAP_MATCH_ID(has_sve_feature, ID_AA64ZFR0_EL1, B16B16, IMP, CAP_HWCAP, KERNEL_HWCAP_SVE_B16B16),
-+	HWCAP_CAP_MATCH_ID(has_sve_feature, ID_AA64ZFR0_EL1, BF16, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEBF16),
-+	HWCAP_CAP_MATCH_ID(has_sve_feature, ID_AA64ZFR0_EL1, BF16, EBF16, CAP_HWCAP, KERNEL_HWCAP_SVE_EBF16),
-+	HWCAP_CAP_MATCH_ID(has_sve_feature, ID_AA64ZFR0_EL1, SHA3, IMP, CAP_HWCAP, KERNEL_HWCAP_SVESHA3),
-+	HWCAP_CAP_MATCH_ID(has_sve_feature, ID_AA64ZFR0_EL1, SM4, IMP, CAP_HWCAP, KERNEL_HWCAP_SVESM4),
-+	HWCAP_CAP_MATCH_ID(has_sve_feature, ID_AA64ZFR0_EL1, I8MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEI8MM),
-+	HWCAP_CAP_MATCH_ID(has_sve_feature, ID_AA64ZFR0_EL1, F32MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEF32MM),
-+	HWCAP_CAP_MATCH_ID(has_sve_feature, ID_AA64ZFR0_EL1, F64MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEF64MM),
- #endif
- #ifdef CONFIG_ARM64_GCS
- 	HWCAP_CAP(ID_AA64PFR1_EL1, GCS, IMP, CAP_HWCAP, KERNEL_HWCAP_GCS),
+ Sysreg	ID_AA64FPFR0_EL1	3	0	0	4	7
 
 -- 
 2.39.5
