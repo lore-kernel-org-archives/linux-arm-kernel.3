@@ -4,81 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C950FE77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 17:07:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7A71E77198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 17:08:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s9MuhWphSIf9f9illjEo4uMAH+8TeZFbhm0xQZOz9I0=; b=m+oVM4wUB0EX8amMFLThKwcT6J
-	2c5TBR9rScqi2WQZFHili6JvMl6a4lJiO1ek0EdJGd0OrLUsN5WgHBhpkxy9UcxK6eidBpvbGF+NQ
-	GSONORMUzYfTzeULEFluQ5Bc704LgWAGlwJzuROcm3xxSZPxSNbrFe3xLGMqYsMYOUpNMDWwINUIE
-	gCKT5G/3zCkqutgT2RWkk9AnCKBYeikG/16EQ0WtYydvycAvjO1MF45lS2bkrdwOxWnh5mXiQ1Z/r
-	E5BOXOLU6YUo9YhjL1eJYEE6IqbK/yrDb/+/rzKq+lL/S2jVVeYeFiBDtolCnKc8HCl0knmiUs7IF
-	uCn8UQNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Eg7HLXMYl0Okee4VbCtvYj3hybq+byhmHOir5t654RA=; b=0pBXaMK/wWe2noxJea9fRcRlm9
+	ZGy/cfcQ8AwjP/jZTrPK/rhD4c8smRAoVfbyoh8/Ie+W4UDu5ghMZrWig1mgWAt93zLEy1YeLzgdf
+	UiQUZNWSm/HzEu9iATA/zY6vwu1SjrjmhjfPZDsg+1SwGaEqSwUyb9PDA/8QHAgephq/FO0CLGOit
+	Xp5lZVtVrFU/gJwYJPI7ldYXPsCOjS2Mv++KtQXnHIU7Kt2jyY172y123qrQ7iEDPcJ4Z5+v3pvwe
+	bF3y7KSsmgqAWSDeC1zFae7rfTID484JTr8eFF9Idt5iG/O8hQ5jlz5Rqr0LLDpb2mug/VCo1PdxT
+	D5igOvrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVD3B-00000005lSP-1QEN;
-	Tue, 07 Jan 2025 17:07:29 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tVD4L-00000005llD-43Am;
+	Tue, 07 Jan 2025 17:08:41 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVCbt-00000005fbV-473P
+	id 1tVCeC-00000005gAX-3JAK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 16:39:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 46A2F5C2F68;
-	Tue,  7 Jan 2025 16:38:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4391EC4CEE1;
-	Tue,  7 Jan 2025 16:39:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736267957;
-	bh=dGGq1GOMLGpltwL115aYMu82H56aoheRTxWP/kPyr/E=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ZunkHfJzDOlkGbJq5kZU+VL5TeBxTaCTAWBc1G4iXHRlA0JaPtXsj/mxLDpCW0L3d
-	 oxFaxsmRgifC5V0oQdSQRnnOABOoDScprP1YWVozmk2r3o828nb87T7zsYwJBYc74p
-	 DmAcgNhlPdHtTXasL4+Npymbxp0V6j+mqqIGxhBQvxwV6qGAYJ5nLFUAF6Bi4svcwS
-	 eluaIzzL85K2644+UsTYj1I5CNyZT/JF54dODLy1PTxiW7yDlSYl5r9kPB43P7NmbO
-	 d5He9q/v+OV91bJxQdageOLoOGUyIHO/0Y0PxSS+wCGZ0ncSrJyZgXtTU+rCWAhGoh
-	 kcyubVx75OEkw==
-From: Bjorn Andersson <andersson@kernel.org>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Luo Jie <quic_luoj@quicinc.com>
-Cc: linux-arm-msm@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	Tue, 07 Jan 2025 16:41:44 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ore@pengutronix.de>)
+	id 1tVCe3-0001fn-L2; Tue, 07 Jan 2025 17:41:31 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <ore@pengutronix.de>)
+	id 1tVCe1-007NN0-2p;
+	Tue, 07 Jan 2025 17:41:30 +0100
+Received: from ore by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <ore@pengutronix.de>)
+	id 1tVCe2-009cbp-1h;
+	Tue, 07 Jan 2025 17:41:30 +0100
+Date: Tue, 7 Jan 2025 17:41:30 +0100
+From: Oleksij Rempel <o.rempel@pengutronix.de>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	"Russell King (Oracle)" <linux@armlinux.org.uk>,
+	Kory Maincent <kory.maincent@bootlin.com>, davem@davemloft.net,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	thomas.petazzoni@bootlin.com, Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
 	linux-arm-kernel@lists.infradead.org,
-	quic_kkumarcs@quicinc.com,
-	quic_suruchia@quicinc.com,
-	quic_pavir@quicinc.com,
-	quic_linchen@quicinc.com,
-	quic_leiwei@quicinc.com,
-	bartosz.golaszewski@linaro.org,
-	srinivas.kandagatla@linaro.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Subject: Re: (subset) [PATCH v8 0/5] Add CMN PLL clock controller driver for IPQ9574
-Date: Tue,  7 Jan 2025 10:38:46 -0600
-Message-ID: <173626793388.69400.11516262692578602679.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.1
-In-Reply-To: <20250103-qcom_ipq_cmnpll-v8-0-c89fb4d4849d@quicinc.com>
-References: <20250103-qcom_ipq_cmnpll-v8-0-c89fb4d4849d@quicinc.com>
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>,
+	=?utf-8?Q?Nicol=C3=B2?= Veronese <nicveronese@gmail.com>,
+	Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
+	Antoine Tenart <atenart@kernel.org>
+Subject: Re: [PATCH net-next RFC 0/5] net: phy: Introduce a port
+ representation
+Message-ID: <Z31ZOjLcE34CNj0S@pengutronix.de>
+References: <20241220201506.2791940-1-maxime.chevallier@bootlin.com>
+ <Z2g3b_t3KwMFozR8@pengutronix.de>
+ <Z2hgbdeTXjqWKa14@pengutronix.de>
+ <Z3Zu5ZofHqy4vGoG@shell.armlinux.org.uk>
+ <Z3bG-B0E2l47znkE@pengutronix.de>
+ <20250107142605.6c605eaf@kmaincent-XPS-13-7390>
+ <Z31EVPD-3CGGXxnq@shell.armlinux.org.uk>
+ <20250107171507.06908d71@fedora.home>
+ <601067b3-2f8a-4080-9141-84a069db276e@lunn.ch>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <601067b3-2f8a-4080-9141-84a069db276e@lunn.ch>
+X-Sent-From: Pengutronix Hildesheim
+X-URL: http://www.pengutronix.de/
+X-Accept-Language: de,en
+X-Accept-Content-Type: text/plain
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ore@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_083918_058922_4B187184 
-X-CRM114-Status: UNSURE (   9.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250107_084140_823985_F1E78D4F 
+X-CRM114-Status: GOOD (  17.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,26 +102,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jan 07, 2025 at 05:22:51PM +0100, Andrew Lunn wrote:
+> >   I have however seen devices that have a 1G PHY connected to a RJ45
+> > port with 2 lanes only, thus limiting the max achievable speed to 100M.
+> > Here, we would explicietly describe the port has having 2 lanes. 
 
-On Fri, 03 Jan 2025 15:31:33 +0800, Luo Jie wrote:
-> The CMN PLL clock controller in Qualcomm IPQ chipsets provides
-> the clocks to the networking hardware blocks that are internal
-> or external to the SoC, and to the GCC. This driver configures
-> the CMN PLL clock controller to enable the output clocks. The
-> networking blocks include the internal blocks such as PPE
-> (Packet Process Engine) and PCS blocks, and external hardware
-> such as Ethernet PHY or switch. The CMN PLL block also outputs
-> fixed rate clocks to GCC, such as 24 MHZ as XO clock and 32 KHZ
-> as sleep clock supplied to GCC.
-> 
-> [...]
+I can confirm existence of this kind of designs. One industrial real life
+example: a SoC connected to 3 port Gigabit KSZ switch. One port is
+typical RJ45 connector. Other port is RJ11 connector.
 
-Applied, thanks!
+The speed can be reduced by using max-speed property. But i can't
+provide any user usable diagnostic information just by saying pair A or
+B is broken.
 
-[2/5] clk: qcom: Add CMN PLL clock controller driver for IPQ SoC
-      commit: f81715a4c87c3b75ca2640bb61b6c66506061a64
+This is one of the reasons why i propose detailed description.
 
-Best regards,
+> Some PHYs would handle this via downshift, detecting that some pairs
+> are broken, and then dropping down to 100M on their own. So it is not
+> always necessary to have a board property, at least not for data.
+
+Ack, but it will work not for all setups.
+
+> I've no idea how this affects power transfer. Can the link partners
+> detect which pairs are actually wired?
+
+Not is usual simple implementation. The PSE PI devicetree properties
+provide enough information for a _standard_ use case.
+
 -- 
-Bjorn Andersson <andersson@kernel.org>
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
