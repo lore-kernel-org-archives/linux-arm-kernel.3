@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BF05E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 12:24:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AC7BE77199
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 12:28:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bFTopQqg0AYQo54+Ti+T8EKSE0QFycYC4UqsqIdh/JM=; b=fmKZReVX79eIhE/JSo7DYXJ0Kl
-	gMwGLbYxgXGoC06reuMJvaATHpeMu7e+6Jg48uJb6wSMb+MK+kQi4VSdSVw1/V5eaHB8fSMe4RsUB
-	sprmuSYZ89TiOwrYzdZ7CiSvgYqiGPon7sjbui4qGR5wHr6gLa4TYUBiAW0DBRTMpZGUf5KQRcqoB
-	z9JFWG6+Npp/7ehzExAdh4jyfcOqx+/yzXiro1OOYj8zo8ZSCtqI16+CuV07Zh6sEiGQIn5vCcQ+/
-	W9zUF9AwcUyGHR3g6eu4OjArs1YZXC9Y5EsU2DIgPa9/cVPgtKjb1m07eFtG+noirusl4SiZL86GM
-	i9j4jf2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i436Ho1ubADW8bVsfL0WLtQLAC6w+Q3H7msX3UlJW7s=; b=Za2b0Pgl0qbtzsnAN2si3ya8QE
+	yE3nP9/WG5C8ZerUs35s0U+94bcFNolBFHZ2RisH+lUdWMXvKbL3PTIdE5z3LYdI41YICAr+kGhrb
+	Qk1F2JKqWGpTFSJFmZ2hhG/KAPxZXSADXE1cJvwfsfLGQnSCfEYCfX7CylH2y7Yj3dBZ3ZtR7CRwA
+	T17TBqNQ/+bKIFcMBFDhKbt/MW5YY69LHj0vdbL/W21vk7hWYiRdVR30MyEGYMflZSmK7gjpOFcrr
+	1Yv7A/b8DTgxGYp6s9PwjNe1FpDMY7nYy+6biGOkJWflsXCXEI7e0F13OZ8bfnnavp0O9HTBRal1G
+	++uiUclw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVra1-0000000BqVY-2LT1;
-	Thu, 09 Jan 2025 12:24:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVrXG-0000000Bpsc-3y1e
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 12:21:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1638812FC;
-	Thu,  9 Jan 2025 04:21:42 -0800 (PST)
-Received: from [10.57.32.219] (unknown [10.57.32.219])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B72273F673;
-	Thu,  9 Jan 2025 04:21:12 -0800 (PST)
-Message-ID: <4f9d2bed-7ce0-429e-83cc-ad6cbcc6085e@arm.com>
-Date: Thu, 9 Jan 2025 12:21:11 +0000
+	id 1tVrdw-0000000Bqvw-1bjl;
+	Thu, 09 Jan 2025 12:28:08 +0000
+Received: from vps.xff.cz ([195.181.215.36])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tVrci-0000000BqnC-2DUe;
+	Thu, 09 Jan 2025 12:26:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=xff.cz; s=mail;
+	t=1736278291; bh=d3pREvs7LhLX8BNJ2qTqolnU1R4+qY6PVTnmctgTA6c=;
+	h=Date:From:To:Cc:Subject:X-My-GPG-KeyId:References:From;
+	b=MyPgZVKKPDLRR906LGRw1S2GTco8eaS5ykJW9/71Gb5mSEnrs8oQP8ltwtqyODdDw
+	 7xHgVG8W6JmtCVh/k5o+YX3tBTiFNOOvfMsjeRkAh6mYbP4zRKDJGvUzfJvXNDcKzG
+	 vGli+Hva0xr++b9694J2VImzvmy9MFqJbllRU7+8=
+Date: Tue, 7 Jan 2025 20:31:31 +0100
+From: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>
+To: Chen-Yu Tsai <wens@kernel.org>
+Cc: Heiko Stuebner <heiko@sntech.de>, Chen-Yu Tsai <wens@csie.org>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: dts: rockchip: orangepi-5-plus: Enable USB 3.0
+ ports
+Message-ID: <bx4xir4kfhui4d2xb357hnohhpqvgcne5a36qb4ahxyggrxkxo@7f7vyharp4yz>
+Mail-Followup-To: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>, 
+	Chen-Yu Tsai <wens@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Chen-Yu Tsai <wens@csie.org>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+X-My-GPG-KeyId: EBFBDDE11FB918D44D1F56C1F9F0A873BE9777ED
+ <https://xff.cz/key.txt>
+References: <20241220161240.109253-1-wens@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] coresight/etm4x: disallow altering config via sysfs
- while enabled
-Content-Language: en-GB
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: mike.leach@linaro.org, james.clark@linaro.org,
- alexander.shishkin@linux.intel.com, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20241221165934.1161856-1-yeoreum.yun@arm.com>
- <20241221165934.1161856-2-yeoreum.yun@arm.com>
- <6bbc9b64-3ecb-46c3-8c4e-55dba6301ef3@arm.com>
- <Z3+6kL7OGDX/pNul@e129823.arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <Z3+6kL7OGDX/pNul@e129823.arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241220161240.109253-1-wens@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_042115_151080_1555D10B 
-X-CRM114-Status: GOOD (  13.07  )
+X-CRM114-CacheID: sfid-20250109_042653_018165_BF39DE06 
+X-CRM114-Status: GOOD (  16.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,37 +69,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/01/2025 12:01, Yeoreum Yun wrote:
-> Hi Suzuki,
+Hello Chen-Yu,
+
+On Sat, Dec 21, 2024 at 12:12:40AM +0800, Chen-Yu Tsai wrote:
+> From: Chen-Yu Tsai <wens@csie.org>
 > 
->> Is it not better to have separate "configs" for perf and sysfs ?
->> And etmX driver can populate the "running" config, based on the
->> mode specific config. That way, the configs can be updated
->> independently without affecting the running config or the perf one.
->>
+> The Orange Pi 5 Plus has its first USB 3.0 interface on the SoC wired
+> directly to the USB type C port next to the MASKROM button, and the
+> second interface wired to a USB 3.0 hub which in turn is connected to
+> the USB 3.0 host ports on the board, as well as the USB 2.0 connection
+> on the M.2 E-key slot.
 > 
-> That was i've tried but I've accepted Mike's opinion that
-> it's enough to check whether CS_MODE_DISABLED via coresight_get_mode()
-> in *_store().
+> Signed-off-by: Chen-Yu Tsai <wens@csie.org>
 > 
-> "the .._store functions in sysfs should use coresight_get_mode() to ensure
-> this is set to CS_MODE_DISABLED before altering the config,
-> which ensures that the trace system is inactive.
-> We don't' really care about reading the config if trace is running."
-
-There are two issues with that :
-
-1. Sprinkling the get_mode call in each sysfs stor function doesn't look 
-good to me.
-
-2. Someone preparing for a sysfs session must not be prevented from 
-doing so just because there is a perf session running.
-
-
-Suzuki
-
-
-> Thanks.
+> ---
+> Changes since v1:
+> - Dropped source current to 1.4A
+> - Dropped sink current to 10mA, since it doesn't actually sink current
+> - Added try-power-role
+> - Added newline before endpoint device nodes in USB connector node
+> ---
+>  .../dts/rockchip/rk3588-orangepi-5-plus.dts   | 133 ++++++++++++++++++
+>  1 file changed, 133 insertions(+)
 > 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
+> index 9f5a38b290bf..000d353645a9 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
+> @@ -218,6 +218,18 @@ vcc5v0_sys: regulator-vcc5v0-sys {
+>  		regulator-max-microvolt = <5000000>;
+>  	};
+>  
+> +	vbus5v0_typec: vbus-typec-regulator {
 
+I think the new policy is to prefix with 'regulator-' so eg.:
+
+	vbus5v0_typec: regulator-vbus5v0-typec
+
+With that:
+
+Reviewed-by: Ondrej Jirman <megi@xff.cz>
+
+thank you,
+	o.
 
