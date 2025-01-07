@@ -4,70 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26C4EE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 03:03:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD822E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 03:15:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j4WHIo9pquJ7g/2ENU41c9ttOjw9RexpamwpH2bk1DY=; b=OxlhRqIsAZBwb5B2QXXMDHONqz
-	jrWm/qDY+jRLhvWdar+3K/NhS1zw4wI43Y4Ih/PK2c2+HBCOMyRlH+BvrFehamkKkeYPOkZ83L4U0
-	qtYYQReucqVS9xN9WIv93sNmQsGMexgO1/5jd5t6zIH5D/pXnx+VbwhTNhHEsCXguZd8nWzOyU0YI
-	YKuB2fxF0Q/QaaFnNPxIiAXpdMRoAX50jig2BG3+Is+s/Z4uVfIKds0+jgqrRhw3fsIdiFtl0gdVL
-	xYvJ1yWtmJBMTDy6zE6/72uArn7vfAUEeaICRukJ0eSrzk1uq0cIIbpzbvJLKpNrgKvnz2kwI9GdI
-	0BGCdtJQ==;
+	bh=i51dHw5mNIoRaqgYOtjuCasI+NG6Y61PinKIFAENVu0=; b=C/Jmf/rKs4QmGrCR71ovqyzwcQ
+	dNKnyJVfYf7Zx7QffK8bzZAZa4tVS+dyNZV/HKtPLFwIP0Q1NRyHXo5hmwadsvyFgv+5Arm/pDr8s
+	Ax1YJI/mjd+9LuWUZ21CIg80MokXgdFu/c6xDWrsQLDuapalTs0r1MntVzW6/Ut0af3c6RZtg54zg
+	el2J8VNSFbxNRVQNOjz3VHcPhZtXs9rnYNhi6eNpl1P3cN74r74kCxVBWj+AMljfJeoM++sZOl/dH
+	coIxGglx9C6IStFgicIEF77chv56kvz2PFw0/lU49I1NL9rz41/KGwpTHPY+8epP5xypfcsxlGIDz
+	bOK1l0RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUzsd-00000003GoC-2WTy;
-	Tue, 07 Jan 2025 03:03:43 +0000
-Received: from mail-m32123.qiye.163.com ([220.197.32.123])
+	id 1tV03o-00000003HrX-0OF8;
+	Tue, 07 Jan 2025 03:15:16 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUzrM-00000003Gi1-22n2;
-	Tue, 07 Jan 2025 03:02:28 +0000
-Received: from [172.16.12.26] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 7e9abd46;
-	Tue, 7 Jan 2025 11:02:15 +0800 (GMT+08:00)
-Message-ID: <96f8310f-93f1-4bcb-8637-137e1159ff83@rock-chips.com>
-Date: Tue, 7 Jan 2025 11:02:15 +0800
+	id 1tV02Z-00000003HgU-3pmU
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 07 Jan 2025 03:14:01 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-2ef714374c0so18785951a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jan 2025 19:13:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1736219638; x=1736824438; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=i51dHw5mNIoRaqgYOtjuCasI+NG6Y61PinKIFAENVu0=;
+        b=br9SO1SAKS/8FN2e/ABiY3J6D6lVKy3PDsOgfAGLBgHUZIOTX+wmVNcy9intLqh71A
+         zwXiBaJNxqjRXER3ch6PNd5UAiIQ2k8+SAyyJNtvydFis1Eu5qLekJPD0JooWE05nlmk
+         4tQ0DrDC/ALsfL0z4BiKC52lAX5eGUltHs6ufD0J9nvaWKVxuuJggyMQUkvkcVj1f/BS
+         V+2w0NwoslDZp/aU/PpAzaecuXGm0in6MdNydK5mMsLrk80zf04YzjuSs4xwWYCw9lwq
+         n6EeLY4EeF2Bth7+mk/Fl9JRR6AQuWiElR19I00/tudv+SatjyINbCscPPu+56cueXaN
+         qmzg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736219638; x=1736824438;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=i51dHw5mNIoRaqgYOtjuCasI+NG6Y61PinKIFAENVu0=;
+        b=uzjv3tn2epT88Adz0YnE/kNlrmQP4f6/8fXMXOg/H/kKZpoRYDXUa596zd1dwhGwq+
+         dxSscfWnOOe5xWULaiCZ2wEGuk3GqRfR1ATu+q5vxBBvoKYP5oHVWYoj+E52zVOoG6xO
+         gG7ZxVNVGU4I4QgAH+rWumF4x+HQ1oyYDuS4rsls0JP3REdtpoFRsQVWib51NJzix7J+
+         2HPIYjn39+3CqGDn39Ik+7YR9TpKXcf32A1Kuy+1iZ6MJHf9TkLJddDCf8FIJdJugRln
+         T9HDkauPcx4arzma0BkipM5Hz6agIMrR8VWiUVbRqWDjXw0rrFRywk3hjIL4UYG0U0WB
+         MG2w==
+X-Forwarded-Encrypted: i=1; AJvYcCUppu8QnctcRlYtD1RuzBZTXc2VRTIloQQnwDicCMhhg9ZGrBAUZ9dZaIoIdBm/cSfY2DLjfyT9FzlFW+AElQPR@lists.infradead.org
+X-Gm-Message-State: AOJu0YxrtZUboOj9nhY/w0nwWIyYNE3bxkMihiG/at8tXLn1Kozv0UV/
+	AHxfTdwi6ddzRpMYgaWpKiUOgrYJ0vL9Po+pf9yhydaA6fJzuzrv+aNXqA==
+X-Gm-Gg: ASbGncs8fzy1I58Ue1izLFDp+fZ/0OgjNjEmxC4eEnTnqys1Y7wGfoMEWkXGu92CIiC
+	20wnofdvxBwhLlo3H3CFenN8AckZFwN1mJTEJeq+A/ELK7LkmGiYc1nxd2iH4DQTr6G/7k5yNrs
+	7wG8kZGbPBe5FemysI8pNhhG2g+Rv+sKEMLln3856O8BIU38yAogJC1CVoioDifl5fDlLxhPkBx
+	zAmMlNzYGu5oXHuEgQ65Lu7ErtbcWMlMZncMmEG3ijO7XxYFguglM0NXlGJbJaQRuLAWHwXujKg
+	DH6Vz6mKfDiGiB2qJ2zr7yVIyxoMQA==
+X-Google-Smtp-Source: AGHT+IEqYTX48WWwIQGYBpAj2HUYugaKpRU3ZceIzqDXA+cx39JjALuCANuONI/3tuRP80rX6if6iQ==
+X-Received: by 2002:a17:90b:4ecb:b0:2ee:94a0:255c with SMTP id 98e67ed59e1d1-2f53cc20b46mr2398211a91.13.1736219638490;
+        Mon, 06 Jan 2025 19:13:58 -0800 (PST)
+Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f447882ad8sm34534574a91.35.2025.01.06.19.13.56
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 06 Jan 2025 19:13:57 -0800 (PST)
+Message-ID: <80b400b5-0dec-4643-9503-a21a35af5bcb@roeck-us.net>
+Date: Mon, 6 Jan 2025 19:13:55 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 07/17] phy: phy-rockchip-samsung-hdptx: Add support for
- eDP mode
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, rfoss@kernel.org, vkoul@kernel.org,
- sebastian.reichel@collabora.com, cristian.ciocaltea@collabora.com,
- l.stach@pengutronix.de, andy.yan@rock-chips.com, hjc@rock-chips.com,
- algea.cao@rock-chips.com, kever.yang@rock-chips.com,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org
-References: <20241226063313.3267515-1-damon.ding@rock-chips.com>
- <20241226063313.3267515-8-damon.ding@rock-chips.com>
- <shr7ak7keqza3gw6wra2zra35qht2cxlzkvtuhzl3swzf2fwxy@i2v4o53lhese>
+Subject: Re: [PATCH v5 1/1] watchdog: aspeed: Update bootstatus handling
+To: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>, patrick@stwcx.xyz,
+ andrew@codeconstruct.com.au, wim@linux-watchdog.org, joel@jms.id.au,
+ linux-watchdog@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Cc: Peter.Yin@quantatw.com, Patrick_NC_Lin@wiwynn.com, BMC-SW@aspeedtech.com,
+ chnguyen@amperecomputing.com, aaron_lee@aspeedtech.com
+References: <20250101070116.2287171-1-chin-ting_kuo@aspeedtech.com>
+ <20250101070116.2287171-2-chin-ting_kuo@aspeedtech.com>
 Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <shr7ak7keqza3gw6wra2zra35qht2cxlzkvtuhzl3swzf2fwxy@i2v4o53lhese>
+From: Guenter Roeck <linux@roeck-us.net>
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ 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
+ mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
+In-Reply-To: <20250101070116.2287171-2-chin-ting_kuo@aspeedtech.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGkIaSFYZGE1KHUtLSxpMGBhWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCSE
-	NVSktLVUpCS0tZBg++
-X-HM-Tid: 0a943eb680b303a3kunm7e9abd46
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6PS46Fhw*ITIOTBwQATFWSxkZ
-	NBIKCQFVSlVKTEhNSUpDQkhMSU9KVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFPQkhDNwY+
-DKIM-Signature: a=rsa-sha256;
-	b=LYaCAU+RlzanzYmS6Fd7fwnVehf05WEHutrgvrenWPyUEsaiZoZEsMipp8elxtDCC+wzA6v7ql0TSWw9AKlHiKohmW9N5CAfCBVcnQW1M4A6VpxWJOoYFsxunQQ97cOjqaU4shWbirYweHC6d6UwR89l9L7ZcTD/gaWdYlxUAOg=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=j4WHIo9pquJ7g/2ENU41c9ttOjw9RexpamwpH2bk1DY=;
-	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_190225_022632_F97C9A2A 
-X-CRM114-Status: GOOD (  25.23  )
+X-CRM114-CacheID: sfid-20250106_191359_963980_8C13DFAF 
+X-CRM114-Status: GOOD (  30.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,186 +147,189 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dmitry,
-
-On 2024/12/30 20:45, Dmitry Baryshkov wrote:
-> On Thu, Dec 26, 2024 at 02:33:03PM +0800, Damon Ding wrote:
->> Add basic support for RBR/HBR/HBR2 link rates, and the voltage swing and
->> pre-emphasis configurations of each link rate have been verified according
->> to the eDP 1.3 requirements.
+On 12/31/24 23:01, Chin-Ting Kuo wrote:
+> The boot status in the watchdog device struct is updated during
+> controller probe stage. Application layer can get the boot status
+> through the command, cat /sys/class/watchdog/watchdogX/bootstatus.
+> The bootstatus can be,
+> WDIOF_CARDRESET => the system is reset by WDT SoC reset.
+> Others          => other reset events, e.g., power on reset.
 > 
-> Well... Please describe what's happening here. That the HDMI PHY on your
-> platform also provides support for DP / eDP. Please document any design
-> decisions that you had to make.
+> On ASPEED platform, the boot status is recorded in the SCU registers.
+> - AST2400: Only a bit represents for any WDT reset.
+> - AST2500/AST2600: The reset triggered by different WDT controllers
+>                     can be distinguished by different SCU bits.
 > 
-
-Yes, I will add more relevant descriptions in the next version.
-
->>
->> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
->>
->> ---
->>
->> Changes in v2:
->> - Add the module author
->>
->> Changes in v3:
->> - Split this patch into two, one for correction and the other for
->>    extension
->>
->> Changes in v4:
->> - Add link_rate and lanes parameters in struct rk_hdptx_phy to store the
->>    phy_configure() result for &phy_configure_opts.dp.link_rate and
->>    &phy_configure_opts.dp.lanes
->> ---
->>   .../phy/rockchip/phy-rockchip-samsung-hdptx.c | 896 +++++++++++++++++-
->>   1 file changed, 889 insertions(+), 7 deletions(-)
->>
->> @@ -933,9 +1484,339 @@ static int rk_hdptx_phy_power_off(struct phy *phy)
->>   	return rk_hdptx_phy_consumer_put(hdptx, false);
->>   }
->>   
->> +static int rk_hdptx_phy_set_mode(struct phy *phy, enum phy_mode mode,
->> +				 int submode)
->> +{
->> +	return 0;
->> +}
+> Besides, on AST2400 and AST2500, since alternating boot event is
+> triggered by WDT SoC reset, it is classified as WDIOF_CARDRESET.
 > 
-> No need for the stub, please drop it. The host controller driver can
-> still call phy_set_mode() / _ext(), the call will return 0.
-
-Without the &phy_ops.set_mode(), the phy driver can not get phy_mode to 
-distinguish between HDMI and DP mode via the phy_get_mode(), even if the 
-host driver calls phy_set_mode() / _ext(). Additionally, the previous 
-discussion [0] also mentioned future considerations for dynamic 
-switching. Indeed, I should add a related comment before the 'return 0;' 
-to enhance understandability.
-
+> Signed-off-by: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
+> ---
+>   drivers/watchdog/aspeed_wdt.c | 85 ++++++++++++++++++++++++++++++++++-
+>   1 file changed, 83 insertions(+), 2 deletions(-)
 > 
->> +
->> +static int rk_hdptx_phy_verify_config(struct rk_hdptx_phy *hdptx,
->> +				      struct phy_configure_opts_dp *dp)
->> +{
->> +	int i;
->> +
->> +	if (dp->set_rate) {
->> +		switch (dp->link_rate) {
->> +		case 1620:
->> +		case 2700:
->> +		case 5400:
->> +			break;
->> +		default:
->> +			return -EINVAL;
->> +		}
->> +	}
->> +
->> +	if (dp->set_lanes) {
->> +		switch (dp->lanes) {
->> +		case 0:
-> 
-> Is it really a valid config to have 0 lanes?
+> diff --git a/drivers/watchdog/aspeed_wdt.c b/drivers/watchdog/aspeed_wdt.c
+> index b4773a6aaf8c..1fae70b2fa6b 100644
+> --- a/drivers/watchdog/aspeed_wdt.c
+> +++ b/drivers/watchdog/aspeed_wdt.c
+> @@ -11,21 +11,30 @@
+>   #include <linux/io.h>
+>   #include <linux/kernel.h>
+>   #include <linux/kstrtox.h>
+> +#include <linux/mfd/syscon.h>
+>   #include <linux/module.h>
+>   #include <linux/of.h>
+>   #include <linux/of_irq.h>
+>   #include <linux/platform_device.h>
+> +#include <linux/regmap.h>
+>   #include <linux/watchdog.h>
+>   
+>   static bool nowayout = WATCHDOG_NOWAYOUT;
+>   module_param(nowayout, bool, 0);
+>   MODULE_PARM_DESC(nowayout, "Watchdog cannot be stopped once started (default="
+>   				__MODULE_STRING(WATCHDOG_NOWAYOUT) ")");
+> +struct aspeed_wdt_scu {
+> +	const char *compatible;
+> +	u32 reset_status_reg;
+> +	u32 wdt_reset_mask;
+> +	u32 wdt_reset_mask_shift;
+> +};
+>   
+>   struct aspeed_wdt_config {
+>   	u32 ext_pulse_width_mask;
+>   	u32 irq_shift;
+>   	u32 irq_mask;
+> +	struct aspeed_wdt_scu scu;
+>   };
+>   
+>   struct aspeed_wdt {
+> @@ -39,18 +48,36 @@ static const struct aspeed_wdt_config ast2400_config = {
+>   	.ext_pulse_width_mask = 0xff,
+>   	.irq_shift = 0,
+>   	.irq_mask = 0,
+> +	.scu = {
+> +		.compatible = "aspeed,ast2400-scu",
+> +		.reset_status_reg = 0x3c,
+> +		.wdt_reset_mask = 0x1,
+> +		.wdt_reset_mask_shift = 1,
+> +	},
+>   };
+>   
+>   static const struct aspeed_wdt_config ast2500_config = {
+>   	.ext_pulse_width_mask = 0xfffff,
+>   	.irq_shift = 12,
+>   	.irq_mask = GENMASK(31, 12),
+> +	.scu = {
+> +		.compatible = "aspeed,ast2500-scu",
+> +		.reset_status_reg = 0x3c,
+> +		.wdt_reset_mask = 0x1,
+> +		.wdt_reset_mask_shift = 2,
+> +	},
+>   };
+>   
+>   static const struct aspeed_wdt_config ast2600_config = {
+>   	.ext_pulse_width_mask = 0xfffff,
+>   	.irq_shift = 0,
+>   	.irq_mask = GENMASK(31, 10),
+> +	.scu = {
+> +		.compatible = "aspeed,ast2600-scu",
+> +		.reset_status_reg = 0x74,
+> +		.wdt_reset_mask = 0xf,
+> +		.wdt_reset_mask_shift = 16,
+> +	},
+>   };
+>   
+>   static const struct of_device_id aspeed_wdt_of_table[] = {
+> @@ -213,6 +240,60 @@ static int aspeed_wdt_restart(struct watchdog_device *wdd,
+>   	return 0;
+>   }
+>   
+> +static void aspeed_wdt_update_bootstatus(struct platform_device *pdev,
+> +					 struct aspeed_wdt *wdt)
+> +{
+> +	struct resource *res;
+> +	struct aspeed_wdt_scu scu = wdt->cfg->scu;
+> +	struct regmap *scu_base;
+> +	u32 reset_mask_width;
+> +	u32 reset_mask_shift;
+> +	u32 reg_size;
+> +	u32 idx = 0;
+> +	u32 status;
+> +	int ret;
+> +
+> +	if (!of_device_is_compatible(pdev->dev.of_node, "aspeed,ast2400-wdt")) {
+> +		res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+> +		if (res) {
+> +			reg_size = res->end - res->start;
 
-The case of 0 lanes is indeed unnecessary.
+Is this correct ? Normally one would use resource_size() which is
+res->end - res->start + 1.
 
-> 
->> +		case 1:
->> +		case 2:
->> +		case 4:
->> +			break;
->> +		default:
->> +			return -EINVAL;
->> +		}
->> +	}
->> +
->> +	if (dp->set_voltages) {
->> +		for (i = 0; i < hdptx->lanes; i++) {
->> +			if (dp->voltage[i] > 3 || dp->pre[i] > 3)
->> +				return -EINVAL;
->> +
->> +			if (dp->voltage[i] + dp->pre[i] > 3)
->> +				return -EINVAL;
->> +		}
->> +	}
->> +
->> +	return 0;
->> +}
->> +
-> 
-> [..]
-> 
->> +
->> +static int rk_hdptx_phy_configure(struct phy *phy, union phy_configure_opts *opts)
->> +{
->> +	struct rk_hdptx_phy *hdptx = phy_get_drvdata(phy);
->> +	enum phy_mode mode = phy_get_mode(phy);
->> +	int ret;
->> +
->> +	if (mode != PHY_MODE_DP)
->> +		return -EINVAL;
-> 
-> I'd say, return 0;
+> +			if (reg_size)
 
-Yes, it is really not an error.
+... and then this if() would not be needed. Either case, if res->end - res->start
+is 1, there are actually 2 registers, so the calculation seems off.
 
-> 
->> +
->> +	ret = rk_hdptx_phy_verify_config(hdptx, &opts->dp);
->> +	if (ret) {
->> +		dev_err(hdptx->dev, "invalid params for phy configure\n");
->> +		return ret;
->> +	}
->> +
->> +	if (opts->dp.set_rate) {
->> +		ret = rk_hdptx_phy_set_rate(hdptx, &opts->dp);
->> +		if (ret) {
->> +			dev_err(hdptx->dev, "failed to set rate: %d\n", ret);
->> +			return ret;
->> +		}
->> +	}
->> +
->> +	if (opts->dp.set_lanes) {
->> +		ret = rk_hdptx_phy_set_lanes(hdptx, &opts->dp);
->> +		if (ret) {
->> +			dev_err(hdptx->dev, "failed to set lanes: %d\n", ret);
->> +			return ret;
->> +		}
->> +	}
->> +
->> +	if (opts->dp.set_voltages) {
->> +		ret = rk_hdptx_phy_set_voltages(hdptx, &opts->dp);
->> +		if (ret) {
->> +			dev_err(hdptx->dev, "failed to set voltages: %d\n",
->> +				ret);
->> +			return ret;
->> +		}
->> +	}
->> +
->> +	return 0;
->> +}
->> +
->>   static const struct phy_ops rk_hdptx_phy_ops = {
->>   	.power_on  = rk_hdptx_phy_power_on,
->>   	.power_off = rk_hdptx_phy_power_off,
->> +	.set_mode  = rk_hdptx_phy_set_mode,
->> +	.configure = rk_hdptx_phy_configure,
->>   	.owner	   = THIS_MODULE,
->>   };
->>   
->> @@ -1149,5 +2030,6 @@ module_platform_driver(rk_hdptx_phy_driver);
->>   
->>   MODULE_AUTHOR("Algea Cao <algea.cao@rock-chips.com>");
->>   MODULE_AUTHOR("Cristian Ciocaltea <cristian.ciocaltea@collabora.com>");
->> +MODULE_AUTHOR("Damon Ding <damon.ding@rock-chips.com>");
->>   MODULE_DESCRIPTION("Samsung HDMI/eDP Transmitter Combo PHY Driver");
->>   MODULE_LICENSE("GPL");
->> -- 
->> 2.34.1
->>
-> 
+> +				idx = ((intptr_t)wdt->base & 0x00000fff) / reg_size;
+> +		}
+> +	}
+> +
+> +	wdt->wdd.bootstatus = WDIOS_UNKNOWN;
+> +	scu_base = syscon_regmap_lookup_by_compatible(scu.compatible);
+> +	if (IS_ERR(scu_base))
+> +		return;
 
-Best regards
-Damon
+This should be
+	if (IS_ERR(scu_base)) {
+		wdt->wdd.bootstatus = WDIOS_UNKNOWN;
+		return;
+	}
 
-[0]https://patchwork.kernel.org/project/linux-rockchip/patch/20241127075157.856029-5-damon.ding@rock-chips.com/
+to avoid having to clear it below.
+
+> +
+> +	ret = regmap_read(scu_base, scu.reset_status_reg, &status);
+> +	if (ret)
+> +		return;
+> +
+> +	reset_mask_width = hweight32(scu.wdt_reset_mask);
+> +	reset_mask_shift = scu.wdt_reset_mask_shift +
+> +			   reset_mask_width * idx;
+> +
+> +	if (status & (scu.wdt_reset_mask << reset_mask_shift))
+> +		wdt->wdd.bootstatus = WDIOF_CARDRESET;
+> +	else
+> +		wdt->wdd.bootstatus = 0;
+> +
+> +	/* clear wdt reset event flag */
+> +	if (of_device_is_compatible(pdev->dev.of_node, "aspeed,ast2400-wdt") ||
+> +	    of_device_is_compatible(pdev->dev.of_node, "aspeed,ast2500-wdt")) {
+> +		ret = regmap_read(scu_base, scu.reset_status_reg, &status);
+> +		if (!ret) {
+> +			status &= ~(scu.wdt_reset_mask << reset_mask_shift);
+> +			regmap_write(scu_base, scu.reset_status_reg, status);
+> +		}
+> +	} else {
+> +		regmap_write(scu_base, scu.reset_status_reg,
+> +			     scu.wdt_reset_mask << reset_mask_shift);
+> +	}
+> +}
+> +
+>   /* access_cs0 shows if cs0 is accessible, hence the reverted bit */
+>   static ssize_t access_cs0_show(struct device *dev,
+>   			       struct device_attribute *attr, char *buf)
+> @@ -458,10 +539,10 @@ static int aspeed_wdt_probe(struct platform_device *pdev)
+>   		writel(duration - 1, wdt->base + WDT_RESET_WIDTH);
+>   	}
+>   
+> +	aspeed_wdt_update_bootstatus(pdev, wdt);
+> +
+>   	status = readl(wdt->base + WDT_TIMEOUT_STATUS);
+>   	if (status & WDT_TIMEOUT_STATUS_BOOT_SECONDARY) {
+> -		wdt->wdd.bootstatus = WDIOF_CARDRESET;
+> -
+>   		if (of_device_is_compatible(np, "aspeed,ast2400-wdt") ||
+>   		    of_device_is_compatible(np, "aspeed,ast2500-wdt"))
+>   			wdt->wdd.groups = bswitch_groups;
 
 
