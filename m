@@ -4,85 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A445BE77198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 01:35:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E2E9E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 01:47:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S1cq8MFbpYBQ15nZ7TZmC38dR26HoCi1nRHmAE0jyLE=; b=D/0izMAvxETE4n3uABOqjegWmq
-	AgqlQ5xooNLEE7a9VnrpesWO9yRKAwUCcu0iUbDsJcMlLzBiLzEu6ha7ic9dakNzcqTxall1T+Sp9
-	iqJHdg36RpY4d3xVgbeNkaEOxjBuY/GG4LH5ii+mye50hmwVZ0igGw7kWMU+omriH/F4DKe8lnMuD
-	uQsFayRo/0Z5ejO6URJEW2HoPNMOrJYxp0SaBiRfQjNokrvBTZDnFoTYbixfoZFbAkIhVhvLG2KWl
-	wenDLLO7BsW9KwtRxiHpQ5OGFjnoA9FMXhUvE8CUpKyISkbYIzyBTOaRlhSTNvWXDDEdMP8vsxrOw
-	YvSLJKAQ==;
+	bh=e30zrr3MrpDzUxxHon9mXRcs2qZJ9Cd2f6UwE4Tw9SU=; b=h0U4LoGYdMDYLmG6QkIu6e6e2C
+	ubk1UjwNe9hYMN4UIGmv/Jj4Xqwp9dSsARxv0L6OTIlDAQJw2L6FpGOeAKCdEgI59ea38EJBKBubM
+	J9o5qWu5gF6LdvAkn1fpngVrf5MqNltDs6qsSnid2IvK0ifQKgPv8iW6aA9g/mI2e5kqgZjSEYmo3
+	ax0mvWC/RK4p6mqnKMJTA1cq3g77GFaer9X2fqbRQLJqSjDU8Z0M8YSZFMvSNIq97LJEKyjd2NPk1
+	e+n1q7SXsWxuPI+cxkRr9LqYBVgvzjkupJJ046R3tnM39M5WW1NZ75+EMFF4qMT3kBXJgKRwqgxwJ
+	IDs0iomQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUyUl-00000003851-498B;
-	Tue, 07 Jan 2025 01:34:59 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1tUyh1-000000038tT-1wTv;
+	Tue, 07 Jan 2025 01:47:39 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUyTZ-000000037yC-1egV
+	id 1tUyfm-000000038iP-41rN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 01:33:46 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-5d7e3f1fc01so2322385a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jan 2025 17:33:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736213623; x=1736818423; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=S1cq8MFbpYBQ15nZ7TZmC38dR26HoCi1nRHmAE0jyLE=;
-        b=Rql7jVHFqD0JBuctKoThSh1pZmbhTB6t2o+fAmD1ua4MH/YWOsLWtlqDMlwXBUOcp9
-         EmNI+JzTTm8G4fAKoo8AYnW5adNCpjx+qsypijYaQAOH7PugZJV9lmFaQfQPqqBLe9w3
-         N6iDDY2wK5mumkyO7MuBR9QPt68RBHr+4h1Pob6K76EZNvIE/X6jPQQqJRAGzRD16Z+f
-         EE0DPP240EgxaiWupUZRoY3yVo8rPuqptrcMRcQTKe/pSVK5MQ+w5vbfpEUW/T9tGM1p
-         2WECJsZbfuFEe+cjv0jk+Vnua8rhG4ioXnbrAO3fgmt+BeRJbe7HwuN/NP0Y+K3xqPoz
-         Ilvg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736213623; x=1736818423;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=S1cq8MFbpYBQ15nZ7TZmC38dR26HoCi1nRHmAE0jyLE=;
-        b=X3QU5gubk0bMayzn4UwUbcd4zo4nlKmcwFr0QRqIgi0L97kTf2lnWAn7Wbxb3UJS/f
-         YJaPGbQmJFnbQSg6dfp6KlsS0PCG5EWMGkvVZ1auCQk9WJu2VHf4zq4ZvLxc9kmaoSV0
-         H2rhPv9zaEH8dfWNIQAt6XZKp7H4li36c7BXoMtuhVz2tsqG9IgobLK/UtEWE51rX1HT
-         FCPwJuXiQgcvTSC35fHGooRdqvEAjOXImkru8lmMlcO4oDkobU3As8GlOPhJtnoOgseH
-         dSyHMdpo8scOw3GQf6ryv10dOKWXL3pbtQVGrczl9qf+kt9d56miIL3RPsN6q1PKw0pm
-         735w==
-X-Forwarded-Encrypted: i=1; AJvYcCWodX/UJy2VY7w8wEc3LWars29thQWGd9DsWmJGgKWX5yaTkvwfuh64nTBolZE8rlumoCsa7O5pGqvKYyhiSWYz@lists.infradead.org
-X-Gm-Message-State: AOJu0YxLFdIPfbEXhroNHeBtU7ZO/ncXVlcB/cxJEDKZT4oN2G1JvdWB
-	J03WroGsyQWHzKl5NSFkooV4KFbciFs7pQzmL+raqcBuLWKzKsTqWplN8t/lu7voSVAatQcA6ly
-	eD3T29XN7yjTkGMdPNzU7oLODPWs=
-X-Gm-Gg: ASbGncvM5RbVWmjpPTR6sevVpe8U/d3F8RjUJKllv1fYFBJ33AA7IddBaE5koxW5iWN
-	Vi4F0R1wZhvbScrp9RXzYrQSi3IEXnhfn6Wg2eg==
-X-Google-Smtp-Source: AGHT+IFY1c/2d1AkAFyDlUnnS8En22lLEjmEOOwu78dZ4QLRW5CoAGB96WE7IsRvm/0TuAIextJbw7H2WkFHUM0Qd1Y=
-X-Received: by 2002:a05:6402:26c5:b0:5d1:f009:925e with SMTP id
- 4fb4d7f45d1cf-5d81ddad8edmr59384404a12.16.1736213623454; Mon, 06 Jan 2025
- 17:33:43 -0800 (PST)
+	Tue, 07 Jan 2025 01:46:24 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.235])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4YRv5N4Pmsz4f3jLq
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  7 Jan 2025 09:45:44 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.128])
+	by mail.maildlp.com (Postfix) with ESMTP id E571B1A0C24
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  7 Jan 2025 09:46:05 +0800 (CST)
+Received: from [10.67.108.244] (unknown [10.67.108.244])
+	by APP4 (Coremail) with SMTP id gCh0CgC3Gl9ch3xnFggDAQ--.39405S3;
+	Tue, 07 Jan 2025 09:46:05 +0800 (CST)
+Message-ID: <f035cbed-bff9-426d-9da2-1bc34ef644d3@huaweicloud.com>
+Date: Tue, 7 Jan 2025 09:46:03 +0800
 MIME-Version: 1.0
-References: <20250106031711.82855-1-21cnbao@gmail.com> <20250106031711.82855-2-21cnbao@gmail.com>
- <e68b8279-fe16-462a-bf99-6b4d90e96904@linux.alibaba.com> <CAGsJ_4wMuDYxuEMcA0jYvekt26Uvz86kjWbo0nz-ZZzuiyEOQQ@mail.gmail.com>
- <b65e145b-a754-41bb-8322-f93c24f6b7d1@linux.alibaba.com> <CAK1f24ksqXUKquPUu3hL3qZha6fOSz2xjRcy83CDg_rdOcZB6g@mail.gmail.com>
-In-Reply-To: <CAK1f24ksqXUKquPUu3hL3qZha6fOSz2xjRcy83CDg_rdOcZB6g@mail.gmail.com>
-From: Lance Yang <ioworker0@gmail.com>
-Date: Tue, 7 Jan 2025 09:33:06 +0800
-Message-ID: <CAK1f24=b=3Ny2TjHJccw_i0YG5AvSCpAFt2C6+c-FzgJqCSqyw@mail.gmail.com>
-Subject: Re: [PATCH 1/3] mm: set folio swapbacked iff folios are dirty in try_to_unmap_one
-To: Baolin Wang <baolin.wang@linux.alibaba.com>
-Cc: Barry Song <21cnbao@gmail.com>, akpm@linux-foundation.org, linux-mm@kvack.org, 
-	linux-arm-kernel@lists.infradead.org, x86@kernel.org, 
-	linux-kernel@vger.kernel.org, david@redhat.com, ryan.roberts@arm.com, 
-	zhengtangquan@oppo.com, ying.huang@intel.com, kasong@tencent.com, 
-	chrisl@kernel.org, Barry Song <v-songbaohua@oppo.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH linux-next 2/2] perf: Return EACCESS when need perfmon
+ capability
+To: James Clark <james.clark@linaro.org>
+Cc: mingo@redhat.com, acme@kernel.org, namhyung@kernel.org,
+ mark.rutland@arm.com, alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+ irogers@google.com, adrian.hunter@intel.com, kan.liang@linux.intel.com,
+ tglx@linutronix.de, bp@alien8.de, dave.hansen@linux.intel.com,
+ x86@kernel.org, hpa@zytor.com, will@kernel.org, paul@paul-moore.com,
+ jmorris@namei.org, serge@hallyn.com, rostedt@goodmis.org,
+ mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
+ stephen.smalley.work@gmail.com, omosnace@redhat.com,
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-security-module@vger.kernel.org,
+ linux-trace-kernel@vger.kernel.org, selinux@vger.kernel.org,
+ Peter Zijlstra <peterz@infradead.org>
+References: <20241223070650.2810747-1-luogengkun@huaweicloud.com>
+ <20241223070650.2810747-3-luogengkun@huaweicloud.com>
+ <57627eec-10b5-4eb0-bfe2-f404a3492eee@linaro.org>
+Content-Language: en-US
+From: Luo Gengkun <luogengkun@huaweicloud.com>
+In-Reply-To: <57627eec-10b5-4eb0-bfe2-f404a3492eee@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: gCh0CgC3Gl9ch3xnFggDAQ--.39405S3
+X-Coremail-Antispam: 1UD129KBjvJXoW7Aw13Jw1xGF4UAFW3ZrW3GFg_yoW8Wr4xpF
+	s3Cr1YkayxKr97A34Yvwsru34UJr4Ivr4UJF9YgFs8AF1YgFZ0qF4UW34agr1DuF4xCayj
+	ya1DXF98urWDZaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUv0b4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS
+	14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I
+	8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWr
+	XwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x
+	0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_
+	Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU0
+	4xRDUUUUU==
+X-CM-SenderInfo: 5oxrwvpqjn3046kxt4xhlfz01xgou0bp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_173345_439932_29F68DB2 
-X-CRM114-Status: GOOD (  21.14  )
+X-CRM114-CacheID: sfid-20250106_174623_301856_5180F7B9 
+X-CRM114-Status: GOOD (  19.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,74 +98,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 6, 2025 at 10:39=E2=80=AFPM Lance Yang <ioworker0@gmail.com> wr=
-ote:
->
-> On Mon, Jan 6, 2025 at 5:34=E2=80=AFPM Baolin Wang
-> <baolin.wang@linux.alibaba.com> wrote:
-> >
-> >
-> >
-> > On 2025/1/6 17:03, Barry Song wrote:
-> > > On Mon, Jan 6, 2025 at 7:40=E2=80=AFPM Baolin Wang
-> > > <baolin.wang@linux.alibaba.com> wrote:
-> > >>
-> > >>
-> > >>
-> > >> On 2025/1/6 11:17, Barry Song wrote:
-> > >>> From: Barry Song <v-songbaohua@oppo.com>
-> > >>>
-> > >>> The refcount may be temporarily or long-term increased, but this do=
-es
-> > >>> not change the fundamental nature of the folio already being lazy-
-> > >>> freed. Therefore, we only reset 'swapbacked' when we are certain th=
-e
-> > >>> folio is dirty and not droppable.
-> > >>>
-> > >>> Suggested-by: David Hildenbrand <david@redhat.com>
-> > >>> Signed-off-by: Barry Song <v-songbaohua@oppo.com>
-> > >>
-> > >> The changes look good to me. While we are at it, could you also chan=
-ge
-> > >> the __discard_anon_folio_pmd_locked() to follow the same strategy fo=
-r
-> > >> lazy-freed PMD-sized folio?
-> > >
-> > > it seems you mean __discard_anon_folio_pmd_locked() is lacking
-> > > folio_set_swapbacked(folio) for dirty pmd-mapped folios?
->
-> Good catch!
->
-> Hmm... I don't recall why we don't call folio_set_swapbacked for dirty
-> THPs in __discard_anon_folio_pmd_locked() - possibly to align with
-> previous behavior ;)
->
-> If a dirty PMD-mapped THP cannot be discarded, we just split it and
-> restart the page walk to process the PTE-mapped THP. After that, we
-> will only mark each folio within the THP as swap-backed individually.
->
-> It seems like we could cut the work by calling folio_set_swapbacked()
-> for dirty THPs directly in __discard_anon_folio_pmd_locked(), skipping
-> the restart of the page walk after splitting the THP, IMHO ;)
 
-In correction to the earlier email:
-
-folio_set_swapbacked() is only called in __discard_anon_folio_pmd_locked()
-when '!(vma->vm_flags & VM_DROPPABLE)' is true, IIUC.
-
-Thanks,
-Lance
+On 2025/1/6 23:59, James Clark wrote:
+>
+>
+> On 23/12/2024 7:06 am, Luo Gengkun wrote:
+>> For perf_allow_kernel and perf_allow_cpu, both return EACCES when 
+>> require
+>> CAP_PERFMON or CAP_SYS_ADMIN permissions, so update 
+>> perf_allow_tracepoint
+>> to keep them the same.
+>>
+>> Signed-off-by: Luo Gengkun <luogengkun@huaweicloud.com>
+>> ---
+>>   include/linux/perf_event.h | 2 +-
+>>   1 file changed, 1 insertion(+), 1 deletion(-)
+>>
+>> diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
+>> index 5d2ec4283ebf..c1bc0d7a275b 100644
+>> --- a/include/linux/perf_event.h
+>> +++ b/include/linux/perf_event.h
+>> @@ -1685,7 +1685,7 @@ static inline int perf_allow_cpu(void)
+>>   static inline int perf_allow_tracepoint(void)
+>>   {
+>>       if (sysctl_perf_event_paranoid > -1 && !perfmon_capable())
+>> -        return -EPERM;
+>> +        return -EACCES;
+>
+> Is this necessary other than for consistency? If not it might be best 
+> to leave it inconsistent even if it's wrong. I see quite a few "if 
+> EPERM do this..." type things in Perf, so changing this would break 
+> error messages being shown to users.
+>
+> If anything, EPERM seems more correct because EACCESS is more about 
+> file access.
+I think so, from the perspective of capabilities and 
+sysctl_perf_event_paranoid, EPERM is more appropriate.
+>
+> Thanks
+> James
 
 
->
-> Thanks,
-> Lance
->
->
-> > > and it seems !(vma->vm_flags & VM_DROPPABLE) is also not
-> > > handled properly?
->
->
-> >
-> > Right.
+Thanks for your review.
+
+Actually, I am not sure if it's typo or intentional, so this patch is 
+more like a consultation. It's okay to keep it the same so it doesn't 
+torture the user.
+
+
+Thanks
+
+Gengkun
+
 
