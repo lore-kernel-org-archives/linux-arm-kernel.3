@@ -4,78 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35ACAE77199
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 17:05:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 963B6E77199
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 17:06:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k4h4DvLs6eIAMMB+SiDt1jAxdP1YqbY0pFewk/QkNZQ=; b=uC04zSUaOx0e7HVyTOxBD67NQv
-	bxy83hW3lxgxIh6CRSen6pYIG+p7FMzdo/62v8uZCPTlEUuAqqpYXyoxYm0+QKd4EKB3d6vxvSCf6
-	aWGWfmiFzkMKVhlYhpx/thcfdIklf9bWG0AJxJiMun3QgwUVLmLjIeg27LXzul0knP5Qm4CDrdqz9
-	7hp6O8XX/YwQicHdZ5aKLkHVnVji+7EkmOcVkB0eoBanCK7MMC+XFWu0dF+O/9D5E3SoGgiIJW8kx
-	BQHsyKMijRv157ecNOe8+XRtTvcJlR6MHANkiWK65J3pSMQxpmvbDyZyEgbvW2bGNIq/TM5PpZ0FY
-	SEtrkUMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dW89n42NmkpEIRJUxQQno3eIDg8+CSGSrGgZHeTnpZo=; b=HPNWOsK5N8nyYj1Xh3iyDinS7u
+	75RmZgoaWPGQRADFOdZGqID67KighWRJGlvMLeJD46PhWJn4Nu9/L+5jVd/v9E/TlgHuOofGoN5fs
+	YrdlAbSxKaSS0F8Ls/Y9AJPJ+brpBLRii0eWCYJYeX2OUSZdyLs2hwvUKnVrxRiJpc/1H+b1ge5ot
+	H/U+MaSfSMAzzInTw6dc5JCk+jFcSBt4SOM2sbnD2AQpoUDs54wwaLf4oCG/E6yxGHkKAfJjv7Son
+	LBIiNip0dJCu0S+HNSvbxL5YLuAAbmiTGng/p5u+H3l6gkEsZdD+++qfjf4arjtcK+J7G9j2jJfgL
+	83uG/wRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVD0m-00000005kyw-2Ccj;
-	Tue, 07 Jan 2025 17:05:00 +0000
+	id 1tVD1z-00000005l9r-0qhf;
+	Tue, 07 Jan 2025 17:06:15 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVCT2-00000005dou-1G74
+	id 1tVCX9-00000005esx-2UAU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 16:30:09 +0000
+	Tue, 07 Jan 2025 16:34:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=k4h4DvLs6eIAMMB+SiDt1jAxdP1YqbY0pFewk/QkNZQ=; b=KWm+xDqUuNYy43JeQyW+mp8Lhd
-	AGblvifSnlJllc1Awi+zNSYef4lfrfaOat9RjHoyoJHs/pSaL+dVB0PfAu4HXuzCuorYorOoUaMI6
-	Tb5sBGwfKk0wM10xecW7rYGrlQCR/+wsl9xxjUQyVxu7CpklL2DTKZ/kZMiCxg32uz+j6nLV2EkgU
-	Q9dO+yiwiOI9tm0jZBLwoGBDjPL8Ru0wn6EER36W88l8zLtkt0UWeHdElnygY0pEiLrovqyUKzLoL
-	OxXXDWBz/w2UYAg0yUdbEPkAiZoZBDAQz0dprPHaMKPKbtJtfxIisKtwvo8VKHbCbwbzj4QjhnpHT
-	+K8P5/rA==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:50608 helo=rmk-PC.armlinux.org.uk)
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=dW89n42NmkpEIRJUxQQno3eIDg8+CSGSrGgZHeTnpZo=; b=xdTmUK86AuLgBEOEBUTvAmAlUS
+	4hvp7u8bGFejhTcWLPu+4flofsd5I/4UF7vfEmaZ+xN789xk38q6zobdEC/ZyycSIZ2GWN+fxzHWJ
+	yRS2PNIjrS7uInj/vcMppd2eCmcX6p9xpExcZg9fPYkiIuh4x1FeLy1v+7Vr9BaGKJbyVY/pHVP/H
+	4hUkduFB2Ik5nsbO5xvemxojrWYvRoHBi20zT0vNJcuf78Vczy3mN5tjq3F8Lzj+YupAh5WgIOxb0
+	1DSSFsCyjEfvznhijkpj/9OxrwfRrS8lTiVZiTYWK9tXJtMebuyxtkOx50D0Dked4yj8gm0/t1Qm8
+	97f2+Tog==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:60026)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tVCSw-0007pe-1G;
-	Tue, 07 Jan 2025 16:30:02 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tVCSt-007Y4d-5y; Tue, 07 Jan 2025 16:29:59 +0000
-In-Reply-To: <Z31V9O8SATRbu2L3@shell.armlinux.org.uk>
-References: <Z31V9O8SATRbu2L3@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tVCX3-0007qV-0K;
+	Tue, 07 Jan 2025 16:34:17 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tVCX0-0005R5-28;
+	Tue, 07 Jan 2025 16:34:14 +0000
+Date: Tue, 7 Jan 2025 16:34:14 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jose Abreu <joabreu@synopsys.com>,
+	Jakub Kicinski <kuba@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next v3 18/18] net: stmmac: remove
- stmmac_lpi_entry_timer_config()
+Subject: Re: [PATCH net-next v2 03/17] net: stmmac: use correct type for
+ tx_lpi_timer
+Message-ID: <Z31XhoshqSd-a6pS@shell.armlinux.org.uk>
+References: <Z3vLbRQ9Ctl-Rpdg@shell.armlinux.org.uk>
+ <E1tUmAE-007VWv-UW@rmk-PC.armlinux.org.uk>
+ <0cf7eacd-6834-47d8-b370-cac5a7395d44@lunn.ch>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tVCSt-007Y4d-5y@rmk-PC.armlinux.org.uk>
-Date: Tue, 07 Jan 2025 16:29:59 +0000
+In-Reply-To: <0cf7eacd-6834-47d8-b370-cac5a7395d44@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_083008_335717_A035AC86 
-X-CRM114-Status: UNSURE (   9.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250107_083423_627916_98B0FC2C 
+X-CRM114-Status: GOOD (  13.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,66 +89,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove stmmac_lpi_entry_timer_config(), setting priv->eee_sw_timer_en
-at the original call sites, and calling the appropriate
-stmmac_xxx_hw_lpi_timer() function. No functional change.
+On Mon, Jan 06, 2025 at 05:45:37PM +0100, Andrew Lunn wrote:
+> On Mon, Jan 06, 2025 at 12:24:58PM +0000, Russell King (Oracle) wrote:
+> > The ethtool interface uses u32 for tx_lpi_timer, and so does phylib.
+> > Use u32 to store this internally within stmmac rather than "int"
+> > which could misinterpret large values.
+> > 
+> > Since eee_timer is used to initialise priv->tx_lpi_timer, this also
+> > should be unsigned to avoid a negative number being interpreted as a
+> > very large positive number.
+> > 
+> > Also correct "value" in dwmac4_set_eee_lpi_entry_timer() to use u32
+> > rather than int, which is derived from tx_lpi_timer, even though
+> > masking with STMMAC_ET_MAX will truncate the sign bits. u32 is the
+> > value argument type for writel().
+> > 
+> > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> 
+> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 21 +++++++------------
- 1 file changed, 8 insertions(+), 13 deletions(-)
+FYI, because of splitting this patch, I've dropped your r-b when
+posting v3.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 5b2ce5305b4b..250e1e7df050 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -400,16 +400,6 @@ static void stmmac_enable_hw_lpi_timer(struct stmmac_priv *priv)
- 	stmmac_set_eee_lpi_timer(priv, priv->hw, priv->tx_lpi_timer);
- }
- 
--static void stmmac_lpi_entry_timer_config(struct stmmac_priv *priv, bool en)
--{
--	/* Clear/set the SW EEE timer flag based on LPI ET enablement */
--	priv->eee_sw_timer_en = en ? 0 : 1;
--	if (en)
--		stmmac_enable_hw_lpi_timer(priv);
--	else
--		stmmac_disable_hw_lpi_timer(priv);
--}
--
- /**
-  * stmmac_enable_eee_mode - check and enter in LPI mode
-  * @priv: driver private structure
-@@ -489,7 +479,8 @@ static void stmmac_eee_init(struct stmmac_priv *priv, bool active)
- 	if (!priv->eee_active) {
- 		if (priv->eee_enabled) {
- 			netdev_dbg(priv->dev, "disable EEE\n");
--			stmmac_lpi_entry_timer_config(priv, 0);
-+			priv->eee_sw_timer_en = true;
-+			stmmac_disable_hw_lpi_timer(priv);
- 			del_timer_sync(&priv->eee_ctrl_timer);
- 			stmmac_set_eee_timer(priv, priv->hw, 0,
- 					     STMMAC_DEFAULT_TWT_LS);
-@@ -513,11 +504,15 @@ static void stmmac_eee_init(struct stmmac_priv *priv, bool active)
- 	}
- 
- 	if (priv->plat->has_gmac4 && priv->tx_lpi_timer <= STMMAC_ET_MAX) {
-+		/* Use hardware LPI mode */
- 		del_timer_sync(&priv->eee_ctrl_timer);
- 		priv->tx_path_in_lpi_mode = false;
--		stmmac_lpi_entry_timer_config(priv, 1);
-+		priv->eee_sw_timer_en = false;
-+		stmmac_enable_hw_lpi_timer(priv);
- 	} else {
--		stmmac_lpi_entry_timer_config(priv, 0);
-+		/* Use software LPI mode */
-+		priv->eee_sw_timer_en = true;
-+		stmmac_disable_hw_lpi_timer(priv);
- 		mod_timer(&priv->eee_ctrl_timer,
- 			  STMMAC_LPI_T(priv->tx_lpi_timer));
- 	}
 -- 
-2.30.2
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
