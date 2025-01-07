@@ -4,78 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEA5EE77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 23:25:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F466E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 23:26:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=C95iLiIsGMfRm8JaUNPnSGMtPKm42hHvd+zXsLNeXKk=; b=C+JncZKNK8p5XL9UV4sG1QYUAm
-	PGe2ywHqxFXcqEfXpt5vbTyjZ/bCNk60QrFiwMJUYlDUuFulSEkKzzvZrXUiHM66MSk7h/cCJqOPz
-	5m+qvs0C5H2ba9vISVYwabq+Oo6lIQXnUnGX8hCtbKWz1LsRBzVy+5wcPg9UskPLOGz0i9joADwFJ
-	7QMiKSpsqNQ2KvkLcTARFXPbByymF82ZxzhjseQYyUMPAc7dfC0DE0Fbja10Nm0wpeYd4ppIkOqcL
-	sm6i+272cyYGqzDJfXjgRVlyF+bF9NXR4pFa/ldy0y7c8mhZoxs2+OALuZu22j0mdKawWGVbckp4W
-	aD2BRobA==;
+	bh=5HsjqkC0TW1j6tEXS+2YAetbzExkGU2uGb1bwmU0WzM=; b=oXlBHKC6P7ALjIGZZqSY0XlCTI
+	3fJYqm3rGNRgUY/WZvwUo04LTzWa3jnWQyMJgsA/4KtfpjKo7nRLf1myHbYCboK6JbFDkv03PgJ0Q
+	8W5JoqhKQoUBjlh62peuTicbFqBRpJwekMN17FKfMPAutysJKq2rlik3GekNEiENoL6PO/7ckjtq8
+	ZNGZjlb9oN5LpThLnRQVAFQdotYi8N3Jpcw3lj03HJTEatoVPF0Wd1QUSIsZBGOA2gKkkJ8a4uzKE
+	/HDgCBrQU78J/jYl56I/3ku7nukfz5cLJSD9jixKSlwlANnzpPGRhZICuddYZNjpPBa7SnBa/rrJP
+	agmueRow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVIx1-00000006Y28-0XGr;
-	Tue, 07 Jan 2025 23:25:31 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1tVIyB-00000006YB6-36VT;
+	Tue, 07 Jan 2025 23:26:43 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVIvn-00000006Xoc-2Bbr
+	id 1tVIwd-00000006Xwi-12IW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 23:24:17 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2162c0f6a39so5500625ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 15:24:15 -0800 (PST)
+	Tue, 07 Jan 2025 23:25:08 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2164b662090so209828785ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 15:25:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1736292254; x=1736897054; darn=lists.infradead.org;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1736292306; x=1736897106; darn=lists.infradead.org;
         h=mime-version:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=C95iLiIsGMfRm8JaUNPnSGMtPKm42hHvd+zXsLNeXKk=;
-        b=gmc27UsSZOyDKRuuzE+dwTs/1jKpE1HVIyMo40SBEW3p+bEqnvxRlLygb5Q0Nuf/z2
-         GXS5/H3l5L9yOfqiTecgSjderivU+GlIb+cTIYaJ3YE+qy3Ji/jsBFa7iFxiTjck7WY/
-         dmdygYgJe1AZpfnjjdq3GSrujMsMHrqcJ6LdxtC39FTk2i9DViVdjDEI3wjRgu4JEHDd
-         DcnT5HLpHyN4gK/llMGUE/dxP/R3u91Hv5VOZ0F3yjiDnpPwS2F1YmJ7b+OJnqNtT7G9
-         60JdQHauct3QuICj+CIdtXjVdol0nkK9I1qoUGX2MDCFWk/CpD5Fq96hrqIzHw0VhsbD
-         NZaQ==
+        bh=5HsjqkC0TW1j6tEXS+2YAetbzExkGU2uGb1bwmU0WzM=;
+        b=QMWOOx5nSGft6zYIWge28kUfRx6oIarMONO4Am9hvMqR57QkQswYHFHZYKkUnacEK6
+         fPdma2QTe0oUoc2O4BCIgEaz486irFVeA5tUkWnELf6jGXnQsacPeqp9TDNHZmKPle61
+         1MhIxU/pBXlrMsqwIPCAlQmw61KLnb1hlnpBnY2Oe5npxQ+NiaazTHCCtwQI4nLpzWNH
+         lu2vlfjRwBRAg+MhGsrPSwOhiNefFgYon5WDhDmSACWhXvRgprxAss8uehXY6pDt0uQY
+         xaCHuACenbqfJUrV5QGbNSPC+mwhbvVnw04OKvCn2+fptznMvfQGEuLhfyBt7p0nptdN
+         ep8Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736292254; x=1736897054;
+        d=1e100.net; s=20230601; t=1736292306; x=1736897106;
         h=mime-version:message-id:date:subject:cc:to:from:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=C95iLiIsGMfRm8JaUNPnSGMtPKm42hHvd+zXsLNeXKk=;
-        b=wnkeBJzi3HvfyIS9DwL7J6fPeqH0N+8G69ukJDqc7jpzDmwb19xiWJ5uux1qhkEUNj
-         kNo8cmg1SOHkdkmTJ7gJfJmfNdJUgrVeS5ndyelN4xYfjKh0fYhA3iq3810q3/maO+aY
-         kqnKbkoTeGKk7jq3xvDq8bmr+QhXET7UzE630NOlKpcbVBqYcX8XwqG2wugIQ+rhEtQL
-         rl1pYmXG5asDZq67qdl4Cx/7Uz+XS0mU9AFC2A6baKnI77bycL93ZZt6pgB4i9QVdSUS
-         KlyqHcbNEuNkQ6jQ76F25rPWISpgzAZZo/BuSTGjngXdMCSaJyEFvYR2rn1xm21Ug2iN
-         TAWw==
-X-Forwarded-Encrypted: i=1; AJvYcCXRZ+lsprPJGb5NLnMYZxq8HFhrL36ERFpyQ+CzgzlbokJiO6/+9Mjixb09y+ltrP1YJPqTEwRrDgrQjuEK38fW@lists.infradead.org
-X-Gm-Message-State: AOJu0YySmclLxnKK2uofZQjz0N4pwWvPd8FG0+i2cT+hdyiKSd41BxbY
-	yaU4QIR91KV1AwZbC24RiTvl9NypfgExoT2/U7WMNn6euMboJS4jsvmGEUpwLlY=
-X-Gm-Gg: ASbGnct+UlM9DkOxCVMx3NttnAoo9nhhWdnIOSX7bMLcN2+Ru/2588X3gJZjEw9Mu/U
-	mxqHGvHA/t+4Tacxw7rIwU80C9B55gmdo/cqwpQz+aJZXQ5MqwZbmeBIJ68wpmIcfItP2hKtqgb
-	VRUuLc7ALotL1GM+Up7RwKroaANyuYLWFtv5PbYph6bL8ZenlGNHd4ePA0WqPYwVHnVJqk4i41p
-	jBzkh2soYRT36ZQ3zaD6o2eOr6MoV9RNa6X84a75W7a9WtOwRZINmg=
-X-Google-Smtp-Source: AGHT+IFk3tx493nN+dN4Z7Nw7T6E/L7ddLbTtmpOE9XcEH2hMlTKjR1Fee5FPSBt78FPKRQiKwWsog==
-X-Received: by 2002:a05:6a00:a81:b0:72a:83ec:b1cb with SMTP id d2e1a72fcca58-72d102a8059mr8370201b3a.0.1736292254620;
-        Tue, 07 Jan 2025 15:24:14 -0800 (PST)
+        bh=5HsjqkC0TW1j6tEXS+2YAetbzExkGU2uGb1bwmU0WzM=;
+        b=eit780duOGiK+cl29YpaB3Jsh7W8ygtwbObPV7b8HPdRtTmYSnaD7sfFSUr5G9Qr6F
+         06z6L6OCPn64aKNPCo7nx6xhxABp4yULVEI1lpkzwuNh+VrDvZDGbs4+WJhHCWiTtghN
+         oSvsXLiGs3Ytugk5PI1ltm7XiYzdyeztGUOptIFSRu7cb9CnVNPwUTLJ2AjVA4aVyGDO
+         V4zXsBc6KUGTX4vSgYnqe7oGgPSKNu3n0ZowvYpoRkgeAtQ7jroZ1ZysWpQMneD9jwUK
+         xID6eygCBUW+/zmh4K/YjKJFvHGNpDc/mwB6kj3n/opyNq6GNI50qvb7rAzrIgFQoIUj
+         zPsQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV7Qf7Suktw7dkMwqVJcSeeiIBPWHTkGWXjb+8u5iVBSy6Z9VsReAALTxc/Es8iPbQXgisqQhFviWz2mcL40WNe@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyze/mpVeSul2vWBY9wC3zJQjt67KgiPKjYr+R2DdoAUQWCvboK
+	Gv0rFBrB0MANIYMIPdt/VxRqlpKFk4q33CJ862Mc+kWXsarXVW+4eZsu+j+dXqkKstEXw9Rwe12
+	P
+X-Gm-Gg: ASbGncsIw7iUvOu6YfS2KHgDEDM92/bgbO9thA+OdYFmd8+jQ0sf6zbLDdAQWYp9QkE
+	YNXdxVUDkz45C0mh1wMZGy+gwPfDW9q+M6ev110RzVmItKnAHDa1MJqUBc93jUG7m14ghVFPCdv
+	L+jVr/+S8PdAlNlxLlP1VUdxsbFp7rwDUiCliqw9C2AR5BRx8+UdpWlXTSh+BtA12bjlk1Ve+zc
+	nA8A4Vb649Rr8tP1biZLVZSo0LXJd9N4vhFMn7kZ0LZ+TZYe90wQEw=
+X-Google-Smtp-Source: AGHT+IHVFOR6GkERpP6WR0/FI8WmwY9S92Nz5kINYPVjjjtNFK0rP3anDsgdAdMUKFY2u5SJ/13PZQ==
+X-Received: by 2002:a05:6a20:8403:b0:1e0:c954:ea85 with SMTP id adf61e73a8af0-1e88cfa6a5dmr1874365637.13.1736292306314;
+        Tue, 07 Jan 2025 15:25:06 -0800 (PST)
 Received: from localhost ([97.126.182.119])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72aad81617csm33872826b3a.39.2025.01.07.15.24.14
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-842b8e87deasm31264743a12.45.2025.01.07.15.25.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Jan 2025 15:24:14 -0800 (PST)
+        Tue, 07 Jan 2025 15:25:05 -0800 (PST)
 From: Kevin Hilman <khilman@baylibre.com>
 To: soc@kernel.org
 Cc: linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] ARM: dts: ti/omap/dra7: minor updates for v6.14
-Date: Tue, 07 Jan 2025 15:24:13 -0800
-Message-ID: <7hmsg2b42q.fsf@baylibre.com>
+Subject: [GIT PULL] soc: omap: minor updates for v6.14
+Date: Tue, 07 Jan 2025 15:25:05 -0800
+Message-ID: <7hikqqb41a.fsf@baylibre.com>
 MIME-Version: 1.0
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_152415_558381_B643AA56 
-X-CRM114-Status: UNSURE (   6.88  )
+X-CRM114-CacheID: sfid-20250107_152507_284699_C42EF412 
+X-CRM114-Status: UNSURE (   8.46  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,28 +98,27 @@ The following changes since commit 40384c840ea1944d7c5a392e8975ed088ecf0b37:
 
 are available in the Git repository at:
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/khilman/linux-omap.git tags/omap-for-v6.14/dt-signed
+  git://git.kernel.org/pub/scm/linux/kernel/git/khilman/linux-omap.git tags/omap-for-v6.14/soc-signed
 
-for you to fetch changes up to dd504db5cd4a4bb48e8b96159e23ece89bb54d90:
+for you to fetch changes up to ad455e48bba7f21bb5108406da0854cf8dede8ea:
 
-  ARM: dts: ti/omap: omap3-gta04: use proper touchscreen properties (2025-01-07 14:59:51 -0800)
-
-----------------------------------------------------------------
-ARM: dts: ti/omap/dra7: minor updates for v6.14
+  ARM: omap1: Fix up the Retu IRQ on Nokia 770 (2025-01-06 15:12:05 -0800)
 
 ----------------------------------------------------------------
-Andreas Kemnade (2):
-      ARM: dts: ti/omap: gta04: fix pm issues caused by spi module
-      ARM: dts: ti/omap: omap3-gta04: use proper touchscreen properties
+soc: omap: minor updates for v6.14
 
-Judith Mendez (1):
-      ARM: dts: ti: am437x-l4: remove autoidle for UART
+----------------------------------------------------------------
+Aaro Koskinen (1):
+      ARM: omap1: Fix up the Retu IRQ on Nokia 770
 
-Romain Naour (1):
-      ARM: dts: dra7: Add bus_dma_limit for l4 cfg bus
+Andreas Kemnade (1):
+      ARM: omap2plus_defconfig: enable charger of TWL603X
 
- arch/arm/boot/dts/ti/omap/am437x-l4.dtsi   | 18 ++++++------------
- arch/arm/boot/dts/ti/omap/dra7-l4.dtsi     |  2 ++
- arch/arm/boot/dts/ti/omap/omap3-gta04.dtsi | 16 ++++++++++++++--
- 3 files changed, 22 insertions(+), 14 deletions(-)
+Christophe JAILLET (1):
+      ARM: OMAP2+: Fix a typo
+
+ arch/arm/configs/omap2plus_defconfig | 1 +
+ arch/arm/mach-omap1/board-nokia770.c | 2 +-
+ arch/arm/mach-omap2/powerdomain.c    | 2 +-
+ 3 files changed, 3 insertions(+), 2 deletions(-)
 
