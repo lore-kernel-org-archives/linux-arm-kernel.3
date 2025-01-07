@@ -4,98 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 423AEE77198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 11:57:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58440E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 11:59:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tZSQaMswdb9C1vMZWBKr4qtwXrK6yb8GLXI20JFrh0k=; b=DudIEDqXeytgi5Q8h2wdrmVpuw
-	43/SiUs/q1mRPfQq/PVFhDZzMfbXEbpIvZcdPf7nI69cORueUIlfh3L6uO3d6xz55mxd0y7Ssf3i/
-	+EhMwtHB8ceji9woQlw66lY61IpFkfDFxHC/1XagWNM3V/t7ZdWtRD7K0834BnrtOvD3hJX21yaOw
-	NyCUXxHJ6hgZVAl3lGk3+J9+AwMPbompCZauao3pJNh9TtesuUB7VMcZQR0cwWdykqIJkowetitat
-	iNrseIgaOcbAcZFuU/EWYWiwimNz0slnypBsqaogvliT9GQbJMSIRKskJH7mC0ope2OCclhxKvF8x
-	ABXJ8fHg==;
+	bh=1HL3/42R2ctg9ARJpBqESpV9lntyAez78x+zirIUE44=; b=BDljGVGr3qwW+/9MPnlHXUcwJ3
+	YyYPKekJ0kkMgmgvKzocJE4hoxbWjyV5BvreGAqcLJwVIHF1YQ4YfZn18TZSyTzKKq/yDiBGo7D8e
+	8YY4OsPaAOM0Jg4pXp03wlHOHMuQT8bAZM7nar1cuubQlZOEbcy31Z0FruqtswnOk60gK/dDblZMZ
+	Lfo5QxA7nseJ9hZCdJM1I/wsxpKl3ATJbZPhJzqYTeBaPTw51OUYQOioocnbTXkZPun2LcE5jhbwA
+	nm4fCfNylSD4nhDFEr29b1EKkHad4dFegjBtvrvhUid65BSGzrdRUJHHA5kov0yNlbnZAiihPM0NH
+	6ea3RTSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV8DI-00000004esf-1MWW;
-	Tue, 07 Jan 2025 11:57:36 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1tV8ET-00000004fAB-42qJ;
+	Tue, 07 Jan 2025 11:58:49 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV7th-00000004abz-15PM
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 11:37:22 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-388cae9eb9fso8196379f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 03:37:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736249840; x=1736854640; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=tZSQaMswdb9C1vMZWBKr4qtwXrK6yb8GLXI20JFrh0k=;
-        b=J7fhKgRNYDOy42CVVSbfBf8flbSVGs2bcDVmm+kb+q52ihaDY6hzdI2SqlE7eYRq3I
-         OyOOk5JsXrtmt8szfkqV1nt2fTOGpBypJdHX/BXUEyMY5AtWXRXJr63/HgzVSg7vRX4E
-         bdoJs4rV7U5bFOar+mKtzXo9az/EoXjaCfqsDXYgMevS5nWax4eUpYeeR1e3spLhvelg
-         Lcn//aNHNp9MmmEqUc7IX82eK1vPAbFCvARqMJP6ypFWMPn7bamBp+iYst03HpjNE2ak
-         Y40FZ1hlmiT8dGql4K2Eu+aRJsXsS3Ierjzyv/SInymF2VOYyEya5IVhJ5DCHwxsnJ/m
-         GfGg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736249840; x=1736854640;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=tZSQaMswdb9C1vMZWBKr4qtwXrK6yb8GLXI20JFrh0k=;
-        b=pNHf0oHNr66u2kJFnwMEa2gSzeaCwc0XZfCwyMrXEpH1raizthhmP8TkNs4NqbhBTI
-         YWGfQ4ohdSr0NZMGgiC9tBcYTmnfoAgw+VOmAbYAtzSTR9aZ6/xZms2aFv6TEyDnWEI6
-         90j8dYSJrBxRmYOzeryBRGhRugoJVqd2PVGwHlFA5HZLk+MkPqTxRJG+j4N1SdpRXz5w
-         PZeXH3CnjT6AGdNlF39XEviQR9XPa2oJ98u4zDx4gWEKLn99xPNaoEN8zu7wNUFm2Xe7
-         KsR9MgyP4lF4dJ+lZtF5bmMQLtlQteGnFaJWAADaFNJdjESUJc0jeRnZki3SbkF6m1Kp
-         cc9Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUEmkZXtdJS9a8Z02REEeXib8Vv8B9rflByjDEiGO/oiU3Evhv8Xd58EKRvHS2beFzLW01H7hgqzN22WVGPCHg6@lists.infradead.org
-X-Gm-Message-State: AOJu0YzZSoY6vPGJyP8i5AUie+utkZrNi38oVnV1oZjwxwjYYgjg0mA/
-	n+U5ooe9L3DjHpFT0p5K1Cj2BI8gu30eIQ98AiZPR1uUn91Nt+Rln0y5PqYaU0E=
-X-Gm-Gg: ASbGncvDD2JjrKUfc93N+jWwK7/pcVrWJVWwHqsncV4vv8tTTKnaH5M2ThA7mbMAnNF
-	CBLOH7qIrNBc9T0mU2kQvyJaTk9AzfUSBT33Itf/N0Yd3H5VOpbrlupH5j/IHcDHM8SUl1fujub
-	VGU3+4DEK4XUYZKJJiAW8WW7UlWQhQ4+WoBptaDA5lx5tt1IyHMY62DS92uqTAHcUH01f48WFzi
-	D7k5pb1WDTz/Oqci/gaWtGOSJ1ILYvWM+V7zecVjhn4p7l+qHKH68bmfVAnMIcnTbc=
-X-Google-Smtp-Source: AGHT+IECQSms/EowoHXjQsCpkWNAzVFNllMRnf9lJ0ZzSVaV7Tpg5l1Xcq7G+0uJGbW59ugW9EO2jA==
-X-Received: by 2002:a5d:64c2:0:b0:385:e968:f189 with SMTP id ffacd0b85a97d-38a22408262mr52863642f8f.51.1736249839872;
-        Tue, 07 Jan 2025 03:37:19 -0800 (PST)
-Received: from [192.168.68.163] ([145.224.66.180])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a1c8289a0sm51585022f8f.7.2025.01.07.03.37.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 07 Jan 2025 03:37:19 -0800 (PST)
-Message-ID: <b4801774-d279-44c3-9700-40de5c21270d@linaro.org>
-Date: Tue, 7 Jan 2025 11:37:18 +0000
+	id 1tV7wS-00000004bQu-0SDx;
+	Tue, 07 Jan 2025 11:40:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 66A725C60AC;
+	Tue,  7 Jan 2025 11:39:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36963C4CED6;
+	Tue,  7 Jan 2025 11:40:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736250011;
+	bh=VZsqylYrFcdy7rVu50r2zA8B698Fb8nwUwjNptFXD4c=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=r540sbn0QfP0pxOq6ybHGoGDckuiCe/53bQM4ECL3et2rQ8iCtkrwK9vrsqA2blfJ
+	 5bG0euoOLVi7KZ4JKvtiGEwGHCnM5fjXWA+Ke1I2J1mCIsYX+6g4YPb4tf6OAS89y7
+	 tLwB8r2RY1RbUVG4K57YQwWEA8zbIMHhCn2dTUYt6Jb+3HYk24Qgb3JKmJEDMLJbDG
+	 NlQXqMlLnHpaswjhl1kJ0cIiiXvdWM8DGf6zElne3sGGxcvmmatBNDk6iE4/cIBTtm
+	 Ceq//Cwk1mKA0F5dyPS8gwZEcPQUUJLsCxgEM6kLsoILehI41faURyLIbKNI36U4Jr
+	 hKgYyo9tXwQBw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADFDD380A97E;
+	Tue,  7 Jan 2025 11:40:33 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 0/7] kvm/coresight: Support exclude guest and exclude
- host
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, oliver.upton@linux.dev, suzuki.poulose@arm.com,
- coresight@lists.linaro.org, Joey Gouly <joey.gouly@arm.com>,
- Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mike Leach <mike.leach@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Mark Rutland <mark.rutland@arm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Shiqi Liu <shiqiliu@hust.edu.cn>, James Morse <james.morse@arm.com>,
- Mark Brown <broonie@kernel.org>, "Rob Herring (Arm)" <robh@kernel.org>,
- Raghavendra Rao Ananta <rananta@google.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250106142446.628923-1-james.clark@linaro.org>
- <865xmsov53.wl-maz@kernel.org>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <865xmsov53.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next 0/4] net: airoha: Add Qdisc offload support
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <173625003251.4120801.586359106755098449.git-patchwork-notify@kernel.org>
+Date: Tue, 07 Jan 2025 11:40:32 +0000
+References: <20250103-airoha-en7581-qdisc-offload-v1-0-608a23fa65d5@kernel.org>
+In-Reply-To: <20250103-airoha-en7581-qdisc-offload-v1-0-608a23fa65d5@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: nbd@nbd.name, sean.wang@mediatek.com, Mark-MC.Lee@mediatek.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ netdev@vger.kernel.org, upstream@airoha.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_033721_317619_9812CBBB 
-X-CRM114-Status: GOOD (  23.89  )
+X-CRM114-CacheID: sfid-20250107_034012_188644_28B9E66E 
+X-CRM114-Status: UNSURE (   7.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,78 +78,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello:
 
+This series was applied to netdev/net-next.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
 
-On 06/01/2025 2:48 pm, Marc Zyngier wrote:
-> On Mon, 06 Jan 2025 14:24:35 +0000,
-> James Clark <james.clark@linaro.org> wrote:
->>
->> FEAT_TRF is a Coresight feature that allows trace capture to be
->> completely filtered at different exception levels, unlike the existing
->> TRCVICTLR controls which may still emit target addresses of branches,
->> even if the following trace is filtered.
->>
->> Without FEAT_TRF, it was possible to start a trace session on a host and
->> also collect trace from the guest as TRCVICTLR was never programmed to
->> exclude guests (and it could still emit target addresses even if it
->> was).
->>
->> With FEAT_TRF, the current behavior of trace in guests exists depends on
->> whether nVHE or VHE are being used. Both of the examples below are from
->> the host's point of view, as Coresight isn't accessible from guests.
->> This patchset is only relevant to when FEAT_TRF exists, otherwise there
->> is no change.
->>
->> Current behavior:
->>
->>    nVHE/pKVM:
->>
->>    Because the host and the guest are both using TRFCR_EL1, trace will be
->>    generated in guests depending on the same filter rules the host is
->>    using. For example if the host is tracing userspace only, then guest
->>    userspace trace will also be collected.
->>
->>    (This is further limited by whether TRBE is used because an issue
->>    with TRBE means that it's completely disabled in nVHE guests, but it's
->>    possible to have other tracing components.)
->>
->>    VHE:
->>
->>    With VHE, the host filters will be in TRFCR_EL2, but the filters in
->>    TRFCR_EL1 will be active when the guest is running. Because we don't
->>    write to TRFCR_EL1, guest trace will be completely disabled.
->>
->> New behavior:
->>
->> The guest filtering rules from the Perf session are now honored for both
->> nVHE and VHE modes. This is done by either writing to TRFCR_EL12 at the
->> start of the Perf session and doing nothing else further, or caching the
->> guest value and writing it at guest switch for nVHE. In pKVM, trace is
->> now be disabled for both protected and unprotected guests.
->>
->> There is also an optimization where the Coresight drivers pass their
->> enabled state to KVM. This means in the common case KVM doesn't have to
->> touch any sysregs when the feature isn't in use.
->>
->> Applies to kvmarm/next (00163be8bb59).
+On Fri, 03 Jan 2025 13:17:01 +0100 you wrote:
+> Introduce support for ETS and HTB Qdisc offload available on the Airoha
+> EN7581 ethernet controller.
 > 
-> Can you *PLEASE* stop this absolutely nonsense of posting patches
-> based on top of random commits? Please look at how we integrate new
-> developments: they are *always* based on an early -rc tag (usually
-> -rc3).
+> ---
+> Lorenzo Bianconi (4):
+>       net: airoha: Enable Tx drop capability for each Tx DMA ring
+>       net: airoha: Introduce ndo_select_queue callback
+>       net: airoha: Add sched ETS offload support
+>       net: airoha: Add sched HTB offload support
 > 
-> If you depend on other patches, add them to your series and post the
-> whole thing.
-> 
-> Thanks,
-> 
-> 	M.
-> 
+> [...]
 
-Sure, I re-posted it on the latest -rc with a few commits picked up.
+Here is the summary with links:
+  - [net-next,1/4] net: airoha: Enable Tx drop capability for each Tx DMA ring
+    https://git.kernel.org/netdev/net-next/c/5f7955903804
+  - [net-next,2/4] net: airoha: Introduce ndo_select_queue callback
+    https://git.kernel.org/netdev/net-next/c/2b288b81560b
+  - [net-next,3/4] net: airoha: Add sched ETS offload support
+    https://git.kernel.org/netdev/net-next/c/20bf7d07c956
+  - [net-next,4/4] net: airoha: Add sched HTB offload support
+    https://git.kernel.org/netdev/net-next/c/ef1ca9271313
 
-Thanks
-James
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
 
 
