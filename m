@@ -4,76 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32517E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 12:49:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4AC3E77198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 12:56:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A1m6zoNK2OCrKmol3JpBlHNW7G1jM6bWvlDWkULF/m8=; b=g9yu2LjD656PfGCC2o081n7d9u
-	UhCqdMiGCrtekxT/J1U/OEebA3Je2kxhAv8ShNzirhBJiMKSCObLTB16/ypynB9qZ4K0HtlKJhsty
-	VrWt1XCcd2GJsr0FQXQOB/9hm574CmcPAKQyUJXg7pD8Xndlj2xFT6jLO34g9j3LouTlk5Sj71NMk
-	uPWtD1WUzSjI24p1VbKV8H1movq/+mRaDhlARiaLRplDBjbZtL2DuErle+qaN+qg3NFXNk4bPWgE4
-	XwgCJBoTBexY2A+NW0OP0ZbhRpjTazkSraE3VcgBPHjcgzUwBfgGuhRjMMoL8LvLJVwHIqDpt1W2/
-	+YKg4YwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WotX3OmVYtK9hOTlISzPgOeDnsvJ7SWrH06GSLHjh10=; b=jPjZpH6+EPHKKqUnX4uidGUChL
+	moREFZnh9H6dKOvnOcNCzDv0SuT4bDb4qK4+DTi/Hydeaa8eEWrt4fmPNMb4gOcCp+VV1Xj0geFsb
+	pVZlATVt7aYcVwoCY4PbYN5r3Il1nlOZJxMI/XnsxzpTxVXBIr1G/792GhBD0FQWlLBZ7MPUt58yx
+	Tx1CP7e0qhj2b1T71k3yiNUc89ZKn8Uy9v++4zKzxEUrSCftzZiBpEP/qkizj8EJMeX8XNqgVQMAT
+	1IJ6V02F+zT+GJtHZ/zn9RLrzIVsQgGEUSer3N7wJG51NJxyIqxzoYs+qvmtioX5S6qaqpiJrwUVX
+	kt/3oJnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV90x-00000004pgI-2OgB;
-	Tue, 07 Jan 2025 12:48:55 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tV97u-00000004rXP-2DHE;
+	Tue, 07 Jan 2025 12:56:06 +0000
+Received: from szxga08-in.huawei.com ([45.249.212.255])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV8zg-00000004pCl-2Ev3;
-	Tue, 07 Jan 2025 12:47:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=A1m6zoNK2OCrKmol3JpBlHNW7G1jM6bWvlDWkULF/m8=; b=zpkwdtRyHJ33oc0FoDYdcNRdXJ
-	DGpoktI0tR5csqLEQk8ZcvABHSPAw9SYV3PGYd7QrvqVkFxAlxUihbo6DVQ64w7LCMFTTFlRPtcWr
-	dvgfZr4gMA3idan/VnKEUjMm7UzJm8uRLTH1xE+QVcoz1zDYJcg6SbYzUHXYfk1F7+fo+orC361jn
-	M0J+wwDvMXrSQC8RSkKe/v3IgHtnve7ybXTnAJ14XiIYudD4NvH/xvIEnGQYa+WzZwZzjbHjy6q4A
-	N6a3VMxRzzTpHor8kMCN1J7uONVPsOZmstLUTtURL77aWoiJpDgAnLV22+XQ7bffuN/cL5i4ipxpz
-	RVeZgwFQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:45594)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tV8zP-0007QG-0w;
-	Tue, 07 Jan 2025 12:47:19 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tV8zL-0005IN-0Q;
-	Tue, 07 Jan 2025 12:47:15 +0000
-Date: Tue, 7 Jan 2025 12:47:14 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Eric Woudstra <ericwouds@gmail.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Frank Wunderlich <frank-w@public-files.de>,
-	Daniel Golle <daniel@makrotopia.org>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, netfilter-devel@vger.kernel.org,
-	coreteam@netfilter.org, bridge@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH RFC net-next] net: phylink: always config mac for
- (delayed) phy
-Message-ID: <Z30iUj6DE9-fRp0n@shell.armlinux.org.uk>
-References: <20250107123615.161095-1-ericwouds@gmail.com>
+	id 1tV96d-00000004rF2-08B3;
+	Tue, 07 Jan 2025 12:54:51 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.194])
+	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4YS9rx0bFCz1W338;
+	Tue,  7 Jan 2025 20:50:57 +0800 (CST)
+Received: from dggpemf200006.china.huawei.com (unknown [7.185.36.61])
+	by mail.maildlp.com (Postfix) with ESMTPS id AF9FA140137;
+	Tue,  7 Jan 2025 20:54:37 +0800 (CST)
+Received: from [10.67.120.129] (10.67.120.129) by
+ dggpemf200006.china.huawei.com (7.185.36.61) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 7 Jan 2025 20:54:37 +0800
+Message-ID: <561e07c0-98ba-44ee-abda-778b12438df6@huawei.com>
+Date: Tue, 7 Jan 2025 20:54:37 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250107123615.161095-1-ericwouds@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v6 0/8] fix two bugs related to page_pool
+To: Jakub Kicinski <kuba@kernel.org>
+CC: <davem@davemloft.net>, <pabeni@redhat.com>, <liuyonglong@huawei.com>,
+	<fanghaiqing@huawei.com>, <zhangkun09@huawei.com>, Alexander Lobakin
+	<aleksander.lobakin@intel.com>, Robin Murphy <robin.murphy@arm.com>,
+	Alexander Duyck <alexander.duyck@gmail.com>, Andrew Morton
+	<akpm@linux-foundation.org>, IOMMU <iommu@lists.linux.dev>, MM
+	<linux-mm@kvack.org>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
+	<daniel@iogearbox.net>, Jesper Dangaard Brouer <hawk@kernel.org>, John
+ Fastabend <john.fastabend@gmail.com>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, <netdev@vger.kernel.org>,
+	<intel-wired-lan@lists.osuosl.org>, <bpf@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>
+References: <20250106130116.457938-1-linyunsheng@huawei.com>
+ <20250106155154.7c349c67@kernel.org>
+Content-Language: en-US
+From: Yunsheng Lin <linyunsheng@huawei.com>
+In-Reply-To: <20250106155154.7c349c67@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.120.129]
+X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+ dggpemf200006.china.huawei.com (7.185.36.61)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_044736_570910_0F16F395 
-X-CRM114-Status: GOOD (  10.50  )
+X-CRM114-CacheID: sfid-20250107_045447_244253_F729C4B5 
+X-CRM114-Status: GOOD (  11.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,53 +82,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Going through the log...
+On 2025/1/7 7:51, Jakub Kicinski wrote:
+> On Mon, 6 Jan 2025 21:01:08 +0800 Yunsheng Lin wrote:
+>> This patchset fix a possible time window problem for page_pool and
+>> the dma API misuse problem as mentioned in [1], and try to avoid the
+>> overhead of the fixing using some optimization.
+>>
+>> From the below performance data, the overhead is not so obvious
+>> due to performance variations for time_bench_page_pool01_fast_path()
+>> and time_bench_page_pool02_ptr_ring, and there is about 20ns overhead
+>> for time_bench_page_pool03_slow() for fixing the bug.
+> 
+> This appears to make the selftest from the drivers/net target implode.
+> 
+> [   20.227775][  T218] BUG: KASAN: use-after-free in page_pool_item_uninit+0x100/0x130
+> 
+> Running the ping.py tests should be enough to repro.
 
-On Tue, Jan 07, 2025 at 01:36:15PM +0100, Eric Woudstra wrote:
-> Log before this patch is applied:
-> [root@bpir3 ~]# dmesg | grep eth1
-> [    2.515179] mtk_soc_eth 15100000.ethernet eth1: mediatek frame engine at 0xffff800082380000, irq 123
-> [   38.271431] mtk_soc_eth 15100000.ethernet eth1: configuring for inband/2500base-x link mode
-> [   38.279828] mtk_soc_eth 15100000.ethernet eth1: major config, requested inband/2500base-x
-> [   38.288009] mtk_soc_eth 15100000.ethernet eth1: interface 2500base-x inband modes: pcs=01 phy=00
-> [   38.296800] mtk_soc_eth 15100000.ethernet eth1: major config, active inband/inband,an-disabled/2500base-x
+Thanks for reminding.
+Something like below seems to fix the use-after-free bug, will enable more
+DEBUG config when doing testing.
 
-This is indeed without the PHY. We're using inband, although the PCS
-mode is PHYLINK_PCS_NEG_INBAND_DISABLED, meaning inband won't be
-used. As there is no PHY, we can't switch to MLO_AN_PHY.
+--- a/net/core/page_pool.c
++++ b/net/core/page_pool.c
+@@ -518,9 +518,13 @@ static void page_pool_items_unmap(struct page_pool *pool)
 
-> [   38.306362] mtk_soc_eth 15100000.ethernet eth1: phylink_mac_config: mode=inband/2500base-x/none adv=00,00000000,00008000,0000e240 pause=04
-> [   39.220149] mtk_soc_eth 15100000.ethernet eth1:  interface 2 (mii) rate match none supports 0-3,6-7,13-14
-> [   39.229758] mtk_soc_eth 15100000.ethernet eth1:  interface 3 (gmii) rate match none supports 0-3,5-7,13-14
-> [   39.239420] mtk_soc_eth 15100000.ethernet eth1:  interface 4 (sgmii) rate match none supports 0-3,5-7,13-14
-> [   39.249173] mtk_soc_eth 15100000.ethernet eth1:  interface 22 (1000base-x) rate match none supports 5-7,13-14
-> [   39.259080] mtk_soc_eth 15100000.ethernet eth1:  interface 23 (2500base-x) rate match none supports 6-7,13-14,47
-> [   39.594676] mtk_soc_eth 15100000.ethernet eth1: PHY i2c:sfp-1:11 uses interfaces 4,23, validating 4,23
+ static void page_pool_item_uninit(struct page_pool *pool)
+ {
+-       struct page_pool_item_block *block;
++       while (!list_empty(&pool->item_blocks)) {
++               struct page_pool_item_block *block;
 
-The PHY comes along...
+-       list_for_each_entry(block, &pool->item_blocks, list) {
++               block = list_first_entry(&pool->item_blocks,
++                                        struct page_pool_item_block,
++                                        list);
++               list_del(&block->list);
+                WARN_ON(refcount_read(&block->ref));
+                put_page(virt_to_page(block));
+        }
 
-> [   39.603992] mtk_soc_eth 15100000.ethernet eth1:  interface 4 (sgmii) rate match none supports 0-3,5-7,13-14
-> [   39.650080] mtk_soc_eth 15100000.ethernet eth1:  interface 23 (2500base-x) rate match none supports 6-7,13-14,47
-> [   39.660266] mtk_soc_eth 15100000.ethernet eth1: PHY [i2c:sfp-1:11] driver [RTL8221B-VB-CG 2.5Gbps PHY (C45)] (irq=POLL)
-> [   39.671037] mtk_soc_eth 15100000.ethernet eth1: phy: 2500base-x setting supported 00,00000000,00008000,000060ef advertising 00,00000000,00008000,000060ef
-> [   39.684761] mtk_soc_eth 15100000.ethernet eth1: requesting link mode inband/2500base-x with support 00,00000000,00008000,000060ef
-
-We decide to use MLO_AN_INBAND and 2500base-X, which we're already using.
-
-> [   40.380076] mtk_soc_eth 15100000.ethernet eth1: phy link down 2500base-x/Unknown/Unknown/none/off
-> [   40.397090] brlan: port 5(eth1) entered blocking state
-> [   40.402223] brlan: port 5(eth1) entered disabled state
-> [   40.407437] mtk_soc_eth 15100000.ethernet eth1: entered allmulticast mode
-> [   40.414400] mtk_soc_eth 15100000.ethernet eth1: entered promiscuous mode
-> [   44.500077] mtk_soc_eth 15100000.ethernet eth1: phy link up 2500base-x/2.5Gbps/Full/none/off
-> [   44.508528] mtk_soc_eth 15100000.ethernet eth1: No phy led trigger registered for speed(2500)
-
-... but we don't see link-up reported by the PCS after the PHY comes
-up. Why is that - I think that needs investigation before we proceed
-to patch the issue, because that suggests the PCS isn't seeing
-valid 2500base-X from the PHY.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
