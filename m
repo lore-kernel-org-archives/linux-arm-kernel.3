@@ -4,92 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55E23E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 08:02:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E143DE77199
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 08:16:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fMRSb4dnSsNjNB0J5PZBlf9Y068CCmYN8ovILPTjdbA=; b=IBfSh9NpRahPg/OV/Y/F1qGWFh
-	98+lC0FUus89EK5xzWip6jI7z8zGqIk17OnoKQSeuGDi2EZdA3IdIfMalvzxM752ucOGeMjDfC65m
-	C12dmWpDrLGiCeejgidvHNfhlaRGoKV5enmoDaCQY8Cdco/Oj0a88R4tSQRS1ViarN4yVBIK1xfcm
-	yGY0dijgkSpSCTR/WSL951x9/o70hXl1mSNW+GRPNrfONKQa2kVqSFm/VsQapUmWKeYNnJTcCnphW
-	N1ItHDVwiT7O41A6CpuSE3T5uoLgssLDLysMTXz7JAKIr0esu4+9kztAibLb3q+eFVWTYi1G9Dn14
-	kPgLvoww==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=5+oROHsI0pGM+lBjY+EF7UPmjz7c08DPed5m+aIOE+A=; b=B3G7932AhOoQ1P
+	j8p4t1woQG+/ap1gDpJoE4CFuIgY3JVV8wfbBLWUQ9Vz4k/3iCCVupR125LcUGxrszsw691bAmq+I
+	UlhtdmzdEytw2GEedUoBEmjf8/DIh/g3XulRXCNZEVTAeBzLYdIvQcsr/J3QsuC5AKeyYu5qVpEra
+	a2169bNWe7+Pc1+mrNWIMTf1cYXJfHlBbpAKspaYg6T5t02lBHSdKHAmppWBAT+s8fSIwrb28vEIG
+	VLkPN6g87rqshNZEX6Zwex47PC5qbaoZqQRYU6fk8lc+ic/PLJVNSOflUXFHtNO02CUyhZZTRpML7
+	Dh0SL9NAe1R4Zi8XnZiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV4XF-00000003pyd-0Bns;
-	Tue, 07 Jan 2025 08:01:57 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1tV4ke-00000003tNd-3xQg;
+	Tue, 07 Jan 2025 08:15:48 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV4Qg-00000003ok6-0a0C
+	id 1tV4jN-00000003tCV-3y7I
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 07:55:11 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-21654fdd5daso205877765ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jan 2025 23:55:09 -0800 (PST)
+	Tue, 07 Jan 2025 08:14:33 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4364a37a1d7so158912445e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 00:14:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736236509; x=1736841309; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1736237668; x=1736842468; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=fMRSb4dnSsNjNB0J5PZBlf9Y068CCmYN8ovILPTjdbA=;
-        b=SqRTiJkzD8HbO1Hv49LssWnWMrNaKvEbo5Wewa41klEJGS6EtxhGm/J42PAt+Fo3aS
-         /luS445o7JIYy1QI2VBD0fZTn6XnnlKmeqNa0wwPBXEv/BPHx0qSSk43WGGJC5Ce0OAH
-         9ZXSO9OHariyyszWXP35XhP0oDGoYsvinJDDQqUYF3Z9227m/WwUzLJ4ZR30wTenldCR
-         /9oKENUmFPx1UH+d86dUUJ8ED5dyA3bFIAUmWmTWOqlK5eHQutcSRFN+GzJclmYiny5D
-         rGA6P7TSycMq9jizKBiV3oO//YjF73CnvaWhpIy37s1+pE7uJsTvMj+H9gvWztz8Xelr
-         PyIw==
+        bh=5+oROHsI0pGM+lBjY+EF7UPmjz7c08DPed5m+aIOE+A=;
+        b=h+MLRv3I9IY0ORN1QBlsef+aR4MeeAHY4NF5QGYcp05fkkeE/EY1W4J1TZtzySUF2Z
+         R5scMPbXjce4ShuAiXdGvJfccwxIbgrQzDsy+Rq8gUgTUiOcGWswPUsHz4krDAC46m09
+         pc9YlrMFHUkZwl7tIcrevA3W77sytHv/giWMkutqN1HeDw0zGP3jn+yzQWsEqCk+I0Ve
+         SBlxo0bKXLVKQlecMvzQKEhlERBCSCb9QyUUVeTXt41m3a+0h+JSc2XP1gmvw0vjcci1
+         PcKKAKA5g5AAuFF1CwudpSBeMMsEE+aioBsFXJL7A354CqX85hPXm6EE7XMQj+z1DwES
+         J/FA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736236509; x=1736841309;
+        d=1e100.net; s=20230601; t=1736237668; x=1736842468;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=fMRSb4dnSsNjNB0J5PZBlf9Y068CCmYN8ovILPTjdbA=;
-        b=pIvujZEoeojaI8Ac3xZ9ui1daUn2tJn3h26Enpm/hE+zKF3ZMrNhX3DXk441YM+pLT
-         4ySotclYnzq4fBrDTInH712aO70Tuh1OqtC3LuUa/XVn7n69HAWyPE63x2EczZ+1toWw
-         ilJOEdhSfHjaF78YeiWyP13wFVS/TZXTFt+Po5ny+mDELwhLbedZ6qgy2XjMVSPVmB2C
-         +tIqsr/AThavqF6Dsi+/nOktywu7xMB91/NXqepKdlbWxdMZUlX23tLoL9pBUEO5TLkc
-         HcfJ3rAbro2CRcfJfBgYB2wNPO/ct9YfbIKQcZfmHiJrt4ZQGVN1fZSVXH9TMJLtfQ5m
-         Ug4g==
-X-Forwarded-Encrypted: i=1; AJvYcCUUx72eOXwMmGqJAHu9twdNAJd3wsznordKzjWDf8qGPRXUgSdxsdGYS4KJ3MbxNrXIPSyYvnudoH7OOojb7HiZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YworsrwRQcU6w8LlE/fHiPcCpy5zGGh3rwPBw1s/S4AY0QU0qZe
-	Falzg2Ol/wvQYiozlRbAIpYfrarJyk6bZM+VYA7cDBeoPj3NQnOO
-X-Gm-Gg: ASbGncsawnBA0EL1m9uMAl9PVrKnHaAU7XdPA44p6PcKBIz4tqKSDyR3AKORvNqQGp/
-	FVZ1OsQXlXS0qg9XTyjce4+BAP+TjIjQJeAJzuSO3jLHYYa92QTMQ1g1pbooZOpl4bjiXVLrhWz
-	FKgKfNB2Lqs+d8Ipotsevi8WuuEnEb6VGOGnv1nweQzxyWu9oLwBIA77LGPJPXFb5JVgB3PFJrE
-	Ejdacy3jk8IjD9jO3+rGgQoxVFtgo1dLhoRnVfseTaXx2lAMCKYMlh36IRANCUkrjklbQ==
-X-Google-Smtp-Source: AGHT+IHTiLKTTvGlPvf762xL6WD6qZDn+dCSTlEUSBZ2KuE+CZ/5XDACbnpOBQG5E+loF0NezMfxjw==
-X-Received: by 2002:a17:902:db11:b0:216:282d:c69b with SMTP id d9443c01a7336-219e6f4312dmr754512945ad.50.1736236508633;
-        Mon, 06 Jan 2025 23:55:08 -0800 (PST)
-Received: from localhost.localdomain ([129.146.253.192])
-        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-219dc9f7e49sm304468635ad.217.2025.01.06.23.55.03
+        bh=5+oROHsI0pGM+lBjY+EF7UPmjz7c08DPed5m+aIOE+A=;
+        b=xLy+yZT6tVupNLWwNKnYcyiJarXhpG2lDrw1CAD63ZgaXUALpO3h6Iwm7qusiVAz/X
+         +etHANWuK5EyVjt+uazRVTgcpzEvKxDhrjGEvS2j+fSFmrvWKmcgP7nsW+F615FGqGPv
+         wgA3Hq8m/leH2sn3R8pc+01Ts7syUAXBrXL2ZSVcm3dQD2XUz64bpZYdS0Ej3Yz/ozzY
+         yG7+17lz7IzzWALCasG9YAgyRDSowyKlyCQpnymAkg9btOtQIiSIxqWcvbKxFdDutJcK
+         MXQfn7cZB2y/sox4GtBaNNBg6uHi/wJC1joVQZd2jMSe0XllsBkMUKt2Fc58uu6EA68z
+         YCFA==
+X-Gm-Message-State: AOJu0Yy7YRAwCDXpPrTnKOz7Arhzu8NP6SntnvHz2t/6rQj58rgL2kFm
+	BiNV68VrGW/tvTPZCEvu5rKtuCUV9WOYYWnd9VsaBqPEKL+ElYfUhw4cS2Qw0ti3rKNVX7lVQBc
+	N
+X-Gm-Gg: ASbGncudobObYeZb5aoxiyDGCZB9j6Hnv0pLdZCe8iftkT16xOvquUV7styQi5N6MHR
+	gJ7V98MbUnMCmbGaT1o5+k8Fv9kisg+Wb7j+jQQWyZEcLhv4GoOvHGt/p+3rADVSnjuhqkBjmdA
+	mlHzEXEdtsNFtuPDA0kJsIeR5+Bm9BPIqXObSeCIMnKmCbB9vuAP0gVKbyHIWXrB7UrK+RbKLON
+	oDTpa3t+/BwJfITMJp7iqt0JRmeDIUJ8/7Oo/Glh6GAZthJDZYf/vt3FenIo43KPVvFCcj2xNaB
+X-Google-Smtp-Source: AGHT+IHbtvTzjUvXOSpt74DKXaCeM1TDBc5BheKAfpOnexjqRQXkNQ5Iuxor26lOK06bUMotfiNTYA==
+X-Received: by 2002:a5d:5e09:0:b0:37c:d23f:e464 with SMTP id ffacd0b85a97d-38a223f75bdmr53924526f8f.38.1736237667518;
+        Tue, 07 Jan 2025 00:14:27 -0800 (PST)
+Received: from claudiu-X670E-Pro-RS.. ([82.78.167.102])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a75a47943sm3541314f8f.87.2025.01.07.00.14.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Jan 2025 23:55:08 -0800 (PST)
-From: Furong Xu <0x1207@gmail.com>
-To: netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	xfr@outlook.com,
-	Furong Xu <0x1207@gmail.com>
-Subject: [PATCH net-next v2] net: stmmac: Unexport stmmac_rx_offset() from stmmac.h
-Date: Tue,  7 Jan 2025 15:54:48 +0800
-Message-Id: <20250107075448.4039925-1-0x1207@gmail.com>
-X-Mailer: git-send-email 2.34.1
+        Tue, 07 Jan 2025 00:14:26 -0800 (PST)
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+To: arnd@arndb.de,
+	olof@lixom.net,
+	arm@kernel.org,
+	soc@kernel.org
+Subject: [GIT PULL] Microchip AT91 defconfig updates for v6.14
+Date: Tue,  7 Jan 2025 10:14:22 +0200
+Message-ID: <20250107081424.758980-1-claudiu.beznea@tuxon.dev>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_235510_174941_1B0637BF 
-X-CRM114-Status: GOOD (  13.35  )
+X-CRM114-CacheID: sfid-20250107_001430_096606_935E6D86 
+X-CRM114-Status: UNSURE (   7.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,66 +92,33 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: alexandre.belloni@bootlin.com, claudiu.beznea@tuxon.dev, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-stmmac_rx_offset() is referenced in stmmac_main.c only,
-let's move it to stmmac_main.c.
+The following changes since commit 40384c840ea1944d7c5a392e8975ed088ecf0b37:
 
-Drop the inline keyword by the way, it is better to let the compiler
-to decide.
+  Linux 6.13-rc1 (2024-12-01 14:28:56 -0800)
 
-Compile tested only.
-No functional change intended.
+are available in the Git repository at:
 
-Signed-off-by: Furong Xu <0x1207@gmail.com>
----
-V1 -> V2: Drop the inline keyword (Andrew Lunn)
-V1: https://lore.kernel.org/r/20250106062845.3943846-1-0x1207@gmail.com
----
- drivers/net/ethernet/stmicro/stmmac/stmmac.h      | 8 --------
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 8 ++++++++
- 2 files changed, 8 insertions(+), 8 deletions(-)
+  https://git.kernel.org/pub/scm/linux/kernel/git/at91/linux.git tags/at91-defconfig-6.14
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-index b8d631e559c0..548b28fed9b6 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-@@ -416,14 +416,6 @@ static inline bool stmmac_xdp_is_enabled(struct stmmac_priv *priv)
- 	return !!priv->xdp_prog;
- }
- 
--static inline unsigned int stmmac_rx_offset(struct stmmac_priv *priv)
--{
--	if (stmmac_xdp_is_enabled(priv))
--		return XDP_PACKET_HEADROOM;
--
--	return 0;
--}
--
- void stmmac_disable_rx_queue(struct stmmac_priv *priv, u32 queue);
- void stmmac_enable_rx_queue(struct stmmac_priv *priv, u32 queue);
- void stmmac_disable_tx_queue(struct stmmac_priv *priv, u32 queue);
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 2f518ec845ec..24cc39d8edbd 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -1315,6 +1315,14 @@ static void stmmac_display_rings(struct stmmac_priv *priv,
- 	stmmac_display_tx_rings(priv, dma_conf);
- }
- 
-+static unsigned int stmmac_rx_offset(struct stmmac_priv *priv)
-+{
-+	if (stmmac_xdp_is_enabled(priv))
-+		return XDP_PACKET_HEADROOM;
-+
-+	return 0;
-+}
-+
- static int stmmac_set_bfsize(int mtu, int bufsize)
- {
- 	int ret = bufsize;
--- 
-2.34.1
+for you to fetch changes up to 221984deceee75846b8a132974683d33dab5a029:
 
+  ARM: configs: at91: sama7: add new SoC config (2024-12-08 18:55:42 +0200)
+
+----------------------------------------------------------------
+Microchip AT91 defconfig updates for v6.14
+
+This update includes:
+- support for the SAMA7D65 SoC
+
+----------------------------------------------------------------
+Ryan Wanner (1):
+      ARM: configs: at91: sama7: add new SoC config
+
+ arch/arm/configs/multi_v7_defconfig | 1 +
+ arch/arm/configs/sama7_defconfig    | 1 +
+ 2 files changed, 2 insertions(+)
 
