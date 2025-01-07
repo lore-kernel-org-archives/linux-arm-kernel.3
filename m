@@ -4,99 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF139E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 14:45:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AA41E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 14:46:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0iI7T0R6eCAxaxyKlzF/ND6AcM0EauPs1fZKfAI3pZM=; b=117WRk4pAt9sEGGtsJq06wKt2L
-	4yEwn9L2Qwderp+0BdvQmi9/qkAwz1s4ON9KBz4gv6vIbVFIy/V0ixfXkUYPYWebclLDeG+XSpKZV
-	/zAZry9eVkC9KIWN+aj8AGF1FmuLlsKBInjcIavEfjzvLObhd/lvkFKS2VPeFO6hAvbwIKXfeVejn
-	R6RKnc0AJUQl9Ygw4mRblXqVyOBRt4z+1ymjJ1U8C57rCo1wS/MIdXNIOJ2IMx+ewprcDSacL2voW
-	wtD6+Dtn6sIp8UrfuDlYv4tCDzndmO5qEJzyEJ1dkDh9/jyPrwtTQ2nJVZKWm/lxw9pDleCiK//+g
-	8WwJTtng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zONt937jdbrvPGPeo1b2Ss99phDOIRVX2Gs8afrVmFw=; b=soqrB6lUmKaqNAtQy5zSTZ4J5I
+	bNXetaS7/YZiMu+oLknp5wsqnLdeDr46ZnHVARYJycEfzLIlGkZoe8S0cpmMMrSpAKEyAsMaPBJa5
+	iKGeQvJdMJ0oCJz3+ePDBAzIEvZY0Fl/MwuDFVAFWL53lO8BybHwpY2G4syvXWuRV5gyZb96B5Bel
+	880KpJJ2/xHmHl3rXv5IuueZPTAA84wCc9rNOG/9KGNmUFakZAD80mNI5SgGknD8lfCGuanUAUXYl
+	jnrsng+rFf3NtXapMj6OPkSh5ZnX2CZpoIckk7fuV+qJHFA9y9AZXuGjzRTeVWVCTqqedAI1dMl/z
+	5Vbu+Xwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVApj-00000005HM0-14Qz;
-	Tue, 07 Jan 2025 14:45:27 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1tVAqu-00000005Hhg-3rrM;
+	Tue, 07 Jan 2025 14:46:40 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVAk7-00000005FiN-40RX
+	id 1tVAlY-00000005G90-2Cw9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 14:39:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1736260780; x=1767796780;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=0iI7T0R6eCAxaxyKlzF/ND6AcM0EauPs1fZKfAI3pZM=;
-  b=gEOG+cXWPNt+itM76HGpJWvgZWia6KbiaChICUwvjKPHUENrPC7Cq0M0
-   sVihrAEjRoSD+T1Ml2TiXz0Ov6qrkFPedMTjOw/n+n3enUPpYnEZOlkE4
-   5UssG+qffxvpHZaZkzHHkuUee0g+enUwcAVtAtm6QILFXAeQbGEEAc574
-   xiFH8EypcKsIRYoDLst6FNthMyjz222sexXQsp5TyEu2wVJHUKduNwm21
-   jEY5ID1c18Mo10pVSL+V3QfW70gLc2Fbm0DskIXaPo0yofxIYEPEqFlxM
-   pVbBwxxlJfr5FwLO1hf3KMyKMk/kHjDBtpq5Ej50E6nZGmDiVQ3F7186u
-   Q==;
-X-CSE-ConnectionGUID: odyyrwlQR9WlvSB13BRqAw==
-X-CSE-MsgGUID: PbEUURTTTSyZGDyba87qpA==
-X-IronPort-AV: E=Sophos;i="6.12,295,1728943200"; 
-   d="scan'208";a="40897254"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 07 Jan 2025 15:39:39 +0100
-X-CheckPoint: {677D3CAB-12-31397509-E321C4C4}
-X-MAIL-CPID: 562AC94789849B901363AA16315BFA9E_0
-X-Control-Analysis: str=0001.0A682F26.677D3CAB.0077,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D8806160B22;
-	Tue,  7 Jan 2025 15:39:33 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1736260774;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0iI7T0R6eCAxaxyKlzF/ND6AcM0EauPs1fZKfAI3pZM=;
-	b=QS2VxVpTVdB1WaEfGv+GWDm26X5wPDOXJYAeb5LFd6sdrOCKvcrAsiQFkkTKTIwhf9Om84
-	cLyNjddXLlyONdDEl5jW2W3gtmgcTh+iQt+QArc0fEpAnPk2n3D3eNwjqMSTbwmoQa6trn
-	TGdOicsp3Is0Mw5xurF9t1BUZn612LRJNc0RbM+67sIbLELBy+J78juLWh3IIWl/R285nm
-	AuW4GY6vTWvxpSRdwXfO503WYUbC9rqoAGFBC+GWnG99fUgRpGSA+yFzW6ReazhvqJ6va1
-	r51N/cjz1WleLpweyKC/tYovISHm7yiCsq7fCQlu20hyvaobUqHl3cXibN/oTw==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Liu Ying <victor.liu@nxp.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	dri-devel@lists.freedesktop.org,
-	imx@lists.linux.dev,
+	Tue, 07 Jan 2025 14:41:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id CF2C75C630D;
+	Tue,  7 Jan 2025 14:40:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08487C4CED6;
+	Tue,  7 Jan 2025 14:41:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736260867;
+	bh=Fm54NFKxpCer1yj0tlCPm8daKKZ3zQKs8KdgFK7i0r0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=sCc0pZLn5PRwtj2bDqvy9l0P08SW3iNYULWsw9OD4KMgEwI7FImqoRhAsK61anQtY
+	 bsnW1U7j/UYZQr6m5feLqcycuFT+1lO28KfR5d7ABZ58afQbFF3fzxnSNcsjW9uY62
+	 C2LgXTKRRObyPWgald3Ce2Mu6IRDZK9vqX/WNUg8WU8sK7XYFwAtyXpk/pkkO/N42M
+	 uEK1SIeDIsKrJgyxpcV8D//caXY2pz1bCc7pJgjxI7Rsopo55xMME/Gn6/lnef2uIO
+	 Mx6+t3jO6PrQ6AH/AtWgu2bZbVp7lpFb6vbJzEsC6rWTRlhTkvSqp/0I6/+ir1MouF
+	 m2H2PsWVOXVEw==
+Date: Tue, 7 Jan 2025 14:41:03 +0000
+From: Simon Horman <horms@kernel.org>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 4/4] drm/bridge: imx8qxp-pixel-link: Use dev_err_probe
-Date: Tue,  7 Jan 2025 15:39:00 +0100
-Message-Id: <20250107143900.988567-5-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250107143900.988567-1-alexander.stein@ew.tq-group.com>
-References: <20250107143900.988567-1-alexander.stein@ew.tq-group.com>
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next v2 03/17] net: stmmac: use correct type for
+ tx_lpi_timer
+Message-ID: <20250107144103.GB5872@kernel.org>
+References: <Z3vLbRQ9Ctl-Rpdg@shell.armlinux.org.uk>
+ <E1tUmAE-007VWv-UW@rmk-PC.armlinux.org.uk>
+ <20250107112851.GE33144@kernel.org>
+ <Z30WmPpMp_BRgrOI@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z30WmPpMp_BRgrOI@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_063940_346034_1F0CFBA1 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20250107_064108_654655_A3CD0E07 
+X-CRM114-Status: GOOD (  29.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,51 +83,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This simplifies the code and gives additional information upon deferral.
+On Tue, Jan 07, 2025 at 11:57:12AM +0000, Russell King (Oracle) wrote:
+> On Tue, Jan 07, 2025 at 11:28:51AM +0000, Simon Horman wrote:
+> > On Mon, Jan 06, 2025 at 12:24:58PM +0000, Russell King (Oracle) wrote:
+> > > The ethtool interface uses u32 for tx_lpi_timer, and so does phylib.
+> > > Use u32 to store this internally within stmmac rather than "int"
+> > > which could misinterpret large values.
+> > > 
+> > > Since eee_timer is used to initialise priv->tx_lpi_timer, this also
+> > > should be unsigned to avoid a negative number being interpreted as a
+> > > very large positive number.
+> > > 
+> > > Also correct "value" in dwmac4_set_eee_lpi_entry_timer() to use u32
+> > > rather than int, which is derived from tx_lpi_timer, even though
+> > > masking with STMMAC_ET_MAX will truncate the sign bits. u32 is the
+> > > value argument type for writel().
+> > > 
+> > > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> > 
+> > ...
+> > 
+> > > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > > index 9a9169ca7cd2..b0ef439b715b 100644
+> > > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > > @@ -111,8 +111,8 @@ static const u32 default_msg_level = (NETIF_MSG_DRV | NETIF_MSG_PROBE |
+> > >  				      NETIF_MSG_IFDOWN | NETIF_MSG_TIMER);
+> > >  
+> > >  #define STMMAC_DEFAULT_LPI_TIMER	1000
+> > > -static int eee_timer = STMMAC_DEFAULT_LPI_TIMER;
+> > > -module_param(eee_timer, int, 0644);
+> > > +static unsigned int eee_timer = STMMAC_DEFAULT_LPI_TIMER;
+> > > +module_param(eee_timer, uint, 0644);
+> > >  MODULE_PARM_DESC(eee_timer, "LPI tx expiration time in msec");
+> > >  #define STMMAC_LPI_T(x) (jiffies + usecs_to_jiffies(x))
+> > >  
+> > 
+> > Hi Russell,
+> > 
+> > now that eee_timer is unsigned the following check in stmmac_verify_args()
+> > can never be true. I guess it should be removed.
+> > 
+> >         if (eee_timer < 0)
+> >                 eee_timer = STMMAC_DEFAULT_LPI_TIMER;
+> > 
+> 
+> Thanks for finding that. The parameter description doesn't seem to
+> detail whether this is intentional behaviour or not, or whether it is
+> "because someone used int and we shouldn't have negative values here".
+> 
+> I can't see why someone would pass a negative number for eee_timer
+> given that it already defaults to STMMAC_DEFAULT_LPI_TIMER.
+> 
+> So, I'm tempted to remove this.
 
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
----
- .../gpu/drm/bridge/imx/imx8qxp-pixel-link.c   | 19 ++++++-------------
- 1 file changed, 6 insertions(+), 13 deletions(-)
-
-diff --git a/drivers/gpu/drm/bridge/imx/imx8qxp-pixel-link.c b/drivers/gpu/drm/bridge/imx/imx8qxp-pixel-link.c
-index 4b0715ed6f38c..6391038f3949f 100644
---- a/drivers/gpu/drm/bridge/imx/imx8qxp-pixel-link.c
-+++ b/drivers/gpu/drm/bridge/imx/imx8qxp-pixel-link.c
-@@ -333,12 +333,9 @@ static int imx8qxp_pixel_link_bridge_probe(struct platform_device *pdev)
- 		return -ENOMEM;
- 
- 	ret = imx_scu_get_handle(&pl->ipc_handle);
--	if (ret) {
--		if (ret != -EPROBE_DEFER)
--			DRM_DEV_ERROR(dev, "failed to get SCU ipc handle: %d\n",
--				      ret);
--		return ret;
--	}
-+	if (ret)
-+		return dev_err_probe(dev, ret,
-+				     "failed to get SCU ipc handle\n");
- 
- 	ret = of_property_read_u8(np, "fsl,dc-id", &pl->dc_id);
- 	if (ret) {
-@@ -374,13 +371,9 @@ static int imx8qxp_pixel_link_bridge_probe(struct platform_device *pdev)
- 		return ret;
- 
- 	pl->next_bridge = imx8qxp_pixel_link_find_next_bridge(pl);
--	if (IS_ERR(pl->next_bridge)) {
--		ret = PTR_ERR(pl->next_bridge);
--		if (ret != -EPROBE_DEFER)
--			DRM_DEV_ERROR(dev, "failed to find next bridge: %d\n",
--				      ret);
--		return ret;
--	}
-+	if (IS_ERR(pl->next_bridge))
-+		return dev_err_probe(dev, PTR_ERR(pl->next_bridge),
-+				     "failed to find next bridge\n");
- 
- 	platform_set_drvdata(pdev, pl);
- 
--- 
-2.34.1
-
+I'm not sure either. It did cross my mind that the check could be changed,
+to disallow illegal values (if the range of legal values is not all
+possible unsigned integer values). But it was just an idea without any
+inspection of the code or thought about it's practicality. And my first
+instinct was the same as yours: remove the check.
 
