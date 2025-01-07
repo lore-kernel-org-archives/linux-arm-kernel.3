@@ -4,90 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7315E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 15:18:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D574AE77199
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 15:20:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VEpmGsnYD20KF98YPxRoScx17fqF75iFjcKl5Un5Rwc=; b=ifFJ5F3kbnOrKfFDCKvFYLAe1H
-	i5Lup0EvxR+OiNJNlcma8s/fvDKDGGuFKWuw0/RlbFxCoGx5H2pTqi0JFNKQDrw3kjohDJK2mu4T1
-	YQCM0GQ3B8Isdq+nw2qXKGP27JjmJCXCIzeDKK6AaBfbtNz3z08eh4E5Lx1VzVJrx3WOeRk9zbNuz
-	GvDw+mHGVXdfkkQI/5Y6vTalkl1On3N3a9CESBHbShzBiJfLj2zeV/tFX0cuE+GpSMziQf7WHTjuN
-	Ft3ojSeLZjaXrWiQc8niOW/KX2Ak1H5QUhVeUJbjXsg/56p6GHuUSjLG4EejAjyMtY7hq5do7+zGC
-	XzD49m2g==;
+	bh=Wd/OIh9+XuLROZNqgy3qFc0I67rLSdyN4Q7q2BFezNE=; b=L9/uKfiS5otX4ARBM4crmkXpG9
+	pXx877GHLHcYwavCHwa4iroLWKd0CccWsmwoA5+rEOcBTFaM2o+kc+N6kE5S0VSSVbnqyUoei4qrV
+	UIslXfadbHyzVRAZL3X51M2r+doSl47G1w/vL6mURB26E5sat2/Nbt9EfwNFhpsQoxc1TyxecMEfo
+	1JUXu2VJbjEnTqqMJR2JiDU/vHFpi+/g/uWzZArq/Fj/TtLtGcogegMg9xqYuG6p/KGrlsyE7DINp
+	hSZ1/Gb6/LSY26EX0MweqysBrnz7MTPfHLaMvmg/XSk/YLqUYexo5IYL1a3yWO82BdUSGCKCW4OkJ
+	t+2+rAoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVBLH-00000005Oqc-45DA;
-	Tue, 07 Jan 2025 15:18:03 +0000
-Received: from mail-il1-x12c.google.com ([2607:f8b0:4864:20::12c])
+	id 1tVBMy-00000005PE1-4832;
+	Tue, 07 Jan 2025 15:19:49 +0000
+Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVBJi-00000005OUU-0vPf
+	id 1tVBLj-00000005Owy-48Vo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 15:16:30 +0000
-Received: by mail-il1-x12c.google.com with SMTP id e9e14a558f8ab-3a8146a8ddaso57404065ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 07:16:25 -0800 (PST)
+	Tue, 07 Jan 2025 15:18:36 +0000
+Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-30227c56b11so177058531fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 07:18:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736262985; x=1736867785; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1736263110; x=1736867910; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=VEpmGsnYD20KF98YPxRoScx17fqF75iFjcKl5Un5Rwc=;
-        b=SmAGsGcbnhAJj2wZ/HNdeHp77QfvIX2XBMr5DhIFUILFG15h7dPyo/aTSbTtbUztSn
-         7hKQOvCjNLPMh2DTAecrk5o4vgA0A9aRghIQrrewChIcGtYknV1/4ArfGWPB2irKtlIF
-         iPjHMfJWg8gKI4mBInCCdRynsty70tCDHkI1+dF0U2bbFRYcNuwLv/X/zmnMqaxPN9lm
-         NpY0cgDdxF6sFYWgVRVbtZIBzzE637bXNPxJYFLYnReMf/Z+yehnbM17FSd2gSITYjzk
-         Xc0c4BtgU4Ff41FiGRQwEvSnwMqFhkSRhBmq0crKHdSeHpkhAaAzvpgawKmLXzHrWIdW
-         kPHg==
+        bh=Wd/OIh9+XuLROZNqgy3qFc0I67rLSdyN4Q7q2BFezNE=;
+        b=QDW2YrlWd+zy8ID0M0YN2WQHHC1mN+Fqhzj9w+m75Lax3hEzZHJTJT+HuUQ8YGvPI2
+         oiXmjLUNkx5IosdDjPzP9G/dAACasa5rCrEux1zlQKPmIl9hYp6xbM56qJcDYbi9vO4M
+         xdCnG7W14snS9/TlwbjWLaoD9XCCEH3qllBeeRv1i3ckNDAwSBERWn7Y1zBaSTvMPWJi
+         3dPVDPt5D8xAAo+g3bH5/SzBOudLmZeterHcQZDu54alAbfZH/A48kbs1B5uqdb1gH3Z
+         EY00TRnFyzainFRRVQYZiS+1Gmh7VF2yq5g4Qx9RiKcMylmKl98LyHiNd5hHoAzmBsDr
+         bDlA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736262985; x=1736867785;
+        d=1e100.net; s=20230601; t=1736263110; x=1736867910;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=VEpmGsnYD20KF98YPxRoScx17fqF75iFjcKl5Un5Rwc=;
-        b=qx8d5FQK7tlHMxT+8afSFLW+5Hu2jaBWWxNRo04TWOaofnV8MSwXaM1INlHGoF+a++
-         ONZ6ovLt+u/xFjxZ42Dp8JV7qCqyZHDvaKOnI+b4O3nKwlbu/GQJ2/7t0hLae4TCtiiG
-         wHYCknT4VMVnwoXf21kUX0RxArjCPuXJHBY7l8zrNGNFctl1pp1aRciIKiZQoAgG7ebj
-         Z0Fwem82GwRJfzS0ZwvSFvIv7thqqzYHgyOrUy2QGQuXeqqw5Sb3toGCQjIKflipjdqF
-         B5a7hezS+y/6jOiFF2jMnXlj35L/ZOqpMaHXs8Iwvxz4zCY99ABav6LgjE99jreUgfhE
-         d72Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXW24vJfvmUks1bvI6Zo/qADNCe9GJSu8EHuAmS6abLtFfDNQfmJB1ZWdfJrUaFk/DftWqh9l0UJV0QB9b0N1D4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1/0Vhn0m5QH5e6hH2b1Ds71B3K1N8mOAcVpIi4LHKpPjXuYYF
-	21WtWbmEzVQyfAyKnwk3oaJZV2P62zdYYvQkoFnrTHTSyi+jaDEFaIJ1YOEYQXKalFCtilLyjKp
-	mDrurfbHIEinNQa0Oc/nCqvIwA3I=
-X-Gm-Gg: ASbGncv670duUpu5tQQ+sjjfzP/IkwuXBQbtRALRFvuCJ2WzK/FPg8g9bXamhRXPDsx
-	CQPjjebomoQuxSqSuuMuMIlKf1m2FNNfNYlWAF8pdsz7Duhl5e+quBgQeRV+oFgz8ikp1
-X-Google-Smtp-Source: AGHT+IHlytIOa8SLJD6ilASbLpCUQevKgStkuVESsGuRpq4383tKFP0QuXLkBBL6bO1X1rxhpJ3kjld29+v9vpnSuz8=
-X-Received: by 2002:a05:6e02:2384:b0:3a7:fe8c:b014 with SMTP id
- e9e14a558f8ab-3c2d5917533mr523633585ab.21.1736262984845; Tue, 07 Jan 2025
- 07:16:24 -0800 (PST)
+        bh=Wd/OIh9+XuLROZNqgy3qFc0I67rLSdyN4Q7q2BFezNE=;
+        b=HG6FqSGlKPxZYftyRYM6W0I2no/nKAhXIFFSgGrfvA6IBh9vYtuhH/pz+ZRr0nrhMy
+         5PM/ZnGOS2oqZiNA6ADC3weXEhd2yV+Ipm5mPJ8HthqeORjhglSsfFaEol8An8XLD8wq
+         sj82XGajndVWK3VBOzlCE5M0VOHoFMuT8IoyJzHdvl0FutEHcbb35Kzdbi7JQLpOzoQa
+         /t9fniyDf5U9g7XjOUG9JzV4DGGfEW2J4yd9u59PlaO3KNwUEAegajc5hV50AThTV6Bl
+         p6qJZWVwoPasJ/mG1fLECdFA/2ayiS6A40ORrUm4tv0jYyNSoUcYCvN/uvBmvwLXo9Pl
+         LZ9Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXxhnjVof2ZjCGccdyxmOKzbDr1uK1fKihga+O6WLmn+9BGpfUtUFcneTCycMSw+JiKOfLQuU2jLD56qD+N49JH@lists.infradead.org
+X-Gm-Message-State: AOJu0YxkdyhItMD42e+HGfOdGeRf7D3qwCD2hk9Yn1rUoWBcnqoRHj8b
+	9gFRkfHpW7NGLKNIjlYY3+DcTtxRWOaJwaHvgbwzf+RqYepkVpSqP7Q939HCY0hxnfjCNMFSDJl
+	SObACbitoK27rGowm0DPrPkdrdDeX9iW2pSyykdm3cT+78IQT
+X-Gm-Gg: ASbGncuhVBaXt6erRgKZKBQxR2NlpOJeXegQB9n1ZuRsrVoCd0yt97CwGrODjzfTdY2
+	xJXuY2RdSlPMb/29jcOlfR1fYia5FIOzeT6FP
+X-Google-Smtp-Source: AGHT+IFfSJ/IVHhrJ2qR+8hDDFjdqdHa8DoOmF81YVHP8qeEB0D4AktjBUg7IrZZHNZ63UvWGjpkKeBdKSBO3q3o3/Q=
+X-Received: by 2002:a05:6512:3b08:b0:53e:39c2:f02b with SMTP id
+ 2adb3069b0e04-54229562a86mr17756761e87.42.1736263109745; Tue, 07 Jan 2025
+ 07:18:29 -0800 (PST)
 MIME-Version: 1.0
-References: <20241210165127.600817-1-robdclark@gmail.com> <Z30kWxVxwJXO_z2_@google.com>
- <20250107125840.GB6991@willie-the-truck>
-In-Reply-To: <20250107125840.GB6991@willie-the-truck>
-From: Rob Clark <robdclark@gmail.com>
-Date: Tue, 7 Jan 2025 07:16:13 -0800
-Message-ID: <CAF6AEGuXD6rCx8yABH338XSr0Wq6fyFe9Z6fWCh1KPNMbJgiOg@mail.gmail.com>
-Subject: Re: [PATCH v11 0/4] io-pgtable-arm + drm/msm: Extend iova fault debugging
-To: Will Deacon <will@kernel.org>
-Cc: Mostafa Saleh <smostafa@google.com>, iommu@lists.linux.dev, 
-	linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org, 
-	Rob Clark <robdclark@chromium.org>, 
-	"open list:DRM DRIVER for Qualcomm Adreno GPUs" <dri-devel@lists.freedesktop.org>, Jason Gunthorpe <jgg@ziepe.ca>, 
-	Joao Martins <joao.m.martins@oracle.com>, Kevin Tian <kevin.tian@intel.com>, 
-	Konrad Dybcio <konradybcio@kernel.org>, 
-	"moderated list:ARM SMMU DRIVERS" <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>, 
-	"open list:SUSPEND TO RAM" <linux-pm@vger.kernel.org>, Marijn Suijten <marijn.suijten@somainline.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
-	Ryan Roberts <ryan.roberts@arm.com>, Sean Paul <sean@poorly.run>
+References: <20241226-amlogic-pinctrl-v2-0-cdae42a67b76@amlogic.com> <20241226-amlogic-pinctrl-v2-2-cdae42a67b76@amlogic.com>
+In-Reply-To: <20241226-amlogic-pinctrl-v2-2-cdae42a67b76@amlogic.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 7 Jan 2025 16:18:18 +0100
+Message-ID: <CACRpkdYrUDK9RsJ0VzksUNAyZ=grdQLAkMN1_BjeqQumY8bjSw@mail.gmail.com>
+Subject: Re: [PATCH v2 2/5] pinctrl: pinconf-generic: Add API for pinmux
+ propertity in DTS file
+To: xianwei.zhao@amlogic.com
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Bartosz Golaszewski <brgl@bgdev.pl>, 
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-amlogic@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_071626_274732_6C7E148E 
-X-CRM114-Status: GOOD (  23.21  )
+X-CRM114-CacheID: sfid-20250107_071832_032855_EBA17C2B 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,55 +98,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 7, 2025 at 4:58=E2=80=AFAM Will Deacon <will@kernel.org> wrote:
->
-> On Tue, Jan 07, 2025 at 12:55:55PM +0000, Mostafa Saleh wrote:
-> > On Tue, Dec 10, 2024 at 08:51:18AM -0800, Rob Clark wrote:
-> > > From: Rob Clark <robdclark@chromium.org>
-> > >
-> > > This series extends io-pgtable-arm with a method to retrieve the page
-> > > table entries traversed in the process of address translation, and th=
-en
-> > > beefs up drm/msm gpu devcore dump to include this (and additional inf=
-o)
-> > > in the devcore dump.
-> > >
-> > > This is a respin of https://patchwork.freedesktop.org/series/94968/
-> > > (minus a patch that was already merged)
-> > >
-> > > v2:  Fix an armv7/32b build error in the last patch
-> > > v3:  Incorperate Will Deacon's suggestion to make the interface
-> > >      callback based.
-> > > v4:  Actually wire up the callback
-> > > v5:  Drop the callback approach
-> > > v6:  Make walk-data struct pgtable specific and rename
-> > >      io_pgtable_walk_data to arm_lpae_io_pgtable_walk_data
-> > > v7:  Re-use the pgtable walker added for arm_lpae_read_and_clear_dirt=
-y()
-> > > v8:  Pass pte pointer to callback so it can modify the actual pte
-> > > v9:  Fix selftests_running case
-> > > v10: Call visit cb for all nodes traversed, leave the decision about
-> > >      whether to care about non-leaf nodes to the callback
-> > > v11: Adjust logic in 3/4 [smostafa@]
-> >
-> > I see the level initialization was not removed as it was in the diff[1]=
-, so it
-> > seems to me that=E2=80=99s redundant as the level is set anyway in the =
-callback, and
-> > actually looking at that I see it=E2=80=99s not used or printed from th=
-e driver,
-> > so may it can be removed all together, anyway that=E2=80=99s nit that m=
-ay be Will can
-> > fix it up while merging.
-> >
-> > Otherwise, For the whole series
-> > Reviewed-by: Mostafa Saleh <smostafa@google.com>
->
-> I'm happy to drop the 'level' field if it's not used. We can add it back
-> if/when it's needed. Rob?
+On Thu, Dec 26, 2024 at 8:57=E2=80=AFAM Xianwei Zhao via B4 Relay
+<devnull+xianwei.zhao.amlogic.com@kernel.org> wrote:
 
-That works for me, thx
+> From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+>
+> When describing pin mux func through pinmux propertity,
+> a standard API is added for support. The pinmux contains pin
+> identification and mux values, which can include multiple
+> pins. And groups configuration use other word. DTS such as:
+>
+> func-name {
+>         group_alias: group-name{
+>                 pinmux=3D <pin_id << 8 | mux_value)>,
+>                         <pin_id << 8 | mux_value)>;
+>                 bias-pull-up;
+>                 drive-strength-microamp =3D <4000>;
+>         };
+> };
+>
+> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 
-BR,
--R
+There are some build errors, but I really like the path taken with
+the utility function here!
+
+Yours,
+Linus Walleij
 
