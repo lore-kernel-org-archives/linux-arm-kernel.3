@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F0A7E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 23:07:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 059D9E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 23:09:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4CwvEIV3TMTU2REXnm0Mz22rBKUJNVsJJ+pvxJSu++g=; b=kTSyvyhGrtch+NhwLdxu+jro8P
-	LDupcKIKuWxgJLQFHnlfNtr8/qmQ4qx6GK6nI/H8TrVq+Pu6LIFn83ktT6sRC+sWuiCmrJoETJ/0d
-	XHSuD03/Q0IFVLUqxUIHsNWuTuxdpBViyu2pN0ZtP4D0KbEhosiUINhzHtW6g2PoTzu/2iNN4SzO/
-	FzpIxQ6HZb/d3pt2BLs+gfUY1xvtjZhidUahMKKNKHf2CPjM04t75buQNsvMOPdTU30s5bEcToWcc
-	OVGVXBD25tO9wLvqch95AMJfPvew21USgZAkBwqvKeLS3vGM7tlsNreQRFXwp5MkJiFGoy86SsfMm
-	drdD+5nA==;
+	bh=MO6dRR0MV92XBEdekseiDNY6BhltG5MesaP16KLyOUk=; b=AV5dwAg/2MLyAnMS1iySa9UWJ1
+	+e2VmcN5HEkJJo34bCs/uUvp0Bi63PjwBzk8QkyC0FKU3ZmUyI4KCS1OsM2YERZ5TLlPhQt6or801
+	T791ak3BSFFdyodyJkUGCsIuGwGFiShOPeKGVR0XNZ2P92jyA1BPH8BmhO5HH/J3efucf5JwttEEn
+	ytu/xT7DEpVIe1BuZiM/ZrTd4VXviYk6532WhcgBXL0xHGB1yL4AkzLr/MT9qFYzHQZZGpf0yJl3v
+	qW/UtKieiHIjRP+HgoYr52W/hTyL6giYrCAQH4mGpIs6UaGmJzl1F4Sa/QUQf2ch9VYvillq8LElW
+	nKuLcE/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVIfh-00000006UWo-08jj;
-	Tue, 07 Jan 2025 23:07:37 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tVIgr-00000006Ufv-2mpo;
+	Tue, 07 Jan 2025 23:08:49 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVIZh-00000006TBg-2Ize
+	id 1tVIZk-00000006TDH-3ji8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 23:01:27 +0000
+	Tue, 07 Jan 2025 23:01:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 02AB85C2722;
-	Tue,  7 Jan 2025 23:00:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E54CC4CEDF;
-	Tue,  7 Jan 2025 23:01:22 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 69713A41DA1;
+	Tue,  7 Jan 2025 22:59:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53A05C4CED6;
+	Tue,  7 Jan 2025 23:01:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736290884;
-	bh=W8fINH3OVANmdQFVX+js38cqXZpA2truKvR5K6znyyg=;
+	s=k20201202; t=1736290887;
+	bh=6vsrU75Zvr56XyW0ZUq3O2I72KmLrChf/PHpFFu8cK0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=EIw6FR02ctl7z3kfIqI2bf77wi8c0QSzXjcmC89JQY4MtldCUJEBlMAGfS+Hg62a+
-	 kvBj9dnEDE97fx3gB74HCAYWmwPkDRVxvLogNn+p9pUhzUi0wn3P3/ak4l9ylgZpdd
-	 SpZNgI5yPh2qQlblqT0PWDcMtlcY581OqY1A0pYTDCqPbhos63iw/q1g0s10Finvy/
-	 Ec5CCOOPchxJv97KyXjiI+vN1Oml9ZCiiAkQvG30o8oVxOWSZAPdgkr64l+YeEtatt
-	 oXmxU8oCcQlAAN5NB1Qe0LHekVsvuA//WbbtKcxDXYjbIXZLHJ3Wmz3m0Vnp5H3SMA
-	 eVThIa+FZdLiA==
+	b=h8JkBs5SY4QFGRC3s72U03IZcASlIDKXErI95zCpbRHwzr9osqoJFiiXPsuVJLyrE
+	 myNYs1tsTxAGdeOiLvHZ9Un1cYhmX1mpczKqPbpqtvPoJn3wKlo8StjPr1MGVfhbBB
+	 71HVzI20FbBA/mQAU0Hriv7YdMv34HKD9MUDrq1l76oNUxN7d38pEpRYSod1+78vo+
+	 q0wsD7GQFxf2NXHs6ndmSWvic4o/NLVRTTTB1RMIADK45PPgIkCghpIx0MUSLdt43M
+	 Ae1jtPmBNo9ceUbcwRG/6BGCZbEcAKUkyOalQH88agsQFKge4Tmdhz074lR4YfSbxj
+	 tPLnZommBSRng==
 From: Mark Brown <broonie@kernel.org>
-Date: Tue, 07 Jan 2025 22:59:44 +0000
-Subject: [PATCH v5 4/5] KVM: arm64: Allow control of dpISA extensions in
- ID_AA64ISAR3_EL1
+Date: Tue, 07 Jan 2025 22:59:45 +0000
+Subject: [PATCH v5 5/5] kselftest/arm64: Add 2024 dpISA extensions to hwcap
+ test
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250107-arm64-2024-dpisa-v5-4-7578da51fc3d@kernel.org>
+Message-Id: <20250107-arm64-2024-dpisa-v5-5-7578da51fc3d@kernel.org>
 References: <20250107-arm64-2024-dpisa-v5-0-7578da51fc3d@kernel.org>
 In-Reply-To: <20250107-arm64-2024-dpisa-v5-0-7578da51fc3d@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -61,20 +61,20 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-doc@vger.kernel.org, kvmarm@lists.linux.dev, 
  linux-kselftest@vger.kernel.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-1b0d6
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1413; i=broonie@kernel.org;
- h=from:subject:message-id; bh=W8fINH3OVANmdQFVX+js38cqXZpA2truKvR5K6znyyg=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnfbIzV51I9sDzW6LbaKlT3yiu8P8lpBGtSObfUDPC
- dCxZk+eJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ32yMwAKCRAk1otyXVSH0Gt9B/
- 0b/5GPo8kXWfskPOztZz636lKq/ggWtkvBpiGDk3Br01bpbV68JWvM7908DnByeyzUJc+qFlAbR9ye
- IpRDbQ86HrpsNJwnmC5egOBqY/snrduWGMd7BIvUdv1Y88q46SpLRYj9k9y6KwefDDbL9OsTZzwonl
- pem+BRHEvKdUI+06b6fGWV922/2SsbMcQG/Af+81uIUJzAjDxMHWAbK5vDoDFtzoCDotezmI5wv7I+
- vWST20DT1eAUliXKVw93xPYa7LIuuZQXQ78sr9EoWtzMPq8GvDC4F7nvADhXTpBzNr+VVmoa/q4Zhr
- xaFZLOiYk5Ri/uc4EHGNnE9IdvAhbz
+X-Developer-Signature: v=1; a=openpgp-sha256; l=8931; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=6vsrU75Zvr56XyW0ZUq3O2I72KmLrChf/PHpFFu8cK0=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnfbI064wXKQz0Nysq79Vb7AUqpN72tezRtuDm8RAn
+ aWHTYIiJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ32yNAAKCRAk1otyXVSH0NInB/
+ 0Q5KYjkXXOhHhbUdNId9w+UVOj99J7pXIdGcmW3prOSRzrPy68MhX62m0g+9peCK+HQlrq/Syn4qIi
+ cVkNEZGBZIZhI3vu2owCXT1u6iHkLYdIBnAPjqMo03NJKaSRed9n4tyX+aRSnh9lUpoaD+sHriQHjo
+ 8lxCNfuToberka/54a1Pe1NyrK7n3Fd1JU7ZU8Mnk0qDbKc7aAgl4ERd0B5SfS0lPJEk6cnB396fEf
+ 3JXNoyMkA4AYhA793JoR5XeEqJkRitQyTUdruV5LJOuzurop7KFYW6oD/fwBEqE5Dk9Bk5Gidh+ZeP
+ zV1znUz8YWRQp5mTT6QTU/soCIqWju
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_150125_634492_5713E9D2 
-X-CRM114-Status: GOOD (  10.58  )
+X-CRM114-CacheID: sfid-20250107_150129_070329_CAA1BB1B 
+X-CRM114-Status: GOOD (  14.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,40 +89,378 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ID_AA64ISAR3_EL1 is currently marked as unallocated in KVM but does have a
-number of bitfields defined in it. Expose FPRCVT and FAMINMAX, two simple
-instruction only extensions to guests.
+Add coverage of the hwcaps for the 2024 dpISA extensions to the hwcap
+test.
 
-Reviewed-by: Marc Zyngier <maz@kernel.org>
+We don't actually test SIGILL generation for CMPBR since the need to
+branch makes it a pain to generate and the SIGILL detection would be
+unreliable anyway. Since this should be very unusual we provide a stub
+function rather than supporting a missing test.
+
+The sigill functions aren't well sorted in the file so the ordering is a
+bit random.
+
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/kvm/sys_regs.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ tools/testing/selftests/arm64/abi/hwcap.c | 235 +++++++++++++++++++++++++++++-
+ 1 file changed, 233 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 83c6b4a07ef56cf0ed9c8751ec80686f45dca6b2..6efbe3f4a579afd1874c4cf844c1c1249ae8b942 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -1604,6 +1604,9 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
- 		if (!cpus_have_final_cap(ARM64_HAS_WFXT))
- 			val &= ~ARM64_FEATURE_MASK(ID_AA64ISAR2_EL1_WFxT);
- 		break;
-+	case SYS_ID_AA64ISAR3_EL1:
-+		val &= ID_AA64ISAR3_EL1_FPRCVT | ID_AA64ISAR3_EL1_FAMINMAX;
-+		break;
- 	case SYS_ID_AA64MMFR2_EL1:
- 		val &= ~ID_AA64MMFR2_EL1_CCIDX_MASK;
- 		break;
-@@ -2608,7 +2611,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 	ID_WRITABLE(ID_AA64ISAR2_EL1, ~(ID_AA64ISAR2_EL1_RES0 |
- 					ID_AA64ISAR2_EL1_APA3 |
- 					ID_AA64ISAR2_EL1_GPA3)),
--	ID_UNALLOCATED(6,3),
-+	ID_WRITABLE(ID_AA64ISAR3_EL1, (ID_AA64ISAR3_EL1_FPRCVT |
-+				       ID_AA64ISAR3_EL1_FAMINMAX)),
- 	ID_UNALLOCATED(6,4),
- 	ID_UNALLOCATED(6,5),
- 	ID_UNALLOCATED(6,6),
+diff --git a/tools/testing/selftests/arm64/abi/hwcap.c b/tools/testing/selftests/arm64/abi/hwcap.c
+index 0029ed9c5c9aa4451f3d0573ee672eca993fb2f4..35f521e5f41c6662c895322e56bf32e2fe83b979 100644
+--- a/tools/testing/selftests/arm64/abi/hwcap.c
++++ b/tools/testing/selftests/arm64/abi/hwcap.c
+@@ -46,6 +46,12 @@ static void atomics_sigill(void)
+ 	asm volatile(".inst 0xb82003ff" : : : );
+ }
+ 
++static void cmpbr_sigill(void)
++{
++	/* Not implemented, too complicated and unreliable anyway */
++}
++
++
+ static void crc32_sigill(void)
+ {
+ 	/* CRC32W W0, W0, W1 */
+@@ -82,6 +88,18 @@ static void f8fma_sigill(void)
+ 	asm volatile(".inst 0xec0fc00");
+ }
+ 
++static void f8mm4_sigill(void)
++{
++	/* FMMLA V0.4SH, V0.16B, V0.16B */
++	asm volatile(".inst 0x6e00ec00");
++}
++
++static void f8mm8_sigill(void)
++{
++	/* FMMLA V0.4S, V0.16B, V0.16B */
++	asm volatile(".inst 0x6e80ec00");
++}
++
+ static void faminmax_sigill(void)
+ {
+ 	/* FAMIN V0.4H, V0.4H, V0.4H */
+@@ -98,6 +116,12 @@ static void fpmr_sigill(void)
+ 	asm volatile("mrs x0, S3_3_C4_C4_2" : : : "x0");
+ }
+ 
++static void fprcvt_sigill(void)
++{
++	/* FCVTAS S0, H0 */
++	asm volatile(".inst 0x1efa0000");
++}
++
+ static void gcs_sigill(void)
+ {
+ 	unsigned long *gcspr;
+@@ -226,6 +250,42 @@ static void sme2p1_sigill(void)
+ 	asm volatile("msr S0_3_C4_C6_3, xzr" : : : );
+ }
+ 
++static void sme2p2_sigill(void)
++{
++	/* SMSTART SM */
++	asm volatile("msr S0_3_C4_C3_3, xzr" : : : );
++
++	/* UXTB Z0.D, P0/Z, Z0.D  */
++	asm volatile(".inst 0x4c1a000" : : : );
++
++	/* SMSTOP */
++	asm volatile("msr S0_3_C4_C6_3, xzr" : : : );
++}
++
++static void sme_aes_sigill(void)
++{
++	/* SMSTART SM */
++	asm volatile("msr S0_3_C4_C3_3, xzr" : : : );
++
++	/* AESD z0.b, z0.b, z0.b */
++	asm volatile(".inst 0x4522e400" : : : "z0");
++
++	/* SMSTOP */
++	asm volatile("msr S0_3_C4_C6_3, xzr" : : : );
++}
++
++static void sme_sbitperm_sigill(void)
++{
++	/* SMSTART SM */
++	asm volatile("msr S0_3_C4_C3_3, xzr" : : : );
++
++	/* BDEP Z0.B, Z0.B, Z0.B */
++	asm volatile(".inst 0x4500b400" : : : "z0");
++
++	/* SMSTOP */
++	asm volatile("msr S0_3_C4_C6_3, xzr" : : : );
++}
++
+ static void smei16i32_sigill(void)
+ {
+ 	/* SMSTART */
+@@ -339,8 +399,44 @@ static void smesf8fma_sigill(void)
+ 	/* SMSTART */
+ 	asm volatile("msr S0_3_C4_C7_3, xzr" : : : );
+ 
+-	/* FMLALB V0.8H, V0.16B, V0.16B */
+-	asm volatile(".inst 0xec0fc00");
++	/* FMLALB Z0.8H, Z0.B, Z0.B */
++	asm volatile(".inst 0x64205000");
++
++	/* SMSTOP */
++	asm volatile("msr S0_3_C4_C6_3, xzr" : : : );
++}
++
++static void smesfexpa_sigill(void)
++{
++	/* SMSTART */
++	asm volatile("msr S0_3_C4_C7_3, xzr" : : : );
++
++	/* FEXPA Z0.D, Z0.D */
++	asm volatile(".inst 0x04e0b800");
++
++	/* SMSTOP */
++	asm volatile("msr S0_3_C4_C6_3, xzr" : : : );
++}
++
++static void smesmop4_sigill(void)
++{
++	/* SMSTART */
++	asm volatile("msr S0_3_C4_C7_3, xzr" : : : );
++
++	/* SMOP4A ZA0.S, Z0.B, { Z0.B - Z1.B } */
++	asm volatile(".inst 0x80108000");
++
++	/* SMSTOP */
++	asm volatile("msr S0_3_C4_C6_3, xzr" : : : );
++}
++
++static void smestmop_sigill(void)
++{
++	/* SMSTART */
++	asm volatile("msr S0_3_C4_C7_3, xzr" : : : );
++
++	/* STMOPA ZA0.S, { Z0.H - Z1.H }, Z0.H, Z20[0] */
++	asm volatile(".inst 0x80408008");
+ 
+ 	/* SMSTOP */
+ 	asm volatile("msr S0_3_C4_C6_3, xzr" : : : );
+@@ -364,18 +460,42 @@ static void sve2p1_sigill(void)
+ 	asm volatile(".inst 0x65000000" : : : "z0");
+ }
+ 
++static void sve2p2_sigill(void)
++{
++	/* NOT Z0.D, P0/Z, Z0.D */
++	asm volatile(".inst 0x4cea000" : : : "z0");
++}
++
+ static void sveaes_sigill(void)
+ {
+ 	/* AESD z0.b, z0.b, z0.b */
+ 	asm volatile(".inst 0x4522e400" : : : "z0");
+ }
+ 
++static void sveaes2_sigill(void)
++{
++	/* AESD {Z0.B - Z1.B }, { Z0.B - Z1.B }, Z0.Q */
++	asm volatile(".inst 0x4522ec00" : : : "z0");
++}
++
+ static void sveb16b16_sigill(void)
+ {
+ 	/* BFADD Z0.H, Z0.H, Z0.H */
+ 	asm volatile(".inst 0x65000000" : : : );
+ }
+ 
++static void svebfscale_sigill(void)
++{
++	/* BFSCALE Z0.H, P0/M, Z0.H, Z0.H */
++	asm volatile(".inst 0x65098000" : : : "z0");
++}
++
++static void svef16mm_sigill(void)
++{
++	/* FMMLA Z0.S, Z0.H, Z0.H */
++	asm volatile(".inst 0x6420e400");
++}
++
+ static void svepmull_sigill(void)
+ {
+ 	/* PMULLB Z0.Q, Z0.D, Z0.D */
+@@ -394,6 +514,12 @@ static void svesha3_sigill(void)
+ 	asm volatile(".inst 0x4203800" : : : "z0");
+ }
+ 
++static void sveeltperm_sigill(void)
++{
++	/* COMPACT Z0.B, P0, Z0.B */
++	asm volatile(".inst 0x5218000" : : : "x0");
++}
++
+ static void svesm4_sigill(void)
+ {
+ 	/* SM4E Z0.S, Z0.S, Z0.S */
+@@ -469,6 +595,13 @@ static const struct hwcap_data {
+ 		.cpuinfo = "aes",
+ 		.sigill_fn = aes_sigill,
+ 	},
++	{
++		.name = "CMPBR",
++		.at_hwcap = AT_HWCAP,
++		.hwcap_bit = HWCAP_CMPBR,
++		.cpuinfo = "cmpbr",
++		.sigill_fn = cmpbr_sigill,
++	},
+ 	{
+ 		.name = "CRC32",
+ 		.at_hwcap = AT_HWCAP,
+@@ -523,6 +656,20 @@ static const struct hwcap_data {
+ 		.cpuinfo = "f8fma",
+ 		.sigill_fn = f8fma_sigill,
+ 	},
++	{
++		.name = "F8MM8",
++		.at_hwcap = AT_HWCAP,
++		.hwcap_bit = HWCAP_F8MM8,
++		.cpuinfo = "f8mm8",
++		.sigill_fn = f8mm8_sigill,
++	},
++	{
++		.name = "F8MM4",
++		.at_hwcap = AT_HWCAP,
++		.hwcap_bit = HWCAP_F8MM4,
++		.cpuinfo = "f8mm4",
++		.sigill_fn = f8mm4_sigill,
++	},
+ 	{
+ 		.name = "FAMINMAX",
+ 		.at_hwcap = AT_HWCAP2,
+@@ -545,6 +692,13 @@ static const struct hwcap_data {
+ 		.sigill_fn = fpmr_sigill,
+ 		.sigill_reliable = true,
+ 	},
++	{
++		.name = "FPRCVT",
++		.at_hwcap = AT_HWCAP,
++		.hwcap_bit = HWCAP_FPRCVT,
++		.cpuinfo = "fprcvt",
++		.sigill_fn = fprcvt_sigill,
++	},
+ 	{
+ 		.name = "GCS",
+ 		.at_hwcap = AT_HWCAP,
+@@ -691,6 +845,20 @@ static const struct hwcap_data {
+ 		.cpuinfo = "sme2p1",
+ 		.sigill_fn = sme2p1_sigill,
+ 	},
++	{
++		.name = "SME 2.2",
++		.at_hwcap = AT_HWCAP,
++		.hwcap_bit = HWCAP_SME2P2,
++		.cpuinfo = "sme2p2",
++		.sigill_fn = sme2p2_sigill,
++	},
++	{
++		.name = "SME AES",
++		.at_hwcap = AT_HWCAP,
++		.hwcap_bit = HWCAP_SME_AES,
++		.cpuinfo = "smeaes",
++		.sigill_fn = sme_aes_sigill,
++	},
+ 	{
+ 		.name = "SME I16I32",
+ 		.at_hwcap = AT_HWCAP2,
+@@ -740,6 +908,13 @@ static const struct hwcap_data {
+ 		.cpuinfo = "smelutv2",
+ 		.sigill_fn = smelutv2_sigill,
+ 	},
++	{
++		.name = "SME SBITPERM",
++		.at_hwcap = AT_HWCAP,
++		.hwcap_bit = HWCAP_SME_SBITPERM,
++		.cpuinfo = "smesbitperm",
++		.sigill_fn = sme_sbitperm_sigill,
++	},
+ 	{
+ 		.name = "SME SF8FMA",
+ 		.at_hwcap = AT_HWCAP2,
+@@ -761,6 +936,27 @@ static const struct hwcap_data {
+ 		.cpuinfo = "smesf8dp4",
+ 		.sigill_fn = smesf8dp4_sigill,
+ 	},
++	{
++		.name = "SME SFEXPA",
++		.at_hwcap = AT_HWCAP,
++		.hwcap_bit = HWCAP_SME_SFEXPA,
++		.cpuinfo = "smesfexpa",
++		.sigill_fn = smesfexpa_sigill,
++	},
++	{
++		.name = "SME SMOP4",
++		.at_hwcap = AT_HWCAP,
++		.hwcap_bit = HWCAP_SME_SMOP4,
++		.cpuinfo = "smesmop4",
++		.sigill_fn = smesmop4_sigill,
++	},
++	{
++		.name = "SME STMOP",
++		.at_hwcap = AT_HWCAP,
++		.hwcap_bit = HWCAP_SME_STMOP,
++		.cpuinfo = "smestmop",
++		.sigill_fn = smestmop_sigill,
++	},
+ 	{
+ 		.name = "SVE",
+ 		.at_hwcap = AT_HWCAP,
+@@ -783,6 +979,13 @@ static const struct hwcap_data {
+ 		.cpuinfo = "sve2p1",
+ 		.sigill_fn = sve2p1_sigill,
+ 	},
++	{
++		.name = "SVE 2.2",
++		.at_hwcap = AT_HWCAP,
++		.hwcap_bit = HWCAP_SVE2P2,
++		.cpuinfo = "sve2p2",
++		.sigill_fn = sve2p2_sigill,
++	},
+ 	{
+ 		.name = "SVE AES",
+ 		.at_hwcap = AT_HWCAP2,
+@@ -790,6 +993,34 @@ static const struct hwcap_data {
+ 		.cpuinfo = "sveaes",
+ 		.sigill_fn = sveaes_sigill,
+ 	},
++	{
++		.name = "SVE AES2",
++		.at_hwcap = AT_HWCAP,
++		.hwcap_bit = HWCAP_SVE_AES2,
++		.cpuinfo = "sveaes2",
++		.sigill_fn = sveaes2_sigill,
++	},
++	{
++		.name = "SVE BFSCALE",
++		.at_hwcap = AT_HWCAP,
++		.hwcap_bit = HWCAP_SVE_BFSCALE,
++		.cpuinfo = "svebfscale",
++		.sigill_fn = svebfscale_sigill,
++	},
++	{
++		.name = "SVE ELTPERM",
++		.at_hwcap = AT_HWCAP,
++		.hwcap_bit = HWCAP_SVE_ELTPERM,
++		.cpuinfo = "sveeltperm",
++		.sigill_fn = sveeltperm_sigill,
++	},
++	{
++		.name = "SVE F16MM",
++		.at_hwcap = AT_HWCAP,
++		.hwcap_bit = HWCAP_SVE_F16MM,
++		.cpuinfo = "svef16mm",
++		.sigill_fn = svef16mm_sigill,
++	},
+ 	{
+ 		.name = "SVE2 B16B16",
+ 		.at_hwcap = AT_HWCAP2,
 
 -- 
 2.39.5
