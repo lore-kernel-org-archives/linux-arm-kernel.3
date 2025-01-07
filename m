@@ -4,66 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A4F8E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 23:14:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C8ECE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 23:22:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cXWjOzH5UzEYw27TDmJ11UEwxNrIrh3j6oaKp86+zmA=; b=XNo05x1ZLC4yiIgyLKSQzXRGwY
-	VG6cRx5EtXbIBOIGavIJXlXPQBYnzo8ljjd+azF6FHv+76LQRXboaHJcbqQ7J3w0nNldOvsSA+0yg
-	SLXLeYIi/knzxBY/Iq+h0KOhlWQDmnk1OwuHOq8VFlHXv5r0dp5JZuAuR19hlAEQKEtlJ+ff4EnvE
-	Y/ahY+Ow1fkgpQhz/yyTaPYloHY3I/3frIJb6p3dMOxTgcKKrpuq4zNmTVsO4g6MQRfcjcSlq6NCv
-	0DDuiQuAK4exIwfvFOFsr/baV3e6/Ykv/xE3ZZwHOX5SE0xMp0lqtdUqselPVU0x+f5sxQDBNLVlQ
-	QYoy8hQw==;
+	bh=1+UYc77EWjqrP2FaPLZ0XP5kkvWLGJVdF4PjgZLE6CU=; b=EKxTABs+afd7XweyGfljNqoqSM
+	9dUG9aXQCBFv3fop478G/bZEVjE0KyeDq5mXtJsF1HfdIN+YtmUbn2X0S+6Hhwkb3f31ZSuVP+mk3
+	+CvLADlO0fz0QS3wo/XVr4RbFGbaSN80q1AsAuwR9AL52Zb9DwFRKUCjIle/U0XVUe3pDCGDjGoSD
+	JyXZUYAgr6+jn7gTPiDOE3KM5p4q0O4NvKHwsd/xVKvabLETHQIIC4Jgy/KtOgosR510t8df0PfLF
+	fE2v403Wz3q9YDLv0F3Cx6Jpyt0p5AR2e5Ec9xI4YQnEa5X8O3dl6K6ZicsJKoGpYTosnWUJiPdG4
+	sRkPIVzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVImK-00000006VmI-2PG3;
-	Tue, 07 Jan 2025 23:14:28 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tVIu9-00000006XWO-3Bcw;
+	Tue, 07 Jan 2025 23:22:33 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVIl7-00000006Vc0-2oUx
+	id 1tVIsw-00000006XFt-22bE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 23:13:15 +0000
+	Tue, 07 Jan 2025 23:21:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id ED71A5C0F91;
-	Tue,  7 Jan 2025 23:12:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91A1DC4CED6;
-	Tue,  7 Jan 2025 23:13:12 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id D0FF55C576C;
+	Tue,  7 Jan 2025 23:20:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61F12C4CED6;
+	Tue,  7 Jan 2025 23:21:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736291592;
-	bh=Do/168fsFw6i80h2fR3YzMw5FE9OseaEDLt7XS3HU7g=;
+	s=k20201202; t=1736292077;
+	bh=Kilm1ZAdWzy3rPEDUVkX5c9b+aYHLITqsZsNfgNyC2Q=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BpvIv3gvmHkpEVhnNyN37lX3TxNiebJs1tHfvBdm0G1eeX0t4GC7nnRsRoB+jCF6U
-	 8YjvgIye0yGn1ndJ+hDTT+RnJJZeNboOru3+3jHg7A+ierFyLCkCzgdRfjyqnuLdkX
-	 drGMJ0FHxB/3GWIWzQ4Moj3LGfdg1JXVilAeJHIGjnEEhWDRP60H43Wt2wWWIrQLSs
-	 BRuiPpRBy94Hn0tW6weXnf54+bcu5BfzwXLgzLaj49cvvyGvqAth642gSMS+JejS+j
-	 hj4OdFu47n9KCunxQjIogQnds/pm1TmtgIL/6imDVnrlJ6cDzanK7j8Han8EJAU2NC
-	 RIpHEzG19CDZw==
-Date: Tue, 7 Jan 2025 17:13:11 -0600
-From: Rob Herring <robh@kernel.org>
-To: Ninad Palsule <ninad@linux.ibm.com>
-Cc: minyard@acm.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, ratbert@faraday-tech.com,
-	openipmi-developer@lists.sourceforge.net, netdev@vger.kernel.org,
-	joel@jms.id.au, andrew@codeconstruct.com.au,
-	devicetree@vger.kernel.org, eajames@linux.ibm.com,
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 02/10] bindings: ipmi: Add binding for IPMB device intf
-Message-ID: <20250107231311.GA1965288-robh@kernel.org>
-References: <20250107162350.1281165-1-ninad@linux.ibm.com>
- <20250107162350.1281165-3-ninad@linux.ibm.com>
+	b=sUgylO24DAttxYL26qZXve5hvrgsTvvOnKU7yq7oY/O13PXLgH2yaUT8j3dzbDI4F
+	 G9gnqx8F2ap2hpu7iaASyaqHOfJli9UmxBevnHSF7UXBo7Bqje8zyZzfoNad0rvDYK
+	 vctghzjYXEqQ6+9kIBAuHDSzFRUEXsjZP0JkDg0Y3iyXzdr47eYgDJZl8innUNJuU+
+	 Bs1ibYZaqkYXENoWmYZnZVM0qE0RP3h0HMurlFB65jj78ZeB2qN0Ewezg7o0W1sTRR
+	 FZ36XWzWe1sJeV5wOs0+d6l8bAnqoQBa1Xeo3tBY8iJRyz6zCy7HUDFNEaPVtGoBOM
+	 wehUeO4yRC1Jw==
+Date: Tue, 7 Jan 2025 17:21:16 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: imx@lists.linux.dev, Simona Vetter <simona@ffwll.ch>,
+	Maxime Ripard <mripard@kernel.org>, Inki Dae <inki.dae@samsung.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	devicetree@vger.kernel.org, Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>, Robert Foss <rfoss@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	linux-kernel@vger.kernel.org,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	David Airlie <airlied@gmail.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Jagan Teki <jagan@amarulasolutions.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Subject: Re: [PATCH 2/2] dt-bindings: samsung,mipi-dsim: Add imx7d specific
+ compatible
+Message-ID: <173629198495.2036683.9877314471091548361.robh@kernel.org>
+References: <20250107094943.518474-1-alexander.stein@ew.tq-group.com>
+ <20250107094943.518474-3-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250107162350.1281165-3-ninad@linux.ibm.com>
+In-Reply-To: <20250107094943.518474-3-alexander.stein@ew.tq-group.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_151313_795748_E3F32498 
-X-CRM114-Status: GOOD (  20.25  )
+X-CRM114-CacheID: sfid-20250107_152118_571093_6BAF9689 
+X-CRM114-Status: GOOD (  12.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,93 +91,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 07, 2025 at 10:23:39AM -0600, Ninad Palsule wrote:
-> Add device tree binding document for the IPMB device interface driver.
 
-Please mention this is already is already in use both in a driver and 
-.dts files.
-
-> Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
+On Tue, 07 Jan 2025 10:49:42 +0100, Alexander Stein wrote:
+> This add a imx7(d) specific compatible which is compatible to imx8mm.
+> This silences the dtbs_check warning:
+> arch/arm/boot/dts/nxp/imx/imx7s-mba7.dtb: dsi@30760000: compatible: 'oneOf' conditional failed, one must be fixed:
+>  ['fsl,imx7d-mipi-dsim', 'fsl,imx8mm-mipi-dsim'] is too long
+> 
+> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 > ---
->  .../devicetree/bindings/ipmi/ipmb-dev.yaml    | 42 +++++++++++++++++++
->  1 file changed, 42 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/ipmi/ipmb-dev.yaml
+>  .../devicetree/bindings/display/bridge/samsung,mipi-dsim.yaml | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/ipmi/ipmb-dev.yaml b/Documentation/devicetree/bindings/ipmi/ipmb-dev.yaml
-> new file mode 100644
-> index 000000000000..9136ac8004dc
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/ipmi/ipmb-dev.yaml
-> @@ -0,0 +1,42 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/ipmi/ipmb-dev.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: IPMB Device Driver
 
-Bindings are for devices, not drivers. Drop 'Driver'. It's a stretch 
-that IPMB is even a device, but since there are already a few users, I 
-guess we're stuck with it.
+Fabio is clearly confused, and I prefer this patch over his. As 
+it is probably past the drm-misc cutoff, I applied it to DT tree.
+ 
+Thanks,
+Rob
 
-> +
-> +description: IPMB Device Driver bindings
-
-No point in a description that just repeats the title. Please expand 
-this. For example, AIUI, this is for the device end, not the BMC end.
-
-> +
-> +maintainers:
-> +  - Ninad Palsule <ninad@linux.ibm.com>
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - ipmb-dev
-> +
-> +  reg:
-> +    maxItems: 1
-
-As this is the slave end, I2C_OWN_SLAVE_ADDRESS should be set. So:
-
-minimum: 0x40000000
-maximum: 0x4000007f
-
-Maybe 10-bit addressing has to be supported too?
-
-> +
-> +  i2c-protocol:
-> +    description:
-> +      This property specifies that the I2C block transfer should be performed
-> +      instead of SMBUS block transfer.
-
-This can be more concisely said:
-
-Use I2C block transfer instead of SMBUS block transfer.
-
-> +    type: boolean
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    i2c {
-> +        i2c@10 {
-
-'i2c' node name is for i2c buses and this is not one. 'ipmb' is probably 
-fine here.
-
-> +            compatible = "ipmb-dev";
-> +            reg = <0x10>;
-> +            i2c-protocol;
-> +        };
-> +    };
-> -- 
-> 2.43.0
-> 
 
