@@ -4,63 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D998E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 23:10:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8517BE77198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 23:11:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=RmPPY9kD0S+uI/l7sNBXycaCFEKich3lfiQKegEqj74=; b=HVeryfg28z6LU7
-	yUfuiPvm0/rpYjcPcPbGIKDgwoNxyrlyrz6kmnD54FIAKfnrKdrEvgS6sQWF4Z2S7SGc6docea7K9
-	emSxXZYX1BYR/NagZ+J+mImtXAqSAsZQotz+BFos/C++flsDSjaSyu6b7IB33UQ0AorWv7o5jlHFS
-	ECrJXodNQZ4wRky3+qEm5yvpX2btT96WNlxH9fos7WBq5Ea1xaZJVK7YRNZXNz08BQlzCQsIBoprw
-	bys5tbkFKSRsENrAd2HOXYyw0iaxGRPmoB2ehNnQxn6OkYr4d6QBLB/P5lyNNStXomkq6bfsMgg2m
-	nUleN3KAA+pQetXKiLlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=PCrEa2eqiGdRhCaAuf73LiJEX1P4cmcw8rxMXvN3h20=; b=IvihTliXjAYgo4kC0wePxzO0Bs
+	RdylmZOLYZ/8fyUvDbEtW8Cci7mX/9bMdn3YPyDCBenZnm4K1Eit25ZDbPTNa4H7cCjIDSDW+B8/O
+	1fsIit6dxOVXkcM8XqyFB2lr5wG8RD6rucV3QxHWk3RCcZGU9HwdbRzgX3v9faphC+NdFN1wa7wdU
+	D8nfBSyRFTISvwT3ZSp9yXQmhHpdKHEgZCEdpBHJg4DbRc2km7c3cKNDe1hf3TpKYZtpQXgu9U3s0
+	fC4rIziQ5HC37lJL+Jw7A4FHvxPo4hHO1H9vTIljYb66C+POWBl0YT0/QQqDvPVds+b1Ja+WzGvZC
+	ANh0o24w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVIi3-00000006V3U-2iTe;
-	Tue, 07 Jan 2025 23:10:03 +0000
-Received: from vmicros1.altlinux.org ([194.107.17.57])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVIcV-00000006Tuw-3gnJ;
-	Tue, 07 Jan 2025 23:04:21 +0000
-Received: from mua.local.altlinux.org (mua.local.altlinux.org [192.168.1.14])
-	by vmicros1.altlinux.org (Postfix) with ESMTP id 2B68172C90B;
-	Wed,  8 Jan 2025 02:04:19 +0300 (MSK)
-Received: by mua.local.altlinux.org (Postfix, from userid 508)
-	id 037907CCB3A; Wed,  8 Jan 2025 01:04:18 +0200 (IST)
-Date: Wed, 8 Jan 2025 01:04:18 +0200
-From: "Dmitry V. Levin" <ldv@strace.io>
-To: Oleg Nesterov <oleg@redhat.com>
-Cc: Eugene Syromyatnikov <evgsyr@gmail.com>,
-	Mike Frysinger <vapier@gentoo.org>,
-	Renzo Davoli <renzo@cs.unibo.it>,
-	Davide Berardi <berardi.dav@gmail.com>,
-	strace-devel@lists.strace.io, Vineet Gupta <vgupta@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
-	Brian Cain <bcain@quicinc.com>, Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-	Helge Deller <deller@gmx.de>, linux-snps-arc@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
-	linux-parisc@vger.kernel.org
-Subject: [PATCH 2/6] syscall.h: add syscall_set_arguments() on remaining
- HAVE_ARCH_TRACEHOOK arches
-Message-ID: <20250107230418.GB30633@strace.io>
+	id 1tVIjF-00000006VHC-0Yjk;
+	Tue, 07 Jan 2025 23:11:17 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tVIea-00000006UND-35r8;
+	Tue, 07 Jan 2025 23:06:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9F31F5C060E;
+	Tue,  7 Jan 2025 23:05:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46902C4CEDF;
+	Tue,  7 Jan 2025 23:06:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736291185;
+	bh=VfAnBfuX08F+R34YGFjPDdCZbCRXPGtckNSQu09Cp8k=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=cOXT9/e9xxyBFaU6ZRyl43N5yOhkdSW3pm+L4KFDvPaD4x4bhaPDx6vsx/+XK15JB
+	 ufQhgPuoW8HeB5VsOY57a1OQnNFYyGITDl/MGXWbZcc8V+rKTVX7tK4/fNWSL5cRJT
+	 YtgV0laPpn4XfecnAbcURnxone1ng/4plt6Eiae1K14ASLBiDClGM0r/kZMxZNAJx8
+	 B8rJG874PHgtYWGEiEBgv8D2hwmFL2CI3yGqY+uirRMi1sBDWdPxXwGN9CofAI4udG
+	 MkB8aA5vkzdhC9sPCpCx7WjD3gUDWyW00nopCYQjAS9Xqe7QR07g3Aplq0O/3ma3Yw
+	 VlpA8jCaUFgFQ==
+Date: Tue, 7 Jan 2025 17:06:23 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Jianjun Wang =?utf-8?B?KOeOi+W7uuWGmyk=?= <Jianjun.Wang@mediatek.com>
+Cc: "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	Xavier Chang =?utf-8?B?KOW8teeNu+aWhyk=?= <Xavier.Chang@mediatek.com>,
+	"manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"robh@kernel.org" <robh@kernel.org>, "kw@linux.com" <kw@linux.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	"bhelgaas@google.com" <bhelgaas@google.com>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Ryder Lee <Ryder.Lee@mediatek.com>
+Subject: Re: [PATCH 3/5] PCI: mediatek-gen3: Disable ASPM L0s
+Message-ID: <20250107230623.GA189234@bhelgaas>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250107230153.GA30560@strace.io>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <8b7b0d1bca5088bda46a651481b9a42f3be1a75d.camel@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_150420_244281_4F1A08E7 
-X-CRM114-Status: GOOD (  14.34  )
+X-CRM114-CacheID: sfid-20250107_150628_823028_9DBAF112 
+X-CRM114-Status: GOOD (  19.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,246 +83,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add syscall_set_arguments() on those few HAVE_ARCH_TRACEHOOK
-architectures that haven't provided it yet.
+On Tue, Jan 07, 2025 at 02:44:37AM +0000, Jianjun Wang (王建军) wrote:
+> On Fri, 2025-01-03 at 13:15 -0600, Bjorn Helgaas wrote:
+> > On Fri, Jan 03, 2025 at 02:00:13PM +0800, Jianjun Wang wrote:
+> > > Disable ASPM L0s support because it does not significantly save
+> > > power but impacts performance.
+> > 
+> > This seems like a user/administrator decision, not a driver
+> > decision.
+> > 
+> > L0s reduces power at the cost of performance for *all* PCIe
+> > devices, although the actual numbers may vary.
+> 
+> We have encountered some compatibility issues when connected with
+> some PCIe EPs, these issues are probabilistic and disabling the L0s
+> can fix them.
 
-syscall_set_arguments() is going to be needed on all HAVE_ARCH_TRACEHOOK
-architectures to implement PTRACE_SET_SYSCALL_INFO API.
+This sounds like either a software problem in ASPM or a hardware
+problem in one of the devices.  If it's a Linux ASPM issue, obviously
+we should find and fix that.  If it's an endpoint hardware issue, we
+should fix the driver or quirk it to avoid L0s on all platforms, not
+just this one.
 
-Signed-off-by: Dmitry V. Levin <ldv@strace.io>
----
- arch/arc/include/asm/syscall.h       | 14 +++++++++
- arch/arm/include/asm/syscall.h       | 13 ++++++++
- arch/arm64/include/asm/syscall.h     | 13 ++++++++
- arch/csky/include/asm/syscall.h      | 13 ++++++++
- arch/hexagon/include/asm/syscall.h   |  7 +++++
- arch/loongarch/include/asm/syscall.h |  8 +++++
- arch/mips/include/asm/syscall.h      | 46 ++++++++++++++++++++++++++++
- arch/parisc/include/asm/syscall.h    | 12 ++++++++
- 8 files changed, 126 insertions(+)
+If it's a mediatek-gen3 hardware issue, we should disable L0s as you
+do here.  But if the reason is to work around a hardware erratum, we
+should describe it as such.
 
-diff --git a/arch/arc/include/asm/syscall.h b/arch/arc/include/asm/syscall.h
-index 9709256e31c8..89c1e1736356 100644
---- a/arch/arc/include/asm/syscall.h
-+++ b/arch/arc/include/asm/syscall.h
-@@ -67,6 +67,20 @@ syscall_get_arguments(struct task_struct *task, struct pt_regs *regs,
- 	}
- }
- 
-+static inline void
-+syscall_set_arguments(struct task_struct *task, struct pt_regs *regs,
-+		      unsigned long *args)
-+{
-+	unsigned long *inside_ptregs = &regs->r0;
-+	unsigned int n = 6;
-+	unsigned int i = 0;
-+
-+	while (n--) {
-+		*inside_ptregs = args[i++];
-+		inside_ptregs--;
-+	}
-+}
-+
- static inline int
- syscall_get_arch(struct task_struct *task)
- {
-diff --git a/arch/arm/include/asm/syscall.h b/arch/arm/include/asm/syscall.h
-index fe4326d938c1..21927fa0ae2b 100644
---- a/arch/arm/include/asm/syscall.h
-+++ b/arch/arm/include/asm/syscall.h
-@@ -80,6 +80,19 @@ static inline void syscall_get_arguments(struct task_struct *task,
- 	memcpy(args, &regs->ARM_r0 + 1, 5 * sizeof(args[0]));
- }
- 
-+static inline void syscall_set_arguments(struct task_struct *task,
-+					 struct pt_regs *regs,
-+					 const unsigned long *args)
-+{
-+	memcpy(&regs->ARM_r0, args, 6 * sizeof(args[0]));
-+	/*
-+	 * Also copy the first argument into ARM_ORIG_r0
-+	 * so that syscall_get_arguments() would return it
-+	 * instead of the previous value.
-+	 */
-+	regs->ARM_ORIG_r0 = regs->ARM_r0;
-+}
-+
- static inline int syscall_get_arch(struct task_struct *task)
- {
- 	/* ARM tasks don't change audit architectures on the fly. */
-diff --git a/arch/arm64/include/asm/syscall.h b/arch/arm64/include/asm/syscall.h
-index ab8e14b96f68..76020b66286b 100644
---- a/arch/arm64/include/asm/syscall.h
-+++ b/arch/arm64/include/asm/syscall.h
-@@ -73,6 +73,19 @@ static inline void syscall_get_arguments(struct task_struct *task,
- 	memcpy(args, &regs->regs[1], 5 * sizeof(args[0]));
- }
- 
-+static inline void syscall_set_arguments(struct task_struct *task,
-+					 struct pt_regs *regs,
-+					 const unsigned long *args)
-+{
-+	memcpy(&regs->regs[0], args, 6 * sizeof(args[0]));
-+	/*
-+	 * Also copy the first argument into orig_x0
-+	 * so that syscall_get_arguments() would return it
-+	 * instead of the previous value.
-+	 */
-+	regs->orig_x0 = regs->regs[0];
-+}
-+
- /*
-  * We don't care about endianness (__AUDIT_ARCH_LE bit) here because
-  * AArch64 has the same system calls both on little- and big- endian.
-diff --git a/arch/csky/include/asm/syscall.h b/arch/csky/include/asm/syscall.h
-index 0de5734950bf..30403f7a0487 100644
---- a/arch/csky/include/asm/syscall.h
-+++ b/arch/csky/include/asm/syscall.h
-@@ -59,6 +59,19 @@ syscall_get_arguments(struct task_struct *task, struct pt_regs *regs,
- 	memcpy(args, &regs->a1, 5 * sizeof(args[0]));
- }
- 
-+static inline void
-+syscall_set_arguments(struct task_struct *task, struct pt_regs *regs,
-+		      const unsigned long *args)
-+{
-+	memcpy(&regs->a0, args, 6 * sizeof(regs->a0));
-+	/*
-+	 * Also copy the first argument into orig_x0
-+	 * so that syscall_get_arguments() would return it
-+	 * instead of the previous value.
-+	 */
-+	regs->orig_a0 = regs->a0;
-+}
-+
- static inline int
- syscall_get_arch(struct task_struct *task)
- {
-diff --git a/arch/hexagon/include/asm/syscall.h b/arch/hexagon/include/asm/syscall.h
-index f6e454f18038..12d2df6aaa03 100644
---- a/arch/hexagon/include/asm/syscall.h
-+++ b/arch/hexagon/include/asm/syscall.h
-@@ -33,6 +33,13 @@ static inline void syscall_get_arguments(struct task_struct *task,
- 	memcpy(args, &(&regs->r00)[0], 6 * sizeof(args[0]));
- }
- 
-+static inline void syscall_set_arguments(struct task_struct *task,
-+					 struct pt_regs *regs,
-+					 unsigned long *args)
-+{
-+	memcpy(&(&regs->r00)[0], args, 6 * sizeof(args[0]));
-+}
-+
- static inline long syscall_get_error(struct task_struct *task,
- 				     struct pt_regs *regs)
- {
-diff --git a/arch/loongarch/include/asm/syscall.h b/arch/loongarch/include/asm/syscall.h
-index e286dc58476e..ff415b3c0a8e 100644
---- a/arch/loongarch/include/asm/syscall.h
-+++ b/arch/loongarch/include/asm/syscall.h
-@@ -61,6 +61,14 @@ static inline void syscall_get_arguments(struct task_struct *task,
- 	memcpy(&args[1], &regs->regs[5], 5 * sizeof(long));
- }
- 
-+static inline void syscall_set_arguments(struct task_struct *task,
-+					 struct pt_regs *regs,
-+					 unsigned long *args)
-+{
-+	regs->orig_a0 = args[0];
-+	memcpy(&regs->regs[5], &args[1], 5 * sizeof(long));
-+}
-+
- static inline int syscall_get_arch(struct task_struct *task)
- {
- 	return AUDIT_ARCH_LOONGARCH64;
-diff --git a/arch/mips/include/asm/syscall.h b/arch/mips/include/asm/syscall.h
-index ebdf4d910af2..b8a19e465bf4 100644
---- a/arch/mips/include/asm/syscall.h
-+++ b/arch/mips/include/asm/syscall.h
-@@ -90,6 +90,37 @@ static inline void mips_get_syscall_arg(unsigned long *arg,
- 	unreachable();
- }
- 
-+static inline void mips_set_syscall_arg(unsigned long *arg,
-+	struct task_struct *task, struct pt_regs *regs, unsigned int n)
-+{
-+	unsigned long usp __maybe_unused = regs->regs[29];
-+
-+	switch (n) {
-+	case 0: case 1: case 2: case 3:
-+		regs->regs[4 + n] = *arg;
-+
-+		return;
-+
-+#ifdef CONFIG_32BIT
-+	case 4: case 5: case 6: case 7:
-+		put_user(*arg, (int *)usp + n);
-+		return;
-+#endif
-+
-+#ifdef CONFIG_64BIT
-+	case 4: case 5: case 6: case 7:
-+#ifdef CONFIG_MIPS32_O32
-+		if (test_tsk_thread_flag(task, TIF_32BIT_REGS))
-+			put_user(*arg, (int *)usp + n);
-+		else
-+#endif
-+			regs->regs[4 + n] = *arg;
-+
-+		return;
-+#endif
-+	}
-+}
-+
- static inline long syscall_get_error(struct task_struct *task,
- 				     struct pt_regs *regs)
- {
-@@ -136,6 +167,21 @@ static inline void syscall_get_arguments(struct task_struct *task,
- 		mips_get_syscall_arg(args++, task, regs, i++);
- }
- 
-+static inline void syscall_set_arguments(struct task_struct *task,
-+					 struct pt_regs *regs,
-+					 unsigned long *args)
-+{
-+	unsigned int i = 0;
-+	unsigned int n = 6;
-+
-+	/* O32 ABI syscall() */
-+	if (mips_syscall_is_indirect(task, regs))
-+		i++;
-+
-+	while (n--)
-+		mips_set_syscall_arg(args++, task, regs, i++);
-+}
-+
- extern const unsigned long sys_call_table[];
- extern const unsigned long sys32_call_table[];
- extern const unsigned long sysn32_call_table[];
-diff --git a/arch/parisc/include/asm/syscall.h b/arch/parisc/include/asm/syscall.h
-index 00b127a5e09b..b146d0ae4c77 100644
---- a/arch/parisc/include/asm/syscall.h
-+++ b/arch/parisc/include/asm/syscall.h
-@@ -29,6 +29,18 @@ static inline void syscall_get_arguments(struct task_struct *tsk,
- 	args[0] = regs->gr[26];
- }
- 
-+static inline void syscall_set_arguments(struct task_struct *tsk,
-+					 struct pt_regs *regs,
-+					 unsigned long *args)
-+{
-+	regs->gr[21] = args[5];
-+	regs->gr[22] = args[4];
-+	regs->gr[23] = args[3];
-+	regs->gr[24] = args[2];
-+	regs->gr[25] = args[1];
-+	regs->gr[26] = args[0];
-+}
-+
- static inline long syscall_get_error(struct task_struct *task,
- 				     struct pt_regs *regs)
- {
+Justifying it as "L0s really doesn't save much power, so disable it"
+is an invitation for somebody to come back and ask why L0s doesn't
+work when the lspci output claims it *should* work.
 
--- 
-ldv
+> Users may not be aware of these issues, so I think disabling L0s
+> through the driver might be the better way, since it does not
+> significantly save power and we usually use L1ss for power-saving
+> when the link is idle.
+
+Users should not need to be aware of probabilistic behavior problems
+related to ASPM.  It's *our* problem to make sure users never see
+issues like that :)
+
+Bjorn
 
