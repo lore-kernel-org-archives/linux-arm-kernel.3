@@ -4,85 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AAA1E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 01:54:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1463E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 01:57:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q4REjmunx7hDpwx9OHO2+8yG+89qVoPM0W6D75TmABg=; b=LmoX4n8aekRYivKggTibtK7G4N
-	hxwzJ5SGu2AbT8OsB2HtFls7xYsJTo8+H9YoD2s2JSe5Ud38dKlq9oB/cNx+/MC6PeTRQ2WwZe7xS
-	0323RU1S91LrTNpUfGt71+iKSpKV2YfWNE0PN9DwdDT9cDuT6qJ1jTITIlacdwsQWmcq755LxLl/Q
-	kkEaz3/s2gutvbkhHoMwy38zw1dKGTDdNgVAksd4mSF4h9sE+gBBrom8bH9Oee1maQo5eJeCUVxeH
-	zkfVPitnEdfzyc3/pkTJmdGwEn51z5YJpN+KOh0jG7aKY3AEzmbmu0E5FQFw6XDy9Rfp0bbzqwm28
-	N7Jn63yQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7wVaI7qK2wPTd+ohbRhZB4OSfyEFrr8MoJXJLzkunD0=; b=WNsLEPtDiaQu14N2KXIMXtWgp+
+	cwae9OV9KuWtEayJQb/FI5Mt5MlBF7NdkW7HfwBAA1+4ZSK4BCLaLFV3OIixkDh2guclSvqs/4gnm
+	XlnKECjSTB05kGklwX6vn82sj0Qsq8DY5e1j+yXeYN2vZHulW8Hsfx6bqCy/77xDye9kXEm6KXEl9
+	O7Wjd+S3TjLcZUZASSg9MBBHIXHGxvgRy9euxxRzXx94iojyaQc/bSL5E4+ltNwOg261Pkz68VRHF
+	JNeNF+aHsxo98xDPil5GpZwXrKfK3Ie0SlAqj5A4vmviv62MMcs2jVQIHVXe09hq+jbuLi+H3VIsC
+	+sU19Nrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUynh-000000039aB-18eb;
-	Tue, 07 Jan 2025 01:54:33 +0000
-Received: from dggsgout11.his.huawei.com ([45.249.212.51])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUylq-000000039OI-2ACp
+	id 1tUypx-000000039pu-46Zt;
+	Tue, 07 Jan 2025 01:56:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tUyol-000000039kg-40Vq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 01:52:40 +0000
-Received: from mail.maildlp.com (unknown [172.19.93.142])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4YRvDt0vHrz4f3lDN
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  7 Jan 2025 09:52:14 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.128])
-	by mail.maildlp.com (Postfix) with ESMTP id 6EDBE1A11B2
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  7 Jan 2025 09:52:35 +0800 (CST)
-Received: from [10.67.108.244] (unknown [10.67.108.244])
-	by APP4 (Coremail) with SMTP id gCh0CgDHKl_iiHxn3HQDAQ--.39505S3;
-	Tue, 07 Jan 2025 09:52:35 +0800 (CST)
-Message-ID: <5603f99d-c643-4db1-917e-c42ea7bddfff@huaweicloud.com>
-Date: Tue, 7 Jan 2025 09:52:34 +0800
+	Tue, 07 Jan 2025 01:55:41 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4362B143D;
+	Mon,  6 Jan 2025 17:56:06 -0800 (PST)
+Received: from a077893.arm.com (unknown [10.163.54.32])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 0F3AD3F66E;
+	Mon,  6 Jan 2025 17:55:34 -0800 (PST)
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64/mm: Replace open encodings with PXD_TABLE_BIT
+Date: Tue,  7 Jan 2025 07:25:29 +0530
+Message-Id: <20250107015529.798319-1-anshuman.khandual@arm.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH linux-next 1/2] perf: Remove unnecessary parameter of
- security check
-Content-Language: en-US
-To: Paul Moore <paul@paul-moore.com>
-Cc: peterz@infradead.org, mingo@redhat.com, acme@kernel.org,
- namhyung@kernel.org, mark.rutland@arm.com,
- alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com,
- adrian.hunter@intel.com, kan.liang@linux.intel.com, tglx@linutronix.de,
- bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
- will@kernel.org, jmorris@namei.org, serge@hallyn.com, rostedt@goodmis.org,
- mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
- stephen.smalley.work@gmail.com, omosnace@redhat.com,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-security-module@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, selinux@vger.kernel.org
-References: <20241223070650.2810747-1-luogengkun@huaweicloud.com>
- <20241223070650.2810747-2-luogengkun@huaweicloud.com>
- <CAHC9VhRRu-UYEV_-0-QgOZ3ByVwp-ZdEphmsvy4NcdqynH_tDg@mail.gmail.com>
-From: Luo Gengkun <luogengkun@huaweicloud.com>
-In-Reply-To: <CAHC9VhRRu-UYEV_-0-QgOZ3ByVwp-ZdEphmsvy4NcdqynH_tDg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: gCh0CgDHKl_iiHxn3HQDAQ--.39505S3
-X-Coremail-Antispam: 1UD129KBjvdXoW7Jw4UGw18CFWUKF4fZw43Jrb_yoWkurX_uF
-	9rArZ7Jrs2va4Sya43AFs3CF1q9rW8X3WrX3s3tr95Wr9xAF1UG3W8tFW8AwnxWF4IgF9F
-	k3ZxGryvvry5ZjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbxkYFVCjjxCrM7AC8VAFwI0_Wr0E3s1l1xkIjI8I6I8E6xAIw20E
-	Y4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM28CjxkF64kEwV
-	A0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW7JVWDJwA2z4x0Y4vE2Ix0cI8IcVCY1x02
-	67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I
-	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
-	x7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
-	0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AF
-	wI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4
-	xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5
-	MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I
-	0E14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_
-	Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU8
-	RuWJUUUUU==
-X-CM-SenderInfo: 5oxrwvpqjn3046kxt4xhlfz01xgou0bp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_175238_877852_C5EAB41C 
-X-CRM114-Status: GOOD (  12.66  )
+X-CRM114-CacheID: sfid-20250106_175540_039542_70207F06 
+X-CRM114-Status: UNSURE (   8.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,38 +66,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+[pgd|p4d]_bad() helpers have open encodings for their respective table bits
+which can be replaced with corresponding macros. This makes things clearer,
+thus improving their readability as well.
 
-On 2025/1/5 10:45, Paul Moore wrote:
-> On Mon, Dec 23, 2024 at 1:57 AM Luo Gengkun <luogengkun@huaweicloud.com> wrote:
->> It seems that the attr parameter was never been used in security
->> checks since it was first introduced by:
->>
->> commit da97e18458fb ("perf_event: Add support for LSM and SELinux checks")
->>
->> so remove it.
->>
->> Signed-off-by: Luo Gengkun <luogengkun@huaweicloud.com>
->> ---
->>   arch/x86/events/intel/bts.c     |  2 +-
->>   arch/x86/events/intel/core.c    |  2 +-
->>   arch/x86/events/intel/p4.c      |  2 +-
->>   drivers/perf/arm_spe_pmu.c      |  4 ++--
->>   include/linux/lsm_hook_defs.h   |  2 +-
->>   include/linux/perf_event.h      | 10 +++++-----
->>   include/linux/security.h        |  5 ++---
->>   kernel/events/core.c            | 14 +++++++-------
->>   kernel/trace/trace_event_perf.c |  4 ++--
->>   security/security.c             |  5 ++---
->>   security/selinux/hooks.c        |  2 +-
->>   11 files changed, 25 insertions(+), 27 deletions(-)
-> This patch seems fine to me from a LSM and SELinux perspective, but
-> I'd want to see an ACK from the perf folks before I merge this.
->
-> I'll also leave patch 2/2 for the perf folks as it seems largely
-> unrelated to this patch.
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Cc: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+---
+This patch applies on v6.13-rc6
 
-Thanks for your review
+ arch/arm64/include/asm/pgtable.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Gengkun
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index 6986345b537a..e20b80229910 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -896,7 +896,7 @@ static inline bool mm_pud_folded(const struct mm_struct *mm)
+ 	pr_err("%s:%d: bad pud %016llx.\n", __FILE__, __LINE__, pud_val(e))
+ 
+ #define p4d_none(p4d)		(pgtable_l4_enabled() && !p4d_val(p4d))
+-#define p4d_bad(p4d)		(pgtable_l4_enabled() && !(p4d_val(p4d) & 2))
++#define p4d_bad(p4d)		(pgtable_l4_enabled() && !(p4d_val(p4d) & P4D_TABLE_BIT))
+ #define p4d_present(p4d)	(!p4d_none(p4d))
+ 
+ static inline void set_p4d(p4d_t *p4dp, p4d_t p4d)
+@@ -1023,7 +1023,7 @@ static inline bool mm_p4d_folded(const struct mm_struct *mm)
+ 	pr_err("%s:%d: bad p4d %016llx.\n", __FILE__, __LINE__, p4d_val(e))
+ 
+ #define pgd_none(pgd)		(pgtable_l5_enabled() && !pgd_val(pgd))
+-#define pgd_bad(pgd)		(pgtable_l5_enabled() && !(pgd_val(pgd) & 2))
++#define pgd_bad(pgd)		(pgtable_l5_enabled() && !(pgd_val(pgd) & PGD_TABLE_BIT))
+ #define pgd_present(pgd)	(!pgd_none(pgd))
+ 
+ static inline void set_pgd(pgd_t *pgdp, pgd_t pgd)
+-- 
+2.30.2
 
 
