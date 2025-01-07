@@ -4,91 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F6B8E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 14:10:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DC01E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 14:11:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u+m2gfDVhQV2u3o7sl05GzerTgcPQ9MIYG1lSSy1s58=; b=TgWPWwtP+I9Job3+3wnaB6pm+2
-	LdE7x0FgzX+5R6nuRotEfyYRU1Gx3H8E0uBhMPyu3ERQuFr5/B0+Ag6RgMjfU9zii1kCBzrUdvsjM
-	ThZYzr5z945TPwIZbcvq4FcroEvlgOXgP4kl79LFaWEkHbof1IR2P/AHE+6p/5iJ9KV9SWuDZJioY
-	1EAuYA673fHN+gkDMIRfPqCdpxtefrz/EHaxCGK032ZZdIOH6zwbF1RkW+6rVT6lyDJU/sbEKMco9
-	ZNYWxSiRc8BRKYyK1jZD/lSZOhg0mRfrrEQULD9MzzHdU1hz7C5tgGvnVFsN5tXR03cbCrJqOR32u
-	lWUBG37Q==;
+	bh=2rOUVlJtZ8uljbYcwOtBufLmiKSlIWfZvWmApMuUFrM=; b=EUpkCPghK7F/BwFcbUpZXK9jRq
+	3j1Y7cQzaSjHAS1tzHf6SYVn7fmt1kklWZizSjuYrX7cbrh7yBX8+4gPYL5Fa4+fOJqmwTGZqRlbt
+	1Sd+dca89OgzJbXmlBkoWpP+/evpHopq3s43mxMfzkDAdgg7TU8a44r/apbZ6zxS4uJeyqA7oqMpX
+	mE3TDM7iEKo0QC/mEjU3R7s5Xh1I8Uz/4FU9GTo34NVjMPhZ9ypkQKlyGJspUKa8MNahnf0s4DA5+
+	BwHgytHMboYaD5Ofkl64Y2+xZTzPf+0dCooiOFtYXOolFMWmv7GSbXUA1FPCcXR/FU36tdQoSTAmR
+	48k+a5mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVAHD-000000057Xp-0UnU;
-	Tue, 07 Jan 2025 14:09:47 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1tVAIN-000000057qE-3Xqh;
+	Tue, 07 Jan 2025 14:10:59 +0000
+Received: from lelv0142.ext.ti.com ([198.47.23.249])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVA9V-000000055aa-1ZPx
+	id 1tVAA4-000000055hy-4ANJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 14:01:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1736258509; x=1767794509;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=u+m2gfDVhQV2u3o7sl05GzerTgcPQ9MIYG1lSSy1s58=;
-  b=LSqihZ5+Pq/0fx/27/A3FYdeezBUvP5f52Msg0/r7v+HsKR5FKXR3HWe
-   fYn5vH5G6ecAYh7qyUDALQlPRF6XbwhdFT5Umgx4jPeHDlEbPYJo8f/lP
-   V4AuMNPcy/cw3uPocTbTQ+Y4ZP/42eziDrK8dJ9RRNTmMDbD2/nD+jXg7
-   egOWIIPTXABPD/xWSO71YyRuNmRe9i69BZNCx3vg1ZINtHOoOsssWyrU4
-   VOTUOrwsYB6bMCAoW8EonpBsGaSgkaQfalyKdIyAQoqxJYYV8gHYbAsE5
-   hDvFNwPLFDuKlf9zrydlBjx7FhGKlRhRLADOfpQKQrLF6uMnAu8ki0xg7
-   w==;
-X-CSE-ConnectionGUID: g2Lg8GdfQIuZbOlKyGRR7g==
-X-CSE-MsgGUID: YD7ho+dbTQWHox3vQoozww==
-X-IronPort-AV: E=Sophos;i="6.12,295,1728943200"; 
-   d="scan'208";a="40896230"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 07 Jan 2025 15:01:47 +0100
-X-CheckPoint: {677D33CB-3C-1CE016C0-E589DA3E}
-X-MAIL-CPID: FD2C55157575331A5F84E96D4CD20098_1
-X-Control-Analysis: str=0001.0A682F1E.677D33CB.00BC,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8325A164BC3;
-	Tue,  7 Jan 2025 15:01:42 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1736258503;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=u+m2gfDVhQV2u3o7sl05GzerTgcPQ9MIYG1lSSy1s58=;
-	b=HGdfjwK4NDupW3qBR5pTl8OrOgU6T00bOwteSkxdhpojr8EqQ/3V6bV9fO6kb9kn306E48
-	VUJzpDOidwafTM0ONOsX3sCTzFiSThWLJ+XwczzL8gZjLIlLQM239CO6SAEK26ibjqGU7I
-	YuvT+Z/XAqY5ZHq82SJfvsPTujLJ0J0ZGewFtcOttXR08ZX9C4m0iLGYNRADDmSu6YPY/x
-	qiFeQ1s9y2EbxkbFs5oCkmrWa4OKVC+OCTzDoggIU3KxEviAeJV0rnfVNzm2g6VfDutF5k
-	EIDW/n5uId3Ibhng+eCWDXF2qN9XlzWCsFpcH7OwG6+tYl1WyhkqnDP4cU71kg==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux@ew.tq-group.com
-Subject: [PATCH 5/5] arm64: dts: mba8xx: Add PCIe support
-Date: Tue,  7 Jan 2025 15:01:10 +0100
-Message-Id: <20250107140110.982215-6-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250107140110.982215-1-alexander.stein@ew.tq-group.com>
-References: <20250107140110.982215-1-alexander.stein@ew.tq-group.com>
+	Tue, 07 Jan 2025 14:02:28 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id 507E1w6I016352;
+	Tue, 7 Jan 2025 08:01:58 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1736258518;
+	bh=2rOUVlJtZ8uljbYcwOtBufLmiKSlIWfZvWmApMuUFrM=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=T3CXUnR0gYOTdLBETqJF9pSz61jcO3F0K7B9XT+gbyJ7bGVi+MWA7BpgBYJmwC6a6
+	 oQcUUqnsgsXSu5B776R8QcSrmccqgG9bALfzl4I6C5nacV0V9BZbxFsB9gSN4Yl7bj
+	 xcZkc3+jrUzezQHy39T5+6xSQuozYDUtIU4ZLXl0=
+Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 507E1wqk054341
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 7 Jan 2025 08:01:58 -0600
+Received: from DFLE105.ent.ti.com (10.64.6.26) by DFLE105.ent.ti.com
+ (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 7
+ Jan 2025 08:01:57 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE105.ent.ti.com
+ (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 7 Jan 2025 08:01:57 -0600
+Received: from [10.249.129.69] ([10.249.129.69])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 507E1oVJ078399;
+	Tue, 7 Jan 2025 08:01:51 -0600
+Message-ID: <5cc13a7f-b3f9-42d5-b9e2-7da5cb54af5b@ti.com>
+Date: Tue, 7 Jan 2025 19:31:49 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v3 3/3] net: ti: icssg-prueth: Add Support for
+ Multicast filtering with VLAN in HSR mode
+To: Roger Quadros <rogerq@kernel.org>, MD Danish Anwar <danishanwar@ti.com>,
+        Jeongjun Park <aha310510@gmail.com>,
+        Alexander Lobakin
+	<aleksander.lobakin@intel.com>,
+        Lukasz Majewski <lukma@denx.de>, Meghana
+ Malladi <m-malladi@ti.com>,
+        Diogo Ivo <diogo.ivo@siemens.com>, Simon Horman
+	<horms@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, Jakub Kicinski
+	<kuba@kernel.org>,
+        Eric Dumazet <edumazet@google.com>,
+        "David S. Miller"
+	<davem@davemloft.net>,
+        Andrew Lunn <andrew+netdev@lunn.ch>
+CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>,
+        Michal Swiatkowski <michal.swiatkowski@linux.intel.com>,
+        Larysa Zaremba <larysa.zaremba@intel.com>
+References: <20250103092033.1533374-1-danishanwar@ti.com>
+ <20250103092033.1533374-4-danishanwar@ti.com>
+ <31bb8a3e-5a1c-4c94-8c33-c0dfd6d643fb@kernel.org>
+Content-Language: en-US
+From: "Anwar, Md Danish" <a0501179@ti.com>
+In-Reply-To: <31bb8a3e-5a1c-4c94-8c33-c0dfd6d643fb@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_060149_722944_01E6C097 
-X-CRM114-Status: GOOD (  12.40  )
+X-CRM114-CacheID: sfid-20250107_060225_122256_BEA2FBE6 
+X-CRM114-Status: GOOD (  19.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,78 +104,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add PCIe support for TQMa8Xx on MBa8Xx board.
 
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
----
- arch/arm64/boot/dts/freescale/mba8xx.dtsi | 32 +++++++++++++++++++----
- 1 file changed, 27 insertions(+), 5 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/mba8xx.dtsi b/arch/arm64/boot/dts/freescale/mba8xx.dtsi
-index 276d1683b03bb..117f657283191 100644
---- a/arch/arm64/boot/dts/freescale/mba8xx.dtsi
-+++ b/arch/arm64/boot/dts/freescale/mba8xx.dtsi
-@@ -36,6 +36,13 @@ chosen {
- 		stdout-path = &lpuart1;
- 	};
- 
-+	/* Non-controllable PCIe reference clock generator */
-+	pcie_refclk: clock-pcie-ref {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <100000000>;
-+	};
-+
- 	gpio-keys {
- 		compatible = "gpio-keys";
- 		pinctrl-names = "default";
-@@ -208,6 +215,12 @@ &flexcan2 {
- 	status = "okay";
- };
- 
-+&hsio_phy {
-+	fsl,hsio-cfg = "pciea-x2-pcieb";
-+	fsl,refclk-pad-mode = "input";
-+	status = "okay";
-+};
-+
- &i2c1 {
- 	tlv320aic3x04: audio-codec@18 {
- 		compatible = "ti,tlv320aic32x4";
-@@ -309,7 +322,16 @@ &lsio_gpio3 {
- 			  "", "", "", "";
- };
- 
--/* TODO: Mini-PCIe */
-+&pcieb {
-+	phys = <&hsio_phy 0 PHY_TYPE_PCIE 0>;
-+	phy-names = "pcie-phy";
-+	pinctrl-0 = <&pinctrl_pcieb>;
-+	pinctrl-names = "default";
-+	reset-gpios = <&lsio_gpio4 0 GPIO_ACTIVE_LOW>;
-+	disable-gpio = <&expander 7 GPIO_ACTIVE_LOW>;
-+	vpcie-supply = <&reg_pcie_1v5>;
-+	status = "okay";
-+};
- 
- &sai1 {
- 	assigned-clocks = <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_PLL>,
-@@ -467,10 +489,10 @@ pinctrl_pca9538: pca9538grp {
- 		fsl,pins = <IMX8QXP_USDHC1_RESET_B_LSIO_GPIO4_IO19	0x00000020>;
- 	};
- 
--	pinctrl_pcieb: pcieagrp {
--		fsl,pins = <IMX8QXP_PCIE_CTRL0_PERST_B_LSIO_GPIO4_IO00	0x06000041>,
--			   <IMX8QXP_PCIE_CTRL0_CLKREQ_B_LSIO_GPIO4_IO01	0x06000041>,
--			   <IMX8QXP_PCIE_CTRL0_WAKE_B_LSIO_GPIO4_IO02	0x04000041>;
-+	pinctrl_pcieb: pciebgrp {
-+		fsl,pins = <IMX8QXP_PCIE_CTRL0_PERST_B_LSIO_GPIO4_IO00		0x06000041>,
-+			   <IMX8QXP_PCIE_CTRL0_CLKREQ_B_HSIO_PCIE0_CLKREQ_B	0x06000041>,
-+			   <IMX8QXP_PCIE_CTRL0_WAKE_B_LSIO_GPIO4_IO02		0x04000041>;
- 	};
- 
- 	pinctrl_reg_pcie_1v5: regpcie1v5grp {
+On 1/7/2025 6:53 PM, Roger Quadros wrote:
+> 
+> 
+> On 03/01/2025 11:20, MD Danish Anwar wrote:
+>> Add multicast filtering support for VLAN interfaces in HSR offload mode
+>> for ICSSG driver.
+>>
+>> The driver calls vlan_for_each() API on the hsr device's ndev to get the
+>> list of available vlans for the hsr device. The driver then sync mc addr of
+>> vlan interface with a locally mainatined list emac->vlan_mcast_list[vid]
+>> using __hw_addr_sync_multiple() API.
+>>
+>> The driver then calls the sync / unsync callbacks.
+>>
+>> In the sync / unsync call back, driver checks if the vdev's real dev is
+>> hsr device or not. If the real dev is hsr device, driver gets the per
+>> port device using hsr_get_port_ndev() and then driver passes appropriate
+>> vid to FDB helper functions.
+>>
+>> This commit makes below changes in the hsr files.
+>> - Move enum hsr_port_type from net/hsr/hsr_main.h to include/linux/if_hsr.h
+>>   so that the enum can be accessed by drivers using hsr.
+>> - Create hsr_get_port_ndev() API that can be used to get the ndev
+>>   pointer to the slave port from ndev pointer to the hsr net device.
+>> - Export hsr_get_port_ndev() API so that the API can be accessed by
+>>   drivers using hsr.
+>>
+>> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+>> ---
+>>  drivers/net/ethernet/ti/icssg/icssg_prueth.c | 83 +++++++++++++++-----
+>>  drivers/net/ethernet/ti/icssg/icssg_prueth.h |  2 +
+>>  include/linux/if_hsr.h                       | 18 +++++
+>>  net/hsr/hsr_device.c                         | 13 +++
+>>  net/hsr/hsr_main.h                           |  9 ---
+> 
+> Should we be splitting hsr core changes into separate patch first,
+> then followed by a patch with icssg driver changes?
+> 
+
+I wanted to make sure that the changes to hsr core are done with the
+driver change so that any one looking at the commit can understand why
+these changes are done.
+
+If we split the changes and someone looks at the commit modifying hsr
+core, they will not be able to understand why this is done. We will be
+creating and exporting API hsr_get_port_ndev() but there will be no
+caller for this.
+
+>>  5 files changed, 97 insertions(+), 28 deletions(-)
+> 
+
 -- 
-2.34.1
+Thanks and Regards,
+Md Danish Anwar
 
 
