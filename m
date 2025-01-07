@@ -4,70 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B280DE77199
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 09:27:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DE0CE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 09:32:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B6jA30ID1W/7/7ogTwqiCTGjsVA+UOtm0dKxYnyJ8+Q=; b=LeDjgzsHpllGIGDZO21lyiQPka
-	PieOgt6iAfnCn3BwKPwAEpa9s0H9eHVQCrt8GhzrsPzWlzlBbBLjDhm63Ofn6qTMx4WML+PgVgmwo
-	FHwoMUPwcpph9mZkCfNcY9sPIfm8jePxSQl63VcLKSS2rT3GQLbD1/EfObngU4sdK/jygA95/9Qb0
-	XuBq1Ee5aj5mmC6VQXnpCI5xf8O/7lI5dT8RHhKM5zeFNyP4j++SfAMbO53gOu0MD8GoepFgp/s/c
-	uTxbNvcdFoK5e282Q75jE2GyxV7/6oiV99wPF59J28qraKTTZscKop7NQ9q5uwOlugg4YBTHwazOL
-	TPbORl4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=87+vEX+dmzF/m4jjsN8MEZUQoJzV6o6UGqgf8MAoEYc=; b=a2HA/uZVILMr7QOMUysMQ+j2W7
+	e2lOFEwBE2teH3KVE3n1+Kd79Kcdibgw6lodzaZZwtU48YalYPnMp90acXoUasFGV9MZawzO/5WC9
+	RV/MzyU8GmuKb9PiNS9UlBl21AeIoS+SQHuXaygScf0JG3Bpuexwnl7dk69AMHVqCjkTsOPiuMxCw
+	4j9AvqyKqHcEHDMBbuuvvEdxo0wRF5r/Sotb0sZJVJy7mU+D/g0Amit/GgdVteBmcK7RO0r1iJ9I3
+	cCG6z7ZgpGYFThtg9xOAgUBS223A3Fzjv8ZcGVwFnWMY7DyJ4g12QbKkqDodQLBmMdDueF1CQUlMy
+	CzZGga1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV5rJ-000000047Fu-3LtU;
-	Tue, 07 Jan 2025 09:26:45 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV5oi-000000046Wy-3Nmu;
-	Tue, 07 Jan 2025 09:24:06 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ADFCE143D;
-	Tue,  7 Jan 2025 01:24:31 -0800 (PST)
-Received: from [10.57.93.53] (unknown [10.57.93.53])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 96F593F66E;
-	Tue,  7 Jan 2025 01:23:54 -0800 (PST)
-Message-ID: <83df51a5-5eb9-4470-92a1-e69fd12b98b4@arm.com>
-Date: Tue, 7 Jan 2025 10:23:52 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 07/15] mm: pgtable: introduce pagetable_dtor()
-To: Qi Zheng <zhengqi.arch@bytedance.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>
-Cc: peterz@infradead.org, palmer@dabbelt.com, tglx@linutronix.de,
- david@redhat.com, jannh@google.com, hughd@google.com, yuzhao@google.com,
- willy@infradead.org, muchun.song@linux.dev, vbabka@kernel.org,
- lorenzo.stoakes@oracle.com, akpm@linux-foundation.org, rientjes@google.com,
- vishal.moola@gmail.com, arnd@arndb.de, will@kernel.org,
- aneesh.kumar@kernel.org, npiggin@gmail.com, dave.hansen@linux.intel.com,
- rppt@kernel.org, ryan.roberts@arm.com, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org, x86@kernel.org,
- linux-arch@vger.kernel.org, linux-csky@vger.kernel.org,
- linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org,
- linux-um@lists.infradead.org
-References: <cover.1735549103.git.zhengqi.arch@bytedance.com>
- <8ada95453180c71b7fca92b9a9f11fa0f92d45a6.1735549103.git.zhengqi.arch@bytedance.com>
- <Z3uxwiEhYHDqdTh3@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
- <e1de887c-6193-48ee-a9b3-04c8a0cdda45@bytedance.com>
- <Z3vOZ18jcCpHIcPD@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
- <bce4bb4e-459a-44c8-945b-8889149377fd@bytedance.com>
-Content-Language: en-GB
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <bce4bb4e-459a-44c8-945b-8889149377fd@bytedance.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+	id 1tV5ww-000000048LN-1Fv6;
+	Tue, 07 Jan 2025 09:32:34 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tV5vk-0000000486q-0TVS
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 07 Jan 2025 09:31:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 014E35C5A93;
+	Tue,  7 Jan 2025 09:30:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA7FFC4CED6;
+	Tue,  7 Jan 2025 09:31:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736242278;
+	bh=CaBk+HCXzISi/V9QHHnknAncziV1cfTksEsUBzRp8f8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=oQ1DpMznhDrsNvG7OIpD/lr+j5Xlj3Lre6BrRA55fospF5lHvkGC8gfOPKZCebhoC
+	 4bx7BZ4IqFjHo3srg0hGWK95zua4eHioDeZw4QyyUejGglBZLg2SFMP4DJZgGQLMqC
+	 jkMHxPTYfwqnlOD8rPA1Tiy9DM9xiSinnI7y+6JqCjkN34+0AiFNxowbqTxx5gM8dU
+	 jxW/fbYz/xh4LCTAD1nsdHEKztkZbDp6/lq9PID7oENrIlQi0ILJs8ZFgOu8eZYTcl
+	 TQXH2FWtzl+38ZgpOZcAMxHmu4M2prSF//Ps9QDN1/1PPzlvCO3tFklUFZLSO2FG7q
+	 CGfIsB0lX4yEA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tV5vg-009iYS-ES;
+	Tue, 07 Jan 2025 09:31:16 +0000
+Date: Tue, 07 Jan 2025 09:31:16 +0000
+Message-ID: <86zfk3nf6j.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: oliver.upton@linux.dev,
+	kvmarm@lists.linux.dev,
+	kernel-team@android.com,
+	linux-arm-kernel@lists.infradead.org,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Zenghui Yu <zenghui.yu@linux.dev>
+Subject: Re: [PATCH] KVM: arm64: Fix nVHE stacktrace VA bits mask
+In-Reply-To: <20250106183213.4094616-1-vdonnefort@google.com>
+References: <20250106183213.4094616-1-vdonnefort@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: vdonnefort@google.com, oliver.upton@linux.dev, kvmarm@lists.linux.dev, kernel-team@android.com, linux-arm-kernel@lists.infradead.org, suzuki.poulose@arm.com, joey.gouly@arm.com, zenghui.yu@linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_012404_887239_34D3927F 
-X-CRM114-Status: GOOD (  10.74  )
+X-CRM114-CacheID: sfid-20250107_013120_203355_BF3EACAC 
+X-CRM114-Status: GOOD (  15.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,46 +88,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/01/2025 14:23, Qi Zheng wrote:
-> On 2025/1/6 20:36, Alexander Gordeev wrote:
->> On Mon, Jan 06, 2025 at 06:55:58PM +0800, Qi Zheng wrote:
->>>>> +static inline void pagetable_dtor(struct ptdesc *ptdesc)
->>>>> +{
->>>>> +    struct folio *folio = ptdesc_folio(ptdesc);
->>>>> +
->>>>> +    ptlock_free(ptdesc);
->>>>> +    __folio_clear_pgtable(folio);
->>>>> +    lruvec_stat_sub_folio(folio, NR_PAGETABLE);
->>>>> +}
->>>>> +
->>>>
->>>> If I am not mistaken, it is just pagetable_pte_dtor() rename.
->>>> What is the point in moving the code around?
->>>
->>> No, this is to unify pagetable_p*_dtor() into pagetable_dtor(), so
->>> that we can move pagetable_dtor() to __tlb_remove_table(), and then
->>> ptlock and PTE page can be freed together through RCU, which is
->>> also the main purpose of this patch series.
->>
->> I am only talking about this patch. pagetable_dtor() code above is
->> the same pagetable_pte_dtor() below - it is only the function name
->> that changed. So why to move the function body? Anyway, that is
->
-> Ah, I just don't want to put pagetable_dtor() in between
-> pagetable_pte_ctor() and ___pte_offset_map(), so I moved it above
-> pagetable_pte_ctor(). No other special reason. 😉 
+Vincent,
 
-I think inserting pagetable_dtor() there makes sense. I wouldn't say
-that pagetable_pte_dtor() is being renamed to pagetable_dtor(), because
-in fact this patch replaces all of pagetable_{pte,pmd,pud}_dtor() with
-pagetable_dtor(), and it is arguably clearer to insert the latter higher
-up in mm.h.
+Please add all the KVM/arm64 reviewers in the future (I added them
+this time).
 
-FWIW my follow-up series introduces a common __pagetable_dtor(),
-inserted below pagetable_ctor() [1].
+On Mon, 06 Jan 2025 18:32:13 +0000,
+Vincent Donnefort <vdonnefort@google.com> wrote:
+> 
+> The hypervisor VA space size depends on both the ID map's
+> (IDMAP_VA_BITS) and the kernel stage-1 (VA_BITS). When VA_BITS is
+> smaller than IDMAP_VA_BITS (i.e. 39-bit), the stacktrace can contain
+> addresses bigger than the current VA_BITS mask.
+> 
+> As the hyp_va_bits value needs to be used outside of the init code now,
+> use a global variable, shared by all the kvm users in mmu.c, arm.c and
+> now stacktrace.c.
 
-- Kevin
+I tend to dislike this approach for at least three reasons:
 
-[1]
-https://lore.kernel.org/linux-mm/20250103184415.2744423-2-kevin.brodsky@arm.com/
+- it makes it hard to follow *when* hyp_va_bits is made valid, while
+  passing the value as a parameter is self explanatory. Specially
+  given how convoluted the nVHE/pKVM init is these days.
+
+- it prevents the eventual use of *multiple* VA bit values (one for
+  TTBR0, one for TTBR1) once the grand plan for hVHE is completed
+  (right after full NV support is merged! ;-)
+
+- it makes the change larger than it should be, specially for
+  something that should be backported.
+
+So I'd rather you keep the general shape of the code as it, and simply
+publish this 'hyp_va_bits' for the purpose of the backtrace code.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
