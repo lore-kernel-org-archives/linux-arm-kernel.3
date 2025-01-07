@@ -4,86 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D574AE77199
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 15:20:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 468F2E77198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 15:21:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wd/OIh9+XuLROZNqgy3qFc0I67rLSdyN4Q7q2BFezNE=; b=L9/uKfiS5otX4ARBM4crmkXpG9
-	pXx877GHLHcYwavCHwa4iroLWKd0CccWsmwoA5+rEOcBTFaM2o+kc+N6kE5S0VSSVbnqyUoei4qrV
-	UIslXfadbHyzVRAZL3X51M2r+doSl47G1w/vL6mURB26E5sat2/Nbt9EfwNFhpsQoxc1TyxecMEfo
-	1JUXu2VJbjEnTqqMJR2JiDU/vHFpi+/g/uWzZArq/Fj/TtLtGcogegMg9xqYuG6p/KGrlsyE7DINp
-	hSZ1/Gb6/LSY26EX0MweqysBrnz7MTPfHLaMvmg/XSk/YLqUYexo5IYL1a3yWO82BdUSGCKCW4OkJ
-	t+2+rAoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r4XeFeiFVsGRZffdM2vxTTFEKD3RxCPAOIYW+hH+96o=; b=YMnzB/zFNL5vD4IZ7wyeWDPuBF
+	ndt85g+/3nxots/2/nfZ4ZzXWG8GqlhU4EgjpLP57kOcu5Raa545BHHvxFtT6AP9Z4lmSDihoiutQ
+	jvVcJgH3UFUNIWZVsXEXQv/K5wif86QppZ6oT3dig8Bz50ofnBTodZ9kvQVJSgruXlie6ISLQbUta
+	8f7utTwz+Rsu0Rab9gIr3dZRZquA8DDKSSN8a6NRhiStKtXd2HC7pIHiW5EEO/RAMEo573lcsVXqU
+	tKQdxvMbnPhEkZf/kuHztiadSr9ggAOQPMxXynShGSdkuavy3Yf3mjcJjSvd6MghCEvkhpTsOcBNA
+	FupNcL2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVBMy-00000005PE1-4832;
-	Tue, 07 Jan 2025 15:19:49 +0000
-Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
+	id 1tVBOO-00000005PVd-2p9L;
+	Tue, 07 Jan 2025 15:21:16 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVBLj-00000005Owy-48Vo
+	id 1tVBNB-00000005PGj-2to3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 15:18:36 +0000
-Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-30227c56b11so177058531fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 07:18:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736263110; x=1736867910; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Wd/OIh9+XuLROZNqgy3qFc0I67rLSdyN4Q7q2BFezNE=;
-        b=QDW2YrlWd+zy8ID0M0YN2WQHHC1mN+Fqhzj9w+m75Lax3hEzZHJTJT+HuUQ8YGvPI2
-         oiXmjLUNkx5IosdDjPzP9G/dAACasa5rCrEux1zlQKPmIl9hYp6xbM56qJcDYbi9vO4M
-         xdCnG7W14snS9/TlwbjWLaoD9XCCEH3qllBeeRv1i3ckNDAwSBERWn7Y1zBaSTvMPWJi
-         3dPVDPt5D8xAAo+g3bH5/SzBOudLmZeterHcQZDu54alAbfZH/A48kbs1B5uqdb1gH3Z
-         EY00TRnFyzainFRRVQYZiS+1Gmh7VF2yq5g4Qx9RiKcMylmKl98LyHiNd5hHoAzmBsDr
-         bDlA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736263110; x=1736867910;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Wd/OIh9+XuLROZNqgy3qFc0I67rLSdyN4Q7q2BFezNE=;
-        b=HG6FqSGlKPxZYftyRYM6W0I2no/nKAhXIFFSgGrfvA6IBh9vYtuhH/pz+ZRr0nrhMy
-         5PM/ZnGOS2oqZiNA6ADC3weXEhd2yV+Ipm5mPJ8HthqeORjhglSsfFaEol8An8XLD8wq
-         sj82XGajndVWK3VBOzlCE5M0VOHoFMuT8IoyJzHdvl0FutEHcbb35Kzdbi7JQLpOzoQa
-         /t9fniyDf5U9g7XjOUG9JzV4DGGfEW2J4yd9u59PlaO3KNwUEAegajc5hV50AThTV6Bl
-         p6qJZWVwoPasJ/mG1fLECdFA/2ayiS6A40ORrUm4tv0jYyNSoUcYCvN/uvBmvwLXo9Pl
-         LZ9Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXxhnjVof2ZjCGccdyxmOKzbDr1uK1fKihga+O6WLmn+9BGpfUtUFcneTCycMSw+JiKOfLQuU2jLD56qD+N49JH@lists.infradead.org
-X-Gm-Message-State: AOJu0YxkdyhItMD42e+HGfOdGeRf7D3qwCD2hk9Yn1rUoWBcnqoRHj8b
-	9gFRkfHpW7NGLKNIjlYY3+DcTtxRWOaJwaHvgbwzf+RqYepkVpSqP7Q939HCY0hxnfjCNMFSDJl
-	SObACbitoK27rGowm0DPrPkdrdDeX9iW2pSyykdm3cT+78IQT
-X-Gm-Gg: ASbGncuhVBaXt6erRgKZKBQxR2NlpOJeXegQB9n1ZuRsrVoCd0yt97CwGrODjzfTdY2
-	xJXuY2RdSlPMb/29jcOlfR1fYia5FIOzeT6FP
-X-Google-Smtp-Source: AGHT+IFfSJ/IVHhrJ2qR+8hDDFjdqdHa8DoOmF81YVHP8qeEB0D4AktjBUg7IrZZHNZ63UvWGjpkKeBdKSBO3q3o3/Q=
-X-Received: by 2002:a05:6512:3b08:b0:53e:39c2:f02b with SMTP id
- 2adb3069b0e04-54229562a86mr17756761e87.42.1736263109745; Tue, 07 Jan 2025
- 07:18:29 -0800 (PST)
+	Tue, 07 Jan 2025 15:20:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 02EEA5C5F32;
+	Tue,  7 Jan 2025 15:19:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CE55C4CEE0;
+	Tue,  7 Jan 2025 15:19:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736263200;
+	bh=HW5UP+Hh2z2a22Lx+HwnvhXepcphCb4HK1NIWFN1HuY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qDKST+jn66IN7CqV7Kww2DUrbI8shNCa41lebRHzR1NDPBLqt+t+PxQj1y72pHYe2
+	 /IgZg+/Yx1YGcuCN2yJc1MZp854BuAyK9Y0jitUNZo5WcwksYZSAuK77tRRK2/mfeg
+	 K1L8870o8OAY4u/eUTJQi4oCX5tlLOdqeCm/BUyI6MqVDFQtC/eC3bgG03XF25/nlv
+	 vTttlFQL77zUIXc5FXvNflBt326zpSyLaSfee4QkMDjXUsM1l8zA+KMZvRDkH/yHdZ
+	 BF7/cTsRtEkiNAqYCkHQTenlpkTR5DH2ChavbXaU8al6mo1setNVliE9KNVd2uCaGK
+	 k92GtyZBwseTg==
+Date: Tue, 7 Jan 2025 15:19:54 +0000
+From: Will Deacon <will@kernel.org>
+To: Douglas Anderson <dianders@chromium.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Trilok Soni <quic_tsoni@quicinc.com>,
+	Jeffrey Hugo <quic_jhugo@quicinc.com>,
+	Roxana Bradescu <roxabee@google.com>,
+	bjorn.andersson@oss.qualcomm.com,
+	Julius Werner <jwerner@chromium.org>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Besar Wicaksono <bwicaksono@nvidia.com>,
+	D Scott Phillips <scott@os.amperecomputing.com>,
+	Easwar Hariharan <eahariha@linux.microsoft.com>,
+	Oliver Upton <oliver.upton@linux.dev>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/2] arm64: cputype: Add info about some Qualcomm Kryo
+ cores
+Message-ID: <20250107151953.GB7368@willie-the-truck>
+References: <20241219211131.2389091-1-dianders@chromium.org>
 MIME-Version: 1.0
-References: <20241226-amlogic-pinctrl-v2-0-cdae42a67b76@amlogic.com> <20241226-amlogic-pinctrl-v2-2-cdae42a67b76@amlogic.com>
-In-Reply-To: <20241226-amlogic-pinctrl-v2-2-cdae42a67b76@amlogic.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 7 Jan 2025 16:18:18 +0100
-Message-ID: <CACRpkdYrUDK9RsJ0VzksUNAyZ=grdQLAkMN1_BjeqQumY8bjSw@mail.gmail.com>
-Subject: Re: [PATCH v2 2/5] pinctrl: pinconf-generic: Add API for pinmux
- propertity in DTS file
-To: xianwei.zhao@amlogic.com
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Bartosz Golaszewski <brgl@bgdev.pl>, 
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-amlogic@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241219211131.2389091-1-dianders@chromium.org>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_071832_032855_EBA17C2B 
-X-CRM114-Status: GOOD (  10.74  )
+X-CRM114-CacheID: sfid-20250107_072001_779277_8ED068A4 
+X-CRM114-Status: GOOD (  15.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,30 +84,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 26, 2024 at 8:57=E2=80=AFAM Xianwei Zhao via B4 Relay
-<devnull+xianwei.zhao.amlogic.com@kernel.org> wrote:
+On Thu, Dec 19, 2024 at 01:11:08PM -0800, Douglas Anderson wrote:
+> 
+> This series breaks off of my series that reworked Spectre BHB
+> mitigations. Originally I needed Qualcomm Kryo IDs because I was
+> adding "guesses" about their Spectre BHB mitigations. Now that the
+> Spectre BHB series no longer has guesses I don't need them there, but
+> these two patches still seem worth it to land on their own.
+> 
+> I've still called this series "v3" because the first patch was part of
+> the v1 and v2 of the previous series.
+> 
+> Link to prev versions:
+> v1: https://lore.kernel.org/r/20241209174430.2904353-1-dianders@chromium.org/
+> v2: https://lore.kernel.org/r/20241214005248.198803-1-dianders@chromium.org
+> 
+> Changes in v3:
+> - arm64: cputype: Add comments about Qualcomm Kryo 5XX and 6XX cores
+> 
+> Douglas Anderson (2):
+>   arm64: cputype: Add QCOM_CPU_PART_KRYO_3XX_GOLD
+>   arm64: cputype: Add comments about Qualcomm Kryo 5XX and 6XX cores
+> 
+>  arch/arm64/include/asm/cputype.h | 12 ++++++++++++
+>  1 file changed, 12 insertions(+)
 
-> From: Xianwei Zhao <xianwei.zhao@amlogic.com>
->
-> When describing pin mux func through pinmux propertity,
-> a standard API is added for support. The pinmux contains pin
-> identification and mux values, which can include multiple
-> pins. And groups configuration use other word. DTS such as:
->
-> func-name {
->         group_alias: group-name{
->                 pinmux=3D <pin_id << 8 | mux_value)>,
->                         <pin_id << 8 | mux_value)>;
->                 bias-pull-up;
->                 drive-strength-microamp =3D <4000>;
->         };
-> };
->
-> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+Can somebody from Qualcomm please provide an Ack on these patches?
 
-There are some build errors, but I really like the path taken with
-the utility function here!
+Thanks,
 
-Yours,
-Linus Walleij
+Will
 
