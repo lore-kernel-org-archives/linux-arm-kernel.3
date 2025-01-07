@@ -4,96 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 427D4E77199
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 12:46:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32517E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 12:49:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c3LrOk6qo91rafb6+/CO9ESt0s5VAorqbYZYMCcT99w=; b=vLZO3ldZ4tHmwLPb2KqPeSGMED
-	Bc6c+EUoMQhduzq6dpBcReRHsh/L85LMaR9jUfpEGfnzTOSW8NmtcfxFT6WeEq/ec7L37Of/u/QUd
-	VJXjFZCwqhgw2oacDsy+qf9rALYf5Vea2jTV2hv7swiChdSFqPNmj8yCuUBbcCV4IM1owdfckNIZc
-	SNSWXQ8atYdJSpiQXjUiy9bVqHp02dYqYsKo4Ur8gznZaiglk1HYXu/CppGA+UiW46nxHTst+XpKL
-	0uOvZc2URE5fc/5GaAGbrsxdk4//cmFNs4mRcT0xNX567yup8lylJM0Lx4lGUwuyXHZDR/GHGO+Zx
-	Skys0Vmw==;
+	bh=A1m6zoNK2OCrKmol3JpBlHNW7G1jM6bWvlDWkULF/m8=; b=g9yu2LjD656PfGCC2o081n7d9u
+	UhCqdMiGCrtekxT/J1U/OEebA3Je2kxhAv8ShNzirhBJiMKSCObLTB16/ypynB9qZ4K0HtlKJhsty
+	VrWt1XCcd2GJsr0FQXQOB/9hm574CmcPAKQyUJXg7pD8Xndlj2xFT6jLO34g9j3LouTlk5Sj71NMk
+	uPWtD1WUzSjI24p1VbKV8H1movq/+mRaDhlARiaLRplDBjbZtL2DuErle+qaN+qg3NFXNk4bPWgE4
+	XwgCJBoTBexY2A+NW0OP0ZbhRpjTazkSraE3VcgBPHjcgzUwBfgGuhRjMMoL8LvLJVwHIqDpt1W2/
+	+YKg4YwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV8yU-00000004p20-3VJ0;
-	Tue, 07 Jan 2025 12:46:22 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1tV90x-00000004pgI-2OgB;
+	Tue, 07 Jan 2025 12:48:55 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV8xE-00000004om3-0iVA
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 12:45:08 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-43624b2d453so159450465e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 04:45:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=jrtc27.com; s=gmail.jrtc27.user; t=1736253901; x=1736858701; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=c3LrOk6qo91rafb6+/CO9ESt0s5VAorqbYZYMCcT99w=;
-        b=Cl/S1aES5RZTHEnXzDI4WekJ9JrxRM4ap+rCXg0js61F0Q3Fs7gBy+24knPQ2Fu+In
-         d+wpIGMCfCj99aVW2ABLXJROgym9y7NjX7v72JUDns8TG4hUPKhq037cthLBjoQE1pv3
-         iAuhatbdm+yy1VEcizYWIjCfgVGESg/FdTjR7bkTdMCuHJp2zJUApp1OoLK37gd/Ot+D
-         yo1kaABAxeiO+26VTZ25AcC+NQvXds21VNqTvD7cU3i1luMNS5zr1E/NtKDpBPvaE1Q8
-         SwU80oZFjfoxpGDgkwU9J2hnvk+McQcjTfMj7aprTULOVvrSBG8Ex2AG4LA/3urlCuJg
-         ch7Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736253901; x=1736858701;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=c3LrOk6qo91rafb6+/CO9ESt0s5VAorqbYZYMCcT99w=;
-        b=chQ0tBhf/7KOP4W8B14F9vopwedCywBCT+iQ7dgv1C/q0mLP6iwMjg/j34rIxSMRFI
-         spblFuBJuwM/7cY0aLeTIAgGLLro4c7kVnTkbHa73/fV2oK2eVhKd/J3nrsz/n4IvtbF
-         qwaY65rLCNSwOAyAmJ8lQv48a6cSjFHG9B3ztkzNSJX1zpQwBgp+aUF21Rmgld3E9E8g
-         Be/MY0neaZV6bsnCSlfoSPTl1R6luwFgPFzrxJQuJWGtidKX2NOQLlRFek1jQvvNjlsM
-         cifYAw80feb9OJP4Vkzjjzzi4GMWROVWxmy3gmJC2sxf6f3T3mPiPLRgPjnWkWmcw22o
-         X90Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVdDC1GCjnICxLBzSQP/mxX0iHxs/FCgosDF4GmgX2JJyNexEc2RZhxr/vYltGUAcyJ/mC0yAI8C8gRsU3XyPVA@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy9m4yZyS8I4PCHrZ5xPBSJqiRKs4ZH4hVU6XIE5IctUyrmA0q5
-	f91GbdOSIrQT5iT3IkvYGeAtG99wZScuMjC6oV7caEZallKtlZmQMP6+Ov/THGE=
-X-Gm-Gg: ASbGnctQz1VAXlmsSXUUBeSmDmpdRCD4vRpYOl72Os4UalAttwPvLWmmQww/v4ayF03
-	gRud7SL7bQ8bGD9JzZfsc/Y1BcdhvUQ1Ltey2uxkzS47oUmyx0qsAJPo5iF+dsYhS+TML7vWOOE
-	XFd31XZBB1YHqkfPdF5DdwB1YWE6QUAi//IlegafNCTdRLKYAJB6BCWZr+FFJeZSGZ6+ZKoxNlH
-	hpCH5GZlNPiEHBjrPBHXqydDM3/19mnInUmVIIqcyfEIo3ioBKni4raATmHE3q8XMpKnr2H6r6+
-	k118lNjkqABMWDk=
-X-Google-Smtp-Source: AGHT+IHZjNr6wN1CLnlIkgb4k+SwHQIv3FuuIKcFhhoRcQa1qzg2+v7fOpJLPuyuSraeTPSYtP99Ew==
-X-Received: by 2002:a05:600c:4586:b0:431:5c3d:1700 with SMTP id 5b1f17b1804b1-43668a3a3c4mr477363735e9.21.1736253900644;
-        Tue, 07 Jan 2025 04:45:00 -0800 (PST)
-Received: from Jessicas-MacBook-Pro.localdomain ([131.111.5.201])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43656af6aeesm633713345e9.6.2025.01.07.04.45.00
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 07 Jan 2025 04:45:00 -0800 (PST)
-Received: by Jessicas-MacBook-Pro.localdomain (Postfix, from userid 501)
-	id 928D7CDDD8C9; Tue,  7 Jan 2025 12:44:58 +0000 (GMT)
-Date: Tue, 7 Jan 2025 12:44:58 +0000
-From: Jessica Clarke <jrtc27@jrtc27.com>
-To: Vincenzo Frascino <vincenzo.frascino@arm.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	id 1tV8zg-00000004pCl-2Ev3;
+	Tue, 07 Jan 2025 12:47:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=A1m6zoNK2OCrKmol3JpBlHNW7G1jM6bWvlDWkULF/m8=; b=zpkwdtRyHJ33oc0FoDYdcNRdXJ
+	DGpoktI0tR5csqLEQk8ZcvABHSPAw9SYV3PGYd7QrvqVkFxAlxUihbo6DVQ64w7LCMFTTFlRPtcWr
+	dvgfZr4gMA3idan/VnKEUjMm7UzJm8uRLTH1xE+QVcoz1zDYJcg6SbYzUHXYfk1F7+fo+orC361jn
+	M0J+wwDvMXrSQC8RSkKe/v3IgHtnve7ybXTnAJ14XiIYudD4NvH/xvIEnGQYa+WzZwZzjbHjy6q4A
+	N6a3VMxRzzTpHor8kMCN1J7uONVPsOZmstLUTtURL77aWoiJpDgAnLV22+XQ7bffuN/cL5i4ipxpz
+	RVeZgwFQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:45594)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tV8zP-0007QG-0w;
+	Tue, 07 Jan 2025 12:47:19 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tV8zL-0005IN-0Q;
+	Tue, 07 Jan 2025 12:47:15 +0000
+Date: Tue, 7 Jan 2025 12:47:14 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Eric Woudstra <ericwouds@gmail.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Frank Wunderlich <frank-w@public-files.de>,
+	Daniel Golle <daniel@makrotopia.org>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, netfilter-devel@vger.kernel.org,
+	coreteam@netfilter.org, bridge@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Russell King <linux@armlinux.org.uk>
-Subject: Re: [PATCH v4 2/4] arm64: dts: morello: Add support for common
- functionalities
-Message-ID: <Z30hypjCMmSsf81L@Jessicas-MacBook-Pro>
-References: <20250103181623.1980433-1-vincenzo.frascino@arm.com>
- <20250103181623.1980433-3-vincenzo.frascino@arm.com>
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH RFC net-next] net: phylink: always config mac for
+ (delayed) phy
+Message-ID: <Z30iUj6DE9-fRp0n@shell.armlinux.org.uk>
+References: <20250107123615.161095-1-ericwouds@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250103181623.1980433-3-vincenzo.frascino@arm.com>
+In-Reply-To: <20250107123615.161095-1-ericwouds@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_044504_246340_3331242F 
-X-CRM114-Status: GOOD (  24.18  )
+X-CRM114-CacheID: sfid-20250107_044736_570910_0F16F395 
+X-CRM114-Status: GOOD (  10.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,513 +88,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 03, 2025 at 06:16:21PM +0000, Vincenzo Frascino wrote:
-> The Morello architecture is an experimental extension to Armv8.2-A,
-> which extends the AArch64 state with the principles proposed in
-> version 7 of the Capability Hardware Enhanced RISC Instructions
-> (CHERI) ISA.
-> 
-> The Morello Platform (soc) and the Fixed Virtual Platfom (fvp) share
-> some functionalities that have conveniently been included in
-> morello.dtsi to avoid duplication.
-> 
-> Introduce morello.dtsi.
-> 
-> Note: Morello fvp will be introduced with a future patch series.
-> 
-> Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
-> ---
->  arch/arm64/boot/dts/arm/morello.dtsi | 467 +++++++++++++++++++++++++++
->  1 file changed, 467 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/arm/morello.dtsi
-> 
-> diff --git a/arch/arm64/boot/dts/arm/morello.dtsi b/arch/arm64/boot/dts/arm/morello.dtsi
-> new file mode 100644
-> index 000000000000..0089b4f2eca7
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/arm/morello.dtsi
-> @@ -0,0 +1,467 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
-> +/*
-> + * Copyright (c) 2020-2024, Arm Limited. All rights reserved.
-> + */
-> +
-> +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +/ {
-> +	interrupt-parent = <&gic>;
-> +
-> +	#address-cells = <2>;
-> +	#size-cells = <2>;
-> +
-> +	clocks {
-> +		soc_refclk50mhz: clock-50000000 {
-> +			compatible = "fixed-clock";
-> +			#clock-cells = <0>;
-> +			clock-frequency = <50000000>;
-> +			clock-output-names = "apb_pclk";
-> +		};
-> +
-> +		soc_uartclk: clock-50000000-uart {
-> +			compatible = "fixed-clock";
-> +			#clock-cells = <0>;
-> +			clock-frequency = <50000000>;
-> +			clock-output-names = "uartclk";
-> +		};
-> +
-> +		soc_refclk85mhz: clock-85000000 {
-> +			compatible = "fixed-clock";
-> +			#clock-cells = <0>;
-> +			clock-frequency = <85000000>;
-> +			clock-output-names = "iofpga:aclk";
+Going through the log...
 
-If this is ACLK for the IOFPGA outside the SoC, why is it called soc_refclk85mhz?
+On Tue, Jan 07, 2025 at 01:36:15PM +0100, Eric Woudstra wrote:
+> Log before this patch is applied:
+> [root@bpir3 ~]# dmesg | grep eth1
+> [    2.515179] mtk_soc_eth 15100000.ethernet eth1: mediatek frame engine at 0xffff800082380000, irq 123
+> [   38.271431] mtk_soc_eth 15100000.ethernet eth1: configuring for inband/2500base-x link mode
+> [   38.279828] mtk_soc_eth 15100000.ethernet eth1: major config, requested inband/2500base-x
+> [   38.288009] mtk_soc_eth 15100000.ethernet eth1: interface 2500base-x inband modes: pcs=01 phy=00
+> [   38.296800] mtk_soc_eth 15100000.ethernet eth1: major config, active inband/inband,an-disabled/2500base-x
 
-Not that it seems to be used in this patch series.
+This is indeed without the PHY. We're using inband, although the PCS
+mode is PHYLINK_PCS_NEG_INBAND_DISABLED, meaning inband won't be
+used. As there is no PHY, we can't switch to MLO_AN_PHY.
 
-> +		};
-> +
-> +		dpu_aclk: clock-350000000 {
-> +			/* 77.1 MHz derived from 24 MHz reference clock */
-> +			compatible = "fixed-clock";
-> +			#clock-cells = <0>;
-> +			clock-frequency = <350000000>;
-> +			clock-output-names = "aclk";
-> +		};
-> +
-> +		dpu_pixel_clk: clock-148500000 {
-> +			compatible = "fixed-clock";
-> +			#clock-cells = <0>;
-> +			clock-frequency = <148500000>;
-> +			clock-output-names = "pxclk";
-> +		};
-> +	};
-> +
-> +	cpus {
-> +		#address-cells = <2>;
-> +		#size-cells = <0>;
-> +
-> +		cpu0: cpu@0 {
-> +			compatible = "arm,neoverse-n1";
-> +			reg = <0x0 0x0>;
-> +			device_type = "cpu";
-> +			enable-method = "psci";
-> +			/* 4 ways set associative */
-> +			i-cache-size = <0x10000>;
-> +			i-cache-line-size = <64>;
-> +			i-cache-sets = <512>;
-> +			d-cache-size = <0x10000>;
-> +			d-cache-line-size = <64>;
-> +			d-cache-sets = <512>;
-> +			next-level-cache = <&l2_0>;
-> +			clocks = <&scmi_dvfs 0>;
-> +
-> +			l2_0: l2-cache-0 {
-> +				compatible = "cache";
-> +				cache-level = <2>;
-> +				/* 8 ways set associative */
-> +				cache-size = <0x100000>;
-> +				cache-line-size = <64>;
-> +				cache-sets = <2048>;
-> +				cache-unified;
-> +				next-level-cache = <&l3_0>;
-> +
-> +				l3_0: l3-cache {
-> +					compatible = "cache";
-> +					cache-level = <3>;
-> +					cache-size = <0x100000>;
-> +					cache-unified;
-> +				};
-> +			};
-> +		};
-> +
-> +		cpu1: cpu@100 {
-> +			compatible = "arm,neoverse-n1";
-> +			reg = <0x0 0x100>;
-> +			device_type = "cpu";
-> +			enable-method = "psci";
-> +			/* 4 ways set associative */
-> +			i-cache-size = <0x10000>;
-> +			i-cache-line-size = <64>;
-> +			i-cache-sets = <512>;
-> +			d-cache-size = <0x10000>;
-> +			d-cache-line-size = <64>;
-> +			d-cache-sets = <512>;
-> +			next-level-cache = <&l2_1>;
-> +			clocks = <&scmi_dvfs 0>;
-> +
-> +			l2_1: l2-cache-1 {
-> +				compatible = "cache";
-> +				cache-level = <2>;
-> +				/* 8 ways set associative */
-> +				cache-size = <0x100000>;
-> +				cache-line-size = <64>;
-> +				cache-sets = <2048>;
-> +				cache-unified;
-> +				next-level-cache = <&l3_0>;
-> +			};
-> +		};
-> +
-> +		cpu2: cpu@10000 {
-> +			compatible = "arm,neoverse-n1";
-> +			reg = <0x0 0x10000>;
-> +			device_type = "cpu";
-> +			enable-method = "psci";
-> +			/* 4 ways set associative */
-> +			i-cache-size = <0x10000>;
-> +			i-cache-line-size = <64>;
-> +			i-cache-sets = <512>;
-> +			d-cache-size = <0x10000>;
-> +			d-cache-line-size = <64>;
-> +			d-cache-sets = <512>;
-> +			next-level-cache = <&l2_2>;
-> +			clocks = <&scmi_dvfs 1>;
-> +
-> +			l2_2: l2-cache-2 {
-> +				compatible = "cache";
-> +				cache-level = <2>;
-> +				/* 8 ways set associative */
-> +				cache-size = <0x100000>;
-> +				cache-line-size = <64>;
-> +				cache-sets = <2048>;
-> +				cache-unified;
-> +				next-level-cache = <&l3_0>;
-> +			};
-> +		};
-> +
-> +		cpu3: cpu@10100 {
-> +			compatible = "arm,neoverse-n1";
-> +			reg = <0x0 0x10100>;
-> +			device_type = "cpu";
-> +			enable-method = "psci";
-> +			/* 4 ways set associative */
-> +			i-cache-size = <0x10000>;
-> +			i-cache-line-size = <64>;
-> +			i-cache-sets = <512>;
-> +			d-cache-size = <0x10000>;
-> +			d-cache-line-size = <64>;
-> +			d-cache-sets = <512>;
-> +			next-level-cache = <&l2_3>;
-> +			clocks = <&scmi_dvfs 1>;
-> +
-> +			l2_3: l2-cache-3 {
-> +				compatible = "cache";
-> +				cache-level = <2>;
-> +				/* 8 ways set associative */
-> +				cache-size = <0x100000>;
-> +				cache-line-size = <64>;
-> +				cache-sets = <2048>;
-> +				cache-unified;
-> +				next-level-cache = <&l3_0>;
-> +			};
-> +		};
-> +	};
-> +
-> +	firmware {
-> +		interrupt-parent = <&gic>;
-> +
-> +		scmi {
-> +			compatible = "arm,scmi";
-> +			mbox-names = "tx", "rx";
-> +			mboxes = <&mailbox 1 0>, <&mailbox 1 1>;
-> +			shmem = <&cpu_scp_hpri0>, <&cpu_scp_hpri1>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			scmi_dvfs: protocol@13 {
-> +				reg = <0x13>;
-> +				#clock-cells = <1>;
-> +			};
-> +
-> +			scmi_clk: protocol@14 {
-> +				reg = <0x14>;
-> +				#clock-cells = <1>;
-> +			};
-> +		};
-> +	};
-> +
-> +	/* The first bank of memory, memory map is actually provided by UEFI. */
-> +	memory@80000000 {
-> +		device_type = "memory";
-> +		/* [0x80000000-0xffffffff] */
-> +		reg = <0x00000000 0x80000000 0x0 0x7f000000>;
-> +	};
-> +
-> +	memory@8080000000 {
-> +		device_type = "memory";
-> +		/* [0x8080000000-0x83f7ffffff] */
-> +		reg = <0x00000080 0x80000000 0x3 0x78000000>;
-> +	};
-> +
-> +	pmu {
-> +		compatible = "arm,armv8-pmuv3";
-> +		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH>;
-> +	};
-> +
-> +	psci {
-> +		compatible = "arm,psci-0.2";
-> +		method = "smc";
-> +	};
-> +
-> +	reserved-memory {
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		ranges;
-> +
-> +		secure-firmware@ff000000 {
-> +			reg = <0x0 0xff000000 0x0 0x01000000>;
-> +			no-map;
-> +		};
-> +	};
-> +
-> +	spe-pmu {
-> +		compatible = "arm,statistical-profiling-extension-v1";
-> +		interrupts = <GIC_PPI 5 IRQ_TYPE_LEVEL_HIGH>;
-> +	};
-> +
-> +	soc: soc {
-> +		compatible = "simple-bus";
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		interrupt-parent = <&gic>;
-> +		ranges;
-> +
-> +		dp0: display@2cc00000 {
-> +			compatible = "arm,mali-d32", "arm,mali-d71";
-> +			reg = <0x0 0x2cc00000 0x0 0x20000>;
-> +			interrupts = <0 69 4>;
-> +			clocks = <&dpu_aclk>;
-> +			clock-names = "aclk";
-> +			iommus = <&smmu_dp 0>, <&smmu_dp 1>, <&smmu_dp 2>, <&smmu_dp 3>,
-> +				 <&smmu_dp 8>;
-> +
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			pl0: pipeline@0 {
-> +				reg = <0>;
-> +				clocks = <&dpu_pixel_clk>;
-> +				clock-names = "pxclk";
-> +				port {
-> +					dp_pl0_out0: endpoint {
-> +						remote-endpoint = <&tda998x_0_input>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +
-> +		i2c0: i2c@1c0f0000 {
+> [   38.306362] mtk_soc_eth 15100000.ethernet eth1: phylink_mac_config: mode=inband/2500base-x/none adv=00,00000000,00008000,0000e240 pause=04
+> [   39.220149] mtk_soc_eth 15100000.ethernet eth1:  interface 2 (mii) rate match none supports 0-3,6-7,13-14
+> [   39.229758] mtk_soc_eth 15100000.ethernet eth1:  interface 3 (gmii) rate match none supports 0-3,5-7,13-14
+> [   39.239420] mtk_soc_eth 15100000.ethernet eth1:  interface 4 (sgmii) rate match none supports 0-3,5-7,13-14
+> [   39.249173] mtk_soc_eth 15100000.ethernet eth1:  interface 22 (1000base-x) rate match none supports 5-7,13-14
+> [   39.259080] mtk_soc_eth 15100000.ethernet eth1:  interface 23 (2500base-x) rate match none supports 6-7,13-14,47
+> [   39.594676] mtk_soc_eth 15100000.ethernet eth1: PHY i2c:sfp-1:11 uses interfaces 4,23, validating 4,23
 
-The I2C controller lives in the IOFGPA on the board, not the SoC.
+The PHY comes along...
 
-> +			compatible = "cdns,i2c-r1p14";
-> +			reg = <0x0 0x1c0f0000 0x0 0x1000>;
-> +			interrupts = <GIC_SPI 138 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&dpu_aclk>;
-> +
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			status = "disabled";
-> +
-> +			hdmi_tx: hdmi-transmitter@70 {
+> [   39.603992] mtk_soc_eth 15100000.ethernet eth1:  interface 4 (sgmii) rate match none supports 0-3,5-7,13-14
+> [   39.650080] mtk_soc_eth 15100000.ethernet eth1:  interface 23 (2500base-x) rate match none supports 6-7,13-14,47
+> [   39.660266] mtk_soc_eth 15100000.ethernet eth1: PHY [i2c:sfp-1:11] driver [RTL8221B-VB-CG 2.5Gbps PHY (C45)] (irq=POLL)
+> [   39.671037] mtk_soc_eth 15100000.ethernet eth1: phy: 2500base-x setting supported 00,00000000,00008000,000060ef advertising 00,00000000,00008000,000060ef
+> [   39.684761] mtk_soc_eth 15100000.ethernet eth1: requesting link mode inband/2500base-x with support 00,00000000,00008000,000060ef
 
-The transmitter is a discrete chip on the board, not the SoC.
+We decide to use MLO_AN_INBAND and 2500base-X, which we're already using.
 
-Jess
+> [   40.380076] mtk_soc_eth 15100000.ethernet eth1: phy link down 2500base-x/Unknown/Unknown/none/off
+> [   40.397090] brlan: port 5(eth1) entered blocking state
+> [   40.402223] brlan: port 5(eth1) entered disabled state
+> [   40.407437] mtk_soc_eth 15100000.ethernet eth1: entered allmulticast mode
+> [   40.414400] mtk_soc_eth 15100000.ethernet eth1: entered promiscuous mode
+> [   44.500077] mtk_soc_eth 15100000.ethernet eth1: phy link up 2500base-x/2.5Gbps/Full/none/off
+> [   44.508528] mtk_soc_eth 15100000.ethernet eth1: No phy led trigger registered for speed(2500)
 
-> +				compatible = "nxp,tda998x";
-> +				reg = <0x70>;
-> +				video-ports = <0x234501>;
-> +				port {
-> +					tda998x_0_input: endpoint {
-> +						remote-endpoint = <&dp_pl0_out0>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +
-> +		gic: interrupt-controller@2c010000 {
-> +			compatible = "arm,gic-v3";
-> +			reg = <0x0 0x30000000 0x0 0x10000>,	/* GICD */
-> +			      <0x0 0x300c0000 0x0 0x80000>;	/* GICR */
-> +
-> +			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
-> +
-> +			#interrupt-cells = <3>;
-> +			interrupt-controller;
-> +
-> +			#address-cells = <2>;
-> +			#size-cells = <2>;
-> +			ranges;
-> +
-> +			its1: msi-controller@30040000 {
-> +				compatible = "arm,gic-v3-its";
-> +				reg = <0x0 0x30040000 0x0 0x20000>;
-> +
-> +				msi-controller;
-> +				#msi-cells = <1>;
-> +			};
-> +
-> +			its2: msi-controller@30060000 {
-> +				compatible = "arm,gic-v3-its";
-> +				reg = <0x0 0x30060000 0x0 0x20000>;
-> +
-> +				msi-controller;
-> +				#msi-cells = <1>;
-> +			};
-> +
-> +			its_ccix: msi-controller@30080000 {
-> +				compatible = "arm,gic-v3-its";
-> +				reg = <0x0 0x30080000 0x0 0x20000>;
-> +
-> +				msi-controller;
-> +				#msi-cells = <1>;
-> +			};
-> +
-> +			its_pcie: msi-controller@300a0000 {
-> +				compatible = "arm,gic-v3-its";
-> +				reg = <0x0 0x300a0000 0x0 0x20000>;
-> +
-> +				msi-controller;
-> +				#msi-cells = <1>;
-> +			};
-> +		};
-> +
-> +		smmu_dp: iommu@2ce00000 {
-> +			compatible = "arm,smmu-v3";
-> +			reg = <0x0 0x2ce00000 0x0 0x40000>;
-> +
-> +			interrupts = <GIC_SPI 76 IRQ_TYPE_EDGE_RISING>,
-> +				     <GIC_SPI 80 IRQ_TYPE_EDGE_RISING>,
-> +				     <GIC_SPI 78 IRQ_TYPE_EDGE_RISING>;
-> +			interrupt-names = "eventq", "gerror", "cmdq-sync";
-> +			#iommu-cells = <1>;
-> +		};
-> +
-> +		smmu_ccix: iommu@4f000000 {
-> +			compatible = "arm,smmu-v3";
-> +			reg = <0x0 0x4f000000 0x0 0x40000>;
-> +
-> +			interrupts = <GIC_SPI 228 IRQ_TYPE_EDGE_RISING>,
-> +				     <GIC_SPI 230 IRQ_TYPE_EDGE_RISING>,
-> +				     <GIC_SPI 41 IRQ_TYPE_EDGE_RISING>,
-> +				     <GIC_SPI 229 IRQ_TYPE_EDGE_RISING>;
-> +			interrupt-names = "eventq", "gerror", "priq", "cmdq-sync";
-> +			msi-parent = <&its1 0>;
-> +			#iommu-cells = <1>;
-> +			dma-coherent;
-> +		};
-> +
-> +		smmu_pcie: iommu@4f400000 {
-> +			compatible = "arm,smmu-v3";
-> +			reg = <0x0 0x4f400000 0x0 0x40000>;
-> +
-> +			interrupts = <GIC_SPI 235 IRQ_TYPE_EDGE_RISING>,
-> +				     <GIC_SPI 237 IRQ_TYPE_EDGE_RISING>,
-> +				     <GIC_SPI 40 IRQ_TYPE_EDGE_RISING>,
-> +				     <GIC_SPI 236 IRQ_TYPE_EDGE_RISING>;
-> +			interrupt-names = "eventq", "gerror", "priq", "cmdq-sync";
-> +			msi-parent = <&its2 0>;
-> +			#iommu-cells = <1>;
-> +			dma-coherent;
-> +		};
-> +
-> +		mailbox: mhu@45000000 {
-> +			compatible = "arm,mhu-doorbell", "arm,primecell";
-> +			reg = <0x0 0x45000000 0x0 0x1000>;
-> +
-> +			interrupts = <GIC_SPI 318 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 316 IRQ_TYPE_LEVEL_HIGH>;
-> +			#mbox-cells = <2>;
-> +			clocks = <&soc_refclk50mhz>;
-> +			clock-names = "apb_pclk";
-> +		};
-> +
-> +		pcie_ctlr: pcie@28c0000000 {
-> +			device_type = "pci";
-> +			compatible = "pci-host-ecam-generic";
-> +			reg = <0x28 0xC0000000 0 0x10000000>;
-> +			ranges = <0x01000000 0x00 0x00000000 0x00 0x6f000000 0x00 0x00800000>,
-> +				 <0x02000000 0x00 0x60000000 0x00 0x60000000 0x00 0x0f000000>,
-> +				 <0x42000000 0x09 0x00000000 0x09 0x00000000 0x1f 0xc0000000>;
-> +			bus-range = <0 255>;
-> +			linux,pci-domain = <0>;
-> +			#address-cells = <3>;
-> +			#size-cells = <2>;
-> +			dma-coherent;
-> +			#interrupt-cells = <1>;
-> +			interrupt-map-mask = <0 0 0 7>;
-> +			interrupt-map = <0 0 0 1 &gic 0 0 0 169 IRQ_TYPE_LEVEL_HIGH>,
-> +					<0 0 0 2 &gic 0 0 0 170 IRQ_TYPE_LEVEL_HIGH>,
-> +					<0 0 0 3 &gic 0 0 0 171 IRQ_TYPE_LEVEL_HIGH>,
-> +					<0 0 0 4 &gic 0 0 0 172 IRQ_TYPE_LEVEL_HIGH>;
-> +			msi-map = <0 &its_pcie 0 0x10000>;
-> +			iommu-map = <0 &smmu_pcie 0 0x10000>;
-> +		};
-> +
-> +		ccix_pcie_ctlr: pcie@4fc0000000 {
-> +			device_type = "pci";
-> +			compatible = "pci-host-ecam-generic";
-> +			reg = <0x4f 0xC0000000 0 0x10000000>;
-> +			ranges = <0x01000000 0x00 0x00000000 0x00 0x7f000000 0x00 0x00800000>,
-> +				 <0x02000000 0x00 0x70000000 0x00 0x70000000 0x00 0x0f000000>,
-> +				 <0x42000000 0x30 0x00000000 0x30 0x00000000 0x1f 0xc0000000>;
-> +			bus-range = <0 255>;
-> +			linux,pci-domain = <1>;
-> +			#address-cells = <3>;
-> +			#size-cells = <2>;
-> +			dma-coherent;
-> +			#interrupt-cells = <1>;
-> +			interrupt-map-mask = <0 0 0 7>;
-> +			interrupt-map = <0 0 0 1 &gic 0 0 0 201 IRQ_TYPE_LEVEL_HIGH>,
-> +					<0 0 0 2 &gic 0 0 0 202 IRQ_TYPE_LEVEL_HIGH>,
-> +					<0 0 0 3 &gic 0 0 0 203 IRQ_TYPE_LEVEL_HIGH>,
-> +					<0 0 0 4 &gic 0 0 0 204 IRQ_TYPE_LEVEL_HIGH>;
-> +			msi-map = <0 &its_ccix 0 0x10000>;
-> +			iommu-map = <0 &smmu_ccix 0 0x10000>;
-> +		};
-> +
-> +		uart0: serial@2a400000 {
-> +			compatible = "arm,pl011", "arm,primecell";
-> +			reg = <0x0 0x2a400000 0x0 0x1000>;
-> +			interrupts = <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&soc_uartclk>, <&soc_refclk50mhz>;
-> +			clock-names = "uartclk", "apb_pclk";
-> +
-> +			status = "disabled";
-> +		};
-> +
-> +		sram: sram@45200000 {
-> +			compatible = "mmio-sram";
-> +			reg = <0x0 0x06000000 0x0 0x8000>;
-> +			ranges = <0 0x0 0x06000000 0x8000>;
-> +
-> +			#address-cells = <1>;
-> +			#size-cells = <1>;
-> +
-> +			cpu_scp_hpri0: scp-sram@0 {
-> +				compatible = "arm,scmi-shmem";
-> +				reg = <0x0 0x80>;
-> +			};
-> +
-> +			cpu_scp_hpri1: scp-sram@80 {
-> +				compatible = "arm,scmi-shmem";
-> +				reg = <0x80 0x80>;
-> +			};
-> +		};
-> +
-> +	};
-> +
-> +	timer {
-> +		compatible = "arm,armv8-timer";
-> +		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
-> +			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
-> +			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
-> +			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
-> +	};
-> +};
-> -- 
-> 2.43.0
-> 
+... but we don't see link-up reported by the PCS after the PHY comes
+up. Why is that - I think that needs investigation before we proceed
+to patch the issue, because that suggests the PCS isn't seeing
+valid 2500base-X from the PHY.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
