@@ -4,86 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79990E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 06:31:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CAA9E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 06:37:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a0GomhkMSBgIP5izblIYNh8zqS/s98pXzCNZi52dFHY=; b=aWGRFlgnflHql4HoUVk5n7f45h
-	dCiFXab83K7QTHamgvJMDsQK32seznq39ZABWFj/sMHjjyS9mcFkhMMx0Kyj16cwT9g16nYo/lbLW
-	Fv7fGoj6LO8F8Go9c0eYQK0WljLfuiWsL2VNZZxF4Ad599ypW0Z6aApwmT6Ts746T5kBbUPYa8rsY
-	BbPAw74tb1WMyGlIkXi5vGnR2YkhvRpR7uM0pB5ijaH3kVG8c/hItN/0D5Lnp0Zt0LxKxEWpMn65w
-	xnTImsS00zN5PWRLVh0W8DKFu1Y3o6/te7GPLr5PV2axvFgvyWmgvAw8c/quQEF8YA7HWnMe4642L
-	OHp5jvbg==;
+	bh=Kng/mpbUzhaJx0h/7Fasw6w2qS0oY3rIDnnEx7pNUzQ=; b=SZidEtM51DQHhpYB+1/G706dQp
+	L4CvbQuvtEneVy8kBrokEb7cPlKxksmseMpD0ob02j/uSL1gGBkjH2lJo6pPXjNyCcBoH7QtPE3s0
+	SGrAptSLwxe/d13+iU8Ac1HOM1Tp5cf2u/tY09E+CWOTDsGXoQx1AbV6LHluH+9WWNfJLq/HBowtR
+	3yEPDT2qTEfvyxmpC19sFdEfD4e6PHxUydQjmnYZsnGQ3e4mXFqYPc01yWVo5jbXO1EJ7H78g1Ez7
+	QBk34lVHlniuJdWG9RiGmT6GIFV6Uf+ygzvn9afTnLgTbMkDlq4yGE7q9sa75933lHXx+lA4lsFuU
+	p/Rnyc7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV37G-00000003dmE-1Jty;
-	Tue, 07 Jan 2025 06:31:02 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1tV3Dh-00000003fUh-3hne;
+	Tue, 07 Jan 2025 06:37:41 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV360-00000003ddr-1wqq
+	id 1tV3CU-00000003fHl-4BN1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 06:29:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1736231385; x=1767767385;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=2ZNBQV83qRYlGIdvmpF5D7UXo7BcBAAFyvP+LUtLJ7w=;
-  b=UNBWoCvzsnJEGqch395+NFIK6PndJBatctHUMd5+zyjvNTFJEd+4f55x
-   kmzoeF3st2KDjNmCe6Cp52x4CnQTDNK/37iibTXS9VVuYiY1nRP9LzlHG
-   6ihHAnQof/BwnOEvzVosC7fGyBa3l+tU0KvWIZVZ0tieEceD+Cr8Q8m7E
-   OgS1ufVDr08UjPSXo3Coq0vTjxumTTRbe6d18Zpi1OXF/bccIGpcOLlcF
-   OSmQACn0UAgI8Z/ebpxGFt7ggpy2wO9ale2rlW83PnbLktyVkkQcKiRTi
-   jko9b3TlCKPZ0m7kZuQzyMtKLHCI+QSYqEKe0eVVQu9bj2iEbaq49jni0
-   w==;
-X-CSE-ConnectionGUID: wi6K6sOiQPet8HauFsishg==
-X-CSE-MsgGUID: WRnGJDueT6OIp3GJUnaThA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11307"; a="61775239"
-X-IronPort-AV: E=Sophos;i="6.12,294,1728975600"; 
-   d="scan'208";a="61775239"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Jan 2025 22:29:44 -0800
-X-CSE-ConnectionGUID: SW9KnGenTBmE8P1OnGYz/Q==
-X-CSE-MsgGUID: qJ2kkw5RQxOVafkwq6rSiA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="106702442"
-Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
-  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Jan 2025 22:29:40 -0800
-Message-ID: <150e283f-1858-4282-912d-0bb78719b46b@linux.intel.com>
-Date: Tue, 7 Jan 2025 14:27:39 +0800
+	Tue, 07 Jan 2025 06:36:28 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2165cb60719so224351645ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jan 2025 22:36:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1736231786; x=1736836586; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Kng/mpbUzhaJx0h/7Fasw6w2qS0oY3rIDnnEx7pNUzQ=;
+        b=nJxJuY0PVxTVacN6btX92SaOodd7Iv+pTv+m6RJtAbp4Z9ItD+S7UQWA9cYlRSuKkL
+         BCrSvJG2In6VNz2OgandhcgOYjX6iZLJ0fmqzuYSuDj2CdrWx37Ijf4DBsvFFOXlcTj5
+         2mMMxYuwprXnMJ0jqsM60ZVjZQBR+Olgotd7Z4L87Ip9xPeA0d/xWCv2VK2PS1mbM4iv
+         fyLpaZX0+v15QeRBoALw3VkZbLkwogD5amTJTbse4wFdYoRabFja4lJJfp7MzXDztLF6
+         WiSDUT8ikxbPzEL3sKAj/MS1goBXJ3by3m3i2etAgAbYCIRCF4Utt+bG9lZvT/BI1Ntr
+         DfMA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736231786; x=1736836586;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Kng/mpbUzhaJx0h/7Fasw6w2qS0oY3rIDnnEx7pNUzQ=;
+        b=CoIcs7xtnhR+kYlhC2ckp9ItwOFZ1XuHXvbNhW/pN7a4GrMTec+QY0fs7RKuB90D75
+         Hs4napzgTY1FrOSa5o+lRXxvkIZM8+rPeYqJ8XM8DHW9GO97CeEcYKLXpZazFzo4+djq
+         WCmTDwWX3nx5vyGkncb8SCyomFucW8u3FgSDPi6jqqqFE1snr/WM4EDsdkTZU/qopK8y
+         ZGZ8XDw3k7tkXmBipPSYLZ1s1lmhsoUh8OC91rUMMt7odC4eDeoMKO64dp30Xg3oUUvR
+         dXTPdfuwFf4X56qeU3Wwq2NODTHlzvtHrNO+uNaOMDMnzxmFDF9XxDjZAHimS6zg+DGZ
+         yOEQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV+bil5Z9fDpSIq8MdybuOEgjpq4nLTsVuO5L3XRaZsjFM9coBH7R5Zq3bv9VVFYGQVeS2knWz45VoHkPamOzkA@lists.infradead.org
+X-Gm-Message-State: AOJu0YyTc062D83VbayX4CucDmBVPsnQcF/Aj3bOpiOag9H2PGQeuw2s
+	UGfES9UjrC0zlzQRiNVeLBsUZW/QpCh0IGX41J5IH1uB4jcsg9+a
+X-Gm-Gg: ASbGnctiFTKelWDJKgDPYtO8LGcuNcOrXaWhM0JEp7WWanW1sXpk/Z+uPHNHvjKL9KS
+	gWIfjzyV5tR3w/aiacNzEr4qns+p+ufvmi/0ZDpso9V7GR0/BY6ftlhPFoECX5IlbmHoK5IvXPF
+	VOKtE+REVvxYECy+cE0DbZXASmw9Rr7ErrYzQfqjIDtzORxYxH5z8wV5kj+rFNc+G6Q/aHAWCXH
+	2F4JsMt9DWnlZH3Sc9sQC3bGOWTjyHXqr7UwgL8pLFSRxKwYy9FrSh7nuUBuprzl1BzX0+iL7X1
+	xYMacmWD3CUhK1bV7cIHTSYjz93CgDleVVw=
+X-Google-Smtp-Source: AGHT+IFB3swUN2iLMUEOpHvMus0FiubXQryQDXtAgLSPcX+ECwaEuxj3DZQ/Bf/+X66C3yI9GBLI7g==
+X-Received: by 2002:a17:903:94e:b0:212:68e2:6c81 with SMTP id d9443c01a7336-219e6ea0223mr977864255ad.24.1736231785959;
+        Mon, 06 Jan 2025 22:36:25 -0800 (PST)
+Received: from [192.168.0.100] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21a739b423fsm23758445ad.198.2025.01.06.22.36.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 06 Jan 2025 22:36:25 -0800 (PST)
+Message-ID: <83c11616-ac3a-48b8-a513-ca000ff9d48e@gmail.com>
+Date: Tue, 7 Jan 2025 14:36:16 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 14/14] iommu/arm-smmu-v3: Report events that belong to
- devices attached to vIOMMU
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: jgg@nvidia.com, kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
- joro@8bytes.org, suravee.suthikulpanit@amd.com, robin.murphy@arm.com,
- dwmw2@infradead.org, shuah@kernel.org, linux-kernel@vger.kernel.org,
- iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
- eric.auger@redhat.com, jean-philippe@linaro.org, mdf@kernel.org,
- mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
- smostafa@google.com, ddutile@redhat.com, yi.l.liu@intel.com,
- patches@lists.linux.dev
-References: <cover.1735933254.git.nicolinc@nvidia.com>
- <69a46c72e43ed086840be462eef731167d90a9d8.1735933254.git.nicolinc@nvidia.com>
- <585fc99f-c2dc-459c-929a-c7c7631b9caf@linux.intel.com>
- <Z3wk9TvmUhB3/zlk@Asurada-Nvidia> <Z3yvZsq77bpnaoAb@Asurada-Nvidia>
- <75456867-8993-4be4-bcdf-14df28fe92cc@linux.intel.com>
- <Z3zDA3xx6w6dSQY+@Asurada-Nvidia>
+Subject: Re: [PATCH net-next v6 1/3] dt-bindings: net: nuvoton: Add schema for
+ Nuvoton MA35 family GMAC
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: edumazet@google.com, peppe.cavallaro@st.com, andrew+netdev@lunn.ch,
+ joabreu@synopsys.com, netdev@vger.kernel.org, schung@nuvoton.com,
+ linux-stm32@st-md-mailman.stormreply.com, kuba@kernel.org,
+ openbmc@lists.ozlabs.org, devicetree@vger.kernel.org,
+ mcoquelin.stm32@gmail.com, linux-arm-kernel@lists.infradead.org,
+ richardcochran@gmail.com, ychuang3@nuvoton.com, krzk+dt@kernel.org,
+ pabeni@redhat.com, linux-kernel@vger.kernel.org, yclu4@nuvoton.com,
+ conor+dt@kernel.org, alexandre.torgue@foss.st.com, davem@davemloft.net
+References: <20250103063241.2306312-1-a0987203069@gmail.com>
+ <20250103063241.2306312-2-a0987203069@gmail.com>
+ <173592330334.2414402.4730979254460270593.robh@kernel.org>
 Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <Z3zDA3xx6w6dSQY+@Asurada-Nvidia>
+From: Joey Lu <a0987203069@gmail.com>
+In-Reply-To: <173592330334.2414402.4730979254460270593.robh@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_222944_516252_DFA1165B 
-X-CRM114-Status: UNSURE (   9.58  )
+X-CRM114-CacheID: sfid-20250106_223627_037127_DA143C40 
+X-CRM114-Status: UNSURE (   6.72  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -99,28 +109,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/7/25 14:00, Nicolin Chen wrote:
-> On Tue, Jan 07, 2025 at 01:54:00PM +0800, Baolu Lu wrote:
->> On 1/7/25 12:36, Nicolin Chen wrote:
->>> +static bool arm_vsmmu_supports_veventq(unsigned int type)
->>> +{
->>> +	return type == IOMMU_VIOMMU_TYPE_ARM_SMMUV3;
->> Do you need to check the hardware capabilities before reporting this? I
->> am not familiar with the ARM architecture, but typically it's better to
->> make it like this,
->>
->> static bool arm_vsmmu_supports_veventq(struct iommufd_viommu *viommu,
->>                                         enum iommu_veventq_type type)
->> {
->> 	if (type != IOMMU_VEVENTQ_TYPE_ARM_SMMUV3)
->> 		return false;
->>
->> 	if (hardware_not_capable(viommu))
->> 		return false;
-> I think the ARM version of viommu_alloc op has already implemented
-> enough capability checks and rejected any of hardware_not_capable.
-> So, viommu shouldn't be a thing that the driver could actually use
-> to call this helper 🙂
 
-Okay, fair enough.
+Rob Herring (Arm) 於 1/4/2025 12:55 AM 寫道:
+> Please add Acked-by/Reviewed-by tags when posting new versions. However,
+> there's no need to repost patches*only* to add the tags. The upstream
+> maintainer will do that for acks received on the version they apply.
+
+Got it. Thank you for the reminder.🙂
+
+Joey
+
 
