@@ -4,91 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BEC5E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 22:45:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48878E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 22:48:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pa3RqmxudYJyFQPRnw18vNuYTg6IZacGgInKXmkuvPY=; b=CJpNTnAl7Q2XZvG5BOlaitF14y
-	3Wm+95nEmXsenU/j13EQn4MQeyHZ0WvteB2/YEyP/3ZjQgXtkm0gQP8kgOQRJ7iZXn3M1J5APOnl9
-	Jq5HTeN7pqAPy1eyBr75u2kXexVJNgrXRRNrqnlpNBVfHhW0TUlxWH2MBgGY0mv3HHJ8tSx59E+AN
-	5t/Z5JEW8FEJbSw3Q6MKr6SRQcH0eMQlDrAFEMtML/S+Q72UI9FPnSdTawyT26b76mcahhuqkOBxH
-	aZH03FZJJZuM/bFso1QHkkPe4fA1cCNrZrxCyF4fAn73vIoDurZi2UNjBf1ntS3arSB8jpbpRtO6G
-	1YS8iLMA==;
+	bh=VhhOsxIrAZXRQSyguOLlB0hClyT00aHuDw3Nc1/4jp8=; b=tZ4110zaOhSs28eVDgmG6cY8Bl
+	EXeVig1JelDKKTSGrNpZbYmZFxv/+82wJyLg1ASqKVHBX6OPrBOuQtqYMh958nCDz3fuS9jiG4l1g
+	FsmY3MI9JrIeD+H18QbZ/Y44MhEpLXUMGkIxPAmqXeqK++1b5+80yiVQgLcMU/8Qh7zs9PaeseIF1
+	0VECkgxRGrgiEtcjx2R02/BoMNcewiRAjmthU6JDlSsMicqWk900yoPehsrcCMV3LLlkt0dVOUMXl
+	Ppp31EzEWU7b9fBrURNAAXqa82MbygoR6WEbBOB7p6dGkqGhFa9Gd8wjNvoLECQF9b52rQxyIWAhl
+	Mp3eqPLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVIJc-00000006Rpd-2Nnu;
-	Tue, 07 Jan 2025 22:44:48 +0000
-Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
+	id 1tVIMz-00000006S9c-1iY4;
+	Tue, 07 Jan 2025 22:48:17 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVIIQ-00000006Re3-2FpQ
+	id 1tVILk-00000006S3L-23p8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 22:43:35 +0000
-Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-3002c324e7eso181312231fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 14:43:33 -0800 (PST)
+	Tue, 07 Jan 2025 22:47:02 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-2ef72924e53so23620975a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 14:47:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736289812; x=1736894612; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=pa3RqmxudYJyFQPRnw18vNuYTg6IZacGgInKXmkuvPY=;
-        b=wUJ4MjRwOznA6S+bPkUCQCit3b/nObf9wicGm90SwwvKmugZkSkOlT3g/mLBGenaHK
-         6ZpZmETal6zKKQvyQHVNJ/mRKXzhj3lKLMYhLRKMte7yycNt1Vx0LFuU7oHD25cecB2Q
-         rBRApSQ7gB77/S8i1usVNjzbw5LC9yiGGIM7JZf7n0X2D3NQAV0DcL+GPXwUU8imDExg
-         dJJdBylAJTuLSwwD1RtIrk8SHutIJdYJCrWd5KGGnBsKSwI4lS+4bOdEtsh9GhiZN7FM
-         Cgyq93pc/hyBsPPFi6nf6K/HekW2k3V96AIinOQuevbhtHn5LUFGTMciknZnZ5Lcrz2/
-         hfrw==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1736290019; x=1736894819; darn=lists.infradead.org;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=VhhOsxIrAZXRQSyguOLlB0hClyT00aHuDw3Nc1/4jp8=;
+        b=AlX8lpg2EQAhsJ0bnof4Mk1VD4pKtrQU459r/IfsrFZOH6yYeIjyo9sQYtNtM3oGyg
+         VIOqjZ3CUFhNFX1gIgmuK94WAHYqFbVzHeFU70OxyV3huPn8O3KqCtHS0a1Y04kYtvsk
+         hauPQVmjxHEGBFWWAYgcepEqhBBAICs+E0fkSEgfXaI9p4wjkiVHUidZ5IvQeL+Ybm5Z
+         QbcQ3/eIvHItVUrkRjMhRk98nTA0wQcGddbubhe6wW0EQxpqTSr3m0oUe00NaYO3DKAX
+         bJ0pgRqlKCy7utzL2q+HB2WvXJn9F2D+iwl0zZsIxgit0fqDWUg8/EkFVtwAKX0+7T/+
+         Unlg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736289812; x=1736894612;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=pa3RqmxudYJyFQPRnw18vNuYTg6IZacGgInKXmkuvPY=;
-        b=ElpCSDw5yTlfKZ00rklEknJLvzwuaiFJkCR5Bzb4h8h5OdTEMJmCBcGc9uGPO8xxqd
-         dpzoLp8D5HSSI5d/SrnfkY8srnTtv3PK9Fu8crRl5ygtjMIrmoPbNO6dibnFQXdDRFdF
-         BKoQZ33oEUMcKmcFGLILod7YwyMqfZrXGhnx5BUfDSC5/b2ibcRzroA49K6FJBLhxU2I
-         7YJiXjHgizsjbM/dsJoFBD8MYYmb4sK4VmAOp8iv5rQ4gpENGqCsTInJKu5PnOeXhm9m
-         NN5CLAS1PKt6kQwZpyF+7VttWTBBI+PotaDjNiDr6yMhUB/P0BdHRZRlEilnGg8fDz9T
-         qqQg==
-X-Forwarded-Encrypted: i=1; AJvYcCV+4LCF9yTIXcIw0hTjinXhE9EkOMo8zETnOK4nZQoOk+e0ww9r/Jh71h683fWme/WRSEB0kZCH+OM9bArZ17M0@lists.infradead.org
-X-Gm-Message-State: AOJu0YyB+rC6bKwcNFiMq7EQNlA3LJ0PM/u/RkfrUUTZJDH8EtogOPfU
-	qeYo9aDxoGKVGiQUT++fFSEPlOZC24NIX4J+tqS8aOBgFvkKBjFBiqaVA+mrRgU=
-X-Gm-Gg: ASbGncsq7JGmC5dHw1zDg53WLv9BxqU6+F64pRG0hgMuJXWcJlSs1XQwaFwbClRK0e8
-	IDEAx61N+dNZUwj8zfrDZN3eyCK+HLQR+K2VE2XHxo3PmEx2z2iftxQgmkaZ0yZbj+XKmQTWSzp
-	KyfGHR7DaUnSsHdRZG5hFUpigzTYo4661ErCRxY71X+ahcgxdCgQbRUr2dc3MimQyIQRhBUq9Eq
-	WvhB4VaeT9SaUQ2+tWaYczpApvhBprMgDYfQ204xzxFT4GWAgdm/zIzsUs6iYip0bunJ5d8UnaQ
-	CItjuXUKYpAx6JthG6iFKdDG05u5AoG+REY/
-X-Google-Smtp-Source: AGHT+IHy5V27gDH+by9fnJ68iOhPGvEIJqeaut59nvgCwr8FXp2+T/5yYWYjCX3jT2mFaBHiG+I4UA==
-X-Received: by 2002:a2e:bea8:0:b0:302:1b18:2c09 with SMTP id 38308e7fff4ca-305f45ba080mr1149561fa.27.1736289812296;
-        Tue, 07 Jan 2025 14:43:32 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3045ad9b9c4sm61091001fa.31.2025.01.07.14.43.30
+        d=1e100.net; s=20230601; t=1736290019; x=1736894819;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=VhhOsxIrAZXRQSyguOLlB0hClyT00aHuDw3Nc1/4jp8=;
+        b=Q7SBUnR/QCyo/GNQROKtFBJV/fMjwR8d4rhqivZLJCM6RMPZDkmq/HN0OVn42nrevT
+         hRzFcimb50p9Cmbb40w2xkaZXNEJwCkrm1hn+CQg99uNy7sdLyfpOcCk44eGIQFooi2m
+         k4DAHshNlip2l+it7SuAsjsbnKdmo6jc8xEtV+wB8Fh5Vxgw4xvu28hFAKmKp8Gc5CtW
+         NfJpg4nGs8Dur/Vb0Chy7z5js4X0IT5GWi3KaTSVYIs/nU3cejEukMc9TeohbLX8kZpq
+         70/Ff/F1rLPKS8V+jN8ZkuWLzt9IbT7cAtE8YwS/pqN/isV3ydu4nc1Ac4uyrAPToh/9
+         FsSA==
+X-Forwarded-Encrypted: i=1; AJvYcCV9q/H0LuAXhLXc/2aKAhBlJ6t3MMda3uZQCS6TfjOdd4G0chA77uiJ/Em1ER+9fZidTo+S9Eu4OT8+GYhqWVq/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz1/zSJ6/FFvtH2VGeIs+7ud6DcU3nhekYDn/dkt5fucvE3D1dM
+	7Y9MrgiCnzV8Bl4GGEE102befTQpuFQzchgUBQqlqeSa8ICoC0M6unSXt378LL8=
+X-Gm-Gg: ASbGncsiJGtOT5JcBw7TDT8fK68+T/G94LYJglXETn+krEQ26IUl4vx7IhcU4M1bwNH
+	F+P3guTOaG2a3nHoP9tn6Y2U+0rrwJaEOP9fT3LL0V1ocddV7bBlPqzn8owv1wf9HzmneBqMoGc
+	J/o+9H4UgKuc1q42jfzZtp+FcQcpKC1UJMZtOObZeur+M2QH4xIkUmxCG8TYmT4OqlO509kVn6T
+	wGmd5NOqgF1iysZrIeofUKV9UOquxQn04qRqeKWT1gmlL0brKTxDu8=
+X-Google-Smtp-Source: AGHT+IEWLZ0aAO0tFLvsOPBDQKKeuyqMuH4W0nT1NxPlNJruhvsUZ/Ykoi06+2HvkLi5ZyYOcU4+/g==
+X-Received: by 2002:a17:90b:4c8d:b0:2ee:5edc:489 with SMTP id 98e67ed59e1d1-2f548f5ed6cmr824480a91.26.1736290019527;
+        Tue, 07 Jan 2025 14:46:59 -0800 (PST)
+Received: from localhost ([97.126.182.119])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f54a2df0b3sm49805a91.42.2025.01.07.14.46.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Jan 2025 14:43:31 -0800 (PST)
-Date: Wed, 8 Jan 2025 00:43:29 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Rob Clark <robdclark@gmail.com>
-Cc: Will Deacon <will@kernel.org>, iommu@lists.linux.dev, 
-	linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org, 
-	Robin Murphy <robin.murphy@arm.com>, Rob Clark <robdclark@chromium.org>, 
-	Joerg Roedel <joro@8bytes.org>, 
-	"moderated list:ARM SMMU DRIVERS" <linux-arm-kernel@lists.infradead.org>, open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2] iommu/arm-smmu-qcom: Only enable stall on smmu-v2
-Message-ID: <fipxf3vf3nrbiqgwtu7z4vqcyt52dludehdvqc2cnfbal6poyv@uj4hxrlhnqeg>
-References: <20250102183232.115279-1-robdclark@gmail.com>
- <20250107125738.GA6991@willie-the-truck>
- <CAF6AEGtZSOMi-=AOmjoXSVkwfyvKOymSuRRMZ7jOcM2wyhu5qg@mail.gmail.com>
+        Tue, 07 Jan 2025 14:46:59 -0800 (PST)
+From: Kevin Hilman <khilman@baylibre.com>
+To: Nishanth Menon <nm@ti.com>
+Cc: devicetree@vger.kernel.org, Romain Naour <romain.naour@smile.fr>,
+ linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org,
+ conor+dt@kernel.org, krzk+dt@kernel.org, robh@kernel.org,
+ kristo@kernel.org, vigneshr@ti.com, Romain Naour <romain.naour@skf.com>,
+ afd@ti.com, s-vadapalli@ti.com
+Subject: Re: [PATCHv3 1/2] dt-bindings: mfd: syscon: Add
+ ti,j721e-acspcie-proxy-ctrl compatible
+In-Reply-To: <20250103212528.enq4ur5afxhwzh7n@outdoors>
+References: <20241202143331.126800-1-romain.naour@smile.fr>
+ <173344002250.407600.8303166891165540615.b4-ty@baylibre.com>
+ <20250103212528.enq4ur5afxhwzh7n@outdoors>
+Date: Tue, 07 Jan 2025 14:46:58 -0800
+Message-ID: <7hr05eb5st.fsf@baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAF6AEGtZSOMi-=AOmjoXSVkwfyvKOymSuRRMZ7jOcM2wyhu5qg@mail.gmail.com>
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_144334_585887_0C57A733 
-X-CRM114-Status: GOOD (  28.54  )
+X-CRM114-CacheID: sfid-20250107_144700_692870_F1922EC6 
+X-CRM114-Status: GOOD (  15.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,52 +99,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 07, 2025 at 07:26:44AM -0800, Rob Clark wrote:
-> On Tue, Jan 7, 2025 at 4:57 AM Will Deacon <will@kernel.org> wrote:
-> >
-> > On Thu, Jan 02, 2025 at 10:32:31AM -0800, Rob Clark wrote:
-> > > From: Rob Clark <robdclark@chromium.org>
-> > >
-> > > On mmu-500, stall-on-fault seems to stall all context banks, causing the
-> > > GMU to misbehave.  So limit this feature to smmu-v2 for now.
-> > >
-> > > This fixes an issue with an older mesa bug taking outo the system
-> > > because of GMU going off into the weeds.
-> > >
-> > > What we _think_ is happening is that, if the GPU generates 1000's of
-> > > faults at ~once (which is something that GPUs can be good at), it can
-> > > result in a sufficient number of stalled translations preventing other
-> > > transactions from entering the same TBU.
-> >
-> > MMU-500 is an implementation of the SMMUv2 architecture, so this feels
-> > upside-down to me. That is, it should always be valid to probe with
-> > the less specific "SMMUv2" compatible string (modulo hardware errata)
-> > and be limited to the architectural behaviour.
-> 
-> I should have been more specific and referred to qcom,smmu-v2
-> 
-> > So what is about MMU-500 that means stalling doesn't work when compared
-> > to any other SMMUv2 implementation?
-> 
-> Well, I have a limited # of data points, in the sense that there
-> aren't too many a6xx devices prior to the switch to qcom,smmu-500..
-> but I have access to crash metrics for a lot of sc7180 devices
-> (qcom,smmu-v2), and I've been unable to find any signs of this sort of
-> stall related issue.
-> 
-> So maybe I can't 100% say this is qcom,smmu-500 vs qcom,smmu-v2, vs
-> some other change in later gens that used qcom,smmu-500 or some other
-> factor, I'm not sure what other conclusion to draw.
+Nishanth Menon <nm@ti.com> writes:
 
-Might it be that v2 was an actual hw, but mmu-500 is somehow
-virtualized? And as such by these stalls we might be observing some kind
-of FW bug in hyp?
+> On 15:07-20241205, Kevin Hilman wrote:
+>> 
+>> On Mon, 02 Dec 2024 15:33:30 +0100, Romain Naour wrote:
+>> > The ACSPCIE_PROXY_CTRL registers within the CTRL_MMR space of TI's J721e
+>> > SoC are used to drive the reference clock to the PCIe Endpoint device via
+>> > the PAD IO Buffers. Add the compatible for allowing the PCIe driver to
+>> > obtain the regmap for the ACSPCIE_CTRL register within the System
+>> > Controller device-tree node in order to enable the PAD IO Buffers.
+>> > 
+>> > The Technical Reference Manual for J721e SoC with details of the
+>> > ASCPCIE_CTRL registers is available at:
+>> > https://www.ti.com/lit/zip/spruil1
+>> > 
+>> > [...]
+>> 
+>> Applied, thanks!
+>> 
+>> [1/2] dt-bindings: mfd: syscon: Add ti,j721e-acspcie-proxy-ctrl compatible
+>>       commit: d8efc0b428856137608ffcbb6994da6041c9fe2a
+>> [2/2] arm64: dts: ti: k3-j721e-beagleboneai64: Enable ACSPCIE output for PCIe1
+>>       commit: 1d5e14a20dc60b440c60bec8489acfd45cdf7508
+>> 
+>> Best regards,
+>> -- 
+>> Kevin Hilman <khilman@baylibre.com>
+>> 
+> This will need a bit of fixup - See along the lines of the following.
+> Additionally, we should be a bit careful about the dependency of dts
+> mix up from two trees.
 
-> 
-> BR,
-> -R
+sorry, these should be going through your tree in the first place.  They
+are now dropped from my tree, please go ahead and take them along with
+Andrews fixup.  Sorry for complicating things.
 
--- 
-With best wishes
-Dmitry
+Kevin
 
