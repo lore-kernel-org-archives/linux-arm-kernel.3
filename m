@@ -4,89 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71DA1E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 14:59:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8FB1E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 15:00:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+4Gg20KiFE6gVMYr4V4rZaknsO1TvSlGmAwG0tVYAE8=; b=jnG9uTRxnO20+/nRznEWXfjsc4
-	CQs8j7SpAdzal/c80Yyo4qlBP/RZjBUtlKxiey72512P2fLCDTbww/mB8H82MDGyrQ/hmZ9mjKBrU
-	Ks4yB0dz7dYghBNmJNm33wnY4ZqzcpMNgbx87frzz1QSw/XBYHaY4GDEjWZzmC+Zxo2fEZLedI5Et
-	shfs61bUyj70nHJfzKalKbFwiaqKxxHQ4sKyc7kYIm6Nwqe2AfjQ/cdwQr++FV+Jpk23IrAKPPWO6
-	xfl25rOvdnofaCKzSfwIusOCi+QqpJd0x7WVKth9/8WAmqrGxdA5IpU4DS5lk3xdBw/aiKpFnAgbl
-	WKH93+IQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8UflBXSWMuWN/RbLnr7BP15iY3OWBLuvZePkqlyr0FI=; b=PJkTCkZFd37pHJnY0qSwn+OgKb
+	at2qTFrfmA6idmufpM6Sq9cmKxV8T7JfeYpDLA6oGLT8v5CQlV0t4Jr8ZJxQPBn5PotwVZjobaOnF
+	8x2DxK6S1cOu4CEFRGnQ1diNhT7rBhWoIwUWhbWiUUrqUi5f3nUpCFC/Kj6kAYGQhwW93TvS/HqZO
+	G6UMDgD9lvSfllPdmB9rlyrbubC37IdyHgcvbAeSAJoQllxAwC7zzbt1hW/45NU+HWhFWIo14dTd6
+	QqxzDN8jWMdMqNK4xNw8eYnAu/KIuxWZ6uYJicJIL8tKfvUaXRR9qgMgu3Lk4HuOZLUiKlHeshkZ0
+	7bKLzP+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVB2d-00000005KnS-4AdA;
-	Tue, 07 Jan 2025 14:58:47 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVAy7-00000005Jj1-0IfR
+	id 1tVB3o-00000005Kyw-2veb;
+	Tue, 07 Jan 2025 15:00:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tVAyp-00000005Jsb-21wa
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 14:54:10 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ore@pengutronix.de>)
-	id 1tVAxy-00032F-BC; Tue, 07 Jan 2025 15:53:58 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <ore@pengutronix.de>)
-	id 1tVAxx-007MWH-0E;
-	Tue, 07 Jan 2025 15:53:57 +0100
-Received: from ore by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <ore@pengutronix.de>)
-	id 1tVAxx-009auF-2K;
-	Tue, 07 Jan 2025 15:53:57 +0100
-Date: Tue, 7 Jan 2025 15:53:57 +0100
-From: Oleksij Rempel <o.rempel@pengutronix.de>
-To: Kory Maincent <kory.maincent@bootlin.com>
-Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	davem@davemloft.net, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
-	Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>,
-	=?utf-8?Q?Nicol=C3=B2?= Veronese <nicveronese@gmail.com>,
-	Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
-	Antoine Tenart <atenart@kernel.org>
-Subject: Re: [PATCH net-next RFC 0/5] net: phy: Introduce a port
- representation
-Message-ID: <Z31ABd8pdBjJtTiE@pengutronix.de>
-References: <20241220201506.2791940-1-maxime.chevallier@bootlin.com>
- <Z2g3b_t3KwMFozR8@pengutronix.de>
- <Z2hgbdeTXjqWKa14@pengutronix.de>
- <Z3Zu5ZofHqy4vGoG@shell.armlinux.org.uk>
- <Z3bG-B0E2l47znkE@pengutronix.de>
- <20250107142605.6c605eaf@kmaincent-XPS-13-7390>
- <Z300BuATJoVDc_4S@pengutronix.de>
- <20250107154302.628e7982@kmaincent-XPS-13-7390>
+	Tue, 07 Jan 2025 14:54:55 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 536511424;
+	Tue,  7 Jan 2025 06:55:19 -0800 (PST)
+Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E5B7F3F673;
+	Tue,  7 Jan 2025 06:54:48 -0800 (PST)
+Date: Tue, 7 Jan 2025 14:54:46 +0000
+From: Andre Przywara <andre.przywara@arm.com>
+To: Lukas Schmid <lukas.schmid@netcube.li>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej
+ Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
+ Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 1/4] dt-bindings: vendor-prefixes: Add NetCube
+ Systems Austria name
+Message-ID: <20250107145446.16a8a4ea@donnerap.manchester.arm.com>
+In-Reply-To: <20250106190703.4015-2-lukas.schmid@netcube.li>
+References: <20250106190703.4015-1-lukas.schmid@netcube.li>
+	<20250106190703.4015-2-lukas.schmid@netcube.li>
+Organization: ARM
+X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250107154302.628e7982@kmaincent-XPS-13-7390>
-X-Sent-From: Pengutronix Hildesheim
-X-URL: http://www.pengutronix.de/
-X-Accept-Language: de,en
-X-Accept-Content-Type: text/plain
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ore@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_065407_114845_BBA5082E 
-X-CRM114-Status: GOOD (  25.96  )
+X-CRM114-CacheID: sfid-20250107_065451_570507_8596F495 
+X-CRM114-Status: GOOD (  19.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,72 +70,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 07, 2025 at 03:43:02PM +0100, Kory Maincent wrote:
-> On Tue, 7 Jan 2025 15:02:46 +0100
-> Oleksij Rempel <o.rempel@pengutronix.de> wrote:
+On Mon,  6 Jan 2025 19:06:59 +0000
+Lukas Schmid <lukas.schmid@netcube.li> wrote:
+
+> NetCube Systems Austria builds Embedded Systems for use in IoT, IIoT,
+> or Smart Home scenarios.
 > 
-> > On Tue, Jan 07, 2025 at 02:26:05PM +0100, Kory Maincent wrote:
-> > > On Thu, 2 Jan 2025 18:03:52 +0100
-> > > Oleksij Rempel <o.rempel@pengutronix.de> wrote:
-> > >   
-> > > > On Thu, Jan 02, 2025 at 10:48:05AM +0000, Russell King (Oracle) wrote:  
-> >  [...]  
-> >  [...]  
-> > > 
-> > > Couldn't we begin with something simple like the following and add all the
-> > > transformers and pairs information as you described later if the community
-> > > feels we need it?
-> > > 
-> > > mdis {
-> > > 
-> > >     /* 1000BaseT Port with Ethernet and PoE */
-> > >     mdi0: ethernet-mdi@0 {
-> > >         reg = <0>; /* Port index */
-> > >         label = "ETH0"; /* Physical label on the device */
-> > >         connector = "RJ45"; /* Connector type */
-> > >         supported-modes = <10BaseT 100BaseTX 1000BaseT>; /* Supported modes
-> > > */ lanes = <2>;
-> > >         variant = "MDI-X"; /* MDI or MDI-X */
-> > >         pse = <&pse1>;
-> > >     };
-> > > };  
-> > This was only the pair swap. How to reflect the polarity swap withing
-> > the pairs?
+> Website is still WIP, but the Links on it are active:
+> https://netcubesystems.at/
 > 
-> Indeed I see what you mean. Maybe we could add it later as optional binding and
-> only focus for now on the current needs.
-> According to Maxime proposition he wants the connector types and the
-> supported modes (or number of lanes). On my side I am interested in the PSE
-> phandle.
+> Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
+
+Just to give some more guidance on when to drop tags and when to not:
+If you are making real changes to the code, then it might be indicated to
+drop the tag, since the patch might not be anymore what the reviewer
+acknowledged.
+But if you are just fixing (especially improving/adding to) the commit
+message, or fixing some typo, then you keep the tag, to reduce the churn
+and avoid extra work again from the reviewer.
+This is sometimes not easy to decide, say for instance: is renaming a
+variable something covered by the tag? The new name might be worse or
+misleading, even though the code didn't really change.
+
+But in this case it's pretty clear that Krzysztof is surely fine with you
+adding extra info to the commit message, and the actual patch didn't
+change at all, so keeping his tag would be a good thing.
+
+If you are in doubt, then it's often good to drop the tag *and* point this
+out, for instance in the cover letter, like: "Krzysztof, I changed this
+and that in patch 1/4, so I dropped your tag."
+
+Cheers,
+Andre
+
+> ---
+>  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
 > 
-> We could begin with this:
-> mdis {
->     /* 1000BaseT Port with Ethernet and PoE */
->     mdi0: ethernet-mdi@0 {
->         reg = <0>; /* Port index */
->         label = "ETH0"; /* Physical label on the device */
->         connector = "RJ45"; /* Connector type */
->         supported-modes = <10BaseT 100BaseTX 1000BaseT>; /* Supported modes */
->         pse = <&pse1>;
->     };
-> };  
-> 
-> Your proposition will stay in our mind for future development on the subject.
+> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> index da01616802c7..a30ed9547098 100644
+> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> @@ -1027,6 +1027,8 @@ patternProperties:
+>      description: Neofidelity Inc.
+>    "^neonode,.*":
+>      description: Neonode Inc.
+> +  "^netcube,.*":
+> +    description: NetCube Systems Austria
+>    "^netgear,.*":
+>      description: NETGEAR
+>    "^netlogic,.*":
 
-Perfect :)
-
-> I think we currently don't have enough time available to develop the full
-> package.
-
-Yes, no one do.
-
-> What do you think?
-
-Sounds good!
-
--- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
