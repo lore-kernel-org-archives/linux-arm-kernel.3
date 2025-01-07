@@ -4,60 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2A3CE77198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 05:15:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FDD3E77198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 05:18:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hzRoupXZ4+IZGUpiLX6vdlDEZbnyuwWKW3dVF+1lsIQ=; b=QF9oUjjky5GsACidtM2Z1O9AB5
-	VffI4iWQccvcCORUvQyZPw30d1dtM2p9YiO61lsCJ8IiqF2qU+RWl9//R22P3YKvj9pagkOfbqHAD
-	E0ai10wKQ+ABj53fprAZmrO3cJNE5nmGtsbkRDdMlnmXo+Uj96VuagBF8zZawY8mNDvOjeSYa2nb8
-	3UQqvsEDCJ8ZZ2sLLRMg2hs/jG62E3gQTRZ5KORnyUva2a/eowIwyRsmWpjZZqFsjJFZznLzh3bp5
-	0D9urEr5avZfVHLKtyrBvvOc3w1ASpWSbW88xgEFEz8V7BE0Y44Ex2X1hO3zUT8sptQDgUmbmdk+i
-	T8e28GsQ==;
+	bh=NbXyA0kvTR/wYiNAyrxIIwWMWIbGtt4QXDL2aJ5f6W0=; b=KVxdJ58ahfjlytg4Rru6WrBfUL
+	QmM4TcfhIVnQK2dvSbvNFuKaxIWjTsddwUSqYlDhra/KZcu1gRtv9SBkkmmFJtKTuHJJX+Zoi0lqR
+	AMac0TdFjFLbY9lRD/40AzgIl/5+1SrgU6KAd8sGyZteQ3yyJfJuFxsAyZQTgA4nF+OiWBJ8obwJj
+	9NKMiqX9DK0nRhYhgz45GqImt72fYgvx4uHu0g7yISf7WlWAtGhDOkpJcAzL8TEqY4q7Q7EARNRmz
+	GnJVJLqGVLJffkiwCnUbdV1ttwjczNHyI37gy8m55TE98qxJDWbUqWdgwtMmN3twiMUF5Leoag4OE
+	ienwHxUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV1wI-00000003WfY-1d56;
-	Tue, 07 Jan 2025 05:15:38 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1tV1z9-00000003Wsy-0Zst;
+	Tue, 07 Jan 2025 05:18:35 +0000
+Received: from lelv0142.ext.ti.com ([198.47.23.249])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV1v1-00000003WYr-3vsg
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 05:14:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1736226850;
-	bh=hzRoupXZ4+IZGUpiLX6vdlDEZbnyuwWKW3dVF+1lsIQ=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=g0uRxe3oZ9kVG6R97JEPeWJAD6EBQtw4XMiPFxloHNjHix8mmHyCEN+hG/1Oztt/r
-	 g24R8bAD2QNK83Xg/SMS4Ziu7xAbihbQSyYemEtBc8y2qBhPIwr5nwXp2lUtNVUsu5
-	 2rMrinfdDzJJs9pzk2x0vhKV0eqAuCm+A/PWt4xdCfQWVCWc1exK37goYEB8BikR+h
-	 C/DttU+dg3ytvAVWw18oG65pvhvc9dvXTlgx2HVyRwZReiBNpZLeZCdUQeJaqFObf/
-	 s38E5/mSVm2DZr+6vCGgWjF58o9pw4tdlsuAp+eeH+0pdNOyzHmeE6fuppva3timWW
-	 j0Il4p+5/mneg==
-Received: from [10.200.97.88] (203-173-1-122.dyn.iinet.net.au [203.173.1.122])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 1ACBC706BE;
-	Tue,  7 Jan 2025 13:14:06 +0800 (AWST)
-Message-ID: <e3279e0c41259f165a0cde0195b196f416ac566a.camel@codeconstruct.com.au>
-Subject: Re: [PATCH] ARM: dts: aspeed: yosemite4: adjust secondary flash name
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Patrick Williams <patrick@stwcx.xyz>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, Rob Herring
-	 <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	 <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>
-Date: Tue, 07 Jan 2025 15:44:04 +1030
-In-Reply-To: <20241218212458.3050775-1-patrick@stwcx.xyz>
-References: <20241218212458.3050775-1-patrick@stwcx.xyz>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+	id 1tV1xt-00000003WnY-02XP;
+	Tue, 07 Jan 2025 05:17:20 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5075H6xZ113433;
+	Mon, 6 Jan 2025 23:17:06 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1736227026;
+	bh=NbXyA0kvTR/wYiNAyrxIIwWMWIbGtt4QXDL2aJ5f6W0=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=KAMKsQVigCiDdOc9kI8/quu3qUFNZkPYIUEVg1+zfAiDvujkgxNtcL2gr9bPT9ba7
+	 zmKmUXVw1VPMQmgpxQcgouSoWjDa6TAwADEaXbjyjahYHl3od43vokT9PySdYzlpJw
+	 dzhmhAVUqgDoV30a6eJszMAjzZwbbPOLEwOmgTEs=
+Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5075H6IZ001896
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 6 Jan 2025 23:17:06 -0600
+Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE109.ent.ti.com
+ (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 6
+ Jan 2025 23:17:06 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 6 Jan 2025 23:17:06 -0600
+Received: from localhost (uda0492258.dhcp.ti.com [10.24.72.104])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5075H5ka124043;
+	Mon, 6 Jan 2025 23:17:05 -0600
+Date: Tue, 7 Jan 2025 10:47:04 +0530
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+CC: Siddharth Vadapalli <s-vadapalli@ti.com>, <vkoul@kernel.org>,
+        <kishon@kernel.org>, <sjakhade@cadence.com>, <rogerq@kernel.org>,
+        <thomas.richard@bootlin.com>, <u.kleine-koenig@baylibre.com>,
+        <eballetb@redhat.com>, <linux-phy@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <srk@ti.com>
+Subject: Re: [PATCH v2 1/2] phy: cadence-torrent: Add PCIe multilink
+ configuration for 100 MHz refclk
+Message-ID: <bdqmoqipcx6a3w7x4nkk7bsc2hzgxpwgopmyeb3odn2qvvew6j@tk3nu3slvlrf>
+References: <20250106131925.263240-1-s-vadapalli@ti.com>
+ <20250106131925.263240-2-s-vadapalli@ti.com>
+ <1483780d-115f-4555-82b3-3e9cffe82dce@wanadoo.fr>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <1483780d-115f-4555-82b3-3e9cffe82dce@wanadoo.fr>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_211420_182868_39AC9419 
-X-CRM114-Status: GOOD (  14.89  )
+X-CRM114-CacheID: sfid-20250106_211717_184418_BF1F4DD4 
+X-CRM114-Status: GOOD (  20.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,47 +89,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Patrick,
+On Mon, Jan 06, 2025 at 11:00:14PM +0100, Christophe JAILLET wrote:
+> Le 06/01/2025 à 14:19, Siddharth Vadapalli a écrit :
+> > From: Swapnil Jakhade <sjakhade@cadence.com>
+> > 
+> > Add register sequences to support PCIe multilink configuration for 100MHz
+> > reference clock. Maximum two PCIe links are supported.
+> > 
+> > Signed-off-by: Swapnil Jakhade <sjakhade@cadence.com>
+> > Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+> > ---
+> > 
+> > ***NOTE***
+> > Since I don't have the hardware required to validate PCIe Multilink +
+> > USB functionality, kindly *do not merge* this series until it gets a
+> > "Tested-by" tag with proper validation of the functionality.
+> > 
+> > Regards,
+> > Siddharth.
+> > 
+> >   drivers/phy/cadence/phy-cadence-torrent.c | 130 +++++++++++++++++++++-
+> >   1 file changed, 129 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/drivers/phy/cadence/phy-cadence-torrent.c b/drivers/phy/cadence/phy-cadence-torrent.c
+> > index a281c0dfae97..b0b5f4bdd7e2 100644
+> > --- a/drivers/phy/cadence/phy-cadence-torrent.c
+> > +++ b/drivers/phy/cadence/phy-cadence-torrent.c
 
-On Wed, 2024-12-18 at 16:24 -0500, Patrick Williams wrote:
-> Meta (Facebook) has a preference for all of our secondary flash
-> chips to be labelled "alt-bmc" for consistency of userspace tools
-> deal with updates.=C2=A0 Bletchley, Harma, Minerva, and Catalina all
-> follow this convention but for some reason Yosemite4 is different.
->=20
-> Adjust the label in the dts to match the other platforms.
->=20
-> Signed-off-by: Patrick Williams <patrick@stwcx.xyz>
-> ---
-> =C2=A0arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts | 2 +-
-> =C2=A01 file changed, 1 insertion(+), 1 deletion(-)
->=20
-> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-
-> yosemite4.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-
-> yosemite4.dts
-> index 98477792aa00..e20816d9e077 100644
-> --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
-> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
-> @@ -112,7 +112,7 @@ flash@0 {
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0flash@1 {
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0status =3D "okay";
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0m25p,fast-read;
-> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0label =3D "bmc2";
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0label =3D "alt-bmc";
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0spi-rx-bus-width =3D <4>;
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0spi-max-frequency =3D <50000000>;
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0};
+[...]
 
-I'm hitting conflicts (?) when I apply this on top of[1]. Do you mind
-rebasing it?
+> > @@ -3131,6 +3134,101 @@ static void cdns_torrent_phy_remove(struct platform_device *pdev)
+> >   	cdns_torrent_clk_cleanup(cdns_phy);
+> >   }
+> > +/* Multi link PCIe configuration */
+> > +static struct cdns_reg_pairs ml_pcie_link_cmn_regs[] = {
+> > +	{0x0002, PHY_PLL_CFG},
+> > +	{0x0601, CMN_PDIAG_PLL0_CLK_SEL_M0}
+> > +};
+> 
+> I think that some, if not all, of these new struct could be const, as
+> elsewhere in this file.
 
-[1]: https://github.com/amboar/linux/tree/for/bmc/aspeed/dt
+Thank you for reviewing the patch and pointing this out. I will change
+them to 'const' in the v3 series.
+> 
+> > +
+> > +static struct cdns_reg_pairs ml_pcie_xcvr_diag_ln_regs[] = {
+> > +	{0x0100, XCVR_DIAG_HSCLK_SEL},
+> > +	{0x0001, XCVR_DIAG_HSCLK_DIV},
+> > +	{0x0812, XCVR_DIAG_PLLDRC_CTRL}
+> > +};
 
-Andrew
+Regards,
+Siddharth.
 
