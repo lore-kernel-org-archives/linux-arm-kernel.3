@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 997FCE77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 09:59:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93D1AE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 10:00:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v829giFYonEyQ9WTV+P3dJRTtjfI/rZhUUQIvCJakF8=; b=nuxLRe8oAeik8xAsJBd4EHtTn4
-	gR2FPOA0paJtY3k2dyi/cQVgT8gyVV+Cnlc87fRAa6S90Qs9kMauzvTmINw6NRglM5AnGooffmoi3
-	kpaJCLZTMmewcoFSRXbrSUBQpi6/gFG2wRYhWWzr8ETPsc2JKr/9F4ULbCQm0LqmNShNwApJPn2TH
-	u4AP/wCW2YBaJPfBevcv9vVCii16Na3AHI1a91+2BIEqA0LAn48wL1VKF5ZPthTyW0xLMmaDJ2cBS
-	hboDYVrgUDaZLm0kIFTy4yZ2HcytLH0Rs/nUv5rW6NZ6yIN4SB1t0gshzE3KGVkWT4TV3WqHhywfN
-	qCrt668g==;
+	bh=S/ahkugHBECRDbWd82a9voFYhr82LbMuPsF4+BSN3Ww=; b=Dn9+u+pHe9Iu54Ps0QLZ/xU88s
+	e93fRrhAGfBmJ2KokMIFZRup1ecd7Ul45mWRzaCy/57gfmLpfmCwVz7dv1HMPZRWlXHX851u32H98
+	TNvvUouRPIIWDsdNSy7X+37aut5U/ti4wcdQq7j26PTzjt24UySb9aByysWx09QLGLOjIoKkPDSGs
+	S7DeJpT/qZVkDZwXEwztWqQejj/wHULAaxHcK5gtAukeGMrxRKwNbSFCaT0aY7Ev52Ag470Zhb80S
+	NimshuTsVqn+PHELg4oDQYHEBQx8pHNXSJOUCWmEn6MC7cS2BWxFWtLdlinQt0iSCaCwJMdBoMuAs
+	6YDa7lAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV6Mz-00000004Epu-4BrF;
-	Tue, 07 Jan 2025 09:59:30 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1tV6O9-00000004FPQ-2dA9;
+	Tue, 07 Jan 2025 10:00:41 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV65q-00000004ARv-1rXT
+	id 1tV65r-00000004ASj-41pQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 09:41:50 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-aa68b513abcso2839245766b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 01:41:46 -0800 (PST)
+	Tue, 07 Jan 2025 09:41:52 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-aaee0b309adso1866409766b.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 01:41:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736242905; x=1736847705; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1736242906; x=1736847706; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=v829giFYonEyQ9WTV+P3dJRTtjfI/rZhUUQIvCJakF8=;
-        b=jzxheBUoLMBdrX/CfXfs/R+HAp8HQ0+ZAye6WS5/TeudDv0casZPCZNpl2CffL1M+H
-         c/ba/x9WzGfbHAWKf4Dl1W7yLIM++4HQZ9OVnb5xBNTK9wugcqQCguyFxLnr8DOH8C+M
-         H45BpW9QfvduUVlYdwVlHfoRgjVqKEdwXrKxrcEpIXzS4XqaWWHs5FGwQsKoeu7/gHab
-         fMcVL1HV+gKiiDBww/8XPES266jjN8Sn/J5+TpNN+icZmH9M+/WchLMpxMgjzBzBN/k0
-         UbWspwAoKZ8LGChqMjRO4LPBkiP64y8EpfdwMXcoyP8lHvDQlrpdgomrpeGvokuTmdDk
-         bFqw==
+        bh=S/ahkugHBECRDbWd82a9voFYhr82LbMuPsF4+BSN3Ww=;
+        b=U1pXYlj6X5uH6aNECQLpwAUCcrSXPmmKe9o+HeifAv4EiMPe5cvU8+NYzPM6TTM1uv
+         lLxNXwEdUBVjD9gJlhe011oydPtwXyl4+9am716+5a2pRlX7b/QM6rVmlpsOEtrHQpR/
+         G8mkM62DbCCqxkmqc0VdaX7+U+gnjmG2sk6ZDxlkJ5GU63wT3mJ/sRSUPcoHemHt6fQs
+         0psGgdpx0xeJsPp7Nm1ydHT1OV6WXG0L0+yAdidV15bim1R7XYVwlUVeNsQ6izza/Rui
+         rY8v6fQMP7nmhWQPteExPZhSR/j4SlEn3u3ud/G1Sa1pgczNRjDyyp2adtvdbqvzRiYO
+         brpA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736242905; x=1736847705;
+        d=1e100.net; s=20230601; t=1736242906; x=1736847706;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=v829giFYonEyQ9WTV+P3dJRTtjfI/rZhUUQIvCJakF8=;
-        b=Zj/RW8WXvx+lowYffs9bavPv6WBBMGTGfMyTPK1kot3GmcQxIy9PBEOBbJFMIR6lWM
-         vHIEjPlPbJV9RgfoXk5XT9tYyIVsUPvgqJEW4+wHH6Y/kxQ8uZdbXWtdEoO6FluszFeZ
-         xw+Y3uCoi8zMa3N4e5qOnsYpdNomD6b8S8JLlbQz6ep6UB9AxVyp47IhCgd3tOkc8TVD
-         3chqNG5GA/nbXTyfOcZobCibZ7Z4gTyDVV85fOZ9D+krt8si2Ldf7i+YA8NF5b/npcDz
-         NXC6cdp8brQhA0rOSVTJXpLgWSX1kAPtldOoDpDaYjqqf2MweeiVUZ0HdDSX1ywcrTQY
-         Brlw==
-X-Gm-Message-State: AOJu0YwzAtMrwLAMsbl5LyjVmIFi8hoJ49DI8DZAibjPSNBvlHVBz97G
-	pa7XFQ5PHUNFRvFzkFVnH0A8WJX2elVTCwIKjj84EmG6I3O/FX8T1Fq2DcEplEQ=
-X-Gm-Gg: ASbGncu1McMZ0jXoQYTxhjSs4kuQObbLdWRQPtvukciILZMVPhw1nn3XAfs8DBQpd24
-	TW0uBowYqlTWkBDWIN6aUloBCtCuj9qEIHrk385Ik8dOuzSdlyfmqbCs58UeXFB0kNDiQmC6Wpp
-	7zWYFrUsUrFstFZ+Ico7Rz4QtwFbaZ1+B5/f93E0Sht4yOKPoZ0Ty7lsPsag+lQNOYSYHiRPo+2
-	cYSI14T3kIK3vKeWM2ZhPifdZuUDG5S2iMVi6ji8WweiuR/9Aph0GI/yEQQmBLuRlM=
-X-Google-Smtp-Source: AGHT+IGxL2uvreJSYgRQWypM4h6fpX3X0ht6mED44IiWbS3kunWbdejn+a0zmCmtQsTsupFQ/PTArA==
-X-Received: by 2002:a17:907:1a4e:b0:aac:4324:977e with SMTP id a640c23a62f3a-aac432497bamr4897636766b.27.1736242904900;
-        Tue, 07 Jan 2025 01:41:44 -0800 (PST)
+        bh=S/ahkugHBECRDbWd82a9voFYhr82LbMuPsF4+BSN3Ww=;
+        b=WdVPcJ6ZHZAq7GL+EgrJPJL1CjbWJgcrNbJBLPICCfgb/3KJ/j3VVSAv7AaOlGMtiX
+         S9Ew/tNuu27n8K+WIhCPuvUGYldvtB0HsoSrKwQ4K/d4C7zVNviq/oPIVHZVIuSNUY1J
+         5QBsHix+S0qu3G0dD7HyHZ2tzg+Gz+r5xapRLZghTXgj0BpvajZtgwvUi7wtC+3UoHj9
+         iuWRC/Fan5g5hw4LNomohdkCpQADk+kKkdEBIJ+vOkTXZBTiEPQcIhoqxcpW2ksZIaNz
+         v2UYHiZSyo2kZPSQdtP+2PK7pl0lmevk2u2sCCCOMJdPPZY7S0KH4bF+t7gQ3cvorZVr
+         7XaQ==
+X-Gm-Message-State: AOJu0YybRjmzMi4a/vV6dDBYRQ8+Eu1AeNCrQrOmZGnrYDvjTku/d1Ft
+	tNkdWmq2AjrHwUNlyOf6pIsaurn5owHLm6FB2Q/PrkThF1Hqx7yWH39k3QByjhI=
+X-Gm-Gg: ASbGncsx0bLkc68BFjnsrKBDvHYRbGZi4xh67Oawn68j6D4uUwYnI8pBY+Rm8BOOxcR
+	0RYEht2d5ixfn/lUisG9fYKzkY0HuDmO1ZzfTXhpCJ/VB6TizuMZkiwYeX4BPQH4ic8RkWL2q1m
+	kUQLxTVTVI/5H6KoMLrzP7M/e+6htP9KdkL5+S8o6JhSEoHQKv0cCsOxinTkYH50dIrWl3WRQ8v
+	gxtN8OH22JV7tbsm1337+kpKVH360EbaHmSmLbbufcjkSuXJVpFwqsFTTHX8leRMGc=
+X-Google-Smtp-Source: AGHT+IEu9Gn2Ne7+p3HQxWiL1/TBDYuJ8oWa7mIMc7wjdf15+fO7YiQn1jDslGCNb0rAv0RMub70FQ==
+X-Received: by 2002:a17:907:360e:b0:aa6:8d51:8fdc with SMTP id a640c23a62f3a-aac348c4e1bmr6296191466b.58.1736242906566;
+        Tue, 07 Jan 2025 01:41:46 -0800 (PST)
 Received: from [192.168.1.140] ([85.235.12.238])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0f012229sm2356901166b.133.2025.01.07.01.41.43
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0f012229sm2356901166b.133.2025.01.07.01.41.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Jan 2025 01:41:44 -0800 (PST)
+        Tue, 07 Jan 2025 01:41:45 -0800 (PST)
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 07 Jan 2025 10:41:30 +0100
-Subject: [PATCH RFC v3 14/30] ARM: entry: Drop trace argument from
- usr_entry macro
+Date: Tue, 07 Jan 2025 10:41:31 +0100
+Subject: [PATCH RFC v3 15/30] ARM: entry: Separate call path for syscall
+ SWI entry
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250107-arm-generic-entry-v3-14-4e5f3c15db2d@linaro.org>
+Message-Id: <20250107-arm-generic-entry-v3-15-4e5f3c15db2d@linaro.org>
 References: <20250107-arm-generic-entry-v3-0-4e5f3c15db2d@linaro.org>
 In-Reply-To: <20250107-arm-generic-entry-v3-0-4e5f3c15db2d@linaro.org>
 To: Dmitry Vyukov <dvyukov@google.com>, Oleg Nesterov <oleg@redhat.com>, 
@@ -87,8 +87,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Linus Walleij <linus.walleij@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_014146_488249_797AAF23 
-X-CRM114-Status: GOOD (  12.61  )
+X-CRM114-CacheID: sfid-20250107_014148_006037_A2B0FC0A 
+X-CRM114-Status: GOOD (  18.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,90 +103,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The trace argument select whether to look into tracing of
-the hardirqs for the exceptions from userspace, but also
-selects whether to call further down to establish context
-for RCU.
+The syscalls (SWIs, software interrupts) are deviating from how
+any other interrupts are handled as they enable the IRQs again
+while processing the syscall, while "hard" IRQs disable all
+interrupts until they are handled.
 
-Split off a second macro that is called on everything
-except the FIQ since this is the only outlier.
+Break out syscall_enter_from_user_mode() into its own function
+and call it instead of irqentry_enter_from_user_mode().
+
+As we are moving toward generic entry, we use the signature
+from the generic function.
+
+As the generic function requires the syscall number to be
+determined, we move the call down below the code that
+figures out the syscall number, the only practical effect
+should be that interrupts are re-enabled a few instructions
+later.
+
+As we move the trace_hardirqs_on/off() calls into C, we can
+just get rid of the helper macro usr_entry_enter again and
+call asm_irqentry_enter_from_user_mode directly.
 
 Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 ---
- arch/arm/kernel/entry-armv.S | 13 +++++++++----
- 1 file changed, 9 insertions(+), 4 deletions(-)
+ arch/arm/include/asm/entry.h   |  1 +
+ arch/arm/kernel/entry-armv.S   | 16 ++++------------
+ arch/arm/kernel/entry-common.S | 18 +++++++++++++-----
+ arch/arm/kernel/entry.c        | 14 ++++++++++++++
+ 4 files changed, 32 insertions(+), 17 deletions(-)
 
+diff --git a/arch/arm/include/asm/entry.h b/arch/arm/include/asm/entry.h
+index e26f369375ca3cf762f92fb499657a666b223ca2..e259b074caef75c7f777b18199623f07bebee5b4 100644
+--- a/arch/arm/include/asm/entry.h
++++ b/arch/arm/include/asm/entry.h
+@@ -8,6 +8,7 @@ struct pt_regs;
+  * These are copies of generic entry headers so we can transition
+  * to generic entry once they are semantically equivalent.
+  */
++long syscall_enter_from_user_mode(struct pt_regs *regs, long);
+ void irqentry_enter_from_user_mode(struct pt_regs *regs);
+ void irqentry_exit_to_user_mode(struct pt_regs *regs);
+ 
 diff --git a/arch/arm/kernel/entry-armv.S b/arch/arm/kernel/entry-armv.S
-index 93a37437a9520118eff411f009e8f6bd729412fc..c71110126fc105fc6ac2d6cb0f5f399b4c8b1548 100644
+index c71110126fc105fc6ac2d6cb0f5f399b4c8b1548..6edf362ab1e1035dafebf6fb7c55db71462c1eae 100644
 --- a/arch/arm/kernel/entry-armv.S
 +++ b/arch/arm/kernel/entry-armv.S
-@@ -357,7 +357,7 @@ ENDPROC(__fiq_abt)
- #error "sizeof(struct pt_regs) must be a multiple of 8"
- #endif
- 
--	.macro	usr_entry, trace=1, uaccess=1
-+	.macro	usr_entry, uaccess=1
-  UNWIND(.fnstart	)
-  UNWIND(.cantunwind	)	@ don't unwind the user space
- 	sub	sp, sp, #PT_REGS_SIZE
-@@ -401,13 +401,14 @@ ENDPROC(__fiq_abt)
- 	@ Clear FP to mark the first stack frame
- 	@
+@@ -403,14 +403,6 @@ ENDPROC(__fiq_abt)
  	zero_fp
-+	.endm
- 
--	.if	\trace
-+	/* Called after usr_entry for everything except FIQ */
-+	.macro	usr_entry_enter
- #ifdef CONFIG_TRACE_IRQFLAGS
- 	bl	trace_hardirqs_off
- #endif
- 	asm_irqentry_enter_from_user_mode save = 0
--	.endif
  	.endm
  
+-	/* Called after usr_entry for everything except FIQ */
+-	.macro	usr_entry_enter
+-#ifdef CONFIG_TRACE_IRQFLAGS
+-	bl	trace_hardirqs_off
+-#endif
+-	asm_irqentry_enter_from_user_mode save = 0
+-	.endm
+-
  	.macro	kuser_cmpxchg_check
-@@ -429,6 +430,7 @@ ENDPROC(__fiq_abt)
+ #if !defined(CONFIG_CPU_32v6K) && defined(CONFIG_KUSER_HELPERS)
+ #ifndef CONFIG_MMU
+@@ -430,7 +422,7 @@ ENDPROC(__fiq_abt)
  	.align	5
  __dabt_usr:
  	usr_entry uaccess=0
-+	usr_entry_enter
+-	usr_entry_enter
++	asm_irqentry_enter_from_user_mode save = 0
  	kuser_cmpxchg_check
  	mov	r2, sp
  	dabt_helper
-@@ -439,6 +441,7 @@ ENDPROC(__dabt_usr)
+@@ -441,7 +433,7 @@ ENDPROC(__dabt_usr)
  	.align	5
  __irq_usr:
  	usr_entry
-+	usr_entry_enter
+-	usr_entry_enter
++	asm_irqentry_enter_from_user_mode save = 0
  	kuser_cmpxchg_check
  	irq_handler from_user=1
  	get_thread_info tsk
-@@ -452,6 +455,7 @@ ENDPROC(__irq_usr)
+@@ -455,7 +447,7 @@ ENDPROC(__irq_usr)
  	.align	5
  __und_usr:
  	usr_entry uaccess=0
-+	usr_entry_enter
+-	usr_entry_enter
++	asm_irqentry_enter_from_user_mode save = 0
  
  	@ IRQs must be enabled before attempting to read the instruction from
  	@ user space since that could cause a page/translation fault if the
-@@ -476,6 +480,7 @@ ENDPROC(__und_usr)
+@@ -480,7 +472,7 @@ ENDPROC(__und_usr)
  	.align	5
  __pabt_usr:
  	usr_entry
-+	usr_entry_enter
+-	usr_entry_enter
++	asm_irqentry_enter_from_user_mode save = 0
  	mov	r2, sp				@ regs
  	pabt_helper
   UNWIND(.fnend		)
-@@ -495,7 +500,7 @@ ENDPROC(ret_from_exception)
+diff --git a/arch/arm/kernel/entry-common.S b/arch/arm/kernel/entry-common.S
+index ff1dd3169346f3770cad6b7e218f5d74ffc646fe..14b2495cae3c2f95b0dfecd849b4e16ec143dbe9 100644
+--- a/arch/arm/kernel/entry-common.S
++++ b/arch/arm/kernel/entry-common.S
+@@ -109,8 +109,6 @@ ENTRY(ret_to_user_from_irq)
+ 	movs	r1, r1, lsl #16
+ 	bne	slow_work_pending
+ no_work_pending:
+-	asm_trace_hardirqs_on save = 0
+-
+ 	asm_irqentry_exit_to_user_mode save = 0
  
- 	.align	5
- __fiq_usr:
--	usr_entry trace=0
-+	usr_entry
- 	kuser_cmpxchg_check
- 	mov	r0, sp				@ struct pt_regs *regs
- 	bl	handle_fiq_as_nmi
+ #ifdef CONFIG_GCC_PLUGIN_STACKLEAK
+@@ -189,9 +187,6 @@ ENTRY(vector_swi)
+ 	reload_current r10, ip
+ 	zero_fp
+ 	alignment_trap r10, ip, cr_alignment
+-	asm_trace_hardirqs_on save=0
+-	enable_irq_notrace
+-	asm_irqentry_enter_from_user_mode save = 0
+ 
+ 	/*
+ 	 * Get the system call number.
+@@ -256,6 +251,19 @@ ENTRY(vector_swi)
+ #else
+ 	str	scno, [tsk, #TI_ABI_SYSCALL]
+ #endif
++
++	/*
++	 * Calling out to C to be careful to save and restore registers.
++	 * This call could modify the syscall number. scno is r7 so we
++	 * do not save and restore r7.
++	 */
++	mov	r0, sp				@ regs
++	mov	r1, scno
++	push	{r4 - r6, r8 - r10, lr}
++	bl	syscall_enter_from_user_mode
++	pop	{r4 - r6, r8 - r10, lr}
++	mov	scno, r0
++
+ 	mov	r1, sp				@ put regs into r1
+ 	stmdb	sp!, {r4, r5}			@ push fifth and sixth args
+ 	mov	r0, tbl
+diff --git a/arch/arm/kernel/entry.c b/arch/arm/kernel/entry.c
+index 8b2e8ea66c1376759d6c0c14aad8728895b3ff1e..1973947c7ad753fccd694b3ef334fba1326f58b6 100644
+--- a/arch/arm/kernel/entry.c
++++ b/arch/arm/kernel/entry.c
+@@ -1,15 +1,29 @@
+ // SPDX-License-Identifier: GPL-2.0
+ #include <asm/entry.h>
+ #include <linux/context_tracking.h>
++#include <linux/irqflags.h>
++
++long syscall_enter_from_user_mode(struct pt_regs *regs, long syscall)
++{
++	trace_hardirqs_on();
++	local_irq_enable();
++	/* This context tracking call has inverse naming */
++	user_exit_callable();
++
++	/* This will optionally be modified later */
++	return syscall;
++}
+ 
+ noinstr void irqentry_enter_from_user_mode(struct pt_regs *regs)
+ {
++	trace_hardirqs_off();
+ 	/* This context tracking call has inverse naming */
+ 	user_exit_callable();
+ }
+ 
+ noinstr void irqentry_exit_to_user_mode(struct pt_regs *regs)
+ {
++	trace_hardirqs_on();
+ 	/* This context tracking call has inverse naming */
+ 	user_enter_callable();
+ }
 
 -- 
 2.47.1
