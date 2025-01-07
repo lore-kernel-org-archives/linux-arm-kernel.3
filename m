@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50E69E7719A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 12:10:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71EB5E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 12:11:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nH3oAvp8bwSVOl+7lxPgGXBypHNDNXEmgka/N1WZQ2Y=; b=s0PrYNFpMG095Qh2mrd9g66lci
-	2RP67JBiv0/zz9dGz9P3DTHGktBwKz8xbikLPyWtwXU6nzsGxUJnQvs42+2NwwxcAR9A23MjHd0+h
-	k7zE5hIJSNYWREBJu1M35hvihtIWj9Nvgy5QSpwch/iwO+qQ6W2yunUrZjTSmK9iXtH9jpyNoTMVY
-	rUtGjjocEf4LDWKBhFQzsL/j7LN4mm///2Z+1bq+X6s/F6SqgenwnGj8LflxIB9gDmjX0MMck3ulf
-	kzPwiYbXrMtEqDxtA5fQdmbdS5tekLHgrqd/x23um+et2oS/ZEf9X9/+v1TpXxwIFpIKIwJDX2OCS
-	1hIOep0w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8n7r/jfcoHjwqjMR/riQYWgqVQ+4NAX11Y4fwWc1eo4=; b=jO09U8lKLCeF/s
+	Qf7enuQeWdm3FyCSbZbs68lK4xv611WGwj/rD52MqKqjjHgeSCwroCD1O8ib/RC85DUkUD4rPMpgu
+	B305GlPm2Jl3Rlq8Sl0frmel7TvVlc/5AljGCxdhYD7aNnKbZdc9+YPHmbbEqIhANyxmSplWL9FRI
+	6FBiLSe7bkgeI101hG2GgbVZBK+DBy2ZzzroTcQP7t2ilR+34MedGJvHjgSZ+ZTDlhBR7rxoYGU1Y
+	GchSo1OsHu/zYOQEalTenSlEU+knvRna5lHN93fomI5rjWq4pitwdJ43InPbSdWVKob9R0dW5o10v
+	YPcB6vy0Kj+dBHRTqqNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV8PT-00000004i77-3CJX;
-	Tue, 07 Jan 2025 12:10:11 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tV8Qf-00000004iUJ-1tDT;
+	Tue, 07 Jan 2025 12:11:25 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV8E4-00000004f2X-2xGJ;
-	Tue, 07 Jan 2025 11:58:25 +0000
+	id 1tV8E6-00000004f36-1XuO
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 07 Jan 2025 11:58:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 198615C6171;
-	Tue,  7 Jan 2025 11:57:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6BBAC4CED6;
-	Tue,  7 Jan 2025 11:58:22 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id C5CDC5C5BE6;
+	Tue,  7 Jan 2025 11:57:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70D09C4CEDF;
+	Tue,  7 Jan 2025 11:58:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736251104;
-	bh=JHRpYXNzTasLGOx33u2irRAWwer3YDDAnZyLXm0wAk8=;
+	s=k20201202; t=1736251105;
+	bh=so+HujlspHZPsLZPdW8vF7bkAMuF/wBwtDZCcbrPMnc=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=RaoM5wfXo6eVfWrThIoBURxwQmBgYs9zHZgSpVc4tbaEKrpl5CpO7qkY2+GtbPDa/
-	 QEPCFMm6/KMi2I7Nyx+IYTCINU5OJcgmdha9r7x7dAsMiBc3eycuEr9Ozg2XcBcsPD
-	 Jt0mW1yJnbCG/Jqjld87rNaVhjtMMti4owMSktUc0mRP63u8JeVzLeXz7bGgzZhHqu
-	 D5JSPky5ThjHtrrT/9GeNM9G7QFoThi4L+sQmGS9nm/LV5oXrUgZ4AzN4x7Onk5ker
-	 5prw7/KmSoBz7WqvNzP3wZGuuYPXZ7ngD31A3dUGjAdlxMDmoyZDQ79uB83zuWVDWB
-	 wcmUdtKVVJsgw==
+	b=XAT+FU4kNfv4jRQeJpyYObRGMjF5LfkFMWxPDxsUp+ikH7GoO5r1I032/wGEyv64P
+	 nt5X0A+yLpbs752WYSZNz+qf0jUnjRgbJYL//LmwkWk73UDbf84aJEKQSR4OoWHlvp
+	 XTexbGAdFkvcmy6iIZtMpf7j/n2uGGOmrZQJpsocawJIaiDfy5hGjqSU3LxiAD/E7F
+	 h4ZgIJXFmOs7WTf3Sv02TU8Zrr3nj7nhuuHzou/4XkGle6YVR7iLrvtV13JMZw7Ogx
+	 R3GKpdFMhivNA0S7N8H8FKk7x2zvkk6sFEsRZL6/CpaNqcrzNkojZQf3dO5D8Oc7rU
+	 IzZrr/4yaXhGA==
 From: Mark Brown <broonie@kernel.org>
-To: Jon Lin <jon.lin@rock-chips.com>
-Cc: linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- heiko@sntech.de, linux-arm-kernel@lists.infradead.org, 
- linux-spi@vger.kernel.org
-In-Reply-To: <20241219142216.2123065-1-jon.lin@rock-chips.com>
-References: <20241219142216.2123065-1-jon.lin@rock-chips.com>
-Subject: Re: [PATCH] spi: rockchip-sfc: Support sclk_x2 version
-Message-Id: <173625110270.23847.15036834629603583307.b4-ty@kernel.org>
-Date: Tue, 07 Jan 2025 11:58:22 +0000
+To: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, 
+ =?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+In-Reply-To: <20241219142851.430959-1-csokas.bence@prolan.hu>
+References: <20241219142851.430959-1-csokas.bence@prolan.hu>
+Subject: Re: [PATCH] spi: atmel-quadspi: Use devm_ clock management
+Message-Id: <173625110421.23847.10158575651527678755.b4-ty@kernel.org>
+Date: Tue, 07 Jan 2025 11:58:24 +0000
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-Mailer: b4 0.15-dev-1b0d6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_035824_787943_59915E45 
-X-CRM114-Status: GOOD (  10.16  )
+X-CRM114-CacheID: sfid-20250107_035826_447524_492B8BA1 
+X-CRM114-Status: GOOD (  11.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,12 +69,15 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 19 Dec 2024 22:22:16 +0800, Jon Lin wrote:
-> SFC after version 8 supports dtr mode, so the IO is the binary output of
-> the controller clock.
+On Thu, 19 Dec 2024 15:28:51 +0100, Bence Csókás wrote:
+> Clean up error handling by using the new devm_
+> clock handling functions. This should make it
+> easier to add new code, as we can eliminate the
+> "goto ladder" in probe().
 > 
 > 
 
@@ -84,8 +87,8 @@ Applied to
 
 Thanks!
 
-[1/1] spi: rockchip-sfc: Support sclk_x2 version
-      commit: af103eb7d7d881cf6ff7414242bce2d8e394cc32
+[1/1] spi: atmel-quadspi: Use devm_ clock management
+      commit: a38509fd5cdc125ef54562760a05c68ebd4812bc
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
