@@ -4,75 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B39E2E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 10:09:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E86FE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 10:10:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=deVa2FvUEOHV8lxaYOobNw6K9tuy+tyk/0Of0h0Ki9g=; b=J3vYmfLr3aLgS//4orqnaHIhSA
-	TpAn9WiXn3V/AUjiIeFkkyY6HazMQqquWhPIMAQQv26FlzJC3tUTBh0nX24Dut7L8bIssDP4R16CB
-	yXiunCa1aMMjNG/nremVln5bH7lIGYMyxWjMpjFXnpU66DR9xtQ2XCEOftfa66VH7JqEyl9YGyxqP
-	eHe2CK4vqej54ievf+Z37pqcFNvOdjEPF1xbDCG9QJjx8RtkQ90QvBqbdfZ/J8I49q+Vvwamqpna/
-	Jky1AWD4wouybfv/7B5Thr/XODYxF9+8jlhYpf8PFDYxBFxkUomz4DFEMIf1P/yyM6rSmURvZzkIY
-	zN96yoFQ==;
+	bh=xYkNHQuv+SACgxNERp8CxEKakLXgFnXCL7ekBiageuE=; b=bACB8ejhhbaymWgzPvm/E1CTm4
+	T+Yu0ZsRTp77n3pWV41GVJRH5ULol9mkR1+NzxAtgDCs7xJTm++3DvuXgJHLDQ3Xsfqa5ULmVs6Oc
+	WjDMcbh81iq/wu2rIJTKThxWbyvBnvaWrZTzJw+bV2WlXtbFJIBr8Lho85WbIE2yhBjuU/r4FhJ/4
+	+N0JV+jZ3gGMUtallCphjhXhZcvNWXkFAWknSVN3RkAtqNWPRrN0Q4BQo7WGJQnd1cKprmCWM1GRb
+	4e4MSo9XfJvrhLQyx5Zhmq+UDXpwwQGXR1GUKsDXBsUH7eHUaebXv3i+cXYbfqU8nxCuRW6q6rJAR
+	0ewW+Cgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV6WG-00000004H2j-31Kf;
-	Tue, 07 Jan 2025 10:09:04 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1tV6XP-00000004HEh-1rxL;
+	Tue, 07 Jan 2025 10:10:15 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV661-00000004AYx-0hOa
+	id 1tV663-00000004AZj-1Tpa
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 07 Jan 2025 09:42:05 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-aaeef97ff02so1919384666b.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 01:41:56 -0800 (PST)
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-aaec111762bso2491465366b.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 01:41:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736242916; x=1736847716; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1736242918; x=1736847718; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=deVa2FvUEOHV8lxaYOobNw6K9tuy+tyk/0Of0h0Ki9g=;
-        b=V/OkEKvzgWJuIstQj8zE9WoG7qioZJcrOaegQveJJyWqEHl9i6Ki75pBRI+6pGaduO
-         sNQSy0SiZYlQUlPqhtscmq9askCrcWKHBSslIkSP9kCAcT4u9oMuzsA6/8I6CeEJJl6y
-         /PxVr4uRjpHPxM5WcMa4Yl1pYUN20yHT8XzLwVlCZuVPuv2x7Im3CnrgK0SOzQP2Vh/D
-         /7ibxzQn9tVndzzX+Nldxn7zg7va8EJNA56l6Ru+yqDn2SBxgZ/feOLiEbO5nos4GBxY
-         wN1wqoLJprs/vVzLtMOVd3h09o9NBsW2Xb3D7zXweG8RcyBzfLtwXfyi7aZBYPBIv45s
-         81cg==
+        bh=xYkNHQuv+SACgxNERp8CxEKakLXgFnXCL7ekBiageuE=;
+        b=kikjV6ALzeytR7AyeKXaG2GffuEYppdoxSAUfyEMdUkDjrQMTaFvcCLe+T3SxRPR2z
+         btohd0+hd+3z9wx55aQkdvIFM2VH8worEIoFgXT9UoeIEVt9TD4ASwX6E2MyRC0pw3Ki
+         bDTKOSPeI69pdtV1T8mZBzcZDb5+WgMNSIAV7kEznF+Ievuh7B6RlRchLwShvFYRMXLE
+         LPmHTW8jO+/908HfUtGP6NtF9MP2JuZFuNSVLIus9nmsQEm/unmDywrfattyAZD0JVgk
+         7ktRHAFdXnL6T2jV388yiiS3kIpRPfsc4ykQpTCGOxds1oxdj/bWuFsKelfuVplLBqEi
+         UXXw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736242916; x=1736847716;
+        d=1e100.net; s=20230601; t=1736242918; x=1736847718;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=deVa2FvUEOHV8lxaYOobNw6K9tuy+tyk/0Of0h0Ki9g=;
-        b=SDW9DgvGN9EgC1rvooq7ER8vN1iawvm17VWio4S14xbISsZ143ZDynJo7jzIigaTUj
-         B21PX7apne3o5zr4mrq/KJhAU4NS2MD7FrV/FOz2fQH1B1/mdS4SkPMAdxhftWpEyvMP
-         SQZ9fR7iMjxH/uWG0Jvjouf6cg5X7i7WKCQ7NqhTCWAQI2n8MPe/RbK1a1nzjSBKFBvY
-         kc8TxJMtOfDsOFMJkxiO5oPydd8wqJzd9IG8ufsamSnaiY9fQ1piGcEFhiLFL93i486e
-         IpA9NgDYE9VLY+Ao9UVc8KXl0Xhcv/rJ78uvO1PQ2WwCQFDUxEsW8nnHJr6W4W2jJKii
-         QuYw==
-X-Gm-Message-State: AOJu0YwowokIf9uiR5XKG2aFmhnQBL2DGGYBkokBA5/1FxgXraEYsvD/
-	a5IvWI10WEi5YZFgpn4FWlw/ooxYBqQ/uqmI/tMEsXONl0tmzHaQsqM25bCun5k=
-X-Gm-Gg: ASbGnct4cTUPjLMKsPbc1M1wFR2MO3sns6OWWk61mvDtujgWVJYg7XG0xjRe+pukDZ1
-	W/DxwT9Wi8neIqkkrrIeFxGVR4rRSRRd1+JX9tLKeB/wHDnNK6wHV/RnZa3ssumba+oXH6sEy5g
-	tRc6dzrRZfuq0doBuWpgmJ6k07sMrYsSCwZSBJW+l9w+6GjwlDJtPLAarCkCxp6Gu8+owcF9zZO
-	ZqVlGfHZWFU9nuBWlwQew/smrE6PUZZR4tZlXbtk6CUjwx22bN1ldNX+i9gYyBOajc=
-X-Google-Smtp-Source: AGHT+IEI7jiLjIgZysIlEX73yDDpgFYYpjbOqnnBoDztE8NoLaevmNECfxbufOxFIll7IK31jTg9iA==
-X-Received: by 2002:a17:907:7f22:b0:aa6:7c36:3423 with SMTP id a640c23a62f3a-aac2d4472f0mr5322819166b.1.1736242915603;
-        Tue, 07 Jan 2025 01:41:55 -0800 (PST)
+        bh=xYkNHQuv+SACgxNERp8CxEKakLXgFnXCL7ekBiageuE=;
+        b=cASyRBSSb7i3YCaajwyFEyPKCfL5cw2Z+eurKCFaF8vEww4gFJklxDsVFnWZlgfB3m
+         m3kX/GMsw0RWVmOom+XkF2A7dBXDLl1TUpBbC80XOuozoxxp7G/j81xYt3nFAJKFvxhA
+         oYpL0vivitah9r8I5Brot92fD4IqX8BKoxg5BP0LcnU44Kbbi25ZxL2OxeHNStxkXG+P
+         kt9GoMZ7TGGsHJxrtIT93GdxsP9Eoa9gAn+Fr5lowXLWTMhLJWAqjxMqE7WOvi2y8lMX
+         s+96YD3jECu6XUAcXBKeL44ePKuZ4eKedKkqZ8nC4hKiPolzMfFesiyCYRthsA0Gl5Zk
+         ZNjw==
+X-Gm-Message-State: AOJu0YzEfgNvZrPNHo8IEQ6ctq0O5rGlNKKcizdjauVr+igSPIkbgcHf
+	Xtvx3M9/ohw7bwQZAC4HQrBt411oXi7pXoWn44mISw99rzDfseWSkdncML3wHs4=
+X-Gm-Gg: ASbGncvjoKE1BJmPLnEcjSz7gAU2+rdOKL84cnXiApvG67rS1TNPGtfB0VtLZyG6Unf
+	NX/FqnqRyZYzZ1VrnKosnhWYzmrJ85Zegz8Sr7jS6aUpjY9T+eMz9vJVnfZXJxKhmQzp2Fex5cM
+	6zj1kuRPeArrmUoi7JbI3FzBonWd8hmRai0Ukw5xJSOknemxCnbXC14bea6XIpeKrbsk4jTgVql
+	DewFky7fprOMfmw1ZaseCw0z0iP/+8VCat77D3lwa7te6WN/FUv5qAE4qFsUo58tzI=
+X-Google-Smtp-Source: AGHT+IGS1h0tqhv8PFF2VyP7s0fGDYjnRN6TwLkjLD1tgNRKoA7OPaiv3ifCCBh2WK52GnioqRk31A==
+X-Received: by 2002:a17:907:968a:b0:aab:f014:fc9a with SMTP id a640c23a62f3a-aac2b383cb3mr4464284266b.22.1736242917900;
+        Tue, 07 Jan 2025 01:41:57 -0800 (PST)
 Received: from [192.168.1.140] ([85.235.12.238])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0f012229sm2356901166b.133.2025.01.07.01.41.54
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0f012229sm2356901166b.133.2025.01.07.01.41.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Jan 2025 01:41:55 -0800 (PST)
+        Tue, 07 Jan 2025 01:41:57 -0800 (PST)
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 07 Jan 2025 10:41:38 +0100
-Subject: [PATCH RFC v3 22/30] ARM: entry: Move work processing to C
+Date: Tue, 07 Jan 2025 10:41:40 +0100
+Subject: [PATCH RFC v3 24/30] ARM: entry: Complete syscall and IRQ
+ transition to C
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250107-arm-generic-entry-v3-22-4e5f3c15db2d@linaro.org>
+Message-Id: <20250107-arm-generic-entry-v3-24-4e5f3c15db2d@linaro.org>
 References: <20250107-arm-generic-entry-v3-0-4e5f3c15db2d@linaro.org>
 In-Reply-To: <20250107-arm-generic-entry-v3-0-4e5f3c15db2d@linaro.org>
 To: Dmitry Vyukov <dvyukov@google.com>, Oleg Nesterov <oleg@redhat.com>, 
@@ -86,8 +87,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Linus Walleij <linus.walleij@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_014157_207829_E0D76483 
-X-CRM114-Status: GOOD (  14.25  )
+X-CRM114-CacheID: sfid-20250107_014159_394954_6CE94316 
+X-CRM114-Status: GOOD (  17.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,78 +103,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-At the end of a syscall software interrupt and every time we exit
-an interrupt handler we check if there is work to do, i.e. if the
-current thread (userspace or kernel daemon) has set the
-_TIF_SYSCALL_WORK flag.
+This moves over the last few lines of assembly to C. The
+subtle change is that in return to userspace from syscall
+(SWI) or interrupt, we need to call do_work_pending()
+as soon as the thread flags are != 0, just checking for
+work with _TIF_SYSCALL_WORK is not enough (the machine will
+freeze if we do that).
 
-Move this processing over to the C entry code.
+This is because do_work_pending() does not just handle
+work: it handles _TIF_NEED_RESCHED, _TIF_SIGPENDING,
+_TIF_NOTIFY_SIGNAL and _TIF_UPROBE as well.
 
 Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 ---
- arch/arm/kernel/entry-common.S | 14 +-------------
- arch/arm/kernel/entry.c        | 10 ++++++++++
- 2 files changed, 11 insertions(+), 13 deletions(-)
+ arch/arm/kernel/entry-common.S | 13 +------------
+ arch/arm/kernel/entry.c        | 19 +++++++++++++------
+ arch/arm/kernel/signal.c       |  3 +--
+ 3 files changed, 15 insertions(+), 20 deletions(-)
 
 diff --git a/arch/arm/kernel/entry-common.S b/arch/arm/kernel/entry-common.S
-index 33bc9e7c5b32f62474724f1d47f97af24dba53bf..5385574c4339714f3d8b5ab6894f27466b89f932 100644
+index e2ac6d3216b6828d948d60c424ff95ccdad12331..6b0f86786a7d9e656ecbe8c741f2edbcbafd2915 100644
 --- a/arch/arm/kernel/entry-common.S
 +++ b/arch/arm/kernel/entry-common.S
-@@ -42,19 +42,7 @@ ret_fast_syscall:
- 	/* do_rseq_syscall needs interrupts enabled. */
+@@ -61,12 +61,7 @@ ENTRY(ret_to_user)
+ 	enable_irq_notrace			@ enable interrupts
  	mov	r0, sp				@ 'regs'
  	bl	syscall_exit_to_user_mode
--	ldr	r1, [tsk, #TI_FLAGS]		@ re-check for syscall tracing
+-	ldr	r1, [tsk, #TI_FLAGS]
 -	movs	r1, r1, lsl #16
--	beq	2f
--
--	tst	r1, #_TIF_SYSCALL_WORK
 -	beq	1f
--
--	b	2f
--
--1:	mov	r0, sp				@ 'regs'
+-	mov	r0, sp				@ 'regs'
 -	bl	do_work_pending
--
--2:	asm_irqentry_exit_to_user_mode
-+	asm_irqentry_exit_to_user_mode
- 
+-1:
++
  #ifdef CONFIG_GCC_PLUGIN_STACKLEAK
  	bl	stackleak_erase_on_task_stack
+ #endif
+@@ -74,12 +69,6 @@ ENTRY(ret_to_user)
+ ENDPROC(ret_to_user)
+ 
+ ENTRY(ret_to_user_from_irq)
+-	ldr	r1, [tsk, #TI_FLAGS]
+-	movs	r1, r1, lsl #16
+-	beq	no_work_pending
+-	mov	r0, sp				@ 'regs'
+-	bl	do_work_pending
+-no_work_pending:
+ 	asm_irqentry_exit_to_user_mode
+ 
+ #ifdef CONFIG_GCC_PLUGIN_STACKLEAK
 diff --git a/arch/arm/kernel/entry.c b/arch/arm/kernel/entry.c
-index 47233804733752aef0f2fec6f54badeab18e98d0..0e3960844b94b14325eb00ce7dd791b36c43ac3c 100644
+index 88a7a699306ab61153d57333c26266b9161f5466..d7fdb9df33312dd2a914b59512b701748f33b597 100644
 --- a/arch/arm/kernel/entry.c
 +++ b/arch/arm/kernel/entry.c
-@@ -1,10 +1,16 @@
- // SPDX-License-Identifier: GPL-2.0
- #include <asm/entry.h>
-+#include <asm/ptrace.h>
- #include <asm/signal.h>
- #include <linux/context_tracking.h>
+@@ -6,11 +6,6 @@
  #include <linux/irqflags.h>
  #include <linux/rseq.h>
  
-+static inline bool has_syscall_work(unsigned long flags)
-+{
-+	return unlikely(flags & _TIF_SYSCALL_WORK);
-+}
-+
+-static inline bool has_syscall_work(unsigned long flags)
+-{
+-	return unlikely(flags & _TIF_SYSCALL_WORK);
+-}
+-
  long syscall_enter_from_user_mode(struct pt_regs *regs, long syscall)
  {
  	trace_hardirqs_on();
-@@ -18,8 +24,12 @@ long syscall_enter_from_user_mode(struct pt_regs *regs, long syscall)
+@@ -28,7 +23,11 @@ void syscall_exit_to_user_mode(struct pt_regs *regs)
  
- void syscall_exit_to_user_mode(struct pt_regs *regs)
+ 	rseq_syscall(regs);
+ 	local_irq_disable();
+-	if (has_syscall_work(flags))
++	/*
++	 * It really matters that we check for flags != 0 and not
++	 * just for pending work here!
++	 */
++	if (flags)
+ 		do_work_pending(regs, flags);
+ 
+ 	trace_hardirqs_on();
+@@ -45,6 +44,14 @@ noinstr void irqentry_enter_from_user_mode(struct pt_regs *regs)
+ 
+ noinstr void irqentry_exit_to_user_mode(struct pt_regs *regs)
  {
 +	unsigned long flags = read_thread_flags();
 +
- 	rseq_syscall(regs);
- 	local_irq_disable();
-+	if (has_syscall_work(flags))
++	/*
++	 * It really matters that we check for flags != 0 and not
++	 * just for pending work here!
++	 */
++	if (flags)
 +		do_work_pending(regs, flags);
+ 	trace_hardirqs_on();
+ 	/* This context tracking call has inverse naming */
+ 	user_enter_callable();
+diff --git a/arch/arm/kernel/signal.c b/arch/arm/kernel/signal.c
+index 03b20637a2e1ca6f327223c9132915a97a9c4697..a39ee14ec5b70b3738ecef537709326ef1e8217c 100644
+--- a/arch/arm/kernel/signal.c
++++ b/arch/arm/kernel/signal.c
+@@ -598,8 +598,7 @@ static void arch_do_signal_or_restart(struct pt_regs *regs)
+ 	return;
  }
  
- noinstr void irqentry_enter_from_user_mode(struct pt_regs *regs)
+-asmlinkage void
+-do_work_pending(struct pt_regs *regs, unsigned int thread_flags)
++void do_work_pending(struct pt_regs *regs, unsigned int thread_flags)
+ {
+ 	/*
+ 	 * The assembly code enters us with IRQs off, but it hasn't
 
 -- 
 2.47.1
