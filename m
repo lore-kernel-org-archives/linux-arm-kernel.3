@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1ED4E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 18:12:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6C86E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 18:16:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fe08/qfQPQZoDkTmwGi4NLr9fr1hHVIqUL3BbD3l/v8=; b=WQJUzeUq0dQQgLWe7p+xKRTRYt
-	OiBWgkLD/wydomgBk/7VzeQD2GyapnrjJmHqsanzTvAaK9VHApUxGzvvNRtEUQY7xS0JuLLZlvjnX
-	6SUDyOAeFYHoFCaxDwhj79wG5LAz3kd4RFORH77jGy6nWQea+P8WdnCU98BRPAu6JF/fXUD5Acd79
-	TxBcO9b9S5hWCm0iyyAMOruF2srqSqF4JSjXy5AYoa0FyptI7xh54Ku4P5YYepLqW/RrKxRE8y1+H
-	OZyD6jzv8bx3uAvbrPCozc30kE+AL/Af2JsjaNRRA3a23KOeIocfgd4b/VmJKLPiel88grt1jJyCc
-	ojO3I3PA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ByUJW6sm8JgZIA3YN3W1fSSwj9iK8sNF1phFxfS00as=; b=VFgVcPUHFIwvKAGXUm33+hg9vb
+	wL4g9LwDT/ip1NefEoqwKamOqvDX89TDOmuo0SdCkKlAfVxGMc+d/bZFHqMvXyriqMnJAE0Dh2xEv
+	UntzFaA97ndEdzzdksBW+DdwVpij71yUByphdaYQKUvZf4jUTaVH08r6rKsc+3+K4zqfvGLhHI9ng
+	rA4xMrxoYEfbj1ItI7S/1FBbsjqExiydcCa202qxVzVgRM0RPiTDwdVosyZqaHDh1QN6YMJl5EKXp
+	8b0ojh3FTQvzLl05cO3Re7Hp6wv+E2vo7vje0jZ6UtritSNFFheOPSu3FSZ+At9KuZTZeq/szhbIV
+	n5UwcOXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVE42-00000005zYU-11bl;
-	Tue, 07 Jan 2025 18:12:26 +0000
-Received: from smtp-18.smtpout.orange.fr ([80.12.242.18] helo=smtp.smtpout.orange.fr)
+	id 1tVE8B-000000060Fe-0tiQ;
+	Tue, 07 Jan 2025 18:16:43 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVE2n-00000005zH2-1NKx
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 18:11:11 +0000
-Received: from [192.168.1.37] ([90.11.132.44])
-	by smtp.orange.fr with ESMTPA
-	id VE2ctVpn8nktyVE2ftbwd9; Tue, 07 Jan 2025 19:11:04 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1736273464;
-	bh=Fe08/qfQPQZoDkTmwGi4NLr9fr1hHVIqUL3BbD3l/v8=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From;
-	b=Ri0qJUcJLvITLMHUtWvDDZIWvxaCRscvs+394esqr8aNJ/cBtbH2FjnF8krv9PjsS
-	 SlrNC+k1jfNPetSNWLJOqju3DhZpaOoA1xkBkYFcNmMtAwLIUycs7lxhssENP9tJcq
-	 /uJXro2/f3gZ4F4HnmeXRx22Syf0FCaZmc/xflCyKT6R/KPR1gGBdaelyVtqePA/7i
-	 MN69q2u4jmu2Be2OfeHVef5hrxFMYgJPwu3mFkEO6VqZHI3shz8iXAn1PHZztxngZs
-	 qTzNuuIP7fvhbMus0j9FYXUsW7kp658q0oyv/fgNBOItsmytOCvfwje/dwAjM+UoXZ
-	 5ZWx8Y2K7LU+w==
-X-ME-Helo: [192.168.1.37]
-X-ME-Auth: bWFyaW9uLmphaWxsZXRAd2FuYWRvby5mcg==
-X-ME-Date: Tue, 07 Jan 2025 19:11:04 +0100
-X-ME-IP: 90.11.132.44
-Message-ID: <6abdef3d-95cd-4afc-b5d4-880c58f60e9d@wanadoo.fr>
-Date: Tue, 7 Jan 2025 19:10:57 +0100
+	id 1tVE6y-0000000603f-0eym;
+	Tue, 07 Jan 2025 18:15:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 744195C295C;
+	Tue,  7 Jan 2025 18:14:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F558C4CED6;
+	Tue,  7 Jan 2025 18:15:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736273725;
+	bh=HBHcmiYhdV1i4DCHsk2yrqZrt9sMvcGZpjOw1kIPmYg=;
+	h=From:To:Cc:Subject:Date:From;
+	b=R/oRDHZ1ZZT+orMFLLX76WpaXpgt3NZL1kwo0oQrmKl83504ib50B/6/n5QXTpONS
+	 WrPp78wn2KU6NSs1TMbZ8Z581qkDl02ZY1u3xeVkw46pGmecYpZhHVHD2k3pfjL1KJ
+	 h813PUx+WE8/pfnDPn4bwwudKiph4OTr4eVRWRLEXQg8HHOo5bO52TA1ttuMBZjhSR
+	 n3xm4g15xorFkAubYAkc92O+n4xTViWPaEYDsKwT8X+BhQiqAUj8PES/AYIIwa2KAa
+	 uFYfwLIwkIlry1mHWdzdjiU1ERjfB2VOEgxB+vFywuZcP8v/UkyabQWaweGDlsDD05
+	 bwHrtO2bymmZA==
+From: Niklas Cassel <cassel@kernel.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Kishon Vijay Abraham I <kishon@kernel.org>
+Cc: Damien Le Moal <dlemoal@kernel.org>,
+	Niklas Cassel <cassel@kernel.org>,
+	linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH 0/6] PCI: endpoint: Add support for resizable BARs
+Date: Tue,  7 Jan 2025 19:14:50 +0100
+Message-ID: <20250107181450.3182430-8-cassel@kernel.org>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] power: supply: add support for max77759 fuel gauge
-To: t.antoine@uclouvain.be, Sebastian Reichel <sre@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Dimitri Fedrau <dima.fedrau@gmail.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Peter Griffin <peter.griffin@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org
-References: <20250102-b4-gs101_max77759_fg-v2-0-87959abeb7ff@uclouvain.be>
- <20250102-b4-gs101_max77759_fg-v2-1-87959abeb7ff@uclouvain.be>
-Content-Language: en-US, fr-FR
-From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-In-Reply-To: <20250102-b4-gs101_max77759_fg-v2-1-87959abeb7ff@uclouvain.be>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2535; i=cassel@kernel.org; h=from:subject; bh=HBHcmiYhdV1i4DCHsk2yrqZrt9sMvcGZpjOw1kIPmYg=; b=owGbwMvMwCV2MsVw8cxjvkWMp9WSGNJr86XkFW1NSuLvlzoyr1h2c96f+yqlrpfTfF2OztFYP 812JcO5jlIWBjEuBlkxRRbfHy77i7vdpxxXvGMDM4eVCWQIAxenAEzk325GhuMOr+Xer/iTvb9l Xvomy68+6YaMl//N4DK+4r1ynsUsLm+Gv9JG7xbfFLzUtNOUee1vx1nr4qqqD2l8Efswa8dG1dg Dh9gB
+X-Developer-Key: i=cassel@kernel.org; a=openpgp; fpr=5ADE635C0E631CBBD5BE065A352FE6582ED9B5DA
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_101109_502988_78808ABF 
-X-CRM114-Status: UNSURE (   9.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250107_101528_276137_9EDDF19F 
+X-CRM114-Status: GOOD (  12.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,31 +80,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le 02/01/2025 à 12:15, Thomas Antoine via B4 Relay a écrit :
-> From: Thomas Antoine <t.antoine@uclouvain.be>
-> 
-> The interface of the Maxim max77759 fuel gauge has a lot of common with the
-> Maxim max1720x. The major difference is the lack of non-volatile memory
-> slave address. No slave is available at address 0xb of the i2c bus, which
-> is coherent with the following driver from google: line 5836 disables
-> non-volatile memory for m5 gauge.
+The PCI endpoint framework currently does not support resizable BARs.
 
-Hi,
+Add a new BAR type BAR_RESIZABLE, so that EPC drivers can support resizable
+BARs properly.
 
-...
+For a resizable BAR, we will only allow a single supported size.
+This is by design, as we do not need/want the complexity of the host side
+resizing our resizable BAR.
 
-> +	ret = max1720x_get_rsense(dev, info);
->   	if (ret)
-> -		return dev_err_probe(dev, ret, "Failed to probe nvmem\n");
-> +		return dev_err_probe(dev, ret, "Failed to get RSense");
+In the DWC driver specifically, the DWC driver currently handles resizable
+BARs using an ugly hack where a resizable BAR is force set to a fixed size
+BAR with 1 MB size if detected. This is bogus, as a resizable BAR can be
+configured to sizes other than 1 MB.
 
-Missing ending \n.
+With these changes, an EPF driver will be able to call pci_epc_set_bar()
+to configure a resizable BAR to an arbitrary size, just like for
+BAR_PROGRAMMABLE. Thus, DWC based EPF drivers will no longer be forced to
+a bogus 1 MB forced size for resizable BARs.
 
->   
->   	bat = devm_power_supply_register(dev, &max1720x_bat_desc, &psy_cfg);
->   	if (IS_ERR(bat))
 
-...
+Tested/verified on a Radxa Rock 5b (rk3588) by:
+-Modifying pci-epf-test.c to request BAR sizes that are larger than 1 MB:
+ -static size_t bar_size[] = { 512, 512, 1024, 16384, 131072, 1048576 };
+ +static size_t bar_size[] = { SZ_1M, SZ_1M, SZ_2M, SZ_2M, SZ_4M, SZ_4M };
+ (Make sure to set CONFIG_CMA_ALIGNMENT=10 such that dma_alloc_coherent()
+  calls are aligned even for allocations larger than 1 MB.)
+-Rebooting the host to make sure that the DWC EP driver configures the BARs
+ correctly after receiving a link down event.
+-Modifying EPC features to configure a BAR as 64-bit, to make sure that we
+ handle 64-bit BARs correctly.
+-Modifying the DWC EP driver to set a size larger than 2 GB, to make sure
+ we handle BAR sizes larger than 2 GB (for 64-bit BARs) correctly.
+-Running the consecutive BAR test in pci_endpoint_test.c to make sure that
+ the address translation works correctly.
 
-CJ
+
+Kind regards,
+Niklas
+
+Niklas Cassel (6):
+  PCI: endpoint: Add BAR type BAR_RESIZABLE
+  PCI: dwc: ep: Move dw_pcie_ep_find_ext_capability()
+  PCI: dwc: endpoint: Add support for BAR type BAR_RESIZABLE
+  PCI: keystone: Describe resizable BARs as resizable BARs
+  PCI: keystone: Specify correct alignment requirement
+  PCI: dw-rockchip: Describe resizable BARs as resizable BARs
+
+ drivers/pci/controller/dwc/pci-keystone.c     |   6 +-
+ .../pci/controller/dwc/pcie-designware-ep.c   | 228 +++++++++++++++---
+ drivers/pci/controller/dwc/pcie-dw-rockchip.c |  22 +-
+ drivers/pci/endpoint/pci-epf-core.c           |   4 +
+ include/linux/pci-epc.h                       |   3 +
+ 5 files changed, 216 insertions(+), 47 deletions(-)
+
+-- 
+2.47.1
+
 
