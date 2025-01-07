@@ -4,205 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A8A8E77198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 02:46:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26C4EE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 03:03:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C6dD0zL1Q8Z8g7tuIo3IhBM3HWOkYF0xW8dzUrTxna0=; b=uBVtAY9024cc2H4UCtZ01YmMgM
-	EimEJID9rRp0BanuEeVU0Zu/al0isYOqi2p+D/tp4/vVca5WlQ6HyfgZGD0eMSM1N3bn0jb6V+cSi
-	X1Rxht+qQuAZybBkMhEkeYOw6cA5izKfR4WUR5MdRTt9pFLAN5jdvfnsaCICkhu2GWpriCVJgbaW+
-	qcZAcLLl/11/Kht9stJFhI+xz9JXlvt3yDaAYiTjEQf/8EMshlGyJZ4kn46ERDQgaanILcF6I383/
-	O7wIEDEm6Igg5TB8q3LDHoPcjOEzQPgnS6qAKLxvbVArkiS2cLmoSAf9YmuOuyjrJJE6EgLh2SAZz
-	hD9/F0gg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j4WHIo9pquJ7g/2ENU41c9ttOjw9RexpamwpH2bk1DY=; b=OxlhRqIsAZBwb5B2QXXMDHONqz
+	jrWm/qDY+jRLhvWdar+3K/NhS1zw4wI43Y4Ih/PK2c2+HBCOMyRlH+BvrFehamkKkeYPOkZ83L4U0
+	qtYYQReucqVS9xN9WIv93sNmQsGMexgO1/5jd5t6zIH5D/pXnx+VbwhTNhHEsCXguZd8nWzOyU0YI
+	YKuB2fxF0Q/QaaFnNPxIiAXpdMRoAX50jig2BG3+Is+s/Z4uVfIKds0+jgqrRhw3fsIdiFtl0gdVL
+	xYvJ1yWtmJBMTDy6zE6/72uArn7vfAUEeaICRukJ0eSrzk1uq0cIIbpzbvJLKpNrgKvnz2kwI9GdI
+	0BGCdtJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUzbW-00000003F1Y-3dnc;
-	Tue, 07 Jan 2025 02:46:02 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1tUzsd-00000003GoC-2WTy;
+	Tue, 07 Jan 2025 03:03:43 +0000
+Received: from mail-m32123.qiye.163.com ([220.197.32.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUzaI-00000003ElY-0lWd;
-	Tue, 07 Jan 2025 02:44:50 +0000
-X-UUID: 58bbbebecca111ef82ff63e91e7eb18c-20250106
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=C6dD0zL1Q8Z8g7tuIo3IhBM3HWOkYF0xW8dzUrTxna0=;
-	b=kEb7N13vHFWuhdTzRByMyc3Y/McXXNuc5aNbqu+j52lidyhke3NRnYb0RRM2FrDp7w11TqkjAiElLyhBBN1vRrbNw5AV3l+EvsgNbNtN3hB3tsJ6UPQBi0HhL3JFFgf7Fn78MYDJ4JUQ0HT+/9BTwfQMSadciNjNfM1zTvRErsk=;
-X-CID-CACHE: Type:Local,Time:202501061919-07,HitQuantity:1
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.46,REQID:37fa53d0-dfc8-4eef-8dba-09fd490e49f4,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:60aa074,CLOUDID:73de7737-e11c-4c1a-89f7-e7a032832c40,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102,TC:nil,Content:0|50,
-	EDM:-3,IP:nil,URL:11|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
-	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-UUID: 58bbbebecca111ef82ff63e91e7eb18c-20250106
-Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw01.mediatek.com
-	(envelope-from <jianjun.wang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 677847236; Mon, 06 Jan 2025 19:44:42 -0700
-Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
- mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.26; Tue, 7 Jan 2025 10:44:39 +0800
-Received: from HK2PR02CU002.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
- 15.2.1118.26 via Frontend Transport; Tue, 7 Jan 2025 10:44:39 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=agisZtpnD0LjehwirqGLxx1372rRkpjKmNoYAORZ56QOB4qXGZ7CqUMPvMVpj1X9o8n4aKETBYOui1RjBey8+6tWJoQtnaECDajU2J32krspjhw0NUqBXJEK4RLN+KsxJQLc9HcYvo9a/psuXpqO4rCkNBOz1Vd6RL1sENB0ayLqsuFyAHeh7Voxy7Y/i3YTkR3tlDus3Xv6GS//VfI+pdoJ4hgq3RwcojDt+HYkTxRtoTxwEeRo3divpHxuEzlSbXIPa++AnQBm9nbVXA6gHiSFpRaBTd414rut3qmgNrfy9KLTTHDACYUw3bdlO6roUzHf5PYq1KNCZSX0+HnM4w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=C6dD0zL1Q8Z8g7tuIo3IhBM3HWOkYF0xW8dzUrTxna0=;
- b=aRQxP5ReRFPjXxG2RV4KqbXNFHYW6/gCH1iT45YXyYp4lgB8/fVanmBUb7r+ko1nnqoOdjLLE3Zb1+G4JdGl9XB13LSP9Uy2L1WVZd0Unh1bJY5ncEP2kn79AaxPM4WPmoqziepHDgw4YLv+fhB8ibhtYE3sDdjvATG+exrow/SET1cMfzMoNXWpSmQ1jHArm01Bw/zKgpTNFQgciBCj1WWNgMyajcgnyNw6R1wrCfHjTJrscRzqzXjXiupaMq2L0FZU4stnn+rJs9Kctj8pVSSJOwxfWZIoZMJUWsdeSLARbkuy9h3L21xIL4hxY9O3gOE5v5G3byqhCMRf8Hj7Zw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=C6dD0zL1Q8Z8g7tuIo3IhBM3HWOkYF0xW8dzUrTxna0=;
- b=efy98KyaVeQAuAqNp/U4dmx6ooK9dvcBk1OMeFF3FSjGyggpGZ3meFM/m3d3Yok02Pil8u6r0pzm1kB7X/gLcDZXaT1QpYg+Cn7/Q3Hmjjn2k9S9NPpRXI3/e9J88+H0M038MNZjfUjvHclw8sG6KOEkzWIhZCKlpDG0zTbndgk=
-Received: from PSAPR03MB5365.apcprd03.prod.outlook.com (2603:1096:301:17::5)
- by TY0PR03MB6656.apcprd03.prod.outlook.com (2603:1096:400:212::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8314.18; Tue, 7 Jan
- 2025 02:44:37 +0000
-Received: from PSAPR03MB5365.apcprd03.prod.outlook.com
- ([fe80::1c6e:6591:5151:27e6]) by PSAPR03MB5365.apcprd03.prod.outlook.com
- ([fe80::1c6e:6591:5151:27e6%3]) with mapi id 15.20.8314.015; Tue, 7 Jan 2025
- 02:44:37 +0000
-From: =?utf-8?B?Smlhbmp1biBXYW5nICjnjovlu7rlhpsp?= <Jianjun.Wang@mediatek.com>
-To: "helgaas@kernel.org" <helgaas@kernel.org>
-CC: "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	=?utf-8?B?WGF2aWVyIENoYW5nICjlvLXnjbvmlocp?= <Xavier.Chang@mediatek.com>,
-	"manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, "robh@kernel.org"
-	<robh@kernel.org>, "kw@linux.com" <kw@linux.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>, "bhelgaas@google.com" <bhelgaas@google.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Ryder Lee <Ryder.Lee@mediatek.com>
-Subject: Re: [PATCH 3/5] PCI: mediatek-gen3: Disable ASPM L0s
-Thread-Topic: [PATCH 3/5] PCI: mediatek-gen3: Disable ASPM L0s
-Thread-Index: AQHbXaTtsPsaxOpwnE+nEN+OpOAW7LMFbIUAgAU0YoA=
-Date: Tue, 7 Jan 2025 02:44:37 +0000
-Message-ID: <8b7b0d1bca5088bda46a651481b9a42f3be1a75d.camel@mediatek.com>
-References: <20250103191552.GA4190763@bhelgaas>
-In-Reply-To: <20250103191552.GA4190763@bhelgaas>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PSAPR03MB5365:EE_|TY0PR03MB6656:EE_
-x-ms-office365-filtering-correlation-id: 5be677e5-b4c7-4cbd-6aad-08dd2ec539e8
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?VVNXbEhPYkZSQ01INWhweklxWlp1eXN6ZUpoMk9oL2pMT2JBZk16STNOa1J1?=
- =?utf-8?B?K0x6ODJHK09QdUd1M3ZPRUFFcGpnV1lGWkozVXZ3MUhSRTRIb3VvZlRzMUZo?=
- =?utf-8?B?bE1wSlkxU0ZwYzlJZ1R2T0c4ckpMSXptZmxxRjN5VjVmV25kTmhpbG52ejk4?=
- =?utf-8?B?OFV3M1c2Tm9YRjQ3bGNBY1RocGVraWNoL2hndkZ1NCtVdjJHZlF1MGIzeUpB?=
- =?utf-8?B?bmNKTFlhcUgrS1RzWk9hc0xCelNxR3AwRmRmNkFWaFQzK0h5UThrWFJFZGNK?=
- =?utf-8?B?RVgrMUxKem5UdnVtYkVRMlVndFdhc005cm9jQWcwN1RKbFZ0T3BmTDRZT0dC?=
- =?utf-8?B?NDZYMmM2a3J0Y2ttT1pLdjN1a0NrK0ZNRmg4YWZkVzdCZE9qMTFnbnhEVEhB?=
- =?utf-8?B?bS9kTmRWcklBckJsZWxDR1N3NmxRdzAyMW9lVjJBN3hvY3ZyODFsVEEzRzh4?=
- =?utf-8?B?dzJTekxuVzlnNVVtb1JndTc2OTQwZEowZ0VZU2V6SFErZnhVZ0sxMHZodk41?=
- =?utf-8?B?L1ZLL1cyUEFONERkNHMxS2JaZDBGN0JxN3R5MnZYcmlnbENzMStFeitjd2NM?=
- =?utf-8?B?WlMyeDc1cUtTUEF1TEJHL2FEOFA2M2Y4eDFJV2hEMjdKR3gvaHJOK0JyLzNS?=
- =?utf-8?B?R2duZGM5UmkrY2tzeEx5RUhvUi9NSFFyZW9KUXBuUWVrV3lSNnhnaWRZRzIy?=
- =?utf-8?B?VjdmUm5EZURDMHZpM3Z6OW1TbXhXb0JIYVNuaHdLQXoyRVFGQXhrRnpJSGRw?=
- =?utf-8?B?V2txbVdXSlV5eXF4QnNLTmNkS01UdFNvRFg4ODdoY1F3d1JjbDlVOG5RQWxk?=
- =?utf-8?B?ajdEdjRBRWpCQWhua2F0UU5sRVl5R1p3WDlKekVIR3daTE5qZ05MamQ2Q3pO?=
- =?utf-8?B?eTBheXViYzNMWTE4UTBMbjhWTHhNWTRJTC9EeC9JNHMvNE4ycW5aaWI4N3dU?=
- =?utf-8?B?RGdYMXJpQ1Noa2NaSWNLWDRZWUdzZmlEQnk2TTdFUmRFUGF1eVRxWEk4L0dh?=
- =?utf-8?B?ZU9QcXFXZDV6M0R0QnowSDBVSkR4NEVEWUpRSjRFNUZZY0lkNXc4UTgxSEs4?=
- =?utf-8?B?cy9YekZLNEVXbzB6MHJCNHNjZUI2V2ErYlVXWW1CRHo5RVg0aldTL0J3RGp5?=
- =?utf-8?B?M2tlVU4ybHJOZDhIWldDcTRYbE1IUXRBQ1JRSzlEYWZHQld2Z0FxMVVrZlMr?=
- =?utf-8?B?RjBReHNvWGNWYkhVcUJFVTFPTE9rZzkvUXVSMDVpRm5qSFF4dFlRRzRCWDIx?=
- =?utf-8?B?V1NXazFrSXVGQVY3Y21hNkluejhPQmhOVXZTRDhoaEUrUEs2bzR6aWhDQmtl?=
- =?utf-8?B?L0dwRlhJWGVYWFNIRDI5UGVkYzlKcGE3VDl2aEZscmN2N3F3dmxRZUp0c3F6?=
- =?utf-8?B?WmM4Wklva3NLVm1mUC9lNnNJMkJ5V3JEUmUwOGVWVWpxR1AyZ2VtZlVYdkgw?=
- =?utf-8?B?TmhvOXVoVWEyRzMxeEsyaUtJeDBxaEQxdWVrWmZ3clo5dlFTNjlyS05UTTlP?=
- =?utf-8?B?RGYzeDFPSTVpbExYbVUzTFcydHZvU3BWUWw2eXJHaUttNFJ4QUhRWFAvNTNo?=
- =?utf-8?B?djI2ZmovbjFVNGpJQjB0alJkWHVKNUUwaW9uc0tWclJueGZ2ZHgyQ2tGZGhB?=
- =?utf-8?B?SFE2WVA1ZjdycjR1anBmdmQyNS9HcHNaS2hOQkR3d0hoSzRNSjluVmk3VjJ2?=
- =?utf-8?B?VUJ3aTB1V0Z6Ri9abG1iYkVMUkVwS0dXbDhPU1UvN2Y1Q0lqWi8zTjgvYWE0?=
- =?utf-8?B?MVg0cXpHTGhCMkhhOVFoMW92TUtRSnVER1ZTMzhBSXRienNPcVNJVTZ0dVFL?=
- =?utf-8?B?TzBLbjFzdDVkdEdYb1ZrQkV3QzJWYndHeDhOT0xCRTl2ckZDaXRzNVZqMmRE?=
- =?utf-8?B?QVdxRmpjRHZLYW9INUROUjloaXNBNFFNRk9CNEg0d0NZVTNZR1c1TjBTYysy?=
- =?utf-8?Q?poV7r1uUHKW3itxDS+3GUwS0eGLXwGMR?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PSAPR03MB5365.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?cWxRZzJZSEhBVGhnK0JKb3Vqa3pRVVYzWkptL3grYThIcEc2ZHY1TUx5ZnhH?=
- =?utf-8?B?TW0rNzNETGYrWlpPUEh1WHJTQU9XS3JNdzJ6QnYrWHI4OFlPSkVZbWpKNlNV?=
- =?utf-8?B?RTVYdVVRQk9mT2kzR1JPVlEyZnhJbzZzRUJjS2pNQmhXZlNsUEZ2YTRHM2hw?=
- =?utf-8?B?ZDYwYWlyYkhmSFVTczhNajZzYUhCRUhwSUF4L0tlRjg1QjRSdTJHY01YcjIv?=
- =?utf-8?B?QU40eUZyMjdWVWxFeVYrd3VOdm95YTViYndSSkU2eDFqdVBoRnAreXdlaDdF?=
- =?utf-8?B?dnVoOTkrMVJib05IUm91Q24xa09mWElhdG9HQnJ1QTJlRmFIWkpYRE1TZG5W?=
- =?utf-8?B?a05BWVZQbExZZFlqNVdXRTlrRk1DRURBbXcxSEVkczR5Z0YyMkdZdTNpaXRv?=
- =?utf-8?B?R2NkNC81b0NyN0pjYkZxa2o0V3c4Y3VMU1Mva3ZXaGVZcGVBNGZsYWxJaEFt?=
- =?utf-8?B?YWJOQ2FQZTNFTTVQbjdMc3AyWjdOWUQ0L3dnR3U1QzV0YVZlU1lEbXNyKzhW?=
- =?utf-8?B?dlA0OHlvUkFPVHhQdjUwNHVycDUrSnJKM2paKzRHdkMwMURnelJrdFczOXZS?=
- =?utf-8?B?S2tWanlxWFMyWWlud1U5cFA5MUswNlFVaThXaVhMcjQvRXdWSGdhNXZaWEFt?=
- =?utf-8?B?S0VtcStXYlp0SHpxVEtaQlVQS2ZTVHAvMXI2U21OMDQ5RHZucmhzSlprd0V2?=
- =?utf-8?B?OWRXVXhjaGdES1UwVkNoUkRqd0ZuNnBQQUJ6M2hxR1NMcmtubWZxZGkxL2NS?=
- =?utf-8?B?TEhUampmZW5LSG5XS0pZeWxIUjVQL2x3TStFTkVmd2FGemlTbElEU1JPRXRu?=
- =?utf-8?B?MCtUTHNPYnMrb25zUWFNSzNWdlpQaHZoZ1pEM3dQVW52YjdzUDltUmt5ZVpL?=
- =?utf-8?B?T0cydThrZm5ic0VnbnZXbWpvQ2N3MjZjQWZtNm9OVHY3ZlZVMlE1NzRWbURP?=
- =?utf-8?B?T2E0TXJXS0JoVFpqSEVPdDJrc2FId2FMakFLNzNrU1JYdVI4OTRNMDNpM01k?=
- =?utf-8?B?L2FMcUVGWU1hVmlVQjh3aGF5Y1RMUkxhTG42VjUrSDlyRUhHQWtKZUx3d0ZI?=
- =?utf-8?B?NVVWRG9hRFkzWlpYbHdnN0l5Qld5TlNrcHdwd2FteVNHRVhsNkF4NUxJYndP?=
- =?utf-8?B?elppR1dYak1jZzVud0txQ1loa3lwaTVEL010TG93bHI0dmdkRTgvZ0VqYys0?=
- =?utf-8?B?UTdMMjlValNSUGRqYU9wMlJKd0pOVTR1cXBTVml1WnJqSWo4TkErNzdyOFY4?=
- =?utf-8?B?WXRORmYvOVFTMlV6akpMOWdYUUF6MDczbVZoazdteExzNXY5Z3JSOG9lRXFi?=
- =?utf-8?B?K2ExZHpFMUdkWFdVTjVzcmYxczFSR0FCSTBSODVlTXhKUFNNLzZyK1lHclRN?=
- =?utf-8?B?V1NBbmRMZGNhY3ZoSGVUaHJtcTExTFFMTmgwbk5RVzNGSlU5ZVZoR3lhcGlM?=
- =?utf-8?B?OTBNdmpDZDdnMEJPSGJFSzVlc05JYzFWNGJzVy84enA2R3JqNHVad3hScmtn?=
- =?utf-8?B?V2hMSzFteG5JVzRXK2dVdXF0Z0JsWmY2N2lFaEFtbzNCZEk2L3pqcnY3bFY4?=
- =?utf-8?B?WjJnZzl5NlJNL1VGTTBvVWRCeFV3ZzlmZUc1dmpNNmRsMi9MaEpVYTJOT2VQ?=
- =?utf-8?B?aFgxdlVPaExmOVpjMUdJSTJ1bWlYMG5HR3VaYkNBekVBcmNjWjNsTDY3VkRO?=
- =?utf-8?B?ZjNnTlpLMEdmQXVVMGpPUzJDQ2FPeHdFZUY4WmlaVU5tMU04U2JKWUExZTVP?=
- =?utf-8?B?R08zM2NmZEJscTVzNGI4WlRVMCttV3pqUVJkKzAvR3RBRGdYTHdUUHpFZEZn?=
- =?utf-8?B?L1k4ZGthTzlLQVhTdFUvRFNERGNKdUpyenFLR3dTMy8xdnhMK1ZtaXJ6U0px?=
- =?utf-8?B?TnRVTms2RmtVcUgybFVxNVZMVTdGQllEQ2M4MUxVNHVsL3dVYkQzTjdMTDlT?=
- =?utf-8?B?a2NZYXNKK0p1QUM1RjZja0JEaFFjbnhXS1NubEpFcHBoNE44dGJoSmFSMmMy?=
- =?utf-8?B?ZllBYnVZdlF0V0NJNmFUOEEwY0w3Yko3Q3ZqRVZuazZCWHBOVWhvNFhROUhj?=
- =?utf-8?B?ZWhPU2RxRnIxSUVobGdBT1MzclRzaTR1S3BsWXNvQVRWc2VYRjYrRWhwZlR2?=
- =?utf-8?B?UHlXMTRzaTY4ZUtOYW5iL0hxRHVlNmdickxrVHFoVU1iSUNQWHpDU1p3ODFT?=
- =?utf-8?B?S3c9PQ==?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <AC0DDC6A456B8342967670355A0728C8@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1tUzrM-00000003Gi1-22n2;
+	Tue, 07 Jan 2025 03:02:28 +0000
+Received: from [172.16.12.26] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 7e9abd46;
+	Tue, 7 Jan 2025 11:02:15 +0800 (GMT+08:00)
+Message-ID: <96f8310f-93f1-4bcb-8637-137e1159ff83@rock-chips.com>
+Date: Tue, 7 Jan 2025 11:02:15 +0800
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PSAPR03MB5365.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5be677e5-b4c7-4cbd-6aad-08dd2ec539e8
-X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Jan 2025 02:44:37.1405
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 0wWOl6Qj/PKZH7UcWRl387XYpvyv1gaAwSAIk6dCpNxCoRduvOJW+H2witGw17DE/wB7pS4iwThIBWu4WXihc/zwAnnyYlhBa5vZIcSQpx8=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR03MB6656
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 07/17] phy: phy-rockchip-samsung-hdptx: Add support for
+ eDP mode
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, rfoss@kernel.org, vkoul@kernel.org,
+ sebastian.reichel@collabora.com, cristian.ciocaltea@collabora.com,
+ l.stach@pengutronix.de, andy.yan@rock-chips.com, hjc@rock-chips.com,
+ algea.cao@rock-chips.com, kever.yang@rock-chips.com,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org
+References: <20241226063313.3267515-1-damon.ding@rock-chips.com>
+ <20241226063313.3267515-8-damon.ding@rock-chips.com>
+ <shr7ak7keqza3gw6wra2zra35qht2cxlzkvtuhzl3swzf2fwxy@i2v4o53lhese>
+Content-Language: en-US
+From: Damon Ding <damon.ding@rock-chips.com>
+In-Reply-To: <shr7ak7keqza3gw6wra2zra35qht2cxlzkvtuhzl3swzf2fwxy@i2v4o53lhese>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGkIaSFYZGE1KHUtLSxpMGBhWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCSE
+	NVSktLVUpCS0tZBg++
+X-HM-Tid: 0a943eb680b303a3kunm7e9abd46
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6PS46Fhw*ITIOTBwQATFWSxkZ
+	NBIKCQFVSlVKTEhNSUpDQkhMSU9KVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFPQkhDNwY+
+DKIM-Signature: a=rsa-sha256;
+	b=LYaCAU+RlzanzYmS6Fd7fwnVehf05WEHutrgvrenWPyUEsaiZoZEsMipp8elxtDCC+wzA6v7ql0TSWw9AKlHiKohmW9N5CAfCBVcnQW1M4A6VpxWJOoYFsxunQQ97cOjqaU4shWbirYweHC6d6UwR89l9L7ZcTD/gaWdYlxUAOg=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=j4WHIo9pquJ7g/2ENU41c9ttOjw9RexpamwpH2bk1DY=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_184446_223778_E6BFCFAE 
-X-CRM114-Status: GOOD (  12.57  )
+X-CRM114-CacheID: sfid-20250106_190225_022632_F97C9A2A 
+X-CRM114-Status: GOOD (  25.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -217,21 +82,186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCAyMDI1LTAxLTAzIGF0IDEzOjE1IC0wNjAwLCBCam9ybiBIZWxnYWFzIHdyb3RlOg0K
-PiBFeHRlcm5hbCBlbWFpbCA6IFBsZWFzZSBkbyBub3QgY2xpY2sgbGlua3Mgb3Igb3BlbiBhdHRh
-Y2htZW50cyB1bnRpbA0KPiB5b3UgaGF2ZSB2ZXJpZmllZCB0aGUgc2VuZGVyIG9yIHRoZSBjb250
-ZW50Lg0KPiANCj4gDQo+IE9uIEZyaSwgSmFuIDAzLCAyMDI1IGF0IDAyOjAwOjEzUE0gKzA4MDAs
-IEppYW5qdW4gV2FuZyB3cm90ZToNCj4gPiBEaXNhYmxlIEFTUE0gTDBzIHN1cHBvcnQgYmVjYXVz
-ZSBpdCBkb2VzIG5vdCBzaWduaWZpY2FudGx5IHNhdmUNCj4gPiBwb3dlcg0KPiA+IGJ1dCBpbXBh
-Y3RzIHBlcmZvcm1hbmNlLg0KPiANCj4gVGhpcyBzZWVtcyBsaWtlIGEgdXNlci9hZG1pbmlzdHJh
-dG9yIGRlY2lzaW9uLCBub3QgYSBkcml2ZXIgZGVjaXNpb24uDQo+IA0KPiBMMHMgcmVkdWNlcyBw
-b3dlciBhdCB0aGUgY29zdCBvZiBwZXJmb3JtYW5jZSBmb3IgKmFsbCogUENJZSBkZXZpY2VzLA0K
-PiBhbHRob3VnaCB0aGUgYWN0dWFsIG51bWJlcnMgbWF5IHZhcnkuDQoNCldlIGhhdmUgZW5jb3Vu
-dGVyZWQgc29tZSBjb21wYXRpYmlsaXR5IGlzc3VlcyB3aGVuIGNvbm5lY3RlZCB3aXRoIHNvbWUN
-ClBDSWUgRVBzLCB0aGVzZSBpc3N1ZXMgYXJlIHByb2JhYmlsaXN0aWMgYW5kIGRpc2FibGluZyB0
-aGUgTDBzIGNhbiBmaXgNCnRoZW0uDQoNClVzZXJzIG1heSBub3QgYmUgYXdhcmUgb2YgdGhlc2Ug
-aXNzdWVzLCBzbyBJIHRoaW5rIGRpc2FibGluZyBMMHMNCnRocm91Z2ggdGhlIGRyaXZlciBtaWdo
-dCBiZSB0aGUgYmV0dGVyIHdheSwgc2luY2UgaXQgZG9lcyBub3QNCnNpZ25pZmljYW50bHkgc2F2
-ZSBwb3dlciBhbmQgd2UgdXN1YWxseSB1c2UgTDFzcyBmb3IgcG93ZXItc2F2aW5nIHdoZW4NCnRo
-ZSBsaW5rIGlzIGlkbGUuDQoNClRoYW5rcy4NCg==
+Hi Dmitry,
+
+On 2024/12/30 20:45, Dmitry Baryshkov wrote:
+> On Thu, Dec 26, 2024 at 02:33:03PM +0800, Damon Ding wrote:
+>> Add basic support for RBR/HBR/HBR2 link rates, and the voltage swing and
+>> pre-emphasis configurations of each link rate have been verified according
+>> to the eDP 1.3 requirements.
+> 
+> Well... Please describe what's happening here. That the HDMI PHY on your
+> platform also provides support for DP / eDP. Please document any design
+> decisions that you had to make.
+> 
+
+Yes, I will add more relevant descriptions in the next version.
+
+>>
+>> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+>>
+>> ---
+>>
+>> Changes in v2:
+>> - Add the module author
+>>
+>> Changes in v3:
+>> - Split this patch into two, one for correction and the other for
+>>    extension
+>>
+>> Changes in v4:
+>> - Add link_rate and lanes parameters in struct rk_hdptx_phy to store the
+>>    phy_configure() result for &phy_configure_opts.dp.link_rate and
+>>    &phy_configure_opts.dp.lanes
+>> ---
+>>   .../phy/rockchip/phy-rockchip-samsung-hdptx.c | 896 +++++++++++++++++-
+>>   1 file changed, 889 insertions(+), 7 deletions(-)
+>>
+>> @@ -933,9 +1484,339 @@ static int rk_hdptx_phy_power_off(struct phy *phy)
+>>   	return rk_hdptx_phy_consumer_put(hdptx, false);
+>>   }
+>>   
+>> +static int rk_hdptx_phy_set_mode(struct phy *phy, enum phy_mode mode,
+>> +				 int submode)
+>> +{
+>> +	return 0;
+>> +}
+> 
+> No need for the stub, please drop it. The host controller driver can
+> still call phy_set_mode() / _ext(), the call will return 0.
+
+Without the &phy_ops.set_mode(), the phy driver can not get phy_mode to 
+distinguish between HDMI and DP mode via the phy_get_mode(), even if the 
+host driver calls phy_set_mode() / _ext(). Additionally, the previous 
+discussion [0] also mentioned future considerations for dynamic 
+switching. Indeed, I should add a related comment before the 'return 0;' 
+to enhance understandability.
+
+> 
+>> +
+>> +static int rk_hdptx_phy_verify_config(struct rk_hdptx_phy *hdptx,
+>> +				      struct phy_configure_opts_dp *dp)
+>> +{
+>> +	int i;
+>> +
+>> +	if (dp->set_rate) {
+>> +		switch (dp->link_rate) {
+>> +		case 1620:
+>> +		case 2700:
+>> +		case 5400:
+>> +			break;
+>> +		default:
+>> +			return -EINVAL;
+>> +		}
+>> +	}
+>> +
+>> +	if (dp->set_lanes) {
+>> +		switch (dp->lanes) {
+>> +		case 0:
+> 
+> Is it really a valid config to have 0 lanes?
+
+The case of 0 lanes is indeed unnecessary.
+
+> 
+>> +		case 1:
+>> +		case 2:
+>> +		case 4:
+>> +			break;
+>> +		default:
+>> +			return -EINVAL;
+>> +		}
+>> +	}
+>> +
+>> +	if (dp->set_voltages) {
+>> +		for (i = 0; i < hdptx->lanes; i++) {
+>> +			if (dp->voltage[i] > 3 || dp->pre[i] > 3)
+>> +				return -EINVAL;
+>> +
+>> +			if (dp->voltage[i] + dp->pre[i] > 3)
+>> +				return -EINVAL;
+>> +		}
+>> +	}
+>> +
+>> +	return 0;
+>> +}
+>> +
+> 
+> [..]
+> 
+>> +
+>> +static int rk_hdptx_phy_configure(struct phy *phy, union phy_configure_opts *opts)
+>> +{
+>> +	struct rk_hdptx_phy *hdptx = phy_get_drvdata(phy);
+>> +	enum phy_mode mode = phy_get_mode(phy);
+>> +	int ret;
+>> +
+>> +	if (mode != PHY_MODE_DP)
+>> +		return -EINVAL;
+> 
+> I'd say, return 0;
+
+Yes, it is really not an error.
+
+> 
+>> +
+>> +	ret = rk_hdptx_phy_verify_config(hdptx, &opts->dp);
+>> +	if (ret) {
+>> +		dev_err(hdptx->dev, "invalid params for phy configure\n");
+>> +		return ret;
+>> +	}
+>> +
+>> +	if (opts->dp.set_rate) {
+>> +		ret = rk_hdptx_phy_set_rate(hdptx, &opts->dp);
+>> +		if (ret) {
+>> +			dev_err(hdptx->dev, "failed to set rate: %d\n", ret);
+>> +			return ret;
+>> +		}
+>> +	}
+>> +
+>> +	if (opts->dp.set_lanes) {
+>> +		ret = rk_hdptx_phy_set_lanes(hdptx, &opts->dp);
+>> +		if (ret) {
+>> +			dev_err(hdptx->dev, "failed to set lanes: %d\n", ret);
+>> +			return ret;
+>> +		}
+>> +	}
+>> +
+>> +	if (opts->dp.set_voltages) {
+>> +		ret = rk_hdptx_phy_set_voltages(hdptx, &opts->dp);
+>> +		if (ret) {
+>> +			dev_err(hdptx->dev, "failed to set voltages: %d\n",
+>> +				ret);
+>> +			return ret;
+>> +		}
+>> +	}
+>> +
+>> +	return 0;
+>> +}
+>> +
+>>   static const struct phy_ops rk_hdptx_phy_ops = {
+>>   	.power_on  = rk_hdptx_phy_power_on,
+>>   	.power_off = rk_hdptx_phy_power_off,
+>> +	.set_mode  = rk_hdptx_phy_set_mode,
+>> +	.configure = rk_hdptx_phy_configure,
+>>   	.owner	   = THIS_MODULE,
+>>   };
+>>   
+>> @@ -1149,5 +2030,6 @@ module_platform_driver(rk_hdptx_phy_driver);
+>>   
+>>   MODULE_AUTHOR("Algea Cao <algea.cao@rock-chips.com>");
+>>   MODULE_AUTHOR("Cristian Ciocaltea <cristian.ciocaltea@collabora.com>");
+>> +MODULE_AUTHOR("Damon Ding <damon.ding@rock-chips.com>");
+>>   MODULE_DESCRIPTION("Samsung HDMI/eDP Transmitter Combo PHY Driver");
+>>   MODULE_LICENSE("GPL");
+>> -- 
+>> 2.34.1
+>>
+> 
+
+Best regards
+Damon
+
+[0]https://patchwork.kernel.org/project/linux-rockchip/patch/20241127075157.856029-5-damon.ding@rock-chips.com/
+
 
