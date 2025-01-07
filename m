@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC623E77198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 14:03:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F004DE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 14:05:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5dWVUsjgYCfyghVbl/aVOvjNHhBfWKNBo9KEyUYVOsQ=; b=OClZVzG4TYtGOp0Sp256YVkD4N
-	E9m7MqxMN8gedSqgMxCbzv6lDQlKr6+KLIX5ZdGzm+OFpRF89Tn6cz32o/0zITdnjtH+TPEhEH8iw
-	T4Q6wRHxKKI6HUobZ/jTVg4xZVNxQgvdAm077HExG8AhlbOZ6YAu0Ku5LHHgWG2kx/sI2lSAvdMq6
-	qF5PC5OusFJUffFjA6o8Piu1klr9E8imeTYmYfWYeKXMMx/tBGoOr94hKvphnKCebqMaBmYwgUzJg
-	7/OXCMm3HF4uZ2UID84JzS3F06LYmMh5+ltfrv+/zEkwi0s6PRY0lcPTppaJ3SFKuNGmfpGlcv7ew
-	Qey8MPtA==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Nl2Wc4zXUTbFhL3xUOlfZV6Tk0P84aqkDxVPBN8GdpI=; b=woilh87IxEUUFSRz7cx3WaoWSH
+	h5NRWm7SyUsVmpCLcDY1qngP//N253I1IMFdx7tNBJmc06pRXYcjfyPZ8x1AZ8SXe8UUqyuUekjJK
+	yBvB1k/lFucO1BhiiZmFNxexgHxvObSd2RoIcl/HMH7fZClgWUM2xXICn8fgnL1dQ5+04sH6o57mz
+	rfe+C0aZUQxh0/53uB5IEhJT/NzdfcflBsXRsGSHPLo0BE/iI2cgJnf4NBW4KwoP4Pc8SjbIC+EN/
+	Vu/3IhxtRIl9fhONY93nUU+XAq3uE5WzFxijDX6OsX7xi8koeJWDyBXIc3aDE+iap9+M7suJao1pV
+	n9dc/DWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVABM-0000000562I-398U;
-	Tue, 07 Jan 2025 14:03:44 +0000
+	id 1tVACW-000000056MK-1a00;
+	Tue, 07 Jan 2025 14:04:56 +0000
 Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVA94-000000055Sx-3rzX
+	id 1tVA99-000000055Sx-2RRY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 14:01:27 +0000
+	Tue, 07 Jan 2025 14:01:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1736258482; x=1767794482;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=5dWVUsjgYCfyghVbl/aVOvjNHhBfWKNBo9KEyUYVOsQ=;
-  b=AMbnaIkcQZq+irCxgTSvRpeE0oNUdT7vYY+relinCeRd7yS8wFPrL+MS
-   +Tikj3G8njxDEOdCUXkIbKKILor9FT7tocQ/uVXd255eLCSi5pJu0w7be
-   SIZUNscS5Vpr6ZU1oi89UUrDTQtYyt39ipbXjd1y5OeI6rYR/i8+CUvV/
-   gaRB6h6OMg7hITJgKjEHFsL17PRp3IxILp+1VlJjG2L6/Ud+08SQFgS6W
-   lqTFcwr5i1RLBR2EU6oYVCLBURn2bPEpM1aJ6jKc9LeF9pUVejZtmLYW/
-   J4lyc77as9CoUz0btP2e2/GeFvKxVmf8nenu/1mIu/ZnFlxvQAbXzMXs7
-   Q==;
-X-CSE-ConnectionGUID: K0rj5RPgSYezIE56GMO7qw==
-X-CSE-MsgGUID: nS7yo3ndQ/eDyIYEfEslOQ==
+  t=1736258487; x=1767794487;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=Nl2Wc4zXUTbFhL3xUOlfZV6Tk0P84aqkDxVPBN8GdpI=;
+  b=JIZi7GeuDrnieqV7KORjLtp58PAp6uKTJTiSYhvULAmZ3yuMfp20n0CR
+   KybeUHrEhItgWA+qe5+hmwrroHce1AC9ue8dZxkleNNmyboIoXkEWUYoE
+   k1uQZ55AjQS6ABwYBAxC+/Y/T6IP+punXlSeo0N7I9KzQNLJWhv7gWfMg
+   fKVmSNjSrg70Vfxo3oOfnipHx+u0KdGEaFJO8zdyrXavF+0oTBXgrO/1o
+   3C5PRSFMzfBiZE8q+qbkiVt0x2hM/8V26mIyS0+Rz2aMe9hibJYtsfDEN
+   rm2sl8z/ic6SutQBpuXFU7NcK65xMHjE5JYQWwrlKlbSmOe81QH37q8mz
+   g==;
+X-CSE-ConnectionGUID: 1IK2yk7QSOqvaaM0iR1QwA==
+X-CSE-MsgGUID: AQhxRHawSISrFnO0xIS4dQ==
 X-IronPort-AV: E=Sophos;i="6.12,295,1728943200"; 
-   d="scan'208";a="40896215"
+   d="scan'208";a="40896217"
 Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 07 Jan 2025 15:01:20 +0100
-X-CheckPoint: {677D33B0-43-1D00F64B-E6C57517}
-X-MAIL-CPID: 4747FB3F406B0D7ACCA7EA030A363758_3
-X-Control-Analysis: str=0001.0A682F17.677D33B0.00C5,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5A175160B22;
-	Tue,  7 Jan 2025 15:01:15 +0100 (CET)
+  by mx1.tq-group.com with ESMTP; 07 Jan 2025 15:01:26 +0100
+X-CheckPoint: {677D33B6-8-C6D8D88D-F91F9E6B}
+X-MAIL-CPID: D7D2787E713A3DACCFD60F87EDE56897_2
+X-Control-Analysis: str=0001.0A682F15.677D33B6.004B,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1CD2D164EE1;
+	Tue,  7 Jan 2025 15:01:21 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1736258476;
+	s=dkim; t=1736258481;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=5dWVUsjgYCfyghVbl/aVOvjNHhBfWKNBo9KEyUYVOsQ=;
-	b=KO5rrJF5ND2e3Vm/STvtn6q9zoYW4P/7BzrdeT/Qd+0L1Q7ZXHYujXmtek1qVz4PjQ7N2x
-	/f+vlBucbloVM0GZAEuwtkTwjDsQv9qHUGt6JzCDbgFM9ucWDSlZkmogPX0UpduXDq+mzX
-	8/iG9NMYTRYGIEG2H1qxnsTJln23WfBa7NSzAV+hmR4GhEtSeIkqY4owP3lBcMysCND+i6
-	cqnLhGpoWha0UitJUOs5XR5omKAYClplKo3EOP0voavmW1YP35lurZG8zC3PPbaXVlxKtb
-	NjFSu7zqDt8nnzc5PDLnMwyY26Ei/z7QqTgKLmpUaASNoByk/8L71O5icKhYLw==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Nl2Wc4zXUTbFhL3xUOlfZV6Tk0P84aqkDxVPBN8GdpI=;
+	b=Yxdx8cijniKdkyEuN+R2sxLiK3xugzxbK4keySoct4rTSGF4qyoJZUD7rE00B+17joOJm+
+	/m133xHM+8oXgwonSSXzhYsAqE1YSWJMBvRslbSySNjqAN4WLKYt7nzU+VIisYVDDIflha
+	QfD6L8r9jCajXs1ogWwEgYVH3i6iVhUPzV16oH0vAzYbCqFZP1ok5Dr0Yqbk+wNBSuvtsv
+	F4bVR/qpd3hKmYiTjgENqsVAD0eErR2+5GDnWV/UFrw4fzvzRHwAeMmBZB2u/cQM1oehsZ
+	tF5Jm82dk29g1ukfip/ZFdFtU602rQ9+creNskUAsYMgpP57MVWmWBK7glkW6w==
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -76,17 +77,18 @@ Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux@ew.tq-group.com
-Subject: [PATCH 0/5] TQMa8Xx update
-Date: Tue,  7 Jan 2025 15:01:05 +0100
-Message-Id: <20250107140110.982215-1-alexander.stein@ew.tq-group.com>
+Subject: [PATCH 1/5] arm64: dts: imx8-ss-hsio: Wire up DMA IRQ for PCIe
+Date: Tue,  7 Jan 2025 15:01:06 +0100
+Message-Id: <20250107140110.982215-2-alexander.stein@ew.tq-group.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250107140110.982215-1-alexander.stein@ew.tq-group.com>
+References: <20250107140110.982215-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_060123_305723_4524E478 
-X-CRM114-Status: UNSURE (   8.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250107_060127_927933_6F378B34 
+X-CRM114-Status: GOOD (  10.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,32 +103,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+IRQ mapping is already present. Add the missing DMA interrupt.
 
-this small series updates the TQMa8Xx support:
-* Add vcc-supply for spi-nor
-* Enable JPEG decoder/encoder
-* Remove obsolete TODO
-* Add PCIe support on Mini-PCIe slot
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+---
+ arch/arm64/boot/dts/freescale/imx8-ss-hsio.dtsi | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-The first patch is not necessary for PCIe support, but fixes the warning
-> imx6q-pcie 5f010000.pcie: Invalid eDMA IRQs found
-
-Best regards,
-Alexander
-
-Alexander Stein (5):
-  arm64: dts: imx8-ss-hsio: Wire up DMA IRQ for PCIe
-  arm64: dts: tqma8xx: Add vcc-supply for spi-nor
-  arm64: dts: tqma8xx: enable jpeg encode and decode
-  arm64: dts: tqma8xx: Remove GPU TODO
-  arm64: dts: mba8xx: Add PCIe support
-
- .../boot/dts/freescale/imx8-ss-hsio.dtsi      |  5 +--
- arch/arm64/boot/dts/freescale/mba8xx.dtsi     | 32 ++++++++++++++++---
- arch/arm64/boot/dts/freescale/tqma8xx.dtsi    | 12 +++++--
- 3 files changed, 40 insertions(+), 9 deletions(-)
-
+diff --git a/arch/arm64/boot/dts/freescale/imx8-ss-hsio.dtsi b/arch/arm64/boot/dts/freescale/imx8-ss-hsio.dtsi
+index 70a8aa1a67911..4bdfc15487cbc 100644
+--- a/arch/arm64/boot/dts/freescale/imx8-ss-hsio.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8-ss-hsio.dtsi
+@@ -57,8 +57,9 @@ pcieb: pcie@5f010000 {
+ 		ranges = <0x81000000 0 0x00000000 0x8ff80000 0 0x00010000>,
+ 			 <0x82000000 0 0x80000000 0x80000000 0 0x0ff00000>;
+ 		#interrupt-cells = <1>;
+-		interrupts = <GIC_SPI 102 IRQ_TYPE_LEVEL_HIGH>;
+-		interrupt-names = "msi";
++		interrupts = <GIC_SPI 102 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_SPI 104 IRQ_TYPE_LEVEL_HIGH>;
++		interrupt-names = "msi", "dma";
+ 		#address-cells = <3>;
+ 		#size-cells = <2>;
+ 		clocks = <&pcieb_lpcg IMX_LPCG_CLK_6>,
 -- 
 2.34.1
 
