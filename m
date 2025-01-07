@@ -4,87 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26478E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 14:13:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9B2DE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 14:14:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A4du5LWjZMyGowohYHWCZqhQ22dv14dIIf7ZvEHMxq0=; b=grNaUyOZifN51nMuQLP/vqQl5b
-	AoBVZVtiIVdffGRtpYA99xK0xisrL3oPAgNH/GtP0L0pBwriyL8MD3cujpSS2TCWJWXbmnBteaUNs
-	gLO7gxo/JHIgKS7Hv/TvxAE4/CbeoQyEK1IckODHYWheRaMRaSa69dAZqJrXgd7nUNnmGmd/Uk0Mv
-	lE3wTBU3uV+1Kr+qvEq5vg/Cf+OPISulMkenMgPdYsgDM4vaG498uoM3ir6X0vR4/lCMhtkl+aSuX
-	1N1U0p6BGf5Rp38YmzX+Yx5sVYxLrAc/dbLFXALZXKAz8A/QTjrt1ttjy3fT8upKRBBRl3kPSmOdN
-	X3P7QnPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=48wXuXFUcpkxyYEqMjrHLtrbLxlwqOJwN2nUnKPwy9M=; b=Fx04jGI90cZYrQJc9pk2JVoWDT
+	h7dAGDT5k0m/jJLM5iKwsRNGp8K48G5Lza5IwGirflkj9iobzjYsyrNpNfWg1Y1vgtmaxc1iKBTZn
+	uINF4gifLoWYK10NXQxsKvF8x6oX7tKDLjOQ0uD8YcRNrh4HUWMAyLA/NvdPWWS/ujeZCRakv2HFK
+	eEX6gjXfatLAa66u7IMXBhbINMrBf4nniHjEr9CQCOyR3ene72ESTQOQ0Wejl6aUwC4zfBBqB1Dxl
+	+2YEiXQlEo9nh0ZH7XjoYe3hZNwT7ndCnVeprkfgfPg5flX4B33KgenoTHvHeZtti1/gyccXehwiV
+	P/2GLquA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVAKj-000000058Vx-0kd4;
-	Tue, 07 Jan 2025 14:13:25 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tVALs-000000058oy-3kV0;
+	Tue, 07 Jan 2025 14:14:36 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVAAh-000000055s4-29vB
+	id 1tVAC3-000000056Eh-0eOT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 14:03:07 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ore@pengutronix.de>)
-	id 1tVAAR-0007Xm-QU; Tue, 07 Jan 2025 15:02:47 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <ore@pengutronix.de>)
-	id 1tVAAQ-007M3c-1B;
-	Tue, 07 Jan 2025 15:02:47 +0100
-Received: from ore by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <ore@pengutronix.de>)
-	id 1tVAAQ-009aOe-33;
-	Tue, 07 Jan 2025 15:02:47 +0100
-Date: Tue, 7 Jan 2025 15:02:46 +0100
-From: Oleksij Rempel <o.rempel@pengutronix.de>
-To: Kory Maincent <kory.maincent@bootlin.com>
-Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	davem@davemloft.net, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
-	Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>,
-	=?utf-8?Q?Nicol=C3=B2?= Veronese <nicveronese@gmail.com>,
-	Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
-	Antoine Tenart <atenart@kernel.org>
-Subject: Re: [PATCH net-next RFC 0/5] net: phy: Introduce a port
- representation
-Message-ID: <Z300BuATJoVDc_4S@pengutronix.de>
-References: <20241220201506.2791940-1-maxime.chevallier@bootlin.com>
- <Z2g3b_t3KwMFozR8@pengutronix.de>
- <Z2hgbdeTXjqWKa14@pengutronix.de>
- <Z3Zu5ZofHqy4vGoG@shell.armlinux.org.uk>
- <Z3bG-B0E2l47znkE@pengutronix.de>
- <20250107142605.6c605eaf@kmaincent-XPS-13-7390>
+	Tue, 07 Jan 2025 14:04:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 765965C60B4;
+	Tue,  7 Jan 2025 14:03:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71D84C4CED6;
+	Tue,  7 Jan 2025 14:04:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736258666;
+	bh=zpLPFk4V34ySX+QVzjn/D76/5f0os4lfSRGEnv0cZmo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=cPQo+dryUksVlvwsThdiPNcOZjdgy2GBgF3ugnnXcIkb3I+4cu5UyoC3C0sRbzziD
+	 rgfw+OHTNySl15kiH2dUtB8Bcxd4mBdGfn4c4IFS4eZnywBoDaanhMCg3C109EA3Ef
+	 +V1DgZCfPEx+TfI6tIcP2v5AkFXkivpV+nDMPSmWd2sczNoWVRj7BNsaSJRLD2Rc8s
+	 3RCD44TYL5VjhWXrvz4s4Oyw2ejFXNXoHTULojlXW4qy+A5O1FNbn2IeVOQXIlyo0X
+	 ogdQk3zA1gQJt67myyI8Tht5FBrpkHs3340hAbGhNqfWgcTKBlUhahZT5fKbwEWpOg
+	 yQ6bEymwnXo7g==
+Message-ID: <dcbda522-eeed-43a9-ab34-a41e5239c6e8@kernel.org>
+Date: Tue, 7 Jan 2025 16:04:21 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250107142605.6c605eaf@kmaincent-XPS-13-7390>
-X-Sent-From: Pengutronix Hildesheim
-X-URL: http://www.pengutronix.de/
-X-Accept-Language: de,en
-X-Accept-Content-Type: text/plain
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ore@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] arm64: dts: ti: k3-am68-sk*: Add bootph-all property
+ to necessary nodes to enable Ethernet boot
+To: Chintan Vankar <c-vankar@ti.com>, Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+ Tero Kristo <kristo@kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Nishanth Menon <nm@ti.com>
+Cc: srk@ti.com, s-vadapalli@ti.com, danishanwar@ti.com,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20250106123122.3531845-1-c-vankar@ti.com>
+ <20250106123122.3531845-2-c-vankar@ti.com>
+Content-Language: en-US
+From: Roger Quadros <rogerq@kernel.org>
+In-Reply-To: <20250106123122.3531845-2-c-vankar@ti.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_060303_550759_E4BF826B 
-X-CRM114-Status: GOOD (  26.95  )
+X-CRM114-CacheID: sfid-20250107_060427_286293_49AB9E6C 
+X-CRM114-Status: GOOD (  12.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,107 +79,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 07, 2025 at 02:26:05PM +0100, Kory Maincent wrote:
-> On Thu, 2 Jan 2025 18:03:52 +0100
-> Oleksij Rempel <o.rempel@pengutronix.de> wrote:
+
+
+On 06/01/2025 14:31, Chintan Vankar wrote:
+> Ethernet boot requires CPSW nodes to be present starting from R5 SPL
+> stage. Add bootph-all property to necessary nodes for CPSW to enable those
+> nodes during SPL stage along with later boot stages for AM68-SK.
 > 
-> > On Thu, Jan 02, 2025 at 10:48:05AM +0000, Russell King (Oracle) wrote:
-> > > On Sun, Dec 22, 2024 at 07:54:37PM +0100, Oleksij Rempel wrote:  
-> > > > Here is updated version:
-> > > > 
-> > > > ports {
-> > > >     /* 1000BaseT Port with Ethernet and simple PoE */
-> > > >     port0: ethernet-port@0 {
-> > > >         reg = <0>; /* Port index */
-> > > >         label = "ETH0"; /* Physical label on the device */
-> > > >         connector = "RJ45"; /* Connector type */
-> > > >         supported-modes = <10BaseT 100BaseTX 1000BaseT>; /* Supported
-> > > > modes */
-> > > > 
-> > > >         transformer {
-> > > >             model = "ABC123"; /* Transformer model number */
-> > > >             manufacturer = "TransformerCo"; /* Manufacturer name */
-> > > > 
-> > > >             pairs {
-> > > >                 pair@0 {
-> > > >                     name = "A"; /* Pair A */
-> > > >                     pins = <1 2>; /* Connector pins */
-> > > >                     phy-mapping = <PHY_TX0_P PHY_TX0_N>; /* PHY pin
-> > > > mapping */ center-tap = "CT0"; /* Central tap identifier */
-> > > >                     pse-negative = <PSE_GND>; /* CT0 connected to GND */
-> > > >                 };
-> > > >                 pair@1 {
-> > > >                     name = "B"; /* Pair B */
-> > > >                     pins = <3 6>; /* Connector pins */
-> > > >                     phy-mapping = <PHY_RX0_P PHY_RX0_N>;
-> > > >                     center-tap = "CT1"; /* Central tap identifier */
-> > > >                     pse-positive = <PSE_OUT0>; /* CT1 connected to
-> > > > PSE_OUT0 */ };
-> > > >                 pair@2 {
-> > > >                     name = "C"; /* Pair C */
-> > > >                     pins = <4 5>; /* Connector pins */
-> > > >                     phy-mapping = <PHY_TXRX1_P PHY_TXRX1_N>; /* PHY
-> > > > connection only */ center-tap = "CT2"; /* Central tap identifier */
-> > > >                     /* No power connection to CT2 */
-> > > >                 };
-> > > >                 pair@3 {
-> > > >                     name = "D"; /* Pair D */
-> > > >                     pins = <7 8>; /* Connector pins */
-> > > >                     phy-mapping = <PHY_TXRX2_P PHY_TXRX2_N>; /* PHY
-> > > > connection only */ center-tap = "CT3"; /* Central tap identifier */
-> > > >                     /* No power connection to CT3 */
-> > > >                 };
-> > > >             };
-> > > >         };  
+> Signed-off-by: Chintan Vankar <c-vankar@ti.com>
+> ---
+>  arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts | 5 +++++
+>  arch/arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi | 2 ++
+>  2 files changed, 7 insertions(+)
 > 
-> Couldn't we begin with something simple like the following and add all the
-> transformers and pairs information as you described later if the community feels
-> we need it?
-> 
-> mdis {
-> 
->     /* 1000BaseT Port with Ethernet and PoE */
->     mdi0: ethernet-mdi@0 {
->         reg = <0>; /* Port index */
->         label = "ETH0"; /* Physical label on the device */
->         connector = "RJ45"; /* Connector type */
->         supported-modes = <10BaseT 100BaseTX 1000BaseT>; /* Supported modes */
->         lanes = <2>;
->         variant = "MDI-X"; /* MDI or MDI-X */
->         pse = <&pse1>;
->     };
-> };
+> diff --git a/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts b/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts
+> index 11522b36e0ce..f1f8b228926d 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts
+> @@ -333,6 +333,7 @@ J721S2_WKUP_IOPAD(0x008, PIN_OUTPUT, 0) /* (E22) MCU_RGMII1_TD3 */
+>  			J721S2_WKUP_IOPAD(0x018, PIN_OUTPUT, 0) /* (F21) MCU_RGMII1_TXC */
+>  			J721S2_WKUP_IOPAD(0x000, PIN_OUTPUT, 0) /* (F22) MCU_RGMII1_TX_CTL */
+>  		>;
+> +		bootph-all;
 
-The problematic properties are lanes and variants.
+Shouldn't bootph-all be the first property in the DT nodes?
 
-Lanes seems to not provide any additional information which is not
-provided by the supported-modes.
-
-We have at least following working variants, which are supported by (some?)
-microchip PHYs:
-https://microchip.my.site.com/s/article/1000Base-T-Differential-Pair-Swapping
-For swapping A and B pairs, we may use MDI/MDI-X. What is about swapped
-C and D pairs?
-
-The IEEE 802.3 - 2022 has following variants:
-14.5.2 Crossover function - only A<>B swap is supported
-40.4.4 Automatic MDI/MDI-X Configuration - only A<>B swap is supported?
-55.4.4 Automatic MDI/MDI-X configuration - 4 swap variants are supported
-113.4.4 Automatic MDI/MDI-X configuration - 4 swap variants are supported
-126.4.4 Automatic MDI/MDI-X configuration - 4 swap variants are supported
-
-This was only the pair swap. How to reflect the polarity swap withing
-the pairs?
-
-> We can also add led, thermal and fuse subnodes later.
-> Let's begin with something simple for the initial support, considering
-> that it has places for additional details in the future.
-
-Yes :)
+>  	};
+>  
+>  	mcu_mdio_pins_default: mcu-mdio-default-pins {
+> @@ -340,6 +341,7 @@ mcu_mdio_pins_default: mcu-mdio-default-pins {
+>  			J721S2_WKUP_IOPAD(0x034, PIN_OUTPUT, 0) /* (A21) MCU_MDIO0_MDC */
+>  			J721S2_WKUP_IOPAD(0x030, PIN_INPUT, 0) /* (A22) MCU_MDIO0_MDIO */
+>  		>;
+> +		bootph-all;
+>  	};
+>  
+>  	mcu_mcan0_pins_default: mcu-mcan0-default-pins {
+> @@ -610,11 +612,13 @@ &main_sdhci1 {
+>  &mcu_cpsw {
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&mcu_cpsw_pins_default>, <&mcu_mdio_pins_default>;
+> +	bootph-all;
+>  };
+>  
+>  &davinci_mdio {
+>  	phy0: ethernet-phy@0 {
+>  		reg = <0>;
+> +		bootph-all;
+>  		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
+>  		ti,fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
+>  		ti,min-output-impedance;
+> @@ -624,6 +628,7 @@ phy0: ethernet-phy@0 {
+>  &cpsw_port1 {
+>  	phy-mode = "rgmii-rxid";
+>  	phy-handle = <&phy0>;
+> +	bootph-all;
+>  };
+>  
+>  &mcu_mcan0 {
+> diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi
+> index bc31266126d0..cfae226d3c63 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi
+> @@ -154,12 +154,14 @@ mcu_conf: bus@40f00000 {
+>  		cpsw_mac_syscon: ethernet-mac-syscon@200 {
+>  			compatible = "ti,am62p-cpsw-mac-efuse", "syscon";
+>  			reg = <0x200 0x8>;
+> +			bootph-all;
+>  		};
+>  
+>  		phy_gmii_sel: phy@4040 {
+>  			compatible = "ti,am654-phy-gmii-sel";
+>  			reg = <0x4040 0x4>;
+>  			#phy-cells = <1>;
+> +			bootph-all;
+>  		};
+>  
+>  	};
 
 -- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+cheers,
+-roger
+
 
