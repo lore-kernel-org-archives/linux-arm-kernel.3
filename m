@@ -4,65 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43001E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 00:32:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCC3AE77198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 00:33:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=krLcUhB+H3+rCqm9IrFZZfanLZTEha1VXLaGt1AsXto=; b=JWCi/LYqiHEgG1Lf/o23UPoNQ7
-	t0sg731geLWYomhRVm4s6gvSc6mqSSNgMDLgJRyzUtyaww4hm80zU4KWBfyF694S/M0w9urL2V9WI
-	DL/H1MpDgKok4c0hpndTavSpOsIixjUHNmHb5qALDaP8VBOa+GOWjQKXi9loggdOKxAmed0JFT5OA
-	mc7aHEJR1AZvsjknBJKSamUedOJD4Av6mQLzKq2KGa/LF4V2/biN5x5tsjK+N/HjhBX/8FnTdAdq+
-	Uh/9bN+MGyRKtXbx1UuvIP9h+oNP3vlmWDeKoxU7dvU5zpBvqFJVjMNLfdKoyEvUJmEFnJXliTWNh
-	LMgyrpyg==;
+	bh=13VUHaFiuc4bXuLa2863YA1rYhMMosunQcKMEn7ZyfQ=; b=JFM7/SJBDkiBNYvhcMRH6x0H8+
+	zaKYCXOa1J+cIr51JrK6exXywkvKRDPpQ2H1AzxPASCAGfW6KzU3VNld5TEVNWeSSsiCcAgq9tHJk
+	Xvobl0u+zP4rc0RszMD6tkDxgLcZvy0oMy/w7GXjbhYBoZvAh/admbrKy4/TTaa52AnaWH3No6oYk
+	CtnU+/Ko9qGWT65YosyFO0ttLzlJPQDSWs9j+rkcOxz0IbV1Sb5h6E+ymmAmFXTYLMtg/8EM/b5zG
+	BOZh6wjaAfxSMc+AgXqxDrOdyixNk75r6o9jemgRWvE0KS2sz6RXICIqlz3IgK35sv8I9G42j7tzL
+	jV+rR7KA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUxW2-000000032uE-0ddR;
-	Tue, 07 Jan 2025 00:32:14 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tUxXD-0000000332e-35vy;
+	Tue, 07 Jan 2025 00:33:27 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUxUn-000000032j4-3LUC
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 00:30:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id EF184A41FE7;
-	Tue,  7 Jan 2025 00:29:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 530BFC4CED2;
-	Tue,  7 Jan 2025 00:30:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736209856;
-	bh=wDhSYOfboak3qK+hy1jYjiF2LpSH+HGBwrcDHRKoB60=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Hpl6zwgdR4rZ4/LVHS2TAzt0LK+XL1glv0sqbDQZP5vA/yFhfcJUM/eZMo6mBhJG5
-	 XyzVwBNReTSIVRdlVitJ1NShl44sdJ0tzFaKhuvroIL1z4OEWZ6V5iR9Qu0HlW7kNg
-	 6ymMwWmMG8LsBL81AQsCNwYMqgv9UXNZMC6TTPeSVj0YYaO61EtJEwaQk1aLAD9pa+
-	 7pEmZ69BMmznRpGThBIONnF1Y7/r40mDlKWDJJv/TMQiD8ons7ehNGNdLqmj44+dKj
-	 7upTyLTWkJ5nTVSqIm8ITzVHXzrR+oKncduJjAlNMaVm3wCqB72QGwqf0IodKWQjlS
-	 nFn5woCVD5o0w==
-Date: Mon, 6 Jan 2025 16:30:54 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Joey Lu <a0987203069@gmail.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, mcoquelin.stm32@gmail.com, richardcochran@gmail.com,
- alexandre.torgue@foss.st.com, joabreu@synopsys.com, ychuang3@nuvoton.com,
- schung@nuvoton.com, yclu4@nuvoton.com, peppe.cavallaro@st.com,
- linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- openbmc@lists.ozlabs.org, linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH net-next v6 0/3] Add support for Nuvoton MA35D1 GMAC
-Message-ID: <20250106163054.79cdd533@kernel.org>
-In-Reply-To: <20250103063241.2306312-1-a0987203069@gmail.com>
-References: <20250103063241.2306312-1-a0987203069@gmail.com>
+	id 1tUxUy-000000032kT-1jIG;
+	Tue, 07 Jan 2025 00:31:10 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-436249df846so103628095e9.3;
+        Mon, 06 Jan 2025 16:31:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1736209866; x=1736814666; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=13VUHaFiuc4bXuLa2863YA1rYhMMosunQcKMEn7ZyfQ=;
+        b=TvEpb2KRvIZgY1UhM7oXhK5d0KjpRvp2LHFjUAg5PlLFn4WYj9+gCG/t/Y0sNbbE7q
+         eSnZ2wJUp0/vSklihvBeXM4hzk4AfvKXUye8CW3SyU6YKL6obWpYKoluYMS7WHNifZor
+         reDstMiAo3qXEvr3bC6Hqn/Sv0cWw+ugXKkTr24dE6bPL4rIKJ424tgvBggXgwP3TQJ+
+         KfYdo5aoj9gRmUeFpIdwlm68l9380RUrPuy+wXc1BX6UARmTFtBUz4Xk2DRCsOLt5k6x
+         K9HS6Twt9puoRVGaQuA7IvNY6bmAxLtd3WyQvbmzoPCykksrE/otnhTHKHr9PUVm67FL
+         gj8A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736209866; x=1736814666;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=13VUHaFiuc4bXuLa2863YA1rYhMMosunQcKMEn7ZyfQ=;
+        b=rcjW14O8DqBjO8wF+TCaMiS95pMYZvRtP5i5QaYSCWio2nOwaoFvNl1zEA27o7xGh4
+         KE97YP0qYLBvwWi7+0sNz9om77g4e4jwYVYirNHK6EgPvE45abJZdo+4toKSiuyI3EFe
+         ssr2kWl6Ti39YYMM/KkhVxVqUrWTlBB4ltEg0t5hDL/zVJUzomxd31ey5d+qCebmavfZ
+         FrBt0PkSpsi4+KBw8bIfBEtMDr/OOKv36Es17Ygd44HAzbxBvrNn3SinBTyXy0kIRxVi
+         15DbMfZ8Wi+ytZTAHQUVnmNbhW8lA7mr6U+W3aHbBjrqRRR99vgJhQcjgczYgtYSj+F1
+         umwA==
+X-Forwarded-Encrypted: i=1; AJvYcCWMyNSZBB1xGeRrY4Q3h3AybPJfxqhyGoB1JXCHR4erJCjLWztCs1vrvwfv7FdG+NSRx6VHZrIEvkny@lists.infradead.org, AJvYcCXa+8lZTcCgw2Urpz5PscKO8ZH4HJwU1rmo0/SbqJCLU/bTlXMFQkl7cw1DFUgbJFFw4j6mNSss1hwsft+kkA72@lists.infradead.org
+X-Gm-Message-State: AOJu0YwOdSTpPlfrC0CV33h7KflbvmCO1aM5zOQ2DpP3s+hJe+3fLxyC
+	3C+3enRB4HIvsv2Gz7R0INJFUHSqpIjw+gkQAVJqCD1TR8rUwmo1
+X-Gm-Gg: ASbGncuMtrx8hFT4zM7urinf8UC3qfZntWs7znYKHbw0AxSbokNiDMBXZUKhLl9DnBW
+	SfJ+HW0jrQQxDNRdq3dIxvuuyYhhFKJ6DLEFV8mrmgeYqxPkNgVDB3QlA4buTowOOmqbuSOLCUu
+	hYN5cGbgAgz0LkBHGpfv0u/6Jll/wiEQA6BJdRy2Zv8F+9BebD/WBP3Qr09x6AGl/e3oQTbFzmH
+	x5i/NyBWd1EZY1vdcql30eZa20g3IXxCoqYV2RvJGsZ579DTsXCWGaOOAfDOVsJULppDUI/vCwO
+	O8p7d+5afuxo8CJrWC+FQq4Acw==
+X-Google-Smtp-Source: AGHT+IEjONcU9x6JlzHrNOCRfapdijI2K0K3jjBIXQvsC6vlMArfJXHA/sc0RSHKNgKkvauw85ENXQ==
+X-Received: by 2002:a5d:6da1:0:b0:386:4a0c:fe17 with SMTP id ffacd0b85a97d-38a2220039fmr49166964f8f.27.1736209865801;
+        Mon, 06 Jan 2025 16:31:05 -0800 (PST)
+Received: from ?IPV6:2001:861:3385:e20:6384:4cf:52c5:3194? ([2001:861:3385:e20:6384:4cf:52c5:3194])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a1c8471dcsm49320901f8f.48.2025.01.06.16.31.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 06 Jan 2025 16:31:05 -0800 (PST)
+Message-ID: <810af0b9-aa21-4f11-9708-92c870615cc8@gmail.com>
+Date: Tue, 7 Jan 2025 01:31:02 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/6] Switch from CONFIG_PM_SLEEP guards to pm_sleep_ptr()
+To: Mark Brown <broonie@kernel.org>
+Cc: Patrice Chotard <patrice.chotard@foss.st.com>,
+ Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Adrian Hunter <adrian.hunter@intel.com>, Ulf Hansson
+ <ulf.hansson@linaro.org>, Miquel Raynal <miquel.raynal@bootlin.com>,
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Damien Le Moal <dlemoal@kernel.org>, Niklas Cassel <cassel@kernel.org>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ linux-arm-kernel@lists.infradead.org, linux-usb@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org,
+ linux-mtd@lists.infradead.org, linux-ide@vger.kernel.org,
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-spi@vger.kernel.org
+References: <20241229-update_pm_macro-v1-0-c7d4c4856336@gmail.com>
+ <eec9caa0-0029-4774-842e-af1d1290ad97@sirena.org.uk>
+Content-Language: en-US, fr
+From: =?UTF-8?Q?Rapha=C3=ABl_Gallais-Pou?= <rgallaispou@gmail.com>
+In-Reply-To: <eec9caa0-0029-4774-842e-af1d1290ad97@sirena.org.uk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_163057_904588_08279303 
-X-CRM114-Status: GOOD (  10.02  )
+X-CRM114-CacheID: sfid-20250106_163108_450176_0559692F 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,19 +114,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri,  3 Jan 2025 14:32:38 +0800 Joey Lu wrote:
-> This patch series is submitted to add GMAC support for Nuvoton MA35D1
-> SoC platform. This work involves implementing a GMAC driver glue layer
-> based on Synopsys DWMAC driver framework to leverage MA35D1's dual GMAC
-> interface capabilities.
 
-Would be good if you could reply to Christophe's question.
 
-Then please rebase on top of net-next/main and repost.
-The first patch doesn't currently apply cleanly.
-Please leave out the second patch, it has to go via
-the appropriate platform tree, rather than the networking
-tree.
--- 
-pw-bot: cr
+Le 06/01/2025 à 14:08, Mark Brown a écrit :
+> On Sun, Dec 29, 2024 at 12:32:39AM +0100, Raphael Gallais-Pou wrote:
+>> Prevent the use of macros, and rely instead on kernel configuration for
+>> power management.
+>>
+>> This series makes the same change over six different drivers:
+>> usb-st-dwc3, sdhci-st, st-spi-fsm, ahci_st, sti-dwmac, spi-st.
+> 
+> Is there any actual interaction between these changes?  In general you
+> shouldn't combine patches for multiple subsystems into a single series
+> unless there's some dependency or other interaction since it just
+> complicates management of the patches.
+
+Hi,
+
+No, there isn't apart from the fact that those are stm32 drivers. As 
+Miquel also stated a few days ago, is was wrong for me to sent all of 
+this in a whole serie. I will just resend them separately as a v2, 
+taking into account Miquel's review[1] and the kernel robot.
+
+Regards,
+Raphaël
+
+
+[1] https://lore.kernel.org/lkml/877c7ha77n.fsf@bootlin.com/
 
