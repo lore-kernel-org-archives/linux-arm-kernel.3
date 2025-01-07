@@ -4,97 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70328E77198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 14:52:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F3B5E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 14:54:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cxPAWL+xin5vhaohLcuT2Ap42giFDWZcynaNDWdW+q8=; b=t+bVsgy9BxKVWpWhHG+K6tZkq7
-	BA0zbZAdSxuNuGBSqoUJKFTBGYF8NZuMByVlALPfXhsQ+1G5wPdJLCxD1B54oqw9E5Mavn754DHOx
-	E01ofjaN8EgHaKss3BX0d1ZYOut4/D7DCvMWTZ6iVyAsLM0ozIetaMUdUMLXjQhca1Cq1GO/4UvBG
-	lS3AWC/FhjhffLgI3+Pw0f35MDEmoXfKov1AkGjn8J9sAJDNSsawP2seFs0zpOc/BY9t1MYe+Bk1l
-	NLEAq1vf/uGgymiGTbsMF4fEHtwnvr8bQOeXY2d/cbJzIb3mViTcbE9R/Lqj6F5WEHzWYShgbsykk
-	UKg/fM+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P8ozCYiYiGuUqL3zEljw8rKehpkF96Epq59O7WR0Gnw=; b=ZmmKCGCLQWs1eastoHgoCWBQqz
+	TmKGcQ5Jy4nPztWm07uSi/ErJweP0lxPnjvSQ4QW35pp+GRX/OdJ1GqQlh5mI3tAG8RGsrzu/Mk5Q
+	GDFpA2dSgMqmpzOft+p/mX7wo85bnI4an+DJHQ6F+mMb2kQKe0XhDDriJ+ji77YhDsneu+T0iJ8ft
+	UBF1v3st2qvO+lwrg/oUDRmFZF67qcBuQcc3LlqRUjjnXA2Z5ab5nLOSHpnhKPkBU6wEQNt42DvKa
+	l1LtJ1SFU130f6N7W2sdtoxHHX+hsuJsvyWm/weDXAzMsYOCiBOS1bRY6GJkMFJkrL1mLB0LlbqNp
+	ySsXn/3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVAwm-00000005JMi-3XJJ;
-	Tue, 07 Jan 2025 14:52:44 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1tVAxx-00000005JhN-3hhF;
+	Tue, 07 Jan 2025 14:53:57 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVAqr-00000005HgJ-180W
+	id 1tVAqz-00000005HiS-0fzV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 14:46:41 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 507CSl8Y022183;
-	Tue, 7 Jan 2025 14:46:17 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=cxPAWL
-	+xin5vhaohLcuT2Ap42giFDWZcynaNDWdW+q8=; b=e+K3y++tUnqNiNA9nBLNVW
-	gx6CXe7emtQEL0KdWn8Iwyyk0FFaBKLpgeNkcq+pKe5scB5C2RKeH6yMgKa4DWot
-	kx7e9aoutEAYKzwZLajtW/8QSmH4sY/dOwiYSo6Tx8otiGxLW70dhBRW69cT113F
-	9w16nnuYWCAPMLZZ42NuMgz9hKHmKbVB3L9CeVhTBtAjJbp7QuBX1r/amhy7hQrd
-	aoGEAFpKoEr8oh1LPyygeb3fpybsUxbaJIy4TEkMr+4B4cPVN9clOh+KOOYoEjT4
-	bZ+U0Wsx4Pe9DLNVP5bDDtUH+aQ+NgGBcMQLwRKVvRsA01X5M1b3ufYso0RNpjjw
-	==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 440sahkg16-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 07 Jan 2025 14:46:16 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 507CmmI5008866;
-	Tue, 7 Jan 2025 14:46:15 GMT
-Received: from smtprelay07.wdc07v.mail.ibm.com ([172.16.1.74])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 43yfpyu1yq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 07 Jan 2025 14:46:15 +0000
-Received: from smtpav02.dal12v.mail.ibm.com (smtpav02.dal12v.mail.ibm.com [10.241.53.101])
-	by smtprelay07.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 507EkF8M24052330
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 7 Jan 2025 14:46:15 GMT
-Received: from smtpav02.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id EC95858062;
-	Tue,  7 Jan 2025 14:46:14 +0000 (GMT)
-Received: from smtpav02.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 66C755805E;
-	Tue,  7 Jan 2025 14:46:14 +0000 (GMT)
-Received: from [9.24.12.86] (unknown [9.24.12.86])
-	by smtpav02.dal12v.mail.ibm.com (Postfix) with ESMTP;
-	Tue,  7 Jan 2025 14:46:14 +0000 (GMT)
-Message-ID: <3ffe898a-6146-4001-9d7a-53b45fbc8945@linux.ibm.com>
-Date: Tue, 7 Jan 2025 08:46:14 -0600
+	Tue, 07 Jan 2025 14:46:46 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-385dece873cso5852670f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 06:46:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1736261202; x=1736866002; darn=lists.infradead.org;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=P8ozCYiYiGuUqL3zEljw8rKehpkF96Epq59O7WR0Gnw=;
+        b=bkH2kcarreyURBUkq6Ew+/xHE6VLcvYbhBa9ExWWq/81OGHtZVGQtSVxtw4kd12O84
+         5psVk/og8jqn+wycJdWoGGxTAhkm0lbWshCwjE6a3kSckuT2HpoGrhvnnQyR4cCbiGXw
+         yL3aLiJ1fCmey/rVN8OIYfQE7qIBUFFJ2JM6G1ZF5ilTofJm7cjbboUdswR1GuRFNtjv
+         7CyaY7YXcalxi9b9E6LXEVdpiksORWD3PqWPUAVWf8o1JUsyfAaoA9nq5wAQXYV1YmlK
+         4hXx8CLiwrvIYAWHRybeV3HYp8jpkzywrsR2yqb/zSRd5ktp2PKvX4hsgdAlc/FvDtDt
+         auiA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736261202; x=1736866002;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=P8ozCYiYiGuUqL3zEljw8rKehpkF96Epq59O7WR0Gnw=;
+        b=fSKtXLuvaAC/5+Eaes0mjwAab6KFuShYbl1boDxt4AaOnMchzDiW/IPmt3YwFNo19E
+         781vF9i9COf7YkuRcR0ajWGvHkWpTSsYlSsSkENT6fve+/6WbuUJtqemzM9rvi/GDMkt
+         7B+x5CrTS+nnbDOAjNIN376D5kbhcXvw2MjArYp8N4Knswehwre5zn92jSi/oA5aflo/
+         ZXcL9dJLZw1qaP9gs5PLP+KBNPQI/FjDnRVWZ74mOQV9OqHis9przcHPYHRx48XCqNve
+         z5HBjHJZrtXOoBUzV3IjQ6SDtqgOY7l/6d3Sed3VzdfyezZKKJQEM79tt1df5aVAQ1Fy
+         4WqQ==
+X-Forwarded-Encrypted: i=1; AJvYcCURH0xmnFVC2OjVQZpusYe9KPecrIsDcu5trhJJ634pQQJBtkwp2D5a28pTRssr8e2HNVXcWVYt4BXobYh5Yc6p@lists.infradead.org
+X-Gm-Message-State: AOJu0YycQj6OBs1rwRpAmrryFXxFT4TD8xoRr+z53mR3J/DlLvYi6XGJ
+	S+Qv+KtIoRRFDcCP7RQv4MuP//NLolP+HXDgbdgq8k+wVDxkKfGrniIseuopoZKbezF3h8RV5ob
+	H
+X-Gm-Gg: ASbGncsnMCjbHTGzV9+93CtlWIXvmURaJ4f0/5LeMeiibx/1JB8ArnXc/SwjAWlGB/t
+	bXk/QXVPbha1ikqsiwuMQuxFGGuNyIBr20AwgxaVIupX7pWOX6ayohP5yy72O5Rn5zXWxg2pR0k
+	DngSG1+1w1ZeFC0RBitlFKUh1ASsDXi5gQru7Iq3jnAAbDjb7puZ5qT0YurOD8HKb5bSzVB6UrD
+	T2KH/HrvrX6q3Vu5nHABFgG35fnLIkiJ7ebM1booPccS+3qWqLgaE+x
+X-Google-Smtp-Source: AGHT+IHYnYuf79+TuNYGxdmun8sEw8I8CqkwmQhKmeo/6Hm3L1OAdm2lbtny8ghlT05plmgQdN9nhQ==
+X-Received: by 2002:a05:6000:704:b0:385:fd24:3303 with SMTP id ffacd0b85a97d-38a221687cbmr52724901f8f.0.1736261202199;
+        Tue, 07 Jan 2025 06:46:42 -0800 (PST)
+Received: from localhost ([2a01:e0a:3c5:5fb1:dcb0:c50a:35f6:d748])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a1c8b874asm50554580f8f.109.2025.01.07.06.46.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 07 Jan 2025 06:46:41 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Stephen Boyd <sboyd@kernel.org>
+Cc: Kevin Hilman <khilman@baylibre.com>,  Martin Blumenstingl
+ <martin.blumenstingl@googlemail.com>,  Michael Turquette
+ <mturquette@baylibre.com>,  Neil Armstrong <neil.armstrong@linaro.org>,
+  linux-clk@vger.kernel.org,  linux-kernel@vger.kernel.org,
+  linux-amlogic@lists.infradead.org,  linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/3] clk: amlogic: drop clk_regmap tables
+In-Reply-To: <ed20c67e7d1a91d7fd8b921f156f56fb.sboyd@kernel.org> (Stephen
+	Boyd's message of "Mon, 06 Jan 2025 13:09:06 -0800")
+References: <20241220-amlogic-clk-drop-clk-regmap-tables-v1-0-96dd657cbfbd@baylibre.com>
+	<20241220-amlogic-clk-drop-clk-regmap-tables-v1-2-96dd657cbfbd@baylibre.com>
+	<9f1d69ebe1ddce5dfc170e986c9213f2.sboyd@kernel.org>
+	<1ja5cp8f87.fsf@starbuckisacylon.baylibre.com>
+	<88fe909ab182d1f17f6ef18161c7f064.sboyd@kernel.org>
+	<1jfrlwb69r.fsf@starbuckisacylon.baylibre.com>
+	<ed20c67e7d1a91d7fd8b921f156f56fb.sboyd@kernel.org>
+User-Agent: mu4e 1.12.7; emacs 29.4
+Date: Tue, 07 Jan 2025 15:46:41 +0100
+Message-ID: <1jmsg2adgu.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 0/8] DTS updates for system1 BMC
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: andrew@codeconstruct.com.au, linux-arm-kernel@lists.infradead.org,
-        krzk+dt@kernel.org, eajames@linux.ibm.com, joel@jms.id.au,
-        devicetree@vger.kernel.org, linux-aspeed@lists.ozlabs.org,
-        linux-kernel@vger.kernel.org, conor+dt@kernel.org
-References: <20241213145037.3784931-1-ninad@linux.ibm.com>
- <173436597537.264948.12611164276777551472.robh@kernel.org>
-Content-Language: en-US
-From: Ninad Palsule <ninad@linux.ibm.com>
-In-Reply-To: <173436597537.264948.12611164276777551472.robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: OWui3oiuVa11k1Zs0pdqjBoTK3NqWjdc
-X-Proofpoint-ORIG-GUID: OWui3oiuVa11k1Zs0pdqjBoTK3NqWjdc
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
- definitions=2024-10-15_01,2024-10-11_01,2024-09-30_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 mlxscore=0
- adultscore=0 mlxlogscore=948 impostorscore=0 priorityscore=1501
- clxscore=1015 lowpriorityscore=0 spamscore=0 suspectscore=0 phishscore=0
- malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2501070122
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_064637_316838_0C533A10 
-X-CRM114-Status: GOOD (  20.55  )
+X-CRM114-CacheID: sfid-20250107_064645_203026_EEBE267D 
+X-CRM114-Status: GOOD (  43.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,89 +106,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Rob,
+On Mon 06 Jan 2025 at 13:09, Stephen Boyd <sboyd@kernel.org> wrote:
 
-Thanks for the review. Sorry for the late reply due to vacation.
-
-On 12/16/24 10:29, Rob Herring (Arm) wrote:
-> On Fri, 13 Dec 2024 08:50:26 -0600, Ninad Palsule wrote:
->> Hello
->>
->> Please review the patch set. It has various device tree changes for
->> system1 BMC after hardware testing.
->>
->> NINAD PALSULE (7):
->>    ARM: dts: aspeed: system1: Add IPMB device
->>    ARM: dts: aspeed: system1: Add GPIO line name
->>    ARM: dts: aspeed: system1: Add RGMII support
->>    ARM: dts: aspeed: system1: Reduce sgpio speed
->>    ARM: dts: aspeed: system1: Update LED gpio name
->>    ARM: dts: aspeed: system1: Remove VRs max8952
->>    ARM: dts: aspeed: system1: Mark GPIO line high/low
->>
->> Ninad Palsule (1):
->>    ARM: dts: aspeed: system1: Disable gpio pull down
->>
->>   .../dts/aspeed/aspeed-bmc-ibm-system1.dts     | 178 ++++++++++++------
->>   1 file changed, 119 insertions(+), 59 deletions(-)
->>
->> --
->> 2.43.0
->>
->>
->>
+>> 
+>> I admit early clocks is a low priority for me since I only have one
+>> controller like this and I do not expect more.
+>> 
+>> If cleaning up this particular case is important, then I could add
+>> another level of init:
+>> * A callback passed along the init data of the clock to get the regmap.
+>>   That callback would be called by the .init() ops, if set.
+>>   That can encode any quirks without polluting the ops.
+>> * It will grow the init data so the change won't save memory anymore.
+>>   This was more a bonus so I don't really mind. Maintainability is more
+>>   important.
 >
-> My bot found new DTB warnings on the .dts files added or changed in this
-> series.
->
-> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-> are fixed by another series. Ultimately, it is up to the platform
-> maintainer whether these warnings are acceptable or not. No need to reply
-> unless the platform maintainer has comments.
->
-> If you already ran DT checks and didn't see these error(s), then
-> make sure dt-schema is up to date:
->
->    pip3 install dtschema --upgrade
->
->
-> New warnings running 'make CHECK_DTBS=y aspeed/aspeed-bmc-ibm-system1.dtb' for 20241213145037.3784931-1-ninad@linux.ibm.com:
->
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dtb: ethernet@1e660000: phy-mode:0: 'rgmii-rxid' is not one of ['rgmii', 'rmii']
-> 	from schema $id: http://devicetree.org/schemas/net/faraday,ftgmac100.yaml#
-Added rgmii-rxid mode in the yaml file.
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dtb: gpio@1e780000: 'fan_controller_reset', 'isolate_errs_cpu1', 'rtc_reset', 'srtc_reset' do not match any of the regexes: 'pinctrl-[0-9]+'
-> 	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
+> The struct clk_init_data _can_ be thrown away or reused, but it isn't
+> always done that way.
 
-I am still not sure about this error.
+Yeah, I was actually thinking about using struct clk_regmap for a
+start. It is much simpler
 
-/home/ninad/dev/sbp1/linux/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dtb: 
-gpio@1e780000: 'hog-0', 'hog-1', 'hog-2', 'hog-3' do not match any of 
-the regexes: 'pinctrl-[0-9]+'
-     from schema $id: 
-http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
-
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dtb: rtc_reset: $nodename:0: 'rtc_reset' does not match '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$'
-> 	from schema $id: http://devicetree.org/schemas/gpio/gpio-hog.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dtb: srtc_reset: $nodename:0: 'srtc_reset' does not match '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$'
-> 	from schema $id: http://devicetree.org/schemas/gpio/gpio-hog.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dtb: fan_controller_reset: $nodename:0: 'fan_controller_reset' does not match '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$'
-> 	from schema $id: http://devicetree.org/schemas/gpio/gpio-hog.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dtb: isolate_errs_cpu1: $nodename:0: 'isolate_errs_cpu1' does not match '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$'
-> 	from schema $id: http://devicetree.org/schemas/gpio/gpio-hog.yaml#
-Changed to generic name hog-0...3
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dtb: /ahb/apb@1e780000/bus@1e78a000/i2c@280/bmc_slave@10: failed to match any schema with compatible: ['ipmb-dev']
-
-Documented IPMB device interface.
-
-Regards,
-
-Ninad
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/clk/meson/clk-regmap.h#n23
 
 >
+>> * If the callback is not set, then it goes through the default, as
+>>   proposed here. This would avoid patching all the clk_regmap clock of
+>>   every controller.
+>> 
+>> 
+>> > Furthermore, the name of the regmap is
+>> > also usually device/clk controller specific.
+>> 
+>> The name registered in regmap_config itself is device specific, not
+>> controller specific, since it can come from something else in the
+>> platform (syscon or even aux devs), that why I think an independent
+>> namespace is desirable -- Same goes the generic solution Conor is
+>> working on I think.
 >
+> Alright.
 >
+>> 
+>> > The regmap assignment
+>> > doesn't really fit with the clk_ops because it's not operating on the
+>> > clk hardware like the other clk_ops all do.
+>> 
+>> I see what you mean and I agree. It does not operate on the hardware but
+>> it does collect the resources it needs to operate the HW, and ideally
+>> it should do just that - without controller quirks popping up there.
+>> 
+>> Anyway a callback passed in init data takes care of 'io vs syscon'
+>> controller too, same as devres. I can go that route if this is what you
+>> prefer. I thought devres was a more elegant solution but it is indeed
+>> restricted to 'device enabled' controllers. 
+>> 
+>> The change will be a bit ugly in the syscon ones but I don't mind.
+>> Is that fine for v2 ?
+
+Just before discussing what seems to be a very generic solution, I'd
+like to go ahead with a temporary solution to remove the clk_regmap
+table in drivers/clk/meson, if you don't mind. Something simple.
+
+As I have pointed in the cover letter, I have a significant number of
+other clean-up on top of this. It's not necessarily complex but it is a
+pain to rebase because of the amount of code involved ... and I have new
+controller waiting. I'll circle back to the final solution afterward.
+
+>> 
 >
+> Sure. I wonder if we should make it a 'const void *data' member of
+> struct clk_init_data so it can be anything and then either take a flag
+> day to pass that to the struct clk_ops::init() function or set the
+> struct clk_hw::init member to NULL after the init function is called. If
+> we're concerned about bloating clk_init_data then we could introduce
+> another two registration APIs that take a data argument and then pass
+> that to the init function.
 >
+>  int clk_hw_register_data(struct device *dev, struct clk_hw *hw, const void *data)
+>  int of_clk_hw_register_data(struct device *dev, struct clk_hw *hw, const void *data)
 >
+> or we could wrap the init data in a container struct in the drivers and
+> move the setting of struct clk_hw::init to NULL after calling the init
+> function.
+>
+> 	struct clk_driver_init_data {
+> 		void *data;
+> 		int (*driver_init_function)(struct clk_hw *hw);
+> 		int (*regmap_driver_init_function)(struct clk_regmap *rclk);
+> 		etc...
+>
+> 		struct clk_init_data init;
+> 	};
+>
+> Then the clk provider can use container_of(). If we did this we could
+> even copy the contents of struct clk_hw::init into the driver specific
+> wrapper that lives on the stack, repoint the struct clk_hw::init pointer
+> to the stack copy, and then all the logic can live in the clk provider
+> driver that registers the clk.
+>
+> This last option may be the best because it saves memory by not
+> increasing the size of 'struct clk_init_data' and doesn't require a flag
+> day to change the function signature of struct clk_ops::init(), even if
+> there's only a handful of those right now. What do you think?
+
+I think I see in which direction you want to go. The problem is that we
+have been playing the 'container_of()' trick quite a lot. Embedding
+something around init_data is not straight forward for me with the way
+clocks are declared in drivers/clk/meson.
+
+I'll have to separate the init_data out, which is desirable but it
+brings another set of problems. One mess after the other :)
+
+So, if it's OK, I'll resend this series with a temporary solution to
+remove tables. Removing the table simplify the other clean-up I have
+already line-up and avoid some unnecessary diffs. I'll circle back to
+reworking the init_data afterward.
+
+-- 
+Jerome
 
