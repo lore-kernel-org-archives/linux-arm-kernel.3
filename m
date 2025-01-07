@@ -4,54 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D323E77198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 13:32:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CF33E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 13:41:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hjBiKYaJenCOwPKkn+DmnY/LlusRgbJT84K0Cgvtcc8=; b=JA0djeFkVzl709omKMheihsUM9
-	qftqFZn8QM0cxg76ashsK1/z+FYyw7LlTnfR89viDjsOOxxS8DVECvpZtBKNLX09I022OqBplMaQv
-	Yv//X2Bw6su6AY1nMO0hZJzNJlTLBHl5KWeDVFasMtz2JYp779mNbNbhfHiGvAnIABNQfKU5rh0i4
-	ji3honF567KPnffG8zMUTLgZ6Nkn0XuptlQzz8bm4ZsEchtbps1YFG7eL/PqiViPcGfSWmPobxl6L
-	yYhqZHlxLuyfXutEAyT5QDYpeUG5TFuGznDJ0FVkMCfD8wxhm8CLbvCP8kDv/DRRTQKPTLGpUwaj7
-	pK4focxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DPozk7f2ck1lekTyYQRxycAO00Td6kCk3wOh3bU6cO4=; b=K+zgeMgLBNGqZD52mhJwJtCjPX
+	ZK8smBQ7rBB5Z7Nj9JicxuW/advHDDVIm8hOnV4CiEIDuOm9ZmAFu2DESiOloJM49VoWsMj7eccli
+	+3AnmXgD2JiDyHI3RKw9XKaXaaFLv+tNJU+3s590FKJ0J8zyjZ7dp4Od1CoKCushjdVD3li2WxCqM
+	LluDi1+mWuqCK7beKbr2ZKVPHVdSz5BxrRsVhij3lm6jGN8R7uoQVYbaDc8esvrCmrh8YBprQ2N9Z
+	KpQEi3RM/xYCMOx8T+HdYo6Zy1bVkbvHYxgtJArWeG8jdoROY7U1rWyEo1Ic1EVMzsMsph7F6vpz3
+	ctctO6tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV9gi-0000000510D-2lcV;
-	Tue, 07 Jan 2025 13:32:04 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tV9pS-000000052J2-3ks6;
+	Tue, 07 Jan 2025 13:41:06 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV9fV-000000050mi-1bdU
+	id 1tV9oC-0000000528a-3w34
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 13:30:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 60FE55C624E;
-	Tue,  7 Jan 2025 13:30:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1938C4CEDD;
-	Tue,  7 Jan 2025 13:30:46 +0000 (UTC)
-Date: Tue, 7 Jan 2025 08:32:14 -0500
-From: Steven Rostedt <rostedt@goodmis.org>
-To: LKML <linux-kernel@vger.kernel.org>, Linux Trace Kernel
- <linux-trace-kernel@vger.kernel.org>, linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
- <will@kernel.org>, Josh Poimboeuf <jpoimboe@redhat.com>, Masami Hiramatsu
- <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Mathieu
- Desnoyers <mathieu.desnoyers@efficios.com>, Linus Torvalds
- <torvalds@linux-foundation.org>, Heiko Carstens <hca@linux.ibm.com>, Vasily
- Gorbik <gor@linux.ibm.com>, linux-s390@vger.kernel.org
-Subject: [RFC][PATCH] arm64: scripts/sorttable: Implement sorting mcount_loc
- at build for arm64
-Message-ID: <20250107083214.5a29d429@gandalf.local.home>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Tue, 07 Jan 2025 13:39:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=DPozk7f2ck1lekTyYQRxycAO00Td6kCk3wOh3bU6cO4=; b=M1ZAgJtndU1q5MC64JZ16ox9ak
+	AZQZHJrhWTtBHgy930N2oaZiUwaukNGEmE+JgaqnSySdpI3hvC+mob32gUCqYws2w940neX/sy+zZ
+	18mnFrmshJ0YZUJFUI7hG2yAGJJ1YmA/YRGrWv8n0HvSKgnkBSqZI4tObIfUXSHzZETc=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tV9o9-002F7p-8S; Tue, 07 Jan 2025 14:39:45 +0100
+Date: Tue, 7 Jan 2025 14:39:45 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Furong Xu <0x1207@gmail.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com
+Subject: Re: [PATCH net-next v2] net: stmmac: Unexport stmmac_rx_offset()
+ from stmmac.h
+Message-ID: <0c190dac-dc97-404c-94e6-7a950dcfc8b7@lunn.ch>
+References: <20250107075448.4039925-1-0x1207@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250107075448.4039925-1-0x1207@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_053049_520902_0964EC58 
-X-CRM114-Status: GOOD (  27.43  )
+X-CRM114-CacheID: sfid-20250107_053950_059044_80445AC8 
+X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,322 +76,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Steven Rostedt <rostedt@goodmis.org>
+On Tue, Jan 07, 2025 at 03:54:48PM +0800, Furong Xu wrote:
+> stmmac_rx_offset() is referenced in stmmac_main.c only,
+> let's move it to stmmac_main.c.
+> 
+> Drop the inline keyword by the way, it is better to let the compiler
+> to decide.
+> 
+> Compile tested only.
+> No functional change intended.
+> 
+> Signed-off-by: Furong Xu <0x1207@gmail.com>
 
-The mcount_loc section holds the addresses of the functions that get
-patched by ftrace when enabling function callbacks. It can contain tens of
-thousands of entries. These addresses must be sorted. If they are not
-sorted at compile time, they are sorted at boot. Sorting at boot does take
-some time and does have a small impact on boot overhead.
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-x86 and arm32 have the addresses in the mcount_loc section of the ELF
-file. But for arm64, the section just contains zeros. The .rela.dyn
-Elf_Rela section holds the addresses and they get patched at boot during
-the relocation phase.
-
-In order to sort these addresses, the Elf_Rela needs to be updated instead
-of the location in the binary that holds the mcount_loc section. Have the
-sorttable code, allocate an array to hold the function addresses, load the
-addresses from the Elf_Rela entries, sort them, then put them back in
-order into the Elf_rela entries so that they will be sorted at boot up
-without having to sort them during boot up.
-
-Signed-off-by: Steven Rostedt (Google) <rostedt@goodmis.org>
----
-
-Note, this is based on top of my sorttable clean up code:
-
-  https://lore.kernel.org/linux-trace-kernel/20250105162211.971039541@goodmis.org/
-  git://git.kernel.org/pub/scm/linux/kernel/git/trace/linux-trace.git sorttable/for-next
-
-I tested this on a arm64 VM (running on x86 host), with
-CONFIG_FTRACE_SORT_STARTUP_TEST enabled, which verifies the mcount entries
-are sorted at boot up.
-
-I wonder if this will also work for s390? But I do not know s390 Elf layout.
-
- arch/arm64/Kconfig  |   1 +
- scripts/sorttable.c | 157 +++++++++++++++++++++++++++++++++++++++++++-
- 2 files changed, 155 insertions(+), 3 deletions(-)
-
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 100570a048c5..e922622a9571 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -214,6 +214,7 @@ config ARM64
- 		if DYNAMIC_FTRACE_WITH_ARGS
- 	select HAVE_SAMPLE_FTRACE_DIRECT
- 	select HAVE_SAMPLE_FTRACE_DIRECT_MULTI
-+	select HAVE_BUILDTIME_MCOUNT_SORT
- 	select HAVE_EFFICIENT_UNALIGNED_ACCESS
- 	select HAVE_GUP_FAST
- 	select HAVE_FTRACE_MCOUNT_RECORD
-diff --git a/scripts/sorttable.c b/scripts/sorttable.c
-index cd3b2145a827..bb1cf94b942f 100644
---- a/scripts/sorttable.c
-+++ b/scripts/sorttable.c
-@@ -28,6 +28,7 @@
- #include <fcntl.h>
- #include <stdio.h>
- #include <stdlib.h>
-+#include <stdbool.h>
- #include <string.h>
- #include <unistd.h>
- #include <errno.h>
-@@ -79,10 +80,16 @@ typedef union {
- 	Elf64_Sym	e64;
- } Elf_Sym;
- 
-+typedef union {
-+	Elf32_Rela	e32;
-+	Elf64_Rela	e64;
-+} Elf_Rela;
-+
- static uint32_t (*r)(const uint32_t *);
- static uint16_t (*r2)(const uint16_t *);
- static uint64_t (*r8)(const uint64_t *);
- static void (*w)(uint32_t, uint32_t *);
-+static void (*w8)(uint64_t, uint64_t *);
- typedef void (*table_sort_t)(char *, int);
- 
- static uint64_t ehdr64_shoff(Elf_Ehdr *ehdr)
-@@ -199,6 +206,31 @@ SYM_ADDR(value)
- SYM_WORD(name)
- SYM_HALF(shndx)
- 
-+#define RELA_ADDR(fn_name)				\
-+static uint64_t rela64_##fn_name(Elf_Rela *rela)	\
-+{							\
-+	return r8((uint64_t *)&rela->e64.r_##fn_name);	\
-+}							\
-+							\
-+static uint64_t rela32_##fn_name(Elf_Rela *rela)	\
-+{							\
-+	return r((uint32_t *)&rela->e32.r_##fn_name);	\
-+}
-+
-+RELA_ADDR(offset)
-+RELA_ADDR(info)
-+RELA_ADDR(addend)
-+
-+static void rela64_write_addend(Elf_Rela *rela, uint64_t val)
-+{
-+	w8(val, (uint64_t *)&rela->e64.r_addend);
-+}
-+
-+static void rela32_write_addend(Elf_Rela *rela, uint64_t val)
-+{
-+	w(val, (uint32_t *)&rela->e32.r_addend);
-+}
-+
- /*
-  * Get the whole file as a programming convenience in order to avoid
-  * malloc+lseek+read+free of many pieces.  If successful, then mmap
-@@ -278,6 +310,16 @@ static void wle(uint32_t val, uint32_t *x)
- 	put_unaligned_le32(val, x);
- }
- 
-+static void w8be(uint64_t val, uint64_t *x)
-+{
-+	put_unaligned_be64(val, x);
-+}
-+
-+static void w8le(uint64_t val, uint64_t *x)
-+{
-+	put_unaligned_le64(val, x);
-+}
-+
- /*
-  * Move reserved section indices SHN_LORESERVE..SHN_HIRESERVE out of
-  * the way to -256..-1, to avoid conflicting with real section
-@@ -344,17 +386,20 @@ static uint8_t (*sym_type)(Elf_Sym *sym);
- static uint32_t (*sym_name)(Elf_Sym *sym);
- static uint64_t (*sym_value)(Elf_Sym *sym);
- static uint16_t (*sym_shndx)(Elf_Sym *sym);
-+static uint64_t (*rela_offset)(Elf_Rela *rela);
-+static uint64_t (*rela_info)(Elf_Rela *rela);
-+static uint64_t (*rela_addend)(Elf_Rela *rela);
-+static void (*rela_write_addend)(Elf_Rela *rela, uint64_t val);
- 
- static int extable_ent_size;
- static int long_size;
- 
-+#define ERRSTR_MAXSZ	256
- 
- #ifdef UNWINDER_ORC_ENABLED
- /* ORC unwinder only support X86_64 */
- #include <asm/orc_types.h>
- 
--#define ERRSTR_MAXSZ	256
--
- static char g_err[ERRSTR_MAXSZ];
- static int *g_orc_ip_table;
- static struct orc_entry *g_orc_table;
-@@ -447,6 +492,9 @@ static void *sort_orctable(void *arg)
- 
- #ifdef MCOUNT_SORT_ENABLED
- static pthread_t mcount_sort_thread;
-+static bool sort_reloc;
-+
-+static char m_err[ERRSTR_MAXSZ];
- 
- struct elf_mcount_loc {
- 	Elf_Ehdr *ehdr;
-@@ -455,6 +503,92 @@ struct elf_mcount_loc {
- 	uint64_t stop_mcount_loc;
- };
- 
-+/* Sort the relocations not the address itself */
-+static void *sort_relocs(Elf_Ehdr *ehdr, uint64_t start_loc, uint64_t size)
-+{
-+	Elf_Shdr *shdr_start;
-+	Elf_Rela *rel;
-+	unsigned int shnum;
-+	unsigned int count;
-+	int shentsize;
-+	void *vals;
-+	void *ptr;
-+
-+	shdr_start = (Elf_Shdr *)((char *)ehdr + ehdr_shoff(ehdr));
-+	shentsize = ehdr_shentsize(ehdr);
-+
-+	vals = malloc(long_size * size);
-+	if (!vals) {
-+		snprintf(m_err, ERRSTR_MAXSZ, "Failed to allocate sort array");
-+		pthread_exit(m_err);
-+		return NULL;
-+	}
-+
-+	ptr = vals;
-+
-+	shnum = ehdr_shnum(ehdr);
-+	if (shnum == SHN_UNDEF)
-+		shnum = shdr_size(shdr_start);
-+
-+	for (int i = 0; i < shnum; i++) {
-+		Elf_Shdr *shdr = get_index(shdr_start, shentsize, i);
-+		void *end;
-+
-+		if (shdr_type(shdr) != SHT_RELA)
-+			continue;
-+
-+		rel = (void *)ehdr + shdr_offset(shdr);
-+		end = (void *)rel + shdr_size(shdr);
-+
-+		for (; (void *)rel < end; rel = (void *)rel + shdr_entsize(shdr)) {
-+			uint64_t offset = rela_offset(rel);
-+
-+			if (offset >= start_loc && offset < start_loc + size) {
-+				if (ptr + long_size > vals + size) {
-+					free(vals);
-+					snprintf(m_err, ERRSTR_MAXSZ,
-+						 "Too many relocations");
-+					pthread_exit(m_err);
-+					return NULL;
-+				}
-+				if (long_size == 4)
-+					*(uint32_t *)ptr = rela_addend(rel);
-+				else
-+					*(uint64_t *)ptr = rela_addend(rel);
-+				ptr += long_size;
-+			}
-+		}
-+	}
-+	count = ptr - vals;
-+	qsort(vals, count / long_size, long_size, compare_extable);
-+
-+	ptr = vals;
-+	for (int i = 0; i < shnum; i++) {
-+		Elf_Shdr *shdr = get_index(shdr_start, shentsize, i);
-+		void *end;
-+
-+		if (shdr_type(shdr) != SHT_RELA)
-+			continue;
-+
-+		rel = (void *)ehdr + shdr_offset(shdr);
-+		end = (void *)rel + shdr_size(shdr);
-+
-+		for (; (void *)rel < end; rel = (void *)rel + shdr_entsize(shdr)) {
-+			uint64_t offset = rela_offset(rel);
-+
-+			if (offset >= start_loc && offset < start_loc + size) {
-+				if (long_size == 4)
-+					rela_write_addend(rel, *(uint32_t *)ptr);
-+				else
-+					rela_write_addend(rel, *(uint64_t *)ptr);
-+				ptr += long_size;
-+			}
-+		}
-+	}
-+	free(vals);
-+	return NULL;
-+}
-+
- /* Sort the addresses stored between __start_mcount_loc to __stop_mcount_loc in vmlinux */
- static void *sort_mcount_loc(void *arg)
- {
-@@ -464,6 +598,9 @@ static void *sort_mcount_loc(void *arg)
- 	uint64_t count = emloc->stop_mcount_loc - emloc->start_mcount_loc;
- 	unsigned char *start_loc = (void *)emloc->ehdr + offset;
- 
-+	if (sort_reloc)
-+		return sort_relocs(emloc->ehdr, emloc->start_mcount_loc, count);
-+
- 	qsort(start_loc, count/long_size, long_size, compare_extable);
- 	return NULL;
- }
-@@ -813,12 +950,14 @@ static int do_file(char const *const fname, void *addr)
- 		r2	= r2le;
- 		r8	= r8le;
- 		w	= wle;
-+		w8	= w8le;
- 		break;
- 	case ELFDATA2MSB:
- 		r	= rbe;
- 		r2	= r2be;
- 		r8	= r8be;
- 		w	= wbe;
-+		w8	= w8be;
- 		break;
- 	default:
- 		fprintf(stderr, "unrecognized ELF data encoding %d: %s\n",
-@@ -834,8 +973,12 @@ static int do_file(char const *const fname, void *addr)
- 	}
- 
- 	switch (r2(&ehdr->e32.e_machine)) {
--	case EM_386:
- 	case EM_AARCH64:
-+#ifdef MCOUNT_SORT_ENABLED
-+		sort_reloc = true;
-+#endif
-+		/* fallthrough */
-+	case EM_386:
- 	case EM_LOONGARCH:
- 	case EM_RISCV:
- 	case EM_S390:
-@@ -885,6 +1028,10 @@ static int do_file(char const *const fname, void *addr)
- 		sym_name		= sym32_name;
- 		sym_value		= sym32_value;
- 		sym_shndx		= sym32_shndx;
-+		rela_offset		= rela32_offset;
-+		rela_info		= rela32_info;
-+		rela_addend		= rela32_addend;
-+		rela_write_addend	= rela32_write_addend;
- 		long_size		= 4;
- 		extable_ent_size	= 8;
- 		break;
-@@ -913,6 +1060,10 @@ static int do_file(char const *const fname, void *addr)
- 		sym_name		= sym64_name;
- 		sym_value		= sym64_value;
- 		sym_shndx		= sym64_shndx;
-+		rela_offset		= rela64_offset;
-+		rela_info		= rela64_info;
-+		rela_addend		= rela64_addend;
-+		rela_write_addend	= rela64_write_addend;
- 		long_size		= 8;
- 		extable_ent_size	= 16;
- 
--- 
-2.45.2
-
+    Andrew
 
