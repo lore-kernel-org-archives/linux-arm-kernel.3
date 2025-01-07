@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E245EE77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 14:40:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 680F7E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 14:42:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=eYGgzKe2dBjNP8LEUStETSrsELJHNVnalENpqOKVwUs=; b=34LgbkFBfCHExztq+smELwKJbp
-	+yuBRegek0v3QSc1SJcbyrdxY6zrFzn6m4p0hU/UOvggw6r7qGnKo/p+N7LgRZjRkfHI4kUOmmJRI
-	WOl87/ozajLf5N8GUowaLnX+0gfPN47jheZ/u67U3QQ5ZRYmlscQCzlHIIktV8B/gPmf61+YT6tkR
-	iFInOs4M8Cm3aO/HxfIFp+pDDmy7NdjjaTpkcEcX9ScsXtzXRw3TT821mn71AxsawoFogWFBAGLby
-	rvxIuys4jXK0xvg2OIwP8/m7kYlUg+IdHj70BV+kzJHRubPaK6OJqjeUgj22dkd6gjM/1ZU8zMQG/
-	apcFCyVQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=J1yM4GW4YkH4sSr6aDIK6r6U62z1pZvrPK786Xfjgcc=; b=EgjRPYLfa/fNx7Z907jmypDfq8
+	Ktp+zkvz5Axdv9KGoYV8B2lyhE4+pH6OTgdneVhhNWMEl8Oyl3tI9uhl7URTZzvkoRm4AUbJ+L0OE
+	Vbl/w3oWtj0dkxaRRk8f7L3thlz0MvTVI6x7XluyFicQgEK9VgMPOP/D+JGnDdJXpWWT8DNFLE0Gb
+	UzhwFah6JGwyW0LdVLGhqDjQd0XB8/7tlonpum8y0dyyYiiPcldYI4v/R+wFU0H6Y6671Ez6Oerq2
+	7uMnIVGsqFszf4MM6MbcBQpfrgUgiXJQZza+mOoSHydu0xddYOfLgC5N+3dBl3ZXcIP6ugiXF9Xm5
+	iITCerAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVAl2-00000005FyM-2bhA;
-	Tue, 07 Jan 2025 14:40:36 +0000
+	id 1tVAmD-00000005GKg-1UJh;
+	Tue, 07 Jan 2025 14:41:49 +0000
 Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVAjm-00000005Fds-1nlt
+	id 1tVAjr-00000005Fds-16Xi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 14:39:22 +0000
+	Tue, 07 Jan 2025 14:39:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1736260758; x=1767796758;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=eYGgzKe2dBjNP8LEUStETSrsELJHNVnalENpqOKVwUs=;
-  b=c1FNrdPglHKHZIo5QQZ8VCYnYFd33hNXVTSa8QHXNTU4B+8CHZVUqnlu
-   D/mQmsjwkx9ZGPPsyilUKp+sRWFmtC3Bwpp4b0uKRri6bjFwfqo3rE2Re
-   U/jf2zyF/2LMhYZMkCk6kq8Hs+vjWepctveHsreF3+bwg8LAc3XlKUofN
-   TRI3fl1yOz+2GF371cx5TZfpNsx1S1pOikx/Xz3qXKljWIvBLaRqZKOXw
-   kYiDMhSAmp3k1iOoTWzAkmwaWCncdZnwuT8N7Xk/JPykM2MEviaIzSR3S
-   6IotvbMzR7wiFyJJE+fn6EV2GAOuDUoBDEDbJ5d8M2Hekf8z213/8FiQN
+  t=1736260763; x=1767796763;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=J1yM4GW4YkH4sSr6aDIK6r6U62z1pZvrPK786Xfjgcc=;
+  b=doI0a3x0pSRJj9JqnBlbxJgDJtnvb8vnm68n75PYUoc0kjivXrXRe3MK
+   7DCiYPA2uiSFWniRnAjRtLh64II0pO/Vbwe0DZfzndcGoujizVsSU1ynh
+   TmiUX5qGAI6wxTHn1nluFHk8kWneca+90ZfNQI5KsTB90AKjPrPj/Ijtk
+   /LCKBzhQOKyOEpb9ftN0l+cog61UCYQFcjtEzbwZxGnRggBFXLGrJl9IS
+   Zf2x42rOAkzohW613vEsUM3RCt3XrPD568mHK0jRgtK7bNkXO8s7eL7fk
+   1KPqzjCazgyGLVAy6NMH2RdB0hceTQ4yX9vPvkSVSmDsVzEI9bgu3drv3
    A==;
-X-CSE-ConnectionGUID: 3ptBPW95Q/mfJCiipqbFMA==
-X-CSE-MsgGUID: vI8y4gO8SLmUXMhsEOy5iA==
+X-CSE-ConnectionGUID: QyWCmoWdR92sY8SQ4BDnPQ==
+X-CSE-MsgGUID: d1obu0ihSym4Fk1pIal47Q==
 X-IronPort-AV: E=Sophos;i="6.12,295,1728943200"; 
-   d="scan'208";a="40897241"
+   d="scan'208";a="40897242"
 Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 07 Jan 2025 15:39:16 +0100
-X-CheckPoint: {677D3C94-A-C6D8D88D-F91F9E6B}
-X-MAIL-CPID: B2782B6C606DFAF40351BE195C9BC1F1_2
-X-Control-Analysis: str=0001.0A682F27.677D3C94.007C,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B6F3A160B22;
-	Tue,  7 Jan 2025 15:39:06 +0100 (CET)
+  by mx1.tq-group.com with ESMTP; 07 Jan 2025 15:39:21 +0100
+X-CheckPoint: {677D3C99-4B-9B2B6168-EB6F31C5}
+X-MAIL-CPID: AF5E493BE366F514177D66585BB4F2B7_5
+X-Control-Analysis: str=0001.0A682F20.677D3C9A.001E,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A593A160B22;
+	Tue,  7 Jan 2025 15:39:16 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1736260751;
+	s=dkim; t=1736260757;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=eYGgzKe2dBjNP8LEUStETSrsELJHNVnalENpqOKVwUs=;
-	b=laJXCPIj9QxHVqI0UmrLNmVPIYs5az6MNhTYmY7YW9Yl8UqrX9pKrsM9SIjuWPS2GxXCr6
-	y9xospczOxhNvk+az9w7ePQff67Ggd0ARo1fzgTRHpjk0GwQ7vpjXBlBxcZ0AdeyDapJxN
-	VDjHhvH2Uka/ce0VOswI4Kf7OOzX3Z6ARHi5bRLJ9mv5DL+TtdD8J80biBGM4WeedAf3yR
-	2tokzIerTpmc6+zs1RFZWJOPIu44l7OYZwY9ADLEjdo/8RMBoOg0xHsLK4FpiBxmPdeIQU
-	Vw4iFlH5Q0c5M2Yvi6GcQm7tv9cOzumLy5/2K+KKU7SdppHMj6VnskR9rut3iw==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=J1yM4GW4YkH4sSr6aDIK6r6U62z1pZvrPK786Xfjgcc=;
+	b=akmXuBPKfC17Ejx73+QbFvd05OTCIsI5Dt+hgvY83nLqR4nzyp502jEuUCNexo9oc/i2Ro
+	eq6T4ruk2tSVjGYgPC/Tm7Y2jbGe4yqfm9dYCdHMWjBO9tIfVEFjNWS0rB4kV/BCygFWE/
+	1YTfIfmwx7aWVM/Sg40deUJLtk71JVSvue1EiO7rWpeqa3hp34cqcmJmuhBsm95g0keP3Z
+	k2R7R34HKxMaNHDVIsUtjm1kE4UAI8zfTTfFaj57JI5HukXGkF1Yx01W0QWF8kEGO8l8z5
+	M8CUzn75n1WAm2zG17icnbnMRCQW8WFYcKTNVQcQeOvExjM7nZk/Rwm4mfUfTQ==
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
 To: Liu Ying <victor.liu@nxp.com>,
 	Andrzej Hajda <andrzej.hajda@intel.com>,
@@ -84,17 +85,18 @@ Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 0/4] dev_err_probe usage for imx8qxp DPU pipeline
-Date: Tue,  7 Jan 2025 15:38:56 +0100
-Message-Id: <20250107143900.988567-1-alexander.stein@ew.tq-group.com>
+Subject: [PATCH v2 1/4] drm/bridge: imx8qxp-pxl2dpi: Use dev_err_probe
+Date: Tue,  7 Jan 2025 15:38:57 +0100
+Message-Id: <20250107143900.988567-2-alexander.stein@ew.tq-group.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250107143900.988567-1-alexander.stein@ew.tq-group.com>
+References: <20250107143900.988567-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_063918_962367_8C686279 
-X-CRM114-Status: UNSURE (   7.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250107_063923_637864_842486E2 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,29 +111,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi everyone,
+This simplifies the code and gives additional information upon deferral.
 
-this is a v2 of an old series still in my queue.
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+---
+ drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c | 26 ++++++--------------
+ 1 file changed, 7 insertions(+), 19 deletions(-)
 
-Changes in v2:
-* Rebase to next-20250107
-* Remove 'imx' prefix for commit subject in patch 2 & 3
-
-Best regards,
-Alexander
-
-Alexander Stein (4):
-  drm/bridge: imx8qxp-pxl2dpi: Use dev_err_probe
-  drm/bridge: imx8qxp-ldb: Use dev_err_probe
-  drm/bridge: imx-ldb-helper: Use dev_err_probe
-  drm/bridge: imx8qxp-pixel-link: Use dev_err_probe
-
- drivers/gpu/drm/bridge/imx/imx-ldb-helper.c   | 13 ++-----
- drivers/gpu/drm/bridge/imx/imx8qxp-ldb.c      | 37 ++++++-------------
- .../gpu/drm/bridge/imx/imx8qxp-pixel-link.c   | 19 +++-------
- drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c  | 26 ++++---------
- 4 files changed, 29 insertions(+), 66 deletions(-)
-
+diff --git a/drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c b/drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c
+index 65cf3a6c8ec69..038eaff889bb7 100644
+--- a/drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c
++++ b/drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c
+@@ -398,20 +398,12 @@ static int imx8qxp_pxl2dpi_bridge_probe(struct platform_device *pdev)
+ 		return -ENOMEM;
+ 
+ 	p2d->regmap = syscon_node_to_regmap(np->parent);
+-	if (IS_ERR(p2d->regmap)) {
+-		ret = PTR_ERR(p2d->regmap);
+-		if (ret != -EPROBE_DEFER)
+-			DRM_DEV_ERROR(dev, "failed to get regmap: %d\n", ret);
+-		return ret;
+-	}
++	if (IS_ERR(p2d->regmap))
++		return dev_err_probe(dev, ret, "failed to get regmap\n");
+ 
+ 	ret = imx_scu_get_handle(&p2d->ipc_handle);
+-	if (ret) {
+-		if (ret != -EPROBE_DEFER)
+-			DRM_DEV_ERROR(dev, "failed to get SCU ipc handle: %d\n",
+-				      ret);
+-		return ret;
+-	}
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to get SCU ipc handle\n");
+ 
+ 	p2d->dev = dev;
+ 
+@@ -422,13 +414,9 @@ static int imx8qxp_pxl2dpi_bridge_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	p2d->next_bridge = imx8qxp_pxl2dpi_find_next_bridge(p2d);
+-	if (IS_ERR(p2d->next_bridge)) {
+-		ret = PTR_ERR(p2d->next_bridge);
+-		if (ret != -EPROBE_DEFER)
+-			DRM_DEV_ERROR(dev, "failed to find next bridge: %d\n",
+-				      ret);
+-		return ret;
+-	}
++	if (IS_ERR(p2d->next_bridge))
++		return dev_err_probe(dev, PTR_ERR(p2d->next_bridge),
++				     "failed to find next bridge\n");
+ 
+ 	ret = imx8qxp_pxl2dpi_set_pixel_link_sel(p2d);
+ 	if (ret)
 -- 
 2.34.1
 
