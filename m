@@ -4,97 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD9EBE77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 10:51:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7803E77199
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 10:53:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FvZr/dVKDpLXbb03C5T6q3T96NxB6hILwFKtXlC/Ynk=; b=HieLj4RwdKLvM9OvFOpi+KScJr
-	uyCQHThcm7L+7TySv3YEVd5F070ORpPIIE8MitdV1bgjYbBtWNv/GqK7qCCgAt/a9GnDIdhViToWF
-	sc0lo2gAtc5oZRix/6VrzzRQsVePXK/LI2irz3eqEZ65VmYutD6W0BjwJUH7sFkvtOp68wZDoLQZu
-	qlGbsueKE9yUbwpfIiret6YlclEcN6wnRJj2zKs12FJxSwY2g8PfhcdPpNRVOPkN4v6vXkYMCxW4V
-	kti/YN8K5UU7stUsYhBlSCDikin3JvdJbSuDFH8xlRs4jg2IYZV7tUAuKj0I7glYz1sJpjfSp2TuN
-	6qMXg4VQ==;
+	bh=ubzgdL9cLh9waK09x12ru+nh0CrFzuM9srghqESdiGM=; b=cI8oAYAdVziqvxgfbtMyCa2mbM
+	4SMpd1EgqYYPNHVYK/NnRMIcZG14rRIAf15FGVfLzQzZinD5Lzh5EGPNCAxP+yZ6AQMzlHB46/jTI
+	JpuA83jEXVDHRAV4lNDdaAQuuSy5x1PnXYZ+Buc7MMFkholeD5RHkT1oz0JlMK3pnQl+7O2tPLSOm
+	otA49mPZLUt9fnAbPuzyYaubFwUIVtbbd6iEnSnZ3Sro7hfaHDELD08eezjLxBQBA64KygJNXBqcs
+	y78Vx6LxkfycI/kaMxvNW5scxAgns7x6K10VzYSyqbdzGnlgRIyTzpZDjUvzhgYx0N0Bt4ZCtzrRw
+	0rLzZj9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV7BB-00000004RsP-477N;
-	Tue, 07 Jan 2025 10:51:21 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1tV7CZ-00000004SFe-3O1J;
+	Tue, 07 Jan 2025 10:52:47 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV79w-00000004RWq-2bIb
+	id 1tV7BH-00000004Rsu-1qlQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 10:50:09 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-385d7f19f20so6778341f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 02:50:03 -0800 (PST)
+	Tue, 07 Jan 2025 10:51:34 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2156e078563so194316545ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 02:51:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736247002; x=1736851802; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=FvZr/dVKDpLXbb03C5T6q3T96NxB6hILwFKtXlC/Ynk=;
-        b=EdGlaWQ71lII6DbnnGosVt7UikVa7i35D6hMDGjmvEmI/st+VsD/O1CUHXwR3o1HTd
-         7r2fHSDbDqN90VfqjSovGdnHPo8cZeG7KP4XKS/n7CJ0lTchVwB4N9OHbJyJveFO+nRH
-         RCur7g8+F9JjUaWvg4Vo7psrdzI0tbPeUX0W03suW9FYj4SpI8FmSrrAmHYh4wA5rsZ5
-         IY7u/qReR13AizjbgXEQ4f8hyGOFJ884PEePINYZx0PSV38w0K4nwfWgavqeEEXyg3Ic
-         shhs8XYlAdXEaxgDP0frybbLbySXdrpJPB40dpkZKKpJgNu6auRtB+UlYTug5vQohCiP
-         zGHQ==
+        d=bytedance.com; s=google; t=1736247083; x=1736851883; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ubzgdL9cLh9waK09x12ru+nh0CrFzuM9srghqESdiGM=;
+        b=K2WAVITR6qCAfYUnqSmGwHk6ovDRVyt5pNe+So3mJ+mxDisC9GxckfFTgaKYVwhmql
+         xtBQcnUzEVFf4mcWtUMHJf4+BVNrxPV1SwsBQlBRYFoJYf1FYfpq6B+CPY4t10vCwUKC
+         bt/9BDNkX+AbSr7Tc5H6IfuJlq4Dv0GKBYOhUfdvAslOb6DErOw9eMur1KqRxux8WJKl
+         F8E44ZnjYnPalWoQlC3PUMmDDI+gEKQMNJQVe9eG88Yj45bBbZZEyUJryDky9V+3DCuY
+         GQI7DQIICYUxBfhKH01CT8OlJ4cIT60qsO1l6U+K28vkgP1dUxoXI/Fze31bTtybPswQ
+         m6Og==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736247002; x=1736851802;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id
+        d=1e100.net; s=20230601; t=1736247083; x=1736851883;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=FvZr/dVKDpLXbb03C5T6q3T96NxB6hILwFKtXlC/Ynk=;
-        b=LnhvnBoMrRJJTcLIs0SwmyGWEDUXDSRwPyLyxc8oWDyByiJixLRfZZScvyX+Hq0TIc
-         EpKoenW+91lkWL82wNjSjjtKlSeG7XMbhj2PTGflLnTHMJ8xSwrqcQbcaTVBLwrjds99
-         gpH/c9TXvsBsJ8mMvJLmkC8+oK4LzWedWjCStmdzT3LAaNTMpGmfvRj1f2xc0FxudIke
-         tN2JqIEZlV13mWjBeNx2lEgPMFyl5eElhV75VQ5/gYA7vcfxw4IHkcn42hnyFgBEq8le
-         Kmd0hTCWSbtkpgBwejAVMI5lZHgzxmErL8qqMBWVlQMoDRJekGutsgvTvDiTpHXUpn1h
-         iQ6g==
-X-Forwarded-Encrypted: i=1; AJvYcCUH+XVsyROr+eKipuE93Xo2g7Powhqmpfqj+BRUB9UoNuxzgeyA5YgUOz0U/FgkW0l4tXiR56UQxAppZMUednBm@lists.infradead.org
-X-Gm-Message-State: AOJu0YzkVS5XMpG4ipQPBKk+p1kmZM9U6mm4MNNb0Ir6Zj6AYZOO8S20
-	+Fl7KEMLdZIKZINfibto5IPSgxbY43E/uVH6YvdVCfSZnYvRj882YcALa/9JTJ0=
-X-Gm-Gg: ASbGncsKxe37yH8yS/DQYX1mw9x/nrrm+SXu01PB1URwHozbr8ewqWiVgL9KR5qS2sS
-	RPTjQYyqbdqiQo2lkUFWL5jeaRsYVb0ZOy3ZKHyvL39FsIcoxihxV3CdPAbb74L8bZuD/cSxy51
-	ZTa7Oo6a+C/qZv31YOtKDwNsdgUeuyu/BgBB7vT3WXZKkOB5PyRNrtSbYyhYdGmd9b38uSSBPUc
-	mKgciFUs98zMqvISriFOWy8uIms76/LW1mj4nulWbs1HCGFoCbgIUZwxQEB6i4R
-X-Google-Smtp-Source: AGHT+IFWWsclrAudf9l2fMtvDlof68qSNuL9I0XDi2SzEiGNLoR/MT68Eprzp2TyquFNjFKf6bXUlQ==
-X-Received: by 2002:a5d:5885:0:b0:385:ef8e:a641 with SMTP id ffacd0b85a97d-38a221ffb82mr55164693f8f.28.1736247002474;
-        Tue, 07 Jan 2025 02:50:02 -0800 (PST)
-Received: from [192.168.0.14] ([188.26.61.92])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43656b119d7sm626870095e9.20.2025.01.07.02.50.00
+        bh=ubzgdL9cLh9waK09x12ru+nh0CrFzuM9srghqESdiGM=;
+        b=ZbaVXHZPb0vDHs2V8G68+sDoMHknTMwdJTuWN/qBgLesuG0uhFE+jMHQFelJmcK51K
+         DcEr1/VfM3HJFgiDAPNeAgpQv83LJmRs+l9pgvHYqj0TuDeEY1drokXRiqaL76Nwi9z2
+         tmwLd1h+kZcBwMrou63vqJFid6UX1cyc0M5JpiV0VSBECxHnKGFdpJbDhkcKW4olvj8C
+         BqcI3zBv2GrsUmRImf16vmdVB73dzVAKYmUx+5rjXT9ALbNCpGH5wtymihezjDGAwGno
+         wh3C6CG4CGNFnUKApKaiQK9JXYfC9dIduRpHSShE+FQ6O/kdfA2ctrGq9889TbDzd4yp
+         wn5A==
+X-Forwarded-Encrypted: i=1; AJvYcCUCLCFB3RY39g9RTYanQs6c6Z+P3PA9eFGmAzLkoI86/elOqfxr1AxcsRkMb3LR2i6L/pVjS1GYzuqB2xY7LQyD@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVcIy68dINKnYBzVMTz1alZms2ltzWFL6Vr8ECZLi5o8+oulbi
+	r/b1X949r5jLegCcHIm9wgQ5Yyg6+GO1MhcEGGB+xE3Yn/Q6wLxoMM+8IzKEbkY=
+X-Gm-Gg: ASbGncvWl3/tU3iVJ3MRJ67hiikQJRW8C+DUFXdJ+smrASCTZGabj6MGPqNQF784Gma
+	76WQOW5uAKFXcsAOHWfV/w+LQg/KiJqS8djbGbNFGtujURjqTCvd09Uqnd8QgxeM+dX7hQySxV4
+	NK7l7Sh2YpkHjc77uTLteYH5hun8JdYnhtV5AvpcICGvt/EcGwlrXw+ZkLRXuaigZGFoIQLM/tx
+	13xina+SoI2f3X9oEV1qFqNHQZx2sJbfk19g4Yng44wNRd6ETyS5w76ZKrdvUhsRdigOqcSmsqG
+	QWV9
+X-Google-Smtp-Source: AGHT+IFtbfiI9xlsmfuUVQ2Vnnc4auVp2ktX/5YZgw6vYG9rwgEZ2ifuqdpGqVP2TXFmBqefmQU79g==
+X-Received: by 2002:a17:902:ea08:b0:216:7410:7e14 with SMTP id d9443c01a7336-219e6eb5c15mr809959765ad.34.1736247082763;
+        Tue, 07 Jan 2025 02:51:22 -0800 (PST)
+Received: from [10.4.33.153] ([139.177.225.247])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-219dca025d1sm307318475ad.254.2025.01.07.02.51.09
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 07 Jan 2025 02:50:02 -0800 (PST)
-Message-ID: <366ab35f-b881-4694-9d36-573f9922175d@linaro.org>
-Date: Tue, 7 Jan 2025 10:50:00 +0000
+        Tue, 07 Jan 2025 02:51:22 -0800 (PST)
+Message-ID: <07e0c05f-cb69-4263-885d-6d20d4442152@bytedance.com>
+Date: Tue, 7 Jan 2025 18:51:07 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/3] firmware: add Exynos ACPM protocol driver
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Jassi Brar <jassisinghbrar@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- andre.draszik@linaro.org, kernel-team@android.com, willmcvicker@google.com,
- peter.griffin@linaro.org, daniel.lezcano@linaro.org,
- vincent.guittot@linaro.org, ulf.hansson@linaro.org, arnd@arndb.de
-References: <20241220-gs101-acpm-v5-0-4f26b7fb3f5f@linaro.org>
- <20241220-gs101-acpm-v5-2-4f26b7fb3f5f@linaro.org>
- <8e6bade0-5184-4bf7-b1f0-103a77d0f98b@kernel.org>
- <060c7a96-c1ed-4c97-8a3f-f510102466f9@linaro.org>
- <24963d4d-9d53-4d07-a756-3eb1fc50c3dc@linaro.org>
- <d41fd615-2e6a-4cfb-90c9-fc0122ea992f@linaro.org>
+Subject: Re: [PATCH v4 10/15] riscv: pgtable: move pagetable_dtor() to
+ __tlb_remove_table()
 Content-Language: en-US
-In-Reply-To: <d41fd615-2e6a-4cfb-90c9-fc0122ea992f@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: agordeev@linux.ibm.com, palmer@dabbelt.com, tglx@linutronix.de,
+ david@redhat.com, jannh@google.com, hughd@google.com, yuzhao@google.com,
+ willy@infradead.org, muchun.song@linux.dev, vbabka@kernel.org,
+ lorenzo.stoakes@oracle.com, rientjes@google.com, vishal.moola@gmail.com,
+ arnd@arndb.de, will@kernel.org, aneesh.kumar@kernel.org, npiggin@gmail.com,
+ dave.hansen@linux.intel.com, rppt@kernel.org, ryan.roberts@arm.com,
+ linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-kernel@vger.kernel.org, x86@kernel.org, linux-arch@vger.kernel.org,
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+ linux-sh@vger.kernel.org, linux-um@lists.infradead.org,
+ peterz@infradead.org, akpm@linux-foundation.org
+References: <cover.1735549103.git.zhengqi.arch@bytedance.com>
+ <0e8f0b3835c15e99145e0006ac1020ae45a2b166.1735549103.git.zhengqi.arch@bytedance.com>
+ <1b09335c-f0b6-4ccb-9800-5fb22f7e8083@arm.com>
+ <ebce5e05-5e46-4c6e-94a0-bcf3655a862b@bytedance.com>
+ <7e2c26c8-f5df-4833-a93f-3409b00b58fd@arm.com>
+ <e9fe97d4-99d5-443e-b722-43903655a76e@bytedance.com>
+ <31e1a033-00a7-4953-81e7-0caedd0227a9@bytedance.com>
+ <d9a14211-4bbd-4fb6-ba87-a555a40bb67a@arm.com>
+ <de8756aa-dbf7-4f6f-91f0-934270397192@bytedance.com>
+ <ee393a7f-d01e-4e5d-9bf8-779795613af1@arm.com>
+From: Qi Zheng <zhengqi.arch@bytedance.com>
+In-Reply-To: <ee393a7f-d01e-4e5d-9bf8-779795613af1@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_025004_671182_FCF32B17 
-X-CRM114-Status: GOOD (  12.27  )
+X-CRM114-CacheID: sfid-20250107_025127_477825_27763A57 
+X-CRM114-Status: GOOD (  23.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,57 +124,157 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 1/6/25 10:20 AM, Tudor Ambarus wrote:
->>>>> +static const struct acpm_handle *acpm_get_by_phandle(struct device_node *np,
->>>>> +						     const char *property)
->>>>> +{
->>>>> +	struct acpm_handle *handle = NULL;
->>>>> +	struct device_node *acpm_np;
->>>>> +	struct acpm_info *info;
->>>>> +
->>>>> +	if (!np) {
->>>>> +		pr_err("I need a device pointer\n");
->>>>> +		return ERR_PTR(-EINVAL);
->>>>> +	}
->>>>> +
->>>>> +	acpm_np = of_parse_phandle(np, property, 0);
->>>>> +	if (!acpm_np)
->>>>> +		return ERR_PTR(-ENODEV);
->>>>> +
->>>>> +	mutex_lock(&acpm_list_mutex);
->>>>> +	list_for_each_entry(info, &acpm_list, node) {
->>>>> +		if (acpm_np == info->dev->of_node) {
->>>>> +			handle = &info->handle;
->>>>> +			info->users++;
->>>>> +			break;
->>>>> +		}
->>>>> +	}
->>>>> +	mutex_unlock(&acpm_list_mutex);
->>>>> +	of_node_put(acpm_np);
->>>>> +
+On 2025/1/7 17:57, Kevin Brodsky wrote:
+> On 06/01/2025 04:49, Qi Zheng wrote:
+>> [...]
+>>
+>>> Once this is done, we should be able to replace all those confusing
+>>> calls to tlb_remove_page() on PTPs with tlb_remove_table() and remove
+>>> the explicit call to pagetable_dtor(). AIUI this is essentially what
+>>> Peter suggested on v3 [2].
+>>
+>> Since this patch series is mainly for bug fix, I think that these things
+>> can be done in separate patch series later.
+> 
+> Sure that's fair.
+> 
+>>
+>>>
+>>> [...]
+>>>
+>>>> Or can we just not let tlb_remove_table() fall back to
+>>>> tlb_remove_page()? Like the following:
 >>>>
->>>> You also need device links and probably try_module_get. See clk.c
->>>> clk_hw_create_clk() or of_qcom_ice_get(). Interestingly, none of them
->>>> perform both operations, which I think is necessary.
+>>>> diff --git a/include/asm-generic/tlb.h b/include/asm-generic/tlb.h
+>>>> index a59205863f431..354ffaa4bd120 100644
+>>>> --- a/include/asm-generic/tlb.h
+>>>> +++ b/include/asm-generic/tlb.h
+>>>> @@ -195,8 +195,6 @@
+>>>>     *  various ptep_get_and_clear() functions.
+>>>>     */
 >>>>
->>>> I think you could also avoid entire list and mutex by using
->>>> platform_get_drvdata(), see of_qcom_ice_get().
+>>>> -#ifdef CONFIG_MMU_GATHER_TABLE_FREE
+>>>> -
+>>>>    struct mmu_table_batch {
+>>>>    #ifdef CONFIG_MMU_GATHER_RCU_TABLE_FREE
+>>>>           struct rcu_head         rcu;
+>>>> @@ -219,16 +217,6 @@ static inline void __tlb_remove_table(void *table)
+>>>>
+>>>>    extern void tlb_remove_table(struct mmu_gather *tlb, void *table);
+>>>>
+>>>> -#else /* !CONFIG_MMU_GATHER_HAVE_TABLE_FREE */
+>>>> -
+>>>> -/*
+>>>> - * Without MMU_GATHER_TABLE_FREE the architecture is assumed to have
+>>>> page based
+>>>> - * page directories and we can use the normal page batching to free
+>>>> them.
+>>>> - */
+>>>> -#define tlb_remove_table(tlb, page) tlb_remove_page((tlb), (page))
+>>>
+>>> We still need a different implementation of tlb_remove_table() in this
+>>> case. We could define it inline here:
+>>>
+>>> static inline void tlb_remove_table(struct mmu_gather *tlb, void *table)
+>>> {
+>>>       struct page *page = table;
+>>>
+>>>       pagetable_dtor(page_ptdesc(page));
+>>>       tlb_remove_page(page);
+>>> }
+>>
+>> Right. As I said above, will add this to the updated patch #8.
+> 
+> I think it would be preferable to make it a standalone patch, because
+> this is a change to generic code that could in principle impact other
+> arch's too.
 
-[snip, irrelevant now]
+Agree, I have done that:
 
-I made my mind, I think the solution is threefold.
-1/ use kref with a release callback so that the firmware drvdata will be
-destroyed only when there are no consumers. Example:
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=1e7c57355a3bc617fc220234889e49fe722a6305
+```
+Author: Qi Zheng <zhengqi.arch@bytedance.com>
+Date:   Fri Dec 13 17:13:48 2024 +0800
 
-2/ In get_handle() after kref_get_unless_zero() succeeds, I'll be
-calling try_module_get() for supplier. Even if kref will make sure that
-consumers will still have a valid supplier drvdata, I'd like to delete
-the supplier module when there are no consumers left.
+     mm: pgtable: completely move pagetable_dtor() to generic 
+tlb_remove_table()
 
-3/ use device_link_add() so that when the supplier device unbinds, to
-unbind the consumer devices as well.
+     For the generic tlb_remove_table(), it is implemented in the 
+following two
+     forms:
 
-I'll implement these. Cheers,
-ta
+     1) CONFIG_MMU_GATHER_TABLE_FREE is enabled
+
+     tlb_remove_table
+     --> generic __tlb_remove_table()
+
+     2) CONFIG_MMU_GATHER_TABLE_FREE is disabled
+
+     tlb_remove_table
+     --> tlb_remove_page
+
+     For case 1), the pagetable_dtor() has already been moved to generic
+     __tlb_remove_table().
+
+     For case 2), now only arm will call 
+tlb_remove_table()/tlb_remove_ptdesc()
+     when CONFIG_MMU_GATHER_TABLE_FREE is disabled. Let's move 
+pagetable_dtor()
+     completely to generic tlb_remove_table(), so that the architectures can
+     follow more easily.
+
+     Signed-off-by: Qi Zheng <zhengqi.arch@bytedance.com>
+
+diff --git a/arch/arm/include/asm/tlb.h b/arch/arm/include/asm/tlb.h
+index b8eebdb598631..ea4fbe7b17f6f 100644
+--- a/arch/arm/include/asm/tlb.h
++++ b/arch/arm/include/asm/tlb.h
+@@ -34,10 +34,6 @@ __pte_free_tlb(struct mmu_gather *tlb, pgtable_t pte, 
+unsigned long addr)
+  {
+         struct ptdesc *ptdesc = page_ptdesc(pte);
+
+-#ifndef CONFIG_MMU_GATHER_TABLE_FREE
+-       pagetable_dtor(ptdesc);
+-#endif
+-
+  #ifndef CONFIG_ARM_LPAE
+         /*
+          * With the classic ARM MMU, a pte page has two corresponding pmd
+diff --git a/include/asm-generic/tlb.h b/include/asm-generic/tlb.h
+index 69de47c7ef3c5..53ae7748f555b 100644
+--- a/include/asm-generic/tlb.h
++++ b/include/asm-generic/tlb.h
+@@ -220,14 +220,20 @@ static inline void __tlb_remove_table(void *table)
+
+  extern void tlb_remove_table(struct mmu_gather *tlb, void *table);
+
+-#else /* !CONFIG_MMU_GATHER_HAVE_TABLE_FREE */
++#else /* !CONFIG_MMU_GATHER_TABLE_FREE */
+
++static inline void tlb_remove_page(struct mmu_gather *tlb, struct page 
+*page);
+  /*
+   * Without MMU_GATHER_TABLE_FREE the architecture is assumed to have 
+page based
+   * page directories and we can use the normal page batching to free them.
+   */
+-#define tlb_remove_table(tlb, page) tlb_remove_page((tlb), (page))
++static inline void tlb_remove_table(struct mmu_gather *tlb, void *table)
++{
++       struct page *page = (struct page *)table;
+
++       pagetable_dtor(page_ptdesc(page));
++       tlb_remove_page(tlb, page);
++}
+  #endif /* CONFIG_MMU_GATHER_TABLE_FREE */
+
+  #ifdef CONFIG_MMU_GATHER_RCU_TABLE_FREE
+```
+
+and will send v5 later.
+
+Thanks!
+
+> 
+> - Kevin
 
