@@ -4,58 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8FB1E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 15:00:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68B22E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 15:01:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8UflBXSWMuWN/RbLnr7BP15iY3OWBLuvZePkqlyr0FI=; b=PJkTCkZFd37pHJnY0qSwn+OgKb
-	at2qTFrfmA6idmufpM6Sq9cmKxV8T7JfeYpDLA6oGLT8v5CQlV0t4Jr8ZJxQPBn5PotwVZjobaOnF
-	8x2DxK6S1cOu4CEFRGnQ1diNhT7rBhWoIwUWhbWiUUrqUi5f3nUpCFC/Kj6kAYGQhwW93TvS/HqZO
-	G6UMDgD9lvSfllPdmB9rlyrbubC37IdyHgcvbAeSAJoQllxAwC7zzbt1hW/45NU+HWhFWIo14dTd6
-	QqxzDN8jWMdMqNK4xNw8eYnAu/KIuxWZ6uYJicJIL8tKfvUaXRR9qgMgu3Lk4HuOZLUiKlHeshkZ0
-	7bKLzP+A==;
+	bh=VJEUIcYYIUO0VgSn6UpPyF6jTa3kJCUS99OPUIH/98Y=; b=yB2Zj+UjWy9NL6Q2hJRpo+igfi
+	UqgKYNUf8ocFmJ8UewT/B7PV45P0/B3aN3mO1vXZq1VlbGd/F1Wp7rNEiuW+NFgifYeB+BwzZKX1C
+	yEl8kUD6zzQ6kMIPIWdo5v3MO2/q1dLaAK2NRb0+SvjJP+bWdGovIl/uK4jWXISxXM88gUGSNKwKT
+	fxBHEVJaCO066dYRuRsXkoE4+6d0HR2qbqKVlDdEcLHf8LWoXIGisi+pbN4IeUwj1pHtF5s/eanpZ
+	4MfXYYMr3InJh2m4aCl2NCmu6f8PfYhia9LI8myqUsU8ntW8jpeZJQFI+/sWCmnWGqYPuOBfcDUhj
+	G4w/MG3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVB3o-00000005Kyw-2veb;
-	Tue, 07 Jan 2025 15:00:00 +0000
+	id 1tVB4y-00000005LDA-2ZUi;
+	Tue, 07 Jan 2025 15:01:12 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVAyp-00000005Jsb-21wa
+	id 1tVB0U-00000005KLv-414t
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 14:54:55 +0000
+	Tue, 07 Jan 2025 14:56:36 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 536511424;
-	Tue,  7 Jan 2025 06:55:19 -0800 (PST)
-Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E5B7F3F673;
-	Tue,  7 Jan 2025 06:54:48 -0800 (PST)
-Date: Tue, 7 Jan 2025 14:54:46 +0000
-From: Andre Przywara <andre.przywara@arm.com>
-To: Lukas Schmid <lukas.schmid@netcube.li>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej
- Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
- Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 1/4] dt-bindings: vendor-prefixes: Add NetCube
- Systems Austria name
-Message-ID: <20250107145446.16a8a4ea@donnerap.manchester.arm.com>
-In-Reply-To: <20250106190703.4015-2-lukas.schmid@netcube.li>
-References: <20250106190703.4015-1-lukas.schmid@netcube.li>
-	<20250106190703.4015-2-lukas.schmid@netcube.li>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3DC5E1424;
+	Tue,  7 Jan 2025 06:57:01 -0800 (PST)
+Received: from [10.57.4.77] (unknown [10.57.4.77])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 76BCE3F673;
+	Tue,  7 Jan 2025 06:56:31 -0800 (PST)
+Message-ID: <1e1915eb-0ebb-4afa-94ed-553c455ae24e@arm.com>
+Date: Tue, 7 Jan 2025 14:56:30 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/4] arm64: dts: morello: Add support for common
+ functionalities
+Content-Language: en-GB
+To: Jessica Clarke <jrtc27@jrtc27.com>
+Cc: Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>,
+ Sudeep Holla <sudeep.holla@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Russell King <linux@armlinux.org.uk>
+References: <20250103181623.1980433-1-vincenzo.frascino@arm.com>
+ <20250103181623.1980433-3-vincenzo.frascino@arm.com>
+ <CAL_JsqLYu_z6yNA-MgKgoA=nC5ftzOEH5UNkswA_=xTJiOB0+g@mail.gmail.com>
+ <Z30kbmA-3h-Rhg7l@Jessicas-MacBook-Pro>
+ <bb0c95b6-760d-4de1-bc28-8f82e2fc5dd5@arm.com>
+ <45E38F12-3585-4AE0-8F05-431DB355FC69@jrtc27.com>
+From: Vincenzo Frascino <vincenzo.frascino@arm.com>
+In-Reply-To: <45E38F12-3585-4AE0-8F05-431DB355FC69@jrtc27.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_065451_570507_8596F495 
-X-CRM114-Status: GOOD (  19.31  )
+X-CRM114-CacheID: sfid-20250107_065635_038076_246CF344 
+X-CRM114-Status: GOOD (  12.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,55 +76,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon,  6 Jan 2025 19:06:59 +0000
-Lukas Schmid <lukas.schmid@netcube.li> wrote:
 
-> NetCube Systems Austria builds Embedded Systems for use in IoT, IIoT,
-> or Smart Home scenarios.
+
+On 07/01/2025 14:51, Jessica Clarke wrote:
+> On 7 Jan 2025, at 14:34, Vincenzo Frascino <vincenzo.frascino@arm.com> wrote:
+>>
+>> Hi Jessica,
+>>
+>> Thank you for your review.
+>>
+>> On 07/01/2025 12:56, Jessica Clarke wrote:
+>>> On Fri, Jan 03, 2025 at 04:14:31PM -0600, Rob Herring wrote:
+>>>> On Fri, Jan 3, 2025 at 12:16 PM Vincenzo Frascino
+>>>> <vincenzo.frascino@arm.com> wrote:
+>>>>> +       cpus {
+>>>>> +               #address-cells = <2>;
+>>>>> +               #size-cells = <0>;
+>>>>> +
+>>>>> +               cpu0: cpu@0 {
+>>>>> +                       compatible = "arm,neoverse-n1";
+>>>>
+>>>> I'm pretty sure the N1 doesn't support CHERI/morello. Perhaps
+>>>> "arm,neoverse-n1-morello" if we want to capture what it is derived
+>>>> from and since "arm,morello" is taken already.
+>>>
+>>> Rainier is the codename of the core itself, and Morello LLVM recognises
+>>> -mcpu=rainier not -mcpu=morello (there's -march=morello instead), so
+>>> perhaps it should really be "arm,rainier". Though SMBIOS reports it as
+>>> Morello-R0P1 so it may be best to use "arm,morello" here.
+>>>
+>>
+>> We agree on the concept. It should either be "arm,rainier" or "arm,morello-r0p1"
 > 
-> Website is still WIP, but the Links on it are active:
-> https://netcubesystems.at/
+> r0p1 isn’t right. Boards with r0p0 and r0p2 CPUs also exist (although
+> the former are now only within Arm, but the latter are in the wild in
+> limited numbers, including a couple here at Cambridge).
 > 
-> Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
 
-Just to give some more guidance on when to drop tags and when to not:
-If you are making real changes to the code, then it might be indicated to
-drop the tag, since the patch might not be anymore what the reviewer
-acknowledged.
-But if you are just fixing (especially improving/adding to) the commit
-message, or fixing some typo, then you keep the tag, to reduce the churn
-and avoid extra work again from the reviewer.
-This is sometimes not easy to decide, say for instance: is renaming a
-variable something covered by the tag? The new name might be worse or
-misleading, even though the code didn't really change.
+Agreed, my proposals were in order of preference. "arm,rainier" seems the best
+choice. Let's see what Rob thinks.
 
-But in this case it's pretty clear that Krzysztof is surely fine with you
-adding extra info to the commit message, and the actual patch didn't
-change at all, so keeping his tag would be a good thing.
+[...]
 
-If you are in doubt, then it's often good to drop the tag *and* point this
-out, for instance in the cover letter, like: "Krzysztof, I changed this
-and that in patch 1/4, so I dropped your tag."
-
-Cheers,
-Andre
-
-> ---
->  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> index da01616802c7..a30ed9547098 100644
-> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> @@ -1027,6 +1027,8 @@ patternProperties:
->      description: Neofidelity Inc.
->    "^neonode,.*":
->      description: Neonode Inc.
-> +  "^netcube,.*":
-> +    description: NetCube Systems Austria
->    "^netgear,.*":
->      description: NETGEAR
->    "^netlogic,.*":
+-- 
+Regards,
+Vincenzo
 
 
