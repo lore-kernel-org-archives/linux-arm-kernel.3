@@ -4,186 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28700E77198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 05:26:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BA35E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 05:35:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Message-ID:Date:In-reply-to:Subject:Cc:To:From:References:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fptIRt6q5Ok79vSCEFPO7UBR54COSOhTRnhWaB2u5EM=; b=ivKDFficTvHtYYL/H96WgDHtb2
-	RjxDlQR/Jkv2bqSD0I2DSVYS7RhZx/ztY68CfYtwXkKGFuzPpmr90i5ztJ4TaTUXOkRj6Zq4pkN8g
-	zFBUz+O9xhLsUwMNyZBWtNhJ8lVEUk29jHeuUi9kneLBkFCeOVhHyOwLIHYQW9e3J6ANv7NcB7Fjl
-	sk7p3h8wz4b51UMOdOhCirANxpbns91v+bSnj8H6zT3XTk2Qazp8cd90hM+TFFSuJapeLKmFctLd7
-	o6iM4GPrHKQbjLe7hSSGeArB3vHLmIwLgStTP31beJUqS83F+0NLLv+MAj2aEEYJl/Zy2RNahnT6n
-	wA7BGWkQ==;
+	bh=jzng9vD8z1aSVeyR/ZW4RQiuyJN+Kp0e1WMzQEPbveo=; b=Zeaq0dWM39lbbWH2W0glkM+qof
+	7mpMzuyZDdqkX0gmOUsn2gArXyseoVli0kzhgEAqQQRR8myUMbYzX9GpnEfzULvdG953/vVWwDlW/
+	1CW/nqTdFsaEI8hjOYVas67gI4FKU1sA0o0Cst8fO9PhxjXC9ayXUQJJY5h37lpqVOIn636LfqQ0Q
+	xyNRqH5e6JuK1cxsP6Pj2NXzqGLwtiM56dA4ORoyYRHwdb4YvO5rOaIJyar2s8H8sHEKD1WEl3x9o
+	fKfP1WoPFwOIOfA3LzG2GlNBV1dsOj59svUWcddWqDQqik3pPo7/3SPSzVDo3mHDwOWCycexCQDP5
+	e10lSEKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV26K-00000003Y0w-1vuO;
-	Tue, 07 Jan 2025 05:26:00 +0000
-Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
+	id 1tV2F5-00000003Yi0-36LT;
+	Tue, 07 Jan 2025 05:35:03 +0000
+Received: from mail-mw2nam10on20611.outbound.protection.outlook.com ([2a01:111:f403:2412::611] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV254-00000003XtK-3G3A
+	id 1tV2Dp-00000003YaV-0Zz6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 05:24:44 +0000
-Received: from pps.filterd (m0246631.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5072tuM7008338;
-	Tue, 7 Jan 2025 05:23:51 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=corp-2023-11-20; bh=fptIRt6q5Ok79vSCEF
-	PO7UBR54COSOhTRnhWaB2u5EM=; b=om4LrtRlA6NnipBdLQ9p4uFEthqZ2Zsoy0
-	cpRUb8BTc/A9V7TAqdJ8Rr7TqrNAooseI0XG3kFhCa6Z6X+5omEQCiIENsSCVT1a
-	m7I3MF1WBKkNuW9oLiv2x2rRCE2QefQCYBkkJReMDaDCVDcNXXEnh6DQSk5MEOyl
-	NlMub4+rb515G0TmFPwG74uNtVDfQsRGMpRwFilWuif9upNWbABXyzUIGZd83U8c
-	F+0sepm/kS5hizGkHM7tNroevx+XrK4UdgQ7p72k2wHxf+cLOdNHgwrF8tL7qUo9
-	JvSCNAtM1s62R5SErv1r+Z6hdJuqiXTAQQkZACIXOXwtS2F36CCg==
-Received: from phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta02.appoci.oracle.com [147.154.114.232])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 43xus2bxe7-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 07 Jan 2025 05:23:50 +0000 (GMT)
-Received: from pps.filterd (phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
-	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 5074iKaa004858;
-	Tue, 7 Jan 2025 05:23:49 GMT
-Received: from nam10-mw2-obe.outbound.protection.outlook.com (mail-mw2nam10lp2041.outbound.protection.outlook.com [104.47.55.41])
-	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 43xue82yqm-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 07 Jan 2025 05:23:49 +0000
+	Tue, 07 Jan 2025 05:33:48 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pRSlFd91cfHECPJzPZqyDx4/nyS81FKPdPcTQDsGL5ubn6xGTeLap78G/0aFOhJwP83JoBw9yGwJNSfN+jDjFQsBZq3ZUKov92CY8RMXRl8C+WSkbxEMRm3M/1zJDGrA6zrRFOrQIMpC3S2XbelcYmHSuwUmoD9pb5ByBTBXrxz4Ie5LEY+aecQqAh4B17YAc4C/fY+3OtzTdQIeptxTIhEvnX3tH6lCfxczgbSepB1hFrMHdp3d8qkTCxQVBuApaUA7vHja3hsdmyc8qqv6ekav/cSk7Fc0TPcRy4Op57eETmZrBmtp2SrvB8/zk6drAoJ6Odh3S3YjBVWVJ3ygHA==
+ b=WmDJ4IPGxG97JNFbUCdSJkiSgqIOH+OTDWD9Fd+I9sJ01F4GQPGtNfgO0Ta9dcqDCuf8k4ofgi+NgWa1Tf2F3VWq7uV4OKy0NXv8q8/un6xx1JvyLOufTIVpdF9fA0pmw3jJPMDgWN6+5jFknfTovkxyJKbEPbNkny796NndAApoxQfmNxx8AYqaAbjFnwyU/9tsa1bFOAaOdg7R5TWPkutJOao9RWjdVhvmpj7Jyy27hKahcK0sg0IAXKQXFae8P8oWYJJAQp5VcYdFvQ+IaGC4fP3PCJtUXHSu6LvbzXSXwqrRRcePt+iNVd/IRmRaMzCFtZeOiYhsD8vfuRkrJQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fptIRt6q5Ok79vSCEFPO7UBR54COSOhTRnhWaB2u5EM=;
- b=g1r5Zjm/yjEBcM4GqfrxqWAIxGEpq6nwqkJKbxW/n5+iUgH5n/cF1TEKLZAibSscWjmPbvFbaLsX7avxgtggPFAwV0C4hh20T3vwFqeyx9Hcx1j0E1JwZoIcQo+kOtKhmP4MV+zh9sicOYKGMwlBU+ZxMcPUxdDsBSMzINc5gZNKucfBDxKF0QrW/bdS3DJOk/wwjjrTtbuVHbiO/zXskhmGkeEMnJoXnVDRRlOrc4k9rDrk5qZZJVOVB9S1SpbWd+AGG4OsTAxHBD8H+CbSH2sqIbKGVTABQFmjt3nGb6a5dd62bgTLGm7nq5rvJH0B4V3R5NOZ3/GzDoxvrqK6xw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ bh=jzng9vD8z1aSVeyR/ZW4RQiuyJN+Kp0e1WMzQEPbveo=;
+ b=ppyUEBn88a9FJXvfe58T79VTNDXogvaW+WDAHigVyYBQkwgUGdVFfGTcXQcaEA++JCrAtegbBjFrofIo75mdhGU/pCOF++gsJN7LD2ESjlEV4vYkYByxiQS9sDj9f1WWrR8oGnIP8miwGESVo6w8S28TPuCuO70jg9+j+IbLG+xIcPBI1+ExKRPguV/GkSyY6sA/IrOSx8nOrteLNIUyPX2iW6XerOEOgOrttY4q8GyOJdI2sVbllqP1tw/yR97dwgXXVLUh8SezWR/g0JS7pUYsxnnmQ2gDYvfpkTjnEzIk6fscLacIIHukkMpWYQ5re8tqV2otY8RJ6m8VXDR3ZQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=linux.intel.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fptIRt6q5Ok79vSCEFPO7UBR54COSOhTRnhWaB2u5EM=;
- b=NbGvYn/CwUdb8uKQXxoFRfR5OgKQEPaImRM/2zBe6Gtosftr3Ds2BpM/eTlZmMO8TWCEjdb25KmBddbiiCCFpgvGp9OHxRmXx1nyIwuo6vW9JmTjp10KdYb9Ozjz6MbBB2AJmYr/3EveE4xe5eMNlY4R0XbWjdNO1kW5gJ2bQ5k=
-Received: from CO6PR10MB5409.namprd10.prod.outlook.com (2603:10b6:5:357::14)
- by DM6PR10MB4249.namprd10.prod.outlook.com (2603:10b6:5:221::10) with
+ bh=jzng9vD8z1aSVeyR/ZW4RQiuyJN+Kp0e1WMzQEPbveo=;
+ b=jOdL9XrsZGO46Os0eXu/sm8LG7g9SSN+3do57koiGcLdY/fYnpOt/DrxfYU+oRfeW4cVg5R2KhOyUS5HrrnKdZ4NWSL4J8RLJXlUxsSAiEuho7h4e50QUeStuUae80/bYfOWHozwSQY/VbgOp0HnL0dOrNw0U1U9RQS8jGVp8K/87WVn9xtTjnj2LBDWpqUHPyVpAgz4lOBRcbq8t0U6B73dDAHLkLRxovCv6/DkwVEdsPKe6xgouJLbPKfLwWJw00Rw887NYg6e6g9wu8kS6s7U+x44Qd54pPt4RZnZjK8ZF/Rr3OB4mx724ItjPRrZMO3A6IqeSYZjlB7aH2IlLg==
+Received: from SA1P222CA0054.NAMP222.PROD.OUTLOOK.COM (2603:10b6:806:2d0::29)
+ by DM4PR12MB7669.namprd12.prod.outlook.com (2603:10b6:8:106::22) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.10; Tue, 7 Jan
- 2025 05:23:46 +0000
-Received: from CO6PR10MB5409.namprd10.prod.outlook.com
- ([fe80::25a9:32c2:a7b0:de9e]) by CO6PR10MB5409.namprd10.prod.outlook.com
- ([fe80::25a9:32c2:a7b0:de9e%3]) with mapi id 15.20.8314.018; Tue, 7 Jan 2025
- 05:23:46 +0000
-References: <20241107190818.522639-1-ankur.a.arora@oracle.com>
-User-agent: mu4e 1.4.10; emacs 27.2
-From: Ankur Arora <ankur.a.arora@oracle.com>
-To: Ankur Arora <ankur.a.arora@oracle.com>
-Cc: linux-pm@vger.kernel.org, kvm@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-arch@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org,
-        tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
-        dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
-        pbonzini@redhat.com, vkuznets@redhat.com, rafael@kernel.org,
-        daniel.lezcano@linaro.org, peterz@infradead.org, arnd@arndb.de,
-        lenb@kernel.org, mark.rutland@arm.com, harisokn@amazon.com,
-        mtosatti@redhat.com, sudeep.holla@arm.com, cl@gentwo.org,
-        maz@kernel.org, misono.tomohiro@fujitsu.com, maobibo@loongson.cn,
-        zhenglifeng1@huawei.com, joao.m.martins@oracle.com,
-        boris.ostrovsky@oracle.com, konrad.wilk@oracle.com
-Subject: Re: [PATCH v9 00/15] arm64: support poll_idle()
-In-reply-to: <20241107190818.522639-1-ankur.a.arora@oracle.com>
-Date: Mon, 06 Jan 2025 21:23:40 -0800
-Message-ID: <87h66bdwo3.fsf@oracle.com>
-Content-Type: text/plain
-X-ClientProxiedBy: MW4P223CA0028.NAMP223.PROD.OUTLOOK.COM
- (2603:10b6:303:80::33) To CO6PR10MB5409.namprd10.prod.outlook.com
- (2603:10b6:5:357::14)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8314.17; Tue, 7 Jan
+ 2025 05:33:31 +0000
+Received: from SN1PEPF00026369.namprd02.prod.outlook.com
+ (2603:10b6:806:2d0:cafe::92) by SA1P222CA0054.outlook.office365.com
+ (2603:10b6:806:2d0::29) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8314.19 via Frontend Transport; Tue,
+ 7 Jan 2025 05:33:31 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ SN1PEPF00026369.mail.protection.outlook.com (10.167.241.134) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8335.7 via Frontend Transport; Tue, 7 Jan 2025 05:33:30 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 6 Jan 2025
+ 21:33:20 -0800
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 6 Jan 2025
+ 21:33:20 -0800
+Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.129.68.9)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4 via Frontend
+ Transport; Mon, 6 Jan 2025 21:33:18 -0800
+Date: Mon, 6 Jan 2025 21:33:16 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Baolu Lu <baolu.lu@linux.intel.com>
+CC: <jgg@nvidia.com>, <kevin.tian@intel.com>, <corbet@lwn.net>,
+	<will@kernel.org>, <joro@8bytes.org>, <suravee.suthikulpanit@amd.com>,
+	<robin.murphy@arm.com>, <dwmw2@infradead.org>, <shuah@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>, <eric.auger@redhat.com>,
+	<jean-philippe@linaro.org>, <mdf@kernel.org>, <mshavit@google.com>,
+	<shameerali.kolothum.thodi@huawei.com>, <smostafa@google.com>,
+	<ddutile@redhat.com>, <yi.l.liu@intel.com>, <patches@lists.linux.dev>
+Subject: Re: [PATCH v4 14/14] iommu/arm-smmu-v3: Report events that belong to
+ devices attached to vIOMMU
+Message-ID: <Z3y8nO+Cg/Y3TBtj@Asurada-Nvidia>
+References: <cover.1735933254.git.nicolinc@nvidia.com>
+ <69a46c72e43ed086840be462eef731167d90a9d8.1735933254.git.nicolinc@nvidia.com>
+ <585fc99f-c2dc-459c-929a-c7c7631b9caf@linux.intel.com>
+ <Z3wk9TvmUhB3/zlk@Asurada-Nvidia>
+ <Z3yvZsq77bpnaoAb@Asurada-Nvidia>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <Z3yvZsq77bpnaoAb@Asurada-Nvidia>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO6PR10MB5409:EE_|DM6PR10MB4249:EE_
-X-MS-Office365-Filtering-Correlation-Id: c8782634-19ba-4d19-730a-08dd2edb7586
+X-MS-TrafficTypeDiagnostic: SN1PEPF00026369:EE_|DM4PR12MB7669:EE_
+X-MS-Office365-Filtering-Correlation-Id: b9cc2239-3b4c-487d-c240-08dd2edcd205
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?grHte3Y751FJzBKK+xAAcGlFq675DRAOygZUui4bjbQD+5S2/5RZDPudG6YQ?=
- =?us-ascii?Q?2iawGo+1RPlMCTuQdzTEgyqDmdMNi0TJ4CjDMw5WYTKOXbAkWaOIgg7NXHQa?=
- =?us-ascii?Q?A7ilKj0D7KsUBT13kDuH9CvHu9renWWoMhTA9ulUpPMtSkWLEncEcX4YtXtH?=
- =?us-ascii?Q?lGei5l3CAAb16ZwfH638N7mOWKHihe3SRA2/mFaIvkVdujXRPBCsyVcUnesy?=
- =?us-ascii?Q?jUQPRBnwKiovGmr1ZrqsK4B3oNaqNEL9UkeGSIgMaB+B9ufWrzrat0F+YU5Y?=
- =?us-ascii?Q?o0it8ZpSZbKZN06fbqtxqN1iH7iUClfMrzQmZYvGLL+uKZ1DRCNJdQv31jGq?=
- =?us-ascii?Q?nek/hVUlU0Lw6kmtN2CFiXWELVgvCMknNQyP2/EiyefaJOZSyuQnsl5mrrj3?=
- =?us-ascii?Q?w+GTt5D67UG75xbbHQ8HSirYrwwE1l41rN8ov9elIQHxElZWi15/BPelkLRa?=
- =?us-ascii?Q?SyBJ+xsd4jzCAqMBY85VSZrdSzs+poBcOtJnSUhVHcjWy787yPtqh+j8vnDK?=
- =?us-ascii?Q?NJ7vxFmVwJCZFzciGArf5h8LgW92ibz8WaPG8Tfn7Y1luFDgsKH4BIPbGOLS?=
- =?us-ascii?Q?OcAG4TN9mLzTxyil0mrI/oP+UJVV7zIZv45i4y3yrTMhfqr5DYHamsP2bG54?=
- =?us-ascii?Q?dAo1BYCZMNFfBFpL4TRccsxbMJvfCIyhPfAQ2gdKBfixbgbc7y+IZmfPIhBo?=
- =?us-ascii?Q?YXRFS5rbY3pLWreX+fthegSFKI0nQB5lDFTEx4NnX9Qy7ejynk1PilurV6D8?=
- =?us-ascii?Q?1xwIHQ4yh3LaoCwPW3vXG48Wii2an76NI4/2g9hjvvCzb/d67W4JjtrVbmZG?=
- =?us-ascii?Q?1bc0XRi5RwO1tdO/CJa9xpXScmymJLHbVo3etc1vKShQ03dBtVD8xr1WzIrv?=
- =?us-ascii?Q?2yz0qtu3hOUFlyV7xS01wu9o7zZDuewJWXneu25MZ+Db0ar9rMtl2KjXcIsU?=
- =?us-ascii?Q?vY/BpAZ69U4wlxxFxYCmmy7NRzrTLKX7tf3Pd9MvsfWcNuISpJUykCGNdRoD?=
- =?us-ascii?Q?mhJFYGbUMD5+XOemCGAnlYoPb5hPQtSOa+nuPOo0bUpzYfeoj45ByJJmBcXT?=
- =?us-ascii?Q?SFkQdzffQPHaTcVjKIIIZPU+Rm+dI1VtKd3MwAm1QIlOZkGroKkFM4i6Gcnb?=
- =?us-ascii?Q?PwaulSffkIVEKXzv8ylLKmMjvMIA6uVLtvDuLYQq7ix14QT3C4DGNG0j610W?=
- =?us-ascii?Q?KAqCTuznORoAUHNymsxvdCbNEto/QelZC4G6AyaDPuuLK6/SrFSr5dKXUbeb?=
- =?us-ascii?Q?PSFjoRRobw5UnFJ3YVgdlhME0+IqjVXtYHaqqbJvKycyC6O3CCOSXiw8W+il?=
- =?us-ascii?Q?kq6qebuKrx3OqfzRyxe1Fi61cfyMTPsq5CAIiNFeftVUFASu9oNYKBwtFHbs?=
- =?us-ascii?Q?uWculKPakSZnXJCZMgJObbKfOiolEFZCM2prbYyyWHutSXjIdg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR10MB5409.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?eNE79GN7pNd0OF6NZ76LGYw4Ijdj7HXCFq3cn6DtivDPyHuOOJg2JCYbIfhh?=
- =?us-ascii?Q?J2exdnu+RwLlKuiVNZJP9bEaw6DSlfFxqWZVoa8G5a0YgcFHW+3HQ7IfHjFt?=
- =?us-ascii?Q?kvb6/WZaJSIOu9CMp4ZFPolBKzbUFBK618rwuhWh2DKo0Fhk6B5+4V7B9a/I?=
- =?us-ascii?Q?lVdzc9D0TLapltifj7rlRKUUw7RByObFUz3Otp9stxdXCnl2n2c6u8AMxLBI?=
- =?us-ascii?Q?Y/TM7jKgM4/yZgaY8q60XBcv1pvZIEIIh+ReJqCHRdVEY8XMexiEBX/t6O2c?=
- =?us-ascii?Q?xzT2AYOS0Q4OZ/8z12rMlp67qtEfhLkOf30HfWWJlC+/9p3LZfJkU5R3pfVU?=
- =?us-ascii?Q?PKs3tq/NeaJ6D6+bJrEBHNa/wT7QhqPqDFgkG1qVjVDqdPuAlaC0pA14qJ+b?=
- =?us-ascii?Q?XHwPgtl1WIuxQSTMxCj/iw5Cmd3kUC8wG40I3Q/9YpmNpKCB0xu6OIuOiD6J?=
- =?us-ascii?Q?HYodgsNAtbXBfIG49VrTTFUxwEx2EnU+T3hJ130/4XqFqMcYUMBE1WpRMbnU?=
- =?us-ascii?Q?YvkgS53y3+P+QoVN3aUqdl3LKQGU45ShbfngU80k8Hs1Mgpfnplkc7+ZT6g9?=
- =?us-ascii?Q?zXTDhtVMORh7FldfdugzlUNYt+mlmPoX0OAQLTepfzhsnI70GXLa7ike3MMm?=
- =?us-ascii?Q?fVfxN7BkO9t8XFrn/joQ/18wv0r6ILQ9MCvtMkC0T+fstD0YwNGYtUB3S691?=
- =?us-ascii?Q?dQIRHKvtwH3Cx9G8O275d5ed5BrsD5MOkp+xJxq0LmMxv8TrVC/3m4UNwAgU?=
- =?us-ascii?Q?peMANUnMDr6l3MRvxQYxH9QIGi2QJaJkNWOFHtt0LhCRD/WVpyauj7YlhUBg?=
- =?us-ascii?Q?Py9VorTIOIFFctiLBj+XPKw62nhyAmrMmHujhyfGOL6+FRMhamJZ79/FNpBa?=
- =?us-ascii?Q?KQsxiILGKiVKY3EvE8pnuVeGWk+PENwzkobHTSivdBfugW23InmZWKKyI9Se?=
- =?us-ascii?Q?Z/xo7OJdngSz2AXdj4ue3F/Q+nGnag071nJV2YLAQIVSkmYnPBPHUWo2nKl6?=
- =?us-ascii?Q?kKUnwYC3VBOTGF7cc7OOBV7nCnC20/thu5TkiYQj4PF3FzmwDpjes5i1XfPV?=
- =?us-ascii?Q?8W8lTnrrPghqbZ5jk9BCQ2jpmr2ssrUGvH3ZREGVhzsKj410rfwnnTVGdiw7?=
- =?us-ascii?Q?wC6OpQ9bwTkQHyMF2E+UqV9w5kQFCQxhhc3fbqv2wyRJWSsOGVRb+JdacfCi?=
- =?us-ascii?Q?jmAgIrgvtqKBuFx7ro57XAo0qFkBH0RHFODlWp2ppgp32v7MJha/Vj1RmRNn?=
- =?us-ascii?Q?qhdRF36yXqviyMThyk0lWf5ER2++XRKyodfQ0UxXUBssBHqHK2Y3OYYJ6QzK?=
- =?us-ascii?Q?0gdc5P3W1RuTql7p4XziyaKYcD6cPzyvpWjVrW3gL1HDWJvGLIKlFA0bmo3t?=
- =?us-ascii?Q?p0qk7JuDpSamY6V/7XHDcGn2bjROABJRshWaKwFglXf9opSgLESNap8oXF37?=
- =?us-ascii?Q?cwojvIzMqRI3E6c6CONq5qkHWyrj9VY4hYPWQgGchcadnta93N00ih6cW06r?=
- =?us-ascii?Q?rbgMpqN+8AJjM4eGGu+j8JMgTyXXUqGv5DBa8VmRkGMdV8YeSCzn63cX2UDb?=
- =?us-ascii?Q?33ijxR96jVdOg08aA2/jHqy0Emr9efqNwtnVIWI8EKtKF/dYQy6CLH9kntqH?=
- =?us-ascii?Q?dg=3D=3D?=
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: q0lc2yNK8BFbqVb32PyieDILa+zjFUtmj3BRj9jxxlX7qJvxj6xiMN/kS2RNicfiN87+mJhqxmBHQD3fyNmsInEKirfvj/mcTR5MFU/Tb2MAzAMSyORVl4Ee+HFg5tZee1rOB3DgCKHG6706wiYleKCVLXtP+4yeLBh0yczF4Ex/98qElzI7UiOdj0lWygSF2wMUCj9jVJHPrWGMjWMp0396d5c6o6b9PEqF+f7TafNrBFigWt/IoFkL964gC0YlsO3IhaQ7NxojeqkCqcTmeJtftZahBHLmaoWUWtWAty2+JQp8gGgS8cUrWVmr7rm7DjlbyqU5ngcNWBY8zPt26eYZHSpcxtpaHtnyk2bG7O8V92ofqDAQESgUxjZMejQiiuo5+JOYfYtGEEuPbPYfntLneWTVJ+IMhFoH34sE5lZq3tyUQIK/dCOZjQK6h8/vSk8I2kklzCKQdpGx30fIfAQaYCP34eQrXw/CFwEFizF6IgIqYJCMwzFmZRIC5SeKP64/LgrTaTgSJ23uCGSXNooHxqcN50DtypPUl/k9OEBNs67SGaE6RTRsFGr2jRYIlAVXJd1X8nsq9zeLAWlXICN7MMTLXa7OYAQe2Whx2yo=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c8782634-19ba-4d19-730a-08dd2edb7586
-X-MS-Exchange-CrossTenant-AuthSource: CO6PR10MB5409.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jan 2025 05:23:46.3043
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|36860700013|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nUPA5DzMX8RZQzjouXJ66vNrU9zK+dyYxKMbHx5p/BA+N5FmLJEoH6eKM+Gk?=
+ =?us-ascii?Q?J+ckoOENRkKxwYLszKYF++1e/AD8GrHZMlSEDW5cw7g8zwBUWsudrn0red59?=
+ =?us-ascii?Q?UuVt/lBdRWvwQz7e7jsfKUrjK1ryTVh5zCN2gm4KtquEJN6UjkzR/k0iKN61?=
+ =?us-ascii?Q?35Tq7piEgqR1qZbxrvG2b7K48EGtv1TuIPmsL42DBYFMszsN8p4df7duJcvJ?=
+ =?us-ascii?Q?oXs+U3rqFz4gW42X8+B4KoMzlpDxuy98QY1sUAD37eRp3KuspT9j1806FH7f?=
+ =?us-ascii?Q?/B8E97hTm1r+zR7ojyKAMIPn3cDTBeCVA72n1Jqx4PifTcI6XMb7Ns4KEaen?=
+ =?us-ascii?Q?fo6RskvqA/p1m6BtH++hmiGNNld1L8QhvyxnOqf4LNRrceCBAUVZrv9REL/H?=
+ =?us-ascii?Q?wQah+ar6Y/iE7l2YHBXZeSFrbMDwlDVZJHnZor+pOV/YrEonEkE5ifA4sI0e?=
+ =?us-ascii?Q?emGUYnKwB9hv2zFcxaozpfAcvhoqGbSK0OBoNSuZrtq29rRDQPPTPq42zFA0?=
+ =?us-ascii?Q?LWkA3c9WHEl3I2ew6u2Sh01RFCziqklDJL5KEbx5nWnSE4V0Y80G2MGi5vJi?=
+ =?us-ascii?Q?Rubfla6yQ+L2uQoDvT3827WQiUhg2AEl1isQU6KahaFjpkBSX3R6xRT3A2WF?=
+ =?us-ascii?Q?bza1eVZCQ2204uR32MBopN0bnqaiLQmu63YDXEdWJEn4pUbhoJB7dEHg3VF7?=
+ =?us-ascii?Q?lGViawqcxwC6zqd79KIh04JLOlnpNeTSa+x6Lcde4FZ/iPhUYjc1YhwTtST5?=
+ =?us-ascii?Q?LOfyxSl8/ACCg0EdDXTZ7Tgc5ggvLFgmzTDvip2GkE217qxvsmhtLz9UlCY+?=
+ =?us-ascii?Q?ULOBEQzXh0P5qokeCr51rv5s5S3P5WabhmO9BkRnro3ET+ac5oA5yYiWyrhl?=
+ =?us-ascii?Q?QhnNd/ccJwHtJu/x+XT2nwg55O+D2N2kAlgDKFips9rO0tiQvZfG96HnWEiL?=
+ =?us-ascii?Q?Xs2uYT+9mR5vVCWqctkK24zX8EmVFEcLAJfsIO/WvXyBWaXBXqk4bxFjeQeO?=
+ =?us-ascii?Q?a/qGyTNvhXRVNlxXZ9t8qPv3wcrmETqRjLavIc8q3t/k9DPSpM0Q6kt7eafA?=
+ =?us-ascii?Q?1+ctAUPOpLJvhIIltPLyYrIaFH0AuoS+BDRoRrRu0i63EAYRpmAZrnxBeBPt?=
+ =?us-ascii?Q?P6fiYrIvabT+Q8ur4WYhFFzrHbTInR0cCC7G99Hll5zmfb4pAgLdoe5StoTc?=
+ =?us-ascii?Q?o8t7eY8BESgXPVCht4QXX6b8XEz3nAMbCtYCw2Y2gdxsjfbVJdiFTqmsptqo?=
+ =?us-ascii?Q?OXSG6LCm50i4xYCIOVpX88zbe/Ji7ee94IBCJrK8dOnz2IY+uwXsvnbTcKil?=
+ =?us-ascii?Q?WVp4id2x6MslmzB/EnSOauZRv/F52UV0YVWnFkPJoucNYpOLNN8XWqDa6Zu/?=
+ =?us-ascii?Q?fEpZBIWKS4UBMsZg4gsOS0JI47BG9Xx4zZEUnrRlkkTC+P+tU3JApkuqkyG/?=
+ =?us-ascii?Q?jEPdEHBkUsN8V3Juh5R1e4vsqT/Frxs7swRU9p/8058O+gAQt8org8vaYopu?=
+ =?us-ascii?Q?fhMLJuAhp7EFpz8=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(36860700013)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jan 2025 05:33:30.6191
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: odkfc1giiZGreEwMnJW0fTT/fqpey7P1JmdgEZMrzF4xIWbwDv+4ew+YgMdq72VdXctTDc5NLRjRKaPA2kul1/F0BZ4EBWtcyDr/YNj2104=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR10MB4249
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-01-02_03,2025-01-06_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 spamscore=0 bulkscore=0 suspectscore=0
- adultscore=0 mlxlogscore=999 phishscore=0 malwarescore=0 mlxscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2411120000
- definitions=main-2501070041
-X-Proofpoint-ORIG-GUID: 7u35qhxai67roPylFT1MU9rxqRAUn4AZ
-X-Proofpoint-GUID: 7u35qhxai67roPylFT1MU9rxqRAUn4AZ
+X-MS-Exchange-CrossTenant-Network-Message-Id: b9cc2239-3b4c-487d-c240-08dd2edcd205
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF00026369.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB7669
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_212442_928886_38422F54 
-X-CRM114-Status: GOOD (  24.94  )
+X-CRM114-CacheID: sfid-20250106_213345_176569_AB9A91F4 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -198,227 +161,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jan 06, 2025 at 08:37:04PM -0800, Nicolin Chen wrote:
+> I added something like this. Will send a v5.
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+> index 0c7a5894ba07..348179f3cf2a 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+> @@ -399,9 +399,15 @@ static int arm_vsmmu_cache_invalidate(struct iommufd_viommu *viommu,
+>  	return ret;
+>  }
+>  
+> +static bool arm_vsmmu_supports_veventq(unsigned int type)
+> +{
+> +	return type == IOMMU_VIOMMU_TYPE_ARM_SMMUV3;
 
-Just a ping on this to see if there are any further comments.
+Oops. Corrected this: IOMMU_VEVENTQ_TYPE_ARM_SMMUV3
 
-Thanks
-Ankur
+And added your bits too:
 
-Ankur Arora <ankur.a.arora@oracle.com> writes:
+@@ -83,6 +83,9 @@ int iommufd_viommu_report_event(struct iommufd_viommu *viommu,
 
-> This patchset adds support for polling in idle via poll_idle() on
-> arm64.
->
-> There are two main changes in this version:
->
-> 1. rework the series to take Catalin Marinas' comments on the semantics
->    of smp_cond_load_relaxed() (and how earlier versions of this
->    series were abusing them) into account.
->
->    This also allows dropping of the somewhat strained connections
->    between haltpoll and the event-stream.
->
-> 2. earlier versions of this series were adding support for poll_idle()
->    but only using it in the haltpoll driver. Add Lifeng's patch to
->    broaden it out by also polling in acpi-idle.
->
-> The benefit of polling in idle is to reduce the cost of remote wakeups.
-> When enabled, these can be done just by setting the need-resched bit,
-> instead of sending an IPI, and incurring the cost of handling the
-> interrupt on the receiver side. When running on a VM it also saves
-> the cost of WFE trapping (when enabled.)
->
-> Comparing sched-pipe performance on a guest VM:
->
-> # perf stat -r 5 --cpu 4,5 -e task-clock,cycles,instructions,sched:sched_wake_idle_without_ipi \
->   perf bench sched pipe -l 1000000 -c 4
->
-> # no polling in idle
->
->  Performance counter stats for 'CPU(s) 4,5' (5 runs):
->
->          25,229.57 msec task-clock                       #    2.000 CPUs utilized               ( +-  7.75% )
->     45,821,250,284      cycles                           #    1.816 GHz                         ( +- 10.07% )
->     26,557,496,665      instructions                     #    0.58  insn per cycle              ( +-  0.21% )
->                  0      sched:sched_wake_idle_without_ipi #    0.000 /sec
->
->             12.615 +- 0.977 seconds time elapsed  ( +-  7.75% )
->
->
-> # polling in idle (with haltpoll):
->
->  Performance counter stats for 'CPU(s) 4,5' (5 runs):
->
->          15,131.58 msec task-clock                       #    2.000 CPUs utilized               ( +- 10.00% )
->     34,158,188,839      cycles                           #    2.257 GHz                         ( +-  6.91% )
->     20,824,950,916      instructions                     #    0.61  insn per cycle              ( +-  0.09% )
->          1,983,822      sched:sched_wake_idle_without_ipi #  131.105 K/sec                       ( +-  0.78% )
->
->              7.566 +- 0.756 seconds time elapsed  ( +- 10.00% )
->
-> Tomohiro Misono and Haris Okanovic also report similar latency
-> improvements on Grace and Graviton systems (for v7) [1] [2].
-> Lifeng also reports improved context switch latency on a bare-metal
-> machine with acpi-idle [3].
->
-> The series is in four parts:
->
->  - patches 1-4,
->
->     "asm-generic: add barrier smp_cond_load_relaxed_timeout()"
->     "cpuidle/poll_state: poll via smp_cond_load_relaxed_timeout()"
->     "cpuidle: rename ARCH_HAS_CPU_RELAX to ARCH_HAS_OPTIMIZED_POLL"
->     "Kconfig: move ARCH_HAS_OPTIMIZED_POLL to arch/Kconfig"
->
->    add smp_cond_load_relaxed_timeout() and switch poll_idle() to
->    using it. Also, do some munging of related kconfig options.
->
->  - patches 5-7,
->
->     "arm64: barrier: add support for smp_cond_relaxed_timeout()"
->     "arm64: define TIF_POLLING_NRFLAG"
->     "arm64: add support for polling in idle"
->
->    add support for the new barrier, the polling flag and enable
->    poll_idle() support.
->
->  - patches 8, 9-13,
->
->     "ACPI: processor_idle: Support polling state for LPI"
->
->     "cpuidle-haltpoll: define arch_haltpoll_want()"
->     "governors/haltpoll: drop kvm_para_available() check"
->     "cpuidle-haltpoll: condition on ARCH_CPUIDLE_HALTPOLL"
->     "arm64: idle: export arch_cpu_idle"
->     "arm64: support cpuidle-haltpoll"
->
->     add support for polling via acpi-idle, and cpuidle-haltpoll.
->
->   - patches 14, 15,
->      "arm64/delay: move some constants out to a separate header"
->      "arm64: support WFET in smp_cond_relaxed_timeout()"
->
->     are RFC patches to enable WFET support.
->
-> Changelog:
->
-> v9:
->
->  - reworked the series to address a comment from Catalin Marinas
->    about how v8 was abusing semantics of smp_cond_load_relaxed().
->  - add poll_idle() support in acpi-idle (Lifeng Zheng)
->  - dropped some earlier "Tested-by", "Reviewed-by" due to the
->    above rework.
->
-> v8: No logic changes. Largely respin of v7, with changes
-> noted below:
->
->  - move selection of ARCH_HAS_OPTIMIZED_POLL on arm64 to its
->    own patch.
->    (patch-9 "arm64: select ARCH_HAS_OPTIMIZED_POLL")
->
->  - address comments simplifying arm64 support (Will Deacon)
->    (patch-11 "arm64: support cpuidle-haltpoll")
->
-> v7: No significant logic changes. Mostly a respin of v6.
->
->  - minor cleanup in poll_idle() (Christoph Lameter)
->  - fixes conflicts due to code movement in arch/arm64/kernel/cpuidle.c
->    (Tomohiro Misono)
->
-> v6:
->
->  - reordered the patches to keep poll_idle() and ARCH_HAS_OPTIMIZED_POLL
->    changes together (comment from Christoph Lameter)
->  - threshes out the commit messages a bit more (comments from Christoph
->    Lameter, Sudeep Holla)
->  - also rework selection of cpuidle-haltpoll. Now selected based
->    on the architectural selection of ARCH_CPUIDLE_HALTPOLL.
->  - moved back to arch_haltpoll_want() (comment from Joao Martins)
->    Also, arch_haltpoll_want() now takes the force parameter and is
->    now responsible for the complete selection (or not) of haltpoll.
->  - fixes the build breakage on i386
->  - fixes the cpuidle-haltpoll module breakage on arm64 (comment from
->    Tomohiro Misono, Haris Okanovic)
->
-> v5:
->  - rework the poll_idle() loop around smp_cond_load_relaxed() (review
->    comment from Tomohiro Misono.)
->  - also rework selection of cpuidle-haltpoll. Now selected based
->    on the architectural selection of ARCH_CPUIDLE_HALTPOLL.
->  - arch_haltpoll_supported() (renamed from arch_haltpoll_want()) on
->    arm64 now depends on the event-stream being enabled.
->  - limit POLL_IDLE_RELAX_COUNT on arm64 (review comment from Haris Okanovic)
->  - ARCH_HAS_CPU_RELAX is now renamed to ARCH_HAS_OPTIMIZED_POLL.
->
-> v4 changes from v3:
->  - change 7/8 per Rafael input: drop the parens and use ret for the final check
->  - add 8/8 which renames the guard for building poll_state
->
-> v3 changes from v2:
->  - fix 1/7 per Petr Mladek - remove ARCH_HAS_CPU_RELAX from arch/x86/Kconfig
->  - add Ack-by from Rafael Wysocki on 2/7
->
-> v2 changes from v1:
->  - added patch 7 where we change cpu_relax with smp_cond_load_relaxed per PeterZ
->    (this improves by 50% at least the CPU cycles consumed in the tests above:
->    10,716,881,137 now vs 14,503,014,257 before)
->  - removed the ifdef from patch 1 per RafaelW
->
-> Please review.
->
-> [1] https://lore.kernel.org/lkml/TY3PR01MB111481E9B0AF263ACC8EA5D4AE5BA2@TY3PR01MB11148.jpnprd01.prod.outlook.com/
-> [2] https://lore.kernel.org/lkml/104d0ec31cb45477e27273e089402d4205ee4042.camel@amazon.com/
-> [3] https://lore.kernel.org/lkml/f8a1f85b-c4bf-4c38-81bf-728f72a4f2fe@huawei.com/
->
-> Ankur Arora (10):
->   asm-generic: add barrier smp_cond_load_relaxed_timeout()
->   cpuidle/poll_state: poll via smp_cond_load_relaxed_timeout()
->   cpuidle: rename ARCH_HAS_CPU_RELAX to ARCH_HAS_OPTIMIZED_POLL
->   arm64: barrier: add support for smp_cond_relaxed_timeout()
->   arm64: add support for polling in idle
->   cpuidle-haltpoll: condition on ARCH_CPUIDLE_HALTPOLL
->   arm64: idle: export arch_cpu_idle
->   arm64: support cpuidle-haltpoll
->   arm64/delay: move some constants out to a separate header
->   arm64: support WFET in smp_cond_relaxed_timeout()
->
-> Joao Martins (4):
->   Kconfig: move ARCH_HAS_OPTIMIZED_POLL to arch/Kconfig
->   arm64: define TIF_POLLING_NRFLAG
->   cpuidle-haltpoll: define arch_haltpoll_want()
->   governors/haltpoll: drop kvm_para_available() check
->
-> Lifeng Zheng (1):
->   ACPI: processor_idle: Support polling state for LPI
->
->  arch/Kconfig                              |  3 ++
->  arch/arm64/Kconfig                        |  7 +++
->  arch/arm64/include/asm/barrier.h          | 62 ++++++++++++++++++++++-
->  arch/arm64/include/asm/cmpxchg.h          | 26 ++++++----
->  arch/arm64/include/asm/cpuidle_haltpoll.h | 20 ++++++++
->  arch/arm64/include/asm/delay-const.h      | 25 +++++++++
->  arch/arm64/include/asm/thread_info.h      |  2 +
->  arch/arm64/kernel/idle.c                  |  1 +
->  arch/arm64/lib/delay.c                    | 13 ++---
->  arch/x86/Kconfig                          |  5 +-
->  arch/x86/include/asm/cpuidle_haltpoll.h   |  1 +
->  arch/x86/kernel/kvm.c                     | 13 +++++
->  drivers/acpi/processor_idle.c             | 43 +++++++++++++---
->  drivers/cpuidle/Kconfig                   |  5 +-
->  drivers/cpuidle/Makefile                  |  2 +-
->  drivers/cpuidle/cpuidle-haltpoll.c        | 12 +----
->  drivers/cpuidle/governors/haltpoll.c      |  6 +--
->  drivers/cpuidle/poll_state.c              | 27 +++-------
->  drivers/idle/Kconfig                      |  1 +
->  include/asm-generic/barrier.h             | 42 +++++++++++++++
->  include/linux/cpuidle.h                   |  2 +-
->  include/linux/cpuidle_haltpoll.h          |  5 ++
->  22 files changed, 252 insertions(+), 71 deletions(-)
->  create mode 100644 arch/arm64/include/asm/cpuidle_haltpoll.h
->  create mode 100644 arch/arm64/include/asm/delay-const.h
+        if (!viommu)
+                return -ENODEV;
++       if (WARN_ON_ONCE(!viommu->ops || !viommu->ops->supports_veventq ||
++                        !viommu->ops->supports_veventq(type)))
++               return -EOPNOTSUPP;
+        if (WARN_ON_ONCE(!data_len || !event_data))
+                return -EINVAL;
 
-
---
-ankur
+Thanks!
+Nicolin
 
