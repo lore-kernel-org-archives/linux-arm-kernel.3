@@ -4,97 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CAA9E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 06:37:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9008E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 06:39:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kng/mpbUzhaJx0h/7Fasw6w2qS0oY3rIDnnEx7pNUzQ=; b=SZidEtM51DQHhpYB+1/G706dQp
-	L4CvbQuvtEneVy8kBrokEb7cPlKxksmseMpD0ob02j/uSL1gGBkjH2lJo6pPXjNyCcBoH7QtPE3s0
-	SGrAptSLwxe/d13+iU8Ac1HOM1Tp5cf2u/tY09E+CWOTDsGXoQx1AbV6LHluH+9WWNfJLq/HBowtR
-	3yEPDT2qTEfvyxmpC19sFdEfD4e6PHxUydQjmnYZsnGQ3e4mXFqYPc01yWVo5jbXO1EJ7H78g1Ez7
-	QBk34lVHlniuJdWG9RiGmT6GIFV6Uf+ygzvn9afTnLgTbMkDlq4yGE7q9sa75933lHXx+lA4lsFuU
-	p/Rnyc7g==;
+	bh=orCDsDNFA6uclIQ3/usGvXWL2lE5OsemzFx60WJJZsA=; b=mxjXH8J8x2nqwmrnxPI1X8cyQq
+	hHrYtFTEmGHkFaZFn0Q1zabhPXZZZdw1i4pIjLJaUZQD5qib6VfRImzsmzJVd62WHlSTL0aQU/MTb
+	jath/agFFXfdQ7cAoYcZCULMb858UyrVKjwr+8Oniv6cmRLTiRkOKy0iGGICm0qmZI6ujdkSN79jj
+	JQ9OYHcyVmJwZ1sYLBtTmj8+TG7QLr6RInknuumaLHlkB6CW13xeQ65tndtBTPqMZg0DmWvP2MPJf
+	bYG5Tqg9tjyKur8fOodSi+BeWFVwmMfA3REb4oGZSHXNWuBFIO/N2tkOZJIag6jwtCk7aWW3qsy/v
+	3SPxUd3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV3Dh-00000003fUh-3hne;
-	Tue, 07 Jan 2025 06:37:41 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1tV3FO-00000003fhP-2JJD;
+	Tue, 07 Jan 2025 06:39:26 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV3CU-00000003fHl-4BN1
+	id 1tV3EA-00000003fYi-2NOs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 06:36:28 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2165cb60719so224351645ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jan 2025 22:36:26 -0800 (PST)
+	Tue, 07 Jan 2025 06:38:11 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2163dc5155fso217277405ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jan 2025 22:38:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736231786; x=1736836586; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1736231890; x=1736836690; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=Kng/mpbUzhaJx0h/7Fasw6w2qS0oY3rIDnnEx7pNUzQ=;
-        b=nJxJuY0PVxTVacN6btX92SaOodd7Iv+pTv+m6RJtAbp4Z9ItD+S7UQWA9cYlRSuKkL
-         BCrSvJG2In6VNz2OgandhcgOYjX6iZLJ0fmqzuYSuDj2CdrWx37Ijf4DBsvFFOXlcTj5
-         2mMMxYuwprXnMJ0jqsM60ZVjZQBR+Olgotd7Z4L87Ip9xPeA0d/xWCv2VK2PS1mbM4iv
-         fyLpaZX0+v15QeRBoALw3VkZbLkwogD5amTJTbse4wFdYoRabFja4lJJfp7MzXDztLF6
-         WiSDUT8ikxbPzEL3sKAj/MS1goBXJ3by3m3i2etAgAbYCIRCF4Utt+bG9lZvT/BI1Ntr
-         DfMA==
+        bh=orCDsDNFA6uclIQ3/usGvXWL2lE5OsemzFx60WJJZsA=;
+        b=PsrluRT4HLU9uWkxvO+UpGnExkFv4v58eYBoLzepc2ZeHGJzi72QAGgXEE1Xd9iSev
+         wZ3+gzlGHh15RM5pnnv5ZCaDm2BXCULaeE4CCpqraZOhjugdDS7Gx3Y2YBlV8s328emL
+         sll8jA+Iq44Kn7W4cWsN0JXeqIfDnSzTvR/PpDyEl2DCjQpLZ3IHSlpRAZrruqCb0OJB
+         3IxHYq2hvEXI5+Vih+b5V0RyC05b8bSeMEh3fZx6alRXITxzwN5kuFMvy7k74wF4Buay
+         vX/XCDQeabT6BOSymJPUEPrdO9mw7A8OC9WNWv8VM6VrFjZVGXzswzPW/1h7ZanyVY8P
+         qB6g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736231786; x=1736836586;
+        d=1e100.net; s=20230601; t=1736231890; x=1736836690;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Kng/mpbUzhaJx0h/7Fasw6w2qS0oY3rIDnnEx7pNUzQ=;
-        b=CoIcs7xtnhR+kYlhC2ckp9ItwOFZ1XuHXvbNhW/pN7a4GrMTec+QY0fs7RKuB90D75
-         Hs4napzgTY1FrOSa5o+lRXxvkIZM8+rPeYqJ8XM8DHW9GO97CeEcYKLXpZazFzo4+djq
-         WCmTDwWX3nx5vyGkncb8SCyomFucW8u3FgSDPi6jqqqFE1snr/WM4EDsdkTZU/qopK8y
-         ZGZ8XDw3k7tkXmBipPSYLZ1s1lmhsoUh8OC91rUMMt7odC4eDeoMKO64dp30Xg3oUUvR
-         dXTPdfuwFf4X56qeU3Wwq2NODTHlzvtHrNO+uNaOMDMnzxmFDF9XxDjZAHimS6zg+DGZ
-         yOEQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV+bil5Z9fDpSIq8MdybuOEgjpq4nLTsVuO5L3XRaZsjFM9coBH7R5Zq3bv9VVFYGQVeS2knWz45VoHkPamOzkA@lists.infradead.org
-X-Gm-Message-State: AOJu0YyTc062D83VbayX4CucDmBVPsnQcF/Aj3bOpiOag9H2PGQeuw2s
-	UGfES9UjrC0zlzQRiNVeLBsUZW/QpCh0IGX41J5IH1uB4jcsg9+a
-X-Gm-Gg: ASbGnctiFTKelWDJKgDPYtO8LGcuNcOrXaWhM0JEp7WWanW1sXpk/Z+uPHNHvjKL9KS
-	gWIfjzyV5tR3w/aiacNzEr4qns+p+ufvmi/0ZDpso9V7GR0/BY6ftlhPFoECX5IlbmHoK5IvXPF
-	VOKtE+REVvxYECy+cE0DbZXASmw9Rr7ErrYzQfqjIDtzORxYxH5z8wV5kj+rFNc+G6Q/aHAWCXH
-	2F4JsMt9DWnlZH3Sc9sQC3bGOWTjyHXqr7UwgL8pLFSRxKwYy9FrSh7nuUBuprzl1BzX0+iL7X1
-	xYMacmWD3CUhK1bV7cIHTSYjz93CgDleVVw=
-X-Google-Smtp-Source: AGHT+IFB3swUN2iLMUEOpHvMus0FiubXQryQDXtAgLSPcX+ECwaEuxj3DZQ/Bf/+X66C3yI9GBLI7g==
-X-Received: by 2002:a17:903:94e:b0:212:68e2:6c81 with SMTP id d9443c01a7336-219e6ea0223mr977864255ad.24.1736231785959;
-        Mon, 06 Jan 2025 22:36:25 -0800 (PST)
+        bh=orCDsDNFA6uclIQ3/usGvXWL2lE5OsemzFx60WJJZsA=;
+        b=LQZJDKjtlhM1Ow4WkFBx4LZouPsGFXLnivnbvDsMTb/O7tutT0eI+x5r8G8JVK5uQp
+         ZGMBekR7yL/ZvkERzpEdesxKNwx9N77izw/ZUimiGbkaTHSkuFbz+FohHjEWctUqKMsv
+         zE4zjQDSmNi2BgfC2DrMehKuyUrM5FAPBT2aLvXNrjDAjYnIllXXbiZ7vcCzLG9BKqlg
+         zt8wbVSCJeJaOI+/RPcE96AQt/J0521oTdGxco2ywAYFMGJPbvU3GjxKDrc7vwWqC2zk
+         sT01xKQVigP8OuxF4X8i3yHnUJM/U0iWXiYwbxwg2OFeA7TGt1YBShNKBIfeTABFQKCM
+         LgOg==
+X-Forwarded-Encrypted: i=1; AJvYcCWFL/f+RRzVjI5pVzBV7ovNArW8PF/bK3ZjrsQqLLdKfcySyHqtgYygjcPrti68fnSgpweV5Vb5Oarefjo5M2uy@lists.infradead.org
+X-Gm-Message-State: AOJu0YyM4JYB6pySA8vAOkfvq7+5uT/deS7B9suPy+imRJorQ3Af92YA
+	UJHkPNhLcmhzbeypHqLzV8/u1DspDyv77T2mYBz9HbilSI7gGBso
+X-Gm-Gg: ASbGncsF1I0LdamrX6uXL1X71Xkoemi5tAKtMlAaY7A9B+/Xx5eXTi0r4mQxub9hcsK
+	I8vI6xnz5HtMxqTVvtDUap41pbb2dcsETiIm7HsJufac4YxjT4m8AS++Hcajh28jDG+zWu5RtWa
+	CEkE3KMbjvog/IGFfzmyINYRl+Uo3k4kqxyigPwwvO6DQrknYTbTS84EsWWPRfnILM70nnJJo/e
+	7OEngvbMkJ02OJQUJkHkK/w6LSmjt4C4auelVeFAHf64GMPuEXj6hXu0070vLE+o81kcvRuebky
+	fIeT3iyEnCTnCOV/BccWU3Btd4mfR6OpPNM=
+X-Google-Smtp-Source: AGHT+IGWjFIAveI9yo5Dqy+7qm6ujTkxPVuxedvySkpkmuvq5Mxo0g2bGXtAvQZqm2ic1gDjzturbQ==
+X-Received: by 2002:a17:902:d2c9:b0:216:4c88:d939 with SMTP id d9443c01a7336-219e6f133b6mr907204635ad.38.1736231889846;
+        Mon, 06 Jan 2025 22:38:09 -0800 (PST)
 Received: from [192.168.0.100] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21a739b423fsm23758445ad.198.2025.01.06.22.36.20
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-219dc9f5227sm305467095ad.185.2025.01.06.22.38.06
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 06 Jan 2025 22:36:25 -0800 (PST)
-Message-ID: <83c11616-ac3a-48b8-a513-ca000ff9d48e@gmail.com>
-Date: Tue, 7 Jan 2025 14:36:16 +0800
+        Mon, 06 Jan 2025 22:38:09 -0800 (PST)
+Message-ID: <39e559f4-375b-4e4e-8c81-3d1d8858e839@gmail.com>
+Date: Tue, 7 Jan 2025 14:38:05 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v6 1/3] dt-bindings: net: nuvoton: Add schema for
- Nuvoton MA35 family GMAC
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: edumazet@google.com, peppe.cavallaro@st.com, andrew+netdev@lunn.ch,
- joabreu@synopsys.com, netdev@vger.kernel.org, schung@nuvoton.com,
- linux-stm32@st-md-mailman.stormreply.com, kuba@kernel.org,
- openbmc@lists.ozlabs.org, devicetree@vger.kernel.org,
- mcoquelin.stm32@gmail.com, linux-arm-kernel@lists.infradead.org,
- richardcochran@gmail.com, ychuang3@nuvoton.com, krzk+dt@kernel.org,
- pabeni@redhat.com, linux-kernel@vger.kernel.org, yclu4@nuvoton.com,
- conor+dt@kernel.org, alexandre.torgue@foss.st.com, davem@davemloft.net
+Subject: Re: [PATCH net-next v6 0/3] Add support for Nuvoton MA35D1 GMAC
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ mcoquelin.stm32@gmail.com, richardcochran@gmail.com,
+ alexandre.torgue@foss.st.com, joabreu@synopsys.com, ychuang3@nuvoton.com,
+ schung@nuvoton.com, yclu4@nuvoton.com, peppe.cavallaro@st.com,
+ linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ openbmc@lists.ozlabs.org, linux-stm32@st-md-mailman.stormreply.com
 References: <20250103063241.2306312-1-a0987203069@gmail.com>
- <20250103063241.2306312-2-a0987203069@gmail.com>
- <173592330334.2414402.4730979254460270593.robh@kernel.org>
+ <20250106163054.79cdd533@kernel.org>
 Content-Language: en-US
 From: Joey Lu <a0987203069@gmail.com>
-In-Reply-To: <173592330334.2414402.4730979254460270593.robh@kernel.org>
+In-Reply-To: <20250106163054.79cdd533@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_223627_037127_DA143C40 
-X-CRM114-Status: UNSURE (   6.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250106_223810_609261_36D50BBE 
+X-CRM114-Status: GOOD (  10.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,12 +107,23 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-Rob Herring (Arm) 於 1/4/2025 12:55 AM 寫道:
-> Please add Acked-by/Reviewed-by tags when posting new versions. However,
-> there's no need to repost patches*only* to add the tags. The upstream
-> maintainer will do that for acks received on the version they apply.
+Jakub Kicinski 於 1/7/2025 8:30 AM 寫道:
+> On Fri,  3 Jan 2025 14:32:38 +0800 Joey Lu wrote:
+>> This patch series is submitted to add GMAC support for Nuvoton MA35D1
+>> SoC platform. This work involves implementing a GMAC driver glue layer
+>> based on Synopsys DWMAC driver framework to leverage MA35D1's dual GMAC
+>> interface capabilities.
+> Would be good if you could reply to Christophe's question.
+>
+> Then please rebase on top of net-next/main and repost.
+> The first patch doesn't currently apply cleanly.
+> Please leave out the second patch, it has to go via
+> the appropriate platform tree, rather than the networking
+> tree.
 
-Got it. Thank you for the reminder.🙂
+I got it. Thank you!
+
+BR,
 
 Joey
 
