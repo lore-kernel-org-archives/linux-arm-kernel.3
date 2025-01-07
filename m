@@ -4,75 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27FB9E77198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 12:07:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F951E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 12:09:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TGGJkJPzJ/ul/QAPsmtmQeMD95tQCTIq4WEnha2ywd0=; b=umTI0YMMPv2tzgdClktLbkc+cX
-	+b/Bl8ucMmozbr/x0xlYb082wbfCq5G42MeI0T+I+rezEzM065R3MYRwzIPkQEHdat1/PjgS4hkV1
-	7eqY8qiDwS3wIxgTmBt9KJRICp3NUmX6h09WZzATgLmDMOftyVAG7EGbOXOwh6PzlHKNqYjr8aGwh
-	HITxTOvT6pIHyEbKFH9TmdaPL3TyNt/HkaE19hYdU2zXpeaiP6JE5206Zk7p5+QrRFKw6uAsGHg4D
-	/sYbb3bT+DR1+eVBdmjltzzg/8Uiy5C52rETJeTL35l43cP/3oNWflGnHYQD4WirGMc7J2hFf2UMw
-	umgk5QuQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=nEAjQfOReu2fHrsBppUp6r/Nku+JlxCILNXG6vZqqOw=; b=hCYIpv5FibXADM
+	b+KBFBWwwgg8O1czI1A2JUHBKqqKklVAKc7YS5xndUkVs7T7z752VAuPmyK/QYxTz7rbmQYdC8DKY
+	Sw1kjXCkvoilpCHRRIK5bvVIi7MnBskt0wXnB51dWt5SfM8z39k2zDG5lj0sU0UJ5+Lw+r5R0CVIj
+	UOw/2cT5n6tKlZM27EL+cIQdCe8+Z36+LWwPlnrHPDd8ardEfWO3RDuUN9xLiBaWlRmpAr52TCyNz
+	cOoM1UY2qGBIzTjaTlu3sm6FytneCN8gN9VdmaZBw/Wz87OtmjSiO9+kByKIiJETpL44tJoHKzr6R
+	Sby89tTmBxHA+rOkNTDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV8N5-00000004hGQ-2M1L;
-	Tue, 07 Jan 2025 12:07:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV8Dz-00000004f0V-0tl7;
-	Tue, 07 Jan 2025 11:58:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E9DC6143D;
-	Tue,  7 Jan 2025 03:58:45 -0800 (PST)
-Received: from [10.44.160.93] (e126510-lin.lund.arm.com [10.44.160.93])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 187FC3F673;
-	Tue,  7 Jan 2025 03:58:09 -0800 (PST)
-Message-ID: <4a0b5edb-6fc7-4df4-93d9-ca834e6a760b@arm.com>
-Date: Tue, 7 Jan 2025 12:58:08 +0100
+	id 1tV8OI-00000004hga-0P8A;
+	Tue, 07 Jan 2025 12:08:58 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tV8E3-00000004f1o-2VoX
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 07 Jan 2025 11:58:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D0E345C6160;
+	Tue,  7 Jan 2025 11:57:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B616C4CEDD;
+	Tue,  7 Jan 2025 11:58:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736251102;
+	bh=8b/xr2q46e+APxvnC56zVcaG7myWN4n1kBuGonTWras=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=WUhRTCCbFFGBx51yNADAjPDWxXXmXV9dMCTd2hTqr43+dnx/EeYXsxgKClC8tJbP7
+	 aaTRjEn+4zp4/danzFGGEClt1AYINZHmbzAFoe0xkxoAIZQEhRu+k6XCKxqZYbyAd8
+	 QFUSV0u14sIN4zKMQRFta1cEqFPFIwSGDPE8HLYSXW1WRtC9Y02SeXWCM48XVe4yow
+	 i7KYaMEXNv0hyg0mJDprbGpkuiA8azKLOzfpopXFZpo8a8nDSZ+GYbALs1+nUYZIvH
+	 FEtJ/rlPXvR+TL9UoZF1ONewK958lMd5nlD4YRFLWTpUHS5LBmlC6xy6mlqRU75aOy
+	 7b4ZK/2W67cKg==
+From: Mark Brown <broonie@kernel.org>
+To: Piotr Bugalski <bugalski.piotr@gmail.com>, linux-spi@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ =?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+In-Reply-To: <20241219091258.395187-1-csokas.bence@prolan.hu>
+References: <20241219091258.395187-1-csokas.bence@prolan.hu>
+Subject: Re: [PATCH v2] spi: atmel-qspi: Memory barriers after
+ memory-mapped I/O
+Message-Id: <173625110018.23847.7363192643987703594.b4-ty@kernel.org>
+Date: Tue, 07 Jan 2025 11:58:20 +0000
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 10/15] riscv: pgtable: move pagetable_dtor() to
- __tlb_remove_table()
-To: Qi Zheng <zhengqi.arch@bytedance.com>
-Cc: agordeev@linux.ibm.com, palmer@dabbelt.com, tglx@linutronix.de,
- david@redhat.com, jannh@google.com, hughd@google.com, yuzhao@google.com,
- willy@infradead.org, muchun.song@linux.dev, vbabka@kernel.org,
- lorenzo.stoakes@oracle.com, rientjes@google.com, vishal.moola@gmail.com,
- arnd@arndb.de, will@kernel.org, aneesh.kumar@kernel.org, npiggin@gmail.com,
- dave.hansen@linux.intel.com, rppt@kernel.org, ryan.roberts@arm.com,
- linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-kernel@vger.kernel.org, x86@kernel.org, linux-arch@vger.kernel.org,
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
- loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
- linux-sh@vger.kernel.org, linux-um@lists.infradead.org,
- peterz@infradead.org, akpm@linux-foundation.org
-References: <cover.1735549103.git.zhengqi.arch@bytedance.com>
- <0e8f0b3835c15e99145e0006ac1020ae45a2b166.1735549103.git.zhengqi.arch@bytedance.com>
- <1b09335c-f0b6-4ccb-9800-5fb22f7e8083@arm.com>
- <ebce5e05-5e46-4c6e-94a0-bcf3655a862b@bytedance.com>
- <7e2c26c8-f5df-4833-a93f-3409b00b58fd@arm.com>
- <e9fe97d4-99d5-443e-b722-43903655a76e@bytedance.com>
- <31e1a033-00a7-4953-81e7-0caedd0227a9@bytedance.com>
- <d9a14211-4bbd-4fb6-ba87-a555a40bb67a@arm.com>
- <de8756aa-dbf7-4f6f-91f0-934270397192@bytedance.com>
- <ee393a7f-d01e-4e5d-9bf8-779795613af1@arm.com>
- <07e0c05f-cb69-4263-885d-6d20d4442152@bytedance.com>
-Content-Language: en-GB
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <07e0c05f-cb69-4263-885d-6d20d4442152@bytedance.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.15-dev-1b0d6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_035819_344021_134F1E8B 
-X-CRM114-Status: GOOD (  17.42  )
+X-CRM114-CacheID: sfid-20250107_035823_684606_CC4293BC 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,104 +70,49 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, Marco.Cardellini@microchip.com, stable@vger.kernel.org, Mahesh.Abotula@microchip.com, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Hari.PrasathGE@microchip.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/01/2025 11:51, Qi Zheng wrote:
+On Thu, 19 Dec 2024 10:12:58 +0100, Bence Csókás wrote:
+> The QSPI peripheral control and status registers are
+> accessible via the SoC's APB bus, whereas MMIO transactions'
+> data travels on the AHB bus.
+> 
+> Microchip documentation and even sample code from Atmel
+> emphasises the need for a memory barrier before the first
+> MMIO transaction to the AHB-connected QSPI, and before the
+> last write to its registers via APB. This is achieved by
+> the following lines in `atmel_qspi_transfer()`:
+> 
 > [...]
->
-> Author: Qi Zheng <zhengqi.arch@bytedance.com>
-> Date:   Fri Dec 13 17:13:48 2024 +0800
->
->     mm: pgtable: completely move pagetable_dtor() to generic
-> tlb_remove_table()
->
->     For the generic tlb_remove_table(), it is implemented in the
-> following two
->     forms:
->
->     1) CONFIG_MMU_GATHER_TABLE_FREE is enabled
->
->     tlb_remove_table
->     --> generic __tlb_remove_table()
->
->     2) CONFIG_MMU_GATHER_TABLE_FREE is disabled
->
->     tlb_remove_table
->     --> tlb_remove_page
->
->     For case 1), the pagetable_dtor() has already been moved to generic
->     __tlb_remove_table().
->
->     For case 2), now only arm will call
-> tlb_remove_table()/tlb_remove_ptdesc()
->     when CONFIG_MMU_GATHER_TABLE_FREE is disabled. Let's move
-> pagetable_dtor()
->     completely to generic tlb_remove_table(), so that the
-> architectures can
->     follow more easily.
->
->     Signed-off-by: Qi Zheng <zhengqi.arch@bytedance.com>
->
-> diff --git a/arch/arm/include/asm/tlb.h b/arch/arm/include/asm/tlb.h
-> index b8eebdb598631..ea4fbe7b17f6f 100644
-> --- a/arch/arm/include/asm/tlb.h
-> +++ b/arch/arm/include/asm/tlb.h
-> @@ -34,10 +34,6 @@ __pte_free_tlb(struct mmu_gather *tlb, pgtable_t
-> pte, unsigned long addr)
->  {
->         struct ptdesc *ptdesc = page_ptdesc(pte);
->
-> -#ifndef CONFIG_MMU_GATHER_TABLE_FREE
-> -       pagetable_dtor(ptdesc);
-> -#endif
 
-I guess this hunk will disappear since this call isn't present to start
-with.
+Applied to
 
-> -
->  #ifndef CONFIG_ARM_LPAE
->         /*
->          * With the classic ARM MMU, a pte page has two corresponding pmd
-> diff --git a/include/asm-generic/tlb.h b/include/asm-generic/tlb.h
-> index 69de47c7ef3c5..53ae7748f555b 100644
-> --- a/include/asm-generic/tlb.h
-> +++ b/include/asm-generic/tlb.h
-> @@ -220,14 +220,20 @@ static inline void __tlb_remove_table(void *table)
->
->  extern void tlb_remove_table(struct mmu_gather *tlb, void *table);
->
-> -#else /* !CONFIG_MMU_GATHER_HAVE_TABLE_FREE */
-> +#else /* !CONFIG_MMU_GATHER_TABLE_FREE */
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
 
-Good catch!
+Thanks!
 
->
-> +static inline void tlb_remove_page(struct mmu_gather *tlb, struct
-> page *page);
+[1/1] spi: atmel-qspi: Memory barriers after memory-mapped I/O
+      commit: be92ab2de0ee1a13291c3b47b2d7eb24d80c0a2c
 
-Nit: might be better to move the declaration up, e.g. above #ifdef
-CONFIG_MMU_GATHER_TABLE_FREE.
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
->  /*
->   * Without MMU_GATHER_TABLE_FREE the architecture is assumed to have
-> page based
->   * page directories and we can use the normal page batching to free
-> them.
->   */
-> -#define tlb_remove_table(tlb, page) tlb_remove_page((tlb), (page))
-> +static inline void tlb_remove_table(struct mmu_gather *tlb, void *table)
-> +{
-> +       struct page *page = (struct page *)table;
->
-> +       pagetable_dtor(page_ptdesc(page));
-> +       tlb_remove_page(tlb, page);
-> +}
->  #endif /* CONFIG_MMU_GATHER_TABLE_FREE */
->
->  #ifdef CONFIG_MMU_GATHER_RCU_TABLE_FREE
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-Looks good to me otherwise.
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
-- Kevin
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
