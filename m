@@ -4,86 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 775C8E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 15:02:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33E00E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 15:03:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Az2wVx1hCiPjzJ0BVL12MlXicctDopMjOkqCsQ4N3kk=; b=4XYp318XDGsWqu/CWs+F5fObR3
-	xdOLZHrEgfic4penRAZ0K0tSA7CRB3A+Bq8Uvq3Qm6758L9TWs31a6QeAo6UKGoP1y5WZcK3AR5C2
-	+3bSzjN3O7ongcGjcfrNHwJ27OP2cQGxBtPGmAchQaX14ERX1L8CT17ihDRyZ3oOzfQGtWmjxDYIA
-	yA3h/lO7LMeRSsHvshmQrLYSRFYRLWcuNp5n0rRak9twDk8sNhvJ+8nlTrDAVN0hDmgaSaDG3MWfR
-	slN5OhbZGgBrXYnbg4BceCop6Z4/U8NhSvLJI3B47SpSQD1pVCosBdXsV9el5osO2KLRpKccVRzQc
-	NSvImRng==;
+	bh=4ZoD+gvKfB/ed9HjsLTaCjOZ9SwK5xZrjHcan7418rw=; b=ozFNQyZNaSrENJi3/B/c1bOyCL
+	sK5B2PtY868/QPD/l/1FcZXrJUGPlltD6o6mHG1DWCnu7aqecajdLy+BDaDE5ufTV73wu9lOUw2h7
+	FFaF4+rJ/SZweiSpBzopLccmfSe2BxDzjsJr97aML0bpehMNY8CHe30MNhJVVfoESycNObD9kqB7H
+	509HKeX1GUcWch99cg6GU15sTvb0Am1Y2Ls8F2PGMYOYgLTH86FbDaYuyipFAL0055z7i1tyySetr
+	e01J6rK+uaYl1Q142irPmh9DZTP33nUrMnKIs7uUvKILcrM3l/qmAgAQCPUWd3t058SnZpatmjA51
+	DKppgIlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVB69-00000005LPz-15OS;
-	Tue, 07 Jan 2025 15:02:25 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1tVB7K-00000005LjP-0tL6;
+	Tue, 07 Jan 2025 15:03:38 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVB2A-00000005Kh2-0waj;
-	Tue, 07 Jan 2025 14:58:19 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-aaedd529ba1so1756722066b.1;
-        Tue, 07 Jan 2025 06:58:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736261896; x=1736866696; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Az2wVx1hCiPjzJ0BVL12MlXicctDopMjOkqCsQ4N3kk=;
-        b=mOy9X0De0bnasJrrCmRZE+itycW6bcIC04AK0m3TCu9pRiBWW3ZYczc4JGcrenfMF/
-         er1nsJGMmbItQQ1AXEuNBmVAsmM29oY25sXH8gNQafAJaTiH6rK6KNfSsnhJ/NlQIvxP
-         YbruzGUmJ4KrCEmLjNV2ZkxEKBAiSFP6fdqXwlEGZjTuMqquaKt/zs6FsaQTKY+yUjck
-         WdQZ8nea11ahCx7wt1CJm9VBeIeaEpuHH35kTlG/w3woXsd2oDsCu+42ipWoycfGD01V
-         U1UNUN8j8i/y4XVn28Px/K36euKE+xUq6LTaDU5Spu57A8jRdyugUSFm/8MCel2olXKF
-         fp/A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736261896; x=1736866696;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Az2wVx1hCiPjzJ0BVL12MlXicctDopMjOkqCsQ4N3kk=;
-        b=eV2hW7TBZ6V+Ht67wnNxMnRHSKEmuxnRPPb4Yh0WDuOnpm3hAoAzmDsPTS40UCgaSx
-         r49Z7bIzMDfB30Tp0DEQmAzTDrAijEt41Pa9pwST58tHvDuCP5/RZOedDxnqpOcx9dom
-         7NIgFKEferj/Q4urZnkGxTvl6ZzL7NsNmFZBS/joo5iN0JnzorLC6LhG+QGT6LGl+7oF
-         SVLqDEf0F+WoMmqIKm5ZCN89kucHEZ4SpqoMOhIJ8z/c1xzsAeIgVSDp6FhT+x/bCkA/
-         UdkCJcUy17j7eTiQI/lOa6o4WIC5t5z6k3BOeztCSaiWnWO5cKzdXVDVXxQSnLR/ZpOp
-         qj/g==
-X-Forwarded-Encrypted: i=1; AJvYcCUgT2NJ1/jEXaqhAH5sYGZNJG1AWjf8t9Cni03Y/1Oxy3Ym7Y+McmSH8rCWNYp4h7b7WHBdlO+tWDzjB2mxPfM=@lists.infradead.org, AJvYcCVGf+zsRSDIczTeN6nY8GY0jUA8OyJ4DyDTnBWDz7i3FcKbQhKt1CuAkt27/sHw8PlIgnV6v8UHivzGm46XunGE@lists.infradead.org
-X-Gm-Message-State: AOJu0YzVCAig5cBdFt3MRlwXLm+m/mOEOGEWHZfEDlsWRmVQcS+f6KSv
-	+fINwiZ00JeeEt124Dbn0N41+utOxzRRg+bQWwduJ9iCGKOO9Jo6NXie0ese/heP1iOprg1y5Gp
-	dMJkoTyaSDPJoR0Kn//aqZBGqWF0=
-X-Gm-Gg: ASbGncugU8WQ2JbWNi4vPp06yC0LwQ2T+nwa/Gt38QwNBzi2OhiNzcXvnvL0/Nq346P
-	vmGvOW/hE6x88i7Ovge7E3cKY7SsviXT6pM3XVg==
-X-Google-Smtp-Source: AGHT+IHo/aaG2IRziYHWgdJTI7LpsNtYnkQPqpLDzk81p5lbFEu3We9AunbvRFqyiMLdOxqwHKgstcmD7QIW7IPgedI=
-X-Received: by 2002:a05:6402:1588:b0:5d3:ba42:e9e3 with SMTP id
- 4fb4d7f45d1cf-5d81dd9ce81mr153578555a12.13.1736261896167; Tue, 07 Jan 2025
- 06:58:16 -0800 (PST)
+	id 1tVB3S-00000005KuL-2jUw;
+	Tue, 07 Jan 2025 14:59:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=4ZoD+gvKfB/ed9HjsLTaCjOZ9SwK5xZrjHcan7418rw=; b=kALKCcA3IFaOOLmMdjti7LK+bD
+	RcS7EGoLurmty1XbnbAoumDhcat2e6Xkd5KfAYFAnroHw/sNowJQJKckvkepCZqMCwBtWDyNyNQ+2
+	DOAfVtc1YqsdZq3jHxs/3e4lXv3UpHFsTzgSTQmyd1EFuAf1+D0+MYI0gkKWOSWEdoPUTdJs+qzlk
+	jqC82QEDE6jYDOSQR0AspwlRUwRAbU9GBlynBp9V+CL7/6U+2sRXRk1SfyUlKfalpHN82Udk4FisO
+	ZNxX2Ak6PrBeh7xEXQUfbTYTm3mA7d4Hm5aBUfhxzfqEU3Bld+KRinkR7pYoBO8Pud7AV6v7YQzlJ
+	lwznVA3Q==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:58096)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tVB3B-0007ct-0c;
+	Tue, 07 Jan 2025 14:59:21 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tVB36-0005Mv-25;
+	Tue, 07 Jan 2025 14:59:16 +0000
+Date: Tue, 7 Jan 2025 14:59:16 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Daniel Golle <daniel@makrotopia.org>
+Cc: Eric Woudstra <ericwouds@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Frank Wunderlich <frank-w@public-files.de>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, netfilter-devel@vger.kernel.org,
+	coreteam@netfilter.org, bridge@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH RFC net-next] net: phylink: always config mac for
+ (delayed) phy
+Message-ID: <Z31BRMay2QgcjX2R@shell.armlinux.org.uk>
+References: <20250107123615.161095-1-ericwouds@gmail.com>
+ <Z30iUj6DE9-fRp0n@shell.armlinux.org.uk>
+ <Z30pMSxDn-R3Cy5S@makrotopia.org>
 MIME-Version: 1.0
-References: <20240809073610.2517-1-linux.amoon@gmail.com> <Z3fKkTSFFcU9gQLg@ryzen>
- <CANAwSgS5ZWGTP+A11r_qFSrjWZH_DqsM89MLiP+1VAxhz+e+2A@mail.gmail.com>
- <5a3e8fda-f9e4-4c2f-847b-93f521b8313b@lunn.ch> <CANAwSgSUuEvJb2Vn58o0i7Soo3jGzM8EYHvDtUTPxRHekCpruA@mail.gmail.com>
- <c94570db-c0af-4d92-935c-5cc242356818@lunn.ch> <CANAwSgQ_gojVxvi_OyHTyTSdzRrno=Yymn0AdEXyTHTgDTyFcA@mail.gmail.com>
- <Z3vGXrUIII4ixNnF@ryzen> <b49e6147-32c6-4239-bdba-72f25ef04a9f@lunn.ch>
- <CANAwSgQqPREeFQisQZXqB52+w+j54Bwq4RMiHf3qUTXmnTxCAw@mail.gmail.com> <c08f3d69-1f3d-49a6-96ac-0c2f990f9a8d@lunn.ch>
-In-Reply-To: <c08f3d69-1f3d-49a6-96ac-0c2f990f9a8d@lunn.ch>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Tue, 7 Jan 2025 20:27:58 +0530
-Message-ID: <CANAwSgTWXBhhDk4Yq3U8qTTRBUOx24MvM7moWoKFkKU8Nn6eAw@mail.gmail.com>
-Subject: Re: [PATCH v2] PCI: dw-rockchip: Enable async probe by default
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Niklas Cassel <cassel@kernel.org>, 
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, 
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z30pMSxDn-R3Cy5S@makrotopia.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_065818_260114_097AA777 
-X-CRM114-Status: GOOD (  17.18  )
+X-CRM114-CacheID: sfid-20250107_065938_689520_322AE285 
+X-CRM114-Status: GOOD (  15.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,29 +90,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew
+On Tue, Jan 07, 2025 at 01:16:33PM +0000, Daniel Golle wrote:
+> On Tue, Jan 07, 2025 at 12:47:14PM +0000, Russell King (Oracle) wrote:
+> > ... but we don't see link-up reported by the PCS after the PHY comes
+> > up. Why is that - I think that needs investigation before we proceed
+> > to patch the issue, because that suggests the PCS isn't seeing
+> > valid 2500base-X from the PHY.
+> 
+> The PCS doesn't support in-band status in 2500Base-X mode, or at least
+> the implementation isn't compatible with those RealTek PHYs.
 
-On Tue, 7 Jan 2025 at 18:43, Andrew Lunn <andrew@lunn.ch> wrote:
->
-> > I was just trying to understand the call trace for mdio bus which got
-> > me confused.
-> >
-> > [0] https://lore.kernel.org/all/Z3fKkTSFFcU9gQLg@ryzen/
->
-> There is nothing particularly unusual in there. We see PCI bus
-> enumeration has found a device and bound a driver to it. The driver
-> has instantiated an MDIO bus, which has scanned the MDIO bus and found
-> a PHY. The phylib core then tried to load the kernel module needed to
-> drive the PHY.
->
-> Just because it is a PCI device does not mean firmware has to control
-> all the hardware. Linux has no problems controlling all this, and it
-> saves reinventing the wheel in firmware, avoids firmware bugs, and
-> allows new features to be added etc.
->
->         Andrew
+There is in-band for base-X, which involves 16-bit control words to
+report the capabilities of either end (basically half/full duplex,
+pause modes). Unlike SGMII, it doesn't contain any status bits for
+link up, because that is irrelevant.
 
-Thanks for clarifying.
+Link-up state in base-X modes comes from the PCS itself, whether the
+PCS is in sync with the media, and whether it has valid format. This
+has *nothing* to do with in-band.
 
--Anand
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
