@@ -4,70 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4AC3E77198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 12:56:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAD89E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 12:57:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WotX3OmVYtK9hOTlISzPgOeDnsvJ7SWrH06GSLHjh10=; b=jPjZpH6+EPHKKqUnX4uidGUChL
-	moREFZnh9H6dKOvnOcNCzDv0SuT4bDb4qK4+DTi/Hydeaa8eEWrt4fmPNMb4gOcCp+VV1Xj0geFsb
-	pVZlATVt7aYcVwoCY4PbYN5r3Il1nlOZJxMI/XnsxzpTxVXBIr1G/792GhBD0FQWlLBZ7MPUt58yx
-	Tx1CP7e0qhj2b1T71k3yiNUc89ZKn8Uy9v++4zKzxEUrSCftzZiBpEP/qkizj8EJMeX8XNqgVQMAT
-	1IJ6V02F+zT+GJtHZ/zn9RLrzIVsQgGEUSer3N7wJG51NJxyIqxzoYs+qvmtioX5S6qaqpiJrwUVX
-	kt/3oJnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dJHF6OgALpXsDMgREdanysBcHUY87rvlDcgFVe73W1A=; b=sGnOhWdtEJrNg18ykVTmvleuih
+	YpQwAeOk71pyCaAIEJJ5ViM0cDojgUxXSJkPeWxREqWf7P6P7pnUTtV/jhu/4av1wVITgXypxMNlQ
+	RrnLaaT1CGFcMC2dHQbYvNNfeqCyn3W6uUv7+udLPJ3jlSDWFvGm5HZ9zGksaZGe7yZ+pojoIeVNk
+	C1Pq06dBvqvbhVmELS197RYfvUCX2BoyZxGK8XPjE3r0Qb7xTaOf5tTgYus5xEcyla2jJFqulRkHL
+	wDaYHVmQjGUBqYe/F38MykA65OMuxe1+7C7D09gbuQxbEcFxsAwD2GEd87nds2rF0RdsdIy7oJfsT
+	3DT3PDxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV97u-00000004rXP-2DHE;
-	Tue, 07 Jan 2025 12:56:06 +0000
-Received: from szxga08-in.huawei.com ([45.249.212.255])
+	id 1tV998-00000004rwc-266J;
+	Tue, 07 Jan 2025 12:57:22 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV96d-00000004rF2-08B3;
-	Tue, 07 Jan 2025 12:54:51 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.194])
-	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4YS9rx0bFCz1W338;
-	Tue,  7 Jan 2025 20:50:57 +0800 (CST)
-Received: from dggpemf200006.china.huawei.com (unknown [7.185.36.61])
-	by mail.maildlp.com (Postfix) with ESMTPS id AF9FA140137;
-	Tue,  7 Jan 2025 20:54:37 +0800 (CST)
-Received: from [10.67.120.129] (10.67.120.129) by
- dggpemf200006.china.huawei.com (7.185.36.61) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 7 Jan 2025 20:54:37 +0800
-Message-ID: <561e07c0-98ba-44ee-abda-778b12438df6@huawei.com>
-Date: Tue, 7 Jan 2025 20:54:37 +0800
+	id 1tV97q-00000004rV2-0EjH
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 07 Jan 2025 12:56:06 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-435b0df5dbdso45435e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 04:56:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1736254560; x=1736859360; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=dJHF6OgALpXsDMgREdanysBcHUY87rvlDcgFVe73W1A=;
+        b=0Wy9Bonje6AB+wsbcdUlFfsYSIi6GBjT2iIe09n2ZEVKUql7uV4jh/+Zk9WHOFuw5V
+         NVLhIrQoB8GVViAJBO6AFxiv3uRWVzaDcVKezYdAcQrG+JVvNnDzKVCXdEB1Sp69FILP
+         dmQJZTTcHSUrenrwOaoiCIHKeDfBCZiDac3rbR6Ru/rEUxhC4RccFyj0nYi9rEU7Nh0I
+         NH1XFd1tH9TI9Y8yyeEo4ds8HyanyMTO2GaenD6IvvSSxGHs/+rdh3oxDTgl9YFd/uMv
+         vb/FxJ4J1oGs0OxDcTYHn50DADwGdvyzHllnF4HEdMu5JA2MtlVUZlMobJIyJZ7Rol9H
+         c4UQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736254560; x=1736859360;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=dJHF6OgALpXsDMgREdanysBcHUY87rvlDcgFVe73W1A=;
+        b=RtS00kcWWGgJ8b9SPLwHMj9v7x70cNgzBiIzj0bN/JRUYCa6YhfSf7rGYx0CpRSYX9
+         o25JWKbwllulSzuTNANjWIy8MyRcyUvP8B8qJZyM6NpR6WjrynjVB/sqVkSSM0cbtnO5
+         f+49wRFd3aM/lWEMXSZ76eywljqbR4vSDF/PakUfemb6RIhO5CQPCD5MnISBG5pPyMw9
+         e8D2l00CddS1W2AHGEGfeEjhc8t9nZ/E379f9KFz6UV0nd1PGEIR+ZlfVmHJuQUls8FB
+         LTA3LBxZm/7ewP9VpCVk1rG0Q+FlBdnwbXDh2cw5zxBliaqrcgO2nsUy+Wq/oJ2VIbvy
+         d6WA==
+X-Forwarded-Encrypted: i=1; AJvYcCXH4my9n/P3dZLQNfmNkRM5zttyqw053YINkwkAOtnMyZJ+lB/M/QCc3vI/C1+Ouqj3S5DPJEAdzPtitdV0o42q@lists.infradead.org
+X-Gm-Message-State: AOJu0YzS9lvA8Q/e8ob7G1otEHcw0nzp3JFEq1witi0ioGiug30ExY4Q
+	yNUNqNjnd0P9RTRgr6DpqwU1BqAByP7SFu7dZNuhnmXYNbbx+y3FO7LbO6j2CA==
+X-Gm-Gg: ASbGnct0CSWA6DgfP8wlm8CF9SSG+sWmRUCUoqcCigCzhQf7UVTl5WRHNsj5+NBG5dt
+	ZvxKL9lhrQ8hdHBfpxRKasg4CdBG+A1Vol6YaYsG/7Nd7Z3MHadfvBbRXe63RbFXKYKLaBTmhKS
+	hfUd0DZeFEIJijAl9DfuQRgw+86S87b5vnxj9xzchE7RwxoS7khx4lVYwwSLUlZy6agqds88QFH
+	C422KbpFrRzwhVY0ubhyMGatXaLiOAIsFQ+S1vLfTpQiwZUp7nN+c3P/pmPzE8CWvWz/UtLemEN
+	ZQZZTBHT5lDVcGvL4Ic=
+X-Google-Smtp-Source: AGHT+IGshgYKYU49AS8Yt3DzTbm9jzfDb1zOfiYsDlqWPz/kk/iuG9opzk/qyzVKRNqNypOg626I8w==
+X-Received: by 2002:a05:600c:4f8f:b0:434:c967:e4b5 with SMTP id 5b1f17b1804b1-436dcf7356fmr901395e9.1.1736254559456;
+        Tue, 07 Jan 2025 04:55:59 -0800 (PST)
+Received: from google.com (216.131.76.34.bc.googleusercontent.com. [34.76.131.216])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a2e25edbbsm42740762f8f.110.2025.01.07.04.55.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 07 Jan 2025 04:55:58 -0800 (PST)
+Date: Tue, 7 Jan 2025 12:55:55 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Rob Clark <robdclark@gmail.com>
+Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+	freedreno@lists.freedesktop.org, Will Deacon <will@kernel.org>,
+	Rob Clark <robdclark@chromium.org>,
+	"open list:DRM DRIVER for Qualcomm Adreno GPUs" <dri-devel@lists.freedesktop.org>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Joao Martins <joao.m.martins@oracle.com>,
+	Kevin Tian <kevin.tian@intel.com>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	"moderated list:ARM SMMU DRIVERS" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	"open list:SUSPEND TO RAM" <linux-pm@vger.kernel.org>,
+	Marijn Suijten <marijn.suijten@somainline.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>, Sean Paul <sean@poorly.run>
+Subject: Re: [PATCH v11 0/4] io-pgtable-arm + drm/msm: Extend iova fault
+ debugging
+Message-ID: <Z30kWxVxwJXO_z2_@google.com>
+References: <20241210165127.600817-1-robdclark@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v6 0/8] fix two bugs related to page_pool
-To: Jakub Kicinski <kuba@kernel.org>
-CC: <davem@davemloft.net>, <pabeni@redhat.com>, <liuyonglong@huawei.com>,
-	<fanghaiqing@huawei.com>, <zhangkun09@huawei.com>, Alexander Lobakin
-	<aleksander.lobakin@intel.com>, Robin Murphy <robin.murphy@arm.com>,
-	Alexander Duyck <alexander.duyck@gmail.com>, Andrew Morton
-	<akpm@linux-foundation.org>, IOMMU <iommu@lists.linux.dev>, MM
-	<linux-mm@kvack.org>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
-	<daniel@iogearbox.net>, Jesper Dangaard Brouer <hawk@kernel.org>, John
- Fastabend <john.fastabend@gmail.com>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, <netdev@vger.kernel.org>,
-	<intel-wired-lan@lists.osuosl.org>, <bpf@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>
-References: <20250106130116.457938-1-linyunsheng@huawei.com>
- <20250106155154.7c349c67@kernel.org>
-Content-Language: en-US
-From: Yunsheng Lin <linyunsheng@huawei.com>
-In-Reply-To: <20250106155154.7c349c67@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.120.129]
-X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
- dggpemf200006.china.huawei.com (7.185.36.61)
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20241210165127.600817-1-robdclark@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_045447_244253_F729C4B5 
-X-CRM114-Status: GOOD (  11.58  )
+X-CRM114-CacheID: sfid-20250107_045602_095224_80BCEF8A 
+X-CRM114-Status: GOOD (  24.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,44 +112,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/1/7 7:51, Jakub Kicinski wrote:
-> On Mon, 6 Jan 2025 21:01:08 +0800 Yunsheng Lin wrote:
->> This patchset fix a possible time window problem for page_pool and
->> the dma API misuse problem as mentioned in [1], and try to avoid the
->> overhead of the fixing using some optimization.
->>
->> From the below performance data, the overhead is not so obvious
->> due to performance variations for time_bench_page_pool01_fast_path()
->> and time_bench_page_pool02_ptr_ring, and there is about 20ns overhead
->> for time_bench_page_pool03_slow() for fixing the bug.
-> 
-> This appears to make the selftest from the drivers/net target implode.
-> 
-> [   20.227775][  T218] BUG: KASAN: use-after-free in page_pool_item_uninit+0x100/0x130
-> 
-> Running the ping.py tests should be enough to repro.
+Hi Rob,
 
-Thanks for reminding.
-Something like below seems to fix the use-after-free bug, will enable more
-DEBUG config when doing testing.
+On Tue, Dec 10, 2024 at 08:51:18AM -0800, Rob Clark wrote:
+> From: Rob Clark <robdclark@chromium.org>
+> 
+> This series extends io-pgtable-arm with a method to retrieve the page
+> table entries traversed in the process of address translation, and then
+> beefs up drm/msm gpu devcore dump to include this (and additional info)
+> in the devcore dump.
+> 
+> This is a respin of https://patchwork.freedesktop.org/series/94968/
+> (minus a patch that was already merged)
+> 
+> v2:  Fix an armv7/32b build error in the last patch
+> v3:  Incorperate Will Deacon's suggestion to make the interface
+>      callback based.
+> v4:  Actually wire up the callback
+> v5:  Drop the callback approach
+> v6:  Make walk-data struct pgtable specific and rename
+>      io_pgtable_walk_data to arm_lpae_io_pgtable_walk_data
+> v7:  Re-use the pgtable walker added for arm_lpae_read_and_clear_dirty()
+> v8:  Pass pte pointer to callback so it can modify the actual pte
+> v9:  Fix selftests_running case
+> v10: Call visit cb for all nodes traversed, leave the decision about
+>      whether to care about non-leaf nodes to the callback
+> v11: Adjust logic in 3/4 [smostafa@]
 
---- a/net/core/page_pool.c
-+++ b/net/core/page_pool.c
-@@ -518,9 +518,13 @@ static void page_pool_items_unmap(struct page_pool *pool)
+I see the level initialization was not removed as it was in the diff[1], so it
+seems to me that’s redundant as the level is set anyway in the callback, and
+actually looking at that I see it’s not used or printed from the driver,
+so may it can be removed all together, anyway that’s nit that may be Will can
+fix it up while merging.
 
- static void page_pool_item_uninit(struct page_pool *pool)
+Otherwise, For the whole series
+Reviewed-by: Mostafa Saleh <smostafa@google.com>
+
+diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
+index ed3ba47df350..a884af8fb101 100644
+--- a/drivers/iommu/io-pgtable-arm.c
++++ b/drivers/iommu/io-pgtable-arm.c
+@@ -731,7 +731,6 @@ static int visit_pgtable_walk(struct io_pgtable_walk_data *walk_data, int lvl,
  {
--       struct page_pool_item_block *block;
-+       while (!list_empty(&pool->item_blocks)) {
-+               struct page_pool_item_block *block;
+ 	struct arm_lpae_io_pgtable_walk_data *data = walk_data->data;
+ 	data->ptes[lvl] = *ptep;
+-	data->level = lvl + 1;
+ 	return 0;
+ }
+ 
+@@ -746,8 +745,6 @@ static int arm_lpae_pgtable_walk(struct io_pgtable_ops *ops, unsigned long iova,
+ 		.end = iova + 1,
+ 	};
+ 
+-	((struct arm_lpae_io_pgtable_walk_data *)wd)->level = 0;
+-
+ 	return __arm_lpae_iopte_walk(data, &walk_data, data->pgd, data->start_level);
+ }
+ 
+diff --git a/include/linux/io-pgtable.h b/include/linux/io-pgtable.h
+index 0f17a38a304d..c62e344a4058 100644
+--- a/include/linux/io-pgtable.h
++++ b/include/linux/io-pgtable.h
+@@ -190,7 +190,6 @@ struct io_pgtable_cfg {
+  */
+ struct arm_lpae_io_pgtable_walk_data {
+ 	u64 ptes[4];
+-	int level;
+ };
+ 
+ /**
 
--       list_for_each_entry(block, &pool->item_blocks, list) {
-+               block = list_first_entry(&pool->item_blocks,
-+                                        struct page_pool_item_block,
-+                                        list);
-+               list_del(&block->list);
-                WARN_ON(refcount_read(&block->ref));
-                put_page(virt_to_page(block));
-        }
 
+
+[1]https://lore.kernel.org/all/Z1AtDgLD0SDUxDHl@google.com/
+
+Thanks,
+Mostafa
+
+> 
+> Rob Clark (4):
+>   iommu/io-pgtable-arm: Make pgtable walker more generic
+>   iommu/io-pgtable-arm: Re-use the pgtable walk for iova_to_phys
+>   iommu/io-pgtable-arm: Add way to debug pgtable walk
+>   drm/msm: Extend gpu devcore dumps with pgtbl info
+> 
+>  drivers/gpu/drm/msm/adreno/adreno_gpu.c |  10 ++
+>  drivers/gpu/drm/msm/msm_gpu.c           |   9 ++
+>  drivers/gpu/drm/msm/msm_gpu.h           |   8 ++
+>  drivers/gpu/drm/msm/msm_iommu.c         |  22 ++++
+>  drivers/gpu/drm/msm/msm_mmu.h           |   3 +-
+>  drivers/iommu/io-pgtable-arm.c          | 157 +++++++++++++++---------
+>  include/linux/io-pgtable.h              |  15 +++
+>  7 files changed, 167 insertions(+), 57 deletions(-)
+> 
+> -- 
+> 2.47.1
+> 
 
