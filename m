@@ -4,85 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 744C1E77198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 06:09:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA623E77198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jan 2025 06:17:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GRVwfwslXJGI74kLFIi5nDLkpW6F2l/Qx8c6R/av2xg=; b=UmWK7wEdQsfMquxuia8sHBR+Yz
-	NmdOOA39sh4WIzwgFVKdO4U/fXUFP/nFyhzh06fQCeVS8G1/5SefRlp3hf0jfpsTWppP7q5/Qi9sR
-	cWoLKD2cEO3b2EZKMeclUr8/kAR4wdRsetWtgI0Ufl3hjyVG75SOtag6QYYF4I3hf3ULubGWAY0NI
-	n05hq+Q8J5Oy622ui0Zn+5nia/s/ZIKVwJB8//oFHIekVcMlKAVXb8NbnKzvdtWI0f3GQ9ClvmLW9
-	8wnpK5v5XZnBLCX6DHI9CZorAmH9Yv54oqNcbsUxgZSBvtA0jnbG805ffUiX3KCpEP3cmZ0GkeM0a
-	hwsvkcMA==;
+	bh=opSX/QDIs55Wh83Tuv336j0AISiX882YeT5bW8m7/9o=; b=CxzJzbPg/1/mVOIWApjMRAcVXx
+	DjN5lWlGt3ZBxAEqR7mHvavm3QBN4Kdxz8NqZ2i93Kif0YEnrowLiFLD4GV93/W9OWm4fAwzoaqGR
+	jvf2TPmcJhH2QGVil8C1afJD1kNMYDeB0Oz5kApisKtDPAy7OLhOsrzNbKOAldCtwfhp3Cp/WZmV5
+	IUselAJefqGLhZ5BbvdeBmalXALC8vrVqPosRntCJaF3ZgVIrCH4B05PlPvzAkh3P9peqssNCVrFj
+	qXXLzlZUk1KwUtS0+8Ee+K5s+WOu6REkTq2vKR/kHw6WA4Hb6aJFmAJUnR+VZBY8bjrh7Kv8UGj2M
+	Uxh4FceA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV2mR-00000003boK-2pVB;
-	Tue, 07 Jan 2025 06:09:31 +0000
-Received: from mail-vs1-xe30.google.com ([2607:f8b0:4864:20::e30])
+	id 1tV2uP-00000003cYC-3WuE;
+	Tue, 07 Jan 2025 06:17:45 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tV2lC-00000003bXz-2id6
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jan 2025 06:08:16 +0000
-Received: by mail-vs1-xe30.google.com with SMTP id ada2fe7eead31-4afeb79b52fso4273345137.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jan 2025 22:08:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1736230093; x=1736834893; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GRVwfwslXJGI74kLFIi5nDLkpW6F2l/Qx8c6R/av2xg=;
-        b=XxqU7Cctznpj24PoicjXwWxsns31krp4/VVMWJIuuSfG2lxsMFGfQi6f1TNos6D1qd
-         NPrmqxhmoANk0wKdg+PyrysIWlVtGGYQrrP5FCqs6HcQ0Lng/Qd1r6+JR0cWnCWoV2G1
-         FjGRl/UYC+ih7ZS28GzgUE7rR90lky6g5ejFfPgskV2578iRjuDRxziGtXJKiTzgapV3
-         DelCT1YgB12sj8B7SdffGvNa4+WrI7kj2kUR1HbhVW6uqxoPapNR7gp2hyFii4+JPwh0
-         m0WPvCQH5odz02WLv4iA9S0JqnHCpwSiyLKRs/M18BMf/vWhuObBxYfrxfX78m7wj9J2
-         8ZoA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736230093; x=1736834893;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=GRVwfwslXJGI74kLFIi5nDLkpW6F2l/Qx8c6R/av2xg=;
-        b=rue1Q3w36LfGC+ortuQwIzGwZjjjsQcM/ugsqNdwhvOpJ6+WYCDzo3Ms+3rnRI7Ar5
-         nWS2JgFZRwhroFWcr2zwoxEqH4A7MXfr1tX8bNfjaucNjiem25E5KMs+YESMPXtYey94
-         qLBA0VTb5oYLjOU3uGDbKnGTpjRjvarGuktvI/kCRIQfLKSqn9bgLnHHTZvKH/qqtnPk
-         QTLucniurVy6rF3PSgiXIFj0l4W5qpOwFHZP2oUu6duZcmu1110h3vCbdsx4R1+ybpYL
-         z55INoftzWAqdEVAKP2Ira0oYT9yA7UhgQk+WsmHq+yXEK5miaHzi+SdcIAakV+PxWvO
-         BBKQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXazlOtM/0uRcaWdHHRMuplFu13NBPGoiLrfcTeKhy4xzw3UvTTRFEODFisYuY5+qXJ+j6CC+Q5cmU/vJYQvLci@lists.infradead.org
-X-Gm-Message-State: AOJu0YziJo2OqfRpObuijT5yAQCzI4sYtQZERBPn05FfkgqiXga7KcPo
-	TINaZifiSWdlKRxvytrjA4CuMGpUZrXfQuHVyG1qYnQFrlK9MGFo7KtxK73UZbP7CLNCK8AI1C8
-	SaZtsz+5+f1P0JCtsMDmlSjnzGJqGI/QpmroI
-X-Gm-Gg: ASbGncsk56t1iUqCiHyovtHeLzxPLgyEgLbmMHIGEY+oLz0fjL8cB8nHq86KOHWWxKI
-	RtS1ENHcMGAEOUznBPaUvJt6ShRJoc4RGdQyd1Qv5po7tv+7HL6hWNjubYfYKlTgureA7r1s=
-X-Google-Smtp-Source: AGHT+IEZaqmWCdbsnlneTQG3404W2PKonER8bomGI+FtnJ1u//oEs3rufk2b98smus/r1ny3nrGHnU/2nnAkoAcwgVE=
-X-Received: by 2002:a05:6102:e13:b0:4b2:4877:80f4 with SMTP id
- ada2fe7eead31-4b2cc116628mr52396664137.0.1736230093357; Mon, 06 Jan 2025
- 22:08:13 -0800 (PST)
+	id 1tV2tD-00000003cRS-29Hv;
+	Tue, 07 Jan 2025 06:16:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id AB16F5C5ACD;
+	Tue,  7 Jan 2025 06:15:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90655C4CED6;
+	Tue,  7 Jan 2025 06:16:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736230590;
+	bh=rbm/HyJrgcyIONekUU1B/CycR6GsFRPZQR8HjkeAhyo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=cU3zZcUhaekedmnJfQhGRR7XHeFxhCygwoAFGK1RANe0SFcW5VJlkPe1HwF53dxee
+	 v7S64dt76QJatjl2EM647ASIBOBagJDXrmBzTLvkEDDa7s3PpmH/hiNpAr3QfyjrjN
+	 cTwBQP9lFi/edM/DgfW4rbFiO36Gs2EWnDacPiDlv3oNjv2BjB57qRk+LVKuuoDsV8
+	 lljnskCPl3XOtnQ37uvoolSkguAd+swO/SpEbbGiMr707cmiwKxUmcHL7/c/pU/8tj
+	 lxn6E6o84By92RSiElKr/+iRqT8mq3vglvP6/jl+0ewBjZon03iyI8ULbpcOERkviT
+	 nh0RGr2mWB+bA==
+Message-ID: <420caebd-136f-4015-96cd-5f37b9c3f49b@kernel.org>
+Date: Tue, 7 Jan 2025 07:16:19 +0100
 MIME-Version: 1.0
-References: <20241107202033.2721681-1-yuzhao@google.com> <20241125152203.GA954@willie-the-truck>
- <CAOUHufYUMYcf=uF7=2zj-PsGXePCDdsRHJGa8t-e-k9VUvYyQQ@mail.gmail.com> <20241128142028.GA3506@willie-the-truck>
-In-Reply-To: <20241128142028.GA3506@willie-the-truck>
-From: Yu Zhao <yuzhao@google.com>
-Date: Mon, 6 Jan 2025 23:07:36 -0700
-Message-ID: <CAOUHufbUOBy1DweSV4CF4LMK3kxi7EGCDDztmtuYXXe=fZM7zA@mail.gmail.com>
-Subject: Re: [PATCH v2 0/6] mm/arm64: re-enable HVO
-To: Will Deacon <will@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Marc Zyngier <maz@kernel.org>, Muchun Song <muchun.song@linux.dev>, 
-	Thomas Gleixner <tglx@linutronix.de>, Douglas Anderson <dianders@chromium.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Nanyong Sun <sunnanyong@huawei.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-mm@kvack.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/7] dt-bindings: mailbox: mediatek: Add MT8196 support
+ for gce-mailbox
+To: =?UTF-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>
+Cc: "robh@kernel.org" <robh@kernel.org>,
+ "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+ "simona@ffwll.ch" <simona@ffwll.ch>, =?UTF-8?B?TmFuY3kgTGluICjmnpfmrKPonqIp?=
+ <Nancy.Lin@mediatek.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ Project_Global_Chrome_Upstream_Group
+ <Project_Global_Chrome_Upstream_Group@mediatek.com>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "jassisinghbrar@gmail.com" <jassisinghbrar@gmail.com>,
+ =?UTF-8?B?U2luZ28gQ2hhbmcgKOW8teiIiOWciyk=?= <Singo.Chang@mediatek.com>,
+ "mchehab@kernel.org" <mchehab@kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "airlied@gmail.com"
+ <airlied@gmail.com>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ =?UTF-8?B?TW91ZHkgSG8gKOS9leWul+WOnyk=?= <Moudy.Ho@mediatek.com>,
+ =?UTF-8?B?WGF2aWVyIENoYW5nICjlvLXnjbvmlocp?= <Xavier.Chang@mediatek.com>
+References: <20241219170800.2957-1-jason-jh.lin@mediatek.com>
+ <20241219170800.2957-2-jason-jh.lin@mediatek.com>
+ <yg7b2iaz53avd7gpvuewhi6b3myh6owls3dt2hzpqc26lnykjf@tpu2vxqqkipe>
+ <11f168c11b4cea48cf51406c0afaf8f1f53ad90f.camel@mediatek.com>
+ <6adfa5fe-7b68-4f8e-919d-7b7607fe617c@kernel.org>
+ <90b38dd6e093c89a7383814db786321cbd4533f6.camel@mediatek.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <90b38dd6e093c89a7383814db786321cbd4533f6.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_220814_708311_AB002936 
-X-CRM114-Status: GOOD (  39.42  )
+X-CRM114-CacheID: sfid-20250106_221631_641675_7CEE3F9C 
+X-CRM114-Status: GOOD (  13.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,98 +142,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 28, 2024 at 7:20=E2=80=AFAM Will Deacon <will@kernel.org> wrote=
-:
->
-> On Mon, Nov 25, 2024 at 03:22:47PM -0700, Yu Zhao wrote:
-> > On Mon, Nov 25, 2024 at 8:22=E2=80=AFAM Will Deacon <will@kernel.org> w=
-rote:
-> > > On Thu, Nov 07, 2024 at 01:20:27PM -0700, Yu Zhao wrote:
-> > > > HVO was disabled by commit 060a2c92d1b6 ("arm64: mm: hugetlb: Disab=
-le
-> > > > HUGETLB_PAGE_OPTIMIZE_VMEMMAP") due to the following reason:
-> > > >
-> > > >   This is deemed UNPREDICTABLE by the Arm architecture without a
-> > > >   break-before-make sequence (make the PTE invalid, TLBI, write the
-> > > >   new valid PTE). However, such sequence is not possible since the
-> > > >   vmemmap may be concurrently accessed by the kernel.
-> > > >
-> > > > This series presents one of the previously discussed approaches to
-> > > > re-enable HugeTLB Vmemmap Optimization (HVO) on arm64.
-> > >
-> > > Before jumping into the new mechanisms here, I'd really like to
-> > > understand how the current code is intended to work in the relatively
-> > > simple case where the vmemmap is page-mapped to start with (i.e. when=
- we
-> > > don't need to worry about block-splitting).
-> > >
-> > > In that case, who are the concurrent users of the vmemmap that we nee=
-d
-> > > to worry about?
-> >
-> > Any speculative PFN walkers who either only read `struct page[]` or
-> > attempt to increment page->_refcount if it's not zero.
-> >
-> > > Is it solely speculative references via
-> > > page_ref_add_unless() or are there others?
-> >
-> > page_ref_add_unless() needs to be successful before writes can follow;
-> > speculative reads are always allowed.
-> >
-> > > Looking at page_ref_add_unless(), what serialises that against
-> > > __hugetlb_vmemmap_restore_folio()? I see there's a synchronize_rcu()
-> > > call in the latter, but what prevents an RCU reader coming in
-> > > immediately after that?
-> >
-> > In page_ref_add_unless(), the condtion `!page_is_fake_head(page) &&
-> > page_ref_count(page)` returns false before a PTE becomes RO.
-> >
-> > For HVO, i.e., a PTE being switched from RW to RO, page_ref_count() is
-> > frozen (remains zero), followed by synchronize_rcu(). After the
-> > switch, page_is_fake_head() is true and it appears before
-> > page_ref_count() is unfrozen (become non-zero), so the condition
-> > remains false.
-> >
-> > For de-HVO, i.e., a PTE being switched from RO to RW, page_ref_count()
-> > again is frozen, followed by synchronize_rcu(). Only this time
-> > page_is_fake_head() is false after the switch, and again it appears
-> > before page_ref_count() is unfrozen. To answer your question, readers
-> > coming in immediately after that won't be able to see non-zero
-> > page_ref_count() before it sees page_is_fake_head() being false. IOW,
-> > regarding whether it is RW, the condition can be false negative but
-> > never false positive.
->
-> Thanks, but I'm still not seeing how this works. When you say "appears
-> before", I don't see any memory barriers in page_ref_add_unless() that
-> enforce that e.g. the refcount and the flags are checked in order and
+On 07/01/2025 03:42, Jason-JH Lin (林睿祥) wrote:
+>>
+>> Before proceeding with this header further, please answer to above -
+>> why
+>> interrupt numbers, MMIO addresses and some other values appearing in
+>> DTS
+>> are not used like "binding headers".
+> 
+> Because interrupt numbers and MMIO addresses are the real numbers of
+> hardware settings. Their driver can get them directly from their device
+> node in DTS. They are actual number to be set into their hardware, so
+> they don't need to be translated in their platform drivers.
+> 
+> So I think all the definitions in the `mediatek,mt8196-gce.h` are the
+> same case. They are actual hardware numbers for GCE hardware to use.
+> It should be drop from the include/dt-bindings/*.
 
-Right, there is a missing barrier in page_ref_add_unless() and the
-order of those two checks, i.e., page_is_fake_head() and then
-page_ref_count() is wrong.
+I did not inspect all of the defines you have there. Maybe some are used
+by driver, so I did not provide you definitive answer on entire header.
+The comment was addressing one specific group of defines which were not
+used as a binding.
 
-I posted a fix here [1].
+> 
+> 
+> BTW, to make these numbers more readable in DTS, can I move
+> `include/dt-bindings/mailbox/mediatek,mt8196-gce.h` into
+> `arch/arm64/boot/dts/mediatek/mt8196-gce.h`?
 
-[1] https://lore.kernel.org/20250107043505.351925-1-yuzhao@google.com/
+Yes, sure.
 
-> I can't see how the synchronize_rcu() helps either as it's called really
-> earlyi (I think that's just there for the static key).
+> 
+> Just like the `arch/arm64/boot/dts/mediatek/mt8167-pinfunc.h`.
 
-That fix makes sure no speculative PFN walkers will try to modify
-page->_refcount during the transition from the counter being frozen to
-modifiable. synchronize_rcu() makes sure something similar won't
-happen during the transition from the counter being modifiable to
-frozen.
-
-> If page_is_fake_head() is reliable, then I'm thinking we could use that
-> to steer page_ref_add_unless() away from the tail pages during the
-> remapping operations and it would be fine to use a break-before-make
-> sequence.
-
-The struct page pointer passed into page_is_fake_head() would become
-inaccessible during BBM. So it would just crash there. That's why I
-think we either have to handle kernel PFs or pause other CPUs.
-
-(page_is_fake_head() works by detecting whether it's accessing the
-original struct page or a remapped (r/o) one, and the latter has a
-signature for it to tell.)
+Best regards,
+Krzysztof
 
