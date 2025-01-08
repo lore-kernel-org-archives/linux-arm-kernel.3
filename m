@@ -4,89 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C105E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 09:37:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D076CE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 09:38:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=UqzxWOab6evyJePUEZiyqiNeRR2ktAmye9JuSg0gIEo=; b=JMi1Kpw50IKS1Fp5E201eeWZfO
-	Ar3J4x3jTS/9oq/wD6RwJQOkI0cmpjcHHHh0PM7fd93AaG6AVm5YKJPbx03vVjv4Uzzmxtm3KH1pX
-	vuN87cnE5NcZK0GA1kFPeIJqQrav0ZAggj0n+QA+aGYLVSjbJpBUIDKD8cDaJL9J+gwX9Z7chbx3I
-	M82sbSmkJS4N3bO2VXFPp5zG0klL8JKg0L9UqaoSPQFX6kqNfXt9o1svS0A8tOVcNe077pzd633bq
-	J7VWrkJgwZB+So2BhDfAN6YxRKGu32rinpWqv8taWax3sP/zfH0wvDxxE/hpldsKdT515ZG0Fo3aU
-	jN12RJbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ByQ6/5pKHP8MQj/YBuiBtBApZpE+BRhKSooauRrD8M0=; b=YuQ5ffm+RsjNFf04SJ6oy1NgXn
+	fn8hM3BACLZ1QxZQ9ACtSNWs8CpmyeF68XF1E/fZfG0u6OxrvRjjHkZfqGgiSLubJgR7cnk02MKP/
+	SR72h8nxwfYgSCorLCx+9kCUxoh3qdqmtPmLEq1JElpKbDkJzDIWqHOxNtkDNpCoAP1wNESj6rMGz
+	vZWuuDXd1fmK1qZW1ItC09hLS0sYjk1nvIvmhZndvkIdMBGhWtkPskTwZX7/lEZvbb8dQFdTOuZnK
+	5AfFrRB4GZS2crwWiQltJZUZwYj56C4HRf8aVz6VabjeVAOwc/RlHSNBbKLW+8b41OJyEwDH8HJzc
+	H4l6W7Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVSV4-00000007olb-1tMh;
-	Wed, 08 Jan 2025 09:37:18 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1tVSWF-00000007pBJ-0N26;
+	Wed, 08 Jan 2025 09:38:31 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVSTq-00000007oEB-1tez
+	id 1tVSUS-00000007oNn-1XwD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 09:36:04 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4368a293339so133357095e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jan 2025 01:36:02 -0800 (PST)
+	Wed, 08 Jan 2025 09:36:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736328961; x=1736933761; darn=lists.infradead.org;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=UqzxWOab6evyJePUEZiyqiNeRR2ktAmye9JuSg0gIEo=;
-        b=oaMzL/yTPkGL+DV9KtYDAK+U3iCg7MkNth5fnFovQTgY6DWPRqtIZWsV0kVkkol2+Y
-         fzFsgq6JmzPfBjoAplunrYNpdCSs7ssPIAGrNSK9vF3gZzQnE20x1AuSlnIxPMeNArWY
-         plUxhOfHGD/NJORjJ6B1tXfEZVOcucncDRwWCl1Eg4A1Khf1wR8L7BmEg+a0QUhHuHyF
-         oDmTn04bcUTbatDZhucjASndKcC27Ba0unLC2PgX9pFhyy6q1lGcpkIqVd6jKbaVNt4I
-         4oXtD5CrlWCSZgd5e9d9V25nOk8GIREP15j517Hc8HZkmB15pnlue5YUMR5umbTWtPyL
-         ON5w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736328961; x=1736933761;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=UqzxWOab6evyJePUEZiyqiNeRR2ktAmye9JuSg0gIEo=;
-        b=iXS2Z9i+atjRAE89zYyVEn4ddkKguPcs40FNC7oQYql50+hpf0ugZizddqQOXkNBTH
-         WK/ZlcLf2uoImwUhvjw/+uwceeQKNAMg0Mov6ezMzzv8gUJumk1rg0vvXgF7FggLUJT4
-         JF3xfwr0SVZARDOHmJoMqqAApMJt+2KUCyVONfv3x9XdCvahjX4tZoTAtlogI7ikL5fJ
-         X9Qusk/UOydwWfiimrVOCFjpL4O+QzYVDo9eqPJ27hrSoF9P+bgay61YAA3RzYo1vpa1
-         YOXOvw6AGmlR4fJpBY8pC08gV7nY/6ZvulalUe2mtlCr9vJz2jgP7/NHXjpmoe9jk2F4
-         tYRQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXb+DoVrU1RW4MezTDIBJGruZ0MW3G81jcmdxGHeZk+/AhBvCgj2lAncLv9eCKo+bNC46a1vnM1yhbEPLwAkm1B@lists.infradead.org
-X-Gm-Message-State: AOJu0YyMF5VUEviNKj5TpNixoBiA56xUNbxLfEGN7NgZ7X9tVT+j0jW8
-	57IvDumAg9DCIop+BHe/K5z/8cSiEbFlltw8tr1B2R1C9vpHYOoU1wfI8cGqGag=
-X-Gm-Gg: ASbGncuKmyhljRbpcjq5VP8ZnjhEMpkaC3y2ZzGUMXaAmJphimicYUSAAySE3kl0GpQ
-	fqJ+CyR5wg5uwWCLMaVLFExUTdB9Fp7s+3sgnhb2nEVlHkw6d1haMyMFr6LFnnN3X35ZySWhpd+
-	2imAOWc0N0sQAWj0Zot3yH/qqp7e/dkX7nO9MED995Sq2v6BixCxCp5w/iUu1hGVhMdH3eGSCbo
-	608xzVZnybxUoB8Fay7pM5paNv+XT9BVGiR4RHu7dzVFj8AcwZ5T/iCkaQngA==
-X-Google-Smtp-Source: AGHT+IG5WSBhFOJisgYTUKeIhRXBAfvDEN8YKwZDJA2mb5m6FO3aJNoBZk/2i3G8RcBgch7B0HaYEw==
-X-Received: by 2002:a05:6000:1acf:b0:386:4034:f9a6 with SMTP id ffacd0b85a97d-38a8735727fmr1340774f8f.57.1736328960701;
-        Wed, 08 Jan 2025 01:36:00 -0800 (PST)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e2ddccf4sm14566785e9.19.2025.01.08.01.35.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Jan 2025 01:36:00 -0800 (PST)
-Date: Wed, 8 Jan 2025 12:35:57 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Julien STEPHAN <jstephan@baylibre.com>
-Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Mattijs Korpershoek <mkorpershoek@baylibre.com>,
-	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel-janitors@vger.kernel.org
-Subject: [PATCH RESEND] drm/mediatek: dsi: fix error codes in
- mtk_dsi_host_transfer()
-Message-ID: <b754a408-4f39-4e37-b52d-7706c132e27f@stanley.mountain>
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1736329000; x=1767865000;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=ByQ6/5pKHP8MQj/YBuiBtBApZpE+BRhKSooauRrD8M0=;
+  b=b+7yGn3Jmh6ua82NM8QBvFK7J3AVP2h3ugh6r/OCLjx/UUbB1arRpzxY
+   n2ubdsro01dsXRYt6gzI3aNhcAE1alXbc1O+QstnwpDGMs0YcUJOWAZHE
+   uV8WgvXVyDVaNPvWwLKex7e1sON1I+Cr6g5r1tsQZDeO9CFujnJS6IkU7
+   8+/TPTDJZnTxbH7HFnm/RlnEHdyZAF3c0AUPRZObFxMv0bPGgVfyak+Bf
+   OXuIjzWdi/YZk6DkIen04azC8TSGIZwJVatxyJmAfz03bd1UYrccMzdXy
+   5vRkJGk4Fq676vtSr1AXdr9qjYWP8RAgjIlTMD7zGGH/cnYfxtACd1cvg
+   w==;
+X-CSE-ConnectionGUID: lBMLYARPRLWZT5KwbkWfUg==
+X-CSE-MsgGUID: Zd4zm9GtRyqHqZSqH3f2CQ==
+X-IronPort-AV: E=Sophos;i="6.12,297,1728943200"; 
+   d="scan'208";a="40915819"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 08 Jan 2025 10:36:34 +0100
+X-CheckPoint: {677E4722-2-3C670366-E45AD810}
+X-MAIL-CPID: A643DC748E8B87B427C9C77EF9A89612_4
+X-Control-Analysis: str=0001.0A682F20.677E4722.00EF,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 37A1B165CAE;
+	Wed,  8 Jan 2025 10:36:25 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1736328989;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ByQ6/5pKHP8MQj/YBuiBtBApZpE+BRhKSooauRrD8M0=;
+	b=U+KzuCHEcTYSgV86jGNGaa/mv07FsZ9PohRUU45OuleOyyJbt4plTlOs9OC5h7EZa6pfs3
+	xlVysXyvSKiMOCJ4e9ke95vO13cPqh1HfgX8vWkZ2jAN2EB0MoIxNTAf4wbKa6PejaL/EW
+	jar7uQZDyqpbdVuuUaEDl6oJFRZzUGbz27SSfYKXF1+RuuRrslFncfWHLEIPOW6btF7WcO
+	XVACAELq3PbfNTlzg7AzZcgnLm7d1xi7Kdf+ERCCssq4TaNZvPf0DdIRe288BQfroOV9ZF
+	uQB8SZfm+4qUhh1bs+Y2Sw358tBuiNhsWy+yyN8ZLOay3berwGebv/Qlx8V9RA==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Liu Ying <victor.liu@nxp.com>
+Cc: dri-devel@lists.freedesktop.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/4] drm/bridge: imx8qxp-pxl2dpi: Use dev_err_probe
+Date: Wed, 08 Jan 2025 10:36:24 +0100
+Message-ID: <1842588.VLH7GnMWUR@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <add11437-4fa8-489a-9cde-9c08cfd71db3@nxp.com>
+References: <20250107143900.988567-1-alexander.stein@ew.tq-group.com> <20250107143900.988567-2-alexander.stein@ew.tq-group.com> <add11437-4fa8-489a-9cde-9c08cfd71db3@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-X-Mailer: git-send-email haha only kidding
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_013602_491505_47CB3B31 
-X-CRM114-Status: GOOD (  15.78  )
+X-CRM114-CacheID: sfid-20250108_013640_908851_E8F974F4 
+X-CRM114-Status: GOOD (  17.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,60 +93,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There is a type bug because the return statement:
+Hi,
 
-        return ret < 0 ? ret : recv_cnt;
+Am Mittwoch, 8. Januar 2025, 04:22:19 CET schrieb Liu Ying:
+> On 01/07/2025, Alexander Stein wrote:
+> > This simplifies the code and gives additional information upon deferral.
+> >=20
+> > Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+> > ---
+> >  drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c | 26 ++++++--------------
+> >  1 file changed, 7 insertions(+), 19 deletions(-)
+> >=20
+> > diff --git a/drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c b/drivers/gpu=
+/drm/bridge/imx/imx8qxp-pxl2dpi.c
+> > index 65cf3a6c8ec69..038eaff889bb7 100644
+> > --- a/drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c
+> > +++ b/drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c
+> > @@ -398,20 +398,12 @@ static int imx8qxp_pxl2dpi_bridge_probe(struct pl=
+atform_device *pdev)
+> >  		return -ENOMEM;
+> > =20
+> >  	p2d->regmap =3D syscon_node_to_regmap(np->parent);
+> > -	if (IS_ERR(p2d->regmap)) {
+> > -		ret =3D PTR_ERR(p2d->regmap);
+> > -		if (ret !=3D -EPROBE_DEFER)
+> > -			DRM_DEV_ERROR(dev, "failed to get regmap: %d\n", ret);
+> > -		return ret;
+> > -	}
+> > +	if (IS_ERR(p2d->regmap))
+> > +		return dev_err_probe(dev, ret, "failed to get regmap\n");
+>=20
+> s/ret/PTR_ERR(p2d->regmap)/
 
-The issue is that ret is an int, recv_cnt is a u32 and the function
-returns ssize_t, which is a signed long.  The way that the type promotion
-works is that the negative error codes are first cast to u32 and then
-to signed long.  The error codes end up being positive instead of
-negative and the callers treat them as success.
+Thanks for the catch.
 
-Fixes: 81cc7e51c4f1 ("drm/mediatek: Allow commands to be sent during video mode")
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/r/202412210801.iADw0oIH-lkp@intel.com/
-Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
-Reviewed-by: Mattijs Korpershoek <mkorpershoek@baylibre.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
-I sent this patch earlier:
-https://lore.kernel.org/all/Y%2FyBC4yxTs+Po0TG@kili/
-but it wasn't applied.  I've changed the commit message a bit and added
-new tags.
+> > =20
+> >  	ret =3D imx_scu_get_handle(&p2d->ipc_handle);
+> > -	if (ret) {
+> > -		if (ret !=3D -EPROBE_DEFER)
+> > -			DRM_DEV_ERROR(dev, "failed to get SCU ipc handle: %d\n",
+> > -				      ret);
+> > -		return ret;
+> > -	}
+> > +	if (ret)
+> > +		return dev_err_probe(dev, ret, "failed to get SCU ipc handle\n");
+> > =20
+> >  	p2d->dev =3D dev;
+> > =20
+> > @@ -422,13 +414,9 @@ static int imx8qxp_pxl2dpi_bridge_probe(struct pla=
+tform_device *pdev)
+> >  	}
+> > =20
+> >  	p2d->next_bridge =3D imx8qxp_pxl2dpi_find_next_bridge(p2d);
+> > -	if (IS_ERR(p2d->next_bridge)) {
+> > -		ret =3D PTR_ERR(p2d->next_bridge);
+> > -		if (ret !=3D -EPROBE_DEFER)
+> > -			DRM_DEV_ERROR(dev, "failed to find next bridge: %d\n",
+> > -				      ret);
+> > -		return ret;
+> > -	}
+> > +	if (IS_ERR(p2d->next_bridge))
+> > +		return dev_err_probe(dev, PTR_ERR(p2d->next_bridge),
+> > +				     "failed to find next bridge\n");
+> > =20
+> >  	ret =3D imx8qxp_pxl2dpi_set_pixel_link_sel(p2d);
+> >  	if (ret)
+>=20
+> imx8qxp_pxl2dpi_parse_dt_companion() may return -EPROBE_DEFER too, so it =
+needs
+> to be changed.
 
- drivers/gpu/drm/mediatek/mtk_dsi.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+True, I added a dev_err_probe to that function when companion bridge cannot
+be found.
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
-index d871b1dba083..0acfda47f002 100644
---- a/drivers/gpu/drm/mediatek/mtk_dsi.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
-@@ -1015,12 +1015,12 @@ static ssize_t mtk_dsi_host_transfer(struct mipi_dsi_host *host,
- 				     const struct mipi_dsi_msg *msg)
- {
- 	struct mtk_dsi *dsi = host_to_dsi(host);
--	u32 recv_cnt, i;
-+	ssize_t recv_cnt;
- 	u8 read_data[16];
- 	void *src_addr;
- 	u8 irq_flag = CMD_DONE_INT_FLAG;
- 	u32 dsi_mode;
--	int ret;
-+	int ret, i;
- 
- 	dsi_mode = readl(dsi->regs + DSI_MODE_CTRL);
- 	if (dsi_mode & MODE) {
-@@ -1069,7 +1069,7 @@ static ssize_t mtk_dsi_host_transfer(struct mipi_dsi_host *host,
- 	if (recv_cnt)
- 		memcpy(msg->rx_buf, src_addr, recv_cnt);
- 
--	DRM_INFO("dsi get %d byte data from the panel address(0x%x)\n",
-+	DRM_INFO("dsi get %zd byte data from the panel address(0x%x)\n",
- 		 recv_cnt, *((u8 *)(msg->tx_buf)));
- 
- restore_dsi_mode:
--- 
-2.45.2
+Best regards,
+Alexander
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
+
 
 
