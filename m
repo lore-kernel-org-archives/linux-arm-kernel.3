@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C67AE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 13:34:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D8F0E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 13:35:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wj89DE0wTJdp2wyTEZQwobNPweMsiKJIaFrQ1faSRt4=; b=BFEA1DssPdxUnGlPWXgvtjjn61
-	IFHW/B89kDP5AmsA+XTect8OfMUFr5uvmVGfIWj02MwCA8PuYS1i0SJ+XO99CXzaHEBX2v917NeGf
-	SquQr1YaeG1aVngALfl1h2oemAiWk7zfHWlvA1cRcI+fI4ubo007aokCFuCVtHe5bRtNH1VQd4XKv
-	JVTb6Bom6SB4eZFoGQMK5cxE6EqwxFn5xiXjPQ5bmBidy8VEe+MUqCmbNJKa9ULBUCyNq/iaIkdlm
-	J2cQIUdNT4TO1kQVWkUMgNOh9FGEJ5jFf/2+d4gX4X6g/AqVgoWtftI2J1HWofeOlxQ6ffI1K0Fmm
-	uo1upwdg==;
+	bh=7zKVl4ErJTsqC1L8EpP30Wrq/2TXXpHRlMyoxXlbIuI=; b=t9iiWzpiJQWbG1hBLl+qMefUiU
+	f/ZncODZ4ghWd946tLJVaT22U5WGn9VAfw78MZA2/aCEjrhwllsvlGwjDUbHWUt3upzJEroVCfQqT
+	torv9K17YpqWjzafHPl3ioRuWiWzB0TGHVn6ca2kCDTQKQztVmw5OvEC13ZaKNYsyZZVUgHr5+ssX
+	vm/5L2ompaP2lfdj7ia38Vo9w+H1NAtC5iLqg3bw0+6+XEMQWrt6m48byuSfaJfrfNcrIZlsxk4hY
+	jEI0Q1pvVhkL+8BFRE+utN5WNSrNX5Tm6b4UKwPDy199TFpT0JLlKCJeft9t0rtb9ow6zB1H+qBJz
+	P9MEB8aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVWCY-00000008d0u-378S;
-	Wed, 08 Jan 2025 13:34:26 +0000
+	id 1tVWDj-00000008dA0-1SQn;
+	Wed, 08 Jan 2025 13:35:39 +0000
 Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVVwp-00000008ZuH-0Y7H
+	id 1tVVwp-00000008ZuI-0YTJ
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 08 Jan 2025 13:18:15 +0000
 Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5089S71c008374;
-	Wed, 8 Jan 2025 14:18:02 +0100
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5089S79s008366;
+	Wed, 8 Jan 2025 14:18:03 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	Wj89DE0wTJdp2wyTEZQwobNPweMsiKJIaFrQ1faSRt4=; b=SGmP1VTI879B4DYB
-	Lxfmnfb0LNkZ+qOZAFgx4s1/7LpBjeP6jJ/DnLvf3//pjOPjY2BqmVuiGOWztO7f
-	QIDGFOSXvRoAD07rcr4jcnIqwtNnLt6eOTV20Y2Q3k9TZ9jkrtOPkq6+ADCgxyM0
-	R1JCI5+PazrY8CBRQr+WsrnhO2hKHOJVHE2VZ/O9Z+X1u8vOBTVnUxaFeFsKi/HL
-	4bMCFYaReNvNOJvoeMIQmGN0TBwWtWnUYUiRVZ9tvL9cO6eAX/tZTBqlKNd5Cznc
-	ifXZGYNDm193CeaI6ZxLdPc3T8UCkMUT3ROYbI3Mi2MLHJmkkLg+pTxGjkOxlfyu
-	03A63Q==
+	7zKVl4ErJTsqC1L8EpP30Wrq/2TXXpHRlMyoxXlbIuI=; b=J6MpeN4Wx4L8S1vc
+	dbQteZccsNBgU4hreVdOlI0aGn4eook9GTSHAqNkiddJrCD0s/A8kV0HxDrhDZ3S
+	cRUJmX0u/OJLPQ7SXFgNby2VBSV07flu7y4jRXTf4/9mh61ttcbemG4tDYg+WgVZ
+	pC+MSJyHZI4F7RooDjVr5b5YoN/iLvf+xGE2jEaei9wV8L3EjETzfZuFRC5VyRxg
+	I1WRsAaX0VQY+XSarTsD3rzy7KftQKQNr1EHi9paqqFzdJx7eH2bFOILS6YHliuz
+	Zvg7GwhNaoIbxDKYncphIcccA0RPjTsPqgfUBtHiDgkw86n+PevN2p+od0K5rN2F
+	rJVifg==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 441m7t9md7-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 441m7t9md8-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Wed, 08 Jan 2025 14:18:02 +0100 (CET)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id B6BE640047;
-	Wed,  8 Jan 2025 14:17:00 +0100 (CET)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 252384004C;
+	Wed,  8 Jan 2025 14:17:08 +0100 (CET)
 Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 04DCE2795F1;
-	Wed,  8 Jan 2025 14:16:11 +0100 (CET)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 4AB172B0E18;
+	Wed,  8 Jan 2025 14:16:14 +0100 (CET)
 Received: from localhost (10.252.31.140) by SHFDAG1NODE1.st.com (10.75.129.69)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Wed, 8 Jan
- 2025 14:16:10 +0100
+ 2025 14:16:13 +0100
 From: Alain Volmat <alain.volmat@foss.st.com>
-Date: Wed, 8 Jan 2025 14:16:04 +0100
-Subject: [PATCH v2 1/8] dt-bindings: media: clarify stm32 csi & simplify
- example
+Date: Wed, 8 Jan 2025 14:16:07 +0100
+Subject: [PATCH v2 4/8] media: stm32: csi: use ARRAY_SIZE to search D-PHY
+ table
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250108-csi_dcmipp_mp25_enhancements-v2-1-05808ce50e41@foss.st.com>
+Message-ID: <20250108-csi_dcmipp_mp25_enhancements-v2-4-05808ce50e41@foss.st.com>
 References: <20250108-csi_dcmipp_mp25_enhancements-v2-0-05808ce50e41@foss.st.com>
 In-Reply-To: <20250108-csi_dcmipp_mp25_enhancements-v2-0-05808ce50e41@foss.st.com>
 To: Hugues Fruchet <hugues.fruchet@foss.st.com>,
@@ -86,8 +86,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_051811_579639_3A5DB52F 
-X-CRM114-Status: GOOD (  11.06  )
+X-CRM114-CacheID: sfid-20250108_051811_590063_C9645CBB 
+X-CRM114-Status: GOOD (  16.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,42 +102,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Clarify the description of the stm32 CSI by mentioning CSI-2 and D-PHY.
-Remove the bus-type property from the example since this CSI has a D-PHY,
-which is the only bus-type option, making this property redundant.
+Within stm32_csi_start, use ARRAY_SIZE loop in order to search
+for the right setting.
+Avoid useless init of lanes_ie / lanes_en.
 
 Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
-
 ---
-v2: clarify commit message related to bus-type property removal within
-    the example
----
- Documentation/devicetree/bindings/media/st,stm32mp25-csi.yaml | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
+ drivers/media/platform/st/stm32/stm32-csi.c | 20 +++++++++++---------
+ 1 file changed, 11 insertions(+), 9 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/media/st,stm32mp25-csi.yaml b/Documentation/devicetree/bindings/media/st,stm32mp25-csi.yaml
-index 33bedfe41924..e9fa3cfea5d2 100644
---- a/Documentation/devicetree/bindings/media/st,stm32mp25-csi.yaml
-+++ b/Documentation/devicetree/bindings/media/st,stm32mp25-csi.yaml
-@@ -7,8 +7,8 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
- title: STMicroelectronics STM32 CSI controller
+diff --git a/drivers/media/platform/st/stm32/stm32-csi.c b/drivers/media/platform/st/stm32/stm32-csi.c
+index 89fcd7d07904..3654f9895dbc 100644
+--- a/drivers/media/platform/st/stm32/stm32-csi.c
++++ b/drivers/media/platform/st/stm32/stm32-csi.c
+@@ -325,7 +325,6 @@ static const struct stm32_csi_mbps_phy_reg snps_stm32mp25[] = {
+ 	{ .mbps = 2400, .hsfreqrange = 0x47,	.osc_freq_target = 442 },
+ 	{ .mbps = 2450, .hsfreqrange = 0x48,	.osc_freq_target = 451 },
+ 	{ .mbps = 2500, .hsfreqrange = 0x49,	.osc_freq_target = 460 },
+-	{ /* sentinel */ }
+ };
  
- description:
--  The STM32 CSI controller allows connecting a CSI based
--  camera to the DCMIPP camera pipeline.
-+  The STM32 CSI controller, coupled with a D-PHY allows connecting a CSI-2
-+  based camera to the DCMIPP camera pipeline.
+ static const struct v4l2_mbus_framefmt fmt_default = {
+@@ -444,13 +443,13 @@ static void stm32_csi_phy_reg_write(struct stm32_csi_dev *csidev,
+ static int stm32_csi_start(struct stm32_csi_dev *csidev,
+ 			   struct v4l2_subdev_state *state)
+ {
+-	const struct stm32_csi_mbps_phy_reg *phy_regs;
++	const struct stm32_csi_mbps_phy_reg *phy_regs = NULL;
+ 	struct v4l2_mbus_framefmt *sink_fmt;
+ 	const struct stm32_csi_fmts *fmt;
+ 	unsigned long phy_clk_frate;
++	u32 lanes_ie, lanes_en;
+ 	unsigned int mbps;
+-	u32 lanes_ie = 0;
+-	u32 lanes_en = 0;
++	unsigned int i;
+ 	s64 link_freq;
+ 	int ret;
+ 	u32 ccfr;
+@@ -474,11 +473,14 @@ static int stm32_csi_start(struct stm32_csi_dev *csidev,
+ 	mbps = div_s64(link_freq, 500000);
+ 	dev_dbg(csidev->dev, "Computed Mbps: %u\n", mbps);
  
- maintainers:
-   - Alain Volmat <alain.volmat@foss.st.com>
-@@ -109,7 +109,6 @@ examples:
-                 endpoint {
-                     remote-endpoint = <&imx335_ep>;
-                     data-lanes = <1 2>;
--                    bus-type = <MEDIA_BUS_TYPE_CSI2_DPHY>;
-                 };
-             };
+-	for (phy_regs = snps_stm32mp25; phy_regs->mbps != 0; phy_regs++)
+-		if (phy_regs->mbps >= mbps)
++	for (i = 0; i < ARRAY_SIZE(snps_stm32mp25); i++) {
++		if (snps_stm32mp25[i].mbps >= mbps) {
++			phy_regs = &snps_stm32mp25[i];
+ 			break;
++		}
++	}
  
+-	if (!phy_regs->mbps) {
++	if (!phy_regs) {
+ 		dev_err(csidev->dev, "Unsupported PHY speed (%u Mbps)", mbps);
+ 		return -ERANGE;
+ 	}
+@@ -488,8 +490,8 @@ static int stm32_csi_start(struct stm32_csi_dev *csidev,
+ 		phy_regs->osc_freq_target);
+ 
+ 	/* Prepare lanes related configuration bits */
+-	lanes_ie |= STM32_CSI_SR1_DL0_ERRORS;
+-	lanes_en |= STM32_CSI_PCR_DL0EN;
++	lanes_ie = STM32_CSI_SR1_DL0_ERRORS;
++	lanes_en = STM32_CSI_PCR_DL0EN;
+ 	if (csidev->num_lanes == 2) {
+ 		lanes_ie |= STM32_CSI_SR1_DL1_ERRORS;
+ 		lanes_en |= STM32_CSI_PCR_DL1EN;
 
 -- 
 2.34.1
