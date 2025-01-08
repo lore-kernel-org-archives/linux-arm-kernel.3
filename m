@@ -4,95 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B628AE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 13:14:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96A17E77199
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 13:15:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k/Owhr//HyiKIqL7/U5rQbAgBbQdC2z3Ac5xKTuO6zs=; b=HIChLypbrzzry2yZac8J2HYE1Q
-	8cQ/Vdou4HanYvJckYCjBPdB4s+GKhW4blHi1WRqyFiPRIj1By+FBQ4OyVfe1oKZwO+cI4IfxcFy5
-	gVq+38UdGj89gnvFydgaZSMIB+bdZzF3qKSie8Q+UugW0vewV+eP552SiT0crPIXbV0hCaSKwe/d5
-	ic31t+8fCERPA+hvnxuhJUbaiOBkhykJvUyUucdb+wqE5NxSqdEQMsM03LHBKANfNwRR6587y4rs5
-	8h8Pz3haRstTPVc8fdHyM0uHYTvxy6RSxJ6Ovue3zfj9vGER2nj+rnI+NL8/TDHctZoyfA/oM8L8d
-	PXtC2aOQ==;
+	bh=2sPGfagDidXP/4IuaDVk6pqaRnMLSKzev0rZln60Z1I=; b=0rFdzAhARsshLr47q8/DtYCf1g
+	KTB2QU5TXmTOEs+p00bhfqgoMO6esW12XhnjjqYmHfmTK5mn8Pva64sYijh+zI1ZeygvH76X1KlCq
+	ibIoelw6voRm+jmtxfYeIOhV5RH3mf8TmzuAnGfUmhrucKHDEyUKlH3aBh9f7yZpx/DBakVbceNer
+	9XSiJRYCJlWUBHxfVqhYdsQG/3RVl+1NvoLXbSzTRybDb01lD6G2zn+vfo39SCc75fH0hT07CAvEx
+	lkqufjGVeJjotEwoowR7OMt3KECSSgFPul4wKBnMdoJ3MLxH9UezSWxb8/ZNktqWsO2c+I8OK6Pm5
+	itC7qTKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVVtB-00000008ZHM-2U8Y;
-	Wed, 08 Jan 2025 13:14:25 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1tVVuN-00000008ZQm-0sis;
+	Wed, 08 Jan 2025 13:15:39 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVVSH-00000008Tp3-2wcm
+	id 1tVVVc-00000008UQG-1ISq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 12:46:39 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5089S7TW008396;
-	Wed, 8 Jan 2025 13:46:19 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=selector1; bh=k/Owhr//HyiKIqL7/U5rQbAg
-	BbQdC2z3Ac5xKTuO6zs=; b=u+222eb6IRU84rOdobLv4zvXbz9vCeYzMO/OV/NT
-	Z1w+sXnsAJoRJeR53GkDlCRiiDhAbZIt5F2QU91gKvzgvD04NfOUObaMvf0p1Wdv
-	3en+DH04GTdWX82bzf2HmN97+B+pvaonsbur68tyZAt56P8QF3KGUMKXiDFtpGrw
-	Ml/N0zVkDZFbKOutfjSrSFoQOUYE5wgXoOd4FCGiYI5DP4Z4OdYY2bqrhR4c2UWy
-	EjDacST5H03g6pFev/AXpgVJdAEKndj4RNAsRzeDRQLkZbjpeAmX9uoeN9I6wA+A
-	ZUYKeNfGl5d2xSeNP9PEmTwLD8NJyyhOxaUENOLdrvvByA==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 441m7t9gj1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 08 Jan 2025 13:46:18 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 2403440044;
-	Wed,  8 Jan 2025 13:45:11 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 591DE262B18;
-	Wed,  8 Jan 2025 13:42:12 +0100 (CET)
-Received: from gnbcxd0016.gnb.st.com (10.129.178.213) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Wed, 8 Jan
- 2025 13:42:11 +0100
-Date: Wed, 8 Jan 2025 13:42:06 +0100
-From: Alain Volmat <alain.volmat@foss.st.com>
-To: Conor Dooley <conor@kernel.org>
-CC: Sakari Ailus <sakari.ailus@linux.intel.com>,
-        Hugues Fruchet
-	<hugues.fruchet@foss.st.com>,
-        Mauro Carvalho Chehab <mchehab@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Hans Verkuil <hverkuil@xs4all.nl>, Rob
- Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor
- Dooley <conor+dt@kernel.org>, <linux-media@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <devicetree@vger.kernel.org>
-Subject: Re: [PATCH 2/9] dt-bindings: media: clarify stm32 csi & simplify
- example
-Message-ID: <20250108124206.GA153605@gnbcxd0016.gnb.st.com>
-References: <20241217-csi_dcmipp_mp25_enhancements-v1-0-2b432805d17d@foss.st.com>
- <20241217-csi_dcmipp_mp25_enhancements-v1-2-2b432805d17d@foss.st.com>
- <20241217-crawfish-tiring-792c535301d0@spud>
- <Z2HpVyVEs7jn0VPd@kekkonen.localdomain>
- <20241218-yelling-palm-da676b67afb9@spud>
+	Wed, 08 Jan 2025 12:50:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id AB3EA5C4A3F;
+	Wed,  8 Jan 2025 12:49:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E134C4CEDD;
+	Wed,  8 Jan 2025 12:50:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736340603;
+	bh=Agh85AcU34sO5Z/y1T57IDqim/xqjFjzZrX9iq/AWhM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hx2hSaH8HClaYe8b0UKDF7yhn/t4kh2V2ZgANmR/EvoSSuGq4m2xLp0FrXDqC8U1W
+	 gQjHw8fAfndfAdL4jxlWTgMvkDSnU3taWa1jeHHv++wOjKMnGI6/VojxaVBw0UnLEl
+	 TbGy5/gLlgbYvhEjajj35fyYWMf8cOQ8YctAePKMwVjm0SSK1Oaxm5RKj2Ab5oQNz4
+	 UGen/QjuIMVfB3Su/8vGNC0uw3gn4vwHr50C+Kxhr3K/4YWjDnfdZRyz2uQWolwXXI
+	 CruYELhEwl/F2L7QrKsxAAZrxIsA2+NMOzFty4bKKO3cw7o8VY7TE/cGCjOvaITZfs
+	 aqJN7GxmeHtdQ==
+Date: Wed, 8 Jan 2025 12:49:58 +0000
+From: Will Deacon <will@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Dave Martin <Dave.Martin@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2 0/6] arm64/sme: Collected SME fixes
+Message-ID: <20250108124957.GA9312@willie-the-truck>
+References: <20241204-arm64-sme-reenable-v2-0-bae87728251d@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241218-yelling-palm-da676b67afb9@spud>
-X-Disclaimer: ce message est personnel / this message is private
-X-Originating-IP: [10.129.178.213]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+In-Reply-To: <20241204-arm64-sme-reenable-v2-0-bae87728251d@kernel.org>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_044638_016378_06BC20E9 
-X-CRM114-Status: GOOD (  14.25  )
+X-CRM114-CacheID: sfid-20250108_045004_393177_6B26FFE3 
+X-CRM114-Status: GOOD (  13.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,30 +75,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
-
-On Wed, Dec 18, 2024 at 06:25:11PM +0000, Conor Dooley wrote:
-> On Tue, Dec 17, 2024 at 09:12:55PM +0000, Sakari Ailus wrote:
-> > Hi Conor,
-> > 
-> > On Tue, Dec 17, 2024 at 06:24:42PM +0000, Conor Dooley wrote:
-> > > On Tue, Dec 17, 2024 at 06:39:19PM +0100, Alain Volmat wrote:
-> > > > Clarify the description of the stm32 csi by mentioning CSI-2 and
-> > > > D-PHY.
-> > > 
-> > > > Remove the bus-type property from the example.
-> > > 
-> > > Why? What's there to gain from the example being (seemingly?) less
-> > > comprehensive?
-> > 
-> > As the device has D-PHY, other options are excluded. I.e. that property is
-> > redundant for this device.
+On Wed, Dec 04, 2024 at 03:20:48PM +0000, Mark Brown wrote:
+> This series collects the various SME related fixes that were previously
+> posted separately.  These should address all the issues I am aware of so
+> a patch which reenables the SME configuration option is also included.
 > 
-> That should be mentioned in the commit message.
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> ---
+> Changes in v2:
+> - Pull simplification of the signal restore code after the SME
+>   reenablement, it's not a fix but there's some code overlap.
+> - Comment updates.
+> - Link to v1: https://lore.kernel.org/r/20241203-arm64-sme-reenable-v1-0-d853479d1b77@kernel.org
 
-Ok, I'll push a v2 with that commit message fixed.
+Mark (R), are you happy with this? I know you were digging into some
+other issues in this area but I'm not sure whether they invalidate the
+fixes here or not.
 
-Alain
+Cheers,
 
-
+Will
 
