@@ -4,85 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B2E0E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 09:24:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36EB7E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 09:27:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IlfZTFFq5DHtcNI/I26GleNVoiwLL2d4CL3ukTN/LMU=; b=JhXgnXuhiN+VQqk9QBz/yvZbo6
-	7ADu83GFpSl+NxrYSKByR1nr+PizOClimuA/yJkap5sImnjCjnnkF+VS+DV5wG+QATuyg9Vx0n8Y1
-	9jtM5ZpxToj4KI+IpLBA+BE+9Qaq4+8I9MKdoBqhv228sYmjaUmm/Yqkmx2xX0KSqNEn8GehX3vt2
-	9RQ+RHdiW3Lj2yFo9I/sXVdz3dUYvXoHT7xNPKSif88SN5hiocDKjBECCdFB0Gv2uwpGH0tm/kajY
-	m21pOY/DpY2UCiA8g6lABYF2+BlA4hnID4FB9HRKjBtD7tYqs83bS9GoHt9hdJ7hzsR3+27V3fvtB
-	uJwBYCIg==;
+	bh=mF9k0RkZO1g5TO1U3mUvOtsOp0NPv412qecuLTkAjsg=; b=Jc2JkpmsK/Ma9u8hYyYN9EwbzG
+	M9gvfmET4auJYxez5aYbRYUEpndl3MdUE1PhjCP6jcZ49Zuc+AnfDc0jQABpTDaqjkaSwG7Gl44SW
+	VhdhkprVnVGm7qSmNeCmmQ+g1DSDLKaQ8eYgJtNppO2RRYmSY+8TuZu0YA8jYMQlHy2S+ZZi6Qi4t
+	5TnhGDFITS+v1rm5yQY2zIdvrL1096ys7BUKAU3aMrFE9mi2CMcM/APPMFcWbkB45iMG/CMcvK3Il
+	x6964albFzIUNVqfdfQycf03PTpH/kQPKFzwMwYEn9Xmfecwq6Vl7s+u9JEgBbtcsDKR2ZUwnOUht
+	wxABABaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVSIc-00000007lHH-06Uz;
-	Wed, 08 Jan 2025 09:24:26 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tVSLh-00000007mva-3pwk;
+	Wed, 08 Jan 2025 09:27:37 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVSHO-00000007l6W-3ReT;
-	Wed, 08 Jan 2025 09:23:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1736328188;
-	bh=qd19nRPwbCvUMi/KiQbuvAWtRBU4wH1adFt9H0ZLYm4=;
+	id 1tVSKQ-00000007mBm-1MN7
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 08 Jan 2025 09:26:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id CABDEA40C3C;
+	Wed,  8 Jan 2025 09:24:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27239C4CEE0;
+	Wed,  8 Jan 2025 09:26:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736328377;
+	bh=XPJj6oXMCGezoqFdEXRGYT/4pQLrzWUSOHgwH+//EU4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=J/iPZDPdgXw2RBeEUVXQ1CswpShssY0E40y7+6XgOHC5JCgIeWxfXaA9zQRSNXwdk
-	 r8rwtOaovegOo6o1HUJCg/s9ui+ahQx8i81Ilep0lRCVM1YL5Ya7eLM3XPcall2wdr
-	 NEU3r2veQiMqBBTkAKxXV0Z0hGWMrQ49LZ2Oc9EIKIlmd8e/P96we3PJ3k+xm87Iyd
-	 PjqHluCtgI4TdG3aR74Bm4/HowFJphatSUb0uJtGrSjVvBG3tohnSstK/XswWd1Nlh
-	 LEF1e0LOWZZ8wy3N6EZs1+FE1mjDJfDt665eEig6JIIhluVghGUm8HKOL6Nfom89lU
-	 /iohHw7aGBnig==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B20B917E1544;
-	Wed,  8 Jan 2025 10:23:07 +0100 (CET)
-Message-ID: <9f8c2da3-8cce-4fb2-a863-4d79f524f58b@collabora.com>
-Date: Wed, 8 Jan 2025 10:23:06 +0100
+	b=dn+EcWTSyAGrfXMgrdbL0WBRoRZdwOzEBKp3dPyecyMGB+Aytui87AHQTi3XLCXT8
+	 EPNEbc7lNrg5OVwNdWLBglDkIZmcAvJFyL1NMcjC/iME3JkWEuprWeLO6OaQj3Z3s/
+	 s3Ajr6RuoxawGcfXBS66AdPNwHbuZWCshorZeNVzgfjWwgBxORy4ztdEnXw4ayMyWX
+	 igIwB8WOToQALJPo/VfRgAeRqKWc0iJBhiFbigyMWOvY0J2U/sQxCAjB/DtqiwRvXZ
+	 ZcUsjJ+23SmHcIrUsvMCQ54dWPGYzBO+NPpUFkFl2S5bFzGvW97DLS75gvRUQOJT67
+	 UpcIp2jiwqp1g==
+Message-ID: <e28abf31-3d91-4d1b-97e6-202df5ebb3f5@kernel.org>
+Date: Wed, 8 Jan 2025 10:26:11 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 14/33] drm/mediatek: mtk_hdmi: Move audio params
- selection to new function
-To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
- "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
-Cc: "robh@kernel.org" <robh@kernel.org>,
- "jie.qiu@mediatek.com" <jie.qiu@mediatek.com>,
- "tzimmermann@suse.de" <tzimmermann@suse.de>,
- "simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
- <mripard@kernel.org>, =?UTF-8?B?Sml0YW8gU2hpICjnn7PorrDmtpsp?=
- <jitao.shi@mediatek.com>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "kernel@collabora.com" <kernel@collabora.com>,
- "dmitry.baryshkov@linaro.org" <dmitry.baryshkov@linaro.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "airlied@gmail.com" <airlied@gmail.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "junzhi.zhao@mediatek.com" <junzhi.zhao@mediatek.com>
-References: <20241217154345.276919-1-angelogioacchino.delregno@collabora.com>
- <20241217154345.276919-15-angelogioacchino.delregno@collabora.com>
- <03d20d6d77b54c25b9d7e65899a67359fae6130a.camel@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH v4 2/3] soc: samsung: usi: implement support for USIv1 and
+ exynos8895
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ Sam Protsenko <semen.protsenko@linaro.org>,
+ Peter Griffin <peter.griffin@linaro.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20250107113512.525001-1-ivo.ivanov.ivanov1@gmail.com>
+ <20250107113512.525001-3-ivo.ivanov.ivanov1@gmail.com>
+ <6y4mg6atqi6idyoppesg5owrnfrjhkzqh4im4po7urfry2qctb@yimp5y6sm7h6>
+ <907e1169-ceea-4d41-93bb-925041de005e@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-In-Reply-To: <03d20d6d77b54c25b9d7e65899a67359fae6130a.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <907e1169-ceea-4d41-93bb-925041de005e@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_012311_053600_655D0249 
-X-CRM114-Status: GOOD (  16.35  )
+X-CRM114-CacheID: sfid-20250108_012618_496148_D00E07F6 
+X-CRM114-Status: GOOD (  21.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,119 +124,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 20/12/24 04:47, CK Hu (胡俊光) ha scritto:
-> Hi, Angelo:
+On 08/01/2025 10:17, Ivaylo Ivanov wrote:
+> On 1/8/25 10:30, Krzysztof Kozlowski wrote:
+>> On Tue, Jan 07, 2025 at 01:35:11PM +0200, Ivaylo Ivanov wrote:
+>>> USIv1 IP-core is found on some ARM64 Exynos SoCs (like Exynos8895) and
+>>> provides selectable serial protocols (one of: HSI2C0, HSI2C1, HSI2C0_1,
+>>> SPI, UART, UART_HSI2C1).
+>>>
+>>> USIv1, unlike USIv2, doesn't have any known register map. Underlying
+>>> protocols that it implements have no offset, like with Exynos850.
+>>> Desired protocol can be chosen via SW_CONF register from System
+>>> Register block of the same domain as USI.
+>>>
+>>> In order to select a particular protocol, the protocol has to be
+>>> selected via the System Register. Unlike USIv2, there's no need for
+>>> any setup before the given protocol becomes accessible apart from
+>>> enabling the APB clock and the protocol operating clock.
+>>>
+>>> Modify the existing driver in order to allow USIv1 instances in
+>>> Exynos8895 to probe and set their protocol. While we're at it,
+>>> make use of the new mode constants in place of the old ones
+>>> and add a removal routine.
+>>>
+>>> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+>>> ---
+>>>  drivers/soc/samsung/exynos-usi.c | 108 +++++++++++++++++++++++++++----
+>>>  1 file changed, 95 insertions(+), 13 deletions(-)
+>>>
+>>> diff --git a/drivers/soc/samsung/exynos-usi.c b/drivers/soc/samsung/exynos-usi.c
+>>> index 114352695..43c17b100 100644
+>>> --- a/drivers/soc/samsung/exynos-usi.c
+>>> +++ b/drivers/soc/samsung/exynos-usi.c
+>>> @@ -16,6 +16,18 @@
+>>>  
+>>>  #include <dt-bindings/soc/samsung,exynos-usi.h>
+>>>  
+>>> +/* USIv1: System Register: SW_CONF register bits */
+>>> +#define USI_V1_SW_CONF_NONE		0x0
+>>> +#define USI_V1_SW_CONF_I2C0		0x1
+>>> +#define USI_V1_SW_CONF_I2C1		0x2
+>>> +#define USI_V1_SW_CONF_I2C0_1		0x3
+>>> +#define USI_V1_SW_CONF_SPI		0x4
+>>> +#define USI_V1_SW_CONF_UART		0x8
+>>> +#define USI_V1_SW_CONF_UART_I2C1	0xa
+>>> +#define USI_V1_SW_CONF_MASK		(USI_V1_SW_CONF_I2C0 | USI_V1_SW_CONF_I2C1 | \
+>>> +					 USI_V1_SW_CONF_I2C0_1 | USI_V1_SW_CONF_SPI | \
+>>> +					 USI_V1_SW_CONF_UART | USI_V1_SW_CONF_UART_I2C1)
+>>> +
+>>>  /* USIv2: System Register: SW_CONF register bits */
+>>>  #define USI_V2_SW_CONF_NONE	0x0
+>>>  #define USI_V2_SW_CONF_UART	BIT(0)
+>>> @@ -34,7 +46,8 @@
+>>>  #define USI_OPTION_CLKSTOP_ON	BIT(2)
+>>>  
+>>>  enum exynos_usi_ver {
+>>> -	USI_VER2 = 2,
+>>> +	USI_VER1 = 1,
+>> Is this assignment=1 actually now helping? Isn't it creating empty item
+>> in exynos_usi_modes array? Basically it wastes space in the array for
+>> no benefits.
 > 
-> On Tue, 2024-12-17 at 16:43 +0100, AngeloGioacchino Del Regno wrote:
->> External email : Please do not click links or open attachments until you have verified the sender or the content.
->>
->>
->> In preparation for splitting common bits of this driver, move the
->> audio params (codec, sample rate/size, input type, i2s format, etc)
->> selection to a new function called mtk_hdmi_audio_params().
->>
->> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> ---
->>   drivers/gpu/drm/mediatek/mtk_hdmi.c | 46 +++++++++++++++++------------
->>   1 file changed, 27 insertions(+), 19 deletions(-)
->>
->> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
->> index d2f1d6286fbc..8f5ab97a0261 100644
->> --- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
->> +++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
->> @@ -1479,12 +1479,11 @@ static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi,
->>    * HDMI audio codec callbacks
->>    */
->>
->> -static int mtk_hdmi_audio_hw_params(struct device *dev, void *data,
->> -                                   struct hdmi_codec_daifmt *daifmt,
->> -                                   struct hdmi_codec_params *params)
->> +static int mtk_hdmi_audio_params(struct mtk_hdmi *hdmi,
->> +                                struct hdmi_codec_daifmt *daifmt,
->> +                                struct hdmi_codec_params *params)
->>   {
->> -       struct mtk_hdmi *hdmi = dev_get_drvdata(dev);
->> -       struct hdmi_audio_param hdmi_params;
->> +       struct hdmi_audio_param aud_params = { 0 };
->>          unsigned int chan = params->cea.channels;
->>
->>          dev_dbg(hdmi->dev, "%s: %u Hz, %d bit, %d channels\n", __func__,
->> @@ -1495,16 +1494,16 @@ static int mtk_hdmi_audio_hw_params(struct device *dev, void *data,
->>
->>          switch (chan) {
->>          case 2:
->> -               hdmi_params.aud_input_chan_type = HDMI_AUD_CHAN_TYPE_2_0;
->> +               aud_params.aud_input_chan_type = HDMI_AUD_CHAN_TYPE_2_0;
->>                  break;
->>          case 4:
->> -               hdmi_params.aud_input_chan_type = HDMI_AUD_CHAN_TYPE_4_0;
->> +               aud_params.aud_input_chan_type = HDMI_AUD_CHAN_TYPE_4_0;
->>                  break;
->>          case 6:
->> -               hdmi_params.aud_input_chan_type = HDMI_AUD_CHAN_TYPE_5_1;
->> +               aud_params.aud_input_chan_type = HDMI_AUD_CHAN_TYPE_5_1;
->>                  break;
->>          case 8:
->> -               hdmi_params.aud_input_chan_type = HDMI_AUD_CHAN_TYPE_7_1;
->> +               aud_params.aud_input_chan_type = HDMI_AUD_CHAN_TYPE_7_1;
->>                  break;
->>          default:
->>                  dev_err(hdmi->dev, "channel[%d] not supported!\n", chan);
->> @@ -1528,26 +1527,35 @@ static int mtk_hdmi_audio_hw_params(struct device *dev, void *data,
->>
->>          switch (daifmt->fmt) {
->>          case HDMI_I2S:
->> -               hdmi_params.aud_codec = HDMI_AUDIO_CODING_TYPE_PCM;
->> -               hdmi_params.aud_sample_size = HDMI_AUDIO_SAMPLE_SIZE_16;
->> -               hdmi_params.aud_input_type = HDMI_AUD_INPUT_I2S;
->> -               hdmi_params.aud_i2s_fmt = HDMI_I2S_MODE_I2S_24BIT;
->> -               hdmi_params.aud_mclk = HDMI_AUD_MCLK_128FS;
->> +               aud_params.aud_codec = HDMI_AUDIO_CODING_TYPE_PCM;
->> +               aud_params.aud_sample_size = HDMI_AUDIO_SAMPLE_SIZE_16;
->> +               aud_params.aud_input_type = HDMI_AUD_INPUT_I2S;
->> +               aud_params.aud_i2s_fmt = HDMI_I2S_MODE_I2S_24BIT;
->> +               aud_params.aud_mclk = HDMI_AUD_MCLK_128FS;
->>                  break;
->>          case HDMI_SPDIF:
->> -               hdmi_params.aud_codec = HDMI_AUDIO_CODING_TYPE_PCM;
->> -               hdmi_params.aud_sample_size = HDMI_AUDIO_SAMPLE_SIZE_16;
->> -               hdmi_params.aud_input_type = HDMI_AUD_INPUT_SPDIF;
->> +               aud_params.aud_codec = HDMI_AUDIO_CODING_TYPE_PCM;
->> +               aud_params.aud_sample_size = HDMI_AUDIO_SAMPLE_SIZE_16;
->> +               aud_params.aud_input_type = HDMI_AUD_INPUT_SPDIF;
->>                  break;
->>          default:
->>                  dev_err(hdmi->dev, "%s: Invalid DAI format %d\n", __func__,
->>                          daifmt->fmt);
->>                  return -EINVAL;
->>          }
->> +       memcpy(&aud_params.codec_params, params, sizeof(aud_params.codec_params));
-> 
-> You copy to local variable, so this function does nothing.
-> 
->> +
->> +       return 0;
->> +}
->>
->> -       memcpy(&hdmi_params.codec_params, params,
->> -              sizeof(hdmi_params.codec_params));
->> +static int mtk_hdmi_audio_hw_params(struct device *dev, void *data,
->> +                                   struct hdmi_codec_daifmt *daifmt,
->> +                                   struct hdmi_codec_params *params)
->> +{
->> +       struct mtk_hdmi *hdmi = dev_get_drvdata(dev);
->> +       struct hdmi_audio_param hdmi_params;
->>
->> +       mtk_hdmi_audio_params(hdmi, daifmt, params);
->>          mtk_hdmi_audio_set_param(hdmi, &hdmi_params);
-> 
-> hdmi_params has not been initialized.
+> I wanted to keep the USIv2 enum the same.
 
-That was done on purpose: we are anyway rewriting all fields of that structure
-with the call to mtk_hdmi_audio_set_param(), so if that was stack-initialized
-to zero, that would be a double initialization.
+Is there any need for keeping it the same?
 
-Cheers,
-Angelo
+> 
+>>
+>>> +	USI_VER2,
+>>>  };
 
+
+...
+
+>>
+>>> +
+>>> +	return ret;
+>>> +}
+>>> +
+>>> +static void exynos_usi_remove(struct platform_device *pdev)
+>>> +{
+>>> +	struct exynos_usi *usi = platform_get_drvdata(pdev);
+>>> +
+>>> +	if (usi->data->ver == USI_VER2)
+>>> +		exynos_usi_disable(usi);
+>> This is not related to the patch and should be separate patch, if at
+>> all.
+> 
+> Well I though that since didn't have any removal routine before it'd be good
+> to introduce that and not leave USIv2 with hwacg set.
+
+Sure, but separate commit, please. Can be preceeding the USIv1 support.
+
+Best regards,
+Krzysztof
 
