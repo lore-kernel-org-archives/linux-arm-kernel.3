@@ -4,109 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03DE2E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 09:57:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CA99E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 09:58:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jP2UVcYe43DrsnUl3Ch2ueDEccTyGDvlbJ9rlGh+p0I=; b=oerxK1xCOouFamuxz3VgliHbVP
-	0K3/Ziq1ISy4iGMi52W2nrNiArx1B5w1y9ebU2He+BwittHI+O8vxOtRmsDS92aiULsV+eY+rcY8O
-	ky4+YP2CUWXIUWj6W3D3Iqx3x3yexWQLjLxlngR8YaJ8DtQyXxU0YVn2myUcB8dx0JPPv96QkUuv/
-	kBePg4f2XBps1wlgs24Y0FFSGJh1TLFXoBAJyi36g5sSSzAphkD467JyUJqCDZsQLciKvkeFu/M2K
-	Sv6yzOyeD2/ndEnNwSU/PdiD6+DIsAbsrs+6d7esFfA3Bt20VpU1SF+28fEqOagdCtm+FfJ+K73Uv
-	4tgDzN2w==;
+	bh=jJFc6aCEYuELsqOgEP3eTfZoZbcGrNAKeEe94fE4tQQ=; b=MDHbl+U2B2On/i8a/F8wGcmyxp
+	4lG96ZRvm2WDJBgikoKN2DXDsjn92wfHPwS9ribBlzZbtcBZ3Xz7lXjn6/h0+51yZt3cNWDrJBueY
+	jrOpHhCOJfOsDA5RRR/R4E0q7zAcRZmMvvRYaZvq9L12Qx7QS+/AOpSnZdLIT16i/1LBoRugKcvgX
+	My3LHWo1/WrMsRjNBz6h92256R2o9c1jngLYKYDWiJLgDwKZXYvBug5yvaCWcn7wZTNYd/5c6RaUV
+	619OBRoB5rnpHBphBCWaEhNqpjneEBtZrRty/mjITmd+MCe/LEmiZSHb1QY2zfNJ7fIBM6ePDXKhc
+	xxf6pnxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVSnu-00000007t6S-4AfX;
-	Wed, 08 Jan 2025 09:56:46 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tVSp4-00000007tFi-2tsy;
+	Wed, 08 Jan 2025 09:57:58 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVSaX-00000007qFl-3g3l
+	id 1tVSch-00000007qoR-3E9C
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 09:42:59 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5089AvcF010610;
-	Wed, 8 Jan 2025 09:42:47 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	jP2UVcYe43DrsnUl3Ch2ueDEccTyGDvlbJ9rlGh+p0I=; b=HgmGUnVr2aATS1Me
-	r+hwiVOHh7VfpTzPu1IuBNkweTByuEqtIMlIhVSiOEK/K2wRAdXaj7JOlT+dCj04
-	DNRcXixb+0Cya1PR9X1SSiPh2J354trIauOE6f02hZ7/GSfM08BSpa5oBkx2ArJJ
-	bUAnBTXc/f6siB6UAiTUyoQgsdvA8lXG0GxMxM7+xABCPX7rAo2VcwOPlj/Yg1CI
-	Uqkg+vZXAUZ6jrbrMawPQKZ0C1JyCv0MWjVuaLcS2ZHYkEpf0lfBcFNbEoN3X81a
-	8xFq5QvQX60QRTEmlSAWQ0v7m07WAtstKjm4T3e10sIWdcekqpBueTsQtJ0K9x+7
-	UPaRyw==
-Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 441pgnr2nm-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 08 Jan 2025 09:42:46 +0000 (GMT)
-Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
-	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5089gjTL004331
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 8 Jan 2025 09:42:45 GMT
-Received: from [10.253.35.161] (10.80.80.8) by nalasex01c.na.qualcomm.com
- (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 8 Jan 2025
- 01:42:39 -0800
-Message-ID: <87a7729d-ccdd-46f0-bcfd-3915452344fd@quicinc.com>
-Date: Wed, 8 Jan 2025 17:42:37 +0800
+	Wed, 08 Jan 2025 09:45:13 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-436a03197b2so65390845e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jan 2025 01:45:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1736329510; x=1736934310; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=jJFc6aCEYuELsqOgEP3eTfZoZbcGrNAKeEe94fE4tQQ=;
+        b=mB2nRhdPe0/8MyMcTeucHwjQr2Va8C8waT+2ILzqBuA3rg9BlcVE4bE7lk4+SQ6exD
+         Enstjn+f96J0fRgJ1GQULce5yo7hnLddixDfnOhJ38bxCHEBkV3aWjDavigZKSKbDI4x
+         1edXZCrm40q+Mzw5Ub6WpoPzbM1SR2zMVYYRwrpgvnrxbmjpMqhm/+F71H3DWxV3ne5i
+         I8YNN6dt9ndOz4BIEarfHvP8WdzaWxX3W+GQhgrs4Lz9XQ+AGG7HqPd4EwOWw7GqiJMF
+         xPbuEJ+i//ANxwPRAE+aLgVUgNCsAkKwmKgK4t4LhTnZDS9NNHcZyUyLTkW+V4ge7Y30
+         XO6Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736329510; x=1736934310;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=jJFc6aCEYuELsqOgEP3eTfZoZbcGrNAKeEe94fE4tQQ=;
+        b=BvmIKXc/KsQxViPZFXsi9iYzOKrgOInegHmdOLdqGRY97WIeF3QvYVNOK5v9epmcyz
+         utxMUFBeBLQXq7EUjBtMy5dvQcU9PXNyGPAhCOCH8ab/avJIvybFG7C9EMj6Sae2Av2f
+         vvpXw8rn65ErnRU3lfE4JTRE/VQPl2/Wlz6bpYUKuM1Q1SAY7X8/PJCt4kKFETZTEUl+
+         gIA9mW9UYFKCc8RTaQN8KtNTtSnxUxbkQsZEDpAJmrhBCrbB48YqCiGPaz4TU6xWE41H
+         Lvu5SUQmsxBpkXxi9+79ptqPIkw78P0CgAdrX8vvzk71tG9CBIDtOlVsNWEK1wTu8/ay
+         b3dA==
+X-Forwarded-Encrypted: i=1; AJvYcCVsIw906Gcw2nQJt7bjCAaE3O7IlOwaEw7ab5KhXkzAmZku4izBMwb1m8OTGm5IPJ53mVtPeHRy/i47xnLRcgm+@lists.infradead.org
+X-Gm-Message-State: AOJu0YzuqlhzRlLv2ppwPNkuOtnetsJHB+MCxicJSLoSwkynqIPr9pal
+	4Kz7T6nIRjFnfJBHwbQdnzjcAa612NudqTrsa4l0qIzEDyt1Yi7P
+X-Gm-Gg: ASbGncur7E5fXQ4hTmQ0ylP3HbFLDfGV3wB7QoC8ULVkNGLoDpIj5pXHNjH+pVuCNSr
+	H6LegIR6eBlIitNK0FhdL/rIw2N0OakUbAlz0IFqha5CeZi54PkM9GwLmcekrfJVj6nEABCayc5
+	uVWoqlLBCBSHFUKcjWbo1lEd0liH1CoHPFvNkQ2vp2upe7hdQlPok9FCkFB/gc6zkzGx4EtF7Va
+	IluhiSe13q3v9bm0nquRbR0fH9vHkB08VxrulLtkmG/Sflzj7tbr9Qp7vTKAgBaRmOBWMgJ0Hmp
+	6ltJ5WP4vIg+Z4tdIAX+fQ==
+X-Google-Smtp-Source: AGHT+IGBYhtKcH+43aBsDTk5Gv4pcjmdDTwgBqDi6cgn0y4vI6q88YFJFw98p8iVkmiXs+yHyqRHrg==
+X-Received: by 2002:a05:600c:3c9e:b0:431:5e3c:2ff0 with SMTP id 5b1f17b1804b1-436e26a6727mr16110965e9.8.1736329509711;
+        Wed, 08 Jan 2025 01:45:09 -0800 (PST)
+Received: from [172.16.20.210] (62-73-104-42.ip.btc-net.bg. [62.73.104.42])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e2dc207csm14729785e9.15.2025.01.08.01.45.08
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 08 Jan 2025 01:45:09 -0800 (PST)
+Message-ID: <c30a6f1b-b1a9-40db-b673-e6fc47bdb224@gmail.com>
+Date: Wed, 8 Jan 2025 11:45:02 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] net: stmmac: qcom-ethqos: Enable RX programmable swap
- on qcs615
-To: Andrew Lunn <andrew@lunn.ch>
-CC: Krzysztof Kozlowski <krzk@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo
- Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bjorn Andersson
-	<andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Alexandre
- Torgue <alexandre.torgue@foss.st.com>,
-        Jose Abreu <joabreu@synopsys.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>, <netdev@vger.kernel.org>,
-        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20241225-support_10m100m-v1-0-4b52ef48b488@quicinc.com>
- <20241225-support_10m100m-v1-2-4b52ef48b488@quicinc.com>
- <4b4ef1c1-a20b-4b65-ad37-b9aabe074ae1@kernel.org>
- <278de6e8-de8f-458a-a4b9-92b3eb81fa77@quicinc.com>
- <e47f3b5c-9efa-4b71-b854-3a5124af06d7@lunn.ch>
+Subject: Re: [PATCH v4 2/3] soc: samsung: usi: implement support for USIv1 and
+ exynos8895
 Content-Language: en-US
-From: Yijie Yang <quic_yijiyang@quicinc.com>
-In-Reply-To: <e47f3b5c-9efa-4b71-b854-3a5124af06d7@lunn.ch>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ Sam Protsenko <semen.protsenko@linaro.org>,
+ Peter Griffin <peter.griffin@linaro.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20250107113512.525001-1-ivo.ivanov.ivanov1@gmail.com>
+ <20250107113512.525001-3-ivo.ivanov.ivanov1@gmail.com>
+ <6y4mg6atqi6idyoppesg5owrnfrjhkzqh4im4po7urfry2qctb@yimp5y6sm7h6>
+ <907e1169-ceea-4d41-93bb-925041de005e@gmail.com>
+ <e28abf31-3d91-4d1b-97e6-202df5ebb3f5@kernel.org>
+From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+In-Reply-To: <e28abf31-3d91-4d1b-97e6-202df5ebb3f5@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01c.na.qualcomm.com (10.47.97.35)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: pqYADZSimNJLSAOnC9od8e9uOx41DZJZ
-X-Proofpoint-ORIG-GUID: pqYADZSimNJLSAOnC9od8e9uOx41DZJZ
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015 mlxlogscore=891
- mlxscore=0 suspectscore=0 impostorscore=0 lowpriorityscore=0 spamscore=0
- adultscore=0 phishscore=0 priorityscore=1501 bulkscore=0 malwarescore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
- definitions=main-2501080079
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_014258_040242_E7B871B7 
-X-CRM114-Status: GOOD (  22.10  )
+X-CRM114-CacheID: sfid-20250108_014511_819062_147B92C8 
+X-CRM114-Status: GOOD (  21.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,68 +108,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2024-12-27 01:21, Andrew Lunn wrote:
-> On Thu, Dec 26, 2024 at 10:29:45AM +0800, Yijie Yang wrote:
->>
->>
->> On 2024-12-25 19:37, Krzysztof Kozlowski wrote:
->>> On 25/12/2024 11:04, Yijie Yang wrote:
->>>
->>>>    static int qcom_ethqos_probe(struct platform_device *pdev)
->>>>    {
->>>> -	struct device_node *np = pdev->dev.of_node;
->>>> +	struct device_node *np = pdev->dev.of_node, *root;
->>>>    	const struct ethqos_emac_driver_data *data;
->>>>    	struct plat_stmmacenet_data *plat_dat;
->>>>    	struct stmmac_resources stmmac_res;
->>>> @@ -810,6 +805,15 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
->>>>    	ret = of_get_phy_mode(np, &ethqos->phy_mode);
->>>>    	if (ret)
->>>>    		return dev_err_probe(dev, ret, "Failed to get phy mode\n");
+On 1/8/25 11:26, Krzysztof Kozlowski wrote:
+> On 08/01/2025 10:17, Ivaylo Ivanov wrote:
+>> On 1/8/25 10:30, Krzysztof Kozlowski wrote:
+>>> On Tue, Jan 07, 2025 at 01:35:11PM +0200, Ivaylo Ivanov wrote:
+>>>> USIv1 IP-core is found on some ARM64 Exynos SoCs (like Exynos8895) and
+>>>> provides selectable serial protocols (one of: HSI2C0, HSI2C1, HSI2C0_1,
+>>>> SPI, UART, UART_HSI2C1).
+>>>>
+>>>> USIv1, unlike USIv2, doesn't have any known register map. Underlying
+>>>> protocols that it implements have no offset, like with Exynos850.
+>>>> Desired protocol can be chosen via SW_CONF register from System
+>>>> Register block of the same domain as USI.
+>>>>
+>>>> In order to select a particular protocol, the protocol has to be
+>>>> selected via the System Register. Unlike USIv2, there's no need for
+>>>> any setup before the given protocol becomes accessible apart from
+>>>> enabling the APB clock and the protocol operating clock.
+>>>>
+>>>> Modify the existing driver in order to allow USIv1 instances in
+>>>> Exynos8895 to probe and set their protocol. While we're at it,
+>>>> make use of the new mode constants in place of the old ones
+>>>> and add a removal routine.
+>>>>
+>>>> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+>>>> ---
+>>>>  drivers/soc/samsung/exynos-usi.c | 108 +++++++++++++++++++++++++++----
+>>>>  1 file changed, 95 insertions(+), 13 deletions(-)
+>>>>
+>>>> diff --git a/drivers/soc/samsung/exynos-usi.c b/drivers/soc/samsung/exynos-usi.c
+>>>> index 114352695..43c17b100 100644
+>>>> --- a/drivers/soc/samsung/exynos-usi.c
+>>>> +++ b/drivers/soc/samsung/exynos-usi.c
+>>>> @@ -16,6 +16,18 @@
+>>>>  
+>>>>  #include <dt-bindings/soc/samsung,exynos-usi.h>
+>>>>  
+>>>> +/* USIv1: System Register: SW_CONF register bits */
+>>>> +#define USI_V1_SW_CONF_NONE		0x0
+>>>> +#define USI_V1_SW_CONF_I2C0		0x1
+>>>> +#define USI_V1_SW_CONF_I2C1		0x2
+>>>> +#define USI_V1_SW_CONF_I2C0_1		0x3
+>>>> +#define USI_V1_SW_CONF_SPI		0x4
+>>>> +#define USI_V1_SW_CONF_UART		0x8
+>>>> +#define USI_V1_SW_CONF_UART_I2C1	0xa
+>>>> +#define USI_V1_SW_CONF_MASK		(USI_V1_SW_CONF_I2C0 | USI_V1_SW_CONF_I2C1 | \
+>>>> +					 USI_V1_SW_CONF_I2C0_1 | USI_V1_SW_CONF_SPI | \
+>>>> +					 USI_V1_SW_CONF_UART | USI_V1_SW_CONF_UART_I2C1)
 >>>> +
->>>> +	root = of_find_node_by_path("/");
->>>> +	if (root && of_device_is_compatible(root, "qcom,sa8540p-ride"))
->>>
->>>
->>> Nope, your drivers are not supposed to poke root compatibles. Drop and
->>> fix your driver to behave correctly for all existing devices.
->>>
->>
->> Since this change introduces a new flag in the DTS, we must maintain ABI
->> compatibility with the kernel. The new flag is specific to the board, so I
->> need to ensure root nodes are matched to allow older boards to continue
->> functioning as before. I'm happy to adopt that approach if there are any
->> more elegant solutions.
-> 
-> Why is it specific to this board? Does the board have a PHY which is
-> broken and requires this property? What we are missing are the details
-> needed to help you get to the correct way to solve the problem you are
-> facing.
-> 
+>>>>  /* USIv2: System Register: SW_CONF register bits */
+>>>>  #define USI_V2_SW_CONF_NONE	0x0
+>>>>  #define USI_V2_SW_CONF_UART	BIT(0)
+>>>> @@ -34,7 +46,8 @@
+>>>>  #define USI_OPTION_CLKSTOP_ON	BIT(2)
+>>>>  
+>>>>  enum exynos_usi_ver {
+>>>> -	USI_VER2 = 2,
+>>>> +	USI_VER1 = 1,
+>>> Is this assignment=1 actually now helping? Isn't it creating empty item
+>>> in exynos_usi_modes array? Basically it wastes space in the array for
+>>> no benefits.
+>> I wanted to keep the USIv2 enum the same.
+> Is there any need for keeping it the same?
 
-Let me clarify why this bit is necessary and why it's board-specific. 
-The RX programming swap bit can introduce a time delay of half a clock 
-cycle. This bit, along with the clock delay adjustment functionality, is 
-implemented by a module called 'IO Macro.' This is a Qualcomm-specific 
-hardware design located between the MAC and PHY in the SoC, serving the 
-RGMII interface. The bit works in conjunction with delay adjustment to 
-meet the sampling requirements. The sampling of RX data is also handled 
-by this module.
+No, not really.
 
-During the board design stage, the RGMII requirements may not have been 
-strictly followed, leading to uncertainty in the relationship between 
-the clock and data waveforms when they reach the IO Macro. This means 
-the time delay introduced by the PC board may not be zero. Therefore, 
-it's necessary for software developers to tune both the RX programming 
-swap bit and the delay to ensure correct sampling.
+>
+>>>> +	USI_VER2,
+>>>>  };
+>
+> ...
+>
+>>>> +
+>>>> +	return ret;
+>>>> +}
+>>>> +
+>>>> +static void exynos_usi_remove(struct platform_device *pdev)
+>>>> +{
+>>>> +	struct exynos_usi *usi = platform_get_drvdata(pdev);
+>>>> +
+>>>> +	if (usi->data->ver == USI_VER2)
+>>>> +		exynos_usi_disable(usi);
+>>> This is not related to the patch and should be separate patch, if at
+>>> all.
+>> Well I though that since didn't have any removal routine before it'd be good
+>> to introduce that and not leave USIv2 with hwacg set.
+> Sure, but separate commit, please. Can be preceeding the USIv1 support.
 
-> 	Andrew
-> 
+What about right after the USIv1 support? It would be less messy in my
+opinion.
 
--- 
-Best Regards,
-Yijie
+>
+> Best regards,
+> Krzysztof
 
 
