@@ -4,73 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69B9FE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 10:25:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38844E77199
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 10:35:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LYxTVAjsGxeUmf95RqPAneCR1sWTOQl1lVEKrRFGqUI=; b=m+NgkxpUXsTg4WUy3/HFv/IZjp
-	EoXT4RpKk6iQn/56gKbD6Mdl4lssLMkUEdi6mT41QcntGs37Ys1qFA5CsSeStjUo1PK+sFOCsq8hA
-	fyPauIlhv3futGZ4O2kGhKMJRtPErTj3ta9ogxtquL0iyWLZMTnsSY+cc//YB3rsg2lpFbNnks/6j
-	IMWbmcQtRI+lLOhVdGFoWk3KoHGrEgAppFWf/0D2b9vMfeUuH+rTh4GfudC+IrlUpuLSsnorau7HO
-	4dx0901JwwdZl0SoTkj1swFQ/c6tg/kmKE/zybT25h18oY947fX7bddQZg2R+iS4+PKaLXo134VPf
-	zyhhrxQQ==;
+	bh=kG9qrZwpk0ax9wVZjX4lH5f2FuZkvP3RDUkvgXroGJE=; b=BxeKp0E1vvLdX7TjmQ9o1wPnBy
+	PwINinvdNV4EeATR7yRTc0gvEpHQbz3t2WbpKL+3uMOtBL/yrG0YHqQxvezzBw8jkcPgSW4/EZK/B
+	zz/IUdVqJGJv9khjTI8qhQ+5pMRjQVQWQKzCHJl0tozTiDfk0AgAN6HB7iC7hQn+SH0TVHvL6qnD5
+	tvD+MSkh8fdWMlOWAjeTFi3Li3MR7edW5UCSKYXFzfQv/fnL+5ii3HjWvv5Ww7KNoOo8sXLNxLHPH
+	2/GOl1MH7gGm3NQH/kqSMVJaqZyPRVbtxLgGdWA8svwWclc00QonSPmkzYOSVJi2Mwq3kllA/k8ub
+	XyG85M3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVTFJ-00000007yeA-1bGO;
-	Wed, 08 Jan 2025 10:25:05 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tVTP6-000000080To-0Y0m;
+	Wed, 08 Jan 2025 10:35:12 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVTA9-00000007xEO-3Cdv
+	id 1tVTNr-00000007zro-2mXc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 10:19:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 13A6A5C077A;
-	Wed,  8 Jan 2025 10:19:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CACFDC4CEDF;
-	Wed,  8 Jan 2025 10:19:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736331584;
-	bh=2F1NrFzFunGtkEPuCgh3gTbxu8JlwOElD4NMwPMw67A=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ckOeQpx3w5mjprCv5AV/IH16AL96ahmq6Hj0lHRYHNlsrg/TbNLS60vqF2Mmy7X49
-	 vlp12ql28ghZCV3hrVC9rzeHOZVSEP/bcALI7uU/FH2DEmAPKA1JVgPHkSrHG7Fcx4
-	 pLgBfary+k6KLNV6iFIOpXzyA6JGqovw2VhHOPNliRbZRl9D75U5tt93omiZ/25QXi
-	 GObV26ziRRStjVHELkFRDbZmw/sSG04ASlPwCJZVg5YquDmEMkvCrB6EQt/4FM2283
-	 ac4io9IIsm0DGeyOUDLihHQ3+r7X7W5xcg/9bBqGxbSH/8ghmmJ1XI2giKA9ZJ9G38
-	 RJXfZCXGYvIrw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tVTA6-00A65Z-C0;
-	Wed, 08 Jan 2025 10:19:42 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Mostafa Saleh <smostafa@google.com>
-Cc: corbet@lwn.net,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v3] Documentation: Update the behaviour of "kvm-arm.mode"
-Date: Wed,  8 Jan 2025 10:19:38 +0000
-Message-Id: <173633157442.11636.146865542234649551.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20241025093259.2216093-1-smostafa@google.com>
-References: <20241025093259.2216093-1-smostafa@google.com>
+	Wed, 08 Jan 2025 10:33:56 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50891kAI017545;
+	Wed, 8 Jan 2025 10:33:47 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	kG9qrZwpk0ax9wVZjX4lH5f2FuZkvP3RDUkvgXroGJE=; b=HYxfjrgJ53l3ReJf
+	83QupBRRBi9lFGStxCv48jdTqmaLVDO7plLyE7a0l1g3klx+YKh/wtKBlgPZbVIE
+	u1AYjZHz3PWyTIBTMPaEpjcN5stwNnx2G6PzqhkY/kmrcYK0eKWo+TM7emLSpHoB
+	TOl/vjA3W8ee2Rlojv8TO8qc9+03ldBS7cQD5Ogr+nY1x+JBfZJUt3xIHgfk4ewb
+	t4UvZvn1RD9Lwl5GgMjdAway7LHEqqqwoFcKG3SlIv3jctt/m+ZvlOAnfpb5b/YG
+	+LiBQTuIUqtnG25apStMHbkNGOZRvwSJGIqngP6a1Io7N53HpOvtKydUI3yDk7/X
+	iva6/Q==
+Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 441hx8gx0r-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 08 Jan 2025 10:33:46 +0000 (GMT)
+Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
+	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 508AXkWw001823
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 8 Jan 2025 10:33:46 GMT
+Received: from [10.253.35.161] (10.80.80.8) by nalasex01c.na.qualcomm.com
+ (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 8 Jan 2025
+ 02:33:39 -0800
+Message-ID: <e2625cfd-128c-4b56-a1c5-c0256db5c486@quicinc.com>
+Date: Wed, 8 Jan 2025 18:33:36 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, smostafa@google.com, corbet@lwn.net, will@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] net: stmmac: qcom-ethqos: Enable RX programmable swap
+ on qcs615
+To: Krzysztof Kozlowski <krzk@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo
+ Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson
+	<andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Alexandre
+ Torgue <alexandre.torgue@foss.st.com>,
+        Jose Abreu <joabreu@synopsys.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>
+CC: <netdev@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20241225-support_10m100m-v1-0-4b52ef48b488@quicinc.com>
+ <20241225-support_10m100m-v1-2-4b52ef48b488@quicinc.com>
+ <4b4ef1c1-a20b-4b65-ad37-b9aabe074ae1@kernel.org>
+ <278de6e8-de8f-458a-a4b9-92b3eb81fa77@quicinc.com>
+ <df1e2fbd-7fae-4910-9908-10fdb78e4299@kernel.org>
+Content-Language: en-US
+From: Yijie Yang <quic_yijiyang@quicinc.com>
+In-Reply-To: <df1e2fbd-7fae-4910-9908-10fdb78e4299@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01c.na.qualcomm.com (10.47.97.35)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: V64a_pnh8TcazOpIFs5G79f_apEyOLVY
+X-Proofpoint-ORIG-GUID: V64a_pnh8TcazOpIFs5G79f_apEyOLVY
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015
+ lowpriorityscore=0 priorityscore=1501 mlxlogscore=999 phishscore=0
+ spamscore=0 malwarescore=0 bulkscore=0 mlxscore=0 adultscore=0
+ suspectscore=0 impostorscore=0 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.19.0-2411120000 definitions=main-2501080085
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_021945_839416_505ED892 
-X-CRM114-Status: GOOD (  10.85  )
+X-CRM114-CacheID: sfid-20250108_023355_714022_4E72A883 
+X-CRM114-Status: GOOD (  19.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,28 +120,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 25 Oct 2024 09:32:59 +0000, Mostafa Saleh wrote:
-> Commit 5053c3f0519c ("KVM: arm64: Use hVHE in pKVM by default on CPUs with
-> VHE support") modified the behaviour of "kvm-arm.mode=protected" without
-> the updating the kernel parameters doc.
+
+
+On 2024-12-27 15:03, Krzysztof Kozlowski wrote:
+> On 26/12/2024 03:29, Yijie Yang wrote:
+>>
+>>
+>> On 2024-12-25 19:37, Krzysztof Kozlowski wrote:
+>>> On 25/12/2024 11:04, Yijie Yang wrote:
+>>>
+>>>>    static int qcom_ethqos_probe(struct platform_device *pdev)
+>>>>    {
+>>>> -	struct device_node *np = pdev->dev.of_node;
+>>>> +	struct device_node *np = pdev->dev.of_node, *root;
+>>>>    	const struct ethqos_emac_driver_data *data;
+>>>>    	struct plat_stmmacenet_data *plat_dat;
+>>>>    	struct stmmac_resources stmmac_res;
+>>>> @@ -810,6 +805,15 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
+>>>>    	ret = of_get_phy_mode(np, &ethqos->phy_mode);
+>>>>    	if (ret)
+>>>>    		return dev_err_probe(dev, ret, "Failed to get phy mode\n");
+>>>> +
+>>>> +	root = of_find_node_by_path("/");
+>>>> +	if (root && of_device_is_compatible(root, "qcom,sa8540p-ride"))
+>>>
+>>>
+>>> Nope, your drivers are not supposed to poke root compatibles. Drop and
+>>> fix your driver to behave correctly for all existing devices.
+>>>
+>>
+>> Since this change introduces a new flag in the DTS, we must maintain ABI
+>> compatibility with the kernel. The new flag is specific to the board, so
 > 
-> Update it to match the current implementation.
+> It's not, I don't see it specific to the board in the bindings.
+
+I'm sorry for the confusion. This feature is not board-specific but 
+rather a tunable option. All RGMII boards can choose whether to enable 
+this bit in the DTS, so there are no restrictions in the binding.
+
 > 
-> Also, update required architecture version for nested virtualization as
-> suggested by Marc.
+>> I need to ensure root nodes are matched to allow older boards to
+>> continue functioning as before. I'm happy to adopt that approach if
+>> there are any more elegant solutions.
 > 
-> [...]
+> I don't think you understood the problem. Why you are not handling this
+> for my board, sa8775p-rideX and sa8225-pre-ride-yellow-shrimp?
+> 
 
-Applied to next, thanks!
+This feature is specifically for RGMII boards. The driver won't enable 
+this bit if the DTS doesn't specify it. To handle compatibility, we need 
+to identify legacy RGMII boards with MAC versions greater or equal to 3 
+which require this bit to be enabled.
+According to my knowledge, the SA8775P is of the SGMII type.
 
-[1/1] Documentation: Update the behaviour of "kvm-arm.mode"
-      commit: e8440c1e2d23a9ca5e0af1a18be637cbd5a5d44f
+> 
+> Best regards,
+> Krzysztof
 
-Cheers,
-
-	M.
 -- 
-Without deviation from the norm, progress is not possible.
-
+Best Regards,
+Yijie
 
 
