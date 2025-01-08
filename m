@@ -4,76 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F06BE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 23:09:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D418E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 23:20:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QOtK78nI5rgA0uceIpeywrkch6lrzYwEKPd0Sio4ZFM=; b=izRMVWgc7soJwkzEG/pMD/UfPp
-	lE044OrFA68gPtqdF9LagU+7cTxKC6harVCou6/WmiHTdcd3FMoB3alV9f2ZD1Y3+0HGIYCoca6DM
-	gheMAuLyWBA+6AhXknvAgZPiuTnCcU2IVpYFEH0q93DDQLJyUn0U5cptSBH/fF5UuEfkbt5g5zcx5
-	+IGTpMXWqs0dDZKQm2jTEpeHGzWhN3xrHiuuCFSBn+CVLCxYJ8b9pod+gOJk1zzSk2IiUdL7BeRQ6
-	iwzKpghb2uBYyi5rsmsTNAIKqkOgeYhg49G7RgHTWgv7v2oGkj6cvZLtyo2HAVdRvrRoDIVvo5DKj
-	0YZQtZNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/X0WBBqCGRGq8C7ulGGLTNywZC6aKr6ETbimA2Nz/ns=; b=F8sVUsMXZ5kEGQR8S2S3ZJKCaK
+	7OHsnFEFSIOTW7bjj2vAzJVJenRlIBEH74GZf6KyWPJHQXtiA7DmnTGWT5McW3iiPNpqqEUpS3jaf
+	Ptb50/Q9coBcD8EBOyG3UcpZLpQ6zB+t6Xm2XEFnvcv+Z9sZ34BA8dBvgPm3KlTyCSeM6YZnzc/DJ
+	biODJ1RxPfF38qDKBdiVE8f6qZLAYMvkivmnidbdFMvVToGm3aBuzxO106W34pqaJyVMUrGay0fOa
+	H5PfWHAB1ugjJhx8LDBPYmvyRe9+PeoHqdEUslICaRMRFoym/04IFpk0PS2BYjC1f4ogX+5Yl4HfY
+	ywAgkXQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVfBL-0000000A7gj-3rr5;
-	Wed, 08 Jan 2025 23:09:47 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tVfLD-0000000A8Q1-3j2T;
+	Wed, 08 Jan 2025 23:19:59 +0000
+Received: from mout-p-101.mailbox.org ([80.241.56.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVfA9-0000000A7Ua-0XZK
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 23:08:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=QOtK78nI5rgA0uceIpeywrkch6lrzYwEKPd0Sio4ZFM=; b=DRFgas6VTsmXXXEGrkB5OiPOvF
-	n24ZB8sfIZX6LOwyK9VXZLMMtiqAnersB31MXoV7NMLPgq2vZNJ+TswKCUlCkXPhdnLhF6ZHpY2mp
-	k2vWGt8YIjABDZl9Tw+M6ErieZZOm2BpuusTUIiCS3UvQTF2viEAcvlZYFTHJjNl3fDg=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tVf9p-002iOJ-BJ; Thu, 09 Jan 2025 00:08:13 +0100
-Date: Thu, 9 Jan 2025 00:08:13 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Ninad Palsule <ninad@linux.ibm.com>
-Cc: Jacky Chou <jacky_chou@aspeedtech.com>,
-	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
-	"andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"davem@davemloft.net" <davem@davemloft.net>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"eajames@linux.ibm.com" <eajames@linux.ibm.com>,
-	"edumazet@google.com" <edumazet@google.com>,
-	"joel@jms.id.au" <joel@jms.id.au>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"kuba@kernel.org" <kuba@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"minyard@acm.org" <minyard@acm.org>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"openipmi-developer@lists.sourceforge.net" <openipmi-developer@lists.sourceforge.net>,
-	"pabeni@redhat.com" <pabeni@redhat.com>,
-	"ratbert@faraday-tech.com" <ratbert@faraday-tech.com>,
-	"robh@kernel.org" <robh@kernel.org>
-Subject: Re: [PATCH v2 05/10] ARM: dts: aspeed: system1: Add RGMII support
-Message-ID: <59116067-0caa-4666-b8dc-9b3125a37e6f@lunn.ch>
-References: <SEYPR06MB5134CC0EBA73420A4B394A009D122@SEYPR06MB5134.apcprd06.prod.outlook.com>
- <0c42bbd8-c09d-407b-8400-d69a82f7b248@lunn.ch>
- <b2aec97b-63bc-44ed-9f6b-5052896bf350@linux.ibm.com>
+	id 1tVfJo-0000000A8G4-2xz0;
+	Wed, 08 Jan 2025 23:18:34 +0000
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4YT3jZ39S2z9sWt;
+	Thu,  9 Jan 2025 00:17:38 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=timsurber.de;
+	s=MBO0001; t=1736378258;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=/X0WBBqCGRGq8C7ulGGLTNywZC6aKr6ETbimA2Nz/ns=;
+	b=JAfvD+pdAeKiUoArfy+4UiHiMzwvFhIWF4V+OQwYFiWD/VVanEpTe4A8wZyA1kbIX8BJUo
+	SAAr4juuBaNYIFru96NwPHEUIKW+huo2bLKGcpeDJ+4NpMhlIZ6txOMtBSWQQeGy4OyQk2
+	+bkUXr4rLVN355a1wSzrClAizugbundksLMsHnAZANUGDfa0vzbl7DujtfKduX2wNX3VeB
+	jk8aC5a/47RI/z6NprAcs4FVPw9zvAlsqTQIi3BprYTgOYRUMBguoKJbypnwcCIWQy5U/b
+	0l2eK9G1+vT48+OCF1P3MVrSIvSoZZx7ll/rsvGQp3LAFaGueuary2JZNmhjtQ==
+Message-ID: <d61e344f-fcdd-47af-a142-e8d42edec045@timsurber.de>
+Date: Thu, 9 Jan 2025 00:17:32 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b2aec97b-63bc-44ed-9f6b-5052896bf350@linux.ibm.com>
+Subject: Re: [RESEND PATCH v5 0/4] Add Synopsys DesignWare HDMI RX Controller
+To: Dmitry Osipenko <dmitry.osipenko@collabora.com>,
+ Shreeya Patel <shreeya.patel@collabora.com>, heiko@sntech.de,
+ mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, mturquette@baylibre.com, sboyd@kernel.org,
+ p.zabel@pengutronix.de, jose.abreu@synopsys.com, nelson.costa@synopsys.com,
+ shawn.wen@rock-chips.com, nicolas.dufresne@collabora.com,
+ hverkuil@xs4all.nl, hverkuil-cisco@xs4all.nl
+Cc: kernel@collabora.com, linux-kernel@vger.kernel.org,
+ linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+References: <20241210193904.883225-1-shreeya.patel@collabora.com>
+ <acb91a34-c0f8-4f03-8945-755b4e42dcf3@timsurber.de>
+ <925d7571-48e4-437d-b55c-3f7bbad8af1d@collabora.com>
+ <fbb5016e-678c-4e54-a6a8-0ccaa2bdf45c@timsurber.de>
+ <a5226fac-2a5b-47f3-b32e-8662bf932bd4@collabora.com>
+Content-Language: en-US
+From: Tim Surber <me@timsurber.de>
+In-Reply-To: <a5226fac-2a5b-47f3-b32e-8662bf932bd4@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Rspamd-Queue-Id: 4YT3jZ39S2z9sWt
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_150833_166478_AD2309E1 
-X-CRM114-Status: UNSURE (   8.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250108_151832_890466_74A7F3C0 
+X-CRM114-Status: GOOD (  14.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,19 +86,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> There are around 11 boards in Aspeed SOC with phy-mode set to "rgmii" (some
-> of them are mac0&1 and others are mac2&3). "rgmii-rxid" is only mine.
-> 
-> No one in aspeed SOC using "rgmii-id".
+Hi,
 
-O.K, so we have to be careful how we fix this. But the fact they are
-all equally broken might help here.
+I tested your patch with the command
 
-> > Humm, interesting. Looking at ftgmac100.c, i don't see where you
-> > configure the RGMII delays in the MAC?
+# gst-launch-1.0 -v v4l2src device=/dev/video1 ! fakesink
 
-This is going to be important. How are delays configured if they are
-not in the MAC driver?
+If this worked I moved on to a visual test using
 
-    Andrew
+# gst-launch-1.0 -v v4l2src device=/dev/video1 ! queue ! v4l2convert ! 
+waylandsink
+
+I used a Windows PC  with a Nvidia GTX 4060 as my source for the 
+following tests.
+
+| Format       | Result                                      |
+| ------------ | ------------------------------------------- |
+| 4k60p RGB    | Recognized as 1080p / 120 fps - no output   |
+| 4k60p 4:2:2  | Recognized as 1080p / 120 fps - no output   |
+| 4k60p 4:4:4  | Error: Device wants 1 planes                |
+| 4k30p RGB    | ok                                          |
+| 4k30p 4:2:2  | ok                                          |
+| 4k30p 4:4:4  | Error: Device wants 1 planes                |
+| FHD60p RGB   | ok                                          |
+| FHD60p 4:2:2 | ok                                          |
+| FHD60p 4:4:4 | Error: Device wants 1 planes                |
+
+
+When testing 4:4:4 chroma I got the following error:
+
+# gst-launch-1.0 -v v4l2src device=/dev/video1 ! fakesink
+/sys/v4l2/gstv4l2object.c(4344): gst_v4l2_object_set_format_full (): 
+/GstPipeline:pipeline0/GstV4l2Src:v4l2src0:
+Device wants 1 planes
+
+I could record and convert (with errors) the files with 4:4:4 chroma 
+using the command Shreeya posted, but the resulting video had wrong 
+colors and was flashing.
+
+I was not able to test 4:2:0 chroma. I tried to generate an custom EDID 
+with support for it but I could not select it in the graphics driver in 
+the source, maybe this is just an issue with my setup.
+
+I also observed that the the framerate is reported wrong, for example 
+setting the source to FHD60p RGB resulted in the following:
+
+# v4l2-ctl --all -L --list-formats-ext -d /dev/video0
+Active width: 1920
+	Active height: 1080
+	Total width: 2200
+	Total height: 1125
+	Frame format: progressive
+	Polarities: -vsync -hsync
+	Pixelclock: 214076000 Hz (86.50 frames per second)
+
+This wrong framerate reporting seemed to happen across all framerates 
+and resolutions. Gstreamer Pipeline negotation showed the same results.
+
+During my testing I got sometimes an error
+
+
+# dmesg
+dma alloc of size 24883200 failed
+
+
+I'm not sure when this happened and how to reproduce it.
+
+Then I tried to use an AppleTV 4k as source. I don't know what 
+resolution it tried to negotiate but I got this error in addition to the 
+previous "Device wants 1 planes" and no connection:
+
+# dmesg
+fdee0000.hdmi_receiver: hdmirx_query_dv_timings: signal is not locked
+fdee0000.hdmi_receiver: hdmirx_wait_signal_lock: signal not lock, 
+tmds_clk_ratio:0
+fdee0000.hdmi_receiver: hdmirx_wait_signal_lock: mu_st:0x0, scdc_st:0x0, 
+dma_st10:0x10
+fdee0000.hdmi_receiver: hdmirx_wait_signal_lock: signal not lock, 
+tmds_clk_ratio:0
+fdee0000.hdmi_receiver: hdmirx_wait_signal_lock: mu_st:0x0, scdc_st:0x0, 
+dma_st10:0x14
+
+
+Best regards,
+Tim
+
+
+
 
