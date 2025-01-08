@@ -4,122 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81511E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 22:35:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C566E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 22:36:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KlRCuGPMlwejbHsntRyxIV2YbKHWZVl6PpAh0SlJ7uk=; b=BHiRVbHSGUgMAnSEgWCDU6CqLV
-	7bGQffRS2VxWDgDjhRNnwlWRUfpHCasA/VjrZhDcCxaKf+oU7LSr9F7e0ELePJT8hKnduOoZXrKL8
-	rxkDTpIgwJTRcVNPsbo/TMJ4+l1ycuJ/t46YJN5tyYrgc2dbmY6AvGUyg3W7sixR60yw0EM48C5tJ
-	6r192DaQ1A3dm4HMJhg1TJ5t5e+I8RfmeJO0edZuVNfDlhawzHu1TACLHDzatWgdDnyOKaz879wx/
-	0OiWcxIMLnEcOpeWM9wDYS89R6rgQU+whplBsK+eVIQo4rYqsSVqnieR7NEvj660/QTkQ2b7MFG6k
-	i+OA/c2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YndHkwUDFJiqzHjuVBQbxKUao+/GdCUYUIN+0tlqQlU=; b=0CZr3JXhn1ZngaGGuEz2+Rng0U
+	SZ58se6ByYSHRz363LAV7iRmgeI6oSI0ytOVr9YdO/Fp6mEru5V45RYTfi5MhsxF7A2WBDKVMp0KE
+	sOIV/Ei+eBcT9zPdAihG0U8m5c2cbM0+4TKjAd80ftP98ud0z9owqn4cl1zb2FDI/tCpRKblJllCg
+	v5PyrmF2cWYfgLYxhg2xrkCQT5jApfgVfxAqzpEYykszQw6yB6s+8XXF/jtPl12PR976etuxxtRCi
+	GZvkwIyQxWYW/2vqjaR7zWwjn988YEXyZ96MzYHNtL8YgOSqDK0hP/JUNwp/SBAolPvKGC7QJIGca
+	kCq0EMMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVedr-0000000A2Xo-12VI;
-	Wed, 08 Jan 2025 22:35:11 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1tVef1-0000000A2nf-3cHr;
+	Wed, 08 Jan 2025 22:36:23 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVebg-0000000A21t-0wFF
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 22:32:57 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 508Eq5hO017974;
-	Wed, 8 Jan 2025 22:31:34 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=KlRCuG
-	PMlwejbHsntRyxIV2YbKHWZVl6PpAh0SlJ7uk=; b=Y7hv7dbWvdQz7PK+ZEV0Yt
-	68MJwPffxgt3I7dOB4MMEgHpvTwa+nfyXdn0yITIRovp3+6ofQsxi0KDFXfPdDzs
-	RAnIfGdy+dd2+3HKp0FPC9A8Trw+E4lCP1AeDhtbc3e9YKsj2CxA4D+o8d/Elh3s
-	30ekYqllsNpooSgPNN97PoM+7GASKgvUd7JZHVSBpxZN7Pi9uqlPI4SE9azFTdE8
-	ZuQ/03szX3Bh2VBObAMLs2aRTWsTLszu4c9ELDZ39QI3KwftgmuGE9LPAwFEfNmj
-	ZMN52e2C7A+Xu1e9dCOFM8Bnky0J9xoHiCZ+2dVfH1/CC3jBwo12PDCgrcgDMx6A
-	==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 441huc4uj1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 08 Jan 2025 22:31:34 +0000 (GMT)
-Received: from m0360083.ppops.net (m0360083.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 508MSagq026621;
-	Wed, 8 Jan 2025 22:31:34 GMT
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 441huc4uhv-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 08 Jan 2025 22:31:33 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 508Jx6pX003572;
-	Wed, 8 Jan 2025 22:31:32 GMT
-Received: from smtprelay02.wdc07v.mail.ibm.com ([172.16.1.69])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 43yfata8nv-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 08 Jan 2025 22:31:32 +0000
-Received: from smtpav06.wdc07v.mail.ibm.com (smtpav06.wdc07v.mail.ibm.com [10.39.53.233])
-	by smtprelay02.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 508MVWUL54854004
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 8 Jan 2025 22:31:32 GMT
-Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 263FE5806B;
-	Wed,  8 Jan 2025 22:31:32 +0000 (GMT)
-Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 5DC925804E;
-	Wed,  8 Jan 2025 22:31:29 +0000 (GMT)
-Received: from [9.61.139.65] (unknown [9.61.139.65])
-	by smtpav06.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Wed,  8 Jan 2025 22:31:29 +0000 (GMT)
-Message-ID: <b2aec97b-63bc-44ed-9f6b-5052896bf350@linux.ibm.com>
-Date: Wed, 8 Jan 2025 16:31:28 -0600
+	id 1tVeda-0000000A2Se-3iq3;
+	Wed, 08 Jan 2025 22:34:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2E6F4A4181D;
+	Wed,  8 Jan 2025 22:33:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51960C4CED3;
+	Wed,  8 Jan 2025 22:34:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736375693;
+	bh=WPM0lgLhcXgBhGTurYPnKmr64Y3Q50Ezvc/k+z3x8S4=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=YydRynON5nSluNf0CaQIPW+b8UUathMlNoXw6TXeA7c7tSt5JrXuUNCO/3i9PrfJM
+	 XQdtEmQwmTOGDTHL7utLx6zCixwuLgMa68xjyOiNg6hUPrhgN75WhjbKLXcgvj+qB6
+	 G24BADeLNvuw+jkl7hfpgM1rI54HYGrTsLmuf6AFTVra0syOYjD8+dGremMb7lafvA
+	 qXa2JKzs2BUUlyhvkj2B5uy3E323ERVk2+CytKbosUbhPXqEpByvBawwfTd6EVnyl3
+	 75xYnLjQxS3n4qWTfjMJIyjIVW77ckxpSqqMniG90jDfH6DXePMFgdbYd5bGx1XbR0
+	 o+FVXh4E3WJ+w==
+Date: Wed, 08 Jan 2025 16:34:52 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 05/10] ARM: dts: aspeed: system1: Add RGMII support
-To: Andrew Lunn <andrew@lunn.ch>, Jacky Chou <jacky_chou@aspeedtech.com>
-Cc: "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
-        "andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
-        "conor+dt@kernel.org" <conor+dt@kernel.org>,
-        "davem@davemloft.net" <davem@davemloft.net>,
-        "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-        "eajames@linux.ibm.com" <eajames@linux.ibm.com>,
-        "edumazet@google.com" <edumazet@google.com>,
-        "joel@jms.id.au"
- <joel@jms.id.au>,
-        "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-        "kuba@kernel.org" <kuba@kernel.org>,
-        "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
-        "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
-        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-        "minyard@acm.org" <minyard@acm.org>,
-        "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-        "openipmi-developer@lists.sourceforge.net"
- <openipmi-developer@lists.sourceforge.net>,
-        "pabeni@redhat.com" <pabeni@redhat.com>,
-        "ratbert@faraday-tech.com" <ratbert@faraday-tech.com>,
-        "robh@kernel.org" <robh@kernel.org>
-References: <SEYPR06MB5134CC0EBA73420A4B394A009D122@SEYPR06MB5134.apcprd06.prod.outlook.com>
- <0c42bbd8-c09d-407b-8400-d69a82f7b248@lunn.ch>
-Content-Language: en-US
-From: Ninad Palsule <ninad@linux.ibm.com>
-In-Reply-To: <0c42bbd8-c09d-407b-8400-d69a82f7b248@lunn.ch>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: uaFUIc6cD4X9PAgDaJFKrNEJKqlvTD0C
-X-Proofpoint-GUID: 6xbf0HjJ6pVuQmMW_ljUl1BLsijg_a4W
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
- definitions=2024-10-15_01,2024-10-11_01,2024-09-30_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015 impostorscore=0
- spamscore=0 phishscore=0 suspectscore=0 lowpriorityscore=0 mlxlogscore=999
- bulkscore=0 mlxscore=0 malwarescore=0 adultscore=0 priorityscore=1501
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
- definitions=main-2501080184
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-mediatek@lists.infradead.org, 
+ Catalin Marinas <catalin.marinas@arm.com>, David Airlie <airlied@gmail.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, devicetree@vger.kernel.org, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ dri-devel@lists.freedesktop.org, Conor Dooley <conor+dt@kernel.org>, 
+ Will Deacon <will@kernel.org>, CK Hu <ck.hu@mediatek.com>, 
+ Fabien Parent <fparent@baylibre.com>, linux-arm-kernel@lists.infradead.org, 
+ Thomas Zimmermann <tzimmermann@suse.de>, Maxime Ripard <mripard@kernel.org>, 
+ linux-kernel@vger.kernel.org, Jitao Shi <jitao.shi@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Simona Vetter <simona@ffwll.ch>, Simona Vetter <simona.vetter@ffwll.ch>
+To: amergnat@baylibre.com
+In-Reply-To: <20231023-display-support-v5-0-3905f1e4b835@baylibre.com>
+References: <20231023-display-support-v5-0-3905f1e4b835@baylibre.com>
+Message-Id: <173637565787.1164195.4383151341351649520.robh@kernel.org>
+Subject: Re: [PATCH v5 0/7] Add display support for the MT8365-EVK board
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_143256_286260_8FC9DC38 
-X-CRM114-Status: GOOD (  32.90  )
+X-CRM114-CacheID: sfid-20250108_143455_050927_503299DC 
+X-CRM114-Status: GOOD (  27.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,74 +82,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Andrew & Jacky,
 
-On 1/8/25 11:52, Andrew Lunn wrote:
->>> Does the mac0 TX clock have an extra long clock line on the PCB?
->>>
->>> Does the mac1 TX and RX clocks have extra long clock lines on the PCB?
->>>
->>> Anything but rgmii-id is in most cases wrong, so you need a really
->>> good explanation why you need to use something else. Something that
->>> shows you understand what is going on, and why what you have is
->>> correct.
->> Here I'll add some explanation.
->>
->> In our design, we hope the TX and RX RGMII delay are configured by our MAC side.
->> We can control the TX/RX RGMII delay on MAC step by step, it is not a setting to delay to 2 ns.
->> We are not sure the all target PHYs are support for RX internal delay.
->>
->> But ast2600 MAC1/2 delay cell cannot cover range to 2 ns, MAC 3/4 can do that.
->> Therefore, when using ast2600 MAC1/2, please enable the RX internal delay on the PHY side
->> to make up for the part we cannot cover.
->>
->> Summarize our design and we recommend.
->> AST2600 MAC1/2: rgmii-rxid
->> (RGMII with internal RX delay provided by the PHY, the MAC should not add an RX delay in this
->> case)
->> AST2600 MAC3/4: rgmii
->> (RX and TX delays are added by the MAC when required)
->>
->> rgmii and rgmii-rxid are referred from ethernet-controller.yaml file.
-> O.K, so you have the meaning of phy-mode wrong. phy-mode effectively
-> described the PCB. Does the PCB implement the 2ns delay via extra long
-> clock lines or not. If the PCB has long clock lines, phy-mode is
-> 'rgmii'. If the PCB does not have long clock lines, 'rgmii-id' is
-> used, meaning either the MAC or the PHY needs to add the delays.
->
-> The MAC driver is the one that reads the phy-mode from the DT, and
-> then it decides what to do. 95% of linux MAC drivers simply pass it
-> direct to the PHY. If the phy-mode is 'rgmii', the PHY does nothing,
-> because the PCB has added the delays. If it is rgmii-id, it adds
-> delays in both directions. This works, because nearly very RGMII PHY
-> on the market does support RGMII delays.
->
-> There is however a very small number of MAC drivers which do things
-> differently. Renesas produced an RDK with a PHY which could not do
-> delays in the PHY, and so were forced to do the delays in the
-> MAC. Please look at how the ravb driver works. If the PCB does not add
-> the delays, rmgii-id, the MAC driver adds the delays. It then masks
-> the phy-mode it passes to of_phy_connect() back to 'rgmii', so that
-> the PHY does not add any delays. If the PCB did add the delays,
-> 'rgmii', the MAC driver does not add delays, and it passed rgmii to
-> the PHY driver, and it also does not add delays.
->
-> So, your MAC driver is broken. It is not correctly handling the
-> phy-mode. First question is, how many boards are there in mainline
-> which have broken phy-modes. If this is the first board, we can fix
-> the MAC driver. If there are already boards in mainline we have to be
-> much more careful when fixing this, so as not to regress boards which
-> are already merged.
+On Wed, 08 Jan 2025 17:15:42 +0100, amergnat@baylibre.com wrote:
+> The purpose of this series is to add the display support for the mt8365-evk.
+> 
+> This is the list of HWs / IPs support added:
+> - Connectors (HW):
+>   - HDMI
+>   - MIPI DSI (Mobile Industry Processor Interface Display Serial Interface)
+> - HDMI bridge (it66121)
+> - DSI pannel (startek,kd070fhfid015)
+> - SoC display blocks (IP):
+>   - OVL0 (Overlay)
+>   - RDMA0 (Data Path Read DMA)
+>   - Color0
+>   - CCorr0 (Color Correction)
+>   - AAL0 (Adaptive Ambient Light)
+>   - GAMMA0
+>   - Dither0
+>   - DSI0 (Display Serial Interface)
+>   - RDMA1 (Data Path Read DMA)
+>   - DPI0 (Display Parallel Interface)
+> 
+> The Mediatek DSI, DPI and DRM drivers are also improved.
+> 
+> The series is rebased on top of Angelo's series [1] to
+> use the OF graphs support.
+> 
+> Regards,
+> Alex
+> 
+> Signed-off-by: Alexandre Mergnat <amergnat@baylibre.com>
+> ---
+> Changes in v5:
+> - Patch merged, then removed from the series:
+>   - dt-bindings: display: mediatek: rdma: add compatible for MT8365 SoC
+>   - dt-bindings: display: mediatek: ovl: add compatible for MT8365 SoC
+>   - dt-bindings: display: mediatek: gamma: add compatible for MT8365 SoC
+>   - dt-bindings: display: mediatek: dpi: add compatible for MT8365
+>   - dt-bindings: display: mediatek: dsi: add compatible for MT8365 SoC
+>   - dt-bindings: display: mediatek: dither: add compatible for MT8365 SoC
+>   - dt-bindings: display: mediatek: color: add compatible for MT8365 SoC
+>   - dt-bindings: display: mediatek: ccorr: add compatible for MT8365 SoC
+>   - dt-bindings: display: mediatek: aal: add compatible for MT8365 SoC
+> - Enable STARTEK KD070FHFID015 panel in the defconfig.
+> - Rebase on top of 6.13-rc6.
+> - Link to v4: https://lore.kernel.org/all/20231023-display-support-v4-0-ed82eb168fb1@baylibre.com
+> 
+> Changes in v4:
+> - Patch merged, then removed from the series:
+>   - dt-bindings: display: mediatek: dpi: add power-domains property
+>   - dt-bindings: pwm: mediatek,pwm-disp: add compatible for mt8365 SoC
+>   - clk: mediatek: mt8365-mm: fix DPI0 parent
+> - Remove mediatek,mt8365-dpi compatible from mtk_drm_drv.c because it
+>   use the mt8192's data. It's a miss.
+> - Add MT8365 OF graphs support, remove the hardcoded display path and
+>   rebase on top of Angelo's series [1].
+> - Link to v3: https://lore.kernel.org/r/20231023-display-support-v3-0-53388f3ed34b@baylibre.com
+> 
+> Changes in v3:
+> - Drop "drm/mediatek: add mt8365 dpi support" because it's the same
+>   config as mt8192 SoC
+> - Drop "dt-bindings: pwm: mediatek,pwm-disp: add power-domains property"
+>   because an equivalent patch has been merge already.
+> - Add DPI clock fix in a separate commit.
+> - Improve DTS(I) readability.
+> - Link to v2: https://lore.kernel.org/r/20231023-display-support-v2-0-33ce8864b227@baylibre.com
+> 
+> Changes in v2:
+> - s/binding/compatible/ in commit messages/titles.
+> - Improve commit messages as Conor suggest.
+> - pwm-disp: Set power domain property for MT8365. This one is optionnal
+>   and can be used for other SoC.
+> - Fix mediatek,dsi.yaml issue.
+> - Remove the extra clock in the DPI node/driver and fix the dpi clock
+>   parenting to be consistent with the DPI clock assignement.
+> - Link to v1: https://lore.kernel.org/r/20231023-display-support-v1-0-5c860ed5c33b@baylibre.com
+> 
+> [1] https://lore.kernel.org/lkml/20240516081104.83458-1-angelogioacchino.delregno@collabora.com/
+> 
+> ---
+> Alexandre Mergnat (5):
+>       drm/mediatek: dsi: Improves the DSI lane setup robustness
+>       arm64: defconfig: enable display connector support
+>       arm64: defconfig: enable STARTEK KD070FHFID015 panel
+>       arm64: dts: mediatek: add display blocks support for the MT8365 SoC
+>       arm64: dts: mediatek: add display support for mt8365-evk
+> 
+> Fabien Parent (2):
+>       dt-bindings: display: mediatek: dpi: add power-domains property
+>       drm/mediatek: add MT8365 SoC support
+> 
+>  .../bindings/display/mediatek/mediatek,dpi.yaml    |   5 +
+>  arch/arm64/boot/dts/mediatek/mt8365-evk.dts        | 236 +++++++++++++++
+>  arch/arm64/boot/dts/mediatek/mt8365.dtsi           | 336 +++++++++++++++++++++
+>  arch/arm64/configs/defconfig                       |   2 +
+>  drivers/gpu/drm/mediatek/mtk_drm_drv.c             |   8 +
+>  drivers/gpu/drm/mediatek/mtk_dsi.c                 |   2 +
+>  6 files changed, 589 insertions(+)
+> ---
+> base-commit: 9d89551994a430b50c4fffcb1e617a057fa76e20
+> change-id: 20231023-display-support-c6418b30e419
+> 
+> Best regards,
+> --
+> Alexandre Mergnat <amergnat@baylibre.com>
+> 
+> 
+> 
 
-There are around 11 boards in Aspeed SOC with phy-mode set to "rgmii" 
-(some of them are mac0&1 and others are mac2&3). "rgmii-rxid" is only mine.
 
-No one in aspeed SOC using "rgmii-id".
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
->
-> Humm, interesting. Looking at ftgmac100.c, i don't see where you
-> configure the RGMII delays in the MAC?
->
-> 	  Andrew
->
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+New warnings running 'make CHECK_DTBS=y mediatek/mt8365-evk.dtb' for 20231023-display-support-v5-0-3905f1e4b835@baylibre.com:
+
+arch/arm64/boot/dts/mediatek/mt8365-evk.dtb: /soc/dpi@14018000: failed to match any schema with compatible: ['mediatek,mt8365-dpi', 'mediatek,mt8192-dpi']
+arch/arm64/boot/dts/mediatek/mt8365-evk.dtb: /soc/dpi@14018000: failed to match any schema with compatible: ['mediatek,mt8365-dpi', 'mediatek,mt8192-dpi']
+
+
+
+
+
 
