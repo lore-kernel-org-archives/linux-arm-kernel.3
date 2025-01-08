@@ -4,87 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DAE8E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 13:12:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BE87E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 13:13:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LFo9cWHgR393ogE0aZH9y/o/T2naWMDJpkS8Lw/t1YU=; b=tOE+By9Mzn/Ra03fVh/H2dtm6f
-	a7c8jVUbbbO8AiUm/e39zIfCS5u4GcdFps8boZCIR7HMgOh1xGps4q6HwJj14tDjEzjb6amBgw17I
-	sQiWbcZ0xNeQVY7V2OAhhQh6vmPpEk20sgoZoj6Hw33/eSdK0U4YtKjs8Md4Hs/Pojovp2WCxK5Tv
-	GeVAknLGrH/J9nm/NyQw/yGhIIikvqrq0KJZiW2UXPOsdQlezkz0B10h3NcigX+u47FVWqZAsP+24
-	vUfuyWbgE4qOzZolo/0QapeblR4oVwN41kSnrt42h5FNZN9PlgwSXii7QquZkt/Xgk8uGqPC4GTKG
-	XbjORFdg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1CvZEmJRxP2br576zD1I4cLXAkxRRC3B+NKcSsRkRdc=; b=uzRbUgnHvaHEzfXIH0+pQcmfDX
+	PcwdoUdxvBP/1fzPCEsU2Pn6l+n2NqZgQ1xc9JI3yolb67oRgO+q7L1PlkKBbu6Y6NgFjUu2BQGI7
+	FRI/H8A9ag40BXARcHLgD/J3ywB1YC4wIubFJzRpkVe2Wt8KadUftgKmYQB0xzT8jfjTiH3VnL5TP
+	dxLJoa45u4sIp4Z/EeHLOUZ65SKs7vkHitykqt9zqzzG1zjqSkQPQBFt5OiwM86+GFFfsdp1tDR2l
+	aL5ZgJbUAoyXvVMCY1ssFqfwlykZ2o+wy3TQnLSvTX98nG8dT+GcY85psN1vlr46zLXx/+Put4VDw
+	ccsHsunA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVVqp-00000008YwY-1C3P;
-	Wed, 08 Jan 2025 13:11:59 +0000
-Received: from server.wki.vra.mybluehostin.me ([162.240.238.73])
+	id 1tVVs0-00000008Z83-43fP;
+	Wed, 08 Jan 2025 13:13:12 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVVG8-00000008RXZ-1rlm
+	id 1tVVKi-00000008SPu-1Wh7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 12:34:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=LFo9cWHgR393ogE0aZH9y/o/T2naWMDJpkS8Lw/t1YU=; b=jjP+UZEMLeN5JvVwWrvA+03KLi
-	0SzE+Q76z1AVldJRDdAsVeyZWrBaMTldlNtyDaYSl5mIeFk10hrf+l7wM5FfxtFCuDpC2+JXJ9QYl
-	oCCA+uSHG3DCFuPlBqG+XS/RG763UHQc7TaPA3m2rMuR2SA3r1tnHSJMjCQBRUGmqdhyD36tmO6D7
-	U4dA3FhSDZVW9D17faX08iYqOfYGLj5yP2JvjN28tPiMvmUgRAdpcMEe+6jw8Z8JuZ2sRlHUHRkN8
-	/3+/G48uEDxWBHPggh3rLZyH9bdslRaqWZOHvS8OrSSctFw4WP9J9QCgjFFc5bTiRNWdT8r07ME29
-	BLffuRmA==;
-Received: from [122.175.9.182] (port=52432 helo=cypher.couthit.local)
-	by server.wki.vra.mybluehostin.me with esmtpa (Exim 4.96.2)
-	(envelope-from <basharath@couthit.com>)
-	id 1tVVFQ-0000JL-1b;
-	Wed, 08 Jan 2025 18:03:20 +0530
-From: Basharath Hussain Khaja <basharath@couthit.com>
-To: christophe.jaillet@wanadoo.fr
-Cc: afd@ti.com,
-	basharath@couthit.com,
-	danishanwar@ti.com,
-	krishna@couthit.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	mohan@couthit.com,
-	nm@ti.com,
-	parvathi@couthit.com,
-	pmohan@couthit.com,
-	prajith@ti.com,
-	praneeth@ti.com,
-	pratheesh@ti.com,
-	rogerq@ti.com,
-	srk@ti.com,
-	ssantosh@kernel.org,
-	vigneshr@ti.com
-Subject: Re: [PATCH 1/1] soc: ti: PRUSS OCP configuration
-Date: Wed,  8 Jan 2025 18:03:11 +0530
-Message-Id: <20250108123311.9501-1-basharath@couthit.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <352592c2-e1a4-4d42-b1d2-f4b87ede2974@wanadoo.fr>
-References: <352592c2-e1a4-4d42-b1d2-f4b87ede2974@wanadoo.fr>
+	Wed, 08 Jan 2025 12:38:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6CE825C5006;
+	Wed,  8 Jan 2025 12:38:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8B92C4CEDD;
+	Wed,  8 Jan 2025 12:38:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736339927;
+	bh=mLAJdLoN9h4bkCdI7kmcjMyVeLTRBumWzuPyPWQzzzE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=D+q5fQMEttwesjS6DPxWd36hXgQfNbcbwiCG2Cc5GxhrVmZDUSmUZ7m3JpH/JOOAs
+	 aGtPiyBe4aApMhwoLLa4UBYPebjDyp9yYSuWx/mYzXLkjpMbj90mG3WOoTSJDAvXZG
+	 12BhvMLHaaw322KIQgkXJnsRv+OvGoNbM7gmP47V0WHJHYzxMu1MXw9i3T4XEDWwfU
+	 L1kiC2gHNlMdTjlfZmUjI4fLjvZASbNSIzHriiBEmIcA9S0w9IYF5ORU8LY46T5a6K
+	 6OeVSOikbOHj4f6SMinowzBvNiyJggZ7PhLKfY17X8pZicWugb3fZaKWXjI6J0l7vF
+	 sOFUTydIveYvA==
+Date: Wed, 8 Jan 2025 12:38:41 +0000
+From: Will Deacon <will@kernel.org>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: kvmarm@lists.linux.dev, Marc Zyngier <maz@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mingwei Zhang <mizhang@google.com>,
+	Colton Lewis <coltonlewis@google.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 00/18] KVM: arm64: Support FEAT_PMUv3 on Apple hardware
+Message-ID: <20250108123840.GA9197@willie-the-truck>
+References: <20241217212048.3709204-1-oliver.upton@linux.dev>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.wki.vra.mybluehostin.me
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.wki.vra.mybluehostin.me: authenticated_id: basharath@couthit.com
-X-Authenticated-Sender: server.wki.vra.mybluehostin.me: basharath@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241217212048.3709204-1-oliver.upton@linux.dev>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_043404_560551_72C89E6F 
-X-CRM114-Status: UNSURE (   0.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250108_043848_446602_976710A4 
+X-CRM114-Status: GOOD (  14.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,5 +80,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Please note that this file "#include <linux/bits.h>" is already included in the pruss.h file and we are including the pruss.h file.
+Hi Oliver,
+
+On Tue, Dec 17, 2024 at 01:20:30PM -0800, Oliver Upton wrote:
+> One of the interesting features of some Apple M* parts is an IMPDEF trap
+> that routes EL1/EL0 accesses of the PMUv3 registers to EL2. This allows
+> a hypervisor to emulate an architectural PMUv3 on top of the IMPDEF PMU
+> hardware present in the CPU.
+> 
+> And if you squint, this _might_ look like a CPU erratum :-)
+> 
+> This series takes advantage of these IMPDEF traps to provide PMUv3 to
+> KVM guests. As a starting point, only expose the fixed CPU cycle counter
+> and no event counters. Conveniently, this is enough to get Windows
+> running as a KVM guest on Apple hardware.
+> 
+> I've tried to keep the deviation to a minimum by refactoring some of the
+> flows used for PMUv3, e.g. computing PMCEID from the arm_pmu bitmap
+> instead of reading hardware directly.
+
+What's your plan for this series? I started looking at it and I can take
+the first four apple_m1 patches if you like?
+
+Will
 
