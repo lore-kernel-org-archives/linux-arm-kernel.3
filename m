@@ -4,59 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF01DE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 10:22:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CF53E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 10:24:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Mr6Dl3c90TC0ugCj5cSJ87+hbG6R2W9QdyHaN19dbQ=; b=KCGecMiNsJ+hUtpO5o9W95v2Nt
-	2veMcD8Av5cSkOAE749jVX8jSko6uVXblEaOFOT+NOjaGEynGtD0Lu9XbFqgZylKtvMXnFaZGC3U2
-	knYSP4HvFkrBgikHTVAbcwL/vp9sUaxldWVeGlS4ZY3I2TzhNDEgqBBMRjtKvR9xRykF8pu/qebIR
-	9bH1g49B0GIb6LL0WjKPOL4Es4xQoy3JOWv9MWhSTfkSnp4TWdlmBXjGce9329ozOmKBKTrgDybn+
-	0Ellrars39LprnQz9v2NJlvpBBnBh36r+JB8Kioy6adXZ3BzIdEchb1bwFhx2MbyU8oTPw9Y+MVl7
-	YzlfAm1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rqUpwoDA+wnL7XDmIleta7smYCcZ7eiI2bxGZ/nAG9I=; b=Zt1q+wsulMvKeg121xzrjFHQHc
+	WGrwEYVvrpP2P+lHPk5EY5laiHBCZMyUwnLldD40TV+Fut/9yzHzw100Txdd9Rk83b+PchthokJZY
+	C8ma8HSWLBUF4BdO4xZCLPxX2MNTx/lNHkW8ydMVhQ4zoKvWNwrIS0KEA/zVf7yqmL6D7ZoTiVrkn
+	YS/nknfoeckqYjyBfVkYJ0qUVukEOr0VHIR7HvTEWOpN5TdS9SMPE/0MbmWPUCCLF4sqNx91NPY9m
+	DD6X2lFpm08i8pEYGpgPR0yUerBPy9c3PA+NvqAeJ9APFsSgdWnM8ibz0YLzvlte23vL2cepTLGxq
+	eZxokH7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVTCx-00000007xzA-0tsv;
-	Wed, 08 Jan 2025 10:22:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVT2P-00000007vhO-3KTn
+	id 1tVTE8-00000007yIY-2A6y;
+	Wed, 08 Jan 2025 10:23:52 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tVT6L-00000007wUL-407F
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 10:11:47 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CB47213D5;
-	Wed,  8 Jan 2025 02:12:10 -0800 (PST)
-Received: from [10.162.16.95] (a077893.blr.arm.com [10.162.16.95])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2D1833F59E;
-	Wed,  8 Jan 2025 02:11:37 -0800 (PST)
-Message-ID: <fbb134e0-cfeb-4c6e-98b4-d945f95383db@arm.com>
-Date: Wed, 8 Jan 2025 15:41:35 +0530
+	Wed, 08 Jan 2025 10:15:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1736331350; x=1767867350;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=rqUpwoDA+wnL7XDmIleta7smYCcZ7eiI2bxGZ/nAG9I=;
+  b=Y0/KsGfbuWE3Ikl8mjvCNHgfLJXSK6d2GlvM03uHO0uEQzrwEGdxwWbb
+   MJKfTRwQFuYsaE2jCNqQZSVONycGCqtgoI8Kirolf/l2FhQCGtam02m6V
+   0UgML4drxI0nM4x6E66gF0SuIcav2DCdXEngwsOksOigOZxseRVB3PHSW
+   IgyfCsTsoGWHhIc9J+vXzSexeomm97cqpA/QcmRJizLXr690EMQ+mH8lx
+   8Cc2dImeb2xktHVFET1FHC5acM9VlMqLmE0Rt+DpZu1HwTZLcfPk8gHTq
+   LC6AzKVCYfrH2VUB6Xo/eHG6pNSyq0yI3N4DorhRteXIh/mJffmAjDw/L
+   g==;
+X-CSE-ConnectionGUID: Ivxew5whSU2AHU/10MTWUw==
+X-CSE-MsgGUID: aULauu6RT+mzPRLeeAG+4g==
+X-IronPort-AV: E=Sophos;i="6.12,297,1728943200"; 
+   d="scan'208";a="40917071"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 08 Jan 2025 11:15:47 +0100
+X-CheckPoint: {677E5053-29-C6D8D88D-F91F9E6B}
+X-MAIL-CPID: FB0D07F9AF1E531774E54C986082FCB8_2
+X-Control-Analysis: str=0001.0A682F1E.677E5053.00D7,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 941801661C3;
+	Wed,  8 Jan 2025 11:15:41 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1736331343;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rqUpwoDA+wnL7XDmIleta7smYCcZ7eiI2bxGZ/nAG9I=;
+	b=P2uQifsdWvuLxnJ3LKeSnx2AOHu2MJdlDbZQbQhhEaJMxPaQEJoueeTkDsvwYf7nnKTdFg
+	XtuGx6MaU6Ovw8ucl4I8U43rjk3+m3i6NqUPxSJTqGmlEYoSPNZeQubAW7/BRF0YzSKOW2
+	sFO5j46TDBw13ga5TopR9v3KdWmWXIuLroCyenf8/GinUnQve12zEut6iTkxvV6ky9WCWr
+	bNYEswYXfCwDVwWMQgCkvSZmhmpR2FT5xJDCTeukav7fI36p6ZkjnG+rkRhkMzuNLORVLw
+	+Gj5UWlKibgRTHQTFwG3KlDTwbIpjnb/VrR9ooC3SLHkUgJ+r3/LMH02agAJkw==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, linux-arm-kernel@lists.infradead.org
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>, "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Subject: Re: [PATCH v5 2/2] nvmem: imx-ocotp-ele: Support accessing controller for i.MX9
+Date: Wed, 08 Jan 2025 11:15:40 +0100
+Message-ID: <3823142.MHq7AAxBmi@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20250108-imx-ocotp-v5-2-a6d90e18ebe9@nxp.com>
+References: <20250108-imx-ocotp-v5-0-a6d90e18ebe9@nxp.com> <20250108-imx-ocotp-v5-2-a6d90e18ebe9@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4] arm64: mm: Populate vmemmap/linear at the page level
- for hotplugged sections
-To: Catalin Marinas <catalin.marinas@arm.com>,
- Zhenhua Huang <quic_zhenhuah@quicinc.com>
-Cc: will@kernel.org, ardb@kernel.org, ryan.roberts@arm.com,
- mark.rutland@arm.com, joey.gouly@arm.com, dave.hansen@linux.intel.com,
- akpm@linux-foundation.org, chenfeiyang@loongson.cn, chenhuacai@kernel.org,
- linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, quic_tingweiz@quicinc.com,
- stable@vger.kernel.org
-References: <20250107074252.1062127-1-quic_zhenhuah@quicinc.com>
- <Z31--x4unDHRU5Zo@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <Z31--x4unDHRU5Zo@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_021145_930634_551C2CA3 
-X-CRM114-Status: GOOD (  29.69  )
+X-CRM114-CacheID: sfid-20250108_021550_498255_C1963849 
+X-CRM114-Status: GOOD (  27.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,156 +93,279 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/8/25 00:52, Catalin Marinas wrote:
-> On Tue, Jan 07, 2025 at 03:42:52PM +0800, Zhenhua Huang wrote:
->> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->> index e2739b69e11b..5e0f514de870 100644
->> --- a/arch/arm64/mm/mmu.c
->> +++ b/arch/arm64/mm/mmu.c
->> @@ -42,9 +42,11 @@
->>  #include <asm/pgalloc.h>
->>  #include <asm/kfence.h>
->>  
->> -#define NO_BLOCK_MAPPINGS	BIT(0)
->> -#define NO_CONT_MAPPINGS	BIT(1)
->> -#define NO_EXEC_MAPPINGS	BIT(2)	/* assumes FEAT_HPDS is not used */
->> +#define NO_PMD_BLOCK_MAPPINGS	BIT(0)
->> +#define NO_PUD_BLOCK_MAPPINGS	BIT(1)  /* Hotplug case: do not want block mapping for PUD */
->> +#define NO_BLOCK_MAPPINGS (NO_PMD_BLOCK_MAPPINGS | NO_PUD_BLOCK_MAPPINGS)
-> 
-> Nit: please use a tab instead of space before (NO_PMD_...)
-> 
->> +#define NO_CONT_MAPPINGS	BIT(2)
->> +#define NO_EXEC_MAPPINGS	BIT(3)	/* assumes FEAT_HPDS is not used */
->>  
->>  u64 kimage_voffset __ro_after_init;
->>  EXPORT_SYMBOL(kimage_voffset);
->> @@ -254,7 +256,7 @@ static void init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
->>  
->>  		/* try section mapping first */
->>  		if (((addr | next | phys) & ~PMD_MASK) == 0 &&
->> -		    (flags & NO_BLOCK_MAPPINGS) == 0) {
->> +		    (flags & NO_PMD_BLOCK_MAPPINGS) == 0) {
->>  			pmd_set_huge(pmdp, phys, prot);
->>  
->>  			/*
->> @@ -356,10 +358,11 @@ static void alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
->>  
->>  		/*
->>  		 * For 4K granule only, attempt to put down a 1GB block
->> +		 * Hotplug case: do not attempt 1GB block
->>  		 */
-> 
-> I don't think we need this comment added here. The hotplug case is a
-> decision of the caller, so better to have the comment there.
+Hi Peng,
 
-Agreed.
+Am Mittwoch, 8. Januar 2025, 08:00:18 CET schrieb Peng Fan (OSS):
+> From: Peng Fan <peng.fan@nxp.com>
+>=20
+> i.MX9 OCOTP supports a specific peripheral or function being fused
+> which means disabled, so
+>  - Introduce ocotp_access_gates to be container of efuse gate info
+>  - Iterate all nodes to check accessing permission. If not
+>    allowed to be accessed, detach the node
+>=20
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  drivers/nvmem/imx-ocotp-ele.c | 172 ++++++++++++++++++++++++++++++++++++=
++++++-
+>  1 file changed, 171 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/nvmem/imx-ocotp-ele.c b/drivers/nvmem/imx-ocotp-ele.c
+> index ca6dd71d8a2e29888c6e556aaea116c1a967cb5f..5ea6d959ce38760eeed44a989=
+992fb35c462c0b4 100644
+> --- a/drivers/nvmem/imx-ocotp-ele.c
+> +++ b/drivers/nvmem/imx-ocotp-ele.c
+> @@ -5,6 +5,8 @@
+>   * Copyright 2023 NXP
+>   */
+> =20
+> +#include <dt-bindings/nvmem/fsl,imx93-ocotp.h>
+> +#include <dt-bindings/nvmem/fsl,imx95-ocotp.h>
+>  #include <linux/device.h>
+>  #include <linux/io.h>
+>  #include <linux/module.h>
+> @@ -27,6 +29,7 @@ struct ocotp_map_entry {
+>  };
+> =20
+>  struct ocotp_devtype_data {
+> +	const struct ocotp_access_gates *access_gates;
+>  	u32 reg_off;
+>  	char *name;
+>  	u32 size;
+> @@ -36,6 +39,20 @@ struct ocotp_devtype_data {
+>  	struct ocotp_map_entry entry[];
+>  };
+> =20
+> +#define OCOTP_MAX_NUM_GATE_WORDS 4
+> +
+> +struct access_gate {
+> +	u32 word;
+> +	u32 mask;
+> +};
+> +
+> +struct ocotp_access_gates {
+> +	u32 num_words;
+> +	u32 words[OCOTP_MAX_NUM_GATE_WORDS];
+> +	u32 num_gates;
+> +	struct access_gate *gates;
+> +};
+> +
+>  struct imx_ocotp_priv {
+>  	struct device *dev;
+>  	void __iomem *base;
+> @@ -131,6 +148,82 @@ static void imx_ocotp_fixup_dt_cell_info(struct nvme=
+m_device *nvmem,
+>  	cell->read_post_process =3D imx_ocotp_cell_pp;
+>  }
+> =20
+> +static int imx_ele_ocotp_check_access(struct imx_ocotp_priv *priv, u32 i=
+d)
+> +{
+> +	const struct ocotp_access_gates *access_gates =3D priv->data->access_ga=
+tes;
+> +	void __iomem *reg =3D priv->base + priv->data->reg_off;
+> +	u32 word, mask, val;
+> +
+> +	if (id >=3D access_gates->num_gates) {
+> +		dev_err(priv->config.dev, "Index %d too large\n", id);
+> +		return -EACCES;
+> +	}
+> +
+> +	word =3D access_gates->gates[id].word;
+> +	mask =3D access_gates->gates[id].mask;
+> +
+> +	reg =3D priv->base + priv->data->reg_off + (word << 2);
+> +	val =3D readl(reg);
+> +
+> +	dev_dbg(priv->config.dev, "id:%d word:%d mask:0x%08x\n", id, word, mask=
+);
+> +	/* true means not allow access */
+> +	if (val & mask)
+> +		return -EACCES;
+> +
+> +	return 0;
+> +}
+> +
+> +static int imx_ele_ocotp_grant_access(struct imx_ocotp_priv *priv, struc=
+t device_node *parent)
+> +{
+> +	struct device *dev =3D priv->config.dev;
+> +
+> +	for_each_available_child_of_node_scoped(parent, child) {
+> +		struct of_phandle_args args;
+> +		u32 id, idx =3D 0;
+> +
+> +		while (!of_parse_phandle_with_args(child, "access-controllers",
+> +						   "#access-controller-cells",
+> +						   idx++, &args)) {
+> +			of_node_put(args.np);
+> +			if (args.np !=3D dev->of_node)
+> +				continue;
+> +
+> +			/* Only support one cell */
+> +			if (args.args_count !=3D 1) {
+> +				dev_err(dev, "wrong args count\n");
+> +				continue;
+> +			}
+> +
+> +			id =3D args.args[0];
+> +
+> +			dev_dbg(dev, "Checking node: %pOF gate: %d\n", child, id);
+> +
+> +			if (imx_ele_ocotp_check_access(priv, id)) {
+> +				of_detach_node(child);
+> +				dev_info(dev, "%pOF: Not granted, device driver will not be probed\n=
+",
+> +					 child);
+> +			}
+> +		}
+> +
+> +		imx_ele_ocotp_grant_access(priv, child);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int imx_ele_ocotp_access_control(struct imx_ocotp_priv *priv)
+> +{
+> +	struct device_node *root __free(device_node) =3D of_find_node_by_path("=
+/");
+> +
+> +	if (!priv->data->access_gates)
+> +		return 0;
+> +
+> +	/* This should never happen */
+> +	WARN_ON(!root);
+> +
+> +	return imx_ele_ocotp_grant_access(priv, root);
+> +}
+> +
+>  static int imx_ele_ocotp_probe(struct platform_device *pdev)
+>  {
+>  	struct device *dev =3D &pdev->dev;
+> @@ -161,14 +254,45 @@ static int imx_ele_ocotp_probe(struct platform_devi=
+ce *pdev)
+>  	priv->config.fixup_dt_cell_info =3D imx_ocotp_fixup_dt_cell_info;
+>  	mutex_init(&priv->lock);
+> =20
+> +	platform_set_drvdata(pdev, priv);
+> +
+>  	nvmem =3D devm_nvmem_register(dev, &priv->config);
+>  	if (IS_ERR(nvmem))
+>  		return PTR_ERR(nvmem);
+> =20
+> -	return 0;
+> +
+> +	return imx_ele_ocotp_access_control(priv);
 
-> 
->>  		if (pud_sect_supported() &&
->>  		   ((addr | next | phys) & ~PUD_MASK) == 0 &&
->> -		    (flags & NO_BLOCK_MAPPINGS) == 0) {
->> +		   (flags & NO_PUD_BLOCK_MAPPINGS) == 0) {
->>  			pud_set_huge(pudp, phys, prot);
-> 
-> Nit: something wrong with the alignment here. I think the unmodified
-> line after the 'if' one above was misaligned before your patch.
-> 
->>  
->>  			/*
->> @@ -1175,9 +1178,21 @@ int __meminit vmemmap_check_pmd(pmd_t *pmdp, int node,
->>  int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
->>  		struct vmem_altmap *altmap)
->>  {
->> +	unsigned long start_pfn;
->> +	struct mem_section *ms;
->> +
->>  	WARN_ON((start < VMEMMAP_START) || (end > VMEMMAP_END));
->>  
->> -	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES))
->> +	start_pfn = page_to_pfn((struct page *)start);
->> +	ms = __pfn_to_section(start_pfn);
-> 
-> Hmm, it would have been better if the core code provided the start pfn
-> as it does for vmemmap_populate_compound_pages() but I'm fine with
-> deducting it from 'start'.
+In [1] you mentioned devlink should solve the probe order. How does this
+play when the driver is compiled in (e.g. ethernet for NFS boot) but
+this OCOTP driver is just a module?
+I'm not well versed with devlink, but is
+> access-controllers =3D <&ocotp IMX93_OCOTP_ENET1_GATE>;
+already enough to create that link?
 
-Right, that will require changing arguments in generic vmemmap_populate(). 
+Best regards,
+Alexander
 
-> 
->> +	/*
->> +	 * Hotplugged section does not support hugepages as
->> +	 * PMD_SIZE (hence PUD_SIZE) section mapping covers
->> +	 * struct page range that exceeds a SUBSECTION_SIZE
->> +	 * i.e 2MB - for all available base page sizes.
->> +	 */
->> +	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES) || !early_section(ms))
->>  		return vmemmap_populate_basepages(start, end, node, altmap);
->>  	else
->>  		return vmemmap_populate_hugepages(start, end, node, altmap);
->> @@ -1339,9 +1354,25 @@ int arch_add_memory(int nid, u64 start, u64 size,
->>  		    struct mhp_params *params)
->>  {
->>  	int ret, flags = NO_EXEC_MAPPINGS;
->> +	unsigned long start_pfn = page_to_pfn((struct page *)start);
->> +	struct mem_section *ms = __pfn_to_section(start_pfn);
-> 
-> This looks wrong. 'start' here is a physical address, you want
-> PFN_DOWN() instead.
+>  }
+> =20
+> +struct access_gate imx93_access_gate[] =3D {
+> +		[IMX93_OCOTP_NPU_GATE]		=3D { .word =3D 19, .mask =3D BIT(13) },
+> +		[IMX93_OCOTP_A550_GATE]		=3D { .word =3D 19, .mask =3D BIT(14) },
+> +		[IMX93_OCOTP_A551_GATE]		=3D { .word =3D 19, .mask =3D BIT(15) },
+> +		[IMX93_OCOTP_M33_GATE]		=3D { .word =3D 19, .mask =3D BIT(24) },
+> +		[IMX93_OCOTP_CAN1_FD_GATE]	=3D { .word =3D 19, .mask =3D BIT(28) },
+> +		[IMX93_OCOTP_CAN2_FD_GATE]	=3D { .word =3D 19, .mask =3D BIT(29) },
+> +		[IMX93_OCOTP_CAN1_GATE]		=3D { .word =3D 19, .mask =3D BIT(30) },
+> +		[IMX93_OCOTP_CAN2_GATE]		=3D { .word =3D 19, .mask =3D BIT(31) },
+> +		[IMX93_OCOTP_USB1_GATE]		=3D { .word =3D 20, .mask =3D BIT(3) },
+> +		[IMX93_OCOTP_USB2_GATE]		=3D { .word =3D 20, .mask =3D BIT(4) },
+> +		[IMX93_OCOTP_ENET1_GATE]	=3D { .word =3D 20, .mask =3D BIT(5) },
+> +		[IMX93_OCOTP_ENET2_GATE]	=3D { .word =3D 20, .mask =3D BIT(6) },
+> +		[IMX93_OCOTP_PXP_GATE]		=3D { .word =3D 20, .mask =3D BIT(10) },
+> +		[IMX93_OCOTP_MIPI_CSI1_GATE]	=3D { .word =3D 20, .mask =3D BIT(17) },
+> +		[IMX93_OCOTP_MIPI_DSI1_GATE]	=3D { .word =3D 20, .mask =3D BIT(19) },
+> +		[IMX93_OCOTP_LVDS1_GATE]	=3D { .word =3D 20, .mask =3D BIT(24) },
+> +		[IMX93_OCOTP_ADC1_GATE]		=3D { .word =3D 21, .mask =3D BIT(7) },
+> +};
+> +
+> +static const struct ocotp_access_gates imx93_access_gates_info =3D {
+> +	.num_words =3D 3,
+> +	.words =3D {19, 20, 21},
+> +	.num_gates =3D ARRAY_SIZE(imx93_access_gate),
+> +	.gates =3D imx93_access_gate,
+> +};
+> +
+>  static const struct ocotp_devtype_data imx93_ocotp_data =3D {
+> +	.access_gates =3D &imx93_access_gates_info,
+>  	.reg_off =3D 0x8000,
+>  	.reg_read =3D imx_ocotp_reg_read,
+>  	.size =3D 2048,
+> @@ -183,7 +307,53 @@ static const struct ocotp_devtype_data imx93_ocotp_d=
+ata =3D {
+>  	},
+>  };
+> =20
+> +struct access_gate imx95_access_gate[] =3D {
+> +		[IMX95_OCOTP_CANFD1_GATE]	=3D { .word =3D 17, .mask =3D BIT(20) },
+> +		[IMX95_OCOTP_CANFD2_GATE]	=3D { .word =3D 17, .mask =3D BIT(21) },
+> +		[IMX95_OCOTP_CANFD3_GATE]	=3D { .word =3D 17, .mask =3D BIT(22) },
+> +		[IMX95_OCOTP_CANFD4_GATE]	=3D { .word =3D 17, .mask =3D BIT(23) },
+> +		[IMX95_OCOTP_CANFD5_GATE]	=3D { .word =3D 17, .mask =3D BIT(24) },
+> +		[IMX95_OCOTP_CAN1_GATE]		=3D { .word =3D 17, .mask =3D BIT(25) },
+> +		[IMX95_OCOTP_CAN2_GATE]		=3D { .word =3D 17, .mask =3D BIT(26) },
+> +		[IMX95_OCOTP_CAN3_GATE]		=3D { .word =3D 17, .mask =3D BIT(27) },
+> +		[IMX95_OCOTP_CAN4_GATE]		=3D { .word =3D 17, .mask =3D BIT(28) },
+> +		[IMX95_OCOTP_CAN5_GATE]		=3D { .word =3D 17, .mask =3D BIT(29) },
+> +		[IMX95_OCOTP_NPU_GATE]		=3D { .word =3D 18, .mask =3D BIT(0) },
+> +		[IMX95_OCOTP_A550_GATE]		=3D { .word =3D 18, .mask =3D BIT(1) },
+> +		[IMX95_OCOTP_A551_GATE]		=3D { .word =3D 18, .mask =3D BIT(2) },
+> +		[IMX95_OCOTP_A552_GATE]		=3D { .word =3D 18, .mask =3D BIT(3) },
+> +		[IMX95_OCOTP_A553_GATE]		=3D { .word =3D 18, .mask =3D BIT(4) },
+> +		[IMX95_OCOTP_A554_GATE]		=3D { .word =3D 18, .mask =3D BIT(5) },
+> +		[IMX95_OCOTP_A555_GATE]		=3D { .word =3D 18, .mask =3D BIT(6) },
+> +		[IMX95_OCOTP_M7_GATE]		=3D { .word =3D 18, .mask =3D BIT(9) },
+> +		[IMX95_OCOTP_DCSS_GATE]		=3D { .word =3D 18, .mask =3D BIT(22) },
+> +		[IMX95_OCOTP_LVDS1_GATE]	=3D { .word =3D 18, .mask =3D BIT(27) },
+> +		[IMX95_OCOTP_ISP_GATE]		=3D { .word =3D 18, .mask =3D BIT(29) },
+> +		[IMX95_OCOTP_USB1_GATE]		=3D { .word =3D 19, .mask =3D BIT(2) },
+> +		[IMX95_OCOTP_USB2_GATE]		=3D { .word =3D 19, .mask =3D BIT(3) },
+> +		[IMX95_OCOTP_NETC_GATE]		=3D { .word =3D 19, .mask =3D BIT(4) },
+> +		[IMX95_OCOTP_PCIE1_GATE]	=3D { .word =3D 19, .mask =3D BIT(6) },
+> +		[IMX95_OCOTP_PCIE2_GATE]	=3D { .word =3D 19, .mask =3D BIT(7) },
+> +		[IMX95_OCOTP_ADC1_GATE]		=3D { .word =3D 19, .mask =3D BIT(8) },
+> +		[IMX95_OCOTP_EARC_RX_GATE]	=3D { .word =3D 19, .mask =3D BIT(11) },
+> +		[IMX95_OCOTP_GPU3D_GATE]	=3D { .word =3D 19, .mask =3D BIT(16) },
+> +		[IMX95_OCOTP_VPU_GATE]		=3D { .word =3D 19, .mask =3D BIT(17) },
+> +		[IMX95_OCOTP_JPEG_ENC_GATE]	=3D { .word =3D 19, .mask =3D BIT(18) },
+> +		[IMX95_OCOTP_JPEG_DEC_GATE]	=3D { .word =3D 19, .mask =3D BIT(19) },
+> +		[IMX95_OCOTP_MIPI_CSI1_GATE]	=3D { .word =3D 19, .mask =3D BIT(21) },
+> +		[IMX95_OCOTP_MIPI_CSI2_GATE]	=3D { .word =3D 19, .mask =3D BIT(22) },
+> +		[IMX95_OCOTP_MIPI_DSI1_GATE]	=3D { .word =3D 19, .mask =3D BIT(23) },
+> +};
+> +
+> +static const struct ocotp_access_gates imx95_access_gates_info =3D {
+> +	.num_words =3D 3,
+> +	.words =3D {17, 18, 19},
+> +	.num_gates =3D ARRAY_SIZE(imx95_access_gate),
+> +	.gates =3D imx95_access_gate,
+> +};
+> +
+>  static const struct ocotp_devtype_data imx95_ocotp_data =3D {
+> +	.access_gates =3D &imx95_access_gates_info,
+>  	.reg_off =3D 0x8000,
+>  	.reg_read =3D imx_ocotp_reg_read,
+>  	.size =3D 2048,
+>=20
+>=20
 
-Agreed.
 
-> 
->>  
->>  	VM_BUG_ON(!mhp_range_allowed(start, size, true));
->>  
->> +	/* should not be invoked by early section */
->> +	WARN_ON(early_section(ms));
->> +
->> +	/*
->> +	 * 4K base page's PMD_SIZE matches SUBSECTION_SIZE i.e 2MB. Hence
->> +	 * PMD section mapping can be allowed, but only for 4K base pages.
->> +	 * Where as PMD_SIZE (hence PUD_SIZE) for other page sizes exceed
->> +	 * SUBSECTION_SIZE.
->> +	 */
->> +	if (IS_ENABLED(CONFIG_ARM64_4K_PAGES))
->> +		flags |= NO_PUD_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
-> 
-> In theory we can allow contiguous PTE mappings but not PMD. You could
-> probably do the same as a NO_BLOCK_MAPPINGS and split it into multiple
-> components - NO_PTE_CONT_MAPPINGS and so on.
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
 
-That's a good idea.
 
-> 
->> +	else
->> +		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
-> 
-> Similarly with 16K/64K pages we can allow contiguous PTEs as they all go
-> up to 2MB blocks.
-> 
-> I think we should write the flags setup in a more readable way than
-> trying to do mental maths on the possible combinations, something like:
-> 
-> 	flags = NO_PUD_BLOCK_MAPPINGS | NO_PMD_CONT_MAPPINGS;
-> 	if (SUBSECTION_SHIFT < PMD_SHIFT)
-> 		flags |= NO_PMD_BLOCK_MAPPINGS;
-> 	if (SUBSECTION_SHIFT < CONT_PTE_SHIFT)
-> 		flags |= NO_PTE_CONT_MAPPINGS;
-
-Just wondering why not start with PUD level itself ? Although SUBSECTION_SHIFT
-might never reach the PUD level but this will help keep the flags calculations
-bit simple and ready for all future changes.
-
-	flags = 0;
- 	if (SUBSECTION_SHIFT < PUD_SHIFT)
- 		flags |= NO_PUD_BLOCK_MAPPINGS;
- 	if (SUBSECTION_SHIFT < CONT_PMD_SHIFT)
- 		flags |= NO_PMD_CONT_MAPPINGS;
-
-> 
-> This way we don't care about the page size and should cover any changes
-> to SUBSECTION_SHIFT making it smaller than 2MB.
-> 
-Agreed.
 
