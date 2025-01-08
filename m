@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D80CBE77199
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 11:38:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5D28E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 11:39:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kyd6MbcXMFtlIUsTtNqssgB/X6VbWEfGClpfYsSSoZU=; b=RHltanRvRSBxNEkLSq1WLW6vJI
-	x/AS6y63DulHSbtBDKY+tvGOrajPlZ+ycMQw6FbJceqR9YBlHfXL7ogVcPTYA7kcnKu3FFULWCfSS
-	G7eUzUKI09amX3oRj3UEUr7J2Ip3jQIUzMIq1nkbn2iswxlyju20V3Df2+tR9DIf+DKSpk8/vUiwT
-	a6pJtsEhYc/zPH8SXj3pnC9zVxWU81TzeUXWVIEWYU5rG/fZD7d1+ZWzu8Jd9lpKVbTUqTIzYsLP8
-	trQWTd8f87llMSFWf8nqAUGNJ0mFIuchlXmL96tEUwLZlDRe63E0qUnnWmqcHqantEXjZcjlbOH7W
-	0ofT/tbg==;
+	bh=kd8IPjvp/abRGAoSBVjgNgZVclZGyAanZator5BztLA=; b=du6SQHbcHOLJwKDN51+63C7q+U
+	1Q+PB/xQayCETMLHZRPLKijEUZAD/+g3nIEXfq+7ZVJzwx0QcW8LQ6J8cxpmBlvBFB9l5fY6K4EAA
+	/sMzkE76HOv4HVj3aJXNSUccelNmDvgAmzVo4eHtxdNI2xe8cP7u4fSoyMjWjzDxQFE8l1PwzQyqo
+	jc0nvTJm7FvgK9WtpLc8OSNsl1wxnDHsg/l3uPH+7VQC+F7TbxoA9JSAgCwsdgDZHKpo7l+9rJmCU
+	AAlzc0NCReDOmS4V0KGghGRxUwcdcrSj2N12+13/d0G1QSlz6gSA9bswJxkB7a6kXaA8NDD333vxT
+	W05ez0Eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVUNk-00000008FIG-0Z0A;
-	Wed, 08 Jan 2025 11:37:52 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tVUOu-00000008FT3-1cNH;
+	Wed, 08 Jan 2025 11:39:04 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVUEO-00000008CDO-3yiU;
-	Wed, 08 Jan 2025 11:28:15 +0000
+	id 1tVUEQ-00000008CG1-1wt2;
+	Wed, 08 Jan 2025 11:28:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1736335689;
-	bh=hwSVoiVrEcxOlc7YT2Izw9w3RSFzFJ5UporHevK7NJQ=;
+	s=mail; t=1736335692;
+	bh=lLrQC0lfk4TYA4scyO8mnlJTRJoobGS+tkT7k+7auo0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kj5IYNnI/D5CJBsEuRYBflKm9idQByhMZlaSxv18iKgfId7khdRh9azeK6ADKLxrQ
-	 IGkhcWOn0JcSBnSfmlVrYDEuGPbIjJr3a2Cf1UuF1wBdx4iJ5OIyMTIn1J96F4G97E
-	 Trd+zTIM9AFjEp5mXZtS+9gaQFMme5MmbG3UIAMrKyhXOVJZLUyo9lIEs6H2EiQN7O
-	 7ZBZSjt79hMBBnMTR8aZ/aoeU2emTETZETD0Vx2kTYtwoC0UfGmc/X/WLNNWxDiuR9
-	 A+iEmOOQwgkRVEXnuXyO0cLLlurRbrjlE2oWstaKnhErpjvfu+iaapgdDWhydY5EJM
-	 YLEouw2c4gnuA==
+	b=P6EBc7uwZ92+hosUtuqfg39bZciIagHzn3j/QrkeH7pW4Gw56+Bl5HrChyOpo3oaT
+	 0aMCcKTlc0HAmGbu7Qb0L3m36EEythHGpjIKPKrOfy7MN8YM6bhLdYk2Oahi6A0imd
+	 2jS+INLdrR+88h1jHP8NsSeBSoSgToZ96pxusF2I0dIfS4qVQGnT3pusNOk3mdYzmk
+	 zE60sCp7JshuhNDNKX6DpYvyB1BHsaOY876XPYpGISKeyrtbTbfMoLNz2hhbgxZS1q
+	 s/YOZagYDwJGdFF6PlVUd1HMeFjEBG530w64LUSfMyecHrDKzIICttLMsjH7ARoEYR
+	 XVABoGI0jIGkw==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A0AB317E1573;
-	Wed,  8 Jan 2025 12:28:07 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B08DA17E1578;
+	Wed,  8 Jan 2025 12:28:10 +0100 (CET)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: chunkuang.hu@kernel.org
 Cc: p.zabel@pengutronix.de,
@@ -71,17 +71,17 @@ Cc: p.zabel@pengutronix.de,
 	ives.chenjh@mediatek.com,
 	tommyyl.chen@mediatek.com,
 	jason-jh.lin@mediatek.com
-Subject: [PATCH v4 07/34] dt-bindings: display: mediatek: Add binding for HDMIv2 DDC
-Date: Wed,  8 Jan 2025 12:27:17 +0100
-Message-ID: <20250108112744.64686-8-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v4 09/34] drm/mediatek: mtk_cec: Switch to register as module_platform_driver
+Date: Wed,  8 Jan 2025 12:27:19 +0100
+Message-ID: <20250108112744.64686-10-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20250108112744.64686-1-angelogioacchino.delregno@collabora.com>
 References: <20250108112744.64686-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_032813_161611_9730DD5E 
-X-CRM114-Status: GOOD (  11.56  )
+X-CRM114-CacheID: sfid-20250108_032814_686051_3E0BA545 
+X-CRM114-Status: GOOD (  14.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,63 +96,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a binding for the Display Data Channel (DDC) IP in MediaTek
-SoCs with version 2 HDMI TX IP.
+In preparation for splitting out the common bits from the HDMI
+driver, change the mtk_cec driver from being registered from the
+HDMI driver itself to be a module_platform_driver of its own.
 
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- .../mediatek/mediatek,mt8195-hdmi-ddc.yaml    | 41 +++++++++++++++++++
- 1 file changed, 41 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/display/mediatek/mediatek,mt8195-hdmi-ddc.yaml
+ drivers/gpu/drm/mediatek/Makefile   | 4 ++--
+ drivers/gpu/drm/mediatek/mtk_cec.c  | 7 ++++++-
+ drivers/gpu/drm/mediatek/mtk_hdmi.c | 2 +-
+ drivers/gpu/drm/mediatek/mtk_hdmi.h | 1 -
+ 4 files changed, 9 insertions(+), 5 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8195-hdmi-ddc.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8195-hdmi-ddc.yaml
-new file mode 100644
-index 000000000000..d85e8ed2ffa7
---- /dev/null
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8195-hdmi-ddc.yaml
-@@ -0,0 +1,41 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/display/mediatek/mediatek,mt8195-hdmi-ddc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/drivers/gpu/drm/mediatek/Makefile b/drivers/gpu/drm/mediatek/Makefile
+index 32a2ed6c0cfe..bdd3a062f797 100644
+--- a/drivers/gpu/drm/mediatek/Makefile
++++ b/drivers/gpu/drm/mediatek/Makefile
+@@ -21,10 +21,10 @@ mediatek-drm-y := mtk_crtc.o \
+ 
+ obj-$(CONFIG_DRM_MEDIATEK) += mediatek-drm.o
+ 
+-mediatek-drm-hdmi-objs := mtk_cec.o \
+-			  mtk_hdmi.o \
++mediatek-drm-hdmi-objs := mtk_hdmi.o \
+ 			  mtk_hdmi_ddc.o
+ 
++obj-$(CONFIG_DRM_MEDIATEK_HDMI) += mtk_cec.o
+ obj-$(CONFIG_DRM_MEDIATEK_HDMI) += mediatek-drm-hdmi.o
+ 
+ obj-$(CONFIG_DRM_MEDIATEK_DP) += mtk_dp.o
+diff --git a/drivers/gpu/drm/mediatek/mtk_cec.c b/drivers/gpu/drm/mediatek/mtk_cec.c
+index b42c0d87eba3..c7be530ca041 100644
+--- a/drivers/gpu/drm/mediatek/mtk_cec.c
++++ b/drivers/gpu/drm/mediatek/mtk_cec.c
+@@ -12,7 +12,6 @@
+ #include <linux/platform_device.h>
+ 
+ #include "mtk_cec.h"
+-#include "mtk_hdmi.h"
+ #include "mtk_drm_drv.h"
+ 
+ #define TR_CONFIG		0x00
+@@ -102,6 +101,7 @@ void mtk_cec_set_hpd_event(struct device *dev,
+ 	cec->hpd_event = hpd_event;
+ 	spin_unlock_irqrestore(&cec->lock, flags);
+ }
++EXPORT_SYMBOL_NS_GPL(mtk_cec_set_hpd_event, "DRM_MTK_HDMI_V1");
+ 
+ bool mtk_cec_hpd_high(struct device *dev)
+ {
+@@ -112,6 +112,7 @@ bool mtk_cec_hpd_high(struct device *dev)
+ 
+ 	return (status & (HDMI_PORD | HDMI_HTPLG)) == (HDMI_PORD | HDMI_HTPLG);
+ }
++EXPORT_SYMBOL_NS_GPL(mtk_cec_hpd_high, "DRM_MTK_HDMI_V1");
+ 
+ static void mtk_cec_htplg_irq_init(struct mtk_cec *cec)
+ {
+@@ -247,3 +248,7 @@ struct platform_driver mtk_cec_driver = {
+ 		.of_match_table = mtk_cec_of_ids,
+ 	},
+ };
++module_platform_driver(mtk_cec_driver);
 +
-+title: MediaTek HDMI Display Data Channel (DDC) v2
-+
-+maintainers:
-+  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-+  - CK Hu <ck.hu@mediatek.com>
-+
-+properties:
-+  compatible:
-+    oneOf:
-+      - const: mediatek,mt8195-hdmi-ddc
-+      - items:
-+          - const: mediatek,mt8188-hdmi-ddc
-+          - const: mediatek,mt8195-hdmi-ddc
-+
-+  clocks:
-+    maxItems: 1
-+
-+  power-domains:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - clocks
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    hdmi {
-+        hdmi_ddc: i2c {
-+            compatible = "mediatek,mt8195-hdmi-ddc";
-+            clocks = <&clk26m>;
-+        };
-+    };
-+...
++MODULE_DESCRIPTION("MediaTek HDMI CEC Driver");
++MODULE_LICENSE("GPL");
+diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
+index 70dc1d4460ad..9795e35499d6 100644
+--- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
++++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
+@@ -1805,7 +1805,6 @@ static struct platform_driver mtk_hdmi_driver = {
+ 
+ static struct platform_driver * const mtk_hdmi_drivers[] = {
+ 	&mtk_hdmi_ddc_driver,
+-	&mtk_cec_driver,
+ 	&mtk_hdmi_driver,
+ };
+ 
+@@ -1827,3 +1826,4 @@ module_exit(mtk_hdmitx_exit);
+ MODULE_AUTHOR("Jie Qiu <jie.qiu@mediatek.com>");
+ MODULE_DESCRIPTION("MediaTek HDMI Driver");
+ MODULE_LICENSE("GPL v2");
++MODULE_IMPORT_NS("DRM_MTK_HDMI_V1");
+diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.h b/drivers/gpu/drm/mediatek/mtk_hdmi.h
+index 472bf141c92b..e40bc4651995 100644
+--- a/drivers/gpu/drm/mediatek/mtk_hdmi.h
++++ b/drivers/gpu/drm/mediatek/mtk_hdmi.h
+@@ -8,7 +8,6 @@
+ 
+ struct platform_driver;
+ 
+-extern struct platform_driver mtk_cec_driver;
+ extern struct platform_driver mtk_hdmi_ddc_driver;
+ 
+ #endif /* _MTK_HDMI_CTRL_H */
 -- 
 2.47.0
 
