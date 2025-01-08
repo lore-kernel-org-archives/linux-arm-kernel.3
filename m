@@ -4,94 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27984E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 01:22:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A792CE77198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 01:23:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1OwGQ/eEmH1Mu8xHiEqS2IPi6r1O9yd9XC8dCgu7ad0=; b=iyBJ6nWvNBcgBqrrfFbA6Xxv4S
-	GGPZj3fesrNMKzH+ZUn0Q9GVNrU9MEhB6zoYO5UkopWARaQn3SMXq9RkDpz7P4aRCizWwP01T1IfN
-	EdoeMS7DqKL2lSwclWazsomB81IvWxGEMMFOdMJJMglqpEwKnthSMhU8qXIsLLAQ2YX0YvxfatC6i
-	gzpUY2fbR7+9lhRmmXnNh5RZKjrxAgZVWci0085l+OkQv6BGh5GZ3jcrweDTg/83yo7tS43fErDHN
-	6sc5tTDHwYNKQSTd+gJovm7FfDtx3yzPMZ0sfWDVyEL8OTc9XXMXISArquGKRYOd8ZPUcHOSEoQlc
-	1PyW7euw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vJSV+wj92IwNZHtnl5qSgPSQxz0UaBfpbYPp/EvntKY=; b=eCrgin7sVC60kFozmrraX1HrHj
+	+GkI4TwMMfzyvbQ9dwiLyBtyydK/lAk+HxB6QYHDU68usvWkgcgUsuja0601twuPGUZ6o9UfLpF67
+	J6pUaFLDk3q5Bt4bogbyTZ1q5G7+XyVkXy6/7UKV6ToiPyYLOWLCv3vIyxxiB5Wqhg0nsRAjk3Y1h
+	s03AikBcevQdCj10fFxms1Ow1XljsTRhEy5IoABaI2oIwLNl9jF6b8vb3ue0DOGF3eUqCLUSBtn/w
+	g8YI/LPz+kqLE2U+U/IhEOyCbbKZ02EjFHfia7yAPfoCT7dESerzPxpAFaKXtCAgjwdueX0/yID8/
+	4rQVZP/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVKlo-00000006iKz-2C8v;
-	Wed, 08 Jan 2025 01:22:04 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1tVKmz-00000006ic0-0uDL;
+	Wed, 08 Jan 2025 01:23:17 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVKiI-00000006hGz-2gjA
+	id 1tVKjo-00000006hie-2bbZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 01:18:27 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2162c0f6a39so6610405ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 17:18:26 -0800 (PST)
+	Wed, 08 Jan 2025 01:20:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736299106; x=1736903906; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=1OwGQ/eEmH1Mu8xHiEqS2IPi6r1O9yd9XC8dCgu7ad0=;
-        b=NViRa9vQGPiK/GJMsBEkASZmIf3b4t+HNLPQd6RdGbubaIkG8+cqGElC2GQTO9+0+V
-         sP9TdLEMJ7UdUQUfqx4sxDldvsvMuhuqLaJyY0Y2MIPPpZuQaDsb3X9mdHFAW7YUB6G7
-         0eCN+Vj7N/2O870twkpX/I4HYRQ6HT2N6dSfInDo4Vwe6MGOQD6XBBWOUiwNla3nZGSv
-         iVrDhtbVmLp1b+m5al+sbKBKC0qN2A1Rvq2oMSd5oArEjuh+HH7Sft4lvb03eoaMoW3p
-         9p17l4HRHxVFuxIZF0g4aVZjfh6yxp40jqrbPo7nZyiMvGLh2QfUeC5GIzNtDvtuUyLa
-         m2NA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736299106; x=1736903906;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=1OwGQ/eEmH1Mu8xHiEqS2IPi6r1O9yd9XC8dCgu7ad0=;
-        b=my5UPv7EEqlBQgUfMvQTy706YfhDUbDGi9JUoDasg8zBdVCBesW4dWhET1FczrXEVR
-         aMhnQHrEmTawRtZ3iTKThsqE43gO/QQfFZZyCGo1lt3PFzWCiBM/aPb0oubZnOHEHwB6
-         Vx5LttCqyk9dNuoNx1wgwwkkp9eUcZoITUeGP9OxP45F1isQ4VvUCBlKdKUUHsfVNhTi
-         ZqFTkt1qQdDRjTbqx2ylq97mc3xCOV8/g1KiYd60hPYqhQTpwagq9Kkbwha/AfXUaQNz
-         q4SkeU31bRLgOeMNeN7SjrNlGCM8iZCh3jqvMJ8ohFbGqapd6rO4e5jCMSK56JULD+Mi
-         o58g==
-X-Forwarded-Encrypted: i=1; AJvYcCVHNaltNRFaVFUf2IPxg22xFJ4FCkcrv8VYs5IiXV932Mgzwa4xyIeDwmX7A16sOoMAKfjSORrzC2kWsIgVR6rF@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHBSJpo0XSo6vmaI5wVOtxpKFTnav4zlH5ZqYugmB8TTDj7mvm
-	ajr1tcnBMbq49g2upB2sp1H66GLu+pB4u2R0kh+EZ1eKYnYgv/WD
-X-Gm-Gg: ASbGnct5u7wTrgFVQ+B3bwR24nJGsajDQRp5kOlTa5+/Yv2O6CgtsH/lR3hksTbkf1k
-	I3l1Y2hBM3oOVzG5gkXE8MjCay6CAjdra+ORcIHCyZZw0RrO/5E7aChDE87HuiAwBJ6PM8OtlEA
-	V465CNSPqmctQ5H+XnVX9p4nP1TEY6eTc5kEQIAk3lPi7GHuSlbDnqxIk8NKDU0kQYFPFx76mp7
-	lR/Y2SC/G/bPEU9FmdEqXMMaZRAhMVdMo2+vec01086dP1XnINVr3LLiRKCIa7fINH9Y3QXtVh3
-	h23gvBu/AohGoozQsXqsZeNyudltqGePrTfbXoOixg==
-X-Google-Smtp-Source: AGHT+IH33ViZlygXXZrO1wY0MbeC+KmIfXpVRFwbG+LUTnBRTeOdPfyScTTkYVejKxiDQN3NI7hTkA==
-X-Received: by 2002:a05:6a20:2587:b0:1e1:adcd:eadb with SMTP id adf61e73a8af0-1e88d133f3amr1713889637.11.1736299105646;
-        Tue, 07 Jan 2025 17:18:25 -0800 (PST)
-Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72aad83033esm34045009b3a.48.2025.01.07.17.18.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Jan 2025 17:18:25 -0800 (PST)
-From: Ming-Jen <mjchen0829@gmail.com>
-To: linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-input@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	mjchen0829@gmail.com,
-	peng.fan@nxp.com,
-	arnd@arndb.de,
-	sudeep.holla@arm.com,
-	conor+dt@kernel.org,
-	krzk+dt@kernel.org,
-	robh@kernel.org,
-	dmitry.torokhov@gmail.com
-Subject: [PATCH v5 2/2] input: keypad: add new keypad driver for MA35D1
-Date: Wed,  8 Jan 2025 01:18:12 +0000
-Message-Id: <20250108011812.627-3-mjchen0829@gmail.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250108011812.627-1-mjchen0829@gmail.com>
-References: <20250108011812.627-1-mjchen0829@gmail.com>
+	d=codeconstruct.com.au; s=2022a; t=1736299198;
+	bh=vJSV+wj92IwNZHtnl5qSgPSQxz0UaBfpbYPp/EvntKY=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=AE3YYX87xXiMSlmRGff8LYpY6KHgfsu0UZIEoxmuLYNzyjKMmiTqHfKgEEzOeIq8H
+	 ExPJmehFepWPgQKfGQUFTaTy1LVbDi42RYZ+iPrzNBWuIHA8JO6qQjDCYXiVUQqzS0
+	 vCHg1M8f1/+zwr2xe1YEFyhuiSDzB7TKpV0tXoMZ9A55urKGPUWH1rqhtSSVWauhX6
+	 oPT1gEhwCthfA/0i+4trG5wQV2Ps/CAOxE6d/bIZm4MZg/Sn4YT1FJMSz6iklD6SH5
+	 2psahbTiI6tuSJ91oMgSuX5LDGe7EH2ULw28iXhXBT121/CH3TMDIEGsXevOCOecWu
+	 ynfwBw+GxTwjQ==
+Received: from [192.168.68.112] (ppp118-210-64-24.adl-adc-lon-bras32.tpg.internode.on.net [118.210.64.24])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 1351D6C095;
+	Wed,  8 Jan 2025 09:19:57 +0800 (AWST)
+Message-ID: <d90f338ca7a07d3e95ee6da08d84a74aeb7d866d.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v1] ARM: dts: aspeed: yosemite4: add fan led config
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Delphine CC Chiu <delphine_cc_chiu@wiwynn.com>, patrick@stwcx.xyz, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>
+Cc: Marshall Zhan <marshall.zhan.wiwynn@gmail.com>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Date: Wed, 08 Jan 2025 11:49:57 +1030
+In-Reply-To: <20241220043852.1096074-1-delphine_cc_chiu@wiwynn.com>
+References: <20241220043852.1096074-1-delphine_cc_chiu@wiwynn.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: base64
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_171826_684720_C9CFF99E 
-X-CRM114-Status: GOOD (  29.62  )
+X-CRM114-CacheID: sfid-20250107_172001_437364_CBB1FBF5 
+X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,441 +73,220 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ming-jen Chen <mjchen0829@gmail.com>
-
-Adds a new keypad driver for the MA35D1 platform.
-The driver supports key scanning and interrupt handling.
-
-Signed-off-by: Ming-jen Chen <mjchen0829@gmail.com>
----
- drivers/input/keyboard/Kconfig         |  10 +
- drivers/input/keyboard/Makefile        |   1 +
- drivers/input/keyboard/ma35d1_keypad.c | 387 +++++++++++++++++++++++++
- 3 files changed, 398 insertions(+)
- create mode 100644 drivers/input/keyboard/ma35d1_keypad.c
-
-diff --git a/drivers/input/keyboard/Kconfig b/drivers/input/keyboard/Kconfig
-index 721ab69e84ac..d7c0d0f4a88d 100644
---- a/drivers/input/keyboard/Kconfig
-+++ b/drivers/input/keyboard/Kconfig
-@@ -797,4 +797,14 @@ config KEYBOARD_CYPRESS_SF
- 	  To compile this driver as a module, choose M here: the
- 	  module will be called cypress-sf.
- 
-+config KEYBOARD_MA35D1
-+	tristate "Nuvoton MA35D1 keypad driver"
-+	depends on ARCH_MA35 || COMPILE_TEST
-+	select INPUT_MATRIXKMAP
-+	help
-+	  Say Y here if you want to use Nuvoton MA35D1 keypad.
-+
-+	  To compile this driver as a module, choose M here: the
-+	  module will be called ma35d1-keypad.
-+
- endif
-diff --git a/drivers/input/keyboard/Makefile b/drivers/input/keyboard/Makefile
-index 1e0721c30709..9b858cdd1b6b 100644
---- a/drivers/input/keyboard/Makefile
-+++ b/drivers/input/keyboard/Makefile
-@@ -70,3 +70,4 @@ obj-$(CONFIG_KEYBOARD_TEGRA)		+= tegra-kbc.o
- obj-$(CONFIG_KEYBOARD_TM2_TOUCHKEY)	+= tm2-touchkey.o
- obj-$(CONFIG_KEYBOARD_TWL4030)		+= twl4030_keypad.o
- obj-$(CONFIG_KEYBOARD_XTKBD)		+= xtkbd.o
-+obj-$(CONFIG_KEYBOARD_MA35D1)		+= ma35d1_keypad.o
-diff --git a/drivers/input/keyboard/ma35d1_keypad.c b/drivers/input/keyboard/ma35d1_keypad.c
-new file mode 100644
-index 000000000000..e4e0058d317c
---- /dev/null
-+++ b/drivers/input/keyboard/ma35d1_keypad.c
-@@ -0,0 +1,387 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ *  MA35D1 keypad driver
-+ *  Copyright (C) 2024 Nuvoton Technology Corp.
-+ */
-+
-+#include <linux/bitfield.h>
-+#include <linux/interrupt.h>
-+#include <linux/input.h>
-+#include <linux/platform_device.h>
-+#include <linux/input/matrix_keypad.h>
-+#include <linux/clk.h>
-+#include <linux/of.h>
-+#include <linux/io.h>
-+#include <linux/bitops.h>
-+#include <linux/pm_wakeirq.h>
-+
-+/* Keypad Interface Registers */
-+#define KPI_CONF		0x00
-+#define KPI_3KCONF		0x04
-+#define KPI_STATUS		0x08
-+#define KPI_RSTC		0x0C
-+#define KPI_KEST		0x10
-+#define KPI_KPE0		0x18
-+#define KPI_KPE1		0x1C
-+#define KPI_KRE0		0x20
-+#define KPI_KRE1		0x24
-+#define KPI_PRESCALDIV		0x28
-+
-+/* KPI_CONF - Keypad Configuration Register */
-+#define KROW			GENMASK(30, 28) /* Keypad Matrix ROW number */
-+#define KCOL			GENMASK(26, 24) /* Keypad Matrix COL Number */
-+#define DB_CLKSEL		GENMASK(19, 16) /* De-bounce sampling cycle selection */
-+#define PRESCALE		GENMASK(15, 8)  /* Row Scan Cycle Pre-scale Value */
-+#define WAKEUP			BIT(5) /* Lower Power Wakeup Enable */
-+#define INTEN			BIT(3) /* Key Interrupt Enable Control */
-+#define RKINTEN			BIT(2) /* Release Key Interrupt Enable */
-+#define PKINTEN			BIT(1) /* Press Key Interrupt Enable Control */
-+#define ENKP			BIT(0) /* Keypad Scan Enable */
-+
-+/* KPI_STATUS - Keypad Status Register */
-+#define PKEY_INT		BIT(4) /* Press key interrupt */
-+#define RKEY_INT		BIT(3) /* Release key interrupt */
-+#define KEY_INT			BIT(2) /* Key Interrupt */
-+#define RST_3KEY		BIT(1) /* 3-Keys Reset Flag */
-+#define PDWAKE			BIT(0) /* Power Down Wakeup Flag */
-+
-+#define KEY_EVENT_BITS		64
-+
-+#define NUM_SETTINGS		12
-+#define PRE_SCALE_MAX		256
-+#define PRE_SCALE_DIV_MAX	256
-+
-+static const unsigned int debounce_values[NUM_SETTINGS] = {
-+	0, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192
-+};
-+
-+static const unsigned int debounce_register[NUM_SETTINGS] = {
-+	0x0, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8, 0x9, 0xA, 0xB, 0xC, 0xD
-+};
-+
-+struct ma35d1_keypad {
-+	struct clk *clk;
-+	struct input_dev *input_dev;
-+	void __iomem *mmio_base;
-+	int irq;
-+	u32 kpi_row;
-+	u32 kpi_col;
-+	u32 debounce_val;
-+	u32 pre_scale;
-+	u32 pre_scale_div;
-+};
-+
-+static void ma35d1_keypad_scan_matrix(struct ma35d1_keypad *keypad, unsigned int status)
-+{
-+	struct input_dev *input_dev = keypad->input_dev;
-+	u32 row_shift = get_count_order(keypad->kpi_col);
-+	u32 *keymap = input_dev->keycode;
-+	u32 code, key, index;
-+	u32 key_event[4];
-+	u64 pressed_keys = 0, released_keys = 0;
-+
-+	/* Read key event status */
-+	key_event[0] = readl(keypad->mmio_base + KPI_KPE0);
-+	key_event[1] = readl(keypad->mmio_base + KPI_KPE1);
-+	key_event[2] = readl(keypad->mmio_base + KPI_KRE0);
-+	key_event[3] = readl(keypad->mmio_base + KPI_KRE1);
-+
-+	/* Clear key event status */
-+	writel(key_event[0], (keypad->mmio_base + KPI_KPE0));
-+	writel(key_event[1], (keypad->mmio_base + KPI_KPE1));
-+	writel(key_event[2], (keypad->mmio_base + KPI_KRE0));
-+	writel(key_event[3], (keypad->mmio_base + KPI_KRE1));
-+
-+	pressed_keys  = key_event[0] | ((u64)key_event[1] << 32);
-+	released_keys = key_event[2] | ((u64)key_event[3] << 32);
-+
-+	/* Process pressed keys */
-+	for_each_set_bit(index, (const unsigned long *)&pressed_keys, KEY_EVENT_BITS) {
-+		code = MATRIX_SCAN_CODE(index / 8, (index % 8), row_shift);
-+		key = keymap[code];
-+
-+		input_event(input_dev, EV_MSC, MSC_SCAN, code);
-+		input_report_key(input_dev, key, 1);
-+	}
-+
-+	/* Process released keys */
-+	for_each_set_bit(index, (const unsigned long *)&released_keys, KEY_EVENT_BITS) {
-+		code = MATRIX_SCAN_CODE(index / 8, (index % 8), row_shift);
-+		key = keymap[code];
-+
-+		input_event(input_dev, EV_MSC, MSC_SCAN, code);
-+		input_report_key(input_dev, key, 0);
-+	}
-+
-+	input_sync(input_dev);
-+}
-+
-+static irqreturn_t ma35d1_keypad_interrupt(int irq, void *dev_id)
-+{
-+	struct ma35d1_keypad *keypad = dev_id;
-+	unsigned int  kstatus;
-+
-+	kstatus = readl(keypad->mmio_base + KPI_STATUS);
-+
-+	if (kstatus & (PKEY_INT | RKEY_INT)) {
-+		ma35d1_keypad_scan_matrix(keypad, kstatus);
-+	} else {
-+		if (kstatus & PDWAKE)
-+			writel(PDWAKE, (keypad->mmio_base + KPI_STATUS));
-+	}
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static int ma35d1_keypad_open(struct input_dev *dev)
-+{
-+	struct ma35d1_keypad *keypad = input_get_drvdata(dev);
-+	u32 val, config;
-+
-+	val = RKINTEN | PKINTEN | INTEN | ENKP;
-+	val |= FIELD_PREP(KCOL, (keypad->kpi_col - 1)) | FIELD_PREP(KROW, (keypad->kpi_row - 1));
-+
-+	config = FIELD_PREP(PRESCALE, (keypad->pre_scale - 1)) |
-+		 FIELD_PREP(DB_CLKSEL, keypad->debounce_val);
-+
-+	val |= config;
-+
-+	writel(val, keypad->mmio_base + KPI_CONF);
-+	writel((keypad->pre_scale_div - 1), keypad->mmio_base + KPI_PRESCALDIV);
-+
-+	return 0;
-+}
-+
-+static void ma35d1_keypad_close(struct input_dev *dev)
-+{
-+	struct ma35d1_keypad *keypad = input_get_drvdata(dev);
-+	u32 val;
-+
-+	val = readl(keypad->mmio_base + KPI_KPE0) & ~ENKP;
-+	writel(val, keypad->mmio_base + KPI_CONF);
-+}
-+
-+static int ma35d1_parse_dt(struct ma35d1_keypad *keypad, u32 debounce_ms, u32 scan_interval)
-+{
-+	u32 clk_rate = clk_get_rate(keypad->clk);
-+	u32 min_diff = debounce_values[NUM_SETTINGS - 1];
-+	u32 i, clk_cycles, diff, p, d;
-+	u32 best_diff = 0xffff;
-+
-+	/* Calculate debounce cycles */
-+	clk_cycles = clk_rate * debounce_ms / 1000;
-+
-+	keypad->debounce_val = debounce_register[NUM_SETTINGS - 1];
-+
-+	for (i = 0; i < NUM_SETTINGS; i++) {
-+		diff = abs((s32)(clk_cycles - debounce_values[i]));
-+		if (diff < min_diff) {
-+			min_diff = diff;
-+			keypad->debounce_val = debounce_register[i];
-+		}
-+	}
-+
-+	/* Find scan time setting */
-+	clk_cycles = clk_rate * scan_interval / 1000;
-+	clk_cycles = clk_cycles / keypad->kpi_row;
-+
-+	if (clk_cycles == 0) {
-+		keypad->pre_scale = 1;
-+		keypad->pre_scale_div = 1;
-+	} else if (clk_cycles >= PRE_SCALE_MAX * PRE_SCALE_DIV_MAX) {
-+		keypad->pre_scale = PRE_SCALE_MAX;
-+		keypad->pre_scale_div = PRE_SCALE_DIV_MAX;
-+	} else {
-+		for (p = 1; p <= PRE_SCALE_MAX; p++) {
-+			d = (clk_cycles + (p / 2)) / p;
-+
-+			if (d > 0 && d <= PRE_SCALE_DIV_MAX) {
-+				diff = abs((s32)(p * d) - clk_cycles);
-+
-+				if (diff < best_diff) {
-+					best_diff = diff;
-+					keypad->pre_scale = p;
-+					keypad->pre_scale_div = d;
-+
-+					if (diff == 0)
-+						break;
-+				}
-+			}
-+		}
-+	}
-+
-+	/*
-+	 * Hardware Limitation:
-+	 * Due to the hardware design, the keypad debounce time must not exceed
-+	 * half of the row scan time.
-+	 *
-+	 * The row scan time is determined by the formula:
-+	 *     Row Scan Time = pre_scale * pre_scale_div
-+	 *
-+	 * Therefore, the debounce time must satisfy the following condition:
-+	 *     Debounce Time < (Row Scan Time / 2)
-+	 *
-+	 * For example:
-+	 * If pre_scale = 64, pre_scale_div = 32,
-+	 * then Row Scan Time = 64 * 32 = 2048 keypad clock.
-+	 * Hence, the maximum allowable debounce time is 1024 keypad clock.
-+	 */
-+
-+	if (keypad->debounce_val >= (keypad->pre_scale * keypad->pre_scale_div) / 2)
-+		return -EINVAL;
-+
-+	return 0;
-+}
-+
-+static int ma35d1_keypad_probe(struct platform_device *pdev)
-+{
-+	struct ma35d1_keypad *keypad;
-+	struct input_dev *input_dev;
-+	struct resource *res;
-+	u32 debounce, scan_interval;
-+	int error = 0;
-+
-+	keypad = devm_kzalloc(&pdev->dev, sizeof(*keypad), GFP_KERNEL);
-+	if (!keypad)
-+		return -ENOMEM;
-+
-+	input_dev = devm_input_allocate_device(&pdev->dev);
-+	if (!input_dev)
-+		return -ENOMEM;
-+
-+	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-+	if (!res)
-+		return -ENODEV;
-+
-+	keypad->mmio_base = devm_ioremap_resource(&pdev->dev, res);
-+	if (IS_ERR(keypad->mmio_base))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(keypad->mmio_base),
-+					"failed to remap I/O memor\n");
-+
-+	keypad->irq = platform_get_irq(pdev, 0);
-+	if (keypad->irq < 0) {
-+		dev_err(&pdev->dev, "failed to get IRQ\n");
-+		return keypad->irq;
-+	}
-+
-+	keypad->clk = devm_clk_get_enabled(&pdev->dev, NULL);
-+	if (IS_ERR(keypad->clk))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(keypad->clk), "failed to get core clk\n");
-+
-+	error = matrix_keypad_parse_properties(&pdev->dev, &keypad->kpi_row, &keypad->kpi_col);
-+	if (error) {
-+		dev_err(&pdev->dev, "failed to parse keypad params\n");
-+		return error;
-+	}
-+
-+	error = matrix_keypad_build_keymap(NULL, NULL, keypad->kpi_row, keypad->kpi_col,
-+					   NULL, input_dev);
-+	if (error) {
-+		dev_err(&pdev->dev, "failed to build keymap\n");
-+		return error;
-+	}
-+
-+	keypad->input_dev = input_dev;
-+	input_dev->name = pdev->name;
-+	input_dev->id.bustype = BUS_HOST;
-+	input_dev->open = ma35d1_keypad_open;
-+	input_dev->close = ma35d1_keypad_close;
-+	input_dev->dev.parent = &pdev->dev;
-+
-+	error = device_property_read_u32(&pdev->dev, "debounce-delay-ms", &debounce);
-+	if (error) {
-+		dev_err(&pdev->dev, "failed to acquire 'debounce-delay-ms'\n");
-+		return error;
-+	}
-+
-+	error = device_property_read_u32(&pdev->dev, "scan-interval-ms", &scan_interval);
-+	if (error) {
-+		dev_err(&pdev->dev, "failed to acquire 'scan-interval'\n");
-+		return error;
-+	}
-+
-+	error = ma35d1_parse_dt(keypad, debounce, scan_interval);
-+	if (error) {
-+		dev_err(&pdev->dev, "keypad dt params error\n");
-+		return error;
-+	}
-+
-+	__set_bit(EV_REP, input_dev->evbit);
-+	input_set_drvdata(input_dev, keypad);
-+	input_set_capability(input_dev, EV_MSC, MSC_SCAN);
-+
-+	error = devm_request_irq(&pdev->dev, keypad->irq, ma35d1_keypad_interrupt,
-+				 IRQF_NO_SUSPEND, pdev->name, keypad);
-+	if (error) {
-+		dev_err(&pdev->dev, "failed to request IRQ\n");
-+		return error;
-+	}
-+
-+	platform_set_drvdata(pdev, keypad);
-+	device_init_wakeup(&pdev->dev, 1);
-+
-+	error = dev_pm_set_wake_irq(&pdev->dev, keypad->irq);
-+	if (error) {
-+		dev_err(&pdev->dev, "failed to enable irq wake\n");
-+		return error;
-+	}
-+
-+	error = input_register_device(input_dev);
-+	if (error) {
-+		dev_err(&pdev->dev, "failed to register input device\n");
-+		return error;
-+	}
-+
-+	return 0;
-+}
-+
-+static void ma35d1_keypad_remove(struct platform_device *pdev)
-+{
-+	struct ma35d1_keypad *keypad = platform_get_drvdata(pdev);
-+
-+	input_unregister_device(keypad->input_dev);
-+}
-+
-+static int ma35d1_keypad_suspend(struct device *dev)
-+{
-+	struct ma35d1_keypad *keypad = dev_get_drvdata(dev);
-+
-+	if (device_may_wakeup(dev))
-+		writel(readl(keypad->mmio_base + KPI_CONF) | WAKEUP, keypad->mmio_base + KPI_CONF);
-+
-+	return 0;
-+}
-+
-+static int ma35d1_keypad_resume(struct device *dev)
-+{
-+	struct ma35d1_keypad *keypad = dev_get_drvdata(dev);
-+
-+	if (device_may_wakeup(dev))
-+		writel(readl(keypad->mmio_base + KPI_CONF) & ~(WAKEUP),
-+		       keypad->mmio_base + KPI_CONF);
-+
-+	return 0;
-+}
-+
-+static DEFINE_SIMPLE_DEV_PM_OPS(ma35d1_pm_ops, ma35d1_keypad_suspend, ma35d1_keypad_resume);
-+
-+static const struct of_device_id ma35d1_kpi_of_match[] = {
-+	{ .compatible = "nuvoton,ma35d1-kpi"},
-+	{},
-+};
-+MODULE_DEVICE_TABLE(of, ma35d1_kpi_of_match);
-+
-+static struct platform_driver ma35d1_keypad_driver = {
-+	.probe		= ma35d1_keypad_probe,
-+	.remove		= ma35d1_keypad_remove,
-+	.driver		= {
-+		.name	= "ma35d1-kpi",
-+		.pm	= pm_sleep_ptr(&ma35d1_pm_ops),
-+		.of_match_table = ma35d1_kpi_of_match,
-+	},
-+};
-+module_platform_driver(ma35d1_keypad_driver);
-+
-+MODULE_AUTHOR("Ming-Jen Chen");
-+MODULE_DESCRIPTION("MA35D1 Keypad Driver");
-+MODULE_LICENSE("GPL");
--- 
-2.25.1
+SGkgTWFyc2hhbGwsCgpPbiBGcmksIDIwMjQtMTItMjAgYXQgMTI6MzggKzA4MDAsIERlbHBoaW5l
+IENDIENoaXUgd3JvdGU6Cj4gRnJvbTogTWFyc2hhbGwgWmhhbiA8bWFyc2hhbGwuemhhbi53aXd5
+bm5AZ21haWwuY29tPgo+IAo+IFNldCBmYW4gbGVkIGNvbmZpZyBpbiB5b3NlbWl0ZTQgRFRTLgo+
+IAo+IFNpZ25lZC1vZmYtYnk6IE1hcnNoYWxsIFpoYW4gPG1hcnNoYWxsLnpoYW4ud2l3eW5uQGdt
+YWlsLmNvbT4KPiBTaWduZWQtb2ZmLWJ5OiBEZWxwaGluZSBDQyBDaGl1IDxkZWxwaGluZV9jY19j
+aGl1QHdpd3lubi5jb20+Cj4gLS0tCj4gwqAuLi4vYXNwZWVkL2FzcGVlZC1ibWMtZmFjZWJvb2st
+eW9zZW1pdGU0LmR0c8KgIHwgMTY2Cj4gKysrKysrKysrKysrKysrKystCj4gwqAxIGZpbGUgY2hh
+bmdlZCwgMTYzIGluc2VydGlvbnMoKyksIDMgZGVsZXRpb25zKC0pCj4gCj4gZGlmZiAtLWdpdCBh
+L2FyY2gvYXJtL2Jvb3QvZHRzL2FzcGVlZC9hc3BlZWQtYm1jLWZhY2Vib29rLQo+IHlvc2VtaXRl
+NC5kdHMgYi9hcmNoL2FybS9ib290L2R0cy9hc3BlZWQvYXNwZWVkLWJtYy1mYWNlYm9vay0KPiB5
+b3NlbWl0ZTQuZHRzCj4gaW5kZXggYWI0OTA0Y2YyYzBlLi5iNTg2NWVmY2M4MGMgMTAwNjQ0Cj4g
+LS0tIGEvYXJjaC9hcm0vYm9vdC9kdHMvYXNwZWVkL2FzcGVlZC1ibWMtZmFjZWJvb2steW9zZW1p
+dGU0LmR0cwo+ICsrKyBiL2FyY2gvYXJtL2Jvb3QvZHRzL2FzcGVlZC9hc3BlZWQtYm1jLWZhY2Vi
+b29rLXlvc2VtaXRlNC5kdHMKPiBAQCAtNzMsNiArNzMsMTYwIEBAIHRwbUAwIHsKPiDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBzcGktbWF4LWZyZXF1ZW5j
+eSA9IDwzMzAwMDAwMD47Cj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqB9Owo+IMKg
+wqDCoMKgwqDCoMKgwqB9Owo+ICsKPiArwqDCoMKgwqDCoMKgwqBsZWRzIHsKPiArwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgY29tcGF0aWJsZSA9ICJncGlvLWxlZHMiOwo+ICsKPiArwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgbGVkX2lkZW50aWZ5IHsKClRoZSBiaW5kaW5nIHBy
+ZWZlcnMgbmFtaW5nIHRoZSBsZWQgbm9kZXMgZGlmZmVyZW50bHk6CgpodHRwczovL2dpdC5rZXJu
+ZWwub3JnL3B1Yi9zY20vbGludXgva2VybmVsL2dpdC90b3J2YWxkcy9saW51eC5naXQvdHJlZS9E
+b2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvbGVkcy9sZWRzLWdwaW8ueWFtbD9oPXY2
+LjEyI24yMgoKSWYgeW91IG11c3QgbmFtZSB0aGUgbm9kZXMgdGhpcyB3YXksIGNhbiB5b3UgZG9j
+dW1lbnQgd2h5IGluIGEgY29tbWVudAppbiB0aGUgZGV2aWNldHJlZT8KCj4gK8KgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqByZXRhaW4tc3RhdGUtc2h1dGRvd247
+Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBkZWZhdWx0
+LXN0YXRlID0gIm9mZiI7Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqBncGlvcyA9IDwmaWRlbnRpZnlfZ3BpbyA4IEdQSU9fQUNUSVZFX0hJR0g+Owo+ICvC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqB9Owo+ICsKPiArwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgbGVkX2ZhbjBfYmx1ZSB7Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqByZXRhaW4tc3RhdGUtc2h1dGRvd247Cj4gK8KgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBkZWZhdWx0LXN0YXRlID0gIm9uIjsK
+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGdwaW9zID0g
+PCZsZWRfZ3BpbzAgNCBHUElPX0FDVElWRV9ISUdIPjsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgfTsKPiArCj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGxlZF9mYW4w
+X2FtYmVyIHsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oHJldGFpbi1zdGF0ZS1zaHV0ZG93bjsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoGRlZmF1bHQtc3RhdGUgPSAib2ZmIjsKPiArwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGdwaW9zID0gPCZsZWRfZ3BpbzAgNSBHUElP
+X0FDVElWRV9ISUdIPjsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgfTsKPiArCj4g
+K8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGxlZF9mYW4xX2JsdWUgewo+ICvCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgcmV0YWluLXN0YXRlLXNodXRk
+b3duOwo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgZGVm
+YXVsdC1zdGF0ZSA9ICJvbiI7Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqBncGlvcyA9IDwmbGVkX2dwaW8wIDEwIEdQSU9fQUNUSVZFX0hJR0g+Owo+ICvC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqB9Owo+ICsKPiArwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgbGVkX2ZhbjFfYW1iZXIgewo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgcmV0YWluLXN0YXRlLXNodXRkb3duOwo+ICvCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgZGVmYXVsdC1zdGF0ZSA9ICJvZmYi
+Owo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgZ3Bpb3Mg
+PSA8JmxlZF9ncGlvMCAxMSBHUElPX0FDVElWRV9ISUdIPjsKPiArwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgfTsKPiArCj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGxlZF9m
+YW4yX2JsdWUgewo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgcmV0YWluLXN0YXRlLXNodXRkb3duOwo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgZGVmYXVsdC1zdGF0ZSA9ICJvbiI7Cj4gK8KgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBncGlvcyA9IDwmbGVkX2dwaW8xIDQgR1BJ
+T19BQ1RJVkVfSElHSD47Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoH07Cj4gKwo+
+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBsZWRfZmFuMl9hbWJlciB7Cj4gK8KgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqByZXRhaW4tc3RhdGUtc2h1
+dGRvd247Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBk
+ZWZhdWx0LXN0YXRlID0gIm9mZiI7Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqBncGlvcyA9IDwmbGVkX2dwaW8xIDUgR1BJT19BQ1RJVkVfSElHSD47Cj4g
+K8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoH07Cj4gKwo+ICvCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqBsZWRfZmFuM19ibHVlIHsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoHJldGFpbi1zdGF0ZS1zaHV0ZG93bjsKPiArwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGRlZmF1bHQtc3RhdGUgPSAib24i
+Owo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgZ3Bpb3Mg
+PSA8JmxlZF9ncGlvMSAxMCBHUElPX0FDVElWRV9ISUdIPjsKPiArwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgfTsKPiArCj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGxlZF9m
+YW4zX2FtYmVyIHsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoHJldGFpbi1zdGF0ZS1zaHV0ZG93bjsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoGRlZmF1bHQtc3RhdGUgPSAib2ZmIjsKPiArwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGdwaW9zID0gPCZsZWRfZ3BpbzEgMTEg
+R1BJT19BQ1RJVkVfSElHSD47Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoH07Cj4g
+Kwo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBsZWRfZmFuNF9ibHVlIHsKPiArwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoHJldGFpbi1zdGF0ZS1z
+aHV0ZG93bjsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oGRlZmF1bHQtc3RhdGUgPSAib24iOwo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgZ3Bpb3MgPSA8JmxlZF9ncGlvMCAyIEdQSU9fQUNUSVZFX0hJR0g+Owo+
+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqB9Owo+ICsKPiArwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgbGVkX2ZhbjRfYW1iZXIgewo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgcmV0YWluLXN0YXRlLXNodXRkb3duOwo+ICvCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgZGVmYXVsdC1zdGF0ZSA9ICJv
+ZmYiOwo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgZ3Bp
+b3MgPSA8JmxlZF9ncGlvMCAzIEdQSU9fQUNUSVZFX0hJR0g+Owo+ICvCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqB9Owo+ICsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgbGVk
+X2ZhbjVfYmx1ZSB7Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqByZXRhaW4tc3RhdGUtc2h1dGRvd247Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqBkZWZhdWx0LXN0YXRlID0gIm9uIjsKPiArwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGdwaW9zID0gPCZsZWRfZ3BpbzAgOCBH
+UElPX0FDVElWRV9ISUdIPjsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgfTsKPiAr
+Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGxlZF9mYW41X2FtYmVyIHsKPiArwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoHJldGFpbi1zdGF0ZS1z
+aHV0ZG93bjsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oGRlZmF1bHQtc3RhdGUgPSAib2ZmIjsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoGdwaW9zID0gPCZsZWRfZ3BpbzAgOSBHUElPX0FDVElWRV9ISUdIPjsK
+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgfTsKPiArCj4gK8KgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoGxlZF9mYW42X2JsdWUgewo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgcmV0YWluLXN0YXRlLXNodXRkb3duOwo+ICvCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgZGVmYXVsdC1zdGF0ZSA9ICJv
+biI7Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBncGlv
+cyA9IDwmbGVkX2dwaW8xIDIgR1BJT19BQ1RJVkVfSElHSD47Cj4gK8KgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoH07Cj4gKwo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBsZWRf
+ZmFuNl9hbWJlciB7Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqByZXRhaW4tc3RhdGUtc2h1dGRvd247Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqBkZWZhdWx0LXN0YXRlID0gIm9mZiI7Cj4gK8KgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBncGlvcyA9IDwmbGVkX2dwaW8xIDMg
+R1BJT19BQ1RJVkVfSElHSD47Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoH07Cj4g
+Kwo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBsZWRfZmFuN19ibHVlIHsKPiArwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoHJldGFpbi1zdGF0ZS1z
+aHV0ZG93bjsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oGRlZmF1bHQtc3RhdGUgPSAib24iOwo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgZ3Bpb3MgPSA8JmxlZF9ncGlvMSA4IEdQSU9fQUNUSVZFX0hJR0g+Owo+
+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqB9Owo+ICsKPiArwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgbGVkX2ZhbjdfYW1iZXIgewo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgcmV0YWluLXN0YXRlLXNodXRkb3duOwo+ICvCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgZGVmYXVsdC1zdGF0ZSA9ICJv
+ZmYiOwo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgZ3Bp
+b3MgPSA8JmxlZF9ncGlvMSA5IEdQSU9fQUNUSVZFX0hJR0g+Owo+ICvCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqB9Owo+ICsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgbGVk
+X2ZhbjhfYmx1ZSB7Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqByZXRhaW4tc3RhdGUtc2h1dGRvd247Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqBkZWZhdWx0LXN0YXRlID0gIm9uIjsKPiArwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGdwaW9zID0gPCZsZWRfZ3BpbzAgMCBH
+UElPX0FDVElWRV9ISUdIPjsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgfTsKPiAr
+Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGxlZF9mYW44X2FtYmVyIHsKPiArwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoHJldGFpbi1zdGF0ZS1z
+aHV0ZG93bjsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oGRlZmF1bHQtc3RhdGUgPSAib2ZmIjsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoGdwaW9zID0gPCZsZWRfZ3BpbzAgMSBHUElPX0FDVElWRV9ISUdIPjsK
+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgfTsKPiArCj4gK8KgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoGxlZF9mYW45X2JsdWUgewo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgcmV0YWluLXN0YXRlLXNodXRkb3duOwo+ICvCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgZGVmYXVsdC1zdGF0ZSA9ICJv
+biI7Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBncGlv
+cyA9IDwmbGVkX2dwaW8wIDYgR1BJT19BQ1RJVkVfSElHSD47Cj4gK8KgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoH07Cj4gKwo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBsZWRf
+ZmFuOV9hbWJlciB7Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqByZXRhaW4tc3RhdGUtc2h1dGRvd247Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqBkZWZhdWx0LXN0YXRlID0gIm9mZiI7Cj4gK8KgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBncGlvcyA9IDwmbGVkX2dwaW8wIDcg
+R1BJT19BQ1RJVkVfSElHSD47Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoH07Cj4g
+Kwo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBsZWRfZmFuMTBfYmx1ZSB7Cj4gK8Kg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqByZXRhaW4tc3RhdGUt
+c2h1dGRvd247Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqBkZWZhdWx0LXN0YXRlID0gIm9uIjsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoGdwaW9zID0gPCZsZWRfZ3BpbzEgMCBHUElPX0FDVElWRV9ISUdIPjsK
+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgfTsKPiArCj4gK8KgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoGxlZF9mYW4xMF9hbWJlciB7Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqByZXRhaW4tc3RhdGUtc2h1dGRvd247Cj4gK8KgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBkZWZhdWx0LXN0YXRlID0g
+Im9mZiI7Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBn
+cGlvcyA9IDwmbGVkX2dwaW8xIDEgR1BJT19BQ1RJVkVfSElHSD47Cj4gK8KgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoH07Cj4gKwo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBs
+ZWRfZmFuMTFfYmx1ZSB7Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqByZXRhaW4tc3RhdGUtc2h1dGRvd247Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBkZWZhdWx0LXN0YXRlID0gIm9uIjsKPiArwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGdwaW9zID0gPCZsZWRfZ3BpbzEg
+NiBHUElPX0FDVElWRV9ISUdIPjsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgfTsK
+PiArCj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGxlZF9mYW4xMV9hbWJlciB7Cj4g
+K8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqByZXRhaW4tc3Rh
+dGUtc2h1dGRvd247Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqBkZWZhdWx0LXN0YXRlID0gIm9mZiI7Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqBncGlvcyA9IDwmbGVkX2dwaW8xIDcgR1BJT19BQ1RJVkVfSElH
+SD47Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoH07Cj4gK8KgwqDCoMKgwqDCoMKg
+fTsKPiDCoH07Cj4gwqAKPiDCoCZ1YXJ0MSB7Cj4gQEAgLTk5NSwxMSArMTE0OSwxNyBAQCBncGlv
+QDIwIHsKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgI2dwaW8tY2VsbHMgPSA8Mj47Cj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgfTsKPiDCoAo+IC3CoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgZ3Bpb0AyMSB7Cj4gK8KgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBpZGVudGlmeV9ncGlvOiBncGlvQDIxIHsKCkRv
+ZXMgdGhpcyBleHBhbmRlciByZWFsbHkgb25seSBleHBvc2UgdGhlIGlkZW50aWZ5IGxlZD8KCj4g
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoGNvbXBhdGlibGUgPSAibnhwLHBjYTk1MDYiOwo+IMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqByZWcgPSA8MHgyMT47
+Cj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoGdwaW8tY29udHJvbGxlcjsKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgI2dwaW8tY2VsbHMgPSA8Mj47Cj4g
+K8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgZ3Bpby1saW5lLW5hbWVzID0gIiIsIiIsIiIsIiIsCj4gK8KgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAiIiwiIiwiIiwiIiwKPiArwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgICJMRURfSURFTlRJRlkiLAo+ICvCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAKPiAiIiwiIiwiIiwiIiwiIiwiIiwiIiwKPiArwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgCj4gIiIsIiIsIiIsIiIsIiIsIiIsIiIs
+IiIsCj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoAo+ICIiLCIiLCIi
+LCIiLCIiLCIiLCIiLCIiOwo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoH07Cj4gwqAKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqBncGlvQDIyIHsKPiBAQCAtMTE3Myw3ICsxMzMzLDcgQEAgZWVwcm9tQDUyIHsK
+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgcmVnID0gPDB4NTI+Owo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoH07Cj4gwqAKPiAtwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoGdwaW9ANjEgewo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgbGVkX2dwaW8wOiBncGlvQDYxIHsKCkJpdCBvZiBuaXRwaWNrLCBi
+dXQgcGVyaGFwcyB0aGUgbm9kZSBsYWJlbCBjb3VsZCBiZSBpbXByb3ZlZD8KZmFuX2xlZHMwPyBB
+bmQgZmFuX2xlZHMxIGJlbG93PwoKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgY29tcGF0aWJsZSA9ICJueHAscGNhOTU1MiI7
+Cj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoHJlZyA9IDwweDYxPjsKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgI2FkZHJlc3MtY2VsbHMgPSA8MT47Cj4g
+QEAgLTEyMjEsNyArMTM4MSw3IEBAIGVlcHJvbUA1MiB7Cj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoHJlZyA9IDwweDUyPjsK
+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqB9Owo+IMKg
+Cj4gLcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBncGlvQDYx
+IHsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGxlZF9n
+cGlvMTogZ3Bpb0A2MSB7Cj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGNvbXBhdGlibGUgPSAibnhwLHBjYTk1NTIiOwo+IMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqByZWcgPSA8MHg2MT47Cj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCNhZGRyZXNzLWNlbGxzID0gPDE+OwoKQ2hlZXJz
+LAoKQW5kcmV3Cg==
 
 
