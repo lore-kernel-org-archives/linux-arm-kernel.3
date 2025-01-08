@@ -4,89 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA4B0E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 16:47:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AF31E77199
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 16:48:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oaZvubb6b/5Y65DKB0twQiviVJsKDAVdNYBE/1h2cAM=; b=0M/wpNsVSvVYuRf+sTh0didWKU
-	fjj/7Ra+rIfP5CZqQlFK8uG9ayHmQxsbCMgK+OQXoR5FNcfGNMPmHNrruLWHDB+VEcfL8uhgv7cM3
-	0Ca6AeGCgsR7SVP28Gh+g5DIsGiAd66AeREpUbONdpXRq1binLtxpgI0rwNlaty+HEawbbn9LrKrp
-	0Owp6/84PVFRAhvZ+3PV9n/m589Ej/8DjvD770JEReRHS0pTGEaCkTQFM8b1HQ+ywUTX99/qwADot
-	fhZ/t3ae9xTEDjfLjWqwHXSY3yibbq3dZUz7HQq1R2sehAKbRSgaQiiNRYIGoZ9MGnF95j+RfKBuj
-	2E4jA84A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nX0h2mZt5lddAnKRLsGLKmpu3j6xj+GricyTReejhak=; b=sORn5TCqFDfYFXtJnKY+BpCqGs
+	zzy7nHns8tckPQNiWP/xSMroezsoeO/uiKuTwYtwjRI/p0SVUWMhnh3c+PmU45f7ldmCZ1Gwd9c/U
+	uiXeq9xfdSGwKPi75ZhX5MViFFTfFytD8hSoZhr2pN6UNrop6B1CGc6jCWxU1uvEiuLJ6NHC3XHs4
+	8EmrtZ/05Yn53E0KoiHVypktKI+jeidwudpumtgQnWyjlbkE49srTNpDNsKBEKt0yJN6WQ4N8YmKS
+	zKRUd+d0BwnccVhSJRN8aQNckuhBWNKyPKgrseqr75UwgPThVQA0Yc7ACrwmYOK2xEU1Yym+BmsjN
+	DEje5cjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVZDD-00000009FTc-16VM;
-	Wed, 08 Jan 2025 16:47:19 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1tVZER-00000009Fo8-0572;
+	Wed, 08 Jan 2025 16:48:35 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVZ3Z-00000009CjN-128u;
-	Wed, 08 Jan 2025 16:37:22 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-385e3621518so8022541f8f.1;
-        Wed, 08 Jan 2025 08:37:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736354239; x=1736959039; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=oaZvubb6b/5Y65DKB0twQiviVJsKDAVdNYBE/1h2cAM=;
-        b=Si2Wsu1MDdafNlCO6nVGMjZwCGjm9HHZQ5KCsYPcXDxyUh30EpJ0mQgPETD00jil/0
-         pOU4JMtsNEnTNN1DgogILdTB/7owQDEANCfYzp1SnQHX0s5dNw1kHkqIqfPnEeTmzJiR
-         nHzRC+iQbGeoCVCMWQR8EUV4rSfWPa8iUSx1j2vOorsilg0JdEz9sXzqzM+YlmymFZYJ
-         JXEI/0j+A6c0e/zAVz7EdiFC5fxB6/9zU3RQZ3xYvkseYGJf4vZGDSB+VwqY/J65u6Rr
-         64ijsooCqnfzN+F5T4T/5ifLq/hOFVGnG0E+aPQBrwK9XaEFiuC/OZzBWOGEsggwNGNV
-         CpKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736354239; x=1736959039;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=oaZvubb6b/5Y65DKB0twQiviVJsKDAVdNYBE/1h2cAM=;
-        b=MXnLFgHJAklh37ePio92v/0YizKC68v0Ci810sJCq4jWH2L840oLJcSx+N5kGtXy3f
-         dx087YwOq9+98xExCp1ihtgEm1+uQOimXmPjTyU4XOqE98NZJGyWgpZYXZHsQ28NDETT
-         qL2UBGtRUa14kTINjZVqsvAF4PkvS3slSthOnazuTEZXJvAwbfMcUH6+cUtZ2GrFPjMD
-         EJb2SfPKDH5eJk0hgQPrB3K7AseWERJB5/EMK4mUDDSDb7KdKYg0eIOz23XjJaIQ7JfD
-         40RgQirjFDvwlX9A8luNWsio5K62Ulm+aaWysfaxGJlcQf8KzP/pqUWt3kpRF5fJXRsv
-         nXRA==
-X-Forwarded-Encrypted: i=1; AJvYcCWiYfZFF67aDRLPcDmDOtyqk1uaY8hb0ywX5mZ4jndimCtPhTw5pbthTiVIQM1aPXEwo+6TOQbsj+ASDYMCJ97I@lists.infradead.org, AJvYcCXPrrkQo9ml5h0ynnnw2c52/e2Rf25vuYdgN4cMwwrdlkBUUADNw52frtOdTWsVxyLT/0Da8WD/wpAQO0XqA+U=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwENogJl9JBWXcQZwY6RxneTbJeqYGhdsw4Ud/y/d35ljQMOOTp
-	bnBTu8cdrdj27TDCcI5js9tiNXQMAl5EG6WWvQsC/EJ/8+3j3U5o
-X-Gm-Gg: ASbGncuGL2tKsZ3HLP0cwtxbC+D2dmAXK07D/5mM3c7014+QV639FmlSsnpsXE+wkZY
-	hfcojZU9tqVTi7WnlsLcgWKmPdeY7i++Zbf8ZXjDwyipFNH39uCkyJnZEtlO/1qrBHcKkL/9fLs
-	Kgnkygp2HCZJ5fq3trHeJIaAjdryriR+m1xfyRbJ0sznf5iscfYuVjfkA3GQ6DmwjqeiEKKQCgs
-	SYKRp0vEGlCD3zjVZYpuPiBqLUnkwBqmx0rroQ65DC6H+vaTlJf4lnNiVoziMl4Z7PwRIDlKIdi
-	LMlzPCTRoo2UwkyXbKsDXZVGXorgTIdacGuc8iDRsYs=
-X-Google-Smtp-Source: AGHT+IHK2KDzhIt68MjkOew8+0ynFBPykBHBW0JWlGbcvjRJxnfeN213vuCJpkbuwwJfUjUouQWekQ==
-X-Received: by 2002:adf:ae59:0:b0:38a:88b8:97a9 with SMTP id ffacd0b85a97d-38a88b898b4mr2057382f8f.2.1736354238605;
-        Wed, 08 Jan 2025 08:37:18 -0800 (PST)
-Received: from orome (p200300e41f281900f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f28:1900:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a1c832c45sm52816674f8f.32.2025.01.08.08.37.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Jan 2025 08:37:17 -0800 (PST)
-Date: Wed, 8 Jan 2025 17:37:15 +0100
-From: Thierry Reding <thierry.reding@gmail.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org, iommu@lists.linux.dev, 
-	linux-leds@vger.kernel.org, linux-mmc@vger.kernel.org, linux-tegra@vger.kernel.org, 
-	linux-rtc@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH] dt-bindings: Correct indentation and style in DTS example
-Message-ID: <6ugtusk3yhbr4rbuzompfb2apequpxtdpy3zk3xmrhowpne3nw@2h5cvtpd6qsw>
-X-NVConfidentiality: public
-References: <20250107131456.247610-1-krzysztof.kozlowski@linaro.org>
+	id 1tVZ3a-00000009Cks-0Ni7
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 08 Jan 2025 16:37:23 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 508BH6SF028775;
+	Wed, 8 Jan 2025 16:36:52 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=nX0h2mZt5lddAnKRL
+	sGLKmpu3j6xj+GricyTReejhak=; b=QSmDjG7Q4OAjTTiLbCuoVT3sesD1JZHlY
+	pHVP3ppfT+1jPzY+Ghbx8YzK0yMM+fISD7Njuc/3jLVwO2T8tygTN5vW00UY0kes
+	mS6zX+60ZC8EJm8LrggM3cozVmYucZ5pRBsj/fAvsiWQYHZ55F62YGbYR8G1k4mb
+	jmvq4GrYTPOEnu1M4FBTWmeVZj7OMGsMCob6toDa/1NZOzlqVUJORg5n7lORiyZI
+	wvWLtj51FcafHX5su9G0DbxSZiF/MxzBfR1numXQPYsKK9KAIyHPEHR5JS8l9NCs
+	6tOP6YjNcdGVl2jVTs0gsEjPW3GJN9CZbV09bg2iT0H4blVIgxiuw==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 441e3b3ymx-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 08 Jan 2025 16:36:52 +0000 (GMT)
+Received: from m0356516.ppops.net (m0356516.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 508GaFNZ025346;
+	Wed, 8 Jan 2025 16:36:51 GMT
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 441e3b3ymu-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 08 Jan 2025 16:36:51 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 508DgGl5013576;
+	Wed, 8 Jan 2025 16:36:51 GMT
+Received: from smtprelay07.wdc07v.mail.ibm.com ([172.16.1.74])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 43ygap0nqd-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 08 Jan 2025 16:36:51 +0000
+Received: from smtpav01.dal12v.mail.ibm.com (smtpav01.dal12v.mail.ibm.com [10.241.53.100])
+	by smtprelay07.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 508GanHf32637672
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 8 Jan 2025 16:36:50 GMT
+Received: from smtpav01.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id B4D6E58059;
+	Wed,  8 Jan 2025 16:36:49 +0000 (GMT)
+Received: from smtpav01.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 9304558058;
+	Wed,  8 Jan 2025 16:36:48 +0000 (GMT)
+Received: from gfwa153.aus.stglabs.ibm.com (unknown [9.3.84.127])
+	by smtpav01.dal12v.mail.ibm.com (Postfix) with ESMTP;
+	Wed,  8 Jan 2025 16:36:48 +0000 (GMT)
+From: Ninad Palsule <ninad@linux.ibm.com>
+To: minyard@acm.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+        andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+        kuba@kernel.org, pabeni@redhat.com, ratbert@faraday-tech.com,
+        openipmi-developer@lists.sourceforge.net, netdev@vger.kernel.org,
+        joel@jms.id.au, andrew@codeconstruct.com.au,
+        devicetree@vger.kernel.org, eajames@linux.ibm.com,
+        linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+        linux-kernel@vger.kernel.org
+Cc: Ninad Palsule <ninad@linux.ibm.com>
+Subject: [PATCH v3 05/10] ARM: dts: aspeed: system1: Add RGMII support
+Date: Wed,  8 Jan 2025 10:36:33 -0600
+Message-ID: <20250108163640.1374680-6-ninad@linux.ibm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250108163640.1374680-1-ninad@linux.ibm.com>
+References: <20250108163640.1374680-1-ninad@linux.ibm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="3vdnth2dvkpxqrns"
-Content-Disposition: inline
-In-Reply-To: <20250107131456.247610-1-krzysztof.kozlowski@linaro.org>
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: 2KOt3w9Kvo3U9uRxQNYh-wn0BEnmTbu4
+X-Proofpoint-GUID: dvqccUUOQp8H2N6EbA_rCuw3BRcqCe_k
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
+ definitions=2024-10-15_01,2024-10-11_01,2024-09-30_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0
+ priorityscore=1501 phishscore=0 impostorscore=0 clxscore=1015 bulkscore=0
+ lowpriorityscore=0 mlxlogscore=738 adultscore=0 suspectscore=0 spamscore=0
+ mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501080137
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_083721_283170_C67D63E3 
-X-CRM114-Status: GOOD (  16.89  )
+X-CRM114-CacheID: sfid-20250108_083722_245059_645D9C97 
+X-CRM114-Status: GOOD (  13.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,75 +116,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+system1 has 2 transceiver connected through the RGMII interfaces. Added
+device tree entry to enable RGMII support.
 
---3vdnth2dvkpxqrns
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] dt-bindings: Correct indentation and style in DTS example
-MIME-Version: 1.0
+ASPEED AST2600 documentation recommends using 'rgmii-rxid' as a
+'phy-mode' for mac0 and mac1 to enable the RX interface delay from the
+PHY chip.
 
-On Tue, Jan 07, 2025 at 02:14:56PM +0100, Krzysztof Kozlowski wrote:
-> DTS example in the bindings should be indented with 2- or 4-spaces and
-> aligned with opening '- |', so correct any differences like 3-spaces or
-> mixtures 2- and 4-spaces in one binding.
->=20
-> No functional changes here, but saves some comments during reviews of
-> new patches built on existing code.
->=20
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->=20
-> ---
->=20
-> This applies cleanly on v6.13-rc6 and on next-20250107, so I expect no
-> conflicts between Rob's tree and other maintainers' trees.
->=20
-> Rob,
-> Can you apply it to DT tree?
-> ---
->  .../arm/arm,trace-buffer-extension.yaml       |  10 +-
->  .../bindings/arm/stm32/st,mlahb.yaml          |  20 +-
->  .../bindings/dsp/mediatek,mt8195-dsp.yaml     |  42 ++--
->  ...ntel,ixp4xx-network-processing-engine.yaml |  52 ++---
->  .../bindings/fpga/xlnx,versal-fpga.yaml       |   2 +-
->  .../bindings/interconnect/qcom,rpmh.yaml      |  28 +--
->  .../bindings/iommu/riscv,iommu.yaml           |   6 +-
->  .../devicetree/bindings/leds/leds-mt6360.yaml | 195 +++++++++---------
->  .../devicetree/bindings/mips/brcm/soc.yaml    |  42 ++--
->  .../misc/intel,ixp4xx-ahb-queue-manager.yaml  |   6 +-
->  .../devicetree/bindings/mmc/renesas,sdhi.yaml |  78 +++----
->  .../bindings/mtd/technologic,nand.yaml        |   2 +-
->  .../bindings/nvmem/amlogic,meson6-efuse.yaml  |   2 +-
->  .../bindings/pci/ti,j721e-pci-ep.yaml         |  34 +--
->  .../bindings/power/reset/qcom,pon.yaml        |  62 +++---
->  .../nvidia,tegra264-bpmp-shmem.yaml           |  15 +-
->  .../bindings/rtc/renesas,rzn1-rtc.yaml        |  22 +-
->  .../amlogic/amlogic,meson-gx-hhi-sysctrl.yaml |  26 +--
->  .../bindings/soc/qcom/qcom,eud.yaml           |  38 ++--
->  .../bindings/soc/ti/wkup-m3-ipc.yaml          |  32 +--
->  20 files changed, 357 insertions(+), 357 deletions(-)
+Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
+---
+ .../dts/aspeed/aspeed-bmc-ibm-system1.dts     | 38 ++++++++++++++++---
+ 1 file changed, 33 insertions(+), 5 deletions(-)
 
-Acked-by: Thierry Reding <treding@nvidia.com>
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
+index d11a922c9d44..0f4658074709 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
+@@ -425,14 +425,42 @@ &lpc_ctrl {
+ 	memory-region = <&flash_memory>;
+ };
+ 
++&mdio0 {
++	status = "okay";
++
++	ethphy0: ethernet-phy@0 {
++		compatible = "ethernet-phy-ieee802.3-c22";
++		reg = <0>;
++	};
++};
++
++&mdio2 {
++	status = "okay";
++
++	ethphy2: ethernet-phy@0 {
++		compatible = "ethernet-phy-ieee802.3-c22";
++		reg = <0>;
++	};
++};
++
++&mac0 {
++	status = "okay";
++
++	phy-mode = "rgmii-rxid";
++	phy-handle = <&ethphy0>;
++
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_rgmii1_default>;
++};
++
+ &mac2 {
+ 	status = "okay";
++
++	phy-mode = "rgmii";
++	phy-handle = <&ethphy2>;
++
+ 	pinctrl-names = "default";
+-	pinctrl-0 = <&pinctrl_rmii3_default>;
+-	clocks = <&syscon ASPEED_CLK_GATE_MAC3CLK>,
+-		 <&syscon ASPEED_CLK_MAC3RCLK>;
+-	clock-names = "MACCLK", "RCLK";
+-	use-ncsi;
++	pinctrl-0 = <&pinctrl_rgmii3_default>;
+ };
+ 
+ &mac3 {
+-- 
+2.43.0
 
---3vdnth2dvkpxqrns
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmd+qbsACgkQ3SOs138+
-s6HTwg/9FTrBpsyb2c6RxUphewMFJvl+V6nLpfbmnIG7/hlhP5n2Rosba8pnC16d
-JnflQ606ls+DtDBqIImY3LYZcPjcRx/ddXj/H3o2NLFsbbTmOKGEJ6SPhi/YR4Is
-AFQMkKbLiMldJyCEH9X+NMmIOEGN44f9eHb6CSpLTAsgPYi2Ppi20vtS+ktX2N8V
-9hoO0I8YspPvsj3TqOf1vzPMM9aEb7L6norpLMW8MMIWnkUInUhW5gyxs/OPNma4
-OJs7ev/OrjPkBxACJwgiLtBGTVJR56080XgSm7GRqVMnR6NhOGMN/g5x/rrBjy0F
-5gprsK059F7h3/oyI5Wn315lnjP9VPjC0OIF08WHRlo0c5zA8TDKYQACT6obPHUh
-04nYCErIHSixvHlX91uKHGhfHA79vbttEXCIwrXiuUVOTcoMZBGCzv9njLBIoPdl
-v5wzOIzZ+V66lAbWRGTjMcRjO1bx0vM+QpmHvjlEQubggzHG0csIRQB/68wk6min
-F+kvzSh1aTJkTNUOYn6BBtbzqjCf8y5NHidBSXBWXhP308OXkwy7fUGqIfrIny7T
-41KrDRyFAMooM175JQmuMExgOcRi6fGKmvKQ0MXsNR4FTt9NZ5rvTnkxi1qH8uWv
-68sSPZB2xOA8iPax09mEhKUKuyYQPa+Ue1EZlHtc75XMisXE1SQ=
-=bVty
------END PGP SIGNATURE-----
-
---3vdnth2dvkpxqrns--
 
