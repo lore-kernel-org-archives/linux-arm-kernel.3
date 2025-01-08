@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C88FCE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 09:54:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D24CE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 09:55:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bn3AnsWhqBgv8hcueIuiEwqJryPTQCqYb9D4mwqFG34=; b=CePKrkjPobPEdPqiN5hmvAqEC/
-	xBealDSNZCe8XGXaCfg1KNtwROYfZlL6tKoOhtOEMCPNarCNktww51fEfXJHyDBHk6rhNfM6rv3RK
-	wrH42P8Y2VmExmlEEnF8QJ1eAf0g1ASKOuvEeA/NWSJBd6ETz2Io++qMINpWVS35BonjyuO7B3O+S
-	LlP4QCq9K7lcldbyVLiFgfWHdWXeC7srN5uXbSec9zHgqU5AaKjykTpA5nqdk0M4gQEcYDbwMOxl/
-	AEnhq1oEhwj562+iU3KuWTJAhGcoMHCpCvo6w68H2Ka89A7GPn9jkCCSDRF4UvKqsA2dSiLg7TutI
-	+zKub+pw==;
+	bh=f29b9XEMWtl0iCxOQKcT1CpFJ7lPhpDn5J4Ct4nX3F4=; b=1L2rDHs3OxPw6mTcP1T+1nR5P1
+	MT9+nD9gW7BOh5m1RQTi3pEUuop36Dvsh+mZ5hj+qBhvb/6MAe/C5Zg/Yl8zqrgc4B8nx/GwfDzqP
+	nxse/O44TXf12QiLgsGiTjUkE2sTK2OAMs/nqswnoBgbePbDdwMhiP8stl8Opf7BvbG2/GhAYJFRv
+	h+go0mOCP0eW8vzcW8UAjwrdwUwkd7Vz5e5M2SJgWmROgb2W1TNQdIS2Le3a46q8J5XnhQBcLJZjt
+	MJcQPSmtBlVWnvXwzfCcgf1FkUf3VmCnIKFeW3YF4xWz7ZF5pznOTCYF+nh9Xpbb1zXXgaby+uUIQ
+	XZIl5vwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVSlY-00000007sYj-0fSw;
-	Wed, 08 Jan 2025 09:54:20 +0000
+	id 1tVSmj-00000007slA-1dmf;
+	Wed, 08 Jan 2025 09:55:33 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVSZW-00000007puM-09ji;
-	Wed, 08 Jan 2025 09:41:55 +0000
+	id 1tVSaN-00000007qCu-0IvP
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 08 Jan 2025 09:42:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C6B785C2735;
-	Wed,  8 Jan 2025 09:41:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FF3EC4CEE0;
-	Wed,  8 Jan 2025 09:41:51 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 82E695C1ECA;
+	Wed,  8 Jan 2025 09:42:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5F55C4CEE0;
+	Wed,  8 Jan 2025 09:42:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736329312;
-	bh=EntXp4xoflKbAqPs1HYoj7ukYN+nnJIPOzYENz4cHvA=;
+	s=k20201202; t=1736329366;
+	bh=rAAJB23TaaJIaXUpZUUa/qWZJRWIZmWNo/u6nwx5HzA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZmBJBt3ye5TWgQ2ebPu+INxrnEO7li5c1DTwrmISGqEEPqqEJbpeHBgfqe+0wxPYb
-	 l/sISxNY67Y+aQ85lTp78YdVXn7i3WjvUjRjOqIaVWyp9l42NN2lnJGlJX6LSwbHkP
-	 FKRQq/N4Gg6pE0NgXR9vPAi7cl9RuLQwKKR/kUOQeleLZ+8pNAYZLJTjci/2zlxh0G
-	 ajkzB8tcdSN9v7z5QOl6TlroM9nC4lhKTuD1F6hQeR/1d0oIYpuGHESFsCjseXxmtp
-	 dIcziBACMLrsq9c7A3mn6gHWqWohkKzW7L4WD8IiboSaDR1A8e8rqNGGMqsHFH5jwf
-	 zVwMC/GGy2BmQ==
-Date: Wed, 8 Jan 2025 10:41:49 +0100
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Ryder Lee <ryder.lee@mediatek.com>,
-	Jianjun Wang <jianjun.wang@mediatek.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, linux-pci@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
-Subject: Re: [PATCH v5 5/6] PCI: mediatek-gen3: Add reset delay in
- mtk_pcie_en7581_power_up()
-Message-ID: <Z35IXRLX0xDX7Kr7@lore-desk>
-References: <20241130-pcie-en7581-fixes-v5-5-dbffe41566b3@kernel.org>
- <20250103183527.GA3959656@bhelgaas>
+	b=OjjUICPLs/LoW1PyprRp1lnp/tZKSOWO4ehhjLcJ+K/CZZY1ysTIi5SPNDhMhnNxu
+	 eExZCi6apmXpawI/bBsZRqUc6bV7I+p0ufJhgE640aVZ5ys6wTdrEVpOEUYj4YN+3M
+	 R7z1Q3vefFHTWUvnA9uj7fStZOFv2WM5aNyMRik/rsCv7JfP7rLv2g31Uhwcxr+8CU
+	 Ip7ZMKPyttguxA2VNfABElNn8UDMxMzydjZjIQVbqvGA97SputE20sNx3AkRqBvbkU
+	 zHEUcUkNjXD9MTjgu7CK03zl3rMA8aPVGWwmBfjGFC6hUzWslGg5BpJRGdOU/58lS9
+	 X049ltnN3XIvg==
+Date: Wed, 8 Jan 2025 09:42:41 +0000
+From: Simon Horman <horms@kernel.org>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next v2 03/17] net: stmmac: use correct type for
+ tx_lpi_timer
+Message-ID: <20250108094241.GD2772@kernel.org>
+References: <Z3vLbRQ9Ctl-Rpdg@shell.armlinux.org.uk>
+ <E1tUmAE-007VWv-UW@rmk-PC.armlinux.org.uk>
+ <20250107112851.GE33144@kernel.org>
+ <Z30WmPpMp_BRgrOI@shell.armlinux.org.uk>
+ <20250107144103.GB5872@kernel.org>
+ <Z31Hjlp_3jIeSpWH@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="UfOoG4Z6S4fyWZJw"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250103183527.GA3959656@bhelgaas>
+In-Reply-To: <Z31Hjlp_3jIeSpWH@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_014154_159777_6CC288D9 
-X-CRM114-Status: GOOD (  26.00  )
+X-CRM114-CacheID: sfid-20250108_014247_196227_86D19D22 
+X-CRM114-Status: GOOD (  41.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,107 +85,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jan 07, 2025 at 03:26:06PM +0000, Russell King (Oracle) wrote:
+> On Tue, Jan 07, 2025 at 02:41:03PM +0000, Simon Horman wrote:
+> > On Tue, Jan 07, 2025 at 11:57:12AM +0000, Russell King (Oracle) wrote:
+> > > On Tue, Jan 07, 2025 at 11:28:51AM +0000, Simon Horman wrote:
+> > > > On Mon, Jan 06, 2025 at 12:24:58PM +0000, Russell King (Oracle) wrote:
+> > > > > The ethtool interface uses u32 for tx_lpi_timer, and so does phylib.
+> > > > > Use u32 to store this internally within stmmac rather than "int"
+> > > > > which could misinterpret large values.
+> > > > > 
+> > > > > Since eee_timer is used to initialise priv->tx_lpi_timer, this also
+> > > > > should be unsigned to avoid a negative number being interpreted as a
+> > > > > very large positive number.
+> > > > > 
+> > > > > Also correct "value" in dwmac4_set_eee_lpi_entry_timer() to use u32
+> > > > > rather than int, which is derived from tx_lpi_timer, even though
+> > > > > masking with STMMAC_ET_MAX will truncate the sign bits. u32 is the
+> > > > > value argument type for writel().
+> > > > > 
+> > > > > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> > > > 
+> > > > ...
+> > > > 
+> > > > > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > > > > index 9a9169ca7cd2..b0ef439b715b 100644
+> > > > > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > > > > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > > > > @@ -111,8 +111,8 @@ static const u32 default_msg_level = (NETIF_MSG_DRV | NETIF_MSG_PROBE |
+> > > > >  				      NETIF_MSG_IFDOWN | NETIF_MSG_TIMER);
+> > > > >  
+> > > > >  #define STMMAC_DEFAULT_LPI_TIMER	1000
+> > > > > -static int eee_timer = STMMAC_DEFAULT_LPI_TIMER;
+> > > > > -module_param(eee_timer, int, 0644);
+> > > > > +static unsigned int eee_timer = STMMAC_DEFAULT_LPI_TIMER;
+> > > > > +module_param(eee_timer, uint, 0644);
+> > > > >  MODULE_PARM_DESC(eee_timer, "LPI tx expiration time in msec");
+> > > > >  #define STMMAC_LPI_T(x) (jiffies + usecs_to_jiffies(x))
+> > > > >  
+> > > > 
+> > > > Hi Russell,
+> > > > 
+> > > > now that eee_timer is unsigned the following check in stmmac_verify_args()
+> > > > can never be true. I guess it should be removed.
+> > > > 
+> > > >         if (eee_timer < 0)
+> > > >                 eee_timer = STMMAC_DEFAULT_LPI_TIMER;
+> > > > 
+> > > 
+> > > Thanks for finding that. The parameter description doesn't seem to
+> > > detail whether this is intentional behaviour or not, or whether it is
+> > > "because someone used int and we shouldn't have negative values here".
+> > > 
+> > > I can't see why someone would pass a negative number for eee_timer
+> > > given that it already defaults to STMMAC_DEFAULT_LPI_TIMER.
+> > > 
+> > > So, I'm tempted to remove this.
+> > 
+> > I'm not sure either. It did cross my mind that the check could be changed,
+> > to disallow illegal values (if the range of legal values is not all
+> > possible unsigned integer values). But it was just an idea without any
+> > inspection of the code or thought about it's practicality. And my first
+> > instinct was the same as yours: remove the check.
+> 
+> My reasoning is as follows:
+> 
+> In the existing code with the module paramter is a signed int, then it
+> take a value up to INT_MAX. Provided sizeof(int) == sizeof(u32), then
+> this can be reported through the ethtool API. However, ethtool can set
+> the timer to U32_MAX which can exceed INT_MAX in this case. The driver
+> doesn't stop this, and uses a software based timer for any delay greater
+> than the capabilities of the hardware timer (if any.)
+> 
+> So, through ethtool one can set the LPI delay to anything between 0 and
+> U32_MAX, whereas through the module parameter it's between 0 and
+> INT_MAX. values between INT_MIN and -1 inclusive result in the default
+> being used.
+> 
+> It is, of course, absurd to have a negative delay, or even a delay
+> anywhere near INT_MAX or U32_MAX.
+> 
+> I'll separate out the change to eee_timer so if necessary, that can be
+> reverted without reverting the entire patch. Oh goodo, an extra patch
+> for a patchset which already exceeds netdev's 15 patches...
 
---UfOoG4Z6S4fyWZJw
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
->=20
-> If you repost this series, here are a few comments/typos.  Otherwise
-> we can do the trivial updates on the branch.
->=20
-> In subject: this patch doesn't *add* a delay; it *moves* it.
-
-ack, I will fix it.
-
->=20
-> On Sat, Nov 30, 2024 at 12:20:14AM +0100, Lorenzo Bianconi wrote:
-> > Airoha EN7581 has a hw bug asserting/releasing PCIE_PE_RSTB signal
-> > causing occasional PCIe link down issues. In order to overcome the
-> > problem, PCIe block is reset using REG_PCI_CONTROL (0x88) and
-> > REG_RESET_CONTROL (0x834) registers available in the clock module
-> > running clk_bulk_prepare_enable in mtk_pcie_en7581_power_up().
->=20
-> Add parens after clk_bulk_prepare_enable.
-
-ack, I will fix it.
-
->=20
-> > In order to make the code more readable, move the wait for the time
-> > needed to complete the PCIe reset from en7581_pci_enable() to
-> > mtk_pcie_en7581_power_up().
-> > Reduce reset timeout from 250ms to the standard PCIE_T_PVPERL_MS value
-> > (100ms) since it has no impact on the driver behavior.
-> >
-> > Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
-abora.com>
-> > Acked-by: Stephen Boyd <sboyd@kernel.org>
-> > Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> > ---
-> >  drivers/clk/clk-en7523.c                    | 1 -
-> >  drivers/pci/controller/pcie-mediatek-gen3.c | 7 +++++++
-> >  2 files changed, 7 insertions(+), 1 deletion(-)
-> >=20
-> > diff --git a/drivers/clk/clk-en7523.c b/drivers/clk/clk-en7523.c
-> > index 22fbea61c3dcc05e63f8fa37e203c62b2a6fe79e..bf9d9594bef8a54316e28e5=
-6a1642ecb0562377a 100644
-> > --- a/drivers/clk/clk-en7523.c
-> > +++ b/drivers/clk/clk-en7523.c
-> > @@ -393,7 +393,6 @@ static int en7581_pci_enable(struct clk_hw *hw)
-> >  	       REG_PCI_CONTROL_PERSTOUT;
-> >  	val =3D readl(np_base + REG_PCI_CONTROL);
-> >  	writel(val | mask, np_base + REG_PCI_CONTROL);
-> > -	msleep(250);
-> > =20
-> >  	return 0;
-> >  }
-> > diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/=
-controller/pcie-mediatek-gen3.c
-> > index 01e8fde96080fa55f6c23c7d1baab6e22c49fcff..da01e741ff290464d28e172=
-879520dbe0670cc41 100644
-> > --- a/drivers/pci/controller/pcie-mediatek-gen3.c
-> > +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
-> > @@ -977,6 +977,13 @@ static int mtk_pcie_en7581_power_up(struct mtk_gen=
-3_pcie *pcie)
-> >  		goto err_clk_prepare_enable;
-> >  	}
-> > =20
-> > +	/*
-> > +	 * Airoha EN7581 performs PCIe reset via clk callabacks since it has a
-> > +	 * hw issue with PCIE_PE_RSTB signal. Add wait for the time needed to
-> > +	 * complete the PCIe reset.
->=20
-> s/callabacks/callbacks/
-
-ack, I will fix it.
-
-Regards,
-Lorenzo
-
->=20
-> > +	 */
-> > +	msleep(PCIE_T_PVPERL_MS);
-> > +
-> >  	return 0;
-> > =20
-> >  err_clk_prepare_enable:
-> >=20
-> > --=20
-> > 2.47.0
-> >=20
-
---UfOoG4Z6S4fyWZJw
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ35IXQAKCRA6cBh0uS2t
-rNfuAP95qW2o5+5pMdA45lJJrd8AAwCrPov/N/UcDypJjjfnsQEAlJiNopVu7YmP
-HOKH4pXQZe272nswX6233GV357WPqwk=
-=k4Zn
------END PGP SIGNATURE-----
-
---UfOoG4Z6S4fyWZJw--
+Thanks Russell, FWIIW this sounds entirely reasonable to me.
 
