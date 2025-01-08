@@ -4,81 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C1E3E77199
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 22:29:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3118EE77199
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 22:31:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GL4UXH2hEesTN5TCIGtlxNzngfLlTAIyjL8W6RNShoQ=; b=Mqbg8lRDl0q84Jw5Akj7Hsyhx3
-	MZRxlUHoTWdLbUlpQdJpSeIsFghV2G3wwi396js35f+QgpMJwMCIrkGNHCbjn0+8dhHGS1nP35q51
-	kyNcAOI8D/GQ8370bJbGGf0L8us/6SAPee+Ag/DMLD0Ii5/+44FKfGtZf9rugmE1UFqxNG57qEy4d
-	XM2zm4eyTFsVX/t9gsOh815AAecwgFKa8i9I0VQWGIPCxxjuIq7shHHLioQCzu3klF/29y3uP6oYD
-	ES/2URwO8DNz9MaUHu/tf+O7yKAqLV+xF2q/Xtvki7K8PRZGMC/XVQvY5xPdoOG3nOP1FmEawvAsj
-	QxnniWZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oIs+6//9pCaz6EyeOwysIwczhydc369WMFHKaaagOvY=; b=zWJKwY1ZATDdsewHqKpShD6THO
+	y5LoWC4CxECH3p/RBZDh5bObS8Px5zKHlRSYb9dzgcbR1XrvQjPN6rnzLNKUE5bjlpguUoeanGmN2
+	6yKPNZ007E6lXLfYeWm4HRykDYphLTr5COEgj6KS/ApKrjh0E7wiZUNP5DZu6nNNVdwOCH0zs9UW2
+	f/3ibYlx/qkW49skUJ8m87qRON0j6FL3nVxbvPikvwMI38DLaerPUaArUcCvpnYgrD0klyWiNqQbr
+	cONSi5uELWxebRUvIREgNXfak095PlLrBosBf0anz6jbphP6FZKr2iPPetML9KMLER6W1nhkQpqR1
+	a+/SdZSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVeYP-0000000A1No-1yGl;
-	Wed, 08 Jan 2025 22:29:33 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tVeZb-0000000A1an-1qTU;
+	Wed, 08 Jan 2025 22:30:47 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVeXC-0000000A18Q-2BWq;
-	Wed, 08 Jan 2025 22:28:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1736375248;
-	bh=fx6RebTflN5sUpcLPzMyFKE1whwyihOXnOMDCyNB4aw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=MllPfKZIFqZfcF9PxUfy+xoUsCoJ0Rp8Ddhu0XmxSFOMLr9Y3xVdvmi24djPCmX+E
-	 l1mv4iOXLIM1ZduDbmjOZhctaJiR1b3k+rQLtbZoAAROiRQq4/ZVf4j690v9XLF1Gp
-	 sEGelu5qr1cDBR7s92RpDHx1694JUaWA2lwa44a6ReOoy80UNGenZoyxKEWYTMqD82
-	 5MwiuiNrAOSHK5oReCiAuKHqCPya4n2vHGeDmye5rl8LbaGDvxoVl1wD9q9jV/lZAO
-	 k4SserqUbp9m6tVvCobIp823ZiksiOOjxXcZS/VkhPpq0bP2bduRzuwMMXoa4pVnUW
-	 epvv6Hv+O4zQQ==
-Received: from [192.168.1.90] (unknown [82.76.59.196])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B874D17E35E8;
-	Wed,  8 Jan 2025 23:27:27 +0100 (CET)
-Message-ID: <66aca370-04c3-4b2b-83ff-8bef3ca0cea6@collabora.com>
-Date: Thu, 9 Jan 2025 00:27:27 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/5] drm/rockchip: vop2: Improve display modes handling
- on RK3588 HDMI0
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Andy Yan <andyshrk@163.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
- Andy Yan <andy.yan@rock-chips.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, kernel@collabora.com,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+	id 1tVeXe-0000000A1J1-47jx;
+	Wed, 08 Jan 2025 22:28:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=oIs+6//9pCaz6EyeOwysIwczhydc369WMFHKaaagOvY=; b=BaedSn+aUIt4dGeN6UFrKv3zq5
+	SjvxbM6DzIzuwDFspDx8xT61/huayN6VLFfjpyjKUKm7tH58k0vh0lJIUJ+Gx9fn63+Exga3t6sNR
+	6b1WxY3XPQNEV036vJ8hHIICLnXXggqpBJ4qjv0veqgaLEzSWUhZr1vxcp4fpXiW42CdsHZjutpYS
+	KB7zXZlisMJaJSMnm0mbnuiQhb6SNNWP2jsFCXvKPnJvPpm6YY49TTfpXVIcwna3bBpl1afHzuvkN
+	OCOjsp4IDiCQ94Ch9JjiSKMCZJU9QS086B6rPNzGMJr0G8yXx6J7N1TrwfLpAboj5f4mjRuHm0a2O
+	xmC2JPPg==;
+Received: from i53875aad.versanet.de ([83.135.90.173] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tVeXc-0004BU-TI; Wed, 08 Jan 2025 23:28:44 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Alexey Charkov <alchark@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, FUKAUMI Naoki <naoki@radxa.com>,
- Algea Cao <algea.cao@rock-chips.com>
-References: <20241211-vop2-hdmi0-disp-modes-v2-0-471cf5001e45@collabora.com>
- <1820767.5KxKD5qtyk@diego>
- <a4ex3s23r4k6wehyoaw3aylpcexfrclrxxykjpabhdfne2jgmu@ii6riiiga2zj>
- <1756448.izSxrag8PF@diego>
- <20241217-ubiquitous-refreshing-finch-aceade@houat>
- <c45ff74a-c9a4-4cf1-8530-04087e06b07a@collabora.com>
- <20241217-zealous-boisterous-llama-52bfcc@houat>
- <2ba24dc6-b6e7-4964-af84-a5374903ce36@collabora.com>
- <8dff095.1555.193d768ad5e.Coremail.andyshrk@163.com>
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Content-Language: en-US
-In-Reply-To: <8dff095.1555.193d768ad5e.Coremail.andyshrk@163.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/3] arm64: dts: rockchip: Add SPDIF nodes to RK3588(s) device
+ trees
+Date: Wed, 08 Jan 2025 23:28:44 +0100
+Message-ID: <2731770.KRxA6XjA2N@diego>
+In-Reply-To: <CABjd4Yy4Qd1rD43u3B-s=HxVBnaQt7fSgP9NFY2YeY0eKMESvQ@mail.gmail.com>
+References: <20250108-rk3588-h96-max-v58-v2-0-522301b905d6@gmail.com>
+ <1950286.IobQ9Gjlxr@diego>
+ <CABjd4Yy4Qd1rD43u3B-s=HxVBnaQt7fSgP9NFY2YeY0eKMESvQ@mail.gmail.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_142818_702195_58C043C3 
-X-CRM114-Status: GOOD (  31.97  )
+X-CRM114-CacheID: sfid-20250108_142847_021742_C25728DB 
+X-CRM114-Status: GOOD (  28.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,174 +77,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Maxime,
+Hi Alexey,
 
-On 12/18/24 3:36 AM, Andy Yan wrote:
-> 
-> Hi,
-> 
-> 在 2024-12-18 00:59:57，"Cristian Ciocaltea" <cristian.ciocaltea@collabora.com> 写道：
->> On 12/17/24 6:53 PM, Maxime Ripard wrote:
->>> On Tue, Dec 17, 2024 at 06:36:41PM +0200, Cristian Ciocaltea wrote:
->>>> On 12/17/24 5:00 PM, Maxime Ripard wrote:
->>>>> On Wed, Dec 11, 2024 at 07:01:15PM +0100, Heiko Stübner wrote:
->>>>>> Am Mittwoch, 11. Dezember 2024, 18:47:44 CET schrieb Maxime Ripard:
->>>>>>> On Wed, Dec 11, 2024 at 06:23:03PM +0100, Heiko Stübner wrote:
->>>>>>>> Am Mittwoch, 11. Dezember 2024, 18:07:57 CET schrieb Maxime Ripard:
->>>>>>>>> On Wed, Dec 11, 2024 at 12:15:07PM +0200, Cristian Ciocaltea wrote:
->>>>>>>>>> The RK3588 specific implementation is currently quite limited in terms
->>>>>>>>>> of handling the full range of display modes supported by the connected
->>>>>>>>>> screens, e.g. 2560x1440@75Hz, 2048x1152@60Hz, 1024x768@60Hz are just a
->>>>>>>>>> few of them.
->>>>>>>>>>
->>>>>>>>>> Additionally, it doesn't cope well with non-integer refresh rates like
->>>>>>>>>> 59.94, 29.97, 23.98, etc.
->>>>>>>>>>
->>>>>>>>>> Make use of HDMI0 PHY PLL as a more accurate DCLK source to handle
->>>>>>>>>> all display modes up to 4K@60Hz.
->>>>>>>>>>
->>>>>>>>>> Tested-by: FUKAUMI Naoki <naoki@radxa.com>
->>>>>>>>>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->>>>>>>>>> ---
->>>>>>>>>>  drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 34 ++++++++++++++++++++++++++++
->>>>>>>>>>  1 file changed, 34 insertions(+)
->>>>>>>>>>
->>>>>>>>>> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
->>>>>>>>>> index 8b2f53ffefdbf1cc8737b3a86e630a03a7fd9348..393fe6aa170aaee9663c4a6d98c1cd6a5ef79392 100644
->>>>>>>>>> --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
->>>>>>>>>> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
->>>>>>>>>> @@ -158,6 +158,7 @@ struct vop2_video_port {
->>>>>>>>>>  	struct drm_crtc crtc;
->>>>>>>>>>  	struct vop2 *vop2;
->>>>>>>>>>  	struct clk *dclk;
->>>>>>>>>> +	struct clk *dclk_src;
->>>>>>>>>>  	unsigned int id;
->>>>>>>>>>  	const struct vop2_video_port_data *data;
->>>>>>>>>>  
->>>>>>>>>> @@ -212,6 +213,7 @@ struct vop2 {
->>>>>>>>>>  	struct clk *hclk;
->>>>>>>>>>  	struct clk *aclk;
->>>>>>>>>>  	struct clk *pclk;
->>>>>>>>>> +	struct clk *pll_hdmiphy0;
->>>>>>>>>>  
->>>>>>>>>>  	/* optional internal rgb encoder */
->>>>>>>>>>  	struct rockchip_rgb *rgb;
->>>>>>>>>> @@ -220,6 +222,8 @@ struct vop2 {
->>>>>>>>>>  	struct vop2_win win[];
->>>>>>>>>>  };
->>>>>>>>>>  
->>>>>>>>>> +#define VOP2_MAX_DCLK_RATE		600000 /* kHz */
->>>>>>>>>> +
->>>>>>>>>>  #define vop2_output_if_is_hdmi(x)	((x) == ROCKCHIP_VOP2_EP_HDMI0 || \
->>>>>>>>>>  					 (x) == ROCKCHIP_VOP2_EP_HDMI1)
->>>>>>>>>>  
->>>>>>>>>> @@ -1033,6 +1037,9 @@ static void vop2_crtc_atomic_disable(struct drm_crtc *crtc,
->>>>>>>>>>  
->>>>>>>>>>  	vop2_crtc_disable_irq(vp, VP_INT_DSP_HOLD_VALID);
->>>>>>>>>>  
->>>>>>>>>> +	if (vp->dclk_src)
->>>>>>>>>> +		clk_set_parent(vp->dclk, vp->dclk_src);
->>>>>>>>>> +
->>>>>>>>>>  	clk_disable_unprepare(vp->dclk);
->>>>>>>>>>  
->>>>>>>>>>  	vop2->enable_count--;
->>>>>>>>>> @@ -2049,6 +2056,27 @@ static void vop2_crtc_atomic_enable(struct drm_crtc *crtc,
->>>>>>>>>>  
->>>>>>>>>>  	vop2_vp_write(vp, RK3568_VP_MIPI_CTRL, 0);
->>>>>>>>>>  
->>>>>>>>>> +	/*
->>>>>>>>>> +	 * Switch to HDMI PHY PLL as DCLK source for display modes up
->>>>>>>>>> +	 * to 4K@60Hz, if available, otherwise keep using the system CRU.
->>>>>>>>>> +	 */
->>>>>>>>>> +	if (vop2->pll_hdmiphy0 && mode->crtc_clock <= VOP2_MAX_DCLK_RATE) {
->>>>>>>>>> +		drm_for_each_encoder_mask(encoder, crtc->dev, crtc_state->encoder_mask) {
->>>>>>>>>> +			struct rockchip_encoder *rkencoder = to_rockchip_encoder(encoder);
->>>>>>>>>> +
->>>>>>>>>> +			if (rkencoder->crtc_endpoint_id == ROCKCHIP_VOP2_EP_HDMI0) {
->>>>>>>>>> +				if (!vp->dclk_src)
->>>>>>>>>> +					vp->dclk_src = clk_get_parent(vp->dclk);
->>>>>>>>>> +
->>>>>>>>>> +				ret = clk_set_parent(vp->dclk, vop2->pll_hdmiphy0);
->>>>>>>>>> +				if (ret < 0)
->>>>>>>>>> +					drm_warn(vop2->drm,
->>>>>>>>>> +						 "Could not switch to HDMI0 PHY PLL: %d\n", ret);
->>>>>>>>>> +				break;
->>>>>>>>>> +			}
->>>>>>>>>> +		}
->>>>>>>>>> +	}
->>>>>>>>>> +
->>>>>>>>>
->>>>>>>>> It seems pretty fragile to do it at atomic_enable time, even more so
->>>>>>>>> since you don't lock the parent either.
->>>>>>>>>
->>>>>>>>> Any reason not to do it in the DRM or clock driver probe, and make sure
->>>>>>>>> you never change the parent somehow?
->>>>>>>>
->>>>>>>> On rk3588 we have 3 dclk_s and 2 hdmi controllers. Each video-port can
->>>>>>>> use the clock generated from either the hdmi0phy or hdmi1phy, depending
->>>>>>>> on which hdmi-controller it uses.
->>>>>>>>
->>>>>>>> So you actually need to know which vpX will output to which hdmiY to then
->>>>>>>> reparent that dclk to the hdmiphy output.
->>>>>>>
->>>>>>> The Rockchip nomenclature isn't super obvious to me, sorry. Is there a
->>>>>>> datasheet for this somewhere? Also, does this vpX -> HDMI-Y mapping need
->>>>>>> to be dynamic?
->>>>>>
->>>>>> VPs are CRTCs in drm-language and each of them can drive a differing
->>>>>> number of output encoders. Those video-ports also have differing output
->>>>>> characteristics in terms of supported resolution and other properties.
->>>>>>
->>>>>> The rk3588 TRM has leaked in a number of places, and if you find a
->>>>>> TRM-part2, there is a section labeled "Display Output Interface Description"
->>>>>> that has a nice graphic for that.
->>>>>>
->>>>>> Or in short:
->>>>>> - CRTC(VP)0 supports 8K resolution and can drive DP0+1, HDMI0+1, eDP0+1
->>>>>>   [if I'm reading things correctly, 8K together with CRTC1 somehow)
->>>>>> - CRTC(VP)1 supports 4K resolution and can drive DP0+1, HDMI0+1, eDP0+1
->>>>>> - CRTC(VP)2 supports 4K resolution and can drive DP0+1, HDMI0+1, eDP01, DSI0+1
->>>>>> - CRTC(VP)3 supports 2K resolution and can drive DSI0+1 and some BT1120,BT656
->>>>>>
->>>>>> so for the 3 higher resolution CRTCs there are essentially 6 or 8 output options
->>>>>> depending on the board design
->>>>>
->>>>> That's much clearer, thanks. I'm not entirely sure how that links to the
->>>>> need for the PLL to change its parent depending on the ouput. Do you
->>>>> need to always have all the outputs on the same PLL?
->>>>
->>>> One of the problems is that the PHY PLLs cannot be used as clock sources
->>>> for resolutions above 4K@60Hz, while VOP2 on RK3588 supports up to 8K@60Hz,
->>>> which is supposed to be handled by the system CRU.
->>>
->>> But can that system CRU drive resolutions lower than 4k@60? If so, why
->>> do we bother with PHYs?
->>
->> It can, but it's not accurate enough to support all modes, e.g. those
->> having fractional refresh rates, among others.  That's actually the
->> reason we'd want to make use of the PHY PLLs.
-> 
-> Not only that. For resolutions lower than 4k@60, if we use system cur as dclk parent,
-> it can't  sync with HDMI TMDS clock , this could lead to stability/compatibility i issues,
-> which may not be easy to encounter, but we have indeed experienced them  few timems
-> in a large amount of productization practice.
+Am Mittwoch, 8. Januar 2025, 16:30:35 CET schrieb Alexey Charkov:
+> On Wed, Jan 8, 2025 at 2:01=E2=80=AFPM Heiko St=C3=BCbner <heiko@sntech.d=
+e> wrote:
+> >
+> > Hi Alexey,
+> >
+> > Am Mittwoch, 8. Januar 2025, 10:09:07 CET schrieb Alexey Charkov:
+> > > RK3588s has four SPDIF transmitters, and the full RK3588 has six.
+> > > They are fully compatible to RK3568 ones. Add respective nodes
+> > > to .dtsi files.
+> >
+> > While it may seem that way, we still want soc-specific compatibles,
+> > to future-proof this.
+> >
+> > I.e. going the the
+> >         compatible =3D "rockchip,rk3588-spdif", "rockchip,rk3568-spdif";
+> > way, so that now things can just match against the rk3568, but if some
+> > fault emerges later on the code can be fixed with the DT staying just
+> > compatible.
+> >
+> > The spdif also has an example already for all the spdif variants that a=
+re
+> > compatible to the rk3066 [3], so it'd need another "items" block for th=
+ings
+> > being compatible with the rk3568.
+>=20
+> Hmm, if we are to believe the driver ([4], [5]), they are all the same
+> as the good old RK3366, which in turn is software compatible to the
+> good old RK3066. Same seems to apply to RK3576, given that its current
+> .dtsi just references the "rockchip,rk3568-spdif" compatible.
 
-Could you please indicate which would be the required changes to make
-this acceptable upstream and unblock the series?
+I was for a short while afraid that something slipped into mainline :-)
+But I guess that "rockchip,rk3568-spdif" compatible on the rk3576 is
+only used in the vendor-kernel.
 
-Thanks,
-Cristian
 
->>>> Moreover, the 2 PLLs are shared between 3 out of the 4 video ports already
->>>> mentioned by Heiko.  There is quite a bit of complexity in downstream
->>>> driver to handle all possible usecases - see [1] for a brief description on
->>>> how was that designed to work.
->>>
->>> That's a generic allocation issue. Multiple drivers (vc4 for example)
->>> has this issue for other components. It can be fairly easily dealt with
->>> at atomic_check time.
->>>
->>> Maxime
->>
+> Does it mean that the binding needs to be restructured so that the
+> required fallback compatible ("rockchip,rk3066-spdif") applies to all
+> variants? Or shall the existing ones be left alone, and just RK3588
+> and RK3576 added inside that "items" block?
+
+I noticed that the spdif binding has had an interestings growth over
+the years, with some socs being outliers.
+
+I wouldn't change the whole binding, especially as that then touches
+established stuff.
+
+The question would be weather to add the rk3588 + rk3576 to the
+existing enum marking them as compatible with the rk3066, or create
+a separate items block and just saying the rk3588-spdif is compatible with
+the rk3568 one, like:
+
+[...]
+      - const: rockchip,rk3568-spdif
+      - items:
+          - enum:
+              - rockchip,rk3128-spdif
+              - rockchip,rk3188-spdif
+              - rockchip,rk3288-spdif
+              - rockchip,rk3308-spdif
+          - const: rockchip,rk3066-spdif
+      - items:
+          - enum:
+              - rockchip,rk3576-spdif
+              - rockchip,rk3588-spdif
+          - const: rockchip,rk3568-spdif
+[...]
+
+With the RK3066 being released in 2012, part of me is amazed that that
+block survived that long, on the other hand going with the above snippet
+somehow feels saver ;-) .
+
+
+Heiko
+
+> [4] https://github.com/rockchip-linux/kernel/blob/develop-5.10/sound/soc/=
+rockchip/rockchip_spdif.c
+> [5] https://github.com/torvalds/linux/blob/master/sound/soc/rockchip/rock=
+chip_spdif.c
+>=20
+
+
+
 
 
