@@ -4,84 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F933E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 15:32:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2846E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 15:47:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YrhJ08F+g99/pDpHcc0SfE5usAMSb6pyknS9o1Vrtpc=; b=A4pHp/S0Dd1Q+gwxPqn1/SwtvO
-	FOlTiVdkAPQ+vPCDrWkbWhwur9UPXn2XjsuhOnW3sbJZKAJihnFHO4qjEsQSSPMPA4s+JEulcOm2Q
-	NW1Qy/EKZx1KYJe0cUJF+pqQJqxR33SqmR2nbgNo8kJYnEjga/08xsoridc1giATAUHkvm5KfyKsz
-	3mmGa8+t2/XIUXVUEpoYu1wkLywlvon4zcXxJE9dGucdzWGX+We1tErNIlXk0EfS7unPvJ3q7K2mz
-	05rs9KQSkEHJKr/bPF/aWjZZrSPfirQUtGTRcCoP44s4I+/lD66ejMa4h4WkxZm3EIsUsvNrGbiC1
-	B1bpiIww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yjeBkPMQqyR7BlVmHv45XiZ11hoiUcvKXfiavZCHrmk=; b=YDfQTzqMaSCissP/D4+o8xRhCl
+	NiDat5TrsIYB7jaqKvBH2Trj4ffGCjANHwDzQYxwaMc2xpMpXVDpgGwoGYB1JlPhI1R2Za+e9if0s
+	wisu4Z4bKotU0qpJwsTA2lQtPshnRVGCp68Th5qWXVSXwWAcvgDYGzVWs06QrVqculK2qAgWVjHiX
+	lEQCHxpladRfd/FRozN8HevvwDDcCpqchNf4QUWSWl+u1WTwjP4FwTWPoADPPAi+yQVSHA8FoP0VB
+	IrU5JR/q5oXVNutSIecYyN64ZrLA4xPSSDoLGEDVaa9zNBl/csfHkgk1f1hfSACWOLJbs2yM9/V+a
+	b1KcDowg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVY2O-00000008yk1-1eIj;
-	Wed, 08 Jan 2025 15:32:04 +0000
-Received: from mail-qt1-x82f.google.com ([2607:f8b0:4864:20::82f])
+	id 1tVYHS-000000091v0-0JBI;
+	Wed, 08 Jan 2025 15:47:38 +0000
+Received: from lelv0142.ext.ti.com ([198.47.23.249])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVY19-00000008ybh-3OnX;
-	Wed, 08 Jan 2025 15:30:49 +0000
-Received: by mail-qt1-x82f.google.com with SMTP id d75a77b69052e-467a3f1e667so99361201cf.0;
-        Wed, 08 Jan 2025 07:30:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736350246; x=1736955046; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YrhJ08F+g99/pDpHcc0SfE5usAMSb6pyknS9o1Vrtpc=;
-        b=Smfd0mx1/O/ZFW/3Be8NCH8Mdp1PT+svuaCYIbErg/1fj9PFoizHnS6D07tkRu7BZm
-         JwYtTMD5zmkvvAosAWicplhVH0tC7CjsKL2Fzn1aFjNRemSb1LR2R6Vo0TwIQUNPKjEb
-         +h9D4bba2/PoSSA70rS+AcME5jVwnql6yNafJcD2+y+MDgeJYwC59S6nToLbXZSC9Tpf
-         h6aLajT0CFjiWwUMQ6hB+wNgO7/Ebcoh8j8uhNnuQpUxhVbruDWGaZL1bDgnb01gh0oP
-         veVXm2aiWbJY7oxey9fpW+oGJAfajfwpcQ0tLoNsSTRKSK3sfnosC6IzoVK8WPskE6hA
-         e/og==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736350246; x=1736955046;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=YrhJ08F+g99/pDpHcc0SfE5usAMSb6pyknS9o1Vrtpc=;
-        b=rxFMywgdWfD1p69K2qbKX4l6p5EU5YxlVNCbImUztq0F2rqy/4YF2DdbCznsQaooMx
-         vKijWV/OIbij2QLxSOnpIixyZSFmM+dT+aX8yF4v+Mf91FKU2YjjkAv1Tc2VEbmx1fyD
-         i6u0/PENRBRd5NyECvPBWeQ3Rdaoja5zdIE59PpkDvatB8ss3KfDHrRK4dRCRzH/lug7
-         sfTMhl/fIImfzrIHdgxXZ4QEAGsD0kJR1kAUJGcSjOmHcJFuaKRrFqzH3Z6v8/Letifi
-         2BYt1KpwSuzluf7SaMqPINHWxOiyjV0oN5sr+L9rafpMUjddFxwd8+3SYtv4xk6QfBsW
-         VBvg==
-X-Forwarded-Encrypted: i=1; AJvYcCVaUdglFfdNq1kt540g0UBCGDY0oTwUFJlrzE//97yzj1weJkYXhtwbgM8TYxu1pzvFbd7tSQ2cPe27XNfJ5/jO@lists.infradead.org, AJvYcCX0ZquPhmHq8QEnxgpZqO4/zX2AvtvQe4hLO42XN5iEmcSbl/7pChfgZdv2ve9k1KHFlr+zZlz0Wl0gcNJt8iU=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFx/nQP1n+qb59G9L2haa8RxltOlG5Dag6Kkuiod9PvxZcHN6O
-	hVXif0beOBGp/J9zx2ov4cqBdIxZo7pxlsbC23iLKa+6dOu4q9ZwWzrrLd3OxoEe0wVj0khRf28
-	Ck4qiSkPl3q9Aiz0COqOIze74tz4=
-X-Gm-Gg: ASbGncuEV5XTDOXA8GZC6G18AqYVvU6uMdVsWfEiW+yXaEQOmzW10sabY6IeMtSw3P6
-	pRRlzdDLJpN8CZOpp5LEA2QR6l+fBTOrr/vsBvp2Lf0Arb9VIkA==
-X-Google-Smtp-Source: AGHT+IFKoNRB02f9LEFBsjP1jngmLgnZ+gqmlVlhb4sD5ormVLieH9nwZeRMYU+GK1pDFpGelYsoVARAQOsSY3XSoak=
-X-Received: by 2002:a05:622a:144e:b0:467:81ef:1953 with SMTP id
- d75a77b69052e-46c71079ec7mr43270661cf.7.1736350246055; Wed, 08 Jan 2025
- 07:30:46 -0800 (PST)
+	id 1tVYGC-000000091ZO-3WXB
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 08 Jan 2025 15:46:22 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id 508FkFxI004464;
+	Wed, 8 Jan 2025 09:46:15 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1736351175;
+	bh=yjeBkPMQqyR7BlVmHv45XiZ11hoiUcvKXfiavZCHrmk=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=eP8P8W/Nn7cQREinI07bmmXbKiT0mWO9ZlPbh1GW6bBXa3nNUjggp8XXMZbSkdoFY
+	 Nb4UP6Bg3A33yyhJxvpyHtI+i6OfmNgxdYZ415QuNy+cS6pkNZaNgMdaWgwuKJY/yD
+	 OtzGchb2qkd46p8aoiEn/bSold/ZCJrH6ptoh+So=
+Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 508FkFef012739
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Wed, 8 Jan 2025 09:46:15 -0600
+Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE105.ent.ti.com
+ (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 8
+ Jan 2025 09:46:15 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE108.ent.ti.com
+ (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Wed, 8 Jan 2025 09:46:15 -0600
+Received: from localhost (uda0492258.dhcp.ti.com [10.24.72.104])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 508FkE9v082617;
+	Wed, 8 Jan 2025 09:46:14 -0600
+Date: Wed, 8 Jan 2025 21:16:13 +0530
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: Andrew Davis <afd@ti.com>
+CC: Nishanth Menon <nm@ti.com>, Kevin Hilman <khilman@baylibre.com>,
+        <devicetree@vger.kernel.org>, Romain Naour <romain.naour@smile.fr>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-omap@vger.kernel.org>,
+        <conor+dt@kernel.org>, <krzk+dt@kernel.org>, <robh@kernel.org>,
+        <kristo@kernel.org>, <vigneshr@ti.com>,
+        Romain Naour <romain.naour@skf.com>, <s-vadapalli@ti.com>
+Subject: Re: [PATCHv3 1/2] dt-bindings: mfd: syscon: Add
+ ti,j721e-acspcie-proxy-ctrl compatible
+Message-ID: <ikfjvrqi7jbqmeyjejuhpe4iw7uzaqeuqc3ijf4t6wjqgvextt@j4w5cift7ev3>
+References: <20241202143331.126800-1-romain.naour@smile.fr>
+ <173344002250.407600.8303166891165540615.b4-ty@baylibre.com>
+ <20250103212528.enq4ur5afxhwzh7n@outdoors>
+ <7hr05eb5st.fsf@baylibre.com>
+ <20250108131139.dygei6ejamh5zaij@segment>
+ <1251db38-5009-4e93-9603-3ae02f276e5b@ti.com>
 MIME-Version: 1.0
-References: <20250108-rk3588-h96-max-v58-v2-0-522301b905d6@gmail.com>
- <20250108-rk3588-h96-max-v58-v2-2-522301b905d6@gmail.com> <1950286.IobQ9Gjlxr@diego>
-In-Reply-To: <1950286.IobQ9Gjlxr@diego>
-From: Alexey Charkov <alchark@gmail.com>
-Date: Wed, 8 Jan 2025 19:30:35 +0400
-X-Gm-Features: AbW1kvbaSD6420vb9Z-krZSCK7YnPn-rkLl-OwWfP77vCyeVbOh_HhHdHm1BmrY
-Message-ID: <CABjd4Yy4Qd1rD43u3B-s=HxVBnaQt7fSgP9NFY2YeY0eKMESvQ@mail.gmail.com>
-Subject: Re: [PATCH v2 2/3] arm64: dts: rockchip: Add SPDIF nodes to RK3588(s)
- device trees
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <1251db38-5009-4e93-9603-3ae02f276e5b@ti.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_073047_849155_E725A3E0 
-X-CRM114-Status: GOOD (  17.79  )
+X-CRM114-CacheID: sfid-20250108_074621_077531_4AB849F8 
+X-CRM114-Status: GOOD (  27.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,45 +92,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 8, 2025 at 2:01=E2=80=AFPM Heiko St=C3=BCbner <heiko@sntech.de>=
- wrote:
->
-> Hi Alexey,
->
-> Am Mittwoch, 8. Januar 2025, 10:09:07 CET schrieb Alexey Charkov:
-> > RK3588s has four SPDIF transmitters, and the full RK3588 has six.
-> > They are fully compatible to RK3568 ones. Add respective nodes
-> > to .dtsi files.
->
-> While it may seem that way, we still want soc-specific compatibles,
-> to future-proof this.
->
-> I.e. going the the
->         compatible =3D "rockchip,rk3588-spdif", "rockchip,rk3568-spdif";
-> way, so that now things can just match against the rk3568, but if some
-> fault emerges later on the code can be fixed with the DT staying just
-> compatible.
->
-> The spdif also has an example already for all the spdif variants that are
-> compatible to the rk3066 [3], so it'd need another "items" block for thin=
-gs
-> being compatible with the rk3568.
+On Wed, Jan 08, 2025 at 09:09:37AM -0600, Andrew Davis wrote:
 
-Hmm, if we are to believe the driver ([4], [5]), they are all the same
-as the good old RK3366, which in turn is software compatible to the
-good old RK3066. Same seems to apply to RK3576, given that its current
-.dtsi just references the "rockchip,rk3568-spdif" compatible.
+Hello Andrew,
 
-Does it mean that the binding needs to be restructured so that the
-required fallback compatible ("rockchip,rk3066-spdif") applies to all
-variants? Or shall the existing ones be left alone, and just RK3588
-and RK3576 added inside that "items" block?
+> On 1/8/25 7:11 AM, Nishanth Menon wrote:
+> > On 14:46-20250107, Kevin Hilman wrote:
+> > > Nishanth Menon <nm@ti.com> writes:
+> > > 
+> > > > On 15:07-20241205, Kevin Hilman wrote:
+> > > > > 
+> > > > > On Mon, 02 Dec 2024 15:33:30 +0100, Romain Naour wrote:
+> > > > > > The ACSPCIE_PROXY_CTRL registers within the CTRL_MMR space of TI's J721e
+> > > > > > SoC are used to drive the reference clock to the PCIe Endpoint device via
+> > > > > > the PAD IO Buffers. Add the compatible for allowing the PCIe driver to
+> > > > > > obtain the regmap for the ACSPCIE_CTRL register within the System
+> > > > > > Controller device-tree node in order to enable the PAD IO Buffers.
+> > > > > > 
+> > > > > > The Technical Reference Manual for J721e SoC with details of the
+> > > > > > ASCPCIE_CTRL registers is available at:
+> > > > > > https://www.ti.com/lit/zip/spruil1
+> > > > > > 
+> > > > > > [...]
+> > > > > 
+> > > > > Applied, thanks!
+> > > > > 
+> > > > > [1/2] dt-bindings: mfd: syscon: Add ti,j721e-acspcie-proxy-ctrl compatible
+> > > > >        commit: d8efc0b428856137608ffcbb6994da6041c9fe2a
+> > > > > [2/2] arm64: dts: ti: k3-j721e-beagleboneai64: Enable ACSPCIE output for PCIe1
+> > > > >        commit: 1d5e14a20dc60b440c60bec8489acfd45cdf7508
+> > > > > 
+> > > > > Best regards,
+> > > > > -- 
+> > > > > Kevin Hilman <khilman@baylibre.com>
+> > > > > 
+> > > > This will need a bit of fixup - See along the lines of the following.
+> > > > Additionally, we should be a bit careful about the dependency of dts
+> > > > mix up from two trees.
+> > > 
+> > > sorry, these should be going through your tree in the first place.  They
+> > > are now dropped from my tree, please go ahead and take them along with
+> > > Andrews fixup.  Sorry for complicating things.
+> > 
+> > 
+> > Romain,
+> > 
+> > There is additional fixups needed, unfortunately as well: syscon yaml
+> > has two lists based on which dt-schema version you use.. your patch
+> > fixed one list, but missed the other as well. Could you integrate the
+> > fixes and resubmit, please?
+> > 
+> > 
+> 
+> Or since we already have 'ti,j784s4-acspcie-proxy-ctrl' for the same
+> reason, you could drop the first patch and re-use this compatible.
 
-Thanks a lot,
-Alexey
+I had suggested this in the past since the ACSPCIE IP on J784S4 and J721E
+is the same, but Krzysztof insists that there will be hardware differences
+in the ACSPCIE block across J784S4 and J721E irrespective of what the
+datasheet says, as mentioned by Krzysztof at:
+https://lore.kernel.org/r/1bfdf1f1-7542-4149-a85d-2ac4b659b26b@kernel.org/
+Therefore Romain had to introduce a new compatible for J721E.
 
-[4] https://github.com/rockchip-linux/kernel/blob/develop-5.10/sound/soc/ro=
-ckchip/rockchip_spdif.c
-[5] https://github.com/torvalds/linux/blob/master/sound/soc/rockchip/rockch=
-ip_spdif.c
+Regards,
+Siddharth.
 
