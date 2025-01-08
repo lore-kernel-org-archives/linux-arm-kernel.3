@@ -4,75 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B23C3E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 00:52:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7903E77198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 01:19:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=A/B0lFPcENBxS4FEb8EDKILhK0N1bRr3Xra/0nwevUc=; b=WkyjjyQFdc8wUuXzZA/Oz1l6eM
-	YdItpr5yy9H9df4lmftjW00ocWk4Aj9vojjMmoH8st//tuQ/ORDJxds4Mz7I3bHpMf6TSiTMAuFz+
-	FstqhvaGSrrT/SrFSdZSpq3Kn89CgmZuBxaZhH51x5oVSI+Oj9lFOeGRkEnXIeqGvC1J46iCnRRt4
-	idnEbw3VBXW/2GPvBFyiAfmVsfKaJ5sMnMxDCuaT2a5khIav+mt6sAAzZV0SdXohFoq+ZCf+HGGbI
-	tsUJEW+3KU6exFN/SK949coIze1VGvn4mtsQHV+Xv9tXyS7OsQRR1Rd3Ya8R7vY+1cd578gOyk9C4
-	KUVuYZcg==;
+	bh=vx99Y8SQrugXLJ1+GA+aTfa0OBhtUac94dHDKuroZ0M=; b=wPBUFjVxu/+oLsFUP6dP0bD7Ny
+	6r88z4Y/KMs7t8kams4G1y8L1md1xCygWI/6ZWpQxKizrtHnDM7oMeo16jTCkKWifL8u1ps+pTyEQ
+	V5/IEjEJc+m0xaAotU4L8bK7NYNY7B7tmLxLxfy4XCGKXBdv1Isjqndm//DBL5hkzoKWU3jlXkleg
+	bR5Mn+6oJoj/ON/ctOFVE3XmLJ1ZNy67TllTAqd3y+0d3NbcuVXJXWK+NjrA+K4fqGep5QqNyGgNW
+	/xGTkERyZzj9xwg/rKIC7bBA3EaP0wrHQUy7aFGwp+LoFnRZzcfVtrZtIoZZRDK1dXTjYRZf7/oTx
+	wbUjg3Yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVKIX-00000006fBA-1CaO;
-	Wed, 08 Jan 2025 00:51:49 +0000
-Received: from esa10.hc1455-7.c3s2.iphmx.com ([139.138.36.225])
+	id 1tVKjR-00000006hb1-17yz;
+	Wed, 08 Jan 2025 01:19:37 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVKHJ-00000006f2a-3jM6
+	id 1tVKiD-00000006hGC-39vc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 00:50:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1736297434; x=1767833434;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=3pepWCQ/w0pYqD518g7xPAZwkgW7P/rUAva7kIPw9e8=;
-  b=Hb6xl9VUq3aR1bYUnfzk/0x+BA8xi9ZOKVOzSza5PIC/JBqzcqspV00o
-   HV28FHhurkY8f3Fy96B4JPcJOJdajiv6bKC/eqdcMoYnrctHY0O/Be2sV
-   FIRjaoGfVoW2w4HUmewHitVIQsBRuq+ASUGk0Ktb4tkMWNPLn74jIqrb9
-   h4ml1xesO0qMRl/oVH1v+qtKcoVW60CVEIs+IbXOgwnRFELLQlYRfqN4D
-   zpjZ73eP6vkoM/CY62peKvNVLGIF6Eaop5MDZIRCWjQOc7iruUp46jkhG
-   f22tAP84aRPLPFQzYXcNAhyTN9M1yuBzUA89cWYdKgSPHr2laCb30gwp3
-   w==;
-X-CSE-ConnectionGUID: mgs+iD5DSoaTnM2oEHvo5A==
-X-CSE-MsgGUID: fuULeX+5R2O5HCu1+1HCMw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11308"; a="173201864"
-X-IronPort-AV: E=Sophos;i="6.12,296,1728918000"; 
-   d="scan'208";a="173201864"
-Received: from unknown (HELO yto-r1.gw.nic.fujitsu.com) ([218.44.52.217])
-  by esa10.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jan 2025 09:50:27 +0900
-Received: from yto-m2.gw.nic.fujitsu.com (yto-nat-yto-m2.gw.nic.fujitsu.com [192.168.83.65])
-	by yto-r1.gw.nic.fujitsu.com (Postfix) with ESMTP id CD416DF502
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  8 Jan 2025 09:50:24 +0900 (JST)
-Received: from yto-om4.fujitsu.com (yto-om4.o.css.fujitsu.com [10.128.89.165])
-	by yto-m2.gw.nic.fujitsu.com (Postfix) with ESMTP id 9F98AD5083
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  8 Jan 2025 09:50:24 +0900 (JST)
-Received: from sm-x86-mem01.ssoft.mng.com (sm-x86-stp01.soft.fujitsu.com [10.124.178.20])
-	by yto-om4.fujitsu.com (Postfix) with ESMTP id 6FCDC40054C45;
-	Wed,  8 Jan 2025 09:50:24 +0900 (JST)
-From: Toshiyuki Sato <fj6611ie@aa.jp.fujitsu.com>
-To: Russell King <linux@armlinux.org.uk>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>
-Cc: linux-kernel@vger.kernel.org,
-	linux-serial@vger.kernel.org,
+	Wed, 08 Jan 2025 01:18:22 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-21631789fcdso4305095ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 17:18:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1736299100; x=1736903900; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=vx99Y8SQrugXLJ1+GA+aTfa0OBhtUac94dHDKuroZ0M=;
+        b=O4uXxzx34eHScmmRgvEeAw/CNZJI4LDZ86di/9WGKoVebcSt8PcBD5y0Cl74mFsvaX
+         4RlxLyvyLHCZAbwVVCPvdc+R/5yb3j+ZT24hTwuWUeHpbtf6Yt3Z9dLVw+fFwYt/f8yE
+         RrtN/E52JHdEnxNbdKNkBKzKajN8AsChjpWi35NWkamgoPauZ6NllKwUTX8yFFmrMVaI
+         YVdh7gzawAamK6xCFt4pgkBQ+Hk7Ee5dI6+8BAQJ+RcAxpWtDBuVcBjk2JagD6iUFsF7
+         a3DmJBfBfCgwWXtKazVnehrsmwDC/j4wQQQLeB7Fd9GODhwhqA6qIhO21LgZewtoHUmW
+         tjjg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736299100; x=1736903900;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=vx99Y8SQrugXLJ1+GA+aTfa0OBhtUac94dHDKuroZ0M=;
+        b=DxMnpy+OQebLZgANvyAVk7fnyyiyBZp8ZjVvFT9XGS4zYlWzR3wa8+lITiMhHkfmym
+         sxDz7DkxvEZiE7UUvl9eh5a8mRw6avVZY2n9kgf4Y0IJ2i+RAOGNZQTSG3EFoQs6WFkI
+         pC2xtiDNWEmHCoqdVP7S913Hg14u+hJ3JjRlv5cLzHCKREULX6zS4DCp2T1DUB7MH9PL
+         vAnJJaHhIELBQxPvQyGXIr/1NTktCGukuXkitoWCFbgt6mfOI7HydAea02y6ewPFwYqv
+         nz+y0dLIS594+l6W5wq6RO/VqfjkzmDc8N7gt9xnbFsrw8DNinfGFEF0KqctwoXQhyDd
+         4Kew==
+X-Forwarded-Encrypted: i=1; AJvYcCWH2pNKoco8RmAEblKIW5BolkGwePQ9B8THMKHUF4o8pN8IICmxJ9HTVjg5pSkl8ba0tn0mZ3GK8Ia+vk3bMl2G@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYH8sHmIw4Kc895jkTXdXZxIYPCKWHAvxo4nSn7U5kVAJCKz2h
+	ulno6UYT2ASCCCzDBAwIa2NiBx4ulSlzRiIa21sA/dGajISEkXXl
+X-Gm-Gg: ASbGncvXE/2joBa7m+APVg5ZDZjIg2pjraPvflWdi/pjomXb/mz/9T9t4efQdL8YJVI
+	76DlWQFPpHJ8IHbaIQUs03E6nkw8JxLLQQ8b83CFFKRw3Smh2H21PapiJyVdpBeYqlE/u19kL3K
+	a3y5neckHT/Z04XJriE7l8FYds29HC6Nzmou2aaK+mDHFRAVsZ+BSpZvWdh7WnXa+yAY+5xIVl0
+	SLzdUH24bXSDP4g46ARvWboUD4HQjKs1wiNrUfTUL2N4fGEw/W+XUTy/M8lRyJ2670frc/Qx5a+
+	cf4rRY95bJWFp7p1Xa1c2ILJgPug00T6OkP34dTVqg==
+X-Google-Smtp-Source: AGHT+IHBXjlnMHsFnSJ7x0oLswpnhQiItsRr5cWXQazhFwNjODFq+rz7pmKosjS34A3gO044xDQ+pg==
+X-Received: by 2002:a05:6a00:843:b0:72a:78a3:7f57 with SMTP id d2e1a72fcca58-72d2171f607mr2054335b3a.9.1736299100053;
+        Tue, 07 Jan 2025 17:18:20 -0800 (PST)
+Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72aad83033esm34045009b3a.48.2025.01.07.17.18.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 07 Jan 2025 17:18:19 -0800 (PST)
+From: Ming-Jen <mjchen0829@gmail.com>
+To: linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-input@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	fj6611ie@aa.jp.fujitsu.com
-Subject: [PATCH] serial: amba-pl011: Implement nbcon console
-Date: Wed,  8 Jan 2025 00:47:30 +0000
-Message-Id: <20250108004730.2302996-1-fj6611ie@aa.jp.fujitsu.com>
-X-Mailer: git-send-email 2.34.1
+	mjchen0829@gmail.com,
+	peng.fan@nxp.com,
+	arnd@arndb.de,
+	sudeep.holla@arm.com,
+	conor+dt@kernel.org,
+	krzk+dt@kernel.org,
+	robh@kernel.org,
+	dmitry.torokhov@gmail.com
+Subject: [PATCH v5 0/2] Add support for nuvoton ma35d1 keypad controller
+Date: Wed,  8 Jan 2025 01:18:10 +0000
+Message-Id: <20250108011812.627-1-mjchen0829@gmail.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_165034_215734_23D3891A 
-X-CRM114-Status: GOOD (  22.40  )
+X-CRM114-CacheID: sfid-20250107_171821_817229_D62156BD 
+X-CRM114-Status: GOOD (  17.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,204 +102,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement the callbacks required for an NBCON console [0] on the 
-amba-pl011 console driver.
-The codes for legacy console are retained, and the module
-parameter (use_nbcon) allows switching between legacy and NBCON.
-The default is off (use legacy console) for now.
+From: Ming-jen Chen <mjchen0829@gmail.com>
 
-Referred to the NBCON implementation work for 8250 [1] and imx [2].
+This patch series adds keypad driver for the nuvoton ma35 ARMv8 SoC.
+It includes DT binding documentation and the ma35d1 keypad driver.
 
-The normal-priority write_thread checks for console ownership
-each time a character is printed.
-write_atomic holds the console ownership until the entire string
-is printed.
+v5:
+  - Update nuvoton,ma35d1-keypad.yaml
+    - Reorders the items in the properties and required blocks to ensure 
+      their order and items are consistent.
+v4:
+  - Update nuvoton,ma35d1-keypad.yaml
+    - Kept the same order of properties as in the required block.
+    - Changed register addresses to lowercase.
+v3:
+  - Update nuvoton,ma35d1-keypad.yaml
+    - Removed vendor-specific properties and replaced them with common properties
+  - Update ma35d1_keypad.c
+    - Modified the driver to reflect changes in the YAML properties
+v2:
+  - Update nuvoton,ma35d1-keypad.yaml
+    - Fixed warnings and errors generated by running checkpatch.pl
+    - Removed the previous version's properties and rewrote the
+      properties in the Device Tree schema.
+    - Renamed the Device Tree binding file to nuvoton,ma35d1-keypad.yaml
+  - Update Kconfig
+    - Added COMPILE_TEST to the depends on line in the Kconfig
+  - Update ma35d1_keypad.c
+    - Refactored error handling within the probe function.
+    - Fixed the mixed use of devm and non-devm resource management.
+    - Corrected alignment issues in the code.
+    - Updated suspend and resume handling methods.
+    - Fixed variable naming to remove camel casing.
+    - Used for_each_set_bit() to check key states.
+    - Modified the code to align with updates in the device tree binding
 
-UART register operations are protected from other contexts by 
-uart_port_lock, except for a final flush(nbcon_atomic_flush_unsafe) 
-on panic.
+Ming-jen Chen (2):
+  dt-bindings: input: Add Nuvoton MA35D1 keypad
+  input: keypad: add new keypad driver for MA35D1
 
-The patch has been verified to correctly handle the output and
-competition of messages with different priorities and flushing
-panic message to console after nmi panic using ARM64 QEMU and
-a physical machine(A64FX).
+ .../bindings/input/nuvoton,ma35d1-keypad.yaml |  82 ++++
+ drivers/input/keyboard/Kconfig                |  10 +
+ drivers/input/keyboard/Makefile               |   1 +
+ drivers/input/keyboard/ma35d1_keypad.c        | 387 ++++++++++++++++++
+ 4 files changed, 480 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml
+ create mode 100644 drivers/input/keyboard/ma35d1_keypad.c
 
-[0] https://lore.kernel.org/all/ZuRRTbapH0DCj334@pathway.suse.cz/
-[1] https://lore.kernel.org/all/20240913140538.221708-1-john.ogness@linutronix.de/T/
-[2] https://lore.kernel.org/linux-arm-kernel/20240913-serial-imx-nbcon-v3-1-4c627302335b@geanix.com/T/
-
-Signed-off-by: Toshiyuki Sato <fj6611ie@aa.jp.fujitsu.com>
----
- drivers/tty/serial/amba-pl011.c | 113 ++++++++++++++++++++++++++++++++
- 1 file changed, 113 insertions(+)
-
-diff --git a/drivers/tty/serial/amba-pl011.c b/drivers/tty/serial/amba-pl011.c
-index 69b7a3e1e..52fab3170 100644
---- a/drivers/tty/serial/amba-pl011.c
-+++ b/drivers/tty/serial/amba-pl011.c
-@@ -41,6 +41,7 @@
- #include <linux/sizes.h>
- #include <linux/io.h>
- #include <linux/acpi.h>
-+#include <linux/moduleparam.h>
- 
- #define UART_NR			14
- 
-@@ -263,6 +264,7 @@ struct uart_amba_port {
- 	char			type[12];
- 	bool			rs485_tx_started;
- 	unsigned int		rs485_tx_drain_interval; /* usecs */
-+	bool			console_line_ended;
- #ifdef CONFIG_DMA_ENGINE
- 	/* DMA stuff */
- 	unsigned int		dmacr;		/* dma control reg */
-@@ -274,6 +276,10 @@ struct uart_amba_port {
- #endif
- };
- 
-+/* if non-zero, the console is nbcon. */
-+static int use_nbcon;
-+module_param(use_nbcon, int, 0444);
-+
- static unsigned int pl011_tx_empty(struct uart_port *port);
- 
- static unsigned int pl011_reg_to_offset(const struct uart_amba_port *uap,
-@@ -2305,6 +2311,7 @@ static void pl011_console_putchar(struct uart_port *port, unsigned char ch)
- 	while (pl011_read(uap, REG_FR) & UART01x_FR_TXFF)
- 		cpu_relax();
- 	pl011_write(ch, uap, REG_DR);
-+	uap->console_line_ended = (ch == '\n');
- }
- 
- static void
-@@ -2411,6 +2418,8 @@ static int pl011_console_setup(struct console *co, char *options)
- 	if (ret)
- 		return ret;
- 
-+	uap->console_line_ended = true;
-+
- 	if (dev_get_platdata(uap->port.dev)) {
- 		struct amba_pl011_data *plat;
- 
-@@ -2494,6 +2503,106 @@ static int pl011_console_match(struct console *co, char *name, int idx,
- 	return -ENODEV;
- }
- 
-+static void
-+pl011_console_write_atomic(struct console *co, struct nbcon_write_context *wctxt)
-+{
-+	struct uart_amba_port *uap = amba_ports[co->index];
-+	unsigned int old_cr = 0;
-+
-+	if (!nbcon_enter_unsafe(wctxt))
-+		return;
-+
-+	clk_enable(uap->clk);
-+
-+	if (!uap->vendor->always_enabled) {
-+		old_cr = pl011_read(uap, REG_CR);
-+		pl011_write((old_cr & ~UART011_CR_CTSEN) | (UART01x_CR_UARTEN | UART011_CR_TXE),
-+				uap, REG_CR);
-+	}
-+
-+	if (!uap->console_line_ended)
-+		uart_console_write(&uap->port, "\n", 1, pl011_console_putchar);
-+	uart_console_write(&uap->port, wctxt->outbuf, wctxt->len, pl011_console_putchar);
-+
-+	while ((pl011_read(uap, REG_FR) ^ uap->vendor->inv_fr) & uap->vendor->fr_busy)
-+		cpu_relax();
-+
-+	if (!uap->vendor->always_enabled)
-+		pl011_write(old_cr, uap, REG_CR);
-+
-+	clk_disable(uap->clk);
-+
-+	nbcon_exit_unsafe(wctxt);
-+}
-+
-+static void
-+pl011_console_write_thread(struct console *co, struct nbcon_write_context *wctxt)
-+{
-+	struct uart_amba_port *uap = amba_ports[co->index];
-+	unsigned int old_cr = 0;
-+
-+	if (!nbcon_enter_unsafe(wctxt))
-+		return;
-+
-+	clk_enable(uap->clk);
-+
-+	if (!uap->vendor->always_enabled) {
-+		old_cr = pl011_read(uap, REG_CR);
-+		pl011_write((old_cr & ~UART011_CR_CTSEN) | (UART01x_CR_UARTEN | UART011_CR_TXE),
-+				uap, REG_CR);
-+	}
-+
-+	if (nbcon_exit_unsafe(wctxt)) {
-+		int i;
-+		unsigned int len = READ_ONCE(wctxt->len);
-+
-+		for (i = 0; i < len; i++) {
-+			if (!nbcon_enter_unsafe(wctxt))
-+				break;
-+			uart_console_write(&uap->port, wctxt->outbuf + i, 1, pl011_console_putchar);
-+			if (!nbcon_exit_unsafe(wctxt))
-+				break;
-+		}
-+	}
-+
-+	while (!nbcon_enter_unsafe(wctxt))
-+		nbcon_reacquire_nobuf(wctxt);
-+
-+	while ((pl011_read(uap, REG_FR) ^ uap->vendor->inv_fr) & uap->vendor->fr_busy)
-+		cpu_relax();
-+
-+	if (!uap->vendor->always_enabled)
-+		pl011_write(old_cr, uap, REG_CR);
-+
-+	clk_disable(uap->clk);
-+
-+	nbcon_exit_unsafe(wctxt);
-+}
-+
-+static void
-+pl011_console_device_lock(struct console *co, unsigned long *flags)
-+{
-+	__uart_port_lock_irqsave(&amba_ports[co->index]->port, flags);
-+}
-+
-+static void
-+pl011_console_device_unlock(struct console *co, unsigned long flags)
-+{
-+	__uart_port_unlock_irqrestore(&amba_ports[co->index]->port, flags);
-+}
-+
-+static void
-+pl011_console_switch_to_nbcon(struct console *co)
-+{
-+	co->write = NULL;
-+	co->write_atomic = pl011_console_write_atomic;
-+	co->write_thread = pl011_console_write_thread;
-+	co->device_lock = pl011_console_device_lock;
-+	co->device_unlock = pl011_console_device_unlock;
-+	co->flags = CON_PRINTBUFFER | CON_ANYTIME | CON_NBCON;
-+	pr_info("Serial: switched to nbcon\n");
-+}
-+
- static struct uart_driver amba_reg;
- static struct console amba_console = {
- 	.name		= "ttyAMA",
-@@ -2737,6 +2846,10 @@ static int pl011_register_port(struct uart_amba_port *uap)
- 	pl011_write(0xffff, uap, REG_ICR);
- 
- 	if (!amba_reg.state) {
-+		/* Replaces the console descriptor if NBCON is selected. */
-+		if (amba_reg.cons && use_nbcon)
-+			pl011_console_switch_to_nbcon(amba_reg.cons);
-+
- 		ret = uart_register_driver(&amba_reg);
- 		if (ret < 0) {
- 			dev_err(uap->port.dev,
 -- 
-2.34.1
+2.25.1
 
 
