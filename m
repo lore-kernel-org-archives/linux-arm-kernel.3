@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A16E1E77199
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 14:29:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE4E5E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 14:31:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5DTjVFlw3a1BE3G1k/Oc0pCRnQoWK8WuT3gO6hdQWPM=; b=fjGj0N0uqP1grBIc/s9fQkkKKb
-	RJIp/ijmud1mWWJwMXJLNBCxunLZGO0Wcwgoyhl1fVp8SQ934MA7hrPuvwqQFmQ00A2ZKcSGa85/m
-	VeuLnMaV4sjUtH1TQnpqYNHjdiS+hsXLFzHdjxcKxZeY+vSQxNKA5mHIk/g23yZah1jIpcDbF7d+z
-	qOD753endj8mvXIEVuLqHQEDIHaJLSzmLrwDW2LorIf3j54Mg2BvIc4BVNMo6HdgQIaht80XtRtRg
-	NbCDF7FMeq+BcT92vE6/65hH9D+m241HvS8G2gDscQiwoSZ2b+QRVeNkJDPR71ZNwiowoVGTNapbn
-	q+5j7oBQ==;
+	bh=5DTjVFlw3a1BE3G1k/Oc0pCRnQoWK8WuT3gO6hdQWPM=; b=kne+GqO/b54rW2sY/08fFyR+cO
+	/XFAUYWygxor+mtdHBAa1mQzPiLxoC997BW2vF/0YUalILXljeWhZNGEWYG1CKv7yB0lP8151YEHw
+	wIocx0MyNWZKFs9t35U9QhM+0gZ+RGyAZQ/Ml23UjYmJG1zu5NNUQ8jkf/R7bK8rH9bjZmxKLhIho
+	lpm4WSoSWZvJ3W7CeKTeG4M2rffFd8esRe9oZzCG+uMUGRUGymIqQU52RLaIzG2m7fECJ8enwm3ur
+	IsYF8QIYjXbmNG/1jXeqU6cULDVx84OTwyziNURI9rJtf+3je8vshr1oAMiESJLzfTOn1uKi3eKZm
+	vex6ICfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVX3p-00000008n3u-2cSf;
-	Wed, 08 Jan 2025 14:29:29 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1tVX5i-00000008nXu-1Diy;
+	Wed, 08 Jan 2025 14:31:26 +0000
+Received: from mail-wm1-f53.google.com ([209.85.128.53])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVX2b-00000008mwY-00m8
+	id 1tVX4T-00000008nCQ-2weM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 14:28:14 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4363ae65100so172892155e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jan 2025 06:28:12 -0800 (PST)
+	Wed, 08 Jan 2025 14:30:10 +0000
+Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-43618283d48so122101705e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jan 2025 06:30:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736346491; x=1736951291; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1736346608; x=1736951408; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
         bh=5DTjVFlw3a1BE3G1k/Oc0pCRnQoWK8WuT3gO6hdQWPM=;
-        b=lnxlwzBdZrucz+wOFQUKz2GByedoOGuHhnAd0Aiy8AHHJmfM01uf9T5c983ea5AknG
-         /iHNSOHvjSUC+1+vglS16v/3QdokPt7NpgHTz8buc4Ex+g1KGrTBfG37JH7lnpDnFsrH
-         uRhn2qVxw6gN8P3mI5MUgJU+jPf/YPprHG2tqhKX8BPDWXTIbe8Csk9pHtMQyCMG0Rxh
-         3vqMVpy2AbELROx9+DTjg6295DyWvIgrHqMA5/rAMsGq3OUPUhcj9RKtC2qeCzBKs6DC
-         a0KuYxTETn3WKFM74PqvRAHXF9QuQK2GLpPxYQ+zQzQf0jARly0AKTkinnYKG7ysKa1w
-         vOIA==
+        b=OD0qnDn6nCqYKSBTHxiI6umnkjQJv4VTBQvFUTWOdMD+OgpLm/tSptjxFP3JAAJZTa
+         7mWBScVeuE+X43gUrum+ADfcE6mroicUtHj9cs7k9AIt9HfFvjaLr2yf1Tl0Yqk5UEMm
+         Mf2PZ18QJ2d7VWXUhTwxWYpdHZ+hOZiA/ft9R3darKKsd+3Td6bFejk6/41zB49Bio5p
+         L+ojLCoiitCILdwsNuUV8EvKAZZx7mFF0/7n0WPk+WeaQg+C96pqFHBeKsOHnmVbU50l
+         qDFPd4kCyQ6yZ6ZClXprx9li44NSF/sTzOD8bUZK3Q4cZLfBmAWMbc1yjeb6GU7MqPbw
+         nozw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736346491; x=1736951291;
+        d=1e100.net; s=20230601; t=1736346608; x=1736951408;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
         bh=5DTjVFlw3a1BE3G1k/Oc0pCRnQoWK8WuT3gO6hdQWPM=;
-        b=RYC7PobY3F7IT6D/qttAI5Y9OI77QBjs2XL8JNVxJJehfut9MbMtk5Pn6O5grXirPK
-         IJLwIFDL8ee38jkTXN06PxWhreCc9UtxVoXBH/sreTsiRI83jLrFW6/2NBwMtN7Y4gl6
-         IG83O2jjVGm/hBIYKlJpsB+dandjycPAntaQ0W7HD4EkwYwCN+46Jm65tJBeVmQM2rIC
-         IsLfcTh9+1FE93w3Ndm50KyG43c7liybGpRSQmhb81oeQf6f2bvJ6jqhcljaYSYPqdt4
-         dJRKazD5KEKyKlEsdlWe+NIPPjeRgCy3IPjZyCk331rN03ddV6sdnP+yAkKJHXOh/qQm
-         ppOg==
-X-Gm-Message-State: AOJu0Yz7InJAh5zi4+cfWiHxUvXtMEoiDXZA3raR1gx8o5NDIkRlX1MZ
-	xzg1mk49wcJmuH8l/0ikdFGdiFJ0U2bS1HZkVsE7jEWthi1iBjxVhT+nO9rI29Td769S4FxUMaW
-	J
-X-Gm-Gg: ASbGncv5EbNlFpDcjG0S+qzOSUeO4IUBiPmtQtKOX9RAobBcZEW6AtzDxZIMUnb4d25
-	Qd75XCsd5zxLJUM7l49cEwzql5fECyU7xhO1ZdrmKCztL4lRnVjtOhkweZIaLICe3FgKmjbDUsZ
-	aQFXHtlsDC4dU7Wh8rsRtr34X63BQnoK626TqoT171bJHRp3IE+YMkG8JUfytDngrgwXkxDGUbK
-	3rJASUXAH8Qsy2mWn8EdFmrCgJDDZYiHmcJz2q5o5E4LGPb704Zq5Zp
-X-Google-Smtp-Source: AGHT+IHz31vPgvjsP1ktI6cDJs5dwXi6jyonWjrDKCklrI15yME8jN2ZsQTROIywKIjV9MjHGbUrWw==
-X-Received: by 2002:a5d:64a8:0:b0:386:3a8e:64bd with SMTP id ffacd0b85a97d-38a8730560emr2565669f8f.22.1736346491235;
-        Wed, 08 Jan 2025 06:28:11 -0800 (PST)
+        b=GMBQbO/gSK0E8idf6fg1LnqoC+2vHH8AtGNp1QguZyEGCqzw3EQmk2NEFyAfCtDbvx
+         kQR0LN5nE12GwxZDqJi/KMkCm2xUHCcMbOg5mDlfuizURsf7bQRa6SuxuKSW+PTH4PG4
+         l638cl7tmtnilje49CbEts1zM+HgcFR8heZsdAXkjbzKBiarpYPRIqTBcK0ErwQa5YOx
+         97D0Cjb8Bk1D//cmELvp0nb15xzSWFqaWHyBe0F8movdpLSS87xKOsw+wzznMiTAQeNy
+         r+eKLWYraVeEmMCRq4kLpu1wKGP+VxPi06RvSy2Y32GHi2lj458gHO455Fc8cf1sDM5q
+         l6+A==
+X-Gm-Message-State: AOJu0YxxVdthVa7eVznjL5NGywXB0Xu/dLzJWQLYXO7mFQWpg74M9xA7
+	D3xBwDI6a7/g9sEiQlQnhGYL/kIuVP1l2W9+MdlBOF+NwbSsbPS69L/tvwPahRXil5VqVZHPsEm
+	B
+X-Gm-Gg: ASbGncuz/VHa8OUnAlj6Sd4e20MJW9gdeQ5psZsQSuYe3V9aLxYz/6O9od1StxSj1Ix
+	J8CZ+i/WHrG2/bra5O+Wf2+N8srPLNlI1VE5WQb/aD6YAH3fPsNTY279Qxfg5UmgnvZXCwUrSpI
+	MiR2V2GTMsaj07oHlYJZWruVAtiVrFg1sPtIYljNtza7b5vyMmAiBTZylhgSXvsKAugpNBlMUZj
+	T+V3Mx1Ywccu24PRX5l3Mwf2QXxfk+2caNHNxRZoLVxv3Ed+Yn/zXCT
+X-Google-Smtp-Source: AGHT+IG+cpKSlSJhi+F2YnCugAoch81HQ2u34rrtXJ7N+pJyIFTLAKd0EsB9c31sEmDi5t+EC9MrUw==
+X-Received: by 2002:a05:600c:3b2a:b0:434:f623:9ff3 with SMTP id 5b1f17b1804b1-436e26a8c3cmr28551185e9.15.1736346607506;
+        Wed, 08 Jan 2025 06:30:07 -0800 (PST)
 Received: from pop-os.. ([145.224.90.227])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a28f17315sm47577178f8f.108.2025.01.08.06.28.09
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e2ddccf4sm22836965e9.19.2025.01.08.06.30.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Jan 2025 06:28:10 -0800 (PST)
+        Wed, 08 Jan 2025 06:30:07 -0800 (PST)
 From: James Clark <james.clark@linaro.org>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-perf-users@vger.kernel.org,
 	irogers@google.com,
 	yeoreum.yun@arm.com,
 	will@kernel.org,
-	mark.rutland@arm.com
+	mark.rutland@arm.com,
+	namhyung@kernel.org,
+	acme@kernel.org
 Cc: robh@kernel.org,
 	James Clark <james.clark@linaro.org>,
 	Peter Zijlstra <peterz@infradead.org>,
 	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
 	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
 	Jiri Olsa <jolsa@kernel.org>,
 	Adrian Hunter <adrian.hunter@intel.com>,
@@ -89,19 +89,19 @@ Cc: robh@kernel.org,
 	Graham Woodward <graham.woodward@arm.com>,
 	Michael Petlan <mpetlan@redhat.com>,
 	Veronika Molnarova <vmolnaro@redhat.com>,
-	Athira Rajeev <atrajeev@linux.vnet.ibm.com>,
 	Thomas Richter <tmricht@linux.ibm.com>,
+	Athira Rajeev <atrajeev@linux.vnet.ibm.com>,
 	linux-kernel@vger.kernel.org,
 	bpf@vger.kernel.org
 Subject: [PATCH v3 0/5] perf: arm_spe: Add format option for discard mode
-Date: Wed,  8 Jan 2025 14:27:22 +0000
-Message-Id: <20250108142731.400605-1-james.clark@linaro.org>
+Date: Wed,  8 Jan 2025 14:28:55 +0000
+Message-Id: <20250108142904.401139-1-james.clark@linaro.org>
 X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_062813_058737_8DDE6CA8 
-X-CRM114-Status: GOOD (  15.33  )
+X-CRM114-CacheID: sfid-20250108_063009_734072_F3FDC29A 
+X-CRM114-Status: GOOD (  14.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
