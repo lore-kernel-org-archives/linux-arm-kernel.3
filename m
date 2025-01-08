@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C928FE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 08:27:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2187AE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 08:31:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WTy7eIsiHi8YdIDbzsIB/Y4+pBc/ZOwxm6JBRN1A8Q0=; b=BFx2W2+myHCRKNZ/oLom4JeNSn
-	7R62vFD3gjDbjB3Ank9IzQaHZ/1gWRUJOStVCHDbOcKwpGCOTulxi3kwop2UoZWptpwVgWjJBeeO4
-	aq5dS08LNx0NBcWJ9btQcDgx6j1ddeVu74cot/bLuWRntTAvIw9ih1Yg//MptNKa61BXUf65UKJQw
-	jJXxCKYPkQZayExhfAQ20HTUhVyhXPKsvGt0bUuBoTeJK+CLeJg+zoTTSIDxH4qaPF8e0gAL1tGkO
-	Gnf+j2xBEM7nc2Ea/KxdQFprIM6FQE9MfcEBqyLTG9+0PU5+sYZMTmnKwZDza3RORRumlW0nP6svE
-	14drg65A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aQcdkY4Vw2gOF+CuW9rfFvdPSADlZx1M/2Kr0vIeFmE=; b=A6cOZyWp4mZ31ZINpJ8GcGLyvF
+	+dVrg37QfHHRbjtfRgUhbXXYBwZVv92ApqGruxHTnxgFCpwmXJ33odicgOBcC1FR8qiPcC4ZrNdP6
+	5Nw1eJ5CE2e8SGdRmiMW/cNVLgPlocQ7lWDSn8oTBObMEXfOuPhBenJPa3c69ES14GcUj1vL9LtJ2
+	8aEJa1EHlNaBVDiJL4QUTgVA4KRaBiKVIga6PCNzGsgUg6UPIQwMLB7fHPEEM3GQd+gBg5ucqx/JL
+	eMJxkln+b9ntqUsBW1fvGLKyNLGsbQCIaX625BUOf+Pw7fhZ1cEOd5HfSRbd24UHfkbzDkryWRTLd
+	Rvkcohsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVRPM-00000007YAg-3Ye5;
-	Wed, 08 Jan 2025 08:27:20 +0000
-Received: from relay8-d.mail.gandi.net ([217.70.183.201])
+	id 1tVRTK-00000007Z4z-34jY;
+	Wed, 08 Jan 2025 08:31:26 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVRO6-00000007XrQ-43WO
+	id 1tVRS8-00000007YtT-0ySq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 08:26:07 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 0ABCA1BF203;
-	Wed,  8 Jan 2025 08:25:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1736324760;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WTy7eIsiHi8YdIDbzsIB/Y4+pBc/ZOwxm6JBRN1A8Q0=;
-	b=Udq4Sjq+phO2RDT7qIKJv7/RN9LFeWV5i5Guf3z+CBn9p35fcbVsNs2A1JuJ1EH3yvJ/+j
-	ErcRnFYiwA03LXPxcuQg7R1gIO/kCq2sz9KYAzyr+iyhjMWKPXKd7DhSsg4cKzyWkfu+6F
-	fJ50YlLyURBi5NCjm2GN/bkNatCtm4lFhRHTfkK+tdR2om9BYY8N5mR5OGo4O85X8yTFtb
-	XE5KVtEtEfxcMH/EQs66EloGG+U+/dK1XbMBMT9Rq2QI0yCzdvzjL7NYUNF+8aklnZVn/O
-	ouJFUci7nmR2sedaC9SiOXpI4zPEfvBX+k9rNs5g7Wv9r8ezu43TIv1vN1vt3g==
-From: Gregory CLEMENT <gregory.clement@bootlin.com>
-To: Frank Wunderlich <linux@fw-web.de>, Damien Le Moal <dlemoal@kernel.org>,
- Niklas Cassel <cassel@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>, Sebastian Hesselbarth
- <sebastian.hesselbarth@gmail.com>, Russell King <linux@armlinux.org.uk>
-Cc: Frank Wunderlich <frank-w@public-files.de>, Hans de Goede
- <hdegoede@redhat.com>, Jens Axboe <axboe@kernel.dk>,
- linux-ide@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 0/2] fix some binding check errors for marvell
-In-Reply-To: <20250103103724.6223-1-linux@fw-web.de>
-References: <20250103103724.6223-1-linux@fw-web.de>
-Date: Wed, 08 Jan 2025 09:25:58 +0100
-Message-ID: <87ldvlyand.fsf@BLaptop.bootlin.com>
+	Wed, 08 Jan 2025 08:30:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A55205C4BBE;
+	Wed,  8 Jan 2025 08:29:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E468C4CEE0;
+	Wed,  8 Jan 2025 08:30:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736325011;
+	bh=3JcTLjuITgq/DDD2A3JqldsGdYRSMSh/LyBDhJFq+Xo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aLzbnTMM3rJJcLOJFd0WJ9PKG6mT0WbpfoCqRIXe5rsD5fgtrMm5hMVQ/GWfBuc73
+	 +QIyRDE7WUNGOnYimsj6fmNEhFnNWeTEWsZl5YIYT15Eg99kldf+iemdnnWCBc5Egg
+	 F/UQsAbYG3P29bB/9cbQXx5mtJkYX64SoleQubrlIU2XgkwoYb9n7Pf0zpkTTSWNeq
+	 dbE3XXgS/Son1FOkewEBaxHpZa6GSYbySDKOOodc1UVmG9qKbIUeybKzSOQoxnoZn4
+	 9E0/XokRRLLoqRqh2pF/jrFT4E7CQnd1JogR80sUGhrBKQkjlB080Yb+VEIwEulu5b
+	 jUw3RJaO25wew==
+Date: Wed, 8 Jan 2025 09:30:08 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Sam Protsenko <semen.protsenko@linaro.org>, 
+	Peter Griffin <peter.griffin@linaro.org>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 2/3] soc: samsung: usi: implement support for USIv1
+ and exynos8895
+Message-ID: <6y4mg6atqi6idyoppesg5owrnfrjhkzqh4im4po7urfry2qctb@yimp5y6sm7h6>
+References: <20250107113512.525001-1-ivo.ivanov.ivanov1@gmail.com>
+ <20250107113512.525001-3-ivo.ivanov.ivanov1@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-Sasl: gregory.clement@bootlin.com
+Content-Disposition: inline
+In-Reply-To: <20250107113512.525001-3-ivo.ivanov.ivanov1@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_002603_136160_CE936D6B 
-X-CRM114-Status: GOOD (  13.42  )
+X-CRM114-CacheID: sfid-20250108_003012_361317_26AB8E01 
+X-CRM114-Status: GOOD (  38.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,51 +75,240 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Frank Wunderlich <linux@fw-web.de> writes:
+On Tue, Jan 07, 2025 at 01:35:11PM +0200, Ivaylo Ivanov wrote:
+> USIv1 IP-core is found on some ARM64 Exynos SoCs (like Exynos8895) and
+> provides selectable serial protocols (one of: HSI2C0, HSI2C1, HSI2C0_1,
+> SPI, UART, UART_HSI2C1).
+> 
+> USIv1, unlike USIv2, doesn't have any known register map. Underlying
+> protocols that it implements have no offset, like with Exynos850.
+> Desired protocol can be chosen via SW_CONF register from System
+> Register block of the same domain as USI.
+> 
+> In order to select a particular protocol, the protocol has to be
+> selected via the System Register. Unlike USIv2, there's no need for
+> any setup before the given protocol becomes accessible apart from
+> enabling the APB clock and the protocol operating clock.
+> 
+> Modify the existing driver in order to allow USIv1 instances in
+> Exynos8895 to probe and set their protocol. While we're at it,
+> make use of the new mode constants in place of the old ones
+> and add a removal routine.
+> 
+> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+> ---
+>  drivers/soc/samsung/exynos-usi.c | 108 +++++++++++++++++++++++++++----
+>  1 file changed, 95 insertions(+), 13 deletions(-)
+> 
+> diff --git a/drivers/soc/samsung/exynos-usi.c b/drivers/soc/samsung/exynos-usi.c
+> index 114352695..43c17b100 100644
+> --- a/drivers/soc/samsung/exynos-usi.c
+> +++ b/drivers/soc/samsung/exynos-usi.c
+> @@ -16,6 +16,18 @@
+>  
+>  #include <dt-bindings/soc/samsung,exynos-usi.h>
+>  
+> +/* USIv1: System Register: SW_CONF register bits */
+> +#define USI_V1_SW_CONF_NONE		0x0
+> +#define USI_V1_SW_CONF_I2C0		0x1
+> +#define USI_V1_SW_CONF_I2C1		0x2
+> +#define USI_V1_SW_CONF_I2C0_1		0x3
+> +#define USI_V1_SW_CONF_SPI		0x4
+> +#define USI_V1_SW_CONF_UART		0x8
+> +#define USI_V1_SW_CONF_UART_I2C1	0xa
+> +#define USI_V1_SW_CONF_MASK		(USI_V1_SW_CONF_I2C0 | USI_V1_SW_CONF_I2C1 | \
+> +					 USI_V1_SW_CONF_I2C0_1 | USI_V1_SW_CONF_SPI | \
+> +					 USI_V1_SW_CONF_UART | USI_V1_SW_CONF_UART_I2C1)
+> +
+>  /* USIv2: System Register: SW_CONF register bits */
+>  #define USI_V2_SW_CONF_NONE	0x0
+>  #define USI_V2_SW_CONF_UART	BIT(0)
+> @@ -34,7 +46,8 @@
+>  #define USI_OPTION_CLKSTOP_ON	BIT(2)
+>  
+>  enum exynos_usi_ver {
+> -	USI_VER2 = 2,
+> +	USI_VER1 = 1,
 
-> From: Frank Wunderlich <frank-w@public-files.de>
->
-> Thies series fixes some Errors reported by dtbs_check. First part is taken
-> from my old series [1] where i converted sata-platform txt binding to yaml
-> because it wasn't picked up.
->
-> [1] https://lore.kernel.org/linux-arm-kernel/20220311210357.222830-1-linu=
-x@fw-web.de/
->
-> I only try to fix the binding errors, i do not have any marvell board, so
-> cannot verify that my changes are correct. From my PoV peripheral
-> controllers should be disabled in the SoC DT and enabled in board DT.
->
-> Frank Wunderlich (2):
->   arm64: dts: marvell: only enable complete sata nodes
->   arm64: dts: marvell: drop additional phy-names for sata
+Is this assignment=1 actually now helping? Isn't it creating empty item
+in exynos_usi_modes array? Basically it wastes space in the array for
+no benefits.
 
+> +	USI_VER2,
+>  };
+>  
+>  struct exynos_usi_variant {
+> @@ -66,19 +79,39 @@ struct exynos_usi_mode {
+>  	unsigned int val;		/* mode register value */
+>  };
+>  
+> -static const struct exynos_usi_mode exynos_usi_modes[] = {
+> -	[USI_V2_NONE] =	{ .name = "none", .val = USI_V2_SW_CONF_NONE },
+> -	[USI_V2_UART] =	{ .name = "uart", .val = USI_V2_SW_CONF_UART },
+> -	[USI_V2_SPI] =	{ .name = "spi",  .val = USI_V2_SW_CONF_SPI },
+> -	[USI_V2_I2C] =	{ .name = "i2c",  .val = USI_V2_SW_CONF_I2C },
+> +#define USI_MODES_MAX (USI_MODE_UART_I2C1 + 1)
+> +static const struct exynos_usi_mode exynos_usi_modes[][USI_MODES_MAX] = {
+> +	[USI_VER1] = {
+> +		[USI_MODE_NONE] =	{ .name = "none", .val = USI_V1_SW_CONF_NONE },
+> +		[USI_MODE_UART] =	{ .name = "uart", .val = USI_V1_SW_CONF_UART },
+> +		[USI_MODE_SPI] =	{ .name = "spi",  .val = USI_V1_SW_CONF_SPI },
+> +		[USI_MODE_I2C] =	{ .name = "i2c",  .val = USI_V1_SW_CONF_I2C0 },
+> +		[USI_MODE_I2C1] =	{ .name = "i2c1", .val = USI_V1_SW_CONF_I2C1 },
+> +		[USI_MODE_I2C0_1] =	{ .name = "i2c0_1", .val = USI_V1_SW_CONF_I2C0_1 },
+> +		[USI_MODE_UART_I2C1] =	{ .name = "uart_i2c1", .val = USI_V1_SW_CONF_UART_I2C1 },
+> +	}, [USI_VER2] = {
+> +		[USI_MODE_NONE] =	{ .name = "none", .val = USI_V2_SW_CONF_NONE },
+> +		[USI_MODE_UART] =	{ .name = "uart", .val = USI_V2_SW_CONF_UART },
+> +		[USI_MODE_SPI] =	{ .name = "spi",  .val = USI_V2_SW_CONF_SPI },
+> +		[USI_MODE_I2C] =	{ .name = "i2c",  .val = USI_V2_SW_CONF_I2C },
+> +	},
+>  };
+>  
+>  static const char * const exynos850_usi_clk_names[] = { "pclk", "ipclk" };
+>  static const struct exynos_usi_variant exynos850_usi_data = {
+>  	.ver		= USI_VER2,
+>  	.sw_conf_mask	= USI_V2_SW_CONF_MASK,
+> -	.min_mode	= USI_V2_NONE,
+> -	.max_mode	= USI_V2_I2C,
+> +	.min_mode	= USI_MODE_NONE,
+> +	.max_mode	= USI_MODE_I2C,
+> +	.num_clks	= ARRAY_SIZE(exynos850_usi_clk_names),
+> +	.clk_names	= exynos850_usi_clk_names,
+> +};
+> +
+> +static const struct exynos_usi_variant exynos8895_usi_data = {
+> +	.ver		= USI_VER1,
+> +	.sw_conf_mask	= USI_V1_SW_CONF_MASK,
+> +	.min_mode	= USI_MODE_NONE,
+> +	.max_mode	= USI_MODE_UART_I2C1,
+>  	.num_clks	= ARRAY_SIZE(exynos850_usi_clk_names),
+>  	.clk_names	= exynos850_usi_clk_names,
+>  };
+> @@ -88,6 +121,10 @@ static const struct of_device_id exynos_usi_dt_match[] = {
+>  		.compatible = "samsung,exynos850-usi",
+>  		.data = &exynos850_usi_data,
+>  	},
+> +	{
 
-Applied on mvebu/dt64
+These two are in oone line.
 
-Thanks,
+> +		.compatible = "samsung,exynos8895-usi",
+> +		.data = &exynos8895_usi_data,
+> +	},
+>  	{ } /* sentinel */
+>  };
+>  MODULE_DEVICE_TABLE(of, exynos_usi_dt_match);
+> @@ -109,14 +146,15 @@ static int exynos_usi_set_sw_conf(struct exynos_usi *usi, size_t mode)
+>  	if (mode < usi->data->min_mode || mode > usi->data->max_mode)
+>  		return -EINVAL;
+>  
+> -	val = exynos_usi_modes[mode].val;
+> +	val = exynos_usi_modes[usi->data->ver][mode].val;
+>  	ret = regmap_update_bits(usi->sysreg, usi->sw_conf,
+>  				 usi->data->sw_conf_mask, val);
+>  	if (ret)
+>  		return ret;
+>  
+>  	usi->mode = mode;
+> -	dev_dbg(usi->dev, "protocol: %s\n", exynos_usi_modes[usi->mode].name);
+> +	dev_dbg(usi->dev, "protocol: %s\n",
+> +		exynos_usi_modes[usi->data->ver][usi->mode].name);
+>  
+>  	return 0;
+>  }
+> @@ -160,6 +198,30 @@ static int exynos_usi_enable(const struct exynos_usi *usi)
+>  	return ret;
+>  }
+>  
+> +/**
+> + * exynos_usi_disable - Disable USI block
+> + * @usi: USI driver object
+> + *
+> + * USI IP-core needs the reset flag cleared in order to function. This
+> + * routine disables the USI block by setting the reset flag. It also disables
+> + * HWACG behavior. It should be performed on removal of the device.
+> + */
+> +static void exynos_usi_disable(const struct exynos_usi *usi)
+> +{
+> +	u32 val;
+> +
+> +	/* Make sure that we've stopped providing the clock to USI IP */
+> +	val = readl(usi->regs + USI_OPTION);
+> +	val &= ~USI_OPTION_CLKREQ_ON;
+> +	val |= ~USI_OPTION_CLKSTOP_ON;
+> +	writel(val, usi->regs + USI_OPTION);
+> +
+> +	/* Set USI block state to reset */
+> +	val = readl(usi->regs + USI_CON);
+> +	val |= USI_CON_RESET;
+> +	writel(val, usi->regs + USI_CON);
+> +}
+> +
+>  static int exynos_usi_configure(struct exynos_usi *usi)
+>  {
+>  	int ret;
+> @@ -169,9 +231,12 @@ static int exynos_usi_configure(struct exynos_usi *usi)
+>  		return ret;
+>  
+>  	if (usi->data->ver == USI_VER2)
+> -		return exynos_usi_enable(usi);
+> +		ret = exynos_usi_enable(usi);
+> +	else
+> +		ret = clk_bulk_prepare_enable(usi->data->num_clks,
+> +					      usi->clks);
+>  
+> -	return 0;
+> +	return ret;
+>  }
+>  
+>  static int exynos_usi_parse_dt(struct device_node *np, struct exynos_usi *usi)
+> @@ -253,10 +318,26 @@ static int exynos_usi_probe(struct platform_device *pdev)
+>  
+>  	ret = exynos_usi_configure(usi);
+>  	if (ret)
+> -		return ret;
+> +		goto fail_probe;
+>  
+>  	/* Make it possible to embed protocol nodes into USI np */
+>  	return of_platform_populate(np, NULL, NULL, dev);
 
-Gregory
+This also needs error handling.
 
->
->  arch/arm64/boot/dts/marvell/armada-7040-db.dts             | 1 +
->  arch/arm64/boot/dts/marvell/armada-7040-mochabin.dts       | 2 ++
->  arch/arm64/boot/dts/marvell/armada-8040-clearfog-gt-8k.dts | 1 +
->  arch/arm64/boot/dts/marvell/armada-8040-db.dts             | 5 +++--
->  arch/arm64/boot/dts/marvell/armada-8040-mcbin.dtsi         | 3 +--
->  arch/arm64/boot/dts/marvell/armada-8040-puzzle-m801.dts    | 2 ++
->  arch/arm64/boot/dts/marvell/armada-cp11x.dtsi              | 2 ++
->  arch/arm64/boot/dts/marvell/cn9130-crb-B.dts               | 1 +
->  arch/arm64/boot/dts/marvell/cn9131-db.dtsi                 | 1 +
->  arch/arm64/boot/dts/marvell/cn9132-db.dtsi                 | 1 +
->  10 files changed, 15 insertions(+), 4 deletions(-)
->
-> --=20
-> 2.43.0
->
+> +
+> +fail_probe:
 
---=20
-Gr=C3=A9gory CLEMENT, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+err_unconfigure:
+
+> +	if (usi->data->ver != USI_VER2)
+> +		clk_bulk_disable_unprepare(usi->data->num_clks, usi->clks);
+
+Move it to its own callback exynos_usi_unconfigure(), so naming will be
+symmetric. The probe does not prepare clocks directly, so above code is
+not that readable. The most readable is to have symmetrics calls -
+configure+unconfigure (or whatever we name it).
+
+> +
+> +	return ret;
+> +}
+> +
+> +static void exynos_usi_remove(struct platform_device *pdev)
+> +{
+> +	struct exynos_usi *usi = platform_get_drvdata(pdev);
+> +
+> +	if (usi->data->ver == USI_VER2)
+> +		exynos_usi_disable(usi);
+
+This is not related to the patch and should be separate patch, if at
+all.
+
+> +	else
+> +		clk_bulk_disable_unprepare(usi->data->num_clks, usi->clks);
+
+So the easiest would be to add devm reset action and then no need for
+goto-err handling and remove() callback.
+
+Best regards,
+Krzysztof
+
 
