@@ -4,93 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E588EE77199
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 09:08:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA454E77199
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 09:11:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=luYbbdZNCAXl/IP2EISod9yvpOfM235A0wCO9dfQi8c=; b=zUKnKpdha4WG1AjOyNokeC2AQx
-	2uk6/Q8ofQmnVCsTujE/gs9DSgRR0Bnf8L7Ou8gpwv3ZugsY/5EirMQXGbTAqNsBAAoCijYNaPREk
-	IC7Zd1b60F0jIunLBc/rYgDUZoPcS4SWmGb+DDYcR+1ZIfZRS1OdDtE7NXJPb6P2a66HBGGJCfTVl
-	1ra3FpqAOyDXnQJFmSgoHOUh0b371gj0aFYVOU25DlpxfL7NdyH3w04oAl6u1wHLVk+E7qHmJJ8Lt
-	DPQgLMbawaeWemSA/lIdwmSGCAEWmfmoFqSqarD0fiU+sFZpkSYSlKLMDSYr74CAdRvVEfkvH1B2d
-	jdiraYyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=17/YkGcoUt73Y2+AfuHrh6H6j0zCznkX+tUdDNoqtVE=; b=YpALY0Ex/ZiJxF
+	UiMUczKMbtqbgisPk3W0czcVcCCqlrwX/+CZ+bqNaFszfrIBR90TLgPpxIFPeW5c4/ZqiX52nNcnM
+	vogkI/o0Dxgrat8gpwbIdu2otvuhteBOYitDhAnM8TJIdsTlVYmQqPi+CFpUg28vbTO2W65C0ilWD
+	w10XJQnaRba2Sjbv9deJ96EClthyns4zFwnA/7/atwGKjv2DbjdRlnwjjpb5VlLeQXCzroyD/blko
+	kWgHeKZxZh8HrRkCtbZHeKnz29BkJt/jSMAb0wyl/GSUwYWw4cBEPxBrANAYD+Or3qzFf99BjpFHC
+	4KQDG1/umoJrwDV0DW9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVS2n-00000007gTc-1rxx;
-	Wed, 08 Jan 2025 09:08:05 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1tVS5t-00000007hUa-0VNb;
+	Wed, 08 Jan 2025 09:11:17 +0000
+Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVS0Q-00000007ff0-2x5I
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 08 Jan 2025 09:05:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=luYbbdZNCAXl/IP2EISod9yvpOfM235A0wCO9dfQi8c=; b=tMvp8CYW0r3s5YEZEfs9ZasSgk
-	Qo57v5YSAzAyRPGQvkcae+e4yhv17k7iWCOma3aC4t0q+gpZI4HC97wIfDJXV4eRSTylEZ2cjlsve
-	0PQeRQ/8jSrIe38jqt71jtJta0C90AbCSTgGCuPgs3OH8zmjjPf5LedWaO1DMZB60GYYYiO5ybMLM
-	4J/Lu+GuXtyDpqq6DmQ1OnQw9SGxwDC2oxtg6Uakg0d8TaiSsDtLPjby4oVBi5zot9msbeBZ3vJfZ
-	AoShypkkATg48xMpYCMzWcjUjQeGlY9nl3qwzW0dskPD+QwGsyx9zUTcq4k4E51GBXXprlcWzXdrG
-	aBQXHYNA==;
-Received: from galois.linutronix.de ([193.142.43.55])
-	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVS0J-0000000ESbZ-2uma
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 09:05:37 +0000
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1736327120;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=luYbbdZNCAXl/IP2EISod9yvpOfM235A0wCO9dfQi8c=;
-	b=qZGqUNiLevk3ULvmOAgodsKpMRTtpdv6zZ5qUtcVO8ZwmriORfqt+BAiiwnzpFb4pj7wGJ
-	qqIrEs42Lod/4DpYI4l0IL434kVxZV3x+XaZ3TbpdcrNBYRR4lP0VEUHk8ZUzgfPd+3/MO
-	a+FI63LXtZjf0rHQ5aK2L0M0T1UZOb4GeqtD3Y5HvX3pJKhuimEoUeA/AhEZjRj0pYyfL5
-	+amDJ/rpmcycJ3/zeQNMje5n0Xnql5aGiTx6ld96PiO6RPYSW/AGgTbzc8k2h7yTa2mj4E
-	k9ofqTkV3//mwiIDmmTC20MOYsAaVNPdrp5VNOXL6tRR872cXmzwLhnKHPnm7Q==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1736327120;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=luYbbdZNCAXl/IP2EISod9yvpOfM235A0wCO9dfQi8c=;
-	b=JhnK0Yu4bXTsTOoq/2QpxdG2IUFKpBcbjrCKe3W7xFQhlFCjP6V59gChgnIT16k/VUPy28
-	I8OAkeg4E0fvk/Cw==
-To: linux-modules@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Daniel Gomez <da.gomez@samsung.com>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	"Paul E . McKenney" <paulmck@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Petr Pavlu <petr.pavlu@suse.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org
-Subject: [PATCH v3 17/28] arm64: module: Use RCU in all users of __module_text_address().
-Date: Wed,  8 Jan 2025 10:04:46 +0100
-Message-ID: <20250108090457.512198-18-bigeasy@linutronix.de>
-In-Reply-To: <20250108090457.512198-1-bigeasy@linutronix.de>
-References: <20250108090457.512198-1-bigeasy@linutronix.de>
+	id 1tVS4g-00000007hDJ-2Pxw;
+	Wed, 08 Jan 2025 09:10:03 +0000
+Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-540215984f0so17023700e87.1;
+        Wed, 08 Jan 2025 01:10:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1736327400; x=1736932200; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=17/YkGcoUt73Y2+AfuHrh6H6j0zCznkX+tUdDNoqtVE=;
+        b=OfRnuKB61kWfs9Tfnn6Sm3PIJB2fKTrhp/UrzVmF6nn4VbzF9vSjeh7dPhNgUG+DD4
+         r1/cdWbSjUa/QFfGJ1j85vH0HnpjkeQj99ffv995WrEiXzyTzFLemty58sFX8foVQojS
+         y+ueM8PvMhx4JV3OQS/Gr3T6XOgX9NbILke0WWDn/6wQ08aZuMmu6dFi2K5M5GMX+XJf
+         3IkvID7UDZ7MM0gOP8ajHwIUiJ4A9RQFe1/5OKb5lyo1LSLHSVtxhTHWoPa8ADHq/ag+
+         L0torE/J+GkoNOBr62fXsKHlLYSI+mOF0yF4Dt12730jGSA28mnsPjYxRRVrJvAebz9v
+         pfdw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736327400; x=1736932200;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=17/YkGcoUt73Y2+AfuHrh6H6j0zCznkX+tUdDNoqtVE=;
+        b=mcEFJ9lqv63+fIuneJTqF/NOH/9Q6UPTqy4eT3Gk88CVsbiRdQKpy6nsOHpZn/DcA5
+         MHYsWgm7W2odM/Bbfl/teaUHFb0P0xNw1t8C5/wN1rAYCfGV2vFiHxgzYL5pZB8Lo6kk
+         sbl/pUVTDjWqJfa72fRcvtGvouSV+BXuAyBy10dW30BlmyKdnHmgORzHl3aU7v7Mkpkk
+         Z1/7ZvSMkSiCx+JGq7z5pJtn5JHgen6OEzGHen92C8MM+J67Z7KugKwmAjipINxxd3/4
+         VUuzEWOjVLIzfqFtXMPfCNERy8TuzhkDvVGyuM81p2YrsLxMbOlnlu4M6WDoo6/djAG/
+         IYBg==
+X-Forwarded-Encrypted: i=1; AJvYcCWOHNimVZO/aSLWj5C/PFQWJszBOr0lcuYRlpcEgxZsFP4FJSMVB7V5p6c4fqqgUdPVYyE5a9xIL54nkpRTSRd8@lists.infradead.org, AJvYcCX9U0jXmJ7JA464cFAIuQMG0JLswurHo1uU2YP+PAhtLUK4NYMzQFxv2qkok3FFvAp9P15JloIwVtSsUbwy/cQ=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yygjd1XC3oNagLQ2CmH5ZJX2MiH8LTgv0v2E9bqyS3S8Oyg2mFn
+	sLQ+WyQrWc8CjYl2N4zhO4tvO5g5GF+BjViOy3H0uG226T4iwqHu
+X-Gm-Gg: ASbGncuoh4rEI+ptycUc6i7Fl27U17iuI1qUu5rNWnkWSAeBEGCSoCu7Fu+tsNT8f7k
+	tMv7kRNlwj4pWTYR5Q4MflCR7fts2fi5k9500YWfSwLqhM1/uZ5fVgWjdKQ8Q0VjilRmvhuhL1d
+	plmXppLap9qb5ORe0ouj5eRLAAa+4mZGPxuRaHPWPj3EQd+UlzRc0Sdyg2RWZU/M74Z4hflDgL+
+	5iCpI5m1THH5vlZ8VfEk0I2B0z1Or0vKP7IjVjf55L+xHzNmnJobZJP6A==
+X-Google-Smtp-Source: AGHT+IG9vDEilGecqfIee0EPhs6XC/SdCMZE5b3FTq0kDLUNQVPbKIBsetat4pMP6r/SXGR3mknQPw==
+X-Received: by 2002:a05:6512:6d3:b0:542:2190:9d99 with SMTP id 2adb3069b0e04-542845b17e5mr550651e87.6.1736327400021;
+        Wed, 08 Jan 2025 01:10:00 -0800 (PST)
+Received: from [172.30.32.150] ([185.204.1.212])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54223813898sm5386450e87.154.2025.01.08.01.09.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 08 Jan 2025 01:09:58 -0800 (PST)
+From: Alexey Charkov <alchark@gmail.com>
+Subject: [PATCH v2 0/3] arm64: dts: rockchip: Add H96 Max V58 (RK3588 based
+ TV box)
+Date: Wed, 08 Jan 2025 13:09:05 +0400
+Message-Id: <20250108-rk3588-h96-max-v58-v2-0-522301b905d6@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIALFAfmcC/22NQQ6CMBBFr0Jm7Zi2Ok1x5T0MCywtTBRKWtNgC
+ He3sHb5XvLfXyG5yC7BrVohusyJw1RAnSqwQzv1DrkrDEqoq9DSYHxdyBgcao1ju2Amg1ZZ+fT
+ G6brWUIZzdJ6XI/poCg+cPiF+j48sd7vnSEih/+WyRIGdIkXkDUlv7/3Y8vtswwjNtm0/BaJqP
+ rQAAAA=
+X-Change-ID: 20240618-rk3588-h96-max-v58-c2c1bf8e6996
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Alexey Charkov <alchark@gmail.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1736327393; l=2307;
+ i=alchark@gmail.com; s=20240125; h=from:subject:message-id;
+ bh=TYJnRulh9SsoN8lhqpA3Tk15WrSalmWYQbRKyBZQC+U=;
+ b=ENiXKmahLqDMSh0OkgiT4U78QvZnxHkxL2aKvLLsWtNqIGWeADtT6txSEE2zLdZltKXaCB0Fm
+ ofUft9c48d3BrZMsuu0DBbSPCqs/SNlVpIIG/2fwxuFlSGB76HxPg6g
+X-Developer-Key: i=alchark@gmail.com; a=ed25519;
+ pk=xRO8VeD3J5jhwe0za0aHt2LDumQr8cm0Ls7Jz3YGimk=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_090532_007385_491454BA 
-X-CRM114-Status: GOOD (  10.54  )
+X-CRM114-CacheID: sfid-20250108_011002_624475_2FC4FC15 
+X-CRM114-Status: GOOD (  12.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,49 +109,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-__module_text_address() can be invoked within a RCU section, there is no
-requirement to have preemption disabled.
+Add support for H96 Max V58: a compact TV box based on Rockchip
+RK3588 SoC [1] that ships with Android by default.
 
-Replace the preempt_disable() section around __module_text_address()
-with RCU.
+Note that there is no publicly available hardware documentation,
+nor vendor sources to be used as a reference, so this implementation
+is best effort based on poking around my board and staring at the
+decompiled stock DTB. It works for me, but improvement suggestions
+are very much welcome.
 
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: Masami Hiramatsu <mhiramat@kernel.org>
-Cc: Steven Rostedt <rostedt@goodmis.org>
-Cc: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-trace-kernel@vger.kernel.org
-Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+HDMI output is not tested, but expected to work.
+
+Auxiliary LED display is not enabled (no mainline driver available).
+The controller used is FD6551 connected to GPIO3 RK_PC7 (clk) and
+GPIO3 RK_PD0 (data), which happen to be the right pins for
+i2c5m0_xfer pinctrl config, and thus might potentially be used with
+the hardware I2C5 controller (to be verified). Out of tree drivers
+are available at [2] and another newer alternative at [3]
+
+SPDIF output tested using a 2-channel digital to analog converter
+box (higher channel counts not tested, but expected to work)
+
+[1] https://www.h96tvbox.com/product/h96max-v58/
+[2] https://github.com/arthur-liberman/linux_openvfd/blob/master/driver/controllers/fd650.c
+[3] https://github.com/jefflessard/tm16xx-display
+
+Signed-off-by: Alexey Charkov <alchark@gmail.com>
 ---
- arch/arm64/kernel/ftrace.c | 7 +++----
- 1 file changed, 3 insertions(+), 4 deletions(-)
+Changes in v2:
+- Added SPDIF support in SoC .dtsi files and board .dts
+- Fixed DT warnings found by Rob's bot
+- Reworded commit messages following Krzysztof's suggestion and
+  collected his A-b
+- Link to v1: https://lore.kernel.org/r/20250106-rk3588-h96-max-v58-v1-0-d25255f851fc@gmail.com
 
-diff --git a/arch/arm64/kernel/ftrace.c b/arch/arm64/kernel/ftrace.c
-index 245cb419ca24d..2b76939b6304f 100644
---- a/arch/arm64/kernel/ftrace.c
-+++ b/arch/arm64/kernel/ftrace.c
-@@ -257,14 +257,13 @@ static bool ftrace_find_callable_addr(struct dyn_ftra=
-ce *rec,
- 	 * dealing with an out-of-range condition, we can assume it
- 	 * is due to a module being loaded far away from the kernel.
- 	 *
--	 * NOTE: __module_text_address() must be called with preemption
--	 * disabled, but we can rely on ftrace_lock to ensure that 'mod'
-+	 * NOTE: __module_text_address() must be called within a RCU read
-+	 * section, but we can rely on ftrace_lock to ensure that 'mod'
- 	 * retains its validity throughout the remainder of this code.
- 	 */
- 	if (!mod) {
--		preempt_disable();
-+		guard(rcu)();
- 		mod =3D __module_text_address(pc);
--		preempt_enable();
- 	}
-=20
- 	if (WARN_ON(!mod))
---=20
-2.47.1
+---
+Alexey Charkov (3):
+      dt-bindings: arm: rockchip: Add H96 Max V58 TV box
+      arm64: dts: rockchip: Add SPDIF nodes to RK3588(s) device trees
+      arm64: dts: rockchip: Add H96 Max V58 TV Box based on RK3588 SoC
+
+ .../devicetree/bindings/arm/rockchip.yaml          |   5 +
+ arch/arm64/boot/dts/rockchip/Makefile              |   1 +
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      |  64 ++
+ arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi     |  30 +
+ .../arm64/boot/dts/rockchip/rk3588-h96-max-v58.dts | 826 +++++++++++++++++++++
+ 5 files changed, 926 insertions(+)
+---
+base-commit: af349ca4d3f8659d84abc667125c826fda155109
+change-id: 20240618-rk3588-h96-max-v58-c2c1bf8e6996
+
+Best regards,
+-- 
+Alexey Charkov <alchark@gmail.com>
 
 
