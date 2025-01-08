@@ -4,62 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F396E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 08:16:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D329E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 08:17:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=opCwwM+Y+5ereQNRaMTDtpwtNW9iexMOHOpy6Y6Ebm0=; b=NpsnQRI1iDZ+2R78kNw3XxDvHG
-	ybHD/n3WX82nqdcK5sRbyliChrQliPn6Alqt+v3yUi7gd8GbZjrGIhQGUSQOGcFAbcfrg24rMWsop
-	JD/DzL+wMjfhKV/T2XG8T9C7r34AyTtge2BKLZIdHAPg6dsqDl379n2jHJ5O1oqvqlk9jUjRpIO4n
-	oHz+T1w3S0hpYysUSbMZ8q5XSk5ALQSP5GBDsyt8aCS+AYWYtu51h5xhWywOTYY88emC9Un8htL24
-	iQtgrukw/x2/Qqi+ye/3S260ETefiBDnDE0dMaz86GzWEPICzh7VRhd552Z5k1R+I0c7S5W01Jmi5
-	y+zGwc0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IbL/krlMll3S2kVTqYaIRGP9u2Lqdwfdc2KndPTPmZE=; b=sa+EEUDw1McIropMD8Gc85Uq+s
+	12QPV/0TlKIguV3nhCKHdyF6ZWgACvO0jz/agFSw/l5mhrDCE0+wM+HXi/nCoYjUf94ECVCz1c3aW
+	eUIoqV9fUyY7U9fjYQB9ZgMsGlzwMrWuHxy6DfKT9mmJXdhAQEDwQkVKRWKSqHU1cXI4q4UrBwNjk
+	AHwg8fo6GgUXtPizGPsXjNlPMz5c/faZP4OM1+6MkmaQSD3PyFvV+mPUcQHSQs+tau+COJULUu0NG
+	ZUnKI4UI9c+szIQJ1gTTAgppCkJhcinJTnoGwBavdIJADSIpI44Fv15s7X9i/DwthomOsIQ+T13M9
+	2kvn03Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVREb-00000007WS7-3OAu;
-	Wed, 08 Jan 2025 08:16:13 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tVRFp-00000007WcK-288E;
+	Wed, 08 Jan 2025 08:17:29 +0000
+Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVRBz-00000007W3G-1eLB
+	id 1tVRCP-00000007W8v-24cK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 08:13:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B74AB5C4A20;
-	Wed,  8 Jan 2025 08:12:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5C3AC4CEE0;
-	Wed,  8 Jan 2025 08:13:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736324010;
-	bh=jZHEfq+T+rhY8yWw+U8ne465e6CWj3IX1cnnsWkkfLE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fhHdiyKpLTvWmHD+PArkrJ6XMwjvfiydeJrQZN7OAwVwEqQNvLZOSc8pEbTDbUmJV
-	 qEjbUiPKa6zgSKYnxGwVnOmZ3CN5+x+fwLCpcXI1GqpzVigzG486Vtop3o98/pvQLU
-	 NBBEOxnNHCkUYUfKgseAqYM2pPd3N/x75NuBAbXuu5qSDnUhYledRmo389cC0OF9cF
-	 /6c3C9vuulfjOdKFSyg2oKAxv64m1Tyzd/oAQyAfRz3qBNi4ryMYrcmb7+QhWuc2Xx
-	 BrXNuHL9C9aH0KOlvhrq4R9XiD648p3+ecRN6IMhpAry5BEuOfn8KF3+D/4YfvW1TN
-	 chFFnpNpY33jg==
-Date: Wed, 8 Jan 2025 09:13:26 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Ming-Jen <mjchen0829@gmail.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-input@vger.kernel.org, linux-arm-kernel@lists.infradead.org, peng.fan@nxp.com, 
-	arnd@arndb.de, sudeep.holla@arm.com, conor+dt@kernel.org, krzk+dt@kernel.org, 
-	robh@kernel.org, dmitry.torokhov@gmail.com
-Subject: Re: [PATCH v5 1/2] dt-bindings: input: Add Nuvoton MA35D1 keypad
-Message-ID: <ux55pgpmkngxjsl4semw2cfiljbszvotaydrxrihdu3zphsfqc@vsk72c3wqorc>
-References: <20250108011812.627-1-mjchen0829@gmail.com>
- <20250108011812.627-2-mjchen0829@gmail.com>
+	Wed, 08 Jan 2025 08:13:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=kemnade.info; s=20220719; h=References:In-Reply-To:Cc:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=IbL/krlMll3S2kVTqYaIRGP9u2Lqdwfdc2KndPTPmZE=; b=0o4c7CYmBj3lHwVgJ2P5zHQ3Qy
+	dX+OT5s0v9fVVgsB1vrGlLJcHqMmNvU53lr/X5Cxvq4ClNs6VNQE+bRuy32KudSks9fctsVjBtARO
+	kn9pGX9Cbd5x9zzaRMfIdgT3b2Kp+jDxmN5pgjiTinNeX8sx1Lky4Ab0rS4rrbeHPuG41zMHLVZz7
+	kMrsNgR26P53ZnID33AkcTSXZMols9PxOyAzGvt+bMlPqy6g8GEmj5KfJvQ2L+elw5KJRfaEOIqb0
+	2QQ0zPPS5D8I02PetCF2c40ruTCP/boYib5l3FmVTBKvhn9tv3+XYqwebmIuW1mMywUwe3n4WDlOq
+	jIj6UXFw==;
+Date: Wed, 8 Jan 2025 09:13:48 +0100
+From: Andreas Kemnade <andreas@kemnade.info>
+To: Kevin Hilman <khilman@baylibre.com>
+Cc: soc@kernel.org, linux-omap@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Subject: Re: [GIT PULL] arm/omap: drivers: updates for v6.14
+Message-ID: <20250108091348.46f71e35@akair>
+In-Reply-To: <7hcygyb3yi.fsf@baylibre.com>
+References: <7hcygyb3yi.fsf@baylibre.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250108011812.627-2-mjchen0829@gmail.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_001331_472012_0073DCAF 
-X-CRM114-Status: GOOD (  12.72  )
+X-CRM114-CacheID: sfid-20250108_001357_538501_156CE18D 
+X-CRM114-Status: GOOD (  10.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,30 +67,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 08, 2025 at 01:18:11AM +0000, Ming-Jen wrote:
-> From: Ming-jen Chen <mjchen0829@gmail.com>
-> 
-> Add YAML bindings for MA35D1 SoC keypad.
-> 
-> Signed-off-by: Ming-jen Chen <mjchen0829@gmail.com>
-> ---
->  .../bindings/input/nuvoton,ma35d1-keypad.yaml | 82 +++++++++++++++++++
->  1 file changed, 82 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml b/Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml
-> new file mode 100644
-> index 000000000000..889f253b3bc2
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml
+Am Tue, 07 Jan 2025 15:26:45 -0800
+schrieb Kevin Hilman <khilman@baylibre.com>:
 
-I don't see changes.
+> The following changes since commit 40384c840ea1944d7c5a392e8975ed088ecf0b37:
+> 
+>   Linux 6.13-rc1 (2024-12-01 14:28:56 -0800)
+> 
+> are available in the Git repository at:
+> 
+>   git://git.kernel.org/pub/scm/linux/kernel/git/khilman/linux-omap.git tags/omap-for-v6.14/drivers-signed
+> 
+> for you to fetch changes up to 6ef4ea3c944b9fc5d78317d1172cdcd10f9724f1:
+> 
+>   Input: tsc2007 - accept standard properties (2024-12-10 16:17:30 -0800)
+> 
+> ----------------------------------------------------------------
+> arm/omap: drivers: updates for v6.14
+> 
+> ----------------------------------------------------------------
+> Andreas Kemnade (1):
+>       Input: tsc2007 - accept standard properties
+> 
+>  drivers/input/touchscreen/tsc2007.h      | 2 ++
+>  drivers/input/touchscreen/tsc2007_core.c | 5 ++---
+>  2 files changed, 4 insertions(+), 3 deletions(-)
+> 
+This is input, the only reason that is goes via soc to keep that
+togother with
+ARM: dts: ti/omap: omap3-gta04: use proper touchscreen properties
 
-I already raised concern that you sent new versions without implementing
-or responding to comments. So the fourth (!!!) time: Filename matching
-compatible.
+So shouln't it go via your dt branch?
 
-Best regards,
-Krzysztof
+Regards,
+Andreas
 
 
