@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E816E7719A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 12:38:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DD8AE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 12:40:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VJamwXBGmf7lP5lUbMZS43D6Po78vAnfIw/xQo3GUME=; b=xQoYbHf3K/vc5kfmJRyj38KTUT
-	Ij3rk9AWJPoINUTZxBFAqZyUsgPEYcuuYlJY8rtPgmOcISrukw9JpAM94z70eSR7YB1V+SozdYFU1
-	mZJuvuTENcFuTHZpff4hYkovdSG829KGYqiuzPePI/9+OYeX4s5MGL5lXXHBZS4trIjaFomgIWv3N
-	GBOFyT0a9AM/+2RoB6vE5tDWKDenxIj1faUcDOT46+9VspSO0HFcVEajn9GnqJGcFrllsvo7Qlx/C
-	g4uMZR4Wpvfbt5+NjrL1pS0FIsk+rW/21lxXXziTz5NjdnmjaC8wRGeTIMfcOgpiUpQom/NgbMyQj
-	4BpVsQfw==;
+	bh=nB9iv536b6lCXCVKI1G4LRUhMPa8PQnsWiUiXY+MqHA=; b=hTEaiHunNpvHZVHmX8JPPg4DXD
+	ML1x94qWmq87+kV9u//uFR9u0WhU0dzret5AwwFTE6N7oDwrFiMlC5KQV0DSOI6AZjplG4RJ0D4wO
+	Og6hb8fVI3UIycZBorbU5FGDQNk4h8dbD/wiS29ZkawWtgOIHxJ2B2trCh1fLypf73AUl8ufyglmD
+	OkSbl9EDE7PkmxQX4e0QTM49Gf+zcfW8IJvy7Ii45RN4u/+hd3S6uDUDFakwWpc7oyAopyDebU5Zk
+	jGFi2M00y1PAI1WMXt1bBPUWk0gyA8AEAXybU27BDuN0bQQJwKld+Hs8vjxH9Pz+S8gpILRHGqjfN
+	HTGsJnlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVVKa-00000008SNi-2QLH;
-	Wed, 08 Jan 2025 12:38:40 +0000
-Received: from layka.disroot.org ([178.21.23.139])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVUXA-00000008HQZ-3FhE;
-	Wed, 08 Jan 2025 11:47:37 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 4BEF325BCB;
-	Wed,  8 Jan 2025 12:47:32 +0100 (CET)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id BtPQKoG2eIOz; Wed,  8 Jan 2025 12:47:28 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1736336848; bh=1pkpQsa+REF1tJCdkKoGqcXMk6p5YIj1+XA5lPxMgnc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=I3WRS7ezJmFQ+xQ8t0So04riW667+GToWi2GIZFNUliGjBfBxGRNaJjwHoq+4Pq9w
-	 Q264UquhenbnJhG73fwVWn9UyDlt0DDiqkp1OPio8AT0yyd/UyNwKKzOZYGBauGQlr
-	 mn5v/ZgZKS3L0s0HvOdZ5YF5beXpEsmquYlyNYW0fRBQzBeDwrebJxLKlHyv7NS1E3
-	 Iu+PV23r/ZbXAEcDJ7hvvEooXUy/sRfYI6fsdrYfVYnKys7C7OTUiTZAeP5HA9F1Ju
-	 CN3MMjLrfLYzuoDR9hbXegQShRnqKtCRrbIuiMa1RepGMQT//+mYPUMj45sC01Sgld
-	 PCGbILDHQyAFA==
-From: Yao Zi <ziyao@disroot.org>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-clk@vger.kernel.org,
+	id 1tVVMB-00000008Sgh-3t1w;
+	Wed, 08 Jan 2025 12:40:19 +0000
+Received: from m16.mail.163.com ([220.197.31.3])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tVUcX-00000008Ioy-3DhH;
+	Wed, 08 Jan 2025 11:53:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=nB9iv
+	536b6lCXCVKI1G4LRUhMPa8PQnsWiUiXY+MqHA=; b=nWKpdnvcZlwtaiUl1Ib16
+	wY0oPVKOSDhzIDb40Tty2s1YIueeeImUFypcQsTxSL+K7us94CrPGf1dpcswpbUv
+	qpyWRcJrm6VLDfgyF6E4tEw0dIQk/+IJgeGhvEulS/OjD7UtJcBniYHJxuyeQwkx
+	oCWd5qo+sLIJGT3me5qVtg=
+Received: from ProDesk.. (unknown [])
+	by gzga-smtp-mtada-g1-4 (Coremail) with SMTP id _____wDHpyUCZ35n8Xn7EQ--.26804S9;
+	Wed, 08 Jan 2025 19:52:47 +0800 (CST)
+From: Andy Yan <andyshrk@163.com>
+To: heiko@sntech.de
+Cc: hjc@rock-chips.com,
+	krzk+dt@kernel.org,
 	devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Yao Zi <ziyao@disroot.org>
-Subject: [PATCH v2 5/5] arm64: dts: rockchip: Add UART clocks for RK3528 SoC
-Date: Wed,  8 Jan 2025 11:46:06 +0000
-Message-ID: <20250108114605.1960-7-ziyao@disroot.org>
-In-Reply-To: <20250108114605.1960-2-ziyao@disroot.org>
-References: <20250108114605.1960-2-ziyao@disroot.org>
+	linux-rockchip@lists.infradead.org,
+	derek.foreman@collabora.com,
+	detlev.casanova@collabora.com,
+	daniel@fooishbar.org,
+	robh@kernel.org,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Michael Riesch <michael.riesch@wolfvision.net>
+Subject: [PATCH v9 07/11] drm/rockchip: vop2: Register the primary plane and overlay plane separately
+Date: Wed,  8 Jan 2025 19:52:24 +0800
+Message-ID: <20250108115233.17729-8-andyshrk@163.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250108115233.17729-1-andyshrk@163.com>
+References: <20250108115233.17729-1-andyshrk@163.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wDHpyUCZ35n8Xn7EQ--.26804S9
+X-Coremail-Antispam: 1Uf129KBjvJXoWxGFWxtw4ktw45Ww47JFWrZrb_yoWrZrW3pa
+	13ta90qr4xWrsFgry8JF4jyFWYyan2kay7Crn8tw1a934fKr93ur48KF1DAF1ruFnrWFya
+	kFW3K39Y9FWj9r7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07joeHDUUUUU=
+X-Originating-IP: [58.22.7.114]
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqQDOXmd+XnnQkAACsF
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_034736_942318_242BD49E 
-X-CRM114-Status: UNSURE (   9.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250108_035310_123969_DAD7CF52 
+X-CRM114-Status: GOOD (  16.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,91 +82,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add missing clocks in UART nodes for RK3528 SoC.
+From: Andy Yan <andy.yan@rock-chips.com>
 
-Signed-off-by: Yao Zi <ziyao@disroot.org>
+In the upcoming VOP of rk3576, a Window cannot attach to all Video Ports,
+so make sure all VP find it's suitable primary plane, then register the
+remain windows as overlay plane will make code easier.
+
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+Tested-by: Michael Riesch <michael.riesch@wolfvision.net> # on RK3568
+Tested-by: Detlev Casanova <detlev.casanova@collabora.com>
+
 ---
- arch/arm64/boot/dts/rockchip/rk3528.dtsi | 17 ++++++++++++++++-
- 1 file changed, 16 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-index 37fd40377076..5b334690356a 100644
---- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-@@ -168,7 +168,8 @@ cru: clock-controller@ff4a0000 {
- 		uart0: serial@ff9f0000 {
- 			compatible = "rockchip,rk3528-uart", "snps,dw-apb-uart";
- 			reg = <0x0 0xff9f0000 0x0 0x100>;
--			clock-frequency = <24000000>;
-+			clocks = <&cru SCLK_UART0>, <&cru PCLK_UART0>;
-+			clock-names = "baudclk", "apb_pclk";
- 			interrupts = <GIC_SPI 40 IRQ_TYPE_LEVEL_HIGH>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
-@@ -178,6 +179,8 @@ uart0: serial@ff9f0000 {
- 		uart1: serial@ff9f8000 {
- 			compatible = "rockchip,rk3528-uart", "snps,dw-apb-uart";
- 			reg = <0x0 0xff9f8000 0x0 0x100>;
-+			clocks = <&cru SCLK_UART1>, <&cru PCLK_UART1>;
-+			clock-names = "baudclk", "apb_pclk";
- 			interrupts = <GIC_SPI 41 IRQ_TYPE_LEVEL_HIGH>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
-@@ -187,6 +190,8 @@ uart1: serial@ff9f8000 {
- 		uart2: serial@ffa00000 {
- 			compatible = "rockchip,rk3528-uart", "snps,dw-apb-uart";
- 			reg = <0x0 0xffa00000 0x0 0x100>;
-+			clocks = <&cru SCLK_UART2>, <&cru PCLK_UART2>;
-+			clock-names = "baudclk", "apb_pclk";
- 			interrupts = <GIC_SPI 42 IRQ_TYPE_LEVEL_HIGH>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
-@@ -195,6 +200,8 @@ uart2: serial@ffa00000 {
+(no changes since v3)
+
+Changes in v3:
+- Add comments for why we should treat rk3566 with special care.
+
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 100 +++++++++++--------
+ 1 file changed, 61 insertions(+), 39 deletions(-)
+
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+index 7290a978c669..0a35363bee0e 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+@@ -2222,22 +2222,29 @@ static int vop2_plane_init(struct vop2 *vop2, struct vop2_win *win,
+ 	return 0;
+ }
  
- 		uart3: serial@ffa08000 {
- 			compatible = "rockchip,rk3528-uart", "snps,dw-apb-uart";
-+			clocks = <&cru SCLK_UART3>, <&cru PCLK_UART3>;
-+			clock-names = "baudclk", "apb_pclk";
- 			reg = <0x0 0xffa08000 0x0 0x100>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
-@@ -204,6 +211,8 @@ uart3: serial@ffa08000 {
- 		uart4: serial@ffa10000 {
- 			compatible = "rockchip,rk3528-uart", "snps,dw-apb-uart";
- 			reg = <0x0 0xffa10000 0x0 0x100>;
-+			clocks = <&cru SCLK_UART4>, <&cru PCLK_UART4>;
-+			clock-names = "baudclk", "apb_pclk";
- 			interrupts = <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
-@@ -213,6 +222,8 @@ uart4: serial@ffa10000 {
- 		uart5: serial@ffa18000 {
- 			compatible = "rockchip,rk3528-uart", "snps,dw-apb-uart";
- 			reg = <0x0 0xffa18000 0x0 0x100>;
-+			clocks = <&cru SCLK_UART5>, <&cru PCLK_UART5>;
-+			clock-names = "baudclk", "apb_pclk";
- 			interrupts = <GIC_SPI 45 IRQ_TYPE_LEVEL_HIGH>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
-@@ -222,6 +233,8 @@ uart5: serial@ffa18000 {
- 		uart6: serial@ffa20000 {
- 			compatible = "rockchip,rk3528-uart", "snps,dw-apb-uart";
- 			reg = <0x0 0xffa20000 0x0 0x100>;
-+			clocks = <&cru SCLK_UART6>, <&cru PCLK_UART6>;
-+			clock-names = "baudclk", "apb_pclk";
- 			interrupts = <GIC_SPI 46 IRQ_TYPE_LEVEL_HIGH>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
-@@ -231,6 +244,8 @@ uart6: serial@ffa20000 {
- 		uart7: serial@ffa28000 {
- 			compatible = "rockchip,rk3528-uart", "snps,dw-apb-uart";
- 			reg = <0x0 0xffa28000 0x0 0x100>;
-+			clocks = <&cru SCLK_UART7>, <&cru PCLK_UART7>;
-+			clock-names = "baudclk", "apb_pclk";
- 			interrupts = <GIC_SPI 47 IRQ_TYPE_LEVEL_HIGH>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
+-static struct vop2_video_port *find_vp_without_primary(struct vop2 *vop2)
++/*
++ * On RK3566 these windows don't have an independent
++ * framebuffer. They can only share/mirror the framebuffer
++ * with smart0, esmart0 and cluster0 respectively.
++ * And RK3566 share the same vop version with Rk3568, so we
++ * need to use soc_id for identification here.
++ */
++static bool vop2_is_mirror_win(struct vop2_win *win)
+ {
+-	int i;
+-
+-	for (i = 0; i < vop2->data->nr_vps; i++) {
+-		struct vop2_video_port *vp = &vop2->vps[i];
+-
+-		if (!vp->crtc.port)
+-			continue;
+-		if (vp->primary_plane)
+-			continue;
++	struct vop2 *vop2 = win->vop2;
+ 
+-		return vp;
++	if (vop2->data->soc_id == 3566) {
++		switch (win->data->phys_id) {
++		case ROCKCHIP_VOP2_SMART1:
++		case ROCKCHIP_VOP2_ESMART1:
++		case ROCKCHIP_VOP2_CLUSTER1:
++			return true;
++		default:
++			return false;
++		}
++	} else {
++		return false;
+ 	}
+-
+-	return NULL;
+ }
+ 
+ static int vop2_create_crtcs(struct vop2 *vop2)
+@@ -2248,7 +2255,9 @@ static int vop2_create_crtcs(struct vop2 *vop2)
+ 	struct drm_plane *plane;
+ 	struct device_node *port;
+ 	struct vop2_video_port *vp;
+-	int i, nvp, nvps = 0;
++	struct vop2_win *win;
++	u32 possible_crtcs;
++	int i, j, nvp, nvps = 0;
+ 	int ret;
+ 
+ 	for (i = 0; i < vop2_data->nr_vps; i++) {
+@@ -2287,42 +2296,55 @@ static int vop2_create_crtcs(struct vop2 *vop2)
+ 	}
+ 
+ 	nvp = 0;
+-	for (i = 0; i < vop2->registered_num_wins; i++) {
+-		struct vop2_win *win = &vop2->win[i];
+-		u32 possible_crtcs = 0;
+-
+-		if (vop2->data->soc_id == 3566) {
+-			/*
+-			 * On RK3566 these windows don't have an independent
+-			 * framebuffer. They share the framebuffer with smart0,
+-			 * esmart0 and cluster0 respectively.
+-			 */
+-			switch (win->data->phys_id) {
+-			case ROCKCHIP_VOP2_SMART1:
+-			case ROCKCHIP_VOP2_ESMART1:
+-			case ROCKCHIP_VOP2_CLUSTER1:
++	/* Register a primary plane for every crtc */
++	for (i = 0; i < vop2_data->nr_vps; i++) {
++		vp = &vop2->vps[i];
++
++		if (!vp->crtc.port)
++			continue;
++
++		for (j = 0; j < vop2->registered_num_wins; j++) {
++			win = &vop2->win[j];
++
++			/* Aready registered as primary plane */
++			if (win->base.type == DRM_PLANE_TYPE_PRIMARY)
++				continue;
++
++			if (vop2_is_mirror_win(win))
+ 				continue;
+-			}
+-		}
+ 
+-		if (win->type == DRM_PLANE_TYPE_PRIMARY) {
+-			vp = find_vp_without_primary(vop2);
+-			if (vp) {
++			if (win->type == DRM_PLANE_TYPE_PRIMARY) {
+ 				possible_crtcs = BIT(nvp);
+ 				vp->primary_plane = win;
++				ret = vop2_plane_init(vop2, win, possible_crtcs);
++				if (ret) {
++					drm_err(vop2->drm, "failed to init primary plane %s: %d\n",
++						win->data->name, ret);
++					return ret;
++				}
+ 				nvp++;
+-			} else {
+-				/* change the unused primary window to overlay window */
+-				win->type = DRM_PLANE_TYPE_OVERLAY;
++				break;
+ 			}
+ 		}
++	}
++
++	/* Register all unused window as overlay plane */
++	for (i = 0; i < vop2->registered_num_wins; i++) {
++		win = &vop2->win[i];
++
++		/* Aready registered as primary plane */
++		if (win->base.type == DRM_PLANE_TYPE_PRIMARY)
++			continue;
++
++		if (vop2_is_mirror_win(win))
++			continue;
+ 
+-		if (win->type == DRM_PLANE_TYPE_OVERLAY)
+-			possible_crtcs = (1 << nvps) - 1;
++		win->type = DRM_PLANE_TYPE_OVERLAY;
+ 
++		possible_crtcs = (1 << nvps) - 1;
+ 		ret = vop2_plane_init(vop2, win, possible_crtcs);
+ 		if (ret) {
+-			drm_err(vop2->drm, "failed to init plane %s: %d\n",
++			drm_err(vop2->drm, "failed to init overlay plane %s: %d\n",
+ 				win->data->name, ret);
+ 			return ret;
+ 		}
 -- 
-2.47.1
+2.34.1
 
 
