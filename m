@@ -4,210 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C047E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 06:55:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1A56E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 07:00:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=88U/v9jyTVAr5poB5jZsPP4fqLfJ5a1n1chLj3HDJK4=; b=CCK+StOiwD79qHUScjU8lVLAMK
-	RHaby8S03akDS8qB8Xx6EyAmFR8eCTqrma1u7o+ALYmGBB7zcPCp3kBgH5rw4KqPHi7MHNTjUqpX7
-	rVTMwFgESp7aPUoU9/OVnrGXKz3sArlun7PysNJgOs9Um3ed53fTDxKnY7znA/Bp8UpYI9iRqtIqT
-	f08ZRIwWQK8Jyh6KMhCtP2kO4/T4HoFgJLF3sCOlXWmVy+B68fH0pTUEtgUbgshaC4WEYLaJi7O8Y
-	hzaMfU3eAC3GgmHenSnlKBIiFGHCDiRVgoX0lgtjoQ2bVgyLgosK6OFxAhFT1kq3Aav3nVGjqIrSx
-	9x9U8dtg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+oUJziA+3SIeve9hH8p/SUshEWFM4XR7pFGccDfjKoA=; b=RGaP+0T2zlPW1tLaWb9aCZh3xZ
+	qKVtyWgaUvkmHyxOFfSYrqlo0HFZhEtxCEO02pKpi0HrZZtZ2UvOqRtkyqJkB5D22/iY7hR81IpmU
+	fevMRENAFS5QWFMC+EeM6W7Rz7JtLUj4mmnTY/uemoxJRiDpXCVkiH3GGVjrlth3hWKoQ1VSbmRkT
+	0qhErt1TCN+vQfJ86WL3QvLSzxaIG1tcocoCYqDfuzaDjz5/if6K6IUtkYTmRjVM8SmqIVylK4Unb
+	8TMySXd8yXGRdBg0PW110eIrS0vjecl1HbRMHFty9BYXmvRnVecM5taWtfrS0924Z4s3NM9qhNg3O
+	0CR4s+KQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVPyP-00000007JdH-3dGu;
-	Wed, 08 Jan 2025 06:55:27 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1tVQ3M-00000007KYK-1yJ7;
+	Wed, 08 Jan 2025 07:00:32 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVPxC-00000007JWC-3cLm;
-	Wed, 08 Jan 2025 06:54:12 +0000
-X-UUID: 57dba044cd8d11ef9048ed6ed365623b-20250107
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=88U/v9jyTVAr5poB5jZsPP4fqLfJ5a1n1chLj3HDJK4=;
-	b=sdOF1rjRWByh5q7HW3gegd2tB5rZzVHp5vm+4tmy+o5h2yFCW6WqrHFxOBRnxqJUNVjuKSZIyuFkxvO2LJ8IZ4OPzAK/xfgeoDtdrky7CQY53otwIJVLLRA/iTwKL1qe08iLUh5OH/lUl4DFlY7h3B2JINXUHmBM9GnEM4vTBvc=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.46,REQID:17ce8294-410b-44de-924e-0697a33a1219,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:60aa074,CLOUDID:ae2b8e0e-078a-483b-8929-714244d25c49,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102,TC:nil,Content:0|50,
-	EDM:-3,IP:nil,URL:11|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
-	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-UUID: 57dba044cd8d11ef9048ed6ed365623b-20250107
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
-	(envelope-from <jianjun.wang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1429389166; Tue, 07 Jan 2025 23:54:01 -0700
-Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
- mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.26; Wed, 8 Jan 2025 14:53:59 +0800
-Received: from HK3PR03CU002.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
- 15.2.1118.26 via Frontend Transport; Wed, 8 Jan 2025 14:53:59 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pHLCpUgV1VwSsztN817vnsh66ImFG0mCrIZt4i/wg3Iay7/veX7wknS/cnF2eGuPBOE4ewLEUT7Jy5hlS0zSfsS7yr1104I/3FcO4m1H2EuSfCsD/5fMM/dvXeYu7byJPcCpjtOQkSpIlTT51u0DQO/Pcd9dfq4xAUj8gzeTd8eS9RxZ5badb/FWHBzs8EnraOTaVSt/E/VpCKOH+0bTtInxHrgA3wedxBKSWJ/RJtMBrn5c5jhdJaVQEmMXs2LNPOu2w6rnGxkCX73BMXUCvoaSJIoYIHyZWkvU1oiPtI6coUPYbsADX5kLUwkSYPRyq06AXXehE7YD/EpSXqKc5A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=88U/v9jyTVAr5poB5jZsPP4fqLfJ5a1n1chLj3HDJK4=;
- b=FXj5kH1dcMy+mzWkIrJFMiYMKEGjXs/j3Y0FUZTuCsmT90p9f6e3dgwvoByu8jGP7eaj8/LluiAzIBsueqA1Q1+srN3yn0nMywMfyy35KP0MDkmx+WJ8jC/kAEw+8HaR64aHrrZ7H8YhI1HJArb/+EBN3llewG1uQSbHxntDjzXvX/ZfzGMm0wYbXyAJ6Qd3y8CafDHsmsOTx0KDVaSXf0e5jSMxukcsJL8Hx+RfJdWcrqBtzrKPok5YSmKwIAjF38h198NXEmMFKTX35R2eMnzhQizR8RsXHDVPqHF9sBfIxlGM3HuhD6j4ot0DmkAGy79sSChcP2YOaUFCa8jX+g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
+	id 1tVQ28-00000007K0J-30En
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 08 Jan 2025 06:59:18 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-2ee86a1a92dso19474862a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 22:59:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=88U/v9jyTVAr5poB5jZsPP4fqLfJ5a1n1chLj3HDJK4=;
- b=loN9cGwiHbzaU1EK99FGMX/5kZeaipeF/Te+qmVkRrwSshIzaCjmiEC/kkYVxplAimGM/JHLriyWVFXxINLRq/vOMqRyAIfUavxV6aSH6gNZXEoWLsNg2oMeQZALMIUKEgnZPWrcQrTBfrm7+IE6tLm3inQiyiDWZrWr2Bod9Y8=
-Received: from PSAPR03MB5365.apcprd03.prod.outlook.com (2603:1096:301:17::5)
- by SG2PR03MB6827.apcprd03.prod.outlook.com (2603:1096:4:1d7::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8314.15; Wed, 8 Jan
- 2025 06:53:57 +0000
-Received: from PSAPR03MB5365.apcprd03.prod.outlook.com
- ([fe80::1c6e:6591:5151:27e6]) by PSAPR03MB5365.apcprd03.prod.outlook.com
- ([fe80::1c6e:6591:5151:27e6%3]) with mapi id 15.20.8314.015; Wed, 8 Jan 2025
- 06:53:56 +0000
-From: =?utf-8?B?Smlhbmp1biBXYW5nICjnjovlu7rlhpsp?= <Jianjun.Wang@mediatek.com>
-To: "wenst@chromium.org" <wenst@chromium.org>
-CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>, "krzk@kernel.org"
-	<krzk@kernel.org>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, "robh@kernel.org"
-	<robh@kernel.org>, "kw@linux.com" <kw@linux.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, =?utf-8?B?WGF2aWVyIENoYW5nICjlvLXnjbvmlocp?=
-	<Xavier.Chang@mediatek.com>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Ryder Lee <Ryder.Lee@mediatek.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>, "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>
-Subject: Re: [PATCH 1/5] dt-bindings: PCI: mediatek-gen3: Add MT8196 support
-Thread-Topic: [PATCH 1/5] dt-bindings: PCI: mediatek-gen3: Add MT8196 support
-Thread-Index: AQHbXaTW76fSj2ANakexjY3C+uSV4rMEw32AgAS7TICAADKxgIABU9KAgAAFFwCAAW5+gA==
-Date: Wed, 8 Jan 2025 06:53:56 +0000
-Message-ID: <762388e2c344faef987f3a9136124918b4b2723f.camel@mediatek.com>
-References: <20250103060035.30688-1-jianjun.wang@mediatek.com>
-	 <20250103060035.30688-2-jianjun.wang@mediatek.com>
-	 <ndj6j2mmylipr7mxg42f3lcwgx55cvcjnuuofmlk6n6t5uz5pr@bxugolyfublc>
-	 <04ae2a07e2c2d3c03e82596034b1b7711450a0ae.camel@mediatek.com>
-	 <eb2088d3-81f6-4cb8-a4d7-6ef985aedbda@kernel.org>
-	 <9b0a463312702fb78e4ca2ba79c9ec6b62e33c58.camel@mediatek.com>
-	 <CAGXv+5H5ymEem=JWF1J6dHr4B7o5cdOgvCSg0Q_5GVkx487Ksw@mail.gmail.com>
-In-Reply-To: <CAGXv+5H5ymEem=JWF1J6dHr4B7o5cdOgvCSg0Q_5GVkx487Ksw@mail.gmail.com>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PSAPR03MB5365:EE_|SG2PR03MB6827:EE_
-x-ms-office365-filtering-correlation-id: 5c1cc9c6-42b9-42f0-45c7-08dd2fb13900
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?WktDUEx3em1yWnp5S3E5RGR1cDY2MlNwckxDeFZqaDZXOWJPbDJKek9CZStF?=
- =?utf-8?B?dkhCeUxHRG9mdUV2QVBDNUFDUlQySnVTTkRHU3VZSmxPZGNBY3RpaXRyV3Q3?=
- =?utf-8?B?dTJvcnNLMlhuQ2hKQ3ZUcHBxMDFGQVRzSk5vcVo0ODhaRkJ3YlVQcVdldUNr?=
- =?utf-8?B?cmNyR0JycHA4MkpGSFMxSjVwVkZwYnJQY1k4TzkwbjNLU1dTRC80N253bGsx?=
- =?utf-8?B?Y0VwMkJvTkZVM0VxTzZOMUNMZUZEOGhsNjhLRGN2TlNLcVhFTitxaTFOWVZE?=
- =?utf-8?B?VGtEMmx0bElsWGtXQjhHY3UzbC92bFB4ZUdjSTBOV0l6cVlYT1R6YVk5UUFs?=
- =?utf-8?B?cFB4dVNtbk5BZURBKzd0Nnl4bklGTCtldU1URkxkdUpiTVVRRlQ4SlQ2ZzFn?=
- =?utf-8?B?K010eXh2NE53UFNBUk9BeUxLcTBHb3dzOC9sbGFqRTgybnhCSWFtbm01Y0Ir?=
- =?utf-8?B?SFBNNHBrY3VoTnpQdktQVklJZ2l2dERzQ2UzdmVhM29FL245SDR4UCtaUVVS?=
- =?utf-8?B?MHlmZ2xRVERPWEd4SWtpSTMxTm1ldUtsei9iWjZJVGFRRWNlbzhnN0p5TGFi?=
- =?utf-8?B?djd4OG5TL1JhY2JMRExuWVlNbHAxV01ITGJqRnZsM1pWVlBPYTVJYUc5ZzFS?=
- =?utf-8?B?RGkxb2RjMklSV3FpWjZ0ekhzV1JHL012RXJuTGkxd3BkeW9ydUY5Y21WWE5r?=
- =?utf-8?B?L2ZZSHBieXo5WFFFclhvd2RUaUo2aWx6UndzdHI2b3UrelRUcE54TWIxUGRT?=
- =?utf-8?B?UEczOTEyYmFiVGJlOVgwL24ydWZvU3pSTUtxZXVUS0daREJ3YjVIdDRCZkxV?=
- =?utf-8?B?WVBXMHVIc09vRkFDbXB3K1FrRXVZZC9uSUhIQmRQSHNZNDgzZE4xUE9WanZR?=
- =?utf-8?B?cWlzbTFKSE5kTWhNWkUyU0MyR1NoYWZWN0pSc3diVkZXazFBbG5hVGpZVXoy?=
- =?utf-8?B?RXFiS043OTh2SEczTTRaM2ZFL1FpaGV2RUYrRG1xYk9kNDZYSDhveGpQMWk5?=
- =?utf-8?B?SnppNW4yNEc3OE8wd0ZmZXNNRGtvL3BLUXVldEtOSnI0Z2tCY1FPV0FWNzB4?=
- =?utf-8?B?VStlT3dzQ2dmY2g1aitXOG5kSlUwSkhVajQyRC9GRWhYYzBzZ3o0QVk3M2lq?=
- =?utf-8?B?RWRSZnFidmVvUnNzRUYrejhuV2pTbDUwSUlpR0ZYQnZ1YU1HK0VqVTVBSGpl?=
- =?utf-8?B?b1Q2VDNXWEFoSkVFemdDVVhBdGlCOGlTWnRvNVBjRXREeTJyWEZ2OUIzcm5B?=
- =?utf-8?B?bUFYMkkyc0xpVmRHWktIOXNmTjd5eE41SzdleFRkVUgwSnVReTJWQkdadE92?=
- =?utf-8?B?RFJURkk5YUVsN05HRFFpRTg2ZHB3eTZheVFNRG91cmVHSis5S0pIRGFsZjB0?=
- =?utf-8?B?bFJXbzRSQ1RaQmtCYVQwZ2lJQnRLamlTakVFRGhTaXJmSVJ3VVBleHo0NTlJ?=
- =?utf-8?B?emhhaExXbmszZ1NKdUdVYy9VcGhzeW56TkduTUFuY0VMeDJOd212VHkraXZZ?=
- =?utf-8?B?VU0yK2YxVjZGaWpPWG5RVHc4azh4SHZBTUJ3RSthYmxhdUxvM0VNcVFzNHRq?=
- =?utf-8?B?ekFMYkFkUFI2TzY0aWlIWHN6WHF3N2VqT2VJaWcvOTlsYmZaZTVkWWs2bTVC?=
- =?utf-8?B?eEc2bGxNdzB3Wng1MVhBL2o0YXVnTnR2OE5mL0JkSnlDN28yY3pyVzNZSEty?=
- =?utf-8?B?Mk5SZEkvOUdnSGJxWG92MFh5bHlIbWlrZzI4Rk92dkx1aTJlN1FRK0NIM0V6?=
- =?utf-8?B?M2hBQXdjcXJ4NnNQQjNvYUx5d3NwTmRDa2haV05ybkI2WGZQOFlRUnd0SnFB?=
- =?utf-8?B?aWxCZUd3Z0xNTXlGZWRLVG1BYUFVamVpOGlGZHIxYkpaQkVhNlFnVGxNaVhN?=
- =?utf-8?B?cU9qc3gvSmJGa244VkRVK0RQSi8vVVBQN1R0VndEcUp1d3l5UjNtYytjaXY4?=
- =?utf-8?Q?7q/BWTusbL2f8f6h/YsJs/KJZQmNGReV?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PSAPR03MB5365.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?eHh2TG1DbzhYVDl6TnlVVFQ0Umd2VGV2YmJ4RWxLWFQrSjAzaDVXTkpyQnB5?=
- =?utf-8?B?bDBLYVJjSVRMWGhQWXJBQ3k4YUZwaGt5L2M4eTdyb2hOT0tHVVN0aGlHallG?=
- =?utf-8?B?VTQ5L2ZXZWRJSlNjTk9mTnY3cUlvL1R2dWZGaUZkUFRzV2tic2lLOXFHQ2hM?=
- =?utf-8?B?My93TmFQaFYvV0pPSnNSL1pUL2c1dFlmVU1DUGliZi9LbE1NbHY0Q0J4SWcv?=
- =?utf-8?B?Q1E1Mm83TUhSMmtuTFNHbkhnQnNnejJLV052UXl4S2hBZ0VXMmVLZUg1RWJ5?=
- =?utf-8?B?aTQ5MXIrdGF5Vm9CSmNGNE9OMDY3UEtSNFFTY2dhT3VJb3FNVG9VcEtWaHlU?=
- =?utf-8?B?dFdkMHVxYVduUHdONkxZaXpHNm1NQXBmZHUwVkFNUDVySUt5cG9uUXY2RlNY?=
- =?utf-8?B?VHlGdXZCdHpGZW0ybGVPalVVNldBQmFHWXNINEttSEphVmFVbmx3Skd2ZlhT?=
- =?utf-8?B?UTloRXdnTHRUV0g1dlRQMWxUcVlLUmdXR2RacDBuRDF4TjZWVUVqclNGYzg4?=
- =?utf-8?B?Unprcy83M21JV08xeFR3eHJpeUJnOWoycmlEbDR2TW5QR1lDeUoybHZ5a3dO?=
- =?utf-8?B?Z0w1NTh2RVFFNytPWHZ2UGJyd2kwaFQwR1ZxSE40SU96KzNpT3ZJbm44bVQ4?=
- =?utf-8?B?NkFFMVgydEFZVzlnQjdjMVRDOUlrcXZ1Um9uenpLUi9QaE56aHVPYTE0ejFr?=
- =?utf-8?B?TUNZOHV6UWhyNzdFWmxxVlpCNVFlKzBuZG9jMWlmM3V5Q2Rld2d1UEJmL2ph?=
- =?utf-8?B?azFoRVhEeGRVWHM5SUVZTnFUb2JhdmlMNWxNUVZ3TnJSNElZUVFNbFd5RU1V?=
- =?utf-8?B?MGxMQXFXVy84eWpwbzlNMk12WUV1K1dYdDRIMmZ0bWptcEVsUC9RWENnZ2Zt?=
- =?utf-8?B?SVVGd3NmRmFDVGE5OGdFaU9rWHcyZUZ0ZVNsMmhRYnp4THd2dWNCczRFRFZq?=
- =?utf-8?B?RkdneG9pZmVhVUxnMUxLWkZQbmxxY09YTHY0Q29RL01qcW5CUDgvZ0UydEUw?=
- =?utf-8?B?ZHgyWVBPNU5xMnRzNytpVzhHb0pYcnozZmtUd1QrNTA3ZENWOE9IaDIydGVY?=
- =?utf-8?B?UG1PK3BNWk5OSVY3Mkg3cmNMTzV4d3VHTEU0WkpXNW96L3MzeTFOc0RETDBQ?=
- =?utf-8?B?dlNuRTdGWHBUdE55WE1zaXFHeHBnVzFSaWhQT2xDdU9HbDJYRzc3bjQrYWpM?=
- =?utf-8?B?azhoR0IwUC9PSzRUU0dTeFluVUZubkw3enVFcGxiTktnL1cxVUprOGhNU212?=
- =?utf-8?B?UE9KaXpaU2NrQ1Q2RVBZQnFrRlRkTTdmUnNaR0VidzQxM3owUnBseVZmKzB1?=
- =?utf-8?B?OXlRaFJNUHlyaWRWZFBhTXhQVzE0Sk0ybVJXUkp0a3plZ3pycFg2QVFKN1Rh?=
- =?utf-8?B?S25ud0VlTnQrb3V3ZHhVOU9nUkpsRVlJWnNlZWF2STVkNU9HUXRzSmdoTzBv?=
- =?utf-8?B?QzdxaEtUanR6K1V6UFphZStCb25jZ0FvZkdhL2xnRWZZck84Ykk2alUzQWNm?=
- =?utf-8?B?bTRIVTZRMjJtUHc2S0QvcGNBaUxXTm9oK1d6djVrNWJ3dTRNZEVKS0ZOd3RH?=
- =?utf-8?B?MS9kTnE2M1IzamJrS3d2dTVxMkNSQ3lDcEZIc3d6QmN5WEVJZVJmMUhtbFpT?=
- =?utf-8?B?d3Rac1lQcm1ORXg0RDdVUHZHY2RDeUk2WGJNa3A2STBIZFdiZlplaDB3b3BF?=
- =?utf-8?B?WUEvOGlGVXl0ajQ3NG5BMGxxQ2g5NWQ5M1hKVUpyS21ZNTlhT3MwZ20wVUFl?=
- =?utf-8?B?ZEJDQmlUbnhMTlRzMGV0MHczTFdOTnh2WGh3ZjdCR2J1cmRtalJzWnVsRndJ?=
- =?utf-8?B?VDNGUURTSCtVRGcvMnIrUWNHWktXWm1uSnNMTFRvWGFqWlhuNE9obDMwazhE?=
- =?utf-8?B?SFlreGFRSzJCcFY2SmE0QWFQMmw5UitBTHRtMktCcWFHWjcwek80TDR4MFo3?=
- =?utf-8?B?aGFFSGZKWlYzRFBXZHpITUVLcFR6TXRjaUkwYy9iU2dTQTArVHNhcHRhT0Nq?=
- =?utf-8?B?dzhkR1VpdkdZeWxIbnVwak45M2s2dGxDVkhIdEZSbExleTF4aHo4TnhJN1VY?=
- =?utf-8?B?T0JybG5SSkpldXpTeXI5YTB2QmJLUVJ4OEFaRlFlV0cxSG54anZlajBpNHVt?=
- =?utf-8?B?eTVVeTkwaEpaQ1NXQ0hjTXpESWdnblF1elQrNFRjNUtvcnR5OXVFMWZab0JL?=
- =?utf-8?B?VEE9PQ==?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <915E79614CF1B046A0142D7090F53A97@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+        d=bytedance.com; s=google; t=1736319555; x=1736924355; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=+oUJziA+3SIeve9hH8p/SUshEWFM4XR7pFGccDfjKoA=;
+        b=Hp2r2ZDb0iQZvl44i9hhpy7ywxgkloDPIJqkqoayluwJ5duknWGDJZnkSS6wJ3AR7b
+         ZYImgJcOY04unRKcxHjM+eDu3zG7yPfSzQ1bp7ii2IKV1gX5eSssJ7Uf+EE98+ItJ5qA
+         mG0ue4D9AxbUuuYYBj279HifhvjD4MhheSJyJT6ZyUppCW0HmyNKz+iN1IuNcHY3Va0B
+         sLyyBQ5pqQqmwSpK81a6JCkLwzLBv9btR9K+6YRRB4aeHtpLnGVRUG80N5Bv4eQRJoDq
+         RS9rbq2CRpF85YjsuwzA9wlY1K0c4A8G7E8Xoi8ICECNjbFBN7dWjH1RAEpjvYK6Houe
+         xIIA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736319555; x=1736924355;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+oUJziA+3SIeve9hH8p/SUshEWFM4XR7pFGccDfjKoA=;
+        b=YMkP2/MtoY7aat/mnm0FQwE1khFqLZCKi5C/HG6EavIfyO14jaZ+wRUuHF1ge2Jv7J
+         oq3v6pSAL+opNTvIAP99puefm7tiMmeOn9bN0C2Lb/kgEVCmzg4yWyYZ7KvCXp0tWV0V
+         LcMo3fRCSCyoEEwiYatzkXMfGt+w7xxBjOWrLDppDRSWMSLIz9yT2ru+Qw9H7LNuu+vK
+         Ae3mtSjstkxwbPuqn4tC51oofNSxDFbqngudLIGulJtdRUsJm1AKIO2zH14WpAgECvB4
+         1aGgESqA4ZDaDIH99Zy6zk1JRDy8OJjrYVxPbaBrYkLM4EIcGEHJOf65fIss0N0rWpEp
+         2cVA==
+X-Forwarded-Encrypted: i=1; AJvYcCWSJv4zG1qw2A8193g/8lyr4+G46dlIt87cTi63cExpA+ThZOJI4u6pYMe41ogWnv/j5NbfC3kssCmPlvaocWFG@lists.infradead.org
+X-Gm-Message-State: AOJu0YzSwkQFysKNnd3SIQOhn1Iw6ah+YWpDrPDwNJYlVw1S+TfQ/9L7
+	lpOf0/eMUeABHOO80yJIs/PAoafNeSDkceQgTjgYpeGs9nl5x8ll/4xQAbmm+1g=
+X-Gm-Gg: ASbGncsHoIZ2rp8+ryWQ+Xk8AXrYn5iKmFq/q92UnLW4y7fJ59MRJQchz4fYOyxhNVT
+	eBlgzQJ4+XIH4VmJONztToWkmJOK4SfCpOzvvtJxgIG8WNIsjI+4XLmcfa7cyrnbrw+jOvjvCWE
+	wmO+u3Txf2u8siQcwVtGylyxODWcozwoAWrgKZPkC4R0ONV4gDKN5EOBiXnVblMvRat+b3Aa044
+	E4VIFoQPk5nVUMrmimNlI/+CltfVIwysvPMKJ3naAXqXq7iu5PfjM/VN4rZxuUY3enqTA6GnE9E
+	Ew9bzYmsEQCIm0Fg7ntS5i20q9w=
+X-Google-Smtp-Source: AGHT+IF0KICf2IpNdbhCgJ/4FLwWodDPqZ+kJ6jQ+m3hTC2SCt6RG6Dd8PQChw/e3cG7DLZH3PR19A==
+X-Received: by 2002:a17:90b:4d05:b0:2ee:f80c:6884 with SMTP id 98e67ed59e1d1-2f548f426ccmr2612187a91.33.1736319554907;
+        Tue, 07 Jan 2025 22:59:14 -0800 (PST)
+Received: from C02DW0BEMD6R.bytedance.net ([139.177.225.244])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-219dca023a3sm320067275ad.250.2025.01.07.22.59.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 07 Jan 2025 22:59:14 -0800 (PST)
+From: Qi Zheng <zhengqi.arch@bytedance.com>
+To: peterz@infradead.org,
+	agordeev@linux.ibm.com,
+	kevin.brodsky@arm.com,
+	alex@ghiti.fr,
+	andreas@gaisler.com,
+	palmer@dabbelt.com,
+	tglx@linutronix.de,
+	david@redhat.com,
+	jannh@google.com,
+	hughd@google.com,
+	yuzhao@google.com,
+	willy@infradead.org,
+	muchun.song@linux.dev,
+	vbabka@kernel.org,
+	lorenzo.stoakes@oracle.com,
+	akpm@linux-foundation.org,
+	rientjes@google.com,
+	vishal.moola@gmail.com,
+	arnd@arndb.de,
+	will@kernel.org,
+	aneesh.kumar@kernel.org,
+	npiggin@gmail.com,
+	dave.hansen@linux.intel.com,
+	rppt@kernel.org,
+	ryan.roberts@arm.com
+Cc: linux-mm@kvack.org,
+	linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	x86@kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	Qi Zheng <zhengqi.arch@bytedance.com>
+Subject: [PATCH v5 00/17] move pagetable_*_dtor() to __tlb_remove_table()
+Date: Wed,  8 Jan 2025 14:57:16 +0800
+Message-Id: <cover.1736317725.git.zhengqi.arch@bytedance.com>
+X-Mailer: git-send-email 2.24.3 (Apple Git-128)
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PSAPR03MB5365.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5c1cc9c6-42b9-42f0-45c7-08dd2fb13900
-X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Jan 2025 06:53:56.8025
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: rrpj8YAky22sniSlE6+Ma+asv68ST9YU2jZol8a5LBGQWtqEPUecDHCVHP1LRyb8+WBVqtEyGBtXqdUwrhxNL1M1TxjwrTSeKZ6zx7cWNps=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SG2PR03MB6827
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_225410_917764_4210F018 
-X-CRM114-Status: GOOD (  21.87  )
+X-CRM114-CacheID: sfid-20250107_225916_765703_536FD71A 
+X-CRM114-Status: GOOD (  19.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -222,57 +134,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCAyMDI1LTAxLTA3IGF0IDE3OjAyICswODAwLCBDaGVuLVl1IFRzYWkgd3JvdGU6DQo+
-IEV4dGVybmFsIGVtYWlsIDogUGxlYXNlIGRvIG5vdCBjbGljayBsaW5rcyBvciBvcGVuIGF0dGFj
-aG1lbnRzIHVudGlsDQo+IHlvdSBoYXZlIHZlcmlmaWVkIHRoZSBzZW5kZXIgb3IgdGhlIGNvbnRl
-bnQuDQo+IA0KPiANCj4gT24gVHVlLCBKYW4gNywgMjAyNSBhdCA0OjQ14oCvUE0gSmlhbmp1biBX
-YW5nICjnjovlu7rlhpspDQo+IDxKaWFuanVuLldhbmdAbWVkaWF0ZWsuY29tPiB3cm90ZToNCj4g
-PiANCj4gPiBPbiBNb24sIDIwMjUtMDEtMDYgYXQgMTM6MjcgKzAxMDAsIEtyenlzenRvZiBLb3ps
-b3dza2kgd3JvdGU6DQo+ID4gPiBFeHRlcm5hbCBlbWFpbCA6IFBsZWFzZSBkbyBub3QgY2xpY2sg
-bGlua3Mgb3Igb3BlbiBhdHRhY2htZW50cw0KPiA+ID4gdW50aWwNCj4gPiA+IHlvdSBoYXZlIHZl
-cmlmaWVkIHRoZSBzZW5kZXIgb3IgdGhlIGNvbnRlbnQuDQo+ID4gPiANCj4gPiA+IA0KPiA+ID4g
-T24gMDYvMDEvMjAyNSAxMDoyNiwgSmlhbmp1biBXYW5nICjnjovlu7rlhpspIHdyb3RlOg0KPiA+
-ID4gPiBPbiBGcmksIDIwMjUtMDEtMDMgYXQgMTA6MTAgKzAxMDAsIEtyenlzenRvZiBLb3psb3dz
-a2kgd3JvdGU6DQo+ID4gPiA+ID4gRXh0ZXJuYWwgZW1haWwgOiBQbGVhc2UgZG8gbm90IGNsaWNr
-IGxpbmtzIG9yIG9wZW4NCj4gPiA+ID4gPiBhdHRhY2htZW50cw0KPiA+ID4gPiA+IHVudGlsDQo+
-ID4gPiA+ID4geW91IGhhdmUgdmVyaWZpZWQgdGhlIHNlbmRlciBvciB0aGUgY29udGVudC4NCj4g
-PiA+ID4gPiANCj4gPiA+ID4gPiANCj4gPiA+ID4gPiBPbiBGcmksIEphbiAwMywgMjAyNSBhdCAw
-MjowMDoxMVBNICswODAwLCBKaWFuanVuIFdhbmcgd3JvdGU6DQo+ID4gPiA+ID4gPiArICAgICAg
-ICBjbG9jay1uYW1lczoNCj4gPiA+ID4gPiA+ICsgICAgICAgICAgaXRlbXM6DQo+ID4gPiA+ID4g
-PiArICAgICAgICAgICAgLSBjb25zdDogcGxfMjUwbQ0KPiA+ID4gPiA+ID4gKyAgICAgICAgICAg
-IC0gY29uc3Q6IHRsXzI2bQ0KPiA+ID4gPiA+ID4gKyAgICAgICAgICAgIC0gY29uc3Q6IHBlcmlf
-MjZtDQo+ID4gPiA+ID4gPiArICAgICAgICAgICAgLSBjb25zdDogcGVyaV9tZW0NCj4gPiA+ID4g
-PiA+ICsgICAgICAgICAgICAtIGNvbnN0OiBhaGJfYXBiDQo+ID4gPiA+ID4gPiArICAgICAgICAg
-ICAgLSBjb25zdDogbG93X3Bvd2VyDQo+ID4gPiA+ID4gPiArDQo+ID4gPiA+ID4gPiArICAgICAg
-ICByZXNldHM6DQo+ID4gPiA+ID4gPiArICAgICAgICAgIG1pbkl0ZW1zOiAxDQo+ID4gPiA+ID4g
-PiArICAgICAgICAgIG1heEl0ZW1zOiAyDQo+ID4gPiA+ID4gPiArDQo+ID4gPiA+ID4gPiArICAg
-ICAgICByZXNldC1uYW1lczoNCj4gPiA+ID4gPiA+ICsgICAgICAgICAgbWluSXRlbXM6IDENCj4g
-PiA+ID4gPiA+ICsgICAgICAgICAgbWF4SXRlbXM6IDINCj4gPiA+ID4gPiANCj4gPiA+ID4gPiBX
-aHkgcmVzZXRzIGFyZSBmbGV4aWJsZT8NCj4gPiA+ID4gDQo+ID4gPiA+IFRoZXJlIGFyZSB0d28g
-cmVzZXRzLCBvbmUgZm9yIE1BQyBhbmQgYW5vdGhlciBmb3IgUEhZLCBzb21lDQo+ID4gPiA+IHBs
-YXRmb3Jtcw0KPiA+ID4gPiBtYXkgb25seSB1c2Ugb25lIG9mIHRoZW0uDQo+ID4gPiANCj4gPiA+
-IEV2ZW4gbW9yZSBxdWVzdGlvbnMuIFdoYXQgZG9lcyBpdCBtZWFuIHVzZT8gSXMgaXQgdGhlcmUg
-b3IgaXMgaXQNCj4gPiA+IG5vdD8NCj4gPiANCj4gPiBJdCB3aWxsIGJlIHVzZWQgYnkgY2FsbGlu
-ZyB0aGUgcmVzZXQgY29udHJvbGxlcidzIEFQSXMgaW4gdGhlIFBDSWUNCj4gPiBjb250cm9sbGVy
-IGRyaXZlci4gSWRlYWxseSwgaXQgc2hvdWxkIGJlIGRlLWFzc2VydGVkIGJlZm9yZSBQQ0llDQo+
-ID4gaW5pdGlhbGl6YXRpb24gYW5kIHNob3VsZCBiZSBhc3NlcnRlZCBpZiBQQ0llIHBvd2VycyBk
-b3duIG9yIHRoZQ0KPiA+IGRyaXZlcg0KPiA+IGlzIHJlbW92ZWQuDQo+ID4gDQo+ID4gPiBQbGF0
-Zm9ybSBsaWtlIFNvQz8gQnV0IHRoaXMgaXMgb25lIHNwZWNpZmljIFNvQywgaXQgY2Fubm90IGJl
-DQo+ID4gPiB1c2VkIG9uDQo+ID4gPiBkaWZmZXJlbnQgU29DLg0KPiA+IA0KPiA+IFllcywgaXQg
-c2hvdWxkIGJlIFNvQywgZWFjaCBTb0MgaGF2ZSBpdHMgb3duIHJlc2V0cywgYW5kIHRoZSBudW1i
-ZXINCj4gPiBvZg0KPiA+IHJlc2V0cyBmb3IgZWFjaCBTb0MgaXMgZGVmaW5lZCBieSB0aGUgaGFy
-ZHdhcmUgZGVzaWduLCBtb3N0IFNvQ3MNCj4gPiBzaG91bGQNCj4gPiBoYXZlIG9uZSByZXNldCBm
-b3IgTUFDIGFuZCBvbmUgcmVzZXQgZm9yIFBIWS4NCj4gPiANCj4gPiA+IA0KPiA+ID4gPiANCj4g
-PiA+ID4gV291bGQgeW91IHByZWZlciB0byBzZXQgdGhlIG51bWJlciBvZiByZXNldHMgdG8gYSBm
-aXhlZCB2YWx1ZQ0KPiA+ID4gPiBmb3INCj4gPiA+ID4gc3BlY2lmaWMgcGxhdGZvcm1zPw0KPiA+
-ID4gDQo+ID4gPiBFdmVyeXRoaW5nIHNob3VsZCBiZSBjb25zdHJhaW5lZCB0byBtYXRjaCBoYXJk
-d2FyZS4NCj4gPiANCj4gPiBGb3IgTVQ4MTk2LCB0aGVyZSBhcmUgMiByZXNldHMuIFNob3VsZCBJ
-IHVzZSBhIGZpeGVkIGl0ZW0gaW4gdGhpcw0KPiA+IGNhc2U/DQo+IA0KPiBZZXMuIEFzIHlvdSBz
-YWlkLCBNVDgxOTYgaGFzIHR3byByZXNldHMsIHRoZXJlZm9yZSB0aGUgYmluZGluZyBzaG91bGQN
-Cj4gc2F5IGl0IHJlcXVpcmVzIHR3byByZXNldHMuDQo+IA0KPiBTbyBpbiB0aGUgc2Vjb25kIHBh
-cnQgd2hlcmUgaXQgbWF0Y2hlcyBhZ2FpbnN0IG10ODE5NiwgeW91IHNob3VsZA0KPiBoYXZlIG1p
-bkl0ZW1zID0gbWF4SXRlbXMgPSAyLg0KDQpHb3QgaXQsIEknbGwgZml4IGl0IGluIHRoZSBuZXh0
-IHZlcnNpb24uDQoNClRoYW5rcy4NCg0KPiANCj4gDQo+IENoZW5ZdQ0KPiANCj4gPiBUaGFua3Mu
-DQo+ID4gDQo+ID4gPiANCj4gPiA+IA0KPiA+ID4gQmVzdCByZWdhcmRzLA0KPiA+ID4gS3J6eXN6
-dG9mDQo+ID4gPiANCg==
+Changes in v5:
+ - cancel the move of p4d_free_tlb()'s location in [PATCH v4 06/15]
+   (Alexander Gordeev)
+ - fix the missing pagetable_dtor() in [PATCH v4 08/15] (Kevin Brodsky)
+ - change the subject and description in [PATCH v4 12/15]
+   (Alexander Gordeev)
+ - remove the redundant __HAVE_ARCH_TLB_REMOVE_TABLE definition in [PATCH v4 13/15]
+   (Andreas Larsson)
+ - add "mm: pgtable: completely move pagetable_dtor() to generic tlb_remove_table()"
+   (Kevin Brodsky)
+ - add "x86: pgtable: convert __tlb_remove_table() to use struct ptdesc"
+ - collect Acked-bys and Reviewed-bys
+
+Changes in v4:
+ - remove [PATCH v3 15/17] and [PATCH v3 16/17] (Mike Rapoport)
+   (the tlb_remove_page_ptdesc() and tlb_remove_ptdesc() are intermediate
+    products of the project: https://kernelnewbies.org/MatthewWilcox/Memdescs,
+    so keep them)
+ - collect Acked-by
+
+Changes in v3:
+ - take patch #5 and #6 from Kevin Brodsky's patch series below.
+   Link: https://lore.kernel.org/lkml/20241219164425.2277022-1-kevin.brodsky@arm.com/
+ - separate the statistics part from [PATCH v2 02/15] as [PATCH v3 04/17], and
+   replace the rest part with Kevin Brodsky's patch #6
+   (Alexander Gordeev and Kevin Brodsky)
+ - change the commit message of [PATCH v2 10/15] and [PATCH v2 11/15]
+   (Alexander Gordeev)
+ - fix the bug introduced by [PATCH v2 11/15]
+   (Peter Zijlstra)
+ - rebase onto the next-20241220
+
+Changes in v2:
+ - add [PATCH v2 13|14|15/15] (suggested by Peter Zijlstra)
+ - add Originally-bys and Suggested-bys
+ - rebase onto the next-20241218
+
+Hi all,
+
+As proposed [1] by Peter Zijlstra below, this patch series aims to move
+pagetable_*_dtor() into __tlb_remove_table(). This will cleanup pagetable_*_dtor()
+a bit and more gracefully fix the UAF issue [2] reported by syzbot.
+
+```
+Notably:
+
+ - s390 pud isn't calling the existing pagetable_pud_[cd]tor()
+ - none of the p4d things have pagetable_p4d_[cd]tor() (x86,arm64,s390,riscv)
+   and they have inconsistent accounting
+ - while much of the _ctor calls are in generic code, many of the _dtor
+   calls are in arch code for hysterial raisins, this could easily be
+   fixed
+ - if we fix ptlock_free() to handle NULL, then all the _dtor()
+   functions can use it, and we can observe they're all identical
+   and can be folded
+
+after all that cleanup, you can move the _dtor from *_free_tlb() into
+tlb_remove_table() -- which for the above case, would then have it
+called from __tlb_remove_table_free().
+```
+
+And hi Andrew, I developed the code based on the latest linux-next, so I reverted
+the "mm: pgtable: make ptlock be freed by RCU" first. Once the review of this
+patch series is completed, the "mm: pgtable: make ptlock be freed by RCU" can be
+dropped directly from mm tree, and this revert patch will not be needed.
+
+This series is based on next-20241220. And I tested this patch series on x86 and
+only cross-compiled it on arm, arm64, powerpc, riscv, s390 and sparc.
+
+Comments and suggestions are welcome!
+
+Thanks,
+Qi
+
+[1]. https://lore.kernel.org/all/20241211133433.GC12500@noisy.programming.kicks-ass.net/
+[2]. https://lore.kernel.org/all/67548279.050a0220.a30f1.015b.GAE@google.com/
+
+Kevin Brodsky (2):
+  riscv: mm: Skip pgtable level check in {pud,p4d}_alloc_one
+  asm-generic: pgalloc: Provide generic p4d_{alloc_one,free}
+
+Qi Zheng (15):
+  Revert "mm: pgtable: make ptlock be freed by RCU"
+  mm: pgtable: add statistics for P4D level page table
+  arm64: pgtable: use mmu gather to free p4d level page table
+  s390: pgtable: add statistics for PUD and P4D level page table
+  mm: pgtable: introduce pagetable_dtor()
+  arm: pgtable: move pagetable_dtor() to __tlb_remove_table()
+  arm64: pgtable: move pagetable_dtor() to __tlb_remove_table()
+  riscv: pgtable: move pagetable_dtor() to __tlb_remove_table()
+  x86: pgtable: convert __tlb_remove_table() to use struct ptdesc
+  x86: pgtable: move pagetable_dtor() to __tlb_remove_table()
+  s390: pgtable: consolidate PxD and PTE TLB free paths
+  mm: pgtable: introduce generic __tlb_remove_table()
+  mm: pgtable: completely move pagetable_dtor() to generic
+    tlb_remove_table()
+  mm: pgtable: move __tlb_remove_table_one() in x86 to generic file
+  mm: pgtable: introduce generic pagetable_dtor_free()
+
+ Documentation/mm/split_page_table_lock.rst |  4 +-
+ arch/arm/include/asm/tlb.h                 | 10 ----
+ arch/arm64/include/asm/pgalloc.h           | 18 ------
+ arch/arm64/include/asm/tlb.h               | 21 ++++---
+ arch/csky/include/asm/pgalloc.h            |  2 +-
+ arch/hexagon/include/asm/pgalloc.h         |  2 +-
+ arch/loongarch/include/asm/pgalloc.h       |  2 +-
+ arch/m68k/include/asm/mcf_pgalloc.h        |  4 +-
+ arch/m68k/include/asm/sun3_pgalloc.h       |  2 +-
+ arch/m68k/mm/motorola.c                    |  2 +-
+ arch/mips/include/asm/pgalloc.h            |  2 +-
+ arch/nios2/include/asm/pgalloc.h           |  2 +-
+ arch/openrisc/include/asm/pgalloc.h        |  2 +-
+ arch/powerpc/include/asm/tlb.h             |  1 +
+ arch/powerpc/mm/book3s64/mmu_context.c     |  2 +-
+ arch/powerpc/mm/book3s64/pgtable.c         |  2 +-
+ arch/powerpc/mm/pgtable-frag.c             |  4 +-
+ arch/riscv/include/asm/pgalloc.h           | 69 +++++-----------------
+ arch/riscv/include/asm/tlb.h               | 18 ------
+ arch/riscv/mm/init.c                       |  4 +-
+ arch/s390/include/asm/pgalloc.h            | 31 +++++++---
+ arch/s390/include/asm/tlb.h                | 10 ++--
+ arch/s390/mm/pgalloc.c                     | 23 +-------
+ arch/sh/include/asm/pgalloc.h              |  2 +-
+ arch/sparc/include/asm/tlb_64.h            |  1 +
+ arch/sparc/mm/init_64.c                    |  2 +-
+ arch/sparc/mm/srmmu.c                      |  2 +-
+ arch/um/include/asm/pgalloc.h              |  6 +-
+ arch/x86/include/asm/pgalloc.h             | 18 ------
+ arch/x86/include/asm/tlb.h                 | 33 -----------
+ arch/x86/kernel/paravirt.c                 |  5 +-
+ arch/x86/mm/pgtable.c                      | 23 ++++----
+ include/asm-generic/pgalloc.h              | 55 +++++++++++++++--
+ include/asm-generic/tlb.h                  | 24 ++++++--
+ include/linux/mm.h                         | 50 ++++++----------
+ include/linux/mm_types.h                   |  9 +--
+ mm/memory.c                                | 23 +++-----
+ mm/mmu_gather.c                            | 20 ++++++-
+ 38 files changed, 211 insertions(+), 299 deletions(-)
+
+-- 
+2.20.1
+
 
