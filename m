@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DC41E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 04:47:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 673E0E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 05:11:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7xQtSJggtKVY/BCzLhw3eCeAVKbrUbk5h2p9CiTXI9k=; b=KsxX8brTo5C01c+X2l05Tii+Xr
-	mBI74Ac+2wgdciy94clbRYbDKwq0HZJm5zXmx00BD2WL1oyG5ybRjzMBbwhMMEGRpGJ9WPviEupRl
-	MqEl3WB6vDQfCwJjF8TrF1TPTgDc41+40xjYSH0G+f2CZ+VSBFeUtSfeUGKMrn0/MZHKpdgcB6K9D
-	VfBNVeG/CwDYC9bKFTj5LBfS9+pO/JO2IwE4yoirDVRTk4KslHga7mHYtNT/ER5YZUNUx6+8+gGP/
-	FGRzxuSRj9aNI5q3RW6ThE0+RJtELyK1uKc02Dhdf8icIspSqK+zxiC7dJG5N0m189N9XK+qSf8wl
-	18ep05Ow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XfaBJKC3JtPS4WoGZmxSWxpcL+JIM1S+SudEDgnQLQY=; b=wmAQOk8nMI47GEkoYHrBKA/ZAT
+	A8JugKWwel25BdGP3p0a/E4HKQ4xa7DUNhku7qQmvFoCMkiaC2+KzO8mwdMMJfO5F4CbmDq1WHMIw
+	+LI6yGb3Z3EV0bXQFZSl1TLEqoBt7p0q2hcRFCZdFVE92/uoVJL0ZFC4V6cdN7foAiKa2UI5L5Ano
+	MVHv75vrLAz1psWtgxptToywVrfk7gRuufdj38qTn4nGjSVD1R9yRKvzn+fnh5G463GYAQ1m+ln8Z
+	Vn1gqseIwaC7hdVxTU5Ol5vw+b1gO8QMNW52wv7VCkPbQD5U5I0wAUIKGPv7yMRcipvnD5ubvupco
+	q7xciT1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVNyj-000000078V5-1Trb;
-	Wed, 08 Jan 2025 04:47:37 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tVOLZ-00000007AIx-0TCJ;
+	Wed, 08 Jan 2025 05:11:13 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVNvE-000000077wN-16uz
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 04:44:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CF24CA403EE;
-	Wed,  8 Jan 2025 04:42:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88207C4CEE0;
-	Wed,  8 Jan 2025 04:43:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736311439;
-	bh=36ms4CYMKb/pnrih3Z2etPkGz7WnBHowpU5ewuBqfYM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=I4NG0S0gX0VQVyZahsaoKb1VplzrZ2UelxGPw/VIgWu/VDdgFwcDMbPpxIvqkujT9
-	 l6QRlthj7vxiKx5FuzDX8w3IbaihM6ICxVpui0+LYhU1rqvd5bLrDj/adFlcMdvXgT
-	 66ASxLeAlLP+AywURD7sY4WtxuVBAykMTYMI1TZG8BAU5D4mPIA8lRnWCRmK4YlZiV
-	 7GMbbMoRWH3egw7YVlCJ0FvtcndRkP+ObQ3RU6U3NAPzQVAVE5Hds6iRAdwb049mue
-	 OYjxBBO6wuQMu9isSvlG9B2AUFJP52hv1ixoOGEbKaJtHnd45ZTQEVrt9MexHSC83S
-	 px+nO3eFMspeQ==
-From: Bjorn Andersson <andersson@kernel.org>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Luo Jie <quic_luoj@quicinc.com>
-Cc: linux-arm-msm@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	id 1tVOKL-00000007ADe-1GT6;
+	Wed, 08 Jan 2025 05:09:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1736312997; x=1767848997;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ii0v9G2O/Sgddpd5WwL725dEVh2c4NbCrDvHOB1LtgI=;
+  b=bnvPVu5lEzSwpOqS10J2TiKpD9oX5NVn1mksHSa82cnGAvI1Ac7+7lRQ
+   gMm5vremMKR9TOadzEQ0orZfX+qVRsRcGUT0kVLeTxvdouxT34XHP3aLM
+   4+dRBZ+1qcj4QOWErHNewIJpylH+S8LTfmIhjKq0dKHke6gHBlnl9y3ui
+   AmbGHeOrR7UmsK/muRavIqY4aNHt/x1pO7cjcO7ef+o1fbWDMQ2BMuS9s
+   ttYcz/aDKi+qpJwCv7F/MyXXTE9AhkP+Dgq8xBkoCqFxfPqH26019SUxx
+   9InJXGdFrc/Jbc31oYA2V2GRJl5cAPZe6EmlWfyzRHCF5ZYm8PBCGI05s
+   Q==;
+X-CSE-ConnectionGUID: jX58GF8YTomGZSS/7IZHVQ==
+X-CSE-MsgGUID: g0e30C7YQJO8L7SfpaDwyw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11308"; a="40469245"
+X-IronPort-AV: E=Sophos;i="6.12,297,1728975600"; 
+   d="scan'208";a="40469245"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Jan 2025 21:09:49 -0800
+X-CSE-ConnectionGUID: vx9g9AvbQVWLcojtSVYr2Q==
+X-CSE-MsgGUID: qyolrQBbSMWp3rcHNGmDXg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,297,1728975600"; 
+   d="scan'208";a="103198374"
+Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
+  by fmviesa008.fm.intel.com with ESMTP; 07 Jan 2025 21:09:47 -0800
+Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tVOK8-000Fe3-0o;
+	Wed, 08 Jan 2025 05:09:44 +0000
+Date: Wed, 8 Jan 2025 13:08:56 +0800
+From: kernel test robot <lkp@intel.com>
+To: Christian Marangi <ansuelsmth@gmail.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	quic_kkumarcs@quicinc.com,
-	quic_suruchia@quicinc.com,
-	quic_pavir@quicinc.com,
-	quic_linchen@quicinc.com,
-	quic_leiwei@quicinc.com,
-	bartosz.golaszewski@linaro.org,
-	srinivas.kandagatla@linaro.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Subject: Re: (subset) [PATCH v8 0/5] Add CMN PLL clock controller driver for IPQ9574
-Date: Tue,  7 Jan 2025 22:43:46 -0600
-Message-ID: <173631142079.110881.10241987285937979220.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.1
-In-Reply-To: <20250103-qcom_ipq_cmnpll-v8-0-c89fb4d4849d@quicinc.com>
-References: <20250103-qcom_ipq_cmnpll-v8-0-c89fb4d4849d@quicinc.com>
+	linux-mediatek@lists.infradead.org, upstream@airoha.com
+Cc: oe-kbuild-all@lists.linux.dev
+Subject: Re: [PATCH v9 1/2] pmdomain: airoha: Add Airoha CPU PM Domain support
+Message-ID: <202501081205.3pBFrmYH-lkp@intel.com>
+References: <20250105142645.20128-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250105142645.20128-1-ansuelsmth@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_204400_365648_6953FFFC 
-X-CRM114-Status: UNSURE (   9.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250107_210957_350983_1A2BBCB5 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,26 +93,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Christian,
 
-On Fri, 03 Jan 2025 15:31:33 +0800, Luo Jie wrote:
-> The CMN PLL clock controller in Qualcomm IPQ chipsets provides
-> the clocks to the networking hardware blocks that are internal
-> or external to the SoC, and to the GCC. This driver configures
-> the CMN PLL clock controller to enable the output clocks. The
-> networking blocks include the internal blocks such as PPE
-> (Packet Process Engine) and PCS blocks, and external hardware
-> such as Ethernet PHY or switch. The CMN PLL block also outputs
-> fixed rate clocks to GCC, such as 24 MHZ as XO clock and 32 KHZ
-> as sleep clock supplied to GCC.
-> 
-> [...]
+kernel test robot noticed the following build errors:
 
-Applied, thanks!
+[auto build test ERROR on rafael-pm/linux-next]
+[also build test ERROR on rafael-pm/bleeding-edge linus/master v6.13-rc6 next-20250107]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-[3/5] arm64: defconfig: Enable Qualcomm IPQ CMN PLL clock controller
-      commit: 1fe6c70fec8fd8c823afee66467f85f028b0d22c
+url:    https://github.com/intel-lab-lkp/linux/commits/Christian-Marangi/cpufreq-airoha-Add-EN7581-CPUFreq-SMCCC-driver/20250105-223027
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git linux-next
+patch link:    https://lore.kernel.org/r/20250105142645.20128-1-ansuelsmth%40gmail.com
+patch subject: [PATCH v9 1/2] pmdomain: airoha: Add Airoha CPU PM Domain support
+config: arm-randconfig-r063-20250108 (https://download.01.org/0day-ci/archive/20250108/202501081205.3pBFrmYH-lkp@intel.com/config)
+compiler: clang version 19.1.3 (https://github.com/llvm/llvm-project ab51eccf88f5321e7c60591c5546b254b6afab99)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250108/202501081205.3pBFrmYH-lkp@intel.com/reproduce)
 
-Best regards,
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202501081205.3pBFrmYH-lkp@intel.com/
+
+All errors (new ones prefixed by >>, old ones prefixed by <<):
+
+>> ERROR: modpost: "arm_smccc_1_1_get_conduit" [drivers/pmdomain/mediatek/airoha-cpu-pmdomain.ko] undefined!
+
 -- 
-Bjorn Andersson <andersson@kernel.org>
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
