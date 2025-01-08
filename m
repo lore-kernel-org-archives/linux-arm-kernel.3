@@ -4,114 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21B0BE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 16:15:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 784FFE77199
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 16:17:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/0pEosJAtrrq7+AZfl2ID181pVMDXxvqRB1iDHPru/M=; b=jpSyd0PL2381CoRUe9O5LK17BW
-	gQdvlxfKo2fAZATY6VSJbhh54xsGayq+jpvSXYExRah7ZW+OvUpT1YXG/RaO2X+lLva7rMvJMbnAe
-	Zgab7S2imx/mr3dRQqUInMKrDfK9dApJ6ycFn2L3UTjSaSrGIOA3dSLKtmX0M1Pyhx6X784d2K1UG
-	Z5I4z36UaNobFKy7AxGCCtQgyP6QfOsgSuPA3OFfBzKZ19RPZrHqAd820jdjQxjl8Isv0Vv+eqNJ8
-	nH5JmoqdrUCPQMs6gdbHB4pPlOvOEn2qx7uQhtDEC0GR2DYmp2JpfkOVnFRWaNU8nT6ffyOfB9IfZ
-	96dp4bKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=cbxXwWR8AIKr2Z5xmtMFDic9EFUnqAlHiSI7jHWWslU=; b=AJyYhI1jwyHFhA
+	ObadVVJRdMXuwodHLu2tGosJLdL4owB1PU7bK6dRRCWscXJEJcpjVR203AzoHLbfJm2GWW9ltAcNB
+	4pw4G/G+tq7S5kI+fYBw0KOG8tykmDuhhNaMZR4sEJ3QDKdpjdbHCqd9QJ82epLAiJqio4xg/ZnTp
+	Q3c2AxJLC07zc+MQaHPn+z4S+3/oVp1vPOhQJcsrrcUWFhfsVmW1TLjtv2+FL0ZD7xekVK0kOvIcx
+	QWl3RAu43UcCEPoDfrh/lxqy9LiY4VhdbLTaVmrpzEg00p8y3hwJTDFiVze/ClOzTUpZVEv/eEvrA
+	Z0068bgdf8dWZee95Omw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVYhm-000000097qF-015h;
-	Wed, 08 Jan 2025 16:14:50 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1tVYjz-000000098d9-2yhc;
+	Wed, 08 Jan 2025 16:17:07 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVYgX-000000097Zd-2nsX;
-	Wed, 08 Jan 2025 16:13:34 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 508Ew0Hd008979;
-	Wed, 8 Jan 2025 16:13:02 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=/0pEosJAtrrq7+AZfl2ID181pVMDXx
-	vqRB1iDHPru/M=; b=Qc2i4Tp0uvBRyl+jGtaMLwYGZKKaztQUee3zrazLkmkths
-	BKjfeh5hc4DNF+FovJkBB/fHbU/DPDjRCbIEh/eMZyHyvXxayMqu9FBQFJOug4QH
-	iQGB7QT793mBW00g/2e5RWsTUnIRvzEqsPYZoZ1xrycOjY77mjmhxD3Tr58vKYfh
-	i5WI1PseA+GU3nr66lZ1WH05bULNRioNAgJgAm9VNeTRLQ4pRSeX+RYdvIB2cetS
-	GTBBs7NBz+M3Z6MiU02DQX/J9dzcrcbfHP6qZ8C6ajXXZ6zofEYRDTTx4bda1nof
-	mnWd9f4JhtWC7wiQ3TFYDev/txCoPQl/rsnDG/uQ==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 441hupu905-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 08 Jan 2025 16:13:02 +0000 (GMT)
-Received: from m0356517.ppops.net (m0356517.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 508GD1K1025958;
-	Wed, 8 Jan 2025 16:13:01 GMT
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 441hupu901-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 08 Jan 2025 16:13:01 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 508CW5fH003630;
-	Wed, 8 Jan 2025 16:13:00 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 43yfat8qq7-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 08 Jan 2025 16:13:00 +0000
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 508GCwru8061280
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 8 Jan 2025 16:12:58 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B38D720040;
-	Wed,  8 Jan 2025 16:12:58 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 1575720043;
-	Wed,  8 Jan 2025 16:12:58 +0000 (GMT)
-Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.155.204.135])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Wed,  8 Jan 2025 16:12:58 +0000 (GMT)
-Date: Wed, 8 Jan 2025 17:12:56 +0100
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: Qi Zheng <zhengqi.arch@bytedance.com>
-Cc: peterz@infradead.org, kevin.brodsky@arm.com, alex@ghiti.fr,
-        andreas@gaisler.com, palmer@dabbelt.com, tglx@linutronix.de,
-        david@redhat.com, jannh@google.com, hughd@google.com,
-        yuzhao@google.com, willy@infradead.org, muchun.song@linux.dev,
-        vbabka@kernel.org, lorenzo.stoakes@oracle.com,
-        akpm@linux-foundation.org, rientjes@google.com, vishal.moola@gmail.com,
-        arnd@arndb.de, will@kernel.org, aneesh.kumar@kernel.org,
-        npiggin@gmail.com, dave.hansen@linux.intel.com, rppt@kernel.org,
-        ryan.roberts@arm.com, linux-mm@kvack.org,
-        linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-        sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org,
-        x86@kernel.org, linux-arch@vger.kernel.org, linux-csky@vger.kernel.org,
-        linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
-        linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
-        linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org,
-        linux-um@lists.infradead.org
-Subject: Re: [PATCH v5 06/17] s390: pgtable: add statistics for PUD and P4D
- level page table
-Message-ID: <Z36kCF6tgnzkIRDM@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
-References: <cover.1736317725.git.zhengqi.arch@bytedance.com>
- <4707dffce228ccec5c6662810566dd12b5741c4b.1736317725.git.zhengqi.arch@bytedance.com>
+	id 1tVYij-000000098Fi-38WF
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 08 Jan 2025 16:15:51 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4361f664af5so6385e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jan 2025 08:15:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1736352947; x=1736957747; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=cbxXwWR8AIKr2Z5xmtMFDic9EFUnqAlHiSI7jHWWslU=;
+        b=F7Md47KUaNp7i2sEkfMNTAZFIrnvIZ5RCiurGEU5CrRkL55MyCdV86NjPycr35FJBh
+         vaALCXrcsTBH+tehNk1eJdtNtIeZN/8lBjmxFeIvrxX3R28ODIBEkWH/RlFP0fEyhQHi
+         //DxF9sm5EGe2OQ4EMwaFmbK6SYasAlU8/kt+s2TIS1nrMwly+k5iaJCQXKQFCOrLXxw
+         /E6MsxaGDTivlWwi5ulltntnXdOgMKZZN0EHvsZ9m3XRINdTU5vI0z1bh3kjXA425dcq
+         UUTlOdfZERlzMWYBiNXktGBnK16SNdMewyluuvxb7C+X+707GNuijzAnw0vYTbzMSC6i
+         nAVQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736352947; x=1736957747;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=cbxXwWR8AIKr2Z5xmtMFDic9EFUnqAlHiSI7jHWWslU=;
+        b=aInA9q/rB678WZapHuBkaE7Bd2/WxFHdMTy3Pqfj+XAtcPuhFRRzNFLb2fGl9IkUyZ
+         IDIxt2FXUkOk05slpeAsFUZZnpCcUy1gbdOdAh8ol/MhorHhWXMMFWnH/xjTg+DovNAw
+         bVY0YP3QSEs98w0kE6l5iaDFNL44HNdxP2zGlt8UnK2G2ebSzqeGBX7C3zE9bcnfvQaz
+         2LpHZiwa2ad29/tmlNghb+jR/hBZNElCsF0eRAxtk3CBYTFVtymEYbvNkFR7W/K5JUIe
+         oli+4A+cibv9G4+3NqU9exSWlhzuhehIi6An2y+ypYwn8dQzcxHH50gyiyD/NfyOEIpg
+         cjnQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVCIQ+scJtvpa9y+jUo8vCfQwUyXmbZdlQIJflGQWQL54Er5Hi9Ub8Sz3Qcko5F+TM6CsxymtN6CviUgwtIuce8@lists.infradead.org
+X-Gm-Message-State: AOJu0YyCDWK5JUkRqLCCux6LFk9e9SqLJ4pweG4fqskoPAOdCQ2IwHYz
+	LluOosWqGszurlr1l7iK0S59zz0WAhahOGSgfAX4bwoRYhBFh2kkyTrBbVuHKv8=
+X-Gm-Gg: ASbGnctBCs3CFJtiHXMBsuLVIcbVADWFom9Mm2dIPeqIT4zZO3QZNhPlWU5gMBvOPfr
+	WSLFCzqD4vi05o664FlqEE1QRYrJonfJ1FvXi2P5bIMm4XC2ja7z8fT66y9Ka7lu8SsWCYaSTTU
+	T+lJAZy4VJ1Q6RFUJPy+2Bx5lSl2/+ezj/QhY3H8svSt6bZi/1qrSq8rACBnMj5iAx33/G5ANCw
+	YLlwSNwrPASO1q0KArdzX3aYMYd833WQZLcHIvBvwqdxLSCOzRgO5ZuM4aU
+X-Google-Smtp-Source: AGHT+IGGAa64d+bPHxfOT6F6vJgh1xofOm1puRyf5Gg2Qx08bu4NygW/ia9oSmUPKTI5x+9zroEuLw==
+X-Received: by 2002:a05:600c:4e44:b0:434:e9ee:c3d with SMTP id 5b1f17b1804b1-436e27070b1mr31379705e9.20.1736352947285;
+        Wed, 08 Jan 2025 08:15:47 -0800 (PST)
+Received: from [127.0.1.1] ([2a01:e0a:5ee:79d0:a6ac:e6d2:88e3:8ea1])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-436dd14dfcasm44378105e9.1.2025.01.08.08.15.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 08 Jan 2025 08:15:46 -0800 (PST)
+From: amergnat@baylibre.com
+Subject: [PATCH v5 0/7] Add display support for the MT8365-EVK board
+Date: Wed, 08 Jan 2025 17:15:42 +0100
+Message-Id: <20231023-display-support-v5-0-3905f1e4b835@baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <4707dffce228ccec5c6662810566dd12b5741c4b.1736317725.git.zhengqi.arch@bytedance.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: KUhXNS6aArO_tUV9i1PAsm9yGShhoIw3
-X-Proofpoint-GUID: AEhKKtU-rxWzLnMSxQ4AI9AzMP3tXlSR
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
- definitions=2024-10-15_01,2024-10-11_01,2024-09-30_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 adultscore=0
- clxscore=1011 mlxscore=0 malwarescore=0 priorityscore=1501
- lowpriorityscore=0 spamscore=0 bulkscore=0 impostorscore=0 mlxlogscore=890
- phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2501080133
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAK6kfmcC/4XOwQ6CMAwG4FcxOzvD1oHTk+9hPKxbkSUKZEMiI
+ by7G0ej4dDD36Tf35lFCp4iO+9mFmj00XdtCuV+x2xj2jtx71JmspAg0nDnY/8wE4+vvu/CwG2
+ lhEYoSIkTS1doInEMprVNvhsoDiLv+0C1f69N11vKjY9DF6a1eBR5+79jFLzgpdVVQa60AHhBM
+ z08BjrY7skyN8oNQiYCwJLWlUIpjz8I2CAgfwGgdQ3kQP36Qm0QKhHktCQUla5RfBHLsnwA7M2
+ QN5IBAAA=
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Jitao Shi <jitao.shi@mediatek.com>, CK Hu <ck.hu@mediatek.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Simona Vetter <simona@ffwll.ch>, Simona Vetter <simona.vetter@ffwll.ch>
+Cc: dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Alexandre Mergnat <amergnat@baylibre.com>, 
+ Fabien Parent <fparent@baylibre.com>
+X-Mailer: b4 0.12.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4389; i=amergnat@baylibre.com;
+ h=from:subject:message-id; bh=9M5KGNUL9vwlasksx/eWxH2UHxU8J0vFX1+wbxwtEUA=;
+ b=owEBbQKS/ZANAwAKAStGSZ1+MdRFAcsmYgBnfqSx658xb7vf06grM0qAloaXvz/hrcb0mpGfxHdu
+ epVdHV6JAjMEAAEKAB0WIQQjG17X8+qqcA5g/osrRkmdfjHURQUCZ36ksQAKCRArRkmdfjHURWiYEA
+ Cyi6gnp7YSYhtyIAMfKnndt3CITPF2/KZsZp9k2o8Npc50HP+C3COPSR1PQMuPYN5qv99iNVgVk2jV
+ +b5/tfraZgj/FEwguRiDgvTlapCQzSp8nSqKQUQOMBy9W1CfLr/0WJ+IDwAkbSh7cixYua6gxzwyS+
+ 7yW94h56RgX2IVNPtFkUcK6WS2J3pOPo2OyDwYyOkPZKH6sKOG/ylVjCNH7Df32gHohwQfUpJkghP0
+ mTtv5YPiHeTpc1sN9wFYzU6oeZXXtyMgLq9sofGPKzzSKbErqhXs1FYdg86nLE8lcJsWVQuBW05xFX
+ OED0xynO9dvCNkLZJfs4sGX4MMwKjIDCWyH1B7u9x0ecdQ4e1Y4qcdVVs4EMUfSlnN4smNUz1Bvsl2
+ EV7LdcTCDuvn69H7PuU3uuz0Fp/to1r08K5WbvWQKgDxLWMVLo/zA/aQEe3CoA8njD7DWu80/U9hTE
+ kEDp7JNjhW/GdXkftNE9DamK2naSaDxYVXyGYsomUCZXjH3HDWlnj3pMvb0hTFP9wG9nvBtDWz9UV9
+ PCRy6yw/n6dcDkIQ2DtbAv6Nv6t3DYj2OMJyv5OJMB0bTyTVJjienFJwn1Vylk+u7WJvWMZrSQfRnr
+ ylZ62ANrjmM9e9hcriyWlZi0fE+LEezrw5tE+Q/1cd7Cdav9hnYtQlyJjF7Q==
+X-Developer-Key: i=amergnat@baylibre.com; a=openpgp;
+ fpr=231B5ED7F3EAAA700E60FE8B2B46499D7E31D445
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_081333_717175_B816F42B 
-X-CRM114-Status: GOOD (  18.05  )
+X-CRM114-CacheID: sfid-20250108_081549_792020_A8553F2E 
+X-CRM114-Status: GOOD (  17.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,96 +128,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 08, 2025 at 02:57:22PM +0800, Qi Zheng wrote:
-> Like PMD and PTE level page table, also add statistics for PUD and P4D
-> page table.
-> 
-> Signed-off-by: Qi Zheng <zhengqi.arch@bytedance.com>
-> Suggested-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-> Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> Cc: linux-s390@vger.kernel.org
-> ---
->  arch/s390/include/asm/pgalloc.h | 29 +++++++++++++++++++++--------
->  arch/s390/include/asm/tlb.h     |  2 ++
->  2 files changed, 23 insertions(+), 8 deletions(-)
-> 
-> diff --git a/arch/s390/include/asm/pgalloc.h b/arch/s390/include/asm/pgalloc.h
-> index 7b84ef6dc4b6d..a0c1ca5d8423c 100644
-> --- a/arch/s390/include/asm/pgalloc.h
-> +++ b/arch/s390/include/asm/pgalloc.h
-> @@ -53,29 +53,42 @@ static inline p4d_t *p4d_alloc_one(struct mm_struct *mm, unsigned long address)
->  {
->  	unsigned long *table = crst_table_alloc(mm);
->  
-> -	if (table)
-> -		crst_table_init(table, _REGION2_ENTRY_EMPTY);
-> +	if (!table)
-> +		return NULL;
-> +	crst_table_init(table, _REGION2_ENTRY_EMPTY);
-> +	pagetable_p4d_ctor(virt_to_ptdesc(table));
-> +
->  	return (p4d_t *) table;
->  }
->  
->  static inline void p4d_free(struct mm_struct *mm, p4d_t *p4d)
->  {
-> -	if (!mm_p4d_folded(mm))
-> -		crst_table_free(mm, (unsigned long *) p4d);
-> +	if (mm_p4d_folded(mm))
-> +		return;
-> +
-> +	pagetable_p4d_dtor(virt_to_ptdesc(p4d));
-> +	crst_table_free(mm, (unsigned long *) p4d);
->  }
->  
->  static inline pud_t *pud_alloc_one(struct mm_struct *mm, unsigned long address)
->  {
->  	unsigned long *table = crst_table_alloc(mm);
-> -	if (table)
-> -		crst_table_init(table, _REGION3_ENTRY_EMPTY);
-> +
-> +	if (!table)
-> +		return NULL;
-> +	crst_table_init(table, _REGION3_ENTRY_EMPTY);
-> +	pagetable_pud_ctor(virt_to_ptdesc(table));
-> +
->  	return (pud_t *) table;
->  }
->  
->  static inline void pud_free(struct mm_struct *mm, pud_t *pud)
->  {
-> -	if (!mm_pud_folded(mm))
-> -		crst_table_free(mm, (unsigned long *) pud);
-> +	if (mm_pud_folded(mm))
-> +		return;
-> +
-> +	pagetable_pud_dtor(virt_to_ptdesc(pud));
-> +	crst_table_free(mm, (unsigned long *) pud);
->  }
->  
->  static inline pmd_t *pmd_alloc_one(struct mm_struct *mm, unsigned long vmaddr)
-> diff --git a/arch/s390/include/asm/tlb.h b/arch/s390/include/asm/tlb.h
-> index e95b2c8081eb8..907d57a68145c 100644
-> --- a/arch/s390/include/asm/tlb.h
-> +++ b/arch/s390/include/asm/tlb.h
-> @@ -122,6 +122,7 @@ static inline void p4d_free_tlb(struct mmu_gather *tlb, p4d_t *p4d,
->  {
->  	if (mm_p4d_folded(tlb->mm))
->  		return;
-> +	pagetable_p4d_dtor(virt_to_ptdesc(p4d));
->  	__tlb_adjust_range(tlb, address, PAGE_SIZE);
->  	tlb->mm->context.flush_mm = 1;
->  	tlb->freed_tables = 1;
-> @@ -140,6 +141,7 @@ static inline void pud_free_tlb(struct mmu_gather *tlb, pud_t *pud,
->  {
->  	if (mm_pud_folded(tlb->mm))
->  		return;
-> +	pagetable_pud_dtor(virt_to_ptdesc(pud));
->  	tlb->mm->context.flush_mm = 1;
->  	tlb->freed_tables = 1;
->  	tlb->cleared_p4ds = 1;
+The purpose of this series is to add the display support for the mt8365-evk.
 
-Acked-by: Alexander Gordeev <agordeev@linux.ibm.com>
+This is the list of HWs / IPs support added:
+- Connectors (HW):
+  - HDMI
+  - MIPI DSI (Mobile Industry Processor Interface Display Serial Interface)
+- HDMI bridge (it66121)
+- DSI pannel (startek,kd070fhfid015)
+- SoC display blocks (IP):
+  - OVL0 (Overlay)
+  - RDMA0 (Data Path Read DMA)
+  - Color0
+  - CCorr0 (Color Correction)
+  - AAL0 (Adaptive Ambient Light)
+  - GAMMA0
+  - Dither0
+  - DSI0 (Display Serial Interface)
+  - RDMA1 (Data Path Read DMA)
+  - DPI0 (Display Parallel Interface)
 
-Thanks!
+The Mediatek DSI, DPI and DRM drivers are also improved.
+
+The series is rebased on top of Angelo's series [1] to
+use the OF graphs support.
+
+Regards,
+Alex
+
+Signed-off-by: Alexandre Mergnat <amergnat@baylibre.com>
+---
+Changes in v5:
+- Patch merged, then removed from the series:
+  - dt-bindings: display: mediatek: rdma: add compatible for MT8365 SoC
+  - dt-bindings: display: mediatek: ovl: add compatible for MT8365 SoC
+  - dt-bindings: display: mediatek: gamma: add compatible for MT8365 SoC
+  - dt-bindings: display: mediatek: dpi: add compatible for MT8365
+  - dt-bindings: display: mediatek: dsi: add compatible for MT8365 SoC
+  - dt-bindings: display: mediatek: dither: add compatible for MT8365 SoC
+  - dt-bindings: display: mediatek: color: add compatible for MT8365 SoC
+  - dt-bindings: display: mediatek: ccorr: add compatible for MT8365 SoC
+  - dt-bindings: display: mediatek: aal: add compatible for MT8365 SoC
+- Enable STARTEK KD070FHFID015 panel in the defconfig.
+- Rebase on top of 6.13-rc6.
+- Link to v4: https://lore.kernel.org/all/20231023-display-support-v4-0-ed82eb168fb1@baylibre.com
+
+Changes in v4:
+- Patch merged, then removed from the series:
+  - dt-bindings: display: mediatek: dpi: add power-domains property
+  - dt-bindings: pwm: mediatek,pwm-disp: add compatible for mt8365 SoC
+  - clk: mediatek: mt8365-mm: fix DPI0 parent
+- Remove mediatek,mt8365-dpi compatible from mtk_drm_drv.c because it
+  use the mt8192's data. It's a miss.
+- Add MT8365 OF graphs support, remove the hardcoded display path and
+  rebase on top of Angelo's series [1].
+- Link to v3: https://lore.kernel.org/r/20231023-display-support-v3-0-53388f3ed34b@baylibre.com
+
+Changes in v3:
+- Drop "drm/mediatek: add mt8365 dpi support" because it's the same
+  config as mt8192 SoC
+- Drop "dt-bindings: pwm: mediatek,pwm-disp: add power-domains property"
+  because an equivalent patch has been merge already.
+- Add DPI clock fix in a separate commit.
+- Improve DTS(I) readability.
+- Link to v2: https://lore.kernel.org/r/20231023-display-support-v2-0-33ce8864b227@baylibre.com
+
+Changes in v2:
+- s/binding/compatible/ in commit messages/titles.
+- Improve commit messages as Conor suggest.
+- pwm-disp: Set power domain property for MT8365. This one is optionnal
+  and can be used for other SoC.
+- Fix mediatek,dsi.yaml issue.
+- Remove the extra clock in the DPI node/driver and fix the dpi clock
+  parenting to be consistent with the DPI clock assignement.
+- Link to v1: https://lore.kernel.org/r/20231023-display-support-v1-0-5c860ed5c33b@baylibre.com
+
+[1] https://lore.kernel.org/lkml/20240516081104.83458-1-angelogioacchino.delregno@collabora.com/
+
+---
+Alexandre Mergnat (5):
+      drm/mediatek: dsi: Improves the DSI lane setup robustness
+      arm64: defconfig: enable display connector support
+      arm64: defconfig: enable STARTEK KD070FHFID015 panel
+      arm64: dts: mediatek: add display blocks support for the MT8365 SoC
+      arm64: dts: mediatek: add display support for mt8365-evk
+
+Fabien Parent (2):
+      dt-bindings: display: mediatek: dpi: add power-domains property
+      drm/mediatek: add MT8365 SoC support
+
+ .../bindings/display/mediatek/mediatek,dpi.yaml    |   5 +
+ arch/arm64/boot/dts/mediatek/mt8365-evk.dts        | 236 +++++++++++++++
+ arch/arm64/boot/dts/mediatek/mt8365.dtsi           | 336 +++++++++++++++++++++
+ arch/arm64/configs/defconfig                       |   2 +
+ drivers/gpu/drm/mediatek/mtk_drm_drv.c             |   8 +
+ drivers/gpu/drm/mediatek/mtk_dsi.c                 |   2 +
+ 6 files changed, 589 insertions(+)
+---
+base-commit: 9d89551994a430b50c4fffcb1e617a057fa76e20
+change-id: 20231023-display-support-c6418b30e419
+
+Best regards,
+-- 
+Alexandre Mergnat <amergnat@baylibre.com>
+
 
