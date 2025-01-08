@@ -4,75 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D268E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 20:26:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E32CCE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 20:44:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PUDw2uMXlvZKFnYf/nGhrEOQlOnEKNrdrSrZUwzH9YU=; b=cLzCtXt0APoYFJDjWUZqhXIIls
-	uPrMutZa40wJiCksnwx3AZrJgN8wcSQGtHGKrwxqPXGWwS2+Hdc9FirDffpXyk2UU/3zUTuC2Rt41
-	tZ2ruPlJwy3+tBCrMAC1sax6KIrfryS6QuFvQEBxqa/BAUIvuqwQ6X9lf60uLvWp1ngcyBSo26GhA
-	pxW+pKMmk1Tef6+7UZm/y0zeWbOAP/Pr3UeFQ+Jkj4RRwqgy/cdzQcxxqSILAKic7Hd8P4W4A3r+U
-	5n3kcm7l7GNxPLi0yYD6Fb7mcPdVdEoguNsBks0nTCPRxU+j5KTAo3nXYm80GSX0t3aWNji1MrvhA
-	eG/Z1fHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NL/s9BaV7zaTxsqmUo1LrDXYoClwJBwlRVE6OKrf/cc=; b=uw7z4pYWcOqoCeOwj79PCBEtVC
+	K5Wt/IIXeJVhLabPnDWDnbcVoLlrAL+zAyd48MGeFftfMhdVCzCyxtXWHHBUFh/rVCv9sVHD2wZWn
+	EgtzO3j/5z6vg4KguXa4QZLxPiMbI1g/5vZH/THSvcVNLZypCgWQOl5ZiVSSe6Iu5Z51BCm+Bf6hu
+	DF5fo+OXGmD/rMxwRxWwsONmF8udlgoZJ0ns+GgrXw6vkUuQJ/62eyt+izulURRZA49k7Ug/FzcT1
+	hzsUPMYAphoOzubHj0E8cxuPdt5fCYbOhmusHWOeFyPgq2UGjvhkVfqz+Js7Cqxq+vQwwZu7kRfJ+
+	1FXpI9Mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVcdR-00000009lUW-2ZIl;
-	Wed, 08 Jan 2025 20:26:37 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tVcuo-00000009oiB-28Sv;
+	Wed, 08 Jan 2025 20:44:34 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVccC-00000009l0p-2sTk
+	id 1tVctY-00000009oQQ-0Qwt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 20:25:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=PUDw2uMXlvZKFnYf/nGhrEOQlOnEKNrdrSrZUwzH9YU=; b=bgULs6bQzGZW9Uddr1Ln/594zs
-	Vt9+DfsqfV4bSp5A8CpFEk5PVqbyagYxOG7eiUkt6KlN4zYgexHHHRGZ67E1YtT19gt9Qcu16kQPM
-	+vbDAsasIt/5/6e4pO8EbTtvDNh0nfECU6D/UZqrKAdZqaDqlrwjAJMMzYPHE0FWqHVfGbFHqctMy
-	I6jniHa56A1hvkHEb0KzrCJPhzOqbxZTqn4LmoUuajDAL4SwFSjf3sJkYuu823oHxUr/t9cnYpmZ3
-	zb/pTPwV/3iL4UnidBODEqp9wCcq7lH6Ul3+G1adhBnAplyCbvsedd7k5ITwUu45l93vhG+TS6+M1
-	oSzGG/8Q==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:50228)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tVcc3-0001BL-1g;
-	Wed, 08 Jan 2025 20:25:11 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tVcbz-0006a3-24;
-	Wed, 08 Jan 2025 20:25:07 +0000
-Date: Wed, 8 Jan 2025 20:25:07 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next v4 07/18] net: stmmac: clean up
- stmmac_disable_eee_mode()
-Message-ID: <Z37fI8dMLOS7-ky7@shell.armlinux.org.uk>
-References: <Z36sHIlnExQBuFJE@shell.armlinux.org.uk>
- <E1tVZDw-0002KL-Gg@rmk-PC.armlinux.org.uk>
+	Wed, 08 Jan 2025 20:43:17 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 508DXA9J028918;
+	Wed, 8 Jan 2025 20:42:42 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=NL/s9B
+	aV7zaTxsqmUo1LrDXYoClwJBwlRVE6OKrf/cc=; b=eNflmo6SvxUT0BrJA7hQ7J
+	FkF9So2pLcLA9eVZqXDTGW/9YLnkk5c1p/oKlmfcQumcxgZcyLedR2TkiJcqmWJJ
+	tANBa5wyvicB9wAwflQVAcC8D2gfnNDRlZhyCXNqfk7WFaA8axghP53szr27Dez2
+	Ju7yCNCEFiOSerFe6mGd/rpVhH0S3tnjlQ9Rh/x+F3y+Mdsuq+fTPxOVhHl5musO
+	o7/d0Jnqys48h1B8rB0r8I4IXe+F5dQxIlVmHo5+4cHUWRgjxApEfWh3tHF/1I9g
+	ch5chv8Zs+thoyxslTA98TU0q5xBQmoGtRPORle0bFsa78U257ItHPtKn4sHzRZw
+	==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 441e3b504h-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 08 Jan 2025 20:42:41 +0000 (GMT)
+Received: from m0356516.ppops.net (m0356516.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 508Kgf9C023841;
+	Wed, 8 Jan 2025 20:42:41 GMT
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 441e3b504d-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 08 Jan 2025 20:42:41 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 508H6MFx013698;
+	Wed, 8 Jan 2025 20:42:40 GMT
+Received: from smtprelay03.dal12v.mail.ibm.com ([172.16.1.5])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 43ygap1mk0-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 08 Jan 2025 20:42:40 +0000
+Received: from smtpav06.dal12v.mail.ibm.com (smtpav06.dal12v.mail.ibm.com [10.241.53.105])
+	by smtprelay03.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 508KgdEJ32244282
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 8 Jan 2025 20:42:40 GMT
+Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id D2A9C5805E;
+	Wed,  8 Jan 2025 20:42:39 +0000 (GMT)
+Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id E114C58055;
+	Wed,  8 Jan 2025 20:42:36 +0000 (GMT)
+Received: from [9.61.139.65] (unknown [9.61.139.65])
+	by smtpav06.dal12v.mail.ibm.com (Postfix) with ESMTP;
+	Wed,  8 Jan 2025 20:42:35 +0000 (GMT)
+Message-ID: <ffcf60ec-1096-477d-a176-8e0006e19537@linux.ibm.com>
+Date: Wed, 8 Jan 2025 14:42:35 -0600
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <E1tVZDw-0002KL-Gg@rmk-PC.armlinux.org.uk>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 05/10] ARM: dts: aspeed: system1: Add RGMII support
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: minyard@acm.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+        andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+        kuba@kernel.org, pabeni@redhat.com, ratbert@faraday-tech.com,
+        openipmi-developer@lists.sourceforge.net, netdev@vger.kernel.org,
+        joel@jms.id.au, andrew@codeconstruct.com.au,
+        devicetree@vger.kernel.org, eajames@linux.ibm.com,
+        linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+        linux-kernel@vger.kernel.org
+References: <20250108163640.1374680-1-ninad@linux.ibm.com>
+ <20250108163640.1374680-6-ninad@linux.ibm.com>
+ <1dd0165b-22ff-4354-bfcb-85027e787830@lunn.ch>
+ <0aaa13de-2282-4ea3-a11b-4edefb7d6dd3@linux.ibm.com>
+ <b80b9224-d428-4ad9-a30d-40e2d30be654@lunn.ch>
+Content-Language: en-US
+From: Ninad Palsule <ninad@linux.ibm.com>
+In-Reply-To: <b80b9224-d428-4ad9-a30d-40e2d30be654@lunn.ch>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: uuLbOCNnCqgmUzbDmEULaBTqgYB73fYD
+X-Proofpoint-GUID: jiNFDMoRHnfifok2G5gq4nJjzYBletlg
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
+ definitions=2024-10-15_01,2024-10-11_01,2024-09-30_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0
+ priorityscore=1501 phishscore=0 impostorscore=0 clxscore=1015 bulkscore=0
+ lowpriorityscore=0 mlxlogscore=999 adultscore=0 suspectscore=0 spamscore=0
+ mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501080167
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_122520_731908_7F7330A7 
-X-CRM114-Status: GOOD (  19.73  )
+X-CRM114-CacheID: sfid-20250108_124316_274835_5BE8894A 
+X-CRM114-Status: GOOD (  19.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,47 +123,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 08, 2025 at 04:48:04PM +0000, Russell King (Oracle) wrote:
-> stmmac_disable_eee_mode() is now only called from stmmac_xmit() when
-> both priv->tx_path_in_lpi_mode and priv->eee_sw_timer_en are true.
-> Therefore:
-> 
-> 	if (!priv->eee_sw_timer_en)
-> 
-> in stmmac_disable_eee_mode() will never be true, so this is dead code.
-> Remove it, and rename the function to indicate that it now only deals
-> with software based EEE mode.
-> 
-> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-> Tested-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 11 +++--------
->  1 file changed, 3 insertions(+), 8 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index de06aa1ff3f6..9a043d19ebac 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -427,18 +427,13 @@ static int stmmac_enable_eee_mode(struct stmmac_priv *priv)
->  }
->  
->  /**
-> - * stmmac_disable_eee_mode - disable and exit from LPI mode
-> + * stmmac_disable_sw_eee_mode - disable and exit from LPI mode
->   * @priv: driver private structure
->   * Description: this function is to exit and disable EEE in case of
->   * LPI state is true. This is called by the xmit.
->   */
-> -static void stmmac_disable_eee_mode(struct stmmac_priv *priv)
-> +static void stmmac_disable_sw_eee_mode(struct stmmac_priv *priv)
+Hi Andrew,
 
-Looking at this again, I'm still not happy with the function name, but
-not enough to send another version. I'll change it to
-stmmac_stop_sw_lpi() in the next batch of stmmac EEE cleanups (there
-is more to come!)
+On 1/8/25 14:13, Andrew Lunn wrote:
+> On Wed, Jan 08, 2025 at 12:43:07PM -0600, Ninad Palsule wrote:
+>> Hello Andrew,
+>>
+>>
+>> On 1/8/25 11:03, Andrew Lunn wrote:
+>>> On Wed, Jan 08, 2025 at 10:36:33AM -0600, Ninad Palsule wrote:
+>>>> system1 has 2 transceiver connected through the RGMII interfaces. Added
+>>>> device tree entry to enable RGMII support.
+>>>>
+>>>> ASPEED AST2600 documentation recommends using 'rgmii-rxid' as a
+>>>> 'phy-mode' for mac0 and mac1 to enable the RX interface delay from the
+>>>> PHY chip.
+>>> You appear to if ignored my comment. Please don't do that. If you have
+>>> no idea about RGMII delays, please say so, so i can help you debug
+>>> what is wrong.
+>>>
+>>> NACK
+>> I think there is a misunderstanding. I did not ignore your comment. I have
+>> contacted ASPEED and asked them to respond. I think Jacky from Aspeed
+>> replied to your mail.
+> You did not mention in the cover letter, or the patch. I asked for a
+> detailed explanation in the commit message why it is correct, which
+> you did not do.
+Ah, ok. Sorry about that.
+>
+> Now we have more details, it is clear Ethernet support for this board
+> needs to wait until we figure out how to fix the MAC driver. Please
+> either wait with this patchset until that is done, or drop this one
+> patch for the moment and submit it later once the MAC driver is fixed.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+ok, Thanks!
+
+Regards,
+
+Ninad
+
+>
+>        Andrew
+>
+>
 
