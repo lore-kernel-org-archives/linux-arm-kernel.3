@@ -4,122 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32C1BE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 19:16:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93577E77199
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 19:17:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PE6uY0MKch3pf0bd2qsNrj/r/z4HrfLglnEYW4wWGkA=; b=DIRj03rWJL1W8A/eoJHVMp2ULK
-	zhU1RJlg18pT0Zwxz++xd/RdlShT5Pm+tLMeSKCxrbha2jHXb4LMwYIEhkWHT16fhZYkN16kjz6Zt
-	uBRvgN2GXKzfWM+PbrLGOTaiQiqN7gn00oNOX6c84f0M5yFpAVsc5ZOrZgc4CJtrQvXWEfAWtnkTV
-	32CtLILO4DS02AOQbZgD7Y3V5NzgKhyQwSazHlkUBRH4HiPvT5vN8DAQLA5Hr2gTGjn93Rud780SU
-	9Uah0Swhq+hLWfIxJhYd5+XXCmdUhqsKEoKEKVzObV2c7aZ7O6vFuOEz5L74xxzQhtCCkVYW7o6LM
-	+t4owDUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M52Mk44BkQ+7uLtkzi2LIqMxodSH7vZgOI4iwRWjrgY=; b=rpufJl7A3drTIhJWZHUVxk4wTz
+	d+yCPwaf1osTe7+HzW9AllfC9bHxnwS7qbx6Iyqqbj8K4uvGu528jg8IbkpbB6GpzALRVad6yGkVr
+	04MtrX4HFbSrGAb2VyZ4xRl6TwvjszQKymNLJ/wpMlqPzdeFW6HV7TA11WhZwwakWpF2xLrjZWPRg
+	zTrIOn2bwGcIMjE+YLb6eoC9hbw9NqPtBpG0Z3xr1cPLdpJrrjhK+YIIYmoNsa4KR+CPn9k4/HbA2
+	7bUL8RtJrZLExBOFv+3Kese3bkRX0bOf0XDd+E1rtZKRC0jTECqXqLvKwl225QSqCB09E/l7FWRm1
+	/PpVY3eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVbXZ-00000009dHl-2V1l;
-	Wed, 08 Jan 2025 19:16:29 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1tVbYn-00000009dYG-2vFH;
+	Wed, 08 Jan 2025 19:17:45 +0000
+Received: from mail-qv1-xf36.google.com ([2607:f8b0:4864:20::f36])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVbWK-00000009d4h-1Y7n
+	id 1tVbWW-00000009d5g-1mWL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 19:15:13 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 508EevRu007759;
-	Wed, 8 Jan 2025 19:14:38 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=PE6uY0
-	MKch3pf0bd2qsNrj/r/z4HrfLglnEYW4wWGkA=; b=aqRC2tLjD33b44OzrTqIjW
-	dCP2T+6z+CJPhSVON0esDt4SkcBBwZdGQNubWIUSmhFCY/a+pzxpYsMTzX1TmIUK
-	Usy317ZYM6zxdEHxx3VgTJRYhMjNE+R9hTEq37XPFTOndQ/UiAoujh/y2oyhjTmx
-	2cB3dhOnRNsVy7iIXe+jiyxiJRi03l5/6bMYgRBlCUAxhw26zugVTTvbCn8y9epu
-	2Ir/m5cgzRAZG+2foFR+C8BioPe1XZdm2o5NCUHmottj7colK5E22KwFNg/mD5Ws
-	PScnKZ1yDTw+FIdcHaT+ewM6To7yKhF2XcYoMRCaKg4DKGslb9q461uM7/223EAA
-	==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 441hupv392-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 08 Jan 2025 19:14:37 +0000 (GMT)
-Received: from m0356517.ppops.net (m0356517.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 508JDHR4025487;
-	Wed, 8 Jan 2025 19:14:37 GMT
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 441hupv38x-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 08 Jan 2025 19:14:36 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 508GQneT008970;
-	Wed, 8 Jan 2025 19:14:35 GMT
-Received: from smtprelay03.wdc07v.mail.ibm.com ([172.16.1.70])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 43yfq01g26-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 08 Jan 2025 19:14:35 +0000
-Received: from smtpav06.dal12v.mail.ibm.com (smtpav06.dal12v.mail.ibm.com [10.241.53.105])
-	by smtprelay03.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 508JEYUh30540288
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 8 Jan 2025 19:14:34 GMT
-Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id C8D6058055;
-	Wed,  8 Jan 2025 19:14:34 +0000 (GMT)
-Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 25B3258043;
-	Wed,  8 Jan 2025 19:14:33 +0000 (GMT)
-Received: from [9.61.139.65] (unknown [9.61.139.65])
-	by smtpav06.dal12v.mail.ibm.com (Postfix) with ESMTP;
-	Wed,  8 Jan 2025 19:14:32 +0000 (GMT)
-Message-ID: <bebbba7b-f86e-4dc4-8253-65d34cb84804@linux.ibm.com>
-Date: Wed, 8 Jan 2025 13:14:31 -0600
+	Wed, 08 Jan 2025 19:15:26 +0000
+Received: by mail-qv1-xf36.google.com with SMTP id 6a1803df08f44-6dd049b5428so1488736d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jan 2025 11:15:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1736363723; x=1736968523; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=M52Mk44BkQ+7uLtkzi2LIqMxodSH7vZgOI4iwRWjrgY=;
+        b=qq6K63AzvpU3BrY/lMvyKv38S6cZmXmJJCbfQOZDw7MCP4Cxv+OZWVHkge8hejwZay
+         5jtrtR/r+WtyasbjZmlWQKpYteidwK/KAF4k0IFJHsndVD8mVI6qHuF9id9pL7TZMXCp
+         o+WtE8MGU0Z7RwM9EmPDd635ksVZR79KLQsO2OiEscG15QcWg/u+w2tOJF8056mT6jAf
+         MzSmP5PxQIrmGfZz8tJTPhRjfnOdMEGdVPXJva9kklr8ZwcErHxzwgbDEWAQlQQ6WnqO
+         8TPdzDlAEHVyxEql4MH3H2hh0ixrmg5EalcgAn22V4rOrAlC+s2YxwwrVYRqzy7hj20t
+         3ogQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736363723; x=1736968523;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=M52Mk44BkQ+7uLtkzi2LIqMxodSH7vZgOI4iwRWjrgY=;
+        b=vTa0cxXOzSCEsR6kjFNdmyYUNE3SKqHcOjm6Gpb9nqoGS2MeJVouzV761OaQ1kLPKB
+         h4YZyQcPNEOr/ktbgHMVXTpSG787vI3pAfeObO3TQWZkIDEqeeZd+As5LRm2yPPwpWa+
+         7t5LA3vptXBxblJsmW6tLXZbuxfhRdK+pCfhZVaBuFcDYonKycejv2VKmz1jr9CRD/kX
+         3K3tnFgdfnuZPt71dMd2XA9MdlFYfpnerMUmbjPbVv6yUB4Aco+zAbnIEsX77KLROyrL
+         KswsA1Bg+lirhe3wp7KBDpPAUsPR2JKGQXjPHOiJXJHapFshJ6n3Ey5/xQ7d4l5re6u+
+         qdjw==
+X-Forwarded-Encrypted: i=1; AJvYcCXRVkayeIxzTmpYk4pYgs3/rtv4S7euyDgbuLnkbSjTwjXy059WtxS5DNhDYPGzPYjk6NFKMcx9MiHo25F/Fxq6@lists.infradead.org
+X-Gm-Message-State: AOJu0YzNiglKP6m+yTKr7NYObhSXv1HvKy83VUIfN+LkbQbhNPOaIj0s
+	Ik4op/nfYFS1pMg+35YIrc0sJXBzoquF2XM5Yuz9agaGWLZKsm7XH/GR1h/5pAw=
+X-Gm-Gg: ASbGncuDvo2qL9QMDIx2B/QsHQHEDAWNTXAMxyhZ+fZh5o++10jqvI8XixMEbPZTL1d
+	nVCm79Sfvf6Ez1YQrhCkKk/8HNFqsl3B3CkIQPsCTUHPzL5nECFU3sUODlKIkPWibAam6YJJQ2J
+	XcjDCzPtUVEr6nrcbnpgMp0jwxWyPsxAw/mEeW2SOL/62gDY1hhslZvkuDIL+RE9KyBbmQrj1BV
+	DEqLXVxvhzlE1iROollYjd9YYxooAoCbSYK+xFfGKER6k2euAIjSeJdqA==
+X-Google-Smtp-Source: AGHT+IFRT5zib5m260fI2MIaNuGhzpZO4SOSY6igb4Cp9o+S/bihYNZRjajxrfPtzGlpTSuUDolwdA==
+X-Received: by 2002:a05:6214:570c:b0:6d9:2e0c:56c4 with SMTP id 6a1803df08f44-6df9b1b4d31mr65617576d6.1.1736363722785;
+        Wed, 08 Jan 2025 11:15:22 -0800 (PST)
+Received: from nicolas-tpx395.localdomain ([2606:6d00:15:862e::7a9])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6dd31faa052sm170937266d6.9.2025.01.08.11.15.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 08 Jan 2025 11:15:22 -0800 (PST)
+Message-ID: <fd5b45f02e5a7dcc828a8e9ae9e6fb2948532dff.camel@ndufresne.ca>
+Subject: Re: [PATCH 0/7] Raspberry Pi HEVC decoder driver
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: John Cox <jc@kynesim.co.uk>
+Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>, Sakari Ailus	
+ <sakari.ailus@linux.intel.com>, Laurent Pinchart	
+ <laurent.pinchart@ideasonboard.com>, Mauro Carvalho Chehab
+ <mchehab@kernel.org>,  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,  Florian Fainelli
+ <florian.fainelli@broadcom.com>, Broadcom internal kernel review list	
+ <bcm-kernel-feedback-list@broadcom.com>, John Cox
+ <john.cox@raspberrypi.com>,  Dom Cobley <dom@raspberrypi.com>, review list
+ <kernel-list@raspberrypi.com>, Ezequiel Garcia	
+ <ezequiel@vanguardiasur.com.ar>, linux-media@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+  John Cox <john.cox@raspberypi.com>
+Date: Wed, 08 Jan 2025 14:15:20 -0500
+In-Reply-To: <fnhsnjlvifnma1rqlsm9kqk7ao3bc174ic@4ax.com>
+References: <20241220-media-rpi-hevc-dec-v1-0-0ebcc04ed42e@raspberrypi.com>
+	 <6d6c49919af9e782bd8e9be5066e92c9704ad5b7.camel@ndufresne.ca>
+	 <fnhsnjlvifnma1rqlsm9kqk7ao3bc174ic@4ax.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.54.2 (3.54.2-1.fc41) 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 05/10] ARM: dts: aspeed: system1: Add RGMII support
-To: Andrew Lunn <andrew@lunn.ch>, Jacky Chou <jacky_chou@aspeedtech.com>
-Cc: "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
-        "andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
-        "conor+dt@kernel.org" <conor+dt@kernel.org>,
-        "davem@davemloft.net" <davem@davemloft.net>,
-        "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-        "eajames@linux.ibm.com" <eajames@linux.ibm.com>,
-        "edumazet@google.com" <edumazet@google.com>,
-        "joel@jms.id.au"
- <joel@jms.id.au>,
-        "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-        "kuba@kernel.org" <kuba@kernel.org>,
-        "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
-        "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
-        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-        "minyard@acm.org" <minyard@acm.org>,
-        "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-        "openipmi-developer@lists.sourceforge.net"
- <openipmi-developer@lists.sourceforge.net>,
-        "pabeni@redhat.com" <pabeni@redhat.com>,
-        "ratbert@faraday-tech.com" <ratbert@faraday-tech.com>,
-        "robh@kernel.org" <robh@kernel.org>
-References: <SEYPR06MB5134CC0EBA73420A4B394A009D122@SEYPR06MB5134.apcprd06.prod.outlook.com>
- <0c42bbd8-c09d-407b-8400-d69a82f7b248@lunn.ch>
-Content-Language: en-US
-From: Ninad Palsule <ninad@linux.ibm.com>
-In-Reply-To: <0c42bbd8-c09d-407b-8400-d69a82f7b248@lunn.ch>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: eBn1M_tknw6OBAQkJ7OYRtzuEbM0IDWO
-X-Proofpoint-GUID: GGmo5RPbLSGmIng4MpBwjIOTUBqsvtBc
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
- definitions=2024-10-15_01,2024-10-11_01,2024-09-30_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 adultscore=0
- clxscore=1011 mlxscore=0 malwarescore=0 priorityscore=1501
- lowpriorityscore=0 spamscore=0 bulkscore=0 impostorscore=0 mlxlogscore=988
- phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2501080155
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_111512_431635_5B3FAE19 
-X-CRM114-Status: GOOD (  33.72  )
+X-CRM114-CacheID: sfid-20250108_111524_473499_6DF379A5 
+X-CRM114-Status: GOOD (  58.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,80 +110,203 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+Hi John,
 
-Thanks for the reply.
+Le mercredi 08 janvier 2025 =C3=A0 09:52 +0000, John Cox a =C3=A9crit=C2=A0=
+:
+> On Mon, 06 Jan 2025 15:46:51 -0500, you wrote:
+>=20
+> > Hi Dave,
+> >=20
+> > Le vendredi 20 d=C3=A9cembre 2024 =C3=A0 16:21 +0000, Dave Stevenson a =
+=C3=A9crit=C2=A0:
+> > > Hi All
+> > >=20
+> > > This has been in the pipeline for a while, but I've finally cleaned
+> > > up our HEVC decoder driver to be in a shape to at least get a first
+> > > review.
+> > > John Cox has done almost all of the work under contract to Raspberry
+> > > Pi, and I'm largely just doing the process of patch curation and
+> > > sending.
+> > >=20
+> > > There are a couple of questions raised in frameworks.
+> > > The main one is that the codec has 2 independent phases to the decode=
+,
+> > > CABAC and reconstruction. To keep the decoder operating optimally
+> > > means that two requests need to be in process at once, whilst the
+> > > current frameworks don't want to allow as there is an implicit
+> > > assumption of only a single job being active at once, and
+> > > completition returns both buffers and releases the media request.
+> > >=20
+> > > The OUTPUT queue buffer is finished with and can be returned at the
+> > > end of phase 1, but the media request is still required for phase 2.
+> > > The frameworks currently force the driver to be returning both
+> > > together via v4l2_m2m_buf_done_and_job_finish. v4l2_m2m_job_finish
+> > > would complete the job without returning the buffer as we need,
+> > > however if the driver has set VB2_V4L2_FL_SUPPORTS_M2M_HOLD_CAPTURE_B=
+UF
+> > > then we have a WARN in v4l2_m2m_job_finish.
+> > > Dropping the WARN as this series is currently doing isn't going to be
+> > > the right answer, but it isn't obvious what the right answer is.
+> > > Discussion required.
+> >=20
+> > I think part of the manual request completion RFC will be to evaluate t=
+he impact
+> > on VB2_V4L2_FL_SUPPORTS_M2M_HOLD_CAPTURE_BUF feature. MTK does not supp=
+ort
+> > interleaved interlaced decoding (only alternate), so they didn't have t=
+o
+> > implement that feature.
+> >=20
+> > Overall, It would be nice to get your feedback on the new manual reques=
+t
+> > proposal, which is I believe better then the pin/unpin API you have in =
+this
+> > serie.
+>=20
+> Is the effect of the manual complete API different from the pin API? Pin
+> incs the ref count on the media object to prevent competion,
+> manaul_complete sets a flag to do the same thing. Or have I missed the
+> point?
 
-On 1/8/25 11:52, Andrew Lunn wrote:
->>> Does the mac0 TX clock have an extra long clock line on the PCB?
->>>
->>> Does the mac1 TX and RX clocks have extra long clock lines on the PCB?
->>>
->>> Anything but rgmii-id is in most cases wrong, so you need a really
->>> good explanation why you need to use something else. Something that
->>> shows you understand what is going on, and why what you have is
->>> correct.
->> Here I'll add some explanation.
->>
->> In our design, we hope the TX and RX RGMII delay are configured by our MAC side.
->> We can control the TX/RX RGMII delay on MAC step by step, it is not a setting to delay to 2 ns.
->> We are not sure the all target PHYs are support for RX internal delay.
->>
->> But ast2600 MAC1/2 delay cell cannot cover range to 2 ns, MAC 3/4 can do that.
->> Therefore, when using ast2600 MAC1/2, please enable the RX internal delay on the PHY side
->> to make up for the part we cannot cover.
->>
->> Summarize our design and we recommend.
->> AST2600 MAC1/2: rgmii-rxid
->> (RGMII with internal RX delay provided by the PHY, the MAC should not add an RX delay in this
->> case)
->> AST2600 MAC3/4: rgmii
->> (RX and TX delays are added by the MAC when required)
->>
->> rgmii and rgmii-rxid are referred from ethernet-controller.yaml file.
-> O.K, so you have the meaning of phy-mode wrong. phy-mode effectively
-> described the PCB. Does the PCB implement the 2ns delay via extra long
-> clock lines or not. If the PCB has long clock lines, phy-mode is
-> 'rgmii'. If the PCB does not have long clock lines, 'rgmii-id' is
-> used, meaning either the MAC or the PHY needs to add the delays.
+The request contains "objects", usually controls and a src buffer. The stat=
+e of
+the request goes to complete implicitly when the last object is removed. Th=
+e
+manual completion avoids adding ref-count on top of this, and simply disabl=
+e the
+implicit signalling of the request. With that we can signal everything in t=
+he
+most logical order:
 
-I checked with out hardware team and they did not add any extra delay on 
-the board.
+1. Program the register from controls -> mark controls complete
+2. Entropy decode the stream -> mark src buffer done
+3. Reconstruct the image -> mark dst buffer done
+4. Signal the request completion
 
-We have normal point to point clock without any delay added by line.
+Before that, you always had to hold on the src buffer, and only mark it don=
+e
+after the reconstruction was complete and the dst buffer was marked done. T=
+hat
+didn't matter for single function HW of course.
 
-Regards,
+Unlike the pin/unpin, manual completion mode removes the implicit completio=
+n
+bound to the fact the last "object" is removed from the request, and leave =
+it to
+the driver to decide when to actually signal the request. Internally, the g=
+ive a
+reference to the driver of course (similar to pin).
 
-Ninad
+>=20
+> I don't mind what call is used as long as the effect is to be able to
+> delay media object completion. (In my first veraion of the code I
+> created a dummy object and attached it to the media object, when I
+> wanted to unpin I deleted the dummy object - pin was just a cleaner
+> API.)
 
->
-> The MAC driver is the one that reads the phy-mode from the DT, and
-> then it decides what to do. 95% of linux MAC drivers simply pass it
-> direct to the PHY. If the phy-mode is 'rgmii', the PHY does nothing,
-> because the PCB has added the delays. If it is rgmii-id, it adds
-> delays in both directions. This works, because nearly very RGMII PHY
-> on the market does support RGMII delays.
->
-> There is however a very small number of MAC drivers which do things
-> differently. Renesas produced an RDK with a PHY which could not do
-> delays in the PHY, and so were forced to do the delays in the
-> MAC. Please look at how the ravb driver works. If the PCB does not add
-> the delays, rmgii-id, the MAC driver adds the delays. It then masks
-> the phy-mode it passes to of_phy_connect() back to 'rgmii', so that
-> the PHY does not add any delays. If the PCB did add the delays,
-> 'rgmii', the MAC driver does not add delays, and it passed rgmii to
-> the PHY driver, and it also does not add delays.
->
-> So, your MAC driver is broken. It is not correctly handling the
-> phy-mode. First question is, how many boards are there in mainline
-> which have broken phy-modes. If this is the first board, we can fix
-> the MAC driver. If there are already boards in mainline we have to be
-> much more careful when fixing this, so as not to regress boards which
-> are already merged.
->
-> Humm, interesting. Looking at ftgmac100.c, i don't see where you
-> configure the RGMII delays in the MAC?
->
-> 	  Andrew
->
+The manual completion patchset is very similar really in you step back.
+
+>=20
+> The pin API is counted and needs no new structure elements (which is
+> nice), but manual_complete does give a flag that allows other functions
+> to know that holding on to the media object whilst releasing OUTPUT is
+> intentional so can be made to work cleanly with things like
+> v4l2_m2m_job_finish so is probably the better solution (assuming my
+> understand of how it works is correct).=20
+>=20
+> I'll try to build a version of the code using manual_complete in the
+> next few days.
+
+Thanks! your feedback will be very useful.
+
+Nicolas
+
+>=20
+> Regards
+>=20
+> JC
+>=20
+> > >=20
+> > > We also have a need to hold on to the media request for phase 2. John
+> > > had discussed this with Ezequiel (and others) a couple of years back,
+> > > and hence suggested a patch that adds media_request_{pin,unpin} to
+> > > grab references on the media request. Discussion required on that
+> > > or a better way of handling it.
+> > >=20
+> > > I will apologise in advance for sending this V1 just before I head of=
+f
+> > > on the Christmas break, but will respond to things as soon as possibl=
+e.
+> >=20
+> > One thing missing in this summary is how this driver is being validated
+> > (specially that for this one requires a downstream fork of FFMPEG). To =
+this
+> > report we ask for:
+> >=20
+> > - v4l2-compliance results
+> > - Fluster conformance tests results [1] and I believe you need [2]
+> >=20
+> > [1]=C2=A0https://github.com/fluendo/fluster
+> > [2]=C2=A0https://github.com/fluendo/fluster/pull/179
+> >=20
+> > GStreamer support is there in main now, but without the needed software=
+ video
+> > converter for you column tiling, we can't use it for that (i.e. only wo=
+rks
+> > through GL or Wayland).
+> >=20
+> > regards,
+> > Nicolas
+> >=20
+> > >=20
+> > > Thanks
+> > >   Dave
+> > >=20
+> > > Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+> > > ---
+> > > Dave Stevenson (4):
+> > >       docs: uapi: media: Document Raspberry Pi NV12 column format
+> > >       media: ioctl: Add pixel formats NV12MT_COL128 and NV12MT_10_COL=
+128
+> > >       media: dt-bindings: media: Add binding for the Raspberry Pi HEV=
+C decoder
+> > >       arm: dts: bcm2711-rpi: Add HEVC decoder node
+> > >=20
+> > > Ezequiel Garcia (1):
+> > >       RFC: media: Add media_request_{pin,unpin} API
+> > >=20
+> > > John Cox (2):
+> > >       media: platform: Add Raspberry Pi HEVC decoder driver
+> > >       RFC: v4l2-mem2mem: Remove warning from v4l2_m2m_job_finish
+> > >=20
+> > >  .../bindings/media/raspberrypi,hevc-dec.yaml       |   72 +
+> > >  .../userspace-api/media/v4l/pixfmt-yuv-planar.rst  |   42 +
+> > >  MAINTAINERS                                        |   10 +
+> > >  arch/arm/boot/dts/broadcom/bcm2711-rpi.dtsi        |    5 +
+> > >  arch/arm/boot/dts/broadcom/bcm2711.dtsi            |    9 +
+> > >  drivers/media/mc/mc-request.c                      |   35 +
+> > >  drivers/media/platform/raspberrypi/Kconfig         |    1 +
+> > >  drivers/media/platform/raspberrypi/Makefile        |    1 +
+> > >  .../media/platform/raspberrypi/hevc_dec/Kconfig    |   17 +
+> > >  .../media/platform/raspberrypi/hevc_dec/Makefile   |    5 +
+> > >  .../media/platform/raspberrypi/hevc_dec/hevc_d.c   |  443 ++++
+> > >  .../media/platform/raspberrypi/hevc_dec/hevc_d.h   |  190 ++
+> > >  .../platform/raspberrypi/hevc_dec/hevc_d_h265.c    | 2629 ++++++++++=
+++++++++++
+> > >  .../platform/raspberrypi/hevc_dec/hevc_d_hw.c      |  376 +++
+> > >  .../platform/raspberrypi/hevc_dec/hevc_d_hw.h      |  303 +++
+> > >  .../platform/raspberrypi/hevc_dec/hevc_d_video.c   |  685 +++++
+> > >  .../platform/raspberrypi/hevc_dec/hevc_d_video.h   |   38 +
+> > >  drivers/media/v4l2-core/v4l2-ioctl.c               |    2 +
+> > >  drivers/media/v4l2-core/v4l2-mem2mem.c             |    7 -
+> > >  include/media/media-request.h                      |   12 +
+> > >  include/uapi/linux/videodev2.h                     |    5 +
+> > >  21 files changed, 4880 insertions(+), 7 deletions(-)
+> > > ---
+> > > base-commit: e90c9612ac3969cb8206029a26bcd2b6f5d4a942
+> > > change-id: 20241212-media-rpi-hevc-dec-3b5be739f3bd
+> > >=20
+> > > Best regards,
+
 
