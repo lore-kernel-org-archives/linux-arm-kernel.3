@@ -4,127 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D535AE77199
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 11:10:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F05EE77199
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 11:12:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=USnfbtjdzJEK9gukpGljvTqxb7I/7Fqgvuzbz7iTWaM=; b=kcZ0S6Cc1VRctB3yhwrodXp0lR
-	lYhnHUUMkV9w34d3FEHOm7cmV2zBjIRPByDKR0FaZptJSgqFMjm9o75puIo6FAqLe0U9H6zzgh9+9
-	zgYCN8dthwrrIlJZteBYQpVdF4jOyzHD0oy4HcNkGzr36W/P1Z3q1QCsKi38rKafy3MS0AdkgWYga
-	yca6xu272dZELwo6L6OkC81EAXXS7R56io1Xs708gaIuph5lc4onQXvCHlZxknI+QLydSpz/fjGZ4
-	k8N1hU1naDkdr3Ln2RuaKmCaN90JgoE4/MbBcpHVs0ZRPE9oGvrUdTK3aVNwkYxEOkR+pEGBr+Z1P
-	lZq1p3vQ==;
+	bh=yzL9Apxx9PBwEi1gxO5jcG1dhq3hPMCgrw+SZsgCon4=; b=Bs8HJsweLKpHLzmVgSNXS4RXJo
+	4r9dBpAGV3ZEk75Q1AQJkD6S2N8LuZ0Yrkvg6uio7SfLGoCp0UsYUoVm74i8+dGH45oEnBh3Grqix
+	9Q7b56mn3/9Dm54zhWOQWboVTwFg38Cgpy5nj9tNq9dqriIP1stOMh947lZf5+cJQkhwc0pdA50IL
+	lc0b7GTSVwSAe9YYfcaTWjXrqUHnp8LjQwbzLbKKcR3qmnIfc4+VpfLz0pIVlBi70kIpvw/ykDrRG
+	3RU7EYass5LsWnfABN/6urCr2TADoqc7XCJRmryKDkzRBaRzCmK9BRUMIqeN4DYd8GQF/XgH2H+yv
+	3AJY3R5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVTxK-000000089Yw-3zXW;
-	Wed, 08 Jan 2025 11:10:34 +0000
-Received: from flow-a8-smtp.messagingengine.com ([103.168.172.143])
+	id 1tVTyW-000000089qW-1N1L;
+	Wed, 08 Jan 2025 11:11:48 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVTqb-000000087q1-1Irx;
-	Wed, 08 Jan 2025 11:03:39 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailflow.phl.internal (Postfix) with ESMTP id 9F498200F91;
-	Wed,  8 Jan 2025 06:03:36 -0500 (EST)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-10.internal (MEProxy); Wed, 08 Jan 2025 06:03:36 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1736334216;
-	 x=1736341416; bh=USnfbtjdzJEK9gukpGljvTqxb7I/7Fqgvuzbz7iTWaM=; b=
-	WtLL9WZ2meLEVZxmli00VbYv11fhuBGMZp6eU19+LeFOehXBLGesRZh6foqHtbE0
-	V/ZqVr7QGvKNjvIMaFOQQl8fHSHaAhWG2taHOBszb/Sq7XFaSAS+D+pLnhXcVEEG
-	9uyMw7CSg+NAiw+pzvO8CUfpXLlE91al0J72AFbo+shTsoaTlWzfYiYt52iZtCKH
-	nmg1mZoSHgDk3xnOd214hOZwMr6vTagL9xQJIQro8s2DanAm9Tm63iTfM6HbNZuz
-	uvBZuyu1aKoZY4Uun5qOYSYCCWF8j7+i6EXN0AHyCHvZTaUYT731+4yKtq/aCUfm
-	vzKDj0eDWfWNK9Xi1Q5X1Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1736334216; x=
-	1736341416; bh=USnfbtjdzJEK9gukpGljvTqxb7I/7Fqgvuzbz7iTWaM=; b=J
-	/vtRZnOn2Upyqb3fRTIONUj6WwtelA9l+iJ/3kKR44BHYQB+0BEXpQDFHZyObWkP
-	WAI69mXSkRadmsk3gdtGfGutrxvwKpm7uTeYZ8OfHgEZmNiAr20tkfybv2hbmcMp
-	aGCFu/i+Ze/nNBT79BvaUZG5iO8ATI+xCjkaIojCFJEUB/7yV9OHAgWXIR4vHoyv
-	svnP73yQR2D5DdJaECwwSduJJlJgwyl/c0Zm0q7/p4v9C+QOc0wDTt3BMFKIhm5o
-	n6C8ZNGXDcfQcxNUDnSJGxVA5j4AZN+g3Y0WW5RuLPEuRofwDLvI0w4bNYthI1rB
-	XcXmK6Drrgsa42Eogsk9g==
-X-ME-Sender: <xms:h1t-Z__aAxWAhva-MdllhQ4BYUgmBfsyRApbSzOtiprXyT60uQomkg>
-    <xme:h1t-Z7t0b7azrzS4uz3CDbALYqcojYJUUGAsBpI_lmF6nYqjDu3CEvB0twds3feyy
-    SsqYy99WQypcV1T2Hc>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrudeggedgvdefucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
-    rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
-    htshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddt
-    necuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrd
-    guvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefg
-    gfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgepudenucfrrghrrghmpe
-    hmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepgedv
-    pdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehkvghvihhnrdgsrhhoughskhihse
-    grrhhmrdgtohhmpdhrtghpthhtoheprhihrghnrdhrohgsvghrthhssegrrhhmrdgtohhm
-    pdhrtghpthhtohepiihhvghnghhqihdrrghrtghhsegshihtvggurghntggvrdgtohhmpd
-    hrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoheprghn
-    ughrvggrshesghgrihhslhgvrhdrtghomhdprhgtphhtthhopegrlhgvgiesghhhihhtih
-    drfhhrpdhrtghpthhtohepnhhpihhgghhinhesghhmrghilhdrtghomhdprhgtphhtthho
-    pehvihhshhgrlhdrmhhoohhlrgesghhmrghilhdrtghomhdprhgtphhtthhopehhuhhghh
-    gusehgohhoghhlvgdrtghomh
-X-ME-Proxy: <xmx:iFt-Z9ANGY5phHCQP5q9aptFJBex2r8tUUEtjidE_xfb4AaP55hNrg>
-    <xmx:iFt-Z7ctt2NWtfyYsEgjYqKKIrHn67L1tyZAg4XMHhOyiTzOECL22Q>
-    <xmx:iFt-Z0OlCBsb26nhU66OvTEdGpRVGIW5IfVb2Uu5QIznryJY6Y1lyw>
-    <xmx:iFt-Z9kr0zvBfse9P3OqsbaaksL8J3gNd0JxqpmXi6zyClNfGpiDVw>
-    <xmx:iFt-Z8U-rzqfWoWAKZ4Q8n6ifXS3RNJxGRb6sdxgxo5Zg4md0Aao1UvA>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id D26632220072; Wed,  8 Jan 2025 06:03:35 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1tVTqz-0000000882P-3MR3;
+	Wed, 08 Jan 2025 11:04:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=yzL9Apxx9PBwEi1gxO5jcG1dhq3hPMCgrw+SZsgCon4=; b=Ylbh2QTaU8quP4cFdlfsmw0sSi
+	HvsL9hrKYUTXoghA79EvxZq5M4bIcYOoujtYJAhTol4h3881Z3+/73XykMiH1e7qlRDoan2nYLQcC
+	Up01P+t18nySj04MnsBY5BhqPKsF5//EI7/Hy4WAzjcmbgAIYkMolJbuQbnIL+WvM/6Ni472pNY5E
+	nfnv0DDyBBNyOvb4To18LXuE1EzyNIXPEyC4TpXVrCx1Ic3Ccg2YteRLzb5grnV7GXEYdHEPdxBE6
+	vKVDSJ8BVX/nXqwrQK/8psG5n3EVFFlphCF8qaL8izjgUrsyl/Zwn+9OFcrneuxvbyhRQA3b9GS59
+	b4rye7pQ==;
+Received: from i53875aad.versanet.de ([83.135.90.173] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tVTqu-000507-Aa; Wed, 08 Jan 2025 12:03:56 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: Chen-Yu Tsai <wens@kernel.org>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	Chen-Yu Tsai <wens@csie.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	=?UTF-8?q?Ond=C5=99ej=20Jirman?= <megi@xff.cz>
+Subject: Re: [PATCH v2] arm64: dts: rockchip: orangepi-5-plus: Enable USB 3.0 ports
+Date: Wed,  8 Jan 2025 12:03:46 +0100
+Message-ID: <173633412683.2758244.11920236524646659506.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20241220161240.109253-1-wens@kernel.org>
+References: <20241220161240.109253-1-wens@kernel.org>
 MIME-Version: 1.0
-Date: Wed, 08 Jan 2025 12:03:15 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Qi Zheng" <zhengqi.arch@bytedance.com>,
- "Peter Zijlstra" <peterz@infradead.org>,
- "Alexander Gordeev" <agordeev@linux.ibm.com>,
- "Kevin Brodsky" <kevin.brodsky@arm.com>, "Alexandre Ghiti" <alex@ghiti.fr>,
- "Andreas Larsson" <andreas@gaisler.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Thomas Gleixner" <tglx@linutronix.de>,
- "David Hildenbrand" <david@redhat.com>, "Jann Horn" <jannh@google.com>,
- "Hugh Dickins" <hughd@google.com>, "Yu Zhao" <yuzhao@google.com>,
- "Matthew Wilcox" <willy@infradead.org>,
- "Muchun Song" <muchun.song@linux.dev>, vbabka@kernel.org,
- "Lorenzo Stoakes" <lorenzo.stoakes@oracle.com>,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "David Rientjes" <rientjes@google.com>, vishal.moola@gmail.com,
- "Will Deacon" <will@kernel.org>, aneesh.kumar@kernel.org,
- "Nicholas Piggin" <npiggin@gmail.com>,
- "Dave Hansen" <dave.hansen@linux.intel.com>,
- "Mike Rapoport" <rppt@kernel.org>, "Ryan Roberts" <ryan.roberts@arm.com>
-Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-kernel@vger.kernel.org, x86@kernel.org,
- Linux-Arch <linux-arch@vger.kernel.org>,
- "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
- linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- "linux-openrisc@vger.kernel.org" <linux-openrisc@vger.kernel.org>,
- linux-sh@vger.kernel.org, linux-um@lists.infradead.org
-Message-Id: <2f93708c-9816-4214-ae61-1e6b9f68cdc4@app.fastmail.com>
-In-Reply-To: <ea372633d94f4d3f9f56a7ec5994bf050bf77e39.1736317725.git.zhengqi.arch@bytedance.com>
-References: <cover.1736317725.git.zhengqi.arch@bytedance.com>
- <ea372633d94f4d3f9f56a7ec5994bf050bf77e39.1736317725.git.zhengqi.arch@bytedance.com>
-Subject: Re: [PATCH v5 14/17] mm: pgtable: introduce generic __tlb_remove_table()
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_030337_419024_025BE717 
-X-CRM114-Status: UNSURE (   6.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250108_030401_853237_91E9700C 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,18 +78,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 8, 2025, at 07:57, Qi Zheng wrote:
-> Several architectures (arm, arm64, riscv and x86) define exactly the
-> same __tlb_remove_table(), just introduce generic __tlb_remove_table() to
-> eliminate these duplications.
->
-> The s390 __tlb_remove_table() is nearly the same, so also make s390
-> __tlb_remove_table() version generic.
->
-> Signed-off-by: Qi Zheng <zhengqi.arch@bytedance.com>
-> Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> Acked-by: Andreas Larsson <andreas@gaisler.com> # sparc
-> Acked-by: Alexander Gordeev <agordeev@linux.ibm.com> # s390
 
-Acked-by: Arnd Bergmann <arnd@arndb.de> # asm-generic
+On Sat, 21 Dec 2024 00:12:40 +0800, Chen-Yu Tsai wrote:
+> The Orange Pi 5 Plus has its first USB 3.0 interface on the SoC wired
+> directly to the USB type C port next to the MASKROM button, and the
+> second interface wired to a USB 3.0 hub which in turn is connected to
+> the USB 3.0 host ports on the board, as well as the USB 2.0 connection
+> on the M.2 E-key slot.
+> 
+> 
+> [...]
+
+Applied, thanks!
+
+[1/1] arm64: dts: rockchip: orangepi-5-plus: Enable USB 3.0 ports
+      commit: a15d12f36eb78692d5c3ebd8a5db7fddf3ea160c
+
+Renamed the regulator node according to convention (regulator-foo)
+and moved it to its correct alphabetical position.
+
+Best regards,
+-- 
+Heiko Stuebner <heiko@sntech.de>
 
