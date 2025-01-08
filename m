@@ -4,74 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA470E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 22:22:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C1E3E77199
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 22:29:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YyrkJBq2mH1yISy7/JG6kFRBJKpgaS5P9ogz7UdLxLo=; b=tzdySMda9RJ47Hn6n1BVHC79vk
-	FEfDvTvKyw+TK1l9OsCLwg8n11i4UWZI0+oWNYI9BQjFkSOLf5Nsh2mnqh5uOot0eAovDdHO6XITr
-	bS9RF82L0ETd+HUaFe+jh5Vs4AvTDLGzP0WfxnTTXn5ZTPwx8tBNSinucSB23AiBVlSGeTo8X7t9t
-	clxQkFcTG3H99xeVIVE2pv9ncbPENSIyrQFJSNTdQpcD5uhghA9yQ6lLJZMziwou7Vebgci59hJ36
-	7NOjsgzFEO5UuYRpUTbtuad0fWvyWwpuPzDyp9mldTA2lJb2iXEmPrZPjdBdfkFE/MkNSFFtwYDYA
-	W1d3H9nQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GL4UXH2hEesTN5TCIGtlxNzngfLlTAIyjL8W6RNShoQ=; b=Mqbg8lRDl0q84Jw5Akj7Hsyhx3
+	MZRxlUHoTWdLbUlpQdJpSeIsFghV2G3wwi396js35f+QgpMJwMCIrkGNHCbjn0+8dhHGS1nP35q51
+	kyNcAOI8D/GQ8370bJbGGf0L8us/6SAPee+Ag/DMLD0Ii5/+44FKfGtZf9rugmE1UFqxNG57qEy4d
+	XM2zm4eyTFsVX/t9gsOh815AAecwgFKa8i9I0VQWGIPCxxjuIq7shHHLioQCzu3klF/29y3uP6oYD
+	ES/2URwO8DNz9MaUHu/tf+O7yKAqLV+xF2q/Xtvki7K8PRZGMC/XVQvY5xPdoOG3nOP1FmEawvAsj
+	QxnniWZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVeRP-0000000A0dp-0bGp;
-	Wed, 08 Jan 2025 22:22:19 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1tVeYP-0000000A1No-1yGl;
+	Wed, 08 Jan 2025 22:29:33 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVeQA-0000000A0Po-08JR
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 22:21:03 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 508MKma12790219
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Wed, 8 Jan 2025 16:20:48 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1736374848;
-	bh=YyrkJBq2mH1yISy7/JG6kFRBJKpgaS5P9ogz7UdLxLo=;
-	h=From:To:CC:Subject:Date;
-	b=DaLXeEp3AZRS46UfzxpQboM561nzPLkvvnMgE8J2BZJeAKa22tr8VqPydrG0zLy8T
-	 Hbt/lEGbbM5DXjw024vtMZJ13TkE7jnsnI16t2nGZRwEAlWx3RKG9qZVVZCgTXAEBJ
-	 mtQ6DG11GMYtFGlOY2R22tySHyd7+EWJqv1Pmd4M=
-Received: from DLEE110.ent.ti.com (dlee110.ent.ti.com [157.170.170.21])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 508MKmp1078933;
-	Wed, 8 Jan 2025 16:20:48 -0600
-Received: from DLEE114.ent.ti.com (157.170.170.25) by DLEE110.ent.ti.com
- (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 8
- Jan 2025 16:20:48 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE114.ent.ti.com
- (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 8 Jan 2025 16:20:48 -0600
-Received: from judy-hp.dhcp.ti.com (judy-hp.dhcp.ti.com [128.247.81.105])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 508MKmXt007918;
-	Wed, 8 Jan 2025 16:20:48 -0600
-From: Judith Mendez <jm@ti.com>
-To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>
-CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: [PATCH] arm64: dts: ti: k3-am625: Add PRUSS-M node
-Date: Wed, 8 Jan 2025 16:20:48 -0600
-Message-ID: <20250108222048.818835-1-jm@ti.com>
-X-Mailer: git-send-email 2.47.1
+	id 1tVeXC-0000000A18Q-2BWq;
+	Wed, 08 Jan 2025 22:28:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1736375248;
+	bh=fx6RebTflN5sUpcLPzMyFKE1whwyihOXnOMDCyNB4aw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=MllPfKZIFqZfcF9PxUfy+xoUsCoJ0Rp8Ddhu0XmxSFOMLr9Y3xVdvmi24djPCmX+E
+	 l1mv4iOXLIM1ZduDbmjOZhctaJiR1b3k+rQLtbZoAAROiRQq4/ZVf4j690v9XLF1Gp
+	 sEGelu5qr1cDBR7s92RpDHx1694JUaWA2lwa44a6ReOoy80UNGenZoyxKEWYTMqD82
+	 5MwiuiNrAOSHK5oReCiAuKHqCPya4n2vHGeDmye5rl8LbaGDvxoVl1wD9q9jV/lZAO
+	 k4SserqUbp9m6tVvCobIp823ZiksiOOjxXcZS/VkhPpq0bP2bduRzuwMMXoa4pVnUW
+	 epvv6Hv+O4zQQ==
+Received: from [192.168.1.90] (unknown [82.76.59.196])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B874D17E35E8;
+	Wed,  8 Jan 2025 23:27:27 +0100 (CET)
+Message-ID: <66aca370-04c3-4b2b-83ff-8bef3ca0cea6@collabora.com>
+Date: Thu, 9 Jan 2025 00:27:27 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/5] drm/rockchip: vop2: Improve display modes handling
+ on RK3588 HDMI0
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Andy Yan <andyshrk@163.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
+ Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, kernel@collabora.com,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, FUKAUMI Naoki <naoki@radxa.com>,
+ Algea Cao <algea.cao@rock-chips.com>
+References: <20241211-vop2-hdmi0-disp-modes-v2-0-471cf5001e45@collabora.com>
+ <1820767.5KxKD5qtyk@diego>
+ <a4ex3s23r4k6wehyoaw3aylpcexfrclrxxykjpabhdfne2jgmu@ii6riiiga2zj>
+ <1756448.izSxrag8PF@diego>
+ <20241217-ubiquitous-refreshing-finch-aceade@houat>
+ <c45ff74a-c9a4-4cf1-8530-04087e06b07a@collabora.com>
+ <20241217-zealous-boisterous-llama-52bfcc@houat>
+ <2ba24dc6-b6e7-4964-af84-a5374903ce36@collabora.com>
+ <8dff095.1555.193d768ad5e.Coremail.andyshrk@163.com>
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Content-Language: en-US
+In-Reply-To: <8dff095.1555.193d768ad5e.Coremail.andyshrk@163.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_142102_262257_C70C0CF6 
-X-CRM114-Status: UNSURE (   9.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250108_142818_702195_58C043C3 
+X-CRM114-Status: GOOD (  31.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,122 +93,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Kishon Vijay Abraham I <kishon@ti.com>
+Hi Maxime,
 
-Add the DT node for the PRUSS-M processor subsystem that is present
-on the K3 AM62x SoCs. The K3 AM62x family of SoC has one PRUSS-M
-instance and it has two Programmable Real-Time Units (PRU0 and PRU1).
+On 12/18/24 3:36 AM, Andy Yan wrote:
+> 
+> Hi,
+> 
+> 在 2024-12-18 00:59:57，"Cristian Ciocaltea" <cristian.ciocaltea@collabora.com> 写道：
+>> On 12/17/24 6:53 PM, Maxime Ripard wrote:
+>>> On Tue, Dec 17, 2024 at 06:36:41PM +0200, Cristian Ciocaltea wrote:
+>>>> On 12/17/24 5:00 PM, Maxime Ripard wrote:
+>>>>> On Wed, Dec 11, 2024 at 07:01:15PM +0100, Heiko Stübner wrote:
+>>>>>> Am Mittwoch, 11. Dezember 2024, 18:47:44 CET schrieb Maxime Ripard:
+>>>>>>> On Wed, Dec 11, 2024 at 06:23:03PM +0100, Heiko Stübner wrote:
+>>>>>>>> Am Mittwoch, 11. Dezember 2024, 18:07:57 CET schrieb Maxime Ripard:
+>>>>>>>>> On Wed, Dec 11, 2024 at 12:15:07PM +0200, Cristian Ciocaltea wrote:
+>>>>>>>>>> The RK3588 specific implementation is currently quite limited in terms
+>>>>>>>>>> of handling the full range of display modes supported by the connected
+>>>>>>>>>> screens, e.g. 2560x1440@75Hz, 2048x1152@60Hz, 1024x768@60Hz are just a
+>>>>>>>>>> few of them.
+>>>>>>>>>>
+>>>>>>>>>> Additionally, it doesn't cope well with non-integer refresh rates like
+>>>>>>>>>> 59.94, 29.97, 23.98, etc.
+>>>>>>>>>>
+>>>>>>>>>> Make use of HDMI0 PHY PLL as a more accurate DCLK source to handle
+>>>>>>>>>> all display modes up to 4K@60Hz.
+>>>>>>>>>>
+>>>>>>>>>> Tested-by: FUKAUMI Naoki <naoki@radxa.com>
+>>>>>>>>>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+>>>>>>>>>> ---
+>>>>>>>>>>  drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 34 ++++++++++++++++++++++++++++
+>>>>>>>>>>  1 file changed, 34 insertions(+)
+>>>>>>>>>>
+>>>>>>>>>> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+>>>>>>>>>> index 8b2f53ffefdbf1cc8737b3a86e630a03a7fd9348..393fe6aa170aaee9663c4a6d98c1cd6a5ef79392 100644
+>>>>>>>>>> --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+>>>>>>>>>> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+>>>>>>>>>> @@ -158,6 +158,7 @@ struct vop2_video_port {
+>>>>>>>>>>  	struct drm_crtc crtc;
+>>>>>>>>>>  	struct vop2 *vop2;
+>>>>>>>>>>  	struct clk *dclk;
+>>>>>>>>>> +	struct clk *dclk_src;
+>>>>>>>>>>  	unsigned int id;
+>>>>>>>>>>  	const struct vop2_video_port_data *data;
+>>>>>>>>>>  
+>>>>>>>>>> @@ -212,6 +213,7 @@ struct vop2 {
+>>>>>>>>>>  	struct clk *hclk;
+>>>>>>>>>>  	struct clk *aclk;
+>>>>>>>>>>  	struct clk *pclk;
+>>>>>>>>>> +	struct clk *pll_hdmiphy0;
+>>>>>>>>>>  
+>>>>>>>>>>  	/* optional internal rgb encoder */
+>>>>>>>>>>  	struct rockchip_rgb *rgb;
+>>>>>>>>>> @@ -220,6 +222,8 @@ struct vop2 {
+>>>>>>>>>>  	struct vop2_win win[];
+>>>>>>>>>>  };
+>>>>>>>>>>  
+>>>>>>>>>> +#define VOP2_MAX_DCLK_RATE		600000 /* kHz */
+>>>>>>>>>> +
+>>>>>>>>>>  #define vop2_output_if_is_hdmi(x)	((x) == ROCKCHIP_VOP2_EP_HDMI0 || \
+>>>>>>>>>>  					 (x) == ROCKCHIP_VOP2_EP_HDMI1)
+>>>>>>>>>>  
+>>>>>>>>>> @@ -1033,6 +1037,9 @@ static void vop2_crtc_atomic_disable(struct drm_crtc *crtc,
+>>>>>>>>>>  
+>>>>>>>>>>  	vop2_crtc_disable_irq(vp, VP_INT_DSP_HOLD_VALID);
+>>>>>>>>>>  
+>>>>>>>>>> +	if (vp->dclk_src)
+>>>>>>>>>> +		clk_set_parent(vp->dclk, vp->dclk_src);
+>>>>>>>>>> +
+>>>>>>>>>>  	clk_disable_unprepare(vp->dclk);
+>>>>>>>>>>  
+>>>>>>>>>>  	vop2->enable_count--;
+>>>>>>>>>> @@ -2049,6 +2056,27 @@ static void vop2_crtc_atomic_enable(struct drm_crtc *crtc,
+>>>>>>>>>>  
+>>>>>>>>>>  	vop2_vp_write(vp, RK3568_VP_MIPI_CTRL, 0);
+>>>>>>>>>>  
+>>>>>>>>>> +	/*
+>>>>>>>>>> +	 * Switch to HDMI PHY PLL as DCLK source for display modes up
+>>>>>>>>>> +	 * to 4K@60Hz, if available, otherwise keep using the system CRU.
+>>>>>>>>>> +	 */
+>>>>>>>>>> +	if (vop2->pll_hdmiphy0 && mode->crtc_clock <= VOP2_MAX_DCLK_RATE) {
+>>>>>>>>>> +		drm_for_each_encoder_mask(encoder, crtc->dev, crtc_state->encoder_mask) {
+>>>>>>>>>> +			struct rockchip_encoder *rkencoder = to_rockchip_encoder(encoder);
+>>>>>>>>>> +
+>>>>>>>>>> +			if (rkencoder->crtc_endpoint_id == ROCKCHIP_VOP2_EP_HDMI0) {
+>>>>>>>>>> +				if (!vp->dclk_src)
+>>>>>>>>>> +					vp->dclk_src = clk_get_parent(vp->dclk);
+>>>>>>>>>> +
+>>>>>>>>>> +				ret = clk_set_parent(vp->dclk, vop2->pll_hdmiphy0);
+>>>>>>>>>> +				if (ret < 0)
+>>>>>>>>>> +					drm_warn(vop2->drm,
+>>>>>>>>>> +						 "Could not switch to HDMI0 PHY PLL: %d\n", ret);
+>>>>>>>>>> +				break;
+>>>>>>>>>> +			}
+>>>>>>>>>> +		}
+>>>>>>>>>> +	}
+>>>>>>>>>> +
+>>>>>>>>>
+>>>>>>>>> It seems pretty fragile to do it at atomic_enable time, even more so
+>>>>>>>>> since you don't lock the parent either.
+>>>>>>>>>
+>>>>>>>>> Any reason not to do it in the DRM or clock driver probe, and make sure
+>>>>>>>>> you never change the parent somehow?
+>>>>>>>>
+>>>>>>>> On rk3588 we have 3 dclk_s and 2 hdmi controllers. Each video-port can
+>>>>>>>> use the clock generated from either the hdmi0phy or hdmi1phy, depending
+>>>>>>>> on which hdmi-controller it uses.
+>>>>>>>>
+>>>>>>>> So you actually need to know which vpX will output to which hdmiY to then
+>>>>>>>> reparent that dclk to the hdmiphy output.
+>>>>>>>
+>>>>>>> The Rockchip nomenclature isn't super obvious to me, sorry. Is there a
+>>>>>>> datasheet for this somewhere? Also, does this vpX -> HDMI-Y mapping need
+>>>>>>> to be dynamic?
+>>>>>>
+>>>>>> VPs are CRTCs in drm-language and each of them can drive a differing
+>>>>>> number of output encoders. Those video-ports also have differing output
+>>>>>> characteristics in terms of supported resolution and other properties.
+>>>>>>
+>>>>>> The rk3588 TRM has leaked in a number of places, and if you find a
+>>>>>> TRM-part2, there is a section labeled "Display Output Interface Description"
+>>>>>> that has a nice graphic for that.
+>>>>>>
+>>>>>> Or in short:
+>>>>>> - CRTC(VP)0 supports 8K resolution and can drive DP0+1, HDMI0+1, eDP0+1
+>>>>>>   [if I'm reading things correctly, 8K together with CRTC1 somehow)
+>>>>>> - CRTC(VP)1 supports 4K resolution and can drive DP0+1, HDMI0+1, eDP0+1
+>>>>>> - CRTC(VP)2 supports 4K resolution and can drive DP0+1, HDMI0+1, eDP01, DSI0+1
+>>>>>> - CRTC(VP)3 supports 2K resolution and can drive DSI0+1 and some BT1120,BT656
+>>>>>>
+>>>>>> so for the 3 higher resolution CRTCs there are essentially 6 or 8 output options
+>>>>>> depending on the board design
+>>>>>
+>>>>> That's much clearer, thanks. I'm not entirely sure how that links to the
+>>>>> need for the PLL to change its parent depending on the ouput. Do you
+>>>>> need to always have all the outputs on the same PLL?
+>>>>
+>>>> One of the problems is that the PHY PLLs cannot be used as clock sources
+>>>> for resolutions above 4K@60Hz, while VOP2 on RK3588 supports up to 8K@60Hz,
+>>>> which is supposed to be handled by the system CRU.
+>>>
+>>> But can that system CRU drive resolutions lower than 4k@60? If so, why
+>>> do we bother with PHYs?
+>>
+>> It can, but it's not accurate enough to support all modes, e.g. those
+>> having fractional refresh rates, among others.  That's actually the
+>> reason we'd want to make use of the PHY PLLs.
+> 
+> Not only that. For resolutions lower than 4k@60, if we use system cur as dclk parent,
+> it can't  sync with HDMI TMDS clock , this could lead to stability/compatibility i issues,
+> which may not be easy to encounter, but we have indeed experienced them  few timems
+> in a large amount of productization practice.
 
-Signed-off-by: Kishon Vijay Abraham I <kishon@ti.com>
-Signed-off-by: Hari Nagalla <hnagalla@ti.com>
-[ Judith: Fix pruss_iclk id for pruss_coreclk_mux ]
-Signed-off-by: Judith Mendez <jm@ti.com>
----
- arch/arm64/boot/dts/ti/k3-am62-main.dtsi | 90 ++++++++++++++++++++++++
- 1 file changed, 90 insertions(+)
+Could you please indicate which would be the required changes to make
+this acceptable upstream and unblock the series?
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
-index 7d355aa73ea21..ee53e663b5bdb 100644
---- a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
-@@ -1079,6 +1079,96 @@ dphy0: phy@30110000 {
- 		status = "disabled";
- 	};
- 
-+	pruss: pruss@30040000 {
-+		compatible = "ti,am625-pruss";
-+		reg = <0x00 0x30040000 0x00 0x80000>;
-+		power-domains = <&k3_pds 81 TI_SCI_PD_EXCLUSIVE>;
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges = <0x0 0x00 0x30040000 0x80000>;
-+
-+		pruss_mem: memories@0 {
-+			reg = <0x0 0x2000>,
-+			      <0x2000 0x2000>,
-+			      <0x10000 0x10000>;
-+			reg-names = "dram0", "dram1", "shrdram2";
-+		};
-+
-+		pruss_cfg: cfg@26000 {
-+			compatible = "ti,pruss-cfg", "syscon";
-+			reg = <0x26000 0x200>;
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+			ranges = <0x0 0x26000 0x2000>;
-+
-+			clocks {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				pruss_coreclk_mux: coreclk-mux@3c {
-+					reg = <0x3c>;
-+					#clock-cells = <0>;
-+					clocks = <&k3_clks 81 0>,  /* pruss_core_clk */
-+						 <&k3_clks 81 14>; /* pruss_iclk */
-+					assigned-clocks = <&pruss_coreclk_mux>;
-+					assigned-clock-parents = <&k3_clks 81 14>;
-+				};
-+
-+				pruss_iepclk_mux: iepclk-mux@30 {
-+					reg = <0x30>;
-+					#clock-cells = <0>;
-+					clocks = <&k3_clks 81 3>,	/* pruss_iep_clk */
-+						 <&pruss_coreclk_mux>;	/* pruss_coreclk_mux */
-+					assigned-clocks = <&pruss_iepclk_mux>;
-+					assigned-clock-parents = <&pruss_coreclk_mux>;
-+				};
-+			};
-+		};
-+
-+		pruss_intc: interrupt-controller@20000 {
-+			compatible = "ti,pruss-intc";
-+			reg = <0x20000 0x2000>;
-+			interrupt-controller;
-+			#interrupt-cells = <3>;
-+			interrupts = <GIC_SPI 88 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 89 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 90 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 91 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 92 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 93 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 94 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 95 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "host_intr0", "host_intr1",
-+					  "host_intr2", "host_intr3",
-+					  "host_intr4", "host_intr5",
-+					  "host_intr6", "host_intr7";
-+		};
-+
-+		pru0: pru@34000 {
-+			compatible = "ti,am625-pru";
-+			reg = <0x34000 0x3000>,
-+			      <0x22000 0x100>,
-+			      <0x22400 0x100>;
-+			reg-names = "iram", "control", "debug";
-+			firmware-name = "am62x-pru0-fw";
-+			interrupt-parent = <&pruss_intc>;
-+			interrupts = <16 2 2>;
-+			interrupt-names = "vring";
-+		};
-+
-+		pru1: pru@38000 {
-+			compatible = "ti,am625-pru";
-+			reg = <0x38000 0x3000>,
-+			      <0x24000 0x100>,
-+			      <0x24400 0x100>;
-+			reg-names = "iram", "control", "debug";
-+			firmware-name = "am62x-pru1-fw";
-+			interrupt-parent = <&pruss_intc>;
-+			interrupts = <18 3 3>;
-+			interrupt-names = "vring";
-+		};
-+	};
-+
- 	gpmc0: memory-controller@3b000000 {
- 		compatible = "ti,am64-gpmc";
- 		power-domains = <&k3_pds 80 TI_SCI_PD_EXCLUSIVE>;
--- 
-2.47.1
+Thanks,
+Cristian
+
+>>>> Moreover, the 2 PLLs are shared between 3 out of the 4 video ports already
+>>>> mentioned by Heiko.  There is quite a bit of complexity in downstream
+>>>> driver to handle all possible usecases - see [1] for a brief description on
+>>>> how was that designed to work.
+>>>
+>>> That's a generic allocation issue. Multiple drivers (vc4 for example)
+>>> has this issue for other components. It can be fairly easily dealt with
+>>> at atomic_check time.
+>>>
+>>> Maxime
+>>
 
 
