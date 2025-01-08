@@ -4,64 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 630D5E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 22:56:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E179E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 22:58:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vOwRZpFoseOz9hM473nLmBBHXI/FXd6Ps4xPKvt35/k=; b=qrCKi3ZMl+bv03JvgPVsfCDOpk
-	LlBBN1VTy+IEdb0sNHhuoI8QKwffQe9dyr2oZryJ/eWWIJaHc2j3tmsujioPbYTraU75liGcs0x9C
-	GaW+3GDK4VNkLNfpJ6BI04Glwc326uDgWsj351Teh0N64DnDTuSqtXlDQD9Al4X121OyCEHx0g0mZ
-	KJXuanmQj7ntxP0jB84JJfIKh5k3TKmq3CvHvpJdzKUIF8rdPd+b1z5CbJGl2Jvg0hSPJwhQbHrQI
-	hSyzqUFV0KMiVHBGExyMl906BGKqGSdF5OEieujJTOifST7fikabD3UJaVINaQL4wbqu1cthnxlhn
-	jR22bTtQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ibuURv4xTWoCUb0ZYBZvQr63MwW5FsH8r9nGct30E+4=; b=NhDcAQYG8nTb0I
+	iFYLF0MvbxKdiiCgXt1c3BWcIQqCajnJ7wE01klVrnwyKQDXtfOwPU2N6tmKAIfN+11jBj36E7UZt
+	XAbdDCm+o/AwumP7wqlov0SP9s6Hun1cnMsed5IG4zBrbvP1fymaiXNs7b5gCOLk9BTMQ2jgDneOG
+	CaAgXYFyea8xLJX18CILFj/5f2v++xqIHz/SQWYg2SKNl94uKrObLP4NtMNet0txRKXbDloq9qKUo
+	H41r80cVqERJi2C8qXjoNBdf7dY21bYn6QH9Xg4ZL2iyt67uLZiC3xpV+ZHVnCYMNmnZv5m/SXkw4
+	syV4D6Pa9/MF4+ELqeCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVeyj-0000000A68e-2Oda;
-	Wed, 08 Jan 2025 22:56:45 +0000
-Received: from fllv0015.ext.ti.com ([198.47.19.141])
+	id 1tVezu-0000000A6Hd-1K8T;
+	Wed, 08 Jan 2025 22:57:58 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVev9-0000000A55a-43Sl
+	id 1tVevA-0000000A56B-0CdY
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 08 Jan 2025 22:53:05 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 508MqDVP081037;
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 508MqDer2870978
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
 	Wed, 8 Jan 2025 16:52:13 -0600
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
 	s=ti-com-17Q1; t=1736376733;
-	bh=vOwRZpFoseOz9hM473nLmBBHXI/FXd6Ps4xPKvt35/k=;
-	h=From:Date:Subject:References:In-Reply-To:To:CC;
-	b=elHDE0mpR9ctwrwK0FLxmCQgllmkqw0LpgU/mDuNJ+6DcorV5YT2qcgcYnRjAZO11
-	 NrfVKP7r1D5/CVuk2c/OLOEElKZExeoPD4wKCvUHlSPwrJEgC3z0vyPiI7yWDRrUd6
-	 liA/ZnZ+9TlbnYN8I8cEKXYznHfJqtVxHKA6EGvk=
-Received: from DFLE103.ent.ti.com (dfle103.ent.ti.com [10.64.6.24])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 508MqDYL080912
+	bh=ibuURv4xTWoCUb0ZYBZvQr63MwW5FsH8r9nGct30E+4=;
+	h=From:Subject:Date:To:CC;
+	b=MrCWlt++a9BQ4SkU925mAzQes2r7fpCUuCf5olDCD9s/mD+9KY3vkHATUPzrAs+ms
+	 +A1LG9KJrBzuRCbll4wJDTZdlkpe9nG+Yb004YTqVMx2w+W5YnVWTTdRCEBPC3XCbh
+	 Whar4zGI5xqQBf520uAurF/JIWctZmMfqhCozFs4=
+Received: from DFLE113.ent.ti.com (dfle113.ent.ti.com [10.64.6.34])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 508MqD82019336
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
 	Wed, 8 Jan 2025 16:52:13 -0600
-Received: from DFLE101.ent.ti.com (10.64.6.22) by DFLE103.ent.ti.com
- (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
+Received: from DFLE103.ent.ti.com (10.64.6.24) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 8
- Jan 2025 16:52:13 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE101.ent.ti.com
- (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
+ Jan 2025 16:52:12 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE103.ent.ti.com
+ (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
  Frontend Transport; Wed, 8 Jan 2025 16:52:12 -0600
 Received: from localhost (bb.dhcp.ti.com [128.247.81.12])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 508MqCMU038352;
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 508MqC0W038346;
 	Wed, 8 Jan 2025 16:52:12 -0600
 From: Bryan Brattlof <bb@ti.com>
-Date: Wed, 8 Jan 2025 16:51:55 -0600
-Subject: [PATCH v2 3/3] arm64: dts: ti: k3-am62l: add initial reference
- board file
+Subject: [PATCH v2 0/3] arm64: dts: ti: introduce basic support for the
+ AM62L
+Date: Wed, 8 Jan 2025 16:51:52 -0600
+Message-ID: <20250108-am62lx-v2-0-581285a37d8f@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250108-am62lx-v2-3-581285a37d8f@ti.com>
-References: <20250108-am62lx-v2-0-581285a37d8f@ti.com>
-In-Reply-To: <20250108-am62lx-v2-0-581285a37d8f@ti.com>
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAIgBf2cC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyjHQUlJIzE
+ vPSU3UzU4B8JSMDIxNDIyMD3cRcM6OcCt3kREsTS4vUtBQL81QloOKCotS0zAqwQdGxtbUAERy
+ LWFgAAAA=
 To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
         Tero
  Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -71,24 +73,24 @@ To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
 CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>, Bryan Brattlof <bb@ti.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1783; i=bb@ti.com;
- h=from:subject:message-id; bh=aXWJV3lurQbpO8RjUHTuNWtjBXtYaKNXg8VgRBPGmWE=;
- b=owNCWmg5MUFZJlNZce+8qwAAaP////95Tv+lebvj70y6FvTv/Ox3855Kfnf/fP9u7XPO/u+wA
- RrIIepoADTQMgNBpoABoaaAaZDQaADRppo00AAAGhoMRoZGgeU09RptRpkM1PRtUQAaNAyDQaZD
- EBo0aDCMjINDIAADZTEBpoYCGnqAD1AxDJ6mmJiBk0GgYZACZGgHqNNNDQNANBgjEBpoBiAGTEZ
- AyAZDCMI0BiZGQ0DTIABpk0BAjPHWh4VKJ0YGGLk0wMgDO7hUpt0I3+tTIOzPyJGWA/GOt0gYw0
- NkaH3dFccVOuUZdkMEM4Oni7BG1BrCdwDK76ByoZA2zhEYuwqFToUCVgY7UiwYOWPby7gocV9KJ
- iT+SARfGllzBcj7AY54N3/OzD/hsaa1/yR0QHnS5yKKYN1DDsl1+seC1yJUJe+wsGZiVbcWEUK+
- THa1P0EQ3kB8T0u9os0EDdE+9EMYxhhjiQTNTDjNSFEUNzXgtoRZrwE4NiWyCCy1L0vfxHdSYMQ
- Pv9fIpeqNJfhBB0V23KvChLkTA/hedtIgmspTGOjpjfJgw545DmzS8yp9nY5NLf20Qm3HCvG+WI
- Vk2bwM2EqNtKukHZbv4zBQImkqeAF4/pU+J91rpWaGpx07x9HS5ZohiQsdgG0wpclQgxz/Q12lp
- xiD/F3JFOFCQce+8qw=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3407; i=bb@ti.com;
+ h=from:subject:message-id; bh=l555czrwlTYLjBIpGqV4/yEAVsCJ3BvifL46ZgYveB8=;
+ b=owNCWmg5MUFZJlNZbm55xQAAcH///7/fe7Wv/xf8+v/Imfv3vZXq7pfqy99vV/7c63b99v0wA
+ RtqB2oBpoaNAaA0AGmmmhiGRkNAGjQBoNAaDQaDIAAaaDTI0yGRppo09RkaaZGDTUQAaaA00Gmm
+ gyaGgDQDRoaNNBpobUGIAwmgaAyANAGgaMhp6QaDJoaAGMjSYZTR6QYg0aYjQBoAwmQ0DQA000A
+ AMAJhAwjIyNGgDIGQaGIANGgAZNAEFWGNBU9ytSAQYkVEaorGKdP1NQzS7nMKvsIrvdSA0A10AF
+ qLuSA+dou5979Phm59UH8vfiFbGVBNJYWMrw49RgEr3K3N24rLO7Lm/LOLMerX0sydhToPWNA7K
+ T0JkyyD8HhX668eMxR043YJEDUqOMI8dP07Di95qQsToHscgGrzr9vcgLNSsU9SUIfycGFtLVIk
+ AEAdJpd+Zw5vG9u5S7B06ptvCDeaj4w4hwV1KAunPWgIetsSGStELk5RMqQ1VoKVtu0YwK8QNqs
+ MNY1mLCkldWtLiAwWjkSIRHiEUEMgtcyxRrz5rLABN+aE90MmkzipcMicGurliy+pdzIfBQWOls
+ ZKs+f1uFCC21C1hjSAfcOy4bZEA4CVAOXbsyJBWqAyvOBx2RFRoQ7XIJPC5o0UCenz25Th6wcCk
+ AdEjZBYXDNplX+LuSKcKEg3NzzigA==
 X-Developer-Key: i=bb@ti.com; a=openpgp;
  fpr=D3D177E40A38DF4D1853FEEF41B90D5D71D56CE0
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_145304_138186_43CD637C 
-X-CRM114-Status: GOOD (  13.51  )
+X-CRM114-CacheID: sfid-20250108_145304_229401_0054D5F4 
+X-CRM114-Status: GOOD (  12.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,74 +105,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Vignesh Raghavendra <vigneshr@ti.com>
+Hello Everyone,
 
-Add the initial board file for the AM62L3's Evaluation Module.
+This small series adds the initial support (currently just a UART) for 
+TI's AM62L SoC family.
 
-Signed-off-by: Vignesh Raghavendra <vigneshr@ti.com>
-Signed-off-by: Bryan Brattlof <bb@ti.com>
----
+The AM62L is a lite, low power and performance optimized family of 
+application processors that are built for Linux application development. 
+AM62L is well suited for a wide range of general-purpose applications 
+with scalable ARM Cortex-A53 core performance and embedded features such 
+as: Multimedia DSI/DPI support, integrated ADC on chip, advanced lower 
+power management modes, and extensive security options for IP protection 
+with the built-in security features.
+
+Additionally, the AM62Lx devices includes an extensive set of 
+peripherals that make it a well-suited for a broad range of industrial 
+applications while offering intelligent features and optimized power 
+architecture as well. In addition, the extensive set of peripherals 
+included in AM62Lx enables system-level connectivity, such as: USB, 
+MMC/SD, OSPI, CAN-FD and an ADC.
+ 
+AM62L is a general purpose processor, however some of the applications 
+well suited for it include: Human Machine Interfaces (HMI), Medical 
+patient monitoring , Building automation, Smart secure gateways, Smart 
+Thermostats, EV charging stations, Smart Metering, Solar energy and 
+more.
+ 
+Some highlights of AM62L SoC are:
+ - Single to Dual 64-bit Arm® Cortex®-A53 microprocessor subsystem up to 
+   1.25GHz Integrated Giga-bit Ethernet switch supporting up to a total 
+   of two external
+ - 16-bit DDR Subsystem that supports LPDDR4, DDR4 memory types.
+ - Display support: 1x display support over MIPI DSI (4 lanes DPHY) or 
+   DPI (24-bit RGB LVCMOS)
+ - Multiple low power modes support, ex: Deep sleep and Standby
+ - Support for secure boot, Trusted Execution Environment (TEE) & 
+   Cryptographic Acceleration
+
+For more information check out our Technical Reference Manual (TRM) 
+which is located here:
+
+	https://www.ti.com/lit/pdf/sprujb4
+
+Happy Hacking
+~Bryan
+
 Changes in v1:
  - switched to non-direct links so TRM updates are automatic
- - removed current-speed property from main_uart0
+ - fixed indentation issues with a few nodes
+ - separated bindings into a different patch
+ - removed current-speed property from main_uart0{}
  - removed empty reserved-memory{} node
  - removed serial2 from aliases{} node
- - corrected main_uart0 pinmux
+ - corrected the main_uart0{} pinmux
+ - Link: https://lore.kernel.org/all/20241117-am62lx-v1-0-4e71e42d781d@ti.com/
+
+Signed-off-by: Bryan Brattlof <bb@ti.com>
 ---
- arch/arm64/boot/dts/ti/k3-am62l3-evm.dts | 43 ++++++++++++++++++++++++++++++++
- 1 file changed, 43 insertions(+)
+Bryan Brattlof (1):
+      dt-bindings: arm: ti: Add binding for AM62L SoCs
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62l3-evm.dts b/arch/arm64/boot/dts/ti/k3-am62l3-evm.dts
-new file mode 100644
-index 0000000000000..ed0148ce1bea6
---- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-am62l3-evm.dts
-@@ -0,0 +1,43 @@
-+// SPDX-License-Identifier: GPL-2.0-only or MIT
-+/*
-+ * Device Tree file for the AM62L3 Evaluation Module
-+ * Copyright (C) 2024 Texas Instruments Incorporated - https://www.ti.com/
-+ *
-+ * Technical Reference Manual: https://www.ti.com/lit/pdf/sprujb4
-+ */
-+
-+/dts-v1/;
-+
-+#include "k3-am62l3.dtsi"
-+
-+/ {
-+	compatible = "ti,am62l3-evm", "ti,am62l3";
-+	model = "Texas Instruments AM62L3 Evaluation Module";
-+
-+	chosen {
-+		stdout-path = &main_uart0;
-+	};
-+
-+	memory@80000000 {
-+		reg = <0x00000000 0x80000000 0x00000000 0x80000000>;
-+		device_type = "memory";
-+		bootph-all;
-+	};
-+};
-+
-+&pmx0 {
-+	main_uart0_pins_default: main_uart0-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x01b4, PIN_INPUT, 0)	/* (D13) UART0_RXD */
-+			AM62PX_IOPAD(0x01b8, PIN_OUTPUT, 0)	/* (C13) UART0_TXD */
-+		>;
-+		bootph-all;
-+	};
-+};
-+
-+&main_uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_uart0_pins_default>;
-+	status = "okay";
-+	bootph-all;
-+};
+Vignesh Raghavendra (2):
+      arm64: dts: ti: k3-am62l: add initial infrastructure
+      arm64: dts: ti: k3-am62l: add initial reference board file
 
+ Documentation/devicetree/bindings/arm/ti/k3.yaml |  6 ++
+ arch/arm64/boot/dts/ti/Makefile                  |  3 +
+ arch/arm64/boot/dts/ti/k3-am62l-main.dtsi        | 52 ++++++++++++++
+ arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi      | 33 +++++++++
+ arch/arm64/boot/dts/ti/k3-am62l.dtsi             | 89 ++++++++++++++++++++++++
+ arch/arm64/boot/dts/ti/k3-am62l3-evm.dts         | 43 ++++++++++++
+ arch/arm64/boot/dts/ti/k3-am62l3.dtsi            | 67 ++++++++++++++++++
+ arch/arm64/boot/dts/ti/k3-pinctrl.h              |  2 +
+ 8 files changed, 295 insertions(+)
+---
+base-commit: 6b51892b31fe83fe7cc8cf69e4bf7721cf08951b
+change-id: 20241220-am62lx-ca9498efd87e
+
+Best regards,
 -- 
-2.47.1
+Bryan Brattlof <bb@ti.com>
 
 
