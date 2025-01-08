@@ -4,72 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 747D4E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 10:54:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D00AAE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 10:56:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I6eils0r/mBSxnG1P1Sd0DCHULqWG79FI0SGMtp3aT4=; b=rGkLn/FY4g7ut+65PoXuvOSXB4
-	L70D+XveKGHZPrO3oq/0DdObbOhPXOGj5+eeEnqT83jDxI/sPfTUkMEOTLJJuUbpvNRqMjfBjirS9
-	XW/IdBGpv6sjjPYIhq15RiLF893iDqgOfANknasP5d1NvcaP/CvXzMv7Yb+JwZXLAjDx/fQiYRWM6
-	LHDVnlqRukZT5kSfwdGXZbc89HlVOQbIBFtXkHag3TzdPkbSjyhUDaQUIka6dunf6UpzvTt9GYxaZ
-	LBXXoKTPY9EimKP8fM6df20IcQ90OeODOGPLOIZerDIqRA57hG8pvolSQV/GrtV+Oo9FlIqfwWntS
-	RBX16lHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8YR6sefChmMCI3W3DFYxDLqp5TsMPa0xO2IcTo2b1+w=; b=l3BDAFCvxXVMC3LAAVd+ujkW4n
+	8DPjvk73pBSY26+QgIxfs2LmQqZ/rwuxjUeFe9hjx1z/OERePDPYvbmBxs595YAh0ua8HPZFRvlin
+	8HRM37/4IgmoAIeiMVbCIdIq1cO8twy6riath2VE27Fhp+RhKQ1SgTzyNr4TrFXHEZY+d68015a/s
+	Wz5n4ZPq6QMnzB21WXcBeItqsLqqlsga/bGXA+sJLVBuqqsZ5NPTerS4l0NdGL8ZyH4e3m+Ne9ew6
+	asSX0x/RWkX9dAOdN9ecRCkE2To2+pPAcom2uYHD9QdtjpNwewVwHOyf7761Dqw2776k0yyaAugDj
+	NgG/GXRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVThv-000000084nJ-0pr7;
-	Wed, 08 Jan 2025 10:54:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVTOr-000000080PG-0AeG
+	id 1tVTj7-000000085Lf-1mM8;
+	Wed, 08 Jan 2025 10:55:53 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tVTUj-000000081iR-0WEC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 10:34:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D32671692;
-	Wed,  8 Jan 2025 02:35:24 -0800 (PST)
-Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B94133F673;
-	Wed,  8 Jan 2025 02:34:53 -0800 (PST)
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-To: linux-hardening@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Mark Brown <broonie@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Jann Horn <jannh@google.com>,
-	Jeff Xu <jeffxu@chromium.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Kees Cook <kees@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Pierre Langlois <pierre.langlois@arm.com>,
-	Quentin Perret <qperret@google.com>,
-	"Mike Rapoport (IBM)" <rppt@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Will Deacon <will@kernel.org>,
-	Matthew Wilcox <willy@infradead.org>,
-	Qi Zheng <zhengqi.arch@bytedance.com>,
+	Wed, 08 Jan 2025 10:41:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=8YR6sefChmMCI3W3DFYxDLqp5TsMPa0xO2IcTo2b1+w=; b=x384X12HeI0q3E5tqTrjVvRoNg
+	X64WIEcS89d47QITj3u/LON+Bg/9390WtUuzt9Cwiu8NjZrivtwto9/sozpwySdpHr/Jp54N1ID3d
+	Amopwt5v8gHqfbcx69zNlrxlHHCsi+Ev7k83iODuv8XEgRx50aCR4f/cA1uEAGyFbdc6LEb+IifT4
+	iIvt1oN6L/oumBR6K9Z2Q3sFiwr8IcWy4Xnp3RdpTn3IvS9WKRNqAFBVhM1YVE9hco0vDlyAYbZzc
+	ULeqdH+OClsNO8YOJFLm65qUz90qQT0DfALOG/TrWokphBgDSPtuy21CIuOI9+QM+zoVNC0fLRrvy
+	HN1MZUhw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:34564)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tVTUT-0000Pe-06;
+	Wed, 08 Jan 2025 10:40:45 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tVTUO-0006Dw-0t;
+	Wed, 08 Jan 2025 10:40:40 +0000
+Date: Wed, 8 Jan 2025 10:40:40 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
 	linux-arm-kernel@lists.infradead.org,
-	x86@kernel.org
-Subject: [RFC PATCH v2 15/15] mm: Add basic tests for kpkeys_hardened_pgtables
-Date: Wed,  8 Jan 2025 10:32:50 +0000
-Message-ID: <20250108103250.3188419-16-kevin.brodsky@arm.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250108103250.3188419-1-kevin.brodsky@arm.com>
-References: <20250108103250.3188419-1-kevin.brodsky@arm.com>
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next v3 02/18] net: stmmac: move tx_lpi_timer
+ tracking to phylib
+Message-ID: <Z35WKDhVGMvPIi7d@shell.armlinux.org.uk>
+References: <Z31V9O8SATRbu2L3@shell.armlinux.org.uk>
+ <E1tVCRZ-007Y35-9N@rmk-PC.armlinux.org.uk>
+ <66b95153-cb12-494d-851c-093a0006547f@linux.intel.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <66b95153-cb12-494d-851c-093a0006547f@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_023457_170632_2A481E7B 
-X-CRM114-Status: GOOD (  21.64  )
+X-CRM114-CacheID: sfid-20250108_024101_160102_2F6FDD78 
+X-CRM114-Status: UNSURE (   6.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,129 +90,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add basic tests for the kpkeys_hardened_pgtables feature: try to
-perform a direct write to some kernel and user page table entry and
-ensure it fails.
+Hi,
 
-Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
----
- mm/Makefile                        |  1 +
- mm/kpkeys_hardened_pgtables_test.c | 72 ++++++++++++++++++++++++++++++
- security/Kconfig.hardening         | 12 +++++
- 3 files changed, 85 insertions(+)
- create mode 100644 mm/kpkeys_hardened_pgtables_test.c
+On Wed, Jan 08, 2025 at 03:36:57PM +0800, Choong Yong Liang wrote:
+> Tested-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
 
-diff --git a/mm/Makefile b/mm/Makefile
-index 130691364172..f7263b7f45b8 100644
---- a/mm/Makefile
-+++ b/mm/Makefile
-@@ -148,3 +148,4 @@ obj-$(CONFIG_EXECMEM) += execmem.o
- obj-$(CONFIG_TMPFS_QUOTA) += shmem_quota.o
- obj-$(CONFIG_PT_RECLAIM) += pt_reclaim.o
- obj-$(CONFIG_KPKEYS_HARDENED_PGTABLES) += kpkeys_hardened_pgtables.o
-+obj-$(CONFIG_KPKEYS_HARDENED_PGTABLES_TEST) += kpkeys_hardened_pgtables_test.o
-diff --git a/mm/kpkeys_hardened_pgtables_test.c b/mm/kpkeys_hardened_pgtables_test.c
-new file mode 100644
-index 000000000000..86d862d43bea
---- /dev/null
-+++ b/mm/kpkeys_hardened_pgtables_test.c
-@@ -0,0 +1,72 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+#include <kunit/test.h>
-+#include <linux/pgtable.h>
-+#include <linux/mman.h>
-+
-+static void write_kernel_pte(struct kunit *test)
-+{
-+	pte_t *ptep;
-+	pte_t pte;
-+	int ret;
-+
-+	/*
-+	 * The choice of address is mostly arbitrary - we just need a page
-+	 * that is definitely mapped, such as the current function.
-+	 */
-+	ptep = virt_to_kpte((unsigned long)&write_kernel_pte);
-+	KUNIT_ASSERT_NOT_NULL_MSG(test, ptep, "Failed to get PTE");
-+
-+	pte = ptep_get(ptep);
-+	pte = set_pte_bit(pte, __pgprot(PTE_WRITE));
-+	ret = copy_to_kernel_nofault(ptep, &pte, sizeof(pte));
-+	KUNIT_EXPECT_EQ_MSG(test, ret, -EFAULT,
-+			    "Direct PTE write wasn't prevented");
-+}
-+
-+static void write_user_pmd(struct kunit *test)
-+{
-+	pmd_t *pmdp;
-+	pmd_t pmd;
-+	unsigned long uaddr;
-+	int ret;
-+
-+	uaddr = kunit_vm_mmap(test, NULL, 0, PAGE_SIZE, PROT_READ,
-+			      MAP_ANONYMOUS | MAP_PRIVATE | MAP_POPULATE, 0);
-+	KUNIT_ASSERT_NE_MSG(test, uaddr, 0, "Could not create userspace mm");
-+
-+	/* We passed MAP_POPULATE so a PMD should already be allocated */
-+	pmdp = pmd_off(current->mm, uaddr);
-+	KUNIT_ASSERT_NOT_NULL_MSG(test, pmdp, "Failed to get PMD");
-+
-+	pmd = pmdp_get(pmdp);
-+	pmd = set_pmd_bit(pmd, __pgprot(PROT_SECT_NORMAL));
-+	ret = copy_to_kernel_nofault(pmdp, &pmd, sizeof(pmd));
-+	KUNIT_EXPECT_EQ_MSG(test, ret, -EFAULT,
-+			    "Direct PMD write wasn't prevented");
-+}
-+
-+static int kpkeys_hardened_pgtables_suite_init(struct kunit_suite *suite)
-+{
-+	if (!arch_kpkeys_enabled()) {
-+		pr_err("Cannot run kpkeys_hardened_pgtables tests: kpkeys are not supported\n");
-+		return 1;
-+	}
-+
-+	return 0;
-+}
-+
-+static struct kunit_case kpkeys_hardened_pgtables_test_cases[] = {
-+	KUNIT_CASE(write_kernel_pte),
-+	KUNIT_CASE(write_user_pmd),
-+	{}
-+};
-+
-+static struct kunit_suite kpkeys_hardened_pgtables_test_suite = {
-+	.name = "Hardened pgtables using kpkeys",
-+	.test_cases = kpkeys_hardened_pgtables_test_cases,
-+	.suite_init = kpkeys_hardened_pgtables_suite_init,
-+};
-+kunit_test_suite(kpkeys_hardened_pgtables_test_suite);
-+
-+MODULE_DESCRIPTION("Tests for the kpkeys_hardened_pgtables feature");
-+MODULE_LICENSE("GPL");
-diff --git a/security/Kconfig.hardening b/security/Kconfig.hardening
-index 95f93f1d4055..8bc5d7235f6d 100644
---- a/security/Kconfig.hardening
-+++ b/security/Kconfig.hardening
-@@ -312,6 +312,18 @@ config KPKEYS_HARDENED_PGTABLES
- 	  This option has no effect if the system does not support
- 	  kernel pkeys.
- 
-+config KPKEYS_HARDENED_PGTABLES_TEST
-+	tristate "KUnit tests for kpkeys_hardened_pgtables" if !KUNIT_ALL_TESTS
-+	depends on KPKEYS_HARDENED_PGTABLES
-+	depends on KUNIT
-+	default KUNIT_ALL_TESTS
-+	help
-+	  Enable this option to check that the kpkeys_hardened_pgtables feature
-+	  functions as intended, i.e. prevents arbitrary writes to user and
-+	  kernel page tables.
-+
-+	  If unsure, say N.
-+
- endmenu
- 
- config CC_HAS_RANDSTRUCT
+Please let me know if this is for the entire series.
+
+Thanks.
+
 -- 
-2.47.0
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
