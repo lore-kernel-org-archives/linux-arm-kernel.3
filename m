@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19506E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 11:03:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7801BE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 11:04:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MdzLiNiMUefIpEMjWF8sA0mgOuEA1ymjFocAvj83YU4=; b=Elph3qGj5DfO/Y1JUDh+TDfc8g
-	jj+lUcfJITWVp1dXoz6V5ltmrtNObHyB72acalgO0evMvPkAn6PMde4R0FU+TAZ5Ny4bkCeKyXMRD
-	JttqjmHiJpzgN6alfnKhyhaZ6q6QvGCEhF5Wk4Z/M62/+yhl92V1wYRzqLT28iHiqMsJUlTrWpVbm
-	2fwx8ltyIXXiVnyJRWT+ys98FcvbPLjDAAFsqaKkdD8BDoa5oAjYuiqiVol1VyBzWkjeR1X3wnSZ+
-	pRdP1hF5fGVAvIoLB1bz8bRgbjzSmUlGkA6DKf2Su4PKMheoQWuE88odAj0gaGPyIzhG/wesUakHu
-	i3pY+bJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/v21PJ92BLiZLaAmySzflUsqw2duXejF1cLmBsDVtgo=; b=u1TyDytW+mj041WbR6GqqloPeI
+	Wr5BnTcnA80ZbUa+ynJguWctnFPGmROcGce6+1dgmi23odHv4x7tp7d3ETP7vjV8WHLqss1iCNkus
+	Gdcg7FR06S9TemEFuNvCPNliL1SFhws3Ypq/m4oswvuhBM5/cw7BKg7WRYZ3WxDW05HxiYf2SOpdu
+	2D+wwotQ40lrcIjBlb8Xt4k/qvR+IMGBue0Ud2uqFEBv9bEBGJ7dPuXpuu/Po9qq2S3dG+2B0VzGY
+	jJoa8JQTC3LCJBAZF4vzbx7X2mfCXwNT4Ceu0l9VtQ1ALYmkq2/Zv+xXn+aqAZaSKGA6jOEK5Idw+
+	GL9frlyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVTqF-000000087gb-10xg;
-	Wed, 08 Jan 2025 11:03:15 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tVTrR-000000088BD-31Mk;
+	Wed, 08 Jan 2025 11:04:29 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVThB-000000084aw-1LuV
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 10:53:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6BAA75C44CD;
-	Wed,  8 Jan 2025 10:53:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4F66C4CEDD;
-	Wed,  8 Jan 2025 10:53:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736333632;
-	bh=MdzLiNiMUefIpEMjWF8sA0mgOuEA1ymjFocAvj83YU4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MO1leYDT/KQycCDok3dZtz1b6lChQeKjS47nI43y7an5N4Bourgc3jaRzijGYmyDR
-	 uEddCwqBeHSJREvXhnz1HfrlFH6cppD6r2xUMMaC8NO9RX1EyNQjz8nH0Ng7O/Jm5T
-	 k74EwS0aMvRpEWWVWjLm9Ix+ErZzdx1jcmEXC8/rhhKGJzwUYT0abRBFqdfyNqrsbN
-	 iyY+NNT4c2llVFqWtm8vzBFW/OjWbF59iCH5ZrbLJyw2xQY1Ta1NL+SDGaFcKp0FGY
-	 bQ3JT6KdT8EAlJuzOg4rJtqeb66RXgMjFsypTFOLuNhympArzLKxsPRouZoNuhZ+ZJ
-	 2JcCjRbMlesXg==
-Date: Wed, 8 Jan 2025 10:53:45 +0000
-From: Daniel Thompson <danielt@kernel.org>
-To: Nick Chan <towinchenmi@gmail.com>
-Cc: Lee Jones <lee@kernel.org>, Jingoo Han <jingoohan1@gmail.com>,
-	Pavel Machek <pavel@ucw.cz>, Rob Herring <robh@kernel.org>,
+	id 1tVTkw-000000085tF-2FTN;
+	Wed, 08 Jan 2025 10:57:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=/v21PJ92BLiZLaAmySzflUsqw2duXejF1cLmBsDVtgo=; b=uChUI2wJmVcPzZGKbM1an/vu2x
+	6hxl3i197uqlHZcgIguTOlS0VPQ9NvVaGnCBoJvCWtb9wA5NxEexO+5ZNt4FZFyRD3L2OEPKPgY/m
+	LmKvG/VfGpeQ9HBAqHI65auUkT2sK5X2L8KaWQ4po0psz3qEaqeLfq2IcHCyO/ZvKyl4rz8cqaDHV
+	5HpA21AIuTSeZzPFoAm4u4BTGjWsJ/VVUH18A7AWr8f+fjhM618FHAm6vJnzngTAb3mDhDA/o/k2b
+	vfWqlBftJWv8mzzuBvjrrc/prYcqlY1Bt2o52KW6QTXwgLjY3ecCYk9ueSQ7PwSMGxkPqrpJGUSPb
+	ZTOioeng==;
+Received: from i53875aad.versanet.de ([83.135.90.173] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tVTku-0004wu-FB; Wed, 08 Jan 2025 11:57:44 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>,
-	Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	dri-devel@lists.freedesktop.org, linux-leds@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-fbdev@vger.kernel.org, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 3/3] MAINTAINERS: Add entries for Apple DWI backlight
- controller
-Message-ID: <Z35ZOckf90QkbwHg@aspen.lan>
-References: <20241211113512.19009-1-towinchenmi@gmail.com>
- <20241211113512.19009-4-towinchenmi@gmail.com>
+	Conor Dooley <conor+dt@kernel.org>,
+	Alexey Charkov <alchark@gmail.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: (subset) [PATCH v2 0/3] arm64: dts: rockchip: Add H96 Max V58 (RK3588 based TV box)
+Date: Wed,  8 Jan 2025 11:57:33 +0100
+Message-ID: <173633124859.2752317.14863192546901710024.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250108-rk3588-h96-max-v58-v2-0-522301b905d6@gmail.com>
+References: <20250108-rk3588-h96-max-v58-v2-0-522301b905d6@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241211113512.19009-4-towinchenmi@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_025353_403687_4A742CE2 
-X-CRM114-Status: UNSURE (   9.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250108_025746_572696_83381DDA 
+X-CRM114-Status: GOOD (  14.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,14 +80,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 11, 2024 at 07:34:39PM +0800, Nick Chan wrote:
-> Add MAINTAINERS entries for the driver.
->
-> Signed-off-by: Nick Chan <towinchenmi@gmail.com>
 
-Reviewed-by: Daniel Thompson (RISCstar) <danielt@kernel.org>
-(keep this R-b if you rename any files)
+On Wed, 08 Jan 2025 13:09:05 +0400, Alexey Charkov wrote:
+> Add support for H96 Max V58: a compact TV box based on Rockchip
+> RK3588 SoC [1] that ships with Android by default.
+> 
+> Note that there is no publicly available hardware documentation,
+> nor vendor sources to be used as a reference, so this implementation
+> is best effort based on poking around my board and staring at the
+> decompiled stock DTB. It works for me, but improvement suggestions
+> are very much welcome.
+> 
+> [...]
+
+Applied, thanks!
+
+[1/3] dt-bindings: arm: rockchip: Add H96 Max V58 TV box
+      commit: 6e9efe826b02ccd68700be691ce9addbd5c81e40
+[3/3] arm64: dts: rockchip: Add H96 Max V58 TV Box based on RK3588 SoC
+      commit: b53864811b35247193856a45567d416b8341ae7d
+
+I've just dropped the spdif bits from the board in patch3 to be
+handled separately. (And moved the status in spi2 at the end of
+the property list)
 
 
-Daniel.
+Best regards,
+-- 
+Heiko Stuebner <heiko@sntech.de>
 
