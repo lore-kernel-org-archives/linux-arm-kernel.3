@@ -4,56 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE9C6E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 09:48:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29C02E77199
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 09:49:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oyRYqT1wsScVhrRXvcf1LMGGv4VtZkzlKHYR8PXN6Ls=; b=itZl5Ft2jORkYoV4aGN93cMcYt
-	JH83QRm4uRK6UxeLb7F3uk3K/7T2cVVO3D3UjUWTDbaTfGiSgpSTkns/CFC+gWhJUQrBcu9KWV8LQ
-	NBYoARq31Ab35VZrcqZVPMU5r+8Zuen86Z2wajnYopq48PAmaDaM714s6uOOUeAeZpuJcOW+50w5v
-	G0rfjitcgM0RKyc0Tg+mrCytz6xGCbd43ldlsoMYTXBSrXf8uOzNmSHuBa2nIctftZ6gKwZK1KevN
-	FWVbsV8yMnR5o55GfpYWqRm26AnTO65u1+4GInhtjDuUZN0JJCxpTdu61Q4sZNGDkaWevKe6b3iTJ
-	huI0EhCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SHqLg2OgtcaiNPNnY3X4GY4PryKUsFXu3JM4uuBTrPg=; b=UohsoDs8WSjrJeUKK1gPltihmD
+	WOBd/nnLLoRgqdZPcm3jSgeLIn9zoP+sUu7sAB+fFIf8eKjNZRHGxxpu+u/wtm/OxTFWsWBk4hSS+
+	OdA7zfOwNzAjUsepmEXKMmnqgR9OaNTkUihirjFuzvdCCDUYekFkLkeev+A5VmSmpoieoQqzoO3uT
+	tAf+9kkXRlV29kGAxIadQVl2/+83rBJymunzG4Aw9/tV1vkXTp7rpzBqmQ/916Zmw/ZmNCf9EJBwH
+	EAoKyr9hWwyWfVDkbT0uIJgnSHt6q9swMR3nTOexBtu9HZsokqToLXSJdizws/Ll2RCudtpJZYp5a
+	6qOHQRQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVSfe-00000007rNr-3XDB;
-	Wed, 08 Jan 2025 09:48:14 +0000
-Received: from [58.32.228.46] (helo=mail-sh.amlogic.com)
+	id 1tVSgp-00000007rYX-1poT;
+	Wed, 08 Jan 2025 09:49:27 +0000
+Received: from fllv0015.ext.ti.com ([198.47.19.141])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVSYM-00000007pcQ-2f1X;
-	Wed, 08 Jan 2025 09:40:43 +0000
-Received: from rd03-sz.software.amlogic (10.28.11.121) by mail-sh.amlogic.com
- (10.18.11.5) with Microsoft SMTP Server id 15.1.2507.39; Wed, 8 Jan 2025
- 17:40:29 +0800
-From: Jian Hu <jian.hu@amlogic.com>
-To: Jerome Brunet <jbrunet@baylibre.com>, Xianwei Zhao
-	<xianwei.zhao@amlogic.com>, Chuan Liu <chuan.liu@amlogic.com>, Neil Armstrong
-	<neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, "Stephen
- Boyd" <sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>,
-	"Dmitry Rokosov" <ddrokosov@sberdevices.ru>, robh+dt <robh+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>
-CC: Jian Hu <jian.hu@amlogic.com>, devicetree <devicetree@vger.kernel.org>,
-	linux-clk <linux-clk@vger.kernel.org>, linux-amlogic
-	<linux-amlogic@lists.infradead.org>, linux-kernel
-	<linux-kernel@vger.kernel.org>, linux-arm-kernel
-	<linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH v2 2/5] dt-bindings: clock: add Amlogic T7 SCMI clock controller
-Date: Wed, 8 Jan 2025 17:40:22 +0800
-Message-ID: <20250108094025.2664201-3-jian.hu@amlogic.com>
-X-Mailer: git-send-email 2.47.1
-In-Reply-To: <20250108094025.2664201-1-jian.hu@amlogic.com>
-References: <20250108094025.2664201-1-jian.hu@amlogic.com>
+	id 1tVSYL-00000007peL-49Zg
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 08 Jan 2025 09:40:45 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5089eLlM064190;
+	Wed, 8 Jan 2025 03:40:21 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1736329221;
+	bh=SHqLg2OgtcaiNPNnY3X4GY4PryKUsFXu3JM4uuBTrPg=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=emvOYUwxCZqVwKNQFmp5xo5YWjsAUkpXT8mrwx4GvshSIZVR99Dcua4v43VdvjEhH
+	 tvAU6NhRML2msBjflwrFuR6Ch9AygwtkXKS6+IzYqIr259tBzIk1DbzNz71F3GJLfB
+	 XZW5sjeGSGrE8cN55jPXJZPqRppKfsVr2tllvnyE=
+Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5089eL6q017255
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Wed, 8 Jan 2025 03:40:21 -0600
+Received: from DLEE103.ent.ti.com (157.170.170.33) by DLEE114.ent.ti.com
+ (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 8
+ Jan 2025 03:40:20 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE103.ent.ti.com
+ (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Wed, 8 Jan 2025 03:40:20 -0600
+Received: from [10.24.69.25] (danish-tpc.dhcp.ti.com [10.24.69.25])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5089eEJc060529;
+	Wed, 8 Jan 2025 03:40:15 -0600
+Message-ID: <b8d46941-aeb2-466a-acd5-8ad5be832649@ti.com>
+Date: Wed, 8 Jan 2025 15:10:14 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.28.11.121]
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v3 2/3] net: ti: icssg-prueth: Add Multicast
+ Filtering support for VLAN in MAC mode
+To: Paolo Abeni <pabeni@redhat.com>, Jeongjun Park <aha310510@gmail.com>,
+        Alexander Lobakin <aleksander.lobakin@intel.com>,
+        Lukasz Majewski
+	<lukma@denx.de>, Meghana Malladi <m-malladi@ti.com>,
+        Diogo Ivo
+	<diogo.ivo@siemens.com>, Simon Horman <horms@kernel.org>,
+        Jakub Kicinski
+	<kuba@kernel.org>, Eric Dumazet <edumazet@google.com>,
+        "David S. Miller"
+	<davem@davemloft.net>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        Roger Quadros
+	<rogerq@kernel.org>
+CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>,
+        Michal Swiatkowski <michal.swiatkowski@linux.intel.com>,
+        Larysa Zaremba <larysa.zaremba@intel.com>
+References: <20250103092033.1533374-1-danishanwar@ti.com>
+ <20250103092033.1533374-3-danishanwar@ti.com>
+ <133b8da8-a2da-4bac-b0bb-7dcaebc219b9@redhat.com>
+ <31a45fb4-acb6-4eb6-9ffb-ff1be798a064@ti.com>
+ <45fac9f0-b31a-495d-bd1b-ccf0fbe19653@redhat.com>
+Content-Language: en-US
+From: MD Danish Anwar <danishanwar@ti.com>
+In-Reply-To: <45fac9f0-b31a-495d-bd1b-ccf0fbe19653@redhat.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_014042_669078_AC5BDB2D 
-X-CRM114-Status: GOOD (  10.29  )
+X-CRM114-CacheID: sfid-20250108_014042_176233_A604C507 
+X-CRM114-Status: GOOD (  37.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,70 +105,252 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add DT bindings for the SCMI clock controller of the Amlogic T7 SoC family.
+Hi Paolo,
 
-Signed-off-by: Jian Hu <jian.hu@amlogic.com>
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
----
- include/dt-bindings/clock/amlogic,t7-scmi.h | 48 +++++++++++++++++++++
- 1 file changed, 48 insertions(+)
- create mode 100644 include/dt-bindings/clock/amlogic,t7-scmi.h
+On 07/01/25 11:57 pm, Paolo Abeni wrote:
+> Hi,
+> 
+> On 1/7/25 11:47 AM, MD Danish Anwar wrote:
+>> On 07/01/25 3:12 pm, Paolo Abeni wrote:
+>>> On 1/3/25 10:20 AM, MD Danish Anwar wrote:
+>>>> Add multicast filtering support for VLAN interfaces in dual EMAC mode
+>>>> for ICSSG driver.
+>>>>
+>>>> The driver uses vlan_for_each() API to get the list of available
+>>>> vlans. The driver then sync mc addr of vlan interface with a locally
+>>>> mainatined list emac->vlan_mcast_list[vid] using __hw_addr_sync_multiple()
+>>>> API.
+>>>>
+>>>> The driver then calls the sync / unsync callbacks and based on whether
+>>>> the ndev is vlan or not, driver passes appropriate vid to FDB helper
+>>>> functions.
+>>>>
+>>>> This commit also exports __hw_addr_sync_multiple() in order to use it
+>>>> from the ICSSG driver.
+>>>>
+>>>> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+>>>> ---
+>>>>  drivers/net/ethernet/ti/icssg/icssg_prueth.c | 67 ++++++++++++++++----
+>>>>  drivers/net/ethernet/ti/icssg/icssg_prueth.h |  6 ++
+>>>>  include/linux/netdevice.h                    |  3 +
+>>>>  net/core/dev_addr_lists.c                    |  7 +-
+>>>>  4 files changed, 66 insertions(+), 17 deletions(-)
+>>>>
+>>>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+>>>> index 1663941e59e3..ed8b5a3184d6 100644
+>>>> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+>>>> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+>>>> @@ -472,30 +472,44 @@ const struct icss_iep_clockops prueth_iep_clockops = {
+>>>>  
+>>>>  static int icssg_prueth_add_mcast(struct net_device *ndev, const u8 *addr)
+>>>>  {
+>>>> -	struct prueth_emac *emac = netdev_priv(ndev);
+>>>> -	int port_mask = BIT(emac->port_id);
+>>>> +	struct net_device *real_dev;
+>>>> +	struct prueth_emac *emac;
+>>>> +	int port_mask;
+>>>> +	u8 vlan_id;
+>>>>  
+>>>> -	port_mask |= icssg_fdb_lookup(emac, addr, 0);
+>>>> -	icssg_fdb_add_del(emac, addr, 0, port_mask, true);
+>>>> -	icssg_vtbl_modify(emac, 0, port_mask, port_mask, true);
+>>>> +	vlan_id = is_vlan_dev(ndev) ? vlan_dev_vlan_id(ndev) : PRUETH_DFLT_VLAN_MAC;
+>>>> +	real_dev = is_vlan_dev(ndev) ? vlan_dev_real_dev(ndev) : ndev;
+>>>> +	emac = netdev_priv(real_dev);
+>>>> +
+>>>> +	port_mask = BIT(emac->port_id) | icssg_fdb_lookup(emac, addr, vlan_id);
+>>>> +	icssg_fdb_add_del(emac, addr, vlan_id, port_mask, true);
+>>>> +	icssg_vtbl_modify(emac, vlan_id, port_mask, port_mask, true);
+>>>>  
+>>>>  	return 0;
+>>>>  }
+>>>>  
+>>>>  static int icssg_prueth_del_mcast(struct net_device *ndev, const u8 *addr)
+>>>>  {
+>>>> -	struct prueth_emac *emac = netdev_priv(ndev);
+>>>> -	int port_mask = BIT(emac->port_id);
+>>>> +	struct net_device *real_dev;
+>>>> +	struct prueth_emac *emac;
+>>>>  	int other_port_mask;
+>>>> +	int port_mask;
+>>>> +	u8 vlan_id;
+>>>> +
+>>>> +	vlan_id = is_vlan_dev(ndev) ? vlan_dev_vlan_id(ndev) : PRUETH_DFLT_VLAN_MAC;
+>>>> +	real_dev = is_vlan_dev(ndev) ? vlan_dev_real_dev(ndev) : ndev;
+>>>> +	emac = netdev_priv(real_dev);
+>>>>  
+>>>> -	other_port_mask = port_mask ^ icssg_fdb_lookup(emac, addr, 0);
+>>>> +	port_mask = BIT(emac->port_id);
+>>>> +	other_port_mask = port_mask ^ icssg_fdb_lookup(emac, addr, vlan_id);
+>>>>  
+>>>> -	icssg_fdb_add_del(emac, addr, 0, port_mask, false);
+>>>> -	icssg_vtbl_modify(emac, 0, port_mask, port_mask, false);
+>>>> +	icssg_fdb_add_del(emac, addr, vlan_id, port_mask, false);
+>>>> +	icssg_vtbl_modify(emac, vlan_id, port_mask, port_mask, false);
+>>>>  
+>>>>  	if (other_port_mask) {
+>>>> -		icssg_fdb_add_del(emac, addr, 0, other_port_mask, true);
+>>>> -		icssg_vtbl_modify(emac, 0, other_port_mask, other_port_mask, true);
+>>>> +		icssg_fdb_add_del(emac, addr, vlan_id, other_port_mask, true);
+>>>> +		icssg_vtbl_modify(emac, vlan_id, other_port_mask,
+>>>> +				  other_port_mask, true);
+>>>>  	}
+>>>>  
+>>>>  	return 0;
+>>>> @@ -531,6 +545,25 @@ static int icssg_prueth_hsr_del_mcast(struct net_device *ndev, const u8 *addr)
+>>>>  	return 0;
+>>>>  }
+>>>>  
+>>>> +static int icssg_update_vlan_mcast(struct net_device *vdev, int vid,
+>>>> +				   void *args)
+>>>> +{
+>>>> +	struct prueth_emac *emac = args;
+>>>> +
+>>>> +	if (!vdev || !vid)
+>>>> +		return 0;
+>>>> +
+>>>> +	netif_addr_lock_bh(vdev);
+>>>> +	__hw_addr_sync_multiple(&emac->vlan_mcast_list[vid], &vdev->mc,
+>>>> +				vdev->addr_len);
+>>>> +	netif_addr_unlock_bh(vdev);
+>>>
+>>> At this point, isn't emac->vlan_mcast_list[vid] == vdev->mc?
+>>>
+>>>> +
+>>>> +	__hw_addr_sync_dev(&emac->vlan_mcast_list[vid], vdev,
+>>>> +			   icssg_prueth_add_mcast, icssg_prueth_del_mcast);
+>>>
+>>> If so, can this function be reduced to just:
+>>>
+>>> 	__dev_mc_sync(vdev, icssg_prueth_add_mcast, icssg_prueth_del_mcast);
+>>>
+>>> ?
+>>>
+>>
+>> I don't know but for some reason __dev_mc_sync() doesn't work here. My
+>> initial approach was to use __dev_mc_sync(vdev, sync, unsync) however it
+>> didn't work.
+>>
+>> When I use __dev_mc_sync() and print the vlan_id in function
+>> icssg_prueth_add_mcast(). It always prints vlan_id as 0 implying
+>> __dev_mc_sync from here never gets called. Whereas when using
+>> __hw_addr_sync_dev() I see the appropriate vlan_id in
+>> icssg_prueth_add_mcast()
+> 
+> It look like the above needs more investigation, right? is
+> vlan_mcast_list[vid] different from vdev->mc? why? At very least you
+> need to provide a clear explaination of the above.
+> 
 
-diff --git a/include/dt-bindings/clock/amlogic,t7-scmi.h b/include/dt-bindings/clock/amlogic,t7-scmi.h
-new file mode 100644
-index 000000000000..aa2431ea72ed
---- /dev/null
-+++ b/include/dt-bindings/clock/amlogic,t7-scmi.h
-@@ -0,0 +1,48 @@
-+/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
-+/*
-+ * Copyright (c) 2024 Amlogic, Inc. All rights reserved.
-+ * Author: Jian Hu <jian.hu@amlogic.com>
-+ */
-+
-+#ifndef __T7_SCMI_CLKC_H
-+#define __T7_SCMI_CLKC_H
-+
-+#define CLKID_DDR_PLL_OSC			0
-+#define CLKID_AUD_PLL_OSC			1
-+#define CLKID_TOP_PLL_OSC			2
-+#define CLKID_TCON_PLL_OSC			3
-+#define CLKID_USB_PLL0_OSC			4
-+#define CLKID_USB_PLL1_OSC			5
-+#define CLKID_MCLK_PLL_OSC			6
-+#define CLKID_PCIE_OSC				7
-+#define CLKID_ETH_PLL_OSC			8
-+#define CLKID_PCIE_REFCLK_PLL_OSC		9
-+#define CLKID_EARC_OSC				10
-+#define CLKID_SYS1_PLL_OSC			11
-+#define CLKID_HDMI_PLL_OSC			12
-+#define CLKID_SYS_CLK				13
-+#define CLKID_AXI_CLK				14
-+#define CLKID_FIXED_PLL_DCO			15
-+#define CLKID_FIXED_PLL				16
-+#define CLKID_FCLK_DIV2_DIV			17
-+#define CLKID_FCLK_DIV2				18
-+#define CLKID_FCLK_DIV2P5_DIV			19
-+#define CLKID_FCLK_DIV2P5			20
-+#define CLKID_FCLK_DIV3_DIV			21
-+#define CLKID_FCLK_DIV3				22
-+#define CLKID_FCLK_DIV4_DIV			23
-+#define CLKID_FCLK_DIV4				24
-+#define CLKID_FCLK_DIV5_DIV			25
-+#define CLKID_FCLK_DIV5				26
-+#define CLKID_FCLK_DIV7_DIV			27
-+#define CLKID_FCLK_DIV7				28
-+#define CLKID_FCLK_50M_DIV			29
-+#define CLKID_FCLK_50M				30
-+#define CLKID_CPU_CLK				31
-+#define CLKID_A73_CLK				32
-+#define CLKID_CPU_CLK_DIV16_DIV			33
-+#define CLKID_CPU_CLK_DIV16			34
-+#define CLKID_A73_CLK_DIV16_DIV			35
-+#define CLKID_A73_CLK_DIV16			36
-+
-+#endif /* __T7_SCMI_CLKC_H */
+I did further debug on this. At this point vlan_mcast_list[vid] is
+actually same as vdev->mc in terms of the multicast addresses.
+
+However the sync_cnt and refcount of the addresses in both the lists are
+not same. Due to which vdev->mc doesn't work here. I will explain it.
+
+__dev_mc_sync(vdev, sync, unsync) will call __hw_addr_sync_dev(&dev->mc,
+dev, sync, unsync)
+
+Now in __hw_addr_sync_dev() sync is only called when ha->sync_cnt == 0
+for the given mac address. If ha->sync_cnt is non zero, sync will not
+get called.
+
+When we add a multicast address to the vlan interface using below command,
+	
+	ip maddr add <mac_addr> dev eth1.6
+
+ndo_set_rx_mode() gets called for the vlan interface i.e.
+vlan_dev_set_rx_mode() [net/8021q/vlan_dev.c] which syncs mc list from
+the vdev to the real_dev of vdev by calling dev_mc_sync(real_dev, vdev)
+
+Now dev_mc_sync() sync addresses from vdev to real_dev using
+__hw_addr_sync().
+
+__hw_addr_sync() calls __hw_addr_sync_one() which after successfully
+syncing an address from vdev to real_dev increment the ha->sync_cnt. As
+a result at this point the ha->sync_cnt == 1 for the above address
+passed by command. After this vlan_dev_set_rx_mode() calls the
+set_rx_mode() of the real_dev.
+
+Now when icssg_update_vlan_mcast() calls __dev_mc_sync(vdev, sync,
+unsync), it calls _hw_addr_sync_dev(&dev->mc, dev, sync, unsync) and
+checks the ha->sync_cnt for the given address, since sync_cnt is already
+1, it doesn't consider it as an newly added address and sync / unsync
+callbacks are not called. [1]
+
+list_for_each_entry_safe(ha, tmp, &list->list, list) {
+	if (ha->sync_cnt)
+		continue;
+
+Since for addresses in vlan interfaces, sync_cnt will always be set as
+vlan_dev_set_rx_mode() will sync the mc list of vlan interface with the
+real dev. This will mean that the driver implemented sync / unsync APIs
+will only be called for the real_dev and the real_dev won't have any
+information about the vlan_id which I need in my sync / unsync APIs to
+populate the same in the hardware maintained FDB table.
+
+To overcome this, I am maintaining a local copy of vdev->mc named
+emac->vlan_mcast_list[vid]. I will sync address from vdev->mc to this.
+and then call __hw_addr_sync_dev() on this list as the sync_cnt for
+address in this list will still be zero. Which will then trigger my
+sync() callback on the vdev which will help me obtain the vlan_id in the
+sync callback. I can now populate the same in the hardware maintained
+FDB table.
+
+I hope this explains why I am using
+
+	__hw_addr_sync_dev(&emac->vlan_mcast_list[vid], vdev,
+icssg_prueth_add_mcast, icssg_prueth_del_mcast)
+
+instead of
+
+	__dev_mc_sync(vdev, icssg_prueth_add_mcast, icssg_prueth_del_mcast);
+
+>> Anyways, Even if I use __dev_mc_sync(), we will still need the export. I
+>> am exporting __hw_addr_sync_multiple() not __hw_addr_sync_dev(). The API
+>> being used by me `__hw_addr_sync_dev()` is already exported.
+> 
+> I fear there is a misunderstanding. I'm suggesting dropping
+> __hw_addr_sync_multiple() usage entirely. If that is not possible, a
+> clear and complete explaination of the reason/root cause must be provided.
+> 
+
+As explained above, I need to be able to sync addresses from vdev->mc to
+my local list. Now this can be done using two APIs.
+
+1. __hw_addr_sync() - This is already exported and is actually the first
+choice. However this will fail syncing address from vdev->mc to my local
+copy.
+
+__hw_addr_sync() only syncs the address if ha->sync_cnt == 0. If the
+sync_cnt is non zero, this will skip the address. As explained above,
+for mc addresses of vlan interfaces, sync_cnt will always be set as
+vlan_dev_set_rx_mode() will sync the mc list of vlan interface with the
+real dev. As a result the addresses will be skipped and __hw_addr_sync()
+will not serve the purpose here.
+
+2. __hw_addr_sync_multiple() - This actually works perfectly fine here
+as it sync address even if sync_cnt is non zero. As a result I am using
+this function in my implementation.
+
+Since this is not public, I have to export it so that the driver can
+call this.
+
+So I am afraid dropping __hw_addr_sync_multiple() is not possible here.
+I hope the explanation above makes sense to you.
+
+Please let me know if this is OK with you. If you have some other way
+through which I can make this work please let me know.
+
+[1]
+https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/net/core/dev_addr_lists.c#n314
+
+> Thanks,
+> 
+> Paolo
+> 
+
 -- 
-2.47.1
-
+Thanks and Regards,
+Danish
 
