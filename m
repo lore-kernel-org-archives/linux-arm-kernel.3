@@ -4,92 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA919E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 19:28:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D088E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 19:35:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
 	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SrTGXGCBiyGP6a+D4EJggND3etK0dx/lyg/0RMVHQ5Q=; b=sfJhBI/ixQJWJdZX+V4fLl0JOp
-	tM5p3cM8FbBj1S7dlj5f5u6v896sJ+FPbWfoG5OE/KnUgDE1PwFbJvVjXsp/auxpz79E5Tzjy2sUA
-	hxNq2HhbG6z7PBGK62paZ0OUVgrSbZhGr1oxrMoP5beZkMNLGShlBmUw32ajsOCsNaBI6anMbb7Lh
-	oXR+ORXQjuV3V4ADbifQBmR4UVFNMHXj7ZO7ia4N21enAWDgK7cDYZifVrTlLJdp7MTPncxhr34Am
-	QcTBQ71uDDfZQ7njz8KxVZRl4xcg2XbQqTFz9CTaX3H4qi+2WxQtbl2LBpYEB2Ws03KyqosRv8gGk
-	EY5Bt4Dg==;
+	bh=pZ8OaEnCblGa//gqGF016T+aNas0t6We2C1yQ9rLcFU=; b=MNkP1moOC3DgEg5Z0zirAz/Jh7
+	x6kzM4u13eo30e0D6YxQB0tOejZW1ybNS6bOQ0bxIEdJ46Mm5hk2VgJBy9GOFGTjOlcT6V36khUto
+	MBgj45W5y8F1YmJ0ap0SsItqd4+HPCQ1fOvOa4I06WyZ6jdYkCRZuqpfic57Fgilx36j/xnvfXQpS
+	O5yRYGn8aXm+Pbi6lPjUu4Mwl9Dn/yPth8T+RlDMGNwLRhEDW6MgLMMi/quyQe1YCwd6srzMw+8Qw
+	walHS4mry6+pGYfU7qcDWVPYPY5/22jDt1mvvoheBIb+UQ2MZTqGCjUL3SOLsLpXlOq8SSth2cPjK
+	wsO1/7xA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVbjE-00000009eiY-14WJ;
-	Wed, 08 Jan 2025 19:28:32 +0000
-Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
+	id 1tVbq6-00000009fQU-36od;
+	Wed, 08 Jan 2025 19:35:38 +0000
+Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVbhz-00000009eUD-0bCr
+	id 1tVbos-00000009fJO-18vf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 19:27:16 +0000
-Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-46783d44db0so607801cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jan 2025 11:27:14 -0800 (PST)
+	Wed, 08 Jan 2025 19:34:23 +0000
+Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-4678cd314b6so612961cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jan 2025 11:34:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1736364434; x=1736969234; darn=lists.infradead.org;
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1736364861; x=1736969661; darn=lists.infradead.org;
         h=mime-version:user-agent:content-transfer-encoding:references
          :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=SrTGXGCBiyGP6a+D4EJggND3etK0dx/lyg/0RMVHQ5Q=;
-        b=YJ4xM0/5i4bIircuiIbDuLoyReWkBxRxmhj/T3MNRUoIge1FdD3nFk9V1tnKxbT+lM
-         V8R+k1RAxXji/FsnhlZQTpejx2lL8Bb6q4M5nIre1CUNv8Ndcb38onOgTFwm1XusRaAV
-         8hOMQz40igMLcb6OFj2+BZgbOZWgUvwwUVIBBetittjOxzQouhfvRenGAgtvvodo2aFL
-         JGcNiyEef7bCfyLOSJ2p9+bdx8OqKwdOPf5DMtyRWm2/yD63qMnksoAFW0m/ZFeMn7mr
-         bcF6FiyT+Q74eyAsIOOz8nAZd96/d/cfXVzA3mS5Zjm/HqOS9NEWcPiQodziK3OTMG5k
-         oUvA==
+        bh=pZ8OaEnCblGa//gqGF016T+aNas0t6We2C1yQ9rLcFU=;
+        b=Nre4M/A8L8LUwNbOpiM03let3haPcm9TAkhyYJMeMAZ5GCs1m4U0C6eBTbuT/Ix5bW
+         ank+4KygcaveRd0DMNglNR//0eqqd71zMaOzsBZsafR1cIKi+Apg/e/IlXjcLKhA1zr5
+         AZOKQZa4QoYAbeExmQDb71cDskhjGdJ7xiURD9ONyW3HpvmDojU0ulLwY5mKpUhmQS/y
+         2Lf+BF7Bxf0q+eQ/uZhGvBcY4Kggf0Hn4O6MOzbPtjsvSiUrhlHRhTDTD8E2Gec1rIMq
+         B0LgE6zPb54oWbRBLYa3maYXyqMeoB5dubDRIvj8y/vkrSREoMH5gSDpjB7IL75o/Ula
+         KWJw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736364434; x=1736969234;
+        d=1e100.net; s=20230601; t=1736364861; x=1736969661;
         h=mime-version:user-agent:content-transfer-encoding:references
          :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=SrTGXGCBiyGP6a+D4EJggND3etK0dx/lyg/0RMVHQ5Q=;
-        b=CNmH2Ah89wIZewQmKXyZCduR3hKcXv+PAoJDvbz6RerekeqiXXbisHlHEXsjlPK2gn
-         L+ut4BfBDDGCTkX4kv6ItTZeY792hRwsivoErVFQ0xTCKgAfYmQIHjoRX3whQjguzvhn
-         7lvp6JpTTSp3vY8I7dLxN7JY1lbZLoxarER+18spHKOUD8g7OFpL0XbOrr/BlcXuYj6o
-         mC/+us6JGeCi7Eesz7LDFXLqM7P6AeU76su+Eq6dtf7dqNidFCqkhMiNTtBXThsJz79P
-         xBwBqmHNjMaQdZJKgHUtyEyo+sPpCfVfSnwDhuiL6/ulIGazTNKAJkZcpAOz5vHmrITP
-         xECg==
-X-Forwarded-Encrypted: i=1; AJvYcCURdku6JzShXQCXAb98+Of5/ul9lA9Sqw1Tcrc8pC/TZd5PqJj3HIP03qFYhbPRrrTOCW8SycjeyMwInS3Iq1CI@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz+N4xqNeIlbe/ZbCNQQ0xIAB85D5BHLelltlGSTqMdySXNFIEJ
-	GrT9s5KTYPBY21bqNiPYsufw+tT55es1JuqV/hqhIb0neN7At2fjI3rCDim0Gks=
-X-Gm-Gg: ASbGncv2WKw2zqdLIxSm6S/tSgCMcx2EWYILsxkKEoXGf2xj72cvMjj9zdLzjTmx2xN
-	5iZOnsLctpJ7adLdqw5GZJ2xYkrrNPN5kEc+7TDtDYH77vCWKSUVfIxZDzhzGM/D3t8eQiVgeRk
-	PL4FNLVeh3aS6a38vw6EjQOyGsWFBJC41VXM7UD0yxZPQQZ7YrtW4x8K+vjVyRoXyeH3YZGTS1V
-	UCeUdbYq9tqefL9bw2obgMlWtB/GFfF/z0HEPogKp9uXF1YyJDXJqJ/wg==
-X-Google-Smtp-Source: AGHT+IEVsh5b+f9rl+imumXRYarnxs0UAANtEbjwwx8u4RslGUqLSeYw1okTg4zAdTKMfolaIUZn7Q==
-X-Received: by 2002:ac8:5a48:0:b0:467:5712:a69a with SMTP id d75a77b69052e-46c7102fcb6mr57216581cf.29.1736364434132;
-        Wed, 08 Jan 2025 11:27:14 -0800 (PST)
+        bh=pZ8OaEnCblGa//gqGF016T+aNas0t6We2C1yQ9rLcFU=;
+        b=ryNLC0/LL8KGERNrhmwuQX3F7easrHOC33+hO6lbJniT9gv4dURPK69e2aiXym6hby
+         OV68cN2fMrXo+RVk2C5pBO/daVUx8KUizf21EfXG0knqHXkfvmQpJ+H/cdSdB+Xgd9hF
+         n6W/peG17RZj9H8QB9lo9f43NgE666/3prXFyAdWHOLiGAdxfX5CGl7OzVGuizi0m5bS
+         aHpTpxyUtDEYCgalVOPApyp8OUK2WzxpBaAQY4PikrbS38l5sgIYPEoMIuLu/hZpEyfg
+         E27gYwlFXnVC9CzlMRBnYmnC/ikeKBjUccPUlA3B5pF1rf3Du7Sy4cT3IVzMsDblJacR
+         jE0A==
+X-Forwarded-Encrypted: i=1; AJvYcCU90Ews2o3bBvx1mppE34JlFO7/G0aiI+jf0Fg4+dchDuLkFdeEsbG0uSjytmfc6yPx1K6wHaitUsyA/cEfog/M@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9cz299f/C8geNgU3TSRjEHd2yuNUUDpqnX1P4duAr1zK084ng
+	InLzRW1ZgIPTl9vy2s6MwXnvntpnhB3UXoPhg41+9TSt7xY0Q1r8eb27vYzisHw=
+X-Gm-Gg: ASbGncueWGlR+TV5UN8n0lf4E3u68JscTwg2VVZ0pikhUGBHhad6Z1Czrbla6IVJwnY
+	rBppl9cjAD/XjY0+FyRfvPtyHdp+TgsoqVpv+wc0ELKQRRBXZPeybN7eIkyNMZACHnyBzP92jri
+	q6R9C094VWTtEHzzluRplAV/c+3dYaUdvrG5Aj0TEHmcl3t0wVacGN6hRpZcegcyEgbuXjnGm8K
+	7OciUJrRNYWnHNxl6U82LfwJglGc6emFnC1E33Af7eroucchbqdZnirMA==
+X-Google-Smtp-Source: AGHT+IHHoBOVEADoDwJ5SEc2bvPkTd9ig7fH6khIBw3ziijVw29fWtXY3bUiaQ9CQqXYbSXbLj0hfg==
+X-Received: by 2002:a05:622a:1792:b0:463:64b2:2e0d with SMTP id d75a77b69052e-46c7107a922mr65440061cf.40.1736364860717;
+        Wed, 08 Jan 2025 11:34:20 -0800 (PST)
 Received: from nicolas-tpx395.localdomain ([2606:6d00:15:862e::7a9])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-46a3e6a61cfsm199597601cf.44.2025.01.08.11.27.13
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-46a3eb16c7bsm199636001cf.63.2025.01.08.11.34.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Jan 2025 11:27:13 -0800 (PST)
-Message-ID: <052597884ce9e32bd68203081f8b28a957eb5255.camel@ndufresne.ca>
-Subject: Re: [PATCH 1/2] media: amphion: Support display delay for Hevc
- format
+        Wed, 08 Jan 2025 11:34:20 -0800 (PST)
+Message-ID: <dcae7fbb810ebfa6e539c3b45c20e1d659600d80.camel@ndufresne.ca>
+Subject: Re: [PATCH] media: docs: dev-decoder: Trigger dynamic source change
+ for colorspace
 From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: "Ming Qian(OSS)" <ming.qian@oss.nxp.com>, mchehab@kernel.org, 
+To: Ming Qian <ming.qian@oss.nxp.com>, mchehab@kernel.org, 
 	hverkuil-cisco@xs4all.nl
 Cc: shawnguo@kernel.org, robh+dt@kernel.org, s.hauer@pengutronix.de, 
 	kernel@pengutronix.de, festevam@gmail.com, linux-imx@nxp.com,
  xiahong.bao@nxp.com, 	eagle.zhou@nxp.com, tao.jiang_2@nxp.com,
  imx@lists.linux.dev, 	linux-media@vger.kernel.org,
  linux-kernel@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org
-Date: Wed, 08 Jan 2025 14:27:12 -0500
-In-Reply-To: <6fcdd612-0f1e-42bd-b171-6f1d70790ffd@oss.nxp.com>
-References: <20241219015146.706482-1-ming.qian@oss.nxp.com>
-	 <86d9eb915432c6b070f7c7f524973e9a363de76e.camel@ndufresne.ca>
-	 <6fcdd612-0f1e-42bd-b171-6f1d70790ffd@oss.nxp.com>
+Date: Wed, 08 Jan 2025 14:34:19 -0500
+In-Reply-To: <20250107053622.1287461-1-ming.qian@oss.nxp.com>
+References: <20250107053622.1287461-1-ming.qian@oss.nxp.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 User-Agent: Evolution 3.54.2 (3.54.2-1.fc41) 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_112715_185445_B485ACED 
-X-CRM114-Status: GOOD (  29.96  )
+X-CRM114-CacheID: sfid-20250108_113422_314837_C8D7D714 
+X-CRM114-Status: GOOD (  17.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,132 +102,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le mardi 07 janvier 2025 =C3=A0 09:29 +0800, Ming Qian(OSS) a =C3=A9crit=C2=
-=A0:
-> Hi Nicolas,
->=20
->=20
-> On 2025/1/7 6:16, Nicolas Dufresne wrote:
-> > Hi,
-> >=20
-> > nit: use capital HEVC in the subject
-> >=20
->=20
-> I'll fix it in the v2 patch
->=20
-> > Le jeudi 19 d=C3=A9cembre 2024 =C3=A0 10:51 +0900, Ming Qian a =C3=A9cr=
-it :
-> > > The amphion decoder firmware v1.9.0 supports display delay 0 for
-> > > hevc format, then driver can enable this feature.
-> >=20
-> > nit: HEVC
-> >=20
-> > I think this added "feature" hides a bug you haven't fixed in this patc=
-h.
-> >=20
-> >=20
-> >          v4l2_ctrl_new_std(&inst->ctrl_handler, &vdec_ctrl_ops,
-> >                            V4L2_CID_MPEG_VIDEO_DEC_DISPLAY_DELAY_ENABLE=
-,
-> >                            0, 1, 1, 0);
-> >=20
-> > With the control registered this way, 0 is the default, and the range o=
-f 0-1.
-> > But from your commit message, this is only supported from firmware 1.9.=
-0 and up.
-> > I think the patch should basically adjust the min and def values accord=
-ing to
-> > the detected firmware version.
-> >=20
-> > This might actually be more complex, aka per CODEC, and for that you ma=
-y want to
-> > use v4l2_ctrl_config structure.
-> >=20
-> > Nicolas
-> >=20
->=20
-> Thanks for the tip.
-> By the way, how to define different ctrl values for each CODEC format?
-> Is it reasonable to new a ctrl after set capture format?
-> Or can we change the min/max value after set capture format?
+Hi,
 
-Very good question, I clearly didn't think through my reply. Seems fine to =
-leave
-it that way. Per-codec, would mean having multiple CID, which is not your f=
-ault
-it has been combined.
-
-Nicolas
-
+Le mardi 07 janvier 2025 =C3=A0 14:36 +0900, Ming Qian a =C3=A9crit=C2=A0:
+> If colorspace changes, the client needs to renegotiate the pipeline,
+> otherwise the decoded frame may not be displayed correctly.
 >=20
-> Thanks,
-> Ming
+> If it can trigger an source change event, then client can switch to the
+> correct stream setting. And each frame can be displayed properly.
 >=20
-> >=20
-> > > Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
-> > > ---
-> > >   drivers/media/platform/amphion/vpu_malone.c | 14 +++++++++++---
-> > >   1 file changed, 11 insertions(+), 3 deletions(-)
-> > >=20
-> > > diff --git a/drivers/media/platform/amphion/vpu_malone.c b/drivers/me=
-dia/platform/amphion/vpu_malone.c
-> > > index 5c6b2a841b6f..8f4aa48b2d65 100644
-> > > --- a/drivers/media/platform/amphion/vpu_malone.c
-> > > +++ b/drivers/media/platform/amphion/vpu_malone.c
-> > > @@ -332,6 +332,8 @@ struct vpu_dec_ctrl {
-> > >   	u32 buf_addr[VID_API_NUM_STREAMS];
-> > >   };
-> > >  =20
-> > > +static const struct malone_padding_scode *get_padding_scode(u32 type=
-, u32 fmt);
-> > > +
-> > >   u32 vpu_malone_get_data_size(void)
-> > >   {
-> > >   	return sizeof(struct vpu_dec_ctrl);
-> > > @@ -654,8 +656,10 @@ static int vpu_malone_set_params(struct vpu_shar=
-ed_addr *shared,
-> > >   		hc->jpg[instance].jpg_mjpeg_interlaced =3D 0;
-> > >   	}
-> > >  =20
-> > > -	hc->codec_param[instance].disp_imm =3D params->display_delay_enable=
- ? 1 : 0;
-> > > -	if (malone_format !=3D MALONE_FMT_AVC)
-> > > +	if (params->display_delay_enable &&
-> > > +	    get_padding_scode(SCODE_PADDING_BUFFLUSH, params->codec_format)=
-)
-> > > +		hc->codec_param[instance].disp_imm =3D 1;
-> > > +	else
-> > >   		hc->codec_param[instance].disp_imm =3D 0;
-> > >   	hc->codec_param[instance].dbglog_enable =3D 0;
-> > >   	iface->dbglog_desc.level =3D 0;
-> > > @@ -1024,6 +1028,7 @@ static const struct malone_padding_scode paddin=
-g_scodes[] =3D {
-> > >   	{SCODE_PADDING_EOS,      V4L2_PIX_FMT_JPEG,        {0x0, 0x0}},
-> > >   	{SCODE_PADDING_BUFFLUSH, V4L2_PIX_FMT_H264,        {0x15010000, 0x=
-0}},
-> > >   	{SCODE_PADDING_BUFFLUSH, V4L2_PIX_FMT_H264_MVC,    {0x15010000, 0x=
-0}},
-> > > +	{SCODE_PADDING_BUFFLUSH, V4L2_PIX_FMT_HEVC,        {0x3e010000, 0x2=
-0}},
-> > >   };
-> > >  =20
-> > >   static const struct malone_padding_scode padding_scode_dft =3D {0x0=
-, 0x0};
-> > > @@ -1058,8 +1063,11 @@ static int vpu_malone_add_padding_scode(struct=
- vpu_buffer *stream_buffer,
-> > >   	int ret;
-> > >  =20
-> > >   	ps =3D get_padding_scode(scode_type, pixelformat);
-> > > -	if (!ps)
-> > > +	if (!ps) {
-> > > +		if (scode_type =3D=3D SCODE_PADDING_BUFFLUSH)
-> > > +			return 0;
-> > >   		return -EINVAL;
-> > > +	}
-> > >  =20
-> > >   	wptr =3D readl(&str_buf->wptr);
-> > >   	if (wptr < stream_buffer->phys || wptr > stream_buffer->phys + str=
-eam_buffer->length)
-> >=20
+> So add colorspace as a trigger parameter for dynamic resolution change.
+>=20
+> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+> ---
+>  Documentation/userspace-api/media/v4l/dev-decoder.rst | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/Documentation/userspace-api/media/v4l/dev-decoder.rst b/Docu=
+mentation/userspace-api/media/v4l/dev-decoder.rst
+> index ef8e8cf31f90..49566569ad26 100644
+> --- a/Documentation/userspace-api/media/v4l/dev-decoder.rst
+> +++ b/Documentation/userspace-api/media/v4l/dev-decoder.rst
+> @@ -932,7 +932,9 @@ reflected by corresponding queries):
+> =20
+>  * the minimum number of buffers needed for decoding,
+> =20
+> -* bit-depth of the bitstream has been changed.
+> +* bit-depth of the bitstream has been changed,
+> +
+> +* colorspace of the bitstream has been changed.
+
+Did you really mean colorspace in the way this term is used in V4L2 ? What =
+we
+want this event to be used for is when the capture storage size or amount
+changes, perhaps you mean when the capture pixelformat changes ? This will
+indeed happen if you change the bit-depth, subsampling (not mentioned here
+either) or change the way colors are repsented (RGB, YCbCr, etc.).
+
+> =20
+>  Whenever that happens, the decoder must proceed as follows:
+> =20
 
 
