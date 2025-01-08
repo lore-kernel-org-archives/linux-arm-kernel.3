@@ -4,61 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C744DE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 10:16:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A697EE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 10:18:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lwYjWQA7z/YOXK+jSWZNQxTHUGUpIOICRCmvqyPmJRc=; b=a8kO/3604hHpxpN2Y/c1pA9UW+
-	yqrNIc/UO39nFSMPRmnOwiuBm+ogHPeganXDoFAwpsQMaJYe9hmELrTh6XcqLWQmX7G0fFD9+Ae6T
-	nLIAZHjvoRSdRau/DgnG2jbYpP4v8wInuxiWWnZwfuQ2VrgYaSwku//mCBbKEx8cwbIwy2T41nXa3
-	HNAHNb5zpRuav+TSywhavi2+xX5lKHaUWEK94JhCmPcN3A8Kp3MgOMt7pcnyypBYGYed1KuXe3PXO
-	2C8c2WCddVNeedULk7P9Z2cgaEJ4VJFxdS/OXExsI1sY3yKkqffpeqhtYOTQgkDPpXJ2/6vs77FWM
-	n4SaXlVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0u83Xgz9I4bi5xsbhIsloF0YqIhh17FKuV4H0UoU5ww=; b=Sblu9Ip6E5V2mq2DfYWBgVvPBx
+	6mE6miJjCl3R4DoMt9RfKpvuQ/IoSmazWHb8wnmFPoMwPUjK+Wq2gP/hPOar+hPsWcBf/v0H6In92
+	cyLKTbVohyfFyAS5LO8qALpah71pB9rMMwAHezS3AO8zmfkWc+f3MifT+PjZVYQxsjAJLXt4YN1fP
+	8tRcaAOEGXFNmJ8QVCCzOrMUJbS/pzaw9ipae4w9kLifzsfHaXvcSIMJfvOVa8H0MSJB4a+k4zBkK
+	gkNgB8iKoy4jlz1yrsxOcksdjNB5J4mx36E2XMJrjvhaG+m5zXv8XbRWYweb0qR0MM0jOMuENslhb
+	NvUViSUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVT74-00000007wiN-3W9a;
-	Wed, 08 Jan 2025 10:16:34 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tVT8G-00000007wvm-02tm;
+	Wed, 08 Jan 2025 10:17:48 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVSzO-00000007ukr-3PVF;
-	Wed, 08 Jan 2025 10:08:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1736330916;
-	bh=7LxRMofEbnDGQ1T7p668QnqUCQTGVsnP+D+EDWMb9+4=;
-	h=From:To:Cc:Subject:Date:From;
-	b=f1/oCe/7BGk8cg3Rbz6gqj5hFxeabzHwn/i9ULdyjBLANeWdYt9YGAxzTahUrEIsO
-	 QaPJqN8tubdEca7ALpKDjyxITkJY51uZhbS02hgkX3VORwyavVbrWXrzMzYl/1ZkNM
-	 WhtxQ4aJWXC/fmXMQa/ZqdSEDG/fjGkTIV4YK7/UIiePdoR5spcgftKQOOu2d43DvP
-	 zkhk7VIT34cACfXlrfKTmY+wwN0Hr6NlxtsgVmFgSNkmXzPcy3lq7JfBmwCI7TzkhY
-	 Lr2eUJX94h0ETbiXeDbnEvjEyH/zGwxfiTnLp4E6SdGkBUt+uJ4wae10AXOBq47jMP
-	 buJr1rizR0E1w==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 020AD17E1551;
-	Wed,  8 Jan 2025 11:08:35 +0100 (CET)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: arm-soc <arm@kernel.org>,
-	soc <soc@kernel.org>
-Cc: matthias.bgg@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [GIT,PULL,1/3] MediaTek ARM64 DTS updates for v6.14
-Date: Wed,  8 Jan 2025 11:08:22 +0100
-Message-ID: <20250108100826.32458-1-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.47.0
+	id 1tVSpZ-00000007tJY-1DCn
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 08 Jan 2025 09:58:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1736330309; x=1767866309;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=0u83Xgz9I4bi5xsbhIsloF0YqIhh17FKuV4H0UoU5ww=;
+  b=oEfUm/O+VepfVio0M+XywFXtqWVD64zGh+Cbyvn+SzmviQm0JFwFJ1eR
+   g2scIWYrMTWFArmFZbFsb+eLN7Q1xDh4pqX4zF7+6jdW4+29cKu+x81KH
+   qZIHzO2b4NxAnZ280u5aWj/n0Vhym4M0ZAw4sBzEe5zbO8yiEuiwzci9Q
+   DfMFONI4U1pOnmINPCGx7e84QBmgtQA/V/Dc1A/sgTq2CG8veEVgFPfhn
+   jyJmsfbfIVtPyqnc2b3ikvlcFeobZ8L8JqkyRI/jhJKOqrx02xNxRh5gy
+   EYAYkug5+8jFpTqqTLyUMtFvskqaa70yQEyVqn9rHkPdGSTyacDOVBWFf
+   w==;
+X-CSE-ConnectionGUID: YHZAKEp0Ra2+QZ47KMTTEA==
+X-CSE-MsgGUID: pbHsOkChQeqHt4VZdYxmHQ==
+X-IronPort-AV: E=Sophos;i="6.12,297,1728943200"; 
+   d="scan'208";a="40916525"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 08 Jan 2025 10:58:25 +0100
+X-CheckPoint: {677E4C41-17-3C670366-E45AD810}
+X-MAIL-CPID: 192DAC510A0192EB7D5B2486BF7B0BCE_4
+X-Control-Analysis: str=0001.0A682F25.677E4C41.00A7,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D5C9A1651A1;
+	Wed,  8 Jan 2025 10:58:19 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1736330300;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0u83Xgz9I4bi5xsbhIsloF0YqIhh17FKuV4H0UoU5ww=;
+	b=VhHicdg4cmMlIa1F2X9CupLrQLbLLmjPr7NpJeQ6MIGrHnX3sVq1Oc8JLQjCg7hTvCWKw1
+	boqifhwPmry6Q3YELoOPMAXOjLrw5P36Pr0KZukXukZW8TOt64mHzzxZobSkbxkQlx1DTn
+	a0GlsV8T0PLUrqQKM2hEoF6k/m1wXZk4/eBH/SjpspIsNQugy32eXtL+VjSnNrezWhFn9Q
+	JT28YcOSbxLoqHFO11I7Vf0kd0/gBRwfYd8brMjJwpcBDjJoaQAGk7NHniltA/aUdcSD9W
+	IQAU05XItLYZepfTWjJLIPnDaJVFUjNKK5Kxn6O2mRbffo7NIKScywhvQO0qog==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux@ew.tq-group.com
+Subject: Re: [PATCH 1/5] arm64: dts: imx8-ss-hsio: Wire up DMA IRQ for PCIe
+Date: Wed, 08 Jan 2025 10:58:18 +0100
+Message-ID: <4427798.ejJDZkT8p0@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <Z31KrdxPULx8K5ao@lizhi-Precision-Tower-5810>
+References: <20250107140110.982215-1-alexander.stein@ew.tq-group.com> <20250107140110.982215-2-alexander.stein@ew.tq-group.com> <Z31KrdxPULx8K5ao@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_020839_148269_F5282B51 
-X-CRM114-Status: GOOD (  20.08  )
+X-CRM114-CacheID: sfid-20250108_015829_822002_44A8524D 
+X-CRM114-Status: GOOD (  16.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,232 +93,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 40384c840ea1944d7c5a392e8975ed088ecf0b37:
+Hi Frank,
 
-  Linux 6.13-rc1 (2024-12-01 14:28:56 -0800)
+Am Dienstag, 7. Januar 2025, 16:39:25 CET schrieb Frank Li:
+> On Tue, Jan 07, 2025 at 03:01:06PM +0100, Alexander Stein wrote:
+> > IRQ mapping is already present. Add the missing DMA interrupt.
+>=20
+> PCI host side have not use bridge's DMA yet although hardware support it.
 
-are available in the Git repository at:
+So this is a driver limitation, right? So IMHO the device description is
+independent from that and still correct, right?
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/mediatek/linux.git tags/mtk-dts64-for-v6.14
+Best regards,
+Alexander
 
-for you to fetch changes up to 0fb0d360218129f00b76f13e30b86321b64e36f6:
+> >
+> > Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+> > ---
+> >  arch/arm64/boot/dts/freescale/imx8-ss-hsio.dtsi | 5 +++--
+> >  1 file changed, 3 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/arch/arm64/boot/dts/freescale/imx8-ss-hsio.dtsi b/arch/arm=
+64/boot/dts/freescale/imx8-ss-hsio.dtsi
+> > index 70a8aa1a67911..4bdfc15487cbc 100644
+> > --- a/arch/arm64/boot/dts/freescale/imx8-ss-hsio.dtsi
+> > +++ b/arch/arm64/boot/dts/freescale/imx8-ss-hsio.dtsi
+> > @@ -57,8 +57,9 @@ pcieb: pcie@5f010000 {
+> >  		ranges =3D <0x81000000 0 0x00000000 0x8ff80000 0 0x00010000>,
+> >  			 <0x82000000 0 0x80000000 0x80000000 0 0x0ff00000>;
+> >  		#interrupt-cells =3D <1>;
+> > -		interrupts =3D <GIC_SPI 102 IRQ_TYPE_LEVEL_HIGH>;
+> > -		interrupt-names =3D "msi";
+> > +		interrupts =3D <GIC_SPI 102 IRQ_TYPE_LEVEL_HIGH>,
+> > +			     <GIC_SPI 104 IRQ_TYPE_LEVEL_HIGH>;
+> > +		interrupt-names =3D "msi", "dma";
+> >  		#address-cells =3D <3>;
+> >  		#size-cells =3D <2>;
+> >  		clocks =3D <&pcieb_lpcg IMX_LPCG_CLK_6>,
+> > --
+> > 2.34.1
+> >
+>=20
 
-  arm64: dts: mediatek: mt8516: add keypad node (2025-01-07 13:11:55 +0100)
 
-----------------------------------------------------------------
-MediaTek ARM64 DeviceTree updates for v6.14
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
 
-This adds a few cleanups, enhances support for upstreamed SoCs
-and machines, other than adding new ones.
 
-In particular, fixes and improvements:
- - MT8516 gets a few fixes for GICv2, Watchdog and I2C, and
-   support for the Keypad controller;
- - MT8390 Genio 700 board gets basic audio support;
- - MT8365 gets an alias for its integrated ethernet controller;
- - MT8195 gets an important fix for system suspend: all of the
-   machines based on this SoC and its IoT variant can now
-   properly perform PM Suspend to RAM;
- - MT8188 gets support for its Mali GPU with DVFS and a fix for
-   the OVL Hardware found in the Display Controller using the
-   right compatible strings;
- - MT8186 Chromebooks can now suspend properly thanks to a fix
-   moving the USB wakeups from XHCI to MTU3 (USB) controller;
- - MT8183 Chromebooks get a fix for their DMIC microphone and
-   proper support for their second-source touchscreen;
- - MT7988 SoC and the BananaPi R4 board gets support for Pinctrl,
-   eMMC/SD, Thermal, CPU DVFS, PCI-Express, and peripherals like
-   the RT5190A PMIC, PCA9545 I2C mux, and others;
- - MT7986 BananaPi R3 board gets support for SATA power socket;
-
-And cleanups:
- - Dropped regulator-compatible property from MediaTek DTs;
- - Aligned thermal node names with bindings on MT8183 Kukui;
- - MT6397 PMIC get proper sub-node names, fixing dt validation;
- - The property enabling Wake-On-Lan feature changed in all of
-   the boards and driver to match the actual meaning of it
-   (mediatek,mac-wol now enables wol on mac instead of phy);
- - Compatibles for MediaTek PMIC Keypad are added to bindings
-   and can now pass dts validation;
-
-...and the newly added machines are:
- - MT8188 (Ciri) Lenovo Chromebook Duet
- - MT8186 (Starmie) ASUS Chromebook Enterprise CM30
- - MT8186 (Chinchou) ASUS Chromebook CZ12 and CZ12 Flip
-
-----------------------------------------------------------------
-Chen-Yu Tsai (14):
-      arm64: dts: mediatek: mt8183: Disable DPI display output by default
-      arm64: dts: mediatek: mt8183: Disable DSI display output by default
-      arm64: dts: mediatek: mt8173-evb: Drop regulator-compatible property
-      arm64: dts: mediatek: mt8173-elm: Drop regulator-compatible property
-      arm64: dts: mediatek: mt8192-asurada: Drop regulator-compatible property
-      arm64: dts: mediatek: mt8195-cherry: Drop regulator-compatible property
-      arm64: dts: mediatek: mt8195-demo: Drop regulator-compatible property
-      arm64: dts: medaitek: mt8395-nio-12l: Drop regulator-compatible property
-      arm64: dts: mediatek: mt8395-genio-1200-evk: Drop regulator-compatible property
-      arm64: dts: mediatek: mt8173-elm: Fix MT6397 PMIC sub-node names
-      arm64: dts: mediatek: mt8173-evb: Fix MT6397 PMIC sub-node names
-      arm64: dts: mediatek: mt8183-kukui-jacuzzi: Drop pp3300_panel voltage settings
-      arm64: dts: mediatek: mt8192: Drop Chromebook variants that never shipped
-      dt-bindings: arm: mediatek: Drop MT8192 Chromebook variants that never shipped
-
-Fei Shao (2):
-      dt-bindings: arm: mediatek: Add MT8188 Lenovo Chromebook Duet (11", 9)
-      arm64: dts: mediatek: Introduce MT8188 Geralt platform based Ciri
-
-Frank Wunderlich (27):
-      arm64: dts: mt7986: add overlay for SATA power socket on BPI-R3
-      arm64: dts: mediatek: mt7988: Add pinctrl support
-      arm64: dts: mediatek: mt7988a-bpi-r4: Add pinctrl subnodes for bpi-r4
-      arm64: dts: mediatek: mt7988: Add reserved memory
-      arm64: dts: mediatek: mt7988: Add mmc support
-      arm64: dts: mediatek: mt7988: Add lvts node
-      arm64: dts: mediatek: mt7988: Add thermal-zone
-      arm64: dts: mediatek: mt7988: Add missing clock-div property for i2c
-      arm64: dts: mediatek: mt7988: Add mcu-sys node for cpu
-      arm64: dts: mediatek: mt7988: Add CPU OPP table for clock scaling
-      arm64: dts: mediatek: mt7988: Disable usb controllers by default
-      arm64: dts: mediatek: mt7988: Add t-phy for ssusb1
-      arm64: dts: mediatek: mt7988: Add pcie nodes
-      arm64: dts: mediatek: mt7988a-bpi-r4: Enable watchdog
-      arm64: dts: mediatek: mt7988a-bpi-r4: Add fixed regulators for 1v8 and 3v3
-      arm64: dts: mediatek: mt7988a-bpi-r4: Add dt overlays for sd + emmc
-      arm64: dts: mediatek: mt7988a-bpi-r4: Add thermal configuration
-      arm64: dts: mediatek: mt7988a-bpi-r4: Enable serial0 debug uart
-      arm64: dts: mediatek: mt7988a-bpi-r4: Add default UART stdout
-      arm64: dts: mediatek: mt7988a-bpi-r4: Enable I2C controllers
-      arm64: dts: mediatek: mt7988a-bpi-r4: Add PCA9545 I2C Mux
-      arm64: dts: mediatek: mt7988a-bpi-r4: Enable t-phy for ssusb1
-      arm64: dts: mediatek: mt7988a-bpi-r4: Enable ssusb1 on bpi-r4
-      arm64: dts: mediatek: mt7988a-bpi-r4: Enable pwm
-      arm64: dts: mediatek: mt7988a-bpi-r4: Enable pcie
-      arm64: dts: mediatek: mt7988a-bpi-r4: Add MediaTek MT6682A/RT5190A PMIC
-      arm64: dts: mediatek: mt7988a-bpi-r4: Add proc-supply for cpus
-
-Hsiao Chien Sung (1):
-      dt-bindings: display: mediatek: ovl: Modify rules for MT8195/MT8188
-
-Hsin-Te Yuan (3):
-      arm64: dts: mediatek: mt8183: kenzo: Support second source touchscreen
-      arm64: dts: mediatek: mt8183: willow: Support second source touchscreen
-      arm64: dts: mediatek: mt8188: Add GPU speed bin NVMEM cells
-
-Hsin-Yi Wang (1):
-      arm64: dts: mt8183: set DMIC one-wire mode on Damu
-
-Jason-JH.Lin (3):
-      dt-bindings: display: mediatek: ovl: Add compatible strings for MT8188 MDP3
-      dts: arm64: mediatek: mt8188: Update OVL compatible from MT8183 to MT8195
-      dts: arm64: mediatek: mt8195: Remove MT8183 compatible for OVL
-
-Krzysztof Kozlowski (1):
-      arm64: dts: mediatek: mt8183-kukui: align thermal node names with bindings
-
-Nícolas F. R. A. Prado (5):
-      arm64: dts: mediatek: mt8186: Move wakeup to MTU3 to get working suspend
-      arm64: dts: mt6359: Add #sound-dai-cells property
-      arm64: dts: mediatek: mt8390-genio-700-evk: Add sound output support
-      arm64: dts: mediatek: mt8195: Remove suspend-breaking reset from pcie1
-      arm64: dts: mediatek: Set mediatek,mac-wol on DWMAC node for all boards
-
-Sjoerd Simons (1):
-      arm64: dts: mediatek: mt8365-evk: Set ethernet alias
-
-Val Packett (7):
-      arm64: dts: mediatek: mt8516: fix GICv2 range
-      arm64: dts: mediatek: mt8516: fix wdt irq type
-      arm64: dts: mediatek: mt8516: add i2c clock-div property
-      arm64: dts: mediatek: mt8516: reserve 192 KiB for TF-A
-      dt-bindings: mediatek,mt6779-keypad: add more compatibles
-      arm64: dts: mediatek: add per-SoC compatibles for keypad nodes
-      arm64: dts: mediatek: mt8516: add keypad node
-
-Wojciech Macek (2):
-      dt-bindings: arm: mediatek: Add MT8186 Starmie Chromebooks
-      arm64: dts: mediatek: mt8186: Add Starmie device
-
-Zhengqiao Xia (4):
-      dt-bindings: arm: mediatek: Add MT8186 Chinchou Chromebook
-      arm64: dts: mediatek: Add MT8186 Chinchou Chromebooks
-      arm64: dts: mediatek: Add extcon node for DP bridge
-      arm64: dts: mediatek: Modify audio codec name for pmic
-
- .../devicetree/bindings/arm/mediatek.yaml          |   65 +-
- .../bindings/display/mediatek/mediatek,ovl.yaml    |   12 +-
- .../bindings/input/mediatek,mt6779-keypad.yaml     |    3 +
- arch/arm64/boot/dts/mediatek/Makefile              |   19 +-
- arch/arm64/boot/dts/mediatek/mt2712-evb.dts        |    1 +
- arch/arm64/boot/dts/mediatek/mt6359.dtsi           |    1 +
- .../dts/mediatek/mt7986a-bananapi-bpi-r3-sata.dtso |   34 +
- .../dts/mediatek/mt7988a-bananapi-bpi-r4-emmc.dtso |   33 +
- .../dts/mediatek/mt7988a-bananapi-bpi-r4-sd.dtso   |   31 +
- .../boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts  |  398 +++++++
- arch/arm64/boot/dts/mediatek/mt7988a.dtsi          |  365 +++++-
- arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi       |   29 +-
- arch/arm64/boot/dts/mediatek/mt8173-evb.dts        |   25 +-
- .../dts/mediatek/mt8183-kukui-jacuzzi-damu.dts     |    4 +
- .../dts/mediatek/mt8183-kukui-jacuzzi-kenzo.dts    |   15 +
- .../dts/mediatek/mt8183-kukui-jacuzzi-willow.dtsi  |   15 +
- .../boot/dts/mediatek/mt8183-kukui-jacuzzi.dtsi    |    2 -
- arch/arm64/boot/dts/mediatek/mt8183-kukui.dtsi     |    9 +-
- arch/arm64/boot/dts/mediatek/mt8183-pumpkin.dts    |    4 -
- arch/arm64/boot/dts/mediatek/mt8183.dtsi           |    5 +-
- .../dts/mediatek/mt8186-corsola-chinchou-sku0.dts  |   18 +
- .../dts/mediatek/mt8186-corsola-chinchou-sku1.dts  |   35 +
- .../dts/mediatek/mt8186-corsola-chinchou-sku16.dts |   29 +
- .../boot/dts/mediatek/mt8186-corsola-chinchou.dtsi |  321 ++++++
- .../dts/mediatek/mt8186-corsola-starmie-sku0.dts   |   31 +
- .../dts/mediatek/mt8186-corsola-starmie-sku1.dts   |   31 +
- .../boot/dts/mediatek/mt8186-corsola-starmie.dtsi  |  472 ++++++++
- arch/arm64/boot/dts/mediatek/mt8186-corsola.dtsi   |    8 +-
- arch/arm64/boot/dts/mediatek/mt8186.dtsi           |    8 +-
- .../boot/dts/mediatek/mt8188-geralt-ciri-sku0.dts  |   32 +
- .../boot/dts/mediatek/mt8188-geralt-ciri-sku1.dts  |   59 +
- .../boot/dts/mediatek/mt8188-geralt-ciri-sku2.dts  |   59 +
- .../boot/dts/mediatek/mt8188-geralt-ciri-sku3.dts  |   32 +
- .../boot/dts/mediatek/mt8188-geralt-ciri-sku4.dts  |   48 +
- .../boot/dts/mediatek/mt8188-geralt-ciri-sku5.dts  |   72 ++
- .../boot/dts/mediatek/mt8188-geralt-ciri-sku6.dts  |   72 ++
- .../boot/dts/mediatek/mt8188-geralt-ciri-sku7.dts  |   48 +
- .../boot/dts/mediatek/mt8188-geralt-ciri.dtsi      |  316 ++++++
- arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi    | 1156 ++++++++++++++++++++
- arch/arm64/boot/dts/mediatek/mt8188.dtsi           |    9 +-
- .../dts/mediatek/mt8192-asurada-hayato-r5-sku2.dts |   65 --
- .../dts/mediatek/mt8192-asurada-spherion-r4.dts    |   78 --
- arch/arm64/boot/dts/mediatek/mt8192-asurada.dtsi   |    3 -
- arch/arm64/boot/dts/mediatek/mt8195-cherry.dtsi    |    2 -
- arch/arm64/boot/dts/mediatek/mt8195-demo.dts       |   10 +-
- arch/arm64/boot/dts/mediatek/mt8195.dtsi           |    5 +-
- arch/arm64/boot/dts/mediatek/mt8365-evk.dts        |    1 +
- arch/arm64/boot/dts/mediatek/mt8365.dtsi           |    3 +-
- .../boot/dts/mediatek/mt8390-genio-700-evk.dts     |   48 +
- .../boot/dts/mediatek/mt8395-genio-1200-evk.dts    |    2 -
- .../dts/mediatek/mt8395-kontron-3-5-sbc-i1200.dts  |    1 +
- .../boot/dts/mediatek/mt8395-radxa-nio-12l.dts     |    2 -
- arch/arm64/boot/dts/mediatek/mt8516.dtsi           |   22 +-
- arch/arm64/boot/dts/mediatek/pumpkin-common.dtsi   |    2 -
- 54 files changed, 3899 insertions(+), 271 deletions(-)
- create mode 100644 arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3-sata.dtso
- create mode 100644 arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-emmc.dtso
- create mode 100644 arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-sd.dtso
- create mode 100644 arch/arm64/boot/dts/mediatek/mt8186-corsola-chinchou-sku0.dts
- create mode 100644 arch/arm64/boot/dts/mediatek/mt8186-corsola-chinchou-sku1.dts
- create mode 100644 arch/arm64/boot/dts/mediatek/mt8186-corsola-chinchou-sku16.dts
- create mode 100644 arch/arm64/boot/dts/mediatek/mt8186-corsola-chinchou.dtsi
- create mode 100644 arch/arm64/boot/dts/mediatek/mt8186-corsola-starmie-sku0.dts
- create mode 100644 arch/arm64/boot/dts/mediatek/mt8186-corsola-starmie-sku1.dts
- create mode 100644 arch/arm64/boot/dts/mediatek/mt8186-corsola-starmie.dtsi
- create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku0.dts
- create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku1.dts
- create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku2.dts
- create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku3.dts
- create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku4.dts
- create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku5.dts
- create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dts
- create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku7.dts
- create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri.dtsi
- create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
- delete mode 100644 arch/arm64/boot/dts/mediatek/mt8192-asurada-hayato-r5-sku2.dts
- delete mode 100644 arch/arm64/boot/dts/mediatek/mt8192-asurada-spherion-r4.dts
 
