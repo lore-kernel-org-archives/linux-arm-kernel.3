@@ -4,79 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81D7DE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 13:24:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A142E7719A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 13:26:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s0c2Sr/lCUPp+fZ6By3CztBWN7px0h5vAH48eSCXHxo=; b=UnZhFd7zV3Rf8zo73SS9ejyXo+
-	J5OdMN/QX7ck6aWBq3VIQJtR/Xb6FHqOWGbZLudiLTO/KfyAPt/I7j60/Xwvk3z2YN1YptK018kYC
-	qGqbF9X5qc2qY7oerglbt7q2wG/NQm7WXUPGL09iXqhlT1LvEZ310ZkB2A0S3I4FzbvrEUNdIc8YQ
-	TahiOlJTWCUB8qDLJTz/15kHA8gYFLgbvjpn0lo5/B3VVUOhyd9xEkQoT9SwccgAJjVDC8KvrMLkE
-	mfsICVhs2weKgDIgFnYPITEtwDnQCbXOhU6CS/bIE8zP81345t8kbUmLh4pg2Ywx8KGAXbyvGC2PB
-	Kb4bKjZQ==;
+	bh=YqZewggKXh0wm9IbjtQFexabLRuUSMGH6a4/lzMIbGw=; b=YqtfQS+haPKlYD7x5LgquYQS5x
+	37DpsfySxCAMFwqbhx7zdCGEOHOS+w0hoBPF8heWHUqk9YZgN914UoDPqzs/RA7I6Ku357pyl+FV2
+	x8ZHZknq6Ej7Gg7br7t1MYGwcey8RlsX5yH7kfHJQeIi3QW3qnRmr/AikN3X70SZuVsej8sWkgCKY
+	5OIDhDSl1DEPgIvslZTEwSl2EpQ+4/ghtDQQCSGS5yiHJjnZNpEQF6vimZxNXT9mGu1CLrAtl0HDP
+	OFVklhs+hPHrqPBEsifg6quLNGldW2gqhZg1kqMwxo/sCEphHVdPZdNZjbWvL1t+SZPI1GMQ+ZkEd
+	oN8ySgmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVW3B-00000008bZV-1O7Z;
-	Wed, 08 Jan 2025 13:24:45 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1tVW4M-00000008bjF-13ko;
+	Wed, 08 Jan 2025 13:25:58 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVVqe-00000008YvV-0vUF
+	id 1tVVsg-00000008ZD4-2kjX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 13:11:49 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 508DBeR43008794
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 8 Jan 2025 07:11:40 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1736341900;
-	bh=s0c2Sr/lCUPp+fZ6By3CztBWN7px0h5vAH48eSCXHxo=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=y5ecljwUR4/3FPqDcaEjgLXjYxVW/wnYoMVO4yFJaMRCU9n9R2cIL+aihKmcbS214
-	 hnLOriD26zxNGj7ZQcEWStUiOWeDV0Id0ZwJ7QaDwvZ/v4jTRBVCpLqCAhFFBERkzg
-	 bdnqcF4AUG/tSsqh7+F5mU0InBlP+f6ashtn8fJc=
-Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 508DBe2Z110371
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 8 Jan 2025 07:11:40 -0600
-Received: from DLEE108.ent.ti.com (157.170.170.38) by DLEE113.ent.ti.com
- (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 8
- Jan 2025 07:11:39 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE108.ent.ti.com
- (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 8 Jan 2025 07:11:39 -0600
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 508DBdjE036677;
-	Wed, 8 Jan 2025 07:11:39 -0600
-Date: Wed, 8 Jan 2025 07:11:39 -0600
-From: Nishanth Menon <nm@ti.com>
-To: Kevin Hilman <khilman@baylibre.com>
-CC: <devicetree@vger.kernel.org>, Romain Naour <romain.naour@smile.fr>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-omap@vger.kernel.org>,
-        <conor+dt@kernel.org>, <krzk+dt@kernel.org>, <robh@kernel.org>,
-        <kristo@kernel.org>, <vigneshr@ti.com>,
-        Romain Naour <romain.naour@skf.com>, <afd@ti.com>,
-        <s-vadapalli@ti.com>
-Subject: Re: [PATCHv3 1/2] dt-bindings: mfd: syscon: Add
- ti,j721e-acspcie-proxy-ctrl compatible
-Message-ID: <20250108131139.dygei6ejamh5zaij@segment>
-References: <20241202143331.126800-1-romain.naour@smile.fr>
- <173344002250.407600.8303166891165540615.b4-ty@baylibre.com>
- <20250103212528.enq4ur5afxhwzh7n@outdoors>
- <7hr05eb5st.fsf@baylibre.com>
+	Wed, 08 Jan 2025 13:13:56 +0000
+Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-53ffaaeeb76so17704005e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jan 2025 05:13:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1736342032; x=1736946832; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=YqZewggKXh0wm9IbjtQFexabLRuUSMGH6a4/lzMIbGw=;
+        b=luPIJNq4hiS9/MMj3YKPv4yu19WRfzT0PaYtvf/S4fOSaw58/mGwywzkr9KsLDzaSS
+         4QLpFwWQ0qZEueH4I/dxp/lqJn+YXG5NNHbzRlnSndBCSzfa6iOfExg6kuqfdapxmGjp
+         gVX9rHFDRURF8aGQB1rVNW1VqNvXEg9MWo+n8NH7iw0WjuYSM7+ap0WN/LPioZImLure
+         i2FcgTs7xZlxxTBN715Ip+LBQxFYlYLNqgqoZUdwswMMwDexOVirl2fBZhIdIF8yzotZ
+         /bQGEIHcB4RvrkEB5phjWJ8taD5EGZL4W75XgUUVHPbN8gM/p4umgzmbmA+cY/pDNYDk
+         csdQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736342032; x=1736946832;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=YqZewggKXh0wm9IbjtQFexabLRuUSMGH6a4/lzMIbGw=;
+        b=Itz4ucbxcLdonVexCty/BJnbcpmjOjkJRkLkvq8wlvCfyIpYTDrjZ+FiMieKZQaTOF
+         lp0nX2jJtMR7qWq86n5ueqRba9XFlp/z6yyYXvmV4oFP9/Xhx7JiJDzpieK57F5X0NE7
+         cdw+JhahBFpM0jcvYfqFps/OS37l3m4Y3dzcEnfohlQkKHOWUo4XwU8ySyuDt60HuYyU
+         sKYvDF3L0RdDTKAWKEAgPVA11NzGERQ7/V7ifGRqRoD8mPjQmF2YPYeHngDd1q9XzSEr
+         HFH48d8Sn7+ZSuvs4jwacshk4YBM1jD+HVeNAPGjy3bSMru4ACpS7NzVNDhnLZcjEWFX
+         X9Bg==
+X-Forwarded-Encrypted: i=1; AJvYcCWlOTgaCK05fCaBNYdYPW8gOcerlmMM56JS243Lg6XypRWSymeaFpXa+v0F/8IHv4pRqiVS1WpSe+TZ2dE7doq/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzzUIlRlAr+NCuPPk5HG0gHgUVa7nHV0LAxgSYMf0JPNzoqLHfh
+	H6jpb+QME5MJeIXzZvEfZ3xXb3N64QtLMUZOBqPOfB7osrRXTp5Y/Qz7Uj09QPc=
+X-Gm-Gg: ASbGncsRhRMNaWiKP+5zB9X/8uREem7SgxqQNHyYwLW5GeJa5kR04QWgkbwMfvNtntF
+	xVNPIQHmKluhMW1TrPKmCdzGSgi29xs1w94HTsG63XOkRCm5rPvKz5Ne1oz1nXBTWILtLsIloD5
+	ZnpIYzY7hZHltQdr173hUTNo15I+lCjvvmYDZwFZdlDJul8dU9KsBR5WAI4m3hj6gMkHrkkpiwO
+	ICIHpKW9sQXYEbIjIj9JF2tyzKfm0U6VpEVO6Hec9XLunJgmrYu3f3H8oNDBAJv2ONADVWKw2LT
+	qDXEIliC8baxzw7Gvaax7JqazGcHxvsi8oqE
+X-Google-Smtp-Source: AGHT+IEkuQPiOLgGXs8zWdEMj0wAqNSMaSTV6vSQ/tkCnop+NG9gWvZpeLRpiajpdeM8K2LlU6tzqA==
+X-Received: by 2002:a05:6512:3c8a:b0:542:28dc:b692 with SMTP id 2adb3069b0e04-542845b9480mr694480e87.14.1736342032480;
+        Wed, 08 Jan 2025 05:13:52 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54269fd89e8sm1549488e87.91.2025.01.08.05.13.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 08 Jan 2025 05:13:52 -0800 (PST)
+Date: Wed, 8 Jan 2025 15:13:49 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
+	simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
+	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	matthias.bgg@gmail.com, ck.hu@mediatek.com, jitao.shi@mediatek.com, jie.qiu@mediatek.com, 
+	junzhi.zhao@mediatek.com, dri-devel@lists.freedesktop.org, 
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kernel@collabora.com, lewis.liao@mediatek.com, 
+	ives.chenjh@mediatek.com, tommyyl.chen@mediatek.com, jason-jh.lin@mediatek.com
+Subject: Re: [PATCH v4 33/34] drm/mediatek: mtk_hdmi_common: Add var to
+ enable interlaced modes
+Message-ID: <bovw662duw6ufmjleicb4kuhyn3an6emo53mgg3477dfuarapq@zcmekc7zzeub>
+References: <20250108112744.64686-1-angelogioacchino.delregno@collabora.com>
+ <20250108112744.64686-34-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <7hr05eb5st.fsf@baylibre.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+In-Reply-To: <20250108112744.64686-34-angelogioacchino.delregno@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_051148_447757_E5C51160 
-X-CRM114-Status: GOOD (  22.90  )
+X-CRM114-CacheID: sfid-20250108_051354_698999_FF3D1195 
+X-CRM114-Status: GOOD (  19.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,70 +104,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14:46-20250107, Kevin Hilman wrote:
-> Nishanth Menon <nm@ti.com> writes:
+On Wed, Jan 08, 2025 at 12:27:43PM +0100, AngeloGioacchino Del Regno wrote:
+> Add an interlace_allowed bool member to struct mtk_hdmi_ver_conf
+> which will be used to signal whether interlaced modes are supported
+> by the bridge (in our case, the HDMI IP), and enable it for HDMIv2.
 > 
-> > On 15:07-20241205, Kevin Hilman wrote:
-> >> 
-> >> On Mon, 02 Dec 2024 15:33:30 +0100, Romain Naour wrote:
-> >> > The ACSPCIE_PROXY_CTRL registers within the CTRL_MMR space of TI's J721e
-> >> > SoC are used to drive the reference clock to the PCIe Endpoint device via
-> >> > the PAD IO Buffers. Add the compatible for allowing the PCIe driver to
-> >> > obtain the regmap for the ACSPCIE_CTRL register within the System
-> >> > Controller device-tree node in order to enable the PAD IO Buffers.
-> >> > 
-> >> > The Technical Reference Manual for J721e SoC with details of the
-> >> > ASCPCIE_CTRL registers is available at:
-> >> > https://www.ti.com/lit/zip/spruil1
-> >> > 
-> >> > [...]
-> >> 
-> >> Applied, thanks!
-> >> 
-> >> [1/2] dt-bindings: mfd: syscon: Add ti,j721e-acspcie-proxy-ctrl compatible
-> >>       commit: d8efc0b428856137608ffcbb6994da6041c9fe2a
-> >> [2/2] arm64: dts: ti: k3-j721e-beagleboneai64: Enable ACSPCIE output for PCIe1
-> >>       commit: 1d5e14a20dc60b440c60bec8489acfd45cdf7508
-> >> 
-> >> Best regards,
-> >> -- 
-> >> Kevin Hilman <khilman@baylibre.com>
-> >> 
-> > This will need a bit of fixup - See along the lines of the following.
-> > Additionally, we should be a bit careful about the dependency of dts
-> > mix up from two trees.
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> ---
+>  drivers/gpu/drm/mediatek/mtk_hdmi_common.c | 1 +
+>  drivers/gpu/drm/mediatek/mtk_hdmi_common.h | 1 +
+>  drivers/gpu/drm/mediatek/mtk_hdmi_v2.c     | 3 ++-
+>  3 files changed, 4 insertions(+), 1 deletion(-)
 > 
-> sorry, these should be going through your tree in the first place.  They
-> are now dropped from my tree, please go ahead and take them along with
-> Andrews fixup.  Sorry for complicating things.
+> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c b/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
+> index 4cecfef1466b..8841fa4e476a 100644
+> --- a/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
+> +++ b/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
+> @@ -1301,7 +1301,8 @@ static const struct mtk_hdmi_ver_conf mtk_hdmi_conf_v2 = {
+>  	.bridge_funcs = &mtk_v2_hdmi_bridge_funcs,
+>  	.codec_ops = &mtk_hdmi_v2_audio_codec_ops,
+>  	.mtk_hdmi_clock_names = mtk_hdmi_v2_clk_names,
+> -	.num_clocks = MTK_HDMI_V2_CLK_COUNT
+> +	.num_clocks = MTK_HDMI_V2_CLK_COUNT,
+> +	.interlace_allowed = true
 
+Nit: if you have a trailing comma, you don't have to change the last
+line when adding a new one.
 
-Romain,
-
-There is additional fixups needed, unfortunately as well: syscon yaml
-has two lists based on which dt-schema version you use.. your patch
-fixed one list, but missed the other as well. Could you integrate the
-fixes and resubmit, please?
-
+>  };
+>  
+>  static const struct mtk_hdmi_conf mtk_hdmi_conf_mt8188 = {
+> -- 
+> 2.47.0
+> 
 
 -- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-
-Something of this form needs to be squashed.
-
-diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Documentation/devicetree/bindings/mfd/syscon.yaml
-index 348025870b0f7..dda489916bc54 100644
---- a/Documentation/devicetree/bindings/mfd/syscon.yaml
-+++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
-@@ -216,6 +216,8 @@ properties:
-           - ti,am62p-cpsw-mac-efuse
-           - ti,am654-dss-oldi-io-ctrl
-           - ti,am654-icssg-ctrl
-+          - ti,j721e-acspcie-proxy-ctrl
-           - ti,j784s4-pcie-ctrl
-           - ti,keystone-pllctrl
-       - const: syscon 
-
+With best wishes
+Dmitry
 
