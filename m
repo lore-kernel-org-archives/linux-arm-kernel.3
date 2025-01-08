@@ -4,125 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 291BDE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 07:20:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E189CE77199
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 07:21:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oFL9SGbXxYqRlw6G0JwTVWRijc5/6EOrJfB/UywRwlQ=; b=YWG5WcSM92IDGeK/prZpIb/qs7
-	BuiCzDaUZZ7VJWVXCIVtRhBm9hK+bbJwEFOyZsxmxSVjEl84NPL2wBjbz3+YXDIwBVcjHDQP4vD0h
-	2mLFbhVon0uxJsHuZ9mG3bCAafVswjkhauNr9RThLj2K3eY6VuDMdhgYkWmgvqRbMsFA6PDA0avJz
-	ZDzu9KO7oIq9Wev6dhv4Ma9AiIayXbyVAAI26aK9PXERQ2BoGcuLLytTWY2vaMeg3JAzStM9UUGrQ
-	1WWDWEFmkl+N7oGgja6LvBLhej1T/azzcNr4xNNM2lxvlNqHbVkwWMyvIE/q1vROCa/zAQ1GebkRa
-	lkr30Hpg==;
+	bh=8g/yvFPN492ZSbIA9saKHdlSnyXXKvFmFktxBClT5/c=; b=as9JpbvOWTYtROHRpOC1osWX2c
+	0kU5UnATc+eYJg0Lh9txA1U1ZkCQ4irG1Jwdvd/+fBYSDVZAvrBbqfqSyPN5TqnmJtGj3NW9/3jsD
+	MucDCucxAb0FgaOztTM+FSXR4lb/iYj8ieiIithakXPZW1FMkWyj92dQ+77a1VnTlGpDQp5MYEgr3
+	ZkYJiPI/AJxpBQ1A3pEWTyOdICEtkb/+ztmbMWwlROBuc8lZOaRx8PSP4nZBYtpHvtJd4rI/7k7qV
+	TJ+LHz5S/wAb9/C+PrPohNei3f8LhTsYcrgEoPMFWUVGnYfF0iN9nLw+Vpmj1eQCM9ZMCYQVIw6fd
+	22oju2ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVQMZ-00000007PQ7-1HJU;
-	Wed, 08 Jan 2025 07:20:23 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1tVQNk-00000007PYO-190q;
+	Wed, 08 Jan 2025 07:21:36 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVQ5N-00000007Liq-3RTI
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 07:02:40 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-21636268e43so68037765ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 23:02:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1736319757; x=1736924557; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=oFL9SGbXxYqRlw6G0JwTVWRijc5/6EOrJfB/UywRwlQ=;
-        b=bPbbGNkuu5F5A37D0ddIeuqg/vxDnVOTx8YcmjstFC/dY8SpjZ5fa9zPw1Ng/f1Zn2
-         GgatUey0cByA1zAPISdeHsevEz2VfKDLdO4iX3YP9OsTBJNDc38UY9msRhJ0Px5KqcVh
-         3L10i+yhXnetb2KOHMu3KrDism1/2znReeXerxI0SVVk3o66Ff86zVGKSfmjGXGIpPXP
-         Rc0qVc7UotFT3Qknkp6Wl8lu2/AglKQZ5mBLwMoLDWXZ8/SYTw0rL8qOKNbX4L6F0dpr
-         pO3mKNHfjYXfpTgEjz44VufNvpeMTkmYcdoZfJvmgtuhsBPYTcaNM9oPp4VjFSvEJwgT
-         QQkQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736319757; x=1736924557;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=oFL9SGbXxYqRlw6G0JwTVWRijc5/6EOrJfB/UywRwlQ=;
-        b=L9d44rFxNDnmKMoF0qGnxNL6FJFOphA/QTLk8HuBS7cZ7HCEGsuVFHQreWQYqdObl5
-         tMDJNT4JVWaXSxOshhGaVuHzGdzEZo0nJHyBXzyP0inIrHV1x2PylEnxDLRGftS6Z9EF
-         9W0gaDAAaH9r2wXmB/PcuhM9+mxcZMx68hCxAVq3S85+vlrs3bH9/pDRgyJcqMmmRPx4
-         NJkRW/Ng3BUHwpWzDdveHPPPO2aU9zKbkYHeq3Sk4Cb2jgFk9tRieU7F24j05hR1h3Wn
-         4MdSU9sBfYnRFsQ5KZnBErFrdj7weT74lG9rfXI+t9sPYkLYcBw86+gHkxuiKl+koj2S
-         dNrA==
-X-Forwarded-Encrypted: i=1; AJvYcCUoK8LrO7gQvd2Dp2kgtkWGc2RIxbC6e9INA1GuO88os/VGjjMuOIiMFnG1E98jXHhfwKZhrMWFraCaLP/9NcCG@lists.infradead.org
-X-Gm-Message-State: AOJu0YyETisf/nALq0bpT0w94IDoCfEFpLN1DNczsVWUjd1HElSEt/uB
-	XVJkG/sDsptKHOmVZw4UY8IMpaD7VKKGfLJVS8uprBocp/YhPVzZxLOlpt0/RnI=
-X-Gm-Gg: ASbGnctojCJZFuoR8jdabEObGrC8pfAF2vmhI1YuopEKyOf4KmdFHVBvt23q5D/6QG8
-	VK/nnGUlZAfy7FVFvk+IclCe4jhGCaSE1avQ4oABxmBa+dj0KyL09FZ6z1Plkf0AoqJBvkHjLPq
-	dL89omheO/hoPlPuXIChdi9UfKo5aWth6Mw9QL9Sq7/Ga0QsUw5dqJlo2sAo0DigG7X9brx87lz
-	9cVll1eJ8Ez78yTroiFY2h5hCUjnLznKHm+TqfUF48oSptlEbfRnN4biv26lgNzVn9S75X+S/hd
-	N8FvPKCxHFgF5BZSK0VisMf0d5Y=
-X-Google-Smtp-Source: AGHT+IFBkkoQabtOk36FtfqYc8ZUQnhLYoik+Qreb3ophWoDY5tLIXttH+D63mfzQSCD0xoXOJPU5A==
-X-Received: by 2002:a17:902:dac8:b0:215:773a:c168 with SMTP id d9443c01a7336-21a83f48cf9mr30903435ad.1.1736319757144;
-        Tue, 07 Jan 2025 23:02:37 -0800 (PST)
-Received: from C02DW0BEMD6R.bytedance.net ([139.177.225.244])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-219dca023a3sm320067275ad.250.2025.01.07.23.02.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Jan 2025 23:02:36 -0800 (PST)
-From: Qi Zheng <zhengqi.arch@bytedance.com>
-To: peterz@infradead.org,
-	agordeev@linux.ibm.com,
-	kevin.brodsky@arm.com,
-	alex@ghiti.fr,
-	andreas@gaisler.com,
-	palmer@dabbelt.com,
-	tglx@linutronix.de,
-	david@redhat.com,
-	jannh@google.com,
-	hughd@google.com,
-	yuzhao@google.com,
-	willy@infradead.org,
-	muchun.song@linux.dev,
-	vbabka@kernel.org,
-	lorenzo.stoakes@oracle.com,
-	akpm@linux-foundation.org,
-	rientjes@google.com,
-	vishal.moola@gmail.com,
-	arnd@arndb.de,
-	will@kernel.org,
-	aneesh.kumar@kernel.org,
-	npiggin@gmail.com,
-	dave.hansen@linux.intel.com,
-	rppt@kernel.org,
-	ryan.roberts@arm.com
-Cc: linux-mm@kvack.org,
-	linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	x86@kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org,
-	linux-openrisc@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	linux-um@lists.infradead.org,
-	Qi Zheng <zhengqi.arch@bytedance.com>
-Subject: [PATCH v5 13/17] s390: pgtable: consolidate PxD and PTE TLB free paths
-Date: Wed,  8 Jan 2025 14:57:29 +0800
-Message-Id: <ac69360a5f3350ebb2f63cd14b7b45316a130ee4.1736317725.git.zhengqi.arch@bytedance.com>
-X-Mailer: git-send-email 2.24.3 (Apple Git-128)
-In-Reply-To: <cover.1736317725.git.zhengqi.arch@bytedance.com>
-References: <cover.1736317725.git.zhengqi.arch@bytedance.com>
+	id 1tVQ5T-00000007LmH-0qtf;
+	Wed, 08 Jan 2025 07:02:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 42F5D5C402E;
+	Wed,  8 Jan 2025 07:02:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B19ADC4CEE4;
+	Wed,  8 Jan 2025 07:02:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736319762;
+	bh=Ai8e77Ic+pFDnN9zazzZAW8QIcSb2HHaIy7n4c8Wfg8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=TGOlyeaT+KS3rkhvUJpL6/ynxnquOkfCWI3SPlcDEa4qH6ipwCoru4DpMDkDN7/zT
+	 GU7uSaV42zGfFdIQz32DiVNrTDzDI/np3x3YIbM/asHtAbNAiP4KtvUUyVxva4MgWV
+	 apNMfL+Qy/roY9GV39pQRWx2zUBSomOo1WUo96os51LPGo9k8bl49lbolTdiF1ym22
+	 4AohVu83VRBf9VLahbQxVohUeXwCfGnRLgUo1v4Ymgu2EsZM6+cpDrVZXoaG3UaWS5
+	 Lfqw74iZ/QxnMNfBCqCpuzrmmwrWhMihR80SfbWoVOdczXBSy1m7xjDlsoaVdnT7ch
+	 2D5Q40VzNr3LQ==
+Message-ID: <c5e61809-ab0f-48f5-9e3c-f5e3e7788237@kernel.org>
+Date: Wed, 8 Jan 2025 08:02:37 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] dt-bindings: spi: rockchip-sfc: Add rockchip,fspi
+ compatible
+To: Jon Lin <jon.lin@rock-chips.com>, broonie@kernel.org
+Cc: linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ heiko@sntech.de, linux-arm-kernel@lists.infradead.org,
+ linux-spi@vger.kernel.org
+References: <20250107154755.2037197-1-jon.lin@rock-chips.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250107154755.2037197-1-jon.lin@rock-chips.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_230237_888116_C35B95A0 
-X-CRM114-Status: GOOD (  11.73  )
+X-CRM114-CacheID: sfid-20250107_230243_338727_586BE5F0 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,93 +117,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Call pagetable_dtor() for PMD|PUD|P4D tables just before ptdesc is
-freed - same as it is done for PTE tables. That allows consolidating
-TLB free paths for all table types.
+On 07/01/2025 16:47, Jon Lin wrote:
+> FSPI is an SFC upgrade IP that adds functions such as XIP.
+> 
+> Signed-off-by: Jon Lin <jon.lin@rock-chips.com>
+> ---
 
-Signed-off-by: Qi Zheng <zhengqi.arch@bytedance.com>
-Suggested-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-s390@vger.kernel.org
----
- arch/s390/include/asm/tlb.h |  3 ---
- arch/s390/mm/pgalloc.c      | 14 ++++----------
- 2 files changed, 4 insertions(+), 13 deletions(-)
+<form letter>
+Please use scripts/get_maintainers.pl to get a list of necessary people
+and lists to CC. It might happen, that command when run on an older
+kernel, gives you outdated entries. Therefore please be sure you base
+your patches on recent Linux kernel.
 
-diff --git a/arch/s390/include/asm/tlb.h b/arch/s390/include/asm/tlb.h
-index dde847a5be545..d5b27a2445c96 100644
---- a/arch/s390/include/asm/tlb.h
-+++ b/arch/s390/include/asm/tlb.h
-@@ -102,7 +102,6 @@ static inline void pmd_free_tlb(struct mmu_gather *tlb, pmd_t *pmd,
- {
- 	if (mm_pmd_folded(tlb->mm))
- 		return;
--	pagetable_dtor(virt_to_ptdesc(pmd));
- 	__tlb_adjust_range(tlb, address, PAGE_SIZE);
- 	tlb->mm->context.flush_mm = 1;
- 	tlb->freed_tables = 1;
-@@ -122,7 +121,6 @@ static inline void p4d_free_tlb(struct mmu_gather *tlb, p4d_t *p4d,
- {
- 	if (mm_p4d_folded(tlb->mm))
- 		return;
--	pagetable_dtor(virt_to_ptdesc(p4d));
- 	__tlb_adjust_range(tlb, address, PAGE_SIZE);
- 	tlb->mm->context.flush_mm = 1;
- 	tlb->freed_tables = 1;
-@@ -141,7 +139,6 @@ static inline void pud_free_tlb(struct mmu_gather *tlb, pud_t *pud,
- {
- 	if (mm_pud_folded(tlb->mm))
- 		return;
--	pagetable_dtor(virt_to_ptdesc(pud));
- 	tlb->mm->context.flush_mm = 1;
- 	tlb->freed_tables = 1;
- 	tlb->cleared_p4ds = 1;
-diff --git a/arch/s390/mm/pgalloc.c b/arch/s390/mm/pgalloc.c
-index 569de24d33761..c73b89811a264 100644
---- a/arch/s390/mm/pgalloc.c
-+++ b/arch/s390/mm/pgalloc.c
-@@ -180,7 +180,7 @@ unsigned long *page_table_alloc(struct mm_struct *mm)
- 	return table;
- }
- 
--static void pagetable_pte_dtor_free(struct ptdesc *ptdesc)
-+static void pagetable_dtor_free(struct ptdesc *ptdesc)
- {
- 	pagetable_dtor(ptdesc);
- 	pagetable_free(ptdesc);
-@@ -190,20 +190,14 @@ void page_table_free(struct mm_struct *mm, unsigned long *table)
- {
- 	struct ptdesc *ptdesc = virt_to_ptdesc(table);
- 
--	pagetable_pte_dtor_free(ptdesc);
-+	pagetable_dtor_free(ptdesc);
- }
- 
- void __tlb_remove_table(void *table)
- {
- 	struct ptdesc *ptdesc = virt_to_ptdesc(table);
--	struct page *page = ptdesc_page(ptdesc);
- 
--	if (compound_order(page) == CRST_ALLOC_ORDER) {
--		/* pmd, pud, or p4d */
--		pagetable_free(ptdesc);
--		return;
--	}
--	pagetable_pte_dtor_free(ptdesc);
-+	pagetable_dtor_free(ptdesc);
- }
- 
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
-@@ -211,7 +205,7 @@ static void pte_free_now(struct rcu_head *head)
- {
- 	struct ptdesc *ptdesc = container_of(head, struct ptdesc, pt_rcu_head);
- 
--	pagetable_pte_dtor_free(ptdesc);
-+	pagetable_dtor_free(ptdesc);
- }
- 
- void pte_free_defer(struct mm_struct *mm, pgtable_t pgtable)
--- 
-2.20.1
+Tools like b4 or scripts/get_maintainer.pl provide you proper list of
+people, so fix your workflow. Tools might also fail if you work on some
+ancient tree (don't, instead use mainline) or work on fork of kernel
+(don't, instead use mainline). Just use b4 and everything should be
+fine, although remember about `b4 prep --auto-to-cc` if you added new
+patches to the patchset.
 
+You missed at least devicetree list (maybe more), so this won't be
+tested by automated tooling. Performing review on untested code might be
+a waste of time.
+
+Please kindly resend and include all necessary To/Cc entries.
+</form letter>
+
+> 
+>  Documentation/devicetree/bindings/spi/rockchip-sfc.yaml | 6 +++++-
+>  1 file changed, 5 insertions(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/spi/rockchip-sfc.yaml b/Documentation/devicetree/bindings/spi/rockchip-sfc.yaml
+> index ac1503de0478..4d64155d03f8 100644
+> --- a/Documentation/devicetree/bindings/spi/rockchip-sfc.yaml
+> +++ b/Documentation/devicetree/bindings/spi/rockchip-sfc.yaml
+> @@ -15,11 +15,15 @@ allOf:
+>  
+>  properties:
+>    compatible:
+> -    const: rockchip,sfc
+> +    enum:
+> +      - rockchip,fspi
+
+Don't grow generic patterns like that. Only SoC specific compatibles.
+
+> +      - rockchip,sfc
+
+
+Best regards,
+Krzysztof
 
