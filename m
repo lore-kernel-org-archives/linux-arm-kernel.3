@@ -4,98 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A20E5E77199
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 09:42:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07AAEE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 09:43:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SRu1D7dGFpm2VosF+UybZYQj2P1M1/nlzDOmVqBRd/k=; b=p7AAZHFAiWbS0tteLaFMNXjFRZ
-	j0ugTbDxA0JqPRL1SbQaXWf8rQ67PH+vXUR2d6We70eP98T5XU9Z07BgKBdDmA2MeU5WGCDsDbPSU
-	1Y8k/FwD61ixbX26ctHToDQ/BXeaCsfHBxOB9K5nmnM7AYOsfhKZrpErPtwWAS68UwS5w8SAhWXqj
-	lxFHkMu1Ioka6lRsXz6IW+Z2kSHlM733zwSJV4Al5l8bg3uXiVc/ETGnITGedL/aDns26ruBQljsL
-	d7OLbrP078HIRZWg3fCmGyoefXejkw0ti63CVh7bQBy7TZ5Q4OAD11QEvO3heF01puqspKiZKpT21
-	TGVLvUzg==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mDL559tBrr/c+O7uNT1qWo/LHQ82r4NDbguV4lcJTVs=; b=PM5ToO8Wngh9aGirTKZgONfLq+
+	Yh0T96FevaZcEhVYdt4QFMvQj8uji9EyN+Fxwt+lGhu4Q2hdg5QClLsrF/NUSwnOucbGHon3Biqa5
+	+jzlqEZRccf3O+PjAn3J7/BNbZXSMu3mcXeV2Ni7HxeipGbcUNHTEPnHYNLyiMKBLbMkHDG4/K8Gh
+	fMc5ccwyhoXQ6BPVY+2t+qmlqKrejcz70QVIbHDgnMadkmksypk1VCvSopU4Z4EzFrWYYtrnwdyOg
+	k0oUbVCEza9wLGNQVjhBpbPtRlWFrNN+HMjJA/jZt21LfNV6F+Mt0hyJULgiZlSKVeji37tqBoBlO
+	ho5fxqSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVSZl-00000007pzY-33jY;
-	Wed, 08 Jan 2025 09:42:09 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1tVSax-00000007qNq-0Mb4;
+	Wed, 08 Jan 2025 09:43:23 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVSVw-00000007p5Z-2GSz
+	id 1tVSWT-00000007pFh-3Rp2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 09:38:13 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-386329da1d9so7750783f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jan 2025 01:38:12 -0800 (PST)
+	Wed, 08 Jan 2025 09:38:47 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-385eed29d17so7858721f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jan 2025 01:38:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736329091; x=1736933891; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=SRu1D7dGFpm2VosF+UybZYQj2P1M1/nlzDOmVqBRd/k=;
-        b=Api+1RfoxkvNCmViuANa//ozaLF0stE/X4FxIB6ulRkCYNyVeUcdnTkOoLifBMTf4T
-         snO11bQc37Lz7Ca5SmjJg0wIpnOPx8gQZ7ucM7mrM5BxKfTPfExee6GdTDskDX+A6p9+
-         2Xx8ZBbpoo3YKjjQqFRc5lVtYCyr53c+o2f2qLR82JU+iUDr+btS4nQWyuyupMELUwoy
-         IW6qfwMmC/GjF2yByjtR9fflAMAa4RexaZUb4YJ0NOBByVGmph9izM4THkOgXJOM2Ouq
-         22eKOkPT30lyUPPdAbKoV/Zfi1wgPpXV/H4Op9DISYydc23qMpPM0Mza8TxE7RA2DM+g
-         rq1Q==
+        d=linaro.org; s=google; t=1736329124; x=1736933924; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=mDL559tBrr/c+O7uNT1qWo/LHQ82r4NDbguV4lcJTVs=;
+        b=BBHXHmfOrxFoJeq6qv52rwK89OyNhHzB0GvX7GhJyyM52MZ6x3ryDywaorfxtXRuyP
+         QRtzp98v7O8gfHffzPfNwnOYz3Ldw34ixUkW5+E91lS6G2eKJEXXSf+LDfYq0XfF/fuE
+         s2CW8WvatUND6KoFQ71C2aVykhN/7k23pCfHI3SMRvmydDgf5Vp8Kjv+wQ26pO+760cx
+         URc6lryGfreKTtEpuJABzDRCOTkpElDe/z6SSYFHvzvZhYHhc4dWxZJpycorEvEBRniv
+         NisATRcdGaSRH5dVHYz5x2/uxp/1ck1+KKg5r6fCdL3NdsxMdz2iaAHT4cZOD2t56jx2
+         48yQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736329091; x=1736933891;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id
+        d=1e100.net; s=20230601; t=1736329124; x=1736933924;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=SRu1D7dGFpm2VosF+UybZYQj2P1M1/nlzDOmVqBRd/k=;
-        b=R/1SdeaRFN7QcAvgoPCRDqQnrTWpq+MkiEF7LgYKSuNdU3TvpPFJIiga2VamFOO9br
-         JhKnfgUrhLICuNkCFLl1aN56OVdD/75MD0zuvYEVwp/gTRvQhUWYR7BqMdCu0JRTedEJ
-         TEYGDs40XT4U4dCgPf4qcVcwAEhxYymZrPAxCe+X16Zv4951dY7vdOdXV/L1RoiAwVPk
-         w5Jc4nkfuej7AssNDQQ2+osmmA24ZNfBVKpLwcxFMdOBDdGc2Jjf6zwQelrMevtxu9yt
-         OudS8qVLfseBNjdEze+IftyDZFO5MRzKTCMV6qHZhKWd+h5K6Wfd1FC06OXyRs4sYklD
-         dS6g==
-X-Forwarded-Encrypted: i=1; AJvYcCVkHxgRbt+2+o54Wh5TNHhjeVeayiCJPzqIRzNIDsDS3KcWPfeZ7NevBCHTtmDkdDkwS0STD3ULJWX0QwkvFIBE@lists.infradead.org
-X-Gm-Message-State: AOJu0YzlYGYEfEA+oJwxmb46YybAn96j+wCtjRS8jh49ZpkgAE5I5O0c
-	ebyA2kqldMhkWAcIKmZ6qB/jFRle8qDKztkb6Ww1HeFam3cvlAndoCEHesPBT6M=
-X-Gm-Gg: ASbGncvm3a3bkLmkDoS2WgmRaRRTRH89rcr938ae3EeBlPHQV+Rb57xizrxufbE4st5
-	NLWhE2nwVLVcW9eDPvsgKORz76t9+iubF+fpJVunokJPOQtUhQUG6QWdm6ecjtrE9VLLjmi4AT4
-	MLA3iX8bVlsr8CMIWsOss0LmYKR+Fk2hOEHbvBbTQzObxy/UhxS/PaucOBQFm+APbOWYy4fjxtV
-	rt0AuNheRKclVeUaNn6mrwE/oadOP9cgvDhgTNkU0e3PyrAdhILTkgnC3knheFI
-X-Google-Smtp-Source: AGHT+IEgum97jZJPYPy0T8bJnOriFmAqzwKIgHxRt19SfRXXojRd9i53LcCXOyDAxP3gnyZZAo45SQ==
-X-Received: by 2002:adf:b1dc:0:b0:38a:88bc:ace1 with SMTP id ffacd0b85a97d-38a88bcadc9mr703276f8f.34.1736329090756;
-        Wed, 08 Jan 2025 01:38:10 -0800 (PST)
-Received: from [192.168.0.14] ([188.26.61.92])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436dd1682e4sm23612385e9.1.2025.01.08.01.38.08
+        bh=mDL559tBrr/c+O7uNT1qWo/LHQ82r4NDbguV4lcJTVs=;
+        b=u9xYQfJ1JPuv0NHIaXkwnvo2ZV/Jzg+k5ven5MEYZKxuC9zkS58yGauu+kPlhNw/xo
+         3h0o8Yu0JDQkalytgLYBwaHMOsRA1LXDq2IoQ2yDeIloIpU/7E7BH/7Hiv3r8+AKOBCg
+         snJDv9qJXf+jd0sZuXD/ODVpM/FRuM3TqBFqB0Nl7+KmsSuiktMaTlABit6S+W9oSW0O
+         e+ZRlwa0CmJVsAN6010LD4U0KGzVLRfAPFF4LIJ6defqtVv0KJOyXWN+nV9J0LK9WUns
+         0dJp4OzanSuqjiRemsVS28mKH1wsrn4Sj9BgtpkeBhqsidyCztRNAtAOVYH7WSPEbZnL
+         QlyA==
+X-Forwarded-Encrypted: i=1; AJvYcCW/cr3IvNsm3T33kcy6xe9PAjVBML1ZULF8Ps/Y1nbsKtFgoX3/Bn4JRBqSExk0M7X1hupuAdpKPWV1l0+39SVm@lists.infradead.org
+X-Gm-Message-State: AOJu0YycW882YtUzzRXYQUqEkaJuptJhw3B0Vy773uB6deVBbQIgVYth
+	bvZ79EOaasgJ2SGOmAxyflM7boTi8AI7o+FSpkFfVoPAtoq5wTGbxBXA7wuabvg=
+X-Gm-Gg: ASbGnctcsX+Mn5NmwQxnqdXBQD/10yjty/kbXaYbcOcnERCVUg+hWrYAWm1rxjr7/mY
+	9dRkvXPctUsgKsAlxTVcqFoLFWHNBr0UPdbsmw88+kcGlAbtGfBlj7PGKh2J8Ir0aCU6/qFFt2x
+	mlXYcIGYwSC7I7WVoAUsbTXDX5UPVUS2t+NKejwsal7PS/N9F/MQgoxLPNEY6ulekIs4NA61lqN
+	lbynx0oQoohN3EvX8of9PlQqU+DwDKvJYgkO324U7wCgssMZXkwByhXPbRUOyQMEcJXUFbm4ykT
+	pqVWO2G++vPzLZH81Lvc
+X-Google-Smtp-Source: AGHT+IEYud8HXrnnBRfQKSjaBRvM+YCl9Bp382tGy2B0NHlzlfFxJe7Ru+DWxpOuAvFe6cE/t2KRgA==
+X-Received: by 2002:a05:6000:18a3:b0:385:f0dc:c9fd with SMTP id ffacd0b85a97d-38a8730dcf2mr1495919f8f.27.1736329123722;
+        Wed, 08 Jan 2025 01:38:43 -0800 (PST)
+Received: from [192.168.10.46] (146725694.box.freepro.com. [130.180.211.218])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38a1c8a636asm53864908f8f.88.2025.01.08.01.38.42
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 08 Jan 2025 01:38:10 -0800 (PST)
-Message-ID: <8f21d5f2-5327-488c-878c-a62d85857240@linaro.org>
-Date: Wed, 8 Jan 2025 09:38:08 +0000
+        Wed, 08 Jan 2025 01:38:43 -0800 (PST)
+Message-ID: <71aceba7-d610-4550-a8a8-352c8dd4b44f@linaro.org>
+Date: Wed, 8 Jan 2025 10:38:42 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/3] dt-bindings: mailbox: add google,gs101-mbox
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-To: Jassi Brar <jassisinghbrar@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, linux-kernel@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, andre.draszik@linaro.org,
- peter.griffin@linaro.org, kernel-team@android.com, willmcvicker@google.com,
- daniel.lezcano@linaro.org, vincent.guittot@linaro.org,
- ulf.hansson@linaro.org, arnd@arndb.de
-References: <20241217-acpm-v4-upstream-mbox-v5-0-cd1d3951fe84@linaro.org>
- <20241217-acpm-v4-upstream-mbox-v5-1-cd1d3951fe84@linaro.org>
- <ec3cdfd1-df7a-466c-8581-c9546ca6b089@linaro.org>
- <CABb+yY0rBzP8JPAik5aaXp6GivQKEf++sgiMM9fTPgd_5YXT1w@mail.gmail.com>
- <eaab647a-f6f4-4562-89fa-e64daa80bdf4@linaro.org>
- <CABb+yY0AkpqC_P-3cHeuWDu-gJzxCnarsNFNQWk45+tHKrDLmg@mail.gmail.com>
- <4e97b33f-b4a5-4875-a65d-9e25bcc5a46c@linaro.org>
+Subject: Re: [PATCH] dt-bindings: timer: Correct indentation and style in DTS
+ example
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Samuel Holland <samuel.holland@sifive.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Magnus Damm <magnus.damm@gmail.com>,
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
+ Chris Brandt <chris.brandt@renesas.com>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup@brainfault.org>,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-renesas-soc@vger.kernel.org
+References: <20250107131024.246561-1-krzysztof.kozlowski@linaro.org>
 Content-Language: en-US
-In-Reply-To: <4e97b33f-b4a5-4875-a65d-9e25bcc5a46c@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+In-Reply-To: <20250107131024.246561-1-krzysztof.kozlowski@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_013812_584630_4BEE09B2 
-X-CRM114-Status: GOOD (  13.60  )
+X-CRM114-CacheID: sfid-20250108_013845_851743_31A29002 
+X-CRM114-Status: UNSURE (   9.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,31 +115,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Jassi,
-
-On 1/3/25 9:57 AM, Tudor Ambarus wrote:
->>> Then I updated the mailbox core to allow clients to request channels by
->>> passing some args containing channel identifiers to the controllers,
->>> that the controllers xlate() using their own method.
->>>
->> This is unnecessary.
->> If you don't pass the doorbell number from DT, each channel populated
->> by the driver is just a s/w construct or a 'virtual' channel. Make use
->> of 'void *data'  in send_data() to specify the doorbell.
->>
-> I think this introduces concurrency problems if the channel identifiers
-> passed by 'void *data' don't match the virtual channel used for sending
-> the messages. Do we want to allow this?
+On 07/01/2025 14:10, Krzysztof Kozlowski wrote:
+> DTS example in the bindings should be indented with 2- or 4-spaces and
+> aligned with opening '- |', so correct any differences like 3-spaces or
+> mixtures 2- and 4-spaces in one binding.
 > 
-> Also, if we use 'void *data' to pass channel identifiers, the channel
-> checks will have to be made at send_data() time. Thus if passing wrong
-> channel type for example, the mailbox client will eventually get a
-> -ENOBUFS and a "Try increasing MBOX_TX_QUEUE_LEN" message, which I find
-> misleading.
+> No functional changes here, but saves some comments during reviews of
+> new patches built on existing code.
+> 
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> ---
 
-Shall I still use 'void *data' to pass channel identifiers through
-send_data()? I'd like to respin everything.
+Applied, thanks
 
-Thanks!
-ta
+-- 
+<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
+
+Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+<http://twitter.com/#!/linaroorg> Twitter |
+<http://www.linaro.org/linaro-blog/> Blog
 
