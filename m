@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 749B1E77199
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 08:36:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96CF2E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 08:37:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6yT7PDGcmb4Uh7Y9LbNOdh/0wSRSH7b4rMO8FJwe4BM=; b=frA5ExOrRAqffn1RMyvKF5Zzzk
-	53WuBDLVHxKDeLR01wOrgB7olHm3ZD3VWMOHjpvCHiNlcT4yJg/t4QBddd+KTkkBH4MhmBJ3qfrka
-	9fkoCe+M2ZrPl5ZUqTLeSx59iCrMg+NY89o1xrahdxJRieokEw8qM6VoCidQlqkAGOra5+Qdh2MYY
-	BMtZn1KQWWmGQq/QeE1xzYSCiRo4HWGVV7NSCGBxDmBb/VUdQXDs1dmFI2UeW0w4d3p+1FRexEcZS
-	DIlrLreg8nkB8SoxSiPzg29PB/myAWLNbhwwSv6z17a3MzHLbVvdaYTtC3epB8e8q2PPsB8p1iqoR
-	h4JxbQqg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6hfaIU/yPmRs9H27LP1GQSu+5nTkg84M2KD+Fv53tNQ=; b=vhN4+tmeesQiJNdI+TW4MNY+lJ
+	rB6NmmpLOxxcAXm/PCxLf2HY3o/5g+HT6txn39phLFzgbZWFMkuq/N6FeQtGgXKm57rOVK0c7fLts
+	Ls8JiqEuUGkm6zzZflWfXhlH9jk1Z2BKj50t52X2x47u2uORqJHXUSZ/sYQNNiqz0I/2ufPeSDerB
+	ijks0R2Az5G7iXimrKD3vb/4MqPwgMQxReCsEru0Ro61xhZV7L7w9LwWLYuRgMgRjfJoNmkz4uRfd
+	mEeEZNQL0dRwo9bFjXhNJMfS+rFeXqpCzPLLZ64l+5ckM1Gk3PxDz1vpHxK9+gEK2bBNFszITASO1
+	t/51I3EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVRXV-00000007aAE-2y1S;
-	Wed, 08 Jan 2025 08:35:45 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1tVRYg-00000007aXv-1Zq3;
+	Wed, 08 Jan 2025 08:36:58 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVRWH-00000007ZfJ-3sxh
+	id 1tVRWK-00000007ZgH-0vFA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 08:34:31 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-21628b3fe7dso236578225ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jan 2025 00:34:29 -0800 (PST)
+	Wed, 08 Jan 2025 08:34:33 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2162c0f6a39so11091745ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jan 2025 00:34:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1736325269; x=1736930069; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=6yT7PDGcmb4Uh7Y9LbNOdh/0wSRSH7b4rMO8FJwe4BM=;
-        b=himosNZalKb/f2vEOoDHQDe9eNGE8Y0A1fcb7kcdLoIdfue4sZbhAXmksbvKq2PrC+
-         MxVeMOiMx/YW4X6jwuO3vXR/D03dpEERy8IZdqZvolqmqOa/MN0Uvoirt0kQJelxnZS2
-         lGV9ylu3I089kiyJ8HZMO4+smmflkcwC9syNQ=
+        d=chromium.org; s=google; t=1736325271; x=1736930071; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6hfaIU/yPmRs9H27LP1GQSu+5nTkg84M2KD+Fv53tNQ=;
+        b=Muv0luNP15mtRNC83ydUQ5OPxi38FZMzZfLlR4NdA0+Jvgdu+X2PI42aY10odD8Q/A
+         bMv8/lXHboVYo8LaB2sEI7NRV+SrtKqSxD3VQGpVqlIblVlDJFOgrMBQ3MYHIzr3MomJ
+         X7Pqzo04slHPwTdhWfDg/fMUb1+15lhkaVN18=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736325269; x=1736930069;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=6yT7PDGcmb4Uh7Y9LbNOdh/0wSRSH7b4rMO8FJwe4BM=;
-        b=qcNVx4rcGTcVTTWaIcWEv+ELWxSCGHjC3tl4kXc2lbyqzZv0F5BJDXuxnD5nSJrZU6
-         cPTx5TEDgWXutZ0faLBWta+zkRe9Me1LcWg6AAJx3D5fcnHatEIaZbsBy5wfdG6hq11Z
-         rkhJnwc4XxTlVeP6OR2TvesG1NxrsI9XapefzN/dHLr+/XE94klSPT7z/k8haqzdifZq
-         hmcqf2ecBFzZE9gpGIdM3Ovv+cu0wgV9w6bRjURpHhZjiD/cXdk3XbMDO4pHB8XEAsYS
-         KRj5rBX3gB3+94OE6eO3qswv3z5ZJgMTQmPKOgsRi3eiIEvuDKintEi6vbeLHH8C7SsM
-         pNWg==
-X-Forwarded-Encrypted: i=1; AJvYcCXFVch8NE3L+CRZXHR3+B/3z2UYgBvE884RHNl2YywWEV2sGix5w+GURB9ZUflmWKYWSaS/AE0BBQjd3L6Z7kdR@lists.infradead.org
-X-Gm-Message-State: AOJu0YxBJkp771W4eWXOIi6fO3hACXOIwHIpxV/YzvespwyKfg3yDkIo
-	wUl90uH/OU/EZUs07mVQIKQKuJEJiDezMzFEW46VYyGXkUyobMkWlJODyoutGg==
-X-Gm-Gg: ASbGncsSmHuXgnITKUfD74tNEUW0kt0eyWVuTXDlzQkfUcDc7QOr+Eute++TYYHkk/c
-	tHVBOG1Xohs9DAdxSzA+KF2UWHsXUvsaXA0Cby/tGNOJ5eZjuhwqpcIyn4OCmAJ283Mr78+w2yr
-	6vJGJdhD6oJa5bOWB2BnBl+4fJgle/cuiOKEE98Tg2N1GdyTnMRyatzHvpaQzpa13rj+EdZttIG
-	6s/fCThccKiovq2NvwGxXRBIbw6IxaJMTLarF7nfFb/sWKbqnxcKyTpHh06YOsXkd5jIZglxv0=
-X-Google-Smtp-Source: AGHT+IEufyJ9Z1gHFaHVltf5vZ4SxHR+JVTg5Ok01+7e6JirHWxkfmRu+e5XrZq2fBo0mVrBTIoNOg==
-X-Received: by 2002:a05:6a20:4394:b0:1e1:b8bf:8e80 with SMTP id adf61e73a8af0-1e88d2fc8c4mr3918189637.41.1736325269073;
-        Wed, 08 Jan 2025 00:34:29 -0800 (PST)
+        d=1e100.net; s=20230601; t=1736325271; x=1736930071;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=6hfaIU/yPmRs9H27LP1GQSu+5nTkg84M2KD+Fv53tNQ=;
+        b=BRQ5NM9XPvVzW0MCqNQntHsW6PvEjxfs5CLmPWGMRNhwbkb9OxOWnQ4yyoCATXpbDF
+         txjyYR4prqA+8pTESyLQXUWGkc1ZboAS6fIFNByAiM0UH6Z55swR7ZjEXTvOVEfZg0AR
+         LH/wOgF4MURaSC0/6l73rABXfozvydLcW9uO4FbH3vZ1sJxq/JFHFW8103mVVGSYC7ur
+         FAwdRBhBi0mjmprzOjGB0WVgaXr7LBc1/cumP92qVYMIM5b6OGsazApv/YWS8+yTowlv
+         p63iWnGn0NgzBmSNKulnPS7aLNXqfglVDdmnMaGMK6PWz6tu261UdV2qPPF/U3pz2a4N
+         MLtQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW7gMuQwrteQ63sesbpHbiT8RqwQw/BlTYyNaYYCRfUXLIAFkXQZ6b6k95OyKgZFYp3HjIZDH4mUqHQRVhltSUb@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJimGm2T6xJC+eVEVd1Lf4XDStd9c+kiC3FxJc5cm7d9nmm/Cq
+	vzbyVQLJDKJjLEaqwqMl4rz2J2DQRlDjgBz4FAr9GKywN7uExDPMl5g4Gjaqtw==
+X-Gm-Gg: ASbGncv5+pw0SyuRJsTywkwS4tY8hfIi3VaZX4P7SVfiVwu23gYkkrkRwv6SCa1W4h8
+	5cTSq1lVkRKCzO8sLk5ZQnrJ2tvxJVycEqSOXC+XZszj9KMHN8WFVFG40aro153cFj6iDpz34ns
+	n7VCmnf4IuVKUrp7/6mD5KtNiNjLw3rhJAmVc5B9qz0YRDKQX1OmBLccb5YynYIhv8rY71Y0EOs
+	c2KAhnjTWuscrZni4brLgHdl/+XWtY9Y5YUebTT65BTq9beKbvT20crrDUhb3T6QmHHQutaazw=
+X-Google-Smtp-Source: AGHT+IHh5Ox0Chj79W0aML3FVEC2y3iYMrkJc9FjsPLlxqd39yrbKX0TlyMbXPcw3G6R3PveYRKL4A==
+X-Received: by 2002:a05:6a00:aa05:b0:724:db17:f975 with SMTP id d2e1a72fcca58-72d2174e8a3mr3807524b3a.12.1736325271398;
+        Wed, 08 Jan 2025 00:34:31 -0800 (PST)
 Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:511d:2d5f:1021:f78f])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72aad8361b7sm34602275b3a.74.2025.01.08.00.34.27
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72aad8361b7sm34602275b3a.74.2025.01.08.00.34.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Jan 2025 00:34:28 -0800 (PST)
+        Wed, 08 Jan 2025 00:34:31 -0800 (PST)
 From: Chen-Yu Tsai <wenst@chromium.org>
 To: Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
@@ -71,16 +72,19 @@ Cc: Chen-Yu Tsai <wenst@chromium.org>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
-	kernel test robot <lkp@intel.com>
-Subject: [PATCH 1/3] arm64: dts: mediatek: mt8173-elm: Drop pmic's #address-cells and #size-cells
-Date: Wed,  8 Jan 2025 16:34:21 +0800
-Message-ID: <20250108083424.2732375-1-wenst@chromium.org>
+	YH Huang <yh.huang@mediatek.com>,
+	stable@vger.kernel.org
+Subject: [PATCH 2/3] arm64: dts: mediatek: mt8173: Fix disp-pwm compatible string
+Date: Wed,  8 Jan 2025 16:34:22 +0800
+Message-ID: <20250108083424.2732375-2-wenst@chromium.org>
 X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
+In-Reply-To: <20250108083424.2732375-1-wenst@chromium.org>
+References: <20250108083424.2732375-1-wenst@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_003429_956463_93489DB1 
-X-CRM114-Status: GOOD (  11.27  )
+X-CRM114-CacheID: sfid-20250108_003432_248756_EBC90754 
+X-CRM114-Status: GOOD (  12.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,35 +99,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PMIC has child nodes for each of its functions. It is not an actual
-bus and no addressing is involved.
+The MT8173 disp-pwm device should have only one compatible string, based
+on the following DT validation error:
 
-Dropping the bogus properties fixes a DT validation error:
+    arch/arm64/boot/dts/mediatek/mt8173-elm.dtb: pwm@1401e000: compatible: 'oneOf' conditional failed, one must be fixed:
+	    ['mediatek,mt8173-disp-pwm', 'mediatek,mt6595-disp-pwm'] is too long
+	    'mediatek,mt8173-disp-pwm' is not one of ['mediatek,mt6795-disp-pwm', 'mediatek,mt8167-disp-pwm']
+	    'mediatek,mt8173-disp-pwm' is not one of ['mediatek,mt8186-disp-pwm', 'mediatek,mt8188-disp-pwm', 'mediatek,mt8192-disp-pwm', 'mediatek,mt8195-disp-pwm', 'mediatek,mt8365-disp-pwm']
+	    'mediatek,mt8173-disp-pwm' was expected
+	    'mediatek,mt8183-disp-pwm' was expected
+	    from schema $id: http://devicetree.org/schemas/pwm/mediatek,pwm-disp.yaml#
+    arch/arm64/boot/dts/mediatek/mt8173-elm.dtb: pwm@1401f000: compatible: 'oneOf' conditional failed, one must be fixed:
+	    ['mediatek,mt8173-disp-pwm', 'mediatek,mt6595-disp-pwm'] is too long
+	    'mediatek,mt8173-disp-pwm' is not one of ['mediatek,mt6795-disp-pwm', 'mediatek,mt8167-disp-pwm']
+	    'mediatek,mt8173-disp-pwm' is not one of ['mediatek,mt8186-disp-pwm', 'mediatek,mt8188-disp-pwm', 'mediatek,mt8192-disp-pwm', 'mediatek,mt8195-disp-pwm', 'mediatek,mt8365-disp-pwm']
+	    'mediatek,mt8173-disp-pwm' was expected
+	    'mediatek,mt8183-disp-pwm' was expected
+	    from schema $id: http://devicetree.org/schemas/pwm/mediatek,pwm-disp.yaml#
 
-    arch/arm64/boot/dts/mediatek/mt8173-elm.dtb: pmic: '#address-cells', '#size-cells' do not match any of the regexes: 'pinctrl-[0-9]+'
-            from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml#
+Drop the extra "mediatek,mt6595-disp-pwm" compatible string.
 
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202412212322.JTFpRD7X-lkp@intel.com/
-Fixes: 689b937bedde ("arm64: dts: mediatek: add mt8173 elm and hana board")
+Fixes: 61aee9342514 ("arm64: dts: mt8173: add MT8173 display PWM driver support node")
+Cc: YH Huang <yh.huang@mediatek.com>
+Cc: <stable@vger.kernel.org> # v4.5+
 Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 ---
- arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi | 2 --
- 1 file changed, 2 deletions(-)
+ arch/arm64/boot/dts/mediatek/mt8173.dtsi | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi b/arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi
-index b5d4b5baf478..0d995b342d46 100644
---- a/arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi
-@@ -925,8 +925,6 @@ &pwm0 {
- &pwrap {
- 	pmic: pmic {
- 		compatible = "mediatek,mt6397";
--		#address-cells = <1>;
--		#size-cells = <1>;
- 		interrupts-extended = <&pio 11 IRQ_TYPE_LEVEL_HIGH>;
- 		interrupt-controller;
- 		#interrupt-cells = <2>;
+diff --git a/arch/arm64/boot/dts/mediatek/mt8173.dtsi b/arch/arm64/boot/dts/mediatek/mt8173.dtsi
+index 3458be7f7f61..f49ec7495906 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8173.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8173.dtsi
+@@ -1255,8 +1255,7 @@ dpi0_out: endpoint {
+ 		};
+ 
+ 		pwm0: pwm@1401e000 {
+-			compatible = "mediatek,mt8173-disp-pwm",
+-				     "mediatek,mt6595-disp-pwm";
++			compatible = "mediatek,mt8173-disp-pwm";
+ 			reg = <0 0x1401e000 0 0x1000>;
+ 			#pwm-cells = <2>;
+ 			clocks = <&mmsys CLK_MM_DISP_PWM026M>,
+@@ -1266,8 +1265,7 @@ pwm0: pwm@1401e000 {
+ 		};
+ 
+ 		pwm1: pwm@1401f000 {
+-			compatible = "mediatek,mt8173-disp-pwm",
+-				     "mediatek,mt6595-disp-pwm";
++			compatible = "mediatek,mt8173-disp-pwm";
+ 			reg = <0 0x1401f000 0 0x1000>;
+ 			#pwm-cells = <2>;
+ 			clocks = <&mmsys CLK_MM_DISP_PWM126M>,
 -- 
 2.47.1.613.gc27f4b7a9f-goog
 
