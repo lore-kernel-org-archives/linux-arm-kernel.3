@@ -4,67 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A93BDE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 08:34:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 749B1E77199
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 08:36:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lom+i4v3PxfHxmognsFk46EQaMmrjYMhI/xbLHGccvw=; b=FxGdDoPtqmXz97KF+Q4WcVkWzB
-	M5/rfYrYGOElKG5bd/v+az4YpXcCsV+XKJ+qHFa5ZG9CVO+Ufak+edz3hny3evQavLY+nbi9ok7Hs
-	tuP3+y2SAoF2/KLQC26syFaxdMOBEfpk3qB8dU35RoAjjrVwA3tCH1hOGSsdRRx4TN6HYV3rdNjEy
-	l9QU1onq6TUlYbeo7moqaBRFwtKDHs1VGZayWGU4H+j3/KcdAIefLrZ5OpE2Ko3PTLWErpiKMIzXZ
-	lSktQmQpKkx7wMYtCWmVZ0DA023zP7jZriGK7tOs6BJCprVyIQeZTPlTmfamT2h4BgxX5O7hIO0W5
-	EOISfnew==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6yT7PDGcmb4Uh7Y9LbNOdh/0wSRSH7b4rMO8FJwe4BM=; b=frA5ExOrRAqffn1RMyvKF5Zzzk
+	53WuBDLVHxKDeLR01wOrgB7olHm3ZD3VWMOHjpvCHiNlcT4yJg/t4QBddd+KTkkBH4MhmBJ3qfrka
+	9fkoCe+M2ZrPl5ZUqTLeSx59iCrMg+NY89o1xrahdxJRieokEw8qM6VoCidQlqkAGOra5+Qdh2MYY
+	BMtZn1KQWWmGQq/QeE1xzYSCiRo4HWGVV7NSCGBxDmBb/VUdQXDs1dmFI2UeW0w4d3p+1FRexEcZS
+	DIlrLreg8nkB8SoxSiPzg29PB/myAWLNbhwwSv6z17a3MzHLbVvdaYTtC3epB8e8q2PPsB8p1iqoR
+	h4JxbQqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVRVg-00000007ZW5-02q3;
-	Wed, 08 Jan 2025 08:33:52 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVRTC-00000007Z3M-4Alp;
-	Wed, 08 Jan 2025 08:31:20 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A875312FC;
-	Wed,  8 Jan 2025 00:31:45 -0800 (PST)
-Received: from [10.57.94.52] (unknown [10.57.94.52])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 28A753F59E;
-	Wed,  8 Jan 2025 00:31:08 -0800 (PST)
-Message-ID: <7cf8fa3b-799f-415a-82a1-eee6b7b2e0f5@arm.com>
-Date: Wed, 8 Jan 2025 09:31:06 +0100
+	id 1tVRXV-00000007aAE-2y1S;
+	Wed, 08 Jan 2025 08:35:45 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tVRWH-00000007ZfJ-3sxh
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 08 Jan 2025 08:34:31 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-21628b3fe7dso236578225ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jan 2025 00:34:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1736325269; x=1736930069; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=6yT7PDGcmb4Uh7Y9LbNOdh/0wSRSH7b4rMO8FJwe4BM=;
+        b=himosNZalKb/f2vEOoDHQDe9eNGE8Y0A1fcb7kcdLoIdfue4sZbhAXmksbvKq2PrC+
+         MxVeMOiMx/YW4X6jwuO3vXR/D03dpEERy8IZdqZvolqmqOa/MN0Uvoirt0kQJelxnZS2
+         lGV9ylu3I089kiyJ8HZMO4+smmflkcwC9syNQ=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736325269; x=1736930069;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=6yT7PDGcmb4Uh7Y9LbNOdh/0wSRSH7b4rMO8FJwe4BM=;
+        b=qcNVx4rcGTcVTTWaIcWEv+ELWxSCGHjC3tl4kXc2lbyqzZv0F5BJDXuxnD5nSJrZU6
+         cPTx5TEDgWXutZ0faLBWta+zkRe9Me1LcWg6AAJx3D5fcnHatEIaZbsBy5wfdG6hq11Z
+         rkhJnwc4XxTlVeP6OR2TvesG1NxrsI9XapefzN/dHLr+/XE94klSPT7z/k8haqzdifZq
+         hmcqf2ecBFzZE9gpGIdM3Ovv+cu0wgV9w6bRjURpHhZjiD/cXdk3XbMDO4pHB8XEAsYS
+         KRj5rBX3gB3+94OE6eO3qswv3z5ZJgMTQmPKOgsRi3eiIEvuDKintEi6vbeLHH8C7SsM
+         pNWg==
+X-Forwarded-Encrypted: i=1; AJvYcCXFVch8NE3L+CRZXHR3+B/3z2UYgBvE884RHNl2YywWEV2sGix5w+GURB9ZUflmWKYWSaS/AE0BBQjd3L6Z7kdR@lists.infradead.org
+X-Gm-Message-State: AOJu0YxBJkp771W4eWXOIi6fO3hACXOIwHIpxV/YzvespwyKfg3yDkIo
+	wUl90uH/OU/EZUs07mVQIKQKuJEJiDezMzFEW46VYyGXkUyobMkWlJODyoutGg==
+X-Gm-Gg: ASbGncsSmHuXgnITKUfD74tNEUW0kt0eyWVuTXDlzQkfUcDc7QOr+Eute++TYYHkk/c
+	tHVBOG1Xohs9DAdxSzA+KF2UWHsXUvsaXA0Cby/tGNOJ5eZjuhwqpcIyn4OCmAJ283Mr78+w2yr
+	6vJGJdhD6oJa5bOWB2BnBl+4fJgle/cuiOKEE98Tg2N1GdyTnMRyatzHvpaQzpa13rj+EdZttIG
+	6s/fCThccKiovq2NvwGxXRBIbw6IxaJMTLarF7nfFb/sWKbqnxcKyTpHh06YOsXkd5jIZglxv0=
+X-Google-Smtp-Source: AGHT+IEufyJ9Z1gHFaHVltf5vZ4SxHR+JVTg5Ok01+7e6JirHWxkfmRu+e5XrZq2fBo0mVrBTIoNOg==
+X-Received: by 2002:a05:6a20:4394:b0:1e1:b8bf:8e80 with SMTP id adf61e73a8af0-1e88d2fc8c4mr3918189637.41.1736325269073;
+        Wed, 08 Jan 2025 00:34:29 -0800 (PST)
+Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:511d:2d5f:1021:f78f])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72aad8361b7sm34602275b3a.74.2025.01.08.00.34.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 08 Jan 2025 00:34:28 -0800 (PST)
+From: Chen-Yu Tsai <wenst@chromium.org>
+To: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Chen-Yu Tsai <wenst@chromium.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	kernel test robot <lkp@intel.com>
+Subject: [PATCH 1/3] arm64: dts: mediatek: mt8173-elm: Drop pmic's #address-cells and #size-cells
+Date: Wed,  8 Jan 2025 16:34:21 +0800
+Message-ID: <20250108083424.2732375-1-wenst@chromium.org>
+X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 11/17] x86: pgtable: convert __tlb_remove_table() to
- use struct ptdesc
-To: Qi Zheng <zhengqi.arch@bytedance.com>, peterz@infradead.org,
- agordeev@linux.ibm.com, alex@ghiti.fr, andreas@gaisler.com,
- palmer@dabbelt.com, tglx@linutronix.de, david@redhat.com, jannh@google.com,
- hughd@google.com, yuzhao@google.com, willy@infradead.org,
- muchun.song@linux.dev, vbabka@kernel.org, lorenzo.stoakes@oracle.com,
- akpm@linux-foundation.org, rientjes@google.com, vishal.moola@gmail.com,
- arnd@arndb.de, will@kernel.org, aneesh.kumar@kernel.org, npiggin@gmail.com,
- dave.hansen@linux.intel.com, rppt@kernel.org, ryan.roberts@arm.com
-Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-kernel@vger.kernel.org, x86@kernel.org, linux-arch@vger.kernel.org,
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
- loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
- linux-sh@vger.kernel.org, linux-um@lists.infradead.org
-References: <cover.1736317725.git.zhengqi.arch@bytedance.com>
- <39f60f93143ff77cf5d6b3c3e75af0ffc1480adb.1736317725.git.zhengqi.arch@bytedance.com>
-Content-Language: en-GB
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <39f60f93143ff77cf5d6b3c3e75af0ffc1480adb.1736317725.git.zhengqi.arch@bytedance.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_003119_078137_DFED265C 
-X-CRM114-Status: UNSURE (   5.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250108_003429_956463_93489DB1 
+X-CRM114-Status: GOOD (  11.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,18 +95,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/01/2025 07:57, Qi Zheng wrote:
-> Convert __tlb_remove_table() to use struct ptdesc, which will help to move
-> pagetable_dtor() to __tlb_remove_table().
->
-> And page tables shouldn't have swap cache, so use pagetable_free() instead
-> of free_page_and_swap_cache() to free page table pages.
->
-> Signed-off-by: Qi Zheng <zhengqi.arch@bytedance.com>
+The PMIC has child nodes for each of its functions. It is not an actual
+bus and no addressing is involved.
 
-Definitely a good idea to have split patch 11 from v4.
+Dropping the bogus properties fixes a DT validation error:
 
-Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
+    arch/arm64/boot/dts/mediatek/mt8173-elm.dtb: pmic: '#address-cells', '#size-cells' do not match any of the regexes: 'pinctrl-[0-9]+'
+            from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml#
 
-- Kevin
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202412212322.JTFpRD7X-lkp@intel.com/
+Fixes: 689b937bedde ("arm64: dts: mediatek: add mt8173 elm and hana board")
+Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+---
+ arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi b/arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi
+index b5d4b5baf478..0d995b342d46 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi
+@@ -925,8 +925,6 @@ &pwm0 {
+ &pwrap {
+ 	pmic: pmic {
+ 		compatible = "mediatek,mt6397";
+-		#address-cells = <1>;
+-		#size-cells = <1>;
+ 		interrupts-extended = <&pio 11 IRQ_TYPE_LEVEL_HIGH>;
+ 		interrupt-controller;
+ 		#interrupt-cells = <2>;
+-- 
+2.47.1.613.gc27f4b7a9f-goog
+
 
