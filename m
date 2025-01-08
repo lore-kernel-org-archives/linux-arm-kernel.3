@@ -4,63 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0720AE77199
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 23:33:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 023C4E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 23:34:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TapvtLSZY3/wZcR3OSS27kY0HMOek4T781dUjWXOirU=; b=uUd4L0Ji9TJf7M5yTfN66AvgMy
-	mvvhUbmkbtMP1G+6Oe4Sk9S2iCBmLkjkzaALQ6TucPNF9ySWm64UGBmOwSn7thHZcA1Y750vFVbQq
-	INZnPMJrZnoLS/fDmRlFnhs3GPmVYxvyizfYBsD4Vm6h4FgLzo7D07ZrWNxcd+R1x5nW4quVYZqn6
-	+llWtUQhPUmwXELT46gN1AABO+8EBebwfiTvMvv0lrF6R0L8wvB7BqWwDinPK/RP6gnmQu3NUZF9y
-	t/e2fbr4S3ifoYa8XkKpBwENd9RbZgolpD/xTXESqwRCgbGVAb0c2oAfHPVHZpJKGAZA9f9y6j25E
-	pHyfDxEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=R/OhoPPBTzc3LPiEVOqTj2N7bTO/EHX3LN9XksDcbPw=; b=VknEt9YojwFj5k6VYsCk36cHTr
+	/ks+WLZNqhT3iaqZtF5hi1F5H+6MGdOmm5/6MuuPmgELARHgQMvoUmNsMkHD7QS0ODZtSeLIo77he
+	oFS6hM/trWbcsvf+kzqq/FvKuIxgY0fhFIxgIEADrnJHyTgQkL4S/EiDW7wRoeP9cWh+TSxpcWaG2
+	UlUBgYVKMedvugaY8N9kOVRamIkVxzLGdx76vv6giydF/bfNdQglyzR93YqGuBcert+wmX4b5W0Ke
+	+RKeWDfbqqJmEl/sY+aLP+QgoIuki8WnJQWVG/yiOn6dWMrhMzP0y+IA0ZIwbU08v1IpiuwCGBeQt
+	+HAqjcdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVfXg-0000000A9ab-1ecW;
-	Wed, 08 Jan 2025 23:32:52 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tVfYr-0000000A9nk-1QGL;
+	Wed, 08 Jan 2025 23:34:05 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVfWG-0000000A9R4-3Sjt;
-	Wed, 08 Jan 2025 23:31:26 +0000
+	id 1tVfX7-0000000A9Sp-3QSs;
+	Wed, 08 Jan 2025 23:32:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4FF48A41BB5;
-	Wed,  8 Jan 2025 23:29:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A7DDC4CED3;
-	Wed,  8 Jan 2025 23:31:23 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B833F5C542F;
+	Wed,  8 Jan 2025 23:30:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6B0CC4AF0C;
+	Wed,  8 Jan 2025 23:31:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736379083;
-	bh=hGzh6Ux0equEOkz0+aeV+MQwWoU7zw3mDv7K/oHfxJA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VuNtBX7gO9+r+kRfw5uE/mylZqfhHuk6TrQGv6FcAiOMa/afIdcIwtJlAuUhxkqEJ
-	 aL28jKgy+1KXiTElsi7FNtMlsaowk8YaId0DYdjfZO3NoGHAXRhn/5EHJTwcCPE7lk
-	 Tyg0TcgFJ+iTbPexED2K1JjcIXIqf8dAri4hbc63Fb/npIm5uqIE50p32fXDw6KYCv
-	 2/uXdqdceLDJOTMI3YCGve0lLtJ9vyAuvjXcvc7hFkhXNSiVt3jmHIKS0fcKEkFB1l
-	 juFvd5ZsT0Z6QlSL6KFMGNlpnSZGwR0Y/7EF9HGHktEYyA0N1ngq2/wh7qylEjxWIA
-	 qokiP1TX1M2rg==
-Date: Wed, 8 Jan 2025 17:31:22 -0600
-From: Rob Herring <robh@kernel.org>
-To: Andy Yan <andyshrk@163.com>
-Cc: heiko@sntech.de, hjc@rock-chips.com, krzk+dt@kernel.org,
-	devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, derek.foreman@collabora.com,
-	detlev.casanova@collabora.com, daniel@fooishbar.org,
-	Andy Yan <andy.yan@rock-chips.com>
-Subject: Re: [PATCH v9 10/11] dt-bindings: display: vop2: Add rk3576 support
-Message-ID: <20250108233122.GA1227227-robh@kernel.org>
-References: <20250108115233.17729-1-andyshrk@163.com>
- <20250108115233.17729-11-andyshrk@163.com>
+	s=k20201202; t=1736379088;
+	bh=GiFdQ5UtYcRYcp3zYYBYEPklXgFurcCnVm6n3PHnxS4=;
+	h=From:Date:Subject:To:Cc:From;
+	b=T4BNrrHl85zlnYCSFcnydKLUpbyeiEbSFAIQKlfT9kmdA4WPJBsHhPwOPqt+FAAJI
+	 wdxdoc7/ckxgK5+8AeTFvi6dN6h56k2PlVqF+0SHi2V9Og1eQs74ojuz6ivsgTnP9N
+	 Lo8x5h1RWI/I2UpoNtbLOMT6HLRyBDwKeSBFFgaFZRluaF/QeKMNzilsnqlck4xGkj
+	 JA8Gpx1CRHFscY2vGao5y/z5lunNkLansocBlQZ8NlDB30e0jb3xaO1sRSuTvTW4je
+	 QgsDVXEqwptaex83Rj3AXYAlc+6kt9CWP2rXVjjBCAlDaTQ9x24Z6g5w2XJLSA2aCb
+	 wqSzOVqrkRY/Q==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Thu, 09 Jan 2025 00:30:45 +0100
+Subject: [PATCH v4] PCI: mediatek-gen3: Avoid PCIe resetting via PERST# for
+ Airoha EN7581 SoC
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250108115233.17729-11-andyshrk@163.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250109-pcie-en7581-rst-fix-v4-1-4a45c89fb143@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAKQKf2cC/x2MQQqAIBAAvxJ7bkEXResr0SF0q71YaEQg/T3pO
+ AMzFQpn4QJjVyHzLUWO1MD0HYR9SRujxMZAiqzSyuMZhJGTs15jLheu8qAzjsjbSHrQ0Mozc9P
+ /dZrf9wOnOeLEZQAAAA==
+X-Change-ID: 20250108-pcie-en7581-rst-fix-7472285d2191
+To: Ryder Lee <ryder.lee@mediatek.com>, 
+ Jianjun Wang <jianjun.wang@mediatek.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+ Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, Hui Ma <hui.ma@airoha.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_153124_999991_D1444339 
-X-CRM114-Status: GOOD (  19.36  )
+X-CRM114-CacheID: sfid-20250108_153217_936548_4A8935F6 
+X-CRM114-Status: GOOD (  17.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,180 +82,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 08, 2025 at 07:52:27PM +0800, Andy Yan wrote:
-> From: Andy Yan <andy.yan@rock-chips.com>
-> 
-> Add vop found on rk3576, the main difference between rk3576 and the
-> previous vop is that each VP has its own interrupt line.
-> 
-> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
-> 
-> ---
-> 
-> Changes in v9:
-> - Drop 'vop-' prefix of interrupt-names.
-> - Add blank line between DT properties
-> - Remove list interrupt-names in top level
+Airoha EN7581 has a hw bug asserting/releasing PERST# signal causing
+occasional PCIe link down issues. In order to overcome the problem,
+PERST# signal is not asserted/released during device probe or
+suspend/resume phase and the PCIe block is reset using
+en7523_reset_assert() and en7581_pci_enable().
 
-That's the opposite of what we usually want...
+Introduce flags field in the mtk_gen3_pcie_pdata struct in order to
+specify per-SoC capabilities.
 
-> 
-> Changes in v8:
-> - Fix dt_binding_check errors
-> - ordered by soc name
-> - Link to the previous version:
->   https://lore.kernel.org/linux-rockchip/6pn3qjxotdtpzucpul24yro7ppddezwuizneovqvmgdwyv2j7p@ztg4mqyiqmjf/T/#u
-> 
-> Changes in v4:
-> - describe constraint SOC by SOC, as interrupts of rk3576 is very
->   different from others
-> - Drop Krzysztof's Reviewed-by, as this version changed a lot.
-> 
-> Changes in v3:
-> - ordered by soc name
-> - Add description for newly added interrupt
-> 
-> Changes in v2:
-> - Add dt bindings
-> 
->  .../display/rockchip/rockchip-vop2.yaml       | 83 +++++++++++++++----
->  1 file changed, 67 insertions(+), 16 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
-> index 2531726af306..44256cdcb877 100644
-> --- a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
-> +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
-> @@ -20,6 +20,7 @@ properties:
->      enum:
->        - rockchip,rk3566-vop
->        - rockchip,rk3568-vop
-> +      - rockchip,rk3576-vop
->        - rockchip,rk3588-vop
->  
->    reg:
-> @@ -37,10 +38,17 @@ properties:
->        - const: gamma-lut
->  
->    interrupts:
-> -    maxItems: 1
-> +    minItems: 1
-> +    maxItems: 4
->      description:
-> -      The VOP interrupt is shared by several interrupt sources, such as
-> -      frame start (VSYNC), line flag and other status interrupts.
-> +      For VOP version under rk3576, the interrupt is shared by several interrupt
-> +      sources, such as frame start (VSYNC), line flag and other interrupt status.
-> +      For VOP version from rk3576 there is a system interrupt for bus error, and
-> +      every video port has it's independent interrupts for vsync and other video
-> +      port related error interrupts.
-> +
-> +  interrupt-names:
-> +    maxItems: 4
->  
->    # See compatible-specific constraints below.
->    clocks:
-> @@ -120,43 +128,86 @@ allOf:
->        properties:
->          compatible:
->            contains:
-> -            const: rockchip,rk3588-vop
-> +            enum:
-> +              - rockchip,rk3566-vop
-> +              - rockchip,rk3568-vop
->      then:
->        properties:
->          clocks:
-> -          minItems: 7
-> +          minItems: 5
-> +
->          clock-names:
-> -          minItems: 7
-> +          minItems: 5
->  
->          ports:
->            required:
->              - port@0
->              - port@1
->              - port@2
-> -            - port@3
-> +
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - rockchip,rk3576-vop
-> +    then:
-> +      properties:
-> +        clocks:
-> +          minItems: 5
-> +
-> +        clock-names:
-> +          minItems: 5
-> +
-> +        ports:
-> +          required:
-> +            - port@0
-> +            - port@1
-> +            - port@2
-> +
-> +        interrupts:
-> +          items:
-> +            - description: vop system interrupt, such as axi bus error
-> +            - description: interrupts for video port0, such as vsync, dsp_hold.
-> +            - description: interrupts for video port1, such as vsync, dsp_hold.
-> +            - description: interrupts for video port2, such as vsync, dsp_hold.
-> +
-> +        interrupt-names:
-> +          items:
-> +            - const: sys
-> +            - const: vp0
-> +            - const: vp1
-> +            - const: vp2
->  
->        required:
->          - rockchip,grf
-> -        - rockchip,vo1-grf
-> -        - rockchip,vop-grf
->          - rockchip,pmu
->  
-> -    else:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: rockchip,rk3588-vop
-> +    then:
->        properties:
-> -        rockchip,vo1-grf: false
-> -        rockchip,vop-grf: false
-> -        rockchip,pmu: false
-> -
->          clocks:
-> -          maxItems: 5
-> +          minItems: 7
-> +
->          clock-names:
-> -          maxItems: 5
-> +          minItems: 7
->  
->          ports:
->            required:
->              - port@0
->              - port@1
->              - port@2
-> +            - port@3
-> +
-> +      required:
-> +        - rockchip,grf
-> +        - rockchip,vo1-grf
-> +        - rockchip,vop-grf
-> +        - rockchip,pmu
+Tested-by: Hui Ma <hui.ma@airoha.com>
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+Changes in v4:
+- fix typos and comments
+- Link to v3: https://lore.kernel.org/r/20241113-pcie-en7581-rst-fix-v3-1-23c5082335f7@kernel.org
 
-Where do the existing platforms have a constraint of only 1 interrupt?
+Changes in v3:
+- cosmetics
+- Link to v2: https://lore.kernel.org/r/20241104-pcie-en7581-rst-fix-v2-1-ffe5839c76d8@kernel.org
 
-And now while rk3576 has defined interrupt-names, all the other can have 
-4 entries with anything.
+Changes in v2:
+- introduce flags field in mtk_gen3_pcie_flags struct instead of adding
+  reset callback
+- fix the leftover case in mtk_pcie_suspend_noirq routine
+- add more comments
+- Link to v1: https://lore.kernel.org/r/20240920-pcie-en7581-rst-fix-v1-1-1043fb63ffc9@kernel.org
+---
+ drivers/pci/controller/pcie-mediatek-gen3.c | 59 ++++++++++++++++++++---------
+ 1 file changed, 41 insertions(+), 18 deletions(-)
 
-Rob
+diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
+index be52e3a123abd0d0086f9f1a603e3abaa18f319f..74dfef8ce9ec1bbc28c4a25cd1025f92ba3638a7 100644
+--- a/drivers/pci/controller/pcie-mediatek-gen3.c
++++ b/drivers/pci/controller/pcie-mediatek-gen3.c
+@@ -133,10 +133,18 @@ struct mtk_gen3_pcie;
+ #define PCIE_CONF_LINK2_CTL_STS		(PCIE_CFG_OFFSET_ADDR + 0xb0)
+ #define PCIE_CONF_LINK2_LCR2_LINK_SPEED	GENMASK(3, 0)
+ 
++enum mtk_gen3_pcie_flags {
++	SKIP_PCIE_RSTB	= BIT(0), /* Skip PERST# assertion during device
++				   * probing or suspend/resume phase to
++				   * avoid hw bugs/issues.
++				   */
++};
++
+ /**
+  * struct mtk_gen3_pcie_pdata - differentiate between host generations
+  * @power_up: pcie power_up callback
+  * @phy_resets: phy reset lines SoC data.
++ * @flags: pcie device flags.
+  */
+ struct mtk_gen3_pcie_pdata {
+ 	int (*power_up)(struct mtk_gen3_pcie *pcie);
+@@ -144,6 +152,7 @@ struct mtk_gen3_pcie_pdata {
+ 		const char *id[MAX_NUM_PHY_RESETS];
+ 		int num_resets;
+ 	} phy_resets;
++	u32 flags;
+ };
+ 
+ /**
+@@ -438,22 +447,33 @@ static int mtk_pcie_startup_port(struct mtk_gen3_pcie *pcie)
+ 	val |= PCIE_DISABLE_DVFSRC_VLT_REQ;
+ 	writel_relaxed(val, pcie->base + PCIE_MISC_CTRL_REG);
+ 
+-	/* Assert all reset signals */
+-	val = readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
+-	val |= PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB | PCIE_PE_RSTB;
+-	writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
+-
+ 	/*
+-	 * Described in PCIe CEM specification sections 2.2 (PERST# Signal)
+-	 * and 2.2.1 (Initial Power-Up (G3 to S0)).
+-	 * The deassertion of PERST# should be delayed 100ms (TPVPERL)
+-	 * for the power and clock to become stable.
++	 * Airoha EN7581 has a hw bug asserting/releasing PCIE_PE_RSTB signal
++	 * causing occasional PCIe link down. In order to overcome the issue,
++	 * PCIE_RSTB signals are not asserted/released at this stage and the
++	 * PCIe block is reset using en7523_reset_assert() and
++	 * en7581_pci_enable().
+ 	 */
+-	msleep(100);
+-
+-	/* De-assert reset signals */
+-	val &= ~(PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB | PCIE_PE_RSTB);
+-	writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
++	if (!(pcie->soc->flags & SKIP_PCIE_RSTB)) {
++		/* Assert all reset signals */
++		val = readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
++		val |= PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB |
++		       PCIE_PE_RSTB;
++		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
++
++		/*
++		 * Described in PCIe CEM specification revision 6.0.
++		 *
++		 * The deassertion of PERST# should be delayed 100ms (TPVPERL)
++		 * for the power and clock to become stable.
++		 */
++		msleep(PCIE_T_PVPERL_MS);
++
++		/* De-assert reset signals */
++		val &= ~(PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB |
++			 PCIE_PE_RSTB);
++		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
++	}
+ 
+ 	/* Check if the link is up or not */
+ 	err = readl_poll_timeout(pcie->base + PCIE_LINK_STATUS_REG, val,
+@@ -1231,10 +1251,12 @@ static int mtk_pcie_suspend_noirq(struct device *dev)
+ 		return err;
+ 	}
+ 
+-	/* Pull down the PERST# pin */
+-	val = readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
+-	val |= PCIE_PE_RSTB;
+-	writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
++	if (!(pcie->soc->flags & SKIP_PCIE_RSTB)) {
++		/* Assert the PERST# pin */
++		val = readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
++		val |= PCIE_PE_RSTB;
++		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
++	}
+ 
+ 	dev_dbg(pcie->dev, "entered L2 states successfully");
+ 
+@@ -1285,6 +1307,7 @@ static const struct mtk_gen3_pcie_pdata mtk_pcie_soc_en7581 = {
+ 		.id[2] = "phy-lane2",
+ 		.num_resets = 3,
+ 	},
++	.flags = SKIP_PCIE_RSTB,
+ };
+ 
+ static const struct of_device_id mtk_pcie_of_match[] = {
+
+---
+base-commit: 40384c840ea1944d7c5a392e8975ed088ecf0b37
+change-id: 20250108-pcie-en7581-rst-fix-7472285d2191
+
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
+
 
