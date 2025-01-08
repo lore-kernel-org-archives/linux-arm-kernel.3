@@ -4,92 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDD95E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 11:13:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A7CEE77199
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 11:14:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dzM8GlgTz6gu8JnbqRAvC5pRWK90vC4C/5A6I/rRb8o=; b=fXESkkm8tuLXevnb/8iKSOhqjV
-	uBnK/DLlqFIyBFVyAvaYDcJiJbVE8P4FA+gz2bgr1Qi7XWmy3ui4E4/TS080+kmetyr6R4x3qEYZe
-	MJDGerzaDWTcFjj5xgoNnPnH9WxwMUiwVX+kULaKLy+Qw+NX9BGYMzMY4nmbVsBYQAtAyg71vytVK
-	SsoGfGP/l4yyxJjKP0nfWhSf3+TzOdI1lk23jo7mzmhoovTjIrAPRlcf/V9uPecRh7Pgd7HpqVY+a
-	xZSKAEBTjlgJLdiAy4Rd997fTaG85BbpBekMuS2EjLFGaH7OAejbTBWAkvduxc+EhbsubCG/9B4PY
-	nRkIl5wQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cnyQ8id6uXGb9NG9O3SbSOq/Ua57cbonPEZvVebUg9U=; b=fSgeoo0vGJENN3ttZc499UFGES
+	Y2/tZDkUAy+t5xKgnD0um/7uhz1GpSzN8G5fwjZdUbqxVSgHiUolh9AkA5YZDJ6B1VrtxmsEhRAOI
+	FZROCN6qTHqufLl3jGKIMn0t4hryt7kA7xJAXpg+EQg9+bcu2aFpxsxLeeLi3yXH0SfMTwAMrlFa3
+	5zvZnnYplYcVZ19hYaTu6rfMdK0P/vBJkOutWkYzuwGpzpveXfOo7hmO0Hc/63ES1n7FMiCe0irLB
+	H11B7y73/jRwfA5xT5JeIdVqy516e6z+30wn4khUZfo/bDj/X+1MZkSdK5/TjfSfPixBQ8ShYH6Sq
+	P1KLFu2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVTzh-00000008AA6-0pfJ;
-	Wed, 08 Jan 2025 11:13:01 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVTtz-000000088ih-3Bpq
+	id 1tVU0s-00000008AUJ-1r2Q;
+	Wed, 08 Jan 2025 11:14:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tVTvT-0000000898q-2aYI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 11:07:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1736334428; x=1767870428;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=KfteZbyV26PCsgidSMPbtLu3MzZ0qK03E76djIPw6lc=;
-  b=RsBHEdIpIIju76SbO9VwsKNnbE7UZOlJeVTyxKaRUQ9Z2QSfT8sBFDan
-   pW1722yHO0WmbMQ2NR5leYhfYHD7uE/RTTd27ZIFgPW1Hd5cKPAZFjWnO
-   RQyVQ5b4R3cFKRHKK017ySY49VUtHJoI2MrkTvdHod8KAzHm8KgboqqJA
-   mAC18rvtJJp164PPkrNEJK7B8j1/RGDzsWbMChZh3b1du/WurGbIYxvci
-   2rLTp9sbbUPeKu6D6waySqmW5b9Y+jqZDsWlXE7C597+YzDiU7moT0/AD
-   YGRmvZJgY1NCUSYLwEXf1YqJHse2bVn4uSi07PKk+NBsxxegJz7LtjBDL
-   g==;
-X-CSE-ConnectionGUID: T273jU2tRymyqs9qmZ2P5w==
-X-CSE-MsgGUID: lFV8couHQZei+DFY4Ee0qw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11308"; a="36437711"
-X-IronPort-AV: E=Sophos;i="6.12,298,1728975600"; 
-   d="scan'208";a="36437711"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jan 2025 03:07:06 -0800
-X-CSE-ConnectionGUID: voMTk4fwS0yN6I6PUQIA2A==
-X-CSE-MsgGUID: cpSxP4hASJuqIUJpEAA6IQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,298,1728975600"; 
-   d="scan'208";a="103548158"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by fmviesa010.fm.intel.com with ESMTP; 08 Jan 2025 03:07:01 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tVTtq-000Fyd-2v;
-	Wed, 08 Jan 2025 11:06:58 +0000
-Date: Wed, 8 Jan 2025 19:06:44 +0800
-From: kernel test robot <lkp@intel.com>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Liu Ying <victor.liu@nxp.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/4] drm/bridge: imx8qxp-pxl2dpi: Use dev_err_probe
-Message-ID: <202501081822.A69smnpW-lkp@intel.com>
-References: <20250107143900.988567-2-alexander.stein@ew.tq-group.com>
+	Wed, 08 Jan 2025 11:08:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A75BE13D5;
+	Wed,  8 Jan 2025 03:09:05 -0800 (PST)
+Received: from [10.57.32.219] (unknown [10.57.32.219])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 2F20F3F66E;
+	Wed,  8 Jan 2025 03:08:36 -0800 (PST)
+Message-ID: <e236f2d3-a9cb-412e-af3f-6ae46851869d@arm.com>
+Date: Wed, 8 Jan 2025 11:08:35 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250107143900.988567-2-alexander.stein@ew.tq-group.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] coresight: prevent deactivate active config while
+ enable the config
+Content-Language: en-GB
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: mike.leach@linaro.org, james.clark@linaro.org,
+ alexander.shishkin@linux.intel.com, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20241223185328.1339616-1-yeoreum.yun@arm.com>
+ <065330b5-992e-47ae-9c49-e496d03c20de@arm.com>
+ <Z30ltrwxpbVjIaVF@e129823.arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <Z30ltrwxpbVjIaVF@e129823.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_030707_842952_C14065DE 
-X-CRM114-Status: GOOD (  14.19  )
+X-CRM114-CacheID: sfid-20250108_030839_748740_2F8CAAFD 
+X-CRM114-Status: GOOD (  39.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,98 +68,249 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alexander,
+On 07/01/2025 13:01, Yeoreum Yun wrote:
+> Hi Suzuki,
+> 
+>> Hi Levi
+>>
+>> On 23/12/2024 18:53, Yeoreum Yun wrote:
+>>> While enable active config via cscfg_csdev_enable_active_config(),
+>>> active config could be deactivated via configfs' sysfs interface.
+>>> This could make UAF issue in below scenario:
+>>>
+>>> CPU0                                          CPU1
+>>> (sysfs enable)                                load module
+>>>                                                 cscfg_load_config_sets()
+>>>                                                 activate config. // sysfs
+>>>                                                 (sys_active_cnt == 1)
+>>> ...
+>>> cscfg_csdev_enable_active_config()
+>>>     lock(csdev->cscfg_csdev_lock)
+>>>     // here load config activate by CPU1
+>>>     unlock(csdev->cscfg_csdev_lock)
+>>>
+>>>                                                 deactivate config // sysfs
+>>>                                                 (sys_activec_cnt == 0)
+>>>                                                 cscfg_unload_config_sets()
+>>>                                                 unload module
+>>>
+>>>     // access to config_desc which freed
+>>>     // while unloading module.
+>>>     cfs_csdev_enable_config
+>>>
+>>> To address this, introduce sys_enable_cnt in cscfg_mgr to prevent
+>>> deactivate while there is enabled configuration.
+>>
+>> Thanks for the finding the problem and the detailed description + patch. I
+>> have some concerns on the fix, please find it below.
+>>
+>>>
+>>
+>>
+>> So we have 3 atomic counters now !
+>> cscfg_mgr->sys_active_cnt  // Global count
+>> config->active_cnt	   // Per config count,
+>>
+>> And another one which this one introduces.
+>>
+>> cscfg_mgr->sys_enable_cnt  // ?
+>>
+>>
+>> And config->active_cnt is always ever 0 or 1. i.e., it is not really a
+>> reference counter at the moment but it indicates whether it is active or
+>> not. Could  we not use that for tracking the references on the specific
+>> config ?
+>>
+>> i.e., every time we "enable_active_config" atomic_inc(config->active_cnt)
+>>
+>> and disable_active_config() always decrements the config. These could be
+>> wrapped in cscfg_get() cscfg_put() which would, inc/dec the refcounts
+>> and also drop the "module" reference when the active_cnt == 0
+> 
+> This action is done via _cscfg_activate_config() already but its
+> activation is done via "sysfs".
+> and the checking active_cnt, I think it would increase lots of complex.
 
-kernel test robot noticed the following build warnings:
+I don't understand. We have this today :
 
-[auto build test WARNING on shawnguo/for-next]
-[also build test WARNING on linus/master v6.13-rc6 next-20250107]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Alexander-Stein/drm-bridge-imx8qxp-pxl2dpi-Use-dev_err_probe/20250107-224125
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux.git for-next
-patch link:    https://lore.kernel.org/r/20250107143900.988567-2-alexander.stein%40ew.tq-group.com
-patch subject: [PATCH v2 1/4] drm/bridge: imx8qxp-pxl2dpi: Use dev_err_probe
-config: arm-randconfig-004-20250108 (https://download.01.org/0day-ci/archive/20250108/202501081822.A69smnpW-lkp@intel.com/config)
-compiler: clang version 18.1.8 (https://github.com/llvm/llvm-project 3b5b5c1ec4a3095ab096dd780e84d7ab81f3d7ff)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250108/202501081822.A69smnpW-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202501081822.A69smnpW-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c:402:29: warning: variable 'ret' is uninitialized when used here [-Wuninitialized]
-     402 |                 return dev_err_probe(dev, ret, "failed to get regmap\n");
-         |                                           ^~~
-   drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c:394:9: note: initialize the variable 'ret' to silence this warning
-     394 |         int ret;
-         |                ^
-         |                 = 0
-   1 warning generated.
+cscfg_config_desc which is getting de-activated. This has reference to
+the module (owner). If someone is using this config_desc in running 
+session (be it perf or sysfg), it must be refcounted. As such I don't
+see that the cscfg is refcounted anywhere. (The active_cnt indicates if 
+this has been activated, but not used in a session). If we have a 
+refcount on the "cscfg_config_desc" for each active session, we could
+prevent/delay unloading the module until the last one drops.
 
 
-vim +/ret +402 drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c
 
-   388	
-   389	static int imx8qxp_pxl2dpi_bridge_probe(struct platform_device *pdev)
-   390	{
-   391		struct imx8qxp_pxl2dpi *p2d;
-   392		struct device *dev = &pdev->dev;
-   393		struct device_node *np = dev->of_node;
-   394		int ret;
-   395	
-   396		p2d = devm_kzalloc(dev, sizeof(*p2d), GFP_KERNEL);
-   397		if (!p2d)
-   398			return -ENOMEM;
-   399	
-   400		p2d->regmap = syscon_node_to_regmap(np->parent);
-   401		if (IS_ERR(p2d->regmap))
- > 402			return dev_err_probe(dev, ret, "failed to get regmap\n");
-   403	
-   404		ret = imx_scu_get_handle(&p2d->ipc_handle);
-   405		if (ret)
-   406			return dev_err_probe(dev, ret, "failed to get SCU ipc handle\n");
-   407	
-   408		p2d->dev = dev;
-   409	
-   410		ret = of_property_read_u32(np, "fsl,sc-resource", &p2d->sc_resource);
-   411		if (ret) {
-   412			DRM_DEV_ERROR(dev, "failed to get SC resource %d\n", ret);
-   413			return ret;
-   414		}
-   415	
-   416		p2d->next_bridge = imx8qxp_pxl2dpi_find_next_bridge(p2d);
-   417		if (IS_ERR(p2d->next_bridge))
-   418			return dev_err_probe(dev, PTR_ERR(p2d->next_bridge),
-   419					     "failed to find next bridge\n");
-   420	
-   421		ret = imx8qxp_pxl2dpi_set_pixel_link_sel(p2d);
-   422		if (ret)
-   423			return ret;
-   424	
-   425		ret = imx8qxp_pxl2dpi_parse_dt_companion(p2d);
-   426		if (ret)
-   427			return ret;
-   428	
-   429		platform_set_drvdata(pdev, p2d);
-   430		pm_runtime_enable(dev);
-   431	
-   432		p2d->bridge.driver_private = p2d;
-   433		p2d->bridge.funcs = &imx8qxp_pxl2dpi_bridge_funcs;
-   434		p2d->bridge.of_node = np;
-   435	
-   436		drm_bridge_add(&p2d->bridge);
-   437	
-   438		return ret;
-   439	}
-   440	
+
+Something like this is what I was checking ?
+
+
+
+coresight: cscfg: Hold refcount on the config for active
+  sessions
+
+Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+---
+  .../hwtracing/coresight/coresight-config.h    |  2 +-
+  .../hwtracing/coresight/coresight-syscfg.c    | 24 +++++++++++++------
+  2 files changed, 18 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/hwtracing/coresight/coresight-config.h 
+b/drivers/hwtracing/coresight/coresight-config.h
+index 6ba013975741..84cdde6f0e4d 100644
+--- a/drivers/hwtracing/coresight/coresight-config.h
++++ b/drivers/hwtracing/coresight/coresight-config.h
+@@ -228,7 +228,7 @@ struct cscfg_feature_csdev {
+   * @feats_csdev:references to the device features to enable.
+   */
+  struct cscfg_config_csdev {
+-	const struct cscfg_config_desc *config_desc;
++	struct cscfg_config_desc *config_desc;
+  	struct coresight_device *csdev;
+  	bool enabled;
+  	struct list_head node;
+diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c 
+b/drivers/hwtracing/coresight/coresight-syscfg.c
+index 11138a9762b0..53baeaaf907f 100644
+--- a/drivers/hwtracing/coresight/coresight-syscfg.c
++++ b/drivers/hwtracing/coresight/coresight-syscfg.c
+@@ -914,15 +914,20 @@ static int _cscfg_activate_config(unsigned long 
+cfg_hash)
+  	return err;
+  }
+
++static void cscfg_config_desc_put(struct cscfg_config_desc *config_desc)
++{
++	if (!atomic_dec_return(&config_desc->active_cnt))
++		cscfg_owner_put(config_desc->load_owner);
++}
++
+  static void _cscfg_deactivate_config(unsigned long cfg_hash)
+  {
+  	struct cscfg_config_desc *config_desc;
+
+  	list_for_each_entry(config_desc, &cscfg_mgr->config_desc_list, item) {
+  		if ((unsigned long)config_desc->event_ea->var == cfg_hash) {
+-			atomic_dec(&config_desc->active_cnt);
+  			atomic_dec(&cscfg_mgr->sys_active_cnt);
+-			cscfg_owner_put(config_desc->load_owner);
++			cscfg_config_desc_put(config_desc);
+  			dev_dbg(cscfg_device(), "Deactivate config %s.\n", config_desc->name);
+  			break;
+  		}
+@@ -1047,7 +1052,7 @@ int cscfg_csdev_enable_active_config(struct 
+coresight_device *csdev,
+  				     unsigned long cfg_hash, int preset)
+  {
+  	struct cscfg_config_csdev *config_csdev_active = NULL, 
+*config_csdev_item;
+-	const struct cscfg_config_desc *config_desc;
++	struct cscfg_config_desc *config_desc;
+  	unsigned long flags;
+  	int err = 0;
+
+@@ -1062,8 +1067,8 @@ int cscfg_csdev_enable_active_config(struct 
+coresight_device *csdev,
+  	spin_lock_irqsave(&csdev->cscfg_csdev_lock, flags);
+  	list_for_each_entry(config_csdev_item, &csdev->config_csdev_list, node) {
+  		config_desc = config_csdev_item->config_desc;
+-		if ((atomic_read(&config_desc->active_cnt)) &&
+-		    ((unsigned long)config_desc->event_ea->var == cfg_hash)) {
++		if ((unsigned long)config_desc->event_ea->var == cfg_hash &&
++		    atomic_inc_not_zero(&config_desc->active_cnt)) {
+  			config_csdev_active = config_csdev_item;
+  			csdev->active_cscfg_ctxt = (void *)config_csdev_active;
+  			break;
+@@ -1091,12 +1096,15 @@ int cscfg_csdev_enable_active_config(struct 
+coresight_device *csdev,
+  			 * Set enabled if OK, err if not.
+  			 */
+  			spin_lock_irqsave(&csdev->cscfg_csdev_lock, flags);
+-			if (csdev->active_cscfg_ctxt)
++			if (csdev->active_cscfg_ctxt == config_csdev_active)
+  				config_csdev_active->enabled = true;
+  			else
+  				err = -EBUSY;
+  			spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
+  		}
++		if (err)
++			cscfg_config_desc_put(config_desc);
++
+  	}
+  	return err;
+  }
+@@ -1136,8 +1144,10 @@ void cscfg_csdev_disable_active_config(struct 
+coresight_device *csdev)
+  	spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
+
+  	/* true if there was an enabled active config */
+-	if (config_csdev)
++	if (config_csdev) {
+  		cscfg_csdev_disable_config(config_csdev);
++		cscfg_config_desc_put(config_csdev->config_desc);
++	}
+  }
+  EXPORT_SYMBOL_GPL(cscfg_csdev_disable_active_config);
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+
+
+
+
+
+
+
+> because, if so, it should iterate all config in each csdev.
+> So, I believe it is the reason why the activation and module_cnt get via "sysfs"
+> to prevent iterating every config in csdev when config unload.
+> 
+> although, active_cnt in each config added to list in csdev be 0 or 1,
+> the module could be >= 1 (by sum of active_cnt which have the same
+> module owner). So I'm skeptical to use active_cnt like "reference cnt"
+> and That's why I decide to use "sys_enable_cnt"
+>>
+>>> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+>>> ---
+>>> from v1 to v2:
+>>>       - modify commit message.
+>>> ---
+>>>    .../hwtracing/coresight/coresight-etm4x-core.c |  3 +++
+>>>    drivers/hwtracing/coresight/coresight-syscfg.c | 18 ++++++++++++++++--
+>>>    drivers/hwtracing/coresight/coresight-syscfg.h |  2 ++
+>>>    3 files changed, 21 insertions(+), 2 deletions(-)
+>>>
+>>> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+>>> index 86893115df17..6218ef40acbc 100644
+>>> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+>>> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+>>> @@ -986,6 +986,9 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
+>>>    	smp_call_function_single(drvdata->cpu, etm4_disable_hw, drvdata, 1);
+>>>
+>>>    	raw_spin_unlock(&drvdata->spinlock);
+>>> +
+>>> +	cscfg_csdev_disable_active_config(csdev);
+>>
+>> This looks like a separate "fix" from what you are trying to address. Please
+>> could split this ?
+> 
+> I don't think so, because without this calling, the "sys_enable_cnt"
+> never down, It makes error.
+
+My point is, we need to "disable_active_config" irrespective of this 
+race, in the sysfs path. So this should be a fix apart from fixing the race.
+
+Suzuki
+
+
+
+> 
+>> Also, would like to hear what Mike has to say about this change.
+> 
+> IIRC, I followed his suggestion.
+> 
+> Thanks!
+> 
+
 
