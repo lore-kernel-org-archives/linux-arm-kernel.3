@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A681E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 20:15:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CD76E77199
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 20:17:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hs8uP3N/mTdsE3JF6EEgjMUW9ubX3QrUliIYU0W1Efw=; b=ZJEJuvy1VhFNHLNogatMNkia2Q
-	TPcKbMMTe77yLiAbo1FWVE3wuZtUI9+x0vPZCUOA38aKWyRmQB7ZkIWuAOHQS2Yq/1s6WGInCwUCG
-	zx2iTTuOmnjFhKO4XpawSAImuIRInyXCGmWoMzie6wq51qd2LJj3c1kVTbX6+/zTTFaj0OJzkIfCL
-	KOsYPHR8bXwS5KrJWA3C7v7r7T+tkiY7yT87QnatNB8yf66beEo6kGN7X9bvD/Alz/NqnzXCvH7UH
-	MChiwZ1oMNZenpfepfJ4nzNT9bAFA3E3SkCRed6rT2UhwbswrahCQHpzbb9v7nuuvd0UH1+chX0xV
-	1ksfNlwg==;
+	bh=3dUcoQ+aJnvEfN1li7ugchm2pXhqwyBsL7eSPz6fVuQ=; b=NJxcK2vWX6gO88+BW02aLvABPx
+	7oL0F4HNkc7nAabfYic8eySJ+TGgQ8t6tMTgpRhHLawQh2QJTbOM2SUFI43qqCzdKqnJ5G5zOq+fK
+	2fATPWFfWQXVrCNecitp9WsV57wO+sD9SLAWCQdL6TAtlQWbFaczY4R2cEVec9kQGpxd41tuaOPiq
+	UID812iW2KVJRI6KeSAQZdxJ12luwiksKVNG6QvxQqfOMdq9Y7iXK7L+ghH1wxQ8C9brP76VDe5/r
+	qpZO3SNnO13QMXqDrit9H8x3KmHqL0iv2/I+rO2wCS1HSI3IlQsmPrPehnxQGg4SqAOiMgVrHpFCE
+	IHJxktZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVcSq-00000009jh9-3kNA;
-	Wed, 08 Jan 2025 20:15:40 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tVcU1-00000009jxA-23nA;
+	Wed, 08 Jan 2025 20:16:53 +0000
+Received: from out-188.mta0.migadu.com ([91.218.175.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVcRc-00000009jOE-43pV
+	id 1tVcRf-00000009jOD-2ljX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 20:14:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=hs8uP3N/mTdsE3JF6EEgjMUW9ubX3QrUliIYU0W1Efw=; b=cokaGl5rbCCWR5PLEEXlzlK4cg
-	61kIh8CGC74Kzu7whTHy6mmGZiSShEsvkL/AiJ79CgmLhcin6x2cZmY33bJNEFJBTn2rnElphfZ8A
-	QoBXD8JA3+CWcAR2AKXIabgI7RguloybklWjZ7s0SMDRD9wP03I3Y1lpAgkiPSW+xw0s=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tVcR0-002fvx-Ne; Wed, 08 Jan 2025 21:13:46 +0100
-Date: Wed, 8 Jan 2025 21:13:46 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Ninad Palsule <ninad@linux.ibm.com>
-Cc: minyard@acm.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-	ratbert@faraday-tech.com, openipmi-developer@lists.sourceforge.net,
-	netdev@vger.kernel.org, joel@jms.id.au, andrew@codeconstruct.com.au,
-	devicetree@vger.kernel.org, eajames@linux.ibm.com,
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 05/10] ARM: dts: aspeed: system1: Add RGMII support
-Message-ID: <b80b9224-d428-4ad9-a30d-40e2d30be654@lunn.ch>
-References: <20250108163640.1374680-1-ninad@linux.ibm.com>
- <20250108163640.1374680-6-ninad@linux.ibm.com>
- <1dd0165b-22ff-4354-bfcb-85027e787830@lunn.ch>
- <0aaa13de-2282-4ea3-a11b-4edefb7d6dd3@linux.ibm.com>
+	Wed, 08 Jan 2025 20:14:29 +0000
+Date: Wed, 8 Jan 2025 12:14:07 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1736367260;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=3dUcoQ+aJnvEfN1li7ugchm2pXhqwyBsL7eSPz6fVuQ=;
+	b=h5VZv3N739dsIe4sOr6/azdQLG5BRbbL8SnCVksw3MIVjGefRV0Jb3Pfn2Z1MF/5cT26tU
+	Yl+Cc4kSm/JJCVH8649DQj5nvX556dqpLYwPqN28NG7J2IQQiD0T2CVo41j/huapyaxURx
+	sAMxBL8Y42QHcAgAU4Ukfjfi6tQZEQk=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Will Deacon <will@kernel.org>
+Cc: kvmarm@lists.linux.dev, Marc Zyngier <maz@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mingwei Zhang <mizhang@google.com>,
+	Colton Lewis <coltonlewis@google.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 00/18] KVM: arm64: Support FEAT_PMUv3 on Apple hardware
+Message-ID: <Z37cjxFu2CPi_xNr@linux.dev>
+References: <20241217212048.3709204-1-oliver.upton@linux.dev>
+ <20250108123840.GA9197@willie-the-truck>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <0aaa13de-2282-4ea3-a11b-4edefb7d6dd3@linux.ibm.com>
+In-Reply-To: <20250108123840.GA9197@willie-the-truck>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_121425_003990_FC012C25 
-X-CRM114-Status: GOOD (  18.77  )
+X-CRM114-CacheID: sfid-20250108_121427_993971_079EC411 
+X-CRM114-Status: GOOD (  10.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,37 +76,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 08, 2025 at 12:43:07PM -0600, Ninad Palsule wrote:
-> Hello Andrew,
-> 
-> 
-> On 1/8/25 11:03, Andrew Lunn wrote:
-> > On Wed, Jan 08, 2025 at 10:36:33AM -0600, Ninad Palsule wrote:
-> > > system1 has 2 transceiver connected through the RGMII interfaces. Added
-> > > device tree entry to enable RGMII support.
-> > > 
-> > > ASPEED AST2600 documentation recommends using 'rgmii-rxid' as a
-> > > 'phy-mode' for mac0 and mac1 to enable the RX interface delay from the
-> > > PHY chip.
-> > You appear to if ignored my comment. Please don't do that. If you have
-> > no idea about RGMII delays, please say so, so i can help you debug
-> > what is wrong.
-> > 
-> > NACK
-> 
-> I think there is a misunderstanding. I did not ignore your comment. I have
-> contacted ASPEED and asked them to respond. I think Jacky from Aspeed
-> replied to your mail.
+Hey Will,
 
-You did not mention in the cover letter, or the patch. I asked for a
-detailed explanation in the commit message why it is correct, which
-you did not do.
+On Wed, Jan 08, 2025 at 12:38:41PM +0000, Will Deacon wrote:
+> What's your plan for this series? I started looking at it and I can take
+> the first four apple_m1 patches if you like?
 
-Now we have more details, it is clear Ethernet support for this board
-needs to wait until we figure out how to fix the MAC driver. Please
-either wait with this patchset until that is done, or drop this one
-patch for the moment and submit it later once the MAC driver is fixed.
+I plan on posting a respin of it by next week, which should look pretty
+much the same besides cleaning up the build error I introduced :)
 
-      Andrew
+Besides that, I think we need to decide on the KVM side of things
+whether or not we want to support an event counter in addition to the
+PMU cycle counter. Janne's FEX use case would certainly benefit from it.
 
+Do you think you could grab patch #3? It is entirely unrelated to the
+series at this point with the PMUv3 event remapping helper.
+
+-- 
+Thanks,
+Oliver
 
