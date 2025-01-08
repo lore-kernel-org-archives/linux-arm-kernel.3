@@ -4,93 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29C02E77199
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 09:49:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE833E77199
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 09:50:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SHqLg2OgtcaiNPNnY3X4GY4PryKUsFXu3JM4uuBTrPg=; b=UohsoDs8WSjrJeUKK1gPltihmD
-	WOBd/nnLLoRgqdZPcm3jSgeLIn9zoP+sUu7sAB+fFIf8eKjNZRHGxxpu+u/wtm/OxTFWsWBk4hSS+
-	OdA7zfOwNzAjUsepmEXKMmnqgR9OaNTkUihirjFuzvdCCDUYekFkLkeev+A5VmSmpoieoQqzoO3uT
-	tAf+9kkXRlV29kGAxIadQVl2/+83rBJymunzG4Aw9/tV1vkXTp7rpzBqmQ/916Zmw/ZmNCf9EJBwH
-	EAoKyr9hWwyWfVDkbT0uIJgnSHt6q9swMR3nTOexBtu9HZsokqToLXSJdizws/Ll2RCudtpJZYp5a
-	6qOHQRQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vgnlOxF20CB9MUUaFIBrnxAN2r5iVUy8384mrMjXYDA=; b=4AojBAoyuLV1SD2kmeDhWqiT+y
+	0UG80B9T/vd9GH6lcaBpcYN/cePjlFGzLfIUq7y3wbA0dzBeB8Gvow/oVe4F7l7hFp/R1jTxd2g0U
+	7mtkAa//tQZcmK8VBpT+eN7u+o0wQqzVHxhmRDdcpCRC8C90fKrrfLoVN1N+1IlH5ojuLVTyQcjQy
+	bD8G9Ndo+HcCWswGhjGemY1LyClG15db5nGAvZnL1H+SkuKPRE6zdy4eeC0lcWpIOcDbp+MvzZDaA
+	/BSe/BG+PnmRFI9ZNB/1sw2UvE9cLa0pC9n9Sy8PP/odwKfKOZYQK+3i1Sq8argCDcnDIlZ8653nF
+	K0PL6M5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVSgp-00000007rYX-1poT;
-	Wed, 08 Jan 2025 09:49:27 +0000
-Received: from fllv0015.ext.ti.com ([198.47.19.141])
+	id 1tVSi0-00000007rr1-1h5g;
+	Wed, 08 Jan 2025 09:50:40 +0000
+Received: from [58.32.228.46] (helo=mail-sh.amlogic.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVSYL-00000007peL-49Zg
-	for linux-arm-kernel@lists.infradead.org;
+	id 1tVSYO-00000007pcQ-0wtV;
 	Wed, 08 Jan 2025 09:40:45 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5089eLlM064190;
-	Wed, 8 Jan 2025 03:40:21 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1736329221;
-	bh=SHqLg2OgtcaiNPNnY3X4GY4PryKUsFXu3JM4uuBTrPg=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=emvOYUwxCZqVwKNQFmp5xo5YWjsAUkpXT8mrwx4GvshSIZVR99Dcua4v43VdvjEhH
-	 tvAU6NhRML2msBjflwrFuR6Ch9AygwtkXKS6+IzYqIr259tBzIk1DbzNz71F3GJLfB
-	 XZW5sjeGSGrE8cN55jPXJZPqRppKfsVr2tllvnyE=
-Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5089eL6q017255
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 8 Jan 2025 03:40:21 -0600
-Received: from DLEE103.ent.ti.com (157.170.170.33) by DLEE114.ent.ti.com
- (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 8
- Jan 2025 03:40:20 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE103.ent.ti.com
- (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 8 Jan 2025 03:40:20 -0600
-Received: from [10.24.69.25] (danish-tpc.dhcp.ti.com [10.24.69.25])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5089eEJc060529;
-	Wed, 8 Jan 2025 03:40:15 -0600
-Message-ID: <b8d46941-aeb2-466a-acd5-8ad5be832649@ti.com>
-Date: Wed, 8 Jan 2025 15:10:14 +0530
+Received: from rd03-sz.software.amlogic (10.28.11.121) by mail-sh.amlogic.com
+ (10.18.11.5) with Microsoft SMTP Server id 15.1.2507.39; Wed, 8 Jan 2025
+ 17:40:30 +0800
+From: Jian Hu <jian.hu@amlogic.com>
+To: Jerome Brunet <jbrunet@baylibre.com>, Xianwei Zhao
+	<xianwei.zhao@amlogic.com>, Chuan Liu <chuan.liu@amlogic.com>, Neil Armstrong
+	<neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, "Stephen
+ Boyd" <sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>,
+	"Dmitry Rokosov" <ddrokosov@sberdevices.ru>, robh+dt <robh+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>
+CC: Jian Hu <jian.hu@amlogic.com>, devicetree <devicetree@vger.kernel.org>,
+	linux-clk <linux-clk@vger.kernel.org>, linux-amlogic
+	<linux-amlogic@lists.infradead.org>, linux-kernel
+	<linux-kernel@vger.kernel.org>, linux-arm-kernel
+	<linux-arm-kernel@lists.infradead.org>
+Subject: [PATCH v2 3/5] dt-bindings: clock: add Amlogic T7 peripherals clock controller
+Date: Wed, 8 Jan 2025 17:40:23 +0800
+Message-ID: <20250108094025.2664201-4-jian.hu@amlogic.com>
+X-Mailer: git-send-email 2.47.1
+In-Reply-To: <20250108094025.2664201-1-jian.hu@amlogic.com>
+References: <20250108094025.2664201-1-jian.hu@amlogic.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3 2/3] net: ti: icssg-prueth: Add Multicast
- Filtering support for VLAN in MAC mode
-To: Paolo Abeni <pabeni@redhat.com>, Jeongjun Park <aha310510@gmail.com>,
-        Alexander Lobakin <aleksander.lobakin@intel.com>,
-        Lukasz Majewski
-	<lukma@denx.de>, Meghana Malladi <m-malladi@ti.com>,
-        Diogo Ivo
-	<diogo.ivo@siemens.com>, Simon Horman <horms@kernel.org>,
-        Jakub Kicinski
-	<kuba@kernel.org>, Eric Dumazet <edumazet@google.com>,
-        "David S. Miller"
-	<davem@davemloft.net>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        Roger Quadros
-	<rogerq@kernel.org>
-CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>,
-        Michal Swiatkowski <michal.swiatkowski@linux.intel.com>,
-        Larysa Zaremba <larysa.zaremba@intel.com>
-References: <20250103092033.1533374-1-danishanwar@ti.com>
- <20250103092033.1533374-3-danishanwar@ti.com>
- <133b8da8-a2da-4bac-b0bb-7dcaebc219b9@redhat.com>
- <31a45fb4-acb6-4eb6-9ffb-ff1be798a064@ti.com>
- <45fac9f0-b31a-495d-bd1b-ccf0fbe19653@redhat.com>
-Content-Language: en-US
-From: MD Danish Anwar <danishanwar@ti.com>
-In-Reply-To: <45fac9f0-b31a-495d-bd1b-ccf0fbe19653@redhat.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.28.11.121]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_014042_176233_A604C507 
-X-CRM114-Status: GOOD (  37.33  )
+X-CRM114-CacheID: sfid-20250108_014044_265009_86FBFAB9 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,252 +68,373 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Paolo,
+Add DT bindings for the peripheral clock controller of the Amlogic T7
+SoC family.
 
-On 07/01/25 11:57 pm, Paolo Abeni wrote:
-> Hi,
-> 
-> On 1/7/25 11:47 AM, MD Danish Anwar wrote:
->> On 07/01/25 3:12 pm, Paolo Abeni wrote:
->>> On 1/3/25 10:20 AM, MD Danish Anwar wrote:
->>>> Add multicast filtering support for VLAN interfaces in dual EMAC mode
->>>> for ICSSG driver.
->>>>
->>>> The driver uses vlan_for_each() API to get the list of available
->>>> vlans. The driver then sync mc addr of vlan interface with a locally
->>>> mainatined list emac->vlan_mcast_list[vid] using __hw_addr_sync_multiple()
->>>> API.
->>>>
->>>> The driver then calls the sync / unsync callbacks and based on whether
->>>> the ndev is vlan or not, driver passes appropriate vid to FDB helper
->>>> functions.
->>>>
->>>> This commit also exports __hw_addr_sync_multiple() in order to use it
->>>> from the ICSSG driver.
->>>>
->>>> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
->>>> ---
->>>>  drivers/net/ethernet/ti/icssg/icssg_prueth.c | 67 ++++++++++++++++----
->>>>  drivers/net/ethernet/ti/icssg/icssg_prueth.h |  6 ++
->>>>  include/linux/netdevice.h                    |  3 +
->>>>  net/core/dev_addr_lists.c                    |  7 +-
->>>>  4 files changed, 66 insertions(+), 17 deletions(-)
->>>>
->>>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
->>>> index 1663941e59e3..ed8b5a3184d6 100644
->>>> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
->>>> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
->>>> @@ -472,30 +472,44 @@ const struct icss_iep_clockops prueth_iep_clockops = {
->>>>  
->>>>  static int icssg_prueth_add_mcast(struct net_device *ndev, const u8 *addr)
->>>>  {
->>>> -	struct prueth_emac *emac = netdev_priv(ndev);
->>>> -	int port_mask = BIT(emac->port_id);
->>>> +	struct net_device *real_dev;
->>>> +	struct prueth_emac *emac;
->>>> +	int port_mask;
->>>> +	u8 vlan_id;
->>>>  
->>>> -	port_mask |= icssg_fdb_lookup(emac, addr, 0);
->>>> -	icssg_fdb_add_del(emac, addr, 0, port_mask, true);
->>>> -	icssg_vtbl_modify(emac, 0, port_mask, port_mask, true);
->>>> +	vlan_id = is_vlan_dev(ndev) ? vlan_dev_vlan_id(ndev) : PRUETH_DFLT_VLAN_MAC;
->>>> +	real_dev = is_vlan_dev(ndev) ? vlan_dev_real_dev(ndev) : ndev;
->>>> +	emac = netdev_priv(real_dev);
->>>> +
->>>> +	port_mask = BIT(emac->port_id) | icssg_fdb_lookup(emac, addr, vlan_id);
->>>> +	icssg_fdb_add_del(emac, addr, vlan_id, port_mask, true);
->>>> +	icssg_vtbl_modify(emac, vlan_id, port_mask, port_mask, true);
->>>>  
->>>>  	return 0;
->>>>  }
->>>>  
->>>>  static int icssg_prueth_del_mcast(struct net_device *ndev, const u8 *addr)
->>>>  {
->>>> -	struct prueth_emac *emac = netdev_priv(ndev);
->>>> -	int port_mask = BIT(emac->port_id);
->>>> +	struct net_device *real_dev;
->>>> +	struct prueth_emac *emac;
->>>>  	int other_port_mask;
->>>> +	int port_mask;
->>>> +	u8 vlan_id;
->>>> +
->>>> +	vlan_id = is_vlan_dev(ndev) ? vlan_dev_vlan_id(ndev) : PRUETH_DFLT_VLAN_MAC;
->>>> +	real_dev = is_vlan_dev(ndev) ? vlan_dev_real_dev(ndev) : ndev;
->>>> +	emac = netdev_priv(real_dev);
->>>>  
->>>> -	other_port_mask = port_mask ^ icssg_fdb_lookup(emac, addr, 0);
->>>> +	port_mask = BIT(emac->port_id);
->>>> +	other_port_mask = port_mask ^ icssg_fdb_lookup(emac, addr, vlan_id);
->>>>  
->>>> -	icssg_fdb_add_del(emac, addr, 0, port_mask, false);
->>>> -	icssg_vtbl_modify(emac, 0, port_mask, port_mask, false);
->>>> +	icssg_fdb_add_del(emac, addr, vlan_id, port_mask, false);
->>>> +	icssg_vtbl_modify(emac, vlan_id, port_mask, port_mask, false);
->>>>  
->>>>  	if (other_port_mask) {
->>>> -		icssg_fdb_add_del(emac, addr, 0, other_port_mask, true);
->>>> -		icssg_vtbl_modify(emac, 0, other_port_mask, other_port_mask, true);
->>>> +		icssg_fdb_add_del(emac, addr, vlan_id, other_port_mask, true);
->>>> +		icssg_vtbl_modify(emac, vlan_id, other_port_mask,
->>>> +				  other_port_mask, true);
->>>>  	}
->>>>  
->>>>  	return 0;
->>>> @@ -531,6 +545,25 @@ static int icssg_prueth_hsr_del_mcast(struct net_device *ndev, const u8 *addr)
->>>>  	return 0;
->>>>  }
->>>>  
->>>> +static int icssg_update_vlan_mcast(struct net_device *vdev, int vid,
->>>> +				   void *args)
->>>> +{
->>>> +	struct prueth_emac *emac = args;
->>>> +
->>>> +	if (!vdev || !vid)
->>>> +		return 0;
->>>> +
->>>> +	netif_addr_lock_bh(vdev);
->>>> +	__hw_addr_sync_multiple(&emac->vlan_mcast_list[vid], &vdev->mc,
->>>> +				vdev->addr_len);
->>>> +	netif_addr_unlock_bh(vdev);
->>>
->>> At this point, isn't emac->vlan_mcast_list[vid] == vdev->mc?
->>>
->>>> +
->>>> +	__hw_addr_sync_dev(&emac->vlan_mcast_list[vid], vdev,
->>>> +			   icssg_prueth_add_mcast, icssg_prueth_del_mcast);
->>>
->>> If so, can this function be reduced to just:
->>>
->>> 	__dev_mc_sync(vdev, icssg_prueth_add_mcast, icssg_prueth_del_mcast);
->>>
->>> ?
->>>
->>
->> I don't know but for some reason __dev_mc_sync() doesn't work here. My
->> initial approach was to use __dev_mc_sync(vdev, sync, unsync) however it
->> didn't work.
->>
->> When I use __dev_mc_sync() and print the vlan_id in function
->> icssg_prueth_add_mcast(). It always prints vlan_id as 0 implying
->> __dev_mc_sync from here never gets called. Whereas when using
->> __hw_addr_sync_dev() I see the appropriate vlan_id in
->> icssg_prueth_add_mcast()
-> 
-> It look like the above needs more investigation, right? is
-> vlan_mcast_list[vid] different from vdev->mc? why? At very least you
-> need to provide a clear explaination of the above.
-> 
+Signed-off-by: Jian Hu <jian.hu@amlogic.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ .../clock/amlogic,t7-peripherals-clkc.yaml    | 111 +++++++++
+ .../clock/amlogic,t7-peripherals-clkc.h       | 231 ++++++++++++++++++
+ 2 files changed, 342 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/clock/amlogic,t7-peripherals-clkc.yaml
+ create mode 100644 include/dt-bindings/clock/amlogic,t7-peripherals-clkc.h
 
-I did further debug on this. At this point vlan_mcast_list[vid] is
-actually same as vdev->mc in terms of the multicast addresses.
-
-However the sync_cnt and refcount of the addresses in both the lists are
-not same. Due to which vdev->mc doesn't work here. I will explain it.
-
-__dev_mc_sync(vdev, sync, unsync) will call __hw_addr_sync_dev(&dev->mc,
-dev, sync, unsync)
-
-Now in __hw_addr_sync_dev() sync is only called when ha->sync_cnt == 0
-for the given mac address. If ha->sync_cnt is non zero, sync will not
-get called.
-
-When we add a multicast address to the vlan interface using below command,
-	
-	ip maddr add <mac_addr> dev eth1.6
-
-ndo_set_rx_mode() gets called for the vlan interface i.e.
-vlan_dev_set_rx_mode() [net/8021q/vlan_dev.c] which syncs mc list from
-the vdev to the real_dev of vdev by calling dev_mc_sync(real_dev, vdev)
-
-Now dev_mc_sync() sync addresses from vdev to real_dev using
-__hw_addr_sync().
-
-__hw_addr_sync() calls __hw_addr_sync_one() which after successfully
-syncing an address from vdev to real_dev increment the ha->sync_cnt. As
-a result at this point the ha->sync_cnt == 1 for the above address
-passed by command. After this vlan_dev_set_rx_mode() calls the
-set_rx_mode() of the real_dev.
-
-Now when icssg_update_vlan_mcast() calls __dev_mc_sync(vdev, sync,
-unsync), it calls _hw_addr_sync_dev(&dev->mc, dev, sync, unsync) and
-checks the ha->sync_cnt for the given address, since sync_cnt is already
-1, it doesn't consider it as an newly added address and sync / unsync
-callbacks are not called. [1]
-
-list_for_each_entry_safe(ha, tmp, &list->list, list) {
-	if (ha->sync_cnt)
-		continue;
-
-Since for addresses in vlan interfaces, sync_cnt will always be set as
-vlan_dev_set_rx_mode() will sync the mc list of vlan interface with the
-real dev. This will mean that the driver implemented sync / unsync APIs
-will only be called for the real_dev and the real_dev won't have any
-information about the vlan_id which I need in my sync / unsync APIs to
-populate the same in the hardware maintained FDB table.
-
-To overcome this, I am maintaining a local copy of vdev->mc named
-emac->vlan_mcast_list[vid]. I will sync address from vdev->mc to this.
-and then call __hw_addr_sync_dev() on this list as the sync_cnt for
-address in this list will still be zero. Which will then trigger my
-sync() callback on the vdev which will help me obtain the vlan_id in the
-sync callback. I can now populate the same in the hardware maintained
-FDB table.
-
-I hope this explains why I am using
-
-	__hw_addr_sync_dev(&emac->vlan_mcast_list[vid], vdev,
-icssg_prueth_add_mcast, icssg_prueth_del_mcast)
-
-instead of
-
-	__dev_mc_sync(vdev, icssg_prueth_add_mcast, icssg_prueth_del_mcast);
-
->> Anyways, Even if I use __dev_mc_sync(), we will still need the export. I
->> am exporting __hw_addr_sync_multiple() not __hw_addr_sync_dev(). The API
->> being used by me `__hw_addr_sync_dev()` is already exported.
-> 
-> I fear there is a misunderstanding. I'm suggesting dropping
-> __hw_addr_sync_multiple() usage entirely. If that is not possible, a
-> clear and complete explaination of the reason/root cause must be provided.
-> 
-
-As explained above, I need to be able to sync addresses from vdev->mc to
-my local list. Now this can be done using two APIs.
-
-1. __hw_addr_sync() - This is already exported and is actually the first
-choice. However this will fail syncing address from vdev->mc to my local
-copy.
-
-__hw_addr_sync() only syncs the address if ha->sync_cnt == 0. If the
-sync_cnt is non zero, this will skip the address. As explained above,
-for mc addresses of vlan interfaces, sync_cnt will always be set as
-vlan_dev_set_rx_mode() will sync the mc list of vlan interface with the
-real dev. As a result the addresses will be skipped and __hw_addr_sync()
-will not serve the purpose here.
-
-2. __hw_addr_sync_multiple() - This actually works perfectly fine here
-as it sync address even if sync_cnt is non zero. As a result I am using
-this function in my implementation.
-
-Since this is not public, I have to export it so that the driver can
-call this.
-
-So I am afraid dropping __hw_addr_sync_multiple() is not possible here.
-I hope the explanation above makes sense to you.
-
-Please let me know if this is OK with you. If you have some other way
-through which I can make this work please let me know.
-
-[1]
-https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/net/core/dev_addr_lists.c#n314
-
-> Thanks,
-> 
-> Paolo
-> 
-
+diff --git a/Documentation/devicetree/bindings/clock/amlogic,t7-peripherals-clkc.yaml b/Documentation/devicetree/bindings/clock/amlogic,t7-peripherals-clkc.yaml
+new file mode 100644
+index 000000000000..eba24937defd
+--- /dev/null
++++ b/Documentation/devicetree/bindings/clock/amlogic,t7-peripherals-clkc.yaml
+@@ -0,0 +1,111 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/clock/amlogic,t7-peripherals-clkc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Amlogic T7 Peripherals Clock Controller
++
++maintainers:
++  - Neil Armstrong <neil.armstrong@linaro.org>
++  - Jerome Brunet <jbrunet@baylibre.com>
++  - Xianwei Zhao <xianwei.zhao@amlogic.com>
++  - Jian Hu <jian.hu@amlogic.com>
++
++properties:
++  compatible:
++    const: amlogic,t7-peripherals-clkc
++
++  reg:
++    maxItems: 1
++
++  '#clock-cells':
++    const: 1
++
++  clocks:
++    minItems: 13
++    items:
++      - description: input oscillator
++      - description: input sys clk
++      - description: input fclk div 2
++      - description: input fclk div 2p5
++      - description: input fclk div 3
++      - description: input fclk div 4
++      - description: input fclk div 5
++      - description: input fclk div 7
++      - description: input hifi pll
++      - description: input gp0 pll
++      - description: input gp1 pll
++      - description: input mpll1
++      - description: input mpll2
++      - description: external input rmii oscillator (optional)
++      - description: input video pll0 (optional)
++      - description: external pad input for rtc (optional)
++
++  clock-names:
++    minItems: 13
++    items:
++      - const: xtal
++      - const: sys
++      - const: fdiv2
++      - const: fdiv2p5
++      - const: fdiv3
++      - const: fdiv4
++      - const: fdiv5
++      - const: fdiv7
++      - const: hifi
++      - const: gp0
++      - const: gp1
++      - const: mpll1
++      - const: mpll2
++      - const: ext_rmii
++      - const: vid_pll0
++      - const: ext_rtc
++
++required:
++  - compatible
++  - '#clock-cells'
++  - reg
++  - clocks
++  - clock-names
++
++additionalProperties: false
++
++examples:
++  - |
++    apb {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        clkc_periphs:clock-controller@0 {
++            compatible = "amlogic,t7-peripherals-clkc";
++            reg = <0 0x0 0 0x1c8>;
++            #clock-cells = <1>;
++            clocks = <&xtal>,
++                     <&scmi_clk 13>,
++                     <&scmi_clk 18>,
++                     <&scmi_clk 20>,
++                     <&scmi_clk 22>,
++                     <&scmi_clk 24>,
++                     <&scmi_clk 26>,
++                     <&scmi_clk 28>,
++                     <&hifi 1>,
++                     <&gp0 1>,
++                     <&gp1 1>,
++                     <&mpll 4>,
++                     <&mpll 6>;
++            clock-names = "xtal",
++                          "sys",
++                          "fdiv2",
++                          "fdiv2p5",
++                          "fdiv3",
++                          "fdiv4",
++                          "fdiv5",
++                          "fdiv7",
++                          "hifi",
++                          "gp0",
++                          "gp1",
++                          "mpll1",
++                          "mpll2";
++        };
++    };
+diff --git a/include/dt-bindings/clock/amlogic,t7-peripherals-clkc.h b/include/dt-bindings/clock/amlogic,t7-peripherals-clkc.h
+new file mode 100644
+index 000000000000..703d7bb6f2ca
+--- /dev/null
++++ b/include/dt-bindings/clock/amlogic,t7-peripherals-clkc.h
+@@ -0,0 +1,231 @@
++/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
++/*
++ * Copyright (c) 2023 Amlogic, Inc. All rights reserved.
++ * Author: Jian Hu <jian.hu@amlogic.com>
++ */
++
++#ifndef __T7_PERIPHERALS_CLKC_H
++#define __T7_PERIPHERALS_CLKC_H
++
++#define CLKID_RTC_32K_IN		0
++#define CLKID_RTC_32K_DIV		1
++#define CLKID_RTC_32K_FORCE_SEL		2
++#define CLKID_RTC_32K_OUT		3
++#define CLKID_RTC_32K_MUX0_0		4
++#define CLKID_RTC_32K_MUX0_1		5
++#define CLKID_RTC			6
++#define CLKID_CECB_32K_IN		7
++#define CLKID_CECB_32K_DIV		8
++#define CLKID_CECB_32K_SEL_PRE		9
++#define CLKID_CECB_32K_SEL		10
++#define CLKID_CECA_32K_IN		11
++#define CLKID_CECA_32K_DIV		12
++#define CLKID_CECA_32K_SEL_PRE		13
++#define CLKID_CECA_32K_SEL		14
++#define CLKID_CECA_32K			15
++#define CLKID_CECB_32K			16
++#define CLKID_SC_SEL			17
++#define CLKID_SC_DIV			18
++#define CLKID_SC			19
++#define CLKID_DSPA_A_SEL		20
++#define CLKID_DSPA_A_DIV		21
++#define CLKID_DSPA_A			22
++#define CLKID_DSPA_B_SEL		23
++#define CLKID_DSPA_B_DIV		24
++#define CLKID_DSPA_B			25
++#define CLKID_DSPA			26
++#define CLKID_DSPB_A_SEL		27
++#define CLKID_DSPB_A_DIV		28
++#define CLKID_DSPB_A			29
++#define CLKID_DSPB_B_SEL		30
++#define CLKID_DSPB_B_DIV		31
++#define CLKID_DSPB_B			32
++#define CLKID_DSPB			33
++#define CLKID_CLK_24M			34
++#define CLKID_CLK_24M_DIV2		35
++#define CLKID_CLK_12M			36
++#define CLKID_ANAKIN_0_SEL		37
++#define CLKID_ANAKIN_0_DIV		38
++#define CLKID_ANAKIN_0			39
++#define CLKID_ANAKIN_1_SEL		40
++#define CLKID_ANAKIN_1_DIV		41
++#define CLKID_ANAKIN_1			42
++#define CLKID_ANAKIN			43
++#define CLKID_ANAKIN_CLK		44
++#define CLKID_FCLK_DIV2_DIVN_PRE	45
++#define CLKID_FCLK_DIV2_DIVN		46
++#define CLKID_TS_DIV			47
++#define CLKID_TS			48
++#define CLKID_MIPI_CSI_PHY_0_SEL	49
++#define CLKID_MIPI_CSI_PHY_0_DIV	50
++#define CLKID_MIPI_CSI_PHY_0		51
++#define CLKID_MIPI_CSI_PHY_1_SEL	52
++#define CLKID_MIPI_CSI_PHY_1_DIV	53
++#define CLKID_MIPI_CSI_PHY_1		54
++#define CLKID_MIPI_CSI_PHY		55
++#define CLKID_MIPI_ISP_SEL		56
++#define CLKID_MIPI_ISP_DIV		57
++#define CLKID_MIPI_ISP			58
++#define CLKID_MALI_0_SEL		59
++#define CLKID_MALI_0_DIV		60
++#define CLKID_MALI_0			61
++#define CLKID_MALI_1_SEL		62
++#define CLKID_MALI_1_DIV		63
++#define CLKID_MALI_1			64
++#define CLKID_MALI			65
++#define CLKID_ETH_RMII_SEL		66
++#define CLKID_ETH_RMII_DIV		67
++#define CLKID_ETH_RMII			68
++#define CLKID_FCLK_DIV2_DIV8		69
++#define CLKID_ETH_125M			70
++#define CLKID_SD_EMMC_C_SEL		71
++#define CLKID_SD_EMMC_C_DIV		72
++#define CLKID_SD_EMMC_C			73
++#define CLKID_SD_EMMC_A_SEL		74
++#define CLKID_SD_EMMC_A_DIV		75
++#define CLKID_SD_EMMC_A			76
++#define CLKID_SD_EMMC_B_SEL		77
++#define CLKID_SD_EMMC_B_DIV		78
++#define CLKID_SD_EMMC_B			79
++#define CLKID_SPICC0_SEL		80
++#define CLKID_SPICC0_DIV		81
++#define CLKID_SPICC0			82
++#define CLKID_SPICC1_SEL		83
++#define CLKID_SPICC1_DIV		84
++#define CLKID_SPICC1			85
++#define CLKID_SPICC2_SEL		86
++#define CLKID_SPICC2_DIV		87
++#define CLKID_SPICC2			88
++#define CLKID_SPICC3_SEL		89
++#define CLKID_SPICC3_DIV		90
++#define CLKID_SPICC3			91
++#define CLKID_SPICC4_SEL		92
++#define CLKID_SPICC4_DIV		93
++#define CLKID_SPICC4			94
++#define CLKID_SPICC5_SEL		95
++#define CLKID_SPICC5_DIV		96
++#define CLKID_SPICC5			97
++#define CLKID_SARADC_SEL		98
++#define CLKID_SARADC_DIV		99
++#define CLKID_SARADC			100
++#define CLKID_PWM_A_SEL			101
++#define CLKID_PWM_A_DIV			102
++#define CLKID_PWM_A			103
++#define CLKID_PWM_B_SEL			104
++#define CLKID_PWM_B_DIV			105
++#define CLKID_PWM_B			106
++#define CLKID_PWM_C_SEL			107
++#define CLKID_PWM_C_DIV			108
++#define CLKID_PWM_C			109
++#define CLKID_PWM_D_SEL			110
++#define CLKID_PWM_D_DIV			111
++#define CLKID_PWM_D			112
++#define CLKID_PWM_E_SEL			113
++#define CLKID_PWM_E_DIV			114
++#define CLKID_PWM_E			115
++#define CLKID_PWM_F_SEL			116
++#define CLKID_PWM_F_DIV			117
++#define CLKID_PWM_F			118
++#define CLKID_PWM_AO_A_SEL		119
++#define CLKID_PWM_AO_A_DIV		120
++#define CLKID_PWM_AO_A			121
++#define CLKID_PWM_AO_B_SEL		122
++#define CLKID_PWM_AO_B_DIV		123
++#define CLKID_PWM_AO_B			124
++#define CLKID_PWM_AO_C_SEL		125
++#define CLKID_PWM_AO_C_DIV		126
++#define CLKID_PWM_AO_C			127
++#define CLKID_PWM_AO_D_SEL		128
++#define CLKID_PWM_AO_D_DIV		129
++#define CLKID_PWM_AO_D			130
++#define CLKID_PWM_AO_E_SEL		131
++#define CLKID_PWM_AO_E_DIV		132
++#define CLKID_PWM_AO_E			133
++#define CLKID_PWM_AO_F_SEL		134
++#define CLKID_PWM_AO_F_DIV		135
++#define CLKID_PWM_AO_F			136
++#define CLKID_PWM_AO_G_SEL		137
++#define CLKID_PWM_AO_G_DIV		138
++#define CLKID_PWM_AO_G			139
++#define CLKID_PWM_AO_H_SEL		140
++#define CLKID_PWM_AO_H_DIV		141
++#define CLKID_PWM_AO_H			142
++#define CLKID_SYS_DDR			143
++#define CLKID_SYS_DOS			144
++#define CLKID_SYS_MIPI_DSI_A		145
++#define CLKID_SYS_MIPI_DSI_B		146
++#define CLKID_SYS_ETHPHY		147
++#define CLKID_SYS_MALI			148
++#define CLKID_SYS_AOCPU			149
++#define CLKID_SYS_AUCPU			150
++#define CLKID_SYS_CEC			151
++#define CLKID_SYS_GDC			152
++#define CLKID_SYS_DESWARP		153
++#define CLKID_SYS_AMPIPE_NAND		154
++#define CLKID_SYS_AMPIPE_ETH		155
++#define CLKID_SYS_AM2AXI0		156
++#define CLKID_SYS_AM2AXI1		157
++#define CLKID_SYS_AM2AXI2		158
++#define CLKID_SYS_SD_EMMC_A		159
++#define CLKID_SYS_SD_EMMC_B		160
++#define CLKID_SYS_SD_EMMC_C		161
++#define CLKID_SYS_SMARTCARD		162
++#define CLKID_SYS_ACODEC		163
++#define CLKID_SYS_SPIFC			164
++#define CLKID_SYS_MSR_CLK		165
++#define CLKID_SYS_IR_CTRL		166
++#define CLKID_SYS_AUDIO			167
++#define CLKID_SYS_ETH			168
++#define CLKID_SYS_UART_A		169
++#define CLKID_SYS_UART_B		170
++#define CLKID_SYS_UART_C		171
++#define CLKID_SYS_UART_D		172
++#define CLKID_SYS_UART_E		173
++#define CLKID_SYS_UART_F		174
++#define CLKID_SYS_AIFIFO		175
++#define CLKID_SYS_SPICC2		176
++#define CLKID_SYS_SPICC3		177
++#define CLKID_SYS_SPICC4		178
++#define CLKID_SYS_TS_A73		179
++#define CLKID_SYS_TS_A53		180
++#define CLKID_SYS_SPICC5		181
++#define CLKID_SYS_G2D			182
++#define CLKID_SYS_SPICC0		183
++#define CLKID_SYS_SPICC1		184
++#define CLKID_SYS_PCIE			185
++#define CLKID_SYS_USB			186
++#define CLKID_SYS_PCIE_PHY		187
++#define CLKID_SYS_I2C_AO_A		188
++#define CLKID_SYS_I2C_AO_B		189
++#define CLKID_SYS_I2C_M_A		190
++#define CLKID_SYS_I2C_M_B		191
++#define CLKID_SYS_I2C_M_C		192
++#define CLKID_SYS_I2C_M_D		193
++#define CLKID_SYS_I2C_M_E		194
++#define CLKID_SYS_I2C_M_F		195
++#define CLKID_SYS_HDMITX_APB		196
++#define CLKID_SYS_I2C_S_A		197
++#define CLKID_SYS_HDMIRX_PCLK		198
++#define CLKID_SYS_MMC_APB		199
++#define CLKID_SYS_MIPI_ISP_PCLK		200
++#define CLKID_SYS_RSA			201
++#define CLKID_SYS_PCLK_SYS_APB		202
++#define CLKID_SYS_A73PCLK_APB		203
++#define CLKID_SYS_DSPA			204
++#define CLKID_SYS_DSPB			205
++#define CLKID_SYS_VPU_INTR		206
++#define CLKID_SYS_SAR_ADC		207
++#define CLKID_SYS_GIC			208
++#define CLKID_SYS_TS_GPU		209
++#define CLKID_SYS_TS_NNA		210
++#define CLKID_SYS_TS_VPU		211
++#define CLKID_SYS_TS_HEVC		212
++#define CLKID_SYS_PWM_AB		213
++#define CLKID_SYS_PWM_CD		214
++#define CLKID_SYS_PWM_EF		215
++#define CLKID_SYS_PWM_AO_AB		216
++#define CLKID_SYS_PWM_AO_CD		217
++#define CLKID_SYS_PWM_AO_EF		218
++#define CLKID_SYS_PWM_AO_GH		219
++
++#endif /* __T7_PERIPHERALS_CLKC_H */
 -- 
-Thanks and Regards,
-Danish
+2.47.1
+
 
