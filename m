@@ -4,93 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FE76E77199
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 10:12:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCD21E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 10:13:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sT5CCRYl+x4dUMtMSCes2pYR6c6hZptBJnGGqNrq6lU=; b=cdNyuBMa+B3SupYvdxDT1VazFj
-	FjYOXE4cRENKMVQ9SecQANF35H1FpDtpR83dEc9zv9hTOs/8TH/PJ2zLe3dgwW54LfA+fpdEuLwF+
-	3C+DzOQIb3k6InjkKg9cc4i8TqSbDxub0y35LOY3BHDla4rs6+bUdGLm7knQppE3r+E+YaHdeAB7s
-	nERNTQeesqt0v25OXoKkloziSVVHdr6lAafaKnU8FLEIlKMRCWMHJg1O3LosDvdjdO/L+s59ydQ8F
-	Qi/p/QzvmlaiqRLiKSZ5phd97VlyKFKeoVBgGkCRe/B4YZark65U0X6XLZ4uJHRkSsMgfpZ/eH+Qn
-	g/4YEVYw==;
+	bh=YjY6+zjtyOIX1iyK/8QhOIQrcr0euu2ifQ2NruT64Tw=; b=jggbhtOHFTUSaI6TOnBYzDV2PW
+	JbQs0i6c4s5vt99byFhkHq8sZpCGywgF5i2XNXRidzZesyrqXyMnbZ7ujWeem/hjQSnJmEGQgpXJ/
+	eNDacubYvLGqkOp5qlklJIhs8ldYhdg4E7FhRP8HX4YQ6ZnQlp4/HpZ0JtmAvRVFwlm9WupVU5Wt+
+	wxN41cLouNv/LGT3SE0KPXO0VBMUlseDduJeX2E5OnC7+0uN4ocnQkpHIgXu4aULvbt6WcK7Lq8XO
+	Lh2fKNW3W2qic4986UPMN+qLu2RAP7lp5Kv+eY0OM1N4UeffnmVX9PQDV3Dxn+YMvD8G/qnOzTfVD
+	OU7fYoZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVT2N-00000007vhM-1Mhu;
-	Wed, 08 Jan 2025 10:11:43 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tVT3X-00000007vvh-45xa;
+	Wed, 08 Jan 2025 10:12:55 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVSyy-00000007ufp-48ps
+	id 1tVSz7-00000007uhJ-0hSY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 10:08:14 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5089AoMY010561;
-	Wed, 8 Jan 2025 10:08:00 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	sT5CCRYl+x4dUMtMSCes2pYR6c6hZptBJnGGqNrq6lU=; b=CEfJkXXEDquByBeV
-	lI9OtE+hzxpCj9ZdQ45dpLF4n2WcYh3dipYHDBoL7owkKBsUx2uzJkujv36+nEqu
-	z+xiF+7ouA8eqiIwfxQtvG977MNLjpoUXFw2tSreDXcujUyLhr9iT4oe//OS8maT
-	W8MYKb7hxzr6vu+7lirzyzM76mCIeEmZkj58uopaOF+IzMIIU8GO2DwD2tMugtYL
-	Q3NBxNEJduIvIRGs/MgpQhDeyuNF6tZ7qdp268vhw9yvkGBdwupP0/YyNzbgpnmK
-	WyJbdd6IGpFsVW9gF4Cpm48Vhx4xpa5yWwdHpatfs7DPPKN6fHZNoQDhNf+ctFxg
-	GC/P1w==
-Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 441pgnr4nn-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 08 Jan 2025 10:08:00 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 508A7xG0002623
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 8 Jan 2025 10:07:59 GMT
-Received: from [10.239.132.245] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 8 Jan 2025
- 02:07:55 -0800
-Message-ID: <406d5113-ff3d-4c2a-81f0-de791bcbeffb@quicinc.com>
-Date: Wed, 8 Jan 2025 18:07:44 +0800
+	Wed, 08 Jan 2025 10:08:22 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-436a03197b2so65585015e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jan 2025 02:08:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1736330899; x=1736935699; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=YjY6+zjtyOIX1iyK/8QhOIQrcr0euu2ifQ2NruT64Tw=;
+        b=p1zAlrwgV2T7IRgyLD7mH9MdndYK5RjXMWXKoDOq6/ATJTW1Wusnq2FV814qg9srGU
+         QMXVTdngEH0DpaWCpk5tQhGx8qYUjIg2DXAZgDdOZ+cXVGV/mudUjpz2DObpIUvgbth4
+         zaBCVf6fM39A9liy8QQYliSwfZ00+3onkXmw7SSQ397apL3bvyb8UzcsQaLGBp5U2CAa
+         PRLNhjk6rjBGxyTCwUMSMRX8Ilie64oNGqUJw48RrPflD2PkxR8BryvtIhlyhldD2QAl
+         7m2hpAdc2ZS0NQyKDMAD3DoiSKCuAMkM3P3bZvi9H6zy5xKIEIAbsWo1Ci3tY9p/yWJs
+         BS7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736330899; x=1736935699;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=YjY6+zjtyOIX1iyK/8QhOIQrcr0euu2ifQ2NruT64Tw=;
+        b=h8+vLfCb9DGoWQb7xFZairZlR2T8GwdyC1Nd6OVB5Vw72/zbE+zhl8QHFs7zOlOHhL
+         Sg+pBc4CH9FUYJx7ZJIisl+23TXv0gbThSf0phaU06L+XKuyfS2/57tvBXzrjh7ujL4G
+         rgyRgHM2y7dn3FaeRaQZbH2ThIVyGsyeKowxe0XVGlZ0I0011AyFruAb6AoY7G1tF22r
+         txV+ry3u+u8Uyh5H3xxFsILKbC9NmNGUAKBJfa66pVcH2gerfmkXJeAGBn53axbVQakw
+         EuGFnjBce9vPtlvuaJ2Rofo9BtM3zgp3VKHKcV1Zp6QbUFjUniS7dpu1HmZRwYl3dARx
+         fbvA==
+X-Gm-Message-State: AOJu0YxrrtNENDicgtR29GQAboS7u/90Gb9NJEWcPHNbLBTyu0oD8C7k
+	KzC4S6dlXe98yfN+6Op6F1dDTzFvOqU8zck5FvrVqJo84AU430GQod1dhA0elj3tPOOzb4sVjQ3
+	h
+X-Gm-Gg: ASbGncvJTu0qf2A1b8o+cjF5EQ/BL5i9beFV0dYDGymjCAdGOlGrttrAaP0nKxC9nbY
+	oDRZ4vproUhr0B6fKDXL3zbe/VBdh2SdbdzRLIk2FiA/KU8kPt/toc4m1XLYu4eQD8pEf0/9BJl
+	spKDujqqnMZ6cNdFUsbGh3biUTdALu5baR08PscKo8Pn0c2BuVJhP1IdXgl5b8E81bV+L2Q7C2d
+	aWat/e9/Hq1i83BPqs9NpXK65e7PUF0/srVXDx/iu1i+XJB6pf8n6LX/F5QdMmO4+M=
+X-Google-Smtp-Source: AGHT+IFu99ytHjTbRlZvRSjYKF3KyW4IOwcR6xJDGsiYoktyTX+cpKyAZe0Elx/55d+bPtnX5LCY0A==
+X-Received: by 2002:a5d:5f52:0:b0:385:fcfb:8d4f with SMTP id ffacd0b85a97d-38a872deb1amr1964341f8f.21.1736330899266;
+        Wed, 08 Jan 2025 02:08:19 -0800 (PST)
+Received: from [192.168.68.163] ([145.224.90.227])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a88825167sm787846f8f.78.2025.01.08.02.08.17
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 08 Jan 2025 02:08:18 -0800 (PST)
+Message-ID: <ccab556d-5d08-49f9-8039-a8c507a7a0e1@linaro.org>
+Date: Wed, 8 Jan 2025 10:08:16 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4] arm64: mm: Populate vmemmap/linear at the page level
- for hotplugged sections
-To: Catalin Marinas <catalin.marinas@arm.com>
-CC: <anshuman.khandual@arm.com>, <will@kernel.org>, <ardb@kernel.org>,
-        <ryan.roberts@arm.com>, <mark.rutland@arm.com>, <joey.gouly@arm.com>,
-        <dave.hansen@linux.intel.com>, <akpm@linux-foundation.org>,
-        <chenfeiyang@loongson.cn>, <chenhuacai@kernel.org>,
-        <linux-mm@kvack.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <quic_tingweiz@quicinc.com>,
-        <stable@vger.kernel.org>
-References: <20250107074252.1062127-1-quic_zhenhuah@quicinc.com>
- <Z31--x4unDHRU5Zo@arm.com>
+Subject: Re: [PATCH v2 1/5] perf: arm_spe: Add format option for discard mode
+To: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ irogers@google.com, yeoreum.yun@arm.com, mark.rutland@arm.com,
+ robh@kernel.org, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
+ "Liang, Kan" <kan.liang@linux.intel.com>,
+ John Garry <john.g.garry@oracle.com>, Mike Leach <mike.leach@linaro.org>,
+ Leo Yan <leo.yan@linux.dev>, Graham Woodward <graham.woodward@arm.com>,
+ linux-kernel@vger.kernel.org, bpf@vger.kernel.org
+References: <20241224104414.179365-1-james.clark@linaro.org>
+ <20241224104414.179365-2-james.clark@linaro.org>
+ <20250107173950.GA8111@willie-the-truck>
 Content-Language: en-US
-From: Zhenhua Huang <quic_zhenhuah@quicinc.com>
-In-Reply-To: <Z31--x4unDHRU5Zo@arm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20250107173950.GA8111@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: YieeDtkFTNv0W_kqZ0sQDqfqPlypTFuo
-X-Proofpoint-ORIG-GUID: YieeDtkFTNv0W_kqZ0sQDqfqPlypTFuo
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015 mlxlogscore=999
- mlxscore=0 suspectscore=0 impostorscore=0 lowpriorityscore=0 spamscore=0
- adultscore=0 phishscore=0 priorityscore=1501 bulkscore=0 malwarescore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
- definitions=main-2501080082
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_020813_145859_7A74C05F 
-X-CRM114-Status: GOOD (  33.79  )
+X-CRM114-CacheID: sfid-20250108_020821_862877_31A1D3D1 
+X-CRM114-Status: GOOD (  19.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,168 +109,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Catalin,
 
-On 2025/1/8 3:22, Catalin Marinas wrote:
-> On Tue, Jan 07, 2025 at 03:42:52PM +0800, Zhenhua Huang wrote:
->> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->> index e2739b69e11b..5e0f514de870 100644
->> --- a/arch/arm64/mm/mmu.c
->> +++ b/arch/arm64/mm/mmu.c
->> @@ -42,9 +42,11 @@
->>   #include <asm/pgalloc.h>
->>   #include <asm/kfence.h>
+
+On 07/01/2025 5:39 pm, Will Deacon wrote:
+> On Tue, Dec 24, 2024 at 10:44:08AM +0000, James Clark wrote:
+>> FEAT_SPEv1p2 (optional from Armv8.6) adds a discard mode that allows all
+>> SPE data to be discarded rather than written to memory. Add a format
+>> bit for this mode.
+>>
+>> If the mode isn't supported, the format bit isn't published and attempts
+>> to use it will result in -EOPNOTSUPP. Allocating an aux buffer is still
+>> allowed even though it won't be written to so that old tools continue to
+>> work, but updated tools can choose to skip this step.
+>>
+>> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
+>> Signed-off-by: James Clark <james.clark@linaro.org>
+>> ---
+>>   drivers/perf/arm_spe_pmu.c | 23 +++++++++++++++++++++++
+>>   1 file changed, 23 insertions(+)
+>>
+>> diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
+>> index fd5b78732603..9aaf3f98e6f5 100644
+>> --- a/drivers/perf/arm_spe_pmu.c
+>> +++ b/drivers/perf/arm_spe_pmu.c
+>> @@ -193,6 +193,9 @@ static const struct attribute_group arm_spe_pmu_cap_group = {
+>>   #define ATTR_CFG_FLD_store_filter_CFG		config	/* PMSFCR_EL1.ST */
+>>   #define ATTR_CFG_FLD_store_filter_LO		34
+>>   #define ATTR_CFG_FLD_store_filter_HI		34
+>> +#define ATTR_CFG_FLD_discard_CFG		config	/* PMBLIMITR_EL1.FM = DISCARD */
+>> +#define ATTR_CFG_FLD_discard_LO			35
+>> +#define ATTR_CFG_FLD_discard_HI			35
 >>   
->> -#define NO_BLOCK_MAPPINGS	BIT(0)
->> -#define NO_CONT_MAPPINGS	BIT(1)
->> -#define NO_EXEC_MAPPINGS	BIT(2)	/* assumes FEAT_HPDS is not used */
->> +#define NO_PMD_BLOCK_MAPPINGS	BIT(0)
->> +#define NO_PUD_BLOCK_MAPPINGS	BIT(1)  /* Hotplug case: do not want block mapping for PUD */
->> +#define NO_BLOCK_MAPPINGS (NO_PMD_BLOCK_MAPPINGS | NO_PUD_BLOCK_MAPPINGS)
-> 
-> Nit: please use a tab instead of space before (NO_PMD_...)
-> 
->> +#define NO_CONT_MAPPINGS	BIT(2)
->> +#define NO_EXEC_MAPPINGS	BIT(3)	/* assumes FEAT_HPDS is not used */
+>>   #define ATTR_CFG_FLD_event_filter_CFG		config1	/* PMSEVFR_EL1 */
+>>   #define ATTR_CFG_FLD_event_filter_LO		0
+>> @@ -216,6 +219,7 @@ GEN_PMU_FORMAT_ATTR(store_filter);
+>>   GEN_PMU_FORMAT_ATTR(event_filter);
+>>   GEN_PMU_FORMAT_ATTR(inv_event_filter);
+>>   GEN_PMU_FORMAT_ATTR(min_latency);
+>> +GEN_PMU_FORMAT_ATTR(discard);
 >>   
->>   u64 kimage_voffset __ro_after_init;
->>   EXPORT_SYMBOL(kimage_voffset);
->> @@ -254,7 +256,7 @@ static void init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+>>   static struct attribute *arm_spe_pmu_formats_attr[] = {
+>>   	&format_attr_ts_enable.attr,
+>> @@ -228,9 +232,15 @@ static struct attribute *arm_spe_pmu_formats_attr[] = {
+>>   	&format_attr_event_filter.attr,
+>>   	&format_attr_inv_event_filter.attr,
+>>   	&format_attr_min_latency.attr,
+>> +	&format_attr_discard.attr,
+>>   	NULL,
+>>   };
 >>   
->>   		/* try section mapping first */
->>   		if (((addr | next | phys) & ~PMD_MASK) == 0 &&
->> -		    (flags & NO_BLOCK_MAPPINGS) == 0) {
->> +		    (flags & NO_PMD_BLOCK_MAPPINGS) == 0) {
->>   			pmd_set_huge(pmdp, phys, prot);
->>   
->>   			/*
->> @@ -356,10 +358,11 @@ static void alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
->>   
->>   		/*
->>   		 * For 4K granule only, attempt to put down a 1GB block
->> +		 * Hotplug case: do not attempt 1GB block
->>   		 */
+>> +static bool discard_unsupported(struct arm_spe_pmu *spe_pmu)
+>> +{
+>> +	return spe_pmu->pmsver < ID_AA64DFR0_EL1_PMSVer_V1P2;
+>> +}
 > 
-> I don't think we need this comment added here. The hotplug case is a
-> decision of the caller, so better to have the comment there.
-
-Yeah, will remove.
-
+> Why not add a new SPE_PMU_FEAT_* for this and handle it in a similar
+> way to other optional hardware features?
 > 
->>   		if (pud_sect_supported() &&
->>   		   ((addr | next | phys) & ~PUD_MASK) == 0 &&
->> -		    (flags & NO_BLOCK_MAPPINGS) == 0) {
->> +		   (flags & NO_PUD_BLOCK_MAPPINGS) == 0) {
->>   			pud_set_huge(pudp, phys, prot);
-> 
-> Nit: something wrong with the alignment here. I think the unmodified
-> line after the 'if' one above was misaligned before your patch.
+> Will
 
-Noted and will correct in next patch.
+Hmmm good point, I'm not sure why I didn't do it that way. Possibly 
+because it's only based off pmsver which is already saved, whereas the 
+other feats are based off reading PMSIDR which is thrown away. But I can 
+add SPE_PMU_FEAT_DISCARD.
 
-> 
->>   
->>   			/*
->> @@ -1175,9 +1178,21 @@ int __meminit vmemmap_check_pmd(pmd_t *pmdp, int node,
->>   int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
->>   		struct vmem_altmap *altmap)
->>   {
->> +	unsigned long start_pfn;
->> +	struct mem_section *ms;
->> +
->>   	WARN_ON((start < VMEMMAP_START) || (end > VMEMMAP_END));
->>   
->> -	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES))
->> +	start_pfn = page_to_pfn((struct page *)start);
->> +	ms = __pfn_to_section(start_pfn);
-> 
-> Hmm, it would have been better if the core code provided the start pfn
-> as it does for vmemmap_populate_compound_pages() but I'm fine with
-> deducting it from 'start'.
+Thanks
+James
 
-I found another bug, that even for early section, when vmemmap_populate 
-is called, SECTION_IS_EARLY is not set. Therefore, early_section() 
-always return false.
-
-Since vmemmap_populate() occurs during section initialization, it may be 
-hard to say it is a bug..
-However, should we instead using SECTION_MARKED_PRESENT to check? I 
-tested well in my setup.
-
-Hot plug flow:
-1. section_activate -> vmemmap_populate
-2. mark PRESENT
-
-In contrast, the early flow:
-1. memblocks_present -> mark PRESENT
-2. __populate_section_memmap -> vmemmap_populate
-
-> 
->> +	/*
->> +	 * Hotplugged section does not support hugepages as
->> +	 * PMD_SIZE (hence PUD_SIZE) section mapping covers
->> +	 * struct page range that exceeds a SUBSECTION_SIZE
->> +	 * i.e 2MB - for all available base page sizes.
->> +	 */
->> +	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES) || !early_section(ms))
->>   		return vmemmap_populate_basepages(start, end, node, altmap);
->>   	else
->>   		return vmemmap_populate_hugepages(start, end, node, altmap);
->> @@ -1339,9 +1354,25 @@ int arch_add_memory(int nid, u64 start, u64 size,
->>   		    struct mhp_params *params)
->>   {
->>   	int ret, flags = NO_EXEC_MAPPINGS;
->> +	unsigned long start_pfn = page_to_pfn((struct page *)start);
->> +	struct mem_section *ms = __pfn_to_section(start_pfn);
-> 
-> This looks wrong. 'start' here is a physical address, you want
-> PFN_DOWN() instead.
-
-Sorry, my mistake.Thanks for catching it.
-
-> 
->>   
->>   	VM_BUG_ON(!mhp_range_allowed(start, size, true));
->>   
->> +	/* should not be invoked by early section */
->> +	WARN_ON(early_section(ms));
->> +
->> +	/*
->> +	 * 4K base page's PMD_SIZE matches SUBSECTION_SIZE i.e 2MB. Hence
->> +	 * PMD section mapping can be allowed, but only for 4K base pages.
->> +	 * Where as PMD_SIZE (hence PUD_SIZE) for other page sizes exceed
->> +	 * SUBSECTION_SIZE.
->> +	 */
->> +	if (IS_ENABLED(CONFIG_ARM64_4K_PAGES))
->> +		flags |= NO_PUD_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
-> 
-> In theory we can allow contiguous PTE mappings but not PMD. You could
-> probably do the same as a NO_BLOCK_MAPPINGS and split it into multiple
-> components - NO_PTE_CONT_MAPPINGS and so on.
-> 
->> +	else
->> +		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
-> 
-> Similarly with 16K/64K pages we can allow contiguous PTEs as they all go
-> up to 2MB blocks.
-
-Yes!
-
-> 
-> I think we should write the flags setup in a more readable way than
-> trying to do mental maths on the possible combinations, something like:
-> 
-> 	flags = NO_PUD_BLOCK_MAPPINGS | NO_PMD_CONT_MAPPINGS;
-> 	if (SUBSECTION_SHIFT < PMD_SHIFT)
-> 		flags |= NO_PMD_BLOCK_MAPPINGS;
-> 	if (SUBSECTION_SHIFT < CONT_PTE_SHIFT)
-> 		flags |= NO_PTE_CONT_MAPPINGS;
-
-Good idea indeed. We no longer need to worry about PAGE SIZE CONFIG.
-
-> 
-> This way we don't care about the page size and should cover any changes
-> to SUBSECTION_SHIFT making it smaller than 2MB.
-> 
 
 
