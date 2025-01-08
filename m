@@ -4,75 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CD30E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 13:45:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02E9BE7719B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 13:45:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sMxSZutg00vXvr44EHaUd78mFUfx7ownohlph3k0Skc=; b=mp2Z9Phqf679K2V3QnPVwtjdPV
-	8B+R2wmbyTJXl6++7wVQd5Aud7PBPtuH6tkPwrQ9Hl2D92EOE+C8c5ceUyAdVlzgUlIkswRPeJ/yn
-	IF+jSpMiD7WkFPTHF4jMjQlaKUDgmqodHAzvRhTDAJO4Vn2G/JdftM7wsJUUhbezi/gdo+DvIdxOI
-	Fe2TJby3LnzqpGtj+Edi8s2UPtgUbVYxfh/L9Av49ahcI4jZ3gs2yfaBIUKkc78cLbmHTP0MOTs+f
-	xH4wK2+PPwUdpHV3cOZbKaWpgr34Ju+STe0ZhEd6vTAD2OMJMwm8NUHi4/wfPWOnJQalQtLCN1EM/
-	Vemqipgw==;
+	bh=8NWugOCTua3U4zM1I0sMTHCzc7ebPizCAQxQ1HTI358=; b=rrR+V1j7XQp1n2HS15qKDTPLk5
+	vVgYbaKLPUX+3Jl/GatrV2hwoTpM142mNHZ4F3aMifYtSmXjwALuiU4WRmmchUEgA0D1dwdG01k/e
+	20zr+8nK47YtCcOEPprdyKfoy0KxAHSRWQnwu9B84BP6S7W5hO3VM2qTbF8GZpHadrOwEx8INCL40
+	UZnEuvltCH7GsDswEF7OIsCPEBNe5K+bfztKULO5sIc1cW7SeesbXtGz2KlbFawSPjCfAb3u73K/3
+	BlUbuZ558odKrRZPxkySxhzyqXtivjoZEoUlMJcjJkQ0kLe62zrXCYLjXHXVtZQo1LyDV/CNWSatB
+	UATxw+zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVWNM-00000008elW-2fRH;
-	Wed, 08 Jan 2025 13:45:36 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1tVWNL-00000008ejz-04Bo;
+	Wed, 08 Jan 2025 13:45:35 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVWAd-00000008cg1-2hAK
+	id 1tVW7g-00000008c79-0p3f
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 13:32:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1736343147; x=1767879147;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=dAxFgrzG1HoxwzIUMYTk3N5n2IDUrRKAA4lDY4FZYFY=;
-  b=oFkmEA5aBFi1q6XGx60RH/maW/ZFYxiKjVlmmK9LjlTI9gItGqpx0svr
-   iyQCII9p4hpLbRYut99iifG+Cd5mau3u47p5ZVYgSNp/S/ZMFKLcmUnn2
-   L3pMoNszuhWk4pTLgRxALLWoSp2lcciB9LypbD/nXPt/X7EKhqDvtiaKB
-   SkrW5UQMX/G+8DDwnGc5kS+sb3qQRJYssnFlQlh+HCrUvhGp9rkr/7jFb
-   zZF8N1uCq4dm5mRDTzy7nV4EbOMHlC90AwK5tYLHfYXc6RW2N4rizAxrG
-   KhBrVEWHwlq9DnQ/AAQJkRRZhlnRQ+m/nsy9pUXm0C0rspDA6nAv72zVo
-   Q==;
-X-CSE-ConnectionGUID: 8yblzpFQSpy0mdJMe/argg==
-X-CSE-MsgGUID: 9tr49NP3TOGm+epbvodq0Q==
-X-IronPort-AV: E=Sophos;i="6.12,298,1728975600"; 
-   d="scan'208";a="267567432"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 08 Jan 2025 06:32:25 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Wed, 8 Jan 2025 06:32:22 -0700
-Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
- Transport; Wed, 8 Jan 2025 06:32:20 -0700
-Date: Wed, 8 Jan 2025 13:32:20 +0000
-From: Daniel Machon <daniel.machon@microchip.com>
-To: Robert Marko <robert.marko@sartura.hr>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>, <lee@kernel.org>,
-	<gregkh@linuxfoundation.org>, <jirislaby@kernel.org>, <arnd@kernel.org>,
-	<lars.povlsen@microchip.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-serial@vger.kernel.org>,
-	<luka.perkov@sartura.hr>
-Subject: Re: [PATCH v3 1/3] arm64: lan969x: Add support for Microchip LAN969x
- SoC
-Message-ID: <20250108133220.xysvfof4puzr3jgr@DEN-DL-M70577>
-References: <20250108131045.40642-1-robert.marko@sartura.hr>
+	Wed, 08 Jan 2025 13:29:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=8NWugOCTua3U4zM1I0sMTHCzc7ebPizCAQxQ1HTI358=; b=5MCclyICiavifLu+is6XHXo+lL
+	JMlKc9c2kEDa4HeGyBpaP//rY02AHLVjfDoVIPuhsn5rQCgm4I0NPI+i0f0mO8/a4sOcbRenvudAh
+	ZapVFOfxUZ3YvjWIQ85GWtVRltJHsKjePk3aA+9PwD7Hf1fTQTgzY8gES+EbDBsywjh4=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tVW7L-002Zoo-A9; Wed, 08 Jan 2025 14:29:03 +0100
+Date: Wed, 8 Jan 2025 14:29:03 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Yijie Yang <quic_yijiyang@quicinc.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/3] net: stmmac: qcom-ethqos: Enable RX programmable
+ swap on qcs615
+Message-ID: <7e046761-7787-4f01-b47b-9374402489ac@lunn.ch>
+References: <20241225-support_10m100m-v1-0-4b52ef48b488@quicinc.com>
+ <20241225-support_10m100m-v1-2-4b52ef48b488@quicinc.com>
+ <4b4ef1c1-a20b-4b65-ad37-b9aabe074ae1@kernel.org>
+ <278de6e8-de8f-458a-a4b9-92b3eb81fa77@quicinc.com>
+ <e47f3b5c-9efa-4b71-b854-3a5124af06d7@lunn.ch>
+ <87a7729d-ccdd-46f0-bcfd-3915452344fd@quicinc.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250108131045.40642-1-robert.marko@sartura.hr>
+In-Reply-To: <87a7729d-ccdd-46f0-bcfd-3915452344fd@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_053227_758098_9AFC3B38 
-X-CRM114-Status: GOOD (  16.87  )
+X-CRM114-CacheID: sfid-20250108_052924_239776_DDD09600 
+X-CRM114-Status: GOOD (  22.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,48 +88,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> This adds support for the Microchip LAN969x ARMv8-based SoC switch family.
+> > Why is it specific to this board? Does the board have a PHY which is
+> > broken and requires this property? What we are missing are the details
+> > needed to help you get to the correct way to solve the problem you are
+> > facing.
+> > 
 > 
-> Signed-off-by: Robert Marko <robert.marko@sartura.hr>
-> ---
-> Changes in v3:
-> * Rebase on top of next-20250107
+> Let me clarify why this bit is necessary and why it's board-specific. The RX
+> programming swap bit can introduce a time delay of half a clock cycle. This
+> bit, along with the clock delay adjustment functionality, is implemented by
+> a module called 'IO Macro.' This is a Qualcomm-specific hardware design
+> located between the MAC and PHY in the SoC, serving the RGMII interface. The
+> bit works in conjunction with delay adjustment to meet the sampling
+> requirements. The sampling of RX data is also handled by this module.
 > 
-> Changes in v2:
-> * Add forgotten LAN969x architecture support itself
-> 
->  arch/arm64/Kconfig.platforms | 14 ++++++++++++++
->  1 file changed, 14 insertions(+)
-> 
-> diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
-> index e2638e5118a7..cd29480be792 100644
-> --- a/arch/arm64/Kconfig.platforms
-> +++ b/arch/arm64/Kconfig.platforms
-> @@ -133,6 +133,20 @@ config ARCH_SPARX5
->           security through TCAM-based frame processing using versatile
->           content aware processor (VCAP).
-> 
-> +config ARCH_LAN969X
-> +       bool "Microchip LAN969X SoC family"
-> +       select PINCTRL
-> +       select DW_APB_TIMER_OF
-> +       help
-> +         This enables support for the Microchip LAN969X ARMv8-based
-> +         SoC family of TSN-capable gigabit switches.
-> +
-> +         The LAN969X Ethernet switch family provides a rich set of
-> +         switching features such as advanced TCAM-based VLAN and QoS
-> +         processing enabling delivery of differentiated services, and
-> +         security through TCAM-based frame processing using versatile
-> +         content aware processor (VCAP).
-> +
->  config ARCH_K3
->         bool "Texas Instruments Inc. K3 multicore SoC architecture"
->         select PM_GENERIC_DOMAINS if PM
-> --
-> 2.47.1
->
+> During the board design stage, the RGMII requirements may not have been
+> strictly followed, leading to uncertainty in the relationship between the
+> clock and data waveforms when they reach the IO Macro.
 
-Acked-by: Daniel Machon <daniel.machon@microchip.com>
- 
+So this indicates any board might need this feature, not just this one
+board. Putting the board name in the driver then does not scale.
+
+> This means the time
+> delay introduced by the PC board may not be zero. Therefore, it's necessary
+> for software developers to tune both the RX programming swap bit and the
+> delay to ensure correct sampling.
+
+O.K. Now look at how other boards tune their delays. There are
+standard properties for this:
+
+        rx-internal-delay-ps:
+          description:
+            RGMII Receive Clock Delay defined in pico seconds. This is used for
+            controllers that have configurable RX internal delays. If this
+            property is present then the MAC applies the RX delay.
+        tx-internal-delay-ps:
+          description:
+            RGMII Transmit Clock Delay defined in pico seconds. This is used for
+            controllers that have configurable TX internal delays. If this
+            property is present then the MAC applies the TX delay.
+
+I think you can use these properties, maybe with an additional comment
+in the binding. RGMII running at 1G has a clock of 125MHz. That is a
+period of 8ns. So a half clock cycle delay is then 4ns.
+
+So an rx-internal-delay-ps of 0-2000 means this clock invert should be
+disabled. A rx-internal-delay-ps of 4000-6000 means the clock invert
+should be enabled.
+
+Now, ideally, you want the PHY to add the RGMII delays, that is what i
+request all MAC/PHY pairs do, so we have a uniform setup across all
+boards. So unless the PHY does not support RGMII delays, you would
+expect rx-internal-delay-ps to be either just a small number of
+picoseconds for fine tuning, or a small number of picoseconds + 4ns
+for fine tuning.
+
+This scales, since it can be used by an board with poor design, and it
+does not require anything proprietary to Qualcomm, except the extended
+range, and hopefully nobody except Qualcomms broken RDK will require
+it, because obviously you will document the issue with the RDK and
+tell customers how to correctly design their board to be RGMII
+compliant with the clocks.
+
+	Andrew
 
