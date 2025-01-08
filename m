@@ -4,69 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55E6CE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 23:45:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 271B5E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 23:46:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vBcYAWTLdVkrLU3Ay8+KUQNGx/0mRX8IDoYXQd1xcD4=; b=yFpbMJIEMlN5IhplzS9chNduQP
-	dHRbXjL7KgFFdHjebPzNImhEOadFbZ7GGBQuQz4AUKt5maXTiqblQL2RfYLY8AIBsg/X22IoQ9csR
-	aCMoMGf5Jg5QCxgI/5z3ZJKI1eeDcqpL0bIianuJhRT2v+O5QvTARtH4ZNe+bmApY2tkPAZzteajk
-	f4xKK4Y/9plc5xmxX5Znmx6R7Sm5yzcFMa9xSRPA05I7w43znJ4sgZ9qyQRVz+vF7qc9HmlvS5/27
-	Kg+lwsCyGJKbcc/VzAepniczBvQvmaMwtRTABKIyweF05QUFz4IvTTK+K9C941xMxl1M/X2Vxea9c
-	W5JKjFbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nVvhATWey38ynPb1qbDky8MyF1nm4tzMBJPZvCvPTYQ=; b=f9wa4xofjs7WJBRJFlyM+KwJJI
+	flKQfgN4iUAhPs46DBwPQvcZP6YxV6lAknZToHJd94fH5HCMqYatJMEzFxOTVMOjINbxEmYxQ9by+
+	qDVYtER+ZYftombUrvtGDYsRrvMuAwYRX6rkgwaAQbFCp1XHV7pLxfvzxuUAcm/SiH26v3J2X67N2
+	TxBzpoVdu2koGr1sV+iwgwjDkB4MxqZs2NHVoOLjQqQbqKbdLk49AL/Gstq3rvu3akbRPgEPmCc0P
+	cGRWyMmMQGVxwzZSLNKR6CQFMUEwawheJy3lIGAdTYDtsOdkPTnOyaVID4ZtrPmzjyyP2pYlTLLmt
+	gpD251xQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVfjb-0000000ABHB-3Jn6;
-	Wed, 08 Jan 2025 23:45:11 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tVfkm-0000000ABRI-1VZi;
+	Wed, 08 Jan 2025 23:46:24 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVfiC-0000000AB7E-0kNR
+	id 1tVfiH-0000000AB7r-29Ub
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 23:43:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E44C55C541B;
-	Wed,  8 Jan 2025 23:42:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63875C4CED3;
-	Wed,  8 Jan 2025 23:43:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736379782;
-	bh=s4LvSNjHxIP96RzfdWGBTy4l/TRP9WawToXBJ3jEbDQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EYbEEhm1CFBpKOF7XnweDcLAexyqeuTzkSHkQExDipKQUUT8VqGRxtVRR4dh0wNzJ
-	 +sdP3Kpo/GvGYKkMtl4NPRFmhDVaRlLh8KOW1lQaM5fyt3gOqXEalHIYuhCUQ9FBoY
-	 WrIHnWX9FMf4cpRnH55Lwo8akkfr+n7jiarjTG4viRX93g9VY4Fl2kv/hstGRv9dY5
-	 SBogs/jPPHr6sfa4Ibq0awgNNOEyTxvj7xqN1FReEhTBKgomCG+sk/ojFLE+U+YSX8
-	 qM17op01B0H02HLbCp/zw7IteLZmUV9FmdzVNM/o1Qgjt/x1/sJr22ceBIahG4BaiF
-	 Hy9aEoCXOGQLg==
-Date: Wed, 8 Jan 2025 17:43:01 -0600
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Claudiu <claudiu.beznea@tuxon.dev>
-Cc: linux-pm@vger.kernel.org, magnus.damm@gmail.com,
-	linux-renesas-soc@vger.kernel.org, lukasz.luba@arm.com,
-	mturquette@baylibre.com, ulf.hansson@linaro.org,
-	linux-clk@vger.kernel.org, geert+renesas@glider.be,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>,
-	rui.zhang@intel.com, p.zabel@pengutronix.de,
-	linux-arm-kernel@lists.infradead.org, rafael@kernel.org,
-	conor+dt@kernel.org, krzk+dt@kernel.org, daniel.lezcano@linaro.org,
-	sboyd@kernel.org
-Subject: Re: [PATCH 3/6] dt-bindings: thermal: r9a08g045-tsu: Document the
- TSU unit
-Message-ID: <173637978084.1245245.17902878993210680410.robh@kernel.org>
-References: <20250103163805.1775705-1-claudiu.beznea.uj@bp.renesas.com>
- <20250103163805.1775705-4-claudiu.beznea.uj@bp.renesas.com>
+	Wed, 08 Jan 2025 23:43:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1736379787;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=nVvhATWey38ynPb1qbDky8MyF1nm4tzMBJPZvCvPTYQ=;
+	b=EeU5XYTac08hOPz5FT6ir9AgY+x/IzbvUV4JEerp1tXh0YXVckSaBAdyk+RzwTVxGyrm64
+	1N6cnGoHjgpW85VHAzwL1gEUPhetgiaRvCX4ZnYA0UTeaVNERX+re8gCmUc1QpRk6aFStk
+	XSiOqqCtTZLvJcLU80I0ueziSifDzQk=
+Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-121-R1SE5xg_MqS0rNmWcbb7ng-1; Wed,
+ 08 Jan 2025 18:43:05 -0500
+X-MC-Unique: R1SE5xg_MqS0rNmWcbb7ng-1
+X-Mimecast-MFC-AGG-ID: R1SE5xg_MqS0rNmWcbb7ng
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id CCC16195608A;
+	Wed,  8 Jan 2025 23:43:04 +0000 (UTC)
+Received: from [172.64.12.18] (unknown [10.30.33.24])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id E9D4A19560AB;
+	Wed,  8 Jan 2025 23:43:03 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4p2M?= FAIL: Test report for for-kernelci (6.13.0-rc6,
+ upstream-arm-next, 577490b6)
+Date: Wed, 08 Jan 2025 23:43:03 -0000
+To: will@kernel.org, bgoncalv@redhat.com, catalin.marinas@arm.com,
+ linux-arm-kernel@lists.infradead.org
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250103163805.1775705-4-claudiu.beznea.uj@bp.renesas.com>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+Message-Id: <88638.125010818430600129@us-mta-121.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: QYFw1Gqd8C_wwhCF-4qIzAstnVUrjNp96K38d8pACYw_1736379785
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_154344_254762_583CDFAC 
-X-CRM114-Status: GOOD (  10.59  )
+X-CRM114-CacheID: sfid-20250108_154349_622888_C07F97D2 
+X-CRM114-Status: UNSURE (   7.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,22 +84,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi, we tested your kernel and here are the results:
 
-On Fri, 03 Jan 2025 18:38:02 +0200, Claudiu wrote:
-> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-> 
-> The Renesas RZ/G3S SoC includes a Thermal Sensor Unit (TSU) block designed
-> to measure the junction temperature. The temperature is measured using
-> the RZ/G3S ADC, with a dedicated ADC channel directly connected to the TSU.
-> Add documentation for it.
-> 
-> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-> ---
->  .../thermal/renesas,r9a08g045-tsu.yaml        | 93 +++++++++++++++++++
->  1 file changed, 93 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/thermal/renesas,r9a08g045-tsu.yaml
-> 
+    Overall result: FAILED
+             Merge: OK
+           Compile: OK
+              Test: FAILED
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+
+Kernel information:
+    Commit message: Merge branches 'for-next/core' and 'for-next/perf' into=
+ for-kernelci
+
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1616589950
+
+One or more kernel tests failed:
+    Unrecognized or new issues:
+        Boot test
+             aarch64
+                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
+redhat:1616589950-aarch64-kernel_upt_14
+                   Non-passing ran subtests:
+                       =E2=9D=8C FAIL distribution/kpkginstall/journalctl-c=
+heck
+             aarch64
+                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
+redhat:1616589950-aarch64-kernel_upt_37
+                   Non-passing ran subtests:
+                       =E2=9D=8C FAIL distribution/kpkginstall/journalctl-c=
+heck
+             aarch64
+                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
+redhat:1616589950-aarch64-kernel_upt_50
+                   Non-passing ran subtests:
+                       =E2=9D=8C FAIL distribution/kpkginstall/journalctl-c=
+heck
+             aarch64
+                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
+redhat:1616589950-aarch64-kernel_upt_57
+                   Non-passing ran subtests:
+                       =E2=9D=8C FAIL distribution/kpkginstall/journalctl-c=
+heck
+             aarch64
+                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
+redhat:1616589950-aarch64-kernel_upt_65
+                   Non-passing ran subtests:
+                       =E2=9D=8C FAIL distribution/kpkginstall/journalctl-c=
+heck
+        Reboot test
+             aarch64
+                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
+redhat:1616589950-aarch64-kernel_upt_20
+                   Non-passing ran subtests:
+                       =E2=9D=8C FAIL misc/reboot-test/journalctl-check
+             aarch64
+                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
+redhat:1616589950-aarch64-kernel_upt_46
+                   Non-passing ran subtests:
+                       =E2=9D=8C FAIL misc/reboot-test/journalctl-check
+             aarch64
+                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
+redhat:1616589950-aarch64-kernel_upt_53
+                   Non-passing ran subtests:
+                       =E2=9D=8C FAIL misc/reboot-test/journalctl-check
+             aarch64
+                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
+redhat:1616589950-aarch64-kernel_upt_61
+                   Non-passing ran subtests:
+                       =E2=9D=8C FAIL misc/reboot-test/journalctl-check
+             aarch64
+                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
+redhat:1616589950-aarch64-kernel_upt_69
+                   Non-passing ran subtests:
+                       =E2=9D=8C FAIL misc/reboot-test/journalctl-check
+
+    We also see the following known issues which are not related to your ch=
+anges:
+        Issue: [aarch64][coresight_etm4x][kernel 5.19.0] coresight-etm4x: p=
+robe of ARMHC500:20 failed with error -17
+            URL: https://lore.kernel.org/all/CA+QYu4ogiTa1V20aqxFqBrMH0z927=
+YNNN2O=3DCKma+=3DM_8E81iQ@mail.gmail.com/
+            Affected tests:
+                Boot test [aarch64]
+                Reboot test [aarch64]
+
+
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
 
 
