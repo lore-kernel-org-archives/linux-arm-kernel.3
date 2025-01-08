@@ -4,91 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D9BBE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 08:14:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B2B6E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 08:15:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HNJctEOxjNX+HPoMc9n0enC9xzXXcKa657v9jR3Yojc=; b=TEzeMe1mlIvo9ruljQrnoPBvWY
-	iMJExSNhfrSDwz4Wz97FscAOTiYtRj+V1uj/DM4ZNylwTK2MBGOlvqEWGnFzzp5AHO0dA/FpdIzHk
-	nKLSaKAiWQDMt4rB5b2O4aEAoRC5nVNqLj6YF73sDt/cBe3Ix12pG3Nau+QkQP3Kiycs/UmtD7WK5
-	On7yIGCHrgfNgrz+cMKqltK4Px74h5fdKiOP+fE19h/xnlA91c3NVG8ZMwkJfa+USmStF9g14ndvq
-	/OKiAoN5inK9gdcywq/ZpFsWXx0J/G5XG3oWOoQpqGbiO0RrDy/peRklX+EhlBXc81Gpe2u+jGCHl
-	N1+aRDLg==;
+	bh=V/TVXvMCdzRBNPQn9W0BvBp7CqaNlADmUj0mA9GZG0g=; b=KzZJWlsNN2tOIrPFBuunOdHlBY
+	M6HIv+NYFfXv6aMJwm5az0rlWuI/c7HGsKc6lchOVo4BoyryVS2FvfxkwmxIa5Yif7AKnNd20Nb9s
+	BOYk0DAQNygDxmuJcaYghmlxMOz6eKx4Z40dSJZyqrrRCiviKh1dOIi1qUnUyBGTxhWXNlRmoOsAN
+	M0sCAgJq3aqWZNSz+L5+FbMWtcxBatgulpqv249J0XX8HIcH3gtWGbBgGU9my+34VZdcvUSNHGCnP
+	pvCs3N969fZ7tAUMYBHjWp4KQFayfdgapfrdKosRt9OpHGdr1fnPBHNVkuLp6RfW1CGYs+U8sS+2w
+	SBjSSIKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVRCE-00000007W7B-25SC;
-	Wed, 08 Jan 2025 08:13:46 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tVRDP-00000007WHn-0RTx;
+	Wed, 08 Jan 2025 08:14:59 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVRB0-00000007Vt1-2mHl
+	id 1tVRBk-00000007W0h-08rq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 08:12:31 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ore@pengutronix.de>)
-	id 1tVRAa-0002TW-VK; Wed, 08 Jan 2025 09:12:04 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <ore@pengutronix.de>)
-	id 1tVRAY-007U1v-0v;
-	Wed, 08 Jan 2025 09:12:03 +0100
-Received: from ore by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <ore@pengutronix.de>)
-	id 1tVRAY-00BPlU-31;
-	Wed, 08 Jan 2025 09:12:02 +0100
-Date: Wed, 8 Jan 2025 09:12:02 +0100
-From: Oleksij Rempel <o.rempel@pengutronix.de>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Andrew Lunn <andrew@lunn.ch>,
-	"Russell King (Oracle)" <linux@armlinux.org.uk>,
-	Kory Maincent <kory.maincent@bootlin.com>, davem@davemloft.net,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	thomas.petazzoni@bootlin.com, Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>,
-	=?utf-8?Q?Nicol=C3=B2?= Veronese <nicveronese@gmail.com>,
-	Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
-	Antoine Tenart <atenart@kernel.org>
-Subject: Re: [PATCH net-next RFC 0/5] net: phy: Introduce a port
- representation
-Message-ID: <Z34zUuUkx2bWXYfW@pengutronix.de>
-References: <Z2g3b_t3KwMFozR8@pengutronix.de>
- <Z2hgbdeTXjqWKa14@pengutronix.de>
- <Z3Zu5ZofHqy4vGoG@shell.armlinux.org.uk>
- <Z3bG-B0E2l47znkE@pengutronix.de>
- <20250107142605.6c605eaf@kmaincent-XPS-13-7390>
- <Z31EVPD-3CGGXxnq@shell.armlinux.org.uk>
- <20250107171507.06908d71@fedora.home>
- <601067b3-2f8a-4080-9141-84a069db276e@lunn.ch>
- <Z31ZOjLcE34CNj0S@pengutronix.de>
- <20250108082507.0402f158@fedora.home>
+	Wed, 08 Jan 2025 08:13:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7ECF5A40AAA;
+	Wed,  8 Jan 2025 08:11:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FD10C4CEE0;
+	Wed,  8 Jan 2025 08:13:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1736323994;
+	bh=tRgRy8gM6MaS6N044gOjTwzD7jxxj2feUGYBJJLTg/4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=0Kn2klvt5ASlC1OAmrvwRdle0k28Id+SCbIl+iFauiALT665T/b7NmtgOLS3xzakj
+	 s38dAFTp49eQp8X7WolXssh2M3Pd/x8TquoSfpphTvwXo3wIysepRC9SXm3VW6emHn
+	 pjISi93b/mlZ07uQB79IKI349pOjvHmFFfjrABPg=
+Date: Wed, 8 Jan 2025 09:13:12 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Toshiyuki Sato <fj6611ie@aa.jp.fujitsu.com>
+Cc: Russell King <linux@armlinux.org.uk>, Jiri Slaby <jirislaby@kernel.org>,
+	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] serial: amba-pl011: Implement nbcon console
+Message-ID: <2025010845-deceiver-imaginary-ea04@gregkh>
+References: <20250108004730.2302996-1-fj6611ie@aa.jp.fujitsu.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250108082507.0402f158@fedora.home>
-X-Sent-From: Pengutronix Hildesheim
-X-URL: http://www.pengutronix.de/
-X-Accept-Language: de,en
-X-Accept-Content-Type: text/plain
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ore@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+In-Reply-To: <20250108004730.2302996-1-fj6611ie@aa.jp.fujitsu.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_001230_700505_9C342A4D 
-X-CRM114-Status: GOOD (  32.45  )
+X-CRM114-CacheID: sfid-20250108_001316_552151_91A76775 
+X-CRM114-Status: GOOD (  31.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,74 +69,198 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 08, 2025 at 08:25:07AM +0100, Maxime Chevallier wrote:
-> On Tue, 7 Jan 2025 17:41:30 +0100
-> Oleksij Rempel <o.rempel@pengutronix.de> wrote:
+On Wed, Jan 08, 2025 at 12:47:30AM +0000, Toshiyuki Sato wrote:
+> Implement the callbacks required for an NBCON console [0] on the 
+> amba-pl011 console driver.
+> The codes for legacy console are retained, and the module
+> parameter (use_nbcon) allows switching between legacy and NBCON.
+> The default is off (use legacy console) for now.
 > 
-> > On Tue, Jan 07, 2025 at 05:22:51PM +0100, Andrew Lunn wrote:
-> > > >   I have however seen devices that have a 1G PHY connected to a RJ45
-> > > > port with 2 lanes only, thus limiting the max achievable speed to 100M.
-> > > > Here, we would explicietly describe the port has having 2 lanes.   
-> > 
-> > I can confirm existence of this kind of designs. One industrial real life
-> > example: a SoC connected to 3 port Gigabit KSZ switch. One port is
-> > typical RJ45 connector. Other port is RJ11 connector.
-> > 
-> > The speed can be reduced by using max-speed property. But i can't
-> > provide any user usable diagnostic information just by saying pair A or
-> > B is broken.
-> > 
-> > This is one of the reasons why i propose detailed description.
+> Referred to the NBCON implementation work for 8250 [1] and imx [2].
 > 
-> While I get the point, I'm wondering if it's relevant to expose this
-> diag information for the user. As this is a HW design feature we're
-> representing, and it's described in devicetree, the information that the
-> HW design is wrong or uncommon is already known. So, exposing this to
-> the user ends-up being a pretty way to display plain devicetree data,
-> without much added value from the PHY stack ? Or am I missing the point
-> ?
+> The normal-priority write_thread checks for console ownership
+> each time a character is printed.
+> write_atomic holds the console ownership until the entire string
+> is printed.
+> 
+> UART register operations are protected from other contexts by 
+> uart_port_lock, except for a final flush(nbcon_atomic_flush_unsafe) 
+> on panic.
+> 
+> The patch has been verified to correctly handle the output and
+> competition of messages with different priorities and flushing
+> panic message to console after nmi panic using ARM64 QEMU and
+> a physical machine(A64FX).
+> 
+> [0] https://lore.kernel.org/all/ZuRRTbapH0DCj334@pathway.suse.cz/
+> [1] https://lore.kernel.org/all/20240913140538.221708-1-john.ogness@linutronix.de/T/
+> [2] https://lore.kernel.org/linux-arm-kernel/20240913-serial-imx-nbcon-v3-1-4c627302335b@geanix.com/T/
+> 
+> Signed-off-by: Toshiyuki Sato <fj6611ie@aa.jp.fujitsu.com>
+> ---
+>  drivers/tty/serial/amba-pl011.c | 113 ++++++++++++++++++++++++++++++++
+>  1 file changed, 113 insertions(+)
+> 
+> diff --git a/drivers/tty/serial/amba-pl011.c b/drivers/tty/serial/amba-pl011.c
+> index 69b7a3e1e..52fab3170 100644
+> --- a/drivers/tty/serial/amba-pl011.c
+> +++ b/drivers/tty/serial/amba-pl011.c
+> @@ -41,6 +41,7 @@
+>  #include <linux/sizes.h>
+>  #include <linux/io.h>
+>  #include <linux/acpi.h>
+> +#include <linux/moduleparam.h>
+>  
+>  #define UART_NR			14
+>  
+> @@ -263,6 +264,7 @@ struct uart_amba_port {
+>  	char			type[12];
+>  	bool			rs485_tx_started;
+>  	unsigned int		rs485_tx_drain_interval; /* usecs */
+> +	bool			console_line_ended;
+>  #ifdef CONFIG_DMA_ENGINE
+>  	/* DMA stuff */
+>  	unsigned int		dmacr;		/* dma control reg */
+> @@ -274,6 +276,10 @@ struct uart_amba_port {
+>  #endif
+>  };
+>  
+> +/* if non-zero, the console is nbcon. */
+> +static int use_nbcon;
+> +module_param(use_nbcon, int, 0444);
 
-Correct. The same kind of information, such as whether the connector is RJ45 or
-an industrial one with a proprietary layout, or what label this port will have
-on the box, is essential. This information helps the user to manage, repair, or
-connect devices in the field - even after 30 years of operation, when no paper
-manual has survived being eaten by animals and the vendor's websites no longer
-exist.
+Why is a module parameter needed here?  That feels wrong and not
+scalable at all.  What happens if you have multiple devices, which one
+is nbcon and which isn't?
 
-Here is one example of an industrial switch with PoE support:                                                                                       
-https://www.westermo.com/-/media/Files/User-guides/westermo_ug_6641-22501_viper-x12a-poe_revo.pdf?rev=083148a9e565416a9044e9a4e379635f              
-                                                                                                                                                    
-Please pay attention to the difference for Gbit and 100Mbit ports and signal
-layout within this ports.
 
-> I would see some value if we could detect that pairs are miswired or
-> disconnected at runtime, then report this to user. Here the information
-> is useful.
+> +
+>  static unsigned int pl011_tx_empty(struct uart_port *port);
+>  
+>  static unsigned int pl011_reg_to_offset(const struct uart_amba_port *uap,
+> @@ -2305,6 +2311,7 @@ static void pl011_console_putchar(struct uart_port *port, unsigned char ch)
+>  	while (pl011_read(uap, REG_FR) & UART01x_FR_TXFF)
+>  		cpu_relax();
+>  	pl011_write(ch, uap, REG_DR);
+> +	uap->console_line_ended = (ch == '\n');
+>  }
+>  
+>  static void
+> @@ -2411,6 +2418,8 @@ static int pl011_console_setup(struct console *co, char *options)
+>  	if (ret)
+>  		return ret;
+>  
+> +	uap->console_line_ended = true;
+> +
+>  	if (dev_get_platdata(uap->port.dev)) {
+>  		struct amba_pl011_data *plat;
+>  
+> @@ -2494,6 +2503,106 @@ static int pl011_console_match(struct console *co, char *name, int idx,
+>  	return -ENODEV;
+>  }
+>  
+> +static void
+> +pl011_console_write_atomic(struct console *co, struct nbcon_write_context *wctxt)
+> +{
+> +	struct uart_amba_port *uap = amba_ports[co->index];
+> +	unsigned int old_cr = 0;
+> +
+> +	if (!nbcon_enter_unsafe(wctxt))
+> +		return;
+> +
+> +	clk_enable(uap->clk);
+> +
+> +	if (!uap->vendor->always_enabled) {
+> +		old_cr = pl011_read(uap, REG_CR);
+> +		pl011_write((old_cr & ~UART011_CR_CTSEN) | (UART01x_CR_UARTEN | UART011_CR_TXE),
+> +				uap, REG_CR);
+> +	}
+> +
+> +	if (!uap->console_line_ended)
+> +		uart_console_write(&uap->port, "\n", 1, pl011_console_putchar);
+> +	uart_console_write(&uap->port, wctxt->outbuf, wctxt->len, pl011_console_putchar);
+> +
+> +	while ((pl011_read(uap, REG_FR) ^ uap->vendor->inv_fr) & uap->vendor->fr_busy)
+> +		cpu_relax();
+> +
+> +	if (!uap->vendor->always_enabled)
+> +		pl011_write(old_cr, uap, REG_CR);
+> +
+> +	clk_disable(uap->clk);
+> +
+> +	nbcon_exit_unsafe(wctxt);
+> +}
+> +
+> +static void
+> +pl011_console_write_thread(struct console *co, struct nbcon_write_context *wctxt)
+> +{
+> +	struct uart_amba_port *uap = amba_ports[co->index];
+> +	unsigned int old_cr = 0;
+> +
+> +	if (!nbcon_enter_unsafe(wctxt))
+> +		return;
+> +
+> +	clk_enable(uap->clk);
+> +
+> +	if (!uap->vendor->always_enabled) {
+> +		old_cr = pl011_read(uap, REG_CR);
+> +		pl011_write((old_cr & ~UART011_CR_CTSEN) | (UART01x_CR_UARTEN | UART011_CR_TXE),
+> +				uap, REG_CR);
+> +	}
+> +
+> +	if (nbcon_exit_unsafe(wctxt)) {
+> +		int i;
+> +		unsigned int len = READ_ONCE(wctxt->len);
+> +
+> +		for (i = 0; i < len; i++) {
+> +			if (!nbcon_enter_unsafe(wctxt))
+> +				break;
+> +			uart_console_write(&uap->port, wctxt->outbuf + i, 1, pl011_console_putchar);
+> +			if (!nbcon_exit_unsafe(wctxt))
+> +				break;
+> +		}
+> +	}
+> +
+> +	while (!nbcon_enter_unsafe(wctxt))
+> +		nbcon_reacquire_nobuf(wctxt);
+> +
+> +	while ((pl011_read(uap, REG_FR) ^ uap->vendor->inv_fr) & uap->vendor->fr_busy)
+> +		cpu_relax();
+> +
+> +	if (!uap->vendor->always_enabled)
+> +		pl011_write(old_cr, uap, REG_CR);
+> +
+> +	clk_disable(uap->clk);
+> +
+> +	nbcon_exit_unsafe(wctxt);
+> +}
+> +
+> +static void
+> +pl011_console_device_lock(struct console *co, unsigned long *flags)
+> +{
+> +	__uart_port_lock_irqsave(&amba_ports[co->index]->port, flags);
+> +}
+> +
+> +static void
+> +pl011_console_device_unlock(struct console *co, unsigned long flags)
+> +{
+> +	__uart_port_unlock_irqrestore(&amba_ports[co->index]->port, flags);
+> +}
+> +
+> +static void
+> +pl011_console_switch_to_nbcon(struct console *co)
+> +{
+> +	co->write = NULL;
+> +	co->write_atomic = pl011_console_write_atomic;
+> +	co->write_thread = pl011_console_write_thread;
+> +	co->device_lock = pl011_console_device_lock;
+> +	co->device_unlock = pl011_console_device_unlock;
+> +	co->flags = CON_PRINTBUFFER | CON_ANYTIME | CON_NBCON;
+> +	pr_info("Serial: switched to nbcon\n");
 
-Ack.
- 
-> The minimal information needed by software is in that case "how many
-> working pairs are connected between the PHY and the connector", and
-> possibly "are they swapped ?"
+dev_info()?
 
-In case of home and enterprise type of devices - yes.
-In case of industrial - the devices can be certified to operate in some
-specific link mode.
+thanks,
 
-For example device certified for explosive environments. These device should
-operate in 10BaseT1L-Vpp1 mode only, and discard any link attempts to
-devices which advertise 10BaseT1L-Vpp2 support in addition to 10BaseT1L-Vpp1:
-https://www.pepperl-fuchs.com/germany/de/classid_260.htm?view=productdetails&prodid=118298
-
-My point is, if we will need to set limit for the link modes, soon or later,
-we will need a supported linkmodes property and this property will partially
-duplicated the lanes property. At same time, if we use supported linkmodes
-instead of lanes, we solve the problem with multimode PHYs which support
-twisted pair and fiber modes.
-
--- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+greg k-h
 
