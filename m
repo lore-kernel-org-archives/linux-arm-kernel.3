@@ -4,108 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38844E77199
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 10:35:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DE2EE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 10:36:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kG9qrZwpk0ax9wVZjX4lH5f2FuZkvP3RDUkvgXroGJE=; b=BxeKp0E1vvLdX7TjmQ9o1wPnBy
-	PwINinvdNV4EeATR7yRTc0gvEpHQbz3t2WbpKL+3uMOtBL/yrG0YHqQxvezzBw8jkcPgSW4/EZK/B
-	zz/IUdVqJGJv9khjTI8qhQ+5pMRjQVQWQKzCHJl0tozTiDfk0AgAN6HB7iC7hQn+SH0TVHvL6qnD5
-	tvD+MSkh8fdWMlOWAjeTFi3Li3MR7edW5UCSKYXFzfQv/fnL+5ii3HjWvv5Ww7KNoOo8sXLNxLHPH
-	2/GOl1MH7gGm3NQH/kqSMVJaqZyPRVbtxLgGdWA8svwWclc00QonSPmkzYOSVJi2Mwq3kllA/k8ub
-	XyG85M3g==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0c45fBRzeK4+DNOGld4/dExcGN4T3dHYhPREShodZ+Y=; b=G1b//HFG2HVR6ckY2zo9vSYfif
+	cOjQdnfzl38D6+PzgdWZOEt+dZSL+xraraOyFhmEko/3jCpurKUM2TUyIQAw2DVMjejix11HUhbpA
+	1qipYjg0J8/J3GZks79mpY0XMlgGK4NVoIB4LqQDdlQKQWyJLTQOnH6Ow6cezjzaJKW6jchmxQxSM
+	zfSgMwQA8Wl1701n5pCNXQboVfcUlBrbtJzd0Z5HAPtyKHGw7t0txSzGtvgnoCofGns79NcOForWy
+	IlwFmvN876tdaCWeDcSdWG4ZN2Q7h623x/XbZsiGjRJk2FFcIp9igcvT8GICNaIOIuj6e/2wkIE2U
+	dShfhhjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVTP6-000000080To-0Y0m;
-	Wed, 08 Jan 2025 10:35:12 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVTNr-00000007zro-2mXc
+	id 1tVTQH-000000080pJ-3Jv5;
+	Wed, 08 Jan 2025 10:36:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tVTO8-00000007zwg-33v7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 10:33:56 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50891kAI017545;
-	Wed, 8 Jan 2025 10:33:47 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	kG9qrZwpk0ax9wVZjX4lH5f2FuZkvP3RDUkvgXroGJE=; b=HYxfjrgJ53l3ReJf
-	83QupBRRBi9lFGStxCv48jdTqmaLVDO7plLyE7a0l1g3klx+YKh/wtKBlgPZbVIE
-	u1AYjZHz3PWyTIBTMPaEpjcN5stwNnx2G6PzqhkY/kmrcYK0eKWo+TM7emLSpHoB
-	TOl/vjA3W8ee2Rlojv8TO8qc9+03ldBS7cQD5Ogr+nY1x+JBfZJUt3xIHgfk4ewb
-	t4UvZvn1RD9Lwl5GgMjdAway7LHEqqqwoFcKG3SlIv3jctt/m+ZvlOAnfpb5b/YG
-	+LiBQTuIUqtnG25apStMHbkNGOZRvwSJGIqngP6a1Io7N53HpOvtKydUI3yDk7/X
-	iva6/Q==
-Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 441hx8gx0r-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 08 Jan 2025 10:33:46 +0000 (GMT)
-Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
-	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 508AXkWw001823
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 8 Jan 2025 10:33:46 GMT
-Received: from [10.253.35.161] (10.80.80.8) by nalasex01c.na.qualcomm.com
- (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 8 Jan 2025
- 02:33:39 -0800
-Message-ID: <e2625cfd-128c-4b56-a1c5-c0256db5c486@quicinc.com>
-Date: Wed, 8 Jan 2025 18:33:36 +0800
+	Wed, 08 Jan 2025 10:34:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2EBEE13D5;
+	Wed,  8 Jan 2025 02:34:38 -0800 (PST)
+Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EB6A03F673;
+	Wed,  8 Jan 2025 02:34:06 -0800 (PST)
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+To: linux-hardening@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Mark Brown <broonie@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Jann Horn <jannh@google.com>,
+	Jeff Xu <jeffxu@chromium.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Kees Cook <kees@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Pierre Langlois <pierre.langlois@arm.com>,
+	Quentin Perret <qperret@google.com>,
+	"Mike Rapoport (IBM)" <rppt@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Will Deacon <will@kernel.org>,
+	Matthew Wilcox <willy@infradead.org>,
+	Qi Zheng <zhengqi.arch@bytedance.com>,
+	linux-arm-kernel@lists.infradead.org,
+	x86@kernel.org
+Subject: [RFC PATCH v2 00/15] pkeys-based page table hardening
+Date: Wed,  8 Jan 2025 10:32:35 +0000
+Message-ID: <20250108103250.3188419-1-kevin.brodsky@arm.com>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] net: stmmac: qcom-ethqos: Enable RX programmable swap
- on qcs615
-To: Krzysztof Kozlowski <krzk@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo
- Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bjorn Andersson
-	<andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Alexandre
- Torgue <alexandre.torgue@foss.st.com>,
-        Jose Abreu <joabreu@synopsys.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>
-CC: <netdev@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20241225-support_10m100m-v1-0-4b52ef48b488@quicinc.com>
- <20241225-support_10m100m-v1-2-4b52ef48b488@quicinc.com>
- <4b4ef1c1-a20b-4b65-ad37-b9aabe074ae1@kernel.org>
- <278de6e8-de8f-458a-a4b9-92b3eb81fa77@quicinc.com>
- <df1e2fbd-7fae-4910-9908-10fdb78e4299@kernel.org>
-Content-Language: en-US
-From: Yijie Yang <quic_yijiyang@quicinc.com>
-In-Reply-To: <df1e2fbd-7fae-4910-9908-10fdb78e4299@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01c.na.qualcomm.com (10.47.97.35)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: V64a_pnh8TcazOpIFs5G79f_apEyOLVY
-X-Proofpoint-ORIG-GUID: V64a_pnh8TcazOpIFs5G79f_apEyOLVY
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015
- lowpriorityscore=0 priorityscore=1501 mlxlogscore=999 phishscore=0
- spamscore=0 malwarescore=0 bulkscore=0 mlxscore=0 adultscore=0
- suspectscore=0 impostorscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.19.0-2411120000 definitions=main-2501080085
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_023355_714022_4E72A883 
-X-CRM114-Status: GOOD (  19.23  )
+X-CRM114-CacheID: sfid-20250108_023412_859780_0CD491CF 
+X-CRM114-Status: GOOD (  38.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,65 +82,309 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This is a proposal to leverage protection keys (pkeys) to harden
+critical kernel data, by making it mostly read-only. The series includes
+a simple framework called "kpkeys" to manipulate pkeys for in-kernel use,
+as well as a page table hardening feature based on that framework
+(kpkeys_hardened_pgtables). Both are implemented on arm64 as a proof of
+concept, but they are designed to be compatible with any architecture
+implementing pkeys.
+
+The proposed approach is a typical use of pkeys: the data to protect is
+mapped with a given pkey P, and the pkey register is initially configured
+to grant read-only access to P. Where the protected data needs to be
+written to, the pkey register is temporarily switched to grant write
+access to P on the current CPU.
+
+The key fact this approach relies on is that the target data is
+only written to via a limited and well-defined API. This makes it
+possible to explicitly switch the pkey register where needed, without
+introducing excessively invasive changes, and only for a small amount of
+trusted code.
+
+Page tables were chosen as they are a popular (and critical) target for
+attacks, but there are of course many others - this is only a starting
+point (see section "Further use-cases"). It has become more and more
+common for accesses to such target data to be mediated by a hypervisor
+in vendor kernels; the hope is that kpkeys can provide much of that
+protection in a simpler manner. No benchmarking has been performed at
+this stage, but the runtime overhead should also be lower (though likely
+not negligible).
+
+# kpkeys
+
+The use of pkeys involves two separate mechanisms: assigning a pkey to
+pages, and defining the pkeys -> permissions mapping via the pkey
+register. This is implemented through the following interface:
+
+- Pages in the linear mapping are assigned a pkey using set_memory_pkey().
+  This is sufficient for this series, but of course higher-level
+  interfaces can be introduced later to ask allocators to return pages
+  marked with a given pkey. It should also be possible to extend this to
+  vmalloc() if needed.
+
+- The pkey register is configured based on a *kpkeys level*. kpkeys
+  levels are simple integers that correspond to a given configuration,
+  for instance:
+
+  KPKEYS_LVL_DEFAULT:
+        RW access to KPKEYS_PKEY_DEFAULT
+        RO access to any other KPKEYS_PKEY_*
+
+  KPKEYS_LVL_<FEAT>:
+        RW access to KPKEYS_PKEY_DEFAULT
+        RW access to KPKEYS_PKEY_<FEAT>
+        RO access to any other KPKEYS_PKEY_*
+
+  Only pkeys that are managed by the kpkeys framework are impacted;
+  permissions for other pkeys are left unchanged (this allows for other
+  schemes using pkeys to be used in parallel, and arch-specific use of
+  certain pkeys).
+
+  The kpkeys level is changed by calling kpkeys_set_level(), setting the
+  pkey register accordingly and returning the original value. A
+  subsequent call to kpkeys_restore_pkey_reg() restores the kpkeys
+  level. The numeric value of KPKEYS_LVL_* (kpkeys level) is purely
+  symbolic and thus generic, however each architecture is free to define
+  KPKEYS_PKEY_* (pkey value).
+
+# kpkeys_hardened_pgtables
+
+The kpkeys_hardened_pgtables feature uses the interface above to make
+the (kernel and user) page tables read-only by default, enabling write
+access only in helpers such as set_pte(). One complication is that those
+helpers as well as page table allocators are used very early, before
+kpkeys become available. Enabling kpkeys_hardened_pgtables, if and when
+kpkeys become available, is therefore done as follows:
+
+1. A static key is turned on. This enables a transition to
+   KPKEYS_LVL_PGTABLES in all helpers writing to page tables, and also
+   impacts page table allocators (see step 3).
+
+2. All pages holding kernel page tables are set to KPKEYS_PKEY_PGTABLES.
+   This ensures they can only be written when runnning at
+   KPKEYS_LVL_PGTABLES.
+
+3. Page table allocators set the returned pages to KPKEYS_PKEY_PGTABLES
+   (and the pkey is reset upon freeing). This ensures that all page
+   tables are mapped with that privileged pkey.
+
+# Threat model
+
+The proposed scheme aims at mitigating data-only attacks (e.g.
+use-after-free/cross-cache attacks). In other words, it is assumed that
+control flow is not corrupted, and that the attacker does not achieve
+arbitrary code execution. Nothing prevents the pkey register from being
+set to its most permissive state - the assumption is that the register
+is only modified on legitimate code paths.
+
+A few related notes:
+
+- Functions that set the pkey register are all implemented inline.
+  Besides performance considerations, this is meant to avoid creating
+  a function that can be used as a straightforward gadget to set the
+  pkey register to an arbitrary value.
+
+- kpkeys_set_level() only accepts a compile-time constant as argument,
+  as a variable could be manipulated by an attacker. This could be
+  relaxed but it seems unlikely that a variable kpkeys level would be
+  needed in practice.
+
+# Further use-cases
+
+It should be possible to harden various targets using kpkeys, including:
+
+- struct cred (enforcing a "mostly read-only" state once committed)
+
+- fixmap (occasionally used even after early boot, e.g.
+  set_swapper_pgd() in arch/arm64/mm/mmu.c)
+
+- SELinux state (e.g. struct selinux_state::initialized)
+
+... and many others.
+
+kpkeys could also be used to strengthen the confidentiality of secret
+data by making it completely inaccessible by default, and granting
+read-only or read-write access as needed. This requires such data to be
+rarely accessed (or via a limited interface only). One example on arm64
+is the pointer authentication keys in thread_struct, whose leakage to
+userspace would lead to pointer authentication being easily defeated.
+
+# This series
+
+The series is composed of two parts:
+
+- The kpkeys framework (patch 1-7). The main API is introduced in
+  <linux/kpkeys.h>, and it is implemented on arm64 using the POE
+  (Permission Overlay Extension) feature.
+
+- The kpkeys_hardened_pgtables feature (patch 8-15). <linux/kpkeys.h> is
+  extended with an API to set page table pages to a given pkey and a
+  guard object to switch kpkeys level accordingly, both gated on a
+  static key. This is then used in generic and arm64 pgtable handling
+  code as needed. Finally a simple KUnit-based test suite is added to
+  demonstrate the page table protection.
+
+The arm64 implementation should be considered a proof of concept only.
+The enablement of POE for in-kernel use is incomplete; in particular
+POR_EL1 (pkey register) should be reset on exception entry and restored
+on exception return.
+
+# Performance
+
+No particular efforts were made to optimise the use of kpkeys at this
+stage (and no benchmarking was performed either). There are two obvious
+low-hanging fruits in the kpkeys_hardened_pgtables feature:
+
+- Always switching kpkeys level in leaf helpers such as set_pte() can be
+  very inefficient if many page table entries are updated in a row. Some
+  sort of batching may be desirable.
+
+- On arm64 specifically, the page table helpers typically perform an
+  expensive ISB (Instruction Synchronisation Barrier) after writing to
+  page tables. Since most of the cost of switching the arm64 pkey
+  register (POR_EL1) comes from the following ISB, the overhead incurred
+  by kpkeys_restore_pkey_reg() would be significantly reduced by merging
+  its ISB with the pgtable helper's. That would however require more
+  invasive changes, beyond simply adding a guard object.
+
+# Open questions
+
+A few aspects in this RFC that are debatable and/or worth discussing:
+
+- There is currently no restriction on how kpkeys levels map to pkeys
+  permissions. A typical approach is to allocate one pkey per level and
+  make it writable at that level only. As the number of levels
+  increases, we may however run out of pkeys, especially on arm64 (just
+  8 pkeys with POE). Depending on the use-cases, it may be acceptable to
+  use the same pkey for the data associated to multiple levels.
+
+  Another potential concern is that a given piece of code may require
+  write access to multiple privileged pkeys. This could be addressed by
+  introducing a notion of hierarchy in trust levels, where Tn is able to
+  write to memory owned by Tm if n >= m, for instance.
+
+- kpkeys_set_level() and kpkeys_restore_pkey_reg() are not symmetric:
+  the former takes a kpkeys level and returns a pkey register value, to
+  be consumed by the latter. It would be more intuitive to manipulate
+  kpkeys levels only. However this assumes that there is a 1:1 mapping
+  between kpkeys levels and pkey register values, while in principle
+  the mapping is 1:n (certain pkeys may be used outside the kpkeys
+  framework).
+
+- An architecture that supports kpkeys is expected to select
+  CONFIG_ARCH_HAS_KPKEYS and always enable them if available - there is
+  no CONFIG_KPKEYS to control this behaviour. Since this creates no
+  significant overhead (at least on arm64), it seemed better to keep it
+  simple. Each hardening feature does have its own option and arch
+  opt-in if needed (CONFIG_KPKEYS_HARDENED_PGTABLES,
+  CONFIG_ARCH_HAS_KPKEYS_HARDENED_PGTABLES).
 
 
-On 2024-12-27 15:03, Krzysztof Kozlowski wrote:
-> On 26/12/2024 03:29, Yijie Yang wrote:
->>
->>
->> On 2024-12-25 19:37, Krzysztof Kozlowski wrote:
->>> On 25/12/2024 11:04, Yijie Yang wrote:
->>>
->>>>    static int qcom_ethqos_probe(struct platform_device *pdev)
->>>>    {
->>>> -	struct device_node *np = pdev->dev.of_node;
->>>> +	struct device_node *np = pdev->dev.of_node, *root;
->>>>    	const struct ethqos_emac_driver_data *data;
->>>>    	struct plat_stmmacenet_data *plat_dat;
->>>>    	struct stmmac_resources stmmac_res;
->>>> @@ -810,6 +805,15 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
->>>>    	ret = of_get_phy_mode(np, &ethqos->phy_mode);
->>>>    	if (ret)
->>>>    		return dev_err_probe(dev, ret, "Failed to get phy mode\n");
->>>> +
->>>> +	root = of_find_node_by_path("/");
->>>> +	if (root && of_device_is_compatible(root, "qcom,sa8540p-ride"))
->>>
->>>
->>> Nope, your drivers are not supposed to poke root compatibles. Drop and
->>> fix your driver to behave correctly for all existing devices.
->>>
->>
->> Since this change introduces a new flag in the DTS, we must maintain ABI
->> compatibility with the kernel. The new flag is specific to the board, so
-> 
-> It's not, I don't see it specific to the board in the bindings.
+Any comment or feedback will be highly appreciated, be it on the
+high-level approach or implementation choices!
 
-I'm sorry for the confusion. This feature is not board-specific but 
-rather a tunable option. All RGMII boards can choose whether to enable 
-this bit in the DTS, so there are no restrictions in the binding.
+- Kevin
 
-> 
->> I need to ensure root nodes are matched to allow older boards to
->> continue functioning as before. I'm happy to adopt that approach if
->> there are any more elegant solutions.
-> 
-> I don't think you understood the problem. Why you are not handling this
-> for my board, sa8775p-rideX and sa8225-pre-ride-yellow-shrimp?
-> 
+---
+Changelog RFC v1..v2:
 
-This feature is specifically for RGMII boards. The driver won't enable 
-this bit if the DTS doesn't specify it. To handle compatibility, we need 
-to identify legacy RGMII boards with MAC versions greater or equal to 3 
-which require this bit to be enabled.
-According to my knowledge, the SA8775P is of the SGMII type.
+- A new approach is used to set the pkey of page table pages. Thanks to
+  Qi Zheng's and my own series [1][2], pagetable_*_ctor is
+  systematically called when a PTP is allocated at any level (PTE to
+  PGD), and pagetable_*_dtor when it is freed, on all architectures.
+  Patch 11 makes use of this to call kpkeys_{,un}protect_pgtable_memory
+  from the common ctor/dtor helper. The arm64 patches from v1 (patch 12
+  and 13) are dropped as they are no longer needed. Patch 10 is
+  introduced to allow pagetable_*_ctor to fail at all levels, since
+  kpkeys_protect_pgtable_memory may itself fail.
+  [Original suggestion by Peter Zijlstra]
 
-> 
-> Best regards,
-> Krzysztof
+- Changed the prototype of kpkeys_{,un}protect_pgtable_memory in patch 9
+  to take a struct folio * for more convenience, and implemented them
+  out-of-line to avoid a circular dependency with <linux/mm.h>.
 
+- Rebased on next-20250107, which includes [1] and [2].
+
+- Added locking in patch 8. [Peter Zijlstra's suggestion]
+
+RFC v1: https://lore.kernel.org/linux-hardening/20241206101110.1646108-1-kevin.brodsky@arm.com/
+
+[1] https://lore.kernel.org/linux-mm/cover.1736317725.git.zhengqi.arch@bytedance.com/
+[2] https://lore.kernel.org/linux-mm/20250103184415.2744423-1-kevin.brodsky@arm.com/
+---
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Dave Hansen <dave.hansen@linux.intel.com>
+Cc: Jann Horn <jannh@google.com>
+Cc: Jeff Xu <jeffxu@chromium.org>
+Cc: Joey Gouly <joey.gouly@arm.com>
+Cc: Kees Cook <kees@kernel.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>
+Cc: Andy Lutomirski <luto@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Pierre Langlois <pierre.langlois@arm.com>
+Cc: Quentin Perret <qperret@google.com>
+Cc: "Mike Rapoport (IBM)" <rppt@kernel.org>
+Cc: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Will Deacon <will@kernel.org>
+Cc: Matthew Wilcox <willy@infradead.org>
+Cc: Qi Zheng <zhengqi.arch@bytedance.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: x86@kernel.org
+---
+Kevin Brodsky (15):
+  mm: Introduce kpkeys
+  set_memory: Introduce set_memory_pkey() stub
+  arm64: mm: Enable overlays for all EL1 indirect permissions
+  arm64: Introduce por_set_pkey_perms() helper
+  arm64: Implement asm/kpkeys.h using POE
+  arm64: set_memory: Implement set_memory_pkey()
+  arm64: Enable kpkeys
+  mm: Introduce kernel_pgtables_set_pkey()
+  mm: Introduce kpkeys_hardened_pgtables
+  mm: Allow __pagetable_ctor() to fail
+  mm: Map page tables with privileged pkey
+  arm64: kpkeys: Support KPKEYS_LVL_PGTABLES
+  arm64: mm: Guard page table writes with kpkeys
+  arm64: Enable kpkeys_hardened_pgtables support
+  mm: Add basic tests for kpkeys_hardened_pgtables
+
+ arch/arm64/Kconfig                    |   2 +
+ arch/arm64/include/asm/kpkeys.h       |  45 +++++++++
+ arch/arm64/include/asm/pgtable-prot.h |  16 +--
+ arch/arm64/include/asm/pgtable.h      |  19 +++-
+ arch/arm64/include/asm/por.h          |   9 ++
+ arch/arm64/include/asm/set_memory.h   |   4 +
+ arch/arm64/kernel/cpufeature.c        |   5 +-
+ arch/arm64/kernel/smp.c               |   2 +
+ arch/arm64/mm/fault.c                 |   2 +
+ arch/arm64/mm/mmu.c                   |  28 ++----
+ arch/arm64/mm/pageattr.c              |  21 ++++
+ include/asm-generic/kpkeys.h          |  21 ++++
+ include/asm-generic/pgalloc.h         |  15 ++-
+ include/linux/kpkeys.h                | 112 +++++++++++++++++++++
+ include/linux/mm.h                    |  27 ++---
+ include/linux/set_memory.h            |   7 ++
+ mm/Kconfig                            |   5 +
+ mm/Makefile                           |   2 +
+ mm/kpkeys_hardened_pgtables.c         |  44 +++++++++
+ mm/kpkeys_hardened_pgtables_test.c    |  72 ++++++++++++++
+ mm/memory.c                           | 137 ++++++++++++++++++++++++++
+ security/Kconfig.hardening            |  24 +++++
+ 22 files changed, 576 insertions(+), 43 deletions(-)
+ create mode 100644 arch/arm64/include/asm/kpkeys.h
+ create mode 100644 include/asm-generic/kpkeys.h
+ create mode 100644 include/linux/kpkeys.h
+ create mode 100644 mm/kpkeys_hardened_pgtables.c
+ create mode 100644 mm/kpkeys_hardened_pgtables_test.c
+
+
+base-commit: 7b4b9bf203da94fbeac75ed3116c84aa03e74578
 -- 
-Best Regards,
-Yijie
+2.47.0
 
 
