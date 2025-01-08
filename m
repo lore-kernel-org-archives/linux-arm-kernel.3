@@ -4,69 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28C7EE77199
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 12:58:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 605EAE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 12:59:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sOdxUZEbN+LKL5lltgoIC1U6IklDyyg5C51yWnj6C38=; b=0kbz8DJIzQitV9u6wnFig0fqsS
-	wmG0sksG1/Vdd2mvpPkCe5s0kjY3yEQqxK90spaj3DuKwjdgpVbKNLdm2LXA7CLkORIXbsHp9f5z1
-	PFxXeOFk0Xk3yYGrdrqxjWYIbZv6WOVzEruyGDLnwdefAW3KzYOC4ii6gBp8qy9L21pW/SyTFv1e3
-	LxO8FCZf2ye5E23kn251dbKPNCyRWcJ+CktWoozxjZH6hgacbpP89fZ0uzm03Ota05ic3aGpq4IJ7
-	kiLT8bB9KxLbHy0ABbnvu/fcSHGGXs94dggJjaln25xHP7FBAnTAlXKqb+utPjR0CZP3pk4D1gMaz
-	6wErMq/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RrYofVOoKvKwnZPsYWd13Rqdme4LuIQHlAMqCcS50NY=; b=izKLOaeBElCcZaPGtvTilnBJul
+	fzs39etIin9KQr+t8WrctIvDLPs1Sj6DwvrgDS9KhW2I6aO0MyhNR80oW1AU2RcoBCsl5JfGGGlXw
+	QwVEPmyMRvaniOLJWGh/QUTUV3wLDG/yAAh322rOHPdQUw+1hMsSQKx3jAvjawk3zVamF7iRaUbAe
+	xaBnD8NIjhh+4RaUkC0EJOE1H51Yo7iSDMUy8bWVsVuOSnmlyekuDfEat/9Lm0DJAB6an9kzWqtnV
+	W8sJfboRD6feZokgW2Viejapwq1feuYZ2P9eFQpyIOsw/picpSCtdaIB3/M2KSTP5OFMXEMFnDrev
+	LHfGIySQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVVds-00000008WTL-15Sg;
-	Wed, 08 Jan 2025 12:58:36 +0000
-Received: from m16.mail.163.com ([117.135.210.3])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVUcX-00000008Ip3-1qhi;
-	Wed, 08 Jan 2025 11:53:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=sOdxU
-	ZEbN+LKL5lltgoIC1U6IklDyyg5C51yWnj6C38=; b=Sr2HsvUznBOCW53uM7s/q
-	8eZtjIL9hfzPoP7humMXlP6A9KuXf10fumI5xYH+foGe8MSTMoky3ElEKLzNxcYK
-	lYz4NNFSAaxoeRasSq0jZZBuDCUL3T+0Z04sm/M4IvOf/tc/Ek3V4VbiCerwPj7b
-	Ku15poKp9+sQ0kZLdX8F+I=
-Received: from ProDesk.. (unknown [])
-	by gzga-smtp-mtada-g1-4 (Coremail) with SMTP id _____wDHpyUCZ35n8Xn7EQ--.26804S6;
-	Wed, 08 Jan 2025 19:52:44 +0800 (CST)
-From: Andy Yan <andyshrk@163.com>
-To: heiko@sntech.de
-Cc: hjc@rock-chips.com,
-	krzk+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	derek.foreman@collabora.com,
-	detlev.casanova@collabora.com,
-	daniel@fooishbar.org,
-	robh@kernel.org,
-	Andy Yan <andy.yan@rock-chips.com>
-Subject: [PATCH v9 04/11] drm/rockchip: vop2: Merge vop2_cluster/esmart_init function
-Date: Wed,  8 Jan 2025 19:52:21 +0800
-Message-ID: <20250108115233.17729-5-andyshrk@163.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250108115233.17729-1-andyshrk@163.com>
-References: <20250108115233.17729-1-andyshrk@163.com>
+	id 1tVVf3-00000008WcQ-1Ef4;
+	Wed, 08 Jan 2025 12:59:49 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tVUwH-00000008NNa-1D96
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 08 Jan 2025 12:13:34 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-43621d2dd4cso46785e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jan 2025 04:13:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1736338412; x=1736943212; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=RrYofVOoKvKwnZPsYWd13Rqdme4LuIQHlAMqCcS50NY=;
+        b=bLgFpd673rlrjYySDfYKJAuiFisRQoxIhK34tPhNS/3pSvr+ZqhGrhx17q7phDkin0
+         WLpepH0k0mEp1WXv5WPVVlDbKCz7tKJfK/42xPSFRoTOR8Xg0OgJhTW32C/w/dLkrrGH
+         44N1jTyVVNcuZr5XqPZouIJqolRyJleG38lOPTBjp3+yMR9xapkkJOpzhvZXUTJ7u7Ev
+         tzW4SkYblFAS1rk3zeQJ/WglxaC0gOfACDJYLVC0hPCz6WUUcT/wQEF6+V1Adid9/D0W
+         yjHl4ObOPn3510lJupQQsYjMFOgdmse8q6KfyJl9dj7A0MV49rqu3afD2CC2dKCGJZq/
+         wQDA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736338412; x=1736943212;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RrYofVOoKvKwnZPsYWd13Rqdme4LuIQHlAMqCcS50NY=;
+        b=bf+M6flOJbcc68jG1N5qzog+jzqNxSl6jZBbJqgau6Q2TRT2UOI1fcSz+u+gtmi7s2
+         1Dj4p57SMBdMUQ4fO5o0dBZe9jNkUVRwbonj89ijTcjxnX4fuZdAevqyi1AJsZvvgItz
+         Uyz4l1OijchaMZXKC17EEpP4quE8ooxLsTDDIyBz9GzelqHo1rVfnJGClT+GtoHhBquO
+         oCtG6WNfn/4oPaZlxQoGthG3b9dUDxUyFNSl8f9HQU1B36qZL04YVLj16OjuJEXedrHt
+         vBlRYM6K4G6mTVGcknc14A7KXFEaMlCT7J2T3MKX2EkEY2D18IbktVkcS+xnR0QOudU5
+         +0Rg==
+X-Forwarded-Encrypted: i=1; AJvYcCU5SQpz00MAvQNufxdc7LLO/a3Cxovmrjqi74eWx0Ulk4bU0zhol13iW+QrOZr8zjQ+NN+s8BMoj7XYkJG9wQH5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/Gm0P6EOmYSXWsP5qsedxVfKHEcVscukYhY1IYUQ6R1SloMvU
+	nbowK1MWsE0QFG7++z4Rd/04cjt2H9PbxsIcxQDxEAkucaCJ7SKstkmDUIvxUA==
+X-Gm-Gg: ASbGncvfWN3zWG/lyCcTwIjJaLdgHqPmXmKHauVHioXK8FWjNoJbNgp5weemRgzvGZ/
+	vOw/pUr+XS+CkbJ3IyBfUVttp93vd9HkGTCTqRnxwTFMz/gh0mWTfkeLAsR3yoM6FkwsffO3oxY
+	bT8MRSdpjsJuFtzz9qWisRhyBKzwCEdG7ACrbR4n4NAClSHqUyKBO16uBfIUNtrd0Gj98XgG8ob
+	E+9xAyC6jXhgrzTzsfL7F4eWzGQxQey8vVjk4jwm6VhQ8pw4xC2pzqdxxdpx5dL5WRgLU8c7qNA
+	9m6pIs4R8Ee3y3EH5o0=
+X-Google-Smtp-Source: AGHT+IFSxU9Nih+nRcbTdqUehEVnjBOqg3Pc7JvHWVRd2oCHQ3onm9/9x+7dn/+oiTY0W8mf2rq1iQ==
+X-Received: by 2002:a05:600c:4818:b0:42c:9e35:cde6 with SMTP id 5b1f17b1804b1-436e1f879cdmr1023645e9.2.1736338411667;
+        Wed, 08 Jan 2025 04:13:31 -0800 (PST)
+Received: from google.com (216.131.76.34.bc.googleusercontent.com. [34.76.131.216])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e2e89ca5sm18817135e9.29.2025.01.08.04.13.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 08 Jan 2025 04:13:31 -0800 (PST)
+Date: Wed, 8 Jan 2025 12:13:27 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Robin Murphy <robin.murphy@arm.com>, iommu@lists.linux.dev,
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
+	will@kernel.org, maz@kernel.org, oliver.upton@linux.dev,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	robdclark@gmail.com, joro@8bytes.org, jean-philippe@linaro.org,
+	nicolinc@nvidia.com, vdonnefort@google.com, qperret@google.com,
+	tabba@google.com, danielmentz@google.com, tzukui@google.com
+Subject: Re: [RFC PATCH v2 55/58] drivers/iommu: Add deferred map_sg
+ operations
+Message-ID: <Z35r54_zgpmO6FQ-@google.com>
+References: <20241212180423.1578358-1-smostafa@google.com>
+ <20241212180423.1578358-56-smostafa@google.com>
+ <ce4c8db4-4895-426b-8d9d-97dc5d74fbc4@arm.com>
+ <Z2Qshft8lQjI-x7c@google.com>
+ <20250102201831.GB26854@ziepe.ca>
+ <Z3gDuPe5C1Uj7y4m@google.com>
+ <20250103154757.GG26854@ziepe.ca>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wDHpyUCZ35n8Xn7EQ--.26804S6
-X-Coremail-Antispam: 1Uf129KBjvJXoWxWw4UKF17CrWktr18AFykAFb_yoW5Xr1DpF
-	W3Jr43Xr4UGFsF9r4kJrn8uF1Fkr12yaykAa48Kw1SkwnrKF9FkFn5JF1jyr90krWvkF12
-	yFn5K3y3ua429r7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UXYFZUUUUU=
-X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqBnOXmd+X+etUAAAs9
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250103154757.GG26854@ziepe.ca>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_035309_897303_537CE7C2 
-X-CRM114-Status: GOOD (  11.39  )
+X-CRM114-CacheID: sfid-20250108_041333_323258_CE3C6367 
+X-CRM114-Status: GOOD (  20.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,93 +109,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Andy Yan <andy.yan@rock-chips.com>
+On Fri, Jan 03, 2025 at 11:47:57AM -0400, Jason Gunthorpe wrote:
+> On Fri, Jan 03, 2025 at 03:35:20PM +0000, Mostafa Saleh wrote:
+> 
+> > An alternative approach as Robin suggested, is to treat all iommu_map as sg map,
+> > and when the driver gets the iotlb_sync_map() call it can just issue the hypercall,
+> > however this call only provides the IOVA range, which requires extra work or locking
+> > as mentioned in the thread, and as Robin mentioned s390 doing something similar,
+> > I was highlighting that in their driver, this call only notifies the hypervisor
+> > about an IOVA and not an actual pv map as pKVM, so it much simpler in their case.
+> 
+> Oh, that is much clearer, maybe incorporate some of that into the
+> commit message.
 
-Now these two function share the same logic, the can
-be merged as one.
+Sure.
 
-Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
----
+> 
+> We are going in a general direction of trying to make the fast dma
+> mapping path not require sg, so adding sg specific optimizations to
+> the low level driver is not good.
+> 
+> Batching the hypercalls in the gather and then flushing to execute the
+> batch seems more reasonable.
+> 
+> You could probably work on advancing this infrastructure separately
+> via virtio-iommu..
 
-(no changes since v1)
+That was my impression also, I mentioned it in the commit message,
+but for virtio-iommu we need a change in the standard to define this
+operation, I can look into that.
 
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 42 +++++---------------
- 1 file changed, 11 insertions(+), 31 deletions(-)
-
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index b1c4a08d1883..d65df005bb94 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-@@ -2398,18 +2398,18 @@ static int vop2_find_rgb_encoder(struct vop2 *vop2)
- 	return -ENOENT;
- }
- 
--static int vop2_cluster_init(struct vop2_win *win)
-+static int vop2_regmap_init(struct vop2_win *win, const struct reg_field *regs,
-+			    int nr_regs)
- {
- 	struct vop2 *vop2 = win->vop2;
- 	int i;
- 
--	for (i = 0; i < vop2->data->nr_cluster_regs; i++) {
-+	for (i = 0; i < nr_regs; i++) {
- 		const struct reg_field field = {
--			.reg = (vop2->data->cluster_reg[i].reg != 0xffffffff) ?
--				vop2->data->cluster_reg[i].reg + win->offset :
--				vop2->data->cluster_reg[i].reg,
--			.lsb = vop2->data->cluster_reg[i].lsb,
--			.msb = vop2->data->cluster_reg[i].msb
-+			.reg = (regs[i].reg != 0xffffffff) ?
-+				regs[i].reg + win->offset : regs[i].reg,
-+			.lsb = regs[i].lsb,
-+			.msb = regs[i].msb
- 		};
- 
- 		win->reg[i] = devm_regmap_field_alloc(vop2->dev, vop2->map, field);
-@@ -2420,28 +2420,6 @@ static int vop2_cluster_init(struct vop2_win *win)
- 	return 0;
- };
- 
--static int vop2_esmart_init(struct vop2_win *win)
--{
--	struct vop2 *vop2 = win->vop2;
--	int i;
--
--	for (i = 0; i < vop2->data->nr_smart_regs; i++) {
--		const struct reg_field field = {
--			.reg = (vop2->data->smart_reg[i].reg != 0xffffffff) ?
--				vop2->data->smart_reg[i].reg + win->offset :
--				vop2->data->smart_reg[i].reg,
--			.lsb = vop2->data->smart_reg[i].lsb,
--			.msb = vop2->data->smart_reg[i].msb
--		};
--
--		win->reg[i] = devm_regmap_field_alloc(vop2->dev, vop2->map, field);
--		if (IS_ERR(win->reg[i]))
--			return PTR_ERR(win->reg[i]);
--	}
--
--	return 0;
--}
--
- static int vop2_win_init(struct vop2 *vop2)
- {
- 	const struct vop2_data *vop2_data = vop2->data;
-@@ -2458,9 +2436,11 @@ static int vop2_win_init(struct vop2 *vop2)
- 		win->win_id = i;
- 		win->vop2 = vop2;
- 		if (vop2_cluster_window(win))
--			ret = vop2_cluster_init(win);
-+			ret = vop2_regmap_init(win, vop2->data->cluster_reg,
-+					       vop2->data->nr_cluster_regs);
- 		else
--			ret = vop2_esmart_init(win);
-+			ret = vop2_regmap_init(win, vop2->data->smart_reg,
-+					       vop2->data->nr_cluster_regs);
- 		if (ret)
- 			return ret;
- 	}
--- 
-2.34.1
-
+Thanks,
+Mostafa
+> 
+> Jason
 
