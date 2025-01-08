@@ -4,84 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7781DE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 12:10:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C50E4E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 12:12:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SSQXuej4xi5XNePoS4G0wJ2Xo+bqWyr9vu1cCildXgw=; b=XigVQ1dbAmHPhU0mtlsfXqN6zq
-	A1vPPoYyr6MtGWv7plMXFTjP8a+UF6AITcEWYXmAYhLYkpVzYsnCuwhze3Jjv64D58D6x5o6iQc3G
-	x+Yr/wDU75PW+/xaF/CMjaZvbaUV0PKbN3odv/ac4+FmWq8sUlksLIViFEWW6OAxHVJEb9VKHDKjC
-	kIdwqRMU5ssZILdG/jgoz4cogRTTVUOSmTomKz3VMNDw74/03QBFb3PUWgMv81HiHc5sFhy8tGwT6
-	OmRh8nS9EJVYmEEDXE+a39YHpIMGmrPYiNcmJRImRJCYD/jUz/Nw/+uYInHjmJcnGdw5fIa9vdLK6
-	SDuTGu4g==;
+	bh=vZt1EMuMQVVWOH0yvBnMtDigwJg580itYkeWte23MyE=; b=uZQz5Ba1e6qumDBiQSDmjl1vZ0
+	8tpK7gnnq0hds0w2EccF/dSPeWCC027vTCz8s10HiY1g2BPw9zwdxqnYSsjlSAxilhnRrGhF8ADm2
+	UEA+e/okySQ+FMHgqlVeFF1D9YoUeaPnIMV5V/Ajg4gDT6YLssvybLbaAdIEmC/jLgJkcOzw0EyYq
+	hbkciV/03onz+r0ghV0dSFQkgm5FQoOa3sD18GkCJup/2pXdqKcPjCawK2WDw4XujdT+ehq3XqSQp
+	2WqoGU3cfub/KFsokRqwDQI6Gj2wpeYB/ta9xZuejI1rWyKiP6oNgYwrtdNeghuvaHa85u/j895zJ
+	VnH3QnDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVUtT-00000008Mm7-3kue;
-	Wed, 08 Jan 2025 12:10:39 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tVUug-00000008N8Y-0Md6;
+	Wed, 08 Jan 2025 12:11:54 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVUF1-00000008CkZ-3KoQ;
-	Wed, 08 Jan 2025 11:28:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1736335730;
-	bh=kgnJqsg8z2erw2TEimJFPukXqh6KNus2GeViUySenE4=;
+	id 1tVUGK-00000008DJ4-3eiI
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 08 Jan 2025 11:30:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5E01FA410FB;
+	Wed,  8 Jan 2025 11:28:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3543C4CEDD;
+	Wed,  8 Jan 2025 11:30:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736335811;
+	bh=DL3L7wjt7m6xdNDVzlXZ9DBHuhuce+VBHCyYTQJC1Ww=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=DQdt8K0wvlT2RYLXkJxP/FiJJ06jgW1FutrjkuoDvFQDTNtcj0f9YsWL4EWwH0Cc0
-	 AVkmmwb/Ul2mIouxVSRdXbbZOPWCNtNRpO6vW1sFbKNmQn5JZKX9EdWiud23Kk6k7/
-	 c+CSiPu3OYylwn3lqj5H+NlWoFHJLdjNisA5sfso/TEqWUkfZWTYUXTWE5y/SlDr8w
-	 GMq/h8/CABQokgYzy3pRc6qksjYR7BDp5fBWDfvIJGTLJ9f4vNFQU6KrjW9tvxYmLy
-	 gdM8yR6EIEImh5oh+0hhs0NlqtOuo91DtSKsfJ4kUjw7VyJ3uuXUMxgsI0+3MCeOFK
-	 ILVIYKrnss0mA==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id EF82E17E1581;
-	Wed,  8 Jan 2025 12:28:48 +0100 (CET)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: chunkuang.hu@kernel.org
-Cc: p.zabel@pengutronix.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	ck.hu@mediatek.com,
-	jitao.shi@mediatek.com,
-	jie.qiu@mediatek.com,
-	junzhi.zhao@mediatek.com,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com,
-	dmitry.baryshkov@linaro.org,
-	lewis.liao@mediatek.com,
-	ives.chenjh@mediatek.com,
-	tommyyl.chen@mediatek.com,
-	jason-jh.lin@mediatek.com
-Subject: [PATCH v4 34/34] drm/mediatek: mtk_hdmi_v2: Add debugfs ops and implement ABIST
-Date: Wed,  8 Jan 2025 12:27:44 +0100
-Message-ID: <20250108112744.64686-35-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250108112744.64686-1-angelogioacchino.delregno@collabora.com>
-References: <20250108112744.64686-1-angelogioacchino.delregno@collabora.com>
+	b=fVDm1pnX1RQb4afCymYc5xUYmMusPfPRyUVEqW6Dr/4Jt3o3Nittan7+T6aZqsW2V
+	 xT9ig9U3fNXGbszcP+dptmHQZOQf2TMarjcHf7QbpTAd9phMefFyMT0lveVLZ6hzfc
+	 hpNBttVCZNrT6iFDF/lTPoXm9Y+Q6UOcNK2sW/P6VGrkhfVGGl4o4/dAf3IArq/yCo
+	 zR6x5OWbWmdULLoGoAJqvlEJ6Oo8Q5EkrZWsWuIoy1+fhkueUqOET3WkyuBAbyZE36
+	 EGYvH09pQHuOMEZK8hLO4D9TwG+bbN9gxa7t+7x61kCFoe1HGzEy8EZKCGnQm8nMNA
+	 fKfusmfMNJmAg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tVUGG-00A7YQ-HV;
+	Wed, 08 Jan 2025 11:30:09 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: oliver.upton@linux.dev,
+	Vincent Donnefort <vdonnefort@google.com>
+Cc: joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	zenghui.yu@linux.dev,
+	kvmarm@lists.linux.dev,
+	kernel-team@android.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2] KVM: arm64: Fix nVHE stacktrace VA bits mask
+Date: Wed,  8 Jan 2025 11:30:05 +0000
+Message-Id: <173633579701.13074.16597350364665610752.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250107112821.416591-1-vdonnefort@google.com>
+References: <20250107112821.416591-1-vdonnefort@google.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, vdonnefort@google.com, joey.gouly@arm.com, suzuki.poulose@arm.com, zenghui.yu@linux.dev, kvmarm@lists.linux.dev, kernel-team@android.com, linux-arm-kernel@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_032852_009962_255F8440 
-X-CRM114-Status: GOOD (  13.18  )
+X-CRM114-CacheID: sfid-20250108_033012_971661_26532834 
+X-CRM114-Status: UNSURE (   9.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,159 +88,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement the Automated Built-In Self-Test ABIST functionality
-provided by the HDMIv2 IP and expose it through the "hdmi_abist"
-debugfs file.
+On Tue, 07 Jan 2025 11:28:21 +0000, Vincent Donnefort wrote:
+> The hypervisor VA space size depends on both the ID map's
+> (IDMAP_VA_BITS) and the kernel stage-1 (VA_BITS). However, the
+> hypervisor stacktrace decoding is solely relying on VA_BITS. This is
+> especially an issue when VA_BITS < IDMAP_VA_BITS (i.e. VA_BITS is
+> 39-bit): the hypervisor may have addresses bigger than the stacktrace is
+> masking.
+> 
+> [...]
 
-Write "1" to this file to activate ABIST, or "0" to deactivate.
+Applied to next, thanks!
 
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- drivers/gpu/drm/mediatek/mtk_hdmi_v2.c | 123 +++++++++++++++++++++++++
- 1 file changed, 123 insertions(+)
+[1/1] KVM: arm64: Fix nVHE stacktrace VA bits mask
+      commit: 68344037b764401f751c66661c53334ea1e15324
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c b/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
-index 8841fa4e476a..1ce42cb0616d 100644
---- a/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
-+++ b/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
-@@ -1179,6 +1179,128 @@ static int mtk_hdmi_v2_bridge_atomic_check(struct drm_bridge *bridge,
- 						      conn_state->state);
- }
- 
-+static int mtk_hdmi_v2_set_abist(struct mtk_hdmi *hdmi, bool enable)
-+{
-+	struct drm_display_mode *mode = &hdmi->mode;
-+	int abist_format = -EINVAL;
-+	bool interlaced;
-+
-+	if (!enable) {
-+		regmap_clear_bits(hdmi->regs, TOP_CFG00, HDMI_ABIST_ENABLE);
-+		return 0;
-+	}
-+
-+	if (!mode->hdisplay || !mode->vdisplay)
-+		return -EINVAL;
-+
-+	interlaced = mode->flags & DRM_MODE_FLAG_INTERLACE;
-+
-+	switch (mode->hdisplay) {
-+	case 720:
-+		if (mode->vdisplay == 480)
-+			abist_format = 2;
-+		else if (mode->vdisplay == 576)
-+			abist_format = 11;
-+		break;
-+	case 1280:
-+		if (mode->vdisplay == 720)
-+			abist_format = 3;
-+		break;
-+	case 1440:
-+		if (mode->vdisplay == 480)
-+			abist_format = interlaced ? 5 : 9;
-+		else if (mode->vdisplay == 576)
-+			abist_format = interlaced ? 14 : 18;
-+		break;
-+	case 1920:
-+		if (mode->vdisplay == 1080)
-+			abist_format = interlaced ? 4 : 10;
-+		break;
-+	case 3840:
-+		if (mode->vdisplay == 2160)
-+			abist_format = 25;
-+		break;
-+	case 4096:
-+		if (mode->vdisplay == 2160)
-+			abist_format = 26;
-+		break;
-+	default:
-+		break;
-+	}
-+	if (!abist_format)
-+		return -EINVAL;
-+
-+	regmap_update_bits(hdmi->regs, TOP_CFG00, HDMI_ABIST_VIDEO_FORMAT,
-+			   FIELD_PREP(HDMI_ABIST_VIDEO_FORMAT, abist_format));
-+	regmap_set_bits(hdmi->regs, TOP_CFG00, HDMI_ABIST_ENABLE);
-+	return 0;
-+}
-+
-+static int mtk_hdmi_v2_debug_abist_show(struct seq_file *m, void *arg)
-+{
-+	struct mtk_hdmi *hdmi = m->private;
-+	bool en;
-+	u32 val;
-+	int ret;
-+
-+	if (!hdmi)
-+		return -EINVAL;
-+
-+	ret = regmap_read(hdmi->regs, TOP_CFG00, &val);
-+	if (ret)
-+		return ret;
-+
-+	en = FIELD_GET(HDMI_ABIST_ENABLE, val);
-+
-+	seq_printf(m, "HDMI Automated Built-In Self Test: %s\n",
-+		   en ? "Enabled" : "Disabled");
-+
-+	return 0;
-+}
-+
-+static ssize_t mtk_hdmi_v2_debug_abist_write(struct file *file,
-+					     const char __user *ubuf,
-+					     size_t len, loff_t *offp)
-+{
-+	struct seq_file *m = file->private_data;
-+	int ret;
-+	u32 en;
-+
-+	if (!m || !m->private || *offp)
-+		return -EINVAL;
-+
-+	ret = kstrtouint_from_user(ubuf, len, 0, &en);
-+	if (ret)
-+		return ret;
-+
-+	if (en < 0 || en > 1)
-+		return -EINVAL;
-+
-+	mtk_hdmi_v2_set_abist((struct mtk_hdmi *)m->private, en);
-+	return len;
-+}
-+
-+static int mtk_hdmi_v2_debug_abist_open(struct inode *inode, struct file *file)
-+{
-+	return single_open(file, mtk_hdmi_v2_debug_abist_show, inode->i_private);
-+}
-+
-+static const struct file_operations mtk_hdmi_debug_abist_fops = {
-+	.owner = THIS_MODULE,
-+	.open = mtk_hdmi_v2_debug_abist_open,
-+	.read = seq_read,
-+	.write = mtk_hdmi_v2_debug_abist_write,
-+	.llseek = seq_lseek,
-+	.release = single_release,
-+};
-+
-+static void mtk_hdmi_v2_debugfs_init(struct drm_bridge *bridge, struct dentry *root)
-+{
-+	struct mtk_hdmi *dpi = hdmi_ctx_from_bridge(bridge);
-+
-+	debugfs_create_file("hdmi_abist", 0640, root, dpi, &mtk_hdmi_debug_abist_fops);
-+}
-+
- static const struct drm_bridge_funcs mtk_v2_hdmi_bridge_funcs = {
- 	.attach = mtk_hdmi_v2_bridge_attach,
- 	.detach = mtk_hdmi_v2_bridge_detach,
-@@ -1199,6 +1321,7 @@ static const struct drm_bridge_funcs mtk_v2_hdmi_bridge_funcs = {
- 	.hdmi_tmds_char_rate_valid = mtk_hdmi_v2_hdmi_tmds_char_rate_valid,
- 	.hdmi_clear_infoframe = mtk_hdmi_v2_hdmi_clear_infoframe,
- 	.hdmi_write_infoframe = mtk_hdmi_v2_hdmi_write_infoframe,
-+	.debugfs_init = mtk_hdmi_v2_debugfs_init,
- };
- 
- /*
+Cheers,
+
+	M.
 -- 
-2.47.0
+Without deviation from the norm, progress is not possible.
+
 
 
