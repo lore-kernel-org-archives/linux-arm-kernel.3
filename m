@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E379E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 11:47:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60E5DE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 11:49:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QPP9CeMGA02suSlCirhHcQAzGXFvlXC8D9U1wujTAKY=; b=3BWb4+hbw/BIx585YDMJjq/A2j
-	bXP+66dud9yM1A2p0MyyD9Php9sArX0/vkCGKhKMRNGAf0pI3WsT0dddP2qOcvnwX2j5HUfhYyvLN
-	NCS+n0lkde49L0wqLhGLU+AWOtFo6XGd0R8F7E8NtlPPLyb2Cp0fDFhRJeBgeUDaqwdjMsfZM0SY8
-	6/Vj1r3OaT3LxLy6HPsn5YCn48aA74hjPyTCPn+YHBJRTy2ozZLE9/hvYSDSzvnCde0SNFw4VKlr5
-	SV+B8srYu6nSnVpfAJuYM++bpl/J2uHYSjWkTWTvry9c5I7WDmaSkd43fJCuq27kn16LtnddascFr
-	t7V5BycA==;
+	bh=3d8zUsfmz0FJPF2wq2d6wyM7oqPQuRdSAn79hoRtmFA=; b=CwQVA9hshJZ+CMDImo8N3WXfQ3
+	F/leCpg4StPRCc59XJmr8MfNhtjRtgeXxOa0H97zyzlwYpe7LgWEvj1g/UJAH48oDf5Dk+XtynyLJ
+	0lh1yVQD4HzAXsgyZ0ZCarcWvu1Z1ZO/3zit51RW/zn+R0xJcrsF3z2p5FZeqdQSpz8sZlaKMU+PA
+	wBPq8F14NP5IdNAT9vpsubhUA8PHGb7X8xsNcbTAccytsQg/aDsugIptbvkpmFFiBuszogGuBGo55
+	cNdCK9tPJpuWE4oT/OvkghOvpDX4o9ssRAs4omuUUcyKOBMNngagFqYbYSJEig9EwqRB4FoV/rQ/p
+	sYuACrfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVUX9-00000008HQX-3JkO;
-	Wed, 08 Jan 2025 11:47:35 +0000
+	id 1tVUYJ-00000008Hib-41VK;
+	Wed, 08 Jan 2025 11:48:47 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVUEa-00000008CP5-0KP3;
-	Wed, 08 Jan 2025 11:28:25 +0000
+	id 1tVUEY-00000008CNh-2Ddp;
+	Wed, 08 Jan 2025 11:28:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1736335702;
-	bh=yShiveNL2NRbFgpxVXxwpj6t/JV6lWX9yjW6Rp+WbkA=;
+	s=mail; t=1736335701;
+	bh=NZSnEUB/SVNMeIJjXONRYDgnR9zytZjKy7YMjtnHCpU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=PDEyBLArYfy0CwyjzD9GmTqsFuGpMDLpFMRASyEFE3ArhjU9O+LzhHIsM5fTOj0WK
-	 jHO/aLLUC0tFOZKsanaLEkd66sj7Ui5v/3NfxtioEnz1w9yKCI1BuP7WdaqiwGgZza
-	 yRRLdURqe0VPc1ogIqWozKylhRoHRMIma6fS/UXN5oaNCp6NaS8+rUNhxXL3hZOgw4
-	 ck3tnu2z0i3c5aZ56Mb3iNbGP5B6iCsYw2jOE920+lSnP3txyWCbx/MuOM3X3FAX+e
-	 wfyMrulJCaWh/OhJ9mF2UCji+aWYK7RzzL6HylrIwld5/7WRR64opu3OWR6nR++APT
-	 iySSimINjurbQ==
+	b=TG5X00h+pLNWEv8UIYcYrDsbEaJaVjzQO1t3iC4ekA8br0UoZWWKpF2dUjuiX7gxv
+	 dx+G0T+EYeFkIFgzi7mRU2dVciQ2wbNtD0gryfh9GfIB/80YkeD7vSK59y7ga9Ob+U
+	 lItqoFNgbpOs/pk0So0B0KsloDwRmUVo0wH8w+ogc1d9x13xFy1MtxVzkIOQy+yAAQ
+	 V55AtrZPV73R61xj2NcApIhRc75SIBNZ7QobqtYl2g+ryQuoY+P0RZWupYG/hORCuU
+	 DW+rhj+leLMgFn75uWqI2zAa2DvdeyfQktnIw/8cAHuRzoUbPA7rmmQmWPOKn7iJtv
+	 FoHy51/2Hue+Q==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6F5CC17E1576;
-	Wed,  8 Jan 2025 12:28:21 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E2C7717E156F;
+	Wed,  8 Jan 2025 12:28:19 +0100 (CET)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: chunkuang.hu@kernel.org
 Cc: p.zabel@pengutronix.de,
@@ -71,17 +71,17 @@ Cc: p.zabel@pengutronix.de,
 	ives.chenjh@mediatek.com,
 	tommyyl.chen@mediatek.com,
 	jason-jh.lin@mediatek.com
-Subject: [PATCH v4 16/34] drm/mediatek: mtk_hdmi: Move audio params selection to new function
-Date: Wed,  8 Jan 2025 12:27:26 +0100
-Message-ID: <20250108112744.64686-17-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v4 15/34] drm/mediatek: mtk_hdmi: Disgregate function mtk_hdmi_audio_set_param()
+Date: Wed,  8 Jan 2025 12:27:25 +0100
+Message-ID: <20250108112744.64686-16-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20250108112744.64686-1-angelogioacchino.delregno@collabora.com>
 References: <20250108112744.64686-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_032824_264628_256FC568 
-X-CRM114-Status: GOOD (  14.01  )
+X-CRM114-CacheID: sfid-20250108_032822_748290_CAF0DD22 
+X-CRM114-Status: GOOD (  12.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,127 +96,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for splitting common bits of this driver, move the
-audio params (codec, sample rate/size, input type, i2s format, etc)
-selection to a new function called mtk_hdmi_audio_params().
+As a cleanup, and in preparation for splitting common bits of this
+driver, disgregate the code in function mtk_hdmi_audio_set_param()
+to the beginning and end of function mtk_hdmi_audio_hw_params().
 
-While at it, also rename "hdmi_params" to "aud_params" both to match
-the mtk_hdmi struct member name and to clarify that those parameters
-are for HDMI Audio and not for HDMI Video configuration.
+In a later commit, the hw_params callback function will also be
+disgregated so that the code will get two functions: one that
+performs the generic hdmi_audio_param copy, and one that performs
+IP specific setup, both of which will be called in the callback,
+allowing all of the non IP version specific code to get moved in
+a common file.
 
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/gpu/drm/mediatek/mtk_hdmi.c | 63 ++++++++++++++++-------------
- 1 file changed, 35 insertions(+), 28 deletions(-)
+ drivers/gpu/drm/mediatek/mtk_hdmi.c | 26 +++++++++++---------------
+ 1 file changed, 11 insertions(+), 15 deletions(-)
 
 diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-index 85d8e4b90878..75ca64ff2e58 100644
+index 2bf0aae41ca0..85d8e4b90878 100644
 --- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
 +++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-@@ -1465,19 +1465,13 @@ static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi,
-  * HDMI audio codec callbacks
-  */
+@@ -1054,20 +1054,6 @@ static void mtk_hdmi_audio_disable(struct mtk_hdmi *hdmi)
+ 	hdmi->audio_enable = false;
+ }
  
--static int mtk_hdmi_audio_hw_params(struct device *dev, void *data,
--				    struct hdmi_codec_daifmt *daifmt,
--				    struct hdmi_codec_params *params)
-+static int mtk_hdmi_audio_params(struct mtk_hdmi *hdmi,
-+				 struct hdmi_codec_daifmt *daifmt,
-+				 struct hdmi_codec_params *params)
- {
--	struct mtk_hdmi *hdmi = dev_get_drvdata(dev);
--	struct hdmi_audio_param hdmi_params;
-+	struct hdmi_audio_param aud_params = { 0 };
- 	unsigned int chan = params->cea.channels;
- 
+-static int mtk_hdmi_audio_set_param(struct mtk_hdmi *hdmi,
+-				    struct hdmi_audio_param *param)
+-{
 -	if (!hdmi->audio_enable) {
 -		dev_err(hdmi->dev, "hdmi audio is in disable state!\n");
 -		return -EINVAL;
 -	}
+-	dev_dbg(hdmi->dev, "codec:%d, input:%d, channel:%d, fs:%d\n",
+-		param->aud_codec, param->aud_input_type,
+-		param->aud_input_chan_type, param->codec_params.sample_rate);
+-	memcpy(&hdmi->aud_param, param, sizeof(*param));
+-	return mtk_hdmi_aud_output_config(hdmi, &hdmi->mode);
+-}
 -
- 	dev_dbg(hdmi->dev, "%s: %u Hz, %d bit, %d channels\n", __func__,
- 		params->sample_rate, params->sample_width, chan);
+ static int mtk_hdmi_output_set_display_mode(struct mtk_hdmi *hdmi,
+ 					    struct drm_display_mode *mode)
+ {
+@@ -1487,6 +1473,11 @@ static int mtk_hdmi_audio_hw_params(struct device *dev, void *data,
+ 	struct hdmi_audio_param hdmi_params;
+ 	unsigned int chan = params->cea.channels;
  
-@@ -1486,16 +1480,16 @@ static int mtk_hdmi_audio_hw_params(struct device *dev, void *data,
- 
- 	switch (chan) {
- 	case 2:
--		hdmi_params.aud_input_chan_type = HDMI_AUD_CHAN_TYPE_2_0;
-+		aud_params.aud_input_chan_type = HDMI_AUD_CHAN_TYPE_2_0;
- 		break;
- 	case 4:
--		hdmi_params.aud_input_chan_type = HDMI_AUD_CHAN_TYPE_4_0;
-+		aud_params.aud_input_chan_type = HDMI_AUD_CHAN_TYPE_4_0;
- 		break;
- 	case 6:
--		hdmi_params.aud_input_chan_type = HDMI_AUD_CHAN_TYPE_5_1;
-+		aud_params.aud_input_chan_type = HDMI_AUD_CHAN_TYPE_5_1;
- 		break;
- 	case 8:
--		hdmi_params.aud_input_chan_type = HDMI_AUD_CHAN_TYPE_7_1;
-+		aud_params.aud_input_chan_type = HDMI_AUD_CHAN_TYPE_7_1;
- 		break;
- 	default:
- 		dev_err(hdmi->dev, "channel[%d] not supported!\n", chan);
-@@ -1519,31 +1513,44 @@ static int mtk_hdmi_audio_hw_params(struct device *dev, void *data,
- 
- 	switch (daifmt->fmt) {
- 	case HDMI_I2S:
--		hdmi_params.aud_codec = HDMI_AUDIO_CODING_TYPE_PCM;
--		hdmi_params.aud_sample_size = HDMI_AUDIO_SAMPLE_SIZE_16;
--		hdmi_params.aud_input_type = HDMI_AUD_INPUT_I2S;
--		hdmi_params.aud_i2s_fmt = HDMI_I2S_MODE_I2S_24BIT;
--		hdmi_params.aud_mclk = HDMI_AUD_MCLK_128FS;
-+		aud_params.aud_codec = HDMI_AUDIO_CODING_TYPE_PCM;
-+		aud_params.aud_sample_size = HDMI_AUDIO_SAMPLE_SIZE_16;
-+		aud_params.aud_input_type = HDMI_AUD_INPUT_I2S;
-+		aud_params.aud_i2s_fmt = HDMI_I2S_MODE_I2S_24BIT;
-+		aud_params.aud_mclk = HDMI_AUD_MCLK_128FS;
- 		break;
- 	case HDMI_SPDIF:
--		hdmi_params.aud_codec = HDMI_AUDIO_CODING_TYPE_PCM;
--		hdmi_params.aud_sample_size = HDMI_AUDIO_SAMPLE_SIZE_16;
--		hdmi_params.aud_input_type = HDMI_AUD_INPUT_SPDIF;
-+		aud_params.aud_codec = HDMI_AUDIO_CODING_TYPE_PCM;
-+		aud_params.aud_sample_size = HDMI_AUDIO_SAMPLE_SIZE_16;
-+		aud_params.aud_input_type = HDMI_AUD_INPUT_SPDIF;
- 		break;
- 	default:
- 		dev_err(hdmi->dev, "%s: Invalid DAI format %d\n", __func__,
- 			daifmt->fmt);
- 		return -EINVAL;
- 	}
--
--	memcpy(&hdmi_params.codec_params, params,
--	       sizeof(hdmi_params.codec_params));
--	memcpy(&hdmi->aud_param, &hdmi_params, sizeof(hdmi_params));
-+	memcpy(&aud_params.codec_params, params, sizeof(aud_params.codec_params));
-+	memcpy(&hdmi->aud_param, &aud_params, sizeof(aud_params));
- 
- 	dev_dbg(hdmi->dev, "codec:%d, input:%d, channel:%d, fs:%d\n",
--		hdmi_params.aud_codec, hdmi_params.aud_input_type,
--		hdmi_params.aud_input_chan_type, hdmi_params.codec_params.sample_rate);
-+		aud_params.aud_codec, aud_params.aud_input_type,
-+		aud_params.aud_input_chan_type, aud_params.codec_params.sample_rate);
-+
-+	return 0;
-+}
-+
-+static int mtk_hdmi_audio_hw_params(struct device *dev, void *data,
-+				    struct hdmi_codec_daifmt *daifmt,
-+				    struct hdmi_codec_params *params)
-+{
-+	struct mtk_hdmi *hdmi = dev_get_drvdata(dev);
-+
 +	if (!hdmi->audio_enable) {
 +		dev_err(hdmi->dev, "hdmi audio is in disable state!\n");
 +		return -EINVAL;
 +	}
++
+ 	dev_dbg(hdmi->dev, "%s: %u Hz, %d bit, %d channels\n", __func__,
+ 		params->sample_rate, params->sample_width, chan);
  
-+	mtk_hdmi_audio_params(hdmi, daifmt, params);
- 	mtk_hdmi_aud_output_config(hdmi, &hdmi->mode);
+@@ -1547,8 +1538,13 @@ static int mtk_hdmi_audio_hw_params(struct device *dev, void *data,
+ 
+ 	memcpy(&hdmi_params.codec_params, params,
+ 	       sizeof(hdmi_params.codec_params));
++	memcpy(&hdmi->aud_param, &hdmi_params, sizeof(hdmi_params));
++
++	dev_dbg(hdmi->dev, "codec:%d, input:%d, channel:%d, fs:%d\n",
++		hdmi_params.aud_codec, hdmi_params.aud_input_type,
++		hdmi_params.aud_input_chan_type, hdmi_params.codec_params.sample_rate);
+ 
+-	mtk_hdmi_audio_set_param(hdmi, &hdmi_params);
++	mtk_hdmi_aud_output_config(hdmi, &hdmi->mode);
  
  	return 0;
+ }
 -- 
 2.47.0
 
