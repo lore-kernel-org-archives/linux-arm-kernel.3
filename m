@@ -4,63 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50571E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 13:59:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74991E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 14:04:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rTrdPVTMOYbC0HGP0Z8th4Y0f11jljC0ZUbkXJEDWRE=; b=PD6x+k66kFO7SI1HuVRaRpDk8x
-	TaPg9A7Kyr8h2tpPVs4YaocMUnzX8Y9iW6eoqlMk7++F1ly7INnN90nTE95zNQWop8a04P0TT88B3
-	zgUhSMSEvY8SqJS6rRWJWQjQzg0xFX6iBLpdTVSjFXzRLK+JeyiA6m73jftcj2u7lh67SaZ8e0npE
-	480Uxh0CK9XhPmHDaLvDtHTesAG6RvW4cu04rIx4dvDBjZW8hk7CKnbto3E9sXW+KLqe7KbMqa3hz
-	ez0i2WviIYzxB0NDMpyPeQdsOno05LR7XBoxF4Sr3OQlU8cfLfcleOFFXaKN8zEVbNq4RoDouSv6Y
-	VXvHpWhA==;
+	bh=c8IgbRvapdQ1nro0kgRt5ie7NEaVTpaPkDdCly2nF5o=; b=peVlKllijXTEjpp4K7OpJmJeYz
+	UPFC/BE01iHbwuTdpkbx+gI3vGtI7ZsSTJFThHAW+a5+sG9ya57SCcAH6u7tYBx9tWAX6QM+x7SAX
+	14QDpvzzt4APJrvkSVydGhwhJCgNDEqDrjsqup4mUCUPIW4aXmCUZvo61NhILS6knCuUfktlTJzww
+	AAxRGEYBtAVVHGWwX2Vp6xJa28YSWJAbXptkmp+I3RxzSU9jJbMjb41GMOvZT1+e3JEtp1WQUH3v0
+	yj28KbwjIxWRSS+Rf20sxERHyr6WWyR1tG5fFMBIIIVEfefJsYulrDfh7QqlGQsu0vgR6W/8Zckja
+	e3G89wIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVWaV-00000008ico-1lrh;
-	Wed, 08 Jan 2025 13:59:11 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tVWfJ-00000008jQg-3bE1;
+	Wed, 08 Jan 2025 14:04:09 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVWZG-00000008iM2-2uL2
+	id 1tVWe5-00000008jAz-29Wd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 13:57:55 +0000
+	Wed, 08 Jan 2025 14:02:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2359B5C06DD;
-	Wed,  8 Jan 2025 13:57:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78464C4CED3;
-	Wed,  8 Jan 2025 13:57:52 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 44B9B5C495D;
+	Wed,  8 Jan 2025 14:02:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00AAAC4CED3;
+	Wed,  8 Jan 2025 14:02:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736344673;
-	bh=wmOD3/ePyiIrov1ZtCkwH0y9xDdaiutIW9EoEfDt2NE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ryLpxZKF8Jk7BLihK2lHrg8eyeZUw8eo4NomOqHOcvmSWEZa8fRfDAVZjPp/KYbEV
-	 8GG/DhSmPzBet4Hybnv+TCVHu8SU1GEALYhaT5lokvah/MYWxwjBURh9LtYqU/H+lM
-	 w7ttyT88XkN1QK1837+vCIO7qIpChjnv9UHvJbMCfpQCpSfc0VsvTHBujcU6/GSyR6
-	 b/ZaLoEX23rTgqrEKRzmnMTWIgzGYkVrm0jDVN8cvTJxDJNL6Dm34gW4XlwTtUtFGV
-	 dd3NZTKyiQs7++zRi0G4keF00Pk8OH8yV2DyUcAo1VRUxrpRz6+cHZgVR2GesOfVQN
-	 J/HSCts+EUE9w==
-Date: Wed, 8 Jan 2025 13:57:48 +0000
-From: Will Deacon <will@kernel.org>
-To: Sangmoon Kim <sangmoon.kim@samsung.com>
+	s=k20201202; t=1736344972;
+	bh=9dNRfXB4OfeAdPDgfa4xC8ckj17X/+Ol6//WEederRI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=UQjHX4pxIrqQqJUhXqdLbhDEdSRsPT6cqEpEuVVEh+7Dn3B/Kh30OkyE/GphMleM/
+	 O/cCoSTimnIh8HYdda4uPZR7IgSis7Odc/Rwxyu4y0bDt5sz169y0VdexCCaX57Lfi
+	 m5qvWICUYWKewnTTK7giKQ7Rv3JYD20NEzgHDdF4PZDvvxAZZkTPAKkaxF/VHzqwbU
+	 /VueXznXeyMgF5NPDgH1SPKANUuKwGWZNL6AENknE2nmn5TcwLgK2DMl+8vzNRM4pD
+	 uXj5Ph1r7YyB07Xf570EmucyfcKy9CFyus7ddmth013Y/6u+WuGZh6CFBWuIQzlKB6
+	 ldygxAnVxUHyA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tVWe1-00ABHf-J8;
+	Wed, 08 Jan 2025 14:02:49 +0000
+Date: Wed, 08 Jan 2025 14:02:48 +0000
+Message-ID: <86tta9wghj.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Rob Herring <robh@kernel.org>
 Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Will Deacon <will@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
 	Jonathan Corbet <corbet@lwn.net>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, ardb@kernel.org
-Subject: Re: [PATCH] docs: arm64: update memory layout for vmemmap region
-Message-ID: <20250108135748.GA9367@willie-the-truck>
-References: <CGME20250102065607epcas1p296c550a7ba26884e1c2810f872e537f4@epcas1p2.samsung.com>
- <20250102065554.1533781-1-sangmoon.kim@samsung.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250102065554.1533781-1-sangmoon.kim@samsung.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+	Eric Auger <eric.auger@redhat.com>,
+	kvmarm@lists.linux.dev,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/7] arm64/boot: Enable EL2 requirements for FEAT_PMUv3p9
+In-Reply-To: <CAL_JsqKKiEOj=a1k6U-bB0F6-ht7QokDnh3bspHupp-QG=haSg@mail.gmail.com>
+References: <20241220072240.1003352-1-anshuman.khandual@arm.com>
+	<20250102160402.GB3990035-robh@kernel.org>
+	<Z30adHnQ7ZFaU9UR@arm.com>
+	<CAL_JsqLLnh1o4L1=PpNt5brBwZZCgp7mOygByOYakchrzc29Ow@mail.gmail.com>
+	<86wmf5wo8u.wl-maz@kernel.org>
+	<CAL_JsqKKiEOj=a1k6U-bB0F6-ht7QokDnh3bspHupp-QG=haSg@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: robh@kernel.org, catalin.marinas@arm.com, anshuman.khandual@arm.com, linux-arm-kernel@lists.infradead.org, will@kernel.org, ryan.roberts@arm.com, mark.rutland@arm.com, oliver.upton@linux.dev, corbet@lwn.net, eric.auger@redhat.com, kvmarm@lists.linux.dev, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_055754_819207_0D00C082 
-X-CRM114-Status: GOOD (  17.38  )
+X-CRM114-CacheID: sfid-20250108_060253_593315_14A91B78 
+X-CRM114-Status: GOOD (  13.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,106 +98,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 02, 2025 at 03:52:37PM +0900, Sangmoon Kim wrote:
-> Commit 031e011d8b22 ("arm64: mm: Move PCI I/O emulation region above
-> the vmemmap region") and commit b730b0f2b1fc ("arm64: mm: Move fixmap
-> region above vmemmap region") have placed PCI I/O and fixmap region
-> above vmemmap region.
-> 
-> And commit 32697ff38287 ("arm64: vmemmap: Avoid base2 order of struct
-> page size to dimension region") has moved vmemmap region to higher
-> address.
-> 
-> Update document as the memory layout modified by the previous patches.
-> 
-> Signed-off-by: Sangmoon Kim <sangmoon.kim@samsung.com>
-> ---
->  Documentation/arch/arm64/memory.rst | 28 ++++++++++++++--------------
->  1 file changed, 14 insertions(+), 14 deletions(-)
+On Wed, 08 Jan 2025 13:47:16 +0000,
+Rob Herring <robh@kernel.org> wrote:
+>
+> Out of curiosity, why do we care if there's a splat or not for a not
+> well behaved guest?
 
-To be honest with you, this document is pretty stale (it doesn't even
-mention 16k pages) and almost impossible to keep in-sync with the code.
-I'd be inclined to remove these tables; we have ptdump support if people
-really want to see where things are.
+The only well behaved guest is the one that doesn't run.
 
-Will
+Getting that splat is an indication of a *KVM* bug which fails to
+correctly emulate the architecture (feature not advertised ->
+instructions must silently UNDEF).
 
---->8
+	M.
 
-diff --git a/Documentation/arch/arm64/memory.rst b/Documentation/arch/arm64/memory.rst
-index 8a658984b8bb..678fbb418c3a 100644
---- a/Documentation/arch/arm64/memory.rst
-+++ b/Documentation/arch/arm64/memory.rst
-@@ -23,71 +23,6 @@ swapper_pg_dir contains only kernel (global) mappings while the user pgd
- contains only user (non-global) mappings.  The swapper_pg_dir address is
- written to TTBR1 and never written to TTBR0.
- 
--
--AArch64 Linux memory layout with 4KB pages + 4 levels (48-bit)::
--
--  Start			End			Size		Use
--  -----------------------------------------------------------------------
--  0000000000000000	0000ffffffffffff	 256TB		user
--  ffff000000000000	ffff7fffffffffff	 128TB		kernel logical memory map
-- [ffff600000000000	ffff7fffffffffff]	  32TB		[kasan shadow region]
--  ffff800000000000	ffff80007fffffff	   2GB		modules
--  ffff800080000000	fffffbffefffffff	 124TB		vmalloc
--  fffffbfff0000000	fffffbfffdffffff	 224MB		fixed mappings (top down)
--  fffffbfffe000000	fffffbfffe7fffff	   8MB		[guard region]
--  fffffbfffe800000	fffffbffff7fffff	  16MB		PCI I/O space
--  fffffbffff800000	fffffbffffffffff	   8MB		[guard region]
--  fffffc0000000000	fffffdffffffffff	   2TB		vmemmap
--  fffffe0000000000	ffffffffffffffff	   2TB		[guard region]
--
--
--AArch64 Linux memory layout with 64KB pages + 3 levels (52-bit with HW support)::
--
--  Start			End			Size		Use
--  -----------------------------------------------------------------------
--  0000000000000000	000fffffffffffff	   4PB		user
--  fff0000000000000	ffff7fffffffffff	  ~4PB		kernel logical memory map
-- [fffd800000000000	ffff7fffffffffff]	 512TB		[kasan shadow region]
--  ffff800000000000	ffff80007fffffff	   2GB		modules
--  ffff800080000000	fffffbffefffffff	 124TB		vmalloc
--  fffffbfff0000000	fffffbfffdffffff	 224MB		fixed mappings (top down)
--  fffffbfffe000000	fffffbfffe7fffff	   8MB		[guard region]
--  fffffbfffe800000	fffffbffff7fffff	  16MB		PCI I/O space
--  fffffbffff800000	fffffbffffffffff	   8MB		[guard region]
--  fffffc0000000000	ffffffdfffffffff	  ~4TB		vmemmap
--  ffffffe000000000	ffffffffffffffff	 128GB		[guard region]
--
--
--Translation table lookup with 4KB pages::
--
--  +--------+--------+--------+--------+--------+--------+--------+--------+
--  |63    56|55    48|47    40|39    32|31    24|23    16|15     8|7      0|
--  +--------+--------+--------+--------+--------+--------+--------+--------+
--            |        |         |         |         |         |
--            |        |         |         |         |         v
--            |        |         |         |         |   [11:0]  in-page offset
--            |        |         |         |         +-> [20:12] L3 index
--            |        |         |         +-----------> [29:21] L2 index
--            |        |         +---------------------> [38:30] L1 index
--            |        +-------------------------------> [47:39] L0 index
--            +----------------------------------------> [55] TTBR0/1
--
--
--Translation table lookup with 64KB pages::
--
--  +--------+--------+--------+--------+--------+--------+--------+--------+
--  |63    56|55    48|47    40|39    32|31    24|23    16|15     8|7      0|
--  +--------+--------+--------+--------+--------+--------+--------+--------+
--            |        |    |               |              |
--            |        |    |               |              v
--            |        |    |               |            [15:0]  in-page offset
--            |        |    |               +----------> [28:16] L3 index
--            |        |    +--------------------------> [41:29] L2 index
--            |        +-------------------------------> [47:42] L1 index (48-bit)
--            |                                          [51:42] L1 index (52-bit)
--            +----------------------------------------> [55] TTBR0/1
--
--
- When using KVM without the Virtualization Host Extensions, the
- hypervisor maps kernel pages in EL2 at a fixed (and potentially
- random) offset from the linear mapping. See the kern_hyp_va macro and
+-- 
+Without deviation from the norm, progress is not possible.
 
