@@ -4,68 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D82DE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 17:02:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AD46E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 17:03:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L6gXywkEdTAAy6NeJ3N7Lq537AGb6wNXiHu6b8ysW7Q=; b=zG2kheZSoNTsXSeNIm0s6Zxn6e
-	uuOxYkQvQk/rQc0c6L9GYqEljP6b13HTbdcl2z1aqLgjCATMUUE7wozmEzsy5VIrnxgg8CGrm4eJ5
-	aLsVCauAqNar53tnAETVfV+BSv3ZZQpT5STFUrPM4a8IHJWHHJQ7mPGkqM8KyEugwHpdp/jFs1Pth
-	qd9CeVywxh9K4lNQK1Po4ESd2HuDuB8gO9/H6FgttW/wGMiXj97YdPAVD7lY6QM2zMLKQqb5JEjEl
-	yZrXMOlem8WSl6eeEu66VN3M0Wfuw71FXhMYcXhK6Md153Kb2q5io1JTO0jUkzfzuAHCxOSZhKM+x
-	9aT35rhg==;
+	bh=deCdOEFNOf75jPBBQAgdeMZQiPxVvZH3Ou1tOWSHr6o=; b=XPZnFYMOr+UjKM4C0QRNXoLtbj
+	0lmtxUZ8G4TEK0vYCptfXVPEkXzke9dODuF8VSTrj1z/XD31qn/2PNaq7CIqIKZTXDwTQtRZfEK0n
+	2W4Fy3dg6PFswp1IALyEuVPLcXGP910DdDorNNlzoqUNZLa1gsfoVONgdBYs3Z3KsOyRXv5Boq2Vq
+	uDq0tMNO/PUK0IYEHaXBUsKiQOjyTsRY/EkLqPMy9QM6Ec63qDODlCWJXmQ7oYpQxIYJujNTDISgC
+	pL2LABRN5vU381DzQb3M+h68tw8aOYxrktEghD3Z7l7oawGOLuIOHQ1aCRNpuvSbQBU8gMW/Ce/dP
+	GDR+9TjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVZRh-00000009Idi-1MJH;
-	Wed, 08 Jan 2025 17:02:17 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tVZSt-00000009J3I-3vwG;
+	Wed, 08 Jan 2025 17:03:31 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVZ5W-00000009DKh-3Yxi
+	id 1tVZ6O-00000009DdH-3pm8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 16:39:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 331F85C53A5;
-	Wed,  8 Jan 2025 16:38:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D282DC4CEE7;
-	Wed,  8 Jan 2025 16:39:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736354361;
-	bh=J+EYpiBJHuyX5aAaI9Iol6ouFLxTwtCCoUhfJ7IJjTQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=UsAD6jOaC1d4hf8gkheX9pxukZ83bh7EJ+AMitQh8ZT5F9+7KTZawaP+tD6qYYjjC
-	 tIpBt6T2acW12lXWl9eJ1FZB9cGqJpv/nF6K9hkMpinW/vtfqEdbaLZpZRiiXjxdoG
-	 iAUPqb5xrEiukEM0K28dvThS3GYTVmDEcRjD3U+CdpzeDCTEwi92exntqcAIbqTfV5
-	 NUgvkwUkdyNZ6YN3CJo0IyxNqdKaHV50nUJchR9xU6lBRRY1OojyFJGVdPm6LB3QQv
-	 plyGSItzIh2zWXT9gbDNeVe66hpCOeza2y9G3WmrypnwWWBHvqKPdvQqLuw/qSeGWO
-	 iwcVeGasRGnAw==
-From: Will Deacon <will@kernel.org>
-To: mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Yicong Yang <yangyicong@huawei.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	jonathan.cameron@huawei.com,
-	prime.zeng@hisilicon.com,
-	linuxarm@huawei.com,
-	yangyicong@hisilicon.com
-Subject: Re: [PATCH] drivers/perf: hisi: Set correct IRQ affinity for PMUs with no association
-Date: Wed,  8 Jan 2025 16:38:57 +0000
-Message-Id: <173627025346.295116.5863869511098804565.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20241223125134.57885-1-yangyicong@huawei.com>
-References: <20241223125134.57885-1-yangyicong@huawei.com>
+	Wed, 08 Jan 2025 16:40:18 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-436345cc17bso324795e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jan 2025 08:40:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1736354415; x=1736959215; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=deCdOEFNOf75jPBBQAgdeMZQiPxVvZH3Ou1tOWSHr6o=;
+        b=LlB8cTKO/AsgCfpjAcCXY50ul2vGDV6Re2Z9w6Zcv0ZxRbtT1qEDjse4NozoQ/1ygJ
+         C6JpWeZjDQ+2PS7+idYc6GBUIUcvkO7es2A57S5xoGDbI8NKa8AYTaQhiG9kp8Xfh9MY
+         MynEE+2ZnJWIK/GJvZWvQU8S+hPW8Zee6dgFQRNceRiuZ5ANzD/rP/MpJo0bQruQQ5Ti
+         vfbFL/a665SQ7s09TLlpqKIo9TOQqYCpUBt9k2ZRP7ysB3IvusJiGzKtwSV4/LhdD10K
+         3D0Yy6hvT+El2WsnDrBou0jE8mKoNk32ww6X+XkwHD92s5LOc8gWB9l0Wa3Uzt8Px+GX
+         rF3Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736354415; x=1736959215;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=deCdOEFNOf75jPBBQAgdeMZQiPxVvZH3Ou1tOWSHr6o=;
+        b=TJnWPV0UTGniJyVSeeuFvDhCSWecMXuwuj2jcDZXUfPdP8MyS9HlTDkqZnua8DqGHx
+         /kjx529g1YS73mwZtxEwComAK/4FJGEM6oD1e95ky4tCHO5CPZ7yy67mXJ9r3QlSy9N5
+         R6LXqetR0ikb71OXHbo8ti3/mnqZqNF+cYBeKVglSIflpwuakvuwqT1IGozZ1cn/nPNk
+         RFdI4CxsHxf88gqq032V+aaIK9z3Hx40kfME+M3SaBEvK5qMOVkOUPhQ1FUPLjSYNXeK
+         PRCF3EpBr8pTBNTPhON5y7fIGzuIfQxxRFM5TiKnQYjJDl/tj8gb1lr6ABNzpE0Z3XqQ
+         XebQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVfaV+qNJu6ENJjcWxkwvuXHuWO1jFBAFofY7Qee6cKbBPzPvovNasp8MCO8uzZB+yW9RVHDGKAt6Wtk+sb12tG@lists.infradead.org
+X-Gm-Message-State: AOJu0YwDn5qjdlaojZYdIxS2EQz/+dFh5g7CwVdLVA3Y9tj0qCK8l/p6
+	ELwxr1M/HOgQUvjmXhQ35YlofgFu6WENrXC6DM3LJQxj3kLZ3yHbq8NhPiThlxw=
+X-Gm-Gg: ASbGncspA6ez87CB0+/WrUdwrRKblKgR2bDcSVleM7zmuoe0t031/FjZWgnmxvAQHOo
+	qAaHWIcpMio8JhOi94pwzVxAYrfbucEotAexvTow+fsRgBgy1WY2NVBkgoR6rS2Jqy+QNLZh6a2
+	1M8oBUlgK1V8NQoGWEf26urQAE77o6DMEvcd+AiDNfPp0SQarBQa3u9CXTHUvdOTgJYDfbgV4uW
+	A+CU5TVLXFR6QOsLem4+EuP/91zNHF91jh5AfFt1O50kou5Ki2C1Hbm4akW/Qb2909PssaicAn7
+	2fuhNhBW5MPwovXfVc3V
+X-Google-Smtp-Source: AGHT+IE4abllXEGQrABSU9KaQSrAPNt2UJoX+UrddjzVaSi3eoBYN+JcyuNs9drr9UEmuphRRteJdQ==
+X-Received: by 2002:a5d:5f52:0:b0:38a:50f7:240c with SMTP id ffacd0b85a97d-38a8735760fmr2780072f8f.47.1736354415474;
+        Wed, 08 Jan 2025 08:40:15 -0800 (PST)
+Received: from [192.168.10.46] (146725694.box.freepro.com. [130.180.211.218])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-436e2dc0bb7sm25990875e9.16.2025.01.08.08.40.14
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 08 Jan 2025 08:40:15 -0800 (PST)
+Message-ID: <076daca7-55e0-40d4-8ea5-93254ecd19b8@linaro.org>
+Date: Wed, 8 Jan 2025 17:40:14 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] dt-bindings: timer: exynos4210-mct: Add
+ samsung,exynos990-mct compatible
+To: Igor Belwon <igor.belwon@mentallysanemainliners.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org
+References: <20250104-cmu-nodes-v1-0-ae8af253bc25@mentallysanemainliners.org>
+ <20250104-cmu-nodes-v1-1-ae8af253bc25@mentallysanemainliners.org>
+Content-Language: en-US
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+In-Reply-To: <20250104-cmu-nodes-v1-1-ae8af253bc25@mentallysanemainliners.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_083922_928611_A9E7EAB7 
-X-CRM114-Status: UNSURE (   9.31  )
+X-CRM114-CacheID: sfid-20250108_084016_961062_1B280E96 
+X-CRM114-Status: UNSURE (   8.73  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,26 +106,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 23 Dec 2024 20:51:34 +0800, Yicong Yang wrote:
-> For PMUs with no association, the hisi_pmu->on_cpu is initialized
-> according to the NUMA locality but use a wrong CPU for the interrupt
-> affinity. The CPU selected from cpumask_local_spread() can be different
-> from the CPU by the cpuhp callback. Fix this by setting the IRQ affinity
-> to hisi_pmu->on_cpu.
+On 04/01/2025 21:54, Igor Belwon wrote:
+> Add a dedicated compatible for the MCT of the Exynos 990 SoC.
+> The design for the timer is reused from previous SoCs.
 > 
-> 
-> [...]
+> Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+> ---
 
-Applied to will (for-next/perf), thanks!
+Applied patch 1/2
 
-[1/1] drivers/perf: hisi: Set correct IRQ affinity for PMUs with no association
-      https://git.kernel.org/will/c/555c6e9b03c1
+Thanks
 
-Cheers,
+   -- Daniel
+
+
+
 -- 
-Will
+<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
 
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
+Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+<http://twitter.com/#!/linaroorg> Twitter |
+<http://www.linaro.org/linaro-blog/> Blog
 
