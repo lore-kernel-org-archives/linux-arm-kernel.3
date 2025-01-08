@@ -4,85 +4,195 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BD97E77199
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 06:38:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21091E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 06:42:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Nc1mY/MdHNTD26dunvUUor60YcWZhxt/SzPCNrCbBU=; b=C9FQDkHNhh+CSK0E7wvLB0CqFf
-	sv6yEyoGsdgromcV4rF609S+gQn0xyjBrB5rlfl+obWQa7aYEmnads8ydbonIFTF8xkwQZ4JhyylR
-	keKY/jsE6R/A8utK87XXeS3XIhh0YBa7xfdw9b/eXVtXMWus6UES67cOvMOOvprFByAzreaa3rhwe
-	e7rYgxqzmQrIaaZDX8OEKrvCJ7cDXSyXIuXam8qdXZ+xRXlM+zBC9Oc4oalA5WsSoyn6edLyvvXu7
-	k4r5twNkeDNGW2jgLEvKhegwISmA9Gj6oKUpM9StGxKytTMX6RYytBnnuVyCw9sc8N8UT87IoHCdT
-	Wgvtem+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E5hZJTQsjKI2UXYmgGBcu7+48wJYf3FCDWHoJJNnOP0=; b=klggy05f49wk/Ck+dNdkAB4HPD
+	YzA+8ur7fXMCFYh8JLskgmucXFUx30dLuXbzzilWtxyBVcS0zS5sueD3EQCCfmk5tnLd7Nsab1Xjz
+	kcEJXkgLfZxGrbl6QUhjr3BkERUwgrNYhXFITu2ZT1ZNjyoEER2iGBGhloSvV1GSpEsKR6fez5hyj
+	R07HzYL/inFtq4SVRjONGONr3MPWesTzA0WPKPQ7kdgtfM+p9+IBfmlCbBE8RUfl3PsC+wrrC0H12
+	gYxWHNsMFNplg7psazID0jjx6rRwg9YrqKZbZHdh/u7YvpwcsJBoqeUMPfsHPc78DuzWiJZs4XLz8
+	IMEvVLVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVPho-00000007I00-3Cvl;
-	Wed, 08 Jan 2025 06:38:16 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1tVPlq-00000007IWI-0ux6;
+	Wed, 08 Jan 2025 06:42:26 +0000
+Received: from mail-switzerlandwestazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c214::1] helo=GVAP278CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVPgY-00000007Hnb-1TQQ
+	id 1tVPkc-00000007IMo-2BUx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 06:36:59 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-5401c52000dso17993105e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 22:36:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1736318216; x=1736923016; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3Nc1mY/MdHNTD26dunvUUor60YcWZhxt/SzPCNrCbBU=;
-        b=HM/PQaskPKQhJgZkGSwTwl7U0Q299ueaM4IITwylorB5QxA+7GzqsACamgX/kgvyca
-         SjR3Qz/VVEYlgX6N0dxT/2O9J18j1lIUtHyNoxjiz09d1fAGRx3uVZ/7EFkK/dKuUG7P
-         B87jzfVwP2LjFRc2YO0blsGp+y4PKAdgIbNus=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736318216; x=1736923016;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=3Nc1mY/MdHNTD26dunvUUor60YcWZhxt/SzPCNrCbBU=;
-        b=cx5b+pM2fVGMdRc/CMj6a+Ce8OVaKESYkejJYyQ6Anen1cYBa9bDWdjsoaE40mc5Dn
-         JeUZkrf3OcHwyUxh4ZGJC7G2KEkv4QWGCYRfFFjBXwRvXb47As3FLyWhad5Y401asS3h
-         PtXEtPmf+9d6hFG5yugwQef3UlY5u/SJk1tuRAB4VK0xux2j71XdzNv4zp6ltnqAEVbb
-         mlCzTPPOTToXpNW+2p1wutC/zARNO63OaxQkXHnBKbsFeJhbhGR4HAYe8HKMqYfi7lI9
-         b/aFMofcWwfrHJQO/jSQrjOY0XZH4b7BCp+vrh3NIOEJ3KADiYxzfmRimBCKTjZiHUJm
-         xJrg==
-X-Forwarded-Encrypted: i=1; AJvYcCWs6w56Y6wRDJ6Fsn5GJxEuT69Uv40a386wcJkNlWtONJB3+8oOdMn67Yy74jv56DaiqtOCmme3fNTgzGzy6uI2@lists.infradead.org
-X-Gm-Message-State: AOJu0YxqBKDIk0OdmRtKIjWKVg/WXPsiuziQ6nya69PyGvf+orIWEc12
-	HaYEp9itxtRGqA+iR7nvIjlNvic7YgwrS6uQxTUqdPtEDPA4k0VPojk3GJwTp6M5Wy5bsbFd2mE
-	1CE2ikgD4b018Pi2diclXyCTb4731hitrZfau
-X-Gm-Gg: ASbGncuWKB3dXdnpbF9Fd2P7ugkFqIsEHYU0/1QxUw/2H1M/sx0y9eTficzCSCxEt0f
-	tpiroOfcYcSMGBkyWny0bygAGt3ncjqwims4VK8sLxH+DoNtBXmWeUw/RO+6jLBvuRw==
-X-Google-Smtp-Source: AGHT+IGHVkym1t/Pb1hcHJ4RbcQBDkTuC3OWyRXgFvvWFc+8sjFU+XQFXPNW+BW5Ozs5wI3/m0uRHByMTrGZF+sWK7w=
-X-Received: by 2002:a05:6512:31d2:b0:53e:3a73:6ddc with SMTP id
- 2adb3069b0e04-542845c55f0mr421253e87.33.1736318215416; Tue, 07 Jan 2025
- 22:36:55 -0800 (PST)
+	Wed, 08 Jan 2025 06:41:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=w5TfaYH3jNIyesEDKaAIY4sUmAV+rCiXvT6LllHzT8VyX/ZAtyLsUsfQSrtb7jgqutTzDZ9phvF1ysuh7JGCu2QJVRsu9f7QafcphO1VXyAXjDfzB1/QbeZra2/77Go3rnyJJuDtwAWwXiZGGIJj0Dtop836kSP/3KdITZrTMepo0mVPyBtkQVCKwOsOnD3QKYw5jPb2bm4gdJXvcr1mOqz37eYAqjEkeIKEc8MzKrL/E2KyNpZGg5HEOm9C2rOTaMYGQDBCfQMRFRvrPL3ghjqW9lpBWnUznufBkevDgdlADRNO9PHvFIbkGRjQ7xJzVVJ/ngBRlQM3fJWv8chVZg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=E5hZJTQsjKI2UXYmgGBcu7+48wJYf3FCDWHoJJNnOP0=;
+ b=RcZGeBnhqeE30dFw5+AWkwvBeIRjKD2SOGp/GlT9jZ5puaOWzg6qwt1jEYpIHQ0FBz40u4ydixms/vWfiHjamsDpyWMA+2tqfm1rp/rbv+PIu3WrhOpJeM65AdEX7r4YZKt/PpH5d9nGQlraM6Hn/5iFpoYz40M6uyiMvvlV5ao2E9gtG3mCt7CgyLDJ87c1zDmd9xk92RTxfas9fPXxNYfp+OGc8a8JykvxxlCWaOTpUQAbqqXMHgXynggZcSSdugQG5jFSz1MNdeNUk4pmWx+UVgMpEuoowlyhVDBWru/VCRM7tyccQ6e4r/C4k/smGGdtCkvex1GaCM8EVvJsIg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=skidata.com; dmarc=pass action=none header.from=skidata.com;
+ dkim=pass header.d=skidata.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=skidata.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=E5hZJTQsjKI2UXYmgGBcu7+48wJYf3FCDWHoJJNnOP0=;
+ b=mvwjz0be/DOS4tyGftZeTCXRxqc4ysO6sStW1xjo1ewDMhrTYx6IBiU5S6cTs8vvCuLJxcgDGEnLS+4YYv9Yr0WLkKljqTgh/44+r1GrsNSxB8R4l/DIaDo6ZdLRRHJUQnBYiI5Tk/Qa5MElV/hruzEa1xyyIbJvZf0inbNe6eD8iJOUOmu3Mgiw4C1J2CjndC/OXUXI2PNhKmxCgnU+BW8aHijmhsYfKm4TANYggr2f9RFdEXXhffUMBtcFt9g67Ar4XXH36hviRHmOqyY7VRCH1XeUi+Cu9HMraUWlGS9I/0k7YEwQomh6aivkNj+doW0Q1eZp0X42YhGkhmrLJw==
+Received: from ZRAP278MB0029.CHEP278.PROD.OUTLOOK.COM (2603:10a6:910:13::9) by
+ ZR0P278MB1532.CHEP278.PROD.OUTLOOK.COM (2603:10a6:910:93::10) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8335.11; Wed, 8 Jan 2025 06:41:02 +0000
+Received: from ZRAP278MB0029.CHEP278.PROD.OUTLOOK.COM
+ ([fe80::b991:5329:d9e1:b08e]) by ZRAP278MB0029.CHEP278.PROD.OUTLOOK.COM
+ ([fe80::b991:5329:d9e1:b08e%6]) with mapi id 15.20.8335.011; Wed, 8 Jan 2025
+ 06:41:02 +0000
+From: Benjamin Bara - SKIDATA <benjamin.bara@skidata.com>
+To: "magnus.damm@gmail.com" <magnus.damm@gmail.com>,
+	"krzysztof.kozlowski@linaro.org" <krzysztof.kozlowski@linaro.org>,
+	"benh@kernel.crashing.org" <benh@kernel.crashing.org>, "conor+dt@kernel.org"
+	<conor+dt@kernel.org>, "alcooperx@gmail.com" <alcooperx@gmail.com>,
+	"yoshihiro.shimoda.uh@renesas.com" <yoshihiro.shimoda.uh@renesas.com>,
+	"angelogioacchino.delregno@collabora.com"
+	<angelogioacchino.delregno@collabora.com>, "andrew@codeconstruct.com.au"
+	<andrew@codeconstruct.com.au>, "justin.chen@broadcom.com"
+	<justin.chen@broadcom.com>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "jonathanh@nvidia.com" <jonathanh@nvidia.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
+	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
+	"macpaul.lin@mediatek.com" <macpaul.lin@mediatek.com>,
+	"alexander.stein@ew.tq-group.com" <alexander.stein@ew.tq-group.com>,
+	"f.fainelli@gmail.com" <f.fainelli@gmail.com>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "andersson@kernel.org" <andersson@kernel.org>,
+	"geert+renesas@glider.be" <geert+renesas@glider.be>,
+	"tianping.fang@mediatek.com" <tianping.fang@mediatek.com>,
+	"thierry.reding@gmail.com" <thierry.reding@gmail.com>, "joel@jms.id.au"
+	<joel@jms.id.au>, "jaswinder.singh@linaro.org" <jaswinder.singh@linaro.org>,
+	"gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+	"robh@kernel.org" <robh@kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "biju.das.jz@bp.renesas.com"
+	<biju.das.jz@bp.renesas.com>, "linux-tegra@vger.kernel.org"
+	<linux-tegra@vger.kernel.org>, "bcm-kernel-feedback-list@broadcom.com"
+	<bcm-kernel-feedback-list@broadcom.com>,
+	"wan.ahmad.zainie.wan.mohamad@intel.com"
+	<wan.ahmad.zainie.wan.mohamad@intel.com>, "francesco.dolcini@toradex.com"
+	<francesco.dolcini@toradex.com>
+Subject: Re: [PATCH] dt-bindings: usb: Correct indentation and style in DTS
+ example
+Thread-Topic: [PATCH] dt-bindings: usb: Correct indentation and style in DTS
+ example
+Thread-Index: AQHbYQWEWlB4EXx24Uumc8p7Y3CxpLMMboKA
+Date: Wed, 8 Jan 2025 06:41:01 +0000
+Message-ID: <cd9b9c22d68658fae36e743a7a6301872a96cc5e.camel@skidata.com>
+References: <20250107131015.246461-1-krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20250107131015.246461-1-krzysztof.kozlowski@linaro.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=skidata.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: ZRAP278MB0029:EE_|ZR0P278MB1532:EE_
+x-ms-office365-filtering-correlation-id: 07d06fc6-76e9-4b9e-8c80-08dd2faf6b29
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|366016|921020|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?cm1qaVBlNEt1UFp0c2Y2dDAzSjYxWWlSOHMva1M3K05zTlNhcjlTWmhFeXh2?=
+ =?utf-8?B?T0FvdFdjZHdnYSs3aGplSjRhellLQjdTNVk3cURRVTVZRStXbjNUNW85TFF4?=
+ =?utf-8?B?Z2VINi9oWDJlNVdFcjBPMXg5Vm5oVU1oZENyczJxNW5yTWZEOWF5SzVrSXU1?=
+ =?utf-8?B?cmd4andCSGNZWVlaMVF1TDlGbVpqK0FpRUdIQSt6UlhoWVQyNHNtclByQ2xr?=
+ =?utf-8?B?VzhJUDIyL28zaGVqclZ0bW9FOFEyRUtCWnBWYjBpOVdFUDRqWGgwaTdMaXRl?=
+ =?utf-8?B?OVBXWHFYY3VKNkdiSU4xNXZLd2l1Ymh3MVFqK3RZYjlWV2NQR0ZqTUI2WVJE?=
+ =?utf-8?B?TC9KZDhnZml0blFOWk9pTDZKNjBjd2dwMHdVRExwV1JBcy9ROWFmTHhBTzB0?=
+ =?utf-8?B?eTFLb2hlZ0liOVNYTTBkZ0pJRjdLQklwZ0pDVHNtUktXWnZYbWwzKzhsaUFO?=
+ =?utf-8?B?eTJsa2NybzJhdXNMcFZ3SURIWmcwTUZ3aUJUK1R0R2d4TFZMbUhTT2RlcHQ1?=
+ =?utf-8?B?dG5WZTBhMWgySkRpUUxkck5icDcrU3FTTkhKaldpelZBeXlIRmVwbTBtcUls?=
+ =?utf-8?B?Q2N1OHpIb2ZtZjNuOXgyVjZXQ1QvNmVjWkFJY3hQOVJZR0xFZ0xWUHpNOTU4?=
+ =?utf-8?B?d1luajJBcUJONy9CUUxIUVJMaGM3Y0hiQ0haOERRYkRocktaL2ZkNDlrN0xG?=
+ =?utf-8?B?TUtUenJrOE9jVEl1VVJhRlRvZlhDcmpEN1g4eFJCYjcveDBURmtEdFJnY0lO?=
+ =?utf-8?B?N0RDZTBaaFB6ZU9GV1FYTHlqY3A1ZTQzay9pQmF2OEZBNmJRU2RiRk1GU0FQ?=
+ =?utf-8?B?YkZ3Qk9jSTF0OE9sSjRDclp5THhlZTJDUmpaNWhHUUZjeWk4MXlNYTE5Wngy?=
+ =?utf-8?B?VHBPZXVxajdaUEEva0svbWhwandrMGVaWXUrR2t6Mmp5ajJMNklPZGxzY04y?=
+ =?utf-8?B?bkROOFRRa0RMcGZjaEFXSHoxNERsYUJSVGY3Mzd2aFFPOTZzZTRybXA4Smt2?=
+ =?utf-8?B?U1h1NTUxN1V6YVRmNDM3ZVNKSmZmODAwOGM4aFF3c2dBaDRtMko1UTF3RUVD?=
+ =?utf-8?B?Y0lGWXhxTzlwQjNuVXg0NGZDenhCZTI4OTF2VkZjVkNxb2R2VlhqQm9pVHVu?=
+ =?utf-8?B?Wms5YmlBN1BsL3QxWmdraUcxQlgzczhnR3ZhWDJ1ZmxYU2x5dktZN1FzaGlV?=
+ =?utf-8?B?MXBnNlMrQ3dGZEpNL1hXTy9nb0NMOTJmaTVxSXZxTHgrSVhMZ3NocVZuZGgr?=
+ =?utf-8?B?SjRmTTdDMjVlSzFpMERsTXduRHFaZWhvZXlQQTY2RTNmVXZJbG9FTjJ1eENj?=
+ =?utf-8?B?ME1qeW0yVzNHZklTTCtpbWpOQ3RadG9KRjYxYzZqdE5aMDR3Ylh2WmUxZ0tr?=
+ =?utf-8?B?Tk4vV3FvRVR2U3BsR3RLWXY5YWhqbzBLeml4d2p2b3oxQ3g4OXIrY2xUR2dr?=
+ =?utf-8?B?c2l2ZWt3RXh5d2ZEdU5KT2dqWWs3Y1BVUVdXMUdLdWVzdjcvbFBtbWtJMTZu?=
+ =?utf-8?B?VWcvd1RpaXgreUgzaFJaSHAvWlVORzMrZlJFZ2ozc2pMM2tpT0V1T2FSUUFu?=
+ =?utf-8?B?VEw4QVh3cUV6ZUtELzJYRlVqd2xERFVKZ0ZXY1BZZkxTdllyZDJaOVozNER1?=
+ =?utf-8?B?bTF6dUtIZEVMMTlVaU5jbTcwdmVHSENCZ3liRnFVeXhsdHhFejU0aERNdDBi?=
+ =?utf-8?B?R0NOVHJsVDZDRDB0dllwVEpKUktIcC91RXR2eENsRTFIK1VDSFpyVHk2N25m?=
+ =?utf-8?B?Wm1UMEFkUnFJa0N0MDVYV2ZRWVhXditEZ1I2cnFwejVOSFFxZTJuZjZKVFYy?=
+ =?utf-8?B?eUNqQldnYy82RmdTR1ZQVWY3MWNLcUJURnJFbEw3YmlkelZRWVZhSDk3Z29q?=
+ =?utf-8?B?UkxzWkJrSUY3NHFlekdIa2dQaFN4N2dSNUZiRWQrbjRUbEFTSkpwdzY3SlBi?=
+ =?utf-8?Q?CvCF/d6aJd02UUadI5jeTNWkCKZFzB5e?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZRAP278MB0029.CHEP278.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(366016)(921020)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?KzBndUdIeU1ib090NmVNTEVVYlhOb3RseW1LRVp5TTBRWEZ3ZXRFU3FxOHhw?=
+ =?utf-8?B?eUFxSjBuc1kvcXM1b3k3dzJhd01iY0ZCT1lPbTZUVHFpZkZGcGFjRkJKOEFK?=
+ =?utf-8?B?SFBHUmFRL0d5QmQrMzkvMEMrSzBCWXJ2OFNVMDlhNCs5dFF3MzZLdWdWZjhy?=
+ =?utf-8?B?R1ozN1E3clk0OFlUTHFFZDFFdWJzL285UFZBUHY5c0k3TktsaUJyVU1qN0xh?=
+ =?utf-8?B?aTFrWmdUeml5WTBIcWxsR3hsU3NDOU5Pa1B3N01FaWpoZHY0WnMxYmQ3UDJL?=
+ =?utf-8?B?ZmtBdXdRSFA3Mk1mclErNDAvSEJnN3FDeTVmNmMySWFDSTh2ZStFVGYvZzlp?=
+ =?utf-8?B?eEdyc3doeGN2WkJWSDZIcklvamxmRU1GK3dGMVI1QUpQRnBERHJXZ040UUhm?=
+ =?utf-8?B?SEZHKzZyWkZrdEt0K3ppYjlNZEFjS2Y4Z1FtTGpvQnhtbUxFN21udXVjbC9V?=
+ =?utf-8?B?N21kcVFZTm4yQ3dJeDR0dHVXdDBVMUxyMmpuSzltb1lyVzFtUWxVUHREQWps?=
+ =?utf-8?B?MUFDMERzc1N3VFlHejY5NjAzQlFNVjN5eGJ6Z2FOTEhXMXVuWmx4NHk3S0Ez?=
+ =?utf-8?B?d0Q0S29KaFdMZkwxcTJXWk45RzA2eldXUjZabFo2bXp0aWRzb0M4NGtRZFRY?=
+ =?utf-8?B?MHI2YWM4bEJucVBHc1VDdkRJVGdiTi9HVWp6L3RZNVRmSjFBbmIrNWQ4MTRs?=
+ =?utf-8?B?SWd2bmt3QUpkWEgwNGFoT0pMbWF0RGdSRzNGVG5oWkF1N0FmKzRoNEhSNkZX?=
+ =?utf-8?B?amhpdHNtY28zMENtVHFRbDhEb0ozbHBkcmh6S1JxUVVGVFBIVFlxU1ppLzhQ?=
+ =?utf-8?B?dVZJRnB3Skc4d3F1MEJGajdzaEZBM2VkbDNycFltbWRsLzlSejliSUNVRDJ4?=
+ =?utf-8?B?ckxEczhoMmtWcHZ1RkVQQmc0NUpvTnJiMjdFcUpxRC9IYXdLZlpMNWRkVlVV?=
+ =?utf-8?B?MVNUZDFwYlRkWGFXTCtidHQ5eks5RHpRRTB5S05QOGFRa3RXcTZpVzY0eWFS?=
+ =?utf-8?B?SGo1QTlPeVA0NFhsc2gzL1djbk9CUXhESWE2cDNRdERQVjAyTWkzK3Zma0g0?=
+ =?utf-8?B?Y24wRjlTam5ja2tPNDcyTkkvbXRPVFQ0RnFFZ3F3RnZPZk1XaUJWNVVVeU41?=
+ =?utf-8?B?a1gvNTdlODVBVDRwSSthSjZVNjZTZ2I2TjE1QWRMRy93Mk1PTlhaTXlHZW50?=
+ =?utf-8?B?NkxlUDNSd2Y5SkR6T2xIbExNampJbHdnaGowNEo4V3NNcVJkbHN2UkhQblZv?=
+ =?utf-8?B?VEJKU0FKUzhLU1RwZ3lBZE1jNWdVUVNodGE5RW1tbEwrVTQyS3dqS3JBQWxX?=
+ =?utf-8?B?eVNsWWUwQkdHZDV0K0x0Mktka2ZzY2tiZGpHSnhnTHR3MXIyM3lCZDF1QzYx?=
+ =?utf-8?B?c0lzWVA3TGpMSi9TUytEaVpyeDBPOVh4UUU3MlM1dEh5QmJHT1FrRGRGU1ly?=
+ =?utf-8?B?V2pTTUxsdFMwSjM3STEvMzkrem1iUXo0NkFGSG1ncVV2NGVtRzU3d1p0ZUFl?=
+ =?utf-8?B?M01uUkdRamFtMm1LVmFhYU5qcXdOLzVvRmpNMEpWRHpDclNYRXZlVHE5UEpR?=
+ =?utf-8?B?MjNVQXBERjlZSll0VTgyNE9KWmV2ZUJ1WUVLR3F5QTZJMlVzUjJKcXJqaXVV?=
+ =?utf-8?B?ZlZNZzVCczY2aCtDQ2d0LzEyWnBnVG1YWUNlUFFDTXBXRS96VUFMcjRSdHYr?=
+ =?utf-8?B?Sk1md1BGSExIT0twdTRyRERSSytTWHRTSlFWbE13TmJHMFp1OTFzQjhJemlZ?=
+ =?utf-8?B?Vm5FZW9HK25jekNqQkNydW9kdHVMUGU2VFpsTzZraUtPSm14eDNXTXorMkZy?=
+ =?utf-8?B?bWZSVWNaUTBrQUk1L2dIaXhWNStMUnVsbmFnUkEzSlBmejlvcStjN1Ric0hO?=
+ =?utf-8?B?UWNCNUpKVXRVZldMOG9Ia2xOMXZtVnRWazh1a29USFNRT0E0NGd2MndZSGhz?=
+ =?utf-8?B?Rk0rS0E2ajNrRTRnamQ2NVg4VE5USklBRjJDSXFEM1VtY1VzNlNGbjVHVDFL?=
+ =?utf-8?B?L2k5ckREZStodjMzaVh6UmdSZ1MzenBhYmx3MnRoa2djQUxZUEVqTGp4dHhy?=
+ =?utf-8?B?WW1GMmk4SGlhdit1UU5SUFk5bkNzbC9NV1puVnZxeHpSbk5iV29zTURlSXRJ?=
+ =?utf-8?B?b3NlcVhxV1RpWUNZcExZbGxMQ0M0WEhIRzZxYkMvV095NXpxVUZjdnp4V3pU?=
+ =?utf-8?B?cEE9PQ==?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <C656B7E3BEC56745864B6DECC90AF97F@CHEP278.PROD.OUTLOOK.COM>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-References: <20241223100648.2166754-1-wenst@chromium.org> <481a6eec-c428-45cd-98a6-5a91f3ceb187@collabora.com>
- <CAGXv+5Fj5s9FUyaxmEkGimxjEcS6OEfm4_5Zso+YocSi+Vt4pg@mail.gmail.com>
- <bbc6aa2a-fe48-4e06-b070-fd66dbd00e15@collabora.com> <CAGXv+5FoOM=ZUCWigdCaPbc4FCBtLVX2xnUJnVnVsBH=7yoZ=Q@mail.gmail.com>
- <efb88dd0-3b66-49fe-b279-e66c4574cf9d@collabora.com> <CAGXv+5HWcYrCzWJD4e=WP1WVNfqG5Y2_z+_oetWZq2ZKjXP75g@mail.gmail.com>
- <eda10efe-a301-45d3-9bf6-088275db7af5@collabora.com>
-In-Reply-To: <eda10efe-a301-45d3-9bf6-088275db7af5@collabora.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Wed, 8 Jan 2025 14:36:44 +0800
-X-Gm-Features: AbW1kvbDKrbFQjU6XyUH5Hc8L3tHpZUYKW41Cjn0PmEo8btxf4x5xJJU_HtXlkg
-Message-ID: <CAGXv+5EdU-8__5uTpcX2JT0Lw=kXraVpnMLjgcJS1jrN_zwAww@mail.gmail.com>
-Subject: Re: [PATCH] nvmem: mtk-efuse: Enable GPU speed bin post-processing
- for MT8188
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-OriginatorOrg: skidata.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: ZRAP278MB0029.CHEP278.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 07d06fc6-76e9-4b9e-8c80-08dd2faf6b29
+X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Jan 2025 06:41:01.9787
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: e5733095-4425-4f08-b6ba-487b9a46a425
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: vugqrVXQbiyUNNLBT/dp3MPKd3+EhiLPP9X0nk2HDxD4ZxWZvlkXarZ5t97xwYoZwBqECVdM3gGlKrfkxKLdtmefUpYRqRL877zZdjHg6UU=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZR0P278MB1532
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_223658_425923_AB41C702 
-X-CRM114-Status: GOOD (  42.46  )
+X-CRM114-CacheID: sfid-20250107_224110_579985_89672253 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,182 +207,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 7, 2025 at 9:12=E2=80=AFPM AngeloGioacchino Del Regno
-<angelogioacchino.delregno@collabora.com> wrote:
->
-> Il 23/12/24 17:15, Chen-Yu Tsai ha scritto:
-> > On Tue, Dec 24, 2024 at 12:08=E2=80=AFAM AngeloGioacchino Del Regno
-> > <angelogioacchino.delregno@collabora.com> wrote:
-> >>
-> >> Il 23/12/24 16:57, Chen-Yu Tsai ha scritto:
-> >>> On Mon, Dec 23, 2024 at 7:43=E2=80=AFPM AngeloGioacchino Del Regno
-> >>> <angelogioacchino.delregno@collabora.com> wrote:
-> >>>>
-> >>>> Il 23/12/24 12:24, Chen-Yu Tsai ha scritto:
-> >>>>> On Mon, Dec 23, 2024 at 7:11=E2=80=AFPM AngeloGioacchino Del Regno
-> >>>>> <angelogioacchino.delregno@collabora.com> wrote:
-> >>>>>>
-> >>>>>> Il 23/12/24 11:06, Chen-Yu Tsai ha scritto:
-> >>>>>>> Like the MT8186, the MT8188 stores GPU speed binning data in its =
-efuse.
-> >>>>>>> The data needs post-processing into a format that the OPP framewo=
-rk can
-> >>>>>>> use.
-> >>>>>>>
-> >>>>>>> Add a compatible match for MT8188 efuse with post-processing enab=
-led.
-> >>>>>>>
-> >>>>>>
-> >>>>>> Let's just change the MT8188 compatible list to
-> >>>>>>
-> >>>>>> compatible =3D "mediatek,mt8188-efuse", "mediatek,mt8186-efuse";
-> >>>>>
-> >>>>> That would be "mediatek,mt8188-efuse", "mediatek,mt8186-efuse", "me=
-diatek,efuse"
-> >>>>> then?
-> >>>>>
-> >>>>
-> >>>> No, we're dropping the generic "mediatek,efuse".
-> >>>
-> >>> That means we also drop it for MT8186?
-> >>>
-> >>> Thinking about it more, I think it's stretching things a bit. The har=
-dware
-> >>> is clearly backwards compatible, or we wouldn't even be reading value=
-s
-> >>> out correctly. The only difference now with MT8186 and MT8188 is that
-> >>> they have a speed-bin field with a value that we want passed to the O=
-PP
-> >>> framework, and the interpretation of that value is not really part of
-> >>> the efuse's hardware. We chose to do the conversion in the efuse driv=
-er,
-> >>> but we could also have done it in the GPU driver.
-> >>>
-> >>> What I'm saying is that we should not need to change the compatible s=
-trings
-> >>> to make this work.
-> >>>
-> >>
-> >> No we don't forcefully have to drop it from MT8186, and doing so would=
- be kind
-> >> of hard and actually producing unnecessary breakages with (very) old k=
-ernels.
-> >>
-> >> Just add a `deprecated: true` to the binding that wants `mediatek,efus=
-e` and
-> >> start with MT8188, where 8188 is in enum and 8186 is const.
-> >>
-> >> We can do MT8188 because that'll still work even with old kernels (sin=
-ce MT8186
-> >> is there since before MT8188 was introduced), and it's something to en=
-able a new
-> >> feature.
-> >> This means that there's not going to be any breakage with new DT and o=
-ld kernel.
-> >>
-> >> I want the mediatek,efuse binding to be like the majority of the other=
-s across
-> >> the kernel, so, no generic compatible.
-> >
-> > In that case shouldn't the fallback be the oldest SoC in the list?
-> > Maybe MT8173, which is currently marked as deprecated, so we undeprecat=
-e it?
-> >
-> > Certainly not the MT8186.
-> >
->
-> MT8173 doesn't have the post processing enabled.... if you can test that =
-the code
-> actually works for MT8173 as well, giving meaningful results, then we can=
- just use
-> the MT8173 compatible :-)
-
-What I'm saying is (and hopefully I regenerated my thoughts correctly)
-that if we want to get rid of the generic compatible string, then we
-need a base fallback string. The MT8173 one would be the one.
-
-The MT8186 efuse at the hardware level AFAIK is no different to the
-MT8173 one. They simply store bits. How the bits are allocated is
-defined by the layout. How the bits are interpreted is also not
-a property of the hardware.
-
-In the current design the need for post-processing does not depend on
-the SoC itself, but rather the node name being "gpu-speedbin". Even
-if we turned on post processing for all models, it wouldn't matter
-for the other SoCs.
-
-And the reason the conversion is in the nvmem driver (the provider)
-rather than panfrost (the consumer) has nothing to do with the
-hardware. IIRC you simply wanted to provide a generic implementation.
-If the conversion were in the GPU driver, we wouldn't special case
-MT8186 here. If the speedbin value were split into two or more
-cells, we probably would have stuck the conversion in the GPU
-driver.
-
-So, we could have "mediatek,mt8173-efuse" replace "mediatek,efuse"
-as the fallback compatible, and turn on post processing for it,
-and things would be the same as before, and also work for MT8188.
-How does that sound?
-
-
-Interestingly, the new "fixed layout" description actually allows
-for compatible strings in the NVMEM cells. That would allow matching
-against a cell's compatible string instead of its name.
-
-
-Thanks
-ChenYu
-
-> >> Cheers,
-> >> Angelo
-> >>
-> >>>
-> >>> ChenYu
-> >>>
-> >>>> Cheers!
-> >>>>
-> >>>>> Fine by me. :D
-> >>>>>
-> >>>>> ChenYu
-> >>>>>
-> >>>>>> instead :-)
-> >>>>>>
-> >>>>>> Cheers,
-> >>>>>> Angelo
-> >>>>>>
-> >>>>>>> Cc: <stable@vger.kernel.org>
-> >>>>>>> Fixes: ff1df1886f43 ("dt-bindings: nvmem: mediatek: efuse: Add su=
-pport for MT8188")
-> >>>>>>> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
-> >>>>>>> ---
-> >>>>>>>
-> >>>>>>> I'm not exactly sure about pointing to the dt bindings commit for=
- the
-> >>>>>>> fixes tag.
-> >>>>>>> ---
-> >>>>>>>      drivers/nvmem/mtk-efuse.c | 1 +
-> >>>>>>>      1 file changed, 1 insertion(+)
-> >>>>>>>
-> >>>>>>> diff --git a/drivers/nvmem/mtk-efuse.c b/drivers/nvmem/mtk-efuse.=
-c
-> >>>>>>> index af953e1d9230..e8409e1e7fac 100644
-> >>>>>>> --- a/drivers/nvmem/mtk-efuse.c
-> >>>>>>> +++ b/drivers/nvmem/mtk-efuse.c
-> >>>>>>> @@ -112,6 +112,7 @@ static const struct mtk_efuse_pdata mtk_efuse=
-_pdata =3D {
-> >>>>>>>      static const struct of_device_id mtk_efuse_of_match[] =3D {
-> >>>>>>>          { .compatible =3D "mediatek,mt8173-efuse", .data =3D &mt=
-k_efuse_pdata },
-> >>>>>>>          { .compatible =3D "mediatek,mt8186-efuse", .data =3D &mt=
-k_mt8186_efuse_pdata },
-> >>>>>>> +     { .compatible =3D "mediatek,mt8188-efuse", .data =3D &mtk_m=
-t8186_efuse_pdata },
-> >>>>>>>          { .compatible =3D "mediatek,efuse", .data =3D &mtk_efuse=
-_pdata },
-> >>>>>>>          {/* sentinel */},
-> >>>>>>>      };
-> >>>>>>
-> >>>>
->
->
+T24gVHVlLCAyMDI1LTAxLTA3IGF0IDE0OjEwICswMTAwLCBLcnp5c3p0b2YgS296bG93c2tpIHdy
+b3RlOg0KPiBEVFMgZXhhbXBsZSBpbiB0aGUgYmluZGluZ3Mgc2hvdWxkIGJlIGluZGVudGVkIHdp
+dGggMi0gb3IgNC1zcGFjZXMNCj4gYW5kDQo+IGFsaWduZWQgd2l0aCBvcGVuaW5nICctIHwnLCBz
+byBjb3JyZWN0IGFueSBkaWZmZXJlbmNlcyBsaWtlIDMtc3BhY2VzDQo+IG9yDQo+IG1peHR1cmVz
+IDItIGFuZCA0LXNwYWNlcyBpbiBvbmUgYmluZGluZy4NCj4gDQo+IE5vIGZ1bmN0aW9uYWwgY2hh
+bmdlcyBoZXJlLCBidXQgc2F2ZXMgc29tZSBjb21tZW50cyBkdXJpbmcgcmV2aWV3cyBvZg0KPiBu
+ZXcgcGF0Y2hlcyBidWlsdCBvbiBleGlzdGluZyBjb2RlLg0KPiANCj4gU2lnbmVkLW9mZi1ieTog
+S3J6eXN6dG9mIEtvemxvd3NraSA8a3J6eXN6dG9mLmtvemxvd3NraUBsaW5hcm8ub3JnPg0KDQpB
+Y2tlZC1ieTogQmVuamFtaW4gQmFyYSA8YmVuamFtaW4uYmFyYUBza2lkYXRhLmNvbT4gIyBjeXBy
+ZXNzLGh4My55YW1sDQo=
 
