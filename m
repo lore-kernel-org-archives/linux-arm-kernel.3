@@ -4,90 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D088E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 19:35:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A681E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 20:15:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pZ8OaEnCblGa//gqGF016T+aNas0t6We2C1yQ9rLcFU=; b=MNkP1moOC3DgEg5Z0zirAz/Jh7
-	x6kzM4u13eo30e0D6YxQB0tOejZW1ybNS6bOQ0bxIEdJ46Mm5hk2VgJBy9GOFGTjOlcT6V36khUto
-	MBgj45W5y8F1YmJ0ap0SsItqd4+HPCQ1fOvOa4I06WyZ6jdYkCRZuqpfic57Fgilx36j/xnvfXQpS
-	O5yRYGn8aXm+Pbi6lPjUu4Mwl9Dn/yPth8T+RlDMGNwLRhEDW6MgLMMi/quyQe1YCwd6srzMw+8Qw
-	walHS4mry6+pGYfU7qcDWVPYPY5/22jDt1mvvoheBIb+UQ2MZTqGCjUL3SOLsLpXlOq8SSth2cPjK
-	wsO1/7xA==;
+	bh=hs8uP3N/mTdsE3JF6EEgjMUW9ubX3QrUliIYU0W1Efw=; b=ZJEJuvy1VhFNHLNogatMNkia2Q
+	TPcKbMMTe77yLiAbo1FWVE3wuZtUI9+x0vPZCUOA38aKWyRmQB7ZkIWuAOHQS2Yq/1s6WGInCwUCG
+	zx2iTTuOmnjFhKO4XpawSAImuIRInyXCGmWoMzie6wq51qd2LJj3c1kVTbX6+/zTTFaj0OJzkIfCL
+	KOsYPHR8bXwS5KrJWA3C7v7r7T+tkiY7yT87QnatNB8yf66beEo6kGN7X9bvD/Alz/NqnzXCvH7UH
+	MChiwZ1oMNZenpfepfJ4nzNT9bAFA3E3SkCRed6rT2UhwbswrahCQHpzbb9v7nuuvd0UH1+chX0xV
+	1ksfNlwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVbq6-00000009fQU-36od;
-	Wed, 08 Jan 2025 19:35:38 +0000
-Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
+	id 1tVcSq-00000009jh9-3kNA;
+	Wed, 08 Jan 2025 20:15:40 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVbos-00000009fJO-18vf
+	id 1tVcRc-00000009jOE-43pV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 19:34:23 +0000
-Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-4678cd314b6so612961cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jan 2025 11:34:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1736364861; x=1736969661; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=pZ8OaEnCblGa//gqGF016T+aNas0t6We2C1yQ9rLcFU=;
-        b=Nre4M/A8L8LUwNbOpiM03let3haPcm9TAkhyYJMeMAZ5GCs1m4U0C6eBTbuT/Ix5bW
-         ank+4KygcaveRd0DMNglNR//0eqqd71zMaOzsBZsafR1cIKi+Apg/e/IlXjcLKhA1zr5
-         AZOKQZa4QoYAbeExmQDb71cDskhjGdJ7xiURD9ONyW3HpvmDojU0ulLwY5mKpUhmQS/y
-         2Lf+BF7Bxf0q+eQ/uZhGvBcY4Kggf0Hn4O6MOzbPtjsvSiUrhlHRhTDTD8E2Gec1rIMq
-         B0LgE6zPb54oWbRBLYa3maYXyqMeoB5dubDRIvj8y/vkrSREoMH5gSDpjB7IL75o/Ula
-         KWJw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736364861; x=1736969661;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=pZ8OaEnCblGa//gqGF016T+aNas0t6We2C1yQ9rLcFU=;
-        b=ryNLC0/LL8KGERNrhmwuQX3F7easrHOC33+hO6lbJniT9gv4dURPK69e2aiXym6hby
-         OV68cN2fMrXo+RVk2C5pBO/daVUx8KUizf21EfXG0knqHXkfvmQpJ+H/cdSdB+Xgd9hF
-         n6W/peG17RZj9H8QB9lo9f43NgE666/3prXFyAdWHOLiGAdxfX5CGl7OzVGuizi0m5bS
-         aHpTpxyUtDEYCgalVOPApyp8OUK2WzxpBaAQY4PikrbS38l5sgIYPEoMIuLu/hZpEyfg
-         E27gYwlFXnVC9CzlMRBnYmnC/ikeKBjUccPUlA3B5pF1rf3Du7Sy4cT3IVzMsDblJacR
-         jE0A==
-X-Forwarded-Encrypted: i=1; AJvYcCU90Ews2o3bBvx1mppE34JlFO7/G0aiI+jf0Fg4+dchDuLkFdeEsbG0uSjytmfc6yPx1K6wHaitUsyA/cEfog/M@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx9cz299f/C8geNgU3TSRjEHd2yuNUUDpqnX1P4duAr1zK084ng
-	InLzRW1ZgIPTl9vy2s6MwXnvntpnhB3UXoPhg41+9TSt7xY0Q1r8eb27vYzisHw=
-X-Gm-Gg: ASbGncueWGlR+TV5UN8n0lf4E3u68JscTwg2VVZ0pikhUGBHhad6Z1Czrbla6IVJwnY
-	rBppl9cjAD/XjY0+FyRfvPtyHdp+TgsoqVpv+wc0ELKQRRBXZPeybN7eIkyNMZACHnyBzP92jri
-	q6R9C094VWTtEHzzluRplAV/c+3dYaUdvrG5Aj0TEHmcl3t0wVacGN6hRpZcegcyEgbuXjnGm8K
-	7OciUJrRNYWnHNxl6U82LfwJglGc6emFnC1E33Af7eroucchbqdZnirMA==
-X-Google-Smtp-Source: AGHT+IHHoBOVEADoDwJ5SEc2bvPkTd9ig7fH6khIBw3ziijVw29fWtXY3bUiaQ9CQqXYbSXbLj0hfg==
-X-Received: by 2002:a05:622a:1792:b0:463:64b2:2e0d with SMTP id d75a77b69052e-46c7107a922mr65440061cf.40.1736364860717;
-        Wed, 08 Jan 2025 11:34:20 -0800 (PST)
-Received: from nicolas-tpx395.localdomain ([2606:6d00:15:862e::7a9])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-46a3eb16c7bsm199636001cf.63.2025.01.08.11.34.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Jan 2025 11:34:20 -0800 (PST)
-Message-ID: <dcae7fbb810ebfa6e539c3b45c20e1d659600d80.camel@ndufresne.ca>
-Subject: Re: [PATCH] media: docs: dev-decoder: Trigger dynamic source change
- for colorspace
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Ming Qian <ming.qian@oss.nxp.com>, mchehab@kernel.org, 
-	hverkuil-cisco@xs4all.nl
-Cc: shawnguo@kernel.org, robh+dt@kernel.org, s.hauer@pengutronix.de, 
-	kernel@pengutronix.de, festevam@gmail.com, linux-imx@nxp.com,
- xiahong.bao@nxp.com, 	eagle.zhou@nxp.com, tao.jiang_2@nxp.com,
- imx@lists.linux.dev, 	linux-media@vger.kernel.org,
- linux-kernel@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org
-Date: Wed, 08 Jan 2025 14:34:19 -0500
-In-Reply-To: <20250107053622.1287461-1-ming.qian@oss.nxp.com>
-References: <20250107053622.1287461-1-ming.qian@oss.nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.54.2 (3.54.2-1.fc41) 
+	Wed, 08 Jan 2025 20:14:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=hs8uP3N/mTdsE3JF6EEgjMUW9ubX3QrUliIYU0W1Efw=; b=cokaGl5rbCCWR5PLEEXlzlK4cg
+	61kIh8CGC74Kzu7whTHy6mmGZiSShEsvkL/AiJ79CgmLhcin6x2cZmY33bJNEFJBTn2rnElphfZ8A
+	QoBXD8JA3+CWcAR2AKXIabgI7RguloybklWjZ7s0SMDRD9wP03I3Y1lpAgkiPSW+xw0s=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tVcR0-002fvx-Ne; Wed, 08 Jan 2025 21:13:46 +0100
+Date: Wed, 8 Jan 2025 21:13:46 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Ninad Palsule <ninad@linux.ibm.com>
+Cc: minyard@acm.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+	ratbert@faraday-tech.com, openipmi-developer@lists.sourceforge.net,
+	netdev@vger.kernel.org, joel@jms.id.au, andrew@codeconstruct.com.au,
+	devicetree@vger.kernel.org, eajames@linux.ibm.com,
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 05/10] ARM: dts: aspeed: system1: Add RGMII support
+Message-ID: <b80b9224-d428-4ad9-a30d-40e2d30be654@lunn.ch>
+References: <20250108163640.1374680-1-ninad@linux.ibm.com>
+ <20250108163640.1374680-6-ninad@linux.ibm.com>
+ <1dd0165b-22ff-4354-bfcb-85027e787830@lunn.ch>
+ <0aaa13de-2282-4ea3-a11b-4edefb7d6dd3@linux.ibm.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <0aaa13de-2282-4ea3-a11b-4edefb7d6dd3@linux.ibm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_113422_314837_C8D7D714 
-X-CRM114-Status: GOOD (  17.45  )
+X-CRM114-CacheID: sfid-20250108_121425_003990_FC012C25 
+X-CRM114-Status: GOOD (  18.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,45 +76,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Wed, Jan 08, 2025 at 12:43:07PM -0600, Ninad Palsule wrote:
+> Hello Andrew,
+> 
+> 
+> On 1/8/25 11:03, Andrew Lunn wrote:
+> > On Wed, Jan 08, 2025 at 10:36:33AM -0600, Ninad Palsule wrote:
+> > > system1 has 2 transceiver connected through the RGMII interfaces. Added
+> > > device tree entry to enable RGMII support.
+> > > 
+> > > ASPEED AST2600 documentation recommends using 'rgmii-rxid' as a
+> > > 'phy-mode' for mac0 and mac1 to enable the RX interface delay from the
+> > > PHY chip.
+> > You appear to if ignored my comment. Please don't do that. If you have
+> > no idea about RGMII delays, please say so, so i can help you debug
+> > what is wrong.
+> > 
+> > NACK
+> 
+> I think there is a misunderstanding. I did not ignore your comment. I have
+> contacted ASPEED and asked them to respond. I think Jacky from Aspeed
+> replied to your mail.
 
-Le mardi 07 janvier 2025 =C3=A0 14:36 +0900, Ming Qian a =C3=A9crit=C2=A0:
-> If colorspace changes, the client needs to renegotiate the pipeline,
-> otherwise the decoded frame may not be displayed correctly.
->=20
-> If it can trigger an source change event, then client can switch to the
-> correct stream setting. And each frame can be displayed properly.
->=20
-> So add colorspace as a trigger parameter for dynamic resolution change.
->=20
-> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
-> ---
->  Documentation/userspace-api/media/v4l/dev-decoder.rst | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
->=20
-> diff --git a/Documentation/userspace-api/media/v4l/dev-decoder.rst b/Docu=
-mentation/userspace-api/media/v4l/dev-decoder.rst
-> index ef8e8cf31f90..49566569ad26 100644
-> --- a/Documentation/userspace-api/media/v4l/dev-decoder.rst
-> +++ b/Documentation/userspace-api/media/v4l/dev-decoder.rst
-> @@ -932,7 +932,9 @@ reflected by corresponding queries):
-> =20
->  * the minimum number of buffers needed for decoding,
-> =20
-> -* bit-depth of the bitstream has been changed.
-> +* bit-depth of the bitstream has been changed,
-> +
-> +* colorspace of the bitstream has been changed.
+You did not mention in the cover letter, or the patch. I asked for a
+detailed explanation in the commit message why it is correct, which
+you did not do.
 
-Did you really mean colorspace in the way this term is used in V4L2 ? What =
-we
-want this event to be used for is when the capture storage size or amount
-changes, perhaps you mean when the capture pixelformat changes ? This will
-indeed happen if you change the bit-depth, subsampling (not mentioned here
-either) or change the way colors are repsented (RGB, YCbCr, etc.).
+Now we have more details, it is clear Ethernet support for this board
+needs to wait until we figure out how to fix the MAC driver. Please
+either wait with this patchset until that is done, or drop this one
+patch for the moment and submit it later once the MAC driver is fixed.
 
-> =20
->  Whenever that happens, the decoder must proceed as follows:
-> =20
+      Andrew
 
 
