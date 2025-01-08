@@ -4,56 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A7CEE77199
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 11:14:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E55AE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 11:16:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cnyQ8id6uXGb9NG9O3SbSOq/Ua57cbonPEZvVebUg9U=; b=fSgeoo0vGJENN3ttZc499UFGES
-	Y2/tZDkUAy+t5xKgnD0um/7uhz1GpSzN8G5fwjZdUbqxVSgHiUolh9AkA5YZDJ6B1VrtxmsEhRAOI
-	FZROCN6qTHqufLl3jGKIMn0t4hryt7kA7xJAXpg+EQg9+bcu2aFpxsxLeeLi3yXH0SfMTwAMrlFa3
-	5zvZnnYplYcVZ19hYaTu6rfMdK0P/vBJkOutWkYzuwGpzpveXfOo7hmO0Hc/63ES1n7FMiCe0irLB
-	H11B7y73/jRwfA5xT5JeIdVqy516e6z+30wn4khUZfo/bDj/X+1MZkSdK5/TjfSfPixBQ8ShYH6Sq
-	P1KLFu2Q==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jx7nYcATqTRXJ/a15Rw085y1p9PKJn7eQm9eOZWWA60=; b=4Yo08FtoVrIC7Dk9kDVrlQHQK4
+	zDKkXus4tZxqXQy/2sBUM0CkTWwEiz5do5Kgmfg0HZEpeJLkoM3D78Dxwyq4gKi23mTfyupx1Ti5T
+	Nsnl360vmsEVO48sIJiVBXZcjepcJHRClS9E4c9OSnU5e8wKwBlOG31qkdWabtrKsNn+PVAGbYVJE
+	aawERqJoIMhtjjcLVUIyK1kY09gapPXWQhyGs0JUAKmDDD/WUL8lH24owQFqdSgZekoLm0j+5EtaJ
+	WYmorA+7kUiGhcdu9vqugSP3HiFvHDPGhKBwMff0YMWjfHN83WOjSdKCz98+qD0mbIj3JCL6pqybO
+	X5hmWYYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVU0s-00000008AUJ-1r2Q;
-	Wed, 08 Jan 2025 11:14:14 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVTvT-0000000898q-2aYI
+	id 1tVU35-00000008AuV-2EOE;
+	Wed, 08 Jan 2025 11:16:31 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tVU1s-00000008AlG-4BAX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 11:08:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A75BE13D5;
-	Wed,  8 Jan 2025 03:09:05 -0800 (PST)
-Received: from [10.57.32.219] (unknown [10.57.32.219])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 2F20F3F66E;
-	Wed,  8 Jan 2025 03:08:36 -0800 (PST)
-Message-ID: <e236f2d3-a9cb-412e-af3f-6ae46851869d@arm.com>
-Date: Wed, 8 Jan 2025 11:08:35 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] coresight: prevent deactivate active config while
- enable the config
-Content-Language: en-GB
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: mike.leach@linaro.org, james.clark@linaro.org,
- alexander.shishkin@linux.intel.com, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20241223185328.1339616-1-yeoreum.yun@arm.com>
- <065330b5-992e-47ae-9c49-e496d03c20de@arm.com>
- <Z30ltrwxpbVjIaVF@e129823.arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <Z30ltrwxpbVjIaVF@e129823.arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+	Wed, 08 Jan 2025 11:15:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5DAF85C42F7;
+	Wed,  8 Jan 2025 11:14:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 185B5C4CEDD;
+	Wed,  8 Jan 2025 11:15:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736334916;
+	bh=Elaxu5tvDfDqTfiI1npE4/wrE2bdRCCJwzlgYNjlzvg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=eZWaMFUdQ4BXOsA3Wj9/uv5gb1OM+OW8JSJohPFzVH3Rme2gPMdH+cvxN0LpMVjdr
+	 F9M+IumsPFG9Z/QlgsSzcKM0XzKx08+taXkrvxXrHPpkMzFMR1X7iuNuX9oF5EA3pq
+	 whSSXwsu33PwIjN1oQLDWREDfZsQDbxezQv97LsC3B75cnVLNUHTeNf6exzd8tOC7q
+	 ridPe5ZrkOD1n5tnFDrkU8G5Cwh5fVHSUKb6fG1+cC/naJVEC2P6QgkV1GwmNBNXvi
+	 zq6GwF3QY6yYHtMZIRblFPxZch9sSE/t+aaPo+f7M8E+bh8ZIo8XEzEQKxcxQyGrtH
+	 VpdGNqQ11DGzg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tVU1p-00A7G3-NT;
+	Wed, 08 Jan 2025 11:15:13 +0000
+Date: Wed, 08 Jan 2025 11:15:13 +0000
+Message-ID: <86wmf5wo8u.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Rob Herring <robh@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Will Deacon <will@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Eric Auger <eric.auger@redhat.com>,
+	kvmarm@lists.linux.dev,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/7] arm64/boot: Enable EL2 requirements for FEAT_PMUv3p9
+In-Reply-To: <CAL_JsqLLnh1o4L1=PpNt5brBwZZCgp7mOygByOYakchrzc29Ow@mail.gmail.com>
+References: <20241220072240.1003352-1-anshuman.khandual@arm.com>
+	<20250102160402.GB3990035-robh@kernel.org>
+	<Z30adHnQ7ZFaU9UR@arm.com>
+	<CAL_JsqLLnh1o4L1=PpNt5brBwZZCgp7mOygByOYakchrzc29Ow@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: robh@kernel.org, catalin.marinas@arm.com, anshuman.khandual@arm.com, linux-arm-kernel@lists.infradead.org, will@kernel.org, ryan.roberts@arm.com, mark.rutland@arm.com, oliver.upton@linux.dev, corbet@lwn.net, eric.auger@redhat.com, kvmarm@lists.linux.dev, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_030839_748740_2F8CAAFD 
-X-CRM114-Status: GOOD (  39.34  )
+X-CRM114-CacheID: sfid-20250108_031517_131048_B000EF17 
+X-CRM114-Status: GOOD (  31.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,249 +97,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/01/2025 13:01, Yeoreum Yun wrote:
-> Hi Suzuki,
-> 
->> Hi Levi
->>
->> On 23/12/2024 18:53, Yeoreum Yun wrote:
->>> While enable active config via cscfg_csdev_enable_active_config(),
->>> active config could be deactivated via configfs' sysfs interface.
->>> This could make UAF issue in below scenario:
->>>
->>> CPU0                                          CPU1
->>> (sysfs enable)                                load module
->>>                                                 cscfg_load_config_sets()
->>>                                                 activate config. // sysfs
->>>                                                 (sys_active_cnt == 1)
->>> ...
->>> cscfg_csdev_enable_active_config()
->>>     lock(csdev->cscfg_csdev_lock)
->>>     // here load config activate by CPU1
->>>     unlock(csdev->cscfg_csdev_lock)
->>>
->>>                                                 deactivate config // sysfs
->>>                                                 (sys_activec_cnt == 0)
->>>                                                 cscfg_unload_config_sets()
->>>                                                 unload module
->>>
->>>     // access to config_desc which freed
->>>     // while unloading module.
->>>     cfs_csdev_enable_config
->>>
->>> To address this, introduce sys_enable_cnt in cscfg_mgr to prevent
->>> deactivate while there is enabled configuration.
->>
->> Thanks for the finding the problem and the detailed description + patch. I
->> have some concerns on the fix, please find it below.
->>
->>>
->>
->>
->> So we have 3 atomic counters now !
->> cscfg_mgr->sys_active_cnt  // Global count
->> config->active_cnt	   // Per config count,
->>
->> And another one which this one introduces.
->>
->> cscfg_mgr->sys_enable_cnt  // ?
->>
->>
->> And config->active_cnt is always ever 0 or 1. i.e., it is not really a
->> reference counter at the moment but it indicates whether it is active or
->> not. Could  we not use that for tracking the references on the specific
->> config ?
->>
->> i.e., every time we "enable_active_config" atomic_inc(config->active_cnt)
->>
->> and disable_active_config() always decrements the config. These could be
->> wrapped in cscfg_get() cscfg_put() which would, inc/dec the refcounts
->> and also drop the "module" reference when the active_cnt == 0
-> 
-> This action is done via _cscfg_activate_config() already but its
-> activation is done via "sysfs".
-> and the checking active_cnt, I think it would increase lots of complex.
+On Tue, 07 Jan 2025 22:13:47 +0000,
+Rob Herring <robh@kernel.org> wrote:
+>=20
+> On Tue, Jan 7, 2025 at 6:13=E2=80=AFAM Catalin Marinas <catalin.marinas@a=
+rm.com> wrote:
+> >
+> > On Thu, Jan 02, 2025 at 10:04:02AM -0600, Rob Herring wrote:
+> > > On Fri, Dec 20, 2024 at 12:52:33PM +0530, Anshuman Khandual wrote:
+> > > > This series adds fine grained trap control in EL2 required for FEAT=
+_PMUv3p9
+> > > > registers like PMICNTR_EL0, PMICFILTR_EL0, and PMUACR_EL1 which are=
+ already
+> > > > being used in the kernel. This is required to prevent their EL1 acc=
+ess trap
+> > > > into EL2.
+> > > >
+> > > > PMZR_EL0 register trap control i.e HDFGWTR2_EL2.nPMZR_EL0 remains u=
+nchanged
+> > > > for now as it does not get accessed in the kernel, and there is no =
+plan for
+> > > > its access from user space.
+> > > >
+> > > > I have taken the liberty to pick up all the review tags for patches=
+ related
+> > > > to tools sysreg update from the KVM FGT2 V2 patch series posted ear=
+lier.
+> > > >
+> > > > https://lore.kernel.org/all/20241210055311.780688-1-anshuman.khandu=
+al@arm.com/
+> > > >
+> > > > Rob had earler mentioned about FEAT_FGT2 based trap control require=
+ment for
+> > > > FEAT_PMUv3p9 registers that are currently being used in kernel. The=
+ context
+> > > > can be found here.
+> > > >
+> > > > https://lore.kernel.org/all/20241216234251.GA629562-robh@kernel.org/
+> > > >
+> > > > This series is based on v6.13-rc3
+> > > >
+> > > > Cc: Catalin Marinas <catalin.marinas@arm.com>
+> > > > Cc: Will Deacon <will@kernel.org>
+> > > > Cc: Marc Zyngier <maz@kernel.org>
+> > > > Cc: Ryan Roberts <ryan.roberts@arm.com>
+> > > > Cc: Mark Rutland <mark.rutland@arm.com>
+> > > > Cc: Mark Brown <robh@kernel.org>
+> > > > Cc: Rob Herring <robh@kernel.org>
+> > > > Cc: Oliver Upton <oliver.upton@linux.dev>
+> > > > Cc: Jonathan Corbet <corbet@lwn.net>
+> > > > Cc: Eric Auger <eric.auger@redhat.com>
+> > > > Cc: kvmarm@lists.linux.dev
+> > > > Cc: linux-doc@vger.kernel.org
+> > > > Cc: linux-kernel@vger.kernel.org
+> > > > Cc: linux-arm-kernel@lists.infradead.org
+> > > >
+> > > > Anshuman Khandual (7):
+> > > >   arm64/sysreg: Update register fields for ID_AA64MMFR0_EL1
+> > > >   arm64/sysreg: Add register fields for HDFGRTR2_EL2
+> > > >   arm64/sysreg: Add register fields for HDFGWTR2_EL2
+> > > >   arm64/sysreg: Add register fields for HFGITR2_EL2
+> > > >   arm64/sysreg: Add register fields for HFGRTR2_EL2
+> > > >   arm64/sysreg: Add register fields for HFGWTR2_EL2
+> > > >   arm64/boot: Enable EL2 requirements for FEAT_PMUv3p9
+> > >
+> > > In case it is not clear, this series should be applied to 6.13 as the=
+ 2
+> > > PMUv3p9 features already landed in 6.13 (per counter EL0 control) and
+> > > 6.12 (ICNTR).
+> >
+> > So is this a fix that needs backporting to 6.12 or 6.13, e.g. fix for
+> > d8226d8cfbaf ("perf: arm_pmuv3: Add support for Armv9.4 PMU instruction
+> > counter")? It's pretty late in the cycle to take the series for 6.13.
+>=20
+> Ideally, yes. But given the state of h/w implementations, backporting
+> it later is probably fine if that is your preference.
+>=20
+> > But does KVM actually expose the feature to EL1 in ID_AA64DFR1_EL1 and
+> > than traps it at EL2?
+>=20
+> As Marc pointed out KVM only advertises PMUv3.8. Regardless, guest
+> accesses to these registers are trapped with or without this series.
 
-I don't understand. We have this today :
+And most probably generates a nice splat in the kernel log, as nobody
+updated KVM to handle *correctly* PMICNTR_EL0 traps, let alone deal
+with the FGT2 registers.
 
-cscfg_config_desc which is getting de-activated. This has reference to
-the module (owner). If someone is using this config_desc in running 
-session (be it perf or sysfg), it must be refcounted. As such I don't
-see that the cscfg is refcounted anywhere. (The active_cnt indicates if 
-this has been activated, but not used in a session). If we have a 
-refcount on the "cscfg_config_desc" for each active session, we could
-prevent/delay unloading the module until the last one drops.
+	M.
 
-
-
-
-Something like this is what I was checking ?
-
-
-
-coresight: cscfg: Hold refcount on the config for active
-  sessions
-
-Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
----
-  .../hwtracing/coresight/coresight-config.h    |  2 +-
-  .../hwtracing/coresight/coresight-syscfg.c    | 24 +++++++++++++------
-  2 files changed, 18 insertions(+), 8 deletions(-)
-
-diff --git a/drivers/hwtracing/coresight/coresight-config.h 
-b/drivers/hwtracing/coresight/coresight-config.h
-index 6ba013975741..84cdde6f0e4d 100644
---- a/drivers/hwtracing/coresight/coresight-config.h
-+++ b/drivers/hwtracing/coresight/coresight-config.h
-@@ -228,7 +228,7 @@ struct cscfg_feature_csdev {
-   * @feats_csdev:references to the device features to enable.
-   */
-  struct cscfg_config_csdev {
--	const struct cscfg_config_desc *config_desc;
-+	struct cscfg_config_desc *config_desc;
-  	struct coresight_device *csdev;
-  	bool enabled;
-  	struct list_head node;
-diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c 
-b/drivers/hwtracing/coresight/coresight-syscfg.c
-index 11138a9762b0..53baeaaf907f 100644
---- a/drivers/hwtracing/coresight/coresight-syscfg.c
-+++ b/drivers/hwtracing/coresight/coresight-syscfg.c
-@@ -914,15 +914,20 @@ static int _cscfg_activate_config(unsigned long 
-cfg_hash)
-  	return err;
-  }
-
-+static void cscfg_config_desc_put(struct cscfg_config_desc *config_desc)
-+{
-+	if (!atomic_dec_return(&config_desc->active_cnt))
-+		cscfg_owner_put(config_desc->load_owner);
-+}
-+
-  static void _cscfg_deactivate_config(unsigned long cfg_hash)
-  {
-  	struct cscfg_config_desc *config_desc;
-
-  	list_for_each_entry(config_desc, &cscfg_mgr->config_desc_list, item) {
-  		if ((unsigned long)config_desc->event_ea->var == cfg_hash) {
--			atomic_dec(&config_desc->active_cnt);
-  			atomic_dec(&cscfg_mgr->sys_active_cnt);
--			cscfg_owner_put(config_desc->load_owner);
-+			cscfg_config_desc_put(config_desc);
-  			dev_dbg(cscfg_device(), "Deactivate config %s.\n", config_desc->name);
-  			break;
-  		}
-@@ -1047,7 +1052,7 @@ int cscfg_csdev_enable_active_config(struct 
-coresight_device *csdev,
-  				     unsigned long cfg_hash, int preset)
-  {
-  	struct cscfg_config_csdev *config_csdev_active = NULL, 
-*config_csdev_item;
--	const struct cscfg_config_desc *config_desc;
-+	struct cscfg_config_desc *config_desc;
-  	unsigned long flags;
-  	int err = 0;
-
-@@ -1062,8 +1067,8 @@ int cscfg_csdev_enable_active_config(struct 
-coresight_device *csdev,
-  	spin_lock_irqsave(&csdev->cscfg_csdev_lock, flags);
-  	list_for_each_entry(config_csdev_item, &csdev->config_csdev_list, node) {
-  		config_desc = config_csdev_item->config_desc;
--		if ((atomic_read(&config_desc->active_cnt)) &&
--		    ((unsigned long)config_desc->event_ea->var == cfg_hash)) {
-+		if ((unsigned long)config_desc->event_ea->var == cfg_hash &&
-+		    atomic_inc_not_zero(&config_desc->active_cnt)) {
-  			config_csdev_active = config_csdev_item;
-  			csdev->active_cscfg_ctxt = (void *)config_csdev_active;
-  			break;
-@@ -1091,12 +1096,15 @@ int cscfg_csdev_enable_active_config(struct 
-coresight_device *csdev,
-  			 * Set enabled if OK, err if not.
-  			 */
-  			spin_lock_irqsave(&csdev->cscfg_csdev_lock, flags);
--			if (csdev->active_cscfg_ctxt)
-+			if (csdev->active_cscfg_ctxt == config_csdev_active)
-  				config_csdev_active->enabled = true;
-  			else
-  				err = -EBUSY;
-  			spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
-  		}
-+		if (err)
-+			cscfg_config_desc_put(config_desc);
-+
-  	}
-  	return err;
-  }
-@@ -1136,8 +1144,10 @@ void cscfg_csdev_disable_active_config(struct 
-coresight_device *csdev)
-  	spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
-
-  	/* true if there was an enabled active config */
--	if (config_csdev)
-+	if (config_csdev) {
-  		cscfg_csdev_disable_config(config_csdev);
-+		cscfg_config_desc_put(config_csdev->config_desc);
-+	}
-  }
-  EXPORT_SYMBOL_GPL(cscfg_csdev_disable_active_config);
-
--- 
-
-
-
-
-
-
-
-> because, if so, it should iterate all config in each csdev.
-> So, I believe it is the reason why the activation and module_cnt get via "sysfs"
-> to prevent iterating every config in csdev when config unload.
-> 
-> although, active_cnt in each config added to list in csdev be 0 or 1,
-> the module could be >= 1 (by sum of active_cnt which have the same
-> module owner). So I'm skeptical to use active_cnt like "reference cnt"
-> and That's why I decide to use "sys_enable_cnt"
->>
->>> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
->>> ---
->>> from v1 to v2:
->>>       - modify commit message.
->>> ---
->>>    .../hwtracing/coresight/coresight-etm4x-core.c |  3 +++
->>>    drivers/hwtracing/coresight/coresight-syscfg.c | 18 ++++++++++++++++--
->>>    drivers/hwtracing/coresight/coresight-syscfg.h |  2 ++
->>>    3 files changed, 21 insertions(+), 2 deletions(-)
->>>
->>> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
->>> index 86893115df17..6218ef40acbc 100644
->>> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
->>> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
->>> @@ -986,6 +986,9 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
->>>    	smp_call_function_single(drvdata->cpu, etm4_disable_hw, drvdata, 1);
->>>
->>>    	raw_spin_unlock(&drvdata->spinlock);
->>> +
->>> +	cscfg_csdev_disable_active_config(csdev);
->>
->> This looks like a separate "fix" from what you are trying to address. Please
->> could split this ?
-> 
-> I don't think so, because without this calling, the "sys_enable_cnt"
-> never down, It makes error.
-
-My point is, we need to "disable_active_config" irrespective of this 
-race, in the sysfs path. So this should be a fix apart from fixing the race.
-
-Suzuki
-
-
-
-> 
->> Also, would like to hear what Mike has to say about this change.
-> 
-> IIRC, I followed his suggestion.
-> 
-> Thanks!
-> 
-
+--=20
+Without deviation from the norm, progress is not possible.
 
