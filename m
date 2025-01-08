@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4B24E77198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 01:30:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0020E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 01:31:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tqd+1cGHPrlBvYanevBgNpqOS63DSGTtWvcDTpfRh2k=; b=Xqcean7iwrByyoeDLDmbmaJYfK
-	6IjE5L/cQJyQvPVoB6DhPnflhRvSGh+1obAIDka1RCGJlJbvkAGtxmRnl5sVvigpjj+4Jz1LPE0Le
-	gtQeJTlxfazsBpOoZ3sKQdJsWX9qeAiOpbtAbEuiHwqixpwT0l4ZSmCaw1D581v58XEihGQv7KzjQ
-	2Tp7MKC1i8nUYGdsCwinkXA2FVqx4+ZzhwyLhKRKBhKm5BShZGFNyTG78xVJbZrXAKgxK/XhfSb/v
-	m271IQamjsmjJ/QRAWFFHYsNED12zy4kUUk4lgDym6tR79KKZwD5Z3FVkkIHx7V6oWXeSC52BXw+V
-	zSbSuEVA==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NtmiACSjJT3F9PAWPO6E+GzjG0s112mCP5ZFxh4lNAM=; b=Y1E00J+tjfxNvmT2UbzjBWmRf5
+	GwgfiOgVRc4hQTxXRKpzO7Bcwo6pKbHSAydN0CmLVw2MnstHhPeBOV3C0tl7zXa3SCzqKx8VNuat3
+	d73laKrYbCYpNmdCtM/d4pFXVNc+gvWDcP2hI/dr15b36KZ9m5Viz2VuWx+h5yPoGMqqVYbOqZXdE
+	nXRjhxnyJE601tDotERkW7o6oYYa8lLMfcyI/3ygIXMQJO0W7L8j1Sjh7C602HiBf+GxvCQlTogfB
+	Xu3OIUYH3NzGVLJgn5hQbaFYIUCrQQz7B5M8OnF0uceM4/hDNMxatgett1j/OVZClmgnfEN4jwH9f
+	3+Wn6pww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVKta-00000006kGL-1C7r;
-	Wed, 08 Jan 2025 01:30:06 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1tVKuk-00000006kZL-3paT;
+	Wed, 08 Jan 2025 01:31:18 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVKsM-00000006jyJ-0vD0
+	id 1tVKsN-00000006jyo-2ZgL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 01:28:51 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-2ee51f8c47dso18818563a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 17:28:49 -0800 (PST)
+	Wed, 08 Jan 2025 01:28:52 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2167141dfa1so6298805ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jan 2025 17:28:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1736299729; x=1736904529; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=tqd+1cGHPrlBvYanevBgNpqOS63DSGTtWvcDTpfRh2k=;
-        b=mOXKh5ImgIuqc5xMqiNEJyla9HxA/BadX59KXWouwlVey+qMZdnDipUTz4vh/UvjKW
-         jDdsddDnhFnUrw6utiuFPDpBAFjGJCVosVjtLGtLb20z9ac6pA2+CrHF5TRmWT61jLR9
-         WFpv02vilYPr0Twq8U3hVS5mHSo6g/wHsgaKg=
+        d=chromium.org; s=google; t=1736299730; x=1736904530; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=NtmiACSjJT3F9PAWPO6E+GzjG0s112mCP5ZFxh4lNAM=;
+        b=Cai/r63EIGTCKsRzAwaQ364yyMesNv/gCmjZm4uhYBXvPo7Y2n0GYPeUwaPtA1mSab
+         Lxj7dt060BAa+qMUeqHZ4Sc7MoOCUwDhf6uetO+onLjyrkndc4Y9BHN6sOYUlpQYldwb
+         F432jUcvN0ecyGYRj6Z9ezlRpn0jlBWzvgfzA=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736299729; x=1736904529;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=tqd+1cGHPrlBvYanevBgNpqOS63DSGTtWvcDTpfRh2k=;
-        b=fNMP0tapDY5ijwcBAdENGq/BJm4NzwbamgFz6+3eMl/e9mktiVktuRnUVp5zKz87/z
-         NCjZc1rW4qG9NYSe29aEM6UDu1eKecD3AjRfKGB5WGab7boZEkM3zUmYzgZOQXD6gQeB
-         AGNzv79aNtUSu3TgYSLykBgSSktJVEsNPshSUidpKPVIBTyptBIUA7647s26Csb00GWr
-         U6I4gXa+plvrVqHHh0HRFm+jO/ZH+/FUlBjN+G7fMrrFwdRAKUvZxjKme6ERQlB2DqCt
-         ITe2TipL3so3j32EvjeQXLcXtiW/vpNLeSU1D9ycAEnmqAut7P0IT/st/Rtn5Y6VUFI3
-         Ns6A==
-X-Forwarded-Encrypted: i=1; AJvYcCVocbhChgUL1t78IQi+En9WDgTmgLxMX6ekYKnDUg7GjMoKL0LXSGBDpdTAcJYxjiJ5Z7Z5n95WkPkadjMylBdB@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy10so119ulp/XWMhjVpBg/6BIuwyXCSr4G6dV2n8FtfR6th2lS
-	hiprk1ya298BiTO+fd7XocFPuKElareCAexfIFCJdtVmgr1eKa7/uE2oTn60Pw==
-X-Gm-Gg: ASbGncuKXGGixW2CY9/iyqD7eKBFPK5xPKEN9sjvEypcAR3Jo6phM3cvkQPZ8RX4MZX
-	iU0oIGv7hIE4oxiMZkCt5I2IlqnJeU4V1pej0upvnpD78kNkcEoc6pjgxsm+NaoUhBI9sIouAmq
-	g6V5Hk/gJfm4Q6WIZYpKld6/IMykfrF4DkUiUzpl6gquQadsKlmzBIkadY2Dcatqs2kyzhlOKxq
-	/FxyWxUmDBX8I8SaX7CujwqhO6josVs+PobmW0Fk6nvsX/tVQ9qbVHVPI4nZ3JdOM1OVbN1jkAY
-	948lI5DoGwN2eWAKt8Gw
-X-Google-Smtp-Source: AGHT+IGLMAn658p03PrE1F/SvBkX0kJr3VIC8TJvPQU2lqUj87YfRHHuWKXhHHpqPyBEZ+g+tphMPA==
-X-Received: by 2002:a17:90b:5448:b0:2f4:f7f8:fc8b with SMTP id 98e67ed59e1d1-2f548f1c430mr1421193a91.27.1736299729083;
-        Tue, 07 Jan 2025 17:28:49 -0800 (PST)
+        d=1e100.net; s=20230601; t=1736299730; x=1736904530;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=NtmiACSjJT3F9PAWPO6E+GzjG0s112mCP5ZFxh4lNAM=;
+        b=e2sUsiaXVbRcblC2IGgVsd+e+/kROpLiydHoKlYy3B6JP2ak9mMFsSt3vWVDb9ny0C
+         Vs+Catwe9yD3gig33Kz/n/jN6r66SDfqzgnv5yxu3bzeACk8UEheDJaLOCQSa9uex/9g
+         /1BPyD0j704nO//Cx905hbpuWNDbnv9L1vzFlxjzdl5OtCnZVXW3Sk9eoMN1GDE+TwTm
+         5MCcqOJ9L7gBRYDW7/uL8GlI9YL2BRwfPKaR/BbgWqTM36zhX2HFM5QMYBdOXkAiqEeN
+         brs7xvCVNIMow7S3hJfL8OAc+N2dv27REk+KDjs6rOrWd/O6Mn7RfQtvgLh/cLDWw0/j
+         MVmw==
+X-Forwarded-Encrypted: i=1; AJvYcCWMKIJaTUEoVWY7Woezj4uGXXWWXdN+bHDxiCVP2ZzBN77DrYOXLMp85YCiAS0rsV0QFaq2PwQpYYlYX4CCdskJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzEZqs9GchJHvBxt+sJVNGPPRN8J1+E+sIGMY7YNYkIzmp/Ne3R
+	sizMWrXAjG6kY2/kIO4+J9D0IPELIXRYvbly9ZTwJupVwoa/kc8LIMRmONgdQQ==
+X-Gm-Gg: ASbGncucNyJeJEociVBfulIgLuHd7i2f6sWzO1q98UeUEP2xU21wFudVBVs5X6Fo0Hn
+	TOSniGLmB+1xh/heVAG17g2hrwWhwtXJKctCSWLXucGaEZhAnF82z5H/Nmb3SsUZI/dYXZhyYQy
+	wpGUsk9D73152y8OiyzgnMk4mDFsAGbHOdNl7UzAeCDcNirjHOnzj1lxpQKzJTLXUPl3pnW9Rp6
+	NzniH58e25VxWIZOPfmb/e9HPQ2Z7P7ylCn2VEk+jYDBYSiD9GyGu5riDF5yGxs15KkIOASMowY
+	6Ksb1q76VoUIOlW28+2k
+X-Google-Smtp-Source: AGHT+IECb87WVTKnPoq5klH18qVel9WHdGx/7ugyROn+iCaeZnJB4oA6NAnKgGI+EaTULuxAe5Qexw==
+X-Received: by 2002:a05:6a20:3943:b0:1e5:f8c6:203 with SMTP id adf61e73a8af0-1e745cb45damr6802792637.14.1736299730635;
+        Tue, 07 Jan 2025 17:28:50 -0800 (PST)
 Received: from localhost (129.135.125.34.bc.googleusercontent.com. [34.125.135.129])
-        by smtp.gmail.com with UTF8SMTPSA id 98e67ed59e1d1-2f54a2d43dcsm225080a91.38.2025.01.07.17.28.48
+        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-72aad90b90asm34097987b3a.177.2025.01.07.17.28.49
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 07 Jan 2025 17:28:48 -0800 (PST)
+        Tue, 07 Jan 2025 17:28:50 -0800 (PST)
 From: Stephen Boyd <swboyd@chromium.org>
 To: Bjorn Andersson <andersson@kernel.org>,
 	Konrad Dybcio <konradybcio@kernel.org>
@@ -79,16 +80,18 @@ Cc: linux-kernel@vger.kernel.org,
 	Conor Dooley <conor+dt@kernel.org>,
 	Saravana Kannan <saravanak@google.com>,
 	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-Subject: [RFC PATCH 0/6] qcom: Add an SoC PM driver for sc7180 using PM domains
-Date: Tue,  7 Jan 2025 17:28:37 -0800
-Message-ID: <20250108012846.3275443-1-swboyd@chromium.org>
+Subject: [RFC PATCH 1/6] bus: Extract simple-bus into self-contained driver
+Date: Tue,  7 Jan 2025 17:28:38 -0800
+Message-ID: <20250108012846.3275443-2-swboyd@chromium.org>
 X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
+In-Reply-To: <20250108012846.3275443-1-swboyd@chromium.org>
+References: <20250108012846.3275443-1-swboyd@chromium.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_172850_283636_30122D7C 
-X-CRM114-Status: GOOD (  14.80  )
+X-CRM114-CacheID: sfid-20250107_172851_656849_82C230BF 
+X-CRM114-Status: GOOD (  33.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,61 +106,245 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series implements an SoC PM driver for Qualcomm's SC7180 SoC that
-creates devices for the nodes that make up the soc node and attaches PM
-domains to those devices before the devices are added to the platform
-bus. The overall plan is to remove power management logic from various
-platform drivers and consolidate it into this SoC PM driver using PM
-domains. This series isn't there yet, as I haven't had the time to do
-much beyond this starting part.
+Extract the simple bus into a self contained driver so that devices are
+still populated when a node has two (or more) compatibles with the least
+specific one being the generic "simple-bus". Allow the driver to be a
+module so that in a fully modular build a driver module for the more
+specific compatible will be loaded first before trying to match this
+driver.
 
-This is a followup to my presentation at OSSEU in 2024[1]. I'm sending
-it out so that the early pieces can land while we work through the PM
-domain parts which I worry is going to get annoying rather quickly.
-
-TODO:
- * Populate more child devices and attach more pm domains to test out
-   more stuff
- * Set power state of PM domains to match on/off state of resources like
-   clks, regulators, etc.
- * Investigate setting runtime PM state of devices before they're added
-   to platform bus
- * Remove PM code from drivers using the platform_data non-NULL trick
- * Make multiple domains? Perhaps clk domain, regulator domain,
-   interconnect domain, etc?
- * Provide a way for runtime active devices out of boot to be powered
-   down when a driver isn't attached
-
-[1] https://osseu2024.sched.com/event/1ej38/the-case-for-an-soc-power-management-driver-stephen-boyd-google
-
-Stephen Boyd (6):
-  bus: Extract simple-bus into self-contained driver
-  dt-bindings: bus: Add qcom,soc-sc7180 SoC
-  bus: Add basic sc7180 bus driver
-  of: Extract alloc/add functions from of_platform_device_create_pdata()
-  bus: qcom-sc7180: Attach pm domain to watchdog device
-  arm64: dts: qcom: sc7180: Add SoC specific compatible to soc node
-
- .../bindings/bus/qcom,soc-sc7180.yaml         |  76 ++++++++
- arch/arm64/boot/dts/qcom/sc7180.dtsi          |   2 +-
- drivers/bus/Kconfig                           |  26 +++
- drivers/bus/Makefile                          |   6 +
- drivers/bus/qcom/Kconfig                      |  16 ++
- drivers/bus/qcom/Makefile                     |   3 +
- drivers/bus/qcom/qcom-sc7180.c                | 173 ++++++++++++++++++
- drivers/bus/simple-bus.c                      |  79 ++++++++
- drivers/bus/simple-pm-bus.c                   |   2 +
- drivers/of/platform.c                         | 130 +++++++++++--
- include/linux/of_platform.h                   |  14 ++
- 11 files changed, 511 insertions(+), 16 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/bus/qcom,soc-sc7180.yaml
- create mode 100644 drivers/bus/qcom/Kconfig
- create mode 100644 drivers/bus/qcom/Makefile
- create mode 100644 drivers/bus/qcom/qcom-sc7180.c
+Cc: Rob Herring <robh@kernel.org>
+Cc: Saravana Kannan <saravanak@google.com>
+Cc: <devicetree@vger.kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: "Uwe Kleine-König" <u.kleine-koenig@baylibre.com>
+Cc: Bjorn Andersson <andersson@kernel.org>
+Cc: Konrad Dybcio <konradybcio@kernel.org>
+Cc: <linux-arm-msm@vger.kernel.org>
+Signed-off-by: Stephen Boyd <swboyd@chromium.org>
+---
+ drivers/bus/Kconfig         | 23 +++++++++++
+ drivers/bus/Makefile        |  3 ++
+ drivers/bus/simple-bus.c    | 79 +++++++++++++++++++++++++++++++++++++
+ drivers/bus/simple-pm-bus.c |  2 +
+ drivers/of/platform.c       | 50 +++++++++++++++++++++++
+ 5 files changed, 157 insertions(+)
  create mode 100644 drivers/bus/simple-bus.c
 
-
-base-commit: 3c48780d48df029cf9d5f42b8971663e6fb975ae
+diff --git a/drivers/bus/Kconfig b/drivers/bus/Kconfig
+index ff669a8ccad9..7c2aa1350578 100644
+--- a/drivers/bus/Kconfig
++++ b/drivers/bus/Kconfig
+@@ -261,6 +261,29 @@ config DA8XX_MSTPRI
+ 	  configuration. Allows to adjust the priorities of all master
+ 	  peripherals.
+ 
++config ALLOW_SIMPLE_BUS_OVERRIDE
++	bool "Allow simple-bus compatible OF nodes to match other drivers"
++	depends on OF
++	help
++	  Allow nodes with the "simple-bus" compatible to use a more specific
++	  driver which populates child devices itself.
++
++config OF_SIMPLE_BUS
++	tristate "OF Simple Bus Driver"
++	depends on ALLOW_SIMPLE_BUS_OVERRIDE || COMPILE_TEST
++	default ALLOW_SIMPLE_BUS_OVERRIDE
++	help
++	  Driver for the "simple-bus" compatible nodes in DeviceTree. Child
++	  nodes are usually automatically populated on the platform bus when a
++	  node is compatible with "simple-bus". This driver maintains that
++	  feature but it fails probe to allow other drivers to try to probe
++	  with a more specific compatible if possible.
++
++	  Those other drivers depend on this kconfig symbol so that they match
++	  the builtin or modular status of this driver. Don't disable this
++	  symbol if ALLOW_SIMPLE_BUS_OVERRIDE is set and there isn't another
++	  driver for the simple-bus compatible.
++
+ source "drivers/bus/fsl-mc/Kconfig"
+ source "drivers/bus/mhi/Kconfig"
+ 
+diff --git a/drivers/bus/Makefile b/drivers/bus/Makefile
+index cddd4984d6af..f3968221d704 100644
+--- a/drivers/bus/Makefile
++++ b/drivers/bus/Makefile
+@@ -40,5 +40,8 @@ obj-$(CONFIG_VEXPRESS_CONFIG)	+= vexpress-config.o
+ 
+ obj-$(CONFIG_DA8XX_MSTPRI)	+= da8xx-mstpri.o
+ 
++# Must be last for driver registration ordering
++obj-$(CONFIG_OF_SIMPLE_BUS)	+= simple-bus.o
++
+ # MHI
+ obj-y				+= mhi/
+diff --git a/drivers/bus/simple-bus.c b/drivers/bus/simple-bus.c
+new file mode 100644
+index 000000000000..3e39b9818566
+--- /dev/null
++++ b/drivers/bus/simple-bus.c
+@@ -0,0 +1,79 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Simple Bus Driver
++ */
++
++#include <linux/mod_devicetable.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/of_device.h>
++#include <linux/of_platform.h>
++#include <linux/platform_device.h>
++
++static struct platform_driver simple_bus_driver;
++
++static int has_specific_simple_bus_drv(struct device_driver *drv, void *dev)
++{
++	/* Skip if it's this simple bus driver */
++	if (drv == &simple_bus_driver.driver)
++		return 0;
++
++	if (of_driver_match_device(dev, drv)) {
++		dev_dbg(dev, "Allowing '%s' to probe more specifically\n", drv->name);
++		return 1;
++	}
++
++	return 0;
++}
++
++static int simple_bus_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	const struct of_dev_auxdata *lookup = dev_get_platdata(dev);
++	struct device_node *np = dev->of_node;
++
++	/*
++	 * If any other driver wants the device, leave the device to the other
++	 * driver. Only check drivers that come after this driver so that if an
++	 * earlier driver failed to probe we don't populate any devices, and
++	 * only check if there's a more specific compatible.
++	 */
++	if (of_property_match_string(np, "compatible", "simple-bus") != 0 &&
++	    bus_for_each_drv(&platform_bus_type, &simple_bus_driver.driver, dev,
++			     has_specific_simple_bus_drv))
++		return -ENODEV;
++
++	if (np)
++		of_platform_populate(np, NULL, lookup, dev);
++
++	return 0;
++}
++
++static const struct of_device_id simple_bus_of_match[] = {
++	{ .compatible = "simple-bus", },
++	{ }
++};
++MODULE_DEVICE_TABLE(of, simple_bus_of_match);
++
++static struct platform_driver simple_bus_driver = {
++	.probe = simple_bus_probe,
++	.driver = {
++		.name = "simple-bus",
++		.of_match_table = simple_bus_of_match,
++	},
++};
++
++static int __init simple_bus_driver_init(void)
++{
++	return platform_driver_register(&simple_bus_driver);
++}
++arch_initcall(simple_bus_driver_init);
++
++static void __exit simple_bus_driver_exit(void)
++{
++	platform_driver_unregister(&simple_bus_driver);
++}
++module_exit(simple_bus_driver_exit);
++
++MODULE_DESCRIPTION("Simple Bus Driver");
++MODULE_LICENSE("GPL");
+diff --git a/drivers/bus/simple-pm-bus.c b/drivers/bus/simple-pm-bus.c
+index 5dea31769f9a..be9879aa80c1 100644
+--- a/drivers/bus/simple-pm-bus.c
++++ b/drivers/bus/simple-pm-bus.c
+@@ -118,7 +118,9 @@ static const struct dev_pm_ops simple_pm_bus_pm_ops = {
+ 
+ static const struct of_device_id simple_pm_bus_of_match[] = {
+ 	{ .compatible = "simple-pm-bus", },
++#ifndef CONFIG_ALLOW_SIMPLE_BUS_OVERRIDE
+ 	{ .compatible = "simple-bus",	.data = ONLY_BUS },
++#endif
+ 	{ .compatible = "simple-mfd",	.data = ONLY_BUS },
+ 	{ .compatible = "isa",		.data = ONLY_BUS },
+ 	{ .compatible = "arm,amba-bus",	.data = ONLY_BUS },
+diff --git a/drivers/of/platform.c b/drivers/of/platform.c
+index c6d8afb284e8..63a80c30d515 100644
+--- a/drivers/of/platform.c
++++ b/drivers/of/platform.c
+@@ -311,6 +311,54 @@ static const struct of_dev_auxdata *of_dev_lookup(const struct of_dev_auxdata *l
+ 	return NULL;
+ }
+ 
++/**
++ * of_platform_should_populate_children() - Should child nodes be populated for a bus
++ * @bus: device node of the bus to populate children for
++ * @matches: match table for bus nodes
++ *
++ * This function is used to determine if child nodes should be populated as
++ * devices for a bus. That is usually the case, unless
++ * CONFIG_ALLOW_SIMPLE_BUS_OVERRIDE=y, in which case the simple-bus driver
++ * (CONFIG_OF_SIMPLE_BUS) will populate them.
++ *
++ * Return: True if child nodes should be populated as devices, false otherwise.
++ */
++static bool of_platform_should_populate_children(const struct of_device_id *matches,
++						 struct device_node *bus)
++{
++	/* Not configured to allow simple-bus to be overridden. Skip. */
++	if (!IS_ENABLED(CONFIG_ALLOW_SIMPLE_BUS_OVERRIDE))
++		return true;
++
++	/* The simple-bus driver will handle it. */
++	if (IS_ENABLED(CONFIG_OF_SIMPLE_BUS))
++		return false;
++
++	if (!matches)
++		return true;
++
++	/*
++	 * Always populate if the matches aren't populating a "simple-bus"
++	 * compatible node.
++	 */
++	for (; matches->name[0] || matches->type[0] || matches->compatible[0]; matches++) {
++		if (!strncmp(matches->compatible, "simple-bus",
++			     ARRAY_SIZE(matches->compatible))) {
++			/*
++			 * Always populate if "simple-bus" is the first
++			 * compatible, so that CONFIG_OF_SIMPLE_BUS can be
++			 * disabled while CONFIG_ALLOW_SIMPLE_BUS_OVERRIDE can
++			 * be enabled.
++			 */
++			if (of_property_match_string(bus, "compatible", "simple-bus") != 0)
++				return false;
++			break;
++		}
++	}
++
++	return true;
++}
++
+ /**
+  * of_platform_bus_create() - Create a device for a node and its children.
+  * @bus: device node of the bus to instantiate
+@@ -370,6 +418,8 @@ static int of_platform_bus_create(struct device_node *bus,
+ 	dev = of_platform_device_create_pdata(bus, bus_id, platform_data, parent);
+ 	if (!dev || !of_match_node(matches, bus))
+ 		return 0;
++	if (!of_platform_should_populate_children(matches, bus))
++		return 0;
+ 
+ 	for_each_child_of_node_scoped(bus, child) {
+ 		pr_debug("   create child: %pOF\n", child);
 -- 
 https://chromeos.dev
 
