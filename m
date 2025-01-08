@@ -4,76 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02E9BE7719B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 13:45:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 950B4E7719A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 13:45:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8NWugOCTua3U4zM1I0sMTHCzc7ebPizCAQxQ1HTI358=; b=rrR+V1j7XQp1n2HS15qKDTPLk5
-	vVgYbaKLPUX+3Jl/GatrV2hwoTpM142mNHZ4F3aMifYtSmXjwALuiU4WRmmchUEgA0D1dwdG01k/e
-	20zr+8nK47YtCcOEPprdyKfoy0KxAHSRWQnwu9B84BP6S7W5hO3VM2qTbF8GZpHadrOwEx8INCL40
-	UZnEuvltCH7GsDswEF7OIsCPEBNe5K+bfztKULO5sIc1cW7SeesbXtGz2KlbFawSPjCfAb3u73K/3
-	BlUbuZ558odKrRZPxkySxhzyqXtivjoZEoUlMJcjJkQ0kLe62zrXCYLjXHXVtZQo1LyDV/CNWSatB
-	UATxw+zg==;
+	bh=w09I5ZTtfvgiBR6RhikGWnL4odF6u0duJn4zfRFYdkM=; b=tjLx/GqJAyMW4BjkoXwJO0pxrY
+	gSkeRQftFnb5TG/vOQFTR+hwApkhB50wzyElsa1x6QCeTjzx9zOi6e+1GpiLgoD4xY4MXLBBwOSpI
+	iJMSH5gEMHIkCMfzFXSvPUHxD/7htuSGXIa/vFEb4BaLLgV0wfDjiPBMKgg20uNGQt+Lyt2WgVtTI
+	jdDpYwoiSfKZi6H8OEaL8ynJOWS3YhDYRaBBd/KuOWyzfGXNZAIyzz8fAlVQ7dQGLL4JdxYXQMaCv
+	qzLHVre+vtZoF1opQeuA1WLDk51R98YKTVrSFK62Nm3D2QkW3BJbboUXAg8EBCJBVnxTcFX7ZQWRe
+	h3t2Tp+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVWNL-00000008ejz-04Bo;
-	Wed, 08 Jan 2025 13:45:35 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tVWNP-00000008eo9-0lHB;
+	Wed, 08 Jan 2025 13:45:41 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVW7g-00000008c79-0p3f
+	id 1tVWJ2-00000008e0T-2tSo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 13:29:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=8NWugOCTua3U4zM1I0sMTHCzc7ebPizCAQxQ1HTI358=; b=5MCclyICiavifLu+is6XHXo+lL
-	JMlKc9c2kEDa4HeGyBpaP//rY02AHLVjfDoVIPuhsn5rQCgm4I0NPI+i0f0mO8/a4sOcbRenvudAh
-	ZapVFOfxUZ3YvjWIQ85GWtVRltJHsKjePk3aA+9PwD7Hf1fTQTgzY8gES+EbDBsywjh4=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tVW7L-002Zoo-A9; Wed, 08 Jan 2025 14:29:03 +0100
-Date: Wed, 8 Jan 2025 14:29:03 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Yijie Yang <quic_yijiyang@quicinc.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/3] net: stmmac: qcom-ethqos: Enable RX programmable
- swap on qcs615
-Message-ID: <7e046761-7787-4f01-b47b-9374402489ac@lunn.ch>
-References: <20241225-support_10m100m-v1-0-4b52ef48b488@quicinc.com>
- <20241225-support_10m100m-v1-2-4b52ef48b488@quicinc.com>
- <4b4ef1c1-a20b-4b65-ad37-b9aabe074ae1@kernel.org>
- <278de6e8-de8f-458a-a4b9-92b3eb81fa77@quicinc.com>
- <e47f3b5c-9efa-4b71-b854-3a5124af06d7@lunn.ch>
- <87a7729d-ccdd-46f0-bcfd-3915452344fd@quicinc.com>
+	Wed, 08 Jan 2025 13:41:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id C71A65C0865;
+	Wed,  8 Jan 2025 13:40:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1ACABC4CEDD;
+	Wed,  8 Jan 2025 13:41:04 +0000 (UTC)
+Date: Wed, 8 Jan 2025 13:41:02 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Shuah Khan <shuah@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org,
+	Mark Rutland <mark.rutland@arm.com>, stable@vger.kernel.org
+Subject: Re: [PATCH v5 1/5] arm64: Filter out SVE hwcaps when FEAT_SVE isn't
+ implemented
+Message-ID: <Z36Abq8mrhnl3cg2@arm.com>
+References: <20250107-arm64-2024-dpisa-v5-0-7578da51fc3d@kernel.org>
+ <20250107-arm64-2024-dpisa-v5-1-7578da51fc3d@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <87a7729d-ccdd-46f0-bcfd-3915452344fd@quicinc.com>
+In-Reply-To: <20250107-arm64-2024-dpisa-v5-1-7578da51fc3d@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_052924_239776_DDD09600 
-X-CRM114-Status: GOOD (  22.82  )
+X-CRM114-CacheID: sfid-20250108_054108_765260_E96E2D49 
+X-CRM114-Status: GOOD (  16.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,67 +70,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > Why is it specific to this board? Does the board have a PHY which is
-> > broken and requires this property? What we are missing are the details
-> > needed to help you get to the correct way to solve the problem you are
-> > facing.
-> > 
+On Tue, Jan 07, 2025 at 10:59:41PM +0000, Mark Brown wrote:
+> From: Marc Zyngier <maz@kernel.org>
 > 
-> Let me clarify why this bit is necessary and why it's board-specific. The RX
-> programming swap bit can introduce a time delay of half a clock cycle. This
-> bit, along with the clock delay adjustment functionality, is implemented by
-> a module called 'IO Macro.' This is a Qualcomm-specific hardware design
-> located between the MAC and PHY in the SoC, serving the RGMII interface. The
-> bit works in conjunction with delay adjustment to meet the sampling
-> requirements. The sampling of RX data is also handled by this module.
+> The hwcaps code that exposes SVE features to userspace only
+> considers ID_AA64ZFR0_EL1, while this is only valid when
+> ID_AA64PFR0_EL1.SVE advertises that SVE is actually supported.
 > 
-> During the board design stage, the RGMII requirements may not have been
-> strictly followed, leading to uncertainty in the relationship between the
-> clock and data waveforms when they reach the IO Macro.
+> The expectations are that when ID_AA64PFR0_EL1.SVE is 0, the
+> ID_AA64ZFR0_EL1 register is also 0. So far, so good.
+> 
+> Things become a bit more interesting if the HW implements SME.
+> In this case, a few ID_AA64ZFR0_EL1 fields indicate *SME*
+> features. And these fields overlap with their SVE interpretations.
+> But the architecture says that the SME and SVE feature sets must
+> match, so we're still hunky-dory.
+> 
+> This goes wrong if the HW implements SME, but not SVE. In this
+> case, we end-up advertising some SVE features to userspace, even
+> if the HW has none. That's because we never consider whether SVE
+> is actually implemented. Oh well.
+> 
+> Fix it by restricting all SVE capabilities to ID_AA64PFR0_EL1.SVE
+> being non-zero. The HWCAPS documentation is amended to reflect the
+> actually checks performed by the kernel.
+> 
+> Fixes: 06a916feca2b ("arm64: Expose SVE2 features for userspace")
+> Reported-by: Catalin Marinas <catalin.marinas@arm.com>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: stable@vger.kernel.org
 
-So this indicates any board might need this feature, not just this one
-board. Putting the board name in the driver then does not scale.
-
-> This means the time
-> delay introduced by the PC board may not be zero. Therefore, it's necessary
-> for software developers to tune both the RX programming swap bit and the
-> delay to ensure correct sampling.
-
-O.K. Now look at how other boards tune their delays. There are
-standard properties for this:
-
-        rx-internal-delay-ps:
-          description:
-            RGMII Receive Clock Delay defined in pico seconds. This is used for
-            controllers that have configurable RX internal delays. If this
-            property is present then the MAC applies the RX delay.
-        tx-internal-delay-ps:
-          description:
-            RGMII Transmit Clock Delay defined in pico seconds. This is used for
-            controllers that have configurable TX internal delays. If this
-            property is present then the MAC applies the TX delay.
-
-I think you can use these properties, maybe with an additional comment
-in the binding. RGMII running at 1G has a clock of 125MHz. That is a
-period of 8ns. So a half clock cycle delay is then 4ns.
-
-So an rx-internal-delay-ps of 0-2000 means this clock invert should be
-disabled. A rx-internal-delay-ps of 4000-6000 means the clock invert
-should be enabled.
-
-Now, ideally, you want the PHY to add the RGMII delays, that is what i
-request all MAC/PHY pairs do, so we have a uniform setup across all
-boards. So unless the PHY does not support RGMII delays, you would
-expect rx-internal-delay-ps to be either just a small number of
-picoseconds for fine tuning, or a small number of picoseconds + 4ns
-for fine tuning.
-
-This scales, since it can be used by an board with poor design, and it
-does not require anything proprietary to Qualcomm, except the extended
-range, and hopefully nobody except Qualcomms broken RDK will require
-it, because obviously you will document the issue with the RDK and
-tell customers how to correctly design their board to be RGMII
-compliant with the clocks.
-
-	Andrew
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
