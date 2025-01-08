@@ -4,114 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87EB5E77199
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 16:26:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71AFCE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 16:35:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZCHTeF6R0fGhSKfSt6MjkqVYus+rrnV1ENn9wfkH0OE=; b=EonNNji3vN285jKf2SbWPweg2X
-	0bQtzc+grZJKAwf0iu+oLkxOviqT9wSMbSlc+SHReqOOSXGFoUtQdABYtnNZIsTp7eZHvv5VF1D0w
-	+1tOpCLzuBmKkPp7bmb95wg6iKgetzk2NpxuAOPOdJPRA0De2YsmlLFQWCOYsVxTryNqx3Nx6gbN5
-	6/XCX9wh2dIZ6j3QrpxMk6do53O88wR0+0Yx8oc7R/OkPZYGGlVmTWTpOPEI362PRjYqq4eIcuaR0
-	6tIicgHyo+MOht5P0E5qLfreCjCbJvPE5lYenRybtFSJyogYZHZDlj2DsZVEwDwwAqFuuyr/HFCvI
-	u+TITtIw==;
+	bh=j2TNLSjAk6shLrsr82B/U3muc/QtKmqXaQjNixl0RJ0=; b=R4urQzk+/2YGZcj2t56LYUp5jh
+	nH1Cd0Zw/Naf80b/C6SSmxiIboGyrCdLCdjYJK149QWMldhISwotswSXFc7FV+MEOcpXmD+cxmJAo
+	+rMLtnVxO+1gzXGLlSDYaZ0KnVMO/Xcvq/HqQFXvW9fCiZd20btyYYQFvwHhmd7wcg64YQZkGDBsa
+	CXQY5UnmpWEwjnx2zMGpTdAHrcwqvzE2vJAV73D4MW3oRGu6HGKfuTUiwR07x0WODkjpQ5kr9s5U9
+	SxQCO4Vhuhsr4RxzLZ//Sl3eboMwl+inWdbMA/kpzQSthCsvhPWcCpdB308wr5NGoqSIQ9QEtO/T1
+	H+rnxL1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVYsR-00000009B2T-3anr;
-	Wed, 08 Jan 2025 16:25:51 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1tVZ1T-00000009CWx-30Xj;
+	Wed, 08 Jan 2025 16:35:11 +0000
+Received: from mail-am7eur03on2060b.outbound.protection.outlook.com ([2a01:111:f403:260e::60b] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVYiq-000000098MD-447K
+	id 1tVZ0E-00000009CEc-0OHr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 16:16:03 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-436ce2ab251so36055e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jan 2025 08:15:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1736352956; x=1736957756; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ZCHTeF6R0fGhSKfSt6MjkqVYus+rrnV1ENn9wfkH0OE=;
-        b=R6gI1xPwEjQ7/Sk38jDCoExkA4J5lr8Z7u3Gpk9fK6AkbU3QFYFIr3WN2ONn1V5gio
-         lRN4+wQ5mK8ym+PMdOHNVjNVSa6ROkKDlRwhbQXy8qNui6v7Gq6TnrsN3JiGuZP9tfdW
-         BVsIC5u/2KZ7rOwPm8Cfcy6WR+7QwF8siDDT0JvMM58jYMdtBcy8PvRqqRLMLtvSo6Da
-         /ZhQ/N5wKUUv+YmjMIIraWokjMUPBU6UeauyxN8goTDmY6NCNYSCOxzaPAaVM4WjMQNS
-         EbtMWim0ybVkiMkbCIy4EnE2pHQtZs7aT/cxUNNE5zukuZ3uo9cAuCnO1uZLDKy+hCsY
-         0LZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736352956; x=1736957756;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ZCHTeF6R0fGhSKfSt6MjkqVYus+rrnV1ENn9wfkH0OE=;
-        b=hmVf6sNFbfivsdgdyE2MvPHHM/YVwP8M0m93fc+InQN/Q+K8AVATLJnHnYscZ1q5jN
-         i7p2UGDEjiLpGHFzvaDAKDO7cCz74CXXBct83FshNn5qDp9g1IQhlMmT6mrT8+URhaIq
-         rhhLA2vsmcaSht6Ynli5UZnnxOG0va6NzFuPawFdDQf/5urfvsw/+p7FjOzCJwsIl60C
-         8R7l53pbhYPgy0w/SX5KfCoX5tdaA82Yl1Xh+yzZBEBxvi5YAiKoR1zS9yCkLpuRB0tb
-         6oiOxU2xKiI3q+OL+Vcj+E2G4PAftD7Vp8qvoH+oLeYjO80RT/omwj0uPETepDaEejb5
-         1kQg==
-X-Forwarded-Encrypted: i=1; AJvYcCX7KA/ehz8bUppHxhUo8kg0cGrXwq38rGFyZh/EbcwWeMSVJxInmSM0j1dPMdbwBGel6VcCA6es2iGeram5Hss3@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6PVqitkobaOVrqa2pdZ2ooO28RNuN/oSie2RcMq0EQCREQVPd
-	QeXPTf+CNdj61m66n2L9lZkio5zfWFCSU6fGl0J5JGmiVpcfagiYw4Y4ThBCkd0=
-X-Gm-Gg: ASbGnctAjntvs2NLsB95zdb00bf8IDHFM3ETk4gklQ0AJGT2/SO1Otdh7qREEkZh7ZW
-	ebRNyQCPX63wVdE3QgpI/jydNrKRx87k8B9jyyt+2MupoqJGxEM4o4xLE9t6cUQk2p5vMp3oCLi
-	/GsGEA/UfAOqvPWYkNGL1kU0HY8AKPjtQebiIweNcJYV81gsbz+EHZPQF2/EPOyQHI/Roa771oq
-	zLvhDJKtRn6XMCo/enA5GywjU2pxreooSo/4T9UBnrUJhaRvCXxi1WQuwqH
-X-Google-Smtp-Source: AGHT+IHEILDWRs/8ApjgnIf3rSHJHPFt1S4VS+egmv2pZWmzR8KQn/GFSJiwtiZAUp1S8eGd/C13oA==
-X-Received: by 2002:a05:600c:3c85:b0:434:a802:e99a with SMTP id 5b1f17b1804b1-436e267821emr29030295e9.4.1736352955584;
-        Wed, 08 Jan 2025 08:15:55 -0800 (PST)
-Received: from [127.0.1.1] ([2a01:e0a:5ee:79d0:a6ac:e6d2:88e3:8ea1])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-436dd14dfcasm44378105e9.1.2025.01.08.08.15.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Jan 2025 08:15:55 -0800 (PST)
-From: Alexandre Mergnat <amergnat@baylibre.com>
-Date: Wed, 08 Jan 2025 17:15:49 +0100
-Subject: [PATCH v5 7/7] arm64: dts: mediatek: add display support for
- mt8365-evk
+	Wed, 08 Jan 2025 16:33:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Cbbls78JqrYkzwN6ETsuFPcCixvAY5/xjjtwtz1NNYr7ooIDdeKrtnxQGqiN0Jqy56prsm4wMInYfLVmgY5DXFxo9eCJYOPDarMMTOXgNDqDzXz9LTgQDcbfT+7vFs8lcG2bwhhBpt03NTYKXqFpvpFwORXwFvTurMbDxSddTmhOSt1UGYzU12QzAkxqQ8W3yJLryotjVr8+Pw7LpRs7nGQ/1avrswYQ9aAx2NQek3dG4rUDpjQHjnHQEdCzpqVJ1/YcWa1B+m/8/QLfULiFVQbKU96+LqLw6K+KtVSB2qJCQsVe3+e71qbjcD5/Lg9sMWBCCtO+BkVEfl9rDd4/0g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zX1zRlO53QnbFtJobJeaxdPyGrWqs+2Soyew2J3rCaM=;
+ b=GpMPdZg1WISuYoW5nI8XHSwTVYVQorRM8xxTPYsbjHU4fCadTtGpN/PP65nedWJsAnuNhaIV7/tiGtCs5c4UzHrhH9DHdm7Edfn6URgMHOmCxjY/u4KXnXZ9zl1fgXpCv5IlR78GAoI6n13K9tRU5KN4Uy0IL3zKo5afdnVoFsaP479NrPpwwY5gng6yD4LQS51wkCY0nVQcOBDygYtZgiahUzDuP+p/4bHBxBF2Mo6/uQ5RMwpXkI5lEgxt0Ij5jvh4u5Apw2LWaOzqyw/mQC+Bll8WD9IBN1bDaC3/s1wfwyL41bgSUQ5vozHLyzh5wNDRf0UdLVnx2DCiS780KA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zX1zRlO53QnbFtJobJeaxdPyGrWqs+2Soyew2J3rCaM=;
+ b=d7/JwBViDj/Hn7OR20L+2anuZSSQ41naGGcDip2wgzn97t5kbIGePHpwRJTkjnLxZMgs14u7MUdVVqQH3bxdag3ENqEVxVM+lkWvLGxWCR0gZ8NH4p8G4Z1/JbzFs01FFHG/BrW0Zuud2uJFJSDeif4xiqlfY1PBgBewYLLy5A/VNNTZNyHRPD6yXJShIA0wm9vcZ7GAncyX6WW77VsvXBZBN8utB06uyr4Ir+bkXnpIBU1EXytL3O5fRid9qvaJtPC9PoYKU6PwM/KLVSWbihhBuopK1/o9ci4LE3pirgz5/a8pyUU9ODukIIAo7PiNVYP7v8qZRQRNuw6N20gGnw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by GV1PR04MB10775.eurprd04.prod.outlook.com (2603:10a6:150:213::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.10; Wed, 8 Jan
+ 2025 16:33:45 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8335.010; Wed, 8 Jan 2025
+ 16:33:44 +0000
+Date: Wed, 8 Jan 2025 11:33:35 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux@ew.tq-group.com
+Subject: Re: [PATCH 1/5] arm64: dts: imx8-ss-hsio: Wire up DMA IRQ for PCIe
+Message-ID: <Z36o31uhQuI5lcH7@lizhi-Precision-Tower-5810>
+References: <20250107140110.982215-1-alexander.stein@ew.tq-group.com>
+ <20250107140110.982215-2-alexander.stein@ew.tq-group.com>
+ <Z31KrdxPULx8K5ao@lizhi-Precision-Tower-5810>
+ <4427798.ejJDZkT8p0@steina-w>
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <4427798.ejJDZkT8p0@steina-w>
+X-ClientProxiedBy: SJ0PR13CA0001.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c0::6) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20231023-display-support-v5-7-3905f1e4b835@baylibre.com>
-References: <20231023-display-support-v5-0-3905f1e4b835@baylibre.com>
-In-Reply-To: <20231023-display-support-v5-0-3905f1e4b835@baylibre.com>
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Jitao Shi <jitao.shi@mediatek.com>, CK Hu <ck.hu@mediatek.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Simona Vetter <simona@ffwll.ch>, Simona Vetter <simona.vetter@ffwll.ch>
-Cc: dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Alexandre Mergnat <amergnat@baylibre.com>
-X-Mailer: b4 0.12.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7455; i=amergnat@baylibre.com;
- h=from:subject:message-id; bh=oiBrgFDEH8oR9i80NmibPY4/A6M1F7T8QsUsAz/D+YY=;
- b=owEBbQKS/ZANAwAKAStGSZ1+MdRFAcsmYgBnfqSyi4f+hfO2Xem78DOLGc6XqILcDRe5cULnYQi1
- OgtZHHyJAjMEAAEKAB0WIQQjG17X8+qqcA5g/osrRkmdfjHURQUCZ36ksgAKCRArRkmdfjHURTdREA
- CY4yXPx/AEV2nA/rnJ7EXj25fNHH7L/Agasp+OirSRe0XBZ+UJbRKSKfDGhqRYnOZeE3kVhrT1HxhY
- upyqqZRuRBX2Al677eHWM8gphdCS36bGEJvfGZVF74ZhRB3BJvJ+FYrT08CWQnZ2FW6zonb3lRhfup
- 9LX7qmG5B5p7eFtA/i9JDJOhld0c13OzbWboBOdYQMB9VoMs7uzixqb4pvLMy+lTpLiiwWLgLLNmmA
- z7LTKZ8kSFeFjYIr8zNhKagj8xenWPSKU83ffIfOeWMPW0+h5jLUPwwMmJ+m5s0++D5f6FZlU3aGUZ
- XlnSXp2NzaW2576+QSbC1SA+woGOm6pF79Ko+9RttTzNAmq+lCM4oqCLveluu91YTldbC8awX75Dps
- 3Z8ZZ2utsumKVPOB00p+pRVLa9NAZvezd1TFtwAdu5CAplw5NfBFDsxhqeprRDB7KqzjQKotmDCWPy
- b1OE/SoJFlA2vYcCQclJslYbVt/uKfFH4QmeslLXBm7bsn75MObUDs9itOmJSUkdYpW/s3pGIk3grx
- X+m48DFDSDx8A+FqrEFc7yVv/NK1pbBxDIUVkUG+2LYrAIPB98I9lPDJkxHUIc7SOkbX56sB+DM77Y
- lu6MbzowJnXAmFOhEs2QxREIslKwiADDCfJNrgMOGGF6qFjffBNDExOpMMIg==
-X-Developer-Key: i=amergnat@baylibre.com; a=openpgp;
- fpr=231B5ED7F3EAAA700E60FE8B2B46499D7E31D445
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|GV1PR04MB10775:EE_
+X-MS-Office365-Filtering-Correlation-Id: eb994c5f-2b98-4966-cf2c-08dd3002382d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|52116014|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?kHGz7eygMGXhGrZgm4R6YqsI90iLd/ENmZT9eqXvmuXN4wV6K230w3+3TO?=
+ =?iso-8859-1?Q?pz8XOWI3iVjYMMgzW2R0obqzwamySx2FDo/yPa/myhISdYoibCHwMjmv6j?=
+ =?iso-8859-1?Q?ptiJTM7t19vBbt1SwZv4J6qOA7E0P+d1plsre3AQo2+u2T+nNu7a1SLGfe?=
+ =?iso-8859-1?Q?Jf7w7+eiXiY0VfnZFIos1Q2dsWBS5Oqkue+kOB0GsmW9rW7HK63OzEhO9y?=
+ =?iso-8859-1?Q?FpDYVdbp0D+XimMxinST0W2zVq0yXcYPe517wByPkswa2NRoS14r2xEm2j?=
+ =?iso-8859-1?Q?dDp7bXaPO4H8yjo5OlrtYXYGLS16xwBSIpQPbCHK+Mv8nmVS4m5v5KEvQZ?=
+ =?iso-8859-1?Q?jTG+1Et8Yq44XPbTBmHIIo7q9eoJ3mRj0xc/2P6tqyx4rzw2bFnA//NHmL?=
+ =?iso-8859-1?Q?2C32ec46znN1oVEOhazZs9pL2kUxmRRfjSRKBh94PSjC2iTtKkarM4dyTx?=
+ =?iso-8859-1?Q?8uZPBnv3a5A2CFI7rKmswzslbyLzMlYJYTdIl6RZhZeULbU4747D8f5LEM?=
+ =?iso-8859-1?Q?xiZFmo7Mt9TxA5TFWt/bNFYIyHV5a7kC85ch8eLRFdH/Ax7+dKimaH7grv?=
+ =?iso-8859-1?Q?NEgPrMD+Qn+OImpmkmVgkQviAfX8zQxDHxpcQ49xy0K6imftZcT95Ogspn?=
+ =?iso-8859-1?Q?od9GrdeVbWiSwdr4k3pSMdg6U7+s0FS9fsZa8BRAzMhYDxPoOKTpnuuDB6?=
+ =?iso-8859-1?Q?0Kod5vRpz/gSvkdxDVof9oblKMfviTArM48tkicE5+ut3dKj7YY/97A/c6?=
+ =?iso-8859-1?Q?R4kL6fp7WdWJh5hanbl+scCA7hHUljU/c+1GBdcOVcryjB2oDW4SkswV3Q?=
+ =?iso-8859-1?Q?yjU3fgcepQ/OMQiVoUQXmi3XtLa+3ynCu1jSbdqd/QnYjj1N1lmC4Vq5Pv?=
+ =?iso-8859-1?Q?vU/rNB6VWFin/Sdh8ptMxBKcDvQdI4exYZpdKn2fmzWYDFiDdiLYELNVD6?=
+ =?iso-8859-1?Q?o+Qeyny6HHenwDb/kxfxXyvb0ULBk7yXIzWKrs8U2k2TLmIDdytzhYBO4u?=
+ =?iso-8859-1?Q?wzkBuNDi2KknIyRmpS609e7Kt4/HqGpPtFZd1ST9jEknQfxd2YiaKHaynj?=
+ =?iso-8859-1?Q?LOuoDpyMIRyMQf3s1GQs2/iI5jAyIs3ZwT4NzrL8f6TLjBsBrNwqpL9uG6?=
+ =?iso-8859-1?Q?z6ze+jZDU3SK9OLFFg1eJ6HlI2oA9v575cL+cS3x8iNLXFV+CRL7lE2X4p?=
+ =?iso-8859-1?Q?VpXB8v8A2H0Rl1qi0uUpF12JsMzbiUiBnHuZvBfS8TIFFRUk0npLocBKqB?=
+ =?iso-8859-1?Q?+5Z10DKzonPIx408O5/wdfJdEz4djVgsYnzYGIb/+vzYwq89Iz3AHvg1vw?=
+ =?iso-8859-1?Q?PtselIlYOz1xGyQUbGFYg/lZC4zdy/vkNSFQSUTPWWfwYNl0A8bBRjo3a+?=
+ =?iso-8859-1?Q?reUG4ZMm+oX686VmbqkK7eToDN7HzeuBd9m1WcvyiBqpSjwJp0YYGP2el0?=
+ =?iso-8859-1?Q?yivt0MwDErUMcjd7?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(52116014)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?h6Eb853qFxIrfhXXfBIVIFEio10hz35nYCGiMeGex5Hh4VYbuV6wrUmrVG?=
+ =?iso-8859-1?Q?Z7xSrgAyVe2mQgIUhHa+BFyBwnFFxXuWcmVdwgvUvOwV7lMaLB0A3oEHXS?=
+ =?iso-8859-1?Q?stz7vobgYa54CRwxJ4LDtrBrF6mbsoc0EsQpLVh1TS/tQvThOLE0XNrsxw?=
+ =?iso-8859-1?Q?cSBSTnKICGGPUHaDcBNt8thm/kMGlLHJ8QLllNyFJaOteB7sSSqpLihmaX?=
+ =?iso-8859-1?Q?5SiyvwTseJ+bt1M1bdcnVq1oW0wE/8ki6DpOlx2s3wqD2XeQ1yvgrWhhtQ?=
+ =?iso-8859-1?Q?C+DVZ9i6BiTqaH4sqrSrpSuMMnEtNNGVukwDLlJEp59AopsPvUeEJTukex?=
+ =?iso-8859-1?Q?k1qvm1qMQsnHGkN2xeQhZlcrxHjBlkoZyacuM7Tve3n4qWBuNGtTRz5hRa?=
+ =?iso-8859-1?Q?2eBUL81RnfKkB3mcEPcU9llA4P71MhwpO2SXGzJ59XzPf5Xzkqb6Nm8/Z2?=
+ =?iso-8859-1?Q?gs6vjwfVUwq0PC0sL5KE8Y1l+HzTmPm8AluTBLC0l5kShXl2u+XI3Ow/un?=
+ =?iso-8859-1?Q?G9S6dx04M5bO/pqSBz52kfkL+bOrIXwbGYD6VrthPlXwd/SOZlRPfVlaFj?=
+ =?iso-8859-1?Q?46dwRBbqTGqFCM4U+aB2BlkTRTE5cenzqfAXlwv1tpmVkAZrdUWKksU4V9?=
+ =?iso-8859-1?Q?PVTFo3L4pI31WE3O6DpfGFgiTyZl20ZwRmqS5/i78tdQdPNZ/y2V8EHC1O?=
+ =?iso-8859-1?Q?4tWNJ/b6eBneNjYFjKDUPq2y7I9/1kKKEZmMH2rPR+ZKBkni++WRjFD33L?=
+ =?iso-8859-1?Q?UMUEJr3HoIn4bReJyeNjiFKsfdeO/VwKc7pPOoJ7eLkCAOAHDHawN77JYP?=
+ =?iso-8859-1?Q?dIBlV+M9uGZ4OCijEZ2Wckl/mEX+k5F0JuZptHa3XxTX95UqxYQ5A9y4Ra?=
+ =?iso-8859-1?Q?HYhc5LjJ4v231e++hWxEVk0vrPLI/pCYzOF1L6HNkNd/GrJSJI41/VrxF8?=
+ =?iso-8859-1?Q?oWy0DujVTgePmeYS3Xa4fL1rEaPn3GmhIV6+SaRQCyilBzPgnLRAEcC6XZ?=
+ =?iso-8859-1?Q?TmowN+slCCUy8MoKMX7+UOjVEnQxr7UFWlR+xSw8NMZ2h2R5LeyaHQT73x?=
+ =?iso-8859-1?Q?aWuLtD/tPq7dGMn4wFPJy5TW8QjJ5Lt1CoQsRiO2k2MFhi3gyb/AVGyVU2?=
+ =?iso-8859-1?Q?dDtq7IneF5ji5jBAwuM41Rou92ynbSbZ4NsJ0w0ekPS3/UgEr70omNvn3j?=
+ =?iso-8859-1?Q?8207wV9VzlYO414zRt6VCE2Wm9P/rJsWRzKpqqu7WV1L46xHSdoUMx8QrW?=
+ =?iso-8859-1?Q?PHjbniUhfH+aJeXgpTXQIQPSAfzCh+6a5mu5nyoE+86UwHKF93ylF55VJW?=
+ =?iso-8859-1?Q?/LMs9XqhLrm9gwgWyCTrDeCBu4jwQDLHKoJmJS3hwofDVpXkf4hFR5R6Oj?=
+ =?iso-8859-1?Q?bXsOoAuljbXfIx9ljzXEBDRmDC0HZHVRbsTlplU6pWE3B8GbN/TWia0hx2?=
+ =?iso-8859-1?Q?YzeLA5dqxaA0h0M6jWBF4VsiI8pCO9bhIFruDjGAMczxdzxACvCd9Jjav3?=
+ =?iso-8859-1?Q?tHUmU50tb5RPPMNL9VvaC23shVJvDEwTlZ3S1Jlv729AvMuPY3236IUOAJ?=
+ =?iso-8859-1?Q?aTH0B5Oe553t5UJB6FW/2mJyIMgdCQG7LhJgNkbX8azMOqSFgpnS0iZ2Pr?=
+ =?iso-8859-1?Q?MWIy+mD/WnHjE=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: eb994c5f-2b98-4966-cf2c-08dd3002382d
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jan 2025 16:33:44.8134
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: RrP4K1yZCS2aatUIaGX6/N62Nrb34cyOd9Hd4t7v44zH3IDMVeh5eOq7NOCnD0s7buuDbhYA0MuFG7EJ/wjRgg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10775
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_081602_682481_24D42882 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20250108_083354_132322_A77D02F9 
+X-CRM114-Status: GOOD (  21.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,320 +165,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MIPI DSI:
-- Add "vsys_lcm_reg" regulator support and setup the "mt6357_vsim1_reg",
-to power the pannel plugged to the DSI connector.
-- Setup the Display Parallel Interface.
-  - Add the startek kd070fhfid015 pannel support.
+On Wed, Jan 08, 2025 at 10:58:18AM +0100, Alexander Stein wrote:
+> Hi Frank,
+>
+> Am Dienstag, 7. Januar 2025, 16:39:25 CET schrieb Frank Li:
+> > On Tue, Jan 07, 2025 at 03:01:06PM +0100, Alexander Stein wrote:
+> > > IRQ mapping is already present. Add the missing DMA interrupt.
+> >
+> > PCI host side have not use bridge's DMA yet although hardware support it.
+>
+> So this is a driver limitation, right? So IMHO the device description is
+> independent from that and still correct, right?
 
-HDMI:
-- Add HDMI connector support.
-- Add the "ite,it66121" HDMI bridge support, driven by I2C1.
-- Setup the Display Parallel Interface.
+Yes, but dma register space may missed also. I suggest add later after
+EP side support merged, which can verify informaiton is correct.
 
-Signed-off-by: Alexandre Mergnat <amergnat@baylibre.com>
----
- arch/arm64/boot/dts/mediatek/mt8365-evk.dts | 236 ++++++++++++++++++++++++++++
- 1 file changed, 236 insertions(+)
+Anyway, I don't block this change.
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8365-evk.dts b/arch/arm64/boot/dts/mediatek/mt8365-evk.dts
-index 7d90112a7e27..61a58a1faee1 100644
---- a/arch/arm64/boot/dts/mediatek/mt8365-evk.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt8365-evk.dts
-@@ -27,6 +27,21 @@ chosen {
- 		stdout-path = "serial0:921600n8";
- 	};
- 
-+	connector {
-+		compatible = "hdmi-connector";
-+		label = "hdmi";
-+		type = "d";
-+
-+		port {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			hdmi_connector_in: endpoint@0 {
-+				reg = <0>;
-+				remote-endpoint = <&hdmi_connector_out>;
-+			};
-+		};
-+	};
-+
- 	firmware {
- 		optee {
- 			compatible = "linaro,optee-tz";
-@@ -104,6 +119,16 @@ sound: sound {
- 		pinctrl-5 = <&aud_mosi_on_pins>;
- 		mediatek,platform = <&afe>;
- 	};
-+
-+	vsys_lcm_reg: regulator-vsys-lcm {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpio = <&pio 129 GPIO_ACTIVE_HIGH>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-name = "vsys_lcm";
-+	};
-+
- };
- 
- &afe {
-@@ -131,6 +156,88 @@ &cpu3 {
- 	sram-supply = <&mt6357_vsram_proc_reg>;
- };
- 
-+&dither0_out {
-+	remote-endpoint = <&dsi0_in>;
-+};
-+
-+&dpi0 {
-+	pinctrl-0 = <&dpi_default_pins>;
-+	pinctrl-1 = <&dpi_idle_pins>;
-+	pinctrl-names = "default", "sleep";
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@0 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <0>;
-+			dpi0_in: endpoint@1 {
-+				reg = <1>;
-+				remote-endpoint = <&rdma1_out>;
-+			};
-+		};
-+
-+		port@1 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <1>;
-+			dpi0_out: endpoint@1 {
-+				reg = <1>;
-+				remote-endpoint = <&it66121_in>;
-+			};
-+		};
-+	};
-+};
-+
-+&dsi0 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	status = "okay";
-+
-+	panel@0 {
-+		compatible = "startek,kd070fhfid015";
-+		reg = <0>;
-+		enable-gpios = <&pio 67 GPIO_ACTIVE_HIGH>;
-+		reset-gpios = <&pio 20 GPIO_ACTIVE_HIGH>;
-+		iovcc-supply = <&mt6357_vsim1_reg>;
-+		power-supply = <&vsys_lcm_reg>;
-+
-+		port {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			panel_in: endpoint@0 {
-+				reg = <0>;
-+				remote-endpoint = <&dsi0_out>;
-+			};
-+		};
-+	};
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@0 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <0>;
-+			dsi0_in: endpoint@0 {
-+				reg = <0>;
-+				remote-endpoint = <&dither0_out>;
-+			};
-+		};
-+
-+		port@1 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <1>;
-+			dsi0_out: endpoint@0 {
-+				reg = <0>;
-+				remote-endpoint = <&panel_in>;
-+			};
-+		};
-+	};
-+};
-+
- &ethernet {
- 	pinctrl-0 = <&ethernet_pins>;
- 	pinctrl-names = "default";
-@@ -161,6 +268,56 @@ &i2c0 {
- 	status = "okay";
- };
- 
-+&i2c1 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	clock-div = <2>;
-+	clock-frequency = <100000>;
-+	pinctrl-0 = <&i2c1_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+
-+	it66121_hdmi: hdmi@4c {
-+		#sound-dai-cells = <0>;
-+		compatible = "ite,it66121";
-+		interrupt-parent = <&pio>;
-+		interrupts = <68 IRQ_TYPE_LEVEL_LOW>;
-+		pinctrl-0 = <&ite_pins>;
-+		pinctrl-names = "default";
-+		reg = <0x4c>;
-+		reset-gpios = <&pio 69 GPIO_ACTIVE_LOW>;
-+		vcn18-supply = <&mt6357_vsim2_reg>;
-+		vcn33-supply = <&mt6357_vibr_reg>;
-+		vrf12-supply = <&mt6357_vrf12_reg>;
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			port@0 {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				reg = <0>;
-+				it66121_in: endpoint@0 {
-+					reg = <0>;
-+					bus-width = <12>;
-+					remote-endpoint = <&dpi0_out>;
-+				};
-+			};
-+
-+			port@1 {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				reg = <1>;
-+				hdmi_connector_out: endpoint@0 {
-+					reg = <0>;
-+					remote-endpoint = <&hdmi_connector_in>;
-+				};
-+			};
-+		};
-+	};
-+};
-+
- &mmc0 {
- 	assigned-clock-parents = <&topckgen CLK_TOP_MSDCPLL>;
- 	assigned-clocks = <&topckgen CLK_TOP_MSDC50_0_SEL>;
-@@ -205,6 +362,11 @@ &mt6357_pmic {
- 	mediatek,micbias1-microvolt = <1700000>;
- };
- 
-+&mt6357_vsim1_reg {
-+	regulator-min-microvolt = <1800000>;
-+	regulator-max-microvolt = <1800000>;
-+};
-+
- &pio {
- 	aud_default_pins: audiodefault-pins {
- 		clk-dat-pins {
-@@ -267,6 +429,49 @@ clk-dat-pins {
- 		};
- 	};
- 
-+	dpi_default_pins: dpi-default-pins {
-+		pins {
-+			pinmux = <MT8365_PIN_0_GPIO0__FUNC_DPI_D0>,
-+				 <MT8365_PIN_1_GPIO1__FUNC_DPI_D1>,
-+				 <MT8365_PIN_2_GPIO2__FUNC_DPI_D2>,
-+				 <MT8365_PIN_3_GPIO3__FUNC_DPI_D3>,
-+				 <MT8365_PIN_4_GPIO4__FUNC_DPI_D4>,
-+				 <MT8365_PIN_5_GPIO5__FUNC_DPI_D5>,
-+				 <MT8365_PIN_6_GPIO6__FUNC_DPI_D6>,
-+				 <MT8365_PIN_7_GPIO7__FUNC_DPI_D7>,
-+				 <MT8365_PIN_8_GPIO8__FUNC_DPI_D8>,
-+				 <MT8365_PIN_9_GPIO9__FUNC_DPI_D9>,
-+				 <MT8365_PIN_10_GPIO10__FUNC_DPI_D10>,
-+				 <MT8365_PIN_11_GPIO11__FUNC_DPI_D11>,
-+				 <MT8365_PIN_12_GPIO12__FUNC_DPI_DE>,
-+				 <MT8365_PIN_13_GPIO13__FUNC_DPI_VSYNC>,
-+				 <MT8365_PIN_14_GPIO14__FUNC_DPI_CK>,
-+				 <MT8365_PIN_15_GPIO15__FUNC_DPI_HSYNC>;
-+			drive-strength = <4>;
-+		};
-+	};
-+
-+	dpi_idle_pins: dpi-idle-pins {
-+		pins {
-+			pinmux = <MT8365_PIN_0_GPIO0__FUNC_GPIO0>,
-+				 <MT8365_PIN_1_GPIO1__FUNC_GPIO1>,
-+				 <MT8365_PIN_2_GPIO2__FUNC_GPIO2>,
-+				 <MT8365_PIN_3_GPIO3__FUNC_GPIO3>,
-+				 <MT8365_PIN_4_GPIO4__FUNC_GPIO4>,
-+				 <MT8365_PIN_5_GPIO5__FUNC_GPIO5>,
-+				 <MT8365_PIN_6_GPIO6__FUNC_GPIO6>,
-+				 <MT8365_PIN_7_GPIO7__FUNC_GPIO7>,
-+				 <MT8365_PIN_8_GPIO8__FUNC_GPIO8>,
-+				 <MT8365_PIN_9_GPIO9__FUNC_GPIO9>,
-+				 <MT8365_PIN_10_GPIO10__FUNC_GPIO10>,
-+				 <MT8365_PIN_11_GPIO11__FUNC_GPIO11>,
-+				 <MT8365_PIN_12_GPIO12__FUNC_GPIO12>,
-+				 <MT8365_PIN_13_GPIO13__FUNC_GPIO13>,
-+				 <MT8365_PIN_14_GPIO14__FUNC_GPIO14>,
-+				 <MT8365_PIN_15_GPIO15__FUNC_GPIO15>;
-+		};
-+	};
-+
- 	ethernet_pins: ethernet-pins {
- 		phy_reset_pins {
- 			pinmux = <MT8365_PIN_133_TDM_TX_DATA1__FUNC_GPIO133>;
-@@ -308,6 +513,33 @@ pins {
- 		};
- 	};
- 
-+	i2c1_pins: i2c1-pins {
-+		pins {
-+			pinmux = <MT8365_PIN_59_SDA1__FUNC_SDA1_0>,
-+				 <MT8365_PIN_60_SCL1__FUNC_SCL1_0>;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	ite_pins: ite-pins {
-+		irq_ite_pins {
-+			pinmux = <MT8365_PIN_68_CMDAT0__FUNC_GPIO68>;
-+			input-enable;
-+			bias-pull-up;
-+		};
-+
-+		pwr_pins {
-+			pinmux = <MT8365_PIN_70_CMDAT2__FUNC_GPIO70>,
-+				 <MT8365_PIN_71_CMDAT3__FUNC_GPIO71>;
-+			output-high;
-+		};
-+
-+		rst_ite_pins {
-+			pinmux = <MT8365_PIN_69_CMDAT1__FUNC_GPIO69>;
-+			output-high;
-+		};
-+	};
-+
- 	mmc0_default_pins: mmc0-default-pins {
- 		clk-pins {
- 			pinmux = <MT8365_PIN_99_MSDC0_CLK__FUNC_MSDC0_CLK>;
-@@ -463,6 +695,10 @@ &pwm {
- 	status = "okay";
- };
- 
-+&rdma1_out {
-+	remote-endpoint = <&dpi0_in>;
-+};
-+
- &ssusb {
- 	dr_mode = "otg";
- 	maximum-speed = "high-speed";
+Frank
 
--- 
-2.25.1
-
+>
+> Best regards,
+> Alexander
+>
+> > >
+> > > Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+> > > ---
+> > >  arch/arm64/boot/dts/freescale/imx8-ss-hsio.dtsi | 5 +++--
+> > >  1 file changed, 3 insertions(+), 2 deletions(-)
+> > >
+> > > diff --git a/arch/arm64/boot/dts/freescale/imx8-ss-hsio.dtsi b/arch/arm64/boot/dts/freescale/imx8-ss-hsio.dtsi
+> > > index 70a8aa1a67911..4bdfc15487cbc 100644
+> > > --- a/arch/arm64/boot/dts/freescale/imx8-ss-hsio.dtsi
+> > > +++ b/arch/arm64/boot/dts/freescale/imx8-ss-hsio.dtsi
+> > > @@ -57,8 +57,9 @@ pcieb: pcie@5f010000 {
+> > >  		ranges = <0x81000000 0 0x00000000 0x8ff80000 0 0x00010000>,
+> > >  			 <0x82000000 0 0x80000000 0x80000000 0 0x0ff00000>;
+> > >  		#interrupt-cells = <1>;
+> > > -		interrupts = <GIC_SPI 102 IRQ_TYPE_LEVEL_HIGH>;
+> > > -		interrupt-names = "msi";
+> > > +		interrupts = <GIC_SPI 102 IRQ_TYPE_LEVEL_HIGH>,
+> > > +			     <GIC_SPI 104 IRQ_TYPE_LEVEL_HIGH>;
+> > > +		interrupt-names = "msi", "dma";
+> > >  		#address-cells = <3>;
+> > >  		#size-cells = <2>;
+> > >  		clocks = <&pcieb_lpcg IMX_LPCG_CLK_6>,
+> > > --
+> > > 2.34.1
+> > >
+> >
+>
+>
+> --
+> TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
+> Amtsgericht München, HRB 105018
+> Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
+> http://www.tq-group.com/
+>
+>
 
