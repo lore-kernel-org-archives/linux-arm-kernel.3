@@ -4,81 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D076CE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 09:38:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5AF6E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 09:39:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ByQ6/5pKHP8MQj/YBuiBtBApZpE+BRhKSooauRrD8M0=; b=YuQ5ffm+RsjNFf04SJ6oy1NgXn
-	fn8hM3BACLZ1QxZQ9ACtSNWs8CpmyeF68XF1E/fZfG0u6OxrvRjjHkZfqGgiSLubJgR7cnk02MKP/
-	SR72h8nxwfYgSCorLCx+9kCUxoh3qdqmtPmLEq1JElpKbDkJzDIWqHOxNtkDNpCoAP1wNESj6rMGz
-	vZWuuDXd1fmK1qZW1ItC09hLS0sYjk1nvIvmhZndvkIdMBGhWtkPskTwZX7/lEZvbb8dQFdTOuZnK
-	5AfFrRB4GZS2crwWiQltJZUZwYj56C4HRf8aVz6VabjeVAOwc/RlHSNBbKLW+8b41OJyEwDH8HJzc
-	H4l6W7Fw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z7A17GkeLPyCNfNY4gfwtzX9c6yCb+tHPKFUDkHUYos=; b=FdBQk0by8TSH8p8z6zW2P7ovum
+	IZI5iL+N/Nuq+t9Dy5+ALlvlBE+Z/jTxiGMs1+zMBawpxHoCrxLqQIsRCTEf6xFYOPiKwBIzuvfPr
+	e2q7FiAw1MjwaLm1f3ziS4IXWQLH9eRyq1eHsUw0TdxETEVvWPepmJx684lIkMIp+G2JRiVPLRZ+J
+	65gmPgeqUTGQAqRQe1xsh+S1QT77UsfsIayEHOYOkP69tyvFecuC0xVrgaleVsab6EnN+3/el0aZQ
+	/jWogvHj/PcybHl7fmZK9PwH/m91S6WzGy0NPXfR1nlY2edeXnHpAyoDdZS7YoZ+/lORF5uB6ygRB
+	s4EhPOSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVSWF-00000007pBJ-0N26;
-	Wed, 08 Jan 2025 09:38:31 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1tVSXQ-00000007pUB-3P6o;
+	Wed, 08 Jan 2025 09:39:44 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVSUS-00000007oNn-1XwD
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 09:36:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1736329000; x=1767865000;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=ByQ6/5pKHP8MQj/YBuiBtBApZpE+BRhKSooauRrD8M0=;
-  b=b+7yGn3Jmh6ua82NM8QBvFK7J3AVP2h3ugh6r/OCLjx/UUbB1arRpzxY
-   n2ubdsro01dsXRYt6gzI3aNhcAE1alXbc1O+QstnwpDGMs0YcUJOWAZHE
-   uV8WgvXVyDVaNPvWwLKex7e1sON1I+Cr6g5r1tsQZDeO9CFujnJS6IkU7
-   8+/TPTDJZnTxbH7HFnm/RlnEHdyZAF3c0AUPRZObFxMv0bPGgVfyak+Bf
-   OXuIjzWdi/YZk6DkIen04azC8TSGIZwJVatxyJmAfz03bd1UYrccMzdXy
-   5vRkJGk4Fq676vtSr1AXdr9qjYWP8RAgjIlTMD7zGGH/cnYfxtACd1cvg
-   w==;
-X-CSE-ConnectionGUID: lBMLYARPRLWZT5KwbkWfUg==
-X-CSE-MsgGUID: Zd4zm9GtRyqHqZSqH3f2CQ==
-X-IronPort-AV: E=Sophos;i="6.12,297,1728943200"; 
-   d="scan'208";a="40915819"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 08 Jan 2025 10:36:34 +0100
-X-CheckPoint: {677E4722-2-3C670366-E45AD810}
-X-MAIL-CPID: A643DC748E8B87B427C9C77EF9A89612_4
-X-Control-Analysis: str=0001.0A682F20.677E4722.00EF,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 37A1B165CAE;
-	Wed,  8 Jan 2025 10:36:25 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1736328989;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ByQ6/5pKHP8MQj/YBuiBtBApZpE+BRhKSooauRrD8M0=;
-	b=U+KzuCHEcTYSgV86jGNGaa/mv07FsZ9PohRUU45OuleOyyJbt4plTlOs9OC5h7EZa6pfs3
-	xlVysXyvSKiMOCJ4e9ke95vO13cPqh1HfgX8vWkZ2jAN2EB0MoIxNTAf4wbKa6PejaL/EW
-	jar7uQZDyqpbdVuuUaEDl6oJFRZzUGbz27SSfYKXF1+RuuRrslFncfWHLEIPOW6btF7WcO
-	XVACAELq3PbfNTlzg7AzZcgnLm7d1xi7Kdf+ERCCssq4TaNZvPf0DdIRe288BQfroOV9ZF
-	uQB8SZfm+4qUhh1bs+Y2Sw358tBuiNhsWy+yyN8ZLOay3berwGebv/Qlx8V9RA==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Liu Ying <victor.liu@nxp.com>
-Cc: dri-devel@lists.freedesktop.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/4] drm/bridge: imx8qxp-pxl2dpi: Use dev_err_probe
-Date: Wed, 08 Jan 2025 10:36:24 +0100
-Message-ID: <1842588.VLH7GnMWUR@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <add11437-4fa8-489a-9cde-9c08cfd71db3@nxp.com>
-References: <20250107143900.988567-1-alexander.stein@ew.tq-group.com> <20250107143900.988567-2-alexander.stein@ew.tq-group.com> <add11437-4fa8-489a-9cde-9c08cfd71db3@nxp.com>
+	id 1tVSUp-00000007oZQ-0o0X;
+	Wed, 08 Jan 2025 09:37:04 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.214])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4YSjRw22mXz22kgr;
+	Wed,  8 Jan 2025 17:34:36 +0800 (CST)
+Received: from dggpemf200006.china.huawei.com (unknown [7.185.36.61])
+	by mail.maildlp.com (Postfix) with ESMTPS id 49DF41A016C;
+	Wed,  8 Jan 2025 17:36:51 +0800 (CST)
+Received: from [10.67.120.129] (10.67.120.129) by
+ dggpemf200006.china.huawei.com (7.185.36.61) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 8 Jan 2025 17:36:50 +0800
+Message-ID: <7d26402a-bcd1-4e5f-bbf1-8b0a433ee8cd@huawei.com>
+Date: Wed, 8 Jan 2025 17:36:50 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v6 0/8] fix two bugs related to page_pool
+To: Jesper Dangaard Brouer <hawk@kernel.org>, <davem@davemloft.net>,
+	<kuba@kernel.org>, <pabeni@redhat.com>
+CC: <liuyonglong@huawei.com>, <fanghaiqing@huawei.com>,
+	<zhangkun09@huawei.com>, Alexander Lobakin <aleksander.lobakin@intel.com>,
+	Robin Murphy <robin.murphy@arm.com>, Alexander Duyck
+	<alexander.duyck@gmail.com>, Andrew Morton <akpm@linux-foundation.org>, IOMMU
+	<iommu@lists.linux.dev>, MM <linux-mm@kvack.org>, Alexei Starovoitov
+	<ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, John Fastabend
+	<john.fastabend@gmail.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	<netdev@vger.kernel.org>, <intel-wired-lan@lists.osuosl.org>,
+	<bpf@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
+References: <20250106130116.457938-1-linyunsheng@huawei.com>
+ <f977c0ab-76f5-4869-9fb7-e111104e2fff@kernel.org>
+Content-Language: en-US
+From: Yunsheng Lin <linyunsheng@huawei.com>
+In-Reply-To: <f977c0ab-76f5-4869-9fb7-e111104e2fff@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.120.129]
+X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+ dggpemf200006.china.huawei.com (7.185.36.61)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_013640_908851_E8F974F4 
-X-CRM114-Status: GOOD (  17.26  )
+X-CRM114-CacheID: sfid-20250108_013703_393930_1ABBB80C 
+X-CRM114-Status: GOOD (  14.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,86 +81,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On 2025/1/7 22:26, Jesper Dangaard Brouer wrote:
+> 
+> 
+> On 06/01/2025 14.01, Yunsheng Lin wrote:
+>> This patchset fix a possible time window problem for page_pool and
+>> the dma API misuse problem as mentioned in [1], and try to avoid the
+>> overhead of the fixing using some optimization.
+>>
+>>  From the below performance data, the overhead is not so obvious
+>> due to performance variations for time_bench_page_pool01_fast_path()
+>> and time_bench_page_pool02_ptr_ring, and there is about 20ns overhead
+>> for time_bench_page_pool03_slow() for fixing the bug.
+>>
+>> Before this patchset:
+>> root@(none)$ insmod bench_page_pool_simple.ko
+>> [  323.367627] bench_page_pool_simple: Loaded
+>> [  323.448747] time_bench: Type:for_loop Per elem: 0 cycles(tsc) 0.769 ns (step:0) - (measurement period time:0.076997150 sec time_interval:76997150) - (invoke count:100000000 tsc_interval:7699707)
+>> [  324.812884] time_bench: Type:atomic_inc Per elem: 1 cycles(tsc) 13.468 ns (step:0) - (measurement period time:1.346855130 sec time_interval:1346855130) - (invoke count:100000000 tsc_interval:134685507)
+>> [  324.980875] time_bench: Type:lock Per elem: 1 cycles(tsc) 15.010 ns (step:0) - (measurement period time:0.150101270 sec time_interval:150101270) - (invoke count:10000000 tsc_interval:15010120)
+>> [  325.652195] time_bench: Type:rcu Per elem: 0 cycles(tsc) 6.542 ns (step:0) - (measurement period time:0.654213000 sec time_interval:654213000) - (invoke count:100000000 tsc_interval:65421294)
+>> [  325.669215] bench_page_pool_simple: time_bench_page_pool01_fast_path(): Cannot use page_pool fast-path
+>> [  325.974848] time_bench: Type:no-softirq-page_pool01 Per elem: 2 cycles(tsc) 29.633 ns (step:0) - (measurement period time:0.296338200 sec time_interval:296338200) - (invoke count:10000000 tsc_interval:29633814)
+> 
+> (referring to above line, below)
+> 
+>> [  325.993517] bench_page_pool_simple: time_bench_page_pool02_ptr_ring(): Cannot use page_pool fast-path
+>> [  326.576636] time_bench: Type:no-softirq-page_pool02 Per elem: 5 cycles(tsc) 57.391 ns (step:0) - (measurement period time:0.573911820 sec time_interval:573911820) - (invoke count:10000000 tsc_interval:57391174)
+>> [  326.595307] bench_page_pool_simple: time_bench_page_pool03_slow(): Cannot use page_pool fast-path
+>> [  328.422661] time_bench: Type:no-softirq-page_pool03 Per elem: 18 cycles(tsc) 181.849 ns (step:0) - (measurement period time:1.818495880 sec time_interval:1818495880) - (invoke count:10000000 tsc_interval:181849581)
+>> [  328.441681] bench_page_pool_simple: pp_tasklet_handler(): in_serving_softirq fast-path
+>> [  328.449584] bench_page_pool_simple: time_bench_page_pool01_fast_path(): in_serving_softirq fast-path
+>> [  328.755031] time_bench: Type:tasklet_page_pool01_fast_path Per elem: 2 cycles(tsc) 29.632 ns (step:0) - (measurement period time:0.296327910 sec time_interval:296327910) - (invoke count:10000000 tsc_interval:29632785)
+> 
+> It is strange that fast-path "tasklet_page_pool01_fast_path" isn't
+> faster than above "no-softirq-page_pool01".
+> They are both 29.633 ns.
+> 
+> What hardware is this?
 
-Am Mittwoch, 8. Januar 2025, 04:22:19 CET schrieb Liu Ying:
-> On 01/07/2025, Alexander Stein wrote:
-> > This simplifies the code and gives additional information upon deferral.
-> >=20
-> > Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> > ---
-> >  drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c | 26 ++++++--------------
-> >  1 file changed, 7 insertions(+), 19 deletions(-)
-> >=20
-> > diff --git a/drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c b/drivers/gpu=
-/drm/bridge/imx/imx8qxp-pxl2dpi.c
-> > index 65cf3a6c8ec69..038eaff889bb7 100644
-> > --- a/drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c
-> > +++ b/drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c
-> > @@ -398,20 +398,12 @@ static int imx8qxp_pxl2dpi_bridge_probe(struct pl=
-atform_device *pdev)
-> >  		return -ENOMEM;
-> > =20
-> >  	p2d->regmap =3D syscon_node_to_regmap(np->parent);
-> > -	if (IS_ERR(p2d->regmap)) {
-> > -		ret =3D PTR_ERR(p2d->regmap);
-> > -		if (ret !=3D -EPROBE_DEFER)
-> > -			DRM_DEV_ERROR(dev, "failed to get regmap: %d\n", ret);
-> > -		return ret;
-> > -	}
-> > +	if (IS_ERR(p2d->regmap))
-> > +		return dev_err_probe(dev, ret, "failed to get regmap\n");
->=20
-> s/ret/PTR_ERR(p2d->regmap)/
+Arm64 server, as the testing module doesn't support arm64, so get_cycles()
+in [1] is used to do time keeping instead of using x86 asm instruction.
 
-Thanks for the catch.
+1. https://lore.kernel.org/lkml/caf31b5e-0e8f-4844-b7ba-ef59ed13b74e@arm.com/T/
 
-> > =20
-> >  	ret =3D imx_scu_get_handle(&p2d->ipc_handle);
-> > -	if (ret) {
-> > -		if (ret !=3D -EPROBE_DEFER)
-> > -			DRM_DEV_ERROR(dev, "failed to get SCU ipc handle: %d\n",
-> > -				      ret);
-> > -		return ret;
-> > -	}
-> > +	if (ret)
-> > +		return dev_err_probe(dev, ret, "failed to get SCU ipc handle\n");
-> > =20
-> >  	p2d->dev =3D dev;
-> > =20
-> > @@ -422,13 +414,9 @@ static int imx8qxp_pxl2dpi_bridge_probe(struct pla=
-tform_device *pdev)
-> >  	}
-> > =20
-> >  	p2d->next_bridge =3D imx8qxp_pxl2dpi_find_next_bridge(p2d);
-> > -	if (IS_ERR(p2d->next_bridge)) {
-> > -		ret =3D PTR_ERR(p2d->next_bridge);
-> > -		if (ret !=3D -EPROBE_DEFER)
-> > -			DRM_DEV_ERROR(dev, "failed to find next bridge: %d\n",
-> > -				      ret);
-> > -		return ret;
-> > -	}
-> > +	if (IS_ERR(p2d->next_bridge))
-> > +		return dev_err_probe(dev, PTR_ERR(p2d->next_bridge),
-> > +				     "failed to find next bridge\n");
-> > =20
-> >  	ret =3D imx8qxp_pxl2dpi_set_pixel_link_sel(p2d);
-> >  	if (ret)
->=20
-> imx8qxp_pxl2dpi_parse_dt_companion() may return -EPROBE_DEFER too, so it =
-needs
-> to be changed.
+> 
+> e.g. the cycle count of 2 cycles(tsc) seem strange.
+> 
+> On my testlab hardware Intel CPU E5-1650 v4 @3.60GHz
+> My fast-path numbers say 5.202 ns (18 cycles) for "tasklet_page_pool01_fast_path"
+> 
+> 
+> Raw data look like this
+> 
+> [Tue Jan  7 15:15:18 2025] bench_page_pool_simple: pp_tasklet_handler(): in_serving_softirq fast-path
+> [Tue Jan  7 15:15:18 2025] bench_page_pool_simple: time_bench_page_pool01_fast_path(): in_serving_softirq fast-path
+> [Tue Jan  7 15:15:18 2025] time_bench: Type:tasklet_page_pool01_fast_path Per elem: 18 cycles(tsc) 5.202 ns (step:0) - (measurement period time:0.052020430 sec time_interval:52020430) - (invoke count:10000000 tsc_interval:187272981)
+> [Tue Jan  7 15:15:18 2025] bench_page_pool_simple: time_bench_page_pool02_ptr_ring(): in_serving_softirq fast-path
+> [Tue Jan  7 15:15:19 2025] time_bench: Type:tasklet_page_pool02_ptr_ring Per elem: 55 cycles(tsc) 15.343 ns (step:0) - (measurement period time:0.153438301 sec time_interval:153438301) - (invoke count:10000000 tsc_interval:552378168)
+> [Tue Jan  7 15:15:19 2025] bench_page_pool_simple: time_bench_page_pool03_slow(): in_serving_softirq fast-path
+> [Tue Jan  7 15:15:19 2025] time_bench: Type:tasklet_page_pool03_slow Per elem: 243 cycles(tsc) 67.725 ns (step:0) - (measurement period time:0.677255574 sec time_interval:677255574) - (invoke count:10000000 tsc_interval:2438124315)
+> 
+> 
+>> [  328.774308] bench_page_pool_simple: time_bench_page_pool02_ptr_ring(): in_serving_softirq fast-path
+>> [  329.578579] time_bench: Type:tasklet_page_pool02_ptr_ring Per elem: 7 cycles(tsc) 79.523 ns (step:0) - (measurement period time:0.795236560 sec time_interval:795236560) - (invoke count:10000000 tsc_interval:79523650)
+>> [  329.597769] bench_page_pool_simple: time_bench_page_pool03_slow(): in_serving_softirq fast-path
+>> [  331.507501] time_bench: Type:tasklet_page_pool03_slow Per elem: 19 cycles(tsc) 190.104 ns (step:0) - (measurement period time:1.901047510 sec time_interval:1901047510) - (invoke count:10000000 tsc_interval:190104743)
+>>
+>> After this patchset:
+>> root@(none)$ insmod bench_page_pool_simple.ko
+>> [  138.634758] bench_page_pool_simple: Loaded
+>> [  138.715879] time_bench: Type:for_loop Per elem: 0 cycles(tsc) 0.769 ns (step:0) - (measurement period time:0.076972720 sec time_interval:76972720) - (invoke count:100000000 tsc_interval:7697265)
+>> [  140.079897] time_bench: Type:atomic_inc Per elem: 1 cycles(tsc) 13.467 ns (step:0) - (measurement period time:1.346735370 sec time_interval:1346735370) - (invoke count:100000000 tsc_interval:134673531)
+>> [  140.247841] time_bench: Type:lock Per elem: 1 cycles(tsc) 15.005 ns (step:0) - (measurement period time:0.150055080 sec time_interval:150055080) - (invoke count:10000000 tsc_interval:15005497)
+>> [  140.919072] time_bench: Type:rcu Per elem: 0 cycles(tsc) 6.541 ns (step:0) - (measurement period time:0.654125000 sec time_interval:654125000) - (invoke count:100000000 tsc_interval:65412493)
+>> [  140.936091] bench_page_pool_simple: time_bench_page_pool01_fast_path(): Cannot use page_pool fast-path
+>> [  141.246985] time_bench: Type:no-softirq-page_pool01 Per elem: 3 cycles(tsc) 30.159 ns (step:0) - (measurement period time:0.301598160 sec time_interval:301598160) - (invoke count:10000000 tsc_interval:30159812)
+>> [  141.265654] bench_page_pool_simple: time_bench_page_pool02_ptr_ring(): Cannot use page_pool fast-path
+>> [  141.976265] time_bench: Type:no-softirq-page_pool02 Per elem: 7 cycles(tsc) 70.140 ns (step:0) - (measurement period time:0.701405780 sec time_interval:701405780) - (invoke count:10000000 tsc_interval:70140573)
+>> [  141.994933] bench_page_pool_simple: time_bench_page_pool03_slow(): Cannot use page_pool fast-path
+>> [  144.018945] time_bench: Type:no-softirq-page_pool03 Per elem: 20 cycles(tsc) 201.514 ns (step:0) - (measurement period time:2.015141210 sec time_interval:2015141210) - (invoke count:10000000 tsc_interval:201514113)
+>> [  144.037966] bench_page_pool_simple: pp_tasklet_handler(): in_serving_softirq fast-path
+>> [  144.045870] bench_page_pool_simple: time_bench_page_pool01_fast_path(): in_serving_softirq fast-path
+>> [  144.205045] time_bench: Type:tasklet_page_pool01_fast_path Per elem: 1 cycles(tsc) 15.005 ns (step:0) - (measurement period time:0.150056510 sec time_interval:150056510) - (invoke count:10000000 tsc_interval:15005645)
+> 
+> This 15.005 ns looks like a significant improvement over 29.633 ns
 
-True, I added a dev_err_probe to that function when companion bridge cannot
-be found.
+It seems to be some performance variations here. There seems to be some
+performance variations between doing test using 'taskset -c 0' and with
+using 'taskset -c 1' too, I didn't get into the detail reason of performance
+variations yet, as the performance variations seems to exist before this
+patchset too.
 
-Best regards,
-Alexander
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
+> 
+>> [  144.224320] bench_page_pool_simple: time_bench_page_pool02_ptr_ring(): in_serving_softirq fast-path
+>> [  144.916044] time_bench: Type:tasklet_page_pool02_ptr_ring Per elem: 6 cycles(tsc) 68.269 ns (step:0) - (measurement period time:0.682693070 sec time_interval:682693070) - (invoke count:10000000 tsc_interval:68269300)
+>> [  144.935234] bench_page_pool_simple: time_bench_page_pool03_slow(): in_serving_softirq fast-path
+>> [  146.997684] time_bench: Type:tasklet_page_pool03_slow Per elem: 20 cycles(tsc) 205.376 ns (step:0) - (measurement period time:2.053766310 sec time_interval:2053766310) - (invoke count:10000000 tsc_interval:205376624)
+>>
+> 
+> 
+> Looks like I should also try out this patchset on my testlab, as this
+> hardware seems significantly different than mine...
 
-
+Yes, it would be much appreciated if it is also tested in your testlab.
 
