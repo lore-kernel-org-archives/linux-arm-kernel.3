@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CBB4E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 17:23:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11C80E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 17:24:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mHzLCFAK6LmfewM2QZlzveIbAPK2b40OOxmrRx/WiPA=; b=qSdeDPKJmcpYBM1vXke22D+haA
-	pIhke8uudPS+EHc31fPmKnGWbSZjbuVGEQnXa1HusJGXblq8Fwjqu83BYoccOQT78s0+JQrUeAp/b
-	4Vlk+yInR+VYmX+CpniTQb+X72ZltqJX/ac6Nx68OHbESVLaSekcx/PBDeiiDIFEcIh5XaTWNFeb2
-	zBPi9udAV9LrCk7FWLG4lCeMjwy55Ug91QkdVjPwjVnAPERyx8NcVexDd+FJDY7NpxrWD2RiAaj5g
-	eEZybk3oE+h+m6iDWd1YhEVkNUx5Ol3wMmk/fvldch/GnOc001ePksJLqWJs13qvwv/Yf0jg+ZNF4
-	DNAbEaLA==;
+	bh=e7kSuOJ4GV6ndaTIagWvNA4y/FeBjhFoyB+/jci08qE=; b=ttPjrUIsGMf4u/1GeuOxIPk/mq
+	N1KVk2zyKg0enfsGemS5o/WApcjCFdgJNFaC/fc7lPSPKkRIp0WvWgm/K2Qmoos//Vc4WG+N5sF1t
+	nqPjg9HuCs+arEpFQ6mCbNnZu0tvzEDxUegDUJSDfj+xwi351QQSvLW3geHH3jDTnl572l3XBAGD9
+	Yw4Eca+2ZBtDsu7xGO7n+czCyxblquxmZVwvMeBOZwtCdzQ81jEklZz3YdZXET/o/DmgtCQF4JLe/
+	7fi8wOO7dZ5NYbSSd0V5SUOisUZ0JX/ixamMVUdWv2aiN3nXHzMN5dTz2zULLQ/MT47lVeh9bjLqg
+	vP2tvSDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVZlp-00000009MwJ-2K8Y;
-	Wed, 08 Jan 2025 17:23:05 +0000
+	id 1tVZn2-00000009N9R-1BtV;
+	Wed, 08 Jan 2025 17:24:20 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVZFn-00000009FeF-2bJE
+	id 1tVZFu-00000009Fep-0fjF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 16:50:00 +0000
+	Wed, 08 Jan 2025 16:50:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=mHzLCFAK6LmfewM2QZlzveIbAPK2b40OOxmrRx/WiPA=; b=MypmERfhQAS8W2syXnHe781rbK
-	eJxyPHXJ++FnNdu92qgxyjWkFZsJE2BEFZyVY+zq6aUvl/62mcS4JuIoQeG1XpEy9pg4opbmIVnTM
-	63djnyP08E86uiunzTm4Ikasv+BKCQgVZIB7K+8A0a6HJnCqw/44FPrxjAYuMAZ+o1GBtlzTIUu2q
-	km+Ibqgv/r0j2kzdYRlsYpW1yp64Tv3LAEq5gg7jjc21bxxjJPBWSBvtP7safEvwWcVKAT+PfcuRO
-	EQ1+AthteezxahdrhCiMoshLFPwz0u6UnIY7M98OiakxTPdLyf0ek2pavmRzDfd2RFboHD36fQPF+
-	hmYJDnEw==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:59796 helo=rmk-PC.armlinux.org.uk)
+	bh=e7kSuOJ4GV6ndaTIagWvNA4y/FeBjhFoyB+/jci08qE=; b=TXUGWN+obuJNW5/WvbUOhCQV8b
+	3k8FK1xEB60dMPHaK21NY4OO+B4IMSVy1uaoyIyl4aP+8Et9y3DHhYuaI75mo5udwwIjUhGO5mY90
+	Kgb/dLbfkEmmmYsLW3HB/lAIl1An0msJt48WMJlLWOR9cZMZusa22Nif6i4BmQ+xrBGGPvlVRL56p
+	BQw/0ZLGYbPGeDzPh4VSm8b9QxXSXtJleyf5C7UOEgfhlJq310zAT1UYWXJbTEE340X0fwJjphx1T
+	KFgSlCTFc+wBTHP2mXUW6s0+5GBQELGXy3KOlOa85uwG6wGrOE7bj3Ali9OtNxpAQGFW6NmLZm2aS
+	7Eph86Ow==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:59812 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tVZDk-0000uO-2V;
-	Wed, 08 Jan 2025 16:47:52 +0000
+	id 1tVZDp-0000ua-2i;
+	Wed, 08 Jan 2025 16:47:57 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tVZDR-0002Jl-Ry; Wed, 08 Jan 2025 16:47:33 +0000
+	id 1tVZDW-0002Jr-W3; Wed, 08 Jan 2025 16:47:39 +0000
 In-Reply-To: <Z36sHIlnExQBuFJE@shell.armlinux.org.uk>
 References: <Z36sHIlnExQBuFJE@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -64,17 +64,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next v4 01/18] net: phy: add configuration of rx clock
- stop mode
+Subject: [PATCH net-next v4 02/18] net: stmmac: move tx_lpi_timer tracking to
+ phylib
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tVZDR-0002Jl-Ry@rmk-PC.armlinux.org.uk>
-Date: Wed, 08 Jan 2025 16:47:33 +0000
+Message-Id: <E1tVZDW-0002Jr-W3@rmk-PC.armlinux.org.uk>
+Date: Wed, 08 Jan 2025 16:47:38 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_084959_653322_7742C6F8 
-X-CRM114-Status: GOOD (  12.44  )
+X-CRM114-CacheID: sfid-20250108_085006_195032_FE62D115 
+X-CRM114-Status: GOOD (  17.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,75 +89,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a function to allow configuration of the PCS's clock stop enable
-bit, used to configure whether the xMII receive clock can be stopped
-during LPI mode.
+When stmmac_ethtool_op_get_eee() is called, stmmac sets the tx_lpi_timer
+and tx_lpi_enabled members, and then calls into phylink and thus phylib.
+phylib overwrites these members.
+
+phylib will also cause a link down/link up transition when settings
+that impact the MAC have been changed.
+
+Convert stmmac to use the tx_lpi_timer setting in struct phy_device,
+updating priv->tx_lpi_timer each time when the link comes up, rather
+than trying to maintain this user setting itself. We initialise the
+phylib tx_lpi_timer setting by doing a get_ee-modify-set_eee sequence
+with the last known priv->tx_lpi_timer value. In order for this to work
+correctly, we also need this member to be initialised earlier.
+
+As stmmac_eee_init() is no longer called outside of stmmac_main.c, make
+it static.
 
 Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 Tested-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/phy/phy.c | 27 ++++++++++++++++++++++-----
- include/linux/phy.h   |  1 +
- 2 files changed, 23 insertions(+), 5 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  1 -
+ .../ethernet/stmicro/stmmac/stmmac_ethtool.c  | 14 +------------
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 21 ++++++++++++++-----
+ 3 files changed, 17 insertions(+), 19 deletions(-)
 
-diff --git a/drivers/net/phy/phy.c b/drivers/net/phy/phy.c
-index e4b04cdaa995..a4b9fcc2503a 100644
---- a/drivers/net/phy/phy.c
-+++ b/drivers/net/phy/phy.c
-@@ -1640,6 +1640,27 @@ void phy_mac_interrupt(struct phy_device *phydev)
- }
- EXPORT_SYMBOL(phy_mac_interrupt);
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+index b8d631e559c0..df386fc948ec 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+@@ -406,7 +406,6 @@ int stmmac_dvr_probe(struct device *device,
+ 		     struct plat_stmmacenet_data *plat_dat,
+ 		     struct stmmac_resources *res);
+ void stmmac_disable_eee_mode(struct stmmac_priv *priv);
+-bool stmmac_eee_init(struct stmmac_priv *priv);
+ int stmmac_reinit_queues(struct net_device *dev, u32 rx_cnt, u32 tx_cnt);
+ int stmmac_reinit_ringparam(struct net_device *dev, u32 rx_size, u32 tx_size);
+ int stmmac_bus_clks_config(struct stmmac_priv *priv, bool enabled);
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+index 16b4d8c21c90..0429a99a8114 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+@@ -898,7 +898,6 @@ static int stmmac_ethtool_op_get_eee(struct net_device *dev,
+ 	if (!priv->dma_cap.eee)
+ 		return -EOPNOTSUPP;
  
-+/**
-+ * phy_eee_rx_clock_stop() - configure PHY receive clock in LPI
-+ * @phydev: target phy_device struct
-+ * @clk_stop_enable: flag to indicate whether the clock can be stopped
-+ *
-+ * Configure whether the PHY can disable its receive clock during LPI mode,
-+ * See IEEE 802.3 sections 22.2.2.2, 35.2.2.10, and 45.2.3.1.4.
-+ *
-+ * Returns: 0 or negative error.
-+ */
-+int phy_eee_rx_clock_stop(struct phy_device *phydev, bool clk_stop_enable)
-+{
-+	/* Configure the PHY to stop receiving xMII
-+	 * clock while it is signaling LPI.
-+	 */
-+	return phy_modify_mmd(phydev, MDIO_MMD_PCS, MDIO_CTRL1,
-+			      MDIO_PCS_CTRL1_CLKSTOP_EN,
-+			      clk_stop_enable ? MDIO_PCS_CTRL1_CLKSTOP_EN : 0);
-+}
-+EXPORT_SYMBOL_GPL(phy_eee_rx_clock_stop);
+-	edata->tx_lpi_timer = priv->tx_lpi_timer;
+ 	edata->tx_lpi_enabled = priv->tx_lpi_enabled;
+ 
+ 	return phylink_ethtool_get_eee(priv->phylink, edata);
+@@ -908,7 +907,6 @@ static int stmmac_ethtool_op_set_eee(struct net_device *dev,
+ 				     struct ethtool_keee *edata)
+ {
+ 	struct stmmac_priv *priv = netdev_priv(dev);
+-	int ret;
+ 
+ 	if (!priv->dma_cap.eee)
+ 		return -EOPNOTSUPP;
+@@ -920,17 +918,7 @@ static int stmmac_ethtool_op_set_eee(struct net_device *dev,
+ 	if (!edata->eee_enabled)
+ 		stmmac_disable_eee_mode(priv);
+ 
+-	ret = phylink_ethtool_set_eee(priv->phylink, edata);
+-	if (ret)
+-		return ret;
+-
+-	if (edata->eee_enabled &&
+-	    priv->tx_lpi_timer != edata->tx_lpi_timer) {
+-		priv->tx_lpi_timer = edata->tx_lpi_timer;
+-		stmmac_eee_init(priv);
+-	}
+-
+-	return 0;
++	return phylink_ethtool_set_eee(priv->phylink, edata);
+ }
+ 
+ static u32 stmmac_usec2riwt(u32 usec, struct stmmac_priv *priv)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 70c8f60d34f2..e80ac74538d2 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -469,7 +469,7 @@ static void stmmac_eee_ctrl_timer(struct timer_list *t)
+  *  can also manage EEE, this function enable the LPI state and start related
+  *  timer.
+  */
+-bool stmmac_eee_init(struct stmmac_priv *priv)
++static bool stmmac_eee_init(struct stmmac_priv *priv)
+ {
+ 	int eee_tw_timer = priv->eee_tw_timer;
+ 
+@@ -1088,6 +1088,7 @@ static void stmmac_mac_link_up(struct phylink_config *config,
+ 		priv->eee_active =
+ 			phy_init_eee(phy, !(priv->plat->flags &
+ 				STMMAC_FLAG_RX_CLK_RUNS_IN_LPI)) >= 0;
++		priv->tx_lpi_timer = phy->eee_cfg.tx_lpi_timer;
+ 		priv->eee_enabled = stmmac_eee_init(priv);
+ 		priv->tx_lpi_enabled = priv->eee_enabled;
+ 		stmmac_set_eee_pls(priv, priv->hw, true);
+@@ -1187,6 +1188,16 @@ static int stmmac_init_phy(struct net_device *dev)
+ 		ret = phylink_fwnode_phy_connect(priv->phylink, fwnode, 0);
+ 	}
+ 
++	if (ret == 0) {
++		struct ethtool_keee eee;
 +
- /**
-  * phy_init_eee - init and check the EEE feature
-  * @phydev: target phy_device struct
-@@ -1664,11 +1685,7 @@ int phy_init_eee(struct phy_device *phydev, bool clk_stop_enable)
- 		return -EPROTONOSUPPORT;
++		/* Configure phylib's copy of the LPI timer */
++		if (!phylink_ethtool_get_eee(priv->phylink, &eee)) {
++			eee.tx_lpi_timer = priv->tx_lpi_timer;
++			phylink_ethtool_set_eee(priv->phylink, &eee);
++		}
++	}
++
+ 	if (!priv->plat->pmt) {
+ 		struct ethtool_wolinfo wol = { .cmd = ETHTOOL_GWOL };
  
- 	if (clk_stop_enable)
--		/* Configure the PHY to stop receiving xMII
--		 * clock while it is signaling LPI.
--		 */
--		ret = phy_set_bits_mmd(phydev, MDIO_MMD_PCS, MDIO_CTRL1,
--				       MDIO_PCS_CTRL1_CLKSTOP_EN);
-+		ret = phy_eee_rx_clock_stop(phydev, true);
+@@ -3446,10 +3457,6 @@ static int stmmac_hw_setup(struct net_device *dev, bool ptp_register)
  
- 	return ret < 0 ? ret : 0;
- }
-diff --git a/include/linux/phy.h b/include/linux/phy.h
-index 5bc71d59910c..4875465653ca 100644
---- a/include/linux/phy.h
-+++ b/include/linux/phy.h
-@@ -2096,6 +2096,7 @@ int phy_unregister_fixup(const char *bus_id, u32 phy_uid, u32 phy_uid_mask);
- int phy_unregister_fixup_for_id(const char *bus_id);
- int phy_unregister_fixup_for_uid(u32 phy_uid, u32 phy_uid_mask);
+ 	priv->eee_tw_timer = STMMAC_DEFAULT_TWT_LS;
  
-+int phy_eee_rx_clock_stop(struct phy_device *phydev, bool clk_stop_enable);
- int phy_init_eee(struct phy_device *phydev, bool clk_stop_enable);
- int phy_get_eee_err(struct phy_device *phydev);
- int phy_ethtool_set_eee(struct phy_device *phydev, struct ethtool_keee *data);
+-	/* Convert the timer from msec to usec */
+-	if (!priv->tx_lpi_timer)
+-		priv->tx_lpi_timer = eee_timer * 1000;
+-
+ 	if (priv->use_riwt) {
+ 		u32 queue;
+ 
+@@ -3916,6 +3923,10 @@ static int __stmmac_open(struct net_device *dev,
+ 	u32 chan;
+ 	int ret;
+ 
++	/* Initialise the tx lpi timer, converting from msec to usec */
++	if (!priv->tx_lpi_timer)
++		priv->tx_lpi_timer = eee_timer * 1000;
++
+ 	ret = pm_runtime_resume_and_get(priv->device);
+ 	if (ret < 0)
+ 		return ret;
 -- 
 2.30.2
 
