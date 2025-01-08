@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88E52E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 12:52:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D32BEE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 12:53:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MRMeuuECKWEMnQesIIvnmoSPKzOb0/Suyg7J1F2G6gY=; b=X7ohxk9iQeN9dJolJEP/14Xh9B
-	IH4x9yHWmNvtYDpNArsM+RyeEsIOqxqzF902bfyKpid8OnDus13F2dLd1yRoHWXJej8/IwM1Tnhco
-	TonoTMoCyC9Q6f1QcXVJe7LBe0BJC1JSh6HjQlansp6br6F5j1wNBPER9prKKdao7BbaZOPEOet95
-	i8s/TMX8b3WOf9k2zHV6wBqEGxNd39E1IF446CpR6h6VZu1Ft9t/kseG6TObND2a4Neq/1GVgkXBx
-	9cWxy29zabVTLVOvouHeMd5XtpL7JCd8eZ4eojCizcssRSg+SjSr0Lch4bqDqrVByu9mD/wMD7/Ti
-	ChMkEziw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nnUtdVeAl9f5S/7YxL/35itKcHxkPimGo8xC8m16xO8=; b=oKao4M8q9kXleooh5dvVrNY8kZ
+	C9me3ZbNBGJtSvISXQ8izT/x6ipGoKnN9zKrsAX74aDsUH5Woean9s25jWFMQtluKFteagoefYe2e
+	3GOMLuGBoYsS+GkPH3/usM1zhiM+p0ZU86BpSqXhhU9zhsLFYsqvx5m9FhEB8v0284BxsQmScojwT
+	+1KzlyXh5JHbhld9+Zx21a6Tt7P77Bfsn6evdaJbDM4ys6gOwxcCAwGsc2pv1wCA7tAeLsAUYdQx+
+	x0RJkZO4hHe9u6OJslQc9H9ZPpLX9RMRzTVDk3hl++tZKqDzmF6FFbLHWEeVoTWdzrjZyze3mB3aq
+	SmJalRCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVVXz-00000008VPz-1J42;
-	Wed, 08 Jan 2025 12:52:31 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1tVVZB-00000008VfD-0dPx;
+	Wed, 08 Jan 2025 12:53:45 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVUgH-00000008K9C-2jbH;
-	Wed, 08 Jan 2025 11:57:02 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id AF3D625C32;
-	Wed,  8 Jan 2025 12:56:58 +0100 (CET)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id 7STX7QO0Ro6w; Wed,  8 Jan 2025 12:56:57 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1736337417; bh=5tK6T5BnxOGB8HNkuG5gnenqtrDCvmYdb2Y6OFf9yXI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=dS67wEdo9Xd9+EPbZHqPmuiPPKjnsk/abCj9X6pJGxK0aY4Ewgh5bpApkWMPK/sHz
-	 lPDdsm2UDA6m0MugYuWB/o33inUlCLstXAiS4ZH6Zpi2bFFNLWpSMD7CpUFsalC2IW
-	 PaVjXcIPNs9fXSWtSt0E+Kpfb4MSiUJUtxozAu1N0SNmuxMHprefb0zCv0Y9zj+mTG
-	 WkuzW1qIVJCYgnaPig+0TOMSe4NRwIJsbRAKIrYKNyB82HxGWhL6+myYIAATOhG0Xl
-	 QVPy52GK984Qh8aNroXOEx4MhQd861Lq/wJfyG54BL/Mjc46+qHlTCxTb+8jFz8dis
-	 4aVXjh5G5Wdrg==
-Date: Wed, 8 Jan 2025 11:56:45 +0000
-From: Yao Zi <ziyao@disroot.org>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	id 1tVUle-00000008LMa-4BnG;
+	Wed, 08 Jan 2025 12:02:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=nnUtdVeAl9f5S/7YxL/35itKcHxkPimGo8xC8m16xO8=; b=e1ulK9F+oYU38t+ceqPDEteyQS
+	O4RfnLWkFEQPJrrdOl/cZ1y/eZY6TXBnMa7CqTciyZLEtGrnfdB9B2J7kU62blj+uayhjf/dORrnw
+	w8T1Q5ARPOXIPD376RFmj7SPwFDWg2vSZ4aGCXydrCKy5Utv30gK7HokHnzyRGCIRHXqfp4YvIZQK
+	OqIC5gtjUSzqOiggIAGziDnmppIrqb4iOuAo51MFfiJ/wyyktrqgBxonNleiEVuTXf8YjsDQ77sr6
+	i4+cMz1oi1JWJtNrsBzMP0N9hitiDVg4fFnotXgahhMHtY8RMijvkuN51cKO4DOsfgTDN6jSGScWw
+	A/EJh2Xw==;
+Received: from i53875aad.versanet.de ([83.135.90.173] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tVUlc-0005Xv-QP; Wed, 08 Jan 2025 13:02:32 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	Ivan Sergeev <ivan8215145640@gmail.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/5] Support clock and reset unit of Rockchip RK3528
-Message-ID: <Z35n_YBSAxWN-4DV@pie>
-References: <20250108114605.1960-2-ziyao@disroot.org>
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v7 0/2] arm64: dts: rockchip: Add BigTreeTech CB2 and Pi2
+Date: Wed,  8 Jan 2025 13:02:21 +0100
+Message-ID: <173633768684.2772122.3565189934463718842.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250106-bigtreetech-cb2-v7-0-565567e2c0a4@gmail.com>
+References: <20250106-bigtreetech-cb2-v7-0-565567e2c0a4@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250108114605.1960-2-ziyao@disroot.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_035701_822599_90E6D700 
-X-CRM114-Status: GOOD (  21.58  )
+X-CRM114-CacheID: sfid-20250108_040235_031527_8FFA4020 
+X-CRM114-Status: GOOD (  12.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,60 +80,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 08, 2025 at 11:46:01AM +0000, Yao Zi wrote:
-> Similar to previous Rockchip SoCs, reset controller on RK3528 shares
-> MMIO region with clock controller, combined as CRU. They're represented
-> as a single node in dt.
-> 
-> For the reset controller, only bindings are included in this series
-> because it's hard to test the reset controller without support for some
-> peripherals (e.g. pinctrl). I'd like to first make dt and basic
-> peripherals available, then submit the driver.
-> 
-> This is tested on Radxa E20C board. With some out-of-tree drivers, I've
-> successfully brouhgt up UART, pinctrl/gpio and I2C. A clock dump could
-> be obtained from [1].
-> 
-> [1]: https://gist.github.com/ziyao233/032961d1eebeecb9a41fea2d690e8351
 
-Oops, I forgot to attach the changelog. Sorry for the inconvenience and
-please refer to this,
+On Mon, 06 Jan 2025 23:50:53 +0300, Ivan Sergeev wrote:
+> BigTreeTech CB2 and Pi2 are Rockchip RK3566 SoM and SBC boards made by
+> BigTreeTech for the intent of using as a 3d printer control board.
+> It is a successor to the Allwinner H616-based BigTreeTech CB1 and Pi, so
+> the device trees for CB2 and Pi2 are also done in the same manner: the
+> common nodes and properties are put into a dtsi file that the
+> board-specific device trees include.
+> 
+> [...]
 
-- dt-binding changes
-  - relicense binding headers as GPL-2.0-only OR MIT
-  - use gapless integers starting from 0 for binding IDs
-  - make input clocks essential, add corresponding description
-  - rename the input clock that is generated by phy module as "gmac0"
-  - style fixes
-- driver changes
-  - format in the common Rockchip driver style
-  - drop initializing code of the reset controller, as it'll not be
-    supported in this series
+Applied, thanks!
 
-> 
-> Yao Zi (5):
->   dt-bindings: clock: Document clock and reset unit of RK3528
->   clk: rockchip: Add PLL flag ROCKCHIP_PLL_FIXED_MODE
->   clk: rockchip: Add clock controller driver for RK3528 SoC
->   arm64: dts: rockchip: Add clock generators for RK3528 SoC
->   arm64: dts: rockchip: Add UART clocks for RK3528 SoC
-> 
->  .../bindings/clock/rockchip,rk3528-cru.yaml   |   67 +
->  arch/arm64/boot/dts/rockchip/rk3528.dtsi      |   68 +-
->  drivers/clk/rockchip/Kconfig                  |    7 +
->  drivers/clk/rockchip/Makefile                 |    1 +
->  drivers/clk/rockchip/clk-pll.c                |   10 +-
->  drivers/clk/rockchip/clk-rk3528.c             | 1114 +++++++++++++++++
->  drivers/clk/rockchip/clk.h                    |   22 +
->  .../dt-bindings/clock/rockchip,rk3528-cru.h   |  453 +++++++
->  .../dt-bindings/reset/rockchip,rk3528-cru.h   |  241 ++++
->  9 files changed, 1978 insertions(+), 5 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/clock/rockchip,rk3528-cru.yaml
->  create mode 100644 drivers/clk/rockchip/clk-rk3528.c
->  create mode 100644 include/dt-bindings/clock/rockchip,rk3528-cru.h
->  create mode 100644 include/dt-bindings/reset/rockchip,rk3528-cru.h
-> 
-> -- 
-> 2.47.1
-> 
+[1/2] dt-bindings: arm: rockchip: Add BigTreeTech CB2 and Pi2
+      commit: 1a623c642b4066a5cea751ef52ab109b65e8afb5
+[2/2] arm64: dts: rockchip: Add BigTreeTech CB2 and Pi2
+      commit: bfbc663d2733a42d93143a91659e82c8a13f5a36
+
+Best regards,
+-- 
+Heiko Stuebner <heiko@sntech.de>
 
