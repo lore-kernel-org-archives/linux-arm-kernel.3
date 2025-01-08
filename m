@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E37B5E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 16:55:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4448E77199
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 16:56:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xQndw1t7iqKnhRoM624iPyJn99zmb0gXougK1XgPhTE=; b=A63qn1DiMABMX9Hp38onhzzuUb
-	USPglil0LBXfSCIvTRuufT1OmS7o9/c30C1qhix72nzIXtvtML4rNgxCqr5tqpN42lsJRhCtC25nH
-	6Rbx5jgUJSyedjjUSHDDwKa+bsmwbho6rXqDDQYMVyLClY75N7XKj71vM8hX/3ddnCrPeomrm22oW
-	6bvoP9GC/q/oLgBZhPKi0cWnZJepyFJY+ZfwnV0fmxUES93tjB8XxTWrDfrPP1QCOudlVVF0NgwOI
-	T8zpRTLhYbpveLfLAO0W1Gu3sF2/Q4tdrvPhQ+g5hXCSgqRojgNGH4AuWtRU7l7CU0h7fcobMieLW
-	NEuyxvLA==;
+	bh=dvT4Ol6LWgtQGudtR8JS5Kiqa3g5hVBenlZHdPhwQQQ=; b=n5wBLszIhFjJl3gFVAd9MkBkSg
+	ZGkPzfw2yLADSAMKR0x3EN3Xqu2fp9OOc8qiSd55GGpT1czEVQDTdbi7CoSWk/i5/gfAoeodUnlC2
+	t826EF4cM7EnYC1p2Q7fnbYTopphRKp5ieiGxj1KECoE/hvCpl+0FT615r2pb5LCohqNZRVb9ZukL
+	O6qMWzXihx6pgbrf92QMU0MFIvq943PaP2K4ot8TUurPCQHGpLFcpS65OSqvTRRYw6E10X02EukwV
+	B16IxyVOVnJVXeQVzt28WVIPKacCDQdqJFPWzm8xsIfm8XP1RS5emiTYbtpMFy821DA9XyVfumJdh
+	u2/Ko5Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVZKS-00000009H48-1IQ5;
-	Wed, 08 Jan 2025 16:54:48 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tVZLg-00000009HHL-05QB;
+	Wed, 08 Jan 2025 16:56:04 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVZ5D-00000009DEP-41V2
+	id 1tVZ5F-00000009DEv-3RbS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 16:39:05 +0000
+	Wed, 08 Jan 2025 16:39:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 77B4FA41A96;
-	Wed,  8 Jan 2025 16:37:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F11C2C4CEDD;
-	Wed,  8 Jan 2025 16:39:00 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 476925C0EFA;
+	Wed,  8 Jan 2025 16:38:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 416E7C4CED3;
+	Wed,  8 Jan 2025 16:39:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736354342;
-	bh=G+OhP4NLoAgaXhZ7enFXOvNAN7ZyUayAl9a7Xpz75Bo=;
+	s=k20201202; t=1736354345;
+	bh=nTSyBvaMVjZf52BGKN+460afWPfPdOp76qHxnO5KwHs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=d5T2lBCsApYDMkwX9SSQ9YxTFYWj2Zq7ekCarhFfeMI6/3itiCxlsGAVeiy7cdcvz
-	 0upDJCMomK1Oc0zoXYf8bFSjI+L/jFCogatlyMpoiU0ROmbCyA9CXFJZApD4kxq1Nk
-	 icbIiTB2ZaW1EjTYuowMNmeJbq1W55cbnhNgQpTMRMJWdJF0WmvMNX6QMznUVTFmtK
-	 exnzovgeDLJVkG/iR+5/8FncIWdcBHpcF9fd5Vs+Nk1MLN7mp/dlXknbYorpXhpLQY
-	 QDL35b9y7SJTA2ZZuohFTfqCM5XnAUjqRz6BwRGEoLAO8YQNBvGsALu4Xa5hCEbLLP
-	 h3+WAP1WxWuLg==
+	b=fc4ubRi/TWYlxlcFHtwMt5gAp4ge5V+dbb4w4ZYGLihjO/+LMdfP+38zHJc9ev5om
+	 PqGWcMYd577Kv7yl53NczQRoOXG1xDt5OW2TRjX/4JHNyRn3dhhNACTJajN5NcK8I3
+	 T0HHL5/MW2ZSkXckgOhR7YwLW4UuQYYMDa0cOysjQH0DXUwH+Y2cRuogvSzoCw2u2I
+	 gsgqnomZCv1KixRddaSUx3j4k6lbvQJTfBszbQKu+rF2ThBCYb9Tn4fkINM/a0Ph8t
+	 7YDvmNLGWFkJI+YdTguu2HRAgfqYAFZ3SohXV8bbaO+5oCZkJ1hBWKnPZxJciOp8oW
+	 ENIj8acUg06XA==
 From: Will Deacon <will@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
 	Anshuman Khandual <anshuman.khandual@arm.com>
@@ -52,18 +52,18 @@ Cc: catalin.marinas@arm.com,
 	Ryan Roberts <ryan.roberts@arm.com>,
 	Mark Rutland <mark.rutland@arm.com>,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64/mm: Rename pte_mkpresent() as pte_mkvalid()
-Date: Wed,  8 Jan 2025 16:38:50 +0000
-Message-Id: <173626845364.286028.7391336422738893247.b4-ty@kernel.org>
+Subject: Re: [PATCH] arm64/mm: Replace open encodings with PXD_TABLE_BIT
+Date: Wed,  8 Jan 2025 16:38:51 +0000
+Message-Id: <173626846561.286210.8659662596503724045.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20250107023016.829416-1-anshuman.khandual@arm.com>
-References: <20250107023016.829416-1-anshuman.khandual@arm.com>
+In-Reply-To: <20250107015529.798319-1-anshuman.khandual@arm.com>
+References: <20250107015529.798319-1-anshuman.khandual@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_083904_056383_AA29FDF1 
-X-CRM114-Status: UNSURE (   7.17  )
+X-CRM114-CacheID: sfid-20250108_083905_903164_3E7D5BD5 
+X-CRM114-Status: UNSURE (   6.55  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,18 +79,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 07 Jan 2025 08:00:16 +0530, Anshuman Khandual wrote:
-> pte_present() is no longer synonymous with pte_valid() as it also tests for
-> pte_present_invalid() as well. Hence pte_mkpresent() is misleading, because
-> all that does is make an entry mapped, via setting PTE_VALID. Hence rename
-> the helper as pte_mkvalid() which reflects its functionality appropriately.
+On Tue, 07 Jan 2025 07:25:29 +0530, Anshuman Khandual wrote:
+> [pgd|p4d]_bad() helpers have open encodings for their respective table bits
+> which can be replaced with corresponding macros. This makes things clearer,
+> thus improving their readability as well.
 > 
 > 
 
 Applied to arm64 (for-next/mm), thanks!
 
-[1/1] arm64/mm: Rename pte_mkpresent() as pte_mkvalid()
-      https://git.kernel.org/arm64/c/169226583097
+[1/1] arm64/mm: Replace open encodings with PXD_TABLE_BIT
+      https://git.kernel.org/arm64/c/fe2169f556a1
 
 Cheers,
 -- 
