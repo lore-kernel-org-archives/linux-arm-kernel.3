@@ -4,92 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A142E7719A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 13:26:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37DF0E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 13:27:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YqZewggKXh0wm9IbjtQFexabLRuUSMGH6a4/lzMIbGw=; b=YqtfQS+haPKlYD7x5LgquYQS5x
-	37DpsfySxCAMFwqbhx7zdCGEOHOS+w0hoBPF8heWHUqk9YZgN914UoDPqzs/RA7I6Ku357pyl+FV2
-	x8ZHZknq6Ej7Gg7br7t1MYGwcey8RlsX5yH7kfHJQeIi3QW3qnRmr/AikN3X70SZuVsej8sWkgCKY
-	5OIDhDSl1DEPgIvslZTEwSl2EpQ+4/ghtDQQCSGS5yiHJjnZNpEQF6vimZxNXT9mGu1CLrAtl0HDP
-	OFVklhs+hPHrqPBEsifg6quLNGldW2gqhZg1kqMwxo/sCEphHVdPZdNZjbWvL1t+SZPI1GMQ+ZkEd
-	oN8ySgmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TxlRvYVV9khSZoxHTmi6Xm+xr2AQ+F0Z9nuDl3ZM9+Y=; b=001p0nj+j1pq9L+wqK0ZEBMf+3
+	CqSTSdCFVtOIe7ATSm8LUbMamFArPBItOVqaz9z5+lkX7XdlYfX6HnYOfAn+fcmrBpdYmugtHzj0Y
+	t95rSggOR8kK648hgHhChVdewU25fNHzWeCVdxwuDnkSWvcrkUMJo8ROEiEBBF9XRv2rfhhpGAmM3
+	Vl98TNymM1/kpywvcEdhMebpdKi6fuYTLPXxMdazDkPS/QWZ59mNLTda2hmDNqJkVCHah2PL5UExy
+	Dvszg7q/1fY0R47PlXcXf1ldE3Bfs0JAA1WYDfWeqCsM/G9+NUUhNWDbTPQjLh+WfefHu/J5VX2nK
+	bftl/XEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVW4M-00000008bjF-13ko;
-	Wed, 08 Jan 2025 13:25:58 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1tVW5V-00000008bqg-3sEE;
+	Wed, 08 Jan 2025 13:27:09 +0000
+Received: from server.wki.vra.mybluehostin.me ([162.240.238.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVVsg-00000008ZD4-2kjX
+	id 1tVVfj-00000008Wkm-3NhD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 13:13:56 +0000
-Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-53ffaaeeb76so17704005e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jan 2025 05:13:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736342032; x=1736946832; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=YqZewggKXh0wm9IbjtQFexabLRuUSMGH6a4/lzMIbGw=;
-        b=luPIJNq4hiS9/MMj3YKPv4yu19WRfzT0PaYtvf/S4fOSaw58/mGwywzkr9KsLDzaSS
-         4QLpFwWQ0qZEueH4I/dxp/lqJn+YXG5NNHbzRlnSndBCSzfa6iOfExg6kuqfdapxmGjp
-         gVX9rHFDRURF8aGQB1rVNW1VqNvXEg9MWo+n8NH7iw0WjuYSM7+ap0WN/LPioZImLure
-         i2FcgTs7xZlxxTBN715Ip+LBQxFYlYLNqgqoZUdwswMMwDexOVirl2fBZhIdIF8yzotZ
-         /bQGEIHcB4RvrkEB5phjWJ8taD5EGZL4W75XgUUVHPbN8gM/p4umgzmbmA+cY/pDNYDk
-         csdQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736342032; x=1736946832;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YqZewggKXh0wm9IbjtQFexabLRuUSMGH6a4/lzMIbGw=;
-        b=Itz4ucbxcLdonVexCty/BJnbcpmjOjkJRkLkvq8wlvCfyIpYTDrjZ+FiMieKZQaTOF
-         lp0nX2jJtMR7qWq86n5ueqRba9XFlp/z6yyYXvmV4oFP9/Xhx7JiJDzpieK57F5X0NE7
-         cdw+JhahBFpM0jcvYfqFps/OS37l3m4Y3dzcEnfohlQkKHOWUo4XwU8ySyuDt60HuYyU
-         sKYvDF3L0RdDTKAWKEAgPVA11NzGERQ7/V7ifGRqRoD8mPjQmF2YPYeHngDd1q9XzSEr
-         HFH48d8Sn7+ZSuvs4jwacshk4YBM1jD+HVeNAPGjy3bSMru4ACpS7NzVNDhnLZcjEWFX
-         X9Bg==
-X-Forwarded-Encrypted: i=1; AJvYcCWlOTgaCK05fCaBNYdYPW8gOcerlmMM56JS243Lg6XypRWSymeaFpXa+v0F/8IHv4pRqiVS1WpSe+TZ2dE7doq/@lists.infradead.org
-X-Gm-Message-State: AOJu0YzzUIlRlAr+NCuPPk5HG0gHgUVa7nHV0LAxgSYMf0JPNzoqLHfh
-	H6jpb+QME5MJeIXzZvEfZ3xXb3N64QtLMUZOBqPOfB7osrRXTp5Y/Qz7Uj09QPc=
-X-Gm-Gg: ASbGncsRhRMNaWiKP+5zB9X/8uREem7SgxqQNHyYwLW5GeJa5kR04QWgkbwMfvNtntF
-	xVNPIQHmKluhMW1TrPKmCdzGSgi29xs1w94HTsG63XOkRCm5rPvKz5Ne1oz1nXBTWILtLsIloD5
-	ZnpIYzY7hZHltQdr173hUTNo15I+lCjvvmYDZwFZdlDJul8dU9KsBR5WAI4m3hj6gMkHrkkpiwO
-	ICIHpKW9sQXYEbIjIj9JF2tyzKfm0U6VpEVO6Hec9XLunJgmrYu3f3H8oNDBAJv2ONADVWKw2LT
-	qDXEIliC8baxzw7Gvaax7JqazGcHxvsi8oqE
-X-Google-Smtp-Source: AGHT+IEkuQPiOLgGXs8zWdEMj0wAqNSMaSTV6vSQ/tkCnop+NG9gWvZpeLRpiajpdeM8K2LlU6tzqA==
-X-Received: by 2002:a05:6512:3c8a:b0:542:28dc:b692 with SMTP id 2adb3069b0e04-542845b9480mr694480e87.14.1736342032480;
-        Wed, 08 Jan 2025 05:13:52 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54269fd89e8sm1549488e87.91.2025.01.08.05.13.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Jan 2025 05:13:52 -0800 (PST)
-Date: Wed, 8 Jan 2025 15:13:49 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
-	simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
-	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	matthias.bgg@gmail.com, ck.hu@mediatek.com, jitao.shi@mediatek.com, jie.qiu@mediatek.com, 
-	junzhi.zhao@mediatek.com, dri-devel@lists.freedesktop.org, 
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kernel@collabora.com, lewis.liao@mediatek.com, 
-	ives.chenjh@mediatek.com, tommyyl.chen@mediatek.com, jason-jh.lin@mediatek.com
-Subject: Re: [PATCH v4 33/34] drm/mediatek: mtk_hdmi_common: Add var to
- enable interlaced modes
-Message-ID: <bovw662duw6ufmjleicb4kuhyn3an6emo53mgg3477dfuarapq@zcmekc7zzeub>
-References: <20250108112744.64686-1-angelogioacchino.delregno@collabora.com>
- <20250108112744.64686-34-angelogioacchino.delregno@collabora.com>
+	Wed, 08 Jan 2025 13:00:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=TxlRvYVV9khSZoxHTmi6Xm+xr2AQ+F0Z9nuDl3ZM9+Y=; b=i2REXeItuEM/YcbuAG1Glpea83
+	TNM2Nf3Pd3lKi/NKrusGhazG6321tKJaBldth0VyMmk/Q87GN1GzV2yZ1Y7b3mipjKD7a1prmfIqz
+	qYgH795LipCs9QE2LPxz4aXtxP2NpyqXC1Q9TfTABGy6XTyA7I7tWgxpYpvvunKE2QMJS4bDa5rLI
+	j2/5jNQhV+42zN9rPPIHSjx+gVXCU7yU5V7a8ogb5azRo+FZ9iHuAP+r2Qzn44PQDhN6X1oL7BosK
+	KUQSO+g9W1x/73TctpChPqITQJ+DzoTCfwN30UO24uytx6ao/t2ML3m78h4WE4iCuTvXPMcvzkZad
+	mRmqZV2w==;
+Received: from [122.175.9.182] (port=28889 helo=cypher.couthit.local)
+	by server.wki.vra.mybluehostin.me with esmtpa (Exim 4.96.2)
+	(envelope-from <basharath@couthit.com>)
+	id 1tVVfi-0000mE-0o;
+	Wed, 08 Jan 2025 18:30:30 +0530
+From: Basharath Hussain Khaja <basharath@couthit.com>
+To: nm@ti.com,
+	ssantosh@kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	pratheesh@ti.com,
+	prajith@ti.com,
+	vigneshr@ti.com,
+	danishanwar@ti.com,
+	praneeth@ti.com,
+	srk@ti.com,
+	rogerq@ti.com,
+	afd@ti.com,
+	krishna@couthit.com,
+	pmohan@couthit.com,
+	mohan@couthit.com,
+	parvathi@couthit.com,
+	Basharath Hussain Khaja <basharath@couthit.com>
+Subject: [PATCH v2 1/1] soc: ti: PRUSS OCP configuration
+Date: Wed,  8 Jan 2025 18:29:37 +0530
+Message-Id: <20250108125937.10604-2-basharath@couthit.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250108125937.10604-1-basharath@couthit.com>
+References: <20250108125937.10604-1-basharath@couthit.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250108112744.64686-34-angelogioacchino.delregno@collabora.com>
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.wki.vra.mybluehostin.me
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.wki.vra.mybluehostin.me: authenticated_id: basharath@couthit.com
+X-Authenticated-Sender: server.wki.vra.mybluehostin.me: basharath@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_051354_698999_FF3D1195 
-X-CRM114-Status: GOOD (  19.43  )
+X-CRM114-CacheID: sfid-20250108_050031_875595_0DB5FA46 
+X-CRM114-Status: GOOD (  19.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,41 +97,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 08, 2025 at 12:27:43PM +0100, AngeloGioacchino Del Regno wrote:
-> Add an interlace_allowed bool member to struct mtk_hdmi_ver_conf
-> which will be used to signal whether interlaced modes are supported
-> by the bridge (in our case, the HDMI IP), and enable it for HDMIv2.
-> 
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> ---
->  drivers/gpu/drm/mediatek/mtk_hdmi_common.c | 1 +
->  drivers/gpu/drm/mediatek/mtk_hdmi_common.h | 1 +
->  drivers/gpu/drm/mediatek/mtk_hdmi_v2.c     | 3 ++-
->  3 files changed, 4 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c b/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
-> index 4cecfef1466b..8841fa4e476a 100644
-> --- a/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
-> +++ b/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
-> @@ -1301,7 +1301,8 @@ static const struct mtk_hdmi_ver_conf mtk_hdmi_conf_v2 = {
->  	.bridge_funcs = &mtk_v2_hdmi_bridge_funcs,
->  	.codec_ops = &mtk_hdmi_v2_audio_codec_ops,
->  	.mtk_hdmi_clock_names = mtk_hdmi_v2_clk_names,
-> -	.num_clocks = MTK_HDMI_V2_CLK_COUNT
-> +	.num_clocks = MTK_HDMI_V2_CLK_COUNT,
-> +	.interlace_allowed = true
+From: Roger Quadros <rogerq@ti.com>
 
-Nit: if you have a trailing comma, you don't have to change the last
-line when adding a new one.
+Updates OCP master port configuration to enable memory access outside
+of the PRU-ICSS subsystem.
 
->  };
->  
->  static const struct mtk_hdmi_conf mtk_hdmi_conf_mt8188 = {
-> -- 
-> 2.47.0
-> 
+This set of changes configures PRUSS_SYSCFG.STANDBY_INIT bit either
+to enable or disable the OCP master ports (applicable only on SoCs
+using OCP interconnect like the OMAP family).
 
+Signed-off-by: Roger Quadros <rogerq@ti.com>
+Signed-off-by: Andrew F. Davis <afd@ti.com>
+Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
+Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
+---
+ drivers/soc/ti/pruss.c       | 77 +++++++++++++++++++++++++++++++++++-
+ include/linux/pruss_driver.h |  6 +++
+ 2 files changed, 82 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/soc/ti/pruss.c b/drivers/soc/ti/pruss.c
+index d7634bf5413a..a0e233da052c 100644
+--- a/drivers/soc/ti/pruss.c
++++ b/drivers/soc/ti/pruss.c
+@@ -25,14 +25,19 @@
+ #include <linux/slab.h>
+ #include "pruss.h"
+ 
++#define SYSCFG_STANDBY_INIT	BIT(4)
++#define SYSCFG_SUB_MWAIT_READY	BIT(5)
++
+ /**
+  * struct pruss_private_data - PRUSS driver private data
+  * @has_no_sharedram: flag to indicate the absence of PRUSS Shared Data RAM
+  * @has_core_mux_clock: flag to indicate the presence of PRUSS core clock
++ * @has_ocp_syscfg: flag to indicate if OCP SYSCFG is present
+  */
+ struct pruss_private_data {
+ 	bool has_no_sharedram;
+ 	bool has_core_mux_clock;
++	bool has_ocp_syscfg;
+ };
+ 
+ /**
+@@ -286,6 +291,72 @@ int pruss_cfg_xfr_enable(struct pruss *pruss, enum pru_type pru_type,
+ }
+ EXPORT_SYMBOL_GPL(pruss_cfg_xfr_enable);
+ 
++/**
++ * pruss_cfg_ocp_master_ports() - configure PRUSS OCP master ports
++ * @pruss: the pruss instance handle
++ * @enable: set to true for enabling or false for disabling the OCP master ports
++ *
++ * This function programs the PRUSS_SYSCFG.STANDBY_INIT bit either to enable or
++ * disable the OCP master ports (applicable only on SoCs using OCP interconnect
++ * like the OMAP family). Clearing the bit achieves dual functionalities - one
++ * is to deassert the MStandby signal to the device PRCM, and the other is to
++ * enable OCP master ports to allow accesses outside of the PRU-ICSS. The
++ * function has to wait for the PRCM to acknowledge through the monitoring of
++ * the PRUSS_SYSCFG.SUB_MWAIT bit when enabling master ports. Setting the bit
++ * disables the master access, and also signals the PRCM that the PRUSS is ready
++ * for Standby.
++ *
++ * Return: 0 on success, or an error code otherwise. ETIMEDOUT is returned
++ * when the ready-state fails.
++ */
++int pruss_cfg_ocp_master_ports(struct pruss *pruss, bool enable)
++{
++	const struct pruss_private_data *data;
++	u32 syscfg_val, i;
++	int ret;
++
++	if (IS_ERR_OR_NULL(pruss))
++		return -EINVAL;
++
++	data = of_device_get_match_data(pruss->dev);
++
++	/* nothing to do on non OMAP-SoCs */
++	if (!data || !data->has_ocp_syscfg)
++		return 0;
++
++       /* assert the MStandby signal during disable path */
++	if (!enable)
++		return pruss_cfg_update(pruss, PRUSS_CFG_SYSCFG,
++					SYSCFG_STANDBY_INIT,
++					SYSCFG_STANDBY_INIT);
++
++	/* enable the OCP master ports and disable MStandby */
++	ret = pruss_cfg_update(pruss, PRUSS_CFG_SYSCFG, SYSCFG_STANDBY_INIT, 0);
++	if (ret)
++		return ret;
++
++	/* wait till we are ready for transactions - delay is arbitrary */
++	for (i = 0; i < 10; i++) {
++		ret = pruss_cfg_read(pruss, PRUSS_CFG_SYSCFG, &syscfg_val);
++		if (ret)
++			goto disable;
++
++		if (!(syscfg_val & SYSCFG_SUB_MWAIT_READY))
++			return 0;
++
++		udelay(5);
++	}
++
++	dev_err(pruss->dev, "timeout waiting for SUB_MWAIT_READY\n");
++	ret = -ETIMEDOUT;
++
++disable:
++	pruss_cfg_update(pruss, PRUSS_CFG_SYSCFG, SYSCFG_STANDBY_INIT,
++			 SYSCFG_STANDBY_INIT);
++	return ret;
++}
++EXPORT_SYMBOL_GPL(pruss_cfg_ocp_master_ports);
++
+ static void pruss_of_free_clk_provider(void *data)
+ {
+ 	struct device_node *clk_mux_np = data;
+@@ -570,6 +641,10 @@ static const struct pruss_private_data am437x_pruss0_data = {
+ 	.has_no_sharedram = true,
+ };
+ 
++static const struct pruss_private_data am57xx_data = {
++	.has_ocp_syscfg = true,
++};
++
+ static const struct pruss_private_data am65x_j721e_pruss_data = {
+ 	.has_core_mux_clock = true,
+ };
+@@ -578,7 +653,7 @@ static const struct of_device_id pruss_of_match[] = {
+ 	{ .compatible = "ti,am3356-pruss" },
+ 	{ .compatible = "ti,am4376-pruss0", .data = &am437x_pruss0_data, },
+ 	{ .compatible = "ti,am4376-pruss1", .data = &am437x_pruss1_data, },
+-	{ .compatible = "ti,am5728-pruss" },
++	{ .compatible = "ti,am5728-pruss", .data = &am57xx_data, },
+ 	{ .compatible = "ti,k2g-pruss" },
+ 	{ .compatible = "ti,am654-icssg", .data = &am65x_j721e_pruss_data, },
+ 	{ .compatible = "ti,j721e-icssg", .data = &am65x_j721e_pruss_data, },
+diff --git a/include/linux/pruss_driver.h b/include/linux/pruss_driver.h
+index 2e18fef1a2e1..15b3c9c58539 100644
+--- a/include/linux/pruss_driver.h
++++ b/include/linux/pruss_driver.h
+@@ -118,6 +118,7 @@ int pruss_cfg_gpimode(struct pruss *pruss, enum pruss_pru_id pru_id,
+ int pruss_cfg_miirt_enable(struct pruss *pruss, bool enable);
+ int pruss_cfg_xfr_enable(struct pruss *pruss, enum pru_type pru_type,
+ 			 bool enable);
++int pruss_cfg_ocp_master_ports(struct pruss *pruss, bool enable);
+ 
+ #else
+ 
+@@ -172,6 +173,11 @@ static inline int pruss_cfg_xfr_enable(struct pruss *pruss,
+ 	return -EOPNOTSUPP;
+ }
+ 
++static int pruss_cfg_ocp_master_ports(struct pruss *pruss, bool enable)
++{
++	return -EOPNOTSUPP;
++}
++
+ #endif /* CONFIG_TI_PRUSS */
+ 
+ #endif	/* _PRUSS_DRIVER_H_ */
 -- 
-With best wishes
-Dmitry
+2.34.1
+
 
