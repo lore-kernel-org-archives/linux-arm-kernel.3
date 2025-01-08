@@ -4,88 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C05FE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 11:07:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B9F3E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 11:08:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NoqnFYUo08zl9sWUFbQWTKaMIDKJok6y4m0E+eEGjW0=; b=xFslzuEUQBLyAxQ4yGRTeITNOn
-	ngwpuY9HL7rYtPDD3tmvqiNqjgIexVnbboJb/iB6NUDxraC7Cm6jyE5TxzLSShbx2mMxijnqnBc9T
-	q9KYqzTps7c3E3lGTcFGw1HTbXdVe8yE5VsTa8QjBFjKMAmfYL7JqpiEhWxeU6H+RrtTszqIWhF9C
-	hTK7Orvt4dhOkF9kDYg8b1bF4Rqp7xDw/3H42HSmWE+2bCDvMhUiBk4Oo+jQe+uFqBTJmcq08zr3Q
-	onWuk1+6iweraz7lekSiCLzFiOlH4ikc+1ZKaKgkU20VHjmO87m5RyJDTrXO6OQDTyLRrHHoDdMVB
-	LXV56W5g==;
+	bh=5l28R7aMI01MO73n6anQqdtnCKSPC6381Q8H/ZOfFLg=; b=5BgEInUh2ZaEft6ii0QvnBNqo6
+	C7OOVZ352qUVq2dSdFPyhuaOuaMcPk013mKfaijn6Cfh7N2xAVu1PDpH/r6MKoGYmyui+fqfWViok
+	BvODw2TwN2+c05X2D6PtuWz8GJWPpQulce0hsZt+0TmNc3vZx4S1jcPDgebhnYs2Y5UbFE+f1XpoD
+	wpVHnGBH8oZLVUdqgKlrogTGyGwfim0m0n9VQNJ0hoFqgpkoW6dAbHE/1350XqwsVDGe4u39xMh9P
+	ATh11v8O/A8HnQ8TCTGeksVJcuUSJcVx8eh3ZbjmA0sehw+Zy890zV1nIQ7KD+WE+ouAOwcwJjjrW
+	Gy55+F/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVTtn-000000088eQ-0RDJ;
-	Wed, 08 Jan 2025 11:06:55 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tVTuy-000000088zp-3Lj5;
+	Wed, 08 Jan 2025 11:08:08 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVTlG-0000000861v-09Ab;
-	Wed, 08 Jan 2025 10:58:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=NoqnFYUo08zl9sWUFbQWTKaMIDKJok6y4m0E+eEGjW0=; b=eIMaio5zc/+B4GTx3PuSdSuLPd
-	nDICgbOAAgkMxx8haKwyg7JDocSjvGKLzvzW68TJkq0h/kO4ekwS9IJfder0V2RMwCa0R49+VTPIF
-	lcLoTebP3YurjlCjif8qQzAw+oojrEE1gJzkpBznJhzlcAWZQOjXZrCPVNSI2dYTE6pEZJY+3Z+7l
-	eig/GIGgCrEV8wUak0Ego/S479d+gz/6Qz56BBp1JdxCHnbotZ7fKmdb0sBf9ntF2/0AyVRYT0wnc
-	vlFcqZik8YJq1g6Ln6iQXLNRIbf+6zyOgkYsI2FcUdS7VFeah7e7xyD5U01qAKZfIVPBTxypwqGiC
-	JhBfd5Yw==;
-Received: from i53875aad.versanet.de ([83.135.90.173] helo=localhost.localdomain)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tVTkw-0004wu-3A; Wed, 08 Jan 2025 11:57:46 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: Kever Yang <kever.yang@rock-chips.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	linux-rockchip@lists.infradead.org,
-	Simon Xue <xxm@rock-chips.com>,
-	Chris Morgan <macromorgan@hotmail.com>,
-	Frank Wang <frank.wang@rock-chips.com>,
-	Liang Chen <cl@rock-chips.com>,
-	linux-pci@vger.kernel.org,
-	Yifeng Zhao <yifeng.zhao@rock-chips.com>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Elaine Zhang <zhangqing@rock-chips.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Finley Xiao <finley.xiao@rock-chips.com>,
-	Alexey Charkov <alchark@gmail.com>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
-	FUKAUMI Naoki <naoki@radxa.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Andy Yan <andyshrk@163.com>,
-	Michael Riesch <michael.riesch@wolfvision.net>,
-	devicetree@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Tim Lunn <tim@feathertop.org>,
-	Detlev Casanova <detlev.casanova@collabora.com>,
-	Dragan Simic <dsimic@manjaro.org>,
-	linux-kernel@vger.kernel.org,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Subject: Re: (subset) [PATCH v4 0/7] Rockchip: add Rockchip rk3576 EVB1 board
-Date: Wed,  8 Jan 2025 11:57:35 +0100
-Message-ID: <173633124858.2752317.13499985925633362517.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20250107074911.550057-1-kever.yang@rock-chips.com>
-References: <20250107074911.550057-1-kever.yang@rock-chips.com>
+	id 1tVTll-000000086Jn-0rTl
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 08 Jan 2025 10:58:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1736333917; x=1767869917;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=JAru+JCMinYwvPV/IOHYvgN8V7XoWvB4jQe0QBv0C0s=;
+  b=Lln8TkX4Vun7pXTHKBTPYR3CbCxjPdxlYTCVNFh5CgWkanX/kCKgnzk7
+   Xf6ahcAusTUWixDMuE7SuE1rY8u/+FMSdwdTlQWXJziGKIt36JIaD6nkN
+   hiTpKVEo3H22EClnXCZT3Q7Dilsgev9TlNF8BjuNqMCc85Ccof1EAXuqr
+   40CHIViQnIo8n/PX9wOUTXOxePwnTnsRwLKFwttWsASDw6fkmtJVcf08b
+   ZLMkWJePmsLw+Xei2oHIzTOXbeQ3yWGeMS5P/9CPl79SXYw3/FgrcpKtI
+   kSK+4IQQDVkIaRf/ZTku6aSygFU3UtPiHSvdA1pLm9aXnQlHgVc5Ik5M3
+   w==;
+X-CSE-ConnectionGUID: 3PTd3b/OR7SosierpfBmPQ==
+X-CSE-MsgGUID: TZrBG5JuSCia64AK8qutzA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11308"; a="47970595"
+X-IronPort-AV: E=Sophos;i="6.12,298,1728975600"; 
+   d="scan'208";a="47970595"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jan 2025 02:58:37 -0800
+X-CSE-ConnectionGUID: nm4SBxDATruaz+8W47XtvA==
+X-CSE-MsgGUID: Uj7pV1SWSdqWs7QCL2E5Rg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,298,1728975600"; 
+   d="scan'208";a="133900895"
+Received: from choongyo-mobl.gar.corp.intel.com (HELO [10.247.39.73]) ([10.247.39.73])
+  by orviesa002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jan 2025 02:58:33 -0800
+Message-ID: <3ddc0625-15ea-4010-a830-21020569d685@linux.intel.com>
+Date: Wed, 8 Jan 2025 18:58:28 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v3 02/18] net: stmmac: move tx_lpi_timer tracking
+ to phylib
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
+ linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+ Paolo Abeni <pabeni@redhat.com>
+References: <Z31V9O8SATRbu2L3@shell.armlinux.org.uk>
+ <E1tVCRZ-007Y35-9N@rmk-PC.armlinux.org.uk>
+ <66b95153-cb12-494d-851c-093a0006547f@linux.intel.com>
+ <Z35WKDhVGMvPIi7d@shell.armlinux.org.uk>
+Content-Language: en-US
+From: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+In-Reply-To: <Z35WKDhVGMvPIi7d@shell.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_025806_074946_94156213 
-X-CRM114-Status: GOOD (  13.51  )
+X-CRM114-CacheID: sfid-20250108_025837_257961_07E268F3 
+X-CRM114-Status: UNSURE (   9.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,36 +98,22 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 07 Jan 2025 15:49:04 +0800, Kever Yang wrote:
-> This patch set is for rockchip rk3576 evb1.
-> Based on the naneng combphy patch from Frank Wang.
+
+On 8/1/2025 6:40 pm, Russell King (Oracle) wrote:
+> Hi,
 > 
-> This version including the patch adding usb nodes from Frank Wang.
+> On Wed, Jan 08, 2025 at 03:36:57PM +0800, Choong Yong Liang wrote:
+>> Tested-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
 > 
-> Changes in v4:
-> - Fix wrong indentation in dt_binding_check report by Rob
-> - Update the commit msg with sort rule per required by Krzysztof.
+> Please let me know if this is for the entire series.
 > 
-> [...]
+> Thanks.
+> 
 
-Applied, thanks!
+Yes, the test is for the entire series.
 
-[1/7] arm64: dts: rockchip: Add rk3576 naneng combphy nodes
-      commit: ddbf63b25866a4a58222d763f9f2d29c309e00e8
-[4/7] arm64: dts: rockchip: add usb related nodes for rk3576
-      commit: 23ec57a32da448cb3415d6abad3457b14c69af25
-[5/7] dt-bindings: arm: rockchip: Sort for boards not in correct order
-      commit: ffd07673f08a03ff5532212ebbd98fbfd0dac00e
-[6/7] dt-bindings: arm: rockchip: Add rk3576 evb1 board
-      commit: 88dc3756ece1d19ab0aa85ceb6ffb4e5f9318ae1
-[7/7] arm64: dts: rockchip: Add rk3576 evb1 board
-      commit: f135a1a07352b848d3d39557413dd1cd3716d930
-
-I've dropped the PCIe patches (and pcie nodes from the board)
-to be handled separately and also sorted some things
-(regulator nodes, button nodes) and fixed some empty-lines things
-
-Best regards,
--- 
-Heiko Stuebner <heiko@sntech.de>
+The only issue that was discovered is that during the initial state, the 
+"tx_lpi_timer" is not set correctly.
+The "tx_lpi_timer" with a value of 0 causes the EEE to be unable to enter 
+LPI mode.
 
