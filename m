@@ -4,174 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9710FE77197
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 03:23:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61BA6E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 03:32:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mWIbPkJ19VViiyLeiweKfAJoGp2hWCmpH01yXg8I/gg=; b=ACWvlM+l8dQx0mfaCJOwOl/lxh
-	CSfbUHtlpsL/vJozNyBsuhncj1IkOlBljDEFLlkmRbHZpcx6H7smFHzysiEfvw9Suk6MdZVMllbcP
-	yzZuRJEwGNd8K8m35ZKRVvUhYR6nXaKwtQOo3mSJVTIcIoxAkq0DvIyjhOM8fMtIlGoTbz8TYUfVZ
-	hmezmlEyIFXPXpAD7Pg2Xe83ClckXCQufP/IMhUmcEOjp/zOGCVurn17NKOgigj0QMw28K2wzbFfh
-	75WW8UHfwpwzF2sa0azGcEje/xP5mpcfqKXFFjZrL10k3NG3ZLry/dfKikwh/tz46r9fbL6W99jm4
-	48zfrK/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=esUARDuNWDiox8/a+yJtCggYCrCp65YXypBrleGET5E=; b=ECdmwDsqbs6hnnkXY80iL8f5gA
+	BmnT8cwaL2NlxyzmGXdQJdAqnpwd8gX6rrCtenGx+N1Tt3iJcLa2W/JUqxkd0Og1kSVxs88TqSTXf
+	nHG00VdM6jKfWD4LRp0LMtpWaaf5S4sd/ZuaLhheLZBImKub8/hS9ZphiScXq4wM7YGG4g+mjOIcr
+	D5O/lFibf5XmsdTqgZLWcBTu0VdAshqwKVs6Gl0+32q4hUE1VCIKFh6dxzmSskFd224oV/CR0uLAr
+	gvbANlV+M143B4G2yVKgfvT/EjSVWYqCgSPV36gD/T54ZqJcdGUghPLiXkz8SHMbNZZXpwCLlL+1Z
+	SmYY8Ilg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVMeh-000000070aE-2MSu;
-	Wed, 08 Jan 2025 03:22:51 +0000
-Received: from mail-dbaeur03on20604.outbound.protection.outlook.com ([2a01:111:f403:260d::604] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
+	id 1tVMo4-000000071WK-3tKa;
+	Wed, 08 Jan 2025 03:32:32 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVMdR-000000070I9-1Cuy
+	id 1tVMmp-000000071Nw-2BRs
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 03:21:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=A+6n5H6crwCBGKFUILgVpQzlEHCLNo4UTGfd0TMC2NiSrSsJFFfAc0eJ/RQBi52G6O9T6rFEhiDL+42yI/UyYpki2tLgkWFsnjCFwYGi4j9I0DJ6GNF7nq+izr5/5DMfR83JNbITOioVtCW08rofggIbsFb8a1KfSkp8INdFKnPfclIPaHjA8/sSXBLiIUH644y+hwvSPBjOAhAbyIGdCDxL1A0c64PcV7NCcbbFM4OBbqONn8SUXhh+qS44FRlopSMT7YHBHx7xvzTKZDHtH1Ku3FF13j8H2xdcZAcru69vuG+NUK/rk+P3TiJrZZ/bd5sdyAi15qFeSFS6UsvglA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mWIbPkJ19VViiyLeiweKfAJoGp2hWCmpH01yXg8I/gg=;
- b=h8m6m8rHq6y9QHU/6KtAxfsblKofTxw/O1MUnX425DK73WvwtZoBX9VxC6Sa3jQ7u9LaVCotVPZQPJGPi6k2zVHsJwtp4bPqM07kYItHxxZxkRJumQBExOf09JAUzALXTOhx7FX3Y701sO8ZayKJFhKgbDb6VPZM9Sc0qrbeMZq+aM9Cxmql07qoAWNFJgnJiJV6sGK5ijx7joB8EaFuzJStSq6zlIV/pbRJ6nKsd2viAy37zBMjwYXoz/1I7GzczwvdboSi4iZLS7ZXmsBy8/2+a5ydPxTYxEoVvxJtLyaVcm9UX1jfEIZV4Garj3Xp6kmu2QPDmFSjoq0vxSgG7A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mWIbPkJ19VViiyLeiweKfAJoGp2hWCmpH01yXg8I/gg=;
- b=GOBmUkqIOzZMcP9hRYhhQMPAgFYohd6wpMV90v9VVyPzY181j+6MDshMTQEhZrT7544lTMM4NHeVmn4Sty2ZCeWTHpH2y0Z07751MERt5WVsgc/YfKvcEoChQum8jkdfTGkQZOa3QFUeGil7glBdcYT+NyL5zTTkAd0+xySNoVtpf6Avt/Tb1SJexg2tzSSGSdFmo9hMY5vBXSHLmGzp74WCDUByx+rxLkEeheNYmPgZDPHVQZupGbFGQYnkZX8vlIO1gkU/8u7j+/0FGPrmetw/z3H+FJLiPn0AKJVqthByIlN70ujtt8tggNIym80qP2lneAGiF0qtu/iINdfUGQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by GVXPR04MB11041.eurprd04.prod.outlook.com (2603:10a6:150:218::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.11; Wed, 8 Jan
- 2025 03:21:29 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90%4]) with mapi id 15.20.8314.018; Wed, 8 Jan 2025
- 03:21:29 +0000
-Message-ID: <add11437-4fa8-489a-9cde-9c08cfd71db3@nxp.com>
-Date: Wed, 8 Jan 2025 11:22:19 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] drm/bridge: imx8qxp-pxl2dpi: Use dev_err_probe
-To: Alexander Stein <alexander.stein@ew.tq-group.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250107143900.988567-1-alexander.stein@ew.tq-group.com>
- <20250107143900.988567-2-alexander.stein@ew.tq-group.com>
-From: Liu Ying <victor.liu@nxp.com>
-Content-Language: en-US
-In-Reply-To: <20250107143900.988567-2-alexander.stein@ew.tq-group.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SI2PR06CA0017.apcprd06.prod.outlook.com
- (2603:1096:4:186::15) To AM7PR04MB7046.eurprd04.prod.outlook.com
- (2603:10a6:20b:113::22)
+	Wed, 08 Jan 2025 03:31:17 +0000
+Received: from icess-ProLiant-DL380-Gen10.. (unknown [183.174.60.14])
+	by APP-03 (Coremail) with SMTP id rQCowAA3Pg5q8X1nE7woBg--.52365S2;
+	Wed, 08 Jan 2025 11:30:57 +0800 (CST)
+From: Ma Ke <make24@iscas.ac.cn>
+To: linux@armlinux.org.uk,
+	sumit.garg@linaro.org,
+	make24@iscas.ac.cn,
+	gregkh@linuxfoundation.org,
+	elder@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH v4] [ARM] fix reference leak in locomo_init_one_child()
+Date: Wed,  8 Jan 2025 11:30:49 +0800
+Message-Id: <20250108033049.1206055-1-make24@iscas.ac.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|GVXPR04MB11041:EE_
-X-MS-Office365-Filtering-Correlation-Id: e405602c-8bf1-4b25-c2f5-08dd2f938aea
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|366016|921020|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Zml2WnQycDVXc0hlc2V4UVpoekY1Vml0U0lHT3VhcEIxZUtRRkVwUmJxZGxi?=
- =?utf-8?B?WUsvVkxmdGV4QWJENExnTmsrS2RxbklIdkcyNDNrMXZMbzRYR2JqNkVyUWsx?=
- =?utf-8?B?Qm81ZSthUTQ2cnFIWXVHa1BlWHRSejBnazNldHNHUEFEZVh4MVZtR3dDMHpV?=
- =?utf-8?B?OEtpTDFUbXI2eXY4UFFjNnJJOWNINXlBVHRDTk53bFVKd1RncE52ZEkrRlVa?=
- =?utf-8?B?bjU3L000bzNnUGVtTTg2RUd2dHc0STNvVUQvVy9UL3pZRkowSUVoUnJWU21C?=
- =?utf-8?B?RzBlaFFaLzNLd0NSMFF2dTVwZTdnZVJuQ0twVTFScmNYZTRTUmpKd0lMVXcz?=
- =?utf-8?B?cEJLcGx3b1l1WE52VlI2TXQ0REozSEpPMGNqc0tKdTBqenV1QnVtc1hkSXNG?=
- =?utf-8?B?V0VidFpzenlPTTc3WkVlWkVHY0RrV3cwL0pEZE1uNVJtQWxuV1RqQ0ZvUTZ0?=
- =?utf-8?B?bTlUa0NzVWpMc1NUREM1WEpoc3k5cmVXNHV2MzBhSW1mV0k1YmdQTWVVSVhN?=
- =?utf-8?B?bko1YW9oT3pMcVhmbjJyaDMvbFdpVHkrQVl2NWE3bzZrb08xeE12akRxaTFT?=
- =?utf-8?B?NjdPRGppeTRzR1N4QkJnaG4xWUVuenBPVkx4cDF3WnpBVXFMSHdMOVJ5ZjJZ?=
- =?utf-8?B?Q1hMZzdvR1hQQUE4OWlmY2NlSGRwYnM4ankxaTd2T1pqdkNpODQ3MzFLWm83?=
- =?utf-8?B?WnVRNjVjSlZ5dXBlanI1R2NzZWNxY0NleUZuM2pNWTNwcmpmNzFja1plNk5u?=
- =?utf-8?B?em4rdkdaMFpjcy9pTkhLREMvVzRxdXVDejJmcVE3UXh3ZERUWXNrVzZIM01a?=
- =?utf-8?B?a0J4Z09tWXBvTXU2RUNJMXdydnhhYzN2ODkzUXZHZmlvM1VuZjRJN1NhV0Fv?=
- =?utf-8?B?RzlaWFJzekNQbWFIcVp1L1p4d2JQNStlbFNpdTBJZmpEcThMOS9PaS9ERk90?=
- =?utf-8?B?SWw3ekZUZG9yRytxYVBldlduL1VCTUhMbTBwN0lHa1A5M2I5Z0xTOUI3VDlk?=
- =?utf-8?B?c0I4RGowUmw1YmhQY3A5czhYdkkwVXoxSjRaQ2k0WXVhQWhWYkhGSEJvaVdx?=
- =?utf-8?B?SlR2N3NEUmJ6eVhwNkNMdE0yamlYMVQxa3RuWTVyZFpIRFNzelJxV1dVMGZW?=
- =?utf-8?B?WWE3VXNaWDhXMFZsbnZ3RGJWWkVKeXgxcjAzZ0dtUUxkRHluYWxadEVqUFhs?=
- =?utf-8?B?RC9qTWd2bnFkcFJrZzB1RDl4K3FtdmdUa3lQYXNCTTJSSXo1dnB5MWdPMFdm?=
- =?utf-8?B?WUExKzE0a1lOclZQaVdjb1JzVXYzYjNSYmtncktkejAyN2xZeEcrdTUySnY5?=
- =?utf-8?B?TFowdGlKc21RaGxScndnOFF6cE91ME56dUU5aFVlNGhtNFlrQlh1NUpDcXU2?=
- =?utf-8?B?a1kyVWIrckxLUG1MMXRMTlNoTlR0L0xySERBTkxibGxiUWpZNlVLcWdTMURF?=
- =?utf-8?B?cTNtRDVsQzlrNHhKZzdyZ01JeFdYNjRvSzVUOGRiV3NoZ0JNTFp1YjVXMkJM?=
- =?utf-8?B?ZG5TbkV5YVhOQnlsZ0Rpa1puL1FQU3Y1UFBkcENsOTVQL2FrcnZidGhFUE1z?=
- =?utf-8?B?cXBFK2dOZXdBdk43eFRBdHFGcjlBQVhHRzl4dmpqSkltbFJ6b01qcjhSMmVn?=
- =?utf-8?B?VVJqWG4xaXA2TW5GRldXUlVORno0YXJLNS8xdG5nMmRTbFRiVGhTUUVaTkla?=
- =?utf-8?B?K3FjYzh1azdsM3BWZE15QlNRRFBGTEdMYmx5M05EUkdzRW1zdFlEdERDNzFF?=
- =?utf-8?B?RlJuSmhvTkRSWFlRZGFWcWJudzlpYXdaN2F4REFXTUZGK2NnZGljc2JORGwz?=
- =?utf-8?B?dXJHNEhPTnJSa2labkI3RWpoamluMVZRZDNnY21KODVwSW5xdXlIcktPOEt5?=
- =?utf-8?B?NWZPQ2dOcURyb0dlc3ZlNkF5TFRoWUN4NThUNGNkb0RNOHNkVlJqWjd6ZTlz?=
- =?utf-8?Q?lk8Zq9z7pMw=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(366016)(921020)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Z0R3VDNadUJXcU82UTFrYVpzTitZUGp6dEFxUFZzdVNTNlhEV0FlUUtXTGxO?=
- =?utf-8?B?SXJDMGtVRGEwSlNsWURWSGtLYVlEbml0bWJ0SXhPYlVVL2RSclN6L0UvTzBw?=
- =?utf-8?B?eTh4aWxJcTNQT0kyejl4akZlZ2NVaDJYZmdaUllCVWlyTlZrYitKN0FzQzMr?=
- =?utf-8?B?QzRraUJwazhYaklDRER0VnpwZVFXcTlRRnE2WlgreFVHOFVTS1VVTFgrYmUx?=
- =?utf-8?B?RVQwTkVEZmp1VDBUR2VvZi9kVEJMakFIclpObmhWRVpDVmxNNWhKVzFtc3RR?=
- =?utf-8?B?dVNqMGhpNkR6SXBlZFoxQmJWWFRoL25wV01oSUJ0MzFGM0lDVlp6WnJ5RVFR?=
- =?utf-8?B?S3pNMnRsK3oydUdicVowMCtpSTFiVzhQRXYvVzRMZWU4dlFDWWJ0TFladlJK?=
- =?utf-8?B?S1BRcnlGM2VPOW5uK3RJL0hVempqS0Y3VVZtNXdKODRZa3U5cXdQYTB1by9t?=
- =?utf-8?B?MXFVbWl0aXZPZUx4QXMrQkpUTTR4WUFpU2JYbWRtRlo1RWJDOFNrTXlpL2kz?=
- =?utf-8?B?eG9palpCRmNxV1ZDUWZ3b0ZXblZMMWgwQW81WkZxZU9WWHB2U2pLdHB0eEJl?=
- =?utf-8?B?OGs5cFIway9JUHBVS0RJKytmbndmaFRBMTdOVlJCV3Fjc08yWDEyMzdJZ0Fr?=
- =?utf-8?B?WUxKNzZldXVrUGFyS0tpZ3p3VGdwQlVxSVlQMDVVTTJiQ004MkhTR2lwK3gw?=
- =?utf-8?B?S2JrRmQvYlYwUnBWOFJTQkxrNlRoazlGcVkrOTRTY1g4bjRNY2xwSTV2S2xq?=
- =?utf-8?B?YXEyUGljSGZKc0w0WFdMRG52Qk9KYXg2R1k2MzViZWFyV252eXdobXpKWXFx?=
- =?utf-8?B?ckdoVllXNlVGYldmdVFPc3JxV25CRk5NZGVuT1RRSUpxYU1xKzZ0eDJ1L2ZB?=
- =?utf-8?B?SVNIUW16KzJpZ0pRa2NhT09MajBhaUlWRW1zT1hCWFVDOXNZSW40d1RoOHJY?=
- =?utf-8?B?WGxvQll5ODQxUzdYZldDR09CakhBeFl3dWNRNFFZaDNHQ3E5MC8zS2VuT09T?=
- =?utf-8?B?dmJRUGV6dWFpZ2xoT2FnM3Y4aFhxWFZrc3dpYVNTZHBLRDlXeXUybVI1aXlC?=
- =?utf-8?B?ZE85S3BCN3Z0bEZkOWtNQWxLYUJxOTlRNDhZaG1ZTFQvZkN6SjRaVDNFNy9w?=
- =?utf-8?B?QkwwaHBqWEJxTWRnTzBLOFc3Q0theVdRa3hTbVpkdStWa28vNkNiejR3S3ht?=
- =?utf-8?B?WmNVMEJKN1RINEFNdjlQY0lKb3hYVXBhcFMxbXN6aEtPcGtJSUp3WDNoK3Ns?=
- =?utf-8?B?MEtNRjdDc05MWmFHYUQxb2tld2I2bnpjck1ab1hUZEJHL0VaS05ySldDd2Nm?=
- =?utf-8?B?U0JyZ05Nekovb2pYN1R6dEQzcG9lakVHcmswcWkxdDNrV3Erd0ZDSmw3cXpy?=
- =?utf-8?B?cmZBeDFzVEZQVk04MTd5RlpFSEdWOEpyYWI1QWUvcWJQeHdTOHkzdjVZSVFw?=
- =?utf-8?B?c3RMU3VwZ1BaOW5TZnJJY25oZ05SSStFM3FGSElwOHlINFhWQ3BicHBCRFJY?=
- =?utf-8?B?R2ZUNk5td3JEcDdXR2J6MGdVeVBSMmJ2azRMYUJkUStvWXNZVEQ1d1dYTDhZ?=
- =?utf-8?B?aGpWQ1VhRWNqOVZPSEJKN2hsK2ZGbmZ2UGdGc2FwY0xoZnk0WUVDbmdTVU5J?=
- =?utf-8?B?M0Q0eVhYbkc4MGJ4TVA5ZGlqV0dwQ2dWVzE4K24rUURYVlViSWZocmtYdDdB?=
- =?utf-8?B?MjVrTGZYNHoxUWxRYmY5dytpZXhOL2hTMHovL2ttdFd3Y05JM0tNNWtpK0Q1?=
- =?utf-8?B?NTZvWjZhL0JpYjZBNjFPZFBUNnBWb2czVzNQek40TldCVVdua3dYQUpmOFkz?=
- =?utf-8?B?UDVCZWZOeko0eWF2NXQrcXh0cXdhMldiR2plaGgwZ3ZJREUwM1IwSXFUaVNx?=
- =?utf-8?B?cmNXRkRkdFN2MnZoWEc2VmFyczh5dm9lMWl2R3pLSEpma2RSQVB3WUdsZ0Vh?=
- =?utf-8?B?STNDeUl4WFIzUHNIa2JTVndBb1Rsc0RIT05PK0o1eTdicmNkSFRGWjM4QktO?=
- =?utf-8?B?bTM1ZzZmQnVWVUJnL1FhVnFOYVlyVzliRExzN3RITjg1VTF6MGFHa1F5NTFq?=
- =?utf-8?B?aXZ2bU9OMkhub0NuVEpSdkVucGFGVnNkY0lwRTAwTEp5SFB4U3N6Y3djeWti?=
- =?utf-8?Q?fOkmIToFk47Ca0JzovGtfg802?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e405602c-8bf1-4b25-c2f5-08dd2f938aea
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jan 2025 03:21:29.4934
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: TeRJDbLkLrPXXv9etNqE63qq603fjsDIKdRN6t+S5dkYpg2YrVUt3nEdhzKQfWDf+wpqh54dBLuR2Fzwvzj1FA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB11041
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: rQCowAA3Pg5q8X1nE7woBg--.52365S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7WryrKw13Ar48KrWUCrykXwb_yoW8Xw4kpa
+	srCas8trWUWr1kWrW0vFn7ZFyUGay0kw4rurW8Cw18Krn0grWSqa40ga4Sk34UJrWkAFnY
+	vrWxJw48G3WDCaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
+	6r4UJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv6xkF7I0E14v26F
+	4UJVW0owAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40E
+	FcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr
+	0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8v
+	x2IErcIFxwCY1x0262kKe7AKxVWUAVWUtwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
+	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
+	67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
+	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
+	MIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIda
+	VFxhVjvjDU0xZFpf9x0JUvg4fUUUUU=
+X-Originating-IP: [183.174.60.14]
+X-CM-SenderInfo: ppdnvj2u6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_192133_337153_2BFB8981 
-X-CRM114-Status: GOOD (  16.65  )
+X-CRM114-CacheID: sfid-20250107_193115_933880_FB00FCF1 
+X-CRM114-Status: GOOD (  12.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,68 +81,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/07/2025, Alexander Stein wrote:
-> This simplifies the code and gives additional information upon deferral.
-> 
-> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> ---
->  drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c | 26 ++++++--------------
->  1 file changed, 7 insertions(+), 19 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c b/drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c
-> index 65cf3a6c8ec69..038eaff889bb7 100644
-> --- a/drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c
-> +++ b/drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c
-> @@ -398,20 +398,12 @@ static int imx8qxp_pxl2dpi_bridge_probe(struct platform_device *pdev)
->  		return -ENOMEM;
->  
->  	p2d->regmap = syscon_node_to_regmap(np->parent);
-> -	if (IS_ERR(p2d->regmap)) {
-> -		ret = PTR_ERR(p2d->regmap);
-> -		if (ret != -EPROBE_DEFER)
-> -			DRM_DEV_ERROR(dev, "failed to get regmap: %d\n", ret);
-> -		return ret;
-> -	}
-> +	if (IS_ERR(p2d->regmap))
-> +		return dev_err_probe(dev, ret, "failed to get regmap\n");
+Once device_register() failed, we should call put_device() to
+decrement reference count for cleanup. Or it could cause memory leak.
 
-s/ret/PTR_ERR(p2d->regmap)/
+device_register() includes device_add(). As comment of device_add()
+says, 'if device_add() succeeds, you should call device_del() when you
+want to get rid of it. If device_add() has not succeeded, use only
+put_device() to drop the reference count'.
 
->  
->  	ret = imx_scu_get_handle(&p2d->ipc_handle);
-> -	if (ret) {
-> -		if (ret != -EPROBE_DEFER)
-> -			DRM_DEV_ERROR(dev, "failed to get SCU ipc handle: %d\n",
-> -				      ret);
-> -		return ret;
-> -	}
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed to get SCU ipc handle\n");
->  
->  	p2d->dev = dev;
->  
-> @@ -422,13 +414,9 @@ static int imx8qxp_pxl2dpi_bridge_probe(struct platform_device *pdev)
->  	}
->  
->  	p2d->next_bridge = imx8qxp_pxl2dpi_find_next_bridge(p2d);
-> -	if (IS_ERR(p2d->next_bridge)) {
-> -		ret = PTR_ERR(p2d->next_bridge);
-> -		if (ret != -EPROBE_DEFER)
-> -			DRM_DEV_ERROR(dev, "failed to find next bridge: %d\n",
-> -				      ret);
-> -		return ret;
-> -	}
-> +	if (IS_ERR(p2d->next_bridge))
-> +		return dev_err_probe(dev, PTR_ERR(p2d->next_bridge),
-> +				     "failed to find next bridge\n");
->  
->  	ret = imx8qxp_pxl2dpi_set_pixel_link_sel(p2d);
->  	if (ret)
+Found by code review.
 
-imx8qxp_pxl2dpi_parse_dt_companion() may return -EPROBE_DEFER too, so it needs
-to be changed.
+Cc: stable@vger.kernel.org
+Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+Signed-off-by: Ma Ke <make24@iscas.ac.cn>
+---
+Changes in v4:
+- deleted the redundant initialization;
+Changes in v3:
+- modified the patch as suggestions;
+Changes in v2:
+- modified the patch as suggestions.
+---
+ arch/arm/common/locomo.c | 13 +++++--------
+ 1 file changed, 5 insertions(+), 8 deletions(-)
 
+diff --git a/arch/arm/common/locomo.c b/arch/arm/common/locomo.c
+index cb6ef449b987..45106066a17f 100644
+--- a/arch/arm/common/locomo.c
++++ b/arch/arm/common/locomo.c
+@@ -223,10 +223,8 @@ locomo_init_one_child(struct locomo *lchip, struct locomo_dev_info *info)
+ 	int ret;
+ 
+ 	dev = kzalloc(sizeof(struct locomo_dev), GFP_KERNEL);
+-	if (!dev) {
+-		ret = -ENOMEM;
+-		goto out;
+-	}
++	if (!dev)
++		return -ENOMEM;
+ 
+ 	/*
+ 	 * If the parent device has a DMA mask associated with it,
+@@ -254,10 +252,9 @@ locomo_init_one_child(struct locomo *lchip, struct locomo_dev_info *info)
+ 			NO_IRQ : lchip->irq_base + info->irq[0];
+ 
+ 	ret = device_register(&dev->dev);
+-	if (ret) {
+- out:
+-		kfree(dev);
+-	}
++	if (ret)
++		put_device(&dev->dev);
++
+ 	return ret;
+ }
+ 
 -- 
-Regards,
-Liu Ying
+2.25.1
+
 
