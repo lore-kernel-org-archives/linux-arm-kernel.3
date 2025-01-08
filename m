@@ -4,68 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D835FE77199
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 16:59:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D94DDE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 17:01:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RKmGAs6l4tPWCdOJctbGqBnJ1hBapWBJH5/mZAy2F+c=; b=gk9LvxEMSnsYvKavPaqJ19aR7D
-	xSCjmsgC8wfd7zJsZ6GWGOZ7xo09OWfdxc1AILxaWSMUWNqWIr8KRbFi7oG17Jx+beh0VPvWl0LSZ
-	fxRCXdROXNLk6kT2RADmdsZEDuP8azzmxzqqPckj5CAvIgKILOMJJMjpENMEHUxtNIYHrH1GAkAxC
-	6sddYtdfUumm2oBYU9jPpc1ub1YSPwtakm7FUVY2b1gjRJbIYNCQCBmO8jqahYJlB/VWuD3GWX9gN
-	nf+CSe4wur8yuoh7f+UFIU4wuOtfOQEMo0xWkbvQcAvl+zXNymQiqG0WMmcC5TzGIYpUgr2R4q5nE
-	RmW1QeWg==;
+	bh=KdPBNg6Oh/q/xOvRJTyKJ6exeaZ6e5ixJCmV6t2x47Q=; b=EAwub3PaKAHf1kOS5es1hc/9Dq
+	gbBUPSiFaIrEKqXGqWD6Pgro4uhgM0I2CEuUYLw7IG5OPJ9rcRYdTOaAd934dRH41nFVmzmvIz0zh
+	d4j4IzvIdAodAVRNd3ZXcHGz00zwmwmjeqdNamwhf/vihlN/1N+19+CIZ3sEDS4snA6obhlMNti06
+	NgotJxC2ANWK7lKFlzGu3U44jS9eKx1ME72tTKIVI6mw8V/bLNfYGVqxDu7LD8498XR0q4qQdH2/k
+	QxpR+X2dI9/RiwdBPTEElLDDuH8ySWxo26KpPW6GlK+F091Bln+1bIkgxJstPbBqkAcfwHbXz5sOj
+	guLj6TUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVZPH-00000009I0P-1rGZ;
-	Wed, 08 Jan 2025 16:59:47 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tVZQU-00000009IPv-0GEp;
+	Wed, 08 Jan 2025 17:01:02 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVZ5O-00000009DHx-1KZl
+	id 1tVZ5U-00000009DJt-2GwU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 16:39:15 +0000
+	Wed, 08 Jan 2025 16:39:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C5D5A5C0EFA;
-	Wed,  8 Jan 2025 16:38:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F8B1C4CED3;
-	Wed,  8 Jan 2025 16:39:11 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 157E8A417F1;
+	Wed,  8 Jan 2025 16:37:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C588C4CEDD;
+	Wed,  8 Jan 2025 16:39:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736354353;
-	bh=m6CgzdMPzAX61Ca+UFuERy52c+NZuAry6HZZJK/uQnc=;
+	s=k20201202; t=1736354359;
+	bh=SDds+TK/lVD6ZkEFK1dg2wd8tfmdIW4fsQkO1c02vk4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Sdar5qah37AVgho6AKgqlqEEOoLkeEUFj+Mcf7HrcPrsHqC15Em0pFA2Ad2Bn8C3/
-	 Fk9uvE9vwt3sstOvdxZEl/aIVbRDnayGnN48YHKPy5fRGJ+9UgIGaz9u8yPO1iXakq
-	 +Xu8fvizib0OZf2nGpTdbDS2UkEkR5PHGza8CXi2cNtMu2utSCR0a2M2ztYbBRTKeV
-	 aBj6XMCQziicckraSMdCmkznKC0Y5Mdrck7dOnBVQ8sIjB0IIBqEGHiUMYMNBwkL94
-	 duTsG1/NAYzdHrz2IMME9nPOf5XiRJ7PywHGIs/jMHEFNCxhvG05/TNQraILwme8v8
-	 O52NVWZGfA05g==
+	b=sRef5+u4XYsOIrOiE/c9IkFwzvjEmC7T5+jLlwB4bED8tZiOFLD+sKqJcrS3RE+M3
+	 2xbQTCqDJm86Dtgy2qOnDC+cTcf+bB+8w67xG6RT8A8avMwpeH7K2YBi1Pw4NdKspC
+	 S9Ku+7Qsm2u7VG1uAIgYJfqSXgdra+MDDho+oz3vTLgRGVPXd7hgl92yi/+kIjST/w
+	 /TKgJa8gjPx6axAN65R31NtNgD+eNpaZ2GPRJgjAzCaDipWmzC+uJdBBCI57VqZgzS
+	 QyAnVUskQ35/+JXrZOB7vzmHwqSN3K8T2HvbfKkG5hgpSQ4KcB+mBAlL/agie/wuNM
+	 D/m6LgUvtF0Hg==
 From: Will Deacon <will@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	Jeremy Linton <jeremy.linton@arm.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
+To: anshuman.khandual@arm.com,
+	catalin.marinas@arm.com,
+	Zhenhua Huang <quic_zhenhuah@quicinc.com>
+Cc: kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	suzuki.poulose@arm.com,
-	gshan@redhat.com,
-	steven.price@arm.com,
-	sami.mujawar@arm.com,
-	itaru.kitayama@linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 0/1] arm64: CCA TSM module autoloading
-Date: Wed,  8 Jan 2025 16:38:54 +0000
-Message-Id: <173634472957.507461.2595446733414158963.b4-ty@kernel.org>
+	ardb@kernel.org,
+	ryan.roberts@arm.com,
+	mark.rutland@arm.com,
+	joey.gouly@arm.com,
+	dave.hansen@linux.intel.com,
+	akpm@linux-foundation.org,
+	chenfeiyang@loongson.cn,
+	chenhuacai@kernel.org,
+	linux-mm@kvack.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	quic_tingweiz@quicinc.com
+Subject: Re: [PATCH v3] arm64: mm: Test for pmd_sect() in vmemmap_check_pmd()
+Date: Wed,  8 Jan 2025 16:38:56 +0000
+Message-Id: <173626870329.286960.5328606288066578023.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20241220181236.172060-1-jeremy.linton@arm.com>
-References: <20241220181236.172060-1-jeremy.linton@arm.com>
+In-Reply-To: <20250102074047.674156-1-quic_zhenhuah@quicinc.com>
+References: <20250102074047.674156-1-quic_zhenhuah@quicinc.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_083914_399153_42B01950 
-X-CRM114-Status: UNSURE (   7.81  )
+X-CRM114-CacheID: sfid-20250108_083920_643183_41D28D9D 
+X-CRM114-Status: UNSURE (   8.39  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,27 +87,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 20 Dec 2024 12:12:35 -0600, Jeremy Linton wrote:
-> Provide module tables and a platform device so that the
-> CCA TSM module will autoload when needed.
+On Thu, 02 Jan 2025 15:40:47 +0800, Zhenhua Huang wrote:
+> Commit 2045a3b8911b ("mm/sparse-vmemmap: generalise vmemmap_populate_hugepages()")
+> introduces the vmemmap_check_pmd() while does not verify if the entry is a
+> section mapping, as is already done for Loongarch & X86.
+> The update includes a check for pmd_sect(). Only if pmd_sect() returns true,
+> further vmemmap population for the addr is skipped.
 > 
-> v3->v4:
-> 	More comment/function name tweaking
-> 
-> v2->v3:
-> 	Fix __maybe_used placement, it does fix CLANG builds now.
-> 	Add reviewed-by tag, Thanks Gavin!
-> 	Ugly commit message cleanup.
-> v1->v2:
-> 	Various comment updates/variable renames
-> 	Add missing __maybe_unused to the platform_device_id
 > 
 > [...]
 
-Applied to arm64 (for-next/cca), thanks!
+Applied to arm64 (for-next/mm), thanks!
 
-[1/1] arm64: rsi: Add automatic arm-cca-guest module loading
-      https://git.kernel.org/arm64/c/a1edec22457e
+[1/1] arm64: mm: Test for pmd_sect() in vmemmap_check_pmd()
+      https://git.kernel.org/arm64/c/9ab2601dc4c1
 
 Cheers,
 -- 
