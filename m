@@ -4,65 +4,192 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3118EE77199
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 22:31:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 659BFE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 22:33:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oIs+6//9pCaz6EyeOwysIwczhydc369WMFHKaaagOvY=; b=zWJKwY1ZATDdsewHqKpShD6THO
-	y5LoWC4CxECH3p/RBZDh5bObS8Px5zKHlRSYb9dzgcbR1XrvQjPN6rnzLNKUE5bjlpguUoeanGmN2
-	6yKPNZ007E6lXLfYeWm4HRykDYphLTr5COEgj6KS/ApKrjh0E7wiZUNP5DZu6nNNVdwOCH0zs9UW2
-	f/3ibYlx/qkW49skUJ8m87qRON0j6FL3nVxbvPikvwMI38DLaerPUaArUcCvpnYgrD0klyWiNqQbr
-	cONSi5uELWxebRUvIREgNXfak095PlLrBosBf0anz6jbphP6FZKr2iPPetML9KMLER6W1nhkQpqR1
-	a+/SdZSQ==;
+	bh=ykbBEGif4XNRDhG36JaAk+Vmea7aHk59vZUxCFqzNI4=; b=g32+f2Uz5Ob31YSgEGYWYSm50w
+	ZhfcNmZ2LytI9TJpxC3f1p2uiRVqdNIW8BD/BW9JSogYmpz3G3rIQPtKxRoi31HEhWglrUU04M06i
+	eVDS19pucv1fPVxjOHzEO/nxdAYEq3u1XCoqthUxA20str7yIZZsxENVcnsySxZOH7jqhTY7cXitO
+	vDrZj/Kbk+jdKGzDmAC65BiihrI+FLLLDHQkERbARkaBu3RzF22vN2np3sTB5nJFJob248N/PagxD
+	fInEjFTCfU1dQxui0wC+w92ala2deUKYrc74avkRep5sc/+qRz/sApdKKl3yTTTNL4m4sL9fRqHiw
+	M3c0duNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVeZb-0000000A1an-1qTU;
-	Wed, 08 Jan 2025 22:30:47 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tVebU-0000000A23x-2i8m;
+	Wed, 08 Jan 2025 22:32:46 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVeXe-0000000A1J1-47jx;
-	Wed, 08 Jan 2025 22:28:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=oIs+6//9pCaz6EyeOwysIwczhydc369WMFHKaaagOvY=; b=BaedSn+aUIt4dGeN6UFrKv3zq5
-	SjvxbM6DzIzuwDFspDx8xT61/huayN6VLFfjpyjKUKm7tH58k0vh0lJIUJ+Gx9fn63+Exga3t6sNR
-	6b1WxY3XPQNEV036vJ8hHIICLnXXggqpBJ4qjv0veqgaLEzSWUhZr1vxcp4fpXiW42CdsHZjutpYS
-	KB7zXZlisMJaJSMnm0mbnuiQhb6SNNWP2jsFCXvKPnJvPpm6YY49TTfpXVIcwna3bBpl1afHzuvkN
-	OCOjsp4IDiCQ94Ch9JjiSKMCZJU9QS086B6rPNzGMJr0G8yXx6J7N1TrwfLpAboj5f4mjRuHm0a2O
-	xmC2JPPg==;
-Received: from i53875aad.versanet.de ([83.135.90.173] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tVeXc-0004BU-TI; Wed, 08 Jan 2025 23:28:44 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Alexey Charkov <alchark@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/3] arm64: dts: rockchip: Add SPDIF nodes to RK3588(s) device
- trees
-Date: Wed, 08 Jan 2025 23:28:44 +0100
-Message-ID: <2731770.KRxA6XjA2N@diego>
-In-Reply-To: <CABjd4Yy4Qd1rD43u3B-s=HxVBnaQt7fSgP9NFY2YeY0eKMESvQ@mail.gmail.com>
-References: <20250108-rk3588-h96-max-v58-v2-0-522301b905d6@gmail.com>
- <1950286.IobQ9Gjlxr@diego>
- <CABjd4Yy4Qd1rD43u3B-s=HxVBnaQt7fSgP9NFY2YeY0eKMESvQ@mail.gmail.com>
+	id 1tVeaF-0000000A1ak-3oHf
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 08 Jan 2025 22:31:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1736375488; x=1767911488;
+  h=date:from:to:cc:subject:message-id:references:
+   in-reply-to:mime-version;
+  bh=aHQnTe84JFR6oZp9hU+QpGxeaw/PYiqXZ2FmrWnqA6o=;
+  b=jx0WW5aOE3Ksxt+VpscgHv5F4vdRiXXo0gFn6/QihKFgStiK+ne1x8DM
+   /fvBnMgHUpndDrtDDZYHfE4s7qM4i3X+3ghLxl11sH35gPgE2jbRV6ceF
+   AeUwqiHAKhdzHKX5KtxSZwMtU6zi8FfIq4/Xxx1A0m1w0Gaah01tBTNLU
+   22SeVVxFd5fQNGPxvQ5MY1JHKHYuT6ktDGF978LfxrrRV5Zp2Cwcj0qkc
+   Q0Q8tEckTnNXl654R/lYMRppfrcbvTGpx7uX+lgXE2L/6gJFVs2x+Xj69
+   XW+6tLrmCVzEdQSUoVsnjbViAa7gb/bqbWmfvI8LBvMXJwKKrjNyq6wbD
+   w==;
+X-CSE-ConnectionGUID: 9QWUd0V1SXSqigVd7j9UPQ==
+X-CSE-MsgGUID: 28URNTiTS0apB053LGn2pg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11309"; a="40300353"
+X-IronPort-AV: E=Sophos;i="6.12,299,1728975600"; 
+   d="scan'208";a="40300353"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jan 2025 14:30:43 -0800
+X-CSE-ConnectionGUID: 5X6oa+mkRIaQmI64WVqIaQ==
+X-CSE-MsgGUID: Uj4C2n0ET6+Mr7aVXAIM9g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="107268706"
+Received: from orsmsx603.amr.corp.intel.com ([10.22.229.16])
+  by fmviesa003.fm.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 08 Jan 2025 14:30:40 -0800
+Received: from orsmsx601.amr.corp.intel.com (10.22.229.14) by
+ ORSMSX603.amr.corp.intel.com (10.22.229.16) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Wed, 8 Jan 2025 14:30:37 -0800
+Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
+ orsmsx601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44 via Frontend Transport; Wed, 8 Jan 2025 14:30:37 -0800
+Received: from NAM10-MW2-obe.outbound.protection.outlook.com (104.47.55.45) by
+ edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.44; Wed, 8 Jan 2025 14:30:34 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yx7YXyGCcdxcX1cblNhA1RKtw6xJlCvdCpFeqelJ2E8oVIBVEncQXrRet6GNAU4rzOdskSN0D+zn4c9RYIr+z3bXAYaNoSe3nT3HYVwcTjVWjCJaGfUB/Jm5etT7jJ9U22g3P4NIv8Qd1qBq21XK6HSx7rAIiorDKTMcPAHLe/6lGLeo0dWePAB4utN1b47dM0diTs6Oqmu/nvy+jU0X3q2LrnFr8vC87GFQFvCvEo5wS6rwlbxvxIS+xF7GF/u8fEu6dUUh17fWLO6qtpHcQQq0/MCtEsUEJ/KCH3Au3zrR1KOr2f6dEF9h7hq6OoK/THpxFFIRh+ouibqj5EsnmQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ykbBEGif4XNRDhG36JaAk+Vmea7aHk59vZUxCFqzNI4=;
+ b=vPnQHM6YQMC1jmjLoWlo3bsw8prvRawBlQNwiqrjHRacyJUz1Q03MAgk8WO+bQy0oniGXfAHGLMD1m/i/9wAA+ugrI8ZhdhNqLHnvBuMFVZ/8/lCaxcMLC1fHOOHnfvGOUI0F+HFRhOXU03yqH+GZTy3Nr/HPxEFqEydHQrJ86Cmx+tJjeQjDFmPR2JO2lFrAqj7o4/ZFG17VpTj4qRj3ms3tm5uGE8JBTds16jJDyZWpxEjeM6Judr6D9K9b0E2syRFqONjzFGUy3NHDJjxixwQ2T27WCO8zrww2PAmGLsAWAdiCq5BMLUb/UTNSdjuNiLHFk6tKVi/TU9T3HO0Hw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from PH8PR11MB8107.namprd11.prod.outlook.com (2603:10b6:510:256::6)
+ by IA1PR11MB6515.namprd11.prod.outlook.com (2603:10b6:208:3a1::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8314.18; Wed, 8 Jan
+ 2025 22:30:28 +0000
+Received: from PH8PR11MB8107.namprd11.prod.outlook.com
+ ([fe80::6b05:74cf:a304:ecd8]) by PH8PR11MB8107.namprd11.prod.outlook.com
+ ([fe80::6b05:74cf:a304:ecd8%4]) with mapi id 15.20.8314.015; Wed, 8 Jan 2025
+ 22:30:28 +0000
+Date: Wed, 8 Jan 2025 14:30:24 -0800
+From: Dan Williams <dan.j.williams@intel.com>
+To: Alistair Popple <apopple@nvidia.com>, <akpm@linux-foundation.org>,
+	<dan.j.williams@intel.com>, <linux-mm@kvack.org>
+CC: Alistair Popple <apopple@nvidia.com>, <lina@asahilina.net>,
+	<zhang.lyra@gmail.com>, <gerald.schaefer@linux.ibm.com>,
+	<vishal.l.verma@intel.com>, <dave.jiang@intel.com>, <logang@deltatee.com>,
+	<bhelgaas@google.com>, <jack@suse.cz>, <jgg@ziepe.ca>,
+	<catalin.marinas@arm.com>, <will@kernel.org>, <mpe@ellerman.id.au>,
+	<npiggin@gmail.com>, <dave.hansen@linux.intel.com>, <ira.weiny@intel.com>,
+	<willy@infradead.org>, <djwong@kernel.org>, <tytso@mit.edu>,
+	<linmiaohe@huawei.com>, <david@redhat.com>, <peterx@redhat.com>,
+	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linuxppc-dev@lists.ozlabs.org>,
+	<nvdimm@lists.linux.dev>, <linux-cxl@vger.kernel.org>,
+	<linux-fsdevel@vger.kernel.org>, <linux-ext4@vger.kernel.org>,
+	<linux-xfs@vger.kernel.org>, <jhubbard@nvidia.com>, <hch@lst.de>,
+	<david@fromorbit.com>, Vivek Goyal <vgoyal@redhat.com>
+Subject: Re: [PATCH v5 01/25] fuse: Fix dax truncate/punch_hole fault path
+Message-ID: <677efc80b6fcd_f58f2943@dwillia2-xfh.jf.intel.com.notmuch>
+References: <cover.425da7c4e76c2749d0ad1734f972b06114e02d52.1736221254.git-series.apopple@nvidia.com>
+ <f20cc2603bd33ee05ec4bc4cc7327cec61119796.1736221254.git-series.apopple@nvidia.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <f20cc2603bd33ee05ec4bc4cc7327cec61119796.1736221254.git-series.apopple@nvidia.com>
+X-ClientProxiedBy: MW4PR03CA0332.namprd03.prod.outlook.com
+ (2603:10b6:303:dc::7) To PH8PR11MB8107.namprd11.prod.outlook.com
+ (2603:10b6:510:256::6)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH8PR11MB8107:EE_|IA1PR11MB6515:EE_
+X-MS-Office365-Filtering-Correlation-Id: 21ff0cda-5c21-4626-b66d-08dd30340ded
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?rrljhjsUxLjzj4KWSbEbkQLiccfve+AQymkydoNzBI0QwfqNlkKmNJw2TBO7?=
+ =?us-ascii?Q?YDFBnAQxMVBsyigzG47Q5j5mwjrtt8cXlkBnqM9Eq2qJKGwVF1m1lbtCaga+?=
+ =?us-ascii?Q?dtwxClhRT2xH42VG5BJ0zBCNjM0zyAk+2rxDNi0bEe1SvS0fRW1W3Rl9Rwxg?=
+ =?us-ascii?Q?pDwyfd66gTv5T+bb9nj7QJ9M4ecLAYsf064aMt/MfhrlC5Xn62VQJtgL2FH1?=
+ =?us-ascii?Q?N2YzsBrPH8siikCGa9eCK7D3wcvM9Q08jUsKr00fCwkGfdtPAR1I4+WDtEDt?=
+ =?us-ascii?Q?p+Zd7+WGo90PQ769Z9T6xS4AXZdVnHK37a21hqXxBoXu9HTpa6VT+zt1Q/zG?=
+ =?us-ascii?Q?htTx72Yt172RrMapx335QXSDRmtZ1tVZWmUk95jApBqHzkbbkMK51iczcaIK?=
+ =?us-ascii?Q?hWFQ3Jvdy0vgZtLy/nE0qV3syJv0kIQTCjSwhWSWLDQdlgfGdQxKlCC5jMig?=
+ =?us-ascii?Q?9/PLeizF0scssDywqYoip7WUURZC4ipD3P31/iGZvseXknsT/onKWLsKLuPn?=
+ =?us-ascii?Q?q0G+AqxPiDo5uutCji8xxOuLo6SC5FZi8wi3v6pQ+nJkoZ+Kc/YlIKkx+Zd6?=
+ =?us-ascii?Q?gvX1VthdrFBihE6KNBXlZqi/9dsRCWMEA5BX5Kq24BtILwrhmK6w6MLVIBe7?=
+ =?us-ascii?Q?S0wNQQPwPUhhrakvnaXMPZpg0TGiat8OVbDY78cam+mFa7YTNQwKDmF3/PcE?=
+ =?us-ascii?Q?wekfLc0QpBKqyS3I34ARiHF9ibRvXMc97imLpEydCkAaybHNkN4n2CwD6nL8?=
+ =?us-ascii?Q?B+fqpLiLRhULXgpBooAdS6VvPJymLXwfi1dMJtmrzTbd+ejqKmW8I6fFR1La?=
+ =?us-ascii?Q?OMPkVCGYNH1HuwxGl8SCS0JEZYUa8b2pQHBUhIs8/8z0Zq2pxvPdoc7uBK2k?=
+ =?us-ascii?Q?wlLbwYmxFfsvFmN1cGmLZ2bgA+y+2oS0liJrGCHxvxxvE/7KSbaCs5ueyXqe?=
+ =?us-ascii?Q?nzoHwBwHAMVUKwcB2teVypx9G5GGnTK8MH5qvj7HJmlcwgQ/7L0ob6ckKzw5?=
+ =?us-ascii?Q?Wk+NEIGUR+wRj62XcCJUMxLEk1BxZo9T6uABDZedBMB0PxuKlCCQbNhQS+ec?=
+ =?us-ascii?Q?Vm1LYxkHTUhkIr7VMnlshOgjhpoo39BS2htt0qIDp/7eslTY0ZPWbXKWOaiO?=
+ =?us-ascii?Q?gyfHH4vi3sfOz36B7ko2Uyvm3EMouXEllhQHUw6WHWZ3EJtn6i9h2t37wdes?=
+ =?us-ascii?Q?Yro/hSoQKuPuQa7XDbSjMfPqu+Al2db38SBkF4QHVokgiqepbSssAwM6aCTq?=
+ =?us-ascii?Q?sDU1WdFzDU0j2yNjfnTTusKz/Jjskm3NSdkZRtAia8kMIr9cyqEIRGeoBT3C?=
+ =?us-ascii?Q?eDxKkGlQ8SLSMVhygXXYnRJRSXehc+pW8FNKHufSS3HY3kUE+nuk13pz4WA2?=
+ =?us-ascii?Q?9R69AkPVlbNfvVCj6XRVAC64ZfFT?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH8PR11MB8107.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(366016)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?5tGta5OLXNlbNl50woCwhOcXDX2iNsQkX3YmX9Hm92VPmiZvsYfI5XuKnabg?=
+ =?us-ascii?Q?vYLrs+yRzPNPNBWen7qVv82Leh8rgcT/WFMnLBnh/7lCPjkvig0rnazCuNBS?=
+ =?us-ascii?Q?yZlVbYTM2tqqX05CfVosbtvuibNjXQMui8qek5HwKQVj91D14UVP9AbOakxk?=
+ =?us-ascii?Q?ZAMLjlqXNFXNg4EkLSf256lDDPRRikF4ssFCNS63/m5fgMJy1yPQG7w402l5?=
+ =?us-ascii?Q?5Nu7ABu2T5zclbMgc/zYDK+ixJmWv2pLcxESHcbndJLHHfWK/xiN3gEsfN22?=
+ =?us-ascii?Q?xZ1Bfeby5j3likcqkiUM2pPNDxmdfWK6Dw8tgGZMrIS8/xPYkIrjPkQ9Io0t?=
+ =?us-ascii?Q?AsToB9Z6P+jydyKFs9XmwbraRD1ohNX9YZwkOvb+YSnVwlZSa6m5pZWsQU5y?=
+ =?us-ascii?Q?kqeEPfDHmpaHR96TvyiSXqEtNkilUUQy7Fyl1TFIgIzY9SaN7fCdhoxkjZEF?=
+ =?us-ascii?Q?4TZhUe7xZle8DkfXhVoSLJscWaRmpQHCQ7AyAfxCMytdi4DDPFLuvYckoS7N?=
+ =?us-ascii?Q?3bO5J57Vol7/4blZEMKT40bv1JRzSbE1SRmSjQru8IoihMudmLHc1pnKaXln?=
+ =?us-ascii?Q?kXVv9vkqWahKmg7sM427VkVtIC+CRSc9WmDCWidnUo6uvmPe3Hiwsj6pYyI0?=
+ =?us-ascii?Q?hg54s6fokLRhvFM0NI7QPb7zdl5Wm8YjiXInbEidK7QszmDImCbZBCEXyS6Y?=
+ =?us-ascii?Q?NXnWkEZFh2hwA5AQnogl+WlezYhlCQmrr8yzxgaX9wWm0Gmk1fd108PJXMvq?=
+ =?us-ascii?Q?PUXkLjGUipJzIXj3dQOmDamlwPQq58FKvuxkJWCMOZaQ1Mna1o7ARO+trugs?=
+ =?us-ascii?Q?dDehAfMHMVHJjCVWXqgXjlF6kItfkUvNVDZMSYNZqCMZVd/LTzbIERXqZsgR?=
+ =?us-ascii?Q?Xjl7eJ0Ds5KhQ8IabuqEah6fghYIyAQgc4PjlC0sO02MW07cR1uZtkcCjy6m?=
+ =?us-ascii?Q?JQjHnXLgeJdWsxpj/xwGqqG7HGeCtTydVNXyHyNkkFoDkCTed+FJzffzWt73?=
+ =?us-ascii?Q?HK4FEhAcDMLgR7c3JLciOlUyJdqJJ7NxvHF6PEHFlq+CNd8IW/kXrz09swPn?=
+ =?us-ascii?Q?1gEMbDrBmChpUTnW29mhswa+uY7wmf1x+ycBNNTLt9pc8VyZnqc4QnCCB5tH?=
+ =?us-ascii?Q?/XIatV9hdjUUp+Rhbu/Po68oeDqOxaVc7GaSlzG5QO4IVzWNXXsppp+D1SYo?=
+ =?us-ascii?Q?KmyBKLG+63fKJ5ryw6qYnj5c3DHaZ9te7rzmV9CDky6yyVVMxxKZU9cbx8zE?=
+ =?us-ascii?Q?NvlS/WzaBujQYmisuOvHuzFMqbU30MdYZCfwEUf4vHmyqarV4226zXR9z34V?=
+ =?us-ascii?Q?rLNo97mqRrNq99YgLiQGX6Mnud66tUWEokJfq+rOxux6325Fh/iFPUUmEtJm?=
+ =?us-ascii?Q?g5QofYaA2B69SKfsWzaJkrqpXcQZOMMosaPvxB65MI+TAqwZzzV8dgJ+CfQJ?=
+ =?us-ascii?Q?JNd4yPNpVmcyzq1t3Qf9Ckv6VC0LKEm3f4ayahS6ve6wUU0gFhUcERQZ7XUr?=
+ =?us-ascii?Q?YCghrU3f1y2ObkdOpmGj3h3CeSCW/kOmwqjW7XM72e9hs93ka68Zf+/OtT7I?=
+ =?us-ascii?Q?OGaxK16T1M63xWdaSqx/i59sI7z3bqnG8h0N52zZILO8gfOzHvdo+xSroqvR?=
+ =?us-ascii?Q?gg=3D=3D?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 21ff0cda-5c21-4626-b66d-08dd30340ded
+X-MS-Exchange-CrossTenant-AuthSource: PH8PR11MB8107.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jan 2025 22:30:28.8270
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: WXBrvEC26o3punw0zuXc9hlZo6someai3quhvrBBab3FtfppVB9ajG6Xp5k89RrIfhrm+p3eAkZOq1Mi5T1U6b3vEWmdBhCXT+PhVLdS5us=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR11MB6515
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_142847_021742_C25728DB 
-X-CRM114-Status: GOOD (  28.74  )
+X-CRM114-CacheID: sfid-20250108_143128_126300_471D1207 
+X-CRM114-Status: GOOD (  28.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,90 +204,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alexey,
+Alistair Popple wrote:
+> FS DAX requires file systems to call into the DAX layout prior to
+> unlinking inodes to ensure there is no ongoing DMA or other remote
+> access to the direct mapped page. The fuse file system implements
+> fuse_dax_break_layouts() to do this which includes a comment
+> indicating that passing dmap_end == 0 leads to unmapping of the whole
+> file.
+> 
+> However this is not true - passing dmap_end == 0 will not unmap
+> anything before dmap_start, and further more
+> dax_layout_busy_page_range() will not scan any of the range to see if
+> there maybe ongoing DMA access to the range.
 
-Am Mittwoch, 8. Januar 2025, 16:30:35 CET schrieb Alexey Charkov:
-> On Wed, Jan 8, 2025 at 2:01=E2=80=AFPM Heiko St=C3=BCbner <heiko@sntech.d=
-e> wrote:
-> >
-> > Hi Alexey,
-> >
-> > Am Mittwoch, 8. Januar 2025, 10:09:07 CET schrieb Alexey Charkov:
-> > > RK3588s has four SPDIF transmitters, and the full RK3588 has six.
-> > > They are fully compatible to RK3568 ones. Add respective nodes
-> > > to .dtsi files.
-> >
-> > While it may seem that way, we still want soc-specific compatibles,
-> > to future-proof this.
-> >
-> > I.e. going the the
-> >         compatible =3D "rockchip,rk3588-spdif", "rockchip,rk3568-spdif";
-> > way, so that now things can just match against the rk3568, but if some
-> > fault emerges later on the code can be fixed with the DT staying just
-> > compatible.
-> >
-> > The spdif also has an example already for all the spdif variants that a=
-re
-> > compatible to the rk3066 [3], so it'd need another "items" block for th=
-ings
-> > being compatible with the rk3568.
->=20
-> Hmm, if we are to believe the driver ([4], [5]), they are all the same
-> as the good old RK3366, which in turn is software compatible to the
-> good old RK3066. Same seems to apply to RK3576, given that its current
-> .dtsi just references the "rockchip,rk3568-spdif" compatible.
+It would be useful to clarify that this is bug was found by inspection
+and that there are no known end user reports of trouble but that the
+failure more would look like random fs corruption. The window is hard to
+hit because a block needs to be truncated, reallocated to
+a file, and written to before stale DMA could corrupt it. So that may
+contribute to the fact that fuse-dax users have not reported an issue
+since v5.10.
 
-I was for a short while afraid that something slipped into mainline :-)
-But I guess that "rockchip,rk3568-spdif" compatible on the rk3576 is
-only used in the vendor-kernel.
+> Fix this by checking for dmap_end == 0 in fuse_dax_break_layouts() and
+> pass the entire file range to dax_layout_busy_page_range().
 
+That's not what this patch does, maybe a rebase error that pushed the
+@dmap_end fixup after the call to dax_layout_busy_page_range?
 
-> Does it mean that the binding needs to be restructured so that the
-> required fallback compatible ("rockchip,rk3066-spdif") applies to all
-> variants? Or shall the existing ones be left alone, and just RK3588
-> and RK3576 added inside that "items" block?
+However, I don't think this is quite the right fix, more below...
 
-I noticed that the spdif binding has had an interestings growth over
-the years, with some socs being outliers.
+> Signed-off-by: Alistair Popple <apopple@nvidia.com>
+> Fixes: 6ae330cad6ef ("virtiofs: serialize truncate/punch_hole and dax fault path")
+> Cc: Vivek Goyal <vgoyal@redhat.com>
+> 
+> ---
+> 
+> I am not at all familiar with the fuse file system driver so I have no
+> idea if the comment is relevant or not and whether the documented
+> behaviour for dmap_end == 0 is ever relied upon. However this seemed
+> like the safest fix unless someone more familiar with fuse can confirm
+> that dmap_end == 0 is never used.
 
-I wouldn't change the whole binding, especially as that then touches
-established stuff.
+It is used in several places and has been wrong since day one. I believe
+the original commit simply misunderstood that
+dax_layout_busy_page_range() semantics are analogous to
+invalidate_inode_pages2_range() semantics in terms of what @start and
+@end mean.
 
-The question would be weather to add the rk3588 + rk3576 to the
-existing enum marking them as compatible with the rk3066, or create
-a separate items block and just saying the rk3588-spdif is compatible with
-the rk3568 one, like:
+You can add:
 
-[...]
-      - const: rockchip,rk3568-spdif
-      - items:
-          - enum:
-              - rockchip,rk3128-spdif
-              - rockchip,rk3188-spdif
-              - rockchip,rk3288-spdif
-              - rockchip,rk3308-spdif
-          - const: rockchip,rk3066-spdif
-      - items:
-          - enum:
-              - rockchip,rk3576-spdif
-              - rockchip,rk3588-spdif
-          - const: rockchip,rk3568-spdif
-[...]
+Co-developed-by: Dan Williams <dan.j.williams@intel.com>
+Signed-off-by: Dan Williams <dan.j.williams@intel.com>
 
-With the RK3066 being released in 2012, part of me is amazed that that
-block survived that long, on the other hand going with the above snippet
-somehow feels saver ;-) .
+...if you end up doing a resend, or I will add it on applying to
+nvdimm.git if the rebase does not end up being too prickly.
 
-
-Heiko
-
-> [4] https://github.com/rockchip-linux/kernel/blob/develop-5.10/sound/soc/=
-rockchip/rockchip_spdif.c
-> [5] https://github.com/torvalds/linux/blob/master/sound/soc/rockchip/rock=
-chip_spdif.c
->=20
-
-
-
-
+-- 8< --
+diff --git a/fs/fuse/dax.c b/fs/fuse/dax.c
+index c5d1feaa239c..455c4a16080b 100644
+--- a/fs/fuse/dax.c
++++ b/fs/fuse/dax.c
+@@ -681,7 +681,6 @@ static int __fuse_dax_break_layouts(struct inode *inode, bool *retry,
+ 			0, 0, fuse_wait_dax_page(inode));
+ }
+ 
+-/* dmap_end == 0 leads to unmapping of whole file */
+ int fuse_dax_break_layouts(struct inode *inode, u64 dmap_start,
+ 				  u64 dmap_end)
+ {
+@@ -693,10 +692,6 @@ int fuse_dax_break_layouts(struct inode *inode, u64 dmap_start,
+ 		ret = __fuse_dax_break_layouts(inode, &retry, dmap_start,
+ 					       dmap_end);
+ 	} while (ret == 0 && retry);
+-	if (!dmap_end) {
+-		dmap_start = 0;
+-		dmap_end = LLONG_MAX;
+-	}
+ 
+ 	return ret;
+ }
+diff --git a/fs/fuse/dir.c b/fs/fuse/dir.c
+index 0b2f8567ca30..bc6c8936c529 100644
+--- a/fs/fuse/dir.c
++++ b/fs/fuse/dir.c
+@@ -1936,7 +1936,7 @@ int fuse_do_setattr(struct mnt_idmap *idmap, struct dentry *dentry,
+ 	if (FUSE_IS_DAX(inode) && is_truncate) {
+ 		filemap_invalidate_lock(mapping);
+ 		fault_blocked = true;
+-		err = fuse_dax_break_layouts(inode, 0, 0);
++		err = fuse_dax_break_layouts(inode, 0, -1);
+ 		if (err) {
+ 			filemap_invalidate_unlock(mapping);
+ 			return err;
+diff --git a/fs/fuse/file.c b/fs/fuse/file.c
+index 082ee374f694..cef7a8f75821 100644
+--- a/fs/fuse/file.c
++++ b/fs/fuse/file.c
+@@ -253,7 +253,7 @@ static int fuse_open(struct inode *inode, struct file *file)
+ 
+ 	if (dax_truncate) {
+ 		filemap_invalidate_lock(inode->i_mapping);
+-		err = fuse_dax_break_layouts(inode, 0, 0);
++		err = fuse_dax_break_layouts(inode, 0, -1);
+ 		if (err)
+ 			goto out_inode_unlock;
+ 	}
+@@ -2890,7 +2890,7 @@ static long fuse_file_fallocate(struct file *file, int mode, loff_t offset,
+ 	inode_lock(inode);
+ 	if (block_faults) {
+ 		filemap_invalidate_lock(inode->i_mapping);
+-		err = fuse_dax_break_layouts(inode, 0, 0);
++		err = fuse_dax_break_layouts(inode, 0, -1);
+ 		if (err)
+ 			goto out;
+ 	}
 
