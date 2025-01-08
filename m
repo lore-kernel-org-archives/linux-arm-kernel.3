@@ -4,76 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACE21E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 08:43:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26C02E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 08:57:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dEV3nRHoiTlZpRaNa0mL8YmEmkzQLNj/99WGhY7D8xk=; b=gT04m22DMnNSWHb6M41QDXiDAE
-	qeP5iwoA1BBt2Msvc8DZgCinFXpkXI1V7Bw7/rkbL5ql7gM52XpTe4cu6qwSkHaBxdYgkP3QVioNq
-	VBxgYqTVALxuMinqWWMo4Z5SoLyfO8iKpX5QfKarGZIU2q+gRCKJvspT11MBTeL8kJOVR+Pygz2T+
-	kPizDlNBTNk4ZXr+In7jXw4t0GmwYFV4slqESPb9qaxFH35PSurbmtx2st8waNIiJkBpCbjVXdE+r
-	7noSrbhjOU+igrFLQjVCAgDKV2AhkktMr/fX7vo1uO9zkocYBp7LG2iAOaElB/HJog4Rn83OhSzYA
-	uduZua8g==;
+	bh=O8Jz1y4R8CipA6owL3DV1gtbZqDJZAsgTwLNF2ozsi0=; b=4t4Qf3HPEgl/yc5b1e0jAHTQtC
+	IsTjBKQR+BOx4CeJJy67KRYRSiHcSCqpIWbMF94fP1KRikN5lw4sYBz4aZL6QYNL3NLhklUAjA8xm
+	f8ZbRAS55KxUSvhUPO+0GeLXiIEfWh0W+1GXzVB9BpASqft/VoPAzL2MOeU5QnY5RArnYyxEn9D3j
+	6qggchc3Vdt0ou60uXrQHya444bnHFsT4fC6sfYmWHG+Xhsf8thLlH+Ra0M+iSn86oJ/sAi28mUNW
+	Yz9ztC8TzcP6fkuNly3HD3b5YbSSTyMZdiarG2K4zqXTBFXOqKEzWaWDu/SQaNjBo6f49sIuyjFCU
+	JWMMw/Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVReu-00000007btB-1Ojq;
-	Wed, 08 Jan 2025 08:43:24 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1tVRsE-00000007e8R-3akZ;
+	Wed, 08 Jan 2025 08:57:10 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVRdi-00000007bj2-06no
+	id 1tVRr2-00000007doM-0YBh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 08:42:11 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-2ee709715d9so19574468a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jan 2025 00:42:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736325729; x=1736930529; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=dEV3nRHoiTlZpRaNa0mL8YmEmkzQLNj/99WGhY7D8xk=;
-        b=iI5T4MUAqBSKh5taILYvzGWz7Zl5XoeGXRWbkOoOO5siyXr6QZuLA6bxZVkvaGWcS9
-         ss4HnjBwpUTlf5Ixmdhn3L5y4hcskWHrDoNHU/1HNMqoXy/yPLCgA6qnaQKBMjIqvEFh
-         w1ZqLj+lvVLs0aeCAq3xjauhBnRPN8TYbXS7dWfiEDLkJvfmdSx/EmUrnbLfQAxhN22G
-         TvqzKg+NNvvtP0C/6kL9aQWTRo0SKtwWWIHb9JPaMZjS+2XsGHrgbgcOboImLTjlyfF+
-         Kfmmx3rtO0yNBrw792PK+GF9sG4dfHS5Vj0ra6zIx+pIfTaoJ9gtZYDqQLu9UcLd2hG8
-         haIQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736325729; x=1736930529;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=dEV3nRHoiTlZpRaNa0mL8YmEmkzQLNj/99WGhY7D8xk=;
-        b=hemTyowOzivQ2wAVj1lKJV0jR66a3gG0dTBTjbK3DT5EocT4RAib4RVaXu6EjRMoII
-         3ubokNXg4FxCfRhPAiaWRTcuYZ2HOBaV9CvIJhKsMk0Rv95lZIRnHgJWFRg8rDX7AtSh
-         UeIeag1kfz3uIQW2UKjYtsBRqxuBhzvR7DkBITZwrTpHeWeogoOrFhRCfeL5/T/LG8Nr
-         m3XIOH0ySWEDR5lkofFc2SyHHDXgfuo8olAS4sOn84FIaSxXswvB+tsAA2QITXtQHYRu
-         jSpcMuhabldjB6vPDMcJxc4FYMPyVLBNyuwdWo7iFcdkBYUlskXWYTkUBC3lA3JDY5oy
-         BILQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU9+Qnjm9bDFASAPw3jYQZsEahSQgE9ILQnLC42tLG7c/ba4H4NDbvaRZveIwJE+5SV67C8B9yrb1bttBmbF+7r@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJ/WFoEeST//SIpK4i2/Tf5jPeYnEGWx4KillWkxPK8JbnxE/O
-	ixZpD/rgAqi3EU1aLX5F7HcdWwAkRNQbDtqV9iyyBgt9gba9K7Z7
-X-Gm-Gg: ASbGncvObIWc+sbkZxc7OUNsGOx3RbgKkh1eMV43zZb7yGzFwfYCvU3h0OY6gvu/egS
-	QInw4MHKyE8EnCGyRaunvI2gYVva+VMpesz9Ya43l1KMBzJggSZGJOOe8MpZqW2FmG5PKFLBgKM
-	gi9m0Qhz980BEwbbdOZWPH2+n0n7VKZEpalkRs2F8gTdDIaEqSb5sid6OiCyGac7SnkR3cf/bp3
-	iUdhnW1pG/cNSQ7ln6m9TdeL9RHc8757NqzFH+qQkDsZDrzCXKNcAhvzyFHGquynibvdnvi9w2Q
-	akHwf1+eq+V1gJnrb423Sr2Zo6ME
-X-Google-Smtp-Source: AGHT+IFt6yglBzdu45lcZKpQn61qSWlD6NrmmN8E7eokh2PUNX0tWId0GEleVKxvnyjttHMEYAjgrw==
-X-Received: by 2002:a17:90b:54cb:b0:2ee:8e75:4aeb with SMTP id 98e67ed59e1d1-2f548ec9267mr3450483a91.17.1736325728988;
-        Wed, 08 Jan 2025 00:42:08 -0800 (PST)
-Received: from [10.0.2.15] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-219dc962940sm321592415ad.34.2025.01.08.00.42.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 08 Jan 2025 00:42:08 -0800 (PST)
-Message-ID: <820def99-4990-4391-a45a-0d3908d3306b@gmail.com>
-Date: Wed, 8 Jan 2025 16:42:05 +0800
+	Wed, 08 Jan 2025 08:55:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8E1365C49E4;
+	Wed,  8 Jan 2025 08:55:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46B32C4CEE0;
+	Wed,  8 Jan 2025 08:55:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736326555;
+	bh=jYomjg8W7xjod3qyZy7YS8MAVVmx6RiHgWboPdJTcSk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=J045YS2pKCNjdIt2Z1qjEcWdC8VZhozLlfbE2QDEVa0XcrCjpm8MLI+uqna1a+wJI
+	 Kj7xTJtLr7vzxirFe7AFasWbo4GRJyMWok/w97hiCXKgqh6ESoQFpaq7DW1Gr4Wpze
+	 gwyxBO+8j6NIo4m95xfD3QTevs7m+l4MKW5ACYhDM90gO7YYjg5Cny1ylSXn00qJ/E
+	 lQiqHXJn864BKyePJeG1ePPR6lYfv0yr+AEno3iJX7m+x3Xhuqruy/bFbF8ZN1r/FB
+	 CTzBEFjKhxkQQAI3lzwnm58Dv2kfbtcbs+RZnXK1k1nxozl3783dMYDJbXCrVRZIm/
+	 AyrBTEbZZ6mNA==
+Message-ID: <629b18d8-8a16-4ac4-b72b-857105ba5834@kernel.org>
+Date: Wed, 8 Jan 2025 09:55:48 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v5 1/2] dt-bindings: input: Add Nuvoton MA35D1 keypad
-To: Krzysztof Kozlowski <krzk@kernel.org>
+To: Ming-Jen Chen <mjchen0829@gmail.com>
 Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
  linux-input@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  peng.fan@nxp.com, arnd@arndb.de, sudeep.holla@arm.com, conor+dt@kernel.org,
@@ -81,14 +55,58 @@ Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
 References: <20250108011812.627-1-mjchen0829@gmail.com>
  <20250108011812.627-2-mjchen0829@gmail.com>
  <ux55pgpmkngxjsl4semw2cfiljbszvotaydrxrihdu3zphsfqc@vsk72c3wqorc>
+ <820def99-4990-4391-a45a-0d3908d3306b@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Ming-Jen Chen <mjchen0829@gmail.com>
-In-Reply-To: <ux55pgpmkngxjsl4semw2cfiljbszvotaydrxrihdu3zphsfqc@vsk72c3wqorc>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <820def99-4990-4391-a45a-0d3908d3306b@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_004210_065513_48C5412B 
-X-CRM114-Status: GOOD (  12.73  )
+X-CRM114-CacheID: sfid-20250108_005556_256673_93A2FFB6 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,40 +121,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-Krzysztof Kozlowski 於 2025/1/8 16:13 寫道:
-> On Wed, Jan 08, 2025 at 01:18:11AM +0000, Ming-Jen wrote:
->> From: Ming-jen Chen <mjchen0829@gmail.com>
+On 08/01/2025 09:42, Ming-Jen Chen wrote:
+> 
+> Krzysztof Kozlowski 於 2025/1/8 16:13 寫道:
+>> On Wed, Jan 08, 2025 at 01:18:11AM +0000, Ming-Jen wrote:
+>>> From: Ming-jen Chen <mjchen0829@gmail.com>
+>>>
+>>> Add YAML bindings for MA35D1 SoC keypad.
+>>>
+>>> Signed-off-by: Ming-jen Chen <mjchen0829@gmail.com>
+>>> ---
+>>>   .../bindings/input/nuvoton,ma35d1-keypad.yaml | 82 +++++++++++++++++++
+>>>   1 file changed, 82 insertions(+)
+>>>   create mode 100644 Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml b/Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml
+>>> new file mode 100644
+>>> index 000000000000..889f253b3bc2
+>>> --- /dev/null
+>>> +++ b/Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml
+>> I don't see changes.
 >>
->> Add YAML bindings for MA35D1 SoC keypad.
+>> I already raised concern that you sent new versions without implementing
+>> or responding to comments. So the fourth (!!!) time: Filename matching
+>> compatible.
 >>
->> Signed-off-by: Ming-jen Chen <mjchen0829@gmail.com>
->> ---
->>   .../bindings/input/nuvoton,ma35d1-keypad.yaml | 82 +++++++++++++++++++
->>   1 file changed, 82 insertions(+)
->>   create mode 100644 Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml
->>
->> diff --git a/Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml b/Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml
->> new file mode 100644
->> index 000000000000..889f253b3bc2
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml
-> I don't see changes.
->
-> I already raised concern that you sent new versions without implementing
-> or responding to comments. So the fourth (!!!) time: Filename matching
-> compatible.
->
-> Best regards,
-> Krzysztof
+>> Best regards,
+>> Krzysztof
+> 
+> Thank you for your feedback! I now understand the changes I need to make.
+> 
+> I will modify it as blow:
+> 
+>    compatible:
+>      const: nuvoton,ma35d1-keypad
 
-Thank you for your feedback! I now understand the changes I need to make.
+Or change the filename...
 
-I will modify it as blow:
-
-   compatible:
-     const: nuvoton,ma35d1-keypad
-
-
-
+Best regards,
+Krzysztof
 
