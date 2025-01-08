@@ -4,115 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD5EFE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 11:22:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04DFCE7719A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 11:24:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YFYWj3436aSYf9DTvgtAZQ2U/B9z8kDFx614YosVfm8=; b=TawzMKYAq06r1KvRLbtJY0PFza
-	C87OoL0zDc2zBHMiamI3k3+JqLrQly0ngZVDfv+kkNiEyPMuvYWGm+iE45L1rHlS/zh2DkkG55vQg
-	GAWjS4TVzx8riRxb/nJA0YwetyJpNgFxJHbm1yo8gD5r3Bh3LWjZiTMWlqr9tPXWqPSgCc4oYnJW1
-	fTWzzAYy69afs0XnbDZ11ZxHmzoUeQiDRcL009bnZMRWE0iU4QHdHb5VB6JsP+WemRMZ+A+GSzDL9
-	Hhk/DfJVEsa459sv6Hdx2L4zPnigfLDbNLQFLNOG87ZpmQVrdnaCQqmcjvFpcx0C0rQ4od9YK3uu/
-	EbNNwv2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rf+pn5ZKA995827H0ItaPaJqZ3fmiKEFNH379/eXvZQ=; b=aja52Fn57kJ/TGGb9xR5DbdWsP
+	Tr4fJQq+bIJP4+PGbJdL5XFwpuY5TowFm2oA8lP2Z4MAQU383pFDvBSOTygcff8G1DIM7n8p59ass
+	6RO/I4sebHnu+2MnaXim0ZeQjY5WMbU5EYsLLhU+LBMiYIkD42GxqN7M6zmh6lJW0PHUV78mg9YSz
+	25zjBirGIIOrRNSOmc1HVHmdcSm0UT3jAEN3Smj4DLZh+aFmx1UyqtsqYlOjjeLtULptNmK3TjYrL
+	IOh0olUuA3Oo7v0Xmcpv6tkVKt9QVNnx++ncyekhUyz0/jX9VMPIJv6BvSHN5N3ldabw/Ccpg8rgf
+	s1Bpq4Bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVU8Y-00000008Bby-1ALW;
-	Wed, 08 Jan 2025 11:22:10 +0000
+	id 1tVUAX-00000008Bnd-0Rup;
+	Wed, 08 Jan 2025 11:24:13 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVSzn-00000007usB-3mLN
+	id 1tVU9J-00000008BhK-1KRu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 10:09:05 +0000
+	Wed, 08 Jan 2025 11:22:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 39B145C066E;
-	Wed,  8 Jan 2025 10:08:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C57FC4CEE0;
-	Wed,  8 Jan 2025 10:08:59 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 86D1A5C066E;
+	Wed,  8 Jan 2025 11:22:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D73AC4CEDD;
+	Wed,  8 Jan 2025 11:22:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736330943;
-	bh=j3XzxW4WHy3pYYMnlBG5fG+D54Ql2GcPQzwfO7+nZB0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BgNqGBTg+FU5Fn9rnghB6ceKvcZS4JFJ9aTeE308wTPxkiB31zPCxARSIJro0kBN8
-	 H4OJs/wXoIknmkDH4dJNn+Xnu08pxKGL9L6eGWi6Hvi4uSCRWdnF5NJpBEtR+DMKs7
-	 PoLsf2V/dN25UcaXTBVNG9M331QIsT9tiK8pisLVw/2e9kNtdGi9t2B0AmVCnypeqD
-	 4XEI3XIy35Yb13haZ642wxp/1POMC/D8TbWNQr4EnNzGnlnVndClIfewSvUiwqJVmz
-	 RgD+mmYanSz001I7yHDk9wCbFLRD4xJ2qOkZsp9Z2DVvTrY29AqK0Lg/NXLC0rhpZG
-	 Ip3elJRW8l9sQ==
-Message-ID: <d0271581-c250-465a-aa0f-2f10548cc89b@kernel.org>
-Date: Wed, 8 Jan 2025 11:08:57 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/3] soc: samsung: usi: implement support for USIv1 and
- exynos8895
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- Sam Protsenko <semen.protsenko@linaro.org>,
- Peter Griffin <peter.griffin@linaro.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20250107113512.525001-1-ivo.ivanov.ivanov1@gmail.com>
- <20250107113512.525001-3-ivo.ivanov.ivanov1@gmail.com>
- <6y4mg6atqi6idyoppesg5owrnfrjhkzqh4im4po7urfry2qctb@yimp5y6sm7h6>
- <907e1169-ceea-4d41-93bb-925041de005e@gmail.com>
- <e28abf31-3d91-4d1b-97e6-202df5ebb3f5@kernel.org>
- <c30a6f1b-b1a9-40db-b673-e6fc47bdb224@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <c30a6f1b-b1a9-40db-b673-e6fc47bdb224@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	s=k20201202; t=1736335376;
+	bh=q2HYqSrkEhzFCsWzL/6ZeJhSbwr1mbpb81gzBIiubMQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=E1j5mIjDN2AEZ1LWo6zhBd0Zr3bk+qK+/UKdaUMexMQxGpOpnRhgfHbFtzUZLoNfw
+	 JeNLBmFwtO6CadBVQb7xJ2atPFlsNJYp1bKIFkNsv+1x1fMEtRyh8qLpRP4CMORgMo
+	 /FbE/fj4P/UVB1Ld0SIJrKILtPJTbA5GORgDQFrzR3aO0EVpcvqmpnDr8g9jjPTTPd
+	 l8gZguiUwrO5N8znYW2DJfzwLXMyAaHB8nnqW8oDPn0SP1RJGC1NhcrqfPMKMLLaHK
+	 WQtQbk1YsVyUz40qrAkeF2iGGEfrPyr4qL781ZO8y23cSwFH5pCIlT5QEqHaebtK68
+	 UTZyBdoH/iHKA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tVU9G-00A7Ox-Ab;
+	Wed, 08 Jan 2025 11:22:54 +0000
+Date: Wed, 08 Jan 2025 11:22:53 +0000
+Message-ID: <86v7upwnw2.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Yogesh Lal <quic_ylal@quicinc.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>,
+	<linux-arm-msm@vger.kernel.org>
+Subject: Re: [PATCH v2] irqchip: gic-v3: Handle failure case of CPU enters low power state
+In-Reply-To: <20241220093907.2747601-1-quic_ylal@quicinc.com>
+References: <20241220093907.2747601-1-quic_ylal@quicinc.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: quic_ylal@quicinc.com, tglx@linutronix.de, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_020904_030423_CE3C279B 
-X-CRM114-Status: UNSURE (   9.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250108_032257_395681_E0386E7A 
+X-CRM114-Status: GOOD (  13.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,29 +85,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/01/2025 10:45, Ivaylo Ivanov wrote:
->>>>> +
->>>>> +	return ret;
->>>>> +}
->>>>> +
->>>>> +static void exynos_usi_remove(struct platform_device *pdev)
->>>>> +{
->>>>> +	struct exynos_usi *usi = platform_get_drvdata(pdev);
->>>>> +
->>>>> +	if (usi->data->ver == USI_VER2)
->>>>> +		exynos_usi_disable(usi);
->>>> This is not related to the patch and should be separate patch, if at
->>>> all.
->>> Well I though that since didn't have any removal routine before it'd be good
->>> to introduce that and not leave USIv2 with hwacg set.
->> Sure, but separate commit, please. Can be preceeding the USIv1 support.
+On Fri, 20 Dec 2024 09:39:07 +0000,
+Yogesh Lal <quic_ylal@quicinc.com> wrote:
 > 
-> What about right after the USIv1 support? It would be less messy in my
-> opinion.
-Fixes should be before new features and why messy? You add devm cleanup
-handler for unconfigure and in next commit you grow it with clk disable
-for USIv1?
+> Adding a new condition in gic_cpu_pm_notifier to address instances
+> where the CPU fails to enter low power mode (CPU_PM_ENTER_FAILED).
+> The CPU_PM framework signals CPU_PM_ENTER_FAILED upon such failures.
+> 
+> When the CPU attempts to enter low power mode, it disables the
+> redistributor and Group 1 interrupts and reinitializes the system
+> registers upon wakeup.
+> 
+> In case of failure while entering low power mode, it is necessary
+> to re-enable the redistributor and Group 1 interrupts to restore
+> normal operation.
+> 
+> Signed-off-by: Yogesh Lal <quic_ylal@quicinc.com>
 
-Best regards,
-Krzysztof
+Acked-by: Marc Zyngier <maz@kernel.org>
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
