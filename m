@@ -4,85 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B9F3E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 11:08:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E37CDE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jan 2025 11:09:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5l28R7aMI01MO73n6anQqdtnCKSPC6381Q8H/ZOfFLg=; b=5BgEInUh2ZaEft6ii0QvnBNqo6
-	C7OOVZ352qUVq2dSdFPyhuaOuaMcPk013mKfaijn6Cfh7N2xAVu1PDpH/r6MKoGYmyui+fqfWViok
-	BvODw2TwN2+c05X2D6PtuWz8GJWPpQulce0hsZt+0TmNc3vZx4S1jcPDgebhnYs2Y5UbFE+f1XpoD
-	wpVHnGBH8oZLVUdqgKlrogTGyGwfim0m0n9VQNJ0hoFqgpkoW6dAbHE/1350XqwsVDGe4u39xMh9P
-	ATh11v8O/A8HnQ8TCTGeksVJcuUSJcVx8eh3ZbjmA0sehw+Zy890zV1nIQ7KD+WE+ouAOwcwJjjrW
-	Gy55+F/w==;
+	bh=20U5sO/u0uYru3hxNMHsooCdHBrAIIWG/43UdZigSIo=; b=0nhwc2BDl5MGxXjS7ApCBeH8Aj
+	ArOqK7k+PQx1UZ8XQ0ZKqhs2cLJidQ8d/WZvVzAdN2/QaG8EcLPY759y0fCtz3ATxpvB9YP3X8fxN
+	mnPEcsEovHArp9RoLzYtlMfLapyhX4dQKF08+fpvYdG4o9NJhfDbmc3oRZlMfECRzQX8ULY2ouuJ7
+	K9kuVcuEWnQEyZkHI4O7QCf1hNa7JvaWLNhz4b1N7e9ayrCPsI2JM0efnVOm1d8JSJ1yrthUHpWDR
+	GgS23FAdT98IJoDFK6HfylhR/HWer0r9ta/K6IHof1rQ+N+ZP044cyVB6XunmyTvW8cqXqVm1nWqd
+	coeXZKvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVTuy-000000088zp-3Lj5;
-	Wed, 08 Jan 2025 11:08:08 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1tVTw9-000000089GS-1mQ1;
+	Wed, 08 Jan 2025 11:09:21 +0000
+Received: from flow-a8-smtp.messagingengine.com ([103.168.172.143])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVTll-000000086Jn-0rTl
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jan 2025 10:58:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1736333917; x=1767869917;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=JAru+JCMinYwvPV/IOHYvgN8V7XoWvB4jQe0QBv0C0s=;
-  b=Lln8TkX4Vun7pXTHKBTPYR3CbCxjPdxlYTCVNFh5CgWkanX/kCKgnzk7
-   Xf6ahcAusTUWixDMuE7SuE1rY8u/+FMSdwdTlQWXJziGKIt36JIaD6nkN
-   hiTpKVEo3H22EClnXCZT3Q7Dilsgev9TlNF8BjuNqMCc85Ccof1EAXuqr
-   40CHIViQnIo8n/PX9wOUTXOxePwnTnsRwLKFwttWsASDw6fkmtJVcf08b
-   ZLMkWJePmsLw+Xei2oHIzTOXbeQ3yWGeMS5P/9CPl79SXYw3/FgrcpKtI
-   kSK+4IQQDVkIaRf/ZTku6aSygFU3UtPiHSvdA1pLm9aXnQlHgVc5Ik5M3
-   w==;
-X-CSE-ConnectionGUID: 3PTd3b/OR7SosierpfBmPQ==
-X-CSE-MsgGUID: TZrBG5JuSCia64AK8qutzA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11308"; a="47970595"
-X-IronPort-AV: E=Sophos;i="6.12,298,1728975600"; 
-   d="scan'208";a="47970595"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jan 2025 02:58:37 -0800
-X-CSE-ConnectionGUID: nm4SBxDATruaz+8W47XtvA==
-X-CSE-MsgGUID: Uj7pV1SWSdqWs7QCL2E5Rg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,298,1728975600"; 
-   d="scan'208";a="133900895"
-Received: from choongyo-mobl.gar.corp.intel.com (HELO [10.247.39.73]) ([10.247.39.73])
-  by orviesa002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jan 2025 02:58:33 -0800
-Message-ID: <3ddc0625-15ea-4010-a830-21020569d685@linux.intel.com>
-Date: Wed, 8 Jan 2025 18:58:28 +0800
+	id 1tVToz-000000087QD-25Tg;
+	Wed, 08 Jan 2025 11:01:59 +0000
+Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
+	by mailflow.phl.internal (Postfix) with ESMTP id 01AD8200CCC;
+	Wed,  8 Jan 2025 06:01:54 -0500 (EST)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-10.internal (MEProxy); Wed, 08 Jan 2025 06:01:54 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1736334113;
+	 x=1736341313; bh=20U5sO/u0uYru3hxNMHsooCdHBrAIIWG/43UdZigSIo=; b=
+	Cy+D97SpayPKf50CJRucU/OjuqxmZo1HPxdDHfFjtk4V4dzkHIGqqI4ZeTBGBIwQ
+	CU43a3abN/lpxbZArBxq7/TC680Cne845B7Mt9ZmA7It+HSwgjARBYDZNaSmXNM2
+	krcib2kkSpUfF5s2H8og+FziqnBYnNGV+oIkJokZXGPBRm2uRnZPUxupBCIsLyF3
+	L95dQfXdiAUWRhy4AoFiIf7vssy39N0gIf97bLCYb6UE+9UATBG8UEmpoSxSvb3y
+	VSe4QWYZNxY7/CiTOh3EVoghZyEg8uCRUsZwXWBw32ptH23GUNZihG2RL0COZuPY
+	JUo0rYJf6FqI9B/v7Pe1QA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1736334113; x=
+	1736341313; bh=20U5sO/u0uYru3hxNMHsooCdHBrAIIWG/43UdZigSIo=; b=M
+	SIdJfQwmksvBJ00U9HcUOaODS1attuTNvWMQryD5z90DVgF6hJ7NU+/6na9R1zMX
+	N4e5muAPBw/KbD4IiqcgMdfPyL5oytjmreBUaObCMGSlSguiImcZFV+PHOogQ0C8
+	sfMV/tSn2hosWoXw0QfBP8yg8ww3eBodDuz6q/i7vkKifow1ceZYP7CRJ/mj2xVC
+	a+qiTqelX8Gs/hSLYFr9PAhNoCapvXPNYTkqh4KLORdzvEktytEn7MA+4vx6ltiH
+	wkTkgfP+WzoCXr6QB8GCjvYhe0eFs2cVoTQLmYEZANUV5rBtinqFmbMvZKxf3ghZ
+	EQACF6/J+VIomkI/RscUA==
+X-ME-Sender: <xms:IFt-Z6UmaWSjYb7Gh0zcpksWzDDdEPgfiSYLh-0i-y9aLcE3r6zD_A>
+    <xme:IFt-Z2nOjzdfh823ysQc1S2oDX-1-nZXTq_53rcym6EIbKwXeGB0UjDLQAu3SVTJl
+    FqMSA1gCW8wUUAwYWw>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrudeggedgvdefucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
+    rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
+    htshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddt
+    necuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrd
+    guvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefg
+    gfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpe
+    hmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepgedv
+    pdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehkvghvihhnrdgsrhhoughskhihse
+    grrhhmrdgtohhmpdhrtghpthhtoheprhihrghnrdhrohgsvghrthhssegrrhhmrdgtohhm
+    pdhrtghpthhtohepiihhvghnghhqihdrrghrtghhsegshihtvggurghntggvrdgtohhmpd
+    hrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoheprghn
+    ughrvggrshesghgrihhslhgvrhdrtghomhdprhgtphhtthhopegrlhgvgiesghhhihhtih
+    drfhhrpdhrtghpthhtohepnhhpihhgghhinhesghhmrghilhdrtghomhdprhgtphhtthho
+    pehvihhshhgrlhdrmhhoohhlrgesghhmrghilhdrtghomhdprhgtphhtthhopehhuhhghh
+    gusehgohhoghhlvgdrtghomh
+X-ME-Proxy: <xmx:IFt-Z-aQ2SmgS3nXZ8HOHScIMD5VPYsyBFMZLc-J-VgcUAnAe2HzCw>
+    <xmx:IFt-ZxXCvJZ1AcFo5fB-biVPFqTsSFdNnldK9XWf-i56cAUN39KLdQ>
+    <xmx:IFt-Z0lFXSJuGe63NytzX7QBWDpUz5bkZTKgpNbVjZZcysvLCNf6UA>
+    <xmx:IFt-Z2eyKBxnx9FUnENXCTF11sxAJ8UI5uJaB8BKG5BUdEYntabkhQ>
+    <xmx:IVt-Z-tKPBuX6yCR5FGPupQm8IjlY8CNUkvhyqGI8S0AmCpHcXU81GMM>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 1006D2220072; Wed,  8 Jan 2025 06:01:51 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3 02/18] net: stmmac: move tx_lpi_timer tracking
- to phylib
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
- linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
- Paolo Abeni <pabeni@redhat.com>
-References: <Z31V9O8SATRbu2L3@shell.armlinux.org.uk>
- <E1tVCRZ-007Y35-9N@rmk-PC.armlinux.org.uk>
- <66b95153-cb12-494d-851c-093a0006547f@linux.intel.com>
- <Z35WKDhVGMvPIi7d@shell.armlinux.org.uk>
-Content-Language: en-US
-From: Choong Yong Liang <yong.liang.choong@linux.intel.com>
-In-Reply-To: <Z35WKDhVGMvPIi7d@shell.armlinux.org.uk>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Date: Wed, 08 Jan 2025 12:01:31 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Qi Zheng" <zhengqi.arch@bytedance.com>,
+ "Peter Zijlstra" <peterz@infradead.org>,
+ "Alexander Gordeev" <agordeev@linux.ibm.com>,
+ "Kevin Brodsky" <kevin.brodsky@arm.com>, "Alexandre Ghiti" <alex@ghiti.fr>,
+ "Andreas Larsson" <andreas@gaisler.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>,
+ "Thomas Gleixner" <tglx@linutronix.de>,
+ "David Hildenbrand" <david@redhat.com>, "Jann Horn" <jannh@google.com>,
+ "Hugh Dickins" <hughd@google.com>, "Yu Zhao" <yuzhao@google.com>,
+ "Matthew Wilcox" <willy@infradead.org>,
+ "Muchun Song" <muchun.song@linux.dev>, vbabka@kernel.org,
+ "Lorenzo Stoakes" <lorenzo.stoakes@oracle.com>,
+ "Andrew Morton" <akpm@linux-foundation.org>,
+ "David Rientjes" <rientjes@google.com>, vishal.moola@gmail.com,
+ "Will Deacon" <will@kernel.org>, aneesh.kumar@kernel.org,
+ "Nicholas Piggin" <npiggin@gmail.com>,
+ "Dave Hansen" <dave.hansen@linux.intel.com>,
+ "Mike Rapoport" <rppt@kernel.org>, "Ryan Roberts" <ryan.roberts@arm.com>
+Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-kernel@vger.kernel.org, x86@kernel.org,
+ Linux-Arch <linux-arch@vger.kernel.org>,
+ "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+ linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ "linux-openrisc@vger.kernel.org" <linux-openrisc@vger.kernel.org>,
+ linux-sh@vger.kernel.org, linux-um@lists.infradead.org
+Message-Id: <fd6e7ad9-9d57-40b6-a8f6-455ea3ab3d27@app.fastmail.com>
+In-Reply-To: <26d69c74a29183ecc335b9b407040d8e4cd70c6a.1736317725.git.zhengqi.arch@bytedance.com>
+References: <cover.1736317725.git.zhengqi.arch@bytedance.com>
+ <26d69c74a29183ecc335b9b407040d8e4cd70c6a.1736317725.git.zhengqi.arch@bytedance.com>
+Subject: Re: [PATCH v5 03/17] asm-generic: pgalloc: Provide generic
+ p4d_{alloc_one,free}
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_025837_257961_07E268F3 
-X-CRM114-Status: UNSURE (   9.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250108_030158_124962_7965B554 
+X-CRM114-Status: GOOD (  14.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,23 +139,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Jan 8, 2025, at 07:57, Qi Zheng wrote:
+> From: Kevin Brodsky <kevin.brodsky@arm.com>
+>
+> Four architectures currently implement 5-level pgtables: arm64,
+> riscv, x86 and s390. The first three have essentially the same
+> implementation for p4d_alloc_one() and p4d_free(), so we've got an
+> opportunity to reduce duplication like at the lower levels.
+>
+> Provide a generic version of p4d_alloc_one() and p4d_free(), and
+> make use of it on those architectures.
+>
+> Their implementation is the same as at PUD level, except that
+> p4d_free() performs a runtime check by calling mm_p4d_folded().
+> 5-level pgtables depend on a runtime-detected hardware feature on
+> all supported architectures, so we might as well include this check
+> in the generic implementation. No runtime check is required in
+> p4d_alloc_one() as the top-level p4d_alloc() already does the
+> required check.
+>
+> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+> Acked-by: Dave Hansen <dave.hansen@linux.intel.com>
+> Signed-off-by: Qi Zheng <zhengqi.arch@bytedance.com>
+> ---
+>  arch/arm64/include/asm/pgalloc.h | 17 ------------
+>  arch/riscv/include/asm/pgalloc.h | 23 ----------------
+>  arch/x86/include/asm/pgalloc.h   | 18 -------------
+>  include/asm-generic/pgalloc.h    | 45 ++++++++++++++++++++++++++++++++
+>  4 files changed, 45 insertions(+), 58 deletions(-)
 
-
-On 8/1/2025 6:40 pm, Russell King (Oracle) wrote:
-> Hi,
-> 
-> On Wed, Jan 08, 2025 at 03:36:57PM +0800, Choong Yong Liang wrote:
->> Tested-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
-> 
-> Please let me know if this is for the entire series.
-> 
-> Thanks.
-> 
-
-Yes, the test is for the entire series.
-
-The only issue that was discovered is that during the initial state, the 
-"tx_lpi_timer" is not set correctly.
-The "tx_lpi_timer" with a value of 0 causes the EEE to be unable to enter 
-LPI mode.
+Acked-by: Arnd Bergmann <arnd@arndb.de> # asm-generic
 
