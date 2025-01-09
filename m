@@ -4,83 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DE44E7719A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 17:37:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43A04E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 17:37:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YShds3XshDrXLTW91HKo34C7oufgi9usHEL3GZP+0z0=; b=kDI4u8qRzwH+u1DUYWcd3SBXFb
-	T/3By2hRXXGYrMPsSLetgduwAI3PFE791yC9wMIgyvtz7pi93zEOa0VuOpI8Ehhl3t+2UFEGQepi+
-	Qbwy2P9L9libJzgimoUmUBQKY5K3DmB64GEcxQXmlv5VBwAN+k73f8hdDPuwEuDT36jRRoc3FlZ1+
-	fVOhQeT+f0pD5NfcGtLU8EC3n+Klz6sM1GVk5+xDhP33ETnJmkfA9oEE6Cwu5eT8Jes2yZQUX0KZG
-	B9ielbPP86kXRbgM9ZI4crxFK2s8/4m2LuUhfn401K3mMGVaxNssmVpvoN1dj0FUHSFEoXUJixwFt
-	ssrFeQ6A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TTXini+czMs1unGWfy+9RDBWtdxNH7Ox1uD++fpTx/0=; b=nfAZfs+MlhsOnnatLVQ7wbIwB5
+	VAa+iecp+ud2gf+utih0rvQCrI7G1wTDvnFiw5rGdY+oGPGoL3FqtWMVoxGWm8y3ScEU+cEFicW57
+	36n0m3LfnG8EqltwQXEQekwIu/AXZIcxHhsoIgd9UWEhy+DY3CWK1KVO0AINf00wYOD5muRP7GErr
+	Utb+uBAuxXnpXhGnP8Sq5iJD0RlXlYCVnq0agFDr4FAfF28Pvn/RBkMzQWVGjKCoh+JzLivk6uZLl
+	CAv9DSPLTCw8Uwgj+hLaLBTQQnksaWju8BIdXFj0Ec2N4m9hZFDgDJmq9XyV5p8z2rvYaeHLEH0iw
+	DNvgcVAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVwTE-0000000Cr56-02eL;
+	id 1tVwTE-0000000Cr5M-2j1R;
 	Thu, 09 Jan 2025 17:37:24 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVvLJ-0000000CftY-1jKh
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 09 Jan 2025 16:25:09 +0000
+	id 1tVvLj-0000000Cfx2-40o6;
+	Thu, 09 Jan 2025 16:25:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=YShds3XshDrXLTW91HKo34C7oufgi9usHEL3GZP+0z0=; b=XZH/0TD3sOEKl71KvXhuLU+pVV
-	kTA1y41PCUgYKcBFnwohdw+9XNNh/P4aBsUe96TDBzcF++V4rf84EIR6RrMFBsTmI7CuVoVJZb9EG
-	Al0pIQnwgZp7R999//iVVVPfX3hy5TavaL7eL3S+GZ/Wr4KPBR2YxTwe9CKiZKoFazx0ZcO3Ua7tl
-	zw5lZwoTP8p4bfm737uO4RKbYNX2Lsc8+CE40KoozaWDf/JzEJM9rIse/20wFKyWeT9TOdGGDhk6K
-	QSJQ28/GjAvwfTGPYgymXv/EZi7kGqTwHvKzdUlfVTA26ZGoW5BoHGBEqClndml7Eur/ebRhYfiHw
-	PiSYUIwQ==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVvLG-00000009bB5-10rx
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 16:25:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 40ED05C4D92;
-	Thu,  9 Jan 2025 16:24:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A882EC4CED2;
-	Thu,  9 Jan 2025 16:24:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736439901;
-	bh=/OVcWt94rvJ4EpwA9guww2JY+Yyr6y9ZWHqQnXozrpY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=tdYbG4RCCYequm0qZqgN3UBswMZmz6e07WSsVdXo+ZQQeGwY5c/9bbOs7d2zW3HsJ
-	 fDgRrTIg+vRpic0tWFfhN8SXhHQCY+4JbiTnqwlWO1IRMUCy99OvHipnYSWucr7yHb
-	 26MFq56Z0vcPTiwv2R0ijLXbf03M9r1sSrvALDmbYrnUj9tXybiT2Smr7x+usn3eQL
-	 MzGaTR/72/7XPW/gDfqXplNVpWXgR53OGuu2o0xlKuWZMV1NRD7nV5HYrsDu/EHIjB
-	 0yyLKGHT0ip6qot1T24zTwtpHO2BlTPYpOzJc/7DWFtvzQzmke+xfh57Zt0AizfrOa
-	 FXe7oreYXQvGQ==
-Message-ID: <592b4e04-9ff4-4ca0-a55f-73c6878f3fc7@kernel.org>
-Date: Thu, 9 Jan 2025 18:24:55 +0200
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=TTXini+czMs1unGWfy+9RDBWtdxNH7Ox1uD++fpTx/0=; b=OGnb5MsefkDFY+rcMZQ0/+FS8B
+	GUqpjoaq6hbKQhyq/3TAVowGz2RfHWM0wi4r1ZjPSmRLQR/v1E+3ZcWtPIE1iDqMHsNWaIPKrc0eW
+	xcJOamjb2S+fVxFn4m0nZ2Lw3uD6pgvh0Af5u6Odbk/BfoOonPhuK5Li5qszipXQyFq0yOpObX945
+	kzzRZUJMMavCbCNKDahLz72fvLoVZAIhnE/aXJZjd1/5IeTk6Yt/WUBPHw3KVcl7DaOE8C0YzupZa
+	bY0izOM5k3ByJ2KzqcVSItGkbh22c7P9YR6QE1qut2g+iYmpkYV65NMhvnluxX0rFyVhBu9GSVBXs
+	UsGXf+OQ==;
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tVvLh-000000072UA-0xGg;
+	Thu, 09 Jan 2025 16:25:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=TTXini+czMs1unGWfy+9RDBWtdxNH7Ox1uD++fpTx/0=; b=mv7JKCcr1Vdbzmm78Cb8yDIma2
+	KvWR974hzYEBNpvuEPDgEKZPrL4Y28RUqK0390pXSfABbnf8X0Q501h5s9MAW6asQgLZdd0jPB8gk
+	/ndpidG2eAMuZX2FV2ktO5JdhBglJmtuTui7VkmSIhLXTO7iVf4uzoW8asKW9YIfxiK4=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tVvL9-002wx8-Ey; Thu, 09 Jan 2025 17:24:59 +0100
+Date: Thu, 9 Jan 2025 17:24:59 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Basharath Hussain Khaja <basharath@couthit.com>
+Subject: Re: [RFC PATCH 04/10] net: ti: prueth: Adds link detection, RX and
+ TX support.
+Message-ID: <fce8d698-2ae2-460c-a288-3d70d61dbf9e@lunn.ch>
+References: <20250109105600.41297-1-basharath@couthit.com>
+ <20250109105600.41297-5-basharath@couthit.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64: dts: ti: k3-am62p5*/k3-j722s: Add bootph-all
- property to necessary nodes to enable Ethernet boot
-To: Chintan Vankar <c-vankar@ti.com>, Conor Dooley <conor+dt@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
- Tero Kristo <kristo@kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>,
- Nishanth Menon <nm@ti.com>
-Cc: srk@ti.com, s-vadapalli@ti.com, danishanwar@ti.com,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20250106123122.3531845-1-c-vankar@ti.com>
- <20250106123122.3531845-3-c-vankar@ti.com>
-Content-Language: en-US
-From: Roger Quadros <rogerq@kernel.org>
-In-Reply-To: <20250106123122.3531845-3-c-vankar@ti.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250109105600.41297-5-basharath@couthit.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_162506_631972_371D483A 
-X-CRM114-Status: UNSURE (   5.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250109_162533_281504_D806632A 
+X-CRM114-Status: GOOD (  11.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,19 +77,65 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: nm@ti.com, vigneshr@ti.com, tony@atomide.com, edumazet@google.com, krishna@couthit.com, pmohan@couthit.com, diogo.ivo@siemens.com, robh@kernel.org, javier.carrasco.cruz@gmail.com, praneeth@ti.com, m-karicheri2@ti.com, jacob.e.keller@intel.com, kuba@kernel.org, pabeni@redhat.com, devicetree@vger.kernel.org, conor+dt@kernel.org, schnelle@linux.ibm.com, mohan@couthit.com, richardcochran@gmail.com, prajith@ti.com, rogerq@kernel.org, ssantosh@kernel.org, linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org, rogerq@ti.com, srk@ti.com, pratheesh@ti.com, m-malladi@ti.com, netdev@vger.kernel.org, rdunlap@infradead.org, linux-kernel@vger.kernel.org, danishanwar@ti.com, afd@ti.com, andrew+netdev@lunn.ch, parvathi@couthit.com, horms@kernel.org, krzk+dt@kernel.org, davem@davemloft.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> +/* update phy/port status information for firmware */
+> +static void icssm_emac_update_phystatus(struct prueth_emac *emac)
+> +{
+> +	struct prueth *prueth = emac->prueth;
+> +	u32 phy_speed, port_status = 0;
+> +	enum prueth_mem region;
+> +	u32 delay;
+> +
+> +	region = emac->dram;
+> +	phy_speed = emac->speed;
+> +	icssm_prueth_write_reg(prueth, region, PHY_SPEED_OFFSET, phy_speed);
+> +
+> +	if (phy_speed == SPEED_10)
+> +		delay = TX_CLK_DELAY_10M;
 
+How can speed to 10? You removed those link modes?
 
-On 06/01/2025 14:31, Chintan Vankar wrote:
-> Ethernet boot requires CPSW nodes to be present starting from R5 SPL
-> stage. Add bootph-all property to necessary nodes for CPSW to enable those
-> nodes during SPL stage along with later boot stages for AM62p-SK and
-> J722s.
-> 
-> Signed-off-by: Chintan Vankar <c-vankar@ti.com>
+> +/**
+> + * icssm_emac_ndo_start_xmit - EMAC Transmit function
+> + * @skb: SKB pointer
+> + * @ndev: EMAC network adapter
+> + *
+> + * Called by the system to transmit a packet  - we queue the packet in
+> + * EMAC hardware transmit queue
+> + *
+> + * Return: success(NETDEV_TX_OK) or error code (typically out of desc's)
+> + */
+> +static int icssm_emac_ndo_start_xmit(struct sk_buff *skb,
+> +				     struct net_device *ndev)
+> +{
+> +	struct prueth_emac *emac = netdev_priv(ndev);
+> +	int ret = 0;
+> +	u16 qid;
+> +
+> +	if (unlikely(!emac->link)) {
+> +		if (netif_msg_tx_err(emac) && net_ratelimit())
+> +			netdev_err(ndev, "No link to transmit");
+> +		goto fail_tx;
+> +	}
 
-Reviewed-by: Roger Quadros <rogerq@kernel.org>
+Do many other MAC drivers have this test?
 
+> --- a/drivers/net/ethernet/ti/icssm/icssm_prueth.h
+> +++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
+> @@ -17,6 +17,11 @@
+>  
+>  /* PRUSS local memory map */
+>  #define ICSS_LOCAL_SHARED_RAM	0x00010000
+> +#define EMAC_MAX_PKTLEN		(ETH_HLEN + VLAN_HLEN + ETH_DATA_LEN)
+> +/* Below macro is for 1528 Byte Frame support, to Allow even with
+> + * Redundancy tag
+> + */
+> +#define EMAC_MAX_FRM_SUPPORT (ETH_HLEN + VLAN_HLEN + ETH_DATA_LEN + 6)
+
+This looks familiar....
+
+	Andrew
 
