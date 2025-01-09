@@ -4,68 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1375E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 09:13:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47444E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 09:14:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5VRHYIYf26bISX2OAoWVN9/dcKUgp8eGMoulQRO3lQk=; b=psqkBTV2v5nZW4yP1t8dtNRFfQ
-	miesPKpfIt1s8kbWtliuGLG+lMgqX8DsdDhR+TAXP7lRLOtXMWB2jCjIKjlLoyq+ZLbsZ3In2VekY
-	H1grGLz8Tirs6rFp8yMp17vFlwqqvVv2TPWk3/LlyG+3IRXU9sF3xpWUPSqa9L+70UkhwTn7Zjdtc
-	JM+s/JazTdmdIdqIX/YPMaaKeN3XOUxf7B/TI4Xjr0zgtEggoFksJDsW9zCbOEde0wiIJiDghPQ7z
-	KMVOvMMHR7UZqKofZpobC/+qWJC/1XF61Vqb63Uf6yjerSdEQKwsKe+ANGWX9hEWWiJGjeIFbAY/j
-	d2vTolPQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qVwMK/eoLRZqZimy4jMPY+H4Af5hsLKL/OPymphu+WM=; b=P/d6YCwsfCFn7NqlhlthXET+LD
+	pNxFRQ44cQAReWaX+yFrH2D1EarDRox9muGbtQKkoepjR8Qb6GIgw2dMO1O+joZAuKR6UEeuvdEKD
+	6c2rCV1WV41JtKqy98PGYryT3EKD4VLfZOVmrSROEZSlUIcrN85W867LJ1lWZQ8vr7xUBK3RTD+s4
+	YQjevC8awvgONNv5YJXvuCqh1OPU9HNQkcKlaMA9QDJNZvBZx71M+lW64Y1nIqneXNHyriSsKGRjp
+	i4PAKlaWltTlz7n4CS6+oXblY5CXeEo2YLIVkw30dpzCJT/vWyW4g0M4EMxgmJh+2ZdH5YEFFWZiR
+	ePXP5KmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVoaw-0000000BIDa-2yLZ;
-	Thu, 09 Jan 2025 09:12:50 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tVoc8-0000000BINN-3j5i;
+	Thu, 09 Jan 2025 09:14:04 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVoVT-0000000BH0a-2bDQ;
-	Thu, 09 Jan 2025 09:07:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B4E485C4820;
-	Thu,  9 Jan 2025 09:06:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B31CDC4CED2;
-	Thu,  9 Jan 2025 09:07:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736413630;
-	bh=6KlrG7UfxSvJaPknWB0rSoQau5l3FVtxo3MXEwgzCUE=;
-	h=From:To:Cc:Subject:Date:From;
-	b=rTDqH0AHJ6nvoW+VFen417Pt0QdHWMJKtH/3GbENGtF1YnfNr21m63oE82LyJFKyB
-	 9Wv+IUH8j+y3h/EW+g7rbgXlD6L4lBj+Qfcrybeaivm8AkvHlgnzipn48QwTNX/uou
-	 jRPNhpkzWipvTz0E17r1VAwS9HwN/jAD+DnArnt+bbH/w7ryJUk2YRj2VTxdtFcqEA
-	 nrjkLfxPPs/NI1VehquHkbYo6aV4FqxmtLUDPDMPtaGEYqqb225YaH+qAR1SWgztLp
-	 5PRdw8Z+6gK7d/sGodEs7QKm2YZ9F65tnsYEYmx1H1fLxUoChAq2h5e4+GolToi2r9
-	 1Q8Hf70hQ4eDw==
-From: Niklas Cassel <cassel@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Kishon Vijay Abraham I <kishon@kernel.org>
-Cc: Damien Le Moal <dlemoal@kernel.org>,
-	Niklas Cassel <cassel@kernel.org>,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: [PATCH v2 0/6] PCI: endpoint: Add support for resizable BARs
-Date: Thu,  9 Jan 2025 10:06:52 +0100
-Message-ID: <20250109090652.110905-8-cassel@kernel.org>
-X-Mailer: git-send-email 2.47.1
+	id 1tVoVV-0000000BH0y-2PEm
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Jan 2025 09:07:14 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-38633b5dbcfso642842f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jan 2025 01:07:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tuxon.dev; s=google; t=1736413632; x=1737018432; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=qVwMK/eoLRZqZimy4jMPY+H4Af5hsLKL/OPymphu+WM=;
+        b=fhvbR/BAIUyhABjOQstIo2Rb14AlENau6sEmgxnb6mUvGt75balUmk9ao+jx6RnGVp
+         DwScczgBQNYLgP+qJU+EyedD1bWlG3Oukfr7Jl4BE8CduCLlAMH4GuHjiui4yvxelQpH
+         7B4ziXeL7wLe8+2ZGVbif2eNpTns9izTXCZBXziM5sP1ox3flJqEVbYMTFtlkH2INdU5
+         utz6shpj77XNdwUWF+5rCHt9UeK93VkDplSHNuLm72o8af6kGXx2nIMU6uipxyalkNjX
+         yC19DDE496zdvQJsRZ5Xt1Xi1xytC2kOFoF7me7aw1x8ZBHvRk62yMc/EO1FND+0hKxp
+         gpcw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736413632; x=1737018432;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=qVwMK/eoLRZqZimy4jMPY+H4Af5hsLKL/OPymphu+WM=;
+        b=EBXTBvGk2sWCos+vfx1+O1/iv1SNVSg3Jf7ED2DBzH/10KlkNLUtbUy3uFQkrdjwdw
+         BNJJdRsWnagvy0asqjFXb7/3F46dXPwTczSdzFVzKDn3Qu+DwFIBkwbBQaKDMPomAryp
+         /JvdfTAyT6wChDMWiNHptrCu7fp3OHOSFLNQoJK1ILFyVjVHsrU0wAUcjJ6AShorpE9N
+         10zaKQyMwbfmMczGntCwUAVT3Qj6gC8fIogN0n5dGdHPEIbWUCy1BUHdUiOKg1mvT4gG
+         Ic9c9YuBY7w9NCFmNuBr1CPfKdIhQLZeGJvccE/N5lLP7hJu+RInqAQTETbCVQd0Xlz1
+         kWHg==
+X-Forwarded-Encrypted: i=1; AJvYcCWx6WKWKneHro7iTVVCJux66Cbn/O02L5XerE22/5Kw7lAbYGzWhzPgahj3bP4MYr/Ph5xz7c5yl6cPeftFyRd+@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy0YCL162BCYjGKfXH+81g78M0KojqaUJlOm9za6deixQlccA2k
+	4zp9m0F5ZaJc+YiIkx1QPNbQfmZ6w25ntJFh4JzNax46jQ9qPrAPIHg8mGa3Pso=
+X-Gm-Gg: ASbGncuS6m4DQrz//792AnXUjTQ9mabKRHlz6YkijO6tV98jmM+KDwGnh1R9Pcb47SV
+	7+TrbkVX4RluRb1tgmH0bzb5LddkmKGTC5XAUJQRdeIrW7iLaCgwjf/ONK6FM8HZqujjO7c5Dtt
+	VTf8ztA34iYzbnCCmQI/1FXU5097BALUvNf70iU56XAnup09XauyoLbZ4ZuYLL2jx4meKDgp2dW
+	gEZKnA2zBv53qcUR/XRIjgQq5eFVL8w6vykPT/1LiC9qow58nZwehMAsqXUjXzEpw==
+X-Google-Smtp-Source: AGHT+IGhNi5rl+/Gx7bgxS1n90tfV8FC+iCZg9Ho0HrN4Il/VGHgdUNthAtV4OGyQQ++lThng+djbg==
+X-Received: by 2002:a5d:59ab:0:b0:385:eb7c:5d0f with SMTP id ffacd0b85a97d-38a8730db6cmr5443481f8f.26.1736413631641;
+        Thu, 09 Jan 2025 01:07:11 -0800 (PST)
+Received: from [192.168.50.4] ([82.78.167.102])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a8e37d040sm1218431f8f.6.2025.01.09.01.07.09
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 09 Jan 2025 01:07:11 -0800 (PST)
+Message-ID: <6e14b7c5-90cd-4d26-9494-610e248267da@tuxon.dev>
+Date: Thu, 9 Jan 2025 11:07:09 +0200
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2645; i=cassel@kernel.org; h=from:subject; bh=6KlrG7UfxSvJaPknWB0rSoQau5l3FVtxo3MXEwgzCUE=; b=owGbwMvMwCV2MsVw8cxjvkWMp9WSGNLrJ65RSb/AZanz+7n7qnvJ8btNVvKedXny6KGVRuqeN 3a7Hzz831HKwiDGxSArpsji+8Nlf3G3+5TjindsYOawMoEMYeDiFICJXHJl+Cu+UtuJ3Usif/4K pWvfsquab/QlPV/h79s55Z9l5gG7ZUIM/4tajh9dLf5mu+YqsZ83XlQ1cR0X8fdR1EkVXRWspFo wiwsA
-X-Developer-Key: i=cassel@kernel.org; a=openpgp; fpr=5ADE635C0E631CBBD5BE065A352FE6582ED9B5DA
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 5/5] ARM: dts: microchip: add support for
+ sama7d65_curiosity board
+To: Ryan.Wanner@microchip.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, nicolas.ferre@microchip.com,
+ alexandre.belloni@bootlin.com, mturquette@baylibre.com, sboyd@kernel.org,
+ arnd@arndb.de
+Cc: dharma.b@microchip.com, mihai.sain@microchip.com,
+ romain.sioen@microchip.com, varshini.rajendran@microchip.com,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-mmc@vger.kernel.org, linux-gpio@vger.kernel.org,
+ linux-spi@vger.kernel.org, linux-serial@vger.kernel.org
+References: <20250107160850.120537-1-Ryan.Wanner@microchip.com>
+ <20250107160850.120537-6-Ryan.Wanner@microchip.com>
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Content-Language: en-US
+In-Reply-To: <20250107160850.120537-6-Ryan.Wanner@microchip.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_010711_742672_428DAEEF 
-X-CRM114-Status: GOOD (  12.36  )
+X-CRM114-CacheID: sfid-20250109_010713_620032_D3961A8D 
+X-CRM114-Status: GOOD (  18.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,66 +107,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PCI endpoint framework currently does not support resizable BARs.
+Hi, Ryan,
 
-Add a new BAR type BAR_RESIZABLE, so that EPC drivers can support resizable
-BARs properly.
+On 07.01.2025 18:07, Ryan.Wanner@microchip.com wrote:
+> From: Romain Sioen <romain.sioen@microchip.com>
+> 
+> Add device tree support for the SAMA7D65 Curiosity board.
+> Update the Makefile to include the new device tree file.
+> 
+> uart6 is related to flexcom6, hence not sorted in alphabetical order.
+> 
+> Signed-off-by: Romain Sioen <romain.sioen@microchip.com>
+> Signed-off-by: Varshini Rajendran <varshini.rajendran@microchip.com>
+> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+> ---
+>  arch/arm/boot/dts/microchip/Makefile          |  3 +
+>  .../dts/microchip/at91-sama7d65_curiosity.dts | 89 +++++++++++++++++++
+>  2 files changed, 92 insertions(+)
+>  create mode 100644 arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
+> 
+> diff --git a/arch/arm/boot/dts/microchip/Makefile b/arch/arm/boot/dts/microchip/Makefile
+> index 470fe46433a9..79cd38fdc7da 100644
+> --- a/arch/arm/boot/dts/microchip/Makefile
+> +++ b/arch/arm/boot/dts/microchip/Makefile
+> @@ -12,6 +12,7 @@ DTC_FLAGS_at91-sama5d2_xplained := -@
+>  DTC_FLAGS_at91-sama5d3_eds := -@
+>  DTC_FLAGS_at91-sama5d3_xplained := -@
+>  DTC_FLAGS_at91-sama5d4_xplained := -@
+> +DTC_FLAGS_at91-sama7d65_curiosity := -@
+>  DTC_FLAGS_at91-sama7g54_curiosity := -@
+>  DTC_FLAGS_at91-sama7g5ek := -@
+>  dtb-$(CONFIG_SOC_AT91RM9200) += \
+> @@ -90,6 +91,8 @@ dtb-$(CONFIG_SOC_SAM_V7) += \
+>  	at91-sama5d4_xplained.dtb \
+>  	at91-sama5d4ek.dtb \
+>  	at91-vinco.dtb
+> +dtb-$(CONFIG_SOC_SAMA7D65) += \
+> +	at91-sama7d65_curiosity.dtb
+>  dtb-$(CONFIG_SOC_SAMA7G5) += \
+>  	at91-sama7g54_curiosity.dtb \
+>  	at91-sama7g5ek.dtb
+> diff --git a/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts b/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
+> new file mode 100644
+> index 000000000000..ef6a56db8acb
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
+> @@ -0,0 +1,89 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + *  at91-sama7d65_curiosity.dts - Device Tree file for SAMA7D65 Curiosity board
+> + *
+> + *  Copyright (c) 2024 Microchip Technology Inc. and its subsidiaries
+> + *
+> + *  Author: Romain Sioen <romain.sioen@microchip.com>
+> + *
+> + */
+> +/dts-v1/;
+> +#include "sama7d65-pinfunc.h"
+> +#include "sama7d65.dtsi"
+> +#include <dt-bindings/mfd/atmel-flexcom.h>
+> +#include <dt-bindings/pinctrl/at91.h>
+> +
+> +/ {
+> +	model = "Microchip SAMA7D65 Curiosity";
+> +	compatible = "microchip,sama7d65-curiosity", "microchip,sama7d65",
+> +		     "microchip,sama7d6", "microchip,sama7";
+> +
+> +	chosen {
+> +		stdout-path = "serial0:115200n8";
+> +	};
+> +
+> +	aliases {
+> +		serial0 = &uart6;
+> +	};
 
-For a resizable BAR, we will only allow a single supported size.
-This is by design, as we do not need/want the complexity of the host side
-resizing our resizable BAR.
+While applying this, I switched chosen and aliases to have it
+alphanumerically sorted.
 
-In the DWC driver specifically, the DWC driver currently handles resizable
-BARs using an ugly hack where a resizable BAR is force set to a fixed size
-BAR with 1 MB size if detected. This is bogus, as a resizable BAR can be
-configured to sizes other than 1 MB.
+> +
+> +	memory@60000000 {
+> +		device_type = "memory";
+> +		reg = <0x60000000 0x40000000>;
+> +	};
+> +};
+> +
+> +&flx6 {
+> +	atmel,flexcom-mode = <ATMEL_FLEXCOM_MODE_USART>;
+> +	status = "okay";
+> +};
+> +
+> +&uart6 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_uart6_default>;
+> +	status = "okay";
+> +};
+> +
+> +&main_xtal {
+> +	clock-frequency = <24000000>;
+> +};
+> +
+> +&pioa {
+> +	pinctrl_sdmmc1_default: sdmmc1-default {
+> +		cmd-data {
+> +			pinmux = <PIN_PB22__SDMMC1_CMD>,
+> +				 <PIN_PB24__SDMMC1_DAT0>,
+> +				 <PIN_PB25__SDMMC1_DAT1>,
+> +				 <PIN_PB26__SDMMC1_DAT2>,
+> +				 <PIN_PB27__SDMMC1_DAT3>;
+> +			slew-rate = <0>;
+> +			bias-disable;
+> +		};
+> +
+> +		ck-cd-rstn-vddsel {
+> +			pinmux = <PIN_PB23__SDMMC1_CK>,
+> +				 <PIN_PB21__SDMMC1_RSTN>,
+> +				 <PIN_PB30__SDMMC1_1V8SEL>,
+> +				 <PIN_PB29__SDMMC1_CD>,
+> +				 <PIN_PB28__SDMMC1_WP>;
+> +			slew-rate = <0>;
+> +			bias-disable;
+> +		};
+> +	};
+> +
+> +	pinctrl_uart6_default: uart6-default {
+> +		pinmux = <PIN_PD18__FLEXCOM6_IO0>,
+> +			<PIN_PD19__FLEXCOM6_IO1>;
 
-With these changes, an EPF driver will be able to call pci_epc_set_bar()
-to configure a resizable BAR to an arbitrary size, just like for
-BAR_PROGRAMMABLE. Thus, DWC based EPF drivers will no longer be forced to
-a bogus 1 MB forced size for resizable BARs.
+Missing a space here    ^. I already added it while applying.
 
-
-Tested/verified on a Radxa Rock 5b (rk3588) by:
--Modifying pci-epf-test.c to request BAR sizes that are larger than 1 MB:
- -static size_t bar_size[] = { 512, 512, 1024, 16384, 131072, 1048576 };
- +static size_t bar_size[] = { SZ_1M, SZ_1M, SZ_2M, SZ_2M, SZ_4M, SZ_4M };
- (Make sure to set CONFIG_CMA_ALIGNMENT=10 such that dma_alloc_coherent()
-  calls are aligned even for allocations larger than 1 MB.)
--Rebooting the host to make sure that the DWC EP driver configures the BARs
- correctly after receiving a link down event.
--Modifying EPC features to configure a BAR as 64-bit, to make sure that we
- handle 64-bit BARs correctly.
--Modifying the DWC EP driver to set a size larger than 2 GB, to make sure
- we handle BAR sizes larger than 2 GB (for 64-bit BARs) correctly.
--Running the consecutive BAR test in pci_endpoint_test.c to make sure that
- the address translation works correctly.
-
-
-Changes since V1:
--Fix Wtautological-constant-out-of-range-compare compiler warning on
- 32-bit builds.
-
-
-Kind regards,
-Niklas
-
-Niklas Cassel (6):
-  PCI: endpoint: Add BAR type BAR_RESIZABLE
-  PCI: dwc: ep: Move dw_pcie_ep_find_ext_capability()
-  PCI: dwc: endpoint: Add support for BAR type BAR_RESIZABLE
-  PCI: keystone: Describe resizable BARs as resizable BARs
-  PCI: keystone: Specify correct alignment requirement
-  PCI: dw-rockchip: Describe resizable BARs as resizable BARs
-
- drivers/pci/controller/dwc/pci-keystone.c     |   6 +-
- .../pci/controller/dwc/pcie-designware-ep.c   | 228 +++++++++++++++---
- drivers/pci/controller/dwc/pcie-dw-rockchip.c |  22 +-
- drivers/pci/endpoint/pci-epf-core.c           |   4 +
- include/linux/pci-epc.h                       |   3 +
- 5 files changed, 216 insertions(+), 47 deletions(-)
-
--- 
-2.47.1
-
+Thank you,
+Claudiu
 
