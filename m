@@ -4,63 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA082E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 20:42:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10B23E77199
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 20:51:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2xgkTWm6WVWbPhsRTEytxrJPzFZR1pfzXLi7iTV+RxI=; b=uqnf3boiP5Vm6OOxixFjID8yZY
-	ezRM5KxCyQAh5eGP9l9tGFQTRygmZrp6hF2PqWvfZsFTWJBpNt7rY1Z9jKy4u0eNBvUPEVOdBpun0
-	43ppwKXYHT7mGFy0f+lDpIG3LYPsFOMUpyKzUsUdNfK0H+9g/HQzbE5ACP1OKOMHEKf/3cCYPFhRg
-	Gyt4K2csMhyBJrBhq9OfYInrHEtG52UjwhQ9R29/Tk6cBl/wK4EGTtI9gb4Z7HKVJ+Abr2WcxCgKS
-	j3m7AiUY47DKqJp7+4zwkXgsMPnccX7s49aPyHXcQK5X/1LfPVUCLJ6XhCn/qn7G3m2WZMqSnAT3Z
-	pbxK2mgg==;
+	bh=TqdIdJj6LMoevO5GBiCvHMhASh0RzXUsR8pC8UFwUX4=; b=cnxO20vJ/t0Ljd9kFXSEUPQITa
+	MknvRyrMdE7RfkuTpZErdXMX/VvOBgFu76TVVyrz9buPYM+r0YFbmqoRJpfIHjN0J6Xxbu3mY4NxT
+	4yNOH57e7at0CT8vjU8Aae5V3Kd1kTayBzww1hbwkSOnyzO6dgef5yGkCtC6b7KvFME2A+E/6xRsM
+	1v21gQ/vAl6d4vDbAj4mw4HiUCHguAXfYyw7JCCt+VXd75pXMA5KkDq6FO+Co16esaqSFpvYF1VKH
+	O8pGgaGU7QputD4me8iIuA/OgNezBeUEBWgDl3EycEa50pcqset237FuLPeex6npr7OBodoOLz5zf
+	YNgYC+Yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVzLl-0000000DFmC-1Ho0;
-	Thu, 09 Jan 2025 20:41:53 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tVzUa-0000000DGrX-2Epn;
+	Thu, 09 Jan 2025 20:51:00 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVzKX-0000000DFax-09d9
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 20:40:38 +0000
+	id 1tVzTM-0000000DGRx-0JQw;
+	Thu, 09 Jan 2025 20:49:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5AC6AA42514;
-	Thu,  9 Jan 2025 20:38:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59551C4CED2;
-	Thu,  9 Jan 2025 20:40:35 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 95ED55C5C06;
+	Thu,  9 Jan 2025 20:49:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FA63C4CED2;
+	Thu,  9 Jan 2025 20:49:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736455235;
-	bh=ikj+ol/J0ItDkKjNMRgfG7evuPqPFIjPQSs5ZvoBHeM=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=nRtfgtmDLr97EP+Kmm/gnRm4j1DvvHUbnBVe5tbyCowOToekCT8M7PxNtLqmgmuZ3
-	 WQjG8pXkkF9fRJv2NYNWP9nTYohnbTEYHI5ZshvHBeyNy6XiJEiYq9V46Q5L6CS0FJ
-	 rxSolVxAh0tKM4eDe3ec1ky4aHtBYcsMgmWlkBvla9HgEHgL10uV/T8er30m6DW6Hm
-	 +FpJpvo2oGXo7O2jWy2Sp2fBnWsJOLe9hY6qM7zyELVrp/Du1AISlJfxCCLeriP8l3
-	 TsANdK66ww5kY8a6PKXhTN0TBBXfNxH2jeg+zNxtXGp54YUUwfm9Q+6vpSeQa6rY08
-	 Pc+JhqqsLWtpQ==
-Date: Thu, 09 Jan 2025 14:40:34 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20201202; t=1736455782;
+	bh=ZXX4c3x7gBrrsmjeXcEhCbYQD0RNFq9SKOTJyfD+w8M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tWvKKMjG4qNcEdVbxpmuI7b4+HbBdLkpA+CAMEMYEpRiDciCf4+vEIw2Q4+w2yjfZ
+	 jTvxs8jEmA05UEDVWAXXpjNc2VtZiEIpRu70xTvqCcsKpRbzaHI1lWSmw7CNxREs+Y
+	 tcF2kH3OJnCH5l1gN7nYB+GygB7QcjZAbUF8tBCsIpAxeJJlhSo8SgcHZCtTgRw+5b
+	 PAoxrRVlGEHzJLN9Oucuu/ShuUtvjHD6sfNGb0+TMeUfZJg8u1/VX1eDTtxpj2kfwH
+	 2u7OfDHS4bABbNg/V0Xml60Go/or9ECQsio/b80eE3ZedaBdcLgKM5LgnvvFLc9HZ/
+	 2p9f4xhFqpurg==
+Date: Thu, 9 Jan 2025 17:49:39 -0300
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	=?iso-8859-1?Q?Micka=EBl_Sala=FCn?= <mic@digikod.net>,
+	=?iso-8859-1?Q?G=FCnther?= Noack <gnoack@google.com>,
+	Christian Brauner <brauner@kernel.org>, Guo Ren <guoren@kernel.org>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+	Jonathan Corbet <corbet@lwn.net>, Arnd Bergmann <arnd@arndb.de>,
+	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-security-module@vger.kernel.org, bpf@vger.kernel.org,
+	linux-csky@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v6 00/16] perf tools: Use generic syscall scripts for all
+ archs
+Message-ID: <Z4A2Y269Ffo0ERkS@x1>
+References: <20250108-perf_syscalltbl-v6-0-7543b5293098@rivosinc.com>
+ <Z3_ybwWW3QZvJ4V6@x1>
+ <Z4AoFA974kauIJ9T@ghost>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Tero Kristo <kristo@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Nishanth Menon <nm@ti.com>, Conor Dooley <conor+dt@kernel.org>, 
- Vignesh Raghavendra <vigneshr@ti.com>, linux-arm-kernel@lists.infradead.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Bryan Brattlof <bb@ti.com>
-In-Reply-To: <20250109-am62lx-v3-0-ef171e789527@ti.com>
-References: <20250109-am62lx-v3-0-ef171e789527@ti.com>
-Message-Id: <173645519141.4157421.14189685127901345595.robh@kernel.org>
-Subject: Re: [PATCH v3 0/3] arm64: dts: ti: introduce basic support for the
- AM62L
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <Z4AoFA974kauIJ9T@ghost>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_124037_206209_818590E4 
-X-CRM114-Status: GOOD (  24.44  )
+X-CRM114-CacheID: sfid-20250109_124944_196719_22F058CD 
+X-CRM114-Status: UNSURE (   9.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,118 +93,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jan 09, 2025 at 11:48:36AM -0800, Charlie Jenkins wrote:
+> On Thu, Jan 09, 2025 at 12:59:43PM -0300, Arnaldo Carvalho de Melo wrote:
+> > ⬢ [acme@toolbox perf-tools-next]$ git log --oneline -1 ; time make -C tools/perf build-test
+> > d06826160a982494 (HEAD -> perf-tools-next) perf tools: Remove dependency on libaudit
+> > make: Entering directory '/home/acme/git/perf-tools-next/tools/perf'
+> > - tarpkg: ./tests/perf-targz-src-pkg .
+> >                  make_static: cd . && make LDFLAGS=-static NO_PERF_READ_VDSO32=1 NO_PERF_READ_VDSOX32=1 NO_JVMTI=1 NO_LIBTRACEEVENT=1 NO_LIBELF=1 -j28  DESTDIR=/tmp/tmp.JJT3tvN7bV
+> >               make_with_gtk2: cd . && make GTK2=1 -j28  DESTDIR=/tmp/tmp.BF53V2qpl3
+> > - /home/acme/git/perf-tools-next/tools/perf/BUILD_TEST_FEATURE_DUMP: cd . && make FEATURE_DUMP_COPY=/home/acme/git/perf-tools-next/tools/perf/BUILD_TEST_FEATURE_DUMP  feature-dump
+> > cd . && make FEATURE_DUMP_COPY=/home/acme/git/perf-tools-next/tools/perf/BUILD_TEST_FEATURE_DUMP feature-dump
+> >          make_no_libbionic_O: cd . && make NO_LIBBIONIC=1 FEATURES_DUMP=/home/acme/git/perf-tools-next/tools/perf/BUILD_TEST_FEATURE_DUMP -j28 O=/tmp/tmp.KZuQ0q2Vs6 DESTDIR=/tmp/tmp.0sxMyH91gS
+> >            make_util_map_o_O: cd . && make util/map.o FEATURES_DUMP=/home/acme/git/perf-tools-next/tools/perf/BUILD_TEST_FEATURE_DUMP -j28 O=/tmp/tmp.Y0Mx3KLREI DESTDIR=/tmp/tmp.wg9HCVVLHE
+> >               make_install_O: cd . && make install FEATURES_DUMP=/home/acme/git/perf-tools-next/tools/perf/BUILD_TEST_FEATURE_DUMP -j28 O=/tmp/tmp.P0LEBAkW1X DESTDIR=/tmp/tmp.agTavZndFN
+> >   failed to find: etc/bash_completion.d/perf
+> 
+> Is this something introduced by this patch?
 
-On Thu, 09 Jan 2025 14:20:01 -0600, Bryan Brattlof wrote:
-> Hello Everyone,
-> 
-> This small series adds the initial support (currently just a UART) for
-> TI's AM62L SoC family.
-> 
-> The AM62L is a lite, low power and performance optimized family of
-> application processors that are built for Linux application development.
-> AM62L is well suited for a wide range of general-purpose applications
-> with scalable ARM Cortex-A53 core performance and embedded features such
-> as: Multimedia DSI/DPI support, integrated ADC on chip, advanced lower
-> power management modes, and extensive security options for IP protection
-> with the built-in security features.
-> 
-> Additionally, the AM62Lx devices includes an extensive set of
-> peripherals that make it a well-suited for a broad range of industrial
-> applications while offering intelligent features and optimized power
-> architecture as well. In addition, the extensive set of peripherals
-> included in AM62Lx enables system-level connectivity, such as: USB,
-> MMC/SD, OSPI, CAN-FD and an ADC.
-> 
-> AM62L is a general purpose processor, however some of the applications
-> well suited for it include: Human Machine Interfaces (HMI), Medical
-> patient monitoring , Building automation, Smart secure gateways, Smart
-> Thermostats, EV charging stations, Smart Metering, Solar energy and
-> more.
-> 
-> Some highlights of AM62L SoC are:
->  - Single to Dual 64-bit Arm® Cortex®-A53 microprocessor subsystem up to
->    1.25GHz Integrated Giga-bit Ethernet switch supporting up to a total
->    of two external
->  - 16-bit DDR Subsystem that supports LPDDR4, DDR4 memory types.
->  - Display support: 1x display support over MIPI DSI (4 lanes DPHY) or
->    DPI (24-bit RGB LVCMOS)
->  - Multiple low power modes support, ex: Deep sleep and Standby
->  - Support for secure boot, Trusted Execution Environment (TEE) &
->    Cryptographic Acceleration
-> 
-> For more information check out our Technical Reference Manual (TRM)
-> which is located here:
-> 
-> 	https://www.ti.com/lit/pdf/sprujb4
-> 
-> Happy Hacking
-> ~Bryan
-> 
-> Changes in v1:
->  - switched to non-direct links so TRM updates are automatic
->  - fixed indentation issues with a few nodes
->  - separated bindings into a different patch
->  - removed current-speed property from main_uart0{}
->  - removed empty reserved-memory{} node
->  - removed serial2 from aliases{} node
->  - corrected the main_uart0{} pinmux
->  - Link: https://lore.kernel.org/all/20241117-am62lx-v1-0-4e71e42d781d@ti.com/
-> 
-> Changes in v2:
-> - alphabetized phandles
-> - corrected macro and node names for main_uart0 pinmux
-> - Link to v2: https://lore.kernel.org/r/20250108-am62lx-v2-0-581285a37d8f@ti.com
-> 
-> Signed-off-by: Bryan Brattlof <bb@ti.com>
-> ---
-> Bryan Brattlof (1):
->       dt-bindings: arm: ti: Add binding for AM62L SoCs
-> 
-> Vignesh Raghavendra (2):
->       arm64: dts: ti: k3-am62l: add initial infrastructure
->       arm64: dts: ti: k3-am62l: add initial reference board file
-> 
->  Documentation/devicetree/bindings/arm/ti/k3.yaml |  6 ++
->  arch/arm64/boot/dts/ti/Makefile                  |  3 +
->  arch/arm64/boot/dts/ti/k3-am62l-main.dtsi        | 52 ++++++++++++++
->  arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi      | 33 +++++++++
->  arch/arm64/boot/dts/ti/k3-am62l.dtsi             | 89 ++++++++++++++++++++++++
->  arch/arm64/boot/dts/ti/k3-am62l3-evm.dts         | 43 ++++++++++++
->  arch/arm64/boot/dts/ti/k3-am62l3.dtsi            | 67 ++++++++++++++++++
->  arch/arm64/boot/dts/ti/k3-pinctrl.h              |  2 +
->  8 files changed, 295 insertions(+)
-> ---
-> base-commit: 5532b8a9ce0e80514e37a1e082824934663580a3
-> change-id: 20241220-am62lx-ca9498efd87e
-> 
-> Best regards,
-> --
-> Bryan Brattlof <bb@ti.com>
-> 
-> 
+I don't think so.
 
+BTW this series is already pushed out to perf-tools-next:
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git/log/?h=perf-tools-next
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
+Thanks!
 
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/ti/' for 20250109-am62lx-v3-0-ef171e789527@ti.com:
-
-arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-m2.dtb: scm-conf@100000: compatible: ['syscon', 'simple-mfd'] is too short
-	from schema $id: http://devicetree.org/schemas/mfd/syscon-common.yaml#
-
-
-
-
-
+- Arnaldo
 
