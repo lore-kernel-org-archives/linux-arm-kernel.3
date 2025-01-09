@@ -4,70 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8552CE7719A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 22:49:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D585E7719A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 22:50:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tcQiAladiMvBqV5ZnCyr3LaD+NU0u/sAizfHBq6hmSk=; b=X2FuHTkTjY3Ay5ZcrK6oaqvHaG
-	SNXL84MFm7iwQQpa10rOqzMHaC83ta65FPvz8KlwC4nw3pWweqNtOEj2THZaEN2mWowSze3CC1tge
-	HXil0wtQjc6lSSKjrMbboHPGTbBMTPpAketttma5a/tGLvIH3HhRHWVcqWc5mSe50J4pRk0qUmO5T
-	uW9VU9VMTagnA4OuGYc5JuFsEBumuFykdqJe3rtc8bydmI5GImvx1ObnPRB0Lc/oG1mYokGltmT+9
-	sY7a/JIk8Zi9lyqaw2Wl6VFPSx3DAnt1G7gLi+rPDvgvbxqM+hgoeqa17T4YDDuxgEkpdmxz0QONl
-	g1yGdiKA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=szzRx+jV7JEnpVa9t3hMtlu/aLPELISpILa8cGlbM9E=; b=HtHzW3DBmCVTYragUTjg0FdmCN
+	TzXm7dLrdrA1WUh2e8KO93oIlLMrhy0QeAs8vWwaMze9Fiwsn8y/yW2eveOTxORxf/7DaFDfC5EUm
+	jY12EEXS7ASus0rZgaeJKcktf4tH7QaSBo/qTGoosVwjLBQFobYs6EjApPYvC2lMH9ri2756Q5AO+
+	z5sRWKjQMsJ0YALT6VBw5eYM0+nea2c7f/ZMXqk8+xPU8gqPOfHp+BysPcPge4H99fpWNsQSrqNwp
+	bXSTwUgYPwiKownavmYBokwxpreDE9f4qafNieUQGRPBaqhry/ITkLgV7R09ynz4gmqYvMzfRBN42
+	BINoErqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW1L6-0000000DUT3-21FL;
-	Thu, 09 Jan 2025 22:49:20 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.144.209])
+	id 1tW1MI-0000000DUbt-0wKm;
+	Thu, 09 Jan 2025 22:50:34 +0000
+Received: from relay.smtp-ext.broadcom.com ([192.19.144.208])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW1Js-0000000DUOF-3Tmg
+	id 1tW1Js-0000000DUOE-3W0X
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 09 Jan 2025 22:48:06 +0000
 Received: from mail-lvn-it-01.lvn.broadcom.net (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 1F3D4C002818;
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 00F41C001A13;
 	Thu,  9 Jan 2025 14:48:02 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 1F3D4C002818
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 00F41C001A13
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
 	s=dkimrelay; t=1736462882;
-	bh=CK72pTv1jRJuSZTidr21qWWo2R8tycAcuLfjUB9JQgQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=VJptsJ3JlowpgALf+wJjUqx+ETN2S/xtx3xEfGEVntSKuBNeRfXYi5GH2zd4aLIeX
-	 iYeAZm57iuXrcfq82YnLK0fc0BDgKHt1XKX655ZNO3TDblCQg+g9Prm45fZSw8Bxmd
-	 NH9rbHAN7/x7Zbu3XTH9XSbw4/gyp2w6aB5WlUHI=
+	bh=hzp/epZwqHQdLKQHRQ8aEtFi9PPvpMrlLjzgTmHUt+4=;
+	h=From:To:Cc:Subject:Date:From;
+	b=ovFziUVVOYKOtnEToSdKAWOzaqdwuL8WH5doV1uaC+iBccwBWC/eOqMtQxj6kCos6
+	 4nyNQcVuH9tZFBvoVRM2QVmir0mjeVPYcDVAFUbvMMLQpdGYptTlpTW97ZUkhHEFTu
+	 ZQCNGVEDQ9YdVx8qs0II3xWiIhnOVXwqVS3ZcZl4=
 Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail-lvn-it-01.lvn.broadcom.net (Postfix) with ESMTPSA id BCCF218041CACA;
+	by mail-lvn-it-01.lvn.broadcom.net (Postfix) with ESMTPSA id 9827818041CAC6;
 	Thu,  9 Jan 2025 14:48:01 -0800 (PST)
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 To: soc@kernel.org
 Cc: Rosen Penev <rosenp@gmail.com>,
 	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Sam Edwards <cfsworks@gmail.com>,
-	Sam Edwards <CFSworks@gmail.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
 	Rob Herring <robh@kernel.org>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
 	linux-arm-kernel@lists.infradead.org,
 	arnd@arndb.de,
 	olof@lixom.net,
 	khilman@kernel.org,
 	bcm-kernel-feedback-list@broadcom.com
-Subject: [GIT PULL 2/2] Broadcom devicetree-arm64 changes for 6.14
-Date: Thu,  9 Jan 2025 14:47:56 -0800
-Message-ID: <20250109224756.3632025-2-florian.fainelli@broadcom.com>
+Subject: [GIT PULL 1/2] Broadcom devicetree changes for 6.14
+Date: Thu,  9 Jan 2025 14:47:55 -0800
+Message-ID: <20250109224756.3632025-1-florian.fainelli@broadcom.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250109224756.3632025-1-florian.fainelli@broadcom.com>
-References: <20250109224756.3632025-1-florian.fainelli@broadcom.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_144805_227505_AEFDD1F4 
-X-CRM114-Status: GOOD (  13.78  )
+X-CRM114-CacheID: sfid-20250109_144805_227323_EF216864 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,59 +83,60 @@ The following changes since commit 40384c840ea1944d7c5a392e8975ed088ecf0b37:
 
 are available in the Git repository at:
 
-  https://github.com/Broadcom/stblinux.git tags/arm-soc/for-6.14/devicetree-arm64
+  https://github.com/Broadcom/stblinux.git tags/arm-soc/for-6.14/devicetree
 
-for you to fetch changes up to f5ce990af7cf9ced0b3459f3d9aed0a27a74d00c:
+for you to fetch changes up to f167292c8d13d31cbe9ffaa8108edcb4e8b1c60f:
 
-  arm64: dts: bcm4908: nvmem-layout conversion (2024-12-17 11:39:21 -0800)
-
-----------------------------------------------------------------
-This pull request contains Broadcom ARM64-based SoCs Device Tree updates
-for 6.14:
-
-- Dave adds the display pipeline DT nodes on BCM2712 (Raspberry Pi 5)
-
-- Rob removes some undocumented properties
-
-- Same ensures that the CFE stub area is reserved to allow secondary
-  CPUs to be successfully brought up in Linux, also making sure that the
-  address used in the spin table is also carved out. Finally he adds
-  support for the Zyxel EX3510-B router using BCM4906
-
-- Rosen converts the BCM4908 platforms to use the more flexible
-  nvmem-layout representation
+  ARM: dts: meraki-mr26: set mac address for gmac0 (2024-12-17 10:23:28 -0800)
 
 ----------------------------------------------------------------
-Dave Stevenson (3):
-      arm64: dts: broadcom: Add firmware clocks and power nodes to Pi5 DT
-      arm64: dts: broadcom: Add display pipeline support to BCM2712
-      arm64: dts: broadcom: Add DT for D-step version of BCM2712
+This pull request contains Broadcom ARM-based SoCs Device Tree updates
+for 6.14, please pull the following:
+
+- Rob removes some unused and undocumented properties pertaining to the
+  SPI flash controller on Broadcom boards
+
+- Linus adds a number of BCM6846 peripherals: HWRNG, watchdog, GPIO,
+  MDIO, LED controller, DMA and then proceeds with adding support for
+  the GEnexsis XG6846B PON router
+
+- Rosen sets the MAC address NVMEM reference on the Meraki MR26 platform
+
+----------------------------------------------------------------
+Linus Walleij (9):
+      ARM: dts: bcm6846: Add iproc rng
+      ARM: dts: bcm6846: Enable watchdog
+      ARM: dts: bcm6846: Add GPIO blocks
+      ARM: dts: bcm6846: Add MDIO control block
+      ARM: dts: bcm6846: Add LED controller
+      ARM: dts: bcm6846: Add ARM PL081 DMA block
+      dt-bindings: vendor-prefixes: Add Genexis
+      dt-bindings: arm: bcmbca: Add Genexis XG6846B
+      ARM: dts: broadcom: Add Genexis XG6846B DTS file
 
 Rob Herring (Arm) (1):
-      arm64: dts: broadcom: Remove unused and undocumented properties
+      arm: dts: broadcom: Remove unused and undocumented properties
 
 Rosen Penev (1):
-      arm64: dts: bcm4908: nvmem-layout conversion
-
-Sam Edwards (4):
-      arm64: dts: broadcom: bcmbca: bcm4908: Reserve CFE stub area
-      arm64: dts: broadcom: bcmbca: bcm4908: Protect cpu-release-addr
-      dt-bindings: arm64: bcmbca: Add Zyxel EX3510-B based on BCM4906
-      arm64: dts: broadcom: bcmbca: bcm4908: Add DT for Zyxel EX3510-B
+      ARM: dts: meraki-mr26: set mac address for gmac0
 
  .../devicetree/bindings/arm/bcm/brcm,bcmbca.yaml   |   1 +
- arch/arm64/boot/dts/broadcom/Makefile              |   1 +
- arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts |  37 ++++
- arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts   |  42 +++++
- arch/arm64/boot/dts/broadcom/bcm2712.dtsi          | 193 +++++++++++++++++++-
- arch/arm64/boot/dts/broadcom/bcmbca/Makefile       |   1 +
- .../dts/broadcom/bcmbca/bcm4906-netgear-r8000p.dts |  12 +-
- .../dts/broadcom/bcmbca/bcm4906-zyxel-ex3510b.dts  | 196 +++++++++++++++++++++
- arch/arm64/boot/dts/broadcom/bcmbca/bcm4908.dtsi   |  18 +-
- .../arm64/boot/dts/broadcom/northstar2/ns2-svk.dts |   2 -
- .../arm64/boot/dts/broadcom/northstar2/ns2-xmc.dts |   1 -
- arch/arm64/boot/dts/broadcom/northstar2/ns2.dtsi   |   2 -
- 12 files changed, 488 insertions(+), 18 deletions(-)
- create mode 100644 arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
- create mode 100644 arch/arm64/boot/dts/broadcom/bcmbca/bcm4906-zyxel-ex3510b.dts
+ .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
+ arch/arm/boot/dts/broadcom/Makefile                |   1 +
+ .../arm/boot/dts/broadcom/bcm53015-meraki-mr26.dts |  20 ++
+ .../dts/broadcom/bcm53340-ubnt-unifi-switch8.dts   |   1 -
+ .../boot/dts/broadcom/bcm6846-genexis-xg6846b.dts  | 244 +++++++++++++++++++++
+ arch/arm/boot/dts/broadcom/bcm6846.dtsi            | 120 ++++++++++
+ arch/arm/boot/dts/broadcom/bcm953012hr.dts         |   1 -
+ arch/arm/boot/dts/broadcom/bcm953012k.dts          |   1 -
+ arch/arm/boot/dts/broadcom/bcm958522er.dts         |   1 -
+ arch/arm/boot/dts/broadcom/bcm958525er.dts         |   1 -
+ arch/arm/boot/dts/broadcom/bcm958525xmc.dts        |   1 -
+ arch/arm/boot/dts/broadcom/bcm958622hr.dts         |   1 -
+ arch/arm/boot/dts/broadcom/bcm958623hr.dts         |   1 -
+ arch/arm/boot/dts/broadcom/bcm958625hr.dts         |   1 -
+ arch/arm/boot/dts/broadcom/bcm958625k.dts          |   1 -
+ arch/arm/boot/dts/broadcom/bcm988312hr.dts         |   1 -
+ 17 files changed, 388 insertions(+), 11 deletions(-)
+ create mode 100644 arch/arm/boot/dts/broadcom/bcm6846-genexis-xg6846b.dts
 
