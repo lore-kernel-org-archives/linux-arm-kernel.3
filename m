@@ -4,63 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1679E7719A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 23:26:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE569E7719C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 23:37:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7V7la2Ow0dmMmaXPhyzYEGUuO3tHH+m08W0Z8ZWwrZA=; b=NoQOAf6gPa2pxhhs5PrBBtdsyW
-	c69EoS8WCnWo3cOBVFSUNlOrKOKC7GusnRgXvj+0DtpW+Isa+FqD1ldVltjIpjAuvDAaRL4KDfJ2G
-	RnWGBGIXGn/oBc4cWlHZ4hcYmzDxYdUkNhS5Epu5S6TwASPwxw+DEy46wUvTO8oeP814/fNSVl2VT
-	+ssrUxWg+aH7imtEJbViFasEAbGWlbBuL+EVI3ZXOs0fLGK18gmGnNs7wVNNohTS7o3Ct0amgo/hO
-	WITmCvZv8+xZ6x+1XTglUV8Qj2ExZJOYoooCNN9tLWzWuoXoZ0U7Im3J0RZdZaQ3v1hy7FKqe1kXT
-	F7UuQlnw==;
+	bh=q6uLJ4LISvFEeyya6O/0OdgM/2F3FosaJ8avibEUP1s=; b=euY3C0QKymoCJdFZLC8UqwGalz
+	sEgny+RCkDlkfrBuIWhguC6V8A5Jwbaox3Pirq/gyfvKYUbwT+cWJJwgwu0NvAQGSdNQ3fpu8CE27
+	6fk6onJllFscoH8SJDjMmVy7uTdIfk030HaZl1flrxUrsMBg8nCKb6SqwhYIsp6zE+keJKOsGqbgt
+	GTlKyxAuKhQtdPK1mQ1hB2fKBLxPiTK/OEfn6GURvx35YAv+yGmvjnYRME1bztnxRhiaxPsCJJrMG
+	Jc2Dx0NuoPwhMraAMKNaHjuS1elC1mSr2ZBCgPMB8kqtUDFzatSxiiYlAIySdpaoOORNjgldQ+lec
+	Kb54ZY6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW1v3-0000000DYN3-072Q;
-	Thu, 09 Jan 2025 23:26:29 +0000
-Received: from out-175.mta1.migadu.com ([95.215.58.175])
+	id 1tW25G-0000000DZTJ-3yYv;
+	Thu, 09 Jan 2025 23:37:02 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW1t0-0000000DY2V-0SUO
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 23:24:23 +0000
-Message-ID: <5b819ac4-a282-4413-aa45-356563550198@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1736465059;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=7V7la2Ow0dmMmaXPhyzYEGUuO3tHH+m08W0Z8ZWwrZA=;
-	b=jHjHdouV9m1wON/w/VN2qk2cwYN9hSBt+dOM6o6IC8nRm39mMpwrvsZmqFts3iJb52/Hra
-	Oj7Z5+07NG9FYx6Wms7UNHr+5bwxjzotbABllcYJyyBjtGn0imQTvGXt+jiqKnl6kYNQi0
-	8ITiiMuErzJeGJJ3LNMOLRXnxTpNZ14=
-Date: Thu, 9 Jan 2025 18:24:14 -0500
+	id 1tW243-0000000DZNA-1d0g;
+	Thu, 09 Jan 2025 23:35:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=q6uLJ4LISvFEeyya6O/0OdgM/2F3FosaJ8avibEUP1s=; b=iNotGkzkCDk1NX+bHOMVjTv9Dg
+	utUSBPQ8G3VcwHP9GssoaOarRozmTDM7zxwWPuFiUbgvggZM17MnLXm9YPJXcM9M17G84IMDseXpe
+	45cVbRg8rlFM6gSnZ0qIu7cKWi8C650ernP+ViQ5qW48lItAfMnH22lZ7BEsB/hKC1I+CsSFblK6m
+	vquYSm4u8T7/a7s4HI86DYBTVxFXy6Kcf1Hzq1ej4k0SzOf+LJ7c/HrkVOOfpcmKLcASZw0XQKQCh
+	5aVsa5QErLPdgqb4VO9DeHf48Kfi4BNqColLyoC4NymBftLa6QeARz0cLYMXG4U4rz5zrQpB3wHlt
+	wUhxPHdA==;
+Received: from i5e860d05.versanet.de ([94.134.13.5] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tW23l-00063C-W9; Fri, 10 Jan 2025 00:35:30 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Algea Cao <algea.cao@rock-chips.com>,
+	Sandy Huang <hjc@rock-chips.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Derek Foreman <derek.foreman@collabora.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	kernel@collabora.com,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] drm/rockchip: Don't change hdmi reference clock rate
+Date: Fri, 10 Jan 2025 00:35:19 +0100
+Message-ID: <173646570326.2987843.9070979804122130287.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20241217201708.3320673-1-derek.foreman@collabora.com>
+References: <20241217201708.3320673-1-derek.foreman@collabora.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH net v3] net: xilinx: axienet: Fix IRQ coalescing packet
- count overflow
-To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
- Shannon Nelson <shannon.nelson@amd.com>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, netdev@vger.kernel.org
-Cc: Michal Simek <michal.simek@amd.com>, Simon Horman <horms@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Andy Chiu <andy.chiu@sifive.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250109224246.1866690-1-sean.anderson@linux.dev>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <20250109224246.1866690-1-sean.anderson@linux.dev>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_152422_436070_8FB4320F 
-X-CRM114-Status: GOOD (  18.02  )
+X-CRM114-CacheID: sfid-20250109_153547_427349_8389C795 
+X-CRM114-Status: GOOD (  10.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,53 +86,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/9/25 17:42, Sean Anderson wrote:
-> If coalece_count is greater than 255 it will not fit in the register and
-> will overflow. This can be reproduced by running
-> 
->     # ethtool -C ethX rx-frames 256
-> 
-> which will result in a timeout of 0us instead. Fix this by checking for
-> invalid values and reporting an error.
-> 
-> Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
-> Fixes: 8a3b7a252dca ("drivers/net/ethernet/xilinx: added Xilinx AXI Ethernet driver")
-> ---
-> 
-> Changes in v3:
-> - Validate and reject instead of silently clamping
-> 
-> Changes in v2:
-> - Use FIELD_MAX to extract the max value from the mask
-> - Expand the commit message with an example on how to reproduce this
->   issue
-> 
->  drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 6 ++++++
->  1 file changed, 6 insertions(+)
-> 
-> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> index 0f4b02fe6f85..c2991aeccf2b 100644
-> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> @@ -2056,6 +2056,12 @@ axienet_ethtools_set_coalesce(struct net_device *ndev,
->  		return -EBUSY;
->  	}
->  
-> +	if (ecoalesce->rx_max_coalesced_frames > 255 ||
-> +	    ecoalesce->rx_max_coalesced_frames > 255) {
 
-The second line should be for tx and not rx.
+On Tue, 17 Dec 2024 14:17:07 -0600, Derek Foreman wrote:
+> The code that changes hdmi->ref_clk was accidentally copied from
+> downstream code that sets a different clock. We don't actually
+> want to set any clock here at all.
+> 
+> Setting this clock incorrectly leads to incorrect timings for
+> DDC, CEC, and HDCP signal generation.
+> 
+> [...]
 
-Will resend tomorrow if no other feedback.
+Applied, thanks!
 
---Sean
+[1/1] drm/rockchip: Don't change hdmi reference clock rate
+      commit: 1854df7087be70ad54e24b2e308d7558ebea9f27
 
-> +		NL_SET_ERR_MSG(extack, "frames must be less than 256");
-> +		return -EINVAL;
-> +	}
-> +
->  	if (ecoalesce->rx_max_coalesced_frames)
->  		lp->coalesce_count_rx = ecoalesce->rx_max_coalesced_frames;
->  	if (ecoalesce->rx_coalesce_usecs)
-
+Best regards,
+-- 
+Heiko Stuebner <heiko@sntech.de>
 
