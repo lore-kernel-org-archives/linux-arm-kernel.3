@@ -4,112 +4,195 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25226E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 15:01:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90C9BE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 15:03:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o05o/7Mxj4KVai2AnUEf3T0uGeZuV/vmCjsNpFWRxW8=; b=H2RE2hR9ryYTyEuthq7L4o3bCq
-	qhIlXn/AH1OStGfk/KBfTiN1EoQEixD6pl8B4v5SdWZmDuDGo+T0EAQmkWhdPtr+flGVAYbl4cjgM
-	wlk8zLh3fy/T/ts8BeLTgukbCV9DbUbgWjMkS7/YlqWNAyzb3X24+v6+/V4NvHNtBCjUk5EFnK1vE
-	jCjasKM5oiqHFAeel4SZVcxsPd5d/r6XNJhP2F3FZNPR06UTT0LYaMVrPW4lc4Eid7R5PWGnh6Jyw
-	JIr5JT1hyWz0BB7/bpfCKj4yrhMkgFc1LUSWPYGxmfbIoXH5e6lCtF25MYzAg72ZaBMejHafqe9oo
-	hxdnK8DA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Date:References:Message-ID:In-Reply-To:From:Subject:Cc:To:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jMUptaI9fqg5+RUs+IvqiL3lFR7AmqejQbFAnHpRhQc=; b=1MrTtcDceD4cGkFRf+3xgXRvGF
+	vC1Q392UknWCJTTclbt1utnhKz5NyDvyYPcBJuAR84nqrMjfb1ZBYkdmMieYyUdzac7jy9kJJSmA7
+	uiNszML0MpIwihDLUfNY35lYhYXPLi/VBFF9RYYLUeBe8jpxGTU8vbp4lJZlUIDmbuxHbif/4b2tQ
+	QFoGtc+QuxPwgcwKP1NELeVyem/mm1dgTbay/nLlZFb9Aw7sV/1erJKruEaLiBGyXC5+1i8xpFlQJ
+	uimPGvvzlAzKhvIjhis54iccy/nxPH1AMvRBuJDeyCxWuVniWTeKVeU9jFVpEyfLpEPUAUOiRbOmb
+	7Hcj57Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVu2X-0000000CLnf-11n9;
-	Thu, 09 Jan 2025 15:01:41 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tVu3i-0000000CM8i-18cU;
+	Thu, 09 Jan 2025 15:02:54 +0000
+Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVu1H-0000000CLVu-2ZHi
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 15:00:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1736434821;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=o05o/7Mxj4KVai2AnUEf3T0uGeZuV/vmCjsNpFWRxW8=;
-	b=ii7G/fsjkp/F0U/VicoyiDZuH1QIxfqNpKC2It6VS/lMLdw9TQc/B2/mmjPF35wLWOOCpf
-	t1QWCYb7Ol9tQQ70FuyCRKRKaPvt2h17oxKbdJZr23/jQcTh5Z46fLIkG/kdHdFcbCutyr
-	mZKEs7y4HsmN0nqj8CENe2dUTJ3IPJc=
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
- [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-318-5-KCcmovN1SB4BmUy5TEKg-1; Thu, 09 Jan 2025 10:00:20 -0500
-X-MC-Unique: 5-KCcmovN1SB4BmUy5TEKg-1
-X-Mimecast-MFC-AGG-ID: 5-KCcmovN1SB4BmUy5TEKg
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-385e00ebb16so447406f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jan 2025 07:00:19 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736434819; x=1737039619;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=o05o/7Mxj4KVai2AnUEf3T0uGeZuV/vmCjsNpFWRxW8=;
-        b=jZLygIy5BPlA9sZibMLLHlMXRbklS4QenrNoH67W75fhp0DtlG7POc35hkAsKIDL+g
-         eWpVMIJBV87O3GKkSPuRKDVkhidV5Eylmsga/k3OHEPvzgMIibzxIYUyQ1BsjqiqZsXu
-         6qaOZG9MWY1Nxw0808bJ2ix/vZZDm771ygZ/M5HZUdbBDK1f/rfqdW2asZmb72vPtK62
-         YMRoxCVbPE2TV31Qboy8mF3RJNMpPHyMy/YFtMFhzTgVQPcbJV0SQ4QQj4tcfDBgBTD1
-         a6xQDeZe41YXEypcPxlONJ1UhhJRgil8/l1hHBP1LDT+CUAu69DMwQXUFJpFPnukuddT
-         W4pg==
-X-Forwarded-Encrypted: i=1; AJvYcCV24olXafVaVLKdCCAxRaBs5D07x9ohbHctM3V4cCR3mQ2gvCwcxfyZQMiC1cH3OYP0wMOiQF9T0wudJ7xliFLv@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy63fO9cmve8f4CX7AkE7kVCn3kJwKt3e/ZW+6GoSYZbVVmEoyV
-	8VVeP/gwBR6o+odM5bTDZy/udGnsEOjTXK18m5ltPAGGF3CfMWQ8BcsAdTM77nFJxpEyUZ9gfgp
-	4Ud9kO6IpIF4sEu4dzEnzBK6Rir3nXhq0yImtz+JWy408N8H/5MfmqZbivr0QIDcnqR1e8PtE
-X-Gm-Gg: ASbGncvSU3wjlxj+NuYFRJqqqZ4hhjxbcSXePthh377wwUz6B4zEw1nqXtaFYcHKTF7
-	lgT5zmf+bjt4WSIw83fVCA4znbdaRinYNUkLEYCjBUJDaMbaOKZ6WH/XeBpIILIZ5rlD+Ei+eZ2
-	Q3NMh4VNktDG1KLr/hs+6oZJGqmBfwexptxtRisy5C6K7mHTihcf8Lwy2e2qDUEK8QE12CMG5Ig
-	VP2XYJj0O2BgzYyJGfNix0Gt0cuWBi3m1nskTAr0Ivn+r3suYzTiGBZtfHWF160nd1lr4RqqlJo
-	u+vokHc9
-X-Received: by 2002:a5d:47a3:0:b0:38a:4184:2510 with SMTP id ffacd0b85a97d-38a872db629mr7036759f8f.23.1736434818615;
-        Thu, 09 Jan 2025 07:00:18 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IH0qpefjzwggolZbq54RnTPm+ZuDN/XJ1XaE+4DqwqaPVubWYTbEoLSIZAP8E8huVRHQ5WKJg==
-X-Received: by 2002:a5d:47a3:0:b0:38a:4184:2510 with SMTP id ffacd0b85a97d-38a872db629mr7036723f8f.23.1736434818145;
-        Thu, 09 Jan 2025 07:00:18 -0800 (PST)
-Received: from [192.168.88.253] (146-241-2-244.dyn.eolo.it. [146.241.2.244])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a8e38c6dbsm2083082f8f.55.2025.01.09.07.00.16
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 09 Jan 2025 07:00:17 -0800 (PST)
-Message-ID: <5ed1d572-b2e4-46f9-b9a5-6c4c0190fe7d@redhat.com>
-Date: Thu, 9 Jan 2025 16:00:16 +0100
+	id 1tVu1w-0000000CLfa-0uiN;
+	Thu, 09 Jan 2025 15:01:05 +0000
+Received: from pps.filterd (m0333521.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 509CfnEU010941;
+	Thu, 9 Jan 2025 15:00:54 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=corp-2023-11-20; bh=jMUptaI9fqg5+RUs+I
+	vqiL3lFR7AmqejQbFAnHpRhQc=; b=ZKLqGfAlKID2gYfwuP+LlcWuWqkWRhqfLC
+	4bMhKd4WlYQVAjthTvyZqd0q7fioOBZdzjqHs/jv2ywfetWrPXV06bV9X4G/Ycfl
+	wbYtAciZa6qM0+dDNx14odAb5sY+rDbk/iViTIp6ARSA5g9oWtXwya4FY6wpHzHa
+	EN0aiJ6II3L6JnL1fIMMhPI3o6/ZesY2Ery53T5MKvPRXupL86Fd/A6dYZ8CtIML
+	W08wSLa7uBN+faiccwo5qvsrhFJX3XnULycouwCV/SyvUagLteCJ0/ZIg2AmADCi
+	QJ/0Y+2uU6lYLBQcRj1gAA22kdqSD0a3GJDtLzuxe0cWa/iCgm1A==
+Received: from iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta03.appoci.oracle.com [130.35.103.27])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 43xuwb95dc-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 09 Jan 2025 15:00:53 +0000 (GMT)
+Received: from pps.filterd (iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 509EQ3lm010865;
+	Thu, 9 Jan 2025 15:00:52 GMT
+Received: from nam04-bn8-obe.outbound.protection.outlook.com (mail-bn8nam04lp2042.outbound.protection.outlook.com [104.47.74.42])
+	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 43xueb1ah4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 09 Jan 2025 15:00:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lCFpDHOQhu6xZGt6Sa3mc5WvDHjASrjznsuq3pa9/8gRdKM6+Oy4KZVZGtccD1klyRCKYI4s8NOj3rMlYqtCJQPk3q1RISpnRy0RXOtoz6iBIkBfzQf490DydD1ecW+HLd+tJUy5lJcomhb1wgaebFs/kfxyXocJpyxECvDWC+NDr6usPFLqUXwnqVD0dEgsXNRZ8NHjW8DBk7KM1OgrnCKY77Qk91Et3w3KGd+LAp0s1FEiyk+5RbF8u1SX/vCVYQZ19qR6x3bRXsC0PCOXHtrkysizcmdFRJd04JLEHuK2Yu9Ptt5zXej8v7Q9vRrlM2p/ybIe52aAo73idrKTfw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jMUptaI9fqg5+RUs+IvqiL3lFR7AmqejQbFAnHpRhQc=;
+ b=BMRs0/8tL8b3tWch/NJTK/7Pz9rctGrgpf95IuDWE2UOD/7YrppNXhigasORdyjo1UCOFDnODQoI2KqKFmjaxxdPDEGHRhva9ryzSach02Jm1omjqFEhffSxDUXuttDqIVzBg7b2PV/2ZUPXq/MJZuOdhitBXEBQk7l7AeZBf10R4NklOWqWiMRgTYmSrbog0+lcP3fn8KmjjBqcV1AKpq9cQp50h5Wozhz1q0Wp5Xn2e50Bzy/5F8exuPXBvsIDHmmf1lHUwftYWW5Kmmb18hbNBF6GeWJ2y3392RUvdcStbWubWJDRNBfieOzMRm3dszF9MnF4zCucKWSAiIQLRg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jMUptaI9fqg5+RUs+IvqiL3lFR7AmqejQbFAnHpRhQc=;
+ b=OrOCCYEBQosTxVVlFghCyGRnSbxwjYNaQBAUHfLPuEhq6USvwVdXmhomijJ2+HEcDnpL+oYdBas0Ko8OQ+Xv4KVr4i+i8oQv9xnL8WUxMcGiDrmVQOfh5BibsNN0vr637OmP1k3h778mNsH+Gk42K9EKIEr5HU0jdteeSRM6tsU=
+Received: from CH0PR10MB5338.namprd10.prod.outlook.com (2603:10b6:610:cb::8)
+ by SN7PR10MB7001.namprd10.prod.outlook.com (2603:10b6:806:345::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.10; Thu, 9 Jan
+ 2025 15:00:49 +0000
+Received: from CH0PR10MB5338.namprd10.prod.outlook.com
+ ([fe80::5cca:2bcc:cedb:d9bf]) by CH0PR10MB5338.namprd10.prod.outlook.com
+ ([fe80::5cca:2bcc:cedb:d9bf%6]) with mapi id 15.20.8335.012; Thu, 9 Jan 2025
+ 15:00:49 +0000
+To: Joel Granados <joel.granados@kernel.org>
+Cc: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>,
+        Kees Cook
+ <kees@kernel.org>, Luis Chamberlain <mcgrof@kernel.org>,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+        linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
+        openipmi-developer@lists.sourceforge.net,
+        intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+        intel-xe@lists.freedesktop.org, linux-hyperv@vger.kernel.org,
+        linux-rdma@vger.kernel.org, linux-raid@vger.kernel.org,
+        linux-scsi@vger.kernel.org, linux-serial@vger.kernel.org,
+        xen-devel@lists.xenproject.org, linux-aio@kvack.org,
+        linux-fsdevel@vger.kernel.org, netfs@lists.linux.dev,
+        codalist@coda.cs.cmu.edu, linux-mm@kvack.org,
+        linux-nfs@vger.kernel.org, ocfs2-devel@lists.linux.dev,
+        fsverity@lists.linux.dev, linux-xfs@vger.kernel.org,
+        io-uring@vger.kernel.org, bpf@vger.kernel.org,
+        kexec@lists.infradead.org, linux-trace-kernel@vger.kernel.org,
+        linux-hardening@vger.kernel.org, apparmor@lists.ubuntu.com,
+        linux-security-module@vger.kernel.org, keyrings@vger.kernel.org
+Subject: Re: [PATCH] treewide: const qualify ctl_tables where applicable
+From: "Martin K. Petersen" <martin.petersen@oracle.com>
+In-Reply-To: <20250109-jag-ctl_table_const-v1-1-622aea7230cf@kernel.org> (Joel
+	Granados's message of "Thu, 09 Jan 2025 14:16:39 +0100")
+Organization: Oracle Corporation
+Message-ID: <yq1ed1c823x.fsf@ca-mkp.ca.oracle.com>
+References: <20250109-jag-ctl_table_const-v1-1-622aea7230cf@kernel.org>
+Date: Thu, 09 Jan 2025 10:00:46 -0500
+Content-Type: text/plain
+X-ClientProxiedBy: SJ2PR07CA0015.namprd07.prod.outlook.com
+ (2603:10b6:a03:505::28) To CH0PR10MB5338.namprd10.prod.outlook.com
+ (2603:10b6:610:cb::8)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3 2/3] net: ti: icssg-prueth: Add Multicast
- Filtering support for VLAN in MAC mode
-To: MD Danish Anwar <danishanwar@ti.com>, Jeongjun Park
- <aha310510@gmail.com>, Alexander Lobakin <aleksander.lobakin@intel.com>,
- Lukasz Majewski <lukma@denx.de>, Meghana Malladi <m-malladi@ti.com>,
- Diogo Ivo <diogo.ivo@siemens.com>, Simon Horman <horms@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>,
- "David S. Miller" <davem@davemloft.net>, Andrew Lunn
- <andrew+netdev@lunn.ch>, Roger Quadros <rogerq@kernel.org>
-Cc: linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, srk@ti.com,
- Vignesh Raghavendra <vigneshr@ti.com>,
- Michal Swiatkowski <michal.swiatkowski@linux.intel.com>,
- Larysa Zaremba <larysa.zaremba@intel.com>
-References: <20250103092033.1533374-1-danishanwar@ti.com>
- <20250103092033.1533374-3-danishanwar@ti.com>
- <133b8da8-a2da-4bac-b0bb-7dcaebc219b9@redhat.com>
- <31a45fb4-acb6-4eb6-9ffb-ff1be798a064@ti.com>
- <45fac9f0-b31a-495d-bd1b-ccf0fbe19653@redhat.com>
- <b8d46941-aeb2-466a-acd5-8ad5be832649@ti.com>
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <b8d46941-aeb2-466a-acd5-8ad5be832649@ti.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: ScXhbUP1XkNRY79JkeMA6hovisvDtJK1WFl5MCkYFqM_1736434819
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH0PR10MB5338:EE_|SN7PR10MB7001:EE_
+X-MS-Office365-Filtering-Correlation-Id: 57ca7bf9-9646-491b-b6df-08dd30be6736
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?1s5eliMSE67bSIt5uQKs2IcnP+0PNCj0WZFBBku5t3uvZomcBm6xiJzzqgmI?=
+ =?us-ascii?Q?+XHPLdw+eszd1/QyQrJPQNTTQGoQ0r6A7EHV4YmnZxrMySwRwTMKbnLRjstN?=
+ =?us-ascii?Q?jPHt9B18dW5Jc4xUXfLdJMTzatVzshMrKqA/ohaLOkvQRuMJS1QLxJyXvUeb?=
+ =?us-ascii?Q?vv5bbjR698U6ikpCZ+PLDFxq5eQ7AZjJs7PdjSCX0pwbzzxDimK80RdbgWGf?=
+ =?us-ascii?Q?0AroawK83y5svXx6thDxQjQgBnz4+K64uryopn61Qr46+fQoncUV5i3LKKkg?=
+ =?us-ascii?Q?2dOj2x107aOMexqiLArcaMJw7RMKWKtjw8KPvref/3xYIQWalB5vv5y/sn9G?=
+ =?us-ascii?Q?hvSfmB3g09Thi1y40nIwusr8OgBFBlSWfJsdvUnZn80PdR1vWrqXTbMJovp1?=
+ =?us-ascii?Q?ocEfIVEqBsppyY1WVbmKSpEqYmMlxiIGDBnF8F0p5CrEnsAvXB7Zpi9GuhiH?=
+ =?us-ascii?Q?OcbJRt8veDrcu84G9H9eshJunDn9D/un02cG6x8/lMF7M2vd2XL+hW3HGmjL?=
+ =?us-ascii?Q?ytkwL/frvsBE/nhleo7zBNXarmoxAtTjjPvSSrMf5F4mVADVMgL30MERFK95?=
+ =?us-ascii?Q?1iiHhz1qvu8Ou1hlsxWqHLO90O4fSUounpfRNbzEuRbhIQvel4J+m7ZHXb2m?=
+ =?us-ascii?Q?iekRVTSZBCwbNUinUi3LYCfHeBkXjcK3dPKFVFZjUVBmC2LrOrV2nHDtOG3i?=
+ =?us-ascii?Q?q2X3joQYJ/tcR9bDhRPZ5tlRikiBOT7VE3yURFC3rNNCZUEa+hOxNFvbYkrS?=
+ =?us-ascii?Q?nl5WnQdvm2IM3bafp7Vo+6wNAMuCI3wZQs6j4eAGqKN0KEU0S1Dxh70d4axv?=
+ =?us-ascii?Q?H4wTt1q7pr28TlIFNl0PfctPMmHJBdcJaHzBvbNTo5KVYsucjQxhxmDNUVqr?=
+ =?us-ascii?Q?8StZ2Vkasxkex+OFgjsBcMUDTR8B2qFSb/MRPh3Rh1+WcbkCGcwPup6I8zpJ?=
+ =?us-ascii?Q?1HjTT/a+amAxP4yi/sW4j8pWYTBx2CZIy10YJ8Tbdydy/HH8iekZVSEzxBqn?=
+ =?us-ascii?Q?Jv47TpOuTl9MigO3m6ov/6gf71YaU2xnC1/mmgej/oy+twi3Uvr1RJn3ptNg?=
+ =?us-ascii?Q?g2cA+a6gKL3SYY9phppNZAe/eEHK1wsx7dhMve3MOpgxGW2qmGa2yQc9AsJO?=
+ =?us-ascii?Q?WvFu0MdkMAVN0hJiyMVjuhzicu583QJ58PtDQibgopUVAbCmGMakal+G1RxB?=
+ =?us-ascii?Q?HviCgXT+W/c8i1o3H/BGd65sJtxQkFz+3gWKKrITHpS5j7KccnOZj41Sd+6O?=
+ =?us-ascii?Q?b6V0wjDzzI1q6lMPVkHyd2rO1/CRq0b8VAvxZWU0oj1z2DJaqoWumNSbr7R6?=
+ =?us-ascii?Q?i+w2GAokUpbp82H6N/M8tL4IKOntd5dzeuv1zxQP35Rv6TkvI/xFtagtT+Hc?=
+ =?us-ascii?Q?IGINZ4zJUJZy40/LyzmX2agqnz3K?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR10MB5338.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?WZNn6E1Pa7bGKzLrcJDJZOlfoqcHArJ/1AObxs3buzZgzUpMr8lBMjhap0F9?=
+ =?us-ascii?Q?mYMw0mCidu5gzvLAi8PBvxj0uhCHw9K3LgPDSnmUwTYcICw856X+uMf30Tho?=
+ =?us-ascii?Q?3FDT/VmGo38Jwp53p8Bfm8qyxp/0LytCAwqwBlGP8VB6MT1LnVmLBLM9uRvY?=
+ =?us-ascii?Q?kA3haz6zRHG5ZBQPXop+/6efFgCuyLTz9CCNFA4e0Z8WgSAgJKsQrMsQSN1j?=
+ =?us-ascii?Q?qfd2Nxs2aS9uWBaVrZLtVdaco5UmKyhfMudR9asTb3S+nIh/A0o88X3cMlJ8?=
+ =?us-ascii?Q?7qQlUIfjM8/WIj3VP4zsJLfxe4UKkL8OnT9BcfIS9GZwhaGqGbKbR+D3jtof?=
+ =?us-ascii?Q?rp0tMONITtuY4+MGPUBAtzGYkYwW/6GaTFOibH9vZ0arw4NzmWgaOv8JtRjO?=
+ =?us-ascii?Q?oM27MHfMuLwrHzGtM2pe5ezq5WyS6/bWGLo/JLtWb85ItRkBNeGKgSFNXdWj?=
+ =?us-ascii?Q?K0WkUnbkLQ3erszvL93qxuLf36uMCiQIrjvziGhCA0AJYJ8O2Q4iV0QYWIWH?=
+ =?us-ascii?Q?vxP7YlUjTCdESdXhxyN+z6WxZrd/O3bV77dfkk+l8RfodLl4dMIl3XCHazSZ?=
+ =?us-ascii?Q?tNY19C1vkXbpHjyJagJ+Kipdphsm5Nfk029iSFbb7S+qG2POw2Z7OYg6MWLx?=
+ =?us-ascii?Q?2KnKr668r8F8/DvynAy2zKi94Zfc+Ex6Ca8HiKQI55EMeIwKnauWfEmXqPEP?=
+ =?us-ascii?Q?ybf1A+fy7vO52eWYrVIf/K58IT8RbOy9sXBULZpmF5XaQHLX3KE0Oz9USdQ6?=
+ =?us-ascii?Q?YjQngikYaXNrgzbXf8Wsc/skw1gx+kck/Isa2JhBRBShgN8p9WZMyCn6gBw7?=
+ =?us-ascii?Q?gZeqcEstNVEKVKK2fGZpkEEqQhmXBcVYFDjY0YvaM5Ceb36ussgJb9YzuNM+?=
+ =?us-ascii?Q?zNMSL9o2Rf/sy+xyqe4MTCL8lykXCFbysWguFjNzmXidVzssSDfRv86/cWR+?=
+ =?us-ascii?Q?yDIFJpwzweS2h7eoqDO42g0M2HJF2SC0eGjcs5wKAZB13Qj7CyhK7NED+ynV?=
+ =?us-ascii?Q?9Q+gNeBoZknbT1X1wZqhrHD5nU+0VQpEhGVKoTYqYp7CRWmdcB6OoMUyXEL6?=
+ =?us-ascii?Q?qcQsmxq1otuQP6/vvFXSBbEdxHvE1fIli8t4pxe4PE57V2sHk6djEeRDXxxZ?=
+ =?us-ascii?Q?KE0gE0FpKS75eQDRfCZM6yiSgfEs181Te4+8TJpTQ7/2MIVZHG4DkZvtF8In?=
+ =?us-ascii?Q?tJrfIrZnPLTE7hb5rdomq6StRLsCkRDPbxpgS4s63GjDXzeI8a7kF6is6GQe?=
+ =?us-ascii?Q?MoFw9u2F5ger1qJ30DJuI6ISnVE17NaPINaCxiXeNqNwSfjfizMnMXBRGhwy?=
+ =?us-ascii?Q?23RsyQHncvlXPZvcSYXA4FijIuCYOrky+B7oUBqSgdI9fRP84jQbXI/OJDx2?=
+ =?us-ascii?Q?uz9U6vTi0uB1nHn6NCs1aOAac2w28+og4LYyE/9//S3ek+8P6IlaDGipvKYV?=
+ =?us-ascii?Q?QagAbCVxdUi7LZDS+55o4HF/1TiL5nCXySk+mRU9ASBwxtuDZsf+OPpiIJeJ?=
+ =?us-ascii?Q?tH2ppTFQ8SV9JH39LgIEe3yoPCXUojgQHKGRFVPAnLGqFj/Wy9p8fGHjvKCY?=
+ =?us-ascii?Q?dxwuK/flWMBwLr1owtHdeGOzFj+sbzhcHME3fP5Sd5WDvk6BgqYwvUYSM3Vu?=
+ =?us-ascii?Q?fw=3D=3D?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: Z2ezp0GeC+tCAty8oNhH+Bxy14WAfO6YLudztqZns732Dr0QNSgcWLPMEb56XKYzxsISMSnUx1GkxolfLHx8QwH3aPViqoqQPRniwzxVRHjbJRNQSnKucs2z/YFx9ssTzXfjE0G3Qi9taDO5X17op/ReRjMnQ2OQAduZfRc9Qqy3JDI/0eXh2ZWUSh0+GDq+BQKFROJVrTHTnW2o6xNdER+888B1/cz+pmLrD0EvYPmvjrCKQBpkGB8IZYwKuLCB4t0pzswCmFKAxhxYYTuLhER6orCrIWpsZoXZxRqwUfindm1PxU+UfzvfK2NCcRyOazoVvYNENj9yXk3leqQ6Y8l2ijF/gdhZzD/fZZQYvnAc7LEKfcXFULkUL9vbaZTMBWRUAXJuAW0gRCuvA9deA1xfXb8yzPHxOiszwK+r2qgMTA5ec9WUelk3pY8aeq3FQnHvnKk8ooLyMCpeUisQFjoKRzVWGyRWQ8J6T5YYj+xGYdFi0F9jGWX83dtphIz6bHam3CAuzy/gpWh1k+to6CNnv2uO6iwMHozr7LpA+r9oYSwJ8o1AN8jws6/8kVKYGulR99qsLzEvnjqFQNQsyA96ngiGqmo6v1xIeg2yoiU=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 57ca7bf9-9646-491b-b6df-08dd30be6736
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR10MB5338.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jan 2025 15:00:49.1161
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: leHSaRakdAn44d9JTPJGGjwmkjIzP6V+HUsYDpT9nyRHh5QA3A00LFHg8x0aOHYjIzoJs/bIHXolJQXc/ZKEsw5B5oXtdGA/kAFQ3UU4rdI=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR10MB7001
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-09_06,2025-01-09_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 phishscore=0 malwarescore=0
+ adultscore=0 mlxlogscore=811 suspectscore=0 mlxscore=0 spamscore=0
+ bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2411120000 definitions=main-2501090120
+X-Proofpoint-GUID: ujTpPHVSX-fTLPpls6O5X7zV8q5ouFNE
+X-Proofpoint-ORIG-GUID: ujTpPHVSX-fTLPpls6O5X7zV8q5ouFNE
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_070023_826897_A9F17BA2 
-X-CRM114-Status: GOOD (  51.72  )
+X-CRM114-CacheID: sfid-20250109_070104_254916_FCA94D51 
+X-CRM114-Status: UNSURE (   8.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,244 +207,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/8/25 10:40 AM, MD Danish Anwar wrote:
-> On 07/01/25 11:57 pm, Paolo Abeni wrote:
->> On 1/7/25 11:47 AM, MD Danish Anwar wrote:
->>> On 07/01/25 3:12 pm, Paolo Abeni wrote:
->>>> On 1/3/25 10:20 AM, MD Danish Anwar wrote:
->>>>> Add multicast filtering support for VLAN interfaces in dual EMAC mode
->>>>> for ICSSG driver.
->>>>>
->>>>> The driver uses vlan_for_each() API to get the list of available
->>>>> vlans. The driver then sync mc addr of vlan interface with a locally
->>>>> mainatined list emac->vlan_mcast_list[vid] using __hw_addr_sync_multiple()
->>>>> API.
->>>>>
->>>>> The driver then calls the sync / unsync callbacks and based on whether
->>>>> the ndev is vlan or not, driver passes appropriate vid to FDB helper
->>>>> functions.
->>>>>
->>>>> This commit also exports __hw_addr_sync_multiple() in order to use it
->>>>> from the ICSSG driver.
->>>>>
->>>>> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
->>>>> ---
->>>>>  drivers/net/ethernet/ti/icssg/icssg_prueth.c | 67 ++++++++++++++++----
->>>>>  drivers/net/ethernet/ti/icssg/icssg_prueth.h |  6 ++
->>>>>  include/linux/netdevice.h                    |  3 +
->>>>>  net/core/dev_addr_lists.c                    |  7 +-
->>>>>  4 files changed, 66 insertions(+), 17 deletions(-)
->>>>>
->>>>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
->>>>> index 1663941e59e3..ed8b5a3184d6 100644
->>>>> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
->>>>> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
->>>>> @@ -472,30 +472,44 @@ const struct icss_iep_clockops prueth_iep_clockops = {
->>>>>  
->>>>>  static int icssg_prueth_add_mcast(struct net_device *ndev, const u8 *addr)
->>>>>  {
->>>>> -	struct prueth_emac *emac = netdev_priv(ndev);
->>>>> -	int port_mask = BIT(emac->port_id);
->>>>> +	struct net_device *real_dev;
->>>>> +	struct prueth_emac *emac;
->>>>> +	int port_mask;
->>>>> +	u8 vlan_id;
->>>>>  
->>>>> -	port_mask |= icssg_fdb_lookup(emac, addr, 0);
->>>>> -	icssg_fdb_add_del(emac, addr, 0, port_mask, true);
->>>>> -	icssg_vtbl_modify(emac, 0, port_mask, port_mask, true);
->>>>> +	vlan_id = is_vlan_dev(ndev) ? vlan_dev_vlan_id(ndev) : PRUETH_DFLT_VLAN_MAC;
->>>>> +	real_dev = is_vlan_dev(ndev) ? vlan_dev_real_dev(ndev) : ndev;
->>>>> +	emac = netdev_priv(real_dev);
->>>>> +
->>>>> +	port_mask = BIT(emac->port_id) | icssg_fdb_lookup(emac, addr, vlan_id);
->>>>> +	icssg_fdb_add_del(emac, addr, vlan_id, port_mask, true);
->>>>> +	icssg_vtbl_modify(emac, vlan_id, port_mask, port_mask, true);
->>>>>  
->>>>>  	return 0;
->>>>>  }
->>>>>  
->>>>>  static int icssg_prueth_del_mcast(struct net_device *ndev, const u8 *addr)
->>>>>  {
->>>>> -	struct prueth_emac *emac = netdev_priv(ndev);
->>>>> -	int port_mask = BIT(emac->port_id);
->>>>> +	struct net_device *real_dev;
->>>>> +	struct prueth_emac *emac;
->>>>>  	int other_port_mask;
->>>>> +	int port_mask;
->>>>> +	u8 vlan_id;
->>>>> +
->>>>> +	vlan_id = is_vlan_dev(ndev) ? vlan_dev_vlan_id(ndev) : PRUETH_DFLT_VLAN_MAC;
->>>>> +	real_dev = is_vlan_dev(ndev) ? vlan_dev_real_dev(ndev) : ndev;
->>>>> +	emac = netdev_priv(real_dev);
->>>>>  
->>>>> -	other_port_mask = port_mask ^ icssg_fdb_lookup(emac, addr, 0);
->>>>> +	port_mask = BIT(emac->port_id);
->>>>> +	other_port_mask = port_mask ^ icssg_fdb_lookup(emac, addr, vlan_id);
->>>>>  
->>>>> -	icssg_fdb_add_del(emac, addr, 0, port_mask, false);
->>>>> -	icssg_vtbl_modify(emac, 0, port_mask, port_mask, false);
->>>>> +	icssg_fdb_add_del(emac, addr, vlan_id, port_mask, false);
->>>>> +	icssg_vtbl_modify(emac, vlan_id, port_mask, port_mask, false);
->>>>>  
->>>>>  	if (other_port_mask) {
->>>>> -		icssg_fdb_add_del(emac, addr, 0, other_port_mask, true);
->>>>> -		icssg_vtbl_modify(emac, 0, other_port_mask, other_port_mask, true);
->>>>> +		icssg_fdb_add_del(emac, addr, vlan_id, other_port_mask, true);
->>>>> +		icssg_vtbl_modify(emac, vlan_id, other_port_mask,
->>>>> +				  other_port_mask, true);
->>>>>  	}
->>>>>  
->>>>>  	return 0;
->>>>> @@ -531,6 +545,25 @@ static int icssg_prueth_hsr_del_mcast(struct net_device *ndev, const u8 *addr)
->>>>>  	return 0;
->>>>>  }
->>>>>  
->>>>> +static int icssg_update_vlan_mcast(struct net_device *vdev, int vid,
->>>>> +				   void *args)
->>>>> +{
->>>>> +	struct prueth_emac *emac = args;
->>>>> +
->>>>> +	if (!vdev || !vid)
->>>>> +		return 0;
->>>>> +
->>>>> +	netif_addr_lock_bh(vdev);
->>>>> +	__hw_addr_sync_multiple(&emac->vlan_mcast_list[vid], &vdev->mc,
->>>>> +				vdev->addr_len);
->>>>> +	netif_addr_unlock_bh(vdev);
->>>>
->>>> At this point, isn't emac->vlan_mcast_list[vid] == vdev->mc?
->>>>
->>>>> +
->>>>> +	__hw_addr_sync_dev(&emac->vlan_mcast_list[vid], vdev,
->>>>> +			   icssg_prueth_add_mcast, icssg_prueth_del_mcast);
->>>>
->>>> If so, can this function be reduced to just:
->>>>
->>>> 	__dev_mc_sync(vdev, icssg_prueth_add_mcast, icssg_prueth_del_mcast);
->>>>
->>>> ?
->>>>
->>>
->>> I don't know but for some reason __dev_mc_sync() doesn't work here. My
->>> initial approach was to use __dev_mc_sync(vdev, sync, unsync) however it
->>> didn't work.
->>>
->>> When I use __dev_mc_sync() and print the vlan_id in function
->>> icssg_prueth_add_mcast(). It always prints vlan_id as 0 implying
->>> __dev_mc_sync from here never gets called. Whereas when using
->>> __hw_addr_sync_dev() I see the appropriate vlan_id in
->>> icssg_prueth_add_mcast()
->>
->> It look like the above needs more investigation, right? is
->> vlan_mcast_list[vid] different from vdev->mc? why? At very least you
->> need to provide a clear explaination of the above.
->>
-> 
-> I did further debug on this. At this point vlan_mcast_list[vid] is
-> actually same as vdev->mc in terms of the multicast addresses.
-> 
-> However the sync_cnt and refcount of the addresses in both the lists are
-> not same. Due to which vdev->mc doesn't work here. I will explain it.
-> 
-> __dev_mc_sync(vdev, sync, unsync) will call __hw_addr_sync_dev(&dev->mc,
-> dev, sync, unsync)
-> 
-> Now in __hw_addr_sync_dev() sync is only called when ha->sync_cnt == 0
-> for the given mac address. If ha->sync_cnt is non zero, sync will not
-> get called.
-> 
-> When we add a multicast address to the vlan interface using below command,
-> 	
-> 	ip maddr add <mac_addr> dev eth1.6
-> 
-> ndo_set_rx_mode() gets called for the vlan interface i.e.
-> vlan_dev_set_rx_mode() [net/8021q/vlan_dev.c] which syncs mc list from
-> the vdev to the real_dev of vdev by calling dev_mc_sync(real_dev, vdev)
-> 
-> Now dev_mc_sync() sync addresses from vdev to real_dev using
-> __hw_addr_sync().
-> 
-> __hw_addr_sync() calls __hw_addr_sync_one() which after successfully
-> syncing an address from vdev to real_dev increment the ha->sync_cnt. As
-> a result at this point the ha->sync_cnt == 1 for the above address
-> passed by command. After this vlan_dev_set_rx_mode() calls the
-> set_rx_mode() of the real_dev.
-> 
-> Now when icssg_update_vlan_mcast() calls __dev_mc_sync(vdev, sync,
-> unsync), it calls _hw_addr_sync_dev(&dev->mc, dev, sync, unsync) and
-> checks the ha->sync_cnt for the given address, since sync_cnt is already
-> 1, it doesn't consider it as an newly added address and sync / unsync
-> callbacks are not called. [1]
-> 
-> list_for_each_entry_safe(ha, tmp, &list->list, list) {
-> 	if (ha->sync_cnt)
-> 		continue;
-> 
-> Since for addresses in vlan interfaces, sync_cnt will always be set as
-> vlan_dev_set_rx_mode() will sync the mc list of vlan interface with the
-> real dev. This will mean that the driver implemented sync / unsync APIs
-> will only be called for the real_dev and the real_dev won't have any
-> information about the vlan_id which I need in my sync / unsync APIs to
-> populate the same in the hardware maintained FDB table.
-> 
-> To overcome this, I am maintaining a local copy of vdev->mc named
-> emac->vlan_mcast_list[vid]. I will sync address from vdev->mc to this.
-> and then call __hw_addr_sync_dev() on this list as the sync_cnt for
-> address in this list will still be zero. Which will then trigger my
-> sync() callback on the vdev which will help me obtain the vlan_id in the
-> sync callback. I can now populate the same in the hardware maintained
-> FDB table.
-> 
-> I hope this explains why I am using
-> 
-> 	__hw_addr_sync_dev(&emac->vlan_mcast_list[vid], vdev,
-> icssg_prueth_add_mcast, icssg_prueth_del_mcast)
-> 
-> instead of
-> 
-> 	__dev_mc_sync(vdev, icssg_prueth_add_mcast, icssg_prueth_del_mcast);
-> 
->>> Anyways, Even if I use __dev_mc_sync(), we will still need the export. I
->>> am exporting __hw_addr_sync_multiple() not __hw_addr_sync_dev(). The API
->>> being used by me `__hw_addr_sync_dev()` is already exported.
->>
->> I fear there is a misunderstanding. I'm suggesting dropping
->> __hw_addr_sync_multiple() usage entirely. If that is not possible, a
->> clear and complete explaination of the reason/root cause must be provided.
->>
-> 
-> As explained above, I need to be able to sync addresses from vdev->mc to
-> my local list. Now this can be done using two APIs.
-> 
-> 1. __hw_addr_sync() - This is already exported and is actually the first
-> choice. However this will fail syncing address from vdev->mc to my local
-> copy.
-> 
-> __hw_addr_sync() only syncs the address if ha->sync_cnt == 0. If the
-> sync_cnt is non zero, this will skip the address. As explained above,
-> for mc addresses of vlan interfaces, sync_cnt will always be set as
-> vlan_dev_set_rx_mode() will sync the mc list of vlan interface with the
-> real dev. As a result the addresses will be skipped and __hw_addr_sync()
-> will not serve the purpose here.
-> 
-> 2. __hw_addr_sync_multiple() - This actually works perfectly fine here
-> as it sync address even if sync_cnt is non zero. As a result I am using
-> this function in my implementation.
-> 
-> Since this is not public, I have to export it so that the driver can
-> call this.
-> 
-> So I am afraid dropping __hw_addr_sync_multiple() is not possible here.
-> I hope the explanation above makes sense to you.
-> 
-> Please let me know if this is OK with you. If you have some other way> through which I can make this work please let me know.
 
-I think it makes sense and I can't think of simpler ways on top of my
-head. Please repost capturing a synopsis of the above in the commit message.
+Joel,
 
-Thanks,
+> Add the const qualifier to all the ctl_tables in the tree except the
+> ones in ./net dir. The "net" sysctl code is special as it modifies the
+> arrays before passing it on to the registration function.
 
-Paolo
+Reviewed-by: Martin K. Petersen <martin.petersen@oracle.com> # SCSI
 
+-- 
+Martin K. Petersen	Oracle Linux Engineering
 
