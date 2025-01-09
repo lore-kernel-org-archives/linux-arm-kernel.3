@@ -4,77 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 107ACE77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 11:51:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF3B5E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 11:57:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cjlJPdHZfFlnWi9zFpTiPy4i/wlFmKUpofmp/B7kgII=; b=wIhxlYuICSZlSwUpSGOGM9BmZs
-	wuyCvCOPRNf32hTm8npJ9IPEAJbkQlt5Nsg+GdhlQ3QAacB+mQmEGreC4F3yKvJhl6vnAkqdaWnA3
-	UgnOQ/xV+zWiMFVcKIJsORcSLOo0tdbMAfrqPat2VhYe3avzTr5AqCOdMGmm7qSKUQxdJTZYtnq1i
-	KsTWfkw0PkUNF8xev8hFKA5mOOL2GgbBy05gXcA5d5NXqhk5OSvk1rVrfDJBwS9AFyF7NhhlNoNmF
-	MoL7X5ow7td5OKQULv6AL2HxrZkLTRLYkAl5NTFeavXd3+PougePVxV52b5mk7B7ZYJhXvVUk1y1q
-	49MTgowA==;
+	bh=TEFEUsDUypMb0E06F+mIr6mms6VLi/ADn+g21sLTM6M=; b=kmLRULtEIFLf699hy2whJikXxO
+	iL4ZGLRtZ/zAHI8QrRFDNdl7EiW7b4du/XdDt7m0FbsXOFnI2wOETDpZeQJ4F3Vx1fqjFgi37JQTu
+	EeJ4TkWkWN15rzSh9J+yS7JOpGWLE1GbRBfZpqD0ApHAqCDKWE26CIn6ExUyOtCDhd5GnGeCySSZr
+	goUR2VMBnDjRHq0/87gCp5AObsVe3Tme5Dyyzs1O5in+z5JcD4r0TA2molanFqkltj8qOhNDnUz/i
+	4gKAllLTX+NSEOutZhLzS8r2GjmymVnxgBmSaO7nSpzw4zVYWtuoQScV5LrHCnDngX7MK8WLNW5BZ
+	HzZnhQrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVr4K-0000000BmLL-3UwM;
-	Thu, 09 Jan 2025 11:51:20 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1tVrAO-0000000BmtW-4Axq;
+	Thu, 09 Jan 2025 11:57:36 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVr35-0000000BmBz-3q6M
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 11:50:05 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 509BnwEK3155882
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Thu, 9 Jan 2025 05:49:58 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1736423398;
-	bh=cjlJPdHZfFlnWi9zFpTiPy4i/wlFmKUpofmp/B7kgII=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=lGhWg8zTGMA3RxVhxbjdXCKCKTUWgoiq2kq6TVUfw/I+NMSKnEE27ZSy2j1e+81YF
-	 HzOzK/i2xsxpEDD9zXQf96TTA3Oj/RgXSMX9sJHlaQZUr3Z+MVulXwonWjzOgCI7x9
-	 YmaJaB3UvRFMuIGnGrSkV7nSFFBGVwjlVqhD3URY=
-Received: from DLEE103.ent.ti.com (dlee103.ent.ti.com [157.170.170.33])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 509BnwYF041983;
-	Thu, 9 Jan 2025 05:49:58 -0600
-Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE103.ent.ti.com
- (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 9
- Jan 2025 05:49:57 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 9 Jan 2025 05:49:57 -0600
-Received: from localhost (uda0492258.dhcp.ti.com [10.24.72.104])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 509BnukD112901;
-	Thu, 9 Jan 2025 05:49:57 -0600
-Date: Thu, 9 Jan 2025 17:19:55 +0530
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: Romain Naour <romain.naour@smile.fr>
-CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-omap@vger.kernel.org>, <conor+dt@kernel.org>,
-        <krzk+dt@kernel.org>, <robh@kernel.org>, <kristo@kernel.org>,
-        <vigneshr@ti.com>, <nm@ti.com>, <afd@ti.com>,
-        Romain Naour <romain.naour@skf.com>,
-        Siddharth Vadapalli
-	<s-vadapalli@ti.com>
-Subject: Re: [PATCH v4 2/2] arm64: dts: ti: k3-j721e-beagleboneai64: Enable
- ACSPCIE output for PCIe1
-Message-ID: <eu5xmihnffmqas2x2ioleuzzvyfbffl5eqlwuqfe4mh6qa2rzy@7mmuxsbkmz4o>
-References: <20250109102627.1366753-1-romain.naour@smile.fr>
- <20250109102627.1366753-2-romain.naour@smile.fr>
+	id 1tVr9B-0000000Bmjw-2tKX;
+	Thu, 09 Jan 2025 11:56:23 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 508NwEl2016724;
+	Thu, 9 Jan 2025 11:55:27 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=TEFEUs
+	DUypMb0E06F+mIr6mms6VLi/ADn+g21sLTM6M=; b=HU3Eulheor5aaMA38MgqND
+	w5D0VsYZ9Y4ZQYJZvyu4WLwzk/lzISPX279vOi1rwp0OvImCElaqBmZ7yGv4GXtm
+	vKwEzqRIH6fu9psGCV1MCIKHOFAwC/4SQQ1AC5BtxaNM8wdtW+DAIciNpYPO6Ll6
+	rLdpqprshTa3IetrfZ8gd5phbjzubOZ9ML1FsMTvRNrN2rZkXWtL51/wIfyNRwsc
+	zmVXIeHDTR4Dx4SMQ7DiZQb0y62yBcOaIrAEugKNmaBRj2/WpqHifUmZzBe2/kuP
+	CAm9wsvyCG2SQnvkSXl/G1rirz7QoOVkinRwkhD5FGKGs504YPdGvBwjkZgyGuxw
+	==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4423ghtph4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 09 Jan 2025 11:55:26 +0000 (GMT)
+Received: from m0353729.ppops.net (m0353729.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 509BlQgB005767;
+	Thu, 9 Jan 2025 11:55:25 GMT
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4423ghtph1-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 09 Jan 2025 11:55:25 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 5099fC1i027929;
+	Thu, 9 Jan 2025 11:55:24 GMT
+Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 43yhhkcq4h-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 09 Jan 2025 11:55:24 +0000
+Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
+	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 509BtLGd26739390
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 9 Jan 2025 11:55:21 GMT
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id E2F272004B;
+	Thu,  9 Jan 2025 11:55:20 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 379C620043;
+	Thu,  9 Jan 2025 11:55:20 +0000 (GMT)
+Received: from osiris (unknown [9.152.212.60])
+	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Thu,  9 Jan 2025 11:55:20 +0000 (GMT)
+Date: Thu, 9 Jan 2025 12:55:18 +0100
+From: Heiko Carstens <hca@linux.ibm.com>
+To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
+Cc: "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+        Helge Deller <deller@gmx.de>, Andy Lutomirski <luto@kernel.org>,
+        Thomas Gleixner <tglx@linutronix.de>,
+        Vincenzo Frascino <vincenzo.frascino@arm.com>,
+        Anna-Maria Behnsen <anna-maria@linutronix.de>,
+        Frederic Weisbecker <frederic@kernel.org>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, "Theodore Ts'o" <tytso@mit.edu>,
+        "Jason A. Donenfeld" <Jason@zx2c4.com>,
+        Paul Walmsley <paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+        Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+        Russell King <linux@armlinux.org.uk>,
+        Vasily Gorbik <gor@linux.ibm.com>,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        Christophe Leroy <christophe.leroy@csgroup.eu>,
+        Naveen N Rao <naveen@kernel.org>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+        Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+        "H. Peter Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>,
+        linux-parisc@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+        loongarch@lists.linux.dev, linux-s390@vger.kernel.org,
+        linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+        linux-arch@vger.kernel.org, Nam Cao <namcao@linutronix.de>
+Subject: Re: [PATCH 10/17] s390/vdso: Switch to generic storage implementation
+Message-ID: <20250109115518.9731-A-hca@linux.ibm.com>
+References: <20241216-vdso-store-rng-v1-0-f7aed1bdb3b2@linutronix.de>
+ <20241216-vdso-store-rng-v1-10-f7aed1bdb3b2@linutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20250109102627.1366753-2-romain.naour@smile.fr>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20241216-vdso-store-rng-v1-10-f7aed1bdb3b2@linutronix.de>
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: 7R5Vx0DTIiffSevdjEEF0ZCUrhmWvYEy
+X-Proofpoint-ORIG-GUID: A1txILdScefs6fUz5lPDNoUjZ1geeRhz
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
+ definitions=2024-10-15_01,2024-10-11_01,2024-09-30_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 phishscore=0
+ mlxscore=0 impostorscore=0 bulkscore=0 priorityscore=1501 suspectscore=0
+ clxscore=1011 mlxlogscore=405 spamscore=0 adultscore=0 lowpriorityscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
+ definitions=main-2501090091
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_035004_045131_5EC7E8AF 
-X-CRM114-Status: GOOD (  15.94  )
+X-CRM114-CacheID: sfid-20250109_035621_741794_24C28FF8 
+X-CRM114-Status: GOOD (  15.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,63 +142,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 09, 2025 at 11:26:27AM +0100, Romain Naour wrote:
-
-Hello Romain,
-
-> From: Romain Naour <romain.naour@skf.com>
+On Mon, Dec 16, 2024 at 03:10:06PM +0100, Thomas Weiﬂschuh wrote:
+> The generic storage implementation provides the same features as the
+> custom one. However it can be shared between architectures, making
+> maintenance easier.
 > 
-> Unlike the SK-TDA4VM (k3-j721e-sk) board, there is no clock generator
-> (CDCI6214RGET) on the BeagleBone AI-64 (k3-j721e-beagleboneai64) to
-> provide PCIe refclk signal to PCIe Endponts. So the ACSPCIE module must
-> provide refclk through PCIe_REFCLK pins.
-> 
-> Use the new "ti,syscon-acspcie-proxy-ctrl" property to enable ACSPCIE
-> module's PAD IO Buffers.
-> 
-> Cc: Siddharth Vadapalli <s-vadapalli@ti.com>
-> Signed-off-by: Romain Naour <romain.naour@skf.com>
+> Co-developed-by: Nam Cao <namcao@linutronix.de>
+> Signed-off-by: Nam Cao <namcao@linutronix.de>
+> Signed-off-by: Thomas Weiﬂschuh <thomas.weissschuh@linutronix.de>
 > ---
-> With this patch, we can remove "HACK: Sierra: Drive clock out" patch
-> applied on vendor kernel for BeagleBone AI-64:
-> https://openbeagle.org/beagleboard/linux/-/commit/ad65d7ef675966cdbc5d75f2bd545fad1914ba9b
+>  arch/s390/Kconfig                         |  1 +
+>  arch/s390/include/asm/vdso.h              |  4 +-
+>  arch/s390/include/asm/vdso/getrandom.h    | 12 ----
+>  arch/s390/include/asm/vdso/gettimeofday.h | 15 +----
+>  arch/s390/include/asm/vdso/vsyscall.h     | 20 -------
+>  arch/s390/kernel/time.c                   |  6 +-
+>  arch/s390/kernel/vdso.c                   | 97 ++-----------------------------
+>  arch/s390/kernel/vdso32/vdso32.lds.S      |  7 +--
+>  arch/s390/kernel/vdso64/vdso64.lds.S      |  8 +--
+>  9 files changed, 17 insertions(+), 153 deletions(-)
 
-[trimmed]
+Looks good to me and works.
 
-> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
-> index af3d730154ac..32a232a90100 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
-> @@ -5,6 +5,7 @@
->   * Copyright (C) 2016-2024 Texas Instruments Incorporated - https://www.ti.com/
->   */
->  #include <dt-bindings/phy/phy.h>
-> +#include <dt-bindings/phy/phy-cadence.h>
->  #include <dt-bindings/phy/phy-ti.h>
->  #include <dt-bindings/mux/mux.h>
->  
-> @@ -82,6 +83,11 @@ ehrpwm_tbclk: clock-controller@4140 {
->  			reg = <0x4140 0x18>;
->  			#clock-cells = <1>;
->  		};
-> +
-> +		acspcie0_proxy_ctrl: syscon@18090 {
-> +			compatible = "ti,j721e-acspcie-proxy-ctrl", "syscon";
-> +			reg = <0x18090 0x4>;
-
-0x_0011_8090 is probably *not* the "PROXY" register i.e. it could be
-locked with the help of "CTRLMMR_LOCK0_KICK0" and "CTRLMMR_LOCK0_KICK1"
-registers, in which case the CTRL_MMR region needs to be unlocked to write
-to that register. On J784S4, that happens to be true, which is why the
-proxy register 0x_0011_a090 was used at [0]. Please test with 0x_0011_a090
-which is the "PROXY" register on J721E as well, i.e. it can be written to
-unconditionally.
-
-[0]:
-https://lore.kernel.org/r/20240930111505.3101047-1-s-vadapalli@ti.com/
-
-[trimmed]
-
-Regards,
-Siddharth.
+Acked-by: Heiko Carstens <hca@linux.ibm.com>
 
