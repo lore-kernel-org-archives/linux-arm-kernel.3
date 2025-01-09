@@ -4,74 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B3CDE77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 17:14:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35B6FE7719A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 17:16:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N+7YFjv1DyhBXYNDS0HCNtt5/RolxzKXe5fcfm2hpqY=; b=yGHbDl+NJ4CtSSZypRA5jY4pE3
-	cmV5N3GOm+90Os1YkV1bQIvSRHIJToH9sUJ/wIB+j2x7oZifR4ilg/ZaXRDDYmzzO8qR2+gZcuDuA
-	MZbYaD1UwjCeJwNzpyf3pvLHHtxjWgaqz8aczazxV8bi0dJI/9IBB84QSb5kOk8ZRKHNwKNTshsXG
-	+5HQ79fBzEza4AL8bBFfb4nMFvt77teIq9jPTPySw3oZ2g5/Nh5IpNDKzRKZ+h//13J1hKTWwoKcv
-	YcuQYkyvvMcWIeA0jr3+qSf8SzH2zxsZdhwETtBSC4Z/SoSTSscvCmRn4wXvYdyf9Oa165Cp8DUn8
-	e/8V6sRQ==;
+	bh=LjFANMZo3z7Fe28Zh3gDw9k/gPDCvOxISY207UFk3/Q=; b=pHiEKPIRvAxzMN4jUV2tpeJNfV
+	G6p0iw20XUdSk2U8+MndJczNIn3uVm8+RBJkzzoi1At73LDuDNZoryoh7XSR9n4ePVQ59ESEDtYNR
+	Djs0H/5x76feWQ9jY6UdwOHHh0wmlEd9TPpzutzOQN4qqp0R/O8mZCzEkjt6aXjXorZlS4uO1dFLX
+	bfq+b4I/UBleVdUFOUnMnKAXblw6mwPqiMPPbcFZyqkXMpu85jS8azp5RwpFaZKq0sTJQdkzchUFo
+	7H5oHbj3AI1qxk0ZJouSqkGEb5eRm6REM0piRjFwPgPWLy+A/aU3a8mcTfYIpJpEwM9NdKqs77G+Q
+	feJo2Fyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVw6V-0000000CnmK-2gkY;
-	Thu, 09 Jan 2025 17:13:55 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1tVw9H-0000000CoJc-3yxg;
+	Thu, 09 Jan 2025 17:16:47 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVw5H-0000000Cne3-2afG;
-	Thu, 09 Jan 2025 17:12:41 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 29C9B9FC;
-	Thu,  9 Jan 2025 18:11:41 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1736442701;
-	bh=uhkXg/EPKEWf0hrvEKJHWpb/MtLkbHrB4R9KcaWrJ5c=;
+	id 1tVw83-0000000Co0l-2mdL
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Jan 2025 17:15:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 05C13A42464;
+	Thu,  9 Jan 2025 17:13:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC03FC4CEE1;
+	Thu,  9 Jan 2025 17:15:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736442930;
+	bh=3HlqvF1gFu/ouXfon4HTvBR/I+5OhI7gGNbobwdgUWk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Z1WDds6PNKloMPIdeFYjkX0VkFBb7SBPf9nkbHrZDhHD9xu9F8DnwP2oq+RVhlDO5
-	 PiXXUyn8NIvDSIYHNK6vaTM0zYyn02cOX9OCBEl4Rv6lFYf91tRxr+crRNx19iEjRa
-	 mIsHc3a+4skJifA1kAtYcHMxil/dRoBOJ7b7U4j8=
-Date: Thu, 9 Jan 2025 19:12:32 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Michael Riesch <michael.riesch@wolfvision.net>
-Cc: Mehdi Djait <mehdi.djait@linux.intel.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	=?utf-8?B?VGjDqW8=?= Lebrun <theo.lebrun@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
+	b=NDNegEXI702D2udL3wNx6CfldwqoekpJ2rRwAlWiJZl095k7XoTxDBhSQXF17ZTp6
+	 h65IjeIkUPFLVw9bmIgOPGTd3qwxMvJjOi0g8Rwuy/M2AkspSsalZQ6huOJ+pu2ceF
+	 q2ElZ2DKDYYMVBhWCGepZq0fwbrfbymYQAxWCwvh5cXtxRVgQF4baSl0uOiH6yrQ9m
+	 UMAyDai6PXmC9YGgjFVqLE4C60uVGnysbpYQtn+4vBI+f6tvfx+rJ0Jbw+dU2t/Tdd
+	 5DwvMFWZjsIGf9avahbyqhKU/md38tyBY77AvAI41PmcPZtXJYF7aI+3wsNvWHh166
+	 n8LZa9iQx7+aQ==
+Date: Thu, 9 Jan 2025 17:15:23 +0000
+From: Daniel Thompson <danielt@kernel.org>
+To: Nick Chan <towinchenmi@gmail.com>
+Cc: Lee Jones <lee@kernel.org>, Jingoo Han <jingoohan1@gmail.com>,
+	Pavel Machek <pavel@ucw.cz>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	Nicolas Dufresne <nicolas@ndufresne.ca>,
-	Sebastian Fricke <sebastian.fricke@collabora.com>,
-	Alexander Shiyan <eagle.alexander923@gmail.com>,
-	Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Mehdi Djait <mehdi.djait@bootlin.com>,
-	Gerald Loacker <gerald.loacker@wolfvision.net>
-Subject: Re: [PATCH v2 0/6] media: rockchip: add a driver for the rockchip
- camera interface (cif)
-Message-ID: <20250109171232.GA17638@pendragon.ideasonboard.com>
-References: <20241217-v6-8-topic-rk3568-vicap-v2-0-b1d488fcc0d3@wolfvision.net>
+	Conor Dooley <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>,
+	Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	dri-devel@lists.freedesktop.org, linux-leds@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-fbdev@vger.kernel.org, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 2/3] backlight: dwi_bl: Add Apple DWI backlight driver
+Message-ID: <Z4AEK1LzFeR1DnPk@aspen.lan>
+References: <20241211113512.19009-1-towinchenmi@gmail.com>
+ <20241211113512.19009-3-towinchenmi@gmail.com>
+ <Z35Y9rzS6tLVgsRo@aspen.lan>
+ <ad3cbf5a-6322-4256-9284-f739d4c3aa45@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241217-v6-8-topic-rk3568-vicap-v2-0-b1d488fcc0d3@wolfvision.net>
+In-Reply-To: <ad3cbf5a-6322-4256-9284-f739d4c3aa45@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_091239_801060_C630CAB9 
-X-CRM114-Status: GOOD (  38.92  )
+X-CRM114-CacheID: sfid-20250109_091531_778017_5CD9614C 
+X-CRM114-Status: GOOD (  19.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,154 +83,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Michael,
+On Thu, Jan 09, 2025 at 11:52:56PM +0800, Nick Chan wrote:
+>
+> Daniel Thompson 於 2025/1/8 下晝6:52 寫道:
+> > On Wed, Dec 11, 2024 at 07:34:38PM +0800, Nick Chan wrote:
+> >> Add driver for backlight controllers attached via Apple DWI 2-wire
+> >> interface, which is found on some Apple iPhones, iPads and iPod touches
+> >> with a LCD display.
+> >>
+> >> Although there is an existing apple_bl driver, it is for backlight
+> >> controllers on Intel Macs attached via PCI, which is completely different
+> >> from the Samsung-derived DWI block.
+> >>
+> >> Signed-off-by: Nick Chan <towinchenmi@gmail.com>
+> >> ---
+> >>  drivers/video/backlight/Kconfig  |  12 +++
+> >>  drivers/video/backlight/Makefile |   1 +
+> >>  drivers/video/backlight/dwi_bl.c | 122 +++++++++++++++++++++++++++++++
+> > I'd rather this was called apple_dwi_bl.c to match that config options,
+> > etc.
+> Still trying to determine the type of the backlight control, I think
+> it is linear however and I will send a new version when I am more
+> certain.
 
-On Tue, Dec 17, 2024 at 04:55:12PM +0100, Michael Riesch wrote:
-> Habidere,
-> 
-> TL;DR:
-> 
-> This series introduces support for the Rockchip Camera Interface (CIF),
-> which can be found (in the form of variants that differ significantly) in
-> different Rockchip SoCs in general, and for the Rockchip RK3568 Video
-> Capture (VICAP) variant in particular.
-> 
-> The patches are functional and have been tested successfully on a
-> custom RK3568 board including the ITE Tech. IT6801 HDMI receiver as
-> attached subdevice. The IT6801 driver still needs some loving care but
-> shall be submitted as well at some point.
-> 
-> The long story (gather 'round children):
-> 
-> The Rockchip Camera Interface (CIF) is featured in many Rockchip SoCs
-> in different variations. For example, the PX30 Video Input Processor (VIP)
-> is able to receive video data via the Digital Video Port (DVP, a parallel
-> data interface and transfer it into system memory using a double-buffering
-> mechanism called ping-pong mode. The RK3568 Video Capture (VICAP) unit,
-> on the other hand, features a DVP and a MIPI CSI-2 receiver that can
-> receive video data independently (both using the ping-pong scheme).
-> The different variants may have additional features, such as scaling
-> and/or cropping.
-> Finally, the RK3588 VICAP unit constitutes an essential piece of the camera
-> interface with one DVP, six MIPI CSI-2 receivers, scale/crop units, and
-> different data path multiplexers (to system memory, to ISP, ...).
-> 
-> This submission bases on the work of several Bootlin developers who have
-> been tirelessly submitting support for the PX30 Video Input Processor (VIP)
-> block for inclusion in mainline. This process has been going on for several
-> years now, with Maxime Chevallier working on the topic up to v5 [0] and
-> Mehdi Djait taking over until v13 [1].
-> In the review feedback on v13 a major rework with a media controller
-> centric driver as a goal was requested. This motivated me to take over
-> (with no clue about the MC framework whatsoever, though).
-> 
-> I decided to merge Mehdi's v13 with my v1 of the RK3568 VICAP support [2]
-> and refactor the whole thing. The resulting v2 of the series now adds a
-> basic media controller centric V4L2 driver for the Rockchip CIF with
->  - support for the PX30 VIP (not tested, though, due to the lack of HW)
->  - support for the RK3568 VICAP DVP
->  - abstraction for the ping-pong scheme to allow for future extensions 
-> 
-> However, several features are not yet addressed, such as
->  - support for the RK3568 MIPI CSI-2 receiver
+If you've got an physicalinstance of the backlight then you can get a
+general idea by comparing levels: 512, 1024, 1536 and 2047.
 
-We've discussed this previously on IRC, but I don't think the issue has
-been raised on the list.
+A linear backlight will feel make the gaps feel uneven (e.g. the
+difference between 1536 and 2047 will look very different to the
+difference difference between 512 and 1024). A logarithmic backligt
+will make the perceived brightness intervals between the above all
+feel pretty similar.
 
-I'm puzzled by how this will work. As far as I understand, the RK3568
-has a CSI-2 receiver with 4 data lanes and 2 clock lanes. I assume this
-is used to support both 2x2 lanes and 1x4 lanes. Both the VICAP and ISP
-sections of the TRM list CSI2 RX registers, but it's not clear how the
-components are all connected. Does the ISP need to be part of the same
-media graph ?
 
->  - support for the RK3588 variant
->  - support for the scaling/cropping units that can be found in some
->    variants
->  - support for capturing different virtual channels (up to four IDs
->    possible)
-> This needs to be in the scope of future work.
-> 
-> Finally, please forgive me if I forgot to address reviewer comments from
-> the previous iterations. Between v1 and v13 they have seen significant
-> feedback including renaming the complete driver twice (from rkcif to vip
-> and back to cif) and I am pretty sure that I was not able to gather
-> everything.
-> 
-> Looking forward to your comments!
-> 
-> [0] https://lore.kernel.org/linux-media/20201229161724.511102-1-maxime.chevallier@bootlin.com/
-> [1] https://lore.kernel.org/linux-media/cover.1707677804.git.mehdi.djait.k@gmail.com/
-> [2] https://lore.kernel.org/all/20240220-v6-8-topic-rk3568-vicap-v1-0-2680a1fa640b@wolfvision.net/
-> 
-> To: Mehdi Djait <mehdi.djait@linux.intel.com>
-> To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> To: Théo Lebrun <theo.lebrun@bootlin.com>
-> To: Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-> To: Sakari Ailus <sakari.ailus@iki.fi>
-> To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> To: Mauro Carvalho Chehab <mchehab@kernel.org>
-> To: Rob Herring <robh+dt@kernel.org>
-> To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> To: Conor Dooley <conor+dt@kernel.org>
-> To: Heiko Stuebner <heiko@sntech.de>
-> To: Kever Yang <kever.yang@rock-chips.com>
-> To: Nicolas Dufresne <nicolas@ndufresne.ca>
-> To: Sebastian Fricke <sebastian.fricke@collabora.com>
-> To: Alexander Shiyan <eagle.alexander923@gmail.com>
-> To: Val Packett <val@packett.cool>
-> To: Rob Herring <robh@kernel.org>
-> To: Philipp Zabel <p.zabel@pengutronix.de>
-> Cc: linux-media@vger.kernel.org
-> Cc: devicetree@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-rockchip@lists.infradead.org
-> Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
-> 
-> Changes in v2:
-> - merged with Mehdi's v13
-> - refactored the complete driver towards a media controller centric driver
-> - abstracted the generic ping-pong stream (can be used for DVP as well as for CSI-2)
-> - switched to MPLANE API
-> - added support for notifications
-> - Link to v1: https://lore.kernel.org/r/20240220-v6-8-topic-rk3568-vicap-v1-0-2680a1fa640b@wolfvision.net
-> 
-> ---
-> Mehdi Djait (2):
->       media: dt-bindings: media: add bindings for rockchip px30 vip
->       arm64: dts: rockchip: add the vip node to px30
-> 
-> Michael Riesch (4):
->       media: dt-bindings: media: video-interfaces: add defines for sampling modes
->       media: dt-bindings: media: add bindings for rockchip rk3568 vicap
->       media: rockchip: add a driver for the rockchip camera interface (cif)
->       arm64: dts: rockchip: add vicap node to rk356x
-> 
->  .../bindings/media/rockchip,px30-vip.yaml          | 123 ++++
->  .../bindings/media/rockchip,rk3568-vicap.yaml      | 168 +++++
->  MAINTAINERS                                        |   9 +
->  arch/arm64/boot/dts/rockchip/px30.dtsi             |  12 +
->  arch/arm64/boot/dts/rockchip/rk356x-base.dtsi      |  44 ++
->  drivers/media/platform/rockchip/Kconfig            |   1 +
->  drivers/media/platform/rockchip/Makefile           |   1 +
->  drivers/media/platform/rockchip/cif/Kconfig        |  15 +
->  drivers/media/platform/rockchip/cif/Makefile       |   3 +
->  .../media/platform/rockchip/cif/cif-capture-dvp.c  | 794 +++++++++++++++++++++
->  .../media/platform/rockchip/cif/cif-capture-dvp.h  |  24 +
->  drivers/media/platform/rockchip/cif/cif-common.h   | 163 +++++
->  drivers/media/platform/rockchip/cif/cif-dev.c      | 405 +++++++++++
->  drivers/media/platform/rockchip/cif/cif-regs.h     | 132 ++++
->  drivers/media/platform/rockchip/cif/cif-stream.c   | 676 ++++++++++++++++++
->  drivers/media/platform/rockchip/cif/cif-stream.h   |  24 +
->  include/dt-bindings/media/video-interfaces.h       |   4 +
->  17 files changed, 2598 insertions(+)
-> ---
-> base-commit: 40384c840ea1944d7c5a392e8975ed088ecf0b37
-> change-id: 20240220-v6-8-topic-rk3568-vicap-b9b3f9925f44
-
--- 
-Regards,
-
-Laurent Pinchart
+Daniel.
 
