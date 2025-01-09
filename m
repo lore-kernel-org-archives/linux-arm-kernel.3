@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D0CCE77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 15:59:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CB2FE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 16:01:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=siW7vfCoksPXHtZa/15GuRuHr9BAfX44jN6/44ucx+4=; b=x6dLiM41PntE+ifj8MggjED25J
-	S2yZavUWw2EyFAgfPRp/gprTjplUS8IY/vYHWvnLPGj5jGODTND/DnS83DK2mHaU4ypmCS2g2LYTV
-	wjrIdHghjIjY79xg+s/9sXeXc6Tuu3rvYD8ww80YFTMjyjSWxWbLh0/H4YX6TPEwmJV8VVEk/MVim
-	9UWyAIU/vAyq2zy2k53G2Ezc01YssGzcekz7F/mEnlK4FqylLKIcuBxFYM1/duVdX/eNtsjGyHcWn
-	ocupOkfRY6EhlE/flRK2Z/jvrDEk2Q7dAR7ehJGww2T+jyIsmWBlBfgl6qLDL5QBCeerw0TacRta5
-	CwRyz4rA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3PwBEZz6YVr/6T8ss/EzcuHqwLAprNsdntStPdkHz4c=; b=CmNxL0FBIBj0MJ6h5C+lCuv7QN
+	eDkDPfwOPKNyBq4dc9qD9f9fCwxh+TUY89tInd4xAavNHBUVbaoK+4LitNVysdwTNhTt9BuZANZAz
+	SORHn13w+lSIh4UiLjqD2XluAkO93mL1gBrd+jtrmAJ5Ob4kzY68YN2byYAiu5y1VWgSfxPLRRDqm
+	Q66shYvSn4g6t18WACABkIXABJdA4/MxzQ6YutN5wsqo16HyK69Zqza9Uo+9lgNAITtKvi/lK0vLt
+	38ZeyUIfSPT36ZiCcoKD3eFTppWCk8enPE8sWDbZm3/L3PqtA7eJbsHOu1OClQzYkcSJ/bUhKcWpJ
+	l3LI2HKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVuwU-0000000CZcF-1Ji7;
-	Thu, 09 Jan 2025 15:59:30 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1tVuxh-0000000Ca2L-0QT9;
+	Thu, 09 Jan 2025 16:00:45 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVuvG-0000000CZV6-35mF
+	id 1tVuvN-0000000CZVs-20tJ
 	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Jan 2025 15:58:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1736438301; x=1767974301;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=u0Q3qMre0aMHaDk85LcQYX7xMhhq2kI0NBFqwqx45t8=;
+  b=OoaPzjmd2XD30JycM1srpN4H6ZtND3txLCSWo/qs/utDZ7gmko+TVR1M
+   B6okt3ty3FzjufytWsAZ4qMPTypYK55l1fjEZZe0eooVwCsY1Iwt5pHsZ
+   lLoNTbjNFHxEM7vgN7m/ikjW7uQ6ojaQleNi9I8H0Ei0KFSWgvwrwKZdk
+   n9ARVFH6tv+I5kwjne0Ge3+ROJcRSSJMnkWa1tIFfDIagIx2IUouVC+Dg
+   SyO9wQ+5t4LqQopEyA4twpSA9SxfJBxIbmX4BlKYYSnmmfKpU8PES1wdm
+   1FLiYR6mniAsJB71gyk4KozVrnfsHvFZ9r2aRyeb4t6yi39763ABGxJlm
+   A==;
+X-CSE-ConnectionGUID: ihKSvSmgSH+WciqenIUpSg==
+X-CSE-MsgGUID: AG45/RwUQTWfksBTsDilhg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11310"; a="62084567"
+X-IronPort-AV: E=Sophos;i="6.12,301,1728975600"; 
+   d="scan'208";a="62084567"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jan 2025 07:58:21 -0800
+X-CSE-ConnectionGUID: ejKYjoAETXOFREmHOzu4cw==
+X-CSE-MsgGUID: ITW0uxELTgG7RqmwdaaPGw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,301,1728975600"; 
+   d="scan'208";a="103414324"
+Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
+  by fmviesa007.fm.intel.com with ESMTP; 09 Jan 2025 07:58:18 -0800
+Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tVuvI-000HmZ-24;
 	Thu, 09 Jan 2025 15:58:16 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 509Fw31P2983124
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 9 Jan 2025 09:58:03 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1736438283;
-	bh=siW7vfCoksPXHtZa/15GuRuHr9BAfX44jN6/44ucx+4=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=CwuvB0MWu+dRhb5JRiybB5efrVRPM5uAYynmW5DtCp/TpFIrgFOHkWKnBoPsEBvMr
-	 HNAV1IV2nyT5qCV0fzPMEU9dNvhJh0mYowpk589BW1mm0/IVWlzxhw8tfA5cjP9//y
-	 6UPZYjNJtNikpO7jQHz0GGxm4IBXgxvVSGAhceEs=
-Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 509Fw3qf053208
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 9 Jan 2025 09:58:03 -0600
-Received: from DLEE108.ent.ti.com (157.170.170.38) by DLEE113.ent.ti.com
- (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 9
- Jan 2025 09:58:02 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE108.ent.ti.com
- (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 9 Jan 2025 09:58:02 -0600
-Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 509Fw2Pi128225;
-	Thu, 9 Jan 2025 09:58:02 -0600
-Message-ID: <90f47fae-a493-471d-8fe6-e7df741161be@ti.com>
-Date: Thu, 9 Jan 2025 09:58:02 -0600
+Date: Thu, 9 Jan 2025 23:57:29 +0800
+From: kernel test robot <lkp@intel.com>
+To: Toshiyuki Sato <fj6611ie@aa.jp.fujitsu.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	fj6611ie@aa.jp.fujitsu.com
+Subject: Re: [PATCH] serial: amba-pl011: Implement nbcon console
+Message-ID: <202501092346.Q71aj5kq-lkp@intel.com>
+References: <20250108004730.2302996-1-fj6611ie@aa.jp.fujitsu.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/2] arm64: dts: ti: k3-j721e-beagleboneai64: Enable
- ACSPCIE output for PCIe1
-To: Romain Naour <romain.naour@smile.fr>, <devicetree@vger.kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-omap@vger.kernel.org>,
-        <conor+dt@kernel.org>, <krzk+dt@kernel.org>, <robh@kernel.org>,
-        <kristo@kernel.org>, <vigneshr@ti.com>, <nm@ti.com>,
-        Romain Naour
-	<romain.naour@skf.com>,
-        Siddharth Vadapalli <s-vadapalli@ti.com>
-References: <20250109102627.1366753-1-romain.naour@smile.fr>
- <20250109102627.1366753-2-romain.naour@smile.fr>
-Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <20250109102627.1366753-2-romain.naour@smile.fr>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250108004730.2302996-1-fj6611ie@aa.jp.fujitsu.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_075814_958999_62454AD4 
-X-CRM114-Status: GOOD (  23.79  )
+X-CRM114-CacheID: sfid-20250109_075821_530660_9F9F05C5 
+X-CRM114-Status: GOOD (  14.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,121 +91,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/9/25 4:26 AM, Romain Naour wrote:
-> From: Romain Naour <romain.naour@skf.com>
-> 
-> Unlike the SK-TDA4VM (k3-j721e-sk) board, there is no clock generator
-> (CDCI6214RGET) on the BeagleBone AI-64 (k3-j721e-beagleboneai64) to
-> provide PCIe refclk signal to PCIe Endponts. So the ACSPCIE module must
-> provide refclk through PCIe_REFCLK pins.
-> 
-> Use the new "ti,syscon-acspcie-proxy-ctrl" property to enable ACSPCIE
-> module's PAD IO Buffers.
-> 
-> Cc: Siddharth Vadapalli <s-vadapalli@ti.com>
-> Signed-off-by: Romain Naour <romain.naour@skf.com>
-> ---
-> With this patch, we can remove "HACK: Sierra: Drive clock out" patch
-> applied on vendor kernel for BeagleBone AI-64:
-> https://openbeagle.org/beagleboard/linux/-/commit/ad65d7ef675966cdbc5d75f2bd545fad1914ba9b
-> 
-> v4: no change
-> 
-> v3:
->   - update "acspcie0_proxy_ctrl" compatible to "ti,j721e-acspcie-proxy-ctrl"
->     since this property is specific to j721e variant.
-> 
-> v2:
->   - use generic style comments
->   - use "syscon" as generic node name for "acspcie0_proxy_ctrl" node
->   - Keep the compatible "ti,j784s4-acspcie-proxy-ctrl" since the
->     ACSPCIE buffer and its functionality is the same across all K3 SoCs.
->     (Siddharth Vadapalli)
-> 
->     "The compatible "ti,j784s4-acspcie-pcie-ctrl" should be reused for
->     J721E and all other K3 SoCs.
->     For example, see:
->     https://lore.kernel.org/r/20240402105708.4114146-1-s-vadapalli@ti.com/
->     which introduced "ti,am62p-cpsw-mac-efuse" compatible.
-> 
->     The same compatible is reused across all K3 SoCs:
->     https://lore.kernel.org/r/20240628151518.40100-1-afd@ti.com/ "
-> ---
->   arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts |  5 +++++
->   arch/arm64/boot/dts/ti/k3-j721e-main.dtsi          | 10 ++++++++--
->   2 files changed, 13 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts b/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
-> index fb899c99753e..741ad2ba6fdb 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
-> +++ b/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
-> @@ -859,6 +859,11 @@ &pcie1_rc {
->   	num-lanes = <2>;
->   	max-link-speed = <3>;
->   	reset-gpios = <&main_gpio0 22 GPIO_ACTIVE_HIGH>;
-> +	/*
-> +	 * There is no on-board or external reference clock generators,
-> +	 * use refclk from the ACSPCIE module's PAD IO Buffers.
-> +	 */
-> +	ti,syscon-acspcie-proxy-ctrl = <&acspcie0_proxy_ctrl 0x3>;
->   };
->   
->   &ufs_wrapper {
-> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
-> index af3d730154ac..32a232a90100 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
-> @@ -5,6 +5,7 @@
->    * Copyright (C) 2016-2024 Texas Instruments Incorporated - https://www.ti.com/
->    */
->   #include <dt-bindings/phy/phy.h>
-> +#include <dt-bindings/phy/phy-cadence.h>
->   #include <dt-bindings/phy/phy-ti.h>
->   #include <dt-bindings/mux/mux.h>
->   
-> @@ -82,6 +83,11 @@ ehrpwm_tbclk: clock-controller@4140 {
->   			reg = <0x4140 0x18>;
->   			#clock-cells = <1>;
->   		};
-> +
-> +		acspcie0_proxy_ctrl: syscon@18090 {
-> +			compatible = "ti,j721e-acspcie-proxy-ctrl", "syscon";
-> +			reg = <0x18090 0x4>;
-> +		};
+Hi Toshiyuki,
 
-You'll still need to add to the J721e system controller binding or this
-will throw a DT check warning, something like this:
+kernel test robot noticed the following build errors:
 
-diff --git a/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml b/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
-index 378e9cc5fac2a..3323f3bc976e0 100644
---- a/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
-+++ b/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
-@@ -68,6 +68,12 @@ patternProperties:
-      description:
-        The node corresponding to SoC chip identification.
-  
-+  "^acspcie-ctrl@[0-9a-f]+$":
-+    type: object
-+    $ref: /schemas/mfd/syscon.yaml#
-+    description:
-+      This is the ASPCIe control region.
-+
-  required:
-    - compatible
-    - reg
+[auto build test ERROR on tty/tty-linus]
+[also build test ERROR on usb/usb-testing usb/usb-next usb/usb-linus linus/master v6.13-rc6]
+[cannot apply to tty/tty-testing tty/tty-next next-20250109]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
->   	};
->   
->   	main_ehrpwm0: pwm@3000000 {
-> @@ -979,8 +985,8 @@ pcie1_rc: pcie@2910000 {
->   		max-link-speed = <3>;
->   		num-lanes = <2>;
->   		power-domains = <&k3_pds 240 TI_SCI_PD_EXCLUSIVE>;
-> -		clocks = <&k3_clks 240 1>;
-> -		clock-names = "fck";
-> +		clocks = <&k3_clks 240 1>, <&serdes1 CDNS_SIERRA_DERIVED_REFCLK>;
-> +		clock-names = "fck", "pcie_refclk";
->   		#address-cells = <3>;
->   		#size-cells = <2>;
->   		bus-range = <0x0 0xff>;
+url:    https://github.com/intel-lab-lkp/linux/commits/Toshiyuki-Sato/serial-amba-pl011-Implement-nbcon-console/20250108-085122
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/tty.git tty-linus
+patch link:    https://lore.kernel.org/r/20250108004730.2302996-1-fj6611ie%40aa.jp.fujitsu.com
+patch subject: [PATCH] serial: amba-pl011: Implement nbcon console
+config: arm64-randconfig-003-20250109 (https://download.01.org/0day-ci/archive/20250109/202501092346.Q71aj5kq-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250109/202501092346.Q71aj5kq-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202501092346.Q71aj5kq-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   drivers/tty/serial/amba-pl011.c: In function 'pl011_register_port':
+>> drivers/tty/serial/amba-pl011.c:2851:25: error: implicit declaration of function 'pl011_console_switch_to_nbcon' [-Wimplicit-function-declaration]
+    2851 |                         pl011_console_switch_to_nbcon(amba_reg.cons);
+         |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+vim +/pl011_console_switch_to_nbcon +2851 drivers/tty/serial/amba-pl011.c
+
+  2839	
+  2840	static int pl011_register_port(struct uart_amba_port *uap)
+  2841	{
+  2842		int ret, i;
+  2843	
+  2844		/* Ensure interrupts from this UART are masked and cleared */
+  2845		pl011_write(0, uap, REG_IMSC);
+  2846		pl011_write(0xffff, uap, REG_ICR);
+  2847	
+  2848		if (!amba_reg.state) {
+  2849			/* Replaces the console descriptor if NBCON is selected. */
+  2850			if (amba_reg.cons && use_nbcon)
+> 2851				pl011_console_switch_to_nbcon(amba_reg.cons);
+  2852	
+  2853			ret = uart_register_driver(&amba_reg);
+  2854			if (ret < 0) {
+  2855				dev_err(uap->port.dev,
+  2856					"Failed to register AMBA-PL011 driver\n");
+  2857				for (i = 0; i < ARRAY_SIZE(amba_ports); i++)
+  2858					if (amba_ports[i] == uap)
+  2859						amba_ports[i] = NULL;
+  2860				return ret;
+  2861			}
+  2862		}
+  2863	
+  2864		ret = uart_add_one_port(&amba_reg, &uap->port);
+  2865		if (ret)
+  2866			pl011_unregister_port(uap);
+  2867	
+  2868		return ret;
+  2869	}
+  2870	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
