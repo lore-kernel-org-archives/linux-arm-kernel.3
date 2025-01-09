@@ -4,85 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C425E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 11:05:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDCB0E77199
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 11:07:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3B74QvxE2eLaIA5gbbL1wkpmj1gudPe46BgSmSp8VgQ=; b=hJU6Zh5QE/uUd1KNM/nWzZxpu1
-	kX+1ziBYAfBljuMZeVEf8ba/tA6i3xdYafMdZdkoT3FmymVAne6Zaf/D0qWq8TcI51sX0b9/LfU1t
-	RXSmnH9DSnTu+uBhEjy255hVSVsd3iNn7FtPInxteGG/CJxAd2iR6+8ZvbJ+SG/Im1aOkhNevTIWy
-	wlH47XqJkNkZpbrU8aTv1n1ShoZsAefUA2DYMXJuzuwun566HOn0pvdfpSRpF6YGeNzXwg9tbf1ia
-	Zn7nRiqWY3WW4BTdSp15vm2ult78lYl0DvE1KKOF3wGx0+VguhZzHN2lhrmHL4/MM5qiSNTSNDPM4
-	WvoJseFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TIlSHS+qIJGkjuZPrK7xIjnNc9dOtWy5cV7SGROcTlY=; b=etpK2ypZM7oZeys4PehH3vDYx2
+	au4+DV/8ckQKtAEnJ/9kI9knUml4p+xStUQV2Y33NIK+cXrOoGGAkcAZEIDqsYpqWrQpQbWBv/eWV
+	u30DMNIv/NAc4my6QcZ5AWiErZ42vJ2Of9ISoe2GRLoxD+qWG7AcZP+bI0meanz0UdTjF6Mlzw33Y
+	9oXN/RccrbySBa12/9+G4Lcm9uZZZ80QdiYdTnHGyE2I88e9Ox9LRMLzzhW7kMjcwWmHR6otmN8yc
+	iLmY0p8qZb+/qObHo7qASEBGBwz5fQm5Lo6Lf0VN6KSYf8l+P3HwsCpBqlht3kq6hYT09GV+G+PLl
+	6v6F2SGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVqM6-0000000Be42-3y5o;
-	Thu, 09 Jan 2025 11:05:38 +0000
-Received: from mgamail.intel.com ([198.175.65.20])
+	id 1tVqNI-0000000BeLp-3ek8;
+	Thu, 09 Jan 2025 11:06:52 +0000
+Received: from mail-japanwestazolkn190100000.outbound.protection.outlook.com ([2a01:111:f403:d406::] helo=OS0P286CU011.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVqKt-0000000Bdox-1w7C
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 11:04:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1736420663; x=1767956663;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=IP79LBJkq7R0JdTUMY4tcQDHZkX+te/jZ0WVpzZaqp4=;
-  b=ii0cE7+69Or4wslApfIvUmV5ay2+FzJu0CWQvstXuCB02Otv0ECea1JX
-   ijs+HNw+cq73JBYB5WIZEY0MADyqf3437WYCAAFbsSWz8T4uOm9GNbTb4
-   WLN8KqNZ7hb9xT7X55SDjZJQjlErZ2i+1/w+TRhqE9pFpfnBrIn0GawH4
-   uL/drBF2RsHH521M43J5uiH/kqSj1doN1omlRATEA6cFiG71MnF1FIu8C
-   W49sM+XmvCWrsyJJardsISrdz4LJNDUgXUfJ8mDfSjtpZvb/qoAMShbsq
-   5VNKyz+VLaKSCiCvx4eI8+gYGdZdpjXfUxIA7w/T3DwslMeGHtFvNy1W7
-   Q==;
-X-CSE-ConnectionGUID: BW6Y7TkETVqDtHQxG0sdVA==
-X-CSE-MsgGUID: 0ExDGZliSQGzCl+tmJso6A==
-X-IronPort-AV: E=McAfee;i="6700,10204,11309"; a="36370920"
-X-IronPort-AV: E=Sophos;i="6.12,301,1728975600"; 
-   d="scan'208";a="36370920"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jan 2025 03:04:22 -0800
-X-CSE-ConnectionGUID: KWuf3KQCRHuOZRxQ0NsmIw==
-X-CSE-MsgGUID: GsyVUl2OT/W0wQ0EAIHqMg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="103259034"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by orviesa010.jf.intel.com with ESMTP; 09 Jan 2025 03:04:16 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tVqKk-000HRT-0t;
-	Thu, 09 Jan 2025 11:04:14 +0000
-Date: Thu, 9 Jan 2025 19:04:10 +0800
-From: kernel test robot <lkp@intel.com>
-To: Nicolin Chen <nicolinc@nvidia.com>, jgg@nvidia.com,
-	kevin.tian@intel.com, corbet@lwn.net, will@kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, joro@8bytes.org,
-	suravee.suthikulpanit@amd.com, robin.murphy@arm.com,
-	dwmw2@infradead.org, baolu.lu@linux.intel.com, shuah@kernel.org,
-	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	id 1tVqLT-0000000Bdvc-0rqA;
+	Thu, 09 Jan 2025 11:05:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WGcztT368QDYaU6v7OHJj2gRC7azbL4MTMnOZEIj7FttopM3JVIedElbRtQr0+bfgEm1ZEcxpulcmaWK2OXsYfiSBOcgYmSFwbTpiQGpDc0U7gcsvAZ7K8wX0EwmYOzlY19w879o09Ow38/YmNvw2VKJwNoaq+fzeLKadRMEJRnmCtNbsC7K8d7sJRJDI3RYblgvC5ROnulQRPh23RqSDJp4Y1f08K/WWw1x8w7CY/KZjVEXO86jrEwv6JFkb5yMq96cGCG1HJs9B4YwWuYlWw7JBxFIYnB8QjGGyvd8e5onO8xJo/KInpYU35VEG6eDVdum8zGZBL/6q9Sqd+mqVw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TIlSHS+qIJGkjuZPrK7xIjnNc9dOtWy5cV7SGROcTlY=;
+ b=T/6sLTHZZjvYjJHt5ylfru33lz6VBuFfRi3p0vwqEWPksUm2XdpvrKpC30HT1LeFweNNQDoHyvUHKNjJmCBTdGdcF23n7WyvJ4hQGUQNzZxi9hN+uTokixAZioWQMmDV6k3meVI1oPXDcC/Xp+pjoMwjlDqKN7PnaZxMnwQOU9qgb+rkU42GzaOIQ/RPRn5W9LP0Cy/7e1CLCmHlj6o3PyeFt6y5zl0ef+NUIxutMZ6A7G54i1l55W1QYstiKCYGHAmDfJSGV+RdC3tYjhZZbSRF0u8BaBeI4Xn0Q8rPm4aHitsVKQgf8uTM0XKR2efBR5/smntKBUqL4Vcn1dAMgg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TIlSHS+qIJGkjuZPrK7xIjnNc9dOtWy5cV7SGROcTlY=;
+ b=aOUxhUL2/UFCbpQfFKuLUMD5zzHB+dL87HXcfpxUe6D54WJ/ZXgrM326Haes/hun9KvTKNIwRtmw9jJCFmp9PDF9gyJsV8SZz0yGow4BB58I6FJ1sVuYVYcsAJegf3sPOTqCJXJDpfaqbpeQ+pAb9IZrXnt/pQBpKRKoiLJtYPDKcnEz1qWN1Phb5L6LRxVY+uKrXFqv5FmoCRHBGl3JfR/ny0y/b3xVFliPexriW0EtCVtwsCEDrws2d+hRYlbM0udQ5Z8uyr19PejbJdOFBuc5vP1Rekx2sNUGs2unA0BXKCDUCcIZF7/4ehtXfdEgFw8y8gxAUyyb1xy/SfMqLA==
+Received: from OSZPR01MB8434.jpnprd01.prod.outlook.com (2603:1096:604:183::12)
+ by TYAPR01MB5532.jpnprd01.prod.outlook.com (2603:1096:404:8040::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.11; Thu, 9 Jan
+ 2025 11:04:41 +0000
+Received: from OSZPR01MB8434.jpnprd01.prod.outlook.com
+ ([fe80::7c3f:73bc:3c62:fe7]) by OSZPR01MB8434.jpnprd01.prod.outlook.com
+ ([fe80::7c3f:73bc:3c62:fe7%5]) with mapi id 15.20.8335.011; Thu, 9 Jan 2025
+ 11:04:41 +0000
+From: Shengyu Qu <wiagn233@outlook.com>
+To: nbd@nbd.name,
+	lorenzo@kernel.org,
+	ryder.lee@mediatek.com,
+	shayne.chen@mediatek.com,
+	sean.wang@mediatek.com,
+	kvalo@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	chui-hao.chiu@mediatek.com,
+	leitao@debian.org,
+	chad@monroe.io,
+	Bo.Jiao@mediatek.com,
+	sujuan.chen@mediatek.com,
+	StanleyYP.Wang@mediatek.com,
+	evelyn.tsai@mediatek.com,
+	meichia.chiu@mediatek.com,
+	Money.Wang@mediatek.com,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
-	eric.auger@redhat.com, jean-philippe@linaro.org, mdf@kernel.org,
-	mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
-	smostafa@google.com, ddutile@redhat.com, yi.l.liu@intel.com,
-	patches@lists.linux.dev
-Subject: Re: [PATCH v5 14/14] iommu/arm-smmu-v3: Report events that belong to
- devices attached to vIOMMU
-Message-ID: <202501091822.4ocbIobQ-lkp@intel.com>
-References: <03c01be90e53f743a91b6c1376c408404b891867.1736237481.git.nicolinc@nvidia.com>
+	linux-mediatek@lists.infradead.org
+Cc: Shengyu Qu <wiagn233@outlook.com>
+Subject: [PATCH v1 0/2] wifi: mt76: fix register mapping
+Date: Thu,  9 Jan 2025 19:04:34 +0800
+Message-ID: <OSZPR01MB84346C4709BBB767B1D201E198132@OSZPR01MB8434.jpnprd01.prod.outlook.com>
+X-Mailer: git-send-email 2.43.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: TYCP301CA0020.JPNP301.PROD.OUTLOOK.COM
+ (2603:1096:400:381::13) To OSZPR01MB8434.jpnprd01.prod.outlook.com
+ (2603:1096:604:183::12)
+X-Microsoft-Original-Message-ID: <20250109110436.25870-1-wiagn233@outlook.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <03c01be90e53f743a91b6c1376c408404b891867.1736237481.git.nicolinc@nvidia.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: OSZPR01MB8434:EE_|TYAPR01MB5532:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8b1d1831-4bb1-4e98-80f2-08dd309d6a4a
+X-Microsoft-Antispam: BCL:0;ARA:14566002|8060799006|461199028|15080799006|5072599009|19110799003|7092599003|440099028|3412199025|1710799026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?fBvcZt2yJ8SYySS3OiktnIRRFX/pPS7frVPkyaHpOHnvIgAZ/NXnBWTjcdY2?=
+ =?us-ascii?Q?5KJyCV7SPr264xhL9Ov2eNwJkl8SWXHZQ09iVVCX3OKOSq9OtDZUdVerJSQI?=
+ =?us-ascii?Q?oHwqkAzSCn2sm7N5EpET0JfC1DYXfFYcpvc2bUseNSEhEiOFrhi+j7ILu2y+?=
+ =?us-ascii?Q?yigzCGNTJNUfC1t50hHoRTcppzbTYG4nAY7Aa4Ee2KxBw0gs1lQgyhaG84MP?=
+ =?us-ascii?Q?FTMXTfJVCTpHijfVCCC7CnOYP116GYhAuq3isZBVxz0yV1b3xjn97gu/1InW?=
+ =?us-ascii?Q?gjXdGl2UfWjDS8ccMGB6PZtUfBFxi7WkqUVz7Gyjtx9MMpQz5VSrzE5P3oNt?=
+ =?us-ascii?Q?GiN9aL2pvKhJH3f3Oo5Al67fRuVY9ZpGWNULWL5J2351JrIB/WyRde892bRD?=
+ =?us-ascii?Q?Cbtcy2jLRkOV1lzC40PGmwErQom2oKE4rgqL1KYFFhAIKkPvFBCgKu1jBpRm?=
+ =?us-ascii?Q?mFhPR23cX9fV8tGo6F9/GGKt/YM2TPyONS4q1zyTQPr1WnVxcxPZhbvalEd8?=
+ =?us-ascii?Q?Nff0Lk7E9PdsPj9IwV5yvZbxWm37pGDNPFDGhCrmYet0mstxveQpmgg8Mokp?=
+ =?us-ascii?Q?TUuDvaqYYj8aHkkUjGbtj4tujTd7Ww/CzuH557EIKFw9KPRIn/eRaE+6rFZ7?=
+ =?us-ascii?Q?Qp4x9rAdsrQZY18j5lwX2Sa8TZkLr0W2lvw5VWMPOUzm3kCT6ooza5ywJNjG?=
+ =?us-ascii?Q?XF5YsF5Mkob5wNHEnz9w/rFca7jk1PWK+4/zRMArq/IvlZyGStRtBNxNq4IZ?=
+ =?us-ascii?Q?Br2mCE237pZAWrGv9R0ffEideaxUBk/qP8f0nYsaNmApBPRFiCyyUcMlWshh?=
+ =?us-ascii?Q?3N0m4rEgr6nP8hb3lQg/L2UkKdLIPanMQ9qQ8J7K2++IIF8m/OBn+vShGf1B?=
+ =?us-ascii?Q?mddANMieQbarj8TwqDAbmFbDetbCvcRurBBCur3j3L40Ar3sT9GHsSN8mi3L?=
+ =?us-ascii?Q?2Y/OUSxh4U63P/itJ3x8ln7MJ+v+zsNFSpXfzbQhgt0Nlwm8Iwb17ULirE5d?=
+ =?us-ascii?Q?nLYzicqeneaQfGtMaw5+nB+V85j9gRf0x4L9Ce/ZLD8JZkyUXAEB8f2bnKEh?=
+ =?us-ascii?Q?65efnfO5fI1aCvXCLdwJGl1wdZGh3HeOpnZX9FqHG7O5Ykig0uc=3D?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?rCGwxjnFh63dfROmcgQD4D+62xhZS+MPuUwPhJCqCFxEjo+GSWNsTWO7kaxq?=
+ =?us-ascii?Q?PpYnmjKLowjmEUYNlU+SmXwFD+KJNOv1rG0879f9g/h9CmGq03PveUTfoi2e?=
+ =?us-ascii?Q?9Ia7wOEeZgmiJJiYK3m0rnQJGTcgDts2rMSnkRQ35BfI9jptC1ibud4yywuz?=
+ =?us-ascii?Q?VbYkczQ/Vh4CdWkEzIYdfkSYCnNgcA14TnqwZYoUulgWFoGCsrywPvY98uN1?=
+ =?us-ascii?Q?OdME7FCw1VUgy1ws/H3Ykl38jeseK3YfX5ZWLYLZKe+Oee6KozdDL3Yjm/3a?=
+ =?us-ascii?Q?gbQ77rocWfjmigoaWeoRHmSeu2O2WNJv+zCBWFulxSvGRlI4uQQbtsa+yGY6?=
+ =?us-ascii?Q?91bmYnWQdbGMFiOVZCVY+8kgoFrRlhzVrh15DKM11Fp31MrH+azFjA03Vm4g?=
+ =?us-ascii?Q?jClKr1Exi2Zc1tDFVNLZMfm+4v2tUF+3aRU6N7bM7CYVJRPn0SXYPpzrmNbt?=
+ =?us-ascii?Q?JVEOHsOpTmgsu3umN9A/ACaCQKc9cyne7RUUpQIRF/uxU526Q2rf5p28ZL0p?=
+ =?us-ascii?Q?nD8pSLfAoMoHM1lJeOsWdzFjbjd6+b+DPTbPr22fevJjxGma9Cbwqc2kNdmL?=
+ =?us-ascii?Q?LDnEBhFBVbBVFw1M5OYxesc9/zqZQKUl/VhcXV9Y/9IdepqZGhlanCXL0rMV?=
+ =?us-ascii?Q?obees95quQLuKVJtkKNvy46WQoIRkE2uo/ihvKaAxr8L6WQzZM0d25X0ujo5?=
+ =?us-ascii?Q?ZAU2z8r3a8+XIrXSrIyPzN33hogQeL3LfhSZPv9k653YoQppTll2DsjMzOkz?=
+ =?us-ascii?Q?sckZVVeIzE3SF+V+UeOgkYmPw7D9PkDm+hZZ78CPo1nwgAI0BleCOc1eNVsL?=
+ =?us-ascii?Q?lyZH/wQNm+2CAevUvk0iv6dqUYaO5kl/5yVbPQrNPhPnimrkUK3xbuJC8Ttr?=
+ =?us-ascii?Q?CPfIUgVC/wcSbIjnCdtACVDbAbsxO87zmspaKw1QzbLO4dq2CTiL5w4vtK7R?=
+ =?us-ascii?Q?2ETKZJpGtZN3o9Yim54R5DmgxDKEm+tux5SsMQPl/K7eRe0p3wOiuv8Px9ZT?=
+ =?us-ascii?Q?G4LkRGVFmMwIXKvo0XC/NIl8pO2sw5rr5rjlBnM1nHzrmaF7tkNItCWdhfix?=
+ =?us-ascii?Q?JWSxrgWCkHd+93QTL0sUofZFQTGmcaASZrIRvW3NQn9DWMkIU3YRDkq3k1z8?=
+ =?us-ascii?Q?z4djQe5bFBsmGuKe9i6C5r2PciwELnUtpDsS7gtpwlLz30XV4Gafh8da3e+d?=
+ =?us-ascii?Q?ONsBhoT4PdfsWjAIjGYXZ7QW8TtXoACZof/NucVq6wgR0MbFz7nVq3wCZPqY?=
+ =?us-ascii?Q?fdA2VFIfAwibMD51FHWl/jtCOHx3CKMkjNnCttIaDTv7AhnJbKhLL1uLGHNB?=
+ =?us-ascii?Q?07I=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8b1d1831-4bb1-4e98-80f2-08dd309d6a4a
+X-MS-Exchange-CrossTenant-AuthSource: OSZPR01MB8434.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jan 2025 11:04:40.9997
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYAPR01MB5532
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_030423_541715_2A6DA944 
-X-CRM114-Status: UNSURE (   8.92  )
+X-CRM114-CacheID: sfid-20250109_030459_271887_B07E2148 
+X-CRM114-Status: UNSURE (   7.90  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -98,56 +159,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolin,
+Currently, mt7915/mt7996 driver would try to use the register entry
+when ofs is equal to dev->reg.map[i].size.
+Without these patches, it would get incorrect register mapping when the
+CR address is located at the boundary of an entry.
 
-kernel test robot noticed the following build warnings:
+Shengyu Qu (2):
+  wifi: mt76: mt7915: fix register mapping
+  wifi: mt76: mt7996: fix register mapping
 
-[auto build test WARNING on e94dc6ddda8dd3770879a132d577accd2cce25f9]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Nicolin-Chen/iommufd-Keep-OBJ-IOCTL-lists-in-an-alphabetical-order/20250108-011247
-base:   e94dc6ddda8dd3770879a132d577accd2cce25f9
-patch link:    https://lore.kernel.org/r/03c01be90e53f743a91b6c1376c408404b891867.1736237481.git.nicolinc%40nvidia.com
-patch subject: [PATCH v5 14/14] iommu/arm-smmu-v3: Report events that belong to devices attached to vIOMMU
-config: arm64-randconfig-r131-20250109 (https://download.01.org/0day-ci/archive/20250109/202501091822.4ocbIobQ-lkp@intel.com/config)
-compiler: clang version 18.1.8 (https://github.com/llvm/llvm-project 3b5b5c1ec4a3095ab096dd780e84d7ab81f3d7ff)
-reproduce: (https://download.01.org/0day-ci/archive/20250109/202501091822.4ocbIobQ-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202501091822.4ocbIobQ-lkp@intel.com/
-
-sparse warnings: (new ones prefixed by >>)
->> drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c:461:21: sparse: sparse: invalid assignment: &=
-   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c:461:21: sparse:    left side has type restricted __le64
-   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c:461:21: sparse:    right side has type unsigned long long
-   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c:462:21: sparse: sparse: invalid assignment: |=
-   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c:462:21: sparse:    left side has type restricted __le64
-   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c:462:21: sparse:    right side has type unsigned long long
->> drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c:464:23: sparse: sparse: cast from restricted __le64
-   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c:465:23: sparse: sparse: cast from restricted __le64
-
-vim +461 drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-
-   455	
-   456	int arm_vmaster_report_event(struct arm_smmu_vmaster *vmaster, u64 *evt)
-   457	{
-   458		struct iommu_vevent_arm_smmuv3 vevt =
-   459			*(struct iommu_vevent_arm_smmuv3 *)evt;
-   460	
- > 461		vevt.evt[0] &= ~EVTQ_0_SID;
-   462		vevt.evt[0] |= FIELD_PREP(EVTQ_0_SID, vmaster->vsid);
-   463	
- > 464		vevt.evt[0] = cpu_to_le64(vevt.evt[0]);
-   465		vevt.evt[1] = cpu_to_le64(vevt.evt[1]);
-   466	
-   467		return iommufd_viommu_report_event(&vmaster->vsmmu->core,
-   468						   IOMMU_VEVENTQ_TYPE_ARM_SMMUV3, &vevt,
-   469						   sizeof(vevt));
-   470	}
-   471	
+ drivers/net/wireless/mediatek/mt76/mt7915/mmio.c | 2 +-
+ drivers/net/wireless/mediatek/mt76/mt7996/mmio.c | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.43.0
+
 
