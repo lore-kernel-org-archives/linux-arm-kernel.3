@@ -4,191 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9666FE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 01:07:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C82BE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 01:30:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OM0Vjxx4qlL1U7IzO4al0p9SUzTMy4H6FeYlRls/tvw=; b=uy00VKpMJQJmmIm1TChhdnoOzo
-	0z0fQJFYbT2YkffZh9W7bzVRRK4fB7mEq99ok4VCdbgI7rmxVWccEm9/pJ40NVHCuBjPoNBTFZrEP
-	qNaT5PcaClUYe6RN5fc5IiMeELDxZbxqf0xj8cXjVREC1mhWMPG97kXjfXYNyNjqOZA8M5Mh1hJb4
-	/e1yAzDBidqV7c1yqVUva+emOR276rd8FQuRv06WOzxuQfF6LUrCVNnlfu9E8ZdCV5zNBENeOt12D
-	5SF8JvNEa70WJ8nn5lr1+f/q1hOaZK9bqkFC5yEw1XF4dwubEni24DMmTi2sP7Rvz4oxSwE5YF1lz
-	4iRkG2aw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9HWbvx+x+w4KsPaJffDRG2FWQVXMwMr7So5YX/IYycc=; b=VDA9cHwgRcl4t4bmLNbZaBF7Aw
+	S+VB+4JjIPdc6o3vv/FSKeeO4vjjhrKWzB1ZGUWf2LwvavLZxwLVhM9hfucHhkxJEc0cF5i3gLlvM
+	UuzJjAbmQfSJ0U+cAzDVyLrGfPGtJooHhyL9fFmgRNzmzZicH5EE8wxHOHU3khfS2ctxg4VfFLZtR
+	lyjQ+Vwu93JHr4yFU5oExKdSLsXm4AlYtxlmhz0D1U2HFG4BcOYEKaTJCsno+7zyNUfQ+9MUtNejO
+	Jfx6BwMabkM/xC7GI2c6BnLj2xuqBv9nVtrGLIpSQUrk7CN4GX87WfapBXZ65rW/V8j60MzGmKYHh
+	OadYmG0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVh0t-0000000AHig-3CpR;
-	Thu, 09 Jan 2025 01:07:07 +0000
-Received: from esa13.fujitsucc.c3s2.iphmx.com ([68.232.156.96])
+	id 1tVhMt-0000000AJUj-0QiH;
+	Thu, 09 Jan 2025 01:29:51 +0000
+Received: from mail-vi1eur05on2060f.outbound.protection.outlook.com ([2a01:111:f403:2613::60f] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVgzQ-0000000AHZF-1VJ9
+	id 1tVhLg-0000000AJ0a-1NcD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 01:05:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj1;
-  t=1736384736; x=1767920736;
-  h=from:to:subject:date:message-id:references:in-reply-to:
-   content-transfer-encoding:mime-version;
-  bh=Yl02yfYGJOf1XkUkh+k3qEtEtN9W1TWBilVU4PSfcrU=;
-  b=aDIIHKxcOfxj/3LrdBCh8PH5af4XkOz0gqylKeDjk+3ZW3B3BhAURclI
-   /9uuN5+J4i2YE6tfsChtGpzXRN7YSPb6hTgREAGFKoJXR5kDaNtJcVbq/
-   jqa3ezQLmqfyb/G1uM1C2ZNmTVc12azzN8A8cyBNqRGPAOs7TOSyw1i1F
-   e08Nxn2yhU3UY+mIWwHSge1n9RIVZ7K4uynPbngg3wN870cBe0i5sO4Af
-   1EUgCGAneOcwi5fCY4pWYu63rym1yBeQLbjLQs/8sajV6btLV7scWNiRe
-   Hm9n6Nu4BtEsnvAfkMBi0DFscrvvxqxdpfAdp1A+uFR+8VxJ8cwYtHkqI
-   Q==;
-X-CSE-ConnectionGUID: XqEM6ifYRUC+J4ukocw7qA==
-X-CSE-MsgGUID: IHVMjx/dSHurxC/FMz+/SQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11309"; a="141860299"
-X-IronPort-AV: E=Sophos;i="6.12,299,1728918000"; 
-   d="scan'208";a="141860299"
-Received: from mail-japanwestazlp17010007.outbound.protection.outlook.com (HELO OS0P286CU011.outbound.protection.outlook.com) ([40.93.130.7])
-  by ob1.fujitsucc.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jan 2025 10:04:39 +0900
+	Thu, 09 Jan 2025 01:28:37 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VjetUAQOyEiaySzvYUCAcdr23xUj2v3LEJAS/mLlVyszyy8LZN5ecnLKIlu43RCUwLCaVMzPYnj7RJIFeiH/OAYKrJoO8cvd/wRL4zqIUO7BQrGFmlbprOF/2L4BSv2VcS22QSeOq7NSYImyy05XPwnvECCXvOl+imbc1iXgXRQu2mlALZYCLT0ZGyzl/TFOzTcW6vwSXHssOwFfozYZK7xs7pnXaa/PJaqkiDAKKmKGor496vzeRTsdeMnB9Y6cqd9/zPQGjfPcote59oA+I8rNuE4qlnM2rI+LfiiV5aocbcCWm4/XOvw2sIoEmHP3cZWcS1Gbe/ezHRJmZAndxA==
+ b=tViS0NXzZjlycXQ7EjRGQAi4uDs71APWeA3IkE+EJ0TsFFgHt8E5y6UP2+WbLBJRHzAvu3cnbUdatxDK7In4xI2qmEmafA7onYE538pb2FTKaVycWJZnGE0c0knPz6tWXMIRZ1by8rNYSxt3kZXzvutrjuV/ojd8IdmuqLNkowRwO39OF7EKqqhqQqR8tgs29qOuuDOiQ+7F3J5hzq/FaGI9EHZl073L59eaKAqkG7ZDQzJofB9EToiThAGj+2/Kmo4ZaVFLZwPnhbWmASF7YnkBGevlM78Q7AJv/xa5Qk1Mjq9Xu7kUBoAbAa5a27WD/S5+v059m/O+FMOvy6vHOQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OM0Vjxx4qlL1U7IzO4al0p9SUzTMy4H6FeYlRls/tvw=;
- b=EkwgLmA76VVJKDIxDbGxqb1nhhbdzr96rUBOsSY8rX+MToPwCufxUG2qeKMCaMv1x30YuMNc/DQoCOFxXI4x7hDdOgeJK/UGvRjHp7rYPVAxWkcqb/Cl12nyLS6jsTUo92S2EO9FO/rgYQM7CezlrWY6QPQ3jGyY11XB90UWpYBa7b2s4oxDHCOiCONlcaIHEgkQh6FyBxJUCs025xcRQJRWIwRozQOrEVD+NAXffKSNIh5o5nukyYKZ9fBSXRfGEnYey6j9/kvAnguAcF7VsMCQOq9cqYLHBGURuhlPoaLldojn9M+v7jtTnoJeHwUO23P+d0ngkSIzXuST5kI8Hw==
+ bh=9HWbvx+x+w4KsPaJffDRG2FWQVXMwMr7So5YX/IYycc=;
+ b=d0u28+CG44MWLLyFdL9TBQ+ExBCTmmROSv8COjb2WI83zYIRYyA1zkCSoc+Aazy/6FJC4Gv2j5r89RPDMpsb3kTTxYmomxatWzENqwDCOuSmCUQy0MF60OXFN6HF8EI5Kg0x0/n71Qstg6o8nhtfqMu390DNfoCQsqHir17oKaKgS090stbPVHQolcRxRXAzN5qEtxcezU0I1bGIB/EklxhcaJUwtpXf6gi3iUMSriTxXWZeKqTHfiRxd+eiP190+nbS41VE9oeLA5zqUYfV3xWEjLlQP0wnWxFdLnQVt9io7Xrc6Flr3x9RtPTbGGexoaGpP07+0iVdClwwXNNXcg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=fujitsu.com; dmarc=pass action=none header.from=fujitsu.com;
- dkim=pass header.d=fujitsu.com; arc=none
-Received: from TY4PR01MB13777.jpnprd01.prod.outlook.com (2603:1096:405:1f8::9)
- by TY4PR01MB12780.jpnprd01.prod.outlook.com (2603:1096:405:1e1::12) with
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9HWbvx+x+w4KsPaJffDRG2FWQVXMwMr7So5YX/IYycc=;
+ b=HQ/Vfx4vwhQ6LRMFmmAALNDPik2X4Il6pxtXt6iFEEE9vw77rhwmELXKYKATugdIuaJUSlWh/0GWVVozm07NDOdJ0G7jBY74RRhDlDIjyiDvPWIlf/mVTNYe/DD0ET/mCEXxOjgkvX+19naipm+ApJ6FIydsmv3IR5NaKKqvdeNIDdW2zuTDtdb0X8wHkAWUeeNzr24CisCf2Bezj6qXtRzmX7pKUqO01K+lOr9t4ZmjE+Ou3tH+lBvxDRT2aq+lSbucogTH13GYbzMkPp+339jYmyS+SMOPSTqViPycXGwYojo1t1qc32n8FVCfeUmfEmZnuHALkEydSaPzW3/jEg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9498.eurprd04.prod.outlook.com (2603:10a6:10:360::21)
+ by AM9PR04MB7668.eurprd04.prod.outlook.com (2603:10a6:20b:2dd::10) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.12; Thu, 9 Jan
- 2025 01:04:36 +0000
-Received: from TY4PR01MB13777.jpnprd01.prod.outlook.com
- ([fe80::60b7:270b:27c7:4fcc]) by TY4PR01MB13777.jpnprd01.prod.outlook.com
- ([fe80::60b7:270b:27c7:4fcc%3]) with mapi id 15.20.8335.011; Thu, 9 Jan 2025
- 01:04:36 +0000
-From: "Toshiyuki Sato (Fujitsu)" <fj6611ie@fujitsu.com>
-To: 'Greg Kroah-Hartman' <gregkh@linuxfoundation.org>, Russell King
-	<linux@armlinux.org.uk>, Jiri Slaby <jirislaby@kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-serial@vger.kernel.org" <linux-serial@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: RE: [PATCH] serial: amba-pl011: Implement nbcon console
-Thread-Topic: [PATCH] serial: amba-pl011: Implement nbcon console
-Thread-Index: AQHbYWdP/BV+GPA6/U6eirwXO3ZUArMMh4MAgAEUEkA=
-Date: Thu, 9 Jan 2025 01:04:36 +0000
-Message-ID: <TY4PR01MB137779148D6C8C537E7108071D7132@TY4PR01MB13777.jpnprd01.prod.outlook.com>
-References: <20250108004730.2302996-1-fj6611ie@aa.jp.fujitsu.com>
- <2025010845-deceiver-imaginary-ea04@gregkh>
-In-Reply-To: <2025010845-deceiver-imaginary-ea04@gregkh>
-Accept-Language: ja-JP, en-US
-Content-Language: ja-JP
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_ActionId=364fdbb1-1c31-446d-8ac5-9a83f2720501;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_ContentBits=0;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_Enabled=true;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_Method=Privileged;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_Name=FUJITSU-PUBLIC?;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_SetDate=2025-01-09T00:45:17Z;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_SiteId=a19f121d-81e1-4858-a9d8-736e267fd4c7;
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=fujitsu.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TY4PR01MB13777:EE_|TY4PR01MB12780:EE_
-x-ms-office365-filtering-correlation-id: 82c2dae6-3ca6-4710-5ae0-08dd304995d7
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|1800799024|38070700018|1580799027;
-x-microsoft-antispam-message-info: =?iso-2022-jp?B?czkwU05HYU1UMmQyVDcvSEVnV0M2dmo5TlRQaHdFTzJOQzNYaVVmNnJn?=
- =?iso-2022-jp?B?L1pFbTFuajByUjQzZS9HK1FWRTcyaGIxUVBtVFJ4N05WaHFyRmVueDNw?=
- =?iso-2022-jp?B?RFlIUkZJanBDNmNQUFBDL01LaFlkdm5GTjJydVdHY0Z3K3gvZkFsdmp5?=
- =?iso-2022-jp?B?b2ZpL2xFc0RrNXZya2EweGdOYzZCWVdqNWU4M2RVakJCSEpBdnpWZlk4?=
- =?iso-2022-jp?B?cHpodGhzWW1qTVpBZkJoNzdDT3lRR1N4WE4rYm53d2FveG45NzliWlRT?=
- =?iso-2022-jp?B?eGM0Z2ZjbnA3bEExL3YxUnFqZjBxeFFCVlZXRzc0SVlzVE5McFpWakhn?=
- =?iso-2022-jp?B?TVJZdzNBUkRkQmd1SW05OXNXSnVEKzdEbTF4YnhOR2MwenJZM0hNdW1V?=
- =?iso-2022-jp?B?WHZSWlRRaVRjMjFBL2t3UHN1MGJOYWs5UkQ1UTBnREtvSHhyVVUzYTQ2?=
- =?iso-2022-jp?B?TmZSd1ZVS2ZvakFDc2NCUmJUbzh6REN5OGpLZkxkNXVwUHFNY2l3S3Rv?=
- =?iso-2022-jp?B?dW1YVjJ1V05YeUljZmw4RE5SUU9lcEhta3JtV3JsRU9KOEtBd0szQWNM?=
- =?iso-2022-jp?B?Ym5UeXFqWWxjRDRzOENucW5NREYvdFpiVEoxZkFmazJBTEVYSmhaVkhq?=
- =?iso-2022-jp?B?dmdnbk90ZkpnYktGZ2MwVlg5SmFNM00wOGRkbGlCM0xqRGZyeCttNkd6?=
- =?iso-2022-jp?B?NWxibGgzdWpaaGU3MzF2VHNwZ01nTi9JWDhPTENUTll5SFViOVBEV25z?=
- =?iso-2022-jp?B?cXJ1V1RkaGhqNWJjNFhWNUpkZ3JqRjVqbldHNU9SWHZzSVo2Sjh6VUlX?=
- =?iso-2022-jp?B?L1l6a3haaUJodVdPZktUeVk4QW1VdnRKQ2ZSUTc4cHBNL251ZS9QaWEw?=
- =?iso-2022-jp?B?elNPWWtNdlZaTXYxNnB6Y2E1NzkrZzNYTG1zMVhRV2VPcXhMdWdYOVlF?=
- =?iso-2022-jp?B?SVcweDVQZEFBeVN3dFZOcDlYbDA1cHRiWForUHlnK21ZVk9zdjQ1NElJ?=
- =?iso-2022-jp?B?a09DaHBjYzVGMStkR0JwNHd1dHdMaVJlb1REYUZsNGIvL0x4ZWZYUWNS?=
- =?iso-2022-jp?B?ZXlmellYSDJORTRCYkR1UEFxY25FUVRQa1dUUm9kc1RtK3MraTFYZXJ1?=
- =?iso-2022-jp?B?REFhazAzMnExbHVldDdWbHJKZSt4Y2lSczJSNkRXZlp6WnNlUUxRaHda?=
- =?iso-2022-jp?B?RFRoRk9wTWVrYzVEamVpNWQvUHNRb1FreDZOLzdUOHRGUkxHVVFYazRw?=
- =?iso-2022-jp?B?T0E4THlERUVuTHdXdjllMlJlZzdvT3ZoVzQ2SVdwNFdiNXl2YTk5U2Zh?=
- =?iso-2022-jp?B?b004TmxGYjhoN1labmtvenVpZnNZSm5aNTEwbEJRWnJpN1FqdlNDYkQ5?=
- =?iso-2022-jp?B?WDJ0UUp3L1FrVmhaN0V6ajFzWlBZNVdpSkx0TVc4WFRjMmYvb0UxVmh1?=
- =?iso-2022-jp?B?SnlHNDFWRmora3U5RzNPeXVtK21mMTBJcUZudnlVNWdBdXl2MXpiZWNl?=
- =?iso-2022-jp?B?VngvT2pFM0FMZjV5T0dwQjF3SWpiRCs3VDFjeEUzVFJnY2VFRUhRUVZU?=
- =?iso-2022-jp?B?TmNSaFlSUjN4bENRdGVxbnh1cXZXR2tuT0JTMno3WFJGRVZETU1IU3Y3?=
- =?iso-2022-jp?B?dWhKbzREOThyQjlZSjM4dThLWFBqL1JWOUthZko4VDBBM0RCOWlFMlEx?=
- =?iso-2022-jp?B?U3V4QnFXc2JpZ1VUZWRyWW9oMXVYVEdLa1hnZWlCRk9YNnZ3dTJmd2pI?=
- =?iso-2022-jp?B?NWFFbUpwZlFObHZYdXFhb2k5bHFKNFR3RUJ6aHBiQU4wdytLcG9FN09h?=
- =?iso-2022-jp?B?cUNRQjZYREFtenRuQ1N0VlR1a3FKWVJCaEcvMUJRZTlZOVdFRUxXZGVV?=
- =?iso-2022-jp?B?aTRYN2s3eGVuTEtkTkR5d3Q4TjUzdnZSWkl5YTNCajRVZC9WVWxLZVlY?=
- =?iso-2022-jp?B?ZVpzeEhyVGhMSkpnOEh3NUtILzd2LzB0cU9XOFFOVmtCK1J6TnNrSzVD?=
- =?iso-2022-jp?B?UkVSeHcrdGJQK2Znb1h1eE92NjNTSHJYajRmeFRseHFsU3FuczJndEdl?=
- =?iso-2022-jp?B?SjBEN2RTNml2dy95cEs4bFJsaU9abkNxWmR0L01rU29JQ1NremtsQUhV?=
- =?iso-2022-jp?B?bEk=?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY4PR01MB13777.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(38070700018)(1580799027);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-2022-jp?B?c0wveVdVSmU1RlRHUkpIMGRqVkY1ZnZoSmYzd2ZPRUFxbXhlTW5kRTYx?=
- =?iso-2022-jp?B?M1B1cGdnZDl5N0tKYUw3SERRcngxeFVDV0hkbjIza2pMZ3M1RE9laHBj?=
- =?iso-2022-jp?B?WGlzcHp4RlNubFZHME95YitqcFhBRXA3WGpJQVYzT29RSnJwWU9UZVhJ?=
- =?iso-2022-jp?B?ampjdlVZRFVrbkdvMHlvZWYxbzlQSkFtS1kwa250RXYwWlZlM2ZPSy9W?=
- =?iso-2022-jp?B?SUtYK2RSTmlvL1d6bFo0dnV6NmpvTDBHMS9RUGZnOVJROVQ5V3VuLzNJ?=
- =?iso-2022-jp?B?VTI1VlZYNy9NTkQxWGtRVGRSdGxyQTN6Z1g4bUZJTXlEKzJJVWJrSjFh?=
- =?iso-2022-jp?B?cXNqbzd3eXJKYVpKS3Y3NncxdzkxbzVsc1BydGo1WmxJZXA0L3RhNWVv?=
- =?iso-2022-jp?B?d0J6REpDRVRlaWZnRU56TVM0N1M5dGZ6d2FMYTdTU0N0VWIwZTQwNFNE?=
- =?iso-2022-jp?B?UTVaS29XN3VrOVI3UUJGMWZQT1Z6NXpuc3dxWWIxNEhHZXQvR3VJRzVQ?=
- =?iso-2022-jp?B?di95V214dkF3M2d4elFzSHVFSW15VjJsWS90aDllWTFBeE5MblVoQjBZ?=
- =?iso-2022-jp?B?NjZ4SzRxZzVGMDZvZHRjMTRHVTRIVzgvSXZ0RCtaeTdMNWNLRHdqTnJO?=
- =?iso-2022-jp?B?dkhwUGZLRS9GYjdCOFphQ1F6UnZkVFg5bGxxemNkb09CN0Q1b3pRbXpi?=
- =?iso-2022-jp?B?dU9KeDAwcjZCSFI4QmYrRlphMTNoQ3JLdXZGNnpnUzRjSG5BNlRoS2Q5?=
- =?iso-2022-jp?B?V2VzTkFIeUNWc29vdk1DWEpVeDdwbU1YM0gvS2xYT1psM2JtOUxZdEU1?=
- =?iso-2022-jp?B?d0J6WFo1Q1NXVU5Xekx3WHA0U0NQWjVZWXEwTWREMlZpa1gxMHYwRXhL?=
- =?iso-2022-jp?B?cURhQ2JqdjZYalMvZERLVGtRN2UrN0FYNTJ4VHR5eFY5TDlmYUIvQTVU?=
- =?iso-2022-jp?B?bjRoamhqclovcy9uN2w0TFMrQUJvRXJlUGZIRSsyV3dEY0owaDlwZzZO?=
- =?iso-2022-jp?B?ajk1OXJxUjVBakExOHJKR3ZOVkp5Z3Z0SHN3Sk5MOXBTUW5TQ1hPOWdH?=
- =?iso-2022-jp?B?RDJwWDltVTdHVXlkZFdKdEpmMDV4VzQyWDZhZWVyUkhQRk1OUzREbnV6?=
- =?iso-2022-jp?B?MkN0QmJTUllXUzVzRW45Mkkza2VsbXprRWFvSUx3TXlzcG9ibzN0Y2xD?=
- =?iso-2022-jp?B?bnlvTGNmVXNkcFliMDBwQjF1SEhGc2RRYTF2bHFnY08zb0RYemtDYTF3?=
- =?iso-2022-jp?B?WXRES1BvN2xZMkVIQitCa1EzTkNUOVo2R1ZlNGtodHpVclBWekE0YVVJ?=
- =?iso-2022-jp?B?RkFNNTkzMGVtU2pMdmZ6VlEvU3lQdGVKYmFqZ1NjK2NDWFhYVStjclBj?=
- =?iso-2022-jp?B?UUV5UW1YaExaVWd4SG1QZlpuSElPMDdFcGYwQ3FYV281ZEY4YnNYWDdu?=
- =?iso-2022-jp?B?T2N5QnVBOTg1b1QzK3hzVlQ2VzRHcHBpeUZjWjFzamVzcTVVSzRuQnFZ?=
- =?iso-2022-jp?B?VFE1V3AwU2UzZkFRRG9CdDgzZUlxanRiU2pMR0lCQUVuZmVjYXg5RG1E?=
- =?iso-2022-jp?B?cVdTVm1SMmFyL3Z1d1VndCtPbWMzNlBGS28vZjhJNTZiZDJ6Y3lBSHJJ?=
- =?iso-2022-jp?B?VHRLbGowOWdOSi9Td1k2TzUwTy9PSHFCVXZkcUtvQXYxTXpTeHh1ZEd5?=
- =?iso-2022-jp?B?cDdBVmRoWjN1d3l1WlV5aEJySEJqa0Q1eEg5Y21UNnhxN2FvdWJHSDBG?=
- =?iso-2022-jp?B?dGdhTkx4K1VkM2h6ZTk3dWI4RjJmaVN3Y3lVV2ttRDVxMUFFajhVNjFr?=
- =?iso-2022-jp?B?NEpWcCtkL0xmTHZhWm5zVFFtRmtpaFlDbmNRenNUUmhDaFR5cFVYeDRl?=
- =?iso-2022-jp?B?VWR6TkErd2FMeFloNEJTT0pKbkZmMUtEWlpEaHFhcFBIS1o3Z1FOcG8v?=
- =?iso-2022-jp?B?TWErMExQdFZaZi9wcEs1VVBUTXZaYm8xQU84dFlzb2x1V3ZQL3U1Mndu?=
- =?iso-2022-jp?B?WWhnL0pCNElZanptTGJLWThvWjI1VnlLWnJRdVBvZGFNcnhOSDlTdzRR?=
- =?iso-2022-jp?B?ZUNuWmd5b1pVTXhFY0IwK0FsYU14ekpxWkU3cVNySFJ5Yk1rK1pyaWdE?=
- =?iso-2022-jp?B?NHFMVUJqcm1XaGMvbWoyTXdGd3IvTnBqbmhKYXI3aS93cUswVm9FczZT?=
- =?iso-2022-jp?B?cTBuZWZxdTc4bE5SbmhoUGdNamJGc3JqNUpFZmk5STdia01xV25VeE1Z?=
- =?iso-2022-jp?B?eW0yaG5lMmczKzJaNm51VHNOWGNLTk1aMW0vL2s4eEtIWEpPZmljcUh1?=
- =?iso-2022-jp?B?cUFnRw==?=
-Content-Type: text/plain; charset="iso-2022-jp"
-Content-Transfer-Encoding: quoted-printable
+ 2025 01:27:40 +0000
+Received: from DB9PR04MB9498.eurprd04.prod.outlook.com
+ ([fe80::24fa:6f9:8247:c5dc]) by DB9PR04MB9498.eurprd04.prod.outlook.com
+ ([fe80::24fa:6f9:8247:c5dc%4]) with mapi id 15.20.8314.015; Thu, 9 Jan 2025
+ 01:27:40 +0000
+From: Chancel Liu <chancel.liu@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: shengjiu.wang@gmail.com
+Subject: [PATCH 0/6] Complete WM8960 power supplies for i.MX boards
+Date: Thu,  9 Jan 2025 10:27:12 +0900
+Message-ID: <20250109012718.328692-1-chancel.liu@nxp.com>
+X-Mailer: git-send-email 2.47.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI2PR01CA0046.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:193::18) To DB9PR04MB9498.eurprd04.prod.outlook.com
+ (2603:10a6:10:360::21)
 MIME-Version: 1.0
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: xxniAAYBkmdMu15WBkUcXvMtWINPYNpVj5JlUDJblbvk8OH+Nwyp/VgnJlNFo1nqLSfATuBqwmhjziiTcQlvvUh9CL3kljy++bHsA5HRJfci/Bdo0oXxXC5LxKvjz8cKy43dHsbN9C1oMIa9MqY2ISvnTrPkPyVGVHej7d8H8kd7K3+Yx7WmWSdDzqxZdcNulvaydltjN1ODXEU3GKkcqHeHjLi6F43tC76qIzy2Du9EhBrEXoWG/M5cGOYhJ0KLZth64q9JdCnokcvtSE8ENPJbsZpoaT8F2I7EzSOfpe3mp3zFwhH6qp/BCarlamRT29wq3V0+efgnsKV3vEj0f3J0LN+DvZF0i4rs261n1p1URUxlt3EN23555jWspshVQxCCHGDyW9MfBsdyoXQqdwIOrz7xhGB+KxHIHWPD3DMhTySKgjNN31Ligiivod0bQEJ3ZFpZTUjZDwxVzwhjwprw5OKEFGQHJZVVQNS0xVtNCjMzS7H414JKmG8hx6inr9dmfO9jz7/lv11LVXZoMqgEqVYxi7lAU50IileeY1i1pqQg8sZWozZ1c7nUiL2OwTwtTYDwxzSOoh9+MmxgIQynO2Ex6PavdoK8OYeEFzPfS8e28btv1HCnqB+J32W2
-X-OriginatorOrg: fujitsu.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9498:EE_|AM9PR04MB7668:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2a9fd9da-03dd-4fbb-06b0-08dd304ccf02
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|52116014|7416014|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?hYv/zc4IaKPG/MMHHOx3Y6k/roktOSMjTUQtgF5hLgxOpW/Q51cuc/+YKJuo?=
+ =?us-ascii?Q?bXOdezZum13BXEcLlijdLWhc9EwqgREpGb+uw4aEjvy2Re+8b52Bs7UC7YxD?=
+ =?us-ascii?Q?weSJ2JzlpSKt1hfBuykrPCIGqaNtKR3TkuIRd+8DmM6+c4w567eHZpferL1b?=
+ =?us-ascii?Q?Q+69Uefmp4BLGjM45fnr8kZhowiSpCS910f8fhvW3x4LVqxVHGi/ZcqZXqnY?=
+ =?us-ascii?Q?rH+Sj1I0nbZbPjUike6jWpZUg0yol45neMDFO+5PL7CwToDbKlJ/ew9GkgjB?=
+ =?us-ascii?Q?QxqQyty9n94nTpEw1jHsKU/NSjYo4TORpVo6lb8+W90lv6b5BoGSnwXxSHQG?=
+ =?us-ascii?Q?ttOSDnDUfFZtDdZcEljDcUsAO6NdkW0H59lYOoSpsLK3dCxLI1MX2K7sR20x?=
+ =?us-ascii?Q?lCa+JcMIdnJB1JU2YzrfMkScgviNV3PQRcHSoJvCtrkWlQ30kC+iW/Zn5/s2?=
+ =?us-ascii?Q?OgUcxw6AOaTSC1MJGUHT/40a+Vx5SFW/jgbSrzsdmeNvSUkBeZHW5gA64T37?=
+ =?us-ascii?Q?DP+N4LSIzczvVeNzJQ27vvI7xylpMQ2wwuLma9kohNu2cZDBr0P9o5fLc3s2?=
+ =?us-ascii?Q?VCfAi3M5by+CIYHVmnwQRiGWMeCSLKOqNH1u88bodqCggNqsw9cidcQeQTQi?=
+ =?us-ascii?Q?BTadVQdHT0ddz0aXtH6un5IoWHjO3f7kCCC66lgsiZuGPFdQkPnyDJ+t1YQT?=
+ =?us-ascii?Q?5ZnvjM+gisNEBEXPCJ8wG790hZ+ZzRtjEe4i1NfhEeyFmQsXgv7XrQPgSIIS?=
+ =?us-ascii?Q?4F/9rVWokBvZ8eZa7OR8M8YPoGOBsUDMmSBYi3O4et1HyODHwbQumJoZyzmW?=
+ =?us-ascii?Q?ThpGAO4yxsuBT5n5IkZKBzE0qqFZuRwhjVG8Vc15fgMsRwSQ9Gecx54NIzwi?=
+ =?us-ascii?Q?YLMhQetbofM4WCPeNLWswvUFPdylnk14ZziQfgT9xPTFifu7R+1H6UOAALPg?=
+ =?us-ascii?Q?9SFFV/JOCXTtI0alO+DTwwFC21z93X3DmUocL/5aOtrbz68j4suK+hCbZRGD?=
+ =?us-ascii?Q?0fXqi+QnKsR/2k+0mdxvETNI+kiL9LXCgD0xGJo0dWWCsEL/tDbsw4BQGDc+?=
+ =?us-ascii?Q?ng5r7CXMNFo5HM/YZLVKD6H7l4flbN7De+1wmnUtpR2YucJ+4FHwijwdgJg/?=
+ =?us-ascii?Q?lN4DJ6iTcMPkZAufdThedFlHjnjRQR2zq/R0DuePp8uJq1DI2s1AhqV/4G5h?=
+ =?us-ascii?Q?scpdCIm5Mx7URTPVeu2XLNT10OCZ+58PBnpXPYJDJvWYMMCm98Xegzo8IIiM?=
+ =?us-ascii?Q?c9d83v6UinNOy5fgmM9DDYIweagaqOxNGTjl2sqsd/Kt/RNKOF0vqRQdV0AF?=
+ =?us-ascii?Q?CPDL09EeQGTtKRoY5G0L3qUhwb8JpKm6kXm/cXtBe0ecri6NJc3nJPdFCgR3?=
+ =?us-ascii?Q?wYTH5SYeAWpOkr7DkdpbMpCbqyO3wJQEQrpBkBG0iL/8Tdx6XDIXqsAYzqlJ?=
+ =?us-ascii?Q?pnhwrAi4XQwWWwwCCNfhXndrj/1Jk7CdxG8wsAWTYd0u2ovZ5LeWkA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9498.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(52116014)(7416014)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?xlsjsvuCCzCWPcT0a11JmHBRUmBMIpiwYIMjpF6kxqXVw6oMOYZ2BVIiZjN4?=
+ =?us-ascii?Q?W0Lg915GBcLGTJXc08rDaKnzPJ3Kq6cuIPxaHdelnkwCpCEOUddeSY/DT8kE?=
+ =?us-ascii?Q?bMXcQgnw0Gd9ecTWX9EXAYOCWWF4Tt+5Fhg190DIP7uJnsN6qIdR1Alymu05?=
+ =?us-ascii?Q?R/p4+sI3YiDi+1E4m0LCWff0YhPQkoGmDQB/AHoGtudiIPZ9sa2hJdU/M3O8?=
+ =?us-ascii?Q?1oYUNqZcYD6pw3XUlL/UfzOIB2eJ2roCD+kjZOwpvEB3WCgIVA5HkmC3akeC?=
+ =?us-ascii?Q?bxPMTKeEST8IWAwXCM7DBe5ZHGx41WoxXvbJ1DKhKTJFtm2gjDg5Njy5JI0Q?=
+ =?us-ascii?Q?gJI1UCgyitxrB3dNw4KWgqT+xeyi7zYuCtZADWK9Tl3hZj51VsUMxnzO4fku?=
+ =?us-ascii?Q?crYapLXAs4mvPSqM45DGf08q5WVREhvueja/1tA/wEd2s7CpMVUIkjkJPtw/?=
+ =?us-ascii?Q?+FJLsycwjJB944gqEMwkaAPLS2d5WwxSfHbol6rUNevF7IPSGuBmY98/kWRS?=
+ =?us-ascii?Q?bb24fOUb/T9XvgHVtxKsacB0hlQ+xD0Ldj3WG+LJsQbjrZM2/SOJMGJltSY6?=
+ =?us-ascii?Q?UKMgD9J97OtyV0lTjtlk211IenfVvIjOL3B9Pvazrw+kuFFvnBNFJEpKdaB+?=
+ =?us-ascii?Q?9e/ZheTZYO5hmv08rBkH4lk83OYcw6VzZwDKnXwDvbvkQvlDnDWlVFzVVsZY?=
+ =?us-ascii?Q?NDk2Hg2t90oD569uirdMJiAoKMKL8PgA+x3Jl/QdkSQMsjK/WcmCeuioIQ23?=
+ =?us-ascii?Q?CxQtZ5BUiFptU/KFCaDWmnpyd8Sasqfu5RCB6f0FaP4L+kMJLlhS9a595DrS?=
+ =?us-ascii?Q?szjkSTFWAUqKE/7H1AMuaQI/wFyr+gxgAfO66dxAYaGWo/9ydUfI9q3T2K2w?=
+ =?us-ascii?Q?agLit9Y/PUp1DTsF0RcZkUzUJipvfhyhee+NdEm/scGOJlCKVXbXFdWL64UA?=
+ =?us-ascii?Q?ck+5BWaMTqAkpx5AuLTfnDnLjBPlFL7rjJ1Pn4Rpp12Z20PzJK7mzfuYNbcn?=
+ =?us-ascii?Q?47CwKL5kFbHwzo9DrWqaM/QMtt6/Si+YOibcTU9gPyULcso85gOXOFtzpy0+?=
+ =?us-ascii?Q?U/rlRlzVHCRWA2ehZCbnVFcITBS48tx+92ggcDDCBzs9ueqpqzwFEq/V9J2q?=
+ =?us-ascii?Q?KBQDTPO4Whr4t4uNEtKMLt94p387dxrAZMFdZgvOjkPSSQ7qN/uEhZnYYQm7?=
+ =?us-ascii?Q?PzNW34V3GXnHkgMY/EeWwNlIBsVboWZEsdTn6Wz/vjcABDg29/W9SOGVuaNh?=
+ =?us-ascii?Q?FIDbePax9UoQuTmgANah1RJWiUwBndWueX4fyyzHpgGgbb4xJ02PQwRgsBz6?=
+ =?us-ascii?Q?62PyUxZ4J9wr4m0KimzmbIbHHbB4+CE0Sc40MnGNRqk4dlWK7ypAtw/ztBtB?=
+ =?us-ascii?Q?vs8c5QZAtl4kMA2R90UG3iU16EP6lW72Zi/Baylx6uqmW98dj7apSypgrvB8?=
+ =?us-ascii?Q?QKiQjdiPCo37SFJvWRti8zmlydV69sN1jCUflTPjtjmqmgqIoFizhRj4A9r8?=
+ =?us-ascii?Q?f5cXQMZmm6c7JySdZQ+QDQarss2N0w6034kjl9/tfoC9901hGtYu6HZQgZaj?=
+ =?us-ascii?Q?hnoNx9XnpSRc4VhuzqFzl6zjaHMn6tzytDZ7iSjv?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2a9fd9da-03dd-4fbb-06b0-08dd304ccf02
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9498.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TY4PR01MB13777.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 82c2dae6-3ca6-4710-5ae0-08dd304995d7
-X-MS-Exchange-CrossTenant-originalarrivaltime: 09 Jan 2025 01:04:36.1121
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jan 2025 01:27:40.8336
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a19f121d-81e1-4858-a9d8-736e267fd4c7
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: xh6RXkxE9uxboTIzlEXoWKC3vZBL7K8OtJDAarP49OgSOE+2mWDKeyHUuVfEjuWFFc0VEzADz93+VsHDagzXYWtJwyJKc/iM9gHyNxSEo8A=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY4PR01MB12780
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 2/O9r5ecyKFVhfSDQyN+lntYaoc1JSPcxkj9RU2MvdY/qYCS0Iv2kRIu4QvvqLVsbjOVQtMF3d9/67ocb5Y/wg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB7668
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_170536_997638_373C9DE7 
-X-CRM114-Status: GOOD (  29.29  )
+X-CRM114-CacheID: sfid-20250108_172836_364476_A79734E7 
+X-CRM114-Status: UNSURE (   7.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -203,242 +164,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Greg. Thanks for the comment.
+WM8960 has the following power supplies:
+- AVDD
+- DBVDD
+- DCVDD
+- SPKVDD1
+- SPKVDD2
 
-> On Wed, Jan 08, 2025 at 12:47:30AM +0000, Toshiyuki Sato wrote:
-> > Implement the callbacks required for an NBCON console [0] on the
-> > amba-pl011 console driver.
-> > The codes for legacy console are retained, and the module
-> > parameter (use_nbcon) allows switching between legacy and NBCON.
-> > The default is off (use legacy console) for now.
-> >
-> > Referred to the NBCON implementation work for 8250 [1] and imx [2].
-> >
-> > The normal-priority write_thread checks for console ownership
-> > each time a character is printed.
-> > write_atomic holds the console ownership until the entire string
-> > is printed.
-> >
-> > UART register operations are protected from other contexts by
-> > uart_port_lock, except for a final flush(nbcon_atomic_flush_unsafe)
-> > on panic.
-> >
-> > The patch has been verified to correctly handle the output and
-> > competition of messages with different priorities and flushing
-> > panic message to console after nmi panic using ARM64 QEMU and
-> > a physical machine(A64FX).
-> >
-> > [0] https://lore.kernel.org/all/ZuRRTbapH0DCj334@pathway.suse.cz/
-> > [1]
-> https://lore.kernel.org/all/20240913140538.221708-1-john.ogness@linutroni=
-x.d
-> e/T/
-> > [2]
-> https://lore.kernel.org/linux-arm-kernel/20240913-serial-imx-nbcon-v3-1-4=
-c62
-> 7302335b@geanix.com/T/
-> >
-> > Signed-off-by: Toshiyuki Sato <fj6611ie@aa.jp.fujitsu.com>
-> > ---
-> >  drivers/tty/serial/amba-pl011.c | 113
-> ++++++++++++++++++++++++++++++++
-> >  1 file changed, 113 insertions(+)
-> >
-> > diff --git a/drivers/tty/serial/amba-pl011.c b/drivers/tty/serial/amba-=
-pl011.c
-> > index 69b7a3e1e..52fab3170 100644
-> > --- a/drivers/tty/serial/amba-pl011.c
-> > +++ b/drivers/tty/serial/amba-pl011.c
-> > @@ -41,6 +41,7 @@
-> >  #include <linux/sizes.h>
-> >  #include <linux/io.h>
-> >  #include <linux/acpi.h>
-> > +#include <linux/moduleparam.h>
-> >
-> >  #define UART_NR			14
-> >
-> > @@ -263,6 +264,7 @@ struct uart_amba_port {
-> >  	char			type[12];
-> >  	bool			rs485_tx_started;
-> >  	unsigned int		rs485_tx_drain_interval; /* usecs */
-> > +	bool			console_line_ended;
-> >  #ifdef CONFIG_DMA_ENGINE
-> >  	/* DMA stuff */
-> >  	unsigned int		dmacr;		/* dma control reg */
-> > @@ -274,6 +276,10 @@ struct uart_amba_port {
-> >  #endif
-> >  };
-> >
-> > +/* if non-zero, the console is nbcon. */
-> > +static int use_nbcon;
-> > +module_param(use_nbcon, int, 0444);
->=20
-> Why is a module parameter needed here?  That feels wrong and not
-> scalable at all.  What happens if you have multiple devices, which one
-> is nbcon and which isn't?
+Add new audio regulators to reflect the schematic and complete missed
+power supplies.
 
-This module parameter is for pl011 driver.
-With this patch implemented, only one type will be usable, depending
-on the value of use_nbcon.
-I thought it would be more user-friendly if legacy operation could be
-selected via boot parameter.
-Would it be better to make the patch purely nbcon-compatible, without
-retaining the legacy functionality?
+Chancel Liu (6):
+  arm64: dts: imx8mp-evk: Complete WM8960 power supplies
+  arm64: dts: imx8dxl-evk: Complete WM8960 power supplies
+  arm64: dts: imx8qm-mek: Complete WM8960 power supplies
+  arm64: dts: imx8qxp-mek: Complete WM8960 power supplies
+  ARM: dts: imx6ul-14x14-evk: Complete WM8960 power supplies
+  ARM: dts: imx7d-sdb: Complete WM8960 power supplies
 
->=20
->=20
-> > +
-> >  static unsigned int pl011_tx_empty(struct uart_port *port);
-> >
-> >  static unsigned int pl011_reg_to_offset(const struct uart_amba_port *u=
-ap,
-> > @@ -2305,6 +2311,7 @@ static void pl011_console_putchar(struct uart_por=
-t
-> *port, unsigned char ch)
-> >  	while (pl011_read(uap, REG_FR) & UART01x_FR_TXFF)
-> >  		cpu_relax();
-> >  	pl011_write(ch, uap, REG_DR);
-> > +	uap->console_line_ended =3D (ch =3D=3D '\n');
-> >  }
-> >
-> >  static void
-> > @@ -2411,6 +2418,8 @@ static int pl011_console_setup(struct console *co=
-,
-> char *options)
-> >  	if (ret)
-> >  		return ret;
-> >
-> > +	uap->console_line_ended =3D true;
-> > +
-> >  	if (dev_get_platdata(uap->port.dev)) {
-> >  		struct amba_pl011_data *plat;
-> >
-> > @@ -2494,6 +2503,106 @@ static int pl011_console_match(struct console *=
-co,
-> char *name, int idx,
-> >  	return -ENODEV;
-> >  }
-> >
-> > +static void
-> > +pl011_console_write_atomic(struct console *co, struct nbcon_write_cont=
-ext
-> *wctxt)
-> > +{
-> > +	struct uart_amba_port *uap =3D amba_ports[co->index];
-> > +	unsigned int old_cr =3D 0;
-> > +
-> > +	if (!nbcon_enter_unsafe(wctxt))
-> > +		return;
-> > +
-> > +	clk_enable(uap->clk);
-> > +
-> > +	if (!uap->vendor->always_enabled) {
-> > +		old_cr =3D pl011_read(uap, REG_CR);
-> > +		pl011_write((old_cr & ~UART011_CR_CTSEN) |
-> (UART01x_CR_UARTEN | UART011_CR_TXE),
-> > +				uap, REG_CR);
-> > +	}
-> > +
-> > +	if (!uap->console_line_ended)
-> > +		uart_console_write(&uap->port, "\n", 1,
-> pl011_console_putchar);
-> > +	uart_console_write(&uap->port, wctxt->outbuf, wctxt->len,
-> pl011_console_putchar);
-> > +
-> > +	while ((pl011_read(uap, REG_FR) ^ uap->vendor->inv_fr) &
-> uap->vendor->fr_busy)
-> > +		cpu_relax();
-> > +
-> > +	if (!uap->vendor->always_enabled)
-> > +		pl011_write(old_cr, uap, REG_CR);
-> > +
-> > +	clk_disable(uap->clk);
-> > +
-> > +	nbcon_exit_unsafe(wctxt);
-> > +}
-> > +
-> > +static void
-> > +pl011_console_write_thread(struct console *co, struct nbcon_write_cont=
-ext
-> *wctxt)
-> > +{
-> > +	struct uart_amba_port *uap =3D amba_ports[co->index];
-> > +	unsigned int old_cr =3D 0;
-> > +
-> > +	if (!nbcon_enter_unsafe(wctxt))
-> > +		return;
-> > +
-> > +	clk_enable(uap->clk);
-> > +
-> > +	if (!uap->vendor->always_enabled) {
-> > +		old_cr =3D pl011_read(uap, REG_CR);
-> > +		pl011_write((old_cr & ~UART011_CR_CTSEN) |
-> (UART01x_CR_UARTEN | UART011_CR_TXE),
-> > +				uap, REG_CR);
-> > +	}
-> > +
-> > +	if (nbcon_exit_unsafe(wctxt)) {
-> > +		int i;
-> > +		unsigned int len =3D READ_ONCE(wctxt->len);
-> > +
-> > +		for (i =3D 0; i < len; i++) {
-> > +			if (!nbcon_enter_unsafe(wctxt))
-> > +				break;
-> > +			uart_console_write(&uap->port, wctxt->outbuf + i, 1,
-> pl011_console_putchar);
-> > +			if (!nbcon_exit_unsafe(wctxt))
-> > +				break;
-> > +		}
-> > +	}
-> > +
-> > +	while (!nbcon_enter_unsafe(wctxt))
-> > +		nbcon_reacquire_nobuf(wctxt);
-> > +
-> > +	while ((pl011_read(uap, REG_FR) ^ uap->vendor->inv_fr) &
-> uap->vendor->fr_busy)
-> > +		cpu_relax();
-> > +
-> > +	if (!uap->vendor->always_enabled)
-> > +		pl011_write(old_cr, uap, REG_CR);
-> > +
-> > +	clk_disable(uap->clk);
-> > +
-> > +	nbcon_exit_unsafe(wctxt);
-> > +}
-> > +
-> > +static void
-> > +pl011_console_device_lock(struct console *co, unsigned long *flags)
-> > +{
-> > +	__uart_port_lock_irqsave(&amba_ports[co->index]->port, flags);
-> > +}
-> > +
-> > +static void
-> > +pl011_console_device_unlock(struct console *co, unsigned long flags)
-> > +{
-> > +	__uart_port_unlock_irqrestore(&amba_ports[co->index]->port, flags);
-> > +}
-> > +
-> > +static void
-> > +pl011_console_switch_to_nbcon(struct console *co)
-> > +{
-> > +	co->write =3D NULL;
-> > +	co->write_atomic =3D pl011_console_write_atomic;
-> > +	co->write_thread =3D pl011_console_write_thread;
-> > +	co->device_lock =3D pl011_console_device_lock;
-> > +	co->device_unlock =3D pl011_console_device_unlock;
-> > +	co->flags =3D CON_PRINTBUFFER | CON_ANYTIME | CON_NBCON;
-> > +	pr_info("Serial: switched to nbcon\n");
->=20
-> dev_info()?
+ .../boot/dts/nxp/imx/imx6ul-14x14-evk.dtsi    | 32 ++++++++++++++
+ arch/arm/boot/dts/nxp/imx/imx7d-sdb.dts       | 32 ++++++++++++++
+ arch/arm64/boot/dts/freescale/imx8dxl-evk.dts | 42 +++++++++++++++++++
+ arch/arm64/boot/dts/freescale/imx8mp-evk.dts  | 22 ++++++++++
+ arch/arm64/boot/dts/freescale/imx8qm-mek.dts  | 32 ++++++++++++++
+ arch/arm64/boot/dts/freescale/imx8qxp-mek.dts | 32 ++++++++++++++
+ 6 files changed, 192 insertions(+)
 
-If the "use_nbcon" switching function is to be retained, I would like
-to change pr_info to dev_info.
+--
+2.47.1
 
->=20
-> thanks,
->=20
-> greg k-h
-
-Regards,
-Toshiyuki Sato
 
