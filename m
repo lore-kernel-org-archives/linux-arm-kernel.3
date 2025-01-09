@@ -4,82 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6618BE7719A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 21:52:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5440E7719A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 21:53:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:References:In-Reply-To:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WvmGat6otqprLKYMChybNFttpzUR0NkosDvyxRyEY1k=; b=d7IDZmnM88s0vbaxRDBd5mlU2Y
-	SuTvAn5jQP93CANlyODcM5XdkJ4aAFvjA2WHqps2ZUKOA8ngJLrvHeeqQTX25dRXJn8v8yDei3rk2
-	7ez658/QGQ5c/tOSuP7KnqNssD4jD70WuzAHoM9ghe0smYt6efnbAU6CzEidvsIrYrEW6OvQMOu1g
-	vgiADd7WsXPWECAJ7AIctxjFAgVFCpoXfNohQzTjlezdQcN/40rjhHX3k1RQdTNHLEWt+bT9Aqnnt
-	/AvsmtTxafvfrux+Gtkh1kk3BVkoBujh6ZLbE263yHh5g0kB/SpPK4RvDVlkBgi2gsLz2q7E+4ebC
-	NE91R0Rg==;
+	bh=Ij7chTR52mv9qNBFCE2hpAp3mYEyNOHKiG4EkXfOeAU=; b=w4LkAFh3FDnP2td3vrsEHZpuTa
+	rRBcCSHE0G/o6UF3cIwSIFV+RU/SQrsPTbRcS8NJtBAgzl9jQbOPaGBnBw7LDny+K2vMufi5x0OHC
+	yedyGp1NIBp+yAsxe1e7SEp/+6PEs+n+xwBhaGymaBwF6SYH5YlYTX5as5xCeB/Io4NgNyOyUvSOa
+	emUKJS3jsbaBDU2QSXauzFJ0MGlom6XEB4EgKRcXfWN3btBnGqUN0QQuBszgGifHO01R5+Q2IIZLV
+	MhTKBqqNRrb6X9dk9g5aOTXI0wXZ9Q1Oe3CwnaX4JP+XTdzzuSi7B8gPSFuPNY2bdNBvamEhHNDyK
+	z2xFK4WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW0S3-0000000DPN1-3RjQ;
-	Thu, 09 Jan 2025 21:52:27 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tW0TF-0000000DPe0-0Hu5;
+	Thu, 09 Jan 2025 21:53:41 +0000
+Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW0Qo-0000000DOzO-20sc;
-	Thu, 09 Jan 2025 21:51:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AC9B65C5CC5;
-	Thu,  9 Jan 2025 21:50:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1C59C4CEE5;
-	Thu,  9 Jan 2025 21:51:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736459469;
-	bh=0x1L7px6GPDuN8m2XYejKWaY2IIWooxoAEoHV0V6Woc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=a6JeSpPBmvIKVy1aiaXseMKmL48kdpl1zcK4ql1QqBBn+kNNyPLZPO8aZme2NZukJ
-	 YiCoQBT5HTYD0iErWGTusMGjWgIH6e1GmDPgrYDXxcCw4ib6o9fahInGGItWRgUuRP
-	 bnxJ5ZHSeOgCFNb32NdoIMI8VQnfDI+s6pSm6K4MuFkYmKLZRnELrBi6jHur+Px00N
-	 IHoRP0b/+Xkt86vziXDu55mu0FCOklUTrpqtiQ/py3BKro3MOUtLcrtH/HK89y8gIU
-	 +FZ88rpN8hQRVkhT+pFUTbMWc0B9oYpxGwxUiPD7B3HGahhHMuNE3eSyckDn76exf7
-	 czOJNAWpptSPw==
-Date: Thu, 9 Jan 2025 18:51:06 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	=?iso-8859-1?Q?Micka=EBl_Sala=FCn?= <mic@digikod.net>,
-	=?iso-8859-1?Q?G=FCnther?= Noack <gnoack@google.com>,
-	Christian Brauner <brauner@kernel.org>, Guo Ren <guoren@kernel.org>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	Jonathan Corbet <corbet@lwn.net>, Arnd Bergmann <arnd@arndb.de>,
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-security-module@vger.kernel.org, bpf@vger.kernel.org,
-	linux-csky@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v6 00/16] perf tools: Use generic syscall scripts for all
- archs
-Message-ID: <Z4BEygdXmofWBr0-@x1>
-References: <20250108-perf_syscalltbl-v6-0-7543b5293098@rivosinc.com>
- <Z3_ybwWW3QZvJ4V6@x1>
- <Z4AoFA974kauIJ9T@ghost>
- <Z4A2Y269Ffo0ERkS@x1>
+	id 1tW0Qr-0000000DP0f-43qD
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Jan 2025 21:51:15 +0000
+Received: by mail-qk1-x729.google.com with SMTP id af79cd13be357-7b6f19a6c04so116168485a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jan 2025 13:51:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1736459473; x=1737064273; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:user-agent:from:references
+         :in-reply-to:mime-version:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Ij7chTR52mv9qNBFCE2hpAp3mYEyNOHKiG4EkXfOeAU=;
+        b=JVl+9OUo7uTx9mEXW5L2pr4haHoHS+fDyQ9IzVTKVXctrDRn08bWI76bGizGKSFeu2
+         VASbLcWEL340JBr9FLXUl6H6HvahEq4l6KgoWCilGGzyXQ6I/YwA47vNRcMAAkIAWwj4
+         52HKaCLFgz6rpY082oHInKC1tffzHHsj04VdU=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736459473; x=1737064273;
+        h=cc:to:subject:message-id:date:user-agent:from:references
+         :in-reply-to:mime-version:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ij7chTR52mv9qNBFCE2hpAp3mYEyNOHKiG4EkXfOeAU=;
+        b=lXjXXT4+2w6SAxXQx+54abB0dFYIlXijuT5Lv+VN3ehO31F5ySwuQHp/KxsMM8W4W+
+         BAJVwbD3TsjrbkhwOXybEl2hjmW35mG51ek/mkeINL3J7yvv+nBW7vunLZTGJbjS2tRh
+         w3uj6BLulNhxz+VLCe5wgv9AUoB4eBeTzC55nZMoG+Jcm5JB9Q20orgrW2QPnd9hXjJ1
+         2iD14SGFMsYSKmR/IZ/CHurhyuPzTOLt7Ryx69G3kr1eB8sBYAPbfT3CvcaXP537WguS
+         9KuhkkhfGl1kToEBFZh9b30ISAdnuN9c/9kTqQsnrlaycl41rknzdTGoMikZOEoULh+y
+         UnkA==
+X-Forwarded-Encrypted: i=1; AJvYcCWWiVoaBwGjRzgDyHs7xi25YpoRgXfRetZN5oLNAUYYhNy9sqroIjRBqaoEOqRpEOA/sMrhPwW7LFPqzhHARm/H@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZ6kwV0ZH6nwfn0liTCxWnzKXh2dK9tLBr7MfMfq/yPpj0OP8w
+	1SjcTnj2os1ID5gNBTYY0IgGnt7+XtH6iZ1cbUbC8tEX0ogFvhbdlVIoIXoKkY9aCGrDtR7I6Oo
+	xWY5YUugeBm9B49VrN3JD/Od2SWZw97vEtTxO
+X-Gm-Gg: ASbGncs4jNdc/6gp+ESC07TpILuadFPT4w7pVQdH1fRMUuS7+K0zNF/ZA8l/w+yxzzg
+	NDcoNM3LVmYiK+l+axsHqcB93gBL/ZuCY2JjR5va/Kc5uW9ekj/Rc1ed3KhgOwqR1lw==
+X-Google-Smtp-Source: AGHT+IHwh/7TYBr+p1emG57nZgx8kct5B4lA8ljc62+a1rq3c+VxjnFrnfGmjZb2NxxSfqge856AwGpQPsgIVQ3q7a0=
+X-Received: by 2002:ad4:5748:0:b0:6d8:850a:4d7d with SMTP id
+ 6a1803df08f44-6df9b1cc40fmr138466756d6.2.1736459472811; Thu, 09 Jan 2025
+ 13:51:12 -0800 (PST)
+Received: from 753933720722 named unknown by gmailapi.google.com with
+ HTTPREST; Thu, 9 Jan 2025 13:51:12 -0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <Z4A2Y269Ffo0ERkS@x1>
+In-Reply-To: <7a64e927-235b-4d63-af59-f2c80464a9a1@oss.qualcomm.com>
+References: <20250108012846.3275443-1-swboyd@chromium.org> <20250108012846.3275443-3-swboyd@chromium.org>
+ <7a64e927-235b-4d63-af59-f2c80464a9a1@oss.qualcomm.com>
+From: Stephen Boyd <swboyd@chromium.org>
+User-Agent: alot/0.12.dev1+gaa8c22fdeedb
+Date: Thu, 9 Jan 2025 13:51:12 -0800
+X-Gm-Features: AbW1kvbQxCeGwgjzsKJ5KBUJJTsO-S_0RiV9cyqbOkGsomJiGfEijj-ht5JgDak
+Message-ID: <CAE-0n53wX99ry88zOOuq6SPVpraiENheJ1T+HZri82x4gqZJ_w@mail.gmail.com>
+Subject: Re: [RFC PATCH 2/6] dt-bindings: bus: Add qcom,soc-sc7180 SoC
+To: Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
+	Konrad Dybcio <konradybcio@kernel.org>
+Cc: linux-kernel@vger.kernel.org, patches@lists.linux.dev, 
+	devicetree@vger.kernel.org, Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Rob Herring <robh@kernel.org>, 
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Arnd Bergmann <arnd@arndb.de>, Conor Dooley <conor+dt@kernel.org>, 
+	Saravana Kannan <saravanak@google.com>, =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_135110_596756_05E4B082 
-X-CRM114-Status: UNSURE (   9.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250109_135114_028430_A9C5C915 
+X-CRM114-Status: GOOD (  20.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,57 +99,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 09, 2025 at 05:49:42PM -0300, Arnaldo Carvalho de Melo wrote:
-> BTW this series is already pushed out to perf-tools-next:
-> 
-> https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git/log/?h=perf-tools-next
+Quoting Konrad Dybcio (2025-01-09 06:05:14)
+> On 8.01.2025 2:28 AM, Stephen Boyd wrote:
+> > Document the Qualcomm SC7180 System on a Chip (SoC). This SoC is made up
+> > of multiple devices that have their own bindings, therefore this binding
+> > is for a "bus" that is the SoC node.
+> >
+> > TODO: Document all child nodes. This is woefully incomplete but at least
+> > shows what is involved with describing an SoC node in dt schema.
+>
+> I'm not sure I'm a fan, because...
+>
+> [...]
+>
+> > +
+> > +properties:
+> > +  compatible:
+> > +    items:
+> > +      - const: qcom,soc-sc7180
+> > +      - const: simple-bus
+> > +
+> > +  '#address-cells':
+> > +    const: 2
+> > +
+> > +  '#size-cells':
+> > +    const: 2
+> > +
+> > +  clock-controller@100000:
+> > +    $ref: /schemas/clock/qcom,gcc-sc7180.yaml#
+> > +
+> > +  watchdog@17c10000:
+> > +    $ref: /schemas/watchdog/qcom-wdt.yaml#
+> > +
+> > +required:
+> > +  - compatible
+> > +  - '#address-cells'
+> > +  - '#size-cells'
+> > +  - clock-controller@100000
+> > +  - watchdog@17c10000
+> > +
+> > +additionalProperties: false
+>
+> ..this approach will make any dt node addition under /soc require
+> an additional bindings change, which sounds like absolute madness
 
-Hey, now I noticed that with this latest version we see:
+We should pretty much know what nodes go under here though, because it's
+a chip that exists and doesn't change after the fact. I agree that it
+will be annoying during early development when everyone is modifying the
+same file to add their node, but that problem also exists with the dts
+files today so it doesn't seem like total madness. It's also nice to be
+able to look at one file and quickly find all the schemas for the SoC
+used, like a table of contents almost or a memory map for the chip.
 
-⬢ [acme@toolbox perf-tools-next]$ m
-make: Entering directory '/home/acme/git/perf-tools-next/tools/perf'
-  BUILD:   Doing 'make -j28' parallel build
-Warning: Kernel ABI header differences:
-  diff -u tools/arch/arm64/include/uapi/asm/unistd.h arch/arm64/include/uapi/asm/unistd.h
+One thing that I find annoying is that you have to put the whole soc
+node and child nodes in the example. Maybe we can omit the example
+because there are so many child nodes.
 
-Auto-detecting system features:
-...                                   libdw: [ on  ]
-...                                   glibc: [ on  ]
-...                                  libbfd: [ on  ]
-...                          libbfd-buildid: [ on  ]
-...                                  libelf: [ on  ]
-...                                 libnuma: [ on  ]
-...                  numa_num_possible_cpus: [ on  ]
-...                                 libperl: [ on  ]
-...                               libpython: [ on  ]
-...                               libcrypto: [ on  ]
-...                               libunwind: [ on  ]
-...                             libcapstone: [ on  ]
-...                               llvm-perf: [ on  ]
-...                                    zlib: [ on  ]
-...                                    lzma: [ on  ]
-...                               get_cpuid: [ on  ]
-...                                     bpf: [ on  ]
-...                                  libaio: [ on  ]
-...                                 libzstd: [ on  ]
+>
+> I think additionalProperties: true would be sufficient here, like in
+> Documentation/devicetree/bindings/soc/imx/imx8m-soc.yaml
+>
 
-   /home/acme/git/perf-tools-next/tools/perf/scripts/syscalltbl.sh  --abis common,32,i386 /home/acme/git/perf-tools-next/tools/perf/arch/x86/entry/syscalls/syscall_32.tbl /tmp/build/perf-tools-next/arch/x86/include/generated/asm/syscalls_32.h
-   /home/acme/git/perf-tools-next/tools/perf/scripts/syscalltbl.sh  --abis common,64 /home/acme/git/perf-tools-next/tools/perf/arch/x86/entry/syscalls/syscall_64.tbl /tmp/build/perf-tools-next/arch/x86/include/generated/asm/syscalls_64.h
-  GEN     /tmp/build/perf-tools-next/common-cmds.h
-  GEN     /tmp/build/perf-tools-next/arch/arm64/include/generated/asm/sysreg-defs.h
-  PERF_VERSION = 6.13.rc2.gd73982c39183
-  GEN     perf-archive
-  GEN     perf-iostat
-  MKDIR   /tmp/build/perf-tools-next/jvmti/
-  MKDIR   /tmp/build/perf-tools-next/jvmti/
-  MKDIR   /tmp/build/perf-tools-next/jvmti/
-  MKDIR   /tmp/build/perf-tools-next/jvmti/
-
-
-While with the previous one we would see something like SYSCALLTBL as
-the step name, like we have GEN, MKDIR, etc, can you take a look?
-
-All is out there in perf-tools-next.
-
-- Arnaldo
+Ok. That binding looks to be for the efuse properties of the SoC node
+itself? I was hoping to find another example of this "describe the whole
+SoC" sort of binding but that doesn't match. Is there one already out
+there? Should I move this binding to bindings/soc/qcom instead of
+bindings/bus?
 
