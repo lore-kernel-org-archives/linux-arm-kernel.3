@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4D13E77199
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 07:55:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E11EAE77199
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 07:56:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NVk8+av3pgiET4058QeM54bKGL30PRCcYoDNiCEzPZg=; b=POErC/4mQ0l2QJp5Vx3jnzFIqq
-	u6Ke1nhktUgsffBBr2RnnJwheVogfktzg1SJ9wg+Hqixd5rNBMXohLzWZl4AYJ6PH06USyGjAsHfE
-	xaHLeMHKvfqXRJpun2kt+CAAjxh000kyIZHv9TfTzCaeaRjCl+VhSwZxGKQ/ttE+XveIOJASs8hcL
-	7wgxTgcdl/MDk0qb/92SQk2vuMkxxwoArC5zUn2F1CE2VIBGqqpqNFafCzfzdcv/ynI/qCA4zsD8d
-	kMmjVMXonxLXCLg1POxZSnUW4aVNf5c52Rs121BMcAWq2iD1Qh1SSAPvG/ILe9jjZyClqh/CpANcD
-	0TBMYV2Q==;
+	bh=pvwiG9mpTlTcMaEMzguxEa3nq0iXo2sve9Fe1atPFyA=; b=UfAzR4ZiPKUIBqYQ7db7IcOpYk
+	YByq2GxQ9mJGl7o/bMrgwsZrAkb/InmhRh/hGbvEOm6uUxQ+0P/V1hHoXgpE5hehd8sgyi+wc61gP
+	BxjB+Lo+ebPBbhc6TT3tbDaUWj3559Hw4cXQ7ubK+JPPPus6Q5UbKSA7oxU+FHXucOSW7aLcXyS9B
+	NsmzKvsxkcaHsLNFcTPeFCUHuuwh3es1FZ4E7Q47i4swL+cez2eLXgWojVARCAf3oYVpNaCiJ++vp
+	t5IaCjX1W3kunqoqM5UDLwGkFH5SLSMeDNBN0QNRgD29d4JZSMVReLSjoVE6nupBLs2032mCo6I04
+	BSWvGGVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVnNg-0000000B6Xr-3G4V;
-	Thu, 09 Jan 2025 07:55:04 +0000
+	id 1tVnOt-0000000B6xB-2MZ7;
+	Thu, 09 Jan 2025 07:56:19 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVnMQ-0000000B6FD-3WqV;
-	Thu, 09 Jan 2025 07:53:48 +0000
+	id 1tVnNG-0000000B6RO-0K89;
+	Thu, 09 Jan 2025 07:54:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id DA84AA41358;
-	Thu,  9 Jan 2025 07:51:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4A16C4CED2;
-	Thu,  9 Jan 2025 07:53:37 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id BAB67A4135E;
+	Thu,  9 Jan 2025 07:52:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 196BAC4CED2;
+	Thu,  9 Jan 2025 07:54:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736409225;
-	bh=3bn1KBB1DXwcAnRhzzk51OXn+JHZTyAbSfVZU6oOVus=;
+	s=k20201202; t=1736409277;
+	bh=1jz7011LKNmLuJ37T5DIDKhsFcOCcRypALbf8zbLLrw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=fVH1/0+9Xi1b6OLwA14cXaq4AT5rHeQKToapK2uQ6OYgsko/UhwRO9M5pFWtp4OHA
-	 QEKqy4kjYr/1AoPmsWWSE09ckelLTO2NtfsDf5Gg612StI/Ph/inDzECQKUtL+9UCy
-	 diaNSd9a1jPmFNPksWLPMY1U+l2JBtPJfrDW5anYSksbBP3URcpm+/4QataZGQiWZP
-	 hg7CDAHpTG/Xy38Fx5LrrbtFPatkxfgYHqXqvjJysYA4Q82Yk7hvBMprno1nrqWh1w
-	 YId+j+VWwpwk9jeZICVEnI9b0E6Om0SZklghbG27rgGqRq59fFPA4AHLe7G6yE/h0T
-	 JGcB5CVzikJ1A==
-Message-ID: <6df0f935-b7d2-4961-a947-47b328a3758f@kernel.org>
-Date: Thu, 9 Jan 2025 08:53:34 +0100
+	b=gHVi6Dg8VBbcijNFyGgtvajXGnTBVavG0rMozRlzfD71CrvvkI1LY4J3stFxxGHSB
+	 jvLqgq8/Jz67pRL/CtJaKlc2HII/eOJmKEkoF4vltmbIJNkRgsCIEd8qlQUNQ4csG5
+	 0kAwI1ck5CxrLdmsJ1jGUS6Rqca4I9VLU4o/CoK1iRGMtcRMoCtKENEJ/aF4LuMPkH
+	 7ty4JaslUpr8aZVAC141Ki1+ETUysRhJtlDFJAztfYk+6ndAHqo1UzlvbOUDwHB3ju
+	 iA8AF8yFaOHy2MZEPcBdXK2Xf9YrokN4zki7jm/oShciQGB0FpS9orDYonye5kSVB1
+	 5s2ojTjnvPZBw==
+Message-ID: <00af138e-4e00-49e7-945f-9c6e489208b9@kernel.org>
+Date: Thu, 9 Jan 2025 08:54:27 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 4/7] arm64: defconfig: enable display connector support
+Subject: Re: [PATCH v5 5/7] arm64: defconfig: enable STARTEK KD070FHFID015
+ panel
 To: Alexandre Mergnat <amergnat@baylibre.com>,
  Chun-Kuang Hu <chunkuang.hu@kernel.org>,
  Philipp Zabel <p.zabel@pengutronix.de>,
@@ -62,7 +63,7 @@ Cc: dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
 References: <20231023-display-support-v5-0-3905f1e4b835@baylibre.com>
- <20231023-display-support-v5-4-3905f1e4b835@baylibre.com>
+ <20231023-display-support-v5-5-3905f1e4b835@baylibre.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,12 +109,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20231023-display-support-v5-4-3905f1e4b835@baylibre.com>
+In-Reply-To: <20231023-display-support-v5-5-3905f1e4b835@baylibre.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_235347_064773_17034CDB 
-X-CRM114-Status: GOOD (  13.04  )
+X-CRM114-CacheID: sfid-20250108_235438_301193_0617DF6E 
+X-CRM114-Status: UNSURE (   6.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,27 +131,12 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 08/01/2025 17:15, Alexandre Mergnat wrote:
-> Enable this feature for the i350-evk HDMI connector support.
-
-git grep -i i350-evk - zero results. Please use some recognizable names.
-I have no clue where to even look for it - which vendor.
-
+> Build Startek KD070FHFID015 panel driver. This MIPI-DSI display
+> can be used for the mt8365-evk board for example.
 > 
-> Signed-off-by: Alexandre Mergnat <amergnat@baylibre.com>
-> ---
->  arch/arm64/configs/defconfig | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-> index c62831e61586..b2db31e010ff 100644
-> --- a/arch/arm64/configs/defconfig
-> +++ b/arch/arm64/configs/defconfig
-> @@ -900,6 +900,7 @@ CONFIG_DRM_PANEL_SITRONIX_ST7703=m
->  CONFIG_DRM_PANEL_TRULY_NT35597_WQXGA=m
->  CONFIG_DRM_PANEL_VISIONOX_VTDR6130=m
->  CONFIG_DRM_FSL_LDB=m
-> +CONFIG_DRM_DISPLAY_CONNECTOR=m
 
+Squash the patches. It's one logical change to bring config optiosn for
+display on your boards. Not each change per one symbol.
 
 Best regards,
 Krzysztof
