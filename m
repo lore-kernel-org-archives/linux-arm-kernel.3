@@ -4,68 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43A04E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 17:37:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E85ECE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 17:37:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TTXini+czMs1unGWfy+9RDBWtdxNH7Ox1uD++fpTx/0=; b=nfAZfs+MlhsOnnatLVQ7wbIwB5
-	VAa+iecp+ud2gf+utih0rvQCrI7G1wTDvnFiw5rGdY+oGPGoL3FqtWMVoxGWm8y3ScEU+cEFicW57
-	36n0m3LfnG8EqltwQXEQekwIu/AXZIcxHhsoIgd9UWEhy+DY3CWK1KVO0AINf00wYOD5muRP7GErr
-	Utb+uBAuxXnpXhGnP8Sq5iJD0RlXlYCVnq0agFDr4FAfF28Pvn/RBkMzQWVGjKCoh+JzLivk6uZLl
-	CAv9DSPLTCw8Uwgj+hLaLBTQQnksaWju8BIdXFj0Ec2N4m9hZFDgDJmq9XyV5p8z2rvYaeHLEH0iw
-	DNvgcVAA==;
+	bh=46BxsCbI0FR4kHDgldgx1BMDqYZ8yBbbSq8sEnuUMJ8=; b=LF5KsGCCXW33DAXKdOE7xk5FTY
+	Art4PBoS7TUGC3fN46+DtU5uOr1y2w9v8QFE/ua6mRLTvk6C5J6ADaOXHZ+45WTiHMcR3nWlfJJGO
+	Unuokbm2VPXMCCdyO1clWE2BiT0LHooYViOk/tBd97GUaVH1xxNCV42U9KLUg5XYW05gkxqUb+0zc
+	LircVh+zGB+W3chez041MZDq4C8OL/W1clhef8CuqjcnAFMDGxnGzGBf1pKFHHoydGccvdi50FNDc
+	0lgTWVdMQTtPdI0fElFGflrinVqQP/fOt+kZyZ6hBSjM+F62eiMM9GbCeGhNLFJpH26YnnS2978vA
+	8P+5ONCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVwTE-0000000Cr5M-2j1R;
-	Thu, 09 Jan 2025 17:37:24 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVvLj-0000000Cfx2-40o6;
-	Thu, 09 Jan 2025 16:25:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=TTXini+czMs1unGWfy+9RDBWtdxNH7Ox1uD++fpTx/0=; b=OGnb5MsefkDFY+rcMZQ0/+FS8B
-	GUqpjoaq6hbKQhyq/3TAVowGz2RfHWM0wi4r1ZjPSmRLQR/v1E+3ZcWtPIE1iDqMHsNWaIPKrc0eW
-	xcJOamjb2S+fVxFn4m0nZ2Lw3uD6pgvh0Af5u6Odbk/BfoOonPhuK5Li5qszipXQyFq0yOpObX945
-	kzzRZUJMMavCbCNKDahLz72fvLoVZAIhnE/aXJZjd1/5IeTk6Yt/WUBPHw3KVcl7DaOE8C0YzupZa
-	bY0izOM5k3ByJ2KzqcVSItGkbh22c7P9YR6QE1qut2g+iYmpkYV65NMhvnluxX0rFyVhBu9GSVBXs
-	UsGXf+OQ==;
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVvLh-000000072UA-0xGg;
-	Thu, 09 Jan 2025 16:25:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=TTXini+czMs1unGWfy+9RDBWtdxNH7Ox1uD++fpTx/0=; b=mv7JKCcr1Vdbzmm78Cb8yDIma2
-	KvWR974hzYEBNpvuEPDgEKZPrL4Y28RUqK0390pXSfABbnf8X0Q501h5s9MAW6asQgLZdd0jPB8gk
-	/ndpidG2eAMuZX2FV2ktO5JdhBglJmtuTui7VkmSIhLXTO7iVf4uzoW8asKW9YIfxiK4=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tVvL9-002wx8-Ey; Thu, 09 Jan 2025 17:24:59 +0100
-Date: Thu, 9 Jan 2025 17:24:59 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Basharath Hussain Khaja <basharath@couthit.com>
-Subject: Re: [RFC PATCH 04/10] net: ti: prueth: Adds link detection, RX and
- TX support.
-Message-ID: <fce8d698-2ae2-460c-a288-3d70d61dbf9e@lunn.ch>
-References: <20250109105600.41297-1-basharath@couthit.com>
- <20250109105600.41297-5-basharath@couthit.com>
+	id 1tVwTF-0000000Cr6k-42wi;
+	Thu, 09 Jan 2025 17:37:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tVwR5-0000000Cqms-1wVx
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Jan 2025 17:35:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1B7BF1515;
+	Thu,  9 Jan 2025 09:35:37 -0800 (PST)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6F70A3F673;
+	Thu,  9 Jan 2025 09:35:07 -0800 (PST)
+Date: Thu, 9 Jan 2025 17:35:00 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Martin <Dave.Martin@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2 0/6] arm64/sme: Collected SME fixes
+Message-ID: <Z4AIxM3fYh5WEw--@J2N7QTR9R3.cambridge.arm.com>
+References: <20241204-arm64-sme-reenable-v2-0-bae87728251d@kernel.org>
+ <20250108124957.GA9312@willie-the-truck>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250109105600.41297-5-basharath@couthit.com>
+In-Reply-To: <20250108124957.GA9312@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_162533_281504_D806632A 
-X-CRM114-Status: GOOD (  11.01  )
+X-CRM114-CacheID: sfid-20250109_093511_544774_311D79F6 
+X-CRM114-Status: GOOD (  19.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,65 +63,37 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: nm@ti.com, vigneshr@ti.com, tony@atomide.com, edumazet@google.com, krishna@couthit.com, pmohan@couthit.com, diogo.ivo@siemens.com, robh@kernel.org, javier.carrasco.cruz@gmail.com, praneeth@ti.com, m-karicheri2@ti.com, jacob.e.keller@intel.com, kuba@kernel.org, pabeni@redhat.com, devicetree@vger.kernel.org, conor+dt@kernel.org, schnelle@linux.ibm.com, mohan@couthit.com, richardcochran@gmail.com, prajith@ti.com, rogerq@kernel.org, ssantosh@kernel.org, linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org, rogerq@ti.com, srk@ti.com, pratheesh@ti.com, m-malladi@ti.com, netdev@vger.kernel.org, rdunlap@infradead.org, linux-kernel@vger.kernel.org, danishanwar@ti.com, afd@ti.com, andrew+netdev@lunn.ch, parvathi@couthit.com, horms@kernel.org, krzk+dt@kernel.org, davem@davemloft.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +/* update phy/port status information for firmware */
-> +static void icssm_emac_update_phystatus(struct prueth_emac *emac)
-> +{
-> +	struct prueth *prueth = emac->prueth;
-> +	u32 phy_speed, port_status = 0;
-> +	enum prueth_mem region;
-> +	u32 delay;
-> +
-> +	region = emac->dram;
-> +	phy_speed = emac->speed;
-> +	icssm_prueth_write_reg(prueth, region, PHY_SPEED_OFFSET, phy_speed);
-> +
-> +	if (phy_speed == SPEED_10)
-> +		delay = TX_CLK_DELAY_10M;
+On Wed, Jan 08, 2025 at 12:49:58PM +0000, Will Deacon wrote:
+> On Wed, Dec 04, 2024 at 03:20:48PM +0000, Mark Brown wrote:
+> > This series collects the various SME related fixes that were previously
+> > posted separately.  These should address all the issues I am aware of so
+> > a patch which reenables the SME configuration option is also included.
+> > 
+> > Signed-off-by: Mark Brown <broonie@kernel.org>
+> > ---
+> > Changes in v2:
+> > - Pull simplification of the signal restore code after the SME
+> >   reenablement, it's not a fix but there's some code overlap.
+> > - Comment updates.
+> > - Link to v1: https://lore.kernel.org/r/20241203-arm64-sme-reenable-v1-0-d853479d1b77@kernel.org
+> 
+> Mark (R), are you happy with this? I know you were digging into some
+> other issues in this area but I'm not sure whether they invalidate the
+> fixes here or not.
 
-How can speed to 10? You removed those link modes?
+Hi Will, sorry for the delay -- this has turned out to be more fractal
+than I had hoped. :(
 
-> +/**
-> + * icssm_emac_ndo_start_xmit - EMAC Transmit function
-> + * @skb: SKB pointer
-> + * @ndev: EMAC network adapter
-> + *
-> + * Called by the system to transmit a packet  - we queue the packet in
-> + * EMAC hardware transmit queue
-> + *
-> + * Return: success(NETDEV_TX_OK) or error code (typically out of desc's)
-> + */
-> +static int icssm_emac_ndo_start_xmit(struct sk_buff *skb,
-> +				     struct net_device *ndev)
-> +{
-> +	struct prueth_emac *emac = netdev_priv(ndev);
-> +	int ret = 0;
-> +	u16 qid;
-> +
-> +	if (unlikely(!emac->link)) {
-> +		if (netif_msg_tx_err(emac) && net_ratelimit())
-> +			netdev_err(ndev, "No link to transmit");
-> +		goto fail_tx;
-> +	}
+I think some of the fixes I'm working on are going to conflict with or
+supersede portions of this series (e.g. portions of ptrace and signal
+handling), and I'm aware of a couple more SME-specific issues that are
+not addressed here.
 
-Do many other MAC drivers have this test?
+I'll try to get that out in the next few days, and then look at this in
+a bit more detail.
 
-> --- a/drivers/net/ethernet/ti/icssm/icssm_prueth.h
-> +++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
-> @@ -17,6 +17,11 @@
->  
->  /* PRUSS local memory map */
->  #define ICSS_LOCAL_SHARED_RAM	0x00010000
-> +#define EMAC_MAX_PKTLEN		(ETH_HLEN + VLAN_HLEN + ETH_DATA_LEN)
-> +/* Below macro is for 1528 Byte Frame support, to Allow even with
-> + * Redundancy tag
-> + */
-> +#define EMAC_MAX_FRM_SUPPORT (ETH_HLEN + VLAN_HLEN + ETH_DATA_LEN + 6)
-
-This looks familiar....
-
-	Andrew
+Rutland.
 
