@@ -4,118 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD879E77199
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 14:08:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78C35E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 14:09:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mbArVg6/eRJ5CBY3wlWkBQa8h4VvimPAbHJu1V1shmY=; b=dW/H1kKmNI2a0g9hLfoeJvYOIv
-	WpnFRIWvhD4IUDQyvANBjKunTmm3uwyQnQlATGGCX1DhiEumHfw3NyM8CucLNufjG3DhQp3qSl5/Y
-	Ph+3XVfYnKsT8zy2ikTEKC5dx4dHy4AU9A/zOI7IY7WD0hcvx5OCV27HlDeMBe3mAgJfMn0jRcM17
-	2C/UG5rIPNKIkKK4CM4bPSovSCUog/eESJpTrp58r4Hj5NYOfkY7iN/dDocppoUgq0RQ7eX2YaCgS
-	wyJTori4Nd08ZsCPQ0r119qAVd7Vr4GV5lymoVORz6IWNUCVNkJbDPencvRgjE4aizr9YCFk7sNSm
-	Jb8ATTbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bywW9vMeiiYOYy2QNzu7ZKqXWuFCGn5oBIdbY0P2hyg=; b=H1rnpUWYH7JnPN5OqZpfhX1MGx
+	Zy2/jSuoGP50XtM8bnCL1uVhBnRxwgCG4UssBFrj6Le5c4IF7ha0mVDJcJjmrk6NcCQeRmLor5AWA
+	3FJ1wJx1sBVVYsPeW0wfAOAf7Jb/V4+lQqxC3Gzd91/rrIdjHXin7J9V5pdlyXzvOoZpkR/Ct/ucA
+	PvKsBSFEM2AFzpQaFUSLPhHciKg8ccH1lNnrwsGaDlvcQ2VE9OxExQPrUfCe5LHBpQ2ARTSiPcIua
+	gHPFhTm9NyQNJWopOv3Dh/gNWXTFOA0T5J9lJZ5f6T7X4gDlmHBUEcEVFHAIUOrc/CzNSEEC2Q64x
+	5rwxG0Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVtCg-0000000CAfC-0qmE;
-	Thu, 09 Jan 2025 14:08:06 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tVtDr-0000000CAyw-1eaU;
+	Thu, 09 Jan 2025 14:09:19 +0000
+Received: from mail-qk1-x735.google.com ([2607:f8b0:4864:20::735])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVtBS-0000000CANH-3p0g
+	id 1tVtBd-0000000CAPf-292h
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 14:06:52 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 509D7XJe009333
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 9 Jan 2025 14:06:50 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	mbArVg6/eRJ5CBY3wlWkBQa8h4VvimPAbHJu1V1shmY=; b=YP8Kfpq2GiAcqEuu
-	4uw9kQUSA199doBDfgyDTaI0jtv1L5zH8Xob4H96CzcFs7qsjjdxizFqfkbw6NjL
-	vI67GCbr+XTjxVdHXh9uaIbFq30dJCo+Ts9S1HLk47Gyv1bBcpYr9ZFWoweSxSP5
-	rdJX8T8ANC2Wl7WWLlWtpm7waEKPzw94i8OjtLZtr7NhXzkHl7HZaVvhqQf96pbL
-	thh0GdRTHJFWdTbVwxNCXVuipcJ63EgyR0yIh2IvRTeyqQ/SLTjq+3g+DtIyH51m
-	Wmj2wm1+p3qcw6BoaBKZt8c0zZm5z2OgH4tVMv2k8V2rLHYR2DePUSddXSR+/JpS
-	KhNR2A==
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 442f2kr4dk-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jan 2025 14:06:50 +0000 (GMT)
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-4679af4d6b7so2316241cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jan 2025 06:06:50 -0800 (PST)
+	Thu, 09 Jan 2025 14:07:03 +0000
+Received: by mail-qk1-x735.google.com with SMTP id af79cd13be357-7b700c13edaso49213885a.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jan 2025 06:07:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1736431620; x=1737036420; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=bywW9vMeiiYOYy2QNzu7ZKqXWuFCGn5oBIdbY0P2hyg=;
+        b=EX91DW3z0rW6riD4Z/MNPebte5GI6PPDRY3qCkk/dEMgO8L//1+EzYegCHq4yYxswB
+         QvDLnOqAfAXQd3zEY0sONTxFgQd50GJZGAvPeNW7l3XC49MczNTiZyWELlkLAkJrtS/n
+         7MXcHarmzjm+STJfWzC1pAIBvwpC9Pn73vvsixBgxkJvnFgTMk4c0h76kHSvkFZXLjAD
+         NQ41qHw0Oe/6YeIDHiad6bJbm1yWSZMkeHzh+mw3wWvboBuWvI59Zr4DkYO2PrjH7Jyg
+         IGrZlf4UfeREpX1rTvuxW/ERPfs4BVUNPTxFslvHmQs9eLZhjwNguzByX6kbR2gc/Xcm
+         i2vA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736431609; x=1737036409;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=mbArVg6/eRJ5CBY3wlWkBQa8h4VvimPAbHJu1V1shmY=;
-        b=CGbhKsZ7VQ6EaJ3u7l4HVV2L7ZOAhB4rFbkeyMn0h6mMDyOFNh8ZJ84gywjA4i/pFV
-         ChPiLJ/9c9jdi7QUbP56w5P8LGyNANbtE6yhANPMwGJFoTrV4BqQATETfHMiumZHPTrw
-         fUBgumlNVLzngqw5EzEVUSWr0K2HGp7nLwcUPQnY7kE5Tq0kj+E7GY4eKdb4oYniWHyC
-         icE0zj46FMzg/4Yi2yvgkAy3BDFXrGcnaImXEBSDfMo+M2lpt9kC2vk/i9ZoZVlftJ9f
-         i31R96sLG/JPs0eYkExQnNQj8A+b4YCkILYhxFDlwGGVEfT6fQe/iHJfzPBUiPMM2Z8O
-         7duw==
-X-Forwarded-Encrypted: i=1; AJvYcCXwmZ+0D2x2+d/zYZHjgd7uYw4Y+mkcREwSB7MruvLm2+0pib70ncAvTY/CAfGos0xNd14gZVS79QBrmHKLq7QN@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxh3kip4EebCjdb6kmQy6nXw4u8yMbj8pr6r3S6LY8HvbZaPaBJ
-	EyY+llZR2qb9/nGX8w/YUZB/EE6iNcXbV072k7krC+uQzET2wNFOsgZ7a5rG0rocdMFsdkr0IOH
-	vu5L4167iqLcd0gBB/hgo5J3Rt9vw9MS/ezCh78lYND2gOqYR8I+0h8KLzvS9u5c6xS3ljNGf3A
-	==
-X-Gm-Gg: ASbGncs33wTpxmA/G9vYzPYRixlRcNZ5Z7V/phVjSc3Z7vTEWeBoCoqH6ULkxETs+96
-	LgOpReKWl1b49icpY3315a8OchNrl79XFH4Lv4J4xcDIrfWdBQoE0D7r8MrIR/VeOaiZGz2RxrK
-	MjHJyaZzULuUIlOwSLWJ+L3fJoFEESQ9dxrMINu6yYWH3+5aIGfLbv/hdzuzbIfYvOPuGe5IMh3
-	kVVqjqTajogcfhZ2c6Gm5ZL3HTE/FcgUun9OHla06KBLFq4z2IsAr40TbRPWSjM8xAacBnZLYSn
-	689TIqMQRzrbffXBPfmnz8b4u4GP878s/KY=
-X-Received: by 2002:a05:622a:110c:b0:464:9463:7475 with SMTP id d75a77b69052e-46c7107797emr38702531cf.2.1736431608977;
-        Thu, 09 Jan 2025 06:06:48 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHie2b0u8nYDuEHN0u3Cf6+ivLeBSXYRoFjZINs6QXJq5w2Zszg8fYJRiSalrgy7pO1187gXg==
-X-Received: by 2002:a05:622a:110c:b0:464:9463:7475 with SMTP id d75a77b69052e-46c7107797emr38702361cf.2.1736431608551;
-        Thu, 09 Jan 2025 06:06:48 -0800 (PST)
-Received: from [192.168.65.90] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab2c95aee31sm74856766b.133.2025.01.09.06.06.46
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 09 Jan 2025 06:06:48 -0800 (PST)
-Message-ID: <308cd9f5-109c-4530-94c4-dd32eecf9ec3@oss.qualcomm.com>
-Date: Thu, 9 Jan 2025 15:06:45 +0100
+        d=1e100.net; s=20230601; t=1736431620; x=1737036420;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=bywW9vMeiiYOYy2QNzu7ZKqXWuFCGn5oBIdbY0P2hyg=;
+        b=M/ACxNpylLxiONxD5rCoOhtl2Vze9929cZA9PXvcaCe2I2SIsTLgQ7HMgB+BkmY5np
+         x0sM0I1I3XmCB75C9e3Hu5WLiaeo35KzMB9jJdcY7kRYLTp5AURhttZ3tSI6fRp8EhaW
+         V3sgtfdpl6RzaiZRkUcjbjJGh00zGxEcPDiRfvWDtduGQ0fON6aua1GbQ3RiUAENnp/h
+         oaFHjJBUnu7rGbzbsx1zURW8EGywOS2KDWndWQdK2B9UEw9SJ2ZXWNVXzMyCpwTV6WSA
+         3PcpYlrmIaaxzzUTvIcCU60hytbaE9IMrQqoRTlI5FVfxz8RHhjwTwEUrKyV45UHjZuU
+         VwOQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX/vIAFB/lGB5TSAPeE2lM+GntoTsxlp+zYJ5nstpDlBU4NDFm893RQ3uIp/KQdXFtZIOXPqturlCH63nBbXqA5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxe7m5A5OZXf8ot7fbQANru5qz7DuhpXr+MzM84/bjTE+vvZeap
+	hhZ4ooPJrd/mcG//whmPLaXJFszItpyu1xhJxqJdlTiAOf5tTTId03n0JWHKFGs=
+X-Gm-Gg: ASbGncuyVq7y1YhU+YgsFcQQSXykEQxEjXuBO0ZOxSIe5g35fwY/6z/iDA/HUq/fWsZ
+	kBK56b4Uwc/IyRLtQDGDHWLsUoO0vQsA1nVp2JG5R6oLedEU6P7GaLi1+fRGTvtZxOxNl5+Ahtu
+	pD1uFn/4ylmC/bk1rX/bcI2kBsZVtuoSDz5VR/GlJOnu3mvy5mSrV3oVt/YvY0l9ulRtVGgSUJS
+	zxvpf9PJuRdW8ku2NsadMf3Q2NiQQvmLazc4v+VsaMJviq13K4ysGMm3g==
+X-Google-Smtp-Source: AGHT+IEscSxY4Do3TXZ6G7JOMUAekHEsOUeBZGyyHfF7ljBFczTdIIJ78AZHYR6zSk6tQnyqAKAV5A==
+X-Received: by 2002:a05:620a:414a:b0:7b6:dddb:b88 with SMTP id af79cd13be357-7bcd976277dmr964450385a.38.1736431620006;
+        Thu, 09 Jan 2025 06:07:00 -0800 (PST)
+Received: from nicolas-tpx395.localdomain ([2606:6d00:15:862e::7a9])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7bce327bb28sm69478785a.64.2025.01.09.06.06.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 09 Jan 2025 06:06:59 -0800 (PST)
+Message-ID: <c67ebf846d19086586b00d1d79252c8296a704b5.camel@ndufresne.ca>
+Subject: Re: [V1,00/12] Enable jpeg enc & dec multi-hardwares for MT8196
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: "kyrie.wu" <kyrie.wu@mediatek.com>, Hans Verkuil
+ <hverkuil-cisco@xs4all.nl>,  Mauro Carvalho Chehab	 <mchehab@kernel.org>,
+ Rob Herring <robh+dt@kernel.org>, Matthias Brugger	
+ <matthias.bgg@gmail.com>, Tzung-Bi Shih <tzungbi@chromium.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+  Conor Dooley <conor+dt@kernel.org>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>,  Bin Liu <bin.liu@mediatek.com>,
+ kyrie wu <kyrie.wu@mediatek.corp-partner.google.com>, 
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
+Date: Thu, 09 Jan 2025 09:06:58 -0500
+In-Reply-To: <20250109133513.20151-1-kyrie.wu@mediatek.com>
+References: <20250109133513.20151-1-kyrie.wu@mediatek.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.54.2 (3.54.2-1.fc41) 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 4/6] of: Extract alloc/add functions from
- of_platform_device_create_pdata()
-To: Stephen Boyd <swboyd@chromium.org>,
-        Bjorn Andersson
- <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-kernel@vger.kernel.org, patches@lists.linux.dev,
-        devicetree@vger.kernel.org,
-        Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-        Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-        Rob Herring <robh@kernel.org>, linux-arm-msm@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Saravana Kannan <saravanak@google.com>,
-        =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-References: <20250108012846.3275443-1-swboyd@chromium.org>
- <20250108012846.3275443-5-swboyd@chromium.org>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20250108012846.3275443-5-swboyd@chromium.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: 2s4slFzCO_ZpW5I7bdO0T5PXFGRBPmRj
-X-Proofpoint-ORIG-GUID: 2s4slFzCO_ZpW5I7bdO0T5PXFGRBPmRj
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
- adultscore=0 mlxlogscore=999 clxscore=1015 lowpriorityscore=0
- impostorscore=0 spamscore=0 phishscore=0 bulkscore=0 malwarescore=0
- suspectscore=0 mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2501090113
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_060650_970594_5D1595CE 
-X-CRM114-Status: GOOD (  21.58  )
+X-CRM114-CacheID: sfid-20250109_060701_754356_32B81A5E 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,61 +105,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8.01.2025 2:28 AM, Stephen Boyd wrote:
-> Allow drivers to modify the 'struct device' for a device node by
-> splitting of_platform_device_create_pdata() into two functions. The
-> first function, of_platform_device_alloc(), allocates the platform
-> device and the second function, of_platform_device_add(), adds the
-> platform device to the platform bus. SoC power management drivers can
-> use these APIs to allocate a platform device for a node underneath the
-> soc node, attach pmdomains and/or set the device as runtime PM active,
-> and finally add the platform device to the platform bus.
-> 
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Saravana Kannan <saravanak@google.com>
-> Cc: <devicetree@vger.kernel.org>
-> Cc: Bjorn Andersson <andersson@kernel.org>
-> Cc: Konrad Dybcio <konradybcio@kernel.org>
-> Cc: <linux-arm-msm@vger.kernel.org>
-> Signed-off-by: Stephen Boyd <swboyd@chromium.org>
+
+Hi,
+
+Le jeudi 09 janvier 2025 =C3=A0 21:35 +0800, kyrie.wu a =C3=A9crit=C2=A0:
+> This series adds support for mt8196 multi-hardwares jpeg enc & dec,
+> by first adding mt8196 jpegdec and jpegenc compatible to install
+> kernel driver. Add smmu setting to support smmu and iommu at the
+> same time.
+> Secondly refactor buffer and clock setting to support multi-hw jpeg
+> working.
+> Lastly, fix some bugs, including resolution change handleing, stop
+> streaming sw flow and others.
+>=20
+> This series has been tested with MT8196 tast test.
+> Encoding and decoding worked for this chip.
+>=20
+> Patches 1-3 Adds jpeg encoder and decoder compatible.
+> Patches 4 add jpeg smmu sid setting.
+> Patches 5 fix jpeg hw count setting to support different chips.
+> Patches 6 refactor jpeg buffer payload setting to handle buffer
+> size bug while resolution changed.
+> Patches 7 reconstruct jpeg dst buffer layout.
+> Patches 8 fix multi-core stop streaming flow
+> Patches 9 refactor multi-core clk suspend/resume setting
+> Patches 10 fix decoding buffer number setting timing issue
+> Patches 11 refactor decoding resolution change operation
+> Patches 12 fix remove buffer operation
+>=20
 > ---
+> This series patches dependent on:
+> [1]
+> https://patchwork.kernel.org/project/linux-mediatek/patch/20240808092555.=
+12999-1-jianhua.lin@mediatek.com/
+>=20
+> kyrie.wu (11):
 
-[...]
+would you mind fixing the --author in your configuration, write your name
+instead of your user name. UT8 is allowed, many people will use a ASCI spel=
+ling
+(some approximation) and then add their real name in parenthesis.
 
-> +/**
-> + * of_platform_device_add - Add an of_device to the platform bus
-> + * @ofdev: of_device to add
-> + *
-> + * Return: 0 on success, negative errno on failure.
-> + */
-> +int of_platform_device_add(struct platform_device *ofdev)
-> +{
-> +	struct device_node *np = ofdev->dev.of_node;
-> +	int ret;
-> +
-> +	pr_debug("adding platform device: %pOF\n", np);
-> +
-> +	ret = of_device_add(ofdev);
-> +	if (ret) {
-> +		platform_device_put(ofdev);
-> +		of_node_clear_flag(np, OF_POPULATED);
-> +	}
-> +
-> +	return ret;
-> +}
-> +EXPORT_SYMBOL(of_platform_device_add);
-> +
->  /**
->   * of_platform_device_create_pdata - Alloc, initialize and register an of_device
->   * @np: pointer to node to create device for
-> @@ -154,29 +214,19 @@ static struct platform_device *of_platform_device_create_pdata(
->  					void *platform_data,
->  					struct device *parent)
->  {
-> +	int ret;
->  	struct platform_device *dev;
+regards,
+Nicolas
 
-ultranit: you kept the reverse order above, please keep ret last too
+>   dt-bindings: mediatek: Add mediatek, mt8196-jpgdec compatible
+>   dt-bindings: mediatek: Add mediatek, mt8196-jpgenc compatible
+>   media: mediatek: jpeg: add jpeg compatible
+>   media: mediatek: jpeg: add jpeg smmu sid setting
+>   media: mediatek: jpeg: fix jpeg hw count setting
+>   media: mediatek: jpeg: refactor jpeg buffer payload setting
+>   media: mediatek: jpeg: refactor jpeg dst buffer layout
+>   media: mediatek: jpeg: fix stop streaming flow for multi-core
+>   media: mediatek: jpeg: refactor multi-core clk suspend and resume
+>     setting
+>   media: mediatek: jpeg: fix decoding buffer number setting timing issue
+>   media: mediatek: jpeg: refactor decoding resolution change operation
+>   media: mediatek: jpeg: fix remove buffer operation for multi-core
+>=20
+>  ....yaml =3D> mediatek,multi-core-jpegdec.yaml} |  10 +-
+>  ....yaml =3D> mediatek,multi-core-jpegenc.yaml} |  10 +-
+>  .../platform/mediatek/jpeg/mtk_jpeg_core.c    | 126 ++++++++++++------
+>  .../platform/mediatek/jpeg/mtk_jpeg_core.h    |  17 ++-
+>  .../platform/mediatek/jpeg/mtk_jpeg_dec_hw.c  | 116 +++++++++++++++-
+>  .../platform/mediatek/jpeg/mtk_jpeg_dec_hw.h  |   4 +
+>  .../platform/mediatek/jpeg/mtk_jpeg_enc_hw.c  | 113 +++++++++++++++-
+>  .../platform/mediatek/jpeg/mtk_jpeg_enc_hw.h  |   4 +
+>  8 files changed, 343 insertions(+), 57 deletions(-)
+>  rename Documentation/devicetree/bindings/media/{mediatek,mt8195-jpegdec.=
+yaml =3D> mediatek,multi-core-jpegdec.yaml} (95%)
+>  rename Documentation/devicetree/bindings/media/{mediatek,mt8195-jpegenc.=
+yaml =3D> mediatek,multi-core-jpegenc.yaml} (94%)
+>=20
 
-Konrad
 
