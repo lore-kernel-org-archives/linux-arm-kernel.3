@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCFFFE77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 08:31:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49BEFE77199
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 08:53:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qdKQdu0yqkEFNpHjhxt/s1/3Z7lTuPUmfZCAiVLRWwE=; b=s03wei6gJNnTkALCCulWx7AwrI
-	PbpfuE7iOxAS41uSr7rhUsyoC0GiNWslkVpUWwKa7kCIwTlX3FeEbFfdH4PuhCMgjk7vAVogOeu7X
-	tk60YJeTQQcR4RaJh7615Q3uAs/LdODdDamQqtsdBBVMnN5S5q0CZ/IlBwtQKJBfswTz9FOiaxZfJ
-	dciZFhSnKKd3KNwA5td+gEAaKWRRPNv9Qsm41n0Klwapbexwl9Ea/FE9z9Nv7sA5Ikqc8vXCSetNP
-	VTlY4EH+pY7JFQfIsv8mDOPff8014FiO+rnQF7W1xTZp0elDVKB+ynNAksbf/99IRZigsKOpQo58a
-	ZdjrgU0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wjC3gK2lb2BwoAZMxgmOimL4OSH1bZgNkJlq6el6Rlg=; b=sWT7VPqmSCFRssews37GeywgsH
+	/orbMHj2RN/Rwz6AwoZM4JELe4JTAcPWN3ycLAESKj3i5D/paibhtGSlgUCU5DW0muXIopkTgiLKs
+	QOKOr/Y9S4Mah+DgKiHwfgFNStkXTrqh/foqrV2r8hEg4he3HNN7ifa1NChgfrAq0w2MBO0pkaeyY
+	DmDMd2qn6m4pVHnHs5IbudxOenLrPojoKnpYlZjn7KCa3yiFSwaMUWMIG7ZD/EzqKgmUTNTV951js
+	1A56KYuFS4bdXjZ0m1FOGItlYV050whKZKgdxqNOVnYPp2vzi/+X1XNnv4Wfk+hdWVFLLiiZYvt6+
+	PCR5jFsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVnwd-0000000BBcb-3sJK;
-	Thu, 09 Jan 2025 08:31:12 +0000
-Received: from mail-m12769.qiye.163.com ([115.236.127.69])
+	id 1tVoIT-0000000BE6d-1V69;
+	Thu, 09 Jan 2025 08:53:45 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVnvO-0000000BBPp-2Dwy;
-	Thu, 09 Jan 2025 08:29:56 +0000
-Received: from [192.168.2.32] (unknown [125.77.104.109])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 83580805;
-	Thu, 9 Jan 2025 16:29:44 +0800 (GMT+08:00)
-Message-ID: <1a8ce846-bae7-4087-ba7c-2cc5be541be9@rock-chips.com>
-Date: Thu, 9 Jan 2025 16:29:44 +0800
+	id 1tVoHD-0000000BE08-3Cpa
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Jan 2025 08:52:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 25F025C479D;
+	Thu,  9 Jan 2025 08:51:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B661C4CED2;
+	Thu,  9 Jan 2025 08:52:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736412746;
+	bh=TvUNJv8yJjtpo185rkOPuPVGK4fNp0KoEpN/gIjMEhI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PUrBrvNPOcUnmh+bwM7eTNr+s19B16W+pxZ10Lyneb+7oPdPxS6ztV23f3nQqQ+aF
+	 ORW6h+wLS7iWEfKUMxi+02GRWkLX6w1/10lgHHZ9Gz/UT9AUgHHHtAh7NaSDetddNB
+	 4mBNORp70DYyYkTYL7GuclYVUETWav++tg1tAIWXY0iUlWd8BxZ8KJEBwKUpx9w7sl
+	 xASZ6QQA1nKFzy58CEISqgFZ9NsdvHCOxOCrV+JOQ4xpnqm8R3HK/EDZLNcCkdct9V
+	 RmEf7KUeeYBDKl95jJ9BN3IRnpZFEuj1TOQhGfKZZ2TDvA1FLpHC8B5eUE4MZg4meB
+	 YjsE6413js1ZA==
+Date: Thu, 9 Jan 2025 09:52:23 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Ming-Jen <mjchen0829@gmail.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-input@vger.kernel.org, linux-arm-kernel@lists.infradead.org, sudeep.holla@arm.com, 
+	arnd@arndb.de, peng.fan@nxp.com, conor+dt@kernel.org, krzk+dt@kernel.org, 
+	robh@kernel.org, dmitry.torokhov@gmail.com
+Subject: Re: [PATCH v6 1/2] dt-bindings: input: Add Nuvoton MA35D1 keypad
+Message-ID: <q73tpquvwrbrlhugbik3pfkzsywskbntpdtkmhbqrz6qdx2p4d@7flo7ahmfnme>
+References: <20250109002622.771-1-mjchen0829@gmail.com>
+ <20250109002622.771-2-mjchen0829@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] spi: rockchip-sfc: Add rockchip,fspi compatible
-To: Krzysztof Kozlowski <krzk@kernel.org>, broonie@kernel.org
-Cc: linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- heiko@sntech.de, linux-arm-kernel@lists.infradead.org,
- linux-spi@vger.kernel.org
-References: <20250107154755.2037197-1-jon.lin@rock-chips.com>
- <20250107154755.2037197-2-jon.lin@rock-chips.com>
- <1ef2ece5-f4ed-46ca-9bf5-75f898565a62@kernel.org>
-From: Jon Lin <jon.lin@rock-chips.com>
-In-Reply-To: <1ef2ece5-f4ed-46ca-9bf5-75f898565a62@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkaGhkaVk8fQx8dT05CSEpJGVYVFAkWGhdVEwETFh
-	oSFyQUDg9ZV1kYEgtZQVlKSU5VTExVSktPVUpLQllXWRYaDxIVHRRZQVlPS0hVSktJT09PSFVKS0
-	tVSkJLS1kG
-X-HM-Tid: 0a944a2f0c2109d9kunm83580805
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6ODo6Ajo4CzISFwsBCBcRAjJL
-	FxlPFD5VSlVKTEhNT0pKSENOQk9KVTMWGhIXVREUFVUXEhU7CRQYEFYYExILCFUYFBZFWVdZEgtZ
-	QVlKSU5VTExVSktPVUpLQllXWQgBWUFKSktCNwY+
-DKIM-Signature: a=rsa-sha256;
-	b=E/hDMvN/uXfDVXVtLxHo1yiWP5wjgZs/7u4vsuJhgy4ioXLgcRGjAz6ZAv9ux34uZXrvKsU/jiZF1i6TrzQfyF0mQIJ79pk+4HjZROAxrsn+n1H6Fc7JepyYkxB9mgzZHO7sGCPVQ0kcDu93CBDUWL4fmG4oDqY0NJ6owKg5dms=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=qdKQdu0yqkEFNpHjhxt/s1/3Z7lTuPUmfZCAiVLRWwE=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250109002622.771-2-mjchen0829@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_002955_108375_3A9EBBBB 
-X-CRM114-Status: UNSURE (   9.06  )
+X-CRM114-CacheID: sfid-20250109_005229_364858_3AF34B35 
+X-CRM114-Status: UNSURE (   7.20  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,36 +75,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/1/8 15:03, Krzysztof Kozlowski wrote:
-> On 07/01/2025 16:47, Jon Lin wrote:
->>
->> diff --git a/drivers/spi/spi-rockchip-sfc.c b/drivers/spi/spi-rockchip-sfc.c
->> index 59de351499a0..88fbde27925e 100644
->> --- a/drivers/spi/spi-rockchip-sfc.c
->> +++ b/drivers/spi/spi-rockchip-sfc.c
->> @@ -808,6 +808,7 @@ static const struct dev_pm_ops rockchip_sfc_pm_ops = {
->>   };
->>   
->>   static const struct of_device_id rockchip_sfc_dt_ids[] = {
->> +	{ .compatible = "rockchip,fspi"},
->>   	{ .compatible = "rockchip,sfc"},
-> I don't understand why you are adding generic compatible which is not
-> even used. Use proper SoC specific compatibles and fallbacks when
-> applicable (see writing bindings document).
+On Thu, Jan 09, 2025 at 12:26:21AM +0000, Ming-Jen wrote:
+> From: Ming-jen Chen <mjchen0829@gmail.com>
 > 
-
-Thanks for the reminder. These two submissions are indeed redundant 
-submissions at present and are not recommended to be merged.
-
-It is indeed necessary to add submissions like rockchip,rkxxxxx-fspi 
-when there are specific SOC requirements, and attach the associated priv 
-data.
-
-The merging of this submission is suspended.
-
-> Best regards,
-> Krzysztof
+> Add YAML bindings for MA35D1 SoC keypad.
 > 
-> 
+> Signed-off-by: Ming-jen Chen <mjchen0829@gmail.com>
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+Best regards,
+Krzysztof
 
 
