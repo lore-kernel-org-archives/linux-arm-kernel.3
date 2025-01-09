@@ -4,87 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73605E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 15:37:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2214E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 15:41:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/clElWaM3190LNZ3OZWk/BEAVCI/yd2x8vlvG4wodOI=; b=MiOay7TtclRvaDXAHFLdEiMLma
-	dph4xlRuLiVbeY+uS8YKrFfT4yuIE3sXQPxiutcEzz00toxuQ92wLJlQLuwLlDOkP0HbP9HZYCJid
-	qgIDK/GTmtsV6h0d8F8uCbZXuAsklGLEEgtXh4pXLirT9wLbkzHjb/lEsAXDjgWfETphG+mscJ7DC
-	y3xDOqk5cRSRsN+VUYzQuLTQHh4m0C8HGaHh4blVNIhvaoortAuEBOnR3EEuh0y6dAmlSP4mXoH3x
-	VW703LnbgWUp5LpjoDHk/3YqtnYPQyYcA/EMsjVrXk1nWHtIc8cdwJK8LM3MOZBbC58j40VyzT/QX
-	eFvyXmTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5vk6+7Zp7POqWSiiv1DSP428bWeQZRwfTw6RhTWCJyw=; b=ui7atOrMLPABRCC8wICZeuFx0p
+	V6G4V5lPAzVkdt727g/1yPhsZqvIwsiVWZJtXJ5cj2C4VjDK4Q0Yfu5rUkcN3PzwsrO6en95ji/7p
+	yxcdunhZfzvD2Q3tGYBLdqEN+CkM+YrEGY6pi2qtDlB0j8ozDGpZFVvyLLNOQLL+8C/Wl1WcSt8pF
+	jP6N6suc7xpsQ1rusomqM4XcRfZZAWG19/Dse7LzSpj8tWrvMnoK26RA6eZMCJt2KoRD5lmsoYKjz
+	DCW0VvmNMKy4A+PPd+PrFins3l48NRpJ/7oQmqXyTDEYvt75g0lneudgSln4DEbPIgvEgsLk1d4Ea
+	ueieN2Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVuaa-0000000CV65-2lJA;
-	Thu, 09 Jan 2025 15:36:52 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1tVuea-0000000CVu6-2Txx;
+	Thu, 09 Jan 2025 15:41:00 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVuZL-0000000CUsZ-3ZSy;
-	Thu, 09 Jan 2025 15:35:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1736436936; x=1767972936;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=SrcQ/8zYSyEihsRb2ykAIH/ByznPF+YacEjpgON4wFA=;
-  b=VwjIbgmW5FhpBV54O5kXvNjIjcIgl8u0fwvRMfroME+55ULp/gZQMC4d
-   EmEONZXgBY72YfTJgkvtWw9pplmSfTvAyLXdaHCGcgbY4iDHjgT0IsL9G
-   IXVFGFGuJjUR8xY+1tuybe2nTGvoJ8yvM3MqgcLYQHaBqLd35Qw30UCWw
-   gSxuGs1e0Uln88Sutk7kqxm7Fv09L5QW6XnFatmlVtPBbcZS3qvAd9SW/
-   YWeW2Ji23pnjMWW2xWDPkwPLSiZv/TRnI5+us3VISnxi1GHPrTVSK+6WP
-   VF/4Q15EvXE7AECoqh/naHdhuArFcxAFx3tOs1Hyi6tbTO9jVSU9kVYZS
-   g==;
-X-CSE-ConnectionGUID: 1HMftql2Qki65uhicLHggg==
-X-CSE-MsgGUID: Ke+F5Z3ITTm/dvLW08Ajtg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11310"; a="59174619"
-X-IronPort-AV: E=Sophos;i="6.12,301,1728975600"; 
-   d="scan'208";a="59174619"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jan 2025 07:35:21 -0800
-X-CSE-ConnectionGUID: YkkI/L/tSMG7jguLwGnmFQ==
-X-CSE-MsgGUID: MCwCzlA/TBWiqlR55nvWHw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="104308721"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by orviesa008.jf.intel.com with ESMTP; 09 Jan 2025 07:35:15 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tVuYy-000HkJ-0F;
-	Thu, 09 Jan 2025 15:35:12 +0000
-Date: Thu, 9 Jan 2025 23:34:57 +0800
-From: kernel test robot <lkp@intel.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	chunkuang.hu@kernel.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	p.zabel@pengutronix.de, airlied@gmail.com, simona@ffwll.ch,
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
-	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com, ck.hu@mediatek.com,
-	jitao.shi@mediatek.com, jie.qiu@mediatek.com,
-	junzhi.zhao@mediatek.com, dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com, dmitry.baryshkov@linaro.org,
-	lewis.liao@mediatek.com, ives.chenjh@mediatek.com,
-	tommyyl.chen@mediatek.com, jason-jh.lin@mediatek.com
-Subject: Re: [PATCH v4 02/34] drm/mediatek: mtk_dpi: Add support for Pattern
- Generator in debugfs
-Message-ID: <202501092326.5Xw3bp4p-lkp@intel.com>
-References: <20250108112744.64686-3-angelogioacchino.delregno@collabora.com>
+	id 1tVudM-0000000CVhp-2XjT
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Jan 2025 15:39:45 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-aaee0b309adso183703566b.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jan 2025 07:39:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1736437182; x=1737041982; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=5vk6+7Zp7POqWSiiv1DSP428bWeQZRwfTw6RhTWCJyw=;
+        b=OQVopmiqEVzOH1AB9bop/n596Pagj/tjtnLWWCDYIdhpAVuHvbOXx3bO52eJyQYbvP
+         JiQaTn892eQadCwMbVf1zijhNuGLQW8adBkFEjjgWkSmPr/0mXvCUpeAG9QpvxOefyzC
+         h/U790U6ebkK9xLXZD0LCven9HLFRanjU/675VsbftVTc56TO1oGgCXwzIcWhNpb81Qg
+         IcKcJ4nHNKQdMkXEsRaToD0rzJmG0rUiKksU4eyEQTR/f2JCoc56lC+aI7TJlTrAce2n
+         l915/79Sf/zUJ6kjIgPQshxl71kqxdmLmrCZTJFKnpjNBXp7/T7Fc98o/iPyaP679CgK
+         i98g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736437182; x=1737041982;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=5vk6+7Zp7POqWSiiv1DSP428bWeQZRwfTw6RhTWCJyw=;
+        b=tKNWZpnEBdPVWUsB4pJiOmQqOKoOxzy80T5epw9O9CUGGX1hrYeZYg6zSMblFiNbQ9
+         ioTGPLkxH/7FMaLSMAkEFA/dyjCTz6KU3AtUdDdm/D41Lp4YngSkxe1zJiItyxY+uUKw
+         UFVdGgSN/G/U/q7lg54nBRBS1i9Z4UPn4OhFjrb+j8l9CiNJHiFgvrraTjvLCuENDfEc
+         +cNzgH/+V87woZLbYIAuzlJmfMGnH0Asv+ZsHJVZPv43hqPNOw2KMcU5JSGOoge1F/uN
+         lewvd+jYGBCgMJuJzFMvClsDx97Bds7tX9+uzXLO/G8Kc/nnLOxzh2wg3gqCRceOyE26
+         8r5g==
+X-Forwarded-Encrypted: i=1; AJvYcCUfG4fc/ONKuZD3aUQ2Cb8c4NT3ZIq6QpxEArmAaMMkl0XOPyC8ZhZQPh3ZBJYwSGmJ2VjIUl4HREzjHaSrzWO7@lists.infradead.org
+X-Gm-Message-State: AOJu0YzIR20RTpVN+3tLNnxcfFlopS808EJQr19PkcGM+Oko2V2OPnHQ
+	1cp9aSTpc5eBjuTnCzDPe3kdOkcJG5BOtC/7DxKHIwYQcxwihdj4
+X-Gm-Gg: ASbGnctthBl6OKFH7WFcJYZ8vVAJaJecqPnrErxvqSswF/TLPitbeLS59mG+A4ispxJ
+	d+nnqsWYb97yaIKY3i5NyNs0Sr8POFIIhCQCTJFoaJTC9XCpE5y0mQ5cyZ3JKsVnCPknyvYCqLU
+	GGuUUA+6wjkqcQBB/7JtBrRaV8WdzIz9rYmcjC5VhfgZQHBhv1Of6AW7fE4NCItRDIYUYSJuEcC
+	50sb1CHPN1iI2FRvAStDw6QLTaLXvhFoGPXCaDp3or/jbzYovbxgNPD7a2YOTLxJ+SjTIskmhdu
+	n5YaMhu+bs1r7vIioToYFUkMIZU/yfCITZ5WFWYg3Bc=
+X-Google-Smtp-Source: AGHT+IFj2+tODvSpYPQKL+ViJ0DL//Q+lzKHKCCuLpU5rxscBjkzMHzjJznmcSvRpQo5DVH64bosjg==
+X-Received: by 2002:a17:907:787:b0:aae:849f:3255 with SMTP id a640c23a62f3a-ab2ab709e27mr618538166b.34.1736437181824;
+        Thu, 09 Jan 2025 07:39:41 -0800 (PST)
+Received: from localhost.localdomain (146.10-240-81.adsl-dyn.isp.belgacom.be. [81.240.10.146])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab2c95aee31sm82176466b.133.2025.01.09.07.39.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 09 Jan 2025 07:39:41 -0800 (PST)
+From: Philippe Simons <simons.philippe@gmail.com>
+To: Thomas Gleixner <tglx@linutronix.de>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	linux-kernel@vger.kernel.org (open list:IRQCHIP DRIVERS),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Allwinner sunXi SoC support),
+	linux-sunxi@lists.linux.dev (open list:ARM/Allwinner sunXi SoC support)
+Cc: Philippe Simons <simons.philippe@gmail.com>
+Subject: [PATCH] irqchip/sunxi-nmi: add missing flag
+Date: Thu,  9 Jan 2025 16:39:35 +0100
+Message-ID: <20250109153936.1908044-1-simons.philippe@gmail.com>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250108112744.64686-3-angelogioacchino.delregno@collabora.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_073536_002799_BF796CBE 
-X-CRM114-Status: GOOD (  13.05  )
+X-CRM114-CacheID: sfid-20250109_073944_649408_5767C431 
+X-CRM114-Status: GOOD (  11.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,71 +99,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi AngeloGioacchino,
+AXP717 has a PEK to wake up the device from sleep
+AXP717 is on the NMI irq pin
+add IRQCHIP_SKIP_SET_WAKE flag is required to enable wakeup from the suspend
+---
+ drivers/irqchip/irq-sunxi-nmi.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on robh/for-next]
-[also build test ERROR on linus/master v6.13-rc6 next-20250109]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/AngeloGioacchino-Del-Regno/dt-bindings-display-mediatek-dpi-Add-MT8195-and-MT8188-compat/20250108-193136
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
-patch link:    https://lore.kernel.org/r/20250108112744.64686-3-angelogioacchino.delregno%40collabora.com
-patch subject: [PATCH v4 02/34] drm/mediatek: mtk_dpi: Add support for Pattern Generator in debugfs
-config: i386-buildonly-randconfig-003-20250109 (https://download.01.org/0day-ci/archive/20250109/202501092326.5Xw3bp4p-lkp@intel.com/config)
-compiler: clang version 19.1.3 (https://github.com/llvm/llvm-project ab51eccf88f5321e7c60591c5546b254b6afab99)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250109/202501092326.5Xw3bp4p-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202501092326.5Xw3bp4p-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from drivers/gpu/drm/mediatek/mtk_dpi.c:22:
-   In file included from include/drm/drm_atomic_helper.h:31:
-   In file included from include/drm/drm_crtc.h:32:
-   In file included from include/drm/drm_modes.h:33:
-   In file included from include/drm/drm_connector.h:32:
-   In file included from include/drm/drm_util.h:36:
-   In file included from include/linux/kgdb.h:19:
-   In file included from include/linux/kprobes.h:28:
-   In file included from include/linux/ftrace.h:13:
-   In file included from include/linux/kallsyms.h:13:
-   In file included from include/linux/mm.h:2223:
-   include/linux/vmstat.h:518:36: warning: arithmetic between different enumeration types ('enum node_stat_item' and 'enum lru_list') [-Wenum-enum-conversion]
-     518 |         return node_stat_name(NR_LRU_BASE + lru) + 3; // skip "nr_"
-         |                               ~~~~~~~~~~~ ^ ~~~
->> drivers/gpu/drm/mediatek/mtk_dpi.c:175:9: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     175 |                 val = FIELD_PREP(DPI_PAT_SEL, type) | DPI_PAT_EN;
-         |                       ^
->> drivers/gpu/drm/mediatek/mtk_dpi.c:794:8: error: call to undeclared function 'FIELD_GET'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     794 |         val = FIELD_GET(DPI_PAT_SEL, val);
-         |               ^
-   1 warning and 2 errors generated.
-
-
-vim +/FIELD_PREP +175 drivers/gpu/drm/mediatek/mtk_dpi.c
-
-   169	
-   170	static void mtk_dpi_test_pattern_en(struct mtk_dpi *dpi, u8 type, bool enable)
-   171	{
-   172		u32 val;
-   173	
-   174		if (enable)
- > 175			val = FIELD_PREP(DPI_PAT_SEL, type) | DPI_PAT_EN;
-   176		else
-   177			val = 0;
-   178	
-   179		mtk_dpi_mask(dpi, DPI_PATTERN0, val, DPI_PAT_SEL | DPI_PAT_EN);
-   180	}
-   181	
-
+diff --git a/drivers/irqchip/irq-sunxi-nmi.c b/drivers/irqchip/irq-sunxi-nmi.c
+index bb92fd85e..3e87ca724 100644
+--- a/drivers/irqchip/irq-sunxi-nmi.c
++++ b/drivers/irqchip/irq-sunxi-nmi.c
+@@ -186,7 +186,8 @@ static int __init sunxi_sc_nmi_irq_init(struct device_node *node,
+ 	gc->chip_types[0].chip.irq_unmask	= irq_gc_mask_set_bit;
+ 	gc->chip_types[0].chip.irq_eoi		= irq_gc_ack_set_bit;
+ 	gc->chip_types[0].chip.irq_set_type	= sunxi_sc_nmi_set_type;
+-	gc->chip_types[0].chip.flags		= IRQCHIP_EOI_THREADED | IRQCHIP_EOI_IF_HANDLED;
++	gc->chip_types[0].chip.flags		= IRQCHIP_EOI_THREADED | IRQCHIP_EOI_IF_HANDLED
++		| IRQCHIP_SKIP_SET_WAKE;
+ 	gc->chip_types[0].regs.ack		= reg_offs->pend;
+ 	gc->chip_types[0].regs.mask		= reg_offs->enable;
+ 	gc->chip_types[0].regs.type		= reg_offs->ctrl;
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.47.1
+
 
