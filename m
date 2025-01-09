@@ -4,127 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD041E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 14:27:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1182E77199
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 14:33:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YGI476X2i0MFtZ7SlukxL+5rG/T9Y7O8a6nsh6mbAB0=; b=RT32+Ic0sMYZufVat7RHEFwgPI
-	yGLooh2DX9AL26f6jCTtDhv5AcJlSdEXClQnAHx9uR13VJxRw0XKxTZGhq/anUXdIKnKed4j1CVVU
-	RYtmHOFEvAtuwZ/a1OsNlpRCaFyVEseOcXHMUcPHCgDhU461FcPLa6t8Hx6xddUDApiMO1+xMYELK
-	TFbG26H7yUqa4V3sAjDb1V12QlKwL5+t/VYOiZU3SFbUs/TAzAaK5dE6estA2p343BvrdG+m7JNc0
-	XuWarlIX056FiZ2N68UHyaFzU5xCdhBzRbzJnava3SsR0FQgG9mwaDdCu59/I3FwxQ84rav7t5AHi
-	uz9PYDfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NWAhHox9z1pGuktzjGrZ9ZPbtvZRaueR8hk7/jquBck=; b=MBFOBmPDlnqj04nQBzbY3ZlLSc
+	+ynL/GEV23dndlH7Y4R+ZvoNvdfcRTotGbwjXtnskxhG+eOVVA8MoyLLgq6PauJwsxwsMYjQumT/A
+	uVr/zWHjsWwsPlfJbtLIwCvGyX8JjvrrzTdJgusqqNyB5kmt3DI08K04/zHyKd6ZL5NPU7tlaArkT
+	/E6JTQ8HGMHRnnGHRd01TfuOp8C6GJBy1osh7OM3SElRrQGy9aK5blzzQT2zzR3R82Dj53qfXr6aF
+	9KvRBgWKHQGFXUI7PInm7eHyTlyYItOIIGevXGbIZin3bAwOxz+rufcRhMMb6WozoSB2OjWbTqSaQ
+	GV0jFZ6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVtVL-0000000CE5y-3yPy;
-	Thu, 09 Jan 2025 14:27:24 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1tVtbF-0000000CFHk-1X8e;
+	Thu, 09 Jan 2025 14:33:29 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVtU9-0000000CDzL-088O
+	id 1tVta1-0000000CF03-3dGa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 14:26:10 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5093qwuF005687;
-	Thu, 9 Jan 2025 14:25:36 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=YGI476
-	X2i0MFtZ7SlukxL+5rG/T9Y7O8a6nsh6mbAB0=; b=qm6PuVaJR4WO9WPmhDm0tC
-	vBUUCSCbyNbnz1u0O+lidpWDmgcn020O/OhoN8RIw9HZsMsK9InAAkUf24btjcq4
-	92SbmvNAcF8Aq77oStfScS+nrmu0vGyyoa3pBrPXRfnCNE7Nnh3xBm6gZnh7kd+q
-	f9NSwkw/y+g+1Cvo2dBVKmHInaoYYcos7TDJXSwRDK5tZUxMuB2TPtgBafodbZvD
-	ca5ihOi7zLyvRlArKSfkf3RkWmB2pXvQNYLkprCreNoNOIMfCAWppL3TSkr0bBcz
-	QEF6Tc2qDhOg/CQD2cNRJsDGMWw34IMxGrUksl2GtvleUipj1uG6GC+tXP2klygA
-	==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4426xcake8-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 09 Jan 2025 14:25:36 +0000 (GMT)
-Received: from m0360083.ppops.net (m0360083.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 509E6eqs029952;
-	Thu, 9 Jan 2025 14:25:35 GMT
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4426xcake4-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 09 Jan 2025 14:25:35 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 509Cp7bf008861;
-	Thu, 9 Jan 2025 14:25:34 GMT
-Received: from smtprelay04.wdc07v.mail.ibm.com ([172.16.1.71])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 43yfq05mne-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 09 Jan 2025 14:25:34 +0000
-Received: from smtpav04.wdc07v.mail.ibm.com (smtpav04.wdc07v.mail.ibm.com [10.39.53.231])
-	by smtprelay04.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 509EPXrE33751356
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 9 Jan 2025 14:25:34 GMT
-Received: from smtpav04.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id D4D3358050;
-	Thu,  9 Jan 2025 14:25:33 +0000 (GMT)
-Received: from smtpav04.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 3A78658045;
-	Thu,  9 Jan 2025 14:25:29 +0000 (GMT)
-Received: from [9.61.139.65] (unknown [9.61.139.65])
-	by smtpav04.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Thu,  9 Jan 2025 14:25:28 +0000 (GMT)
-Message-ID: <c0b653ea-3fe0-4bdb-9681-bf4e3ef1364a@linux.ibm.com>
-Date: Thu, 9 Jan 2025 08:25:28 -0600
+	Thu, 09 Jan 2025 14:32:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D1C6F5C5AE4;
+	Thu,  9 Jan 2025 14:31:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7948C4CED2;
+	Thu,  9 Jan 2025 14:32:09 +0000 (UTC)
+Date: Thu, 9 Jan 2025 14:32:07 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Zhenhua Huang <quic_zhenhuah@quicinc.com>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>, will@kernel.org,
+	ardb@kernel.org, ryan.roberts@arm.com, mark.rutland@arm.com,
+	joey.gouly@arm.com, dave.hansen@linux.intel.com,
+	akpm@linux-foundation.org, chenfeiyang@loongson.cn,
+	chenhuacai@kernel.org, linux-mm@kvack.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	quic_tingweiz@quicinc.com, stable@vger.kernel.org
+Subject: Re: [PATCH v4] arm64: mm: Populate vmemmap/linear at the page level
+ for hotplugged sections
+Message-ID: <Z3_d59kp4CuHQp97@arm.com>
+References: <20250107074252.1062127-1-quic_zhenhuah@quicinc.com>
+ <Z31--x4unDHRU5Zo@arm.com>
+ <406d5113-ff3d-4c2a-81f0-de791bcbeffb@quicinc.com>
+ <1c1504a7-3515-48f2-8ca7-15b2379dea22@arm.com>
+ <1515dae4-cb53-4645-8c72-d33b27ede7eb@quicinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: =?UTF-8?B?UmU6IOWbnuimhjogW1BBVENIIHYyIDA1LzEwXSBBUk06IGR0czogYXNw?=
- =?UTF-8?Q?eed=3A_system1=3A_Add_RGMII_support?=
-To: Andrew Lunn <andrew@lunn.ch>, Jacky Chou <jacky_chou@aspeedtech.com>
-Cc: "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
-        "andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
-        "conor+dt@kernel.org" <conor+dt@kernel.org>,
-        "davem@davemloft.net" <davem@davemloft.net>,
-        "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-        "eajames@linux.ibm.com" <eajames@linux.ibm.com>,
-        "edumazet@google.com" <edumazet@google.com>,
-        "joel@jms.id.au"
- <joel@jms.id.au>,
-        "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-        "kuba@kernel.org" <kuba@kernel.org>,
-        "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
-        "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
-        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-        "minyard@acm.org" <minyard@acm.org>,
-        "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-        "openipmi-developer@lists.sourceforge.net"
- <openipmi-developer@lists.sourceforge.net>,
-        "pabeni@redhat.com" <pabeni@redhat.com>,
-        "ratbert@faraday-tech.com" <ratbert@faraday-tech.com>,
-        "robh@kernel.org" <robh@kernel.org>
-References: <SEYPR06MB5134CC0EBA73420A4B394A009D122@SEYPR06MB5134.apcprd06.prod.outlook.com>
- <0c42bbd8-c09d-407b-8400-d69a82f7b248@lunn.ch>
- <b2aec97b-63bc-44ed-9f6b-5052896bf350@linux.ibm.com>
- <59116067-0caa-4666-b8dc-9b3125a37e6f@lunn.ch>
- <SEYPR06MB51344BA59830265A083469489D132@SEYPR06MB5134.apcprd06.prod.outlook.com>
- <8042c67c-04d3-41c0-9e88-8ce99839f70b@lunn.ch>
-Content-Language: en-US
-From: Ninad Palsule <ninad@linux.ibm.com>
-In-Reply-To: <8042c67c-04d3-41c0-9e88-8ce99839f70b@lunn.ch>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: D4QGmI7uFNHCuYmtN7glAX-odTtQtAzr
-X-Proofpoint-ORIG-GUID: S-tApofsNQipGoyAdP32TWBQKlVxTdeb
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
- definitions=2024-10-15_01,2024-10-11_01,2024-09-30_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015
- priorityscore=1501 phishscore=0 suspectscore=0 adultscore=0
- impostorscore=0 mlxscore=0 malwarescore=0 spamscore=0 bulkscore=0
- mlxlogscore=999 lowpriorityscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.19.0-2411120000 definitions=main-2501090112
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <1515dae4-cb53-4645-8c72-d33b27ede7eb@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_062609_107585_A81FBB0B 
-X-CRM114-Status: GOOD (  22.98  )
+X-CRM114-CacheID: sfid-20250109_063213_965891_CBB5624E 
+X-CRM114-Status: GOOD (  23.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,67 +71,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Andrew,
+On Thu, Jan 09, 2025 at 03:04:22PM +0800, Zhenhua Huang wrote:
+> On 2025/1/8 18:52, Anshuman Khandual wrote:
+> > > I found another bug, that even for early section, when
+> > > vmemmap_populate is called, SECTION_IS_EARLY is not set.
+> > > Therefore, early_section() always return false.
+[...]
+> > > Since vmemmap_populate() occurs during section initialization, it
+> > > may be hard to say it is a bug.. However, should we instead using
+> > > SECTION_MARKED_PRESENT to check? I tested well in my setup.
+> > > 
+> > > Hot plug flow:
+> > > 1. section_activate -> vmemmap_populate
+> > > 2. mark PRESENT
+> > > 
+> > > In contrast, the early flow:
+> > > 1. memblocks_present -> mark PRESENT
+> > > 2. __populate_section_memmap -> vmemmap_populate
+> > 
+> > But from a semantics perspective, should SECTION_MARKED_PRESENT be marked on a
+> > section before SECTION_IS_EARLY ? Is it really the expected behaviour here or
+> > that needs to be fixed first ?
+> 
+> The tricky part is vmemmap_populate initializes mem_map, that happens during
+> mem_section initialization process. PRESENT or EARLY tag is in the same
+> process as well. There doesn't appear to be a compelling reason to enforce a
+> specific sequence..
 
-On 1/9/25 07:21, Andrew Lunn wrote:
-> On Thu, Jan 09, 2025 at 10:33:20AM +0000, Jacky Chou wrote:
->> Hi Andrew,
->>
->>>> There are around 11 boards in Aspeed SOC with phy-mode set to "rgmii"
->>>> (some of them are mac0&1 and others are mac2&3). "rgmii-rxid" is only
->>> mine.
->>>> No one in aspeed SOC using "rgmii-id".
->>> O.K, so we have to be careful how we fix this. But the fact they are all equally
->>> broken might help here.
->>>
->>>>> Humm, interesting. Looking at ftgmac100.c, i don't see where you
->>>>> configure the RGMII delays in the MAC?
->>> This is going to be important. How are delays configured if they are not in the
->>> MAC driver?
->> The RGMII delay is adjusted on clk-ast2600 driver. Please refer to the following link.
->> https://github.com/AspeedTech-BMC/linux/blob/f52a0cf7c475dc576482db46759e2d854c1f36e4/drivers/clk/clk-ast2600.c#L1008
-> O.K. So in your vendor tree, you have additional DT properties
-> mac1-clk-delay, mac2-clk-delay, mac3-clk-delay. Which is fine, you can
-> do whatever you want in your vendor tree, it is all open source.
->
-> But for mainline, this will not be accepted. We have standard
-> properties defined for configuring MAC delays in picoseconds:
->
->          rx-internal-delay-ps:
->            description:
->              RGMII Receive Clock Delay defined in pico seconds. This is used for
->              controllers that have configurable RX internal delays. If this
->              property is present then the MAC applies the RX delay.
->          tx-internal-delay-ps:
->            description:
->              RGMII Transmit Clock Delay defined in pico seconds. This is used for
->              controllers that have configurable TX internal delays. If this
->              property is present then the MAC applies the TX delay.
->
->
-> You need to use these, and in the MAC driver, not a clock driver. That
-> is also part of the issue. Your MAC driver looks correct, it just
-> silently passes phy-mode to the PHY just like every other MAC
-> driver. But you have some code hidden away in the clock controller
-> which adds the delays. If this was in the MAC driver, where it should
-> be, this broken behaviour would of been found earlier.
->
-> So, looking at mainline, i see where you create a gated clock. But
-> what i do not see is where you set the delays.
->
-> How does this work in mainline? Is there more hidden code somewhere
-> setting the ASPEED_MAC12_CLK_DLY register?
+The order in which a section is marked as present and vmemmap created
+does seem a bit arbitrary. At least the early code seems to rely on the
+for_each_present_section_nr() loop, so we'll always have this first but
+it's not some internal kernel API that guarantees this.
 
-I think the code already exist in the mainline: 
-https://github.com/torvalds/linux/blob/master/drivers/clk/clk-ast2600.c#L595
+> > Although SYSTEM_BOOTING state check might help but section flag seems to be the
+> > right thing to do here.
+> 
+> Good idea, I prefer to vote for this alternative rather than PRESENT tag. As
+> I see we already took this stage to determine whether memmap pages are boot
+> pages or not in common mm code:
+> https://elixir.bootlin.com/linux/v6.13-rc3/source/mm/sparse-vmemmap.c#L465
 
-It is configuring SCU register in the ast2600 SOC to introduce delays. 
-The mac is part of the SOC.
+The advantage of SYSTEM_BOOTING is that we don't need to rely on the
+section information at all, though we could add a WARN_ON_ONCE if the
+section is not present.
 
-Regards,
-
-Ninad
-
->
-> 	Andrew
+-- 
+Catalin
 
