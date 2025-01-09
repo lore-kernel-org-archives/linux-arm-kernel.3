@@ -4,90 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C2A8E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 06:10:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 024EDE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 06:16:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vC9nJtt9rRq/geCAGZDFx6gLFWekfxOk8FhgpKUHqfQ=; b=NAHahL74UTR/r1QBTVGX288sQR
-	V+Cq+RF8SeQgPTawpH+4d17bK+Uit+fapFkU5jRNPedII8L7Oh1nvjUiRy5Xl1ZMq2zNVeGR5AixM
-	+Oww7S/3m6PW9U+Zl6bdc3XpgOw8XTn+Le3tENEbRLJdKXmHJkkAuRxxZsvKyRNkcSPVLhvw8mKYA
-	h3Cjs3ctjA121vTWeLgepwWYd7wp0wo9q4mQmAvsjbiN8I8eKH/kGl677FbEkwV3cyES5mgTAlcEI
-	X5kBel/9DwHk6RH/yX0cGkgFbONyUrnbDcKbTkaVmhFg7IcYx8KnQwm9vDjBFRQAW1xJvteTTTPqI
-	sIduKqNQ==;
+	bh=ERIxmGM9a+p/h/6+jHoi5HeAIot2ezYABWhQE2jq8Y4=; b=46WCVNPHxZ6wBr8XOqPk3lK5m2
+	ZvE6YWCh86IBB+shDcup5RiMML0nhJvh6D34pPiqXwGz6CcdVy9F9a1mUxRJ61VrksMLQNJeU8Iac
+	JBEavtH3Qf7qhDOXwa9PzAh0cgqbplg9iwmu1NjcCnQpsySkX4omsCEbRLzWOV5Pepz5NE8e/FbnA
+	Ux70ZsLsdZefVeJ3g+X8o1dzCPeSlY08xtek+PjZrfCzG8mGpCU4fVgGgVSc1MRwwSsxqgcPY2Y0W
+	Df0AgiF88XymBC6UuM/XGoBh+r8CHoXHQAV1C+1tGA/7aXQ98P7A/DDncUdRdzRTI8em45GA8eukq
+	S2OvMlyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVlkL-0000000Atgz-09Ia;
-	Thu, 09 Jan 2025 06:10:21 +0000
-Received: from mail-vs1-xe30.google.com ([2607:f8b0:4864:20::e30])
+	id 1tVlqN-0000000AuKe-0xwV;
+	Thu, 09 Jan 2025 06:16:35 +0000
+Received: from mail-dm3nam02on20608.outbound.protection.outlook.com ([2a01:111:f403:2405::608] helo=NAM02-DM3-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVlj5-0000000AtYY-3Xuo
+	id 1tVlp7-0000000Au9S-2RWX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 06:09:05 +0000
-Received: by mail-vs1-xe30.google.com with SMTP id ada2fe7eead31-4b1279ca1d2so175235137.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jan 2025 22:09:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736402942; x=1737007742; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=vC9nJtt9rRq/geCAGZDFx6gLFWekfxOk8FhgpKUHqfQ=;
-        b=MCymv7VnMdkfyAEh9aVJTG27SszAEfboF/unIToM5LT50CDQrWelgCOhzMpHZ5phFw
-         zY1lOcrapn6NWq0W8mGLVoF443bDJMY4YdDzx+9LKQZz81yyRe+MeNAcFTQTUtMbPVkb
-         2LaA/+SzLKtaGfWQK9lXPXj5/JfUBJUDaLTZFQQMWzpogYQRpbE4HE5UTeNryZBgb9ge
-         vnesfCZ/CNFyioKbBN+BVpGirL1fp6tMp5+iDs3RrGU3eyeLyTawBBvk5/a3evn8D3ts
-         9H93ujieeSJrNt6GdL1vU6AchQSV2u7r4YKM/F40OXP8/cZbDXS/5DBUZHDKrbIofJWC
-         6NgQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736402942; x=1737007742;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=vC9nJtt9rRq/geCAGZDFx6gLFWekfxOk8FhgpKUHqfQ=;
-        b=Mzpwpek5/lFeXBIhOi9oJChB+ZThwH7aEbEqVUW68HOSZF6OePLYOoNZYZGHbmuF7M
-         LOEYmewxTJReecWtYqDOdD/NIPcJgahICJhwyxvSg6vk4rFQgyycRKxc9+rhyA4vKyQj
-         tJdvdGAlGf32lou6LFBFWDLTndiC0QJOK/pd2RNitBCMC6MwvnmP2f/Wz5KmMzcRnIAF
-         sXuQmuJtcS1udaRdHpW4n7vqVJj2awmg2Up3p59n87tg0Wzjm6t4PC/gGhSgsc086It7
-         gfS5KzVSFCRwnTBRVFaBVL/xzeC2S16VJhS18exxLP595QhpESTZBMsiRCg992Ag1OSu
-         UYUg==
-X-Forwarded-Encrypted: i=1; AJvYcCWGLDYKlnl/8RTf9Nfpjd9016EXPKPnnjvZTZtYKtnw/FF8p/9R4yeCWH3uCl8HSUDcnUckQuJXibpI+nE2cXEw@lists.infradead.org
-X-Gm-Message-State: AOJu0YzkKereFNNcsW1gTiNiu+4Z8PHcjH6/5Ww3L/1P1namFX6EbR5j
-	PD8Hd+g8YDTixpIE/PydSKURJZhFTMo+FUjl/A4jK7ysmDFPfAADfahShUhnxxLSDcxwckVt+l1
-	8PGUPW9E2wgnWbHvTLvghbfYZB4EYIo9RWEU/gGvRdKW+b9EGL1Y=
-X-Gm-Gg: ASbGnctd97/59awcDV4lkaD4SrKnQxIiW211bVXnV4JhmM1hkr08XZWyid02TWoBgss
-	9jU1vgY+QIX1HCbP/orIZnzthVz8V6kUfMSmEGYx0
-X-Google-Smtp-Source: AGHT+IFkDZGBtCpO5FflLFvbdwmJ3sWoUbJtvuojzOG7I1CBRhorYbwloT2u1hpJHzN4tOBjlfcQFIZrLZuRC0Ec89I=
-X-Received: by 2002:a05:6102:c8b:b0:4b2:adfb:4f91 with SMTP id
- ada2fe7eead31-4b3d0fb1764mr3879731137.21.1736402941990; Wed, 08 Jan 2025
- 22:09:01 -0800 (PST)
+	Thu, 09 Jan 2025 06:15:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OtlAkoMnz0M8d69iVObmMtZf/1bmsbhClolILjPnFPXnFYTglDEIvIsjIvuIE1cLz4+jvaR3LoJBjPsoRzuBdDHJzIgV845QFdrbza/mkpqIwWMUGGKX24iy70JMIweCIsnzKsl6F05IhL+Rqn/JziABcbT5DSp9alZNILeNIMG1VRFPYZxE/dhHGiNNhwhgldXbJKi/qVPU9Xo3p/Wlibp4Vo+mbrGThn0awFaRF0J3897gzbHIQ8DlmRunDAQ/LdovFWZ2oDSOgvFPK0bB36tT+zh+h9vZabgbvIBde0rEzx95JB8V9Er/SS6038WAR7s9W4DrPe/Aim5CVlc77Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ERIxmGM9a+p/h/6+jHoi5HeAIot2ezYABWhQE2jq8Y4=;
+ b=DGrsmTtIc4Mn5mE6ttdMxTRjR1SP6eVNKS25R4udgIuFpxID2bkk137IfpXe5PJJ/8DJ8ORIvAzgHURheMqCgcJIDrYKUU7y335jKtvXNCfMMRtsoUhP8uUPM0EOteWuTZi24MrL+ecRUZUeILVBwJpZCtXHNdlidfCL6vEDTkK92FGlp3Zt07CnJAl6Qh/CcpSmgBmTyHk+Hr0rwYnpAnKc0qrGkNY14MkgmDfjIbfaH/q+8uxLeCfJU3xYgAmJVEUBR8TQaHNnHKm1/L+TsC/o0lfjynzZLM0LsGoXVxtCnpLB1jYcKhU3R6S7npakzH+YLNB1h+dgM5K67+Q2Iw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ERIxmGM9a+p/h/6+jHoi5HeAIot2ezYABWhQE2jq8Y4=;
+ b=aKCxxXUio2XEowEb1x0ZppG7nNS9GCySXrI/zouM3HHBLT2yZGigtMlDsqEIx+xeLr/VAV7Ddc054e2JgpjDoe2kQorGms4jZL6lfk3w2yfFob/zJxg59O2wBo7wFBnBOF0p59sXZ7TvO8khXBbp5YEy4i/qqE0/BVMCelPyNFjYIxSS2o73bAuPu/QEe92XtIcVUv8b9Q+OTkaR1+7IyjKXgrWWuVa5xTcsWtDwFs5iip94pBbs0Qg2PCQ47mT6Rn/iEtK2eL6eVVF/H8rrMv6RSLLOA70AMGvD7byUqVuqTss30WCTfh44SsC+/r1ESQGlTL90gevHG0OnJs0fNA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS0PR12MB7726.namprd12.prod.outlook.com (2603:10b6:8:130::6) by
+ PH7PR12MB8054.namprd12.prod.outlook.com (2603:10b6:510:27f::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.10; Thu, 9 Jan
+ 2025 06:15:12 +0000
+Received: from DS0PR12MB7726.namprd12.prod.outlook.com
+ ([fe80::953f:2f80:90c5:67fe]) by DS0PR12MB7726.namprd12.prod.outlook.com
+ ([fe80::953f:2f80:90c5:67fe%7]) with mapi id 15.20.8335.011; Thu, 9 Jan 2025
+ 06:15:12 +0000
+Date: Thu, 9 Jan 2025 17:15:06 +1100
+From: Alistair Popple <apopple@nvidia.com>
+To: Dan Williams <dan.j.williams@intel.com>
+Cc: akpm@linux-foundation.org, linux-mm@kvack.org, lina@asahilina.net, 
+	zhang.lyra@gmail.com, gerald.schaefer@linux.ibm.com, vishal.l.verma@intel.com, 
+	dave.jiang@intel.com, logang@deltatee.com, bhelgaas@google.com, jack@suse.cz, 
+	jgg@ziepe.ca, catalin.marinas@arm.com, will@kernel.org, mpe@ellerman.id.au, 
+	npiggin@gmail.com, dave.hansen@linux.intel.com, ira.weiny@intel.com, 
+	willy@infradead.org, djwong@kernel.org, tytso@mit.edu, linmiaohe@huawei.com, 
+	david@redhat.com, peterx@redhat.com, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linuxppc-dev@lists.ozlabs.org, nvdimm@lists.linux.dev, linux-cxl@vger.kernel.org, 
+	linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org, linux-xfs@vger.kernel.org, 
+	jhubbard@nvidia.com, hch@lst.de, david@fromorbit.com
+Subject: Re: [PATCH v5 05/25] fs/dax: Create a common implementation to break
+ DAX layouts
+Message-ID: <lxz2pq2m4gqlovfwsmunwzfjq3taosedbrkaf63jbrxwwg6dek@7vbwtibeyh4m>
+References: <cover.425da7c4e76c2749d0ad1734f972b06114e02d52.1736221254.git-series.apopple@nvidia.com>
+ <e8f1302aa676169ef5a10e2e06397e78794d5bb4.1736221254.git-series.apopple@nvidia.com>
+ <677f14dc3e96c_f58f294f6@dwillia2-xfh.jf.intel.com.notmuch>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <677f14dc3e96c_f58f294f6@dwillia2-xfh.jf.intel.com.notmuch>
+X-ClientProxiedBy: SY5PR01CA0055.ausprd01.prod.outlook.com
+ (2603:10c6:10:1fc::15) To DS0PR12MB7726.namprd12.prod.outlook.com
+ (2603:10b6:8:130::6)
 MIME-Version: 1.0
-References: <20241217100809.3962439-1-jens.wiklander@linaro.org>
- <Z2KsuAs-Dd4ZDaXR@phenom.ffwll.local> <CAFA6WYNVHu7_-bNAuTYBRBdoJwfk2VrW5M4aFVkb_UWQ=uxTvQ@mail.gmail.com>
- <Z36ujiS8yyG1mfbA@phenom.ffwll.local>
-In-Reply-To: <Z36ujiS8yyG1mfbA@phenom.ffwll.local>
-From: Sumit Garg <sumit.garg@linaro.org>
-Date: Thu, 9 Jan 2025 11:38:50 +0530
-X-Gm-Features: AbW1kvZpkNiFcSMyeI-DgMLrpBLgsFpc30qEZPbPGQ78luMHwy5kGq6PCahL58k
-Message-ID: <CAFA6WYPXxUQYe9TF3PB9C0NwCz1eceCdYNa1yoKpv320M20qDw@mail.gmail.com>
-Subject: Re: [PATCH v4 0/6] TEE subsystem for restricted dma-buf allocations
-To: simona.vetter@ffwll.ch
-Cc: Jens Wiklander <jens.wiklander@linaro.org>, linux-kernel@vger.kernel.org, 
-	linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linaro-mm-sig@lists.linaro.org, op-tee@lists.trustedfirmware.org, 
-	linux-arm-kernel@lists.infradead.org, Olivier Masse <olivier.masse@nxp.com>, 
-	Thierry Reding <thierry.reding@gmail.com>, Yong Wu <yong.wu@mediatek.com>, 
-	Sumit Semwal <sumit.semwal@linaro.org>, 
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
-	John Stultz <jstultz@google.com>, "T . J . Mercier" <tjmercier@google.com>, 
-	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB7726:EE_|PH7PR12MB8054:EE_
+X-MS-Office365-Filtering-Correlation-Id: b1f35ae2-a3e3-47dd-26c3-08dd3074f96d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ZhOQw1BrJtuI9iPMUrlpKDYuuEAsNx9Q/f4shPUtOBjjVbc8zSgb757Sp5ya?=
+ =?us-ascii?Q?pUnUF3V/ik8U7YLHIRlnb6cK9KlmNNngSeDj2uCdvyHZ5/p3Jvxw4kPTE0n1?=
+ =?us-ascii?Q?ZORaNqAgSMODdMOKrHMdN/S9nO6/mSHNQV0Gvu8bW/gozpekoQRJrX9Bq4tg?=
+ =?us-ascii?Q?yGOUfMBkq1k4+XbIuI7FP/LfdKTLZo64sEZ3C9T32ulfVLRo0MdS2ORaXqtb?=
+ =?us-ascii?Q?dqoziFRg6gIbNUHqlxDwogdvbomNE3gZnFFOkz7vaA02jPjCKo3ZAwmSwYCf?=
+ =?us-ascii?Q?7Y8qZe+fqnj4k96+rdshcBezIXAy9a6bSUOj8l0n3dxajPXV+7azJl4yeNjs?=
+ =?us-ascii?Q?qx1cDHgxV4qpjFRiWMwHdqv6mVRaNXc82G73ju7oFJsS988ChyBFJMmFoEHU?=
+ =?us-ascii?Q?zhVMDrnP82AAStTfWHnOgE2WCotwPFER1G2t/vmsO06opThRS2w89jul5Sek?=
+ =?us-ascii?Q?2jZuvKxtCergYeAH7iWTDhl09YZ/gzA7C/GKBw67lp5JIbB9FyGdtgZoIIo1?=
+ =?us-ascii?Q?NCNkNShuowmCEdc/gtojlLM9VUiHMw1DoQYwHP9Y0+keA+fUtvm1SKKIsqiO?=
+ =?us-ascii?Q?hZb2lZEXmlFG4+JZSxX0s77LmTK8GwkQXfz4NhrEd2nJJz9G2vSRf4Gk3V+m?=
+ =?us-ascii?Q?WKo/01gZu1JzBLT/xvVVX7/3X/3vc/pTp/+JflZzoI0XjWxx7RnAlSwI+SP5?=
+ =?us-ascii?Q?RbAIkVaG5OnUEn4Kl2P32JzGhh8NyGQ1A08aoXG7NxscqmKY6fgEKncirvVh?=
+ =?us-ascii?Q?trZgwG/OI2LicDpLZNjiVaX3LGWrFZCTtGbGv5KFC4sZL4sWjxiUKBYHpdby?=
+ =?us-ascii?Q?MYH2cDV9qjzFZL6ACpHPCy18WDRaT4zucvkcfbZ3q8RY8lpb5dHDsd9i4kk5?=
+ =?us-ascii?Q?PKgynAg5Jq94Ke2qn/kTE/5e0WAzaN0XNoWaEXPw49EGLKtdaAw215ftilGI?=
+ =?us-ascii?Q?AptWWukJhbOerpNBT230EelLCS54zxj/TMEQGOEFJOhktNCN8h5AGDdgf45R?=
+ =?us-ascii?Q?+nFP3dvp4RVBu/Er0ThVTLes1mqFkA1r45Te1K/RiHoYd+6shbc+1mPR2sa9?=
+ =?us-ascii?Q?MAzCB1QEA7lu0EoBek3GrUG0j2+7/BisEnih8ot816HpmHdlYeOJ7JWmRXUZ?=
+ =?us-ascii?Q?aiNgjyPCFJ2c/D0css3bCLIYpS7rUIONdCiuELko+S0XlfFEBRU1yQVrVSJS?=
+ =?us-ascii?Q?MBLe8qmcwMBZavaLF1yyHC7Cs3XeiA4HpbvVwwXJUq5+K2fR+9qywUCaXA5b?=
+ =?us-ascii?Q?mlXjQ0Gw76IfjOYii6pcpCFsc7QP1a/JSvyxiOfzITKLC4NCs18Q0H44bbqx?=
+ =?us-ascii?Q?VtgQ//7YqgPn7gXNE5q29wVPDyjlYJudPxAAeEZRw40ZLup565MLQTDTQSxB?=
+ =?us-ascii?Q?R3mwFNxJmOdJmkm4w6VSjv0CfEzs?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB7726.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?57S/eKU5obbamj9xYRvhucfkaQgocqLO0BRMkOeULPu4RzcQM1hIgjVYdiH+?=
+ =?us-ascii?Q?tVqqZKHcelvs5aY39MkXyXbaGRLpPza0ccz1+roLMjhN5wPKm3MBKCcICqIo?=
+ =?us-ascii?Q?hslCe26LrB4fs1hmi2NGe6lBw2y0GwNaHAPesmmUN/glqWHWdY4C2H2Iqc9a?=
+ =?us-ascii?Q?FEm+Y+mKnY4S6+i4f8KtwOqelI60ESBxHrlCiORocqee9ojHIbXgt2obgU3D?=
+ =?us-ascii?Q?uw/xkRjpPMHS7SagFeGa/Q+N3xR3UbD7jaoEG0QEDsc/is1QDDfn3vm2wFGm?=
+ =?us-ascii?Q?syaUJDkF1dvmP6s02V/4COY0Ga0vxFYKvj1Q/xT3wTlg2wcv5Cr127GiFmiD?=
+ =?us-ascii?Q?eVY0PVbpKdcTQPnvTNE4rq71i68TcWzNI+zyU74dlvyCMSJ/T2veAfGDG9FQ?=
+ =?us-ascii?Q?ZuAgzO0XlXo/e6An74JQv6q7BdRufp14wFGiK5ypzXIcfYUWJOpJljJBCs2A?=
+ =?us-ascii?Q?Dd6lmAXA1LCNKPVXjqXgl5iqI6q0rDISZ1SR/4Sj7SgS/lqgxpgf2hZ3DDtg?=
+ =?us-ascii?Q?OH+tuDtvv5nAStA/CrDFIxrEnV7Ut6LylYLDZ8gdpu4Shsz+EOlm0St/0W72?=
+ =?us-ascii?Q?AhG96WlHsJ6KHiNzo0mB9NjRmCG9DuYqlEtE40PLD7VkNMsk/whoj8WjDv9u?=
+ =?us-ascii?Q?WgghQKoG+xeK730CouHU7NUHA7CnsrjoBCNFwQMLir5p2Ya2A6n0H+nxlMuz?=
+ =?us-ascii?Q?SWy8lprt7hMQrWRhQ44uMVnXrnicEhi4ootGNQ1mw+Vv0KYE4FLiLegQ379T?=
+ =?us-ascii?Q?6NGBvd0VWIjvkYF77LT5BPvg8qeJKn6DeWQlYa6B6kOqNVU4fMVDUH0z7VfD?=
+ =?us-ascii?Q?5vsjNxclv2hcy9f7rTEMWsiEkb5OlQ45/ZTU04PvRozipmciDKtlURjjw4lJ?=
+ =?us-ascii?Q?huXubosE3emX+u6PyWzfHazFC4TNTURNxWz9+58cxQad+iTgbuLfxfA6jIJS?=
+ =?us-ascii?Q?Ei6ObXxEZqlVYoZ97cfb2lPNOpCxXsfiEwztmlIK1GKXRE/kMq1/9rAzE+NP?=
+ =?us-ascii?Q?ILBBdFOOLOM5wff45lyGf4t7DXDahbvuiNqydiAiO2IuAk8kSFkAPJDx3dzk?=
+ =?us-ascii?Q?kCuNKOCwe6vpsX72djhYO9PNIaWUgabCzBN5B8wiQS7ccJJ2siYI3Mm12Kre?=
+ =?us-ascii?Q?V9euL/rHWG/Rzb29ahRhNBTvOn/1mdeGv23eK7oRNdI8vbNsFMVNDAiWH2Np?=
+ =?us-ascii?Q?QGyjU8cZJ5jf8lSMcWLqI4WpEjBBBYhMtwqFLSJLMNBGSMhG/V62ewGQ6n6M?=
+ =?us-ascii?Q?uAaHQ3n+6lpVcZKk+Mk0nzPID7x8e1U9vkQKv2YrctH7LFkNpXvi9ZEr+22R?=
+ =?us-ascii?Q?yXQSlBnTvJIt1tsutrdAcCqM9ePScGncd7fB8yJkRgq3vetMAlEVkZ5rZU7R?=
+ =?us-ascii?Q?GCrAdL7A1YZBE9Ppc80n201IgS6e45vfdUc5Lg+bAT7ej4ORQzYcK6eIXVVk?=
+ =?us-ascii?Q?UkiUcREUPnJCrvgh0pgXPvIQ3qPV0CcMBFaS9jlzjmkaWzvQGcMFTUz6vw/x?=
+ =?us-ascii?Q?ZlM7oWe+0/I4+v+mXKS+K1+gc3Yr4YkYbMT0qO8yF0N+BqF8r2xjF0tJe40x?=
+ =?us-ascii?Q?R8yXMZewmSroTi+S9WAXe4KVsyYGq8vG7q6gEcxl?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b1f35ae2-a3e3-47dd-26c3-08dd3074f96d
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB7726.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jan 2025 06:15:11.9283
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: OxX7NffdNGqX7nBkqn1oZnAt8NWQe4yUcoMr+7MyZK0K2FYrvlMJfvhjyXhhKsBMVoq0H75P27ZgvvpPaAQ0SA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB8054
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_220903_942829_B578DA1F 
-X-CRM114-Status: GOOD (  59.02  )
+X-CRM114-CacheID: sfid-20250108_221517_675537_940B6B5A 
+X-CRM114-Status: GOOD (  34.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,156 +167,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 8 Jan 2025 at 22:27, Simona Vetter <simona.vetter@ffwll.ch> wrote:
->
-> On Tue, Dec 24, 2024 at 12:05:19PM +0530, Sumit Garg wrote:
-> > Hi Simona,
-> >
-> > On Wed, 18 Dec 2024 at 16:36, Simona Vetter <simona.vetter@ffwll.ch> wrote:
-> > >
-> > > On Tue, Dec 17, 2024 at 11:07:36AM +0100, Jens Wiklander wrote:
-> > > > Hi,
-> > > >
-> > > > This patch set allocates the restricted DMA-bufs via the TEE subsystem.
-> > > >
-> > > > The TEE subsystem handles the DMA-buf allocations since it is the TEE
-> > > > (OP-TEE, AMD-TEE, TS-TEE, or perhaps a future QCOMTEE) which sets up the
-> > > > restrictions for the memory used for the DMA-bufs.
-> > > >
-> > > > I've added a new IOCTL, TEE_IOC_RSTMEM_ALLOC, to allocate the restricted
-> > > > DMA-bufs. This IOCTL reaches the backend TEE driver, allowing it to choose
-> > > > how to allocate the restricted physical memory.
-> > > >
-> > > > TEE_IOC_RSTMEM_ALLOC takes in addition to a size and flags parameters also
-> > > > a use-case parameter. This is used by the backend TEE driver to decide on
-> > > > allocation policy and which devices should be able to access the memory.
-> > > >
-> > > > Three use-cases (Secure Video Playback, Trusted UI, and Secure Video
-> > > > Recording) has been identified so far to serve as examples of what can be
-> > > > expected. More use-cases can be added in userspace ABI, but it's up to the
-> > > > backend TEE drivers to provide the implementation.
-> > > >
-> > > > Each use-case has it's own restricted memory pool since different use-cases
-> > > > requires isolation from different parts of the system. A restricted memory
-> > > > pool can be based on a static carveout instantiated while probing the TEE
-> > > > backend driver, or dynamically allocated from CMA and made restricted as
-> > > > needed by the TEE.
-> > > >
-> > > > This can be tested on QEMU with the following steps:
-> > > > repo init -u https://github.com/jenswi-linaro/manifest.git -m qemu_v8.xml \
-> > > >         -b prototype/sdp-v4
-> > > > repo sync -j8
-> > > > cd build
-> > > > make toolchains -j$(nproc)
-> > > > make SPMC_AT_EL=1 all -j$(nproc)
-> > > > make SPMC_AT_EL=1 run-only
-> > > > # login and at the prompt:
-> > > > xtest --sdp-basic
-> > > >
-> > > > The SPMC_AT_EL=1 parameter configures the build with FF-A and an SPMC at
-> > > > S-EL1 inside OP-TEE. The parameter can be changed into SPMC_AT_EL=n to test
-> > > > without FF-A using the original SMC ABI instead. Please remember to do
-> > > > %rm -rf ../trusted-firmware-a/build/qemu
-> > > > for TF-A to be rebuilt properly using the new configuration.
-> > > >
-> > > > https://optee.readthedocs.io/en/latest/building/prerequisites.html
-> > > > list dependencies needed to build the above.
-> > > >
-> > > > The tests are pretty basic, mostly checking that a Trusted Application in
-> > > > the secure world can access and manipulate the memory. There are also some
-> > > > negative tests for out of bounds buffers etc.
-> > >
-> > > I think I've dropped this on earlier encrypted dma-buf discussions for
-> > > TEE, but can't find one right now ...
-> >
-> > Thanks for raising this query.
-> >
-> > >
-> > > Do we have some open source userspace for this? To my knowledge we have
-> > > two implementations of encrypted/content protected dma-buf in upstream
-> > > right now in the amd and intel gpu drivers, and unless I'm mistaken they
-> > > both have some minimal userspace supporting EXT_protected_textures:
-> >
-> > First of all to clarify the support Jens is adding here for allocating
-> > restricted shared memory allocation in TEE subsystem is meant to be
-> > generic and not specific to only secure media pipeline use-case. Then
-> > here we not only have open source test applications but rather open
-> > source firmware too (OP-TEE as a Trusted OS) [1] supporting this as a
-> > core feature where we maintain a stable and extensible ABI among the
-> > kernel and the OP-TEE core.
-> >
-> > Restricted memory is a feature enforced by hardware specific firewalls
-> > where a particular TEE implementation governs which particular block
-> > of memory is accessible to a particular peripheral or a CPU running in
-> > a higher privileged mode than the Linux kernel. There can be numeric
-> > use-cases surrounding that as follows:
-> >
-> > - Secure media pipeline where the contents gets decrypted and stored
-> > in a restricted buffer which are then accessible only to media display
-> > pipeline peripherals.
-> > - Trusted user interface where a peripheral takes input from the user
-> > and stores it in a restricted buffer which then is accessible to TEE
-> > implementation only.
-> > - Another possible use-case can be for the TEE implementation to store
-> > key material in a restricted buffer which is only accessible to the
-> > hardware crypto accelerator.
-> >
-> > I am sure there will be more use-cases related to this feature but
-> > those will only be possible once we provide a stable and extensible
-> > restricted memory interface among the Linux user-space and the secure
-> > world user-space (normally referred to as Trusted Applications).
-> >
-> > [1] https://github.com/OP-TEE/optee_os/pull/7159
-> >
-> > >
-> > > https://github.com/KhronosGroup/OpenGL-Registry/blob/main/extensions/EXT/EXT_protected_textures.txt
-> > >
-> > > It's not great, but it does just barely clear the bar in my opinion. I
-> > > guess something in gstreamer or similar video pipeline framework would
-> > > also do the job.
-> > >
-> > > Especially with the context of the uapi discussion in the v1/RFC thread I
-> > > think we need more than a bare-bones testcase to make sure this works in
-> > > actual use.
-> >
-> > Currently the TEE subsystem already supports a stable ABI for shared
-> > memory allocator among Linux user-space and secure world user-space
-> > here [2]. And the stable ABI for restricted memory is also along the
-> > same lines meant to be a vendor neutral abstraction for the user-space
-> > access. The current test cases not only test the interface but also
-> > perform regression tests too.
-> >
-> > I am also in favour of end to end open source use-cases. But I fear
-> > without progressing in a step wise manner as with this proposal we
-> > would rather force developers to upstream all the software pieces in
-> > one go which will be kind of a chicken and egg situation. I am sure
-> > once this feature lands Mediatek folks will be interested to port
-> > their secure video playback patchset [3] on top of it. Similarly other
-> > silicon vendors like NXP, Qcom etc. will be motivated to do the same.
-> >
-> > [2] https://docs.kernel.org/userspace-api/tee.html
-> > [3] https://lore.kernel.org/linux-arm-kernel/20240515112308.10171-1-yong.wu@mediatek.com/
->
-> We get entire opengl/vulkan driver stacks ready before we merge new drm
-> drivers, I really don't think this is too hard from a technical pov. And I
-> think the mediatek patches had the same issue of lacking userspace for it,
-> so that's not moving things forward.
-> -Sima
->
+On Wed, Jan 08, 2025 at 04:14:20PM -0800, Dan Williams wrote:
+> Alistair Popple wrote:
+> > Prior to freeing a block file systems supporting FS DAX must check
+> > that the associated pages are both unmapped from user-space and not
+> > undergoing DMA or other access from eg. get_user_pages(). This is
+> > achieved by unmapping the file range and scanning the FS DAX
+> > page-cache to see if any pages within the mapping have an elevated
+> > refcount.
+> > 
+> > This is done using two functions - dax_layout_busy_page_range() which
+> > returns a page to wait for the refcount to become idle on. Rather than
+> > open-code this introduce a common implementation to both unmap and
+> > wait for the page to become idle.
+> > 
+> > Signed-off-by: Alistair Popple <apopple@nvidia.com>
+> > 
+> > ---
+> > 
+> > Changes for v5:
+> > 
+> >  - Don't wait for idle pages on non-DAX mappings
+> > 
+> > Changes for v4:
+> > 
+> >  - Fixed some build breakage due to missing symbol exports reported by
+> >    John Hubbard (thanks!).
+> > ---
+> >  fs/dax.c            | 33 +++++++++++++++++++++++++++++++++
+> >  fs/ext4/inode.c     | 10 +---------
+> >  fs/fuse/dax.c       | 29 +++++------------------------
+> >  fs/xfs/xfs_inode.c  | 23 +++++------------------
+> >  fs/xfs/xfs_inode.h  |  2 +-
+> >  include/linux/dax.h | 21 +++++++++++++++++++++
+> >  mm/madvise.c        |  8 ++++----
+> >  7 files changed, 70 insertions(+), 56 deletions(-)
+> > 
+> > diff --git a/fs/dax.c b/fs/dax.c
+> > index d010c10..9c3bd07 100644
+> > --- a/fs/dax.c
+> > +++ b/fs/dax.c
+> > @@ -845,6 +845,39 @@ int dax_delete_mapping_entry(struct address_space *mapping, pgoff_t index)
+> >  	return ret;
+> >  }
+> >  
+> > +static int wait_page_idle(struct page *page,
+> > +			void (cb)(struct inode *),
+> > +			struct inode *inode)
+> > +{
+> > +	return ___wait_var_event(page, page_ref_count(page) == 1,
+> > +				TASK_INTERRUPTIBLE, 0, 0, cb(inode));
+> > +}
+> > +
+> > +/*
+> > + * Unmaps the inode and waits for any DMA to complete prior to deleting the
+> > + * DAX mapping entries for the range.
+> > + */
+> > +int dax_break_mapping(struct inode *inode, loff_t start, loff_t end,
+> > +		void (cb)(struct inode *))
+> > +{
+> > +	struct page *page;
+> > +	int error;
+> > +
+> > +	if (!dax_mapping(inode->i_mapping))
+> > +		return 0;
+> > +
+> > +	do {
+> > +		page = dax_layout_busy_page_range(inode->i_mapping, start, end);
+> > +		if (!page)
+> > +			break;
+> > +
+> > +		error = wait_page_idle(page, cb, inode);
+> 
+> This implementations removes logic around @retry found in the XFS and
+> FUSE implementations, I think that is a mistake, and EXT4 has
+> apparently been broken in this regard.
 
-Okay fair enough, I think I get your point. Currently we are missing
-at least one peripheral support being the consumer for these
-restricted DMA-bufs. So I discussed with Jens offline that we can try
-with a crypto peripheral use-case first which can simply be
-demonstrated using the current OP-TEE client user-space.
+I think both implementations are equivalent though, just that the XFS/FUSE ones are
+spread across two functions with the retry happening in the outer function
+whilst the EXT4 implementation is implemented in a single function with a do/
+while loop.
 
-Also, in crypto peripheral use-case we can target the symmetric crypto
-use-case first which already has a concept of hardware backed
-symmetric key [1]. IOW, we should be able to come up with a generic
-symmetric crypto algorithm which can be supported by different crypto
-accelerators using a TEE backed restricted key DMA buffer.
+Both exit early if dax_layout_busy_page() doesn't find a DMA-busy page, and
+both call dax_layout_busy_page() a second time after waiting on a page to become
+idle. So I don't think anything is broken here, unless I've missed something.
 
-[1] https://www.youtube.com/watch?v=GbcpwUBFGDw
+> wait_page_idle() returns after @page is idle, but that does not mean
+> @inode is DMA idle. After one found page from
+> dax_layout_busy_page_range() is waited upon a new call to
+> dax_break_mapping() needs to made to check if another DMA started, or if
+> there were originally more pages active.
+> 
+> > +	} while (error == 0);
+> > +
+> > +	return error;
+> 
+> Surprised that the compiler does not warn about an uninitialized
+> variable here?
 
--Sumit
+So am I. Turns out this is built with -Wno-maybe-uninitialized and it's not
+certain error is used uninitialized because we may bail early if this is not a
+dax_mapping. So it's only maybe used uninitialized which isn't warned about.
 
