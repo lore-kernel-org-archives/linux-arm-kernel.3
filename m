@@ -4,59 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2683E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 13:53:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8E5FE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 13:54:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qVJ096BsTMYFEg/dwfq/qQbqjkbBVuKDmgLIoPz8jTk=; b=rFzYVZeUpV0OzA
-	tMshbFspjyEDJe50xxazrQTiRHhjmFFCkluzF5N9s3Cb/vrtvDX4VMim1A8BwfOiMkws/T6f/25H9
-	mly3RfChfULPR9OYO/y8XzJrCxM9EVsxrlbWNaYx6CT04udk+mDVE5TZpyexpZsOwbD1CGYG3KORC
-	oKLaVUK/11pgrdp5Sui+3PIHTeNa/Waq1FjvmNdoBhl7DJ6w+dGxJarcmtJgFPWwNrHXcbObqUchR
-	8Vd4HzHFaPDgIQhbnnPOq+amIEVDPwuo0WEpd9zeJVCf5XmZ7HPVfvKg4JkPlePQBgbMY4DUSN3B8
-	YX929UXsLntJSzljcHiw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QqXsToV0HiRvEsZnF5hoveg3aYzeGpkKlIECOe2VD8g=; b=M6AKvtqGEwIgyzgDp+FUKQXm1z
+	V5FANTOvroFuX6Ljf61NBnMkU+ZX1xTSonSX8eg3F6UqcprtvuHqefgHnQCof8c5e9dKqtKO8eEu8
+	Uwqaad3IeQxm6xWm/z2vDSWgAyRRjMczxbYXKWXYALzTkFB+9jU11/zcUKm9f/DEWrhTxUXo37Dxd
+	h6Nh/Urf425ax61R9mP6/BsI44GuVQ3EA1L6mHyiHKNcBbIXzgcqeac6CzvWdPlBZqE0dmWEK906O
+	OQzrP2v1pKt1zd3MD5vOPqBGiu8VXV2irvRxiPRzm7BxWZc1ISNpG6gQP7X7YrPQC5yfxFFiORIuq
+	I9/OjEGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVsxr-0000000C7ck-1NPJ;
-	Thu, 09 Jan 2025 13:52:47 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tVsz3-0000000C7qt-00y2;
+	Thu, 09 Jan 2025 13:54:01 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVsmB-0000000C4bZ-1ZxT
+	id 1tVswY-0000000C7O3-1SBY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 13:40:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 87228A40C0C;
-	Thu,  9 Jan 2025 13:38:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03D28C4CED3;
-	Thu,  9 Jan 2025 13:40:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736430041;
-	bh=XDV4VXdhkew3tGRqYcWfVlginLmoZkPgCgaDE/rnU5w=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=u/qMnFYjyj970GmqfqYIQfOHNDPD0jm0bzoDwu5n/pSrfokluFy0HPnR2opaq28rW
-	 rh5piGP1hR/m08QeCeTHMh3QGsw7GFbFVAOpK3r2gPkJn0gB/B7azDFMFORQ0f7LIe
-	 OKdZElpTc2ZpRjQCyjx0kKJMV8OQmHXup0X1UpTKjBwvnDorKhGzflMQ8C3bHtAv7p
-	 b6Bq3P0+YsubwfpU+Y/FMVFGS2mCUN2IAUE0sfhdFFXhm/BsHO5F5H30qLD8kDq/ug
-	 s9KYyWjMTX55w47KMhw26SUH7CnMHswkd6z/qG+ZIhvCZjm7OIxXxbMzzOrEVhz1Xn
-	 t5TqLl12fk5Xw==
-From: Mark Brown <broonie@kernel.org>
-To: linux-spi@vger.kernel.org, Alexander Dahl <ada@thorsis.com>
-In-Reply-To: <20250109094843.36014-1-ada@thorsis.com>
-References: <20250109094843.36014-1-ada@thorsis.com>
-Subject: Re: [PATCH] spi: atmel-quadspi: Update to current device naming
- terminology
-Message-Id: <173643003976.53058.4013563877112652106.b4-ty@kernel.org>
-Date: Thu, 09 Jan 2025 13:40:39 +0000
+	Thu, 09 Jan 2025 13:51:28 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4362f61757fso9925715e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jan 2025 05:51:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=smile.fr; s=google; t=1736430684; x=1737035484; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=QqXsToV0HiRvEsZnF5hoveg3aYzeGpkKlIECOe2VD8g=;
+        b=NH6YY+FuLGOyYuodobs5KL4yK49BPTREbdOog3J2230qmCx6zZn+xEExWuKUTFeF86
+         RYLaosLfXZwl5QDEQiPKAN7Fncy3Pix3iEc2XLzQ+Cp7gVgxLFd+Izc5pyXGu3gcz9eN
+         ag0n0a6OagZG0Y63/AGkqCUrvugNoOTqtl7DM=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736430684; x=1737035484;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=QqXsToV0HiRvEsZnF5hoveg3aYzeGpkKlIECOe2VD8g=;
+        b=YALjNdqAmtaXnZCpa4BsdRP2g3J34N7bpCxvfTK2ezynzeznOKmJSInFujFyUb9q1B
+         8mS9tbOlKuEsMK00SViybU6pWkf5vyQzH2dtrKM/83/j8Wrc4fiQeHZ38AXNBg1b5lAj
+         GC03EsBRgZAK49lkVEnX/XOGBOldFRBZTwc3zKsO/hml3HBRT9pFzEI7su7dILqlItjm
+         tkDaYzvY4t5hUI3k6w4eNAKkje74I2va7leCB6XyHuLr05OlZnE8soBmxno3jlUX1J/C
+         919CzOmTdLF6eQotVdbsSge/DsG4W6f1hlcenSXyXS8bklSmLDcjeyA/sOKsiHWsMioK
+         FgZw==
+X-Forwarded-Encrypted: i=1; AJvYcCXhp4ZIJVClpH01zOpbn7mUL8Mp+hcswsVauXIdyGgkQkYexhHwg+US+MWxwgItkrDoF3aofxm8dZLGhVmoDJeP@lists.infradead.org
+X-Gm-Message-State: AOJu0YxJq71Ah5m3IvRhE4eLq+x/9zC2lCk6JFBJWH+z8Z5V1Q9CVoK3
+	2eMzhSmVje03/D9k/S5NUDKnas3qcdEv115Rtd4MK/x3gdPkUm4ZBva6x3WeKhc=
+X-Gm-Gg: ASbGncviAkMg+9Ty7wuU3nIydHHmn927TX+gV+G2sboC18kkttnNGwvrVQOr3d09ZpS
+	sUCWofEfY06uLpoyf8MShLgi6Gh8u9WjItKuad2RVwxLdQiftttpvd1gOsQAvq9GrkEdKsRWnbI
+	jVRnWSuMYxA/9k9VkjnKlhgGLmStRmauu5BDe+KNZKCSEFBQl3tRCL17+E4vL2rc9sFMJ3QaCKE
+	jm4xTmdPLt/UK7fS0AMhV6xwhtA0NL4sGOWrgk5+HVHlK+iItbYtcoanAZZrTh/9hX2tJFDaHNq
+	lTaL79nZpxqlUfgLpucpLWM+a8/ePl4XjMXBsnsLmNi6fgvvLryZ36+4iixGTRDjiTHJn+UbPVL
+	gccqqVqtpeWxGaw/K
+X-Google-Smtp-Source: AGHT+IGCwLti8xz/uAXqjvFyEfZu8OW3NVEiOzPgOAaQKlMAAsxOUKHoSy2tGbVe3mXX1vMem7j5oQ==
+X-Received: by 2002:a05:600c:1d1f:b0:434:f99e:a5b5 with SMTP id 5b1f17b1804b1-436e271cf4amr47062045e9.28.1736430684252;
+        Thu, 09 Jan 2025 05:51:24 -0800 (PST)
+Received: from ?IPV6:2a01:cb05:949d:5800:e3ef:2d7a:4131:71f? (2a01cb05949d5800e3ef2d7a4131071f.ipv6.abo.wanadoo.fr. [2a01:cb05:949d:5800:e3ef:2d7a:4131:71f])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e2dc0f69sm55525035e9.13.2025.01.09.05.51.23
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 09 Jan 2025 05:51:23 -0800 (PST)
+Message-ID: <8ff7ca4f-227d-40c5-867d-497e03bef72a@smile.fr>
+Date: Thu, 9 Jan 2025 14:51:23 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-1b0d6
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/2] arm64: dts: ti: k3-j721e-beagleboneai64: Enable
+ ACSPCIE output for PCIe1
+To: Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-omap@vger.kernel.org, conor+dt@kernel.org, krzk+dt@kernel.org,
+ robh@kernel.org, kristo@kernel.org, vigneshr@ti.com, nm@ti.com, afd@ti.com,
+ Romain Naour <romain.naour@skf.com>
+References: <20250109102627.1366753-1-romain.naour@smile.fr>
+ <20250109102627.1366753-2-romain.naour@smile.fr>
+ <eu5xmihnffmqas2x2ioleuzzvyfbffl5eqlwuqfe4mh6qa2rzy@7mmuxsbkmz4o>
+Content-Language: en-US
+From: Romain Naour <romain.naour@smile.fr>
+In-Reply-To: <eu5xmihnffmqas2x2ioleuzzvyfbffl5eqlwuqfe4mh6qa2rzy@7mmuxsbkmz4o>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_054043_480509_CA7BFDC4 
-X-CRM114-Status: GOOD (  12.47  )
+X-CRM114-CacheID: sfid-20250109_055126_768967_1FE24BE2 
+X-CRM114-Status: GOOD (  17.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,46 +99,88 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, linux-kernel@vger.kernel.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Tudor Ambarus <tudor.ambarus@linaro.org>, linux-arm-kernel@lists.infradead.org, Varshini Rajendran <varshini.rajendran@microchip.com>, =?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 09 Jan 2025 10:48:43 +0100, Alexander Dahl wrote:
-> For v6.9 the spi subsystem changed the terminology to host and target
-> devices, see commit 99769a52464d ("spi: Update the "master/slave"
-> terminology in documentation") for reference.  Support for SAMA7G5 was
-> forward ported recently from an old vendor branch before that
-> terminology change, so naming for the new struct member is adapted to
-> follow the current scheme.
+Hello Siddharth, All,
+
+Le 09/01/2025 à 12:49, Siddharth Vadapalli a écrit :
+> On Thu, Jan 09, 2025 at 11:26:27AM +0100, Romain Naour wrote:
 > 
-> [...]
+> Hello Romain,
+> 
+>> From: Romain Naour <romain.naour@skf.com>
+>>
+>> Unlike the SK-TDA4VM (k3-j721e-sk) board, there is no clock generator
+>> (CDCI6214RGET) on the BeagleBone AI-64 (k3-j721e-beagleboneai64) to
+>> provide PCIe refclk signal to PCIe Endponts. So the ACSPCIE module must
+>> provide refclk through PCIe_REFCLK pins.
+>>
+>> Use the new "ti,syscon-acspcie-proxy-ctrl" property to enable ACSPCIE
+>> module's PAD IO Buffers.
+>>
+>> Cc: Siddharth Vadapalli <s-vadapalli@ti.com>
+>> Signed-off-by: Romain Naour <romain.naour@skf.com>
+>> ---
+>> With this patch, we can remove "HACK: Sierra: Drive clock out" patch
+>> applied on vendor kernel for BeagleBone AI-64:
+>> https://openbeagle.org/beagleboard/linux/-/commit/ad65d7ef675966cdbc5d75f2bd545fad1914ba9b
+> 
+> [trimmed]
+> 
+>> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+>> index af3d730154ac..32a232a90100 100644
+>> --- a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+>> +++ b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+>> @@ -5,6 +5,7 @@
+>>   * Copyright (C) 2016-2024 Texas Instruments Incorporated - https://www.ti.com/
+>>   */
+>>  #include <dt-bindings/phy/phy.h>
+>> +#include <dt-bindings/phy/phy-cadence.h>
+>>  #include <dt-bindings/phy/phy-ti.h>
+>>  #include <dt-bindings/mux/mux.h>
+>>  
+>> @@ -82,6 +83,11 @@ ehrpwm_tbclk: clock-controller@4140 {
+>>  			reg = <0x4140 0x18>;
+>>  			#clock-cells = <1>;
+>>  		};
+>> +
+>> +		acspcie0_proxy_ctrl: syscon@18090 {
+>> +			compatible = "ti,j721e-acspcie-proxy-ctrl", "syscon";
+>> +			reg = <0x18090 0x4>;
+> 
+> 0x_0011_8090 is probably *not* the "PROXY" register i.e. it could be
+> locked with the help of "CTRLMMR_LOCK0_KICK0" and "CTRLMMR_LOCK0_KICK1"
+> registers, in which case the CTRL_MMR region needs to be unlocked to write
+> to that register. On J784S4, that happens to be true, which is why the
+> proxy register 0x_0011_a090 was used at [0]. Please test with 0x_0011_a090
+> which is the "PROXY" register on J721E as well, i.e. it can be written to
+> unconditionally.
+> 
+> [0]:
+> https://lore.kernel.org/r/20240930111505.3101047-1-s-vadapalli@ti.com/
 
-Applied to
+Thanks for the review!
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+Actually the Proxy0 vs Proxy1 choice is not really clear for me. We have two
+proxy to reach the same register:
 
-Thanks!
+  CTRLMMR_ACSPCIE0_CTRL Register (Proxy0 Offset = 18090h; Proxy1 Offset = 1A090h)
 
-[1/1] spi: atmel-quadspi: Update to current device naming terminology
-      commit: 5e56618e1593a9eb9d72dc9433ac7a02a6c48c8f
+From my testing both addresses works (maybe since my SoC is a general purpose one).
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+When and why Proxy1 must be used?
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+Otherwise I'm fine to use  0x_0011_a090.
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+Best regards,
+Romain
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
 
-Thanks,
-Mark
+> 
+> [trimmed]
+> 
+> Regards,
+> Siddharth.
 
 
