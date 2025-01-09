@@ -4,64 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D272CE7719A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 22:44:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DF40E7719A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 22:47:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QE3eqh5wc4f4JZTZPBPucbaDDDy7F4dN4ZWKRzaggT4=; b=h2M9K4reFoJ3fPZ94hk1OYxEZi
-	pD3SPD0j61T+Ao6nRGXP9GLRUi1rD80sih15QVIiUptnsuHnbMtxIxhKvhu0y6c4+uCgtcC2JwN8U
-	MTEpCroBBE/1oe/P8Xqlj8gw9wtAaj0XIst7A3U70pNaWVF9raSbPv0mVYJXgQF0QSoM5pqAPEp5z
-	bAUArr4y722AgQd9P1gtoMbMLy2w2hmuqwGwZEYQxReRiqmpTr2F+hw8P9qFSRT/6QL6jnP9IXe8j
-	LyRhICsVRtHgJbNJqaeb5fpURWRHFJfj4jNEG+CIS9RVQGM1W+WF65Fn0mEX+nL7XhUF0uxhyxA1o
-	aaU/x81Q==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NWcauDOjKnYU4RcQC5PZBZLk9Ag4Oc862avoOH5RmR8=; b=FTbT/szaVjLyCOPf8jQxaa/4sw
+	IVPq1leX5stAj5pDqGgO1kl7VIcod5zWeCf1oVLEMfbpKG52un98tAGn3yw8WOWm8N/9M7ogHG7si
+	CJrUB1wByRqXC62L168gZJsQRGq1a80UzNKihHcWjisp/xroat3eISZGnMfYWKxVsJmUFEtGait8K
+	coUOFFndqXPYWalXMLlh0jtogajfzdBkuVDo1nuovvzuGe7mRbZIUj3r1T7W1R12mgBS1lZzJv1rC
+	HJSA9hos6i/bY7VheKfNwZaH7/yiV1O4Yxrqwx7eXKd/1kG+SL1il8GISoNlmXMDlGKKbeA8docBi
+	0LaDHRtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW1GP-0000000DTuU-2p5I;
-	Thu, 09 Jan 2025 22:44:29 +0000
-Received: from out-175.mta0.migadu.com ([91.218.175.175])
+	id 1tW1JN-0000000DUJE-26yD;
+	Thu, 09 Jan 2025 22:47:33 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW1FB-0000000DTji-3Myc
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 22:43:15 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1736462583;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=QE3eqh5wc4f4JZTZPBPucbaDDDy7F4dN4ZWKRzaggT4=;
-	b=gfOoS4A7wzvo3W+np3l6aMRQHtNh5Qyc5XmtEm3DWQNGiA8PEESsn3lSjzA0L/+DRs/u2P
-	ujmBWCqcrcilKzlq3bzzn7fOUEmtm7Gv7aigYGiuo4EsY8NZ+tfKuiTONTg5gvnxJX2vUl
-	thYFdmU+HT/KWhKuwNTKnYYjROy50CU=
-From: Sean Anderson <sean.anderson@linux.dev>
-To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Shannon Nelson <shannon.nelson@amd.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org
-Cc: Michal Simek <michal.simek@amd.com>,
-	Simon Horman <horms@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andy Chiu <andy.chiu@sifive.com>,
+	id 1tW1IA-0000000DUAr-1dp9;
+	Thu, 09 Jan 2025 22:46:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=NWcauDOjKnYU4RcQC5PZBZLk9Ag4Oc862avoOH5RmR8=; b=X0BI3bseCuXzMdWwiok/8TEWjn
+	akAG6GzKjYk4LPTUFpJKrr3V+6LSnWTK9rSiUHwLgQo+QlnQ6Exvjq6gJSEWgYpOOp/kFM+ltqVSj
+	LmkAC8nxr2/OwFP2AhAnue18sS5+F1eUo5I7p/t073PJS+ed8BV13kORxJ42PGPXOjMuzeq1gC3gI
+	o00pJBBJtN/1lzKrY1yyaIE1aFwYu0bnNgaadY70moQUSR5dFBcCT1eg+XuOBaqGXhDw8xWRpeiE7
+	9TDh8db7qb1eaQrwNzpyzE5tniEk0NqnYTYGeyz6ggO9Tdv8FdkGU5B6ppurmtt/FPaCsEHLqC0Q3
+	0PJOPS4Q==;
+Received: from i5e860d05.versanet.de ([94.134.13.5] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tW1I3-0005ho-TG; Thu, 09 Jan 2025 23:46:11 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: Jimmy Hon <honyuenkwun@gmail.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	Ondrej Jirman <megi@xff.cz>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Sean Anderson <sean.anderson@linux.dev>
-Subject: [PATCH net v3] net: xilinx: axienet: Fix IRQ coalescing packet count overflow
-Date: Thu,  9 Jan 2025 17:42:46 -0500
-Message-Id: <20250109224246.1866690-1-sean.anderson@linux.dev>
+	linux-rockchip@lists.infradead.org
+Subject: Re: (subset) [PATCH v8 0/4] Orange Pi 5 Max
+Date: Thu,  9 Jan 2025 23:46:01 +0100
+Message-ID: <173646269067.2939804.12592916938678988873.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250109051619.1825-1-honyuenkwun@gmail.com>
+References: <20250109051619.1825-1-honyuenkwun@gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_144313_988971_7FF818D4 
-X-CRM114-Status: UNSURE (   9.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250109_144618_428653_7250AFE5 
+X-CRM114-Status: GOOD (  12.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,47 +79,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If coalece_count is greater than 255 it will not fit in the register and
-will overflow. This can be reproduced by running
 
-    # ethtool -C ethX rx-frames 256
+On Wed, 08 Jan 2025 23:16:14 -0600, Jimmy Hon wrote:
+> Add device-tree for Orange Pi 5 Max
+> 
+> Orange Pi now has 3 SBCs using the RK3588 SOC. Refactor the common parts
+> of the 5 Plus DTS so it can be shared with the 5 Max and the 5 Ultra.
+> The 5 Max and 5 Ultra have a similar credit-card sized board layout and
+> will also share a DTSI between them.
+> 
+> [...]
 
-which will result in a timeout of 0us instead. Fix this by checking for
-invalid values and reporting an error.
+Applied, thanks!
 
-Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
-Fixes: 8a3b7a252dca ("drivers/net/ethernet/xilinx: added Xilinx AXI Ethernet driver")
----
+[1/4] arm64: dts: rockchip: refactor common rk3588-orangepi-5.dtsi
+      commit: ea63f4666e483b48a49d9774d8c680f81165ff06
+[2/4] dt-bindings: arm: rockchip: Add Xunlong Orange Pi 5 Max
+      commit: 6327f2d83dce514d43134dedb766df000420b779
+[3/4] arm64: dts: rockchip: Add Orange Pi 5 Max board
+      commit: c600d252dc52ffc29982ee6873b6eee064193752
 
-Changes in v3:
-- Validate and reject instead of silently clamping
+The whole hdmi1 thing still needs to wait for the phy maintainer to
+pick up phy driver patches, so I've only taken the first patches
+for now.
 
-Changes in v2:
-- Use FIELD_MAX to extract the max value from the mask
-- Expand the commit message with an example on how to reproduce this
-  issue
-
- drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 6 ++++++
- 1 file changed, 6 insertions(+)
-
-diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-index 0f4b02fe6f85..c2991aeccf2b 100644
---- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-+++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-@@ -2056,6 +2056,12 @@ axienet_ethtools_set_coalesce(struct net_device *ndev,
- 		return -EBUSY;
- 	}
- 
-+	if (ecoalesce->rx_max_coalesced_frames > 255 ||
-+	    ecoalesce->rx_max_coalesced_frames > 255) {
-+		NL_SET_ERR_MSG(extack, "frames must be less than 256");
-+		return -EINVAL;
-+	}
-+
- 	if (ecoalesce->rx_max_coalesced_frames)
- 		lp->coalesce_count_rx = ecoalesce->rx_max_coalesced_frames;
- 	if (ecoalesce->rx_coalesce_usecs)
+Best regards,
 -- 
-2.35.1.1320.gc452695387.dirty
-
+Heiko Stuebner <heiko@sntech.de>
 
