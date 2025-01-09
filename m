@@ -4,105 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 709E8E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 15:34:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15791E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 15:35:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9nxBzYrNzM8Me+hNhVQhLjukgzaVazmsb+QowMe4xPo=; b=w/g2ltc7ESt4a1fiUp1CgHUFCq
-	KQxoR7kr96cGqbCU+MKFQkWdTx2fILXKRIwZbPgqiOQdkaPBrXfBeE1YVrlxtKhcwE6ztqKAnLVTs
-	mxJxOyJk0BLK7mElQi0XdN+PPVoq0nuT043S94KocluEuTpjyORlGLYimXmlP0TzJNJFWpkr62SgW
-	mTT8TnIPCoHZgS3c1i2leyHemR9YWSZwz4UrtnIB9aYVQPZi1BuwAYyucnvRw1RUVfx0U3q+DEa42
-	GcyyqpliINAU0ijfU+xbbAHsg2ZjKwfC9dQu6rHa1zNtqjMzR1lXcpSmTIm51Rst5r9heqNJvLZVZ
-	BDgr0Ucg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6qIQP4o8cPCcK84STUOS+5JskiZRRSumAKuNK/Xi2io=; b=lI2aU48Tup8jk8d9btsPwyX230
+	3VCXN1aku46R5fXI069o8/v3dKWBfqJnbIQqxhtwuAPb7JFY4ZTPZGHL5hifiW97DpEDknWdeKMzp
+	GwJlTThoMT+ChG3SdtCiXlOcrO5fqXzz5f33NnzmBq4WRbGWkTCRgPkHDfStj863UWp3vwdraDjem
+	ZBtyENgmL/zapw0g/vJT+RfYx6AvHdrzD5ut9LsY3WAlOdGtc42zLd02pFpIO9kHTEEdAY37V7sR+
+	AJCSRWtysw9o9UWN8jp23kwrQpBSsctSYgYc7UCWWHZNrJJQfN4Ht2SROknlOA88dIxYxe+hdEj+W
+	Y81QsYsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVuYD-0000000CUgV-0Uwv;
-	Thu, 09 Jan 2025 15:34:25 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1tVuZO-0000000CUtQ-35j9;
+	Thu, 09 Jan 2025 15:35:38 +0000
+Received: from mx.denx.de ([89.58.32.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVuU1-0000000CTnJ-3M0E
+	id 1tVuW8-0000000CUJe-1HVX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 15:30:08 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-38789e5b6a7so591085f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jan 2025 07:30:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1736436604; x=1737041404; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=9nxBzYrNzM8Me+hNhVQhLjukgzaVazmsb+QowMe4xPo=;
-        b=jbDrEPNXpBt2jI6n2RhFIZ5uEW56xtGMUp9s8tfAnx6sQDwuGnkey7jVOeHf8DTQP1
-         jHHH4wl6tDO889EWjnqxCw314ZvBs72lazmRLpZdOWvcZoiCNicchssk6c0nnhSIPx7J
-         AxNGbfHc9fW3HAuSHbgUorvivStq1hThCIzOtnyR6iJkSzvAZR3xNja1ZsqLPKaWvZEB
-         UkukZjpQNc3L3G+vQlxHiIz0y9qnVn8H/sJegXTGaYMf+QFdqpxcv14Uhl0Xz23rEG0N
-         6/IrrjGb7wgFda2uiv6KeH+9xQCYgJAFlMKLqaumVeMSMmKOOidVDeTG1jeez5hXp5pT
-         J1aw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736436604; x=1737041404;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=9nxBzYrNzM8Me+hNhVQhLjukgzaVazmsb+QowMe4xPo=;
-        b=WXKmhBdVeGIuqxbCn26q2rQpsvmXzxMaSSv1inQO3PR94l1sJFXJujH0vqdECJVmLZ
-         HQyEVVGAGC1A8BZHDAT7ehhDcN7kpWGG1xmWNqhYarnPGnCBZQ1tpXzcHmDPjyeYruRw
-         8ymRr3uF3mUx7yeiifn9vKkpAjKF6ST9NoNJTASTTWKrhIXOr3SCxzjoX+UngMx4ZB8T
-         ooho0HtQ1/ireeCgxFkYWntFMj3GvVyF1Fd7wuuRDaIWE3MeyGvVfRg6xWTRVppWAk9d
-         N0WHsshb8XN5G342rRco4JVhzikTRBBABgYT7EsIBYpqpGW1v7hBLfthU1dXpdQjz5jc
-         Ziag==
-X-Gm-Message-State: AOJu0YxLb3qIml2LUL+IYZyKMbjQugR7h02B1+WeTMe0R27mfE4jugoq
-	2CKkhH7cSPpBkYjbSCrkX5RJ4VwpZIN7u28FNCaGQHosgjq1zEH29fI3Qg331GM=
-X-Gm-Gg: ASbGncs71VYIJXoKLKHLLN6yEeCoeawCLs9ZPINiOhTNPJMnJXkHM1MNajv5jZvXeGd
-	vwzBFejf4ZFmDsG+L321QygLxXTNtVbj5XZjCbm8Uk+Bx40gEQcZoXUc2lW14JiTuv9A1ihyzxi
-	hq+GG9FBJm7z1rGPH+MkmhcGiKsH2DNslilbeSZGCAVg3XKM1l9HVv2wu/urNAPHVG8bLas3Kta
-	/qn9SXaLY4Bxt6QWnuih8/o+dq3izT8zQ3ycjVUqD6b/5UTD5t6/+3reY0=
-X-Google-Smtp-Source: AGHT+IH7DdR8iHL2Hi28KJ2xlmMvDv/dz/uFZ53tjjjsjQowPC4CZmmWUVJY9138Dh2OGjHWbB1Iqw==
-X-Received: by 2002:a5d:5985:0:b0:386:3f3e:ab11 with SMTP id ffacd0b85a97d-38a87312e0dmr6332012f8f.34.1736436603924;
-        Thu, 09 Jan 2025 07:30:03 -0800 (PST)
-Received: from [127.0.1.1] ([2a01:e0a:5ee:79d0:125:358f:ea05:210e])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-436e2df3610sm58307805e9.20.2025.01.09.07.30.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Jan 2025 07:30:03 -0800 (PST)
-From: Alexandre Mergnat <amergnat@baylibre.com>
-Date: Thu, 09 Jan 2025 16:29:51 +0100
-Subject: [PATCH 1/2] rtc: mt6359: add mt6357 support
+	Thu, 09 Jan 2025 15:32:17 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2900C1040DBDB;
+	Thu,  9 Jan 2025 16:32:11 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1736436733;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=6qIQP4o8cPCcK84STUOS+5JskiZRRSumAKuNK/Xi2io=;
+	b=drknysd0IoZnLaRgsToztlyqJxLx4IHPiJhqIK3UmFsqqzRZOkWOKFbRxN8iNWWLneD7om
+	twjqlg62pARiKDodOxy7DMj5Gf9U7rP1B9YpjBdZyQwrvliKbbi9Ack8TUfL+ePJ7zrk1i
+	JSJUxxYErz+Eg+Jc+7Z7UESVgib4BBN7eblcvPrYDPt1vBdLyrx1d7JLOTAuVwRZGDG4jR
+	CWdlscCAMxYxUTLDohyFdAm68gRXqfBguMoHUfoa52FLxiIMl63VKN1RwbTiBgHtFJuMzm
+	UxXT9klNMQcTBYCRn+0bQfx0l9PvuXjEhwVX01EZiSswQ4YH6B1s+6pe3XoiYQ==
+Date: Thu, 9 Jan 2025 16:32:10 +0100
+From: Lukasz Majewski <lukma@denx.de>
+To: Fabio Estevam <festevam@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
+ Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
+ <kernel@pengutronix.de>, devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Stefan
+ Wahren <wahrenst@gmx.net>
+Subject: Re: [PATCH v11 1/3] dt-bindings: display: Add
+ powertip,{st7272|hx8238a} as DT Schema description
+Message-ID: <20250109163210.4c547941@wsk>
+In-Reply-To: <CAOMZO5ABPnB9ov7jtEmDSZ=efNh_yx3JcqqS_UMTXgie=8PcTA@mail.gmail.com>
+References: <20241107085705.490940-1-lukma@denx.de>
+	<20241209105240.72d8d84a@wsk>
+	<20241220112950.4673bb3f@wsk>
+	<20250109153702.2d149023@wsk>
+	<CAOMZO5ABPnB9ov7jtEmDSZ=efNh_yx3JcqqS_UMTXgie=8PcTA@mail.gmail.com>
+Organization: denx.de
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250109-enable-rtc-v1-1-e8223bf55bb8@baylibre.com>
-References: <20250109-enable-rtc-v1-0-e8223bf55bb8@baylibre.com>
-In-Reply-To: <20250109-enable-rtc-v1-0-e8223bf55bb8@baylibre.com>
-To: Eddie Huang <eddie.huang@mediatek.com>, 
- Sean Wang <sean.wang@mediatek.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Macpaul Lin <macpaul.lin@mediatek.com>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-rtc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Alexandre Mergnat <amergnat@baylibre.com>
-X-Mailer: b4 0.12.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=790; i=amergnat@baylibre.com;
- h=from:subject:message-id; bh=QOPtwlardGLEi9evReTJWR65j/y1YA1zAVx5xliXYTo=;
- b=owEBbQKS/ZANAwAKAStGSZ1+MdRFAcsmYgBnf+t5Uh5A00pLQHAjBhwGqpehhi2NxaAmpv/tdLI+
- QoL7SkiJAjMEAAEKAB0WIQQjG17X8+qqcA5g/osrRkmdfjHURQUCZ3/reQAKCRArRkmdfjHURe2CD/
- 91UHitfxOG9AFgC4OxNgHslqy/ktEncdPmkEzj4qa/S0mkFFbThl1dTkHiokREYRRHWegB2nIQxR0g
- XXbhL6B2phVKeYwHj/awOTxD/0Xz3f1AIW6uXrReZ9OwPiOocSKEbhkv/TpynTsEglyCKyoMj7uDQy
- ZyRN64qJurasgzdP+chqQA/hVuBMgeY7TKsb9iWUXywCzM5d9vtauWZ11gky3+CVpEcl4nD9b5ACuC
- 8YVRgHfV42ZHBjpGancF9Yw2mH+4ZePPBEL71JXGk+4oo5rdLr7cwGmH+b7hCKV8jFRuVvVD7kLeqq
- HykeOuklv0stKYLgkQrYC+m2DVov3dH/LRsTsrwQblw5QTR/kI2z10jO0Myuo28BJxhmUx60Lh2ONp
- KWOxwyX/SDoS85iVCX6rglVYLUyfKHwTQcupnENexHrbwm6e5HdjqrgPYi101AIrpflbv11s/cjHJ3
- fvFQmJKSI02JM6S/jrk2TTZNsFLBLf2SMZneU+p4j8zJuHYUGr0QdqP8S1x6WunOADkV6Mm438Q1vL
- V0E5mPdlrAiREzegdBOG2OJD0tPNO68/a7d3nxlczqX8OYztJnkK7w57Ope9ISflKNBh6O1gHdPpuU
- Q/HMAfzexfkRvazAMpBvYk3hmsPZWtHyAN5tQfuQcFdDutdh24Kx+E0iCAZQ==
-X-Developer-Key: i=amergnat@baylibre.com; a=openpgp;
- fpr=231B5ED7F3EAAA700E60FE8B2B46499D7E31D445
+Content-Type: multipart/signed; boundary="Sig_/4jR4l4k1/ssXQBq5AITFnzz";
+ protocol="application/pgp-signature"; micalg=pgp-sha512
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_073006_150433_1CFAABD7 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20250109_073216_494528_FBE5D144 
+X-CRM114-Status: GOOD (  14.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,27 +81,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MT6357 PMIC's RTC use the MT6358's RTC data.
+--Sig_/4jR4l4k1/ssXQBq5AITFnzz
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Alexandre Mergnat <amergnat@baylibre.com>
----
- drivers/rtc/rtc-mt6397.c | 1 +
- 1 file changed, 1 insertion(+)
+Hi Fabio,
 
-diff --git a/drivers/rtc/rtc-mt6397.c b/drivers/rtc/rtc-mt6397.c
-index 152699219a2b..55e75712edd4 100644
---- a/drivers/rtc/rtc-mt6397.c
-+++ b/drivers/rtc/rtc-mt6397.c
-@@ -332,6 +332,7 @@ static const struct mtk_rtc_data mt6397_rtc_data = {
- 
- static const struct of_device_id mt6397_rtc_of_match[] = {
- 	{ .compatible = "mediatek,mt6323-rtc", .data = &mt6397_rtc_data },
-+	{ .compatible = "mediatek,mt6357-rtc", .data = &mt6358_rtc_data },
- 	{ .compatible = "mediatek,mt6358-rtc", .data = &mt6358_rtc_data },
- 	{ .compatible = "mediatek,mt6397-rtc", .data = &mt6397_rtc_data },
- 	{ }
+> Hi Lukasz,
+>=20
+> On Thu, Jan 9, 2025 at 11:37=E2=80=AFAM Lukasz Majewski <lukma@denx.de> w=
+rote:
+>=20
+> > Gentle ping on this patch ... =20
+>=20
+> You missed copying the drm folks:
+>=20
 
--- 
-2.25.1
+Ech....
 
+Thanks for pointing it out...
+
+> ./scripts/get_maintainer.pl
+> Documentation/devicetree/bindings/display/panel Neil Armstrong
+> <neil.armstrong@linaro.org> (maintainer:DRM PANEL DRIVERS) Jessica
+> Zhang <quic_jesszhan@quicinc.com> (reviewer:DRM PANEL DRIVERS) David
+> Airlie <airlied@gmail.com> (maintainer:DRM DRIVERS) Simona Vetter
+> <simona@ffwll.ch> (maintainer:DRM DRIVERS) Maarten Lankhorst
+> <maarten.lankhorst@linux.intel.com> (maintainer:DRM DRIVERS AND MISC
+> GPU PATCHES) Maxime Ripard <mripard@kernel.org> (maintainer:DRM
+> DRIVERS AND MISC GPU PATCHES) Thomas Zimmermann <tzimmermann@suse.de>
+> (maintainer:DRM DRIVERS AND MISC GPU PATCHES)
+> Rob Herring <robh@kernel.org> (maintainer:OPEN FIRMWARE AND FLATTENED
+> DEVICE TREE BINDINGS)
+> Krzysztof Kozlowski <krzk+dt@kernel.org> (maintainer:OPEN FIRMWARE AND
+> FLATTENED DEVICE TREE BINDINGS)
+> Conor Dooley <conor+dt@kernel.org> (maintainer:OPEN FIRMWARE AND
+> FLATTENED DEVICE TREE BINDINGS)
+> dri-devel@lists.freedesktop.org (open list:DRM PANEL DRIVERS)
+> devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED
+> DEVICE TREE BINDINGS)
+> linux-kernel@vger.kernel.org (open list)
+
+
+
+
+Best regards,
+
+Lukasz Majewski
+
+--
+
+DENX Software Engineering GmbH,      Managing Director: Erika Unter
+HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
+Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
+
+--Sig_/4jR4l4k1/ssXQBq5AITFnzz
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmd/6/oACgkQAR8vZIA0
+zr0f4gf/f8yftAgVjy6z69N/UrrRfN2tMTztQtXrjdV0XCD5sm67rgsZL5NQKzet
+2AzvICsWK+dZYUSRXnolPAKQEsOiRhBQskEi4q6GlmnHYQE7cIH8P9pTo01QXmYv
+K6qYnujJDAD0sqB1cVPbRVcn0a4vKq3oQqJ8EkfZcJhmkZ90gbheaoYri5rcat3z
+qw5UolyLN0xQ0WH49k2fWUDIVh5gwCdmrbOCfB8zi6rTjdbpAThRSim7ZVBqVblC
+y4mT4zfG3xd2x71vvpNb95bcgfw5sG/slrQaZOU6W+BlmL3ov9MHBFOk1xdQIUEe
+yIT60upWr2ovwklJlyeKFywq/99fwA==
+=TdZH
+-----END PGP SIGNATURE-----
+
+--Sig_/4jR4l4k1/ssXQBq5AITFnzz--
 
