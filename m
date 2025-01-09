@@ -4,81 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10B23E77199
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 20:51:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3412AE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 20:52:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TqdIdJj6LMoevO5GBiCvHMhASh0RzXUsR8pC8UFwUX4=; b=cnxO20vJ/t0Ljd9kFXSEUPQITa
-	MknvRyrMdE7RfkuTpZErdXMX/VvOBgFu76TVVyrz9buPYM+r0YFbmqoRJpfIHjN0J6Xxbu3mY4NxT
-	4yNOH57e7at0CT8vjU8Aae5V3Kd1kTayBzww1hbwkSOnyzO6dgef5yGkCtC6b7KvFME2A+E/6xRsM
-	1v21gQ/vAl6d4vDbAj4mw4HiUCHguAXfYyw7JCCt+VXd75pXMA5KkDq6FO+Co16esaqSFpvYF1VKH
-	O8pGgaGU7QputD4me8iIuA/OgNezBeUEBWgDl3EycEa50pcqset237FuLPeex6npr7OBodoOLz5zf
-	YNgYC+Yw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zwxnelFEQr4C3vtPtPgRGtQjenWxHSmpAHQLFMvsChA=; b=3gTbNLsPgalz1cpBOobL6733EC
+	2sCn3WLBaJeXBQ98xVQtbo+df66Gw4JBFDm1SjOrCCYG185/sPfttcuJz1RkrrTs3bZwXqBlx+ZKN
+	pn2N08e4UC7w/56abTiuCFTHMxIlp/ay5w1pXddF2Jg3i++bvMcWGGsVKRp0yclkF2wtQnBKwcshb
+	XGeIfcdnj3tYLKMhLKew31/UpxER4xuZHxYjlxuEUNydZhFLHVG+EY9zaquLgOum1MVOt5zeU/iHZ
+	tdzT59rqFKl67GWNaGbaWrD9TN8wA/v0cnnqxnScexjuWpHUS5UnP7DVg7oxG5cAwRRFMrs3Eb00M
+	eD/fUkZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVzUa-0000000DGrX-2Epn;
-	Thu, 09 Jan 2025 20:51:00 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tVzVm-0000000DHMc-3CXK;
+	Thu, 09 Jan 2025 20:52:14 +0000
+Received: from mail-vs1-xe4a.google.com ([2607:f8b0:4864:20::e4a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVzTM-0000000DGRx-0JQw;
-	Thu, 09 Jan 2025 20:49:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 95ED55C5C06;
-	Thu,  9 Jan 2025 20:49:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FA63C4CED2;
-	Thu,  9 Jan 2025 20:49:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736455782;
-	bh=ZXX4c3x7gBrrsmjeXcEhCbYQD0RNFq9SKOTJyfD+w8M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tWvKKMjG4qNcEdVbxpmuI7b4+HbBdLkpA+CAMEMYEpRiDciCf4+vEIw2Q4+w2yjfZ
-	 jTvxs8jEmA05UEDVWAXXpjNc2VtZiEIpRu70xTvqCcsKpRbzaHI1lWSmw7CNxREs+Y
-	 tcF2kH3OJnCH5l1gN7nYB+GygB7QcjZAbUF8tBCsIpAxeJJlhSo8SgcHZCtTgRw+5b
-	 PAoxrRVlGEHzJLN9Oucuu/ShuUtvjHD6sfNGb0+TMeUfZJg8u1/VX1eDTtxpj2kfwH
-	 2u7OfDHS4bABbNg/V0Xml60Go/or9ECQsio/b80eE3ZedaBdcLgKM5LgnvvFLc9HZ/
-	 2p9f4xhFqpurg==
-Date: Thu, 9 Jan 2025 17:49:39 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	=?iso-8859-1?Q?Micka=EBl_Sala=FCn?= <mic@digikod.net>,
-	=?iso-8859-1?Q?G=FCnther?= Noack <gnoack@google.com>,
-	Christian Brauner <brauner@kernel.org>, Guo Ren <guoren@kernel.org>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	Jonathan Corbet <corbet@lwn.net>, Arnd Bergmann <arnd@arndb.de>,
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-security-module@vger.kernel.org, bpf@vger.kernel.org,
-	linux-csky@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v6 00/16] perf tools: Use generic syscall scripts for all
- archs
-Message-ID: <Z4A2Y269Ffo0ERkS@x1>
-References: <20250108-perf_syscalltbl-v6-0-7543b5293098@rivosinc.com>
- <Z3_ybwWW3QZvJ4V6@x1>
- <Z4AoFA974kauIJ9T@ghost>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <Z4AoFA974kauIJ9T@ghost>
+	id 1tVzTZ-0000000DGUu-12A4
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Jan 2025 20:49:58 +0000
+Received: by mail-vs1-xe4a.google.com with SMTP id ada2fe7eead31-4afd9b88ac2so195527137.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jan 2025 12:49:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1736455795; x=1737060595; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=zwxnelFEQr4C3vtPtPgRGtQjenWxHSmpAHQLFMvsChA=;
+        b=gEpTcly42EC4KWdK7ZzGPAJXljfma5t9QrzA9FJCsSvqKpjBiuHT9ZCV5reKOKMepu
+         NxhqFctz+2SO+e54atYMfybS8sVS2CPdKZlEfJdzKPxRnlMSzsSUZa1+qs1eHwFn1aoi
+         k8bxz2B8KVoCH4h5eQeosv75urXr5xfv25EL0FlptqukvaapcKBbed8vDUMlYGp3CYcZ
+         /4k6XqXxQbf26IoJS99G5Lq+ir4lI6QMgAfmxwN3fvB1P4yQuCsf39u5ysiyEM+Jgydj
+         TBpioSs64u3IUKInlw6mRKpX1d+R8DCrlZtXWN0CbfQcj6piypYiaQuNP2MHgNmBCUC1
+         I8+Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736455795; x=1737060595;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=zwxnelFEQr4C3vtPtPgRGtQjenWxHSmpAHQLFMvsChA=;
+        b=sGQASJIFNZfPGFtoz0GinrhvFxZGCJiLqyUCC/rfb149Awx8Jmsm/IBo1hS1eUWdFV
+         9CGDaQFPB0QSsOo1gKmmNhbUDJ+WNJkybqP+Lh16vcgKU1Vy0+1JpzELCzKAu+oYcfqA
+         FsPRL4FybNkqXAfQVjHIcM+eUmJKdCJ7QN15UsdCRAjzLE1a8VmSoIhaWK5zzHCNW9Cb
+         QgR39+1eks062cQdAdK0/LTgdEXAsMgTk960V0VIq+fJDX+Z0uIci30IJfut5hDqlepv
+         nAl2MGChC7hEihZL/tCnGcgekkshQtLa5MptMZNhzo6zA3Zy6gCLh06bYLGkORTSlSD2
+         ec1g==
+X-Forwarded-Encrypted: i=1; AJvYcCXKv3vl5UNfRylxMkaJvTlWYg678X+nGjvBItXjpMBkb91/iE9xYB/Km7OBhKhXiTmeXRLwnyOdnrKo6l7RrtDt@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLuFpiWhiYPKzmcTQqrEJ3rFUcpfsA1zWWu01ZAlfHrDQZrFuX
+	pERBBdWjLOFIzVftYoeAXZkAJucA7L/Ysyf255vLeesCDnETXD4goEsx2QLa7LkW1Jdjpo4y6N7
+	lUzaZ0qF0BaI8pewtsA==
+X-Google-Smtp-Source: AGHT+IEQb1u/rfnn1fSyPTU2pPIfyZ5lKsGhAlzX80eQpvo3eWAajg+PF8bqh67MyuBcqLLCXncCH9d2iaL7ubsN
+X-Received: from vsbbq8.prod.google.com ([2002:a05:6102:5348:b0:4af:b35d:162c])
+ (user=jthoughton job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6102:2b92:b0:4af:f892:e9f0 with SMTP id ada2fe7eead31-4b3d0f2d8f1mr8447963137.14.1736455795460;
+ Thu, 09 Jan 2025 12:49:55 -0800 (PST)
+Date: Thu,  9 Jan 2025 20:49:16 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
+Message-ID: <20250109204929.1106563-1-jthoughton@google.com>
+Subject: [PATCH v2 00/13] KVM: Introduce KVM Userfault
+From: James Houghton <jthoughton@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>, Sean Christopherson <seanjc@google.com>
+Cc: Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Yan Zhao <yan.y.zhao@intel.com>, 
+	James Houghton <jthoughton@google.com>, Nikita Kalyazin <kalyazin@amazon.com>, 
+	Anish Moorthy <amoorthy@google.com>, Peter Gonda <pgonda@google.com>, Peter Xu <peterx@redhat.com>, 
+	David Matlack <dmatlack@google.com>, wei.w.wang@intel.com, kvm@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_124944_196719_22F058CD 
-X-CRM114-Status: UNSURE (   9.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250109_124957_303283_462AC53E 
+X-CRM114-Status: GOOD (  14.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,30 +92,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 09, 2025 at 11:48:36AM -0800, Charlie Jenkins wrote:
-> On Thu, Jan 09, 2025 at 12:59:43PM -0300, Arnaldo Carvalho de Melo wrote:
-> > ⬢ [acme@toolbox perf-tools-next]$ git log --oneline -1 ; time make -C tools/perf build-test
-> > d06826160a982494 (HEAD -> perf-tools-next) perf tools: Remove dependency on libaudit
-> > make: Entering directory '/home/acme/git/perf-tools-next/tools/perf'
-> > - tarpkg: ./tests/perf-targz-src-pkg .
-> >                  make_static: cd . && make LDFLAGS=-static NO_PERF_READ_VDSO32=1 NO_PERF_READ_VDSOX32=1 NO_JVMTI=1 NO_LIBTRACEEVENT=1 NO_LIBELF=1 -j28  DESTDIR=/tmp/tmp.JJT3tvN7bV
-> >               make_with_gtk2: cd . && make GTK2=1 -j28  DESTDIR=/tmp/tmp.BF53V2qpl3
-> > - /home/acme/git/perf-tools-next/tools/perf/BUILD_TEST_FEATURE_DUMP: cd . && make FEATURE_DUMP_COPY=/home/acme/git/perf-tools-next/tools/perf/BUILD_TEST_FEATURE_DUMP  feature-dump
-> > cd . && make FEATURE_DUMP_COPY=/home/acme/git/perf-tools-next/tools/perf/BUILD_TEST_FEATURE_DUMP feature-dump
-> >          make_no_libbionic_O: cd . && make NO_LIBBIONIC=1 FEATURES_DUMP=/home/acme/git/perf-tools-next/tools/perf/BUILD_TEST_FEATURE_DUMP -j28 O=/tmp/tmp.KZuQ0q2Vs6 DESTDIR=/tmp/tmp.0sxMyH91gS
-> >            make_util_map_o_O: cd . && make util/map.o FEATURES_DUMP=/home/acme/git/perf-tools-next/tools/perf/BUILD_TEST_FEATURE_DUMP -j28 O=/tmp/tmp.Y0Mx3KLREI DESTDIR=/tmp/tmp.wg9HCVVLHE
-> >               make_install_O: cd . && make install FEATURES_DUMP=/home/acme/git/perf-tools-next/tools/perf/BUILD_TEST_FEATURE_DUMP -j28 O=/tmp/tmp.P0LEBAkW1X DESTDIR=/tmp/tmp.agTavZndFN
-> >   failed to find: etc/bash_completion.d/perf
-> 
-> Is this something introduced by this patch?
+This is a v2 of KVM Userfault, mostly unchanged from v1[5]. Changelog here:
 
-I don't think so.
+v1->v2:
+- For arm64, no longer zap stage 2 when disabling KVM_MEM_USERFAULT
+  (thanks Oliver).
+- Fix the userfault_bitmap validation and casts (thanks kernel test
+  robot).
+- Fix _Atomic cast for the userfault bitmap in the selftest (thanks
+  kernel test robot).
+- Pick up Reviewed-by on doc changes (thanks Bagas).
 
-BTW this series is already pushed out to perf-tools-next:
+And here is a trimmed down cover letter from v1, slightly modified
+given the small arm64 change:
 
-https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git/log/?h=perf-tools-next
+Please see the RFC[1] for the problem description. In summary,
+guest_memfd VMs have no mechanism for doing post-copy live migration.
+KVM Userfault provides such a mechanism.
 
-Thanks!
+There is a second problem that KVM Userfault solves: userfaultfd-based
+post-copy doesn't scale very well. KVM Userfault when used with
+userfaultfd can scale much better in the common case that most post-copy
+demand fetches are a result of vCPU access violations. This is a
+continuation of the solution Anish was working on[3]. This aspect of
+KVM Userfault is important for userfaultfd-based live migration when
+scaling up to hundreds of vCPUs with ~30us network latency for a
+PAGE_SIZE demand-fetch.
 
-- Arnaldo
+The implementation in this series is version than the RFC[1]. It adds...
+ 1. a new memslot flag is added: KVM_MEM_USERFAULT,
+ 2. a new parameter, userfault_bitmap, into struct kvm_memory_slot,
+ 3. a new KVM_RUN exit reason: KVM_MEMORY_EXIT_FLAG_USERFAULT,
+ 4. a new KVM capability KVM_CAP_USERFAULT.
+
+KVM Userfault does not attempt to catch KVM's own accesses to guest
+memory. That is left up to userfaultfd.
+
+When enabling KVM_MEM_USERFAULT for a memslot, the second-stage mappings
+are zapped, and new faults will check `userfault_bitmap` to see if the
+fault should exit to userspace.
+
+When KVM_MEM_USERFAULT is enabled, only PAGE_SIZE mappings are
+permitted.
+
+When disabling KVM_MEM_USERFAULT, huge mappings will be reconstructed
+consistent with dirty log disabling. So on x86, huge mappings will be
+reconstructed, but on arm64, they won't be.
+
+KVM Userfault is not compatible with async page faults. Nikita has
+proposed a new implementation of async page faults that is more
+userspace-driven that *is* compatible with KVM Userfault[4].
+
+See v1 for more performance details[5]. They are unchanged in this v2.
+
+This series is based on the latest kvm/next.
+
+[1]: https://lore.kernel.org/kvm/20240710234222.2333120-1-jthoughton@google.com/
+[2]: https://lpc.events/event/18/contributions/1757/
+[3]: https://lore.kernel.org/all/20240215235405.368539-1-amoorthy@google.com/
+[4]: https://lore.kernel.org/kvm/20241118123948.4796-1-kalyazin@amazon.com/#t
+[5]: https://lore.kernel.org/kvm/20241204191349.1730936-1-jthoughton@google.com/
+
+James Houghton (13):
+  KVM: Add KVM_MEM_USERFAULT memslot flag and bitmap
+  KVM: Add KVM_MEMORY_EXIT_FLAG_USERFAULT
+  KVM: Allow late setting of KVM_MEM_USERFAULT on guest_memfd memslot
+  KVM: Advertise KVM_CAP_USERFAULT in KVM_CHECK_EXTENSION
+  KVM: x86/mmu: Add support for KVM_MEM_USERFAULT
+  KVM: arm64: Add support for KVM_MEM_USERFAULT
+  KVM: selftests: Fix vm_mem_region_set_flags docstring
+  KVM: selftests: Fix prefault_mem logic
+  KVM: selftests: Add va_start/end into uffd_desc
+  KVM: selftests: Add KVM Userfault mode to demand_paging_test
+  KVM: selftests: Inform set_memory_region_test of KVM_MEM_USERFAULT
+  KVM: selftests: Add KVM_MEM_USERFAULT + guest_memfd toggle tests
+  KVM: Documentation: Add KVM_CAP_USERFAULT and KVM_MEM_USERFAULT
+    details
+
+ Documentation/virt/kvm/api.rst                |  33 +++-
+ arch/arm64/kvm/Kconfig                        |   1 +
+ arch/arm64/kvm/mmu.c                          |  26 +++-
+ arch/x86/kvm/Kconfig                          |   1 +
+ arch/x86/kvm/mmu/mmu.c                        |  27 +++-
+ arch/x86/kvm/mmu/mmu_internal.h               |  20 ++-
+ arch/x86/kvm/x86.c                            |  36 +++--
+ include/linux/kvm_host.h                      |  19 ++-
+ include/uapi/linux/kvm.h                      |   6 +-
+ .../selftests/kvm/demand_paging_test.c        | 145 ++++++++++++++++--
+ .../testing/selftests/kvm/include/kvm_util.h  |   5 +
+ .../selftests/kvm/include/userfaultfd_util.h  |   2 +
+ tools/testing/selftests/kvm/lib/kvm_util.c    |  42 ++++-
+ .../selftests/kvm/lib/userfaultfd_util.c      |   2 +
+ .../selftests/kvm/set_memory_region_test.c    |  33 ++++
+ virt/kvm/Kconfig                              |   3 +
+ virt/kvm/kvm_main.c                           |  54 ++++++-
+ 17 files changed, 419 insertions(+), 36 deletions(-)
+
+
+base-commit: 10b2c8a67c4b8ec15f9d07d177f63b563418e948
+-- 
+2.47.1.613.gc27f4b7a9f-goog
+
 
