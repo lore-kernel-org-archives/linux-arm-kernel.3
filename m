@@ -4,118 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1ECAE77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 15:57:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D0CCE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 15:59:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aiM8y2KF3+onAr2SvicvIVsqQjxBJ+k4H+eZXUhohgA=; b=bFbZfwkNYm3DiLGi9ifB01IGKC
-	fJuWDn6rri+yKLg/I366NPUseN9hp1QV3HOSYK3msWI90fp7KdoET3sUqy9EraSf5aCR0WZQfHewl
-	D6KymK1NUMFJVAA/vN9Mv7NFXm/LWodhhsc7JvAqH2JUmLpq74mHiiy89AVdy6nWrMHKu0R9ScG2o
-	mnvEZWn6OXCPlfTaNVU0xo7FUXM05KQCBmE8trl3/MVG5cF8iv+7XZX58fELDQ0Cw1R5NsqDulrA/
-	ycB9/+hMVNgSB0tPfAZ0rvKuon66S4lUQ8Gf8CPmWiCbnd6qugtQv8GvcN0gmphd3CBf7I6b4jl4O
-	DC99YWlQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=siW7vfCoksPXHtZa/15GuRuHr9BAfX44jN6/44ucx+4=; b=x6dLiM41PntE+ifj8MggjED25J
+	S2yZavUWw2EyFAgfPRp/gprTjplUS8IY/vYHWvnLPGj5jGODTND/DnS83DK2mHaU4ypmCS2g2LYTV
+	wjrIdHghjIjY79xg+s/9sXeXc6Tuu3rvYD8ww80YFTMjyjSWxWbLh0/H4YX6TPEwmJV8VVEk/MVim
+	9UWyAIU/vAyq2zy2k53G2Ezc01YssGzcekz7F/mEnlK4FqylLKIcuBxFYM1/duVdX/eNtsjGyHcWn
+	ocupOkfRY6EhlE/flRK2Z/jvrDEk2Q7dAR7ehJGww2T+jyIsmWBlBfgl6qLDL5QBCeerw0TacRta5
+	CwRyz4rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVutv-0000000CZFP-3NSD;
-	Thu, 09 Jan 2025 15:56:51 +0000
-Received: from mail-ej1-x641.google.com ([2a00:1450:4864:20::641])
+	id 1tVuwU-0000000CZcF-1Ji7;
+	Thu, 09 Jan 2025 15:59:30 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVuqJ-0000000CYUf-0JDa
+	id 1tVuvG-0000000CZV6-35mF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 15:53:09 +0000
-Received: by mail-ej1-x641.google.com with SMTP id a640c23a62f3a-aaf60d85238so215308366b.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jan 2025 07:53:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1736437985; x=1737042785; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=aiM8y2KF3+onAr2SvicvIVsqQjxBJ+k4H+eZXUhohgA=;
-        b=Za571v4zsNuV7/EC8MNbOfPhkQlbRhwfqWcAIjSOvvi0TBIXBI04Z0ullc58Ns1c/Q
-         tIEbkH+CuoFFVrgoIXP0k79+uW1P1rWkOnXas9STXeQ4jAg4ohYUNPd5dAFLBjN+u8BS
-         B9NYo9U9TuPux3xQ/M//SbSz0vv+X46VKm8Fi5c1MEJbXTy7Fk5/pq6kWwvoDrLOt7wX
-         h225FjAdMQLcByHtQibgWnML5ajQhkyESr2rFlidRAaeald8zgSfbCzX2o4ILaqEkstb
-         CnR2aVPEU622UGxoNeYdmtwGqbSCx7L8xLBpOAL9Kwsn10kHtZRnB7LEkoLngwNRzBsr
-         pKMA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736437985; x=1737042785;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=aiM8y2KF3+onAr2SvicvIVsqQjxBJ+k4H+eZXUhohgA=;
-        b=pwxDyWP8LiBwrV1TynXeV9FsSs8yys5naWEFrerj/Ksb9P6mb/wuUg4Sa5loObNlHH
-         2wTLHyekx6s5K38NlqO8zBBAWixdLO4mpD9MT83k+ZrbdaeROsvcwN7A2bIvGPUMsHYC
-         /NTpeR4U5h4Q2Fba2+f1wpBsLboR8gBxdG7XtnRufUs2B4zPLKnVymijCqytezoppE/6
-         O6Fah85QSxf+kv52C6CDI62TsLjutUj48O3TC19LCYCFqwWSUe1NkVTFWU3TvAxkzJfL
-         k4KIUTNdKa8s2nSXmtdx5xOZnc9Vlaixkl2Ipki5Ggz6yNM2YbYlKlHjBtWp5RYBX8QG
-         NhWg==
-X-Forwarded-Encrypted: i=1; AJvYcCULtv9+E8KEDiLpLhjPKCEh7r7OLWhxcLcM5o/m9TM4ATFEgQvSUIl6nA5LKkTypLLqfvEhAq0htf68lTNIoioY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzv/31kjqx1ShPIbYX1IgqkTgqzYRnKI9hTzl3eMlxxlkC4ITG+
-	jk1jfczFqFxh6U26i7eUPzowpHR2QpfHn6sPv8N4Juc58mgCqwOmcF2xStwhPNQ=
-X-Gm-Gg: ASbGncuoSeFI5VXMywvWFc4UdppEJWg5cRmN7IgJuNArTalOFdfl2aPct0BqMCXRaZk
-	ITO8p6LMa5R5grqgGP8HEJF/KXU1sDbZL2sSGKW4Wy+bm0m2OO3ryP0/uzfgPjA8vINzJhELWqR
-	NNfYSccrTpvo++hEEuHipC7DZZFTKQ4sloBglkUIeJQLt6WW/lWpiRVYHgxLv4ccacFILv2k4Gy
-	560NZCc7DBcauyY2fsVWiyYQkARNabq6TUXqCRIDlD4VGIS56OcSKB2dEBO1q4AMzs/RxPDDHVH
-	QmJjvDcr8xredmlZU4IvnDz9gObB7Q==
-X-Google-Smtp-Source: AGHT+IHcBvpBouxzG2xA8PisFV1s3Jhs8UiQjwM9GQq0MdUzIaP9cn8QbUIcgBfqgLqpN4NyhXITew==
-X-Received: by 2002:a17:906:fd87:b0:aab:cce0:f8b4 with SMTP id a640c23a62f3a-ab2abc9ed6cmr644656666b.52.1736437984935;
-        Thu, 09 Jan 2025 07:53:04 -0800 (PST)
-Received: from localhost (host-79-40-232-186.business.telecomitalia.it. [79.40.232.186])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab2c9563b32sm82250366b.122.2025.01.09.07.53.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Jan 2025 07:53:04 -0800 (PST)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Thu, 9 Jan 2025 16:53:52 +0100
-To: Herve Codina <herve.codina@bootlin.com>
-Cc: Andrea della Porta <andrea.porta@suse.com>,
-	Rob Herring <robh@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof Wilczynski <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>
-Subject: Re: [PATCH v5 08/10] misc: rp1: RaspberryPi RP1 misc driver
-Message-ID: <Z3_xEEGVWFu-bDjT@apocalypse>
-References: <cover.1733136811.git.andrea.porta@suse.com>
- <28fe72eec1c08781770cee65032bb10a6d5994a9.1733136811.git.andrea.porta@suse.com>
- <20241210224837.GA702616-robh@kernel.org>
- <Z2A0aAPotT0NvoCl@apocalypse>
- <Z3_ZlvbszezcanA4@apocalypse>
- <20250109155036.27b82b7e@bootlin.com>
+	Thu, 09 Jan 2025 15:58:16 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 509Fw31P2983124
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 9 Jan 2025 09:58:03 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1736438283;
+	bh=siW7vfCoksPXHtZa/15GuRuHr9BAfX44jN6/44ucx+4=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=CwuvB0MWu+dRhb5JRiybB5efrVRPM5uAYynmW5DtCp/TpFIrgFOHkWKnBoPsEBvMr
+	 HNAV1IV2nyT5qCV0fzPMEU9dNvhJh0mYowpk589BW1mm0/IVWlzxhw8tfA5cjP9//y
+	 6UPZYjNJtNikpO7jQHz0GGxm4IBXgxvVSGAhceEs=
+Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 509Fw3qf053208
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Thu, 9 Jan 2025 09:58:03 -0600
+Received: from DLEE108.ent.ti.com (157.170.170.38) by DLEE113.ent.ti.com
+ (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 9
+ Jan 2025 09:58:02 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Thu, 9 Jan 2025 09:58:02 -0600
+Received: from [10.249.42.149] ([10.249.42.149])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 509Fw2Pi128225;
+	Thu, 9 Jan 2025 09:58:02 -0600
+Message-ID: <90f47fae-a493-471d-8fe6-e7df741161be@ti.com>
+Date: Thu, 9 Jan 2025 09:58:02 -0600
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250109155036.27b82b7e@bootlin.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/2] arm64: dts: ti: k3-j721e-beagleboneai64: Enable
+ ACSPCIE output for PCIe1
+To: Romain Naour <romain.naour@smile.fr>, <devicetree@vger.kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-omap@vger.kernel.org>,
+        <conor+dt@kernel.org>, <krzk+dt@kernel.org>, <robh@kernel.org>,
+        <kristo@kernel.org>, <vigneshr@ti.com>, <nm@ti.com>,
+        Romain Naour
+	<romain.naour@skf.com>,
+        Siddharth Vadapalli <s-vadapalli@ti.com>
+References: <20250109102627.1366753-1-romain.naour@smile.fr>
+ <20250109102627.1366753-2-romain.naour@smile.fr>
+Content-Language: en-US
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <20250109102627.1366753-2-romain.naour@smile.fr>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_075307_124335_B13112B6 
-X-CRM114-Status: GOOD (  30.06  )
+X-CRM114-CacheID: sfid-20250109_075814_958999_62454AD4 
+X-CRM114-Status: GOOD (  23.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,91 +91,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Herve,
+On 1/9/25 4:26 AM, Romain Naour wrote:
+> From: Romain Naour <romain.naour@skf.com>
+> 
+> Unlike the SK-TDA4VM (k3-j721e-sk) board, there is no clock generator
+> (CDCI6214RGET) on the BeagleBone AI-64 (k3-j721e-beagleboneai64) to
+> provide PCIe refclk signal to PCIe Endponts. So the ACSPCIE module must
+> provide refclk through PCIe_REFCLK pins.
+> 
+> Use the new "ti,syscon-acspcie-proxy-ctrl" property to enable ACSPCIE
+> module's PAD IO Buffers.
+> 
+> Cc: Siddharth Vadapalli <s-vadapalli@ti.com>
+> Signed-off-by: Romain Naour <romain.naour@skf.com>
+> ---
+> With this patch, we can remove "HACK: Sierra: Drive clock out" patch
+> applied on vendor kernel for BeagleBone AI-64:
+> https://openbeagle.org/beagleboard/linux/-/commit/ad65d7ef675966cdbc5d75f2bd545fad1914ba9b
+> 
+> v4: no change
+> 
+> v3:
+>   - update "acspcie0_proxy_ctrl" compatible to "ti,j721e-acspcie-proxy-ctrl"
+>     since this property is specific to j721e variant.
+> 
+> v2:
+>   - use generic style comments
+>   - use "syscon" as generic node name for "acspcie0_proxy_ctrl" node
+>   - Keep the compatible "ti,j784s4-acspcie-proxy-ctrl" since the
+>     ACSPCIE buffer and its functionality is the same across all K3 SoCs.
+>     (Siddharth Vadapalli)
+> 
+>     "The compatible "ti,j784s4-acspcie-pcie-ctrl" should be reused for
+>     J721E and all other K3 SoCs.
+>     For example, see:
+>     https://lore.kernel.org/r/20240402105708.4114146-1-s-vadapalli@ti.com/
+>     which introduced "ti,am62p-cpsw-mac-efuse" compatible.
+> 
+>     The same compatible is reused across all K3 SoCs:
+>     https://lore.kernel.org/r/20240628151518.40100-1-afd@ti.com/ "
+> ---
+>   arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts |  5 +++++
+>   arch/arm64/boot/dts/ti/k3-j721e-main.dtsi          | 10 ++++++++--
+>   2 files changed, 13 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts b/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
+> index fb899c99753e..741ad2ba6fdb 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
+> @@ -859,6 +859,11 @@ &pcie1_rc {
+>   	num-lanes = <2>;
+>   	max-link-speed = <3>;
+>   	reset-gpios = <&main_gpio0 22 GPIO_ACTIVE_HIGH>;
+> +	/*
+> +	 * There is no on-board or external reference clock generators,
+> +	 * use refclk from the ACSPCIE module's PAD IO Buffers.
+> +	 */
+> +	ti,syscon-acspcie-proxy-ctrl = <&acspcie0_proxy_ctrl 0x3>;
+>   };
+>   
+>   &ufs_wrapper {
+> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+> index af3d730154ac..32a232a90100 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+> @@ -5,6 +5,7 @@
+>    * Copyright (C) 2016-2024 Texas Instruments Incorporated - https://www.ti.com/
+>    */
+>   #include <dt-bindings/phy/phy.h>
+> +#include <dt-bindings/phy/phy-cadence.h>
+>   #include <dt-bindings/phy/phy-ti.h>
+>   #include <dt-bindings/mux/mux.h>
+>   
+> @@ -82,6 +83,11 @@ ehrpwm_tbclk: clock-controller@4140 {
+>   			reg = <0x4140 0x18>;
+>   			#clock-cells = <1>;
+>   		};
+> +
+> +		acspcie0_proxy_ctrl: syscon@18090 {
+> +			compatible = "ti,j721e-acspcie-proxy-ctrl", "syscon";
+> +			reg = <0x18090 0x4>;
+> +		};
 
-On 15:50 Thu 09 Jan     , Herve Codina wrote:
-> Hi Andrea,
-> 
-> On Thu, 9 Jan 2025 15:13:42 +0100
-> Andrea della Porta <andrea.porta@suse.com> wrote:
-> 
-> > Hi Rob,
-> > 
-> > On 15:08 Mon 16 Dec     , Andrea della Porta wrote:
-> > > Hi Rob,
-> > > 
-> > > On 16:48 Tue 10 Dec     , Rob Herring wrote:  
-> > > > On Mon, Dec 02, 2024 at 12:19:32PM +0100, Andrea della Porta wrote:  
-> > > > > The RaspberryPi RP1 is a PCI multi function device containing
-> > > > > peripherals ranging from Ethernet to USB controller, I2C, SPI
-> > > > > and others.  
-> > 
-> > ...
-> > 
-> > > > > +#define RP1_INT_ADC_FIFO	52
-> > > > > +#define RP1_INT_PCIE_OUT	53
-> > > > > +#define RP1_INT_SPI6		54
-> > > > > +#define RP1_INT_SPI7		55
-> > > > > +#define RP1_INT_SPI8		56
-> > > > > +#define RP1_INT_SYSCFG		58
-> > > > > +#define RP1_INT_CLOCKS_DEFAULT	59
-> > > > > +#define RP1_INT_VBUSCTRL	60
-> > > > > +#define RP1_INT_PROC_MISC	57  
-> > > > 
-> > > > Why all these defines which will never be used because they come from 
-> > > > DT?
-> > > >  
-> > > 
-> > > Right, those defines where originally designed to be included from dts, but
-> > > previous discussion deemed interrupt numbers to be hardcoded instead of being
-> > > specified as mnemonics. In the driver source code I just use RP1_INT_END as the
-> > > number of interrupts but I thought that the specific interrupt numbers should
-> > > be documented in some way or another. Since no one is currently referencing
-> > > those defines, would it be better to just turn those in a multiline comment
-> > > just to describe them in a more compact form?  
-> > 
-> > So, here's a couple of proposals about the interrupt defines:
-> > 
-> > - since they were banned from devicetree, and are not used anywhere in the code,
-> >   turn them into a (admittedly long) multiline comment, so they are still at
-> >   least documented
-> > 
-> > - since they were banned from devicetree, and are not use anywhere in the code,
-> >   just drop them, we don't currently need them after all
-> > 
-> > Not sure what's the best way here, anyone can advise?
-> 
-> Maybe in the #interrupt-cells description in the device-tree binding?
-> 
-> In your patch 4, you describe this interrupt controller and you have:
->   '#interrupt-cells':
->     const: 2
->     description:
->       Specifies respectively the interrupt number and flags as defined
->       in include/dt-bindings/interrupt-controller/irq.h.
-> 
-> In this description, why not add the supported interrupt number values?
->     description: |
->       Specifies respectively the interrupt number and flags as defined
->       in include/dt-bindings/interrupt-controller/irq.h.
->       The supported values for the interrupt number are:
->         - IO BANK0: 0
->         - IO BANK1: 1
-> ...
-> 
-> Or something similar.
-> 
-> This kind of description is already available. For instance:
->   https://elixir.bootlin.com/linux/v6.13-rc1/source/Documentation/devicetree/bindings/dma/fsl,imx-sdma.yaml#L64
-> 
-> Does it make sense?
+You'll still need to add to the J721e system controller binding or this
+will throw a DT check warning, something like this:
 
-Seems fine to me, if there's no concern from anyone I will procede like that.
-Thanks for the suggestion.
+diff --git a/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml b/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
+index 378e9cc5fac2a..3323f3bc976e0 100644
+--- a/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
++++ b/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
+@@ -68,6 +68,12 @@ patternProperties:
+      description:
+        The node corresponding to SoC chip identification.
+  
++  "^acspcie-ctrl@[0-9a-f]+$":
++    type: object
++    $ref: /schemas/mfd/syscon.yaml#
++    description:
++      This is the ASPCIe control region.
++
+  required:
+    - compatible
+    - reg
 
-Andrea
-
-> 
-> Best regards,
-> Hervé
+>   	};
+>   
+>   	main_ehrpwm0: pwm@3000000 {
+> @@ -979,8 +985,8 @@ pcie1_rc: pcie@2910000 {
+>   		max-link-speed = <3>;
+>   		num-lanes = <2>;
+>   		power-domains = <&k3_pds 240 TI_SCI_PD_EXCLUSIVE>;
+> -		clocks = <&k3_clks 240 1>;
+> -		clock-names = "fck";
+> +		clocks = <&k3_clks 240 1>, <&serdes1 CDNS_SIERRA_DERIVED_REFCLK>;
+> +		clock-names = "fck", "pcie_refclk";
+>   		#address-cells = <3>;
+>   		#size-cells = <2>;
+>   		bus-range = <0x0 0xff>;
 
