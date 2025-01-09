@@ -4,90 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8E5FE77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 13:54:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34992E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 13:56:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QqXsToV0HiRvEsZnF5hoveg3aYzeGpkKlIECOe2VD8g=; b=M6AKvtqGEwIgyzgDp+FUKQXm1z
-	V5FANTOvroFuX6Ljf61NBnMkU+ZX1xTSonSX8eg3F6UqcprtvuHqefgHnQCof8c5e9dKqtKO8eEu8
-	Uwqaad3IeQxm6xWm/z2vDSWgAyRRjMczxbYXKWXYALzTkFB+9jU11/zcUKm9f/DEWrhTxUXo37Dxd
-	h6Nh/Urf425ax61R9mP6/BsI44GuVQ3EA1L6mHyiHKNcBbIXzgcqeac6CzvWdPlBZqE0dmWEK906O
-	OQzrP2v1pKt1zd3MD5vOPqBGiu8VXV2irvRxiPRzm7BxWZc1ISNpG6gQP7X7YrPQC5yfxFFiORIuq
-	I9/OjEGw==;
+	bh=eeaBIaGGapmzwBgVzb4Z7ArP+HM9mhiTOs5CAn+csno=; b=LJ9IPjwuNn5qBFyLJoxQ00PDwx
+	Z1/5e6n1a8ZKTmocMqi6pGIwCktSg9n3cFa9EfgSyKRh7CMgSnXihMFIyXNxf3+ww76YvfE8ZHRBb
+	duLKdqzJFBqFk3D8rIoRSPcTGKSKXcXunLSa1afd6zEy5TcvTPKNLD9A8a4etWHNmOPLEjAJYAYk8
+	kU6qSFhYaI8XEJsgZo+eC1rOXbgQXoOfaU9DalJxsVCng+dSVmlbYI8mfNp7+9UzNmkLtM18dFB5I
+	ADGo+XsM+u4J8SvIXzqdUkAe/dBsJJXZy3Qu8ymcEcfiar3xX9zVzLCJqBLJGERFR7II9VDr+T97f
+	lVuuX4Bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVsz3-0000000C7qt-00y2;
-	Thu, 09 Jan 2025 13:54:01 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1tVt0n-0000000C8CI-3CM4;
+	Thu, 09 Jan 2025 13:55:49 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVswY-0000000C7O3-1SBY
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 13:51:28 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4362f61757fso9925715e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jan 2025 05:51:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=smile.fr; s=google; t=1736430684; x=1737035484; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=QqXsToV0HiRvEsZnF5hoveg3aYzeGpkKlIECOe2VD8g=;
-        b=NH6YY+FuLGOyYuodobs5KL4yK49BPTREbdOog3J2230qmCx6zZn+xEExWuKUTFeF86
-         RYLaosLfXZwl5QDEQiPKAN7Fncy3Pix3iEc2XLzQ+Cp7gVgxLFd+Izc5pyXGu3gcz9eN
-         ag0n0a6OagZG0Y63/AGkqCUrvugNoOTqtl7DM=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736430684; x=1737035484;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=QqXsToV0HiRvEsZnF5hoveg3aYzeGpkKlIECOe2VD8g=;
-        b=YALjNdqAmtaXnZCpa4BsdRP2g3J34N7bpCxvfTK2ezynzeznOKmJSInFujFyUb9q1B
-         8mS9tbOlKuEsMK00SViybU6pWkf5vyQzH2dtrKM/83/j8Wrc4fiQeHZ38AXNBg1b5lAj
-         GC03EsBRgZAK49lkVEnX/XOGBOldFRBZTwc3zKsO/hml3HBRT9pFzEI7su7dILqlItjm
-         tkDaYzvY4t5hUI3k6w4eNAKkje74I2va7leCB6XyHuLr05OlZnE8soBmxno3jlUX1J/C
-         919CzOmTdLF6eQotVdbsSge/DsG4W6f1hlcenSXyXS8bklSmLDcjeyA/sOKsiHWsMioK
-         FgZw==
-X-Forwarded-Encrypted: i=1; AJvYcCXhp4ZIJVClpH01zOpbn7mUL8Mp+hcswsVauXIdyGgkQkYexhHwg+US+MWxwgItkrDoF3aofxm8dZLGhVmoDJeP@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJq71Ah5m3IvRhE4eLq+x/9zC2lCk6JFBJWH+z8Z5V1Q9CVoK3
-	2eMzhSmVje03/D9k/S5NUDKnas3qcdEv115Rtd4MK/x3gdPkUm4ZBva6x3WeKhc=
-X-Gm-Gg: ASbGncviAkMg+9Ty7wuU3nIydHHmn927TX+gV+G2sboC18kkttnNGwvrVQOr3d09ZpS
-	sUCWofEfY06uLpoyf8MShLgi6Gh8u9WjItKuad2RVwxLdQiftttpvd1gOsQAvq9GrkEdKsRWnbI
-	jVRnWSuMYxA/9k9VkjnKlhgGLmStRmauu5BDe+KNZKCSEFBQl3tRCL17+E4vL2rc9sFMJ3QaCKE
-	jm4xTmdPLt/UK7fS0AMhV6xwhtA0NL4sGOWrgk5+HVHlK+iItbYtcoanAZZrTh/9hX2tJFDaHNq
-	lTaL79nZpxqlUfgLpucpLWM+a8/ePl4XjMXBsnsLmNi6fgvvLryZ36+4iixGTRDjiTHJn+UbPVL
-	gccqqVqtpeWxGaw/K
-X-Google-Smtp-Source: AGHT+IGCwLti8xz/uAXqjvFyEfZu8OW3NVEiOzPgOAaQKlMAAsxOUKHoSy2tGbVe3mXX1vMem7j5oQ==
-X-Received: by 2002:a05:600c:1d1f:b0:434:f99e:a5b5 with SMTP id 5b1f17b1804b1-436e271cf4amr47062045e9.28.1736430684252;
-        Thu, 09 Jan 2025 05:51:24 -0800 (PST)
-Received: from ?IPV6:2a01:cb05:949d:5800:e3ef:2d7a:4131:71f? (2a01cb05949d5800e3ef2d7a4131071f.ipv6.abo.wanadoo.fr. [2a01:cb05:949d:5800:e3ef:2d7a:4131:71f])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e2dc0f69sm55525035e9.13.2025.01.09.05.51.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 09 Jan 2025 05:51:23 -0800 (PST)
-Message-ID: <8ff7ca4f-227d-40c5-867d-497e03bef72a@smile.fr>
-Date: Thu, 9 Jan 2025 14:51:23 +0100
+	id 1tVszZ-0000000C7xv-2gJT;
+	Thu, 09 Jan 2025 13:54:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1830F5C4D43;
+	Thu,  9 Jan 2025 13:53:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 152DAC4CEE1;
+	Thu,  9 Jan 2025 13:54:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736430872;
+	bh=bIdzlrQOAX3U44F79+AqJ7ruftZl57F5R7gP3U2Bxvk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=GIujkZaXHxosqsJ8gWatoA/hOWJuIFT7pu6jF9goFNPQ70zSWzMfajWc5X9BZeBkY
+	 SfDizsL2ZTZG8L+pT2B639VrXuKNINrhk9NDFVVjXSc8C729iL1Mmx+b+8uI+ZykKh
+	 W3pY5wz21qd1Xcsm2uYRdDVDrqmSIi5hrFSz9maijl1SKiEF4iLxbdrdnD5PZnG7Uo
+	 +nxDzMAOjkXLvbjEA1U5c2RkuDdgAjCRZgK+4uMcFCIVyTvW3uHVc4mo0IoUlsnBnL
+	 K3Ml5AEK2YxKODI7i3VqLbLUtfAlO/PhWgBqmY0kzF6Zsl90C2TD9ei5CjNZw3JIpQ
+	 MXSJ/tUOX3osQ==
+Message-ID: <63a97fdb-f348-4ed7-9d7f-8e47d51a4390@kernel.org>
+Date: Thu, 9 Jan 2025 14:54:25 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/2] arm64: dts: ti: k3-j721e-beagleboneai64: Enable
- ACSPCIE output for PCIe1
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-omap@vger.kernel.org, conor+dt@kernel.org, krzk+dt@kernel.org,
- robh@kernel.org, kristo@kernel.org, vigneshr@ti.com, nm@ti.com, afd@ti.com,
- Romain Naour <romain.naour@skf.com>
-References: <20250109102627.1366753-1-romain.naour@smile.fr>
- <20250109102627.1366753-2-romain.naour@smile.fr>
- <eu5xmihnffmqas2x2ioleuzzvyfbffl5eqlwuqfe4mh6qa2rzy@7mmuxsbkmz4o>
+Subject: Re: [V1,01/12] dt-bindings: mediatek: Add mediatek, mt8196-jpgdec
+ compatible
+To: "kyrie.wu" <kyrie.wu@mediatek.com>,
+ Hans Verkuil <hverkuil-cisco@xs4all.nl>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
+ <robh+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Tzung-Bi Shih <tzungbi@chromium.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Bin Liu <bin.liu@mediatek.com>,
+ kyrie wu <kyrie.wu@mediatek.corp-partner.google.com>,
+ linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20250109133513.20151-1-kyrie.wu@mediatek.com>
+ <20250109133513.20151-2-kyrie.wu@mediatek.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Romain Naour <romain.naour@smile.fr>
-In-Reply-To: <eu5xmihnffmqas2x2ioleuzzvyfbffl5eqlwuqfe4mh6qa2rzy@7mmuxsbkmz4o>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250109133513.20151-2-kyrie.wu@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_055126_768967_1FE24BE2 
-X-CRM114-Status: GOOD (  17.77  )
+X-CRM114-CacheID: sfid-20250109_055433_776451_1318B1C2 
+X-CRM114-Status: GOOD (  12.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,85 +127,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Siddharth, All,
+On 09/01/2025 14:35, kyrie.wu wrote:
+> Add mediatek,mt8196-jpgdec compatible to binding document.
 
-Le 09/01/2025 à 12:49, Siddharth Vadapalli a écrit :
-> On Thu, Jan 09, 2025 at 11:26:27AM +0100, Romain Naour wrote:
+Please use standard email subjects, so with the PATCH keyword in the
+title. `git format-patch -vX` helps here to create proper versioned
+patches. Another useful tool is b4. Skipping the PATCH keyword makes
+filtering of emails more difficult thus making the review process less
+convenient.
+
 > 
-> Hello Romain,
+> Signed-off-by: kyrie.wu <kyrie.wu@mediatek.com>
+> ---
+>  ...5-jpegdec.yaml => mediatek,multi-core-jpegdec.yaml} | 10 +++++++---
+>  1 file changed, 7 insertions(+), 3 deletions(-)
+>  rename Documentation/devicetree/bindings/media/{mediatek,mt8195-jpegdec.yaml => mediatek,multi-core-jpegdec.yaml} (95%)
 > 
->> From: Romain Naour <romain.naour@skf.com>
->>
->> Unlike the SK-TDA4VM (k3-j721e-sk) board, there is no clock generator
->> (CDCI6214RGET) on the BeagleBone AI-64 (k3-j721e-beagleboneai64) to
->> provide PCIe refclk signal to PCIe Endponts. So the ACSPCIE module must
->> provide refclk through PCIe_REFCLK pins.
->>
->> Use the new "ti,syscon-acspcie-proxy-ctrl" property to enable ACSPCIE
->> module's PAD IO Buffers.
->>
->> Cc: Siddharth Vadapalli <s-vadapalli@ti.com>
->> Signed-off-by: Romain Naour <romain.naour@skf.com>
->> ---
->> With this patch, we can remove "HACK: Sierra: Drive clock out" patch
->> applied on vendor kernel for BeagleBone AI-64:
->> https://openbeagle.org/beagleboard/linux/-/commit/ad65d7ef675966cdbc5d75f2bd545fad1914ba9b
-> 
-> [trimmed]
-> 
->> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
->> index af3d730154ac..32a232a90100 100644
->> --- a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
->> +++ b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
->> @@ -5,6 +5,7 @@
->>   * Copyright (C) 2016-2024 Texas Instruments Incorporated - https://www.ti.com/
->>   */
->>  #include <dt-bindings/phy/phy.h>
->> +#include <dt-bindings/phy/phy-cadence.h>
->>  #include <dt-bindings/phy/phy-ti.h>
->>  #include <dt-bindings/mux/mux.h>
->>  
->> @@ -82,6 +83,11 @@ ehrpwm_tbclk: clock-controller@4140 {
->>  			reg = <0x4140 0x18>;
->>  			#clock-cells = <1>;
->>  		};
->> +
->> +		acspcie0_proxy_ctrl: syscon@18090 {
->> +			compatible = "ti,j721e-acspcie-proxy-ctrl", "syscon";
->> +			reg = <0x18090 0x4>;
-> 
-> 0x_0011_8090 is probably *not* the "PROXY" register i.e. it could be
-> locked with the help of "CTRLMMR_LOCK0_KICK0" and "CTRLMMR_LOCK0_KICK1"
-> registers, in which case the CTRL_MMR region needs to be unlocked to write
-> to that register. On J784S4, that happens to be true, which is why the
-> proxy register 0x_0011_a090 was used at [0]. Please test with 0x_0011_a090
-> which is the "PROXY" register on J721E as well, i.e. it can be written to
-> unconditionally.
-> 
-> [0]:
-> https://lore.kernel.org/r/20240930111505.3101047-1-s-vadapalli@ti.com/
+> diff --git a/Documentation/devicetree/bindings/media/mediatek,mt8195-jpegdec.yaml b/Documentation/devicetree/bindings/media/mediatek,multi-core-jpegdec.yaml
+> similarity index 95%
+> rename from Documentation/devicetree/bindings/media/mediatek,mt8195-jpegdec.yaml
+> rename to Documentation/devicetree/bindings/media/mediatek,multi-core-jpegdec.yaml
 
-Thanks for the review!
 
-Actually the Proxy0 vs Proxy1 choice is not really clear for me. We have two
-proxy to reach the same register:
+Don't rename the file.
 
-  CTRLMMR_ACSPCIE0_CTRL Register (Proxy0 Offset = 18090h; Proxy1 Offset = 1A090h)
+> index e5448c60e3eb..5ec98ddad506 100644
+> --- a/Documentation/devicetree/bindings/media/mediatek,mt8195-jpegdec.yaml
+> +++ b/Documentation/devicetree/bindings/media/mediatek,multi-core-jpegdec.yaml
+> @@ -1,7 +1,7 @@
+>  # SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+>  %YAML 1.2
+>  ---
+> -$id: http://devicetree.org/schemas/media/mediatek,mt8195-jpegdec.yaml#
+> +$id: http://devicetree.org/schemas/media/mediatek,multi-core-jpegdec.yaml#
+>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  
+>  title: MediaTek JPEG Decoder
+> @@ -14,7 +14,9 @@ description:
+>  
+>  properties:
+>    compatible:
+> -    const: mediatek,mt8195-jpgdec
+> +    enum:
+> +      - mediatek,mt8195-jpgdec
+> +      - mediatek,mt8196-jpgdec
 
-From my testing both addresses works (maybe since my SoC is a general purpose one).
-
-When and why Proxy1 must be used?
-
-Otherwise I'm fine to use  0x_0011_a090.
+Devices look compatible, so express it with fallback.
 
 Best regards,
-Romain
-
-
-> 
-> [trimmed]
-> 
-> Regards,
-> Siddharth.
-
+Krzysztof
 
