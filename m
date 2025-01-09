@@ -4,84 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12723E77199
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 21:19:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5778FE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 21:20:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=id1sh3FCg/7RMCobM0hb+35jgQaJrBVPFNS3Z4VpXrU=; b=nrfvxFRAJ7V61uJQn5ylIofo5x
-	UTR20mKHp3ZD2DeVSR2EeIxM+lFf31G2oR5W/k24TKNdRQ5kCEOVbxLdNxirsprOe/SZFVD/OjlIT
-	UZV76O1QIsXB8e9Zs53L0McPHo72r6uLDOQqfp3rFy7uUmucsMGXI4BKXoqupIQUuay7UVIxCih2l
-	cGB+z9SvHlmYptCAhkefgaaHdHAPb6M7nST0NwCxZ9w06RkcGbUVLURmyH4LC9qyAWahvJawyUUXg
-	YTGpOk8tiFvtjZ5CEDVoe71RXGGJvDYxJJ0dyWK2vjrmOUpptIOky1QQU3OV/SLhU7cqpsT/hd0aj
-	a1bzIsUA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nYWwEHMv7Pi4/aMuIfIEd0m898Lr2Kb8/a+FILyxHPY=; b=OErcY8jwTT5pz2GTQPvJjuUOm6
+	daeIfAfwsguc69n7w23jDFYMW2mTjzEZMYYKAUwc4/K32ysMMc2oLB1bHi/P8rAWuOp5uuRS3M1o7
+	p1vOAiK+DRlnSJ3SCAlVdcvEPXyCJ/Wy5lsMDKo0csJ7a3HCPxtxHoBuA8U/amO7KvK0h/fz0Vf+1
+	C+rBg18PLcowyJ7yObiAgFiNbSFDWYbByB2d3d8z3nMO0UoeWWG9yOvYH2wWY5yAbOasHd649X/Ex
+	3ypAzWdkfj7EhE2vC0U2vCOqSM9c6dHvlxvhyJTJJnLpWynFUxkULgQZqoyZNhUdRd7c10iJcndJ6
+	K90yEmmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVzwD-0000000DLVG-3zSG;
-	Thu, 09 Jan 2025 21:19:33 +0000
-Received: from mail-yb1-xb35.google.com ([2607:f8b0:4864:20::b35])
+	id 1tVzxP-0000000DLoy-2Tye;
+	Thu, 09 Jan 2025 21:20:47 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVzuz-0000000DLG2-0xBr
+	id 1tVzvv-0000000DLPO-1vYE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 21:18:18 +0000
-Received: by mail-yb1-xb35.google.com with SMTP id 3f1490d57ef6-e3983f8ff40so2063120276.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jan 2025 13:18:16 -0800 (PST)
+	Thu, 09 Jan 2025 21:19:16 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-5d88c355e0dso2269594a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jan 2025 13:19:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1736457496; x=1737062296; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=id1sh3FCg/7RMCobM0hb+35jgQaJrBVPFNS3Z4VpXrU=;
-        b=UlOiJCZR6bRBQtn7M58qfABVUB0bbGAgE59znHg4FklZrffhMgrwe9j/QOMuQ26IsQ
-         UaPhcOwBeCDV9oVFRBtTw2BpQo0Z8ZTO1EarvLreiWA9Jc8NXdp7uZmCczMgQ7Ugc4oq
-         4A0Z/J7kATut/+9PrPJFoo4Z2FmrEgQcHKqA4=
+        d=amarulasolutions.com; s=google; t=1736457554; x=1737062354; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=nYWwEHMv7Pi4/aMuIfIEd0m898Lr2Kb8/a+FILyxHPY=;
+        b=EY7LpFqTJAzH/iL5U7AXXD5/5oxjB1GnFpXVqgzOh3dJK9niROYTrOo+8xhx002PaW
+         FwSfIDz7t7LR92ZfkcdeEA0NR36sxX3ZipLXNv5yBpTVBnCKp0pay1iuKFyjo335tgbl
+         bbKV+mRnxeFA9xSZwdRs3mw5FJKNBuD0g6yRI=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736457496; x=1737062296;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=id1sh3FCg/7RMCobM0hb+35jgQaJrBVPFNS3Z4VpXrU=;
-        b=e2aHshpPrLKKvms8mNERQq0R//bsvUw7Jv10f+854CRVOli7UGEgDECCBIJK1Hmjxm
-         VTyBoxlil1a1k4fNesdnuxkmm2FKCxwoiv123c7I84wxrw/Zhtmyl2l3stzkrKm+xgvX
-         sYc9gGu2vV9cmmWpqjCWOJ3LFll9Jzc7P0KmCUv6gIfN+CH3iW87OjxyEO6zY7l2KDTh
-         smCM5zvKfuYQ+bZfsgirSPMgm/4qcX3N7+kwgay8lY7rlB2xQ4l4QHFCHKJKjcHR2PWY
-         7vYmH7vT37CWhw4eHpYqaso+CNzsedHYVTRvQlB8eJaWORz3hso45kCdVGfNmztrIazs
-         E/6w==
-X-Forwarded-Encrypted: i=1; AJvYcCVx6QQKruqeAm4mJhYLLiR0zTTHLMA6e01zdLHgj+unqWb168zw+W+Pls47Mo7oIe1++RRu3cDRDQB8jqiELQaU@lists.infradead.org
-X-Gm-Message-State: AOJu0YwT6fnn9/8ntcqg7lFViHaVjJ9kxSziatfsXyg9RYM437Y700eC
-	9dxiEsfVRTZM82YQcd3OJVg7pSPMcSpvaCOxX6jcfku78vRxlctgeqJ16XA4FzMlSJCSu/q/4sX
-	iotm73AEnO0ALll/Y2qztK+NkaqRoiIzz3hLGaw==
-X-Gm-Gg: ASbGncusV1K3tt0EqvFZT/8VkVmPZfMkDSq4UTQL8hUkjSGzegJd8as4pQF1j3DuNSx
-	QqWVXWfHp7XPGGhS4bXOOmikZc5w3k7kqnA==
-X-Google-Smtp-Source: AGHT+IEitao6xkL4KuruOiZLl8pzkE0Tr8U9XGdZMOjjPpiCZSWKdvOna0N9OTnQBhhi7O+5g4P8CEDUT7rp7zQGK3E=
-X-Received: by 2002:a05:6902:10ce:b0:e4a:9ef8:804b with SMTP id
- 3f1490d57ef6-e54ee138dfcmr7114871276.19.1736457495749; Thu, 09 Jan 2025
- 13:18:15 -0800 (PST)
-MIME-Version: 1.0
-References: <20250105181525.1370822-1-dario.binacchi@amarulasolutions.com>
- <20250105181525.1370822-5-dario.binacchi@amarulasolutions.com> <20250108234807.GA1247672-robh@kernel.org>
-In-Reply-To: <20250108234807.GA1247672-robh@kernel.org>
+        d=1e100.net; s=20230601; t=1736457554; x=1737062354;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=nYWwEHMv7Pi4/aMuIfIEd0m898Lr2Kb8/a+FILyxHPY=;
+        b=P0CI1/mpmQYeQBI26pePOs0WChzWmYlj1qCmoI+5gttRND3mVa2gPXhdt3QsPHfHoO
+         LFs4zXNvBEKaLO6h2iTZSL7W/I8xNXiCM1ER8n6XtgaZh59foDYb4xt9XV8/pGxdndQu
+         F0TgKKOQZY2PlFfJJeEw+hUqsBZ4KlVlShr7BkO1O0JG6jsAqG8ks9+t31w7J8SheJrE
+         v8N7FYVXmrhNeVLSwKONgl3w6QUm7vrJohvud1Z/02PbISScqAR9Gm1W7F6LyW57FI16
+         tmXmU/AI6L8tXAKdI/9+dgKWm+nK8M0ejTWpC2rNREzzUZo04HoUwpT/jD1JJqGXHMqZ
+         q/zg==
+X-Forwarded-Encrypted: i=1; AJvYcCVS/+9po1Uy8Imkf7XM5tBZbmFpA1ub+ZYNK3uNbWyyQSdo1RvnM1/sju+P5yEXMhfGxps0wPEFDwezhdmYTY4P@lists.infradead.org
+X-Gm-Message-State: AOJu0YzlThwYVtnCgVY193p+S7cGDhlNW81LLhPzUmyhAx1zSmZnNthA
+	L5zgSG4+xzgCVGSPxjSC8JQjf/MjGBYfoXcyeIllCW/HEk+B5w2dQHLUpgF4lfY=
+X-Gm-Gg: ASbGnct4jYbxROM/KnNCd7uYQG/1NZqMO5aQmxPwo4Aiy6/43KweN0SQJih4sBmrOzk
+	k8Zy7CeF2Cnyi2uqGZFM6QyZ4JF0vLI3uHGHzhZtQgqyIjN2hHreTMcI/CvUqPwQ92qnEAeGf4y
+	jHHMMx88vzoK7DP7chjSuX1wN6Qp6Bu9KPRe0aAaDIKGrdOFxZG7tZJiUmcT1daevQemw9Okq57
+	5CJ6TYPfSHsa4KNIeWv7CU62c4Su3cY6Qil2nsqc/hcq705ItRyqRKLoWhysILCqd1gUJpymUU4
+	kimdETCXAC7g3VfGsdvuRD9c+l10qB0iv+KW8JO3kTXIuw+SybmGNmZYoXFza8c1112i2VAm7VR
+	jrvhJBvmlOQ7m7J6TvA==
+X-Google-Smtp-Source: AGHT+IGDVisAyEQwSigpcUtiYjGMdYnHM9AmzlwjHAKTXZuLBmm721gRf+PfVKaw25o+OkloXI5uXA==
+X-Received: by 2002:a05:6402:430c:b0:5d3:e45d:ba7c with SMTP id 4fb4d7f45d1cf-5d972e7148bmr6635147a12.29.1736457553855;
+        Thu, 09 Jan 2025 13:19:13 -0800 (PST)
+Received: from dario-ThinkPad-T14s-Gen-2i.homenet.telecomitalia.it (host-79-41-6-15.retail.telecomitalia.it. [79.41.6.15])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d9900c4b56sm925567a12.32.2025.01.09.13.19.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 09 Jan 2025 13:19:12 -0800 (PST)
 From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Date: Thu, 9 Jan 2025 22:18:05 +0100
-X-Gm-Features: AbW1kvaz0srWd9-CXkLWbJC4L5aCPg18CSB1xlYjDSOC4DOcE56GKg2Kqa2-Of4
-Message-ID: <CABGWkvpgGNitRfe+qxT9faZ=Oa5+OzbE06dr-0O+w31JOmOQfw@mail.gmail.com>
-Subject: Re: [PATCH 4/6] dt-bindings: clock: st,stm32-rcc: support spread
- spectrum clocking
-To: Rob Herring <robh@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Conor Dooley <conor+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
+To: linux-kernel@vger.kernel.org
+Cc: linux-amarula@amarulasolutions.com,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Subject: [PATCH v2 0/4] Support spread spectrum clocking for stm32f{4,7} platforms
+Date: Thu,  9 Jan 2025 22:18:27 +0100
+Message-ID: <20250109211908.1553072-1-dario.binacchi@amarulasolutions.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_131817_327769_B57F8DDC 
-X-CRM114-Status: GOOD (  23.60  )
+X-CRM114-CacheID: sfid-20250109_131915_494644_260FAD42 
+X-CRM114-Status: GOOD (  12.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,136 +104,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Rob,
+The series adds support for spread spectrum clocking for stm32f{4,7}
+main PLL.
 
-On Thu, Jan 9, 2025 at 12:48=E2=80=AFAM Rob Herring <robh@kernel.org> wrote=
-:
->
-> On Sun, Jan 05, 2025 at 07:14:16PM +0100, Dario Binacchi wrote:
-> > The addition of DT bindings for enabling and tuning spread spectrum
-> > clocking generation is available only for the main PLL.
-> >
-> > Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-> > ---
-> >
-> >  .../bindings/clock/st,stm32-rcc.yaml          | 27 +++++++++++++++++++
-> >  1 file changed, 27 insertions(+)
-> >
-> > diff --git a/Documentation/devicetree/bindings/clock/st,stm32-rcc.yaml =
-b/Documentation/devicetree/bindings/clock/st,stm32-rcc.yaml
-> > index ae9e5b26d876..c345d3ff3fc4 100644
-> > --- a/Documentation/devicetree/bindings/clock/st,stm32-rcc.yaml
-> > +++ b/Documentation/devicetree/bindings/clock/st,stm32-rcc.yaml
-> > @@ -77,6 +77,26 @@ properties:
-> >        Phandle to system configuration controller. It can be used to co=
-ntrol the
-> >        power domain circuitry.
-> >
-> > +  st,ssc-modfreq-hz:
-> > +    description:
-> > +      The modulation frequency for main PLL (in Hz)
->
-> No constraints?
+To achieve this, it was considered necessary to also apply patches to
+improve the documentation (conversion of `st,stm32-rcc.txt` according to
+the json-schema) and the code (use of FIELD helpers).
 
-They vary depending on the HSE clock frequency used.
+The series has been tested on the STM32F469I-DISCO board.
 
->
-> > +
-> > +  st,ssc-moddepth-permyriad:
-> > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > +    description:
-> > +      The modulation rate for main PLL (in permyriad, i.e. 0.01%)
-> > +    minimum: 25
-> > +    maximum: 200
-> > +
-> > +  st,ssc-modmethod:
-> > +    $ref: /schemas/types.yaml#/definitions/non-unique-string-array
-> > +    description:
-> > +      The modulation techniques for main PLL.
-> > +    items:
-> > +      enum:
-> > +        - center-spread
-> > +        - down-spread
->
-> What's the default? If there's only 2 possibilities, then you can use a
-> boolean instead. Though I assume you want to support spread-spectrum
-> disabled.
+Changes in v2:
+- Fixup patches:
+  2/6 dt-bindings: reset: st,stm32-rcc: update reference due to rename
+  3/6 dt-bindings: clock: stm32fx: update reference due to rename
+  to
+  1/6 dt-bindings: clock: convert stm32 rcc bindings to json-schema
+- Changes to dt-bindings: clock: convert stm32 rcc bindings to json-schema
+- Changes to dt-bindings: clock: st,stm32-rcc: support spread spectrum clocking
 
-Generally, there can also be more than two options. For example, in
-the case of the imx8m platform, there are three possibilities:
-- down-spread
-- center-spread
-- up-spread
-In our case, using a boolean would hide one of the two pieces of informatio=
-n,
-meaning that if I'm not using center-spread, what am I using?
+Dario Binacchi (4):
+  dt-bindings: clock: convert stm32 rcc bindings to json-schema
+  dt-bindings: clock: st,stm32-rcc: support spread spectrum clocking
+  clk: stm32f4: use FIELD helpers to access the PLLCFGR fields
+  clk: stm32f4: support spread spectrum clock generation
 
-IMHO, I would keep the string type, changing it from
-on-unique-string-array to string.
+ .../bindings/clock/st,stm32-rcc.txt           | 138 ----------------
+ .../bindings/clock/st,stm32-rcc.yaml          | 147 +++++++++++++++++
+ .../bindings/reset/st,stm32-rcc.txt           |   2 +-
+ drivers/clk/clk-stm32f4.c                     | 155 +++++++++++++++++-
+ include/dt-bindings/clock/stm32fx-clock.h     |   2 +-
+ 5 files changed, 298 insertions(+), 146 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/clock/st,stm32-rcc.txt
+ create mode 100644 Documentation/devicetree/bindings/clock/st,stm32-rcc.yaml
 
->
-> Are there dependencies between these properties?
+-- 
+2.43.0
 
-The values moddepth and modfreq are used to calculate, according to specifi=
-c
-relationships, two values MODPER and INCSTEP, which are bit fields of
-a suitable
-register for managing the SSCG. There is a constraint between these two val=
-ues,
-namely that MODPER * INCSTEP < 32768. This constraint will be managed
-at the driver level.
-
-Thanks and regards,
-Dario
->
-> > +
-> >  required:
-> >    - compatible
-> >    - reg
-> > @@ -97,6 +117,10 @@ allOf:
-> >            const: 1
-> >            description: |
-> >              The clock index for the specified type.
-> > +        st,ssc-modfreq-hz: false
-> > +        st,ssc-moddepth-permyriad: false
-> > +        st,ssc-modmethod: false
-> > +
-> >      else:
-> >        properties:
-> >          '#clock-cells':
-> > @@ -118,6 +142,9 @@ examples:
-> >          reg =3D <0x40023800 0x400>;
-> >          clocks =3D <&clk_hse>, <&clk_i2s_ckin>;
-> >          st,syscfg =3D <&pwrcfg>;
-> > +        st,ssc-modfreq-hz =3D <10000>;
-> > +        st,ssc-moddepth-permyriad =3D <200>;
-> > +        st,ssc-modmethod =3D "center-spread";
-> >      };
-> >
-> >    - |
-> > --
-> > 2.43.0
-> >
-
-
-
---=20
-
-Dario Binacchi
-
-Senior Embedded Linux Developer
-
-dario.binacchi@amarulasolutions.com
-
-__________________________________
-
-
-Amarula Solutions SRL
-
-Via Le Canevare 30, 31100 Treviso, Veneto, IT
-
-T. +39 042 243 5310
-info@amarulasolutions.com
-
-www.amarulasolutions.com
 
