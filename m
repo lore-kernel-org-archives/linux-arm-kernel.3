@@ -4,76 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D959E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 04:37:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49A46E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 04:40:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kOAA9iSyzFQMTnJ/IrrO9xw8dXd24x9YPykOwNf/caA=; b=x9N2QqOJBC+mTwN9Px26cG8v5V
-	gl5OaRvTsXW3BvXkPsguGUW7O02L1jeWL0y1niEHEUDiCYMWVxves01M+oOxCCdQWnyeL5XrbJEc7
-	Tkjvz1Hvvd/ddpeYNlYVceDs3OXBwJ5vwIoiwwPJVXwTmM9huoiccVAXxziWyv/O7ksj1NDT5Az4E
-	3svSrKGQn+2QwiLUCMugoY9N0q2I6z+eml2bqchmqNDiYqm7smxrRxQYgnPRai3b1q76duA0ndzOG
-	ida+ih26vFmCjik1FEfMo8SnOcugbPvYw3LQpjFvZXQte8zdyyGOXHSHggKse+DrQFate2NvklDeS
-	db6DhTXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pZ2YvM8gfp17nTPL4mYb4m25g/l7LdazDxHe8bA4t2o=; b=kqpDyHcyaAeFNb4Ew+cxU++4Ol
+	+XgAmf4Km6CYHY2MKEds9InvmL9iFXiMiSiTrIv3JAADslJqtMxDbIhaJ/ngGwgK/2pVpvBOtall9
+	xhg+0qspHt0NejI715IH+2Ydx1SaMl54CJnRVdKmb9MqaZfchGwsoJ5p9EpRaRdx3f/ClTTD9Ec28
+	xikGcWKjhFshYwPI3fA92uOEUsNbrPT0lEectmbSf4Ku6DSVkX4XHDICzEwSnIHpw7FRlcIg/r6e8
+	FLkQTFYvte3Z73Raqhmj7mRteb2nTB94dCn1k/KO7AqOX3ptwNum87hcNSo7r3TgL71nimI/h1Ukt
+	YPnprENw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVkIJ-0000000AjN1-1HMD;
-	Thu, 09 Jan 2025 04:37:19 +0000
-Received: from mail-m32104.qiye.163.com ([220.197.32.104])
+	id 1tVkKz-0000000AjpM-1IPU;
+	Thu, 09 Jan 2025 04:40:05 +0000
+Received: from mail-bn8nam04on2062f.outbound.protection.outlook.com ([2a01:111:f403:2408::62f] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVjD7-0000000AZag-0UCQ;
-	Thu, 09 Jan 2025 03:27:54 +0000
-Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 82c0195e;
-	Thu, 9 Jan 2025 11:27:43 +0800 (GMT+08:00)
-From: Damon Ding <damon.ding@rock-chips.com>
-To: heiko@sntech.de
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	rfoss@kernel.org,
-	vkoul@kernel.org,
-	sebastian.reichel@collabora.com,
-	cristian.ciocaltea@collabora.com,
-	l.stach@pengutronix.de,
-	dmitry.baryshkov@linaro.org,
-	andy.yan@rock-chips.com,
-	hjc@rock-chips.com,
-	algea.cao@rock-chips.com,
-	kever.yang@rock-chips.com,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v5 00/20] Add eDP support for RK3588
-Date: Thu,  9 Jan 2025 11:27:05 +0800
-Message-Id: <20250109032725.1102465-1-damon.ding@rock-chips.com>
-X-Mailer: git-send-email 2.34.1
+	id 1tVkJk-0000000Aja0-038v
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Jan 2025 04:38:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=O0v93JqFwzlsqoDt6Yfz3a9NqGemIXRvoeA4j66ag8D9jbOauIS0/DQOASIiNamqlOe3Y5vgo3/llcyNestr3crlGaZRRx6irC/4uCECs2WHDr+4MyoFhxkgwCMDlrMeBCdUivcO40RtmAsjbXo6Bpt9neHkVtP3nqDYy4G2bsKg88QkrYG0gwnWcJR6ANStf3r4UEKexcL5QuHedgqetIFKdpnBAe+Zy67wHzckSCMfp6pVV/YeO1YdomKYP4xT0kO9fOlBspODBPHmDVI1nqlufxHPRJM3ecRqDDRV87SruQKjgTsnbPQxOrKaHgznzaVanwkUTz0OIyxqWWK4Iw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pZ2YvM8gfp17nTPL4mYb4m25g/l7LdazDxHe8bA4t2o=;
+ b=pSGa87vjMSvMqX5KWPT2t2ijhcX+e5e91+BOwf1+u77vwQRXmpq2S9Jn6+wRBeLfrEsIaXVB/N7KbM5LQraVWpw3pGn7WGW+78gj74Qn7eBeH58+aJH1O47OkA4wPpT6B73frajvjkZudPAd0cDaXNHm8sOHK6sAlh6VKqbstx0MhXqdVgEs1lDuKkqvbUElji9NLXKvFYjbEgsWUG5ee36C8TjZWfFC7VOGOYU8LABY2Ta2e2JxU7SPlyMLa+CsNIqYulLH2G4rm3twoPiZtqbC/eIhicX4TKGymZSsgx5UizQIT2qNB5rqo9VVDH/PY0jbTQJ2lBvDNJcdNApmVw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pZ2YvM8gfp17nTPL4mYb4m25g/l7LdazDxHe8bA4t2o=;
+ b=UOWHQ43O3ewnYL2KH/k954OGR7FdrQNsFjThs0l7pDrRany7S5Bn5yXyW7OQQJAo+dTxOZ5lAu57b4dsVNvunEhncTmjYLCDDX4mYDZukw7+gGOr7dnWJW43HiQkPfbHH4p+casEf65BA083wyT1pryaImG8tnAKbTR6h/kjmUwfCMBDS33VkukvTdvEEqxtaiGjCD4BI3kSSUtjln3frI076pRZ37aTnUIqChFmw7r1+PGcchUHb34fwSrmSQAw6Zz1INyy67WDQEk9sbpfkvaKbhmk8kP8guXQlx8xAUJOK1yyt/kKUYVCR+JL86mdBt7jkBXT9CLrwRGcsOgQIQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS0PR12MB7726.namprd12.prod.outlook.com (2603:10b6:8:130::6) by
+ IA0PR12MB8840.namprd12.prod.outlook.com (2603:10b6:208:490::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.10; Thu, 9 Jan
+ 2025 04:38:38 +0000
+Received: from DS0PR12MB7726.namprd12.prod.outlook.com
+ ([fe80::953f:2f80:90c5:67fe]) by DS0PR12MB7726.namprd12.prod.outlook.com
+ ([fe80::953f:2f80:90c5:67fe%7]) with mapi id 15.20.8335.011; Thu, 9 Jan 2025
+ 04:38:37 +0000
+Date: Thu, 9 Jan 2025 15:38:33 +1100
+From: Alistair Popple <apopple@nvidia.com>
+To: Dan Williams <dan.j.williams@intel.com>
+Cc: akpm@linux-foundation.org, linux-mm@kvack.org, lina@asahilina.net, 
+	zhang.lyra@gmail.com, gerald.schaefer@linux.ibm.com, vishal.l.verma@intel.com, 
+	dave.jiang@intel.com, logang@deltatee.com, bhelgaas@google.com, jack@suse.cz, 
+	jgg@ziepe.ca, catalin.marinas@arm.com, will@kernel.org, mpe@ellerman.id.au, 
+	npiggin@gmail.com, dave.hansen@linux.intel.com, ira.weiny@intel.com, 
+	willy@infradead.org, djwong@kernel.org, tytso@mit.edu, linmiaohe@huawei.com, 
+	david@redhat.com, peterx@redhat.com, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linuxppc-dev@lists.ozlabs.org, nvdimm@lists.linux.dev, linux-cxl@vger.kernel.org, 
+	linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org, linux-xfs@vger.kernel.org, 
+	jhubbard@nvidia.com, hch@lst.de, david@fromorbit.com, Vivek Goyal <vgoyal@redhat.com>
+Subject: Re: [PATCH v5 01/25] fuse: Fix dax truncate/punch_hole fault path
+Message-ID: <27pzaod6lj2mwn3refns5c4titbsrqhxcxjeuae6piom6rzqgy@mxb4m4jyej5s>
+References: <cover.425da7c4e76c2749d0ad1734f972b06114e02d52.1736221254.git-series.apopple@nvidia.com>
+ <f20cc2603bd33ee05ec4bc4cc7327cec61119796.1736221254.git-series.apopple@nvidia.com>
+ <677efc80b6fcd_f58f2943@dwillia2-xfh.jf.intel.com.notmuch>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <677efc80b6fcd_f58f2943@dwillia2-xfh.jf.intel.com.notmuch>
+X-ClientProxiedBy: SYBPR01CA0171.ausprd01.prod.outlook.com
+ (2603:10c6:10:52::15) To DS0PR12MB7726.namprd12.prod.outlook.com
+ (2603:10b6:8:130::6)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQxlPSlYeQklNTEhPH05CThlWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-X-HM-Tid: 0a94491a88dc03a3kunm82c0195e
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Pgg6Djo6EzIKFxQwLAJLTCwI
-	LT8KCgtVSlVKTEhNSEJISU1OS0xLVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFPS05JNwY+
-DKIM-Signature: a=rsa-sha256;
-	b=a2hk+6GOC6v2e0a4ANeM4MO77pNsnsbtFVc/JQsu/z6E7nQIqOjRgDB9Qz1XLv6zmOgeaiTffyuUc2VCTXAIIk5ja7XU/Db3u0FolxWJCbfa2sr2TOVyL6+mjDPZi3N47vY5cXa4H2Rwum7m4HjqioJy2by2b1MQcjPc4uJXFaw=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=kOAA9iSyzFQMTnJ/IrrO9xw8dXd24x9YPykOwNf/caA=;
-	h=date:mime-version:subject:message-id:from;
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB7726:EE_|IA0PR12MB8840:EE_
+X-MS-Office365-Filtering-Correlation-Id: 078f67dc-c95f-4aad-f68b-08dd30677bcd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nPdOuIEL77bcCVTjV1oYCwT/IUc+4XXL4bjz5G0s3jYRk5axr3psq914xnxp?=
+ =?us-ascii?Q?Em+4S+gg2PvFxKazi/4FLtXBp5CkzGZDERZjR2NOObeYPTU0bGyWZVXJf0Dp?=
+ =?us-ascii?Q?RK5Y1jwe63+KQZEc4heKsREahvPv8DHgsj7WXIDgW7ZfYmeKNxc8T7sgDfj9?=
+ =?us-ascii?Q?s1E6PDPitsMN2sfbYU9LDh0XjuD/T/f+k3q9PpjGbjX+uAoXZBs1Mk5UwOyZ?=
+ =?us-ascii?Q?LofCTfMq8AB0LAaQJYYe7pd8I9ctAlGTtTBB8sPVwOh4gAj5Es5TMSpOaN5r?=
+ =?us-ascii?Q?u1t80Je+WMeTr9qPKO3dgwIkURG71E/CF1GeJsEqr1rt12qhelq5MPUUWN/k?=
+ =?us-ascii?Q?TduzQUDM+geVOiSyY4l4GeWfyuPNWDBMn+pG4jFCQR/kWslP21bhBmWZ1I/i?=
+ =?us-ascii?Q?inkdgpOV9kJsF62VQ2wIqRr6aMOgAWzo3NLLEmwZPFMG59ejVRWb88hAPAQE?=
+ =?us-ascii?Q?FYv4SzkEXHVc9Jd5sglFCEyY7kLY2sYZ6xCyr22fn0YynRy3W8LfmA6HluYm?=
+ =?us-ascii?Q?JC6DrCJWMcLvm3td6QizhEiE53aAYF/276X3ygjQmPLHavlrn16C/wEVfYZy?=
+ =?us-ascii?Q?J8eruaK3bJu1hkGmyCh4FnHNVQfIVemjfc7kHneLFr1msXbu3f6ewxY16Hps?=
+ =?us-ascii?Q?eyWPj0ZZQcSVY04AAPcbLNWyW7hYzi9DTQtwmdmkUCehQugQlv1R+TsrrUQU?=
+ =?us-ascii?Q?lGE/u9ookqflEi+NKM6wnCpQ5AzAUoVDQglo285iJi/QHqzQ6gG2L0Qifyfl?=
+ =?us-ascii?Q?egU3IEOMnDK2U4M2ArTIzdYxIkcDZuFDbiw1U0IGUmHz8o78EHL7VjhQ+u/H?=
+ =?us-ascii?Q?sSP7iUdJsaE4Fzkvj3HCyTm2MFjEFLxi256bUSQt2k5YIb0UgGFCdHs/P6YU?=
+ =?us-ascii?Q?fj82W0oTjrCGehAu8YQhn7JVF4RhjcrgLfYSVPAT/Y3gPDQBCqlb/8b+4F/P?=
+ =?us-ascii?Q?sDWDaifksFfdmYOwzaDAY7wJvTHSVOtraSWbnyWdWGT/WutK5Mbo6H/EZyX5?=
+ =?us-ascii?Q?57uq1g2mBaRL2vZg9rT9qZEx6jwZ515/UDG3wbL3WofIZa+U36I1KcD7yNrX?=
+ =?us-ascii?Q?FDHqf0yRh8DUaEW1zwEKYFj1rjeAq21+aZsK6KOCv113xBXAGeY9etbgflVr?=
+ =?us-ascii?Q?nZmWWtX9qPw/H5v8p+hALEJwHOaSghDLKgengKoQQ7azSwoKFU6hP2t354S0?=
+ =?us-ascii?Q?RbJJMDMmC+rsgjG83q4zje1UfgqGQ9hzW3Ps2fjtZqfCoEnjJ0zMgX/+nn9N?=
+ =?us-ascii?Q?uDMeGCmUFotPfCN9uHcluvEQ9FNQOzbvxS62+uN3ZYPtZ/R4Jg+SjUJmawgz?=
+ =?us-ascii?Q?aX0Mn9Jji93PsaESoCEOdS/6voQvcXtUFijh8X6feuMyJYLWo/0qE32jdiYj?=
+ =?us-ascii?Q?PmJcENfXrOAwWD90oP1q7RxF1HzI?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB7726.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?WiH+tvJX95+OzE0jD4o1HC3s7TKbLF8k89OQl0bW1CvFR3Gdj9pIBYVv0/ly?=
+ =?us-ascii?Q?9pUWooj9lU6O1iZBXPrM5qCE/5GqCADpr5+cIORD+Nzuk/KCZ+1YaWYLCCh8?=
+ =?us-ascii?Q?OJrpirt3q+ZpqwYH4Pn3ee/5SbJ89/PeqaDZCqtCgajctfA6eC2YDD/B5KM5?=
+ =?us-ascii?Q?GJ7psilMbWoI0KjTksDWDX9NCG39zcdPGdt5kHPB2lP7SHKLdRVFUKKHcIdA?=
+ =?us-ascii?Q?F65uXiYk7h9oMQNw/MkgJie+kXfWbF/pVmIIYoiUAmiNsT8297pdXl0tANAP?=
+ =?us-ascii?Q?ZqwT5Vkh7hv7On7gFtjkglyhGNgtNM43dTvMvPeF7IOkZGK9lgkbK8KyleYg?=
+ =?us-ascii?Q?eb8XCKBRdRrrRntmO58IMaUrNqdA5oqiroP4rA/HlYafi8uDhmjorjwmmDxv?=
+ =?us-ascii?Q?UtD8+xkra7go4+pgCGMCHkzx+wIoSJEqyMdqUtBMnVf5dCvIL0O3g7KhOzpa?=
+ =?us-ascii?Q?ymcMjZvyCr6zVmZa6p71SRDG5/WMMkL8hS2dBseiB68JMGpRJQd2sPVixpbr?=
+ =?us-ascii?Q?9OfeiQxAByWi8Vk02xv97wLHHYjmgoyd2N25ZE/Picb26uOwrzKaSKb4AlVn?=
+ =?us-ascii?Q?IgnCThNlxI1PTc1bjAYp/kuq5Nqzfz6kV3tAZwUr4p8kmjudBChbk4/uDHoh?=
+ =?us-ascii?Q?DN5jIr3OnGDO2X2EYWvRUSkd71kLo2RKEyic6/tbd8XV2NNkVIlrFubk5urq?=
+ =?us-ascii?Q?VvrhElf2YfesOd7jqLeGTCVc7dqvncupvCc7058Uk7JWWlBPLUM/NKHxDkXv?=
+ =?us-ascii?Q?PUSPr1JCIcaPfLO7spPliw3AuOR3B8KIkgcssW/UC5vjkllbCSCfNo7IxEil?=
+ =?us-ascii?Q?UL0yeryQWQela2e2U6/pasaB+JivxbJPaTUaGrmEhqNWxKK2W9azeCxSLO+C?=
+ =?us-ascii?Q?b5BkcVAei8zHEHtmH30Fs9SrCiktITRlZytrKogfniaFcVcPcsrvRqaO1N4I?=
+ =?us-ascii?Q?cFBCM+ISAEDNK2DALyXRefrwuCx+BXz67tqH1fjRITdQQlPvJtyJLCZ+Coyr?=
+ =?us-ascii?Q?SFWXVEMSTTEwweh3mBfUQ6ue6BMg0ilTAEMfgUIQpeIqmBI1bMx07LxbWskA?=
+ =?us-ascii?Q?WlCPI7KeAeh6MngmD9L11/+VAyYvBOpfCkCyf92z8evyFE08CAYPXIgLg2tY?=
+ =?us-ascii?Q?Q+ZM8s9fsnLCBq+l/5Zu/TRt0i0y7IydcsUKzoCIvRjxM7U3SMMKeogbnElV?=
+ =?us-ascii?Q?DUiAW6N0ieGdtB10XA7k0NlYex+0is57FI1dUfxxWsH7+Jz26eaSf3jOcOe2?=
+ =?us-ascii?Q?OOcJj+r769fjrK40MqN32afkK2P21OUQLyccrJN5QZ1CeFfJt7dS2Ax/XXiK?=
+ =?us-ascii?Q?Zj5Fq0zjG86NpUbnpY3akL2tW8j7faqdOIgvj4D74MskX1PPMLeJIi19yzIX?=
+ =?us-ascii?Q?8i50W1SLEdlRY8OjhyZtemS2rH+XJVbGmHHqYdxbISfh6DhF93GmfZKYC/I0?=
+ =?us-ascii?Q?+3YREvM0k2yNV0vKxGhkgqAmqBIr9Ak64euO7LgpTESRhUrDDItqTebPPRqr?=
+ =?us-ascii?Q?9sscqkFtZhvA9hlPytu6SwOinllhcH3BiAcdCpss3M9tAb/tRfXhdUdWGLng?=
+ =?us-ascii?Q?xXEIu/SQT/is+WHGPC/OIwdWFqfUbLqXQUju9U8h?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 078f67dc-c95f-4aad-f68b-08dd30677bcd
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB7726.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jan 2025 04:38:37.4763
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: CekoDtQa013J7kBJMMRxZYAa0mm5E6R4yRWbXahedE0mShpvfk4snuBAa52/8bwOArbafJNEC6dCEvYcgv8Bqg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB8840
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_192753_415376_8CD154E2 
-X-CRM114-Status: UNSURE (   9.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250108_203848_054366_F182DE55 
+X-CRM114-Status: GOOD (  42.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,85 +166,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-These patchs have been tested with a 1536x2048p60 eDP panel on
-RK3588S EVB1 board, and HDMI 1080P/4K display also has been verified
-on RK3588 EVB1 board. Furthermore, the eDP display has been rechecked
-on RK3399 sapphire excavator board.
+On Wed, Jan 08, 2025 at 02:30:24PM -0800, Dan Williams wrote:
+> Alistair Popple wrote:
+> > FS DAX requires file systems to call into the DAX layout prior to
+> > unlinking inodes to ensure there is no ongoing DMA or other remote
+> > access to the direct mapped page. The fuse file system implements
+> > fuse_dax_break_layouts() to do this which includes a comment
+> > indicating that passing dmap_end == 0 leads to unmapping of the whole
+> > file.
+> > 
+> > However this is not true - passing dmap_end == 0 will not unmap
+> > anything before dmap_start, and further more
+> > dax_layout_busy_page_range() will not scan any of the range to see if
+> > there maybe ongoing DMA access to the range.
+> 
+> It would be useful to clarify that this is bug was found by inspection
+> and that there are no known end user reports of trouble but that the
+> failure more would look like random fs corruption. The window is hard to
+> hit because a block needs to be truncated, reallocated to
+> a file, and written to before stale DMA could corrupt it. So that may
+> contribute to the fact that fuse-dax users have not reported an issue
+> since v5.10.
+> 
+> > Fix this by checking for dmap_end == 0 in fuse_dax_break_layouts() and
+> > pass the entire file range to dax_layout_busy_page_range().
+> 
+> That's not what this patch does, maybe a rebase error that pushed the
+> @dmap_end fixup after the call to dax_layout_busy_page_range?
 
-Patch 1~4   are the eDP mode support of samsung hdptx phy driver.
-Patch 5~8   are preparations for the RK3588 eDP support on both Analogix
-            side and Rockchip side.
-Patch 9~12  are to support to get panel from the DP AUX bus.
-Patch 13~15 are the RK3588 Analogix DP driver support.
-Patch 16    is to add the power sequencing delays for panel model
-            LP079QX1-SP0V.
-Patch 17~18 are the renaming of hdptxphy node. It is not only used by
-            HDMI display but also for the eDP display.
-Patch 19    is the addition of RK3588 eDP0 node.
-Patch 20    is to enable the eDP0 display on RK3588S EVB1 board.
+Ha. Yep. I spotted this when doing the conversion to
+dax_layout_busy_page_range() and then had to rebase it into a stand alone patch
+for easy review. Obviously I put the check in the wrong spot, although it ends
+up in the right spot at the end of the series.
 
-Damon Ding (20):
-  phy: phy-rockchip-samsung-hdptx: Swap the definitions of LCPLL_REF and
-    ROPLL_REF
-  phy: phy-rockchip-samsung-hdptx: Supplement some register names with
-    their full version
-  phy: phy-rockchip-samsung-hdptx: Add the '_MASK' suffix to all
-    registers
-  phy: phy-rockchip-samsung-hdptx: Add eDP mode support for RK3588
-  drm/rockchip: analogix_dp: Replace DRM_...() functions with drm_...()
-    or dev_...()
-  drm/rockchip: analogix_dp: Use formalized struct definition for grf
-    field
-  drm/rockchip: analogix_dp: Expand device data to support multiple edp
-    display
-  drm/bridge: analogix_dp: Add support for phy configuration.
-  dt-bindings: display: rockchip: analogix-dp: Add support to get panel
-    from the DP AUX bus
-  drm/bridge: analogix_dp: support to get &analogix_dp_device.plat_data
-    and &analogix_dp_device.aux
-  drm/bridge: analogix_dp: Add support to get panel from the DP AUX bus
-  drm/rockchip: analogix_dp: Add support to get panel from the DP AUX
-    bus
-  dt-bindings: display: rockchip: analogix-dp: Add support for RK3588
-  drm/bridge: analogix_dp: Add support for RK3588
-  drm/rockchip: analogix_dp: Add support for RK3588
-  drm/edp-panel: Add LG Display panel model LP079QX1-SP0V
-  dt-bindings: display: rockchip: Fix label name of hdptxphy for RK3588
-    HDMI TX Controller
-  arm64: dts: rockchip: Fix label name of hdptxphy for RK3588
-  arm64: dts: rockchip: Add eDP0 node for RK3588
-  arm64: dts: rockchip: Enable eDP0 display on RK3588S EVB1 board
+> However, I don't think this is quite the right fix, more below...
 
- .../rockchip/rockchip,analogix-dp.yaml        |  40 +-
- .../rockchip/rockchip,rk3588-dw-hdmi-qp.yaml  |   2 +-
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi |  32 +-
- .../dts/rockchip/rk3588-coolpi-cm5-evb.dts    |   2 +-
- .../rockchip/rk3588-coolpi-cm5-genbook.dts    |   2 +-
- .../boot/dts/rockchip/rk3588-evb1-v10.dts     |   2 +-
- .../rk3588-friendlyelec-cm3588-nas.dts        |   2 +-
- .../arm64/boot/dts/rockchip/rk3588-jaguar.dts |   2 +-
- .../boot/dts/rockchip/rk3588-nanopc-t6.dtsi   |   2 +-
- .../dts/rockchip/rk3588-orangepi-5-plus.dts   |   2 +-
- .../boot/dts/rockchip/rk3588-rock-5b.dts      |   2 +-
- .../boot/dts/rockchip/rk3588-tiger-haikou.dts |   2 +-
- .../boot/dts/rockchip/rk3588s-coolpi-4b.dts   |   2 +-
- .../boot/dts/rockchip/rk3588s-evb1-v10.dts    |  54 +
- .../dts/rockchip/rk3588s-indiedroid-nova.dts  |   2 +-
- .../boot/dts/rockchip/rk3588s-nanopi-r6.dtsi  |   2 +-
- .../boot/dts/rockchip/rk3588s-odroid-m2.dts   |   2 +-
- .../boot/dts/rockchip/rk3588s-orangepi-5.dtsi |   2 +-
- .../boot/dts/rockchip/rk3588s-rock-5a.dts     |   2 +-
- .../boot/dts/rockchip/rk3588s-rock-5c.dts     |   2 +-
- .../drm/bridge/analogix/analogix_dp_core.c    |  81 +-
- .../drm/bridge/analogix/analogix_dp_core.h    |   1 +
- .../gpu/drm/bridge/analogix/analogix_dp_reg.c |  52 +
- drivers/gpu/drm/panel/panel-edp.c             |   8 +
- .../gpu/drm/rockchip/analogix_dp-rockchip.c   | 233 +++--
- .../phy/rockchip/phy-rockchip-samsung-hdptx.c | 971 +++++++++++++++++-
- include/drm/bridge/analogix_dp.h              |   7 +-
- 27 files changed, 1344 insertions(+), 169 deletions(-)
+Yeah, I like your version better so will respin with that.
 
--- 
-2.34.1
+> > Signed-off-by: Alistair Popple <apopple@nvidia.com>
+> > Fixes: 6ae330cad6ef ("virtiofs: serialize truncate/punch_hole and dax fault path")
+> > Cc: Vivek Goyal <vgoyal@redhat.com>
+> > 
+> > ---
+> > 
+> > I am not at all familiar with the fuse file system driver so I have no
+> > idea if the comment is relevant or not and whether the documented
+> > behaviour for dmap_end == 0 is ever relied upon. However this seemed
+> > like the safest fix unless someone more familiar with fuse can confirm
+> > that dmap_end == 0 is never used.
+> 
+> It is used in several places and has been wrong since day one. I believe
+> the original commit simply misunderstood that
+> dax_layout_busy_page_range() semantics are analogous to
+> invalidate_inode_pages2_range() semantics in terms of what @start and
+> @end mean.
+> 
+> You can add:
+> 
+> Co-developed-by: Dan Williams <dan.j.williams@intel.com>
+> Signed-off-by: Dan Williams <dan.j.williams@intel.com>
+> 
+> ...if you end up doing a resend, or I will add it on applying to
+> nvdimm.git if the rebase does not end up being too prickly.
 
+Looks like I accidentally dropped a PPC fix so will do a respin for that. And
+the kernel build bot was complaining about incorrect documentation so will fix
+that while I'm at it.
+
+> -- 8< --
+> diff --git a/fs/fuse/dax.c b/fs/fuse/dax.c
+> index c5d1feaa239c..455c4a16080b 100644
+> --- a/fs/fuse/dax.c
+> +++ b/fs/fuse/dax.c
+> @@ -681,7 +681,6 @@ static int __fuse_dax_break_layouts(struct inode *inode, bool *retry,
+>  			0, 0, fuse_wait_dax_page(inode));
+>  }
+>  
+> -/* dmap_end == 0 leads to unmapping of whole file */
+>  int fuse_dax_break_layouts(struct inode *inode, u64 dmap_start,
+>  				  u64 dmap_end)
+>  {
+> @@ -693,10 +692,6 @@ int fuse_dax_break_layouts(struct inode *inode, u64 dmap_start,
+>  		ret = __fuse_dax_break_layouts(inode, &retry, dmap_start,
+>  					       dmap_end);
+>  	} while (ret == 0 && retry);
+> -	if (!dmap_end) {
+> -		dmap_start = 0;
+> -		dmap_end = LLONG_MAX;
+> -	}
+>  
+>  	return ret;
+>  }
+> diff --git a/fs/fuse/dir.c b/fs/fuse/dir.c
+> index 0b2f8567ca30..bc6c8936c529 100644
+> --- a/fs/fuse/dir.c
+> +++ b/fs/fuse/dir.c
+> @@ -1936,7 +1936,7 @@ int fuse_do_setattr(struct mnt_idmap *idmap, struct dentry *dentry,
+>  	if (FUSE_IS_DAX(inode) && is_truncate) {
+>  		filemap_invalidate_lock(mapping);
+>  		fault_blocked = true;
+> -		err = fuse_dax_break_layouts(inode, 0, 0);
+> +		err = fuse_dax_break_layouts(inode, 0, -1);
+>  		if (err) {
+>  			filemap_invalidate_unlock(mapping);
+>  			return err;
+> diff --git a/fs/fuse/file.c b/fs/fuse/file.c
+> index 082ee374f694..cef7a8f75821 100644
+> --- a/fs/fuse/file.c
+> +++ b/fs/fuse/file.c
+> @@ -253,7 +253,7 @@ static int fuse_open(struct inode *inode, struct file *file)
+>  
+>  	if (dax_truncate) {
+>  		filemap_invalidate_lock(inode->i_mapping);
+> -		err = fuse_dax_break_layouts(inode, 0, 0);
+> +		err = fuse_dax_break_layouts(inode, 0, -1);
+>  		if (err)
+>  			goto out_inode_unlock;
+>  	}
+> @@ -2890,7 +2890,7 @@ static long fuse_file_fallocate(struct file *file, int mode, loff_t offset,
+>  	inode_lock(inode);
+>  	if (block_faults) {
+>  		filemap_invalidate_lock(inode->i_mapping);
+> -		err = fuse_dax_break_layouts(inode, 0, 0);
+> +		err = fuse_dax_break_layouts(inode, 0, -1);
+>  		if (err)
+>  			goto out;
+>  	}
 
