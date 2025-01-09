@@ -4,177 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E8D1E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 10:35:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D74BE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 10:36:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HYEeul6B3x4Jxe1kWbtwZ7O0+30C2HHCpUEyvi8rZd0=; b=kfFZPYY0NVvRYB+edqyFV7RzjG
-	OhVpX98MmPFN8fj+u4QPhfWIkA1ElQrHjHRoWgJgARlzUwvQ4Q3M9eP+AOu7W4X2Zv2+3it5tr0hL
-	Vpywx2UhG95kExjiooSJ9p6riv0h6vOXNauMGTUTRLqfk3yQaiaZE4x7E+sxM93gZZyuknNsgki+X
-	a3M9VT2WDLNABuip2GPGzPJ1IcLOMeIyv1QMWdkM4Nn8gCBgbHeZEdJb07MbAQ54Rwg78oNfxV1Qv
-	/sknMIQaU1S97k/ktl36tB/7va6JZR4WYeqtk0DtKyn+fwOHjBN9hPyAUifXXw/u0jbepJKxMc6no
-	GwPqgEug==;
+	bh=0MTN/uQ1fj1sjFZFU29nzAA7q3WAULF2DQMtFspMm54=; b=stPONTe10BXmwI6/0S+VagMNrd
+	n0TtQfdEKGgAXxaK1wRqQmFn2KCsxuG3UfwWaPVqXb1LFDBSOHGN6q8G1Dq+iqaIsPC8bOAPeirU+
+	KU6am4kD7Kf1yP/j0E+O6gEYRh19+T6gtHmhQCoFPaLYz/Iik/QAyFRdpBsNwJ1RG+tb2CMbihhLX
+	g9W6GpvV4AqGzYv+EnMYDpK++d62L+VUd+glHVWF2k/YfQWAHnYKaLD9p+oBMegq83gWrOVo/ouvM
+	NlIzXEX9aVw1UaCRsuFJQ5yqJIlytADkl5UwNJr2Ve0+eVgLADTeJLF7Is/QqJpuiTMwApjj32omi
+	E9bmRjTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVpsK-0000000BYF9-3cnP;
-	Thu, 09 Jan 2025 10:34:52 +0000
-Received: from mail-tyzapc01on2070e.outbound.protection.outlook.com ([2a01:111:f403:2011::70e] helo=APC01-TYZ-obe.outbound.protection.outlook.com)
+	id 1tVptW-0000000BYWb-29b9;
+	Thu, 09 Jan 2025 10:36:06 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVpr5-0000000BXwq-0v7C
+	id 1tVprx-0000000BY8e-20a4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 10:33:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vj8Q79cHRTYmrDzy7uzbsCUQOJN37nNciuy6ZlIKSffrkR83gx/8xg4/QHO8XpKA+nwG7W63ss0Ypp1WY+sz6fxMoXaDxW0pIuGp2RjfNDVVuWev8cFpJPF2Ocv3675rJhEGw1T735reZKM3LLJlxkPAnIHuTBPhZRlrb/R9mOa6/PHyKJiZBdt+6QOe1hy5nNwYDYu2X/9ILPlbIsuuaC3TNfktEpkUJDubN8iX9351V3aJfj05YrdYClsYrJfsI5i6BME2bM9Y8OyX300HNNNZZ85xk4arCq8VK+MsZ+OzUPyvxcACV4XkAcukuS2R4G2t+HAUpQMl5ZxzHOY1HQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HYEeul6B3x4Jxe1kWbtwZ7O0+30C2HHCpUEyvi8rZd0=;
- b=Cmk6uLwiATgr5vEDLKLOnjXjCSNCBX6ZzuzoRkdzZHCHrTgzZARdMReikmx4wFM58NfH3W7Y4YQwsJN/OKR5s3F1nZJ9FB0i0WjBpZAvyTvT8KsjCSEPlkuyPa+JFvkT6rIEo5kHXcrGa5kHLpexd5eJsVNOtSGXpU32Z/TjW21pddOgLv3xxGnaNpnAB8lqsZ+QncNY9PPuSmnhmEMiqQLQLb/oJtrBLdAmQviTb7jaKwHlNknV3w5X2zWP3FZczqUYY1NLewy1ZFPHkIjhqB1uY+/afo5HZcEkbhAENrVaEP+HCdc1Gved/rQGHt744nrex7l1/nVgiXREE5tqqQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HYEeul6B3x4Jxe1kWbtwZ7O0+30C2HHCpUEyvi8rZd0=;
- b=PMuDI3frYscH1jqoRRthh1EsmTsASwSgwAeJQ2f2WeaV3XCWD9g44K33sPdsDIxsXQg0RZw6gZNxqWsDIyfPB7Y6I8L1wasFuS0LcZqjvu0u/J26T7nmUGQe/7U4dJ7mrStRx1UGormHge0y36NqfKuZ/iegnFFgtEwIu0NQn0ZFaxeGLDaAdpJSbc3xwqUeZ0R+NF/oU3ZjSuSSXQ94YIWBbjMFsWkNOEgdh3Bt6xrjr3AHKK/w5UTiiOQewb/vj/GmZrmzP39D47PTLSeHJc/4/Xw7MmAh9uyzk1sQQA0aqVynYW8SmATlnULxP1AoRTSql9xdR1kjd/Cfn3L3ag==
-Received: from SEYPR06MB5134.apcprd06.prod.outlook.com (2603:1096:101:5a::12)
- by TYZPR06MB6513.apcprd06.prod.outlook.com (2603:1096:400:452::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.9; Thu, 9 Jan
- 2025 10:33:20 +0000
-Received: from SEYPR06MB5134.apcprd06.prod.outlook.com
- ([fe80::6b58:6014:be6e:2f28]) by SEYPR06MB5134.apcprd06.prod.outlook.com
- ([fe80::6b58:6014:be6e:2f28%5]) with mapi id 15.20.8335.007; Thu, 9 Jan 2025
- 10:33:20 +0000
-From: Jacky Chou <jacky_chou@aspeedtech.com>
-To: Andrew Lunn <andrew@lunn.ch>, Ninad Palsule <ninad@linux.ibm.com>
-CC: "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
-	"andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, "davem@davemloft.net"
-	<davem@davemloft.net>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "eajames@linux.ibm.com"
-	<eajames@linux.ibm.com>, "edumazet@google.com" <edumazet@google.com>,
-	"joel@jms.id.au" <joel@jms.id.au>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"kuba@kernel.org" <kuba@kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "minyard@acm.org" <minyard@acm.org>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"openipmi-developer@lists.sourceforge.net"
-	<openipmi-developer@lists.sourceforge.net>, "pabeni@redhat.com"
-	<pabeni@redhat.com>, "ratbert@faraday-tech.com" <ratbert@faraday-tech.com>,
-	"robh@kernel.org" <robh@kernel.org>
-Subject: =?big5?B?pl7C0DogW1BBVENIIHYyIDA1LzEwXSBBUk06IGR0czogYXNwZWVkOiBzeXN0ZW0x?=
- =?big5?Q?:_Add_RGMII_support?=
-Thread-Topic: [PATCH v2 05/10] ARM: dts: aspeed: system1: Add RGMII support
-Thread-Index: AQHbYX4ZqwUnoFUOykuCVX4SkD1z27MNKUAAgABN4QCAAApFgIAAvO3A
-Date: Thu, 9 Jan 2025 10:33:20 +0000
-Message-ID: <SEYPR06MB51344BA59830265A083469489D132@SEYPR06MB5134.apcprd06.prod.outlook.com>
-References: <SEYPR06MB5134CC0EBA73420A4B394A009D122@SEYPR06MB5134.apcprd06.prod.outlook.com>
- <0c42bbd8-c09d-407b-8400-d69a82f7b248@lunn.ch>
- <b2aec97b-63bc-44ed-9f6b-5052896bf350@linux.ibm.com>
- <59116067-0caa-4666-b8dc-9b3125a37e6f@lunn.ch>
-In-Reply-To: <59116067-0caa-4666-b8dc-9b3125a37e6f@lunn.ch>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SEYPR06MB5134:EE_|TYZPR06MB6513:EE_
-x-ms-office365-filtering-correlation-id: 8da9f795-a645-4473-a854-08dd309909b1
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|38070700018;
-x-microsoft-antispam-message-info: =?big5?B?S3RWaWlrdmxhWXNabzVRUTNWZTdvUkFIQVdqTjMzVHJZdDJRWFEzYVRydjZpMG5m?=
- =?big5?B?bXZMbDltSkRLSTB4V3RMYWt2a3RPTVZTSFlzMU1VbStBbEJEbjlDMHorL2ZYTDVJ?=
- =?big5?B?R1dHQmMwUUo5SmFuclBvY2FDMmNHTUVqZkhyNk5tVUVQTGNYM1Fac1hyN1JuYjND?=
- =?big5?B?dHFsUHNBenRUUSswK2k2L1Foc042SllwT1d0L3U4cTFBSlRuaTZhKzE4bVlFS0xl?=
- =?big5?B?eE81eWpMdkI1cWRPWmJaN3kvbWJYZkxKU0VHNzRwdklBQ2Nid0RMUCtMeGNTZkY1?=
- =?big5?B?ZjdmMW9ZQ0NTcnJtVm45cVo3ZTR0dzU0bkZZV0tTVXduZWltUkQ1WHVNcGNBUTMy?=
- =?big5?B?SmNXbDJBanJhWGx0MDBJTWJDOFVGTFBOTTQ4RnZlTWJXQ0lIaWlSZ2tUOXljU3lQ?=
- =?big5?B?TUhWS1R1SVpOcVBmWHVxaGNsaHVGRFh4WmF4ZC90OU10KzAwcnhDSVRoNjdEQ1k5?=
- =?big5?B?ZThNeEFWaGRPYnFIekd3WTNpeU1PaURRdmNxbmJTTUk0eWpNcE9xQmdrUTNybGZq?=
- =?big5?B?YmhkZWtlWEVJblNmNWU4eHdiR3dLcEhJNFhzVzh0VUszZUdzWVNtZjM3WlRlNUt0?=
- =?big5?B?ai9wTUIzL1lONlMvVUxnVk1JRTh1ZUFMUHdrUHpReTVMUXo0NGJQUTR3Q2o3WXVQ?=
- =?big5?B?K2hLTnBseEZ4Q0o3bjdRdFkyd1JidWlrc2lNbVBNZ3Zsb0V6V2UwZjVQRkpra2Jw?=
- =?big5?B?SzVtWVFZMElleFZ3bVIwVWlFUWo1eW5xckk3dWl3Z3k3UjFFb21teEZzRktyUzlk?=
- =?big5?B?Wkc5d1d1OUxFUS80RjFiOWtpMDVURm5VQ3U1YUVLQUUxNU5DR1RLRnNkME8ySkk3?=
- =?big5?B?V3FJRVVVNEE5Ymx4K0lTOEdnVHgzUVArdVhidW1tUG5mQXV2UUM4ZmFhOEtQby9I?=
- =?big5?B?RjNlUVJ1eWw4TWtCSEkzQldzZzlWRmJ3NmdXaDBmYUR6Y3ZpVXpydnpjek5FOWZn?=
- =?big5?B?WXQ1Ti9ZZ1BPQzFZMlhncVFTUlRhRGdsUGpudDQxTW0vVnNzTkx6dDA1aEFOV2hW?=
- =?big5?B?cENtQ1hFek9EOWlnZzNxUENCWUt4RVpWWEg3bzJVNHNRUG56STlvZ094OVhZZnRO?=
- =?big5?B?em1SdEF4b0ZPS2J5V1RCYytkMDdSQ3FLWDhwSU9EWUx2TUlya0Y2ZTBGQWc1ZTlS?=
- =?big5?B?MWQxZjJZYkNrWWY5M1FJM3E1SWpYU21EcmpFQ0FKVGxGbjlHUFErS3JQYTRmbXFJ?=
- =?big5?B?K2xlTzlmY1ZNNkV1NTh5YVlzSmdKdWI2d3diYnFTeCtqaExaZktDSmt1RW9DOHBP?=
- =?big5?B?Qnhpek1xOWVTbXlKa3dWOTBmWm1oWmdncEFTcFhFR3BrVEtSRTFyK21pSkJBWU1C?=
- =?big5?B?STAwNmNkVTBtQURFUU5jYUorajNSVmE4aGJ2ZWhveGtqRkhxT3U3QVBLdTE4WkhS?=
- =?big5?B?d0ZyUStjUmRpeUJpN0NPdVllZkhzeDZDZHYraVVNT1YwWGs4SHpRWUNXdmxDbjZa?=
- =?big5?B?UWF0Szh4d3pFQ3dISDVRc08reDNCYWJwZzFaUjVRRVlXdTlUOUtUTHZneDFJL21K?=
- =?big5?B?dmZXZHRDa2I1UFNVU0MwRlFHWEhJQ2J4T1hKcUFrSzRrbUZRSVdLbW5Yd1M4Uzl2?=
- =?big5?B?NU1ES2NNVnhjTzhVaW91a2tYQTdKa1VVakZWc1ZIMzBPN05Ud2RUUDVUQ2l3aDh0?=
- =?big5?B?K0RaSzdzVjQrRzl0R1FwN2l6bzA2OVdTSnJFOWw0UVFqdlZwN251MmRwekdJZlUx?=
- =?big5?B?b2V2RlQyOTFVcTZCODdhYXJNVllKSTB2bWpjMUlSbk1WbUdEZFhjSmlHMnR3STMw?=
- =?big5?Q?aI5T6DDBm4vz1VeE?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR06MB5134.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(38070700018);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?big5?B?ODBYUWJxTlVuakJIVHgwaXErbUJuUFJsSFJqbE92WTkrSU5PMmJ2aU83c3I4dWd4?=
- =?big5?B?M0pHdk9QVXVkUEwvQzBKVnpqM1o4MEs4aElwTzJWbkxLVEdIbjRKVTZBNC9DcHo2?=
- =?big5?B?QUN5cVhpZUNRZHlWN1Y3R2tyT2Q5NHR0TDZNQ2FzTk9lOFlVTzFaUk5aL202MWFz?=
- =?big5?B?M3EwWE9TcFgyL01XZVc3cG9HK2dYYVA1WlRyMFJRYWg1azM1aWNHK3FiMEtVSWdu?=
- =?big5?B?d1czZjhaN29PZGN2L3QrVkt0VmtJbUtJbmlzNmxSRDJzYnhlU3JKYTJ1TlkxQ1BI?=
- =?big5?B?NEtFcUVJSGNqYmVHMi9XdnkwN1JpR3Y2V2k3dHBzUkRabnhZYWxROUlQN1U0dVI0?=
- =?big5?B?Qy9YR0o0ZFdYdUwwM0dOYm5zR2NhWU5TTFk2WjVuU2tId09Gb3l6VlU5SndFWUVt?=
- =?big5?B?ZFdzdk01TWNEem1ITnBkYjhGZXIxNXR4NDF0eVg1ZVlhQU44eGlWdHVaU25Vb0V5?=
- =?big5?B?QVJ0WkQ1NVNoQVJzMTM2TW5jZ2M2QjBWOWtpTTY5Y2Y4TUd1dVhWblI1YWpxdGUw?=
- =?big5?B?YjByQzRzM0tFSldxelNhUjR1N3lrcjBxcnp6UzJIZTVXaTVSeGdLcEJUYUwxTlVY?=
- =?big5?B?Yzl1ZVhHekt5aHBJQ3N6RDhkZkdWNCtoVndleGZoTVF4TzUwdEYrcWR2YzBYcC9w?=
- =?big5?B?YXZzMHVqblZObVV5bXowZTJaekdaWklmdDBlS3F0SXo3blJ2Z1BmaEsvT3lNMmp4?=
- =?big5?B?WmtZRWFRRkJoQVpJL3d4QWUxWVg2YTZ6TmlGdDVDbnVCN25BOEE5eU8wbWtLa291?=
- =?big5?B?R3pXdXpFZFE1MDZHU3FmeUo2ZmNjcFJBbnR4SlQ2UXBGQ2d6N0VUOHRuK2U5cDJn?=
- =?big5?B?blNVK2w3NTdJakR5WS9FZjJ4Q1diaTJzckdTZVQvazQrTlFvbWFEVXhlU2d6clR1?=
- =?big5?B?SHhmcnF1bW5mL1pCQjBzc2duVGR1NzZmWEgxQi9zYjFKVDZRSEJRUmFCYmtwOHVW?=
- =?big5?B?OFNoTHE4Um9UNWVoR2ZreFRuWVB4VTMvWVBRQk5CR3VRTmtNcXRhdHZmVkdBTWt1?=
- =?big5?B?K29meGVPMG51bUNucDBBRGhYUllUSUVjd3AyZDVGa09uNFhVWElkUXNTNFhra1Zu?=
- =?big5?B?cXpVbXpFSG1aV25oYWFTbHgwb055Njc1cGZRWVkyS3ZBcVpLd2hWQ1dVTVFCRFBU?=
- =?big5?B?RmFOYTFkdzNicFZFbGhucFVhTWJkak43TWRwZTF5aXhMSkdWYnU0YlYzQnlzRUU1?=
- =?big5?B?N2pzRnp0UkhKcHhpcFlIS3FDVmRRZk5HMEhsdiswRHRSTFFNL1JJbmtndzNBb0ls?=
- =?big5?B?THdaL3owTDdlb3NRVmJlV2prSDNzSlUvVWU5cmM2ejgwb3JPOU5tRXZaZjlFSVpl?=
- =?big5?B?STRveXhiS0U0dXZkZmVaU21VUW83MGgvWm1uekpGYk5INENrczI3VFQwVVdQVFNq?=
- =?big5?B?TTFGeVlnVEQzTGdBSVVBOXZUcDNkK0VUeXhsbEJ0VG1kWUM3Z1c1QUFrdEMrdXBR?=
- =?big5?B?TmsvKzhHRFpuVE8vL1JuNlRQekFiM0dpR25YS0VzRVB0TllXc3l0YjMyWXpYbjJm?=
- =?big5?B?djhlV0RFZlRmU3RrZGNtWlNsejcvaVlSS25tTktNVGx0empCdnlDU1QrbWU5Nlhl?=
- =?big5?B?TWhIdWE3bURySkNrSUhUeTRWMkR2NGdoWHZzSWNPTVhoc05PaVhmeWREYXEwR2hn?=
- =?big5?B?V1B6OGI0UEtjSFZsQmdCdFg1SE9GUFpLem1tR0d1VWQ4Wks5Wm4xUWhCc2dHWUR6?=
- =?big5?B?WlgwSDBLVVIzb3hkUGljbGd4enRiaEhramdjdUNlb0F5SzQ2eENBZkNBYnBDSVhV?=
- =?big5?B?UUxidVI2L2lnMWJNMlpmSnUydE5IbjFlYk9YNjdKMmNNV2xHenVJbEZ3dm9FRGdC?=
- =?big5?B?ZWk0cFZNcll5cVlMYmRjY0FUTTV6TEk1eWhneXdqb0RLdjRUeFNQRkR5K2s5YXZn?=
- =?big5?B?d3ptcnBZdE5JOXVNRklFS3d0b0FtK0J4bU5NdUMrbzJ4a2EyS2c4bDRWTzZGT1kz?=
- =?big5?B?V2xVNTNid2w0ZWhRN21wM1RxSVlPVWNveGRZcnlSdFB2ZTA1c2wzNGRjeWNZamFP?=
- =?big5?Q?KM6L1A1c0NxNPVPd?=
-Content-Type: text/plain; charset="big5"
-Content-Transfer-Encoding: base64
+	Thu, 09 Jan 2025 10:34:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1736418869; x=1767954869;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=0MTN/uQ1fj1sjFZFU29nzAA7q3WAULF2DQMtFspMm54=;
+  b=ZSm36oEiBKCE0ORuOB8Z60GII/VNfXGl9K/YJrknUrvTLN2tRtlx2qMh
+   4gCu0usHtJoK0NuGvGBGPztzMHoZjhpzHWNEpFUww39jtw7eyhpeskIYU
+   lWu+hdr2Q9Hv+1i9OhJHDpR3/xBrj4ulZPc4V0BuDW+l9KEFba+hSGhSQ
+   RVroTusnrAZ2cJmEl3le7KuRuZHDgn+Gez/LbHSd86HzsUjAaOz9CkbCc
+   EJ0DERL4gzz0t7h1W5+Qp9WMBl5SmD0LAKy5mSJ+U9LezZuAUG3eUhrua
+   X9Bvx+NXGn236CtCPI4pp9fTSBreXs49g8ImBu+qifuYxndLhjEynpkL2
+   w==;
+X-CSE-ConnectionGUID: +JTc6dEsTZ60x0BbnUIENQ==
+X-CSE-MsgGUID: fLjUKfk6TjaaKBsrd1u3mg==
+X-IronPort-AV: E=Sophos;i="6.12,301,1728943200"; 
+   d="scan'208";a="40947499"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 09 Jan 2025 11:34:25 +0100
+X-CheckPoint: {677FA631-4-C6D8D88D-F91F9E6B}
+X-MAIL-CPID: DAEE3929AC4BF68E40EE46756A13F4E5_2
+X-Control-Analysis: str=0001.0A682F1D.677FA631.0057,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 085C1166C27;
+	Thu,  9 Jan 2025 11:34:18 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1736418860;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0MTN/uQ1fj1sjFZFU29nzAA7q3WAULF2DQMtFspMm54=;
+	b=P0G9oAvddIJbYBTchLqPNFA/W8Ahm04hcZ4n4w9aN9X3yAs4hsjvxeX2/9AFsF60X8nyGd
+	xXk2jEKOXvXXA3tpxUfXxdwAEndVs5uOnnK/BUrAp3mAGVjTNF0A6Zi6bqjTBZQhz0Qseh
+	J03hbNgSysrkUSJBRZEV9DUPMUIb9TwYPm+UNzoxnhZTvxXMcU4yH1zxGFHL0RgvFjFYJ/
+	65kipP5yJuQGlN7YQy7CpQ8SzP8pCrAK72e3lKcdZC2CmwnvkpYZkLuW93w+gVWhlj7Y5a
+	jC4OplR+oh3C64I2iWSoWK9MLz48DxcWwwbzootiP27bRJja1m5Whp8AGeWvWg==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Peng Fan <peng.fan@oss.nxp.com>
+Cc: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, imx@lists.linux.dev, linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v5 2/2] nvmem: imx-ocotp-ele: Support accessing controller for i.MX9
+Date: Thu, 09 Jan 2025 11:34:18 +0100
+Message-ID: <868241455.0ifERbkFSE@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20250109033418.GB31833@localhost.localdomain>
+References: <20250108-imx-ocotp-v5-0-a6d90e18ebe9@nxp.com> <3823142.MHq7AAxBmi@steina-w> <20250109033418.GB31833@localhost.localdomain>
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SEYPR06MB5134.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8da9f795-a645-4473-a854-08dd309909b1
-X-MS-Exchange-CrossTenant-originalarrivaltime: 09 Jan 2025 10:33:20.6823
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: QthDJUDpsDu7sk0aTARdlic7koCE3uk5ICezUFFsDfjS1//p5EmXsK9sG3kd5jr+aeoXmJkQ+ogdRcm4NZLV7M2l6HA7eWrCX3wPG4cRNF8=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR06MB6513
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_023335_581851_35E3DD49 
-X-CRM114-Status: GOOD (  15.99  )
+X-CRM114-CacheID: sfid-20250109_023430_018759_7E0693AE 
+X-CRM114-Status: GOOD (  22.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,24 +93,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgQW5kcmV3LA0KDQo+ID4gVGhlcmUgYXJlIGFyb3VuZCAxMSBib2FyZHMgaW4gQXNwZWVkIFNP
-QyB3aXRoIHBoeS1tb2RlIHNldCB0byAicmdtaWkiDQo+ID4gKHNvbWUgb2YgdGhlbSBhcmUgbWFj
-MCYxIGFuZCBvdGhlcnMgYXJlIG1hYzImMykuICJyZ21paS1yeGlkIiBpcyBvbmx5DQo+IG1pbmUu
-DQo+ID4NCj4gPiBObyBvbmUgaW4gYXNwZWVkIFNPQyB1c2luZyAicmdtaWktaWQiLg0KPiANCj4g
-Ty5LLCBzbyB3ZSBoYXZlIHRvIGJlIGNhcmVmdWwgaG93IHdlIGZpeCB0aGlzLiBCdXQgdGhlIGZh
-Y3QgdGhleSBhcmUgYWxsIGVxdWFsbHkNCj4gYnJva2VuIG1pZ2h0IGhlbHAgaGVyZS4NCj4gDQo+
-ID4gPiBIdW1tLCBpbnRlcmVzdGluZy4gTG9va2luZyBhdCBmdGdtYWMxMDAuYywgaSBkb24ndCBz
-ZWUgd2hlcmUgeW91DQo+ID4gPiBjb25maWd1cmUgdGhlIFJHTUlJIGRlbGF5cyBpbiB0aGUgTUFD
-Pw0KPiANCj4gVGhpcyBpcyBnb2luZyB0byBiZSBpbXBvcnRhbnQuIEhvdyBhcmUgZGVsYXlzIGNv
-bmZpZ3VyZWQgaWYgdGhleSBhcmUgbm90IGluIHRoZQ0KPiBNQUMgZHJpdmVyPw0KDQpUaGUgUkdN
-SUkgZGVsYXkgaXMgYWRqdXN0ZWQgb24gY2xrLWFzdDI2MDAgZHJpdmVyLiBQbGVhc2UgcmVmZXIg
-dG8gdGhlIGZvbGxvd2luZyBsaW5rLg0KaHR0cHM6Ly9naXRodWIuY29tL0FzcGVlZFRlY2gtQk1D
-L2xpbnV4L2Jsb2IvZjUyYTBjZjdjNDc1ZGM1NzY0ODJkYjQ2NzU5ZTJkODU0YzFmMzZlNC9kcml2
-ZXJzL2Nsay9jbGstYXN0MjYwMC5jI0wxMDA4DQoNCldlIHJlY2VudGx5IHBsYW4gdG8gdXBzdHJl
-YW0gdG8gbWFpbmxpbmUgdGhpcyBwYXJ0IGFib3V0IHRoZSBSR01JSSBkZWxheSBjb25maWd1cmF0
-aW9uLg0KQWxsIE1BQyBSR01JSSBkZWxheSBvZiBhc3QyNjAwIGFyZSBjb25maWd1cmVkIG9uIHRo
-ZSBTQ1UgcmVnaXN0ZXIuDQpBcyBtZW50aW9uZWQgYmVmb3JlLCB3ZSB3b3VsZCBsaWtlIHRvIGNv
-bmZpZ3VyZSB0aGUgUkdNSUkgVFgvUlggZGVsYXkgb24gQk1DIHNpZGUuDQpUaGVyZWZvcmUsIHdl
-IHVzZSB0aGUgInJnbWlpIiBhbmQgInJnbWlpLXJ4aWQiIGFzIHRoZSByZWNvbW1lbmRhdGlvbiBm
-b3Igb3VyIGRlc2lnbi4NCg0KVGhhbmtzLA0KSmFja3kNCg==
+Hi,
+
+Am Donnerstag, 9. Januar 2025, 04:34:18 CET schrieb Peng Fan:
+> On Wed, Jan 08, 2025 at 11:15:40AM +0100, Alexander Stein wrote:
+> >Hi Peng,
+> >
+> >Am Mittwoch, 8. Januar 2025, 08:00:18 CET schrieb Peng Fan (OSS):
+> >> From: Peng Fan <peng.fan@nxp.com>
+> >>=20
+> >> i.MX9 OCOTP supports a specific peripheral or function being fused
+> >> which means disabled, so
+> >>  - Introduce ocotp_access_gates to be container of efuse gate info
+> >>  - Iterate all nodes to check accessing permission. If not
+> >>    allowed to be accessed, detach the node
+> >>=20
+> >> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> >> ---
+> >>  drivers/nvmem/imx-ocotp-ele.c | 172 +++++++++++++++++++++++++++++++++=
+++++++++-
+> >>  1 file changed, 171 insertions(+), 1 deletion(-)
+> >>=20
+> [....]
+> >> +
+> >> +	return imx_ele_ocotp_access_control(priv);
+> >
+> >In [1] you mentioned devlink should solve the probe order. How does this
+> >play when the driver is compiled in (e.g. ethernet for NFS boot) but
+> >this OCOTP driver is just a module?
+>=20
+> OCOTP needs to built in for using devlink. Or the users needs to be
+> built as module.
+
+I don't like this kind of assumption. Would it make more sense to make
+CONFIG_NVMEM_IMX_OCOTP_ELE as bool instead of tristate?
+
+> >I'm not well versed with devlink, but is
+> >> access-controllers =3D <&ocotp IMX93_OCOTP_ENET1_GATE>;
+> >already enough to create that link?
+>=20
+> Yes, the drivers/of/property.c has this
+> "DEFINE_SIMPLE_PROP(access_controllers, "access-controllers", "#access-co=
+ntroller-cells")"
+>=20
+> The fw_devlink driver will create consumer/supplier to make sure proper
+> order.
+
+Okay, thanks for confirming.
+
+Best regards,
+Alexander
+
+> Regards,
+> Peng
+>=20
+> >
+> >Best regards,
+> >Alexander
+> >
+> >>  }
+> >> =20
+> >> +struct access_gate imx93_access_gate[] =3D {
+> >> +		[IMX93_OCOTP_NPU_GATE]		=3D { .word =3D 19, .mask =3D BIT(13) },
+> >> +		[IMX93_OCOTP_A550_GATE]		=3D { .word =3D 19, .mask =3D BIT(14) },
+> >> +		[IMX93_OCOTP_A551_GATE]		=3D { .word =3D 19, .mask =3D BIT(15) },
+> >> +		[IMX93_OCOTP_M33_GATE]		=3D { .word =3D 19, .mask =3D BIT(24) },
+> >> +		[IMX93_OCOTP_CAN1_FD_GATE]	=3D { .word =3D 19, .mask =3D BIT(28) },
+> >> +		[IMX93_OCOTP_CAN2_FD_GATE]	=3D { .word =3D 19, .mask =3D BIT(29) },
+> >> +		[IMX93_OCOTP_CAN1_GATE]		=3D { .word =3D 19, .mask =3D BIT(30) },
+> >> +		[IMX93_OCOTP_CAN2_GATE]		=3D { .word =3D 19, .mask =3D BIT(31) },
+> >> +		[IMX93_OCOTP_USB1_GATE]		=3D { .word =3D 20, .mask =3D BIT(3) },
+> >> +		[IMX93_OCOTP_USB2_GATE]		=3D { .word =3D 20, .mask =3D BIT(4) },
+> >> +		[IMX93_OCOTP_ENET1_GATE]	=3D { .word =3D 20, .mask =3D BIT(5) },
+> >> +		[IMX93_OCOTP_ENET2_GATE]	=3D { .word =3D 20, .mask =3D BIT(6) },
+> >> +		[IMX93_OCOTP_PXP_GATE]		=3D { .word =3D 20, .mask =3D BIT(10) },
+> >> +		[IMX93_OCOTP_MIPI_CSI1_GATE]	=3D { .word =3D 20, .mask =3D BIT(17) =
+},
+> >> +		[IMX93_OCOTP_MIPI_DSI1_GATE]	=3D { .word =3D 20, .mask =3D BIT(19) =
+},
+> >> +		[IMX93_OCOTP_LVDS1_GATE]	=3D { .word =3D 20, .mask =3D BIT(24) },
+> >> +		[IMX93_OCOTP_ADC1_GATE]		=3D { .word =3D 21, .mask =3D BIT(7) },
+> >> +};
+> >> +
+> >> +static const struct ocotp_access_gates imx93_access_gates_info =3D {
+> >> +	.num_words =3D 3,
+> >> +	.words =3D {19, 20, 21},
+> >> +	.num_gates =3D ARRAY_SIZE(imx93_access_gate),
+> >> +	.gates =3D imx93_access_gate,
+> >> +};
+> >> +
+> >>  static const struct ocotp_devtype_data imx93_ocotp_data =3D {
+> >> +	.access_gates =3D &imx93_access_gates_info,
+> >>  	.reg_off =3D 0x8000,
+> >>  	.reg_read =3D imx_ocotp_reg_read,
+> >>  	.size =3D 2048,
+> >> @@ -183,7 +307,53 @@ static const struct ocotp_devtype_data imx93_ocot=
+p_data =3D {
+> >>  	},
+> >>  };
+> >> =20
+> >> +struct access_gate imx95_access_gate[] =3D {
+> >> +		[IMX95_OCOTP_CANFD1_GATE]	=3D { .word =3D 17, .mask =3D BIT(20) },
+> >> +		[IMX95_OCOTP_CANFD2_GATE]	=3D { .word =3D 17, .mask =3D BIT(21) },
+> >> +		[IMX95_OCOTP_CANFD3_GATE]	=3D { .word =3D 17, .mask =3D BIT(22) },
+> >> +		[IMX95_OCOTP_CANFD4_GATE]	=3D { .word =3D 17, .mask =3D BIT(23) },
+> >> +		[IMX95_OCOTP_CANFD5_GATE]	=3D { .word =3D 17, .mask =3D BIT(24) },
+> >> +		[IMX95_OCOTP_CAN1_GATE]		=3D { .word =3D 17, .mask =3D BIT(25) },
+> >> +		[IMX95_OCOTP_CAN2_GATE]		=3D { .word =3D 17, .mask =3D BIT(26) },
+> >> +		[IMX95_OCOTP_CAN3_GATE]		=3D { .word =3D 17, .mask =3D BIT(27) },
+> >> +		[IMX95_OCOTP_CAN4_GATE]		=3D { .word =3D 17, .mask =3D BIT(28) },
+> >> +		[IMX95_OCOTP_CAN5_GATE]		=3D { .word =3D 17, .mask =3D BIT(29) },
+> >> +		[IMX95_OCOTP_NPU_GATE]		=3D { .word =3D 18, .mask =3D BIT(0) },
+> >> +		[IMX95_OCOTP_A550_GATE]		=3D { .word =3D 18, .mask =3D BIT(1) },
+> >> +		[IMX95_OCOTP_A551_GATE]		=3D { .word =3D 18, .mask =3D BIT(2) },
+> >> +		[IMX95_OCOTP_A552_GATE]		=3D { .word =3D 18, .mask =3D BIT(3) },
+> >> +		[IMX95_OCOTP_A553_GATE]		=3D { .word =3D 18, .mask =3D BIT(4) },
+> >> +		[IMX95_OCOTP_A554_GATE]		=3D { .word =3D 18, .mask =3D BIT(5) },
+> >> +		[IMX95_OCOTP_A555_GATE]		=3D { .word =3D 18, .mask =3D BIT(6) },
+> >> +		[IMX95_OCOTP_M7_GATE]		=3D { .word =3D 18, .mask =3D BIT(9) },
+> >> +		[IMX95_OCOTP_DCSS_GATE]		=3D { .word =3D 18, .mask =3D BIT(22) },
+> >> +		[IMX95_OCOTP_LVDS1_GATE]	=3D { .word =3D 18, .mask =3D BIT(27) },
+> >> +		[IMX95_OCOTP_ISP_GATE]		=3D { .word =3D 18, .mask =3D BIT(29) },
+> >> +		[IMX95_OCOTP_USB1_GATE]		=3D { .word =3D 19, .mask =3D BIT(2) },
+> >> +		[IMX95_OCOTP_USB2_GATE]		=3D { .word =3D 19, .mask =3D BIT(3) },
+> >> +		[IMX95_OCOTP_NETC_GATE]		=3D { .word =3D 19, .mask =3D BIT(4) },
+> >> +		[IMX95_OCOTP_PCIE1_GATE]	=3D { .word =3D 19, .mask =3D BIT(6) },
+> >> +		[IMX95_OCOTP_PCIE2_GATE]	=3D { .word =3D 19, .mask =3D BIT(7) },
+> >> +		[IMX95_OCOTP_ADC1_GATE]		=3D { .word =3D 19, .mask =3D BIT(8) },
+> >> +		[IMX95_OCOTP_EARC_RX_GATE]	=3D { .word =3D 19, .mask =3D BIT(11) },
+> >> +		[IMX95_OCOTP_GPU3D_GATE]	=3D { .word =3D 19, .mask =3D BIT(16) },
+> >> +		[IMX95_OCOTP_VPU_GATE]		=3D { .word =3D 19, .mask =3D BIT(17) },
+> >> +		[IMX95_OCOTP_JPEG_ENC_GATE]	=3D { .word =3D 19, .mask =3D BIT(18) },
+> >> +		[IMX95_OCOTP_JPEG_DEC_GATE]	=3D { .word =3D 19, .mask =3D BIT(19) },
+> >> +		[IMX95_OCOTP_MIPI_CSI1_GATE]	=3D { .word =3D 19, .mask =3D BIT(21) =
+},
+> >> +		[IMX95_OCOTP_MIPI_CSI2_GATE]	=3D { .word =3D 19, .mask =3D BIT(22) =
+},
+> >> +		[IMX95_OCOTP_MIPI_DSI1_GATE]	=3D { .word =3D 19, .mask =3D BIT(23) =
+},
+> >> +};
+> >> +
+> >> +static const struct ocotp_access_gates imx95_access_gates_info =3D {
+> >> +	.num_words =3D 3,
+> >> +	.words =3D {17, 18, 19},
+> >> +	.num_gates =3D ARRAY_SIZE(imx95_access_gate),
+> >> +	.gates =3D imx95_access_gate,
+> >> +};
+> >> +
+> >>  static const struct ocotp_devtype_data imx95_ocotp_data =3D {
+> >> +	.access_gates =3D &imx95_access_gates_info,
+> >>  	.reg_off =3D 0x8000,
+> >>  	.reg_read =3D imx_ocotp_reg_read,
+> >>  	.size =3D 2048,
+> >>=20
+> >>=20
+> >
+> >
+>=20
+>=20
+
+
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
+
+
 
