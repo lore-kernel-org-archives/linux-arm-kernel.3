@@ -4,71 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD400E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 16:29:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF6C7E77199
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 16:32:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EowimuWnv7bzfpI+OVGBjuSiAJ19HLMkLSrYNJxDg2E=; b=uy9McT8S+9TQ8J8KEXYootmXbP
-	haZ+Emx/igKv6vz1apUAAz4Vpt+vQm+yAY5k/RNeAGmNJBrkg/UPkFPaT76LUNTqVxb2ZUGRl5Sk+
-	sfv5JNgIwvhnY47JxLiM4961VuTQv0IX4lQFBSojO4YJpACvCay+AIbCyMH/9RGGrEQzYIfwaP1ar
-	D/Vdk7h0JngQeSg2u//PU3rUCciB2uJSFQ92QfbKfwXWpzsNbrX7BjrE/ogriagTv0m0OhBMIvY+o
-	La0N9s3tvLhob9Xj8iYAAcHG7HsO1rcdF1tu2A3yTOtCm1uvxfiFj2rDd4qDNSj8JgY5etp8LWYKz
-	a30Mkrtw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+c5s1FoGCGd/nECs4rXnoHZtWrQnPyFHSG1zUwIxUvA=; b=I5KIuiossfqhyq8MECaeAK0JSo
+	SaAiUXOigTKell+dJ4aUcDYOCKjzjZAjmnw9cMxRQqbSDvu0y92qq5+ku3Z2JXxdawxE6qwNOr7b9
+	8n4hE5nlvUGEHf5cbK6NQN/WzO5gN7Ol731asqoftGJMWbtrEvAxDEU7YtDAoBSbCOQywtgWGDxWP
+	17BCM0I0wc6YaLDfWKAG+OwT9XU2hdIkeAc5wFVcoB68eNpkJm6/Tf0jbCNRz6aRwNmxuB/NXOJKT
+	4CiXwDkeIF2YYdkS7TwXt0UjdjG0IWm4VNK9A4w/NbzP+MuTrCxH8TFlLXbSSSAGwLWei3FG/0KmY
+	38bBOCBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVvPQ-0000000Cgcz-21SU;
-	Thu, 09 Jan 2025 16:29:24 +0000
-Received: from mail.thorsis.com ([217.92.40.78])
+	id 1tVvS3-0000000ChDW-0u8b;
+	Thu, 09 Jan 2025 16:32:07 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVvOB-0000000CgDF-1bwH
+	id 1tVvQp-0000000Ch3q-1D3v
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 16:28:09 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B66C014866AC;
-	Thu,  9 Jan 2025 17:27:59 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
-	t=1736440084;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=EowimuWnv7bzfpI+OVGBjuSiAJ19HLMkLSrYNJxDg2E=;
-	b=w4XbVy0aat9xjfOyA4DoZHBY/pKde8MzhVDrGkfPbWhPpt7fiyVL6CIXOZhhrSTBJu1IjV
-	RkHwQXesQ+osvVI3g5nRd/dKhFa9xaSsT9dOYLbMWY0I6Ti2yPz9i+ej0M5YSngOsjQV9c
-	96FSMN6oP+GU/U9tXCHHiZnxrScQDN2aEOBOEcfSzkzUjJ5+jfYYwa4T86hSsoIQen3fnJ
-	7FkFKXjWYXvzudxV8f/EE1p6BmNZQfv4VHW3pRnKrcUEhlsnCoakq0qlQ1UZLR00z+HGQm
-	o01ONjd9Kv2OfZHydwYGjXLtzMWiHDRDFBrajVAGiQYnDHr6185z6lI0IgFZxA==
-Date: Thu, 9 Jan 2025 17:27:58 +0100
-From: Alexander Dahl <ada@thorsis.com>
-To: =?iso-8859-1?B?Q3Pza+FzLA==?= Bence <csokas.bence@prolan.hu>
-Subject: Re: [PATCH v3 2/2] spi: atmel-quadspi: Add support for sama7g5 QSPI
-Message-ID: <20250109-carat-festivity-5f088e1add3c@thorsis.com>
-Mail-Followup-To: =?iso-8859-1?B?Q3Pza+FzLA==?= Bence <csokas.bence@prolan.hu>,
-	linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Tudor Ambarus <tudor.ambarus@microchip.com>,
-	Varshini Rajendran <varshini.rajendran@microchip.com>,
-	Mark Brown <broonie@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Jinjie Ruan <ruanjinjie@huawei.com>
-References: <20241128174316.3209354-1-csokas.bence@prolan.hu>
- <20241128174316.3209354-3-csokas.bence@prolan.hu>
+	Thu, 09 Jan 2025 16:30:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1736440251; x=1767976251;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=+NFq5+YV1Sp2SRZklu0+O4hKfBnFFQLIf8mx8UwrL7s=;
+  b=kG6Z+NH0i8ZC2e1Ad/F6a2PoJWJXM6EEas9mlVtxTwkYDVt8Jis1A0j2
+   gFIUkS0owWbvyoBsqw6OkiGUDAVOF4vl1azbruaKIlHlbhJhfqy4L7t/0
+   G65+L8NsLRnXJtX1XtK5VeWoYMrhna3NcbVybihj2NWVwLo5uQ07wAC4x
+   SkA8RYJ5exFrUOb/2hTdN1STNaary3+P+CvC1PWveHuiVw+9jrFD8h/Sf
+   u586AAsNFRxLkCAvJuK4H9lGJWc1UyH1WVQ3Me6eDsbZUw8Ne3ub/0GvY
+   98DJX5/ucUrsMiCkYXJgK2RlDi0cwCtfJP/88w3KGgQj68Og7CLpoRCRs
+   Q==;
+X-CSE-ConnectionGUID: QgpVCr8JQEGqBeDpPgDVCg==
+X-CSE-MsgGUID: MM5IxPkuSvGkEkTnZUFi6g==
+X-IronPort-AV: E=McAfee;i="6700,10204,11310"; a="36869365"
+X-IronPort-AV: E=Sophos;i="6.12,301,1728975600"; 
+   d="scan'208";a="36869365"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jan 2025 08:30:48 -0800
+X-CSE-ConnectionGUID: w1Qg7GdFTRaKx4VZE0Fr5Q==
+X-CSE-MsgGUID: RHaITNvpToalx445NwOmKw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="140766532"
+Received: from spandruv-mobl4.amr.corp.intel.com (HELO [10.124.222.37]) ([10.124.222.37])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jan 2025 08:30:45 -0800
+Message-ID: <dcc1800c-cf0a-4d88-bc88-982f0709b382@intel.com>
+Date: Thu, 9 Jan 2025 08:30:44 -0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241128174316.3209354-3-csokas.bence@prolan.hu>
-User-Agent: Mutt/2.2.12 (2023-09-09)
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v2 00/15] pkeys-based page table hardening
+To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-hardening@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
+ Mark Brown <broonie@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, Jann Horn <jannh@google.com>,
+ Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
+ Kees Cook <kees@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
+ Andy Lutomirski <luto@kernel.org>, Marc Zyngier <maz@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Pierre Langlois <pierre.langlois@arm.com>,
+ Quentin Perret <qperret@google.com>, "Mike Rapoport (IBM)"
+ <rppt@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
+ Matthew Wilcox <willy@infradead.org>, Qi Zheng <zhengqi.arch@bytedance.com>,
+ linux-arm-kernel@lists.infradead.org, x86@kernel.org
+References: <20250108103250.3188419-1-kevin.brodsky@arm.com>
+From: Dave Hansen <dave.hansen@intel.com>
+Content-Language: en-US
+Autocrypt: addr=dave.hansen@intel.com; keydata=
+ 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
+In-Reply-To: <20250108103250.3188419-1-kevin.brodsky@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_082807_929723_4879528F 
-X-CRM114-Status: GOOD (  31.98  )
+X-CRM114-CacheID: sfid-20250109_083051_372215_6F8DA053 
+X-CRM114-Status: UNSURE (   6.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,1217 +137,25 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, Tudor Ambarus <tudor.ambarus@microchip.com>, Jinjie Ruan <ruanjinjie@huawei.com>, linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org, Tudor Ambarus <tudor.ambarus@linaro.org>, Mark Brown <broonie@kernel.org>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Varshini Rajendran <varshini.rajendran@microchip.com>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Bence,
+One of the sticker things in the x86 attempt to do the same thing was
+context switching, both between normal tasks and in/out of exceptions
+and interrupts.
 
-I had another round of intense looking at the code, this time I
-focused on pm_runtime handling.  Although I just learned about the
-basic concepts, I think the ported patch has some mistakes.  I'll
-comment here, because I don't have a SAMA7G5 to test, and I'm not
-confident enough to fix the code, but I think it's worth reporting.
-See below.
+The easiest place this manifested for us was code chunk like this:
 
-Am Thu, Nov 28, 2024 at 06:43:15PM +0100 schrieb Csókás, Bence:
-> From: Tudor Ambarus <tudor.ambarus@microchip.com>
-> 
-> The sama7g5 QSPI controller uses dedicated clocks for the
-> QSPI Controller Interface and the QSPI Controller Core, and
-> requires synchronization before accessing registers or bit
-> fields.
-> 
-> QSPI_SR.SYNCBSY must be zero before accessing any of the bits:
-> QSPI_CR.QSPIEN, QSPI_CR.QSPIDIS, QSPI_CR.SRFRSH, QSPI_CR.SWRST,
-> QSPI_CR.UPDCFG, QSPI_CR.STTFR, QSPI_CR.RTOUT, QSPI_CR.LASTXFER.
-> 
-> Also, the QSPI controller core configuration can be updated by
-> writing the QSPI_CR.UPDCFG bit to ‘1’. This is needed by the
-> following registers: QSPI_MR, QSPI_SCR, QSPI_IAR, QSPI_WICR,
-> QSPI_IFR, QSPI_RICR, QSPI_SMR, QSPI_SKR,QSPI_REFRESH, QSPI_WRACNT
-> QSPI_PCALCFG.
-> 
-> The Octal SPI supports frequencies up to 200 MHZ DDR. The need
-> for output impedance calibration arises. To avoid the degradation
-> of the signal quality, a PAD calibration cell is used to adjust
-> the output impedance to the driven I/Os.
-> 
-> The transmission flow requires different sequences for setting
-> the configuration and for the actual transfer, than what is in
-> the sama5d2 and sam9x60 versions of the IP. Different interrupts
-> are handled. aq->ops->set_cfg() and aq->ops->transfer() are
-> introduced to help differentiating the flows.
-> 
-> Tested single and octal SPI mode with mx66lm1g45g.
-> 
-> Signed-off-by: Tudor Ambarus <tudor.ambarus@microchip.com>
-> Link: https://lore.kernel.org/r/20211214133404.121739-1-tudor.ambarus@microchip.com
-> [varshini.rajendran@microchip.com: Fixed conflicts and ported to 6.1.4]
-> Signed-off-by: Varshini Rajendran <varshini.rajendran@microchip.com>
-> [ csokas.bence: Forward-port to master and address feedback ]
-> Signed-off-by: Csókás, Bence <csokas.bence@prolan.hu>
-> ---
->  drivers/spi/atmel-quadspi.c | 816 +++++++++++++++++++++++++++++++++++-
->  1 file changed, 798 insertions(+), 18 deletions(-)
-> 
-> diff --git a/drivers/spi/atmel-quadspi.c b/drivers/spi/atmel-quadspi.c
-> index c84aefa03ae8..dfb8e36687e8 100644
-> --- a/drivers/spi/atmel-quadspi.c
-> +++ b/drivers/spi/atmel-quadspi.c
-> @@ -11,11 +11,15 @@
->   * This driver is based on drivers/mtd/spi-nor/fsl-quadspi.c from Freescale.
->   */
->  
-> +#include <linux/bitfield.h>
->  #include <linux/clk.h>
->  #include <linux/delay.h>
-> +#include <linux/dma-mapping.h>
-> +#include <linux/dmaengine.h>
->  #include <linux/err.h>
->  #include <linux/interrupt.h>
->  #include <linux/io.h>
-> +#include <linux/iopoll.h>
->  #include <linux/kernel.h>
->  #include <linux/module.h>
->  #include <linux/of.h>
-> @@ -34,6 +38,7 @@
->  #define QSPI_IDR     0x0018  /* Interrupt Disable Register */
->  #define QSPI_IMR     0x001c  /* Interrupt Mask Register */
->  #define QSPI_SCR     0x0020  /* Serial Clock Register */
-> +#define QSPI_SR2     0x0024  /* SAMA7G5 Status Register */
->  
->  #define QSPI_IAR     0x0030  /* Instruction Address Register */
->  #define QSPI_ICR     0x0034  /* Instruction Code Register */
-> @@ -44,16 +49,32 @@
->  #define QSPI_SMR     0x0040  /* Scrambling Mode Register */
->  #define QSPI_SKR     0x0044  /* Scrambling Key Register */
->  
-> +#define QSPI_REFRESH	0x0050	/* Refresh Register */
-> +#define QSPI_WRACNT	0x0054	/* Write Access Counter Register */
-> +#define QSPI_DLLCFG	0x0058	/* DLL Configuration Register */
-> +#define QSPI_PCALCFG	0x005C	/* Pad Calibration Configuration Register */
-> +#define QSPI_PCALBP	0x0060	/* Pad Calibration Bypass Register */
-> +#define QSPI_TOUT	0x0064	/* Timeout Register */
-> +
->  #define QSPI_WPMR    0x00E4  /* Write Protection Mode Register */
->  #define QSPI_WPSR    0x00E8  /* Write Protection Status Register */
->  
->  #define QSPI_VERSION 0x00FC  /* Version Register */
->  
-> +#define SAMA7G5_QSPI0_MAX_SPEED_HZ	200000000
-> +#define SAMA7G5_QSPI1_SDR_MAX_SPEED_HZ	133000000
->  
->  /* Bitfields in QSPI_CR (Control Register) */
->  #define QSPI_CR_QSPIEN                  BIT(0)
->  #define QSPI_CR_QSPIDIS                 BIT(1)
-> +#define QSPI_CR_DLLON			BIT(2)
-> +#define QSPI_CR_DLLOFF			BIT(3)
-> +#define QSPI_CR_STPCAL			BIT(4)
-> +#define QSPI_CR_SRFRSH			BIT(5)
->  #define QSPI_CR_SWRST                   BIT(7)
-> +#define QSPI_CR_UPDCFG			BIT(8)
-> +#define QSPI_CR_STTFR			BIT(9)
-> +#define QSPI_CR_RTOUT			BIT(10)
->  #define QSPI_CR_LASTXFER                BIT(24)
->  
->  /* Bitfields in QSPI_MR (Mode Register) */
-> @@ -61,12 +82,14 @@
->  #define QSPI_MR_LLB                     BIT(1)
->  #define QSPI_MR_WDRBT                   BIT(2)
->  #define QSPI_MR_SMRM                    BIT(3)
-> +#define QSPI_MR_DQSDLYEN		BIT(3)
->  #define QSPI_MR_CSMODE_MASK             GENMASK(5, 4)
->  #define QSPI_MR_CSMODE_NOT_RELOADED     (0 << 4)
->  #define QSPI_MR_CSMODE_LASTXFER         (1 << 4)
->  #define QSPI_MR_CSMODE_SYSTEMATICALLY   (2 << 4)
->  #define QSPI_MR_NBBITS_MASK             GENMASK(11, 8)
->  #define QSPI_MR_NBBITS(n)               ((((n) - 8) << 8) & QSPI_MR_NBBITS_MASK)
-> +#define QSPI_MR_OENSD			BIT(15)
->  #define QSPI_MR_DLYBCT_MASK             GENMASK(23, 16)
->  #define QSPI_MR_DLYBCT(n)               (((n) << 16) & QSPI_MR_DLYBCT_MASK)
->  #define QSPI_MR_DLYCS_MASK              GENMASK(31, 24)
-> @@ -80,6 +103,13 @@
->  #define QSPI_SR_CSR                     BIT(8)
->  #define QSPI_SR_CSS                     BIT(9)
->  #define QSPI_SR_INSTRE                  BIT(10)
-> +#define QSPI_SR_LWRA			BIT(11)
-> +#define QSPI_SR_QITF			BIT(12)
-> +#define QSPI_SR_QITR			BIT(13)
-> +#define QSPI_SR_CSFA			BIT(14)
-> +#define QSPI_SR_CSRA			BIT(15)
-> +#define QSPI_SR_RFRSHD			BIT(16)
-> +#define QSPI_SR_TOUT			BIT(17)
->  #define QSPI_SR_QSPIENS                 BIT(24)
->  
->  #define QSPI_SR_CMD_COMPLETED	(QSPI_SR_INSTRE | QSPI_SR_CSR)
-> @@ -92,9 +122,22 @@
->  #define QSPI_SCR_DLYBS_MASK             GENMASK(23, 16)
->  #define QSPI_SCR_DLYBS(n)               (((n) << 16) & QSPI_SCR_DLYBS_MASK)
->  
-> +/* Bitfields in QSPI_SR2 (SAMA7G5 Status Register) */
-> +#define QSPI_SR2_SYNCBSY		BIT(0)
-> +#define QSPI_SR2_QSPIENS		BIT(1)
-> +#define QSPI_SR2_CSS			BIT(2)
-> +#define QSPI_SR2_RBUSY			BIT(3)
-> +#define QSPI_SR2_HIDLE			BIT(4)
-> +#define QSPI_SR2_DLOCK			BIT(5)
-> +#define QSPI_SR2_CALBSY			BIT(6)
-> +
-> +/* Bitfields in QSPI_IAR (Instruction Address Register) */
-> +#define QSPI_IAR_ADDR			GENMASK(31, 0)
-> +
->  /* Bitfields in QSPI_ICR (Read/Write Instruction Code Register) */
->  #define QSPI_ICR_INST_MASK              GENMASK(7, 0)
->  #define QSPI_ICR_INST(inst)             (((inst) << 0) & QSPI_ICR_INST_MASK)
-> +#define QSPI_ICR_INST_MASK_SAMA7G5	GENMASK(15, 0)
->  #define QSPI_ICR_OPT_MASK               GENMASK(23, 16)
->  #define QSPI_ICR_OPT(opt)               (((opt) << 16) & QSPI_ICR_OPT_MASK)
->  
-> @@ -107,6 +150,9 @@
->  #define QSPI_IFR_WIDTH_QUAD_IO          (4 << 0)
->  #define QSPI_IFR_WIDTH_DUAL_CMD         (5 << 0)
->  #define QSPI_IFR_WIDTH_QUAD_CMD         (6 << 0)
-> +#define QSPI_IFR_WIDTH_OCT_OUTPUT	(7 << 0)
-> +#define QSPI_IFR_WIDTH_OCT_IO		(8 << 0)
-> +#define QSPI_IFR_WIDTH_OCT_CMD		(9 << 0)
->  #define QSPI_IFR_INSTEN                 BIT(4)
->  #define QSPI_IFR_ADDREN                 BIT(5)
->  #define QSPI_IFR_OPTEN                  BIT(6)
-> @@ -117,19 +163,60 @@
->  #define QSPI_IFR_OPTL_4BIT              (2 << 8)
->  #define QSPI_IFR_OPTL_8BIT              (3 << 8)
->  #define QSPI_IFR_ADDRL                  BIT(10)
-> +#define QSPI_IFR_ADDRL_SAMA7G5		GENMASK(11, 10)
->  #define QSPI_IFR_TFRTYP_MEM		BIT(12)
->  #define QSPI_IFR_SAMA5D2_WRITE_TRSFR	BIT(13)
->  #define QSPI_IFR_CRM                    BIT(14)
-> +#define QSPI_IFR_DDREN			BIT(15)
->  #define QSPI_IFR_NBDUM_MASK             GENMASK(20, 16)
->  #define QSPI_IFR_NBDUM(n)               (((n) << 16) & QSPI_IFR_NBDUM_MASK)
-> +#define QSPI_IFR_END			BIT(22)
-> +#define QSPI_IFR_SMRM			BIT(23)
->  #define QSPI_IFR_APBTFRTYP_READ		BIT(24)	/* Defined in SAM9X60 */
-> +#define QSPI_IFR_DQSEN			BIT(25)
-> +#define QSPI_IFR_DDRCMDEN		BIT(26)
-> +#define QSPI_IFR_HFWBEN			BIT(27)
-> +#define QSPI_IFR_PROTTYP		GENMASK(29, 28)
-> +#define QSPI_IFR_PROTTYP_STD_SPI	0
-> +#define QSPI_IFR_PROTTYP_TWIN_QUAD	1
-> +#define QSPI_IFR_PROTTYP_OCTAFLASH	2
-> +#define QSPI_IFR_PROTTYP_HYPERFLASH	3
->  
->  /* Bitfields in QSPI_SMR (Scrambling Mode Register) */
->  #define QSPI_SMR_SCREN                  BIT(0)
->  #define QSPI_SMR_RVDIS                  BIT(1)
-> +#define QSPI_SMR_SCRKL                  BIT(2)
-> +
-> +/* Bitfields in QSPI_REFRESH (Refresh Register) */
-> +#define QSPI_REFRESH_DELAY_COUNTER	GENMASK(31, 0)
-> +
-> +/* Bitfields in QSPI_WRACNT (Write Access Counter Register) */
-> +#define QSPI_WRACNT_NBWRA		GENMASK(31, 0)
-> +
-> +/* Bitfields in QSPI_DLLCFG (DLL Configuration Register) */
-> +#define QSPI_DLLCFG_RANGE		BIT(0)
-> +
-> +/* Bitfields in QSPI_PCALCFG (DLL Pad Calibration Configuration Register) */
-> +#define QSPI_PCALCFG_AAON		BIT(0)
-> +#define QSPI_PCALCFG_DAPCAL		BIT(1)
-> +#define QSPI_PCALCFG_DIFFPM		BIT(2)
-> +#define QSPI_PCALCFG_CLKDIV		GENMASK(6, 4)
-> +#define QSPI_PCALCFG_CALCNT		GENMASK(16, 8)
-> +#define QSPI_PCALCFG_CALP		GENMASK(27, 24)
-> +#define QSPI_PCALCFG_CALN		GENMASK(31, 28)
-> +
-> +/* Bitfields in QSPI_PCALBP (DLL Pad Calibration Bypass Register) */
-> +#define QSPI_PCALBP_BPEN		BIT(0)
-> +#define QSPI_PCALBP_CALPBP		GENMASK(11, 8)
-> +#define QSPI_PCALBP_CALNBP		GENMASK(19, 16)
-> +
-> +/* Bitfields in QSPI_TOUT (Timeout Register) */
-> +#define QSPI_TOUT_TCNTM			GENMASK(15, 0)
->  
->  /* Bitfields in QSPI_WPMR (Write Protection Mode Register) */
->  #define QSPI_WPMR_WPEN                  BIT(0)
-> +#define QSPI_WPMR_WPITEN		BIT(1)
-> +#define QSPI_WPMR_WPCREN		BIT(2)
->  #define QSPI_WPMR_WPKEY_MASK            GENMASK(31, 8)
->  #define QSPI_WPMR_WPKEY(wpkey)          (((wpkey) << 8) & QSPI_WPMR_WPKEY_MASK)
->  
-> @@ -139,10 +226,42 @@
->  #define QSPI_WPSR_WPVSRC(src)           (((src) << 8) & QSPI_WPSR_WPVSRC)
->  
->  #define ATMEL_QSPI_TIMEOUT		1000	/* ms */
-> +#define ATMEL_QSPI_SYNC_TIMEOUT		300	/* ms */
-> +#define QSPI_DLLCFG_THRESHOLD_FREQ	90000000U
-> +#define QSPI_CALIB_TIME			2000	/* 2 us */
-> +
-> +/* Use PIO for small transfers. */
-> +#define ATMEL_QSPI_DMA_MIN_BYTES	16
-> +/**
-> + * struct atmel_qspi_pcal - Pad Calibration Clock Division
-> + * @pclk_rate: peripheral clock rate.
-> + * @pclkdiv: calibration clock division. The clock applied to the calibration
-> + *           cell is divided by pclkdiv + 1.
-> + */
-> +struct atmel_qspi_pcal {
-> +	u32 pclk_rate;
-> +	u8 pclk_div;
-> +};
-> +
-> +#define ATMEL_QSPI_PCAL_ARRAY_SIZE	8
-> +static const struct atmel_qspi_pcal pcal[ATMEL_QSPI_PCAL_ARRAY_SIZE] = {
-> +	{25000000, 0},
-> +	{50000000, 1},
-> +	{75000000, 2},
-> +	{100000000, 3},
-> +	{125000000, 4},
-> +	{150000000, 5},
-> +	{175000000, 6},
-> +	{200000000, 7},
-> +};
->  
->  struct atmel_qspi_caps {
-> +	u32 max_speed_hz;
->  	bool has_qspick;
-> +	bool has_gclk;
->  	bool has_ricr;
-> +	bool octal;
-> +	bool has_dma;
->  };
->  
->  struct atmel_qspi_ops;
-> @@ -152,6 +271,7 @@ struct atmel_qspi {
->  	void __iomem		*mem;
->  	struct clk		*pclk;
->  	struct clk		*qspick;
-> +	struct clk		*gclk;
->  	struct platform_device	*pdev;
->  	const struct atmel_qspi_caps *caps;
->  	const struct atmel_qspi_ops *ops;
-> @@ -160,7 +280,12 @@ struct atmel_qspi {
->  	u32			irq_mask;
->  	u32			mr;
->  	u32			scr;
-> +	u32			slave_max_speed_hz;
->  	struct completion	cmd_completion;
-> +	struct completion	dma_completion;
-> +	dma_addr_t		mmap_phys_base;
-> +	struct dma_chan		*rx_chan;
-> +	struct dma_chan		*tx_chan;
->  };
->  
->  struct atmel_qspi_ops {
-> @@ -187,6 +312,19 @@ static const struct atmel_qspi_mode atmel_qspi_modes[] = {
->  	{ 4, 4, 4, QSPI_IFR_WIDTH_QUAD_CMD },
->  };
->  
-> +static const struct atmel_qspi_mode atmel_qspi_sama7g5_modes[] = {
-> +	{ 1, 1, 1, QSPI_IFR_WIDTH_SINGLE_BIT_SPI },
-> +	{ 1, 1, 2, QSPI_IFR_WIDTH_DUAL_OUTPUT },
-> +	{ 1, 1, 4, QSPI_IFR_WIDTH_QUAD_OUTPUT },
-> +	{ 1, 2, 2, QSPI_IFR_WIDTH_DUAL_IO },
-> +	{ 1, 4, 4, QSPI_IFR_WIDTH_QUAD_IO },
-> +	{ 2, 2, 2, QSPI_IFR_WIDTH_DUAL_CMD },
-> +	{ 4, 4, 4, QSPI_IFR_WIDTH_QUAD_CMD },
-> +	{ 1, 1, 8, QSPI_IFR_WIDTH_OCT_OUTPUT },
-> +	{ 1, 8, 8, QSPI_IFR_WIDTH_OCT_IO },
-> +	{ 8, 8, 8, QSPI_IFR_WIDTH_OCT_CMD },
-> +};
-> +
->  #ifdef VERBOSE_DEBUG
->  static const char *atmel_qspi_reg_name(u32 offset, char *tmp, size_t sz)
->  {
-> @@ -209,6 +347,8 @@ static const char *atmel_qspi_reg_name(u32 offset, char *tmp, size_t sz)
->  		return "IMR";
->  	case QSPI_SCR:
->  		return "SCR";
-> +	case QSPI_SR2:
-> +		return "SR2";
->  	case QSPI_IAR:
->  		return "IAR";
->  	case QSPI_ICR:
-> @@ -221,6 +361,18 @@ static const char *atmel_qspi_reg_name(u32 offset, char *tmp, size_t sz)
->  		return "SMR";
->  	case QSPI_SKR:
->  		return "SKR";
-> +	case QSPI_REFRESH:
-> +		return "REFRESH";
-> +	case QSPI_WRACNT:
-> +		return "WRACNT";
-> +	case QSPI_DLLCFG:
-> +		return "DLLCFG";
-> +	case QSPI_PCALCFG:
-> +		return "PCALCFG";
-> +	case QSPI_PCALBP:
-> +		return "PCALBP";
-> +	case QSPI_TOUT:
-> +		return "TOUT";
->  	case QSPI_WPMR:
->  		return "WPMR";
->  	case QSPI_WPSR:
-> @@ -288,12 +440,31 @@ static int atmel_qspi_find_mode(const struct spi_mem_op *op)
->  	return -EOPNOTSUPP;
->  }
->  
-> +static int atmel_qspi_sama7g5_find_mode(const struct spi_mem_op *op)
-> +{
-> +	u32 i;
-> +
-> +	for (i = 0; i < ARRAY_SIZE(atmel_qspi_sama7g5_modes); i++)
-> +		if (atmel_qspi_is_compatible(op, &atmel_qspi_sama7g5_modes[i]))
-> +			return i;
-> +
-> +	return -EOPNOTSUPP;
-> +}
-> +
->  static bool atmel_qspi_supports_op(struct spi_mem *mem,
->  				   const struct spi_mem_op *op)
->  {
-> +	struct atmel_qspi *aq = spi_controller_get_devdata(mem->spi->controller);
->  	if (!spi_mem_default_supports_op(mem, op))
->  		return false;
->  
-> +	if (aq->caps->octal) {
-> +		if (atmel_qspi_sama7g5_find_mode(op) < 0)
-> +			return false;
-> +		else
-> +			return true;
-> +	}
-> +
->  	if (atmel_qspi_find_mode(op) < 0)
->  		return false;
->  
-> @@ -467,6 +638,296 @@ static int atmel_qspi_transfer(struct spi_mem *mem,
->  	return atmel_qspi_wait_for_completion(aq, QSPI_SR_CMD_COMPLETED);
->  }
->  
-> +static int atmel_qspi_reg_sync(struct atmel_qspi *aq)
-> +{
-> +	u32 val;
-> +	int ret;
-> +
-> +	ret = readl_poll_timeout(aq->regs + QSPI_SR2, val,
-> +				 !(val & QSPI_SR2_SYNCBSY), 40,
-> +				 ATMEL_QSPI_SYNC_TIMEOUT);
-> +	return ret;
-> +}
-> +
-> +static int atmel_qspi_update_config(struct atmel_qspi *aq)
-> +{
-> +	int ret;
-> +
-> +	ret = atmel_qspi_reg_sync(aq);
-> +	if (ret)
-> +		return ret;
-> +	atmel_qspi_write(QSPI_CR_UPDCFG, aq, QSPI_CR);
-> +	return atmel_qspi_reg_sync(aq);
-> +}
-> +
-> +static int atmel_qspi_sama7g5_set_cfg(struct atmel_qspi *aq,
-> +				      const struct spi_mem_op *op, u32 *offset)
-> +{
-> +	u32 iar, icr, ifr;
-> +	int mode, ret;
-> +
-> +	iar = 0;
-> +	icr = FIELD_PREP(QSPI_ICR_INST_MASK_SAMA7G5, op->cmd.opcode);
-> +	ifr = QSPI_IFR_INSTEN;
-> +
-> +	mode = atmel_qspi_sama7g5_find_mode(op);
-> +	if (mode < 0)
-> +		return mode;
-> +	ifr |= atmel_qspi_sama7g5_modes[mode].config;
-> +
-> +	if (op->dummy.buswidth && op->dummy.nbytes) {
-> +		if (op->addr.dtr && op->dummy.dtr && op->data.dtr)
-> +			ifr |= QSPI_IFR_NBDUM(op->dummy.nbytes * 8 /
-> +					      (2 * op->dummy.buswidth));
-> +		else
-> +			ifr |= QSPI_IFR_NBDUM(op->dummy.nbytes * 8 /
-> +					      op->dummy.buswidth);
-> +	}
-> +
-> +	if (op->addr.buswidth && op->addr.nbytes) {
-> +		ifr |= FIELD_PREP(QSPI_IFR_ADDRL_SAMA7G5, op->addr.nbytes - 1) |
-> +		       QSPI_IFR_ADDREN;
-> +		iar = FIELD_PREP(QSPI_IAR_ADDR, op->addr.val);
-> +	}
-> +
-> +	if (op->addr.dtr && op->dummy.dtr && op->data.dtr) {
-> +		ifr |= QSPI_IFR_DDREN;
-> +		if (op->cmd.dtr)
-> +			ifr |= QSPI_IFR_DDRCMDEN;
-> +
-> +		ifr |= QSPI_IFR_DQSEN;
-> +	}
-> +
-> +	if (op->cmd.buswidth == 8 || op->addr.buswidth == 8 ||
-> +	    op->data.buswidth == 8)
-> +		ifr |= FIELD_PREP(QSPI_IFR_PROTTYP, QSPI_IFR_PROTTYP_OCTAFLASH);
-> +
-> +	/* offset of the data access in the QSPI memory space */
-> +	*offset = iar;
-> +
-> +	/* Set data enable */
-> +	if (op->data.nbytes) {
-> +		ifr |= QSPI_IFR_DATAEN;
-> +
-> +		if (op->addr.nbytes)
-> +			ifr |= QSPI_IFR_TFRTYP_MEM;
-> +	}
-> +
-> +	/*
-> +	 * If the QSPI controller is set in regular SPI mode, set it in
-> +	 * Serial Memory Mode (SMM).
-> +	 */
-> +	if (aq->mr != QSPI_MR_SMM) {
-> +		atmel_qspi_write(QSPI_MR_SMM | QSPI_MR_DQSDLYEN, aq, QSPI_MR);
-> +		aq->mr = QSPI_MR_SMM;
-> +
-> +		ret = atmel_qspi_update_config(aq);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-> +	/* Clear pending interrupts */
-> +	(void)atmel_qspi_read(aq, QSPI_SR);
-> +
-> +	/* Set QSPI Instruction Frame registers */
-> +	if (op->addr.nbytes && !op->data.nbytes)
-> +		atmel_qspi_write(iar, aq, QSPI_IAR);
-> +
-> +	if (op->data.dir == SPI_MEM_DATA_IN) {
-> +		atmel_qspi_write(icr, aq, QSPI_RICR);
-> +	} else {
-> +		atmel_qspi_write(icr, aq, QSPI_WICR);
-> +		if (op->data.nbytes)
-> +			atmel_qspi_write(FIELD_PREP(QSPI_WRACNT_NBWRA,
-> +						    op->data.nbytes),
-> +					 aq, QSPI_WRACNT);
-> +	}
-> +
-> +	atmel_qspi_write(ifr, aq, QSPI_IFR);
-> +
-> +	return atmel_qspi_update_config(aq);
-> +}
-> +
-> +static void atmel_qspi_dma_callback(void *param)
-> +{
-> +	struct atmel_qspi *aq = param;
-> +
-> +	complete(&aq->dma_completion);
-> +}
-> +
-> +static int atmel_qspi_dma_xfer(struct atmel_qspi *aq, struct dma_chan *chan,
-> +			       dma_addr_t dma_dst, dma_addr_t dma_src,
-> +			       unsigned int len)
-> +{
-> +	struct dma_async_tx_descriptor *tx;
-> +	dma_cookie_t cookie;
-> +	int ret;
-> +
-> +	tx = dmaengine_prep_dma_memcpy(chan, dma_dst, dma_src, len,
-> +				       DMA_PREP_INTERRUPT | DMA_CTRL_ACK);
-> +	if (!tx) {
-> +		dev_err(&aq->pdev->dev, "device_prep_dma_memcpy error\n");
-> +		return -EIO;
-> +	}
-> +
-> +	reinit_completion(&aq->dma_completion);
-> +	tx->callback = atmel_qspi_dma_callback;
-> +	tx->callback_param = aq;
-> +	cookie = tx->tx_submit(tx);
-> +	ret = dma_submit_error(cookie);
-> +	if (ret) {
-> +		dev_err(&aq->pdev->dev, "dma_submit_error %d\n", cookie);
-> +		return ret;
-> +	}
-> +
-> +	dma_async_issue_pending(chan);
-> +	ret = wait_for_completion_timeout(&aq->dma_completion,
-> +					  msecs_to_jiffies(20 * ATMEL_QSPI_TIMEOUT));
-> +	if (ret == 0) {
-> +		dmaengine_terminate_sync(chan);
-> +		dev_err(&aq->pdev->dev, "DMA wait_for_completion_timeout\n");
-> +		return -ETIMEDOUT;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int atmel_qspi_dma_rx_xfer(struct spi_mem *mem,
-> +				  const struct spi_mem_op *op,
-> +				  struct sg_table *sgt, loff_t loff)
-> +{
-> +	struct atmel_qspi *aq =
-> +		spi_controller_get_devdata(mem->spi->controller);
-> +	struct scatterlist *sg;
-> +	dma_addr_t dma_src;
-> +	unsigned int i, len;
-> +	int ret;
-> +
-> +	dma_src = aq->mmap_phys_base + loff;
-> +
-> +	for_each_sg(sgt->sgl, sg, sgt->nents, i) {
-> +		len = sg_dma_len(sg);
-> +		ret = atmel_qspi_dma_xfer(aq, aq->rx_chan, sg_dma_address(sg),
-> +					  dma_src, len);
-> +		if (ret)
-> +			return ret;
-> +		dma_src += len;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int atmel_qspi_dma_tx_xfer(struct spi_mem *mem,
-> +				  const struct spi_mem_op *op,
-> +				  struct sg_table *sgt, loff_t loff)
-> +{
-> +	struct atmel_qspi *aq =
-> +		spi_controller_get_devdata(mem->spi->controller);
-> +	struct scatterlist *sg;
-> +	dma_addr_t dma_dst;
-> +	unsigned int i, len;
-> +	int ret;
-> +
-> +	dma_dst = aq->mmap_phys_base + loff;
-> +
-> +	for_each_sg(sgt->sgl, sg, sgt->nents, i) {
-> +		len = sg_dma_len(sg);
-> +		ret = atmel_qspi_dma_xfer(aq, aq->tx_chan, dma_dst,
-> +					  sg_dma_address(sg), len);
-> +		if (ret)
-> +			return ret;
-> +		dma_dst += len;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int atmel_qspi_dma_transfer(struct spi_mem *mem,
-> +				   const struct spi_mem_op *op, loff_t loff)
-> +{
-> +	struct sg_table sgt;
-> +	int ret;
-> +
-> +	ret = spi_controller_dma_map_mem_op_data(mem->spi->controller, op,
-> +						 &sgt);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (op->data.dir == SPI_MEM_DATA_IN)
-> +		ret = atmel_qspi_dma_rx_xfer(mem, op, &sgt, loff);
-> +	else
-> +		ret = atmel_qspi_dma_tx_xfer(mem, op, &sgt, loff);
-> +
-> +	spi_controller_dma_unmap_mem_op_data(mem->spi->controller, op, &sgt);
-> +
-> +	return ret;
-> +}
-> +
-> +static int atmel_qspi_sama7g5_transfer(struct spi_mem *mem,
-> +				       const struct spi_mem_op *op, u32 offset)
-> +{
-> +	struct atmel_qspi *aq =
-> +		spi_controller_get_devdata(mem->spi->controller);
-> +	u32 val;
-> +	int ret;
-> +
-> +	if (!op->data.nbytes) {
-> +		/* Start the transfer. */
-> +		ret = atmel_qspi_reg_sync(aq);
-> +		if (ret)
-> +			return ret;
-> +		atmel_qspi_write(QSPI_CR_STTFR, aq, QSPI_CR);
-> +
-> +		return atmel_qspi_wait_for_completion(aq, QSPI_SR_CSRA);
-> +	}
-> +
-> +	/* Send/Receive data. */
-> +	if (op->data.dir == SPI_MEM_DATA_IN) {
-> +		if (aq->rx_chan && op->addr.nbytes &&
-> +		    op->data.nbytes > ATMEL_QSPI_DMA_MIN_BYTES) {
-> +			ret = atmel_qspi_dma_transfer(mem, op, offset);
-> +			if (ret)
-> +				return ret;
-> +		} else {
-> +			memcpy_fromio(op->data.buf.in, aq->mem + offset,
-> +				      op->data.nbytes);
-> +		}
-> +
-> +		if (op->addr.nbytes) {
-> +			ret = readl_poll_timeout(aq->regs + QSPI_SR2, val,
-> +						 !(val & QSPI_SR2_RBUSY), 40,
-> +						 ATMEL_QSPI_SYNC_TIMEOUT);
-> +			if (ret)
-> +				return ret;
-> +		}
-> +	} else {
-> +		if (aq->tx_chan && op->addr.nbytes &&
-> +		    op->data.nbytes > ATMEL_QSPI_DMA_MIN_BYTES) {
-> +			ret = atmel_qspi_dma_transfer(mem, op, offset);
-> +			if (ret)
-> +				return ret;
-> +		} else {
-> +			memcpy_toio(aq->mem + offset, op->data.buf.out,
-> +				    op->data.nbytes);
-> +		}
-> +
-> +		ret = atmel_qspi_wait_for_completion(aq, QSPI_SR_LWRA);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-> +	/* Release the chip-select. */
-> +	ret = atmel_qspi_reg_sync(aq);
-> +	if (ret) {
-> +		pm_runtime_mark_last_busy(&aq->pdev->dev);
-> +		pm_runtime_put_autosuspend(&aq->pdev->dev);
-> +		return ret;
-> +	}
-> +	atmel_qspi_write(QSPI_CR_LASTXFER, aq, QSPI_CR);
-> +
-> +	return atmel_qspi_wait_for_completion(aq, QSPI_SR_CSRA);
-> +}
+	kpkeys_set_level(KPKEYS_LVL_PGTABLES);
+	// modify page tables here
+	kpkeys_restore_pkey_reg();
 
-This function atmel_qspi_sama7g5_transfer() seems to be called from
-atmel_qspi_exec_op() through ops->transfer() only.  I think the two
-lines in the error handling of atmel_qspi_reg_sync() lead to
-unbalanced calls of pm_runtime_xxx.  Compare with
-atmel_qspi_transfer() which has no calls to pm_runtime, everything is
-covered by atmel_qspi_exec_op() in this case where the pm_runtime
-calls surround ->set_cfg() and ->transfer().  Right?
+We had to make sure that we didn't get preempted and context switch over
+to some other task that _wasn't_ doing page table manipulation while
+page table writes were allowed.
 
-> +
->  static int atmel_qspi_exec_op(struct spi_mem *mem, const struct spi_mem_op *op)
->  {
->  	struct atmel_qspi *aq = spi_controller_get_devdata(mem->spi->controller);
-> @@ -511,6 +972,160 @@ static const struct spi_controller_mem_ops atmel_qspi_mem_ops = {
->  	.get_name = atmel_qspi_get_name
->  };
->  
-> +static int atmel_qspi_set_pad_calibration(struct atmel_qspi *aq)
-> +{
-> +	unsigned long pclk_rate;
-> +	u32 status, val;
-> +	int i, ret;
-> +	u8 pclk_div = 0;
-> +
-> +	pclk_rate = clk_get_rate(aq->pclk);
-> +	if (!pclk_rate)
-> +		return -EINVAL;
-> +
-> +	for (i = 0; i < ATMEL_QSPI_PCAL_ARRAY_SIZE; i++) {
-> +		if (pclk_rate <= pcal[i].pclk_rate) {
-> +			pclk_div = pcal[i].pclk_div;
-> +			break;
-> +		}
-> +	}
-> +
-> +	/*
-> +	 * Use the biggest divider in case the peripheral clock exceeds
-> +	 * 200MHZ.
-> +	 */
-> +	if (pclk_rate > pcal[ATMEL_QSPI_PCAL_ARRAY_SIZE - 1].pclk_rate)
-> +		pclk_div = pcal[ATMEL_QSPI_PCAL_ARRAY_SIZE - 1].pclk_div;
-> +
-> +	/* Disable QSPI while configuring the pad calibration. */
-> +	status = atmel_qspi_read(aq, QSPI_SR2);
-> +	if (status & QSPI_SR2_QSPIENS) {
-> +		ret = atmel_qspi_reg_sync(aq);
-> +		if (ret)
-> +			return ret;
-> +		atmel_qspi_write(QSPI_CR_QSPIDIS, aq, QSPI_CR);
-> +	}
-> +
-> +	/*
-> +	 * The analog circuitry is not shut down at the end of the calibration
-> +	 * and the start-up time is only required for the first calibration
-> +	 * sequence, thus increasing performance. Set the delay between the Pad
-> +	 * calibration analog circuitry and the calibration request to 2us.
-> +	 */
-> +	atmel_qspi_write(QSPI_PCALCFG_AAON |
-> +			 FIELD_PREP(QSPI_PCALCFG_CLKDIV, pclk_div) |
-> +			 FIELD_PREP(QSPI_PCALCFG_CALCNT,
-> +				    2 * (pclk_rate / 1000000)),
-> +			 aq, QSPI_PCALCFG);
-> +
-> +	/* DLL On + start calibration. */
-> +	atmel_qspi_write(QSPI_CR_DLLON | QSPI_CR_STPCAL, aq, QSPI_CR);
-> +
-> +	/* Check synchronization status before updating configuration. */
-> +	ret =  readl_poll_timeout(aq->regs + QSPI_SR2, val,
-> +				  (val & QSPI_SR2_DLOCK) &&
-> +				  !(val & QSPI_SR2_CALBSY), 40,
-> +				  ATMEL_QSPI_TIMEOUT);
-> +
-> +	/* Refresh analogic blocks every 1 ms.*/
-> +	atmel_qspi_write(FIELD_PREP(QSPI_REFRESH_DELAY_COUNTER,
-> +				    aq->slave_max_speed_hz / 1000),
-> +			 aq, QSPI_REFRESH);
-> +
-> +	return ret;
-> +}
-> +
-> +static int atmel_qspi_set_gclk(struct atmel_qspi *aq)
-> +{
-> +	u32 status, val;
-> +	int ret;
-> +
-> +	/* Disable DLL before setting GCLK */
-> +	status = atmel_qspi_read(aq, QSPI_SR2);
-> +	if (status & QSPI_SR2_DLOCK) {
-> +		atmel_qspi_write(QSPI_CR_DLLOFF, aq, QSPI_CR);
-> +
-> +		ret = readl_poll_timeout(aq->regs + QSPI_SR2, val,
-> +					 !(val & QSPI_SR2_DLOCK), 40,
-> +					 ATMEL_QSPI_TIMEOUT);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-> +	if (aq->slave_max_speed_hz > QSPI_DLLCFG_THRESHOLD_FREQ)
-> +		atmel_qspi_write(QSPI_DLLCFG_RANGE, aq, QSPI_DLLCFG);
-> +	else
-> +		atmel_qspi_write(0, aq, QSPI_DLLCFG);
-> +
-> +	ret = clk_set_rate(aq->gclk, aq->slave_max_speed_hz);
-> +	if (ret) {
-> +		dev_err(&aq->pdev->dev, "Failed to set generic clock rate.\n");
-> +		return ret;
-> +	}
-> +
-> +	/* Enable the QSPI generic clock */
-> +	ret = clk_prepare_enable(aq->gclk);
-> +	if (ret)
-> +		dev_err(&aq->pdev->dev, "Failed to enable generic clock.\n");
-> +
-> +	return ret;
-> +}
-> +
-> +static int atmel_qspi_sama7g5_init(struct atmel_qspi *aq)
-> +{
-> +	u32 val;
-> +	int ret;
-> +
-> +	ret = atmel_qspi_set_gclk(aq);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (aq->caps->octal) {
-> +		ret = atmel_qspi_set_pad_calibration(aq);
-> +		if (ret)
-> +			return ret;
-> +	} else {
-> +		atmel_qspi_write(QSPI_CR_DLLON, aq, QSPI_CR);
-> +		ret =  readl_poll_timeout(aq->regs + QSPI_SR2, val,
-> +					  (val & QSPI_SR2_DLOCK), 40,
-> +					  ATMEL_QSPI_TIMEOUT);
-> +	}
-> +
-> +	/* Set the QSPI controller by default in Serial Memory Mode */
-> +	atmel_qspi_write(QSPI_MR_SMM | QSPI_MR_DQSDLYEN, aq, QSPI_MR);
-> +	aq->mr = QSPI_MR_SMM;
-> +	ret = atmel_qspi_update_config(aq);
-> +	if (ret)
-> +		return ret;
-> +
-> +	/* Enable the QSPI controller. */
-> +	atmel_qspi_write(QSPI_CR_QSPIEN, aq, QSPI_CR);
-> +	ret = readl_poll_timeout(aq->regs + QSPI_SR2, val,
-> +				 val & QSPI_SR2_QSPIENS, 40,
-> +				 ATMEL_QSPI_SYNC_TIMEOUT);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (aq->caps->octal) {
-> +		ret = readl_poll_timeout(aq->regs + QSPI_SR, val,
-> +					 val & QSPI_SR_RFRSHD, 40,
-> +					 ATMEL_QSPI_TIMEOUT);
-> +	}
-> +
-> +	atmel_qspi_write(QSPI_TOUT_TCNTM, aq, QSPI_TOUT);
-> +	return ret;
-> +}
-> +
-> +static int atmel_qspi_sama7g5_setup(struct spi_device *spi)
-> +{
-> +	struct atmel_qspi *aq = spi_controller_get_devdata(spi->controller);
-> +
-> +	/* The controller can communicate with a single slave. */
-> +	aq->slave_max_speed_hz = spi->max_speed_hz;
-> +
-> +	return atmel_qspi_sama7g5_init(aq);
-> +}
-> +
->  static int atmel_qspi_setup(struct spi_device *spi)
->  {
->  	struct spi_controller *ctrl = spi->controller;
-> @@ -525,6 +1140,9 @@ static int atmel_qspi_setup(struct spi_device *spi)
->  	if (!spi->max_speed_hz)
->  		return -EINVAL;
->  
-> +	if (aq->caps->has_gclk)
-> +		return atmel_qspi_sama7g5_setup(spi);
+On x86, we had to basically start context-switching the kernel pkey
+register the same way we do GPRs.
 
-The whole call tree from atmel_qspi_sama7g5_setup() downwards is not
-covered by pm_runtime get and put calls, although heavily doing i/o.
-Further down in atmel_qspi_setup() there's a write to QSPI_SCR which
-seems to be handled correctly.
-
-Although I have no sama7g5 at hand, I'd like to know how to test this
-pm_runtime stuff?  All I did so far was wrapping my head around it and
-trying code review.  There is more, right?
-
-Adding some people to Cc who touched the pm related code in this
-driver before, maybe someone can step up? O:-)
-
-Greets
-Alex
-
-> +
->  	src_rate = clk_get_rate(aq->pclk);
->  	if (!src_rate)
->  		return -EINVAL;
-> @@ -610,8 +1228,18 @@ static int atmel_qspi_set_cs_timing(struct spi_device *spi)
->  	return 0;
->  }
->  
-> -static void atmel_qspi_init(struct atmel_qspi *aq)
-> +static int atmel_qspi_init(struct atmel_qspi *aq)
->  {
-> +	int ret;
-> +
-> +	if (aq->caps->has_gclk) {
-> +		ret = atmel_qspi_reg_sync(aq);
-> +		if (ret)
-> +			return ret;
-> +		atmel_qspi_write(QSPI_CR_SWRST, aq, QSPI_CR);
-> +		return 0;
-> +	}
-> +
->  	/* Reset the QSPI controller */
->  	atmel_qspi_write(QSPI_CR_SWRST, aq, QSPI_CR);
->  
-> @@ -621,6 +1249,7 @@ static void atmel_qspi_init(struct atmel_qspi *aq)
->  
->  	/* Enable the QSPI controller */
->  	atmel_qspi_write(QSPI_CR_QSPIEN, aq, QSPI_CR);
-> +	return 0;
->  }
->  
->  static irqreturn_t atmel_qspi_interrupt(int irq, void *dev_id)
-> @@ -642,11 +1271,59 @@ static irqreturn_t atmel_qspi_interrupt(int irq, void *dev_id)
->  	return IRQ_HANDLED;
->  }
->  
-> +static int atmel_qspi_dma_init(struct spi_controller *ctrl)
-> +{
-> +	struct atmel_qspi *aq = spi_controller_get_devdata(ctrl);
-> +	int ret;
-> +
-> +	aq->rx_chan = dma_request_chan(&aq->pdev->dev, "rx");
-> +	if (IS_ERR(aq->rx_chan)) {
-> +		aq->rx_chan = NULL;
-> +		return dev_err_probe(&aq->pdev->dev, PTR_ERR(aq->rx_chan),
-> +				     "RX DMA channel is not available\n");
-> +	}
-> +
-> +	aq->tx_chan = dma_request_chan(&aq->pdev->dev, "tx");
-> +	if (IS_ERR(aq->tx_chan)) {
-> +		ret = dev_err_probe(&aq->pdev->dev, PTR_ERR(aq->tx_chan),
-> +				    "TX DMA channel is not available\n");
-> +		goto release_rx_chan;
-> +	}
-> +
-> +	ctrl->dma_rx = aq->rx_chan;
-> +	ctrl->dma_tx = aq->tx_chan;
-> +	init_completion(&aq->dma_completion);
-> +
-> +	dev_info(&aq->pdev->dev, "Using %s (tx) and %s (rx) for DMA transfers\n",
-> +		 dma_chan_name(aq->tx_chan), dma_chan_name(aq->rx_chan));
-> +
-> +	return 0;
-> +
-> +release_rx_chan:
-> +	dma_release_channel(aq->rx_chan);
-> +	aq->rx_chan = NULL;
-> +	aq->tx_chan = NULL;
-> +	return ret;
-> +}
-> +
-> +static void atmel_qspi_dma_release(struct atmel_qspi *aq)
-> +{
-> +	if (aq->rx_chan)
-> +		dma_release_channel(aq->rx_chan);
-> +	if (aq->tx_chan)
-> +		dma_release_channel(aq->tx_chan);
-> +}
-> +
->  static const struct atmel_qspi_ops atmel_qspi_ops = {
->  	.set_cfg = atmel_qspi_set_cfg,
->  	.transfer = atmel_qspi_transfer,
->  };
->  
-> +static const struct atmel_qspi_ops atmel_qspi_sama7g5_ops = {
-> +	.set_cfg = atmel_qspi_sama7g5_set_cfg,
-> +	.transfer = atmel_qspi_sama7g5_transfer,
-> +};
-> +
->  static int atmel_qspi_probe(struct platform_device *pdev)
->  {
->  	struct spi_controller *ctrl;
-> @@ -658,7 +1335,27 @@ static int atmel_qspi_probe(struct platform_device *pdev)
->  	if (!ctrl)
->  		return -ENOMEM;
->  
-> +	aq = spi_controller_get_devdata(ctrl);
-> +
-> +	aq->caps = of_device_get_match_data(&pdev->dev);
-> +	if (!aq->caps) {
-> +		dev_err(&pdev->dev, "Could not retrieve QSPI caps\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	init_completion(&aq->cmd_completion);
-> +	aq->pdev = pdev;
-> +
->  	ctrl->mode_bits = SPI_RX_DUAL | SPI_RX_QUAD | SPI_TX_DUAL | SPI_TX_QUAD;
-> +	if (aq->caps->octal)
-> +		ctrl->mode_bits |= SPI_RX_OCTAL | SPI_TX_OCTAL;
-> +
-> +	if (aq->caps->has_gclk)
-> +		aq->ops = &atmel_qspi_sama7g5_ops;
-> +	else
-> +		aq->ops = &atmel_qspi_ops;
-> +
-> +	ctrl->max_speed_hz = aq->caps->max_speed_hz;
->  	ctrl->setup = atmel_qspi_setup;
->  	ctrl->set_cs_timing = atmel_qspi_set_cs_timing;
->  	ctrl->bus_num = -1;
-> @@ -667,12 +1364,6 @@ static int atmel_qspi_probe(struct platform_device *pdev)
->  	ctrl->dev.of_node = pdev->dev.of_node;
->  	platform_set_drvdata(pdev, ctrl);
->  
-> -	aq = spi_controller_get_devdata(ctrl);
-> -
-> -	init_completion(&aq->cmd_completion);
-> -	aq->pdev = pdev;
-> -	aq->ops = &atmel_qspi_ops;
-> -
->  	/* Map the registers */
->  	aq->regs = devm_platform_ioremap_resource_byname(pdev, "qspi_base");
->  	if (IS_ERR(aq->regs))
-> @@ -687,6 +1378,7 @@ static int atmel_qspi_probe(struct platform_device *pdev)
->  				     "missing AHB memory\n");
->  
->  	aq->mmap_size = resource_size(res);
-> +	aq->mmap_phys_base = (dma_addr_t)res->start;
->  
->  	/* Get the peripheral clock */
->  	aq->pclk = devm_clk_get(&pdev->dev, "pclk");
-> @@ -703,13 +1395,6 @@ static int atmel_qspi_probe(struct platform_device *pdev)
->  		return dev_err_probe(&pdev->dev, err,
->  				     "failed to enable the peripheral clock\n");
->  
-> -	aq->caps = of_device_get_match_data(&pdev->dev);
-> -	if (!aq->caps) {
-> -		dev_err(&pdev->dev, "Could not retrieve QSPI caps\n");
-> -		err = -EINVAL;
-> -		goto disable_pclk;
-> -	}
-> -
->  	if (aq->caps->has_qspick) {
->  		/* Get the QSPI system clock */
->  		aq->qspick = devm_clk_get(&pdev->dev, "qspick");
-> @@ -726,18 +1411,32 @@ static int atmel_qspi_probe(struct platform_device *pdev)
->  				"failed to enable the QSPI system clock\n");
->  			goto disable_pclk;
->  		}
-> +	} else if (aq->caps->has_gclk) {
-> +		/* Get the QSPI generic clock */
-> +		aq->gclk = devm_clk_get(&pdev->dev, "gclk");
-> +		if (IS_ERR(aq->gclk)) {
-> +			dev_err(&pdev->dev, "missing Generic clock\n");
-> +			err = PTR_ERR(aq->gclk);
-> +			goto disable_pclk;
-> +		}
-> +	}
-> +
-> +	if (aq->caps->has_dma) {
-> +		err = atmel_qspi_dma_init(ctrl);
-> +		if (err == -EPROBE_DEFER)
-> +			goto disable_qspick;
->  	}
->  
->  	/* Request the IRQ */
->  	irq = platform_get_irq(pdev, 0);
->  	if (irq < 0) {
->  		err = irq;
-> -		goto disable_qspick;
-> +		goto dma_release;
->  	}
->  	err = devm_request_irq(&pdev->dev, irq, atmel_qspi_interrupt,
->  			       0, dev_name(&pdev->dev), aq);
->  	if (err)
-> -		goto disable_qspick;
-> +		goto dma_release;
->  
->  	pm_runtime_set_autosuspend_delay(&pdev->dev, 500);
->  	pm_runtime_use_autosuspend(&pdev->dev);
-> @@ -745,7 +1444,9 @@ static int atmel_qspi_probe(struct platform_device *pdev)
->  	pm_runtime_enable(&pdev->dev);
->  	pm_runtime_get_noresume(&pdev->dev);
->  
-> -	atmel_qspi_init(aq);
-> +	err = atmel_qspi_init(aq);
-> +	if (err)
-> +		goto dma_release;
->  
->  	err = spi_register_controller(ctrl);
->  	if (err) {
-> @@ -753,13 +1454,16 @@ static int atmel_qspi_probe(struct platform_device *pdev)
->  		pm_runtime_disable(&pdev->dev);
->  		pm_runtime_set_suspended(&pdev->dev);
->  		pm_runtime_dont_use_autosuspend(&pdev->dev);
-> -		goto disable_qspick;
-> +		goto dma_release;
->  	}
->  	pm_runtime_mark_last_busy(&pdev->dev);
->  	pm_runtime_put_autosuspend(&pdev->dev);
->  
->  	return 0;
->  
-> +dma_release:
-> +	if (aq->caps->has_dma)
-> +		atmel_qspi_dma_release(aq);
->  disable_qspick:
->  	clk_disable_unprepare(aq->qspick);
->  disable_pclk:
-> @@ -768,6 +1472,44 @@ static int atmel_qspi_probe(struct platform_device *pdev)
->  	return err;
->  }
->  
-> +static int atmel_qspi_sama7g5_suspend(struct atmel_qspi *aq)
-> +{
-> +	int ret;
-> +	u32 val;
-> +
-> +	ret = readl_poll_timeout(aq->regs + QSPI_SR2, val,
-> +				 !(val & QSPI_SR2_RBUSY) &&
-> +				 (val & QSPI_SR2_HIDLE), 40,
-> +				 ATMEL_QSPI_SYNC_TIMEOUT);
-> +	if (ret)
-> +		return ret;
-> +
-> +	atmel_qspi_write(QSPI_CR_QSPIDIS, aq, QSPI_CR);
-> +	ret = readl_poll_timeout(aq->regs + QSPI_SR2, val,
-> +				 !(val & QSPI_SR2_QSPIENS), 40,
-> +				 ATMEL_QSPI_SYNC_TIMEOUT);
-> +	if (ret)
-> +		return ret;
-> +
-> +	clk_disable_unprepare(aq->gclk);
-> +
-> +	atmel_qspi_write(QSPI_CR_DLLOFF, aq, QSPI_CR);
-> +	ret = readl_poll_timeout(aq->regs + QSPI_SR2, val,
-> +				 !(val & QSPI_SR2_DLOCK), 40,
-> +				 ATMEL_QSPI_TIMEOUT);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret =  readl_poll_timeout(aq->regs + QSPI_SR2, val,
-> +				  !(val & QSPI_SR2_CALBSY), 40,
-> +				  ATMEL_QSPI_TIMEOUT);
-> +	if (ret)
-> +		return ret;
-> +
-> +	clk_disable_unprepare(aq->pclk);
-> +	return 0;
-> +}
-> +
->  static void atmel_qspi_remove(struct platform_device *pdev)
->  {
->  	struct spi_controller *ctrl = platform_get_drvdata(pdev);
-> @@ -778,6 +1520,16 @@ static void atmel_qspi_remove(struct platform_device *pdev)
->  
->  	ret = pm_runtime_get_sync(&pdev->dev);
->  	if (ret >= 0) {
-> +		if (aq->caps->has_dma)
-> +			atmel_qspi_dma_release(aq);
-> +
-> +		if (aq->caps->has_gclk) {
-> +			ret = atmel_qspi_sama7g5_suspend(aq);
-> +			if (ret)
-> +				dev_warn(&pdev->dev, "Failed to de-init device on remove: %d\n", ret);
-> +			return;
-> +		}
-> +
->  		atmel_qspi_write(QSPI_CR_QSPIDIS, aq, QSPI_CR);
->  		clk_disable(aq->qspick);
->  		clk_disable(aq->pclk);
-> @@ -808,6 +1560,9 @@ static int __maybe_unused atmel_qspi_suspend(struct device *dev)
->  	if (ret < 0)
->  		return ret;
->  
-> +	if (aq->caps->has_gclk)
-> +		return atmel_qspi_sama7g5_suspend(aq);
-> +
->  	atmel_qspi_write(QSPI_CR_QSPIDIS, aq, QSPI_CR);
->  
->  	pm_runtime_mark_last_busy(dev);
-> @@ -835,6 +1590,9 @@ static int __maybe_unused atmel_qspi_resume(struct device *dev)
->  		return ret;
->  	}
->  
-> +	if (aq->caps->has_gclk)
-> +		return atmel_qspi_sama7g5_init(aq);
-> +
->  	ret = pm_runtime_force_resume(dev);
->  	if (ret < 0)
->  		return ret;
-> @@ -890,6 +1648,19 @@ static const struct atmel_qspi_caps atmel_sam9x60_qspi_caps = {
->  	.has_ricr = true,
->  };
->  
-> +static const struct atmel_qspi_caps atmel_sama7g5_ospi_caps = {
-> +	.max_speed_hz = SAMA7G5_QSPI0_MAX_SPEED_HZ,
-> +	.has_gclk = true,
-> +	.octal = true,
-> +	.has_dma = true,
-> +};
-> +
-> +static const struct atmel_qspi_caps atmel_sama7g5_qspi_caps = {
-> +	.max_speed_hz = SAMA7G5_QSPI1_SDR_MAX_SPEED_HZ,
-> +	.has_gclk = true,
-> +	.has_dma = true,
-> +};
-> +
->  static const struct of_device_id atmel_qspi_dt_ids[] = {
->  	{
->  		.compatible = "atmel,sama5d2-qspi",
-> @@ -899,6 +1670,15 @@ static const struct of_device_id atmel_qspi_dt_ids[] = {
->  		.compatible = "microchip,sam9x60-qspi",
->  		.data = &atmel_sam9x60_qspi_caps,
->  	},
-> +	{
-> +		.compatible = "microchip,sama7g5-ospi",
-> +		.data = &atmel_sama7g5_ospi_caps,
-> +	},
-> +	{
-> +		.compatible = "microchip,sama7g5-qspi",
-> +		.data = &atmel_sama7g5_qspi_caps,
-> +	},
-> +
->  	{ /* sentinel */ }
->  };
->  
-> -- 
-> 2.34.1
-> 
-> 
-> 
+How is SYS_POR_EL0 being context switched?
 
