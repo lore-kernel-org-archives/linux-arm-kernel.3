@@ -4,69 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15791E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 15:35:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73605E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 15:37:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6qIQP4o8cPCcK84STUOS+5JskiZRRSumAKuNK/Xi2io=; b=lI2aU48Tup8jk8d9btsPwyX230
-	3VCXN1aku46R5fXI069o8/v3dKWBfqJnbIQqxhtwuAPb7JFY4ZTPZGHL5hifiW97DpEDknWdeKMzp
-	GwJlTThoMT+ChG3SdtCiXlOcrO5fqXzz5f33NnzmBq4WRbGWkTCRgPkHDfStj863UWp3vwdraDjem
-	ZBtyENgmL/zapw0g/vJT+RfYx6AvHdrzD5ut9LsY3WAlOdGtc42zLd02pFpIO9kHTEEdAY37V7sR+
-	AJCSRWtysw9o9UWN8jp23kwrQpBSsctSYgYc7UCWWHZNrJJQfN4Ht2SROknlOA88dIxYxe+hdEj+W
-	Y81QsYsA==;
+	bh=/clElWaM3190LNZ3OZWk/BEAVCI/yd2x8vlvG4wodOI=; b=MiOay7TtclRvaDXAHFLdEiMLma
+	dph4xlRuLiVbeY+uS8YKrFfT4yuIE3sXQPxiutcEzz00toxuQ92wLJlQLuwLlDOkP0HbP9HZYCJid
+	qgIDK/GTmtsV6h0d8F8uCbZXuAsklGLEEgtXh4pXLirT9wLbkzHjb/lEsAXDjgWfETphG+mscJ7DC
+	y3xDOqk5cRSRsN+VUYzQuLTQHh4m0C8HGaHh4blVNIhvaoortAuEBOnR3EEuh0y6dAmlSP4mXoH3x
+	VW703LnbgWUp5LpjoDHk/3YqtnYPQyYcA/EMsjVrXk1nWHtIc8cdwJK8LM3MOZBbC58j40VyzT/QX
+	eFvyXmTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVuZO-0000000CUtQ-35j9;
-	Thu, 09 Jan 2025 15:35:38 +0000
-Received: from mx.denx.de ([89.58.32.78])
+	id 1tVuaa-0000000CV65-2lJA;
+	Thu, 09 Jan 2025 15:36:52 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVuW8-0000000CUJe-1HVX
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 15:32:17 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2900C1040DBDB;
-	Thu,  9 Jan 2025 16:32:11 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1736436733;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=6qIQP4o8cPCcK84STUOS+5JskiZRRSumAKuNK/Xi2io=;
-	b=drknysd0IoZnLaRgsToztlyqJxLx4IHPiJhqIK3UmFsqqzRZOkWOKFbRxN8iNWWLneD7om
-	twjqlg62pARiKDodOxy7DMj5Gf9U7rP1B9YpjBdZyQwrvliKbbi9Ack8TUfL+ePJ7zrk1i
-	JSJUxxYErz+Eg+Jc+7Z7UESVgib4BBN7eblcvPrYDPt1vBdLyrx1d7JLOTAuVwRZGDG4jR
-	CWdlscCAMxYxUTLDohyFdAm68gRXqfBguMoHUfoa52FLxiIMl63VKN1RwbTiBgHtFJuMzm
-	UxXT9klNMQcTBYCRn+0bQfx0l9PvuXjEhwVX01EZiSswQ4YH6B1s+6pe3XoiYQ==
-Date: Thu, 9 Jan 2025 16:32:10 +0100
-From: Lukasz Majewski <lukma@denx.de>
-To: Fabio Estevam <festevam@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
- Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
- <kernel@pengutronix.de>, devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Stefan
- Wahren <wahrenst@gmx.net>
-Subject: Re: [PATCH v11 1/3] dt-bindings: display: Add
- powertip,{st7272|hx8238a} as DT Schema description
-Message-ID: <20250109163210.4c547941@wsk>
-In-Reply-To: <CAOMZO5ABPnB9ov7jtEmDSZ=efNh_yx3JcqqS_UMTXgie=8PcTA@mail.gmail.com>
-References: <20241107085705.490940-1-lukma@denx.de>
-	<20241209105240.72d8d84a@wsk>
-	<20241220112950.4673bb3f@wsk>
-	<20250109153702.2d149023@wsk>
-	<CAOMZO5ABPnB9ov7jtEmDSZ=efNh_yx3JcqqS_UMTXgie=8PcTA@mail.gmail.com>
-Organization: denx.de
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	id 1tVuZL-0000000CUsZ-3ZSy;
+	Thu, 09 Jan 2025 15:35:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1736436936; x=1767972936;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=SrcQ/8zYSyEihsRb2ykAIH/ByznPF+YacEjpgON4wFA=;
+  b=VwjIbgmW5FhpBV54O5kXvNjIjcIgl8u0fwvRMfroME+55ULp/gZQMC4d
+   EmEONZXgBY72YfTJgkvtWw9pplmSfTvAyLXdaHCGcgbY4iDHjgT0IsL9G
+   IXVFGFGuJjUR8xY+1tuybe2nTGvoJ8yvM3MqgcLYQHaBqLd35Qw30UCWw
+   gSxuGs1e0Uln88Sutk7kqxm7Fv09L5QW6XnFatmlVtPBbcZS3qvAd9SW/
+   YWeW2Ji23pnjMWW2xWDPkwPLSiZv/TRnI5+us3VISnxi1GHPrTVSK+6WP
+   VF/4Q15EvXE7AECoqh/naHdhuArFcxAFx3tOs1Hyi6tbTO9jVSU9kVYZS
+   g==;
+X-CSE-ConnectionGUID: 1HMftql2Qki65uhicLHggg==
+X-CSE-MsgGUID: Ke+F5Z3ITTm/dvLW08Ajtg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11310"; a="59174619"
+X-IronPort-AV: E=Sophos;i="6.12,301,1728975600"; 
+   d="scan'208";a="59174619"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jan 2025 07:35:21 -0800
+X-CSE-ConnectionGUID: YkkI/L/tSMG7jguLwGnmFQ==
+X-CSE-MsgGUID: MCwCzlA/TBWiqlR55nvWHw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="104308721"
+Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
+  by orviesa008.jf.intel.com with ESMTP; 09 Jan 2025 07:35:15 -0800
+Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tVuYy-000HkJ-0F;
+	Thu, 09 Jan 2025 15:35:12 +0000
+Date: Thu, 9 Jan 2025 23:34:57 +0800
+From: kernel test robot <lkp@intel.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	chunkuang.hu@kernel.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	p.zabel@pengutronix.de, airlied@gmail.com, simona@ffwll.ch,
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com, ck.hu@mediatek.com,
+	jitao.shi@mediatek.com, jie.qiu@mediatek.com,
+	junzhi.zhao@mediatek.com, dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kernel@collabora.com, dmitry.baryshkov@linaro.org,
+	lewis.liao@mediatek.com, ives.chenjh@mediatek.com,
+	tommyyl.chen@mediatek.com, jason-jh.lin@mediatek.com
+Subject: Re: [PATCH v4 02/34] drm/mediatek: mtk_dpi: Add support for Pattern
+ Generator in debugfs
+Message-ID: <202501092326.5Xw3bp4p-lkp@intel.com>
+References: <20250108112744.64686-3-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/4jR4l4k1/ssXQBq5AITFnzz";
- protocol="application/pgp-signature"; micalg=pgp-sha512
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250108112744.64686-3-angelogioacchino.delregno@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_073216_494528_FBE5D144 
-X-CRM114-Status: GOOD (  14.64  )
+X-CRM114-CacheID: sfid-20250109_073536_002799_BF796CBE 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,75 +99,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/4jR4l4k1/ssXQBq5AITFnzz
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Hi AngeloGioacchino,
 
-Hi Fabio,
+kernel test robot noticed the following build errors:
 
-> Hi Lukasz,
->=20
-> On Thu, Jan 9, 2025 at 11:37=E2=80=AFAM Lukasz Majewski <lukma@denx.de> w=
-rote:
->=20
-> > Gentle ping on this patch ... =20
->=20
-> You missed copying the drm folks:
->=20
+[auto build test ERROR on robh/for-next]
+[also build test ERROR on linus/master v6.13-rc6 next-20250109]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Ech....
+url:    https://github.com/intel-lab-lkp/linux/commits/AngeloGioacchino-Del-Regno/dt-bindings-display-mediatek-dpi-Add-MT8195-and-MT8188-compat/20250108-193136
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
+patch link:    https://lore.kernel.org/r/20250108112744.64686-3-angelogioacchino.delregno%40collabora.com
+patch subject: [PATCH v4 02/34] drm/mediatek: mtk_dpi: Add support for Pattern Generator in debugfs
+config: i386-buildonly-randconfig-003-20250109 (https://download.01.org/0day-ci/archive/20250109/202501092326.5Xw3bp4p-lkp@intel.com/config)
+compiler: clang version 19.1.3 (https://github.com/llvm/llvm-project ab51eccf88f5321e7c60591c5546b254b6afab99)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250109/202501092326.5Xw3bp4p-lkp@intel.com/reproduce)
 
-Thanks for pointing it out...
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202501092326.5Xw3bp4p-lkp@intel.com/
 
-> ./scripts/get_maintainer.pl
-> Documentation/devicetree/bindings/display/panel Neil Armstrong
-> <neil.armstrong@linaro.org> (maintainer:DRM PANEL DRIVERS) Jessica
-> Zhang <quic_jesszhan@quicinc.com> (reviewer:DRM PANEL DRIVERS) David
-> Airlie <airlied@gmail.com> (maintainer:DRM DRIVERS) Simona Vetter
-> <simona@ffwll.ch> (maintainer:DRM DRIVERS) Maarten Lankhorst
-> <maarten.lankhorst@linux.intel.com> (maintainer:DRM DRIVERS AND MISC
-> GPU PATCHES) Maxime Ripard <mripard@kernel.org> (maintainer:DRM
-> DRIVERS AND MISC GPU PATCHES) Thomas Zimmermann <tzimmermann@suse.de>
-> (maintainer:DRM DRIVERS AND MISC GPU PATCHES)
-> Rob Herring <robh@kernel.org> (maintainer:OPEN FIRMWARE AND FLATTENED
-> DEVICE TREE BINDINGS)
-> Krzysztof Kozlowski <krzk+dt@kernel.org> (maintainer:OPEN FIRMWARE AND
-> FLATTENED DEVICE TREE BINDINGS)
-> Conor Dooley <conor+dt@kernel.org> (maintainer:OPEN FIRMWARE AND
-> FLATTENED DEVICE TREE BINDINGS)
-> dri-devel@lists.freedesktop.org (open list:DRM PANEL DRIVERS)
-> devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED
-> DEVICE TREE BINDINGS)
-> linux-kernel@vger.kernel.org (open list)
+All errors (new ones prefixed by >>):
+
+   In file included from drivers/gpu/drm/mediatek/mtk_dpi.c:22:
+   In file included from include/drm/drm_atomic_helper.h:31:
+   In file included from include/drm/drm_crtc.h:32:
+   In file included from include/drm/drm_modes.h:33:
+   In file included from include/drm/drm_connector.h:32:
+   In file included from include/drm/drm_util.h:36:
+   In file included from include/linux/kgdb.h:19:
+   In file included from include/linux/kprobes.h:28:
+   In file included from include/linux/ftrace.h:13:
+   In file included from include/linux/kallsyms.h:13:
+   In file included from include/linux/mm.h:2223:
+   include/linux/vmstat.h:518:36: warning: arithmetic between different enumeration types ('enum node_stat_item' and 'enum lru_list') [-Wenum-enum-conversion]
+     518 |         return node_stat_name(NR_LRU_BASE + lru) + 3; // skip "nr_"
+         |                               ~~~~~~~~~~~ ^ ~~~
+>> drivers/gpu/drm/mediatek/mtk_dpi.c:175:9: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     175 |                 val = FIELD_PREP(DPI_PAT_SEL, type) | DPI_PAT_EN;
+         |                       ^
+>> drivers/gpu/drm/mediatek/mtk_dpi.c:794:8: error: call to undeclared function 'FIELD_GET'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     794 |         val = FIELD_GET(DPI_PAT_SEL, val);
+         |               ^
+   1 warning and 2 errors generated.
 
 
+vim +/FIELD_PREP +175 drivers/gpu/drm/mediatek/mtk_dpi.c
 
+   169	
+   170	static void mtk_dpi_test_pattern_en(struct mtk_dpi *dpi, u8 type, bool enable)
+   171	{
+   172		u32 val;
+   173	
+   174		if (enable)
+ > 175			val = FIELD_PREP(DPI_PAT_SEL, type) | DPI_PAT_EN;
+   176		else
+   177			val = 0;
+   178	
+   179		mtk_dpi_mask(dpi, DPI_PATTERN0, val, DPI_PAT_SEL | DPI_PAT_EN);
+   180	}
+   181	
 
-Best regards,
-
-Lukasz Majewski
-
---
-
-DENX Software Engineering GmbH,      Managing Director: Erika Unter
-HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
-Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
-
---Sig_/4jR4l4k1/ssXQBq5AITFnzz
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmd/6/oACgkQAR8vZIA0
-zr0f4gf/f8yftAgVjy6z69N/UrrRfN2tMTztQtXrjdV0XCD5sm67rgsZL5NQKzet
-2AzvICsWK+dZYUSRXnolPAKQEsOiRhBQskEi4q6GlmnHYQE7cIH8P9pTo01QXmYv
-K6qYnujJDAD0sqB1cVPbRVcn0a4vKq3oQqJ8EkfZcJhmkZ90gbheaoYri5rcat3z
-qw5UolyLN0xQ0WH49k2fWUDIVh5gwCdmrbOCfB8zi6rTjdbpAThRSim7ZVBqVblC
-y4mT4zfG3xd2x71vvpNb95bcgfw5sG/slrQaZOU6W+BlmL3ov9MHBFOk1xdQIUEe
-yIT60upWr2ovwklJlyeKFywq/99fwA==
-=TdZH
------END PGP SIGNATURE-----
-
---Sig_/4jR4l4k1/ssXQBq5AITFnzz--
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
