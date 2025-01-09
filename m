@@ -4,50 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15646E7719A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 22:09:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62699E7719A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 22:40:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=n+UpZRitkq1wJyiMqH2WXOFToiA2mvPTkbWiBtyfrI4=; b=t0nJQby1qQbKFIApM0ebAMXNdZ
-	Jwb65vOfeYBwWcSpYKwn0IvtrDHTg5mfLLY+MtZszEm7Onl/03vpJECHIR/C/9uAvs+/jcwdr+ESk
-	tUYYTmPmzPAi0B8eZUUBcKGX5YSLcKbZalBKmog9v07oQpfVQdeur4e3JdFGB5IpP5uQSfeIjNIYJ
-	SBMgYu6yPjnPMrQboP5CQAi8LAqoAZnNCZF0qKcVyTvY4HUe9ygdbQTh/zVPq18LhDA3J72oxmtK3
-	aYGoVi37Z9gb0dxV62dCpEwKgQ93gK8mfb7+5qvVmK2okqjtaoUv8IbzNor7fMdmcJltu9836NiQq
-	PYR+6Qbg==;
+	bh=7YuNEGJLSMYthoX9F6kNyFu034ez4AkZMCZy5RLVGh4=; b=062UNmmqmXBiUj20HTzgx4Xf3t
+	gtBwqAZEVDmDMV213UYdfb+wNp9tai/Qzkkt23uXvazqOJUkN4aaQQUsAxjEZUup7F7revbeVyH07
+	lV4Bbt5oWPPlTUCZW+/UL0JtDj0Ykfst9GYAKTAEIUE0dcB5xjNnJxfSEXyrbymiSTltkUH94dStV
+	1LtQtsJXHd7t5PgQyjvIYQ4eS2tyBTUkyqNzwLLu1ymIMIT306d3hxYDV0d7a7yd66xa94NeH+DrD
+	cVG192i8ZzaTZiGDl7BmvgTJKenUSv+6SUxxrH8G9+WlgB24spkj6VgJu2YlSNUs5wN+yEr/Moiuu
+	BY6/XSwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW0ib-0000000DQzp-0lly;
-	Thu, 09 Jan 2025 22:09:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW0hM-0000000DQtn-3D2g
+	id 1tW1CK-0000000DTSR-3PLV;
+	Thu, 09 Jan 2025 22:40:16 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tW1B7-0000000DTEP-0sj8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 22:08:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E35381655;
-	Thu,  9 Jan 2025 14:08:42 -0800 (PST)
-Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D6F9F3F59E;
-	Thu,  9 Jan 2025 14:08:13 -0800 (PST)
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: gregkh@linuxfoundation.org
-Cc: coresight@lists.linaro.org,
+	Thu, 09 Jan 2025 22:39:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2EBBBA40C10;
+	Thu,  9 Jan 2025 22:37:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3941EC4CED2;
+	Thu,  9 Jan 2025 22:38:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736462339;
+	bh=u9tRbb9joTkBrv5uTYIVoS7cPhgcAnfwGtXhLaCQmdQ=;
+	h=From:To:Cc:Subject:Date:From;
+	b=KSPRf2DsN86DG4BtdFwintfzn/Hd6oIuL3Co8GvBQBja2IgKwhHnvj9SSROXMmHkK
+	 Mwk+ngmqryvXqhslWgGN4ulJO+XOERp/Bjz83qNgZ8TBhVXh4yrWQeOSIOJoG2GymG
+	 b21TrnGWGlKQnH3URURfRxFjIBDftL5AwZbZYPQCgPfpQofo1MnYPLz/oIp6+xLBLl
+	 qtxBmuAasWS0ZAHQJIxQUykAX7ISOM8yyLJ7lNEwb+vXc3MQdWOxu141qlC/jZ6pDu
+	 AIupBZSxeOIAQkKpBugrkuTZHH3Ld0/BuFxrpGCm+EaUr/MJiucpbFcpV1mylbdIOB
+	 xjk21aA+dxGTw==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
-	suzuki.poulose@arm.com
-Subject: [GIT PULL] coresight: Updates for Linux v6.14
-Date: Thu,  9 Jan 2025 22:07:32 +0000
-Message-Id: <20250109220732.2032306-1-suzuki.poulose@arm.com>
-X-Mailer: git-send-email 2.34.1
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] KVM: arm64: Explicitly handle BRBE traps as UNDEFINED
+Date: Thu,  9 Jan 2025 16:38:36 -0600
+Message-ID: <20250109223836.419240-1-robh@kernel.org>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_140816_847777_D3BC98F1 
-X-CRM114-Status: UNSURE (   8.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250109_143901_373817_969A571B 
+X-CRM114-Status: GOOD (  14.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,74 +78,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Greg,
+From: Mark Rutland <mark.rutland@arm.com>
 
-Please find the changes targeting v6.14 for the CoreSight self hosted tracing
-subsystem.
+The Branch Record Buffer Extension (BRBE) adds a number of system
+registers and instructions which we don't currently intend to expose to
+guests. Our existing logic handles this safely, but this could be
+improved with some explicit handling of BRBE.
 
-Kindly pull
+KVM currently hides BRBE from guests: the cpufeature code's
+ftr_id_aa64dfr0[] table doesn't have an entry for the BRBE field, and so
+this will be zero in the sanitised value of ID_AA64DFR0 exposed to
+guests via read_sanitised_id_aa64dfr0_el1().
 
-Suzuki
+KVM currently traps BRBE usage from guests: the default configuration of
+the fine-grained trap controls HDFGRTR_EL2.{nBRBDATA,nBRBCTL,nBRBIDR}
+and HFGITR_EL2.{nBRBINJ_nBRBIALL} cause these to be trapped to EL2.
 
+Well-behaved guests shouldn't try to use the registers or instructions,
+but badly-behaved guests could use these, resulting in unnecessary
+warnings from KVM before it injects an UNDEF, e.g.
 
+| kvm [197]: Unsupported guest access at: 401c98
+|  { Op0( 2), Op1( 1), CRn( 9), CRm( 0), Op2( 0), func_read },
+| kvm [197]: Unsupported guest access at: 401d04
+|  { Op0( 2), Op1( 1), CRn( 9), CRm( 0), Op2( 1), func_read },
+| kvm [197]: Unsupported guest access at: 401d70
+|  { Op0( 2), Op1( 1), CRn( 9), CRm( 2), Op2( 0), func_read },
+| kvm [197]: Unsupported guest access at: 401ddc
+|  { Op0( 2), Op1( 1), CRn( 9), CRm( 1), Op2( 0), func_read },
+| kvm [197]: Unsupported guest access at: 401e48
+|  { Op0( 2), Op1( 1), CRn( 9), CRm( 1), Op2( 1), func_read },
+| kvm [197]: Unsupported guest access at: 401eb4
+|  { Op0( 2), Op1( 1), CRn( 9), CRm( 1), Op2( 2), func_read },
+| kvm [197]: Unsupported guest access at: 401f20
+|  { Op0( 2), Op1( 1), CRn( 9), CRm( 0), Op2( 2), func_read },
+| kvm [197]: Unsupported guest access at: 401f8c
+|  { Op0( 1), Op1( 1), CRn( 7), CRm( 2), Op2( 4), func_write },
+| kvm [197]: Unsupported guest access at: 401ff8
+|  { Op0( 1), Op1( 1), CRn( 7), CRm( 2), Op2( 5), func_write },
 
-The following changes since commit fac04efc5c793dccbd07e2d59af9f90b7fc0dca4:
+As with other features that we know how to handle, these warnings aren't
+particularly interesting, and we can simply treat these as UNDEFINED
+without any warning. Add the necessary fine-grained undef configuration
+to make this happen, as suggested by Marc Zyngier:
 
-  Linux 6.13-rc2 (2024-12-08 14:03:39 -0800)
+  https://lore.kernel.org/linux-arm-kernel/86r0czk6wd.wl-maz@kernel.org/
 
-are available in the Git repository at:
+At the same time, update read_sanitised_id_aa64dfr0_el1() to hide BRBE
+from guests, as we do for SPE. This will prevent accidentally exposing
+BRBE to guests if/when ftr_id_aa64dfr0[] gains a BRBE entry.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/coresight/linux.git tags/coresight-next-v6.14
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+Based on discussion with Marc, I think this doesn't need to wait on BRBE
+support in perf, so sending it now by itself.
+---
+ arch/arm64/kvm/sys_regs.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-for you to fetch changes up to 56e14a21cee4ea6074b956a9ff2e406de5ad6548:
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 83c6b4a07ef5..bc91ddc75487 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -1806,6 +1806,9 @@ static u64 sanitise_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu, u64 val)
+ 	/* Hide SPE from guests */
+ 	val &= ~ID_AA64DFR0_EL1_PMSVer_MASK;
+ 
++	/* Hide BRBE from guests */
++	val &= ~ID_AA64DFR0_EL1_BRBE_MASK;
++
+ 	return val;
+ }
+ 
+@@ -4972,6 +4975,14 @@ void kvm_calculate_traps(struct kvm_vcpu *vcpu)
+ 		kvm->arch.fgu[HAFGRTR_GROUP] |= ~(HAFGRTR_EL2_RES0 |
+ 						  HAFGRTR_EL2_RES1);
+ 
++	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, BRBE, IMP)) {
++		kvm->arch.fgu[HDFGRTR_GROUP] |= (HDFGRTR_EL2_nBRBDATA  |
++						 HDFGRTR_EL2_nBRBCTL   |
++						 HDFGRTR_EL2_nBRBIDR);
++		kvm->arch.fgu[HFGITR_GROUP] |= (HFGITR_EL2_nBRBINJ |
++						HFGITR_EL2_nBRBIALL);
++	}
++
+ 	set_bit(KVM_ARCH_FLAG_FGU_INITIALIZED, &kvm->arch.flags);
+ out:
+ 	mutex_unlock(&kvm->arch.config_lock);
+-- 
+2.45.2
 
-  coresight-tpda: Optimize the function of reading element size (2024-12-13 10:25:15 +0000)
-
-----------------------------------------------------------------
-coresight: Updates for Linux v6.14
-
-Coresight self-hosted tracing subsystem updates for v6.14 includes:
-
-  - Support for static traceid allocation for devices
-  - Support for impdef, static trace filtering in Qualcomm replicators
-  - Miscellaneous fixes
-
-Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-
-----------------------------------------------------------------
-James Clark (1):
-      coresight: Drop atomics in connection refcounts
-
-Mao Jinlong (3):
-      dt-bindings: arm: Add arm,static-trace-id for coresight dummy source
-      coresight: Add support to get static id for system trace sources
-      coresight: dummy: Add static trace id support for dummy source
-
-Pei Xiao (1):
-      coresight: Fix dsb_mode_store() unsigned val is never less than zero
-
-Songwei Chai (1):
-      Coresight: Narrow down the matching range of tpdm
-
-Tao Zhang (4):
-      dt-bindings: arm: qcom,coresight-static-replicator: Add property for source filtering
-      coresight: Add a helper to check if a device is source
-      coresight: Add support for trace filtering by source
-      coresight-tpda: Optimize the function of reading element size
-
- .../sysfs-bus-coresight-devices-dummy-source       |  15 +++
- .../bindings/arm/arm,coresight-dummy-source.yaml   |   6 ++
- .../arm/arm,coresight-static-replicator.yaml       |  19 +++-
- drivers/hwtracing/coresight/coresight-core.c       | 113 +++++++++++++++++----
- drivers/hwtracing/coresight/coresight-dummy.c      |  81 +++++++++++++--
- drivers/hwtracing/coresight/coresight-funnel.c     |   6 +-
- drivers/hwtracing/coresight/coresight-platform.c   |  27 +++++
- drivers/hwtracing/coresight/coresight-replicator.c |   6 +-
- drivers/hwtracing/coresight/coresight-tpda.c       |  19 +++-
- drivers/hwtracing/coresight/coresight-tpdm.c       |   7 +-
- drivers/hwtracing/coresight/coresight-trace-id.c   |  43 +++++---
- drivers/hwtracing/coresight/coresight-trace-id.h   |   9 ++
- include/linux/coresight.h                          |  17 +++-
- 13 files changed, 309 insertions(+), 59 deletions(-)
- create mode 100644 Documentation/ABI/testing/sysfs-bus-coresight-devices-dummy-source
 
