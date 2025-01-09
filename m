@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24EFAE77199
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 16:55:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15F9EE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 16:57:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q8mSLMBktMbzDleBxc69wxcwOxXrMut2APraWinG8Yc=; b=UkeKiYyKEA5UFsrBq50j2mHwUH
-	UpPKvWwTxY24W5IL/wk//udWFfEvkhiuCmS1ybTxmMlmexGKtD2W4qv4P8kf+UKPYfXVdK9kjhRM3
-	zL3K6KZ1M42YB9ExoS77yhjK5DbyjYfJ5ytzqrRY+nSFQlvEOCejSNqDRamUfY4VqT6RiD9Y8Q9mG
-	w8IUjBNcKIJPe3ShB/V1JAScO2nfziz3u5n9d43qrF9jFwCr1ac4oOzEGWSl0N0CVQuxZ+vh76aum
-	NP23os/1eqlxPCVWRFbF25FzzgxZ5oQtvk2pcWOnLMPbUps6GFCbrQs5ztDB0h2NSXX7QLvQk9w/9
-	M3DHdtqA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4+j3aAuysyJMS77Wa6AcpualkU8jFRxYHdyL+QUwlaY=; b=BqbkCiB8pWDznzhOBk6gO+eloq
+	tliTty1bhLt3Z3mtcCYSzIiLkKbV9XjVg9y/xMVVnphzgVr003j0AxClGRF0FOHol8mKAgjJCTYcK
+	3cKSWoHnlqhQRotl6AUlsfCQx3PaVWFknShqCcL61x/14GYbyTmARCWLA4RUBebpcVw4jIApjYyPd
+	IGCp1JLS+WcAsLije/JLh1JzzDpRG7TwQPGCvrWIIgpTwJkI5AzFx6zhvdtzrloMH3Ug5OC98C6ZB
+	GbrCRcrCm2Oaqc1+Z2n5V+9iBuN2/u8APlUvtmWfe7NC/KU6fEbV3l8sgvoZ/BA1AB9LAvQXCKUbn
+	lgfme29w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVvos-0000000Cl3l-35Re;
-	Thu, 09 Jan 2025 16:55:42 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.144.207])
+	id 1tVvq4-0000000ClNA-1S9q;
+	Thu, 09 Jan 2025 16:56:56 +0000
+Received: from saphodev.broadcom.com ([192.19.144.205] helo=relay.smtp-ext.broadcom.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVvne-0000000Ckqb-21yI
+	id 1tVvne-0000000CkqZ-22DW
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 09 Jan 2025 16:54:28 +0000
 Received: from mail-lvn-it-01.lvn.broadcom.net (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id A74E0C003ACE;
-	Thu,  9 Jan 2025 08:54:23 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com A74E0C003ACE
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id CE6ACC0000E8;
+	Thu,  9 Jan 2025 08:54:22 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com CE6ACC0000E8
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1736441663;
-	bh=gDEC6eC+hE/3rES1P+/GSapucTV+adxfwsIx2MfNOTE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=GafJDr1M7LLL8Re1WOBG//t/CK5O5LXkj23wghl1l1b2R3G0f2PhuavAuM1HotAKR
-	 nEgGHP2iSD8mzeWz7oP7acYTGpe3VPk3voOV6b/h3DgwjQbZ+JvXYu+bJmEuAVazrj
-	 ud2oKTCWavkpWEmmikeDeoyTHRAWFohBeAmh1Xuc=
+	s=dkimrelay; t=1736441662;
+	bh=SUejWQaCCQ6UOnlEIF8Y+gc/yElELSYPKQtYJBlFtf4=;
+	h=From:To:Cc:Subject:Date:From;
+	b=kV7xB6JJuMPSScCf/QhQbMLjsitXPYL4hv+kABwyIm1cbIjg6l+/kb1Vd092YWPb8
+	 Vu+vKfwY8tJ3QhT8fb20fa/174LzSo4n2E8OaYlJYXBOg7gX+BRfolIyu+RnbqNDcp
+	 5yqNNviGmgn9Xoq8WBKv7s81grk41SYj0QZypt/s=
 Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail-lvn-it-01.lvn.broadcom.net (Postfix) with ESMTPSA id 3F51018041CAC6;
-	Thu,  9 Jan 2025 08:54:23 -0800 (PST)
+	by mail-lvn-it-01.lvn.broadcom.net (Postfix) with ESMTPSA id 63D2418041CAC6;
+	Thu,  9 Jan 2025 08:54:22 -0800 (PST)
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 To: stable@vger.kernel.org
 Cc: Ard Biesheuvel <ardb@kernel.org>,
@@ -54,23 +54,21 @@ Cc: Ard Biesheuvel <ardb@kernel.org>,
 	Florian Fainelli <florian.fainelli@broadcom.com>,
 	Baruch Siach <baruch@tkos.co.il>,
 	Petr Tesarik <ptesarik@suse.com>,
-	Mark Rutland <mark.rutland@arm.com>,
 	Joey Gouly <joey.gouly@arm.com>,
 	"Mike Rapoport (IBM)" <rppt@kernel.org>,
+	Baoquan He <bhe@redhat.com>,
 	Yang Shi <yang@os.amperecomputing.com>,
 	linux-arm-kernel@lists.infradead.org (moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)),
 	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH] arm64: mm: account for hotplug memory when randomizing the linear region
-Date: Thu,  9 Jan 2025 08:54:17 -0800
-Message-ID: <20250109165419.1623683-2-florian.fainelli@broadcom.com>
+Subject: [PATCH stable 5.4] arm64: mm: account for hotplug memory when randomizing the linear region
+Date: Thu,  9 Jan 2025 08:54:16 -0800
+Message-ID: <20250109165419.1623683-1-florian.fainelli@broadcom.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250109165419.1623683-1-florian.fainelli@broadcom.com>
-References: <20250109165419.1623683-1-florian.fainelli@broadcom.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_085426_799703_F85F1C6D 
-X-CRM114-Status: GOOD (  18.18  )
+X-CRM114-CacheID: sfid-20250109_085426_799725_70605D08 
+X-CRM114-Status: GOOD (  17.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,10 +116,10 @@ Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
  1 file changed, 8 insertions(+), 5 deletions(-)
 
 diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-index 80cc79760e8e..09c219aa9d78 100644
+index cbcac03c0e0d..a6034645d6f7 100644
 --- a/arch/arm64/mm/init.c
 +++ b/arch/arm64/mm/init.c
-@@ -401,15 +401,18 @@ void __init arm64_memblock_init(void)
+@@ -392,15 +392,18 @@ void __init arm64_memblock_init(void)
  
  	if (IS_ENABLED(CONFIG_RANDOMIZE_BASE)) {
  		extern u16 memstart_offset_seed;
