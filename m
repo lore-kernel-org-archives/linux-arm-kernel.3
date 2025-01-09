@@ -4,67 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DF40E7719A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 22:47:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8552CE7719A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 22:49:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NWcauDOjKnYU4RcQC5PZBZLk9Ag4Oc862avoOH5RmR8=; b=FTbT/szaVjLyCOPf8jQxaa/4sw
-	IVPq1leX5stAj5pDqGgO1kl7VIcod5zWeCf1oVLEMfbpKG52un98tAGn3yw8WOWm8N/9M7ogHG7si
-	CJrUB1wByRqXC62L168gZJsQRGq1a80UzNKihHcWjisp/xroat3eISZGnMfYWKxVsJmUFEtGait8K
-	coUOFFndqXPYWalXMLlh0jtogajfzdBkuVDo1nuovvzuGe7mRbZIUj3r1T7W1R12mgBS1lZzJv1rC
-	HJSA9hos6i/bY7VheKfNwZaH7/yiV1O4Yxrqwx7eXKd/1kG+SL1il8GISoNlmXMDlGKKbeA8docBi
-	0LaDHRtg==;
+	bh=tcQiAladiMvBqV5ZnCyr3LaD+NU0u/sAizfHBq6hmSk=; b=X2FuHTkTjY3Ay5ZcrK6oaqvHaG
+	SNXL84MFm7iwQQpa10rOqzMHaC83ta65FPvz8KlwC4nw3pWweqNtOEj2THZaEN2mWowSze3CC1tge
+	HXil0wtQjc6lSSKjrMbboHPGTbBMTPpAketttma5a/tGLvIH3HhRHWVcqWc5mSe50J4pRk0qUmO5T
+	uW9VU9VMTagnA4OuGYc5JuFsEBumuFykdqJe3rtc8bydmI5GImvx1ObnPRB0Lc/oG1mYokGltmT+9
+	sY7a/JIk8Zi9lyqaw2Wl6VFPSx3DAnt1G7gLi+rPDvgvbxqM+hgoeqa17T4YDDuxgEkpdmxz0QONl
+	g1yGdiKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW1JN-0000000DUJE-26yD;
-	Thu, 09 Jan 2025 22:47:33 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tW1L6-0000000DUT3-21FL;
+	Thu, 09 Jan 2025 22:49:20 +0000
+Received: from relay.smtp-ext.broadcom.com ([192.19.144.209])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW1IA-0000000DUAr-1dp9;
-	Thu, 09 Jan 2025 22:46:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=NWcauDOjKnYU4RcQC5PZBZLk9Ag4Oc862avoOH5RmR8=; b=X0BI3bseCuXzMdWwiok/8TEWjn
-	akAG6GzKjYk4LPTUFpJKrr3V+6LSnWTK9rSiUHwLgQo+QlnQ6Exvjq6gJSEWgYpOOp/kFM+ltqVSj
-	LmkAC8nxr2/OwFP2AhAnue18sS5+F1eUo5I7p/t073PJS+ed8BV13kORxJ42PGPXOjMuzeq1gC3gI
-	o00pJBBJtN/1lzKrY1yyaIE1aFwYu0bnNgaadY70moQUSR5dFBcCT1eg+XuOBaqGXhDw8xWRpeiE7
-	9TDh8db7qb1eaQrwNzpyzE5tniEk0NqnYTYGeyz6ggO9Tdv8FdkGU5B6ppurmtt/FPaCsEHLqC0Q3
-	0PJOPS4Q==;
-Received: from i5e860d05.versanet.de ([94.134.13.5] helo=localhost.localdomain)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tW1I3-0005ho-TG; Thu, 09 Jan 2025 23:46:11 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: Jimmy Hon <honyuenkwun@gmail.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	Ondrej Jirman <megi@xff.cz>,
+	id 1tW1Js-0000000DUOF-3Tmg
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Jan 2025 22:48:06 +0000
+Received: from mail-lvn-it-01.lvn.broadcom.net (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 1F3D4C002818;
+	Thu,  9 Jan 2025 14:48:02 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 1F3D4C002818
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
+	s=dkimrelay; t=1736462882;
+	bh=CK72pTv1jRJuSZTidr21qWWo2R8tycAcuLfjUB9JQgQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=VJptsJ3JlowpgALf+wJjUqx+ETN2S/xtx3xEfGEVntSKuBNeRfXYi5GH2zd4aLIeX
+	 iYeAZm57iuXrcfq82YnLK0fc0BDgKHt1XKX655ZNO3TDblCQg+g9Prm45fZSw8Bxmd
+	 NH9rbHAN7/x7Zbu3XTH9XSbw4/gyp2w6aB5WlUHI=
+Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail-lvn-it-01.lvn.broadcom.net (Postfix) with ESMTPSA id BCCF218041CACA;
+	Thu,  9 Jan 2025 14:48:01 -0800 (PST)
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+To: soc@kernel.org
+Cc: Rosen Penev <rosenp@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Sam Edwards <cfsworks@gmail.com>,
+	Sam Edwards <CFSworks@gmail.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
 	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: (subset) [PATCH v8 0/4] Orange Pi 5 Max
-Date: Thu,  9 Jan 2025 23:46:01 +0100
-Message-ID: <173646269067.2939804.12592916938678988873.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20250109051619.1825-1-honyuenkwun@gmail.com>
-References: <20250109051619.1825-1-honyuenkwun@gmail.com>
+	arnd@arndb.de,
+	olof@lixom.net,
+	khilman@kernel.org,
+	bcm-kernel-feedback-list@broadcom.com
+Subject: [GIT PULL 2/2] Broadcom devicetree-arm64 changes for 6.14
+Date: Thu,  9 Jan 2025 14:47:56 -0800
+Message-ID: <20250109224756.3632025-2-florian.fainelli@broadcom.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250109224756.3632025-1-florian.fainelli@broadcom.com>
+References: <20250109224756.3632025-1-florian.fainelli@broadcom.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_144618_428653_7250AFE5 
-X-CRM114-Status: GOOD (  12.66  )
+X-CRM114-CacheID: sfid-20250109_144805_227505_AEFDD1F4 
+X-CRM114-Status: GOOD (  13.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,31 +82,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The following changes since commit 40384c840ea1944d7c5a392e8975ed088ecf0b37:
 
-On Wed, 08 Jan 2025 23:16:14 -0600, Jimmy Hon wrote:
-> Add device-tree for Orange Pi 5 Max
-> 
-> Orange Pi now has 3 SBCs using the RK3588 SOC. Refactor the common parts
-> of the 5 Plus DTS so it can be shared with the 5 Max and the 5 Ultra.
-> The 5 Max and 5 Ultra have a similar credit-card sized board layout and
-> will also share a DTSI between them.
-> 
-> [...]
+  Linux 6.13-rc1 (2024-12-01 14:28:56 -0800)
 
-Applied, thanks!
+are available in the Git repository at:
 
-[1/4] arm64: dts: rockchip: refactor common rk3588-orangepi-5.dtsi
-      commit: ea63f4666e483b48a49d9774d8c680f81165ff06
-[2/4] dt-bindings: arm: rockchip: Add Xunlong Orange Pi 5 Max
-      commit: 6327f2d83dce514d43134dedb766df000420b779
-[3/4] arm64: dts: rockchip: Add Orange Pi 5 Max board
-      commit: c600d252dc52ffc29982ee6873b6eee064193752
+  https://github.com/Broadcom/stblinux.git tags/arm-soc/for-6.14/devicetree-arm64
 
-The whole hdmi1 thing still needs to wait for the phy maintainer to
-pick up phy driver patches, so I've only taken the first patches
-for now.
+for you to fetch changes up to f5ce990af7cf9ced0b3459f3d9aed0a27a74d00c:
 
-Best regards,
--- 
-Heiko Stuebner <heiko@sntech.de>
+  arm64: dts: bcm4908: nvmem-layout conversion (2024-12-17 11:39:21 -0800)
+
+----------------------------------------------------------------
+This pull request contains Broadcom ARM64-based SoCs Device Tree updates
+for 6.14:
+
+- Dave adds the display pipeline DT nodes on BCM2712 (Raspberry Pi 5)
+
+- Rob removes some undocumented properties
+
+- Same ensures that the CFE stub area is reserved to allow secondary
+  CPUs to be successfully brought up in Linux, also making sure that the
+  address used in the spin table is also carved out. Finally he adds
+  support for the Zyxel EX3510-B router using BCM4906
+
+- Rosen converts the BCM4908 platforms to use the more flexible
+  nvmem-layout representation
+
+----------------------------------------------------------------
+Dave Stevenson (3):
+      arm64: dts: broadcom: Add firmware clocks and power nodes to Pi5 DT
+      arm64: dts: broadcom: Add display pipeline support to BCM2712
+      arm64: dts: broadcom: Add DT for D-step version of BCM2712
+
+Rob Herring (Arm) (1):
+      arm64: dts: broadcom: Remove unused and undocumented properties
+
+Rosen Penev (1):
+      arm64: dts: bcm4908: nvmem-layout conversion
+
+Sam Edwards (4):
+      arm64: dts: broadcom: bcmbca: bcm4908: Reserve CFE stub area
+      arm64: dts: broadcom: bcmbca: bcm4908: Protect cpu-release-addr
+      dt-bindings: arm64: bcmbca: Add Zyxel EX3510-B based on BCM4906
+      arm64: dts: broadcom: bcmbca: bcm4908: Add DT for Zyxel EX3510-B
+
+ .../devicetree/bindings/arm/bcm/brcm,bcmbca.yaml   |   1 +
+ arch/arm64/boot/dts/broadcom/Makefile              |   1 +
+ arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts |  37 ++++
+ arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts   |  42 +++++
+ arch/arm64/boot/dts/broadcom/bcm2712.dtsi          | 193 +++++++++++++++++++-
+ arch/arm64/boot/dts/broadcom/bcmbca/Makefile       |   1 +
+ .../dts/broadcom/bcmbca/bcm4906-netgear-r8000p.dts |  12 +-
+ .../dts/broadcom/bcmbca/bcm4906-zyxel-ex3510b.dts  | 196 +++++++++++++++++++++
+ arch/arm64/boot/dts/broadcom/bcmbca/bcm4908.dtsi   |  18 +-
+ .../arm64/boot/dts/broadcom/northstar2/ns2-svk.dts |   2 -
+ .../arm64/boot/dts/broadcom/northstar2/ns2-xmc.dts |   1 -
+ arch/arm64/boot/dts/broadcom/northstar2/ns2.dtsi   |   2 -
+ 12 files changed, 488 insertions(+), 18 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
+ create mode 100644 arch/arm64/boot/dts/broadcom/bcmbca/bcm4906-zyxel-ex3510b.dts
 
