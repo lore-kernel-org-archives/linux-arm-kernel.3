@@ -4,122 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67A9CE77199
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 04:07:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D959E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 04:37:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sEUvxAlaFrOzDB5FB/QVUuqwckCcowLo9iu/iZGaWU4=; b=DcliWjE0Papc6OIibc5FF1x9Hu
-	cDfgWGxum1kLUPPvbjFreR6jzvaUfmWjqzbRtKDZrCJyFJivKmfIvKnYLtvLgMnMkeCpGpR/a8I4r
-	YelUAY/sX+KMiJnPPfj7rBLtondqQFxYIPot76FZR8LPHfi9BKPrTj9PZ72fn80E80x3iW9TVXk/a
-	q4wwMpWg3R0nT2uJxdU8JTou/n1dUeFBZ3GAjHlXlRbmKwqy4HXelUAwOMA2bqUtX2/UTareJotKJ
-	3/5TheWswaIY7whZv6ccK7XhIxZDr244YqVWQAwytikgYmArNUNyJmg4pPlzpTy4zxLXSR+nMce6t
-	bn90OtGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kOAA9iSyzFQMTnJ/IrrO9xw8dXd24x9YPykOwNf/caA=; b=x9N2QqOJBC+mTwN9Px26cG8v5V
+	gl5OaRvTsXW3BvXkPsguGUW7O02L1jeWL0y1niEHEUDiCYMWVxves01M+oOxCCdQWnyeL5XrbJEc7
+	Tkjvz1Hvvd/ddpeYNlYVceDs3OXBwJ5vwIoiwwPJVXwTmM9huoiccVAXxziWyv/O7ksj1NDT5Az4E
+	3svSrKGQn+2QwiLUCMugoY9N0q2I6z+eml2bqchmqNDiYqm7smxrRxQYgnPRai3b1q76duA0ndzOG
+	ida+ih26vFmCjik1FEfMo8SnOcugbPvYw3LQpjFvZXQte8zdyyGOXHSHggKse+DrQFate2NvklDeS
+	db6DhTXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVjpG-0000000AgE7-39OT;
-	Thu, 09 Jan 2025 04:07:19 +0000
-Received: from [203.254.224.34] (helo=mailout4.samsung.com)
+	id 1tVkIJ-0000000AjN1-1HMD;
+	Thu, 09 Jan 2025 04:37:19 +0000
+Received: from mail-m32104.qiye.163.com ([220.197.32.104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tViY2-0000000AV0J-21sV
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 02:45:28 +0000
-Received: from epcas1p2.samsung.com (unknown [182.195.41.46])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250109024522epoutp04131024c2d366ffd346b1689dcdbee6e5~Y5il6sifM2482924829epoutp04U
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  9 Jan 2025 02:45:22 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250109024522epoutp04131024c2d366ffd346b1689dcdbee6e5~Y5il6sifM2482924829epoutp04U
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1736390722;
-	bh=sEUvxAlaFrOzDB5FB/QVUuqwckCcowLo9iu/iZGaWU4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nJz+pwdR7WVZgkhxvDE+dhxa0cQ2isiaeYwXNE/Rol56xFl/OBDOyrrbiq7Q8kFwZ
-	 hQEVBrW7e+44Ul5EkMy4qWQnpVvuKlozbj3PvjZhYnQd2BX4TeZT1q4KwHvAwGlfHs
-	 OPYWAVqunaPWqOGsgqGx/sDz2CW8tWoMFWLmH7S0=
-Received: from epsnrtp3.localdomain (unknown [182.195.42.164]) by
-	epcas1p3.samsung.com (KnoxPortal) with ESMTP id
-	20250109024521epcas1p3cfde285b76ae5769293a85951d02dc3e~Y5iloxEGD0949409494epcas1p3a;
-	Thu,  9 Jan 2025 02:45:21 +0000 (GMT)
-Received: from epsmges1p1.samsung.com (unknown [182.195.36.223]) by
-	epsnrtp3.localdomain (Postfix) with ESMTP id 4YT8KF3Msgz4x9QK; Thu,  9 Jan
-	2025 02:45:21 +0000 (GMT)
-Received: from epcas1p4.samsung.com ( [182.195.41.48]) by
-	epsmges1p1.samsung.com (Symantec Messaging Gateway) with SMTP id
-	B4.6B.21650.1483F776; Thu,  9 Jan 2025 11:45:21 +0900 (KST)
-Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
-	epcas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250109024520epcas1p1659320196eff30afbbea57a1665b978c~Y5ikqoaiU2273122731epcas1p1Q;
-	Thu,  9 Jan 2025 02:45:20 +0000 (GMT)
-Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
-	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250109024520epsmtrp137a472e6ff4448e66d039e146eb5bbbb~Y5ikp03Bg2100921009epsmtrp1j;
-	Thu,  9 Jan 2025 02:45:20 +0000 (GMT)
-X-AuditID: b6c32a35-093de70000005492-80-677f3841f9e5
-Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
-	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
-	A8.79.33707.0483F776; Thu,  9 Jan 2025 11:45:20 +0900 (KST)
-Received: from localhost.localdomain (unknown [10.253.105.252]) by
-	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250109024520epsmtip1ea35cc816648c977d3c047c37e9e1104~Y5ikarYjB0925209252epsmtip1K;
-	Thu,  9 Jan 2025 02:45:20 +0000 (GMT)
-From: Sangmoon Kim <sangmoon.kim@samsung.com>
-To: will@kernel.org
-Cc: ardb@kernel.org, catalin.marinas@arm.com, corbet@lwn.net,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, sangmoon.kim@samsung.com
-Subject: RE: [PATCH] docs: arm64: update memory layout for vmemmap region
-Date: Thu,  9 Jan 2025 11:44:36 +0900
-Message-ID: <20250109024459.2632388-1-sangmoon.kim@samsung.com>
-X-Mailer: git-send-email 2.47.1
-In-Reply-To: <20250108135748.GA9367@willie-the-truck>
+	id 1tVjD7-0000000AZag-0UCQ;
+	Thu, 09 Jan 2025 03:27:54 +0000
+Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 82c0195e;
+	Thu, 9 Jan 2025 11:27:43 +0800 (GMT+08:00)
+From: Damon Ding <damon.ding@rock-chips.com>
+To: heiko@sntech.de
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	rfoss@kernel.org,
+	vkoul@kernel.org,
+	sebastian.reichel@collabora.com,
+	cristian.ciocaltea@collabora.com,
+	l.stach@pengutronix.de,
+	dmitry.baryshkov@linaro.org,
+	andy.yan@rock-chips.com,
+	hjc@rock-chips.com,
+	algea.cao@rock-chips.com,
+	kever.yang@rock-chips.com,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	Damon Ding <damon.ding@rock-chips.com>
+Subject: [PATCH v5 00/20] Add eDP support for RK3588
+Date: Thu,  9 Jan 2025 11:27:05 +0800
+Message-Id: <20250109032725.1102465-1-damon.ding@rock-chips.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFmphk+LIzCtJLcpLzFFi42LZdljTQNfRoj7doLFF0uLnl/eMFu+X9TBa
-	PDnQzmix6fE1VouFbUtYLC7vmsNmcetBI4tFyx1TBw6PNfPWMHpsWtXJ5rF5Sb3H4r7JrB59
-	W1YxenzeJBfAFpVtk5GamJJapJCal5yfkpmXbqvkHRzvHG9qZmCoa2hpYa6kkJeYm2qr5OIT
-	oOuWmQN0jpJCWWJOKVAoILG4WEnfzqYov7QkVSEjv7jEVim1ICWnwKxArzgxt7g0L10vL7XE
-	ytDAwMgUqDAhO+PoI62Co5wVC2dYNjBeYO9i5OSQEDCR+PXgCxOILSSwg1Hi5teCLkYuIPsT
-	o0Tz1D5WOGfnzVtAVRxgHQ+n8kHEdzJKLHo8lw3C+cIosfjFXrBRbAK6El/mXWYEaRAREJZ4
-	+DIFpIYZpGFy63VWkBphAU+J7/OnMYPYLAKqEqt/bQXr5RWwl1jaeRvqPHmJSWtamUHmcAqY
-	SrT8VYYoEZQ4OfMJC4jNDFTSvHU2M8h8CYGP7BIXuv5A9bpItPzrY4awhSVeHd8CFZeSeNnf
-	xg7R0M8ocaq7iwUiMYVRYu41TQjbWKK35wLYYmYBTYn1u/QhlvFJvPvawwoJCF6JjjYhiGo1
-	icev7jJC2DIS/XfmQ030kHiwYDI7JHQ7GCXmHJGawCg/C8kLs5C8MAth2QJG5lWMYqkFxbnp
-	qcWGBYbwGE3Oz93ECE6OWqY7GCe+/aB3iJGJg/EQowQHs5IIr6VsbboQb0piZVVqUX58UWlO
-	avEhRlNg+E5klhJNzgem57ySeEMTSwMTMyMTC2NLYzMlcd4zV8pShQTSE0tSs1NTC1KLYPqY
-	ODilGpiaXUuFHxpPPilj/WVzKhdDppUpX9z+2xMubrVm8t5qfsq0dldG6t6Z4Uv3ZkSqdMc3
-	u897MGdW2K1u1fNaj31+x2iezVZvyuzx5fkUyOak4/SgTDrTJuG++dmzq77Pj976I0Wdx9T+
-	qmmp9cuYhJBbUYtUF/3ubef3P+f8dFdJnHHdxQ+H8/arS4ucsfYP9T1+RVfJpXTWh5ALqz+2
-	rwt6uXGnw6VWie61O7ImMt10tfd4FC+/NDe+mvlptfRS7aMzzobM0lv/z+qvy9e1qyef3jtv
-	M8d7lWP+E6qZ79U3fLLXTz9WIeZVlGxxqvjXjZkPPn5xluEtXM5fvbwx/+oExXfl7O8fMmb+
-	EjT+e1aJpTgj0VCLuag4EQCeQ95qFwQAAA==
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrKLMWRmVeSWpSXmKPExsWy7bCSnK6DRX26wYVdWhY/v7xntHi/rIfR
-	4smBdkaLTY+vsVosbFvCYnF51xw2i1sPGlksWu6YOnB4rJm3htFj06pONo/NS+o9FvdNZvXo
-	27KK0ePzJrkAtigum5TUnMyy1CJ9uwSujKOPtAqOclYsnGHZwHiBvYuRg0NCwETi4VS+LkZO
-	DiGB7YwSL7u5QGwJARmJnRc3M0GUCEscPlzcxcgFVPKJUWLLkbPsIDVsAroSX+ZdZgSpEQGq
-	efgyBaSGWeAgo0TLrW2MIDXCAp4S3+dPYwaxWQRUJVb/2soEYvMK2Ess7bzNDrFLXmLSmlZm
-	kDmcAqYSLX+VIc4xkVj74jkjRLmgxMmZT1hAbGag8uats5knMArMQpKahSS1gJFpFaNoakFx
-	bnpucoGhXnFibnFpXrpecn7uJkZwSGsF7WBctv6v3iFGJg7GQ4wSHMxKIryWsrXpQrwpiZVV
-	qUX58UWlOanFhxilOViUxHmVczpThATSE0tSs1NTC1KLYLJMHJxSDUw1p0My/rlc0baeMLHH
-	wuyjs/VK2WkW1bdVSm9VXbgf1Tq5K1pxAeeVT+la9z6ueG29fSuXWQ/rRtly/S9KSz/LSkZo
-	m7zJbdPbslW/9N+SZd0C7c86Dx0KZWnavynAzUpu486gyAw1X611QVIFZTnrUmPfS2bkBm/f
-	4fBW1Md/vtHjl7WBi3jXfladrrl5/e65sYWvAvXfqjMseK/aorMpUOS10Jv09jhJw01p11af
-	fDEnIvDhgpaXyb0LVu64pH1g4tPfIZdWd9pe5+S+5r/bXz75t6Py3emOX2XNm79Zv25mnbls
-	ttOL1PltqtOTD/6eEWDbvqC0+s6tT3O+9qjxv7y74PUsrSszfIWEN7xVYinOSDTUYi4qTgQA
-	0AwAItgCAAA=
-X-CMS-MailID: 20250109024520epcas1p1659320196eff30afbbea57a1665b978c
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 101P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250109024520epcas1p1659320196eff30afbbea57a1665b978c
-References: <20250108135748.GA9367@willie-the-truck>
-	<CGME20250109024520epcas1p1659320196eff30afbbea57a1665b978c@epcas1p1.samsung.com>
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQxlPSlYeQklNTEhPH05CThlWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+X-HM-Tid: 0a94491a88dc03a3kunm82c0195e
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Pgg6Djo6EzIKFxQwLAJLTCwI
+	LT8KCgtVSlVKTEhNSEJISU1OS0xLVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFPS05JNwY+
+DKIM-Signature: a=rsa-sha256;
+	b=a2hk+6GOC6v2e0a4ANeM4MO77pNsnsbtFVc/JQsu/z6E7nQIqOjRgDB9Qz1XLv6zmOgeaiTffyuUc2VCTXAIIk5ja7XU/Db3u0FolxWJCbfa2sr2TOVyL6+mjDPZi3N47vY5cXa4H2Rwum7m4HjqioJy2by2b1MQcjPc4uJXFaw=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=kOAA9iSyzFQMTnJ/IrrO9xw8dXd24x9YPykOwNf/caA=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_184526_981506_14C967ED 
-X-CRM114-Status: GOOD (  22.63  )
+X-CRM114-CacheID: sfid-20250108_192753_415376_8CD154E2 
+X-CRM114-Status: UNSURE (   9.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,37 +88,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+These patchs have been tested with a 1536x2048p60 eDP panel on
+RK3588S EVB1 board, and HDMI 1080P/4K display also has been verified
+on RK3588 EVB1 board. Furthermore, the eDP display has been rechecked
+on RK3399 sapphire excavator board.
 
-> -----Original Message-----
-> From: Will Deacon <will@kernel.org>
-> Sent: Wednesday, January 8, 2025 10:58 PM
-> 
-> On Thu, Jan 02, 2025 at 03:52:37PM +0900, Sangmoon Kim wrote:
-> > Commit 031e011d8b22 ("arm64: mm: Move PCI I/O emulation region above
-> > the vmemmap region") and commit b730b0f2b1fc ("arm64: mm: Move fixmap
-> > region above vmemmap region") have placed PCI I/O and fixmap region
-> > above vmemmap region.
-> >
-> > And commit 32697ff38287 ("arm64: vmemmap: Avoid base2 order of struct
-> > page size to dimension region") has moved vmemmap region to higher
-> > address.
-> >
-> > Update document as the memory layout modified by the previous patches.
-> >
-> > Signed-off-by: Sangmoon Kim <sangmoon.kim@samsung.com>
-> > ---
-> >  Documentation/arch/arm64/memory.rst | 28 ++++++++++++++--------------
-> >  1 file changed, 14 insertions(+), 14 deletions(-)
-> 
-> To be honest with you, this document is pretty stale (it doesn't even
-> mention 16k pages) and almost impossible to keep in-sync with the code.
-> I'd be inclined to remove these tables; we have ptdump support if people
-> really want to see where things are.
-> 
-> Will
-> 
+Patch 1~4   are the eDP mode support of samsung hdptx phy driver.
+Patch 5~8   are preparations for the RK3588 eDP support on both Analogix
+            side and Rockchip side.
+Patch 9~12  are to support to get panel from the DP AUX bus.
+Patch 13~15 are the RK3588 Analogix DP driver support.
+Patch 16    is to add the power sequencing delays for panel model
+            LP079QX1-SP0V.
+Patch 17~18 are the renaming of hdptxphy node. It is not only used by
+            HDMI display but also for the eDP display.
+Patch 19    is the addition of RK3588 eDP0 node.
+Patch 20    is to enable the eDP0 display on RK3588S EVB1 board.
 
-I get it. Thank you for your answer.
+Damon Ding (20):
+  phy: phy-rockchip-samsung-hdptx: Swap the definitions of LCPLL_REF and
+    ROPLL_REF
+  phy: phy-rockchip-samsung-hdptx: Supplement some register names with
+    their full version
+  phy: phy-rockchip-samsung-hdptx: Add the '_MASK' suffix to all
+    registers
+  phy: phy-rockchip-samsung-hdptx: Add eDP mode support for RK3588
+  drm/rockchip: analogix_dp: Replace DRM_...() functions with drm_...()
+    or dev_...()
+  drm/rockchip: analogix_dp: Use formalized struct definition for grf
+    field
+  drm/rockchip: analogix_dp: Expand device data to support multiple edp
+    display
+  drm/bridge: analogix_dp: Add support for phy configuration.
+  dt-bindings: display: rockchip: analogix-dp: Add support to get panel
+    from the DP AUX bus
+  drm/bridge: analogix_dp: support to get &analogix_dp_device.plat_data
+    and &analogix_dp_device.aux
+  drm/bridge: analogix_dp: Add support to get panel from the DP AUX bus
+  drm/rockchip: analogix_dp: Add support to get panel from the DP AUX
+    bus
+  dt-bindings: display: rockchip: analogix-dp: Add support for RK3588
+  drm/bridge: analogix_dp: Add support for RK3588
+  drm/rockchip: analogix_dp: Add support for RK3588
+  drm/edp-panel: Add LG Display panel model LP079QX1-SP0V
+  dt-bindings: display: rockchip: Fix label name of hdptxphy for RK3588
+    HDMI TX Controller
+  arm64: dts: rockchip: Fix label name of hdptxphy for RK3588
+  arm64: dts: rockchip: Add eDP0 node for RK3588
+  arm64: dts: rockchip: Enable eDP0 display on RK3588S EVB1 board
 
-Sangmoon
+ .../rockchip/rockchip,analogix-dp.yaml        |  40 +-
+ .../rockchip/rockchip,rk3588-dw-hdmi-qp.yaml  |   2 +-
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi |  32 +-
+ .../dts/rockchip/rk3588-coolpi-cm5-evb.dts    |   2 +-
+ .../rockchip/rk3588-coolpi-cm5-genbook.dts    |   2 +-
+ .../boot/dts/rockchip/rk3588-evb1-v10.dts     |   2 +-
+ .../rk3588-friendlyelec-cm3588-nas.dts        |   2 +-
+ .../arm64/boot/dts/rockchip/rk3588-jaguar.dts |   2 +-
+ .../boot/dts/rockchip/rk3588-nanopc-t6.dtsi   |   2 +-
+ .../dts/rockchip/rk3588-orangepi-5-plus.dts   |   2 +-
+ .../boot/dts/rockchip/rk3588-rock-5b.dts      |   2 +-
+ .../boot/dts/rockchip/rk3588-tiger-haikou.dts |   2 +-
+ .../boot/dts/rockchip/rk3588s-coolpi-4b.dts   |   2 +-
+ .../boot/dts/rockchip/rk3588s-evb1-v10.dts    |  54 +
+ .../dts/rockchip/rk3588s-indiedroid-nova.dts  |   2 +-
+ .../boot/dts/rockchip/rk3588s-nanopi-r6.dtsi  |   2 +-
+ .../boot/dts/rockchip/rk3588s-odroid-m2.dts   |   2 +-
+ .../boot/dts/rockchip/rk3588s-orangepi-5.dtsi |   2 +-
+ .../boot/dts/rockchip/rk3588s-rock-5a.dts     |   2 +-
+ .../boot/dts/rockchip/rk3588s-rock-5c.dts     |   2 +-
+ .../drm/bridge/analogix/analogix_dp_core.c    |  81 +-
+ .../drm/bridge/analogix/analogix_dp_core.h    |   1 +
+ .../gpu/drm/bridge/analogix/analogix_dp_reg.c |  52 +
+ drivers/gpu/drm/panel/panel-edp.c             |   8 +
+ .../gpu/drm/rockchip/analogix_dp-rockchip.c   | 233 +++--
+ .../phy/rockchip/phy-rockchip-samsung-hdptx.c | 971 +++++++++++++++++-
+ include/drm/bridge/analogix_dp.h              |   7 +-
+ 27 files changed, 1344 insertions(+), 169 deletions(-)
+
+-- 
+2.34.1
+
 
