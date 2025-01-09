@@ -4,103 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE898E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 07:24:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4D13E77199
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 07:55:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7CKaL8g4eDLcWrW1038ox+Dcmg17dqt214zJ9fG5cn8=; b=rB4fQTrSsSIGmsXEgiKvAOq2EX
-	ZZMIyO//QFq6nr+1lBI0IkdpMJ4KeiNFSonjgzCGlJGcRiFCKbmhT3pTWvAnaw0yVvgOfkI3VADDc
-	s1Af30NE/vYRWVIXp3gb0PUSSflka19TQin7x2LU4rrjPDCRuGKHgrMigwN/y6kS6L1PWmkumkFqU
-	0Tr6FC02LYg0P7948v4A1P7tXeY0NrD8E2mlMicCj9wXY+y6Fjd+X3K8OKIxc8lN+VYgUUC0mLOkx
-	7E1JfzDwQced7pyrdxGew9iflHHDJ5doOEmioP4XD6a/Aq+E4tz3ZuPsZOczgTbnY5ZVZMZWMsLEC
-	vXDywGnw==;
+	bh=NVk8+av3pgiET4058QeM54bKGL30PRCcYoDNiCEzPZg=; b=POErC/4mQ0l2QJp5Vx3jnzFIqq
+	u6Ke1nhktUgsffBBr2RnnJwheVogfktzg1SJ9wg+Hqixd5rNBMXohLzWZl4AYJ6PH06USyGjAsHfE
+	xaHLeMHKvfqXRJpun2kt+CAAjxh000kyIZHv9TfTzCaeaRjCl+VhSwZxGKQ/ttE+XveIOJASs8hcL
+	7wgxTgcdl/MDk0qb/92SQk2vuMkxxwoArC5zUn2F1CE2VIBGqqpqNFafCzfzdcv/ynI/qCA4zsD8d
+	kMmjVMXonxLXCLg1POxZSnUW4aVNf5c52Rs121BMcAWq2iD1Qh1SSAPvG/ILe9jjZyClqh/CpANcD
+	0TBMYV2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVmta-0000000B2cd-3UUr;
-	Thu, 09 Jan 2025 07:23:58 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tVnNg-0000000B6Xr-3G4V;
+	Thu, 09 Jan 2025 07:55:04 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVmsK-0000000B2R9-0ofP
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 07:22:41 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5094EcB0009352;
-	Thu, 9 Jan 2025 07:22:27 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	7CKaL8g4eDLcWrW1038ox+Dcmg17dqt214zJ9fG5cn8=; b=WKtFiXA3wPFs658b
-	h8Fb0Vj74R6PnpVRRQmkIUhZaN99MCjpovJNzVOSeFymzN/fugR6FaEZ/cljRQuO
-	T71CjTbhSOTHhEFVzjdZtkYj4Q4OUBdwDglxWDiwXYU9yjZOmFoADZn1pWt7UMbF
-	0yN+6+XVY0wzFSmc5UpWwBeWEzr/ChoxJyBlS3OPViWfC713GLUzIqU2B9NvVFT3
-	1zqxm9Eg6z1kUA0O9FORjgvaMMMQiyXwW/w+GnTy37GRh1azzuOWIEfHvNf8c5w/
-	3wwgJ6a/HE2B6NpETq8/5Pw+Uzsg7rJKSweLuMyMAKN9xhSOMw1YJUcH4VyLYhtP
-	F6MCEg==
-Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44278t8cb4-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 09 Jan 2025 07:22:27 +0000 (GMT)
-Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
-	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5097MQ5h010784
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 9 Jan 2025 07:22:26 GMT
-Received: from [10.64.68.153] (10.80.80.8) by nalasex01c.na.qualcomm.com
- (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 8 Jan 2025
- 23:22:21 -0800
-Message-ID: <98c91cc6-e2d3-4376-9c8d-475ed3f1aa3b@quicinc.com>
-Date: Thu, 9 Jan 2025 15:22:18 +0800
+	id 1tVnMQ-0000000B6FD-3WqV;
+	Thu, 09 Jan 2025 07:53:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id DA84AA41358;
+	Thu,  9 Jan 2025 07:51:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4A16C4CED2;
+	Thu,  9 Jan 2025 07:53:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736409225;
+	bh=3bn1KBB1DXwcAnRhzzk51OXn+JHZTyAbSfVZU6oOVus=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=fVH1/0+9Xi1b6OLwA14cXaq4AT5rHeQKToapK2uQ6OYgsko/UhwRO9M5pFWtp4OHA
+	 QEKqy4kjYr/1AoPmsWWSE09ckelLTO2NtfsDf5Gg612StI/Ph/inDzECQKUtL+9UCy
+	 diaNSd9a1jPmFNPksWLPMY1U+l2JBtPJfrDW5anYSksbBP3URcpm+/4QataZGQiWZP
+	 hg7CDAHpTG/Xy38Fx5LrrbtFPatkxfgYHqXqvjJysYA4Q82Yk7hvBMprno1nrqWh1w
+	 YId+j+VWwpwk9jeZICVEnI9b0E6Om0SZklghbG27rgGqRq59fFPA4AHLe7G6yE/h0T
+	 JGcB5CVzikJ1A==
+Message-ID: <6df0f935-b7d2-4961-a947-47b328a3758f@kernel.org>
+Date: Thu, 9 Jan 2025 08:53:34 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 0/5] Coresight: Add Coresight TMC Control Unit driver
-From: Jie Gan <quic_jiegan@quicinc.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
-	<mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>,
-        "Alexander
- Shishkin" <alexander.shishkin@linux.intel.com>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
-CC: Jinlong Mao <quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        Tingwei Zhang <quic_tingweiz@quicinc.com>,
-        <linux-arm-msm@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>
-References: <20241226011022.1477160-1-quic_jiegan@quicinc.com>
+Subject: Re: [PATCH v5 4/7] arm64: defconfig: enable display connector support
+To: Alexandre Mergnat <amergnat@baylibre.com>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Jitao Shi <jitao.shi@mediatek.com>, CK Hu <ck.hu@mediatek.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Simona Vetter <simona@ffwll.ch>, Simona Vetter <simona.vetter@ffwll.ch>
+Cc: dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20231023-display-support-v5-0-3905f1e4b835@baylibre.com>
+ <20231023-display-support-v5-4-3905f1e4b835@baylibre.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-In-Reply-To: <20241226011022.1477160-1-quic_jiegan@quicinc.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20231023-display-support-v5-4-3905f1e4b835@baylibre.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01c.na.qualcomm.com (10.47.97.35)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: fZAcj0oJrHwbSoysuR54z5ID_WWYq79E
-X-Proofpoint-ORIG-GUID: fZAcj0oJrHwbSoysuR54z5ID_WWYq79E
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 priorityscore=1501
- bulkscore=0 lowpriorityscore=0 malwarescore=0 impostorscore=0 phishscore=0
- adultscore=0 mlxlogscore=999 suspectscore=0 clxscore=1015 spamscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
- definitions=main-2501090059
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_232240_290287_AF1DE87D 
-X-CRM114-Status: GOOD (  13.47  )
+X-CRM114-CacheID: sfid-20250108_235347_064773_17034CDB 
+X-CRM114-Status: GOOD (  13.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,66 +128,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 08/01/2025 17:15, Alexandre Mergnat wrote:
+> Enable this feature for the i350-evk HDMI connector support.
 
-
-On 12/26/2024 9:10 AM, Jie Gan wrote:
-> The Coresight TMC Control Unit(CTCU) device hosts miscellaneous configuration
-> registers to control various features related to TMC ETR device.
-> 
-
-[...]
+git grep -i i350-evk - zero results. Please use some recognizable names.
+I have no clue where to even look for it - which vendor.
 
 > 
-> Changes in V8:
-> 1. Rebased on tag next-20241220.
-> 2. Use raw_spinlock_t instead of spinlock_t.
-> 3. Remove redundant codes in CTCU driver:
->     - Eliminate unnecessary parameter validations.
->     - Correct log level when an error occurs.
->     - Optimize codes.
-> 4. Correct the subject prefix for DT patch.
-> 5. Collected reviewed-by tag from Konrad Dybcib for DT patch.
-> Link to V7 - https://lore.kernel.org/all/20241210031545.3468561-1-quic_jiegan@quicinc.com/
+> Signed-off-by: Alexandre Mergnat <amergnat@baylibre.com>
+> ---
+>  arch/arm64/configs/defconfig | 1 +
+>  1 file changed, 1 insertion(+)
 > 
+> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+> index c62831e61586..b2db31e010ff 100644
+> --- a/arch/arm64/configs/defconfig
+> +++ b/arch/arm64/configs/defconfig
+> @@ -900,6 +900,7 @@ CONFIG_DRM_PANEL_SITRONIX_ST7703=m
+>  CONFIG_DRM_PANEL_TRULY_NT35597_WQXGA=m
+>  CONFIG_DRM_PANEL_VISIONOX_VTDR6130=m
+>  CONFIG_DRM_FSL_LDB=m
+> +CONFIG_DRM_DISPLAY_CONNECTOR=m
 
-Kindly reminder.
 
-Can you please help to review the patch series?
-
-Thanks,
-Jie
-
-> Jie Gan (5):
->    Coresight: Add support for new APB clock name
->    Coresight: Add trace_id function to retrieving the trace ID
->    dt-bindings: arm: Add Coresight TMC Control Unit hardware
->    Coresight: Add Coresight TMC Control Unit driver
->    arm64: dts: qcom: sa8775p: Add CTCU and ETR nodes
-> 
->   .../bindings/arm/qcom,coresight-ctcu.yaml     |  84 ++++++
->   arch/arm64/boot/dts/qcom/sa8775p.dtsi         | 153 ++++++++++
->   drivers/hwtracing/coresight/Kconfig           |   8 +
->   drivers/hwtracing/coresight/Makefile          |   1 +
->   drivers/hwtracing/coresight/coresight-core.c  |  59 +++-
->   drivers/hwtracing/coresight/coresight-ctcu.c  | 273 ++++++++++++++++++
->   drivers/hwtracing/coresight/coresight-ctcu.h  |  21 ++
->   drivers/hwtracing/coresight/coresight-etb10.c |   3 +-
->   .../hwtracing/coresight/coresight-etm-perf.c  |  37 ++-
->   .../coresight/coresight-etm3x-core.c          |  30 ++
->   .../coresight/coresight-etm4x-core.c          |  29 ++
->   drivers/hwtracing/coresight/coresight-priv.h  |  13 +-
->   drivers/hwtracing/coresight/coresight-stm.c   |  22 ++
->   drivers/hwtracing/coresight/coresight-sysfs.c |  24 +-
->   .../hwtracing/coresight/coresight-tmc-etf.c   |   3 +-
->   .../hwtracing/coresight/coresight-tmc-etr.c   |   6 +-
->   drivers/hwtracing/coresight/coresight-tpda.c  |  20 ++
->   drivers/hwtracing/coresight/coresight-trbe.c  |   4 +-
->   drivers/hwtracing/coresight/ultrasoc-smb.c    |   3 +-
->   include/linux/coresight.h                     |  16 +-
->   20 files changed, 781 insertions(+), 28 deletions(-)
->   create mode 100644 Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
->   create mode 100644 drivers/hwtracing/coresight/coresight-ctcu.c
->   create mode 100644 drivers/hwtracing/coresight/coresight-ctcu.h
-> 
-
+Best regards,
+Krzysztof
 
