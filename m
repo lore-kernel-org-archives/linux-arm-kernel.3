@@ -4,68 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20ECFE77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 11:15:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A897DE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 11:16:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z2nCc8HbGldw9LfhpiTbhmTYOxJteiO1laY4NCBBSAE=; b=k4N0Hhupt2XCV9R4UTJ9uxbzXJ
-	weLwe+s5gX+zv5OMBnNcuVtOwG7JjY1VhzDsQBGXqZtfzKqedMn8FuYjKiIC5nb3jHj/JxG7Sa+Ye
-	gdM6IPhgaz1VQfEsuf6+H3a2orbXSwtyuaqE7HKgQ4jDvguGl667v7dKU7gbOBemFiWyd3RUVFpya
-	KUXAduJZlpJnWdvLfgEdNnaN4iosliRCd/MgjImS8LskVCFuhBy0nLibKNXp6ZvO3zouBHTcqBrT+
-	8pqzfBwKVUOyhOEFNKfrW/e5hRySIP3xIb1pBLC07yNC3Go2Nhx8vA75c0IeBoTwqNLuIIo/dyqv9
-	k+QqW1MA==;
+	bh=IqIww/V9yPXMwfJDQRUwvKjHiGcdHc5iDBh9REH9F2Q=; b=LVW9pCJHTrc2thm2wptg3gYqR8
+	xz4avSCNLZlisWnTGCvui07ONeNdWVD6/t0cB8fv5n9KnTwmXIrBiFNPx9/5ugdJiXgcidZxdtJq/
+	d1CrfUwLK0EQMQOLmd8VWFH4+Gz6oO1a9A281HZjnbQ2fGAbhtsIUduSWMQkfxpCkhe2PN+tPGP+E
+	fNgth9KYkR3MCY21eWzwAU9Gfp7jQC31ero+pdeQA0ShXOj9zfTKYql2AsszDNfphiCYSyMhVTi40
+	U/IjrrkR7mPmirl96IHrbbSGBhK5uvuvO9waMeEYFaJuvJqaTo3m6nVruvhOtdcpXz38qN91esi+t
+	BdMObvcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVqVZ-0000000Bg6U-2rvS;
-	Thu, 09 Jan 2025 11:15:25 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tVqWk-0000000BgEG-2hPk;
+	Thu, 09 Jan 2025 11:16:38 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVqSL-0000000BfQk-0Axm
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 11:12:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 89998A418F0;
-	Thu,  9 Jan 2025 11:10:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AFEEC4CED2;
-	Thu,  9 Jan 2025 11:12:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736421123;
-	bh=Wo5MXuhqnIS01jK5J0cbjGzNeqCVSl4C/i7jg4stBgk=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=WI0jm7vB6NvpRBFwW5kIEydC7gRORnVQX3xfpfuy2B9yE+o7VA4B2+NMRc5co96gX
-	 hxDhgYRXYkMcjVhHsyj50CV39mVLuuCzV72gtg6BB+NzheAHiBoX6gX11GkkywqhJI
-	 v5wfyIjjup1r+b6R1km2BjgNjSLFtwVAOnDCuHd7tbhs/oeXiQgyTeEZ/N/SZt1ifr
-	 iDU7Wx72Jbo1z0SGJ799MtoNLRL6uZD20WjtKvEX6fD8ufhmkaYUjzkFY2LYCj5L9k
-	 fIUkMmlDVmQn2PopWU5UE52t0Cq6ciTLYx8CDB8KGQUnIyXXdVtrJb/vn9bmrA69aT
-	 LepL57iUrRilw==
-From: Lee Jones <lee@kernel.org>
-To: Lee Jones <lee@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
- Pankaj Dubey <pankaj.dubey@samsung.com>, Heiko Stuebner <heiko@sntech.de>, 
- Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla <sudeep.holla@arm.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Peter Griffin <peter.griffin@linaro.org>, 
- Will McVicker <willmcvicker@google.com>, 
- John Madieu <john.madieu.xa@bp.renesas.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-In-Reply-To: <20241217-syscon-fixes-v2-0-4f56d750541d@kernel.org>
-References: <20241217-syscon-fixes-v2-0-4f56d750541d@kernel.org>
-Subject: Re: [PATCH v2 0/3] mfd: syscon: Cleanup, fix race condition and
- remove platform driver
-Message-Id: <173642112103.2599649.16413367066154581013.b4-ty@kernel.org>
-Date: Thu, 09 Jan 2025 11:12:01 +0000
+	id 1tVqSv-0000000BfaT-2xOL;
+	Thu, 09 Jan 2025 11:12:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1736421160;
+	bh=rADA9hzCxvUrpUJJKstmnYVcdIugZAWBRdnGgvRIFcA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=hex7CfuWZ6Qt6xawm2soL46ZFsFnPw0i4ztSNOuou2/PxWwpeexuBcbPNKUAK1WTB
+	 7To7fIV9f3nXqJ7V43+Q7y9IUumSiTHnL7PfoZKSB5m4uyCB9FbXBrWolmdTuOQaFf
+	 E9qQzhP3xjWoA8OL8qoko3Aj85oSQoZHE661/kKrg/FTDefdmmcNd1Ywh532M09bR2
+	 Asgz4enaHr0GKWU4x4TqlbvZC3aTKGbtztgLnPfo0AZegfa2BJ6BSUrp6iHD1612dL
+	 dJ7kWy+8HyMUXRpT0+2IBpfr+nOmuUqgcK/kav1X1FQwgDwhQBKnrj84u0NeyJmhFQ
+	 j9dmEKxYlKHYQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9644E17E1564;
+	Thu,  9 Jan 2025 12:12:39 +0100 (CET)
+Message-ID: <10ec0c42-cc71-4664-9307-1206d74e67af@collabora.com>
+Date: Thu, 9 Jan 2025 12:12:39 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.13.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] arm64: dts: mediatek: mt8173: Fix some node names
+To: Chen-Yu Tsai <wenst@chromium.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Eddie Huang <eddie.huang@mediatek.com>, Sascha Hauer <s.hauer@pengutronix.de>
+References: <20250108083424.2732375-1-wenst@chromium.org>
+ <20250108083424.2732375-3-wenst@chromium.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250108083424.2732375-3-wenst@chromium.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_031205_145532_D94A6F1C 
-X-CRM114-Status: UNSURE (   9.03  )
+X-CRM114-CacheID: sfid-20250109_031241_895229_0945BF5E 
+X-CRM114-Status: UNSURE (   6.51  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,27 +78,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 17 Dec 2024 12:11:39 -0600, Rob Herring (Arm) wrote:
-> Questions from Krzysztof and a syscon related binding review got me
-> looking at the syscon "driver". This series is the result.
+Il 08/01/25 09:34, Chen-Yu Tsai ha scritto:
+> Some node names are incorrect, causing DT validations due to mismatches.
 > 
-> This short series drops the stale platform driver part of syscon
-> support, fixes a race condition in device_node_get_regmap()
-> which is used by all the lookup functions, and allows for registering
-> nodes without "syscon" compatibles.
-> 
-> [...]
+> Fixes: b3a372484157 ("arm64: dts: Add mediatek MT8173 SoC and evaluation board dts and Makefile")
+> Fixes: f2ce70149568 ("arm64: dts: mt8173: Add clock controller device nodes")
+> Cc: Eddie Huang <eddie.huang@mediatek.com>
+> Cc: Sascha Hauer <s.hauer@pengutronix.de>
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 
-Applied, thanks!
-
-[1/3] mfd: syscon: Fix race in device_node_get_regmap()
-      commit: 805f7aaf7fee14a57b56af01d270edf6c10765e8
-[2/3] mfd: syscon: Remove the platform driver support
-      commit: 26769582bf353ae613f5113a1414ff3a80e08264
-[3/3] mfd: syscon: Allow syscon nodes without a "syscon" compatible
-      commit: ba5095ebbc7a83965ac049a50fa493d7c751f19b
-
---
-Lee Jones [李琼斯]
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
 
