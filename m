@@ -4,66 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FCBAE77199
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 12:58:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC2F4E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 12:59:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pdbOhL/k5RPMO1JEvPu6XdE2AY7voRbi9xPRQHAjqHI=; b=fXF2pvp0PiDQntWMNapkfy72HF
-	Ryyg8xT3ujNHqYqtA3eSU1xISJ90THtLJ8m27K9kIKXDfgNDLze6QDkv7eSFlr5sMeheznplsG+0o
-	2qV0UyqVnHGyrm/rlie066nCeUQ1rZ79/80o1LynpJH8SCA9No57fhN2B6s3n2hbWYOmue/ju4qBO
-	48wAX+Wy9Cg9YSGJosvVRXAEySHvfP/n3/uX8Maebr/kqVyrEf0WGk5VzaNK75h8dPw5wbh+X+tKO
-	SGG/50PxGZgCUc+YfcVKJEmWcTIXFcG7Vbgq5bk0ylQOxW73Esvbn87EFc/X0itRYAWyriV+1IoY9
-	PGMSnIEg==;
+	bh=PluEJNm6A4jMqOqyB0FTg4D45gj8yEkPQ1baSXUmCTM=; b=odUzjQn+fmA0lMA5wQM/U7QfnI
+	a/xCZdzMhmGUzpSLpp0tOwFz/LfUzU7+O5NGi6WH78T7U+lFmFvXlvyU4IwXT0/abeboLlANo8EW/
+	pLExsLp/mobA/RwzWobVHZfc6LwLhfwkvFkr8lULVXQIMJPTsSnDTjdOlhCH4A96hOCAnf4mzXkzB
+	/2HgVB5gr/mV1hJ+kbQSB342ne+ex5FtnC6eCqilN90nV/7zCXFnDvh1UnI/x5G91XetD8+2jjgnE
+	ehfII6bYd3WZhHqE6HGigEBJQg9vR25+P4SSDvvqW4rLxUEOIb/wLubGJ71H4ZsIxtbaLJZhIlmwJ
+	8kuBKwFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVs6x-0000000BvFO-0Yto;
-	Thu, 09 Jan 2025 12:58:07 +0000
-Received: from vps.xff.cz ([195.181.215.36])
+	id 1tVs8C-0000000BvX2-2M3f;
+	Thu, 09 Jan 2025 12:59:24 +0000
+Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVs5j-0000000Bv2p-1DwQ
+	id 1tVs6x-0000000BvEq-041V
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 12:56:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=xff.cz; s=mail;
-	t=1736277829; bh=lnUY3E9Xp9HZsjvS0v5cg5xxXO+EoQQewQPHH6SCUvo=;
-	h=Date:From:To:Cc:Subject:X-My-GPG-KeyId:References:From;
-	b=ctOF7/uOLwYBNG3JYhZ7w6tnM+ObaiBgyN67W6Hcf8v8aqN6QE40ifinp3fbc5B3a
-	 RqQ5eWCFNBhGzhMIGoBVOxCgPgeOZb2Kdu0uW9sTc+gVhVoOZn0D35urnDBmTYf50B
-	 O53JWrsosK91kVSE/s04Tf9MbzAPUSH/rnyOkiZk=
-Date: Tue, 7 Jan 2025 20:23:48 +0100
-From: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>
-To: Vasily Khoruzhick <anarsoul@gmail.com>
-Cc: linux-kernel@vger.kernel.org, Liam Girdwood <lgirdwood@gmail.com>, 
-	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Arnaud Ferraris <arnaud.ferraris@collabora.com>, 
-	linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v3 0/4] Add support for jack detection to codec present
- in A64 SoC
-Message-ID: <dfb3lsuqf4yowkovwwi6iiroslb4r357u7ddevntdk72ivxcjz@3spuwm24ubwr>
-Mail-Followup-To: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>, 
-	Vasily Khoruzhick <anarsoul@gmail.com>, linux-kernel@vger.kernel.org, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Arnaud Ferraris <arnaud.ferraris@collabora.com>, linux-sound@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-X-My-GPG-KeyId: EBFBDDE11FB918D44D1F56C1F9F0A873BE9777ED
- <https://xff.cz/key.txt>
-References: <20240302140042.1990256-1-megi@xff.cz>
- <CA+E=qVdq7AHYj1scKbyGmarSZ7u=vLMsQ63nDTDQBu2UaL=Xag@mail.gmail.com>
+	Thu, 09 Jan 2025 12:58:09 +0000
+Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-30229d5b21cso7812501fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jan 2025 04:58:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1736427485; x=1737032285; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=PluEJNm6A4jMqOqyB0FTg4D45gj8yEkPQ1baSXUmCTM=;
+        b=lj9vCnM3KQp9k4o/nXMSeolcwbevtxzmJB4Vu8527jX03UuS0yA5sJEa+MKjajfo3D
+         BX9El+zOEafkArR7ULgWJWhKqMm4cPGwVlbBuq1959O20oi8HOrhDDzwK9iC+R9SpCW9
+         8dQ28K55JQGMH9GLex0QO+TE0RbVW3iODCPv2q27kWPIU6qUdgS8xkpGKKCUyUa9pofF
+         cVTpbbutp7yl9BOji1d7dJzxNbzBJDjq/qS4xXteT5TjVQ5I52Hd9TSptwEI/bivteNj
+         A765leJZE6hcPsPilBpTg9yJeI4NHuAq1PUXQTvCV+nwHW3oMSbqV0kUc1HIJRAmahxu
+         QK2g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736427485; x=1737032285;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PluEJNm6A4jMqOqyB0FTg4D45gj8yEkPQ1baSXUmCTM=;
+        b=cWduAY74QaMzXFNo3DNScJp6JKl4LHA/zjTUyLSu50hIcrEdBTVEEtLrbDDZMV5yJc
+         A9G7l7BPZIzYAP0EAGx08cULRw0Q1JWbA/viXcZcJPp21Wqsg+IUKtHlGnb73zmcFSF9
+         wcPgSM1ljelhBENkDbY27MHKoTp5B1/4Gabv5rEgUUrebPv9u2clxTeyJOPnOeTtyA3b
+         7NYJH5/dsoVB9yVmsGXPNR5UVCz4eArXEiOOb2b3eZugQmkwNY9JwOIxkLPldpS4i/7f
+         MkDCemxpv4x3bboBcQhPPkOcoZuxIXIq1NmW8SXhLJCPHtkqaJQyzvMlsh9SENmQCMPv
+         GWJQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXuZvl9/1asXKl+BWWlz/QW3n1RYd0e8FHet9IYcraMb8DBjzJsyAo+u1brYO2VKyspiZN/1ykuZcCEkskOaWkP@lists.infradead.org
+X-Gm-Message-State: AOJu0YxY5Db5G56+LGqBPgFd8t8m3sIXjD5kPlYhbQ1Hzx/IrOR27KjE
+	2UOTNLpEaUp34DXInMw7e0Dbz0hCR5Fss3matooQl/bbdsKWlDbAcTHBALMQz28=
+X-Gm-Gg: ASbGnctK6HWh4OCP3aQrQljPqh1yglWiG2Zq3HWVPtCmfY4TaHg0qLZJuWCNSDZTZ31
+	qDdDy2z6UTKqu0ENloEWkJ9a3vsnvnPr9bIlgWHAD9724k1qZyIg3JMAo1F+dlquEMRMvvN8wtm
+	QMNaVWsZ51+KwxZ3V56QTByHWhoh4teOJPZeXsaUo42gaIhc4PWxpzpRsLOC+a4mebH0gwFp8QW
+	vqEzNIceHQInQpY+YVO6Ps3AguaoCVn1tgpfpaDkRbStuKY4X/4vn4dxhnT+CJOBUaO5L+gkWUj
+	jVikbLijUtLTCJeWBvtgVW+KTXLPguo1UX9s
+X-Google-Smtp-Source: AGHT+IEvGTGt6x25ztvT/50kVctTk1CY/fLXQXxYXUd2ctSdHixShfg0M2M1+bWWr8+u7Ko3bFZHyg==
+X-Received: by 2002:a05:6512:3082:b0:540:1b2d:8ee1 with SMTP id 2adb3069b0e04-54284507047mr1803562e87.11.1736427485004;
+        Thu, 09 Jan 2025 04:58:05 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5428bde9633sm197114e87.0.2025.01.09.04.58.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 09 Jan 2025 04:58:04 -0800 (PST)
+Date: Thu, 9 Jan 2025 14:58:03 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Damon Ding <damon.ding@rock-chips.com>
+Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, rfoss@kernel.org, vkoul@kernel.org, 
+	sebastian.reichel@collabora.com, cristian.ciocaltea@collabora.com, l.stach@pengutronix.de, 
+	andy.yan@rock-chips.com, hjc@rock-chips.com, algea.cao@rock-chips.com, 
+	kever.yang@rock-chips.com, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-phy@lists.infradead.org
+Subject: Re: [PATCH v5 10/20] drm/bridge: analogix_dp: support to get
+ &analogix_dp_device.plat_data and &analogix_dp_device.aux
+Message-ID: <uqsmsoumny6ovf7n56tbcjmdzbzikk2iijk62bvefh5tjtgrvu@a7ogvep5e4yt>
+References: <20250109032725.1102465-1-damon.ding@rock-chips.com>
+ <20250109032725.1102465-11-damon.ding@rock-chips.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CA+E=qVdq7AHYj1scKbyGmarSZ7u=vLMsQ63nDTDQBu2UaL=Xag@mail.gmail.com>
+In-Reply-To: <20250109032725.1102465-11-damon.ding@rock-chips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_045651_508611_FD861665 
-X-CRM114-Status: GOOD (  32.82  )
+X-CRM114-CacheID: sfid-20250109_045807_049092_DECF1EAC 
+X-CRM114-Status: GOOD (  18.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,87 +103,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vasily,
-
-On Fri, Dec 27, 2024 at 03:58:44PM -0800, Vasily Khoruzhick wrote:
-> On Sat, Mar 2, 2024 at 6:02 AM Ondřej Jirman <megi@xff.cz> wrote:
-> >
-> > From: Ondrej Jirman <megi@xff.cz>
-> >
-> > This series adds support for jack detection to this codec. I used
-> > and tested this on Pinephone. It works quite nicely. I tested it
-> > against Android headset mic button resistor specification.
-> >
-> > The patches are a rewritten and debugged version of the original
-> > ones from Arnaud Ferraris and Samuel Holland, improved to better
-> > handle headset button presses and with more robust plug-in/out
-> > event debouncing, and to use set_jack API instead of sniffing
-> > the sound card widget names, to detect the type of jack connector.
-> >
-> > Please take a look. :)
-> >
-> > v3:
-> > - removed all device-tree related code
-> >   (it's not necessary for core functionality, it only helps make the jack detect
-> >   functionality of the codec be usable from simple-sound-card driver, and I'll
-> >   send it spearately, because it will apparently need several more rounds
-> >   of review)
+On Thu, Jan 09, 2025 at 11:27:15AM +0800, Damon Ding wrote:
+> Add two new functions: one to find &analogix_dp_device.plat_data via
+> &drm_dp_aux, and the other to get &analogix_dp_device.aux. Both of them
+> serve for the function of getting panel from DP AUX bus, which is why
+> they are included in a single commit.
 > 
-> Hey Ondrej,
+> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+> ---
+>  drivers/gpu/drm/bridge/analogix/analogix_dp_core.c | 14 ++++++++++++++
+>  include/drm/bridge/analogix_dp.h                   |  4 ++++
+>  2 files changed, 18 insertions(+)
 > 
-> Has it ever materialized? As far as I can tell, this code has been
-> sitting dead due to missing dt-related code.
+> diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+> index b05f5b9f5258..8251adfce2f9 100644
+> --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+> +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+> @@ -1794,6 +1794,20 @@ int analogix_dp_stop_crc(struct drm_connector *connector)
+>  }
+>  EXPORT_SYMBOL_GPL(analogix_dp_stop_crc);
+>  
+> +struct analogix_dp_plat_data *analogix_dp_aux_to_plat_data(struct drm_dp_aux *aux)
+> +{
+> +	struct analogix_dp_device *dp = to_dp(aux);
+> +
+> +	return dp->plat_data;
+> +}
+> +EXPORT_SYMBOL_GPL(analogix_dp_aux_to_plat_data);
+> +
+> +struct drm_dp_aux *analogix_dp_get_aux(struct analogix_dp_device *dp)
+> +{
+> +	return &dp->aux;
+> +}
+> +EXPORT_SYMBOL_GPL(analogix_dp_get_aux);
+> +
+>  MODULE_AUTHOR("Jingoo Han <jg1.han@samsung.com>");
+>  MODULE_DESCRIPTION("Analogix DP Core Driver");
+>  MODULE_LICENSE("GPL v2");
+> diff --git a/include/drm/bridge/analogix_dp.h b/include/drm/bridge/analogix_dp.h
+> index 6002c5666031..1b119b547988 100644
+> --- a/include/drm/bridge/analogix_dp.h
+> +++ b/include/drm/bridge/analogix_dp.h
+> @@ -7,6 +7,7 @@
+>  #ifndef _ANALOGIX_DP_H_
+>  #define _ANALOGIX_DP_H_
+>  
+> +#include <drm/display/drm_dp_aux_bus.h>
 
-The code is used with some non-mainline patches. There was a bit of
-a problem with simple-sound-card not being flexible enough for complete
-functionality of audio jack on Pinephone, so I had to extend it a bit:
+Nit: it should be enough to fordward-declare struct drm_dp_aux here.
 
-https://codeberg.org/megi/linux/commit/afbe7688083cd1e3ab98c37e0fe0c28d530829e1
-https://codeberg.org/megi/linux/commit/95552b66a269c2da434edd3880f9819c0bd5602f
-https://codeberg.org/megi/linux/commit/c15070c220e7425dd0d0445ae0eacdb4a4872ad7
+Nevertheless:
 
-Here's a bunch of patches that I use currently for complete audio
-jack detection functionality:
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 
-  https://codeberg.org/megi/linux/commits/branch/audio-6.13
 
-But no, complete upstream support did not materialize, yet.
-
-I'm not sure about the direction. Whether to push more features to DT or
-just write a sound card driver for Pinephone, that would be able to handle all
-this without extending simple-sound-card or DT changes to codec driver.
-
-Kind regards,
-	o.
-
-> Regards,
-> Vasily
+>  #include <drm/drm_crtc.h>
+>  
+>  struct analogix_dp_device;
+> @@ -48,4 +49,7 @@ void analogix_dp_unbind(struct analogix_dp_device *dp);
+>  int analogix_dp_start_crc(struct drm_connector *connector);
+>  int analogix_dp_stop_crc(struct drm_connector *connector);
+>  
+> +struct analogix_dp_plat_data *analogix_dp_aux_to_plat_data(struct drm_dp_aux *aux);
+> +struct drm_dp_aux *analogix_dp_get_aux(struct analogix_dp_device *dp);
+> +
+>  #endif /* _ANALOGIX_DP_H_ */
+> -- 
+> 2.34.1
 > 
-> > v2:
-> > - use set_jack/get_jack_type
-> > - get rid of some custom poking inside card internals to figure
-> >   out what kind of jack port we should setup the codec for
-> > - read jack-type from OF as suggested here:
-> >   https://elixir.bootlin.com/linux/latest/source/sound/soc/soc-component.c#L288
-> > - add DT bindings
-> >
-> > Thank you very much,
-> >         Ondřej Jirman
-> >
-> > Arnaud Ferraris (2):
-> >   ASoC: sun50i-codec-analog: Enable jack detection on startup
-> >   ASoC: sun8i-codec: Implement jack and accessory detection
-> >
-> > Samuel Holland (2):
-> >   ASoC: sun50i-codec-analog: Move suspend/resume to set_bias_level
-> >   ASoC: sun8i-codec: Enable bus clock at STANDBY and higher bias
-> >
-> >  sound/soc/sunxi/sun50i-codec-analog.c |  73 +++++-
-> >  sound/soc/sunxi/sun8i-codec.c         | 346 +++++++++++++++++++++++++-
-> >  2 files changed, 399 insertions(+), 20 deletions(-)
-> >
-> > --
-> > 2.44.0
-> >
-> >
+
+-- 
+With best wishes
+Dmitry
 
