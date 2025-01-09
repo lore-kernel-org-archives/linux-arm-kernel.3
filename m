@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C808E77199
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 12:49:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 564F7E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 12:51:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h8hd6QQPe6WsmCvGJJcJ/fM8HdXFIRmyRc/10BLVlxA=; b=aVNaCzFaKPDpmFTqMW3oT0IAPd
-	B9hZJifapw+7HLR8YiAqnkQ4guixG8OinPRCNAjcmOUiVm5o5El7V1Sx49BERkNhwrFlxmCh0VCJc
-	gXDZYa8A5EeQqwMRvnYsMooNeoUmod3j9LtJtvqDAGS4JLs7gutTZtHHYPmXMaV1y2ZefeyJyI2dr
-	+H82sjN/Hr6sxgkGyXD4SFYPWnsbohJhN1TApU03GB/F6tRx+4OEK+mKTkddKCGfeadHkR2CLr71A
-	CCr8Xc+xCORTzo96683ahGk/O96VYizbzX+ZCHzvbWLczS/jO/e8r7mzdZynmt/BkII4XOv5ZikEj
-	S780x3gw==;
+	bh=ISAvUvnxrJppDS2oaPXGBaXepNKXj9gL7beVEXrneoM=; b=E6KUXsGC9BbA3Cgbm1oNWTBL31
+	fvftIFiRRmQqGaXlNwk412qTmfDUNsYixolaQHT8vNaaktWybdxtAKF5qJYEferE5jf8uW6Tqdl5U
+	Im1EdeEZ/fWRb19z/Bi6GCtBQL/mEZ6S5LoEE49IhrEQ0K+PFhqlSV/VwKy+G91CcNFHagDv0OmvT
+	nMh+ywCQ8XSoRfWVb0rGi2PqHvndYG2wDIuTG6AHN8iK0NKxeBKchurfWa4Rlpo2T2dIf5a2bBwcw
+	wcxZbDTJCI9x/BNFI/Vk+Lt02AP6SUDcSMFbX2tHiOoHcYyftSrmtEYC529x8RvzFsr+DGf6qJBbM
+	DqmfI7ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVryi-0000000BuAm-2w82;
-	Thu, 09 Jan 2025 12:49:36 +0000
-Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
+	id 1tVrzt-0000000BuIf-2uah;
+	Thu, 09 Jan 2025 12:50:49 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVrxU-0000000BtxM-1uSw
+	id 1tVryG-0000000Bu5i-2nC4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 12:48:23 +0000
-Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-3022484d4e4so8528061fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jan 2025 04:48:19 -0800 (PST)
+	Thu, 09 Jan 2025 12:49:09 +0000
+Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-53ffaaeeb76so949177e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jan 2025 04:49:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736426898; x=1737031698; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1736426947; x=1737031747; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=h8hd6QQPe6WsmCvGJJcJ/fM8HdXFIRmyRc/10BLVlxA=;
-        b=Q2aEe0/M+8uPRUD6G9wqEhE++uEnENYSUjAdYy9rB3/FqvmN+RDDzbi9NpBSHMQThX
-         eTg2ijPBxL7dipEWnouqtb/J7JfLeLWbjM8hlBxmOugbZev+vyd4cYf8TFA8obEPmgsN
-         AJKhTObOx702ZBf/0A5Nt+3VcGnHYAH04wsOzs6YovT9KyXZoW9xXqi16/8ENNE/FSmG
-         ayCZsxEdR4/cFE5CkmSmPXmmruUSgnanlbZ3ac074HKAFlLBNyYGrtY7tCC+MvzjR35e
-         IC+cP23rK/PGc/xvx4gR7QyR1QasBwm8Gq+Tcaw3zxaSUQyzSZwy3ZRf/7S8EpIzau8/
-         YEow==
+        bh=ISAvUvnxrJppDS2oaPXGBaXepNKXj9gL7beVEXrneoM=;
+        b=fh+O7RLLptM4IvOPmO33G50GflYx0VmLWVT8w2JDU3GecTSz1J/hIw+CGH2pPIBqAh
+         jOVQiTvNjXBxWoUuQ7+BdIrJZAiA/32tVPiHnXKqA0G0DlqwFE7L61oJ00LsIc8QJuqs
+         OhnsPBFAiV34ZghK3ugweWz5Luxk5xY2cdXpINO+jf9qtTxbTKEeMT34kxdXI6KOGWx9
+         eQeKcae7BCQJJN8i4keFWJX0eg25ktMLMsRdAKZ7wNihEqkP9y+KMQmDPNCXo404NGKH
+         p5D7UAzoirpa7IzgkG5odUO7OcgHatOB4/5axf/q5hN4BG2oWOBxWpXZmkYmqIPYJsdm
+         qA2w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736426898; x=1737031698;
+        d=1e100.net; s=20230601; t=1736426947; x=1737031747;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=h8hd6QQPe6WsmCvGJJcJ/fM8HdXFIRmyRc/10BLVlxA=;
-        b=hbXVzEp/o9MK139X4u/fbB1TSx6UVF9DLubT3p6DCsaDkxayRzxuPhiqtwAC+ipGu2
-         fA2aULfXaRknHpE+VpD+yUQo76lSZPi5p/VhsubuSlnSywLipdqDpR1fmRtWBL3ClzqG
-         cyNa7eE0vedLbDkAAD30eHsJrMO+bEnmQC7qvjNDFtAy9rQc8SCX2htVVuY1kYrNMJuW
-         zCDdiUL1FtqBFmSqC8dOm/pc0hY7rNzM6804MvVF0GUFC9RYEvkXyd0/LRH5MKOKD0uM
-         saacGezLdddj86+fQSK3PkUKsAO2i+sGKYDZ5674vIvu/ZZcx3JJL4/SCZcoGJ6KRdEq
-         B3Qw==
-X-Forwarded-Encrypted: i=1; AJvYcCVfRQ1nuJl5xy1/Qr0fy8dp19cv9j1fJ+9d86R4rrfapF565HQHJg5998uyfZQJ0aVa2euim4vyt1ZhEqfavvwP@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQ+2U5ZOmyXbeChK8L9so1+LQyqQT0klonXzEpL0r1zCMw6pVp
-	yIFTeRnQQA5iz0/ZUpxQ2RhMbnMPXHd+eCaYp/W08nQqgGxNaVMpuMmCg69CuTE=
-X-Gm-Gg: ASbGnctPMuwAwqYP7j651FIlhu85yGT2a6YJN4fpykKvXrN0OsTLLeiD+DxBtqjUJYC
-	rJHJxLmDMEMwghKn5AEDmDnLE8zhbYflPQQq6vd5ea8X2NKz9XWqdKeI0dCyDMYQCTdzPUyGymy
-	Z761eyEhmJjJBdGUln0mMr0eF6mycq9HC9K00tVRTx6ywzbadvtlSuMevYZSP1+aSgka+ISnCXH
-	dk/x4rByWZG/p6iscxjtn1wXEMOl7hfjA7BEDDeY3XKV3tv0Yl6IRbiTl4wKviCslT4RNYdlFae
-	OKVJpxsB+IK52OB9qD7bVhULajkE/HBs4mDp
-X-Google-Smtp-Source: AGHT+IFxJ3zGC3CDmY37DlIYBY9oRzAVUXgzKckNzpAHdg+Ck4ZfBSulYaV0hud+81kqukRgXfjP1g==
-X-Received: by 2002:a2e:a7ca:0:b0:302:1c90:58ee with SMTP id 38308e7fff4ca-305f4571db2mr17630521fa.18.1736426898468;
-        Thu, 09 Jan 2025 04:48:18 -0800 (PST)
+        bh=ISAvUvnxrJppDS2oaPXGBaXepNKXj9gL7beVEXrneoM=;
+        b=lTd4zmXJC8yTmN1veopLhDSbTTvBfMS3XV37S1A35Qya837GfNvcGjZP4OnRU+8r/o
+         sdFRunDAiMkAoLuta+Pq8Ee/CI4McyQZYW8NJOm4tDVv1pLW9ajiOFe4SC2JgWw/s/pG
+         9B9hsWssC2GrCEQYtRw3LtmwI2MCO66Y9q72LDy/BxEQ/CGz33V0Orzc2gl0LR5k1zSp
+         jfY6dOKNRkoYzQTCJxdDyrIumxNiBvWLlhtjzlQXSpSL/E17FNVQcTBCUZLmwxM0LdsU
+         3pwQdsgeVfAmlcjXQBSj5KJBbc4XaXHCnZMTb9RB/9WJYgwOlt6uuRO7JvPWzyETMzck
+         e/0w==
+X-Forwarded-Encrypted: i=1; AJvYcCUmHN7D0fJ+KYtYyYuCLIPfD6rpNQCtq7d4WNcqQow4Y+TpnTQamj+u2AWKUpIWRmF9PY5zfJQaOOGJf86fAkYX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1BJgJRFUjIMWAOB4kNQ1iKYBbcAv7//6jmH9UBRDPflkuTXjN
+	0OQJvt40W/YHsrvzL2ovcofDio2XlABquYPVFktOMkQBW6gZx9tcEKEw+ofR3a0=
+X-Gm-Gg: ASbGncswkUOItEA5RCrl4NMQNETXklgDF8WZeTSsRBvh6cQg+txIFJEptIXp7+QCxQi
+	nL4BB+dGgG1Qnfx0w0rvJVhO5Xh3fc+WKZrpDSI39fP5zUhANVYreHv67DnGuc5i2npQY2n/GQQ
+	AXpGwfPcFkthDrC23RLwcNXzsX3wfawt7fHt3clcGHkoxNZZRT8ESGZQMECCrQf0z/+JFAUlWmh
+	OytuHKNI5tCqHEP9YmBO1rhz2adc00qtYxBYt6YY8LPJluuU78ZDJqSI1c2DHIkRi5QxpCx/lYK
+	BdmP5A+G4jG4Lhfj3o1nv+sXk/fU9iHUHufk
+X-Google-Smtp-Source: AGHT+IFtzPf5r/L8vL1E/ZArSF/N5lVRhLbGlgYJHuErJi9BwgLOD62Gve10/GJMoU02S8ksLbRDSg==
+X-Received: by 2002:a05:6512:1281:b0:540:30df:b3ea with SMTP id 2adb3069b0e04-542845b972emr1634434e87.15.1736426946964;
+        Thu, 09 Jan 2025 04:49:06 -0800 (PST)
 Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-305ff1ec1a0sm1889261fa.105.2025.01.09.04.48.16
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5428be496c4sm193126e87.24.2025.01.09.04.49.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Jan 2025 04:48:17 -0800 (PST)
-Date: Thu, 9 Jan 2025 14:48:15 +0200
+        Thu, 09 Jan 2025 04:49:05 -0800 (PST)
+Date: Thu, 9 Jan 2025 14:49:04 +0200
 From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 To: Damon Ding <damon.ding@rock-chips.com>
 Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org, 
@@ -77,18 +77,17 @@ Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org,
 	kever.yang@rock-chips.com, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	linux-phy@lists.infradead.org
-Subject: Re: [PATCH v5 12/20] drm/rockchip: analogix_dp: Add support to get
- panel from the DP AUX bus
-Message-ID: <d7zpv6qt52mhny54dejw4yqlp2k2c437op7qmepqe27pufplqk@64xvohrz7h2q>
+Subject: Re: [PATCH v5 14/20] drm/bridge: analogix_dp: Add support for RK3588
+Message-ID: <q522hpxpoxwierd3uwtijvnmaia5tec3gzazuzblhxeqgqgavy@d6yhljsiyvrn>
 References: <20250109032725.1102465-1-damon.ding@rock-chips.com>
- <20250109032725.1102465-13-damon.ding@rock-chips.com>
+ <20250109032725.1102465-15-damon.ding@rock-chips.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250109032725.1102465-13-damon.ding@rock-chips.com>
+In-Reply-To: <20250109032725.1102465-15-damon.ding@rock-chips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_044820_805735_819CC5D3 
-X-CRM114-Status: GOOD (  22.90  )
+X-CRM114-CacheID: sfid-20250109_044908_837101_C9B2374F 
+X-CRM114-Status: GOOD (  14.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,59 +102,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 09, 2025 at 11:27:17AM +0800, Damon Ding wrote:
-> Move drm_of_find_panel_or_bridge() a little later and combine it with
-> component_add() into a new function rockchip_dp_link_panel(). The function
-> will serve as done_probing() callback of devm_of_dp_aux_populate_bus(),
-> aiding to support for obtaining the eDP panel via the DP AUX bus.
-> 
-> If failed to get the panel from the DP AUX bus, it will then try the other
-> way to get panel information through the platform bus.
-> 
-> In addition, use dev_err() instead of drm_err() in rockchip_dp_poweron()
-> , which will be called before rockchip_dp_bind().
+On Thu, Jan 09, 2025 at 11:27:19AM +0800, Damon Ding wrote:
+> Expand enum analogix_dp_devtype with RK3588_EDP, and add max_link_rate
+> and max_lane_count configs for it.
 > 
 > Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
 > 
 > ---
 > 
-> Changes in v4:
-> - Use done_probing() to call drm_of_find_panel_or_bridge() and
->   component_add() when getting panel from the DP AUX bus
-> 
 > Changes in v5:
-> - Use the functions exported by the Analogix side to get the pointers of
->   struct analogix_dp_plat_data and struct drm_dp_aux.
-> - Use dev_err() instead of drm_err() in rockchip_dp_poweron().
-> 
+> - Add the RK3588_EDP related modification in analogix_dp.h
+> - Move this commit above related commit on the Rockchip side
 > ---
->  .../gpu/drm/rockchip/analogix_dp-rockchip.c   | 41 ++++++++++++++-----
->  1 file changed, 30 insertions(+), 11 deletions(-)
+>  drivers/gpu/drm/bridge/analogix/analogix_dp_core.c | 4 ++++
+>  include/drm/bridge/analogix_dp.h                   | 3 ++-
+>  2 files changed, 6 insertions(+), 1 deletion(-)
 > 
-> diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-> index 0957d3c5d31d..3ae01b870f49 100644
-> --- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-> +++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-> @@ -124,13 +124,13 @@ static int rockchip_dp_poweron(struct analogix_dp_plat_data *plat_data)
->  
->  	ret = clk_prepare_enable(dp->pclk);
->  	if (ret < 0) {
-> -		drm_err(dp->drm_dev, "failed to enable pclk %d\n", ret);
-> +		dev_err(dp->dev, "failed to enable pclk %d\n", ret);
 
-
-why?
-
->  		return ret;
->  	}
->  
->  	ret = rockchip_dp_pre_init(dp);
->  	if (ret < 0) {
-> -		drm_err(dp->drm_dev, "failed to dp pre init %d\n", ret);
-> +		dev_err(dp->dev, "failed to dp pre init %d\n", ret);
->  		clk_disable_unprepare(dp->pclk);
->  		return ret;
->  	}
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 
 -- 
 With best wishes
