@@ -4,97 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0D6AE77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 16:47:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24EFAE77199
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 16:55:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9/K5WXZ/+mfrvqe9hVtTmnvb197useqCpMM5h1OdD+Q=; b=eKozrpxoNlKUfSAWlXpma7JLzL
-	6efMiF8tFlwG5Nk4XjbySVNsxTgEQQ2lEpcyQnTEl2H4zSq/kOAYrbjBtdUTE7nTVFz6xSs1/qmeX
-	ptzgXnpe1ZIPMKMQ7FZXvNS9jDucABalrN4EjqLHbQSGHsEebrumol8siDbEQya2gL7Ts/d9bvIFr
-	iMlAMmvy4cc0L7d0UtYKbiowwq++mXm4l2myBahdok8DdzpzsB6XVAdjpjc9eYqedDNhlNMWK3nK2
-	Xo9OTf0Y9Jzn81Xkf25DI0AsxjRHTjqh1yJKum9VSdUMeIu22WtgdVXT1h0qtkPsB9RbMDei5Wvzh
-	qSPVhM0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q8mSLMBktMbzDleBxc69wxcwOxXrMut2APraWinG8Yc=; b=UkeKiYyKEA5UFsrBq50j2mHwUH
+	UpPKvWwTxY24W5IL/wk//udWFfEvkhiuCmS1ybTxmMlmexGKtD2W4qv4P8kf+UKPYfXVdK9kjhRM3
+	zL3K6KZ1M42YB9ExoS77yhjK5DbyjYfJ5ytzqrRY+nSFQlvEOCejSNqDRamUfY4VqT6RiD9Y8Q9mG
+	w8IUjBNcKIJPe3ShB/V1JAScO2nfziz3u5n9d43qrF9jFwCr1ac4oOzEGWSl0N0CVQuxZ+vh76aum
+	NP23os/1eqlxPCVWRFbF25FzzgxZ5oQtvk2pcWOnLMPbUps6GFCbrQs5ztDB0h2NSXX7QLvQk9w/9
+	M3DHdtqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVvgY-0000000Cjs6-3ULs;
-	Thu, 09 Jan 2025 16:47:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tVvos-0000000Cl3l-35Re;
+	Thu, 09 Jan 2025 16:55:42 +0000
+Received: from relay.smtp-ext.broadcom.com ([192.19.144.207])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVvfM-0000000CjfD-1LqH
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 09 Jan 2025 16:45:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=9/K5WXZ/+mfrvqe9hVtTmnvb197useqCpMM5h1OdD+Q=; b=qP/A9evfsazk18bsd3ziChLNAN
-	ojRhpnj2W8yG7WLVWfW8fW9616mEw2C92yY64tV0wg5ejOuRAEAan32mbp2tpfApucCK94EMUO95Y
-	MdEMQzqOx68L4gP955cEjrqkMBT96HWZPXtmxWtU4cGp5wfgzNQ1pmGttObS+0Wcu45qgzce+195H
-	8YosPuYuS+1E/7b8glHL1dyez2yVeo8cjdmaN+vJNIU6LAXX/wNhOgg1ZsWJy3V1vFmtaXOZA8kuy
-	XAS36VDyJ5GLEml7xZif0hOtMCW0H+0MRy+IfDld4Pcs/WlCLoSscGt0WWlMmuJuoujjzV/rxhbw/
-	2HxROCvQ==;
-Received: from mgamail.intel.com ([192.198.163.8])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVvfH-00000009bmQ-3q25
+	id 1tVvne-0000000Ckqb-21yI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 16:45:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1736441148; x=1767977148;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=dthvaoFmVx6ekANWfNCrbEN7/AW4ltSxGAfXIHK7Mao=;
-  b=n3f9nnBwwNwNxW3aR2GGGtWR1Wfxl8NxBNS5es4sIe44xM7wlkx6p2aP
-   /IJEMdJUAmjvywfrKyUBjwgSRIYuXJINPp5OElQcypoZx2C7NiOxj1jJ3
-   HoPba8OtvqBgEtyEUEb4FQxuEpvFzkcOASymuZhRMcTvy6kLZO/mYpjQX
-   hNr8DReB8LhZ34dlmm7Kmygrli5oQkT6Ii2o2WCb6EBM+Nt1Tfp2Tzjl2
-   xV29XaFXiIVdBXDe4+TQH4Y9gbRS7BtL63Ee9ErzpKGcxKCLgg5DVgsI2
-   WGG21S3iKxFuaKVfC3T/UB/XKsmDY4J8/K4+QIcik1u99dFQ73o1Oa8zi
-   g==;
-X-CSE-ConnectionGUID: VH7FeafPT+6Z7I4SS0kLwg==
-X-CSE-MsgGUID: 6Z+bRS+KQ9O17uxo3pt92Q==
-X-IronPort-AV: E=McAfee;i="6700,10204,11310"; a="54259043"
-X-IronPort-AV: E=Sophos;i="6.12,301,1728975600"; 
-   d="scan'208";a="54259043"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jan 2025 08:45:41 -0800
-X-CSE-ConnectionGUID: vM2BVWakT9eb+szAJCcFHg==
-X-CSE-MsgGUID: fnYt+aC4RcSjiy9r1+zr/g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="103983305"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by orviesa007.jf.intel.com with ESMTP; 09 Jan 2025 08:45:36 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tVvf3-000Hsl-1X;
-	Thu, 09 Jan 2025 16:45:33 +0000
-Date: Fri, 10 Jan 2025 00:45:19 +0800
-From: kernel test robot <lkp@intel.com>
-To: Vincent Donnefort <vdonnefort@google.com>, rostedt@goodmis.org,
-	mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
-	linux-trace-kernel@vger.kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com
-Cc: oe-kbuild-all@lists.linux.dev, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, jstultz@google.com,
-	qperret@google.com, will@kernel.org, kernel-team@android.com,
-	linux-kernel@vger.kernel.org,
-	Vincent Donnefort <vdonnefort@google.com>
-Subject: Re: [PATCH v2 02/12] ring-buffer: Introducing ring-buffer remote
-Message-ID: <202501100025.WNnMyW13-lkp@intel.com>
-References: <20250108114536.627715-3-vdonnefort@google.com>
+	Thu, 09 Jan 2025 16:54:28 +0000
+Received: from mail-lvn-it-01.lvn.broadcom.net (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id A74E0C003ACE;
+	Thu,  9 Jan 2025 08:54:23 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com A74E0C003ACE
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
+	s=dkimrelay; t=1736441663;
+	bh=gDEC6eC+hE/3rES1P+/GSapucTV+adxfwsIx2MfNOTE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=GafJDr1M7LLL8Re1WOBG//t/CK5O5LXkj23wghl1l1b2R3G0f2PhuavAuM1HotAKR
+	 nEgGHP2iSD8mzeWz7oP7acYTGpe3VPk3voOV6b/h3DgwjQbZ+JvXYu+bJmEuAVazrj
+	 ud2oKTCWavkpWEmmikeDeoyTHRAWFohBeAmh1Xuc=
+Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail-lvn-it-01.lvn.broadcom.net (Postfix) with ESMTPSA id 3F51018041CAC6;
+	Thu,  9 Jan 2025 08:54:23 -0800 (PST)
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+To: stable@vger.kernel.org
+Cc: Ard Biesheuvel <ardb@kernel.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Baruch Siach <baruch@tkos.co.il>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	"Mike Rapoport (IBM)" <rppt@kernel.org>,
+	Yang Shi <yang@os.amperecomputing.com>,
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH] arm64: mm: account for hotplug memory when randomizing the linear region
+Date: Thu,  9 Jan 2025 08:54:17 -0800
+Message-ID: <20250109165419.1623683-2-florian.fainelli@broadcom.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250109165419.1623683-1-florian.fainelli@broadcom.com>
+References: <20250109165419.1623683-1-florian.fainelli@broadcom.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250108114536.627715-3-vdonnefort@google.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_164548_653930_632FE2CE 
-X-CRM114-Status: GOOD (  10.54  )
+X-CRM114-CacheID: sfid-20250109_085426_799703_F85F1C6D 
+X-CRM114-Status: GOOD (  18.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,46 +85,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vincent,
+From: Ard Biesheuvel <ardb@kernel.org>
 
-kernel test robot noticed the following build warnings:
+commit 97d6786e0669daa5c2f2d07a057f574e849dfd3e upstream
 
-[auto build test WARNING on 09a0fa92e5b45e99cf435b2fbf5ebcf889cf8780]
+As a hardening measure, we currently randomize the placement of
+physical memory inside the linear region when KASLR is in effect.
+Since the random offset at which to place the available physical
+memory inside the linear region is chosen early at boot, it is
+based on the memblock description of memory, which does not cover
+hotplug memory. The consequence of this is that the randomization
+offset may be chosen such that any hotplugged memory located above
+memblock_end_of_DRAM() that appears later is pushed off the end of
+the linear region, where it cannot be accessed.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Vincent-Donnefort/ring-buffer-Check-for-empty-ring-buffer-with-rb_num_of_entries/20250108-200217
-base:   09a0fa92e5b45e99cf435b2fbf5ebcf889cf8780
-patch link:    https://lore.kernel.org/r/20250108114536.627715-3-vdonnefort%40google.com
-patch subject: [PATCH v2 02/12] ring-buffer: Introducing ring-buffer remote
-config: x86_64-defconfig (https://download.01.org/0day-ci/archive/20250110/202501100025.WNnMyW13-lkp@intel.com/config)
-compiler: gcc-11 (Debian 11.3.0-12) 11.3.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250110/202501100025.WNnMyW13-lkp@intel.com/reproduce)
+So let's limit this randomization of the linear region to ensure
+that this can no longer happen, by using the CPU's addressable PA
+range instead. As it is guaranteed that no hotpluggable memory will
+appear that falls outside of that range, we can safely put this PA
+range sized window anywhere in the linear region.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202501100025.WNnMyW13-lkp@intel.com/
+Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Steven Price <steven.price@arm.com>
+Cc: Robin Murphy <robin.murphy@arm.com>
+Link: https://lore.kernel.org/r/20201014081857.3288-1-ardb@kernel.org
+Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
+---
+ arch/arm64/mm/init.c | 13 ++++++++-----
+ 1 file changed, 8 insertions(+), 5 deletions(-)
 
-All warnings (new ones prefixed by >>):
-
->> kernel/trace/ring_buffer.c:2535: warning: Function parameter or struct member 'remote' not described in '__ring_buffer_alloc_remote'
->> kernel/trace/ring_buffer.c:2535: warning: Function parameter or struct member 'key' not described in '__ring_buffer_alloc_remote'
-
-
-vim +2535 kernel/trace/ring_buffer.c
-
-  2528	
-  2529	/**
-  2530	 * __ring_buffer_alloc_remote
-  2531	 *
-  2532	 */
-  2533	struct trace_buffer *__ring_buffer_alloc_remote(struct ring_buffer_remote *remote,
-  2534							struct lock_class_key *key)
-> 2535	{
-  2536		return alloc_buffer(0, 0, 0, 0, 0, key, remote);
-  2537	}
-  2538	
-
+diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+index 80cc79760e8e..09c219aa9d78 100644
+--- a/arch/arm64/mm/init.c
++++ b/arch/arm64/mm/init.c
+@@ -401,15 +401,18 @@ void __init arm64_memblock_init(void)
+ 
+ 	if (IS_ENABLED(CONFIG_RANDOMIZE_BASE)) {
+ 		extern u16 memstart_offset_seed;
+-		u64 range = linear_region_size -
+-			    (memblock_end_of_DRAM() - memblock_start_of_DRAM());
++		u64 mmfr0 = read_cpuid(ID_AA64MMFR0_EL1);
++		int parange = cpuid_feature_extract_unsigned_field(
++					mmfr0, ID_AA64MMFR0_PARANGE_SHIFT);
++		s64 range = linear_region_size -
++			    BIT(id_aa64mmfr0_parange_to_phys_shift(parange));
+ 
+ 		/*
+ 		 * If the size of the linear region exceeds, by a sufficient
+-		 * margin, the size of the region that the available physical
+-		 * memory spans, randomize the linear region as well.
++		 * margin, the size of the region that the physical memory can
++		 * span, randomize the linear region as well.
+ 		 */
+-		if (memstart_offset_seed > 0 && range >= ARM64_MEMSTART_ALIGN) {
++		if (memstart_offset_seed > 0 && range >= (s64)ARM64_MEMSTART_ALIGN) {
+ 			range /= ARM64_MEMSTART_ALIGN;
+ 			memstart_addr -= ARM64_MEMSTART_ALIGN *
+ 					 ((range * memstart_offset_seed) >> 16);
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.43.0
+
 
