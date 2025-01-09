@@ -4,150 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E91A4E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 11:09:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 154E3E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 11:10:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eK9hg4I0h628hGYWHRSx2/3ECfYchg+ZvO5rkcx+PMo=; b=NXetU2sTZIN+3mQqZl0zIHufu+
-	M0QMr1ZuNRwloIsAFwlDvrpk0QgL+8eaZWNtix0wuGYGoDIerC5ob8YnonSFJV6ao7YrWJVbaAQAw
-	n8G5zs44XoozNEGwD+ulPQHPzB02JKyIUaNVxd3nL+bmsxbnizZ01rAk5AqWVy6UKP+xLscT2Uxl6
-	vnZsNG49e8jUhOMykWdoauromtGX0f/1sb7pIycfokykQh+TOOgMBFrRFIJmhy+qmfl9EUM4/y15z
-	5AvNo+gynm1KOTjpkV3FoRPo+9KSxG9h0JQoLRBaaqL1pu1t+wFpyj9OIq0fUSK8LK1/dBn+Y7+2z
-	jZkHMpcw==;
+	bh=negqQgLTN4B8pDH5mYHTnsur/cNHNJUEY0g3ghRoN1o=; b=D/MOqm/YCMfDKRMikUR9emvos/
+	Bc6PVZ+Y+vh/F3UsSeA/EOxDKuRD/sx60VCcahAZpcN6HcKankNFrtiJYjYgBRCID97qyQBs8RueW
+	2OUZnLAXwRu6ecK5EcBdEH9v+kalwmi6Q/qxZ0mQYccCuyNPgmVa9eUDTgG+78R1gTtxmzmC48JnD
+	OiQT1kyBriTtcMRY1sbXh0Ui3Llg5xcwkd85/UAQmqPq+dmKXBeggMdn0aVFN5fCP6TIWWgcJl/+U
+	pTHx1KrP1Arf+ai8Od4/bTt/asOjAyQV8ZInErnqzcUEFCPJgTuquheQJJePSHbq5UNlnwddSkzY4
+	WrRRNBuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVqPf-0000000BemC-232a;
-	Thu, 09 Jan 2025 11:09:19 +0000
-Received: from mail-japanwestazolkn190100000.outbound.protection.outlook.com ([2a01:111:f403:d406::] helo=OS0P286CU011.outbound.protection.outlook.com)
+	id 1tVqQp-0000000Bey5-2IK6;
+	Thu, 09 Jan 2025 11:10:31 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVqLW-0000000Bdvc-1ZiK;
-	Thu, 09 Jan 2025 11:05:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=F95rCVb6XPshDu+1WRx4lk/l0Y/9dMVMDmpNtaxKIOpTlfUkdKS9USK7DExRtXoQnCvwAOwijm8RtyVO7yFIYjaC8LThVd+wF/g03UngNXI5mMF/G9BknuqC1RBmw/SnMuONcBy0npAgZ8tis4Qa+iZaMDk85lJVHG7MZn/hr3Io9irRt3kgfIHK/PE92Uf8ZXV6Sm0AK6Y8UpgD6MscSunC8Xowsr72vUzCjAcxjDNqWw30Wo/9Bh3F80aOiQSQPokcaWMJw7dZww/PqWfyIvDmw4dzbYci/yp7ZiuJSuiTeN2YjlScbP+kmWSVrnYHOIvjruFskJgP10c+ePM2bA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eK9hg4I0h628hGYWHRSx2/3ECfYchg+ZvO5rkcx+PMo=;
- b=H1HFgvtB2QVIDYXvcFoUmZRHgMOjQwEX1CLh/8Omt5aFZVLlw2aW2hz+F4cCDTw5IIU48y2RhvTE4EVVKe/hVBnKhWdmxiTx4KC/52ZLnijhqud8Yvmp8NW+ZCHCVKdC4y1ZzkdNpifNfBalCgyFNp2oS/GlBzZoXAogm4w5dORtQI8qZW19Pn/S2sm0jIhofM2J9k+CAYWi/vEcxAk+AmPtzZCtbSZm2N8CcaNA4RWaQD9az65d1wceL0syfLxOD7dqlKZexHHPcJoXPA6iMqhxU8kAHbTBF79d7/io4WxycQH+8E9BgG1fSSpAej/7C+5KZn+wRqwCGuoKpyvang==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eK9hg4I0h628hGYWHRSx2/3ECfYchg+ZvO5rkcx+PMo=;
- b=UG8Miv3Stg8EDes2D1R4oQz+M63YZOKcmmzQSH09wER4YZLhJ3JEq/2S9fkfBktgoy04VO0B/eZws6URyI/nH7FTAGP3TaTYxX5cc97kNYaflBDf5/sMkEkIhulfD4PfH8nwynuasX7+3/aSxkxwmaIBcWOCT1vW2eKE6eBi6sr8RMf3oGiqcEEoTWptI8aQF+S20rI82VOWuB3doruvBtDqeyMzxwNdew8AW8ZBcCV7kkY0fKpj+WOYAASVD0pL9WbfjW1JYzwscpaK9RS9Wm5kYuilKuoqEB1y/T58LO6cvQkqUDkyeIOp1oy86x/Zc9rYl9qNHHaWLzJtIWcjYw==
-Received: from OSZPR01MB8434.jpnprd01.prod.outlook.com (2603:1096:604:183::12)
- by TYAPR01MB5532.jpnprd01.prod.outlook.com (2603:1096:404:8040::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.11; Thu, 9 Jan
- 2025 11:04:46 +0000
-Received: from OSZPR01MB8434.jpnprd01.prod.outlook.com
- ([fe80::7c3f:73bc:3c62:fe7]) by OSZPR01MB8434.jpnprd01.prod.outlook.com
- ([fe80::7c3f:73bc:3c62:fe7%5]) with mapi id 15.20.8335.011; Thu, 9 Jan 2025
- 11:04:46 +0000
-From: Shengyu Qu <wiagn233@outlook.com>
-To: nbd@nbd.name,
-	lorenzo@kernel.org,
-	ryder.lee@mediatek.com,
-	shayne.chen@mediatek.com,
-	sean.wang@mediatek.com,
-	kvalo@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	chui-hao.chiu@mediatek.com,
-	leitao@debian.org,
-	chad@monroe.io,
-	Bo.Jiao@mediatek.com,
-	sujuan.chen@mediatek.com,
-	StanleyYP.Wang@mediatek.com,
-	evelyn.tsai@mediatek.com,
-	meichia.chiu@mediatek.com,
-	Money.Wang@mediatek.com,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Cc: Shengyu Qu <wiagn233@outlook.com>
-Subject: [PATCH v1 2/2] wifi: mt76: mt7996: fix register mapping
-Date: Thu,  9 Jan 2025 19:04:36 +0800
-Message-ID: <OSZPR01MB84344FEFF53004B5CF40BCC198132@OSZPR01MB8434.jpnprd01.prod.outlook.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250109110436.25870-1-wiagn233@outlook.com>
-References: <20250109110436.25870-1-wiagn233@outlook.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: TYCP301CA0029.JPNP301.PROD.OUTLOOK.COM
- (2603:1096:400:381::15) To OSZPR01MB8434.jpnprd01.prod.outlook.com
- (2603:1096:604:183::12)
-X-Microsoft-Original-Message-ID: <20250109110436.25870-3-wiagn233@outlook.com>
+	id 1tVqMc-0000000Be8w-3OXY;
+	Thu, 09 Jan 2025 11:06:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1736420767;
+	bh=NSINwedzb+CJzoeaWNPp6t+VsGjFzCBylsKLc9BhvNY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=bebKQrx4PJq5NB9s3v4vJRKv4kTMaJryl50QSDFYTGLHA+OG48MLHXlhPjUwSsBpo
+	 kRXCJ3x/FTRThqPmtdZjN5pwbdwFCK3gXYB9fxJAMT+VmVD2AFKQHBjeWLud5CoXtK
+	 1m/XZ0JNYT02b3MUnORnZ6cj90JIoOBCY+Lpq1xmd1kTVDC3OdlMgHn2/9Dcm8AB+Q
+	 QeHbu5uv8P/4t5gusqp6qyZ0SA3aJQ0u3dsYT7ZYoGqGVdrTlICojrRMPpoLuZeysF
+	 E0tD3EXkJA8Ltgc6KePrZyTIp6Xvy/qV9p1YNplHhjlcwS545sagXH35dDHQtUHci5
+	 vTqqC9nQkqgLA==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A00FD17E1562;
+	Thu,  9 Jan 2025 12:06:05 +0100 (CET)
+Message-ID: <21be2199-cf26-4669-afb7-98ab296e2d75@collabora.com>
+Date: Thu, 9 Jan 2025 12:06:04 +0100
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: OSZPR01MB8434:EE_|TYAPR01MB5532:EE_
-X-MS-Office365-Filtering-Correlation-Id: 82b8bbc0-a0a0-4070-38cf-08dd309d6d4d
-X-Microsoft-Antispam: BCL:0;ARA:14566002|8060799006|461199028|15080799006|5072599009|19110799003|7092599003|1602099012|440099028|3412199025|4302099013|10035399004|1710799026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?HLIb7qnuIFMiQB5FOK9sV9ghxBzpp0LhXqlmxNSDEruyVKul6mZhm9zGm7NA?=
- =?us-ascii?Q?qFCL8ZYTKiRtrnH/ZPSt6e4Oz5jY2jATTHMTIk1V5LclqPwBJIQKU+7dIse0?=
- =?us-ascii?Q?D/DYiw4I52Q6p0UxaBDXqQ7iC4HdxpP2AqWbJwIn11q2XY/xlgK0A21Q8e/G?=
- =?us-ascii?Q?Qnqraf6Hlr/7cwnGgjaMALvvJvLlX23GgeLM9f8X5TvRziu+PD7a5/kW8hTz?=
- =?us-ascii?Q?yyalNspMi8uXR0YKxII8kiRTLBTaSli69sU7aajfzATuDdWFFZsqhttpCLfh?=
- =?us-ascii?Q?Mo8uJTsqYF0SagkmPJ+xdW+A6bXJ7mGl6C49KOCOeGW7LimixGqb8oikmIcI?=
- =?us-ascii?Q?WMZoHpp2qCCkqy85EsjpMiSeYrqP6RqbNpqk+jEJREA1J28zs/MpodJzRLJq?=
- =?us-ascii?Q?H4Ahsg8jPdLbUmWNgGDHF1SwWQQ2kn4Y/mcYmI2QwZHPFfiGRKSuRWRA5qau?=
- =?us-ascii?Q?HdUiJdMwnobhCvO5RcWgCAW5Xw/dOUb6q+ZaUcrTgI2LOjajWuNuvpAabeFK?=
- =?us-ascii?Q?c2xZajq7eFDJjM617H5mzcUd/Qrd3whJH9OZAe2Jrn2x/ntI02xXlfPon+nE?=
- =?us-ascii?Q?+QqCcuj8u052nCazRjroUmwjtWwLDQ9MuFiYiSPiPykbPzAbHQM7zLajJlZS?=
- =?us-ascii?Q?95WtmBcvq8M/AlHM+4jYmNbDRd/42ukdecRTZ3k8glRCuXjFYE0thFi3NsOE?=
- =?us-ascii?Q?mf4lxb2fSbk2tIBVOrednJEoXl068y6DiNRaAxUZBaiACjM+0OCMpOdU1r7s?=
- =?us-ascii?Q?9Y4uVkTeJ/POVmh+cW8fJHI7FPsytAUgeth8S1wbY7rVkQ8DgrCK0ldUEEY1?=
- =?us-ascii?Q?CFXkBCvonSSlS4ukUuOij9ixhkYIIvffIa63mVyQNqZsU0MHDG4uTY4QP+Z4?=
- =?us-ascii?Q?NA2pdOadHGLc0pqoGKOV4Z9bgkQFqzfePYPfU09hNHkdmT1hAY6jgKvayo/J?=
- =?us-ascii?Q?VHkGUUybEakrIyYTizig1xUXQ7jHkK9VcWE4aHDnekXMRhPtjjLn1MAVexqf?=
- =?us-ascii?Q?7lhg8byCw9ZVzsTH0W4bQtqZ0kOnl2niL4rFEyGE2B8omfJDdH2ee+4yUP2g?=
- =?us-ascii?Q?nLBsAvot4ehCj1JY/2yfZ+sZJP4LE8Xu2fEQ6rWSwMYW1fQa5wE++G04AbJ3?=
- =?us-ascii?Q?OkcNMV4ETmq1NF8Wp+eF9iXhgQ32J/42gPLm/GXpDT4AWmeM4mvihOTC/bXO?=
- =?us-ascii?Q?jjW323W3ap+y4WUHAsqplvMih5Izx2yZX3npxw=3D=3D?=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?VLVlQmvrPrL6rMVkGXS8l1rGKQxk3qSeHUVy39LLv9SflguLaWGcw3qiWRDl?=
- =?us-ascii?Q?YNADtuzmI/ZfbLxiGXMjsWHZKvSD2pZdlMX7bJmTFHok3yE1sQFunkO52fKT?=
- =?us-ascii?Q?xWtyE1z/fvXmy0LspMi8q2ffUmPLPvqgQfgbR5BSBAdUbnwNQgtXNYQ0qh3T?=
- =?us-ascii?Q?ZzHNLRczfsE43sotXxYxUOXnB2M3lJ1R6TXU7qOImX3clnkNAI1lNJ9SYCa3?=
- =?us-ascii?Q?KsRn3EPpFOamX9N/5Gwd65E/jef1Zv2Il4WDceHz74JhcPGCAlNp73ubLn4t?=
- =?us-ascii?Q?avTyYBMABa/838JoZm1PUxk0vBGJRkX6vqpQ7VXV3ZqtbENC+jHyniQ7HrnA?=
- =?us-ascii?Q?QndtHjXZAFFO9YgeUj08KMDL7b3bujtkAVlfr4+SCGoZkXiM7tZGcyVrxPpY?=
- =?us-ascii?Q?Z8s2XLrn6dirnWo8B2dAt7/We1e+6JWU7hutXng5qD3vkktNZUciyFH+kZxa?=
- =?us-ascii?Q?XikChHvxBDWvvee9o4hPX7rq2rDnW4GhvQAqLk3oehfMCh87LBI2FCySSOgH?=
- =?us-ascii?Q?5ojSqo6O5B1d7pU4inuZDsLVrWoH7iOBSQnEPgbwE0Rp6btu1N48htO/xjeL?=
- =?us-ascii?Q?eLI8AUkcsIMn/MjBiOIQTIrxaua6Zw9OninjUp6/Ncu8JVxyvtGSYkPihRq7?=
- =?us-ascii?Q?8k3pz/4G66rV5/4n3RO5MlrltXjI6JXdw7BTmHGXj+tEHYutlCtFopN8Rh4o?=
- =?us-ascii?Q?17u2elS6M7pDqOhfQbuecDbjuLz4LER65/M4nFAp9Boa9pQjIw+opI12i85R?=
- =?us-ascii?Q?1FXgfp7q4ZETc8H+TgO6QZFC3cV5sS+YfXdEOuh1Kdas0cKKT8SkLreOK4mK?=
- =?us-ascii?Q?uw9MiCLBPwuJjaQTkVLq4Oi92e5mMl/kOKVso81AuiBaddCPoZOGPzjfP2xM?=
- =?us-ascii?Q?hYuCm1lWQimVPlO436l+gK3I9MhcLDWVBffkEPTu6FuzTkNPe9reTwmxYjz/?=
- =?us-ascii?Q?9OMK1DcJw+l8wc/gpsdT3eDbwKXK4GN75z/Ds8vtrgVg0teXMHzAHQReS4G1?=
- =?us-ascii?Q?0hJglnT/xL3svtbWQyVMxy8roUTcpyFmveQlcC7m82NgVwM5CPtcyYEZCkI4?=
- =?us-ascii?Q?OXbviHJPPz53a5SlDiyJBOSCOUOu/RpD0JwDcFPZHAyM+PdfV813p+0Ngrwh?=
- =?us-ascii?Q?/H1zSG733QwcGBbTprrWR/psuaqRhPxkKVTJhrxOKzlyQnUFfOz9H5Jv1oIp?=
- =?us-ascii?Q?rYqEEcuyoWJ1KhHpG6j3bI/LKPsVa4vu98JEwEW4Lp11/H6jSx9v6kZH2QO0?=
- =?us-ascii?Q?YGHdGu03OWKfi3JXQMkFn1d89Itk9U0jU4BU0CQhi1ov6VD3BESfXSk3V2R4?=
- =?us-ascii?Q?SjA=3D?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 82b8bbc0-a0a0-4070-38cf-08dd309d6d4d
-X-MS-Exchange-CrossTenant-AuthSource: OSZPR01MB8434.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jan 2025 11:04:46.0012
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYAPR01MB5532
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 6/6] arm64: dts: mediatek: add display support for
+ mt8365-evk
+To: Alexandre Mergnat <amergnat@baylibre.com>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Jitao Shi <jitao.shi@mediatek.com>, CK Hu <ck.hu@mediatek.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Simona Vetter <simona@ffwll.ch>, Simona Vetter <simona.vetter@ffwll.ch>
+Cc: dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20231023-display-support-v6-0-c6af4f34f4d8@baylibre.com>
+ <20231023-display-support-v6-6-c6af4f34f4d8@baylibre.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20231023-display-support-v6-6-c6af4f34f4d8@baylibre.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_030502_570300_76CB3F6D 
-X-CRM114-Status: GOOD (  11.05  )
+X-CRM114-CacheID: sfid-20250109_030611_016926_2063FE41 
+X-CRM114-Status: UNSURE (   7.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,33 +88,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Bypass the entry when ofs is equal to dev->reg.map[i].size.
-Without this patch, it would get incorrect register mapping when the CR
-address is located at the boundary of an entry.
+Il 09/01/25 11:37, Alexandre Mergnat ha scritto:
+> MIPI DSI:
+> - Add "vsys_lcm_reg" regulator support and setup the "mt6357_vsim1_reg",
+> to power the pannel plugged to the DSI connector.
+> - Setup the Display Parallel Interface.
+>    - Add the startek kd070fhfid015 pannel support.
+> 
+> HDMI:
+> - Add HDMI connector support.
+> - Add the "ite,it66121" HDMI bridge support, driven by I2C1.
+> - Setup the Display Parallel Interface.
+> 
+> Signed-off-by: Alexandre Mergnat <amergnat@baylibre.com>
 
-SDK patch: https://git01.mediatek.com/plugins/gitiles/openwrt/feeds/mtk-openwrt-feeds/+/1a559ba2935fcf54eb1867e6ecd1ef7a2d2d0af8/autobuild/unified/filogic/mac80211/24.10/files/package/kernel/mt76/patches/0008-mtk-mt76-mt7996-fix-register-mapping.patch
 
-Fixes: 98686cd21624 ("wifi: mt76: mt7996: add driver for MediaTek Wi-Fi 7 (802.11be) devices")
-Signed-off-by: Peter Chiu <chui-hao.chiu@mediatek.com>
-Signed-off-by: Shengyu Qu <wiagn233@outlook.com>
----
- drivers/net/wireless/mediatek/mt76/mt7996/mmio.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c b/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
-index f9aa12866a2e..9a65ddf8236a 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
-@@ -177,7 +177,7 @@ static u32 __mt7996_reg_addr(struct mt7996_dev *dev, u32 addr)
- 			continue;
- 
- 		ofs = addr - dev->reg.map[i].phys;
--		if (ofs > dev->reg.map[i].size)
-+		if (ofs >= dev->reg.map[i].size)
- 			continue;
- 
- 		return dev->reg.map[i].mapped + ofs;
--- 
-2.43.0
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
 
