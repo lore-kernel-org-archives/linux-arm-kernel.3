@@ -4,66 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62699E7719A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 22:40:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D272CE7719A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 22:44:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7YuNEGJLSMYthoX9F6kNyFu034ez4AkZMCZy5RLVGh4=; b=062UNmmqmXBiUj20HTzgx4Xf3t
-	gtBwqAZEVDmDMV213UYdfb+wNp9tai/Qzkkt23uXvazqOJUkN4aaQQUsAxjEZUup7F7revbeVyH07
-	lV4Bbt5oWPPlTUCZW+/UL0JtDj0Ykfst9GYAKTAEIUE0dcB5xjNnJxfSEXyrbymiSTltkUH94dStV
-	1LtQtsJXHd7t5PgQyjvIYQ4eS2tyBTUkyqNzwLLu1ymIMIT306d3hxYDV0d7a7yd66xa94NeH+DrD
-	cVG192i8ZzaTZiGDl7BmvgTJKenUSv+6SUxxrH8G9+WlgB24spkj6VgJu2YlSNUs5wN+yEr/Moiuu
-	BY6/XSwA==;
+	bh=QE3eqh5wc4f4JZTZPBPucbaDDDy7F4dN4ZWKRzaggT4=; b=h2M9K4reFoJ3fPZ94hk1OYxEZi
+	pD3SPD0j61T+Ao6nRGXP9GLRUi1rD80sih15QVIiUptnsuHnbMtxIxhKvhu0y6c4+uCgtcC2JwN8U
+	MTEpCroBBE/1oe/P8Xqlj8gw9wtAaj0XIst7A3U70pNaWVF9raSbPv0mVYJXgQF0QSoM5pqAPEp5z
+	bAUArr4y722AgQd9P1gtoMbMLy2w2hmuqwGwZEYQxReRiqmpTr2F+hw8P9qFSRT/6QL6jnP9IXe8j
+	LyRhICsVRtHgJbNJqaeb5fpURWRHFJfj4jNEG+CIS9RVQGM1W+WF65Fn0mEX+nL7XhUF0uxhyxA1o
+	aaU/x81Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW1CK-0000000DTSR-3PLV;
-	Thu, 09 Jan 2025 22:40:16 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tW1GP-0000000DTuU-2p5I;
+	Thu, 09 Jan 2025 22:44:29 +0000
+Received: from out-175.mta0.migadu.com ([91.218.175.175])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW1B7-0000000DTEP-0sj8
+	id 1tW1FB-0000000DTji-3Myc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 22:39:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2EBBBA40C10;
-	Thu,  9 Jan 2025 22:37:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3941EC4CED2;
-	Thu,  9 Jan 2025 22:38:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736462339;
-	bh=u9tRbb9joTkBrv5uTYIVoS7cPhgcAnfwGtXhLaCQmdQ=;
-	h=From:To:Cc:Subject:Date:From;
-	b=KSPRf2DsN86DG4BtdFwintfzn/Hd6oIuL3Co8GvBQBja2IgKwhHnvj9SSROXMmHkK
-	 Mwk+ngmqryvXqhslWgGN4ulJO+XOERp/Bjz83qNgZ8TBhVXh4yrWQeOSIOJoG2GymG
-	 b21TrnGWGlKQnH3URURfRxFjIBDftL5AwZbZYPQCgPfpQofo1MnYPLz/oIp6+xLBLl
-	 qtxBmuAasWS0ZAHQJIxQUykAX7ISOM8yyLJ7lNEwb+vXc3MQdWOxu141qlC/jZ6pDu
-	 AIupBZSxeOIAQkKpBugrkuTZHH3Ld0/BuFxrpGCm+EaUr/MJiucpbFcpV1mylbdIOB
-	 xjk21aA+dxGTw==
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Thu, 09 Jan 2025 22:43:15 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1736462583;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=QE3eqh5wc4f4JZTZPBPucbaDDDy7F4dN4ZWKRzaggT4=;
+	b=gfOoS4A7wzvo3W+np3l6aMRQHtNh5Qyc5XmtEm3DWQNGiA8PEESsn3lSjzA0L/+DRs/u2P
+	ujmBWCqcrcilKzlq3bzzn7fOUEmtm7Gv7aigYGiuo4EsY8NZ+tfKuiTONTg5gvnxJX2vUl
+	thYFdmU+HT/KWhKuwNTKnYYjROy50CU=
+From: Sean Anderson <sean.anderson@linux.dev>
+To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	Shannon Nelson <shannon.nelson@amd.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org
+Cc: Michal Simek <michal.simek@amd.com>,
+	Simon Horman <horms@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andy Chiu <andy.chiu@sifive.com>,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] KVM: arm64: Explicitly handle BRBE traps as UNDEFINED
-Date: Thu,  9 Jan 2025 16:38:36 -0600
-Message-ID: <20250109223836.419240-1-robh@kernel.org>
-X-Mailer: git-send-email 2.45.2
+	linux-kernel@vger.kernel.org,
+	Sean Anderson <sean.anderson@linux.dev>
+Subject: [PATCH net v3] net: xilinx: axienet: Fix IRQ coalescing packet count overflow
+Date: Thu,  9 Jan 2025 17:42:46 -0500
+Message-Id: <20250109224246.1866690-1-sean.anderson@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_143901_373817_969A571B 
-X-CRM114-Status: GOOD (  14.24  )
+X-CRM114-CacheID: sfid-20250109_144313_988971_7FF818D4 
+X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,96 +76,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mark Rutland <mark.rutland@arm.com>
+If coalece_count is greater than 255 it will not fit in the register and
+will overflow. This can be reproduced by running
 
-The Branch Record Buffer Extension (BRBE) adds a number of system
-registers and instructions which we don't currently intend to expose to
-guests. Our existing logic handles this safely, but this could be
-improved with some explicit handling of BRBE.
+    # ethtool -C ethX rx-frames 256
 
-KVM currently hides BRBE from guests: the cpufeature code's
-ftr_id_aa64dfr0[] table doesn't have an entry for the BRBE field, and so
-this will be zero in the sanitised value of ID_AA64DFR0 exposed to
-guests via read_sanitised_id_aa64dfr0_el1().
+which will result in a timeout of 0us instead. Fix this by checking for
+invalid values and reporting an error.
 
-KVM currently traps BRBE usage from guests: the default configuration of
-the fine-grained trap controls HDFGRTR_EL2.{nBRBDATA,nBRBCTL,nBRBIDR}
-and HFGITR_EL2.{nBRBINJ_nBRBIALL} cause these to be trapped to EL2.
-
-Well-behaved guests shouldn't try to use the registers or instructions,
-but badly-behaved guests could use these, resulting in unnecessary
-warnings from KVM before it injects an UNDEF, e.g.
-
-| kvm [197]: Unsupported guest access at: 401c98
-|  { Op0( 2), Op1( 1), CRn( 9), CRm( 0), Op2( 0), func_read },
-| kvm [197]: Unsupported guest access at: 401d04
-|  { Op0( 2), Op1( 1), CRn( 9), CRm( 0), Op2( 1), func_read },
-| kvm [197]: Unsupported guest access at: 401d70
-|  { Op0( 2), Op1( 1), CRn( 9), CRm( 2), Op2( 0), func_read },
-| kvm [197]: Unsupported guest access at: 401ddc
-|  { Op0( 2), Op1( 1), CRn( 9), CRm( 1), Op2( 0), func_read },
-| kvm [197]: Unsupported guest access at: 401e48
-|  { Op0( 2), Op1( 1), CRn( 9), CRm( 1), Op2( 1), func_read },
-| kvm [197]: Unsupported guest access at: 401eb4
-|  { Op0( 2), Op1( 1), CRn( 9), CRm( 1), Op2( 2), func_read },
-| kvm [197]: Unsupported guest access at: 401f20
-|  { Op0( 2), Op1( 1), CRn( 9), CRm( 0), Op2( 2), func_read },
-| kvm [197]: Unsupported guest access at: 401f8c
-|  { Op0( 1), Op1( 1), CRn( 7), CRm( 2), Op2( 4), func_write },
-| kvm [197]: Unsupported guest access at: 401ff8
-|  { Op0( 1), Op1( 1), CRn( 7), CRm( 2), Op2( 5), func_write },
-
-As with other features that we know how to handle, these warnings aren't
-particularly interesting, and we can simply treat these as UNDEFINED
-without any warning. Add the necessary fine-grained undef configuration
-to make this happen, as suggested by Marc Zyngier:
-
-  https://lore.kernel.org/linux-arm-kernel/86r0czk6wd.wl-maz@kernel.org/
-
-At the same time, update read_sanitised_id_aa64dfr0_el1() to hide BRBE
-from guests, as we do for SPE. This will prevent accidentally exposing
-BRBE to guests if/when ftr_id_aa64dfr0[] gains a BRBE entry.
-
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
+Fixes: 8a3b7a252dca ("drivers/net/ethernet/xilinx: added Xilinx AXI Ethernet driver")
 ---
-Based on discussion with Marc, I think this doesn't need to wait on BRBE
-support in perf, so sending it now by itself.
----
- arch/arm64/kvm/sys_regs.c | 11 +++++++++++
- 1 file changed, 11 insertions(+)
 
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 83c6b4a07ef5..bc91ddc75487 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -1806,6 +1806,9 @@ static u64 sanitise_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu, u64 val)
- 	/* Hide SPE from guests */
- 	val &= ~ID_AA64DFR0_EL1_PMSVer_MASK;
+Changes in v3:
+- Validate and reject instead of silently clamping
+
+Changes in v2:
+- Use FIELD_MAX to extract the max value from the mask
+- Expand the commit message with an example on how to reproduce this
+  issue
+
+ drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+index 0f4b02fe6f85..c2991aeccf2b 100644
+--- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
++++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+@@ -2056,6 +2056,12 @@ axienet_ethtools_set_coalesce(struct net_device *ndev,
+ 		return -EBUSY;
+ 	}
  
-+	/* Hide BRBE from guests */
-+	val &= ~ID_AA64DFR0_EL1_BRBE_MASK;
-+
- 	return val;
- }
- 
-@@ -4972,6 +4975,14 @@ void kvm_calculate_traps(struct kvm_vcpu *vcpu)
- 		kvm->arch.fgu[HAFGRTR_GROUP] |= ~(HAFGRTR_EL2_RES0 |
- 						  HAFGRTR_EL2_RES1);
- 
-+	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, BRBE, IMP)) {
-+		kvm->arch.fgu[HDFGRTR_GROUP] |= (HDFGRTR_EL2_nBRBDATA  |
-+						 HDFGRTR_EL2_nBRBCTL   |
-+						 HDFGRTR_EL2_nBRBIDR);
-+		kvm->arch.fgu[HFGITR_GROUP] |= (HFGITR_EL2_nBRBINJ |
-+						HFGITR_EL2_nBRBIALL);
++	if (ecoalesce->rx_max_coalesced_frames > 255 ||
++	    ecoalesce->rx_max_coalesced_frames > 255) {
++		NL_SET_ERR_MSG(extack, "frames must be less than 256");
++		return -EINVAL;
 +	}
 +
- 	set_bit(KVM_ARCH_FLAG_FGU_INITIALIZED, &kvm->arch.flags);
- out:
- 	mutex_unlock(&kvm->arch.config_lock);
+ 	if (ecoalesce->rx_max_coalesced_frames)
+ 		lp->coalesce_count_rx = ecoalesce->rx_max_coalesced_frames;
+ 	if (ecoalesce->rx_coalesce_usecs)
 -- 
-2.45.2
+2.35.1.1320.gc452695387.dirty
 
 
