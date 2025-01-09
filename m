@@ -4,66 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93D72E77199
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 11:24:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A93EDE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 11:26:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xo1FEEMogRIXBaxbfZKPmaJiAryjxmInWb0lF9gL1do=; b=h7twkCJlJZn2WlCjaWR7hp9XeY
-	m27EKZaBb1LxmzaK3/22Uzajnaqx5oSIo7uPBnoLOGygxvqSzKnCOcrl+mWhKIrnpHTNtJnknud3E
-	f2YoOHu/bJTPPzWsGdE69k8JKcgJb+WhrvR4yyklqmj+Tj0eAavye0IQjKvv252fvhojxvAISdN6o
-	FAvFT2t4WAhbOg9yOW9r1Q2O1JCxAAWU+7bjLsuqZYrjFdz9VO0XhvljaSlxncPA9X74NEnEiUxuO
-	qfTzl0A3S14yVQJUZhtw3lHir8zDvv439NEzONMdARLhs+MOb1nwQ7XEphsAnqFwiptMrdSSAJBcW
-	64KthZ1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0VwiM9nxxzmS+ePDHs5D4iy5/JOkHL4yMar6bNKC5+s=; b=eOIXIaHwdSLtHw53bO2DZjjyiF
+	/a/Ur+zbuqXs9HkUjJTLeeTYFqO6KTMJwF5BIwnHDw/qZusVQM1zmcVFzI9CQJ78uCdJXDot5l5a9
+	C3BxWIX2w9QwEq0HjyM2OPEnb96QyDbXC1xKby2oCGThAQ70tC5mZ1rdYkDuRcHbIosIEosjAoNCt
+	H9F8FH2jxXx0CzFZvEGxFsDU61AngOkjL4am9+HH2R9e+BZp7g/zTREgbbqPJaGjJwKVazXjpB1Bg
+	7S55UKiJEhxF0ww5+Khbk6ekdDzPjlp70MWlJ8dyaE6eQIINM/dLbmdYMI8YZv88ORIRvCY716evm
+	vgeBXUDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVqdp-0000000BhYc-21PL;
-	Thu, 09 Jan 2025 11:23:57 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tVqgD-0000000BiJ0-2OEE;
+	Thu, 09 Jan 2025 11:26:25 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVqaB-0000000Bh0K-0Za2
+	id 1tVqez-0000000Bhre-2ZjI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 11:20:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5C766A4192D;
-	Thu,  9 Jan 2025 11:18:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EB56C4CED2;
-	Thu,  9 Jan 2025 11:20:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736421609;
-	bh=1+uVbB8YTOqsluR25SXjrfcOS+SdHfqDiqn5pXsqIyQ=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=m4msATGPnS6sQKsZ9Rg60S69s3I/DfEk90I/oRZvnOP8hBuT3IJaz/6Y2P1qJXKSJ
-	 3YMQhu4GdkvPwMtQ5Q1sikGMsenlOq4/XTeZevbCKRzpgO2rP+XAF5rxRjRqmjjkMM
-	 QRBEYf5xph516Fn8/ycWklBIP2BAjSoWFKF+zI+kGKwkmbl0LA2zGmjoof6j3uHeqV
-	 6WBL1ojwjOrF2KB5feG6vEMdnKTUwD9uMeEJslN7+MbojXLiBOQJutUMYmaxvYwtTz
-	 ariwDAvwoBPcEnUThOUN2shIVBK7+U41DvVsrHw5f7BOC5LrdFjyt1D9SN1tR9pz4w
-	 uTqTIHu/hTgRQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70D173805DB2;
-	Thu,  9 Jan 2025 11:20:32 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Thu, 09 Jan 2025 11:25:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1736421907;
+	bh=N05fkHtT2/ScRMfQYWTPlP4NhcjC9bT8xvqCn1glVvY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=IVszyOaqYxgHAmxWWvHTVzgHT6S5V37WjlVZ4x16GdF+wZQh1Mnlv6Fq6VTLasIlA
+	 4xzr4pxF8zkyFeWF76jnWVM2mNWuiyh+xMXLfEqHHE1mT9lIySSWba8aBeWcDyf21/
+	 jNVaX+tujl3ibOQsF6lmT4ecByuP7VIw2idzhjc6weozAFIQ4byQZwi99mS18cWm93
+	 sv2whnaMUBhLLtaVSEyp+Yoi4m4+KZc/+StXYZl9gdo65Mw9sWPwBHWPTQJ0I8xNVt
+	 7SP2MZr4/VwqtHQaOpsuqCEiFW8QZ5JbhzGKjhn2HrZiYEyETUKpmrIu1RqrKv1ze0
+	 O/CG4kft+IhsQ==
+Received: from pan.lan (unknown [IPv6:2a00:23c6:c338:be00:61ad:9488:9583:2010])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: martyn)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 50B6D17E1555;
+	Thu,  9 Jan 2025 12:25:07 +0100 (CET)
+From: Martyn Welch <martyn.welch@collabora.com>
+To: Shawn Guo <shawnguo@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: kernel@collabora.com,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Martyn Welch <martyn.welch@collabora.com>
+Subject: [PATCH v2 RESEND] arm64: dts: ls1028a-rdb: Add iio-hwmon compatibility table
+Date: Thu,  9 Jan 2025 11:24:57 +0000
+Message-ID: <20250109112457.553169-1-martyn.welch@collabora.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v2] net: stmmac: Unexport stmmac_rx_offset() from
- stmmac.h
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <173642163126.1285771.10043021879258168083.git-patchwork-notify@kernel.org>
-Date: Thu, 09 Jan 2025 11:20:31 +0000
-References: <20250107075448.4039925-1-0x1207@gmail.com>
-In-Reply-To: <20250107075448.4039925-1-0x1207@gmail.com>
-To: Furong Xu <0x1207@gmail.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- alexandre.torgue@foss.st.com, joabreu@synopsys.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, xfr@outlook.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_032011_236359_97393E18 
-X-CRM114-Status: UNSURE (   9.35  )
+X-CRM114-CacheID: sfid-20250109_032509_816441_67AB527D 
+X-CRM114-Status: UNSURE (   9.32  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,31 +78,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Add an iio-hwmon map to utilise the iio framework and access power
+information via the hwmon framework at the same time.
 
-This patch was applied to netdev/net-next.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
+Signed-off-by: Martyn Welch <martyn.welch@collabora.com>
+---
 
-On Tue,  7 Jan 2025 15:54:48 +0800 you wrote:
-> stmmac_rx_offset() is referenced in stmmac_main.c only,
-> let's move it to stmmac_main.c.
-> 
-> Drop the inline keyword by the way, it is better to let the compiler
-> to decide.
-> 
-> Compile tested only.
-> No functional change intended.
-> 
-> [...]
+Changes since v1:
+ - Added missed PATCH keyword in subject
+ - Simplified commit message
 
-Here is the summary with links:
-  - [net-next,v2] net: stmmac: Unexport stmmac_rx_offset() from stmmac.h
-    https://git.kernel.org/netdev/net-next/c/e62de01008bd
+ arch/arm64/boot/dts/freescale/fsl-ls1028a-rdb.dts | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
 
-You are awesome, thank you!
+diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1028a-rdb.dts b/arch/arm64/boot/dts/freescale/fsl-ls1028a-rdb.dts
+index 757a34ba7da3..f23cf156734d 100644
+--- a/arch/arm64/boot/dts/freescale/fsl-ls1028a-rdb.dts
++++ b/arch/arm64/boot/dts/freescale/fsl-ls1028a-rdb.dts
+@@ -94,6 +94,12 @@ simple-audio-card,codec {
+ 			system-clock-frequency = <25000000>;
+ 		};
+ 	};
++
++	iio-hwmon {
++		compatible = "iio-hwmon";
++		io-channels = <&ina220 0>, <&ina220 1>,
++			<&ina220 2>, <&ina220 3>;
++	};
+ };
+ 
+ &can0 {
+@@ -253,8 +259,9 @@ i2c@2 {
+ 			#size-cells = <0>;
+ 			reg = <0x02>;
+ 
+-			current-monitor@40 {
++			ina220: current-monitor@40 {
+ 				compatible = "ti,ina220";
++				#io-channel-cells = <1>;
+ 				reg = <0x40>;
+ 				shunt-resistor = <500>;
+ 			};
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.45.2
 
 
