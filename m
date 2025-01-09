@@ -4,117 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D237E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 14:03:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A6C2E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 14:06:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eAyJ5LDtoXr+1R+ZVuoLrayqlcUgbaIUJIcBcCwtzkw=; b=k9PZIglAeOLg7goUqc1VZTk/1w
-	IbRBd3/WPwflrLKFluknygdCUAkmccIYK7OKEel68xGMnpN+tC8gUI1kNFwZpNjXk7uwUF1pznPeF
-	CMR04P8Ug5dgZbJOPMWDJ/jrsafiVxTwZsm+tn1ueavmG/W/FX7Sj1aTB7LT+5UNx/+KBv2vsV6VU
-	FHCfUz1aaeMIb+O+r9A5viPal5zy9BvZaVbgya0I0o7tMZmGuWhfroSZM9DjdQzmXJ0v+Wi2KyPzs
-	Aeh5eZrOU4CtDICHIz/reUEft/nLCUviSjGZJfqQXCid2o/6gegYXw030QMLJN8h/FuAs855O/DK5
-	sw0RINzg==;
+	bh=jmyRoYoXdFm3t1ZvxCEQdfjo2p7lHvFyXfwqsSYXeSo=; b=cybFEL293Vh6rc6NCHONPqyiLv
+	WKriBWDIymhfv8mH5cXejVJRzzmQk5XwXpn47/475D+xyrfDRezwiNBctAPdmHHB7kd4NsVuBmyNE
+	2SYYjf+i843a/P04T/Bskl+3ZqKgxyFlODCyzZz46iKQqn2K1YKJ5xKrxm+6zSFRgP8A1YP5aTh+5
+	hhk1qKRMehp2DguK0CiO87sdZ1WX9lZImAW36GdUzuzzMjd1csk3bKJZtLjL5eWwcmEE25fel5ogf
+	bW96tBcNRv8qxYK419g/DbULRptyPshqv//glAvZ/m/sm8v8WfBgrWhJ32p5XogTNXq6ZnINkyjmn
+	bmWuj93w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVt8N-0000000C9L7-0Sae;
-	Thu, 09 Jan 2025 14:03:39 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tVtBF-0000000CAH6-21eH;
+	Thu, 09 Jan 2025 14:06:37 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVt7A-0000000C9CX-0xkI
+	id 1tVtA1-0000000C9mE-2JkY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 14:02:25 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5096qTA4009780
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 9 Jan 2025 14:02:22 GMT
+	Thu, 09 Jan 2025 14:05:22 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5094go3V018460
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 9 Jan 2025 14:05:20 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	eAyJ5LDtoXr+1R+ZVuoLrayqlcUgbaIUJIcBcCwtzkw=; b=FdUmjlZvggS7Oe2u
-	eWeHYu9/JhXbWVdJrxFflobcKBIO3dcM0qWBLc8q+Vv+XLw1dwLf4hsA/XpkxOpb
-	vzZOCYx6HqekF8re+AN/ZqLyzgHTWJastHp9eP1ot5W2jXDA4HgkpqNZOblNYava
-	X2W7K7GVNsKvZkvmmwKA9S7NK6vlCDCkIqL39JAmR56WMxpPW2u+JJq6PfwTVxbf
-	Ah7R1lJU/xAD1nWZWhkgR91SyQhVm7KEv8VhpthSK9I5ENfDnZReJW4gku6NMFgg
-	4/jSRyHHToLYOadscWo6bG73Y92cqTcMsBvSFGL2e/gZkDLIDAA+gISTWTq8tke0
-	nFkbJw==
+	jmyRoYoXdFm3t1ZvxCEQdfjo2p7lHvFyXfwqsSYXeSo=; b=MTg0GmYchnsOejg/
+	uEzwshHY1V54wPpOSWyAYR66okd2iQxP31pQyKyKfHYgg+B25zhz3Si5oWUTNJmZ
+	gj2SNZ6Ac7iu1K8AU+RtIlp7DPXIWi7M8Di2hy+nCvPJLUCY1VDplVaLeQr9G+io
+	lEzIM75G/w5K1ywG4s7V9QiXR8MGHKSu+yS0pVChb90HK7MRBnnHXfmaJ6YP4rjf
+	Ek58ul3tTaa4i5G745NRJJcu0zEeyhnVlhHUC0mBP7J9bchZYS3fQdbiLhhjlSJt
+	lhPRy44V5SFXGiL0qHZBrlW2egDtnP5YN5SvkNSK8T/ewZTBjVdEynrsetIeH/5w
+	0wr1Jg==
 Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4429jt90cw-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4427nws8sj-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jan 2025 14:02:22 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-467975f1b53so2292071cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jan 2025 06:02:22 -0800 (PST)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jan 2025 14:05:20 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4679d6f9587so857851cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jan 2025 06:05:20 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736431341; x=1737036141;
+        d=1e100.net; s=20230601; t=1736431519; x=1737036319;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=eAyJ5LDtoXr+1R+ZVuoLrayqlcUgbaIUJIcBcCwtzkw=;
-        b=K2YPmGkx+nRBQgTTxWlQqGmOStMLGVGI8R/CXA9fIYiMlorUUKVnwpYZuM7t/6c54n
-         YFwh6n8eRdHetCZFXtoKOqKzFoQ1xEGGGTD7wXDhwkmSxhq4EFBJhn11ahMc5BJd/MgX
-         tBg+iklVsbkTMCoqOblz3owmVi8p7bGcJP/FthcacCRaxCZW437+rWeZ4FpcKse4Oxf0
-         7ezg0/yUIzYJqUoUcRwXlVrJovwRBxvetQ5CEP5FVXW8IQOJ+p8PR43TW9kBAx9YtCh6
-         sy154+QGD2UBdcfovvnIf3BTAOFIzE3S8lcrkStV/pFWTJkDJz1PoTiLNPaKSMWpR5tq
-         D6vA==
-X-Forwarded-Encrypted: i=1; AJvYcCUTlj5zfgfOPJns5M1tEY+ILTw3Tv0oBFS2IOmwzKdfgTxi7JHDAy+UuUBvvuitQmn9L29KdD0LKaL5pSZ+rpdu@lists.infradead.org
-X-Gm-Message-State: AOJu0YzrK6t7K/0XIaVXbgYC6+02sClX8ZpYp3cizp8QNcrUr3y0avPI
-	+P1DGvFo1aebt3QXoGm0TivETbGQ4u7WZFZ3HrPR447e0T2W+TECt+abey51Jf8gDsCLkr81+Xl
-	tLVKQooT5a3bWficvZ4jr1jvpiti4Nm8i1MC5KXZc+tTrn7Aq8SQ7lzx/OReSdNLGFDcc1HkLzw
+        bh=jmyRoYoXdFm3t1ZvxCEQdfjo2p7lHvFyXfwqsSYXeSo=;
+        b=QhVoyYALMkW5r5Ofx83e1v5nSkqaZOEOeSkh1THXodm7tj1dS5MFZNNtLKCJ9Ga/55
+         ce6XcdgBxVhPLUVfbuGKGLOQjCKEe/+wAb1fPQj2U6nkNOJJMTURWaTSd+hn1gCvkCAT
+         lwW6tEdw4tgpRw1SxvOWPZ3xoD25hgd9ECtSDUVGjuuEKDEFuLinrEaOZjggArKeFC2/
+         l8E6jxGK2+Hs3Fj7JuUuoxOheYebmdI7mBY8UOHajxtIaYkCOMbbmJjz0YdOL1dn5IHn
+         llZR17kY4nIiAa6kJPr+5pb5YGUXoWsUMIZz9xEP7kmtxGUQXK/+oTtP+5Y6lq92vBpx
+         7TOQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWRbUO3/LKWEN0V9CLDDBMXeAHJqlPm2auhGMiurPFKK2ihCrLXXnDQCDRD0/+Cyl7t5oYw8d4N/5MSBrBolNI1@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz768PbrBSLhzey/XLFa44yma0uc18h3ihH8dxOiSWXs1pkuFnF
+	UnTBsMPTPRACseSRygmUg+KPvnJPmGKwH9zPDMTiqCDqLgUtC3oWHiR8GvBZJ43tvXQNTDoxcbh
+	nTwTvWUXxeQMrx5cyVJpla+xM4W0d2Ws0uymal39rxkLcwYfcSk6IYllg/Dpmp652j61oWbyOow
 	==
-X-Gm-Gg: ASbGncvXdhlQrrFCF/dJozRD9cdzHuPU3Tn8nRK1wLP6LStz9DlObl1Nt8mn6iCmaxh
-	a8RdJYUB452EKqXoyHndIgRZLuup+R2zs+HIZCh34qewQorzfMqxLtQaYo/0Z8kRc3+jUrcA7vv
-	EiWMpcIUzfC0wOYNlWlTzv5Iej7MPy9rsZBB1+EIF6AM+hjmdRQCYlD1v9j984wvrtJgh2IFe3z
-	kjrZQ1MfHujGLYuuy6Ty2Xl6snoIOlFTKA5vqXzoWNeKytLX/D/AmTS30IpQHAG5ubhfjbl8LG3
-	T0G8BBiD6i5FdqOf8iZvPDy6zmtJi5fsqCM=
-X-Received: by 2002:a05:622a:1a9a:b0:467:5fd2:9963 with SMTP id d75a77b69052e-46c71003a8bmr36747591cf.6.1736431340990;
-        Thu, 09 Jan 2025 06:02:20 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHfuF1eKAhLL/sLtGC/6H2TCc4VU3iM2KC7HOi1+w90X9G08zymapAYf8h3dlNECvaehc90FQ==
-X-Received: by 2002:a05:622a:1a9a:b0:467:5fd2:9963 with SMTP id d75a77b69052e-46c71003a8bmr36747311cf.6.1736431340455;
-        Thu, 09 Jan 2025 06:02:20 -0800 (PST)
+X-Gm-Gg: ASbGncvGb9cRgBTTUgf1LQhLzDVkHDJLiXnwF14yXi27yOGmgK6VQqFmxmbS5XLb50P
+	Gg+5jR7A4pZ4JTQeMqoL9KU0aZ+EnC7g/xKp2F1mxbbyjK+mmKNxWE6PnGW+b0dr1qEv+c/v7dw
+	qOiylKIReg3eCWlouWl3VuSqB/2GJcQGvXADs8jgQKD8f+EFfA+3y3bZIH0Jp73YOXQtcETdb+z
+	XUoxEHP56UNFM5EfQ1upEU0VYZlriq6CzbIGVMc8L1P7pxdgi9YMaYBwuQO4gKUHaCWXn1IRQUr
+	NwWU2PgaeGMNxc7N5/le8SXzm7/l6YcbVH8=
+X-Received: by 2002:a05:622a:286:b0:467:61c1:df39 with SMTP id d75a77b69052e-46c7107d82cmr39750571cf.11.1736431519527;
+        Thu, 09 Jan 2025 06:05:19 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFh0MWIoJ9XR87ldHHy6FP17ePLNmNh9w1tSS3oyRlv58o5iBDlj+igtuNpR/o9oeGMMDjgVQ==
+X-Received: by 2002:a05:622a:286:b0:467:61c1:df39 with SMTP id d75a77b69052e-46c7107d82cmr39750441cf.11.1736431519066;
+        Thu, 09 Jan 2025 06:05:19 -0800 (PST)
 Received: from [192.168.65.90] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab2c90dc0easm75037066b.74.2025.01.09.06.02.18
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d9900c45aasm626251a12.28.2025.01.09.06.05.15
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 09 Jan 2025 06:02:20 -0800 (PST)
-Message-ID: <53b83a66-c0b3-4227-8dcd-022f70810ccf@oss.qualcomm.com>
-Date: Thu, 9 Jan 2025 15:02:17 +0100
+        Thu, 09 Jan 2025 06:05:17 -0800 (PST)
+Message-ID: <7a64e927-235b-4d63-af59-f2c80464a9a1@oss.qualcomm.com>
+Date: Thu, 9 Jan 2025 15:05:14 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 1/6] bus: Extract simple-bus into self-contained
- driver
-To: Stephen Boyd <swboyd@chromium.org>, Rob Herring <robh@kernel.org>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, linux-kernel@vger.kernel.org,
-        patches@lists.linux.dev, devicetree@vger.kernel.org,
+Subject: Re: [RFC PATCH 2/6] dt-bindings: bus: Add qcom,soc-sc7180 SoC
+To: Stephen Boyd <swboyd@chromium.org>,
+        Bjorn Andersson
+ <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+Cc: linux-kernel@vger.kernel.org, patches@lists.linux.dev,
+        devicetree@vger.kernel.org,
         Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
         Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        Arnd Bergmann <arnd@arndb.de>, Conor Dooley <conor+dt@kernel.org>,
+        Rob Herring <robh@kernel.org>, linux-arm-msm@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>,
+        Conor Dooley <conor+dt@kernel.org>,
         Saravana Kannan <saravanak@google.com>,
-        =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+        =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>
 References: <20250108012846.3275443-1-swboyd@chromium.org>
- <20250108012846.3275443-2-swboyd@chromium.org>
- <CAL_JsqKMcHPhf8yzEZNC6280-k+aSmo3SQOBZLMjmfTR47BH=g@mail.gmail.com>
- <CAE-0n52k0Gg85Ry4KyjE7Ms_dJgj=aPA4aPB5gmC-VGWSNLZXA@mail.gmail.com>
+ <20250108012846.3275443-3-swboyd@chromium.org>
 Content-Language: en-US
 From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <CAE-0n52k0Gg85Ry4KyjE7Ms_dJgj=aPA4aPB5gmC-VGWSNLZXA@mail.gmail.com>
+In-Reply-To: <20250108012846.3275443-3-swboyd@chromium.org>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: GQEYCYScW58rL3_XuXCNxVMaoIp9uXMz
-X-Proofpoint-GUID: GQEYCYScW58rL3_XuXCNxVMaoIp9uXMz
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: uiDANlHSnuFifdgDS0yRN76NkqMJJ1Mx
+X-Proofpoint-GUID: uiDANlHSnuFifdgDS0yRN76NkqMJJ1Mx
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
- malwarescore=0 spamscore=0 impostorscore=0 adultscore=0 suspectscore=0
- phishscore=0 bulkscore=0 clxscore=1015 mlxlogscore=860 mlxscore=0
- lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
+ suspectscore=0 phishscore=0 bulkscore=0 adultscore=0 mlxlogscore=999
+ mlxscore=0 clxscore=1015 impostorscore=0 spamscore=0 priorityscore=1501
+ malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
  engine=8.19.0-2411120000 definitions=main-2501090113
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_060224_306659_0FA856F6 
-X-CRM114-Status: GOOD (  19.25  )
+X-CRM114-CacheID: sfid-20250109_060521_718748_C4403D6F 
+X-CRM114-Status: GOOD (  13.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,41 +130,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8.01.2025 11:44 PM, Stephen Boyd wrote:
-> Quoting Rob Herring (2025-01-08 06:11:28)
->> On Tue, Jan 7, 2025 at 7:28 PM Stephen Boyd <swboyd@chromium.org> wrote:
->>>
->>> Extract the simple bus into a self contained driver so that devices are
->>> still populated when a node has two (or more) compatibles with the least
->>> specific one being the generic "simple-bus". Allow the driver to be a
->>> module so that in a fully modular build a driver module for the more
->>> specific compatible will be loaded first before trying to match this
->>> driver.
->>>
->>> Cc: Rob Herring <robh@kernel.org>
->>> Cc: Saravana Kannan <saravanak@google.com>
->>> Cc: <devicetree@vger.kernel.org>
->>> Cc: Arnd Bergmann <arnd@arndb.de>
->>> Cc: "Uwe Kleine-König" <u.kleine-koenig@baylibre.com>
->>> Cc: Bjorn Andersson <andersson@kernel.org>
->>> Cc: Konrad Dybcio <konradybcio@kernel.org>
->>> Cc: <linux-arm-msm@vger.kernel.org>
->>> Signed-off-by: Stephen Boyd <swboyd@chromium.org>
->>> ---
+On 8.01.2025 2:28 AM, Stephen Boyd wrote:
+> Document the Qualcomm SC7180 System on a Chip (SoC). This SoC is made up
+> of multiple devices that have their own bindings, therefore this binding
+> is for a "bus" that is the SoC node.
+> 
+> TODO: Document all child nodes. This is woefully incomplete but at least
+> shows what is involved with describing an SoC node in dt schema.
+
+I'm not sure I'm a fan, because...
 
 [...]
 
-> Maybe the best approach is to simply avoid all of this and drop the
-> "simple-bus" compatible from the soc node? It introduces an annoying
-> hurdle where you have to enable the new driver that does exactly the
-> same thing as "simple-bus" does so you continue to have a working
-> system, but it avoids the headaches of trying to make the fallback to
-> "simple-bus" work and it would match how new DTs would be written. We
-> could make the driver 'default ARCH_<SOC_VENDOR>' so that it gets built
-> for olddefconfig users too.
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - const: qcom,soc-sc7180
+> +      - const: simple-bus
+> +
+> +  '#address-cells':
+> +    const: 2
+> +
+> +  '#size-cells':
+> +    const: 2
+> +
+> +  clock-controller@100000:
+> +    $ref: /schemas/clock/qcom,gcc-sc7180.yaml#
+> +
+> +  watchdog@17c10000:
+> +    $ref: /schemas/watchdog/qcom-wdt.yaml#
+> +
+> +required:
+> +  - compatible
+> +  - '#address-cells'
+> +  - '#size-cells'
+> +  - clock-controller@100000
+> +  - watchdog@17c10000
+> +
+> +additionalProperties: false
 
-I think it even makes logical sense for the /soc node's compatible to
-be.. you know.. the model of the SoC we're modeling
+..this approach will make any dt node addition under /soc require
+an additional bindings change, which sounds like absolute madness
+
+I think additionalProperties: true would be sufficient here, like in
+Documentation/devicetree/bindings/soc/imx/imx8m-soc.yaml
 
 Konrad
 
