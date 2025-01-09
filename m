@@ -4,83 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27534E77199
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 17:56:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A3C4E77199
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 18:07:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VOk2x7xENmwEqdSaUTlpdBQVwEKSsAxgTnKrDsGxtIM=; b=ZNLgDN7rdy38UnfRoLL6qLIspk
-	pE6fRwxGsBAl5jEDobKKkNOw/XZLcsDlPaLanJTJb3kEhRhxsi+kPL7Yp43/pxoGWYy4YXW5BZ8LR
-	HomhyRE7FDehJlnNOwfQRC3nrHfQ6EXwRuuBpijuMsFUPYTRQP0aHZfYnsKuNNE7z38e+SK/4OXw+
-	eYnZXZk6PgAXmuu+ZPV/HsxoI4sTtyzftivOj1ccjmyLZ82V0K/ZJ+ma9BTz6JAvaxoa2DcZop4Nk
-	cmw45sDg/y0UlbBIfXCyhTdTL5QZwmkuVhFz6NmhmOOL0o8ZZH6rXbmMyyWi9ueJIwEb/CLpAvMMo
-	zgaMGCgQ==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Oj14ywmszEKTo8pcqpdQOE/Eg/vLBK+a32sIyoJJO2E=; b=BjRvrpI3HxY897ErXjhRy657nb
+	8jbjAXWmM+rLr5AXXG72mQlUx2s09riumlaReGhd9+ShNPvyTReGNV30DHy7B/nhGw5kSP6rF9hB8
+	LxKq1An2/Rc3QuC517C/+KO91Qf34+0UupWvah3siNpK/I8LrFt7yo8RMt/0in9cq6blufIO8msu8
+	FV2ZhTX8/Mejdd8r4a7JQQEQWSzZBSzZN4yu9lHi7uzCPUGCpY/SBa+Br3oSNrp8DpPL8LpCQfcXA
+	w513IwDD/urN9wCU1V73cZxJQV5UZ6J9ImmxeZRId2b3XcHGchrlEUB/ydGZf7z9A5f2WBNXtWhRg
+	tlyD0ofw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVwl5-0000000CvGp-0xgf;
-	Thu, 09 Jan 2025 17:55:51 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1tVwwD-0000000CwLj-16PS;
+	Thu, 09 Jan 2025 18:07:21 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVwjr-0000000Cv1i-0Hjy
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 17:54:37 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-43635796b48so8319795e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jan 2025 09:54:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736445273; x=1737050073; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=VOk2x7xENmwEqdSaUTlpdBQVwEKSsAxgTnKrDsGxtIM=;
-        b=TiLMMC93haLvfHD8pPIsxy88Kc0ILNevxlCjzdCEtlAHzaLsKVtUWOJKpLxwt9gYuS
-         UKkWuSoVWe16AUdpqA+8UFWiXK3AesTDVkn4DaPWjclwm8b/GcBsaDFyz4nel+o4pKEE
-         UoWI6rk4aS+Ut9wwPIMYr1kgg7xOwXybBoa2OLUUiVtI5qL8IwigEr3ongbn7An4Z/G9
-         IsYx1hR0d9kZ9xpa4hzOK2euppI2LHagrP2aBRkIioZO7y7rsVfjLArgaXNLxPz72TDb
-         uTSKkfm5Ewbf4ar1SZ0aW/EzTkAZiMuYlgxuDYpZaCkKxXYe/I3nYqip3LiRrUq/7pcs
-         QwXA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736445273; x=1737050073;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=VOk2x7xENmwEqdSaUTlpdBQVwEKSsAxgTnKrDsGxtIM=;
-        b=ehpP/cwCpIBKBmXlfOJXt6ldYTTrg6V5Tqy5Njr07xg02JdqLaDwBWHIX+vQKFCpir
-         zYFalKLPkocNjK850nB52DzQdOg0GQFKu6zvGa1V+8GwiBKucmlrswWyF1uy94p/FZIS
-         VNUGpbNeBzATGO95Z1Hv0RX+sEVF3u1KJSb/+PaZIldxlXzQrlZohSt971D7fa+MrFZR
-         rCOV5RyKUJpNrKFMpMj9I4eEKLNpgEkwOfYc7sQZiVHGqtV6qJQ0jENynqjksOy2Q7vL
-         +scKVZ9mTBp7niAS/Gj2LfZDReK0UmkL4v0PdNYxKxUpSp6Tmx9L0211aKetD7SNlu82
-         fmhg==
-X-Gm-Message-State: AOJu0Yws5hw4CNSdm6wT5aisFHMDkLg6C1N6eHlJktm+VWT2W4A43HNz
-	0AE742nmx7gaPeNYYbXLsU9Yn9aaaagp/VLNgu+8DdqesnWGzUpNQREL9w==
-X-Gm-Gg: ASbGncvVlwvAV3C9x6R6wSNCpElBFmrduTssIZGWxhmEyJ2ofxkWaIny5bKThz3YAqW
-	dqcJkKuioKH2x7zNW35a4dQ49jLRIe+hMnKcMfFq6zG8JHatZfK4ogrZBSZETFN9k5Mtxc4bva1
-	TS6kInwRE44YpTlug5OGwZesd5y0jna8hSWSfN7wUQxZ6UfKOdZxzb3AgEGS4w5ovH9//Kyq/ro
-	uNutF9RMadbby4xX3NuYatPbLh4h9soale4IdHGaSOjVKVSvl6148GO
-X-Google-Smtp-Source: AGHT+IHGie1IgFEsaAjE8vS5MyvybPqWWZA9f8slWVYYtG0WUXP2nwc2HIpa2oE3hX0LhSOeOIyEoA==
-X-Received: by 2002:a7b:cd13:0:b0:436:51ff:25de with SMTP id 5b1f17b1804b1-436e8827fc8mr36979505e9.7.1736445273171;
-        Thu, 09 Jan 2025 09:54:33 -0800 (PST)
-Received: from localhost ([2001:861:3385:e20:6384:4cf:52c5:3194])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e2da66fcsm62521375e9.6.2025.01.09.09.54.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Jan 2025 09:54:32 -0800 (PST)
-From: Raphael Gallais-Pou <rgallaispou@gmail.com>
-To: Patrice Chotard <patrice.chotard@foss.st.com>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Niklas Cassel <cassel@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-ide@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] ahci: st: Switch from CONFIG_PM_SLEEP guards to pm_sleep_ptr()
-Date: Thu,  9 Jan 2025 18:54:27 +0100
-Message-ID: <20250109175427.64384-1-rgallaispou@gmail.com>
-X-Mailer: git-send-email 2.47.1
+	id 1tVwuz-0000000Cw4v-1JNV;
+	Thu, 09 Jan 2025 18:06:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8FA88A4253A;
+	Thu,  9 Jan 2025 18:04:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA89AC4CED2;
+	Thu,  9 Jan 2025 18:06:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736445963;
+	bh=rp9xKD+8m1msQ0xxbCs9oZzFyU1GURrqUZhq3NbpvyQ=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=hXJVC9TEna9TWYKbS9F02aIUvOHalq4E7m1+cvMk0ArDdbnyNkOQeESQ7Ur7QTEYq
+	 oV3fJnNHiU6ugTU9/tuOjHdJ9qaR831jsML8BcJ2B2+uzRQfA4kpmr3AmZ+XqRvw70
+	 BTN8HX8ggLtR2WOIhN2X2Ipa4OKa5qs1wwTNGfy1p+9su4jHqsiWIAwGFmgaxU7Nfw
+	 H9Abn1fQ/2SPP2QU6lVw0EYHITfjtwSWp9wIQJbaVZRVNv4TDYE1jWwRNuescPEqI8
+	 vYK392uOFALwuMqP1HoC1bERclFcBuYV7fmAeGJqkaXECHPwUoHQw9LVho0fFgK9tk
+	 fJ+fXn+JQWXLQ==
+Received: by mail-io1-f52.google.com with SMTP id ca18e2360f4ac-84ceaf2667aso76226639f.3;
+        Thu, 09 Jan 2025 10:06:03 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUh3/TaDryMy96Ctb0nKux1KhLBkgpyNliwkqrQ2kA9Pgl1s3JeAAv0VuucTjWXB1Sz23u2Ub++1M9m5xC9r2uUmA==@lists.infradead.org, AJvYcCVbcE+PIo0iD7rKr/89BzN0IFDiOkHim47pDBLxVcB6UwJ5C4TxIvL0Od7vQGRQIIwQKeQ3J60GDpp0yvg=@lists.infradead.org, AJvYcCXu6yyt99u8V/gpDWSzYkNddSjLWXfCYKPGdBKQ6mZjpw3QbVv9oQQafEa4D9lDDQCK/BD+Mw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YykZZGg4hITuEN3+ZPZq8oo2LeOrwEEU4R7jTNaPMhRDzc9zo4c
+	gi6Kn+0yU1X7MQInQuq02VxUlkgMQlYtwIldlVOaE+wBZVs7QV1tBp71j5mMfNmWX1DlP69yqZL
+	UpDXrJbL3PS7E/S6gBo+gXBOGTo0=
+X-Google-Smtp-Source: AGHT+IHw82IqZn0L3vIWI2GRAE2/Fu1vkOzFuTOkK3ccul7HxPp7E2ac95iMCNTUN8mztI4YyZ2Kf9FZUsicSlonzfg=
+X-Received: by 2002:a05:6e02:3048:b0:3a7:6a98:3fdf with SMTP id
+ e9e14a558f8ab-3ce3a9da817mr60484875ab.14.1736445963152; Thu, 09 Jan 2025
+ 10:06:03 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250109-jag-ctl_table_const-v1-1-622aea7230cf@kernel.org>
+In-Reply-To: <20250109-jag-ctl_table_const-v1-1-622aea7230cf@kernel.org>
+From: Song Liu <song@kernel.org>
+Date: Thu, 9 Jan 2025 10:05:51 -0800
+X-Gmail-Original-Message-ID: <CAPhsuW5zpA28gkBQYMMuYCUbnDzdeq4pHsd0Mx=PBnDPiHKqHw@mail.gmail.com>
+X-Gm-Features: AbW1kvZZD8oqcdTZ9DXv7tEUC7bpyqeBsuw6nnhXboAE2kNg_1eTiibnv93HXj8
+Message-ID: <CAPhsuW5zpA28gkBQYMMuYCUbnDzdeq4pHsd0Mx=PBnDPiHKqHw@mail.gmail.com>
+Subject: Re: [PATCH] treewide: const qualify ctl_tables where applicable
+To: Joel Granados <joel.granados@kernel.org>
+Cc: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>, 
+	Kees Cook <kees@kernel.org>, Luis Chamberlain <mcgrof@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org, 
+	openipmi-developer@lists.sourceforge.net, intel-gfx@lists.freedesktop.org, 
+	dri-devel@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
+	linux-hyperv@vger.kernel.org, linux-rdma@vger.kernel.org, 
+	linux-raid@vger.kernel.org, linux-scsi@vger.kernel.org, 
+	linux-serial@vger.kernel.org, xen-devel@lists.xenproject.org, 
+	linux-aio@kvack.org, linux-fsdevel@vger.kernel.org, netfs@lists.linux.dev, 
+	codalist@coda.cs.cmu.edu, linux-mm@kvack.org, linux-nfs@vger.kernel.org, 
+	ocfs2-devel@lists.linux.dev, fsverity@lists.linux.dev, 
+	linux-xfs@vger.kernel.org, io-uring@vger.kernel.org, bpf@vger.kernel.org, 
+	kexec@lists.infradead.org, linux-trace-kernel@vger.kernel.org, 
+	linux-hardening@vger.kernel.org, apparmor@lists.ubuntu.com, 
+	linux-security-module@vger.kernel.org, keyrings@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_095435_109374_A1165A21 
-X-CRM114-Status: GOOD (  14.44  )
+X-CRM114-CacheID: sfid-20250109_100605_476314_89F4B2FD 
+X-CRM114-Status: UNSURE (   5.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,53 +98,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Letting the compiler remove these functions when the kernel is built
-without CONFIG_PM_SLEEP support is simpler and less error prone than the
-use of #ifdef based kernel configuration guards.
+On Thu, Jan 9, 2025 at 5:16=E2=80=AFAM Joel Granados <joel.granados@kernel.=
+org> wrote:
+>
+[...]
+>  drivers/base/firmware_loader/fallback_table.c | 2 +-
+>  drivers/cdrom/cdrom.c                         | 2 +-
+>  drivers/char/hpet.c                           | 2 +-
+>  drivers/char/ipmi/ipmi_poweroff.c             | 2 +-
+>  drivers/char/random.c                         | 2 +-
+>  drivers/gpu/drm/i915/i915_perf.c              | 2 +-
+>  drivers/gpu/drm/xe/xe_observation.c           | 2 +-
+>  drivers/hv/hv_common.c                        | 2 +-
+>  drivers/infiniband/core/iwcm.c                | 2 +-
+>  drivers/infiniband/core/ucma.c                | 2 +-
+>  drivers/macintosh/mac_hid.c                   | 2 +-
+>  drivers/md/md.c                               | 2 +-
 
-Signed-off-by: Raphael Gallais-Pou <rgallaispou@gmail.com>
----
-Changes in v2:
-  - Split serie in single patches
-  - Remove irrelevant 'Link:' from commit log
-  - Link to v1: https://lore.kernel.org/r/20241229-update_pm_macro-v1-4-c7d4c4856336@gmail.com
----
- drivers/ata/ahci_st.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+For md bits:
 
-diff --git a/drivers/ata/ahci_st.c b/drivers/ata/ahci_st.c
-index 6b9b4a1dfa15..4336c8a6e208 100644
---- a/drivers/ata/ahci_st.c
-+++ b/drivers/ata/ahci_st.c
-@@ -176,7 +176,6 @@ static int st_ahci_probe(struct platform_device *pdev)
- 	return 0;
- }
- 
--#ifdef CONFIG_PM_SLEEP
- static int st_ahci_suspend(struct device *dev)
- {
- 	struct ata_host *host = dev_get_drvdata(dev);
-@@ -221,9 +220,8 @@ static int st_ahci_resume(struct device *dev)
- 
- 	return ahci_platform_resume_host(dev);
- }
--#endif
- 
--static SIMPLE_DEV_PM_OPS(st_ahci_pm_ops, st_ahci_suspend, st_ahci_resume);
-+static DEFINE_SIMPLE_DEV_PM_OPS(st_ahci_pm_ops, st_ahci_suspend, st_ahci_resume);
- 
- static const struct of_device_id st_ahci_match[] = {
- 	{ .compatible = "st,ahci", },
-@@ -234,7 +232,7 @@ MODULE_DEVICE_TABLE(of, st_ahci_match);
- static struct platform_driver st_ahci_driver = {
- 	.driver = {
- 		.name = DRV_NAME,
--		.pm = &st_ahci_pm_ops,
-+		.pm = pm_sleep_ptr(&st_ahci_pm_ops),
- 		.of_match_table = st_ahci_match,
- 	},
- 	.probe = st_ahci_probe,
--- 
-2.47.1
+Reviewed-by: Song Liu <song@kernel.org>
 
+Thanks,
+Song
+
+[...]
 
