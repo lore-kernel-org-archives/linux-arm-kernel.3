@@ -4,103 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B378E77199
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 10:19:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61D76E7719A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 10:28:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z6RS4xw6Ub9a98zJR5HGgMwejTw+vHzDAwM6dcDaFxo=; b=SI/kGsU5ZoRwRDyUBtDZyGsCu7
-	8Q1FO81aFdQwkCmdOeiKnMg5wdqFH+ZaTgb9XZ+9W7eKAf1i+dJG+G0yGma/+XzbyRSO0BfeHb0QI
-	ftBKEdK47mNOLVcnwQtzUL7t89nGZbYHbx1/bjoK8I/fUfPmOy6SnpbjJkKu3c3r9fQOedObTeogz
-	eF0EgveX2ABz21i0gFQ+TH9/mFp1d0hkOd2uOK2jMZSeT6u1K4mgWJc3kOM8vA74pPmAsPvvEVm/O
-	+upGB5xWuwpgYk/UxflFygVK5iP0/yqaxdn5dZFPjmq7unMhVy0Td8vm9ErX/yEZ/1OIyLvqjQoMg
-	sRHENO9g==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+OViREEuGAiMfB4rZqhC91yfl47kcGwQZ64TnKipNok=; b=jYvvAEy1Cku1LMy0ONeQeKXMzC
+	1FnLbGoCc4qD4Aq6v4Atwf+Jkmw+IoWTKAwCD08sKfE6p6aLm++3xViNG3dt6wx9eT+F4B7XvMqVz
+	Si42xnwfdtPuMjfcBWSenmrhGC8nvecnfmaMPZAIUTC6HalS1MljOuVcnPzd3ar2z0n9ISDRwP1ig
+	ya+qTt2C7ZLBDo1HTZ2H/pz3TcyTLhRkszreikuXzqkERK/NH6YWD2NIs5dyGGR1sgWI89+9hOSQ3
+	U5u/nYmImxxsmOca+XIkQ0152uwSNEqTBg+IBXYcQYhRVP8ozT5Fhj0ZZeuVJuDEl5jL5ZJyHVaox
+	3KXkvcLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVpdJ-0000000BUg5-1o63;
-	Thu, 09 Jan 2025 10:19:21 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1tVplV-0000000BWpZ-2dCw;
+	Thu, 09 Jan 2025 10:27:49 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVpZt-0000000BTpx-0sHD
+	id 1tVpkH-0000000BWSX-0Mkb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 10:15:50 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3862d161947so361901f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jan 2025 02:15:49 -0800 (PST)
+	Thu, 09 Jan 2025 10:26:34 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-385de59c1a0so413787f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jan 2025 02:26:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1736417748; x=1737022548; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Z6RS4xw6Ub9a98zJR5HGgMwejTw+vHzDAwM6dcDaFxo=;
-        b=xZM2bn1aT293JLPqwr1ItfkJ6l57o1Mz+q8bHeNKguMrg6lZT6Ej1fD03uz0jAIHfE
-         eaFRVeFYBhLn+SH4sL7xrw26e8JmIVi4q8pAwlKmRqWUr2a37x6XEw3FJ3c0PAyIfy9P
-         qhZJnfbl+/+7zmCySF4tILnk4VVGjh54er3N/F4Wl/OU9lThr105FmXjDSTQ0cnevhUG
-         eStkJlgzCA5ABA4wythj1VSHsixsqZYee5kiRNAI8cqoqpCydk0/sANNhDmgGSx9NaWL
-         XOp+XrGVNJtnCyIqCvqXTNHs8iSj42ZvCRtEJDz7+zuhsUw2Gp+HD4Jp1/HRwksQxgNg
-         mRLg==
+        d=smile.fr; s=google; t=1736418392; x=1737023192; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=+OViREEuGAiMfB4rZqhC91yfl47kcGwQZ64TnKipNok=;
+        b=RmPAkDIkD+jhxSbCPM8XhiicEtaV+jjh5YSp5QKdCGK0T9SRbw+ReELaksWZb16BnV
+         /4mpA/hsS4HkjuFCwM1wT/DnLVADftJ8qk0tLXBFAxZMZsQUHh6XMk9SiYb/sbluH8ib
+         vANStrbwY/wGrdJPdPmuW/D2qBhrsbQKdf+TU=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736417748; x=1737022548;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Z6RS4xw6Ub9a98zJR5HGgMwejTw+vHzDAwM6dcDaFxo=;
-        b=AQzP+MqnnOROn8l0Snk4ll4jS4lPONOohHsW2rAhObQ9wNHGOy1XxlHAo3ZplFBAhF
-         0cpJJYS+Si4yBlq4RNsxGmTOZ5Z5jr9/6yX6cOiBzfivGNH7VdltSSWBrARFozWl3L0G
-         15lH6rOAIBJi8NJfyJU3VcMjHIb/aHavkjHXn6YHL1skHydcasEuLw5BhLV7HUii4NmP
-         GVUkf7+SM+vhQtjLhQQ7zK3WwSJvpsI3o24yYjkrpYxGEgSN5/NZf8WDKQa/VnH7OlFC
-         m9Nnv6n3h09n4mJTVzO3JiqKHRVVaOzGeAYPxNzAhh9bECKJ8+vNJRvGbCN/rc5Coez6
-         twNw==
-X-Forwarded-Encrypted: i=1; AJvYcCXKYQu7DprGFqGVbWPbWk0xzrFAh/nIUPFIPM3lTYg5zdwdeMllUHOzhyn7XUAJcvJ7qJuXOlQ6s0SWNQqqfJWP@lists.infradead.org
-X-Gm-Message-State: AOJu0YwwgZsAcoJu8aezhhwUFz6Uj/gmOshftc97kQFxpeNLPZvR1nC/
-	zeqTHJyzYsFBMxnCJ1D7Ed1G3N6OBt1zV5Whx2fpWgFE/E+4iZUaetBKOsoO+vQ=
-X-Gm-Gg: ASbGncuZ+zCIa5j2sAO1cPxFmXIsWNzcRAov3B7jAg5vU5fJB+5On9PlVvtzDkcNv1n
-	hGhqMezpKU/hHANaNVprsiyHUHUPiSwPVbOPibZc31eqDPIgbc3z9GTLN5fWUVaXKmR8INID3I8
-	zRDQ5nh4L7LoBJHbKI/hZVW7Y/YQ2LXbIiA/rW4dkeWrqDdiOVwk7fR/VC1FYf6praM+Rzhix/k
-	BpWFF+ouF8BuIqQbfD/Q2THwQQGC6vDG9NW+JQ0jpb8Pe0wkbJADNoLElQDTfGoznur2KAaCGJ6
-	9xKqSCInt0sFBu5Kln/mhxTjkQ==
-X-Google-Smtp-Source: AGHT+IFDFX3nATWzt3JJXgsFxlH2455Ys5367JQMJFp3tUUCUzhjUi2qmO4yXeOxwH6ju4OueG0nOg==
-X-Received: by 2002:adf:c08d:0:b0:38a:87cc:fb2c with SMTP id ffacd0b85a97d-38a87ccfc17mr3463841f8f.18.1736417747781;
-        Thu, 09 Jan 2025 02:15:47 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:5ee:79d0:125:358f:ea05:210e? ([2a01:e0a:5ee:79d0:125:358f:ea05:210e])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a8e385026sm1389541f8f.42.2025.01.09.02.15.46
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 09 Jan 2025 02:15:47 -0800 (PST)
-Message-ID: <3506d2e1-d7b6-47f2-b2b7-edc208ad45f8@baylibre.com>
-Date: Thu, 9 Jan 2025 11:15:46 +0100
+        d=1e100.net; s=20230601; t=1736418392; x=1737023192;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+OViREEuGAiMfB4rZqhC91yfl47kcGwQZ64TnKipNok=;
+        b=m7L3herMJnoFOmljZmPRwQhDdTo7fiLm8GYx0tes2QE9KxYeGyo9mkmV7MYo/sxUMt
+         ocIHRHX6AysmJKHBkC2fziTi5UR6AtBgrQ4VBC5Jqb9bCM1kwSLslGwdIgtFvhrVPlCP
+         Uhuim0YATLF/M8B47LBTJGVfogUZ0/9suXflHZH/F6NwGwNpY1VIxf0VFYl4zGw9wTJv
+         kB2GiqUEZLmnPgvB0SxNtBB+hrqT4HMDeU+aNqiEhv46BCnsgJSu4F7BTQ0TM1G2b5pP
+         riZ5F5NFHQMOnqdqpyg1Y7Dds/DHoRhwrHNJIGfjWHY9fTsKb3lTRcMQJn9PEChsjHAa
+         tqig==
+X-Gm-Message-State: AOJu0Yxn9NLOyOQXPetrD0yJA7rr9Iny5NpEwfpa2XQ4b3KhfIwdEocl
+	e/8K/YmNmnFfqfdaKg9o4DgfnGBAbn1IABDbWxzVLqAUVL+J8fm6FeB7cl7WpXY=
+X-Gm-Gg: ASbGncu4PhSTuLsF6Q3W7AuGgkmFUrcVxx4TF0gbHIipS8GasRRzYf9y0IJV4un3ynQ
+	WWGR05dNsQ2idy6Qd15lGw2jLc5pFtH2j0aOUhf2m+X36RmaHaim1p2T43NGwtJMReHdms1ahrV
+	mF4nWppLezPyjQGHLiXrympgCGe6jeUjG7PFcat3oVUX3oNBDupg640+nXp26md5OEszZwr8f5a
+	JO2RL4uSpQTUtiOicm6AfSisR05J6Ut3K3QQNIGdyw32JqfhRWkrHsRBMJj2F+URlKUPNsGqMO5
+	nrmWnMgGvnXMLTEKSU2pqU7nyijswMDr8DkapSivSdtSOrv6mLKsxQ==
+X-Google-Smtp-Source: AGHT+IGaEL7/48iU7IgiC7jE7AFgeQlcCSooxUQXpvnoV1/pZwI5FcyPuiKT2LVnasDagT56K+Pa0w==
+X-Received: by 2002:a5d:5f82:0:b0:385:e1a8:e28e with SMTP id ffacd0b85a97d-38a872faed5mr5844671f8f.10.1736418391609;
+        Thu, 09 Jan 2025 02:26:31 -0800 (PST)
+Received: from P-NTS-Evian.home (2a01cb05949d5800e3ef2d7a4131071f.ipv6.abo.wanadoo.fr. [2a01:cb05:949d:5800:e3ef:2d7a:4131:71f])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a8e38d013sm1435595f8f.58.2025.01.09.02.26.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 09 Jan 2025 02:26:31 -0800 (PST)
+From: Romain Naour <romain.naour@smile.fr>
+To: devicetree@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-omap@vger.kernel.org,
+	conor+dt@kernel.org,
+	krzk+dt@kernel.org,
+	robh@kernel.org,
+	kristo@kernel.org,
+	vigneshr@ti.com,
+	nm@ti.com,
+	afd@ti.com,
+	Romain Naour <romain.naour@skf.com>
+Subject: [PATCH v4 1/2] dt-bindings: mfd: syscon: Add ti,j721e-acspcie-proxy-ctrl compatible
+Date: Thu,  9 Jan 2025 11:26:26 +0100
+Message-ID: <20250109102627.1366753-1-romain.naour@smile.fr>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 7/7] arm64: dts: mediatek: add display support for
- mt8365-evk
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Chun-Kuang Hu <chunkuang.hu@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Jitao Shi <jitao.shi@mediatek.com>, CK Hu <ck.hu@mediatek.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Simona Vetter <simona@ffwll.ch>, Simona Vetter <simona.vetter@ffwll.ch>
-Cc: dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20231023-display-support-v5-0-3905f1e4b835@baylibre.com>
- <20231023-display-support-v5-7-3905f1e4b835@baylibre.com>
- <325c495b-8e5a-412f-9974-3ec7ab15b479@kernel.org>
-Content-Language: en-US
-From: Alexandre Mergnat <amergnat@baylibre.com>
-In-Reply-To: <325c495b-8e5a-412f-9974-3ec7ab15b479@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_021549_258301_48CC95BD 
-X-CRM114-Status: UNSURE (   7.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250109_022633_128533_4302969A 
+X-CRM114-Status: GOOD (  10.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,16 +98,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks, fixed for v6
+From: Romain Naour <romain.naour@skf.com>
 
+The ACSPCIE_PROXY_CTRL registers within the CTRL_MMR space of TI's J721e
+SoC are used to drive the reference clock to the PCIe Endpoint device via
+the PAD IO Buffers. Add the compatible for allowing the PCIe driver to
+obtain the regmap for the ACSPCIE_CTRL register within the System
+Controller device-tree node in order to enable the PAD IO Buffers.
 
-On 09/01/2025 08:55, Krzysztof Kozlowski wrote:
-> compatible is always, ALWAYS first.
-> 
->> +		compatible = "ite,it66121";
-> reg follows.
+The Technical Reference Manual for J721e SoC with details of the
+ASCPCIE_CTRL registers is available at:
+https://www.ti.com/lit/zip/spruil1
 
+Signed-off-by: Romain Naour <romain.naour@skf.com>
+---
+v4: Add missing change in the second list (From Andrew Davis) [1]
+  Rebase after the ti,j784s4-acspcie-proxy-ctrl compatible fix [2]
+  [1] https://lore.kernel.org/linux-devicetree/20250103174524.28768-1-afd@ti.com/
+  [2] https://lore.kernel.org/linux-devicetree/20250103174524.28768-2-afd@ti.com/
+
+v3: new commit
+---
+ Documentation/devicetree/bindings/mfd/syscon.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Documentation/devicetree/bindings/mfd/syscon.yaml
+index 0e68c69e7bc9..1f3e67f432e7 100644
+--- a/Documentation/devicetree/bindings/mfd/syscon.yaml
++++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
+@@ -115,6 +115,7 @@ select:
+           - ti,am625-dss-oldi-io-ctrl
+           - ti,am62p-cpsw-mac-efuse
+           - ti,am654-dss-oldi-io-ctrl
++          - ti,j721e-acspcie-proxy-ctrl
+           - ti,j784s4-acspcie-proxy-ctrl
+           - ti,j784s4-pcie-ctrl
+           - ti,keystone-pllctrl
+@@ -213,6 +214,7 @@ properties:
+           - ti,am625-dss-oldi-io-ctrl
+           - ti,am62p-cpsw-mac-efuse
+           - ti,am654-dss-oldi-io-ctrl
++          - ti,j721e-acspcie-proxy-ctrl
+           - ti,j784s4-acspcie-proxy-ctrl
+           - ti,j784s4-pcie-ctrl
+           - ti,keystone-pllctrl
 -- 
-Regards,
-Alexandre
+2.47.1
+
 
