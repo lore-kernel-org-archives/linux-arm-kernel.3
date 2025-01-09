@@ -4,64 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB876E77199
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 15:48:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73D45E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 15:53:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qcUXFptebfMrvGhDxe7112Zqb3/zYWm85RNBPbS8bvY=; b=0HBsy2UxHfffantLOqNw+zFuw9
-	KjXdDhoSBCr3/OR6UOTebJnfZbiRC+m/88M0uiHwN2r7imqYBzkIYQgfYqJmZjsXwbuD0DbdL6Wmx
-	zA2tlssh77/lhdDQyWWUoZQuY4lVzxKenOPFPq4p05lgLJ89/1Y/bX+sQurSwGd8j+GhttqCedXdW
-	eoKKP48z8+7J470boBZvPqBMQCV4b/nSNjaefC498v2pGBbZFB+kzUD9pmHK8DUiXTIz0aU9Rguiv
-	yhYEfPsgRk8SwFUnKV+BYqKjeZffHwkVMwf7mbuUmQgjQzkM61vH5uEfcWufypQWTGxzbXdy2GnnG
-	kh93KpaA==;
+	bh=aLvwPrq2OgaU0a/cBhR7BasCwOVkoEZA5e8ZFXYAKgU=; b=rR2IyIS/5UxdsO0i3bL8nntHc2
+	ldSlZ0q1tKZjCeWYtvsWxA/ycq4KjUXOEq/CMG7wAcINCrjLioJDAlbAiOa69md+tjYE1HfeABPMq
+	z/DIivuci0s5wfD/nk3jMYrtjMyz0zRDrk0am/jfsyldah4KN0dwGXnDbGiSLLgKCSf/Mh5CcLibD
+	jAbTykT4v+7VR0k+3bsFhO8nsJdfFLKEfbMLyb7dZWTyPH2+x9x6HxqgHRSU9k/sbT/yXlKmUIL2x
+	4F6GoYFL5xqcwBIDASrKIWtBGROGYyaMzvHEXuKRpQbKxWN4y/dJjGnsWDEad9P31duYU8XZ+ZNkC
+	FluBG5Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVulT-0000000CXRA-2rpp;
-	Thu, 09 Jan 2025 15:48:07 +0000
-Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
+	id 1tVuqN-0000000CYWZ-3UCw;
+	Thu, 09 Jan 2025 15:53:11 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVuk8-0000000CX0c-2SY0;
-	Thu, 09 Jan 2025 15:46:46 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id A5D091BF206;
-	Thu,  9 Jan 2025 15:46:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1736437599;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=qcUXFptebfMrvGhDxe7112Zqb3/zYWm85RNBPbS8bvY=;
-	b=jYyL7GkIne9oYb8FfybPUDkwzY0fOSPguU5OcA0GaTE7DAglUSKrm2ReCMMqXhdhwrsVAy
-	KvktXwI+fOv6k6wxomXnn42zUPVNEgewwfXgQZlUbCAQ49Lbh88w3BQzvl8INX8Z51zEni
-	v7+njmfFUctYEwS4KY3e3nFSeUAO6JcJu/4csGT0dmGZtwW82+iVg5XOrxnPrIruCp1xGS
-	MZ58xCxKFtfkq3sWLgmrkIL1O0sBwGgdltStFiw7fIG1WSKGnT7Z3c3LS+bPnaIL3Hb0ym
-	Zy1U+tdEEzP8SGCd1/d3/AxOChMUB2QjtBAJwmGIL/HSOZvaLa9HAP62R6ykEA==
-Date: Thu, 9 Jan 2025 16:46:38 +0100
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: Alexandre Mergnat <amergnat@baylibre.com>
-Cc: Eddie Huang <eddie.huang@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Macpaul Lin <macpaul.lin@mediatek.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-rtc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] rtc: mt6359: fix year issue
-Message-ID: <202501091546387cff95fd@mail.local>
-References: <20250109-enable-rtc-v1-0-e8223bf55bb8@baylibre.com>
- <20250109-enable-rtc-v1-2-e8223bf55bb8@baylibre.com>
+	id 1tVupA-0000000CY9H-0m32;
+	Thu, 09 Jan 2025 15:51:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id D378CA420AB;
+	Thu,  9 Jan 2025 15:50:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07E5AC4CED2;
+	Thu,  9 Jan 2025 15:51:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736437915;
+	bh=4PNW5U1RCpwSI6ed5qCmkDfjxSB39XjXAAnaje7o+L4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=F9BSlQcxUU/kvrDz8ezVoOO+s/YBhBI99DBGbLdRbteRKBcsdBNKhfA6NIrkjDYkC
+	 9GtrmQ7VK0dv7qDBCLFFprwhk5flkxmRl+V2FYyKWlDlaQk5dy/y43RuJc1rAObSVE
+	 sl7FszvwCJ3ZWmJ3LwoRXHehBmq48TqQ4/nOFcPMPAGWGxlPfP39p5Evt4580Qxykh
+	 T6IreW5JxdI40u2aiQRRvDdYRS5jpPoTlnD0T3RTnaN10Mg41YwaqUaSESqRhF+j/w
+	 8yWPU7z9RguVCtFoKzz3OeFzncyxzknkL/0P6P7tlQkSO/uCgw6CAfTy6ch0j+etXR
+	 6KWhdTwfzx9bw==
+Date: Thu, 9 Jan 2025 07:51:54 -0800
+From: "Darrick J. Wong" <djwong@kernel.org>
+To: Joel Granados <joel.granados@kernel.org>
+Cc: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>,
+	Kees Cook <kees@kernel.org>, Luis Chamberlain <mcgrof@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
+	openipmi-developer@lists.sourceforge.net,
+	intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org, linux-hyperv@vger.kernel.org,
+	linux-rdma@vger.kernel.org, linux-raid@vger.kernel.org,
+	linux-scsi@vger.kernel.org, linux-serial@vger.kernel.org,
+	xen-devel@lists.xenproject.org, linux-aio@kvack.org,
+	linux-fsdevel@vger.kernel.org, netfs@lists.linux.dev,
+	codalist@coda.cs.cmu.edu, linux-mm@kvack.org,
+	linux-nfs@vger.kernel.org, ocfs2-devel@lists.linux.dev,
+	fsverity@lists.linux.dev, linux-xfs@vger.kernel.org,
+	io-uring@vger.kernel.org, bpf@vger.kernel.org,
+	kexec@lists.infradead.org, linux-trace-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org, apparmor@lists.ubuntu.com,
+	linux-security-module@vger.kernel.org, keyrings@vger.kernel.org
+Subject: Re: [PATCH] treewide: const qualify ctl_tables where applicable
+Message-ID: <20250109155154.GP1306365@frogsfrogsfrogs>
+References: <20250109-jag-ctl_table_const-v1-1-622aea7230cf@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250109-enable-rtc-v1-2-e8223bf55bb8@baylibre.com>
-X-GND-Sasl: alexandre.belloni@bootlin.com
+In-Reply-To: <20250109-jag-ctl_table_const-v1-1-622aea7230cf@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_074645_038667_F3353AFD 
-X-CRM114-Status: GOOD (  19.93  )
+X-CRM114-CacheID: sfid-20250109_075156_281679_0F1D4C85 
+X-CRM114-Status: UNSURE (   9.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,80 +88,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/01/2025 16:29:52+0100, Alexandre Mergnat wrote:
-> Removing the RTC_MIN_YEAR_OFFSET addition and subtraction has
-> introduced a regression.
+On Thu, Jan 09, 2025 at 02:16:39PM +0100, Joel Granados wrote:
+> Add the const qualifier to all the ctl_tables in the tree except the
+> ones in ./net dir. The "net" sysctl code is special as it modifies the
+> arrays before passing it on to the registration function.
 > 
-> ~# hwclock -r --verbose
-> hwclock from util-linux 2.37.4
-> System Time: 1262312013.143552
-> Trying to open: /dev/rtc0
-> Using the rtc interface to the clock.
-> Assuming hardware clock is kept in UTC time.
-> Waiting for clock tick...
-> hwclock: select() to /dev/rtc0 to wait for clock tick timed out
-> ...synchronization failed
-> 
-> Bring back the RTC_MIN_YEAR_OFFSET to fix the RTC.
-> 
+> Constifying ctl_table structs will prevent the modification of
+> proc_handler function pointers as the arrays would reside in .rodata.
+> This is made possible after commit 78eb4ea25cd5 ("sysctl: treewide:
+> constify the ctl_table argument of proc_handlers") constified all the
+> proc_handlers.
 
-NAK, you'd have to investigate a bit more, I want to get rid of the
-RTC_MIN_YEAR_OFFSET insanity.
+Sounds like a good idea,
+Reviewed-by: "Darrick J. Wong" <djwong@kernel.org> # xfs
 
-> Fixes: 34bbdc12d04e ("rtc: mt6359: Add RTC hardware range and add support for start-year")
-> Signed-off-by: Alexandre Mergnat <amergnat@baylibre.com>
-> ---
->  drivers/rtc/rtc-mt6397.c | 9 +++++++++
->  1 file changed, 9 insertions(+)
-> 
-> diff --git a/drivers/rtc/rtc-mt6397.c b/drivers/rtc/rtc-mt6397.c
-> index 55e75712edd4..9930b6bdb6ca 100644
-> --- a/drivers/rtc/rtc-mt6397.c
-> +++ b/drivers/rtc/rtc-mt6397.c
-> @@ -96,6 +96,12 @@ static int mtk_rtc_read_time(struct device *dev, struct rtc_time *tm)
->  			goto exit;
->  	} while (sec < tm->tm_sec);
->  
-> +	/* HW register use 7 bits to store year data, minus
-> +	 * RTC_MIN_YEAR_OFFSET before write year data to register, and plus
-> +	 * RTC_MIN_YEAR_OFFSET back after read year from register
-> +	 */
-> +	tm->tm_year += RTC_MIN_YEAR_OFFSET;
-> +
->  	/* HW register start mon/wday from one, but tm_mon/tm_wday start from zero. */
->  	tm->tm_mon--;
->  	tm->tm_wday--;
-> @@ -110,6 +116,7 @@ static int mtk_rtc_set_time(struct device *dev, struct rtc_time *tm)
->  	int ret;
->  	u16 data[RTC_OFFSET_COUNT];
->  
-> +	tm->tm_year -= RTC_MIN_YEAR_OFFSET;
->  	tm->tm_mon++;
->  	tm->tm_wday++;
->  
-> @@ -167,6 +174,7 @@ static int mtk_rtc_read_alarm(struct device *dev, struct rtc_wkalrm *alm)
->  	tm->tm_mon = data[RTC_OFFSET_MTH] & RTC_AL_MTH_MASK;
->  	tm->tm_year = data[RTC_OFFSET_YEAR] & RTC_AL_YEA_MASK;
->  
-> +	tm->tm_year += RTC_MIN_YEAR_OFFSET;
->  	tm->tm_mon--;
->  
->  	return 0;
-> @@ -182,6 +190,7 @@ static int mtk_rtc_set_alarm(struct device *dev, struct rtc_wkalrm *alm)
->  	int ret;
->  	u16 data[RTC_OFFSET_COUNT];
->  
-> +	tm->tm_year -= RTC_MIN_YEAR_OFFSET;
->  	tm->tm_mon++;
->  
->  	mutex_lock(&rtc->lock);
-> 
-> -- 
-> 2.25.1
-> 
-
--- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+--D
 
