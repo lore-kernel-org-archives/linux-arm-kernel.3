@@ -4,59 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ACE0E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 11:02:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C425E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 11:05:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JqaTr7hLvsiPN+lGS4m3NoKxFPkkuw7LzJuCCt77sCE=; b=FeCgTtkTIC0EfJizBX8LekfGaq
-	YhbkK4WujszTMKaB4IB51hOnuO42K8B87diIJ5WCnWKcHLyhyAwpOddNDOTKXDU51Wz4CiSU4uTVU
-	lc27ZEKKh78Lv5CEiZMhg/rtpt3GLI0Ui6OdVCkUFGo+eK/KwNuMurMhm0Fzew9sd83abDwxsCcPH
-	PFGgO4SQ0A93pkl7shtAEc691MogCMa64n0q4+2ikOXVVLMciWiJYTll1pA7qu5KlPtM79/tN+vSV
-	ybUQY07pW5WPIEBG5/LRrvskOKr1a/1ZkqoVZBsaKeNFBS9KnYtzsVW8ddCDDpHCmaVcg14MjwX0F
-	HwbbEO8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3B74QvxE2eLaIA5gbbL1wkpmj1gudPe46BgSmSp8VgQ=; b=hJU6Zh5QE/uUd1KNM/nWzZxpu1
+	kX+1ziBYAfBljuMZeVEf8ba/tA6i3xdYafMdZdkoT3FmymVAne6Zaf/D0qWq8TcI51sX0b9/LfU1t
+	RXSmnH9DSnTu+uBhEjy255hVSVsd3iNn7FtPInxteGG/CJxAd2iR6+8ZvbJ+SG/Im1aOkhNevTIWy
+	wlH47XqJkNkZpbrU8aTv1n1ShoZsAefUA2DYMXJuzuwun566HOn0pvdfpSRpF6YGeNzXwg9tbf1ia
+	Zn7nRiqWY3WW4BTdSp15vm2ult78lYl0DvE1KKOF3wGx0+VguhZzHN2lhrmHL4/MM5qiSNTSNDPM4
+	WvoJseFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVqJH-0000000BdUi-02Rw;
-	Thu, 09 Jan 2025 11:02:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVqEp-0000000BcWD-1xFj
+	id 1tVqM6-0000000Be42-3y5o;
+	Thu, 09 Jan 2025 11:05:38 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tVqKt-0000000Bdox-1w7C
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 10:58:08 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AB11413D5;
-	Thu,  9 Jan 2025 02:58:33 -0800 (PST)
-Received: from [10.57.32.219] (unknown [10.57.32.219])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A96303F673;
-	Thu,  9 Jan 2025 02:58:03 -0800 (PST)
-Message-ID: <b1beee50-2f7d-4f5a-9bb0-20f0659a1240@arm.com>
-Date: Thu, 9 Jan 2025 10:58:02 +0000
+	Thu, 09 Jan 2025 11:04:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1736420663; x=1767956663;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=IP79LBJkq7R0JdTUMY4tcQDHZkX+te/jZ0WVpzZaqp4=;
+  b=ii0cE7+69Or4wslApfIvUmV5ay2+FzJu0CWQvstXuCB02Otv0ECea1JX
+   ijs+HNw+cq73JBYB5WIZEY0MADyqf3437WYCAAFbsSWz8T4uOm9GNbTb4
+   WLN8KqNZ7hb9xT7X55SDjZJQjlErZ2i+1/w+TRhqE9pFpfnBrIn0GawH4
+   uL/drBF2RsHH521M43J5uiH/kqSj1doN1omlRATEA6cFiG71MnF1FIu8C
+   W49sM+XmvCWrsyJJardsISrdz4LJNDUgXUfJ8mDfSjtpZvb/qoAMShbsq
+   5VNKyz+VLaKSCiCvx4eI8+gYGdZdpjXfUxIA7w/T3DwslMeGHtFvNy1W7
+   Q==;
+X-CSE-ConnectionGUID: BW6Y7TkETVqDtHQxG0sdVA==
+X-CSE-MsgGUID: 0ExDGZliSQGzCl+tmJso6A==
+X-IronPort-AV: E=McAfee;i="6700,10204,11309"; a="36370920"
+X-IronPort-AV: E=Sophos;i="6.12,301,1728975600"; 
+   d="scan'208";a="36370920"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jan 2025 03:04:22 -0800
+X-CSE-ConnectionGUID: KWuf3KQCRHuOZRxQ0NsmIw==
+X-CSE-MsgGUID: GsyVUl2OT/W0wQ0EAIHqMg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="103259034"
+Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
+  by orviesa010.jf.intel.com with ESMTP; 09 Jan 2025 03:04:16 -0800
+Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tVqKk-000HRT-0t;
+	Thu, 09 Jan 2025 11:04:14 +0000
+Date: Thu, 9 Jan 2025 19:04:10 +0800
+From: kernel test robot <lkp@intel.com>
+To: Nicolin Chen <nicolinc@nvidia.com>, jgg@nvidia.com,
+	kevin.tian@intel.com, corbet@lwn.net, will@kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, joro@8bytes.org,
+	suravee.suthikulpanit@amd.com, robin.murphy@arm.com,
+	dwmw2@infradead.org, baolu.lu@linux.intel.com, shuah@kernel.org,
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
+	eric.auger@redhat.com, jean-philippe@linaro.org, mdf@kernel.org,
+	mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
+	smostafa@google.com, ddutile@redhat.com, yi.l.liu@intel.com,
+	patches@lists.linux.dev
+Subject: Re: [PATCH v5 14/14] iommu/arm-smmu-v3: Report events that belong to
+ devices attached to vIOMMU
+Message-ID: <202501091822.4ocbIobQ-lkp@intel.com>
+References: <03c01be90e53f743a91b6c1376c408404b891867.1736237481.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] hwtracing: Switch back to struct
- platform_driver::remove()
-Content-Language: en-GB
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-Cc: Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com
-References: <20241111110922.334610-2-u.kleine-koenig@baylibre.com>
- <87h68duaez.fsf@ubik.fi.intel.com>
- <a4168463-98e3-4048-bb38-ffc96983766f@arm.com>
-In-Reply-To: <a4168463-98e3-4048-bb38-ffc96983766f@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <03c01be90e53f743a91b6c1376c408404b891867.1736237481.git.nicolinc@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_025807_560190_0CBF05F1 
-X-CRM114-Status: GOOD (  15.60  )
+X-CRM114-CacheID: sfid-20250109_030423_541715_2A6DA944 
+X-CRM114-Status: UNSURE (   8.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,65 +98,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/11/2024 14:47, Suzuki K Poulose wrote:
-> Hi
-> 
-> On 11/11/2024 14:12, Alexander Shishkin wrote:
->> Uwe Kleine-König <u.kleine-koenig@baylibre.com> writes:
->>
->>> After commit 0edb555a65d1 ("platform: Make platform_driver::remove()
->>> return void") .remove() is (again) the right callback to implement for
->>> platform drivers.
->>>
->>> Convert all platform drivers below drivers/hwtracing to use .remove(),
->>> with the eventual goal to drop struct platform_driver::remove_new(). As
->>> .remove() and .remove_new() have the same prototypes, conversion is done
->>> by just changing the structure member name in the driver initializer.
->>>
->>> Also adapt some whitespace to make indention consistent.
->>>
->>> Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
->>
->> Acked-by: Alexander Shishkin <alexander.shishkin@linux.intel.com>
->>
->>> ---
->>> Hello,
->>>
->>> I did a single patch for all of drivers/hwtracing. While I usually
->>> prefer to do one logical change per patch, this seems to be
->>> overengineering here as the individual changes are really trivial and
->>> shouldn't be much in the way for stable backports. But I'll happily
->>> split the patch if you prefer it split. Maybe split for coresight vs.
->>> intel_th? Also if you object the indentation stuff, I can rework that.
->>
->> I'm fine with it as is.
->>
->>> This is based on today's next, if conflicts arise when you apply it at
->>> some later time and don't want to resolve them, feel free to just drop
->>> the changes to the conflicting files. I'll notice and followup at a
->>> later time then. Or ask me for a fixed resend. (Having said that, I
->>> recommend b4 am -3 + git am -3 which should resolve most conflicts just
->>> fine.)
->>
->> Does anybody want to pick this up or should I? I'm fine either way, but
->> if there are any conflicts they won't be from my end of things, so it
->> might make sense to take it via the coresight path.
-> 
-> I am happy to take them via coresight tree and queue them for v6.14
+Hi Nicolin,
 
+kernel test robot noticed the following build warnings:
 
-I see that Linus has queued this already
+[auto build test WARNING on e94dc6ddda8dd3770879a132d577accd2cce25f9]
 
-Suzuki
+url:    https://github.com/intel-lab-lkp/linux/commits/Nicolin-Chen/iommufd-Keep-OBJ-IOCTL-lists-in-an-alphabetical-order/20250108-011247
+base:   e94dc6ddda8dd3770879a132d577accd2cce25f9
+patch link:    https://lore.kernel.org/r/03c01be90e53f743a91b6c1376c408404b891867.1736237481.git.nicolinc%40nvidia.com
+patch subject: [PATCH v5 14/14] iommu/arm-smmu-v3: Report events that belong to devices attached to vIOMMU
+config: arm64-randconfig-r131-20250109 (https://download.01.org/0day-ci/archive/20250109/202501091822.4ocbIobQ-lkp@intel.com/config)
+compiler: clang version 18.1.8 (https://github.com/llvm/llvm-project 3b5b5c1ec4a3095ab096dd780e84d7ab81f3d7ff)
+reproduce: (https://download.01.org/0day-ci/archive/20250109/202501091822.4ocbIobQ-lkp@intel.com/reproduce)
 
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202501091822.4ocbIobQ-lkp@intel.com/
 
-> 
-> Suzuki
-> 
->>
->> Thanks,
->> -- 
->> Alex
-> 
+sparse warnings: (new ones prefixed by >>)
+>> drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c:461:21: sparse: sparse: invalid assignment: &=
+   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c:461:21: sparse:    left side has type restricted __le64
+   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c:461:21: sparse:    right side has type unsigned long long
+   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c:462:21: sparse: sparse: invalid assignment: |=
+   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c:462:21: sparse:    left side has type restricted __le64
+   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c:462:21: sparse:    right side has type unsigned long long
+>> drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c:464:23: sparse: sparse: cast from restricted __le64
+   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c:465:23: sparse: sparse: cast from restricted __le64
 
+vim +461 drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+
+   455	
+   456	int arm_vmaster_report_event(struct arm_smmu_vmaster *vmaster, u64 *evt)
+   457	{
+   458		struct iommu_vevent_arm_smmuv3 vevt =
+   459			*(struct iommu_vevent_arm_smmuv3 *)evt;
+   460	
+ > 461		vevt.evt[0] &= ~EVTQ_0_SID;
+   462		vevt.evt[0] |= FIELD_PREP(EVTQ_0_SID, vmaster->vsid);
+   463	
+ > 464		vevt.evt[0] = cpu_to_le64(vevt.evt[0]);
+   465		vevt.evt[1] = cpu_to_le64(vevt.evt[1]);
+   466	
+   467		return iommufd_viommu_report_event(&vmaster->vsmmu->core,
+   468						   IOMMU_VEVENTQ_TYPE_ARM_SMMUV3, &vevt,
+   469						   sizeof(vevt));
+   470	}
+   471	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
