@@ -4,71 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15F9EE77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 16:57:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EAFDE77199
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 16:58:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4+j3aAuysyJMS77Wa6AcpualkU8jFRxYHdyL+QUwlaY=; b=BqbkCiB8pWDznzhOBk6gO+eloq
-	tliTty1bhLt3Z3mtcCYSzIiLkKbV9XjVg9y/xMVVnphzgVr003j0AxClGRF0FOHol8mKAgjJCTYcK
-	3cKSWoHnlqhQRotl6AUlsfCQx3PaVWFknShqCcL61x/14GYbyTmARCWLA4RUBebpcVw4jIApjYyPd
-	IGCp1JLS+WcAsLije/JLh1JzzDpRG7TwQPGCvrWIIgpTwJkI5AzFx6zhvdtzrloMH3Ug5OC98C6ZB
-	GbrCRcrCm2Oaqc1+Z2n5V+9iBuN2/u8APlUvtmWfe7NC/KU6fEbV3l8sgvoZ/BA1AB9LAvQXCKUbn
-	lgfme29w==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=evpzqHxtYX+aFEQtJHdzEeFAuzdxM9ygHYkzc3TerWg=; b=vEqQoMptqBXfo+7u4OsyQZnWYI
+	m/UR866dI7Rbq+p/iD5vag8mOUH7jvVkU6FG8GvOF6/Cznm2vn66egVZc9hsX0xqaIJ8GNnAKruaw
+	XbHluSWY+SYxojyFCvSRO1C7lEw5wbN/BNI1AKgKiZSFuO274BverHTFT/v0fcRK2wruQY1jfe5Yx
+	XgAkoJ2JG25u0weDJ22GVK9RkBz6rYFzhZWl+SiXnIMKSXSc8vsBYtRnPOJi9sguFQ1GZniWafKtv
+	LKWRFvDsWE0/rEp2TBG5vVKRJtACPNYglSQMD/f7zyebRU309zHBfA7Mzd3yE8HAIFN9zbF6JzpXq
+	fmVkpwSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVvq4-0000000ClNA-1S9q;
-	Thu, 09 Jan 2025 16:56:56 +0000
-Received: from saphodev.broadcom.com ([192.19.144.205] helo=relay.smtp-ext.broadcom.com)
+	id 1tVvrF-0000000ClXq-2rje;
+	Thu, 09 Jan 2025 16:58:09 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVvne-0000000CkqZ-22DW
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 16:54:28 +0000
-Received: from mail-lvn-it-01.lvn.broadcom.net (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id CE6ACC0000E8;
-	Thu,  9 Jan 2025 08:54:22 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com CE6ACC0000E8
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1736441662;
-	bh=SUejWQaCCQ6UOnlEIF8Y+gc/yElELSYPKQtYJBlFtf4=;
-	h=From:To:Cc:Subject:Date:From;
-	b=kV7xB6JJuMPSScCf/QhQbMLjsitXPYL4hv+kABwyIm1cbIjg6l+/kb1Vd092YWPb8
-	 Vu+vKfwY8tJ3QhT8fb20fa/174LzSo4n2E8OaYlJYXBOg7gX+BRfolIyu+RnbqNDcp
-	 5yqNNviGmgn9Xoq8WBKv7s81grk41SYj0QZypt/s=
-Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail-lvn-it-01.lvn.broadcom.net (Postfix) with ESMTPSA id 63D2418041CAC6;
-	Thu,  9 Jan 2025 08:54:22 -0800 (PST)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: stable@vger.kernel.org
-Cc: Ard Biesheuvel <ardb@kernel.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Baruch Siach <baruch@tkos.co.il>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	"Mike Rapoport (IBM)" <rppt@kernel.org>,
-	Baoquan He <bhe@redhat.com>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH stable 5.4] arm64: mm: account for hotplug memory when randomizing the linear region
-Date: Thu,  9 Jan 2025 08:54:16 -0800
-Message-ID: <20250109165419.1623683-1-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.43.0
+	id 1tVvoj-0000000CkzP-2Pz9;
+	Thu, 09 Jan 2025 16:55:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=evpzqHxtYX+aFEQtJHdzEeFAuzdxM9ygHYkzc3TerWg=; b=Npsdf93Q8R4QrWJQCTpcejLVWs
+	+a3ySUZrk3R2LN5ULgtf1Z0fkzKxeyaAKYNcRGPhSwDe6o0+2NjLlPZ6vXZAE/HBT0IKDrfHYBKBN
+	d+Stocy26dfJ9bF2yFW6Xyv92u7SmmtMFb35Cd0W59s9WblDZiqzpsTn0OmYYC4uVfTo+sgNFYvHp
+	wNAUUAk6uxS9pG2f6csvo2obODedYV+iYgH+hJKoBRk+vN6eMZw/ziXhPv3bVoKLsRg3liexAEatN
+	89qFfDoaIsaLwH28L8/iYWmonGNjz6RCicYAV9ccka7h/WIm2QAZjw07MWjhdR2N2P5DSEwV2SJrX
+	hqO+OdZg==;
+Received: from i5e860d05.versanet.de ([94.134.13.5] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tVvoh-0003hx-BY; Thu, 09 Jan 2025 17:55:31 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: linux-rockchip@lists.infradead.org,
+	Dragan Simic <dsimic@manjaro.org>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	Peter Geis <pgwipeout@gmail.com>
+Subject: Re: [PATCH v2] arm64: dts: rockchip: Delete redundant RK3328 GMAC stability fixes
+Date: Thu,  9 Jan 2025 17:55:16 +0100
+Message-ID: <173644170628.2899934.16230769617276217345.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <fe05ecccc9fe27a678ad3e700ea022429f659724.1733943615.git.dsimic@manjaro.org>
+References: <fe05ecccc9fe27a678ad3e700ea022429f659724.1733943615.git.dsimic@manjaro.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_085426_799725_70605D08 
-X-CRM114-Status: GOOD (  17.19  )
+X-CRM114-CacheID: sfid-20250109_085533_632893_D7B96DBA 
+X-CRM114-Status: GOOD (  12.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,67 +80,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ard Biesheuvel <ardb@kernel.org>
 
-commit 97d6786e0669daa5c2f2d07a057f574e849dfd3e upstream
+On Wed, 11 Dec 2024 21:40:52 +0100, Dragan Simic wrote:
+> Since the commit 8a469ee35606 ("arm64: dts: rockchip: Add txpbl node for
+> RK3399/RK3328"), having "snps,txpbl" properties defined as Ethernet stability
+> fixes in RK3328-based board dts(i) files is redundant, because that commit
+> added the required fix to the RK3328 SoC dtsi, so let's delete them.
+> 
+> It has been determined that the Ethernet stability fixes no longer require
+> "snps,rxpbl", "snps,aal" and "snps,force_thresh_dma_mode" properties, [1][2]
+> out of which the last two also induce performance penalties, so let's delete
+> these properties from the relevant RK3328-based board dts(i) files.
+> 
+> [...]
 
-As a hardening measure, we currently randomize the placement of
-physical memory inside the linear region when KASLR is in effect.
-Since the random offset at which to place the available physical
-memory inside the linear region is chosen early at boot, it is
-based on the memblock description of memory, which does not cover
-hotplug memory. The consequence of this is that the randomization
-offset may be chosen such that any hotplugged memory located above
-memblock_end_of_DRAM() that appears later is pushed off the end of
-the linear region, where it cannot be accessed.
+Applied, thanks!
 
-So let's limit this randomization of the linear region to ensure
-that this can no longer happen, by using the CPU's addressable PA
-range instead. As it is guaranteed that no hotpluggable memory will
-appear that falls outside of that range, we can safely put this PA
-range sized window anywhere in the linear region.
+[1/1] arm64: dts: rockchip: Delete redundant RK3328 GMAC stability fixes
+      commit: 3ca11da6e8a7b578c28dcecc31237791955c62fc
 
-Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Steven Price <steven.price@arm.com>
-Cc: Robin Murphy <robin.murphy@arm.com>
-Link: https://lore.kernel.org/r/20201014081857.3288-1-ardb@kernel.org
-Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
----
- arch/arm64/mm/init.c | 13 ++++++++-----
- 1 file changed, 8 insertions(+), 5 deletions(-)
-
-diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-index cbcac03c0e0d..a6034645d6f7 100644
---- a/arch/arm64/mm/init.c
-+++ b/arch/arm64/mm/init.c
-@@ -392,15 +392,18 @@ void __init arm64_memblock_init(void)
- 
- 	if (IS_ENABLED(CONFIG_RANDOMIZE_BASE)) {
- 		extern u16 memstart_offset_seed;
--		u64 range = linear_region_size -
--			    (memblock_end_of_DRAM() - memblock_start_of_DRAM());
-+		u64 mmfr0 = read_cpuid(ID_AA64MMFR0_EL1);
-+		int parange = cpuid_feature_extract_unsigned_field(
-+					mmfr0, ID_AA64MMFR0_PARANGE_SHIFT);
-+		s64 range = linear_region_size -
-+			    BIT(id_aa64mmfr0_parange_to_phys_shift(parange));
- 
- 		/*
- 		 * If the size of the linear region exceeds, by a sufficient
--		 * margin, the size of the region that the available physical
--		 * memory spans, randomize the linear region as well.
-+		 * margin, the size of the region that the physical memory can
-+		 * span, randomize the linear region as well.
- 		 */
--		if (memstart_offset_seed > 0 && range >= ARM64_MEMSTART_ALIGN) {
-+		if (memstart_offset_seed > 0 && range >= (s64)ARM64_MEMSTART_ALIGN) {
- 			range /= ARM64_MEMSTART_ALIGN;
- 			memstart_addr -= ARM64_MEMSTART_ALIGN *
- 					 ((range * memstart_offset_seed) >> 16);
+Best regards,
 -- 
-2.43.0
-
+Heiko Stuebner <heiko@sntech.de>
 
