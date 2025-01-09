@@ -4,67 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 426F2E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 11:41:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1E48E77199
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 11:48:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I6zb0OhlfmF9gSa4+JBxd9Zk/f3SlG4gbriSxMO5M08=; b=gY8/NkeFIG8Tc8ZHJFoMW4Cep/
-	DiV5SJXkyThfnyB3eyXsFqS3oEvIs7glZNKDcF9TYI6pwD75IwWdOXpUijVP4tg6mLr0iiR/fihhB
-	GdO9avbIROTbctxDwABfzVJZfYySg4hwPN9PeyMtpamHqLfVq7g/2C4f44Qvxaw9nsSQfx8bhZK9J
-	umB8Bvt3IxL3WGNImjoYti6h0V8lWgbagIT5dO6mIqcg1vNY1JVrK9cw5VCA1N9NCwnCTeR8YCicG
-	TCuUv2SSQ2te2S4IKW59kRSU3eNTNb8WBUcp5g69Mw6T8A/SDwolcflCQasXsnipqSj9Wq1c9Fkfw
-	buslJjxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hUk9psdNv1Vdv+PLx7IlmCie60sY3DUUwqQnKbHBf+0=; b=MgwGAvKsQuGNDPWsNl08mvrxPM
+	0JtkmhTpcIRdIZNVVhHPOssOyQidJ5pgFhumVxqqNOhiHTwqljGwVxq8VXMtGMrYxWtIc3rr7I/9m
+	ji4cPdXypXN6PEdZU+3j0/nsfQhSM32tGVdGRX/r2FXmkl4AsMeozHdineIMGDsVlA6IMPAeVlGre
+	//aJTU2UOSw6+gxQE+s5qmZaBXXFwM5IB4Sk0Z6k17je9NYcFGniqDdimKQb/siGUfIV7qEofTb8H
+	2mcd+PNZu1OvKJ51iQufIeGSB4wiUwIyZs5Z1RQuo2Hcw90TFdKpusi8+p29yo09j2sXN+cH9dTfl
+	rVenOIig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVquJ-0000000BkzN-480c;
-	Thu, 09 Jan 2025 11:41:00 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tVr14-0000000BlsH-2B16;
+	Thu, 09 Jan 2025 11:47:58 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVqt6-0000000BkjX-0PG0;
-	Thu, 09 Jan 2025 11:39:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=I6zb0OhlfmF9gSa4+JBxd9Zk/f3SlG4gbriSxMO5M08=; b=w+1Ei6El/fwT3nz6n9ABJ/UA0I
-	SVxnSWUyGHOcSpm0m+Q3SkfSK/C/KbAV3lb8raug+8klFZ/uG8aO6Bmt3yQNypnWv8YjKEEADhZX5
-	aDXlflKxbv6a6e5Wh5nK2yI3xaQUfg6PjU80yL4K2s5LvvApScOb+IzbhvCdSIHjeofqm+pJyjNXK
-	ecnMpoo73Yll9B4SlfzOqEYvyqx/T2z5hPxKbRaZrbNQr+Ja09A+OT4DHUh6NgiiDkYrT/DthU2O9
-	OuA3FNu3id8ure667EK4D7t2Jadih9jxSuTkpY7gQSYCbjC/EvQLWn72NAvuvZ1rFnlzWmOY3Gr68
-	UWczEhHg==;
-Received: from i5e860d05.versanet.de ([94.134.13.5] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tVqt0-0001FD-E7; Thu, 09 Jan 2025 12:39:38 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Yao Zi <ziyao@disroot.org>
-Cc: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/5] dt-bindings: clock: Document clock and reset unit of
- RK3528
-Date: Thu, 09 Jan 2025 12:39:37 +0100
-Message-ID: <1774158.yIU609i1g2@diego>
-In-Reply-To: <Z3-T3JwcsW0xYKvk@pie>
-References: <20250108114605.1960-2-ziyao@disroot.org>
- <tep74dy3oc6y2wwhp6bthv6brhkge7cojzrtj6x53lvtsws4g5@areqtyxhyayq>
- <Z3-T3JwcsW0xYKvk@pie>
+	id 1tVqzp-0000000Blgl-2Zbp;
+	Thu, 09 Jan 2025 11:46:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1736423199;
+	bh=UwfSbEV9PVFpGl36dL/HGoNMwjBUSL+w4r1T2gsX2JM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=VPcoFz713J3M/Sq//rlGsKAq/1jJNmWCTIzVsN5AI7nQdRzyGvfKLZdZ3pAycp7Mh
+	 1Djq22h4VEPGcaTdHjaVdfBdtb9TaFtlLgUiGd8wWaC+7PLW6sErA7VuvV9vw2n8tf
+	 MY+oGcQLThR+piKlCmBTQEkAke3StLXRb+PUguF8Ph8sk1G1SGEp0fVDW/PoLgDa0w
+	 V/UHkp8FxFDO45ZD6usWadAXOFdlTTLUs+QCRTMObFF9OugbQloCBU1E0SxBSHiDen
+	 N1GGbdBiQFAAA87yqsMyWN/lqTs1aoQhOpFAy0ygnANDijD+7rEtATz/lM5nbBN49W
+	 2RU1pHmDGg3+w==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5D7DD17E1571;
+	Thu,  9 Jan 2025 12:46:39 +0100 (CET)
+Message-ID: <11028242-afe4-474a-9d76-cd1bd9208987@collabora.com>
+Date: Thu, 9 Jan 2025 12:46:38 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="us-ascii"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] nvmem: mtk-efuse: Enable GPU speed bin post-processing
+ for MT8188
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ stable@vger.kernel.org
+References: <20241223100648.2166754-1-wenst@chromium.org>
+ <481a6eec-c428-45cd-98a6-5a91f3ceb187@collabora.com>
+ <CAGXv+5Fj5s9FUyaxmEkGimxjEcS6OEfm4_5Zso+YocSi+Vt4pg@mail.gmail.com>
+ <bbc6aa2a-fe48-4e06-b070-fd66dbd00e15@collabora.com>
+ <CAGXv+5FoOM=ZUCWigdCaPbc4FCBtLVX2xnUJnVnVsBH=7yoZ=Q@mail.gmail.com>
+ <efb88dd0-3b66-49fe-b279-e66c4574cf9d@collabora.com>
+ <CAGXv+5HWcYrCzWJD4e=WP1WVNfqG5Y2_z+_oetWZq2ZKjXP75g@mail.gmail.com>
+ <eda10efe-a301-45d3-9bf6-088275db7af5@collabora.com>
+ <CAGXv+5EdU-8__5uTpcX2JT0Lw=kXraVpnMLjgcJS1jrN_zwAww@mail.gmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <CAGXv+5EdU-8__5uTpcX2JT0Lw=kXraVpnMLjgcJS1jrN_zwAww@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_033944_160885_65E996BE 
-X-CRM114-Status: GOOD (  32.48  )
+X-CRM114-CacheID: sfid-20250109_034641_864134_D7214DB2 
+X-CRM114-Status: GOOD (  46.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,95 +85,209 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Donnerstag, 9. Januar 2025, 10:16:12 CET schrieb Yao Zi:
-> On Thu, Jan 09, 2025 at 09:59:25AM +0100, Krzysztof Kozlowski wrote:
-> > On Wed, Jan 08, 2025 at 11:46:02AM +0000, Yao Zi wrote:
-> > > There are two types of clocks in RK3528 SoC, CRU-managed and
-> > > SCMI-managed. Independent IDs are assigned to them.
-> > > 
-> > > For the reset part, differing from previous Rockchip SoCs and
-> > > downstream bindings which embeds register offsets into the IDs, gapless
-> > > numbers starting from zero are used.
-> > > 
-> > > Signed-off-by: Yao Zi <ziyao@disroot.org>
-> > > ---
-> > >  .../bindings/clock/rockchip,rk3528-cru.yaml   |  67 +++
-> > >  .../dt-bindings/clock/rockchip,rk3528-cru.h   | 453 ++++++++++++++++++
-> > >  .../dt-bindings/reset/rockchip,rk3528-cru.h   | 241 ++++++++++
-> > >  3 files changed, 761 insertions(+)
-> > >  create mode 100644 Documentation/devicetree/bindings/clock/rockchip,rk3528-cru.yaml
-> > >  create mode 100644 include/dt-bindings/clock/rockchip,rk3528-cru.h
-> > >  create mode 100644 include/dt-bindings/reset/rockchip,rk3528-cru.h
-> > > 
-> > > diff --git a/Documentation/devicetree/bindings/clock/rockchip,rk3528-cru.yaml b/Documentation/devicetree/bindings/clock/rockchip,rk3528-cru.yaml
-> > > new file mode 100644
-> > > index 000000000000..19dbda858172
-> > > --- /dev/null
-> > > +++ b/Documentation/devicetree/bindings/clock/rockchip,rk3528-cru.yaml
-> > > @@ -0,0 +1,67 @@
-> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > +%YAML 1.2
-> > > +---
-> > > +$id: http://devicetree.org/schemas/clock/rockchip,rk3528-cru.yaml#
-> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > +
-> > > +title: Rockchip RK3528 Clock and Reset Controller
-> > > +
-> > > +maintainers:
-> > > +  - Yao Zi <ziyao@disroot.org>
-> > > +
-> > > +description: |
-> > > +  The RK3528 clock controller generates the clock and also implements a reset
-> > > +  controller for SoC peripherals. For example, it provides SCLK_UART0 and
-> > > +  PCLK_UART0 as well as SRST_P_UART0 and SRST_S_UART0 for the first UART
-> > > +  module.
-> > > +  Each clock is assigned an identifier, consumer nodes can use it to specify
-> > > +  the clock. All available clock and reset IDs are defined in dt-binding
-> > > +  headers.
-> > > +
-> > > +properties:
-> > > +  compatible:
-> > > +    const: rockchip,rk3528-cru
-> > > +
-> > > +  reg:
-> > > +    maxItems: 1
-> > > +
-> > > +  assigned-clocks: true
-> > > +
-> > > +  assigned-clock-rates: true
-> > 
-> > Drop both, totally redundant.
+Il 08/01/25 07:36, Chen-Yu Tsai ha scritto:
+> On Tue, Jan 7, 2025 at 9:12 PM AngeloGioacchino Del Regno
+> <angelogioacchino.delregno@collabora.com> wrote:
+>>
+>> Il 23/12/24 17:15, Chen-Yu Tsai ha scritto:
+>>> On Tue, Dec 24, 2024 at 12:08 AM AngeloGioacchino Del Regno
+>>> <angelogioacchino.delregno@collabora.com> wrote:
+>>>>
+>>>> Il 23/12/24 16:57, Chen-Yu Tsai ha scritto:
+>>>>> On Mon, Dec 23, 2024 at 7:43 PM AngeloGioacchino Del Regno
+>>>>> <angelogioacchino.delregno@collabora.com> wrote:
+>>>>>>
+>>>>>> Il 23/12/24 12:24, Chen-Yu Tsai ha scritto:
+>>>>>>> On Mon, Dec 23, 2024 at 7:11 PM AngeloGioacchino Del Regno
+>>>>>>> <angelogioacchino.delregno@collabora.com> wrote:
+>>>>>>>>
+>>>>>>>> Il 23/12/24 11:06, Chen-Yu Tsai ha scritto:
+>>>>>>>>> Like the MT8186, the MT8188 stores GPU speed binning data in its efuse.
+>>>>>>>>> The data needs post-processing into a format that the OPP framework can
+>>>>>>>>> use.
+>>>>>>>>>
+>>>>>>>>> Add a compatible match for MT8188 efuse with post-processing enabled.
+>>>>>>>>>
+>>>>>>>>
+>>>>>>>> Let's just change the MT8188 compatible list to
+>>>>>>>>
+>>>>>>>> compatible = "mediatek,mt8188-efuse", "mediatek,mt8186-efuse";
+>>>>>>>
+>>>>>>> That would be "mediatek,mt8188-efuse", "mediatek,mt8186-efuse", "mediatek,efuse"
+>>>>>>> then?
+>>>>>>>
+>>>>>>
+>>>>>> No, we're dropping the generic "mediatek,efuse".
+>>>>>
+>>>>> That means we also drop it for MT8186?
+>>>>>
+>>>>> Thinking about it more, I think it's stretching things a bit. The hardware
+>>>>> is clearly backwards compatible, or we wouldn't even be reading values
+>>>>> out correctly. The only difference now with MT8186 and MT8188 is that
+>>>>> they have a speed-bin field with a value that we want passed to the OPP
+>>>>> framework, and the interpretation of that value is not really part of
+>>>>> the efuse's hardware. We chose to do the conversion in the efuse driver,
+>>>>> but we could also have done it in the GPU driver.
+>>>>>
+>>>>> What I'm saying is that we should not need to change the compatible strings
+>>>>> to make this work.
+>>>>>
+>>>>
+>>>> No we don't forcefully have to drop it from MT8186, and doing so would be kind
+>>>> of hard and actually producing unnecessary breakages with (very) old kernels.
+>>>>
+>>>> Just add a `deprecated: true` to the binding that wants `mediatek,efuse` and
+>>>> start with MT8188, where 8188 is in enum and 8186 is const.
+>>>>
+>>>> We can do MT8188 because that'll still work even with old kernels (since MT8186
+>>>> is there since before MT8188 was introduced), and it's something to enable a new
+>>>> feature.
+>>>> This means that there's not going to be any breakage with new DT and old kernel.
+>>>>
+>>>> I want the mediatek,efuse binding to be like the majority of the others across
+>>>> the kernel, so, no generic compatible.
+>>>
+>>> In that case shouldn't the fallback be the oldest SoC in the list?
+>>> Maybe MT8173, which is currently marked as deprecated, so we undeprecate it?
+>>>
+>>> Certainly not the MT8186.
+>>>
+>>
+>> MT8173 doesn't have the post processing enabled.... if you can test that the code
+>> actually works for MT8173 as well, giving meaningful results, then we can just use
+>> the MT8173 compatible :-)
 > 
-> Okay, will fix in next version.
+> What I'm saying is (and hopefully I regenerated my thoughts correctly)
+> that if we want to get rid of the generic compatible string, then we
+> need a base fallback string. The MT8173 one would be the one.
+
+I think I had misunderstood your statement... so:
+
+For the previously supported ones (including MT8186), yes, I agree.
+
 > 
-> > > +
-> > > +  clocks:
-> > > +    items:
-> > > +      - description: External 24MHz oscillator clock
-> > > +      - description: 50MHz clock generated by PHY module
-
-you could adjust the description to something like
-	50MHz clock generated by PHY module only for gmac0
-or so, to make it more clear where that signal goes to.
-
-> > > +
-> > > +  clock-names:
-> > > +    items:
-> > > +      - const: xin24m
-> > > +      - const: gmac0
-> > 
-> > gmac
-> > (unless you have gmac1 here as well but then please add it now)
+> The MT8186 efuse at the hardware level AFAIK is no different to the
+> MT8173 one. They simply store bits. How the bits are allocated is
+> defined by the layout. How the bits are interpreted is also not
+> a property of the hardware.
 > 
-> RK3528 comes with two onchip gmacs. This input clock is only used for
-> the first one and I think keeping the number would give the reader an
-> extra hint. What do you think about it?
 
-I would agree here. Looking through the TRM registers, gmac0 gets _only_
-supplied from that external input, while gmac1 only gets supplied from
-a number of internal sources (different sources for gmac1-specific clocks)
+I confirm, there's no difference.
 
-Heiko
+> In the current design the need for post-processing does not depend on
+> the SoC itself, but rather the node name being "gpu-speedbin". Even
+> if we turned on post processing for all models, it wouldn't matter
+> for the other SoCs.
+> 
 
+It wouldn't, but in the event that another SoC needs a different algorithm
+for post-processing (hopefully not!!!) I would still like the node name to
+actually be consistent between all of them, even if the algo is different.
 
+The gpu-speedbin efuse would always be gpu-speedbin, regardless of any
+post-processing differences.
+
+> And the reason the conversion is in the nvmem driver (the provider)
+> rather than panfrost (the consumer) has nothing to do with the
+> hardware.
+
+That's correct.
+
+> IIRC you simply wanted to provide a generic implementation.
+
+And yes, that's why the conversion is in the nvmem driver, of course.
+
+> If the conversion were in the GPU driver, we wouldn't special case
+> MT8186 here.
+
+We would special case MediaTek SoCs in the GPU driver instead, but then
+the GPU driver is supposed to deal with GPU stuff, not with SoC-specific
+stuff whenever this is possible - I'm sure you agree with that, anyway.
+
+> If the speedbin value were split into two or more
+> cells, we probably would have stuck the conversion in the GPU
+> driver.
+> 
+
+Not sure about that, I think there's still a way, but it's all hypotetical
+for now, so let's not cross any bridges before coming to them :-)
+
+> So, we could have "mediatek,mt8173-efuse" replace "mediatek,efuse"
+> as the fallback compatible, and turn on post processing for it,
+> and things would be the same as before, and also work for MT8188.
+> How does that sound?
+> 
+
+If MT8173 has (PowerVR!) GPU speedbin efuses, and that requires the same
+post-processing algorithm as MT8186 and the others, I agree with turning
+on the post processing for MT8173 with the same algo as MT8186.
+
+Otherwise, I disagree, as that would effectively add faulty code to MT8173.
+
+> 
+> Interestingly, the new "fixed layout" description actually allows
+> for compatible strings in the NVMEM cells. That would allow matching
+> against a cell's compatible string instead of its name.
+
+If the post-processing stuff ever becomes complicated in the future (in
+the sense that we start getting more and more post-processing and/or
+more and more algo differences between SoCs), that'd probably save us
+some headaches and would most probably be cleaner (at least to the eye)
+than what we're doing right now.
+
+Though, I'm not sure if it'd be a good idea to consider doing this right
+now... or the other way around...
+
+Cheers!
+Angelo
+
+> 
+> 
+> Thanks
+> ChenYu
+> 
+>>>> Cheers,
+>>>> Angelo
+>>>>
+>>>>>
+>>>>> ChenYu
+>>>>>
+>>>>>> Cheers!
+>>>>>>
+>>>>>>> Fine by me. :D
+>>>>>>>
+>>>>>>> ChenYu
+>>>>>>>
+>>>>>>>> instead :-)
+>>>>>>>>
+>>>>>>>> Cheers,
+>>>>>>>> Angelo
+>>>>>>>>
+>>>>>>>>> Cc: <stable@vger.kernel.org>
+>>>>>>>>> Fixes: ff1df1886f43 ("dt-bindings: nvmem: mediatek: efuse: Add support for MT8188")
+>>>>>>>>> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+>>>>>>>>> ---
+>>>>>>>>>
+>>>>>>>>> I'm not exactly sure about pointing to the dt bindings commit for the
+>>>>>>>>> fixes tag.
+>>>>>>>>> ---
+>>>>>>>>>       drivers/nvmem/mtk-efuse.c | 1 +
+>>>>>>>>>       1 file changed, 1 insertion(+)
+>>>>>>>>>
+>>>>>>>>> diff --git a/drivers/nvmem/mtk-efuse.c b/drivers/nvmem/mtk-efuse.c
+>>>>>>>>> index af953e1d9230..e8409e1e7fac 100644
+>>>>>>>>> --- a/drivers/nvmem/mtk-efuse.c
+>>>>>>>>> +++ b/drivers/nvmem/mtk-efuse.c
+>>>>>>>>> @@ -112,6 +112,7 @@ static const struct mtk_efuse_pdata mtk_efuse_pdata = {
+>>>>>>>>>       static const struct of_device_id mtk_efuse_of_match[] = {
+>>>>>>>>>           { .compatible = "mediatek,mt8173-efuse", .data = &mtk_efuse_pdata },
+>>>>>>>>>           { .compatible = "mediatek,mt8186-efuse", .data = &mtk_mt8186_efuse_pdata },
+>>>>>>>>> +     { .compatible = "mediatek,mt8188-efuse", .data = &mtk_mt8186_efuse_pdata },
+>>>>>>>>>           { .compatible = "mediatek,efuse", .data = &mtk_efuse_pdata },
+>>>>>>>>>           {/* sentinel */},
+>>>>>>>>>       };
+>>>>>>>>
+>>>>>>
+>>
+>>
 
