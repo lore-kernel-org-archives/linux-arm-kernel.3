@@ -4,62 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAC5DE77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 14:22:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD041E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 14:27:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O2HYQeeVPCjwIOEhwKIFKTv2N4/f1ge+l+GkxBmu5oE=; b=dB1P+sy/VFpHQClfWK89n8696g
-	G+G1v4suTFS99FoFTcbtjw3NEiMFHFzjK11g7wRVdwHYPMDrtkey9STbABqgAJfTET3xQPyAgRlIY
-	Gc+M1oOeA5dShSTPstHXH9iEixVBKoSd1MxwJ2PZVET/1WqXaul3/PHMk/3q9qg/Rhjjc5mCj0ooN
-	F6bDJ1iUTiCG5zH27eX+VNUXl5nSdpIlAMzV+ygUWt63T40RuhuFxiXnT17qYmcRMzdDTCe3lwvwn
-	uartDjQguXtIZPjxJgOFl6jYAuTctVeMDZiLR6wu8EigIh/mJf1NY2qqKxFqtOJR6EdKUIaocsXi8
-	w93acFQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YGI476X2i0MFtZ7SlukxL+5rG/T9Y7O8a6nsh6mbAB0=; b=RT32+Ic0sMYZufVat7RHEFwgPI
+	yGLooh2DX9AL26f6jCTtDhv5AcJlSdEXClQnAHx9uR13VJxRw0XKxTZGhq/anUXdIKnKed4j1CVVU
+	RYtmHOFEvAtuwZ/a1OsNlpRCaFyVEseOcXHMUcPHCgDhU461FcPLa6t8Hx6xddUDApiMO1+xMYELK
+	TFbG26H7yUqa4V3sAjDb1V12QlKwL5+t/VYOiZU3SFbUs/TAzAaK5dE6estA2p343BvrdG+m7JNc0
+	XuWarlIX056FiZ2N68UHyaFzU5xCdhBzRbzJnava3SsR0FQgG9mwaDdCu59/I3FwxQ84rav7t5AHi
+	uz9PYDfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVtQO-0000000CDU1-3QzH;
-	Thu, 09 Jan 2025 14:22:16 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tVtVL-0000000CE5y-3yPy;
+	Thu, 09 Jan 2025 14:27:24 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVtPC-0000000CDLS-1wDL
+	id 1tVtU9-0000000CDzL-088O
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 14:21:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9FCB9A41CBE;
-	Thu,  9 Jan 2025 14:19:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EED12C4CED3;
-	Thu,  9 Jan 2025 14:20:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736432460;
-	bh=/5XAFJC/aw7ggNjtXwMtJmU4oJAVmMrLtugAnhzzmNQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=I+skzkeBWnWDG8Z3+0KwPbZBQ1//sUnQjIeqJKlmf+3RRPqTx8Z0l1FNdffLrLLaA
-	 xeddefG05pPPbDqookOVPNANsdc5Z88CwFmZvapBcCcsG/K9cSfBcf7ZekkPOq8jP0
-	 X3Sr+eWA5BKK/WllSUfsvEcBKPo+u/1mmCzMQu9HkbdH6FNyLpH9MmbdeUT4LBnaSy
-	 huKAIfaOooRCeQ/jTh4hXFY96NGx94tMTgG3DNLPnJOeLMd9CPFegzEenelcZIAYjT
-	 lUjGrXa+hZINSXrFS7GT3jM8tcWXRqK+znQd955xejIQ+V2OPtYhAKlLNokbPWnml+
-	 hhuHt52mj5gcg==
-Date: Thu, 9 Jan 2025 14:20:56 +0000
-From: Will Deacon <will@kernel.org>
-To: cki-project@redhat.com
-Cc: bgoncalv@redhat.com, catalin.marinas@arm.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: =?utf-8?Q?=E2=9D=8C_FAIL=3A_Test_repor?= =?utf-8?Q?t?= for
- for-kernelci (6.13.0-rc6, upstream-arm-next, 577490b6)
-Message-ID: <20250109142053.GA10705@willie-the-truck>
-References: <88638.125010818430600129@us-mta-121.us.mimecast.lan>
+	Thu, 09 Jan 2025 14:26:10 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5093qwuF005687;
+	Thu, 9 Jan 2025 14:25:36 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=YGI476
+	X2i0MFtZ7SlukxL+5rG/T9Y7O8a6nsh6mbAB0=; b=qm6PuVaJR4WO9WPmhDm0tC
+	vBUUCSCbyNbnz1u0O+lidpWDmgcn020O/OhoN8RIw9HZsMsK9InAAkUf24btjcq4
+	92SbmvNAcF8Aq77oStfScS+nrmu0vGyyoa3pBrPXRfnCNE7Nnh3xBm6gZnh7kd+q
+	f9NSwkw/y+g+1Cvo2dBVKmHInaoYYcos7TDJXSwRDK5tZUxMuB2TPtgBafodbZvD
+	ca5ihOi7zLyvRlArKSfkf3RkWmB2pXvQNYLkprCreNoNOIMfCAWppL3TSkr0bBcz
+	QEF6Tc2qDhOg/CQD2cNRJsDGMWw34IMxGrUksl2GtvleUipj1uG6GC+tXP2klygA
+	==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4426xcake8-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 09 Jan 2025 14:25:36 +0000 (GMT)
+Received: from m0360083.ppops.net (m0360083.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 509E6eqs029952;
+	Thu, 9 Jan 2025 14:25:35 GMT
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4426xcake4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 09 Jan 2025 14:25:35 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 509Cp7bf008861;
+	Thu, 9 Jan 2025 14:25:34 GMT
+Received: from smtprelay04.wdc07v.mail.ibm.com ([172.16.1.71])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 43yfq05mne-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 09 Jan 2025 14:25:34 +0000
+Received: from smtpav04.wdc07v.mail.ibm.com (smtpav04.wdc07v.mail.ibm.com [10.39.53.231])
+	by smtprelay04.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 509EPXrE33751356
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 9 Jan 2025 14:25:34 GMT
+Received: from smtpav04.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id D4D3358050;
+	Thu,  9 Jan 2025 14:25:33 +0000 (GMT)
+Received: from smtpav04.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 3A78658045;
+	Thu,  9 Jan 2025 14:25:29 +0000 (GMT)
+Received: from [9.61.139.65] (unknown [9.61.139.65])
+	by smtpav04.wdc07v.mail.ibm.com (Postfix) with ESMTP;
+	Thu,  9 Jan 2025 14:25:28 +0000 (GMT)
+Message-ID: <c0b653ea-3fe0-4bdb-9681-bf4e3ef1364a@linux.ibm.com>
+Date: Thu, 9 Jan 2025 08:25:28 -0600
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <88638.125010818430600129@us-mta-121.us.mimecast.lan>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+User-Agent: Mozilla Thunderbird
+Subject: =?UTF-8?B?UmU6IOWbnuimhjogW1BBVENIIHYyIDA1LzEwXSBBUk06IGR0czogYXNw?=
+ =?UTF-8?Q?eed=3A_system1=3A_Add_RGMII_support?=
+To: Andrew Lunn <andrew@lunn.ch>, Jacky Chou <jacky_chou@aspeedtech.com>
+Cc: "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
+        "andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
+        "conor+dt@kernel.org" <conor+dt@kernel.org>,
+        "davem@davemloft.net" <davem@davemloft.net>,
+        "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+        "eajames@linux.ibm.com" <eajames@linux.ibm.com>,
+        "edumazet@google.com" <edumazet@google.com>,
+        "joel@jms.id.au"
+ <joel@jms.id.au>,
+        "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+        "kuba@kernel.org" <kuba@kernel.org>,
+        "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+        "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+        "minyard@acm.org" <minyard@acm.org>,
+        "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+        "openipmi-developer@lists.sourceforge.net"
+ <openipmi-developer@lists.sourceforge.net>,
+        "pabeni@redhat.com" <pabeni@redhat.com>,
+        "ratbert@faraday-tech.com" <ratbert@faraday-tech.com>,
+        "robh@kernel.org" <robh@kernel.org>
+References: <SEYPR06MB5134CC0EBA73420A4B394A009D122@SEYPR06MB5134.apcprd06.prod.outlook.com>
+ <0c42bbd8-c09d-407b-8400-d69a82f7b248@lunn.ch>
+ <b2aec97b-63bc-44ed-9f6b-5052896bf350@linux.ibm.com>
+ <59116067-0caa-4666-b8dc-9b3125a37e6f@lunn.ch>
+ <SEYPR06MB51344BA59830265A083469489D132@SEYPR06MB5134.apcprd06.prod.outlook.com>
+ <8042c67c-04d3-41c0-9e88-8ce99839f70b@lunn.ch>
+Content-Language: en-US
+From: Ninad Palsule <ninad@linux.ibm.com>
+In-Reply-To: <8042c67c-04d3-41c0-9e88-8ce99839f70b@lunn.ch>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: D4QGmI7uFNHCuYmtN7glAX-odTtQtAzr
+X-Proofpoint-ORIG-GUID: S-tApofsNQipGoyAdP32TWBQKlVxTdeb
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
+ definitions=2024-10-15_01,2024-10-11_01,2024-09-30_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015
+ priorityscore=1501 phishscore=0 suspectscore=0 adultscore=0
+ impostorscore=0 mlxscore=0 malwarescore=0 spamscore=0 bulkscore=0
+ mlxlogscore=999 lowpriorityscore=0 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.19.0-2411120000 definitions=main-2501090112
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_062102_623071_F2502210 
-X-CRM114-Status: GOOD (  12.59  )
+X-CRM114-CacheID: sfid-20250109_062609_107585_A81FBB0B 
+X-CRM114-Status: GOOD (  22.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,70 +139,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 08, 2025 at 11:43:03PM -0000, cki-project@redhat.com wrote:
-> Hi, we tested your kernel and here are the results:
-> 
->     Overall result: FAILED
->              Merge: OK
->            Compile: OK
->               Test: FAILED
-> 
-> 
-> Kernel information:
->     Commit message: Merge branches 'for-next/core' and 'for-next/perf' into for-kernelci
-> 
-> You can find all the details about the test run at
->     https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1616589950
-> 
-> One or more kernel tests failed:
->     Unrecognized or new issues:
->         Boot test
->              aarch64
->                    Logs: https://datawarehouse.cki-project.org/kcidb/tests/redhat:1616589950-aarch64-kernel_upt_14
->                    Non-passing ran subtests:
->                        ❌ FAIL distribution/kpkginstall/journalctl-check
->              aarch64
->                    Logs: https://datawarehouse.cki-project.org/kcidb/tests/redhat:1616589950-aarch64-kernel_upt_37
->                    Non-passing ran subtests:
->                        ❌ FAIL distribution/kpkginstall/journalctl-check
->              aarch64
->                    Logs: https://datawarehouse.cki-project.org/kcidb/tests/redhat:1616589950-aarch64-kernel_upt_50
->                    Non-passing ran subtests:
->                        ❌ FAIL distribution/kpkginstall/journalctl-check
->              aarch64
->                    Logs: https://datawarehouse.cki-project.org/kcidb/tests/redhat:1616589950-aarch64-kernel_upt_57
->                    Non-passing ran subtests:
->                        ❌ FAIL distribution/kpkginstall/journalctl-check
->              aarch64
->                    Logs: https://datawarehouse.cki-project.org/kcidb/tests/redhat:1616589950-aarch64-kernel_upt_65
->                    Non-passing ran subtests:
->                        ❌ FAIL distribution/kpkginstall/journalctl-check
+Hello Andrew,
 
-Hmm, this looks bad but I'm struggling to spot the issue in the logs.
+On 1/9/25 07:21, Andrew Lunn wrote:
+> On Thu, Jan 09, 2025 at 10:33:20AM +0000, Jacky Chou wrote:
+>> Hi Andrew,
+>>
+>>>> There are around 11 boards in Aspeed SOC with phy-mode set to "rgmii"
+>>>> (some of them are mac0&1 and others are mac2&3). "rgmii-rxid" is only
+>>> mine.
+>>>> No one in aspeed SOC using "rgmii-id".
+>>> O.K, so we have to be careful how we fix this. But the fact they are all equally
+>>> broken might help here.
+>>>
+>>>>> Humm, interesting. Looking at ftgmac100.c, i don't see where you
+>>>>> configure the RGMII delays in the MAC?
+>>> This is going to be important. How are delays configured if they are not in the
+>>> MAC driver?
+>> The RGMII delay is adjusted on clk-ast2600 driver. Please refer to the following link.
+>> https://github.com/AspeedTech-BMC/linux/blob/f52a0cf7c475dc576482db46759e2d854c1f36e4/drivers/clk/clk-ast2600.c#L1008
+> O.K. So in your vendor tree, you have additional DT properties
+> mac1-clk-delay, mac2-clk-delay, mac3-clk-delay. Which is fine, you can
+> do whatever you want in your vendor tree, it is all open source.
+>
+> But for mainline, this will not be accepted. We have standard
+> properties defined for configuring MAC delays in picoseconds:
+>
+>          rx-internal-delay-ps:
+>            description:
+>              RGMII Receive Clock Delay defined in pico seconds. This is used for
+>              controllers that have configurable RX internal delays. If this
+>              property is present then the MAC applies the RX delay.
+>          tx-internal-delay-ps:
+>            description:
+>              RGMII Transmit Clock Delay defined in pico seconds. This is used for
+>              controllers that have configurable TX internal delays. If this
+>              property is present then the MAC applies the TX delay.
+>
+>
+> You need to use these, and in the MAC driver, not a clock driver. That
+> is also part of the issue. Your MAC driver looks correct, it just
+> silently passes phy-mode to the PHY just like every other MAC
+> driver. But you have some code hidden away in the clock controller
+> which adds the delays. If this was in the MAC driver, where it should
+> be, this broken behaviour would of been found earlier.
+>
+> So, looking at mainline, i see where you create a gated clock. But
+> what i do not see is where you set the delays.
+>
+> How does this work in mainline? Is there more hidden code somewhere
+> setting the ASPEED_MAC12_CLK_DLY register?
 
-One thing I don't quite grok, however, is that the logs refer to both
-"6.13.0-rc6" and "6.13.0-0.rc6.20250107gitfbfd64d25c7a.49.fc42.aarch64)",
-neither of which correspond to the arm64 for-kernelci branch.
+I think the code already exist in the mainline: 
+https://github.com/torvalds/linux/blob/master/drivers/clk/clk-ast2600.c#L595
 
-There are also some errors from grub, but I don't know whether or not
-they are expected/benign:
+It is configuring SCU register in the ast2600 SOC to introduce delays. 
+The mac is part of the SOC.
 
- error: ../../grub-core/kern/disk_common.c:26:attempt to read or write outside
- of partition.
- error: ../../grub-core/kern/disk_common.c:26:attempt to read or write outside
- of partition.
- error: ../../grub-core/kern/disk_common.c:26:attempt to read or write outside
- of partition.
- error: ../../grub-core/kern/disk_common.c:26:attempt to read or write outside
- of partition.
- error: ../../grub-core/kern/disk_common.c:26:attempt to read or write outside
- of partition.
+Regards,
 
-If there's a log showing a build of for-kernelci failing to boot, then
-that would be really helpful. Can somebody from the CKI team point us in
-the right direction, please?
+Ninad
 
-Cheers,
-
-Will
+>
+> 	Andrew
 
