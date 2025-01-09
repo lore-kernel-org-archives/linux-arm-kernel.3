@@ -4,62 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49A59E7719A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 21:51:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6618BE7719A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 21:52:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L3pvK+8L996FhW2eKjS9ijBQOkaCAS/fu+JHavhqupE=; b=eTrNrKQ96eMzaqP4Z06+3Qk+U2
-	CBHEXIu86q0yi5pnJdRd9XTMeD5Ad8OayJllDP9OsL1nTCg8klWzKPXC3/EGu9TrsHsF34h2yJgdR
-	RW8MJUfPl0yliSKv3408QEReYpPFa9Wa88H2fw4/j+h/+ehSDf37SK4v5hsXrP9RLg+dmVBAkZYOj
-	fc5RzFWzcC2VpcL2RiZ+tsKENPZSVSILCXORM2oKL0HjC3dHaifWR0hGsL9FOt3NnXCvYpjNfH0PX
-	3qyzOfjXmsyqqnuJ1x5WHm1YqRomV7nBXiPDKfegsZeSfYv0oBMVcyo00NYKqlyH/yrtJc6Ze7JmS
-	oL2IEGKw==;
+	bh=WvmGat6otqprLKYMChybNFttpzUR0NkosDvyxRyEY1k=; b=d7IDZmnM88s0vbaxRDBd5mlU2Y
+	SuTvAn5jQP93CANlyODcM5XdkJ4aAFvjA2WHqps2ZUKOA8ngJLrvHeeqQTX25dRXJn8v8yDei3rk2
+	7ez658/QGQ5c/tOSuP7KnqNssD4jD70WuzAHoM9ghe0smYt6efnbAU6CzEidvsIrYrEW6OvQMOu1g
+	vgiADd7WsXPWECAJ7AIctxjFAgVFCpoXfNohQzTjlezdQcN/40rjhHX3k1RQdTNHLEWt+bT9Aqnnt
+	/AvsmtTxafvfrux+Gtkh1kk3BVkoBujh6ZLbE263yHh5g0kB/SpPK4RvDVlkBgi2gsLz2q7E+4ebC
+	NE91R0Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW0Qi-0000000DOxq-0g03;
-	Thu, 09 Jan 2025 21:51:04 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tW0S3-0000000DPN1-3RjQ;
+	Thu, 09 Jan 2025 21:52:27 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW0PU-0000000DOqe-2ip7;
-	Thu, 09 Jan 2025 21:49:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=L3pvK+8L996FhW2eKjS9ijBQOkaCAS/fu+JHavhqupE=; b=ttM23zT/k4Bm/stp2dyHauQPi6
-	jiG8ADBBPJ0fIv7LlD1vZBq4w1bkrLs7b9VUXaRvpygTyh8JKETRM2fhFlIlA+xGR6zjvOiGbdh5i
-	Df91Km0//vB++X2TGVK0he1l4yUqtjCWP/G4MwYFWBrhLSoo7VeiuTnWkRqdqFwY61L1T9YGNyIJk
-	cqMEp/DJC4smwNXAfFgsGfAfOFXzjIkxfxgfU4DXgwpE5Ck/7MHCka5i5PQHy4sFetkLolxOCKH9r
-	iiPj3yJ5Gwt1A+/YO8KBZ1wyvwegy8tsHFZxe6jQ5XGYhdtGcZXsJQN30UeICVTZWQ5umf1/scmZz
-	85Bizk4g==;
-Received: from i5e860d05.versanet.de ([94.134.13.5] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tW0PQ-0005NF-VA; Thu, 09 Jan 2025 22:49:44 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Jimmy Hon <honyuenkwun@gmail.com>, "Rob Herring (Arm)" <robh@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org,
- Ondrej Jirman <megi@xff.cz>, linux-arm-kernel@lists.infradead.org,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>
-Subject: Re: [PATCH v8 0/4] Orange Pi 5 Max
-Date: Thu, 09 Jan 2025 22:49:44 +0100
-Message-ID: <5348858.6fTUFtlzNn@diego>
-In-Reply-To: <173643343615.3320269.13009413932712361979.robh@kernel.org>
-References: <20250109051619.1825-1-honyuenkwun@gmail.com>
- <173643343615.3320269.13009413932712361979.robh@kernel.org>
+	id 1tW0Qo-0000000DOzO-20sc;
+	Thu, 09 Jan 2025 21:51:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id AC9B65C5CC5;
+	Thu,  9 Jan 2025 21:50:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1C59C4CEE5;
+	Thu,  9 Jan 2025 21:51:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736459469;
+	bh=0x1L7px6GPDuN8m2XYejKWaY2IIWooxoAEoHV0V6Woc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=a6JeSpPBmvIKVy1aiaXseMKmL48kdpl1zcK4ql1QqBBn+kNNyPLZPO8aZme2NZukJ
+	 YiCoQBT5HTYD0iErWGTusMGjWgIH6e1GmDPgrYDXxcCw4ib6o9fahInGGItWRgUuRP
+	 bnxJ5ZHSeOgCFNb32NdoIMI8VQnfDI+s6pSm6K4MuFkYmKLZRnELrBi6jHur+Px00N
+	 IHoRP0b/+Xkt86vziXDu55mu0FCOklUTrpqtiQ/py3BKro3MOUtLcrtH/HK89y8gIU
+	 +FZ88rpN8hQRVkhT+pFUTbMWc0B9oYpxGwxUiPD7B3HGahhHMuNE3eSyckDn76exf7
+	 czOJNAWpptSPw==
+Date: Thu, 9 Jan 2025 18:51:06 -0300
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	=?iso-8859-1?Q?Micka=EBl_Sala=FCn?= <mic@digikod.net>,
+	=?iso-8859-1?Q?G=FCnther?= Noack <gnoack@google.com>,
+	Christian Brauner <brauner@kernel.org>, Guo Ren <guoren@kernel.org>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+	Jonathan Corbet <corbet@lwn.net>, Arnd Bergmann <arnd@arndb.de>,
+	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-security-module@vger.kernel.org, bpf@vger.kernel.org,
+	linux-csky@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v6 00/16] perf tools: Use generic syscall scripts for all
+ archs
+Message-ID: <Z4BEygdXmofWBr0-@x1>
+References: <20250108-perf_syscalltbl-v6-0-7543b5293098@rivosinc.com>
+ <Z3_ybwWW3QZvJ4V6@x1>
+ <Z4AoFA974kauIJ9T@ghost>
+ <Z4A2Y269Ffo0ERkS@x1>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <Z4A2Y269Ffo0ERkS@x1>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_134948_719531_BEFA37E0 
-X-CRM114-Status: GOOD (  29.69  )
+X-CRM114-CacheID: sfid-20250109_135110_596756_05E4B082 
+X-CRM114-Status: UNSURE (   9.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,112 +94,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Donnerstag, 9. Januar 2025, 15:40:33 CET schrieb Rob Herring (Arm):
+On Thu, Jan 09, 2025 at 05:49:42PM -0300, Arnaldo Carvalho de Melo wrote:
+> BTW this series is already pushed out to perf-tools-next:
 > 
-> On Wed, 08 Jan 2025 23:16:14 -0600, Jimmy Hon wrote:
-> > Add device-tree for Orange Pi 5 Max
-> > 
-> > Orange Pi now has 3 SBCs using the RK3588 SOC. Refactor the common parts
-> > of the 5 Plus DTS so it can be shared with the 5 Max and the 5 Ultra.
-> > The 5 Max and 5 Ultra have a similar credit-card sized board layout and
-> > will also share a DTSI between them.
-> > 
-> > 5 Plus: HDMI0, HDMI1, HDMI RX, M.2 E-key, USB-C
-> > 5 Max: HDMI0, HDMI1, WiFi/BT using SDIO/UART
-> > 5 Ultra: HDMI1, HDMI RX, WiFi/BT using SDIO/UART
-> > 
-> > Changes in v8:
-> > - Rebase with updated 5 Plus USB 3 patch
-> > 
-> > Changes in v7:
-> > - Add signed-off to first commit
-> > - Expand first commit description
-> > 
-> > Changes in v6:
-> > - Remove clock-names from incorrect merge conflict
-> > 
-> > Changes in v5:
-> > - Include Orange Pi 5 Plus USB 3.0 change in baseline before refactor
-> > - Defer Orange Pi 5 Ultra to a later series
-> > - Defer Orange Pi 5 Plus HDMI1 to a later series
-> > 
-> > Changes in v4:
-> > - Orange Pi 5 Ultra was released and does not use VP0 to HDMI0
-> > - Move HDMI0 from common to the board level
-> > - Make DTSI to be shared by the credit card sized 5 Max and 5 Ultra
-> > - Updates for the newly submitted HDMI1 support
-> > - Add Ack for dt-binding
-> > 
-> > Changes in v3:
-> > - Refactor to share common include with Orange Pi 5 Plus
-> > 
-> > Changes in v2:
-> > - squashed commits together for initial board file
-> > 
-> > Link to v1: https://lore.kernel.org/linux-rockchip/20241026100310.52679-1-honyuenkwun@gmail.com/
-> > 
-> > Jimmy Hon (4):
-> >   arm64: dts: rockchip: refactor common rk3588-orangepi-5.dtsi
-> >   dt-bindings: arm: rockchip: Add Xunlong Orange Pi 5 Max
-> >   arm64: dts: rockchip: Add Orange Pi 5 Max board
-> >   arm64: dts: rockchip: Enable HDMI1 on Orange Pi 5 Max
-> > 
-> >  .../devicetree/bindings/arm/rockchip.yaml     |   6 +-
-> >  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
-> >  .../rockchip/rk3588-orangepi-5-compact.dtsi   | 151 ++++
-> >  .../dts/rockchip/rk3588-orangepi-5-max.dts    | 101 +++
-> >  .../dts/rockchip/rk3588-orangepi-5-plus.dts   | 855 ++----------------
-> >  .../boot/dts/rockchip/rk3588-orangepi-5.dtsi  | 805 +++++++++++++++++
-> >  6 files changed, 1127 insertions(+), 792 deletions(-)
-> >  create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-compact.dtsi
-> >  create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-max.dts
-> >  create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-orangepi-5.dtsi
-> > 
-> > 
-> > base-commit: 2859e1ac3110f2d428a794bda26ea0d90b2254c6
-> > prerequisite-patch-id: 4672b745f4308a7be527749279edb71625d120e6
-> > prerequisite-patch-id: 2743fb64eba2a29eaf993ebc8a5d6ee445b69dfa
-> > --
-> > 2.47.1
-> > 
-> > 
-> > 
-> 
-> 
-> My bot found new DTB warnings on the .dts files added or changed in this
-> series.
-> 
-> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-> are fixed by another series. Ultimately, it is up to the platform
-> maintainer whether these warnings are acceptable or not. No need to reply
-> unless the platform maintainer has comments.
-> 
-> If you already ran DT checks and didn't see these error(s), then
-> make sure dt-schema is up to date:
-> 
->   pip3 install dtschema --upgrade
-> 
-> 
-> New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/rockchip/' for 20250109051619.1825-1-honyuenkwun@gmail.com:
+> https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git/log/?h=perf-tools-next
 
-All of them are not caused by the OrangePi5
+Hey, now I noticed that with this latest version we see:
 
-> arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-pi2.dtb: /i2c@fe5c0000/touchscreen@48: failed to match any schema with compatible: ['ti,tsc2007']
-> arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2-manta.dtb: /i2c@fe5c0000/touchscreen@48: failed to match any schema with compatible: ['ti,tsc2007']
-only has a txt binding
+⬢ [acme@toolbox perf-tools-next]$ m
+make: Entering directory '/home/acme/git/perf-tools-next/tools/perf'
+  BUILD:   Doing 'make -j28' parallel build
+Warning: Kernel ABI header differences:
+  diff -u tools/arch/arm64/include/uapi/asm/unistd.h arch/arm64/include/uapi/asm/unistd.h
 
-> arch/arm64/boot/dts/rockchip/rk3568-qnap-ts433.dtb: /serial@fdd50000/mcu: failed to match any schema with compatible: ['qnap,ts433-mcu']
-binding is in the mfd tree
+Auto-detecting system features:
+...                                   libdw: [ on  ]
+...                                   glibc: [ on  ]
+...                                  libbfd: [ on  ]
+...                          libbfd-buildid: [ on  ]
+...                                  libelf: [ on  ]
+...                                 libnuma: [ on  ]
+...                  numa_num_possible_cpus: [ on  ]
+...                                 libperl: [ on  ]
+...                               libpython: [ on  ]
+...                               libcrypto: [ on  ]
+...                               libunwind: [ on  ]
+...                             libcapstone: [ on  ]
+...                               llvm-perf: [ on  ]
+...                                    zlib: [ on  ]
+...                                    lzma: [ on  ]
+...                               get_cpuid: [ on  ]
+...                                     bpf: [ on  ]
+...                                  libaio: [ on  ]
+...                                 libzstd: [ on  ]
 
-> arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dtb: /soc/phy@2b050000: failed to match any schema with compatible: ['rockchip,rk3576-naneng-combphy']
-> arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dtb: /soc/phy@2b060000: failed to match any schema with compatible: ['rockchip,rk3576-naneng-combphy']
-> arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dtb: /soc/phy@2b050000: failed to match any schema with compatible: ['rockchip,rk3576-naneng-combphy']
-> arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dtb: /soc/phy@2b060000: failed to match any schema with compatible: ['rockchip,rk3576-naneng-combphy']
-binding is in the phy tree
-
-> arch/arm64/boot/dts/rockchip/rk3568-mecsbc.dtb: /spi@fe610000/fram@0: failed to match any schema with compatible: ['fujitsu,mb85rs128ty']
-binding is in the mtd tree
+   /home/acme/git/perf-tools-next/tools/perf/scripts/syscalltbl.sh  --abis common,32,i386 /home/acme/git/perf-tools-next/tools/perf/arch/x86/entry/syscalls/syscall_32.tbl /tmp/build/perf-tools-next/arch/x86/include/generated/asm/syscalls_32.h
+   /home/acme/git/perf-tools-next/tools/perf/scripts/syscalltbl.sh  --abis common,64 /home/acme/git/perf-tools-next/tools/perf/arch/x86/entry/syscalls/syscall_64.tbl /tmp/build/perf-tools-next/arch/x86/include/generated/asm/syscalls_64.h
+  GEN     /tmp/build/perf-tools-next/common-cmds.h
+  GEN     /tmp/build/perf-tools-next/arch/arm64/include/generated/asm/sysreg-defs.h
+  PERF_VERSION = 6.13.rc2.gd73982c39183
+  GEN     perf-archive
+  GEN     perf-iostat
+  MKDIR   /tmp/build/perf-tools-next/jvmti/
+  MKDIR   /tmp/build/perf-tools-next/jvmti/
+  MKDIR   /tmp/build/perf-tools-next/jvmti/
+  MKDIR   /tmp/build/perf-tools-next/jvmti/
 
 
+While with the previous one we would see something like SYSCALLTBL as
+the step name, like we have GEN, MKDIR, etc, can you take a look?
 
+All is out there in perf-tools-next.
+
+- Arnaldo
 
