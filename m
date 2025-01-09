@@ -4,31 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F443E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 03:40:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7CFEE77199
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 03:41:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tG1rEvqf4WA4SD3zbVFpvpWJ3k26iKtziXZvOBxKhlU=; b=DA2/ujFTc+j+CdmUARfnHKfV58
-	R+VVUuA2vltN3T8kP2yek28m2gXct+iDShXSr5OohJCUYNvuoisgKF/9YtEyyNUBliQIfq2/24ToE
-	4MR7rJ1WiNRzxtcAbprb+c4b8o8zeCDpDAPgXoGw2vWcc9dZnyhOo8L+VYi+DjNsqR1X15pTYb3r8
-	KJH8PDtTkcZor65nMoPJ5dkEHR7DmNmGJQr/bou92uV+dz7WrbEPHl9pPOCfZBVbh6pCajWgMjuOg
-	Y3zAlED6kqcJe56Uh1V3/UuROmqMfv10+FKN+wKsd3I4bq9PHxvEza2+bizjR+5Pog45ZXtYB0Q8F
-	ZbG5jaQg==;
+	bh=Opp8/1o2GzjehPnlr1xNOYU9LgkvnWOfJwemdFwvWbU=; b=3NGT3BRbLpDuifEzOKfpTPT1UQ
+	q2COH/1B6E5s+ZJwSgGhS1kVZBjcWWl/M9E1ZiTmYDknJ0327nNXczNkvFu1gFjKR0H0r34IHmAOS
+	R2Q20dukHL8J7cSykaw8ckS7llqlDn+6s8NqxFxFJASXHAcXeKNEkZ8kUgyDPUgXblyjvmoZV7vqc
+	9cYVNXxG/3wsChG1wz+OPt2ZG1L9wXdDLmAuxFpH0S0Hk9V+PARr8CpfyKQiZwgpRE5g2Zzn1CRq9
+	rHPdiWPOg7npHzK4pCRFGacntSwtSczhJAC5VX16nnJ5CYl+u33kC0/IhewkSrFXopG4VHKoLRMqD
+	swVoSfXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVjPH-0000000AcJi-1SWT;
-	Thu, 09 Jan 2025 03:40:27 +0000
-Received: from mail-m49231.qiye.163.com ([45.254.49.231])
+	id 1tVjQT-0000000AcX6-1x4e;
+	Thu, 09 Jan 2025 03:41:41 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVjDr-0000000AZrp-2HaW;
-	Thu, 09 Jan 2025 03:28:40 +0000
+	id 1tVjDy-0000000AZus-14Yj;
+	Thu, 09 Jan 2025 03:28:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=Opp8/1o2GzjehPnlr1xNOYU9LgkvnWOfJwemdFwvWbU=; b=Jzddv5dMVGns9ZwkJ5A4Mlx3r4
+	SZGvdZAehB1x1888GqUSpjvrcp4EHNmBEmukHCe0HZ7tjbL4hqDPMJ00hDDq3iVHb+XnWHasSzjZJ
+	IjmIN22xnKt3bsYn8C4kFybGYR2v+vXBj8zIdQxc/Mjr520R2U/oXiDuWrYRtu7A9Q/eBR2kGkseq
+	Skt0SQc0pGQPcl/B8JQHQYa8tlby14qbsdn69RqVIpEMGwKlHD/xitiQRIAs9HfxSuTGdmttYSe9J
+	CRf+n5ymdncFrSbS3v3nEArJAR1s6Td8PGbxjDqvr6aKwCIATwuzpV8EKurZWNXLqKGvSTJ4l++gq
+	UOmYwcQg==;
+Received: from mail-m15590.qiye.163.com ([101.71.155.90])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tVjDu-00000009UFI-3F1s;
+	Thu, 09 Jan 2025 03:28:45 +0000
 Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 82c01b02;
-	Thu, 9 Jan 2025 11:28:35 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 82c01a46;
+	Thu, 9 Jan 2025 11:28:10 +0800 (GMT+08:00)
 From: Damon Ding <damon.ding@rock-chips.com>
 To: heiko@sntech.de
 Cc: robh@kernel.org,
@@ -51,31 +65,30 @@ Cc: robh@kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-phy@lists.infradead.org,
 	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v5 20/20] arm64: dts: rockchip: Enable eDP0 display on RK3588S EVB1 board
-Date: Thu,  9 Jan 2025 11:27:25 +0800
-Message-Id: <20250109032725.1102465-21-damon.ding@rock-chips.com>
+Subject: [PATCH v5 07/20] drm/rockchip: analogix_dp: Expand device data to support multiple edp display
+Date: Thu,  9 Jan 2025 11:27:12 +0800
+Message-Id: <20250109032725.1102465-8-damon.ding@rock-chips.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250109032725.1102465-1-damon.ding@rock-chips.com>
 References: <20250109032725.1102465-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGR9KGVZPQk9MHh1IQ01DSRhWFRQJFh
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQxlLTlZCThoYGElLHUJOGE9WFRQJFh
 	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCSE
 	NVSktLVUpCS0tZBg++
-X-HM-Tid: 0a94491b543403a3kunm82c01b02
+X-HM-Tid: 0a94491af38f03a3kunm82c01a46
 X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6PiI6Eww*NzIIAxQaLFEjQwo6
-	EBUaCzJVSlVKTEhNSEJISEpMSkNIVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFJTkhPNwY+
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Ohg6Exw6TzIcDxQDLANRTBAv
+	NS4aCxFVSlVKTEhNSEJISUJJSENPVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFJTUxDNwY+
 DKIM-Signature: a=rsa-sha256;
-	b=C3MSduUCLfZdxVH3whiRLtwVNuocmbxdAaCJ0xIRVdRAv8Afn7VumoicxlB8uUdID5Z4/hImOml2w0eCfJ0OpzVVkJQaJ6cRFev6Zs80a4tL3fA7nmm4MMqqDDYsFbKHJ/oHcXNG4ZcCB/tpb6NMpE7gvwaAj4oms0uMS45A3Qo=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=tG1rEvqf4WA4SD3zbVFpvpWJ3k26iKtziXZvOBxKhlU=;
+	b=SCnACFms8F41DPlRyE3gbrBfH6f4f4iVOtFo4VRHgB3jVY7EBdsJL9dezdd2QeE2SCUSdlGSfsVxnnmP5ABz4r7VcmV68z6ogUDBbYAXNwXyE63xKk1E11KjtD2j/Vqc6V1O0Av60pUqfow9B/n0IuV6iBSQBhFLzlpjKbB7rGg=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=Opp8/1o2GzjehPnlr1xNOYU9LgkvnWOfJwemdFwvWbU=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_192839_821418_D10DD3C7 
-X-CRM114-Status: UNSURE (   9.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250109_032843_179885_DD4D3AA4 
+X-CRM114-Status: GOOD (  13.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,118 +103,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the necessary DT changes to enable eDP0 on RK3588S EVB1 board:
-- Set pinctrl of pwm12 for backlight
-- Enable edp0/hdptxphy0/vp2
-- Add aux-bus/panel nodes
+There are two main modifications: one is expanding struct
+rockchip_dp_chip_data to an array, and the other is adding
+&rockchip_dp_chip_data.reg to separate different edp devices.
 
 Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-
 ---
+ .../gpu/drm/rockchip/analogix_dp-rockchip.c   | 41 +++++++++++++++----
+ 1 file changed, 34 insertions(+), 7 deletions(-)
 
-Changes in v2:
-- Remove brightness-levels and default-brightness-level properties in
-  backlight node.
-- Add the detail DT changes to commit message.
-
-Changes in v3:
-- Use aux-bus instead of platform bus for edp-panel.
-
-Changes in v4:
-- Add comments related to the use of panel compatible "lg,lp079qx1-sp0v"
-  in the commit message.
-
-Changes in v5:
-- Use "edp-panel" instead of "lg,lp079qx1-sp0v"
-- Remove unnecessary comments in commit message
-- Assign the parent of DCLK_VOP2_SRC to PLL_V0PLL
----
- .../boot/dts/rockchip/rk3588s-evb1-v10.dts    | 54 +++++++++++++++++++
- 1 file changed, 54 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts b/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts
-index bc4077575beb..a8c151b41e21 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts
-@@ -9,6 +9,7 @@
- #include <dt-bindings/gpio/gpio.h>
- #include <dt-bindings/input/input.h>
- #include <dt-bindings/pinctrl/rockchip.h>
-+#include <dt-bindings/soc/rockchip,vop2.h>
- #include <dt-bindings/usb/pd.h>
- #include "rk3588s.dtsi"
- 
-@@ -238,6 +239,41 @@ &combphy2_psu {
- 	status = "okay";
+diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+index eef1ff0f3a13..0957d3c5d31d 100644
+--- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
++++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+@@ -56,6 +56,7 @@ struct rockchip_grf_reg_field {
+ struct rockchip_dp_chip_data {
+ 	const struct rockchip_grf_reg_field lcdc_sel;
+ 	u32	chip_type;
++	u32	reg;
  };
  
-+&edp0 {
-+	force-hpd;
-+	status = "okay";
-+
-+	aux-bus {
-+		panel {
-+			compatible = "edp-panel";
-+			backlight = <&backlight>;
-+			power-supply = <&vcc3v3_lcd_edp>;
-+
-+			port {
-+				panel_in_edp: endpoint {
-+					remote-endpoint = <&edp_out_panel>;
-+				};
-+			};
-+		};
-+	};
-+};
-+
-+&edp0_in {
-+	edp0_in_vp2: endpoint {
-+		remote-endpoint = <&vp2_out_edp0>;
-+	};
-+};
-+
-+&edp0_out {
-+	edp_out_panel: endpoint {
-+		remote-endpoint = <&panel_in_edp>;
-+	};
-+};
-+
-+&hdptxphy0 {
-+	status = "okay";
-+};
-+
- &i2c3 {
- 	status = "okay";
+ struct rockchip_dp_device {
+@@ -397,6 +398,8 @@ static int rockchip_dp_probe(struct platform_device *pdev)
+ 	const struct rockchip_dp_chip_data *dp_data;
+ 	struct drm_panel *panel = NULL;
+ 	struct rockchip_dp_device *dp;
++	struct resource *res;
++	int i;
+ 	int ret;
  
-@@ -399,6 +435,7 @@ usbc0_int: usbc0-int {
+ 	dp_data = of_device_get_match_data(dev);
+@@ -411,9 +414,25 @@ static int rockchip_dp_probe(struct platform_device *pdev)
+ 	if (!dp)
+ 		return -ENOMEM;
+ 
++	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
++
++	i = 0;
++	while (dp_data[i].reg) {
++		if (dp_data[i].reg == res->start) {
++			dp->data = &dp_data[i];
++			break;
++		}
++
++		i++;
++	}
++
++	if (!dp->data) {
++		dev_err(dev, "no chip-data for %s node\n", dev->of_node->name);
++		return -ENODEV;
++	}
++
+ 	dp->dev = dev;
+ 	dp->adp = ERR_PTR(-ENODEV);
+-	dp->data = dp_data;
+ 	dp->plat_data.panel = panel;
+ 	dp->plat_data.dev_type = dp->data->chip_type;
+ 	dp->plat_data.power_on = rockchip_dp_poweron;
+@@ -465,14 +484,22 @@ static int rockchip_dp_resume(struct device *dev)
+ static DEFINE_RUNTIME_DEV_PM_OPS(rockchip_dp_pm_ops, rockchip_dp_suspend,
+ 		rockchip_dp_resume, NULL);
+ 
+-static const struct rockchip_dp_chip_data rk3399_edp = {
+-	.lcdc_sel = GRF_REG_FIELD(0x6250, 5, 5),
+-	.chip_type = RK3399_EDP,
++static const struct rockchip_dp_chip_data rk3399_edp[] = {
++	{
++		.lcdc_sel = GRF_REG_FIELD(0x6250, 5, 5),
++		.chip_type = RK3399_EDP,
++		.reg = 0xff970000,
++	},
++	{ /* sentinel */ }
  };
  
- &pwm12 {
-+	pinctrl-0 = <&pwm12m1_pins>;
- 	status = "okay";
+-static const struct rockchip_dp_chip_data rk3288_dp = {
+-	.lcdc_sel = GRF_REG_FIELD(0x025c, 5, 5),
+-	.chip_type = RK3288_DP,
++static const struct rockchip_dp_chip_data rk3288_dp[] = {
++	{
++		.lcdc_sel = GRF_REG_FIELD(0x025c, 5, 5),
++		.chip_type = RK3288_DP,
++		.reg = 0xff970000,
++	},
++	{ /* sentinel */ }
  };
  
-@@ -1168,3 +1205,20 @@ usbdp_phy0_dp_altmode_mux: endpoint@1 {
- 		};
- 	};
- };
-+
-+&vop_mmu {
-+	status = "okay";
-+};
-+
-+&vop {
-+	assigned-clocks = <&cru DCLK_VOP2_SRC>;
-+	assigned-clock-parents = <&cru PLL_V0PLL>;
-+	status = "okay";
-+};
-+
-+&vp2 {
-+	vp2_out_edp0: endpoint@ROCKCHIP_VOP2_EP_EDP0 {
-+		reg = <ROCKCHIP_VOP2_EP_EDP0>;
-+		remote-endpoint = <&edp0_in_vp2>;
-+	};
-+};
+ static const struct of_device_id rockchip_dp_dt_ids[] = {
 -- 
 2.34.1
 
