@@ -4,65 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D585E7719A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 22:50:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 143F7E7719A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 22:54:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=szzRx+jV7JEnpVa9t3hMtlu/aLPELISpILa8cGlbM9E=; b=HtHzW3DBmCVTYragUTjg0FdmCN
-	TzXm7dLrdrA1WUh2e8KO93oIlLMrhy0QeAs8vWwaMze9Fiwsn8y/yW2eveOTxORxf/7DaFDfC5EUm
-	jY12EEXS7ASus0rZgaeJKcktf4tH7QaSBo/qTGoosVwjLBQFobYs6EjApPYvC2lMH9ri2756Q5AO+
-	z5sRWKjQMsJ0YALT6VBw5eYM0+nea2c7f/ZMXqk8+xPU8gqPOfHp+BysPcPge4H99fpWNsQSrqNwp
-	bXSTwUgYPwiKownavmYBokwxpreDE9f4qafNieUQGRPBaqhry/ITkLgV7R09ynz4gmqYvMzfRBN42
-	BINoErqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T/3DzJDs7HADsnw44UWmHJpcF3Zj9RPRSkT8525o70w=; b=hh4hRfA0XdzMjw2472Ypx3DeDR
+	x+cqAtMP+27naNFgKYI1inSWK46PkN76Wd5yEG+9l5ykibyupHz3m+Y178vl/H+QuMffmvKAMO76/
+	4XxjwP/JLrH0RZ/k+ansWRq/w/BpfQSrg567pgq6l9DLPQc6FY/+4WACWUN0mtzZewTtZZtMUrEWf
+	hYfnB2/zOPex85EiYNn8T23j7juZG1FDF3czjtCx+k9k8m1eiioMYrc+wmEXM9Acz53xluNo+U6jM
+	FjzFKjKpm6DVxciMRVyerPISLIffKDJ5bs4HqwxqOxdskNHFOk25P0bSlQ5RFIGKVvoGIMCYoJHyZ
+	3+ELXjXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW1MI-0000000DUbt-0wKm;
-	Thu, 09 Jan 2025 22:50:34 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.144.208])
+	id 1tW1Q6-0000000DV1J-0Tah;
+	Thu, 09 Jan 2025 22:54:30 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW1Js-0000000DUOE-3W0X
+	id 1tW1Ot-0000000DUqa-0vLr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 22:48:06 +0000
-Received: from mail-lvn-it-01.lvn.broadcom.net (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 00F41C001A13;
-	Thu,  9 Jan 2025 14:48:02 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 00F41C001A13
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1736462882;
-	bh=hzp/epZwqHQdLKQHRQ8aEtFi9PPvpMrlLjzgTmHUt+4=;
-	h=From:To:Cc:Subject:Date:From;
-	b=ovFziUVVOYKOtnEToSdKAWOzaqdwuL8WH5doV1uaC+iBccwBWC/eOqMtQxj6kCos6
-	 4nyNQcVuH9tZFBvoVRM2QVmir0mjeVPYcDVAFUbvMMLQpdGYptTlpTW97ZUkhHEFTu
-	 ZQCNGVEDQ9YdVx8qs0II3xWiIhnOVXwqVS3ZcZl4=
-Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail-lvn-it-01.lvn.broadcom.net (Postfix) with ESMTPSA id 9827818041CAC6;
-	Thu,  9 Jan 2025 14:48:01 -0800 (PST)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: soc@kernel.org
-Cc: Rosen Penev <rosenp@gmail.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	arnd@arndb.de,
-	olof@lixom.net,
-	khilman@kernel.org,
-	bcm-kernel-feedback-list@broadcom.com
-Subject: [GIT PULL 1/2] Broadcom devicetree changes for 6.14
-Date: Thu,  9 Jan 2025 14:47:55 -0800
-Message-ID: <20250109224756.3632025-1-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.43.0
+	Thu, 09 Jan 2025 22:53:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id C77BDA41DAC;
+	Thu,  9 Jan 2025 22:51:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4C15C4CED2;
+	Thu,  9 Jan 2025 22:53:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736463194;
+	bh=ygPBiRPZBdHE0lhMQk0UMilxxye1rAgfC0lt552dW+A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CsYDOCEru3+AEdwiKyVkWO1mOJHA55tzrKUnUNyTndawph6pOFrhOW2l5pojnvJNg
+	 XORMOFZhafzHRheJC4Iv5aiLfQ1VqP7MH4Pqu9XdMOpqsE4WY98zwSIMgV4mneTs4v
+	 MSH1YspqDd9RCndarix0IjsiR7dityj4eKCyBBD+T6WcvBFrqeyyEK21WNNwg+2OY3
+	 /uZxAB7095zODtu0FbcRODsUwetcSBxBU5PkfCNtgydf+hjYcotb4iZsTCuTmqvl91
+	 mF8CF65TskxLdd9bruSw13e/03ANgi57eGbjP06pOzhD91/3VFwUjLrJXUYA5XPxxE
+	 GHhEzoYh6bnYQ==
+Date: Thu, 9 Jan 2025 16:53:12 -0600
+From: Rob Herring <robh@kernel.org>
+To: Viresh Kumar <viresh.kumar@linaro.org>
+Cc: Chen-Yu Tsai <wens@csie.org>, Cody Eksal <masterr3c0rd@epochal.quest>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Yangtao Li <tiny.windzz@gmail.com>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Maxime Ripard <mripard@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Nishanth Menon <nm@ti.com>, Stephen Boyd <sboyd@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>, Viresh Kumar <vireshk@kernel.org>,
+	Parthiban <parthiban@linumiz.com>,
+	Andre Przywara <andre.przywara@arm.com>, linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v2 12/13] cpufreq: sun50i: add a100 cpufreq support
+Message-ID: <20250109225312.GA434678-robh@kernel.org>
+References: <20241031070232.1793078-1-masterr3c0rd@epochal.quest>
+ <20241031070232.1793078-13-masterr3c0rd@epochal.quest>
+ <20241111041311.hleaz5fgipsyxigm@vireshk-i7>
+ <CAGb2v646NHFAni=P+iC8OZsWMpg0PJc=kYbuWaY=C0-W-q6qAw@mail.gmail.com>
+ <20241111055504.2f3szrd5ahudvtqm@vireshk-i7>
+ <CAL_JsqJJ5A+nYKg1aU5zqGZsmtNJxpS3Gw04pSH-3xOkQ9Vzew@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAL_JsqJJ5A+nYKg1aU5zqGZsmtNJxpS3Gw04pSH-3xOkQ9Vzew@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_144805_227323_EF216864 
-X-CRM114-Status: GOOD (  12.06  )
+X-CRM114-CacheID: sfid-20250109_145315_321327_74F4BC49 
+X-CRM114-Status: GOOD (  15.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,66 +92,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 40384c840ea1944d7c5a392e8975ed088ecf0b37:
+On Mon, Nov 18, 2024 at 09:36:37AM -0600, Rob Herring wrote:
+> On Sun, Nov 10, 2024 at 11:55 PM Viresh Kumar <viresh.kumar@linaro.org> wrote:
+> >
+> > On 11-11-24, 13:30, Chen-Yu Tsai wrote:
+> > > On Mon, Nov 11, 2024 at 12:13 PM Viresh Kumar <viresh.kumar@linaro.org> wrote:
+> > > >
+> > > > On 31-10-24, 04:02, Cody Eksal wrote:
+> > > > > From: Shuosheng Huang <huangshuosheng@allwinnertech.com>
+> > > > >
+> > > > > Let's add cpufreq nvmem based for allwinner a100 soc. It's similar to h6,
+> > > > > let us use efuse_xlate to extract the differentiated part.
+> > > > >
+> > > > > Signed-off-by: Shuosheng Huang <huangshuosheng@allwinnertech.com>
+> > > > > [masterr3c0rd@epochal.quest: add A100 to opp_match_list]
+> > > > > Signed-off-by: Cody Eksal <masterr3c0rd@epochal.quest>
+> > > > > ---
+> > > > > Changes in V2:
+> > > > >  - Add the A100 to the cpufreq-dt-platdev blacklist.
+> > > >
+> > > > Can this be applied to the cpufreq tree separately ?
+> > >
+> > > Yes.
+> > >
+> > > Acked-by: Chen-Yu Tsai <wens@csie.org>
+> >
+> > Applied. Thanks.
+> 
+> You missed the binding patch, so
+> "allwinner,sun50i-a100-operating-points" is undocumented. Can you pick
+> that up please.
 
-  Linux 6.13-rc1 (2024-12-01 14:28:56 -0800)
+Still not applied, so I applied it.
 
-are available in the Git repository at:
-
-  https://github.com/Broadcom/stblinux.git tags/arm-soc/for-6.14/devicetree
-
-for you to fetch changes up to f167292c8d13d31cbe9ffaa8108edcb4e8b1c60f:
-
-  ARM: dts: meraki-mr26: set mac address for gmac0 (2024-12-17 10:23:28 -0800)
-
-----------------------------------------------------------------
-This pull request contains Broadcom ARM-based SoCs Device Tree updates
-for 6.14, please pull the following:
-
-- Rob removes some unused and undocumented properties pertaining to the
-  SPI flash controller on Broadcom boards
-
-- Linus adds a number of BCM6846 peripherals: HWRNG, watchdog, GPIO,
-  MDIO, LED controller, DMA and then proceeds with adding support for
-  the GEnexsis XG6846B PON router
-
-- Rosen sets the MAC address NVMEM reference on the Meraki MR26 platform
-
-----------------------------------------------------------------
-Linus Walleij (9):
-      ARM: dts: bcm6846: Add iproc rng
-      ARM: dts: bcm6846: Enable watchdog
-      ARM: dts: bcm6846: Add GPIO blocks
-      ARM: dts: bcm6846: Add MDIO control block
-      ARM: dts: bcm6846: Add LED controller
-      ARM: dts: bcm6846: Add ARM PL081 DMA block
-      dt-bindings: vendor-prefixes: Add Genexis
-      dt-bindings: arm: bcmbca: Add Genexis XG6846B
-      ARM: dts: broadcom: Add Genexis XG6846B DTS file
-
-Rob Herring (Arm) (1):
-      arm: dts: broadcom: Remove unused and undocumented properties
-
-Rosen Penev (1):
-      ARM: dts: meraki-mr26: set mac address for gmac0
-
- .../devicetree/bindings/arm/bcm/brcm,bcmbca.yaml   |   1 +
- .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
- arch/arm/boot/dts/broadcom/Makefile                |   1 +
- .../arm/boot/dts/broadcom/bcm53015-meraki-mr26.dts |  20 ++
- .../dts/broadcom/bcm53340-ubnt-unifi-switch8.dts   |   1 -
- .../boot/dts/broadcom/bcm6846-genexis-xg6846b.dts  | 244 +++++++++++++++++++++
- arch/arm/boot/dts/broadcom/bcm6846.dtsi            | 120 ++++++++++
- arch/arm/boot/dts/broadcom/bcm953012hr.dts         |   1 -
- arch/arm/boot/dts/broadcom/bcm953012k.dts          |   1 -
- arch/arm/boot/dts/broadcom/bcm958522er.dts         |   1 -
- arch/arm/boot/dts/broadcom/bcm958525er.dts         |   1 -
- arch/arm/boot/dts/broadcom/bcm958525xmc.dts        |   1 -
- arch/arm/boot/dts/broadcom/bcm958622hr.dts         |   1 -
- arch/arm/boot/dts/broadcom/bcm958623hr.dts         |   1 -
- arch/arm/boot/dts/broadcom/bcm958625hr.dts         |   1 -
- arch/arm/boot/dts/broadcom/bcm958625k.dts          |   1 -
- arch/arm/boot/dts/broadcom/bcm988312hr.dts         |   1 -
- 17 files changed, 388 insertions(+), 11 deletions(-)
- create mode 100644 arch/arm/boot/dts/broadcom/bcm6846-genexis-xg6846b.dts
+Rob
 
