@@ -4,90 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6C79E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 05:23:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2909CE77199
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 05:24:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xhbPOgs5hdCM6+iNzYizeI0jRjlgIwhloeZJA197DFE=; b=3x4UpMjBZTaAxzm8b6ZilT/XCd
-	sIOBpyj2JJOl27TTSEng0aIa/WOOIV0//lsEoVUsFjYR/56cj3cw+1mHCH8nt7dCy9y0vkNqbUfxS
-	0PlolAdvZAC5mE3lU4a2k7SKWQnvL7DBH9vd3jkNro+fr1HUjXyc8GDigI/0uh+t/8zW8vDnFvHWQ
-	fd5DEiwD1RFrjZgQz+ENyub7QSJono47KUs8p505unqBjhkEi6/ws4aAAkb7eTEN7qF0bdoE2D6Ff
-	QdC9mpcgKSj8Q9pzpUc1wWPCUAsT1hcXXs5/Tih2nqT/YNzfvSMJVi18IASsC2g1yJZaB01fEEgGc
-	L6y4PqCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BTCBmi/kvh3XtA5GDyyga99oIp549Lf+iTb+rNkRVSo=; b=v20K4GWJFYMxfMLCI7WL+jsYG4
+	8erTM42dsqFGLhSuoRq1fLI84Lz3swR1NGUmdSjr9RVYLXyHfJPIUieJHaf7pO+ju4roSB1bLVe87
+	icQKjmpqWllBkW+EKAYHS2hebVpHi+mPaElfpcXykdfvHmZ5l2LyuZZnzFwIABA3WHhdP5JZaq95T
+	xdWRF5TmDxcRru3hvVFQgB1eYWEhk6tbRNfp6Sw9GP1mnp7tiY9naiOnUOJWtlocZmOXy3qNxV+R8
+	FPUDpMaPXCHD5sNs4EAqo7qegfjRLaeHjwleGkJi46T4g1oXhSct3qzOZ0j93thUcHjl/orNIKHl9
+	GpRbkA1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVl0b-0000000AnL3-0WNr;
-	Thu, 09 Jan 2025 05:23:05 +0000
-Received: from mail-ot1-x335.google.com ([2607:f8b0:4864:20::335])
+	id 1tVl1o-0000000AnX0-1Axp;
+	Thu, 09 Jan 2025 05:24:20 +0000
+Received: from mail-mw2nam10on20625.outbound.protection.outlook.com ([2a01:111:f403:2412::625] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVkug-0000000AmSX-1ZaA;
-	Thu, 09 Jan 2025 05:16:59 +0000
-Received: by mail-ot1-x335.google.com with SMTP id 46e09a7af769-71e3167b90dso283425a34.0;
-        Wed, 08 Jan 2025 21:16:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736399817; x=1737004617; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xhbPOgs5hdCM6+iNzYizeI0jRjlgIwhloeZJA197DFE=;
-        b=fQgYmW49qTVkCCzKWq1cL6zO177MKqPtsuyDIpPk5x7qLAJdhnuU34/G8+HveUcAyy
-         gg7w8gKwSB36OiQpv7ErC5e9EHukV4/irsR3hf/LtP/pEa61106+jbeptfce+Hu2uSVr
-         a4UYkkrnhSiYTVhfEHGnBvIAmKwkAYU7uq+mY8c7sYtypcN93pvMziBB0hBE5Wm9rWfL
-         7unvcFfQkDRkC5u6hUaoGV+ELeuilzxtGWXFDd1LCdHANihEf69kYeJjVYD08NBUG825
-         JH1YAUnyV593xvK126a2TL9zoNt6to4MgY7xvguntoikhJKQ7HpX2BmC2/Cji89OCR7/
-         0VOg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736399817; x=1737004617;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=xhbPOgs5hdCM6+iNzYizeI0jRjlgIwhloeZJA197DFE=;
-        b=cyrZN5Q/3njt7cI7SxOlPE0/ukE4KMWdFC2eOBS81FSXTGkpCk+47zlP6U77ZNQK4g
-         wYub3vPQeRHPhDGP1rnXLhWVfYSdcl5ORVEYr5N0iQTrRLjnkcCX4LDLJUuvNypRjt7p
-         s3VDQYD6Esbqhyg7RJ8HR5WzT3W8QNaxuLSjiePhQsTrAsg4clg9GStM+0b3HRu+Ms5B
-         7QT5HatsshHmhGPD1xyWWe3JL3wkgBMjzWhsYrvPXQo+GrIQqR4HIuBeVbpKYSAv6QzH
-         w1McD9YUeaooHHYpRTPYFx/NDOAAUiEdPih1i4ngLl4ksXZtBylggskkZP7NSF14Lx33
-         Ko0w==
-X-Forwarded-Encrypted: i=1; AJvYcCUy/OrALFJGccAeuYGj4v9pNbv38AaPZkY6BI49fG26RdLsDytQUiixxndha1JtR0pInTnKbgXnzXh4TybUnIw=@lists.infradead.org, AJvYcCVL/JJOsj9/aIEQ8XfkxLXhI13c5+lNbn4GlhVLzYqIR00ogzPt2gqmvzRFmGoMSZjP/u+VuiAUTrLgSLAcOQwp@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw8M4XpV95Icc3sr+gCO9blu96jKrKJWyukbhgIhJeDVJx3qUtV
-	bwpQBxWVJhit8axUJ+3EZRuFVw3JC8wh5zqsatOUrDtpx+A0NZqA
-X-Gm-Gg: ASbGnctOU9ezuxsEsPyOFLAmpbv+O8HE8QoF36Vr+4awNW2zP1zWqqEABEiSxpNI/Ir
-	uh5oDwwBHaTxWc1pHMs16NrM9yBcbvDfPVFdoqh6MIUNBWQzjUHEkZA4aou7TUAOY0O/ojDN2fX
-	Xs41eUrhEB/Akby4vUwYgrJp2bLYoVid9EdbIyhm7BYFI1sd9p6Cp7K9HIW+ZA1krid+T9pfJBd
-	3hd3fGKhQq8Ju3Vpp1y0IV8ROdQZhH7X8Kbc0ZihaZRsu8OUWRMD60oYnQzQz7loQ==
-X-Google-Smtp-Source: AGHT+IEpt0d5ijmwFkkrX4I7/Zuu+7GGnQCle9sRDy4Mh3arQmHmqyc3VJTxBx4Hrg0pJkqoZChGFg==
-X-Received: by 2002:a05:6830:6213:b0:718:d31:feb8 with SMTP id 46e09a7af769-721e2e2ded2mr3597170a34.7.1736399817306;
-        Wed, 08 Jan 2025 21:16:57 -0800 (PST)
-Received: from tower.cjhon.com ([2603:8081:ad00:4a:f022:ffa3:5bc0:c1c3])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-723185481bcsm187612a34.21.2025.01.08.21.16.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Jan 2025 21:16:56 -0800 (PST)
-From: Jimmy Hon <honyuenkwun@gmail.com>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Ondrej Jirman <megi@xff.cz>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Jimmy Hon <honyuenkwun@gmail.com>
-Subject: [PATCH v8 4/4] arm64: dts: rockchip: Enable HDMI1 on Orange Pi 5 Max
-Date: Wed,  8 Jan 2025 23:16:18 -0600
-Message-ID: <20250109051619.1825-5-honyuenkwun@gmail.com>
-X-Mailer: git-send-email 2.47.1
-In-Reply-To: <20250109051619.1825-1-honyuenkwun@gmail.com>
-References: <20250109051619.1825-1-honyuenkwun@gmail.com>
+	id 1tVkz6-0000000An1t-1M9R
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Jan 2025 05:21:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DZYWVRsDZvnaE15i+WdR7DPXhKNIM02G8c6P7JKBXAYReYWkXgAfhw6WD6Fnaiql16Tzc6RGXVku0CR7pVy1tjwUpDpQcc6qPvrCJBCyJGQiTvk4bjiyCPYcwFMJ532e+WnGM0FMIdszrj4LlXgJyhDD1kbBuUO8qf0Z+UNWUnP8ld3JoPg7KRpHezEZe7K5V6fpFkCX38uBoJyXaR0CPEIPr4qJU2/Zbvgq6xTQXgikvpsvScpR7llcxpoEPq413iK74HebLV3iqV747vH1I3bZ5oCOZjI1Rhglhm3MyHIYDy9BRj61zcncRp3g8I8MBK6mpztTdbFFOnUDZjnANg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BTCBmi/kvh3XtA5GDyyga99oIp549Lf+iTb+rNkRVSo=;
+ b=L2szTpwNDMVnw93p+0YlPPRKlittNBMee14oxLIWtnTsoSx1XUBqExeU0lFsX5e/jbTNC/kVjNh0wDYDxilFrPnPX5bKAfSvzFYqRXtnv8tSn4iGbf41oqYJlVl5GLVYDfzzahpyUH199Z3cKdjhz8qaxSsJzDWx/IwK+1E+oULEphrAn17DcGq5NIieUTOewPtUvPv5Uy0CyhkuyGBK4BMH1PIOCYLEPn+8egyNr2A/hvgKK9re6cUEpRX4lON2RTs80EKi82vZVvXRJnfSi2eDJ4St0zv+ZvYx/tnLjlte6dPfTnP3vX/ja/APpCM6MQorWPn+k6HASAgRduqh0Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BTCBmi/kvh3XtA5GDyyga99oIp549Lf+iTb+rNkRVSo=;
+ b=QAR699WhgPk31ueNEcp6WRehTcCMwNxYktj7zP/6b/fAJtW/qkaUA4EINB3E6+HrihZDAFBSitr5SGCyITA6cql4juxt838F9m5hV+daTZwoIz/MzaCTl2sO2Y7pPtvJaLJR1Hm51H4N1G+JOmr4O1tGvcgMRaWsD4u2GzyGfLgyutmj5rmhhRXyj7xuIAXHyebn7YvOO+S8aOQkV7YIEy0bW9+3WYDim5o1RM4+3LNTkNjMdaJC4UEpNY81NvsE4WRRdCJlEMuYePV48v0QMUD4CfMVP1/aRHaYeeJ6kZwBgMwWckXEAVm+U48gG/JTUdHKTTM2iYbCwdq9etIrDw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS0PR12MB7726.namprd12.prod.outlook.com (2603:10b6:8:130::6) by
+ DM4PR12MB5748.namprd12.prod.outlook.com (2603:10b6:8:5f::19) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8335.11; Thu, 9 Jan 2025 05:21:25 +0000
+Received: from DS0PR12MB7726.namprd12.prod.outlook.com
+ ([fe80::953f:2f80:90c5:67fe]) by DS0PR12MB7726.namprd12.prod.outlook.com
+ ([fe80::953f:2f80:90c5:67fe%7]) with mapi id 15.20.8335.011; Thu, 9 Jan 2025
+ 05:21:24 +0000
+Date: Thu, 9 Jan 2025 16:21:20 +1100
+From: Alistair Popple <apopple@nvidia.com>
+To: Dan Williams <dan.j.williams@intel.com>
+Cc: akpm@linux-foundation.org, linux-mm@kvack.org, lina@asahilina.net, 
+	zhang.lyra@gmail.com, gerald.schaefer@linux.ibm.com, vishal.l.verma@intel.com, 
+	dave.jiang@intel.com, logang@deltatee.com, bhelgaas@google.com, jack@suse.cz, 
+	jgg@ziepe.ca, catalin.marinas@arm.com, will@kernel.org, mpe@ellerman.id.au, 
+	npiggin@gmail.com, dave.hansen@linux.intel.com, ira.weiny@intel.com, 
+	willy@infradead.org, djwong@kernel.org, tytso@mit.edu, linmiaohe@huawei.com, 
+	david@redhat.com, peterx@redhat.com, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linuxppc-dev@lists.ozlabs.org, nvdimm@lists.linux.dev, linux-cxl@vger.kernel.org, 
+	linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org, linux-xfs@vger.kernel.org, 
+	jhubbard@nvidia.com, hch@lst.de, david@fromorbit.com
+Subject: Re: [PATCH v5 03/25] fs/dax: Don't skip locked entries when scanning
+ entries
+Message-ID: <jt2ro6pedtqbyicarbhlkvjjnhtgciq3terqmz6o3i3hsmq55q@b3dsd2cvvs3j>
+References: <cover.425da7c4e76c2749d0ad1734f972b06114e02d52.1736221254.git-series.apopple@nvidia.com>
+ <6d25aaaadc853ffb759d538392ff48ed108e3d50.1736221254.git-series.apopple@nvidia.com>
+ <677f013c1466_f58f29466@dwillia2-xfh.jf.intel.com.notmuch>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <677f013c1466_f58f29466@dwillia2-xfh.jf.intel.com.notmuch>
+X-ClientProxiedBy: SY4P282CA0006.AUSP282.PROD.OUTLOOK.COM
+ (2603:10c6:10:a0::16) To DS0PR12MB7726.namprd12.prod.outlook.com
+ (2603:10b6:8:130::6)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB7726:EE_|DM4PR12MB5748:EE_
+X-MS-Office365-Filtering-Correlation-Id: cfdf8732-9838-4f45-1996-08dd306d75f8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?I71Ei/Cdq1DLOHOP/eK/nHSyVxCNwf7+LgIna/ScK+MqdljDH4E5WzSvDzeH?=
+ =?us-ascii?Q?2P8jHBJRLlGSSAtvzFgAs/4eFTuL5TEraNZkI8ehMMpE2/xPFxCiFN0q2Y3m?=
+ =?us-ascii?Q?t4KzolmBWqgrWbYzr5vfvEYs/62p4CZ220xIWdkOStOeX7ls+67KTsTQ/7X0?=
+ =?us-ascii?Q?ShPibNIhI2+R0ZQSQvhlTGukYprEFC5Ddkc+oSS00ZB8SMhwqRFdoDqxMOUx?=
+ =?us-ascii?Q?Mt77fYDlIvhix2DW0PKrA4oamxBIal8XaZKVgIffYPgIMVe7qSkl+b9su5/9?=
+ =?us-ascii?Q?MCq7zOyx7C/r6JakFIm6/weKytXRxcRUBgp/6DSIpAL6lJWpRZGeZbJn8UMA?=
+ =?us-ascii?Q?uX4cj3h6enDLZzCcp21hnGiOX0jZJLRPB3ZFWaZWR43WOzQ5tQ9nRWHzUe54?=
+ =?us-ascii?Q?RQ9KlJITUirqse3gfP50DB6oVkGQubq4TLMF+r6YeL8B5rl1cKaLgMzsCkgR?=
+ =?us-ascii?Q?S5lZZxBe6CgKcVpk70QPMGoe/SY6Z8VI+g8NzcyhBknQMqmX2lb56x4bBaU5?=
+ =?us-ascii?Q?lX0sHxFmUDSuWlq+bd98useEMGAu3G78O3MpuXz4o00F6WUDkYrLuvPP6qXP?=
+ =?us-ascii?Q?GnFV4mu+q5LCrsKrtrXFtuvKwCCxFKN3YV9TqBjJM/MW4w6kfaxn9a4AZQpy?=
+ =?us-ascii?Q?d22i3pnyb1M1PQXpZMO9uPi18clfhNmm2+MQLehH8GfQu57plK6IyTqhEAXb?=
+ =?us-ascii?Q?xEOwCyH5ilN/jRLJIGiDjoi8CBXcCUxY0ZF+FRwy23OsA12hZf7Yuw9tKLah?=
+ =?us-ascii?Q?xroYnhVbrB9jGQALbw7uE5U4eBS5A4sErpKaSo5rkD7TxOx0WOQ/TOwooit/?=
+ =?us-ascii?Q?J81+FRfnKcpR+dEJOfuNeAwjkJHVsxiMI0mNMnqX7rZG01ITpC0o5xakwRVJ?=
+ =?us-ascii?Q?VBx9LsaZsV8zDGnJn9F52GkdGGLSz+6QTbjUz4o75QpsPJCXeKbyEsk1g8DV?=
+ =?us-ascii?Q?zxKwPdX6QCVsUTVtbzRLzj4ocE1oYdPfLo7Gm6IqIu5KTQvsixkEzkXKWPfP?=
+ =?us-ascii?Q?QLPwzgu4NR5gzqi9SLn3vOUDZeyGOkvBuP7aAoijleElf8UmqER2aQPVJWxf?=
+ =?us-ascii?Q?GdLBQiDSo11wLEOXd4qXSaiZgN7pLLHFdXmeYYACK97Ql/oOwJsChxFTJDHe?=
+ =?us-ascii?Q?4s49EgYkfY0cnnpigZz+q5cMlwD+ptXbBNboYJGZnBSlEHUc04GqjosDl0ZK?=
+ =?us-ascii?Q?fnRmKG2PrrhLJFqkgcAkYRt0bWfjvGEduJUcEZ/Mi2UEu8abDiNaeSnd+Yup?=
+ =?us-ascii?Q?98GznbiSuVZVnYucaHnfZkhuUJ2BVQWhRzHLtMS1sT8JkbARwbYV3i4hsAyA?=
+ =?us-ascii?Q?VxDOeX73HqaMlE0eecTd7UJJEPm8QPD12BDXfzce1KNxFW4moGrHR5OSpzba?=
+ =?us-ascii?Q?hjgF+8E1Hkmniusy6S3EkudvYK81?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB7726.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9eU/HjspxFbwKGY05Qv9vtiwcku7K5063oUy5mjzL8vsljIXIoqAbQMLpPad?=
+ =?us-ascii?Q?OYV3seXU4GsiaSwcdhpK1pXBFozgVuS1hIHsEBKvpGZ/xgYcMLX+TgYpeCUE?=
+ =?us-ascii?Q?Ly5/ytm4rgC1GADQ28yJ8j6k+jzXJeC9WlWjgBsvt9wAzKBsNhPO1wLW09hv?=
+ =?us-ascii?Q?G9keJaNBZP4ksOYaFmqdZkPC0bfipXKxuKggIeen1+OfnQ7yG9CMHbcxcdRx?=
+ =?us-ascii?Q?Hf9JlMkf8kpnr50/ZHb9uEljzWVsVsdv13Y6YjXbD2SD5dSh7i0LCMCx9B/O?=
+ =?us-ascii?Q?iwhGFla+Ht795TaFynAjepgnCu8E/Abdt74xorZkpwv8+rPxAYNA+4p8FhfF?=
+ =?us-ascii?Q?34wzZy8u2brblMG5TKixi4lo5aMvRW941R/ObIYpiaVO4hfGbzdU5nVHz48q?=
+ =?us-ascii?Q?QWT3HWh9cJ0FWchcAbU19AJibAeetkNYbUiSMhb8vpEcXjuIwVJ+rSqlsIQ5?=
+ =?us-ascii?Q?B8Zfc31Cu0MXrUuTsoTObruZms9jIJF0dGah9D59P0V6CY9bbyxs5jlOSQTW?=
+ =?us-ascii?Q?zEgyxRJrm2wo956IXmA9nwLHLcQKjPdXd+smHWEAt1EAJeCGUNNAYIsYfLyM?=
+ =?us-ascii?Q?gbNR0qcSPouRe7TcTH5ktowzG9gzamIApkCLQMmDFKQLxgnW6xpBtoAPJ2lD?=
+ =?us-ascii?Q?EMUh6pocqdyciI4f/Gfnvv69iOGh5/k8lfN1ONW02aBYCMQe690mqaSKnR+n?=
+ =?us-ascii?Q?CEqzWP2kDdchxzF61zm0o9EK8ttZOEv3UZgBR9zZUbG7ygsI2RhYj3VlAc80?=
+ =?us-ascii?Q?jeuijRV3C7CGzfSNuGe9LD6yLj9FqJbQRcpyQX5WpgLsVjgxANirFs+ptCfQ?=
+ =?us-ascii?Q?IVdcPtntd23RtWRHVhmfxIusESjO0IHbiavMhMd/KAj9u2+Y1H9aT0N8ujmb?=
+ =?us-ascii?Q?J0ypWsRwbk1funiD2lpDZQwx4JlX6nPHmimLpRWWf3GKIoD9cb7rT7AqnY0g?=
+ =?us-ascii?Q?9ZTUHdltWZODuUYZg1nRAEUcxJUV6D78UzqM7lbEiNthwOfYjyWg9sFASBHY?=
+ =?us-ascii?Q?L5fwS8DlDMo2H6OEqx/oeiw5Dc+rx/8aJHaUO8KjqWk8aKoZfmF4uImHFjwk?=
+ =?us-ascii?Q?Kkh6+h4J4QMfa7jMZOLhbOwzvhzXjdM1txFPZm7AxZBQ6yYh2QlE4atvuFqh?=
+ =?us-ascii?Q?AhiYUNSNYgZxDdLiEEZ9wQlv4ccSdgYgHHAkx7G8CJ2XHqLXanQM4l8W8Ihd?=
+ =?us-ascii?Q?i6QhLLB4IuoYQMxxZlGd2164p204pyKvFe6+2X86vysequjptCPqNwKb2u5K?=
+ =?us-ascii?Q?XcoGIlPAeFYHnAyS3RkKwVqxbefqpiJDDhOuPG/mVw6F+t8aWaJw8/KLySwS?=
+ =?us-ascii?Q?Pyvg/7jplfuybxwZjtljcXYoOj5kyj7vkFLpQujexditY4RXFv51KQlzidOs?=
+ =?us-ascii?Q?cIGdjX0xLrMVPy9thF2OuMsX2jznzJPlyHM/qGmzsadFBmSPIxapS2jaaw95?=
+ =?us-ascii?Q?i9MmDWsYXgaqNBhz6A5td59OdrCMHg0pYkPDTtNe2gfoK2JNhu5NTSWz38HB?=
+ =?us-ascii?Q?J1ypR0GTPJnlyg7Rsei8Xs8LYe08UfKNve8V+1KX/Mq9MVxB39fnS9jWd0oV?=
+ =?us-ascii?Q?AX28SHMWWQw8d+B9Oq5Dyt+31OghqiBSweNwzP8v?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cfdf8732-9838-4f45-1996-08dd306d75f8
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB7726.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jan 2025 05:21:24.8949
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: gJrJ2/Ps3/MwLobx46KnN6lsz/uH3EUw/jyKevKddJ/4n4NrS+hsljjjn5Ajmi6Pc+ZbZnUvRWHf0WvPEWAcRQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB5748
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_211658_627051_CE8D99B2 
-X-CRM114-Status: UNSURE (   9.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250108_212132_372644_60E5345E 
+X-CRM114-Status: GOOD (  23.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,81 +166,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the second HDMI output port on the Orange Pi 5 Max
+On Wed, Jan 08, 2025 at 02:50:36PM -0800, Dan Williams wrote:
+> Alistair Popple wrote:
+> > Several functions internal to FS DAX use the following pattern when
+> > trying to obtain an unlocked entry:
+> > 
+> >     xas_for_each(&xas, entry, end_idx) {
+> > 	if (dax_is_locked(entry))
+> > 	    entry = get_unlocked_entry(&xas, 0);
+> > 
+> > This is problematic because get_unlocked_entry() will get the next
+> > present entry in the range, and the next entry may not be
+> > locked. Therefore any processing of the original locked entry will be
+> > skipped. This can cause dax_layout_busy_page_range() to miss DMA-busy
+> > pages in the range, leading file systems to free blocks whilst DMA
+> > operations are ongoing which can lead to file system corruption.
+> > 
+> > Instead callers from within a xas_for_each() loop should be waiting
+> > for the current entry to be unlocked without advancing the XArray
+> > state so a new function is introduced to wait.
+> 
+> Oh wow, good eye!
+> 
+> Did this trip up an xfstest, or did you see this purely by inspection?
 
-Signed-off-by: Jimmy Hon <honyuenkwun@gmail.com>
----
- .../dts/rockchip/rk3588-orangepi-5-max.dts    | 41 +++++++++++++++++++
- 1 file changed, 41 insertions(+)
+Oh this was a "fun" one to track down :-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-max.dts b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-max.dts
-index ce44549babf4..ecfbed2d0059 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-max.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-max.dts
-@@ -21,6 +21,17 @@ hdmi0_con_in: endpoint {
- 			};
- 		};
- 	};
-+
-+	hdmi1-con {
-+		compatible = "hdmi-connector";
-+		type = "a";
-+
-+		port {
-+			hdmi1_con_in: endpoint {
-+				remote-endpoint = <&hdmi1_out_con>;
-+			};
-+		};
-+	};
- };
- 
- &hdmi0 {
-@@ -39,10 +50,33 @@ hdmi0_out_con: endpoint {
- 	};
- };
- 
-+&hdmi1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&hdmim0_tx1_cec &hdmim0_tx1_hpd
-+			     &hdmim1_tx1_scl &hdmim1_tx1_sda>;
-+	status = "okay";
-+};
-+
-+&hdmi1_in {
-+	hdmi1_in_vp1: endpoint {
-+		remote-endpoint = <&vp1_out_hdmi1>;
-+	};
-+};
-+
-+&hdmi1_out {
-+	hdmi1_out_con: endpoint {
-+		remote-endpoint = <&hdmi1_con_in>;
-+	};
-+};
-+
- &hdptxphy_hdmi0 {
- 	status = "okay";
- };
- 
-+&hdptxphy1 {
-+	status = "okay";
-+};
-+
- &pinctrl {
- 
- 	usb {
-@@ -58,3 +92,10 @@ vp0_out_hdmi0: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
- 		remote-endpoint = <&hdmi0_in_vp0>;
- 	};
- };
-+
-+&vp1 {
-+	vp1_out_hdmi1: endpoint@ROCKCHIP_VOP2_EP_HDMI1 {
-+		reg = <ROCKCHIP_VOP2_EP_HDMI1>;
-+		remote-endpoint = <&hdmi1_in_vp1>;
-+	};
-+};
--- 
-2.47.1
+The other half of the story is in "fs/dax: Always remove DAX page-cache entries
+when breaking layouts".
 
+With just that patch applied xfstest triggered the new WARN_ON_ONCE in
+truncate_folio_batch_exceptionals(). That made no sense, because that patch
+makes breaking layouts also remove the DAX page-cache entries. Therefore no DAX
+page-cache entries should be found in truncate_folio_batch_exceptionals() which
+is now more of a sanity check.
+
+However due to the bug addressed by this patch DAX page-cache entries which
+should have been deleted as part of breaking layouts were being observed in
+truncate_folio_batch_exceptionals().
+
+Prior to this series nothing would have noticed these being skipped because
+dax_delete_mapping_entry() doesn't check if the page is DMA idle. I believe this
+could lead to filesystem corruption if the locked entry was DMA-busy because the
+filesystem would assume the page was DMA-idle and therefore the underlying block
+free to be reallocated.
+
+However writing a test to actually prove this is tricky, and I didn't get time
+to do so.
+
+> > Also while we are here rename get_unlocked_entry() to
+> > get_next_unlocked_entry() to make it clear that it may advance the
+> > iterator state.
+> 
+> Outside of the above clarification of how found / end user effect you
+> can add:
+> 
+> Reviewed-by: Dan Williams <dan.j.williams@intel.com>
 
