@@ -4,128 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF6C7E77199
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 16:32:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7577DE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 16:33:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+c5s1FoGCGd/nECs4rXnoHZtWrQnPyFHSG1zUwIxUvA=; b=I5KIuiossfqhyq8MECaeAK0JSo
-	SaAiUXOigTKell+dJ4aUcDYOCKjzjZAjmnw9cMxRQqbSDvu0y92qq5+ku3Z2JXxdawxE6qwNOr7b9
-	8n4hE5nlvUGEHf5cbK6NQN/WzO5gN7Ol731asqoftGJMWbtrEvAxDEU7YtDAoBSbCOQywtgWGDxWP
-	17BCM0I0wc6YaLDfWKAG+OwT9XU2hdIkeAc5wFVcoB68eNpkJm6/Tf0jbCNRz6aRwNmxuB/NXOJKT
-	4CiXwDkeIF2YYdkS7TwXt0UjdjG0IWm4VNK9A4w/NbzP+MuTrCxH8TFlLXbSSSAGwLWei3FG/0KmY
-	38bBOCBw==;
+	bh=tOCIMbi4zzKnCjTJpT+vOfF34I4MpmzXJcdcVQ+i7co=; b=ltLHTjX8nWQICUwfkG8XxFBu5z
+	S0yvImx+IVrhA5t3WhkdCVzfdPYzZQ75buzYsdZol7AvVCBAHUtLCnMLUXH0TLygxy266yPA/pm07
+	NHGSZuZR1XxM7wWQdQoFbH9COrA5lj4Ev8qm0bWDALXaGozMlNt9FxwfO4PGWJ4/oEObevWANTWo6
+	8/bGRYKWGADemg6UwXtC1ya/jcBwyqyj8L5UMX8FzVsAZ60hEDKBljZGC6+tqqzqHHRj1eUTMVVoI
+	sIAqtAWhPY7ee1YjaNX+Az6N/k/BZ3O+o4m5AZUIX067kfhC6/97z1aZUYMPZohr9PQOPLk4zAxjR
+	44KTQB8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVvS3-0000000ChDW-0u8b;
-	Thu, 09 Jan 2025 16:32:07 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1tVvTE-0000000ChWT-0tkD;
+	Thu, 09 Jan 2025 16:33:20 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVvQp-0000000Ch3q-1D3v
+	id 1tVvRJ-0000000Ch8b-3ZKZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 16:30:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1736440251; x=1767976251;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=+NFq5+YV1Sp2SRZklu0+O4hKfBnFFQLIf8mx8UwrL7s=;
-  b=kG6Z+NH0i8ZC2e1Ad/F6a2PoJWJXM6EEas9mlVtxTwkYDVt8Jis1A0j2
-   gFIUkS0owWbvyoBsqw6OkiGUDAVOF4vl1azbruaKIlHlbhJhfqy4L7t/0
-   G65+L8NsLRnXJtX1XtK5VeWoYMrhna3NcbVybihj2NWVwLo5uQ07wAC4x
-   SkA8RYJ5exFrUOb/2hTdN1STNaary3+P+CvC1PWveHuiVw+9jrFD8h/Sf
-   u586AAsNFRxLkCAvJuK4H9lGJWc1UyH1WVQ3Me6eDsbZUw8Ne3ub/0GvY
-   98DJX5/ucUrsMiCkYXJgK2RlDi0cwCtfJP/88w3KGgQj68Og7CLpoRCRs
-   Q==;
-X-CSE-ConnectionGUID: QgpVCr8JQEGqBeDpPgDVCg==
-X-CSE-MsgGUID: MM5IxPkuSvGkEkTnZUFi6g==
-X-IronPort-AV: E=McAfee;i="6700,10204,11310"; a="36869365"
-X-IronPort-AV: E=Sophos;i="6.12,301,1728975600"; 
-   d="scan'208";a="36869365"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jan 2025 08:30:48 -0800
-X-CSE-ConnectionGUID: w1Qg7GdFTRaKx4VZE0Fr5Q==
-X-CSE-MsgGUID: RHaITNvpToalx445NwOmKw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="140766532"
-Received: from spandruv-mobl4.amr.corp.intel.com (HELO [10.124.222.37]) ([10.124.222.37])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jan 2025 08:30:45 -0800
-Message-ID: <dcc1800c-cf0a-4d88-bc88-982f0709b382@intel.com>
-Date: Thu, 9 Jan 2025 08:30:44 -0800
+	Thu, 09 Jan 2025 16:31:23 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 509ERp9A001039;
+	Thu, 9 Jan 2025 17:31:06 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	tOCIMbi4zzKnCjTJpT+vOfF34I4MpmzXJcdcVQ+i7co=; b=G1UBMas6V61HEaGk
+	JVOy7evlrOf6GWE5Dq8Ui6lMA+VTOcngVpsNPFctJQbfbfqINfr4tQwd3/ahfIOL
+	hL+7NxMoYH9JjknuGvVka8hjb1StFrGf5f5THQ9pIBMteUMk8q1KvWIljYQmdPu9
+	Z6a9ng+3yX3DDW3AbM0J3J+lZfrWYVjkVhidHkdfHNJrB8Sqqpl0UNcBkUPKy8qG
+	2EUYq1KR0/kJxT8WqWs2EjSicv1+ZeyU355xsNP2hevm4Bwbca4Y+UKnVlA8Fgko
+	CMrsiRumyHCGUpuQTUmGmVlKlfX2+9g7qB7jq0SwI/8xH2bafTM1bH6MnfpkKtZ5
+	9MUN5w==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4424hpbusr-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 09 Jan 2025 17:31:06 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 5FFC340047;
+	Thu,  9 Jan 2025 17:30:12 +0100 (CET)
+Received: from Webmail-eu.st.com (eqndag1node6.st.com [10.75.129.135])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 55061248764;
+	Thu,  9 Jan 2025 17:29:10 +0100 (CET)
+Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE6.st.com
+ (10.75.129.135) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Thu, 9 Jan
+ 2025 17:29:10 +0100
+Received: from [10.48.86.222] (10.48.86.222) by SAFDAG1NODE1.st.com
+ (10.75.90.17) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Thu, 9 Jan
+ 2025 17:29:09 +0100
+Message-ID: <47dd8588-5c51-44f4-8f9f-e984ae24d57b@foss.st.com>
+Date: Thu, 9 Jan 2025 17:29:08 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 00/15] pkeys-based page table hardening
-To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-hardening@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
- Mark Brown <broonie@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, Jann Horn <jannh@google.com>,
- Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
- Kees Cook <kees@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
- Andy Lutomirski <luto@kernel.org>, Marc Zyngier <maz@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>,
- Pierre Langlois <pierre.langlois@arm.com>,
- Quentin Perret <qperret@google.com>, "Mike Rapoport (IBM)"
- <rppt@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
- Matthew Wilcox <willy@infradead.org>, Qi Zheng <zhengqi.arch@bytedance.com>,
- linux-arm-kernel@lists.infradead.org, x86@kernel.org
-References: <20250108103250.3188419-1-kevin.brodsky@arm.com>
-From: Dave Hansen <dave.hansen@intel.com>
+Subject: Re: [PATCH 2/9] mfd: stm32-timers: add support for stm32mp25
+To: Lee Jones <lee@kernel.org>
+CC: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <alexandre.torgue@foss.st.com>, <wbg@kernel.org>, <jic23@kernel.org>,
+        <ukleinek@kernel.org>, <catalin.marinas@arm.com>, <will@kernel.org>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-iio@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
+        <olivier.moysan@foss.st.com>
+References: <20241218090153.742869-1-fabrice.gasnier@foss.st.com>
+ <20241218090153.742869-3-fabrice.gasnier@foss.st.com>
+ <20250109104956.GD6763@google.com>
 Content-Language: en-US
-Autocrypt: addr=dave.hansen@intel.com; keydata=
- xsFNBE6HMP0BEADIMA3XYkQfF3dwHlj58Yjsc4E5y5G67cfbt8dvaUq2fx1lR0K9h1bOI6fC
- oAiUXvGAOxPDsB/P6UEOISPpLl5IuYsSwAeZGkdQ5g6m1xq7AlDJQZddhr/1DC/nMVa/2BoY
- 2UnKuZuSBu7lgOE193+7Uks3416N2hTkyKUSNkduyoZ9F5twiBhxPJwPtn/wnch6n5RsoXsb
- ygOEDxLEsSk/7eyFycjE+btUtAWZtx+HseyaGfqkZK0Z9bT1lsaHecmB203xShwCPT49Blxz
- VOab8668QpaEOdLGhtvrVYVK7x4skyT3nGWcgDCl5/Vp3TWA4K+IofwvXzX2ON/Mj7aQwf5W
- iC+3nWC7q0uxKwwsddJ0Nu+dpA/UORQWa1NiAftEoSpk5+nUUi0WE+5DRm0H+TXKBWMGNCFn
- c6+EKg5zQaa8KqymHcOrSXNPmzJuXvDQ8uj2J8XuzCZfK4uy1+YdIr0yyEMI7mdh4KX50LO1
- pmowEqDh7dLShTOif/7UtQYrzYq9cPnjU2ZW4qd5Qz2joSGTG9eCXLz5PRe5SqHxv6ljk8mb
- ApNuY7bOXO/A7T2j5RwXIlcmssqIjBcxsRRoIbpCwWWGjkYjzYCjgsNFL6rt4OL11OUF37wL
- QcTl7fbCGv53KfKPdYD5hcbguLKi/aCccJK18ZwNjFhqr4MliQARAQABzUVEYXZpZCBDaHJp
- c3RvcGhlciBIYW5zZW4gKEludGVsIFdvcmsgQWRkcmVzcykgPGRhdmUuaGFuc2VuQGludGVs
- LmNvbT7CwXgEEwECACIFAlQ+9J0CGwMGCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJEGg1
- lTBwyZKwLZUP/0dnbhDc229u2u6WtK1s1cSd9WsflGXGagkR6liJ4um3XCfYWDHvIdkHYC1t
- MNcVHFBwmQkawxsYvgO8kXT3SaFZe4ISfB4K4CL2qp4JO+nJdlFUbZI7cz/Td9z8nHjMcWYF
- IQuTsWOLs/LBMTs+ANumibtw6UkiGVD3dfHJAOPNApjVr+M0P/lVmTeP8w0uVcd2syiaU5jB
- aht9CYATn+ytFGWZnBEEQFnqcibIaOrmoBLu2b3fKJEd8Jp7NHDSIdrvrMjYynmc6sZKUqH2
- I1qOevaa8jUg7wlLJAWGfIqnu85kkqrVOkbNbk4TPub7VOqA6qG5GCNEIv6ZY7HLYd/vAkVY
- E8Plzq/NwLAuOWxvGrOl7OPuwVeR4hBDfcrNb990MFPpjGgACzAZyjdmYoMu8j3/MAEW4P0z
- F5+EYJAOZ+z212y1pchNNauehORXgjrNKsZwxwKpPY9qb84E3O9KYpwfATsqOoQ6tTgr+1BR
- CCwP712H+E9U5HJ0iibN/CDZFVPL1bRerHziuwuQuvE0qWg0+0SChFe9oq0KAwEkVs6ZDMB2
- P16MieEEQ6StQRlvy2YBv80L1TMl3T90Bo1UUn6ARXEpcbFE0/aORH/jEXcRteb+vuik5UGY
- 5TsyLYdPur3TXm7XDBdmmyQVJjnJKYK9AQxj95KlXLVO38lczsFNBFRjzmoBEACyAxbvUEhd
- GDGNg0JhDdezyTdN8C9BFsdxyTLnSH31NRiyp1QtuxvcqGZjb2trDVuCbIzRrgMZLVgo3upr
- MIOx1CXEgmn23Zhh0EpdVHM8IKx9Z7V0r+rrpRWFE8/wQZngKYVi49PGoZj50ZEifEJ5qn/H
- Nsp2+Y+bTUjDdgWMATg9DiFMyv8fvoqgNsNyrrZTnSgoLzdxr89FGHZCoSoAK8gfgFHuO54B
- lI8QOfPDG9WDPJ66HCodjTlBEr/Cwq6GruxS5i2Y33YVqxvFvDa1tUtl+iJ2SWKS9kCai2DR
- 3BwVONJEYSDQaven/EHMlY1q8Vln3lGPsS11vSUK3QcNJjmrgYxH5KsVsf6PNRj9mp8Z1kIG
- qjRx08+nnyStWC0gZH6NrYyS9rpqH3j+hA2WcI7De51L4Rv9pFwzp161mvtc6eC/GxaiUGuH
- BNAVP0PY0fqvIC68p3rLIAW3f97uv4ce2RSQ7LbsPsimOeCo/5vgS6YQsj83E+AipPr09Caj
- 0hloj+hFoqiticNpmsxdWKoOsV0PftcQvBCCYuhKbZV9s5hjt9qn8CE86A5g5KqDf83Fxqm/
- vXKgHNFHE5zgXGZnrmaf6resQzbvJHO0Fb0CcIohzrpPaL3YepcLDoCCgElGMGQjdCcSQ+Ci
- FCRl0Bvyj1YZUql+ZkptgGjikQARAQABwsFfBBgBAgAJBQJUY85qAhsMAAoJEGg1lTBwyZKw
- l4IQAIKHs/9po4spZDFyfDjunimEhVHqlUt7ggR1Hsl/tkvTSze8pI1P6dGp2XW6AnH1iayn
- yRcoyT0ZJ+Zmm4xAH1zqKjWplzqdb/dO28qk0bPso8+1oPO8oDhLm1+tY+cOvufXkBTm+whm
- +AyNTjaCRt6aSMnA/QHVGSJ8grrTJCoACVNhnXg/R0g90g8iV8Q+IBZyDkG0tBThaDdw1B2l
- asInUTeb9EiVfL/Zjdg5VWiF9LL7iS+9hTeVdR09vThQ/DhVbCNxVk+DtyBHsjOKifrVsYep
- WpRGBIAu3bK8eXtyvrw1igWTNs2wazJ71+0z2jMzbclKAyRHKU9JdN6Hkkgr2nPb561yjcB8
- sIq1pFXKyO+nKy6SZYxOvHxCcjk2fkw6UmPU6/j/nQlj2lfOAgNVKuDLothIxzi8pndB8Jju
- KktE5HJqUUMXePkAYIxEQ0mMc8Po7tuXdejgPMwgP7x65xtfEqI0RuzbUioFltsp1jUaRwQZ
- MTsCeQDdjpgHsj+P2ZDeEKCbma4m6Ez/YWs4+zDm1X8uZDkZcfQlD9NldbKDJEXLIjYWo1PH
- hYepSffIWPyvBMBTW2W5FRjJ4vLRrJSUoEfJuPQ3vW9Y73foyo/qFoURHO48AinGPZ7PC7TF
- vUaNOTjKedrqHkaOcqB185ahG2had0xnFsDPlx5y
-In-Reply-To: <20250108103250.3188419-1-kevin.brodsky@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+In-Reply-To: <20250109104956.GD6763@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.48.86.222]
+X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SAFDAG1NODE1.st.com
+ (10.75.90.17)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_083051_372215_6F8DA053 
-X-CRM114-Status: UNSURE (   6.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250109_083122_342222_77D01852 
+X-CRM114-Status: GOOD (  26.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,22 +103,180 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-One of the sticker things in the x86 attempt to do the same thing was
-context switching, both between normal tasks and in/out of exceptions
-and interrupts.
+On 1/9/25 11:49, Lee Jones wrote:
+> On Wed, 18 Dec 2024, Fabrice Gasnier wrote:
+> 
+>> Add support for STM32MP25 SoC. Use newly introduced compatible, to handle
+>> new features.
+>> Identification and hardware configuration registers allow to read the
+>> timer version and capabilities (counter width, number of channels...).
+>> So, rework the probe to avoid touching ARR register by simply read the
+>> counter width when available. This may avoid messing with a possibly
+>> running timer.
+>> Also add useful bit fields to stm32-timers header file.
+>>
+>> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+>> ---
+>>  drivers/mfd/stm32-timers.c       | 32 +++++++++++++++++++++++++++++++-
+>>  include/linux/mfd/stm32-timers.h |  9 +++++++++
+>>  2 files changed, 40 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/mfd/stm32-timers.c b/drivers/mfd/stm32-timers.c
+>> index 650724e19b88..6f217c32482c 100644
+>> --- a/drivers/mfd/stm32-timers.c
+>> +++ b/drivers/mfd/stm32-timers.c
+>> @@ -9,6 +9,7 @@
+>>  #include <linux/module.h>
+>>  #include <linux/of_platform.h>
+>>  #include <linux/platform_device.h>
+>> +#include <linux/property.h>
+>>  #include <linux/reset.h>
+>>  
+>>  #define STM32_TIMERS_MAX_REGISTERS	0x3fc
+>> @@ -173,6 +174,32 @@ static void stm32_timers_get_arr_size(struct stm32_timers *ddata)
+>>  	regmap_write(ddata->regmap, TIM_ARR, arr);
+>>  }
+>>  
+>> +static int stm32_timers_probe_hwcfgr(struct device *dev, struct stm32_timers *ddata)
+>> +{
+>> +	u32 val;
+>> +
+>> +	ddata->ipidr = (uintptr_t)device_get_match_data(dev);
+> 
+> Are you sure this cast is needed?
 
-The easiest place this manifested for us was code chunk like this:
+Hi Lee,
 
-	kpkeys_set_level(KPKEYS_LVL_PGTABLES);
-	// modify page tables here
-	kpkeys_restore_pkey_reg();
+Yes, I can see a warning pops-up without it:
 
-We had to make sure that we didn't get preempted and context switch over
-to some other task that _wasn't_ doing page table manipulation while
-page table writes were allowed.
+drivers/mfd/stm32-timers.c:181:22: warning: assignment to ‘u32’ {aka
+‘unsigned int’} from ‘const void *’ makes integer from pointer without a
+cast [-Wint-conversion]
+  181 |         ddata->ipidr = device_get_match_data(dev);
+      |                      ^
 
-On x86, we had to basically start context-switching the kernel pkey
-register the same way we do GPRs.
 
-How is SYS_POR_EL0 being context switched?
+> 
+>> +	if (!ddata->ipidr) {
+>> +		/* fallback to legacy method for probing counter width */
+> 
+> Sentences start with uppercase chars.
+
+Ack
+
+> 
+>> +		stm32_timers_get_arr_size(ddata);
+>> +		return 0;
+>> +	}
+>> +
+>> +	regmap_read(ddata->regmap, TIM_IPIDR, &val);
+>> +	/* Sanity check on IP identification register */
+> 
+> This seems obvious, thus superfluous.
+
+Ack
+
+> 
+>> +	if (val != ddata->ipidr) {
+>> +		dev_err(dev, "Unexpected identification: %u\n", val);
+> 
+> "Unexpected model number"?
+> "Unsupported device detected"?
+
+Ack
+
+> 
+>> +		return -EINVAL;
+>> +	}
+>> +
+>> +	regmap_read(ddata->regmap, TIM_HWCFGR2, &val);
+> 
+> '/n' here.
+
+Ack
+
+> 
+>> +	/* Counter width in bits, max reload value is BIT(width) - 1 */
+>> +	ddata->max_arr = BIT(FIELD_GET(TIM_HWCFGR2_CNT_WIDTH, val)) - 1;
+>> +	dev_dbg(dev, "TIM width: %ld\n", FIELD_GET(TIM_HWCFGR2_CNT_WIDTH, val));
+> 
+> How useful is this now the driver has been developed?
+
+Well... that's just debug. I'll remove it and send a V3.
+
+Thanks for reviewing,
+BR,
+Fabrice
+
+> 
+>> +	return 0;
+>> +}
+>> +
+>>  static int stm32_timers_dma_probe(struct device *dev,
+>>  				   struct stm32_timers *ddata)
+>>  {
+>> @@ -285,7 +312,9 @@ static int stm32_timers_probe(struct platform_device *pdev)
+>>  	if (IS_ERR(ddata->clk))
+>>  		return PTR_ERR(ddata->clk);
+>>  
+>> -	stm32_timers_get_arr_size(ddata);
+>> +	ret = stm32_timers_probe_hwcfgr(dev, ddata);
+>> +	if (ret)
+>> +		return ret;
+>>  
+>>  	ret = stm32_timers_irq_probe(pdev, ddata);
+>>  	if (ret)
+>> @@ -320,6 +349,7 @@ static void stm32_timers_remove(struct platform_device *pdev)
+>>  
+>>  static const struct of_device_id stm32_timers_of_match[] = {
+>>  	{ .compatible = "st,stm32-timers", },
+>> +	{ .compatible = "st,stm32mp25-timers", .data = (void *)STM32MP25_TIM_IPIDR },
+>>  	{ /* end node */ },
+>>  };
+>>  MODULE_DEVICE_TABLE(of, stm32_timers_of_match);
+>> diff --git a/include/linux/mfd/stm32-timers.h b/include/linux/mfd/stm32-timers.h
+>> index f09ba598c97a..23b0cae4a9f8 100644
+>> --- a/include/linux/mfd/stm32-timers.h
+>> +++ b/include/linux/mfd/stm32-timers.h
+>> @@ -33,6 +33,9 @@
+>>  #define TIM_DCR		0x48			/* DMA control register			*/
+>>  #define TIM_DMAR	0x4C			/* DMA register for transfer		*/
+>>  #define TIM_TISEL	0x68			/* Input Selection			*/
+>> +#define TIM_HWCFGR2	0x3EC			/* hardware configuration 2 Reg (MP25)	*/
+>> +#define TIM_HWCFGR1	0x3F0			/* hardware configuration 1 Reg (MP25)	*/
+>> +#define TIM_IPIDR	0x3F8			/* IP identification Reg (MP25)		*/
+>>  
+>>  #define TIM_CR1_CEN		BIT(0)					/* Counter Enable				*/
+>>  #define TIM_CR1_DIR		BIT(4)					/* Counter Direction				*/
+>> @@ -100,6 +103,9 @@
+>>  #define TIM_BDTR_BKF(x)		(0xf << (16 + (x) * 4))
+>>  #define TIM_DCR_DBA		GENMASK(4, 0)				/* DMA base addr				*/
+>>  #define TIM_DCR_DBL		GENMASK(12, 8)				/* DMA burst len				*/
+>> +#define TIM_HWCFGR1_NB_OF_CC	GENMASK(3, 0)				/* Capture/compare channels			*/
+>> +#define TIM_HWCFGR1_NB_OF_DT	GENMASK(7, 4)				/* Complementary outputs & dead-time generators */
+>> +#define TIM_HWCFGR2_CNT_WIDTH	GENMASK(15, 8)				/* Counter width				*/
+>>  
+>>  #define MAX_TIM_PSC				0xFFFF
+>>  #define MAX_TIM_ICPSC				0x3
+>> @@ -113,6 +119,8 @@
+>>  #define TIM_BDTR_BKF_MASK			0xF
+>>  #define TIM_BDTR_BKF_SHIFT(x)			(16 + (x) * 4)
+>>  
+>> +#define STM32MP25_TIM_IPIDR	0x00120002
+>> +
+>>  enum stm32_timers_dmas {
+>>  	STM32_TIMERS_DMA_CH1,
+>>  	STM32_TIMERS_DMA_CH2,
+>> @@ -151,6 +159,7 @@ struct stm32_timers_dma {
+>>  
+>>  struct stm32_timers {
+>>  	struct clk *clk;
+>> +	u32 ipidr;
+>>  	struct regmap *regmap;
+>>  	u32 max_arr;
+>>  	struct stm32_timers_dma dma; /* Only to be used by the parent */
+>> -- 
+>> 2.25.1
+>>
+> 
 
