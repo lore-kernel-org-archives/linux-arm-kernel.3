@@ -4,103 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D211E77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 10:18:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B378E77199
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 10:19:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zArLxslrcGh/OtDf8pnaxX4ZYz74YYcQRl2Asrd/XEs=; b=GClOpRTELAeDP+SweyWsJPTO/0
-	RDu+xbqu3AvmWxKszqUSroz+hAlxFklQQzmZnnBVqKE/3VphyaBebaNfW9RpVoXOMMRWSnHmZnwgW
-	Z1bbmHZ0mVuGIeJc9sgru4vHq0dJaAz55HqXcnyVKi+z8ZwayYBokzs/Y2utjvGGJiyH40loMN851
-	EvemYVTaE0Pl4TA881yEwTNOG/4guuaw+3n+xwOfxSRLSUwxwBok7TuhW9aj2/0sBynejKo8+Ki1o
-	zEi7grPE9Pa/ec11KqrzGWhzDBdwnzz64tvUQeR94QBqjau4Gmo1nwd93nugDbkwD9zyJywTkJf0X
-	ZIjVTZZg==;
+	bh=Z6RS4xw6Ub9a98zJR5HGgMwejTw+vHzDAwM6dcDaFxo=; b=SI/kGsU5ZoRwRDyUBtDZyGsCu7
+	8Q1FO81aFdQwkCmdOeiKnMg5wdqFH+ZaTgb9XZ+9W7eKAf1i+dJG+G0yGma/+XzbyRSO0BfeHb0QI
+	ftBKEdK47mNOLVcnwQtzUL7t89nGZbYHbx1/bjoK8I/fUfPmOy6SnpbjJkKu3c3r9fQOedObTeogz
+	eF0EgveX2ABz21i0gFQ+TH9/mFp1d0hkOd2uOK2jMZSeT6u1K4mgWJc3kOM8vA74pPmAsPvvEVm/O
+	+upGB5xWuwpgYk/UxflFygVK5iP0/yqaxdn5dZFPjmq7unMhVy0Td8vm9ErX/yEZ/1OIyLvqjQoMg
+	sRHENO9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVpc7-0000000BUSw-36oO;
-	Thu, 09 Jan 2025 10:18:07 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1tVpdJ-0000000BUg5-1o63;
+	Thu, 09 Jan 2025 10:19:21 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVpZW-0000000BThM-3lap
+	id 1tVpZt-0000000BTpx-0sHD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 10:15:27 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4361f664af5so9123935e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jan 2025 02:15:26 -0800 (PST)
+	Thu, 09 Jan 2025 10:15:50 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3862d161947so361901f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jan 2025 02:15:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1736417725; x=1737022525; darn=lists.infradead.org;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1736417748; x=1737022548; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=zArLxslrcGh/OtDf8pnaxX4ZYz74YYcQRl2Asrd/XEs=;
-        b=wXLYdD87RWpdOSXplVeaswlzbYT/RnKsE8Vesk+XFwnUy440PEpF9cMnKlC6m7hfOv
-         ABPUpyQDgrmG08s17YZGaNaHAmBtSUaeeFJHMsD3AJM3oIIbxMsZiK5j7g5BNIbyY8Vg
-         2rS0Moq6672QJ4KWjP8bGv3TdbydzhMq3j6yj0XlgEpUpmoVD9Y6Rpy+6DjLEbKslmfw
-         +DXvLbSzL2nF1wf8/TfK373d9qAAyePxYq+cAnBmsJrQNoV8pqOsiSg63BE9uv0c7ftU
-         6m/B++gUQ3Y3DcCF5WLBWwvPAo28mKZZcBxav2vY7mcK4wQPhxK1QjkXLyoMfXmPY417
-         CsAg==
+        bh=Z6RS4xw6Ub9a98zJR5HGgMwejTw+vHzDAwM6dcDaFxo=;
+        b=xZM2bn1aT293JLPqwr1ItfkJ6l57o1Mz+q8bHeNKguMrg6lZT6Ej1fD03uz0jAIHfE
+         eaFRVeFYBhLn+SH4sL7xrw26e8JmIVi4q8pAwlKmRqWUr2a37x6XEw3FJ3c0PAyIfy9P
+         qhZJnfbl+/+7zmCySF4tILnk4VVGjh54er3N/F4Wl/OU9lThr105FmXjDSTQ0cnevhUG
+         eStkJlgzCA5ABA4wythj1VSHsixsqZYee5kiRNAI8cqoqpCydk0/sANNhDmgGSx9NaWL
+         XOp+XrGVNJtnCyIqCvqXTNHs8iSj42ZvCRtEJDz7+zuhsUw2Gp+HD4Jp1/HRwksQxgNg
+         mRLg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736417725; x=1737022525;
+        d=1e100.net; s=20230601; t=1736417748; x=1737022548;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=zArLxslrcGh/OtDf8pnaxX4ZYz74YYcQRl2Asrd/XEs=;
-        b=vuSvMPAqcXS7pPCZGso3ws4x2mGDNyqhf0WkSQRP6p/tw2+l+PCsqdm3o4YgfLiv/M
-         eTpAOVwnIWhK0RrD5JdL6HknKLVOUjwNHELWqAH/hR+VYq+d1GmD+VvF1K1ojrsHAmeb
-         84jKsdNJaHg7LWQaQoU+ZYAgNObZR+qdksjQOT1lO2mayV1ENAwcvusUlNSJizo9KcJd
-         85UrgWJXwkHj6kbgfye7EY45iEc2FE0Bbzo/LwX/TTCOVmWF8uflypZqkko4t1Ms7O+h
-         Vw4JYiOcbdWcAcnhJ0W0QV58Fp6s7r+aN9yV5W01YZS8PzCwmajBUft0KmLRgupkoZBl
-         H0AA==
-X-Forwarded-Encrypted: i=1; AJvYcCUh/gIXKTTusOGIYrgt1B0eFBhosrycvFjlLTwEBSahVVVizyHJeXS1lqrRYGTgdbJB3WFJ5XAymhok/PTF8ep+@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQCRTXV/d0rO+RAj8EgrUk2iwSu9TSjvjeUhWECRwpTV/ehrci
-	PNeht7SoG9ihFR+zd76wyvI/Tj40np9gsNKHoczkEkQqfEMB90Oeanir+i9MBYs=
-X-Gm-Gg: ASbGnctlUsf/TxiTYac70+NCXLuXwB0xqM/5btoZW1qMu1E6OtFTKIW5LmxcH1+T5MN
-	P2jsjWMlI6vW2O/N0BwOozk+Ratp5ZyNNske4Z0uYTDviriYTYmEdGLVhUkQsFWF41QZHMSP3i9
-	4QOhD0Rzkn+IMQ9v03BFztJXKwzgyLoPhQ2QhNbc2RqRJEick8eCCAtzY0AVhQw5VUs0DcWgZXQ
-	cJfQa5JDLaFLUisEtaKAsVNNe6Y08KPatUoWOZAUaFv4Uc3NRAWreb1aiZiYFok8NWFF+E1PI5E
-	DiB2DLZ6j0BIO6TKiucwXuaZSA==
-X-Google-Smtp-Source: AGHT+IE5w//k14IKPlz1xAW4lBSZknnT4+N1Jzl2DExoz1dSucjgBd2oOBz/i2tz+E9s1wYVK89kVw==
-X-Received: by 2002:a05:600c:354e:b0:434:f9c4:a850 with SMTP id 5b1f17b1804b1-436e269c42dmr62514755e9.10.1736417725129;
-        Thu, 09 Jan 2025 02:15:25 -0800 (PST)
+        bh=Z6RS4xw6Ub9a98zJR5HGgMwejTw+vHzDAwM6dcDaFxo=;
+        b=AQzP+MqnnOROn8l0Snk4ll4jS4lPONOohHsW2rAhObQ9wNHGOy1XxlHAo3ZplFBAhF
+         0cpJJYS+Si4yBlq4RNsxGmTOZ5Z5jr9/6yX6cOiBzfivGNH7VdltSSWBrARFozWl3L0G
+         15lH6rOAIBJi8NJfyJU3VcMjHIb/aHavkjHXn6YHL1skHydcasEuLw5BhLV7HUii4NmP
+         GVUkf7+SM+vhQtjLhQQ7zK3WwSJvpsI3o24yYjkrpYxGEgSN5/NZf8WDKQa/VnH7OlFC
+         m9Nnv6n3h09n4mJTVzO3JiqKHRVVaOzGeAYPxNzAhh9bECKJ8+vNJRvGbCN/rc5Coez6
+         twNw==
+X-Forwarded-Encrypted: i=1; AJvYcCXKYQu7DprGFqGVbWPbWk0xzrFAh/nIUPFIPM3lTYg5zdwdeMllUHOzhyn7XUAJcvJ7qJuXOlQ6s0SWNQqqfJWP@lists.infradead.org
+X-Gm-Message-State: AOJu0YwwgZsAcoJu8aezhhwUFz6Uj/gmOshftc97kQFxpeNLPZvR1nC/
+	zeqTHJyzYsFBMxnCJ1D7Ed1G3N6OBt1zV5Whx2fpWgFE/E+4iZUaetBKOsoO+vQ=
+X-Gm-Gg: ASbGncuZ+zCIa5j2sAO1cPxFmXIsWNzcRAov3B7jAg5vU5fJB+5On9PlVvtzDkcNv1n
+	hGhqMezpKU/hHANaNVprsiyHUHUPiSwPVbOPibZc31eqDPIgbc3z9GTLN5fWUVaXKmR8INID3I8
+	zRDQ5nh4L7LoBJHbKI/hZVW7Y/YQ2LXbIiA/rW4dkeWrqDdiOVwk7fR/VC1FYf6praM+Rzhix/k
+	BpWFF+ouF8BuIqQbfD/Q2THwQQGC6vDG9NW+JQ0jpb8Pe0wkbJADNoLElQDTfGoznur2KAaCGJ6
+	9xKqSCInt0sFBu5Kln/mhxTjkQ==
+X-Google-Smtp-Source: AGHT+IFDFX3nATWzt3JJXgsFxlH2455Ys5367JQMJFp3tUUCUzhjUi2qmO4yXeOxwH6ju4OueG0nOg==
+X-Received: by 2002:adf:c08d:0:b0:38a:87cc:fb2c with SMTP id ffacd0b85a97d-38a87ccfc17mr3463841f8f.18.1736417747781;
+        Thu, 09 Jan 2025 02:15:47 -0800 (PST)
 Received: from ?IPV6:2a01:e0a:5ee:79d0:125:358f:ea05:210e? ([2a01:e0a:5ee:79d0:125:358f:ea05:210e])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e2dc08bbsm49704145e9.12.2025.01.09.02.15.23
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a8e385026sm1389541f8f.42.2025.01.09.02.15.46
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 09 Jan 2025 02:15:24 -0800 (PST)
-Message-ID: <9afabb6b-2e02-4b7c-8e51-9ca5b9a42aab@baylibre.com>
-Date: Thu, 9 Jan 2025 11:15:23 +0100
+        Thu, 09 Jan 2025 02:15:47 -0800 (PST)
+Message-ID: <3506d2e1-d7b6-47f2-b2b7-edc208ad45f8@baylibre.com>
+Date: Thu, 9 Jan 2025 11:15:46 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/7] dt-bindings: display: mediatek: dpi: add
- power-domains property
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Thomas Zimmermann <tzimmermann@suse.de>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+Subject: Re: [PATCH v5 7/7] arm64: dts: mediatek: add display support for
+ mt8365-evk
+To: Krzysztof Kozlowski <krzk@kernel.org>,
  Chun-Kuang Hu <chunkuang.hu@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
- Maxime Ripard <mripard@kernel.org>, Fabien Parent <fparent@baylibre.com>,
- Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
  Philipp Zabel <p.zabel@pengutronix.de>,
- Simona Vetter <simona.vetter@ffwll.ch>, CK Hu <ck.hu@mediatek.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- linux-kernel@vger.kernel.org, Jitao Shi <jitao.shi@mediatek.com>,
- Conor Dooley <conor+dt@kernel.org>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Jitao Shi <jitao.shi@mediatek.com>, CK Hu <ck.hu@mediatek.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Simona Vetter <simona@ffwll.ch>, Simona Vetter <simona.vetter@ffwll.ch>
+Cc: dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
 References: <20231023-display-support-v5-0-3905f1e4b835@baylibre.com>
- <20231023-display-support-v5-1-3905f1e4b835@baylibre.com>
- <173635697547.725897.5297567835361998238.robh@kernel.org>
+ <20231023-display-support-v5-7-3905f1e4b835@baylibre.com>
+ <325c495b-8e5a-412f-9974-3ec7ab15b479@kernel.org>
 Content-Language: en-US
 From: Alexandre Mergnat <amergnat@baylibre.com>
-In-Reply-To: <173635697547.725897.5297567835361998238.robh@kernel.org>
+In-Reply-To: <325c495b-8e5a-412f-9974-3ec7ab15b479@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_021526_945272_713985A0 
-X-CRM114-Status: UNSURE (   6.24  )
+X-CRM114-CacheID: sfid-20250109_021549_258301_48CC95BD 
+X-CRM114-Status: UNSURE (   7.09  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -119,12 +118,11 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Thanks, fixed for v6
 
 
-On 08/01/2025 18:22, Rob Herring (Arm) wrote:
-> My bot found errors running 'make dt_binding_check' on your patch:
+On 09/01/2025 08:55, Krzysztof Kozlowski wrote:
+> compatible is always, ALWAYS first.
 > 
-> yamllint warnings/errors:
-> ./Documentation/devicetree/bindings/display/mediatek/mediatek,dpi.yaml:100:3:
->   [error] duplication of key "power-domains" in mapping (key-duplicates)
+>> +		compatible = "ite,it66121";
+> reg follows.
 
 -- 
 Regards,
