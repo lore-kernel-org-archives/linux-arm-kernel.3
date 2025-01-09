@@ -4,88 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A581E77199
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 21:42:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49A59E7719A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 21:51:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:References:In-Reply-To:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UYseOpURRh9hqApQgpIM/XepY4WChUBZ1jGMRsNQHcs=; b=YubcSPsjNLhnIENHtVz0O0bjHK
-	4Mm4kw0yW1HN1DUzGPyRlXLapDo38Jp3XtRoyocWvqbudYrhB1O06pkVITdJA1ugs4scglyaVQjdH
-	wx7Gnljrr/CEVzl6b91Z10fLQVQKTgPwpY+IX6ibzRrSo3m1l0+7st3yOKkadcTzsb5soS7JStVGx
-	HZk0XDj04TRfFQcp5l4sh4ru4STCNV5LsnO8CtXhcg5cy1ztpaMpXnFqlvH59TRD3hQ8NYjUqf2bT
-	4iVIFCEe9jY2VRTbG6KpJkD3e7F1g3LwVJl+j/GxjpfDQfx33LXJFwY46O52O1k5XSVVWQj0yK5ze
-	5k5d834A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L3pvK+8L996FhW2eKjS9ijBQOkaCAS/fu+JHavhqupE=; b=eTrNrKQ96eMzaqP4Z06+3Qk+U2
+	CBHEXIu86q0yi5pnJdRd9XTMeD5Ad8OayJllDP9OsL1nTCg8klWzKPXC3/EGu9TrsHsF34h2yJgdR
+	RW8MJUfPl0yliSKv3408QEReYpPFa9Wa88H2fw4/j+h/+ehSDf37SK4v5hsXrP9RLg+dmVBAkZYOj
+	fc5RzFWzcC2VpcL2RiZ+tsKENPZSVSILCXORM2oKL0HjC3dHaifWR0hGsL9FOt3NnXCvYpjNfH0PX
+	3qyzOfjXmsyqqnuJ1x5WHm1YqRomV7nBXiPDKfegsZeSfYv0oBMVcyo00NYKqlyH/yrtJc6Ze7JmS
+	oL2IEGKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW0II-0000000DO7g-3jxe;
-	Thu, 09 Jan 2025 21:42:22 +0000
-Received: from mail-qv1-xf2b.google.com ([2607:f8b0:4864:20::f2b])
+	id 1tW0Qi-0000000DOxq-0g03;
+	Thu, 09 Jan 2025 21:51:04 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW0H4-0000000DNyw-0tLO
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 21:41:08 +0000
-Received: by mail-qv1-xf2b.google.com with SMTP id 6a1803df08f44-6dd1b895541so23356066d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jan 2025 13:41:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1736458864; x=1737063664; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:user-agent
-         :from:references:in-reply-to:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=UYseOpURRh9hqApQgpIM/XepY4WChUBZ1jGMRsNQHcs=;
-        b=KVLA1ecCO4Drtfqhy4FCnpNTynsfVVw+lr8Yz0QedYBgbI7bMMoHs3K0XKUNM9anxX
-         yLcSmrndERdu51TCBx/woMRai5y7IruQD4VegUTEamc4MflW8+9bJmb0KQhSBXLL567d
-         CSxvrdoI6HUPC6RA6NA90KrRozjurlo2Ij5CY=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736458864; x=1737063664;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:user-agent
-         :from:references:in-reply-to:mime-version:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=UYseOpURRh9hqApQgpIM/XepY4WChUBZ1jGMRsNQHcs=;
-        b=N2RHJRv6afKbXZ1Xl09BQDyAz4+lXb2a5WF6RFtW1tQ6YNEUzixAFw0pjhBLaG/jIl
-         EgN8SySZKsyfLtqCDwGYpvVrMWClpR/sbZjtxrx4lBKaAkLfoGJBzaxTaZayub3JgCZK
-         tt7r2rM7SNlp2O/KXBvwSEZjps0Bwjt8+XOaQj9lG1hb9uC3oDYtxvRNJdIeO9O9UHZb
-         5GDOXC/FhjAIz+YX3cUtQI0KnPqiv83zSvLvunqLZp74/7cXiwQnqornSHGjI4bIg8RN
-         f+VP/bgQ+L6mA214vDmsUva0r/y/4W7DSTFpE/K496BQsPOLayhdA8yjiIPA2tj6cMl/
-         QiaA==
-X-Forwarded-Encrypted: i=1; AJvYcCU0sCNJHR34IG2nq/WIiod6AdpHKdCNi8BbmV8ks/TUFiSM/z2JnxLChObHkBQlcF4oN4ed2sigcBC2d7yRqYr4@lists.infradead.org
-X-Gm-Message-State: AOJu0YxYUzRqinWrySZ20YzQH3X+RsP8w/nAK6uxzIkrQMgVLXT8afW/
-	wjjJq/ZS2NjYYeaNMA+yg+vV3PF2eUpdOCd/OPZ/6Q/8AoTQBaoWdUWVuWzshLNVaDLESsVTtXD
-	MeBTnMVHveceiqzZ40KoLtWGYGF6cFXQLduGr
-X-Gm-Gg: ASbGncuqyudC81LnSlL6BP0WAnleiDargFbR+O7l2+FTNkSn5t9km+xOHuz9rJN627c
-	Yk4KUtKalz5broxfP4fE3NkQmjxa7TBSadvAn4apF4hIKSkcBPBFnFj0JrErmVHeSQQ==
-X-Google-Smtp-Source: AGHT+IEKX5fqLs19Nj5Euy3b+3ANgHmr60cplFk0CNeQmGP21sPNoKthsCxbKzmMS125ujK0B00l23Ab59zEPd3mFGE=
-X-Received: by 2002:ad4:5d61:0:b0:6d4:dae:6250 with SMTP id
- 6a1803df08f44-6df9b28c6aemr137634956d6.34.1736458864590; Thu, 09 Jan 2025
- 13:41:04 -0800 (PST)
-Received: from 753933720722 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 9 Jan 2025 16:41:04 -0500
+	id 1tW0PU-0000000DOqe-2ip7;
+	Thu, 09 Jan 2025 21:49:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=L3pvK+8L996FhW2eKjS9ijBQOkaCAS/fu+JHavhqupE=; b=ttM23zT/k4Bm/stp2dyHauQPi6
+	jiG8ADBBPJ0fIv7LlD1vZBq4w1bkrLs7b9VUXaRvpygTyh8JKETRM2fhFlIlA+xGR6zjvOiGbdh5i
+	Df91Km0//vB++X2TGVK0he1l4yUqtjCWP/G4MwYFWBrhLSoo7VeiuTnWkRqdqFwY61L1T9YGNyIJk
+	cqMEp/DJC4smwNXAfFgsGfAfOFXzjIkxfxgfU4DXgwpE5Ck/7MHCka5i5PQHy4sFetkLolxOCKH9r
+	iiPj3yJ5Gwt1A+/YO8KBZ1wyvwegy8tsHFZxe6jQ5XGYhdtGcZXsJQN30UeICVTZWQ5umf1/scmZz
+	85Bizk4g==;
+Received: from i5e860d05.versanet.de ([94.134.13.5] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tW0PQ-0005NF-VA; Thu, 09 Jan 2025 22:49:44 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Jimmy Hon <honyuenkwun@gmail.com>, "Rob Herring (Arm)" <robh@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ Ondrej Jirman <megi@xff.cz>, linux-arm-kernel@lists.infradead.org,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>
+Subject: Re: [PATCH v8 0/4] Orange Pi 5 Max
+Date: Thu, 09 Jan 2025 22:49:44 +0100
+Message-ID: <5348858.6fTUFtlzNn@diego>
+In-Reply-To: <173643343615.3320269.13009413932712361979.robh@kernel.org>
+References: <20250109051619.1825-1-honyuenkwun@gmail.com>
+ <173643343615.3320269.13009413932712361979.robh@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <53b83a66-c0b3-4227-8dcd-022f70810ccf@oss.qualcomm.com>
-References: <20250108012846.3275443-1-swboyd@chromium.org> <20250108012846.3275443-2-swboyd@chromium.org>
- <CAL_JsqKMcHPhf8yzEZNC6280-k+aSmo3SQOBZLMjmfTR47BH=g@mail.gmail.com>
- <CAE-0n52k0Gg85Ry4KyjE7Ms_dJgj=aPA4aPB5gmC-VGWSNLZXA@mail.gmail.com> <53b83a66-c0b3-4227-8dcd-022f70810ccf@oss.qualcomm.com>
-From: Stephen Boyd <swboyd@chromium.org>
-User-Agent: alot/0.12.dev1+gaa8c22fdeedb
-Date: Thu, 9 Jan 2025 16:41:04 -0500
-X-Gm-Features: AbW1kvaEYHdRDja_xzTNJbc0kQa8ep2z24O4PgYaJif2dmWpmU8qkWy48lGlWcY
-Message-ID: <CAE-0n51f_RQqQgH+FidFiFigY7koZCRZoOtDqQeTGKNsKtBSbQ@mail.gmail.com>
-Subject: Re: [RFC PATCH 1/6] bus: Extract simple-bus into self-contained driver
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, Rob Herring <robh@kernel.org>
-Cc: Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	linux-kernel@vger.kernel.org, patches@lists.linux.dev, 
-	devicetree@vger.kernel.org, Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, linux-arm-msm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>, 
-	Conor Dooley <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>, 
-	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_134106_272711_6752DBD3 
-X-CRM114-Status: GOOD (  21.55  )
+X-CRM114-CacheID: sfid-20250109_134948_719531_BEFA37E0 
+X-CRM114-Status: GOOD (  29.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,50 +74,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Konrad Dybcio (2025-01-09 06:02:17)
-> On 8.01.2025 11:44 PM, Stephen Boyd wrote:
-> > Quoting Rob Herring (2025-01-08 06:11:28)
-> >> On Tue, Jan 7, 2025 at 7:28=E2=80=AFPM Stephen Boyd <swboyd@chromium.o=
-rg> wrote:
-> >>>
-> >>> Extract the simple bus into a self contained driver so that devices a=
-re
-> >>> still populated when a node has two (or more) compatibles with the le=
-ast
-> >>> specific one being the generic "simple-bus". Allow the driver to be a
-> >>> module so that in a fully modular build a driver module for the more
-> >>> specific compatible will be loaded first before trying to match this
-> >>> driver.
-> >>>
-> >>> Cc: Rob Herring <robh@kernel.org>
-> >>> Cc: Saravana Kannan <saravanak@google.com>
-> >>> Cc: <devicetree@vger.kernel.org>
-> >>> Cc: Arnd Bergmann <arnd@arndb.de>
-> >>> Cc: "Uwe Kleine-K=C3=B6nig" <u.kleine-koenig@baylibre.com>
-> >>> Cc: Bjorn Andersson <andersson@kernel.org>
-> >>> Cc: Konrad Dybcio <konradybcio@kernel.org>
-> >>> Cc: <linux-arm-msm@vger.kernel.org>
-> >>> Signed-off-by: Stephen Boyd <swboyd@chromium.org>
-> >>> ---
->
-> [...]
->
-> > Maybe the best approach is to simply avoid all of this and drop the
-> > "simple-bus" compatible from the soc node? It introduces an annoying
-> > hurdle where you have to enable the new driver that does exactly the
-> > same thing as "simple-bus" does so you continue to have a working
-> > system, but it avoids the headaches of trying to make the fallback to
-> > "simple-bus" work and it would match how new DTs would be written. We
-> > could make the driver 'default ARCH_<SOC_VENDOR>' so that it gets built
-> > for olddefconfig users too.
->
-> I think it even makes logical sense for the /soc node's compatible to
-> be.. you know.. the model of the SoC we're modeling
->
+Am Donnerstag, 9. Januar 2025, 15:40:33 CET schrieb Rob Herring (Arm):
+> 
+> On Wed, 08 Jan 2025 23:16:14 -0600, Jimmy Hon wrote:
+> > Add device-tree for Orange Pi 5 Max
+> > 
+> > Orange Pi now has 3 SBCs using the RK3588 SOC. Refactor the common parts
+> > of the 5 Plus DTS so it can be shared with the 5 Max and the 5 Ultra.
+> > The 5 Max and 5 Ultra have a similar credit-card sized board layout and
+> > will also share a DTSI between them.
+> > 
+> > 5 Plus: HDMI0, HDMI1, HDMI RX, M.2 E-key, USB-C
+> > 5 Max: HDMI0, HDMI1, WiFi/BT using SDIO/UART
+> > 5 Ultra: HDMI1, HDMI RX, WiFi/BT using SDIO/UART
+> > 
+> > Changes in v8:
+> > - Rebase with updated 5 Plus USB 3 patch
+> > 
+> > Changes in v7:
+> > - Add signed-off to first commit
+> > - Expand first commit description
+> > 
+> > Changes in v6:
+> > - Remove clock-names from incorrect merge conflict
+> > 
+> > Changes in v5:
+> > - Include Orange Pi 5 Plus USB 3.0 change in baseline before refactor
+> > - Defer Orange Pi 5 Ultra to a later series
+> > - Defer Orange Pi 5 Plus HDMI1 to a later series
+> > 
+> > Changes in v4:
+> > - Orange Pi 5 Ultra was released and does not use VP0 to HDMI0
+> > - Move HDMI0 from common to the board level
+> > - Make DTSI to be shared by the credit card sized 5 Max and 5 Ultra
+> > - Updates for the newly submitted HDMI1 support
+> > - Add Ack for dt-binding
+> > 
+> > Changes in v3:
+> > - Refactor to share common include with Orange Pi 5 Plus
+> > 
+> > Changes in v2:
+> > - squashed commits together for initial board file
+> > 
+> > Link to v1: https://lore.kernel.org/linux-rockchip/20241026100310.52679-1-honyuenkwun@gmail.com/
+> > 
+> > Jimmy Hon (4):
+> >   arm64: dts: rockchip: refactor common rk3588-orangepi-5.dtsi
+> >   dt-bindings: arm: rockchip: Add Xunlong Orange Pi 5 Max
+> >   arm64: dts: rockchip: Add Orange Pi 5 Max board
+> >   arm64: dts: rockchip: Enable HDMI1 on Orange Pi 5 Max
+> > 
+> >  .../devicetree/bindings/arm/rockchip.yaml     |   6 +-
+> >  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+> >  .../rockchip/rk3588-orangepi-5-compact.dtsi   | 151 ++++
+> >  .../dts/rockchip/rk3588-orangepi-5-max.dts    | 101 +++
+> >  .../dts/rockchip/rk3588-orangepi-5-plus.dts   | 855 ++----------------
+> >  .../boot/dts/rockchip/rk3588-orangepi-5.dtsi  | 805 +++++++++++++++++
+> >  6 files changed, 1127 insertions(+), 792 deletions(-)
+> >  create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-compact.dtsi
+> >  create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-max.dts
+> >  create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-orangepi-5.dtsi
+> > 
+> > 
+> > base-commit: 2859e1ac3110f2d428a794bda26ea0d90b2254c6
+> > prerequisite-patch-id: 4672b745f4308a7be527749279edb71625d120e6
+> > prerequisite-patch-id: 2743fb64eba2a29eaf993ebc8a5d6ee445b69dfa
+> > --
+> > 2.47.1
+> > 
+> > 
+> > 
+> 
+> 
+> My bot found new DTB warnings on the .dts files added or changed in this
+> series.
+> 
+> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+> are fixed by another series. Ultimately, it is up to the platform
+> maintainer whether these warnings are acceptable or not. No need to reply
+> unless the platform maintainer has comments.
+> 
+> If you already ran DT checks and didn't see these error(s), then
+> make sure dt-schema is up to date:
+> 
+>   pip3 install dtschema --upgrade
+> 
+> 
+> New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/rockchip/' for 20250109051619.1825-1-honyuenkwun@gmail.com:
 
-Sure. The annoying thing is that we'll have to enable the new kernel
-driver to keep things working if we don't have some way to fallback to
-how it used to work before. I was trying to do that with this patch but
-it's easier to just force folks using new DT to use new kernels so
-probably we should just do that.
+All of them are not caused by the OrangePi5
+
+> arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-pi2.dtb: /i2c@fe5c0000/touchscreen@48: failed to match any schema with compatible: ['ti,tsc2007']
+> arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2-manta.dtb: /i2c@fe5c0000/touchscreen@48: failed to match any schema with compatible: ['ti,tsc2007']
+only has a txt binding
+
+> arch/arm64/boot/dts/rockchip/rk3568-qnap-ts433.dtb: /serial@fdd50000/mcu: failed to match any schema with compatible: ['qnap,ts433-mcu']
+binding is in the mfd tree
+
+> arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dtb: /soc/phy@2b050000: failed to match any schema with compatible: ['rockchip,rk3576-naneng-combphy']
+> arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dtb: /soc/phy@2b060000: failed to match any schema with compatible: ['rockchip,rk3576-naneng-combphy']
+> arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dtb: /soc/phy@2b050000: failed to match any schema with compatible: ['rockchip,rk3576-naneng-combphy']
+> arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dtb: /soc/phy@2b060000: failed to match any schema with compatible: ['rockchip,rk3576-naneng-combphy']
+binding is in the phy tree
+
+> arch/arm64/boot/dts/rockchip/rk3568-mecsbc.dtb: /spi@fe610000/fram@0: failed to match any schema with compatible: ['fujitsu,mb85rs128ty']
+binding is in the mtd tree
+
+
+
 
