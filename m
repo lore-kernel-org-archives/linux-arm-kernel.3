@@ -4,89 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDDCEE77197
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 11:22:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93D72E77199
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jan 2025 11:24:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1I13lWmYyz3lcb7t1Bm62ddpGsn+ruZJv5ADU7rxo7c=; b=qoA1rgh9MDYYuMW8kGV4RScCV3
-	pw9e6ctNiyg0QIrQWzILVP6lWSdGsQbNgiauHtpjY3eGOMDDkcUrujNxruKwk12rcZw9WVh/SpkFw
-	K9cjSBg7lXcoYfDoMohpRR0bAqwlrXlVtTMfoXCJcd8BzEIiJD5ZMuFHnoKsqZpd+gvDoYikk0Uza
-	povTm93MDd262+qdxleipHeWJhuM9NFPjrwOfWBzjAiIJeym+XH2r0mAPT2mOrH4GtYED8Fxw1Sge
-	8jCI09pBxIhB6Tpl/xGNnjjdH+BXT6uK3zw24xJk0OLSgJx+a4UamH+e8TLlFxMgcEU3xmyLvwEh8
-	kiPcUl6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Xo1FEEMogRIXBaxbfZKPmaJiAryjxmInWb0lF9gL1do=; b=h7twkCJlJZn2WlCjaWR7hp9XeY
+	m27EKZaBb1LxmzaK3/22Uzajnaqx5oSIo7uPBnoLOGygxvqSzKnCOcrl+mWhKIrnpHTNtJnknud3E
+	f2YoOHu/bJTPPzWsGdE69k8JKcgJb+WhrvR4yyklqmj+Tj0eAavye0IQjKvv252fvhojxvAISdN6o
+	FAvFT2t4WAhbOg9yOW9r1Q2O1JCxAAWU+7bjLsuqZYrjFdz9VO0XhvljaSlxncPA9X74NEnEiUxuO
+	qfTzl0A3S14yVQJUZhtw3lHir8zDvv439NEzONMdARLhs+MOb1nwQ7XEphsAnqFwiptMrdSSAJBcW
+	64KthZ1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVqce-0000000BhOL-33VX;
-	Thu, 09 Jan 2025 11:22:44 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tVqdp-0000000BhYc-21PL;
+	Thu, 09 Jan 2025 11:23:57 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVqZq-0000000Bgw0-2qbF
+	id 1tVqaB-0000000Bh0K-0Za2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jan 2025 11:19:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1736421588;
-	bh=MYB0yAjxoyhbDi50XtUpsGNrWVikNTnxxJs1VA0CsbI=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=iWroFgmDaUTpLUd/8EIbk7IAg3CIGCAnaZsv3NRCD2+VrnXKIHLbosH5aqXEeg/V4
-	 yNHSOKSWXGqYFCCWhbMN0eZxPnY5zChZnn0zqfM3+IATOdJtsZizNWaQ4n39DTvm99
-	 /CJd9kPdfpxcl21X70waImqyrCXSNCqU2Wo0nam5Lfde3eVl5K8+oGZkGcctX+Pwej
-	 ndy+AF9omDIwmBdKM3UBdV6kjg6pMpUaMbUeLte6MN8VzlrV3ChckLSvjfKLNjyrHn
-	 sdmVt41fdGmTLwovY5X6D5TxKeVN//bqIgE9QRKqV0u55jZtEhSqh2sEv/o3LnbXiE
-	 MqyM3xsDLnwFg==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id E98C317E1569;
-	Thu,  9 Jan 2025 12:19:46 +0100 (CET)
-Message-ID: <1e442fd4-1361-40d5-a152-adb16704a982@collabora.com>
-Date: Thu, 9 Jan 2025 12:19:46 +0100
+	Thu, 09 Jan 2025 11:20:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5C766A4192D;
+	Thu,  9 Jan 2025 11:18:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EB56C4CED2;
+	Thu,  9 Jan 2025 11:20:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736421609;
+	bh=1+uVbB8YTOqsluR25SXjrfcOS+SdHfqDiqn5pXsqIyQ=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=m4msATGPnS6sQKsZ9Rg60S69s3I/DfEk90I/oRZvnOP8hBuT3IJaz/6Y2P1qJXKSJ
+	 3YMQhu4GdkvPwMtQ5Q1sikGMsenlOq4/XTeZevbCKRzpgO2rP+XAF5rxRjRqmjjkMM
+	 QRBEYf5xph516Fn8/ycWklBIP2BAjSoWFKF+zI+kGKwkmbl0LA2zGmjoof6j3uHeqV
+	 6WBL1ojwjOrF2KB5feG6vEMdnKTUwD9uMeEJslN7+MbojXLiBOQJutUMYmaxvYwtTz
+	 ariwDAvwoBPcEnUThOUN2shIVBK7+U41DvVsrHw5f7BOC5LrdFjyt1D9SN1tR9pz4w
+	 uTqTIHu/hTgRQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70D173805DB2;
+	Thu,  9 Jan 2025 11:20:32 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dt-bindings: usb: Correct indentation and style in DTS
- example
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>,
- Justin Chen <justin.chen@broadcom.com>, Al Cooper <alcooperx@gmail.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- Thierry Reding <thierry.reding@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Florian Fainelli <f.fainelli@gmail.com>,
- Benjamin Bara <benjamin.bara@skidata.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Ahmad Zainie <wan.ahmad.zainie.wan.mohamad@intel.com>,
- Tianping Fang <tianping.fang@mediatek.com>,
- Jassi Brar <jaswinder.singh@linaro.org>,
- Biju Das <biju.das.jz@bp.renesas.com>,
- Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
- Francesco Dolcini <francesco.dolcini@toradex.com>,
- Macpaul Lin <macpaul.lin@mediatek.com>,
- Alexander Stein <alexander.stein@ew.tq-group.com>,
- linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org
-References: <20250107131015.246461-1-krzysztof.kozlowski@linaro.org>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250107131015.246461-1-krzysztof.kozlowski@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next v2] net: stmmac: Unexport stmmac_rx_offset() from
+ stmmac.h
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <173642163126.1285771.10043021879258168083.git-patchwork-notify@kernel.org>
+Date: Thu, 09 Jan 2025 11:20:31 +0000
+References: <20250107075448.4039925-1-0x1207@gmail.com>
+In-Reply-To: <20250107075448.4039925-1-0x1207@gmail.com>
+To: Furong Xu <0x1207@gmail.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ alexandre.torgue@foss.st.com, joabreu@synopsys.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, xfr@outlook.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_031950_890428_69028C48 
-X-CRM114-Status: UNSURE (   8.63  )
+X-CRM114-CacheID: sfid-20250109_032011_236359_97393E18 
+X-CRM114-Status: UNSURE (   9.35  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,19 +79,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 07/01/25 14:10, Krzysztof Kozlowski ha scritto:
-> DTS example in the bindings should be indented with 2- or 4-spaces and
-> aligned with opening '- |', so correct any differences like 3-spaces or
-> mixtures 2- and 4-spaces in one binding.
-> 
-> No functional changes here, but saves some comments during reviews of
-> new patches built on existing code.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Hello:
 
-For iTE IT5205:
+This patch was applied to netdev/net-next.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+On Tue,  7 Jan 2025 15:54:48 +0800 you wrote:
+> stmmac_rx_offset() is referenced in stmmac_main.c only,
+> let's move it to stmmac_main.c.
+> 
+> Drop the inline keyword by the way, it is better to let the compiler
+> to decide.
+> 
+> Compile tested only.
+> No functional change intended.
+> 
+> [...]
+
+Here is the summary with links:
+  - [net-next,v2] net: stmmac: Unexport stmmac_rx_offset() from stmmac.h
+    https://git.kernel.org/netdev/net-next/c/e62de01008bd
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
 
 
