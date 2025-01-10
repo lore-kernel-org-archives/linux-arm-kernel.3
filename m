@@ -4,120 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 786C2E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 14:07:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ED25E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 14:08:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8l9qwGd/EJ4uKt2Ci3ii57m5sz/4bNODz3/2cysPg7o=; b=fFGyMVvqRyE0vz/6zBn897LLNP
-	fJyF3mUWDauHNWn1msiDtEmUTvredrJ5QIYDmgy4me1aZzmqbBL6kfNA3cQm9Qgi30MCQWAoAq3Iq
-	L9R8SWLo8+tfQIDijwZL3wMAul8cb4ZTUy71xeDjdoPz4VEywch+bQzThg1iRKHdkoLgBdz9s9/v6
-	zDevQn/2TJDPqSfZtg+zWM3d+CL7LiCIKvRW9+dg8uqypJNVdM1qhy9p3igeMFf3zuC+LThZfIiEv
-	jPsO94/U/UiOSZfxyXexAQSEF7acutLHrT7YUmS6ORnZ+1WpgoFsLAi7QYXKhwbuitpll/qOnAA5a
-	yKdbT0cw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7HjnwD9AZ9bpagwc/lNQ4PWx4QhMbmgXIuOqNi1NcM4=; b=KtmGUC4ReiR51yyXvKJGNLDUSr
+	rcaybdnnkpSMw592Szh1kYFIaWkkKZdkx7JKnJWdGiq6U8/C8OpeizRrLs6q46eAhgGUqixzwd2MD
+	asK1XMdZ6b6FQ8Es7xM5ExErtM1aZoxg4siFMepqr0891dMcYDjTaJumVP1fe2VYR6S4E3sPz5Tzs
+	GMHlfTj9FCIZIIuQeY4mxze4KSDfgZNjb2ADE4Ozcy6UM3zi4jJN2UG+aepr9hwuI4gcmSxr8e3dt
+	En7Oc/yDAfPVUJvcI5FrWGT4hz3SgkGOj6wykIMfm7LZlKjCmV6gAjoVFA0ROAFVx8lxFrM7WHz67
+	vb+AiRlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWFfN-0000000FaHJ-2P1t;
-	Fri, 10 Jan 2025 14:07:13 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tWFga-0000000FaYp-1ICy;
+	Fri, 10 Jan 2025 14:08:28 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWFXU-0000000FYRC-3x9e;
-	Fri, 10 Jan 2025 13:59:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B1325A41FA0;
-	Fri, 10 Jan 2025 13:57:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEE7DC4CED6;
-	Fri, 10 Jan 2025 13:58:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736517543;
-	bh=g7wxpqcSQJrcO2+CyoWI6wsntd8vQcmKdFcJ3jJ7Gto=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qtSc7DoKJaJxVmUrLBQwq48v+ML5dD9Ga2+pU723ktjwlMZcKLgkHhlcyOXDZUuEe
-	 qK8ewFruiXPXBpCoEmKdqMgA2DXJ94pw8IEY8nGAznJ3xE0lQMsw/R7ANS4L2atzdU
-	 QQse0NzArfLlWtSoMphmG3sWlXakNCM31W84vEItXJA6h3rtEeQurmXhtzbEUvQk7v
-	 GZHD9+zNNPISrFQhdCNOMDaieDZnj+IIUv24yxWd/oY4hgBgoEXuIdrXyFCGKGpK2U
-	 LxadZwWtcr2cXnOIcHNp3dX4MBQhK9a72dgHjr2+kGwXScL6DLfF7Rl7pM1kPWEEjA
-	 my9wCAUEhljwA==
-Message-ID: <ff57cf8d-626e-4d35-a18f-1a89b4d9fa3e@kernel.org>
-Date: Fri, 10 Jan 2025 14:58:52 +0100
+	id 1tWFcj-0000000FZbU-0JxO
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 10 Jan 2025 14:04:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=7HjnwD9AZ9bpagwc/lNQ4PWx4QhMbmgXIuOqNi1NcM4=; b=zMvidE4VIvrovRs9QONvhitB+e
+	kR5gnG6ymO+glm9en1J1Nlb08FgSGdcAS+0mGVXiKMTo+P9EkwKryA4kVyfERm1Ro9LhQYslrd09E
+	sm6f5XyNdv5meaPSUYbpk7Qr0SMHYYNNELxgiDRGuNUJX1sksmTlMQI8AiClUojT3jeQ=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tWFcM-003FJ8-1r; Fri, 10 Jan 2025 15:04:06 +0100
+Date: Fri, 10 Jan 2025 15:04:06 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Jacky Chou <jacky_chou@aspeedtech.com>
+Cc: Ninad Palsule <ninad@linux.ibm.com>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
+	"andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"davem@davemloft.net" <davem@davemloft.net>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"eajames@linux.ibm.com" <eajames@linux.ibm.com>,
+	"edumazet@google.com" <edumazet@google.com>,
+	"joel@jms.id.au" <joel@jms.id.au>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"kuba@kernel.org" <kuba@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"minyard@acm.org" <minyard@acm.org>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"openipmi-developer@lists.sourceforge.net" <openipmi-developer@lists.sourceforge.net>,
+	"pabeni@redhat.com" <pabeni@redhat.com>,
+	"ratbert@faraday-tech.com" <ratbert@faraday-tech.com>,
+	"robh@kernel.org" <robh@kernel.org>
+Subject: Re: =?utf-8?B?5Zue6KaGOiDlm57opoY6IFtQQVRD?= =?utf-8?Q?H?= v2 05/10]
+ ARM: dts: aspeed: system1: Add RGMII support
+Message-ID: <9fbc6f4c-7263-4783-8d41-ac2abe27ba95@lunn.ch>
+References: <SEYPR06MB5134CC0EBA73420A4B394A009D122@SEYPR06MB5134.apcprd06.prod.outlook.com>
+ <0c42bbd8-c09d-407b-8400-d69a82f7b248@lunn.ch>
+ <b2aec97b-63bc-44ed-9f6b-5052896bf350@linux.ibm.com>
+ <59116067-0caa-4666-b8dc-9b3125a37e6f@lunn.ch>
+ <SEYPR06MB51344BA59830265A083469489D132@SEYPR06MB5134.apcprd06.prod.outlook.com>
+ <8042c67c-04d3-41c0-9e88-8ce99839f70b@lunn.ch>
+ <c0b653ea-3fe0-4bdb-9681-bf4e3ef1364a@linux.ibm.com>
+ <c05c0476-c8bd-42f4-81da-7fe96e8e503b@lunn.ch>
+ <SEYPR06MB5134A63DBE28AA1305967A0C9D1C2@SEYPR06MB5134.apcprd06.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 12/12] ARM: dts: sun8i: add DTSI file for V853
-To: Andras Szemzo <szemzo.andras@gmail.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Maxime Ripard <mripard@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
- <kishon@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-gpio@vger.kernel.org,
- linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <20250110123923.270626-1-szemzo.andras@gmail.com>
- <20250110123923.270626-13-szemzo.andras@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250110123923.270626-13-szemzo.andras@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <SEYPR06MB5134A63DBE28AA1305967A0C9D1C2@SEYPR06MB5134.apcprd06.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_055905_124733_C70D98F0 
-X-CRM114-Status: GOOD (  15.04  )
+X-CRM114-CacheID: sfid-20250110_060429_114932_531088C8 
+X-CRM114-Status: GOOD (  19.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,49 +94,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/01/2025 13:39, Andras Szemzo wrote:
-> V853/V851 is a new SoC by Allwinner. Add a basic dtsi file for it.
+> Agree. You are right. This part is used to create a gated clock.
+> We will configure these RGMII delay in bootloader like U-boot.
+> Therefore, here does not configure delay again.
+
+> Because AST2600 MAC1/2 RGMII delay setting in scu region is combined to one 32-bit register, 
+> MAC3/4 is also. I will also use 'aliase' to get MAC index to set delay in scu.
 > 
-> Signed-off-by: Andras Szemzo <szemzo.andras@gmail.com>
-> ---
->  arch/arm/boot/dts/allwinner/sun8i-v853.dtsi | 673 ++++++++++++++++++++
->  1 file changed, 673 insertions(+)
->  create mode 100644 arch/arm/boot/dts/allwinner/sun8i-v853.dtsi
-> 
-> diff --git a/arch/arm/boot/dts/allwinner/sun8i-v853.dtsi b/arch/arm/boot/dts/allwinner/sun8i-v853.dtsi
-> new file mode 100644
-> index 000000000000..4ecc97c7e7c0
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/allwinner/sun8i-v853.dtsi
+> // aspeed-g6.dtsi
+> aliases {
+> 		..........
+> 		mac0 = &mac0;
+> 		mac1 = &mac1;
+> 		mac2 = &mac2;
+> 		mac4 = &mac3;
+> 	};
 
-Impossible to build and test.
+I would avoid that, because they are under control of the DT
+developer. You sometimes seen the order changed in the hope of
+changing the interface names, rather than use a udev script, or
+systemd naming scheme.
 
-Please submit complete work, so one which can be actually built (DTSI,
-DTS and bindings).
+The physical address of each interface is well known and fixed? Are
+they the same for all ASTxxxx devices? I would hard code them into the
+driver to identify the instance.
 
-> @@ -0,0 +1,673 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ or MIT)
+But first we need to fix what is broken with the existing DT phy-modes
+etc.
 
-Odd license, why would we ever want GPLv3 or even GPLv4?
+What is the reset default of these SCU registers? 0? So we can tell if
+the bootloader has modified it and inserted a delay?
 
-> +// Copyright (C) 2024 Andras Szemzo <szemzo.andras@gmail.com>
-> +
-> +#include <dt-bindings/clock/sun6i-rtc.h>
-> +#include <dt-bindings/clock/sun8i-v853-r-ccu.h>
-> +#include <dt-bindings/reset/sun8i-v853-r-ccu.h>
-> +#include <dt-bindings/clock/sun8i-v853-ccu.h>
-> +#include <dt-bindings/reset/sun8i-v853-ccu.h>
-> +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> +#include <dt-bindings/power/allwinner,sun8i-v853-ppu.h>
-> +
-> +/ {
-> +	#address-cells = <1>;
-> +	#size-cells = <1>;
-> +
-> +	osc24M: osc24M-clk {
+What i think you need to do is during probe of the MAC driver, compare
+phy-mode and how the delays are configured in hardware. If the delays
+in hardware are 0, assume phy-mode is correct and use it. If the
+delays are not 0, compare them with phy-mode. If the delays and
+phy-mode agree, use them. If they disagree, assume phy-mode is wrong,
+issue a dev_warn() that the DT blob is out of date, and modify
+phy-mode to match the delays in the hardware, including a good
+explanation of what is going on in the commit message to help those
+with out of tree DT files. And then patch all the in tree DT files to
+use the correct phy-mode.
 
-Only lowercase node names.
+Please double check my logic, just to make sure it is correct. If i
+have it correct, it should be backwards compatible. The one feature
+you loose out on is when the bootloader sets the wrong delays and you
+want phy-mode to actually override it.
 
-Best regards,
-Krzysztof
+When AST2700 comes along, you can skip all this, get it right from the
+start and not need this workaround.
+
+	Andrew
 
