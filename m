@@ -4,60 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63B05E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 17:31:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8366AE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 17:32:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+l3onU/mO2ODPldIxoGJvtMOSlzVSdB4hyEB93QT96c=; b=VHPBBuATpgGPLvz/O4lYzNtu8q
-	8cODJOBDUryM2puYXLNkECGQ54LFLrDhtfhocQh2NYpHpW3mWsT2xYife3cKzBjGAC4lLhVhuXZwc
-	2BB+3ca/Trb0CcLtPq2njyqbgQS86cmYJ2oReOdrVsvBjFpIERDcEaA3w6oKU/19aMg2nXU57NTxc
-	mccbqKuC86bMgcd9P5RdPwRQbdnsfXUvQQyOzGdlWOrXRmT+6YdVJSt+QNk+It8/mYDo7LR5IdOoL
-	KaN5qERmvwtx3J6hMR9+2qhnHzMLkwlj6H9G5FEnRdAPr4iG4t1gYhCCcGiOxnyi7cVBNxdlX4rTX
-	s6eACOfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5LysR+6XUA5bjVZCSVz1vQR9CClM4DBnxm+3+TSuQE0=; b=ivw6EciUyIRnOmko9sS1pR7Hfl
+	xMQmRkMSWvP318CJmqiyaig/6VGOTn3W8VztQDY0FqiXiPA4uEIcJzcxlJ/gGvwng++0JawcWKemK
+	2e5CDJLM9Egc8AMx8OQuugsPU6YSRLa1wmMFquDeHoPzAAl9+afFNtuZI9vp+ZFXxqfT0n+0yCeIz
+	oBXEZ4nsJBp8La65xJCt8N87ZorHXzpgJJ46N5dyW9oJylbgDHXNcXUioKXad7TiQ2aNKlegcVJNM
+	rxigvl93x1jBBtVVdT7CKLwlgSCLQISHBJOPxYBg4/APojluDZh/TvwWG8I0oKh36/x7M+DEU/xK9
+	5IRDIHtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWIr0-0000000GRDJ-1Fw3;
-	Fri, 10 Jan 2025 17:31:26 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWImB-0000000GQ2E-3eZg
+	id 1tWIsC-0000000GReP-07DU;
+	Fri, 10 Jan 2025 17:32:40 +0000
+Received: from mail-bn8nam11on20628.outbound.protection.outlook.com ([2a01:111:f403:2414::628] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tWImQ-0000000GQ7b-1AZX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 17:26:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A2E031477;
-	Fri, 10 Jan 2025 09:26:52 -0800 (PST)
-Received: from mazurka.cambridge.arm.com (mazurka.cambridge.arm.com [10.2.80.64])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 436643F66E;
-	Fri, 10 Jan 2025 09:26:22 -0800 (PST)
-From: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>
-To: kvmarm@lists.linux.dev,
+	Fri, 10 Jan 2025 17:26:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FIyBJUTGy+7iRNH5WkgRUeh6+xMI283w4KniENgFTX9QvrZnOf4AGpvWfUUYeawEZtILu4TpxuZMqgi3I2hdxzKnKAPTipz3PgzFUn//BwSYxo2XF8k596hIXWsZVFtJ3k+mjattwEas/shDIzB9SzMtk1dnctcAGKb6vpH826I6zgVMYJk205AW36844Iy9Yf7tMNeu3NswweTXtSabF95Urwy18/DmsLnnqjFuFM5UVzy14wnVkiyIjQas5DJdxBiWIvo3aV72EXPl0P1a7pzfCkOLJc7ta4GvsEw6YOHj/ptZfiaBn/J1tV0KV2HrV7uHLWDrvQgSEy6//EOuOg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5LysR+6XUA5bjVZCSVz1vQR9CClM4DBnxm+3+TSuQE0=;
+ b=b5CnOdDkdyikvGPCKWEnvUNNDQe3EuWBYY6g8tr72o6J5/llqW12rHXT0QwwLfNCNITpLHQdLM3SExESPYWLuTd1ByuUT0LVH3qEWLll+VyLFs0EMw4nYalHzOBdgnD6s/KiDGCvkNniOXcT2IhW71qZT1WByH5JmVrdCf/DRFKdNWw6odpJZ4WFPeIxRpQpEW/3f5705k4Rxk9Cr65qhwCP8d+4H/v23VTnDRyST2CgYS6zkLoEcGhSI51ZUkrQS/WYHF7+I+xrORmPuwNw6VwyfC8b4qVTcgur2CFHz5Jzf0r25pzpzpBi0AhXE0ZB5d+HQAPcgCNDvR/Ml7w8ag==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5LysR+6XUA5bjVZCSVz1vQR9CClM4DBnxm+3+TSuQE0=;
+ b=ObMsJKvUVu4qI3Mx9ZI4TnI1Jk28pQRUtu32JIcfyMzKRz0+brxeu/lb/MhznXESOISE5P3ZmLqUijpjjcfse9ONi6tLDkifT0gnK6O+ENCETg+Tx02SbEtXTySI+jizI0sblC4a0OSg2yhGMw0At0nM58SbjZUmEI+VgJ2NZeWgOuNpnW0H6u5xNvRNJyBUaEI2LRVVTEF+apzPzFh7kw+3MjBCs0TIFWNuu8zi3xKpc6DDGayfkj8RpCCSxuNgtHPUs55vSbBx/CBH59Bq2R8gWFvpoSmQxhEXGs4YfV5ei03EqU/jPlXauIF2y1tvLdkYSP3OsLh/y0AAs0RNyA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by SA3PR12MB7879.namprd12.prod.outlook.com (2603:10b6:806:306::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8314.16; Fri, 10 Jan
+ 2025 17:26:38 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8314.015; Fri, 10 Jan 2025
+ 17:26:38 +0000
+Date: Fri, 10 Jan 2025 13:26:37 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: kevin.tian@intel.com, corbet@lwn.net, will@kernel.org, joro@8bytes.org,
+	suravee.suthikulpanit@amd.com, robin.murphy@arm.com,
+	dwmw2@infradead.org, baolu.lu@linux.intel.com, shuah@kernel.org,
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	ryan.roberts@arm.com,
-	catalin.marinas@arm.com,
-	mark.rutland@arm.com,
-	james.morse@arm.com,
-	will@kernel.org,
-	maz@kernel.org,
-	oliver.upton@linux.dev,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com
-Cc: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>
-Subject: [PATCH v1] arm64: Add TLB Conflict Abort Exception handler to KVM
-Date: Fri, 10 Jan 2025 17:24:07 +0000
-Message-ID: <20250110172411.39845-3-miko.lenczewski@arm.com>
-X-Mailer: git-send-email 2.45.2
+	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
+	eric.auger@redhat.com, jean-philippe@linaro.org, mdf@kernel.org,
+	mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
+	smostafa@google.com, ddutile@redhat.com, yi.l.liu@intel.com,
+	patches@lists.linux.dev
+Subject: Re: [PATCH v5 04/14] iommufd: Abstract an iommufd_eventq from
+ iommufd_fault
+Message-ID: <20250110172637.GF396083@nvidia.com>
+References: <cover.1736237481.git.nicolinc@nvidia.com>
+ <a6490048ab3df78f648e3ef0d217a90b7213d47c.1736237481.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <a6490048ab3df78f648e3ef0d217a90b7213d47c.1736237481.git.nicolinc@nvidia.com>
+X-ClientProxiedBy: BN9P222CA0004.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:408:10c::9) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|SA3PR12MB7879:EE_
+X-MS-Office365-Filtering-Correlation-Id: e5a5f485-7bcd-438e-39c6-08dd319bf06c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ymPXIS8BqpnEq+fljO9ysMmVIg8rNbP5wahtmlz80p85JAvA8IQEgdDhgEqT?=
+ =?us-ascii?Q?lQApn7vlWS2JKMXxAGqWp2i3gg89CVX7b5NXa8xaNpRZ3JPHuXDlgSY3H8Vd?=
+ =?us-ascii?Q?bD8RkKtYb9mloRWlhxtrEW9pcyu5ZW5ySVC6th95j6V+GWBvuMBhhbgrWA6o?=
+ =?us-ascii?Q?zN76vasmrLfEQUQUCiPFmGI63C/PBpJ/chPDzc3d1AFnAFbZHU78/GsVoR+W?=
+ =?us-ascii?Q?BkSX+fXquF1GuRhWSsNvTV+3bYzoIS20QeiEFdn8BTH9UscsK/e4yFZC3ceD?=
+ =?us-ascii?Q?4SCTXNPr1Swqrlxfxsg49P9xVwlGbzzvLjeNgy4sVG7puUD0GQCcpHyEUyJZ?=
+ =?us-ascii?Q?6Vgs12rpPUcigtbGMru0KadgAgvljZvUKHMbH60jm7qGguqaz6P5NsaH6i3N?=
+ =?us-ascii?Q?eYeVu09F5W/UmY9zbR6gu1Yurni8IR5LyX+UH75FLb41GCjqcpb3LlXzMu88?=
+ =?us-ascii?Q?OHcLyTlASM9EwMXw6IRF5RLil71PTu1V3RD74cXPhx1xT8gHs4pyvz6UOjBu?=
+ =?us-ascii?Q?0zbZbHnEO7/vuQg5tm35MA37I07Qk3Z63nCqGByYh8UUEOGz4/TCGtkyUOoy?=
+ =?us-ascii?Q?1b/qtqh8fiJRajcnG1fX90eYa1prNfsJ2PBbCoWC34/NeDqRZvkOo4VwgDXC?=
+ =?us-ascii?Q?Gs4+WxVjiYnqLTL1x+h9atBRoFhpTSB5e7+Di9oLACl1PNhjoIy9UExeY/QO?=
+ =?us-ascii?Q?3eeAzu97QMrRXQD513rcZFPmMeApmsQ2CdYxt2ggyLbIFpoxa1/njbDw5gcy?=
+ =?us-ascii?Q?qR/6UmMriCX93oW/+YXYTLbxOGjMsJkiESJDPGcwMQXlSi3A86aricnS3r5b?=
+ =?us-ascii?Q?bAq8xwkLkG3B8kT0asXmgWHGtRrkIpAe13lqlannZQCQBpMCQhaKvxzefN/a?=
+ =?us-ascii?Q?V1rFjCQQWm7WJXwUdz1jGcdNMsz0FQO9R3rL9iur454xjt2LmhZK+GPDmfDn?=
+ =?us-ascii?Q?Sg8dD5kRUJbexzRFp2sU3TNwC+rY2YBCrw33n9LnUbqVEKb8wj5Zx6cZT+JJ?=
+ =?us-ascii?Q?VODzupxA/PvlkE3DZCpeLFpoSiuZoKi91n84wYkax8nqGPxl9TKEWavd52FX?=
+ =?us-ascii?Q?q59z6owI0uGo0Q7PPbKwAb1gUTsxJndTlc6bmP3GTmD37CM/UVXLFQ9M0Ddq?=
+ =?us-ascii?Q?HqCG4hkExFmmqLdkclXjyUQJt05z/psXsjlyEfbAhIfOc8FTKBJdgjOi6Sux?=
+ =?us-ascii?Q?83xB3ust8kPS7NNwsYWM9aUF0f0e3gLxvA6oHuJLdcUmTqc6moMK3GNL/xYo?=
+ =?us-ascii?Q?OsXFcsb5xV9NkykpjX58hGdjjMsTX4gKPiXDvQI36THTn/oV6ISF/JmrZpye?=
+ =?us-ascii?Q?VwKxmO2K4XTvX5p59fh9HmfT4geBRu1hqlPFL3Ybbzcmwnf0+4lxmr5Z0gVn?=
+ =?us-ascii?Q?SMLXVhkLY8tR4fGA+YeCMKb751t4?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?V7N+zfRSd86Vt0ixeV7bMwQEsWx/RfWmmRpBdYkZx7KgOBHKyRSaXjCx+j0B?=
+ =?us-ascii?Q?HbVSNNH3+cx3jNretlCmLGaUDC+Xjb1N9g0jHmyMyTZkXe4MciNnZxu/imeo?=
+ =?us-ascii?Q?qOeseiesS2cQkC81c0G3JX2lR1CX8uVDNgUiE0MhAJWoOkoPKGCBnAsuoIx+?=
+ =?us-ascii?Q?fgRAu5b1UsJJ6VBJ9xLrniKSz1Uj9NoWetzhP2UfbpnDqj02wnAqB4775tF0?=
+ =?us-ascii?Q?8wWXygS7XnjHP3m7chTAKGfRQScEwI9wyax+f3i62UclJc/fkhbY1757PAEf?=
+ =?us-ascii?Q?GZKZkQe/qyZz45nU2rwvO570+8yfbxXCWDsnqZi9OFUnY4vDhGDQGlUYIR3A?=
+ =?us-ascii?Q?vMhyWXxiPbcrZ6awpI75Slm7A7mIZbTai7xIYiVU95y04PUorZ5zDP21UHp3?=
+ =?us-ascii?Q?pS6S5udnbif6RgkvXwyXmcbCYKYL0s5aHLnP6T76AUjFKhUrHihO5Op1+qxg?=
+ =?us-ascii?Q?5iwSBAT99Yp0FWp7YoXrcJSJjc3FcNCO0pNGHvavSjxxnC6mvSUEqiLPk8+M?=
+ =?us-ascii?Q?zmtdOG8V2AkmsvXe5AeNn4+B0rxVzzbG/cdcqqL2wbfV/IYI+JQfCO7RLN+H?=
+ =?us-ascii?Q?WlXUQQY9/wmwOOxdX4m6y0r8JiX9RqV9mzprVs/zRf3F34iPwFLi8m+wrmpK?=
+ =?us-ascii?Q?A/dk2ePxPzQEkAA/g8a4V9vveu87qai5dToKSeLhkcbM+5yzssZWBL+7l5RW?=
+ =?us-ascii?Q?4MJDgI783uIxb5/06AqzV603IGw18z4yo0uij6DO55hoZJV9+831UyFChruO?=
+ =?us-ascii?Q?TJRlWRk6C5S4vao7Wl4CDT2z93j1qEXJ+i49wS7OsZNZTPQsMw2uyRRqC9yo?=
+ =?us-ascii?Q?jMz0oL4Duof7DOujMryuviG/q+fVHwVmctQ0YXVSjGkexUQtvDcs5G95zJCN?=
+ =?us-ascii?Q?yH8mm1g57+YpOkCmSgNHNRggz81o0YqItIj0K5de/4sZZBJap9p/gU/F76jR?=
+ =?us-ascii?Q?WLk2OjWEHR8oFIjEOOjlHJMly7L+6GkRPAV1+EMJekRI57pIWSoeOpIArm/x?=
+ =?us-ascii?Q?5kDf9kc0vRW5Vscq3812d5LrBxR8qOjtUYfWBICC8mE04njxkXBFZE/2eaMs?=
+ =?us-ascii?Q?53NjbAHXQF6AiEeHYkEANj/T5zrVY6RYUtixTiKj+EpAZelGJGrpU7OiFvgD?=
+ =?us-ascii?Q?KfA9aQzb3oQJ4MlJUO5Yis2lfaUzDxpyNvrVjcP17jGd1UHZcdgNwoty4Xp5?=
+ =?us-ascii?Q?H0egOwoZKKhd69r6FUCYSowo3uwhpTvT4/Crbfo1LkMCV5DrGgT/3i5r69/0?=
+ =?us-ascii?Q?MuMHHWKnCsc1eWuAHFab7T3FwVGUZjKPuJBesWQW57ilc1v26R8xDvGmzIv1?=
+ =?us-ascii?Q?0k9Ly65e3nKLnhytN24zszCvAW5yUG4tdzE7BVOTo2IpNxhfnJfvcH9Tbx62?=
+ =?us-ascii?Q?UpeFWafQXBNWBif0i0S+IHzujFUCid+5auaxyxKszfR3Reaszu8qzFnfKW1I?=
+ =?us-ascii?Q?WvAEz9ez1QCDCtNJ9zxbVsksn6QWprZwJtn9QSxgLxQrDGkJOZUnZwhUbs8t?=
+ =?us-ascii?Q?WkGDf17X/RBPBQoozfthHlwRiWk1wpH8Fe9xgEPl8hJn51tN79iMnxPTOwYl?=
+ =?us-ascii?Q?gUZp5rL/RrGX1NJ7MRpYwN4dfzF9YCIRh0fCdemN?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e5a5f485-7bcd-438e-39c6-08dd319bf06c
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jan 2025 17:26:38.1346
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 7Pmr+4nUqKd1Eqh79Ek7IbdKn9yEH5PiT7yZ+vkmBYeYlaCfjmVBxGFLNmGdxAS+
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB7879
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_092627_998956_A3355E7A 
-X-CRM114-Status: GOOD (  18.75  )
+X-CRM114-CacheID: sfid-20250110_092642_389139_B02D7D75 
+X-CRM114-Status: GOOD (  16.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,165 +165,182 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, KVM does not handle the case of a stage 2 TLB conflict abort
-exception. This can legitimately occurs when the guest is eliding full
-BBM semantics as permitted by BBM level 2. In this case it is possible
-for a confclit abort to be delivered to EL2. We handle that by
-invalidating the full TLB.
+On Tue, Jan 07, 2025 at 09:10:07AM -0800, Nicolin Chen wrote:
 
-The Arm ARM specifies that the worst-case invalidation is either a
-`tlbi vmalls12e1` or a `tlbi alle1` (as per DDI0487K section D8.16.3).
-We implement `tlbi alle1` by extending the existing
-__kvm_flush_vm_context() helper to allow for differentiating between
-inner-shareable and cpu-local invalidations.
+> @@ -433,32 +434,35 @@ void iopt_remove_access(struct io_pagetable *iopt,
+>  			u32 iopt_access_list_id);
+>  void iommufd_access_destroy_object(struct iommufd_object *obj);
+>  
+> -/*
+> - * An iommufd_fault object represents an interface to deliver I/O page faults
+> - * to the user space. These objects are created/destroyed by the user space and
+> - * associated with hardware page table objects during page-table allocation.
+> - */
+> -struct iommufd_fault {
+> +struct iommufd_eventq_ops {
+> +	ssize_t (*read)(struct iommufd_eventq *eventq, char __user *buf,
+> +			size_t count, loff_t *ppos); /* Mandatory op */
+> +	ssize_t (*write)(struct iommufd_eventq *eventq, const char __user *buf,
+> +			 size_t count, loff_t *ppos); /* Optional op */
+> +};
 
-This commit applies on top of v6.13-rc2 (fac04efc5c79).
+I think I recommend to avoid this, more like this:
 
-Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
----
- arch/arm64/include/asm/esr.h       |  8 ++++++++
- arch/arm64/include/asm/kvm_asm.h   |  2 +-
- arch/arm64/kvm/hyp/nvhe/hyp-main.c |  2 +-
- arch/arm64/kvm/hyp/nvhe/tlb.c      |  9 +++++++--
- arch/arm64/kvm/hyp/vhe/tlb.c       |  9 +++++++--
- arch/arm64/kvm/mmu.c               | 13 +++++++++++++
- arch/arm64/kvm/vmid.c              |  2 +-
- 7 files changed, 38 insertions(+), 7 deletions(-)
-
-diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
-index d1b1a33f9a8b..8a66f81ca291 100644
---- a/arch/arm64/include/asm/esr.h
-+++ b/arch/arm64/include/asm/esr.h
-@@ -121,6 +121,7 @@
- #define ESR_ELx_FSC_SEA_TTW(n)	(0x14 + (n))
- #define ESR_ELx_FSC_SECC	(0x18)
- #define ESR_ELx_FSC_SECC_TTW(n)	(0x1c + (n))
-+#define ESR_ELx_FSC_TLBABT	(0x30)
- 
- /* Status codes for individual page table levels */
- #define ESR_ELx_FSC_ACCESS_L(n)	(ESR_ELx_FSC_ACCESS + (n))
-@@ -464,6 +465,13 @@ static inline bool esr_fsc_is_access_flag_fault(unsigned long esr)
- 	       (esr == ESR_ELx_FSC_ACCESS_L(0));
+diff --git a/drivers/iommu/iommufd/eventq.c b/drivers/iommu/iommufd/eventq.c
+index b5be629f38eda7..73f5e8a6b17f54 100644
+--- a/drivers/iommu/iommufd/eventq.c
++++ b/drivers/iommu/iommufd/eventq.c
+@@ -341,11 +341,6 @@ static ssize_t iommufd_fault_fops_write(struct iommufd_eventq *eventq,
+ 	return done == 0 ? rc : done;
  }
  
-+static inline bool esr_fsc_is_tlb_conflict_abort(unsigned long esr)
-+{
-+	esr = esr & ESR_ELx_FSC;
-+
-+	return esr == ESR_ELx_FSC_TLBABT;
-+}
-+
- /* Indicate whether ESR.EC==0x1A is for an ERETAx instruction */
- static inline bool esr_iss_is_eretax(unsigned long esr)
+-static const struct iommufd_eventq_ops iommufd_fault_ops = {
+-	.read = &iommufd_fault_fops_read,
+-	.write = &iommufd_fault_fops_write,
+-};
+-
+ /* IOMMUFD_OBJ_VEVENTQ Functions */
+ 
+ void iommufd_veventq_abort(struct iommufd_object *obj)
+@@ -409,31 +404,8 @@ static ssize_t iommufd_veventq_fops_read(struct iommufd_eventq *eventq,
+ 	return done == 0 ? rc : done;
+ }
+ 
+-static const struct iommufd_eventq_ops iommufd_veventq_ops = {
+-	.read = &iommufd_veventq_fops_read,
+-};
+-
+ /* Common Event Queue Functions */
+ 
+-static ssize_t iommufd_eventq_fops_read(struct file *filep, char __user *buf,
+-					size_t count, loff_t *ppos)
+-{
+-	struct iommufd_eventq *eventq = filep->private_data;
+-
+-	return eventq->ops->read(eventq, buf, count, ppos);
+-}
+-
+-static ssize_t iommufd_eventq_fops_write(struct file *filep,
+-					 const char __user *buf, size_t count,
+-					 loff_t *ppos)
+-{
+-	struct iommufd_eventq *eventq = filep->private_data;
+-
+-	if (!eventq->ops->write)
+-		return -EOPNOTSUPP;
+-	return eventq->ops->write(eventq, buf, count, ppos);
+-}
+-
+ static __poll_t iommufd_eventq_fops_poll(struct file *filep,
+ 					 struct poll_table_struct *wait)
  {
-diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-index ca2590344313..095872af764a 100644
---- a/arch/arm64/include/asm/kvm_asm.h
-+++ b/arch/arm64/include/asm/kvm_asm.h
-@@ -222,7 +222,7 @@ DECLARE_KVM_NVHE_SYM(__per_cpu_end);
- DECLARE_KVM_HYP_SYM(__bp_harden_hyp_vecs);
- #define __bp_harden_hyp_vecs	CHOOSE_HYP_SYM(__bp_harden_hyp_vecs)
- 
--extern void __kvm_flush_vm_context(void);
-+extern void __kvm_flush_vm_context(bool cpu_local);
- extern void __kvm_flush_cpu_context(struct kvm_s2_mmu *mmu);
- extern void __kvm_tlb_flush_vmid_ipa(struct kvm_s2_mmu *mmu, phys_addr_t ipa,
- 				     int level);
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index 6aa0b13d86e5..f44a7550f4a7 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -195,7 +195,7 @@ static void handle___kvm_adjust_pc(struct kvm_cpu_context *host_ctxt)
- 
- static void handle___kvm_flush_vm_context(struct kvm_cpu_context *host_ctxt)
- {
--	__kvm_flush_vm_context();
-+	__kvm_flush_vm_context(false);
+@@ -458,34 +430,31 @@ static int iommufd_eventq_fops_release(struct inode *inode, struct file *filep)
+ 	return 0;
  }
  
- static void handle___kvm_tlb_flush_vmid_ipa(struct kvm_cpu_context *host_ctxt)
-diff --git a/arch/arm64/kvm/hyp/nvhe/tlb.c b/arch/arm64/kvm/hyp/nvhe/tlb.c
-index 48da9ca9763f..97f749ad63cc 100644
---- a/arch/arm64/kvm/hyp/nvhe/tlb.c
-+++ b/arch/arm64/kvm/hyp/nvhe/tlb.c
-@@ -261,10 +261,15 @@ void __kvm_flush_cpu_context(struct kvm_s2_mmu *mmu)
- 	exit_vmid_context(&cxt);
- }
- 
--void __kvm_flush_vm_context(void)
-+void __kvm_flush_vm_context(bool cpu_local)
- {
- 	/* Same remark as in enter_vmid_context() */
- 	dsb(ish);
--	__tlbi(alle1is);
-+
-+	if (cpu_local)
-+		__tlbi(alle1);
-+	else
-+		__tlbi(alle1is);
-+
- 	dsb(ish);
- }
-diff --git a/arch/arm64/kvm/hyp/vhe/tlb.c b/arch/arm64/kvm/hyp/vhe/tlb.c
-index 3d50a1bd2bdb..564602fa4d62 100644
---- a/arch/arm64/kvm/hyp/vhe/tlb.c
-+++ b/arch/arm64/kvm/hyp/vhe/tlb.c
-@@ -213,10 +213,15 @@ void __kvm_flush_cpu_context(struct kvm_s2_mmu *mmu)
- 	exit_vmid_context(&cxt);
- }
- 
--void __kvm_flush_vm_context(void)
-+void __kvm_flush_vm_context(bool cpu_local)
- {
- 	dsb(ishst);
--	__tlbi(alle1is);
-+
-+	if (cpu_local)
-+		__tlbi(alle1);
-+	else
-+		__tlbi(alle1is);
-+
- 	dsb(ish);
- }
- 
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index c9d46ad57e52..7c0d97449d23 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1756,6 +1756,19 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
- 	ipa = fault_ipa = kvm_vcpu_get_fault_ipa(vcpu);
- 	is_iabt = kvm_vcpu_trap_is_iabt(vcpu);
- 
-+	if (esr_fsc_is_tlb_conflict_abort(esr)) {
-+
-+		/* Architecturely, at this stage 2 tlb conflict abort, we must
-+		 * either perform a `tlbi vmalls12e1`, or a `tlbi alle1`. Due
-+		 * to nesting of VMs, we would have to iterate all flattened
-+		 * VMIDs to clean out a single guest, so we perform a `tlbi alle1`
-+		 * instead to save time.
-+		 */
-+		__kvm_flush_vm_context(true);
-+
-+		return 1;
+-static const struct file_operations iommufd_eventq_fops = {
+-	.owner		= THIS_MODULE,
+-	.open		= nonseekable_open,
+-	.read		= iommufd_eventq_fops_read,
+-	.write		= iommufd_eventq_fops_write,
+-	.poll		= iommufd_eventq_fops_poll,
+-	.release	= iommufd_eventq_fops_release,
+-};
++#define INIT_EVENTQ_FOPS(read_op, write_op)                     \
++	(struct file_operations){                               \
++		.owner = THIS_MODULE,                           \
++		.open = nonseekable_open,                       \
++		.read = read_op,                                \
++		.write = write_op,                              \
++		.poll = iommufd_eventq_fops_poll,               \
++		.release = iommufd_eventq_fops_release,         \
 +	}
-+
- 	if (esr_fsc_is_translation_fault(esr)) {
- 		/* Beyond sanitised PARange (which is the IPA limit) */
- 		if (fault_ipa >= BIT_ULL(get_kvm_ipa_limit())) {
-diff --git a/arch/arm64/kvm/vmid.c b/arch/arm64/kvm/vmid.c
-index 806223b7022a..d558428fcfed 100644
---- a/arch/arm64/kvm/vmid.c
-+++ b/arch/arm64/kvm/vmid.c
-@@ -66,7 +66,7 @@ static void flush_context(void)
- 	 * the next context-switch, we broadcast TLB flush + I-cache
- 	 * invalidation over the inner shareable domain on rollover.
- 	 */
--	kvm_call_hyp(__kvm_flush_vm_context);
-+	kvm_call_hyp(__kvm_flush_vm_context, false);
+ 
+ static int iommufd_eventq_init(struct iommufd_eventq *eventq, char *name,
+ 			       struct iommufd_ctx *ictx,
+-			       const struct iommufd_eventq_ops *ops)
++			       const struct file_operations *fops)
+ {
+ 	struct file *filep;
+ 	int fdno;
+ 
+-	if (WARN_ON_ONCE(!ops || !ops->read))
+-		return -EINVAL;
+-
+ 	mutex_init(&eventq->mutex);
+ 	INIT_LIST_HEAD(&eventq->deliver);
+ 	init_waitqueue_head(&eventq->wait_queue);
+ 
+-	filep = anon_inode_getfile(name, &iommufd_eventq_fops, eventq, O_RDWR);
++	filep = anon_inode_getfile(name, fops, eventq, O_RDWR);
+ 	if (IS_ERR(filep))
+ 		return PTR_ERR(filep);
+ 
+-	eventq->ops = ops;
+ 	eventq->ictx = ictx;
+ 	iommufd_ctx_get(eventq->ictx);
+ 	refcount_inc(&eventq->obj.users);
+@@ -497,6 +466,9 @@ static int iommufd_eventq_init(struct iommufd_eventq *eventq, char *name,
+ 	return fdno;
  }
  
- static bool check_update_reserved_vmid(u64 vmid, u64 newvmid)
--- 
-2.45.2
-
++static const struct file_operations iommufd_pgfault_fops =
++	INIT_EVENTQ_FOPS(iommufd_fault_fops_read, iommufd_fault_fops_write);
++
+ int iommufd_fault_alloc(struct iommufd_ucmd *ucmd)
+ {
+ 	struct iommu_fault_alloc *cmd = ucmd->cmd;
+@@ -515,7 +487,7 @@ int iommufd_fault_alloc(struct iommufd_ucmd *ucmd)
+ 	xa_init_flags(&fault->response, XA_FLAGS_ALLOC1);
+ 
+ 	fdno = iommufd_eventq_init(&fault->common, "[iommufd-pgfault]",
+-				   ucmd->ictx, &iommufd_fault_ops);
++				   ucmd->ictx, &iommufd_pgfault_fops);
+ 	if (fdno < 0) {
+ 		rc = fdno;
+ 		goto out_abort;
+@@ -541,6 +513,9 @@ int iommufd_fault_alloc(struct iommufd_ucmd *ucmd)
+ 	return rc;
+ }
+ 
++static const struct file_operations iommufd_viommu_fops =
++	INIT_EVENTQ_FOPS(iommufd_veventq_fops_read, NULL);
++
+ int iommufd_veventq_alloc(struct iommufd_ucmd *ucmd)
+ {
+ 	struct iommu_veventq_alloc *cmd = ucmd->cmd;
+@@ -580,7 +555,7 @@ int iommufd_veventq_alloc(struct iommufd_ucmd *ucmd)
+ 	list_add_tail(&veventq->node, &viommu->veventqs);
+ 
+ 	fdno = iommufd_eventq_init(&veventq->common, "[iommufd-viommu-event]",
+-				   ucmd->ictx, &iommufd_veventq_ops);
++				   ucmd->ictx, &iommufd_viommu_fops);
+ 	if (fdno < 0) {
+ 		rc = fdno;
+ 		goto out_abort;
+diff --git a/drivers/iommu/iommufd/iommufd_private.h b/drivers/iommu/iommufd/iommufd_private.h
+index 3c0374154a94d3..6c23d5b58901af 100644
+--- a/drivers/iommu/iommufd/iommufd_private.h
++++ b/drivers/iommu/iommufd/iommufd_private.h
+@@ -434,20 +434,11 @@ void iopt_remove_access(struct io_pagetable *iopt,
+ 			u32 iopt_access_list_id);
+ void iommufd_access_destroy_object(struct iommufd_object *obj);
+ 
+-struct iommufd_eventq_ops {
+-	ssize_t (*read)(struct iommufd_eventq *eventq, char __user *buf,
+-			size_t count, loff_t *ppos); /* Mandatory op */
+-	ssize_t (*write)(struct iommufd_eventq *eventq, const char __user *buf,
+-			 size_t count, loff_t *ppos); /* Optional op */
+-};
+-
+ struct iommufd_eventq {
+ 	struct iommufd_object obj;
+ 	struct iommufd_ctx *ictx;
+ 	struct file *filep;
+ 
+-	const struct iommufd_eventq_ops *ops;
+-
+ 	/* The lists of outstanding events protected by below mutex. */
+ 	struct mutex mutex;
+ 	struct list_head deliver;
 
