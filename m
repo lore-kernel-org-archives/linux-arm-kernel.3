@@ -4,84 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9245AE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 08:12:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5203CE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 08:14:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+s9p/Z1M0Kznr7lUtwqDa2vlvfKB26c9CnzYoClwx8o=; b=M0vXrFUVMagdqcrwj+kxWyR7vl
-	0TxiFXvpgf3p5Wsg9RW5kagRv166kj4kXHskyTOTRuep7qEWfjr6qJC7xsLl7IViaQ8/b8L7YyupW
-	fD0usEN2c38fSM1cGPrO1H4NwYMIpoirYmDW4D0tRhqFGF1Ak5lSg6rxo0tlJqfftHlzTfmkwjb3V
-	qxdB8B2zKkZSDhf1REQncSJ6p1IM4PNZ1oj3XOudjr6Zk1IjpHqyamP8aooN24eBfAGHRX0IQM7Ch
-	VZFyTppWD7wqxttTzTrOj0PxMwUMrQJXLZom1+DGc7m8mOtqX/LUEXMccTrSDD97yFNxmBwcGC3P2
-	AG/mWb7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LxSn76+HXS+LBGws2ThHr+S6dBafkbCiD1wgZAt8HHw=; b=eTHK5idD2rvy2zckVbEPEMswQh
+	uSA7Csn9C3qCoh/6y/mbI6oECf8mP3Dw+aXryUC/kC4mrO4ehSYS2wVFt4uqDiLU+2viXqbRvnJjI
+	17YNjxRR++LpZMXDSuA6DIcxp0v6cy3BGEonOEx+n/AI7YCMzffHiYKHLIWD6o7NWLGkCxX9oDp0n
+	grb9/MPrjwpHwFd7IXS72+FfdMiJjvsDvJhAsOSOpQ22hR14fi1sW5MjjusJ9N1FV+pipCFqQBGXB
+	1kEsJfXBvA7fZHHQteLTjsFmxnSCSMM0p9e7HBnCmSK+neV374Gq9Fs0BRhM2yCqbzqxK3ZYgeRx1
+	AjxiwZvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWA7R-0000000ETUo-33Fa;
-	Fri, 10 Jan 2025 08:11:49 +0000
-Received: from mgamail.intel.com ([198.175.65.20])
+	id 1tWAAB-0000000ETpn-2rqo;
+	Fri, 10 Jan 2025 08:14:39 +0000
+Received: from relay1-d.mail.gandi.net ([217.70.183.193])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWA6E-0000000ETJt-0CDb
+	id 1tWA8x-0000000ETiT-08pH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 08:10:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1736496634; x=1768032634;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=u0SlY39EHudaIchSfeH9EDK+XhR46+IbBeM2GLNudWc=;
-  b=DfWDMX4848ca10+i66lWVNuRe31S0yt2FUyhrCQFrfN9XM04W4HG0pl6
-   P8miHlWVFUxBbcL/+2hQxNtqeCkl5UjPLLQKE96iVFAg7Tr2rooQAx5/G
-   WRevoUBObR4pyqjOZ5sS+Ei1BVuI4rpFaCFFKzoIVue+4jzUZVSDA+gm6
-   Xl3EKwWmE2CzmHy8HhRY2k7rDKXlmOZ8Cg8v8TV82KDAnwpbzafHvjIAW
-   MU3cuv0C7jKcBaBPrNTR+4q4keDI/EJfM8vcECiKc6F5YmSn1nb8P/B/Q
-   B8WjiQh/LWeijb2hiMJW9xYY4KcX3XYP9hWgNaK82a3Nh1WTU+WKkb9DI
-   g==;
-X-CSE-ConnectionGUID: y78/xLiYQS+tmNFfDXGwTg==
-X-CSE-MsgGUID: RczqudYKSqeI2wqBKuV5gw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11310"; a="36471692"
-X-IronPort-AV: E=Sophos;i="6.12,303,1728975600"; 
-   d="scan'208";a="36471692"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Jan 2025 00:10:33 -0800
-X-CSE-ConnectionGUID: i7ifN1BaQc2OMi34W+qoTA==
-X-CSE-MsgGUID: WYJk5AcTQVGQibvApw/qYQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="134566256"
-Received: from turnipsi.fi.intel.com (HELO kekkonen.fi.intel.com) ([10.237.72.44])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Jan 2025 00:10:30 -0800
-Received: from kekkonen.localdomain (localhost [127.0.0.1])
-	by kekkonen.fi.intel.com (Postfix) with SMTP id 91FA511F89A;
-	Fri, 10 Jan 2025 10:10:27 +0200 (EET)
-Date: Fri, 10 Jan 2025 08:10:27 +0000
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
-From: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: Alain Volmat <alain.volmat@foss.st.com>
-Cc: Hugues Fruchet <hugues.fruchet@foss.st.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Hans Verkuil <hverkuil@xs4all.nl>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-media@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 0/8] media: stm32: csi / dcmipp corrections
-Message-ID: <Z4DV8zVqQf9Bl0X5@kekkonen.localdomain>
-References: <20250108-csi_dcmipp_mp25_enhancements-v2-0-05808ce50e41@foss.st.com>
- <Z4DVj9ubGkAmkZKN@kekkonen.localdomain>
+	Fri, 10 Jan 2025 08:13:24 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 04E07240002;
+	Fri, 10 Jan 2025 08:13:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1736496796;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LxSn76+HXS+LBGws2ThHr+S6dBafkbCiD1wgZAt8HHw=;
+	b=MJK3vIa31kDZMfbecXlWrbQJ0sgpg90ldaVb/ml7+HNKPLoPIdk2kqKNEq7XNEDgkhem6m
+	Ve53lgB4VZ0oM48fmWQDvIPt/nA9nkIrjcY+IWR3nKN3122VKbqNHv/1Ap36fFhY9hWf6b
+	H1outDJitoPvgf8rIt5GzP/HbUtEEt+cib4mkBTKjaUN9K0+AzqMVIo4onHYw4nkvwxjzf
+	PC85PuLOS0SDc62i38/gdCyig4zokF5TjBEckWCO9f5sawfOYXya90ivx+2pE8UDSjCvaX
+	fx8vViJmTwk/C6X62X1GKwGt2lNxZg6d/J3mACDEtItIroOVaiwobOJROq3vQQ==
+Message-ID: <baf1d437-917b-4fe6-bab8-65dfb3ac1e6a@bootlin.com>
+Date: Fri, 10 Jan 2025 09:13:07 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z4DVj9ubGkAmkZKN@kekkonen.localdomain>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] tty: atmel_serial: Use of_property_present() for
+ non-boolean properties
+To: "Rob Herring (Arm)" <robh@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20250109182053.3970547-1-robh@kernel.org>
+From: Richard GENOUD <richard.genoud@bootlin.com>
+Content-Language: en-US, fr
+Organization: Bootlin
+In-Reply-To: <20250109182053.3970547-1-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-GND-Sasl: richard.genoud@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_001034_138675_F25B0D64 
-X-CRM114-Status: GOOD (  17.89  )
+X-CRM114-CacheID: sfid-20250110_001323_208380_C9B127CC 
+X-CRM114-Status: GOOD (  15.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,31 +80,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 10, 2025 at 08:08:47AM +0000, Sakari Ailus wrote:
-> Hi Alain,
+Le 09/01/2025 à 19:20, Rob Herring (Arm) a écrit :
+> The use of of_property_read_bool() for non-boolean properties is
+> deprecated in favor of of_property_present() when testing for property
+> presence.
 > 
-> On Wed, Jan 08, 2025 at 02:16:03PM +0100, Alain Volmat wrote:
-> > Various fixes within the stm32 csi bindings/drivers and
-> > stm32 dcmipp driver.
-> > 
-> > Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
+> As of_property_present() returns a boolean, use that directly
+> and simplify the code a bit while we're here.
 > 
-> Thanks for the update. I tried to apply this but it doesn't, and the
-> culprit appears to be this line in dcmipp_graph_notify_bound():
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
+>   drivers/tty/serial/atmel_serial.c | 18 ++++--------------
+>   1 file changed, 4 insertions(+), 14 deletions(-)
 > 
-> 	unsigned int ret;
-> 
-> That appears to be a bug as such. The interesting thing is that the patch
-> changing things around it presumes
-> 
-> 	int ret;
-> 
-> so it won't apply. Do you already have a patch that fixes it? It should be
-> cc'd to stable, too, with a Fixes: tag.
+> diff --git a/drivers/tty/serial/atmel_serial.c b/drivers/tty/serial/atmel_serial.c
+> index 0cf05ac18993..f44f9d20a974 100644
+> --- a/drivers/tty/serial/atmel_serial.c
+> +++ b/drivers/tty/serial/atmel_serial.c
+> @@ -1727,26 +1727,16 @@ static void atmel_init_property(struct atmel_uart_port *atmel_port,
+>   
+>   	/* DMA/PDC usage specification */
+>   	if (of_property_read_bool(np, "atmel,use-dma-rx")) {
+> -		if (of_property_read_bool(np, "dmas")) {
+> -			atmel_port->use_dma_rx  = true;
+> -			atmel_port->use_pdc_rx  = false;
+> -		} else {
+> -			atmel_port->use_dma_rx  = false;
+> -			atmel_port->use_pdc_rx  = true;
+> -		}
+> +		atmel_port->use_dma_rx = of_property_present(np, "dmas");
+> +		atmel_port->use_pdc_rx = !atmel_port->use_dma_rx;
+>   	} else {
+>   		atmel_port->use_dma_rx  = false;
+>   		atmel_port->use_pdc_rx  = false;
+>   	}
+>   
+>   	if (of_property_read_bool(np, "atmel,use-dma-tx")) {
+> -		if (of_property_read_bool(np, "dmas")) {
+> -			atmel_port->use_dma_tx  = true;
+> -			atmel_port->use_pdc_tx  = false;
+> -		} else {
+> -			atmel_port->use_dma_tx  = false;
+> -			atmel_port->use_pdc_tx  = true;
+> -		}
+> +		atmel_port->use_dma_tx = of_property_present(np, "dmas");
+> +		atmel_port->use_pdc_tx = !atmel_port->use_dma_tx;
+>   	} else {
+>   		atmel_port->use_dma_tx  = false;
+>   		atmel_port->use_pdc_tx  = false;
 
-Ok, the tag isn't necessary as there lack of the sign doesn't seem to
-matter in this case.
+Acked-by: Richard Genoud <richard.genoud@bootlin.com>
 
--- 
-Sakari Ailus
+The code is indeed nicer like that!
+Thanks!
+
+Regards,
+Richard
 
