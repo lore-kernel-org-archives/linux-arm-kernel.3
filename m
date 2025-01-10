@@ -4,73 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50CB0E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 16:56:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB85FE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 16:58:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oQPZ2PCL3JKps5q9v7Pq0X/rTbfUgE3efhEKfnZ/yas=; b=WiRe6OMVA5dOJjp9YK+nTsKvqY
-	gZ6+rgxuirofgVRIndD2rxjQmLrjuf0tni52RHAMBoOu5Rhy8erwEpliTZer/ZrMfjrxkwPQb6MDH
-	NowTNQB7Kw00a29Vpv1dCgAMCgJKapuVQqjvDNSs8SgzCFTQHuaf4LYuWufEbNeMgTIw3Mmk4cVhY
-	sd+W0uUCmvYhxgACHB8F9tspfBcNu8/t0BRhmupQaa7zPpqnlWWQJ7IGIBq1T4tNcJtzV6MixDbka
-	GLpFxXiJwMl+tbJFpelN9rX5sDw9WaadGUE99d/jNn1RhlLxDGJFN+TFhbaGXi5tkfefzMkHp0Va8
-	XezLfiIA==;
+	bh=8fs2YrVjOPTfzRxvaipeCPKE6kil2NRiNW9BjOoPyeQ=; b=lToLDxr+vVXWbT1f2QgplDceoL
+	X72NPUHAOqkPBwaooQGPX9zEUEeygoSyJjnI+pSmbI+d9WNt3eoJXZRaQAYt4vu9JxyOiGPO2vx/P
+	daZ8fX3sXsMk44pGF1iDQ2XGM1gNm1MuIo5TpcJ0qJlQ9rF+po5+WTTD3d4yaogXyB2w8npILgXBp
+	cJAQ2T9//INfi5lauc10xU14hzllw7qdxHWqKWJebW7UamiwAE7r4udeNVu96HU79GWBdBrkGplyC
+	rMPzmJTG8KQYU2PSvVnNuYzB+lVnolfXLFD6kuC8Xf3tvS6xAZJOt+h0iUgFfZwPpD/mhDbFyONTw
+	XwRaPiig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWIIw-0000000GLd8-08Ld;
-	Fri, 10 Jan 2025 16:56:14 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tWILI-0000000GM85-3EUX;
+	Fri, 10 Jan 2025 16:58:40 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWIHh-0000000GLEd-0eJF
+	id 1tWIK4-0000000GM0c-28Lz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 16:54:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2C1C65C4490;
-	Fri, 10 Jan 2025 16:54:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBCCDC4CED6;
-	Fri, 10 Jan 2025 16:54:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736528095;
-	bh=ZsJFtpzkgfFx5IUngKqUFnmqOEM22neZlo3vgVRJV5E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MHSbUTXXHZDUaxWjNIoONoOJkZhszbvuTyR4W+ln3RqpdepqpiRbh5t5e4t24hGzf
-	 ZDW2cvXkydx4t/nyzyP9Er8v8CY8n6hD60i2hm84SGOEWujc0pTLOys+TtYuoAMNcj
-	 gUIaXgoNhM6+W01m7blwME6hA3t7tXd+dU5sDGP2tFmVkHcqldRg9V16rY9y000iFX
-	 ZZnEt9eHYgMjacaLuHfr36CdMoQyCLnq3nzf2IQkuxWBxpiAT1jY+lw0z7dzPYSRQh
-	 B41j7T3UCRhAm7D/I+hspUkBrOFoJ8S56IUYqfIi0Za5zyNRGgqUIooCW9mVyEIbht
-	 TUksbYykhoIxQ==
-Date: Fri, 10 Jan 2025 08:54:55 -0800
-From: "Darrick J. Wong" <djwong@kernel.org>
-To: Alistair Popple <apopple@nvidia.com>
-Cc: akpm@linux-foundation.org, dan.j.williams@intel.com, linux-mm@kvack.org,
-	alison.schofield@intel.com, lina@asahilina.net,
-	zhang.lyra@gmail.com, gerald.schaefer@linux.ibm.com,
-	vishal.l.verma@intel.com, dave.jiang@intel.com, logang@deltatee.com,
-	bhelgaas@google.com, jack@suse.cz, jgg@ziepe.ca,
-	catalin.marinas@arm.com, will@kernel.org, mpe@ellerman.id.au,
-	npiggin@gmail.com, dave.hansen@linux.intel.com, ira.weiny@intel.com,
-	willy@infradead.org, tytso@mit.edu, linmiaohe@huawei.com,
-	david@redhat.com, peterx@redhat.com, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, nvdimm@lists.linux.dev,
-	linux-cxl@vger.kernel.org, linux-fsdevel@vger.kernel.org,
-	linux-ext4@vger.kernel.org, linux-xfs@vger.kernel.org,
-	jhubbard@nvidia.com, hch@lst.de, david@fromorbit.com,
-	chenhuacai@kernel.org, kernel@xen0n.name, loongarch@lists.linux.dev
-Subject: Re: [PATCH v6 21/26] fs/dax: Properly refcount fs dax pages
-Message-ID: <20250110165455.GR1306365@frogsfrogsfrogs>
-References: <cover.11189864684e31260d1408779fac9db80122047b.1736488799.git-series.apopple@nvidia.com>
- <b2175bb80d5be44032da2e2944403d97b48e2985.1736488799.git-series.apopple@nvidia.com>
+	Fri, 10 Jan 2025 16:57:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Y/ytcvnvseNC9sdrI/ghM3li98l6oT8Steae3Fb/DcjXixwPq4WsS3SWfGHtaY2N28K3+H8yQ5j1fUMpUz/8KqUmoJ6YSLlZA2rhHLcDoHdfbgVEpoy6x3tMNleC1yyWttqGdV/TMNU0Pz1VW4qjezfcFGyt8PSdmiOlwkHvv9UVP4DN4RC7cjsUmqbK62BCSRklA95jBWxzIY6Q1OdZSZeFe8uNWEAxSXu8gVEyLVoIEgMTOPLNgf190PvFj+lrZkNc3ZWKIKcqmiPJS1LkoOOa8zMKlSkfS8NFVSQa67qEKTmi5xXESLgLE4IL0x4x1Rg1LxZLQNwpzhLL9ZU+0w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8fs2YrVjOPTfzRxvaipeCPKE6kil2NRiNW9BjOoPyeQ=;
+ b=reLGn9vwCGrNEOd5yQ0FX3lH6lfI51QD1HcbabPOCi5KQaUVg97d/AbARk5RdvOCehxb+jSsUuKE52rhDBkGELj7z/8ttqBOnal3rg2a0WIjWT4Nh4Pp7mxKKfiqqzukRpAmrAbuPe5ODDIw8OWhWBdJQg2vtJfvNSflg7Gl7KJfedc5C1P/vaIpWZjmlvlgIuZfMLR1YUtsh78B/EVqRagD94nHMjTVRRbUrYR9KC5zw0wH+xbdFQQAmNW3ZjdKrMsmKhT2ubykamix26J7OVZrkuLKMHz+SP4NGr7KixZ/RiZbo8k7pG6i5T9jnLRSAyNTxc+RxdvE2G6jFuzufg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=uclouvain.be; dmarc=pass action=none header.from=uclouvain.be;
+ dkim=pass header.d=uclouvain.be; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uclouvain.be;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8fs2YrVjOPTfzRxvaipeCPKE6kil2NRiNW9BjOoPyeQ=;
+ b=LsVOetQvv1CGwWGGBIxg7kNeopTeZKU8hTO19H+A5x3UsLSuKZ0TXXin/y8Cvse5SKbS2ncIS50T9ZyJ4rLleH5LARkClbfdjCcHNOlXL2g7EdOULbxSnvUc+GXw+qFgIRnCHBf5VqJPMIqr6OCz2NfldmhXLd6JpGB5u7S5zr2ThyKxdMN9NbvHc0U6ZKGf8r5rIVZsAhrOB4NDFFnggrA1miI2Ju5OoyQTKZJPMTHU+JPYBk/Fw5jQ5CApyz8VxNll+XCQVEbPO66ujcFNLHwKU9RjpgVBq24zRVWlouosSY80jDAIwJ18/OXZixZL6mYfVGOgiGT4oCqpYV1+Ww==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=uclouvain.be;
+Received: from AS8PR03MB9047.eurprd03.prod.outlook.com (2603:10a6:20b:5b6::13)
+ by PAXPR03MB7698.eurprd03.prod.outlook.com (2603:10a6:102:204::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.13; Fri, 10 Jan
+ 2025 16:57:16 +0000
+Received: from AS8PR03MB9047.eurprd03.prod.outlook.com
+ ([fe80::c90e:deef:6dcf:538c]) by AS8PR03MB9047.eurprd03.prod.outlook.com
+ ([fe80::c90e:deef:6dcf:538c%6]) with mapi id 15.20.8335.012; Fri, 10 Jan 2025
+ 16:57:15 +0000
+Message-ID: <7d8d2406-fd49-446d-82e9-e088eaa7a9d1@uclouvain.be>
+Date: Fri, 10 Jan 2025 17:56:24 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/4] power: supply: add support for max77759 fuel gauge
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Dimitri Fedrau <dima.fedrau@gmail.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org
+References: <20250102-b4-gs101_max77759_fg-v2-0-87959abeb7ff@uclouvain.be>
+ <20250102-b4-gs101_max77759_fg-v2-1-87959abeb7ff@uclouvain.be>
+ <7178eb322fafaf0fbcdc4b91d9f9a65d996e4e6b.camel@linaro.org>
+Content-Language: en-US
+From: Thomas Antoine <t.antoine@uclouvain.be>
+In-Reply-To: <7178eb322fafaf0fbcdc4b91d9f9a65d996e4e6b.camel@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: PR3P189CA0007.EURP189.PROD.OUTLOOK.COM
+ (2603:10a6:102:52::12) To AS8PR03MB9047.eurprd03.prod.outlook.com
+ (2603:10a6:20b:5b6::13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b2175bb80d5be44032da2e2944403d97b48e2985.1736488799.git-series.apopple@nvidia.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR03MB9047:EE_|PAXPR03MB7698:EE_
+X-MS-Office365-Filtering-Correlation-Id: 901b1cda-7c23-4ea0-0008-08dd3197d5e6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|10070799003|1800799024|376014|7416014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?UW8vb3RSa1NOQVE3L2tuQWVqUnN2V2JuNmVWOFpPSlZ2TUJjbmh1U1EvR3Ny?=
+ =?utf-8?B?eXNveUxLSEZxNGhIU0pRSThWNlFaN0JjdjZxU0IydXd1M1V0bTRYLzZPdzFn?=
+ =?utf-8?B?N3dwd3lvbjh1TkQ1RVJYNXNrVmRhendQeldjZlUwaHk5Y21aRHRra1lobXFF?=
+ =?utf-8?B?RjZsNG90VjVGTnJubFFiN0dybU1mWXN2cElYb05FUzczT1ZDdGVkeWxsL3Nh?=
+ =?utf-8?B?MzFQYllkTVM4dXlCM0lVNEl2Z3FuRDNJNkNYNi9oYVBONVpIWnNuNm9qUjdT?=
+ =?utf-8?B?S0FSZG91ZDBaT3lBKzNDcXJ6SUlsS3NWZzBuRzlnbHoraVN6bU1UdFV0SHhh?=
+ =?utf-8?B?a2RRYVpYMDJoWmFjVnhwbWY0ajdsRGpsc0x3ZFo4QllCQ1d2TytFVG9vRVd2?=
+ =?utf-8?B?aGQxcTFsclJEd2dXUzczdDlONFNkL0toN1V0bTJ2U0RTMmt6RmhMZW1pTWdy?=
+ =?utf-8?B?L2szL3hjV2VKL1NXQkQxKzNqMHczWEI5RTAyY2xQOFQzVTZBWUtZc0lwOURJ?=
+ =?utf-8?B?V29IOWxnMG1UQUR0THVzMjlZS0NBM0Q0anYzZ2tsTHF3VDFYTFRPbVF1Qk1u?=
+ =?utf-8?B?NllycXRMK0d1MDQwU3FJbTEwbUx3ZERPRXd1THU1Z1RVa29IZHdwc2w0MXZl?=
+ =?utf-8?B?bTkwZEpZd3E3cmx6ZDNsNnltY0tML0FIU2lUU1lIcVh2elJ5aVU5Uk1vQUJ2?=
+ =?utf-8?B?RG5LbTRiVGR3blljczZHWS84ZCtzNVlIUk1yNzNXOHU1MFE3eVd3ZWVDSTNz?=
+ =?utf-8?B?S00xTzVGN3UxdmI4WWVaYlBEUjJ1cWI5U2s3d3BLRlM3QkRaZUVuUTlDQmNu?=
+ =?utf-8?B?WTFoMW1YSVdyUFN5NjNVWkkvSEFUWWFTQnlLVFhiQmx3a2M3V0d1M2dHRWRO?=
+ =?utf-8?B?NlRMclZSLzJFd1VzNzhnR3VkQVZEYVZsVk93dkhYZ3Y4S3FGWEcxZzhGR0hj?=
+ =?utf-8?B?TlVQOWphRmM1cDZNY3AyOThqZE5yMEc2dUUzdmpYNTl1VTZmK3dvSTYxY1ky?=
+ =?utf-8?B?dGJ5WUZSTFE5WXZseCtKZ3pnVTB0dGhtcC9MQ21KMDU4b0h1THdIdUY4WGcx?=
+ =?utf-8?B?QUwwcFdSamZubUZUc0NzMFp0dHhzc01ibGlRNVBkNDlSaGdudEhoN0RMcExI?=
+ =?utf-8?B?Wlg4dnoxdllId0toaUhESlFLQlM1ZHI4NCtjQlFSUStGd2ZjblhOVVhqUTh0?=
+ =?utf-8?B?UXRxdU1TaFVGY1I5YUVWVjhPTEpQNkdtanRjaklCYVhabFJlSlF4dmxjR0Jm?=
+ =?utf-8?B?TUhRaStHclRmaHkxcWEyKzBIVGx4d2RINzhBc2tJV0FOZGNaTlNWRjcvcnJk?=
+ =?utf-8?B?MDVzTUNYOHdqWUVKYW9zcFBVUVNrOVdyZ0NlRU1pTk1NNDdJWXp3SGRUTUtM?=
+ =?utf-8?B?blFlcmxmaHRjbDFXWXVsM1Z3aEp2b2VMZmkzUGRnbUpQc1ZWS1o3TjNEWDVp?=
+ =?utf-8?B?QUZMSzI5dGRGTHVrVGxRcUtSa1lVemdkWHg1MEx0NW9BSnZ3KzhHQ0VKNkpD?=
+ =?utf-8?B?QW9VV1ZRb0FUODFTTElESDRLRlBqdkU5TkFQVjVzR2gwV1NJSEU5Q1U4VTdW?=
+ =?utf-8?B?T3hQZ051Ym85Yk1Pc3YxdFBJNTFzVWs2N1NSTG5jcDV0aGZUSytzbG43ZE95?=
+ =?utf-8?B?WGhtR09wMnNManpIeVo4UWJjRE5oY3o4b0VSM1R6ancrb25hek1waW13c1Ra?=
+ =?utf-8?B?bTY4ZW8zMXI2R2RkbzdHTEFQVEQrcDJ5elVJK2R5WXdKMkFKLzRDaEkzKzZx?=
+ =?utf-8?B?dUs4cGxwb1hVWk1hZS8ydnpFZjlCWVV1R0ZCT080QVpRak5adWJFQnZFRkxn?=
+ =?utf-8?B?VmhzSTRISzRpQTBjdGtybnR4VVFYTXBUVjdWd3cvVWxPdDZ4RitzM1FMRHA1?=
+ =?utf-8?Q?WP9/X7HywBdX8?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR03MB9047.eurprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(10070799003)(1800799024)(376014)(7416014)(921020);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UnJKa0JtZ3NVdjVZcEZRNkVPb2o0eCtNWmtUSEdEc0RlTG1RelgxK0JwRHE3?=
+ =?utf-8?B?RGZWZlFXcXRlaFZBMThBdWN0U0RBM3BSZkdUNmlJVVdKTFhGOUczRnhWMDZO?=
+ =?utf-8?B?RnFtSmlPczY1V2src0EwVmtvRjBHQlNiRzlpamx2dGpvZ3plbnJVeEkvbGQv?=
+ =?utf-8?B?WGZRMUFFeTFyQWx5QlAzamNzeFo1Ni9OVEorNVdua2hjUGZuV29rSVFmNHVQ?=
+ =?utf-8?B?R2lvUHRaWU5HeWRSVytRZ1dUc1o0czB3SzhEekJ5czA4VVJTT3dGdGJxNHNI?=
+ =?utf-8?B?WWpCRFFscysxREduZUYrc1h3NXJmc0cweElaMm0xeHhQcENsRktwOEZqaW0v?=
+ =?utf-8?B?QnlKaW1oZlZGNDRjdGRhbGhTQ01xOU45T0RvWVhPMndvRUN4ckZKN2dlbGhr?=
+ =?utf-8?B?bmNZRTljTCtYNEdDbFpQODRBLy8xczNDLzNTdWh3cWJSU1lFVG52Z0tLYkNa?=
+ =?utf-8?B?dDgvZk1rT2VIZjhybmFYMG1NRHUxbzI1R1BPcTRTZGtiNEoyakNXMEtVcmZC?=
+ =?utf-8?B?RVNibm1nSExZWS9VYUtTcEpRalR6VVQxMGZzd1Y4S2IwWk1KMVFDNDBTTnVi?=
+ =?utf-8?B?ZENKM3NTU3pHRFdyZVlHeXNwam9MUXh3NU15V0J2TEs4dzVkTEdGZURKUGh6?=
+ =?utf-8?B?ZWs4Y1RPaDVuQUkrNWJza2NNV1dLQ0gzcThibzJZaUlQSGExaTVOaFhSZmVI?=
+ =?utf-8?B?Smxhb1A2U21pRktKdzExU0d6eXUvZ3Njem8xM0ZvMjlWK0hQZC9lSnBzOUEz?=
+ =?utf-8?B?TkdVRTRWd09MZGQwS1ZoSG9QSlRRS0lYYnVlUktZQ0ZkZTBraTZZTjVKckRV?=
+ =?utf-8?B?QS9ZdC9JVW1tU3JhdkxCVkpPaUVkNm1LUjFKZFE5V2pFWDNFUHRZSWovL3dy?=
+ =?utf-8?B?R1ZPMFkvdEI1YUFLRW9MVzYzUjQ3VnFYcFpsMDBGRUVqVTlEa3lWL3Z1SFZk?=
+ =?utf-8?B?WTVOdE9HVDRQdXYxaC90dkF2aEI5RWw1VVJlRjljclhkMi9jZEcrMnNuVWJF?=
+ =?utf-8?B?aTdJRUdoaEUxSHhPN3N6MWFnSmdTWW5PODBsR3QxcFh5bFpqZTNKQXFieU1r?=
+ =?utf-8?B?Z1dnbGFVL0QyZmVjMnZWcVdyWHByWFVNUlFpaFNGYm1GQkpZUjkrUXAvZExq?=
+ =?utf-8?B?TCtCeFVMaWFITTFGcWlmQTFobGRQTEtydXVYc0tTQ2dQVXdVQ3M4WVRVWHpK?=
+ =?utf-8?B?ZkNUK3JqOG5oUDVSY0NpK1paSHNIN0JJOWVXazJPR1M1SXRiK1BiTGlzQ1My?=
+ =?utf-8?B?bXhpZy9hNFpNY25KdFIxd2JEcDl0UjBmRzN6bHRUMzNpcmI1VFovOFhDNTI0?=
+ =?utf-8?B?Y1ZkbXlQaGN5Zkx0TzJNREVPTVo0RldqLzczWnhyMytHR3NXcEg5SEZOT004?=
+ =?utf-8?B?bC9kOWt2VEgzWHI3OUtkVis3VnROY29zdE9WaVl3YUR5TCtvVHh1akNyM3NK?=
+ =?utf-8?B?em9ja3lPcTYzaEpaODB3b1JkYmxYNTFOVzRMUGFkM0EzRE9BZFZ4NmtPWFNn?=
+ =?utf-8?B?M0RYVFNZZThQZDAyV3MvMll4VnJDcnlwRlgwS2FLcWhKa0NPQ0dZaVhqQ29y?=
+ =?utf-8?B?SlRNYSt4dUx0dWNwVVBpOUlubkcrQ09NMEFIMzgzc0NwcXFjSU5TbXNOZEJZ?=
+ =?utf-8?B?eUxwZFRTUWRabG9IbTVIM1J1UnQyOGNrV3hqOUd2SGFhOSt2Y1JsRzVBV0Fs?=
+ =?utf-8?B?bmFqZ0hzUmsvb1ZMWHhLanlKYkZpd3BtZmZFU0IwY1dEQ2dQNW5yQWQrbjY5?=
+ =?utf-8?B?eDh5ZStJdTZzSkxTWTBSSE5oRUFKQnJuOEJJeFg2Y0UxbmgrQ2oyQlVBa3Y2?=
+ =?utf-8?B?NE9kajQwZ005ekJXV1l0bU5QNTk4bERaY1ZMS1ptTjNMcFU2N01rYXhBZ0VE?=
+ =?utf-8?B?c3Zaa2oxV3hreVhadkhRbm1yVUtGYm9KT052VXRzQkg3by9oYTZOclc3bHVD?=
+ =?utf-8?B?SnF3TUt4OC9mVnduZXZDZjAyakNwQnRFU1pMTG15am1leGlyTWVwK1NOaWdV?=
+ =?utf-8?B?N0lKRk1pZzlsL0s5MGxWREhDK0hZVmN5OXVyL3oyanFiZnRSYkovVXljV1U3?=
+ =?utf-8?B?bHNVZndnZXlodThLL2swd0FQWWVzci9NWlNRL1lsVGZ4TnY4Nm1BZlRiVUhO?=
+ =?utf-8?B?UjJ5NDRmZDN6UmxlUEVlUnFLcTNMUFhrQnlPTnB5MW1GRjVJVHI5Qm16dWtC?=
+ =?utf-8?Q?e8e3DrB1/2BeUocf3gTz8eDtHe9P2+axxxAvmHJgZz58?=
+X-OriginatorOrg: uclouvain.be
+X-MS-Exchange-CrossTenant-Network-Message-Id: 901b1cda-7c23-4ea0-0008-08dd3197d5e6
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR03MB9047.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jan 2025 16:57:15.6647
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 7ab090d4-fa2e-4ecf-bc7c-4127b4d582ec
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 0bYbzP+duKVVJWCS0Kdj+kqsr+csA+4VW3AX2XhlbUXqVdNTjvo0zS/kD2gq/LFl2waivioF1UGlMOYsdVrdnQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR03MB7698
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_085457_283571_385AEED2 
-X-CRM114-Status: GOOD (  58.76  )
+X-CRM114-CacheID: sfid-20250110_085724_564107_9614ECB9 
+X-CRM114-Status: GOOD (  29.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,871 +184,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 10, 2025 at 05:00:49PM +1100, Alistair Popple wrote:
-> Currently fs dax pages are considered free when the refcount drops to
-> one and their refcounts are not increased when mapped via PTEs or
-> decreased when unmapped. This requires special logic in mm paths to
-> detect that these pages should not be properly refcounted, and to
-> detect when the refcount drops to one instead of zero.
-> 
-> On the other hand get_user_pages(), etc. will properly refcount fs dax
-> pages by taking a reference and dropping it when the page is
-> unpinned.
-> 
-> Tracking this special behaviour requires extra PTE bits
-> (eg. pte_devmap) and introduces rules that are potentially confusing
-> and specific to FS DAX pages. To fix this, and to possibly allow
-> removal of the special PTE bits in future, convert the fs dax page
-> refcounts to be zero based and instead take a reference on the page
-> each time it is mapped as is currently the case for normal pages.
-> 
-> This may also allow a future clean-up to remove the pgmap refcounting
-> that is currently done in mm/gup.c.
-> 
-> Signed-off-by: Alistair Popple <apopple@nvidia.com>
-> 
-> ---
-> 
-> Changes since v2:
-> 
-> Based on some questions from Dan I attempted to have the FS DAX page
-> cache (ie. address space) hold a reference to the folio whilst it was
-> mapped. However I came to the strong conclusion that this was not the
-> right thing to do.
-> 
-> If the page refcount == 0 it means the page is:
-> 
-> 1. not mapped into user-space
-> 2. not subject to other access via DMA/GUP/etc.
-> 
-> Ie. From the core MM perspective the page is not in use.
-> 
-> The fact a page may or may not be present in one or more address space
-> mappings is irrelevant for core MM. It just means the page is still in
-> use or valid from the file system perspective, and it's a
-> responsiblity of the file system to remove these mappings if the pfn
-> mapping becomes invalid (along with first making sure the MM state,
-> ie. page->refcount, is idle). So we shouldn't be trying to track that
-> lifetime with MM refcounts.
-> 
-> Doing so just makes DMA-idle tracking more complex because there is
-> now another thing (one or more address spaces) which can hold
-> references on a page. And FS DAX can't even keep track of all the
-> address spaces which might contain a reference to the page in the
-> XFS/reflink case anyway.
-> 
-> We could do this if we made file systems invalidate all address space
-> mappings prior to calling dax_break_layouts(), but that isn't
-> currently neccessary and would lead to increased faults just so we
-> could do some superfluous refcounting which the file system already
-> does.
-> 
-> I have however put the page sharing checks and WARN_ON's back which
-> also turned out to be useful for figuring out when to re-initialising
-> a folio.
-> ---
->  drivers/nvdimm/pmem.c    |   4 +-
->  fs/dax.c                 | 212 +++++++++++++++++++++++-----------------
->  fs/fuse/virtio_fs.c      |   3 +-
->  fs/xfs/xfs_inode.c       |   2 +-
->  include/linux/dax.h      |   6 +-
->  include/linux/mm.h       |  27 +-----
->  include/linux/mm_types.h |   7 +-
->  mm/gup.c                 |   9 +--
->  mm/huge_memory.c         |   6 +-
->  mm/internal.h            |   2 +-
->  mm/memory-failure.c      |   6 +-
->  mm/memory.c              |   6 +-
->  mm/memremap.c            |  47 ++++-----
->  mm/mm_init.c             |   9 +--
->  mm/swap.c                |   2 +-
->  15 files changed, 183 insertions(+), 165 deletions(-)
-> 
-> diff --git a/drivers/nvdimm/pmem.c b/drivers/nvdimm/pmem.c
-> index d81faa9..785b2d2 100644
-> --- a/drivers/nvdimm/pmem.c
-> +++ b/drivers/nvdimm/pmem.c
-> @@ -513,7 +513,7 @@ static int pmem_attach_disk(struct device *dev,
->  
->  	pmem->disk = disk;
->  	pmem->pgmap.owner = pmem;
-> -	pmem->pfn_flags = PFN_DEV;
-> +	pmem->pfn_flags = 0;
->  	if (is_nd_pfn(dev)) {
->  		pmem->pgmap.type = MEMORY_DEVICE_FS_DAX;
->  		pmem->pgmap.ops = &fsdax_pagemap_ops;
-> @@ -522,7 +522,6 @@ static int pmem_attach_disk(struct device *dev,
->  		pmem->data_offset = le64_to_cpu(pfn_sb->dataoff);
->  		pmem->pfn_pad = resource_size(res) -
->  			range_len(&pmem->pgmap.range);
-> -		pmem->pfn_flags |= PFN_MAP;
->  		bb_range = pmem->pgmap.range;
->  		bb_range.start += pmem->data_offset;
->  	} else if (pmem_should_map_pages(dev)) {
-> @@ -532,7 +531,6 @@ static int pmem_attach_disk(struct device *dev,
->  		pmem->pgmap.type = MEMORY_DEVICE_FS_DAX;
->  		pmem->pgmap.ops = &fsdax_pagemap_ops;
->  		addr = devm_memremap_pages(dev, &pmem->pgmap);
-> -		pmem->pfn_flags |= PFN_MAP;
->  		bb_range = pmem->pgmap.range;
->  	} else {
->  		addr = devm_memremap(dev, pmem->phys_addr,
-> diff --git a/fs/dax.c b/fs/dax.c
-> index d35dbe1..19f444e 100644
-> --- a/fs/dax.c
-> +++ b/fs/dax.c
-> @@ -71,6 +71,11 @@ static unsigned long dax_to_pfn(void *entry)
->  	return xa_to_value(entry) >> DAX_SHIFT;
->  }
->  
-> +static struct folio *dax_to_folio(void *entry)
-> +{
-> +	return page_folio(pfn_to_page(dax_to_pfn(entry)));
-> +}
-> +
->  static void *dax_make_entry(pfn_t pfn, unsigned long flags)
->  {
->  	return xa_mk_value(flags | (pfn_t_to_pfn(pfn) << DAX_SHIFT));
-> @@ -338,44 +343,88 @@ static unsigned long dax_entry_size(void *entry)
->  		return PAGE_SIZE;
->  }
->  
-> -static unsigned long dax_end_pfn(void *entry)
-> -{
-> -	return dax_to_pfn(entry) + dax_entry_size(entry) / PAGE_SIZE;
-> -}
-> -
-> -/*
-> - * Iterate through all mapped pfns represented by an entry, i.e. skip
-> - * 'empty' and 'zero' entries.
-> - */
-> -#define for_each_mapped_pfn(entry, pfn) \
-> -	for (pfn = dax_to_pfn(entry); \
-> -			pfn < dax_end_pfn(entry); pfn++)
-> -
->  /*
->   * A DAX page is considered shared if it has no mapping set and ->share (which
->   * shares the ->index field) is non-zero. Note this may return false even if the
->   * page is shared between multiple files but has not yet actually been mapped
->   * into multiple address spaces.
->   */
-> -static inline bool dax_page_is_shared(struct page *page)
-> +static inline bool dax_folio_is_shared(struct folio *folio)
->  {
-> -	return !page->mapping && page->share;
-> +	return !folio->mapping && folio->share;
->  }
->  
->  /*
-> - * Increase the page share refcount, warning if the page is not marked as shared.
-> + * Increase the folio share refcount, warning if the folio is not marked as shared.
->   */
-> -static inline void dax_page_share_get(struct page *page)
-> +static inline void dax_folio_share_get(void *entry)
->  {
-> -	WARN_ON_ONCE(!page->share);
-> -	WARN_ON_ONCE(page->mapping);
-> -	page->share++;
-> +	struct folio *folio = dax_to_folio(entry);
-> +
-> +	WARN_ON_ONCE(!folio->share);
-> +	WARN_ON_ONCE(folio->mapping);
-> +	WARN_ON_ONCE(dax_entry_order(entry) != folio_order(folio));
-> +	folio->share++;
-> +}
-> +
-> +static inline unsigned long dax_folio_share_put(struct folio *folio)
-> +{
-> +	unsigned long ref;
-> +
-> +	if (!dax_folio_is_shared(folio))
-> +		ref = 0;
-> +	else
-> +		ref = --folio->share;
-> +
-> +	WARN_ON_ONCE(ref < 0);
-> +	if (!ref) {
-> +		folio->mapping = NULL;
-> +		if (folio_order(folio)) {
-> +			struct dev_pagemap *pgmap = page_pgmap(&folio->page);
-> +			unsigned int order = folio_order(folio);
-> +			unsigned int i;
-> +
-> +			for (i = 0; i < (1UL << order); i++) {
-> +				struct page *page = folio_page(folio, i);
-> +
-> +				ClearPageHead(page);
-> +				clear_compound_head(page);
-> +
-> +				/*
-> +				 * Reset pgmap which was over-written by
-> +				 * prep_compound_page().
-> +				 */
-> +				page_folio(page)->pgmap = pgmap;
-> +
-> +				/* Make sure this isn't set to TAIL_MAPPING */
-> +				page->mapping = NULL;
-> +				page->share = 0;
-> +				WARN_ON_ONCE(page_ref_count(page));
-> +			}
-> +		}
-> +	}
-> +
-> +	return ref;
->  }
->  
-> -static inline unsigned long dax_page_share_put(struct page *page)
-> +static void dax_device_folio_init(void *entry)
->  {
-> -	WARN_ON_ONCE(!page->share);
-> -	return --page->share;
-> +	struct folio *folio = dax_to_folio(entry);
-> +	int order = dax_entry_order(entry);
-> +
-> +	/*
-> +	 * Folio should have been split back to order-0 pages in
-> +	 * dax_folio_share_put() when they were removed from their
-> +	 * final mapping.
-> +	 */
-> +	WARN_ON_ONCE(folio_order(folio));
-> +
-> +	if (order > 0) {
-> +		prep_compound_page(&folio->page, order);
-> +		if (order > 1)
-> +			INIT_LIST_HEAD(&folio->_deferred_list);
-> +		WARN_ON_ONCE(folio_ref_count(folio));
-> +	}
->  }
->  
->  /*
-> @@ -388,72 +437,58 @@ static inline unsigned long dax_page_share_put(struct page *page)
->   * dax_holder_operations.
->   */
->  static void dax_associate_entry(void *entry, struct address_space *mapping,
-> -		struct vm_area_struct *vma, unsigned long address, bool shared)
-> +				struct vm_area_struct *vma, unsigned long address, bool shared)
->  {
-> -	unsigned long size = dax_entry_size(entry), pfn, index;
-> -	int i = 0;
-> +	unsigned long size = dax_entry_size(entry), index;
-> +	struct folio *folio = dax_to_folio(entry);
->  
->  	if (IS_ENABLED(CONFIG_FS_DAX_LIMITED))
->  		return;
->  
->  	index = linear_page_index(vma, address & ~(size - 1));
-> -	for_each_mapped_pfn(entry, pfn) {
-> -		struct page *page = pfn_to_page(pfn);
-> -
-> -		if (shared && page->mapping && page->share) {
-> -			if (page->mapping) {
-> -				page->mapping = NULL;
-> +	if (shared && (folio->mapping || dax_folio_is_shared(folio))) {
-> +		if (folio->mapping) {
-> +			folio->mapping = NULL;
->  
-> -				/*
-> -				 * Page has already been mapped into one address
-> -				 * space so set the share count.
-> -				 */
-> -				page->share = 1;
-> -			}
-> -
-> -			dax_page_share_get(page);
-> -		} else {
-> -			WARN_ON_ONCE(page->mapping);
-> -			page->mapping = mapping;
-> -			page->index = index + i++;
-> +			/*
-> +			 * folio has already been mapped into one address
-> +			 * space so set the share count.
-> +			 */
-> +			folio->share = 1;
->  		}
-> +
-> +		dax_folio_share_get(entry);
-> +	} else {
-> +		WARN_ON_ONCE(folio->mapping);
-> +		dax_device_folio_init(entry);
-> +		folio = dax_to_folio(entry);
-> +		folio->mapping = mapping;
-> +		folio->index = index;
->  	}
->  }
->  
->  static void dax_disassociate_entry(void *entry, struct address_space *mapping,
-> -		bool trunc)
-> +				bool trunc)
->  {
-> -	unsigned long pfn;
-> +	struct folio *folio = dax_to_folio(entry);
->  
->  	if (IS_ENABLED(CONFIG_FS_DAX_LIMITED))
->  		return;
->  
-> -	for_each_mapped_pfn(entry, pfn) {
-> -		struct page *page = pfn_to_page(pfn);
-> -
-> -		WARN_ON_ONCE(trunc && page_ref_count(page) > 1);
-> -		if (dax_page_is_shared(page)) {
-> -			/* keep the shared flag if this page is still shared */
-> -			if (dax_page_share_put(page) > 0)
-> -				continue;
-> -		} else
-> -			WARN_ON_ONCE(page->mapping && page->mapping != mapping);
-> -		page->mapping = NULL;
-> -		page->index = 0;
-> -	}
-> +	dax_folio_share_put(folio);
->  }
->  
->  static struct page *dax_busy_page(void *entry)
->  {
-> -	unsigned long pfn;
-> +	struct folio *folio = dax_to_folio(entry);
->  
-> -	for_each_mapped_pfn(entry, pfn) {
-> -		struct page *page = pfn_to_page(pfn);
-> +	if (dax_is_zero_entry(entry) || dax_is_empty_entry(entry))
-> +		return NULL;
->  
-> -		if (page_ref_count(page) > 1)
-> -			return page;
-> -	}
-> -	return NULL;
-> +	if (folio_ref_count(folio) - folio_mapcount(folio))
-> +		return &folio->page;
-> +	else
-> +		return NULL;
->  }
->  
->  /**
-> @@ -786,7 +821,7 @@ struct page *dax_layout_busy_page(struct address_space *mapping)
->  EXPORT_SYMBOL_GPL(dax_layout_busy_page);
->  
->  static int __dax_invalidate_entry(struct address_space *mapping,
-> -					  pgoff_t index, bool trunc)
-> +				  pgoff_t index, bool trunc)
->  {
->  	XA_STATE(xas, &mapping->i_pages, index);
->  	int ret = 0;
-> @@ -892,7 +927,7 @@ static int wait_page_idle(struct page *page,
->  			void (cb)(struct inode *),
->  			struct inode *inode)
->  {
-> -	return ___wait_var_event(page, page_ref_count(page) == 1,
-> +	return ___wait_var_event(page, page_ref_count(page) == 0,
->  				TASK_INTERRUPTIBLE, 0, 0, cb(inode));
->  }
->  
-> @@ -900,7 +935,7 @@ static void wait_page_idle_uninterruptible(struct page *page,
->  					void (cb)(struct inode *),
->  					struct inode *inode)
->  {
-> -	___wait_var_event(page, page_ref_count(page) == 1,
-> +	___wait_var_event(page, page_ref_count(page) == 0,
->  			TASK_UNINTERRUPTIBLE, 0, 0, cb(inode));
->  }
->  
-> @@ -949,7 +984,8 @@ void dax_break_mapping_uninterruptible(struct inode *inode,
->  		wait_page_idle_uninterruptible(page, cb, inode);
->  	} while (true);
->  
-> -	dax_delete_mapping_range(inode->i_mapping, 0, LLONG_MAX);
-> +	if (!page)
-> +		dax_delete_mapping_range(inode->i_mapping, 0, LLONG_MAX);
->  }
->  EXPORT_SYMBOL_GPL(dax_break_mapping_uninterruptible);
->  
-> @@ -1035,8 +1071,10 @@ static void *dax_insert_entry(struct xa_state *xas, struct vm_fault *vmf,
->  		void *old;
->  
->  		dax_disassociate_entry(entry, mapping, false);
-> -		dax_associate_entry(new_entry, mapping, vmf->vma, vmf->address,
-> -				shared);
-> +		if (!(flags & DAX_ZERO_PAGE))
-> +			dax_associate_entry(new_entry, mapping, vmf->vma, vmf->address,
-> +						shared);
-> +
->  		/*
->  		 * Only swap our new entry into the page cache if the current
->  		 * entry is a zero page or an empty entry.  If a normal PTE or
-> @@ -1224,9 +1262,7 @@ static int dax_iomap_direct_access(const struct iomap *iomap, loff_t pos,
->  		goto out;
->  	if (pfn_t_to_pfn(*pfnp) & (PHYS_PFN(size)-1))
->  		goto out;
-> -	/* For larger pages we need devmap */
-> -	if (length > 1 && !pfn_t_devmap(*pfnp))
-> -		goto out;
-> +
->  	rc = 0;
->  
->  out_check_addr:
-> @@ -1333,7 +1369,7 @@ static vm_fault_t dax_load_hole(struct xa_state *xas, struct vm_fault *vmf,
->  
->  	*entry = dax_insert_entry(xas, vmf, iter, *entry, pfn, DAX_ZERO_PAGE);
->  
-> -	ret = vmf_insert_mixed(vmf->vma, vaddr, pfn);
-> +	ret = vmf_insert_page_mkwrite(vmf, pfn_t_to_page(pfn), false);
->  	trace_dax_load_hole(inode, vmf, ret);
->  	return ret;
->  }
-> @@ -1804,7 +1840,8 @@ static vm_fault_t dax_fault_iter(struct vm_fault *vmf,
->  	loff_t pos = (loff_t)xas->xa_index << PAGE_SHIFT;
->  	bool write = iter->flags & IOMAP_WRITE;
->  	unsigned long entry_flags = pmd ? DAX_PMD : 0;
-> -	int err = 0;
-> +	struct folio *folio;
-> +	int ret, err = 0;
->  	pfn_t pfn;
->  	void *kaddr;
->  
-> @@ -1836,17 +1873,18 @@ static vm_fault_t dax_fault_iter(struct vm_fault *vmf,
->  			return dax_fault_return(err);
->  	}
->  
-> +	folio = dax_to_folio(*entry);
->  	if (dax_fault_is_synchronous(iter, vmf->vma))
->  		return dax_fault_synchronous_pfnp(pfnp, pfn);
->  
-> -	/* insert PMD pfn */
-> +	folio_ref_inc(folio);
->  	if (pmd)
-> -		return vmf_insert_pfn_pmd(vmf, pfn, write);
-> +		ret = vmf_insert_folio_pmd(vmf, pfn_folio(pfn_t_to_pfn(pfn)), write);
-> +	else
-> +		ret = vmf_insert_page_mkwrite(vmf, pfn_t_to_page(pfn), write);
-> +	folio_put(folio);
->  
-> -	/* insert PTE pfn */
-> -	if (write)
-> -		return vmf_insert_mixed_mkwrite(vmf->vma, vmf->address, pfn);
-> -	return vmf_insert_mixed(vmf->vma, vmf->address, pfn);
-> +	return ret;
->  }
->  
->  static vm_fault_t dax_iomap_pte_fault(struct vm_fault *vmf, pfn_t *pfnp,
-> @@ -2085,6 +2123,7 @@ dax_insert_pfn_mkwrite(struct vm_fault *vmf, pfn_t pfn, unsigned int order)
->  {
->  	struct address_space *mapping = vmf->vma->vm_file->f_mapping;
->  	XA_STATE_ORDER(xas, &mapping->i_pages, vmf->pgoff, order);
-> +	struct folio *folio;
->  	void *entry;
->  	vm_fault_t ret;
->  
-> @@ -2102,14 +2141,17 @@ dax_insert_pfn_mkwrite(struct vm_fault *vmf, pfn_t pfn, unsigned int order)
->  	xas_set_mark(&xas, PAGECACHE_TAG_DIRTY);
->  	dax_lock_entry(&xas, entry);
->  	xas_unlock_irq(&xas);
-> +	folio = pfn_folio(pfn_t_to_pfn(pfn));
-> +	folio_ref_inc(folio);
->  	if (order == 0)
-> -		ret = vmf_insert_mixed_mkwrite(vmf->vma, vmf->address, pfn);
-> +		ret = vmf_insert_page_mkwrite(vmf, &folio->page, true);
->  #ifdef CONFIG_FS_DAX_PMD
->  	else if (order == PMD_ORDER)
-> -		ret = vmf_insert_pfn_pmd(vmf, pfn, FAULT_FLAG_WRITE);
-> +		ret = vmf_insert_folio_pmd(vmf, folio, FAULT_FLAG_WRITE);
->  #endif
->  	else
->  		ret = VM_FAULT_FALLBACK;
-> +	folio_put(folio);
->  	dax_unlock_entry(&xas, entry);
->  	trace_dax_insert_pfn_mkwrite(mapping->host, vmf, ret);
->  	return ret;
-> diff --git a/fs/fuse/virtio_fs.c b/fs/fuse/virtio_fs.c
-> index 82afe78..2c7b24c 100644
-> --- a/fs/fuse/virtio_fs.c
-> +++ b/fs/fuse/virtio_fs.c
-> @@ -1017,8 +1017,7 @@ static long virtio_fs_direct_access(struct dax_device *dax_dev, pgoff_t pgoff,
->  	if (kaddr)
->  		*kaddr = fs->window_kaddr + offset;
->  	if (pfn)
-> -		*pfn = phys_to_pfn_t(fs->window_phys_addr + offset,
-> -					PFN_DEV | PFN_MAP);
-> +		*pfn = phys_to_pfn_t(fs->window_phys_addr + offset, 0);
->  	return nr_pages > max_nr_pages ? max_nr_pages : nr_pages;
->  }
->  
-> diff --git a/fs/xfs/xfs_inode.c b/fs/xfs/xfs_inode.c
-> index c7ec5ab..7bfb4eb 100644
-> --- a/fs/xfs/xfs_inode.c
-> +++ b/fs/xfs/xfs_inode.c
-> @@ -2740,7 +2740,7 @@ xfs_mmaplock_two_inodes_and_break_dax_layout(
->  	 * for this nested lock case.
->  	 */
->  	page = dax_layout_busy_page(VFS_I(ip2)->i_mapping);
-> -	if (page && page_ref_count(page) != 1) {
-> +	if (page && page_ref_count(page) != 0) {
+Hi,
 
-You might want to wrap this weird detail for the next filesystem that
-uses it, so that the fine details of fsdax aren't opencoded in xfs:
+Thanks for taking the time to test the system.
 
-static inline bool dax_page_in_use(struct page *page)
-{
-	return page && page_ref_count(page) != 0;
-}
-
-	page = dax_layout_busy_page(VFS_I(ip2)->i_mapping);
-	if (dax_page_in_use(page)) {
-		/* unlock and retry... */
-	}
-
---D
-
->  		xfs_iunlock(ip2, XFS_MMAPLOCK_EXCL);
->  		xfs_iunlock(ip1, XFS_MMAPLOCK_EXCL);
->  		goto again;
-> diff --git a/include/linux/dax.h b/include/linux/dax.h
-> index 7c3773f..dbefea1 100644
-> --- a/include/linux/dax.h
-> +++ b/include/linux/dax.h
-> @@ -211,8 +211,12 @@ static inline int dax_wait_page_idle(struct page *page,
->  				void (cb)(struct inode *),
->  				struct inode *inode)
->  {
-> -	return ___wait_var_event(page, page_ref_count(page) == 1,
-> +	int ret;
-> +
-> +	ret = ___wait_var_event(page, !page_ref_count(page),
->  				TASK_INTERRUPTIBLE, 0, 0, cb(inode));
-> +
-> +	return ret;
->  }
->  
->  #if IS_ENABLED(CONFIG_DAX)
-> diff --git a/include/linux/mm.h b/include/linux/mm.h
-> index 01edca9..a734278 100644
-> --- a/include/linux/mm.h
-> +++ b/include/linux/mm.h
-> @@ -1161,6 +1161,8 @@ int vma_is_stack_for_current(struct vm_area_struct *vma);
->  struct mmu_gather;
->  struct inode;
->  
-> +extern void prep_compound_page(struct page *page, unsigned int order);
-> +
->  /*
->   * compound_order() can be called without holding a reference, which means
->   * that niceties like page_folio() don't work.  These callers should be
-> @@ -1482,25 +1484,6 @@ vm_fault_t finish_fault(struct vm_fault *vmf);
->   *   back into memory.
->   */
->  
-> -#if defined(CONFIG_ZONE_DEVICE) && defined(CONFIG_FS_DAX)
-> -DECLARE_STATIC_KEY_FALSE(devmap_managed_key);
-> -
-> -bool __put_devmap_managed_folio_refs(struct folio *folio, int refs);
-> -static inline bool put_devmap_managed_folio_refs(struct folio *folio, int refs)
-> -{
-> -	if (!static_branch_unlikely(&devmap_managed_key))
-> -		return false;
-> -	if (!folio_is_zone_device(folio))
-> -		return false;
-> -	return __put_devmap_managed_folio_refs(folio, refs);
-> -}
-> -#else /* CONFIG_ZONE_DEVICE && CONFIG_FS_DAX */
-> -static inline bool put_devmap_managed_folio_refs(struct folio *folio, int refs)
-> -{
-> -	return false;
-> -}
-> -#endif /* CONFIG_ZONE_DEVICE && CONFIG_FS_DAX */
-> -
->  /* 127: arbitrary random number, small enough to assemble well */
->  #define folio_ref_zero_or_close_to_overflow(folio) \
->  	((unsigned int) folio_ref_count(folio) + 127u <= 127u)
-> @@ -1615,12 +1598,6 @@ static inline void put_page(struct page *page)
->  {
->  	struct folio *folio = page_folio(page);
->  
-> -	/*
-> -	 * For some devmap managed pages we need to catch refcount transition
-> -	 * from 2 to 1:
-> -	 */
-> -	if (put_devmap_managed_folio_refs(folio, 1))
-> -		return;
->  	folio_put(folio);
->  }
->  
-> diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
-> index 54b59b8..e308cb9 100644
-> --- a/include/linux/mm_types.h
-> +++ b/include/linux/mm_types.h
-> @@ -295,6 +295,8 @@ typedef struct {
->   *    anonymous memory.
->   * @index: Offset within the file, in units of pages.  For anonymous memory,
->   *    this is the index from the beginning of the mmap.
-> + * @share: number of DAX mappings that reference this folio. See
-> + *    dax_associate_entry.
->   * @private: Filesystem per-folio data (see folio_attach_private()).
->   * @swap: Used for swp_entry_t if folio_test_swapcache().
->   * @_mapcount: Do not access this member directly.  Use folio_mapcount() to
-> @@ -344,7 +346,10 @@ struct folio {
->  				struct dev_pagemap *pgmap;
->  			};
->  			struct address_space *mapping;
-> -			pgoff_t index;
-> +			union {
-> +				pgoff_t index;
-> +				unsigned long share;
-> +			};
->  			union {
->  				void *private;
->  				swp_entry_t swap;
-> diff --git a/mm/gup.c b/mm/gup.c
-> index 9b587b5..d6575ed 100644
-> --- a/mm/gup.c
-> +++ b/mm/gup.c
-> @@ -96,8 +96,7 @@ static inline struct folio *try_get_folio(struct page *page, int refs)
->  	 * belongs to this folio.
->  	 */
->  	if (unlikely(page_folio(page) != folio)) {
-> -		if (!put_devmap_managed_folio_refs(folio, refs))
-> -			folio_put_refs(folio, refs);
-> +		folio_put_refs(folio, refs);
->  		goto retry;
->  	}
->  
-> @@ -116,8 +115,7 @@ static void gup_put_folio(struct folio *folio, int refs, unsigned int flags)
->  			refs *= GUP_PIN_COUNTING_BIAS;
->  	}
->  
-> -	if (!put_devmap_managed_folio_refs(folio, refs))
-> -		folio_put_refs(folio, refs);
-> +	folio_put_refs(folio, refs);
->  }
->  
->  /**
-> @@ -565,8 +563,7 @@ static struct folio *try_grab_folio_fast(struct page *page, int refs,
->  	 */
->  	if (unlikely((flags & FOLL_LONGTERM) &&
->  		     !folio_is_longterm_pinnable(folio))) {
-> -		if (!put_devmap_managed_folio_refs(folio, refs))
-> -			folio_put_refs(folio, refs);
-> +		folio_put_refs(folio, refs);
->  		return NULL;
->  	}
->  
-> diff --git a/mm/huge_memory.c b/mm/huge_memory.c
-> index d1ea76e..0cf1151 100644
-> --- a/mm/huge_memory.c
-> +++ b/mm/huge_memory.c
-> @@ -2209,7 +2209,7 @@ int zap_huge_pmd(struct mmu_gather *tlb, struct vm_area_struct *vma,
->  						tlb->fullmm);
->  	arch_check_zapped_pmd(vma, orig_pmd);
->  	tlb_remove_pmd_tlb_entry(tlb, pmd, addr);
-> -	if (vma_is_special_huge(vma)) {
-> +	if (!vma_is_dax(vma) && vma_is_special_huge(vma)) {
->  		if (arch_needs_pgtable_deposit())
->  			zap_deposited_table(tlb->mm, pmd);
->  		spin_unlock(ptl);
-> @@ -2853,13 +2853,15 @@ static void __split_huge_pmd_locked(struct vm_area_struct *vma, pmd_t *pmd,
->  		 */
->  		if (arch_needs_pgtable_deposit())
->  			zap_deposited_table(mm, pmd);
-> -		if (vma_is_special_huge(vma))
-> +		if (!vma_is_dax(vma) && vma_is_special_huge(vma))
->  			return;
->  		if (unlikely(is_pmd_migration_entry(old_pmd))) {
->  			swp_entry_t entry;
->  
->  			entry = pmd_to_swp_entry(old_pmd);
->  			folio = pfn_swap_entry_folio(entry);
-> +		} else if (is_huge_zero_pmd(old_pmd)) {
-> +			return;
->  		} else {
->  			page = pmd_page(old_pmd);
->  			folio = page_folio(page);
-> diff --git a/mm/internal.h b/mm/internal.h
-> index 3922788..c4df0ad 100644
-> --- a/mm/internal.h
-> +++ b/mm/internal.h
-> @@ -733,8 +733,6 @@ static inline void prep_compound_tail(struct page *head, int tail_idx)
->  	set_page_private(p, 0);
->  }
->  
-> -extern void prep_compound_page(struct page *page, unsigned int order);
-> -
->  void post_alloc_hook(struct page *page, unsigned int order, gfp_t gfp_flags);
->  extern bool free_pages_prepare(struct page *page, unsigned int order);
->  
-> diff --git a/mm/memory-failure.c b/mm/memory-failure.c
-> index a7b8ccd..7838bf1 100644
-> --- a/mm/memory-failure.c
-> +++ b/mm/memory-failure.c
-> @@ -419,18 +419,18 @@ static unsigned long dev_pagemap_mapping_shift(struct vm_area_struct *vma,
->  	pud = pud_offset(p4d, address);
->  	if (!pud_present(*pud))
->  		return 0;
-> -	if (pud_devmap(*pud))
-> +	if (pud_trans_huge(*pud))
->  		return PUD_SHIFT;
->  	pmd = pmd_offset(pud, address);
->  	if (!pmd_present(*pmd))
->  		return 0;
-> -	if (pmd_devmap(*pmd))
-> +	if (pmd_trans_huge(*pmd))
->  		return PMD_SHIFT;
->  	pte = pte_offset_map(pmd, address);
->  	if (!pte)
->  		return 0;
->  	ptent = ptep_get(pte);
-> -	if (pte_present(ptent) && pte_devmap(ptent))
-> +	if (pte_present(ptent))
->  		ret = PAGE_SHIFT;
->  	pte_unmap(pte);
->  	return ret;
-> diff --git a/mm/memory.c b/mm/memory.c
-> index c60b819..02e12b0 100644
-> --- a/mm/memory.c
-> +++ b/mm/memory.c
-> @@ -3843,13 +3843,15 @@ static vm_fault_t do_wp_page(struct vm_fault *vmf)
->  	if (vma->vm_flags & (VM_SHARED | VM_MAYSHARE)) {
->  		/*
->  		 * VM_MIXEDMAP !pfn_valid() case, or VM_SOFTDIRTY clear on a
-> -		 * VM_PFNMAP VMA.
-> +		 * VM_PFNMAP VMA. FS DAX also wants ops->pfn_mkwrite called.
->  		 *
->  		 * We should not cow pages in a shared writeable mapping.
->  		 * Just mark the pages writable and/or call ops->pfn_mkwrite.
->  		 */
-> -		if (!vmf->page)
-> +		if (!vmf->page || is_fsdax_page(vmf->page)) {
-> +			vmf->page = NULL;
->  			return wp_pfn_shared(vmf);
-> +		}
->  		return wp_page_shared(vmf, folio);
->  	}
->  
-> diff --git a/mm/memremap.c b/mm/memremap.c
-> index 68099af..9a8879b 100644
-> --- a/mm/memremap.c
-> +++ b/mm/memremap.c
-> @@ -458,8 +458,13 @@ EXPORT_SYMBOL_GPL(get_dev_pagemap);
->  
->  void free_zone_device_folio(struct folio *folio)
->  {
-> -	if (WARN_ON_ONCE(!folio->pgmap->ops ||
-> -			!folio->pgmap->ops->page_free))
-> +	struct dev_pagemap *pgmap = folio->pgmap;
-> +
-> +	if (WARN_ON_ONCE(!pgmap->ops))
-> +		return;
-> +
-> +	if (WARN_ON_ONCE(pgmap->type != MEMORY_DEVICE_FS_DAX &&
-> +			 !pgmap->ops->page_free))
->  		return;
->  
->  	mem_cgroup_uncharge(folio);
-> @@ -484,26 +489,36 @@ void free_zone_device_folio(struct folio *folio)
->  	 * For other types of ZONE_DEVICE pages, migration is either
->  	 * handled differently or not done at all, so there is no need
->  	 * to clear folio->mapping.
-> +	 *
-> +	 * FS DAX pages clear the mapping when the folio->share count hits
-> +	 * zero which indicating the page has been removed from the file
-> +	 * system mapping.
->  	 */
-> -	folio->mapping = NULL;
-> -	folio->pgmap->ops->page_free(folio_page(folio, 0));
-> +	if (pgmap->type != MEMORY_DEVICE_FS_DAX)
-> +		folio->mapping = NULL;
->  
-> -	switch (folio->pgmap->type) {
-> +	switch (pgmap->type) {
->  	case MEMORY_DEVICE_PRIVATE:
->  	case MEMORY_DEVICE_COHERENT:
-> -		put_dev_pagemap(folio->pgmap);
-> +		pgmap->ops->page_free(folio_page(folio, 0));
-> +		put_dev_pagemap(pgmap);
->  		break;
->  
-> -	case MEMORY_DEVICE_FS_DAX:
->  	case MEMORY_DEVICE_GENERIC:
->  		/*
->  		 * Reset the refcount to 1 to prepare for handing out the page
->  		 * again.
->  		 */
-> +		pgmap->ops->page_free(folio_page(folio, 0));
->  		folio_set_count(folio, 1);
->  		break;
->  
-> +	case MEMORY_DEVICE_FS_DAX:
-> +		wake_up_var(&folio->page);
-> +		break;
-> +
->  	case MEMORY_DEVICE_PCI_P2PDMA:
-> +		pgmap->ops->page_free(folio_page(folio, 0));
->  		break;
->  	}
->  }
-> @@ -519,21 +534,3 @@ void zone_device_page_init(struct page *page)
->  	lock_page(page);
->  }
->  EXPORT_SYMBOL_GPL(zone_device_page_init);
-> -
-> -#ifdef CONFIG_FS_DAX
-> -bool __put_devmap_managed_folio_refs(struct folio *folio, int refs)
-> -{
-> -	if (folio->pgmap->type != MEMORY_DEVICE_FS_DAX)
-> -		return false;
-> -
-> -	/*
-> -	 * fsdax page refcounts are 1-based, rather than 0-based: if
-> -	 * refcount is 1, then the page is free and the refcount is
-> -	 * stable because nobody holds a reference on the page.
-> -	 */
-> -	if (folio_ref_sub_return(folio, refs) == 1)
-> -		wake_up_var(&folio->_refcount);
-> -	return true;
-> -}
-> -EXPORT_SYMBOL(__put_devmap_managed_folio_refs);
-> -#endif /* CONFIG_FS_DAX */
-> diff --git a/mm/mm_init.c b/mm/mm_init.c
-> index cb73402..0c12b29 100644
-> --- a/mm/mm_init.c
-> +++ b/mm/mm_init.c
-> @@ -1017,23 +1017,22 @@ static void __ref __init_zone_device_page(struct page *page, unsigned long pfn,
->  	}
->  
->  	/*
-> -	 * ZONE_DEVICE pages other than MEMORY_TYPE_GENERIC and
-> -	 * MEMORY_TYPE_FS_DAX pages are released directly to the driver page
-> -	 * allocator which will set the page count to 1 when allocating the
-> -	 * page.
-> +	 * ZONE_DEVICE pages other than MEMORY_TYPE_GENERIC are released
-> +	 * directly to the driver page allocator which will set the page count
-> +	 * to 1 when allocating the page.
->  	 *
->  	 * MEMORY_TYPE_GENERIC and MEMORY_TYPE_FS_DAX pages automatically have
->  	 * their refcount reset to one whenever they are freed (ie. after
->  	 * their refcount drops to 0).
->  	 */
->  	switch (pgmap->type) {
-> +	case MEMORY_DEVICE_FS_DAX:
->  	case MEMORY_DEVICE_PRIVATE:
->  	case MEMORY_DEVICE_COHERENT:
->  	case MEMORY_DEVICE_PCI_P2PDMA:
->  		set_page_count(page, 0);
->  		break;
->  
-> -	case MEMORY_DEVICE_FS_DAX:
->  	case MEMORY_DEVICE_GENERIC:
->  		break;
->  	}
-> diff --git a/mm/swap.c b/mm/swap.c
-> index 062c856..a587842 100644
-> --- a/mm/swap.c
-> +++ b/mm/swap.c
-> @@ -952,8 +952,6 @@ void folios_put_refs(struct folio_batch *folios, unsigned int *refs)
->  				unlock_page_lruvec_irqrestore(lruvec, flags);
->  				lruvec = NULL;
->  			}
-> -			if (put_devmap_managed_folio_refs(folio, nr_refs))
-> -				continue;
->  			if (folio_ref_sub_and_test(folio, nr_refs))
->  				free_zone_device_folio(folio);
->  			continue;
-> -- 
-> git-series 0.9.1
+On 1/7/25 12:00, André Draszik wrote:
+> Hi Thomas,
 > 
+> Thanks for your patch!
+> 
+> On Thu, 2025-01-02 at 12:15 +0100, Thomas Antoine via B4 Relay wrote:
+>> From: Thomas Antoine <t.antoine@uclouvain.be>
+>>
+>> The interface of the Maxim max77759 fuel gauge has a lot of common with the
+>> Maxim max1720x. The major difference is the lack of non-volatile memory
+>> slave address. No slave is available at address 0xb of the i2c bus, which
+>> is coherent with the following driver from google: line 5836 disables
+>> non-volatile memory for m5 gauge.
+>>
+>> https://android.googlesource.com/kernel/google-modules/bms/+/1a68c36bef474573cc8629cc1d121eb6a81ab68c/max1720x_battery.c
+>>
+>> Other differences include the lack of V_BATT register to read the battery
+>> level and a difference in the way to identify the chip (the same register
+>> is used but not the same mask).
+> 
+> It also seems the reported POWER_SUPPLY_PROP_CHARGE_FULL_DESIGN is
+> quite a bit off - on my Pixel 6, it reports ca. 1131mAh, but the downstream
+> stack reports a more reasonable 4524mAh. Interestingly, this is an exact
+> multiple of four.
+> 
+> POWER_SUPPLY_PROP_CHARGE_FULL is off in a similar way, and I suspect that
+> related properties like charge_avg, time_to_empty, time_to_full are
+> reported incorrectly as well.
+
+Indeed, now that I check the code, the current computation is wrong.
+In the downstream kernel, reg_to_capacity_uah is used to translate the register
+value. In the end, it computes the value as follows:
+
+div_s64((s64) val * 500000, rsense) * lsb;
+Link: https://android.googlesource.com/kernel/google-modules/bms/+/refs/heads/android-gs-raviole-5.10-android15/max1720x_battery.h#36
+
+whereas the mainline driver does val * 500.
+Based on what I saw, lsb should be 1 to 2 based on the value of the register
+MAX_M5_TASKPERIOD.
+
+Basically, if lsb is 1 and given the default rsense of the mainline driver,
+the two functions will return the same. 
+
+From the datasheet of the max17201, capacity LSB is "5.0μVh/RSENSE".
+So it seems that the current mainline driver is only right if rsense is equal
+to 10mOhms.
+
+The factor 4 that you see should thus come from
+1. a factor 2 because we do 5.0μVh/10mOhm instead of 5.0μVh/5mOhm.
+2. a factor 2 because we do not take into account lsb.
+
+MAX_M5_TASKPERIOD is reg 0x3c which is not mentionned at all in the datasheet
+of the max17201. I guess this might be another difference between the two
+devices.
+
+I think the best course of action is to correct the computation to take into
+account rsense and to then multiply by lsb only for max77759.
+This would make the behaviour of the max17201 follow the datasheet.
+
+> [...]
+> 
+>> @@ -483,14 +608,27 @@ static int max1720x_probe(struct i2c_client *client)
+>>  	psy_cfg.drv_data = info;
+>>  	psy_cfg.fwnode = dev_fwnode(dev);
+>>  	i2c_set_clientdata(client, info);
+>> -	info->regmap = devm_regmap_init_i2c(client, &max1720x_regmap_cfg);
+>> +
+>> +	data = device_get_match_data(dev);
+>> +	if (!data)
+>> +		return dev_err_probe(dev, ret, "Failed to get chip data\n");
+>                                           ^^^
+> This should be -EINVAL.
+
+Indeed, will fix.
+
+Best regards,
+Thomas
 
