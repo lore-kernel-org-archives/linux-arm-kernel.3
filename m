@@ -4,91 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76D1BE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 11:21:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F239E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 11:22:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6O0IzZdicbDnl+ThnIAAob2BiQyf9NMS5q74NBvP63Q=; b=SM+5pLsb2noPvfA6Zy2WQ9h/+0
-	zrXwhp0P3JcekuI1md9BAMj6Tz3zeb6mjVgco1TZCTFiqbp24FJ2riddPhkMiRFq5D/Mo7czcpHqp
-	qr1ptbmFoXX5wO2dFHkkMH1+Wr1z31aRFK0FXxcwFKeTDubnRbIJgtkJdCr6wQm33VyuOejNmb/h1
-	jNzPhLF4ELKmQa/fq3kYCL+xKcpMAElqBLnSzf2ZxU9fqkWRXLcpzs02VgN5l/oOq3xlZqzJfvf2O
-	pzVEqd+LwlnjO2Gh4BjAYBWi6fZSlR/gOUZ+SKfGJyN2NOrcvX9MNVzAwbUaeWpeD42Ne9HC6XXH8
-	7bor9Uig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wR5+Y6S+TFCWjzE2EROBwv9IAeYi3VdwsFqFVi4nvyU=; b=uscCpNGpeJliTNP2qgKXUm/St8
+	CXsNy7ik6WgR2BLbyIP6JIy6ZrEMfqUCJUiQ/JF5S7/5vUSLbtVC6zwqsw8llpDbSduG1fOlBwaYO
+	yjL7Ng/c8m9dgsm9QhpPRoPmiszVfvK0u00BbTzkiLb+cNRwLB4DiyDyoBZQoJ27zOa0UUEa6O49P
+	h3aODrlV8rYJrQVoebmcKuIpZ6u3RHOC1R1mm4GAEvPo82/TUPDCGmC29DO6Oh+10bnIU7e0DNWnc
+	D1LeKpdnqPYHjTgkm57ZmFBiDkY454vpwUnvOxnwD4T5zGXWm4gWGrVv1f4j7CYBC9LXcBJEhiSLY
+	Q2kfWskQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWD50-0000000F65N-253q;
-	Fri, 10 Jan 2025 11:21:30 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1tWD6A-0000000F6Fc-3xKZ;
+	Fri, 10 Jan 2025 11:22:42 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWD3l-0000000F5sX-37fB
+	id 1tWD4H-0000000F5x9-2rQ5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 11:20:15 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50A6XPXL018522;
-	Fri, 10 Jan 2025 12:20:06 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	6O0IzZdicbDnl+ThnIAAob2BiQyf9NMS5q74NBvP63Q=; b=f6JWExp4ct10P4SU
-	OjyL/96MiRqY2IXnuKvQSzUbrLCOd31/N1T+C7yotKJm/D5/S8LyF5gFNpjE77wM
-	em03bvuzgVWXgw526qn+RJn940qKk2urGywI/ki9gbjFQNEyrwt6n62oyG3x9DEn
-	/CYreg4GjtjlhNUpoVs0vzXAdFeaqmDHCmbA+YuXE668GspWqdOAGv/MIHkodbwa
-	E1Hm4PmNw0O2mQEkxra80LfEdw6nP7wnGRv3ccMu8IcTN3MJYg2Vx54GZhjnZxoU
-	xSZh/b5CZtkcg3SS64lEAl9WYO6jqa7BdTTcjnMliR8x2YvOhGoIQzs1m2LYwKTn
-	6yzB8A==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 442f5q4p5s-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 10 Jan 2025 12:20:06 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 5518940045;
-	Fri, 10 Jan 2025 12:18:56 +0100 (CET)
-Received: from Webmail-eu.st.com (eqndag1node4.st.com [10.75.129.133])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id B4C542930E7;
-	Fri, 10 Jan 2025 12:18:14 +0100 (CET)
-Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE4.st.com
- (10.75.129.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Fri, 10 Jan
- 2025 12:18:14 +0100
-Received: from [10.252.28.64] (10.252.28.64) by SAFDAG1NODE1.st.com
- (10.75.90.17) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Fri, 10 Jan
- 2025 12:18:13 +0100
-Message-ID: <9df8fc8b-b827-4505-9273-ac56ab7426e7@foss.st.com>
-Date: Fri, 10 Jan 2025 12:18:12 +0100
+	Fri, 10 Jan 2025 11:20:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id D4906A41DD1;
+	Fri, 10 Jan 2025 11:18:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CABDBC4CED6;
+	Fri, 10 Jan 2025 11:20:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736508044;
+	bh=CnVu8Rrlov2McslMdQFWTwwznk9jD78HlW8nvi+ZtrY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Cu9mj9HJV4evYEMzlEc18dxiPFvM+JpC5aN9F0WIsvjeL/6MMoUA55Lk6IvneFdxB
+	 wQPk8XpAaLmPQPOWTaDrFalVkb4P4ySL+Hwfxjm/4ttBx9kVThJTpqj27RyWIUE7od
+	 T0ZCvrYit8TADZFMMxM01DcqlVwhOvsLlljapZajCPFxvc2+JH9RmTMJYrbXOXzfCM
+	 m015FXjGzCTnxbRkA0gukwwypRDirMYKxm50N2jaQCH0xJpS/W6WNRYckKdoRyaFWO
+	 wSTmiKEDCI4tTrif2Z48hwBk/ZuebkT0pmMKuUg/zF/qvxkTx0rTzeN3GCO8pbzAVQ
+	 Zi5lD+YUG8F7Q==
+Date: Fri, 10 Jan 2025 12:20:38 +0100
+From: Niklas Cassel <cassel@kernel.org>
+To: Raphael Gallais-Pou <rgallaispou@gmail.com>
+Cc: Patrice Chotard <patrice.chotard@foss.st.com>,
+	Damien Le Moal <dlemoal@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-ide@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] ahci: st: Switch from CONFIG_PM_SLEEP guards to
+ pm_sleep_ptr()
+Message-ID: <Z4EChupSfaDEuIOI@x1-carbon>
+References: <20250109175427.64384-1-rgallaispou@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iio: adc: stm32: Drop unnecessary DT property presence
- check
-To: "Rob Herring (Arm)" <robh@kernel.org>,
-        Jonathan Cameron
-	<jic23@kernel.org>,
-        Lars-Peter Clausen <lars@metafoo.de>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>
-CC: <linux-iio@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20250109182325.3973684-2-robh@kernel.org>
-Content-Language: en-US
-From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-In-Reply-To: <20250109182325.3973684-2-robh@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.252.28.64]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SAFDAG1NODE1.st.com
- (10.75.90.17)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250109175427.64384-1-rgallaispou@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_032014_244795_51D0DC34 
-X-CRM114-Status: GOOD (  16.19  )
+X-CRM114-CacheID: sfid-20250110_032045_785752_4743863A 
+X-CRM114-Status: GOOD (  22.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,52 +74,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/9/25 19:23, Rob Herring (Arm) wrote:
-> There's no reason to check for regulator supply property presence before
-> calling devm_regulator_get_optional() as that will return -ENODEV if
-> the supply is not present.
+On Thu, Jan 09, 2025 at 06:54:27PM +0100, Raphael Gallais-Pou wrote:
+> Letting the compiler remove these functions when the kernel is built
+> without CONFIG_PM_SLEEP support is simpler and less error prone than the
+> use of #ifdef based kernel configuration guards.
 > 
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> Signed-off-by: Raphael Gallais-Pou <rgallaispou@gmail.com>
 > ---
-> The diff context doesn't show it, but the next line returns on error 
-> other than -ENODEV.
-
-Hi Rob,
-
-Tested on STM32MP157C-EV1,
-
-Acked-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-Tested-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-
-Thanks & BR,
-Fabrice
-
-> 
->  drivers/iio/adc/stm32-adc-core.c | 6 ++----
+> Changes in v2:
+>   - Split serie in single patches
+>   - Remove irrelevant 'Link:' from commit log
+>   - Link to v1: https://lore.kernel.org/r/20241229-update_pm_macro-v1-4-c7d4c4856336@gmail.com
+> ---
+>  drivers/ata/ahci_st.c | 6 ++----
 >  1 file changed, 2 insertions(+), 4 deletions(-)
 > 
-> diff --git a/drivers/iio/adc/stm32-adc-core.c b/drivers/iio/adc/stm32-adc-core.c
-> index 2201ee9987ae..0914148d1a22 100644
-> --- a/drivers/iio/adc/stm32-adc-core.c
-> +++ b/drivers/iio/adc/stm32-adc-core.c
-> @@ -615,8 +615,7 @@ static int stm32_adc_core_switches_probe(struct device *dev,
->  	}
+> diff --git a/drivers/ata/ahci_st.c b/drivers/ata/ahci_st.c
+> index 6b9b4a1dfa15..4336c8a6e208 100644
+> --- a/drivers/ata/ahci_st.c
+> +++ b/drivers/ata/ahci_st.c
+> @@ -176,7 +176,6 @@ static int st_ahci_probe(struct platform_device *pdev)
+>  	return 0;
+>  }
 >  
->  	/* Booster can be used to supply analog switches (optional) */
-> -	if (priv->cfg->has_syscfg & HAS_VBOOSTER &&
-> -	    of_property_read_bool(np, "booster-supply")) {
-> +	if (priv->cfg->has_syscfg & HAS_VBOOSTER) {
->  		priv->booster = devm_regulator_get_optional(dev, "booster");
->  		if (IS_ERR(priv->booster)) {
->  			ret = PTR_ERR(priv->booster);
-> @@ -628,8 +627,7 @@ static int stm32_adc_core_switches_probe(struct device *dev,
->  	}
+> -#ifdef CONFIG_PM_SLEEP
+>  static int st_ahci_suspend(struct device *dev)
+>  {
+>  	struct ata_host *host = dev_get_drvdata(dev);
+> @@ -221,9 +220,8 @@ static int st_ahci_resume(struct device *dev)
 >  
->  	/* Vdd can be used to supply analog switches (optional) */
-> -	if (priv->cfg->has_syscfg & HAS_ANASWVDD &&
-> -	    of_property_read_bool(np, "vdd-supply")) {
-> +	if (priv->cfg->has_syscfg & HAS_ANASWVDD) {
->  		priv->vdd = devm_regulator_get_optional(dev, "vdd");
->  		if (IS_ERR(priv->vdd)) {
->  			ret = PTR_ERR(priv->vdd);
+>  	return ahci_platform_resume_host(dev);
+>  }
+> -#endif
+>  
+> -static SIMPLE_DEV_PM_OPS(st_ahci_pm_ops, st_ahci_suspend, st_ahci_resume);
+> +static DEFINE_SIMPLE_DEV_PM_OPS(st_ahci_pm_ops, st_ahci_suspend, st_ahci_resume);
+>  
+>  static const struct of_device_id st_ahci_match[] = {
+>  	{ .compatible = "st,ahci", },
+> @@ -234,7 +232,7 @@ MODULE_DEVICE_TABLE(of, st_ahci_match);
+>  static struct platform_driver st_ahci_driver = {
+>  	.driver = {
+>  		.name = DRV_NAME,
+> -		.pm = &st_ahci_pm_ops,
+> +		.pm = pm_sleep_ptr(&st_ahci_pm_ops),
+>  		.of_match_table = st_ahci_match,
+>  	},
+>  	.probe = st_ahci_probe,
+> -- 
+> 2.47.1
+> 
+
+Reviewed-by: Niklas Cassel <cassel@kernel.org>
 
