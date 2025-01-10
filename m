@@ -4,55 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35C60E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 18:22:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B93FE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 18:30:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6OAAZ5ExKSw4sunEiGOmMdMqPi5nEhxTNddsmPqbv2Y=; b=IFXHXrPfF2+VUBVptzWrg0y82X
-	QP30BH3B7Tcop4AT4K9/07x4jCcoFlPyJiKI+7s3n+D6p+rMwAhqEQjB1MgL7kfcGE5V1P6O7rKP3
-	XizXvc1Kdt0AN2zJIA/rkahed2N8KGGBHi+dAee+tjVVUNN1RbWcgPESlCMbnMKSfY9sZ3V1YxR3E
-	o95Bt9GvhKGndn0KSYGCCWVq1W3LyknrBes+12b47S3Ife/TdKKQT966sVyWxDLVWtPo2wE2O/oJJ
-	NV0sjSrtcEiYWfQV6qr25ISOXawuHLfzp1g1awao9eYhi9NeB1Cz3Av77IBpsGakrev6bGsOt0Gfo
-	zsdBKl2w==;
+	bh=NLsgczFwbsqiup/iuqbZ95oXX45OVMvMIvOh/8/OVvQ=; b=qtDZO+2snSvqrUTGAIkmjsK52q
+	yTKiFoJe3td0HW/sSYkB2c8CH4s3MhChBf6ybIT/dBGoqT34izFb1lfxzXzXv+WgHRvfzF3Qc5D5L
+	RuintoGt7goCHuP6FTbgQoSvcdDS38Hxj5EhdCLp56Mjq0Y7CazFDpoOSfaNFFWSMfNONGeIcXJBI
+	qd7MNzp+Ud+Z4HvhQRXNC7JV27FB+hdgjvhulzKTRsClxXsyKn5x4DtVcAT27CnN+TMFlf1mLVSZi
+	un9UfNRmDZNN2X/iiA6KJm4mlkcdrZsiQjGZZZl8LEIA7F2mXmKFKNd2XYub69jBY4Y+6oQAt9wJ/
+	+UYL1kPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWJdk-0000000GXn5-1wjY;
-	Fri, 10 Jan 2025 18:21:48 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tWJll-0000000GZEX-3pGi;
+	Fri, 10 Jan 2025 18:30:05 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWJcU-0000000GXfz-1rW1
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 18:20:31 +0000
+	id 1tWJkV-0000000GZ6p-43oN;
+	Fri, 10 Jan 2025 18:28:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BAAF8A427F0;
-	Fri, 10 Jan 2025 18:18:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC829C4CED6;
-	Fri, 10 Jan 2025 18:20:25 +0000 (UTC)
-Date: Fri, 10 Jan 2025 18:20:23 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Steven Price <steven.price@arm.com>, Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>, Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v2 5/7] KVM: arm64: MTE: Use stage-2 NoTagAccess memory
- attribute if supported
-Message-ID: <Z4Fk58k8YptDkVgm@arm.com>
-References: <20250110110023.2963795-1-aneesh.kumar@kernel.org>
- <20250110110023.2963795-6-aneesh.kumar@kernel.org>
+	by dfw.source.kernel.org (Postfix) with ESMTP id 676215C3C1E;
+	Fri, 10 Jan 2025 18:28:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DDCCC4CED6;
+	Fri, 10 Jan 2025 18:28:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736533727;
+	bh=TYFMjwc9ILvsgk5FB1BS5YUEXb8oE3r6UYK7GHBXgNM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=osZYI5oI6hiesP0M2Esd1STQqJmI7el5YkceNLFM8+HrQ/N2LQ8QTOTxZQFbuU/TY
+	 mb3OAUD+pNkKWyCcseCgaHiJSt4FishYXpULU2ninbOFjEnRJlcapsxfg3DZz8i4Of
+	 tkdk7LEhgpT8osyxWzN5JpmIqOOXS6W6OC/juy2NlF2K7KWPPLlY3bjx7AMzPrpV6Y
+	 2GhR+hvM7dBbWgY8OjfvS3qbehrIbT0IfxOUrmtMh599zDqoGF/GCwPQaOlME3sXY8
+	 YtjnwrhhcHqQnehnF7ZjP0xVIPNfEVa6U4oSmg8nIzGiD72G2oEddP9wLtHkAoyqIx
+	 cYQrRwOTXmSDg==
+Date: Fri, 10 Jan 2025 18:28:36 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: Sanjay R Mehta <sanju.mehta@amd.com>, Han Xu <han.xu@nxp.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Haibo Chen <haibo.chen@nxp.com>,
+	Yogesh Gaur <yogeshgaur.83@gmail.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Michal Simek <michal.simek@amd.com>,
+	Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Jacky Huang <ychuang3@nuvoton.com>,
+	Shan-Chun Hung <schung@nuvoton.com>,
+	Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>,
+	=?iso-8859-1?Q?C=E9dric?= Le Goater <clg@kaod.org>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Avi Fishman <avifishman70@gmail.com>,
+	Tomer Maimon <tmaimon77@gmail.com>,
+	Tali Perry <tali.perry1@gmail.com>,
+	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>,
+	Benjamin Fair <benjaminfair@google.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Raju Rangoju <Raju.Rangoju@amd.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Steam Lin <stlin2@winbond.com>, linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-mtd@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Pratyush Yadav <pratyush@kernel.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	stable+noautosel@kernel.org
+Subject: Re: [PATCH v3 00/27] spi-nand/spi-mem DTR support
+Message-ID: <b40af2ab-8b0a-4099-a636-13ed2a5151ea@sirena.org.uk>
+References: <20250110-winbond-6-11-rc1-quad-support-v3-0-7ab4bd56cf6e@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="aYdj4KKHQJTEiuns"
 Content-Disposition: inline
-In-Reply-To: <20250110110023.2963795-6-aneesh.kumar@kernel.org>
+In-Reply-To: <20250110-winbond-6-11-rc1-quad-support-v3-0-7ab4bd56cf6e@bootlin.com>
+X-Cookie: RELATIVES!!
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_102030_609632_A7C425E6 
-X-CRM114-Status: GOOD (  23.71  )
+X-CRM114-CacheID: sfid-20250110_102848_093120_FB820B61 
+X-CRM114-Status: GOOD (  16.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,78 +107,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 10, 2025 at 04:30:21PM +0530, Aneesh Kumar K.V (Arm) wrote:
-> Currently, the kernel won't start a guest if the MTE feature is enabled
-> and the guest RAM is backed by memory which doesn't support access tags.
-> Update this such that the kernel uses the NoTagAccess memory attribute
-> while mapping pages from VMAs for which MTE is not allowed. The fault
-> from accessing the access tags with such pages is forwarded to VMM so
-> that VMM can decide to kill the guest or take any corrective actions
-> 
-> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 
-Mostly nitpicks below (apart from the slot registration). The decision
-on whether that's the best approach lies with Oliver/Marc.
+--aYdj4KKHQJTEiuns
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-> index cf811009a33c..609ed6a5ffce 100644
-> --- a/arch/arm64/include/asm/kvm_emulate.h
-> +++ b/arch/arm64/include/asm/kvm_emulate.h
-> @@ -378,6 +378,11 @@ static inline bool kvm_vcpu_trap_is_exec_fault(const struct kvm_vcpu *vcpu)
->  	return kvm_vcpu_trap_is_iabt(vcpu) && !kvm_vcpu_abt_iss1tw(vcpu);
->  }
->  
-> +static inline bool kvm_vcpu_trap_is_tagaccess(const struct kvm_vcpu *vcpu)
-> +{
-> +	return !!(ESR_ELx_ISS2(kvm_vcpu_get_esr(vcpu)) & ESR_ELx_TagAccess);
-> +}
+On Fri, Jan 10, 2025 at 03:45:02PM +0100, Miquel Raynal wrote:
+> Hello Mark, hello MTD folks,
+>=20
+> Here is a (big) series supposed to bring DTR support in SPI-NAND.
+>=20
+> I could have split this into two but I eventually preferred showing the
+> big picture. Once v1 will be over, I can make it two. However when we'll
+> discuss merging, we'll have to share an immutable tag among the two
+> subsystems.
 
-The function type is already bool, no need for the "!!".
+The following changes since commit 9d89551994a430b50c4fffcb1e617a057fa76e20:
 
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index eb8220a409e1..3610bea7607d 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -1660,9 +1660,11 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->  
->  	if (!fault_is_perm && !device && kvm_has_mte(kvm)) {
->  		/* Check the VMM hasn't introduced a new disallowed VMA */
-> -		if (mte_allowed) {
-> +		if (mte_allowed)
->  			sanitise_mte_tags(kvm, pfn, vma_pagesize);
-> -		} else {
-> +		else if (kvm_has_mte_perm(kvm))
-> +			prot |= KVM_PGTABLE_PROT_NORMAL_NOTAGACCESS;
-> +		else {
->  			ret = -EFAULT;
->  			goto out_unlock;
->  		}
+  Linux 6.13-rc6 (2025-01-05 14:13:40 -0800)
 
-Don't remove the brackets at the end of "if (mte_allowed) {" etc. The
-coding style does require them if at least one of the branches is
-multi-line (the last "else").
+are available in the Git repository at:
 
-> @@ -2152,7 +2162,8 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
->  		if (!vma)
->  			break;
->  
-> -		if (kvm_has_mte(kvm) && !kvm_vma_mte_allowed(vma)) {
-> +		if (kvm_has_mte(kvm) &&
-> +		    !kvm_has_mte_perm(kvm) && !kvm_vma_mte_allowed(vma)) {
->  			ret = -EINVAL;
->  			break;
->  		}
+  https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git tags/spi-=
+nand-dtr
 
-I don't think we should change this, or at least not how it's done above
-(Suzuki raised a related issue internally relaxing this for VM_PFNMAP).
+for you to fetch changes up to 226d6cb3cb799aae46d0dd19a521133997d9db11:
 
-For standard memory slots, we want to reject them upfront rather than
-deferring to the fault handler. An example here is file mmap() passed as
-standard RAM to the VM. It's an unnecessary change in behaviour IMHO.
-I'd only relax this for VM_PFNMAP mappings further down in this
-function (and move the VM_PFNMAP check above; see Suzuki's internal
-patch, unless he posted it publicly already).
+  spi: spi-mem: Estimate the time taken by operations (2025-01-10 15:20:04 =
++0000)
 
--- 
-Catalin
+----------------------------------------------------------------
+spi: Add spi-nand DTR support
+
+This series adds support for DTR in the SPI subsystem's NAND support,
+allowing it to be used by the MTD framework.
+
+----------------------------------------------------------------
+Miquel Raynal (20):
+      spi: spi-mem: Extend spi-mem operations with a per-operation maximum =
+frequency
+      spi: spi-mem: Add a new controller capability
+      spi: amd: Support per spi-mem operation frequency switches
+      spi: amd: Drop redundant check
+      spi: amlogic-spifc-a1: Support per spi-mem operation frequency switch=
+es
+      spi: cadence-qspi: Support per spi-mem operation frequency switches
+      spi: dw: Support per spi-mem operation frequency switches
+      spi: fsl-qspi: Support per spi-mem operation frequency switches
+      spi: microchip-core-qspi: Support per spi-mem operation frequency swi=
+tches
+      spi: mt65xx: Support per spi-mem operation frequency switches
+      spi: mxic: Support per spi-mem operation frequency switches
+      spi: nxp-fspi: Support per spi-mem operation frequency switches
+      spi: rockchip-sfc: Support per spi-mem operation frequency switches
+      spi: spi-sn-f-ospi: Support per spi-mem operation frequency switches
+      spi: spi-ti-qspi: Support per spi-mem operation frequency switches
+      spi: zynq-qspi: Support per spi-mem operation frequency switches
+      spi: zynqmp-gqspi: Support per spi-mem operation frequency switches
+      spi: spi-mem: Reorder spi-mem macro assignments
+      spi: spi-mem: Create macros for DTR operation
+      spi: spi-mem: Estimate the time taken by operations
+
+ drivers/mtd/nand/spi/core.c           |  2 ++
+ drivers/spi/spi-amd.c                 | 21 ++++++------
+ drivers/spi/spi-amlogic-spifc-a1.c    |  7 +++-
+ drivers/spi/spi-cadence-quadspi.c     |  3 +-
+ drivers/spi/spi-dw-core.c             | 10 ++++--
+ drivers/spi/spi-fsl-qspi.c            | 12 +++++--
+ drivers/spi/spi-mem.c                 | 64 +++++++++++++++++++++++++++++++=
+++++
+ drivers/spi/spi-microchip-core-qspi.c | 26 +++++++++++---
+ drivers/spi/spi-mt65xx.c              |  7 +++-
+ drivers/spi/spi-mxic.c                |  3 +-
+ drivers/spi/spi-nxp-fspi.c            | 12 +++++--
+ drivers/spi/spi-rockchip-sfc.c        | 11 ++++--
+ drivers/spi/spi-sn-f-ospi.c           |  8 +++--
+ drivers/spi/spi-ti-qspi.c             |  7 +++-
+ drivers/spi/spi-zynq-qspi.c           | 13 +++++--
+ drivers/spi/spi-zynqmp-gqspi.c        | 13 ++++---
+ include/linux/spi/spi-mem.h           | 56 +++++++++++++++++++++++++++++-
+ 17 files changed, 235 insertions(+), 40 deletions(-)
+
+--aYdj4KKHQJTEiuns
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmeBZtMACgkQJNaLcl1U
+h9C2zQgAgu3h0M+rMbhCSl4Ax1wuwWzdK82xuQKhEOqQKPe4KB4vTzh1sfMWcvDX
+8SFJrtxYI819QKXozGjqkxGXmY25Bk5rPF08p4qZ3pGBRfKalLOrfNgc36Duv4g5
+W3ClxWr1pkFaw8XfEqrYoYqNT9lA1LzW7Ddqu0IxmHQDW66BfVxU4pHVlQsntB3H
+qaWW/ZntqizjTUbrIfbDuvoNwCmRCZByjvjAMgDX3q0K1DTqbPL+UNoRUNs6lBek
+PBRAiB+Mc0gd6XVtsVTnhimLpsP9Y5BVdXCEd0V3Z+gj+n/FRB1qEvp4WnSndtZ8
+Fm9HJmek861NtHjuBt7awHizmBwvkQ==
+=1HVr
+-----END PGP SIGNATURE-----
+
+--aYdj4KKHQJTEiuns--
 
