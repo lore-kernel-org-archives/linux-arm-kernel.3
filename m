@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCCD2E7719C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 07:39:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 876D8E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 07:42:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DqiUgrBfB2mIxC6rOUWpzRzt8vBXTPO7YhlHrtsAwYI=; b=2Ls/Lt+0Gt2Ecut46Dy7hc88zi
-	hBnWraLTZqpHwomMbb83HpPQFE4lYFXzGWrdxT0nj50mQMaCERfWl0fB8XBZXkraCWub8uSBvVmD7
-	GqhsZT/tg90WG8w4Qr/v/++9A8CzKpYwSIug25VbF7U/R6ciyEWJCSRr6PHWeklU3Mex9p/nq/juk
-	2ftUaiHZnVZeY109B247V7bIBmu6P3o6MyUaj6ycIlfwm+IvePgvzGDgu4fA8zJAlgyVQ7hYciKCc
-	+eqOI9m31yQdk64hPJH3GivS0zlQbmZgMqhCnu6bOV+MiusUXn6zye6F8RM9NvFvUyRa0gOn+VM86
-	TLdj30yg==;
+	bh=3685Snm0alYI9oV4XAJV/xiiCYgITvr4vnRsJ354SU8=; b=bQCUegzeRi/MA/oVY2FEF3oZQ4
+	o99ncxMjjQj2vZjuns6i4LNiJ/SSw3F4Bqn12o2JyiCs4B7zW9lDZHr/Tvh27RrweIMgN3NvhGYyQ
+	KD8x6Wvx+okC5PwkjvKmLxRK70Xwut+G9BvkkX3sB4gS80tkWy4TaungvnUDBHBzx8SQTU3kDCKji
+	zoO2zwOsM2SjijO9w0OtmwWbhrGvrvAOFLpD/t7GzEJyB7Ax3zG5T4wzbq/Drb5gGj4cK8gMke+mA
+	X8aFpdtt5jQsr2gxuCn0w1bSx5zLSzWHhtyuqEz7hVaUZBa3wTdc9J/ntOJlltiVDaqdGMCoZtH8J
+	kfAXerqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW9cB-0000000EOqT-3Q33;
-	Fri, 10 Jan 2025 07:39:31 +0000
+	id 1tW9eq-0000000EPRR-0ueT;
+	Fri, 10 Jan 2025 07:42:16 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW9aw-0000000EOUz-0wPX;
-	Fri, 10 Jan 2025 07:38:16 +0000
+	id 1tW9db-0000000EPGe-0ugt;
+	Fri, 10 Jan 2025 07:41:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 055E0A419CC;
-	Fri, 10 Jan 2025 07:36:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2908EC4CEE0;
-	Fri, 10 Jan 2025 07:38:06 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id CF512A4181E;
+	Fri, 10 Jan 2025 07:39:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CA03C4CED6;
+	Fri, 10 Jan 2025 07:40:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736494693;
-	bh=DqiUgrBfB2mIxC6rOUWpzRzt8vBXTPO7YhlHrtsAwYI=;
+	s=k20201202; t=1736494858;
+	bh=GIaLhCWvt+Vh85V9nMvOQFuhW8mxQRShtxXN7QjsIBc=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=q6ePQjo80FMX+1C2j32EpENhkgM0uWdOG7jYiLnGLhtMAg5r5nqZr4+SVFCxLk2OJ
-	 0v/w7A8R8jT7ggyqZyEoBZD1bmiX8GypWqZWHTqL8GiOA5EvTC0SgFIXyR3bAkx4wE
-	 sg6SCSpDiHR3MpSf06paOT6haJQwy95ThqZ9oKdl8xCthQMrzQC9mTGTXqyS9YcXft
-	 fY6ze/2m7KT73OazUoW9uJ4x34mQgcXtPTRa8aLa74yC33U285HYUJtzOo+PLlJJEg
-	 H0UJGlrxmC0DerLu+qrtDzoF9EWqmEvva63G2Wh0YPFFFdpq9sUR1qcrwlvU9VurXa
-	 72rlY6vX5RWpg==
-Message-ID: <f5859a83-975b-46a3-a33d-ab203efd9e21@kernel.org>
-Date: Fri, 10 Jan 2025 08:38:04 +0100
+	b=VkoAa/36y1lbhaSFgumFc2uFspLcnN/8mAeiFEf3eMbR5tP6AKWnq7g8N/+jiqBuM
+	 w4WqoQvZ4AVTxPjjyBZEvlbCtParJxI30G/Txw36bBhvP47H00hglz2adAx14Ncnp6
+	 23Qh2FpxklQjXS75fxvYeDNMRtq7fT40kDAuJPX2KQUouU+EiroglQDFx+cbMux7Ck
+	 1wXtDpYTAzpVz1GSRTPBZcBDDC+Xodvog6/19X1DuDjdnzSrf94Mc07QQJCl2ZBu6A
+	 XjTUL3okndmbG5b2zmaK4p61TAXxyQ5QhNgH/m7rPT4fJ2A/zk1dneR5tDoXFN7yNN
+	 VjMtnDHdjtN7g==
+Message-ID: <e6019aea-b097-4a24-afd2-e1d638a5a8a7@kernel.org>
+Date: Fri, 10 Jan 2025 08:40:52 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 4/6] arm64: defconfig: enable display support for
- mt8365-evk
-To: Alexandre Mergnat <amergnat@baylibre.com>,
- Chun-Kuang Hu <chunkuang.hu@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+Subject: Re: [RESEND,V1,01/12] dt-bindings: mediatek: Add mediatek,
+ mt8196-jpgdec compatible
+To: "kyrie.wu" <kyrie.wu@mediatek.com>,
+ Hans Verkuil <hverkuil-cisco@xs4all.nl>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
+ <robh+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Tzung-Bi Shih <tzungbi@chromium.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
  AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Jitao Shi <jitao.shi@mediatek.com>, CK Hu <ck.hu@mediatek.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Simona Vetter <simona@ffwll.ch>, Simona Vetter <simona.vetter@ffwll.ch>
-Cc: dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20231023-display-support-v6-0-c6af4f34f4d8@baylibre.com>
- <20231023-display-support-v6-4-c6af4f34f4d8@baylibre.com>
+ kyrie wu <kyrie.wu@mediatek.corp-partner.google.com>,
+ linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20250110012749.30072-1-kyrie.wu@mediatek.com>
+ <20250110012749.30072-2-kyrie.wu@mediatek.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -109,12 +106,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20231023-display-support-v6-4-c6af4f34f4d8@baylibre.com>
+In-Reply-To: <20250110012749.30072-2-kyrie.wu@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_233814_400150_9C1386D3 
-X-CRM114-Status: UNSURE (   6.71  )
+X-CRM114-CacheID: sfid-20250109_234059_386709_7341E660 
+X-CRM114-Status: UNSURE (   7.17  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -130,11 +127,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/01/2025 11:37, Alexandre Mergnat wrote:
-> Enable the DRM HDMI connector support.
-> Enable the MIPI-DSI display Startek KD070FHFID015 panel.
+On 10/01/2025 02:27, kyrie.wu wrote:
+> Add mediatek,mt8196-jpgdec compatible to binding document.
+> 
+> Signed-off-by: kyrie.wu <kyrie.wu@mediatek.com>
+> ---
+No, why are you resending without improving anything here?
 
-Why? It was in previous commit, now its missing.
+You got comments. Respond to them, implement them, not resend same stuff.
+
+NAK
 
 Best regards,
 Krzysztof
