@@ -4,153 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED868E7719C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 17:29:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6262DE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 17:30:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CFvBqhSL8tOYVtAu4Y54abXb7e/A845ItJf4IwgBIbA=; b=cw57sItPB5FfiCFybqRNLdlRNe
-	i2Tk2nHEUmhEok0T/haGK4VsUgu/Ha2ukaYinkwQLXctGB7R/9JSh85gZ5UrD3pAFvtru8PNlKdd+
-	/CHxPRjsLEI0QuvEJGvGfJJZgR383e+w5d1zYV6ZEXNaVsyQF5u+/ZbttlDJ/EeinbYqDJAYvcyJR
-	KBPm90tR94uVLI5VcnwQXDEYMCLLk3EqXTzBC2daG9H2HiBPrunXsJEB4UpJAOZc7KbODvCvnDgta
-	tG2ITbAvRza1JMjL3El6CL+rmf3ErqIBO4zknQzPwwpRiA548Gepj+4I9bMxcJbM9rd4vmuUxehnw
-	myWEQwxA==;
+	bh=tUTWiLhUl1yqmIBrwgfLsVWcTt3i0J4HoIHAN6RT5/A=; b=xW4srPJUowcQXzpzvjK8DZaDSb
+	HfrfdrYL5QRNOYpioVRZmT3a6N3aFtX2GEP2gEXI5tQbMGn5NOen8R0UGK4/ZGOzVlYV8PXsInnLR
+	XAe96pYgKQPOMGz9oH/OIUOXeat5Y62yOm40vo+KFoquW5EtAgt6ssScZMf2FY2JPfCO0zCod1pRU
+	JElgQbQ34sFaFvaLF4N/QGDbAZ+G1v8mUiQibAphB0xgo4b7qK+r7olvLuUcLsiQhlkfo7F5WbCUm
+	tLBwDye0tuGlAzPyU66xjNS8JnTC5fsQ4bI52GceEpOWKRtvthiiKCwAdcLqwzuogjZYyLJjmAKgt
+	epDcM47w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWIob-0000000GQeU-2Efr;
-	Fri, 10 Jan 2025 17:28:57 +0000
-Received: from mail-bn8nam11on20602.outbound.protection.outlook.com ([2a01:111:f403:2414::602] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWIlH-0000000GPnW-3Vlb
+	id 1tWIpn-0000000GQrk-2dOw;
+	Fri, 10 Jan 2025 17:30:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tWIlm-0000000GPxc-48oq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 17:25:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Idga0pLEM99twxmVv+imQ4Du8V1nBEjeKfFRFSz8LkYMFI0ZWL2gsDgf4tMZpMMAWSGsk8WajEmkmrcHsArtoDK7ZjFSTEa/oKFTEele3ZXVmnimKWPHA5PLqVCs155kgTOlcj9DgfqzSJMR/U2UwdSXSacCpMuOPtsuifOqKljzYiVirOJ91dbfwW1L/nSPOkp2B3ECJpavQkkn1kfHlxnyeTGGV8WenmyEYZqxZ129/DWpG9UXO26xgxSINoYrVp2+CEWHUdr8ZtaJvfzMKlCReMR+7eEkb3qAg/ewgCoZKa2glGWutXagk+ms/4bD+FH0T/4aa+DVYIe8FUlteA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CFvBqhSL8tOYVtAu4Y54abXb7e/A845ItJf4IwgBIbA=;
- b=UI0g6NTs8sqvu3X5iiwem7Usg/9q/1NZYlQxjDuan4h9rvKAB2OByfrWEwJgHdn6rxIg1exnN7lpuLfS07CAQBCz0NtJ+w7KY9mNhOqkFZpb37HxBJg90BYaR4invrxW0Wwn3poc+/6Y4XtzTn+FmU27q7z76Btg09y5NhVHE4dUzCbYhwDadqScfAMQhZWXc/NVxLwf1dUDPJuX4++a6hgEesJcC7Qy6PukVYaLVVoRSFx/oEcCnZMo4CcOxhfYgppQvQOxJ6Ld547Ls0nQMtZucAyCd6fbUURNFDMw/CjYAvg5D8PIfeQjX6GD9bE0eU+hJJZliVXRJRfCk3qs3Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CFvBqhSL8tOYVtAu4Y54abXb7e/A845ItJf4IwgBIbA=;
- b=sv9GGSR7l+R+7EgfjrA5HGl1TRs+juqfDTAjoY2WyDEwGA7rxqsfx3lQsfUPP45qixp77g6rRhD8WB3zFqQRdSxglNFTYlZ/ycs7FK7pwdIWoC52rFysra/qURLpC4BJqHDJU83CSo6slk/gQVDYka9Navwmk+4coFmIbGEy9aQVePn1HUVWWdNLLi32sOYF0J9tcluNDt+LUJOHLnx728Kh6GE5w37vXjVNGWW+dfBbNJEsSrqiyCs52WErljZOznBNBO0GUGrRpn5ZmHNW4nPrcKyud9N44UXR7IvOwZKyz3PASI1LEN8cNCCR1IY2YotxTGUwTJ3iWGK/ycVtYA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by SA3PR12MB7879.namprd12.prod.outlook.com (2603:10b6:806:306::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8314.16; Fri, 10 Jan
- 2025 17:25:27 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8314.015; Fri, 10 Jan 2025
- 17:25:27 +0000
-Date: Fri, 10 Jan 2025 13:25:26 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: kevin.tian@intel.com, corbet@lwn.net, will@kernel.org, joro@8bytes.org,
-	suravee.suthikulpanit@amd.com, robin.murphy@arm.com,
-	dwmw2@infradead.org, baolu.lu@linux.intel.com, shuah@kernel.org,
-	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
-	eric.auger@redhat.com, jean-philippe@linaro.org, mdf@kernel.org,
-	mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
-	smostafa@google.com, ddutile@redhat.com, yi.l.liu@intel.com,
-	patches@lists.linux.dev
-Subject: Re: [PATCH v5 03/14] iommufd/fault: Move
- iommufd_fault_iopf_handler() to header
-Message-ID: <20250110172526.GE396083@nvidia.com>
-References: <cover.1736237481.git.nicolinc@nvidia.com>
- <6e4f3917e2bcf871b958c0d9f69dd3a182ee8ce7.1736237481.git.nicolinc@nvidia.com>
+	Fri, 10 Jan 2025 17:26:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D26CF1477;
+	Fri, 10 Jan 2025 09:26:28 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 604A33F66E;
+	Fri, 10 Jan 2025 09:25:58 -0800 (PST)
+Date: Fri, 10 Jan 2025 17:25:50 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Alireza Sanaee <alireza.sanaee@huawei.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, robh@kernel.org, linuxarm@huawei.com,
+	shameerali.kolothum.thodi@huawei.com, Jonathan.Cameron@huawei.com,
+	jiangkunkun@huawei.com, yangyicong@hisilicon.com,
+	zhao1.liu@intel.com
+Subject: Re: [PATCH] arm64: of: handle multiple threads in ARM cpu node
+Message-ID: <Z4FYHvbVhMHrGQI4@J2N7QTR9R3>
+References: <20250110161057.445-1-alireza.sanaee@huawei.com>
+ <Z4FJZPRg75YIUR2l@J2N7QTR9R3>
+ <20250110170211.00004ac2@huawei.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <6e4f3917e2bcf871b958c0d9f69dd3a182ee8ce7.1736237481.git.nicolinc@nvidia.com>
-X-ClientProxiedBy: BN9PR03CA0727.namprd03.prod.outlook.com
- (2603:10b6:408:110::12) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|SA3PR12MB7879:EE_
-X-MS-Office365-Filtering-Correlation-Id: c9617997-8962-465e-402e-08dd319bc65f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?qQ8TPeBl40ZyKZ4pCdCoXflBGb5idRqvdHFAH/glwiLrAAPWR03BsEHYJyTz?=
- =?us-ascii?Q?bSHMnmj8/OSX5wX3mUE4azv2dYfMWA2vmYvhCVbLct5g/i6o1bXOV06+wlcH?=
- =?us-ascii?Q?7IwN8q/Kly51BRyxkvRzeJ+z6D0aDx0QyrWMguxJN3OdDgzDPV9KB7AodiZs?=
- =?us-ascii?Q?wp6wgwrQP6n9K7csg6dzLqe7YMrwJifjXcYsWPBXsTMC3O9+Fv0u3i/buJI3?=
- =?us-ascii?Q?qKlNGyFcr4LYZJcIiELMhEx5oPJCuNq8S6iu5hqEPnKA5EaVPwRRnEOUe32S?=
- =?us-ascii?Q?5srn6ZDd3Jm04FokcFf4dzhr5dSI8VX7TA8AF2imgmwWX9EXvoXFFi3OU1Ic?=
- =?us-ascii?Q?NfRxuA2mIAfgqbk1JzGZ9nlau39hgbUSm1GhPTwlXz3llK6xA/Ibda+FIJaP?=
- =?us-ascii?Q?bTReAOfuIxMGvnyR/kewWLRCYuyZtT8QbuhKEkz4pUxcoQQBYD1N8xoRm0u5?=
- =?us-ascii?Q?FbpuQ/mosGBsFSxVBW5HV+CnPFCBwoxZwNT9j7t8DwH7njcW0ndWT2AbHh4G?=
- =?us-ascii?Q?cr/JnwTbuOS4WGSTwWLXCEdc1cftxApsHl/YrE5NG2ABOahkNRIz5/VyghYL?=
- =?us-ascii?Q?q4f2+XbpYhAWTMTmbElNMJZJL7J+Al5y9Foc6WOiwGwF3+Is91ugTRBJXOqX?=
- =?us-ascii?Q?7zMYacXUhiyXsm4gcd6lEj27GbwLQ8xjWrDnfa1fCTBn1L6H/Qak3BFAkMzK?=
- =?us-ascii?Q?96FHZwN1BY3jxMLRQEPNbR/4/K5XaXxfbjB973VOP/XyfveQwrbkL8aMK6kJ?=
- =?us-ascii?Q?kvmGACcltW0fw6TM21cBJDUdmfYpZg3R44HHcGEtj0sW1yWd4qFJpkCDnlpS?=
- =?us-ascii?Q?DTvkfFGBqgdZuvedF4G7rc6zVJr9+/sdUHI7WMGNlWMuEeLT7WDwCju+cJvD?=
- =?us-ascii?Q?LsI7ZVqL5efpb1YjcdDpgvvDDjUDrannbb7oton/pat0x/+3zgEa36CP1ds0?=
- =?us-ascii?Q?04hiYJTSgaG8JrJhGZ8CxYvkjJzkf5DVwhwuP+Ngbd53igCe4R2PcPl0GkDV?=
- =?us-ascii?Q?Na8AZwul7y7kwYHyn+Mex5aC/+BTybDymFf6ksBQFeRl0vzai1HEbwNHOpaP?=
- =?us-ascii?Q?gK7dpP4aInUGcHJeopI2RYxGFXFBCYlKa1umYcLk17sKJH8uRP5RGASpaxS+?=
- =?us-ascii?Q?ifLSL0cLl+hvB5Ryig3reZynC3LJyLf7EhpDybxlEySXbiouXnlX7ZaYhyL8?=
- =?us-ascii?Q?GvkVoHU6tMzhwYIcFFdaeZVSBTPpYgm3GGEFT0fSWZPR1R7BaBl4N2/kBu7g?=
- =?us-ascii?Q?ICxNXOC4Sh4mYm+KBSHmQa/n2Q/u1lSDr3X0GiYt7KGZCQMcpR8J3UcX7aH3?=
- =?us-ascii?Q?/L6x4VOeqZfzuOy+JilITC63izJhXzz9ZiIcnhKJipdUeTo6nV9WO43Ig/Gg?=
- =?us-ascii?Q?dejAFI3G9blo1p4F+QiQM0kHdEhb?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8pEmS5nLUwmHvmxsKk/thv08tUZb78LyJLD1XqQVeEbfWxWp87tLvpfabXvF?=
- =?us-ascii?Q?5KjUiA2XQn3eLL9UdeUsB753fANTe9lQUb4ON6j2cPCZioSZugx9MuoG2E63?=
- =?us-ascii?Q?NJ/seDY/Rp+83k/6lsWWNKpB7gEN0JB9qw2n57lMSeCWIQIB/UH6qAaLaTri?=
- =?us-ascii?Q?y9mogJ7E2wOrRdoyGVdvMPIzbEv/ryIzBpVBEUg7Tf/K+Va3mZeG3RbpQYnn?=
- =?us-ascii?Q?+b3eSNDB7JjRqy2I1RGRqMtrfm4CTZAxDtuui0tWEGN5y2RaF9jH0MByznBD?=
- =?us-ascii?Q?2BKuCQQGrljRcv7OxsD8rAUpPwgfexMlIUtC/gBwDPQnAqjJxkSDZXvx6D+a?=
- =?us-ascii?Q?kSSHKkNL0/ZsRflsftW9tupLElEvOjqThjUT3nNq14S9A3TNtw1M00fR/LTt?=
- =?us-ascii?Q?abXQRtKOWMfCCZqEfHTcTTLTgL1U019czlSei9jq/wWOd0NL77l0mqN2gO+W?=
- =?us-ascii?Q?N5mNDMOdF4Xu1mbQ8qhCWN96SxqMdLcKgsxXMR/tVZm1yX+2YvbDQ1EB1cdF?=
- =?us-ascii?Q?dYnYhmfdJG1Aefm0v0VXgukZSyIbkBfdCvGIPWM+R/7O0hPY36HEOHmX/OHY?=
- =?us-ascii?Q?Iq6Yu1K4tozW7sUaKh1GhcgmTvOs28AjwfFqgex5d+ND1/F4tRArLrEpnhX0?=
- =?us-ascii?Q?uGECus0XdQOrMvddO43de7QAC3yWt+lzxna245kgP13JctXlwSK4E8xOiyrM?=
- =?us-ascii?Q?i61gviQ8ZshdIPKAhjx4hvrzEM92TolVpP9yxA6KgTnj0RU92ijrDYowpV6T?=
- =?us-ascii?Q?E9Yhhv/ZtHUFpOQZ5i9xcUIuWM/gmUsj+/rUGnQBFoV75oF1usd0ZpNf455m?=
- =?us-ascii?Q?PRb0kAEZLq5ZSi67Fpn1fjlITI5ahkXXL8QINYW5SKlz57RjVthZNlvYZSwU?=
- =?us-ascii?Q?n314ckhfAdabWjrXRwNdVteEFuyG5ua94LtI073p8O40kmlCFyDr/ZwOXT8v?=
- =?us-ascii?Q?zLhqN2HoMmnm8kyAtI48CqsWIhOLQc5dv9429XjLjxnCrvaq33rG/vqmJcO3?=
- =?us-ascii?Q?CH6y8vz1hUXpMWJs9B+HQK7UCUaICL3rZvXHH8k0iMWdPUcw/g3BP/LHZJhD?=
- =?us-ascii?Q?aiOEWk0nf6AdcuqHvjs13WAjCXoWfF4uiMBGUKa9v+j83NNQbzQYw1bNTrFT?=
- =?us-ascii?Q?p3rrY8FBnOdQkmAavZB7cx2+qpVktpF9RS0Rww+rGUzkTJUyV+AazROqxCTP?=
- =?us-ascii?Q?hPmD76C+V449XlxuPhsvhIzau35Olhb+r19cVsnVBADgkuDqVx01w5dHJgdl?=
- =?us-ascii?Q?UMgu5Ue0xqMup8vCTD6lRz7LZbdY4QGbQhnscyJaVcnRwfiFbyaX0tKXvdEF?=
- =?us-ascii?Q?mX4NVR/Gn8IxI6+rc/0g2m1Uiw+wYVz3YgnB6SUHWwxvTUat2VNcKVdoNSaF?=
- =?us-ascii?Q?tReRRU3nGXh/qdpZnvLyrFmWg9mVOFea4e6NK5+6sYQlrIVAbLfA4yq3jYWS?=
- =?us-ascii?Q?Ydw3vYlSGfzALBXSVQnkrXPtvJV8ULCaycYsf8WSM+Dj/Y5kFNu4KqtRluZh?=
- =?us-ascii?Q?sTTf92YILfzouC9m/YrsxbyLpIrRagmT25JMyw1aK+Cpg0k3Vn7pUbjYjnkI?=
- =?us-ascii?Q?EF1UB1oIssEpMZXWuklhK6YJstPuKu4hXk+tBEL/?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c9617997-8962-465e-402e-08dd319bc65f
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jan 2025 17:25:27.5861
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Z14PtW2gIX3SK46Hyxz29MWkUGO5XC31En5MCu0fYUmTJM/ENyi+OUbT92F9CIU0
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB7879
+In-Reply-To: <20250110170211.00004ac2@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_092531_869986_8C724E72 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20250110_092603_110900_8DDDD118 
+X-CRM114-Status: GOOD (  31.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,24 +67,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 07, 2025 at 09:10:06AM -0800, Nicolin Chen wrote:
-> The new vEVENTQ object will need a similar function for drivers to report
-> the vIOMMU related events. Split the common part out to a smaller helper,
-> and place it in the header so that CONFIG_IOMMUFD_DRIVER_CORE can include
-> that in the driver.c file for drivers to use.
+On Fri, Jan 10, 2025 at 05:02:11PM +0000, Alireza Sanaee wrote:
+> On Fri, 10 Jan 2025 16:23:00 +0000
+> Mark Rutland <mark.rutland@arm.com> wrote:
 > 
-> Then keep iommufd_fault_iopf_handler() in the header too, since it's quite
-> simple after all.
+> Hi Mark,
 > 
-> Reviewed-by: Kevin Tian <kevin.tian@intel.com>
-> Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> ---
->  drivers/iommu/iommufd/iommufd_private.h | 20 +++++++++++++++++++-
->  drivers/iommu/iommufd/fault.c           | 17 -----------------
->  2 files changed, 19 insertions(+), 18 deletions(-)
+> Thanks for prompt feedback.
+> 
+> Please look inline.
+> 
+> > On Fri, Jan 10, 2025 at 04:10:57PM +0000, Alireza Sanaee wrote:
+> > > Update `of_parse_and_init_cpus` to parse reg property of CPU node as
+> > > an array based as per spec for SMT threads.
+> > > 
+> > > Spec v0.4 Section 3.8.1:  
+> > 
+> > Which spec, and why do we care?
+> 
+> For the spec, this is what I looked
+> into https://github.com/devicetree-org/devicetree-specification/releases/download/v0.4/devicetree-specification-v0.4.pdf 
+> Section 3.8.1 
+> 
+> Sorry I didn't put the link in there.
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+Ok, so that's "The devicetree specification v0.4 from ${URL}", rather
+than "Spec v0.4".
 
-Jason
+> One limitation with the existing approach is that it is not really
+> possible to describe shared caches for SMT cores as they will be seen
+> as separate CPU cores in the device tree. Is there anyway to do so?
+
+Can't the existing cache bindings handle that? e.g. give both threads a
+next-level-cache pointing to the shared L1?
+
+> More discussion over sharing caches for threads
+> here https://lore.kernel.org/kvm/20241219083237.265419-1-zhao1.liu@intel.com/
+
+In that thread Rob refers to earlier discussions, so I don't think
+that thread alone has enough context.
+
+> > > The value of reg is a <prop-encoded-**array**> that defines a unique
+> > > CPU/thread id for the CPU/threads represented by the CPU node.
+> > > **If a CPU supports more than one thread (i.e.  multiple streams of
+> > > execution) the reg property is an array with 1 element per
+> > > thread**.  The address-cells on the /cpus node specifies how many
+> > > cells each element of the array takes. Software can determine the
+> > > number of threads by dividing the size of reg by the parent node's
+> > > address-cells.  
+> > 
+> > We already have systems where each thread gets a unique CPU node under
+> > /cpus, so we can't rely on this to determine the topology.
+> 
+> I assume we can generate unique values even in reg array, but probably
+> makes things more complicated.
+
+The other bindings use phandles to refer to threads, and phandles point
+to nodes in the dt, so it's necessary for threads to be given separate
+nodes.
+
+Note that the CPU topology bindings use that to describe threads, see
+
+  Documentation/devicetree/bindings/cpu/cpu-topology.txt
+
+> > Further, there are bindings which rely on being able to address each
+> > CPU/thread with a unique phandle (e.g. for affinity of PMU
+> > interrupts), which this would break.
+
+> > Regardless, as above I do not think this is a good idea. While it
+> > allows the DT to be written in a marginally simpler way, it makes
+> > things more complicated for the kernel and is incompatible with
+> > bindings that we already support.
+> > 
+> > If anything "the spec" should be relaxed here.
+> 
+> Hi Rob,
+> 
+> If this approach is too disruptive, then shall we fallback to the
+> approach where go share L1 at next-level-cache entry?
+
+Ah, was that previously discussed, and were there any concerns against
+that approach?
+
+To be clear, my main concern here is that threads remain represented as
+distinct nodes under /cpus; I'm not wedded to the precise solution for
+representing shared caches.
+
+Mark.
 
