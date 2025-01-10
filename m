@@ -4,67 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CFC3E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 12:21:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13B92E7719D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 12:22:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=UzIA+H5wuzkNSSs8ypYnf254qfQr3qGIN47AimFa5yo=; b=n/QkbuMASZFHBqB5Ou3zIyuJPK
-	fpKjh430QAda2oL7i+/qWN1NIJuS4fBhxHcF+LZPlpEkbram0nwpRNRS+Zr4URsQEQ9iiLpNs+6so
-	QkVJQXaZnK0yBuUkc4yMH/KipS0FABRbw688VvorPgsBl7TcWC8mhCbO3+r0JMjX43AyNRrAEKkbN
-	sGYUjwz5EN1ZmHJG8x6oa1sMGFwpBscj7il5dkiT7LWPaE+FGlF50PHwVRcS4Ly3Ylk6VR9Gsd0I9
-	zQFwwulWMwqZalapo6SNLQ80ijYWZzGq4WEqNbDtc+VVvYg+9s+vyxPtbLwJIcWK6euTkRggkYtaB
-	8AxjP/5w==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KOsYvpEfuP6cXx/Oyn2XcEqgX5/aUorsAa5EPXiB2Ss=; b=eriDtRphZ+OCmtDlLc1BRq3pF5
+	miS8Goj8Euqq6KnrDWn8b9jEQL7ptmsgXA+Sx8pnTgw3tAxAYfj0zes2K4eVd53NMieTFwWCQjiNP
+	+inHnPPRCp8ZSU1OdgisjB99CcfHOirWfIV+rhZTpZW8Y5e7kwBeH8KnrZQF9Ra7HXvzKz3CXrLYL
+	6SMpVHJOJsxMgmlVxJKlQ2ceOao9mh5yqKEqXLQtL6V5/j6h137Zy4H1Yp2daQzzO5pM+Zn+B2mea
+	iRTkz99/Fye5ynP4VqpY5LaKxW29Zm3LmDF9p3Q2eM+4B+ZZ2aItBg/jxhpNVz0drFufwnGCxeNd4
+	tjraBjVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWE0Y-0000000FF2U-1Ndd;
-	Fri, 10 Jan 2025 12:20:58 +0000
-Received: from mail-ej1-x649.google.com ([2a00:1450:4864:20::649])
+	id 1tWE1j-0000000FFIu-3xzE;
+	Fri, 10 Jan 2025 12:22:11 +0000
+Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWDzJ-0000000FEgq-1ygB
+	id 1tWDzL-0000000FEhl-0kNz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 12:19:42 +0000
-Received: by mail-ej1-x649.google.com with SMTP id a640c23a62f3a-aa6a7bea04cso133717266b.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jan 2025 04:19:40 -0800 (PST)
+	Fri, 10 Jan 2025 12:19:44 +0000
+Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-385e1339790so1257249f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jan 2025 04:19:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1736511579; x=1737116379; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=UzIA+H5wuzkNSSs8ypYnf254qfQr3qGIN47AimFa5yo=;
-        b=txldByU1rXgM7C0XanrXYl+Cb1RWUxodrjUVS9QwktrG7hPqL/uQgSxJ/xbypqi2X3
-         9xKWY5mnEzX9FOC8s68MH4CqctPYBfkuXNiYTqYWM0g9tmiSkwgADEwsOM8vif8YRiLd
-         wluYrSb/8VvwVRG4cYE9E9D0AI6C5sskx/TREINkUFm3tRcb7BK+xkK/piuhITCeuW0M
-         lBHSx6hiIDH4xSzpBEeUGm2wR6cLP+n08QTcW8/yQC5Oyp6FkhlIZkoUmODHR9fI4TFM
-         UOwHWVXIek4pRtg4l3468KoEp+WkAiyYMYmbdiLbM6yQ/PTyBLRqzM3Rm99RE8qKtiS1
-         uW1w==
+        d=google.com; s=20230601; t=1736511581; x=1737116381; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=KOsYvpEfuP6cXx/Oyn2XcEqgX5/aUorsAa5EPXiB2Ss=;
+        b=ZG150OdnNG+2fxpWHKLQ7ZLO5ZL6VuE//p0e6twx7Go5IN90RlE4/Z+rK8k3oQ+Xry
+         yb59lffsxKe/Il+WJKB8WojTDCiNrFIZyOQAORWI8x76j4ekhJAZsnJls6Tu79pn9ZXW
+         y83K6VeZu5KdTad0k+MbQjy7JEH9D5lEbRYt2kWhGktVJz310pA0o69o14AgD5CIl3T3
+         uAGnYJdh04rz12bJEeI18nJYmbcSRJs1ULjA37Q+Y1G7ixr8loPna76G46sT9Hn34NYy
+         q9zsHzquwDTXPeBm60pcLMF5jhyJQkkcPSiNEfoF983Szlnvs+ijBXTva7Nnv7WeyoZ/
+         rg6Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736511579; x=1737116379;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=UzIA+H5wuzkNSSs8ypYnf254qfQr3qGIN47AimFa5yo=;
-        b=mYGy5joCiSTfvJJH5qmJAHAx+iN3p+x2f8zzh3YUvneOr8Iq4QuTKFhOnGRZipKL67
-         rqHkPnfjEIJUDncSMgMxOtfLhFSJrrGUu0x0UHhusF2fyio+1NM2XIUcVXYT/0uK884e
-         eOn3/7qebGtez35EuPC/BoWikVyu0zmCQHoqZeHKvxsa5jWyv2sKgsRgxOzwjJi2Q6Ft
-         WuZtw1i15m5sMXVxnwE6d+CN8sh0ATv5AWxwfWwwpZhYKueiKCIjVh+oIuz4fOMiF7+3
-         xL9ixGFqBeHuQPBxS1IchoJhcQ0vAFz/g6XCIq5COLA2+ctzGmqbFWFbPsdj9nWsapUO
-         inyQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUXsNBK1IAJ0wrAwJXYpol8xXsev0tdmK6EUcho5DoGpS2QPeLakbEnVprEVXRguym8JDTbJuXhuMZxBSiSE0DQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxKVCOG7Xpt5JVrq5YkuxKOqQYSgszjYNFONXQAJU3fjGB7pOHB
-	xF1tvay0Fqngi07mF+QYOpcfY55wgisJzroWBEUaJQ4yLRGR6f2qHIiQVz1iTedJByQeY9inS9F
-	il7WTCQ==
-X-Google-Smtp-Source: AGHT+IGkGANyUq4Shs3jRgORa03NUzS4pqhfTUeC/iJcTMOHEUTfabfbJYGdVRZfbZG4wkvfE8dsnSXrOaYh
-X-Received: from edx29.prod.google.com ([2002:a50:8e5d:0:b0:5d8:5ec7:f252])
- (user=qperret job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6402:358d:b0:5d1:1024:978c
- with SMTP id 4fb4d7f45d1cf-5d972dfbc2cmr8663097a12.2.1736511578923; Fri, 10
- Jan 2025 04:19:38 -0800 (PST)
-Date: Fri, 10 Jan 2025 12:19:33 +0000
+        d=1e100.net; s=20230601; t=1736511581; x=1737116381;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=KOsYvpEfuP6cXx/Oyn2XcEqgX5/aUorsAa5EPXiB2Ss=;
+        b=BuAaLQyFYw+IutjZN21LFAGPJQsuYAOiHIfJ/pWtbFmsHvyDHiy3HtOq8mY4b3H1t1
+         lUPyQ6OusPmz0CpfkGABmAxnBXvcay5DXoNC/ANcR/xpBWcNDRcY03OOVIoRAjs2SSYj
+         peYE8OsopY43MKJM1ZFOQMrZ4lxizX1nMjrU9iM9cHH7Njrdpcpj+3p4elwmbmqyyeJT
+         9zUDyXfZhSLWCDB1/NHNLpSZReAcB9WKCpiATaLUjV9XrTXH/uXbrMUJp+J7OIdeys5N
+         8tG9kQYxzku66SxP6AkQo/d/lAZwekElt1loAo3lnY61w3A1dWwtnUeXLVAUa2OYiUwU
+         YGRA==
+X-Forwarded-Encrypted: i=1; AJvYcCU2qrcZkDUvRBkPfU4/Vff0SDq0FiifXhUJe7qexUwbRzAHQC2fm/zBRhJQMIiC4U0JlGM9svUlXbHVO+HRYuKT@lists.infradead.org
+X-Gm-Message-State: AOJu0YwFCedawWip66KnBW1tkI35to1+qtOMa4s1qIO+vmUifW3F7Ot5
+	me7I6E4v9OUS4XPfRoDqGgG3si++dbLag4nlKQCYb4A56jqtZaezB1YK1bAT07q7A4Aw2sY4gWY
+	z4adU5w==
+X-Google-Smtp-Source: AGHT+IFAYtJzivhsUU52iKzNWQxnVnmG7hlKc9RgE/6e86BSJtlmWTwTC7B+OByUUTQWv/FFwWaTNzzh0SbE
+X-Received: from ejav24.prod.google.com ([2002:a17:906:3398:b0:aa6:ac44:bff3])
+ (user=qperret job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:2a9:b0:386:43c9:3ac2
+ with SMTP id ffacd0b85a97d-38a87305310mr9731875f8f.15.1736511581199; Fri, 10
+ Jan 2025 04:19:41 -0800 (PST)
+Date: Fri, 10 Jan 2025 12:19:34 +0000
+In-Reply-To: <20250110121936.1559655-1-qperret@google.com>
 Mime-Version: 1.0
+References: <20250110121936.1559655-1-qperret@google.com>
 X-Mailer: git-send-email 2.47.1.688.g23fc6f90ad-goog
-Message-ID: <20250110121936.1559655-1-qperret@google.com>
-Subject: [PATCH 0/3] KVM: arm64: Simplify pKVM memory transitions
+Message-ID: <20250110121936.1559655-2-qperret@google.com>
+Subject: [PATCH 1/3] KVM: arm64: Drop pkvm_mem_transition for FF-A
 From: Quentin Perret <qperret@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -75,8 +77,8 @@ Cc: Fuad Tabba <tabba@google.com>, Vincent Donnefort <vdonnefort@google.com>,
 	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_041941_508347_D413BDA3 
-X-CRM114-Status: GOOD (  14.02  )
+X-CRM114-CacheID: sfid-20250110_041943_213122_8BBC8EE4 
+X-CRM114-Status: GOOD (  10.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,58 +93,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since its early days, pKVM has formalized memory 'transitions' (shares
-and donations) using 'struct pkvm_mem_transition' and bunch of helpers
-to manipulate it. The intention was for all transitions to use this
-machinery to ensure we're checking things consistently. However, as
-development progressed, it became clear that the rigidity of this model
-made it really difficult to use in some use-cases which ended-up
-side-stepping it entirely. That is the case for the
-hyp_{un}pin_shared_mem() and host_{un}share_guest() paths upstream which
-use lower level helpers directly, as well as for several other pKVM
-features that should land upstream in the future (ex: when a guest
-relinquishes a page during ballooning, when annotating a page that is
-being DMA'd to, ...). On top of this, the pkvm_mem_transition machinery
-requires a lot of boilerplate which makes the code hard to read, but
-also adds layers of indirection that no compilers seems to see through,
-hence leading to suboptimal generated code.
+Simplify the __pkvm_host_{un}share_ffa() paths by using
+{check,set}_page_state_range().
 
-Given all the above, this series removes the pkvm_mem_transition
-machinery from mem_protect.c, and converts all its users to use
-__*_{check,set}_page_state_range() low-level helpers directly.
+No functional changes intended.
 
-A few things to note:
+Signed-off-by: Quentin Perret <qperret@google.com>
+---
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c | 36 ++++++++-------------------
+ 1 file changed, 10 insertions(+), 26 deletions(-)
 
- - the existing helpers to request, ack, initiate and complete
-   transitions were mostly wrappers around
-   __*_{check,set}_page_state_range() anyways, so we're not losing that
-   much in terms of consistency
-
- - the pkvm_mem_transition machinery did not suffice to avoid bugs such
-   as [1]. The pkvm selftest [2] should do a much better job at that
-
- - see diffstat ;-)
-
-This series depends on support for NP guest stage-2 for pKVM [3] as well
-as the fix in [1]. I've pushed a branch with all the goodies applied [4]
-if that can be useful.
-
-Thanks,
-Quentin
-
-[1] https://lore.kernel.org/kvmarm/20241128154406.602875-1-qperret@google.com/
-[2] https://lore.kernel.org/kvmarm/20241129125800.992468-1-qperret@google.com/
-[3] https://lore.kernel.org/kvmarm/20241218194059.3670226-1-qperret@google.com/
-[4] https://android-kvm.googlesource.com/linux/+/refs/heads/qperret/no-mem-tx
-
-Quentin Perret (3):
-  KVM: arm64: Drop pkvm_mem_transition for FF-A
-  KVM: arm64: Drop pkvm_mem_transition for host/hyp sharing
-  KVM: arm64: Drop pkvm_mem_transition for host/hyp donations
-
- arch/arm64/kvm/hyp/nvhe/mem_protect.c | 640 +++-----------------------
- 1 file changed, 76 insertions(+), 564 deletions(-)
-
+diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+index 392f036bc69e..3a3d9fcbc508 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
++++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+@@ -1324,22 +1324,14 @@ void hyp_unpin_shared_mem(void *from, void *to)
+ 
+ int __pkvm_host_share_ffa(u64 pfn, u64 nr_pages)
+ {
++	u64 phys = hyp_pfn_to_phys(pfn);
++	u64 size = PAGE_SIZE * nr_pages;
+ 	int ret;
+-	struct pkvm_mem_share share = {
+-		.tx	= {
+-			.nr_pages	= nr_pages,
+-			.initiator	= {
+-				.id	= PKVM_ID_HOST,
+-				.addr	= hyp_pfn_to_phys(pfn),
+-			},
+-			.completer	= {
+-				.id	= PKVM_ID_FFA,
+-			},
+-		},
+-	};
+ 
+ 	host_lock_component();
+-	ret = do_share(&share);
++	ret = __host_check_page_state_range(phys, size, PKVM_PAGE_OWNED);
++	if (!ret)
++		ret = __host_set_page_state_range(phys, size, PKVM_PAGE_SHARED_OWNED);
+ 	host_unlock_component();
+ 
+ 	return ret;
+@@ -1347,22 +1339,14 @@ int __pkvm_host_share_ffa(u64 pfn, u64 nr_pages)
+ 
+ int __pkvm_host_unshare_ffa(u64 pfn, u64 nr_pages)
+ {
++	u64 phys = hyp_pfn_to_phys(pfn);
++	u64 size = PAGE_SIZE * nr_pages;
+ 	int ret;
+-	struct pkvm_mem_share share = {
+-		.tx	= {
+-			.nr_pages	= nr_pages,
+-			.initiator	= {
+-				.id	= PKVM_ID_HOST,
+-				.addr	= hyp_pfn_to_phys(pfn),
+-			},
+-			.completer	= {
+-				.id	= PKVM_ID_FFA,
+-			},
+-		},
+-	};
+ 
+ 	host_lock_component();
+-	ret = do_unshare(&share);
++	ret = __host_check_page_state_range(phys, size, PKVM_PAGE_SHARED_OWNED);
++	if (!ret)
++		ret = __host_set_page_state_range(phys, size, PKVM_PAGE_OWNED);
+ 	host_unlock_component();
+ 
+ 	return ret;
 -- 
 2.47.1.688.g23fc6f90ad-goog
 
