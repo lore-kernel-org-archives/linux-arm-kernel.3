@@ -4,65 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6361E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 16:36:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DED51E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 16:37:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aVXo9iIUuzBuU9sqp+HF6GKq1gmWzqc5DJDzvDSb0GM=; b=AUcpEpM2x44zUKzKz4qoXTiQnI
-	QAx2YXNHVqOPS9fleSczGH5CAaUY76Jyu4ZFK4WUvYuvHiO+I9VRdngDR714KOsVpLtl1dicWXIYr
-	ILkZJJxl9gDcvQ4XPA1sBRHTQk/eTu4iiHpOxMUTqagFfDdxBpojDAPQUPZ8wdalvYDIy4QQ882oz
-	KsUubREOLfmzg/M40LP1D2Vh+wh1sO65j1OhgKSbqQ387DPzi+gZF0wppI3s8rYhGR8znoZZpUfyl
-	KK3lb/B3QMKBzBjsP6Ak68SM4LkPquqvCuKoebUYfZ62tQ5eIuL1cqeQMHbbpACRgp8MHDOQ6dFFy
-	+trc8iUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cUhN8C5mVnF6Q6CJkf5vIACTPwUHO9uKLHC7m5cVOY0=; b=fieRU5uoHCtz+wKwjODdMt0UiL
+	FHTie8Hs8KjsJihoDxfNuzpXExiBVH5kgt/YLfOFzKZvPBk1/PCWi1pdqFsdpZRQ75w7ZT3w+7qYn
+	QFPCnVsfQryEAlRV5EFgjrNA5FUrZUNxfVQaeJX7aAMlnCS2RSxJlBG/5+gDc4nk33oamNBPeQcyV
+	Smby8J2vFe+xIylincDwEbyIXZ4zyfjlKvBzK8TJDulHmSLTXu5zgaOirYzz8af/fGR8i9akGO5bE
+	Dz/XzuQmMKX8Zu1nlaJVmngqfJMrswSewH9nsL7ve6q+GaU3ivN90SH2B/H02auCar51OF1qZLXeJ
+	IG4Ye8Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWHzI-0000000GIM8-30vY;
-	Fri, 10 Jan 2025 16:35:56 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWHmu-0000000GDtP-04Ml
+	id 1tWI0V-0000000GIY3-1sLP;
+	Fri, 10 Jan 2025 16:37:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tWHmv-0000000GDts-3L61
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 16:23:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E00945C0FE0;
-	Fri, 10 Jan 2025 16:22:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 309B5C4CED6;
-	Fri, 10 Jan 2025 16:23:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736526186;
-	bh=k4SHxol0HmJf7U5mTkhel4hp1vEAy/7UhhMVMETkNtQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=j0BkInyaXYWR8O6HLbaV7Qs8XVteL706pkUNvRkV42Qswic1IFfwu9Ex4oTarIrxe
-	 6ry739IcATWUXcj+2LBH9L1sHQnqbIl5mTa+2tDiNR2yMMaR6hHkqeUt/OUbx/1mWx
-	 mJm6C1JsrMT+jZrInr2aP9PA22H7S07yPvyOOuvpkQuklDDngE+jxUg95BF0hOc/F6
-	 SW2B1ENF6CeStb5yWLDex+hLCzkb09BVUgn/sqwlYx6YUa6f3WBzpZmkj013rxJu9S
-	 w4NcElE//PSPhucYBLo71Nhl2VyI/BngKRJsVp/1nKzXIN7NS7x9moHr4Vq+PqqP+5
-	 VFyAEDQ9lLEQw==
-From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Thorsten Blum <thorsten.blum@linux.dev>
-Cc: kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: Remove duplicate included header
-Date: Fri, 10 Jan 2025 16:22:51 +0000
-Message-Id: <173651666253.3233150.3175376410915680433.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20250109104636.124507-2-thorsten.blum@linux.dev>
-References: <20250109104636.124507-2-thorsten.blum@linux.dev>
+	Fri, 10 Jan 2025 16:23:11 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CE5F9497;
+	Fri, 10 Jan 2025 08:23:36 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 846453F66E;
+	Fri, 10 Jan 2025 08:23:06 -0800 (PST)
+Date: Fri, 10 Jan 2025 16:23:00 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Alireza Sanaee <alireza.sanaee@huawei.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, robh@kernel.org, linuxarm@huawei.com,
+	shameerali.kolothum.thodi@huawei.com, Jonathan.Cameron@huawei.com,
+	jiangkunkun@huawei.com, yangyicong@hisilicon.com
+Subject: Re: [PATCH] arm64: of: handle multiple threads in ARM cpu node
+Message-ID: <Z4FJZPRg75YIUR2l@J2N7QTR9R3>
+References: <20250110161057.445-1-alireza.sanaee@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250110161057.445-1-alireza.sanaee@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_082308_095863_63F2E68A 
-X-CRM114-Status: UNSURE (   8.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250110_082309_918897_230DB68E 
+X-CRM114-Status: GOOD (  31.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,26 +64,188 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 09 Jan 2025 11:46:34 +0100, Thorsten Blum wrote:
-> The header asm/unistd_compat_32.h is included whether CONFIG_COMPAT is
-> defined or not.
+On Fri, Jan 10, 2025 at 04:10:57PM +0000, Alireza Sanaee wrote:
+> Update `of_parse_and_init_cpus` to parse reg property of CPU node as
+> an array based as per spec for SMT threads.
 > 
-> Include it only once and remove the following make includecheck warning:
+> Spec v0.4 Section 3.8.1:
+
+Which spec, and why do we care?
+
+> The value of reg is a <prop-encoded-**array**> that defines a unique
+> CPU/thread id for the CPU/threads represented by the CPU node.  **If a CPU
+> supports more than one thread (i.e.  multiple streams of execution) the
+> reg property is an array with 1 element per thread**.  The address-cells
+> on the /cpus node specifies how many cells each element of the array
+> takes. Software can determine the number of threads by dividing the size
+> of reg by the parent node's address-cells.
+
+We already have systems where each thread gets a unique CPU node under
+/cpus, so we can't rely on this to determine the topology.
+
+Further, there are bindings which rely on being able to address each
+CPU/thread with a unique phandle (e.g. for affinity of PMU interrupts),
+which this would break.
+
+> An accurate example of 1 core with 2 SMTs:
 > 
->   asm/unistd_compat_32.h is included more than once
+> 	cpus {
+> 		#size-cells = <0x00>;
+> 		#address-cells = <0x01>;
 > 
-> [...]
+> 		cpu@0 {
+> 			phandle = <0x8000>;
+> 			**reg = <0x00 0x01>;**
+> 			enable-method = "psci";
+> 			compatible = "arm,cortex-a57";
+> 			device_type = "cpu";
+> 		};
+> 	};
+> 
+> Instead of:
+> 
+> 	cpus {
+> 		#size-cells = <0x00>;
+> 		#address-cells = <0x01>;
+> 
+> 		cpu@0 {
+> 			phandle = <0x8000>;
+> 			reg = <0x00>;
+> 			enable-method = "psci";
+> 			compatible = "arm,cortex-a57";
+> 			device_type = "cpu";
+> 		};
+> 
+> 		cpu@1 {
+> 			phandle = <0x8001>;
+> 			reg = <0x01>;
+> 			enable-method = "psci";
+> 			compatible = "arm,cortex-a57";
+> 			device_type = "cpu";
+> 		};
+> 	};
+> 
+> which is **NOT** accurate.
 
-Applied to arm64 (for-next/misc), thanks!
+It might not follow "the spec" you reference (and haven't named), but I
+think it's a stretch to say it's inaccurate.
 
-[1/1] arm64: Remove duplicate included header
-      https://git.kernel.org/arm64/c/965e9bbe025e
+Regardless, as above I do not think this is a good idea. While it allows
+the DT to be written in a marginally simpler way, it makes things more
+complicated for the kernel and is incompatible with bindings that we
+already support.
 
-Cheers,
--- 
-Will
+If anything "the spec" should be relaxed here.
 
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
+Mark.
+
+> 
+> Signed-off-by: Alireza Sanaee <alireza.sanaee@huawei.com>
+> ---
+>  arch/arm64/kernel/smp.c | 74 +++++++++++++++++++++++------------------
+>  1 file changed, 41 insertions(+), 33 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+> index 3b3f6b56e733..8dd3b3c82967 100644
+> --- a/arch/arm64/kernel/smp.c
+> +++ b/arch/arm64/kernel/smp.c
+> @@ -689,53 +689,61 @@ static void __init acpi_parse_and_init_cpus(void)
+>  static void __init of_parse_and_init_cpus(void)
+>  {
+>  	struct device_node *dn;
+> +	u64 hwid;
+> +	u32 tid;
+>  
+>  	for_each_of_cpu_node(dn) {
+> -		u64 hwid = of_get_cpu_hwid(dn, 0);
+> +		tid = 0;
+>  
+> -		if (hwid & ~MPIDR_HWID_BITMASK)
+> -			goto next;
+> +		while (1) {
+> +			hwid = of_get_cpu_hwid(dn, tid++);
+> +			if (hwid == ~0ULL)
+> +				break;
+>  
+> -		if (is_mpidr_duplicate(cpu_count, hwid)) {
+> -			pr_err("%pOF: duplicate cpu reg properties in the DT\n",
+> -				dn);
+> -			goto next;
+> -		}
+> +			if (hwid & ~MPIDR_HWID_BITMASK)
+> +				goto next;
+>  
+> -		/*
+> -		 * The numbering scheme requires that the boot CPU
+> -		 * must be assigned logical id 0. Record it so that
+> -		 * the logical map built from DT is validated and can
+> -		 * be used.
+> -		 */
+> -		if (hwid == cpu_logical_map(0)) {
+> -			if (bootcpu_valid) {
+> -				pr_err("%pOF: duplicate boot cpu reg property in DT\n",
+> -					dn);
+> +			if (is_mpidr_duplicate(cpu_count, hwid)) {
+> +				pr_err("%pOF: duplicate cpu reg properties in the DT\n",
+> +				       dn);
+>  				goto next;
+>  			}
+>  
+> -			bootcpu_valid = true;
+> -			early_map_cpu_to_node(0, of_node_to_nid(dn));
+> -
+>  			/*
+> -			 * cpu_logical_map has already been
+> -			 * initialized and the boot cpu doesn't need
+> -			 * the enable-method so continue without
+> -			 * incrementing cpu.
+> +			 * The numbering scheme requires that the boot CPU
+> +			 * must be assigned logical id 0. Record it so that
+> +			 * the logical map built from DT is validated and can
+> +			 * be used.
+>  			 */
+> -			continue;
+> -		}
+> +			if (hwid == cpu_logical_map(0)) {
+> +				if (bootcpu_valid) {
+> +					pr_err("%pOF: duplicate boot cpu reg property in DT\n",
+> +					       dn);
+> +					goto next;
+> +				}
+> +
+> +				bootcpu_valid = true;
+> +				early_map_cpu_to_node(0, of_node_to_nid(dn));
+> +
+> +				/*
+> +				 * cpu_logical_map has already been
+> +				 * initialized and the boot cpu doesn't need
+> +				 * the enable-method so continue without
+> +				 * incrementing cpu.
+> +				 */
+> +				continue;
+> +			}
+>  
+> -		if (cpu_count >= NR_CPUS)
+> -			goto next;
+> +			if (cpu_count >= NR_CPUS)
+> +				goto next;
+>  
+> -		pr_debug("cpu logical map 0x%llx\n", hwid);
+> -		set_cpu_logical_map(cpu_count, hwid);
+> +			pr_debug("cpu logical map 0x%llx\n", hwid);
+> +			set_cpu_logical_map(cpu_count, hwid);
+>  
+> -		early_map_cpu_to_node(cpu_count, of_node_to_nid(dn));
+> +			early_map_cpu_to_node(cpu_count, of_node_to_nid(dn));
+>  next:
+> -		cpu_count++;
+> +			cpu_count++;
+> +		}
+>  	}
+>  }
+>  
+> -- 
+> 2.43.0
+> 
+> 
 
