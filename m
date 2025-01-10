@@ -4,90 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3108E7719C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 10:06:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33BC4E7719D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 10:10:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jlu2z2pHdwrGgG2KP5sY+xg4s8F2B2cTQIqPiS7nzHw=; b=jR/1GgLvPsUBxs9MJMxd/3aaUM
-	RN9Z7ZH/iUE+80zX/d9lwdtB9tt0/6+3jvctXPv+WuO0TFgV/cAT8rl+UeoVzuAZrZJ4e5qLbRhAt
-	m8ALEK/thAKn4Y0wWg2gOvUqS+swbauLQyO+VTKMoba6HSOHQqKYm4GAxCL7bABRPvrtKvXf+uaiQ
-	SqogySrLVesSNKsNnm84Hpp9Gg+Ss18e42A6vOGvMAfU3AnN8SiE7tj3D5zGyUKnUcmk0Yt3PlFCZ
-	Rz2GsJMpQaXrxQCZuDVW9uFEmsQHdY+tuc2gCxtpNlKiaQycXh3FOEXS9z62lV37t2rwUZGMpEKXD
-	jXECwV+A==;
+	bh=vx4b904GoBOQPZxPkHCVqjXWtg+tthn2HPth/upQ9wQ=; b=b0uJTpAzYKZ3q0EzRkjtfejneC
+	DnEy/EmdL64hH4OaOjqJ7L8KuNVH5ykczhcrR/deKrjavGllVFz1MzF5aTj4chR7aPaESL+wYT95I
+	g3I3yqOcR2Bt83qUD572IdeYFWF0fmzzGXWEu64H3BVXCIL1XzTbiNDekzreHxn6wb2mZiTM7eoYG
+	X2T4UbiacuPgcIlflSMS1BRg0XSQVTZ4yhTqOqGzealsfOgEszdu//86dSm+PLxTbxZX/hq3lMaGl
+	5Sn3Rw42onW9k+J2UEOrvaPDg/QOoejFJPqs6jrRfD0l1hxhBwqTp3GGA4jebDSx66H4NNup2gWrS
+	iZx9e5Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWBu3-0000000EsQn-15wu;
-	Fri, 10 Jan 2025 10:06:07 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWBre-0000000Ervu-0cKT
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 10:03:39 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-385eed29d17so995411f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jan 2025 02:03:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=smile.fr; s=google; t=1736503416; x=1737108216; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Jlu2z2pHdwrGgG2KP5sY+xg4s8F2B2cTQIqPiS7nzHw=;
-        b=33xH0ZwRgNhC5VMPhDkGlQBvUButyGfDK8Ev82ll+nrCGfS4u/Ci9QEW8jxrtDt35f
-         4M9SCQBohWbTPK3uR++EGAiXNKrEqCqA1Byk4gxeGZ2sjJXdXu7MdwQ9uqIfVsyKfmLv
-         6SGHmnoEhnvi/ni98R/xa7lDIt537CeK5f8fs=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736503416; x=1737108216;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Jlu2z2pHdwrGgG2KP5sY+xg4s8F2B2cTQIqPiS7nzHw=;
-        b=c2uGAGR5Bxs9H7HZ43SzQiYozZzGlSXak6Dizz4qgy7DM56mvFi63gWouJTl/b9Pjk
-         hLgvKsf9ZiZCh97/zNexvfcYCAC5vYyTiwggBxkq6oQ75QJR78QD+95EgE5j/D1FpxFw
-         65HQwRNqgGE5DDk1tIgKWW3AgQ8NNOGHlHq736chkJgnR1OGENvaKpldnlQk1QYWELZ8
-         owGZCNt70vpl2n5makaEPVpmKvNCNmgMAHK3xYaE9Gm6CKMDegXLGj4LdwhiJX5gHw8p
-         z6nvIsZyPr7sCmhwM5p9kuWGQn6ykuppS4TO1hgCVKfCUl9eeowaYDWBJKcOuLC6O2Wj
-         po0w==
-X-Gm-Message-State: AOJu0Yy2D5YlQqNy5VIJ5gJTlR7kVxBHuHvsMpI2xv2nUXvLp7RoXpki
-	WShysJBEIGE8PkEBub5AxOwvvrasUU/8rZ/1kZjvdu676BergYdbVLVdLzQ8ndY=
-X-Gm-Gg: ASbGncvC9bZ4KqszOfwAEx6dEWeXvAJ81wHf7gJyG/FkuOe06PlT7ssrxrGG2FLGteh
-	Pib5aSEgka3WyeCKklhywFePHiqdpvTbASJ2e5QE5bEn92WuJcz0WgMYAQAw+tqxvvz0klih0Va
-	p8ktSp1tmobMea35bpBSf4k6XV5/7Q6wn5nUiby2HckWfyH+A8SNWHk2warM0lNDvPyDZUVLWia
-	Zdy9I6ooT8XK7LSl38sZI6g47FLlUlB8UHHiGqMPG3SHCgqvA7G5Q+VdYvOf4FBfclW8HKRjopK
-	qdwgKmCke559HbV94CisIEl7bD6kg6vocz5DixHuR2Umd9/9xnF+dw==
-X-Google-Smtp-Source: AGHT+IHyEAHWU5ly3eyj+DcRzpVdOPzllhfmOMWBbwpJQcUozRmuiIObKmwQNUj7Xey7hrqWhL/MZA==
-X-Received: by 2002:a5d:588a:0:b0:385:fc32:1ec6 with SMTP id ffacd0b85a97d-38a87355087mr8406629f8f.50.1736503415656;
-        Fri, 10 Jan 2025 02:03:35 -0800 (PST)
-Received: from P-NTS-Evian.home (2a01cb05949d5800e3ef2d7a4131071f.ipv6.abo.wanadoo.fr. [2a01:cb05:949d:5800:e3ef:2d7a:4131:71f])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a8e37d085sm4198483f8f.13.2025.01.10.02.03.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Jan 2025 02:03:35 -0800 (PST)
-From: Romain Naour <romain.naour@smile.fr>
-To: devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-omap@vger.kernel.org,
-	conor+dt@kernel.org,
+	id 1tWByC-0000000EtFb-1xf8;
+	Fri, 10 Jan 2025 10:10:24 +0000
+Received: from m16.mail.163.com ([117.135.210.5])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tWBww-0000000EslV-32Ke;
+	Fri, 10 Jan 2025 10:09:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=vx4b9
+	04GoBOQPZxPkHCVqjXWtg+tthn2HPth/upQ9wQ=; b=gX+UlOYZ58HCPq6knNLNZ
+	IXQdJvnIeAbAwcXvggmLNgxNvyCH41DIQZ9au5AIxFQ4RHxyrbsX0GwKaznVWinw
+	C9hzYs2kJ8X3TcPHy7sKxG/bbZVKCw6EAHR0xYPVyRejcaJ0t11/Q0lCwWkbU/XB
+	vo7gkQa0R5sZstXavG/XnE=
+Received: from ProDesk.. (unknown [])
+	by gzsmtp4 (Coremail) with SMTP id PygvCgBHPRKh8YBn2sBEEQ--.4640S9;
+	Fri, 10 Jan 2025 18:08:44 +0800 (CST)
+From: Andy Yan <andyshrk@163.com>
+To: heiko@sntech.de
+Cc: hjc@rock-chips.com,
 	krzk+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	derek.foreman@collabora.com,
+	detlev.casanova@collabora.com,
+	daniel@fooishbar.org,
 	robh@kernel.org,
-	kristo@kernel.org,
-	vigneshr@ti.com,
-	nm@ti.com,
-	afd@ti.com,
-	Romain Naour <romain.naour@skf.com>,
-	Siddharth Vadapalli <s-vadapalli@ti.com>
-Subject: [PATCH v5 2/2] arm64: dts: ti: k3-j721e-beagleboneai64: Enable ACSPCIE output for PCIe1
-Date: Fri, 10 Jan 2025 11:03:31 +0100
-Message-ID: <20250110100331.1642242-2-romain.naour@smile.fr>
-X-Mailer: git-send-email 2.47.1
-In-Reply-To: <20250110100331.1642242-1-romain.naour@smile.fr>
-References: <20250110100331.1642242-1-romain.naour@smile.fr>
+	sebastian.reichel@collabora.com,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Michael Riesch <michael.riesch@wolfvision.net>
+Subject: [PATCH v10 07/11] drm/rockchip: vop2: Register the primary plane and overlay plane separately
+Date: Fri, 10 Jan 2025 18:08:22 +0800
+Message-ID: <20250110100832.27551-8-andyshrk@163.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250110100832.27551-1-andyshrk@163.com>
+References: <20250110100832.27551-1-andyshrk@163.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: PygvCgBHPRKh8YBn2sBEEQ--.4640S9
+X-Coremail-Antispam: 1Uf129KBjvJXoWxGFWxtw4kKr43tFyrKryxuFg_yoWrZrW3pa
+	13ta90qr4xWrsFgry8JF4jyFWYyan2kay7Crn8Gw1a934Sgr93ur48KF1DAF15uFnrWFya
+	kFW3K39Y9FWj9r7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jV5lbUUUUU=
+X-Originating-IP: [58.22.7.114]
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0gLQXmeA8KYWdAAAsN
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_020338_186520_D2260B3C 
-X-CRM114-Status: GOOD (  15.01  )
+X-CRM114-CacheID: sfid-20250110_020907_133531_6D62C96C 
+X-CRM114-Status: GOOD (  16.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,115 +83,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Romain Naour <romain.naour@skf.com>
+From: Andy Yan <andy.yan@rock-chips.com>
 
-Unlike the SK-TDA4VM (k3-j721e-sk) board, there is no clock generator
-(CDCI6214RGET) on the BeagleBone AI-64 (k3-j721e-beagleboneai64) to
-provide PCIe refclk signal to PCIe Endponts. So the ACSPCIE module must
-provide refclk through PCIe_REFCLK pins.
+In the upcoming VOP of rk3576, a Window cannot attach to all Video Ports,
+so make sure all VP find it's suitable primary plane, then register the
+remain windows as overlay plane will make code easier.
 
-Use the new "ti,syscon-acspcie-proxy-ctrl" property to enable ACSPCIE
-module's PAD IO Buffers.
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+Tested-by: Michael Riesch <michael.riesch@wolfvision.net> # on RK3568
+Tested-by: Detlev Casanova <detlev.casanova@collabora.com>
 
-Using "ti,j721e-acspcie-proxy-ctrl" imply to use use "Proxy1"
-address (1A090h) instead of "Proxy0" (18090h) to access
-CTRLMMR_ACSPCIE0_CTRL register:
-
-  CTRLMMR_ACSPCIE0_CTRL Register (Proxy0 Offset = 18090h; Proxy1 Offset = 1A090h)
-
-So use "syscon@1a090" for acspcie0_proxy_ctrl node.
-
-Cc: Siddharth Vadapalli <s-vadapalli@ti.com>
-Signed-off-by: Romain Naour <romain.naour@skf.com>
 ---
-With this patch, we can remove "HACK: Sierra: Drive clock out" patch
-applied on vendor kernel for BeagleBone AI-64:
-https://openbeagle.org/beagleboard/linux/-/commit/ad65d7ef675966cdbc5d75f2bd545fad1914ba9b
 
-v5:
-  - update the acspcie0_proxy_ctrl node address to use really use the
-    "PROXY" register implied by ti,j721e-acspcie-proxy-ctrl compatible.
+(no changes since v3)
 
-  https://lore.kernel.org/linux-devicetree/begojbvvrpyjfr3pye7mqwiw73ucw5ynepdfujssr4jx4vs33a@pwahnph3qesl/
+Changes in v3:
+- Add comments for why we should treat rk3566 with special care.
 
-v4: no change
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 100 +++++++++++--------
+ 1 file changed, 61 insertions(+), 39 deletions(-)
 
-v3:
- - update "acspcie0_proxy_ctrl" compatible to "ti,j721e-acspcie-proxy-ctrl"
-   since this property is specific to j721e variant.
-
-v2:
- - use generic style comments
- - use "syscon" as generic node name for "acspcie0_proxy_ctrl" node
- - Keep the compatible "ti,j784s4-acspcie-proxy-ctrl" since the
-   ACSPCIE buffer and its functionality is the same across all K3 SoCs.
-   (Siddharth Vadapalli)
-
-   "The compatible "ti,j784s4-acspcie-pcie-ctrl" should be reused for
-   J721E and all other K3 SoCs.
-   For example, see:
-   https://lore.kernel.org/r/20240402105708.4114146-1-s-vadapalli@ti.com/
-   which introduced "ti,am62p-cpsw-mac-efuse" compatible.
-
-   The same compatible is reused across all K3 SoCs:
-   https://lore.kernel.org/r/20240628151518.40100-1-afd@ti.com/ "
----
- arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts |  5 +++++
- arch/arm64/boot/dts/ti/k3-j721e-main.dtsi          | 10 ++++++++--
- 2 files changed, 13 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts b/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
-index fb899c99753e..741ad2ba6fdb 100644
---- a/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
-+++ b/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
-@@ -859,6 +859,11 @@ &pcie1_rc {
- 	num-lanes = <2>;
- 	max-link-speed = <3>;
- 	reset-gpios = <&main_gpio0 22 GPIO_ACTIVE_HIGH>;
-+	/*
-+	 * There is no on-board or external reference clock generators,
-+	 * use refclk from the ACSPCIE module's PAD IO Buffers.
-+	 */
-+	ti,syscon-acspcie-proxy-ctrl = <&acspcie0_proxy_ctrl 0x3>;
- };
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+index a1a0383713b5..d3e21fb00225 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+@@ -2222,22 +2222,29 @@ static int vop2_plane_init(struct vop2 *vop2, struct vop2_win *win,
+ 	return 0;
+ }
  
- &ufs_wrapper {
-diff --git a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
-index af3d730154ac..bc016c551710 100644
---- a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
-@@ -5,6 +5,7 @@
-  * Copyright (C) 2016-2024 Texas Instruments Incorporated - https://www.ti.com/
-  */
- #include <dt-bindings/phy/phy.h>
-+#include <dt-bindings/phy/phy-cadence.h>
- #include <dt-bindings/phy/phy-ti.h>
- #include <dt-bindings/mux/mux.h>
+-static struct vop2_video_port *find_vp_without_primary(struct vop2 *vop2)
++/*
++ * On RK3566 these windows don't have an independent
++ * framebuffer. They can only share/mirror the framebuffer
++ * with smart0, esmart0 and cluster0 respectively.
++ * And RK3566 share the same vop version with Rk3568, so we
++ * need to use soc_id for identification here.
++ */
++static bool vop2_is_mirror_win(struct vop2_win *win)
+ {
+-	int i;
+-
+-	for (i = 0; i < vop2->data->nr_vps; i++) {
+-		struct vop2_video_port *vp = &vop2->vps[i];
+-
+-		if (!vp->crtc.port)
+-			continue;
+-		if (vp->primary_plane)
+-			continue;
++	struct vop2 *vop2 = win->vop2;
  
-@@ -82,6 +83,11 @@ ehrpwm_tbclk: clock-controller@4140 {
- 			reg = <0x4140 0x18>;
- 			#clock-cells = <1>;
- 		};
+-		return vp;
++	if (vop2->data->soc_id == 3566) {
++		switch (win->data->phys_id) {
++		case ROCKCHIP_VOP2_SMART1:
++		case ROCKCHIP_VOP2_ESMART1:
++		case ROCKCHIP_VOP2_CLUSTER1:
++			return true;
++		default:
++			return false;
++		}
++	} else {
++		return false;
+ 	}
+-
+-	return NULL;
+ }
+ 
+ static int vop2_create_crtcs(struct vop2 *vop2)
+@@ -2248,7 +2255,9 @@ static int vop2_create_crtcs(struct vop2 *vop2)
+ 	struct drm_plane *plane;
+ 	struct device_node *port;
+ 	struct vop2_video_port *vp;
+-	int i, nvp, nvps = 0;
++	struct vop2_win *win;
++	u32 possible_crtcs;
++	int i, j, nvp, nvps = 0;
+ 	int ret;
+ 
+ 	for (i = 0; i < vop2_data->nr_vps; i++) {
+@@ -2287,42 +2296,55 @@ static int vop2_create_crtcs(struct vop2 *vop2)
+ 	}
+ 
+ 	nvp = 0;
+-	for (i = 0; i < vop2->registered_num_wins; i++) {
+-		struct vop2_win *win = &vop2->win[i];
+-		u32 possible_crtcs = 0;
+-
+-		if (vop2->data->soc_id == 3566) {
+-			/*
+-			 * On RK3566 these windows don't have an independent
+-			 * framebuffer. They share the framebuffer with smart0,
+-			 * esmart0 and cluster0 respectively.
+-			 */
+-			switch (win->data->phys_id) {
+-			case ROCKCHIP_VOP2_SMART1:
+-			case ROCKCHIP_VOP2_ESMART1:
+-			case ROCKCHIP_VOP2_CLUSTER1:
++	/* Register a primary plane for every crtc */
++	for (i = 0; i < vop2_data->nr_vps; i++) {
++		vp = &vop2->vps[i];
 +
-+		acspcie0_proxy_ctrl: syscon@1a090 {
-+			compatible = "ti,j721e-acspcie-proxy-ctrl", "syscon";
-+			reg = <0x1a090 0x4>;
-+		};
- 	};
++		if (!vp->crtc.port)
++			continue;
++
++		for (j = 0; j < vop2->registered_num_wins; j++) {
++			win = &vop2->win[j];
++
++			/* Aready registered as primary plane */
++			if (win->base.type == DRM_PLANE_TYPE_PRIMARY)
++				continue;
++
++			if (vop2_is_mirror_win(win))
+ 				continue;
+-			}
+-		}
  
- 	main_ehrpwm0: pwm@3000000 {
-@@ -979,8 +985,8 @@ pcie1_rc: pcie@2910000 {
- 		max-link-speed = <3>;
- 		num-lanes = <2>;
- 		power-domains = <&k3_pds 240 TI_SCI_PD_EXCLUSIVE>;
--		clocks = <&k3_clks 240 1>;
--		clock-names = "fck";
-+		clocks = <&k3_clks 240 1>, <&serdes1 CDNS_SIERRA_DERIVED_REFCLK>;
-+		clock-names = "fck", "pcie_refclk";
- 		#address-cells = <3>;
- 		#size-cells = <2>;
- 		bus-range = <0x0 0xff>;
+-		if (win->type == DRM_PLANE_TYPE_PRIMARY) {
+-			vp = find_vp_without_primary(vop2);
+-			if (vp) {
++			if (win->type == DRM_PLANE_TYPE_PRIMARY) {
+ 				possible_crtcs = BIT(nvp);
+ 				vp->primary_plane = win;
++				ret = vop2_plane_init(vop2, win, possible_crtcs);
++				if (ret) {
++					drm_err(vop2->drm, "failed to init primary plane %s: %d\n",
++						win->data->name, ret);
++					return ret;
++				}
+ 				nvp++;
+-			} else {
+-				/* change the unused primary window to overlay window */
+-				win->type = DRM_PLANE_TYPE_OVERLAY;
++				break;
+ 			}
+ 		}
++	}
++
++	/* Register all unused window as overlay plane */
++	for (i = 0; i < vop2->registered_num_wins; i++) {
++		win = &vop2->win[i];
++
++		/* Aready registered as primary plane */
++		if (win->base.type == DRM_PLANE_TYPE_PRIMARY)
++			continue;
++
++		if (vop2_is_mirror_win(win))
++			continue;
+ 
+-		if (win->type == DRM_PLANE_TYPE_OVERLAY)
+-			possible_crtcs = (1 << nvps) - 1;
++		win->type = DRM_PLANE_TYPE_OVERLAY;
+ 
++		possible_crtcs = (1 << nvps) - 1;
+ 		ret = vop2_plane_init(vop2, win, possible_crtcs);
+ 		if (ret) {
+-			drm_err(vop2->drm, "failed to init plane %s: %d\n",
++			drm_err(vop2->drm, "failed to init overlay plane %s: %d\n",
+ 				win->data->name, ret);
+ 			return ret;
+ 		}
 -- 
-2.47.1
+2.34.1
 
 
