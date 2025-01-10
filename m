@@ -4,103 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DB99E7719C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 15:24:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC066E7719C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 15:25:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7Qc8B9n8Wk0ETebdx29AGZE+bnYd24Q0I0YVr1DZ2f0=; b=kyU4+WGG8ryuJZeFFmc2VLr1SJ
-	VYCOehNDAffj//XsuqPRfE+IetV5Uu/8O5M7WMC9PeFNqOQ8go4oP/NIaxaXBXq9npKJo9upWYNQD
-	rLOSbiIVWUdn0KH1uSUJ7T0c85ylnney8ZPE7c7v/Jtq86hZlQFAmHas+1ydj6mp8lrhPDhy6THw2
-	WQCXUm0XNRHXm2EKVzvG7uzeFoJC+QwN3SJeKopXl/ro2aD5yil9t2VJuUXEzMMZ3V6kv0LwNGR89
-	tBuEfCzA6guLMILHg05yQTGd+cJMbbk9CGF3KssknE4TKgHFBRmc8o0gvXs0QSevziS5jgZXlcunF
-	QRHgHNpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GtlwaPSFwEl0UapIQGpzzsCXMiNhA1GaWcHHYwSoFt8=; b=EvSg7DW78cugK1qbvQlClRqYGG
+	jwIyUGhryZ+cNppGzDxddcYITcEvTgSe8HFV9p9PClmte18WhG2l30k/A524a//+5eT4naG7V6wn4
+	hw5xespk51ccO1CHrosDRd7Qyz3yA2b0dGpu90Bct/oMKZBFHycEOHBEhP7fxcTu68ELiqC9znNdQ
+	qlVzkD88I0WxNTRphOLUK8tII5E51FyUtES9Ax39N3ObQ6IXKZEn21i9XXF0tUuN7EUM3NPysXlOt
+	gGn//YOjAxntCrjC9ktwGKrPQKLBrxEbTxewvU0lVG3rNryUBYPmzD1GpObhqVwh2DyNLM/D+nIYw
+	lCdVnzTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWGrk-0000000Ftop-3jw7;
-	Fri, 10 Jan 2025 15:24:04 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tWGsx-0000000FuNN-3Gk9;
+	Fri, 10 Jan 2025 15:25:19 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWGNe-0000000FjJ3-0myZ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 10 Jan 2025 14:52:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=7Qc8B9n8Wk0ETebdx29AGZE+bnYd24Q0I0YVr1DZ2f0=; b=Yi4tSbrO8DVkibZo0HSEL72rdj
-	8DnFmqVTvQ5jGg+rezYyYNx3ZtXdurIgi7uSgNOl9z0eTtZ0uHH6ekv1BxAABIoa9P8yAC1rHbbO1
-	8l/BTK7Mv7wgFdYwv1utnHCwlGAndWukQWxqqMrKOwFLWd3KnEWyqg9Fi1VaTNtLL58vfALqga5sZ
-	xMaJb2LyD+CeaYniWUWFQZ01yfjxLriUKrbsZ++F7A0HwfVjNhBH/WFUWODwPwwEQXvcH/zqEbeFj
-	2oc1RDcvibj/kooIe33vAAGDcSN5mvbI6gr5L85EoiAksZVLSBhYT/ab685/4tOZyCUSxXN79paAV
-	X3PNtYVg==;
-Received: from mx08-00178001.pphosted.com ([91.207.212.93])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWGNa-00000009oW2-48Ae
+	id 1tWGP1-0000000FjoX-2qzf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 14:52:57 +0000
-Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50ABpGCR019273;
-	Fri, 10 Jan 2025 15:51:44 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	7Qc8B9n8Wk0ETebdx29AGZE+bnYd24Q0I0YVr1DZ2f0=; b=qGesxML4Mz6fX7wF
-	GEzxs2lDns+ZtEKh+nByR5NtjNc78e35EGatN7/MaD6LQcwyZPw6s94uUTQsGLbP
-	pCfTZGu6AuaSY3bYm7g5rOVIXmdMK+sctCkDjm4q/LgoYHAZADhFMPegvHnqkbP2
-	ld3V+KO0gxHMm9XCMDlFmWM1ec/Pu3JwLrWK51wIUovyeZOzTt2JU/n2yzeezO1U
-	jp1w35ELvKmPfJxrHCSYbp2k+L0yeF15E90eOh53PaBsgROP4rnAf6YfEPy3ft3I
-	Yytr5vGRxFRR9o2AH4YAu74OuNH25z19redaPRy0Q4W/WFu2kaMDfK6iQMOG1N+r
-	0AQZ3A==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44331t8pn5-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 10 Jan 2025 15:51:43 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 6672D4004F;
-	Fri, 10 Jan 2025 15:50:26 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id ECCF12BC88C;
-	Fri, 10 Jan 2025 15:49:19 +0100 (CET)
-Received: from [10.129.178.212] (10.129.178.212) by SHFDAG1NODE3.st.com
- (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Fri, 10 Jan
- 2025 15:49:18 +0100
-Message-ID: <181e2e45-9d00-414e-a0cb-60f61afa488f@foss.st.com>
-Date: Fri, 10 Jan 2025 15:49:17 +0100
+	Fri, 10 Jan 2025 14:54:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 132945C550A;
+	Fri, 10 Jan 2025 14:53:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4779DC4CED6;
+	Fri, 10 Jan 2025 14:54:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1736520862;
+	bh=lUzSCn1AX4r6Yodul88XZtMxwiaf8Z9eTarKJqacgVY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=c0pxdOzSVH5CdvyZargE+BVCNBJdPGCmCGBLxTGveYLMcnFm/304SbTNmUDDqZ0Wt
+	 82PgzbuopSXdKSI+g/ENH5BO7ZDMVwyKxt0YMRKUMXU5rhZskO64YoFW60cEenME3f
+	 qqEts4DILAuhR6df6ZRk4V5euDbWyBvfkL4pAnF4=
+Date: Fri, 10 Jan 2025 15:54:19 +0100
+From: 'Greg Kroah-Hartman' <gregkh@linuxfoundation.org>
+To: "Toshiyuki Sato (Fujitsu)" <fj6611ie@fujitsu.com>
+Cc: Russell King <linux@armlinux.org.uk>, Jiri Slaby <jirislaby@kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-serial@vger.kernel.org" <linux-serial@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH] serial: amba-pl011: Implement nbcon console
+Message-ID: <2025011031-lying-spirits-e326@gregkh>
+References: <20250108004730.2302996-1-fj6611ie@aa.jp.fujitsu.com>
+ <2025010845-deceiver-imaginary-ea04@gregkh>
+ <TY4PR01MB137779148D6C8C537E7108071D7132@TY4PR01MB13777.jpnprd01.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/5] PCI: stm32: Add PCIe endpoint support for
- STM32MP25
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-CC: <lpieralisi@kernel.org>, <kw@linux.com>, <robh@kernel.org>,
-        <bhelgaas@google.com>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
-        <p.zabel@pengutronix.de>, <cassel@kernel.org>,
-        <quic_schintav@quicinc.com>, <fabrice.gasnier@foss.st.com>,
-        <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20241126155119.1574564-1-christian.bruel@foss.st.com>
- <20241126155119.1574564-5-christian.bruel@foss.st.com>
- <20241203152230.5mdrt27u5u5ecwcz@thinkpad>
-Content-Language: en-US
-From: Christian Bruel <christian.bruel@foss.st.com>
-In-Reply-To: <20241203152230.5mdrt27u5u5ecwcz@thinkpad>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.129.178.212]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <TY4PR01MB137779148D6C8C537E7108071D7132@TY4PR01MB13777.jpnprd01.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_145255_524077_2813C1A4 
-X-CRM114-Status: GOOD (  20.51  )
+X-CRM114-CacheID: sfid-20250110_065423_816449_AA1E3B41 
+X-CRM114-Status: GOOD (  33.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,205 +72,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mani,
+On Thu, Jan 09, 2025 at 01:04:36AM +0000, Toshiyuki Sato (Fujitsu) wrote:
+> Hi, Greg. Thanks for the comment.
+> 
+> > On Wed, Jan 08, 2025 at 12:47:30AM +0000, Toshiyuki Sato wrote:
+> > > Implement the callbacks required for an NBCON console [0] on the
+> > > amba-pl011 console driver.
+> > > The codes for legacy console are retained, and the module
+> > > parameter (use_nbcon) allows switching between legacy and NBCON.
+> > > The default is off (use legacy console) for now.
+> > >
+> > > Referred to the NBCON implementation work for 8250 [1] and imx [2].
+> > >
+> > > The normal-priority write_thread checks for console ownership
+> > > each time a character is printed.
+> > > write_atomic holds the console ownership until the entire string
+> > > is printed.
+> > >
+> > > UART register operations are protected from other contexts by
+> > > uart_port_lock, except for a final flush(nbcon_atomic_flush_unsafe)
+> > > on panic.
+> > >
+> > > The patch has been verified to correctly handle the output and
+> > > competition of messages with different priorities and flushing
+> > > panic message to console after nmi panic using ARM64 QEMU and
+> > > a physical machine(A64FX).
+> > >
+> > > [0] https://lore.kernel.org/all/ZuRRTbapH0DCj334@pathway.suse.cz/
+> > > [1]
+> > https://lore.kernel.org/all/20240913140538.221708-1-john.ogness@linutronix.d
+> > e/T/
+> > > [2]
+> > https://lore.kernel.org/linux-arm-kernel/20240913-serial-imx-nbcon-v3-1-4c62
+> > 7302335b@geanix.com/T/
+> > >
+> > > Signed-off-by: Toshiyuki Sato <fj6611ie@aa.jp.fujitsu.com>
+> > > ---
+> > >  drivers/tty/serial/amba-pl011.c | 113
+> > ++++++++++++++++++++++++++++++++
+> > >  1 file changed, 113 insertions(+)
+> > >
+> > > diff --git a/drivers/tty/serial/amba-pl011.c b/drivers/tty/serial/amba-pl011.c
+> > > index 69b7a3e1e..52fab3170 100644
+> > > --- a/drivers/tty/serial/amba-pl011.c
+> > > +++ b/drivers/tty/serial/amba-pl011.c
+> > > @@ -41,6 +41,7 @@
+> > >  #include <linux/sizes.h>
+> > >  #include <linux/io.h>
+> > >  #include <linux/acpi.h>
+> > > +#include <linux/moduleparam.h>
+> > >
+> > >  #define UART_NR			14
+> > >
+> > > @@ -263,6 +264,7 @@ struct uart_amba_port {
+> > >  	char			type[12];
+> > >  	bool			rs485_tx_started;
+> > >  	unsigned int		rs485_tx_drain_interval; /* usecs */
+> > > +	bool			console_line_ended;
+> > >  #ifdef CONFIG_DMA_ENGINE
+> > >  	/* DMA stuff */
+> > >  	unsigned int		dmacr;		/* dma control reg */
+> > > @@ -274,6 +276,10 @@ struct uart_amba_port {
+> > >  #endif
+> > >  };
+> > >
+> > > +/* if non-zero, the console is nbcon. */
+> > > +static int use_nbcon;
+> > > +module_param(use_nbcon, int, 0444);
+> > 
+> > Why is a module parameter needed here?  That feels wrong and not
+> > scalable at all.  What happens if you have multiple devices, which one
+> > is nbcon and which isn't?
+> 
+> This module parameter is for pl011 driver.
 
-On 12/3/24 16:22, Manivannan Sadhasivam wrote:
-> On Tue, Nov 26, 2024 at 04:51:18PM +0100, Christian Bruel wrote:
-> 
-> [...]
-> 
->> +static int stm32_pcie_start_link(struct dw_pcie *pci)
->> +{
->> +	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
->> +	int ret;
->> +
->> +	if (stm32_pcie->link_status == STM32_PCIE_EP_LINK_ENABLED) {
->> +		dev_dbg(pci->dev, "Link is already enabled\n");
->> +		return 0;
->> +	}
->> +
->> +	ret = stm32_pcie_enable_link(pci);
->> +	if (ret) {
->> +		dev_err(pci->dev, "PCIe cannot establish link: %d\n", ret);
->> +		return ret;
->> +	}
-> 
-> How the REFCLK is supplied to the endpoint? From host or generated locally?
+Yes, and module parameters are from the 1990's, let's not add new ones
+please.
 
-The REFCLK is supplied from the host, it does not support separated clocks
-> 
->> +
->> +	stm32_pcie->link_status = STM32_PCIE_EP_LINK_ENABLED;
->> +
->> +	enable_irq(stm32_pcie->perst_irq);
->> +
->> +	return 0;
->> +}
->> +
->> +static void stm32_pcie_stop_link(struct dw_pcie *pci)
->> +{
->> +	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
->> +
->> +	if (stm32_pcie->link_status == STM32_PCIE_EP_LINK_DISABLED) {
->> +		dev_dbg(pci->dev, "Link is already disabled\n");
->> +		return;
->> +	}
->> +
->> +	disable_irq(stm32_pcie->perst_irq);
->> +
->> +	stm32_pcie_disable_link(pci);
->> +
->> +	stm32_pcie->link_status = STM32_PCIE_EP_LINK_DISABLED;
->> +}
->> +
->> +static int stm32_pcie_raise_irq(struct dw_pcie_ep *ep, u8 func_no,
->> +				unsigned int type, u16 interrupt_num)
->> +{
->> +	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
->> +
->> +	switch (type) {
->> +	case PCI_IRQ_INTX:
->> +		return dw_pcie_ep_raise_intx_irq(ep, func_no);
->> +	case PCI_IRQ_MSI:
->> +		return dw_pcie_ep_raise_msi_irq(ep, func_no, interrupt_num);
->> +	default:
->> +		dev_err(pci->dev, "UNKNOWN IRQ type\n");
->> +		return -EINVAL;
->> +	}
->> +}
->> +
->> +static const struct pci_epc_features stm32_pcie_epc_features = {
->> +	.msi_capable = true,
->> +	.align = 1 << 16,
-> 
-> Use SZ_64K
-> 
->> +};
->> +
-> 
-> [...]
-> 
->> +static int stm32_add_pcie_ep(struct stm32_pcie *stm32_pcie,
->> +			     struct platform_device *pdev)
->> +{
->> +	struct dw_pcie *pci = stm32_pcie->pci;
->> +	struct dw_pcie_ep *ep = &pci->ep;
->> +	struct device *dev = &pdev->dev;
->> +	int ret;
->> +
->> +	ret = regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
->> +				 STM32MP25_PCIECR_TYPE_MASK,
->> +				 STM32MP25_PCIECR_EP);
->> +	if (ret)
->> +		return ret;
->> +
->> +	ret = pm_runtime_resume_and_get(dev);
->> +	if (ret < 0) {
->> +		dev_err(dev, "pm runtime resume failed: %d\n", ret);
->> +		return ret;
->> +	}
-> 
-> You might want to do runtime resume before accessing regmap.
+> With this patch implemented, only one type will be usable, depending
+> on the value of use_nbcon.
+> I thought it would be more user-friendly if legacy operation could be
+> selected via boot parameter.
+> Would it be better to make the patch purely nbcon-compatible, without
+> retaining the legacy functionality?
 
-ok
+Why would you want the "legacy" functionality?  Aren't we converting all
+consoles over to use the new stuff?
 
-> 
->> +
->> +	reset_control_assert(stm32_pcie->rst);
->> +	reset_control_deassert(stm32_pcie->rst);
->> +
->> +	ep->ops = &stm32_pcie_ep_ops;
->> +
->> +	ret = dw_pcie_ep_init(ep);
->> +	if (ret) {
->> +		dev_err(dev, "failed to initialize ep: %d\n", ret);
->> +		goto err_init;
->> +	}
->> +
->> +	ret = stm32_pcie_enable_resources(stm32_pcie);
->> +	if (ret) {
->> +		dev_err(dev, "failed to enable resources: %d\n", ret);
->> +		goto err_clk;
->> +	}
->> +
->> +	ret = dw_pcie_ep_init_registers(ep);
->> +	if (ret) {
->> +		dev_err(dev, "Failed to initialize DWC endpoint registers\n");
->> +		goto err_init_regs;
->> +	}
->> +
->> +	pci_epc_init_notify(ep->epc);
->> +
->> +	return 0;
->> +
->> +err_init_regs:
->> +	stm32_pcie_disable_resources(stm32_pcie);
->> +
->> +err_clk:
->> +	dw_pcie_ep_deinit(ep);
->> +
->> +err_init:
->> +	pm_runtime_put_sync(dev);
->> +	return ret;
->> +}
->> +
->> +static int stm32_pcie_probe(struct platform_device *pdev)
->> +{
->> +	struct stm32_pcie *stm32_pcie;
->> +	struct dw_pcie *dw;
->> +	struct device *dev = &pdev->dev;
->> +	int ret;
->> +
->> +	stm32_pcie = devm_kzalloc(dev, sizeof(*stm32_pcie), GFP_KERNEL);
->> +	if (!stm32_pcie)
->> +		return -ENOMEM;
->> +
->> +	dw = devm_kzalloc(dev, sizeof(*dw), GFP_KERNEL);
->> +	if (!dw)
->> +		return -ENOMEM;
-> 
-> Why can't you allocate it statically inside 'struct stm32_pcie'?
-> 
+thanks,
 
-will do, as for the rc
-
->> +
->> +	stm32_pcie->pci = dw;
->> +
->> +	dw->dev = dev;
->> +	dw->ops = &dw_pcie_ops;
->> +
->> +	stm32_pcie->regmap = syscon_regmap_lookup_by_compatible("st,stm32mp25-syscfg");
->> +	if (IS_ERR(stm32_pcie->regmap))
->> +		return dev_err_probe(dev, PTR_ERR(stm32_pcie->regmap),
->> +				     "No syscfg specified\n");
->> +
->> +	stm32_pcie->phy = devm_phy_get(dev, "pcie-phy");
->> +	if (IS_ERR(stm32_pcie->phy))
->> +		return dev_err_probe(dev, PTR_ERR(stm32_pcie->phy),
->> +				     "failed to get pcie-phy\n");
->> +
->> +	stm32_pcie->clk = devm_clk_get(dev, NULL);
->> +	if (IS_ERR(stm32_pcie->clk))
->> +		return dev_err_probe(dev, PTR_ERR(stm32_pcie->clk),
->> +				     "Failed to get PCIe clock source\n");
->> +
->> +	stm32_pcie->rst = devm_reset_control_get_exclusive(dev, NULL);
->> +	if (IS_ERR(stm32_pcie->rst))
->> +		return dev_err_probe(dev, PTR_ERR(stm32_pcie->rst),
->> +				     "Failed to get PCIe reset\n");
->> +
->> +	stm32_pcie->perst_gpio = devm_gpiod_get(dev, "reset", GPIOD_IN);
->> between PCIE and USB3+	if (IS_ERR(stm32_pcie->perst_gpio))
->> +		return dev_err_probe(dev, PTR_ERR(stm32_pcie->perst_gpio),
->> +				     "Failed to get reset GPIO\n");
->> +
->> +	ret = phy_set_mode(stm32_pcie->phy, PHY_MODE_PCIE);
-> 
-> Hmm, so PHY mode is common for both endpoint and host?
-
-the COMBOPHY MODESEL sysconf takes PCIE or USB3 as value
-> 
-> - Mani
-> 
+greg k-h
 
