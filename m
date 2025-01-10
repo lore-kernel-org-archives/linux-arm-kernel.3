@@ -4,71 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EE45E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 18:54:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 493D7E7719C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 18:55:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	MIME-Version:Content-Type:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bEXom7njJPPcgDfPN8tnP9RpLKB7IRfp/aL/K+EUBbA=; b=feWjCZcb5Ysn1fYHZsTNt5fg3d
-	paL9vtG0GC1b9JJSAhLkYdaum/Hfnk8471SeNQ/mIad6OP7Bi+qUE18gFICaIb835/WchZyXeFL6K
-	scTIGSf4PuT9ymudlU7Y9Z05FfKWgraqkEfxa1JUmVNuDQgpoSnSaXEkR/1cUQbHr0u8guSi7QO67
-	WPEszujj7UlKl8u6WzHi2SQc9viusU55pGgHHpMnl638EAcAFP3GubhWCdbF6tsW5yLEEXSKNl8fR
-	cg7tq8mUPZjAKwXpGcFYu7MuO1lUCIxhTtD7dJG/4eCHjhAcT7bcTvGCNJ1w7UvksMLZGzzSAC6M9
-	WfpPsDeA==;
+	bh=zf//n/LaJv+Bc7QR1tIn9d7aeT/G2u5n60hqMFCkMyg=; b=GcS1MY2KvuOhcYp8ObNQmOqloE
+	dD+m7mWEf/WzoUMHKia7B57X6qzYPTs5kvLAVg8jqhOsaorWa84hVzHlgERswRXkWCGDvZvwVl2yO
+	M+k5mqtoY2vMtQNZE0CNINanVdK7Br6yopPg03KvhoqB5GUhlAkCyKd/m865mVQD8Go7a9kbmHPra
+	1faQfpv4a3yjiYfpH78uhfKYALXQz4KTYPHy9AXPS7VRWEq4ci6xxO+BRS1WdtUft6y7Y86Qy7mj8
+	Ja/OXrPgUStJ9zTTSAbM3hJB2D2Efvr10ClmMz7oiAF88MVlMgsMHlYQNfQXzGi92NumszOLc0/JI
+	BI5rfAlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWK9M-0000000Geru-1gMC;
-	Fri, 10 Jan 2025 18:54:28 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tWKAY-0000000GfEH-2Zkf;
+	Fri, 10 Jan 2025 18:55:42 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWK86-0000000GeQh-2iYF
+	id 1tWK93-0000000Geje-3Hlf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 18:53:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1736535188;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=bEXom7njJPPcgDfPN8tnP9RpLKB7IRfp/aL/K+EUBbA=;
-	b=Fw5EwTTu4hNwGQeHWb61aA5I8A/NOkm+ZB58TMsRDbY2XKnCP7MJ4xxr2TbrZ8MR0LYjeo
-	0ciAm4Edqq3EGvfbrwBix30I6VCDX/ajG98t8hFISLy9rr5syzrEr1dT9ubg0XG85cmg5z
-	IyZRJAEbHl75gyUy/x4bk+J5uMXCDWE=
-Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-624--mbj5mkON2Sg9zatQsqFAA-1; Fri,
- 10 Jan 2025 13:53:06 -0500
-X-MC-Unique: -mbj5mkON2Sg9zatQsqFAA-1
-X-Mimecast-MFC-AGG-ID: -mbj5mkON2Sg9zatQsqFAA
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 85B971955DC9;
-	Fri, 10 Jan 2025 18:53:05 +0000 (UTC)
-Received: from [172.64.12.18] (unknown [10.30.33.24])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id D9CBD30001BE;
-	Fri, 10 Jan 2025 18:53:04 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.13.0-rc6,
- upstream-arm-next, 6251d177)
-Date: Fri, 10 Jan 2025 18:53:04 -0000
-To: linux-arm-kernel@lists.infradead.org, will@kernel.org,
- catalin.marinas@arm.com
-MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
-Message-Id: <69657.125011013530700129@us-mta-624.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 2LWdvl8MbckB2i0TzXFk9nT2jGJLKAN-gBH9ZszcnH8_1736535185
-X-Mimecast-Originator: redhat.com
+	Fri, 10 Jan 2025 18:54:11 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-43623f0c574so17989055e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jan 2025 10:54:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1736535248; x=1737140048; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=zf//n/LaJv+Bc7QR1tIn9d7aeT/G2u5n60hqMFCkMyg=;
+        b=KiunxIHz0Bmn7WMGHQeH+WzySr8Qr9LI/Rhqdw2PCS/uAR8aBTvSSgWwrEs4lhrilJ
+         moK2x7Kh/WKWqI5+USgArybs3rCRXRAdzoBhh5z7+1Ts8rdNt9wX0lymHA5Kc1Mq2KPK
+         x9Fl5f6yXp1ZpyF5ivwJrAPRshC0aJjcHIzQXxSUMpqvnmYAQld51E6jCVlibFNmlTOG
+         R5Cv3bSBodvbN7d9lmydbl7I0QRok/INLwzw/7uimVYLcwFxFjKSI1fA1kc497ASv5DK
+         DaFEX/Nm5d1IrBq2NlpIXeESJNB+5rRMHWhQqhoiQLuCS3Jim42I/G5l/5rlgOI+B170
+         brhQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736535248; x=1737140048;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=zf//n/LaJv+Bc7QR1tIn9d7aeT/G2u5n60hqMFCkMyg=;
+        b=ZGSEVuoVRebGTXONJUn/f/IW1WV8b//M8LEMJ3CghjiDIUp6bf26Z0je8SJBSXQHoJ
+         YnwQsPJKg1sZTzzSfifqQLg3Vsde9KmXtkzFz3qtO6Woztjcb0ET8UkxfCMDPwOoSqtY
+         1JL/o6uu2xvXI5VJhZUbIoFzAG91YJvYAT7koMByNAJSa82HvHckvvbeV63st8u0dUP2
+         R84ZsFgpgsH4hPF9nT+rrmJaAqCo8Ua6P4s6Qyo3yUFoVupIeODAWuMfYUat3GVYHz/d
+         IYq464+9m97pZDQjd7iD0+HgLqtU2Gxh+Bs0GBHV9x/60CTQEuuUAQAkGuj4pmNBDejr
+         wNfw==
+X-Forwarded-Encrypted: i=1; AJvYcCWUJ4g7DyB1DowkvHEWXgasgntSx9jnDUw2S3UYiW1AU9FE2evWsUQ39CdL8wkSr1S9jH/7QTbsStAcpBLakSsu@lists.infradead.org
+X-Gm-Message-State: AOJu0YzI7FLMPVEf14FchwEJSu5c8/9LAnbI/c84nrHaRQrcSGlDDlTk
+	5h815Kx08Bp1xBSfQOGIJhUXuLmmvziH/U2yizPgUSD6FxfUfPdL
+X-Gm-Gg: ASbGncsPH6Zhl7W4HKo9s1HmNgLv/4c4zLLQaamk6sEXdBBmVrABY3SRInSup5dAb5n
+	336S+uer+h9YcI7bKRhFSAW+DMzJrK40zxuvKd2wQn89fyV6SSUx+D3X+taKkHopd1MKsvhvNt5
+	yKb2DEcZ/33YFQWx+7zZSUZ+aPrmZzOFo53ksJF65pes22ap/HkNA0F0q9S/O7oTlUt2qOB8Huw
+	J99X1l8xRp3cQTNNVRaBQyhGIdRVGf82Goc4OC+l4XIk832vlW5RNhEf9Un9OqW+wscCyQSoCSN
+	BCOc3pH9nlGTbelmTcMLMzTkZCCrZZ4YRd2lZDe/HtF0sptA
+X-Google-Smtp-Source: AGHT+IGZ6hlN+WoHP63J5jrBDfHHz+4clyA9GOi0tEzZYmYd03alnmZ6mmb51FMSnEhVGza4yao5Dw==
+X-Received: by 2002:a05:6000:1446:b0:385:d7f9:f169 with SMTP id ffacd0b85a97d-38a872f6d09mr10013608f8f.12.1736535247484;
+        Fri, 10 Jan 2025 10:54:07 -0800 (PST)
+Received: from localhost (p200300e41f281900f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f28:1900:f22f:74ff:fe1f:3a53])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e9dd1957sm59993665e9.16.2025.01.10.10.54.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 10 Jan 2025 10:54:06 -0800 (PST)
+From: Thierry Reding <thierry.reding@gmail.com>
+To: arm@kernel.org,
+	soc@kernel.org
+Cc: Thierry Reding <thierry.reding@gmail.com>,
+	Jon Hunter <jonathanh@nvidia.com>,
+	linux-tegra@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL 1/3] soc/tegra: Cleanups for v6.14-rc1
+Date: Fri, 10 Jan 2025 19:53:51 +0100
+Message-ID: <20250110185355.4143505-1-thierry.reding@gmail.com>
+X-Mailer: git-send-email 2.47.1
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_105310_757909_A655903E 
-X-CRM114-Status: UNSURE (   7.27  )
+X-CRM114-CacheID: sfid-20250110_105409_816877_4451A072 
+X-CRM114-Status: UNSURE (   8.84  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,51 +99,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+Hi ARM SoC maintainers,
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
-              Test: OK
+The following changes since commit 40384c840ea1944d7c5a392e8975ed088ecf0b37:
 
-Tested-by: CKI Project <cki-project@redhat.com>
+  Linux 6.13-rc1 (2024-12-01 14:28:56 -0800)
 
-Kernel information:
-    Commit message: Merge branches 'for-next/core' and 'for-next/perf' into=
- for-kernelci
+are available in the Git repository at:
 
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1619912410
+  git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegra-for-6.14-soc
 
-One or more kernel tests failed:
-    We also see the following known issues which are not related to your ch=
-anges:
-        Issue: [upstream] WARNING: CPU: 1 PID: 23 at kernel/workqueue.c:431=
-7 enable_work+0x104/0x120
-            URL: https://lore.kernel.org/lkml/ff6461df-25d1-494f-ad34-763fa=
-f249309@lucifer.local/
-            Affected tests:
-                Boot test [aarch64]
-                Reboot test [aarch64]
+for you to fetch changes up to 836b341cc8dab680acc06a7883bfeea89680b689:
 
+  soc/tegra: fuse: Update Tegra234 nvmem keepout list (2025-01-10 18:51:46 +0100)
 
+Thanks,
+Thierry
 
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
+----------------------------------------------------------------
+soc/tegra: Cleanups for v6.14-rc1
 
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
+This contains debugfs error handling cleanup, a typofix and an update to
+the FUSE block's keepout list to properly allow reading these registers.
 
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
+----------------------------------------------------------------
+Kartik Rajput (1):
+      soc/tegra: fuse: Update Tegra234 nvmem keepout list
 
+Krzysztof Kozlowski (1):
+      soc/tegra: cbb: Drop unnecessary debugfs error handling
+
+liujing (1):
+      soc/tegra: Fix spelling error in tegra234_lookup_slave_timeout()
+
+ drivers/soc/tegra/cbb/tegra-cbb.c     | 20 ++++----------------
+ drivers/soc/tegra/cbb/tegra234-cbb.c  |  2 +-
+ drivers/soc/tegra/fuse/fuse-tegra30.c | 17 +++++++++++------
+ 3 files changed, 16 insertions(+), 23 deletions(-)
 
