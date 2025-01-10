@@ -4,89 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6898CE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 14:03:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91366E7719C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 14:04:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ftbjBXQ4HXQ8pJsgEsmhz+TvwinUzZhPiZFB0jwt4RI=; b=quqpX32g6Yb2tqkYKno3ij8XCT
-	aVbhnl6BPio00NYCnXvvpA8gCmSl4fYc01kZZGr9o2dxlYVWbp5ba8La11C84XiBmB5OMdM8bHru9
-	y4aHd0NQ8Vf0YMEjpeOSiHi+VfRbHPVjJNDNJv2aweoOg0PEXyQ8jNBWoMpAQAPtmoJxh/Z0/Xcho
-	uyJSL4BTLjgit4/IKFqLPLgL/YYzuwP8CxpQp/ObiM4ERoCJq/tS213sl3PQciXMzLdWDCjlaOUGz
-	BCFHSo2gS3JwQcOM7kDwOrWfp6q7f2obYc8SB/yJMEWzOMxQKel01eLV2rmSAylPTe4Zfximdm+UV
-	5OGH6eXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YwYzlM9SAeOiyMw0xPqH94UuPAmY2pEyT6RCfaL387M=; b=G0XfrMOq6S76F7H1zAok6D3Qg9
+	ft1FkY+oghTmMo2ZCDVLU8ff7/a+TGx8cKT4e+USbUw1v5RRk3bKoY5Ul7QIDIHpIl82BQ+7h4M+Z
+	RmUyEWPzTEXS65IPrLk7bbL7OeYCMwjTXrqG+qPyy2YemMr/wEPot5hUgE0Kcx1RkPzvJmbJc52eI
+	WiiTCa6w5p8fkIv8R3GOn6pfFM5QcL2JSiTzMnvR8r9FbhRpUFC8n3HmN3nuY/ndDEoCbQC2EQbuB
+	j7fByEmlSZ8rDy+AADdJvS/0lLvkJvShefILyBt8ohjXaf1z9WbMIqSqpntaDvsRtBwe5hBl1KVAr
+	moIirUhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWFbm-0000000FZSJ-47MX;
-	Fri, 10 Jan 2025 14:03:30 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1tWFcy-0000000FZcn-2j2L;
+	Fri, 10 Jan 2025 14:04:44 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWFUS-0000000FXuy-3fvW
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 13:55:59 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-385e0e224cbso1161170f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jan 2025 05:55:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1736517355; x=1737122155; darn=lists.infradead.org;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ftbjBXQ4HXQ8pJsgEsmhz+TvwinUzZhPiZFB0jwt4RI=;
-        b=p5q70HjeOmlzcL3o/EFc7n/xoW9jz1kFGRGASEStkJdfvZg6c6tSHFEngrmFY0l3cy
-         szMpD8+pvhjvfYDkHIXDc1OdoRboyWhSPNLghfdrmjVcOTksyX7sjjWsrwGCVprAdP4m
-         KMeLG5RgMaoMtdl8yZUX0XX9mnwvgnFzrp8ewsdo/KMGDnHNj9pFTTSdnvpgfcvX5Zkg
-         E47RvaMbflSFW6SKN5et+wIbAaAoLZNo3WXa0PsahX4kYIe9/7iq2k0EEfutnVvKSYZK
-         xfonYvRuWCC3t0luRpRVRkEtzEdgSjn/xg+zhcQ5+Qlx49nTM0u7cTOLfcruos2EZKHf
-         bPRQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736517355; x=1737122155;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ftbjBXQ4HXQ8pJsgEsmhz+TvwinUzZhPiZFB0jwt4RI=;
-        b=etV1vBjoVETT6XIH6/gpp4po2k6Px+f5oNkz228bFpPsvzDFPKvBkj2BZp/pIKB3N6
-         GhRZKVx894NwUgXr8HfcrHYNRt+wCVrPdl2DYXcJgsKsQPvIFpbimHCiB+mlixaUUTqJ
-         Tc0UxRmIxVhYInjGQvAZMzRsWuTkMSnofrJqzsZxqCYf57JIA7QtESIXDfIZNPHjPiCL
-         RJDurEi2sQlb5ArnMxDds7hNJQp/AkjfUp03ya2TAnzZeAiKmbgiQE3rZXtZsCuCXtv8
-         WtwyZWoVQlMaz1ouMsq2LuJxJ6asXqon6mbN4QvWgm57V/7nUXEILg1P+Tui5WpEzS3Q
-         H4xQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUjf0ywud+J7+30iM8YqLNKZ00LdAo5G2qUcVOFAcPuEYnLF3C4bxWa5FHzAxhCzlc+VfjdHPE6X6tTsy1wwrbP@lists.infradead.org
-X-Gm-Message-State: AOJu0YxAE+smWH2n5wwxUAmJXPDfcIhTkSJw8PRbvUJVvEhMfg9SWxqk
-	/gXriLBhwieYDYekR1gRv5LGb3mrLP8kQA84AXyJjScpTsEF3S93ZhAjIoCz8PI=
-X-Gm-Gg: ASbGncu4Ja8j2W6mWvINMC0xsqrCv/CG+CDwBiDK26F3ZmtiZOJxYGbBV6h42oi3zgh
-	uk8Kt/Gwr8c6OHgpgtYfnyEu37nF6n1WeyvVf7/dagiey2ar+ArZ4lwtjtIL+JiU1oXvO0Seesd
-	LG7hxr5t3VrBwV7j/I83BCdjLG3fboKBHK9wXFb2nRKyjAv3yZpo+77NtzjrBVa79DSRVVAdG9T
-	Ex2aybLy2QwM7SI0lfqx3ESSW+s66yxJ8P1q6bbVD0btU2MkUw/0k8=
-X-Google-Smtp-Source: AGHT+IE7F/hOS3FiocAfogciKCV+3xyyaiDnwQ7vSAvCcesLhCG99vmIp4Cuk/PUHH6FVgF+FANyPg==
-X-Received: by 2002:a05:6000:401e:b0:386:366d:5d03 with SMTP id ffacd0b85a97d-38a872da868mr10354026f8f.16.1736517355167;
-        Fri, 10 Jan 2025 05:55:55 -0800 (PST)
-Received: from localhost ([2a01:e0a:3c5:5fb1:f3f7:a818:65b5:3db])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a8e4b80besm4527997f8f.83.2025.01.10.05.55.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Jan 2025 05:55:54 -0800 (PST)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>,  Stephen Boyd
- <sboyd@kernel.org>,  Neil Armstrong <neil.armstrong@linaro.org>,  Kevin
- Hilman <khilman@baylibre.com>,  Martin Blumenstingl
- <martin.blumenstingl@googlemail.com>,  chuan.liu@amlogic.com,
-  linux-clk@vger.kernel.org,  linux-kernel@vger.kernel.org,
-  linux-amlogic@lists.infradead.org,  linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/2] clk: amlogic: c3: Limit the rate boundaries of clk_hw
-In-Reply-To: <20250110-limit-rate-range-of-clk-v1-2-dd618adc4aa8@amlogic.com>
-	(Chuan Liu via's message of "Fri, 10 Jan 2025 19:47:11 +0800")
-References: <20250110-limit-rate-range-of-clk-v1-0-dd618adc4aa8@amlogic.com>
-	<20250110-limit-rate-range-of-clk-v1-2-dd618adc4aa8@amlogic.com>
-User-Agent: mu4e 1.12.7; emacs 29.4
-Date: Fri, 10 Jan 2025 14:55:54 +0100
-Message-ID: <1j34hqai39.fsf@starbuckisacylon.baylibre.com>
+	id 1tWFVN-0000000FY7W-1j0D;
+	Fri, 10 Jan 2025 13:56:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=YwYzlM9SAeOiyMw0xPqH94UuPAmY2pEyT6RCfaL387M=; b=fgEsw9uEeUP+rz+OneKij+Z12y
+	6FC0LTdNANgbXzvTsHXCIjfUK2zKAH87ghX4G6gRTkg08BjGeHHVoUAYcDHIY1RALUNmt4DaXuuIu
+	5AK0E+jQTBz55PluQQ97JoPtCiA7D4k/QRguBzx7JNw8/cikkJYVYhZ8sO5zIr7GtrrL1t4e1rMQi
+	7PHTrOugR6mYEe1C2++ZriOWswoTrE2MBl8SDctKGLws203tsuGjJaMnmaYftH83FPJp4LV7rjVs4
+	cRGa+NdArXURd1mERGpYl1Vp4UsXFnf+qHQlbuvFf4g4sKv0Us8pyxRICxy0Ps93isCNUtCJX0hGA
+	88w3fKFQ==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tWFVK-00000009mxt-1yrN;
+	Fri, 10 Jan 2025 13:56:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 333A05C4447;
+	Fri, 10 Jan 2025 13:56:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B165CC4CED6;
+	Fri, 10 Jan 2025 13:56:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736517408;
+	bh=AouVWEys/NtgqaGbXkcBOKCybsdMDm2Sr9XXLLSNYMc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=hEPjokNK/n8xwEc3DQJQvgieQyY0GTZOA6Bio0y1e6GVGnmuCaek49sVLVjUlj7P2
+	 1IHRmkMzLocl5POXPHb+0V29Md+2J9fo7ulrSsiP4zqaNTmsC7FoCKWH43NKMyqPrR
+	 b6y3uTd1MIJKjGK7V1oBJpoh+0pvIjzzTcR3TLzbm/8JbSdcyb/cJeXTLf+4pwmKX+
+	 18dsUQfblv/ooXW7qG42cVFr+Kp+RHcBuSFqgaqseq4rJl5wBN4GfC3kqik52K6qmE
+	 bKmoxWJyUr7cGdpGETQO8VqBLulpyOCX/q1CPUa4a8qYvWANlQ6hWJHSQV+6sa/Imt
+	 QkV1g7JKUmY7Q==
+Message-ID: <de280eed-bcc8-4802-9734-5e95ad1f6611@kernel.org>
+Date: Fri, 10 Jan 2025 14:56:38 +0100
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 06/12] dt-bindings: clk: sunxi-ng: add V853 CCU
+ clock/reset
+To: Andras Szemzo <szemzo.andras@gmail.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Maxime Ripard <mripard@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
+ <kishon@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-gpio@vger.kernel.org,
+ linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <20250110123923.270626-1-szemzo.andras@gmail.com>
+ <20250110123923.270626-7-szemzo.andras@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
+ QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
+ gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
+ /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
+ iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
+ VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
+ 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
+ xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
+ eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
+ AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
+ MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
+ Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
+ ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
+ vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
+ oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
+ lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
+ t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
+ uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
+ 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
+ 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
+In-Reply-To: <20250110123923.270626-7-szemzo.andras@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_055556_910467_D2217E30 
-X-CRM114-Status: GOOD (  19.01  )
+X-CRM114-CacheID: sfid-20250110_135650_812705_61A23B7B 
+X-CRM114-Status: GOOD (  13.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,234 +147,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri 10 Jan 2025 at 19:47, Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org> wrote:
+On 10/01/2025 13:39, Andras Szemzo wrote:
+> As the device tree needs the clock/reset indices, add them to DT binding
+> headers.
+> 
+> Signed-off-by: Andras Szemzo <szemzo.andras@gmail.com>
 
-> From: Chuan Liu <chuan.liu@amlogic.com>
->
-> The PLL can only stably lock within a limited frequency range.
->
-> Due to timing constraints, the maximum frequency of the peripheral clock
-> cannot exceed the design specifications.
->
-> Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
-> ---
->  drivers/clk/meson/c3-peripherals.c | 21 +++++++++++++++++++++
->  drivers/clk/meson/c3-pll.c         |  4 ++++
->  2 files changed, 25 insertions(+)
->
-> diff --git a/drivers/clk/meson/c3-peripherals.c b/drivers/clk/meson/c3-peripherals.c
-> index 7dcbf4ebee07..9f0a3990f0d6 100644
-> --- a/drivers/clk/meson/c3-peripherals.c
-> +++ b/drivers/clk/meson/c3-peripherals.c
-> @@ -568,6 +568,7 @@ static const struct clk_parent_data pwm_parent_data[] = {
->  		.ops = &clk_regmap_gate_ops,			\
->  		.parent_names = (const char *[]) { #_name "_div" },\
->  		.num_parents = 1,				\
-> +		.max_rate = 200000000,				\
->  		.flags = CLK_SET_RATE_PARENT,			\
->  	},							\
->  }
-> @@ -724,6 +725,7 @@ static struct clk_regmap spicc_a = {
->  			&spicc_a_div.hw
->  		},
->  		.num_parents = 1,
-> +		.max_rate = 500000000,
-
-I'm sorry but the whole thing is completly wrong.
-
-All the clocks I'm seeing here are gates. This type of HW hardly cares
-what rates it handles. Same goes from mux, dividers, etc ...
-
-All you are doing here is trying enforce some made up "safety" / use-case
-defined limits that do not belong in the clock controller.
-
-The only piece of HW where limits could possibly make sense are PLL DCO,
-and even there, you've got multiplier range which is way better as an
-abstraction.
-
-So it's a nack on the series.
-
-If devices are have particular requirement on rate range, have the
-related driver set it.
+That's never a separate commit from the binding.
 
 
->  		.flags = CLK_SET_RATE_PARENT,
->  	},
->  };
-> @@ -771,6 +773,7 @@ static struct clk_regmap spicc_b = {
->  			&spicc_b_div.hw
->  		},
->  		.num_parents = 1,
-> +		.max_rate = 500000000,
->  		.flags = CLK_SET_RATE_PARENT,
->  	},
->  };
-> @@ -829,6 +832,7 @@ static struct clk_regmap spifc = {
->  			&spifc_div.hw
->  		},
->  		.num_parents = 1,
-> +		.max_rate = 167000000,
->  		.flags = CLK_SET_RATE_PARENT,
->  	},
->  };
-> @@ -887,6 +891,7 @@ static struct clk_regmap sd_emmc_a = {
->  			&sd_emmc_a_div.hw
->  		},
->  		.num_parents = 1,
-> +		.max_rate = 250000000,
->  		.flags = CLK_SET_RATE_PARENT,
->  	},
->  };
-> @@ -934,6 +939,7 @@ static struct clk_regmap sd_emmc_b = {
->  			&sd_emmc_b_div.hw
->  		},
->  		.num_parents = 1,
-> +		.max_rate = 250000000,
->  		.flags = CLK_SET_RATE_PARENT,
->  	},
->  };
-> @@ -981,6 +987,7 @@ static struct clk_regmap sd_emmc_c = {
->  			&sd_emmc_c_div.hw
->  		},
->  		.num_parents = 1,
-> +		.max_rate = 1200000000,
->  		.flags = CLK_SET_RATE_PARENT,
->  	},
->  };
-> @@ -1074,6 +1081,7 @@ static struct clk_regmap eth_rmii = {
->  			&eth_rmii_div.hw
->  		},
->  		.num_parents = 1,
-> +		.max_rate = 50000000,
->  		.flags = CLK_SET_RATE_PARENT,
->  	},
->  };
-> @@ -1132,6 +1140,7 @@ static struct clk_regmap mipi_dsi_meas = {
->  			&mipi_dsi_meas_div.hw
->  		},
->  		.num_parents = 1,
-> +		.max_rate = 200000000,
->  		.flags = CLK_SET_RATE_PARENT,
->  	},
->  };
-> @@ -1190,6 +1199,7 @@ static struct clk_regmap dsi_phy = {
->  			&dsi_phy_div.hw
->  		},
->  		.num_parents = 1,
-> +		.max_rate = 1500000000,
->  		.flags = CLK_SET_RATE_PARENT,
->  	},
->  };
-> @@ -1248,6 +1258,7 @@ static struct clk_regmap vout_mclk = {
->  			&vout_mclk_div.hw
->  		},
->  		.num_parents = 1,
-> +		.max_rate = 334000000,
->  		.flags = CLK_SET_RATE_PARENT,
->  	},
->  };
-> @@ -1306,6 +1317,7 @@ static struct clk_regmap vout_enc = {
->  			&vout_enc_div.hw
->  		},
->  		.num_parents = 1,
-> +		.max_rate = 200000000,
->  		.flags = CLK_SET_RATE_PARENT,
->  	},
->  };
-> @@ -1431,6 +1443,7 @@ static struct clk_regmap hcodec = {
->  		.ops = &clk_regmap_mux_ops,
->  		.parent_data = hcodec_parent_data,
->  		.num_parents = ARRAY_SIZE(hcodec_parent_data),
-> +		.max_rate = 667000000,
->  		.flags = CLK_SET_RATE_PARENT,
->  	},
->  };
-> @@ -1489,6 +1502,7 @@ static struct clk_regmap vc9000e_aclk = {
->  			&vc9000e_aclk_div.hw
->  		},
->  		.num_parents = 1,
-> +		.max_rate = 667000000,
->  		.flags = CLK_SET_RATE_PARENT,
->  	},
->  };
-> @@ -1536,6 +1550,7 @@ static struct clk_regmap vc9000e_core = {
->  			&vc9000e_core_div.hw
->  		},
->  		.num_parents = 1,
-> +		.max_rate = 400000000,
->  		.flags = CLK_SET_RATE_PARENT,
->  	},
->  };
-> @@ -1594,6 +1609,7 @@ static struct clk_regmap csi_phy0 = {
->  			&csi_phy0_div.hw
->  		},
->  		.num_parents = 1,
-> +		.max_rate = 200000000,
->  		.flags = CLK_SET_RATE_PARENT,
->  	},
->  };
-> @@ -1652,6 +1668,7 @@ static struct clk_regmap dewarpa = {
->  			&dewarpa_div.hw
->  		},
->  		.num_parents = 1,
-> +		.max_rate = 800000000,
->  		.flags = CLK_SET_RATE_PARENT,
->  	},
->  };
-> @@ -1710,6 +1727,7 @@ static struct clk_regmap isp0 = {
->  			&isp0_div.hw
->  		},
->  		.num_parents = 1,
-> +		.max_rate = 400000000,
->  		.flags = CLK_SET_RATE_PARENT,
->  	},
->  };
-> @@ -1768,6 +1786,7 @@ static struct clk_regmap nna_core = {
->  			&nna_core_div.hw
->  		},
->  		.num_parents = 1,
-> +		.max_rate = 800000000,
->  		.flags = CLK_SET_RATE_PARENT,
->  	},
->  };
-> @@ -1826,6 +1845,7 @@ static struct clk_regmap ge2d = {
->  			&ge2d_div.hw
->  		},
->  		.num_parents = 1,
-> +		.max_rate = 667000000,
->  		.flags = CLK_SET_RATE_PARENT,
->  	},
->  };
-> @@ -1884,6 +1904,7 @@ static struct clk_regmap vapb = {
->  			&vapb_div.hw
->  		},
->  		.num_parents = 1,
-> +		.max_rate = 400000000,
->  		.flags = CLK_SET_RATE_PARENT,
->  	},
->  };
-> diff --git a/drivers/clk/meson/c3-pll.c b/drivers/clk/meson/c3-pll.c
-> index 35fda31a19e2..d80d6ee2409d 100644
-> --- a/drivers/clk/meson/c3-pll.c
-> +++ b/drivers/clk/meson/c3-pll.c
-> @@ -286,6 +286,8 @@ static struct clk_regmap gp0_pll_dco = {
->  			.fw_name = "top",
->  		},
->  		.num_parents = 1,
-> +		.min_rate = 3000000000,
-> +		.max_rate = 6000000000,
->  	},
->  };
->  
-> @@ -370,6 +372,8 @@ static struct clk_regmap hifi_pll_dco = {
->  			.fw_name = "top",
->  		},
->  		.num_parents = 1,
-> +		.min_rate = 3000000000,
-> +		.max_rate = 6000000000,
->  	},
->  };
+...
 
--- 
-Jerome
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/sun8i-v853-r-ccu.h
+> @@ -0,0 +1,16 @@
+> +/* SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
+> +/* Copyright(c) 2020 - 2023 Allwinner Technology Co.,Ltd. All rights reserved.
+> + *
+> + * Copyright (C) 2023 rengaomin@allwinnertech.com
+> + */
+> +#ifndef _DT_BINDINGS_CLK_SUN8I_V85X_R_CCU_H_
+> +#define _DT_BINDINGS_CLK_SUN8I_V85X_R_CCU_H_
+> +
+> +#define CLK_R_TWD		0
+> +#define CLK_R_PPU		1
+> +#define CLK_R_RTC		2
+> +#define CLK_R_CPUCFG		3
+> +
+> +#define CLK_R_MAX_NO		(CLK_R_CPUCFG + 1)
+
+Nope, drop. Not a binding.
+
+> +
+> +#endif
+> diff --git a/include/dt-bindings/reset/sun8i-v853-ccu.h b/include/dt-bindings/reset/sun8i-v853-ccu.h
+> new file mode 100644
+> index 000000000000..89d94fcbdb55
+> --- /dev/null
+> +++ b/include/dt-bindings/reset/sun8i-v853-ccu.h
+> @@ -0,0 +1,62 @@
+> +/* SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
+
+Odd license. Did you copy the file with such license from the downstream?
+
+
+Best regards,
+Krzysztof
 
