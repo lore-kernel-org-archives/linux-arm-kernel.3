@@ -4,109 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3842E7719C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 13:13:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01933E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 13:15:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nozmpJQsg22jiSs48IB4iJIoZo0lhuoH2dL8CNclHCE=; b=FBhnuEiJT2Mjd7i4+ISGWveMhh
-	uMupxioLGhqCnDT1FAvwqpEgTKsFsJU/2Z1xFuTjrcRLY1hHw5Pb4QvjJEbFgrNsqCYC7Geb40RaE
-	6bU7bsQevOIH34LVZ1kQXqMYrkmwqQYuv4/MM7Ke15/a5nr2pjEwJMeTcE3dzAKdIBzMG6LADi1pw
-	dyE2srbSYGjxvWVeAQWaiLYz/Ue4ZIQuuw9SaHpKxZItb1OFtoG8OnmVj18a2V7V7jueb3TNc9OVF
-	eMSdvoFXC2DuQzxFrcsoA9KK7aYypIl6kUpopa8f9O5X/leX294q+LZl8utfBggtDSk2xTyExy3qa
-	QIf0zRPQ==;
+	bh=3d0w82flwLcOfY2S1+18tC8zzmaZllL0A3IY+Mi1acw=; b=wyCbIpG/e/i17aTnPWXAxMPadn
+	VjI1kAHMpZ8PW7whVEGm7j0sM1QEgxJeKAjiDZ8KVSoVvSJVEM7W2RHfUvuds7bNiMwCgL7CzK+ra
+	484yE2vCe7SRPck85TW4Y6uwr67qcUSHPdEEXWC+nmTnnf1RUWfHSz7BaMYPg40+zhAE1WfwbjioP
+	3AO1Xp6KcPnxWvVgwCiYFEiRmgX5oSqdYAap8lWFFg4revGEZh8mP9xojp0RHaSFDuK2V7dzkMtp1
+	yHfHMQ/wus47ibAsJCANKCutzmTsuLsIl8C07na5WgdTy53Avr5J8ftGzIEoomBJ+fdvLBUOBOZiC
+	KC/A5laA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWEpW-0000000FQWy-1a8q;
-	Fri, 10 Jan 2025 13:13:38 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1tWErS-0000000FRHb-22ft;
+	Fri, 10 Jan 2025 13:15:38 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWEIx-0000000FJIy-08jN;
-	Fri, 10 Jan 2025 12:40:00 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3862d161947so1079777f8f.3;
-        Fri, 10 Jan 2025 04:39:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736512797; x=1737117597; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=nozmpJQsg22jiSs48IB4iJIoZo0lhuoH2dL8CNclHCE=;
-        b=VF0L5X2P1NrYhS6QpIFq1+lp9i7DHn4cFSckFTmIlEqcj81QyzlbuZw60CwP58th6S
-         vPi+nXxWqvj447bNHPOtCanOCJxmKlAM9WK9Oj8cq4Dr9sh1XNX1eOEeOQaZ4ODZFUlf
-         a8O7YoGOiTtdSIUZkVargI48NL40nKY9znr7D4e37npEQtc/bm64AEAtFMCno0coumz+
-         yna8EstWesUt0jNuT2oQAB1NW19jRsJBsZBY+cWO7bweXLepI3iWlBwivR5uy77xCKSK
-         cMAyKdNlYpO2EssATMiEfDK8qrf+/dvui/KLi29RymlN39nfSoDj7jl7FGET+/V3Q94j
-         6eYQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736512797; x=1737117597;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=nozmpJQsg22jiSs48IB4iJIoZo0lhuoH2dL8CNclHCE=;
-        b=c72UHES/D7S9fshYYg5vNqfGpbk+fp/B8Olfx42tTXvXKCOL7zxzmntpWtIl/omi6p
-         0Vx2RH9zIka/Rao2ALy1OCEG275meKgVAjTVNpNRN9rGhkpAv3v4Q0PqsjtHJEiya9v4
-         25F/5l1SIEldqsipW6Gi/4XPDu73iy3Th3UafgEFE+/aUvKj+tqKJ64AT4l94wtsYJ5l
-         MhI4BSYWz/wf5svVmDwM7g9R//jp+wpBXGTm1A7Q6TAzpxT2Wh7ZshP1PneyrSBp3+XU
-         gvTdvLwTRcgxg65gvIyuP48acEoMYL+IA9nM3ovlSbHbIpUJDG4L4od4LXu5hYPgD0cz
-         JIzg==
-X-Forwarded-Encrypted: i=1; AJvYcCUTAYS1keo+p1jVKft1NQYQ4ZZUfTnBKTVvn/9vWp6EKYrCccSEEArWdbmaHcGpO+4zXKz9tnCM+6w/@lists.infradead.org, AJvYcCVO2f71ovpD1j+gbaVr146gJvObwAr2IRel79sJeeYq4caG/RoEI9pvldqac6KLbIrRNLYhZkVQ4bkHT8Q=@lists.infradead.org, AJvYcCW2NAegQXHS9+aJ0k5gwfD+uxV56tt/kEmArzOcIl+OwyzjN9lYHaLpwreqF2qTEy8D4unyxzRUpIV1kGLQ1g3a@lists.infradead.org
-X-Gm-Message-State: AOJu0YxuPD4DAH7Mps4h0hgso7gKxh15NnYnH1No0ryzqMti/Kab832l
-	8Gr4dO7mCpsmhmNU6sJIw4yGnP0eiKjsGsi2K/cZWxTFbPNU5axD
-X-Gm-Gg: ASbGncvyIr/8cE6hF2fq95H7/+nUVltM4imuCKy3vjSL83zWWvfBoag6rfsWPLmuuAq
-	MWe6/PbcBZVhOMqkQhD5OWAcy5+Yc0ve0K8Oqe6LPQx4iGEvwGwHqbg6rKBodyjxeItuZb2/47k
-	AnvOB/byArvSMNg1bEqDVT1tLyNyZUtxPGRAYTZ9HgGCWk6Nt6OxkZgOD7musvcMQYXwZx865Ci
-	VcwP7cBeSr30iwu0fm7xbKkkvTPeiyg+F8Btg4GacxWCN5gVszWCqXO1fFZkMrj8k4IVQgxh4JX
-	F18Auj8EWno=
-X-Google-Smtp-Source: AGHT+IFOe7KOjKzbNd2JWzyj9jIFOIXUdiW7gt9PgQGUkaWczrjN4bnRuGXCkrxgt5ONRvjc0O3CMg==
-X-Received: by 2002:a05:6000:4615:b0:385:e013:39ef with SMTP id ffacd0b85a97d-38a872f6993mr8687437f8f.6.1736512797163;
-        Fri, 10 Jan 2025 04:39:57 -0800 (PST)
-Received: from localhost.localdomain (185.174.17.62.zt.hu. [185.174.17.62])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e2da6401sm86738715e9.2.2025.01.10.04.39.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Jan 2025 04:39:56 -0800 (PST)
-From: Andras Szemzo <szemzo.andras@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Maxime Ripard <mripard@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH 12/12] ARM: dts: sun8i: add DTSI file for V853
-Date: Fri, 10 Jan 2025 13:39:23 +0100
-Message-Id: <20250110123923.270626-13-szemzo.andras@gmail.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250110123923.270626-1-szemzo.andras@gmail.com>
-References: <20250110123923.270626-1-szemzo.andras@gmail.com>
+	id 1tWEde-0000000FO0I-0QoT;
+	Fri, 10 Jan 2025 13:01:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5D3D45C2E18;
+	Fri, 10 Jan 2025 13:00:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBD11C4CEE1;
+	Fri, 10 Jan 2025 13:01:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736514081;
+	bh=3SaG2X4A14Z+aNuM4b3tAa4QmuX6xnPyFTL3KYwz/EM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=O2YEowuu4ljUMKW6FkFVFPRc6Rtb57pnQa669pPo0D1cbzn/j5khTAzTU/nK6gGb1
+	 XRN2vQ9g2cY9AIjL+rL8O3wk5HtAAddCxXN692Oa+Hj4VyuWcnqr3ApvLRCX9DsfBw
+	 qWpHjPbqy/GAB18g+KuyL2qEZh5/pV7FmFAcLx5i4FH47Rcn9EC5zjFq5XJr2n4Sko
+	 zCu3EKiL9w9CaZI1e2WvK/8dWsG1AaRNBcOtjBkfs4O467VZWlR5lQi03QaLcT1nbg
+	 0Arxq701wg5Fdsm0h41S29XIGnxVW3SF0twXjpS4nvCg4ddo8O1lIB50OPb/IjYXo9
+	 ft16TPVsw5tYQ==
+Message-ID: <abadfae8-56f7-499c-83ff-7d79e3fe1f52@kernel.org>
+Date: Fri, 10 Jan 2025 14:01:11 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 03/12] dt-bindings: display: mediatek: add EXDMA yaml for
+ MT8196
+To: "paul-pl.chen" <paul-pl.chen@mediatek.com>, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, chunkuang.hu@kernel.org,
+ angelogioacchino.delregno@collabora.com
+Cc: matthias.bgg@gmail.com, p.zabel@pengutronix.de,
+ jason-jh.lin@mediatek.com, nancy.lin@mediatek.com, singo.chang@mediatek.com,
+ xiandong.wang@mediatek.com, sirius.wang@mediatek.com,
+ sunny.shen@mediatek.com, fshao@chromium.org, treapking@chromium.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org,
+ Project_Global_Chrome_Upstream_Group@mediatek.com
+References: <20250110123835.2719824-1-paul-pl.chen@mediatek.com>
+ <20250110123835.2719824-4-paul-pl.chen@mediatek.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250110123835.2719824-4-paul-pl.chen@mediatek.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_043959_080951_155F3DF2 
-X-CRM114-Status: GOOD (  14.64  )
+X-CRM114-CacheID: sfid-20250110_050122_239387_9E140C64 
+X-CRM114-Status: GOOD (  18.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,694 +125,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-V853/V851 is a new SoC by Allwinner. Add a basic dtsi file for it.
+On 10/01/2025 13:33, paul-pl.chen wrote:
+> From: "Paul-pl.Chen" <paul-pl.chen@mediatek.com>
+> 
+> Add mediatek,exdma.yaml to support EXDMA for MT8196.
+> 
+> Signed-off-by: Paul-pl.Chen <paul-pl.chen@mediatek.com>
+> ---
+> The header used in examples:
+> #include <dt-bindings/clock/mt8196-clk.h>
+> #include <dt-bindings/power/mt8196-power.h>
+> are not upstreamed yet.
 
-Signed-off-by: Andras Szemzo <szemzo.andras@gmail.com>
----
- arch/arm/boot/dts/allwinner/sun8i-v853.dtsi | 673 ++++++++++++++++++++
- 1 file changed, 673 insertions(+)
- create mode 100644 arch/arm/boot/dts/allwinner/sun8i-v853.dtsi
+Which makes this untestable and unmergeable.
 
-diff --git a/arch/arm/boot/dts/allwinner/sun8i-v853.dtsi b/arch/arm/boot/dts/allwinner/sun8i-v853.dtsi
-new file mode 100644
-index 000000000000..4ecc97c7e7c0
---- /dev/null
-+++ b/arch/arm/boot/dts/allwinner/sun8i-v853.dtsi
-@@ -0,0 +1,673 @@
-+// SPDX-License-Identifier: (GPL-2.0+ or MIT)
-+// Copyright (C) 2024 Andras Szemzo <szemzo.andras@gmail.com>
-+
-+#include <dt-bindings/clock/sun6i-rtc.h>
-+#include <dt-bindings/clock/sun8i-v853-r-ccu.h>
-+#include <dt-bindings/reset/sun8i-v853-r-ccu.h>
-+#include <dt-bindings/clock/sun8i-v853-ccu.h>
-+#include <dt-bindings/reset/sun8i-v853-ccu.h>
-+#include <dt-bindings/interrupt-controller/arm-gic.h>
-+#include <dt-bindings/power/allwinner,sun8i-v853-ppu.h>
-+
-+/ {
-+	#address-cells = <1>;
-+	#size-cells = <1>;
-+
-+	osc24M: osc24M-clk {
-+		compatible = "fixed-clock";
-+		clock-frequency = <24000000>;
-+		clock-output-names = "osc24M";
-+		#clock-cells = <0>;
-+	};
-+
-+	cpus {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		cpu0: cpu@0 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a7","arm,armv7";
-+			reg = <0>;
-+			clocks = <&ccu CLK_CPU>;
-+			clock-names = "cpu";
-+			clock-frequency = <912000000>;
-+			clock-latency = <2000000>;
-+			cooling-min-level = <5>;
-+			cooling-max-level = <0>;
-+			#cooling-cells = <2>; /* min followed by max */
-+			dynamic-power-coefficient = <142>;
-+		};
-+	};
-+
-+	pmu {
-+		compatible = "arm,cortex-a7-pmu";
-+		interrupts = <GIC_SPI 172 IRQ_TYPE_LEVEL_HIGH>,
-+			     <GIC_SPI 173 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-parent = <&gic>;
-+	};
-+
-+	timer {
-+		compatible = "arm,armv7-timer";
-+		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,	/* Secure Phys IRQ */
-+			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,	/* Non-secure Phys IRQ */
-+			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,	/* Virt IRQ */
-+			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>;	/* Hyp IRQ */
-+		clock-frequency = <24000000>;
-+		interrupt-parent = <&gic>;
-+		arm,cpu-registers-not-fw-configured;
-+		arm,no-tick-in-suspend;
-+	};
-+
-+	soc {
-+		compatible = "simple-bus";
-+		ranges;
-+		interrupt-parent = <&gic>;
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		dma-noncoherent;
-+
-+		pio: pinctrl@2000000 {
-+			compatible = "allwinner,sun8i-v853-pinctrl";
-+			reg = <0x2000000 0x800>;
-+			interrupts = <GIC_SPI 67 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 71 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 73 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 75 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 77 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 79 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 81 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_APB0>, <&osc24M>, <&rtc CLK_OSC32K>;
-+			clock-names = "apb", "hosc", "losc";
-+			gpio-controller;
-+			interrupt-controller;
-+			#gpio-cells = <3>;
-+			#interrupt-cells = <3>;
-+
-+			/omit-if-no-ref/
-+			uart0_ph9_pins: uart0-ph9-pins {
-+				pins = "PH9", "PH10";
-+				function = "uart0";
-+			};
-+
-+			/omit-if-no-ref/
-+			uart2_pe12_pins: uart2-pe12-pins {
-+				pins = "PE12", "PE13";
-+				function = "uart2";
-+			};
-+
-+			/omit-if-no-ref/
-+			dsi_2lane_pins: dsi-2lane-pins {
-+				pins = "PD1", "PD2", "PD3", "PD4", "PD5", "PD6";
-+				drive-strength = <30>;
-+				function = "dsi";
-+			};
-+
-+			/omit-if-no-ref/
-+			spi0_pins: spi0-pins {
-+				pins = "PC0", "PC1", "PC2", "PC3", "PC4", "PC5";
-+				function = "spi0";
-+			};
-+
-+			/omit-if-no-ref/
-+			spi3_pins: spi3-pins {
-+				pins = "PH11", "PH12", "PH13", "PH14";
-+				function = "spi3";
-+			};
-+
-+			/omit-if-no-ref/
-+			i2c2_ph11_pins: i2c2-ph11-pins {
-+				pins = "PH11", "PH12";
-+				function = "i2c2";
-+			};
-+
-+			/omit-if-no-ref/
-+			i2c3_ph13_pins: i2c3-ph13-pins {
-+				pins = "PH13", "PH14";
-+				function = "i2c3";
-+			};
-+
-+			/omit-if-no-ref/
-+			mmc0_pins: mmc0-pins {
-+				pins = "PF0", "PF1", "PF2", "PF3", "PF4", "PF5";
-+				function = "sdc0";
-+			};
-+
-+			/omit-if-no-ref/
-+			mmc1_pins: mmc1-pins {
-+				pins = "PE0", "PE1", "PE2", "PE3", "PE4", "PE5";
-+				function = "sdc1";
-+			};
-+
-+			/omit-if-no-ref/
-+			rmii_pe_pins: rmii-pe-pins {
-+				pins = "PE0", "PE1", "PE2", "PE3", "PE4",
-+				       "PE5", "PE6", "PE7", "PE8", "PE9";
-+				function = "emac";
-+			};
-+
-+			/omit-if-no-ref/
-+			rmii_pd_pins: rmii-pd-pins {
-+				pins = "PD1", "PD2", "PD3", "PD4", "PD5",
-+				       "PD6", "PD7", "PD8", "PD20", "PD21";
-+				function = "emac";
-+			};
-+
-+			/omit-if-no-ref/
-+			dmic_ph9_pins: dmic-ph9-pins {
-+				pins = "PH9", "PH10";
-+				function = "dmic";
-+			};
-+		};
-+
-+		pwm: pwm@2000c00 {
-+			compatible = "allwinner,sun20i-d1-pwm";
-+			reg = <0x02000c00 0x400>;
-+			clocks = <&osc24M>,
-+				 <&ccu CLK_BUS_PWM>,
-+				 <&ccu CLK_APB0>;
-+			clock-names = "hosc", "bus", "apb";
-+			resets = <&ccu RST_BUS_PWM>;
-+			status = "disabled";
-+			allwinner,pwm-channels = <12>;
-+			#pwm-cells = <0x3>;
-+		};
-+
-+		ccu: clock-controller@2001000 {
-+			compatible = "allwinner,sun8i-v853-ccu";
-+			reg = <0x2001000 0x1000>;
-+			clocks = <&osc24M>,
-+				 <&rtc CLK_IOSC>,
-+				 <&rtc CLK_OSC32K>;
-+			clock-names = "hosc", "iosc", "losc";
-+			#clock-cells = <1>;
-+			#reset-cells = <1>;
-+		};
-+
-+		gpadc: adc@2009000 {
-+			compatible = "allwinner,sun20i-d1-gpadc";
-+			reg = <0x2009000 0x0400>;
-+			clocks = <&ccu CLK_BUS_GPADC>;
-+			resets = <&ccu RST_BUS_GPADC>;
-+			interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
-+			status = "disabled";
-+			#io-channel-cells = <1>;
-+		};
-+
-+		i2s0: i2s@2032000 {
-+			compatible = "allwinner,sun50i-r329-i2s";
-+			reg = <0x2032000 0x1000>;
-+			interrupts = <GIC_SPI 26 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_I2S0>,
-+				 <&ccu CLK_I2S0>;
-+			clock-names = "apb", "mod";
-+			resets = <&ccu RST_BUS_I2S0>;
-+			dmas = <&dma 3>, <&dma 3>;
-+			dma-names = "rx", "tx";
-+			status = "disabled";
-+			#sound-dai-cells = <0>;
-+		};
-+
-+		i2s1: i2s@2033000 {
-+			compatible = "allwinner,sun50i-r329-i2s";
-+			reg = <0x2033000 0x1000>;
-+			interrupts = <GIC_SPI 27 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_I2S1>,
-+				 <&ccu CLK_I2S1>;
-+			clock-names = "apb", "mod";
-+			resets = <&ccu RST_BUS_I2S1>;
-+			dmas = <&dma 4>, <&dma 4>;
-+			dma-names = "rx", "tx";
-+			status = "disabled";
-+			#sound-dai-cells = <0>;
-+		};
-+
-+		timer: timer@2050000 {
-+			compatible = "allwinner,sun20i-d1-timer",
-+				     "allwinner,sun8i-a23-timer";
-+			reg = <0x2050000 0xa0>;
-+			interrupts = <GIC_SPI 59 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&osc24M>;
-+		};
-+
-+		wdt: watchdog@20500a0 {
-+			compatible = "allwinner,sun20i-d1-wdt-reset",
-+				     "allwinner,sun20i-d1-wdt";
-+			reg = <0x20500a0 0x20>;
-+			interrupts = <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&osc24M>, <&rtc CLK_OSC32K>;
-+			clock-names = "hosc", "losc";
-+			status = "reserved";
-+		};
-+
-+		uart0: serial@2500000 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x2500000 0x400>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			interrupts = <GIC_SPI 2 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_UART0>;
-+			resets = <&ccu RST_BUS_UART0>;
-+			dmas = <&dma 14>, <&dma 14>;
-+			dma-names = "rx", "tx";
-+			status = "disabled";
-+		};
-+
-+		uart1: serial@2500400 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x2500400 0x400>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			interrupts = <GIC_SPI 3 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_UART1>;
-+			resets = <&ccu RST_BUS_UART1>;
-+			dmas = <&dma 15>, <&dma 15>;
-+			dma-names = "rx", "tx";
-+			status = "disabled";
-+		};
-+
-+		uart2: serial@2500800 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x2500800 0x400>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			interrupts = <GIC_SPI 4 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_UART2>;
-+			resets = <&ccu RST_BUS_UART2>;
-+			dmas = <&dma 16>, <&dma 16>;
-+			dma-names = "rx", "tx";
-+			status = "disabled";
-+		};
-+
-+		uart3: serial@2500c00 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x2500c00 0x400>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			interrupts = <GIC_SPI 5 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_UART3>;
-+			resets = <&ccu RST_BUS_UART3>;
-+			dmas = <&dma 17>, <&dma 17>;
-+			dma-names = "rx", "tx";
-+			status = "disabled";
-+		};
-+
-+		i2c0: i2c@2502000 {
-+			compatible = "allwinner,sun8i-v536-i2c",
-+				     "allwinner,sun6i-a31-i2c";
-+			reg = <0x2502000 0x400>;
-+			interrupts = <GIC_SPI 9 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_I2C0>;
-+			resets = <&ccu RST_BUS_I2C0>;
-+			dmas = <&dma 43>, <&dma 43>;
-+			dma-names = "rx", "tx";
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		i2c1: i2c@2502400 {
-+			compatible = "allwinner,sun8i-v536-i2c",
-+				     "allwinner,sun6i-a31-i2c";
-+			reg = <0x2502400 0x400>;
-+			interrupts = <GIC_SPI 10 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_I2C1>;
-+			resets = <&ccu RST_BUS_I2C1>;
-+			dmas = <&dma 44>, <&dma 44>;
-+			dma-names = "rx", "tx";
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		i2c2: i2c@2502800 {
-+			compatible = "allwinner,sun8i-v536-i2c",
-+				     "allwinner,sun6i-a31-i2c";
-+			reg = <0x2502800 0x400>;
-+			interrupts = <GIC_SPI 11 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_I2C2>;
-+			resets = <&ccu RST_BUS_I2C2>;
-+			dmas = <&dma 45>, <&dma 45>;
-+			dma-names = "rx", "tx";
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		i2c3: i2c@2502c00 {
-+			compatible = "allwinner,sun8i-v536-i2c",
-+				     "allwinner,sun6i-a31-i2c";
-+			reg = <0x2502c00 0x400>;
-+			interrupts = <GIC_SPI 12 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_I2C3>;
-+			resets = <&ccu RST_BUS_I2C3>;
-+			dmas = <&dma 46>, <&dma 46>;
-+			dma-names = "rx", "tx";
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		i2c4: i2c@2503000 {
-+			compatible = "allwinner,sun8i-v536-i2c",
-+				     "allwinner,sun6i-a31-i2c";
-+			reg = <0x2503000 0x400>;
-+			interrupts = <GIC_SPI 13 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_I2C4>;
-+			resets = <&ccu RST_BUS_I2C4>;
-+			dmas = <&dma 47>, <&dma 47>;
-+			dma-names = "rx", "tx";
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		syscon: syscon@3000000 {
-+			compatible = "allwinner,sun8i-h3-system-control";
-+			reg = <0x3000000 0x1000>;
-+			ranges;
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			sram_c: sram@20000 {
-+				compatible = "mmio-sram";
-+				reg = <0x00020000 0x21000>;
-+				#address-cells = <1>;
-+				#size-cells = <1>;
-+				ranges = <0 0x00020000 0x21000>;
-+
-+				ve_sram: sram-section@0 {
-+				    compatible = "allwinner,sun8i-v3s-sram-c", "allwinner,sun4i-a10-sram-c1";
-+				    reg = <0x000000 0xa000>;
-+				};
-+			};
-+		};
-+
-+		dma: dma-controller@3002000 {
-+			compatible = "allwinner,sun20i-d1-dma";
-+			reg = <0x3002000 0x1000>;
-+			interrupts = <GIC_SPI 50 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_DMA>, <&ccu CLK_MBUS_DMA>;
-+			clock-names = "bus", "mbus";
-+			resets = <&ccu RST_BUS_DMA>;
-+			dma-channels = <16>;
-+			dma-requests = <48>;
-+			#dma-cells = <1>;
-+		};
-+
-+		hwspinlock: hwlock@3005000 {
-+		    compatible = "allwinner,sun6i-a31-hwspinlock";
-+			reg = <0x3005000 0x1000>;
-+			clocks = <&ccu CLK_BUS_SPINLOCK>;
-+			clock-names = "ahb";
-+			resets = <&ccu RST_BUS_SPINLOCK>;
-+			reset-names = "ahb";
-+			interrupts = <GIC_SPI 54 IRQ_TYPE_LEVEL_HIGH>;
-+		};
-+
-+		sid: efuse@3006000 {
-+			compatible = "allwinner,sun20i-d1-sid";
-+			reg = <0x3006000 0x1000>;
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			ths_calib: ths-calib@14 {
-+				reg = <0x14 0x8>;
-+			};
-+		};
-+
-+		hstimer@3008000 {
-+			compatible = "allwinner,sun7i-a20-hstimer";
-+			reg = <0x03008000 0x1000>;
-+			interrupts = <GIC_SPI 55 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 56 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_HSTIMER>;
-+		};
-+
-+		gic: interrupt-controller@3021000 {
-+			compatible = "arm,gic-400";
-+			reg = <0x03021000 0x1000>,	/* GIC Dist */
-+			      <0x03022000 0x2000>,	/* GIC CPU */
-+			      <0x03024000 0x2000>,	/* GIC VCPU Control */
-+			      <0x03026000 0x2000>;	/* GIC VCPU */
-+			interrupts = <GIC_PPI 9 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_HIGH)>; /* GIC Maintenence IRQ */
-+			interrupt-controller;
-+			#interrupt-cells = <3>;
-+		};
-+
-+		npu: npu@3050000 {
-+			compatible = "vivante,gc";
-+			reg = <0x03050000 0x1000>;
-+			interrupts = <GIC_SPI 65 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "npu";
-+			clocks = <&ccu CLK_BUS_NPU>, <&ccu CLK_NPU>;
-+			clock-names = "bus", "core";
-+			assigned-clocks = <&ccu CLK_PLL_NPU_4X>, <&ccu CLK_NPU>;
-+			assigned-clock-parents = <&osc24M>, <&ccu CLK_PLL_NPU_4X>;
-+			assigned-clock-rates = <1392000000>, <348000000>;
-+			resets = <&ccu RST_BUS_NPU>;
-+			power-domains = <&ppu PD_NPU>;
-+		};
-+
-+		mbus: dram-controller@3102000 {
-+			compatible = "allwinner,sun20i-d1-mbus";
-+			reg = <0x3102000 0x1000>,
-+			      <0x3103000 0x1000>;
-+			reg-names = "mbus", "dram";
-+			interrupts = <GIC_SPI 43 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_MBUS>,
-+				 <&ccu CLK_DRAM>,
-+				 <&ccu CLK_BUS_DRAM>;
-+			clock-names = "mbus", "dram", "bus";
-+			dma-ranges = <0 0x40000000 0x80000000>;
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+			#interconnect-cells = <1>;
-+		};
-+
-+		mmc0: mmc@4020000 {
-+			compatible = "allwinner,sun20i-d1-mmc";
-+			reg = <0x4020000 0x1000>;
-+			interrupts = <GIC_SPI 40 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_MMC0>, <&ccu CLK_MMC0>;
-+			clock-names = "ahb", "mmc";
-+			resets = <&ccu RST_BUS_MMC0>;
-+			reset-names = "ahb";
-+			no-sdio;
-+			no-mmc;
-+			cap-sd-highspeed;
-+			max-frequency = <150000000>;
-+			mmc-ddr-1_8v;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		mmc1: mmc@4021000 {
-+			compatible = "allwinner,sun20i-d1-mmc";
-+			reg = <0x4021000 0x1000>;
-+			interrupts = <GIC_SPI 41 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_MMC1>, <&ccu CLK_MMC1>;
-+			clock-names = "ahb", "mmc";
-+			resets = <&ccu RST_BUS_MMC1>;
-+			reset-names = "ahb";
-+			cap-sd-highspeed;
-+			cap-mmc-highspeed;
-+			max-frequency = <150000000>;
-+			mmc-ddr-1_8v;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		mmc2: mmc@4022000 {
-+			compatible = "allwinner,sun20i-d1-mmc";
-+			reg = <0x4022000 0x1000>;
-+			interrupts = <GIC_SPI 42 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_MMC2>, <&ccu CLK_MMC2>;
-+			clock-names = "ahb", "mmc";
-+			resets = <&ccu RST_BUS_MMC2>;
-+			reset-names = "ahb";
-+			no-sdio;
-+			no-sd;
-+			cap-mmc-highspeed;
-+			max-frequency = <150000000>;
-+			mmc-ddr-1_8v;
-+			mmc-ddr-3_3v;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		spi0: spi@4025000 {
-+			compatible = "allwinner,sun50i-r329-spi";
-+			reg = <0x4025000 0x1000>;
-+			interrupts = <GIC_SPI 15 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_SPI0>, <&ccu CLK_SPI0>;
-+			clock-names = "ahb", "mod";
-+			resets = <&ccu RST_BUS_SPI0>;
-+			dmas = <&dma 22>, <&dma 22>;
-+			dma-names = "rx", "tx";
-+			num-cs = <1>;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		spi1: spi@4026000 {
-+			compatible = "allwinner,sun50i-r329-spi-dbi",
-+				     "allwinner,sun50i-r329-spi";
-+			reg = <0x4026000 0x1000>;
-+			interrupts = <GIC_SPI 16 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_SPI1>, <&ccu CLK_SPI1>;
-+			clock-names = "ahb", "mod";
-+			resets = <&ccu RST_BUS_SPI1>;
-+			dmas = <&dma 23>, <&dma 23>;
-+			dma-names = "rx", "tx";
-+			num-cs = <1>;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		spi2: spi@4027000 {
-+			compatible = "allwinner,sun50i-r329-spi";
-+			reg = <0x4027000 0x1000>;
-+			interrupts = <GIC_SPI 17 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_SPI2>, <&ccu CLK_SPI2>;
-+			clock-names = "ahb", "mod";
-+			resets = <&ccu RST_BUS_SPI2>;
-+			dmas = <&dma 24>, <&dma 24>;
-+			dma-names = "rx", "tx";
-+			num-cs = <1>;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		spi3: spi@4028000 {
-+			compatible = "allwinner,sun50i-r329-spi";
-+			reg = <0x4028000 0x1000>;
-+			interrupts = <GIC_SPI 21 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_SPI3>, <&ccu CLK_SPI3>;
-+			clock-names = "ahb", "mod";
-+			resets = <&ccu RST_BUS_SPI3>;
-+			dmas = <&dma 25>, <&dma 25>;
-+			dma-names = "rx", "tx";
-+			num-cs = <1>;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		usb_otg: usb@4100000 {
-+			compatible = "allwinner,sun8i-a33-musb";
-+			reg = <0x4100000 0x400>;
-+			interrupts = <GIC_SPI 29 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "mc";
-+			clocks = <&ccu CLK_BUS_OTG>;
-+			resets = <&ccu RST_BUS_OTG>;
-+			extcon = <&usbphy 0>;
-+			phys = <&usbphy 0>;
-+			phy-names = "usb";
-+			status = "disabled";
-+		};
-+
-+		usbphy: phy@4100400 {
-+			compatible = "allwinner,sun8i-v853-usb-phy";
-+			reg = <0x4100400 0x100>,
-+			      <0x4101800 0x100>;
-+			reg-names = "phy_ctrl",
-+				    "pmu0";
-+			clocks = <&ccu CLK_USB_OHCI>;
-+			clock-names = "usb0_phy";
-+			resets = <&ccu RST_USB_PHY>;
-+			reset-names = "usb0_reset";
-+			status = "disabled";
-+			#phy-cells = <1>;
-+		};
-+
-+		ehci0: usb@4101000 {
-+			compatible = "generic-ehci";
-+			reg = <0x4101000 0x100>;
-+			interrupts = <GIC_SPI 30 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_OHCI>,
-+				 <&ccu CLK_BUS_EHCI>,
-+				 <&ccu CLK_USB_OHCI>;
-+			resets = <&ccu RST_BUS_OHCI>,
-+				 <&ccu RST_BUS_EHCI>;
-+			phys = <&usbphy 0>;
-+			phy-names = "usb";
-+			status = "disabled";
-+		};
-+
-+		ohci0: usb@4101400 {
-+			compatible = "generic-ohci";
-+			reg = <0x4101400 0x100>;
-+			interrupts = <GIC_SPI 31 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_OHCI>,
-+				 <&ccu CLK_USB_OHCI>;
-+			resets = <&ccu RST_BUS_OHCI>;
-+			phys = <&usbphy 0>;
-+			phy-names = "usb";
-+			status = "disabled";
-+		};
-+
-+		ppu: power-controller@7001000 {
-+			compatible = "allwinner,sun8i-v853-ppu";
-+			reg = <0x7001000 0x400>;
-+			clocks = <&r_ccu CLK_R_PPU>;
-+			resets = <&r_ccu RST_BUS_R_PPU>;
-+			#power-domain-cells = <1>;
-+		};
-+
-+		r_ccu: clock-controller@7010000 {
-+			compatible = "allwinner,sun8i-v853-r-ccu";
-+			reg = <0x7010000 0x230>;
-+			#clock-cells = <1>;
-+			#reset-cells = <1>;
-+		};
-+
-+		nmi_intc: intc-nmi@7010320 {
-+			compatible = "allwinner,sun9i-a80-nmi";
-+			interrupt-parent = <&gic>;
-+			#interrupt-cells = <2>;
-+			#address-cells = <0>;
-+			interrupt-controller;
-+			reg = <0x07010320 0xc>;
-+			interrupts = <GIC_SPI 136 IRQ_TYPE_LEVEL_HIGH>;
-+		};
-+
-+		rtc: rtc@7090000 {
-+			compatible = "allwinner,sun50i-r329-rtc";
-+			reg = <0x7090000 0x400>;
-+			interrupts = <GIC_SPI 138 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&r_ccu CLK_R_RTC>;
-+			clock-names = "bus";
-+			resets = <&r_ccu RST_BUS_R_RTC>;
-+			wakeup-source;
-+			#clock-cells = <1>;
-+		};
-+	};
-+};
--- 
-2.39.5
+This cannot be accepted. Fix your dependencies or decouple from them.
 
+> It will be sent by related owner soon.
+
+Still this won't build and won't be possible to apply.
+
+> ---
+>  .../display/mediatek/mediatek,exdma.yaml      | 77 +++++++++++++++++++
+>  1 file changed, 77 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/display/mediatek/mediatek,exdma.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,exdma.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,exdma.yaml
+> new file mode 100644
+> index 000000000000..385f5549dfaa
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,exdma.yaml
+
+Filename matching compatible.
+
+Why is this in display? DMA goes to dma.
+
+> @@ -0,0 +1,77 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/display/mediatek/mediatek,exdma.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: MediaTek EXDMA
+> +
+> +maintainers:
+> +  - Chun-Kuang Hu <chunkuang.hu@kernel.org>
+> +  - Philipp Zabel <p.zabel@pengutronix.de>
+> +
+> +description:
+> +  The MediaTek display overlap extended DMA engine, namely OVL_EXDMA or EXDMA,
+> +  primarily functions as a DMA engine for reading data from DRAM with various
+> +  DRAM footprints and data formats. For input sources in certain color formats
+> +  and color domains, OVL_EXDMA also includes a color transfer function
+> +  to process pixels into a consistent color domain.
+> +
+
+Missing ref to dma schemas.
+
+> +properties:
+> +  compatible:
+> +    const: mediatek,mt8196-exdma
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    items:
+> +      - description: EXDMA Clock
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +  mediatek,larb:
+> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+
+Why array? And isn't the property named mediatek,larbs?
+
+
+> +    maxItems: 1
+> +    items:
+> +      maxItems: 1
+> +    description: |
+> +      A phandle to the local arbiters node in the current SoCs.
+> +      Refer to bindings/memory-controllers/mediatek,smi-larb.yaml.
+> +
+> +  iommus:
+> +    maxItems: 1
+> +
+> +  '#dma-cells':
+> +    const: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - power-domains
+> +  - mediatek,larb
+> +  - iommus
+Best regards,
+Krzysztof
 
