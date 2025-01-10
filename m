@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 005D2E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 09:36:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F3C3E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 09:37:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=63yhZuw+u+K/LV2NV+Jlud+olu+1UGZ666wYwEleOwo=; b=FzwRZx7YTXTm4+j5REHe2BFdfW
-	cPIWKDYtufO/cA55fZv8fu+i9askvoWrEt87lzAYAiWaARMKxO7bMlbS4r8//UUyerDDkRKCfpcd8
-	VSbaN1ZVCYuih4GnFPsMLjMR6/IojVQA51nRwbJ3ahh67jsvAFG34+C7DKDStxp6IoHhzwIOoHdEs
-	q8i0H6TI8Jhu6r05yVgTdE52NwY/CP+AjA/SBdiKcUaq9yOB6XC/U0BGbALO7vLkZh1apY09XrBlJ
-	eXGOkssnI6aotVFG+5gPzCgEdtaqi7f1yi1ssVfxfCs7Qa/JfDhX3APgm00RVn7JiQTIIOoZjr6Rs
-	gfoDkxiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yef8tR4ZPsUCn9Eonr75WkCe6lnVP+EFUPNjmwe4/ug=; b=F8NMDPLdtCBymOXQYkzrGCsPPq
+	KhyoAJwzxgpC4CKdzgjgxFGQFSiRRq+h7rEpI/1hQn3ytktCZxFeI0t7AXWalvDW2W4+3cLL1JpDi
+	sSbpdg3jkchW897jTzj0gh2uTB4FSESI+NlPRCDc7WxTR4oFPLrJjKJsInkKmJJ2NMBFsnVtyaCaZ
+	k/nC0Wzh0eq09P9j8+jYGNqJAi9qeK1/9mbTI7jGs2KElrHGljtBFs6vZOiiK+5U1jTs91Pv9c1vZ
+	dmf4xXsgvzWG5Lxxlw+C1+hHZA+oNsXqo6m+KbgJQyNRe7CR1gBY0jwfzwVsLGmbrgGx2g6Hh+ZM0
+	PmAfrYIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWBQg-0000000Ekhh-02Qy;
-	Fri, 10 Jan 2025 09:35:46 +0000
+	id 1tWBRr-0000000Ekx2-2siZ;
+	Fri, 10 Jan 2025 09:36:59 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWBKm-0000000EigE-2S3N
+	id 1tWBO8-0000000Ejzd-2q7x
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 09:29:42 +0000
+	Fri, 10 Jan 2025 09:33:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1736501380; x=1768037380;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=FGkhmBkgK/2ki6XHDU56SkvQQB4yKkPfpIUPnQHxMGo=;
-  b=tnaOlz9VWr8fC0CPoPwFysTz6O5yHzTRQ65jKRkWnYHg6KBYiU8l7x8n
-   3DWMIvAiXloOYbeZGIt7jRkc/mEObKCxcf2rG0hEyaWW0Xqg54aQxdVL+
-   rif71wuhaoWnAl8mIQO5yAGkiBfvxRyfJur3v69nO0+95dcFm2QF/e5on
-   oteuj8KaOWqed3JTb18OKz67s+2IUHDzzA5WAHhQQM6+G2ZNZuNgCWS4T
-   Sl0D9OfLJhVgwjp11h80cZ+6QXOHgFK55Xd24QO4PRw5kv8kj8YtoiTkg
-   r0xs3NEg00/dxQO5YduiidjmNHtEWXBRey8Uy4UuPqI+VWcRuyof0XpBG
-   A==;
-X-CSE-ConnectionGUID: ZXymC1RqQb2YdZpceUKUPA==
-X-CSE-MsgGUID: gqk5PFCaQBaNHSW5mBP17Q==
+  t=1736501588; x=1768037588;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=jjJ7LK5O+a7pYF2qmcJDXghsWjUlHsE0YcIU+H6coOk=;
+  b=zzG005pRfxTnz/jqsEFGN2J/kNwjlR153rw07qJGMHdgSXl7fbY6Q+YO
+   a7SAXuv6/34JTISgUoSqd0vmXAXHY0rOZS2qrNRMdXbS4SeaDH++WCXD1
+   T7JzLt7pC4Ejcg39ELQ6HHD1TP8Exi5ksRVeCTxbqAT7G/bzncrSAJwxa
+   8dRNWCJ1Lz/2ENTAgHamlk3WCFc03nQ3H8Xxzgpqe4Z8Bf6mhymhSFAMA
+   bDr/+V6yE02G+EAUych3qxHKbc8vJAuMOXIJ/q0BGVIo0h7JGD+wE5po2
+   rVhuCGHh0B7wy9C6RXcgiP0UxXDsHBlPCpJlhp+5zjSijx+qTsRtqDHH6
+   g==;
+X-CSE-ConnectionGUID: ZmCJLco0SampymAgwNXOYA==
+X-CSE-MsgGUID: CJCEpP1XR9CmnO67I8eFbQ==
 X-IronPort-AV: E=Sophos;i="6.12,303,1728975600"; 
-   d="scan'208";a="36030268"
+   d="scan'208";a="36822340"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 10 Jan 2025 02:29:37 -0700
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 10 Jan 2025 02:33:05 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Fri, 10 Jan 2025 02:29:32 -0700
-Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex04.mchp-main.com
+ 15.1.2507.35; Fri, 10 Jan 2025 02:32:35 -0700
+Received: from [10.159.245.205] (10.10.85.11) by chn-vm-ex04.mchp-main.com
  (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
- Transport; Fri, 10 Jan 2025 02:29:29 -0700
-Date: Fri, 10 Jan 2025 09:29:28 +0000
-From: Daniel Machon <daniel.machon@microchip.com>
-To: Eric Dumazet <edumazet@google.com>
-CC: "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, Lars Povlsen <lars.povlsen@microchip.com>, "Steen
- Hegelund" <Steen.Hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	<jensemil.schulzostergaard@microchip.com>, <horatiu.vultur@microchip.com>,
-	<jacob.e.keller@intel.com>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH net-next 4/6] net: sparx5: move SKB consumption to xmit()
-Message-ID: <20250110092928.thsaqm3ucgyhw7s7@DEN-DL-M70577>
-References: <20250109-sparx5-lan969x-switch-driver-5-v1-0-13d6d8451e63@microchip.com>
- <20250109-sparx5-lan969x-switch-driver-5-v1-4-13d6d8451e63@microchip.com>
- <CANn89iKA=ha6y0_UHUp6Pjkf0H4RevRbD-CHswdBqk0O=KkNqg@mail.gmail.com>
+ Transport; Fri, 10 Jan 2025 02:32:33 -0700
+Message-ID: <d6449ca2-8d68-4007-805d-0f71d2cea681@microchip.com>
+Date: Fri, 10 Jan 2025 10:32:46 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <CANn89iKA=ha6y0_UHUp6Pjkf0H4RevRbD-CHswdBqk0O=KkNqg@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] tty: atmel_serial: Use of_property_present() for
+ non-boolean properties
+To: "Rob Herring (Arm)" <robh@kernel.org>, Richard Genoud
+	<richard.genoud@bootlin.com>, Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, Alexandre
+ Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
+	<claudiu.beznea@tuxon.dev>
+CC: <linux-kernel@vger.kernel.org>, <linux-serial@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+References: <20250109182053.3970547-1-robh@kernel.org>
+Content-Language: en-US, fr-FR
+From: Nicolas Ferre <nicolas.ferre@microchip.com>
+Organization: microchip
+In-Reply-To: <20250109182053.3970547-1-robh@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_012940_802763_81BE5C41 
-X-CRM114-Status: GOOD (  11.19  )
+X-CRM114-CacheID: sfid-20250110_013308_783546_AE6CA4C1 
+X-CRM114-Status: GOOD (  16.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,28 +91,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Eric,
-
-> > diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_packet.c b/drivers/net/ethernet/microchip/sparx5/sparx5_packet.c
-> > index b6f635d85820..e776fa0845c6 100644
-> > --- a/drivers/net/ethernet/microchip/sparx5/sparx5_packet.c
-> > +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_packet.c
-> > @@ -272,7 +272,6 @@ netdev_tx_t sparx5_port_xmit_impl(struct sk_buff *skb, struct net_device *dev)
-> >             SPARX5_SKB_CB(skb)->rew_op == IFH_REW_OP_TWO_STEP_PTP)
-> >                 return NETDEV_TX_OK;
+On 09/01/2025 at 19:20, Rob Herring (Arm) wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
 > 
-> If packet is freed earlier in sparx5_fdma_xmit(), you have UAF few
-> lines above here ..
+> The use of of_property_read_bool() for non-boolean properties is
+> deprecated in favor of of_property_present() when testing for property
+> presence.
 > 
-> stats->tx_bytes += skb->len; // UAF
-> ...
-> if (skb_shinfo(skb)->tx_flags & SKBTX_HW_TSTAMP &&   // UAF
-> SPARX5_SKB_CB(skb)->rew_op == IFH_REW_OP_TWO_STEP_PTP)   // UAF
+> As of_property_present() returns a boolean, use that directly
+> and simplify the code a bit while we're here.
+
+Indeed! Thanks Rob.
+
+Reviewed-by: Nicolas Ferre <nicolas.ferre@microchip.com>
+
+
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
+>   drivers/tty/serial/atmel_serial.c | 18 ++++--------------
+>   1 file changed, 4 insertions(+), 14 deletions(-)
 > 
-
-Yes, this needs to be done differently. I will rework the SKB consumption in
-v2. Thanks a lot!
-
-/Daniel
+> diff --git a/drivers/tty/serial/atmel_serial.c b/drivers/tty/serial/atmel_serial.c
+> index 0cf05ac18993..f44f9d20a974 100644
+> --- a/drivers/tty/serial/atmel_serial.c
+> +++ b/drivers/tty/serial/atmel_serial.c
+> @@ -1727,26 +1727,16 @@ static void atmel_init_property(struct atmel_uart_port *atmel_port,
+> 
+>          /* DMA/PDC usage specification */
+>          if (of_property_read_bool(np, "atmel,use-dma-rx")) {
+> -               if (of_property_read_bool(np, "dmas")) {
+> -                       atmel_port->use_dma_rx  = true;
+> -                       atmel_port->use_pdc_rx  = false;
+> -               } else {
+> -                       atmel_port->use_dma_rx  = false;
+> -                       atmel_port->use_pdc_rx  = true;
+> -               }
+> +               atmel_port->use_dma_rx = of_property_present(np, "dmas");
+> +               atmel_port->use_pdc_rx = !atmel_port->use_dma_rx;
+>          } else {
+>                  atmel_port->use_dma_rx  = false;
+>                  atmel_port->use_pdc_rx  = false;
+>          }
+> 
+>          if (of_property_read_bool(np, "atmel,use-dma-tx")) {
+> -               if (of_property_read_bool(np, "dmas")) {
+> -                       atmel_port->use_dma_tx  = true;
+> -                       atmel_port->use_pdc_tx  = false;
+> -               } else {
+> -                       atmel_port->use_dma_tx  = false;
+> -                       atmel_port->use_pdc_tx  = true;
+> -               }
+> +               atmel_port->use_dma_tx = of_property_present(np, "dmas");
+> +               atmel_port->use_pdc_tx = !atmel_port->use_dma_tx;
+>          } else {
+>                  atmel_port->use_dma_tx  = false;
+>                  atmel_port->use_pdc_tx  = false;
+> --
+> 2.45.2
+> 
 
 
