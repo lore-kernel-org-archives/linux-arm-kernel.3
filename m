@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32123E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 09:56:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00B87E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 09:58:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SxF3XO1B6LZpy7SsHuT7EE8l6m2FcLCgWD0toKoIsSE=; b=5CeWLdexc2bVWnOGzuMnfjamaN
-	kvHRWc8+wpWiihGyNGksehc6Zeg2d7hgCVp+7TZvnkYfOaY6iP03bC1rgNYOZwR8p7yGIlZBxyniP
-	GmThGQ0KV/vn/xEBs1sQ5ww+XUjqM9PWr3/LDzw5ggiQsv9lPf0ANjg7tBNGXFPoXtFFL9jVZs1Ro
-	01QojbzQLKrrv8lEyvqmdSVc/mqyc8cavop/BY/btxKijqp47dnHlgOnkX1bO3YRyzGPInfO2pOZc
-	liZ9ex2aWMontXDtYxFQbT8YTQO/yqStu+xFx4YCuq99bqqoSqklM1M28LI2wFROZzod3cfO9pO+1
-	irj4eArg==;
+	bh=SUq/PWSOM6Jgkh8a1Vg6y06uVsWzXgd/e9CTRW/3aLI=; b=K9z0RQisOCQIMQpF7DpQghn76w
+	pwMHSf74KPcj4FmKqMXk5HWHqizpUDU5lRwkq+gmgBQtToVqaknQJzmAlY5XNIQx2C5HbXK3LKujc
+	av3rf0bwH8eRjeS0T4vkpIKO6Cks+xcnqItrM6hkp6zu+tg3nxV5wvYBsFq1CbSO8UjyWL2cP4Y/s
+	wnpTgKBS25msD5dN7fYHVNyiq2hXwthBsIohO923MEDGFFidDGV79/srNvMb1q0UDYfY9QqhP78Oz
+	ISm4NUku+dIfkdhJl1EktcXdcdvcOB6BmqXwXUGF0zE0lbVBDANu+8AwRCDZ43md9TPtdvijg3iJz
+	cJrzK1GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWBks-0000000EqIm-3TT7;
-	Fri, 10 Jan 2025 09:56:38 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1tWBm4-0000000EqZK-1qkW;
+	Fri, 10 Jan 2025 09:57:52 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWBiX-0000000EpPb-0RfU
+	id 1tWBib-0000000EpRJ-34z2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 09:54:14 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-21661be2c2dso28682625ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jan 2025 01:54:13 -0800 (PST)
+	Fri, 10 Jan 2025 09:54:19 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-21628b3fe7dso30897835ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jan 2025 01:54:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736502852; x=1737107652; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1736502857; x=1737107657; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=SxF3XO1B6LZpy7SsHuT7EE8l6m2FcLCgWD0toKoIsSE=;
-        b=KnRGx/TdLIzGZheoO250YVkCY+9FJFGDzaB9g8BzhNmY+aOYQbhwh3Y67xYApbIZtz
-         6e6maVi45SwKLTdN0Tuk3cnR0f8RT7ikSBnFw6muN6UApx9w8G34j7kNZvNXC7ZIF1+w
-         cll8WjaH6a2b2FV8Ldhche5NxALv5wVmQDUQATD1EgRs5KuXN/ZA5Y9IjAEiSebEcPkT
-         mkgq+g2ZfJj+x8lAAKpX1FTXByZWoR7g4jEEFR/7ULXngBSbVwCsIqU32Ox8E4eofeco
-         UPSbSPH/CIyYldCYx7O7azOHJShRJ6z+B3B2BQfq90wM2yU2s9OY6d/E7kU/YWCrFatT
-         o86Q==
+        bh=SUq/PWSOM6Jgkh8a1Vg6y06uVsWzXgd/e9CTRW/3aLI=;
+        b=Ljt7krhlDDa4wi511Vvak9VpK+S76Stq/2b8PB9Xa4WJrVe4UyhhnYSIiOXh1EVLHj
+         5RLTEeUQUr/PxWpHxz6/7ZN2hrcSXsi9qcJiG3NVH/FrcoetFs0K5ioxyYEvEvBC/I0q
+         yazrQ3SNDtkSwIcap8ozWtUpcV+Y4IolPrESniKXsUbSlffqpPWDcC7HzYvmaR/Ikzi4
+         AUFY30n2/UKtSwFiq9TBQG91eUt66AkQmLFAMnBJpRAyIZ34QjDYLHbQtpMR6uE34v+s
+         1P3xou2NlIyLJjSvlk2HejrYhlOmqKva7kC5dwW8GDKF0FU1twG1ksYwvmDTKEZQ3XhT
+         Zd3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736502852; x=1737107652;
+        d=1e100.net; s=20230601; t=1736502857; x=1737107657;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=SxF3XO1B6LZpy7SsHuT7EE8l6m2FcLCgWD0toKoIsSE=;
-        b=WLTTDOdiBmDkokZaepF6d5igTRGO6mS1iZQK3Wm9e/cw7Of8zHuZBLrb7TObsA3leG
-         z3MOIdLlyh/N0QPWkWSZXS6JsZsZVuisY8xpfkqH36tNSqT7J6mqRme2KKiLcCMyHPMB
-         n1+QmWwDj6jsd/mzw/w0KINfBw4bdqAq0ZwMIC8xb0igDzxFmf/txiQDL1yReT4O9dyq
-         ZJvijfx+uaP89Wepb2AC6uZdxt3do4jALBJwJBFkcsz4csrux5dZPBnlYAzR2+GY6ONv
-         fIgRdZBnm+CVYaWZkIaE+CUMz3hnnkwOnSAQo/MU6S3IFg/bkDclGYwzZg9lSCVNALs/
-         s+dQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXNIj1ZARFW/F0iRPlijnwHKspPcjzC288r7ZW+DUKMiaandpLR5AKQ79LV9p6cWBvomv6N5rBy+cOuONBF0r/a@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz9rpX+7/uHsObGH6SlB9Lyq+3wG/8zNqlqPBMKt6WMP6fPNs8b
-	tuSwprhI/yMtzaAVAytAwSwzcq9YgP08cLhEKLPYY7dIAg2k/70+
-X-Gm-Gg: ASbGnctHAWxwRSkoDNLrsL3DHGX37mY69EKf8AtkoaeSmDP68qpYk+1VhkWqLmyV3+R
-	B87+RqbbrQpV0LUKq9QfkgYN9WQb8cRgWkLq/YeN/b2S5NJu2HEcNzwwKgnGgRVqZsiRQv89YrZ
-	X3SVUHj+Kj0K/RD3F+58Gtn9QUMJIgLYZsZZTr0Stim2+9LbFrP+lYklOLfiAtC7gmUsMlVwOLx
-	Rjjs4+0nlcbRVXW9W3oWVpNUlgp7fw1p5UUWXTGUocj5QYK3NC3z/87KuLqvIp0qQwH+A==
-X-Google-Smtp-Source: AGHT+IFkCU9VmZRMCAwHW5xP2aexBm6vAYxF+cTLnmmRPs6gpn7mMaFELbrG88Frm/BNN1k4tXE+QA==
-X-Received: by 2002:a05:6a00:1404:b0:725:d9b6:3958 with SMTP id d2e1a72fcca58-72d21f471c5mr15157812b3a.14.1736502852468;
-        Fri, 10 Jan 2025 01:54:12 -0800 (PST)
+        bh=SUq/PWSOM6Jgkh8a1Vg6y06uVsWzXgd/e9CTRW/3aLI=;
+        b=GFjCaaV3bfiJ7Edn8+yi+pKUUPK8HAO2kQdwj+a+QxETjL1fSKeu9ewA1y5tOu4Do9
+         m8pnr0P3O5mJIXjjN3kD3s+2hJFmtgsNHmMuFiDEaQBXDwVrbaO6Z9C83vSjSrn5qdlO
+         HbBCjLDuf14Z1c/EAb0DMLL8hf4w1IRpqDX9LFpof8Ceplo/UTVOI3nfxKG7V7L0n50M
+         oLOYpfWPS+xg6JNl8NrjJkjb5nlh4D7t5km5GbjpQPNtmgO0Wtvoi6/OPm8xaw9O0aLs
+         l3e+aOb0U/pHC3QEP5J7fPEu1rczWlqIhkljjqoMY2HLcRKxreUTIHV7gMq47jFYUSmn
+         v+6Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUtg/DXqGJwhe6rZLTF0PbMoZR2vO1IfvKoZ8xyIPzDJG2way9srJW6PzkIuLKR6D2HhC7T6kgPZKb/kXT1/nJn@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz7Cw+k0dyJDezpBDxwLWJ+tgKDd7Z8+UJTJYTf1G1U92VIcVPY
+	nPhKAGRQZ8qNSO4IktzLvyjgBKdDryGHxfRtQ6T7NDI7yV2AR5HY
+X-Gm-Gg: ASbGncutr6mgSLJ2GFRYJDG8j+rK8PWAUIO3vmey34Kh0zmSB31kMVplOcJ2o5OAXOn
+	xwRcFPLZHjXw5RIuufhpCtPMWuIWoCQNj2bhpS6wpnaYarnf0UUEijOrERdSgqfvcdgY5P1CRDH
+	PboDP2MzU/sxQVRht2kIGJORG3o+FGkz0LBMDUvXR5UCRUY1/1Udjus7OVyKjqmtCzOFd5/Yt7/
+	kXGxP/fTME3Aq09mg2b7nSwyYurSbri9lIXDUCpFjfF3aiQJEHkcaphR6ZHbHXvmp2EYg==
+X-Google-Smtp-Source: AGHT+IHNOyExXpjKEAJvj5VF4TsAcm/8iRdMra6jEOVD+0OivVdVmbGUe1wn2Z9fO5OhUfPCMwcgdA==
+X-Received: by 2002:a05:6a00:91cb:b0:72a:bc54:84a5 with SMTP id d2e1a72fcca58-72d21f296edmr12960201b3a.6.1736502856641;
+        Fri, 10 Jan 2025 01:54:16 -0800 (PST)
 Received: from localhost.localdomain ([129.146.253.192])
-        by smtp.googlemail.com with ESMTPSA id d2e1a72fcca58-72d4069217dsm1186183b3a.151.2025.01.10.01.54.08
+        by smtp.googlemail.com with ESMTPSA id d2e1a72fcca58-72d4069217dsm1186183b3a.151.2025.01.10.01.54.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Jan 2025 01:54:12 -0800 (PST)
+        Fri, 10 Jan 2025 01:54:16 -0800 (PST)
 From: Furong Xu <0x1207@gmail.com>
 To: netdev@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
@@ -80,17 +80,17 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	xfr@outlook.com,
 	Furong Xu <0x1207@gmail.com>
-Subject: [PATCH net-next v1 1/3] net: stmmac: Switch to zero-copy in non-XDP RX path
-Date: Fri, 10 Jan 2025 17:53:57 +0800
-Message-Id: <600c76e88b6510f6a4635401ec1e224b3bbb76ec.1736500685.git.0x1207@gmail.com>
+Subject: [PATCH net-next v1 2/3] net: stmmac: Set page_pool_params.max_len to a precise size
+Date: Fri, 10 Jan 2025 17:53:58 +0800
+Message-Id: <4bfc67ece5ef615ce65972173f5256f10ea27f9a.1736500685.git.0x1207@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <cover.1736500685.git.0x1207@gmail.com>
 References: <cover.1736500685.git.0x1207@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_015413_141594_1937D580 
-X-CRM114-Status: GOOD (  16.18  )
+X-CRM114-CacheID: sfid-20250110_015417_769694_A0D649DC 
+X-CRM114-Status: GOOD (  14.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,95 +105,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Avoid memcpy in non-XDP RX path by marking all allocated SKBs to
-be recycled in the upper network stack.
+DMA engine will always write no more than dma_buf_sz bytes of a received
+frame into a page buffer, the remaining spaces are unused or used by CPU
+exclusively.
+Setting page_pool_params.max_len to almost the full size of page(s) helps
+nothing more, but wastes more CPU cycles on cache maintenance.
 
-This patch brings ~11.5% driver performance improvement in a TCP RX
+For a standard MTU of 1500, then dma_buf_sz is assigned to 1536, and this
+patch brings ~16.9% driver performance improvement in a TCP RX
 throughput test with iPerf tool on a single isolated Cortex-A65 CPU
-core, from 2.18 Gbits/sec increased to 2.43 Gbits/sec.
+core, from 2.43 Gbits/sec increased to 2.84 Gbits/sec.
 
 Signed-off-by: Furong Xu <0x1207@gmail.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  1 +
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 23 +++++++++++--------
- 2 files changed, 15 insertions(+), 9 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 2 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.h  | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-index 548b28fed9b6..5c39292313de 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-@@ -126,6 +126,7 @@ struct stmmac_rx_queue {
- 	unsigned int cur_rx;
- 	unsigned int dirty_rx;
- 	unsigned int buf_alloc_num;
-+	unsigned int napi_skb_frag_size;
- 	dma_addr_t dma_rx_phy;
- 	u32 rx_tail_addr;
- 	unsigned int state_saved;
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 038df1b2bb58..43125a6f8f6b 100644
+index 43125a6f8f6b..c1aeaec53b4c 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -1320,7 +1320,7 @@ static unsigned int stmmac_rx_offset(struct stmmac_priv *priv)
- 	if (stmmac_xdp_is_enabled(priv))
- 		return XDP_PACKET_HEADROOM;
- 
--	return 0;
-+	return NET_SKB_PAD;
- }
- 
- static int stmmac_set_bfsize(int mtu, int bufsize)
-@@ -2019,17 +2019,21 @@ static int __alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
- 	struct stmmac_channel *ch = &priv->channel[queue];
- 	bool xdp_prog = stmmac_xdp_is_enabled(priv);
- 	struct page_pool_params pp_params = { 0 };
--	unsigned int num_pages;
-+	unsigned int dma_buf_sz_pad, num_pages;
- 	unsigned int napi_id;
- 	int ret;
- 
-+	dma_buf_sz_pad = stmmac_rx_offset(priv) + dma_conf->dma_buf_sz +
-+			 SKB_DATA_ALIGN(sizeof(struct skb_shared_info));
-+	num_pages = DIV_ROUND_UP(dma_buf_sz_pad, PAGE_SIZE);
-+
- 	rx_q->queue_index = queue;
- 	rx_q->priv_data = priv;
-+	rx_q->napi_skb_frag_size = num_pages * PAGE_SIZE;
- 
- 	pp_params.flags = PP_FLAG_DMA_MAP | PP_FLAG_DMA_SYNC_DEV;
- 	pp_params.pool_size = dma_conf->dma_rx_size;
--	num_pages = DIV_ROUND_UP(dma_conf->dma_buf_sz, PAGE_SIZE);
--	pp_params.order = ilog2(num_pages);
-+	pp_params.order = order_base_2(num_pages);
- 	pp_params.nid = dev_to_node(priv->device);
+@@ -2038,7 +2038,7 @@ static int __alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
  	pp_params.dev = priv->device;
  	pp_params.dma_dir = xdp_prog ? DMA_BIDIRECTIONAL : DMA_FROM_DEVICE;
-@@ -5574,19 +5578,20 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
- 			/* XDP program may expand or reduce tail */
- 			buf1_len = ctx.xdp.data_end - ctx.xdp.data;
+ 	pp_params.offset = stmmac_rx_offset(priv);
+-	pp_params.max_len = STMMAC_MAX_RX_BUF_SIZE(num_pages);
++	pp_params.max_len = dma_conf->dma_buf_sz;
  
--			skb = napi_alloc_skb(&ch->rx_napi, buf1_len);
-+			skb = napi_build_skb(page_address(buf->page),
-+					     rx_q->napi_skb_frag_size);
- 			if (!skb) {
-+				page_pool_recycle_direct(rx_q->page_pool,
-+							 buf->page);
- 				rx_dropped++;
- 				count++;
- 				goto drain_data;
- 			}
+ 	rx_q->page_pool = page_pool_create(&pp_params);
+ 	if (IS_ERR(rx_q->page_pool)) {
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.h b/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.h
+index 896dc987d4ef..77ce8cfbe976 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.h
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.h
+@@ -4,7 +4,6 @@
+ #ifndef _STMMAC_XDP_H_
+ #define _STMMAC_XDP_H_
  
- 			/* XDP program may adjust header */
--			skb_copy_to_linear_data(skb, ctx.xdp.data, buf1_len);
-+			skb_reserve(skb, ctx.xdp.data - ctx.xdp.data_hard_start);
- 			skb_put(skb, buf1_len);
--
--			/* Data payload copied into SKB, page ready for recycle */
--			page_pool_recycle_direct(rx_q->page_pool, buf->page);
-+			skb_mark_for_recycle(skb);
- 			buf->page = NULL;
- 		} else if (buf1_len) {
- 			dma_sync_single_for_cpu(priv->device, buf->addr,
+-#define STMMAC_MAX_RX_BUF_SIZE(num)	(((num) * PAGE_SIZE) - XDP_PACKET_HEADROOM)
+ #define STMMAC_RX_DMA_ATTR	(DMA_ATTR_SKIP_CPU_SYNC | DMA_ATTR_WEAK_ORDERING)
+ 
+ int stmmac_xdp_setup_pool(struct stmmac_priv *priv, struct xsk_buff_pool *pool,
 -- 
 2.34.1
 
