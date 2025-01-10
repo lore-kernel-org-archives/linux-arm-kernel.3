@@ -4,171 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5280DE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 18:43:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BF45E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 18:51:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y0B/g7fr/RTSmqjO4ZGpjBsNc5NsVi3crxLrQ07qLkg=; b=Vyfp9bm9Hqmn0defJ2v+afIwyo
-	XifMRQtu5USQIV45cSETIu9GIuMzLe/Qfqe0X9SCEaIq8MzhT+fBRMVebfEWCD5dKso48Ma2PqxRh
-	aeZNlgCQAXw7uyUkbh6fpFJboeJc04yiffje7VpPretTJziUFGF6jhofZPAX9emoSd2JWLy11dgyG
-	7kfLYCQ+fbcF1VyV6Fxy3vhkUJ+to6XlseqrZz2ATZIkBEtjY4EX6VWkwnzTIZ6ncL2HcHQMQXZ8R
-	KMzifnnG05EbOh6M+JhAAy6c7OwUjpOFvhDTJhU6HvOEKixKw4n8GR055J1uM5wkJTutc2sEKJZnR
-	0BP4Ca6A==;
+	bh=5jSwLJoG7dee5g+IYw1k00x4GMomga97dhl8oz4ghiw=; b=l0egQMTJRTQJh5rbgJ6YMCbNFx
+	Q6UKC2BUwuiTtA+orCc32vd7tdpfarvUjUEpOW8SuNDwqzitnxv1NHPzrCNnkO445ePS9j+sztWkC
+	CZhmK/nPswGvySYil2iNDmv1pGhVvkkGnBMLefaxYIYZPxvmzizf/LK/at6i7ZsMiTwcfoUHa3shA
+	bBLjn/CKpJWyaAEzNCsSMsqf7r8YUUG+to3t2U8Aut3btNcDtS7s6CaDSFB8rRSYKiAy83unO7HAv
+	QRhtV7T5UjYA9mgRsXvcnJ9vmq/vNVFQtezhmle39vXWoA1HooUmuKy/gxzSWhzY9nIFkXe2ffwYN
+	h73q9yRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWJy6-0000000GcLN-0BYr;
-	Fri, 10 Jan 2025 18:42:50 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tWK6R-0000000GdtF-0uNS;
+	Fri, 10 Jan 2025 18:51:27 +0000
+Received: from out-172.mta0.migadu.com ([2001:41d0:1004:224b::ac])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWJwr-0000000Gbk2-3kd8
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 10 Jan 2025 18:41:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Y0B/g7fr/RTSmqjO4ZGpjBsNc5NsVi3crxLrQ07qLkg=; b=A04xcaZIl2416Lv1G5D5hWZFZp
-	y3azbCDT7JbMej5yIwPE9Tq/85O59vwkB4W1eYWlVYWKYFWfj/SPVjxLnJ+igDPYauRGy8Ru/etZD
-	YNFbeXXkqi32HPZrcMjIsHZ+0WT5uAIORnuOOw8MuPd/CBTtHEJmtE53ZRVP+BplZW7W/8vhIbW8o
-	/yo3x7h9egWNsEaEQfma0lmq/E5CoxsgPZZsPy20h7D1+/2aiBj0XRkQrRECN6czvlgn1pfDinR1w
-	iaqDD4eN+WlWWqIqv7X7EAGAniSevlQApx3MeOBd9JoDlfKR6u5pSjWMVpgi4ID9kLEPEXbnHygrs
-	EIZ+oQpA==;
-Received: from mail-dm6nam10on2065.outbound.protection.outlook.com ([40.107.93.65] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWJwn-00000009seg-1N9p
+	id 1tWK5B-0000000Gdhl-3Hpr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 18:41:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=L6BnY3PQHcMHtXkPLXUepUy8/wmFmQom6UESrQgsfZ488I4U0FmdKjfuup1yq6CAHLFaGCXh3s1/CbCrKViUO/pm6EI+wsG/cIKex++nJTVoDYnn86363SFEaBpNfip5d+yZcDzHYmhftKsw/AnpgKS6hbiuT67OBVecDQcXo2CuvRzQrEcJmLqSI5yhmnxxI5BP0S1kgqPD/vV8yRe2sqVDRrglhpi/kkT+cOOYbBdnbD7mP4IczF2e7+7dvlC+OPBMaZBT3RQvJz6mQ0t9qDoL5+6GSBsaNO5ufeTcwefgqO85S0jTntZ5P7kjj/Jh3f4zFtldMf+IUR0fdOPRmw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Y0B/g7fr/RTSmqjO4ZGpjBsNc5NsVi3crxLrQ07qLkg=;
- b=PlCseDRjN2ShlbKvG3YyISPFQImp0bda0tMVoZHxOidiEkA5qgjjWIxXpfsOXaAX8kAGGQgT5IlsRUA/cLZb1ZcPw5ZAvMrv9w+jYSedIQB1R2Mh7A7q+mhlbsyjOl6WpmBKwCML9VVZpFS4mxyD3NELu8vaqBVyI5iXzMyzOAjyGDhpPxkcWc+qwWQez1iVgTcy39zrGN4UFMteSqp6OPIUoZyCVs60iruGuQWj+Lvin3DY98jDJaQ3GLcc0LvmaUl+FYFjdZQ4JV20RyZLWN82ksyeTwgy7rDN80AiVoOCDcGHOGwA+slsuGg1r0edmhaxoGdfYnWl+1RJHothPQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=redhat.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Y0B/g7fr/RTSmqjO4ZGpjBsNc5NsVi3crxLrQ07qLkg=;
- b=CkYnmQFK4Kig3s6B+HV7puTCjKAcImVLkfiaT27Q7BFKNiZ7OgZ4mPaR/1BHO+xoQNIBMahO3zsDYCmreB7jRkM9FLyGpCGBgPAdvVn1tKlTXLoMJY+3Fd2PmD7wF2mE52D7w9YkbvQpdQoq0LNWL7EstRPPPUDjRABSCtNNfUFI0Iju1quiLzDJlNAx1ESB2HIwCO9EZw1Rwjvjgp34zuk93A+fw5tEtUxcXf7ld0y73X9pYFLjmLcQ+Vv4w3kCAGsczunHgWoIEhBZHMORjukByjjfTzWQsFvkOstIj8iPXkICn7kKq1gckX9kB8n7u906eDloiFniDu17auyKBg==
-Received: from SN7PR04CA0159.namprd04.prod.outlook.com (2603:10b6:806:125::14)
- by SA0PR12MB4416.namprd12.prod.outlook.com (2603:10b6:806:99::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.11; Fri, 10 Jan
- 2025 18:41:22 +0000
-Received: from SN1PEPF0002BA50.namprd03.prod.outlook.com
- (2603:10b6:806:125:cafe::f4) by SN7PR04CA0159.outlook.office365.com
- (2603:10b6:806:125::14) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8335.13 via Frontend Transport; Fri,
- 10 Jan 2025 18:41:22 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- SN1PEPF0002BA50.mail.protection.outlook.com (10.167.242.73) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8335.7 via Frontend Transport; Fri, 10 Jan 2025 18:41:22 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Fri, 10 Jan
- 2025 10:40:59 -0800
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.4; Fri, 10 Jan 2025 10:40:58 -0800
-Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.126.190.181)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4 via Frontend
- Transport; Fri, 10 Jan 2025 10:40:57 -0800
-Date: Fri, 10 Jan 2025 10:40:55 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: "Tian, Kevin" <kevin.tian@intel.com>, "corbet@lwn.net" <corbet@lwn.net>,
-	"will@kernel.org" <will@kernel.org>, "joro@8bytes.org" <joro@8bytes.org>,
-	"suravee.suthikulpanit@amd.com" <suravee.suthikulpanit@amd.com>,
-	"robin.murphy@arm.com" <robin.murphy@arm.com>, "dwmw2@infradead.org"
-	<dwmw2@infradead.org>, "baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
-	"shuah@kernel.org" <shuah@kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "iommu@lists.linux.dev"
-	<iommu@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kselftest@vger.kernel.org"
-	<linux-kselftest@vger.kernel.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>, "eric.auger@redhat.com" <eric.auger@redhat.com>,
-	"jean-philippe@linaro.org" <jean-philippe@linaro.org>, "mdf@kernel.org"
-	<mdf@kernel.org>, "mshavit@google.com" <mshavit@google.com>,
-	"shameerali.kolothum.thodi@huawei.com"
-	<shameerali.kolothum.thodi@huawei.com>, "smostafa@google.com"
-	<smostafa@google.com>, "ddutile@redhat.com" <ddutile@redhat.com>, "Liu, Yi L"
-	<yi.l.liu@intel.com>, "patches@lists.linux.dev" <patches@lists.linux.dev>
-Subject: Re: [PATCH v5 08/14] iommufd/viommu: Add iommufd_viommu_report_event
- helper
-Message-ID: <Z4Fpt9ftiZByVEpO@Asurada-Nvidia>
-References: <cover.1736237481.git.nicolinc@nvidia.com>
- <b9b4f3df990934cb80b2f5e1e49e555e50c1c857.1736237481.git.nicolinc@nvidia.com>
- <BN9PR11MB527634DAD9FE43A6DD50A2348C1C2@BN9PR11MB5276.namprd11.prod.outlook.com>
- <20250110145149.GH5556@nvidia.com>
+	Fri, 10 Jan 2025 18:50:11 +0000
+Date: Fri, 10 Jan 2025 10:49:56 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1736535004;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=5jSwLJoG7dee5g+IYw1k00x4GMomga97dhl8oz4ghiw=;
+	b=XmxUH1K5Mz1roIxUU7KJg0dQeedtL5n23up15s5LS/dj7Up5NaHx4HgmVCh6Yp9hO5Rv/x
+	S1eOcB1PZHFwK0fXE1P1Ld6v3O4dQ1lC3tr/1Fruf8GAt1hWQGUxaeLaar/sZxXfNOL7W1
+	9V+VAo3LXUJUUiJb9eZUTmEV0DcnMks=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: =?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, ryan.roberts@arm.com,
+	catalin.marinas@arm.com, mark.rutland@arm.com, james.morse@arm.com,
+	will@kernel.org, maz@kernel.org, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com
+Subject: Re: [PATCH v1] arm64: Add TLB Conflict Abort Exception handler to KVM
+Message-ID: <Z4Fr1HkKCm9AXSIA@linux.dev>
+References: <20250110172411.39845-3-miko.lenczewski@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250110145149.GH5556@nvidia.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF0002BA50:EE_|SA0PR12MB4416:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8f92311c-cb4d-4fb2-7eab-08dd31a66139
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|376014|7416014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?DDFlpr/yyOxNRBEZ7P3XQF4y684qmSLdnWFflcolL6fJcBCR9xdnyV3qIf1Q?=
- =?us-ascii?Q?OOn5/oRJcLrKitWwLd4KgC/J6GRkhu27e/MnRrUIdAzxUo5qp7uE9zNdqFQb?=
- =?us-ascii?Q?t4kZltkwoZBQsMH8R0bXRDXNzklqoFhn6evO6kj72XBSObvtjZ5+ZLAz3OFz?=
- =?us-ascii?Q?S4clYmBw7j5He2Jm0KC8OyVN7lb9h9N+PkWHkGrKG0w+5FbvMVevIOhkKBVn?=
- =?us-ascii?Q?V0A65yDUOE+ClP52WTYtYstm71HkjPyxWeq8Wf2KUa3zvk1PBHZg7YVRDADP?=
- =?us-ascii?Q?PF599RzrB/DVuJRgxWMy+NK3k0M6LR4aL4oSX7sQoMwZjRmYhaRKv7fBwr02?=
- =?us-ascii?Q?jYvWDZ918Xy5Je6tXmlP39H7LbgBQGQZpcVX8cxBFwgEWJSN4m6kR9S13JIf?=
- =?us-ascii?Q?hOz7ahzD+jxbZ8CrFqSN0+a+BrLYB2i/+hqe8W+NNfufYQFoV8kMJkqF5Qw7?=
- =?us-ascii?Q?a4qVcOldtLDHw+UsdSslnLTtQCRHo948f3maF5leprg3wHwh3OsEmhsaCBvu?=
- =?us-ascii?Q?Mif+kY72P5RvImK1kC/T8KUp/u7AZ0BUwq9wW0Umm884foEBg9gDfqIYfmFy?=
- =?us-ascii?Q?VXWsJzaxuGzAdCuqEaKmTPOEEscGi8HrLeD5fwFBHFPH2WcUbdnPbp50roYE?=
- =?us-ascii?Q?+c4Zy0jur2M1qGdCdXkMgp6BjvgKUTzDbN84opxcQkpXKhW3S2bhDQGZnV11?=
- =?us-ascii?Q?BVtl4WUtqSg0Katk12yI2Qyalvt1tVI9cyfT4LI8t1VCQ+NU+ma5uNsgQ1K5?=
- =?us-ascii?Q?883CHeYvCarCGfsAhbYIOYT9H4qNQ/yXbKKeLArGO+Ixa31Od9wUpq5rgmAL?=
- =?us-ascii?Q?x5ErIdeilPymSvD3ltRNy5VEPfoZxYuyvQHPa2tzJ3YwPuGGaiyrEucuPAng?=
- =?us-ascii?Q?GpkC8BvtJ5pcDZ7NAvE8maYYP9xi34XH+HB+2Esgm2bhrpunxqDV8AGdZwV0?=
- =?us-ascii?Q?d02F4zn5ivF415paHDS6yI5WTCNP6s7lnRm9lndi52y4X/ncE55ej9hQ3MBp?=
- =?us-ascii?Q?638abs/djIBLGBEG4oLktbI1FyCYw26lBixleYy+ywh7NWQPj64k136KK9Zy?=
- =?us-ascii?Q?HphfC6Ltinv5w5jArglgUKsR+GjeSd9ebd2W+JFVX5zCKB67Rw9Z1SO8eAts?=
- =?us-ascii?Q?bb8yaRR2X8amE+oVQ1ktP8vGnMGDUYC5lumsEZp4GbxyxfEyClbUAt5wprRn?=
- =?us-ascii?Q?zlcs6eGoZbKUwFPl9/lWM8LkuzbMFBIYSCzPFTD6rYuM0m7QJ7UcqtGU9x8r?=
- =?us-ascii?Q?aNiOyEC8lXY4bnzB7Yp+BbTzzdYaU1oN7Xh9hzESJJxpTX1DsfZBTTaHkhts?=
- =?us-ascii?Q?Mmy12LnttOnOO2m7hpVLbGam3KHExP0q2+HSKHLcRELy/PPYEnlURPdx182b?=
- =?us-ascii?Q?Rd3IYO1a5OThXv5aFPnxCh7X1glpHkB4FtLMJK3mqTaCT2WLNkN/BNNlEdes?=
- =?us-ascii?Q?SmzKOMyfU+aBYyuS5Ft/ZwmptSykZmSQIZJ9D0XH7OEmxTJ00da2rTz6YYVo?=
- =?us-ascii?Q?1sLGhrbz/zpynRo=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(376014)(7416014)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jan 2025 18:41:22.0562
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8f92311c-cb4d-4fb2-7eab-08dd31a66139
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF0002BA50.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR12MB4416
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250110172411.39845-3-miko.lenczewski@arm.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_184130_362142_B846FF71 
-X-CRM114-Status: GOOD (  15.37  )
+X-CRM114-CacheID: sfid-20250110_105010_160732_6BD08E69 
+X-CRM114-Status: GOOD (  16.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,32 +72,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 10, 2025 at 10:51:49AM -0400, Jason Gunthorpe wrote:
-> On Fri, Jan 10, 2025 at 07:12:46AM +0000, Tian, Kevin wrote:
-> 
-> > > +	if (!viommu)
-> > > +		return -ENODEV;
-> > > +	if (WARN_ON_ONCE(!viommu->ops || !viommu->ops-
-> > > >supports_veventq ||
-> > > +			 !viommu->ops->supports_veventq(type)))
-> > > +		return -EOPNOTSUPP;
-> > 
-> > Hmm the driver knows which type is supported by itself before
-> > calling this helper. Why bother having the helper calling into
-> > the driver again to verify?
-> 
-> Indeed, it might make sense to protect this with
-> 
->         if (IS_ENABLED(CONFIG_IOMMUFD_TEST))
-> 
-> As a compiled out assertion
-> 
-> Or drop it
-> 
-> We shouldn't have unnecessary argument validation on fast paths,
-> !viommu should go too.
+On Fri, Jan 10, 2025 at 05:24:07PM +0000, Mikołaj Lenczewski wrote:
+> Currently, KVM does not handle the case of a stage 2 TLB conflict abort
+> exception. This can legitimately occurs when the guest is eliding full
+> BBM semantics as permitted by BBM level 2. In this case it is possible
+> for a confclit abort to be delivered to EL2. We handle that by
+> invalidating the full TLB.
 
-Ack. I will drop those two if-statments.
+typo: conflict
 
-Nicolin
+Also, a bit of a nitpick, but mentioning that TLB conflict abort routing
+is implementation defined when S2 is enabled is valuable information.
+
+> @@ -1756,6 +1756,19 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+>  	ipa = fault_ipa = kvm_vcpu_get_fault_ipa(vcpu);
+>  	is_iabt = kvm_vcpu_trap_is_iabt(vcpu);
+>  
+> +	if (esr_fsc_is_tlb_conflict_abort(esr)) {
+> +
+> +		/* Architecturely, at this stage 2 tlb conflict abort, we must
+> +		 * either perform a `tlbi vmalls12e1`, or a `tlbi alle1`. Due
+> +		 * to nesting of VMs, we would have to iterate all flattened
+> +		 * VMIDs to clean out a single guest, so we perform a `tlbi alle1`
+> +		 * instead to save time.
+> +		 */
+
+I'm not sure I follow this.
+
+At this point we've taken a TLB conflict abort out of a specific
+hardware MMU context, and it's unclear to me why a conflict abort in one
+stage-2 MMU has any bearing on the other stage-2 MMUs that could be
+associated with this guest.
+
+Even in NV, KVM is always responsible for the maintenance of hardware
+stage-2 MMUs. So stage-2 TLBI elision in the guest hypervisor should
+not lead to a stage-2 TLB conflict abort.
+
+TLBI ALLE1 is a larger hammer than what's actually necessary here. Could
+you perhaps introduce a new invalidation routine,
+__kvm_tlb_flush_vmid_nsh(), that does a TLBI VMALLS12E1 behind the
+scenes?
+
+If an NV guest is playing games at stage-1 across VMIDs then it gets to
+suffer the consequences (additional TLB conflict aborts).
+
+-- 
+Thanks,
+Oliver
 
