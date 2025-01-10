@@ -4,69 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D4F1E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 14:14:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75DD4E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 14:16:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6qUoihBbWwdb5RpFCwCmGLNkvB2q5zt4WFGb/HiOMDI=; b=HxPcirJFD6tQi9HwY3oeFdRFpz
-	j6FDnIL7j6b7YBsPtw/BaRYIsXDY5CtmYSUVwDnElWX7J4t/x6ANSRaVKSKgykRpPHdu/tBSP6gjy
-	Clzuu3j40ss9O1lGuw4tkvmkcZGz6n+myKxeBEOQESasHimZ9B8KP3aRYbIcd6o/N69I+PGU7P6L1
-	21Xu82D1iYo50y2nmV/d48/1bK0PiLt0wWivEv720m61XkCS/mvl0OukSYs0eR8mSa6rrhAKq+XCP
-	G3r2UfjUzKRMhC1qH9xMzzf2JqB3uRcFKSLdDN6bGCX1+ndXWnLf/azpfNcJWxtAZ8SXm2SEDUrz2
-	5list9BQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o9Wvh0QOJgFNOaiiYtheeiN8he+HGBiWQJA/rcWBap0=; b=tBwJfbSPdutwYNbUly0NBJZnyg
+	D2EneW5q2Mpa1zMoGJkFPtzj0HMm/kpHsjsX7oKd0N4CafvVygmP1rvfB4QCIq3GVLme2n4uw2Wjn
+	/XWq0Xen93p201lpK1pG+fKLo5VYnMpyPk1U5CW12sOy7GC/hwvmqgpg6eyLizv1T6xpFDy7UuZON
+	gJ6wjCp8ToJRc4mDEYG7CfgZTcYdGlIi+PgqfoSoXXFzHb4ZTVIkQaWOJ0FmBGgwLCSe1FBpfL5HV
+	qU9vzm+MqA+J1Bf8YRA2v+oFP6B/pKGsCPxB4/aAraBAtUqAaWOZ93/bZ6T6/Ua6MkuJbNJ7MjUbD
+	qB+69mBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWFmY-0000000FbgR-0hCQ;
-	Fri, 10 Jan 2025 14:14:38 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tWFnj-0000000Fbuf-3TEd;
+	Fri, 10 Jan 2025 14:15:51 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWFhh-0000000Famb-26zH
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 14:09:38 +0000
+	id 1tWFiQ-0000000Fava-316r;
+	Fri, 10 Jan 2025 14:10:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0000E5C4B07;
-	Fri, 10 Jan 2025 14:08:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D57E6C4CED6;
-	Fri, 10 Jan 2025 14:09:35 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7BC75A41FED;
+	Fri, 10 Jan 2025 14:08:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B94DC4CED6;
+	Fri, 10 Jan 2025 14:10:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736518176;
-	bh=BzqU8k0ICGCf9P2lsYRHW6RrSoUUVhJhmDeNcCF/upo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=N6X4Ck3DIAaxq3dwu9LnBtCtQSYh1wtLY1sQXIYSQN56fTof/Xt1fvalaxdOFbTLi
-	 Xwv27NKD1oxDtn6rSZxzZSxBEJOyFvIm9GhEQlykxWNvYlbtJ5WAeUuD/p03dP3Yrn
-	 jOJehV+J3FPIWMqhSQtixHYW4fv6TN6peeBW7F1guMNAwVwWyK/hg0d/wLIdGsZ3qy
-	 H9aSS2gzYJ29a3ssBvXWE/Uyq00zQxi+0Km5opq1OUpxzMim2zzufjoIcHKxC1qBBx
-	 E/+7FbVph1WDoZuWuNt19NHrJQfzAfUiGIzKJcn+xuv1gpZ/GqNj1FDCKRxx8aRhBE
-	 HcKWtu0yCHMJQ==
-Date: Fri, 10 Jan 2025 08:09:34 -0600
-From: Rob Herring <robh@kernel.org>
-To: Stephen Boyd <swboyd@chromium.org>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	linux-kernel@vger.kernel.org, patches@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Arnd Bergmann <arnd@arndb.de>, Conor Dooley <conor+dt@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>
-Subject: Re: [RFC PATCH 5/6] bus: qcom-sc7180: Attach pm domain to watchdog
- device
-Message-ID: <20250110140934.GB2630182-robh@kernel.org>
-References: <20250108012846.3275443-1-swboyd@chromium.org>
- <20250108012846.3275443-6-swboyd@chromium.org>
+	s=k20201202; t=1736518221;
+	bh=AU9hR0CcSXn9Z4fcVQkbb4nXaU8sh9WB+5t9rzKXNuE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=P0GPqE6l/aMBVJbGZcrKFV78fPxIf3LsxZpj/BUa9g7SIyZKmBkcJJDq+r8MW1SjH
+	 stom6T5DhGIZbEoY1vQP7JDG+qCzSXjyCe21nFcU19Q72px62/XxrMkwLhnI4YZBDr
+	 HsFxjJABd2ZSHRY0tqb6iDaCyDHTsv0/f/STSHIB5lmvWx37Bb8r6G6thrsu87sDXT
+	 aSNbxvvfI71OvlWCZCrkc+yjZmT0C2aR0U8tSp3RlI8PkyM9a3ZPJEBrh6XWWvV7dx
+	 gSUYkTJBNBWH3NZJDHWr4b0LD2BjdPvO02SEVNOR+NbBPR0ai19G//VESgeWKYZzQe
+	 t9SRGCdaaP5Xw==
+Message-ID: <4377ceaf-dd7a-47ff-89d8-37ffc80e7d18@kernel.org>
+Date: Fri, 10 Jan 2025 15:10:12 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250108012846.3275443-6-swboyd@chromium.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 4/6] arm64: defconfig: enable display support for
+ mt8365-evk
+To: Alexandre Mergnat <amergnat@baylibre.com>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Jitao Shi <jitao.shi@mediatek.com>, CK Hu <ck.hu@mediatek.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Simona Vetter <simona@ffwll.ch>, Simona Vetter <simona.vetter@ffwll.ch>
+Cc: dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20231023-display-support-v7-0-6703f3e26831@baylibre.com>
+ <20231023-display-support-v7-4-6703f3e26831@baylibre.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20231023-display-support-v7-4-6703f3e26831@baylibre.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_060937_618824_80E9D476 
-X-CRM114-Status: GOOD (  27.00  )
+X-CRM114-CacheID: sfid-20250110_061022_887721_AFD7E73A 
+X-CRM114-Status: UNSURE (   7.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,179 +130,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 07, 2025 at 05:28:42PM -0800, Stephen Boyd wrote:
-> Find the watchdog device described as a child node of the sc7180 SoC
-> node and attach a generic pm domain to the device before registering the
-> device with the platform bus. The domain simply gets the clk and turns
-> it on when the pm domain is powered on and turns it off when the pm
-> domain is powered off.
+On 10/01/2025 14:31, Alexandre Mergnat wrote:
+> Enable the DRM HDMI connector support and the MIPI-DSI display
+> Startek KD070FHFID015 panel to have HDMI and DSI display working
+> on the mt8365-evk board.
 > 
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Bjorn Andersson <andersson@kernel.org>
-> Cc: Konrad Dybcio <konradybcio@kernel.org>
-> Cc: <linux-arm-msm@vger.kernel.org>
-> Signed-off-by: Stephen Boyd <swboyd@chromium.org>
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> Signed-off-by: Alexandre Mergnat <amergnat@baylibre.com>
 > ---
->  drivers/bus/qcom/qcom-sc7180.c | 122 +++++++++++++++++++++++++++++++++
->  1 file changed, 122 insertions(+)
-> 
-> diff --git a/drivers/bus/qcom/qcom-sc7180.c b/drivers/bus/qcom/qcom-sc7180.c
-> index a615cf5a2129..7dfe6b32efef 100644
-> --- a/drivers/bus/qcom/qcom-sc7180.c
-> +++ b/drivers/bus/qcom/qcom-sc7180.c
-> @@ -3,18 +3,140 @@
->   * SoC bus driver for Qualcomm SC7180 SoCs
->   */
->  
-> +#include <linux/cleanup.h>
-> +#include <linux/clk.h>
->  #include <linux/device.h>
-> +#include <linux/dev_printk.h>
->  #include <linux/init.h>
->  #include <linux/mod_devicetable.h>
->  #include <linux/module.h>
->  #include <linux/of.h>
->  #include <linux/of_platform.h>
->  #include <linux/platform_device.h>
-> +#include <linux/pm.h>
-> +#include <linux/pm_domain.h>
-> +
-> +struct qcom_soc_pm_domain {
-> +	struct clk *clk;
-> +	struct generic_pm_domain pd;
-> +};
-> +
-> +static struct qcom_soc_pm_domain *
-> +gpd_to_qcom_soc_pm_domain(struct generic_pm_domain *gpd)
-> +{
-> +	return container_of(gpd, struct qcom_soc_pm_domain, pd);
-> +}
-> +
-> +static struct qcom_soc_pm_domain *pd_to_qcom_soc_pm_domain(struct dev_pm_domain *pd)
-> +{
-> +	struct generic_pm_domain *gpd;
-> +
-> +	gpd = container_of(pd, struct generic_pm_domain, domain);
-> +
-> +	return gpd_to_qcom_soc_pm_domain(gpd);
-> +}
-> +
-> +static struct qcom_soc_pm_domain *dev_to_qcom_soc_pm_domain(struct device *dev)
-> +{
-> +	struct dev_pm_domain *pd;
-> +
-> +	pd = dev->pm_domain;
-> +	if (!pd)
-> +		return NULL;
-> +
-> +	return pd_to_qcom_soc_pm_domain(pd);
-> +}
-> +
-> +static struct platform_device *
-> +qcom_soc_alloc_device(struct platform_device *socdev, const char *compatible)
-> +{
-> +	struct device_node *np __free(device_node);
-> +
-> +	np = of_get_compatible_child(socdev->dev.of_node, compatible);
-> +
-> +	return of_platform_device_alloc(np, NULL, &socdev->dev);
-> +}
-> +
-> +static int qcom_soc_domain_activate(struct device *dev)
-> +{
-> +	struct qcom_soc_pm_domain *soc_domain;
-> +
-> +	dev_info(dev, "Activating device\n");
-> +	soc_domain = dev_to_qcom_soc_pm_domain(dev);
-> +
-> +	soc_domain->clk = devm_clk_get(dev, NULL);
-> +
-> +	return PTR_ERR_OR_ZERO(soc_domain->clk);
-> +}
-> +
-> +static int qcom_soc_domain_power_on(struct generic_pm_domain *domain)
-> +{
-> +	struct qcom_soc_pm_domain *soc_domain;
-> +
-> +	pr_info("Powering on device\n");
-> +	soc_domain = gpd_to_qcom_soc_pm_domain(domain);
-> +
-> +	return clk_prepare_enable(soc_domain->clk);
-> +}
-> +
-> +static int qcom_soc_domain_power_off(struct generic_pm_domain *domain)
-> +{
-> +	struct qcom_soc_pm_domain *soc_domain;
-> +
-> +	pr_info("Powering off device\n");
-> +	soc_domain = gpd_to_qcom_soc_pm_domain(domain);
-> +
-> +	clk_disable_unprepare(soc_domain->clk);
 
-How's this going to scale when there are multiple clocks and it's not 
-just turn on/off all the clocks in any order? Or when there's ordering 
-requirements between different resources.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-I'm pretty sure I've seen attempts to order clock entries in DT based on 
-the order they want to enable them.
-
-> +
-> +	return 0;
-> +}
-> +
-> +static int qcom_soc_add_clk_domain(struct platform_device *socdev,
-> +				   struct platform_device *pdev)
-> +{
-> +	struct qcom_soc_pm_domain *domain;
-> +	struct generic_pm_domain *pd;
-> +	int ret;
-> +
-> +	domain = devm_kzalloc(&socdev->dev, sizeof(*domain), GFP_KERNEL);
-> +	if (!domain)
-> +		return -ENOMEM;
-> +
-> +	pd = &domain->pd;
-> +	pd->name = "wdog";
-> +	ret = pm_genpd_init(pd, NULL, false);
-> +	if (ret)
-> +		return ret;
-> +
-> +	/* TODO: Wrap this in a generic_pm_domain function similar to power_on() */
-> +	pd->domain.activate = qcom_soc_domain_activate;
-> +	pd->power_on = qcom_soc_domain_power_on;
-> +	pd->power_off = qcom_soc_domain_power_off;
-> +
-> +	dev_info(&socdev->dev, "adding pm domain for %s\n", dev_name(&pdev->dev));
-> +	dev_pm_domain_set(&pdev->dev, &pd->domain);
-> +
-> +	return 0;
-> +}
->  
->  static int qcom_soc_sc7180_probe(struct platform_device *pdev)
->  {
->  	struct device *dev = &pdev->dev;
->  	struct device_node *np = dev->of_node;
-> +	struct platform_device *sdev;
-> +	int ret;
-> +
-> +	sdev = qcom_soc_alloc_device(pdev, "qcom,apss-wdt-sc7180");
-
-We're going to have to have an explicit call for every child node?
-
-> +	if (!sdev)
-> +		return dev_err_probe(dev, -ENODEV, "Failed to alloc sdev\n");
-> +
-> +	ret = qcom_soc_add_clk_domain(pdev, sdev);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "Failed to add clk domain to sdev\n");
-> +
-> +	ret = of_platform_device_add(sdev);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "Failed to add sdev to bus\n");
->  
->  	return of_platform_populate(np, NULL, NULL, dev);
->  }
-> -- 
-> https://chromeos.dev
-> 
+Best regards,
+Krzysztof
 
