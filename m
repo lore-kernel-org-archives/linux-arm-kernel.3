@@ -4,88 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA1CBE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 16:33:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55987E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 16:34:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BCS0VDGQ5Q+LD1JHnGrvUSTEtuyy6XbGnrga2vgHiZg=; b=DgUWT5ClIjXQpkmg5+UHSffTw7
-	UP7AHLoPziB3HZulGj9ThhWggBaRDHdbxSUakU20Mx1IUI3vxBr/j+m2x8nEVbazYASjG0lC4FuEi
-	midJuUFYqT564td664t2iJiWUuCe9bp8xlSotkvMYE7L58z7rwMaZDswjRJWnWPTEi8u5+8TfboTS
-	65/Tl9jCXi1rG1zUC+urO9G5VNQlRROnsUCzl6rP/mgg41JP16ucgszU4jsKbO2moZij3e4wMEDnR
-	aui+JM/9rYcvxbMrYQIq8Nwk8RuazcuhskZAMybZ+F7NeGEiEsyDxJ2xx/+dGhCKB1tazwMD0t4L4
-	aA5IIsfQ==;
+	bh=OQeYkLHt8PB8bm1R0gE4E4lckuiahAwGVKIicwKow5w=; b=U8SjB7AYfm8Tx7ZvFaUiwGA/ET
+	Uxei4WgRUdmgRdY8eHEGYqYH4n0HAdd9mC9h8J0NkWN5MRbpp6ftsz3yH1DXAm/rc5Z8kd2RcaBLO
+	koqcjtSrXr3NMCvpPbScT7d1PzLvG+zEG/p2YuX5ziUfS+0JwXAqSByGW1A4cUcQa9Q9SHgETj1NE
+	Yvzb0ZWlWaWQUgbkQ00T6JAo1UNCJiz9HW1VuWYDhJkoOWwr20gnK1mUrTuVJ/9jV4zZwBuViUthI
+	Y/wh79bsoqBniZaEmcrTb/zGz7SalC0prDN4x1K4K1rZKvKdtGfu2FhEySzfrYRXBHRvV00SGdaJZ
+	pEzFV1qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWHwv-0000000GHnj-1oUt;
-	Fri, 10 Jan 2025 16:33:29 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tWHy7-0000000GI4V-0QdG;
+	Fri, 10 Jan 2025 16:34:43 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWHmy-0000000GDvP-1922
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 10 Jan 2025 16:23:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=BCS0VDGQ5Q+LD1JHnGrvUSTEtuyy6XbGnrga2vgHiZg=; b=CG9qEBUxGfUpRQg7CNIjZjoZpP
-	LzwYDQq3tdU5yXm6YLbw1dTP1yEaGd44XXFRFBHivWN3eQ+1fz35sIYeqHPQhDvWiKoYKncOQlZb3
-	d7fV9+mrCkHiJ75Ah8f+/fUrud6gu8GlLr5foJKOSIJHzNT3yLNslKONSd0Y0ETI+M6+ewc9YfkN+
-	m80QHQ+f+YbvyO0ywgVwGdDwSjKCHrEPjafk/D8RD4IFrWerqR+AtUv1k2OKziMUMNoh8tloQ1mVa
-	ZlOiLMptUhVFtWyTxUL0EsG6kxcUw9C27EPa7bHSfa0cOqW8LWPy/sqX9J7COWvwNiyxO7TtH6flR
-	XOwmxykA==;
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWHmu-00000009q1m-3p7x
+	id 1tWHmm-0000000GDoD-4AWe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 16:23:10 +0000
+	Fri, 10 Jan 2025 16:23:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 97A48A426A4;
-	Fri, 10 Jan 2025 16:21:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A456C4CEE2;
-	Fri, 10 Jan 2025 16:22:59 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7B1EEA42667;
+	Fri, 10 Jan 2025 16:21:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC202C4CED6;
+	Fri, 10 Jan 2025 16:22:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736526182;
-	bh=+BmdB9emBwpf+gGi963mGVknRd9+wDnLwjWCpQ0Mzm0=;
+	s=k20201202; t=1736526179;
+	bh=mQgh00oTBEnPK3eaiUyErqe8gGMKiHL5sXNk/n6ICaY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Dl2PAI9IiEHY2aYlDERQmOJYSbxg6pOQL4FEpljVGlaA+uU4GGPdpzdX5HQ8Rg0NA
-	 UjiuUAlG3cIGUeDfsJN0DJuL/cAqgerE6Ra9pL9kv6pMSKlRdTb2BbChwSpJVVrsAM
-	 Ta842BkpivSBAquFSLJMUNZafNrBjCMBrD8U8ytQl8vwv9DhLeeOPvNGUoFlBh3y1H
-	 NLck9Ji1lu9WCZHkK1mplL6LBQTyWxQvKl/4OEomOEMfkyc8qzFJSc9oUrRo+v6U9d
-	 8jqzjC42AIMMu2Y6KbycXvb0fkciWnW4ZhNwek+DHtNJqJL/ON7Vd/9f79GyzjE+Ql
-	 yaoYSyquO+e5w==
+	b=EGZU3Ef8D33bvTFUX/Tu2lXX4npAID97EObM21P4W+vsfHcYTVH9Qt4o+18iAeWc7
+	 7+8up9z5xJj1tOzhINprHuhW8DGO8CaHO/utbP6vAj4NEuN2vMKZ5/iuud5yB8smDO
+	 +sY1QsydT5KVI4C839eN1K91nD6/amLZKnmkKRbNSIzIJfpDdFn7CkhdH8u+LDO2/j
+	 HyxY9Yejs1Y/1M1nZmZ2JdYd5RFQS4OQq69FcIkSa3Q1s30RYKw6KaDE8OxMwNgWgb
+	 o+NWQQi/txTHozc/9RXdJeXpnJlluskdVyd+LTSLhzvdRzd3oE2hEkGoOz9RGi//Xi
+	 lVT8XHiPC1bPA==
 From: Will Deacon <will@kernel.org>
-To: kvmarm@lists.linux.dev,
-	Oliver Upton <oliver.upton@linux.dev>
+To: linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	irogers@google.com,
+	yeoreum.yun@arm.com,
+	mark.rutland@arm.com,
+	namhyung@kernel.org,
+	acme@kernel.org,
+	James Clark <james.clark@linaro.org>
 Cc: catalin.marinas@arm.com,
 	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mingwei Zhang <mizhang@google.com>,
-	Colton Lewis <coltonlewis@google.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 00/18] KVM: arm64: Support FEAT_PMUv3 on Apple hardware
-Date: Fri, 10 Jan 2025 16:22:49 +0000
-Message-Id: <173651597781.2396497.580300234024062639.b4-ty@kernel.org>
+	robh@kernel.org,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	"Liang, Kan" <kan.liang@linux.intel.com>,
+	John Garry <john.g.garry@oracle.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	Leo Yan <leo.yan@linux.dev>,
+	Graham Woodward <graham.woodward@arm.com>,
+	Michael Petlan <mpetlan@redhat.com>,
+	Veronika Molnarova <vmolnaro@redhat.com>,
+	Thomas Richter <tmricht@linux.ibm.com>,
+	Athira Rajeev <atrajeev@linux.vnet.ibm.com>,
+	linux-kernel@vger.kernel.org,
+	bpf@vger.kernel.org
+Subject: Re: [PATCH v3 0/5] perf: arm_spe: Add format option for discard mode
+Date: Fri, 10 Jan 2025 16:22:48 +0000
+Message-Id: <173652065683.3245172.11665292685923367751.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20241217212048.3709204-1-oliver.upton@linux.dev>
-References: <20241217212048.3709204-1-oliver.upton@linux.dev>
+In-Reply-To: <20250108142904.401139-1-james.clark@linaro.org>
+References: <20250108142904.401139-1-james.clark@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_162309_223068_B325BCB7 
-X-CRM114-Status: UNSURE (   9.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250110_082301_103057_41A34BF3 
+X-CRM114-Status: GOOD (  16.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,20 +97,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 17 Dec 2024 13:20:30 -0800, Oliver Upton wrote:
-> One of the interesting features of some Apple M* parts is an IMPDEF trap
-> that routes EL1/EL0 accesses of the PMUv3 registers to EL2. This allows
-> a hypervisor to emulate an architectural PMUv3 on top of the IMPDEF PMU
-> hardware present in the CPU.
+On Wed, 08 Jan 2025 14:28:55 +0000, James Clark wrote:
+> Discard mode (Armv8.6) is a way to enable SPE related PMU events without
+> the overhead of recording any data. Add a format option, tests and docs
+> for it.
 > 
-> And if you squint, this _might_ look like a CPU erratum :-)
+> In theory we could make the driver drop calls to allocate the aux buffer
+> when discard mode is enabled. This would give a small memory saving,
+> but I think there is potential to interfere with any tools that don't
+> expect this so I left the aux allocation untouched. Even old tools that
+> don't know about discard mode will be able to use it because we publish
+> the format option. Not allocating the aux buffer will have to be added
+> to tools which I've done in Perf.
 > 
 > [...]
 
-Applied the branch events patch to will (for-next/perf), thanks!
+Applied driver and docs patches to will (for-next/perf), thanks!
 
-[03/18] drivers/perf: apple_m1: Map generic branch events
-        https://git.kernel.org/will/c/4575353d82e2
+[1/5] perf: arm_spe: Add format option for discard mode
+      https://git.kernel.org/will/c/d28d95bc63cb
+[2/5] perf docs: arm_spe: Document new discard mode
+      https://git.kernel.org/will/c/ba113ecad81a
 
 Cheers,
 -- 
