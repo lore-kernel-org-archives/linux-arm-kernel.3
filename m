@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 141F6E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 14:58:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82F6FE7719C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 14:59:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y8cSrYQE/5lZoSPtcr0B2aeBjkjg2ZNQ2fjZw3v1pDQ=; b=TheZwEIE5Jp+W1nYc46J5FRj5P
-	9OYIIFCTvoYCZUYJRPB3sv0VsrR7AXkXKnlD8/rP09tSXqYCOQwITAWfJp2AWzoO5TKOjVQ6nYcdr
-	CqJbWA5VEIWSXwlXSEHV6FNTe+TkGfRcdBKxpnRiRbZIt6rDnhHwuyetLzLA5pw1nyerNxhrAZ7Vu
-	3AUUPJAYoP2mppO7sUlnuZSTjJ4PGy8HYNQlJZs/Lr6vSgWsAf2947YNeOGcFIUYh2OqrgtHklDh1
-	V9yTpjETwQ9cEKeiH532gdB3y2Y1er7fVAwkLOSRLddrIGT2RmF9RLKcdoeRsExQwsSHTGEikRL6Q
-	xxzzNQmw==;
+	bh=NPTwujdULqDMAWJvUaFFPZ6Ty000e2Bmk5z+jRzLZ3I=; b=zv06c2K2uc7J5lJ5YBaVoO2pCq
+	SWbLwpe2W8/VowG7s1x9NndNoJMozXP6GC/VjXH+GJH3ecKzqegw+eKBzamhkAcega9Op2L9s++Vo
+	sDNwbmLSu0SWqEe2PNZTEaV5jzqtTdY/P1bxT6JIj7tBtTLdgZJqcpV64tsAfffp1vZuOOQgeXofn
+	WZr0v5P0iUjWMRmt9JwGAx35V/63LJQ/wpYgDYPZ+KjEpU+hHg21NqWFn50DIEKhjOqES2rlI4uq4
+	DUPGi+U4axJzpyuoFzhhZpmh5ic0DhG2NnE6VLEYuC5yEOO36dNI31i85ZdMBbgWw11JJ+LRjmmIl
+	TCFhAS6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWGSQ-0000000Fkmp-2P6C;
-	Fri, 10 Jan 2025 14:57:54 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1tWGTd-0000000FlE7-35x6;
+	Fri, 10 Jan 2025 14:59:09 +0000
+Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWGGX-0000000FgCj-1yiP;
-	Fri, 10 Jan 2025 14:45:38 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id B0B53FF80E;
-	Fri, 10 Jan 2025 14:45:33 +0000 (UTC)
+	id 1tWGGZ-0000000FgDe-1ztn;
+	Fri, 10 Jan 2025 14:45:41 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id A46A0FF809;
+	Fri, 10 Jan 2025 14:45:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1736520335;
+	t=1736520337;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=y8cSrYQE/5lZoSPtcr0B2aeBjkjg2ZNQ2fjZw3v1pDQ=;
-	b=QUn2HxYYpXHzBUUQGFzw5CGFjm1mZXXTWJ41aFPg8sbXlUkse+ZsntwleUTKfbNS5EyysD
-	juZhCK5l5FeDs7HRV23fT3CvZGeuXcdEKB7UgbLidckGhKI74rDX83gVklykbh3ArOXfUl
-	saItcUGf5z3LqB4JRAwu5Cr0zWk0evBhDTKp/jtNDzx2ZEEzv//c+htDYI1x/ZX2eA5PNC
-	RGsXz8QgcMZM2YLZ9Sm4pe9p1LsrniCqSGS/99f8j/CtQqRMVe+WDwgoF833kEMKnE06/c
-	GkgTU07BB+ytJ1XpuckVJH59o34lIM6wWOP4bjBeGn1MpYHrc4StKbTkbZbLbg==
+	bh=NPTwujdULqDMAWJvUaFFPZ6Ty000e2Bmk5z+jRzLZ3I=;
+	b=NdcWYGi1v9pxLBZsF3uk8cw7BXVazpNl372ViS/+mQi5NYuRvTcZpVJSjQyLpYYOdqwPB0
+	IE+9az2ocBWsu7R9mPdVrxkPW6brhIIFmQOMfdU8qzRbJPwkPzZ4z/9KT0DUeRkDkh/Xdc
+	4f7KS1JcMFPfscC+Wvdqle7XCFjgPaXNOeFIfFw5D1VClohHzyTCHGEF4C7JtF+7QpcYtT
+	tCuXXhXSHACZGtQZ9Olam9DqrbdkPCIw+qb7mMjqLen0IXXudi2z7tzzW1zrC24lt6iJC0
+	ljUSZf1Dl07xg/1WWqy9zI3EGG3qFB/FKnzloYnFFIsJiShp/NNGAfeLmBaREA==
 From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Fri, 10 Jan 2025 15:45:11 +0100
-Subject: [PATCH v3 09/27] spi: microchip-core-qspi: Support per spi-mem
- operation frequency switches
+Date: Fri, 10 Jan 2025 15:45:12 +0100
+Subject: [PATCH v3 10/27] spi: mt65xx: Support per spi-mem operation
+ frequency switches
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250110-winbond-6-11-rc1-quad-support-v3-9-7ab4bd56cf6e@bootlin.com>
+Message-Id: <20250110-winbond-6-11-rc1-quad-support-v3-10-7ab4bd56cf6e@bootlin.com>
 References: <20250110-winbond-6-11-rc1-quad-support-v3-0-7ab4bd56cf6e@bootlin.com>
 In-Reply-To: <20250110-winbond-6-11-rc1-quad-support-v3-0-7ab4bd56cf6e@bootlin.com>
 To: Mark Brown <broonie@kernel.org>, Sanjay R Mehta <sanju.mehta@amd.com>, 
@@ -80,8 +80,8 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 X-Mailer: b4 0.15-dev
 X-GND-Sasl: miquel.raynal@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_064537_777418_468694AD 
-X-CRM114-Status: GOOD (  17.14  )
+X-CRM114-CacheID: sfid-20250110_064539_811324_F3B374A9 
+X-CRM114-Status: GOOD (  13.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,101 +103,47 @@ the value that comes from the spi-mem operation structure instead. In
 case there is no specific limitation for this operation, the default spi
 device value will be given anyway.
 
-This controller however performed a frequency check, which is also
-observed during the ->check_op() phase.
-
 The per-operation frequency capability is thus advertised to the spi-mem
 core.
 
-Cc: Conor Dooley <conor.dooley@microchip.com>
-Cc: Daire McNamara <daire.mcnamara@microchip.com>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/spi/spi-microchip-core-qspi.c | 26 ++++++++++++++++++++++----
- 1 file changed, 22 insertions(+), 4 deletions(-)
+ drivers/spi/spi-mt65xx.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/spi/spi-microchip-core-qspi.c b/drivers/spi/spi-microchip-core-qspi.c
-index ad2b5ffa6153433490f09bdd4c362273a0218432..fa828fcaaef2d4b44c21e08c09e6afbb7ba3de3d 100644
---- a/drivers/spi/spi-microchip-core-qspi.c
-+++ b/drivers/spi/spi-microchip-core-qspi.c
-@@ -265,7 +265,8 @@ static irqreturn_t mchp_coreqspi_isr(int irq, void *dev_id)
- 	return ret;
- }
+diff --git a/drivers/spi/spi-mt65xx.c b/drivers/spi/spi-mt65xx.c
+index 85f3bafc975dbc3fd95f77b8dcfc0ca9aac32f5d..197bf2dbe5de7e853ccddf2c90d8bff40202f025 100644
+--- a/drivers/spi/spi-mt65xx.c
++++ b/drivers/spi/spi-mt65xx.c
+@@ -961,7 +961,7 @@ static int mtk_spi_mem_exec_op(struct spi_mem *mem,
  
--static int mchp_coreqspi_setup_clock(struct mchp_coreqspi *qspi, struct spi_device *spi)
-+static int mchp_coreqspi_setup_clock(struct mchp_coreqspi *qspi, struct spi_device *spi,
-+				     const struct spi_mem_op *op)
- {
- 	unsigned long clk_hz;
- 	u32 control, baud_rate_val = 0;
-@@ -274,11 +275,11 @@ static int mchp_coreqspi_setup_clock(struct mchp_coreqspi *qspi, struct spi_devi
- 	if (!clk_hz)
- 		return -EINVAL;
+ 	mtk_spi_reset(mdata);
+ 	mtk_spi_hw_init(mem->spi->controller, mem->spi);
+-	mtk_spi_prepare_transfer(mem->spi->controller, mem->spi->max_speed_hz);
++	mtk_spi_prepare_transfer(mem->spi->controller, op->max_freq);
  
--	baud_rate_val = DIV_ROUND_UP(clk_hz, 2 * spi->max_speed_hz);
-+	baud_rate_val = DIV_ROUND_UP(clk_hz, 2 * op->max_freq);
- 	if (baud_rate_val > MAX_DIVIDER || baud_rate_val < MIN_DIVIDER) {
- 		dev_err(&spi->dev,
- 			"could not configure the clock for spi clock %d Hz & system clock %ld Hz\n",
--			spi->max_speed_hz, clk_hz);
-+			op->max_freq, clk_hz);
- 		return -EINVAL;
- 	}
- 
-@@ -399,7 +400,7 @@ static int mchp_coreqspi_exec_op(struct spi_mem *mem, const struct spi_mem_op *o
- 	if (err)
- 		goto error;
- 
--	err = mchp_coreqspi_setup_clock(qspi, mem->spi);
-+	err = mchp_coreqspi_setup_clock(qspi, mem->spi, op);
- 	if (err)
- 		goto error;
- 
-@@ -457,6 +458,10 @@ static int mchp_coreqspi_exec_op(struct spi_mem *mem, const struct spi_mem_op *o
- 
- static bool mchp_coreqspi_supports_op(struct spi_mem *mem, const struct spi_mem_op *op)
- {
-+	struct mchp_coreqspi *qspi = spi_controller_get_devdata(mem->spi->controller);
-+	unsigned long clk_hz;
-+	u32 baud_rate_val;
-+
- 	if (!spi_mem_default_supports_op(mem, op))
- 		return false;
- 
-@@ -479,6 +484,14 @@ static bool mchp_coreqspi_supports_op(struct spi_mem *mem, const struct spi_mem_
- 			return false;
- 	}
- 
-+	clk_hz = clk_get_rate(qspi->clk);
-+	if (!clk_hz)
-+		return false;
-+
-+	baud_rate_val = DIV_ROUND_UP(clk_hz, 2 * op->max_freq);
-+	if (baud_rate_val > MAX_DIVIDER || baud_rate_val < MIN_DIVIDER)
-+		return false;
-+
- 	return true;
- }
- 
-@@ -498,6 +511,10 @@ static const struct spi_controller_mem_ops mchp_coreqspi_mem_ops = {
- 	.exec_op = mchp_coreqspi_exec_op,
+ 	reg_val = readl(mdata->base + SPI_CFG3_IPM_REG);
+ 	/* opcode byte len */
+@@ -1122,6 +1122,10 @@ static const struct spi_controller_mem_ops mtk_spi_mem_ops = {
+ 	.exec_op = mtk_spi_mem_exec_op,
  };
  
-+static const struct spi_controller_mem_caps mchp_coreqspi_mem_caps = {
++static const struct spi_controller_mem_caps mtk_spi_mem_caps = {
 +	.per_op_freq = true,
 +};
 +
- static int mchp_coreqspi_probe(struct platform_device *pdev)
+ static int mtk_spi_probe(struct platform_device *pdev)
  {
- 	struct spi_controller *ctlr;
-@@ -540,6 +557,7 @@ static int mchp_coreqspi_probe(struct platform_device *pdev)
+ 	struct device *dev = &pdev->dev;
+@@ -1160,6 +1164,7 @@ static int mtk_spi_probe(struct platform_device *pdev)
+ 	if (mdata->dev_comp->ipm_design) {
+ 		mdata->dev = dev;
+ 		host->mem_ops = &mtk_spi_mem_ops;
++		host->mem_caps = &mtk_spi_mem_caps;
+ 		init_completion(&mdata->spimem_done);
+ 	}
  
- 	ctlr->bits_per_word_mask = SPI_BPW_MASK(8);
- 	ctlr->mem_ops = &mchp_coreqspi_mem_ops;
-+	ctlr->mem_caps = &mchp_coreqspi_mem_caps;
- 	ctlr->setup = mchp_coreqspi_setup_op;
- 	ctlr->mode_bits = SPI_CPOL | SPI_CPHA | SPI_RX_DUAL | SPI_RX_QUAD |
- 			  SPI_TX_DUAL | SPI_TX_QUAD;
 
 -- 
 2.47.0
