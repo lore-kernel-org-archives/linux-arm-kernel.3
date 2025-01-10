@@ -4,87 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44974E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 14:39:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34055E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 14:43:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AqHOTtKrS2nK6owEMQCN+3bics3pst072/Bpdc2sk1Q=; b=du988VI2iOqzzeJwWylq1qfJG2
-	PhBbzH6JvEKyIs9Uq47lTdHTHk3LhGXGRVwz3gQn2h73HB/k5sFMjnXmrGfisCxQAbjUCylxyMECx
-	39VNslcMiTq8WMaZMKHtqMWo3c8xHaj+5X7/H6HI1Jbp0EfslsaRifj1IWpLtS2EiQU7IO0TCBKx7
-	/fllksI6A8NlX8HGN0r8ah2Rv0qBNxgVxpmZltHIu619UTxTJDdb6nnoy1OfEuii5vivZg6LF4Ldv
-	3SPBDpySgZ93D28Kr7h9IwIlKEM0CMUnwzotqmGQM1zeNjE4yjYHoThZ7EANqadw3C/4XGRq5lLIP
-	0yzpHUoA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=3B+7xW3A+hBNawXWpX5L5XqlvWj4cEiq29OLLyd2VrE=; b=wWZ4+BVkp6K6x/
+	a3ii6NMOtQW+P1RTztZIen2WITkDl68lSsoccWm9X4Up+uIJ7KNhSkH4AWUIeuVu3FIETVUN2/jck
+	RXueaRTv7mKRrQ5mn7xUMNH2H1ulW197xxuUEDsIF5n5PGD7ws4fxvNbNM7dz/WwYL+al/IpEuCCU
+	f3bV4upYXtxuUrdQ9VH2w/dP/LaPQzLmHrkZoEx3PruhPJevK9f9XaKjKjRx7+pPl2OLL8o8WOQEr
+	91CJIorUfRF/noyz0xGAh0KAam4l/UyVQZPEXEERrMHvDgkEXfuaL172n3eitC5a5XOkSIJbV+r+r
+	S2Hr9oGGn2u92mnZ8XdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWGAR-0000000Ff6e-1VG1;
-	Fri, 10 Jan 2025 14:39:19 +0000
-Received: from relay6-d.mail.gandi.net ([217.70.183.198])
+	id 1tWGEN-0000000FfmW-1VXY;
+	Fri, 10 Jan 2025 14:43:23 +0000
+Received: from mail.thorsis.com ([217.92.40.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWG9D-0000000FeuJ-1Npt;
-	Fri, 10 Jan 2025 14:38:04 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 980E5C0007;
-	Fri, 10 Jan 2025 14:37:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1736519880;
+	id 1tWGD9-0000000FfcF-3VDU
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 10 Jan 2025 14:42:09 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 652E414867A3;
+	Fri, 10 Jan 2025 15:42:03 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
+	t=1736520125;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=AqHOTtKrS2nK6owEMQCN+3bics3pst072/Bpdc2sk1Q=;
-	b=m/PU3jSVOUgUfNeqSsjZfGTt+SAIExnswQ4nJ1ydWLAlAqDyJgvFnyk8HKoBD9BUxG16hy
-	Kxy9n0Cwf1Hc7YihZi5k5w9nwTsGIYKn4FnnKxNF0C/9/xC2AA8aQ8o73ouUrLBlKrfiyx
-	AyjzfEzOaOEu/KSVKY/wAa4K7WUjTk5cuP80r3I36oJZfq/WPge2eyw/Q2gARWb7KL+upy
-	Ls5pf4WYuuJ+rGBVEyY/yx0BMp8H7ueg0TrVzxvdSUOcEZM3LoiSsfBxWSFXKt701XzzPJ
-	/SMNBlfNJ7hqRZFrr0ROsFwE2/gIY4flK+fkxxJW4GO12ujEoN3r4OMJKmWnZQ==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Sanjay R Mehta <sanju.mehta@amd.com>,  Serge Semin
- <fancer.lancer@gmail.com>,  Han Xu <han.xu@nxp.com>,  Conor Dooley
- <conor.dooley@microchip.com>,  Daire McNamara
- <daire.mcnamara@microchip.com>,  Matthias Brugger
- <matthias.bgg@gmail.com>,  AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>,  Haibo Chen
- <haibo.chen@nxp.com>,  Yogesh Gaur <yogeshgaur.83@gmail.com>,  Heiko
- Stuebner <heiko@sntech.de>,  Michal Simek <michal.simek@amd.com>,  Richard
- Weinberger <richard@nod.at>,  Vignesh Raghavendra <vigneshr@ti.com>,
-  Jacky Huang <ychuang3@nuvoton.com>,  Shan-Chun Hung <schung@nuvoton.com>,
-  Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>,  =?utf-8?Q?C=C3=A9dric?= Le
- Goater
- <clg@kaod.org>,  Joel Stanley <joel@jms.id.au>,  Andrew Jeffery
- <andrew@codeconstruct.com.au>,  Avi Fishman <avifishman70@gmail.com>,
-  Tomer Maimon <tmaimon77@gmail.com>,  Tali Perry <tali.perry1@gmail.com>,
-  Patrick Venture <venture@google.com>,  Nancy Yuen <yuenn@google.com>,
-  Benjamin Fair <benjaminfair@google.com>,  Maxime Coquelin
- <mcoquelin.stm32@gmail.com>,  Alexandre Torgue
- <alexandre.torgue@foss.st.com>,  Raju Rangoju <Raju.Rangoju@amd.com>,
-  Thomas Petazzoni <thomas.petazzoni@bootlin.com>,  Steam Lin
- <stlin2@winbond.com>,  linux-spi@vger.kernel.org,
-  linux-kernel@vger.kernel.org,  imx@lists.linux.dev,
-  linux-riscv@lists.infradead.org,  linux-arm-kernel@lists.infradead.org,
-  linux-mediatek@lists.infradead.org,  linux-rockchip@lists.infradead.org,
-  linux-mtd@lists.infradead.org,  linux-aspeed@lists.ozlabs.org,
-  openbmc@lists.ozlabs.org,  linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v2 20/27] spi: spi-mem: Estimate the time taken by
- operations
-In-Reply-To: <ca317e2c-cd09-4884-b9eb-9cf23ae88078@sirena.org.uk> (Mark
-	Brown's message of "Fri, 10 Jan 2025 12:42:47 +0000")
-References: <20241224-winbond-6-11-rc1-quad-support-v2-0-ad218dbc406f@bootlin.com>
-	<20241224-winbond-6-11-rc1-quad-support-v2-20-ad218dbc406f@bootlin.com>
-	<ca317e2c-cd09-4884-b9eb-9cf23ae88078@sirena.org.uk>
-User-Agent: mu4e 1.12.7; emacs 29.4
-Date: Fri, 10 Jan 2025 15:37:52 +0100
-Message-ID: <87tta6ag5b.fsf@bootlin.com>
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=3B+7xW3A+hBNawXWpX5L5XqlvWj4cEiq29OLLyd2VrE=;
+	b=RGXH9KoVGDkvTHzliSDjEYC2PihHK/MND2FYnQ4tUGDudInB3lgPPP7BkoIjjhr7SvQItX
+	05nAST2vJ+0XqWz4pHod24BKyVyG7zOE47umIXYewTY7B4dGRzy+Gu5LoSB2PmVmrsvdRT
+	cqTo7jhgJSV3b8pXt90/fU+wvE//kgro+LLat67zhX5Co5O5IsRttv/wx4G+ZgLKhaz8+x
+	OnkTVTMfR3Smqym/pSFJ5GyVnRmbH095SUBYUO87dQcd8Yhr5DtmJpaIy354uD+sc/7p5f
+	0HqHCKE8kUGuMSG9ElI2u3HLJS7P/Ob/MBGMMj3ANcgqGQtBRLXMtmx8O4wbeA==
+From: Alexander Dahl <ada@thorsis.com>
+To: devicetree@vger.kernel.org
+Subject: [PATCH] ARM: dts: microchip: sam9x60: Add missing address/size cells for spi nodes
+Date: Fri, 10 Jan 2025 15:41:59 +0100
+Message-Id: <20250110144159.379344-1-ada@thorsis.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-Sasl: miquel.raynal@bootlin.com
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_063803_779417_D6971DAF 
-X-CRM114-Status: GOOD (  10.08  )
+X-CRM114-CacheID: sfid-20250110_064208_032513_DC71D2E7 
+X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,30 +64,80 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, open list <linux-kernel@vger.kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "moderated list:ARM/Microchip AT91 SoC support" <linux-arm-kernel@lists.infradead.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark,
+Complies with generic spi-controller and atmel,at91rm9200-spi bindings.
+Fixes dtc warnings, when actually adding spi target device nodes on
+board dts files including this soc dtsi.
 
-On 10/01/2025 at 12:42:47 GMT, Mark Brown <broonie@kernel.org> wrote:
+Signed-off-by: Alexander Dahl <ada@thorsis.com>
+---
+ arch/arm/boot/dts/microchip/sam9x60.dtsi | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-> On Tue, Dec 24, 2024 at 06:06:05PM +0100, Miquel Raynal wrote:
->> In the SPI-NAND layer, we currently make list of operation variants from
->> the fastest one to the slowest and there is a bit of logic in the core
->> to go over them and pick the first one that is supported by the
->> controller, ie. the fastest one among the supported ops.
->
-> This breaks the build:
->
-> /build/stage/linux/drivers/spi/spi-mem.c:580:5: error: conflicting types =
-for =E2=80=98spi_mem_calc_op_duration=E2=80=99; have =E2=80=98u64(struct sp=
-i_mem_op *)=E2=80=99 {aka =E2=80=98long long unsigned int(struct spi_mem_op=
- *)=E2=80=99}
->   580 | u64 spi_mem_calc_op_duration(struct spi_mem_op *op)
+diff --git a/arch/arm/boot/dts/microchip/sam9x60.dtsi b/arch/arm/boot/dts/microchip/sam9x60.dtsi
+index 36944e18a329..b8b2c1ddf3f1 100644
+--- a/arch/arm/boot/dts/microchip/sam9x60.dtsi
++++ b/arch/arm/boot/dts/microchip/sam9x60.dtsi
+@@ -197,6 +197,8 @@ spi4: spi@400 {
+ 					compatible = "microchip,sam9x60-spi", "atmel,at91rm9200-spi";
+ 					reg = <0x400 0x200>;
+ 					interrupts = <13 IRQ_TYPE_LEVEL_HIGH 7>;
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					clocks = <&pmc PMC_TYPE_PERIPHERAL 13>;
+ 					clock-names = "spi_clk";
+ 					dmas = <&dma0
+@@ -268,6 +270,8 @@ spi5: spi@400 {
+ 					compatible = "microchip,sam9x60-spi", "atmel,at91rm9200-spi";
+ 					reg = <0x400 0x200>;
+ 					interrupts = <14 IRQ_TYPE_LEVEL_HIGH 7>;
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					clocks = <&pmc PMC_TYPE_PERIPHERAL 14>;
+ 					clock-names = "spi_clk";
+ 					dmas = <&dma0
+@@ -768,6 +772,8 @@ spi0: spi@400 {
+ 					compatible = "microchip,sam9x60-spi", "atmel,at91rm9200-spi";
+ 					reg = <0x400 0x200>;
+ 					interrupts = <5 IRQ_TYPE_LEVEL_HIGH 7>;
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					clocks = <&pmc PMC_TYPE_PERIPHERAL 5>;
+ 					clock-names = "spi_clk";
+ 					dmas = <&dma0
+@@ -839,6 +845,8 @@ spi1: spi@400 {
+ 					compatible = "microchip,sam9x60-spi", "atmel,at91rm9200-spi";
+ 					reg = <0x400 0x200>;
+ 					interrupts = <6 IRQ_TYPE_LEVEL_HIGH 7>;
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					clocks = <&pmc PMC_TYPE_PERIPHERAL 6>;
+ 					clock-names = "spi_clk";
+ 					dmas = <&dma0
+@@ -910,6 +918,8 @@ spi2: spi@400 {
+ 					compatible = "microchip,sam9x60-spi", "atmel,at91rm9200-spi";
+ 					reg = <0x400 0x200>;
+ 					interrupts = <7 IRQ_TYPE_LEVEL_HIGH 7>;
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					clocks = <&pmc PMC_TYPE_PERIPHERAL 7>;
+ 					clock-names = "spi_clk";
+ 					dmas = <&dma0
+@@ -981,6 +991,8 @@ spi3: spi@400 {
+ 					compatible = "microchip,sam9x60-spi", "atmel,at91rm9200-spi";
+ 					reg = <0x400 0x200>;
+ 					interrupts = <8 IRQ_TYPE_LEVEL_HIGH 7>;
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					clocks = <&pmc PMC_TYPE_PERIPHERAL 8>;
+ 					clock-names = "spi_clk";
+ 					dmas = <&dma0
 
-Crap, that's a fixup that landed in the wrong commit (mtd: spinand:
-Enhance the logic when picking a variant). I'll fix it.
+base-commit: 9d89551994a430b50c4fffcb1e617a057fa76e20
+-- 
+2.39.5
 
-Thanks,
-Miqu=C3=A8l
 
