@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26EFCE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 11:09:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C74FBE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 11:10:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HghE7eWEUBbR9w5rS7IrqcFN5OXKw539/0Ap3Ls6QHM=; b=3WKTnerxJXSx3VGXKofjoGfXf7
-	2vVD9jl1dQffiG1Is6aTBWz9aJGi5crCbyBIcc+EsgRZdDCLzdyGxjaShMIV6bnyj953Ae6ZfYMyg
-	LmAsYCTSR1Uli7CeZEJS5IcuBiKJZIdBju7kNpWbxPGCmqCDFen/vwQXtOv/+tKTh9/0aT1Z4YQpu
-	bGRV9YqWFBkBmL+63En1MVb0qYJglAxOklf+4Utjq5N6SaIntIozi4b0xcTU93abdyQCWEO9lRxB3
-	TS4yDQ75iSBVkN0m6iCNNeRF6kfa1JB0cxTSyzukY8o/1P6uejd51QOd7nWQKPDdm/qaJP8uTFeCD
-	6B69Ed/g==;
+	bh=zhbOHS1LSUQnR0ZAmptYt5E326/dXJ8jgX1+l0kSoEs=; b=y4FLWGscXQOI/S6oDP7ogT3/J1
+	3zqKQ+vMZ5P8HNu2jJtRHD5cbvAONePbMma5sBo8B5UV94PXmBfTlcdiRGMHsYZ/pqwdJZQTJGuV8
+	750Rt5m/gA4SmRfAlTzjF2TYJy/bUyOw6x4J9C/1L0DuzTWv+ZXzl9tK8YaUsgeV503ZEHSZ039la
+	B4rlFMV2QvYQ2dw6B0yu5uOAICyk5mPQNSlxYL7wkLes40QNK2VyDQOAOcCj0LYWxvj4D6rsWzSkT
+	ZAbOhduQ1vXd/RxW8sgKHtN9DK5IhKTISPinqHzWXZu+x6GhAk3l1QtfWB0+HAg/cK2TO80yU/NZC
+	EtJLQd8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWCt4-0000000F3sx-1crR;
-	Fri, 10 Jan 2025 11:09:10 +0000
+	id 1tWCuG-0000000F45w-02eH;
+	Fri, 10 Jan 2025 11:10:24 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWClD-0000000F2jX-3HvO
+	id 1tWClI-0000000F2kk-45nI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 11:01:06 +0000
+	Fri, 10 Jan 2025 11:01:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 589165C4B5A;
-	Fri, 10 Jan 2025 11:00:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E01C2C4CEE5;
-	Fri, 10 Jan 2025 11:00:58 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 798325C5BEA;
+	Fri, 10 Jan 2025 11:00:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A23A3C4CED6;
+	Fri, 10 Jan 2025 11:01:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736506863;
-	bh=wX1cvsZl0Gee/1vXpjR21iffk4CLgXLHBJvGmHQoMwk=;
+	s=k20201202; t=1736506868;
+	bh=UC8nUjZKGXc68nYBY2MUUDphy0F97Omhafd+N3duSlE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=UVcqX3HJARW23MBB7HIpwfgbrnzUbc2Xdp7r/MXz5XW48w0UiqIWjbK3XxVO1S7x1
-	 fzfroHhsjit5PfoacoZwKjdKL4fzm60CU5LoBs+yAjiQ8gHzJ5k7T6Nxu2D0b85uYx
-	 v18Lk1TJH2dTwn28f5SJ6hZev/iy5YWdQs6mMEWhXsi60BM5bIFoJORwJ/6aZd5dU6
-	 DZsUpwyj8ClIUd6wp9nqUwB8qdm3JUKSY648rPxv5fQFYKCDZJUaZ/fei1cE1mh/sz
-	 HNsJnGfr8v558Q4aMk1XrwHVTVh5T3CEb9+LXCYSxPBCdiT3YhXZA3P2XHgmEoz8jL
-	 VqX7Rll4Sq/6g==
+	b=iiuAzdT9jlu5T0GUYeDJlrjDEHehXsr778oIyn2pohGSexWVblLet9S41jaMgZ6jM
+	 0DltV1Uhj6jvxwB75aS+DnSkvPdg5Tht76d+fpCQY8WtmLwztAmq6D+NgBT81o+LBb
+	 6K8VWbTW2aihb4WJ+CFdwCeXdrPEF14457VYIIMYsNk2RXSNJeZUMJJJ4fK9u53zBk
+	 NFWW5uWPw9PmS5aD2tC76NepCGog+M1LiQ9CHKEQuFciRbdXrUs9jxB0Qnt1fSHJeY
+	 ypxSTpCbVz+f+DOC2odNSTj1vDdKsSztE44Yxlp1HYr30ji//idUrdeSIbE2f3BAK/
+	 MKLmhLeTkwPrg==
 From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -56,17 +56,17 @@ Cc: Suzuki K Poulose <Suzuki.Poulose@arm.com>,
 	Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Subject: [PATCH v2 6/7] KVM: arm64: MTE: Nested guest support
-Date: Fri, 10 Jan 2025 16:30:22 +0530
-Message-ID: <20250110110023.2963795-7-aneesh.kumar@kernel.org>
+Subject: [PATCH v2 7/7] KVM: arm64: Split some of the kvm_pgtable_prot bits into separate defines
+Date: Fri, 10 Jan 2025 16:30:23 +0530
+Message-ID: <20250110110023.2963795-8-aneesh.kumar@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250110110023.2963795-1-aneesh.kumar@kernel.org>
 References: <20250110110023.2963795-1-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_030105_099715_B3B16763 
-X-CRM114-Status: GOOD (  19.88  )
+X-CRM114-CacheID: sfid-20250110_030109_090379_63C4F889 
+X-CRM114-Status: GOOD (  18.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,180 +81,213 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently MTE feature is not enabled for a EL1 guest and similarly we
-disable MTE_PERM. But we do add code in this patch to allow using
-KVM_CAP_ARM_MTE_PERM with an EL1 guest. This will allow the usage of MTE
-in nested guest even if some of the memory backing nested guest RAM is
-not MTE capable (ex: page cache pages).
+Some of the kvm_pgtable_prot values are mutually exclusive, like
+KVM_PGTABLE_PROT_NORMAL_NC and KVM_PGTABLE_PROT_DEVICE. This patch
+splits the Normal memory non-cacheable and NoTagAccess attributes into
+separate #defines. With this change, the kvm_pgtable_prot bits only
+indicate whether it is a device or normal memory mapping.
+
+There are no functional changes in this patch.
 
 Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 ---
- arch/arm64/include/asm/kvm_nested.h | 10 ++++++++++
- arch/arm64/kvm/mmu.c                | 10 ++++++++++
- arch/arm64/kvm/nested.c             | 28 ++++++++++++++++++++++++++++
- arch/arm64/kvm/sys_regs.c           | 15 +++++++++++----
- 4 files changed, 59 insertions(+), 4 deletions(-)
+ arch/arm64/include/asm/kvm_pgtable.h  | 10 +++---
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c |  2 +-
+ arch/arm64/kvm/hyp/pgtable.c          | 47 +++++++++++++--------------
+ arch/arm64/kvm/mmu.c                  | 10 +++---
+ 4 files changed, 36 insertions(+), 33 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
-index 233e65522716..4d6c0df3ef48 100644
---- a/arch/arm64/include/asm/kvm_nested.h
-+++ b/arch/arm64/include/asm/kvm_nested.h
-@@ -86,6 +86,8 @@ struct kvm_s2_trans {
- 	bool writable;
- 	bool readable;
- 	int level;
-+	int s2_fwb;
-+	int mem_attr;
- 	u32 esr;
- 	u64 desc;
- };
-@@ -120,10 +122,18 @@ static inline bool kvm_s2_trans_executable(struct kvm_s2_trans *trans)
- 	return !(trans->desc & BIT(54));
+diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+index 0daf4ffedc99..9443a8ad9343 100644
+--- a/arch/arm64/include/asm/kvm_pgtable.h
++++ b/arch/arm64/include/asm/kvm_pgtable.h
+@@ -239,7 +239,6 @@ enum kvm_pgtable_stage2_flags {
+  * @KVM_PGTABLE_PROT_W:		Write permission.
+  * @KVM_PGTABLE_PROT_R:		Read permission.
+  * @KVM_PGTABLE_PROT_DEVICE:	Device attributes.
+- * @KVM_PGTABLE_PROT_NORMAL_NC:	Normal noncacheable attributes.
+  * @KVM_PGTABLE_PROT_SW0:	Software bit 0.
+  * @KVM_PGTABLE_PROT_SW1:	Software bit 1.
+  * @KVM_PGTABLE_PROT_SW2:	Software bit 2.
+@@ -251,8 +250,6 @@ enum kvm_pgtable_prot {
+ 	KVM_PGTABLE_PROT_R			= BIT(2),
+ 
+ 	KVM_PGTABLE_PROT_DEVICE			= BIT(3),
+-	KVM_PGTABLE_PROT_NORMAL_NC		= BIT(4),
+-	KVM_PGTABLE_PROT_NORMAL_NOTAGACCESS	= BIT(5),
+ 
+ 	KVM_PGTABLE_PROT_SW0			= BIT(55),
+ 	KVM_PGTABLE_PROT_SW1			= BIT(56),
+@@ -263,6 +260,11 @@ enum kvm_pgtable_prot {
+ #define KVM_PGTABLE_PROT_RW	(KVM_PGTABLE_PROT_R | KVM_PGTABLE_PROT_W)
+ #define KVM_PGTABLE_PROT_RWX	(KVM_PGTABLE_PROT_RW | KVM_PGTABLE_PROT_X)
+ 
++/* different memory attribute requested */
++#define	KVM_PGTABLE_ATTR_NORMAL_NC		0x1
++#define	KVM_PGTABLE_ATTR_NORMAL_NOTAGACCESS	0x2
++
++
+ #define PKVM_HOST_MEM_PROT	KVM_PGTABLE_PROT_RWX
+ #define PKVM_HOST_MMIO_PROT	KVM_PGTABLE_PROT_RW
+ 
+@@ -606,7 +608,7 @@ kvm_pte_t *kvm_pgtable_stage2_create_unlinked(struct kvm_pgtable *pgt,
+  * Return: 0 on success, negative error code on failure.
+  */
+ int kvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
+-			   u64 phys, enum kvm_pgtable_prot prot,
++			   u64 phys, enum kvm_pgtable_prot prot, int mem_attr,
+ 			   void *mc, enum kvm_pgtable_walk_flags flags);
+ 
+ /**
+diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+index caba3e4bd09e..25c8b2fbce15 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
++++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+@@ -411,7 +411,7 @@ static inline int __host_stage2_idmap(u64 start, u64 end,
+ 				      enum kvm_pgtable_prot prot)
+ {
+ 	return kvm_pgtable_stage2_map(&host_mmu.pgt, start, end - start, start,
+-				      prot, &host_s2_pool, 0);
++				      prot, 0, &host_s2_pool, 0);
  }
  
-+static inline bool kvm_s2_trans_tagaccess(struct kvm_s2_trans *trans)
-+{
-+	if (trans->s2_fwb)
-+		return (trans->mem_attr & MT_S2_FWB_NORMAL_NOTAGACCESS) != MT_S2_FWB_NORMAL_NOTAGACCESS;
-+	return (trans->mem_attr & MT_S2_NORMAL_NOTAGACCESS) != MT_S2_NORMAL_NOTAGACCESS;
-+}
-+
- extern int kvm_walk_nested_s2(struct kvm_vcpu *vcpu, phys_addr_t gipa,
- 			      struct kvm_s2_trans *result);
- extern int kvm_s2_handle_perm_fault(struct kvm_vcpu *vcpu,
- 				    struct kvm_s2_trans *trans);
-+int kvm_s2_handle_notagaccess_fault(struct kvm_vcpu *vcpu, struct kvm_s2_trans *trans);
- extern int kvm_inject_s2_fault(struct kvm_vcpu *vcpu, u64 esr_el2);
- extern void kvm_nested_s2_wp(struct kvm *kvm);
- extern void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block);
+ /*
+diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+index 4eb6e9345c12..9dd93ae8bb97 100644
+--- a/arch/arm64/kvm/hyp/pgtable.c
++++ b/arch/arm64/kvm/hyp/pgtable.c
+@@ -673,35 +673,34 @@ void kvm_tlb_flush_vmid_range(struct kvm_s2_mmu *mmu,
+ #define KVM_S2_MEMATTR(pgt, attr) PAGE_S2_MEMATTR(attr, stage2_has_fwb(pgt))
+ 
+ static int stage2_set_prot_attr(struct kvm_pgtable *pgt, enum kvm_pgtable_prot prot,
+-				kvm_pte_t *ptep)
++				int mem_attr, kvm_pte_t *ptep)
+ {
+ 	kvm_pte_t attr;
+ 	u32 sh = KVM_PTE_LEAF_ATTR_LO_S2_SH_IS;
+-	unsigned long prot_mask = KVM_PGTABLE_PROT_DEVICE |
+-				  KVM_PGTABLE_PROT_NORMAL_NC |
+-				  KVM_PGTABLE_PROT_NORMAL_NOTAGACCESS;
++	bool device = prot & KVM_PGTABLE_PROT_DEVICE;
+ 
+-	switch (prot & prot_mask) {
+-	case KVM_PGTABLE_PROT_DEVICE | KVM_PGTABLE_PROT_NORMAL_NC:
+-		return -EINVAL;
+-	case KVM_PGTABLE_PROT_DEVICE:
++	if (device) {
+ 		if (prot & KVM_PGTABLE_PROT_X)
+ 			return -EINVAL;
+ 		attr = KVM_S2_MEMATTR(pgt, DEVICE_nGnRE);
+-		break;
+-	case KVM_PGTABLE_PROT_NORMAL_NC:
+-		if (prot & KVM_PGTABLE_PROT_X)
++		if (!mem_attr)
+ 			return -EINVAL;
+-		attr = KVM_S2_MEMATTR(pgt, NORMAL_NC);
+-		break;
+-	case KVM_PGTABLE_PROT_NORMAL_NOTAGACCESS:
+-		if (system_supports_notagaccess())
+-			attr = KVM_S2_MEMATTR(pgt, NORMAL_NOTAGACCESS);
+-		else
+-			return -EINVAL;
+-		break;
+-	default:
+-		attr = KVM_S2_MEMATTR(pgt, NORMAL);
++	} else {
++		switch (mem_attr) {
++		case KVM_PGTABLE_ATTR_NORMAL_NC:
++			if (prot & KVM_PGTABLE_PROT_X)
++				return -EINVAL;
++			attr = KVM_S2_MEMATTR(pgt, NORMAL_NC);
++			break;
++		case KVM_PGTABLE_ATTR_NORMAL_NOTAGACCESS:
++			if (system_supports_notagaccess())
++				attr = KVM_S2_MEMATTR(pgt, NORMAL_NOTAGACCESS);
++			else
++				return -EINVAL;
++			break;
++		default:
++			attr = KVM_S2_MEMATTR(pgt, NORMAL);
++		}
+ 	}
+ 
+ 	if (!(prot & KVM_PGTABLE_PROT_X))
+@@ -1060,7 +1059,7 @@ static int stage2_map_walker(const struct kvm_pgtable_visit_ctx *ctx,
+ }
+ 
+ int kvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
+-			   u64 phys, enum kvm_pgtable_prot prot,
++			   u64 phys, enum kvm_pgtable_prot prot, int mem_attr,
+ 			   void *mc, enum kvm_pgtable_walk_flags flags)
+ {
+ 	int ret;
+@@ -1081,7 +1080,7 @@ int kvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
+ 	if (WARN_ON((pgt->flags & KVM_PGTABLE_S2_IDMAP) && (addr != phys)))
+ 		return -EINVAL;
+ 
+-	ret = stage2_set_prot_attr(pgt, prot, &map_data.attr);
++	ret = stage2_set_prot_attr(pgt, prot, mem_attr, &map_data.attr);
+ 	if (ret)
+ 		return ret;
+ 
+@@ -1408,7 +1407,7 @@ kvm_pte_t *kvm_pgtable_stage2_create_unlinked(struct kvm_pgtable *pgt,
+ 	if (!IS_ALIGNED(phys, kvm_granule_size(level)))
+ 		return ERR_PTR(-EINVAL);
+ 
+-	ret = stage2_set_prot_attr(pgt, prot, &map_data.attr);
++	ret = stage2_set_prot_attr(pgt, prot, 0, &map_data.attr);
+ 	if (ret)
+ 		return ERR_PTR(ret);
+ 
 diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 3610bea7607d..54e5bfe4f126 100644
+index 54e5bfe4f126..87afc8862459 100644
 --- a/arch/arm64/kvm/mmu.c
 +++ b/arch/arm64/kvm/mmu.c
-@@ -1640,6 +1640,9 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 		goto out_unlock;
- 	}
+@@ -1130,8 +1130,8 @@ int kvm_phys_addr_ioremap(struct kvm *kvm, phys_addr_t guest_ipa,
+ 			break;
  
-+	if (nested && !kvm_s2_trans_tagaccess(nested))
-+		mte_allowed = false;
-+
- 	/*
- 	 * If we are not forced to use page mapping, check if we are
- 	 * backed by a THP and thus use block mapping if possible.
-@@ -1836,6 +1839,13 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+ 		write_lock(&kvm->mmu_lock);
+-		ret = kvm_pgtable_stage2_map(pgt, addr, PAGE_SIZE, pa, prot,
+-					     &cache, 0);
++		ret = kvm_pgtable_stage2_map(pgt, addr, PAGE_SIZE,
++					     pa, prot, 0, &cache, 0);
+ 		write_unlock(&kvm->mmu_lock);
+ 		if (ret)
+ 			break;
+@@ -1452,6 +1452,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ 	enum kvm_pgtable_prot prot = KVM_PGTABLE_PROT_R;
+ 	struct kvm_pgtable *pgt;
+ 	struct page *page;
++	int normal_memattr = 0;
+ 
+ 	if (fault_is_perm)
+ 		fault_granule = kvm_vcpu_trap_get_perm_fault_granule(vcpu);
+@@ -1666,7 +1667,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ 		if (mte_allowed)
+ 			sanitise_mte_tags(kvm, pfn, vma_pagesize);
+ 		else if (kvm_has_mte_perm(kvm))
+-			prot |= KVM_PGTABLE_PROT_NORMAL_NOTAGACCESS;
++			normal_memattr = KVM_PGTABLE_ATTR_NORMAL_NOTAGACCESS;
+ 		else {
+ 			ret = -EFAULT;
  			goto out_unlock;
- 		}
+@@ -1681,7 +1682,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
  
-+		ret = kvm_s2_handle_notagaccess_fault(vcpu, &nested_trans);
-+		if (ret) {
-+			esr = kvm_s2_trans_esr(&nested_trans);
-+			kvm_inject_s2_fault(vcpu, esr);
-+			goto out_unlock;
-+		}
-+
- 		ipa = kvm_s2_trans_output(&nested_trans);
- 		nested = &nested_trans;
- 	}
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 9b36218b48de..5867e0376444 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -290,6 +290,7 @@ static int walk_nested_s2_pgd(phys_addr_t ipa,
- 	out->writable = desc & (0b10 << 6);
- 	out->level = level;
- 	out->desc = desc;
-+	out->mem_attr = desc & KVM_PTE_LEAF_ATTR_LO_S2_MEMATTR;
- 	return 0;
- }
- 
-@@ -340,6 +341,7 @@ int kvm_walk_nested_s2(struct kvm_vcpu *vcpu, phys_addr_t gipa,
- 
- 	wi.be = vcpu_read_sys_reg(vcpu, SCTLR_EL2) & SCTLR_ELx_EE;
- 
-+	result->s2_fwb = !!(*vcpu_hcr(vcpu) & HCR_FWB);
- 	ret = walk_nested_s2_pgd(gipa, &wi, result);
- 	if (ret)
- 		result->esr |= (kvm_vcpu_get_esr(vcpu) & ~ESR_ELx_FSC);
-@@ -733,6 +735,27 @@ int kvm_s2_handle_perm_fault(struct kvm_vcpu *vcpu, struct kvm_s2_trans *trans)
- 	return forward_fault;
- }
- 
-+int kvm_s2_handle_notagaccess_fault(struct kvm_vcpu *vcpu, struct kvm_s2_trans *trans)
-+{
-+	bool forward_fault = false;
-+
-+	trans->esr = 0;
-+
-+	if (!kvm_vcpu_trap_is_tagaccess(vcpu))
-+		return 0;
-+
-+	if (!kvm_s2_trans_tagaccess(trans))
-+		forward_fault = true;
-+	else
-+		forward_fault = false;
-+
-+	/* forward it as a permission fault with tag access set in ISS2 */
-+	if (forward_fault)
-+		trans->esr = esr_s2_fault(vcpu, trans->level, ESR_ELx_FSC_PERM);
-+
-+	return forward_fault;
-+}
-+
- int kvm_inject_s2_fault(struct kvm_vcpu *vcpu, u64 esr_el2)
- {
- 	vcpu_write_sys_reg(vcpu, vcpu->arch.fault.far_el2, FAR_EL2);
-@@ -844,6 +867,11 @@ static void limit_nv_id_regs(struct kvm *kvm)
- 		NV_FTR(PFR1, CSV2_frac));
- 	kvm_set_vm_id_reg(kvm, SYS_ID_AA64PFR1_EL1, val);
- 
-+	/* For now no MTE_PERM support because MTE is disabled above */
-+	val = kvm_read_vm_id_reg(kvm, SYS_ID_AA64PFR2_EL1);
-+	val &= ~NV_FTR(PFR2, MTEPERM);
-+	kvm_set_vm_id_reg(kvm, SYS_ID_AA64PFR2_EL1, val);
-+
- 	/* Hide ECV, ExS, Secure Memory */
- 	val = kvm_read_vm_id_reg(kvm, SYS_ID_AA64MMFR0_EL1);
- 	val &= ~(NV_FTR(MMFR0, ECV)		|
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index e2a5c2918d9e..cb7d4d32179c 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -1557,7 +1557,7 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
- 				       const struct sys_reg_desc *r)
- {
- 	u32 id = reg_to_encoding(r);
--	u64 val;
-+	u64 val, mask;
- 
- 	if (sysreg_visible_as_raz(vcpu, r))
- 		return 0;
-@@ -1587,8 +1587,14 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
- 		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MPAM_frac);
- 		break;
- 	case SYS_ID_AA64PFR2_EL1:
--		/* We only expose FPMR */
--		val &= ID_AA64PFR2_EL1_FPMR;
-+		mask = ID_AA64PFR2_EL1_FPMR;
-+		/*
-+		 * Since this is a stage-2 specific feature, only pass
-+		 * if vcpu can run in vEL2
-+		 */
-+		if (vcpu_has_nv(vcpu))
-+			mask |= ID_AA64PFR2_EL1_MTEPERM;
-+		val &= mask;
- 		break;
- 	case SYS_ID_AA64ISAR1_EL1:
- 		if (!vcpu_has_ptrauth(vcpu))
-@@ -2566,7 +2572,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 				       ID_AA64PFR1_EL1_MPAM_frac |
- 				       ID_AA64PFR1_EL1_RAS_frac |
- 				       ID_AA64PFR1_EL1_MTE)),
--	ID_WRITABLE(ID_AA64PFR2_EL1, ID_AA64PFR2_EL1_FPMR),
-+	ID_WRITABLE(ID_AA64PFR2_EL1, ID_AA64PFR2_EL1_FPMR |
-+					ID_AA64PFR2_EL1_MTEPERM),
- 	ID_UNALLOCATED(4,3),
- 	ID_WRITABLE(ID_AA64ZFR0_EL1, ~ID_AA64ZFR0_EL1_RES0),
- 	ID_HIDDEN(ID_AA64SMFR0_EL1),
+ 	if (device) {
+ 		if (vfio_allow_any_uc)
+-			prot |= KVM_PGTABLE_PROT_NORMAL_NC;
++			normal_memattr = KVM_PGTABLE_ATTR_NORMAL_NC;
+ 		else
+ 			prot |= KVM_PGTABLE_PROT_DEVICE;
+ 	} else if (cpus_have_final_cap(ARM64_HAS_CACHE_DIC) &&
+@@ -1704,6 +1705,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ 	} else {
+ 		ret = kvm_pgtable_stage2_map(pgt, fault_ipa, vma_pagesize,
+ 					     __pfn_to_phys(pfn), prot,
++					     normal_memattr,
+ 					     memcache,
+ 					     KVM_PGTABLE_WALK_HANDLE_FAULT |
+ 					     KVM_PGTABLE_WALK_SHARED);
 -- 
 2.43.0
 
