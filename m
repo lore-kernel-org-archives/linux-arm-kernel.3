@@ -4,64 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A810E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 10:32:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAEEEE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 10:33:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XZEnoKWVnNWxWfpvM4CKXWKQ2zlo+dYmzvVDMOYSnHk=; b=ZHb5t2mrh7Sn/Oy10p6ICjSU8W
-	SCbZKFviVG6YgfIr5wKX8T3ZFQ+3pi8MmpWsTzUMBqMD2NRj008x1pOszlgdKcsrtmKrxTmZ2bj+n
-	+OGRvjVZgr8uPXUAZkvfH05ysB6d5yRafx5UyCc+QkkFQfUhMb0QzusfFPbRvtLbzmSYXQ3oEg4NN
-	3OoCOQrSWX++0Jv198htLL3HrLjW0AJAchEplmJSui6ViyFrY6qU9F2ndh7tp/grGwKfYthSVdRHv
-	c11qvXujqFVQeMiK7Vz3HtaiVh05siGokpyxjTNiA7hSotQwDxSM8DJDWZNH2AoAQ/cUv6QEpzkSP
-	zxNoMyfA==;
+	bh=ymeIa4Z5Q9lvJYb7W+K9N4f6vLHgsLCOMhhePkMMCtI=; b=pNj+AfLmi9RFrSfNnHmDNN1Hmk
+	eHmdDSARoJfqdiIaIjdsHNTHpp9jKaowkhubLJvb/zsF2i96+rfcE2O+h2Mj1V1PybGRLnAvLRzNO
+	dOOSnsM1YAVuLAoVEkATMbjroKrd8dkN15jxgz1p1VVNEW7Ri4TvkHKFRrbQWckS/AKxr//6iGqaG
+	V6K7Z9yYkmgHndXLtNXBIvG768iPgrtqg3JKNoP6Uj0d/g4JWCyy+u2LJ5ZaodiTX6t3oxdw56w/y
+	Sr+jA+bu4ghjW36gSmeHWZhVJSFns4t6gbKqvcLtiOSw8fQEMTcrpu1wis87/3YL95PJeYOgeo/Gt
+	EALHS0Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWCJb-0000000Ey7P-037m;
-	Fri, 10 Jan 2025 10:32:31 +0000
-Received: from mail.thorsis.com ([2003:a:e28:26e4::10])
+	id 1tWCKn-0000000EyIh-1Opd;
+	Fri, 10 Jan 2025 10:33:45 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWCCq-0000000EwCY-2J7F
+	id 1tWCGC-0000000ExEq-0gu6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 10:25:33 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4B8671486AEC;
-	Fri, 10 Jan 2025 11:25:26 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
-	t=1736504728;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XZEnoKWVnNWxWfpvM4CKXWKQ2zlo+dYmzvVDMOYSnHk=;
-	b=vALKgF6qgEd0igT7VNytsLCV0DUpK0yJL2uouCVImkOs3L1XzAPOMzM/lznYTfq2ucfS2J
-	cV4dDlLUcHyytiJFODvoHrcbwYFNyGbLwNa4wZJ+1FAZdVYNxeZQLqyNKnfLSZ5WhCUTMa
-	gJbj4CHqcKSYnYwcBiHM8K1ogLSXmu0YSbnVl63/8wHS3/Ew9+cQPQ1yd1u4UR6ogF/kxz
-	S4Z17ooV/vKUpAswGmwmMH4H1q6U4POOMi1PzVBT+HOlEAF0kPzNgY3tLwhxJnazrofuwr
-	eVjKFC+n+nnZ2jGz5CNw9oZjf7z6Cb/3hidU8jAPc9Sxa1YMB3F4FvsL61KxFQ==
-Date: Fri, 10 Jan 2025 11:25:24 +0100
-From: Alexander Dahl <ada@thorsis.com>
-To: Mihai Sain <mihai.sain@microchip.com>
-Subject: Re: [PATCH] spi: atmel-quadspi: Print the controller version and
- used irq
-Message-ID: <20250110-reshuffle-thrower-3212ad741403@thorsis.com>
-Mail-Followup-To: Mihai Sain <mihai.sain@microchip.com>, broonie@kernel.org,
-	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev, linux-spi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20241008083226.51163-1-mihai.sain@microchip.com>
+	Fri, 10 Jan 2025 10:29:01 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1tWCG5-0008Ak-W6; Fri, 10 Jan 2025 11:28:54 +0100
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1tWCG4-0008u5-2X;
+	Fri, 10 Jan 2025 11:28:52 +0100
+Received: from pengutronix.de (pd9e59fec.dip0.t-ipconnect.de [217.229.159.236])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id 5B6953A44F2;
+	Fri, 10 Jan 2025 10:28:52 +0000 (UTC)
+Date: Fri, 10 Jan 2025 11:28:52 +0100
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Conor Dooley <conor+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Rob Herring <robh@kernel.org>, Vincent Mailhol <mailhol.vincent@wanadoo.fr>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-can@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH] dt-bindings: can: st,stm32-bxcan: fix st,gcan property
+ type
+Message-ID: <20250110-horned-nebulous-condor-09243b-mkl@pengutronix.de>
+References: <20241228150043.3926696-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="anwmo6ob52wfnpr4"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241008083226.51163-1-mihai.sain@microchip.com>
-User-Agent: Mutt/2.2.12 (2023-09-09)
-X-Last-TLS-Session-Version: TLSv1.3
+In-Reply-To: <20241228150043.3926696-1-dario.binacchi@amarulasolutions.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_022532_752285_6480B8A2 
-X-CRM114-Status: GOOD (  19.17  )
+X-CRM114-CacheID: sfid-20250110_022900_204200_4C55CA05 
+X-CRM114-Status: GOOD (  11.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,66 +81,50 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: alexandre.belloni@bootlin.com, linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org, broonie@kernel.org, claudiu.beznea@tuxon.dev, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Mihai,
 
-just saw I made a similar patch for myself lately, so regarding the
-discussion of the need of such a patch, I would opt for it.  However,
-see below …
+--anwmo6ob52wfnpr4
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] dt-bindings: can: st,stm32-bxcan: fix st,gcan property
+ type
+MIME-Version: 1.0
 
-Am Tue, Oct 08, 2024 at 11:32:26AM +0300 schrieb Mihai Sain:
-> Add support to print the controller version and used irq
-> similar to other at91 drivers (spi, twi, usart).
-> 
-> Signed-off-by: Mihai Sain <mihai.sain@microchip.com>
-> ---
->  drivers/spi/atmel-quadspi.c | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/drivers/spi/atmel-quadspi.c b/drivers/spi/atmel-quadspi.c
-> index 95cdfc28361e..757f07132585 100644
-> --- a/drivers/spi/atmel-quadspi.c
-> +++ b/drivers/spi/atmel-quadspi.c
-> @@ -687,6 +687,8 @@ static int atmel_qspi_probe(struct platform_device *pdev)
->  	pm_runtime_mark_last_busy(&pdev->dev);
->  	pm_runtime_put_autosuspend(&pdev->dev);
->  
-> +	dev_info(&pdev->dev, "AT91 QSPI Controller version %#x (irq %d)\n",
-> +		 atmel_qspi_read(aq, QSPI_VERSION), irq);
->  	return 0;
+On 28.12.2024 16:00:30, Dario Binacchi wrote:
+> The SRAM memory shared pointed to by the st,gcan property is unique, so
+> we don't need an array of phandles.
+>=20
+> Fixes: e43250c0ac81 ("dt-bindings: net: can: add STM32 bxcan DT bindings")
+> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 
-I think this should go above pm_runtime functions, because it does i/o
-on a register.  This is how my diff looks like:
+Applied to linux-can-next.
 
-diff --git a/drivers/spi/atmel-quadspi.c b/drivers/spi/atmel-quadspi.c
-index 3d95b887235e6..7405b66e14b30 100644
---- a/drivers/spi/atmel-quadspi.c
-+++ b/drivers/spi/atmel-quadspi.c
-@@ -1356,6 +1356,7 @@ static int atmel_qspi_probe(struct platform_device *pdev)
-         struct atmel_qspi *aq;
-         struct resource *res;
-         int irq, err = 0;
-+        u32 version;
- 
-         ctrl = devm_spi_alloc_host(&pdev->dev, sizeof(*aq));
-         if (!ctrl)
-@@ -1470,6 +1471,12 @@ static int atmel_qspi_probe(struct platform_device *pdev)
-                 pm_runtime_dont_use_autosuspend(&pdev->dev);
-                 goto dma_release;
-         }
-+
-+        version = atmel_qspi_read(aq, QSPI_VERSION) & 0x00000fff;
-+        dev_info(&pdev->dev,
-+                 "Atmel QSPI Controller version 0x%x at %pR (irq %d)\n",
-+                 version, pdev->resource, irq);
-+
-         pm_runtime_mark_last_busy(&pdev->dev);
-         pm_runtime_put_autosuspend(&pdev->dev);
+Thanks,
+Marc
 
-Greets
-Alex
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
 
+--anwmo6ob52wfnpr4
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEUEC6huC2BN0pvD5fKDiiPnotvG8FAmeA9mAACgkQKDiiPnot
+vG9O5AgAlFntbK9yhpLpeCz1lm+o0dvDkJAg6SzSmwNVrDFP2y1ytnIzmcsZnIPS
+63BnL7xaJhesheN4reHBf0rgtxgb3QaU+3niVWfl13XdQ79inx9PfZG8xo9TPj/V
+xTTMdJWeskKObytetj+1ZLzr2WOsA8FVz6P4fuDgJhcVod21xoEj2UZIzveptxS0
+EANnxs0pXr5vSubSDwg2R+1Z5uDEywNGKo9LsoJpugu7y4Sy+gfanoleRuJXsd2l
+K2fSG+/XJbJXwnX32jvtWLaP9UIgdDtPdATlSPkdc95L3bVdCYoFx6fqr1MUsYBx
+2bpswKMicMk4KQxSdPc3+7mipYOSfQ==
+=xsOB
+-----END PGP SIGNATURE-----
+
+--anwmo6ob52wfnpr4--
 
