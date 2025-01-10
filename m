@@ -4,200 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA396E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 07:16:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13908E7719C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 07:17:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MeGGYskInaSI94wOC+EH78KABL5WgNFw8eKDqa530ME=; b=sfU/IX9JCCiahYmr/NMMDrEcuf
-	cuj+Z7/gGoY5TgF1+A/O7l3e4DSImdKnPDOtTKzhUtjSU+nD6WFHCYcRm7NAOGtpXBiz4fVjRcITx
-	kl0EVmRfQPKNXKPYcfmDkr/5skgpdxkB4jbct2A5u9AdnHnUVvc77U3erZCLyzO5Jr/oTJMjjWlI3
-	Hd6dkDX4O5t7RRRK26SR+/Akz402qC/Mina0S50AJvoh5VsmhsAR1yb1ovQs7NWOGFpBo1guMjHXj
-	1HBwzox7qin3hZalTByMDJCXS/0FrjcV9Obu2mxkVR8afpC5eqgxoRmXOSaOYAsUF3NyTQnjN3woB
-	7U0Ie36g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MS6+VrmQJ0k1U5nKIvUXbhlIV2XPEYOIqlRzaUo3bG4=; b=lJGkCyi2VxFCJUTlOtwaxbu29j
+	UqXjN/1QGOA93+x3FGtYn/avZFoEO/Hs1xu3V71GGdJqpe6mpSQC9B5h0Vh1IbZzT/QgnZ9YJaHuW
+	nfDdM6INOr05AUfTmsO7kEvPIkU9EiObEG8rqbbMyFGPPTRn1QYgzJkRNTX9meO3xE7lUEPJajB2u
+	DYap5NrJCRHg+e03dkVHvKvr8CXwYBfHjPWwJII7CxZRXt4C8zeRnJ/fpaqQlaTxk29Cxg1NwqwPY
+	DEXoiR7A6M2LzWp9Nch7fp0oy4I3jMCjnSzWb3N+a2Zq2YHT0HBPSCv6VF+1Njyl+sKOdDheKiFdq
+	tR8h0PHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW9FV-0000000ELzI-0TFq;
-	Fri, 10 Jan 2025 07:16:05 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1tW9Gg-0000000EM6U-0AZB;
+	Fri, 10 Jan 2025 07:17:18 +0000
+Received: from server.wki.vra.mybluehostin.me ([162.240.238.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW9D5-0000000ELRC-1BsV
+	id 1tW9EJ-0000000ELi8-2pU3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 07:13:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1736493216; x=1768029216;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=MeGGYskInaSI94wOC+EH78KABL5WgNFw8eKDqa530ME=;
-  b=QPlGN9yQZslNdxLKZIqrHT7mSkR4DDlSIcL8VzPWvR0EynSZBKWdrYmy
-   hAbWYn2CD2rs7g76GOVnjiSbqXB7lPnVYSBs1WX9Brof/fJdVpTv2S3Ce
-   jFk1n0hGND/DyAcNhuGxJ1pFWw7UUSmehSyUwhH3zhamRfHRVMUYLT70q
-   UqmQnIIFFBz63/kcLLNq3fXOvlGLxyUj92ki65xaq4asAOmq1MRiKdFIR
-   mmauL2LYakYulIfGhSuk/M/DcOZ21mtcE1+/PsPW63mGm8m0rUwfc0JfW
-   VQPx71DsOq489QtREGvlbunnYNXEWbAyvFXAdg1ftMg0Hio+U8/YWrnBu
-   Q==;
-X-CSE-ConnectionGUID: EcC7i4MaTDG6lKLsBtVYyQ==
-X-CSE-MsgGUID: hCQht+gNToKYD5eQHrU+Vw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11310"; a="36887668"
-X-IronPort-AV: E=Sophos;i="6.12,303,1728975600"; 
-   d="scan'208";a="36887668"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jan 2025 23:13:34 -0800
-X-CSE-ConnectionGUID: 1E2lCYkZRi2f22VD/1YY3w==
-X-CSE-MsgGUID: PFWWuk95R9+lQJ4EeDd5sw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,303,1728975600"; 
-   d="scan'208";a="108576257"
-Received: from orsmsx601.amr.corp.intel.com ([10.22.229.14])
-  by fmviesa004.fm.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 09 Jan 2025 23:13:33 -0800
-Received: from orsmsx601.amr.corp.intel.com (10.22.229.14) by
- ORSMSX601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Thu, 9 Jan 2025 23:13:32 -0800
-Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
- orsmsx601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44 via Frontend Transport; Thu, 9 Jan 2025 23:13:32 -0800
-Received: from NAM10-MW2-obe.outbound.protection.outlook.com (104.47.55.42) by
- edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.44; Thu, 9 Jan 2025 23:13:30 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SQfzwY7X3z7DMvYEo10jG+VyIZEN7z8qvwr1CN/caod73d7aCm6ufXmDooJOpSDCE9dp5x4nYNeWNRKt67zph8XWykY+q5+ENn9zMxc8idyMLeDN3z+KfKYMl09x1s1oU1R1uy4JMt0OLQ5z4a4gQBmh7gmv3yFlmQZxy5R2OFLUqERG0bv/bdMghOo5QmRxwRoh1OiI/G740Ot1xVxyLvk0E8xuqAhvlmLvcuIxvyXcgp2yNwyOvrADZ6zMYRrdPGleLHZTbQPVS55QXdrBGKicJmSbPJ9RIRttFKVMXLK8jV54YazBR2XCBYEQcRDai938F/jkTwVBi1WoLgBObA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MeGGYskInaSI94wOC+EH78KABL5WgNFw8eKDqa530ME=;
- b=rikPZlHMmmFaPGbj41H4XB407mVdPpn7ZSYdBDvkO7gnXVUY+dfV+mpLUSUsn92AuRY/qv31z1HmDpQunsE3APE9q5SEB5kSwQvML4QUU/xnbUhOEMqNYZqOb3svA4t8PwOUjoUeQhwx4uyCvdCkdIyE1kPqdbScLF+OLiT7Ly/41SjRXLw94Lo3o803zboKm18OcaczMJeHevtZZ0thYkqAlOckN7OcjTQmQFcU0P4jY2x6cEZv6z75plxY3awaQNhXqrZkG+Lo/2xFVx4RokwKbVFpHnmaGODOej8ZwqALN2KEAfILm3+SJRl1dLgppq0EyrtGf4oWeZ3AFdSojg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
- by MN6PR11MB8196.namprd11.prod.outlook.com (2603:10b6:208:47b::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.11; Fri, 10 Jan
- 2025 07:13:17 +0000
-Received: from BN9PR11MB5276.namprd11.prod.outlook.com
- ([fe80::b576:d3bd:c8e0:4bc1]) by BN9PR11MB5276.namprd11.prod.outlook.com
- ([fe80::b576:d3bd:c8e0:4bc1%7]) with mapi id 15.20.8335.011; Fri, 10 Jan 2025
- 07:13:16 +0000
-From: "Tian, Kevin" <kevin.tian@intel.com>
-To: Nicolin Chen <nicolinc@nvidia.com>, "jgg@nvidia.com" <jgg@nvidia.com>,
-	"corbet@lwn.net" <corbet@lwn.net>, "will@kernel.org" <will@kernel.org>
-CC: "joro@8bytes.org" <joro@8bytes.org>, "suravee.suthikulpanit@amd.com"
-	<suravee.suthikulpanit@amd.com>, "robin.murphy@arm.com"
-	<robin.murphy@arm.com>, "dwmw2@infradead.org" <dwmw2@infradead.org>,
-	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>, "shuah@kernel.org"
-	<shuah@kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "iommu@lists.linux.dev"
-	<iommu@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kselftest@vger.kernel.org"
-	<linux-kselftest@vger.kernel.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>, "eric.auger@redhat.com" <eric.auger@redhat.com>,
-	"jean-philippe@linaro.org" <jean-philippe@linaro.org>, "mdf@kernel.org"
-	<mdf@kernel.org>, "mshavit@google.com" <mshavit@google.com>,
-	"shameerali.kolothum.thodi@huawei.com"
-	<shameerali.kolothum.thodi@huawei.com>, "smostafa@google.com"
-	<smostafa@google.com>, "ddutile@redhat.com" <ddutile@redhat.com>, "Liu, Yi L"
-	<yi.l.liu@intel.com>, "patches@lists.linux.dev" <patches@lists.linux.dev>
-Subject: RE: [PATCH v5 12/14] Documentation: userspace-api: iommufd: Update
- FAULT and VEVENTQ
-Thread-Topic: [PATCH v5 12/14] Documentation: userspace-api: iommufd: Update
- FAULT and VEVENTQ
-Thread-Index: AQHbYSc8Jat33VY7pUaPp9nqTwNzrrMPm9bw
-Date: Fri, 10 Jan 2025 07:13:16 +0000
-Message-ID: <BN9PR11MB5276697F4D8B15BE97FDE0228C1C2@BN9PR11MB5276.namprd11.prod.outlook.com>
-References: <cover.1736237481.git.nicolinc@nvidia.com>
- <02e47317606d0e6f1220596a98152f61f422167f.1736237481.git.nicolinc@nvidia.com>
-In-Reply-To: <02e47317606d0e6f1220596a98152f61f422167f.1736237481.git.nicolinc@nvidia.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|MN6PR11MB8196:EE_
-x-ms-office365-filtering-correlation-id: a3cf0e75-d613-4cff-d61f-08dd3146414c
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?sYTkCfGpWquuNSuVobrPMKzuK1P3BKrm53zB/2GghqJuqnl7gaXcHB/eA09J?=
- =?us-ascii?Q?35OchkCbpv3tGqDqjUqjxsjuvO1SLwCtEOXEVWV21uYL3XsFK8eoQ09njFQl?=
- =?us-ascii?Q?V3pUIpGTFDLczKY2Brb4bLjGf50DKBAl1p8GMVjGzZx3YnuULZPKq0Yst54g?=
- =?us-ascii?Q?I8NgF6MnOjgHSX/M83SahM7ko9Qu/7PciMwWswb6kQfy7BTG4404bVNsLoKh?=
- =?us-ascii?Q?p4/AHi6r3Z9QxSNtswfpmlbmSj4X4OnVsn6DMqSY43LUg4SsccmPMbfbs5Qp?=
- =?us-ascii?Q?al5rUfRPM73em7fv6yZb5YCPNIygxZ8sLtrMYfLs1+vPuJquQzdJp1O+KlKh?=
- =?us-ascii?Q?QBAM9lMr3hiFD/PD02fPLzY/5DKdXudL1hM5jfvrscdBPk/GbKTX1F2IWsVC?=
- =?us-ascii?Q?cK7ZPNcXwVNq59FtvPNJL3uDGoczUQqf/1Llykl7GJ07ajgi/UC3L7EvVMOQ?=
- =?us-ascii?Q?YEWtD4PbvLih4VD9nDWL1aAEINNrDDzjT6ow7MbmHTxw5qfSz1ClFW60vp+R?=
- =?us-ascii?Q?4Evtwkz+ePcuqcYI7Lvb0mZPxzdC34hB1DYRHHYy258gC3Xb35RYv+O9K/qe?=
- =?us-ascii?Q?YBCwcJydvPGHt6ZAhtSK6ys+F6CVnGofIPobmOuDLKMObrChd39mX2ZyC6Ad?=
- =?us-ascii?Q?wQJqcD1BXGh7UsGr9rtwejIKySBDPnOCYjoXLzjzZ8H+50tAOuwTN9v0Cvo/?=
- =?us-ascii?Q?HUKF6nW6Om36tpN3I6RHfpkCivBmZqXMOHfpncLhZuwLIXX7UCBYC9SbbV0R?=
- =?us-ascii?Q?xQ/zc7XVATLiY3HYbnRtGC+8fAsYFGJrBDAlQcOO3+dmRl4znrLSXyxjdR1C?=
- =?us-ascii?Q?5lARqmzCuHqfOserFJwCfGxSZuRcU1Xr3zrn0a2HKl3u5XYo4E2K6VIqblTS?=
- =?us-ascii?Q?KNusy7jM2woEW/yEIguJlXFkg+c2UKvLl9BBm90hbuI6y32L+daTsB+pKRvn?=
- =?us-ascii?Q?NDheYXd5I3ETDezptO3ns4TjQu6ltDwSBDrh8CQh6XTymIVtorNwHBZFItTo?=
- =?us-ascii?Q?4qqsoYGvphPPITEyu1wKwb9DLzG6U8msIaB9uKSRNFxJ/5qWP7rBryPlf+IS?=
- =?us-ascii?Q?ZN7n7zegGjPOiuOcVSIE2VO2Y2d3xoTAuDDGFnBQ/0SSuKHOUpUz1ZpDLoJC?=
- =?us-ascii?Q?4pS02t7PiHKiOkSvSm4GywVMjHaTZazoOMF1iM5+zVW6jQ01aMFqlGpcACgO?=
- =?us-ascii?Q?3i3Vi+hfrFXEHBTBmILPo00zMeJiPrn34RJjX2YF+loUrFkScmKVUWWPb6fn?=
- =?us-ascii?Q?MlkxjewDIwR5CNLfXht/RfVbMbXbeISg9z1eWtBeHI1jKcg9i6b25+40I3WR?=
- =?us-ascii?Q?DT5VZpebL/MY6uEhB4R+R4FAuCSkCj06qcBzrMXsMnO08MSgKctI4W31Sb31?=
- =?us-ascii?Q?2pCMjvIrsNQPnfmu0tSD/ZASwK17R17KY7fMinqhwiTInEJqJnkiZ3OMfLLw?=
- =?us-ascii?Q?i9/1V4VJ1LTqrDU3JKuX87/1gn77okLn?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?dqeDttZ5R8RrO9AOk7PvZzirXAsOheagYnlTV4MdwszR4Ydgzf4XTbTCrtZw?=
- =?us-ascii?Q?WXvDz/KxNfe63iqUbgKFpelJTXdrk5ghzDlxBsgsj6dClqi5rRPJZHocAluP?=
- =?us-ascii?Q?gXMfVEX3BMfQrcQ8dxzQ7mtmD/JiyvRGsejz8ne4LFB1UkvWF7Ug1jL+1seV?=
- =?us-ascii?Q?q+RqewWBvhLXn0O70njYWT+HAiyJHGPR/tV2Wx02Ij5VD7/bcSTM2HKLrPiT?=
- =?us-ascii?Q?tgTy9mrQn7Y+ZpGHegygMYSaF8mhulkPuVvhYYqElrcdxnrYQqevUrQuTvOl?=
- =?us-ascii?Q?iQlu9ei0rgxH37T9y5dNs7hZDpVxBPx6fbEt6Bonsoss7FcRdZ8kb8KxU1Xw?=
- =?us-ascii?Q?H3SluCepbqVMgKmGarNvNS+shKZJuQEyaCR4u+VztfyhHACMT+T+/x8jg+na?=
- =?us-ascii?Q?Uv90uHsaACHys8P5xXTMh+PRo36ytW7L5gG45NDwa9csKvXiwPccT9SydxVO?=
- =?us-ascii?Q?Yf1i9I4ZQt0ZxPHXeGfPytpgpMIfCH82mbDdTLUlwBzOxIxupZkFGGjJ8FFZ?=
- =?us-ascii?Q?D2pSgu+HI8YbGwJTiofnkj2Xu2FwVesZwieWCQMUyMy3BJsK1ktj8g7Tm1H1?=
- =?us-ascii?Q?KXzmMYYRLQ2QCJgbpR/7i3PESi6/oOofeiPd6KxSjDkg4odj0+jTXPC1Sm2T?=
- =?us-ascii?Q?tXxO4lPPwbjgO9RGh1meHkfl1TA0Gfe+pr/J3wUto/fP33zpXs4MSELWQ7O/?=
- =?us-ascii?Q?cGW2Q8JSGyDFZXnkWzwW6q2erm46oXLATETxEzRyS2OFCa0S+nOtquqvy9lX?=
- =?us-ascii?Q?HFD6UwZXzsLHDALVGQzB56tWvkY2wPDQBulQH1R+7HEXUTqKOmTnkqRnjAyJ?=
- =?us-ascii?Q?DWCfEdehnE6eyeGrmb7llViAmwgYEYbxskbeNJ2EUI+rEx37s694jMYx4T/E?=
- =?us-ascii?Q?F+zV7mORIUV9ldMVELUgGPyr1F39Iur8U66Bt28Ahabqkhaz1QBrsmDqmTxF?=
- =?us-ascii?Q?DqMwwW0xJT7kIALgMyR5TtzXJP7861Sv20iiwIqMaEPckOpXqxwlz6cfqHII?=
- =?us-ascii?Q?QNCA45RdEgl02rB0wjziSp61sqh91kk9siWvIN3gmU07nfl877YT+E7CWUbR?=
- =?us-ascii?Q?7ZLNuhpt0tJYZ2Etn5FESH2YUCEZIDbbugAfTfxxDT3+R4KUehNpE/tqpoon?=
- =?us-ascii?Q?KUlwzZjYqx3HflkRXVy4hDEo3r504AJM5O6VDBu1hbJ5qVfLAh62BZ0p/wqf?=
- =?us-ascii?Q?dDmzFiAh9vNui/+aQXsQjw5AOrq2X3na50eZIIA5YlKoUpsBw771P2KuYUUm?=
- =?us-ascii?Q?PodU0Y4T4on/7NdrqFOkP7UZ0j+qm1oM+zcAN8vbhOO8bLKBMNpFCwsyBkmc?=
- =?us-ascii?Q?hk41ffSyrzJIM3LhfLOdXgToHDNFnAxWgPJ5Apv/Gr4dig1yMVhpU2CtYd3Z?=
- =?us-ascii?Q?89yUcwzJTDqmSrCRRp7xPGXeOUnnTUtSQemLXQINjk7Qw4fnxJ5PYNu6/f4k?=
- =?us-ascii?Q?dJp4j/NI4FG5YYPA+DAKtqbp5mxA9IU5A9XrhD6jOxfEbw7CcP+pz4CdNhzT?=
- =?us-ascii?Q?caDCNPApWOWI/04MsNdEiqzpy0g6L+gQ3GNOegYnCQ5PLEHRa7iSFfHPd5Z+?=
- =?us-ascii?Q?hpj3BbKFhkWamLazOn52xDmzhx8pPTL6LNHFS6Ah?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 10 Jan 2025 07:14:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=MS6+VrmQJ0k1U5nKIvUXbhlIV2XPEYOIqlRzaUo3bG4=; b=IkA/hmr7ewV0uDCULs2hxjRSpu
+	gANmBycWO1siPkddICMBpzQT6a7SMNa5rHp5YRSxYxQxJQeXNHDDGu4MrcOvaqf3PWrhwOZ+yQb5P
+	SFxCA9DL7ixjuqF4ZXslBMAuDze3NUyLNuC9jhrxFqktbtaepqfFamaPhQ7/FWMLYud6+6EJzc5cw
+	qD2WelHmfaFslquXBj94vVwpxLawhNisX7mJlboUYJOBEAeSah4NLFQtNosY+AfneGcPNfvjhknvA
+	LUaJNJl9ODHDWrzYURVlrb/mDORLK2Qlzkvr5z2JW2WgDc8K0kF6FM8bLt4giV4K+izfaL5aLSPwk
+	9zwnpmTw==;
+Received: from [122.175.9.182] (port=50142 helo=cypher.couthit.local)
+	by server.wki.vra.mybluehostin.me with esmtpa (Exim 4.96.2)
+	(envelope-from <basharath@couthit.com>)
+	id 1tW9EC-0002S5-0n;
+	Fri, 10 Jan 2025 12:44:44 +0530
+From: Basharath Hussain Khaja <basharath@couthit.com>
+To: danishanwar@ti.com,
+	rogerq@kernel.org,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	nm@ti.com,
+	ssantosh@kernel.org,
+	tony@atomide.com,
+	richardcochran@gmail.com,
+	parvathi@couthit.com,
+	basharath@couthit.com,
+	schnelle@linux.ibm.com,
+	rdunlap@infradead.org,
+	diogo.ivo@siemens.com,
+	m-karicheri2@ti.com,
+	horms@kernel.org,
+	jacob.e.keller@intel.com,
+	m-malladi@ti.com,
+	javier.carrasco.cruz@gmail.com,
+	afd@ti.com,
+	s-anna@ti.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-omap@vger.kernel.org,
+	pratheesh@ti.com,
+	prajith@ti.com,
+	vigneshr@ti.com,
+	praneeth@ti.com,
+	srk@ti.com,
+	rogerq@ti.com,
+	krishna@couthit.com,
+	pmohan@couthit.com,
+	mohan@couthit.com
+Subject: [RFC PATCH 08/10] net: ti: prueth: Adds support for RX interrupt coalescing/pacing
+Date: Fri, 10 Jan 2025 12:43:49 +0530
+Message-Id: <20250110071351.66888-9-basharath@couthit.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250109105600.41297-1-basharath@couthit.com>
+References: <20250109105600.41297-1-basharath@couthit.com>
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a3cf0e75-d613-4cff-d61f-08dd3146414c
-X-MS-Exchange-CrossTenant-originalarrivaltime: 10 Jan 2025 07:13:16.9288
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: +1t6PF10ctVivk+CS+3Ouwj58kj0Qx9WTRuBuRPbdIcdfjKgxnUaPclEkDcf1JGRjNNYRjwHnz11AV2rOFz4Gw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN6PR11MB8196
-X-OriginatorOrg: intel.com
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.wki.vra.mybluehostin.me
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.wki.vra.mybluehostin.me: authenticated_id: basharath@couthit.com
+X-Authenticated-Sender: server.wki.vra.mybluehostin.me: basharath@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_231335_379265_7B6833A5 
-X-CRM114-Status: UNSURE (   8.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250109_231451_755833_8AED46A2 
+X-CRM114-Status: GOOD (  32.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -212,13 +120,640 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> From: Nicolin Chen <nicolinc@nvidia.com>
-> Sent: Wednesday, January 8, 2025 1:10 AM
->=20
-> With the introduction of the new objects, update the doc to reflect that.
->=20
-> Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+From: Murali Karicheri <m-karicheri2@ti.com>
 
-Reviewed-by: Kevin Tian <kevin.tian@intel.com>
+Changes for supporting RX interrupt pacing feature using eCAP peripheral
+available in PRU-ICSS.
+
+Instead of interrupting the CPU for every packet received, the firmware
+running on the PRU-ICSS will interrupt the CPU based on the configured
+time period, if interrupt pacing is enabled.
+
+The time period can be configured using ethtool.
+
+RX pacing/coalescing is implemented Using eCAP timer events to give CPU
+breathing space from ISR to perform other critical tasks.
+
+The changes include new eCAP driver module which will initialization and
+configures the ICSS eCAP HW.
+
+Makefile and Kernel config has been updated to compile the eCAP driver
+and to insert the module.
+
+Signed-off-by: Murali Karicheri <m-karicheri2@ti.com>
+Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
+Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
+---
+ drivers/net/ethernet/ti/Kconfig               |  12 +
+ drivers/net/ethernet/ti/Makefile              |   2 +
+ drivers/net/ethernet/ti/icssm/icssm_ethtool.c |  38 +++
+ drivers/net/ethernet/ti/icssm/icssm_prueth.c  |  25 +-
+ drivers/net/ethernet/ti/icssm/icssm_prueth.h  |   3 +
+ .../net/ethernet/ti/icssm/icssm_prueth_ecap.c | 312 ++++++++++++++++++
+ .../net/ethernet/ti/icssm/icssm_prueth_ecap.h |  47 +++
+ drivers/net/ethernet/ti/icssm/icssm_switch.h  |  23 ++
+ 8 files changed, 461 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_ecap.c
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_ecap.h
+
+diff --git a/drivers/net/ethernet/ti/Kconfig b/drivers/net/ethernet/ti/Kconfig
+index 96ad084f1dce..b0fc6d348151 100644
+--- a/drivers/net/ethernet/ti/Kconfig
++++ b/drivers/net/ethernet/ti/Kconfig
+@@ -227,6 +227,18 @@ config TI_ICSS_IEP
+ 	  To compile this driver as a module, choose M here. The module
+ 	  will be called icss_iep.
+ 
++config TI_PRUETH_ECAP
++	tristate "TI PRUETH ECAP driver"
++	depends on TI_PRUSS
++	default TI_PRUSS
++	help
++	  This enables support for the PRU-ICSS Enhanced Capture (eCAP) driver
++	  used for rx interrupt pacing support in PRU Driver/firmwares
++	  (Dual EMAC, HSR, PRP).
++
++	  To compile this driver as a module, choose M here. The module
++	  will be called prueth_ecap.
++
+ config TI_PRUETH
+ 	tristate "TI PRU Ethernet EMAC driver"
+ 	depends on PRU_REMOTEPROC
+diff --git a/drivers/net/ethernet/ti/Makefile b/drivers/net/ethernet/ti/Makefile
+index 852640ce2b15..dce14a30d4ac 100644
+--- a/drivers/net/ethernet/ti/Makefile
++++ b/drivers/net/ethernet/ti/Makefile
+@@ -49,3 +49,5 @@ icssg-y := icssg/icssg_common.o \
+ 	   icssg/icssg_ethtool.o
+ 
+ obj-$(CONFIG_TI_ICSS_IEP) += icssg/icss_iep.o
++
++obj-$(CONFIG_TI_PRUETH_ECAP) += icssm/icssm_prueth_ecap.o
+diff --git a/drivers/net/ethernet/ti/icssm/icssm_ethtool.c b/drivers/net/ethernet/ti/icssm/icssm_ethtool.c
+index 73c947342e81..70491d5ec872 100644
+--- a/drivers/net/ethernet/ti/icssm/icssm_ethtool.c
++++ b/drivers/net/ethernet/ti/icssm/icssm_ethtool.c
+@@ -7,6 +7,7 @@
+ 
+ #include <linux/if_bridge.h>
+ #include "icssm_prueth.h"
++#include "icssm_prueth_ecap.h"
+ #include "icssm_vlan_mcast_filter_mmap.h"
+ #include "../icssg/icss_iep.h"
+ 
+@@ -252,6 +253,40 @@ static int icssm_emac_get_ts_info(struct net_device *ndev,
+ 	return 0;
+ }
+ 
++static int icssm_emac_get_coalesce(struct net_device *ndev,
++				   struct ethtool_coalesce *coal,
++				   struct kernel_ethtool_coalesce *kernel_coal,
++				   struct netlink_ext_ack *extack)
++{
++	struct prueth_emac *emac = netdev_priv(ndev);
++	struct prueth *prueth = emac->prueth;
++	struct prueth_ecap *ecap;
++
++	ecap = prueth->ecap;
++	if (IS_ERR(ecap))
++		return -EOPNOTSUPP;
++
++	return ecap->get_coalesce(emac, &coal->use_adaptive_rx_coalesce,
++				  &coal->rx_coalesce_usecs);
++}
++
++static int icssm_emac_set_coalesce(struct net_device *ndev,
++				   struct ethtool_coalesce *coal,
++				   struct kernel_ethtool_coalesce *kernel_coal,
++				   struct netlink_ext_ack *extack)
++{
++	struct prueth_emac *emac = netdev_priv(ndev);
++	struct prueth *prueth = emac->prueth;
++	struct prueth_ecap *ecap;
++
++	ecap = prueth->ecap;
++	if (IS_ERR(ecap))
++		return -EOPNOTSUPP;
++
++	return ecap->set_coalesce(emac, coal->use_adaptive_rx_coalesce,
++				  coal->rx_coalesce_usecs);
++}
++
+ /* Ethtool support for EMAC adapter */
+ const struct ethtool_ops emac_ethtool_ops = {
+ 	.get_drvinfo = icssm_emac_get_drvinfo,
+@@ -264,5 +299,8 @@ const struct ethtool_ops emac_ethtool_ops = {
+ 	.get_ethtool_stats = icssm_emac_get_ethtool_stats,
+ 	.get_regs = icssm_emac_get_regs,
+ 	.get_regs_len = icssm_emac_get_regs_len,
++	.supported_coalesce_params = ETHTOOL_COALESCE_RX_USECS,
++	.get_coalesce = icssm_emac_get_coalesce,
++	.set_coalesce = icssm_emac_set_coalesce,
+ };
+ EXPORT_SYMBOL_GPL(emac_ethtool_ops);
+diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+index 57fc887e4317..97de6b7ebd29 100644
+--- a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
++++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+@@ -30,6 +30,7 @@
+ 
+ #include "icssm_prueth.h"
+ #include "icssm_vlan_mcast_filter_mmap.h"
++#include "icssm_prueth_ecap.h"
+ #include "../icssg/icssg_mii_rt.h"
+ #include "../icssg/icss_iep.h"
+ 
+@@ -1182,8 +1183,10 @@ static int icssm_emac_ndo_open(struct net_device *ndev)
+ {
+ 	struct prueth_emac *emac = netdev_priv(ndev);
+ 	struct prueth *prueth = emac->prueth;
++	struct prueth_ecap *ecap;
+ 	int ret;
+ 
++	ecap = prueth->ecap;
+ 	/* set h/w MAC as user might have re-configured */
+ 	ether_addr_copy(emac->mac_addr, ndev->dev_addr);
+ 
+@@ -1193,6 +1196,9 @@ static int icssm_emac_ndo_open(struct net_device *ndev)
+ 	icssm_prueth_emac_config(emac);
+ 
+ 	icssm_emac_set_stats(emac, &emac->stats);
++	/* initialize ecap for interrupt pacing */
++	if (!IS_ERR(ecap))
++		ecap->init(emac);
+ 
+ 	if (!prueth->emac_configured) {
+ 		icssm_iptp_dram_init(emac);
+@@ -2177,12 +2183,25 @@ static int icssm_prueth_probe(struct platform_device *pdev)
+ 		goto netdev_exit;
+ 	}
+ 
++	/* Make rx interrupt pacing optional so that users can use ECAP for
++	 * other use cases if needed
++	 */
++	prueth->ecap = icssm_prueth_ecap_get(np);
++	if (IS_ERR(prueth->ecap)) {
++		ret = PTR_ERR(prueth->ecap);
++		if (ret != -EPROBE_DEFER)
++			dev_info(dev,
++				 "No ECAP. Rx interrupt pacing disabled\n");
++		else
++			goto iep_put;
++	}
++
+ 	/* register the network devices */
+ 	if (eth0_node) {
+ 		ret = register_netdev(prueth->emac[PRUETH_MAC0]->ndev);
+ 		if (ret) {
+ 			dev_err(dev, "can't register netdev for port MII0");
+-			goto iep_put;
++			goto ecap_put;
+ 		}
+ 
+ 		prueth->registered_netdevs[PRUETH_MAC0] =
+@@ -2218,6 +2237,10 @@ static int icssm_prueth_probe(struct platform_device *pdev)
+ 		unregister_netdev(prueth->registered_netdevs[i]);
+ 	}
+ 
++ecap_put:
++	if (!IS_ERR(prueth->ecap))
++		icssm_prueth_ecap_put(prueth->ecap);
++
+ iep_put:
+ 	icss_iep_put(prueth->iep);
+ 
+diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.h b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
+index 6d16f249efa1..455e286946cb 100644
+--- a/drivers/net/ethernet/ti/icssm/icssm_prueth.h
++++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
+@@ -12,6 +12,7 @@
+ #include <linux/types.h>
+ #include <linux/pruss_driver.h>
+ #include <linux/remoteproc/pruss.h>
++#include <linux/netdevice.h>
+ 
+ #include "icssm_switch.h"
+ #include "icssm_prueth_ptp.h"
+@@ -384,6 +385,7 @@ struct prueth {
+ 	struct regmap *mii_rt;
+ 	struct icss_iep *iep;
+ 
++	struct prueth_ecap *ecap;
+ 	const struct prueth_private_data *fw_data;
+ 	struct prueth_fw_offsets *fw_offsets;
+ 
+@@ -392,6 +394,7 @@ struct prueth {
+ 	struct net_device *registered_netdevs[PRUETH_NUM_MACS];
+ 
+ 	unsigned int eth_type;
++	struct mutex mlock; /* serialize access */
+ 	u8 emac_configured;
+ 	u8 base_mac[ETH_ALEN];
+ };
+diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth_ecap.c b/drivers/net/ethernet/ti/icssm/icssm_prueth_ecap.c
+new file mode 100644
+index 000000000000..ac0f227473b4
+--- /dev/null
++++ b/drivers/net/ethernet/ti/icssm/icssm_prueth_ecap.c
+@@ -0,0 +1,312 @@
++// SPDX-License-Identifier: GPL-2.0
++
++/* PRUETH Ecap driver for Interrupt pacing support. eCAP is used by
++ * firmware to implement Rx Interrupt pacing for PRUETH driver using
++ * ECAP1 and ECAP2.  Firmware uses ECAP as a timer to implement
++ * interrupt pacing logic. For HSR/PRP, the interrupt pacing can
++ * be enabled/disabled for both ports together as there is a common
++ * control for both ports, where as for Dual EMAC, interrupt pacing
++ * can be enabled or disabled independently for both Ethernet ports.
++ * SRAM memory location stores the configuration for interrupt pacing
++ * such as enable/disable flag and timeout values.
++ *
++ * TODO: This is marked as a HACK driver since the correct solution
++ * is to move the initialization of the ECAP registers to firmware.
++ * Driver has nothing to do ECAP as it is used by firmware and it
++ * is expected that firmware does the initialization.
++ *
++ * Copyright (C) 2018-2020 Texas Instruments Incorporated - https://www.ti.com
++ *	Murali Karicheri <m-karicheri2@ti.com>
++ */
++
++#include <linux/err.h>
++#include <linux/io.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/of_platform.h>
++#include <linux/platform_device.h>
++
++#include "icssm_switch.h"
++#include "icssm_prueth_ecap.h"
++
++/* ECAP registers */
++#define ECAP_CAP1			8
++#define ECAP_CAP2			0xC
++#define ECAP_ECCTL2			0x2A
++
++#define ECAP_ECCTL2_TSCTRSTOP_MASK	BIT(4)
++#define ECAP_ECCTL2_CAP_APWM_MASK	BIT(9)
++
++#define ECAP_ECCTL2_INIT_VAL		(ECAP_ECCTL2_TSCTRSTOP_MASK | \
++					 ECAP_ECCTL2_CAP_APWM_MASK)
++#define ECAP_CAP2_MAX_COUNT		0xFFFFFFFF
++
++/* TODO: Driver assumes that ECAP runs at 200Mhz clock. But on some
++ * platforms, PRU ICSS clock rate may be changed by user in which case
++ * the pacing logic will not work as expected. Update the driver and
++ * firmware if ECAP/PRUSS clock rate is ever changed. Based on this
++ * assumption each tick is 5 nsec. i.e 1000/200
++ */
++#define ECAP_TICK_NSEC			5
++
++/* in usec */
++/* Duration of 3 frames of 1528 bytes each. If we go beyond this,
++ * receive buffer overflow may happen assuming 4 MTU buffer. So
++ * set this as the limit
++ */
++#define MAX_RX_TIMEOUT_USEC		(123 * 3)
++
++/* Dual EMAC defaults */
++static struct rx_int_pacing_offsets pacing_offsets_defaults[PRUETH_NUM_MACS] = {
++	{ INTR_PAC_STATUS_OFFSET_PRU0, INTR_PAC_TMR_EXP_OFFSET_PRU0,
++	  INTR_PAC_PREV_TS_OFFSET_PRU0 },
++	{ INTR_PAC_STATUS_OFFSET_PRU1, INTR_PAC_TMR_EXP_OFFSET_PRU1,
++	  INTR_PAC_PREV_TS_OFFSET_PRU1 },
++};
++
++static int icssm_prueth_ecap_config_pacing(struct prueth_emac *emac,
++					   u32 use_adaptive,
++					   u32 new_timeout_val)
++{
++	struct rx_int_pacing_offsets *offsets;
++	struct prueth *prueth = emac->prueth;
++	u8 val = INTR_PAC_DIS_ADP_LGC_DIS;
++	struct prueth_ecap *ecap;
++	void __iomem *sram;
++	u32 pacing_ctrl;
++	int port;
++
++	ecap = prueth->ecap;
++	sram = prueth->mem[PRUETH_MEM_SHARED_RAM].va;
++	port = (emac->port_id == PRUETH_PORT_MII0) ?
++				PRUETH_MAC0 : PRUETH_MAC1;
++	offsets = &ecap->int_pacing_offsets[port];
++	pacing_ctrl = offsets->rx_int_pacing_ctrl;
++
++	if (!new_timeout_val) {
++		/* disable pacing */
++		writeb_relaxed(val, sram + pacing_ctrl);
++		/* Timeout separate */
++		ecap->timeout[port] = new_timeout_val;
++		return 0;
++	}
++
++	if (use_adaptive)
++		val = INTR_PAC_ENA_ADP_LGC_ENA;
++	else
++		val = INTR_PAC_ENA_ADP_LGC_DIS;
++
++	if (!ecap->timeout[port]) {
++		/* disable to enable transition */
++		writeb_relaxed(INTR_PAC_DIS_ADP_LGC_DIS, sram + pacing_ctrl);
++		/* For EMAC set timeout for specific port and for
++		 * LRE for both ports
++		 */
++		if (PRUETH_IS_EMAC(prueth)) {
++			if (!port) {
++				offsets =
++					&ecap->int_pacing_offsets[PRUETH_MAC0];
++				writel_relaxed(new_timeout_val *
++						NSEC_PER_USEC / ECAP_TICK_NSEC,
++						sram +
++						offsets->rx_int_pacing_exp);
++				writel_relaxed(INTR_PAC_PREV_TS_RESET_VAL,
++					       sram +
++					       offsets->rx_int_pacing_prev);
++				ecap->timeout[PRUETH_MAC0] = new_timeout_val;
++			} else {
++				offsets =
++					&ecap->int_pacing_offsets[PRUETH_MAC1];
++				writel_relaxed(new_timeout_val *
++						NSEC_PER_USEC / ECAP_TICK_NSEC,
++						sram +
++						offsets->rx_int_pacing_exp);
++				writel_relaxed(INTR_PAC_PREV_TS_RESET_VAL,
++					       sram +
++					       offsets->rx_int_pacing_prev);
++				ecap->timeout[PRUETH_MAC1] = new_timeout_val;
++			}
++		}
++	} else {
++		/* update */
++		if (PRUETH_IS_EMAC(prueth)) {
++			if (!port) {
++				offsets =
++					&ecap->int_pacing_offsets[PRUETH_MAC0];
++				writel_relaxed(new_timeout_val *
++						NSEC_PER_USEC / ECAP_TICK_NSEC,
++						sram +
++						offsets->rx_int_pacing_exp);
++				ecap->timeout[PRUETH_MAC0] = new_timeout_val;
++			} else {
++				offsets =
++					&ecap->int_pacing_offsets[PRUETH_MAC1];
++				writel_relaxed(new_timeout_val *
++						NSEC_PER_USEC / ECAP_TICK_NSEC,
++						sram +
++						offsets->rx_int_pacing_exp);
++				ecap->timeout[PRUETH_MAC1] = new_timeout_val;
++			}
++		}
++	}
++
++	writeb_relaxed(val, sram + pacing_ctrl);
++
++	return 0;
++}
++
++/**
++ * icssm_prueth_ecap_init - ecap driver init
++ *
++ * @emac: EMAC data structure
++ *
++ */
++static void icssm_prueth_ecap_init(struct prueth_emac *emac)
++{
++	struct prueth *prueth = emac->prueth;
++
++	if (!prueth->emac_configured || PRUETH_IS_EMAC(prueth))
++		icssm_prueth_ecap_config_pacing(emac, 0, 0);
++}
++
++static int icssm_prueth_ecap_get_coalesce(struct prueth_emac *emac,
++					  u32 *use_adaptive_rx_coalesce,
++					  u32 *rx_coalesce_usecs)
++{
++	struct rx_int_pacing_offsets *pacing_offsets;
++	struct prueth *prueth = emac->prueth;
++	struct prueth_ecap *ecap;
++	void __iomem *sram;
++	int port;
++	u32 val;
++
++	ecap = prueth->ecap;
++	sram = prueth->mem[PRUETH_MEM_SHARED_RAM].va;
++	port = (emac->port_id == PRUETH_PORT_MII0) ?
++			PRUETH_MAC0 : PRUETH_MAC1;
++	pacing_offsets = &ecap->int_pacing_offsets[port];
++	val = readb_relaxed(sram + pacing_offsets->rx_int_pacing_ctrl);
++	*use_adaptive_rx_coalesce = (val == INTR_PAC_ENA_ADP_LGC_ENA);
++	*rx_coalesce_usecs = ecap->timeout[port];
++
++	return 0;
++}
++
++static int icssm_prueth_ecap_set_coalesce(struct prueth_emac *emac,
++					  u32 use_adaptive_rx_coalesce,
++					  u32 rx_coalesce_usecs)
++{
++	struct prueth *prueth = emac->prueth;
++	int ret;
++
++	if (rx_coalesce_usecs  > MAX_RX_TIMEOUT_USEC)
++		return -EINVAL;
++
++	mutex_lock(&prueth->mlock);
++	/* Start or restart the pacing timer. */
++	ret = icssm_prueth_ecap_config_pacing(emac, use_adaptive_rx_coalesce,
++					      rx_coalesce_usecs);
++	mutex_unlock(&prueth->mlock);
++
++	return ret;
++}
++
++void icssm_prueth_ecap_put(struct prueth_ecap *ecap)
++{
++	device_lock(ecap->dev);
++	ecap->client_np = NULL;
++	device_unlock(ecap->dev);
++	put_device(ecap->dev);
++}
++EXPORT_SYMBOL_GPL(icssm_prueth_ecap_put);
++
++struct prueth_ecap *icssm_prueth_ecap_get(struct device_node *np)
++{
++	struct platform_device *pdev;
++	struct device_node *ecap_np;
++	struct prueth_ecap *ecap;
++
++	ecap_np = of_parse_phandle(np, "ecap", 0);
++	if (!ecap_np || !of_device_is_available(ecap_np))
++		return ERR_PTR(-ENODEV);
++
++	pdev = of_find_device_by_node(ecap_np);
++	of_node_put(ecap_np);
++
++	if (!pdev)
++		/* probably IEP not yet probed */
++		return ERR_PTR(-EPROBE_DEFER);
++
++	ecap = platform_get_drvdata(pdev);
++	if (!ecap)
++		return ERR_PTR(-EPROBE_DEFER);
++
++	device_lock(ecap->dev);
++	if (ecap->client_np) {
++		device_unlock(ecap->dev);
++		dev_err(ecap->dev, "ECAP is already acquired by %s",
++			ecap->client_np->name);
++		return ERR_PTR(-EBUSY);
++	}
++	ecap->client_np = np;
++	device_unlock(ecap->dev);
++	get_device(ecap->dev);
++
++	return ecap;
++}
++EXPORT_SYMBOL_GPL(icssm_prueth_ecap_get);
++
++static int icssm_prueth_ecap_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct prueth_ecap *ecap;
++	struct resource *res;
++	int i;
++
++	ecap = devm_kzalloc(dev, sizeof(*ecap), GFP_KERNEL);
++	if (!ecap)
++		return -ENOMEM;
++
++	ecap->dev = dev;
++	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
++	ecap->base = devm_ioremap_resource(dev, res);
++	if (IS_ERR(ecap->base))
++		return -ENODEV;
++
++	/* Initialize the ECAP timer. It is a common timer used
++	 * by firmware for rx interrupt pacing.
++	 */
++	writew_relaxed(ECAP_ECCTL2_INIT_VAL, ecap->base + ECAP_ECCTL2);
++	writel_relaxed(ECAP_CAP2_MAX_COUNT, ecap->base + ECAP_CAP1);
++	writel_relaxed(ECAP_CAP2_MAX_COUNT, ecap->base + ECAP_CAP2);
++
++	/* initialize SRAM memory offsets for rx pace time control */
++	for (i = 0; i < PRUETH_NUM_MACS; i++)
++		ecap->int_pacing_offsets[i] = pacing_offsets_defaults[i];
++	ecap->get_coalesce = icssm_prueth_ecap_get_coalesce;
++	ecap->set_coalesce = icssm_prueth_ecap_set_coalesce;
++	ecap->init = icssm_prueth_ecap_init;
++
++	dev_set_drvdata(dev, ecap);
++
++	return 0;
++}
++
++static const struct of_device_id prueth_ecap_of_match[] = {
++	{ .compatible = "ti,pruss-ecap", },
++	{ }
++};
++MODULE_DEVICE_TABLE(of, prueth_ecap_of_match);
++
++static struct platform_driver prueth_ecap_driver = {
++	.driver = {
++		.name = "prueth-ecap",
++		.of_match_table = prueth_ecap_of_match,
++	},
++	.probe = icssm_prueth_ecap_probe,
++};
++module_platform_driver(prueth_ecap_driver);
++
++MODULE_LICENSE("GPL");
++MODULE_DESCRIPTION("TI PRUETH ECAP driver for Rx Interrupt pacing");
++MODULE_AUTHOR("Murali Karicheri <m-karicheri2@ti.com>");
+diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth_ecap.h b/drivers/net/ethernet/ti/icssm/icssm_prueth_ecap.h
+new file mode 100644
+index 000000000000..d422756bc27f
+--- /dev/null
++++ b/drivers/net/ethernet/ti/icssm/icssm_prueth_ecap.h
+@@ -0,0 +1,47 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/* Texas Instruments ICSS Enhanced Capture (eCAP) Driver
++ *
++ * Copyright (C) 2020 Texas Instruments Incorporated - http://www.ti.com/
++ *
++ */
++#ifndef __NET_TI_PRUETH_ECAP_H
++#define __NET_TI_PRUETH_ECAP_H
++
++#include "icssm_prueth.h"
++
++/* SRAM offsets for firmware pacing timer configuration */
++struct rx_int_pacing_offsets {
++	u32 rx_int_pacing_ctrl;
++	u32 rx_int_pacing_exp;
++	u32 rx_int_pacing_prev;
++};
++
++struct prueth_ecap {
++	struct device *dev;
++	void __iomem *base;
++	struct device_node *client_np;
++	struct rx_int_pacing_offsets int_pacing_offsets[PRUETH_NUM_MACS];
++	u32 timeout[PRUETH_NUM_MACS];
++	void (*init)(struct prueth_emac *emac);
++	int (*get_coalesce)(struct prueth_emac *emac,
++			    u32 *use_adaptive_rx_coalesce,
++			    u32 *rx_coalesce_usecs);
++	int (*set_coalesce)(struct prueth_emac *emac,
++			    u32 use_adaptive_rx_coalesce,
++			    u32 rx_coalesce_usecs);
++};
++
++#if IS_ENABLED(CONFIG_TI_PRUETH_ECAP)
++struct prueth_ecap *icssm_prueth_ecap_get(struct device_node *np);
++void icssm_prueth_ecap_put(struct prueth_ecap *ecap);
++#else
++static inline struct prueth_ecap *icssm_prueth_ecap_get(struct device_node *np)
++{
++	return ERR_PTR(-ENODEV);
++}
++
++static inline void icssm_prueth_ecap_put(struct prueth_ecap *ecap)
++{};
++#endif
++
++#endif /* __NET_TI_PRUETH_ECAP_H */
+diff --git a/drivers/net/ethernet/ti/icssm/icssm_switch.h b/drivers/net/ethernet/ti/icssm/icssm_switch.h
+index 0053191380b7..cb5ddd536747 100644
+--- a/drivers/net/ethernet/ti/icssm/icssm_switch.h
++++ b/drivers/net/ethernet/ti/icssm/icssm_switch.h
+@@ -259,4 +259,27 @@
+ #define P0_COL_BUFFER_OFFSET	0xEE00
+ #define P0_Q1_BUFFER_OFFSET	0x0000
+ 
++/* Below Rx Interrupt pacing defines. */
++/* shared RAM */
++/* 1 byte for pace control */
++#define INTR_PAC_STATUS_OFFSET                       0x1FAF
++#define INTR_PAC_STATUS_OFFSET_PRU1                  0x1FAE
++#define INTR_PAC_STATUS_OFFSET_PRU0                  0x1FAF
++/* Interrupt Pacing disabled, Adaptive logic disabled */
++#define INTR_PAC_DIS_ADP_LGC_DIS                     0x0
++/* Interrupt Pacing enabled, Adaptive logic disabled */
++#define INTR_PAC_ENA_ADP_LGC_DIS                     0x1
++/* Interrupt Pacing enabled, Adaptive logic enabled */
++#define INTR_PAC_ENA_ADP_LGC_ENA                     0x2
++
++/* 4 bytes | previous TS from eCAP TSCNT for PRU 0 */
++#define INTR_PAC_PREV_TS_OFFSET_PRU0                 0x1FB0
++/* 4 bytes | timer expiration value for PRU 0 */
++#define INTR_PAC_TMR_EXP_OFFSET_PRU0                 0x1FB4
++/* 4 bytes | previous TS from eCAP TSCNT for PRU 1 */
++#define INTR_PAC_PREV_TS_OFFSET_PRU1                 0x1FB8
++/* 4 bytes | timer expiration value for PRU 1 */
++#define INTR_PAC_TMR_EXP_OFFSET_PRU1                 0x1FBC
++#define INTR_PAC_PREV_TS_RESET_VAL                   0x0
++
+ #endif /* __ICSS_SWITCH_H */
+-- 
+2.34.1
+
 
