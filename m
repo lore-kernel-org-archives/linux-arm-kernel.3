@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26936E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 15:49:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B89F8E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 15:50:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wTlwrpnN/Mdv7Nv7w9MmLSi1lCOGIszv1xkWYWYm93s=; b=jjXpZfjAfRFXVygM7LU9lv5Zdl
-	7JwRl13/jyR0QnqlZzprtMeF9iykzGKAP44x8zFNp+rNcuM3Yv3Hi9eZSY7xDnEzJaHtJPmKtKqbs
-	E3Qr5Ya6DtNVHboyvgQA45tuMpWBTGvEOJ8rfXEiyqtwJiyk8SuFcTjx7aGE029D3bQkif7mAair8
-	UcnuxI2RhhSXpiryQLQfY//wHWtkmnDqKF6G/U+oLXaQpFT1Zi0xDvFHSoLSwjoktP8fm8JUk9M0R
-	wb3o5ye/0xnBAYCPs3fhvds7PbPLbD2dyeMbN9at5ToidmU/p+0GAXSeh9D1vFT8g2yqs/Yycz25I
-	jeglizAg==;
+	bh=xNc+dMUqU+0OfyuISBhYhokWXDUFwzBNnLTiDihB+C0=; b=3lrl1Yhjua76D6WTx34U5GX8cc
+	eWMJK3g4vmxp5c+KqIjmVXmiDg8GlfiX3s4FFCpssw6wxiRL8Dp5RwxAL7eKnLpnbOdddLh2TwDsU
+	OtWu8qQwl7cILiH5+lff9iJpo9fIctpC++Mm4+ikx8acxgRdgLhT1j0hul04RL0Jb2V1rL8rVYO0E
+	+BjFZx3s86iZxN+xcdGQod2yKGQmkC53zmDkJhQpFjChOV+veNhx6QfYQUfsHujj7BrREHXkLxKFL
+	hSXufgv6Ytw4oS5ocllEaAPYxQb+nrN7nWQn9BY1+dnqoEMvmPtvxtARc9KYLV/ImhCxWo2q2Q3wV
+	t7NGNWFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWHFo-0000000G5WS-48VC;
-	Fri, 10 Jan 2025 15:48:56 +0000
+	id 1tWHH1-0000000G5sN-2bTw;
+	Fri, 10 Jan 2025 15:50:11 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWGs7-0000000Fu1o-1SR6;
+	id 1tWGs7-0000000Fu1n-1TNK;
 	Fri, 10 Jan 2025 15:24:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=wTlwrpnN/Mdv7Nv7w9MmLSi1lCOGIszv1xkWYWYm93s=; b=DRfsQvENTxRekduvaMUiqLz11A
-	MC2cdGAzZ1FYK6xAvJ9VDJ6YHm30pir/fv3caLjWJQBnwbEeFOfPmp8BlsBjRRygKxwlCgjjjGsUl
-	Mc38+9Z+ZtXtKzI0kT0CMjtvI82dNkQMXPM2J5cJetZgyjxaMWWq0aTGHasAfXVkVVPfKChfSFJ+S
-	6n5UEl2hPOlU2JCl7y/CJkrEVsNlIbaKu3Jd2XCJzSFaosSJcHKBwnoveP70WOVcrdK3nqs/Dam9x
-	ya5vyV+Khcz9lSNr3dJor2s5so9QWL96f2SxhW1eLKstNwBCkU/hiKNMCFVMTcSX6RotiNFvixmE3
-	6N3Ee9EA==;
+	bh=xNc+dMUqU+0OfyuISBhYhokWXDUFwzBNnLTiDihB+C0=; b=gP/FeTXpEZqcA5DeTvaKJhT2Jd
+	y9q6ijuKHOp1BQFcRCRKkKiKKWgshIOb/NdrfxPJnsJNfHZb/NuJllY3P3BPExGTFcwWDdWlDj77H
+	x2Ef9oevHxHOZHqMbxdBpk569rX8CTTEjHkJHzAoxYwDRJ3Iw0D4f9jd5ya5dPe+QIRgoPUqkdKiz
+	K3EmT65AMiD9PJ1rLPsxOiq6OH85C+qPQt5jexKhW2STXSQsY9FBINpERkXDFCYO8ItaJW8gGjfqH
+	CAbRSpywfbELf4JaVEItj2BF8SG/o4Srp7ecR2w0RCxJ13hPHlhamYFaENHqnd6WxlJC4hbzD3DHq
+	86LHEuiQ==;
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWGs1-00000009pJc-10si;
+	id 1tWGs1-00000009pKJ-11O4;
 	Fri, 10 Jan 2025 15:24:26 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1736522635;
+	s=2020; t=1736522640;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=wTlwrpnN/Mdv7Nv7w9MmLSi1lCOGIszv1xkWYWYm93s=;
-	b=nw4V9z7/hGZPSByeCTKI8H5vdRk8cSFV463S+hMSmHDM5wUVTgbPaGq2Fn+OzpxrRsHTuN
-	cSLa6MxSQHZQEh9m6tQ51Dm8ld4veu2Ye2VYdkBpOwLo4K1231Lr58iv27cUh6GOXc8rEp
-	NOCLFTdK4yysg1d1CVgnKgzPg/f6XrGRuOBPM469plIb9/Cx5Zti2jTZo+/lyCRw2eDgaC
-	inLesQmWwHvjxdjMaj2NE+OmET7cR9J437dI+rgn0xqtGPhHMTtSzqd4U4OSJv7iauqy+R
-	GUXBRpcYjLE8+5os5ol0ioEDlq21+wtU7vueoo52vM/B9PQt52+NX+rgB67HvQ==
+	bh=xNc+dMUqU+0OfyuISBhYhokWXDUFwzBNnLTiDihB+C0=;
+	b=Q+xAmXPrWewn6Bu8X7bz3b1h4QUiD/E/7d2YijwHIcRIaUACxBs6RoOHn85XVlbzU3by20
+	dQH+nzPGTYVi3JQKD47PbyrS2X5HtSStZqwvaenEJW5wxwqbcXSb9W/iavoQ9ubCOZKuv7
+	/mUNxcENP+o3hom/VvCpH2u2GPJ8sW7yE7diJCZHhwQGnIU9/DWXqAJFaq0gNcRNK0NNns
+	0YxZAzIbqQ6wo0299l8vXRMDP/PLAkQsixE2yDsGqKsrPRHUPhoFXJMEU7Jari7voCy7ak
+	yTlPd+U7qmZzI3wsVBNd6Kj5QaltERxUnN4/CebFN45A2+hy3p/YpuLs0fWOgA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1736522635;
+	s=2020e; t=1736522640;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=wTlwrpnN/Mdv7Nv7w9MmLSi1lCOGIszv1xkWYWYm93s=;
-	b=WT/B9qwnuf7sYBx/35OCt9hm9ZvLbooZn1HxehyYeOcUhAilEzepaqi4NelWtuAADyQVS9
-	jT56E5eydoePu5AQ==
-Date: Fri, 10 Jan 2025 16:23:45 +0100
-Subject: [PATCH v2 06/18] vdso: Add generic random data storage
+	bh=xNc+dMUqU+0OfyuISBhYhokWXDUFwzBNnLTiDihB+C0=;
+	b=/JKiVKpr/OMLWwpNpTUMI+GTVmNbz3+EokbbtHzHenBMQc//InX4gKW0PgDJTbmtQgCCfu
+	5r3MnFRKiCb5VLAQ==
+Date: Fri, 10 Jan 2025 16:23:55 +0100
+Subject: [PATCH v2 16/18] x86/vdso/vdso2c: Remove page handling
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250110-vdso-store-rng-v2-6-350c9179bbf1@linutronix.de>
+Message-Id: <20250110-vdso-store-rng-v2-16-350c9179bbf1@linutronix.de>
 References: <20250110-vdso-store-rng-v2-0-350c9179bbf1@linutronix.de>
 In-Reply-To: <20250110-vdso-store-rng-v2-0-350c9179bbf1@linutronix.de>
 To: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
@@ -102,16 +102,16 @@ Cc: linux-parisc@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arch@vger.kernel.org, Nam Cao <namcao@linutronix.de>, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, 
  linux-csky@vger.kernel.org
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1736522629; l=7434;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1736522629; l=3853;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=TOR0HRUliJCIUuvHYcqOmYpJLHep6FFOCk6zZu1ILJU=;
- b=3boEYEI5Nm8k5FTdZejwZ1IkT69WAiA9aBtiQ/lcCWX4EdLOyeK+PqxfGoyMP6zfvl3hi/oIf
- nbSbyD79vz4CdFUJf2SAJi6HeklAmszTsxI2TM1q6M92hFiZeB9w/Ze
+ bh=SIYI1MFdbWBx6a80LF899krJFYHrvas9fog1PqSPSgs=;
+ b=T71H4KozzpeWB2JhLOb2zm4PGOqwVUk2FIPmnD+nUthpazL+uwDXgGWwLQujn3kRfz6QHoTLp
+ 7CRU1LOVKN6ALLWGQQ7YKgdaecsgQELif15Wi5JS1EcABQBjC4eSgng
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_152422_623017_EBFF4654 
-X-CRM114-Status: GOOD (  21.09  )
+X-CRM114-CacheID: sfid-20250110_152422_473709_B4B755D4 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,188 +126,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Extend the generic vDSO data storage with a page for the random state data.
-The random state data is stored in a dedicated page, as the existing
-storage page is only meant for time-related, time-namespace-aware data.
-This simplifies to access logic to not need to handle time namespaces
-anymore and also frees up more space in the time-related page.
-
-In case further generic vDSO data store is required it can be added to
-the random state page.
+The values are not used anymore.
+Also the sanity checks performed by vdso2c can never trigger as they
+only validate invariants already enforced by the linker script.
 
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- drivers/char/random.c               |  6 +++---
- include/asm-generic/vdso/vsyscall.h | 12 ++++++++++++
- include/vdso/datapage.h             | 10 ++++++++++
- lib/vdso/datastore.c                | 14 ++++++++++++++
- lib/vdso/getrandom.c                |  8 ++++++--
- 5 files changed, 45 insertions(+), 5 deletions(-)
+ arch/x86/entry/vdso/vdso-layout.lds.S |  4 ----
+ arch/x86/entry/vdso/vdso2c.c          | 21 ---------------------
+ arch/x86/entry/vdso/vdso2c.h          | 20 --------------------
+ arch/x86/include/asm/vdso.h           |  6 ------
+ 4 files changed, 51 deletions(-)
 
-diff --git a/drivers/char/random.c b/drivers/char/random.c
-index 23ee76bbb4aa728274bf9980a60b863216d88797..84efda7bede348401db2ed1c443e5ab2bc5dbd2b 100644
---- a/drivers/char/random.c
-+++ b/drivers/char/random.c
-@@ -278,7 +278,7 @@ static void crng_reseed(struct work_struct *work)
- 	WRITE_ONCE(base_crng.generation, next_gen);
- #ifdef CONFIG_VDSO_GETRANDOM
- 	/* base_crng.generation's invalid value is ULONG_MAX, while
--	 * _vdso_rng_data.generation's invalid value is 0, so add one to the
-+	 * vdso_k_rng_data->generation's invalid value is 0, so add one to the
- 	 * former to arrive at the latter. Use smp_store_release so that this
- 	 * is ordered with the write above to base_crng.generation. Pairs with
- 	 * the smp_rmb() before the syscall in the vDSO code.
-@@ -290,7 +290,7 @@ static void crng_reseed(struct work_struct *work)
- 	 * because the vDSO side only checks whether the value changed, without
- 	 * actually using or interpreting the value.
- 	 */
--	smp_store_release((unsigned long *)&__arch_get_k_vdso_rng_data()->generation, next_gen + 1);
-+	smp_store_release((unsigned long *)&vdso_k_rng_data->generation, next_gen + 1);
- #endif
- 	if (!static_branch_likely(&crng_is_ready))
- 		crng_init = CRNG_READY;
-@@ -743,7 +743,7 @@ static void __cold _credit_init_bits(size_t bits)
- 			queue_work(system_unbound_wq, &set_ready);
- 		atomic_notifier_call_chain(&random_ready_notifier, 0, NULL);
- #ifdef CONFIG_VDSO_GETRANDOM
--		WRITE_ONCE(__arch_get_k_vdso_rng_data()->is_ready, true);
-+		WRITE_ONCE(vdso_k_rng_data->is_ready, true);
- #endif
- 		wake_up_interruptible(&crng_init_wait);
- 		kill_fasync(&fasync, SIGIO, POLL_IN);
-diff --git a/include/asm-generic/vdso/vsyscall.h b/include/asm-generic/vdso/vsyscall.h
-index ac5b93b91993224da245e80031b9f51e0c083f3c..a5f973e4e2723ef1815c88a7846f7c477e3febd9 100644
---- a/include/asm-generic/vdso/vsyscall.h
-+++ b/include/asm-generic/vdso/vsyscall.h
-@@ -13,6 +13,13 @@ static __always_inline const struct vdso_time_data *__arch_get_vdso_u_time_data(
- }
- #endif
+diff --git a/arch/x86/entry/vdso/vdso-layout.lds.S b/arch/x86/entry/vdso/vdso-layout.lds.S
+index e5cecdb0fedf000516bb789d6aca4c952c3035e5..ec1ac191a0578e55dc72ceff7f5b5eb104042881 100644
+--- a/arch/x86/entry/vdso/vdso-layout.lds.S
++++ b/arch/x86/entry/vdso/vdso-layout.lds.S
+@@ -24,10 +24,6 @@ SECTIONS
+ 	pvclock_page = vclock_pages + VDSO_PAGE_PVCLOCK_OFFSET * PAGE_SIZE;
+ 	hvclock_page = vclock_pages + VDSO_PAGE_HVCLOCK_OFFSET * PAGE_SIZE;
  
-+#ifndef __arch_get_vdso_u_rng_data
-+static __always_inline const struct vdso_rng_data *__arch_get_vdso_u_rng_data(void)
-+{
-+	return &vdso_u_rng_data;
-+}
-+#endif
-+
- #else  /* !CONFIG_GENERIC_VDSO_DATA_STORE */
+-	/* For compatibility with vdso2c */
+-	vvar_page = vdso_u_data;
+-	vvar_start = vdso_u_data;
+-
+ 	. = SIZEOF_HEADERS;
  
- #ifndef __arch_get_k_vdso_data
-@@ -25,6 +32,11 @@ static __always_inline struct vdso_data *__arch_get_k_vdso_data(void)
+ 	.hash		: { *(.hash) }			:text
+diff --git a/arch/x86/entry/vdso/vdso2c.c b/arch/x86/entry/vdso/vdso2c.c
+index 90d15f2a72055e37f2ef4292096dd780a051bc84..f84e8f8fa5fe6d1bc680895dfef28fe9251a7fe3 100644
+--- a/arch/x86/entry/vdso/vdso2c.c
++++ b/arch/x86/entry/vdso/vdso2c.c
+@@ -69,33 +69,12 @@
  
- #define __arch_get_vdso_u_time_data __arch_get_vdso_data
+ const char *outfilename;
  
-+#ifndef __arch_get_vdso_u_rng_data
-+#define __arch_get_vdso_u_rng_data() __arch_get_vdso_rng_data()
-+#endif
-+#define vdso_k_rng_data __arch_get_k_vdso_rng_data()
-+
- #endif /* CONFIG_GENERIC_VDSO_DATA_STORE */
- 
- #ifndef __arch_update_vsyscall
-diff --git a/include/vdso/datapage.h b/include/vdso/datapage.h
-index b3d8087488ff35fbbc4d5058ae21e2c6cc58ed9c..7dbc8797e3b8923c06f4b6b34790766e68b2abd2 100644
---- a/include/vdso/datapage.h
-+++ b/include/vdso/datapage.h
-@@ -144,8 +144,10 @@ extern struct vdso_time_data _timens_data[CS_BASES] __attribute__((visibility("h
- extern struct vdso_rng_data _vdso_rng_data __attribute__((visibility("hidden")));
- #else
- extern struct vdso_time_data vdso_u_time_data[CS_BASES] __attribute__((visibility("hidden")));
-+extern struct vdso_rng_data vdso_u_rng_data __attribute__((visibility("hidden")));
- 
- extern struct vdso_time_data *vdso_k_time_data;
-+extern struct vdso_rng_data *vdso_k_rng_data;
- #endif
- 
- /**
-@@ -161,6 +163,7 @@ union vdso_data_store {
- enum vdso_pages {
- 	VDSO_TIME_PAGE_OFFSET,
- 	VDSO_TIMENS_PAGE_OFFSET,
-+	VDSO_RNG_PAGE_OFFSET,
- 	VDSO_NR_PAGES
+-/* Symbols that we need in vdso2c. */
+-enum {
+-	sym_vvar_start,
+-	sym_vvar_page,
+-	sym_pvclock_page,
+-	sym_hvclock_page,
+-	sym_timens_page,
+-};
+-
+-const int special_pages[] = {
+-	sym_vvar_page,
+-	sym_pvclock_page,
+-	sym_hvclock_page,
+-	sym_timens_page,
+-};
+-
+ struct vdso_sym {
+ 	const char *name;
+ 	bool export;
  };
  
-@@ -184,9 +187,16 @@ enum vdso_pages {
- 
- #else /* !__ASSEMBLY__ */
- 
-+#ifdef CONFIG_VDSO_GETRANDOM
-+#define __vdso_u_rng_data	PROVIDE(vdso_u_rng_data = vdso_u_data + 2 * PAGE_SIZE);
-+#else
-+#define __vdso_u_rng_data
-+#endif
-+
- #define VDSO_VVAR_SYMS						\
- 	PROVIDE(vdso_u_data = . - __VDSO_PAGES * PAGE_SIZE);	\
- 	PROVIDE(vdso_u_time_data = vdso_u_data);		\
-+	__vdso_u_rng_data					\
- 
- 
- #endif /* !__ASSEMBLY__ */
-diff --git a/lib/vdso/datastore.c b/lib/vdso/datastore.c
-index d3181768424cc3ee2e980bd537ac5ca14dfcb304..9260b00dc8520af109bd9dd05ac7f7504eafbea0 100644
---- a/lib/vdso/datastore.c
-+++ b/lib/vdso/datastore.c
-@@ -17,6 +17,15 @@ struct vdso_time_data *vdso_k_time_data = vdso_time_data_store.data;
- static_assert(sizeof(vdso_time_data_store) == PAGE_SIZE);
- #endif /* CONFIG_HAVE_GENERIC_VDSO */
- 
-+#ifdef CONFIG_VDSO_GETRANDOM
-+static union {
-+	struct vdso_rng_data	data;
-+	u8			page[PAGE_SIZE];
-+} vdso_rng_data_store __page_aligned_data;
-+struct vdso_rng_data *vdso_k_rng_data = &vdso_rng_data_store.data;
-+static_assert(sizeof(vdso_rng_data_store) == PAGE_SIZE);
-+#endif /* CONFIG_VDSO_GETRANDOM */
-+
- static vm_fault_t vvar_fault(const struct vm_special_mapping *sm,
- 			     struct vm_area_struct *vma, struct vm_fault *vmf)
- {
-@@ -53,6 +62,11 @@ static vm_fault_t vvar_fault(const struct vm_special_mapping *sm,
- 			return VM_FAULT_SIGBUS;
- 		pfn = __phys_to_pfn(__pa_symbol(vdso_k_time_data));
- 		break;
-+	case VDSO_RNG_PAGE_OFFSET:
-+		if (!IS_ENABLED(CONFIG_VDSO_GETRANDOM))
-+			return VM_FAULT_SIGBUS;
-+		pfn = __phys_to_pfn(__pa_symbol(vdso_k_rng_data));
-+		break;
- 	default:
- 		return VM_FAULT_SIGBUS;
+ struct vdso_sym required_syms[] = {
+-	[sym_vvar_start] = {"vvar_start", true},
+-	[sym_vvar_page] = {"vvar_page", true},
+-	[sym_pvclock_page] = {"pvclock_page", true},
+-	[sym_hvclock_page] = {"hvclock_page", true},
+-	[sym_timens_page] = {"timens_page", true},
+ 	{"VDSO32_NOTE_MASK", true},
+ 	{"__kernel_vsyscall", true},
+ 	{"__kernel_sigreturn", true},
+diff --git a/arch/x86/entry/vdso/vdso2c.h b/arch/x86/entry/vdso/vdso2c.h
+index 67b3e37576a64a29ecbdc6fd75e410fc52a82e58..78ed1c1f28b92b97973f57d3f65b9c4d4694f462 100644
+--- a/arch/x86/entry/vdso/vdso2c.h
++++ b/arch/x86/entry/vdso/vdso2c.h
+@@ -150,26 +150,6 @@ static void BITSFUNC(go)(void *raw_addr, size_t raw_len,
+ 		}
  	}
-diff --git a/lib/vdso/getrandom.c b/lib/vdso/getrandom.c
-index 938ca539aaa64bc46280ef6dd17aa661126699eb..440f8a6203a69a6462aafee4ad8d5670cef6a353 100644
---- a/lib/vdso/getrandom.c
-+++ b/lib/vdso/getrandom.c
-@@ -12,6 +12,9 @@
- #include <uapi/linux/mman.h>
- #include <uapi/linux/random.h>
  
-+/* Bring in default accessors */
-+#include <vdso/vsyscall.h>
-+
- #undef PAGE_SIZE
- #undef PAGE_MASK
- #define PAGE_SIZE (1UL << CONFIG_PAGE_SHIFT)
-@@ -152,7 +155,7 @@ __cvdso_getrandom_data(const struct vdso_rng_data *rng_info, void *buffer, size_
+-	/* Validate mapping addresses. */
+-	for (i = 0; i < sizeof(special_pages) / sizeof(special_pages[0]); i++) {
+-		INT_BITS symval = syms[special_pages[i]];
+-
+-		if (!symval)
+-			continue;  /* The mapping isn't used; ignore it. */
+-
+-		if (symval % 4096)
+-			fail("%s must be a multiple of 4096\n",
+-			     required_syms[i].name);
+-		if (symval + 4096 < syms[sym_vvar_start])
+-			fail("%s underruns vvar_start\n",
+-			     required_syms[i].name);
+-		if (symval + 4096 > 0)
+-			fail("%s is on the wrong side of the vdso text\n",
+-			     required_syms[i].name);
+-	}
+-	if (syms[sym_vvar_start] % 4096)
+-		fail("vvar_begin must be a multiple of 4096\n");
+-
+ 	if (!image_name) {
+ 		fwrite(stripped_addr, stripped_len, 1, outfile);
+ 		return;
+diff --git a/arch/x86/include/asm/vdso.h b/arch/x86/include/asm/vdso.h
+index d7f6592b74a94f6fecba59ce8f23eb3990843db4..80be0da733df43de7520bef69ad120ce05d37994 100644
+--- a/arch/x86/include/asm/vdso.h
++++ b/arch/x86/include/asm/vdso.h
+@@ -18,12 +18,6 @@ struct vdso_image {
+ 	unsigned long extable_base, extable_len;
+ 	const void *extable;
  
- 		/*
- 		 * Prevent the syscall from being reordered wrt current_generation. Pairs with the
--		 * smp_store_release(&_vdso_rng_data.generation) in random.c.
-+		 * smp_store_release(&vdso_k_rng_data->generation) in random.c.
- 		 */
- 		smp_rmb();
- 
-@@ -256,5 +259,6 @@ __cvdso_getrandom_data(const struct vdso_rng_data *rng_info, void *buffer, size_
- static __always_inline ssize_t
- __cvdso_getrandom(void *buffer, size_t len, unsigned int flags, void *opaque_state, size_t opaque_len)
- {
--	return __cvdso_getrandom_data(__arch_get_vdso_rng_data(), buffer, len, flags, opaque_state, opaque_len);
-+	return __cvdso_getrandom_data(__arch_get_vdso_u_rng_data(), buffer, len, flags,
-+				      opaque_state, opaque_len);
- }
+-	long sym_vvar_start;  /* Negative offset to the vvar area */
+-
+-	long sym_vvar_page;
+-	long sym_pvclock_page;
+-	long sym_hvclock_page;
+-	long sym_timens_page;
+ 	long sym_VDSO32_NOTE_MASK;
+ 	long sym___kernel_sigreturn;
+ 	long sym___kernel_rt_sigreturn;
 
 -- 
 2.47.1
