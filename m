@@ -4,68 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5203CE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 08:14:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0ECDE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 08:17:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LxSn76+HXS+LBGws2ThHr+S6dBafkbCiD1wgZAt8HHw=; b=eTHK5idD2rvy2zckVbEPEMswQh
-	uSA7Csn9C3qCoh/6y/mbI6oECf8mP3Dw+aXryUC/kC4mrO4ehSYS2wVFt4uqDiLU+2viXqbRvnJjI
-	17YNjxRR++LpZMXDSuA6DIcxp0v6cy3BGEonOEx+n/AI7YCMzffHiYKHLIWD6o7NWLGkCxX9oDp0n
-	grb9/MPrjwpHwFd7IXS72+FfdMiJjvsDvJhAsOSOpQ22hR14fi1sW5MjjusJ9N1FV+pipCFqQBGXB
-	1kEsJfXBvA7fZHHQteLTjsFmxnSCSMM0p9e7HBnCmSK+neV374Gq9Fs0BRhM2yCqbzqxK3ZYgeRx1
-	AjxiwZvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F6cUrTX5Q8/qLyjIBBgLzoKHKRO/z/Z5bORJ6yC/hEU=; b=JldP7By2TOHyqes4IsnmPznBl+
+	zawNcgxgPPc5OYD9n8GpMkq2DbrGRlzkkB0AiXtlv3NzIvyPmDVjqyVWdxoiCH7dXjMXPkh+/t15X
+	jVSpS+wJ7wibMUh9zCBgfp25AryxN0X6pM1b+KF6VVHPg1MgtOsaVPvq/mvCNFpMVpfZvV8EAVwRb
+	9+PrfsRTCcf2xMin0p0uATUjXiTTOH8VFk9JCCbLYjVbFsON/QdCJACYDqdAtkzpBNKLcEJ9o/kdd
+	c5TXYzHLT3FB/Sq7upNw/2WS+aXlBDRPZ0ReYzobeSmp+Pv767OEZvyyumSIrN13+3gIN6WaAagiR
+	GzAdjltw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWAAB-0000000ETpn-2rqo;
-	Fri, 10 Jan 2025 08:14:39 +0000
-Received: from relay1-d.mail.gandi.net ([217.70.183.193])
+	id 1tWACd-0000000EUHi-29gd;
+	Fri, 10 Jan 2025 08:17:11 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWA8x-0000000ETiT-08pH
+	id 1tWABO-0000000EU1W-1IP1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 08:13:24 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 04E07240002;
-	Fri, 10 Jan 2025 08:13:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1736496796;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LxSn76+HXS+LBGws2ThHr+S6dBafkbCiD1wgZAt8HHw=;
-	b=MJK3vIa31kDZMfbecXlWrbQJ0sgpg90ldaVb/ml7+HNKPLoPIdk2kqKNEq7XNEDgkhem6m
-	Ve53lgB4VZ0oM48fmWQDvIPt/nA9nkIrjcY+IWR3nKN3122VKbqNHv/1Ap36fFhY9hWf6b
-	H1outDJitoPvgf8rIt5GzP/HbUtEEt+cib4mkBTKjaUN9K0+AzqMVIo4onHYw4nkvwxjzf
-	PC85PuLOS0SDc62i38/gdCyig4zokF5TjBEckWCO9f5sawfOYXya90ivx+2pE8UDSjCvaX
-	fx8vViJmTwk/C6X62X1GKwGt2lNxZg6d/J3mACDEtItIroOVaiwobOJROq3vQQ==
-Message-ID: <baf1d437-917b-4fe6-bab8-65dfb3ac1e6a@bootlin.com>
-Date: Fri, 10 Jan 2025 09:13:07 +0100
+	Fri, 10 Jan 2025 08:15:55 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 50A8FgJ03388909
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 10 Jan 2025 02:15:42 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1736496942;
+	bh=F6cUrTX5Q8/qLyjIBBgLzoKHKRO/z/Z5bORJ6yC/hEU=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=GGUkiL3mLBFk2uBzUGEGk5QbpuoVLy4rs4PMwPIIr6GiNKrnIrTQlMj7M0F572fcI
+	 YCnHo92ahTF6r/h899tTjkuCQ/nKLusQYy1s+lgs3GsMTrpFF/A1NaTn4k5pIjHBvf
+	 oOAO5dYUa5m9u6vRH8JysaaYOaE3vLtd8g+htCrE=
+Received: from DLEE104.ent.ti.com (dlee104.ent.ti.com [157.170.170.34])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 50A8FgRk015538
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 10 Jan 2025 02:15:42 -0600
+Received: from DLEE108.ent.ti.com (157.170.170.38) by DLEE104.ent.ti.com
+ (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 10
+ Jan 2025 02:15:42 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 10 Jan 2025 02:15:42 -0600
+Received: from localhost (uda0492258.dhcp.ti.com [10.24.72.104])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 50A8Ff7O043640;
+	Fri, 10 Jan 2025 02:15:41 -0600
+Date: Fri, 10 Jan 2025 13:45:40 +0530
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: Romain Naour <romain.naour@smile.fr>
+CC: Siddharth Vadapalli <s-vadapalli@ti.com>, <devicetree@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-omap@vger.kernel.org>,
+        <conor+dt@kernel.org>, <krzk+dt@kernel.org>, <robh@kernel.org>,
+        <kristo@kernel.org>, <vigneshr@ti.com>, <nm@ti.com>, <afd@ti.com>,
+        Romain
+ Naour <romain.naour@skf.com>
+Subject: Re: [PATCH v4 2/2] arm64: dts: ti: k3-j721e-beagleboneai64: Enable
+ ACSPCIE output for PCIe1
+Message-ID: <begojbvvrpyjfr3pye7mqwiw73ucw5ynepdfujssr4jx4vs33a@pwahnph3qesl>
+References: <20250109102627.1366753-1-romain.naour@smile.fr>
+ <20250109102627.1366753-2-romain.naour@smile.fr>
+ <eu5xmihnffmqas2x2ioleuzzvyfbffl5eqlwuqfe4mh6qa2rzy@7mmuxsbkmz4o>
+ <8ff7ca4f-227d-40c5-867d-497e03bef72a@smile.fr>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] tty: atmel_serial: Use of_property_present() for
- non-boolean properties
-To: "Rob Herring (Arm)" <robh@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20250109182053.3970547-1-robh@kernel.org>
-From: Richard GENOUD <richard.genoud@bootlin.com>
-Content-Language: en-US, fr
-Organization: Bootlin
-In-Reply-To: <20250109182053.3970547-1-robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-GND-Sasl: richard.genoud@bootlin.com
+In-Reply-To: <8ff7ca4f-227d-40c5-867d-497e03bef72a@smile.fr>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_001323_208380_C9B127CC 
-X-CRM114-Status: GOOD (  15.34  )
+X-CRM114-CacheID: sfid-20250110_001554_509495_8CEEC5BB 
+X-CRM114-Status: GOOD (  28.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,60 +92,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le 09/01/2025 à 19:20, Rob Herring (Arm) a écrit :
-> The use of of_property_read_bool() for non-boolean properties is
-> deprecated in favor of of_property_present() when testing for property
-> presence.
-> 
-> As of_property_present() returns a boolean, use that directly
-> and simplify the code a bit while we're here.
-> 
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
->   drivers/tty/serial/atmel_serial.c | 18 ++++--------------
->   1 file changed, 4 insertions(+), 14 deletions(-)
-> 
-> diff --git a/drivers/tty/serial/atmel_serial.c b/drivers/tty/serial/atmel_serial.c
-> index 0cf05ac18993..f44f9d20a974 100644
-> --- a/drivers/tty/serial/atmel_serial.c
-> +++ b/drivers/tty/serial/atmel_serial.c
-> @@ -1727,26 +1727,16 @@ static void atmel_init_property(struct atmel_uart_port *atmel_port,
->   
->   	/* DMA/PDC usage specification */
->   	if (of_property_read_bool(np, "atmel,use-dma-rx")) {
-> -		if (of_property_read_bool(np, "dmas")) {
-> -			atmel_port->use_dma_rx  = true;
-> -			atmel_port->use_pdc_rx  = false;
-> -		} else {
-> -			atmel_port->use_dma_rx  = false;
-> -			atmel_port->use_pdc_rx  = true;
-> -		}
-> +		atmel_port->use_dma_rx = of_property_present(np, "dmas");
-> +		atmel_port->use_pdc_rx = !atmel_port->use_dma_rx;
->   	} else {
->   		atmel_port->use_dma_rx  = false;
->   		atmel_port->use_pdc_rx  = false;
->   	}
->   
->   	if (of_property_read_bool(np, "atmel,use-dma-tx")) {
-> -		if (of_property_read_bool(np, "dmas")) {
-> -			atmel_port->use_dma_tx  = true;
-> -			atmel_port->use_pdc_tx  = false;
-> -		} else {
-> -			atmel_port->use_dma_tx  = false;
-> -			atmel_port->use_pdc_tx  = true;
-> -		}
-> +		atmel_port->use_dma_tx = of_property_present(np, "dmas");
-> +		atmel_port->use_pdc_tx = !atmel_port->use_dma_tx;
->   	} else {
->   		atmel_port->use_dma_tx  = false;
->   		atmel_port->use_pdc_tx  = false;
+On Thu, Jan 09, 2025 at 02:51:23PM +0100, Romain Naour wrote:
+> Hello Siddharth, All,
 
-Acked-by: Richard Genoud <richard.genoud@bootlin.com>
+Hello Romain,
 
-The code is indeed nicer like that!
-Thanks!
+> 
+> Le 09/01/2025 à 12:49, Siddharth Vadapalli a écrit :
+> > On Thu, Jan 09, 2025 at 11:26:27AM +0100, Romain Naour wrote:
+> > 
+> > Hello Romain,
+> > 
+> >> From: Romain Naour <romain.naour@skf.com>
+> >>
+> >> Unlike the SK-TDA4VM (k3-j721e-sk) board, there is no clock generator
+> >> (CDCI6214RGET) on the BeagleBone AI-64 (k3-j721e-beagleboneai64) to
+> >> provide PCIe refclk signal to PCIe Endponts. So the ACSPCIE module must
+> >> provide refclk through PCIe_REFCLK pins.
+> >>
+> >> Use the new "ti,syscon-acspcie-proxy-ctrl" property to enable ACSPCIE
+> >> module's PAD IO Buffers.
+> >>
+> >> Cc: Siddharth Vadapalli <s-vadapalli@ti.com>
+> >> Signed-off-by: Romain Naour <romain.naour@skf.com>
+> >> ---
+> >> With this patch, we can remove "HACK: Sierra: Drive clock out" patch
+> >> applied on vendor kernel for BeagleBone AI-64:
+> >> https://openbeagle.org/beagleboard/linux/-/commit/ad65d7ef675966cdbc5d75f2bd545fad1914ba9b
+> > 
+> > [trimmed]
+> > 
+> >> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+> >> index af3d730154ac..32a232a90100 100644
+> >> --- a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+> >> +++ b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+> >> @@ -5,6 +5,7 @@
+> >>   * Copyright (C) 2016-2024 Texas Instruments Incorporated - https://www.ti.com/
+> >>   */
+> >>  #include <dt-bindings/phy/phy.h>
+> >> +#include <dt-bindings/phy/phy-cadence.h>
+> >>  #include <dt-bindings/phy/phy-ti.h>
+> >>  #include <dt-bindings/mux/mux.h>
+> >>  
+> >> @@ -82,6 +83,11 @@ ehrpwm_tbclk: clock-controller@4140 {
+> >>  			reg = <0x4140 0x18>;
+> >>  			#clock-cells = <1>;
+> >>  		};
+> >> +
+> >> +		acspcie0_proxy_ctrl: syscon@18090 {
+> >> +			compatible = "ti,j721e-acspcie-proxy-ctrl", "syscon";
+> >> +			reg = <0x18090 0x4>;
+> > 
+> > 0x_0011_8090 is probably *not* the "PROXY" register i.e. it could be
+> > locked with the help of "CTRLMMR_LOCK0_KICK0" and "CTRLMMR_LOCK0_KICK1"
+> > registers, in which case the CTRL_MMR region needs to be unlocked to write
+> > to that register. On J784S4, that happens to be true, which is why the
+> > proxy register 0x_0011_a090 was used at [0]. Please test with 0x_0011_a090
+> > which is the "PROXY" register on J721E as well, i.e. it can be written to
+> > unconditionally.
+> > 
+> > [0]:
+> > https://lore.kernel.org/r/20240930111505.3101047-1-s-vadapalli@ti.com/
+> 
+> Thanks for the review!
+> 
+> Actually the Proxy0 vs Proxy1 choice is not really clear for me. We have two
+> proxy to reach the same register:
+> 
+>   CTRLMMR_ACSPCIE0_CTRL Register (Proxy0 Offset = 18090h; Proxy1 Offset = 1A090h)
+> 
+> From my testing both addresses works (maybe since my SoC is a general purpose one).
+> 
+> When and why Proxy1 must be used?
+
+Yes, both Proxy0 and Proxy1 work, but Proxy0 is the default access path
+when we look at it in the context of J784S4. On J784S4, instead of
+calling out Proxy0, the register is called ACSPCIE0_CTRL when it falls
+in the Proxy0 range, while it is called ACSPCIE0_PROXY_CTRL when it
+falls in the Proxy1 range. Therefore, from the perspective of the naming
+convention followed on J784S4 for which a compatible was first introduced,
+Proxy1 address would correspond to the ACSPCIE0_PROXY_CTRL register.
+
+> 
+> Otherwise I'm fine to use  0x_0011_a090.
+> 
+> Best regards,
+> Romain
 
 Regards,
-Richard
+Siddharth.
 
