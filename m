@@ -4,66 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA47CE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 11:19:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76D1BE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 11:21:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VXQQFvf77bchSnkndxN19Cawx7kLut+C4n4JPrH4k6I=; b=joSBmaH483VxZ/BhK8pr1SQ5cl
-	aVAUbeP86miMbbmxVwDEnOdulIosH6+Q+FTRQ0yE2v6JwEkOT+fzHe1WhTDFkd1vf8IXZPFBlSu8I
-	+4cIrZ4TvKGf+7MOu2Ol0PYxeviuvE2VheAyedMe5pEzc4GFXPVxIkLeGq2swjdGgsFXD4TcWgGvR
-	K3nYWPfx0nM5lcIv5rI/VQOIxna6L2e4sqAWmNqjLpVCdUpkVWxfoddkJiRw+9lV+/bnrWW46VleF
-	QEg1n9yGYVxf5w5cvainzR23ObefDVHxfMcSpZtSbuD8P7UW/8LN7e9jw/QModYbJmc3J10s6gjpQ
-	aFUjEbXQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6O0IzZdicbDnl+ThnIAAob2BiQyf9NMS5q74NBvP63Q=; b=SM+5pLsb2noPvfA6Zy2WQ9h/+0
+	zrXwhp0P3JcekuI1md9BAMj6Tz3zeb6mjVgco1TZCTFiqbp24FJ2riddPhkMiRFq5D/Mo7czcpHqp
+	qr1ptbmFoXX5wO2dFHkkMH1+Wr1z31aRFK0FXxcwFKeTDubnRbIJgtkJdCr6wQm33VyuOejNmb/h1
+	jNzPhLF4ELKmQa/fq3kYCL+xKcpMAElqBLnSzf2ZxU9fqkWRXLcpzs02VgN5l/oOq3xlZqzJfvf2O
+	pzVEqd+LwlnjO2Gh4BjAYBWi6fZSlR/gOUZ+SKfGJyN2NOrcvX9MNVzAwbUaeWpeD42Ne9HC6XXH8
+	7bor9Uig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWD2L-0000000F5Bx-2dTd;
-	Fri, 10 Jan 2025 11:18:45 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tWD50-0000000F65N-253q;
+	Fri, 10 Jan 2025 11:21:30 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWD15-0000000F4yC-3cTF;
-	Fri, 10 Jan 2025 11:17:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=VXQQFvf77bchSnkndxN19Cawx7kLut+C4n4JPrH4k6I=; b=uBSSQKxaiw7OaZ+6k41YG14Ir1
-	2KhCMN6MxDj0MStEYBLj7ZGmGw5OS7eKVr+0Ak9MQU867of5ryWX8nbkILrZ0fCbt8BJntZGSj++K
-	b2Vhk0hVqoYT9Dmr3SUMdB3JyVFGvHV7tqU/jeekAi8HkOJZZPXUj9IqSfQHoyUTVD8HtXwP255MK
-	QRoYynNJ2ba3Sx8PtjpAfejiB9Yk2JCYTJMF7RadrNl/koJXiifcvnBkzIV8OS0BQpSM9CoBo7Pwj
-	XnomMeXTy56j5sFGK/jpTGmJ/C3FV9144VSYnhqzKnkT+7sk6H6A0CXqRdDJoWbj4wLbYuISGM8Qe
-	EmBOA15A==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:53686)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tWCyg-0003KH-2L;
-	Fri, 10 Jan 2025 11:14:58 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tWCyY-0008HW-1b;
-	Fri, 10 Jan 2025 11:14:50 +0000
-Date: Fri, 10 Jan 2025 11:14:50 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Eric Woudstra <ericwouds@gmail.com>
-Subject: Re: [PATCH net-next 5/5] net: phylink: provide fixed state for
- 1000base-X and 2500base-X
-Message-ID: <Z4EBKhGVwlVhxAxw@shell.armlinux.org.uk>
-References: <Z3_n_5BXkxQR4zEG@shell.armlinux.org.uk>
- <E1tVuG1-000BXo-S7@rmk-PC.armlinux.org.uk>
- <a54b564b-4f88-4783-9e8a-72289ce11c04@gmail.com>
+	id 1tWD3l-0000000F5sX-37fB
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 10 Jan 2025 11:20:15 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50A6XPXL018522;
+	Fri, 10 Jan 2025 12:20:06 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	6O0IzZdicbDnl+ThnIAAob2BiQyf9NMS5q74NBvP63Q=; b=f6JWExp4ct10P4SU
+	OjyL/96MiRqY2IXnuKvQSzUbrLCOd31/N1T+C7yotKJm/D5/S8LyF5gFNpjE77wM
+	em03bvuzgVWXgw526qn+RJn940qKk2urGywI/ki9gbjFQNEyrwt6n62oyG3x9DEn
+	/CYreg4GjtjlhNUpoVs0vzXAdFeaqmDHCmbA+YuXE668GspWqdOAGv/MIHkodbwa
+	E1Hm4PmNw0O2mQEkxra80LfEdw6nP7wnGRv3ccMu8IcTN3MJYg2Vx54GZhjnZxoU
+	xSZh/b5CZtkcg3SS64lEAl9WYO6jqa7BdTTcjnMliR8x2YvOhGoIQzs1m2LYwKTn
+	6yzB8A==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 442f5q4p5s-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 10 Jan 2025 12:20:06 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 5518940045;
+	Fri, 10 Jan 2025 12:18:56 +0100 (CET)
+Received: from Webmail-eu.st.com (eqndag1node4.st.com [10.75.129.133])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id B4C542930E7;
+	Fri, 10 Jan 2025 12:18:14 +0100 (CET)
+Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE4.st.com
+ (10.75.129.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Fri, 10 Jan
+ 2025 12:18:14 +0100
+Received: from [10.252.28.64] (10.252.28.64) by SAFDAG1NODE1.st.com
+ (10.75.90.17) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Fri, 10 Jan
+ 2025 12:18:13 +0100
+Message-ID: <9df8fc8b-b827-4505-9273-ac56ab7426e7@foss.st.com>
+Date: Fri, 10 Jan 2025 12:18:12 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <a54b564b-4f88-4783-9e8a-72289ce11c04@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] iio: adc: stm32: Drop unnecessary DT property presence
+ check
+To: "Rob Herring (Arm)" <robh@kernel.org>,
+        Jonathan Cameron
+	<jic23@kernel.org>,
+        Lars-Peter Clausen <lars@metafoo.de>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>
+CC: <linux-iio@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20250109182325.3973684-2-robh@kernel.org>
+Content-Language: en-US
+From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+In-Reply-To: <20250109182325.3973684-2-robh@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.252.28.64]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SAFDAG1NODE1.st.com
+ (10.75.90.17)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_031727_935792_D78AC91A 
-X-CRM114-Status: GOOD (  20.89  )
+X-CRM114-CacheID: sfid-20250110_032014_244795_51D0DC34 
+X-CRM114-Status: GOOD (  16.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,51 +100,55 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Taras Chornyi <taras.chornyi@plvision.eu>, Andrew Lunn <andrew@lunn.ch>, Marcin Wojtas <marcin.s.wojtas@gmail.com>, Madalin Bucur <madalin.bucur@nxp.com>, Alexander Duyck <alexanderduyck@fb.com>, Daniel Golle <daniel@makrotopia.org>, Eric Dumazet <edumazet@google.com>, Ioana Ciornei <ioana.ciornei@nxp.com>, Horatiu Vultur <horatiu.vultur@microchip.com>, Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>, Florian Fainelli <florian.fainelli@broadcom.com>, Sean Anderson <sean.anderson@seco.com>, Steen Hegelund <Steen.Hegelund@microchip.com>, Lars Povlsen <lars.povlsen@microchip.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Jose Abreu <Jose.Abreu@synopsys.com>, Sean Wang <sean.wang@mediatek.com>, Daniel Machon <daniel.machon@microchip.com>, kernel-team@meta.com, DENG Qingfang <dqfext@gmail.com>, linux-mediatek@lists.infradead.org, Matthias Brugger <matthias.bgg@gmail.com>, Michal Simek <michal.simek@amd.com>, linux-arm-kernel@lists.infradead.org, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Ar__n__ __NAL <arinc.unal@arinc9.com>, netdev@vger.kernel.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, UNGLinuxDriver@microchip.com, Andrew Lunn <andrew+netdev@lunn.ch>, Alexander Couzens <lynxis@fe80.eu>, Vladimir Oltean <olteanv@gmail.com>, "David S. Miller" <davem@davemloft.net>, Heiner Kallweit <hkallweit1@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 10, 2025 at 09:04:56AM +0100, Eric Woudstra wrote:
+On 1/9/25 19:23, Rob Herring (Arm) wrote:
+> There's no reason to check for regulator supply property presence before
+> calling devm_regulator_get_optional() as that will return -ENODEV if
+> the supply is not present.
 > 
-> On 1/9/25 4:15 PM, Russell King (Oracle) wrote:
-> > When decoding clause 22 state, if in-band is disabled and using either
-> > 1000base-X or 2500base-X, rather than reporting link-down, we know the
-> > speed, and we only support full duplex. Pause modes taken from XPCS.
-> > 
-> > This fixes a problem reported by Eric Woudstra.
-> > 
-> > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> > ---
-> >  drivers/net/phy/phylink.c | 29 +++++++++++++++++++----------
-> >  1 file changed, 19 insertions(+), 10 deletions(-)
-> > 
-> > diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
+> The diff context doesn't show it, but the next line returns on error 
+> other than -ENODEV.
+
+Hi Rob,
+
+Tested on STM32MP157C-EV1,
+
+Acked-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Tested-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+
+Thanks & BR,
+Fabrice
+
 > 
-> After changing 'if (pcs->neg_mode)' to 'if (pcs && pcs->neg_mode)' in
-> patch 1/5, I have tested this patch-set and I get link up.
+>  drivers/iio/adc/stm32-adc-core.c | 6 ++----
+>  1 file changed, 2 insertions(+), 4 deletions(-)
 > 
-> Tested-by: Eric Woudstra <ericwouds@gmail.com>
-
-Thanks Eric. Much appreciate your patience with this tangent to the
-issue you have - your report highlighted that there was this other
-bug that needed fixing in addition to the problem you were experiencing.
-I've fixed that slightly differently (as below) and I'll post a v2
-shortly.
-
-+       if (!pcs || pcs->neg_mode)
-+               autoneg = pl->pcs_neg_mode == PHYLINK_PCS_NEG_INBAND_ENABLED;
-+       else
-+               autoneg = linkmode_test_bit(ETHTOOL_LINK_MODE_Autoneg_BIT,
-+                                           state->advertising);
-
-there, since the "else" clause is the legacy case. I doubt that makes
-any difference to your testing scenario, but please let me know if
-you want to re-test with that before I add your t-b.
-
-Next, we need to address your problem properly... I'll be looking at
-that today.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+> diff --git a/drivers/iio/adc/stm32-adc-core.c b/drivers/iio/adc/stm32-adc-core.c
+> index 2201ee9987ae..0914148d1a22 100644
+> --- a/drivers/iio/adc/stm32-adc-core.c
+> +++ b/drivers/iio/adc/stm32-adc-core.c
+> @@ -615,8 +615,7 @@ static int stm32_adc_core_switches_probe(struct device *dev,
+>  	}
+>  
+>  	/* Booster can be used to supply analog switches (optional) */
+> -	if (priv->cfg->has_syscfg & HAS_VBOOSTER &&
+> -	    of_property_read_bool(np, "booster-supply")) {
+> +	if (priv->cfg->has_syscfg & HAS_VBOOSTER) {
+>  		priv->booster = devm_regulator_get_optional(dev, "booster");
+>  		if (IS_ERR(priv->booster)) {
+>  			ret = PTR_ERR(priv->booster);
+> @@ -628,8 +627,7 @@ static int stm32_adc_core_switches_probe(struct device *dev,
+>  	}
+>  
+>  	/* Vdd can be used to supply analog switches (optional) */
+> -	if (priv->cfg->has_syscfg & HAS_ANASWVDD &&
+> -	    of_property_read_bool(np, "vdd-supply")) {
+> +	if (priv->cfg->has_syscfg & HAS_ANASWVDD) {
+>  		priv->vdd = devm_regulator_get_optional(dev, "vdd");
+>  		if (IS_ERR(priv->vdd)) {
+>  			ret = PTR_ERR(priv->vdd);
 
