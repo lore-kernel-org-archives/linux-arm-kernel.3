@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AED5FE7719C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 13:11:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A4F3E7719C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 13:12:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iZ8T9tfgTsZH3qi3WJce9KzBqzpoMJY1MEAfLWSlohI=; b=0h/3JhFXbErjc4wZdYyJ/QfHjt
-	Zs1F1aTmUMi8P3U1vxBRIvuUSCinAi4rc+Ib6mvXHXr4TDC/WltC9IW4gkgzrX69JRzCH/CuCCNrB
-	2Do+K6mtATDuiDzUd7sO2fl7lbdVVRzUh9HdHDLfOPU/hsPnOAM9KCVc2hheYNVO1rVRfE5hDwnHi
-	dr5hSTUS+hF6XRWL4i/GLhQGR71BofzlJC02eKZ0CB7DEfwyvMJYGQumgYL/wwikl3CR3rhNKnlWn
-	7dmYokQCIo3oyXEZGmHUqqwWwZPPaRrY0i7iS6xt5Rq2/dNdlIL5QDlXgElY8DsT3NKbpxyhinN47
-	oTNNBqYw==;
+	bh=igx3vsbHYU2SbSLzctYG8vb+8rPR+0Pom3GeePVXdeo=; b=XEQjp4dFjhlWJRyalfd5Figdxw
+	+RdkrD3kKaA9mG30LgVhy5kTgdmxdAawBWzOgDCw2z8as9Gw0ChjWSRIQPWqr1J0cp4DrnN/wZe2N
+	I+hzmwXRqV+rwKvWjPJ7Ph0TGkbS4CnyS6dXGtymlGja7cu+2e8vSKfSDQwCeNumCrPuV2pz9ldvF
+	MlLiNRm4sk/wPMJVA1/P1zCWZgQMuhfd4KNzzm7487QfF4IumA9bkvjvbqaPTUoXhk9W0Th8SKCqw
+	i/Bo40/5i7/uOoqcZ3jUs1G8bktEvZzT47RUc97veL8lSlt8MoDws1dKGyAuX7pj6Q/1bsc1p5kYB
+	wLBUT9qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWEn5-0000000FQ4b-1R9v;
-	Fri, 10 Jan 2025 13:11:07 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1tWEoI-0000000FQIv-3IvG;
+	Fri, 10 Jan 2025 13:12:22 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWEIs-0000000FJHD-3aSn;
-	Fri, 10 Jan 2025 12:39:56 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43635796b48so13065385e9.0;
-        Fri, 10 Jan 2025 04:39:54 -0800 (PST)
+	id 1tWEIu-0000000FJI1-3aGI;
+	Fri, 10 Jan 2025 12:39:58 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4361f664af5so23374275e9.1;
+        Fri, 10 Jan 2025 04:39:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736512793; x=1737117593; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1736512795; x=1737117595; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=iZ8T9tfgTsZH3qi3WJce9KzBqzpoMJY1MEAfLWSlohI=;
-        b=ApeXjL9veFFMifM3ADlQlbxRZWi46/cwNU2CLqL2NuXXDDIbPoZ4mb94ivIKcWasTv
-         C+JkdWthnYMpIKnJXgkagvPjIPo8qXLu1dhY09cS8kzRLcrQ3oWrKdWa6pa3ogTRGIin
-         0jVFN1VKOFIh+JW2KUQQRwKyFlflYT9XVnmQQ0INX/F1y6aJC0RAnGqzKXp48OVNg4su
-         oU+vuP0w+xwzgQyN3xwlEoFjIGyfJ+1jA1/Vj6ud7tyRQtz3efIs49TYYJD/4L15/bn3
-         09jnFDGRfbAxTzk8IVJFJ4EP4v31w7DyGXIZWN/ah6ctkJlzCfEjQ8trwEHne00QH36w
-         /HOA==
+        bh=igx3vsbHYU2SbSLzctYG8vb+8rPR+0Pom3GeePVXdeo=;
+        b=FvpFg5ob7dfcatkzFVvxvv80xTyVFkPZfRYLSRQJDGPU3BsWdSoVLBcwEgBoTHWk1j
+         jwNcV6mEVuEycZitJCwcyAa+7zwXCx/HWxIikAZzWBZKhHvccKe8xhn60EN/EF1y6R4W
+         W5RcAJcn8vVoTGowrMaGjl8Zsw9bYm5GO2vhZ6tjtPAqJr5WrgGAVzNvwZRcYEVS0kMg
+         FzqJHnSYqylDpsZmnBCDgKVCCzu5geS0KW8I9/UECWMd5jQxa8HkwNpkUkOsQepprT4o
+         /iFD8VJqhgv1oj0f/8MdizcuadnL77OWMZBxfVhMyf9RqdwFtRjfKkVmV9t3PjuHQTFv
+         2d2w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736512793; x=1737117593;
+        d=1e100.net; s=20230601; t=1736512795; x=1737117595;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=iZ8T9tfgTsZH3qi3WJce9KzBqzpoMJY1MEAfLWSlohI=;
-        b=Ss9PU0cDJaGz2EQhPLAF8edavi4TCdzVI2UB7SMRWbvHQp2eocEd9szkjUb/WU/U7j
-         pKwNLdLkCjIPahonnAhdd/sKUomzt8gYbXfavn0fvcXjf/7whHjUfNYRCKaGeh25KPIM
-         a0IbS6OUbUmVwSC5bFnyLGW4ejH89wiV/zTU0XPLXjaSONEbrbGrHoU103Hu9MVoiigP
-         LryX1q3lxhyjx9/wk/p4Wg9k68Odp8Y63G3sCSPGE4qsxl1PsiWvTM1InAe2DJe95Nn+
-         /O9dMiumxuUDcMOXikBteI4cyutrnqEqef+K/jIG480wSD6TF1V9JNAwzYOHzU9PucLI
-         jrMQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW9qMBMr5EToGZEbzWzvqkTSFR7mPyyjZhMVOZgli/+6RimijrCAMFuehJxmlQ3y8QsnMHVRW97rS+f@lists.infradead.org, AJvYcCWyEISVoB646LmHdkYrT+6ZipE2issv5EplRf+Q3Jh8+XQIM3GOfFO52N1MS6qh9CLTqafbR0fsWOYXe5KwJoGP@lists.infradead.org, AJvYcCXmUrQ8v86D0iEW3qDF4ag20wZJ2Mz4cpbIhe8rJiTv8YP+E7j3EWjHSASJ694IWsmHy/wRjMxSNgoMXWs=@lists.infradead.org
-X-Gm-Message-State: AOJu0YxzmiZ/vFmzBXwvyqHTe7S/7QDR4JGJh9JOEMdsKhO2zl/pf1hV
-	tlkySz9U/RsRKcW6puW7nU3JkybEHEXL2ay3KC5SA4dfYtksUrFL
-X-Gm-Gg: ASbGncvEp/irU5Ybae+uhHEA0bBtQi7khPefcchuxnZuEVGT9HG+AWoP7h4nmovNNv0
-	a5krg6s0MTht/uurr7Y+Jc/3qD3/JRGvjltUnf2G3sQ0KUxZNf4unjUcKfl9EQjNJch1RkIAzn5
-	A+UxcNiaN17f5WaCqpUXA6q3tG7+jWzrBETSAb8arPOBclfzMfzutS9ppOUXePGqUzAzdXg+TU7
-	2W9eM+wDGANqIRLpvYATa/PrN4khFCL3krqW43ONTTcNrtpnJT4tfn5MOxbuDK5D9nYK6LjDFLi
-	zQPrs2njfNc=
-X-Google-Smtp-Source: AGHT+IFy0YLTGe8F+nl8LnieqDiyiyRbcR5k0ayFI05mSwXqdMMGbUO+5rrLK2qTd/ypLoKxWRGH+Q==
-X-Received: by 2002:a05:600c:5028:b0:434:fa73:a906 with SMTP id 5b1f17b1804b1-436e9d6fe9emr53361615e9.4.1736512792992;
-        Fri, 10 Jan 2025 04:39:52 -0800 (PST)
+        bh=igx3vsbHYU2SbSLzctYG8vb+8rPR+0Pom3GeePVXdeo=;
+        b=aklKo/pTc2/lafidECYepXZr+UZeUnv0V65rcHuddYfSPTQhZfXF39Yvs7OVxF1Evt
+         T1NbBW0bMx4DhvKBNcV6jYp6kqtfaMmdAqq//1b+NdMOB7Ow26jMvs1di7xjzovaQL+/
+         gxyVpKvv70l9GvjMz+NfO9t8o1ED+8RwRWN5FvSRRs80GKNWVgAhAdibDLmvuwxQk0rx
+         xGeOcraMi8EirXZdHJx8oyaG5d/i+IUG6BplpY/qObVvo7bPVBjVFyRdM9ZuyZ2Ek+Er
+         pYXZnzGDt4miO3huk628gPEBXSJK7RPMTIWxOaKCFhXU+AMJPEAGi9ELeoHxUdeSnU/2
+         8c5Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUFCG1FFXn083j7qO0/fGBBf1OKvK5i/XkRcWDKXJ3BDjmjkAXWyaQoYiTlXh+zyeIo71SwrHt0TlbS/n0=@lists.infradead.org, AJvYcCWS81LGP0vUJQUhS7m8BXzxY8LG0AYHCHBoSbxVyOhd7Ht5l6UapIJHqo2tJin0X5QVDRGM6ujllvQgnEF8hZwh@lists.infradead.org, AJvYcCXJkY4jls3EggECB3mJGpHbgT9pYBu42pwsBQ9yrn9Ep/5+Kjcyybz/VUtgCZ0xIR6o5v0YvEqqcyo4@lists.infradead.org
+X-Gm-Message-State: AOJu0YzhKukDVbfzEq2igpP4PTNnhiau5VSUgewZJ/owBqH00da/rHMQ
+	pN/5mO20EaVKUkoEh7jPwycMLrbuLl3tGgIfUqXLuS+XKQjuisdB
+X-Gm-Gg: ASbGncs1Behl1FZmS7IyoBVjysAAt1Kw787gENdQElIJDhCJyWGe3XvUqUxjTYYeZeo
+	3g61fpxv436qehy8tG6U0d9/TaLt8E40LgH1MmWuA5m2kRw/BwutsMDgDDHKl/X21kV2ozONgDT
+	KHQSRjh5vO+Pv/dyo2PZnZHT2jPh/9zRG+vtK6fzgazrOT7fln/aKmbnM76Bq2Kpn7uSOXz/Io3
+	QJIk1CIMlCOZHEprDA6XRH/ipHN2NfbQrfwa22zfObB2TV9wp1cD0fxwZY394LEUfd8Z9zPriS2
+	cC5IJk7THI8=
+X-Google-Smtp-Source: AGHT+IHJBa9+air9IL9blTAVkIeyT+Uy608NuMWnh0WegSAUF/lpfSwiNlAx3KeEO2hjhXHZuc5uCw==
+X-Received: by 2002:a05:600c:1c8f:b0:434:f586:753c with SMTP id 5b1f17b1804b1-436e2686096mr99189355e9.7.1736512795073;
+        Fri, 10 Jan 2025 04:39:55 -0800 (PST)
 Received: from localhost.localdomain (185.174.17.62.zt.hu. [185.174.17.62])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e2da6401sm86738715e9.2.2025.01.10.04.39.50
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e2da6401sm86738715e9.2.2025.01.10.04.39.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Jan 2025 04:39:52 -0800 (PST)
+        Fri, 10 Jan 2025 04:39:54 -0800 (PST)
 From: Andras Szemzo <szemzo.andras@gmail.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -96,17 +96,17 @@ Cc: Vinod Koul <vkoul@kernel.org>,
 	linux-gpio@vger.kernel.org,
 	linux-pm@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH 10/12] dt-bindings: phy: allwinner: add v853 usb phy
-Date: Fri, 10 Jan 2025 13:39:21 +0100
-Message-Id: <20250110123923.270626-11-szemzo.andras@gmail.com>
+Subject: [PATCH 11/12] phy: allwinner: add v853 usb phy compatible
+Date: Fri, 10 Jan 2025 13:39:22 +0100
+Message-Id: <20250110123923.270626-12-szemzo.andras@gmail.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250110123923.270626-1-szemzo.andras@gmail.com>
 References: <20250110123923.270626-1-szemzo.andras@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_043954_893265_D6482A43 
-X-CRM114-Status: GOOD (  13.36  )
+X-CRM114-CacheID: sfid-20250110_043956_890996_890AE0AF 
+X-CRM114-Status: GOOD (  11.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,109 +121,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document Allwinner v853 USB phy.
+V853 has a dual role USB phy, similar to other Allwinner devices, but with
+only one phy. Add a compatible for it.
 
 Signed-off-by: Andras Szemzo <szemzo.andras@gmail.com>
 ---
- .../phy/allwinner,sun8i-v853-usb-phy.yaml     | 89 +++++++++++++++++++
- 1 file changed, 89 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/phy/allwinner,sun8i-v853-usb-phy.yaml
+ drivers/phy/allwinner/phy-sun4i-usb.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/phy/allwinner,sun8i-v853-usb-phy.yaml b/Documentation/devicetree/bindings/phy/allwinner,sun8i-v853-usb-phy.yaml
-new file mode 100644
-index 000000000000..773c3f476db8
---- /dev/null
-+++ b/Documentation/devicetree/bindings/phy/allwinner,sun8i-v853-usb-phy.yaml
-@@ -0,0 +1,89 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/phy/allwinner,sun8i-v853-usb-phy.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/drivers/phy/allwinner/phy-sun4i-usb.c b/drivers/phy/allwinner/phy-sun4i-usb.c
+index cd159a71b23c..e126a0dcc19b 100644
+--- a/drivers/phy/allwinner/phy-sun4i-usb.c
++++ b/drivers/phy/allwinner/phy-sun4i-usb.c
+@@ -1006,6 +1006,15 @@ static const struct sun4i_usb_phy_cfg sun50i_a64_cfg = {
+ 	.phy0_dual_route = true,
+ };
+ 
++static const struct sun4i_usb_phy_cfg sun8i_v853_cfg = {
++	.num_phys = 1,
++	.phyctl_offset = REG_PHYCTL_A33,
++	.dedicated_clocks = true,
++	.hci_phy_ctl_clear = PHY_CTL_SIDDQ,
++	.phy0_dual_route = true,
++	.siddq_in_base = true,
++};
 +
-+title: Allwinner V853 USB PHY
-+
-+maintainers:
-+  - Chen-Yu Tsai <wens@csie.org>
-+  - Maxime Ripard <mripard@kernel.org>
-+
-+properties:
-+  "#phy-cells":
-+    const: 1
-+
-+  compatible:
-+    const:
-+	- allwinner,sun8i-v853-usb-phy
-+
-+  reg:
-+    items:
-+      - description: PHY Control registers
-+      - description: PHY PMU0 registers
-+
-+  reg-names:
-+    items:
-+      - const: phy_ctrl
-+      - const: pmu0
-+
-+  clocks:
-+    maxItems: 1
-+    description: USB OHCI PHY bus clock
-+
-+  clock-names:
-+    const: usb0_phy
-+
-+  resets:
-+    maxItems: 1
-+    description: USB OHCI reset
-+
-+  reset-names:
-+    const: usb0_reset
-+
-+  usb0_id_det-gpios:
-+    maxItems: 1
-+    description: GPIO to the USB OTG ID pin
-+
-+  usb0_vbus_det-gpios:
-+    maxItems: 1
-+    description: GPIO to the USB OTG VBUS detect pin
-+
-+  usb0_vbus_power-supply:
-+    description: Power supply to detect the USB OTG VBUS
-+
-+  usb0_vbus-supply:
-+    description: Regulator controlling USB OTG VBUS
-+
-+required:
-+  - "#phy-cells"
-+  - compatible
-+  - clocks
-+  - clock-names
-+  - reg
-+  - reg-names
-+  - resets
-+  - reset-names
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/gpio/gpio.h>
-+    #include <dt-bindings/clock/sun8i-v853-ccu.h>
-+    #include <dt-bindings/reset/sun8i-v853-ccu.h>
-+
-+    usbphy: phy@4100400 {
-+        #phy-cells = <1>;
-+        compatible = "allwinner,sun8i-v853-usb-phy";
-+        reg = <0x4100400 0x100>,
-+              <0x4101800 0x100>;
-+        reg-names = "phy_ctrl",
-+                    "pmu0";
-+        clocks = <&ccu CLK_USB_OHCI>;
-+        clock-names = "usb0_phy";
-+        resets = <&ccu RST_USB_PHY>;
-+        reset-names = "usb0_reset";
-+        usb0_id_det-gpios = <&pio 5 6 GPIO_ACTIVE_HIGH>;
-+    };
+ static const struct sun4i_usb_phy_cfg sun50i_h6_cfg = {
+ 	.num_phys = 4,
+ 	.phyctl_offset = REG_PHYCTL_A33,
+@@ -1042,6 +1051,7 @@ static const struct of_device_id sun4i_usb_phy_of_match[] = {
+ 	  .data = &sun50i_a64_cfg},
+ 	{ .compatible = "allwinner,sun50i-h6-usb-phy", .data = &sun50i_h6_cfg },
+ 	{ .compatible = "allwinner,sun50i-h616-usb-phy", .data = &sun50i_h616_cfg },
++	{ .compatible = "allwinner,sun8i-v853-usb-phy", .data = &sun8i_v853_cfg },
+ 	{ .compatible = "allwinner,suniv-f1c100s-usb-phy",
+ 	  .data = &suniv_f1c100s_cfg },
+ 	{ },
 -- 
 2.39.5
 
