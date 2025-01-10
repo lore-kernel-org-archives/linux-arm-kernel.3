@@ -4,146 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97F84E7719C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 19:36:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D926EE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 19:37:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=USWyATaTozduxWuZNfL50mg/6wtw5Rf5njwp/lLQZ/4=; b=T1fp3wLo7haFBOh2yE/knOGqPH
-	OSzU3CbjO2pYwbQiQlxy/v5H8qi7m5FMwNMf/DlYf47BbQpbl+PBWc61yWuYSWovLayWzcuZ2qARE
-	G/o36t16f5C8zMtZl7z1sUF62+4zWlK08Iq4cWUENzoQkhBk8u5DI7LJ2MWE2YqzcIIDcreGK5nBQ
-	Z4Jx8mlJXI/6Qom0budcztBpOMbBGXPrnFwumXOG8Z9V1DdvgIqszpiEd8gMyasPIPzLIsp52cUzH
-	cARxZoBB+iOiN30Mn03lEm2wwDR4jq1yAZqphG0xpl0pFt7BM7wIPPJD2phUTSQaa8um3yy1ykGU6
-	W1nvr9tA==;
+	bh=T624wPcrhS1JgwTBcPosmdXx4gdcuulJGOQvqM6CtCw=; b=cCXdVtGMFzb/Z5jCVV/E56vtgS
+	pETPIOhImsq3B3KvCZ3bH9PTpe//VWoE2hSPmfRhxSs5xMgYpgWEc9PlgjY/Jap9colPPlwNpeYkz
+	+wGJMBjkFyl5J1XRbYKBUNXLwfACUFJ/M6NPyVQlOSfxsavzbWJZrlRjZcaHkxkZEUFPq9NerbHFX
+	RdR2unRSvMJLNOntOPVxg4LNkQ9txUWbaYE4ryhm4M6p0pbwJfYEWr+UyM3TvHOsDfP/dH283nAMG
+	S1wYjHjZ5sQus7P7UZfC0qhCXpwfmMIrcN+aRYp565LlWOfz18tdG3Gt5X5TKf7984CZ9UUnPIOL1
+	KjrfN+Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWKns-0000000GmhG-370V;
-	Fri, 10 Jan 2025 19:36:20 +0000
-Received: from mail-mw2nam10on20630.outbound.protection.outlook.com ([2a01:111:f403:2412::630] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1tWKp4-0000000GmsX-3jwM;
+	Fri, 10 Jan 2025 19:37:34 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWKfu-0000000GlMX-19un
+	id 1tWKin-0000000Gltd-3CcR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 19:28:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LjpLqxrQ1SyZp7DG6ysFgrGQ+LqUkLB0keLbzNoZ8lqpr86Hps8AYBaf9JKBfFZmy3+QQ8iKLPOiXuGyfueebq+4wM7TivXOS50amY8nNknrCZI+PgYwvz/6xIklsn+798DB4Qi33x3iqoM2shkP3v2epXH5y7+8hGrsLWpwuRU/YlU5wXP7cXqejmAEEsMX8mpZJnYwpaUShNmujYcxrU2kZBA9PZbkmLdxMYeDv64ISip3BqfDNU6D4nrdBui4mDsBtDTRCODJN9S3NsR0WIfVao7LZ7KnLr+u6KEhFS4Sl3nXoOMvt6IkFIPOm0p+RIDsERPEmrLi69mMwzFgcQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=USWyATaTozduxWuZNfL50mg/6wtw5Rf5njwp/lLQZ/4=;
- b=SglO1kLLaHQehoJuUPRqemn1PvltP9q2hz+Cn9Y72kUhIFQHcqfgRD4aN69gLTAT4+vzha+2KIqR1j8fD91r5RsgExPBXLpU1sSytt0rSDq9QSeD45gLAI7Rhae2SuKjTIp8wdh07c9PNxU+weQqv/4O5ubqDPgNezb5tLXbvD3eHu1dM2rsi50JseMwBJHgLZak/AmyWyYMCFkBiqMgVuVPWP5TaHvz9ESf1JlNuq5p1/Me5k9tgqipX+t1+5L2xvH6IKO1BG3BYzTN6KIBjMMmXxNLAzaL9hw3VxNa+vqLjA34Q2UzcqKgA5IpT5bNoGN5LyJDBVWzqn2yMO4SIA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=redhat.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=USWyATaTozduxWuZNfL50mg/6wtw5Rf5njwp/lLQZ/4=;
- b=rICzdp6B5Tl3xrRcN7r1k8jkwKzZ/HUmiZlEfKCXtntFrqTVOjv2UKszCe0NenrWLjuX7Npz2dL2Ye8gK+nI0b4TuLUKR65SQ6vTucuwRswp6gxxAeONnOu45I5ZmtLIeCsIndYYK2UJfUHVLiRYQ4AkIBmpfleOpTiQ8ZQBEyyxSmvgQ3EUY5F1yX8L6ie/JUZDhhNNT4kMXNEBzmq3GYaRzdDV2hycASnnxHQZqReQlAwXYJIb2ARuutDB8vWSR/+19xK5Xvu2DaJlZmbiS34HQOk/vqUbWa6b6XUyaEvipGq4dKzQSBaxuHwi0O7IPwqriT0lfaF8QU6XKgWueg==
-Received: from MW4P220CA0016.NAMP220.PROD.OUTLOOK.COM (2603:10b6:303:115::21)
- by PH8PR12MB6844.namprd12.prod.outlook.com (2603:10b6:510:1cb::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.11; Fri, 10 Jan
- 2025 19:27:59 +0000
-Received: from SJ1PEPF000023DA.namprd21.prod.outlook.com
- (2603:10b6:303:115:cafe::3) by MW4P220CA0016.outlook.office365.com
- (2603:10b6:303:115::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8335.12 via Frontend Transport; Fri,
- 10 Jan 2025 19:27:58 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- SJ1PEPF000023DA.mail.protection.outlook.com (10.167.244.75) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8377.0 via Frontend Transport; Fri, 10 Jan 2025 19:27:58 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Fri, 10 Jan
- 2025 11:27:57 -0800
-Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.4; Fri, 10 Jan 2025 11:27:56 -0800
-Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.126.190.182)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4 via Frontend
- Transport; Fri, 10 Jan 2025 11:27:55 -0800
-Date: Fri, 10 Jan 2025 11:27:53 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <kevin.tian@intel.com>, <corbet@lwn.net>, <will@kernel.org>,
-	<joro@8bytes.org>, <suravee.suthikulpanit@amd.com>, <robin.murphy@arm.com>,
-	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>, <shuah@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, <eric.auger@redhat.com>,
-	<jean-philippe@linaro.org>, <mdf@kernel.org>, <mshavit@google.com>,
-	<shameerali.kolothum.thodi@huawei.com>, <smostafa@google.com>,
-	<ddutile@redhat.com>, <yi.l.liu@intel.com>, <patches@lists.linux.dev>
-Subject: Re: [PATCH v5 06/14] iommufd: Add IOMMUFD_OBJ_VEVENTQ and
- IOMMUFD_CMD_VEVENTQ_ALLOC
-Message-ID: <Z4F0uZBg05J7Nuhl@Asurada-Nvidia>
-References: <cover.1736237481.git.nicolinc@nvidia.com>
- <86e78625c48d0c8fb815496dbc57708b98a46ec7.1736237481.git.nicolinc@nvidia.com>
- <20250110174842.GI396083@nvidia.com>
+	Fri, 10 Jan 2025 19:31:08 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-215770613dbso30599475ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jan 2025 11:31:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1736537465; x=1737142265; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=T624wPcrhS1JgwTBcPosmdXx4gdcuulJGOQvqM6CtCw=;
+        b=idtxv0qwXo/b/FNXTjyUMtg8iawi4pWGv+6gP7PobdLDqagh7tAW31K28ANFb2NA4x
+         ujQteAQ1bNwqy3qs4uL6S5dxA+TJni3M7bHKZarHFY8u8Dl/QPiIrsFopRCzvQeay4oE
+         bBw2xeXz3qwp5Pvjo2yrfMiiBwdyU0eYQ+IFQpCS8LUc11BP2RPBNccYw5Ws3b0BuwRY
+         4N3mQ8TCU9971CKHsk6h/Z2kTTeIZHfYezAmNnSQeBWT0c8qAgVWkCU3jjHVxIw/3S/2
+         muYMuXd0xtKvSH4N7VaL7+VNoorDn7mm4FWJf+ukFFpqBBr7xqkBvzOg6vCXpqSuzWyP
+         Bndw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736537465; x=1737142265;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=T624wPcrhS1JgwTBcPosmdXx4gdcuulJGOQvqM6CtCw=;
+        b=OkQMKzejYcXz/K5sHnmEnRPqEq5vngt98SrrvmgSICcb8RpZ22mNFJPrbqJv56Gniz
+         dTidwNIxtZNnZaXef09dKt8xIhaVQNU2kxMuHa6mobsqJpuJOynsvbsOKksn04OkdKfg
+         m8mH9wQU8LnBTL86jXiWBrdyn/G4hm3NJCbj0F+b0P2XP/YlkZnZvWqw34NtxPLrGkR+
+         AX3vTNZxIwupaGvnRAdx5S+Pn39bQYaVi3c5YLsMDRI94i794ZojkY43RN9h+OHVckej
+         uegru0h9CDzKRtnpPLELTWGlOMevJZSX2bR4i9xuIyog3qH/nVRkSP7gwtBpZmA7ei2s
+         TCyQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV5tlpDFocB/YqCtV95ODT3XTq0gJwpKRSH0NlgPRrchNbinNXaesHjz4y5FKYbhrkYFCEKn1mhqMlAgiQtuSbZ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzzv4l3js3ipRVdhUfUMOl1UXo0JBLOrrzh3oAvIkCcX1vaMyTM
+	SdPiakFiNj47utzDwNkvqQmzIewHlGAG9opt1dlHsC0TXp/vv9ZPbMJlV//o/04=
+X-Gm-Gg: ASbGncuUe2b+SRl1i8IaGI37ELeVKonW313zm10YLgyr9fApkoqxULRuJs4UtD76MfD
+	c3WsgoxTH9Bh7HimTWSu/T+MFaBaesL3comjUIwDkfBowCkuK6v5Is79sQszJBwyEmfP2mwQlx4
+	Vm4N2frC4zLeWIrYekD+ytd73rTWJAAkUQLgzOh+z7eyyk8LMwZfVWspwr5Ekrj/15LrPlUcX3H
+	Sw6aCQSwV7y7joOKOprEgOKmFq/7x9fnGwVr8FXeaL+qowE5qFZ
+X-Google-Smtp-Source: AGHT+IEre0AsdJDUsGl4k/O1aF6vQLIHA3Knu3Spyy4azSMvw1UNUQEJLtptbRCNfCZV9aZHSRvhEg==
+X-Received: by 2002:a17:903:124f:b0:215:83e1:99ff with SMTP id d9443c01a7336-21a83f63f68mr150756545ad.27.1736537464834;
+        Fri, 10 Jan 2025 11:31:04 -0800 (PST)
+Received: from ghost ([2601:647:6700:64d0:4bc7:d274:c14b:fde8])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21a9f219a94sm16883985ad.129.2025.01.10.11.31.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 10 Jan 2025 11:31:04 -0800 (PST)
+Date: Fri, 10 Jan 2025 11:31:01 -0800
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Arnaldo Carvalho de Melo <acme@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	=?iso-8859-1?Q?Micka=EBl_Sala=FCn?= <mic@digikod.net>,
+	=?iso-8859-1?Q?G=FCnther?= Noack <gnoack@google.com>,
+	Christian Brauner <brauner@kernel.org>, Guo Ren <guoren@kernel.org>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+	Jonathan Corbet <corbet@lwn.net>, Arnd Bergmann <arnd@arndb.de>,
+	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-security-module@vger.kernel.org, bpf@vger.kernel.org,
+	linux-csky@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v6 00/16] perf tools: Use generic syscall scripts for all
+ archs
+Message-ID: <Z4F1dXQLPGZ3JFI5@ghost>
+References: <20250108-perf_syscalltbl-v6-0-7543b5293098@rivosinc.com>
+ <Z3_ybwWW3QZvJ4V6@x1>
+ <Z4AoFA974kauIJ9T@ghost>
+ <Z4A2Y269Ffo0ERkS@x1>
+ <Z4BEygdXmofWBr0-@x1>
+ <Z4BVK3D7sN-XYg2o@ghost>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250110174842.GI396083@nvidia.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000023DA:EE_|PH8PR12MB6844:EE_
-X-MS-Office365-Filtering-Correlation-Id: 31ecec42-1d1f-4517-6728-08dd31ace432
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|36860700013|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?6owmVDVMGTFZ12uErqMcIOCytB5F03qLNVcVCSqxcXK5B4PP2Vp8xh73NpLu?=
- =?us-ascii?Q?gWgXgkAvkJzW9R8a+EeF+5wEMcpjd7ZFUtqrCvafhLsWma/fxqORVlxYdjYc?=
- =?us-ascii?Q?E6UHAkHdWLjvN+ExblCUhrmxNlTpND/GjIYWeNCSv+KjB28LpWNUtBUBn9S4?=
- =?us-ascii?Q?N24B3tAkYv7fi2wrrgAB107+qwkry2G5D/Oek/Jz4McBl/Zak47i1a0213ym?=
- =?us-ascii?Q?YjbkuEhsiVfd3BR/U3bimaWbFRYcUFGTJh95vTMFHVzPo1HvyKd8kYRVVBL8?=
- =?us-ascii?Q?7T0vmYfILMWYA54u7DvY7Yty1y3nGDHUBL9kDWze0+MyUeWf6JbGsz+uKw01?=
- =?us-ascii?Q?TfiPBgg1oIoEliu/KZHIq/g46ezJgDgwzmvWh3NsGR4EqpdFC+VhTAkEJljq?=
- =?us-ascii?Q?zXdD52yZGdUSpAV10+eajbRhkkjtccClqJ4UhMCrcNyv4Hhuu/Vm+5Yl3nNS?=
- =?us-ascii?Q?qo14qZ1JDE2iCvI0ajLA8ZgEw0SrOvPnkcjlZM6fQ5Hs/AQ0x+PdAL4d2vFt?=
- =?us-ascii?Q?fikEWbLmoIUfePVqPnqLGlDsHv35P7Hcf+vHjR/8/ZPyfUlGpfDqJcBModh0?=
- =?us-ascii?Q?hFcDMZE0Tcw6w4Ngnkn0NOwUM9vkspb53mM6TBJ5oRBskAvGkWvlLSJpDEix?=
- =?us-ascii?Q?X/OFz42e/57ewPSGqLKcm7iFgm/TRTJsZtKpQh/ZwkJmiyOLGMdCRZT0vKtj?=
- =?us-ascii?Q?UtTXfRiyvo+3RG7Aqco/TUUnOKlQZYysCqSQivqhO3UlVzViuoWbDVLy5seu?=
- =?us-ascii?Q?Ag8zgie9MciixEz8iItWaC3gqg99hKXdGWaUockUodDo81OII3UXSdtCJxS9?=
- =?us-ascii?Q?R+iPhGjBo13vXiaBb52pkxTSFX3tkc+IJEelDB+ugInwnR+AjtpjGSGB0VbF?=
- =?us-ascii?Q?xbp8NRj7odp698TGllHLNC5IP7kaczK2mmRCrXPSs96ydSx9mtvE6MkmIHuz?=
- =?us-ascii?Q?UOMO5MbFhuGhb/DKLtmGTtz6WRr6qu5Y2+pajvIUzhPb58NACYqhwMXLzXOX?=
- =?us-ascii?Q?Q0ZNI+aZMJGQkTDAxK5icBwiE+xn6nFc/mfcm2buHkg94JpTga4iZspSMi6f?=
- =?us-ascii?Q?lFatPMK5SHnvh6W0Q+3fd+lIj5287yfqki3lNR0TaLEy84ueOVDP/WWVY3aG?=
- =?us-ascii?Q?fMl7vT4xQw0/zoB8KimnUqL3Okgs46F1Bi+T7LFzHG3uJzV9N99JWBKPeOL5?=
- =?us-ascii?Q?jt8I1r0+z1uxwGtmzSFGIxQHh6HsTW5oM+YlFJneSGE0R3KDVAEWNKZ9uVZy?=
- =?us-ascii?Q?FLNaw/LX3O5mDB+nCaJGeTH+QUVheuU8l2KSRx1Y28e8CaFMH3wPePo4geRa?=
- =?us-ascii?Q?8GqUIBIPdVElPCwjLzU5PQhQukcIA22TnnDP330esQubomy6bp0vs6NO6FYZ?=
- =?us-ascii?Q?f11aDgZUwCnTCL+CYwubZEuZ1wnxs+gghDKDGv73xx3+PR1S0bPP+hH7V6FP?=
- =?us-ascii?Q?VDsL3m4h2rPGWTV7fqNQ/AitC5GW/ZKD?=
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(36860700013)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jan 2025 19:27:58.8810
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 31ecec42-1d1f-4517-6728-08dd31ace432
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023DA.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB6844
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <Z4BVK3D7sN-XYg2o@ghost>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_112806_308883_7045CCBF 
-X-CRM114-Status: GOOD (  21.09  )
+X-CRM114-CacheID: sfid-20250110_113105_810518_8D0AAFDA 
+X-CRM114-Status: GOOD (  37.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,61 +121,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 10, 2025 at 01:48:42PM -0400, Jason Gunthorpe wrote:
-> On Tue, Jan 07, 2025 at 09:10:09AM -0800, Nicolin Chen wrote:
+On Thu, Jan 09, 2025 at 03:00:59PM -0800, Charlie Jenkins wrote:
+> On Thu, Jan 09, 2025 at 06:51:06PM -0300, Arnaldo Carvalho de Melo wrote:
+> > On Thu, Jan 09, 2025 at 05:49:42PM -0300, Arnaldo Carvalho de Melo wrote:
+> > > BTW this series is already pushed out to perf-tools-next:
+> > > 
+> > > https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git/log/?h=perf-tools-next
+> > 
+> > Hey, now I noticed that with this latest version we see:
+> > 
+> > ⬢ [acme@toolbox perf-tools-next]$ m
+> > make: Entering directory '/home/acme/git/perf-tools-next/tools/perf'
+> >   BUILD:   Doing 'make -j28' parallel build
+> > Warning: Kernel ABI header differences:
+> >   diff -u tools/arch/arm64/include/uapi/asm/unistd.h arch/arm64/include/uapi/asm/unistd.h
+> > 
+> > Auto-detecting system features:
+> > ...                                   libdw: [ on  ]
+> > ...                                   glibc: [ on  ]
+> > ...                                  libbfd: [ on  ]
+> > ...                          libbfd-buildid: [ on  ]
+> > ...                                  libelf: [ on  ]
+> > ...                                 libnuma: [ on  ]
+> > ...                  numa_num_possible_cpus: [ on  ]
+> > ...                                 libperl: [ on  ]
+> > ...                               libpython: [ on  ]
+> > ...                               libcrypto: [ on  ]
+> > ...                               libunwind: [ on  ]
+> > ...                             libcapstone: [ on  ]
+> > ...                               llvm-perf: [ on  ]
+> > ...                                    zlib: [ on  ]
+> > ...                                    lzma: [ on  ]
+> > ...                               get_cpuid: [ on  ]
+> > ...                                     bpf: [ on  ]
+> > ...                                  libaio: [ on  ]
+> > ...                                 libzstd: [ on  ]
+> > 
+> >    /home/acme/git/perf-tools-next/tools/perf/scripts/syscalltbl.sh  --abis common,32,i386 /home/acme/git/perf-tools-next/tools/perf/arch/x86/entry/syscalls/syscall_32.tbl /tmp/build/perf-tools-next/arch/x86/include/generated/asm/syscalls_32.h
+> >    /home/acme/git/perf-tools-next/tools/perf/scripts/syscalltbl.sh  --abis common,64 /home/acme/git/perf-tools-next/tools/perf/arch/x86/entry/syscalls/syscall_64.tbl /tmp/build/perf-tools-next/arch/x86/include/generated/asm/syscalls_64.h
+> >   GEN     /tmp/build/perf-tools-next/common-cmds.h
+> >   GEN     /tmp/build/perf-tools-next/arch/arm64/include/generated/asm/sysreg-defs.h
+> >   PERF_VERSION = 6.13.rc2.gd73982c39183
+> >   GEN     perf-archive
+> >   GEN     perf-iostat
+> >   MKDIR   /tmp/build/perf-tools-next/jvmti/
+> >   MKDIR   /tmp/build/perf-tools-next/jvmti/
+> >   MKDIR   /tmp/build/perf-tools-next/jvmti/
+> >   MKDIR   /tmp/build/perf-tools-next/jvmti/
+> > 
+> > 
+> > While with the previous one we would see something like SYSCALLTBL as
+> > the step name, like we have GEN, MKDIR, etc, can you take a look?
 > 
-> > +static ssize_t iommufd_veventq_fops_read(struct iommufd_eventq *eventq,
-> > +					 char __user *buf, size_t count,
-> > +					 loff_t *ppos)
-> > +{
-> > +	size_t done = 0;
-> > +	int rc = 0;
-> > +
-> > +	if (*ppos)
-> > +		return -ESPIPE;
-> > +
-> > +	mutex_lock(&eventq->mutex);
-> > +	while (!list_empty(&eventq->deliver) && count > done) {
-> > +		struct iommufd_vevent *cur = list_first_entry(
-> > +			&eventq->deliver, struct iommufd_vevent, node);
-> > +
-> > +		if (cur->data_len > count - done)
-> > +			break;
-> > +
-> > +		if (copy_to_user(buf + done, cur->event_data, cur->data_len)) {
-> > +			rc = -EFAULT;
-> > +			break;
-> > +		}
+> Ooh okay I see, the quiet commands were being ignored as-is. We could
+> add the lines to handle this to Makefile.syscalls, but I think the
+> better solution is to move the lines from Makefile.build to
+> Makefile.perf to be more generically available. Here is a patch for
+> that. I also added the comment from the kernel Makefile describing what
+> this does.
 > 
-> Now that I look at this more closely, the fault path this is copied
-> from is not great.
+> From 8dcec7f5d937ede3d33c687573dc2f1654ddc59e Mon Sep 17 00:00:00 2001
+> From: Charlie Jenkins <charlie@rivosinc.com>
+> Date: Thu, 9 Jan 2025 14:36:40 -0800
+> Subject: [PATCH] perf tools: Expose quiet/verbose variables in Makefile.perf
 > 
-> This copy_to_user() can block while waiting on a page fault, possibily
-> for a long time. While blocked the mutex is held and we can't add more
-> entries to the list.
->
-> That will cause the shared IRQ handler in the iommu driver to back up,
-> which would cause a global DOS.
->
-> This probably wants to be organized to look more like
+> The variables to make builds silent/verbose live inside
+> tools/build/Makefile.build. Move those variables to the top-level
+> Makefile.perf to be generally available.
 > 
-> while (itm = eventq_get_next_item(eventq)) {
->    if (..) {
->        eventq_restore_failed_item(eventq);
->        return -1;
->    }
-> }
+> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> ---
+>  tools/build/Makefile.build | 20 --------------------
+>  tools/perf/Makefile.perf   | 37 ++++++++++++++++++++++++++++++++++++-
+>  2 files changed, 36 insertions(+), 21 deletions(-)
 > 
-> Where the next_item would just be a simple spinlock across the linked
-> list manipulation.
+> diff --git a/tools/build/Makefile.build b/tools/build/Makefile.build
+> index 5fb3fb3d97e0..e710ed67a1b4 100644
+> --- a/tools/build/Makefile.build
+> +++ b/tools/build/Makefile.build
+> @@ -12,26 +12,6 @@
+>  PHONY := __build
+>  __build:
+>  
+> -ifeq ($(V),1)
+> -  quiet =
+> -  Q =
+> -else
+> -  quiet=quiet_
+> -  Q=@
+> -endif
+> -
+> -# If the user is running make -s (silent mode), suppress echoing of commands
+> -# make-4.0 (and later) keep single letter options in the 1st word of MAKEFLAGS.
+> -ifeq ($(filter 3.%,$(MAKE_VERSION)),)
+> -short-opts := $(firstword -$(MAKEFLAGS))
+> -else
+> -short-opts := $(filter-out --%,$(MAKEFLAGS))
+> -endif
+> -
+> -ifneq ($(findstring s,$(short-opts)),)
+> -  quiet=silent_
+> -endif
+> -
+>  build-dir := $(srctree)/tools/build
+>  
+>  # Define $(fixdep) for dep-cmd function
+> diff --git a/tools/perf/Makefile.perf b/tools/perf/Makefile.perf
+> index a449d0015536..55d6ce9ea52f 100644
+> --- a/tools/perf/Makefile.perf
+> +++ b/tools/perf/Makefile.perf
+> @@ -161,12 +161,47 @@ export VPATH
+>  SOURCE := $(shell ln -sf $(srctree)/tools/perf $(OUTPUT)/source)
+>  endif
+>  
+> +# Beautify output
+> +# ---------------------------------------------------------------------------
+> +#
+> +# Most of build commands in Kbuild start with "cmd_". You can optionally define
+> +# "quiet_cmd_*". If defined, the short log is printed. Otherwise, no log from
+> +# that command is printed by default.
+> +#
+> +# e.g.)
+> +#    quiet_cmd_depmod = DEPMOD  $(MODLIB)
+> +#          cmd_depmod = $(srctree)/scripts/depmod.sh $(DEPMOD) $(KERNELRELEASE)
+> +#
+> +# A simple variant is to prefix commands with $(Q) - that's useful
+> +# for commands that shall be hidden in non-verbose mode.
+> +#
+> +#    $(Q)$(MAKE) $(build)=scripts/basic
+> +#
+> +# To put more focus on warnings, be less verbose as default
+> +# Use 'make V=1' to see the full commands
+> +
+>  ifeq ($(V),1)
+> +  quiet =
+>    Q =
+>  else
+> -  Q = @
+> +  quiet=quiet_
+> +  Q=@
+>  endif
+>  
+> +# If the user is running make -s (silent mode), suppress echoing of commands
+> +# make-4.0 (and later) keep single letter options in the 1st word of MAKEFLAGS.
+> +ifeq ($(filter 3.%,$(MAKE_VERSION)),)
+> +short-opts := $(firstword -$(MAKEFLAGS))
+> +else
+> +short-opts := $(filter-out --%,$(MAKEFLAGS))
+> +endif
+> +
+> +ifneq ($(findstring s,$(short-opts)),)
+> +  quiet=silent_
+> +endif
+> +
+> +export quiet Q
+> +
+>  # Do not use make's built-in rules
+>  # (this improves performance and avoids hard-to-debug behaviour);
+>  MAKEFLAGS += -r
+> -- 
+> 2.34.1
+> 
+> 
+> - Charlie
 
-Would it be simpler by just limiting one node per read(), i.e.
-no "while (!list_empty)" and no block?
+Let me know how you want to handle this, I can send this out as a
+separate patch if that's better.
 
-The report() adds one node at a time, and wakes up the poll()
-each time of adding a node. And user space could read one event
-at a time too?
+- Charlie
 
-Thanks
-Nicolin
+> 
+> > 
+> > All is out there in perf-tools-next.
+> > 
+> > - Arnaldo
 
