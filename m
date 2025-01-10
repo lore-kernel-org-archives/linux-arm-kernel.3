@@ -4,93 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18A2FE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 15:29:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E81BAE7719C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 15:30:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=e5aEpMmoZZCQQPaRUNn2M/cjTXlmafGJ+ljwOWiSLUI=; b=Cku3plZ2bQolIMhNvHK3ZMtM5N
-	kgy9lQ4VvqrLhdzNFytdnNcfdUXz3HQ3ZTVF1t1lfVYtgn0Ohyg9UsCHreqEbDzC7MihW2LGLJulB
-	46PDnM3rzTRBfnUP7DxtWqsbWct96BSroK2Q9CkJeQhMJ4TdVq5KQRFvwTbtN0K5ekut+YVLVCbQ7
-	skkMyxBaiPhUdARm74QIchiwIVREJNhrpUilkAnULrxyCwATBPz43mk6CHRhpgNngZT3jKMIYEU6t
-	A/88XuQFg06s8ngHstFukKf2AT73vbUgBjI8mBwKzSHrDKHfNT6VQd43Ia5vTgeQ/PBYqvAzW93bD
-	5vmR6e1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gs/m1ne1xnufcZuceBub2RzRtdWIKInpIZ86AtKhTZY=; b=ZQp0nIk9JbbK7ydCQ91ftfCp+w
+	//B93bVhsSxBh4T7sUrPIsODG6HYExFEfa8l6uiMiEuK9+UkMJPmiXGyDuvvBdjCzSWDAR41ynFJJ
+	sius7qeRNqXRnTSqTEe/cU+nE9Ybjg7HLa7b9WxHs8DU0yFfJOwXCkkRxGA0V5YMhIcCCLhQQzQjK
+	2TARQ+Fuk/l02MOqr4guxRjwj46G+bo77bHgmZ2m75ULJhyhg/kEEndDys6z7aeu8KRxbYt6RmLI8
+	ydq1DxDSuVhjOPhKi0GyseoRcb6qd+DRA2kEAKaHonvaAjWUzqYLXYqo9V9GBPwPu99AC/5sTOXdV
+	HL7ZDeIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWGwY-0000000FvoD-24YO;
-	Fri, 10 Jan 2025 15:29:02 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1tWGxl-0000000FwA1-2MMY;
+	Fri, 10 Jan 2025 15:30:17 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWGmv-0000000Frpa-1iM6
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 15:19:06 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-436ce2ab251so16585785e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jan 2025 07:19:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736522343; x=1737127143; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=e5aEpMmoZZCQQPaRUNn2M/cjTXlmafGJ+ljwOWiSLUI=;
-        b=mlUO7Js+yT+XCX9LFn4+ct+DbvQ8/gKIjYxnLS+D8SflahZgRhBqlUhhdgDPWVjnRf
-         OuMBWBNoM1aPqih+BKy+iqnPCfc/zqmEhX8/Q0cum/DVV3Ms8FsHiDjYaI3CBpHyGOcm
-         Sbcs7r9Zqh/7879z18tgaYtDnk51LVcTy7W7lzWVXlZQHaPyX+wdGCneDIXLmO3vvbz1
-         hk/DYgc42B8HnnAs+LafVzzafEQZ2FoIi8/W1XTG5TjnBu3F0o0p8xOUio8NWlsvDrgo
-         k0rjuT4t6Yrt/8XRAWWLEYaA9VgX69ywoiC4aUjgYZ2QABOgxlWEXBKn1kp7afsg7ilZ
-         khkw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736522343; x=1737127143;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=e5aEpMmoZZCQQPaRUNn2M/cjTXlmafGJ+ljwOWiSLUI=;
-        b=SDClmde+o1Gzr6GX8QzJi6hiV87Mn72UYU2oH6PdiV8ZXQG30kfdK6ur+tVlzaXVja
-         uHF0tVhGm5xLlsmlXj+7P8p6s3v8pKg2xeM6pF9jEBwgXeGJDl1oDSeaS4Nm3na/eyOp
-         nWPTee9GcTu9ByuNc8Z13u1bBEdt6sdLAiB1gqrRKmJvoZIjOdSvuWMsXVRhnDZnvzGg
-         94MiO1tQoAWINJopE+fHjDSfluXriOXM6USu1xCcvvtaGCVKktFTHwdWA4qq+uLLRKZQ
-         +u6KK6aJrSU++h8gnN4MKl+KxRAxMEtpjujSZkIkLIkWC6FFn+XgWHtmwe6y911ROelF
-         ft8w==
-X-Forwarded-Encrypted: i=1; AJvYcCW2q2endfApFSRwAxlYl/jpZMd4P83xfHCBzkO+B7xvZctxYbeiZweeokAb66kKhH/B6So7JZ/DH0p14dr+7bdt@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3maNcvJmPQDkGpUvcvc9GiTziRWCPvC0+D61cfDPdxYyq/C6i
-	l38Cyl9O22lnge1+eh4qXUzOIPG5ahYGhbUCcybifdQNa/xyNCUI
-X-Gm-Gg: ASbGnctQdfhniNBgCv4uSk9HvKIEeVcTA/zSSOsBiuFzPd4MtCHoywNfBjLj+imSVqh
-	LZHJl7D5mrm/5crf4IWPEGf3MO9xiBhUj86bIFEXAldmh3xuQ9o4rHF9juOIW1Y+JN9Oa6WI6yv
-	d9U+OXZs18gurKZU8nd4SEgcwqBzZwVDUzVR5W6yd4BsIKYCuB8GDiOem2Y0ULDzWRhxtfa9s9O
-	Xau9mOD/2iyn8UjK7RF3WZPT32xofc7Q1N9ne7gN8FpWfKd8zX4KI8JkQCLChy5ElBbPjvZ
-X-Google-Smtp-Source: AGHT+IECfAJ2WoCuNj7wvzCw79nESfWsenN47zMVWMkB4VRz8D5aWBaZsf1e+N3uhc6SbLU9mvw4vw==
-X-Received: by 2002:a05:600c:1e17:b0:434:9d62:aa23 with SMTP id 5b1f17b1804b1-436e26dda97mr99240525e9.20.1736522343081;
-        Fri, 10 Jan 2025 07:19:03 -0800 (PST)
-Received: from eichest-laptop.toradex.int ([2a02:168:af72:0:d0fc:3598:a372:ece6])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e9e6249csm54511425e9.38.2025.01.10.07.19.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Jan 2025 07:19:02 -0800 (PST)
-From: Stefan Eichenberger <eichest@gmail.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	max.krummenacher@toradex.com,
-	francesco.dolcini@toradex.com
-Cc: devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Stefan Eichenberger <stefan.eichenberger@toradex.com>,
-	stable@vger.kernel.org
-Subject: [PATCH v1] ARM: dts: imx6qdl-apalis: Fix poweroff on Apalis iMX6
-Date: Fri, 10 Jan 2025 16:18:29 +0100
-Message-ID: <20250110151846.214234-1-eichest@gmail.com>
-X-Mailer: git-send-email 2.45.2
+	id 1tWGrc-0000000Ftgy-3mdB;
+	Fri, 10 Jan 2025 15:23:58 +0000
+From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1736522633;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=gs/m1ne1xnufcZuceBub2RzRtdWIKInpIZ86AtKhTZY=;
+	b=O/oryiOTC2EPMwRnWTnGqJzrks9otGfDDqx2KBYDFHqsjuHB089iYDJ34QQ9S1PljgamlL
+	BM7zY7AL8FY07yIH12mI0070UhlPruW2yGFqEExUs8sVmzqNzO59sD5Q9pOUCNTEaFhAgE
+	RmTBJ8zhZkmwDsvXH2+VhmlkrKmgrOPsW/I0bKDSNyEqyTqw72QGPxWzolUogPArsjlTlk
+	FBAhi9sEQ/iBl54fIHofNPj8JxII6acwq4Gq+jTHYNrL+mFqfiD6T9eZL3FaVHB8DnEAX1
+	YGPwNzwwM5T96hOBZxjq760NY9XDYsr+B0XabLhMkR67wla+5lWUI/M84y165w==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1736522633;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=gs/m1ne1xnufcZuceBub2RzRtdWIKInpIZ86AtKhTZY=;
+	b=koaGwZik0YK1SGnxT0Jy1pXAsLdTo31kbbEXtpZ/NVrHINMW/zi3RXZX3xxrjmrmUhWnsu
+	Ys8RJwvtX7n8wzAQ==
+Date: Fri, 10 Jan 2025 16:23:42 +0100
+Subject: [PATCH v2 03/18] vdso: Introduce vdso/align.h
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+Message-Id: <20250110-vdso-store-rng-v2-3-350c9179bbf1@linutronix.de>
+References: <20250110-vdso-store-rng-v2-0-350c9179bbf1@linutronix.de>
+In-Reply-To: <20250110-vdso-store-rng-v2-0-350c9179bbf1@linutronix.de>
+To: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
+ Helge Deller <deller@gmx.de>, Andy Lutomirski <luto@kernel.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, 
+ Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+ Anna-Maria Behnsen <anna-maria@linutronix.de>, 
+ Frederic Weisbecker <frederic@kernel.org>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Theodore Ts'o <tytso@mit.edu>, "Jason A. Donenfeld" <Jason@zx2c4.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+ Russell King <linux@armlinux.org.uk>, Heiko Carstens <hca@linux.ibm.com>, 
+ Vasily Gorbik <gor@linux.ibm.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Christian Borntraeger <borntraeger@linux.ibm.com>, 
+ Sven Schnelle <svens@linux.ibm.com>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+ Christophe Leroy <christophe.leroy@csgroup.eu>, 
+ Naveen N Rao <naveen@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+ "H. Peter Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>, 
+ Guo Ren <guoren@kernel.org>
+Cc: linux-parisc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+ loongarch@lists.linux.dev, linux-s390@vger.kernel.org, 
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+ linux-arch@vger.kernel.org, Nam Cao <namcao@linutronix.de>, 
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, 
+ linux-csky@vger.kernel.org
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1736522629; l=2181;
+ i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
+ bh=zRm1/jHzhcX2cBU5SFyW7PIL5hMfUBZQzaPVvddjWs0=;
+ b=mSg1h7NuP5ae3KJ6mcjcidNOVehie+olRq8SUcCqxYpYv8FgXUocQ8b/bJZFWOvzytUY29vSW
+ 1nrXIOS1T+sC75ZNlmJCS8h+7C8Fx0isdGu7Wc6Nqqipvo2fiyJM1NW
+X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
+ pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_071905_460608_295AA631 
-X-CRM114-Status: GOOD (  14.18  )
+X-CRM114-CacheID: sfid-20250110_072357_242460_EDF4A4D0 
+X-CRM114-Status: GOOD (  12.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,60 +112,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+The vDSO implementation can only include headers from the vdso/
+namespace. To enable the usage of the ALIGN() macro from the vDSO, move
+linux/align.h to vdso/align.h wholly.
+As the only dependency linux/const.h is only a wrapper around
+vdso/const.h anyways adapt that dependency.
 
-The current solution for powering off the Apalis iMX6 is not functioning
-as intended. To resolve this, it is necessary to power off the
-vgen2_reg, which will also set the POWER_ENABLE_MOCI signal to a low
-state. This ensures the carrier board is properly informed to initiate
-its power-off sequence.
+Also provide a compatibility wrapper linux/align.h.
 
-The new solution uses the regulator-poweroff driver, which will power
-off the regulator during a system shutdown.
-
-CC: stable@vger.kernel.org
-Fixes: 4eb56e26f92e ("ARM: dts: imx6q-apalis: Command pmic to standby for poweroff")
-Signed-off-by: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- arch/arm/boot/dts/nxp/imx/imx6qdl-apalis.dtsi | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+ include/linux/align.h | 10 +---------
+ include/vdso/align.h  | 15 +++++++++++++++
+ 2 files changed, 16 insertions(+), 9 deletions(-)
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-apalis.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-apalis.dtsi
-index 1c72da417011..614b65821995 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-apalis.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-apalis.dtsi
-@@ -108,6 +108,11 @@ lvds_panel_in: endpoint {
- 		};
- 	};
+diff --git a/include/linux/align.h b/include/linux/align.h
+index 2b4acec7b95a27b6768d48f46519abc584c94d5d..55debf105a5d610c592e5c53a4153018ea1ae2c6 100644
+--- a/include/linux/align.h
++++ b/include/linux/align.h
+@@ -2,14 +2,6 @@
+ #ifndef _LINUX_ALIGN_H
+ #define _LINUX_ALIGN_H
  
-+	poweroff {
-+		compatible = "regulator-poweroff";
-+		cpu-supply = <&vgen2_reg>;
-+	};
-+
- 	reg_module_3v3: regulator-module-3v3 {
- 		compatible = "regulator-fixed";
- 		regulator-always-on;
-@@ -236,10 +241,6 @@ &can2 {
- 	status = "disabled";
- };
- 
--&clks {
--	fsl,pmic-stby-poweroff;
--};
+-#include <linux/const.h>
 -
- /* Apalis SPI1 */
- &ecspi1 {
- 	cs-gpios = <&gpio5 25 GPIO_ACTIVE_LOW>;
-@@ -527,7 +528,6 @@ &i2c2 {
+-/* @a is a power of 2 value */
+-#define ALIGN(x, a)		__ALIGN_KERNEL((x), (a))
+-#define ALIGN_DOWN(x, a)	__ALIGN_KERNEL((x) - ((a) - 1), (a))
+-#define __ALIGN_MASK(x, mask)	__ALIGN_KERNEL_MASK((x), (mask))
+-#define PTR_ALIGN(p, a)		((typeof(p))ALIGN((unsigned long)(p), (a)))
+-#define PTR_ALIGN_DOWN(p, a)	((typeof(p))ALIGN_DOWN((unsigned long)(p), (a)))
+-#define IS_ALIGNED(x, a)		(((x) & ((typeof(x))(a) - 1)) == 0)
++#include <vdso/align.h>
  
- 	pmic: pmic@8 {
- 		compatible = "fsl,pfuze100";
--		fsl,pmic-stby-poweroff;
- 		reg = <0x08>;
- 
- 		regulators {
+ #endif	/* _LINUX_ALIGN_H */
+diff --git a/include/vdso/align.h b/include/vdso/align.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..02dd8626b5c5aa59d2ee0b15799b6e9adb343f65
+--- /dev/null
++++ b/include/vdso/align.h
+@@ -0,0 +1,15 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef __VDSO_ALIGN_H
++#define __VDSO_ALIGN_H
++
++#include <vdso/const.h>
++
++/* @a is a power of 2 value */
++#define ALIGN(x, a)		__ALIGN_KERNEL((x), (a))
++#define ALIGN_DOWN(x, a)	__ALIGN_KERNEL((x) - ((a) - 1), (a))
++#define __ALIGN_MASK(x, mask)	__ALIGN_KERNEL_MASK((x), (mask))
++#define PTR_ALIGN(p, a)		((typeof(p))ALIGN((unsigned long)(p), (a)))
++#define PTR_ALIGN_DOWN(p, a)	((typeof(p))ALIGN_DOWN((unsigned long)(p), (a)))
++#define IS_ALIGNED(x, a)		(((x) & ((typeof(x))(a) - 1)) == 0)
++
++#endif	/* __VDSO_ALIGN_H */
+
 -- 
-2.45.2
+2.47.1
 
 
