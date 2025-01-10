@@ -4,87 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9A98E7719C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 17:15:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BDB2E7719C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 17:22:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rU8B9pXUWMp+CstKuXw+YGxa2kBNtjGh+nPj+/URa+U=; b=Vq6SRiOh/mIE/126iP7aNDK4rw
-	CsVbjJPzOFXr3eQjHjhkmj0R2XDLCPo6TrIjvfrF+/wm1Bbtvewy2NZls+X41kMPrSFId0GMSe5Gs
-	obhb2j6/nrCyHI0EJnInctxL2X4k96XJhUlq67n19sCgalAq4SetSLNJfmbWy5Q4y6mwOkJlLk+DL
-	ym2UTrKXQ4nMKDuzP0EHR2ikmxv05kH/cOpe0sx8h6/Zwb2lHz3gfcRzHyqCQOPupYvO0g4K5F4Ge
-	cfO8t2HpcCi1aUEZ/FrcHwP9eSFyKD0Nb4xcVV3OG0yb7spo2qYMBBG3JcQS6mQypQHWKhSGtpv5U
-	bL7HAEow==;
+	bh=go6Mt8yoM+PNbuAKxnovA/CqAwsRZWr0IjEkGgkxoZ0=; b=MXFzzOXNsgcyn5sGu3E33PQEah
+	zkhiUg41J1eIU1GSaZp4F6Z+NnraVbArOZtMIKeDNN4Tw+UYDxUtgcb/X5Gy1XkRTwHhU5QzqEBob
+	FO6FGedlLllE6ta5C93c4rOtTZn20Ib44DTRt73gbLVDeHL1HDgvhDU4P5vnOLZ0kqB2IoaiX/3pu
+	3yLDNebJpoWe5sdkL6aE9qd3zIbKM7eiUcNoZy3KXw5FqpiI0IBz4ZFoJjOZUXDQaEocWvAeBsysY
+	dqUay0gygEfO60x2HPKd27ouxK9NDA0Z++fgmuwugQW/etm15BHs9Iejd6JtJhOGqF+eyPn/DP5Z8
+	4QIGX+LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWIbL-0000000GOP5-1yOL;
-	Fri, 10 Jan 2025 17:15:15 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1tWIiP-0000000GPCU-1FhT;
+	Fri, 10 Jan 2025 17:22:33 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWIa7-0000000GO6f-0jbm;
-	Fri, 10 Jan 2025 17:14:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1736529239; x=1768065239;
-  h=date:message-id:from:to:cc:subject:in-reply-to:
-   references:mime-version;
-  bh=zCD9wMt7oj+kJBhlIcsVVTGT43QE2wPIyfO0mHZuo3E=;
-  b=DemtaSeYwH+WRO0/KzyGdpFW3f7qYSBZoH+TGZyGXYMHRWgyRC+LqDhO
-   PjH8BE37zAG66e29MGjCZ8RQ2S2xU+x8NdVd/xqzJaiUFZjLHiMeci3pr
-   yUpL4ehVYiGQKZ2szAvf2Xy1ldHEx1Rso0Y6C69QzBTCsdVbmTXWK0uRS
-   Ni9tnwRaWKZjVsr1WTC+7QioAu+MCeGhW+pOH3YR9EP8UAqkU1TLwQiKp
-   rNDfH2RBYqxmHtWjvXxb2rKtQqHqng/9NO4UYXh626uH16SY69Vh+YwiQ
-   sMYA2DCCm9PhB9ADDsn/qWlM9+P9hgw8bHfxfxOjDjlwhFcb8jh1VsvXH
-   Q==;
-X-CSE-ConnectionGUID: TwCtQd3OR/2VbHetj3mVZA==
-X-CSE-MsgGUID: IkvnLbeFQEKr0V1mhcTOqQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11311"; a="36712481"
-X-IronPort-AV: E=Sophos;i="6.12,303,1728975600"; 
-   d="scan'208";a="36712481"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Jan 2025 09:13:58 -0800
-X-CSE-ConnectionGUID: d+N1H3FPQryemumCSoERgQ==
-X-CSE-MsgGUID: skCK+1HISZSgobnkHZdoJg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="127073384"
-Received: from orsosgc001.jf.intel.com (HELO orsosgc001.intel.com) ([10.165.21.142])
-  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Jan 2025 09:13:57 -0800
-Date: Fri, 10 Jan 2025 09:13:56 -0800
-Message-ID: <8534hqvbfv.wl-ashutosh.dixit@intel.com>
-From: "Dixit, Ashutosh" <ashutosh.dixit@intel.com>
-To: Joel Granados <joel.granados@kernel.org>
-Cc: Thomas =?ISO-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>,	Kees Cook
- <kees@kernel.org>,	Luis Chamberlain <mcgrof@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,	linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,	linux-crypto@vger.kernel.org,
-	openipmi-developer@lists.sourceforge.net,	intel-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org,	intel-xe@lists.freedesktop.org,
-	linux-hyperv@vger.kernel.org,	linux-rdma@vger.kernel.org,
-	linux-raid@vger.kernel.org,	linux-scsi@vger.kernel.org,
-	linux-serial@vger.kernel.org,	xen-devel@lists.xenproject.org,
-	linux-aio@kvack.org,	linux-fsdevel@vger.kernel.org,	netfs@lists.linux.dev,
-	codalist@coda.cs.cmu.edu,	linux-mm@kvack.org,	linux-nfs@vger.kernel.org,
-	ocfs2-devel@lists.linux.dev,	fsverity@lists.linux.dev,
-	linux-xfs@vger.kernel.org,	io-uring@vger.kernel.org,	bpf@vger.kernel.org,
-	kexec@lists.infradead.org,	linux-trace-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org,	apparmor@lists.ubuntu.com,
-	linux-security-module@vger.kernel.org,	keyrings@vger.kernel.org
-Subject: Re: [PATCH] treewide: const qualify ctl_tables where applicable
-In-Reply-To: <20250109-jag-ctl_table_const-v1-1-622aea7230cf@kernel.org>
-References: <20250109-jag-ctl_table_const-v1-1-622aea7230cf@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?ISO-8859-4?Q?Goj=F2?=) APEL-LB/10.8 EasyPG/1.0.0
- Emacs/28.2 (x86_64-redhat-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
+	id 1tWHC4-0000000G3cl-2Uyb
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 10 Jan 2025 15:45:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2C2DDA4255C;
+	Fri, 10 Jan 2025 15:43:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 143C8C4CED6;
+	Fri, 10 Jan 2025 15:45:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736523903;
+	bh=OTGkN3XvR9yS3XjEo4HOuIC3KncL4iFmKtSsBY8wwy8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XCQa0pdg2qxKVtHtTkJ4SGoINH4HtU7FC0jf6BspFQquH/vW75BYx+9A5FEStYCBQ
+	 E9JxXVi5iN71mutTaOOXYnQOT2oRUN9f4IAA8zQnPkTUAT+IFiIsoDMc75hRAe3/mQ
+	 RJ3i+SA0ugZ/4I04jr7lzzWM6IjPSfwYfS+ZvVkKMRCtfu6bMvkaK6DgBZhUH428gN
+	 6+8cSmkG63Gu95c4is8beF+nx5sMV1NKT30rMOnUyX48jfAQ/wCXNVVUtdo7lb/+dH
+	 FiwoRnp9ge/xuuiuc1Ihc3S8ozZWKgatnci64pA03MaKC9qvewi3Wz78cjpP6E4KfP
+	 gquUU5DOldO0A==
+Date: Fri, 10 Jan 2025 09:45:02 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Jassi Brar <jaswinder.singh@linaro.org>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Tianping Fang <tianping.fang@mediatek.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Benjamin Bara <benjamin.bara@skidata.com>,
+	linux-aspeed@lists.ozlabs.org,
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+	linux-kernel@vger.kernel.org, Al Cooper <alcooperx@gmail.com>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Justin Chen <justin.chen@broadcom.com>,
+	linux-renesas-soc@vger.kernel.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	linux-tegra@vger.kernel.org, Bjorn Andersson <andersson@kernel.org>,
+	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	Ahmad Zainie <wan.ahmad.zainie.wan.mohamad@intel.com>,
+	Del Regno <angelogioacchino.delregno@collabora.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Joel Stanley <joel@jms.id.au>,
+	Macpaul Lin <macpaul.lin@mediatek.com>
+Subject: Re: [PATCH] dt-bindings: usb: Correct indentation and style in DTS
+ example
+Message-ID: <173652390194.2924780.6221015444062586872.robh@kernel.org>
+References: <20250107131015.246461-1-krzysztof.kozlowski@linaro.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250107131015.246461-1-krzysztof.kozlowski@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_091359_259148_B7F3B509 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20250110_074504_768161_8241F9E8 
+X-CRM114-Status: GOOD (  12.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,36 +99,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 09 Jan 2025 05:16:39 -0800, Joel Granados wrote:
->
-> diff --git a/drivers/gpu/drm/i915/i915_perf.c b/drivers/gpu/drm/i915/i915_perf.c
-> index 2406cda75b7b..5384d1bb4923 100644
-> --- a/drivers/gpu/drm/i915/i915_perf.c
-> +++ b/drivers/gpu/drm/i915/i915_perf.c
-> @@ -4802,7 +4802,7 @@ int i915_perf_remove_config_ioctl(struct drm_device *dev, void *data,
->	return ret;
->  }
->
-> -static struct ctl_table oa_table[] = {
-> +static const struct ctl_table oa_table[] = {
->	{
->	 .procname = "perf_stream_paranoid",
->	 .data = &i915_perf_stream_paranoid,
-> diff --git a/drivers/gpu/drm/xe/xe_observation.c b/drivers/gpu/drm/xe/xe_observation.c
-> index 8ec1b84cbb9e..57cf01efc07f 100644
-> --- a/drivers/gpu/drm/xe/xe_observation.c
-> +++ b/drivers/gpu/drm/xe/xe_observation.c
-> @@ -56,7 +56,7 @@ int xe_observation_ioctl(struct drm_device *dev, void *data, struct drm_file *fi
->	}
->  }
->
-> -static struct ctl_table observation_ctl_table[] = {
-> +static const struct ctl_table observation_ctl_table[] = {
->	{
->	 .procname = "observation_paranoid",
->	 .data = &xe_observation_paranoid,
 
-For i915 and xe:
+On Tue, 07 Jan 2025 14:10:13 +0100, Krzysztof Kozlowski wrote:
+> DTS example in the bindings should be indented with 2- or 4-spaces and
+> aligned with opening '- |', so correct any differences like 3-spaces or
+> mixtures 2- and 4-spaces in one binding.
+> 
+> No functional changes here, but saves some comments during reviews of
+> new patches built on existing code.
+> 
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> ---
+>  .../bindings/usb/aspeed,usb-vhub.yaml         | 40 +++++++++----------
+>  .../devicetree/bindings/usb/brcm,bdc.yaml     | 14 +++----
+>  .../devicetree/bindings/usb/cypress,hx3.yaml  | 24 +++++------
+>  .../devicetree/bindings/usb/dwc2.yaml         |  4 +-
+>  .../devicetree/bindings/usb/fcs,fsa4480.yaml  | 20 +++++-----
+>  .../bindings/usb/intel,keembay-dwc3.yaml      | 30 +++++++-------
+>  .../devicetree/bindings/usb/ite,it5205.yaml   | 18 ++++-----
+>  .../bindings/usb/maxim,max3420-udc.yaml       | 28 ++++++-------
+>  .../bindings/usb/nvidia,tegra210-xusb.yaml    |  4 +-
+>  .../bindings/usb/renesas,rzv2m-usb3drd.yaml   | 36 ++++++++---------
+>  .../bindings/usb/renesas,usb3-peri.yaml       | 24 +++++------
+>  .../devicetree/bindings/usb/ti,hd3ss3220.yaml | 38 +++++++++---------
+>  .../bindings/usb/ti,tusb73x0-pci.yaml         |  6 +--
+>  .../devicetree/bindings/usb/ti,usb8020b.yaml  | 20 +++++-----
+>  .../devicetree/bindings/usb/ti,usb8041.yaml   | 16 ++++----
+>  15 files changed, 161 insertions(+), 161 deletions(-)
+> 
 
-Acked-by: Ashutosh Dixit <ashutosh.dixit@intel.com>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+
 
