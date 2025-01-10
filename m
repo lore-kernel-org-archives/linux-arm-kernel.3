@@ -4,103 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E62A7E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 14:19:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10AEBE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 14:22:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/NJ/3l/9PI4oWXepQOlqsgt9YAjfDzU4Qje7tYA2ecQ=; b=j7KQUfravEvqceRwuZX0oI9wFF
-	yNc82/vXXgZn8kIsrJw+Ny/d9gZ+MJ/L9ucBwBlDurVCHWTVVMcE9eseMaGMqEusGgQCbFvwGCep9
-	ep23yZd/NA+4t//uXDvIFtaFS0kviktwK/57TtUlC5zmBBtyl0dVUZnKG8oq6Hql7+dFVIo7pih3/
-	/WRazW0GrIk8E+3NVYHrqjcZ8mKHLhWylDmGBIhCEskYZqMi80wAVtyPdMwznSFyDot4zPMwYAMY5
-	DLsCq9yh+P2bcJ4OKTKxtrYPs+0suZZjM9xPxgY8nZWuYiBS1UjSkt4MYx3sZfQW3K8H1o5o5SUsE
-	4+5GoIUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fgzunbxt/Dl7UfZi7T/9jMfP9S8v7tBKK3N7+TksBTg=; b=oE3nTZzXmVIYWR9jP2SGWMGU4v
+	00L1pQpYH7oY29DbJBixZWbZIIZ7+f8kTqdiJuPioC860WzcrCJzNyrWy7IK62C/a4d5F0pLYi+cH
+	L4Ard9ZE0tODojujqk9c7gsnzFq9iDwyIz2uq87Y5aMH+5Fq8M30/Gmc6A8p0/7RBaxFIQLtlly2c
+	2RbXNSKfLiM/YNFOxEwBB39/UAgjrF+dTzoJlOqKHOGVFnlbBkREUxANWt9dPfT1jOr3TmPjUbAS+
+	mNVRmmP2eEuWn6gTo2u4Z1Fw5lUihn/WpurLaEJ6Jgb6xxBhNDnkKEz9kDF89/ZGKJZzKCC0zGK+H
+	W37szfBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWFrF-0000000FcQP-38UI;
-	Fri, 10 Jan 2025 14:19:29 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tWFuC-0000000FcoV-0H00;
+	Fri, 10 Jan 2025 14:22:32 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWFox-0000000Fc3o-47Dy
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 10 Jan 2025 14:17:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=/NJ/3l/9PI4oWXepQOlqsgt9YAjfDzU4Qje7tYA2ecQ=; b=Jkpb0D0USGGtMOypccNXIs9h0h
-	840JrJeO75WxRDHhOzpekohmOusMVEvYivYwDsFuo3b2z99xwinGBvB0HG0J3Z3O5XEzMTTFnv7Dr
-	Ih4XvWdLUJ/Z6AZrlu3RsLRJxYJ6Mu8mNfLp9QK/39+d6fU8zK0UZy69iJnUzof5je9CRpxG7XoOF
-	nRXcoVnHq+w/0FRzjl538ijgNzNC6nBS++4J+1WVvO470DUWukWLurTWQ3QF9bWEu7lQNTZD5l1kT
-	g9zpo70FfKTuga2sTs0Kfs3FhpoP39KuWhcMWF+WBd9gs1h64rNjETqp4o8x8sZ7QqlYOIPDHMdaS
-	Aqq5FIDg==;
-Received: from mail-qv1-f46.google.com ([209.85.219.46])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWFov-00000009nZG-0NiN
+	id 1tWEnD-0000000FQ76-2V0k
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 14:17:06 +0000
-Received: by mail-qv1-f46.google.com with SMTP id 6a1803df08f44-6dcdf23b4edso17409346d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jan 2025 06:17:03 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736518621; x=1737123421;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/NJ/3l/9PI4oWXepQOlqsgt9YAjfDzU4Qje7tYA2ecQ=;
-        b=S6zt6dWzfyDDGQdu6Ht+v/5jpsPOFQHEJXOEMWyX5YxhVxpfb0bb6YaHw6ZdLYFVC5
-         Dh6b+aPWAtFCNuZLQEFGhM+hNTi0WeDjVnNnaKLTBYtYnWGvoPXRaa+UgLnZBYZ5LdIH
-         xZohOfEVYZvHa3a1/TRaMvqE4peZitGLUXvq4YDm4SUQLn1XeWCJ33Nyk8qFT0j7ZNyX
-         E8CWjz+TuPJvDSvndLxtos1+AZiiU1eAOkqLHS+1sVZDXlDYBYugc4oHRXp67+ElzE8I
-         1DQhATtJ0eP++6XttmoACSOjsjzy1THf7SnPn57+GXadk6B6o1BaKCdaVGamA4oy0FrN
-         vmtQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX7R06ICcisk3ZI88/4zAlfXHsLwAcHHOKZJrGwLv7NyGVSeDuPpl9G0ydxZ/PaTutwIW+xcuOrmbJlykmxYEMk@lists.infradead.org
-X-Gm-Message-State: AOJu0YwaP15JwSeW60kql0fJejMtDvrDACYJxrCAHlixOLRNLa5Sdtbd
-	tLUld35ZMRHUCZTfTCgO7hvCYpt/041l+Nvl7hIHdA5wxOe3izXOGT0mzq2Z
-X-Gm-Gg: ASbGncuV1wZvdt7uaq8lV326H1QVkXhNC/bANrzsAu3rbNr3TvFxP0OpeFtvvoT3T7n
-	H3shTttFY6C1kmpJbsoblvqSdXYMJuJiSvpEeSgyheEZvzCRBnoFvo94ZNxqpCkd2IM69Bgx0Pe
-	8aj/8poBwea+8UDfzaKzH7nBMP2I65l7fWc5Dzyu1Rnjhk/oup7ZHckwaRt+0m8dwyBHAlbXHwK
-	XwGYqRPtwmYb4SAKzGasOyt1gsb5OI5wlDx9sperrpSIduuNEu87Oo/6LgyVhMmLI4o0qP5vQ0+
-	0lwZ5TqNeYwR2AJOnsSYSP4=
-X-Google-Smtp-Source: AGHT+IGYLy3wZWuKNeldB22E5/84RepKQRIA0KuT14irpMduYt80SD9iPuNFCZehp96P/TEGSa/C0g==
-X-Received: by 2002:a05:6214:48d:b0:6dd:5f90:16bd with SMTP id 6a1803df08f44-6df9b2ea6ddmr156915286d6.41.1736518620701;
-        Fri, 10 Jan 2025 06:17:00 -0800 (PST)
-Received: from mail-qk1-f169.google.com (mail-qk1-f169.google.com. [209.85.222.169])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-46c873de559sm9528801cf.78.2025.01.10.06.16.59
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 10 Jan 2025 06:16:59 -0800 (PST)
-Received: by mail-qk1-f169.google.com with SMTP id af79cd13be357-7b6e8fe401eso173273585a.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jan 2025 06:16:59 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXa28PBBBgT71fAhMi2dcOm2ze9cc45uzoto9tz0xeVojCVUCDMDcHo6ggbJD/v9yCwiWpqU5P3nsuEzh9dWZIT@lists.infradead.org
-X-Received: by 2002:a05:620a:2a08:b0:7b7:5d6:3976 with SMTP id
- af79cd13be357-7bcd97d6489mr1484170685a.58.1736518619196; Fri, 10 Jan 2025
- 06:16:59 -0800 (PST)
+	Fri, 10 Jan 2025 13:11:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 206755C106F;
+	Fri, 10 Jan 2025 13:10:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C68A3C4CEE0;
+	Fri, 10 Jan 2025 13:11:12 +0000 (UTC)
+Date: Fri, 10 Jan 2025 13:11:10 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Steven Price <steven.price@arm.com>, Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>, Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v2 2/7] KVM: arm64: MTE: Update code comments
+Message-ID: <Z4Ecbi9QUScEstCQ@arm.com>
+References: <20250110110023.2963795-1-aneesh.kumar@kernel.org>
+ <20250110110023.2963795-3-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
-References: <20250103163805.1775705-1-claudiu.beznea.uj@bp.renesas.com> <20250103163805.1775705-2-claudiu.beznea.uj@bp.renesas.com>
-In-Reply-To: <20250103163805.1775705-2-claudiu.beznea.uj@bp.renesas.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 10 Jan 2025 15:16:47 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdX1y7szsqRqE3iCGOV2gWX2Vq37KheZZbk+cEkwXgV6+Q@mail.gmail.com>
-X-Gm-Features: AbW1kvbRaFn4g_AO_oKMfA_tFxNUhSMjIGVqHRYJogvxNkj5hs0eIT7UrCBBWSw
-Message-ID: <CAMuHMdX1y7szsqRqE3iCGOV2gWX2Vq37KheZZbk+cEkwXgV6+Q@mail.gmail.com>
-Subject: Re: [PATCH 1/6] clk: renesas: r9a08g045: Add clocks, resets and power
- domain support for the TSU IP
-To: Claudiu <claudiu.beznea@tuxon.dev>
-Cc: rafael@kernel.org, daniel.lezcano@linaro.org, rui.zhang@intel.com, 
-	lukasz.luba@arm.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	magnus.damm@gmail.com, mturquette@baylibre.com, sboyd@kernel.org, 
-	p.zabel@pengutronix.de, ulf.hansson@linaro.org, linux-pm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-clk@vger.kernel.org, Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250110110023.2963795-3-aneesh.kumar@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_141705_272842_FC0E07E3 
-X-CRM114-Status: GOOD (  14.85  )
+X-CRM114-CacheID: sfid-20250110_051115_687611_B15C635F 
+X-CRM114-Status: GOOD (  23.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,29 +66,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 3, 2025 at 5:38=E2=80=AFPM Claudiu <claudiu.beznea@tuxon.dev> w=
-rote:
-> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
->
-> Add clocks, resets and power domains for the TSU IP available on the
-> Renesas RZ/G3S SoC.
->
-> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+On Fri, Jan 10, 2025 at 04:30:18PM +0530, Aneesh Kumar K.V (Arm) wrote:
+> commit d77e59a8fccd ("arm64: mte: Lock a page for MTE tag
+> initialisation") updated the locking such the kernel now allows
+> VM_SHARED mapping with MTE. Update the code comment to reflect this.
+> 
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+> ---
+>  arch/arm64/kvm/mmu.c | 10 +++++-----
+>  1 file changed, 5 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index c9d46ad57e52..eb8220a409e1 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -1391,11 +1391,11 @@ static int get_vma_page_shift(struct vm_area_struct *vma, unsigned long hva)
+>   * able to see the page's tags and therefore they must be initialised first. If
+>   * PG_mte_tagged is set, tags have already been initialised.
+>   *
+> - * The race in the test/set of the PG_mte_tagged flag is handled by:
+> - * - preventing VM_SHARED mappings in a memslot with MTE preventing two VMs
+> - *   racing to santise the same page
+> - * - mmap_lock protects between a VM faulting a page in and the VMM performing
+> - *   an mprotect() to add VM_MTE
+> + * The race in the test/set of the PG_mte_tagged flag is handled by using
+> + * PG_mte_lock and PG_mte_tagged together. if PG_mte_lock is found unset, we can
+> + * go ahead and clear the page tags. if PG_mte_lock is found set, then the page
+> + * tags are already cleared or there is a parallel tag clearing is going on. We
+				  ^^^^^^^^
+				  remove this (or the other 'is')
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-i.e. will queue in renesas-clk for v6.15.
 
-Gr{oetje,eeting}s,
+> + * wait for the parallel tag clear to finish by waiting on PG_mte_tagged bit.
+>   */
 
-                        Geert
+I don't think we need to describe the behaviour of set_page_mte_tagged()
+and try_page_mte_tagging() in here. How the locking works for tagged
+pages was hidden in those functions with their own documentation. I
+would just remove this whole paragraph here, just leave the first one
+stating that the tags must be initialised if not already done so.
 
---=20
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
-
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
+-- 
+Catalin
 
