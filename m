@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B89F8E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 15:50:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A65DE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 15:51:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xNc+dMUqU+0OfyuISBhYhokWXDUFwzBNnLTiDihB+C0=; b=3lrl1Yhjua76D6WTx34U5GX8cc
-	eWMJK3g4vmxp5c+KqIjmVXmiDg8GlfiX3s4FFCpssw6wxiRL8Dp5RwxAL7eKnLpnbOdddLh2TwDsU
-	OtWu8qQwl7cILiH5+lff9iJpo9fIctpC++Mm4+ikx8acxgRdgLhT1j0hul04RL0Jb2V1rL8rVYO0E
-	+BjFZx3s86iZxN+xcdGQod2yKGQmkC53zmDkJhQpFjChOV+veNhx6QfYQUfsHujj7BrREHXkLxKFL
-	hSXufgv6Ytw4oS5ocllEaAPYxQb+nrN7nWQn9BY1+dnqoEMvmPtvxtARc9KYLV/ImhCxWo2q2Q3wV
-	t7NGNWFw==;
+	bh=sggG3AQ9GwvYZofXxIg0veoW1k7hDA9T14o6idfxz60=; b=oojMZZuYExaG+Y0hDN1gXds2Ag
+	mnen3IogEvh2d8sPAmd7rEvaHul3MHZmPra+ABS5IIxQkkKsZ9BJrRij8aMJYFpcuX90pMRZx6tDp
+	NxVaU5QXwgibdFoNMCoi19gl3giV4t0YfcLt8BZLzL9JyLqAQdiPuWaDOa+U64HNH4KjR9+KD6I14
+	w/yDwArwD+2PG/X0IizrVSfkigGz10/rjiDkGs1OSPE5IhX0+2c9u+DqrCQfWTvJvXJV5q6bd5kxV
+	d7lv5zsV4eGvuW/azf+DIrDdZyNqgCFbVi/yvs97WuR387VtROkzO0L0ow6GZaUQZUDLtRs7kJDAe
+	UxSkLNzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWHH1-0000000G5sN-2bTw;
-	Fri, 10 Jan 2025 15:50:11 +0000
+	id 1tWHID-0000000G6Ez-1y1x;
+	Fri, 10 Jan 2025 15:51:25 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWGs7-0000000Fu1n-1TNK;
-	Fri, 10 Jan 2025 15:24:27 +0000
+	id 1tWGs8-0000000Fu2p-3obX;
+	Fri, 10 Jan 2025 15:24:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=xNc+dMUqU+0OfyuISBhYhokWXDUFwzBNnLTiDihB+C0=; b=gP/FeTXpEZqcA5DeTvaKJhT2Jd
-	y9q6ijuKHOp1BQFcRCRKkKiKKWgshIOb/NdrfxPJnsJNfHZb/NuJllY3P3BPExGTFcwWDdWlDj77H
-	x2Ef9oevHxHOZHqMbxdBpk569rX8CTTEjHkJHzAoxYwDRJ3Iw0D4f9jd5ya5dPe+QIRgoPUqkdKiz
-	K3EmT65AMiD9PJ1rLPsxOiq6OH85C+qPQt5jexKhW2STXSQsY9FBINpERkXDFCYO8ItaJW8gGjfqH
-	CAbRSpywfbELf4JaVEItj2BF8SG/o4Srp7ecR2w0RCxJ13hPHlhamYFaENHqnd6WxlJC4hbzD3DHq
-	86LHEuiQ==;
+	bh=sggG3AQ9GwvYZofXxIg0veoW1k7hDA9T14o6idfxz60=; b=oZZLix2TowfwujANK25JOwVRXB
+	LTAPi53IQnAC0WuVVrZeE/+EWzDIqwRTdkSJybAqVQ888cr3Q+AFohXM01nY3fEFWL5xJdTeju8gk
+	aNsg/NcNy6UhqUnGZ8WdIrMiogAjRLy3G1fT2plq0XZcgpq4tFb1xPMJoFWiedW5u8vjy91IIPePN
+	IkCOaH6zOiQ2PtsYrnigLPrAps1HQT/HJtdWb4P9yWXKI5+1rva5CmsRFJ0m2NwTjqsXmZIqJq3cH
+	4js4bh8hvukzCzbgKurWRehTTGHRyaKDgfWUSQ/ZwdHatv8EM4tJV213i6KGuWARb9//pSxfr8Mw1
+	aLBic+Yg==;
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWGs1-00000009pKJ-11O4;
-	Fri, 10 Jan 2025 15:24:26 +0000
+	id 1tWGs1-00000009pJi-10vP;
+	Fri, 10 Jan 2025 15:24:27 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1736522640;
+	s=2020; t=1736522638;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=xNc+dMUqU+0OfyuISBhYhokWXDUFwzBNnLTiDihB+C0=;
-	b=Q+xAmXPrWewn6Bu8X7bz3b1h4QUiD/E/7d2YijwHIcRIaUACxBs6RoOHn85XVlbzU3by20
-	dQH+nzPGTYVi3JQKD47PbyrS2X5HtSStZqwvaenEJW5wxwqbcXSb9W/iavoQ9ubCOZKuv7
-	/mUNxcENP+o3hom/VvCpH2u2GPJ8sW7yE7diJCZHhwQGnIU9/DWXqAJFaq0gNcRNK0NNns
-	0YxZAzIbqQ6wo0299l8vXRMDP/PLAkQsixE2yDsGqKsrPRHUPhoFXJMEU7Jari7voCy7ak
-	yTlPd+U7qmZzI3wsVBNd6Kj5QaltERxUnN4/CebFN45A2+hy3p/YpuLs0fWOgA==
+	bh=sggG3AQ9GwvYZofXxIg0veoW1k7hDA9T14o6idfxz60=;
+	b=dbkMHbynIpRF2I8U1wQhP4smjpgBHsyBvCK2rd72l0ZAV0u9714jQCjxs2ACqcw3PDOWvK
+	CrYKnHlInDrRdGgPtmJzc15f3LEgYVMtlw94clAvkcnbQRBKowLFsgLIGKVQATua7x4Kby
+	CPhPjdqh/1U1zRkBCVa+K5vSR/82H5G15mtzHqkj433kWSzhyHsqH2BUVweVetbeeQOqI2
+	JT+mKQah3qfUTW7MWhVINz0v/16IR9Y928vUuRlSXEd9bXZ56RobnlUGll3gfXMoViW9DC
+	FalYXPG9ns2cvWNaNQfmx0cdG63UkO0oDlyMGWSoWtbimc6FYBlHilHoxI8gxQ==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1736522640;
+	s=2020e; t=1736522638;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=xNc+dMUqU+0OfyuISBhYhokWXDUFwzBNnLTiDihB+C0=;
-	b=/JKiVKpr/OMLWwpNpTUMI+GTVmNbz3+EokbbtHzHenBMQc//InX4gKW0PgDJTbmtQgCCfu
-	5r3MnFRKiCb5VLAQ==
-Date: Fri, 10 Jan 2025 16:23:55 +0100
-Subject: [PATCH v2 16/18] x86/vdso/vdso2c: Remove page handling
+	bh=sggG3AQ9GwvYZofXxIg0veoW1k7hDA9T14o6idfxz60=;
+	b=A2tB2pGVwa+CHIs/opLubHNvGdg5lT55BSQrFEZ7PkswgvtgdFqiC4mQgDiJPautPgzOgE
+	Tnxj+6bbO5qTbxBg==
+Date: Fri, 10 Jan 2025 16:23:52 +0100
+Subject: [PATCH v2 13/18] MIPS: vdso: Switch to generic storage
+ implementation
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250110-vdso-store-rng-v2-16-350c9179bbf1@linutronix.de>
+Message-Id: <20250110-vdso-store-rng-v2-13-350c9179bbf1@linutronix.de>
 References: <20250110-vdso-store-rng-v2-0-350c9179bbf1@linutronix.de>
 In-Reply-To: <20250110-vdso-store-rng-v2-0-350c9179bbf1@linutronix.de>
 To: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
@@ -102,16 +103,16 @@ Cc: linux-parisc@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arch@vger.kernel.org, Nam Cao <namcao@linutronix.de>, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, 
  linux-csky@vger.kernel.org
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1736522629; l=3853;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1736522629; l=9616;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=SIYI1MFdbWBx6a80LF899krJFYHrvas9fog1PqSPSgs=;
- b=T71H4KozzpeWB2JhLOb2zm4PGOqwVUk2FIPmnD+nUthpazL+uwDXgGWwLQujn3kRfz6QHoTLp
- 7CRU1LOVKN6ALLWGQQ7YKgdaecsgQELif15Wi5JS1EcABQBjC4eSgng
+ bh=qLYZD+MZ9YA9ANUAocNqjGFeQSgbienNgQBkNBg9IuY=;
+ b=hW8g3SwsJYsVtugToiixYlcbQKLz6KqoZ+6sODYQ7pUAcRLdMsDJHrLGgpd3SopHgeggDWjzl
+ Qq0GkQDqPsYD6rp7uNgrO3iaLKYhPYAY9K86oQMaGyU6xjlHtCSdLto
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_152422_473709_B4B755D4 
-X-CRM114-Status: GOOD (  12.89  )
+X-CRM114-CacheID: sfid-20250110_152423_982145_E79E9A9A 
+X-CRM114-Status: GOOD (  23.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,119 +127,286 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The values are not used anymore.
-Also the sanity checks performed by vdso2c can never trigger as they
-only validate invariants already enforced by the linker script.
+The generic storage implementation provides the same features as the
+custom one. However it can be shared between architectures, making
+maintenance easier.
 
+Co-developed-by: Nam Cao <namcao@linutronix.de>
+Signed-off-by: Nam Cao <namcao@linutronix.de>
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- arch/x86/entry/vdso/vdso-layout.lds.S |  4 ----
- arch/x86/entry/vdso/vdso2c.c          | 21 ---------------------
- arch/x86/entry/vdso/vdso2c.h          | 20 --------------------
- arch/x86/include/asm/vdso.h           |  6 ------
- 4 files changed, 51 deletions(-)
+ arch/mips/Kconfig                         |  1 +
+ arch/mips/include/asm/vdso/gettimeofday.h |  9 +++---
+ arch/mips/include/asm/vdso/vdso.h         | 19 ++++++-------
+ arch/mips/include/asm/vdso/vsyscall.h     | 14 ++-------
+ arch/mips/kernel/vdso.c                   | 47 ++++++++++++-------------------
+ arch/mips/vdso/vdso.lds.S                 |  5 +++-
+ 6 files changed, 38 insertions(+), 57 deletions(-)
 
-diff --git a/arch/x86/entry/vdso/vdso-layout.lds.S b/arch/x86/entry/vdso/vdso-layout.lds.S
-index e5cecdb0fedf000516bb789d6aca4c952c3035e5..ec1ac191a0578e55dc72ceff7f5b5eb104042881 100644
---- a/arch/x86/entry/vdso/vdso-layout.lds.S
-+++ b/arch/x86/entry/vdso/vdso-layout.lds.S
-@@ -24,10 +24,6 @@ SECTIONS
- 	pvclock_page = vclock_pages + VDSO_PAGE_PVCLOCK_OFFSET * PAGE_SIZE;
- 	hvclock_page = vclock_pages + VDSO_PAGE_HVCLOCK_OFFSET * PAGE_SIZE;
+diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
+index 467b10f4361aeb7aad0121f334eaa5d23351010c..94fae59589ae80d590ac250b52ba30e9dd6eda32 100644
+--- a/arch/mips/Kconfig
++++ b/arch/mips/Kconfig
+@@ -49,6 +49,7 @@ config MIPS
+ 	select GENERIC_SMP_IDLE_THREAD
+ 	select GENERIC_IDLE_POLL_SETUP
+ 	select GENERIC_TIME_VSYSCALL
++	select GENERIC_VDSO_DATA_STORE
+ 	select GUP_GET_PXX_LOW_HIGH if CPU_MIPS32 && PHYS_ADDR_T_64BIT
+ 	select HAS_IOPORT if !NO_IOPORT_MAP || ISA
+ 	select HAVE_ARCH_COMPILER_H
+diff --git a/arch/mips/include/asm/vdso/gettimeofday.h b/arch/mips/include/asm/vdso/gettimeofday.h
+index 44a45f3fa4b01026e39efb7f8f51051ec464340c..fd32baa30e172cbabe2657d9debe67a5b9061f90 100644
+--- a/arch/mips/include/asm/vdso/gettimeofday.h
++++ b/arch/mips/include/asm/vdso/gettimeofday.h
+@@ -167,7 +167,7 @@ static __always_inline u64 read_r4k_count(void)
  
--	/* For compatibility with vdso2c */
--	vvar_page = vdso_u_data;
--	vvar_start = vdso_u_data;
+ #ifdef CONFIG_CLKSRC_MIPS_GIC
+ 
+-static __always_inline u64 read_gic_count(const struct vdso_data *data)
++static __always_inline u64 read_gic_count(const struct vdso_time_data *data)
+ {
+ 	void __iomem *gic = get_gic(data);
+ 	u32 hi, hi2, lo;
+@@ -184,7 +184,7 @@ static __always_inline u64 read_gic_count(const struct vdso_data *data)
+ #endif
+ 
+ static __always_inline u64 __arch_get_hw_counter(s32 clock_mode,
+-						 const struct vdso_data *vd)
++						 const struct vdso_time_data *vd)
+ {
+ #ifdef CONFIG_CSRC_R4K
+ 	if (clock_mode == VDSO_CLOCKMODE_R4K)
+@@ -209,10 +209,11 @@ static inline bool mips_vdso_hres_capable(void)
+ }
+ #define __arch_vdso_hres_capable mips_vdso_hres_capable
+ 
+-static __always_inline const struct vdso_data *__arch_get_vdso_data(void)
++static __always_inline const struct vdso_time_data *__arch_get_vdso_u_time_data(void)
+ {
+-	return get_vdso_data();
++	return get_vdso_time_data();
+ }
++#define __arch_get_vdso_u_time_data __arch_get_vdso_u_time_data
+ 
+ #endif /* !__ASSEMBLY__ */
+ 
+diff --git a/arch/mips/include/asm/vdso/vdso.h b/arch/mips/include/asm/vdso/vdso.h
+index 6cd88191fefa9ce6d8323dd70d45aa9a198ac9d0..acd0efcd3d93ef7e71107302a40d24b4b51aae99 100644
+--- a/arch/mips/include/asm/vdso/vdso.h
++++ b/arch/mips/include/asm/vdso/vdso.h
+@@ -5,16 +5,18 @@
+  */
+ 
+ #include <asm/sgidefs.h>
++#include <vdso/page.h>
++
++#define __VDSO_PAGES 4
+ 
+ #ifndef __ASSEMBLY__
+ 
+ #include <asm/asm.h>
+-#include <asm/page.h>
+ #include <asm/vdso.h>
+ 
+-static inline unsigned long get_vdso_base(void)
++static inline const struct vdso_time_data *get_vdso_time_data(void)
+ {
+-	unsigned long addr;
++	const struct vdso_time_data *addr;
+ 
+ 	/*
+ 	 * We can't use cpu_has_mips_r6 since it needs the cpu_data[]
+@@ -27,7 +29,7 @@ static inline unsigned long get_vdso_base(void)
+ 	 * We can't use addiupc because there is no label-label
+ 	 * support for the addiupc reloc
+ 	 */
+-	__asm__("lapc	%0, _start			\n"
++	__asm__("lapc	%0, vdso_u_time_data		\n"
+ 		: "=r" (addr) : :);
+ #else
+ 	/*
+@@ -46,7 +48,7 @@ static inline unsigned long get_vdso_base(void)
+ 	"	.set noreorder				\n"
+ 	"	bal	1f				\n"
+ 	"	 nop					\n"
+-	"	.word	_start - .			\n"
++	"	.word	vdso_u_time_data - .		\n"
+ 	"1:	lw	%0, 0($31)			\n"
+ 	"	" STR(PTR_ADDU) " %0, $31, %0		\n"
+ 	"	.set pop				\n"
+@@ -58,14 +60,9 @@ static inline unsigned long get_vdso_base(void)
+ 	return addr;
+ }
+ 
+-static inline const struct vdso_data *get_vdso_data(void)
+-{
+-	return (const struct vdso_data *)(get_vdso_base() - PAGE_SIZE);
+-}
 -
- 	. = SIZEOF_HEADERS;
+ #ifdef CONFIG_CLKSRC_MIPS_GIC
  
- 	.hash		: { *(.hash) }			:text
-diff --git a/arch/x86/entry/vdso/vdso2c.c b/arch/x86/entry/vdso/vdso2c.c
-index 90d15f2a72055e37f2ef4292096dd780a051bc84..f84e8f8fa5fe6d1bc680895dfef28fe9251a7fe3 100644
---- a/arch/x86/entry/vdso/vdso2c.c
-+++ b/arch/x86/entry/vdso/vdso2c.c
-@@ -69,33 +69,12 @@
+-static inline void __iomem *get_gic(const struct vdso_data *data)
++static inline void __iomem *get_gic(const struct vdso_time_data *data)
+ {
+ 	return (void __iomem *)((unsigned long)data & PAGE_MASK) - PAGE_SIZE;
+ }
+diff --git a/arch/mips/include/asm/vdso/vsyscall.h b/arch/mips/include/asm/vdso/vsyscall.h
+index a4582870aaea49ac288d62ec4fa1338a98621918..2b1debb62dee07bb49ab64f755ff9120d512458a 100644
+--- a/arch/mips/include/asm/vdso/vsyscall.h
++++ b/arch/mips/include/asm/vdso/vsyscall.h
+@@ -2,22 +2,12 @@
+ #ifndef __ASM_VDSO_VSYSCALL_H
+ #define __ASM_VDSO_VSYSCALL_H
  
- const char *outfilename;
++#include <asm/page.h>
++
+ #ifndef __ASSEMBLY__
  
--/* Symbols that we need in vdso2c. */
--enum {
--	sym_vvar_start,
--	sym_vvar_page,
--	sym_pvclock_page,
--	sym_hvclock_page,
--	sym_timens_page,
+ #include <vdso/datapage.h>
+ 
+-extern struct vdso_data *vdso_data;
+-
+-/*
+- * Update the vDSO data page to keep in sync with kernel timekeeping.
+- */
+-static __always_inline
+-struct vdso_data *__mips_get_k_vdso_data(void)
+-{
+-	return vdso_data;
+-}
+-#define __arch_get_k_vdso_data __mips_get_k_vdso_data
+-
+ /* The asm-generic header needs to be included after the definitions above */
+ #include <asm-generic/vdso/vsyscall.h>
+ 
+diff --git a/arch/mips/kernel/vdso.c b/arch/mips/kernel/vdso.c
+index 4c8e3c0aa210476d7b8cb349b99e9a5a453aa7ce..470bf52970c9fc17b275e4e051378f8f08ebf986 100644
+--- a/arch/mips/kernel/vdso.c
++++ b/arch/mips/kernel/vdso.c
+@@ -14,6 +14,7 @@
+ #include <linux/random.h>
+ #include <linux/sched.h>
+ #include <linux/slab.h>
++#include <linux/vdso_datastore.h>
+ 
+ #include <asm/abi.h>
+ #include <asm/mips-cps.h>
+@@ -22,20 +23,7 @@
+ #include <vdso/helpers.h>
+ #include <vdso/vsyscall.h>
+ 
+-/* Kernel-provided data used by the VDSO. */
+-static union vdso_data_store mips_vdso_data __page_aligned_data;
+-struct vdso_data *vdso_data = mips_vdso_data.data;
+-
+-/*
+- * Mapping for the VDSO data/GIC pages. The real pages are mapped manually, as
+- * what we map and where within the area they are mapped is determined at
+- * runtime.
+- */
+-static struct page *no_pages[] = { NULL };
+-static struct vm_special_mapping vdso_vvar_mapping = {
+-	.name = "[vvar]",
+-	.pages = no_pages,
 -};
--
--const int special_pages[] = {
--	sym_vvar_page,
--	sym_pvclock_page,
--	sym_hvclock_page,
--	sym_timens_page,
--};
--
- struct vdso_sym {
- 	const char *name;
- 	bool export;
- };
++static_assert(VDSO_NR_PAGES == __VDSO_PAGES);
  
- struct vdso_sym required_syms[] = {
--	[sym_vvar_start] = {"vvar_start", true},
--	[sym_vvar_page] = {"vvar_page", true},
--	[sym_pvclock_page] = {"pvclock_page", true},
--	[sym_hvclock_page] = {"hvclock_page", true},
--	[sym_timens_page] = {"timens_page", true},
- 	{"VDSO32_NOTE_MASK", true},
- 	{"__kernel_vsyscall", true},
- 	{"__kernel_sigreturn", true},
-diff --git a/arch/x86/entry/vdso/vdso2c.h b/arch/x86/entry/vdso/vdso2c.h
-index 67b3e37576a64a29ecbdc6fd75e410fc52a82e58..78ed1c1f28b92b97973f57d3f65b9c4d4694f462 100644
---- a/arch/x86/entry/vdso/vdso2c.h
-+++ b/arch/x86/entry/vdso/vdso2c.h
-@@ -150,26 +150,6 @@ static void BITSFUNC(go)(void *raw_addr, size_t raw_len,
- 		}
+ static void __init init_vdso_image(struct mips_vdso_image *image)
+ {
+@@ -89,7 +77,7 @@ int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
+ {
+ 	struct mips_vdso_image *image = current->thread.abi->vdso;
+ 	struct mm_struct *mm = current->mm;
+-	unsigned long gic_size, vvar_size, size, base, data_addr, vdso_addr, gic_pfn, gic_base;
++	unsigned long gic_size, size, base, data_addr, vdso_addr, gic_pfn, gic_base;
+ 	struct vm_area_struct *vma;
+ 	int ret;
+ 
+@@ -117,8 +105,7 @@ int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
+ 	 * the counter registers at the start.
+ 	 */
+ 	gic_size = mips_gic_present() ? PAGE_SIZE : 0;
+-	vvar_size = gic_size + PAGE_SIZE;
+-	size = vvar_size + image->size;
++	size = gic_size + VDSO_NR_PAGES * PAGE_SIZE + image->size;
+ 
+ 	/*
+ 	 * Find a region that's large enough for us to perform the
+@@ -141,15 +128,13 @@ int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
+ 	 */
+ 	if (cpu_has_dc_aliases) {
+ 		base = __ALIGN_MASK(base, shm_align_mask);
+-		base += ((unsigned long)vdso_data - gic_size) & shm_align_mask;
++		base += ((unsigned long)vdso_k_time_data - gic_size) & shm_align_mask;
  	}
  
--	/* Validate mapping addresses. */
--	for (i = 0; i < sizeof(special_pages) / sizeof(special_pages[0]); i++) {
--		INT_BITS symval = syms[special_pages[i]];
--
--		if (!symval)
--			continue;  /* The mapping isn't used; ignore it. */
--
--		if (symval % 4096)
--			fail("%s must be a multiple of 4096\n",
--			     required_syms[i].name);
--		if (symval + 4096 < syms[sym_vvar_start])
--			fail("%s underruns vvar_start\n",
--			     required_syms[i].name);
--		if (symval + 4096 > 0)
--			fail("%s is on the wrong side of the vdso text\n",
--			     required_syms[i].name);
--	}
--	if (syms[sym_vvar_start] % 4096)
--		fail("vvar_begin must be a multiple of 4096\n");
--
- 	if (!image_name) {
- 		fwrite(stripped_addr, stripped_len, 1, outfile);
- 		return;
-diff --git a/arch/x86/include/asm/vdso.h b/arch/x86/include/asm/vdso.h
-index d7f6592b74a94f6fecba59ce8f23eb3990843db4..80be0da733df43de7520bef69ad120ce05d37994 100644
---- a/arch/x86/include/asm/vdso.h
-+++ b/arch/x86/include/asm/vdso.h
-@@ -18,12 +18,6 @@ struct vdso_image {
- 	unsigned long extable_base, extable_len;
- 	const void *extable;
+ 	data_addr = base + gic_size;
+-	vdso_addr = data_addr + PAGE_SIZE;
++	vdso_addr = data_addr + VDSO_NR_PAGES * PAGE_SIZE;
  
--	long sym_vvar_start;  /* Negative offset to the vvar area */
+-	vma = _install_special_mapping(mm, base, vvar_size,
+-				       VM_READ | VM_MAYREAD,
+-				       &vdso_vvar_mapping);
++	vma = vdso_install_vvar_mapping(mm, data_addr);
+ 	if (IS_ERR(vma)) {
+ 		ret = PTR_ERR(vma);
+ 		goto out;
+@@ -159,6 +144,17 @@ int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
+ 	if (gic_size) {
+ 		gic_base = (unsigned long)mips_gic_base + MIPS_GIC_USER_OFS;
+ 		gic_pfn = PFN_DOWN(__pa(gic_base));
++		static const struct vm_special_mapping gic_mapping = {
++			.name	= "[gic]",
++			.pages	= (struct page **) { NULL },
++		};
++
++		vma = _install_special_mapping(mm, base, gic_size, VM_READ | VM_MAYREAD,
++					       &gic_mapping);
++		if (IS_ERR(vma)) {
++			ret = PTR_ERR(vma);
++			goto out;
++		}
+ 
+ 		ret = io_remap_pfn_range(vma, base, gic_pfn, gic_size,
+ 					 pgprot_noncached(vma->vm_page_prot));
+@@ -166,13 +162,6 @@ int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
+ 			goto out;
+ 	}
+ 
+-	/* Map data page. */
+-	ret = remap_pfn_range(vma, data_addr,
+-			      virt_to_phys(vdso_data) >> PAGE_SHIFT,
+-			      PAGE_SIZE, vma->vm_page_prot);
+-	if (ret)
+-		goto out;
 -
--	long sym_vvar_page;
--	long sym_pvclock_page;
--	long sym_hvclock_page;
--	long sym_timens_page;
- 	long sym_VDSO32_NOTE_MASK;
- 	long sym___kernel_sigreturn;
- 	long sym___kernel_rt_sigreturn;
+ 	/* Map VDSO image. */
+ 	vma = _install_special_mapping(mm, vdso_addr, image->size,
+ 				       VM_READ | VM_EXEC |
+diff --git a/arch/mips/vdso/vdso.lds.S b/arch/mips/vdso/vdso.lds.S
+index 836465e3bcb8a15cb3f0f96d852d2b252c9d5e2a..c8bbe56d89cb095da21ac1f56d9999914defc305 100644
+--- a/arch/mips/vdso/vdso.lds.S
++++ b/arch/mips/vdso/vdso.lds.S
+@@ -5,6 +5,8 @@
+  */
+ 
+ #include <asm/sgidefs.h>
++#include <asm/vdso/vdso.h>
++#include <vdso/datapage.h>
+ 
+ #if _MIPS_SIM == _MIPS_SIM_ABI64
+ OUTPUT_FORMAT("elf64-tradlittlemips", "elf64-tradbigmips", "elf64-tradlittlemips")
+@@ -18,7 +20,8 @@ OUTPUT_ARCH(mips)
+ 
+ SECTIONS
+ {
+-	PROVIDE(_start = .);
++	VDSO_VVAR_SYMS
++
+ 	. = SIZEOF_HEADERS;
+ 
+ 	/*
 
 -- 
 2.47.1
