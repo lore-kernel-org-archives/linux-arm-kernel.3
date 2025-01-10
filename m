@@ -4,135 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91366E7719C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 14:04:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67478E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 14:06:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YwYzlM9SAeOiyMw0xPqH94UuPAmY2pEyT6RCfaL387M=; b=G0XfrMOq6S76F7H1zAok6D3Qg9
-	ft1FkY+oghTmMo2ZCDVLU8ff7/a+TGx8cKT4e+USbUw1v5RRk3bKoY5Ul7QIDIHpIl82BQ+7h4M+Z
-	RmUyEWPzTEXS65IPrLk7bbL7OeYCMwjTXrqG+qPyy2YemMr/wEPot5hUgE0Kcx1RkPzvJmbJc52eI
-	WiiTCa6w5p8fkIv8R3GOn6pfFM5QcL2JSiTzMnvR8r9FbhRpUFC8n3HmN3nuY/ndDEoCbQC2EQbuB
-	j7fByEmlSZ8rDy+AADdJvS/0lLvkJvShefILyBt8ohjXaf1z9WbMIqSqpntaDvsRtBwe5hBl1KVAr
-	moIirUhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y203RKyXceIdGWxKQuqSrxmuS5yBkXi4eQuHuB8Jfl0=; b=fFeCxR2z/xLZUqHz6rMvJYCc1W
+	pYLdWXXsRJpGx641nTdr+foLKbrR1q8IBwYnYhNTY28LDQBUPixqV4XIpKm5k3xvytFydDYKPptc+
+	Oe8BqMsvQlpjk4vVaSAebtje9fXR/0MYoXPIw+mi/WAqSY9cB0HTnExXBa0MWwP3HH7OYvRy4vECU
+	cHduFgPYtIHzFM+TSQd/ad7obbyk+rF296+Vk+D9EmPVciBoH00anCw5sm03eQ/HOILiMW4NwGNDO
+	EwJlnI8EGqsdQr9ixV9O4TtUq3DDKMEZdqr5riwCjJhxrIwyIFyseKi7o/Yr6sXlCXrlZsVKkw3xj
+	b+MgmYOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWFcy-0000000FZcn-2j2L;
-	Fri, 10 Jan 2025 14:04:44 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tWFeB-0000000Fa3U-3dqv;
+	Fri, 10 Jan 2025 14:05:59 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWFVN-0000000FY7W-1j0D;
-	Fri, 10 Jan 2025 13:56:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=YwYzlM9SAeOiyMw0xPqH94UuPAmY2pEyT6RCfaL387M=; b=fgEsw9uEeUP+rz+OneKij+Z12y
-	6FC0LTdNANgbXzvTsHXCIjfUK2zKAH87ghX4G6gRTkg08BjGeHHVoUAYcDHIY1RALUNmt4DaXuuIu
-	5AK0E+jQTBz55PluQQ97JoPtCiA7D4k/QRguBzx7JNw8/cikkJYVYhZ8sO5zIr7GtrrL1t4e1rMQi
-	7PHTrOugR6mYEe1C2++ZriOWswoTrE2MBl8SDctKGLws203tsuGjJaMnmaYftH83FPJp4LV7rjVs4
-	cRGa+NdArXURd1mERGpYl1Vp4UsXFnf+qHQlbuvFf4g4sKv0Us8pyxRICxy0Ps93isCNUtCJX0hGA
-	88w3fKFQ==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWFVK-00000009mxt-1yrN;
-	Fri, 10 Jan 2025 13:56:52 +0000
+	id 1tWFXB-0000000FYNQ-2io6
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 10 Jan 2025 13:58:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 333A05C4447;
-	Fri, 10 Jan 2025 13:56:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B165CC4CED6;
-	Fri, 10 Jan 2025 13:56:40 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5D114A41F1A;
+	Fri, 10 Jan 2025 13:56:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D415C4CED6;
+	Fri, 10 Jan 2025 13:58:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736517408;
-	bh=AouVWEys/NtgqaGbXkcBOKCybsdMDm2Sr9XXLLSNYMc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hEPjokNK/n8xwEc3DQJQvgieQyY0GTZOA6Bio0y1e6GVGnmuCaek49sVLVjUlj7P2
-	 1IHRmkMzLocl5POXPHb+0V29Md+2J9fo7ulrSsiP4zqaNTmsC7FoCKWH43NKMyqPrR
-	 b6y3uTd1MIJKjGK7V1oBJpoh+0pvIjzzTcR3TLzbm/8JbSdcyb/cJeXTLf+4pwmKX+
-	 18dsUQfblv/ooXW7qG42cVFr+Kp+RHcBuSFqgaqseq4rJl5wBN4GfC3kqik52K6qmE
-	 bKmoxWJyUr7cGdpGETQO8VqBLulpyOCX/q1CPUa4a8qYvWANlQ6hWJHSQV+6sa/Imt
-	 QkV1g7JKUmY7Q==
-Message-ID: <de280eed-bcc8-4802-9734-5e95ad1f6611@kernel.org>
-Date: Fri, 10 Jan 2025 14:56:38 +0100
+	s=k20201202; t=1736517524;
+	bh=XAsMOZHVjLWiwYwZ4XWgtrLFfXOn9aVDTZPHs4WqG2o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qnDL8Ogjh0lqfqkDcVSXHaZ6x2mjTvkcUbncmr9YAnLU00SSd/eDGST7jXuMQM2bp
+	 MJM7a8fz+G1ZwiIfvLFdRwi7Sdi2QXLoOiU9TpgFUXGnJO1x8d2rInjKvaUQbpzNrP
+	 rGX/Ho/iXuqv9VUGSDOAzKkuAmpOzeMHF2h7CDG4qVRRZcBHbXspQ/hvenMaHru2Q0
+	 KDpiEGwTR29RRKCwRQooFR4tdvVQZLlZTSVbFRlr7uS9cWE165vJXiHOzyKDytrkF/
+	 iB3D7OrCTbsaSx2WyZCfMKv3/49JIgtkFh6WCPDG8EKsXK2P9VzzhfH+f/AFtr60qP
+	 R82HeuiFCeElg==
+Date: Fri, 10 Jan 2025 07:58:43 -0600
+From: Rob Herring <robh@kernel.org>
+To: Stephen Boyd <swboyd@chromium.org>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	linux-kernel@vger.kernel.org, patches@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Arnd Bergmann <arnd@arndb.de>, Conor Dooley <conor+dt@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>
+Subject: Re: [RFC PATCH 2/6] dt-bindings: bus: Add qcom,soc-sc7180 SoC
+Message-ID: <20250110135843.GA2630182-robh@kernel.org>
+References: <20250108012846.3275443-1-swboyd@chromium.org>
+ <20250108012846.3275443-3-swboyd@chromium.org>
+ <7a64e927-235b-4d63-af59-f2c80464a9a1@oss.qualcomm.com>
+ <CAE-0n53wX99ry88zOOuq6SPVpraiENheJ1T+HZri82x4gqZJ_w@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 06/12] dt-bindings: clk: sunxi-ng: add V853 CCU
- clock/reset
-To: Andras Szemzo <szemzo.andras@gmail.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Maxime Ripard <mripard@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
- <kishon@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-gpio@vger.kernel.org,
- linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <20250110123923.270626-1-szemzo.andras@gmail.com>
- <20250110123923.270626-7-szemzo.andras@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250110123923.270626-7-szemzo.andras@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAE-0n53wX99ry88zOOuq6SPVpraiENheJ1T+HZri82x4gqZJ_w@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_135650_812705_61A23B7B 
-X-CRM114-Status: GOOD (  13.49  )
+X-CRM114-CacheID: sfid-20250110_055845_831160_D2080E5D 
+X-CRM114-Status: GOOD (  31.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,50 +84,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/01/2025 13:39, Andras Szemzo wrote:
-> As the device tree needs the clock/reset indices, add them to DT binding
-> headers.
+On Thu, Jan 09, 2025 at 01:51:12PM -0800, Stephen Boyd wrote:
+> Quoting Konrad Dybcio (2025-01-09 06:05:14)
+> > On 8.01.2025 2:28 AM, Stephen Boyd wrote:
+> > > Document the Qualcomm SC7180 System on a Chip (SoC). This SoC is made up
+> > > of multiple devices that have their own bindings, therefore this binding
+> > > is for a "bus" that is the SoC node.
+> > >
+> > > TODO: Document all child nodes. This is woefully incomplete but at least
+> > > shows what is involved with describing an SoC node in dt schema.
+> >
+> > I'm not sure I'm a fan, because...
+> >
+> > [...]
+> >
+> > > +
+> > > +properties:
+> > > +  compatible:
+> > > +    items:
+> > > +      - const: qcom,soc-sc7180
+> > > +      - const: simple-bus
+> > > +
+> > > +  '#address-cells':
+> > > +    const: 2
+> > > +
+> > > +  '#size-cells':
+> > > +    const: 2
+> > > +
+> > > +  clock-controller@100000:
+> > > +    $ref: /schemas/clock/qcom,gcc-sc7180.yaml#
+
+This makes the above schema be applied twice. Once here and then when 
+the compatible matches. That can be avoided by just listing a 
+compatible. The QCom display bindings follow that style.
+
+> > > +
+> > > +  watchdog@17c10000:
+> > > +    $ref: /schemas/watchdog/qcom-wdt.yaml#
+> > > +
+> > > +required:
+> > > +  - compatible
+> > > +  - '#address-cells'
+> > > +  - '#size-cells'
+> > > +  - clock-controller@100000
+> > > +  - watchdog@17c10000
+> > > +
+> > > +additionalProperties: false
+> >
+> > ..this approach will make any dt node addition under /soc require
+> > an additional bindings change, which sounds like absolute madness
 > 
-> Signed-off-by: Andras Szemzo <szemzo.andras@gmail.com>
+> We should pretty much know what nodes go under here though, because it's
+> a chip that exists and doesn't change after the fact. I agree that it
+> will be annoying during early development when everyone is modifying the
+> same file to add their node, but that problem also exists with the dts
+> files today so it doesn't seem like total madness. It's also nice to be
+> able to look at one file and quickly find all the schemas for the SoC
+> used, like a table of contents almost or a memory map for the chip.
 
-That's never a separate commit from the binding.
+I don't really care for listing everything either.
 
+We could just generate all the schemas used. Either "give me all the 
+schemas matching some compatible patter" or "give me all the schemas 
+used to validate the DTB". The latter was possible on a per node basis, 
+but I think I dropped that when I changed how we select schemas to 
+apply.
 
-...
+Speaking of memory maps, I would like a tool which could dump memory map 
+from .dts. My primary reason is to find overlapping regions.
 
-> --- /dev/null
-> +++ b/include/dt-bindings/clock/sun8i-v853-r-ccu.h
-> @@ -0,0 +1,16 @@
-> +/* SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
-> +/* Copyright(c) 2020 - 2023 Allwinner Technology Co.,Ltd. All rights reserved.
-> + *
-> + * Copyright (C) 2023 rengaomin@allwinnertech.com
-> + */
-> +#ifndef _DT_BINDINGS_CLK_SUN8I_V85X_R_CCU_H_
-> +#define _DT_BINDINGS_CLK_SUN8I_V85X_R_CCU_H_
-> +
-> +#define CLK_R_TWD		0
-> +#define CLK_R_PPU		1
-> +#define CLK_R_RTC		2
-> +#define CLK_R_CPUCFG		3
-> +
-> +#define CLK_R_MAX_NO		(CLK_R_CPUCFG + 1)
+> One thing that I find annoying is that you have to put the whole soc
+> node and child nodes in the example. Maybe we can omit the example
+> because there are so many child nodes.
+> 
+> >
+> > I think additionalProperties: true would be sufficient here, like in
+> > Documentation/devicetree/bindings/soc/imx/imx8m-soc.yaml
+> >
 
-Nope, drop. Not a binding.
+No. You can do:
 
-> +
-> +#endif
-> diff --git a/include/dt-bindings/reset/sun8i-v853-ccu.h b/include/dt-bindings/reset/sun8i-v853-ccu.h
-> new file mode 100644
-> index 000000000000..89d94fcbdb55
-> --- /dev/null
-> +++ b/include/dt-bindings/reset/sun8i-v853-ccu.h
-> @@ -0,0 +1,62 @@
-> +/* SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
+additionalProperties:
+  type: object
 
-Odd license. Did you copy the file with such license from the downstream?
+Or a patternProperties entry requiring '@' in the name.
 
 
-Best regards,
-Krzysztof
+> Ok. That binding looks to be for the efuse properties of the SoC node
+> itself? I was hoping to find another example of this "describe the whole
+> SoC" sort of binding but that doesn't match. Is there one already out
+> there? Should I move this binding to bindings/soc/qcom instead of
+> bindings/bus?
+
+bindings/bus
+
+The 'soc' nodes here aren't really for the whole SoC. Cpus aren't in 
+the soc node. They are for buses. We should allow for there to be more 
+than 1 for instance.
+
+Rob
 
