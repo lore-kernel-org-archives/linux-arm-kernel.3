@@ -4,63 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C68CFE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 11:24:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD421E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 11:34:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pcWTpUuwHc3vp9Y15hQsl1t8c8oElxF3i30tkzGmNng=; b=J/S+UqNKcAtCKZVMo3RhBsu94i
-	4nvp0Gc2HasVBte675wG2aqQv+RSGv5+Jsz67NVGFiUoU8G1a7ySFSr6VXBoQhsgcTiC6kK/NDb+w
-	xF7knEqXDvbYEQ6Ege+IbjeOY0YORn+cGcepEZWBxKYUwovSfAr7BBnSUfCCUcfpdfFgr/obG0mxP
-	kzt9u9kyxqoS1nxnD80IKngPlRYIL7t8NrL9qhgZhCNox+zrM+vBkU0b9bvnG1WKlWu0+c0FwyCY3
-	0+x5w4+NPcXp3etRTcsU5+EYsDfCNDZlP7O+JzylauiMmJYIl808QvHXIELBUx4a/USjOpxiXA6a8
-	cCIyrA3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GyIO1vCv0pLayu327CkNC2cIrNc8mefVgUJ+yb7Xo1k=; b=mkonJvEIaFw8wX+XlnE280h6+b
+	043l5vHDbXdCSSJd+JlV0imEo5tGXuLdvr5DhAv+uDtLHv1M+JRvW05rR81xPPsJviRrYgVI/+eI7
+	HcCKke8NIybdAwEHf4S75ueLJ1pFPTlLWhoLFTrm2hKcaZLCBb/zBnOnUc8ROebW6bB5b+yippEXw
+	h9StxtyJHmWmpOvYB/2rWsktm+n2xcOuVkF7v8ZhNax9xOrjjspO97vw8V268OlRovibBWE/ytnsg
+	p+MD5sygyjVZFBrNC+ZdKcrP8heL5Edh7ionqIhluvvzJEs8AwzFNzI+E1rXQDvKqKUNnDy7EDX0Z
+	Ils2gQ+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWD86-0000000F6aC-3EjT;
-	Fri, 10 Jan 2025 11:24:42 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tWDH6-0000000F8ab-0KXT;
+	Fri, 10 Jan 2025 11:34:00 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWD6t-0000000F6Kc-3wpO
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 11:23:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 391D65C5DDF;
-	Fri, 10 Jan 2025 11:22:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12FD1C4CEDF;
-	Fri, 10 Jan 2025 11:23:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736508206;
-	bh=KlB2n0papsrbB6sk08QJS5YN5JfXu+H+SiMqh9K6uaw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kH8BhyjyWMOOHTum/u+jv1OvOU5fWSm16S0HR+JgOUY2zCRkVADB/VAtU9d5gKaIW
-	 kr1gHQ7dUAO5efeUJ7XyUeRG49IOiAHVpwsI/vBx6pqHmxcjlyajejpmX4yIgy6Pos
-	 7lHsuslEauShd8KHM23jpgWasLPJxdhoVDnt6iqoQ9oPhbd+Qn76T68tlYNwG4DFXc
-	 4oWathpCDWTfilwHpBfZUAcHYLsi2dPi/t7e+jC1cOhhyZ0kQN+RNnk9SvKWIKRq8T
-	 TnFV4w2s3GJCzlS1Lq134ZxMU4zAaybrJGM+n3JxUV1GYZpJtfwjy2DYvf9evpdhGB
-	 cj2x6rzgKKgEw==
-Date: Fri, 10 Jan 2025 12:23:21 +0100
-From: Niklas Cassel <cassel@kernel.org>
-To: Damien Le Moal <dlemoal@kernel.org>
-Cc: Raphael Gallais-Pou <rgallaispou@gmail.com>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	linux-arm-kernel@lists.infradead.org, linux-ide@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] ahci: st: Switch from CONFIG_PM_SLEEP guards to
- pm_sleep_ptr()
-Message-ID: <Z4EDKUb+hO0ovV2i@x1-carbon>
-References: <20250109175427.64384-1-rgallaispou@gmail.com>
- <07a7177d-7705-4eb5-a11e-02a9429ffac2@kernel.org>
+	id 1tWDFr-0000000F8Nn-1DPh;
+	Fri, 10 Jan 2025 11:32:44 +0000
+Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:8839:d6d5:dae9:975:2ebb:e220])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 1AA16641;
+	Fri, 10 Jan 2025 12:31:42 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1736508703;
+	bh=gDsGGKHZcTvPRzCudEWf07Cfey7HmkvdjiNqrt/gEjo=;
+	h=From:Date:Subject:To:Cc:From;
+	b=VDxe6iIx9q3O9tHMB7Sy1t2biobvjzdOmwbVs+636Wb0xPcAVm0akh27+jhFTWqDm
+	 nTRLUG9YcQp3C2j4sBxISRKToOnwuI+nCso4EbA7g+MbwLUmtMKApLUYU+1N8kb3R1
+	 FRUvaPvPNF20NwUzcvO79DniP1huf7AVY8iuPHNw=
+From: Jai Luthra <jai.luthra@ideasonboard.com>
+Date: Fri, 10 Jan 2025 17:01:41 +0530
+Subject: [PATCH v2] media: rockchip: rkisp1: Add support for AWB64
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <07a7177d-7705-4eb5-a11e-02a9429ffac2@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250110-awb64-v2-1-01b7fb471465@ideasonboard.com>
+X-B4-Tracking: v=1; b=H4sIABwFgWcC/13MQQ7CIBCF4as0sxYDYynWlfcwXUCZ2llYGjCoa
+ bi72KXL/+Xl2yBRZEpwaTaIlDlxWGrgoYFxtsudBPvagBJbhScp7Mt1rTA9Gin7MylNUL9rpIn
+ fu3Mbas+cniF+djar3/ovZCWUQOMkUacnrdWVPdkUFhds9McxPGAopXwBm36G8qEAAAA=
+X-Change-ID: 20241230-awb64-79270098e15e
+To: Dafna Hirschfeld <dafna@fastmail.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Stefan Klug <stefan.klug@ideasonboard.com>, 
+ Jai Luthra <jai.luthra@ideasonboard.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=22243;
+ i=jai.luthra@ideasonboard.com; h=from:subject:message-id;
+ bh=gDsGGKHZcTvPRzCudEWf07Cfey7HmkvdjiNqrt/gEjo=;
+ b=owEBbQKS/ZANAwAIAUPekfkkmnFFAcsmYgBngQVPzDjCOLlBkgUC+/EmzIhLBaVA5CWpwccWm
+ h1XqO4/3NSJAjMEAAEIAB0WIQRN4NgY5dV16NRar8VD3pH5JJpxRQUCZ4EFTwAKCRBD3pH5JJpx
+ RcfoD/wLjYytBIkbimaYsS5/4Mfzzxki8yj06DRSBAzPqU+RwnTvOu39808VJw0CkaP7e9uU3fx
+ w+XfBCVSSOiduNUg/QFxS1lhmxxYop5RyDK6kw1nt1LJxG1ev+ifLd259y0Ra1LzefCxEQkbcLj
+ JBZuF2VpY22f2bHslh1BdjH5aHwlrceZPQcYBz2eIf07ohNZJOD768kEjPLV5nEd0cuYF/VzRwC
+ JEIcAu0W2FUo9W+g9pja0o5dEJy9pU6QPuRqnHeCRMucjW0WsEzVgj6nuXBnh9ml5vH34Xi7IBW
+ lxzAXIWU8XsaiDufnaSY9PseUP+uhad5a7EhPCBOqeZRDOmEyU1N5JI+LrK7V9JOHZsY8fDMWc6
+ 8kCpUihOw3hdW7jCTqPCrkMK70E4v7Lofg3O+A6Q7kVjL6IiFgTWVN09oVBfu8HphuwRloN2XFY
+ wEj5jRW8NF4WAoQMYtWJkgXzPqF1s7iQC5W5ga7/arPW2ZI7VPi/l3WiT1oNCZ4Btkn2PIXG3iE
+ 6GK5YWjU1M3tg+k/BA5eFFzhHx+yxZfKvYnnNQuB/3O7hV9Ur5do9iS415iy6NIh8vXlg6TYJbX
+ 6LJepBtOWMDc1KsVLcFS60qBaXc/kd95o1VSfo5g+j3w2Lsf5z2RWa8QuWJHIeU9NOGP6xYCxCk
+ 0ah+u4mKSgQhs4A==
+X-Developer-Key: i=jai.luthra@ideasonboard.com; a=openpgp;
+ fpr=4DE0D818E5D575E8D45AAFC543DE91F9249A7145
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_032328_032142_E2F4730B 
-X-CRM114-Status: GOOD (  28.12  )
+X-CRM114-CacheID: sfid-20250110_033243_621152_0F3F5A55 
+X-CRM114-Status: GOOD (  26.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,73 +90,539 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 10, 2025 at 02:19:06PM +0900, Damien Le Moal wrote:
-> On 1/10/25 02:54, Raphael Gallais-Pou wrote:
-> > Letting the compiler remove these functions when the kernel is built
-> > without CONFIG_PM_SLEEP support is simpler and less error prone than the
-> > use of #ifdef based kernel configuration guards.
-> > 
-> > Signed-off-by: Raphael Gallais-Pou <rgallaispou@gmail.com>
-> > ---
-> > Changes in v2:
-> >   - Split serie in single patches
-> >   - Remove irrelevant 'Link:' from commit log
-> >   - Link to v1: https://lore.kernel.org/r/20241229-update_pm_macro-v1-4-c7d4c4856336@gmail.com
-> > ---
-> >  drivers/ata/ahci_st.c | 6 ++----
-> >  1 file changed, 2 insertions(+), 4 deletions(-)
-> > 
-> > diff --git a/drivers/ata/ahci_st.c b/drivers/ata/ahci_st.c
-> > index 6b9b4a1dfa15..4336c8a6e208 100644
-> > --- a/drivers/ata/ahci_st.c
-> > +++ b/drivers/ata/ahci_st.c
-> > @@ -176,7 +176,6 @@ static int st_ahci_probe(struct platform_device *pdev)
-> >  	return 0;
-> >  }
-> >  
-> > -#ifdef CONFIG_PM_SLEEP
-> >  static int st_ahci_suspend(struct device *dev)
-> >  {
-> >  	struct ata_host *host = dev_get_drvdata(dev);
-> > @@ -221,9 +220,8 @@ static int st_ahci_resume(struct device *dev)
-> >  
-> >  	return ahci_platform_resume_host(dev);
-> >  }
-> > -#endif
-> 
-> I do not think you can remove the ifdef here. Otherwise, there is going to be a
-> compilation warning when CONFIG_PM_SLEEP is not enabled. No ?
+AWB64 is an advanced auto white-balance statistics block, present on the
+ISP in iMX8MP. This block can calculate color statistics for a maximum
+of 8 different (elliptical) regions, which can be used by the AWB
+algorithm to better tune the color gains.
 
-Look at the pm_sleep_ptr macro:
-include/linux/pm.h:#define pm_sleep_ptr(_ptr) PTR_IF(IS_ENABLED(CONFIG_PM_SLEEP), (_ptr))
+Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
+---
+The ellipse coordinate transformation matrix documentation in the
+(non-public) datasheet is quite lacking, and it is unclear if the
+coefficients A1..A4 are listed row-wise or column-wise, and how exactly
+are the 9 bits split into a fixed point Q format.
 
-I would expect the function should be optimized out by the compiler
-using dead code elimination.
+Similarly it is unclear how the 11 bits of the colorspace matrix
+coefficients are split into a fixed point Q format.
 
-Raphael, perhaps you could show the before and after output
-using ./scripts/bloat-o-meter ?
-(When the config is not enabled: before and after your patch.)
+Lastly, the Rmax is represented in 24 bits, but the datasheet does not
+specify if this is the square of the actual euclidean distance or not,
+but given other offsets and values are all under 12-bits, and computing
+square roots in hardware is expensive, it might be square distance.
 
+All of these need more experimentation from the userspace, but ideally
+these are only documentation changes so marking this revision as
+non-RFC.
+---
+Changes in v2:
+- Fix register offsets
+- Drop the _v10 suffix from awb64 functions
+- Combine the min and max for R, G, B components into a single value in
+  the struct
+- Move all the configuration except IRQ and module enable in the
+  meas_config() routine, making sure the bool bits are cleared if
+  userspace updates the struct
+- Fix documentation and indent at various places
+- Create a single function for getting both AWB and AWB64 stats for
+  IMX8MP
+- Rename accumulator fields to only specify RGB and not YUV, as AWB64
+  block does not operate on YUV colorspace
+- Link to v1: https://lore.kernel.org/r/20241230-awb64-v1-1-27b0ee65f551@ideasonboard.com
+---
+ .../media/platform/rockchip/rkisp1/rkisp1-common.h |   2 +
+ .../media/platform/rockchip/rkisp1/rkisp1-dev.c    |   3 +-
+ .../media/platform/rockchip/rkisp1/rkisp1-params.c | 123 +++++++++++++++++++++
+ .../media/platform/rockchip/rkisp1/rkisp1-regs.h   |  41 +++++++
+ .../media/platform/rockchip/rkisp1/rkisp1-stats.c  |  40 +++++++
+ include/uapi/linux/rkisp1-config.h                 | 100 +++++++++++++++++
+ 6 files changed, 308 insertions(+), 1 deletion(-)
 
-> 
-> >  
-> > -static SIMPLE_DEV_PM_OPS(st_ahci_pm_ops, st_ahci_suspend, st_ahci_resume);
-> > +static DEFINE_SIMPLE_DEV_PM_OPS(st_ahci_pm_ops, st_ahci_suspend, st_ahci_resume);
-> >  
-> >  static const struct of_device_id st_ahci_match[] = {
-> >  	{ .compatible = "st,ahci", },
-> > @@ -234,7 +232,7 @@ MODULE_DEVICE_TABLE(of, st_ahci_match);
-> >  static struct platform_driver st_ahci_driver = {
-> >  	.driver = {
-> >  		.name = DRV_NAME,
-> > -		.pm = &st_ahci_pm_ops,
-> > +		.pm = pm_sleep_ptr(&st_ahci_pm_ops),
-> >  		.of_match_table = st_ahci_match,
-> >  	},
-> >  	.probe = st_ahci_probe,
-> 
-> 
-> -- 
-> Damien Le Moal
-> Western Digital Research
+diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
+index ca952fd0829ba7d923ad42fec92840ccd422b6e5..60fbf5a886c498957ba04ddd47a21b744d4ff8b1 100644
+--- a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
++++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
+@@ -118,6 +118,7 @@ enum rkisp1_isp_pad {
+  * @RKISP1_FEATURE_DMA_34BIT: The ISP uses 34-bit DMA addresses
+  * @RKISP1_FEATURE_BLS: The ISP has a dedicated BLS block
+  * @RKISP1_FEATURE_COMPAND: The ISP has a companding block
++ * @RKISP1_FEATURE_AWB64: The ISP has an AWB64 block
+  *
+  * The ISP features are stored in a bitmask in &rkisp1_info.features and allow
+  * the driver to implement support for features present in some ISP versions
+@@ -131,6 +132,7 @@ enum rkisp1_feature {
+ 	RKISP1_FEATURE_DMA_34BIT = BIT(4),
+ 	RKISP1_FEATURE_BLS = BIT(5),
+ 	RKISP1_FEATURE_COMPAND = BIT(6),
++	RKISP1_FEATURE_AWB64 = BIT(7),
+ };
+ 
+ #define rkisp1_has_feature(rkisp1, feature) \
+diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
+index 0100b9c3edbefbdc001e2e4d13049efa9493e3bd..20903823b8eec2dd6b2fda788a42ef7545158f8c 100644
+--- a/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
++++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
+@@ -557,7 +557,8 @@ static const struct rkisp1_info imx8mp_isp_info = {
+ 	.isp_ver = RKISP1_V_IMX8MP,
+ 	.features = RKISP1_FEATURE_MAIN_STRIDE
+ 		  | RKISP1_FEATURE_DMA_34BIT
+-		  | RKISP1_FEATURE_COMPAND,
++		  | RKISP1_FEATURE_COMPAND
++		  | RKISP1_FEATURE_AWB64,
+ 	.max_width = 4096,
+ 	.max_height = 3072,
+ };
+diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
+index b28f4140c8a309a3231d44d825c6461e3ecb2a44..4f9deb94555d32b02c5e218b9763041affcd96ad 100644
+--- a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
++++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
+@@ -60,6 +60,7 @@ union rkisp1_ext_params_config {
+ 	struct rkisp1_ext_params_afc_config afc;
+ 	struct rkisp1_ext_params_compand_bls_config compand_bls;
+ 	struct rkisp1_ext_params_compand_curve_config compand_curve;
++	struct rkisp1_ext_params_awb64_meas_config awb64;
+ };
+ 
+ enum rkisp1_params_formats {
+@@ -674,6 +675,105 @@ rkisp1_awb_meas_enable_v12(struct rkisp1_params *params,
+ 	}
+ }
+ 
++/* ISP White Balance Mode */
++static void
++rkisp1_awb64_meas_config(struct rkisp1_params *params,
++			 const struct rkisp1_cif_isp_awb64_meas_config *arg)
++{
++	u32 reg_val =
++		rkisp1_read(params->rkisp1, RKISP1_CIF_ISP_AWB64_MEAS_MODE);
++
++	/* Measurement mode */
++	if (arg->enable_median_filter)
++		reg_val |= RKISP1_CIF_ISP_AWB64_PRE_FILTER_EN;
++	else
++		reg_val &= ~RKISP1_CIF_ISP_AWB64_PRE_FILTER_EN;
++
++	if (arg->chrom_switch)
++		reg_val |= RKISP1_CIF_ISP_AWB64_CHROM_SWITCH;
++	else
++		reg_val &= ~RKISP1_CIF_ISP_AWB64_CHROM_SWITCH;
++
++	reg_val |= (arg->ellip_unite & RKISP1_CIF_ISP_AWB64_UNITE_MASK)
++		   << RKISP1_CIF_ISP_AWB64_UNITE_SHIFT;
++
++	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_AWB64_MEAS_MODE,
++		     reg_val);
++
++	/* Measurement window */
++	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_AWB64_V_OFFS,
++		     arg->awb_wnd.v_offs);
++	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_AWB64_H_OFFS,
++		     arg->awb_wnd.h_offs);
++	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_AWB64_V_SIZE,
++		     arg->awb_wnd.v_size);
++	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_AWB64_H_SIZE,
++		     arg->awb_wnd.h_size);
++
++	/* RGB thresholds for measurement */
++	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_AWB64_R_MIN_MAX,
++		     arg->min_max_r);
++	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_AWB64_G_MIN_MAX,
++		     arg->min_max_g);
++	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_AWB64_B_MIN_MAX,
++		     arg->min_max_b);
++
++	/* Minimum input divider threshold */
++	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_AWB64_MIN_DIVIDER,
++		     arg->min_div & RKISP1_CIF_ISP_AWB64_MIN_DIV_MASK);
++
++	/* Colorspace matrix coefficients */
++	for (int i = 0; i < 3; i++) {
++		for (int j = 0; j < 3; j++)
++			rkisp1_write(params->rkisp1,
++				     RKISP1_CIF_ISP_AWB64_CC_COEFF(i * 3 + j),
++				     arg->cc_coeff[i][j]);
++	}
++
++	/* Ellipse configuration */
++	for (int i = 0; i < RKISP1_CIF_ISP_AWB64_MAX_ELLIPSE; i++) {
++		const struct rkisp1_cif_isp_awb64_ellip *ellip = &arg->ellip[i];
++
++		/* Center */
++		rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_AWB64_ELLIP_CEN_X(i),
++			     ellip->cen_x & RKISP1_CIF_ISP_AWB64_ELLIP_CEN_MASK);
++		rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_AWB64_ELLIP_CEN_Y(i),
++			     ellip->cen_y & RKISP1_CIF_ISP_AWB64_ELLIP_CEN_MASK);
++		/* Radius */
++		rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_AWB64_ELLIP_RMAX(i),
++			     ellip->rmax & RKISP1_CIF_ISP_AWB64_ELLIP_RMAX_MASK);
++		/* CTM */
++		rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_AWB64_ELLIP_A1(i),
++			     ellip->ctm[0] &
++				     RKISP1_CIF_ISP_AWB64_ELLIP_A1_A3_MASK);
++		rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_AWB64_ELLIP_A2(i),
++			     ellip->ctm[1] &
++				     RKISP1_CIF_ISP_AWB64_ELLIP_A2_A4_MASK);
++		rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_AWB64_ELLIP_A3(i),
++			     ellip->ctm[2] &
++				     RKISP1_CIF_ISP_AWB64_ELLIP_A1_A3_MASK);
++		rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_AWB64_ELLIP_A4(i),
++			     ellip->ctm[3] &
++				     RKISP1_CIF_ISP_AWB64_ELLIP_A2_A4_MASK);
++	}
++}
++
++static void
++rkisp1_awb64_meas_enable(struct rkisp1_params *params,
++			 const struct rkisp1_cif_isp_awb64_meas_config *arg,
++			 bool en)
++{
++	if (en) {
++		rkisp1_param_set_bits(params, RKISP1_CIF_ISP_AWB64_MEAS_MODE,
++				      RKISP1_CIF_ISP_AWB64_MEAS_EN |
++					      RKISP1_CIF_ISP_AWB64_IRQ_EN);
++	} else {
++		rkisp1_param_clear_bits(params, RKISP1_CIF_ISP_AWB64_MEAS_MODE,
++					RKISP1_CIF_ISP_AWB64_MEAS_EN |
++						RKISP1_CIF_ISP_AWB64_IRQ_EN);
++	}
++}
++
+ static void
+ rkisp1_awb_gain_config_v10(struct rkisp1_params *params,
+ 			   const struct rkisp1_cif_isp_awb_gain_config *arg)
+@@ -2005,6 +2105,23 @@ static void rkisp1_ext_params_compand_compress(struct rkisp1_params *params,
+ 				      RKISP1_CIF_ISP_COMPAND_CTRL_COMPRESS_ENABLE);
+ }
+ 
++static void rkisp1_ext_params_awb64(struct rkisp1_params *params,
++				    const union rkisp1_ext_params_config *block)
++{
++	const struct rkisp1_ext_params_awb64_meas_config *awb64 = &block->awb64;
++
++	if (awb64->header.flags & RKISP1_EXT_PARAMS_FL_BLOCK_DISABLE) {
++		rkisp1_awb64_meas_enable(params, &awb64->config, false);
++		return;
++	}
++
++	rkisp1_awb64_meas_config(params, &awb64->config);
++
++	if ((awb64->header.flags & RKISP1_EXT_PARAMS_FL_BLOCK_ENABLE) &&
++	    !(params->enabled_blocks & BIT(awb64->header.type)))
++		rkisp1_awb64_meas_enable(params, &awb64->config, true);
++}
++
+ typedef void (*rkisp1_block_handler)(struct rkisp1_params *params,
+ 			     const union rkisp1_ext_params_config *config);
+ 
+@@ -2118,6 +2235,12 @@ static const struct rkisp1_ext_params_handler {
+ 		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
+ 		.features	= RKISP1_FEATURE_COMPAND,
+ 	},
++	[RKISP1_EXT_PARAMS_BLOCK_TYPE_AWB64_MEAS] = {
++		.size		= sizeof(struct rkisp1_ext_params_awb64_meas_config),
++		.handler	= rkisp1_ext_params_awb64,
++		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
++		.features	= RKISP1_FEATURE_AWB64,
++	},
+ };
+ 
+ static void rkisp1_ext_params_config(struct rkisp1_params *params,
+diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-regs.h b/drivers/media/platform/rockchip/rkisp1/rkisp1-regs.h
+index bf0260600a1923eebde6b5fe233daf7d427362dd..ed9c274682d5c30dfe7fae1807e0aaba94b3cb6c 100644
+--- a/drivers/media/platform/rockchip/rkisp1/rkisp1-regs.h
++++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-regs.h
+@@ -516,6 +516,24 @@
+ #define RKISP1_CIF_ISP_AWB_CBCR_MAX_REF			0x000000ff
+ #define RKISP1_CIF_ISP_AWB_THRES_MAX_YC			0x000000ff
+ 
++/* AWB64 */
++/* ISP_AWB64_WHITE_CNT */
++#define RKISP1_CIF_ISP_AWB64_GET_PIXEL_CNT(x)		((x) & 0xffffff)
++/* ISP_AWB64_MEAS_MODE */
++#define RKISP1_CIF_ISP_AWB64_MEAS_EN			BIT(0)
++#define RKISP1_CIF_ISP_AWB64_PRE_FILTER_EN		BIT(1)
++#define RKISP1_CIF_ISP_AWB64_IRQ_EN			BIT(2)
++#define RKISP1_CIF_ISP_AWB64_CHROM_SWITCH		BIT(3)
++#define RKISP1_CIF_ISP_AWB64_UNITE_MASK			GENMASK(5, 0)
++#define RKISP1_CIF_ISP_AWB64_UNITE_SHIFT		4
++/* ISP_AWB64_DIVIDER_MIN */
++#define RKISP1_CIF_ISP_AWB64_MIN_DIV_MASK		GENMASK(9, 0)
++/* ISP_AWB64_ELLIP */
++#define RKISP1_CIF_ISP_AWB64_ELLIP_CEN_MASK		GENMASK(9, 0)
++#define RKISP1_CIF_ISP_AWB64_ELLIP_A1_A3_MASK		GENMASK(11, 0)
++#define RKISP1_CIF_ISP_AWB64_ELLIP_A2_A4_MASK		GENMASK(8, 0)
++#define RKISP1_CIF_ISP_AWB64_ELLIP_RMAX_MASK		GENMASK(23, 0)
++
+ /* AE */
+ /* ISP_EXP_CTRL */
+ #define RKISP1_CIF_ISP_EXP_ENA				BIT(0)
+@@ -1379,6 +1397,29 @@
+ #define RKISP1_CIF_ISP_WDR_TONECURVE_YM_31_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x0000012c)
+ #define RKISP1_CIF_ISP_WDR_TONECURVE_YM_32_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x00000130)
+ 
++#define RKISP1_CIF_ISP_AWB64_BASE		0x00002c00
++#define RKISP1_CIF_ISP_AWB64_MEAS_MODE		(RKISP1_CIF_ISP_AWB64_BASE + 0x00000000)
++#define RKISP1_CIF_ISP_AWB64_H_OFFS		(RKISP1_CIF_ISP_AWB64_BASE + 0x00000004)
++#define RKISP1_CIF_ISP_AWB64_V_OFFS		(RKISP1_CIF_ISP_AWB64_BASE + 0x00000008)
++#define RKISP1_CIF_ISP_AWB64_H_SIZE		(RKISP1_CIF_ISP_AWB64_BASE + 0x0000000c)
++#define RKISP1_CIF_ISP_AWB64_V_SIZE		(RKISP1_CIF_ISP_AWB64_BASE + 0x00000010)
++#define RKISP1_CIF_ISP_AWB64_R_MIN_MAX		(RKISP1_CIF_ISP_AWB64_BASE + 0x00000014)
++#define RKISP1_CIF_ISP_AWB64_G_MIN_MAX		(RKISP1_CIF_ISP_AWB64_BASE + 0x00000018)
++#define RKISP1_CIF_ISP_AWB64_B_MIN_MAX		(RKISP1_CIF_ISP_AWB64_BASE + 0x0000001c)
++#define RKISP1_CIF_ISP_AWB64_MIN_DIVIDER	(RKISP1_CIF_ISP_AWB64_BASE + 0x00000020)
++#define RKISP1_CIF_ISP_AWB64_CC_COEFF(n)	(RKISP1_CIF_ISP_AWB64_BASE + 0x00000024 + (n) * 4)
++#define RKISP1_CIF_ISP_AWB64_ELLIP_CEN_X(n)	(RKISP1_CIF_ISP_AWB64_BASE + 0x00000048 + (n) * 8)
++#define RKISP1_CIF_ISP_AWB64_ELLIP_CEN_Y(n)	(RKISP1_CIF_ISP_AWB64_BASE + 0x0000004c + (n) * 8)
++#define RKISP1_CIF_ISP_AWB64_ELLIP_A1(n)	(RKISP1_CIF_ISP_AWB64_BASE + 0x00000088 + (n) * 16)
++#define RKISP1_CIF_ISP_AWB64_ELLIP_A2(n)	(RKISP1_CIF_ISP_AWB64_BASE + 0x0000008c + (n) * 16)
++#define RKISP1_CIF_ISP_AWB64_ELLIP_A3(n)	(RKISP1_CIF_ISP_AWB64_BASE + 0x00000090 + (n) * 16)
++#define RKISP1_CIF_ISP_AWB64_ELLIP_A4(n)	(RKISP1_CIF_ISP_AWB64_BASE + 0x00000094 + (n) * 16)
++#define RKISP1_CIF_ISP_AWB64_ELLIP_RMAX(n)	(RKISP1_CIF_ISP_AWB64_BASE + 0x00000108 + (n) * 4)
++#define RKISP1_CIF_ISP_AWB64_WHITE_CNT(n)	(RKISP1_CIF_ISP_AWB64_BASE + 0x00000128 + (n) * 4)
++#define RKISP1_CIF_ISP_AWB64_R_ACCU(n)		(RKISP1_CIF_ISP_AWB64_BASE + 0x00000148 + (n) * 12)
++#define RKISP1_CIF_ISP_AWB64_G_ACCU(n)		(RKISP1_CIF_ISP_AWB64_BASE + 0x0000014c + (n) * 12)
++#define RKISP1_CIF_ISP_AWB64_B_ACCU(n)		(RKISP1_CIF_ISP_AWB64_BASE + 0x00000150 + (n) * 12)
++
+ #define RKISP1_CIF_ISP_HIST_BASE_V12		0x00002c00
+ #define RKISP1_CIF_ISP_HIST_CTRL_V12		(RKISP1_CIF_ISP_HIST_BASE_V12 + 0x00000000)
+ #define RKISP1_CIF_ISP_HIST_SIZE_V12		(RKISP1_CIF_ISP_HIST_BASE_V12 + 0x00000004)
+diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-stats.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-stats.c
+index d5fdb8f82dc78b0143f71d76f36817db389921b7..de2571ac4c162a770b987e4ada469d2e8953ff7c 100644
+--- a/drivers/media/platform/rockchip/rkisp1/rkisp1-stats.c
++++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-stats.c
+@@ -214,6 +214,38 @@ static void rkisp1_stats_get_awb_meas_v12(struct rkisp1_stats *stats,
+ 				RKISP1_CIF_ISP_AWB_GET_MEAN_Y_G(reg_val);
+ }
+ 
++static void rkisp1_stats_get_awb64_meas_imx8mp(struct rkisp1_stats *stats,
++					       struct rkisp1_stat_buffer *pbuf)
++{
++	struct rkisp1_device *rkisp1 = stats->rkisp1;
++	u32 white_cnt;
++
++	pbuf->meas_type |= RKISP1_CIF_ISP_STAT_AWB64;
++
++	for (unsigned int i = 0; i < RKISP1_CIF_ISP_AWB64_MAX_ELLIPSE; i++) {
++		struct rkisp1_cif_isp_awb64_meas *count =
++			&pbuf->params.awb64.count[i];
++
++		white_cnt = rkisp1_read(rkisp1,
++					RKISP1_CIF_ISP_AWB64_WHITE_CNT(i));
++		count->cnt = RKISP1_CIF_ISP_AWB64_GET_PIXEL_CNT(white_cnt);
++
++		count->accu_r =
++			rkisp1_read(rkisp1, RKISP1_CIF_ISP_AWB64_R_ACCU(i));
++		count->accu_g =
++			rkisp1_read(rkisp1, RKISP1_CIF_ISP_AWB64_G_ACCU(i));
++		count->accu_b =
++			rkisp1_read(rkisp1, RKISP1_CIF_ISP_AWB64_B_ACCU(i));
++	}
++}
++
++static void rkisp1_stats_get_awb_meas_imx8mp(struct rkisp1_stats *stats,
++					     struct rkisp1_stat_buffer *pbuf)
++{
++	rkisp1_stats_get_awb_meas_v10(stats, pbuf);
++	rkisp1_stats_get_awb64_meas_imx8mp(stats, pbuf);
++}
++
+ static void rkisp1_stats_get_aec_meas_v10(struct rkisp1_stats *stats,
+ 					  struct rkisp1_stat_buffer *pbuf)
+ {
+@@ -335,6 +367,12 @@ static struct rkisp1_stats_ops rkisp1_v12_stats_ops = {
+ 	.get_hst_meas = rkisp1_stats_get_hst_meas_v12,
+ };
+ 
++static const struct rkisp1_stats_ops rkisp1_imx8mp_stats_ops = {
++	.get_awb_meas = rkisp1_stats_get_awb_meas_imx8mp,
++	.get_aec_meas = rkisp1_stats_get_aec_meas_v10,
++	.get_hst_meas = rkisp1_stats_get_hst_meas_v10,
++};
++
+ static void
+ rkisp1_stats_send_measurement(struct rkisp1_stats *stats, u32 isp_ris)
+ {
+@@ -404,6 +442,8 @@ static void rkisp1_init_stats(struct rkisp1_stats *stats)
+ 
+ 	if (stats->rkisp1->info->isp_ver == RKISP1_V12)
+ 		stats->ops = &rkisp1_v12_stats_ops;
++	else if (stats->rkisp1->info->isp_ver == RKISP1_V_IMX8MP)
++		stats->ops = &rkisp1_imx8mp_stats_ops;
+ 	else
+ 		stats->ops = &rkisp1_v10_stats_ops;
+ }
+diff --git a/include/uapi/linux/rkisp1-config.h b/include/uapi/linux/rkisp1-config.h
+index 430daceafac7056951be968f3b4d9cd50eb04e71..08613c355982c98a24dc33a6c5c1d4f21c0a65a6 100644
+--- a/include/uapi/linux/rkisp1-config.h
++++ b/include/uapi/linux/rkisp1-config.h
+@@ -88,6 +88,11 @@
+ #define RKISP1_CIF_ISP_AWB_MAX_GRID                1
+ #define RKISP1_CIF_ISP_AWB_MAX_FRAMES              7
+ 
++/*
++ * Automatic white balance extended block (AWB64)
++ */
++#define RKISP1_CIF_ISP_AWB64_MAX_ELLIPSE           8
++
+ /*
+  * Gamma out
+  */
+@@ -176,6 +181,7 @@
+ #define RKISP1_CIF_ISP_STAT_AUTOEXP       (1U << 1)
+ #define RKISP1_CIF_ISP_STAT_AFM           (1U << 2)
+ #define RKISP1_CIF_ISP_STAT_HIST          (1U << 3)
++#define RKISP1_CIF_ISP_STAT_AWB64         (1U << 4)
+ 
+ /**
+  * enum rkisp1_cif_isp_version - ISP variants
+@@ -519,6 +525,54 @@ struct rkisp1_cif_isp_awb_gain_config {
+ 	__u16 gain_green_b;
+ };
+ 
++/**
++ * struct rkisp1_cif_isp_awb64_ellip - Ellipse configuration for AWB64 measurement
++ *
++ * @rmax: Points within rmax (24 bits) distance from center are considered white point
++ * @cen_x: X coordinate of the center of ellipse (10 bits)
++ * @cen_y: Y coordinate of the center of ellipse (10 bits)
++ * @ctm: Coordinate transformation matrix
++ *       ctm[0] and ctm[2] are 12 bits, ctm[1] and ctm[3] are 9 bits
++ */
++struct rkisp1_cif_isp_awb64_ellip {
++	__u32 rmax;
++	__u16 cen_x;
++	__u16 cen_y;
++	__u16 ctm[4];
++};
++
++/**
++ * struct rkisp1_cif_isp_awb64_meas_config - Configuration for the AWB64 stats
++ *
++ * @awb_wnd: White balance measurement window (in pixels)
++ * @ellip: Ellipse regions used for measurement
++ * @cc_coeff: Colorspace matrix (all coefficients are 11 bits)
++ * @min_div: Minimum divider, if input is less than this don't do division (10 bits)
++ * @min_max_r: Only pixels with min_r < R < max_r contribute to measurement
++ *             bits 0:7 is min_r and bits 8:15 are max_r
++ * @min_max_g: Only pixels with min_g < G < max_g contribute to measurement
++ *             bits 0:7 is min_g and bits 8:15 are max_g
++ * @min_max_b: Only pixels with min_b < B < max_b contribute to measurement
++ *             bits 0:7 is min_b and bits 8:15 are max_b
++ * @enable_median_filter: Enable median filter before AWB measurement
++ * @ellip_unite: Bitmask to select which regions should be combined for measurement
++ *               bits 0:2 to combine ellipse 0 with ellipse 1,2,3
++ *               bits 3:5 to combine ellipse 4 with ellipse 5,6,7
++ * @chrom_switch: Use chromaticities space instead of RGB space
++ */
++struct rkisp1_cif_isp_awb64_meas_config {
++	struct rkisp1_cif_isp_window awb_wnd;
++	struct rkisp1_cif_isp_awb64_ellip ellip[RKISP1_CIF_ISP_AWB64_MAX_ELLIPSE];
++	__u16 cc_coeff[3][3];
++	__u16 min_div;
++	__u16 min_max_r;
++	__u16 min_max_g;
++	__u16 min_max_b;
++	__u8 enable_median_filter;
++	__u8 ellip_unite;
++	__u8 chrom_switch;
++};
++
+ /**
+  * struct rkisp1_cif_isp_flt_config - Configuration used by ISP filtering
+  *
+@@ -1006,6 +1060,31 @@ struct rkisp1_cif_isp_hist_stat {
+ 	__u32 hist_bins[RKISP1_CIF_ISP_HIST_BIN_N_MAX];
+ };
+ 
++/**
++ * struct rkisp1_cif_isp_awb64_meas - AWB64 measured values
++ *
++ * @cnt: White pixel count, number of "white pixels" found during last
++ *	 measurement
++ * @accu_r: Total value of Red within elliptical region
++ * @accu_g: Total value of Green within elliptical region
++ * @accu_b: Total value of Blue within elliptical region
++ */
++struct rkisp1_cif_isp_awb64_meas {
++	__u32 cnt;
++	__u32 accu_r;
++	__u32 accu_g;
++	__u32 accu_b;
++};
++
++/**
++ * struct rkisp1_cif_isp_awb64_stat - statistics AWB64 data
++ *
++ * @count: Measured pixel accumulator data for elliptical regions
++ */
++struct rkisp1_cif_isp_awb64_stat {
++	struct rkisp1_cif_isp_awb64_meas count[RKISP1_CIF_ISP_AWB64_MAX_ELLIPSE];
++};
++
+ /**
+  * struct rkisp1_cif_isp_stat - Rockchip ISP1 Statistics Data
+  *
+@@ -1013,12 +1092,14 @@ struct rkisp1_cif_isp_hist_stat {
+  * @ae: statistics data for auto exposure
+  * @af: statistics data for auto focus
+  * @hist: statistics histogram data
++ * @awb64: statistics data for automatic white balance 64
+  */
+ struct rkisp1_cif_isp_stat {
+ 	struct rkisp1_cif_isp_awb_stat awb;
+ 	struct rkisp1_cif_isp_ae_stat ae;
+ 	struct rkisp1_cif_isp_af_stat af;
+ 	struct rkisp1_cif_isp_hist_stat hist;
++	struct rkisp1_cif_isp_awb64_stat awb64;
+ };
+ 
+ /**
+@@ -1059,6 +1140,7 @@ struct rkisp1_stat_buffer {
+  * @RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_BLS: BLS in the compand block
+  * @RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_EXPAND: Companding expand curve
+  * @RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_COMPRESS: Companding compress curve
++ * @RKISP1_EXT_PARAMS_BLOCK_TYPE_AWB64_MEAS: Auto white balance 64 statistics
+  */
+ enum rkisp1_ext_params_block_type {
+ 	RKISP1_EXT_PARAMS_BLOCK_TYPE_BLS,
+@@ -1081,6 +1163,7 @@ enum rkisp1_ext_params_block_type {
+ 	RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_BLS,
+ 	RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_EXPAND,
+ 	RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_COMPRESS,
++	RKISP1_EXT_PARAMS_BLOCK_TYPE_AWB64_MEAS,
+ };
+ 
+ #define RKISP1_EXT_PARAMS_FL_BLOCK_DISABLE	(1U << 0)
+@@ -1376,6 +1459,23 @@ struct rkisp1_ext_params_awb_meas_config {
+ 	struct rkisp1_cif_isp_awb_meas_config config;
+ } __attribute__((aligned(8)));
+ 
++/**
++ * struct rkisp1_ext_params_awb64_meas_config - RkISP1 extensible params AWB64
++ *						Meas config
++ *
++ * RkISP1 extensible parameters Auto-White Balance 64 Measurement configuration
++ * block. Identified by :c:type:`RKISP1_EXT_PARAMS_BLOCK_TYPE_AWB64_MEAS`.
++ *
++ * @header: The RkISP1 extensible parameters header, see
++ *	    :c:type:`rkisp1_ext_params_block_header`
++ * @config: Auto-White Balance 64 measure configuration, see
++ *	    :c:type:`rkisp1_cif_isp_awb64_meas_config`
++ */
++struct rkisp1_ext_params_awb64_meas_config {
++	struct rkisp1_ext_params_block_header header;
++	struct rkisp1_cif_isp_awb64_meas_config config;
++} __attribute__((aligned(8)));
++
+ /**
+  * struct rkisp1_ext_params_hst_config - RkISP1 extensible params Histogram config
+  *
+
+---
+base-commit: 40384c840ea1944d7c5a392e8975ed088ecf0b37
+change-id: 20241230-awb64-79270098e15e
+
+Best regards,
+-- 
+Jai Luthra <jai.luthra@ideasonboard.com>
+
 
