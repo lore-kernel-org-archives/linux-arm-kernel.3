@@ -4,64 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EFAFE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 17:38:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 736E8E7719C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 17:43:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EbGIqBA827fqYiJ/qcLr+X8FwBh5RiPrv19CVKjyq3A=; b=LczdWateAeC0O/cVf2RQGeIKa5
-	qG0cK0dOpZ+v8UEbiJU2DUjFcxKshpc8AFmfhnPv14bKKgl5CnyYWWMytO8GHQ0Yv4jSgpHtLVHYt
-	OqpQVNeAu8duJiv65kkpfNTZXAPDk49qOox5a+hzBKkWyXhhVhxzhFfNQ4WsF+73FshW9YZQ5aGo5
-	Hi4AUL8eL3iY/I7Qf7H/HP9CHszRCd3xkt8xwTRb5LvQ6xLWCjwf3xmEKNhg2udxFguJAtg70HPLm
-	rpCvnddlglZSadgHUBmhe8QU9XH8Wxz7gTpzXxOX8NjztEHoaIlg7ZUBHkseholqKKMq1LMFnqdDR
-	y7+GrxYA==;
+	bh=kIquuYEaTAdsm90JaESO63BBglitZLQ5m0pxB5L/pKA=; b=q7rMqj6BEPYtFLAdjgQ8LW2n0L
+	hRalDZAynGIHKgEIDB9aBbtIiCXYLT2aI92hv8XfvVqD7zRLem5QXNEvr3Uow73qa42y+jbEuEVib
+	9Jw5mUbcmaZVXxDzR1VOifASQg4cciUmF7pAk/MbGaHJ6wAAVr6fD+Sczjkdtj78/ULqtp+HlJ7pZ
+	MbzBA6VIuHxAuQslYiO0LZQOJ5JWngqQMGLBP0MkzjoQsgAxcDeEIrFftWM2Yoft106Ou6fHf+zQU
+	ALUU0CmjDcaz8eBJzjG2lhndK6krDpAysPfcLMtt5p3y+Ss1WnEiIofVJp9AKvKArfLcobNbINQfv
+	fCCh2DRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWIxL-0000000GSl4-3LtZ;
-	Fri, 10 Jan 2025 17:37:59 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tWJ25-0000000GTcu-32pb;
+	Fri, 10 Jan 2025 17:42:53 +0000
+Received: from mail-co1nam11on20605.outbound.protection.outlook.com ([2a01:111:f403:2416::605] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWIuz-0000000GSFw-1aRH
+	id 1tWJ0r-0000000GTVZ-2Mis
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 17:35:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 022C4A42755;
-	Fri, 10 Jan 2025 17:33:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF36CC4CED6;
-	Fri, 10 Jan 2025 17:35:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736530532;
-	bh=5KZvj0UJW7q8uEo+QUesHwTgLnEO03HmGRUGeRMyG9w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=U6cAy4m7SRrKAMozBVgurC2+n8aTsRrKOBvoQ5NLYDdDlrY9cdKkI5fgC7/S8DAVT
-	 rxbDnkw+r+Q8B+ta9wVNFD1w6kCXYyEpDox2porATxo/MLopH5aerCTCkca5IekCMd
-	 DW9q147yCTUYucmR/Ot3GuBZ82XVGzJ8ywViymVOSTCn6ykR9/7XMcc9KLiHKWfGk4
-	 GtqsOj3msFi7UF3o4Kp7GGEeU6Jsm96kuHoxBG+VlMXkgjnjmLaztqp+bLw8rQltb8
-	 tNuLX5qCNFVJQ/tmmhVsUBojKgLPF7CWGLnRZD/U/zVCqh/sxSZamn1QWaHxQ1ISLQ
-	 c71EwuPgpOksA==
-Date: Fri, 10 Jan 2025 11:35:31 -0600
-From: Rob Herring <robh@kernel.org>
-To: Andrew Davis <afd@ti.com>
-Cc: Romain Naour <romain.naour@smile.fr>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org,
-	conor+dt@kernel.org, krzk+dt@kernel.org, kristo@kernel.org,
-	vigneshr@ti.com, nm@ti.com, Romain Naour <romain.naour@skf.com>
-Subject: Re: [PATCH v5 1/2] dt-bindings: mfd: syscon: Add
- ti,j721e-acspcie-proxy-ctrl compatible
-Message-ID: <20250110173531.GA3025883-robh@kernel.org>
-References: <20250110100331.1642242-1-romain.naour@smile.fr>
- <20250110153520.GA2904744-robh@kernel.org>
- <3e8ccd7d-0bc1-4ccb-8446-c9d10efbc969@ti.com>
-MIME-Version: 1.0
+	Fri, 10 Jan 2025 17:41:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JviiCf+PxUYdWQRiPehLrKarMcJhcUsBtdywiRbCqAA2w3MFb1gcnQ8phJF2cpfP+6PLNwy58P0S+RN7kZPm9CEAfpOIBLclNQrsBHunIfxz17u6FgyhZNPvqnQl3Df7f916NHZ/+T6p8BUrk61ksk2EtW3/CBvQVeIhnbbPR/xdkVUXXlWS3xmQrAKs7tI7hvO9cYPlOnoeIhwPTMnYRD9i1LJtdFSAXu446F5gMDNDDSJDkQOFR3CTUuiEX0F1/MviN5v1gOWx61qv3Y4X8EELSlQ7S3gGXJQ7F9BrwhzMwHpRwXXMew27T6YX/gyTWAUln6jPOgkwQ29VRoqUFA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=kIquuYEaTAdsm90JaESO63BBglitZLQ5m0pxB5L/pKA=;
+ b=D+i+W2ib1+HfuN2PTlQB1A/nC/OSeCrs4viCpaLY9h4Ta9L8OzJnM9+2fTA6LM1wriVhXc2SUYt4P9txYLZgXjlx10i/2og1Ovo+HQKA42+7/kNN0Z5M42r/rRhNz1RP4LnTS4OCeMJ8qj4Bl+Ya5ZS/wMBbMyMuj6oS9lKtbN4h2Xz4r8yDWHQlvwm3/WOago1YcuXzYHpTIsKuyf6LgssFHfyhsESGl78Z5aoMlFyEzknXqJLXeHuHw/Ri1jFSBN6z1nQLYZ4GTN7SEnExLimksH2dAKFqZH/ETUcPK35YIuopziN6RO51wi/IOUmai8GFHFodAD7f1kWYmz/jpg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=kIquuYEaTAdsm90JaESO63BBglitZLQ5m0pxB5L/pKA=;
+ b=r3y/Xgrou0ci+8et6lCFloEMsR5cUqt+I01sr5TrzGjz2idyex8vZysL00WYkNx8dqbkPR1XXPjR2GvYUo3oZOXiTHGRFoQrlskvRR+LftESGWmTQ5Tzcm1liHBjv7U+vYUMvyFcn5O3U9kgKQPxBe4e+nFTlZqh5prntqy2v4apgLwrskHz4OSzo+qxgAzA/Q5mC9/sRZtvkCIAm+W1/MyXl7Q9iJH/8rIj/sYFJW20bFWNviqBr38pvI255vyCK1PEakV9sYp2HlyAgqmKZjlJeksylsSB44nOI4/KYbgOnMAHiTo7rXomb4YjwWfDmS8nl2p7tZwxYkSosLmCCw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by SA1PR12MB8888.namprd12.prod.outlook.com (2603:10b6:806:38a::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.11; Fri, 10 Jan
+ 2025 17:41:33 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8314.015; Fri, 10 Jan 2025
+ 17:41:33 +0000
+Date: Fri, 10 Jan 2025 13:41:32 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: kevin.tian@intel.com, corbet@lwn.net, will@kernel.org, joro@8bytes.org,
+	suravee.suthikulpanit@amd.com, robin.murphy@arm.com,
+	dwmw2@infradead.org, baolu.lu@linux.intel.com, shuah@kernel.org,
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
+	eric.auger@redhat.com, jean-philippe@linaro.org, mdf@kernel.org,
+	mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
+	smostafa@google.com, ddutile@redhat.com, yi.l.liu@intel.com,
+	patches@lists.linux.dev
+Subject: Re: [PATCH v5 08/14] iommufd/viommu: Add iommufd_viommu_report_event
+ helper
+Message-ID: <20250110174132.GH396083@nvidia.com>
+References: <cover.1736237481.git.nicolinc@nvidia.com>
+ <b9b4f3df990934cb80b2f5e1e49e555e50c1c857.1736237481.git.nicolinc@nvidia.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <3e8ccd7d-0bc1-4ccb-8446-c9d10efbc969@ti.com>
+In-Reply-To: <b9b4f3df990934cb80b2f5e1e49e555e50c1c857.1736237481.git.nicolinc@nvidia.com>
+X-ClientProxiedBy: BN1PR10CA0003.namprd10.prod.outlook.com
+ (2603:10b6:408:e0::8) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|SA1PR12MB8888:EE_
+X-MS-Office365-Filtering-Correlation-Id: f78a3ed1-c989-4f44-52f2-08dd319e0617
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?NxJuAVGEDNBEhknmnoiP/MLE0Qfu5pff6THbUc4IvZStXpIKYlxLz4HhU1rn?=
+ =?us-ascii?Q?aaDKHb72ahcyR1z4l7m2YRsUgA6Mtwefk2+DcoqQISBQ9CAMAGQ9qMiABwub?=
+ =?us-ascii?Q?2/NyuJB4qbT72cSNmxuWel8YpObspM5sRsSW28Drf8YAkS+A3on6Al4AXx2b?=
+ =?us-ascii?Q?U436rFaPvGBjJuGv39UCepZjxubVLAHhZzg8ik3bqEEoBHWlvc3xQZ5L2roO?=
+ =?us-ascii?Q?2lmK6/rOD0AFjuvYevIn9cQT1/koNaVCZK6RdPb4dFgoKCUg0VG4fvYWUcIZ?=
+ =?us-ascii?Q?IcreOD7MYV34mM3PtXQVirE6K7/x5yafmLU3OsnmJ7ZOSdys9z3EiXZGKavN?=
+ =?us-ascii?Q?/5WOzcvpxFkZD+v+RahPhFFuBDvK0941CQ2d0v2vPh3fSxN7sjkPcUd47see?=
+ =?us-ascii?Q?X+GSjo1lOTIqMC52JGYzi5cVceItptawSZx0zp91aNT9iNm+LXDoc6kjoJhM?=
+ =?us-ascii?Q?SrVTHnsJCJkQu3/GsKRk3oZm6X1MPi9ASYMP9Ez7R5yqX4SXyuzWmm4RQtls?=
+ =?us-ascii?Q?wTXiFsm3Nb7mKb178uN1lGssPXmRPrZCyKJKlbnIrV2U4yuui+j23p4rfTjT?=
+ =?us-ascii?Q?zvcnMvJ+FVtsaGkP0Zhsi8QJUJ1fJr5YTTCE+HoA8Evu3qiI/2TW/8zGNq7j?=
+ =?us-ascii?Q?Lxl9ypZHIpQ3KReKMNgn2lg6Ist3HwKnj2hW5qGVkO8QeQBbj3iHqAG/KTC0?=
+ =?us-ascii?Q?uXYNtnqvtYsE68m2MWWiUqM1GyDU3RBgJIDp/tE95NQ3qfAhIyzb7jATqQHE?=
+ =?us-ascii?Q?eZcdNGEDQ1G7ITgr58jfDfXfBhwPYJbkiPdfGS8IOAwYMb5JKM8xL1M9JcyM?=
+ =?us-ascii?Q?o9WMjhb5CK0xr278Zb5XeCEK1d0GJHNVkQuCuCNkrCCTXdPbm5OKnurqNVY5?=
+ =?us-ascii?Q?rj204lCxYIJksUVLXCJO95Q89FrRYg1FbYyuISVfp8jMc2PlElCW8Iwb23q+?=
+ =?us-ascii?Q?57h6I2KMA1xo1SLQicKuaigIyj63wKrB2cS+g3FlPm2LSSXGAj5Gal6V8UyX?=
+ =?us-ascii?Q?6LkHvBX8ouDgPpOHo3nPstZlazxXMG5vjbRHixofe3BdHkffQjsB77LNWq3h?=
+ =?us-ascii?Q?zTr7m3VnBzKXlXPIM27oZd3DnawUNqsSqsYudbNxJaxTSWnVhI+GTt+fKfLu?=
+ =?us-ascii?Q?3HFYBin3gr9rlFeratL/jb6b63nAb+Bgxqxytx2SSqGN2i4c52rk8NJVX+Yw?=
+ =?us-ascii?Q?jp1P3RUDvi7M7+k+9uBgB0x2U4sd/MImoVYRRtN2I144ZEBSCRZM9alEj5JO?=
+ =?us-ascii?Q?vYk9pi4eTBhpQXCG8M2Gwdm+dTDHmfqPAfwbTaFnGFOaGwAgv2swUPT2xNnm?=
+ =?us-ascii?Q?8zKlVWY39iaHwLrK048jC3LISNVqJfpNywwNub4mClgyKw1fHf/GKTrB5ebD?=
+ =?us-ascii?Q?eqLL/5X2kdclUjM42Cnwg4nrPdtp?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?dDQcurPWguam5lCU5nr5ryjlP9gpEBBicpR4g9pVGFPViO2seW+Azex2DWX8?=
+ =?us-ascii?Q?iAfPjWOh+F3O6GG3HENJGdP8QJskvh90iinoiWWPDBiuLBuFPkTZJBoyNoNZ?=
+ =?us-ascii?Q?m2dTCUyPyKVhWtawzLgFvXGwvNZHfH4nR9EXqxpW0WX7qJfpA0NGsJwwUzYD?=
+ =?us-ascii?Q?tMo1sWstYFOGxRRQHbAZ9OGICqyUqlOzvex5DpqseAZ/pYpU1dz9ksNSSYrZ?=
+ =?us-ascii?Q?MrGpX0W5f96NVm6ilWCrk3AuY9XhR1ECloSw8kPOf+uOkwC34FUC6BxGkMQj?=
+ =?us-ascii?Q?fhtRQojvxVo1jKhp8LoeHO8hQ2TAMlCnvruEUExucZJvQQcAmiNBbQ4kjNGV?=
+ =?us-ascii?Q?xor3hU7DHjnvTOtVF6/E7lRkkj3PXc5WX6maljz7cy8Z8EK31H6BrHaMmNOp?=
+ =?us-ascii?Q?FxPuubdwsr+8G0uy027BVNIeVBaGvQKE6VE4WN+B3+V8rMC892ll4uXOajCS?=
+ =?us-ascii?Q?gQj4W54OJJxPrRdJgM2wd1liypXDSjQyPFVNI8kOr250UJpIJt2MduTr3a3Q?=
+ =?us-ascii?Q?lxgvk92Kof7/TDha2GQTCbyomcck+BVlB0b34wkt0PHH1zchTjDXzccs3Uop?=
+ =?us-ascii?Q?bUdlyf/wBbo3kIyXCk65hwWDBVU909WlBaRPhUqZNp7KVmgxH0TLhh/zKPqP?=
+ =?us-ascii?Q?tqVcpPRFgO53BPBM455gTA3SekRJ9uUV9iktPuU7h4sVWUC9d7/kUjNoeNvh?=
+ =?us-ascii?Q?pKIxkoPJX6kb8IRp1xKYuus76f53S2kzViGfDQScTtwXAMYh5ANN1k7ddZGA?=
+ =?us-ascii?Q?I8DVlbJ6nwz5Rflm2d3fniJNpAeJ4iAq7TGkukmQMFCVvA/AXtp+BEM1isJp?=
+ =?us-ascii?Q?SuGhAkaAldM23F6xPuSchMZfQM1gMaZz26VU7ssXAQdQT5mie4n7axZEN1iO?=
+ =?us-ascii?Q?AIuztyIGg4W5aAN8TYWMtUO3kSoZbSQdvIJ4XGog0uyUQ8U0E6ooVBOgi+Tk?=
+ =?us-ascii?Q?mFUwVOTr8HymvV8ZFVbxKZiB1YIePCQrJ37M1bluzL3DRkt21TOzybnQvPn+?=
+ =?us-ascii?Q?rW4T8Zz/8yNcJIX/loH0KvHGyiNXdYU1nCJIUU4Mp1zrl9dxHtUMfu/jH+pH?=
+ =?us-ascii?Q?KAd2M5VOEVLWSOeOI44QzU1bizcz+3rM6/dvIT+MEDheMDdN5ZQ0VgtwVZNm?=
+ =?us-ascii?Q?c9NXyPt2QwndUDDDY8uTcWRFcSw9kicK4jajXpOFJihsC55pG6oVtxjOXsuO?=
+ =?us-ascii?Q?SP8wMHJHJPTUZ/+CpyvUgXp7ZdnIBI0Dl2hXVx7Xqm0+BaD2uk1UN/MxCnAj?=
+ =?us-ascii?Q?gQ3m1+/Eq/moy4diC4bmNKe0f054t0KyVLQuRT+6cFm7BHiWWa/v3rG4m7Fw?=
+ =?us-ascii?Q?np6wSVHBOi3MeZdpzV2MM1Rpv5pxGVQXI2Jit03PRQG0Kp7d6vAqagpX5fNL?=
+ =?us-ascii?Q?+ORDd8VTO2i+8KXyyTkAyx48FoQr1NiCQwCx8bRLBLOxisYMunXFFSQRzBnm?=
+ =?us-ascii?Q?ixq6/zHZTi01ybmemox+Bxu47/t8ftDw4enU/T0c4+SWbGXreXCXH5s524ia?=
+ =?us-ascii?Q?DSSrVCgTh2NlpZDavglhG9cPuwgt90Fxbj2lRWmw/cFfMg5GmV5CNghiVdl2?=
+ =?us-ascii?Q?XFxzEOlQ+dEDA/zK1VQALQIDFpo13V8lGw6O2wYk?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f78a3ed1-c989-4f44-52f2-08dd319e0617
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jan 2025 17:41:33.5348
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: eNzyJrHBWHDxyTYfLjo33egUpeKS4Gy754kZ0lD9pyQcLduGxfMbnyHxe1ZzVvHk
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB8888
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_093533_542132_6752BC5A 
-X-CRM114-Status: GOOD (  33.22  )
+X-CRM114-CacheID: sfid-20250110_094137_604986_27EE82D0 
+X-CRM114-Status: GOOD (  16.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,121 +165,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 10, 2025 at 10:17:15AM -0600, Andrew Davis wrote:
-> On 1/10/25 9:35 AM, Rob Herring wrote:
-> > On Fri, Jan 10, 2025 at 11:03:30AM +0100, Romain Naour wrote:
-> > > From: Romain Naour <romain.naour@skf.com>
-> > > 
-> > > The ACSPCIE_PROXY_CTRL registers within the CTRL_MMR space of TI's J721e
-> > > SoC are used to drive the reference clock to the PCIe Endpoint device via
-> > > the PAD IO Buffers. Add the compatible for allowing the PCIe driver to
-> > > obtain the regmap for the ACSPCIE_CTRL register within the System
-> > > Controller device-tree node in order to enable the PAD IO Buffers.
-> > > 
-> > > Using the ti,j721e-acspcie-proxy-ctrl compatible imply to use "Proxy1"
-> > > address (1A090h) instead of "Proxy0" (18090h) to access
-> > > CTRLMMR_ACSPCIE0_CTRL register:
-> > > 
-> > >    CTRLMMR_ACSPCIE0_CTRL Register (Proxy0 Offset = 18090h; Proxy1 Offset = 1A090h)
-> > > 
-> > > "Proxy0" is used as the default access path that can be locked with the
-> > > help of "CTRLMMR_LOCK0_KICK0" and "CTRLMMR_LOCK0_KICK1" registers.
-> > > 
-> > > The Technical Reference Manual for J721e SoC with details of the
-> > > ASCPCIE_CTRL registers is available at:
-> > > https://www.ti.com/lit/zip/spruil1
-> > > 
-> > > Signed-off-by: Romain Naour <romain.naour@skf.com>
-> > > ---
-> > > v5:
-> > >    - Add missing change to the J721e system controller binding
-> > >      to avoid DT check warning when the new acspcie0_proxy_ctrl (syscon)
-> > >      will be added to J721e system controller node (Andrew Davis).
-> > > 
-> > >    https://lore.kernel.org/linux-devicetree/90f47fae-a493-471d-8fe6-e7df741161be@ti.com/
-> > > 
-> > >    - Explain why "Proxy1" address (1A090h) should be used while using
-> > >      ti,j721e-acspcie-proxy-ctrl compatible (Siddharth Vadapalli).
-> > > 
-> > >    https://lore.kernel.org/linux-devicetree/begojbvvrpyjfr3pye7mqwiw73ucw5ynepdfujssr4jx4vs33a@pwahnph3qesl/
-> > > 
-> > > v4: Add missing change in the second list (From Andrew Davis) [1]
-> > >    Rebase after the ti,j784s4-acspcie-proxy-ctrl compatible fix [2]
-> > >    [1] https://lore.kernel.org/linux-devicetree/20250103174524.28768-1-afd@ti.com/
-> > >    [2] https://lore.kernel.org/linux-devicetree/20250103174524.28768-2-afd@ti.com/
-> > > 
-> > > v3: new commit
-> > > ---
-> > >   Documentation/devicetree/bindings/mfd/syscon.yaml           | 2 ++
-> > >   .../bindings/soc/ti/ti,j721e-system-controller.yaml         | 6 ++++++
-> > >   2 files changed, 8 insertions(+)
-> > > 
-> > > diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Documentation/devicetree/bindings/mfd/syscon.yaml
-> > > index 0e68c69e7bc9..1f3e67f432e7 100644
-> > > --- a/Documentation/devicetree/bindings/mfd/syscon.yaml
-> > > +++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
-> > > @@ -115,6 +115,7 @@ select:
-> > >             - ti,am625-dss-oldi-io-ctrl
-> > >             - ti,am62p-cpsw-mac-efuse
-> > >             - ti,am654-dss-oldi-io-ctrl
-> > > +          - ti,j721e-acspcie-proxy-ctrl
-> > >             - ti,j784s4-acspcie-proxy-ctrl
-> > >             - ti,j784s4-pcie-ctrl
-> > >             - ti,keystone-pllctrl
-> > > @@ -213,6 +214,7 @@ properties:
-> > >             - ti,am625-dss-oldi-io-ctrl
-> > >             - ti,am62p-cpsw-mac-efuse
-> > >             - ti,am654-dss-oldi-io-ctrl
-> > 
-> > > +          - ti,j721e-acspcie-proxy-ctrl
-> > >             - ti,j784s4-acspcie-proxy-ctrl
-> > 
-> > How do these 2 compare? Are they compatible?
-> > 
-> 
-> Yes, they are 100% identical and compatible, but we were told
-> to make a new string anyway.. [0]
-> 
-> [0] https://lore.kernel.org/all/1bfdf1f1-7542-4149-a85d-2ac4b659b26b@kernel.org/
+On Tue, Jan 07, 2025 at 09:10:11AM -0800, Nicolin Chen wrote:
+> +/*
+> + * Typically called in driver's threaded IRQ handler.
+> + * The @type and @event_data must be defined in include/uapi/linux/iommufd.h
+> + */
+> +int iommufd_viommu_report_event(struct iommufd_viommu *viommu,
+> +				enum iommu_veventq_type type, void *event_data,
+> +				size_t data_len)
+> +{
+> +	struct iommufd_veventq *veventq;
+> +	struct iommufd_vevent *vevent;
+> +	int rc = 0;
+> +
+> +	if (!viommu)
+> +		return -ENODEV;
+> +	if (WARN_ON_ONCE(!viommu->ops || !viommu->ops->supports_veventq ||
+> +			 !viommu->ops->supports_veventq(type)))
+> +		return -EOPNOTSUPP;
+> +	if (WARN_ON_ONCE(!data_len || !event_data))
+> +		return -EINVAL;
+> +
+> +	down_read(&viommu->veventqs_rwsem);
+> +
+> +	veventq = iommufd_viommu_find_veventq(viommu, type);
+> +	if (!veventq) {
+> +		rc = -EOPNOTSUPP;
+> +		goto out_unlock_veventqs;
+> +	}
+> +
+> +	vevent = kmalloc(struct_size(vevent, event_data, data_len), GFP_KERNEL);
+> +	if (!vevent) {
+> +		rc = -ENOMEM;
+> +		goto out_unlock_veventqs;
+> +	}
+> +	memcpy(vevent->event_data, event_data, data_len);
 
-Then you should have:
+The page fault path is self limited because end point devices are only
+able to issue a certain number of PRI's before they have to stop.
 
-"ti,j721e-acspcie-proxy-ctrl", "ti,j784s4-acspcie-proxy-ctrl", "syscon"
+But the async events generated by something like the SMMU are not self
+limiting and we can have a huge barrage of them. I think you need to
+add some kind of limiting here otherwise we will OOM the kernel and
+crash, eg if the VM spams protection errors.
 
-> 
-> 
-> > >             - ti,j784s4-pcie-ctrl
-> > >             - ti,keystone-pllctrl
-> > > diff --git a/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml b/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
-> > > index 378e9cc5fac2..16929218d611 100644
-> > > --- a/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
-> > > +++ b/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
-> > > @@ -68,6 +68,12 @@ patternProperties:
-> > >       description:
-> > >         The node corresponding to SoC chip identification.
-> > > +  "^syscon@[0-9a-f]+$":
-> > > +    type: object
-> > > +    $ref: /schemas/mfd/syscon.yaml#
-> > > +    description:
-> > > +      This is the ASPCIe control region.
-> > 
-> > So this is a syscon child of a syscon. The primary reason for 'syscon'
-> > compatible is to create a regmap. Why can't you use the parent's syscon?
-> > 
-> 
-> The parent node will not be a syscon soon. We made this whole bus a "syscon"
-> so we could just poke any register we wanted which was a hacky solution we
-> want to fix. The parent will be converted into a normal "simple-bus".
+The virtual event queue should behave the same as if the physical
+event queue overflows, and that logic should be in the smmu driver -
+this should return some Exxx to indicate the queue is filled.
 
-Sigh... And that can be done without ABI breakage?
+I supposed we will need a way to indicate lost events to userspace on
+top of this?
 
-> Most of the IP in this region can be described using normal DT devices,
-> but there are still just a couple registers like this where we need a raw
-> syscon (or we could make a proper device driver for these registers, but
-> that might be excessive, instead seems easy enough to just poke them
-> directly from the PCIe driver).
+Presumably userspace should specify the max queue size.
 
-Given it was already a syscon, keeping that is fine.
-
-Rob
+Jason
 
