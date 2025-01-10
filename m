@@ -4,122 +4,193 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44F9DE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 07:07:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98089E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 07:08:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ga2v7r9meIaBz31U84eL3jzMovm9W2gKUR+quKpB1qA=; b=tfp5aKLgBIOKFdTObOx6+b3TeC
-	MIgWYsoXEy7hHmrHSmyd1ktxxbisQJuq3J5GwcRXWaWzwrjtQQ6CD4xSBnz94nAEGvoZy5oehT9kk
-	0piJ0lkt7/ydU1dl2QcXHDLxVil8y7VWerUQrveOxYz026bCGRbOtaKpcigfhsSuqg0tpSADXH8n1
-	8z3iITbRcm1E/I37QgL/5OsvBqVc0yfG6o/Y0U5mFi/EgUaCctGIkTipeHK6t0MWN5Dea1fLycXjx
-	eaN9quac5kJ3Vgdi4ht8XUdb98AdC0O70Q9eoW5lrxkQR7wv460A8ZjAmbM679Cl9FRHh8pedykZC
-	CG42HiEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pLKXOSCulfA1uuFXTaC088qJrOUD2yU33fA2PCq2mMA=; b=dkpOz1P8xx9YrNdl1hIChy+1lg
+	2FYM9dpVayvu+CtX1WrFCJ3aLdivzr3qtZsYQujAY4Ug+uBRHAOmJFqriogFecV0KDX02v2i5vz/o
+	2fyv6Wfi+P45pehqk0xO83LjMLpsGG9fkvlev8LY4vl0Othq31nV91RSzxwFx3urJUvfafYNymqoF
+	XGAbCywUioEt/n2D/KBHwo08YEzd05N3wfRO4QkXbVav2YxuKBViklf/agw3xUt/uq/XbAbVYjVAa
+	T+tZrImp9l+irc4QPQuBXdVSlDuNCnujTxggq8gnQQQuN21UV7sliZUngkkLRWpixLaDiagOhQy3r
+	YDkk+Ynw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW96g-0000000EKSz-1g9F;
-	Fri, 10 Jan 2025 07:06:58 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1tW989-0000000EKtg-2ZQy;
+	Fri, 10 Jan 2025 07:08:29 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW95S-0000000EKJh-0csF;
-	Fri, 10 Jan 2025 07:05:43 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 509Nx3WS001536;
-	Fri, 10 Jan 2025 07:05:17 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=Ga2v7r
-	9meIaBz31U84eL3jzMovm9W2gKUR+quKpB1qA=; b=QnAbgUsLn+3Vws1cBuxTgI
-	q8qT2Sxy0KdXA7TFwPigM8cyZ3GDwHKLSpVpJpb2PwHBGDr1SDvvg7UA0Rt9zpBt
-	vZAL2svAjglyIlH+TCw821igklZH+0BMbx0V7vZYwB/NqQqP8OPj/uXKtcgubVYC
-	WD8yzvXJIln8d1U4DhuZqI+u8nKz8ajOc41MPouCwMpIo7qXkNcy3wRGBKcTeTo+
-	LwvR3qLCv0TkgMQTE3VJU/14iYnAdIInln+AZzQF5Klv3er80Bo/xRJmF0wfSQwc
-	qARk+SpbTp8aW7/7mbnOiu1NWkPtpXp6O06MtO5vUg6r3QCKcN6dWYSG7UNyuyMw
-	==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 442rkhs8x1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 10 Jan 2025 07:05:17 +0000 (GMT)
-Received: from m0353729.ppops.net (m0353729.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 50A744c8012820;
-	Fri, 10 Jan 2025 07:05:16 GMT
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 442rkhs8wx-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 10 Jan 2025 07:05:16 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 50A5RVYL013571;
-	Fri, 10 Jan 2025 07:05:15 GMT
-Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 43ygap916j-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 10 Jan 2025 07:05:14 +0000
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 50A75Do329229632
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 10 Jan 2025 07:05:13 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id E42B420040;
-	Fri, 10 Jan 2025 07:05:12 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 6A95B2004B;
-	Fri, 10 Jan 2025 07:05:00 +0000 (GMT)
-Received: from smtpclient.apple (unknown [9.61.241.17])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Fri, 10 Jan 2025 07:04:59 +0000 (GMT)
-Content-Type: text/plain;
-	charset=utf-8
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3818.100.11.1.3\))
-Subject: Re: [PATCH v6 00/16] perf tools: Use generic syscall scripts for all
- archs
-From: Athira Rajeev <atrajeev@linux.vnet.ibm.com>
-In-Reply-To: <Z4A8NU02WVBDGrYZ@ghost>
-Date: Fri, 10 Jan 2025 12:34:46 +0530
-Cc: Arnaldo Carvalho de Melo <acme@kernel.org>,
-        Peter Zijlstra <peterz@infradead.org>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
-        Paul Walmsley <paul.walmsley@sifive.com>,
-        Palmer Dabbelt <palmer@dabbelt.com>,
-        =?utf-8?Q?Micka=C3=ABl_Sala=C3=BCn?= <mic@digikod.net>,
-        =?utf-8?Q?G=C3=BCnther_Noack?= <gnoack@google.com>,
-        Christian Brauner <brauner@kernel.org>, Guo Ren <guoren@kernel.org>,
-        John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-        James Clark <james.clark@linaro.org>,
-        Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-        Jonathan Corbet <corbet@lwn.net>, Arnd Bergmann <arnd@arndb.de>,
-        linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
-        linux-riscv@lists.infradead.org, linux-security-module@vger.kernel.org,
-        bpf@vger.kernel.org, linux-csky@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <8639C367-2669-4924-83D8-15EAFAC42699@linux.vnet.ibm.com>
-References: <20250108-perf_syscalltbl-v6-0-7543b5293098@rivosinc.com>
- <Z3_ybwWW3QZvJ4V6@x1> <Z4AoFA974kauIJ9T@ghost> <Z4A2Y269Ffo0ERkS@x1>
- <Z4A8NU02WVBDGrYZ@ghost>
-To: Charlie Jenkins <charlie@rivosinc.com>,
-        Arnaldo Carvalho de Melo <acme@kernel.org>,
-        Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>,
-        Hari Bathini <hbathini@linux.ibm.com>
-X-Mailer: Apple Mail (2.3818.100.11.1.3)
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: CR4E83pg86k8Cx0Y_9xNEtR5rkcWclRc
-X-Proofpoint-GUID: l3UdX7YMbwWwHX9jihu9fy-EzLhsFC2N
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
- definitions=2024-10-15_01,2024-10-11_01,2024-09-30_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1011 bulkscore=0
- mlxscore=0 suspectscore=0 phishscore=0 impostorscore=0 adultscore=0
- malwarescore=0 priorityscore=1501 mlxlogscore=999 lowpriorityscore=0
- spamscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2501100056
+	id 1tW96u-0000000EKVL-0Yrr
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 10 Jan 2025 07:07:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1736492833; x=1768028833;
+  h=date:from:to:cc:subject:message-id:references:
+   in-reply-to:mime-version;
+  bh=vXXCBo3bO38XUj32AdGRiw5axFr1Jj47iMUm7aZQQ+g=;
+  b=R5Apyg84Vg7rMpyFFaTTlXo/FhdSfUDxufsrne3o3C3pCebRDuDA8HNZ
+   cJMtnkKQf0bWW7J3JSbGNBHzJ70l+QXoR5/Y1M02lxG6wwdrt6TI5Ni04
+   SN2efM6FiNTm8kX/tbi8R2uZxMDo9+/m3pyXnxyDpZGU8/fQ/nrY97n/3
+   XcoFJ//RcujKSm6Yf54E1sMiWtukPgI5Hzs/7Vpeul2YMQxlKg6liBlA7
+   QqZM59IaSJE2jNSLHZ2Ae5OOIi/tyMh42iBFHmveiO+H8zdY/EVzk+yAp
+   yHgzJvtJpIaTaFJAp0Ua26qfwMAs+QM01yfZJ89gO4MTbXQbk9yhy8Qru
+   g==;
+X-CSE-ConnectionGUID: cjToj6UXQViCp4gkKFuw5Q==
+X-CSE-MsgGUID: a9GrJsgtSAG6jOgRrS1Eog==
+X-IronPort-AV: E=McAfee;i="6700,10204,11310"; a="36660816"
+X-IronPort-AV: E=Sophos;i="6.12,303,1728975600"; 
+   d="scan'208";a="36660816"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jan 2025 23:07:12 -0800
+X-CSE-ConnectionGUID: 1CM8iotrQlKqukuVxaaUwA==
+X-CSE-MsgGUID: 7TzszsyTR8mgdVrKTRDCLA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="108758806"
+Received: from orsmsx601.amr.corp.intel.com ([10.22.229.14])
+  by orviesa005.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 09 Jan 2025 23:07:11 -0800
+Received: from orsmsx601.amr.corp.intel.com (10.22.229.14) by
+ ORSMSX601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Thu, 9 Jan 2025 23:07:10 -0800
+Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
+ orsmsx601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44 via Frontend Transport; Thu, 9 Jan 2025 23:07:10 -0800
+Received: from NAM10-BN7-obe.outbound.protection.outlook.com (104.47.70.41) by
+ edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.44; Thu, 9 Jan 2025 23:07:08 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=x7W5pIJrzAlHiF1WoLxKYs0SUDvZui3xnn4oGRMKDKPr1tG2QP5EFGGljgwvTkWzLQ4WLrVv4T08wAIzWBmpcT2bD5ngvQrGvUxOR4I5tm6LZO4Y/4cro3hmBccZH0qM5NhZAQ2vuoT33qsgOnJo7+3EHlbYCSzV30htroQkd2LKoFchBRFnlllVC30sx4sxFpJG5kJjFH+ZafL7Kh7lEOuxZ7W9EYMOgOLuiTFjpkMf24cerypz95yc+BSaGe3OJFzgQMoD/AbW0tWXKYzT6wZKWQbACysFCywe+yK9mbmrSEZo1Oc00qe6BRB/8qJaJUi3hprm9wog1GCnuoAJQA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pLKXOSCulfA1uuFXTaC088qJrOUD2yU33fA2PCq2mMA=;
+ b=B4eWesnAWhuAnVN1HAFPkAg7ZclTw+GaiHpRr6Yb6Oj2aESsavlO636aOs0JHQ3QYAmayJTac1Zvr6tvNwk58lPwarwmAKBDXMylKaRJ1Z06N0h0QKy7L4pU40G+eWsQKGV7KNQRPAtKfrR6c7uQOAvasJwsIBR7bjqpzb0QD/BkkpD7c6qZNjhq1VDYb5gKAtYyuDfE1dT2qVyJRrKCMctxyTGez8x3LdvLC/HLGTVJyWHtgBnEcXZClkWoiwJ/jeUvCGehWRScN7W+vOyN1Zc59//StazWG6WnB5GUdjNJga+YTufbqcXH+c/KirM45pjFs4im0hWMC4b04JN6pQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from PH8PR11MB8107.namprd11.prod.outlook.com (2603:10b6:510:256::6)
+ by PH7PR11MB5887.namprd11.prod.outlook.com (2603:10b6:510:136::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8314.16; Fri, 10 Jan
+ 2025 07:06:00 +0000
+Received: from PH8PR11MB8107.namprd11.prod.outlook.com
+ ([fe80::6b05:74cf:a304:ecd8]) by PH8PR11MB8107.namprd11.prod.outlook.com
+ ([fe80::6b05:74cf:a304:ecd8%4]) with mapi id 15.20.8314.015; Fri, 10 Jan 2025
+ 07:06:00 +0000
+Date: Thu, 9 Jan 2025 23:05:56 -0800
+From: Dan Williams <dan.j.williams@intel.com>
+To: Alistair Popple <apopple@nvidia.com>, <akpm@linux-foundation.org>,
+	<dan.j.williams@intel.com>, <linux-mm@kvack.org>
+CC: <alison.schofield@intel.com>, Alistair Popple <apopple@nvidia.com>,
+	<lina@asahilina.net>, <zhang.lyra@gmail.com>,
+	<gerald.schaefer@linux.ibm.com>, <vishal.l.verma@intel.com>,
+	<dave.jiang@intel.com>, <logang@deltatee.com>, <bhelgaas@google.com>,
+	<jack@suse.cz>, <jgg@ziepe.ca>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<mpe@ellerman.id.au>, <npiggin@gmail.com>, <dave.hansen@linux.intel.com>,
+	<ira.weiny@intel.com>, <willy@infradead.org>, <djwong@kernel.org>,
+	<tytso@mit.edu>, <linmiaohe@huawei.com>, <david@redhat.com>,
+	<peterx@redhat.com>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linuxppc-dev@lists.ozlabs.org>, <nvdimm@lists.linux.dev>,
+	<linux-cxl@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
+	<linux-ext4@vger.kernel.org>, <linux-xfs@vger.kernel.org>,
+	<jhubbard@nvidia.com>, <hch@lst.de>, <david@fromorbit.com>,
+	<chenhuacai@kernel.org>, <kernel@xen0n.name>, <loongarch@lists.linux.dev>
+Subject: Re: [PATCH v6 00/26] fs/dax: Fix ZONE_DEVICE page reference counts
+Message-ID: <6780c6d43d73e_2aff42943b@dwillia2-xfh.jf.intel.com.notmuch>
+References: <cover.11189864684e31260d1408779fac9db80122047b.1736488799.git-series.apopple@nvidia.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <cover.11189864684e31260d1408779fac9db80122047b.1736488799.git-series.apopple@nvidia.com>
+X-ClientProxiedBy: MW4PR04CA0133.namprd04.prod.outlook.com
+ (2603:10b6:303:84::18) To PH8PR11MB8107.namprd11.prod.outlook.com
+ (2603:10b6:510:256::6)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH8PR11MB8107:EE_|PH7PR11MB5887:EE_
+X-MS-Office365-Filtering-Correlation-Id: 363585f2-dd8c-40f8-73fd-08dd31453d35
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?3ZCroy0IhliaY/ur1sPhTK8fRH9MfkiNXSreQRRo4Puu6Y8j1kb8XMAqRb0O?=
+ =?us-ascii?Q?RUyqosd3Lz8Yo5ASCQzgW35d3ezYulqCD1mGL5jDGthshwVM78Nm5kaWoP2c?=
+ =?us-ascii?Q?F50Fsb+myrn3lM34GCEc+d8Eu3P1uTACm2AzK7FZBCMZ6QTF8zGegG7ujSLT?=
+ =?us-ascii?Q?+/Ah6RvFErIEc6LKt/R9gqLKDI39P9R3zCgK5pJl+jlxCDhD4qv0R1A4ZnH9?=
+ =?us-ascii?Q?DTYG3s69pyd98wpUXIV4+K7vaAh8g1wSAH8/6oNcVq33pO9kPF2/N1QI4tA8?=
+ =?us-ascii?Q?QQKxENuYXdCWZ+DmCionF+LqeBoRI9C6rtR8FS84afj+0VNNrob2dOwNnJO8?=
+ =?us-ascii?Q?LuYCnhMMO4Hdjo9Z4qz0HlsPdVhxG2VQTErD5IJ/A9HOjHmvhlI2mGPA/Etm?=
+ =?us-ascii?Q?tC87f9uwHx3mOq3AJyYz02mkqjV911JSaHD3Ap/JcjupQD+3KgmnEk4/Ss6g?=
+ =?us-ascii?Q?juI5tYxjfmVUoTwt/MeO8nySF7SchaDSjUn/iEvyJX2f2uHjDrj+5jioLpfb?=
+ =?us-ascii?Q?d70T9c1vZkEz2dGr3JfY1xolnu7evXcpBWynz2S79E6dzCL5P9v6k9xeF9RM?=
+ =?us-ascii?Q?9+7MCuM8pOG/Kr8CM9w34TGecVpE7m3pl75WcV4kcYsfvokmjkuEKlFb3xt2?=
+ =?us-ascii?Q?akWOqJjdxOjqS+nFd33cm2I+xhlRehT/ot/O/xT6GJx5/NI5bcxkvkHKrDC+?=
+ =?us-ascii?Q?F+iox8dbq4Pcwe8b1d/NrwiZNuAGAQmopjkLbIuziM7r4AOnKmF9AN0MVGoy?=
+ =?us-ascii?Q?kEb8CdW4QkpUUM/VpBA8fgQ4EGaHj6QMo47QiqjLQJUwNx/vGalp+gavmFD8?=
+ =?us-ascii?Q?VH8XvZEiqkRErKFmx/glfgEUlNSkHsPm6fjySV4T6gJDAVpG9M7cYD3fGKSl?=
+ =?us-ascii?Q?VLkz3amQcpg+kCoxl1XKFhdFnZ8qH7GIg6bvQ25f5Qt+rsR//QrXMTWAs+FN?=
+ =?us-ascii?Q?PWfHxJdg0afGDpS7LZiesk105nAqvZVm5VDfoRQwzhAXviNYbuTsrruKdL4o?=
+ =?us-ascii?Q?msDVz5jtvGSjFiCSj4daHO8jaNga0ktGqok6kGXMMbMnGYTYe0d6dW5ikJw7?=
+ =?us-ascii?Q?kZJpEHp7c10/d4K20ouPpYoGwdbwHFK8pilc33OIgTz3tIGp/kfM/8JVIBai?=
+ =?us-ascii?Q?qmlj9+hgQ/+QCrBchyYeBMqdepCZXDPj2/xd7wwxJt+25OulkCYRwZ3NXq+u?=
+ =?us-ascii?Q?pUtC62Iqhj5SCq0DnbSxOJDL0itIBapyjqnt2UY33qxg6L1XXrl39AyIXmH5?=
+ =?us-ascii?Q?2GbLpf+YsJ0IXhy8UXJ0r0ioetJ/WfI3cbjAWNi8i14T8OxePwBy7QO/5tXY?=
+ =?us-ascii?Q?8nwdagps7OwlpbGGiF3tgEWgadJxKP2ZMWNDUEJrTrHEnALi+kBtcdP1SDoc?=
+ =?us-ascii?Q?P5vAqbkUdSa76TK5HD4A2O0uo6RJ?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH8PR11MB8107.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Xy1+slXwzy8tfhBGnUGls4w0BrLy+yYn/h5j3a+VdFbn6zrlV6w25g+MQulE?=
+ =?us-ascii?Q?0PI6duc3UKUJPtghiyHdqDjkxH7YpXm87pxVqrv/sj+mYREzkGtt7hiC0DgY?=
+ =?us-ascii?Q?t/ewBZkPsd+44DLjJ+PC+o5S4n6x/3jOSqaZpdtMbP90gZiIu3vP6av+cTAX?=
+ =?us-ascii?Q?WcWz9l5I3YPmGZUdDBJ4eeZBURvRI2qYn8mX5JW6ijMAgNBIfuUDGb9UezUs?=
+ =?us-ascii?Q?Gj1nN4cY0ITqqEBatd8KKnaOabLXMZsRTnu4roetFASAt9OLZQVQ2wiscdMQ?=
+ =?us-ascii?Q?2tKerZ+Ynky3DgtrExPC4NXBsoc8h4IcsVRdc1iiIvdlp+XRHyDQn6UrDkIF?=
+ =?us-ascii?Q?0rVhdQzuXv9Y5E4J/59hKEpsrqu97C5w88uWBZGJHf90GZ+Qn21+JpLhfEbM?=
+ =?us-ascii?Q?9wQQvsQ8gCXeGnmwTQ+KIVH7GEZThB9JUGGptyjSpWgMQJJ0hjhdu4biyJ/L?=
+ =?us-ascii?Q?WVYX1U69eE6tGNVCvczAU2VZfYjrlzhh5kxB65Sg2Xhk2s9Fh9QkwhQQmrj6?=
+ =?us-ascii?Q?7LQ0jvW2iF/3m3gYgI5z/TExwia1uoScGgHwhrsuzG/uV+p7WaPtKc57PgPG?=
+ =?us-ascii?Q?ugs05c/z9rJ0GFb/wmC09SfN80RSdWQ91yMkmTsZ0MW9Kyxsw8RVnkxzRtyt?=
+ =?us-ascii?Q?OnbVBfvEreOVKYtHyn9nCIzRmRgcDb0Py1rFGFuApaqo/ToUiEjR8Ihk1fcg?=
+ =?us-ascii?Q?/fJNvgZYZhC+TrWhxwhoqvOX3tU6zTTGfCZMjR+KKCfBrQbqfHyfGjf2SVas?=
+ =?us-ascii?Q?iSuRg8qC3BnBgol423m4WKfLRp7BMRpFUZYaaUQOsHUD6lEbdLhNuNIewlCX?=
+ =?us-ascii?Q?Rfk8okzGeGStgEv5qygXe99Q4KcZBK4qC0p3BJR6wYi1E+VwnR7e3y8Gcw9r?=
+ =?us-ascii?Q?20wx73PvOXfnYQoT3bc6PNzwiAuEXxz5e2RiMn8x+OKb97VYvbUNjDjqk7NU?=
+ =?us-ascii?Q?W0FTMzldB01hg7vvJ7S6XqvE/Wvror77EHaNLJiFn9nEz/C/Ksf0FsVX8x2z?=
+ =?us-ascii?Q?jkMv4tkRBj1kPNtrwHF2hTKSVnqkVovOjtU0LhgrSR/BI5O/lCYOUvrlpu8m?=
+ =?us-ascii?Q?RaxUfLm+GVhA/Kps6gI44Io6nHX+v9OXy6joMGEZ8yM/L0rojr6G7M1hbeNW?=
+ =?us-ascii?Q?d2fZbJr+lr2eelsTmcbuGMLPb6X6q5jhttWS16j5JFUdfVevwI2QLc9xChCG?=
+ =?us-ascii?Q?8silFE6MqRsOvj3ZGnKU/cj29MdDW2ajvEmrlilD1IWG53LgvqE8lpuF9Pq/?=
+ =?us-ascii?Q?VGTCCEtmo/Xb1Li13Km1JaQ51o3uzzfpa6FKTtNyAmkyhwwbf274INMIwXHO?=
+ =?us-ascii?Q?32qw0CP++vR939H8Iz9HFtvCg4NkaO7ZFe8djT42Kl6jSN3YY2L+1DCQcyV5?=
+ =?us-ascii?Q?VH+gMa2bg24t/U4CQTTKHclgNXoqur9YvupNY3/4ZT+w3v+9FNAEhLD0t6bs?=
+ =?us-ascii?Q?H38kLSCijiz54cesnDmppK6eeMTIFKKuZLc4J94jQJEn0eCu5xw2kbqLJt1y?=
+ =?us-ascii?Q?FXLqzI+M9nfJqLJJg9m+pYd8xwG44Hu4MM1alj73ImMg5zPBwDcUmQMBb6C2?=
+ =?us-ascii?Q?MYeQH1bn6ptr9MARh9I5reFD+pRPsLfe1WITg6vCiN8yeAKTwNWimBxJH8NE?=
+ =?us-ascii?Q?OA=3D=3D?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 363585f2-dd8c-40f8-73fd-08dd31453d35
+X-MS-Exchange-CrossTenant-AuthSource: PH8PR11MB8107.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jan 2025 07:06:00.6987
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: e7NavPBy9SUnZLPbz/5TL8Aol6A+Q5YDe4OC/Rk699i7Cd9Wu/GEF7Pt7dSlhETuFqddJRqrDKKyiGP3TwSn4d0+gc7LsvNEeSFD2SXuRrc=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR11MB5887
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_230542_190711_565D8042 
-X-CRM114-Status: GOOD (  21.66  )
+X-CRM114-CacheID: sfid-20250109_230712_219389_4CEB8C43 
+X-CRM114-Status: GOOD (  14.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,172 +205,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Alistair Popple wrote:
+> Main updates since v5:
+> 
+>  - Reworked patch 1 based on Dan's feedback.
+> 
+>  - Fixed build issues on PPC and when CONFIG_PGTABLE_HAS_HUGE_LEAVES
+>    is no defined.
+> 
+>  - Minor comment formatting and documentation fixes.
+> 
+>  - Remove PTE_DEVMAP definitions from Loongarch which were added since
+>    this series was initially written.
+[..]
+> 
+> base-commit: e25c8d66f6786300b680866c0e0139981273feba
 
+If this is going to go through nvdimm.git I will need it against a
+mainline tag baseline. Linus will want to see the merge conflicts.
 
-> On 10 Jan 2025, at 2:44=E2=80=AFAM, Charlie Jenkins =
-<charlie@rivosinc.com> wrote:
->=20
-> On Thu, Jan 09, 2025 at 05:49:39PM -0300, Arnaldo Carvalho de Melo =
-wrote:
->> On Thu, Jan 09, 2025 at 11:48:36AM -0800, Charlie Jenkins wrote:
->>> On Thu, Jan 09, 2025 at 12:59:43PM -0300, Arnaldo Carvalho de Melo =
-wrote:
->>>> =E2=AC=A2 [acme@toolbox perf-tools-next]$ git log --oneline -1 ; =
-time make -C tools/perf build-test
->>>> d06826160a982494 (HEAD -> perf-tools-next) perf tools: Remove =
-dependency on libaudit
->>>> make: Entering directory =
-'/home/acme/git/perf-tools-next/tools/perf'
->>>> - tarpkg: ./tests/perf-targz-src-pkg .
->>>>                 make_static: cd . && make LDFLAGS=3D-static =
-NO_PERF_READ_VDSO32=3D1 NO_PERF_READ_VDSOX32=3D1 NO_JVMTI=3D1 =
-NO_LIBTRACEEVENT=3D1 NO_LIBELF=3D1 -j28  DESTDIR=3D/tmp/tmp.JJT3tvN7bV
->>>>              make_with_gtk2: cd . && make GTK2=3D1 -j28  =
-DESTDIR=3D/tmp/tmp.BF53V2qpl3
->>>> - =
-/home/acme/git/perf-tools-next/tools/perf/BUILD_TEST_FEATURE_DUMP: cd . =
-&& make =
-FEATURE_DUMP_COPY=3D/home/acme/git/perf-tools-next/tools/perf/BUILD_TEST_F=
-EATURE_DUMP  feature-dump
->>>> cd . && make =
-FEATURE_DUMP_COPY=3D/home/acme/git/perf-tools-next/tools/perf/BUILD_TEST_F=
-EATURE_DUMP feature-dump
->>>>         make_no_libbionic_O: cd . && make NO_LIBBIONIC=3D1 =
-FEATURES_DUMP=3D/home/acme/git/perf-tools-next/tools/perf/BUILD_TEST_FEATU=
-RE_DUMP -j28 O=3D/tmp/tmp.KZuQ0q2Vs6 DESTDIR=3D/tmp/tmp.0sxMyH91gS
->>>>           make_util_map_o_O: cd . && make util/map.o =
-FEATURES_DUMP=3D/home/acme/git/perf-tools-next/tools/perf/BUILD_TEST_FEATU=
-RE_DUMP -j28 O=3D/tmp/tmp.Y0Mx3KLREI DESTDIR=3D/tmp/tmp.wg9HCVVLHE
->>>>              make_install_O: cd . && make install =
-FEATURES_DUMP=3D/home/acme/git/perf-tools-next/tools/perf/BUILD_TEST_FEATU=
-RE_DUMP -j28 O=3D/tmp/tmp.P0LEBAkW1X DESTDIR=3D/tmp/tmp.agTavZndFN
->>>>  failed to find: etc/bash_completion.d/perf
->>>=20
->>> Is this something introduced by this patch?
->>=20
->> I don't think so.
->>=20
->> BTW this series is already pushed out to perf-tools-next:
->>=20
->> =
-https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git/l=
-og/?h=3Dperf-tools-next
->>=20
->> Thanks!
->>=20
->> - Arnaldo
->=20
-> Thank you!
->=20
-> - Charlie
+Otherwise if that merge commit is too messy, or you would rather not
+rebase, then it either needs to go one of two options:
 
-Hi Charlie, Arnaldo
+- Andrew's tree which is the only tree I know of that can carry
+  patches relative to linux-next.
 
-While testing the series, I hit compilation issue in powerpc
+- Wait for v6.14-rc1 and get this into nvdimm.git early in the cycle
+  when the conflict storm will be low.
 
-Snippet of logs:
-
-
-  CC      util/syscalltbl.o
-In file included from =
-/home/athira/perf-tools-next/tools/perf/arch/powerpc/include/syscall_table=
-.h:5,
-                 from util/syscalltbl.c:16:
-arch/powerpc/include/generated/asm/syscalls_64.h:16:16: error: =
-initialized field overwritten [-Werror=3Doverride-init]
-   16 |         [13] =3D "time",
-      |                ^~~~~~
-arch/powerpc/include/generated/asm/syscalls_64.h:16:16: note: (near =
-initialization for =E2=80=98syscalltbl[13]=E2=80=99)
-arch/powerpc/include/generated/asm/syscalls_64.h:22:16: error: =
-initialized field overwritten [-Werror=3Doverride-init]
-   22 |         [18] =3D "oldstat",
-      |                ^~~~~~~~~
-arch/powerpc/include/generated/asm/syscalls_64.h:22:16: note: (near =
-initialization for =E2=80=98syscalltbl[18]=E2=80=99)
-arch/powerpc/include/generated/asm/syscalls_64.h:27:16: error: =
-initialized field overwritten [-Werror=3Doverride-init]
-   27 |         [22] =3D "umount",
-      |                ^~~~~~~~
-
-
-And similar errors is there for few more entries. The reason is that, =
-the generated syscalls file has two entries for each of these failing =
-cases.
-
-=46rom arch/powerpc/include/generated/asm/syscalls_64.h created by =
-scrips/syscalltbl.sh=20
-
-
-  1 static const char *const syscalltbl[] =3D {
-  2         [0] =3D "restart_syscall",
-  3         [1] =3D "exit",
-  4         [2] =3D "fork",
-  5         [3] =3D "read",
-  6         [4] =3D "write",
-  7         [5] =3D "open",
-  8         [6] =3D "close",
-  9         [7] =3D "waitpid",
- 10         [8] =3D "creat",
- 11         [9] =3D "link",
- 12         [10] =3D "unlink",
- 13         [11] =3D "execve",
- 14         [12] =3D "chdir",
- 15         [13] =3D "time=E2=80=9D,                          =20
- 16         [13] =3D "time=E2=80=9D,                   =20
- 17         [14] =3D "mknod",
- 18         [15] =3D "chmod",
- 19         [16] =3D "lchown",
- 20         [17] =3D "break",
- 21         [18] =3D "oldstat",
- 22         [18] =3D "oldstat=E2=80=9D,
-
-Line number 15 an 16 shows two entries for time. Similarly last two =
-lines for oldstat. This is picked form =
-https://github.com/torvalds/linux/blob/master/tools/perf/arch/powerpc/entr=
-y/syscalls/syscall.tbl
-
-13      32      time                            sys_time32
-13      64      time                            sys_time
-
-18      32      oldstat                         sys_stat                 =
-       sys_ni_syscall
-18      64      oldstat                         sys_ni_syscall
-
-For same nr, two entries are there. In the arch specific version of the =
-script that makes the syscall table, this was handled : =
-https://github.com/torvalds/linux/blob/master/tools/perf/arch/powerpc/entr=
-y/syscalls/mksyscalltbl#L28
-
-So we will need change in generic script also. Proposing below change :=20=
-
-
-diff --git a/tools/perf/scripts/syscalltbl.sh =
-b/tools/perf/scripts/syscalltbl.sh
-index 1ce0d5aa8b50..d66cec10cc2d 100755
---- a/tools/perf/scripts/syscalltbl.sh
-+++ b/tools/perf/scripts/syscalltbl.sh
-@@ -75,8 +75,10 @@ max_nr=3D0
- # the params are: nr abi name entry compat
- # use _ for intentionally unused variables according to SC2034
- while read nr _ name _ _; do
--    emit "$nr" "$name" >> $outfile
--    max_nr=3D$nr
-+ if [ "$max_nr" -lt "$nr" ]; then
-+ emit "$nr" "$name" >> $outfile
-+ max_nr=3D$nr
-+ fi
- done < $sorted_table
-   rm -f $sorted_table
-
-Arnaldo,
-I see we have this patch series in perf-tools-next. If we need above =
-change as a separate patch, please let me know.
-
-Thanks
-Athira
-
->=20
->=20
-
+Last I attempted the merge conflict resolution with v4, they were not
+*that* bad. However, that rebase may need to keep some definitions
+around to avoid compile breakage and the need to expand the merge commit
+to carrying things like the Loongarch PTE_DEVMAP removal. I.e. move some
+of the after-the-fact cleanups to a post merge branch.
 
