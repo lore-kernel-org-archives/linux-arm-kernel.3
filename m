@@ -4,90 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CB1DE7719C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 12:19:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CFC3E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 12:21:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vvn3UJ8KcYi8Xn4IiRZ/+lCFvA2Kre2AjrZTdRXYxgo=; b=iCw7CifrzaDdaCo65P4AJKhHHi
-	kq3r37KZMleZxRO8VPmzFlmAErQAkaOuasMx5Iofeps96kVnBH9Q6GxYpp1VdIbAVLoF6RwA3Ytht
-	hiNbSThCTOsNNb9GkObgmN2zwwoyNZnmAjwDdNmgKQWOZ+yg53KyQ4suH4qOcyTescJGZvgXQu79U
-	yHcv3Jb5eNHejWRW97r4WVMIiGWW1fW/UROl8wPUek/IMwTBsDSoyL+PhHshZhTSHAGsH6caRwt4+
-	H82HGxZW9t47xqtaBkENXclKCwDiU7zMrgyJzZaLIFKT0Ul7qbsQK8BVyFO40gxsG1pVVbwIT5cIe
-	ScnmlZ6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UzIA+H5wuzkNSSs8ypYnf254qfQr3qGIN47AimFa5yo=; b=n/QkbuMASZFHBqB5Ou3zIyuJPK
+	fpKjh430QAda2oL7i+/qWN1NIJuS4fBhxHcF+LZPlpEkbram0nwpRNRS+Zr4URsQEQ9iiLpNs+6so
+	QkVJQXaZnK0yBuUkc4yMH/KipS0FABRbw688VvorPgsBl7TcWC8mhCbO3+r0JMjX43AyNRrAEKkbN
+	sGYUjwz5EN1ZmHJG8x6oa1sMGFwpBscj7il5dkiT7LWPaE+FGlF50PHwVRcS4Ly3Ylk6VR9Gsd0I9
+	zQFwwulWMwqZalapo6SNLQ80ijYWZzGq4WEqNbDtc+VVvYg+9s+vyxPtbLwJIcWK6euTkRggkYtaB
+	8AxjP/5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWDyo-0000000FEbd-2PSS;
-	Fri, 10 Jan 2025 12:19:10 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1tWE0Y-0000000FF2U-1Ndd;
+	Fri, 10 Jan 2025 12:20:58 +0000
+Received: from mail-ej1-x649.google.com ([2a00:1450:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWDwx-0000000FEKE-1MfU
+	id 1tWDzJ-0000000FEgq-1ygB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 12:17:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1736511435; x=1768047435;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=pCaqy0TV70zpA2C9umleMdUaaugCzRAc7t3yONUx9G0=;
-  b=f/IoV/waGLBz0/ULQ9Do3GIa8hBHmnuThcUE4li2q/l635JC07ozbmIU
-   Rjal9MqrQcLXjnwEfGsOmPmgaHynTXiYvuxrnC1SrhfnOnvw88CHFg71f
-   nQBXUMQk/UIbiXDi5VycNWlDkwOji4GuAeVmXbGShM0jcXFK24ngmFbaC
-   VNYjEZ2Sqwx+1S4kM67HkwbJNnQ4s4glvBHvNDzU+bsIOxKpQgmd4L8fp
-   //LAyXRZ7OpHCcuxjAoa9WUkcIHR4GcY+8MOK4ncM3jDmR0FsSki6/Ont
-   Oz/ykhBgjp7rKP7Gu1HLQsxEX4KApnd6meBhio25z+jkJvxIxT4e1SHDM
-   w==;
-X-CSE-ConnectionGUID: 6bsgwd88RZSbz+FruWU7mg==
-X-CSE-MsgGUID: 8/u3cjO6TPKqemOFCVQvOw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11310"; a="39619728"
-X-IronPort-AV: E=Sophos;i="6.12,303,1728975600"; 
-   d="scan'208";a="39619728"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Jan 2025 04:17:14 -0800
-X-CSE-ConnectionGUID: kC9N6R1QRfergmtgNji9Mw==
-X-CSE-MsgGUID: /b2WQs2yQ1ufe5UhGxwYRw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,303,1728975600"; 
-   d="scan'208";a="108722874"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by orviesa004.jf.intel.com with ESMTP; 10 Jan 2025 04:17:11 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tWDwq-000JCl-0e;
-	Fri, 10 Jan 2025 12:17:08 +0000
-Date: Fri, 10 Jan 2025 20:16:15 +0800
-From: kernel test robot <lkp@intel.com>
-To: Yoshihiro Furudera <fj5100bi@fujitsu.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Bjorn Andersson <andersson@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	=?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev
-Subject: Re: [PATCH v3 1/2] perf: Fujitsu: Add the Uncore MAC PMU driver
-Message-ID: <202501101956.vOyuZzUh-lkp@intel.com>
-References: <20250109054544.2342442-2-fj5100bi@fujitsu.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250109054544.2342442-2-fj5100bi@fujitsu.com>
+	Fri, 10 Jan 2025 12:19:42 +0000
+Received: by mail-ej1-x649.google.com with SMTP id a640c23a62f3a-aa6a7bea04cso133717266b.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jan 2025 04:19:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1736511579; x=1737116379; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=UzIA+H5wuzkNSSs8ypYnf254qfQr3qGIN47AimFa5yo=;
+        b=txldByU1rXgM7C0XanrXYl+Cb1RWUxodrjUVS9QwktrG7hPqL/uQgSxJ/xbypqi2X3
+         9xKWY5mnEzX9FOC8s68MH4CqctPYBfkuXNiYTqYWM0g9tmiSkwgADEwsOM8vif8YRiLd
+         wluYrSb/8VvwVRG4cYE9E9D0AI6C5sskx/TREINkUFm3tRcb7BK+xkK/piuhITCeuW0M
+         lBHSx6hiIDH4xSzpBEeUGm2wR6cLP+n08QTcW8/yQC5Oyp6FkhlIZkoUmODHR9fI4TFM
+         UOwHWVXIek4pRtg4l3468KoEp+WkAiyYMYmbdiLbM6yQ/PTyBLRqzM3Rm99RE8qKtiS1
+         uW1w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736511579; x=1737116379;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=UzIA+H5wuzkNSSs8ypYnf254qfQr3qGIN47AimFa5yo=;
+        b=mYGy5joCiSTfvJJH5qmJAHAx+iN3p+x2f8zzh3YUvneOr8Iq4QuTKFhOnGRZipKL67
+         rqHkPnfjEIJUDncSMgMxOtfLhFSJrrGUu0x0UHhusF2fyio+1NM2XIUcVXYT/0uK884e
+         eOn3/7qebGtez35EuPC/BoWikVyu0zmCQHoqZeHKvxsa5jWyv2sKgsRgxOzwjJi2Q6Ft
+         WuZtw1i15m5sMXVxnwE6d+CN8sh0ATv5AWxwfWwwpZhYKueiKCIjVh+oIuz4fOMiF7+3
+         xL9ixGFqBeHuQPBxS1IchoJhcQ0vAFz/g6XCIq5COLA2+ctzGmqbFWFbPsdj9nWsapUO
+         inyQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUXsNBK1IAJ0wrAwJXYpol8xXsev0tdmK6EUcho5DoGpS2QPeLakbEnVprEVXRguym8JDTbJuXhuMZxBSiSE0DQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxKVCOG7Xpt5JVrq5YkuxKOqQYSgszjYNFONXQAJU3fjGB7pOHB
+	xF1tvay0Fqngi07mF+QYOpcfY55wgisJzroWBEUaJQ4yLRGR6f2qHIiQVz1iTedJByQeY9inS9F
+	il7WTCQ==
+X-Google-Smtp-Source: AGHT+IGkGANyUq4Shs3jRgORa03NUzS4pqhfTUeC/iJcTMOHEUTfabfbJYGdVRZfbZG4wkvfE8dsnSXrOaYh
+X-Received: from edx29.prod.google.com ([2002:a50:8e5d:0:b0:5d8:5ec7:f252])
+ (user=qperret job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6402:358d:b0:5d1:1024:978c
+ with SMTP id 4fb4d7f45d1cf-5d972dfbc2cmr8663097a12.2.1736511578923; Fri, 10
+ Jan 2025 04:19:38 -0800 (PST)
+Date: Fri, 10 Jan 2025 12:19:33 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.47.1.688.g23fc6f90ad-goog
+Message-ID: <20250110121936.1559655-1-qperret@google.com>
+Subject: [PATCH 0/3] KVM: arm64: Simplify pKVM memory transitions
+From: Quentin Perret <qperret@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>
+Cc: Fuad Tabba <tabba@google.com>, Vincent Donnefort <vdonnefort@google.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_041715_411426_F3C0151C 
-X-CRM114-Status: GOOD (  13.72  )
+X-CRM114-CacheID: sfid-20250110_041941_508347_D413BDA3 
+X-CRM114-Status: GOOD (  14.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,48 +91,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yoshihiro,
+Since its early days, pKVM has formalized memory 'transitions' (shares
+and donations) using 'struct pkvm_mem_transition' and bunch of helpers
+to manipulate it. The intention was for all transitions to use this
+machinery to ensure we're checking things consistently. However, as
+development progressed, it became clear that the rigidity of this model
+made it really difficult to use in some use-cases which ended-up
+side-stepping it entirely. That is the case for the
+hyp_{un}pin_shared_mem() and host_{un}share_guest() paths upstream which
+use lower level helpers directly, as well as for several other pKVM
+features that should land upstream in the future (ex: when a guest
+relinquishes a page during ballooning, when annotating a page that is
+being DMA'd to, ...). On top of this, the pkvm_mem_transition machinery
+requires a lot of boilerplate which makes the code hard to read, but
+also adds layers of indirection that no compilers seems to see through,
+hence leading to suboptimal generated code.
 
-kernel test robot noticed the following build errors:
+Given all the above, this series removes the pkvm_mem_transition
+machinery from mem_protect.c, and converts all its users to use
+__*_{check,set}_page_state_range() low-level helpers directly.
 
-[auto build test ERROR on arm-perf/for-next/perf]
-[also build test ERROR on linus/master v6.13-rc6 next-20250110]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+A few things to note:
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Yoshihiro-Furudera/perf-Fujitsu-Add-the-Uncore-MAC-PMU-driver/20250109-135249
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/will/linux.git for-next/perf
-patch link:    https://lore.kernel.org/r/20250109054544.2342442-2-fj5100bi%40fujitsu.com
-patch subject: [PATCH v3 1/2] perf: Fujitsu: Add the Uncore MAC PMU driver
-config: sparc-allmodconfig (https://download.01.org/0day-ci/archive/20250110/202501101956.vOyuZzUh-lkp@intel.com/config)
-compiler: sparc64-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250110/202501101956.vOyuZzUh-lkp@intel.com/reproduce)
+ - the existing helpers to request, ack, initiate and complete
+   transitions were mostly wrappers around
+   __*_{check,set}_page_state_range() anyways, so we're not losing that
+   much in terms of consistency
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202501101956.vOyuZzUh-lkp@intel.com/
+ - the pkvm_mem_transition machinery did not suffice to avoid bugs such
+   as [1]. The pkvm selftest [2] should do a much better job at that
 
-All errors (new ones prefixed by >>):
+ - see diffstat ;-)
 
-   drivers/perf/fujitsu_mac_pmu.c: In function 'fujitsu_mac_counter_start':
->> drivers/perf/fujitsu_mac_pmu.c:41:31: error: implicit declaration of function 'FIELD_GET' [-Wimplicit-function-declaration]
-      41 | #define EVSEL(__val)          FIELD_GET(MAC_EVTYPE_MASK, __val)
-         |                               ^~~~~~~~~
-   drivers/perf/fujitsu_mac_pmu.c:110:24: note: in expansion of macro 'EVSEL'
-     110 |         writeq_relaxed(EVSEL(event->attr.config), macpmu->regs + MAC_PM_EVTYPE(idx));
-         |                        ^~~~~
+This series depends on support for NP guest stage-2 for pKVM [3] as well
+as the fix in [1]. I've pushed a branch with all the goodies applied [4]
+if that can be useful.
 
+Thanks,
+Quentin
 
-vim +/FIELD_GET +41 drivers/perf/fujitsu_mac_pmu.c
+[1] https://lore.kernel.org/kvmarm/20241128154406.602875-1-qperret@google.com/
+[2] https://lore.kernel.org/kvmarm/20241129125800.992468-1-qperret@google.com/
+[3] https://lore.kernel.org/kvmarm/20241218194059.3670226-1-qperret@google.com/
+[4] https://android-kvm.googlesource.com/linux/+/refs/heads/qperret/no-mem-tx
 
-    39	
-    40	/* MAC_PM_EVTYPEx */
-  > 41	#define EVSEL(__val)          FIELD_GET(MAC_EVTYPE_MASK, __val)
-    42	
+Quentin Perret (3):
+  KVM: arm64: Drop pkvm_mem_transition for FF-A
+  KVM: arm64: Drop pkvm_mem_transition for host/hyp sharing
+  KVM: arm64: Drop pkvm_mem_transition for host/hyp donations
+
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c | 640 +++-----------------------
+ 1 file changed, 76 insertions(+), 564 deletions(-)
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.47.1.688.g23fc6f90ad-goog
+
 
