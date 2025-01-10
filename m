@@ -4,66 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFA12E7719C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 18:11:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35C60E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 18:22:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1+ZK2sNVQG3CftxXFAyvg9WnLzu0fKqq3YAoWAkxSFo=; b=r8/X56czpK5ylrYE/J/iGh3d4e
-	wThT6pd765pT6kM0+0IrHdFbdnY+5e5o94RrshubrvkW/HPwCERU4VQIeWc7MdnrTObOO+jAvUfSI
-	qN9ucOyqLcMMIIu35QxypmCPXeIgOA9HJAwAA73y+0pdCOaPGvIVfUmBWa973MQDPP2W2hRnsVS/Q
-	Atp8qIBTnBlU0q0McRZSfL8FMv/RTE4E/OdgQtFpLMYRxCGKtJjc6zs3JzljCVoDKAQZJ56r8FYvv
-	UCALJDns8OFQC9+UmuO4KXQTmZ1d5S3niUvFY5LULn9Txps1zKsdvXBcZrJaa+S51S5YHfVdpKCpU
-	SyGuivbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6OAAZ5ExKSw4sunEiGOmMdMqPi5nEhxTNddsmPqbv2Y=; b=IFXHXrPfF2+VUBVptzWrg0y82X
+	QP30BH3B7Tcop4AT4K9/07x4jCcoFlPyJiKI+7s3n+D6p+rMwAhqEQjB1MgL7kfcGE5V1P6O7rKP3
+	XizXvc1Kdt0AN2zJIA/rkahed2N8KGGBHi+dAee+tjVVUNN1RbWcgPESlCMbnMKSfY9sZ3V1YxR3E
+	o95Bt9GvhKGndn0KSYGCCWVq1W3LyknrBes+12b47S3Ife/TdKKQT966sVyWxDLVWtPo2wE2O/oJJ
+	NV0sjSrtcEiYWfQV6qr25ISOXawuHLfzp1g1awao9eYhi9NeB1Cz3Av77IBpsGakrev6bGsOt0Gfo
+	zsdBKl2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWJTr-0000000GWfE-1B0m;
-	Fri, 10 Jan 2025 18:11:35 +0000
-Received: from out-179.mta1.migadu.com ([2001:41d0:203:375::b3])
+	id 1tWJdk-0000000GXn5-1wjY;
+	Fri, 10 Jan 2025 18:21:48 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWJSb-0000000GWW7-2UJB
+	id 1tWJcU-0000000GXfz-1rW1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 18:10:19 +0000
-Message-ID: <b18dfc63-94fc-4459-ba0d-67b704d38f0c@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1736532613;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1+ZK2sNVQG3CftxXFAyvg9WnLzu0fKqq3YAoWAkxSFo=;
-	b=VTC54PXO0Q8s4bDBQnojNz3yhaEmT4/m2eBO8ccEqRBY8/HTl09MaK6eylomDEcPrfwfwp
-	EZj2aiuTNcPodNCQsTaAt/YkJhW9Z+Q2ZLPhrUS2txsC9qb8CdY+ISQy4OdLnOEDupYQSx
-	EK2Rh/GVToquQrg2gCyJzbMw9211hc0=
-Date: Fri, 10 Jan 2025 13:10:09 -0500
+	Fri, 10 Jan 2025 18:20:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id BAAF8A427F0;
+	Fri, 10 Jan 2025 18:18:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC829C4CED6;
+	Fri, 10 Jan 2025 18:20:25 +0000 (UTC)
+Date: Fri, 10 Jan 2025 18:20:23 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Steven Price <steven.price@arm.com>, Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>, Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v2 5/7] KVM: arm64: MTE: Use stage-2 NoTagAccess memory
+ attribute if supported
+Message-ID: <Z4Fk58k8YptDkVgm@arm.com>
+References: <20250110110023.2963795-1-aneesh.kumar@kernel.org>
+ <20250110110023.2963795-6-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH 10/10] drm: xlnx: zynqmp: Fix max dma segment size
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- Vishal Sagar <vishal.sagar@amd.com>,
- Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Michal Simek <michal.simek@amd.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- "stable@vger.kernel.org" <stable@vger.kernel.org>
-References: <20241204-xilinx-formats-v1-0-0bf2c5147db1@ideasonboard.com>
- <20241204-xilinx-formats-v1-10-0bf2c5147db1@ideasonboard.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <20241204-xilinx-formats-v1-10-0bf2c5147db1@ideasonboard.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250110110023.2963795-6-aneesh.kumar@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_101018_708759_EE5C2DD5 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20250110_102030_609632_A7C425E6 
+X-CRM114-Status: GOOD (  23.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,31 +67,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/4/24 04:31, Tomi Valkeinen wrote:
-> Fix "mapping sg segment longer than device claims to support" warning by
-> setting the max segment size.
+On Fri, Jan 10, 2025 at 04:30:21PM +0530, Aneesh Kumar K.V (Arm) wrote:
+> Currently, the kernel won't start a guest if the MTE feature is enabled
+> and the guest RAM is backed by memory which doesn't support access tags.
+> Update this such that the kernel uses the NoTagAccess memory attribute
+> while mapping pages from VMAs for which MTE is not allowed. The fault
+> from accessing the access tags with such pages is forwarded to VMM so
+> that VMM can decide to kill the guest or take any corrective actions
 > 
-> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-> ---
->  drivers/gpu/drm/xlnx/zynqmp_dpsub.c | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/drivers/gpu/drm/xlnx/zynqmp_dpsub.c b/drivers/gpu/drm/xlnx/zynqmp_dpsub.c
-> index f5781939de9c..a25b22238e3d 100644
-> --- a/drivers/gpu/drm/xlnx/zynqmp_dpsub.c
-> +++ b/drivers/gpu/drm/xlnx/zynqmp_dpsub.c
-> @@ -231,6 +231,8 @@ static int zynqmp_dpsub_probe(struct platform_device *pdev)
->  	if (ret)
->  		return ret;
->  
-> +	dma_set_max_seg_size(&pdev->dev, DMA_BIT_MASK(32));
-> +
->  	/* Try the reserved memory. Proceed if there's none. */
->  	of_reserved_mem_device_init(&pdev->dev);
->  
-> 
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 
-Fixes: d76271d22694 ("drm: xlnx: DRM/KMS driver for Xilinx ZynqMP DisplayPort Subsystem")
-Reviewed-by: Sean Anderson <sean.anderson@linux.dev>
-Tested-by: Sean Anderson <sean.anderson@linux.dev>
+Mostly nitpicks below (apart from the slot registration). The decision
+on whether that's the best approach lies with Oliver/Marc.
+
+> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+> index cf811009a33c..609ed6a5ffce 100644
+> --- a/arch/arm64/include/asm/kvm_emulate.h
+> +++ b/arch/arm64/include/asm/kvm_emulate.h
+> @@ -378,6 +378,11 @@ static inline bool kvm_vcpu_trap_is_exec_fault(const struct kvm_vcpu *vcpu)
+>  	return kvm_vcpu_trap_is_iabt(vcpu) && !kvm_vcpu_abt_iss1tw(vcpu);
+>  }
+>  
+> +static inline bool kvm_vcpu_trap_is_tagaccess(const struct kvm_vcpu *vcpu)
+> +{
+> +	return !!(ESR_ELx_ISS2(kvm_vcpu_get_esr(vcpu)) & ESR_ELx_TagAccess);
+> +}
+
+The function type is already bool, no need for the "!!".
+
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index eb8220a409e1..3610bea7607d 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -1660,9 +1660,11 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+>  
+>  	if (!fault_is_perm && !device && kvm_has_mte(kvm)) {
+>  		/* Check the VMM hasn't introduced a new disallowed VMA */
+> -		if (mte_allowed) {
+> +		if (mte_allowed)
+>  			sanitise_mte_tags(kvm, pfn, vma_pagesize);
+> -		} else {
+> +		else if (kvm_has_mte_perm(kvm))
+> +			prot |= KVM_PGTABLE_PROT_NORMAL_NOTAGACCESS;
+> +		else {
+>  			ret = -EFAULT;
+>  			goto out_unlock;
+>  		}
+
+Don't remove the brackets at the end of "if (mte_allowed) {" etc. The
+coding style does require them if at least one of the branches is
+multi-line (the last "else").
+
+> @@ -2152,7 +2162,8 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
+>  		if (!vma)
+>  			break;
+>  
+> -		if (kvm_has_mte(kvm) && !kvm_vma_mte_allowed(vma)) {
+> +		if (kvm_has_mte(kvm) &&
+> +		    !kvm_has_mte_perm(kvm) && !kvm_vma_mte_allowed(vma)) {
+>  			ret = -EINVAL;
+>  			break;
+>  		}
+
+I don't think we should change this, or at least not how it's done above
+(Suzuki raised a related issue internally relaxing this for VM_PFNMAP).
+
+For standard memory slots, we want to reject them upfront rather than
+deferring to the fault handler. An example here is file mmap() passed as
+standard RAM to the VM. It's an unnecessary change in behaviour IMHO.
+I'd only relax this for VM_PFNMAP mappings further down in this
+function (and move the VM_PFNMAP check above; see Suzuki's internal
+patch, unless he posted it publicly already).
+
+-- 
+Catalin
 
