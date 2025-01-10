@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F5F0E7719D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 13:06:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4911E7719C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 13:07:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X+vyretXSqvlGJ089eDiUrdk+gO1h5CCjoi8R7tvGhk=; b=3kJ9w5/L28MGZXTHMk6ZOM0q9k
-	gKi8qLXx40Hr6tEvxuMDw0GKbfntaCwS84y3J9cdQPJIQaVdCHPlPsBdBzeUWtjwGPsYS2WdLH2mq
-	l66563esRPUU2XCYwrSbocnDz7RrtKPwQvmxdFsemBNAENArrA6DxJaRFWbJyhFsERKUHSAwrqZt0
-	9nTU0DPDG2zTwQ/tk66+mPPvG85I0NPnTmBUVvV6YtCMqMeb+O8skf35mOTEP6mI2a8tlr/r3OFWc
-	h6N+jP38/BW322ZRZ+iw3vJTOekqPT42g++vNrI8IaDG59oMOd+yxVyUt9ZJ57vQDC0nCAosYZGGv
-	9eBT8QrQ==;
+	bh=vJmyCOFqadWSRKuEdBKxrveAFmDdO3l0+JDt7G7jb0M=; b=44RlCRZXESXg2tHIk7WQW0rCb5
+	aw1oi8V0rDkulQ7t9m+9CodXIj40dNFctjB1MjYBTa5iBFbwd+2ddsqqJXzkle32H3eu42+wlVQzB
+	lXeBb5R45SKCIa5Ftd6r+Z+uu0vyQld3TGLcRf1ia8Cgra/s/JWz3RUPNiHO4OW3e81ZEpfOMewib
+	euva9Ky04QwoUSQ1px4DE8ejLebWg94s4NUH+3D3kV8JmI/OyJfSpPff1zQAyef8klis0Qs7lLsuc
+	mTXUnsYxDK8kwYXvpTfQmeJmKlr0NNYYEyCFX/iF90L3cK7LDYUR4qTNjFzP8r+6jC/oAhtn5QRnw
+	YEPvRGzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWEiE-0000000FOwA-2UQV;
-	Fri, 10 Jan 2025 13:06:06 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1tWEjS-0000000FPIi-0Lcb;
+	Fri, 10 Jan 2025 13:07:22 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWEIj-0000000FJ9a-09Uw;
-	Fri, 10 Jan 2025 12:39:46 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43626213fffso19614405e9.1;
-        Fri, 10 Jan 2025 04:39:44 -0800 (PST)
+	id 1tWEIm-0000000FJAr-1lQf;
+	Fri, 10 Jan 2025 12:39:49 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-3863494591bso1123697f8f.1;
+        Fri, 10 Jan 2025 04:39:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736512784; x=1737117584; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1736512785; x=1737117585; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=X+vyretXSqvlGJ089eDiUrdk+gO1h5CCjoi8R7tvGhk=;
-        b=MEhtwyQ8Mp0bd7d/OdLcl1MkWpXco3c1wlunkNi5hlWwQTM8bwV5zzC3aRsYsbd6Jd
-         wzy3pIgXb6sBiFEFcBL1W+tzECKMKKY/PYCdZd4H4rAyknJ5ps/v3DrrqP6AQ1mFvYLo
-         a7o6Q+caPPB70jkaxXQicyh1AvwJBwp+PmEqGa1SbkNJ3okC920V3YNIjKmE2nqL+lgO
-         hRinhasowbAvuV+l+GMHte5fICLKO8qOsFTiLLGMHdyDchDR4oUf5YioH3jzp3YVEzhF
-         +yoc35BKwHYlXoM4SHdhMpQvkeajvBHQJeOy33XErXV2otsaX1I9wVFKm4qSr2ZP7+p0
-         wLjA==
+        bh=vJmyCOFqadWSRKuEdBKxrveAFmDdO3l0+JDt7G7jb0M=;
+        b=nOhKUOyUq1hSEtVUSCpb3zBMU2z2eSPkypYhgXx4BxWCfJgs4XmD0pexDA/ZMjxBVU
+         4voAg7WAqFh8eaFXtvi9/DzyLLulWonItrWU4jOspLlmVjIm6Gtt/kmeCO1L0gYCFkKl
+         ZtfLD1duv5IiKB7yoI7UMeZCjE+O3IoWqiJCl27xBj4lzfKKlcAaawRml2+8HuECMDuW
+         WNDlHPPvVF1pvPiTqzuLcT8PGHBp10B6YqwCIQmzVVsYASnAlmunSwzK4rhV9kBY629w
+         IDV8gASUcSkK4SyHxHcnl0yXCivOqEK7BOz3l1vQrDvp3itMtKxd5u5Cpcrgl+taBq0d
+         q/cQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736512784; x=1737117584;
+        d=1e100.net; s=20230601; t=1736512785; x=1737117585;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=X+vyretXSqvlGJ089eDiUrdk+gO1h5CCjoi8R7tvGhk=;
-        b=EA2ulYK8dKuMuUJlm/PH2GcpTC6tldva1e5ViTs7/OMbfs3UdsewVL3DJpZJs8hVZr
-         +uwRD/tUsJHiEYBoOHF2swzZ/csIdqBL/jr3XKXH47xcUo1SAqOHmQpwcBJ/dh9oKLXS
-         eTKK2meLNGvaqxuZaAgsHseCMRX2oLJMidIfS70eIKIxAQ7P9lyPRvEsNY4jP41e0EJX
-         iPkiQ88M8iiidDjHmpdHF8KaFrKbR947ecEDgJ/5Nud9G3eoJDrkMK7ONCF9r+Y+Ksbv
-         Jmz38x7n4IhzlhyrJNa/Ix+IR7JRtwfFwtKGtAbE6AcNmyghG9BwxzKLH7Z7yICPYPtx
-         ga+A==
-X-Forwarded-Encrypted: i=1; AJvYcCV6lfxn/h8K2Tza6Fm6WqXL0+pDDyWNVM++8YGnh3QXrOHYhXXM8DqAFnNl6IaULxNtAh4MtNspSRCY3oo=@lists.infradead.org, AJvYcCXMtDcys54JwyK3vHQq5yw2oj4U5W3KVAl5PS+5akjfNNZGFso2K6KUK1M/ryMkJ5igtbcLO+cy+SzJ@lists.infradead.org, AJvYcCXuupnAb3UEt2vMkLKV3R4JOgwBgUfA+VJ7XlANgxJxTu+654ZBWt1MzoFu44FHgJzAoSCUwNnbd3ECXxxak5du@lists.infradead.org
-X-Gm-Message-State: AOJu0YyneR1Mv++s6FJ1NzryC6MgX6b78dlnhko4kKZ7GfO4WhCCeTzY
-	1zV8XVYiCn9MtR05zaVpYIiRwDDKgihKatypetSDIgFP82cCWfcY
-X-Gm-Gg: ASbGnctRVowpy5/Ic7wfGNP4vDf4dWYi7/3Bm4mSzdXJ+9E0P73sTXXDCI5US1gaspK
-	SzVi4hbduIyn3QHMk98IuAD1/DPDaU5xFM/XG1SbljOx6P6sOahgRc8bmReTJjIj88NGigUE0uo
-	MtjrvDJkSewJDYy4CcgNFiSrUKrxWAQmSB4p3274E3Jr3qNwaMrQDcWEsR/ng3fOR8L4EoIfWI2
-	33le7MwsXdE59Dtyha1M6d+HjAGoSlCsF3vCkJ4w0ftgXPeOo0IPYodTsKIiQcHw9jNO2rsyl7N
-	Mdavc0V7wck=
-X-Google-Smtp-Source: AGHT+IFwaXo9aGBJOTGl5BoaqQu+VYw+3Ya+bt9n+J3d1HC2ZWpchPLfQal3en/7ZqfXC7AIaW2MZg==
-X-Received: by 2002:a05:600c:358a:b0:436:e69a:7341 with SMTP id 5b1f17b1804b1-436e9d686b2mr56317705e9.3.1736512783626;
-        Fri, 10 Jan 2025 04:39:43 -0800 (PST)
+        bh=vJmyCOFqadWSRKuEdBKxrveAFmDdO3l0+JDt7G7jb0M=;
+        b=HpUuaTDx2pzXBPZvOFDYa6D3YdkRPYkNgGLoZl0GY0TTwEjGbwipkb9TDwhlWFoccy
+         pxD3Phkf2Rv309Z3kOHjhxUIE21nXevRFVXWokODCX9Eed3W/TDh15hlQW/9PGCDG6HH
+         zSM2xWjz+VT9Wq5SOUgyQH2ommZIKD1CDCynDAq+s4Mw8C0Hc7mZCseQtXpBkdaXu83u
+         9yBBDBSZ4mV54MmvPNOPgZzYo6P3D4c9KtIVurhl3R7SauTffVlCIo9Y8He5Dzs9YXTV
+         GeyfrrJbOL8/mmeGe4P7TezZnHC9/IBuCjugxGTaG3CBVvqgUCf/4ia97hLm6r6guj1y
+         hbDQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUVfXU6k1GADFsVZlZezmROUitJHhz19ITY6j54EcfaYX7NvD21BBy1mkCKPEk12wKgftZq8X3xwHinNdA=@lists.infradead.org, AJvYcCUbkm8rHGIoEli8OQFYCk1sywCTYUqdJZ++sGICxibsyQ1qYx85Iy+9Bim6soFQiXTe2bgoq45vmXUYcdQJwG/f@lists.infradead.org, AJvYcCXDBGP+Kjsv+bTSsvfQGCwvatztx8XgGTAIFhEqx4oxVxKEt8A/nSbJb64JankLT+g779fZcg88cojr@lists.infradead.org
+X-Gm-Message-State: AOJu0YyPDOvPV7u7gw8CkRWB/8anaF6b3qravJYnWd0xsU2IR4cTncKp
+	FMXGw8+1sJRKE+HYJAf7Sq0nclTxqMZ5yiG3svXgMA+BV6VmIFZP
+X-Gm-Gg: ASbGnctSv/bNkhUIUOvqhKkZmPacIDXjSQqis3/adDj5I6mEW30KnuljyUmZryflR4Q
+	Aji1AkvQL4Yje8CjGM2+J5wZX1gVeSEEkBQbWJPRy94LTKqgr9XK6M0wHXjGa/N94zfUa1ORN/0
+	SLmZ5M6Y1sKlz9SHmSmVlKZW3FUa4+3sYUOeocjhcWMl07jSq1HUDUO0kdFj3e6iqfbGOOKG/9r
+	Hq5fEVJraTxSi6LMTkiDykJ90fvbbwwG6f+gYuZnyefCGWuT9hmA2BR/vQISGjYH34Z20zcepav
+	0IouiVxWot4=
+X-Google-Smtp-Source: AGHT+IGUcoLwzXrCYitO84d5KV2HeS8xG6qa6Ve5jSQImeWaqyZAVC1ymQps2bk1a3ZQgoMPtkkXww==
+X-Received: by 2002:adf:a108:0:b0:38a:88ac:ed10 with SMTP id ffacd0b85a97d-38a88acedf9mr7519150f8f.25.1736512785405;
+        Fri, 10 Jan 2025 04:39:45 -0800 (PST)
 Received: from localhost.localdomain (185.174.17.62.zt.hu. [185.174.17.62])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e2da6401sm86738715e9.2.2025.01.10.04.39.39
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e2da6401sm86738715e9.2.2025.01.10.04.39.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Jan 2025 04:39:41 -0800 (PST)
+        Fri, 10 Jan 2025 04:39:44 -0800 (PST)
 From: Andras Szemzo <szemzo.andras@gmail.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -96,17 +96,18 @@ Cc: Vinod Koul <vkoul@kernel.org>,
 	linux-gpio@vger.kernel.org,
 	linux-pm@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH 06/12] dt-bindings: clk: sunxi-ng: add V853 CCU clock/reset
-Date: Fri, 10 Jan 2025 13:39:17 +0100
-Message-Id: <20250110123923.270626-7-szemzo.andras@gmail.com>
+Subject: [PATCH 07/12] devicetree: bindings: power: add v853 ppu
+Date: Fri, 10 Jan 2025 13:39:18 +0100
+Message-Id: <20250110123923.270626-8-szemzo.andras@gmail.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250110123923.270626-1-szemzo.andras@gmail.com>
 References: <20250110123923.270626-1-szemzo.andras@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_043945_180719_E36ADF61 
-X-CRM114-Status: GOOD (  15.57  )
+X-CRM114-CacheID: sfid-20250110_043948_467279_DF42C9F9 
+X-CRM114-Status: UNSURE (   9.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,269 +122,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As the device tree needs the clock/reset indices, add them to DT binding
-headers.
+Document V853 PPU compatible.
 
 Signed-off-by: Andras Szemzo <szemzo.andras@gmail.com>
 ---
- include/dt-bindings/clock/sun8i-v853-ccu.h   | 132 +++++++++++++++++++
- include/dt-bindings/clock/sun8i-v853-r-ccu.h |  16 +++
- include/dt-bindings/reset/sun8i-v853-ccu.h   |  62 +++++++++
- include/dt-bindings/reset/sun8i-v853-r-ccu.h |  14 ++
- 4 files changed, 224 insertions(+)
- create mode 100644 include/dt-bindings/clock/sun8i-v853-ccu.h
- create mode 100644 include/dt-bindings/clock/sun8i-v853-r-ccu.h
- create mode 100644 include/dt-bindings/reset/sun8i-v853-ccu.h
- create mode 100644 include/dt-bindings/reset/sun8i-v853-r-ccu.h
+ .../devicetree/bindings/power/allwinner,sun20i-d1-ppu.yaml       | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/include/dt-bindings/clock/sun8i-v853-ccu.h b/include/dt-bindings/clock/sun8i-v853-ccu.h
-new file mode 100644
-index 000000000000..a405b982f914
---- /dev/null
-+++ b/include/dt-bindings/clock/sun8i-v853-ccu.h
-@@ -0,0 +1,132 @@
-+/* SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
-+/*
-+ * Copyright (C) 2020 huangzhenwei@allwinnertech.com
-+ * Copyright (C) 2023 Andras Szemzo <szemzo.andras@gmail.com.com>
-+ */
-+
-+#ifndef _DT_BINDINGS_CLK_SUN8I_V85X_CCU_H_
-+#define _DT_BINDINGS_CLK_SUN8I_V85X_CCU_H_
-+
-+#define CLK_OSC12M		0
-+#define CLK_PLL_CPU		1
-+#define CLK_PLL_DDR		2
-+#define CLK_PLL_PERIPH_4X	3
-+#define CLK_PLL_PERIPH_2X	4
-+#define CLK_PLL_PERIPH_800M	5
-+#define CLK_PLL_PERIPH_480M	6
-+#define CLK_PLL_PERIPH_600M	7
-+#define CLK_PLL_PERIPH_400M	8
-+#define CLK_PLL_PERIPH_300M	9
-+#define CLK_PLL_PERIPH_200M	10
-+#define CLK_PLL_PERIPH_160M	11
-+#define CLK_PLL_PERIPH_150M	12
-+#define CLK_PLL_VIDEO_4X	13
-+#define CLK_PLL_VIDEO_2X	14
-+#define CLK_PLL_VIDEO_1X	15
-+#define CLK_PLL_CSI_4X		16
-+#define CLK_PLL_AUDIO_DIV2	17
-+#define CLK_PLL_AUDIO_DIV5	18
-+#define CLK_PLL_AUDIO_4X	19
-+#define CLK_PLL_AUDIO_1X	20
-+#define CLK_PLL_NPU_4X		21
-+#define CLK_CPU		22
-+#define CLK_CPU_AXI		23
-+#define CLK_CPU_APB		24
-+#define CLK_AHB		25
-+#define CLK_APB0		26
-+#define CLK_APB1		27
-+#define CLK_MBUS		28
-+#define CLK_DE			29
-+#define CLK_BUS_DE		30
-+#define CLK_G2D		31
-+#define CLK_BUS_G2D		32
-+#define CLK_CE			33
-+#define CLK_BUS_CE		34
-+#define CLK_VE			35
-+#define CLK_BUS_VE		36
-+#define CLK_NPU		37
-+#define CLK_BUS_NPU		38
-+#define CLK_BUS_DMA		39
-+#define CLK_BUS_MSGBOX0	40
-+#define CLK_BUS_MSGBOX1	41
-+#define CLK_BUS_SPINLOCK	42
-+#define CLK_BUS_HSTIMER	43
-+#define CLK_AVS		44
-+#define CLK_BUS_DBG		45
-+#define CLK_BUS_PWM		46
-+#define CLK_BUS_IOMMU		47
-+#define CLK_DRAM		48
-+#define CLK_MBUS_DMA		49
-+#define CLK_MBUS_VE		50
-+#define CLK_MBUS_CE		51
-+#define CLK_MBUS_CSI		52
-+#define CLK_MBUS_ISP		53
-+#define CLK_MBUS_G2D		54
-+#define CLK_BUS_DRAM		55
-+#define CLK_MMC0		56
-+#define CLK_MMC1		57
-+#define CLK_MMC2		58
-+#define CLK_BUS_MMC0		59
-+#define CLK_BUS_MMC1		60
-+#define CLK_BUS_MMC2		61
-+#define CLK_BUS_UART0		62
-+#define CLK_BUS_UART1		63
-+#define CLK_BUS_UART2		64
-+#define CLK_BUS_UART3		65
-+#define CLK_BUS_I2C0		66
-+#define CLK_BUS_I2C1		67
-+#define CLK_BUS_I2C2		68
-+#define CLK_BUS_I2C3		69
-+#define CLK_BUS_I2C4		70
-+#define CLK_SPI0		71
-+#define CLK_SPI1		72
-+#define CLK_SPI2		73
-+#define CLK_SPI3		74
-+#define CLK_BUS_SPI0		75
-+#define CLK_BUS_SPI1		76
-+#define CLK_BUS_SPI2		77
-+#define CLK_BUS_SPI3		78
-+#define CLK_SPIF		79
-+#define CLK_BUS_SPIF		80
-+#define CLK_EMAC_25M		81
-+#define CLK_BUS_EMAC		82
-+#define CLK_BUS_GPADC		83
-+#define CLK_BUS_THS		84
-+#define CLK_I2S0		85
-+#define CLK_I2S1		86
-+#define CLK_BUS_I2S0		87
-+#define CLK_BUS_I2S1		88
-+#define CLK_DMIC		89
-+#define CLK_BUS_DMIC		90
-+#define CLK_AUDIO_CODEC_DAC	91
-+#define CLK_AUDIO_CODEC_ADC	92
-+#define CLK_BUS_AUDIO_CODEC	93
-+#define CLK_USB_OHCI		94
-+#define CLK_BUS_OHCI		95
-+#define CLK_BUS_EHCI		96
-+#define CLK_BUS_OTG		97
-+#define CLK_BUS_DPSS_TOP	98
-+#define CLK_MIPI_DSI		99
-+#define CLK_BUS_MIPI_DSI	100
-+#define CLK_TCON_LCD		101
-+#define CLK_BUS_TCON_LCD	102
-+#define CLK_CSI_TOP		103
-+#define CLK_CSI_MCLK0		104
-+#define CLK_CSI_MCLK1		105
-+#define CLK_CSI_MCLK2		106
-+#define CLK_BUS_CSI		107
-+#define CLK_BUS_WIEGAND	108
-+#define CLK_RISCV		109
-+#define CLK_RISCV_AXI		110
-+#define CLK_RISCV_CFG		111
-+#define CLK_FANOUT_24M		112
-+#define CLK_FANOUT_12M		113
-+#define CLK_FANOUT_16M		114
-+#define CLK_FANOUT_25M		115
-+#define CLK_FANOUT_27M		116
-+#define CLK_FANOUT_PCLK	117
-+#define CLK_FANOUT0		118
-+#define CLK_FANOUT1		119
-+#define CLK_FANOUT2		120
-+
-+#endif /* _DT_BINDINGS_CLK_SUN8I_V85X_CCU_H_ */
-diff --git a/include/dt-bindings/clock/sun8i-v853-r-ccu.h b/include/dt-bindings/clock/sun8i-v853-r-ccu.h
-new file mode 100644
-index 000000000000..0c10295c6d9c
---- /dev/null
-+++ b/include/dt-bindings/clock/sun8i-v853-r-ccu.h
-@@ -0,0 +1,16 @@
-+/* SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
-+/* Copyright(c) 2020 - 2023 Allwinner Technology Co.,Ltd. All rights reserved.
-+ *
-+ * Copyright (C) 2023 rengaomin@allwinnertech.com
-+ */
-+#ifndef _DT_BINDINGS_CLK_SUN8I_V85X_R_CCU_H_
-+#define _DT_BINDINGS_CLK_SUN8I_V85X_R_CCU_H_
-+
-+#define CLK_R_TWD		0
-+#define CLK_R_PPU		1
-+#define CLK_R_RTC		2
-+#define CLK_R_CPUCFG		3
-+
-+#define CLK_R_MAX_NO		(CLK_R_CPUCFG + 1)
-+
-+#endif
-diff --git a/include/dt-bindings/reset/sun8i-v853-ccu.h b/include/dt-bindings/reset/sun8i-v853-ccu.h
-new file mode 100644
-index 000000000000..89d94fcbdb55
---- /dev/null
-+++ b/include/dt-bindings/reset/sun8i-v853-ccu.h
-@@ -0,0 +1,62 @@
-+/* SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
-+/*
-+ * Copyright (c) 2020 huangzhenwei@allwinnertech.com
-+ * Copyright (C) 2023 Andras Szemzo <szemzo.andras@gmail.com>
-+ */
-+
-+#ifndef _DT_BINDINGS_RST_SUN8I_V85X_CCU_H_
-+#define _DT_BINDINGS_RST_SUN8I_V85X_CCU_H_
-+
-+#define RST_MBUS		0
-+#define RST_BUS_DE		1
-+#define RST_BUS_G2D		2
-+#define RST_BUS_CE		3
-+#define RST_BUS_VE		4
-+#define RST_BUS_NPU		5
-+#define RST_BUS_DMA		6
-+#define RST_BUS_MSGBOX0	7
-+#define RST_BUS_MSGBOX1	8
-+#define RST_BUS_SPINLOCK	9
-+#define RST_BUS_HSTIMER	10
-+#define RST_BUS_DBG		11
-+#define RST_BUS_PWM		12
-+#define RST_BUS_DRAM		13
-+#define RST_BUS_MMC0		14
-+#define RST_BUS_MMC1		15
-+#define RST_BUS_MMC2		16
-+#define RST_BUS_UART0		17
-+#define RST_BUS_UART1		18
-+#define RST_BUS_UART2		19
-+#define RST_BUS_UART3		20
-+#define RST_BUS_I2C0		21
-+#define RST_BUS_I2C1		22
-+#define RST_BUS_I2C2		23
-+#define RST_BUS_I2C3		24
-+#define RST_BUS_I2C4		25
-+#define RST_BUS_SPIF		26
-+#define RST_BUS_SPI0		27
-+#define RST_BUS_SPI1		28
-+#define RST_BUS_SPI2		29
-+#define RST_BUS_SPI3		30
-+#define RST_BUS_EMAC		31
-+#define RST_BUS_GPADC		32
-+#define RST_BUS_THS		33
-+#define RST_BUS_I2S0		34
-+#define RST_BUS_I2S1		35
-+#define RST_BUS_DMIC		36
-+#define RST_BUS_AUDIO_CODEC	37
-+#define RST_USB_PHY		38
-+#define RST_BUS_OHCI		39
-+#define RST_BUS_EHCI		40
-+#define RST_BUS_OTG		41
-+#define RST_BUS_DPSS_TOP	42
-+#define RST_BUS_MIPI_DSI	43
-+#define RST_BUS_TCON_LCD	44
-+#define RST_BUS_CSI		45
-+#define RST_BUS_WIEGAND	46
-+#define RST_RISCV_SYS_APB	47
-+#define RST_RISCV_SOFT		48
-+#define RST_RISCV_CLK_GATING	49
-+#define RST_RISCV_CFG		50
-+
-+#endif /* _DT_BINDINGS_RST_SUN8I_V85X_CCU_H_ */
-diff --git a/include/dt-bindings/reset/sun8i-v853-r-ccu.h b/include/dt-bindings/reset/sun8i-v853-r-ccu.h
-new file mode 100644
-index 000000000000..4420f7dbbcdc
---- /dev/null
-+++ b/include/dt-bindings/reset/sun8i-v853-r-ccu.h
-@@ -0,0 +1,14 @@
-+/* SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
-+/* Copyright(c) 2020 - 2023 Allwinner Technology Co.,Ltd. All rights reserved.
-+ *
-+ * Copyright (c) 2023 rengaomin@allwinnertech.com
-+ */
-+
-+#ifndef _DT_BINDINGS_RESET_SUN8IW21_R_CCU_H_
-+#define _DT_BINDINGS_RESET_SUN8IW21_R_CCU_H_
-+
-+#define RST_BUS_R_PPU		0
-+#define RST_BUS_R_RTC		1
-+#define RST_BUS_R_CPUCFG	2
-+
-+#endif /* _DT_BINDINGS_RESET_SUN8IW21_R_CCU_H_ */
+diff --git a/Documentation/devicetree/bindings/power/allwinner,sun20i-d1-ppu.yaml b/Documentation/devicetree/bindings/power/allwinner,sun20i-d1-ppu.yaml
+index 46e2647a5d72..f578be6a3bc8 100644
+--- a/Documentation/devicetree/bindings/power/allwinner,sun20i-d1-ppu.yaml
++++ b/Documentation/devicetree/bindings/power/allwinner,sun20i-d1-ppu.yaml
+@@ -17,6 +17,7 @@ properties:
+   compatible:
+     enum:
+       - allwinner,sun20i-d1-ppu
++      - allwinner,sun8i-v853-ppu
+ 
+   reg:
+     maxItems: 1
 -- 
 2.39.5
 
