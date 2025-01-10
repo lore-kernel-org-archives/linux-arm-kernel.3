@@ -4,55 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F3DDC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 13:18:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7426E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 13:19:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mwl7TVCnVq3snab8tdfv/4D/+MTLo+hnn89cAGOCLRA=; b=Dl32j0pZPZJhiG3RnC9qese22T
-	Z20aQ0mA6RgcP/w/pGUv87J87KquL7En/hykoPIRYlTVJJEwAvMDSC005ENfRtfC0V4XoNhLviFiT
-	uo9DIY99LtOhsnFx24Iw1CG+4hJUOCW731pQeam3xcon/YwGZoIMRuFI/ImwOCPfXTG2TB0IFdTZZ
-	aLzOeS2UzZ5nVtMYrcFV4ruMKc/roEFJH9V68koj+duODDp0iDdPBTXjnLWuqiX+yeDmX4QTDApLo
-	sh6rxzoTcDBZRslhtGB9uvXqWsfEds3SFElNMj5Iw0PSKIjiJI58GWBl+Uw2eu3NtrEFNUe6DRWht
-	I4eEb6uA==;
+	bh=wFC57NWqs87HrbGHaJbSRA+SgAQ9dhPfJP+b4s9z5lw=; b=EzP6s0bmuagwPyUn9lAhdMoRNU
+	hGQL9d87YqqKg4ospKbxIVhD7hY7cjGKeQsNOSiuyQkO4sWZOrhGbVVDQoYBib1MUNGpOeV9nz2aC
+	SAVGcKC/G6sLbswRB5Ak6jPORuawAIgeaUEGWHWueStRh6LoAhuR7AoRXms9IAMMBQIWyhovR1ioi
+	cDq9qRGKC4/B9qVixtJp10uGv0EmqRL70XDzx5tEgRfRV2rk92GqErX4Kw2u/wJxkGSukSsjlx3pQ
+	oWSWLABXNTxnOZ7pCYrlhojMdiy9zRkyhQ8KvZp7SyZJrZNYVvYtbWxZ6Fwezueciu1Hjy3R77VBe
+	SPLZkOFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWEtr-0000000FRkT-3rMe;
-	Fri, 10 Jan 2025 13:18:07 +0000
+	id 1tWEv4-0000000FRt9-2k33;
+	Fri, 10 Jan 2025 13:19:22 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWEns-0000000FQFg-2dJK
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 13:11:57 +0000
+	id 1tWELq-0000000FK8V-20wh;
+	Fri, 10 Jan 2025 12:42:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 059B65C06A6;
-	Fri, 10 Jan 2025 13:11:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85C32C4CED6;
-	Fri, 10 Jan 2025 13:11:53 +0000 (UTC)
-Date: Fri, 10 Jan 2025 13:11:51 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Steven Price <steven.price@arm.com>, Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>, Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v2 1/7] arm64: Update the values to binary from hex
-Message-ID: <Z4Ecl83NmnBS39ly@arm.com>
-References: <20250110110023.2963795-1-aneesh.kumar@kernel.org>
- <20250110110023.2963795-2-aneesh.kumar@kernel.org>
+	by dfw.source.kernel.org (Postfix) with ESMTP id CCE6B5C10C3;
+	Fri, 10 Jan 2025 12:42:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0816AC4CEDD;
+	Fri, 10 Jan 2025 12:42:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736512977;
+	bh=jQisMlTjYfeo02yHCaf8/3pDTMXN8QMfrZ/MAhEXiCE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KpD0sW7UIABuucxd/Qx8pWVveKRBTPjoee4MF0KjKw8i5YDBoDzL5JYvu4BaELO0t
+	 M/U8H/SXs0PIabw+VP/Wmcv2zkse9maGzd/9rSoZgJ6hC/Lu3TEGJ9VrLXjmmeRFg1
+	 vFZp71KV7rVxbfsUrwau0sxqutt53V+fSRgOWgFQTeVLDgWzOazdvg68BZ9FapN4Et
+	 JWbE4PuKzWFwlzYvCA+Uzkc1/eq5V73FfErBUEePlT0QeeVOCwHPXy/saY0DV/C3w1
+	 EubDaTDdWlxizzmd69Sr4YfE+GSogwgowB31K0GFRmk2/goQYinjInn1BjN5IFfOdI
+	 Cy3tqd/O7Qjaw==
+Date: Fri, 10 Jan 2025 12:42:47 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: Sanjay R Mehta <sanju.mehta@amd.com>,
+	Serge Semin <fancer.lancer@gmail.com>, Han Xu <han.xu@nxp.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Haibo Chen <haibo.chen@nxp.com>,
+	Yogesh Gaur <yogeshgaur.83@gmail.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Michal Simek <michal.simek@amd.com>,
+	Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Jacky Huang <ychuang3@nuvoton.com>,
+	Shan-Chun Hung <schung@nuvoton.com>,
+	Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>,
+	=?iso-8859-1?Q?C=E9dric?= Le Goater <clg@kaod.org>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Avi Fishman <avifishman70@gmail.com>,
+	Tomer Maimon <tmaimon77@gmail.com>,
+	Tali Perry <tali.perry1@gmail.com>,
+	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>,
+	Benjamin Fair <benjaminfair@google.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Raju Rangoju <Raju.Rangoju@amd.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Steam Lin <stlin2@winbond.com>, linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-mtd@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH v2 20/27] spi: spi-mem: Estimate the time taken by
+ operations
+Message-ID: <ca317e2c-cd09-4884-b9eb-9cf23ae88078@sirena.org.uk>
+References: <20241224-winbond-6-11-rc1-quad-support-v2-0-ad218dbc406f@bootlin.com>
+ <20241224-winbond-6-11-rc1-quad-support-v2-20-ad218dbc406f@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="RVMhmV/ewGAzdaKp"
 Content-Disposition: inline
-In-Reply-To: <20250110110023.2963795-2-aneesh.kumar@kernel.org>
+In-Reply-To: <20241224-winbond-6-11-rc1-quad-support-v2-20-ad218dbc406f@bootlin.com>
+X-Cookie: Many are cold, but few are frozen.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_051156_700799_A2B300D6 
-X-CRM114-Status: UNSURE (   8.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250110_044258_594828_7BB985FD 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,13 +107,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 10, 2025 at 04:30:17PM +0530, Aneesh Kumar K.V (Arm) wrote:
-> This matches the ARM ARM representation. No functional change in this
-> patch.
-> 
-> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 
-Fine by me if it's easier to compare with the Arm ARM.
+--RVMhmV/ewGAzdaKp
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+On Tue, Dec 24, 2024 at 06:06:05PM +0100, Miquel Raynal wrote:
+> In the SPI-NAND layer, we currently make list of operation variants from
+> the fastest one to the slowest and there is a bit of logic in the core
+> to go over them and pick the first one that is supported by the
+> controller, ie. the fastest one among the supported ops.
+
+This breaks the build:
+
+/build/stage/linux/drivers/spi/spi-mem.c:580:5: error: conflicting types fo=
+r =E2=80=98spi_mem_calc_op_duration=E2=80=99; have =E2=80=98u64(struct spi_=
+mem_op *)=E2=80=99 {aka =E2=80=98long long unsigned int(struct spi_mem_op *=
+)=E2=80=99}
+  580 | u64 spi_mem_calc_op_duration(struct spi_mem_op *op)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /build/stage/linux/drivers/spi/spi-mem.c:12:
+/build/stage/linux/include/linux/spi/spi-mem.h:427:5: note: previous declar=
+ation of =E2=80=98spi_mem_calc_op_duration=E2=80=99 with type =E2=80=98u64(=
+struct spi_mem *, struct spi_mem_op *)=E2=80=99 {aka =E2=80=98long long uns=
+igned int(struct spi_mem *, struct spi_mem_op *)=E2=80=99}
+  427 | u64 spi_mem_calc_op_duration(struct spi_mem *mem, struct spi_mem_op=
+ *op);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /build/stage/linux/include/linux/linkage.h:7,
+                 from /build/stage/linux/arch/arm/include/asm/bug.h:5,
+                 from /build/stage/linux/include/linux/bug.h:5,
+                 from /build/stage/linux/include/linux/thread_info.h:13,
+                 from /build/stage/linux/include/linux/sched.h:14,
+                 from /build/stage/linux/include/linux/ratelimit.h:6,
+                 from /build/stage/linux/include/linux/dev_printk.h:16,
+                 from /build/stage/linux/include/linux/device.h:15,
+                 from /build/stage/linux/include/linux/dmaengine.h:8,
+                 from /build/stage/linux/drivers/spi/spi-mem.c:8:
+/build/stage/linux/drivers/spi/spi-mem.c:593:19: error: conflicting types f=
+or =E2=80=98spi_mem_calc_op_duration=E2=80=99; have =E2=80=98u64(struct spi=
+_mem_op *)=E2=80=99 {aka =E2=80=98long long unsigned int(struct spi_mem_op =
+*)=E2=80=99}
+  593 | EXPORT_SYMBOL_GPL(spi_mem_calc_op_duration);
+      |                   ^~~~~~~~~~~~~~~~~~~~~~~~
+/build/stage/linux/include/linux/export.h:56:28: note: in definition of mac=
+ro =E2=80=98__EXPORT_SYMBOL=E2=80=99
+   56 |         extern typeof(sym) sym;                                 \
+      |                            ^~~
+/build/stage/linux/include/linux/export.h:69:41: note: in expansion of macr=
+o =E2=80=98_EXPORT_SYMBOL=E2=80=99
+   69 | #define EXPORT_SYMBOL_GPL(sym)          _EXPORT_SYMBOL(sym, "GPL")
+      |                                         ^~~~~~~~~~~~~~
+/build/stage/linux/drivers/spi/spi-mem.c:593:1: note: in expansion of macro=
+ =E2=80=98EXPORT_SYMBOL_GPL=E2=80=99
+  593 | EXPORT_SYMBOL_GPL(spi_mem_calc_op_duration);
+      | ^~~~~~~~~~~~~~~~~
+/build/stage/linux/include/linux/spi/spi-mem.h:427:5: note: previous declar=
+ation of =E2=80=98spi_mem_calc_op_duration=E2=80=99 with type =E2=80=98u64(=
+struct spi_mem *, struct spi_mem_op *)=E2=80=99 {aka =E2=80=98long long uns=
+igned int(struct spi_mem *, struct spi_mem_op *)=E2=80=99}
+  427 | u64 spi_mem_calc_op_duration(struct spi_mem *mem, struct spi_mem_op=
+ *op);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+
+--RVMhmV/ewGAzdaKp
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmeBFcYACgkQJNaLcl1U
+h9BhIgf+KXE1JExJo+WBN7mYcyQ4HitVxI+rVexdbI+QMmjPpB2umRebJU2u0F2O
+zJlk5R6eGXdOn3H83H0CacUm11VVNZmqP1yUSytO4sjiyHdh7Zp70UkidrhA0O9F
+pRM9l9bBbWV3FzLgZCYjZ03y6A+A9CrIsGRVAuX/rAUHENGshIN+Wa1j4ZwRkI+u
+Nid4YWfQkB1UjSFhcx6d9iDq65hTlrHDn5ThFmIDGZCTS8NRcUAevtkdwoU9thC7
+1xTCkJ92ejUGQ3TTzVrlg6qsnSJTAARPhDZ8WasEfN+L/LWyRI181QAMRKG4oOOi
+swVXAClyqCX9avFjDoBP8aArkjRb4A==
+=qXZ3
+-----END PGP SIGNATURE-----
+
+--RVMhmV/ewGAzdaKp--
 
