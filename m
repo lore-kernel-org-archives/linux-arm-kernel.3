@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91C19E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 16:16:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A68F0E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 16:17:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=32QZXrb62+QSD3pPaL9k/c8TLDGv4uNeJJYp07OLSvY=; b=3DOjj5GPUbnLcZlD+Qw4ZTGhRL
-	PNqTc6iIlZRLZhegVBwJVu4E+BI7Belo+CY+siicAsAFLnO5+zb40hM+6jzmGvTG6sQCUdFThsn8D
-	BfUN2iqhQ9NCpjtvQoF9kZ1WRz9jrPudDuiVw1QmF9rDWA6iSC1MMn/IvF3ExzUAkAmlGS8GaLfuO
-	WI8+d5ywlHBnxFMJaeHwMdBgAdLI/jYAAOQ0uAOJFx9yz0olSIhg5w6no70OR9T0Xl6Yo34gAI0T7
-	vLd72nM8UN1dKSth19Lvzq5Bj5KZ0ZHeBcx08IVx/KIoj+mrq+LzkWlSF2GSjNNAbSVeORzYYIbQ+
-	IxMSCwSg==;
+	bh=sB1xyBy7knHrLszPHAJ3MESeKHqNxE0grKNVyNhYz7A=; b=sy8juDGRYmxMGeyWSKKMFiAWsf
+	wA1qXBi09prvL5rmGwbtQWMujLsAdo+RxfZYrqyOC7G+CdlIimfVgnGLHE4cXZXrwcpj5kaBkOuve
+	AV8TGJguaHOnuf4x4prpe4uKVh/CDxuovfuRU9iCNzXpHMh0K4PKD3BeHHGCj9OOjDrEAzc+Giv8q
+	M3rLDsJaLsZRNhmitvEREnVH/jEQMe57l1Yg9rXVw7kzPjZ/ReMcHJwgfxE07Q34Tyj0GON9YvnWY
+	e1GK5RNbKf1kzhSDKOwwKOE5sM2GstBh+0Yry92xuYWfyyFuCBUgMtC9/DciYyhksS3QKJudacusL
+	5r1eTGbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWHg3-0000000GBfp-0zGg;
-	Fri, 10 Jan 2025 16:16:03 +0000
+	id 1tWHhF-0000000GBvz-4BNo;
+	Fri, 10 Jan 2025 16:17:18 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWHKo-0000000G6tk-2xTH;
-	Fri, 10 Jan 2025 15:54:08 +0000
+	id 1tWHNm-0000000G7SR-2dbN;
+	Fri, 10 Jan 2025 15:57:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2D5B15C0FC2;
-	Fri, 10 Jan 2025 15:53:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3500C4CED6;
-	Fri, 10 Jan 2025 15:54:05 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id E42B55C0FE0;
+	Fri, 10 Jan 2025 15:56:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6422CC4CED6;
+	Fri, 10 Jan 2025 15:57:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736524445;
-	bh=KtZ4c7jWTzK/1RwsYWEQ3b4sPV8HEvuExiQjmVNRQaQ=;
+	s=k20201202; t=1736524629;
+	bh=Zepb3Xf1LqvXqepzt+MhmKK6OG5jBl8iAJLNE0dVQPw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qqo2nWRtkTXHYUIcAvGXBfFz9lRjc90pKSWJa3X5Rt1ujIb/Zfnhbs3zoTHzUnZKS
-	 reXKrHisV3jT85sYHUYGWu2GG2+M3aKs8lyIE0WUXx3dwmlBJtEanCJzsQ6oqekaCq
-	 2NYie+vO8run7Cf1nlJJsbiQsrip82LufKuN+HshH3W0GpZUAfOn5yvWT8NTov4Xez
-	 BX81epoL9777exAxcqECpJnGfTixE4bc4vv3AIdQoF4BNqfyPCDcJi10VzyzCL1tVA
-	 7zysNjo68cGIj9mxNi9/FLuUFdGFjJNFZ+GdPv/qtXylav7Ugpae9E899Nm3XG6TDx
-	 W/f9aIUS8o5ow==
-Date: Fri, 10 Jan 2025 09:54:04 -0600
-From: Rob Herring <robh@kernel.org>
-To: Jian Hu <jian.hu@amlogic.com>
-Cc: Jerome Brunet <jbrunet@baylibre.com>,
-	Xianwei Zhao <xianwei.zhao@amlogic.com>,
-	Chuan Liu <chuan.liu@amlogic.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Dmitry Rokosov <ddrokosov@sberdevices.ru>,
-	devicetree <devicetree@vger.kernel.org>,
-	linux-clk <linux-clk@vger.kernel.org>,
-	linux-amlogic <linux-amlogic@lists.infradead.org>,
-	linux-kernel <linux-kernel@vger.kernel.org>,
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v2 1/5] dt-bindings: clock: add Amlogic T7 PLL clock
- controller
-Message-ID: <20250110155404.GA2928945-robh@kernel.org>
-References: <20250108094025.2664201-1-jian.hu@amlogic.com>
- <20250108094025.2664201-2-jian.hu@amlogic.com>
+	b=NEvyIBtRig1NynjUKr+d72gORi8xggQKkHvmTDwaw+mxp6ygcL0HqICFfzPh84x3Z
+	 LsJY2EfD8qZPaOR8yGe4MxG4lwmy4wziMf4LNwY33JkuVXED7L2c+QHfb9j8A7Wq1J
+	 Tr6CQHqBQxP2XUEimgcLM6KrYb4Q0q/Bndd8xIW1y32DUGOGJwOKAz5EJd+YhfIpIJ
+	 XkrhSUFBUN6AG28zCvbRnoJYIymyJY+Pt1P68yuiveXnp2xvXXDS4jf+JkNG7/4Zxl
+	 du9aEo6KNrAuqISmeSYHyXfkMRZpVCxVR4ntT3PxWZvGRbF/03xLiO3dZVjvHsn+kp
+	 Y5qJP2Z4A3XNg==
+Date: Fri, 10 Jan 2025 09:57:08 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-mediatek@lists.infradead.org, tzimmermann@suse.de,
+	jitao.shi@mediatek.com, linux-kernel@vger.kernel.org,
+	mripard@kernel.org, ck.hu@mediatek.com, p.zabel@pengutronix.de,
+	jie.qiu@mediatek.com, junzhi.zhao@mediatek.com,
+	lewis.liao@mediatek.com, simona@ffwll.ch,
+	maarten.lankhorst@linux.intel.com, krzk+dt@kernel.org,
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+	ives.chenjh@mediatek.com, tommyyl.chen@mediatek.com,
+	linux-arm-kernel@lists.infradead.org, matthias.bgg@gmail.com,
+	kernel@collabora.com, chunkuang.hu@kernel.org, conor+dt@kernel.org,
+	jason-jh.lin@mediatek.com, dmitry.baryshkov@linaro.org,
+	airlied@gmail.com
+Subject: Re: [PATCH v4 08/34] dt-bindings: display: mediatek: Add binding for
+ MT8195 HDMI-TX v2
+Message-ID: <173652462808.2939128.70242417447514107.robh@kernel.org>
+References: <20250108112744.64686-1-angelogioacchino.delregno@collabora.com>
+ <20250108112744.64686-9-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250108094025.2664201-2-jian.hu@amlogic.com>
+In-Reply-To: <20250108112744.64686-9-angelogioacchino.delregno@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_075406_828259_F6AA070B 
-X-CRM114-Status: GOOD (  19.76  )
+X-CRM114-CacheID: sfid-20250110_075710_705363_C91BA4B5 
+X-CRM114-Status: GOOD (  12.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,206 +82,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 08, 2025 at 05:40:21PM +0800, Jian Hu wrote:
-> Add DT bindings for the PLL clock controller of the Amlogic T7 SoC family.
+
+On Wed, 08 Jan 2025 12:27:18 +0100, AngeloGioacchino Del Regno wrote:
+> Add a binding for the HDMI TX v2 Encoder found in MediaTek MT8195
+> and MT8188 SoCs.
 > 
-> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
+> This fully supports the HDMI Specification 2.0b, hence it provides
+> support for 3D-HDMI, Polarity inversion, up to 16 bits Deep Color,
+> color spaces including RGB444, YCBCR420/422/444 (ITU601/ITU709) and
+> xvYCC, with output resolutions up to 3840x2160p@60Hz.
+> 
+> Moreover, it also supports HDCP 1.4 and 2.3, Variable Refresh Rate
+> (VRR) and Consumer Electronics Control (CEC).
+> 
+> This IP also includes support for HDMI Audio, including IEC60958
+> and IEC61937 SPDIF, 8-channel PCM, DSD, and other lossless audio
+> according to HDMI 2.0.
+> 
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 > ---
->  .../bindings/clock/amlogic,t7-pll-clkc.yaml   | 103 ++++++++++++++++++
->  .../dt-bindings/clock/amlogic,t7-pll-clkc.h   |  57 ++++++++++
->  2 files changed, 160 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/clock/amlogic,t7-pll-clkc.yaml
->  create mode 100644 include/dt-bindings/clock/amlogic,t7-pll-clkc.h
+>  .../mediatek/mediatek,mt8195-hdmi.yaml        | 151 ++++++++++++++++++
+>  1 file changed, 151 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/display/mediatek/mediatek,mt8195-hdmi.yaml
 > 
-> diff --git a/Documentation/devicetree/bindings/clock/amlogic,t7-pll-clkc.yaml b/Documentation/devicetree/bindings/clock/amlogic,t7-pll-clkc.yaml
-> new file mode 100644
-> index 000000000000..fd0323678d37
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/clock/amlogic,t7-pll-clkc.yaml
-> @@ -0,0 +1,103 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +# Copyright (C) 2024 Amlogic, Inc. All rights reserved
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/clock/amlogic,t7-pll-clkc.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Amlogic T7 PLL Clock Control Controller
-> +
-> +maintainers:
-> +  - Neil Armstrong <neil.armstrong@linaro.org>
-> +  - Jerome Brunet <jbrunet@baylibre.com>
-> +  - Jian Hu <jian.hu@amlogic.com>
-> +  - Xianwei Zhao <xianwei.zhao@amlogic.com>
-> +
-> +if:
 
-Move this after 'required' section.
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
-Generally we put 'if' under 'allOf' because we're likely to have another 
-if/then schema on the next compatible added. If you don't think this 
-binding will ever get used on another chip, then it is fine as-is.
-
-> +  properties:
-> +    compatible:
-> +      contains:
-> +        const: amlogic,t7-pll-mclk
-> +
-> +then:
-> +  properties:
-> +    clocks:
-> +      items:
-> +        - description: mclk pll input oscillator gate
-> +        - description: 24M oscillator input clock source for mclk_sel_0
-> +        - description: fix 50Mhz input clock source for mclk_sel_0
-> +
-> +    clock-names:
-> +      items:
-> +        - const: input
-> +        - const: mclk_in0
-> +        - const: mclk_in1
-
-Move these to top-level and then both of these are just 'minItems: 3'.
-
-> +
-> +else:
-> +  properties:
-> +    clocks:
-> +      items:
-> +        - description: pll input oscillator gate
-> +
-> +    clock-names:
-> +      items:
-> +        - const: input
-
-And 'maxItems: 1' here.
-
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - amlogic,t7-pll-gp0
-> +      - amlogic,t7-pll-gp1
-> +      - amlogic,t7-pll-hifi
-> +      - amlogic,t7-pll-pcie
-> +      - amlogic,t7-mpll
-> +      - amlogic,t7-pll-hdmi
-> +      - amlogic,t7-pll-mclk
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  '#clock-cells':
-> +    const: 1
-> +
-> +  clocks:
-> +    minItems: 1
-> +    maxItems: 3
-> +
-> +  clock-names:
-> +    minItems: 1
-> +    maxItems: 3
-
-These are the 'top-level' definitions if that's not clear.
-
-> +
-> +required:
-> +  - compatible
-> +  - '#clock-cells'
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    apb {
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +
-> +        clock-controller@8080 {
-> +            compatible = "amlogic,t7-pll-gp0";
-> +            reg = <0 0x8080 0 0x20>;
-> +            clocks = <&scmi_clk 2>;
-> +            clock-names = "input";
-> +            #clock-cells = <1>;
-> +        };
-> +
-> +        clock-controller@8300 {
-> +            compatible = "amlogic,t7-pll-mclk";
-> +            reg = <0 0x8300 0 0x18>;
-> +            clocks = <&scmi_clk 2>,
-> +                     <&xtal>,
-> +                     <&scmi_clk 31>;
-> +            clock-names = "input", "mclk_in0", "mclk_in1";
-> +            #clock-cells = <1>;
-> +        };
-> +    };
-> diff --git a/include/dt-bindings/clock/amlogic,t7-pll-clkc.h b/include/dt-bindings/clock/amlogic,t7-pll-clkc.h
-> new file mode 100644
-> index 000000000000..e88c342028db
-> --- /dev/null
-> +++ b/include/dt-bindings/clock/amlogic,t7-pll-clkc.h
-> @@ -0,0 +1,57 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
-> +/*
-> + * Copyright (c) 2024 Amlogic, Inc. All rights reserved.
-> + * Author: Jian Hu <jian.hu@amlogic.com>
-> + */
-> +
-> +#ifndef __T7_PLL_CLKC_H
-> +#define __T7_PLL_CLKC_H
-> +
-> +/* GP0 */
-> +#define CLKID_GP0_PLL_DCO	0
-> +#define CLKID_GP0_PLL		1
-> +
-> +/* GP1 */
-> +#define CLKID_GP1_PLL_DCO	0
-> +#define CLKID_GP1_PLL		1
-> +
-> +/* HIFI */
-> +#define CLKID_HIFI_PLL_DCO	0
-> +#define CLKID_HIFI_PLL		1
-> +
-> +/* PCIE */
-> +#define CLKID_PCIE_PLL_DCO	0
-> +#define CLKID_PCIE_PLL_DCO_DIV2	1
-> +#define CLKID_PCIE_PLL_OD	2
-> +#define CLKID_PCIE_PLL		3
-> +
-> +/* MPLL */
-> +#define CLKID_MPLL_PREDIV	0
-> +#define CLKID_MPLL0_DIV		1
-> +#define CLKID_MPLL0		2
-> +#define CLKID_MPLL1_DIV		3
-> +#define CLKID_MPLL1		4
-> +#define CLKID_MPLL2_DIV		5
-> +#define CLKID_MPLL2		6
-> +#define CLKID_MPLL3_DIV		7
-> +#define CLKID_MPLL3		8
-> +
-> +/* HDMI */
-> +#define CLKID_HDMI_PLL_DCO	0
-> +#define CLKID_HDMI_PLL_OD	1
-> +#define CLKID_HDMI_PLL		2
-> +
-> +/* MCLK */
-> +#define CLKID_MCLK_PLL_DCO	0
-> +#define CLKID_MCLK_PRE		1
-> +#define CLKID_MCLK_PLL		2
-> +#define CLKID_MCLK_0_SEL	3
-> +#define CLKID_MCLK_0_DIV2	4
-> +#define CLKID_MCLK_0_PRE	5
-> +#define CLKID_MCLK_0		6
-> +#define CLKID_MCLK_1_SEL	7
-> +#define CLKID_MCLK_1_DIV2	8
-> +#define CLKID_MCLK_1_PRE	9
-> +#define CLKID_MCLK_1		10
-> +
-> +#endif /* __T7_PLL_CLKC_H */
-> -- 
-> 2.47.1
-> 
 
