@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 876D8E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 07:42:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7B2BE7719C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 07:44:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3685Snm0alYI9oV4XAJV/xiiCYgITvr4vnRsJ354SU8=; b=bQCUegzeRi/MA/oVY2FEF3oZQ4
-	o99ncxMjjQj2vZjuns6i4LNiJ/SSw3F4Bqn12o2JyiCs4B7zW9lDZHr/Tvh27RrweIMgN3NvhGYyQ
-	KD8x6Wvx+okC5PwkjvKmLxRK70Xwut+G9BvkkX3sB4gS80tkWy4TaungvnUDBHBzx8SQTU3kDCKji
-	zoO2zwOsM2SjijO9w0OtmwWbhrGvrvAOFLpD/t7GzEJyB7Ax3zG5T4wzbq/Drb5gGj4cK8gMke+mA
-	X8aFpdtt5jQsr2gxuCn0w1bSx5zLSzWHhtyuqEz7hVaUZBa3wTdc9J/ntOJlltiVDaqdGMCoZtH8J
-	kfAXerqg==;
+	bh=NbjjRkRWokCOvRa380wZBaj6vLZjXMaPmn836/HzFPQ=; b=1QoHwv8T8ajr8Hn/cxRaTJ6D4v
+	QOLT67qXfUO4hF35mMABqWDdGhufIeg+DL1YTS/9EzdOugp/H2rQhVrXoeEXsZW3YYacKbzV186Hu
+	HZNh1fq3f857k578flso5XQfXePshi1VGzfFcsXoaNaDcryubOLJ1pmjm0rJbYW60dkCXzWZ7O3P+
+	6gl0dTJKLY7tuYlUafYqYgf5bhm1Ajhn13IhPnamyzZwcX+wodNeoUkJkNh62koGLkJEPhPnLf65y
+	C/Rfsfvd3Zopd5YlA+5A7chGaD+2b+3xISkU2rbHRsUVPRp8jltv3vdp3uB53QmjSZ2HFEa/UkwyV
+	bPlD/Xlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW9eq-0000000EPRR-0ueT;
-	Fri, 10 Jan 2025 07:42:16 +0000
+	id 1tW9gb-0000000EPno-0iBT;
+	Fri, 10 Jan 2025 07:44:05 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW9db-0000000EPGe-0ugt;
-	Fri, 10 Jan 2025 07:41:00 +0000
+	id 1tW9fM-0000000EPWi-2QK5;
+	Fri, 10 Jan 2025 07:42:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CF512A4181E;
-	Fri, 10 Jan 2025 07:39:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CA03C4CED6;
-	Fri, 10 Jan 2025 07:40:53 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2AAE6A41A19;
+	Fri, 10 Jan 2025 07:40:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57A5EC4CED6;
+	Fri, 10 Jan 2025 07:42:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736494858;
-	bh=GIaLhCWvt+Vh85V9nMvOQFuhW8mxQRShtxXN7QjsIBc=;
+	s=k20201202; t=1736494967;
+	bh=XmYgjpNvIDSw8Yc0EFTFMPiabKK7MhC3gK3twFF80Ac=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=VkoAa/36y1lbhaSFgumFc2uFspLcnN/8mAeiFEf3eMbR5tP6AKWnq7g8N/+jiqBuM
-	 w4WqoQvZ4AVTxPjjyBZEvlbCtParJxI30G/Txw36bBhvP47H00hglz2adAx14Ncnp6
-	 23Qh2FpxklQjXS75fxvYeDNMRtq7fT40kDAuJPX2KQUouU+EiroglQDFx+cbMux7Ck
-	 1wXtDpYTAzpVz1GSRTPBZcBDDC+Xodvog6/19X1DuDjdnzSrf94Mc07QQJCl2ZBu6A
-	 XjTUL3okndmbG5b2zmaK4p61TAXxyQ5QhNgH/m7rPT4fJ2A/zk1dneR5tDoXFN7yNN
-	 VjMtnDHdjtN7g==
-Message-ID: <e6019aea-b097-4a24-afd2-e1d638a5a8a7@kernel.org>
-Date: Fri, 10 Jan 2025 08:40:52 +0100
+	b=nRQ5DgATufb9Jd8uFEtMIRU41Hpb/TPoJIf+hkKZ/nRNW/luySUcdtBZ4czDpb0KW
+	 sX8eyy6em8haxZbjBvtlJsdbnM0OFxm8VWAEBjRXQgp8jN4IvLP/IiAiDZj9v81cj7
+	 zLWIJMLYnZRlbPhSjkcA8NtxNAB+LuqVwBHL9ExbyKHQWBSzdcMyVYa/yr8Y+B/0it
+	 ITSd7yFHyuVejzo+gBhsw8LCtn91JzH04IaqvXICgJ9SQJAtV0OMi1I3R11BJU6sst
+	 GtYqSG0YmQF6hEPz9GSVT0wV5su/6lAp6CdbmN9dSJZl04/q00XVfTv0+DRrZH4FHN
+	 qxfkAF9QAicxw==
+Message-ID: <9caddd6a-fe1b-468a-ba1e-0513e46404dc@kernel.org>
+Date: Fri, 10 Jan 2025 08:42:40 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND,V1,01/12] dt-bindings: mediatek: Add mediatek,
- mt8196-jpgdec compatible
-To: "kyrie.wu" <kyrie.wu@mediatek.com>,
- Hans Verkuil <hverkuil-cisco@xs4all.nl>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
- <robh+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Tzung-Bi Shih <tzungbi@chromium.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- kyrie wu <kyrie.wu@mediatek.corp-partner.google.com>,
- linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-References: <20250110012749.30072-1-kyrie.wu@mediatek.com>
- <20250110012749.30072-2-kyrie.wu@mediatek.com>
+Subject: Re: [PATCH v2 1/5] dt-bindings: clock: Document clock and reset unit
+ of RK3528
+To: Yao Zi <ziyao@disroot.org>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Philipp Zabel <p.zabel@pengutronix.de>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250108114605.1960-2-ziyao@disroot.org>
+ <20250108114605.1960-3-ziyao@disroot.org>
+ <tep74dy3oc6y2wwhp6bthv6brhkge7cojzrtj6x53lvtsws4g5@areqtyxhyayq>
+ <Z3-T3JwcsW0xYKvk@pie>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,13 +104,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250110012749.30072-2-kyrie.wu@mediatek.com>
+In-Reply-To: <Z3-T3JwcsW0xYKvk@pie>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_234059_386709_7341E660 
-X-CRM114-Status: UNSURE (   7.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250109_234248_747602_810837D5 
+X-CRM114-Status: GOOD (  18.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,16 +124,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/01/2025 02:27, kyrie.wu wrote:
-> Add mediatek,mt8196-jpgdec compatible to binding document.
+On 09/01/2025 10:16, Yao Zi wrote:
+> On Thu, Jan 09, 2025 at 09:59:25AM +0100, Krzysztof Kozlowski wrote:
+>> On Wed, Jan 08, 2025 at 11:46:02AM +0000, Yao Zi wrote:
+>>> There are two types of clocks in RK3528 SoC, CRU-managed and
+>>> SCMI-managed. Independent IDs are assigned to them.
+>>>
+>>> For the reset part, differing from previous Rockchip SoCs and
+>>> downstream bindings which embeds register offsets into the IDs, gapless
+>>> numbers starting from zero are used.
+>>>
+>>> Signed-off-by: Yao Zi <ziyao@disroot.org>
+>>> ---
+>>>  .../bindings/clock/rockchip,rk3528-cru.yaml   |  67 +++
+>>>  .../dt-bindings/clock/rockchip,rk3528-cru.h   | 453 ++++++++++++++++++
+>>>  .../dt-bindings/reset/rockchip,rk3528-cru.h   | 241 ++++++++++
+>>>  3 files changed, 761 insertions(+)
+>>>  create mode 100644 Documentation/devicetree/bindings/clock/rockchip,rk3528-cru.yaml
+>>>  create mode 100644 include/dt-bindings/clock/rockchip,rk3528-cru.h
+>>>  create mode 100644 include/dt-bindings/reset/rockchip,rk3528-cru.h
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/clock/rockchip,rk3528-cru.yaml b/Documentation/devicetree/bindings/clock/rockchip,rk3528-cru.yaml
+>>> new file mode 100644
+>>> index 000000000000..19dbda858172
+>>> --- /dev/null
+>>> +++ b/Documentation/devicetree/bindings/clock/rockchip,rk3528-cru.yaml
+>>> @@ -0,0 +1,67 @@
+>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>>> +%YAML 1.2
+>>> +---
+>>> +$id: http://devicetree.org/schemas/clock/rockchip,rk3528-cru.yaml#
+>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>> +
+>>> +title: Rockchip RK3528 Clock and Reset Controller
+>>> +
+>>> +maintainers:
+>>> +  - Yao Zi <ziyao@disroot.org>
+>>> +
+>>> +description: |
+>>> +  The RK3528 clock controller generates the clock and also implements a reset
+>>> +  controller for SoC peripherals. For example, it provides SCLK_UART0 and
+>>> +  PCLK_UART0 as well as SRST_P_UART0 and SRST_S_UART0 for the first UART
+>>> +  module.
+>>> +  Each clock is assigned an identifier, consumer nodes can use it to specify
+>>> +  the clock. All available clock and reset IDs are defined in dt-binding
+>>> +  headers.
+>>> +
+>>> +properties:
+>>> +  compatible:
+>>> +    const: rockchip,rk3528-cru
+>>> +
+>>> +  reg:
+>>> +    maxItems: 1
+>>> +
+>>> +  assigned-clocks: true
+>>> +
+>>> +  assigned-clock-rates: true
+>>
+>> Drop both, totally redundant.
 > 
-> Signed-off-by: kyrie.wu <kyrie.wu@mediatek.com>
-> ---
-No, why are you resending without improving anything here?
-
-You got comments. Respond to them, implement them, not resend same stuff.
-
-NAK
+> Okay, will fix in next version.
+> 
+>>> +
+>>> +  clocks:
+>>> +    items:
+>>> +      - description: External 24MHz oscillator clock
+>>> +      - description: 50MHz clock generated by PHY module
+>>> +
+>>> +  clock-names:
+>>> +    items:
+>>> +      - const: xin24m
+>>> +      - const: gmac0
+>>
+>> gmac
+>> (unless you have gmac1 here as well but then please add it now)
+> 
+> RK3528 comes with two onchip gmacs. This input clock is only used for
+> the first one and I think keeping the number would give the reader an
+> extra hint. What do you think about it?
+You don't get the point. What clock is from this module perspective? gmac.
 
 Best regards,
 Krzysztof
