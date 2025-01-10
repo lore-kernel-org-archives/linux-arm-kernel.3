@@ -4,85 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 538A0E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 15:59:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1193E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 16:00:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0zrOTe4P32MUWq2MQOl7BIWqEU3Y6SIXQqIMZmB2WSs=; b=X6VBeeY3ixLrXtUSoydDaLzag7
-	nA6O6zed1ovHAEdAoFNnlbT61eYOqV1Ws7qotPyPpcnp8vKh7SoLPw+mopDUCZssIeK9H0UDWmUxn
-	oP1KwRE7lSvrb12GnvtZS9z1sQwYq6+UhTAwN1m4H4jk1zp/rOBiSuR5/2L9hoMY9BKv88u9aAC4u
-	DBytYHlhP6XAA9GM7aN+r4hDZAdFrEQIi2K+KzUVE3qw2BgOcE3VS9X4R/Qf9nP5qcyrzkxcC81el
-	rJzi1f6LtI6ogzClGKv86/cSWnwfbYTOCL0+fWQHhYkg+WdZZHAPDMEmzc8vczhTMWsgkMlksb+rd
-	2VVlTbCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AU8xPrZjOtMUZQmqrGLmeYzG73tpLwMZrx1ob+eEhTQ=; b=mBM72piTOs3SMlaMFO4+J7/JG0
+	dLhwqJixTL0yqIFy5ewtTdP0sgMT9GWlJQCEDFbfYtvo2AvrT05mdGG2Eyf7v1/6OkHKmvjT8p2qU
+	i3bowLZ6XyerWHYNkdLw3PKJxg0fbjcPKyuqoxJN80HDbv9/ryoI+9k9RpbYspQ/KCakCg12amNx9
+	QWNiT9xGsdgY33bAinh0tf5Tf7l1iTzqVvnvDxKF4P9sYmlcr2gF7R+Y5pnPs7RjBinra5l+avfyE
+	s379bOTKPlrIm8YN7zBlLOqpeS+gBAFS7sHYRs8jZ7C3C/jvHHjFMed/c/xs/ADRrEeOtr8pwCbpb
+	/xH3CX3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWHPN-0000000G7jA-0FKl;
-	Fri, 10 Jan 2025 15:58:49 +0000
-Received: from mail-qv1-xf2e.google.com ([2607:f8b0:4864:20::f2e])
+	id 1tWHQY-0000000G7tT-2B5o;
+	Fri, 10 Jan 2025 16:00:02 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWGyF-0000000FwLm-0NST;
-	Fri, 10 Jan 2025 15:30:48 +0000
-Received: by mail-qv1-xf2e.google.com with SMTP id 6a1803df08f44-6d8ece4937fso16837896d6.2;
-        Fri, 10 Jan 2025 07:30:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736523045; x=1737127845; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0zrOTe4P32MUWq2MQOl7BIWqEU3Y6SIXQqIMZmB2WSs=;
-        b=KIEOBz/tL95dZZc+VLKUDbeDfI4W4XmksgpoezWuhXNfS9RlonQ6AArO/lIgU5yq/1
-         Ro5mVz57xEUQG1ZsoKKAJ0p6IV+0BzMCzj0OJquu+agTUq/S0RuiF+/zOkGcQX828FqJ
-         oPf01Ju7MzkriPPnJoTwn7tDgZh/y3g7ZjDWerdTe3BpeywT98kk7JCt7poisZFK8h60
-         tN24EMj93WRYOEgjaQC7XZDassJHFYjzAfr7+9zzgZz6z/+z7UzUhp+zwFcc53QnxmyW
-         XNCVD7+LoPkF9Mv8W2xSg7PAbB0g3RGemzIPgREbZ/JFtMIBwOYlsalrR1U/gzzSdtwO
-         V4Ug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736523045; x=1737127845;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=0zrOTe4P32MUWq2MQOl7BIWqEU3Y6SIXQqIMZmB2WSs=;
-        b=WTysg4r/ORZLMckPaooRTdLFwf4cPT9sh+ftbgozOsZ0iTxo2gAJrHN5hSjim3K44e
-         2YNGC7j07rbx4kjXTGE/4Hn77e+tWpThrG/E9BAUplImoFuKZYnl0tDWhHHGKaX2YIId
-         jUXcLuG4WmE18nCaKLZD8QtV7j3D6crCvNaZVAMHBf99/UWJ9MZY4hHa6hhbxBmnthR0
-         AbuvRNc4P2DICellk3tpif2Ibu8rVNxz7Szvps3U9lvlz4VUoyI9S3EhzibEQMf2mhJ9
-         C7v8Y5MOEMj9e1MU4h+2b6gFyH7cwZXfxpezFMhJYKzetDogHaf6slbE5qALvumfqgZG
-         7rOA==
-X-Forwarded-Encrypted: i=1; AJvYcCUqrRfrrF3NvhZMQgEusI+oPLPX3yo+aU9Nc1IhZ5vcMnkpIz0tkUKqeews7kPmBXXAIT+MsJRGMC2NCbNwDEs=@lists.infradead.org, AJvYcCUtcW4608WXqqj5VB0SRGid80Brc4xX+2B3d1KsO8O+RChak0qH+eflK7CUlL1UiIIZbT2Lnu1ocaId9MWYl6+E@lists.infradead.org
-X-Gm-Message-State: AOJu0YyusrtxCOOaCiQoIVEvnBO2m9Vc0SY7EAtD974jwh0vMSBxQxgN
-	Lb6JSRvEjR2NLAZdujbopK0e/je9ycyvUTHQLpHmORBVmPRxOv8sLuUrXp8rY1VJJ1h/qahz54y
-	C387akE5OokZYxq4LmHmhfbUdQeFpKamMXX8=
-X-Gm-Gg: ASbGnctEKV2eVjEuCeq1Oblmwk7+JJGNq+HFHCw+7YJ+RwywY40Fy6jDG5fyD8QyGPj
-	8mg4B2yFJP5nTOCbRYuBMPHUzDDfh6b10M5FRp4WctIGRmXsBcIG1ANLqekTw5BQZiiEzyiI=
-X-Google-Smtp-Source: AGHT+IEnoFFUcCDxyWMJMccGcHdpcHtEs8d1tHvHYzHwmCtEP6B4k/qEsVE4N1SvaESd/DasJz0P1wR/TvZ73iY/h6o=
-X-Received: by 2002:ad4:5dec:0:b0:6d4:1425:6d2d with SMTP id
- 6a1803df08f44-6df9b2d62b2mr177775706d6.43.1736523043867; Fri, 10 Jan 2025
- 07:30:43 -0800 (PST)
+	id 1tWH2g-0000000Fy7W-3eXf
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 10 Jan 2025 15:35:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5BBA7A42140;
+	Fri, 10 Jan 2025 15:33:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 461A5C4CEE1;
+	Fri, 10 Jan 2025 15:35:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736523321;
+	bh=PFQQnbTdjkTsQINXUX4WtvC8+Xl/XUqNkaTRSn+p8PQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tr47FpyBJmQsGet8LoZu8CpuYHhZzU947dmY3I1J/2GgLqsHFvC32EQvwd1IwhBhl
+	 Fy9yxBkEYX35vs6OqZI2ytHSAefQ1c8LXLNkJuojd36+Lc50YVtcl92pwS2skeEtbN
+	 BhdowyGEDk/pQs3HK01iO0c7xSgXMMyrrTqAOdI39LEnuM5RXXfim5TTCMCkUqsLZx
+	 ZfTeMwvdVgqdyIu82hx9bPap9fozYDJdTtZpC/kh0u8FZIc7Go5KQL/6Vx6lPG/16h
+	 s0g14EI5QPYlinHWifbJPv7iCA0MbNPnb/CYQZbXEWJTIF8Rr5ymwrCF40aTIXzOun
+	 eW7J5juF3q1+Q==
+Date: Fri, 10 Jan 2025 09:35:20 -0600
+From: Rob Herring <robh@kernel.org>
+To: Romain Naour <romain.naour@smile.fr>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-omap@vger.kernel.org, conor+dt@kernel.org, krzk+dt@kernel.org,
+	kristo@kernel.org, vigneshr@ti.com, nm@ti.com, afd@ti.com,
+	Romain Naour <romain.naour@skf.com>
+Subject: Re: [PATCH v5 1/2] dt-bindings: mfd: syscon: Add
+ ti,j721e-acspcie-proxy-ctrl compatible
+Message-ID: <20250110153520.GA2904744-robh@kernel.org>
+References: <20250110100331.1642242-1-romain.naour@smile.fr>
 MIME-Version: 1.0
-References: <20250108-rk3588-h96-max-v58-v2-0-522301b905d6@gmail.com>
- <1950286.IobQ9Gjlxr@diego> <CABjd4Yy4Qd1rD43u3B-s=HxVBnaQt7fSgP9NFY2YeY0eKMESvQ@mail.gmail.com>
- <2731770.KRxA6XjA2N@diego>
-In-Reply-To: <2731770.KRxA6XjA2N@diego>
-From: Alexey Charkov <alchark@gmail.com>
-Date: Fri, 10 Jan 2025 19:30:33 +0400
-X-Gm-Features: AbW1kvbKtZndFgN6a8gaF4CRnBwYqi1xlW_2MAE9e2Mp3DOEVgrwl-t4iXkVcz0
-Message-ID: <CABjd4Yy48dwZA83XRps_L_sowA_e95PcXYqvAo2J+xVydSA44A@mail.gmail.com>
-Subject: Re: [PATCH v2 2/3] arm64: dts: rockchip: Add SPDIF nodes to RK3588(s)
- device trees
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250110100331.1642242-1-romain.naour@smile.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_073047_135652_8ED8C682 
-X-CRM114-Status: GOOD (  30.66  )
+X-CRM114-CacheID: sfid-20250110_073523_054711_5F9693E9 
+X-CRM114-Status: GOOD (  22.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,92 +74,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 9, 2025 at 2:28=E2=80=AFAM Heiko St=C3=BCbner <heiko@sntech.de>=
- wrote:
->
-> Hi Alexey,
->
-> Am Mittwoch, 8. Januar 2025, 16:30:35 CET schrieb Alexey Charkov:
-> > On Wed, Jan 8, 2025 at 2:01=E2=80=AFPM Heiko St=C3=BCbner <heiko@sntech=
-.de> wrote:
-> > >
-> > > Hi Alexey,
-> > >
-> > > Am Mittwoch, 8. Januar 2025, 10:09:07 CET schrieb Alexey Charkov:
-> > > > RK3588s has four SPDIF transmitters, and the full RK3588 has six.
-> > > > They are fully compatible to RK3568 ones. Add respective nodes
-> > > > to .dtsi files.
-> > >
-> > > While it may seem that way, we still want soc-specific compatibles,
-> > > to future-proof this.
-> > >
-> > > I.e. going the the
-> > >         compatible =3D "rockchip,rk3588-spdif", "rockchip,rk3568-spdi=
-f";
-> > > way, so that now things can just match against the rk3568, but if som=
-e
-> > > fault emerges later on the code can be fixed with the DT staying just
-> > > compatible.
-> > >
-> > > The spdif also has an example already for all the spdif variants that=
- are
-> > > compatible to the rk3066 [3], so it'd need another "items" block for =
-things
-> > > being compatible with the rk3568.
-> >
-> > Hmm, if we are to believe the driver ([4], [5]), they are all the same
-> > as the good old RK3366, which in turn is software compatible to the
-> > good old RK3066. Same seems to apply to RK3576, given that its current
-> > .dtsi just references the "rockchip,rk3568-spdif" compatible.
->
-> I was for a short while afraid that something slipped into mainline :-)
-> But I guess that "rockchip,rk3568-spdif" compatible on the rk3576 is
-> only used in the vendor-kernel.
+On Fri, Jan 10, 2025 at 11:03:30AM +0100, Romain Naour wrote:
+> From: Romain Naour <romain.naour@skf.com>
+> 
+> The ACSPCIE_PROXY_CTRL registers within the CTRL_MMR space of TI's J721e
+> SoC are used to drive the reference clock to the PCIe Endpoint device via
+> the PAD IO Buffers. Add the compatible for allowing the PCIe driver to
+> obtain the regmap for the ACSPCIE_CTRL register within the System
+> Controller device-tree node in order to enable the PAD IO Buffers.
+> 
+> Using the ti,j721e-acspcie-proxy-ctrl compatible imply to use "Proxy1"
+> address (1A090h) instead of "Proxy0" (18090h) to access
+> CTRLMMR_ACSPCIE0_CTRL register:
+> 
+>   CTRLMMR_ACSPCIE0_CTRL Register (Proxy0 Offset = 18090h; Proxy1 Offset = 1A090h)
+> 
+> "Proxy0" is used as the default access path that can be locked with the
+> help of "CTRLMMR_LOCK0_KICK0" and "CTRLMMR_LOCK0_KICK1" registers.
+> 
+> The Technical Reference Manual for J721e SoC with details of the
+> ASCPCIE_CTRL registers is available at:
+> https://www.ti.com/lit/zip/spruil1
+> 
+> Signed-off-by: Romain Naour <romain.naour@skf.com>
+> ---
+> v5:
+>   - Add missing change to the J721e system controller binding
+>     to avoid DT check warning when the new acspcie0_proxy_ctrl (syscon)
+>     will be added to J721e system controller node (Andrew Davis).
+> 
+>   https://lore.kernel.org/linux-devicetree/90f47fae-a493-471d-8fe6-e7df741161be@ti.com/
+> 
+>   - Explain why "Proxy1" address (1A090h) should be used while using
+>     ti,j721e-acspcie-proxy-ctrl compatible (Siddharth Vadapalli).
+> 
+>   https://lore.kernel.org/linux-devicetree/begojbvvrpyjfr3pye7mqwiw73ucw5ynepdfujssr4jx4vs33a@pwahnph3qesl/
+> 
+> v4: Add missing change in the second list (From Andrew Davis) [1]
+>   Rebase after the ti,j784s4-acspcie-proxy-ctrl compatible fix [2]
+>   [1] https://lore.kernel.org/linux-devicetree/20250103174524.28768-1-afd@ti.com/
+>   [2] https://lore.kernel.org/linux-devicetree/20250103174524.28768-2-afd@ti.com/
+> 
+> v3: new commit
+> ---
+>  Documentation/devicetree/bindings/mfd/syscon.yaml           | 2 ++
+>  .../bindings/soc/ti/ti,j721e-system-controller.yaml         | 6 ++++++
+>  2 files changed, 8 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Documentation/devicetree/bindings/mfd/syscon.yaml
+> index 0e68c69e7bc9..1f3e67f432e7 100644
+> --- a/Documentation/devicetree/bindings/mfd/syscon.yaml
+> +++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
+> @@ -115,6 +115,7 @@ select:
+>            - ti,am625-dss-oldi-io-ctrl
+>            - ti,am62p-cpsw-mac-efuse
+>            - ti,am654-dss-oldi-io-ctrl
+> +          - ti,j721e-acspcie-proxy-ctrl
+>            - ti,j784s4-acspcie-proxy-ctrl
+>            - ti,j784s4-pcie-ctrl
+>            - ti,keystone-pllctrl
+> @@ -213,6 +214,7 @@ properties:
+>            - ti,am625-dss-oldi-io-ctrl
+>            - ti,am62p-cpsw-mac-efuse
+>            - ti,am654-dss-oldi-io-ctrl
 
-Sorry, didn't mean to give you a heart attack :-)
+> +          - ti,j721e-acspcie-proxy-ctrl
+>            - ti,j784s4-acspcie-proxy-ctrl
 
-> > Does it mean that the binding needs to be restructured so that the
-> > required fallback compatible ("rockchip,rk3066-spdif") applies to all
-> > variants? Or shall the existing ones be left alone, and just RK3588
-> > and RK3576 added inside that "items" block?
->
-> I noticed that the spdif binding has had an interestings growth over
-> the years, with some socs being outliers.
->
-> I wouldn't change the whole binding, especially as that then touches
-> established stuff.
+How do these 2 compare? Are they compatible?
 
-Noted, thanks.
+>            - ti,j784s4-pcie-ctrl
+>            - ti,keystone-pllctrl
+> diff --git a/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml b/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
+> index 378e9cc5fac2..16929218d611 100644
+> --- a/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
+> +++ b/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
+> @@ -68,6 +68,12 @@ patternProperties:
+>      description:
+>        The node corresponding to SoC chip identification.
+>  
+> +  "^syscon@[0-9a-f]+$":
+> +    type: object
+> +    $ref: /schemas/mfd/syscon.yaml#
+> +    description:
+> +      This is the ASPCIe control region.
 
-> The question would be weather to add the rk3588 + rk3576 to the
-> existing enum marking them as compatible with the rk3066, or create
-> a separate items block and just saying the rk3588-spdif is compatible wit=
-h
-> the rk3568 one, like:
->
-> [...]
->       - const: rockchip,rk3568-spdif
->       - items:
->           - enum:
->               - rockchip,rk3128-spdif
->               - rockchip,rk3188-spdif
->               - rockchip,rk3288-spdif
->               - rockchip,rk3308-spdif
->           - const: rockchip,rk3066-spdif
->       - items:
->           - enum:
->               - rockchip,rk3576-spdif
->               - rockchip,rk3588-spdif
->           - const: rockchip,rk3568-spdif
-> [...]
->
-> With the RK3066 being released in 2012, part of me is amazed that that
-> block survived that long, on the other hand going with the above snippet
-> somehow feels saver ;-) .
+So this is a syscon child of a syscon. The primary reason for 'syscon' 
+compatible is to create a regmap. Why can't you use the parent's syscon?
 
-Let me first submit a short series dealing with RK3588 alone, as
-that's the only one I can test at the moment.
-
-Best,
-Alexey
+Rob
 
