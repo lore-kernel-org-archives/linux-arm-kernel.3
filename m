@@ -4,66 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D187E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 16:22:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C44B8E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 16:24:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ix31C5pSpXY8k6w9TewnzNJ/TNiypBsPfJmPK8zNyhw=; b=JIPJvL+55/hIV72ZXLW8h1fL6Y
-	6uCdVzWsQ581eQWjZ8Z/wC6Cfl2eYucGUdrwgvwuFo02u5WjgV5IiCxEDfO/uKrWAou4oN0l6QW6e
-	sq+70hL+2ozxIF3LCD83bFSmplFR274icEj0uqcM3RwBu9KQaJF6nrSXKxYI3Zqxb0xMtXjHMUdl6
-	ngMsZjfCzQOiD/UFtfeSOFZvc81s+rFAtpdO1qJlfIad1SlLXcDoBEERz7NJ/CwwV7cED15IA+o6L
-	xktqZS7gkqNQzOs3zN9oBBy2Q2vvfSAJu2hTZX/AuNRDvGagkM21vkavvpGedKxmOa6qx4QNjb5ea
-	USkNCnXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QgjH/oq+9TaQCgHaubBz/L/lufD2PpLp+kJALrlt93s=; b=TieUZnsOMllC+nTyWgBQuxMD5I
+	XpqWDaqsiMtKV3MLVpIVXY+2eTBi6WvmvWAP2bF7756jvSypEXWl4GN/mjDU3epd5utnAT53/86p4
+	AECWw6R1dAEtZTFDjt9ADlTDo/QZgrjRGBAoWlwSxWQBBpbiX9+xFcjmQCuWGZNN5xMt8FDdx+RVp
+	/NJUA6bBAIZddW4ucOg0nFAIK304IHf2RzaT4kETNK399IMri/yy93nqyNPtbg3R3WFGhnW8QhOjF
+	gYGBwH+IUlta57EkCRFpkAj6yCQbI64QYe1bKDwmLnTNWp799vvMX+wan0wOjmzu3qh+ZFWJe3bj9
+	z/Os8TQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWHmR-0000000GDbD-1hvN;
-	Fri, 10 Jan 2025 16:22:39 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tWHnf-0000000GE8f-0veT;
+	Fri, 10 Jan 2025 16:23:55 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWHXY-0000000G9XK-0XwB
+	id 1tWHbU-0000000GANP-0CTo
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 10 Jan 2025 16:11:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=QgjH/oq+9TaQCgHaubBz/L/lufD2PpLp+kJALrlt93s=; b=ONseZzfN3csdcsBx/5n9AWysVA
+	atBuWgO4H1Hg+oXDNhPMCVGRlapG7I8K5cN1yxT/xjR0tTeGH1Cl27hNpTwwC0zVYZSp6jZntJWC7
+	xM1noRCUwIzw0750tEh0Pmf6WzgbLqAAokJ1BKA9/dPNLXWy2XaJuyY19Re1hDpR0Le9pSHLssCUG
+	vr1FTKkknRQqEoEGqSPgDbE0E82qAx7gy6mdbx1SxyYs98fCohN7QKqc73fbMjI4+w/EXkQRfyIj4
+	KQIRxplxuipYDVGmrhsELGO4FmnbdEeQmdhgBthFYGrdicL9Hun6862Nk6Ffhzhge/hCyhn2oSpsZ
+	0Eweh3CQ==;
+Received: from frasgout.his.huawei.com ([185.176.79.56])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tWHbQ-00000009pxT-3QsV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 16:07:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C756CA425D5;
-	Fri, 10 Jan 2025 16:05:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA7E1C4CED6;
-	Fri, 10 Jan 2025 16:07:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736525234;
-	bh=8ic0fmAFCingqmiYWExc1+9H7U4At02apc1uatdqHJI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=I+9hpbaIVj0FizWLBTAWdFSqcU/ByW3qkTkX6aDezSm2lBVzZd/sn0qs/9PXrA8Q4
-	 idGoskoWOfDiMrR28hTdGd4EP4GR7tky/OOW0c2RmkLyfK0p4nEdSPYzJw5pUm7Jgs
-	 6+BxOrKW86Yu76GQ+CkNNz9YIaoq7HDmT+0mT/1jrhlUPtZuImUsGli2KVgZDX6GrI
-	 waLjYb0D5kB4O9yeG7i5fZOaHxy5BakYKOaVVr/ibq+qLFIMYwfLPVXfZ9OLLvWq0J
-	 TjlUtV5r97UcbuTVykcU/CeIZKNX9FaGjzHpFrcxhWuLoBzIvHEoYuB7nKsmUZ+wr1
-	 H3pRIN9+Xdmzw==
-Date: Fri, 10 Jan 2025 10:07:13 -0600
-From: Rob Herring <robh@kernel.org>
-To: Ninad Palsule <ninad@linux.ibm.com>
-Cc: minyard@acm.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, ratbert@faraday-tech.com,
-	openipmi-developer@lists.sourceforge.net, netdev@vger.kernel.org,
-	joel@jms.id.au, andrew@codeconstruct.com.au,
-	devicetree@vger.kernel.org, eajames@linux.ibm.com,
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 02/10] bindings: ipmi: Add binding for IPMB device intf
-Message-ID: <20250110160713.GA2952341-robh@kernel.org>
-References: <20250108163640.1374680-1-ninad@linux.ibm.com>
- <20250108163640.1374680-3-ninad@linux.ibm.com>
+	Fri, 10 Jan 2025 16:11:18 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.231])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4YV66w15Tmz6L4xp;
+	Sat, 11 Jan 2025 00:09:44 +0800 (CST)
+Received: from frapeml500003.china.huawei.com (unknown [7.182.85.28])
+	by mail.maildlp.com (Postfix) with ESMTPS id DDA1A1401DC;
+	Sat, 11 Jan 2025 00:10:58 +0800 (CST)
+Received: from a2303103017.china.huawei.com (10.203.177.99) by
+ frapeml500003.china.huawei.com (7.182.85.28) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.39; Fri, 10 Jan 2025 17:10:58 +0100
+From: Alireza Sanaee <alireza.sanaee@huawei.com>
+To: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+CC: <robh@kernel.org>, <linuxarm@huawei.com>,
+	<shameerali.kolothum.thodi@huawei.com>, <Jonathan.Cameron@Huawei.com>,
+	<jiangkunkun@huawei.com>, <yangyicong@hisilicon.com>
+Subject: [PATCH] arm64: of: handle multiple threads in ARM cpu node
+Date: Fri, 10 Jan 2025 16:10:57 +0000
+Message-ID: <20250110161057.445-1-alireza.sanaee@huawei.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250108163640.1374680-3-ninad@linux.ibm.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.203.177.99]
+X-ClientProxiedBy: lhrpeml100010.china.huawei.com (7.191.174.197) To
+ frapeml500003.china.huawei.com (7.182.85.28)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_080716_236380_C7993822 
-X-CRM114-Status: GOOD (  18.66  )
+X-CRM114-CacheID: sfid-20250110_161117_179326_15027F6B 
+X-CRM114-Status: GOOD (  16.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,76 +85,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 08, 2025 at 10:36:30AM -0600, Ninad Palsule wrote:
-> Add device tree binding document for the IPMB device interface.
-> This device is already in use in both driver and .dts files.
-> 
-> Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
-> ---
->  .../devicetree/bindings/ipmi/ipmb-dev.yaml    | 44 +++++++++++++++++++
->  1 file changed, 44 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/ipmi/ipmb-dev.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/ipmi/ipmb-dev.yaml b/Documentation/devicetree/bindings/ipmi/ipmb-dev.yaml
-> new file mode 100644
-> index 000000000000..a8f46f1b883e
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/ipmi/ipmb-dev.yaml
-> @@ -0,0 +1,44 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/ipmi/ipmb-dev.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: IPMB Device
-> +
-> +description: IPMB Device interface to receive request and send response
+Update `of_parse_and_init_cpus` to parse reg property of CPU node as
+an array based as per spec for SMT threads.
 
-IPMB is not defined anywhere.
+Spec v0.4 Section 3.8.1:
+The value of reg is a <prop-encoded-**array**> that defines a unique
+CPU/thread id for the CPU/threads represented by the CPU node.  **If a CPU
+supports more than one thread (i.e.  multiple streams of execution) the
+reg property is an array with 1 element per thread**.  The address-cells
+on the /cpus node specifies how many cells each element of the array
+takes. Software can determine the number of threads by dividing the size
+of reg by the parent node's address-cells.
 
-Which side of the interface does this apply to? How do I know if I have 
-an ipmb-dev?
+An accurate example of 1 core with 2 SMTs:
 
-This document needs to stand on its own. Bindings exist in a standalone 
-tree without kernel drivers or docs.
+	cpus {
+		#size-cells = <0x00>;
+		#address-cells = <0x01>;
 
-> +
-> +maintainers:
-> +  - Ninad Palsule <ninad@linux.ibm.com>
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - ipmb-dev
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  i2c-protocol:
-> +    description:
-> +      Use I2C block transfer instead of SMBUS block transfer.
-> +    type: boolean
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    i2c {
-> +        #address-cells = <1>;
-> +        #size-cells = <0>;
-> +
-> +        ipmb-dev@10 {
-> +            compatible = "ipmb-dev";
-> +            reg = <0x10>;
-> +            i2c-protocol;
-> +        };
-> +    };
-> -- 
-> 2.43.0
-> 
+		cpu@0 {
+			phandle = <0x8000>;
+			**reg = <0x00 0x01>;**
+			enable-method = "psci";
+			compatible = "arm,cortex-a57";
+			device_type = "cpu";
+		};
+	};
+
+Instead of:
+
+	cpus {
+		#size-cells = <0x00>;
+		#address-cells = <0x01>;
+
+		cpu@0 {
+			phandle = <0x8000>;
+			reg = <0x00>;
+			enable-method = "psci";
+			compatible = "arm,cortex-a57";
+			device_type = "cpu";
+		};
+
+		cpu@1 {
+			phandle = <0x8001>;
+			reg = <0x01>;
+			enable-method = "psci";
+			compatible = "arm,cortex-a57";
+			device_type = "cpu";
+		};
+	};
+
+which is **NOT** accurate.
+
+Signed-off-by: Alireza Sanaee <alireza.sanaee@huawei.com>
+---
+ arch/arm64/kernel/smp.c | 74 +++++++++++++++++++++++------------------
+ 1 file changed, 41 insertions(+), 33 deletions(-)
+
+diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+index 3b3f6b56e733..8dd3b3c82967 100644
+--- a/arch/arm64/kernel/smp.c
++++ b/arch/arm64/kernel/smp.c
+@@ -689,53 +689,61 @@ static void __init acpi_parse_and_init_cpus(void)
+ static void __init of_parse_and_init_cpus(void)
+ {
+ 	struct device_node *dn;
++	u64 hwid;
++	u32 tid;
+ 
+ 	for_each_of_cpu_node(dn) {
+-		u64 hwid = of_get_cpu_hwid(dn, 0);
++		tid = 0;
+ 
+-		if (hwid & ~MPIDR_HWID_BITMASK)
+-			goto next;
++		while (1) {
++			hwid = of_get_cpu_hwid(dn, tid++);
++			if (hwid == ~0ULL)
++				break;
+ 
+-		if (is_mpidr_duplicate(cpu_count, hwid)) {
+-			pr_err("%pOF: duplicate cpu reg properties in the DT\n",
+-				dn);
+-			goto next;
+-		}
++			if (hwid & ~MPIDR_HWID_BITMASK)
++				goto next;
+ 
+-		/*
+-		 * The numbering scheme requires that the boot CPU
+-		 * must be assigned logical id 0. Record it so that
+-		 * the logical map built from DT is validated and can
+-		 * be used.
+-		 */
+-		if (hwid == cpu_logical_map(0)) {
+-			if (bootcpu_valid) {
+-				pr_err("%pOF: duplicate boot cpu reg property in DT\n",
+-					dn);
++			if (is_mpidr_duplicate(cpu_count, hwid)) {
++				pr_err("%pOF: duplicate cpu reg properties in the DT\n",
++				       dn);
+ 				goto next;
+ 			}
+ 
+-			bootcpu_valid = true;
+-			early_map_cpu_to_node(0, of_node_to_nid(dn));
+-
+ 			/*
+-			 * cpu_logical_map has already been
+-			 * initialized and the boot cpu doesn't need
+-			 * the enable-method so continue without
+-			 * incrementing cpu.
++			 * The numbering scheme requires that the boot CPU
++			 * must be assigned logical id 0. Record it so that
++			 * the logical map built from DT is validated and can
++			 * be used.
+ 			 */
+-			continue;
+-		}
++			if (hwid == cpu_logical_map(0)) {
++				if (bootcpu_valid) {
++					pr_err("%pOF: duplicate boot cpu reg property in DT\n",
++					       dn);
++					goto next;
++				}
++
++				bootcpu_valid = true;
++				early_map_cpu_to_node(0, of_node_to_nid(dn));
++
++				/*
++				 * cpu_logical_map has already been
++				 * initialized and the boot cpu doesn't need
++				 * the enable-method so continue without
++				 * incrementing cpu.
++				 */
++				continue;
++			}
+ 
+-		if (cpu_count >= NR_CPUS)
+-			goto next;
++			if (cpu_count >= NR_CPUS)
++				goto next;
+ 
+-		pr_debug("cpu logical map 0x%llx\n", hwid);
+-		set_cpu_logical_map(cpu_count, hwid);
++			pr_debug("cpu logical map 0x%llx\n", hwid);
++			set_cpu_logical_map(cpu_count, hwid);
+ 
+-		early_map_cpu_to_node(cpu_count, of_node_to_nid(dn));
++			early_map_cpu_to_node(cpu_count, of_node_to_nid(dn));
+ next:
+-		cpu_count++;
++			cpu_count++;
++		}
+ 	}
+ }
+ 
+-- 
+2.43.0
+
 
