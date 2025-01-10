@@ -4,95 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7426E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 13:19:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A83AE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 13:20:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wFC57NWqs87HrbGHaJbSRA+SgAQ9dhPfJP+b4s9z5lw=; b=EzP6s0bmuagwPyUn9lAhdMoRNU
-	hGQL9d87YqqKg4ospKbxIVhD7hY7cjGKeQsNOSiuyQkO4sWZOrhGbVVDQoYBib1MUNGpOeV9nz2aC
-	SAVGcKC/G6sLbswRB5Ak6jPORuawAIgeaUEGWHWueStRh6LoAhuR7AoRXms9IAMMBQIWyhovR1ioi
-	cDq9qRGKC4/B9qVixtJp10uGv0EmqRL70XDzx5tEgRfRV2rk92GqErX4Kw2u/wJxkGSukSsjlx3pQ
-	oWSWLABXNTxnOZ7pCYrlhojMdiy9zRkyhQ8KvZp7SyZJrZNYVvYtbWxZ6Fwezueciu1Hjy3R77VBe
-	SPLZkOFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NNJHclgCjJQSFzjzwK6uqiqya33a9A+6l3zMe9dNN3I=; b=B2q/aX/FHcuFhGW5sUFHEH+rcW
+	hQqeZxWEZZcOIs19RV56dRz0XR8gbbbbK4oz8vHQG0DzwqGZa6xeUPsugFnNwqkVA7Qq4O6CpILwS
+	sznklRhg2dwCi5232DQ0UayIkDQ6FG1GYKerS3Mu1WcmuEhpdj9j74mrh+ozEN1BlcMFmGVhu/5Gj
+	UMTrebGqHpYbaBcxmVHS7dlbCkYS0EbLniKvOokNmRMIvfl+SoIteHlX+zO2Iv44x+IqzXIl9Gejc
+	CR0IvluXQjNvMvu+Z4KN9MsVqcvZu0ahZqb5p8Qlth6Jolk26tlHTstxeUhJ8NBwD/lsjRaN8/Q9w
+	fJ7BsJ6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWEv4-0000000FRt9-2k33;
-	Fri, 10 Jan 2025 13:19:22 +0000
+	id 1tWEwH-0000000FS3N-1Ksz;
+	Fri, 10 Jan 2025 13:20:37 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWELq-0000000FK8V-20wh;
-	Fri, 10 Jan 2025 12:42:59 +0000
+	id 1tWEaq-0000000FNEt-1e4J;
+	Fri, 10 Jan 2025 12:58:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CCE6B5C10C3;
-	Fri, 10 Jan 2025 12:42:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0816AC4CEDD;
-	Fri, 10 Jan 2025 12:42:49 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id AEA515C05FC;
+	Fri, 10 Jan 2025 12:57:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 201BFC4CED6;
+	Fri, 10 Jan 2025 12:58:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736512977;
-	bh=jQisMlTjYfeo02yHCaf8/3pDTMXN8QMfrZ/MAhEXiCE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KpD0sW7UIABuucxd/Qx8pWVveKRBTPjoee4MF0KjKw8i5YDBoDzL5JYvu4BaELO0t
-	 M/U8H/SXs0PIabw+VP/Wmcv2zkse9maGzd/9rSoZgJ6hC/Lu3TEGJ9VrLXjmmeRFg1
-	 vFZp71KV7rVxbfsUrwau0sxqutt53V+fSRgOWgFQTeVLDgWzOazdvg68BZ9FapN4Et
-	 JWbE4PuKzWFwlzYvCA+Uzkc1/eq5V73FfErBUEePlT0QeeVOCwHPXy/saY0DV/C3w1
-	 EubDaTDdWlxizzmd69Sr4YfE+GSogwgowB31K0GFRmk2/goQYinjInn1BjN5IFfOdI
-	 Cy3tqd/O7Qjaw==
-Date: Fri, 10 Jan 2025 12:42:47 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Miquel Raynal <miquel.raynal@bootlin.com>
-Cc: Sanjay R Mehta <sanju.mehta@amd.com>,
-	Serge Semin <fancer.lancer@gmail.com>, Han Xu <han.xu@nxp.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Haibo Chen <haibo.chen@nxp.com>,
-	Yogesh Gaur <yogeshgaur.83@gmail.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Michal Simek <michal.simek@amd.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>,
-	Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>,
-	=?iso-8859-1?Q?C=E9dric?= Le Goater <clg@kaod.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Avi Fishman <avifishman70@gmail.com>,
-	Tomer Maimon <tmaimon77@gmail.com>,
-	Tali Perry <tali.perry1@gmail.com>,
-	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>,
-	Benjamin Fair <benjaminfair@google.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Raju Rangoju <Raju.Rangoju@amd.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Steam Lin <stlin2@winbond.com>, linux-spi@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-mtd@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v2 20/27] spi: spi-mem: Estimate the time taken by
- operations
-Message-ID: <ca317e2c-cd09-4884-b9eb-9cf23ae88078@sirena.org.uk>
-References: <20241224-winbond-6-11-rc1-quad-support-v2-0-ad218dbc406f@bootlin.com>
- <20241224-winbond-6-11-rc1-quad-support-v2-20-ad218dbc406f@bootlin.com>
+	s=k20201202; t=1736513907;
+	bh=XZt40d7lk7aYWQUmstyqSQy2fHiY4SGEmmPx9wjkcQI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=c/rJhxP/U7eXuHD3g5AFaGBrh7lsXeeKdZrlyyKVO/VGKPCMUtbBM3TJWaaRdLDQx
+	 4ntfAn+yUcGvx4JsZTu4Atr9xNGWVZ6WkQWvjP6kzZKuDOZsGpd/uQiEAZPPk1wzpe
+	 jB54evtZQMdty3JhUXMbhr07U/9hmm+bg/BT+karWIu6Cb2h3WzpoIdYcuW6iK3myf
+	 Us3cb3MGaFSeW12GpOILmZxHO7qibXVgbGkDOc75S/cJB/B9tOlKfk2FbZwPj8z2Se
+	 DVKLsxJCmbgRW6pb30mjjF1pC07vk85n/ejVskSsQIppX7RzuY3hKhbrS0Mnv2MDfF
+	 VPdJQiGjpA2mw==
+Message-ID: <0499ee04-0fcc-42e1-aab8-3cb8daa88c88@kernel.org>
+Date: Fri, 10 Jan 2025 13:58:16 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="RVMhmV/ewGAzdaKp"
-Content-Disposition: inline
-In-Reply-To: <20241224-winbond-6-11-rc1-quad-support-v2-20-ad218dbc406f@bootlin.com>
-X-Cookie: Many are cold, but few are frozen.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 01/12] dt-bindings: arm: mediatek: mmsys: add compatible
+ for MT8196
+To: "paul-pl.chen" <paul-pl.chen@mediatek.com>, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, chunkuang.hu@kernel.org,
+ angelogioacchino.delregno@collabora.com
+Cc: matthias.bgg@gmail.com, p.zabel@pengutronix.de,
+ jason-jh.lin@mediatek.com, nancy.lin@mediatek.com, singo.chang@mediatek.com,
+ xiandong.wang@mediatek.com, sirius.wang@mediatek.com,
+ sunny.shen@mediatek.com, fshao@chromium.org, treapking@chromium.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org,
+ Project_Global_Chrome_Upstream_Group@mediatek.com
+References: <20250110123835.2719824-1-paul-pl.chen@mediatek.com>
+ <20250110123835.2719824-2-paul-pl.chen@mediatek.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
+ QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
+ gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
+ /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
+ iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
+ VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
+ 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
+ xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
+ eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
+ AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
+ MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
+ Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
+ ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
+ vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
+ oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
+ lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
+ t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
+ uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
+ 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
+ 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
+In-Reply-To: <20250110123835.2719824-2-paul-pl.chen@mediatek.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_044258_594828_7BB985FD 
-X-CRM114-Status: GOOD (  13.35  )
+X-CRM114-CacheID: sfid-20250110_045828_516540_C06B3902 
+X-CRM114-Status: UNSURE (   7.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,84 +126,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 10/01/2025 13:33, paul-pl.chen wrote:
+> From: "Paul-pl.Chen" <paul-pl.chen@mediatek.com>
+> 
+> Add compatible for mmsys yaml of MT8196
+> 
+> Signed-off-by: Paul-pl.Chen <paul-pl.chen@mediatek.com>
 
---RVMhmV/ewGAzdaKp
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Tue, Dec 24, 2024 at 06:06:05PM +0100, Miquel Raynal wrote:
-> In the SPI-NAND layer, we currently make list of operation variants from
-> the fastest one to the slowest and there is a bit of logic in the core
-> to go over them and pick the first one that is supported by the
-> controller, ie. the fastest one among the supported ops.
+This is a wide pattern now in Mediatek: login name is used as family
+name. Repeating the same comment to every Mediatek employee is a bit
+tedious, so maybe you could fix it internally?
 
-This breaks the build:
+Create some guideline for your colleagues so you won't repeat the same
+things over and over?
 
-/build/stage/linux/drivers/spi/spi-mem.c:580:5: error: conflicting types fo=
-r =E2=80=98spi_mem_calc_op_duration=E2=80=99; have =E2=80=98u64(struct spi_=
-mem_op *)=E2=80=99 {aka =E2=80=98long long unsigned int(struct spi_mem_op *=
-)=E2=80=99}
-  580 | u64 spi_mem_calc_op_duration(struct spi_mem_op *op)
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~
-In file included from /build/stage/linux/drivers/spi/spi-mem.c:12:
-/build/stage/linux/include/linux/spi/spi-mem.h:427:5: note: previous declar=
-ation of =E2=80=98spi_mem_calc_op_duration=E2=80=99 with type =E2=80=98u64(=
-struct spi_mem *, struct spi_mem_op *)=E2=80=99 {aka =E2=80=98long long uns=
-igned int(struct spi_mem *, struct spi_mem_op *)=E2=80=99}
-  427 | u64 spi_mem_calc_op_duration(struct spi_mem *mem, struct spi_mem_op=
- *op);
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~
-In file included from /build/stage/linux/include/linux/linkage.h:7,
-                 from /build/stage/linux/arch/arm/include/asm/bug.h:5,
-                 from /build/stage/linux/include/linux/bug.h:5,
-                 from /build/stage/linux/include/linux/thread_info.h:13,
-                 from /build/stage/linux/include/linux/sched.h:14,
-                 from /build/stage/linux/include/linux/ratelimit.h:6,
-                 from /build/stage/linux/include/linux/dev_printk.h:16,
-                 from /build/stage/linux/include/linux/device.h:15,
-                 from /build/stage/linux/include/linux/dmaengine.h:8,
-                 from /build/stage/linux/drivers/spi/spi-mem.c:8:
-/build/stage/linux/drivers/spi/spi-mem.c:593:19: error: conflicting types f=
-or =E2=80=98spi_mem_calc_op_duration=E2=80=99; have =E2=80=98u64(struct spi=
-_mem_op *)=E2=80=99 {aka =E2=80=98long long unsigned int(struct spi_mem_op =
-*)=E2=80=99}
-  593 | EXPORT_SYMBOL_GPL(spi_mem_calc_op_duration);
-      |                   ^~~~~~~~~~~~~~~~~~~~~~~~
-/build/stage/linux/include/linux/export.h:56:28: note: in definition of mac=
-ro =E2=80=98__EXPORT_SYMBOL=E2=80=99
-   56 |         extern typeof(sym) sym;                                 \
-      |                            ^~~
-/build/stage/linux/include/linux/export.h:69:41: note: in expansion of macr=
-o =E2=80=98_EXPORT_SYMBOL=E2=80=99
-   69 | #define EXPORT_SYMBOL_GPL(sym)          _EXPORT_SYMBOL(sym, "GPL")
-      |                                         ^~~~~~~~~~~~~~
-/build/stage/linux/drivers/spi/spi-mem.c:593:1: note: in expansion of macro=
- =E2=80=98EXPORT_SYMBOL_GPL=E2=80=99
-  593 | EXPORT_SYMBOL_GPL(spi_mem_calc_op_duration);
-      | ^~~~~~~~~~~~~~~~~
-/build/stage/linux/include/linux/spi/spi-mem.h:427:5: note: previous declar=
-ation of =E2=80=98spi_mem_calc_op_duration=E2=80=99 with type =E2=80=98u64(=
-struct spi_mem *, struct spi_mem_op *)=E2=80=99 {aka =E2=80=98long long uns=
-igned int(struct spi_mem *, struct spi_mem_op *)=E2=80=99}
-  427 | u64 spi_mem_calc_op_duration(struct spi_mem *mem, struct spi_mem_op=
- *op);
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~
-
---RVMhmV/ewGAzdaKp
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmeBFcYACgkQJNaLcl1U
-h9BhIgf+KXE1JExJo+WBN7mYcyQ4HitVxI+rVexdbI+QMmjPpB2umRebJU2u0F2O
-zJlk5R6eGXdOn3H83H0CacUm11VVNZmqP1yUSytO4sjiyHdh7Zp70UkidrhA0O9F
-pRM9l9bBbWV3FzLgZCYjZ03y6A+A9CrIsGRVAuX/rAUHENGshIN+Wa1j4ZwRkI+u
-Nid4YWfQkB1UjSFhcx6d9iDq65hTlrHDn5ThFmIDGZCTS8NRcUAevtkdwoU9thC7
-1xTCkJ92ejUGQ3TTzVrlg6qsnSJTAARPhDZ8WasEfN+L/LWyRI181QAMRKG4oOOi
-swVXAClyqCX9avFjDoBP8aArkjRb4A==
-=qXZ3
------END PGP SIGNATURE-----
-
---RVMhmV/ewGAzdaKp--
+Best regards,
+Krzysztof
 
