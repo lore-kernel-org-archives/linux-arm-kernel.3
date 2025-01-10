@@ -4,90 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71CE7E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 19:26:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3572DE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 19:27:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fyOwpjpZKgQn6RpIltzJD1aESioMX/51u66JwLNI3t4=; b=ZZtx+rWeQu19AaAyN4TDZpqOCj
-	woo7uwqN5qLt74nOz+tW0bY/vki4uDfxd93NYblj9juCDkoylxAPT3Ik0Wb2nRam8SzHjPJ4gAukh
-	h1b57CpGzF5sD3NrOFnRqA8yH0VH2+Mc7sF9Ix+GgCXzEOmyd8LtIL+VWBZ84BGh37UwiqadQL4nb
-	EHTXLS3Me2G/5nJTuzleefYonoCgijvuKNKjvEzByWlUjbGtG/uqFj+9c9BXnYhRpUj1RJpO6Pmmd
-	4b/YV3n3O3VJlx6IbEl2X8B+VnUmwymNOyb15MCN9TZsEBLd3xZv5fJzfK2qkWx53giuKIv1iCKbF
-	b2E2FNPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FxFSWBvNwwzGpNauOKJOh690c9DKh5Hm6FAncQMyVDc=; b=TQz97zMU5j5hF/cfIYIYEALbGm
+	0X9907xxNeZU1dLU9gL0w1/YmlPWivIFb1+ZkMUESzScchEEOUeYW887WD/9YRZlULkd0nCH7PhTy
+	UsU1EaVRqcFKPuJP4pC5TmMP6trHog+QCAHI/mvnk+Qh7odU3D5q/3j1hzthkUOQilLMlzu5O8KsB
+	POwEocCRDgjJObynIYkn8tMrk2jbjkAlSg4s8/p+PQE6cO2yC0KPK5hXuH21tfzFnj3jzGbKY+yCl
+	SZ4HrOeBC6USKUkhRZe79+5OWPCjET54VNB5QUXDyzOUO3vFJ2T9FqVQh6Mi1IteMtpa00pXQ8znH
+	HoNE4X+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWKe6-0000000Gkqo-1z1U;
-	Fri, 10 Jan 2025 19:26:14 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1tWKfX-0000000GlDP-0sTx;
+	Fri, 10 Jan 2025 19:27:43 +0000
+Received: from out-176.mta1.migadu.com ([2001:41d0:203:375::b0])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWKcs-0000000Gkgv-1tN8
+	id 1tWKeI-0000000Gks5-0fn0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 19:24:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1736537098; x=1768073098;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=504AMZ+Vo4ZnssU/VHuo6RZPX5vtoGJsLAXuYnSARtk=;
-  b=NUUkqarddR45vq20DcekRLfd4dpQwpn9RsHCYqsvRkQg/KiU3sBvjK4z
-   XzhVn40PZSlTeoaTjufVz9RFK+HM/E+ZIentQ8LDAioxTTzgPMBIawYZZ
-   a+mD9X32WucVZRGDfzhz9R6uHk0kA5AlaJ7Lf95zF4JMNC9l/0PZv1oqS
-   cLlRKTo1V9vdBmazCIVPpnaHLbTGzommdHM9j1El8iZed5N/XqC9eIPFc
-   Hnu7spfS5RxDYrFgo1iFlRcZmN0sJozzAyFNDaMEVCdo1S61QVapj/crI
-   HFoZKQoEA97KpnNSNJwR0aOdHVrDvU+/oMPQ0xuw/OrXdeQxj1Vq5++7X
-   g==;
-X-CSE-ConnectionGUID: KefZollLSUmlQTy+A1mE1Q==
-X-CSE-MsgGUID: x3068RliRm6vCELtC4ervQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11311"; a="47501770"
-X-IronPort-AV: E=Sophos;i="6.12,305,1728975600"; 
-   d="scan'208";a="47501770"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Jan 2025 11:24:57 -0800
-X-CSE-ConnectionGUID: s1enOwdRQpCIui1IfmmQ5w==
-X-CSE-MsgGUID: U7642DnUT1OswzWesCWv2w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,305,1728975600"; 
-   d="scan'208";a="108730413"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by fmviesa004.fm.intel.com with ESMTP; 10 Jan 2025 11:24:53 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tWKck-000JfX-1Z;
-	Fri, 10 Jan 2025 19:24:50 +0000
-Date: Sat, 11 Jan 2025 03:24:34 +0800
-From: kernel test robot <lkp@intel.com>
-To: Yoshihiro Furudera <fj5100bi@fujitsu.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Bjorn Andersson <andersson@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	=?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev
-Subject: Re: [PATCH v3 2/2] perf: Fujitsu: Add the Uncore PCI PMU driver
-Message-ID: <202501110253.sgjIluLA-lkp@intel.com>
-References: <20250109054544.2342442-3-fj5100bi@fujitsu.com>
+	Fri, 10 Jan 2025 19:26:27 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1736537182;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=FxFSWBvNwwzGpNauOKJOh690c9DKh5Hm6FAncQMyVDc=;
+	b=GGKDDtacV4yf0lK6ELn1ocYpufe2by1H/DwGK/SqiiJuk0KQ/wG34ylMnBZ1SnQofYAL2/
+	SZ7+uYXtWjP4W39fxdF+BHQ4WjGEyqISAZs6LwY306b3RJhG0hmXfUuYI3UvCyYzpkx1r1
+	VkBuneSKfG79zdyLae0gtuNrh73i7Jc=
+From: Sean Anderson <sean.anderson@linux.dev>
+To: "David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	netdev@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	Shannon Nelson <shannon.nelson@amd.com>,
+	Michal Simek <michal.simek@amd.com>,
+	linux-kernel@vger.kernel.org,
+	Sean Anderson <sean.anderson@linux.dev>,
+	Heng Qi <hengqi@linux.alibaba.com>
+Subject: [PATCH net-next v3 0/6] net: xilinx: axienet: Enable adaptive IRQ coalescing with DIM
+Date: Fri, 10 Jan 2025 14:26:10 -0500
+Message-Id: <20250110192616.2075055-1-sean.anderson@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250109054544.2342442-3-fj5100bi@fujitsu.com>
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_112458_529713_3BA52A6F 
-X-CRM114-Status: GOOD (  13.84  )
+X-CRM114-CacheID: sfid-20250110_112626_465481_0B7FE0E1 
+X-CRM114-Status: GOOD (  11.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,48 +73,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yoshihiro,
+To improve performance without sacrificing latency under low load,
+enable DIM. While I appreciate not having to write the library myself, I
+do think there are many unusual aspects to DIM, as detailed in the last
+patch.
 
-kernel test robot noticed the following build errors:
+This series depends on [1].
 
-[auto build test ERROR on arm-perf/for-next/perf]
-[also build test ERROR on linus/master v6.13-rc6 next-20250110]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+[1] https://lore.kernel.org/netdev/20250110190726.2057790-1-sean.anderson@linux.dev/
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Yoshihiro-Furudera/perf-Fujitsu-Add-the-Uncore-MAC-PMU-driver/20250109-135249
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/will/linux.git for-next/perf
-patch link:    https://lore.kernel.org/r/20250109054544.2342442-3-fj5100bi%40fujitsu.com
-patch subject: [PATCH v3 2/2] perf: Fujitsu: Add the Uncore PCI PMU driver
-config: sparc-allmodconfig (https://download.01.org/0day-ci/archive/20250111/202501110253.sgjIluLA-lkp@intel.com/config)
-compiler: sparc64-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250111/202501110253.sgjIluLA-lkp@intel.com/reproduce)
+Changes in v3:
+- Fix mismatched parameter name documentation for axienet_calc_cr
+- Integrate some cleanups originally included in
+  https://lore.kernel.org/netdev/20240909230908.1319982-1-sean.anderson@linux.dev/
+- Move spin (un)locking in IRQs inside the if condition of
+  napi_schedule_prep. This lets us hold the lock just for the rmw.
+- Fix function name in doc comments for axienet_update_coalesce_rx/tx
+- Adjust axienet_local doc comment order to match the members
+- Rebase onto net-next/master
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202501110253.sgjIluLA-lkp@intel.com/
+Changes in v2:
+- Add some symbolic constants for IRQ delay timer
+- Report an error for bad coalesce settings
+- Don't use spin_lock_irqsave when we know the context
+- Split the CR calculation refactor from runtime coalesce settings
+  adjustment support for easier review.
+- Have axienet_update_coalesce_rx/tx take the cr value/mask instead of
+  calculating it with axienet_calc_cr. This will make it easier to add
+  partial updates in the next few commits.
+- Get coalesce parameters from driver state
+- Don't take the RTNL in axienet_rx_dim_work to avoid deadlock. Instead,
+  calculate a partial cr update that axienet_update_coalesce_rx can
+  perform under a spin lock.
+- Use READ/WRITE_ONCE when accessing/modifying rx_irqs
 
-All errors (new ones prefixed by >>):
+Sean Anderson (6):
+  net: xilinx: axienet: Add some symbolic constants for IRQ delay timer
+  net: xilinx: axienet: Report an error for bad coalesce settings
+  net: xilinx: axienet: Combine CR calculation
+  net: xilinx: axienet: Support adjusting coalesce settings while
+    running
+  net: xilinx: axienet: Get coalesce parameters from driver state
+  net: xilinx: axienet: Enable adaptive IRQ coalescing with DIM
 
-   drivers/perf/fujitsu_pci_pmu.c: In function 'fujitsu_pci_counter_start':
->> drivers/perf/fujitsu_pci_pmu.c:41:31: error: implicit declaration of function 'FIELD_GET' [-Wimplicit-function-declaration]
-      41 | #define EVSEL(__val)          FIELD_GET(PCI_EVTYPE_MASK, __val)
-         |                               ^~~~~~~~~
-   drivers/perf/fujitsu_pci_pmu.c:100:24: note: in expansion of macro 'EVSEL'
-     100 |         writeq_relaxed(EVSEL(event->attr.config), pcipmu->regs + PCI_PM_EVTYPE(idx));
-         |                        ^~~~~
-
-
-vim +/FIELD_GET +41 drivers/perf/fujitsu_pci_pmu.c
-
-    39	
-    40	/* PCI_PM_EVTYPEx */
-  > 41	#define EVSEL(__val)          FIELD_GET(PCI_EVTYPE_MASK, __val)
-    42	
+ drivers/net/ethernet/xilinx/Kconfig           |   1 +
+ drivers/net/ethernet/xilinx/xilinx_axienet.h  |  32 +-
+ .../net/ethernet/xilinx/xilinx_axienet_main.c | 330 ++++++++++++++----
+ 3 files changed, 280 insertions(+), 83 deletions(-)
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.35.1.1320.gc452695387.dirty
+
 
