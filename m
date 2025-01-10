@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDD79E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 10:13:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 719FBE7719C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 10:14:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7AGmmOeGuhCMtIUi8EE6fkCLWKyUGJUyO3b2vg9gaNM=; b=Qm/1ZvOaHWqSkBENfzNBzmpRV+
-	oR6wKBVcetnrBjaG8fnFwJnWch9Zj2WeKS7bVDyGtq7kfLj8BvYaMSQryPSMjq+JNYxunI2ZoNFfY
-	sVOlsCv0CBm95uhJXaDFhELbOMO3m4aUdJ3f7CzeQC8C6f3faSCbXPsPbti2oGzJdiuBKzN1LYeLJ
-	+2TgN9poVtQ/WiXguv9VquqbkwF6poQIqiR0aGJSM3ZQa4QAeKvmIqld/T2ZMFdNSYGrDM1/0r2VW
-	gmuqVbmJvUXBA6kgyyujJs/uFUzl7JXRy9QzM6egggcQHVlqX/UD+RCBBJoWQ/FCyCHtLM8U32sou
-	MXIBJ0bQ==;
+	bh=mNO500sNfrFBXq6NhgMe/UQ/zvJtR1wiByIe/1AQOgo=; b=a9Mk8FktCgYMqq5dsLKJeXM87P
+	VMy2RMobp/89ZpD9W9xTKuCE2jKTacdntU+MPvtuSlFtwOcc9yXx8VbkTz1VcXhuWjYQkab57mFxD
+	arr6bKRy7G+Mz1Pwn0DAhlN6tjPJPpJ70t2CCqjKkTX5fAS8/+sesG1vwDAt/flZqLk5YSs0YmiTG
+	UanNEr+URhkzz3blYgZMOHvcTYc9+vsI0boP73VtXw8+YgATSX7WoC6c0gXL+xJ+L9necrgxtdxge
+	ZSKxFm0tRWLXeJxZl6xcay9QkV2Dq1UrcZpj+oq134gXKbonrg1xr0IX9lDi7CzBu0T+yZa/pFHTA
+	UUpjbMTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWC0a-0000000Etvz-194B;
-	Fri, 10 Jan 2025 10:12:52 +0000
-Received: from m16.mail.163.com ([117.135.210.4])
+	id 1tWC1l-0000000EuI8-2Yqg;
+	Fri, 10 Jan 2025 10:14:05 +0000
+Received: from m16.mail.163.com ([220.197.31.2])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWBww-0000000Esln-36J9;
+	id 1tWBww-0000000EslZ-3Hy7;
 	Fri, 10 Jan 2025 10:09:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=7AGmm
-	OeGuhCMtIUi8EE6fkCLWKyUGJUyO3b2vg9gaNM=; b=amjduMOy0lKEnPUZPWlfA
-	vfmdTLxmb/jsRqYuw5Argv8DZk2wZ7p5YMBWuM10bF5N917hEiATahZiPNwtBBvg
-	WwTtFXRDLu/Mg/EHduTqcwJBm91IlIfKCfqUua+F4Y/lBo+008mlZ5jhHzQE1KI9
-	Icopa9nzwiZ2dvjM1ys0VM=
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=mNO50
+	0sNfrFBXq6NhgMe/UQ/zvJtR1wiByIe/1AQOgo=; b=kJ0N1dogGsa9aKQJHT0O/
+	4/l8FB9JX9wk3tFE4+je/XBOO4AdA6I5ayQxuhPrPvx5DKM4akfKaAFL0ynjDK5J
+	mWCYtUCsGvl9ta1uYUK0EfZVXCaFSrgLVZcXo8k0yAZ4nU2qm1uZEKQhnCyoafDJ
+	0S33/x5ll/mp1uCSnkS8/0=
 Received: from ProDesk.. (unknown [])
-	by gzsmtp4 (Coremail) with SMTP id PygvCgBHPRKh8YBn2sBEEQ--.4640S10;
-	Fri, 10 Jan 2025 18:08:45 +0800 (CST)
+	by gzsmtp4 (Coremail) with SMTP id PygvCgBHPRKh8YBn2sBEEQ--.4640S3;
+	Fri, 10 Jan 2025 18:08:38 +0800 (CST)
 From: Andy Yan <andyshrk@163.com>
 To: heiko@sntech.de
 Cc: hjc@rock-chips.com,
@@ -49,26 +49,25 @@ Cc: hjc@rock-chips.com,
 	daniel@fooishbar.org,
 	robh@kernel.org,
 	sebastian.reichel@collabora.com,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Michael Riesch <michael.riesch@wolfvision.net>
-Subject: [PATCH v10 08/11] drm/rockchip: vop2: Set plane possible crtcs by possible vp mask
-Date: Fri, 10 Jan 2025 18:08:23 +0800
-Message-ID: <20250110100832.27551-9-andyshrk@163.com>
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: [PATCH v10 01/11] drm/rockchip: vop2: use devm_regmap_field_alloc for cluster-regs
+Date: Fri, 10 Jan 2025 18:08:16 +0800
+Message-ID: <20250110100832.27551-2-andyshrk@163.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250110100832.27551-1-andyshrk@163.com>
 References: <20250110100832.27551-1-andyshrk@163.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: PygvCgBHPRKh8YBn2sBEEQ--.4640S10
-X-Coremail-Antispam: 1Uf129KBjvJXoWxtrW8JFWkXF43Zr17tw45GFg_yoWxKrWUpa
-	yxZF13WF4fCr4agry7Ja98ZFyak39xAw4a93ZrKFsxKr15Kry7Wr1UK3Z8Cr1DWFy8Zr1j
-	vw43trWDur17trJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jV5lbUUUUU=
+X-CM-TRANSID: PygvCgBHPRKh8YBn2sBEEQ--.4640S3
+X-Coremail-Antispam: 1Uf129KBjvJXoWxGFW7GFWUWrykJr4fGF17Wrg_yoWrZr4xpF
+	4rCwnxuF45Grn29rykAr1DAF1Fk397ta1rCFn7uwnI9rnFgrZ7C3WDCw1jyrs0kryv9F9r
+	tFsxt39xua4Ygr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07j0Q6JUUUUU=
 X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0gLQXmeA8KYWdAABsM
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0hXQXmeA8KYV4QAAsM
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_020907_171637_651E3885 
-X-CRM114-Status: GOOD (  13.86  )
+X-CRM114-CacheID: sfid-20250110_020907_234995_4014F088 
+X-CRM114-Status: GOOD (  14.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,188 +82,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Andy Yan <andy.yan@rock-chips.com>
+From: Heiko Stuebner <heiko@sntech.de>
 
-In the upcoming VOP of rk3576, a window cannot attach to all Video
-Ports, we introduce a possible_vp_mask for every window to indicate
-which Video Ports this window can attach to.
+Right now vop2_cluster_init() copies the base vop2_cluster_regs
+and adapts the reg value with the current window's offset before
+adding the fields to the regmap.
 
+This conflicts with the notion of reg_fields being const, see
+https://lore.kernel.org/all/20240706-regmap-const-structs-v1-1-d08c776da787@weissschuh.net/
+for reference, which now causes checkpatch to actually warn about that.
+
+So instead of creating one big copy and changing it afterwards,
+add the reg_fields individually using devm_regmap_field_alloc().
+
+Functional it is the same, just that the reg_field we're handling
+can stay const.
+
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
 Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
-Tested-by: Michael Riesch <michael.riesch@wolfvision.net> # on RK3568
-Tested-by: Detlev Casanova <detlev.casanova@collabora.com>
+
 ---
 
 (no changes since v1)
 
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 18 +++++++++++++++++-
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.h |  1 +
- drivers/gpu/drm/rockchip/rockchip_vop2_reg.c | 14 ++++++++++++++
- 3 files changed, 32 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 66 +++++++++-----------
+ 1 file changed, 31 insertions(+), 35 deletions(-)
 
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index d3e21fb00225..6040fd2388d3 100644
+index 17a98845fd31..03248ac4ba4a 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-@@ -2310,6 +2310,10 @@ static int vop2_create_crtcs(struct vop2 *vop2)
- 			if (win->base.type == DRM_PLANE_TYPE_PRIMARY)
- 				continue;
+@@ -3372,7 +3372,7 @@ static int vop2_find_rgb_encoder(struct vop2 *vop2)
+ 	return -ENOENT;
+ }
  
-+			/* If this win can not attached to this VP */
-+			if (!(win->data->possible_vp_mask & BIT(vp->id)))
-+				continue;
-+
- 			if (vop2_is_mirror_win(win))
- 				continue;
+-static struct reg_field vop2_cluster_regs[VOP2_WIN_MAX_REG] = {
++static const struct reg_field vop2_cluster_regs[VOP2_WIN_MAX_REG] = {
+ 	[VOP2_WIN_ENABLE] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL0, 0, 0),
+ 	[VOP2_WIN_FORMAT] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL0, 1, 5),
+ 	[VOP2_WIN_RB_SWAP] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL0, 14, 14),
+@@ -3443,28 +3443,26 @@ static struct reg_field vop2_cluster_regs[VOP2_WIN_MAX_REG] = {
+ static int vop2_cluster_init(struct vop2_win *win)
+ {
+ 	struct vop2 *vop2 = win->vop2;
+-	struct reg_field *cluster_regs;
+-	int ret, i;
+-
+-	cluster_regs = kmemdup(vop2_cluster_regs, sizeof(vop2_cluster_regs),
+-			       GFP_KERNEL);
+-	if (!cluster_regs)
+-		return -ENOMEM;
+-
+-	for (i = 0; i < ARRAY_SIZE(vop2_cluster_regs); i++)
+-		if (cluster_regs[i].reg != 0xffffffff)
+-			cluster_regs[i].reg += win->offset;
++	int i;
  
-@@ -2341,7 +2345,19 @@ static int vop2_create_crtcs(struct vop2 *vop2)
+-	ret = devm_regmap_field_bulk_alloc(vop2->dev, vop2->map, win->reg,
+-					   cluster_regs,
+-					   ARRAY_SIZE(vop2_cluster_regs));
++	for (i = 0; i < ARRAY_SIZE(vop2_cluster_regs); i++) {
++		const struct reg_field field = {
++			.reg = (vop2_cluster_regs[i].reg != 0xffffffff) ?
++					vop2_cluster_regs[i].reg + win->offset :
++					vop2_cluster_regs[i].reg,
++			.lsb = vop2_cluster_regs[i].lsb,
++			.msb = vop2_cluster_regs[i].msb
++		};
  
- 		win->type = DRM_PLANE_TYPE_OVERLAY;
+-	kfree(cluster_regs);
++		win->reg[i] = devm_regmap_field_alloc(vop2->dev, vop2->map, field);
++		if (IS_ERR(win->reg[i]))
++			return PTR_ERR(win->reg[i]);
++	}
  
--		possible_crtcs = (1 << nvps) - 1;
-+		possible_crtcs = 0;
-+		nvp = 0;
-+		for (j = 0; j < vop2_data->nr_vps; j++) {
-+			vp = &vop2->vps[j];
-+
-+			if (!vp->crtc.port)
-+				continue;
-+
-+			if (win->data->possible_vp_mask & BIT(vp->id))
-+				possible_crtcs |= BIT(nvp);
-+			nvp++;
-+		}
-+
- 		ret = vop2_plane_init(vop2, win, possible_crtcs);
- 		if (ret) {
- 			drm_err(vop2->drm, "failed to init overlay plane %s: %d\n",
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-index 485462749121..33b21248f5cb 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-@@ -167,6 +167,7 @@ struct vop2_win_data {
- 	unsigned int phys_id;
+-	return ret;
++	return 0;
+ };
  
- 	u32 base;
-+	u32 possible_vp_mask;
- 	enum drm_plane_type type;
+-static struct reg_field vop2_esmart_regs[VOP2_WIN_MAX_REG] = {
++static const struct reg_field vop2_esmart_regs[VOP2_WIN_MAX_REG] = {
+ 	[VOP2_WIN_ENABLE] = REG_FIELD(RK3568_SMART_REGION0_CTRL, 0, 0),
+ 	[VOP2_WIN_FORMAT] = REG_FIELD(RK3568_SMART_REGION0_CTRL, 1, 5),
+ 	[VOP2_WIN_DITHER_UP] = REG_FIELD(RK3568_SMART_REGION0_CTRL, 12, 12),
+@@ -3531,26 +3529,24 @@ static struct reg_field vop2_esmart_regs[VOP2_WIN_MAX_REG] = {
+ static int vop2_esmart_init(struct vop2_win *win)
+ {
+ 	struct vop2 *vop2 = win->vop2;
+-	struct reg_field *esmart_regs;
+-	int ret, i;
+-
+-	esmart_regs = kmemdup(vop2_esmart_regs, sizeof(vop2_esmart_regs),
+-			      GFP_KERNEL);
+-	if (!esmart_regs)
+-		return -ENOMEM;
+-
+-	for (i = 0; i < ARRAY_SIZE(vop2_esmart_regs); i++)
+-		if (esmart_regs[i].reg != 0xffffffff)
+-			esmart_regs[i].reg += win->offset;
++	int i;
  
- 	u32 nformats;
-diff --git a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-index 248b9e6729e9..47b9ac2965b0 100644
---- a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-@@ -347,6 +347,7 @@ static const struct vop2_win_data rk3568_vop_win_data[] = {
- 		.name = "Smart0-win0",
- 		.phys_id = ROCKCHIP_VOP2_SMART0,
- 		.base = 0x1c00,
-+		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2),
- 		.formats = formats_smart,
- 		.nformats = ARRAY_SIZE(formats_smart),
- 		.format_modifiers = format_modifiers,
-@@ -360,6 +361,7 @@ static const struct vop2_win_data rk3568_vop_win_data[] = {
- 	}, {
- 		.name = "Smart1-win0",
- 		.phys_id = ROCKCHIP_VOP2_SMART1,
-+		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2),
- 		.formats = formats_smart,
- 		.nformats = ARRAY_SIZE(formats_smart),
- 		.format_modifiers = format_modifiers,
-@@ -373,6 +375,7 @@ static const struct vop2_win_data rk3568_vop_win_data[] = {
- 	}, {
- 		.name = "Esmart1-win0",
- 		.phys_id = ROCKCHIP_VOP2_ESMART1,
-+		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2),
- 		.formats = formats_rk356x_esmart,
- 		.nformats = ARRAY_SIZE(formats_rk356x_esmart),
- 		.format_modifiers = format_modifiers,
-@@ -386,6 +389,7 @@ static const struct vop2_win_data rk3568_vop_win_data[] = {
- 	}, {
- 		.name = "Esmart0-win0",
- 		.phys_id = ROCKCHIP_VOP2_ESMART0,
-+		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2),
- 		.formats = formats_rk356x_esmart,
- 		.nformats = ARRAY_SIZE(formats_rk356x_esmart),
- 		.format_modifiers = format_modifiers,
-@@ -400,6 +404,7 @@ static const struct vop2_win_data rk3568_vop_win_data[] = {
- 		.name = "Cluster0-win0",
- 		.phys_id = ROCKCHIP_VOP2_CLUSTER0,
- 		.base = 0x1000,
-+		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2),
- 		.formats = formats_cluster,
- 		.nformats = ARRAY_SIZE(formats_cluster),
- 		.format_modifiers = format_modifiers_afbc,
-@@ -415,6 +420,7 @@ static const struct vop2_win_data rk3568_vop_win_data[] = {
- 		.name = "Cluster1-win0",
- 		.phys_id = ROCKCHIP_VOP2_CLUSTER1,
- 		.base = 0x1200,
-+		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2),
- 		.formats = formats_cluster,
- 		.nformats = ARRAY_SIZE(formats_cluster),
- 		.format_modifiers = format_modifiers_afbc,
-@@ -580,6 +586,7 @@ static const struct vop2_win_data rk3588_vop_win_data[] = {
- 		.name = "Cluster0-win0",
- 		.phys_id = ROCKCHIP_VOP2_CLUSTER0,
- 		.base = 0x1000,
-+		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2) | BIT(3),
- 		.formats = formats_cluster,
- 		.nformats = ARRAY_SIZE(formats_cluster),
- 		.format_modifiers = format_modifiers_afbc,
-@@ -598,6 +605,7 @@ static const struct vop2_win_data rk3588_vop_win_data[] = {
- 		.name = "Cluster1-win0",
- 		.phys_id = ROCKCHIP_VOP2_CLUSTER1,
- 		.base = 0x1200,
-+		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2) | BIT(3),
- 		.formats = formats_cluster,
- 		.nformats = ARRAY_SIZE(formats_cluster),
- 		.format_modifiers = format_modifiers_afbc,
-@@ -616,6 +624,7 @@ static const struct vop2_win_data rk3588_vop_win_data[] = {
- 		.name = "Cluster2-win0",
- 		.phys_id = ROCKCHIP_VOP2_CLUSTER2,
- 		.base = 0x1400,
-+		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2) | BIT(3),
- 		.formats = formats_cluster,
- 		.nformats = ARRAY_SIZE(formats_cluster),
- 		.format_modifiers = format_modifiers_afbc,
-@@ -634,6 +643,7 @@ static const struct vop2_win_data rk3588_vop_win_data[] = {
- 		.name = "Cluster3-win0",
- 		.phys_id = ROCKCHIP_VOP2_CLUSTER3,
- 		.base = 0x1600,
-+		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2) | BIT(3),
- 		.formats = formats_cluster,
- 		.nformats = ARRAY_SIZE(formats_cluster),
- 		.format_modifiers = format_modifiers_afbc,
-@@ -651,6 +661,7 @@ static const struct vop2_win_data rk3588_vop_win_data[] = {
- 	}, {
- 		.name = "Esmart0-win0",
- 		.phys_id = ROCKCHIP_VOP2_ESMART0,
-+		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2) | BIT(3),
- 		.formats = formats_esmart,
- 		.nformats = ARRAY_SIZE(formats_esmart),
- 		.format_modifiers = format_modifiers,
-@@ -667,6 +678,7 @@ static const struct vop2_win_data rk3588_vop_win_data[] = {
- 	}, {
- 		.name = "Esmart1-win0",
- 		.phys_id = ROCKCHIP_VOP2_ESMART1,
-+		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2) | BIT(3),
- 		.formats = formats_esmart,
- 		.nformats = ARRAY_SIZE(formats_esmart),
- 		.format_modifiers = format_modifiers,
-@@ -684,6 +696,7 @@ static const struct vop2_win_data rk3588_vop_win_data[] = {
- 		.name = "Esmart2-win0",
- 		.phys_id = ROCKCHIP_VOP2_ESMART2,
- 		.base = 0x1c00,
-+		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2) | BIT(3),
- 		.formats = formats_esmart,
- 		.nformats = ARRAY_SIZE(formats_esmart),
- 		.format_modifiers = format_modifiers,
-@@ -699,6 +712,7 @@ static const struct vop2_win_data rk3588_vop_win_data[] = {
- 	}, {
- 		.name = "Esmart3-win0",
- 		.phys_id = ROCKCHIP_VOP2_ESMART3,
-+		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2) | BIT(3),
- 		.formats = formats_esmart,
- 		.nformats = ARRAY_SIZE(formats_esmart),
- 		.format_modifiers = format_modifiers,
+-	ret = devm_regmap_field_bulk_alloc(vop2->dev, vop2->map, win->reg,
+-					   esmart_regs,
+-					   ARRAY_SIZE(vop2_esmart_regs));
++	for (i = 0; i < ARRAY_SIZE(vop2_esmart_regs); i++) {
++		const struct reg_field field = {
++			.reg = (vop2_esmart_regs[i].reg != 0xffffffff) ?
++				vop2_esmart_regs[i].reg + win->offset :
++				vop2_esmart_regs[i].reg,
++			.lsb = vop2_esmart_regs[i].lsb,
++			.msb = vop2_esmart_regs[i].msb
++		};
+ 
+-	kfree(esmart_regs);
++		win->reg[i] = devm_regmap_field_alloc(vop2->dev, vop2->map, field);
++		if (IS_ERR(win->reg[i]))
++			return PTR_ERR(win->reg[i]);
++	}
+ 
+-	return ret;
+-};
++	return 0;
++}
+ 
+ static int vop2_win_init(struct vop2 *vop2)
+ {
 -- 
 2.34.1
 
