@@ -4,85 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55987E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 16:34:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6361E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 16:36:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OQeYkLHt8PB8bm1R0gE4E4lckuiahAwGVKIicwKow5w=; b=U8SjB7AYfm8Tx7ZvFaUiwGA/ET
-	Uxei4WgRUdmgRdY8eHEGYqYH4n0HAdd9mC9h8J0NkWN5MRbpp6ftsz3yH1DXAm/rc5Z8kd2RcaBLO
-	koqcjtSrXr3NMCvpPbScT7d1PzLvG+zEG/p2YuX5ziUfS+0JwXAqSByGW1A4cUcQa9Q9SHgETj1NE
-	Yvzb0ZWlWaWQUgbkQ00T6JAo1UNCJiz9HW1VuWYDhJkoOWwr20gnK1mUrTuVJ/9jV4zZwBuViUthI
-	Y/wh79bsoqBniZaEmcrTb/zGz7SalC0prDN4x1K4K1rZKvKdtGfu2FhEySzfrYRXBHRvV00SGdaJZ
-	pEzFV1qQ==;
+	bh=aVXo9iIUuzBuU9sqp+HF6GKq1gmWzqc5DJDzvDSb0GM=; b=AUcpEpM2x44zUKzKz4qoXTiQnI
+	QAx2YXNHVqOPS9fleSczGH5CAaUY76Jyu4ZFK4WUvYuvHiO+I9VRdngDR714KOsVpLtl1dicWXIYr
+	ILkZJJxl9gDcvQ4XPA1sBRHTQk/eTu4iiHpOxMUTqagFfDdxBpojDAPQUPZ8wdalvYDIy4QQ882oz
+	KsUubREOLfmzg/M40LP1D2Vh+wh1sO65j1OhgKSbqQ387DPzi+gZF0wppI3s8rYhGR8znoZZpUfyl
+	KK3lb/B3QMKBzBjsP6Ak68SM4LkPquqvCuKoebUYfZ62tQ5eIuL1cqeQMHbbpACRgp8MHDOQ6dFFy
+	+trc8iUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWHy7-0000000GI4V-0QdG;
-	Fri, 10 Jan 2025 16:34:43 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tWHzI-0000000GIM8-30vY;
+	Fri, 10 Jan 2025 16:35:56 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWHmm-0000000GDoD-4AWe
+	id 1tWHmu-0000000GDtP-04Ml
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 16:23:02 +0000
+	Fri, 10 Jan 2025 16:23:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7B1EEA42667;
-	Fri, 10 Jan 2025 16:21:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC202C4CED6;
-	Fri, 10 Jan 2025 16:22:54 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id E00945C0FE0;
+	Fri, 10 Jan 2025 16:22:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 309B5C4CED6;
+	Fri, 10 Jan 2025 16:23:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736526179;
-	bh=mQgh00oTBEnPK3eaiUyErqe8gGMKiHL5sXNk/n6ICaY=;
+	s=k20201202; t=1736526186;
+	bh=k4SHxol0HmJf7U5mTkhel4hp1vEAy/7UhhMVMETkNtQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=EGZU3Ef8D33bvTFUX/Tu2lXX4npAID97EObM21P4W+vsfHcYTVH9Qt4o+18iAeWc7
-	 7+8up9z5xJj1tOzhINprHuhW8DGO8CaHO/utbP6vAj4NEuN2vMKZ5/iuud5yB8smDO
-	 +sY1QsydT5KVI4C839eN1K91nD6/amLZKnmkKRbNSIzIJfpDdFn7CkhdH8u+LDO2/j
-	 HyxY9Yejs1Y/1M1nZmZ2JdYd5RFQS4OQq69FcIkSa3Q1s30RYKw6KaDE8OxMwNgWgb
-	 o+NWQQi/txTHozc/9RXdJeXpnJlluskdVyd+LTSLhzvdRzd3oE2hEkGoOz9RGi//Xi
-	 lVT8XHiPC1bPA==
+	b=j0BkInyaXYWR8O6HLbaV7Qs8XVteL706pkUNvRkV42Qswic1IFfwu9Ex4oTarIrxe
+	 6ry739IcATWUXcj+2LBH9L1sHQnqbIl5mTa+2tDiNR2yMMaR6hHkqeUt/OUbx/1mWx
+	 mJm6C1JsrMT+jZrInr2aP9PA22H7S07yPvyOOuvpkQuklDDngE+jxUg95BF0hOc/F6
+	 SW2B1ENF6CeStb5yWLDex+hLCzkb09BVUgn/sqwlYx6YUa6f3WBzpZmkj013rxJu9S
+	 w4NcElE//PSPhucYBLo71Nhl2VyI/BngKRJsVp/1nKzXIN7NS7x9moHr4Vq+PqqP+5
+	 VFyAEDQ9lLEQw==
 From: Will Deacon <will@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	irogers@google.com,
-	yeoreum.yun@arm.com,
-	mark.rutland@arm.com,
-	namhyung@kernel.org,
-	acme@kernel.org,
-	James Clark <james.clark@linaro.org>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Thorsten Blum <thorsten.blum@linux.dev>
+Cc: kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	robh@kernel.org,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	"Liang, Kan" <kan.liang@linux.intel.com>,
-	John Garry <john.g.garry@oracle.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	Leo Yan <leo.yan@linux.dev>,
-	Graham Woodward <graham.woodward@arm.com>,
-	Michael Petlan <mpetlan@redhat.com>,
-	Veronika Molnarova <vmolnaro@redhat.com>,
-	Thomas Richter <tmricht@linux.ibm.com>,
-	Athira Rajeev <atrajeev@linux.vnet.ibm.com>,
-	linux-kernel@vger.kernel.org,
-	bpf@vger.kernel.org
-Subject: Re: [PATCH v3 0/5] perf: arm_spe: Add format option for discard mode
-Date: Fri, 10 Jan 2025 16:22:48 +0000
-Message-Id: <173652065683.3245172.11665292685923367751.b4-ty@kernel.org>
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: Remove duplicate included header
+Date: Fri, 10 Jan 2025 16:22:51 +0000
+Message-Id: <173651666253.3233150.3175376410915680433.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20250108142904.401139-1-james.clark@linaro.org>
-References: <20250108142904.401139-1-james.clark@linaro.org>
+In-Reply-To: <20250109104636.124507-2-thorsten.blum@linux.dev>
+References: <20250109104636.124507-2-thorsten.blum@linux.dev>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_082301_103057_41A34BF3 
-X-CRM114-Status: GOOD (  16.79  )
+X-CRM114-CacheID: sfid-20250110_082308_095863_63F2E68A 
+X-CRM114-Status: UNSURE (   8.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,27 +77,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 08 Jan 2025 14:28:55 +0000, James Clark wrote:
-> Discard mode (Armv8.6) is a way to enable SPE related PMU events without
-> the overhead of recording any data. Add a format option, tests and docs
-> for it.
+On Thu, 09 Jan 2025 11:46:34 +0100, Thorsten Blum wrote:
+> The header asm/unistd_compat_32.h is included whether CONFIG_COMPAT is
+> defined or not.
 > 
-> In theory we could make the driver drop calls to allocate the aux buffer
-> when discard mode is enabled. This would give a small memory saving,
-> but I think there is potential to interfere with any tools that don't
-> expect this so I left the aux allocation untouched. Even old tools that
-> don't know about discard mode will be able to use it because we publish
-> the format option. Not allocating the aux buffer will have to be added
-> to tools which I've done in Perf.
+> Include it only once and remove the following make includecheck warning:
+> 
+>   asm/unistd_compat_32.h is included more than once
 > 
 > [...]
 
-Applied driver and docs patches to will (for-next/perf), thanks!
+Applied to arm64 (for-next/misc), thanks!
 
-[1/5] perf: arm_spe: Add format option for discard mode
-      https://git.kernel.org/will/c/d28d95bc63cb
-[2/5] perf docs: arm_spe: Document new discard mode
-      https://git.kernel.org/will/c/ba113ecad81a
+[1/1] arm64: Remove duplicate included header
+      https://git.kernel.org/arm64/c/965e9bbe025e
 
 Cheers,
 -- 
