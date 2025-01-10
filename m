@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E81BAE7719C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 15:30:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F2B5E7719C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 15:31:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gs/m1ne1xnufcZuceBub2RzRtdWIKInpIZ86AtKhTZY=; b=ZQp0nIk9JbbK7ydCQ91ftfCp+w
-	//B93bVhsSxBh4T7sUrPIsODG6HYExFEfa8l6uiMiEuK9+UkMJPmiXGyDuvvBdjCzSWDAR41ynFJJ
-	sius7qeRNqXRnTSqTEe/cU+nE9Ybjg7HLa7b9WxHs8DU0yFfJOwXCkkRxGA0V5YMhIcCCLhQQzQjK
-	2TARQ+Fuk/l02MOqr4guxRjwj46G+bo77bHgmZ2m75ULJhyhg/kEEndDys6z7aeu8KRxbYt6RmLI8
-	ydq1DxDSuVhjOPhKi0GyseoRcb6qd+DRA2kEAKaHonvaAjWUzqYLXYqo9V9GBPwPu99AC/5sTOXdV
-	HL7ZDeIA==;
+	bh=lbUS2hSpGUfA91ZBUqWCU2EUGjDUwjlK6bc3CIpIefE=; b=3oG6BFutrWpO5X8J5zU94hG/tZ
+	DYV4hs8Fo0pG67AKCl+F7TIe8ybntCPQuiFtgm9dB51N3AXnqT8KrcKzJ2n0FJoTeaI568bNTBxwf
+	xLeYrt73GB4aaTlNARRsC6icL95D7tqOgtPls7sGq999wwgIgskFz2N1uFR3PQLroLvG2MACpid+M
+	XNXTDP6BDio+t3Na0k+9rG+30pMtG3a7S1Rs2VYKWdVaT4rlIL2TYemHkHTLQghq3tpMJFj6/hLZ0
+	JGp61TBf7C0vn7f0n9p+RggEX+KiUn6BNSsPVamoPWjsa6YQO/52AtKGb7MMk1JA29jZ3X71zzIIL
+	+kanOmdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWGxl-0000000FwA1-2MMY;
-	Fri, 10 Jan 2025 15:30:17 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1tWGyx-0000000Fwan-3KK6;
+	Fri, 10 Jan 2025 15:31:31 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWGrc-0000000Ftgy-3mdB;
-	Fri, 10 Jan 2025 15:23:58 +0000
+	id 1tWGrd-0000000Ftgv-060i;
+	Fri, 10 Jan 2025 15:23:59 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1736522633;
+	s=2020; t=1736522632;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=gs/m1ne1xnufcZuceBub2RzRtdWIKInpIZ86AtKhTZY=;
-	b=O/oryiOTC2EPMwRnWTnGqJzrks9otGfDDqx2KBYDFHqsjuHB089iYDJ34QQ9S1PljgamlL
-	BM7zY7AL8FY07yIH12mI0070UhlPruW2yGFqEExUs8sVmzqNzO59sD5Q9pOUCNTEaFhAgE
-	RmTBJ8zhZkmwDsvXH2+VhmlkrKmgrOPsW/I0bKDSNyEqyTqw72QGPxWzolUogPArsjlTlk
-	FBAhi9sEQ/iBl54fIHofNPj8JxII6acwq4Gq+jTHYNrL+mFqfiD6T9eZL3FaVHB8DnEAX1
-	YGPwNzwwM5T96hOBZxjq760NY9XDYsr+B0XabLhMkR67wla+5lWUI/M84y165w==
+	bh=lbUS2hSpGUfA91ZBUqWCU2EUGjDUwjlK6bc3CIpIefE=;
+	b=uOv2bxTh5LBAc6lQBNxHI225ZQIyI3sjNmKl0oWDqhbMm3+2Aq1CgAiY/WGKjYdJujeASg
+	X5yRhUXpIWcQyFWiHfZtG6b3KXCjOtxlLnuS77Gc29T2b0JYczwJsSObkhk0BIyJASuK3r
+	j78fThlBjFc9jsBeKSlPdsW6SYuzPAIVqko1senufIDxGaUR2jm7/JzErdDsY+maWiSAc/
+	mopt7buykITKw+x/h1Hd8DBYahvWn3cXYNCcE2rNgQ3kezsHOFLRDnm1wiXwQd26o4wqOT
+	ak8g0JlrxBQhbszlIVZlHKPQKAPTEJd+aSkC3Ljp36LJjFP/rGVCCl7gUWHxmg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1736522633;
+	s=2020e; t=1736522632;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=gs/m1ne1xnufcZuceBub2RzRtdWIKInpIZ86AtKhTZY=;
-	b=koaGwZik0YK1SGnxT0Jy1pXAsLdTo31kbbEXtpZ/NVrHINMW/zi3RXZX3xxrjmrmUhWnsu
-	Ys8RJwvtX7n8wzAQ==
-Date: Fri, 10 Jan 2025 16:23:42 +0100
-Subject: [PATCH v2 03/18] vdso: Introduce vdso/align.h
+	bh=lbUS2hSpGUfA91ZBUqWCU2EUGjDUwjlK6bc3CIpIefE=;
+	b=bCXOoqpsmZBfuCWTLWyKzXWgI+48Fg+ZiQP8gjNQ8tgcAu+konADycZa3Bs2MBPDsKLYfI
+	V9BFQPPLHv6mNWAA==
+Date: Fri, 10 Jan 2025 16:23:41 +0100
+Subject: [PATCH v2 02/18] parisc: Remove unused symbol vdso_data
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250110-vdso-store-rng-v2-3-350c9179bbf1@linutronix.de>
+Message-Id: <20250110-vdso-store-rng-v2-2-350c9179bbf1@linutronix.de>
 References: <20250110-vdso-store-rng-v2-0-350c9179bbf1@linutronix.de>
 In-Reply-To: <20250110-vdso-store-rng-v2-0-350c9179bbf1@linutronix.de>
 To: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
@@ -88,16 +88,17 @@ Cc: linux-parisc@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arch@vger.kernel.org, Nam Cao <namcao@linutronix.de>, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, 
  linux-csky@vger.kernel.org
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1736522629; l=2181;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1736522629; l=796;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=zRm1/jHzhcX2cBU5SFyW7PIL5hMfUBZQzaPVvddjWs0=;
- b=mSg1h7NuP5ae3KJ6mcjcidNOVehie+olRq8SUcCqxYpYv8FgXUocQ8b/bJZFWOvzytUY29vSW
- 1nrXIOS1T+sC75ZNlmJCS8h+7C8Fx0isdGu7Wc6Nqqipvo2fiyJM1NW
+ bh=NPXgHz1pg7k88XY5Q1tIpqIToZjmPGQbKRJBGkTsdlQ=;
+ b=pQu1+khW515G686AWZAaU8xzr79tj7q5lDK175IcOzOT9nOwePjQUofvqBqqfKXCFWPJMnR3M
+ 9bUkIqqwyozCTnEzLbN/eUBLTMra60lhj1W2SasaPH7bLefw8MVTs27
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_072357_242460_EDF4A4D0 
-X-CRM114-Status: GOOD (  12.23  )
+X-CRM114-CacheID: sfid-20250110_072357_202568_13CB2606 
+X-CRM114-Status: UNSURE (   9.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,61 +113,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The vDSO implementation can only include headers from the vdso/
-namespace. To enable the usage of the ALIGN() macro from the vDSO, move
-linux/align.h to vdso/align.h wholly.
-As the only dependency linux/const.h is only a wrapper around
-vdso/const.h anyways adapt that dependency.
-
-Also provide a compatibility wrapper linux/align.h.
+The symbol vdso_data is and has been unused.
+Remove it.
 
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- include/linux/align.h | 10 +---------
- include/vdso/align.h  | 15 +++++++++++++++
- 2 files changed, 16 insertions(+), 9 deletions(-)
+ arch/parisc/include/asm/vdso.h | 2 --
+ 1 file changed, 2 deletions(-)
 
-diff --git a/include/linux/align.h b/include/linux/align.h
-index 2b4acec7b95a27b6768d48f46519abc584c94d5d..55debf105a5d610c592e5c53a4153018ea1ae2c6 100644
---- a/include/linux/align.h
-+++ b/include/linux/align.h
-@@ -2,14 +2,6 @@
- #ifndef _LINUX_ALIGN_H
- #define _LINUX_ALIGN_H
+diff --git a/arch/parisc/include/asm/vdso.h b/arch/parisc/include/asm/vdso.h
+index 2a2dc11b5545fc642a7ae4596dc174111433e948..5f581c1d64606b3ec8f9967efe31dd3d551adf76 100644
+--- a/arch/parisc/include/asm/vdso.h
++++ b/arch/parisc/include/asm/vdso.h
+@@ -12,8 +12,6 @@
+ #define VDSO64_SYMBOL(tsk, name) ((tsk)->mm->context.vdso_base + (vdso64_offset_##name))
+ #define VDSO32_SYMBOL(tsk, name) ((tsk)->mm->context.vdso_base + (vdso32_offset_##name))
  
--#include <linux/const.h>
+-extern struct vdso_data *vdso_data;
 -
--/* @a is a power of 2 value */
--#define ALIGN(x, a)		__ALIGN_KERNEL((x), (a))
--#define ALIGN_DOWN(x, a)	__ALIGN_KERNEL((x) - ((a) - 1), (a))
--#define __ALIGN_MASK(x, mask)	__ALIGN_KERNEL_MASK((x), (mask))
--#define PTR_ALIGN(p, a)		((typeof(p))ALIGN((unsigned long)(p), (a)))
--#define PTR_ALIGN_DOWN(p, a)	((typeof(p))ALIGN_DOWN((unsigned long)(p), (a)))
--#define IS_ALIGNED(x, a)		(((x) & ((typeof(x))(a) - 1)) == 0)
-+#include <vdso/align.h>
+ #endif /* __ASSEMBLY __ */
  
- #endif	/* _LINUX_ALIGN_H */
-diff --git a/include/vdso/align.h b/include/vdso/align.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..02dd8626b5c5aa59d2ee0b15799b6e9adb343f65
---- /dev/null
-+++ b/include/vdso/align.h
-@@ -0,0 +1,15 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __VDSO_ALIGN_H
-+#define __VDSO_ALIGN_H
-+
-+#include <vdso/const.h>
-+
-+/* @a is a power of 2 value */
-+#define ALIGN(x, a)		__ALIGN_KERNEL((x), (a))
-+#define ALIGN_DOWN(x, a)	__ALIGN_KERNEL((x) - ((a) - 1), (a))
-+#define __ALIGN_MASK(x, mask)	__ALIGN_KERNEL_MASK((x), (mask))
-+#define PTR_ALIGN(p, a)		((typeof(p))ALIGN((unsigned long)(p), (a)))
-+#define PTR_ALIGN_DOWN(p, a)	((typeof(p))ALIGN_DOWN((unsigned long)(p), (a)))
-+#define IS_ALIGNED(x, a)		(((x) & ((typeof(x))(a) - 1)) == 0)
-+
-+#endif	/* __VDSO_ALIGN_H */
+ /* Default link addresses for the vDSOs */
 
 -- 
 2.47.1
