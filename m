@@ -4,98 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2D2BE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 12:09:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD4B7E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 12:18:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/s6AcoV7eSa8oU9Cj5O6jNKTNB31fGwfafoEc6FUA1U=; b=vRbS8yXRkuw+CTg4qBqz2DOmsc
-	kHHrVn4pEoZo/2VTEmakz30rJGcT0mmWFs7iIUB+6JQVZlELBMH4f+vZx3l/HV38qz+LfKP244wYP
-	aOnTryiqdgAueQ7AUYLkuP9fi1dp9rZFrz3OGaOE/Stq7Rw8sJS3RKQhjSBH99vKwMUU5gSY+xt9m
-	20BT8PFZCy7Hwmlpz0y/jPnlrlWgwuJ7lKfIyeTK3X8mP7UaVVMcexHU+BdIKJ15XNc1ilA91UqP5
-	Yr0fUjcu9Jqd1jwmRsvD408JGeKkn2YgaQ5fWKFYsyumjdbEe+l+kawPeKVa92EOf/6ZPjoo2b6go
-	u3sYZYTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dx6LfbWoOZVo4WZlNr29Yr02kRZ3p+X0xl0ciBlTxio=; b=bBrJTDnR+4bno25GH8A2vTj0Ho
+	Wi5u8aO/ZLyz/xskL7X5SVEbo4cGT9ey+OWgoBww21eAwLnNd84rCf06Evv4OwqfsG1rwXzMxADq0
+	g4TcAxS6mgewko4S9J1Q1OdAowLQt7gJRHZka0rJ/fJqwc+FEb21EK/MRObOvYGhtdPJBJcy/IJ8z
+	e0YJhc+9S7KVdfz42I6+vmJaZhHXLUlWKDQU8WV5ko8LAGppu5AdDqKNYYmy+fsHryxDlPlkbOqIS
+	l9hgmyfRWsdFXTpVUnwrQxm4fvbrK4cdEg/sC1bAVOdLSvz7sYfRel5VVKAXOsyIPbSvhhKcmldUY
+	Bgw0fL2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWDp0-0000000FDOd-3VBw;
-	Fri, 10 Jan 2025 12:09:02 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1tWDxc-0000000FERp-31Ro;
+	Fri, 10 Jan 2025 12:17:56 +0000
+Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWDnn-0000000FDHD-0Hz1
+	id 1tWDwP-0000000FEE2-1LYJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 12:07:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1736510865;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=/s6AcoV7eSa8oU9Cj5O6jNKTNB31fGwfafoEc6FUA1U=;
-	b=RDZTMhKAVNMAq9ykcNm2UfkPiPLVlE3x4441uMSe2JDIg2aCEUXtQ+n6+Ctp8me1bbVo1v
-	xVHBp43thBk2+sUfnmd5Nt1nVFk4HNy2kPOWfqn0fjOCoky3llQYSitl+NvsYqzZuEcyTf
-	/ufWYv3FSL9J+KDDkGOUhFweiymmjq4=
-Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
- [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-683-tIhIPn1MPKKs8eOTqBcvYw-1; Fri, 10 Jan 2025 07:07:44 -0500
-X-MC-Unique: tIhIPn1MPKKs8eOTqBcvYw-1
-X-Mimecast-MFC-AGG-ID: tIhIPn1MPKKs8eOTqBcvYw
-Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-436248d1240so9740415e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jan 2025 04:07:43 -0800 (PST)
+	Fri, 10 Jan 2025 12:16:42 +0000
+Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-30229d5b21cso17622331fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jan 2025 04:16:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1736511398; x=1737116198; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=dx6LfbWoOZVo4WZlNr29Yr02kRZ3p+X0xl0ciBlTxio=;
+        b=3GSWqmVQbg9J1j3LKsRmIFsMg4Fl+E7bbBG+EfsUObbvsb79FUx7eycp7S/hyssM8a
+         5KiRTW9EB3SjRW2rFtymPg8ke8S29lcA6N2r+VOyJneObBTenREzZ6AwCcPNPFM3nu1m
+         tlYPnref80y1SEKVShwY/HAjt5WK5vjVjBmOZNsph4u4PePjirKSZ9KL1+gJdw26Rt8o
+         lg1kVCzrc7DDAZRpuslNueil2unL2GHEKMcO7ZOn8L7PEhTbHbQ261OOMUcFON8zUKuv
+         l7WpbupNJKp4MooYQGD4b9JXkzgOD9z/rNOOqpLbp2jvnt+TmRpJlfc3NA9j3Y91abEH
+         siwQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736510862; x=1737115662;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1736511398; x=1737116198;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=/s6AcoV7eSa8oU9Cj5O6jNKTNB31fGwfafoEc6FUA1U=;
-        b=A/ULe3z5pe+xwvaMzgvxV7Os6ejHpTvWFEJGUJPimOeZAWtIwowPRqHNrx/hYNse40
-         wFc4vlDc56xSRALj8wn8u6NRiUHa+y1xFkzzId0JDDuYnqrvpvkTr3okE6XqTdZV7DPo
-         AWI5W1o3oGQ3hnyFhbicb3Mq3zR7uBovdxlBzfoJ3VLsQwYQ+Qjvwb2jvqy8X2peWc8P
-         xpu22TK48gaj3YB24Cc1bzBtTN44DSGfftXUmMpQu2omy3cBnBEPVw79tipSvl0LFVCw
-         r+FlFTB0eXWMUaJmE2XADX30GiXA/riStYVU1CvKaSWZ6rYtjaYvbLdTtZ11s/TyRH/p
-         j4JQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXT2jbRDIZMZvshhNxho+bw8qKL/irpEoVD4vtF/swzaI5LYw5oXEvdw/Rwcfj0HSMv7cQ0dRl0f2HmgVSeIVHb@lists.infradead.org
-X-Gm-Message-State: AOJu0YzlLgOJV0GBj/bs7gzZ80jLHQJe+g/AITJT7FbtmQC6euhaty5Y
-	EsmHQ2bchH+kEJqbT+LuPSE2o9+IruUdt/R18BWrTBzvW/02WPXUgaNViY+I8xpz+jWVelWoYdw
-	cuyhbQfxJNsmhxHOAt6chOdb/0mJfhe21GuYr9TBMtNDYWGo6/GxGqM8NWBZoQwcLiwWF3/7dA8
-	/VcHHf
-X-Gm-Gg: ASbGncumvpYq/07QUgoqYkHzhfWp/R5MV30MPB7GzlOAaOuZ3bbxQuo6sb5AYtTuozG
-	p6EUtTcsOe+iPJ5j1V1M5uIqmZ3Me1w40DK/4hZ+LnP15m0qJIgN8pUGaIoXfQxudJgDcIAceyI
-	KARR1d5MjiwcdlukVyCpaQDJaDVx0dlz7+nknI2IjKJ2DU7lFf35+hLKy2xI7OlW01ZtpvEkgS2
-	UuHnzkwRMA51BN7+Cd6v0G/J6OcOJe8eCHNt8D73R3phOJ14TIbWM9fO2q7owM2e0CeIbinHRbH
-	KVm75RG2vgqQKLRLuQWFfcfXAu3O
-X-Received: by 2002:a05:600c:3505:b0:434:a7b6:10e9 with SMTP id 5b1f17b1804b1-436e26a9045mr102324455e9.17.1736510862549;
-        Fri, 10 Jan 2025 04:07:42 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFbgDQ3ewebQfLS4urKYZZILsPA8GS3xvXnwmYJ52EVcMnygfg0FQR9Yh+N96Ihn3P91v+A4g==
-X-Received: by 2002:a05:600c:3505:b0:434:a7b6:10e9 with SMTP id 5b1f17b1804b1-436e26a9045mr102324195e9.17.1736510862220;
-        Fri, 10 Jan 2025 04:07:42 -0800 (PST)
-Received: from lbulwahn-thinkpadx1carbongen9.rmtde.csb ([2a02:810d:7e40:14b0:4ce1:e394:7ac0:6905])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e9d8fc81sm51204965e9.5.2025.01.10.04.07.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Jan 2025 04:07:41 -0800 (PST)
-From: Lukas Bulwahn <lbulwahn@redhat.com>
-X-Google-Original-From: Lukas Bulwahn <lukas.bulwahn@redhat.com>
-To: Heiko Stuebner <heiko@sntech.de>,
-	Lee Jones <lee@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Cc: kernel-janitors@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Lukas Bulwahn <lukas.bulwahn@redhat.com>
-Subject: [PATCH] MAINTAINERS: Adjust the file entry for the qnap-mcu header
-Date: Fri, 10 Jan 2025 13:07:36 +0100
-Message-ID: <20250110120736.58831-1-lukas.bulwahn@redhat.com>
-X-Mailer: git-send-email 2.47.1
+        bh=dx6LfbWoOZVo4WZlNr29Yr02kRZ3p+X0xl0ciBlTxio=;
+        b=Z0gUtKSL45OJn7jY4Veax4/0xJzbLKQyMlScMf3HOs6O98zIpkjnwD39dO/c5Kx3Ns
+         tlYIJ7ibKW4rkosfbDudDTvY77mLYZUqubkPsD/9luTUZYzviXJifLfHoxEeyOaMun5w
+         2y5LJ18VmE0QRVCLW8qHmk6IMfqwyl5zvC2ijEnkKCnQQwX0qakFA6vwh3+Gn4860u2V
+         tAjkmT3ODBRrDuDVuGI5tlrNr08Oijh4myxCAxwjlZ7mc31f+e+Y+qopKbsUIPMNIQCk
+         bVuoK/KjXrwdpAHKjMl75NPiQX/dIbJb6lv6xQQ00gk0qJsODGfZ1MHEWz0+MrARiB3Q
+         fxoA==
+X-Forwarded-Encrypted: i=1; AJvYcCXPuegKRaJdfGW23U/edy702pTyj9hcnL1nZn4ia43EDBwZENnJrS4SwpwxixN8wr1eKhoX9KJ8zVlUJM2bc0z+@lists.infradead.org
+X-Gm-Message-State: AOJu0YzoeNtqqxoSFWiA0D4O6uGvXBBQSBtzIcbVETgz3wT//a5vo8wv
+	AtYEJfwle+7KYEWCJrGf59o41uPJDwKkcLGIvuwYGby2k2l0qR+vbWJCRyvTZPwWKUm/oeE4G5s
+	LDZEJWVLjeodRtp3SLjXp+2zBmzW3HW9cinSL
+X-Gm-Gg: ASbGncs724DwO0N0V2MZilV+bd+zh4TVOAyJwmzpI9W03KwmdspRZh1Z3ehWAjKewCo
+	wK+8d2RELqJinxqmdF2hPo/LpHB0L0rrml6ry8+qmZ6ofh99t43bkTpreqc16SsmZyEg4iDY=
+X-Google-Smtp-Source: AGHT+IGVz7X+fbBVIzBdInnx2bkV3sGGjpZi0hhX8DWvZ9b1BNEo4hsq0wEuqhU72LBjprO2Rqcz30cGAQVOyHHn4rc=
+X-Received: by 2002:a05:651c:19a6:b0:300:2464:c0c2 with SMTP id
+ 38308e7fff4ca-305f453158amr29422851fa.8.1736511398361; Fri, 10 Jan 2025
+ 04:16:38 -0800 (PST)
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: MaPz9hAS9tDQj8eOOjBwIDeR377lUOdqaOg05xgKvSU_1736510863
-X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: 8bit
-content-type: text/plain; charset="US-ASCII"; x-default=true
+References: <20250110073056.2594638-1-quic_jiangenj@quicinc.com> <CANpmjNOg9=WbFpJQFQBOo1z_KuV7DKQTZB7=GfiYyvoam5Dm=w@mail.gmail.com>
+In-Reply-To: <CANpmjNOg9=WbFpJQFQBOo1z_KuV7DKQTZB7=GfiYyvoam5Dm=w@mail.gmail.com>
+From: Dmitry Vyukov <dvyukov@google.com>
+Date: Fri, 10 Jan 2025 13:16:27 +0100
+X-Gm-Features: AbW1kvYg6Yj75R_YQTMDFKYPIK4IFfqRlUkZXLVrw7rnxTU_BdbrBR450FQtMuY
+Message-ID: <CACT4Y+Zm5Vz1LL7m_BubwV=bMPgVjOVNpp12nDZRi5oesH47WA@mail.gmail.com>
+Subject: Re: [PATCH] kcov: add unique cover, edge, and cmp modes
+To: Marco Elver <elver@google.com>
+Cc: Joey Jiao <quic_jiangenj@quicinc.com>, andreyknvl@gmail.com, corbet@lwn.net, 
+	akpm@linux-foundation.org, gregkh@linuxfoundation.org, nogikh@google.com, 
+	pierre.gondois@arm.com, cmllamas@google.com, quic_zijuhu@quicinc.com, 
+	richard.weiyang@gmail.com, tglx@linutronix.de, arnd@arndb.de, 
+	catalin.marinas@arm.com, will@kernel.org, dennis@kernel.org, tj@kernel.org, 
+	cl@linux.com, ruanjinjie@huawei.com, colyli@suse.de, 
+	andriy.shevchenko@linux.intel.com, kernel@quicinc.com, 
+	quic_likaid@quicinc.com, kasan-dev@googlegroups.com, 
+	workflows@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mm@kvack.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_040747_183758_DEEDF99C 
-X-CRM114-Status: GOOD (  15.38  )
+X-CRM114-CacheID: sfid-20250110_041641_360504_95453EE9 
+X-CRM114-Status: GOOD (  31.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,34 +100,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Lukas Bulwahn <lukas.bulwahn@redhat.com>
+On Fri, 10 Jan 2025 at 10:23, Marco Elver <elver@google.com> wrote:
+> > From: "Jiao, Joey" <quic_jiangenj@quicinc.com>
+> >
+> > The current design of KCOV risks frequent buffer overflows. To mitigate
+> > this, new modes are introduced: KCOV_TRACE_UNIQ_PC, KCOV_TRACE_UNIQ_EDGE,
+> > and KCOV_TRACE_UNIQ_CMP. These modes allow for the recording of unique
+> > PCs, edges, and comparison operands (CMP).
+>
+> There ought to be a cover letter explaining the motivation for this,
+> and explaining why the new modes would help. Ultimately, what are you
+> using KCOV for where you encountered this problem?
+>
+> > Key changes include:
+> > - KCOV_TRACE_UNIQ_[PC|EDGE] can be used together to replace KCOV_TRACE_PC.
+> > - KCOV_TRACE_UNIQ_CMP can be used to replace KCOV_TRACE_CMP mode.
+> > - Introduction of hashmaps to store unique coverage data.
+> > - Pre-allocated entries in kcov_map_init during KCOV_INIT_TRACE to avoid
+> >   performance issues with kmalloc.
+> > - New structs and functions for managing memory and unique coverage data.
+> > - Example program demonstrating the usage of the new modes.
+>
+> This should be a patch series, carefully splitting each change into a
+> separate patch.
+> https://docs.kernel.org/process/submitting-patches.html#split-changes
+>
+> > With the new hashmap and pre-alloced memory pool added, cover size can't
+> > be set to higher value like 1MB in KCOV_TRACE_PC or KCOV_TRACE_CMP modes
+> > in 2GB device with 8 procs, otherwise it causes frequent oom.
+> >
+> > For KCOV_TRACE_UNIQ_[PC|EDGE|CMP] modes, smaller cover size like 8KB can
+> > be used.
+> >
+> > Signed-off-by: Jiao, Joey <quic_jiangenj@quicinc.com>
+>
+> As-is it's hard to review, and the motivation is unclear. A lot of
+> code was moved and changed, and reviewers need to understand why that
+> was done besides your brief explanation above.
+>
+> Generally, KCOV has very tricky constraints, due to being callable
+> from any context, including NMI. This means adding new dependencies
+> need to be carefully reviewed. For one, we can see this in genalloc's
+> header:
+>
+> > * The lockless operation only works if there is enough memory
+> > * available.  If new memory is added to the pool a lock has to be
+> > * still taken.  So any user relying on locklessness has to ensure
+> > * that sufficient memory is preallocated.
+> > *
+> > * The basic atomic operation of this allocator is cmpxchg on long.
+> > * On architectures that don't have NMI-safe cmpxchg implementation,
+> > * the allocator can NOT be used in NMI handler.  So code uses the
+> > * allocator in NMI handler should depend on
+> > * CONFIG_ARCH_HAVE_NMI_SAFE_CMPXCHG.
+>
+> And you are calling gen_pool_alloc() from __sanitizer_cov_trace_pc.
+> Which means this implementation is likely broken on
+> !CONFIG_ARCH_HAVE_NMI_SAFE_CMPXCHG architectures (do we have
+> architectures like that, that support KCOV?).
+>
+> There are probably other sharp corners due to the contexts KCOV can
+> run in, but would simply ask you to carefully reason about why each
+> new dependency is safe.
 
-Commit 998f70d1806b ("mfd: Add base driver for qnap-mcu devices") adds a
-file entry in MAINTAINERS referring to the file include/linux/qnap-mcu.h,
-whereas the file added in the commit is placed in include/linux/mfd/.
+I am also concerned about the performance effect. Does it add a stack
+frame to __sanitizer_cov_trace_pc()? Please show disassm of the
+function before/after.
 
-Adjust the file entry to the actual location of this header file.
-
-Fixes: 998f70d1806b ("mfd: Add base driver for qnap-mcu devices")
-Signed-off-by: Lukas Bulwahn <lukas.bulwahn@redhat.com>
----
- MAINTAINERS | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 9fc47f2f1286..ccb919894a1f 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -19260,7 +19260,7 @@ F:	drivers/hwmon/qnap-mcu-hwmon.c
- F:	drivers/input/misc/qnap-mcu-input.c
- F:	drivers/leds/leds-qnap-mcu.c
- F:	drivers/mfd/qnap-mcu.c
--F:	include/linux/qnap-mcu.h
-+F:	include/linux/mfd/qnap-mcu.h
- 
- QNX4 FILESYSTEM
- M:	Anders Larsen <al@alarsen.net>
--- 
-2.47.1
-
+Also, I have concerns about interrupts and reentrancy. We are still
+getting some reentrant calls from interrupts (not all of them are
+filtered by in_task() check). I am afraid these complex hashmaps will
+corrupt.
 
