@@ -4,74 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AD22E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 21:13:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72377E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 21:17:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=r/ue8Aiufy/wDZ3a45YXCfTJFJXDyUS9LLmOc/rSl44=; b=OSOiAJHSzCVOpLncphU4ZLug25
-	hK/70d6oyK62M2Brhgzng+qSelws3HhkGvA/DB10kdBtmSw2Wyk/qUeGYG4EOp+e8gCO3+3Z5t/uE
-	2L6Zgh7FjX9IeVzkK2BwtC8uIQhi61F2BLu9wjHCS6/yx3z6iNOvButNKV3gieFMbyA5+Ut466KaL
-	Pqy4oDVg/QhlQTYjSzAYjlGhuf6lvk76Eqv/fgggMkalxoDxClh+6kiAvk9LXrCADy51de15BXw7H
-	PQdIyeUdoid0zaQuP5x4KS7nM0BdF5pw/iO5gnEHvKg9wzuLxHBFDu2qp3iIew2uKES5KuCslEFUD
-	QFBOXxrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yAREwn/49E5+0U1ZKvnogPwAwFJFrHKMvvmO3SAbc/0=; b=D92brB0IKFYjiQh+sExbAUW/4S
+	IhnttuLSh/zpIsGF3yLxTwR76v9mN5oireLms6rT80bYhyu3RNwe1rEzM/y2dHCpBGZxg6mjMQ6AH
+	S9tXx6jhSUlrj9uX6+0uMaNKOSh6eRheeGM9tsIabLDyAe0b8AUO9dAEN4TZkg7DtPuMHMuS7QYSs
+	1R1JYPLh1OUqKKVVsvqH9j77PPsEBGwiBXqa6FA+aEhDvN/1dmFh/FOZ8A9uPOhHC7NFILDXSdbSb
+	Co7U7ioY5lP2As7XevqNTpAWFTZB3AOoxPgq9idMOaohQd45vNwPyt0Szd1YKwLv/xH30xRqRrKC3
+	IgL5niQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWMJc-0000000GzKv-0TWQ;
-	Fri, 10 Jan 2025 21:13:12 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1tWMNY-0000000H04p-0cJ9;
+	Fri, 10 Jan 2025 21:17:16 +0000
+Received: from mail-mw2nam04on2060a.outbound.protection.outlook.com ([2a01:111:f403:240a::60a] helo=NAM04-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWMF9-0000000GynA-2zGO
+	id 1tWMMJ-0000000GzsT-3YzM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 21:08:37 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 50AL8Qa33468797
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 10 Jan 2025 15:08:26 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1736543306;
-	bh=r/ue8Aiufy/wDZ3a45YXCfTJFJXDyUS9LLmOc/rSl44=;
-	h=Date:From:To:CC:Subject;
-	b=k44kWVsgWgbYhmIgJeQr4L2mChKNVOgqLSLb7yIKrVv+eV7Ucwe+x1/QqkbgiuAw9
-	 ANIhqZjhXlumYKyIChtPXEfIkA13BtCcn31bpOKiK8PPNDf9f+7IXuF3JeoJ80kZO6
-	 wshTwOela3fW4e5wgvGeXWkeF+DPd6sRnlc6maR4=
-Received: from DFLE106.ent.ti.com (dfle106.ent.ti.com [10.64.6.27])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 50AL8P7K031422
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 10 Jan 2025 15:08:25 -0600
-Received: from DFLE104.ent.ti.com (10.64.6.25) by DFLE106.ent.ti.com
- (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 10
- Jan 2025 15:08:25 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE104.ent.ti.com
- (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 10 Jan 2025 15:08:25 -0600
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 50AL8PBN034126;
-	Fri, 10 Jan 2025 15:08:25 -0600
-Date: Fri, 10 Jan 2025 15:08:25 -0600
-From: Nishanth Menon <nm@ti.com>
-To: Arnd <arnd@arndb.de>, SoC list <soc@lists.linux.dev>
-CC: <soc@kernel.org>, <arm@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>,
-        Santosh Shilimkar <ssantosh@kernel.org>,
-        Tony Lindgren <tony@atomide.com>,
-        Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
-        Nishanth Menon <nm@ti.com>
-Subject: [GIT PULL 4/4] MAINTAINERS: TI updates for v6.14
-Message-ID: <20250110210825.emk6zh4tfc6obv26@celestial>
+	Fri, 10 Jan 2025 21:16:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VweRW55kZibxKQkdEjrxkFVt3qktuYuBvahfowvUDZx8RQazGaZnQE2eFstLd+uW0Jo6wVKb+DiNcCxXAgHOy8UOTgmvd72C+khbStM3zZHKo3rH1wPT7btCL3ooFWcUqXso+JIIVhBF71QqF4kn6YfwrIHIs2m320UwNkLWHIcG8VGNOibfUrhAPrcHz9kKXLZZd67bBp5N/MVSGmCKIOPZx7v8h8vpk1gyoYri7fRSz7Oz+BAgRlBrJ+d4Oxez0DdQWLAk0CBYcANQmhs+p+myYRcV9DjUkTE1LtCCmU5Z3Dy016cmEEdQLcA0Zki0Frn2EL4BSrmPA6dCfwOG9Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yAREwn/49E5+0U1ZKvnogPwAwFJFrHKMvvmO3SAbc/0=;
+ b=UXUAEIpLESQmpFY9RxuphiiwBvoarDf7kNnWn6y20TUXtTKh+3XbAFOpUUa4/jmPDZVa2XlNrtMXVZyZlw5hEONRIWxTBoxWwUV7Ds6nkZkJ45ncdi4QV0yvQ9IKZAKSWP3EiW6S87pC0P+nuEOIcULD7S6xAhkox9RYN2H4xWkHwCVebKk//eBCp5bdt87bI0ABncn4SQeFBducLlcZ5YCzyf7BSQDinhMHzk6jE4z4k3EFuj8lsPPrlzTmoTlE9MkrH3O4HDfzfz83U1uU/XJmMZnsfgMguBBbd4vvO5zI75M39nNKwWhhFcqYJK9hARfe2D5KsYwwkz31z+l+mw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yAREwn/49E5+0U1ZKvnogPwAwFJFrHKMvvmO3SAbc/0=;
+ b=OP/YaxD3GuchszFv6unA/SHWoW2k8JKw1DVHSDj2qdQ7ckvG4lvTbYZB1SNTsG6yTVSVt9zfJIggymthe/lcf0k+cYlCczzPLJfvCKoBgSM4/69Oo8gAB6xSgvNWhrTkNzVzLQKu9Wxiy92oYF5TqDcCtDUPyDiZOy8/GWSh1oEDMG73ZXhTS1X4IlJTPzo/9j7B9aIzvVbf+DYZe8IOdzv60ho52ao6w9Oei52xJS7Q9r7R0hkR9/YcNYgsHlc4Mm1Bg0g0n7d6WX18LRy+kOMR80x6F1s6Om2yw+lOMyAgKi8eNF+9OYFSp2HIFbD/k1q4wTYRBzE8UavEfpgmsg==
+Received: from SA1PR12MB7199.namprd12.prod.outlook.com (2603:10b6:806:2bc::21)
+ by DS0PR12MB7927.namprd12.prod.outlook.com (2603:10b6:8:147::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.11; Fri, 10 Jan
+ 2025 21:15:53 +0000
+Received: from SA1PR12MB7199.namprd12.prod.outlook.com
+ ([fe80::ae1b:d89a:dfb6:37c2]) by SA1PR12MB7199.namprd12.prod.outlook.com
+ ([fe80::ae1b:d89a:dfb6:37c2%4]) with mapi id 15.20.8335.010; Fri, 10 Jan 2025
+ 21:15:53 +0000
+From: Ankit Agrawal <ankita@nvidia.com>
+To: David Hildenbrand <david@redhat.com>, Jason Gunthorpe <jgg@nvidia.com>
+CC: "maz@kernel.org" <maz@kernel.org>, "oliver.upton@linux.dev"
+	<oliver.upton@linux.dev>, "joey.gouly@arm.com" <joey.gouly@arm.com>,
+	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "yuzenghui@huawei.com"
+	<yuzenghui@huawei.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"will@kernel.org" <will@kernel.org>, "ryan.roberts@arm.com"
+	<ryan.roberts@arm.com>, "shahuang@redhat.com" <shahuang@redhat.com>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, Aniket Agashe
+	<aniketa@nvidia.com>, Neo Jia <cjia@nvidia.com>, Kirti Wankhede
+	<kwankhede@nvidia.com>, "Tarun Gupta (SW-GPU)" <targupta@nvidia.com>, Vikram
+ Sethi <vsethi@nvidia.com>, Andy Currid <acurrid@nvidia.com>, Alistair Popple
+	<apopple@nvidia.com>, John Hubbard <jhubbard@nvidia.com>, Dan Williams
+	<danw@nvidia.com>, Zhi Wang <zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>,
+	Uday Dhoke <udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>,
+	"alex.williamson@redhat.com" <alex.williamson@redhat.com>,
+	"sebastianene@google.com" <sebastianene@google.com>, "coltonlewis@google.com"
+	<coltonlewis@google.com>, "kevin.tian@intel.com" <kevin.tian@intel.com>,
+	"yi.l.liu@intel.com" <yi.l.liu@intel.com>, "ardb@kernel.org"
+	<ardb@kernel.org>, "akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+	"gshan@redhat.com" <gshan@redhat.com>, "linux-mm@kvack.org"
+	<linux-mm@kvack.org>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v2 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
+ VMA flags
+Thread-Topic: [PATCH v2 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
+ VMA flags
+Thread-Index: AQHbObyY4gofHx3CJE6tGYAUqrUkhLLveBuAgBrLBoCAAxi2gIADd6/9
+Date: Fri, 10 Jan 2025 21:15:53 +0000
+Message-ID: <SA1PR12MB7199E3C81FDC017820773DE0B01C2@SA1PR12MB7199.namprd12.prod.outlook.com>
+References: <20241118131958.4609-1-ankita@nvidia.com>
+ <20241118131958.4609-2-ankita@nvidia.com>
+ <a2d95399-62ad-46d3-9e48-6fa90fd2c2f3@redhat.com>
+ <20250106165159.GJ5556@nvidia.com>
+ <f13622a2-6955-48d0-9793-fba6cea97a60@redhat.com>
+In-Reply-To: <f13622a2-6955-48d0-9793-fba6cea97a60@redhat.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SA1PR12MB7199:EE_|DS0PR12MB7927:EE_
+x-ms-office365-filtering-correlation-id: 96ec3086-c664-4a7c-24c6-08dd31bbf734
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|366016|38070700018;
+x-microsoft-antispam-message-info: =?iso-8859-1?Q?5M/R/jISvg8Q05mnSkmsF9qwpIqg5djl+mBbERHIB+WVXX9jnHwXvVVaIp?=
+ =?iso-8859-1?Q?Jp7ALGYoSbeznWHOlTdTFTGJUta+XPQA3ADL/hui68RvbIYl4WxxZmfI6p?=
+ =?iso-8859-1?Q?7+gXZ8KPO5mbSc7MUfetoeVfTtK8kcHTsx6ZvlhYkOMj+RuvIv0pBilGOe?=
+ =?iso-8859-1?Q?r3g9cvWd9Yr5z9R7mCZkikKyIh8cMl0cZIP9P42rEUdOp0RdMC2JfQ/Hil?=
+ =?iso-8859-1?Q?JCr9ihKmpk/mrxplj53barToBNeYeTTtiJx0YwSosGnhDmnCQeBt0huD/N?=
+ =?iso-8859-1?Q?UI50ZqA7+rl2JoLoBbe0/AOMUXEot6vAFib8gObA7d8Z7Vqc3c/jbTSo7y?=
+ =?iso-8859-1?Q?U9V7C2F0KjxUF5Qgp1zEe20d/0g6x6wjuWAIaN/HcjxliR2ktPVxjOv1oX?=
+ =?iso-8859-1?Q?BNTxklFwQM9+cpk5Nsv0ZJbG3oDUOIFNGH64JM66v3mBQgw+IAWwZFQt59?=
+ =?iso-8859-1?Q?WQXKUbfTMm+z6A3go7eneP3q9/r+pbiQS3hTuD2bUqSRkrweXeRgnsKuFt?=
+ =?iso-8859-1?Q?e4RwN8u+VjnY6N4zNQFiqOeZz64wUGDdaRWIi3+GTj7NKKeEplFS9JEzdP?=
+ =?iso-8859-1?Q?uh+ZoKPJoe6gzYSmHMQDD4Iy4fetEkq6QFaL79QMtmdDOz1vahpS40TLFy?=
+ =?iso-8859-1?Q?G9duhSQ1WKVPO0j11VZSVDnzkZiKFZXCdSjtTh2oF1A3fBdPLIkpDMJx15?=
+ =?iso-8859-1?Q?ZdVs0+MelGBaHv7WIj/DHkqpIPiZSezKDGK/TSi8QpRX1YXpIcmJLntF85?=
+ =?iso-8859-1?Q?8BkJqo/Y/ZojMCIecFXTz6CGgIga1CLbXZ4PdaA9FptBIYOZt7P/ho4t2+?=
+ =?iso-8859-1?Q?8aY5GSLgyhGT2Bd5IUOem5RBXlHgc4X054J28MAExG+C1/zqZ9gSknlKMR?=
+ =?iso-8859-1?Q?Vx7OVBssaV5wVzqhmBqnqHQe6ZjtD7WkL4YlulHd7G8hgeVrgN8UDKwzCQ?=
+ =?iso-8859-1?Q?YMGKf/xd4XrGyKLvpiiuFsXu/gHM6lhDANjCvnD16LIQHXjVqQF9RZ5dcn?=
+ =?iso-8859-1?Q?mdjm2Q+uJBfoasCGONgCp+PYMMbnKOaeqaKVcDE0P/+Jnp9OHXx4Gf+rO+?=
+ =?iso-8859-1?Q?qR+JqYdJUwsAdpCdacAvUsFUm3cLZjltZEowhpcWiHC0HhE92yLap61LaV?=
+ =?iso-8859-1?Q?iZ1ijzSHiY79fM7zMfZnNttiJvxBkhK1fol8y2u8DLnmuPmPKIUVfAmqgF?=
+ =?iso-8859-1?Q?5PtrrVJivDSq90HPeaENtEAx2uxldtSkLLcmn8mzEPa8JOh61SzfNarY9W?=
+ =?iso-8859-1?Q?BWK6TTOlA2YspDwNhd7FAZqUZMSgkCv3gXY11IYXdz/zxlZU71yrsBYg9V?=
+ =?iso-8859-1?Q?lcx+yi0fIx66yxPhO/1H8OxVoGpv+UpjiJL/P1NT7sJSVU0TorCRyoUoen?=
+ =?iso-8859-1?Q?Ei1QuxG7t9ylMh0dyQynoDuQ50Peodz3oAys0Hhea6/0mKbFQi2URvkSQ8?=
+ =?iso-8859-1?Q?23UoquC9Qp0y//E6oVJLxZNhC+C1GwaHQ9LTAV+tvH/WyioDXxJUTTNDPc?=
+ =?iso-8859-1?Q?4vQj266FuhWsmRUgzdUIm0?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB7199.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?VXj9w+WD9+uk6L62OY+j1mvCfnTWXrYLHODnIn0IJZ1ta5n3XIJ8X/ZjXe?=
+ =?iso-8859-1?Q?zL76L7KHtHBpQZyEwI/uUf8K5p0hbQRb2P9MyzAqTqJdBYWdqQgAuhG7Of?=
+ =?iso-8859-1?Q?DWvsvJgsHLbbtaA3bPxRgiTLSdU0afo4OVYl4YSP5DWUAdrwC5rr4YF3UC?=
+ =?iso-8859-1?Q?w8KxJzbpzJBq9/akVobpnwo61zcX0A4F3zJD9+NjTRPTf5vce1QZM2ON2D?=
+ =?iso-8859-1?Q?DX/Ic6bdvCL56S2U/od0ADN9xsGuN4DkmcGE6umYALRwNutR4SWLPsDJSS?=
+ =?iso-8859-1?Q?V90f1w3/3gv5aEvbYRrM44wkJDQXHLtS5pPg5rHzRkas1+Fhu//AtirSDy?=
+ =?iso-8859-1?Q?+wqGKhK4QdsVzDv6XE8H4Li2SBM4q5jOt+jVJqkyEufHQYUo5v40zZAx7r?=
+ =?iso-8859-1?Q?0suiFJF5bZN8OCWfpHP7d0KwvrFhpJo9oG+2dYYLZxSv9Ds3ctHBm/ldGQ?=
+ =?iso-8859-1?Q?++uqtRBVWFBNAYgsOid+Pp57Vqhq5omd0fMIofMVgreyGRcb0UylvlXeeT?=
+ =?iso-8859-1?Q?DoQwZAiyJuzgeIfOsXM8jOur8hDIKgfXEAJSrKbgL18/bU44nsUZLz+c86?=
+ =?iso-8859-1?Q?14yjmG5ecokUkSDITxzTindwXVQwCE9R02hAVB1Ogdb5sdAu7rZfv9PO4Y?=
+ =?iso-8859-1?Q?37KGc3xpDFA2INeCjyluSlxRK8E4MOELIPzgg6QoT8sN2x/l7hFXd5bYJU?=
+ =?iso-8859-1?Q?pMdd4pDCC+r/FNcjZN4a185lhIFlaEhTK4Jlr6gw8sxt8d9RxLxIvz2wmz?=
+ =?iso-8859-1?Q?u1DReViuM/lH4MtzgD2X1y8PjtPVnhsMxrYdKpTp6C5YZQLM0E20PrzL+H?=
+ =?iso-8859-1?Q?iFRQqoCLn4MQuwONkzyImn6QGV/QPfxtfdOVAZBcA6sikWpX9cqjaDJ+3O?=
+ =?iso-8859-1?Q?BKuRSODpkAEBKc1TDXgBm/YmS4YRom1Is8QtKP/LOANkHVWCC2aaBJRdXu?=
+ =?iso-8859-1?Q?FUXKMVBpupYbk124ki1x9sqTO/yu9NJ4njhhWvhPNrG+kfqLn3cPsQXR3b?=
+ =?iso-8859-1?Q?KZlA6JVX9cLI/AP1XKDs+rLsn7ko+n8MsVM9/Bpcjnp3Z2ttqn3L635Yw5?=
+ =?iso-8859-1?Q?TMGHiL45f0FwN9f51j1/bQ3RYcItuI3YfzvHArdug61sZqA76BPT/rtDmM?=
+ =?iso-8859-1?Q?GGx7Kx2lgv08DMSmARD5WmU4OYpkXAjFlJtJl494kCBofLRgzJsFVi24Ul?=
+ =?iso-8859-1?Q?vH2XfPGu+4K78fuc166f1EJLdZ/I9cTv3JX81rvoBFNKUsFIRfnNcixNDk?=
+ =?iso-8859-1?Q?PYfJHjlXFko1fW/v3crlaPoCOtBXJxfnd7cKRQAqtyM79oNYsRgoXJi81p?=
+ =?iso-8859-1?Q?AvsvGKjFhrUGiEf5nR/cuocwo0WA/jWV4IzxPDE26uz9TZPdMxtaiFX8cw?=
+ =?iso-8859-1?Q?8htFCjouZBMGwjoxhJo0loWpeyKCWkx+p39f2N0v9Cm/IrlWFpM/l+a+WK?=
+ =?iso-8859-1?Q?lep2rq/lfDQhvQRjUPvoIsyYA3h8fXm288VViRaQnXrdqylhNH6p6uCorQ?=
+ =?iso-8859-1?Q?fNMbNakEtGXr5M2mv+Les55qm1Tv5CnUkXjcRU/oXGc3Zicq5Nlm3nnHY+?=
+ =?iso-8859-1?Q?pomEemcfPJRwJpo+k4g4AHCCERXK+MvK9JpKl+7w8twuPppPo0Pw18cTzd?=
+ =?iso-8859-1?Q?2tnb4Zbv2P900=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB7199.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 96ec3086-c664-4a7c-24c6-08dd31bbf734
+X-MS-Exchange-CrossTenant-originalarrivaltime: 10 Jan 2025 21:15:53.1973
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 9LCpjPbwljMkvarmOw2u76xxl4jWke8K0qcdCL+hRLBiBrJV6uBGrL2D2Zj8bv1d9aBpmPG/eOQB3f1hYkfXfg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7927
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_130835_794487_DCF5F7E8 
-X-CRM114-Status: UNSURE (   9.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250110_131600_232959_25D9D6B4 
+X-CRM114-Status: GOOD (  12.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,40 +189,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi SoC maintainers,
-
-Note: this PR could potentially go with soc drivers as well, but decided
-to keep it separate to allow your discretion as to the path to take.
-
-Please pull
-
-The following changes since commit 40384c840ea1944d7c5a392e8975ed088ecf0b37:
-
-  Linux 6.13-rc1 (2024-12-01 14:28:56 -0800)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git tags/ti-k3-maintainer-for-v6.14
-
-for you to fetch changes up to 31bd1f4517b651e132fae7cbb5f63b190015da94:
-
-  MAINTAINERS: Add entry for linux/pruss_driver.h (2025-01-02 10:36:36 -0600)
-
-----------------------------------------------------------------
-TI Maintainer updates for v6.14
-
-- Maintain Programmable Real-time Unit Subsystem(PRUSS) SoC library interface
-  header linux/pruss_driver.h
-
-----------------------------------------------------------------
-MD Danish Anwar (1):
-      MAINTAINERS: Add entry for linux/pruss_driver.h
-
- MAINTAINERS | 1 +
- 1 file changed, 1 insertion(+)
-
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+>>>> This patch solves the problems where it is possible for the kernel to=
+=0A=
+>>>> have VMAs pointing at cachable memory without causing=0A=
+>>>> pfn_is_map_memory() to be true, eg DAX memremap cases and CXL/pre-CXL=
+=0A=
+>>>> devices. This memory is now properly marked as cachable in KVM.=0A=
+>>>=0A=
+>>> Does this only imply in worse performance, or does this also affect=0A=
+>>> correctness? I suspect performance is the problem, correct?=0A=
+>>=0A=
+>> Correctness. Things like atomics don't work on non-cachable mappings.=0A=
+>=0A=
+> Hah! This needs to be highlighted in the patch description. And maybe=0A=
+> this even implies Fixes: etc?=0A=
+=0A=
+Understood. I'll put that in the patch description.=0A=
+=0A=
+>>> Likely you assume to never end up with COW VM_PFNMAP -- I think it's=0A=
+>>> possible when doing a MAP_PRIVATE /dev/mem mapping on systems that allo=
+w=0A=
+>>> for mapping /dev/mem. Maybe one could just reject such cases (if KVM PF=
+N=0A=
+>>> lookup code not already rejects them, which might just be that case IIR=
+C).=0A=
+>>=0A=
+>> At least VFIO enforces SHARED or it won't create the VMA.=0A=
+>>=0A=
+>> drivers/vfio/pci/vfio_pci_core.c:=A0=A0=A0=A0=A0=A0 if ((vma->vm_flags &=
+ VM_SHARED) =3D=3D 0)=0A=
+>=0A=
+> That makes a lot of sense for VFIO.=0A=
+=0A=
+So, I suppose we don't need to check this? Specially if we only extend the=
+=0A=
+changes to the following case:=0A=
+- type is VM_PFNMAP &&=0A=
+- user mapping is cacheable (MT_NORMAL or MT_NORMAL_TAGGED) &&=0A=
+- The suggested VM_FORCE_CACHED is set.=0A=
+=0A=
+- Ankit Agrawal=
 
