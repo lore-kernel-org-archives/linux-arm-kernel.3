@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12ADFE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 10:05:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3108E7719C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 10:06:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fQeTqch9j+53iKjXj8MrgWaUt7dPLQ7MpkAT3KGPZVU=; b=ZZu6hFhyx8s+pA4flWRxgoEZPC
-	iEMwFG/nSFM70h02UxQrrFNeVVN7o2uC1ucPDN96aNQL6uSm+JXV+wORFCaLVC3yaxnCnGdgA/1eZ
-	zsK+ZYJCSlO/+pWypr5oPJpbmhgaGWv1ONuW/4ZmjJ57C3ybRn6LV/dJbm/DznK6kTBudCOv82dfh
-	W+9d/DRzeLE+RgeAn/dmKtl956OB85dYgLsYozb/JR0LhWmEc0VlRAAgbbiXNGQ1QIKj4wVXCs38V
-	6hXrVVjnr4MeVn2wF+tpk8v3qNVAtPCJXn0I23mJ2CcQCyN2A1Zs2q6wUwZeAvCqhLRhmtbP2NJZr
-	XL7LiyCQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Jlu2z2pHdwrGgG2KP5sY+xg4s8F2B2cTQIqPiS7nzHw=; b=jR/1GgLvPsUBxs9MJMxd/3aaUM
+	RN9Z7ZH/iUE+80zX/d9lwdtB9tt0/6+3jvctXPv+WuO0TFgV/cAT8rl+UeoVzuAZrZJ4e5qLbRhAt
+	m8ALEK/thAKn4Y0wWg2gOvUqS+swbauLQyO+VTKMoba6HSOHQqKYm4GAxCL7bABRPvrtKvXf+uaiQ
+	SqogySrLVesSNKsNnm84Hpp9Gg+Ss18e42A6vOGvMAfU3AnN8SiE7tj3D5zGyUKnUcmk0Yt3PlFCZ
+	Rz2GsJMpQaXrxQCZuDVW9uFEmsQHdY+tuc2gCxtpNlKiaQycXh3FOEXS9z62lV37t2rwUZGMpEKXD
+	jXECwV+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWBsr-0000000EsCd-2TzL;
-	Fri, 10 Jan 2025 10:04:53 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1tWBu3-0000000EsQn-15wu;
+	Fri, 10 Jan 2025 10:06:07 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWBrd-0000000Ervr-2XZh
+	id 1tWBre-0000000Ervu-0cKT
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 10 Jan 2025 10:03:39 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-436341f575fso19708185e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jan 2025 02:03:36 -0800 (PST)
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-385eed29d17so995411f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jan 2025 02:03:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=smile.fr; s=google; t=1736503415; x=1737108215; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=fQeTqch9j+53iKjXj8MrgWaUt7dPLQ7MpkAT3KGPZVU=;
-        b=P6sf4afo0PZcUaKZAqnthGIgQhmggtNP8ZmU+lXl35sx8/tigqv6hD03eHgRjTqeho
-         yXQjr/OmSk0Ufgdu++bKZ+k1fwI3CehWbklFqj09N3muLqsd5O4cXBiIDw4LE/LVLenM
-         KXmfo35GtJm0jbqbSMrBjyHXkzBWXu56O3yXs=
+        d=smile.fr; s=google; t=1736503416; x=1737108216; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Jlu2z2pHdwrGgG2KP5sY+xg4s8F2B2cTQIqPiS7nzHw=;
+        b=33xH0ZwRgNhC5VMPhDkGlQBvUButyGfDK8Ev82ll+nrCGfS4u/Ci9QEW8jxrtDt35f
+         4M9SCQBohWbTPK3uR++EGAiXNKrEqCqA1Byk4gxeGZ2sjJXdXu7MdwQ9uqIfVsyKfmLv
+         6SGHmnoEhnvi/ni98R/xa7lDIt537CeK5f8fs=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736503415; x=1737108215;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=fQeTqch9j+53iKjXj8MrgWaUt7dPLQ7MpkAT3KGPZVU=;
-        b=tDHxkylvKR6iSrTvATOdq/OA+EtOqcqhdyaHdV6UGxTRqirav6n+mRpRevQjEe0r2Q
-         NvDPF77xokkzEvZqH1uBiuzqcLPBFIW+XBKw5hq+IyEb8eS2fTjnyoAvO/H6Q5cZtEVV
-         v9CoJuWfBiDx+9ha2rLRpqIViUjaMEfmrgypvkpc0ytLdhUrUBQyDtoU8/aLHH8+8uv3
-         YbhVkMtq7vWcwY1OOtpN0DaXU5zixcs8YErqbK8Y9LEeNLHckLfQGPMHT9/Gbhf31H4o
-         ENfFuJ+oVlmVf8c3TvgQ/ZjiSyhaMsfMaM17yr/QGmrfZ4x8cfyHYmEm8StcrYEJUmai
-         UmZA==
-X-Gm-Message-State: AOJu0YwfrcDqxNwOm5OkR2JAkLysOFPGJYt4ZDWU/y1zbxqaBULKdUz+
-	pkL+62SecvONL1tRU5y1jD06jtYAj9HjnEzD3Tt+cKQN0ADujOv3OXeI92H9AP1ErnDNsrp//+K
-	j
-X-Gm-Gg: ASbGncuyEG3jh2K9XecD1fy47y+UN66Rag6v+rMYAGQ0Al7ihmRbV+bm9nf6OutAuvH
-	3mlymE0b3aecPjIvYXoeACyPcvRbGqg3MIyBCx2FZCQPrwYzKG333CAB5159RL+lYFn7BOEb9SB
-	jA9Fmbi2piMpXCQ4qVsbK8jhH0gIBIlrHunuK7tuWCPR3ap4aaV9Li2yHaTDK6MBSAnyyGYBLUl
-	GVYQ1jNF00iS/geBgwNNJIJKjhWKw4dtbmw1ljdKQgkrnee/ujj4GbcN3pkFBHLqYhpD0If3Dsj
-	I8yhmci6ugocoTBy7kFG6u/tYeoogp75bRzqB2AMCt/F36BtZZvG7Q==
-X-Google-Smtp-Source: AGHT+IGV8wNb5pRGJC8CELqDHhfCA3lINL4YQa3ZSVbVGyS6LeSFPXZb6mq2DxQh1UMN01mIMAx/uA==
-X-Received: by 2002:a05:600c:1d03:b0:434:a781:f5d9 with SMTP id 5b1f17b1804b1-436e2697b32mr39134015e9.11.1736503414860;
-        Fri, 10 Jan 2025 02:03:34 -0800 (PST)
+        d=1e100.net; s=20230601; t=1736503416; x=1737108216;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Jlu2z2pHdwrGgG2KP5sY+xg4s8F2B2cTQIqPiS7nzHw=;
+        b=c2uGAGR5Bxs9H7HZ43SzQiYozZzGlSXak6Dizz4qgy7DM56mvFi63gWouJTl/b9Pjk
+         hLgvKsf9ZiZCh97/zNexvfcYCAC5vYyTiwggBxkq6oQ75QJR78QD+95EgE5j/D1FpxFw
+         65HQwRNqgGE5DDk1tIgKWW3AgQ8NNOGHlHq736chkJgnR1OGENvaKpldnlQk1QYWELZ8
+         owGZCNt70vpl2n5makaEPVpmKvNCNmgMAHK3xYaE9Gm6CKMDegXLGj4LdwhiJX5gHw8p
+         z6nvIsZyPr7sCmhwM5p9kuWGQn6ykuppS4TO1hgCVKfCUl9eeowaYDWBJKcOuLC6O2Wj
+         po0w==
+X-Gm-Message-State: AOJu0Yy2D5YlQqNy5VIJ5gJTlR7kVxBHuHvsMpI2xv2nUXvLp7RoXpki
+	WShysJBEIGE8PkEBub5AxOwvvrasUU/8rZ/1kZjvdu676BergYdbVLVdLzQ8ndY=
+X-Gm-Gg: ASbGncvC9bZ4KqszOfwAEx6dEWeXvAJ81wHf7gJyG/FkuOe06PlT7ssrxrGG2FLGteh
+	Pib5aSEgka3WyeCKklhywFePHiqdpvTbASJ2e5QE5bEn92WuJcz0WgMYAQAw+tqxvvz0klih0Va
+	p8ktSp1tmobMea35bpBSf4k6XV5/7Q6wn5nUiby2HckWfyH+A8SNWHk2warM0lNDvPyDZUVLWia
+	Zdy9I6ooT8XK7LSl38sZI6g47FLlUlB8UHHiGqMPG3SHCgqvA7G5Q+VdYvOf4FBfclW8HKRjopK
+	qdwgKmCke559HbV94CisIEl7bD6kg6vocz5DixHuR2Umd9/9xnF+dw==
+X-Google-Smtp-Source: AGHT+IHyEAHWU5ly3eyj+DcRzpVdOPzllhfmOMWBbwpJQcUozRmuiIObKmwQNUj7Xey7hrqWhL/MZA==
+X-Received: by 2002:a5d:588a:0:b0:385:fc32:1ec6 with SMTP id ffacd0b85a97d-38a87355087mr8406629f8f.50.1736503415656;
+        Fri, 10 Jan 2025 02:03:35 -0800 (PST)
 Received: from P-NTS-Evian.home (2a01cb05949d5800e3ef2d7a4131071f.ipv6.abo.wanadoo.fr. [2a01:cb05:949d:5800:e3ef:2d7a:4131:71f])
         by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a8e37d085sm4198483f8f.13.2025.01.10.02.03.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Jan 2025 02:03:34 -0800 (PST)
+        Fri, 10 Jan 2025 02:03:35 -0800 (PST)
 From: Romain Naour <romain.naour@smile.fr>
 To: devicetree@vger.kernel.org
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -75,16 +75,19 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	vigneshr@ti.com,
 	nm@ti.com,
 	afd@ti.com,
-	Romain Naour <romain.naour@skf.com>
-Subject: [PATCH v5 1/2] dt-bindings: mfd: syscon: Add ti,j721e-acspcie-proxy-ctrl compatible
-Date: Fri, 10 Jan 2025 11:03:30 +0100
-Message-ID: <20250110100331.1642242-1-romain.naour@smile.fr>
+	Romain Naour <romain.naour@skf.com>,
+	Siddharth Vadapalli <s-vadapalli@ti.com>
+Subject: [PATCH v5 2/2] arm64: dts: ti: k3-j721e-beagleboneai64: Enable ACSPCIE output for PCIe1
+Date: Fri, 10 Jan 2025 11:03:31 +0100
+Message-ID: <20250110100331.1642242-2-romain.naour@smile.fr>
 X-Mailer: git-send-email 2.47.1
+In-Reply-To: <20250110100331.1642242-1-romain.naour@smile.fr>
+References: <20250110100331.1642242-1-romain.naour@smile.fr>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_020337_646342_018FC652 
-X-CRM114-Status: GOOD (  13.37  )
+X-CRM114-CacheID: sfid-20250110_020338_186520_D2260B3C 
+X-CRM114-Status: GOOD (  15.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,87 +104,112 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Romain Naour <romain.naour@skf.com>
 
-The ACSPCIE_PROXY_CTRL registers within the CTRL_MMR space of TI's J721e
-SoC are used to drive the reference clock to the PCIe Endpoint device via
-the PAD IO Buffers. Add the compatible for allowing the PCIe driver to
-obtain the regmap for the ACSPCIE_CTRL register within the System
-Controller device-tree node in order to enable the PAD IO Buffers.
+Unlike the SK-TDA4VM (k3-j721e-sk) board, there is no clock generator
+(CDCI6214RGET) on the BeagleBone AI-64 (k3-j721e-beagleboneai64) to
+provide PCIe refclk signal to PCIe Endponts. So the ACSPCIE module must
+provide refclk through PCIe_REFCLK pins.
 
-Using the ti,j721e-acspcie-proxy-ctrl compatible imply to use "Proxy1"
+Use the new "ti,syscon-acspcie-proxy-ctrl" property to enable ACSPCIE
+module's PAD IO Buffers.
+
+Using "ti,j721e-acspcie-proxy-ctrl" imply to use use "Proxy1"
 address (1A090h) instead of "Proxy0" (18090h) to access
 CTRLMMR_ACSPCIE0_CTRL register:
 
   CTRLMMR_ACSPCIE0_CTRL Register (Proxy0 Offset = 18090h; Proxy1 Offset = 1A090h)
 
-"Proxy0" is used as the default access path that can be locked with the
-help of "CTRLMMR_LOCK0_KICK0" and "CTRLMMR_LOCK0_KICK1" registers.
+So use "syscon@1a090" for acspcie0_proxy_ctrl node.
 
-The Technical Reference Manual for J721e SoC with details of the
-ASCPCIE_CTRL registers is available at:
-https://www.ti.com/lit/zip/spruil1
-
+Cc: Siddharth Vadapalli <s-vadapalli@ti.com>
 Signed-off-by: Romain Naour <romain.naour@skf.com>
 ---
+With this patch, we can remove "HACK: Sierra: Drive clock out" patch
+applied on vendor kernel for BeagleBone AI-64:
+https://openbeagle.org/beagleboard/linux/-/commit/ad65d7ef675966cdbc5d75f2bd545fad1914ba9b
+
 v5:
-  - Add missing change to the J721e system controller binding
-    to avoid DT check warning when the new acspcie0_proxy_ctrl (syscon)
-    will be added to J721e system controller node (Andrew Davis).
-
-  https://lore.kernel.org/linux-devicetree/90f47fae-a493-471d-8fe6-e7df741161be@ti.com/
-
-  - Explain why "Proxy1" address (1A090h) should be used while using
-    ti,j721e-acspcie-proxy-ctrl compatible (Siddharth Vadapalli).
+  - update the acspcie0_proxy_ctrl node address to use really use the
+    "PROXY" register implied by ti,j721e-acspcie-proxy-ctrl compatible.
 
   https://lore.kernel.org/linux-devicetree/begojbvvrpyjfr3pye7mqwiw73ucw5ynepdfujssr4jx4vs33a@pwahnph3qesl/
 
-v4: Add missing change in the second list (From Andrew Davis) [1]
-  Rebase after the ti,j784s4-acspcie-proxy-ctrl compatible fix [2]
-  [1] https://lore.kernel.org/linux-devicetree/20250103174524.28768-1-afd@ti.com/
-  [2] https://lore.kernel.org/linux-devicetree/20250103174524.28768-2-afd@ti.com/
+v4: no change
 
-v3: new commit
+v3:
+ - update "acspcie0_proxy_ctrl" compatible to "ti,j721e-acspcie-proxy-ctrl"
+   since this property is specific to j721e variant.
+
+v2:
+ - use generic style comments
+ - use "syscon" as generic node name for "acspcie0_proxy_ctrl" node
+ - Keep the compatible "ti,j784s4-acspcie-proxy-ctrl" since the
+   ACSPCIE buffer and its functionality is the same across all K3 SoCs.
+   (Siddharth Vadapalli)
+
+   "The compatible "ti,j784s4-acspcie-pcie-ctrl" should be reused for
+   J721E and all other K3 SoCs.
+   For example, see:
+   https://lore.kernel.org/r/20240402105708.4114146-1-s-vadapalli@ti.com/
+   which introduced "ti,am62p-cpsw-mac-efuse" compatible.
+
+   The same compatible is reused across all K3 SoCs:
+   https://lore.kernel.org/r/20240628151518.40100-1-afd@ti.com/ "
 ---
- Documentation/devicetree/bindings/mfd/syscon.yaml           | 2 ++
- .../bindings/soc/ti/ti,j721e-system-controller.yaml         | 6 ++++++
- 2 files changed, 8 insertions(+)
+ arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts |  5 +++++
+ arch/arm64/boot/dts/ti/k3-j721e-main.dtsi          | 10 ++++++++--
+ 2 files changed, 13 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Documentation/devicetree/bindings/mfd/syscon.yaml
-index 0e68c69e7bc9..1f3e67f432e7 100644
---- a/Documentation/devicetree/bindings/mfd/syscon.yaml
-+++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
-@@ -115,6 +115,7 @@ select:
-           - ti,am625-dss-oldi-io-ctrl
-           - ti,am62p-cpsw-mac-efuse
-           - ti,am654-dss-oldi-io-ctrl
-+          - ti,j721e-acspcie-proxy-ctrl
-           - ti,j784s4-acspcie-proxy-ctrl
-           - ti,j784s4-pcie-ctrl
-           - ti,keystone-pllctrl
-@@ -213,6 +214,7 @@ properties:
-           - ti,am625-dss-oldi-io-ctrl
-           - ti,am62p-cpsw-mac-efuse
-           - ti,am654-dss-oldi-io-ctrl
-+          - ti,j721e-acspcie-proxy-ctrl
-           - ti,j784s4-acspcie-proxy-ctrl
-           - ti,j784s4-pcie-ctrl
-           - ti,keystone-pllctrl
-diff --git a/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml b/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
-index 378e9cc5fac2..16929218d611 100644
---- a/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
-+++ b/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
-@@ -68,6 +68,12 @@ patternProperties:
-     description:
-       The node corresponding to SoC chip identification.
+diff --git a/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts b/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
+index fb899c99753e..741ad2ba6fdb 100644
+--- a/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
++++ b/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
+@@ -859,6 +859,11 @@ &pcie1_rc {
+ 	num-lanes = <2>;
+ 	max-link-speed = <3>;
+ 	reset-gpios = <&main_gpio0 22 GPIO_ACTIVE_HIGH>;
++	/*
++	 * There is no on-board or external reference clock generators,
++	 * use refclk from the ACSPCIE module's PAD IO Buffers.
++	 */
++	ti,syscon-acspcie-proxy-ctrl = <&acspcie0_proxy_ctrl 0x3>;
+ };
  
-+  "^syscon@[0-9a-f]+$":
-+    type: object
-+    $ref: /schemas/mfd/syscon.yaml#
-+    description:
-+      This is the ASPCIe control region.
+ &ufs_wrapper {
+diff --git a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+index af3d730154ac..bc016c551710 100644
+--- a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+@@ -5,6 +5,7 @@
+  * Copyright (C) 2016-2024 Texas Instruments Incorporated - https://www.ti.com/
+  */
+ #include <dt-bindings/phy/phy.h>
++#include <dt-bindings/phy/phy-cadence.h>
+ #include <dt-bindings/phy/phy-ti.h>
+ #include <dt-bindings/mux/mux.h>
+ 
+@@ -82,6 +83,11 @@ ehrpwm_tbclk: clock-controller@4140 {
+ 			reg = <0x4140 0x18>;
+ 			#clock-cells = <1>;
+ 		};
 +
- required:
-   - compatible
-   - reg
++		acspcie0_proxy_ctrl: syscon@1a090 {
++			compatible = "ti,j721e-acspcie-proxy-ctrl", "syscon";
++			reg = <0x1a090 0x4>;
++		};
+ 	};
+ 
+ 	main_ehrpwm0: pwm@3000000 {
+@@ -979,8 +985,8 @@ pcie1_rc: pcie@2910000 {
+ 		max-link-speed = <3>;
+ 		num-lanes = <2>;
+ 		power-domains = <&k3_pds 240 TI_SCI_PD_EXCLUSIVE>;
+-		clocks = <&k3_clks 240 1>;
+-		clock-names = "fck";
++		clocks = <&k3_clks 240 1>, <&serdes1 CDNS_SIERRA_DERIVED_REFCLK>;
++		clock-names = "fck", "pcie_refclk";
+ 		#address-cells = <3>;
+ 		#size-cells = <2>;
+ 		bus-range = <0x0 0xff>;
 -- 
 2.47.1
 
