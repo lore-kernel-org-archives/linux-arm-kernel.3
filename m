@@ -4,84 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C013E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 16:15:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91C19E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 16:16:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4AeKH+x/3T1B5AOE4quTwxYLKlq0bm4dB05NvJUlAao=; b=WCRObJwYiN/6iz4qMmm+PgDHL+
-	d0W/JXxGbvPzmsOKbwQ7J3x0B27DMHlpFo99QQiyUImc2mHi/YhEDFxbEcML8EL/JtaebshEOnFyW
-	WwNQy/jkBGv4LiibRDv6ZJqxW12gDGMg0rueaTXE7WngILsewxD5WVfFa5OfrzxGKocBeY3i+W+a2
-	qgXFsRNdqXmB0JB/L3sabrEvLk44+d2HCKbSzyT+q37brpT2EsGl3y4bX6j7tdGlvkoTgeuo6E4ye
-	L3pznm/7a0uo10RYEq6NT0ONE3/5USx0eelMIbOCpskv6IEt/02H5eOPujc4AiuNO+qCrggl4OGcQ
-	yFiKTF7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=32QZXrb62+QSD3pPaL9k/c8TLDGv4uNeJJYp07OLSvY=; b=3DOjj5GPUbnLcZlD+Qw4ZTGhRL
+	PNqTc6iIlZRLZhegVBwJVu4E+BI7Belo+CY+siicAsAFLnO5+zb40hM+6jzmGvTG6sQCUdFThsn8D
+	BfUN2iqhQ9NCpjtvQoF9kZ1WRz9jrPudDuiVw1QmF9rDWA6iSC1MMn/IvF3ExzUAkAmlGS8GaLfuO
+	WI8+d5ywlHBnxFMJaeHwMdBgAdLI/jYAAOQ0uAOJFx9yz0olSIhg5w6no70OR9T0Xl6Yo34gAI0T7
+	vLd72nM8UN1dKSth19Lvzq5Bj5KZ0ZHeBcx08IVx/KIoj+mrq+LzkWlSF2GSjNNAbSVeORzYYIbQ+
+	IxMSCwSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWHeq-0000000GB7X-3oYn;
-	Fri, 10 Jan 2025 16:14:48 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tWHg3-0000000GBfp-0zGg;
+	Fri, 10 Jan 2025 16:16:03 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWHEN-0000000G52q-2F0M;
-	Fri, 10 Jan 2025 15:47:28 +0000
+	id 1tWHKo-0000000G6tk-2xTH;
+	Fri, 10 Jan 2025 15:54:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BA8BD5C338E;
-	Fri, 10 Jan 2025 15:46:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FF99C4CEE1;
-	Fri, 10 Jan 2025 15:47:18 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2D5B15C0FC2;
+	Fri, 10 Jan 2025 15:53:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3500C4CED6;
+	Fri, 10 Jan 2025 15:54:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736524046;
-	bh=v73Vw62MTNkPdqw8cVZvUOLB+25Ygi2g/dhpqPSNGOs=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=l/Tqf1J0YeqgmGTlb9OUQ/Wvq+oCw2zgnE8wFFqL59zvdOgp7O+gqxEegYCMlag5B
-	 Q6YYo8nE4BAqap4CwWdBHEB5spPiRJAR3xfPANPsrUl8QBsBJkFuY9/mmloDugDn53
-	 oTrzlRuyCsQh3Pip0J9mKHKMBRqWqQrHqvRlba7lqg2A2mhrzj5cyWW+hzMCeL8RK0
-	 5GclltoKebgtyrLyhSxH8ccfanUNpL8t1yEknIhnlxVvFmJDoCR6QoQO2CNOzLGW18
-	 eGfHAbzkQCEt/QvPwSazROLltVeDVxhce+xTw1U85pnahOGx6/HmZUCI7bRjv8s9WC
-	 Mv9KDA4WfFk4A==
-From: Mark Brown <broonie@kernel.org>
-To: Sanjay R Mehta <sanju.mehta@amd.com>, Han Xu <han.xu@nxp.com>, 
- Conor Dooley <conor.dooley@microchip.com>, 
- Daire McNamara <daire.mcnamara@microchip.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Haibo Chen <haibo.chen@nxp.com>, Yogesh Gaur <yogeshgaur.83@gmail.com>, 
- Heiko Stuebner <heiko@sntech.de>, Michal Simek <michal.simek@amd.com>, 
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
- Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>, 
- =?utf-8?q?C=C3=A9dric_Le_Goater?= <clg@kaod.org>, 
- Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
- Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, 
- Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, 
- Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Raju Rangoju <Raju.Rangoju@amd.com>, 
- Miquel Raynal <miquel.raynal@bootlin.com>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Steam Lin <stlin2@winbond.com>, linux-spi@vger.kernel.org, 
- linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
- linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-mtd@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
- openbmc@lists.ozlabs.org, linux-stm32@st-md-mailman.stormreply.com, 
- Pratyush Yadav <pratyush@kernel.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, stable+noautosel@kernel.org
-In-Reply-To: <20241224-winbond-6-11-rc1-quad-support-v2-0-ad218dbc406f@bootlin.com>
-References: <20241224-winbond-6-11-rc1-quad-support-v2-0-ad218dbc406f@bootlin.com>
-Subject: Re: (subset) [PATCH v2 00/27] spi-nand/spi-mem DTR support
-Message-Id: <173652403824.316821.7989247622292618802.b4-ty@kernel.org>
-Date: Fri, 10 Jan 2025 15:47:18 +0000
+	s=k20201202; t=1736524445;
+	bh=KtZ4c7jWTzK/1RwsYWEQ3b4sPV8HEvuExiQjmVNRQaQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qqo2nWRtkTXHYUIcAvGXBfFz9lRjc90pKSWJa3X5Rt1ujIb/Zfnhbs3zoTHzUnZKS
+	 reXKrHisV3jT85sYHUYGWu2GG2+M3aKs8lyIE0WUXx3dwmlBJtEanCJzsQ6oqekaCq
+	 2NYie+vO8run7Cf1nlJJsbiQsrip82LufKuN+HshH3W0GpZUAfOn5yvWT8NTov4Xez
+	 BX81epoL9777exAxcqECpJnGfTixE4bc4vv3AIdQoF4BNqfyPCDcJi10VzyzCL1tVA
+	 7zysNjo68cGIj9mxNi9/FLuUFdGFjJNFZ+GdPv/qtXylav7Ugpae9E899Nm3XG6TDx
+	 W/f9aIUS8o5ow==
+Date: Fri, 10 Jan 2025 09:54:04 -0600
+From: Rob Herring <robh@kernel.org>
+To: Jian Hu <jian.hu@amlogic.com>
+Cc: Jerome Brunet <jbrunet@baylibre.com>,
+	Xianwei Zhao <xianwei.zhao@amlogic.com>,
+	Chuan Liu <chuan.liu@amlogic.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Dmitry Rokosov <ddrokosov@sberdevices.ru>,
+	devicetree <devicetree@vger.kernel.org>,
+	linux-clk <linux-clk@vger.kernel.org>,
+	linux-amlogic <linux-amlogic@lists.infradead.org>,
+	linux-kernel <linux-kernel@vger.kernel.org>,
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v2 1/5] dt-bindings: clock: add Amlogic T7 PLL clock
+ controller
+Message-ID: <20250110155404.GA2928945-robh@kernel.org>
+References: <20250108094025.2664201-1-jian.hu@amlogic.com>
+ <20250108094025.2664201-2-jian.hu@amlogic.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-1b0d6
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250108094025.2664201-2-jian.hu@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_074727_662851_2701A901 
-X-CRM114-Status: GOOD (  14.17  )
+X-CRM114-CacheID: sfid-20250110_075406_828259_F6AA070B 
+X-CRM114-Status: GOOD (  19.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,80 +83,206 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 24 Dec 2024 18:05:45 +0100, Miquel Raynal wrote:
-> Here is a (big) series supposed to bring DTR support in SPI-NAND.
+On Wed, Jan 08, 2025 at 05:40:21PM +0800, Jian Hu wrote:
+> Add DT bindings for the PLL clock controller of the Amlogic T7 SoC family.
 > 
-> I could have split this into two but I eventually preferred showing the
-> big picture. Once v1 will be over, I can make it two. However when we'll
-> discuss merging, we'll have to share an immutable tag among the two
-> subsystems.
+> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
+> ---
+>  .../bindings/clock/amlogic,t7-pll-clkc.yaml   | 103 ++++++++++++++++++
+>  .../dt-bindings/clock/amlogic,t7-pll-clkc.h   |  57 ++++++++++
+>  2 files changed, 160 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/clock/amlogic,t7-pll-clkc.yaml
+>  create mode 100644 include/dt-bindings/clock/amlogic,t7-pll-clkc.h
 > 
-> [...]
+> diff --git a/Documentation/devicetree/bindings/clock/amlogic,t7-pll-clkc.yaml b/Documentation/devicetree/bindings/clock/amlogic,t7-pll-clkc.yaml
+> new file mode 100644
+> index 000000000000..fd0323678d37
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/clock/amlogic,t7-pll-clkc.yaml
+> @@ -0,0 +1,103 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +# Copyright (C) 2024 Amlogic, Inc. All rights reserved
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/clock/amlogic,t7-pll-clkc.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Amlogic T7 PLL Clock Control Controller
+> +
+> +maintainers:
+> +  - Neil Armstrong <neil.armstrong@linaro.org>
+> +  - Jerome Brunet <jbrunet@baylibre.com>
+> +  - Jian Hu <jian.hu@amlogic.com>
+> +  - Xianwei Zhao <xianwei.zhao@amlogic.com>
+> +
+> +if:
 
-Applied to
+Move this after 'required' section.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+Generally we put 'if' under 'allOf' because we're likely to have another 
+if/then schema on the next compatible added. If you don't think this 
+binding will ever get used on another chip, then it is fine as-is.
 
-Thanks!
+> +  properties:
+> +    compatible:
+> +      contains:
+> +        const: amlogic,t7-pll-mclk
+> +
+> +then:
+> +  properties:
+> +    clocks:
+> +      items:
+> +        - description: mclk pll input oscillator gate
+> +        - description: 24M oscillator input clock source for mclk_sel_0
+> +        - description: fix 50Mhz input clock source for mclk_sel_0
+> +
+> +    clock-names:
+> +      items:
+> +        - const: input
+> +        - const: mclk_in0
+> +        - const: mclk_in1
 
-[01/27] spi: spi-mem: Extend spi-mem operations with a per-operation maximum frequency
-        commit: 0fefeade90e74bc8f40ab0e460f483565c492e28
-[02/27] spi: spi-mem: Add a new controller capability
-        commit: 1248c9b8d54120950fda10fbeb98fb8932b4d45c
-[03/27] spi: amd: Support per spi-mem operation frequency switches
-        commit: d0e5faccb229b1dacc4c9fa11f6df33bb1fdabd8
-[04/27] spi: amd: Drop redundant check
-        commit: e6204f39fe3a7b4538815a2d778b601bd543649e
-[05/27] spi: amlogic-spifc-a1: Support per spi-mem operation frequency switches
-        commit: 5baa189789e8894c58eacc7803e3c163c1d0fc0a
-[06/27] spi: cadence-qspi: Support per spi-mem operation frequency switches
-        commit: 06e9f5a1f6ba774d8942a168d3ec5ed5a008fbcb
-[07/27] spi: dw: Support per spi-mem operation frequency switches
-        commit: eee7bc9e7ade6f7ac17d9ec02887cd5509ba9427
-[08/27] spi: fsl-qspi: Support per spi-mem operation frequency switches
-        commit: 2438db5253eb17a7c0ccb15aea4252a150dda057
-[09/27] spi: microchip-core-qspi: Support per spi-mem operation frequency switches
-        commit: 13529647743d906ed3cf991f1d77727e7ff1fb6f
-[10/27] spi: mt65xx: Support per spi-mem operation frequency switches
-        commit: 13fd04b53053bbfa741a0f2a781837ab80e485f6
-[11/27] spi: mxic: Support per spi-mem operation frequency switches
-        commit: 67707cb094f134f5b3931eefbedbb9ca7e3209d0
-[12/27] spi: nxp-fspi: Support per spi-mem operation frequency switches
-        commit: 26851cf65ffca2d3a8d529a125e54cf0084d69e7
-[13/27] spi: rockchip-sfc: Support per spi-mem operation frequency switches
-        commit: d3f35dd3ad968256ed1080e3ea2022f947861cff
-[14/27] spi: spi-sn-f-ospi: Support per spi-mem operation frequency switches
-        commit: 1a206344218cc15ad8f321e3abab3f3d36ab639f
-[15/27] spi: spi-ti-qspi: Support per spi-mem operation frequency switches
-        commit: b2fac3192919dd07e7ce30558e34abd7e07dde77
-[16/27] spi: zynq-qspi: Support per spi-mem operation frequency switches
-        commit: 9a68f6c8d6cfddeac7c5874528ed04e50a1cb579
-[17/27] spi: zynqmp-gqspi: Support per spi-mem operation frequency switches
-        commit: 30eb2e6e78225f92f04a2325c6fd77fe8f5b4aab
-[18/27] spi: spi-mem: Reorder spi-mem macro assignments
-        commit: d1f85873d2d62d6980e68d21d3a21f20b0664cc3
-[19/27] spi: spi-mem: Create macros for DTR operation
-        commit: f0006897a96c736623ddeb9b68c3880eb5cdebe7
-[20/27] spi: spi-mem: Estimate the time taken by operations
-        (no commit info)
+Move these to top-level and then both of these are just 'minItems: 3'.
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+> +
+> +else:
+> +  properties:
+> +    clocks:
+> +      items:
+> +        - description: pll input oscillator gate
+> +
+> +    clock-names:
+> +      items:
+> +        - const: input
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+And 'maxItems: 1' here.
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - amlogic,t7-pll-gp0
+> +      - amlogic,t7-pll-gp1
+> +      - amlogic,t7-pll-hifi
+> +      - amlogic,t7-pll-pcie
+> +      - amlogic,t7-mpll
+> +      - amlogic,t7-pll-hdmi
+> +      - amlogic,t7-pll-mclk
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  '#clock-cells':
+> +    const: 1
+> +
+> +  clocks:
+> +    minItems: 1
+> +    maxItems: 3
+> +
+> +  clock-names:
+> +    minItems: 1
+> +    maxItems: 3
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+These are the 'top-level' definitions if that's not clear.
 
-Thanks,
-Mark
-
+> +
+> +required:
+> +  - compatible
+> +  - '#clock-cells'
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    apb {
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +
+> +        clock-controller@8080 {
+> +            compatible = "amlogic,t7-pll-gp0";
+> +            reg = <0 0x8080 0 0x20>;
+> +            clocks = <&scmi_clk 2>;
+> +            clock-names = "input";
+> +            #clock-cells = <1>;
+> +        };
+> +
+> +        clock-controller@8300 {
+> +            compatible = "amlogic,t7-pll-mclk";
+> +            reg = <0 0x8300 0 0x18>;
+> +            clocks = <&scmi_clk 2>,
+> +                     <&xtal>,
+> +                     <&scmi_clk 31>;
+> +            clock-names = "input", "mclk_in0", "mclk_in1";
+> +            #clock-cells = <1>;
+> +        };
+> +    };
+> diff --git a/include/dt-bindings/clock/amlogic,t7-pll-clkc.h b/include/dt-bindings/clock/amlogic,t7-pll-clkc.h
+> new file mode 100644
+> index 000000000000..e88c342028db
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/amlogic,t7-pll-clkc.h
+> @@ -0,0 +1,57 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
+> +/*
+> + * Copyright (c) 2024 Amlogic, Inc. All rights reserved.
+> + * Author: Jian Hu <jian.hu@amlogic.com>
+> + */
+> +
+> +#ifndef __T7_PLL_CLKC_H
+> +#define __T7_PLL_CLKC_H
+> +
+> +/* GP0 */
+> +#define CLKID_GP0_PLL_DCO	0
+> +#define CLKID_GP0_PLL		1
+> +
+> +/* GP1 */
+> +#define CLKID_GP1_PLL_DCO	0
+> +#define CLKID_GP1_PLL		1
+> +
+> +/* HIFI */
+> +#define CLKID_HIFI_PLL_DCO	0
+> +#define CLKID_HIFI_PLL		1
+> +
+> +/* PCIE */
+> +#define CLKID_PCIE_PLL_DCO	0
+> +#define CLKID_PCIE_PLL_DCO_DIV2	1
+> +#define CLKID_PCIE_PLL_OD	2
+> +#define CLKID_PCIE_PLL		3
+> +
+> +/* MPLL */
+> +#define CLKID_MPLL_PREDIV	0
+> +#define CLKID_MPLL0_DIV		1
+> +#define CLKID_MPLL0		2
+> +#define CLKID_MPLL1_DIV		3
+> +#define CLKID_MPLL1		4
+> +#define CLKID_MPLL2_DIV		5
+> +#define CLKID_MPLL2		6
+> +#define CLKID_MPLL3_DIV		7
+> +#define CLKID_MPLL3		8
+> +
+> +/* HDMI */
+> +#define CLKID_HDMI_PLL_DCO	0
+> +#define CLKID_HDMI_PLL_OD	1
+> +#define CLKID_HDMI_PLL		2
+> +
+> +/* MCLK */
+> +#define CLKID_MCLK_PLL_DCO	0
+> +#define CLKID_MCLK_PRE		1
+> +#define CLKID_MCLK_PLL		2
+> +#define CLKID_MCLK_0_SEL	3
+> +#define CLKID_MCLK_0_DIV2	4
+> +#define CLKID_MCLK_0_PRE	5
+> +#define CLKID_MCLK_0		6
+> +#define CLKID_MCLK_1_SEL	7
+> +#define CLKID_MCLK_1_DIV2	8
+> +#define CLKID_MCLK_1_PRE	9
+> +#define CLKID_MCLK_1		10
+> +
+> +#endif /* __T7_PLL_CLKC_H */
+> -- 
+> 2.47.1
+> 
 
