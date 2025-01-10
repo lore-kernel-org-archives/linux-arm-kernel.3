@@ -4,92 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89BBEE7719C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 08:36:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF4B1E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 08:38:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K9Ojh4fi+Aury5PIzpaOVh6/pBCJ3O4TsGOr7mgb28Q=; b=Hq4YiOYytGxpv53l7DmpnPhloG
-	JFPsFXl06tOddk07eYwpe5RUFPb8qE1+WPfF8jDWvMlxJxSbL30RRP1Cg211Jk/rgk2CZwhks+Azy
-	W8vZuQXdNtltyKVdUejmWn398ybXYLx9bHVwBoKsZYMRNo7ig69Wk+XilvXMIYQ3UuS658eIz1dLt
-	2qCXExIEWw27bO01vIhsBonjeWHSgKoqEdYgHiF8Eq3JzejfzA5UT2TrPpu98RS0thyzYJShXAYRr
-	KvNjrcDGtlPskT9/szf/CFWZ8p3f2/9ayz6QMXOsneYpAOSd09QyvOpWjJ/sl/dNYYN2kHRZsPmnu
-	gpPgdFyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6m6c4FwAYkYMGXX7rpHwtw4Dxuzv0S7JE1cji+1x434=; b=I1lR/cVnFYBpuHFaIteQaPP7Nj
+	ntNa/r/J4l4kgDl7cyztr0+4VaYGch5nnw3dglPdl2EZTc3M4YOhm9t3uEEvDMdCAgESouSgpziA/
+	6GsZYd5K5XI2DKpStP4if0oxWRqRENTlkhdaQvfnU/NrcoyH5x6ZVHuzUOSvx4vrXwvJQ7ARyn4P9
+	Sa006MgitM4YUCv3ZMwFGhjO9J8j3wfNts4fA9mVAWYyTxSnO3ZbwGJd/+PUb4sj709551qUiTgQt
+	m5TUIVSo+Mh5DJoADB38WmK0PBCuH2CTmZ2Na698ngMSjXskLwpPcQTPUcwnrUW5HPhE9ZUIuZQGi
+	4v2j1EEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWAVV-0000000EYfE-0t9E;
-	Fri, 10 Jan 2025 08:36:41 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1tWAWj-0000000EZR4-0vL7;
+	Fri, 10 Jan 2025 08:37:57 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWARO-0000000EXcw-2JyW
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 08:32:28 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-43621d27adeso13083195e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jan 2025 00:32:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=smile.fr; s=google; t=1736497945; x=1737102745; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=K9Ojh4fi+Aury5PIzpaOVh6/pBCJ3O4TsGOr7mgb28Q=;
-        b=CsfFzs60EoutXZZdApbv37rYgk4ILJnlbiq+8PW10Zo/1sn09E/1CkeevQWd0HUbtR
-         GA1i8RH4rQ8ya+MSfG/4Z7xhQvFgnbJ9amaQvaxdBRXBIFOnnviMMV9NAbLhYvY6B/vf
-         cMO0gVMfaVCja7CicqrN0/hDNPuop4snrzKPE=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736497945; x=1737102745;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=K9Ojh4fi+Aury5PIzpaOVh6/pBCJ3O4TsGOr7mgb28Q=;
-        b=vbkDmzQaGDx2ib3w/qp0uQUGLjfFXoBRuP56rsSRtSLcYuFo2vm6hlPe9Q0U9TzU3l
-         VYzbE/fW9ujy+I+NFS1I+typHzVcxTyudp925HVAggRBDX5MCDU4cuKoH+Q7f5fySUCM
-         C3favsCfDyeq4bS/afr332uW+jI2Id2qkwYGOuhi5z3Gq+Fdfjj0mNY0chlAOWwlXq9e
-         7bcltv8PsR5J3aA7e7uAsxKAEWGwdE7KpxQf0dKY78WqnxY5fC4xLTW7eEu3zXpU/pB0
-         dykfM/ypEet1RllfEb02toyL////Wu7+iRwfj+/KuXJdOgM8IEw+FtDgbhvksANgaqol
-         tUFQ==
-X-Forwarded-Encrypted: i=1; AJvYcCURcZuQW8IddYGyQMNnFS/hJIiR6Tsv+PEIjUcnqUdF/HcFaKasqC4frCCW/1OfUCGN++in3pllFanIUGmojJb9@lists.infradead.org
-X-Gm-Message-State: AOJu0YxqlEkhEHjnMG6FJoo+fm56R7OYhba0eKaPYA4S4rKobXwyjAGL
-	vGhNGe42poja6r6QOL9CcvpFvCLiK/lpBque+Hg1wFbjcUuuAE+0NW8axkoezwQ=
-X-Gm-Gg: ASbGnctvgb7gFOGT4IqIvSpl6EhcG9MUfRcWWZCh/n5iupaiOHJ73HCHlfci7pqZACE
-	ISCy2Qkk2HbvHbEGmdZX6+VTwtRPmgmvGRaey+2uuXFSTr3YipBfafldbmc+HNKxUj52/tkkuBD
-	U/gaBy81a5LETyEsTOvtBPLk7nhK6dzi4Qi6b9W57hjPnpVaNKLP0AYkmMqcvF/3UpNacBvMqcf
-	y3ARZQ6ukT1urF8BAhvxCEUFL8MMpSZv5UHIm8dy8On23LSaaz0NMJJvgLg5UeflUAnvl8kwAHr
-	mQ8kxFFxprfY0N4NpFk2bH1VU29lK0NoJWNyMjZprHKDq6NCS06hUVz4OgFbh6WGQQAOpgOtJdQ
-	dF+1IwLzIstBpVKH/
-X-Google-Smtp-Source: AGHT+IH5ep0YHccYyrjPGJ5OrRVVN6hg5ebfZqa5FUuFAYVb+0R1lAsp5xq987HIYz3aWTj1I0Yytg==
-X-Received: by 2002:adf:b1d9:0:b0:386:32ca:9e22 with SMTP id ffacd0b85a97d-38a87308c2bmr6760599f8f.41.1736497945025;
-        Fri, 10 Jan 2025 00:32:25 -0800 (PST)
-Received: from ?IPV6:2a01:cb05:949d:5800:e3ef:2d7a:4131:71f? (2a01cb05949d5800e3ef2d7a4131071f.ipv6.abo.wanadoo.fr. [2a01:cb05:949d:5800:e3ef:2d7a:4131:71f])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a8e38bf78sm3872696f8f.48.2025.01.10.00.32.24
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 10 Jan 2025 00:32:24 -0800 (PST)
-Message-ID: <aae4c192-40b8-4f93-ab3a-7ba1da3a0a23@smile.fr>
-Date: Fri, 10 Jan 2025 09:32:24 +0100
+	id 1tWAVG-0000000EYbu-09zO;
+	Fri, 10 Jan 2025 08:36:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4EA5CA41AA8;
+	Fri, 10 Jan 2025 08:34:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25483C4CED6;
+	Fri, 10 Jan 2025 08:36:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736498184;
+	bh=UZYR9BQ78eQpmXxKNkzo8ij+KKJLIbLq6n6+WAIXr+c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CE3jWFU7ipWWPgNiDIphsdBeFWdglPSMmOiMUVZpwQi9vqkL3mxTpMOdwng9QnNjE
+	 rQEOQtByIlqG+JMOXUUANwi/0K1GSf9Qzgf5A8JyNdLKuT3EAJrzYf8sTy3Pk1IShw
+	 MjpC164el4vygwvsJJ8H2qaq97sp4oLv3wsBJw92JAv7kGbE/NBjA/Oq+bD2PHfiW9
+	 DEWhT9+j0ai40Ah8orT/yboOL6EvBGnp/7TdEIvIAh/Rk9ZPUVU9TnGW6JbDRMokUv
+	 Kgd9LQzDdcbeFKx9YoyVj4dUVnJWjazeaTYVfUt+RTnE7zkco2gin6UszxSu5SA7tC
+	 7HHamEXgtZywA==
+Date: Fri, 10 Jan 2025 09:36:21 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Christian Hewitt <christianshewitt@gmail.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	dri-devel@lists.freedesktop.org, linux-amlogic@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] drm/meson: vclk: fix precision in vclk calculations
+Message-ID: <20250110-flat-quantum-frigatebird-2432f1@houat>
+References: <20250110074458.3624094-1-christianshewitt@gmail.com>
+ <20250110074458.3624094-3-christianshewitt@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/2] arm64: dts: ti: k3-j721e-beagleboneai64: Enable
- ACSPCIE output for PCIe1
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-omap@vger.kernel.org, conor+dt@kernel.org, krzk+dt@kernel.org,
- robh@kernel.org, kristo@kernel.org, vigneshr@ti.com, nm@ti.com, afd@ti.com,
- Romain Naour <romain.naour@skf.com>
-References: <20250109102627.1366753-1-romain.naour@smile.fr>
- <20250109102627.1366753-2-romain.naour@smile.fr>
- <eu5xmihnffmqas2x2ioleuzzvyfbffl5eqlwuqfe4mh6qa2rzy@7mmuxsbkmz4o>
- <8ff7ca4f-227d-40c5-867d-497e03bef72a@smile.fr>
- <begojbvvrpyjfr3pye7mqwiw73ucw5ynepdfujssr4jx4vs33a@pwahnph3qesl>
-Content-Language: fr
-From: Romain Naour <romain.naour@smile.fr>
-In-Reply-To: <begojbvvrpyjfr3pye7mqwiw73ucw5ynepdfujssr4jx4vs33a@pwahnph3qesl>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="z2aeiokg3uqigxue"
+Content-Disposition: inline
+In-Reply-To: <20250110074458.3624094-3-christianshewitt@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_003226_860922_0FACE04B 
-X-CRM114-Status: GOOD (  21.83  )
+X-CRM114-CacheID: sfid-20250110_003626_211545_18224FD5 
+X-CRM114-Status: GOOD (  23.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,105 +77,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Siddharth,
 
-Le 10/01/2025 à 09:15, Siddharth Vadapalli a écrit :
-> On Thu, Jan 09, 2025 at 02:51:23PM +0100, Romain Naour wrote:
->> Hello Siddharth, All,
-> 
-> Hello Romain,
-> 
->>
->> Le 09/01/2025 à 12:49, Siddharth Vadapalli a écrit :
->>> On Thu, Jan 09, 2025 at 11:26:27AM +0100, Romain Naour wrote:
->>>
->>> Hello Romain,
->>>
->>>> From: Romain Naour <romain.naour@skf.com>
->>>>
->>>> Unlike the SK-TDA4VM (k3-j721e-sk) board, there is no clock generator
->>>> (CDCI6214RGET) on the BeagleBone AI-64 (k3-j721e-beagleboneai64) to
->>>> provide PCIe refclk signal to PCIe Endponts. So the ACSPCIE module must
->>>> provide refclk through PCIe_REFCLK pins.
->>>>
->>>> Use the new "ti,syscon-acspcie-proxy-ctrl" property to enable ACSPCIE
->>>> module's PAD IO Buffers.
->>>>
->>>> Cc: Siddharth Vadapalli <s-vadapalli@ti.com>
->>>> Signed-off-by: Romain Naour <romain.naour@skf.com>
->>>> ---
->>>> With this patch, we can remove "HACK: Sierra: Drive clock out" patch
->>>> applied on vendor kernel for BeagleBone AI-64:
->>>> https://openbeagle.org/beagleboard/linux/-/commit/ad65d7ef675966cdbc5d75f2bd545fad1914ba9b
->>>
->>> [trimmed]
->>>
->>>> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
->>>> index af3d730154ac..32a232a90100 100644
->>>> --- a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
->>>> +++ b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
->>>> @@ -5,6 +5,7 @@
->>>>   * Copyright (C) 2016-2024 Texas Instruments Incorporated - https://www.ti.com/
->>>>   */
->>>>  #include <dt-bindings/phy/phy.h>
->>>> +#include <dt-bindings/phy/phy-cadence.h>
->>>>  #include <dt-bindings/phy/phy-ti.h>
->>>>  #include <dt-bindings/mux/mux.h>
->>>>  
->>>> @@ -82,6 +83,11 @@ ehrpwm_tbclk: clock-controller@4140 {
->>>>  			reg = <0x4140 0x18>;
->>>>  			#clock-cells = <1>;
->>>>  		};
->>>> +
->>>> +		acspcie0_proxy_ctrl: syscon@18090 {
->>>> +			compatible = "ti,j721e-acspcie-proxy-ctrl", "syscon";
->>>> +			reg = <0x18090 0x4>;
->>>
->>> 0x_0011_8090 is probably *not* the "PROXY" register i.e. it could be
->>> locked with the help of "CTRLMMR_LOCK0_KICK0" and "CTRLMMR_LOCK0_KICK1"
->>> registers, in which case the CTRL_MMR region needs to be unlocked to write
->>> to that register. On J784S4, that happens to be true, which is why the
->>> proxy register 0x_0011_a090 was used at [0]. Please test with 0x_0011_a090
->>> which is the "PROXY" register on J721E as well, i.e. it can be written to
->>> unconditionally.
->>>
->>> [0]:
->>> https://lore.kernel.org/r/20240930111505.3101047-1-s-vadapalli@ti.com/
->>
->> Thanks for the review!
->>
->> Actually the Proxy0 vs Proxy1 choice is not really clear for me. We have two
->> proxy to reach the same register:
->>
->>   CTRLMMR_ACSPCIE0_CTRL Register (Proxy0 Offset = 18090h; Proxy1 Offset = 1A090h)
->>
->> From my testing both addresses works (maybe since my SoC is a general purpose one).
->>
->> When and why Proxy1 must be used?
-> 
-> Yes, both Proxy0 and Proxy1 work, but Proxy0 is the default access path
-> when we look at it in the context of J784S4. On J784S4, instead of
-> calling out Proxy0, the register is called ACSPCIE0_CTRL when it falls
-> in the Proxy0 range, while it is called ACSPCIE0_PROXY_CTRL when it
-> falls in the Proxy1 range. Therefore, from the perspective of the naming
-> convention followed on J784S4 for which a compatible was first introduced,
-> Proxy1 address would correspond to the ACSPCIE0_PROXY_CTRL register.
+--z2aeiokg3uqigxue
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 2/2] drm/meson: vclk: fix precision in vclk calculations
+MIME-Version: 1.0
 
-Ok, thanks for the explanation.
-I beleive it's worth to add it to the commit log.
+Hi,
 
-Best regards,
-Romain
+On Fri, Jan 10, 2025 at 07:44:58AM +0000, Christian Hewitt wrote:
+> Playing YUV420 @ 59.94 media causes HDMI output to lose sync
+> with a fatal error reported:
+>=20
+> [   89.610280] Fatal Error, invalid HDMI vclk freq 593406
+>=20
+> In meson_encoder_hdmi_set_vclk the initial vclk_freq value is
+> 593407 but YUV420 modes halve the value to 296703.5 and this
+> is stored as int which loses precision by rounding down to
+> 296703. The rounded value is later doubled to 593406 and then
+> meson_encoder_hdmi_set_vclk sets an invalid vclk_freq value
+> and the error triggers during meson_vlkc_setup validation.
+>=20
+> Fix precision in meson_encoder_hdmi_set_vclk by switching to
+> unsigned long long KHz values instead of int MHz. As values
+> for phy_freq are now more accurate we also need to handle an
+> additional match scenario in meson_vclk_setup.
+>=20
+> Fixes: e5fab2ec9ca4 ("drm/meson: vclk: add support for YUV420 setup")
+> Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
+> ---
+>  drivers/gpu/drm/meson/meson_encoder_hdmi.c | 42 +++++++++++-----------
+>  drivers/gpu/drm/meson/meson_vclk.c         |  3 +-
+>  2 files changed, 23 insertions(+), 22 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/meson/meson_encoder_hdmi.c b/drivers/gpu/drm=
+/meson/meson_encoder_hdmi.c
+> index 0593a1cde906..fa37cf975992 100644
+> --- a/drivers/gpu/drm/meson/meson_encoder_hdmi.c
+> +++ b/drivers/gpu/drm/meson/meson_encoder_hdmi.c
+> @@ -70,12 +70,12 @@ static void meson_encoder_hdmi_set_vclk(struct meson_=
+encoder_hdmi *encoder_hdmi,
+>  {
+>  	struct meson_drm *priv =3D encoder_hdmi->priv;
+>  	int vic =3D drm_match_cea_mode(mode);
+> -	unsigned int phy_freq;
+> -	unsigned int vclk_freq;
+> -	unsigned int venc_freq;
+> -	unsigned int hdmi_freq;
+> +	unsigned long long vclk_freq;
+> +	unsigned long long phy_freq;
+> +	unsigned long long venc_freq;
+> +	unsigned long long hdmi_freq;
+> =20
+> -	vclk_freq =3D mode->clock;
+> +	vclk_freq =3D mode->clock * 1000ULL;
+
+You should be using drm_hdmi_compute_mode_clock() here
 
 
-> 
->>
->> Otherwise I'm fine to use  0x_0011_a090.
->>
->> Best regards,
->> Romain
-> 
-> Regards,
-> Siddharth.
 
+>  	/* For 420, pixel clock is half unlike venc clock */
+>  	if (encoder_hdmi->output_bus_fmt =3D=3D MEDIA_BUS_FMT_UYYVYY8_0_5X24)
+> @@ -85,8 +85,9 @@ static void meson_encoder_hdmi_set_vclk(struct meson_en=
+coder_hdmi *encoder_hdmi,
+>  	phy_freq =3D vclk_freq * 10;
+> =20
+>  	if (!vic) {
+> -		meson_vclk_setup(priv, MESON_VCLK_TARGET_DMT, phy_freq,
+> -				 vclk_freq, vclk_freq, vclk_freq, false);
+> +		meson_vclk_setup(priv, MESON_VCLK_TARGET_DMT, phy_freq / 1000ULL,
+> +				 vclk_freq / 1000ULL, vclk_freq / 1000ULL,
+> +				 vclk_freq / 1000ULL, false);
+>  		return;
+>  	}
+> =20
+> @@ -107,12 +108,9 @@ static void meson_encoder_hdmi_set_vclk(struct meson=
+_encoder_hdmi *encoder_hdmi,
+>  	if (mode->flags & DRM_MODE_FLAG_DBLCLK)
+>  		venc_freq /=3D 2;
+> =20
+> -	dev_dbg(priv->dev, "vclk:%d phy=3D%d venc=3D%d hdmi=3D%d enci=3D%d\n",
+> -		phy_freq, vclk_freq, venc_freq, hdmi_freq,
+> -		priv->venc.hdmi_use_enci);
+> -
+> -	meson_vclk_setup(priv, MESON_VCLK_TARGET_HDMI, phy_freq, vclk_freq,
+> -			 venc_freq, hdmi_freq, priv->venc.hdmi_use_enci);
+> +	meson_vclk_setup(priv, MESON_VCLK_TARGET_HDMI, phy_freq / 1000ULL,
+> +			 vclk_freq / 1000ULL, venc_freq / 1000ULL, hdmi_freq / 1000ULL,
+> +			 priv->venc.hdmi_use_enci);
+>  }
+> =20
+>  static enum drm_mode_status meson_encoder_hdmi_mode_valid(struct drm_bri=
+dge *bridge,
+> @@ -122,10 +120,10 @@ static enum drm_mode_status meson_encoder_hdmi_mode=
+_valid(struct drm_bridge *bri
+>  	struct meson_encoder_hdmi *encoder_hdmi =3D bridge_to_meson_encoder_hdm=
+i(bridge);
+>  	struct meson_drm *priv =3D encoder_hdmi->priv;
+>  	bool is_hdmi2_sink =3D display_info->hdmi.scdc.supported;
+> -	unsigned int phy_freq;
+> -	unsigned int vclk_freq;
+> -	unsigned int venc_freq;
+> -	unsigned int hdmi_freq;
+> +	unsigned long long vclk_freq;
+> +	unsigned long long phy_freq;
+> +	unsigned long long venc_freq;
+> +	unsigned long long hdmi_freq;
+>  	int vic =3D drm_match_cea_mode(mode);
+>  	enum drm_mode_status status;
+> =20
+> @@ -149,7 +147,7 @@ static enum drm_mode_status meson_encoder_hdmi_mode_v=
+alid(struct drm_bridge *bri
+>  	} else if (!meson_venc_hdmi_supported_vic(vic))
+>  		return MODE_BAD;
+> =20
+> -	vclk_freq =3D mode->clock;
+> +	vclk_freq =3D mode->clock * 1000ULL;
+
+And here too.
+
+Maxime
+
+--z2aeiokg3uqigxue
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ4DcBQAKCRAnX84Zoj2+
+dn9+AX0WIzrGw8NcHeicQHdElHcmHrP/e9bXGuOH6onY2l7buxWUY4niinP1ivWy
+O2jmKVgBgKFBwgNAvpSLOsf5QXxgiCr5fqCVkln5DwS1slVVRJgw0EeQkrcvvb5N
+QXY0HcWZ7A==
+=FFqZ
+-----END PGP SIGNATURE-----
+
+--z2aeiokg3uqigxue--
 
