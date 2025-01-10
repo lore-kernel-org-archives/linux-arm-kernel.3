@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9168EE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 05:45:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BE7EE7719C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 05:46:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5FhE5+TOeJTtsVBQyMzGR0FzCYE5BmmbbGXkggbhROs=; b=wDBcJ4XyaPwJvlpDZE+GUKcDih
-	qxFYPGlwOj6pCXWUTi/nm/6YXDIy7LRIJvHR2mRW3REsY5t48Q0IZKDZ5/vow8v8qwhnOdRbrmKcQ
-	pNdKKNOmOHTwAk+ThWBLHRv804au9/rMiw4MEwb7M8bw2OluS1f2uASXTtmntEeuZaChVe040kWPy
-	NZ/v5OpNOctEzVwiGeNxOotzCO/6X9+6bcUaBh9thiRdzwCGcdbkh5bcfQftRMfjEPRCUzQxjZrSi
-	BEX8dZsAIeR5rnVxOwwch/JZn8AZbIs799/p63VnD+KyTetHdKHVfZzlwmmsTcQ+metSpuvLa61l2
-	bsarnoGA==;
+	bh=5l8pMuz3x3zHYJO1oeQk2SVo0jFiow8oEY+PQJYtaL4=; b=USfICJ1APUsa/GyUT8/YEgnmBD
+	tZDwlT8M/pfZJvrMAI1NOaFTtQZX8HesVtsWGw5L7yeSLyLIedGcScDxBooozqmWGqIK0uo+xigoZ
+	KlXIdNNgoP2v5clbr2iWQIdKTGo9XWGvGrQJbNCG3TTn0BcYAdIM3mYns9IDXq01hx16OGbvBvI2i
+	EulWrkkOoiYHYFg4SAKj5Q2eO1E0s1T9+TvuN5qvFBy9e1GgVYWdCO7CMAQkD4yxsA2+90AND7Ybb
+	HFwT4LfuWWRfBZ2TwQuMFnbBwimgc4sEkOqd6mUaWfaxWQGJG5G+ea5l0mfbyISKk4cqLop5RizGz
+	/dmoRq6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW7pM-0000000E4Zg-0CDb;
-	Fri, 10 Jan 2025 05:45:00 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tW7qa-0000000E4iX-089P;
+	Fri, 10 Jan 2025 05:46:16 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW7kT-0000000E3H8-2Kw1;
-	Fri, 10 Jan 2025 05:39:59 +0000
+	id 1tW7kT-0000000E3H9-2Gh0;
+	Fri, 10 Jan 2025 05:40:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2F17CA41604;
-	Fri, 10 Jan 2025 05:38:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 0D632C4CEF4;
-	Fri, 10 Jan 2025 05:39:56 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 86E435C5D89;
+	Fri, 10 Jan 2025 05:39:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id CD879C4CEE8;
+	Fri, 10 Jan 2025 05:39:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736487596;
-	bh=Nw1GxRUZam/tq1vSGi+OXpPMqcHfCVLgLJI8d7Bm8Ss=;
+	s=k20201202; t=1736487595;
+	bh=CP9UbudAqwoBvCWySj8azYf9NNwJceXOZUXEJzaPRD4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=Lyzx8Bs0LMkl7ToDa678dSB5Vn2hxa8GDCPwbeBZ6mX5/BYo43fahJC5GKjAk5x1h
-	 QRbPEdgQt/bC3XBBkyGXhKHbxjApUI65GChYU+mrol8CUDMJUmP4vyAcinea5tMjD5
-	 /P8BP+W2cI7uMDwYolgCKbjol4WGtPgaUMxWu9dYqkFKPSicGm0d6F8u4hClV9uAFI
-	 wPo8IlZazFrzNT86KU5mf85lkJ/qIS+7zD4L9QqSx+2iaDTBv9ih4/+fhG4IwYhGS8
-	 +Qy8FRQxlcO3a0m3k1npsWkJR1l7eWUFzIuBvBX9BS8EnkXK08/UEkWHaWjd5jphyX
-	 AVrPQHCxlQ1ig==
+	b=id1I4Q2CyehVxdl+J5Kf691m43AgsAeAmgLCFFGpRkDwRbm8TbQxxOAequPlwitWv
+	 7GKylUO5jRblb5WaWdw1MYOY4cXEJFmV5ONt/7cVKtU5hK8usuxCP8ZrSwVd3je0Ub
+	 OzCyjuv83JSC0ag3zDScS/iYo1BIkChJkA3g0sr/ai+5phF/UZAB3S+eNekPYDtSBb
+	 /VMobkVt5Hgkxz5fBO1yBW9duF9nLr6AUGrDVjiPFnPS9mVgr68VxuxaXUcjVCrPEH
+	 E2UmzwiotiAbJL2AmUyjWyHC99Y9FpeHg3OrBkrOu1qjxdgCRs386/5sYSjCK5ONyu
+	 OD7v7kmx0z5Vw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 047C1E7719C;
-	Fri, 10 Jan 2025 05:39:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C54DBE7719C;
+	Fri, 10 Jan 2025 05:39:55 +0000 (UTC)
 From: Ao Xu via B4 Relay <devnull+ao.xu.amlogic.com@kernel.org>
-Date: Fri, 10 Jan 2025 13:39:57 +0800
-Subject: [PATCH 07/11] drm: meson: change api call parameter
+Date: Fri, 10 Jan 2025 13:39:54 +0800
+Subject: [PATCH 04/11] drm: meson: add primary and overlay plane support
+ for S4
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250110-drm-s4-v1-7-cbc2d5edaae8@amlogic.com>
+Message-Id: <20250110-drm-s4-v1-4-cbc2d5edaae8@amlogic.com>
 References: <20250110-drm-s4-v1-0-cbc2d5edaae8@amlogic.com>
 In-Reply-To: <20250110-drm-s4-v1-0-cbc2d5edaae8@amlogic.com>
 To: Neil Armstrong <neil.armstrong@linaro.org>, 
@@ -65,19 +66,19 @@ Cc: dri-devel@lists.freedesktop.org, linux-amlogic@lists.infradead.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Ao Xu <ao.xu@amlogic.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1736487593; l=6404;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1736487593; l=11576;
  i=ao.xu@amlogic.com; s=20250103; h=from:subject:message-id;
- bh=4USay3QtDuRbS8FCpdm9MAw33ZXb1TEINIc05tyQlYM=;
- b=VIGGkrGrVQnJ7yCira+Tj6lvZDk0IICJyvIkw2pXvabnZW9xtixF5K9TEzYjPmA2f2/77B6HH
- qiJXrflCXR7CwEKWaFqO3ADDBw83QA/T5qDaWHC25lkLeHHYbzukJQr
+ bh=4U1UBMlyjt5Zc6sAX/P7YN/CLGBHy2Chyz1U7fL/wAw=;
+ b=KfM82SwD5kqsto6e4i+22SDcOHT4uufvChBuyIrcem90+gp3VyFgl4516CcugzEfx4VNoMC9Z
+ J5aZ9P2h/heBbry2eb5t0V+YNjSMsfDsE6JRTUH91fbxxDc+R7nYKP/
 X-Developer-Key: i=ao.xu@amlogic.com; a=ed25519;
  pk=c0TSXrwQuL4EhPVf3lJ676U27ax2yfFTqmRoseP/fA8=
 X-Endpoint-Received: by B4 Relay for ao.xu@amlogic.com/20250103 with
  auth_id=308
 X-Original-From: Ao Xu <ao.xu@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_213957_757008_6FC1CDCA 
-X-CRM114-Status: GOOD (  14.56  )
+X-CRM114-CacheID: sfid-20250109_213957_712981_92313E31 
+X-CRM114-Status: GOOD (  15.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,149 +96,271 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ao Xu <ao.xu@amlogic.com>
 
-Adjust the parameters passed to specific API calls in the
-Meson HDMI encoder to align with hardware requirements.
-Configure VCLK to use double pixels for
-480p and 576p resolutions in the Amlogic S4.
+Update plane register configurations in the Meson DRM driver
+to support the Amlogic S4 SoC. These adjustments ensure proper
+handling of display planes with S4-specific hardware requirements.
 
 Signed-off-by: Ao Xu <ao.xu@amlogic.com>
 ---
- drivers/gpu/drm/meson/meson_encoder_hdmi.c | 19 +++++++++++++++----
- drivers/gpu/drm/meson/meson_venc.c         | 12 ++++++------
- drivers/gpu/drm/meson/meson_venc.h         |  4 ++--
- 3 files changed, 23 insertions(+), 12 deletions(-)
+ drivers/gpu/drm/meson/meson_crtc.c      | 90 +++++++++++++++++++++++----------
+ drivers/gpu/drm/meson/meson_overlay.c   |  7 ++-
+ drivers/gpu/drm/meson/meson_plane.c     | 24 ++++++---
+ drivers/gpu/drm/meson/meson_registers.h | 16 ++++++
+ 4 files changed, 102 insertions(+), 35 deletions(-)
 
-diff --git a/drivers/gpu/drm/meson/meson_encoder_hdmi.c b/drivers/gpu/drm/meson/meson_encoder_hdmi.c
-index 0593a1cde906ffab10c010c40942fb910059b2ab..5fde4cfc79ad66d3bb6c15cedce536f1346fce34 100644
---- a/drivers/gpu/drm/meson/meson_encoder_hdmi.c
-+++ b/drivers/gpu/drm/meson/meson_encoder_hdmi.c
-@@ -98,7 +98,7 @@ static void meson_encoder_hdmi_set_vclk(struct meson_encoder_hdmi *encoder_hdmi,
- 	hdmi_freq = vclk_freq;
+diff --git a/drivers/gpu/drm/meson/meson_crtc.c b/drivers/gpu/drm/meson/meson_crtc.c
+index d70616da8ce2fd974b57af6aadca5c98fbb88fce..64c7450b7f688d8997e8ad23947bff3ec6484aff 100644
+--- a/drivers/gpu/drm/meson/meson_crtc.c
++++ b/drivers/gpu/drm/meson/meson_crtc.c
+@@ -28,6 +28,7 @@
+ #include "meson_osd_afbcd.h"
  
- 	/* VENC double pixels for 1080i, 720p and YUV420 modes */
--	if (meson_venc_hdmi_venc_repeat(vic) ||
-+	if (meson_venc_hdmi_venc_repeat(priv, vic) ||
- 	    encoder_hdmi->output_bus_fmt == MEDIA_BUS_FMT_UYYVYY8_0_5X24)
- 		venc_freq *= 2;
+ #define MESON_G12A_VIU_OFFSET	0x5ec0
++#define MESON_S4_VIU_OFFSET	0xb6c0
  
-@@ -107,6 +107,11 @@ static void meson_encoder_hdmi_set_vclk(struct meson_encoder_hdmi *encoder_hdmi,
- 	if (mode->flags & DRM_MODE_FLAG_DBLCLK)
- 		venc_freq /= 2;
+ /* CRTC definition */
  
-+	/* VCLK double pixels for 480p and 576p on S4 */
-+	if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_S4))
-+		if (vic == 2 || vic == 3 || vic == 17 || vic == 18)
-+			vclk_freq *= 2;
+@@ -479,21 +480,60 @@ void meson_crtc_irq(struct meson_drm *priv)
+ 		writel_relaxed(priv->viu.vd1_if0_gen_reg,
+ 				priv->io_base + meson_crtc->viu_offset +
+ 				_REG(VD2_IF0_GEN_REG));
+-		writel_relaxed(priv->viu.vd1_if0_gen_reg2,
+-				priv->io_base + meson_crtc->viu_offset +
+-				_REG(VD1_IF0_GEN_REG2));
+-		writel_relaxed(priv->viu.viu_vd1_fmt_ctrl,
+-				priv->io_base + meson_crtc->viu_offset +
+-				_REG(VIU_VD1_FMT_CTRL));
+-		writel_relaxed(priv->viu.viu_vd1_fmt_ctrl,
+-				priv->io_base + meson_crtc->viu_offset +
+-				_REG(VIU_VD2_FMT_CTRL));
+-		writel_relaxed(priv->viu.viu_vd1_fmt_w,
+-				priv->io_base + meson_crtc->viu_offset +
+-				_REG(VIU_VD1_FMT_W));
+-		writel_relaxed(priv->viu.viu_vd1_fmt_w,
+-				priv->io_base + meson_crtc->viu_offset +
+-				_REG(VIU_VD2_FMT_W));
 +
- 	dev_dbg(priv->dev, "vclk:%d phy=%d venc=%d hdmi=%d enci=%d\n",
- 		phy_freq, vclk_freq, venc_freq, hdmi_freq,
- 		priv->venc.hdmi_use_enci);
-@@ -146,7 +151,7 @@ static enum drm_mode_status meson_encoder_hdmi_mode_valid(struct drm_bridge *bri
- 
- 		return meson_vclk_dmt_supported_freq(priv, mode->clock);
- 	/* Check against supported VIC modes */
--	} else if (!meson_venc_hdmi_supported_vic(vic))
-+	} else if (!meson_venc_hdmi_supported_vic(priv, vic))
- 		return MODE_BAD;
- 
- 	vclk_freq = mode->clock;
-@@ -168,7 +173,7 @@ static enum drm_mode_status meson_encoder_hdmi_mode_valid(struct drm_bridge *bri
- 	hdmi_freq = vclk_freq;
- 
- 	/* VENC double pixels for 1080i, 720p and YUV420 modes */
--	if (meson_venc_hdmi_venc_repeat(vic) ||
-+	if (meson_venc_hdmi_venc_repeat(priv, vic) ||
- 	    drm_mode_is_420_only(display_info, mode) ||
- 	    (!is_hdmi2_sink &&
- 	     drm_mode_is_420_also(display_info, mode)))
-@@ -179,6 +184,11 @@ static enum drm_mode_status meson_encoder_hdmi_mode_valid(struct drm_bridge *bri
- 	if (mode->flags & DRM_MODE_FLAG_DBLCLK)
- 		venc_freq /= 2;
- 
-+	/* VCLK double pixels for 480p and 576p on S4 */
-+	if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_S4))
-+		if (vic == 2 || vic == 3 || vic == 17 || vic == 18)
-+			vclk_freq *= 2;
++		if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_S4)) {
++			writel_relaxed(priv->viu.vd1_if0_gen_reg2,
++					priv->io_base +
++					_REG(VD1_IF0_GEN_REG2_S4));
++			writel_relaxed(priv->viu.viu_vd1_fmt_ctrl,
++					priv->io_base +
++					_REG(VIU_VD1_FMT_CTRL_S4));
++			writel_relaxed(priv->viu.viu_vd1_fmt_ctrl,
++					priv->io_base +
++					_REG(VIU_VD2_FMT_CTRL_S4));
++			writel_relaxed(priv->viu.viu_vd1_fmt_w,
++					priv->io_base +
++					_REG(VIU_VD1_FMT_W_S4));
++			writel_relaxed(priv->viu.viu_vd1_fmt_w,
++					priv->io_base +
++					_REG(VIU_VD2_FMT_W_S4));
 +
- 	dev_dbg(priv->dev, "%s: vclk:%d phy=%d venc=%d hdmi=%d\n",
- 		__func__, phy_freq, vclk_freq, venc_freq, hdmi_freq);
++			writel_relaxed(priv->viu.vd1_range_map_y,
++					priv->io_base +
++					_REG(VD1_IF0_RANGE_MAP_Y_S4));
++			writel_relaxed(priv->viu.vd1_range_map_cb,
++					priv->io_base +
++					_REG(VD1_IF0_RANGE_MAP_CB_S4));
++			writel_relaxed(priv->viu.vd1_range_map_cr,
++					priv->io_base +
++					_REG(VD1_IF0_RANGE_MAP_CR_S4));
++		} else {
++			writel_relaxed(priv->viu.vd1_if0_gen_reg2,
++					priv->io_base + meson_crtc->viu_offset +
++					_REG(VD1_IF0_GEN_REG2));
++			writel_relaxed(priv->viu.viu_vd1_fmt_ctrl,
++					priv->io_base + meson_crtc->viu_offset +
++					_REG(VIU_VD1_FMT_CTRL));
++			writel_relaxed(priv->viu.viu_vd1_fmt_ctrl,
++					priv->io_base + meson_crtc->viu_offset +
++					_REG(VIU_VD2_FMT_CTRL));
++			writel_relaxed(priv->viu.viu_vd1_fmt_w,
++					priv->io_base + meson_crtc->viu_offset +
++					_REG(VIU_VD1_FMT_W));
++			writel_relaxed(priv->viu.viu_vd1_fmt_w,
++					priv->io_base + meson_crtc->viu_offset +
++					_REG(VIU_VD2_FMT_W));
++
++			writel_relaxed(priv->viu.vd1_range_map_y,
++					priv->io_base + meson_crtc->viu_offset +
++					_REG(VD1_IF0_RANGE_MAP_Y));
++			writel_relaxed(priv->viu.vd1_range_map_cb,
++					priv->io_base + meson_crtc->viu_offset +
++					_REG(VD1_IF0_RANGE_MAP_CB));
++			writel_relaxed(priv->viu.vd1_range_map_cr,
++					priv->io_base + meson_crtc->viu_offset +
++					_REG(VD1_IF0_RANGE_MAP_CR));
++		}
+ 		writel_relaxed(priv->viu.vd1_if0_canvas0,
+ 				priv->io_base + meson_crtc->viu_offset +
+ 				_REG(VD1_IF0_CANVAS0));
+@@ -592,15 +632,7 @@ void meson_crtc_irq(struct meson_drm *priv)
+ 				_REG(VD2_IF0_LUMA_PSEL));
+ 		writel_relaxed(0, priv->io_base + meson_crtc->viu_offset +
+ 				_REG(VD2_IF0_CHROMA_PSEL));
+-		writel_relaxed(priv->viu.vd1_range_map_y,
+-				priv->io_base + meson_crtc->viu_offset +
+-				_REG(VD1_IF0_RANGE_MAP_Y));
+-		writel_relaxed(priv->viu.vd1_range_map_cb,
+-				priv->io_base + meson_crtc->viu_offset +
+-				_REG(VD1_IF0_RANGE_MAP_CB));
+-		writel_relaxed(priv->viu.vd1_range_map_cr,
+-				priv->io_base + meson_crtc->viu_offset +
+-				_REG(VD1_IF0_RANGE_MAP_CR));
++
+ 		writel_relaxed(VPP_VSC_BANK_LENGTH(4) |
+ 			       VPP_HSC_BANK_LENGTH(4) |
+ 			       VPP_SC_VD_EN_ENABLE |
+@@ -692,10 +724,16 @@ int meson_crtc_create(struct meson_drm *priv)
+ 		return ret;
+ 	}
  
-@@ -444,7 +454,8 @@ int meson_encoder_hdmi_probe(struct meson_drm *priv)
+-	if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_G12A)) {
++	if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_G12A) ||
++	    meson_vpu_is_compatible(priv, VPU_COMPATIBLE_S4)) {
+ 		meson_crtc->enable_osd1 = meson_g12a_crtc_enable_osd1;
+ 		meson_crtc->enable_vd1 = meson_g12a_crtc_enable_vd1;
+-		meson_crtc->viu_offset = MESON_G12A_VIU_OFFSET;
++
++		if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_S4))
++			meson_crtc->viu_offset = MESON_S4_VIU_OFFSET;
++		else
++			meson_crtc->viu_offset = MESON_G12A_VIU_OFFSET;
++
+ 		meson_crtc->enable_osd1_afbc =
+ 					meson_crtc_g12a_enable_osd1_afbc;
+ 		meson_crtc->disable_osd1_afbc =
+diff --git a/drivers/gpu/drm/meson/meson_overlay.c b/drivers/gpu/drm/meson/meson_overlay.c
+index 7f98de38842bf932ca3388707ec3e2f2c38d97e3..3cf2efa407849d6af9b010a5ad53e611155b6c9f 100644
+--- a/drivers/gpu/drm/meson/meson_overlay.c
++++ b/drivers/gpu/drm/meson/meson_overlay.c
+@@ -733,7 +733,12 @@ static void meson_overlay_atomic_disable(struct drm_plane *plane,
+ 	priv->viu.vd1_enabled = false;
  
- 	if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_GXL) ||
- 	    meson_vpu_is_compatible(priv, VPU_COMPATIBLE_GXM) ||
--	    meson_vpu_is_compatible(priv, VPU_COMPATIBLE_G12A))
-+	    meson_vpu_is_compatible(priv, VPU_COMPATIBLE_G12A) ||
+ 	/* Disable VD1 */
+-	if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_G12A)) {
++	if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_S4)) {
++		writel_relaxed(0, priv->io_base + _REG(VD1_BLEND_SRC_CTRL));
++		writel_relaxed(0, priv->io_base + _REG(VD2_BLEND_SRC_CTRL));
++		writel_relaxed(0, priv->io_base + _REG(VD1_IF0_GEN_REG + 0x2db0));
++		writel_relaxed(0, priv->io_base + _REG(VD2_IF0_GEN_REG + 0x2db0));
++	} else if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_G12A)) {
+ 		writel_relaxed(0, priv->io_base + _REG(VD1_BLEND_SRC_CTRL));
+ 		writel_relaxed(0, priv->io_base + _REG(VD2_BLEND_SRC_CTRL));
+ 		writel_relaxed(0, priv->io_base + _REG(VD1_IF0_GEN_REG + 0x17b0));
+diff --git a/drivers/gpu/drm/meson/meson_plane.c b/drivers/gpu/drm/meson/meson_plane.c
+index b43ac61201f3123e58effa9c4b734c23cfd3d5df..79cfa42af00f34f23993ab4b7af8b7bdfb23abce 100644
+--- a/drivers/gpu/drm/meson/meson_plane.c
++++ b/drivers/gpu/drm/meson/meson_plane.c
+@@ -161,7 +161,8 @@ static void meson_plane_atomic_update(struct drm_plane *plane,
+ 
+ 	/* Check if AFBC decoder is required for this buffer */
+ 	if ((meson_vpu_is_compatible(priv, VPU_COMPATIBLE_GXM) ||
+-	     meson_vpu_is_compatible(priv, VPU_COMPATIBLE_G12A)) &&
++	     meson_vpu_is_compatible(priv, VPU_COMPATIBLE_G12A) ||
++	     meson_vpu_is_compatible(priv, VPU_COMPATIBLE_S4)) &&
+ 	    fb->modifier & DRM_FORMAT_MOD_ARM_AFBC(MESON_MOD_AFBC_VALID_BITS))
+ 		priv->viu.osd1_afbcd = true;
+ 	else
+@@ -181,7 +182,8 @@ static void meson_plane_atomic_update(struct drm_plane *plane,
+ 	priv->viu.osd1_blk0_cfg[0] = canvas_id_osd1 << OSD_CANVAS_SEL;
+ 
+ 	if (priv->viu.osd1_afbcd) {
+-		if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_G12A)) {
++		if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_G12A) ||
++		    meson_vpu_is_compatible(priv, VPU_COMPATIBLE_S4)) {
+ 			/* This is the internal decoding memory address */
+ 			priv->viu.osd1_blk1_cfg4 = MESON_G12A_AFBCD_OUT_ADDR;
+ 			priv->viu.osd1_blk0_cfg[0] |= OSD_ENDIANNESS_BE;
+@@ -205,7 +207,8 @@ static void meson_plane_atomic_update(struct drm_plane *plane,
+ 		priv->viu.osd1_blk0_cfg[0] |= OSD_OUTPUT_COLOR_RGB;
+ 
+ 	if (priv->viu.osd1_afbcd &&
+-	    meson_vpu_is_compatible(priv, VPU_COMPATIBLE_G12A)) {
++	    (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_G12A) ||
++	     meson_vpu_is_compatible(priv, VPU_COMPATIBLE_S4))) {
+ 		priv->viu.osd1_blk0_cfg[0] |= OSD_MALI_SRC_EN |
+ 			priv->afbcd.ops->fmt_to_blk_mode(fb->modifier,
+ 							  fb->format->format);
+@@ -357,7 +360,8 @@ static void meson_plane_atomic_update(struct drm_plane *plane,
+ 	priv->viu.osd1_blk0_cfg[3] = ((dest.x2 - 1) << 16) | dest.x1;
+ 	priv->viu.osd1_blk0_cfg[4] = ((dest.y2 - 1) << 16) | dest.y1;
+ 
+-	if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_G12A)) {
++	if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_G12A) ||
++	    meson_vpu_is_compatible(priv, VPU_COMPATIBLE_S4)) {
+ 		priv->viu.osd_blend_din0_scope_h = ((dest.x2 - 1) << 16) | dest.x1;
+ 		priv->viu.osd_blend_din0_scope_v = ((dest.y2 - 1) << 16) | dest.y1;
+ 		priv->viu.osb_blend0_size = dst_h << 16 | dst_w;
+@@ -377,7 +381,8 @@ static void meson_plane_atomic_update(struct drm_plane *plane,
+ 		priv->afbcd.format = fb->format->format;
+ 
+ 		/* Calculate decoder write stride */
+-		if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_G12A))
++		if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_G12A) ||
++		    meson_vpu_is_compatible(priv, VPU_COMPATIBLE_S4))
+ 			priv->viu.osd1_blk2_cfg4 =
+ 				meson_g12a_afbcd_line_stride(priv);
+ 	}
+@@ -408,7 +413,8 @@ static void meson_plane_atomic_disable(struct drm_plane *plane,
+ 	}
+ 
+ 	/* Disable OSD1 */
+-	if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_G12A))
++	if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_G12A) ||
 +	    meson_vpu_is_compatible(priv, VPU_COMPATIBLE_S4))
- 		drm_connector_attach_hdr_output_metadata_property(meson_encoder_hdmi->connector);
+ 		writel_bits_relaxed(VIU_OSD1_POSTBLD_SRC_OSD1, 0,
+ 				    priv->io_base + _REG(OSD1_BLEND_SRC_CTRL));
+ 	else
+@@ -439,7 +445,8 @@ static bool meson_plane_format_mod_supported(struct drm_plane *plane,
+ 		return true;
  
- 	drm_connector_attach_max_bpc_property(meson_encoder_hdmi->connector, 8, 8);
-diff --git a/drivers/gpu/drm/meson/meson_venc.c b/drivers/gpu/drm/meson/meson_venc.c
-index 3bf0d6e4fc30ae1e06f6ba77157325af416c786f..5c461b27ae49317d8f430dc55606c8e11a536240 100644
---- a/drivers/gpu/drm/meson/meson_venc.c
-+++ b/drivers/gpu/drm/meson/meson_venc.c
-@@ -878,7 +878,7 @@ meson_venc_hdmi_supported_mode(const struct drm_display_mode *mode)
- }
- EXPORT_SYMBOL_GPL(meson_venc_hdmi_supported_mode);
+ 	if (!meson_vpu_is_compatible(priv, VPU_COMPATIBLE_GXM) &&
+-	    !meson_vpu_is_compatible(priv, VPU_COMPATIBLE_G12A))
++	    !meson_vpu_is_compatible(priv, VPU_COMPATIBLE_G12A) &&
++	    !meson_vpu_is_compatible(priv, VPU_COMPATIBLE_S4))
+ 		return false;
  
--bool meson_venc_hdmi_supported_vic(int vic)
-+bool meson_venc_hdmi_supported_vic(struct meson_drm *priv, int vic)
- {
- 	struct meson_hdmi_venc_vic_mode *vmode = meson_hdmi_venc_vic_modes;
+ 	if (modifier & ~DRM_FORMAT_MOD_ARM_AFBC(MESON_MOD_AFBC_VALID_BITS))
+@@ -546,7 +553,8 @@ int meson_plane_create(struct meson_drm *priv)
  
-@@ -917,7 +917,7 @@ static void meson_venc_hdmi_get_dmt_vmode(const struct drm_display_mode *mode,
- 	dmt_mode->encp.max_lncnt = mode->vtotal - 1;
- }
+ 	if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_GXM))
+ 		format_modifiers = format_modifiers_afbc_gxm;
+-	else if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_G12A))
++	else if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_G12A) ||
++		 meson_vpu_is_compatible(priv, VPU_COMPATIBLE_S4))
+ 		format_modifiers = format_modifiers_afbc_g12a;
  
--static union meson_hdmi_venc_mode *meson_venc_hdmi_get_vic_vmode(int vic)
-+static union meson_hdmi_venc_mode *meson_venc_hdmi_get_vic_vmode(struct meson_drm *priv, int vic)
- {
- 	struct meson_hdmi_venc_vic_mode *vmode = meson_hdmi_venc_vic_modes;
+ 	ret = drm_universal_plane_init(priv->drm, plane, 0xFF,
+diff --git a/drivers/gpu/drm/meson/meson_registers.h b/drivers/gpu/drm/meson/meson_registers.h
+index 3d73d00a1f4c64cb90d2ab78f74133311d028197..c62ee8bac272be035e92dbc8e743b2d4f864bc55 100644
+--- a/drivers/gpu/drm/meson/meson_registers.h
++++ b/drivers/gpu/drm/meson/meson_registers.h
+@@ -328,6 +328,22 @@
+ #define VIU_VD2_FMT_CTRL 0x1a88
+ #define VIU_VD2_FMT_W 0x1a89
  
-@@ -930,7 +930,7 @@ static union meson_hdmi_venc_mode *meson_venc_hdmi_get_vic_vmode(int vic)
- 	return NULL;
- }
- 
--bool meson_venc_hdmi_venc_repeat(int vic)
-+bool meson_venc_hdmi_venc_repeat(struct meson_drm *priv, int vic)
- {
- 	/* Repeat VENC pixels for 480/576i/p, 720p50/60 and 1080p50/60 */
- 	if (vic == 6 || vic == 7 || /* 480i */
-@@ -989,8 +989,8 @@ void meson_venc_hdmi_mode_set(struct meson_drm *priv, int vic,
- 		venc_hdmi_latency = 1;
- 	}
- 
--	if (meson_venc_hdmi_supported_vic(vic)) {
--		vmode = meson_venc_hdmi_get_vic_vmode(vic);
-+	if (meson_venc_hdmi_supported_vic(priv, vic)) {
-+		vmode = meson_venc_hdmi_get_vic_vmode(priv, vic);
- 		if (!vmode) {
- 			dev_err(priv->dev, "%s: Fatal Error, unsupported mode "
- 				DRM_MODE_FMT "\n", __func__,
-@@ -1004,7 +1004,7 @@ void meson_venc_hdmi_mode_set(struct meson_drm *priv, int vic,
- 	}
- 
- 	/* Repeat VENC pixels for 480/576i/p, 720p50/60 and 1080p50/60 */
--	if (meson_venc_hdmi_venc_repeat(vic))
-+	if (meson_venc_hdmi_venc_repeat(priv, vic))
- 		venc_repeat = true;
- 
- 	eof_lines = mode->vsync_start - mode->vdisplay;
-diff --git a/drivers/gpu/drm/meson/meson_venc.h b/drivers/gpu/drm/meson/meson_venc.h
-index 0f59adb1c6db08ca39d0c556875cf5d0d8df430a..7cc6841f633048364c9880f5d1f0e18e3056c9f8 100644
---- a/drivers/gpu/drm/meson/meson_venc.h
-+++ b/drivers/gpu/drm/meson/meson_venc.h
-@@ -54,8 +54,8 @@ void meson_encl_load_gamma(struct meson_drm *priv);
- /* HDMI Clock parameters */
- enum drm_mode_status
- meson_venc_hdmi_supported_mode(const struct drm_display_mode *mode);
--bool meson_venc_hdmi_supported_vic(int vic);
--bool meson_venc_hdmi_venc_repeat(int vic);
-+bool meson_venc_hdmi_supported_vic(struct meson_drm *priv, int vic);
-+bool meson_venc_hdmi_venc_repeat(struct meson_drm *priv, int vic);
- 
- /* CVBS Timings and Parameters */
- extern struct meson_cvbs_enci_mode meson_cvbs_enci_pal;
++#define VD1_IF0_RANGE_MAP_Y_S4 0x4816
++#define VD1_IF0_RANGE_MAP_CB_S4 0x4817
++#define VD1_IF0_RANGE_MAP_CR_S4 0x4818
++#define VD1_IF0_GEN_REG2_S4 0x4819
++#define VD1_IF0_GEN_REG3_S4 0x481c
++#define VIU_VD1_FMT_CTRL_S4 0x481d
++#define VIU_VD1_FMT_W_S4 0x481e
++
++#define VD2_IF0_RANGE_MAP_Y_S4 0x4896
++#define VD2_IF0_RANGE_MAP_CB_S4 0x4897
++#define VD2_IF0_RANGE_MAP_CR_S4  0x4898
++#define VD2_IF0_GEN_REG2_S4 0x4899
++#define VD2_IF0_GEN_REG3_S4 0x489c
++#define VIU_VD2_FMT_CTRL_S4 0x489d
++#define VIU_VD2_FMT_W_S4    0x489e
++
+ /* VIU Matrix Registers */
+ #define VIU_OSD1_MATRIX_CTRL 0x1a90
+ #define VIU_OSD1_MATRIX_COEF00_01 0x1a91
 
 -- 
 2.43.0
