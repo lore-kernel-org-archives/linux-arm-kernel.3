@@ -4,174 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 505CDE7719C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 16:13:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C013E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 16:15:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OhxoiiPHpotfRnD9Mp9FAVuk9XmdM1W6QbSmUrzJL/w=; b=mWJmSKq25c5GZApGREJHnT4wMX
-	9YXg7KSOL18OUY+MsocFT/405YszOs7qBYbloJ/4/wUjtJnxAvCDWbTddzECdo74XZKC60wZgy9SX
-	wiibTiIcExpmmQRPbzsivzJc6tGfbiVSIgRq63MXmVqg/MaXJh1zPg2vLi7MAhQNUnpfdEPOmTL4J
-	ooTxYV2i7X5iUME7Qns2Im4Sb7CpimH6puLWin0a5xdenSpeIThOx6fhqlazHOIneGIU6k/c8eSlu
-	3JRxT6WzExjxUHVcrTL+HW0LqWJl8/RUHO9GOMf9MFfeLWKAOUmR5JIGxX77QioSd0tfskTJ2tEDW
-	96uRb2uw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4AeKH+x/3T1B5AOE4quTwxYLKlq0bm4dB05NvJUlAao=; b=WCRObJwYiN/6iz4qMmm+PgDHL+
+	d0W/JXxGbvPzmsOKbwQ7J3x0B27DMHlpFo99QQiyUImc2mHi/YhEDFxbEcML8EL/JtaebshEOnFyW
+	WwNQy/jkBGv4LiibRDv6ZJqxW12gDGMg0rueaTXE7WngILsewxD5WVfFa5OfrzxGKocBeY3i+W+a2
+	qgXFsRNdqXmB0JB/L3sabrEvLk44+d2HCKbSzyT+q37brpT2EsGl3y4bX6j7tdGlvkoTgeuo6E4ye
+	L3pznm/7a0uo10RYEq6NT0ONE3/5USx0eelMIbOCpskv6IEt/02H5eOPujc4AiuNO+qCrggl4OGcQ
+	yFiKTF7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWHdf-0000000GAn5-0Ycq;
-	Fri, 10 Jan 2025 16:13:35 +0000
-Received: from mail-vi1eur05on2070d.outbound.protection.outlook.com ([2a01:111:f403:2613::70d] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1tWHeq-0000000GB7X-3oYn;
+	Fri, 10 Jan 2025 16:14:48 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWHEE-0000000G4uP-2eDy
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 15:47:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TPeAWsUb1Jtu5/eLdjUn1Ae9lOXC3lidiZJNutrU1DKO76nk8i3xZIW+fTd62rPHfKInP00Q5S77Fj7ugMjHeKh5Cyd85tcoe1SrXTIKJddcPX0DSx2Fk50XP2z90MfoP/fJliZNQ4zp10/rbPw+CckMuvE9NGe6AWRCI5WuhMq8QzHqMaELlDLILohu39TeqxOFLQAR+IZkW2PLWa15yqw6PiOLwJcClAuFRC8Og4IEDnpDR5v2UqS24TuAdty2iRsfIYB/UptEVxZ/t0WIDNiEhTBpunC5jPgKnoRgDaRKTWy1aoBSbaQFuY+afYq6SWFnOx3XdmD8TuvLZaZtAA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OhxoiiPHpotfRnD9Mp9FAVuk9XmdM1W6QbSmUrzJL/w=;
- b=Zce8iHA/AF9MT/pfBpUh5HEs7T+jRY0FFO9HtjE+ZX3TlCs2/TzFVSucfznyNRC7WXHESzV8MflfO+fYGPRBG5ZEbmujOsXzA4lQTxe2vlb5aAHZJ7DCritaJPsUlfjdoHtIyljsXGHOb0MdU9ZTSSVTzH4nrrOduTexoF28s1t9dj8g7B1WnZrB+RtzHjN5bINnSXkovibGgUhsX/RREu7ij8WoSmk5UXOKyzxwce8v0+HfFr8SAfd16BGQkRvCs+4ggNky0S9DWGG2DBSx3zcEUB30XHHgnYmKB0yOVcvCuvPLN7g6QbGY9E9CoHqEu3inYx1wMXLtxYCGmf/DsA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=uclouvain.be; dmarc=pass action=none header.from=uclouvain.be;
- dkim=pass header.d=uclouvain.be; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uclouvain.be;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OhxoiiPHpotfRnD9Mp9FAVuk9XmdM1W6QbSmUrzJL/w=;
- b=crDX1GzSx/+DW4Rg+tIjXQU1BgsaU1lwp0gynnbRJ7Des/lgrTGnGg4IIo4bD1Aelf5qv5KfbG7cSYMAV4oBh/AQirXyLFxJPhN0nkQSiQ9aYrP6YPOdHfVZc0GzjTE6MLk3ZbUfT53NCm1z2TVtsgz/HEt7jpjpGzUtQ8+mUFACKx2Ia/hC5NKu48F9vK1dSplCL6sAP888wSobAQMK/hj6paKr2vxZa8302n7wVIf8YX+YYukoY57HD8RzjKdFcD2kij5DqyVnlZ9toOUritXL3FLWNPh5JnXKLWvi/Qupd2c4M0NoPqI8PqrpY9fJEdVo3Kv54v4O+zROhQkvXQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=uclouvain.be;
-Received: from AS8PR03MB9047.eurprd03.prod.outlook.com (2603:10a6:20b:5b6::13)
- by DB9PR03MB7195.eurprd03.prod.outlook.com (2603:10a6:10:1ff::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.11; Fri, 10 Jan
- 2025 15:47:14 +0000
-Received: from AS8PR03MB9047.eurprd03.prod.outlook.com
- ([fe80::c90e:deef:6dcf:538c]) by AS8PR03MB9047.eurprd03.prod.outlook.com
- ([fe80::c90e:deef:6dcf:538c%6]) with mapi id 15.20.8335.012; Fri, 10 Jan 2025
- 15:47:14 +0000
-Message-ID: <4ee4d11f-069c-4f64-aeda-3de22b821b29@uclouvain.be>
-Date: Fri, 10 Jan 2025 16:46:23 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] power: supply: add support for max77759 fuel gauge
-To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
- Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Dimitri Fedrau <dima.fedrau@gmail.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Peter Griffin <peter.griffin@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org
-References: <20250102-b4-gs101_max77759_fg-v2-0-87959abeb7ff@uclouvain.be>
- <20250102-b4-gs101_max77759_fg-v2-1-87959abeb7ff@uclouvain.be>
- <6abdef3d-95cd-4afc-b5d4-880c58f60e9d@wanadoo.fr>
-Content-Language: en-US
-From: Thomas Antoine <t.antoine@uclouvain.be>
-In-Reply-To: <6abdef3d-95cd-4afc-b5d4-880c58f60e9d@wanadoo.fr>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PA7P264CA0095.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:102:348::6) To AS8PR03MB9047.eurprd03.prod.outlook.com
- (2603:10a6:20b:5b6::13)
+	id 1tWHEN-0000000G52q-2F0M;
+	Fri, 10 Jan 2025 15:47:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id BA8BD5C338E;
+	Fri, 10 Jan 2025 15:46:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FF99C4CEE1;
+	Fri, 10 Jan 2025 15:47:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736524046;
+	bh=v73Vw62MTNkPdqw8cVZvUOLB+25Ygi2g/dhpqPSNGOs=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=l/Tqf1J0YeqgmGTlb9OUQ/Wvq+oCw2zgnE8wFFqL59zvdOgp7O+gqxEegYCMlag5B
+	 Q6YYo8nE4BAqap4CwWdBHEB5spPiRJAR3xfPANPsrUl8QBsBJkFuY9/mmloDugDn53
+	 oTrzlRuyCsQh3Pip0J9mKHKMBRqWqQrHqvRlba7lqg2A2mhrzj5cyWW+hzMCeL8RK0
+	 5GclltoKebgtyrLyhSxH8ccfanUNpL8t1yEknIhnlxVvFmJDoCR6QoQO2CNOzLGW18
+	 eGfHAbzkQCEt/QvPwSazROLltVeDVxhce+xTw1U85pnahOGx6/HmZUCI7bRjv8s9WC
+	 Mv9KDA4WfFk4A==
+From: Mark Brown <broonie@kernel.org>
+To: Sanjay R Mehta <sanju.mehta@amd.com>, Han Xu <han.xu@nxp.com>, 
+ Conor Dooley <conor.dooley@microchip.com>, 
+ Daire McNamara <daire.mcnamara@microchip.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Haibo Chen <haibo.chen@nxp.com>, Yogesh Gaur <yogeshgaur.83@gmail.com>, 
+ Heiko Stuebner <heiko@sntech.de>, Michal Simek <michal.simek@amd.com>, 
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
+ Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>, 
+ =?utf-8?q?C=C3=A9dric_Le_Goater?= <clg@kaod.org>, 
+ Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
+ Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, 
+ Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, 
+ Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Raju Rangoju <Raju.Rangoju@amd.com>, 
+ Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Steam Lin <stlin2@winbond.com>, linux-spi@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-mtd@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+ openbmc@lists.ozlabs.org, linux-stm32@st-md-mailman.stormreply.com, 
+ Pratyush Yadav <pratyush@kernel.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, stable+noautosel@kernel.org
+In-Reply-To: <20241224-winbond-6-11-rc1-quad-support-v2-0-ad218dbc406f@bootlin.com>
+References: <20241224-winbond-6-11-rc1-quad-support-v2-0-ad218dbc406f@bootlin.com>
+Subject: Re: (subset) [PATCH v2 00/27] spi-nand/spi-mem DTR support
+Message-Id: <173652403824.316821.7989247622292618802.b4-ty@kernel.org>
+Date: Fri, 10 Jan 2025 15:47:18 +0000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR03MB9047:EE_|DB9PR03MB7195:EE_
-X-MS-Office365-Filtering-Correlation-Id: 977f98b3-74ee-4cf8-28d4-08dd318e0de7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|7416014|10070799003|1800799024|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?S2oyUFZLVmxaUFBWbjBwZmFrM0NweWtiQUY2RS9JT2p1NFo1akhJVGZFbG5p?=
- =?utf-8?B?NEJ3OC9qS252UGo2ZnVXYmdFQ2NkNkM1SERVUlY1b2ZZZVN0T3VVcXZCMmFB?=
- =?utf-8?B?b2ZHSzBiY1FRNkhMcEt0bnpLRHJLeWN1SkdmeTBiSnBpeS9EZ2xNNXM3TjVQ?=
- =?utf-8?B?UHRLbmRZN0wzSUtpTGRYMnhPRndwbVc1QWdtUElHQVpiQmRjT2ZVUjNndDVn?=
- =?utf-8?B?Y0FSSXJyK3Y4aEM2L0tnL3QveGk5LzJLa1phaXF0M3R6aEZIQ1dPN0Rxc1Q3?=
- =?utf-8?B?bWVLdWc0UnJOSEgxNE9BR1h3OE9pT0NqMGRGdkdrWDR5SHp2ekxhK0NwNEJS?=
- =?utf-8?B?ejE5Umx2NWJPSVU2dmdEL1lpcUhnK2ZnbFlEOEN2L1JDUUV1NTFLWnRTREFz?=
- =?utf-8?B?UHhVdkQwWmVXRUViNmxoMkRwWVpGQWVWdk4vS09ZbGhpVE85aUtzK2xDcW9Q?=
- =?utf-8?B?WlEweU1NZUUwV0hNSXhXMUgwa2owdzV1TmNkTEkxTnpUK21WRDZsUS9yM0JI?=
- =?utf-8?B?eFpzTUtkUlp4Qk5XUWRaRXI0bHJqRzlrT29weVlsZ0VuQlhYVzJtbnNOcEx4?=
- =?utf-8?B?UVNSVE5NRlRoYWtSVkNTNGpFcGNIckZEZ1Vkdm53YWNuelZrOXA3ZVJnRkE1?=
- =?utf-8?B?bjkzUHRmblNDS2FTY1RXU0NrNFZCM29RU1YwdHF5RVlQQ3FnS1h5bGYvYzlm?=
- =?utf-8?B?T3g4bldvVmdRQXpVVzd2QkkzZ29KWFRGa0ZlTGRHdkszUEJOVkg4ZHRFMmIz?=
- =?utf-8?B?Z1NHd2lCQ2FSbW9ybTdTY3ZiZ1RpNFI0dWtpcUVrem9oN3J6c3ZteDZlUFNq?=
- =?utf-8?B?SUFuV2RMNHV5WlVaQXcxN3JZZ2pWcmtVMkJCWGtHTnVlV1J3YkFSOGhnOEFC?=
- =?utf-8?B?ZHlkV3NxZUhRWW1CVkZ1ZGxxQmNxVytQV2lUMVBjSHM5ZThac3JoaVB0Ty9B?=
- =?utf-8?B?N2s3aWR4cGtGeWhRdExEcSszNHZ6L1kyYkw2Vmxoem1qR05pTTkyMWpvN08r?=
- =?utf-8?B?NjRId2hORVR3YmdGdGFRanZpSnZvZGczVFRSRHZRQjNCZVNzWWZjZy9nTnlt?=
- =?utf-8?B?RzRSMlZSZUlyRVdXREhBMm5QcUgxWEZ6QnFnV2VIVFJ4Nnl1TFNqblUwYnhz?=
- =?utf-8?B?SmFMcUUzbGRhNjVhdkFFSjM3RE5BSXF1eE0xU3c5L3RTdnMxczdYbTFoTFda?=
- =?utf-8?B?OWQ3UlpwRHlmZVR2aEVrLzd6aDFUZWt4cHlQcDlPWXVrNm01TlBFOEMxdXVU?=
- =?utf-8?B?NWFMMEtTbGs0Z256dU1ZVm00SzBxZDIzZC9jRGJhUjh2YU5BWGJqQVVxSmlI?=
- =?utf-8?B?QkZRSUZ4Uys5VEVleG5pcmR1VU5tQlFVS00rL3FKNE8xYTV5RUZYc2xOeDZn?=
- =?utf-8?B?R2N3Z3F0U2U1OGt0VkdGUlAyZVdRUDRaNmlHVkp0SE1RNmhIK29NaGhuQ1c1?=
- =?utf-8?B?ekFJblIyZ3lwRzJmTDh2YWd1RnA3WW9WeXE3TEd3WmFpdkc0OWJYOFIvTWRw?=
- =?utf-8?B?ZHNueWlQZlhJN21NTllvekdKdGtWMmV4MW1pQW1peE84VmdtcFQ1L1pzbVo0?=
- =?utf-8?B?K2tjWXpUTEszc1FIdTJrV1ZZUk5TQUNkSHR3VGpvZXhVdmFXTEZnWFprbVdh?=
- =?utf-8?B?TDlWZnFVZ05DbmI0cWdGalVIWS9rMWh1V2pCaGpLcEQrVEF5RGhWZzhYeTlF?=
- =?utf-8?B?NzBwdzh5Misxekg3U0hGbG8rVDl5aVh6enNkcmxtR0dqRFhXeDJodWREd3Zl?=
- =?utf-8?B?VldMeVQvRGQ2Z1RkbDVqb2IxUUdzaGhJeTJYRUVrZytXRVVWaXUwNXJuY2lP?=
- =?utf-8?B?Tno5L2tReWhrWnZkeGpQZ2pqUlJaREtDQlRJSFdJUWFuVnVhS3h6c0JZT3Vj?=
- =?utf-8?B?MjBJSnl1bFNZNmhpbUNzTnNaSUdoQXMvMXZzeXJtaVVwNHBZM0U4Wjd5OVpT?=
- =?utf-8?Q?ngiQ4xTTRT8=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR03MB9047.eurprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(10070799003)(1800799024)(921020);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Wm9hODNVeE82dTUvVmJDekFWN2I2ckNzcVk5Qk5Rd3ZiZXNWVUtxZ2Rnc3RQ?=
- =?utf-8?B?QTcwcHU1L3RxSTlMcUw2d2hTWmc4R2t1NmJvOU0ybmF6LzFhWGczTklTSGRs?=
- =?utf-8?B?ajRPQWJsenJldVdRTzR6L1VNZ3BEdnFkamQzaFZsRjh2Njl6bUJPeWd0Y1N0?=
- =?utf-8?B?Q3ZkYjc2dWNaNmYxaE9hODJxU1YwQm93NEJWQWxrYXNQajR1WjN3dmwvanFK?=
- =?utf-8?B?UjhZRHBKQlpkYlV2Y3lScjBFbVc4Q2pNV01XdGlJUmwrdlB3OHVWTU5qNHNQ?=
- =?utf-8?B?OVFjZUZ5V2doVGsxTVRxMldQYXQ1YnFHNnFGMFIzNG1WSFhHOVNmL2F0bllp?=
- =?utf-8?B?Y2NLeWx2cXRucitQUHNXWWFhdUsrRUUwbEpIWXYvbU9SWTZxWGgvdnRYakc4?=
- =?utf-8?B?QnlER3FLbzNiTVVjWThEU2RDdThKV0hjZmxaWmpNKzA2b0pFY2lZdUV4aWpE?=
- =?utf-8?B?a2poRFNla2FWdm5tRlZrNGoyRzRDQU9seDFHTS9wV0VML0tBRXRhY012azFU?=
- =?utf-8?B?SVlCcmQzNnBPZld3czhUNHVSQno0WkRZQUF0WkRxaG5GblJKMXl4T0ltbVZs?=
- =?utf-8?B?UEM5b0ZWRGcrTDNFNW1EVGc3SUp2SENEOTAyN1F1TXpuUWtBaDNWZElTUFpY?=
- =?utf-8?B?N056ajZobDV6VkI0RnYyclVuQnNNdWRKWE5zOE9UM2F3N3ZBejRqZWF5dm5C?=
- =?utf-8?B?eitYSWVLMmU1MlJFMXBHa1hrWnFnSFJmU204N1NQVkg0YWt6cGI4b0drSERW?=
- =?utf-8?B?VWpwUFZOV0QyTFRpYVVwbVdVc05NSnhtTlBQNk92OXlRZC81SkJESGJHNlhI?=
- =?utf-8?B?TnVFb3RoS2lZYi9jSWRBVm5xVkdKdVY5WW1wR2hrWEI2SzE5WWYzcUlEZHkv?=
- =?utf-8?B?WXJPTlNWd3RMTm5SZzljcXFoc1U2aTJrek5IM3M4aGdVbVJySWNDVEpOZ0Vw?=
- =?utf-8?B?OTEwdWU0WWcweUFqN3ErVWhnK1NmMEVnRTB2NHlnWTlLRCtubzBJblZ3N3I2?=
- =?utf-8?B?UmhJdUUvNC9VZjc5VDVwVEwwYllXZkZQMWRvNTBnVXZlVExLRk1qUmxITS8v?=
- =?utf-8?B?SFhTWWNGdUduZmlNRG84bGtLUlZqUlZnL01EdEQ1N1JkNFNQeGo0akJpQWlk?=
- =?utf-8?B?WHZqa0txeldvbVBQem9mMDFyakNjV29aekN5TG1hWFlPOVVFK2xNc3pPa0Zz?=
- =?utf-8?B?VTZVSmxFZ05XZHpsQ0UyMDVGZG5Va0l1ZVhUNUlOa3ZETzI3OVNvVm95MXp3?=
- =?utf-8?B?QlhRcE5jSFZQc1g0cG5yYzZNN0xIbVl1VnBSbTkyYXA0M2hFcVBQb1A0S2ds?=
- =?utf-8?B?MWtONjlQYU5jb05BRW5BdDdYUmZudVphd1dMRXppWmp6aUJEajVNR0hZak45?=
- =?utf-8?B?c3Zyd3NXOTZLeitYcm93aXcrVjZwTVN0ZmRKaUxUc21nbVVUQUc5Z28vcklB?=
- =?utf-8?B?RzFCWUpoTTZlRGdGdlA1YVNrcE45N2lPb2hsYit5eUhLQjFTY2h3cW0yRFgv?=
- =?utf-8?B?NEttdHVGdHp1blNGVjkram4rcklwZFlPbTZhUzBWajhVdHZ1d2ZUZi8yUXJq?=
- =?utf-8?B?SERINThkU3E4TGlnRWR2ODFzY2RremdYMzhFR3ZPSytCL2FlNjh2bkoxbEU5?=
- =?utf-8?B?c3ZTclNkU1ByV0x2UElMbjg2eDQ0Vm5LaHFzelpKd1ZLQkJuTXhiV04zQThT?=
- =?utf-8?B?bkxkMjRWTUFQQlMzUHcvTVQrNUh0YlJRb2E0NmZZb29idDBNb09lQm1WMGMx?=
- =?utf-8?B?azI2ZTBUUnppQkY0U3FSOStzNW0vRGxYaTcrNkdSRTJSRHU4b0lSNklGS01M?=
- =?utf-8?B?SE5mUC9SajZsUUFxUWRudzRPU3lUSlVjRlJVNTZQQitidzJrQnUwOGlUdlJ0?=
- =?utf-8?B?STZGWkVkcy9JZVJIemt1UjF4aS9rdzNPYk9EMm9DYVRGQTc3ekNzdEQzb1R3?=
- =?utf-8?B?ckFBMUl3c1FaMEhRS2NMcmwzMHpoNEJteC9BWDhTeWUva1V1a25xY29oOFpS?=
- =?utf-8?B?RWhKV1BBRzViMnZ5UHJSUm5uMDVlVnFVQ0lQWFBobmxrYndZMzRCb3VNVTZl?=
- =?utf-8?B?TjZBSXpSL1dCV0V0eG5SQlg5N1RnaWZ2V2lYbXZuaE1uVGVvL2lDU3NUeG9B?=
- =?utf-8?B?Z05CeWRMeDVyQVdTSkdwYURYOGl6SEo1QVhiUVZmZjQ2RHFldlZPVWZseTI3?=
- =?utf-8?Q?yzPaIghYoVbP6gcUxMnFkZrKlI+Mvez3oEbI9qRgFsTd?=
-X-OriginatorOrg: uclouvain.be
-X-MS-Exchange-CrossTenant-Network-Message-Id: 977f98b3-74ee-4cf8-28d4-08dd318e0de7
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR03MB9047.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jan 2025 15:47:14.6041
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 7ab090d4-fa2e-4ecf-bc7c-4127b4d582ec
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: dVjMaIu+0G6noNzy7qieGVEBKgvwuOAnisyvE8TG+9z2uJQRKvagawLrrWOBSFOSkc4ZbL2FyGKKJudeN0YAdA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR03MB7195
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-1b0d6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_074718_675150_A7B7E1D7 
-X-CRM114-Status: GOOD (  11.55  )
+X-CRM114-CacheID: sfid-20250110_074727_662851_2701A901 
+X-CRM114-Status: GOOD (  14.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,31 +96,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/7/25 19:10, Christophe JAILLET wrote:
-> Le 02/01/2025 à 12:15, Thomas Antoine via B4 Relay a écrit :
->> From: Thomas Antoine <t.antoine@uclouvain.be>
->>
->> The interface of the Maxim max77759 fuel gauge has a lot of common with the
->> Maxim max1720x. The major difference is the lack of non-volatile memory
->> slave address. No slave is available at address 0xb of the i2c bus, which
->> is coherent with the following driver from google: line 5836 disables
->> non-volatile memory for m5 gauge.
+On Tue, 24 Dec 2024 18:05:45 +0100, Miquel Raynal wrote:
+> Here is a (big) series supposed to bring DTR support in SPI-NAND.
 > 
-> Hi,
+> I could have split this into two but I eventually preferred showing the
+> big picture. Once v1 will be over, I can make it two. However when we'll
+> discuss merging, we'll have to share an immutable tag among the two
+> subsystems.
 > 
-> ...
-> 
->> +     ret = max1720x_get_rsense(dev, info);
->>       if (ret)
->> -             return dev_err_probe(dev, ret, "Failed to probe nvmem\n");
->> +             return dev_err_probe(dev, ret, "Failed to get RSense");
-> 
-> Missing ending \n.
+> [...]
 
-Hi,
+Applied to
 
-I will fix this, thank you.
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
 
-Best regards,
-Thomas
+Thanks!
+
+[01/27] spi: spi-mem: Extend spi-mem operations with a per-operation maximum frequency
+        commit: 0fefeade90e74bc8f40ab0e460f483565c492e28
+[02/27] spi: spi-mem: Add a new controller capability
+        commit: 1248c9b8d54120950fda10fbeb98fb8932b4d45c
+[03/27] spi: amd: Support per spi-mem operation frequency switches
+        commit: d0e5faccb229b1dacc4c9fa11f6df33bb1fdabd8
+[04/27] spi: amd: Drop redundant check
+        commit: e6204f39fe3a7b4538815a2d778b601bd543649e
+[05/27] spi: amlogic-spifc-a1: Support per spi-mem operation frequency switches
+        commit: 5baa189789e8894c58eacc7803e3c163c1d0fc0a
+[06/27] spi: cadence-qspi: Support per spi-mem operation frequency switches
+        commit: 06e9f5a1f6ba774d8942a168d3ec5ed5a008fbcb
+[07/27] spi: dw: Support per spi-mem operation frequency switches
+        commit: eee7bc9e7ade6f7ac17d9ec02887cd5509ba9427
+[08/27] spi: fsl-qspi: Support per spi-mem operation frequency switches
+        commit: 2438db5253eb17a7c0ccb15aea4252a150dda057
+[09/27] spi: microchip-core-qspi: Support per spi-mem operation frequency switches
+        commit: 13529647743d906ed3cf991f1d77727e7ff1fb6f
+[10/27] spi: mt65xx: Support per spi-mem operation frequency switches
+        commit: 13fd04b53053bbfa741a0f2a781837ab80e485f6
+[11/27] spi: mxic: Support per spi-mem operation frequency switches
+        commit: 67707cb094f134f5b3931eefbedbb9ca7e3209d0
+[12/27] spi: nxp-fspi: Support per spi-mem operation frequency switches
+        commit: 26851cf65ffca2d3a8d529a125e54cf0084d69e7
+[13/27] spi: rockchip-sfc: Support per spi-mem operation frequency switches
+        commit: d3f35dd3ad968256ed1080e3ea2022f947861cff
+[14/27] spi: spi-sn-f-ospi: Support per spi-mem operation frequency switches
+        commit: 1a206344218cc15ad8f321e3abab3f3d36ab639f
+[15/27] spi: spi-ti-qspi: Support per spi-mem operation frequency switches
+        commit: b2fac3192919dd07e7ce30558e34abd7e07dde77
+[16/27] spi: zynq-qspi: Support per spi-mem operation frequency switches
+        commit: 9a68f6c8d6cfddeac7c5874528ed04e50a1cb579
+[17/27] spi: zynqmp-gqspi: Support per spi-mem operation frequency switches
+        commit: 30eb2e6e78225f92f04a2325c6fd77fe8f5b4aab
+[18/27] spi: spi-mem: Reorder spi-mem macro assignments
+        commit: d1f85873d2d62d6980e68d21d3a21f20b0664cc3
+[19/27] spi: spi-mem: Create macros for DTR operation
+        commit: f0006897a96c736623ddeb9b68c3880eb5cdebe7
+[20/27] spi: spi-mem: Estimate the time taken by operations
+        (no commit info)
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
