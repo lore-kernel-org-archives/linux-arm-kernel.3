@@ -4,82 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B660DE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 10:42:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C236E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 10:46:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oXMjZB7unGdAPHawTHDHYq7OtFRZiyCjd74uE75bGDg=; b=W61hloNoKTfLeNrJg2It+YaNSI
-	PIsJla5pjVPoqsmcUcYL0/EgERuSIl1KfFSC6iki45hU7ZK/HrmxkmXorG9AYKYjjLFfBI2eoz5c6
-	OYG3zpyQuT+rLTwHFXZ0YnT1IMO/egp0oLi6/0OybU9anNOoxv/wAzR9poPWsJXYJaSvPQF4kIrLv
-	aKIM+PDMJJwNUel+uvyoF4SPq/6vlarp+2X22TfPjo5/I7vv5zD5EzG0IZE9fQbHTHxgdSuhg3VFb
-	EO/eV2xvsj4RsB4U41K8e+lPBLT40X+zvIJ4EMmJcXtwUBLiV99fHjswrhfzedDXiHH9RjWM6V8+N
-	a8f2FE6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pF9w6wRDM6VrngNoTkozgk/nzYiJ+WZH1nl2Atk8tu8=; b=WA0wCwv4bNPOqIeO/Kg4iUh2ML
+	qYQ9btbzx+ZWDeyLdXzuobgCIRhgT6qu6xBShT8xnikWpeqrJGl3gzVhHmw/mpI0T8AO1tPCqVv1e
+	RmiAqWIYcqs/FcAjQtAj6tYI5P+l7a1x4UrrZ7rmKrFoS3TOwphmu2iyRK1sOc9R1CN/SakYMFdfm
+	vs5qmJuHh4PGDWtVybZ2kc6w+9DzdLccPVqykC435XCrBtVh7JvsXlldHQVH9o6rvaL4vnzf6FQV+
+	hYJE3QqIa82a9W93PZyCVuB2nparpAqiCawA208RZrU8Dri83sPXQBBNbx4e+DYPilFlc6kE4xWln
+	WxWBhofQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWCSc-0000000EzRv-0JMo;
-	Fri, 10 Jan 2025 10:41:50 +0000
-Received: from mail.thorsis.com ([2003:a:e28:26e4::10])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWCRO-0000000EzKg-1z0Y
+	id 1tWCWY-0000000F05r-3rBJ;
+	Fri, 10 Jan 2025 10:45:54 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tWCVL-0000000Ezr7-0Jgg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 10:40:35 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 08F7814840C9;
-	Fri, 10 Jan 2025 11:40:27 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
-	t=1736505632;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=oXMjZB7unGdAPHawTHDHYq7OtFRZiyCjd74uE75bGDg=;
-	b=SV/VcX3+cLJP9SeuPvjDTUtHYVDrj++lsg5W7vxIm9ME+cc8FEnlaFoIq9bPRiyETqA+4d
-	OeDUPDQp1fENFuqJnEE16Vr4Obz2f0S+L0zPcghKF1565yEWtK5Oqt7+KSOyqiuIUSsAbP
-	x8/Y24eDUxeEYO4QLF5uHUBsHUYauTDtiDtO1v6uBC21KPw9u5PUB/7ktgyNZRxhJfdpTt
-	rr/Yb8E3HbTXPPVWrQu+qlK1cEu9pP3yEmOEMi0YKQJFZ089RneynkFzICrChbFAUBLQLG
-	6wtH8kWZ1z+97misSriigLrGPbNNmhw2uUZt3OvHV7r/ag6NifiRkXtsMdKwvg==
-Date: Fri, 10 Jan 2025 11:40:26 +0100
-From: Alexander Dahl <ada@thorsis.com>
-To: =?iso-8859-1?B?Q3Pza+FzLA==?= Bence <csokas.bence@prolan.hu>,
-	linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Tudor Ambarus <tudor.ambarus@microchip.com>,
-	Varshini Rajendran <varshini.rajendran@microchip.com>,
-	Mark Brown <broonie@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Jinjie Ruan <ruanjinjie@huawei.com>
-Subject: Re: [PATCH v3 2/2] spi: atmel-quadspi: Add support for sama7g5 QSPI
-Message-ID: <20250110-married-program-83bc1a997ce8@thorsis.com>
-Mail-Followup-To: =?iso-8859-1?B?Q3Pza+FzLA==?= Bence <csokas.bence@prolan.hu>,
-	linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Tudor Ambarus <tudor.ambarus@microchip.com>,
-	Varshini Rajendran <varshini.rajendran@microchip.com>,
-	Mark Brown <broonie@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Jinjie Ruan <ruanjinjie@huawei.com>
-References: <20241128174316.3209354-1-csokas.bence@prolan.hu>
- <20241128174316.3209354-3-csokas.bence@prolan.hu>
- <20250109-carat-festivity-5f088e1add3c@thorsis.com>
+	Fri, 10 Jan 2025 10:44:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2F6BD13D5;
+	Fri, 10 Jan 2025 02:45:06 -0800 (PST)
+Received: from [10.57.32.219] (unknown [10.57.32.219])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A4A9F3F673;
+	Fri, 10 Jan 2025 02:44:36 -0800 (PST)
+Message-ID: <7fa2c7c2-0bbf-4d45-bc90-71c4a4a82c0c@arm.com>
+Date: Fri, 10 Jan 2025 10:44:35 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250109-carat-festivity-5f088e1add3c@thorsis.com>
-User-Agent: Mutt/2.2.12 (2023-09-09)
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] coresight: catu: Fix number of pages while using 64k
+ pages
+Content-Language: en-GB
+To: Ilkka Koskinen <ilkka@os.amperecomputing.com>,
+ Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250109215348.5483-1-ilkka@os.amperecomputing.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20250109215348.5483-1-ilkka@os.amperecomputing.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_024034_680998_04A1274C 
-X-CRM114-Status: GOOD (  21.43  )
+X-CRM114-CacheID: sfid-20250110_024439_166868_D655FC9C 
+X-CRM114-Status: GOOD (  15.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,65 +67,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
-
-Am Thu, Jan 09, 2025 at 05:27:58PM +0100 schrieb Alexander Dahl:
-> Hello Bence,
+On 09/01/2025 21:53, Ilkka Koskinen wrote:
+> Trying to record a trace on kernel with 64k pages resulted in -ENOMEM.
+> This happens due to a bug in calculating the number of table pages, which
+> returns zero. Fix the issue by rounding up.
 > 
-> I had another round of intense looking at the code, this time I
-> focused on pm_runtime handling.  Although I just learned about the
-> basic concepts, I think the ported patch has some mistakes.  I'll
-> comment here, because I don't have a SAMA7G5 to test, and I'm not
-> confident enough to fix the code, but I think it's worth reporting.
-> See below.
+> $ perf record --kcore -e cs_etm/@tmc_etr55,cycacc,branch_broadcast/k --per-thread taskset --cpu-list 1 dd if=/dev/zero of=/dev/null
+> failed to mmap with 12 (Cannot allocate memory)
 > 
-> Am Thu, Nov 28, 2024 at 06:43:15PM +0100 schrieb Csókás, Bence:
-> > From: Tudor Ambarus <tudor.ambarus@microchip.com>
-> > 
 
-[…]
+Needs a Fixes tag.
 
-> > +	/* Release the chip-select. */
-> > +	ret = atmel_qspi_reg_sync(aq);
-> > +	if (ret) {
-> > +		pm_runtime_mark_last_busy(&aq->pdev->dev);
-> > +		pm_runtime_put_autosuspend(&aq->pdev->dev);
-> > +		return ret;
-> > +	}
-> > +	atmel_qspi_write(QSPI_CR_LASTXFER, aq, QSPI_CR);
-> > +
-> > +	return atmel_qspi_wait_for_completion(aq, QSPI_SR_CSRA);
-> > +}
+Fixes : 8ed536b1e283 ("coresight: catu: Add support for scatter gather 
+tables")
+
+> Signed-off-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+> ---
+>   drivers/hwtracing/coresight/coresight-catu.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> This function atmel_qspi_sama7g5_transfer() seems to be called from
-> atmel_qspi_exec_op() through ops->transfer() only.  I think the two
-> lines in the error handling of atmel_qspi_reg_sync() lead to
-> unbalanced calls of pm_runtime_xxx.  Compare with
-> atmel_qspi_transfer() which has no calls to pm_runtime, everything is
-> covered by atmel_qspi_exec_op() in this case where the pm_runtime
-> calls surround ->set_cfg() and ->transfer().  Right?
+> diff --git a/drivers/hwtracing/coresight/coresight-catu.c b/drivers/hwtracing/coresight/coresight-catu.c
+> index 275cc0d9f505..3378bb77e6b4 100644
+> --- a/drivers/hwtracing/coresight/coresight-catu.c
+> +++ b/drivers/hwtracing/coresight/coresight-catu.c
+> @@ -269,7 +269,7 @@ catu_init_sg_table(struct device *catu_dev, int node,
+>   	 * Each table can address upto 1MB and we can have
+>   	 * CATU_PAGES_PER_SYSPAGE tables in a system page.
+>   	 */
+> -	nr_tpages = DIV_ROUND_UP(size, SZ_1M) / CATU_PAGES_PER_SYSPAGE;
+> +	nr_tpages = DIV_ROUND_UP(size, CATU_PAGES_PER_SYSPAGE * SZ_1M);
+>   	catu_table = tmc_alloc_sg_table(catu_dev, node, nr_tpages,
+>   					size >> PAGE_SHIFT, pages);
+>   	if (IS_ERR(catu_table))
 
-This problem has been addressed in downstream kernel (linux4sam) by
-Claudiu Beznea back in 2023 already:
+Looks good to me, I will queue this later for v6.15.
 
-https://github.com/linux4sam/linux-at91/commit/e59f646f516088fdab6d8213d8acda0c1063ec21
-
-[…]
-
-> The whole call tree from atmel_qspi_sama7g5_setup() downwards is not
-> covered by pm_runtime get and put calls, although heavily doing i/o.
-> Further down in atmel_qspi_setup() there's a write to QSPI_SCR which
-> seems to be handled correctly.
-
-Same for this:
-
-https://github.com/linux4sam/linux-at91/commit/5ff0e74c1d548599fe85113e2f1817cb8a052b15
-
-Some hunks of that seem to have made it to upstream, not sure?
-
-Maybe Microchip should upstream those fixes, now that SAMA7G5 support
-was ported to mainline?
-
-Greets
-Alex
+Suzuki
 
