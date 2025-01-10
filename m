@@ -4,101 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B69D8E7719C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 16:52:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50CB0E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 16:56:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5lzt6z/Ceqcm6iM19wuv0dkn/99Cp38KMQ6N4hkEDE8=; b=todUv6eMcXQcxnmTwPFokTp7p4
-	M1xsDjMORf1jPkVWWZn5VkjGY5ioYQhjuqINxbJBVWQi8Ty9Mdn3epFNi7eYfnfTfhu6Oputwg7ba
-	9emtOOmIQdpKSkxtSzpQPs+//p9g4Gm/hBuvPwS0jE2vmVnEV+1uxdUXEzCrIOOb9PCQFFziRxOuc
-	SvO92aHWaQML12aey14iM24kxWCkzjrp7t914qceenOOjAL5fro1flsEqmepT0BiXBmi7NYYqpSe8
-	8Aps2DklIHCmCQ0ek8JQV1oh/kqUcTfJQiaj/KTXkAbRciLKZMgOk2liQVLuD6DjF/31tBEmrm0J6
-	eBYr6Qcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oQPZ2PCL3JKps5q9v7Pq0X/rTbfUgE3efhEKfnZ/yas=; b=WiRe6OMVA5dOJjp9YK+nTsKvqY
+	gZ6+rgxuirofgVRIndD2rxjQmLrjuf0tni52RHAMBoOu5Rhy8erwEpliTZer/ZrMfjrxkwPQb6MDH
+	NowTNQB7Kw00a29Vpv1dCgAMCgJKapuVQqjvDNSs8SgzCFTQHuaf4LYuWufEbNeMgTIw3Mmk4cVhY
+	sd+W0uUCmvYhxgACHB8F9tspfBcNu8/t0BRhmupQaa7zPpqnlWWQJ7IGIBq1T4tNcJtzV6MixDbka
+	GLpFxXiJwMl+tbJFpelN9rX5sDw9WaadGUE99d/jNn1RhlLxDGJFN+TFhbaGXi5tkfefzMkHp0Va8
+	XezLfiIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWIFM-0000000GKw4-2dOp;
-	Fri, 10 Jan 2025 16:52:32 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1tWIIw-0000000GLd8-08Ld;
+	Fri, 10 Jan 2025 16:56:14 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWGrm-0000000FtpT-13Ag;
-	Fri, 10 Jan 2025 15:24:07 +0000
-From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1736522641;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=5lzt6z/Ceqcm6iM19wuv0dkn/99Cp38KMQ6N4hkEDE8=;
-	b=FqodcwGYxuFouVnSXkfxj9ba5B81Hwca8DBPQCx/OdNscDV0DWIgBvtDB46GM/CVCSg1rc
-	wBtkSTROfYlkiAAOmaNl06LOGIhWiPR3RKFODDN96Kff1kE72/Juenms/xwH+5AjhB3UEy
-	n1fYpxvYh2ryQFxhyPCr+e/4nJ8ra/IK8fa33R1gC2vFbnIwslGt9RgmPr0S3NX8aO9t7a
-	VOfLC6U0D899C9OQXFEPpBJL0LssWMdiuL2116Nf5hHmMnKyIKeXGlrEzNyQCU3p4i/5NP
-	AFzfYWO3mAjrrTu9ODTvjKv08b1T/WzTmjKSp5E/egBKzZJCjeOUU/h6f11nkQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1736522641;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=5lzt6z/Ceqcm6iM19wuv0dkn/99Cp38KMQ6N4hkEDE8=;
-	b=zKMtRkhXWyGjP4qTnJRk2ZIvrUWR34p/csyQoBAB+fjf0xf5lHgV0wfHKkk1IcpmNYBDy6
-	aR39NdCbp1kwzABQ==
-Date: Fri, 10 Jan 2025 16:23:57 +0100
-Subject: [PATCH v2 18/18] vdso: Remove remnants of architecture-specific
- time storage
+	id 1tWIHh-0000000GLEd-0eJF
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 10 Jan 2025 16:54:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2C1C65C4490;
+	Fri, 10 Jan 2025 16:54:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBCCDC4CED6;
+	Fri, 10 Jan 2025 16:54:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736528095;
+	bh=ZsJFtpzkgfFx5IUngKqUFnmqOEM22neZlo3vgVRJV5E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MHSbUTXXHZDUaxWjNIoONoOJkZhszbvuTyR4W+ln3RqpdepqpiRbh5t5e4t24hGzf
+	 ZDW2cvXkydx4t/nyzyP9Er8v8CY8n6hD60i2hm84SGOEWujc0pTLOys+TtYuoAMNcj
+	 gUIaXgoNhM6+W01m7blwME6hA3t7tXd+dU5sDGP2tFmVkHcqldRg9V16rY9y000iFX
+	 ZZnEt9eHYgMjacaLuHfr36CdMoQyCLnq3nzf2IQkuxWBxpiAT1jY+lw0z7dzPYSRQh
+	 B41j7T3UCRhAm7D/I+hspUkBrOFoJ8S56IUYqfIi0Za5zyNRGgqUIooCW9mVyEIbht
+	 TUksbYykhoIxQ==
+Date: Fri, 10 Jan 2025 08:54:55 -0800
+From: "Darrick J. Wong" <djwong@kernel.org>
+To: Alistair Popple <apopple@nvidia.com>
+Cc: akpm@linux-foundation.org, dan.j.williams@intel.com, linux-mm@kvack.org,
+	alison.schofield@intel.com, lina@asahilina.net,
+	zhang.lyra@gmail.com, gerald.schaefer@linux.ibm.com,
+	vishal.l.verma@intel.com, dave.jiang@intel.com, logang@deltatee.com,
+	bhelgaas@google.com, jack@suse.cz, jgg@ziepe.ca,
+	catalin.marinas@arm.com, will@kernel.org, mpe@ellerman.id.au,
+	npiggin@gmail.com, dave.hansen@linux.intel.com, ira.weiny@intel.com,
+	willy@infradead.org, tytso@mit.edu, linmiaohe@huawei.com,
+	david@redhat.com, peterx@redhat.com, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org, nvdimm@lists.linux.dev,
+	linux-cxl@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+	linux-ext4@vger.kernel.org, linux-xfs@vger.kernel.org,
+	jhubbard@nvidia.com, hch@lst.de, david@fromorbit.com,
+	chenhuacai@kernel.org, kernel@xen0n.name, loongarch@lists.linux.dev
+Subject: Re: [PATCH v6 21/26] fs/dax: Properly refcount fs dax pages
+Message-ID: <20250110165455.GR1306365@frogsfrogsfrogs>
+References: <cover.11189864684e31260d1408779fac9db80122047b.1736488799.git-series.apopple@nvidia.com>
+ <b2175bb80d5be44032da2e2944403d97b48e2985.1736488799.git-series.apopple@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250110-vdso-store-rng-v2-18-350c9179bbf1@linutronix.de>
-References: <20250110-vdso-store-rng-v2-0-350c9179bbf1@linutronix.de>
-In-Reply-To: <20250110-vdso-store-rng-v2-0-350c9179bbf1@linutronix.de>
-To: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
- Helge Deller <deller@gmx.de>, Andy Lutomirski <luto@kernel.org>, 
- Thomas Gleixner <tglx@linutronix.de>, 
- Vincenzo Frascino <vincenzo.frascino@arm.com>, 
- Anna-Maria Behnsen <anna-maria@linutronix.de>, 
- Frederic Weisbecker <frederic@kernel.org>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Theodore Ts'o <tytso@mit.edu>, "Jason A. Donenfeld" <Jason@zx2c4.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
- Russell King <linux@armlinux.org.uk>, Heiko Carstens <hca@linux.ibm.com>, 
- Vasily Gorbik <gor@linux.ibm.com>, 
- Alexander Gordeev <agordeev@linux.ibm.com>, 
- Christian Borntraeger <borntraeger@linux.ibm.com>, 
- Sven Schnelle <svens@linux.ibm.com>, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
- Christophe Leroy <christophe.leroy@csgroup.eu>, 
- Naveen N Rao <naveen@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
- "H. Peter Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>, 
- Guo Ren <guoren@kernel.org>
-Cc: linux-parisc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
- loongarch@lists.linux.dev, linux-s390@vger.kernel.org, 
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
- linux-arch@vger.kernel.org, Nam Cao <namcao@linutronix.de>, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, 
- linux-csky@vger.kernel.org
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1736522629; l=19980;
- i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=3mc5du4uPdQNznDcCBQRfwDPKzZgpbR7l7xgd4itZ2w=;
- b=soMXq6VOCSb3n3JHltG9wNT/aJ3wEaxywsV3UY+/oAGqnFoSvS3OQr3CuwO4FVrrT2zxgGJEz
- 1fsZGTesIH9Ci48cuGCvhd16PJNbPH+TqDYZwJH8pZnEq9y0LxqDStj
-X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
- pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <b2175bb80d5be44032da2e2944403d97b48e2985.1736488799.git-series.apopple@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_072406_614308_E450B5EF 
-X-CRM114-Status: GOOD (  22.44  )
+X-CRM114-CacheID: sfid-20250110_085457_283571_385AEED2 
+X-CRM114-Status: GOOD (  58.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,537 +85,871 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-All users of the random vDSO are using the generic storage
-implementation. Remove the now unnecessary compatibility accessor
-functions and symbols.
+On Fri, Jan 10, 2025 at 05:00:49PM +1100, Alistair Popple wrote:
+> Currently fs dax pages are considered free when the refcount drops to
+> one and their refcounts are not increased when mapped via PTEs or
+> decreased when unmapped. This requires special logic in mm paths to
+> detect that these pages should not be properly refcounted, and to
+> detect when the refcount drops to one instead of zero.
+> 
+> On the other hand get_user_pages(), etc. will properly refcount fs dax
+> pages by taking a reference and dropping it when the page is
+> unpinned.
+> 
+> Tracking this special behaviour requires extra PTE bits
+> (eg. pte_devmap) and introduces rules that are potentially confusing
+> and specific to FS DAX pages. To fix this, and to possibly allow
+> removal of the special PTE bits in future, convert the fs dax page
+> refcounts to be zero based and instead take a reference on the page
+> each time it is mapped as is currently the case for normal pages.
+> 
+> This may also allow a future clean-up to remove the pgmap refcounting
+> that is currently done in mm/gup.c.
+> 
+> Signed-off-by: Alistair Popple <apopple@nvidia.com>
+> 
+> ---
+> 
+> Changes since v2:
+> 
+> Based on some questions from Dan I attempted to have the FS DAX page
+> cache (ie. address space) hold a reference to the folio whilst it was
+> mapped. However I came to the strong conclusion that this was not the
+> right thing to do.
+> 
+> If the page refcount == 0 it means the page is:
+> 
+> 1. not mapped into user-space
+> 2. not subject to other access via DMA/GUP/etc.
+> 
+> Ie. From the core MM perspective the page is not in use.
+> 
+> The fact a page may or may not be present in one or more address space
+> mappings is irrelevant for core MM. It just means the page is still in
+> use or valid from the file system perspective, and it's a
+> responsiblity of the file system to remove these mappings if the pfn
+> mapping becomes invalid (along with first making sure the MM state,
+> ie. page->refcount, is idle). So we shouldn't be trying to track that
+> lifetime with MM refcounts.
+> 
+> Doing so just makes DMA-idle tracking more complex because there is
+> now another thing (one or more address spaces) which can hold
+> references on a page. And FS DAX can't even keep track of all the
+> address spaces which might contain a reference to the page in the
+> XFS/reflink case anyway.
+> 
+> We could do this if we made file systems invalidate all address space
+> mappings prior to calling dax_break_layouts(), but that isn't
+> currently neccessary and would lead to increased faults just so we
+> could do some superfluous refcounting which the file system already
+> does.
+> 
+> I have however put the page sharing checks and WARN_ON's back which
+> also turned out to be useful for figuring out when to re-initialising
+> a folio.
+> ---
+>  drivers/nvdimm/pmem.c    |   4 +-
+>  fs/dax.c                 | 212 +++++++++++++++++++++++-----------------
+>  fs/fuse/virtio_fs.c      |   3 +-
+>  fs/xfs/xfs_inode.c       |   2 +-
+>  include/linux/dax.h      |   6 +-
+>  include/linux/mm.h       |  27 +-----
+>  include/linux/mm_types.h |   7 +-
+>  mm/gup.c                 |   9 +--
+>  mm/huge_memory.c         |   6 +-
+>  mm/internal.h            |   2 +-
+>  mm/memory-failure.c      |   6 +-
+>  mm/memory.c              |   6 +-
+>  mm/memremap.c            |  47 ++++-----
+>  mm/mm_init.c             |   9 +--
+>  mm/swap.c                |   2 +-
+>  15 files changed, 183 insertions(+), 165 deletions(-)
+> 
+> diff --git a/drivers/nvdimm/pmem.c b/drivers/nvdimm/pmem.c
+> index d81faa9..785b2d2 100644
+> --- a/drivers/nvdimm/pmem.c
+> +++ b/drivers/nvdimm/pmem.c
+> @@ -513,7 +513,7 @@ static int pmem_attach_disk(struct device *dev,
+>  
+>  	pmem->disk = disk;
+>  	pmem->pgmap.owner = pmem;
+> -	pmem->pfn_flags = PFN_DEV;
+> +	pmem->pfn_flags = 0;
+>  	if (is_nd_pfn(dev)) {
+>  		pmem->pgmap.type = MEMORY_DEVICE_FS_DAX;
+>  		pmem->pgmap.ops = &fsdax_pagemap_ops;
+> @@ -522,7 +522,6 @@ static int pmem_attach_disk(struct device *dev,
+>  		pmem->data_offset = le64_to_cpu(pfn_sb->dataoff);
+>  		pmem->pfn_pad = resource_size(res) -
+>  			range_len(&pmem->pgmap.range);
+> -		pmem->pfn_flags |= PFN_MAP;
+>  		bb_range = pmem->pgmap.range;
+>  		bb_range.start += pmem->data_offset;
+>  	} else if (pmem_should_map_pages(dev)) {
+> @@ -532,7 +531,6 @@ static int pmem_attach_disk(struct device *dev,
+>  		pmem->pgmap.type = MEMORY_DEVICE_FS_DAX;
+>  		pmem->pgmap.ops = &fsdax_pagemap_ops;
+>  		addr = devm_memremap_pages(dev, &pmem->pgmap);
+> -		pmem->pfn_flags |= PFN_MAP;
+>  		bb_range = pmem->pgmap.range;
+>  	} else {
+>  		addr = devm_memremap(dev, pmem->phys_addr,
+> diff --git a/fs/dax.c b/fs/dax.c
+> index d35dbe1..19f444e 100644
+> --- a/fs/dax.c
+> +++ b/fs/dax.c
+> @@ -71,6 +71,11 @@ static unsigned long dax_to_pfn(void *entry)
+>  	return xa_to_value(entry) >> DAX_SHIFT;
+>  }
+>  
+> +static struct folio *dax_to_folio(void *entry)
+> +{
+> +	return page_folio(pfn_to_page(dax_to_pfn(entry)));
+> +}
+> +
+>  static void *dax_make_entry(pfn_t pfn, unsigned long flags)
+>  {
+>  	return xa_mk_value(flags | (pfn_t_to_pfn(pfn) << DAX_SHIFT));
+> @@ -338,44 +343,88 @@ static unsigned long dax_entry_size(void *entry)
+>  		return PAGE_SIZE;
+>  }
+>  
+> -static unsigned long dax_end_pfn(void *entry)
+> -{
+> -	return dax_to_pfn(entry) + dax_entry_size(entry) / PAGE_SIZE;
+> -}
+> -
+> -/*
+> - * Iterate through all mapped pfns represented by an entry, i.e. skip
+> - * 'empty' and 'zero' entries.
+> - */
+> -#define for_each_mapped_pfn(entry, pfn) \
+> -	for (pfn = dax_to_pfn(entry); \
+> -			pfn < dax_end_pfn(entry); pfn++)
+> -
+>  /*
+>   * A DAX page is considered shared if it has no mapping set and ->share (which
+>   * shares the ->index field) is non-zero. Note this may return false even if the
+>   * page is shared between multiple files but has not yet actually been mapped
+>   * into multiple address spaces.
+>   */
+> -static inline bool dax_page_is_shared(struct page *page)
+> +static inline bool dax_folio_is_shared(struct folio *folio)
+>  {
+> -	return !page->mapping && page->share;
+> +	return !folio->mapping && folio->share;
+>  }
+>  
+>  /*
+> - * Increase the page share refcount, warning if the page is not marked as shared.
+> + * Increase the folio share refcount, warning if the folio is not marked as shared.
+>   */
+> -static inline void dax_page_share_get(struct page *page)
+> +static inline void dax_folio_share_get(void *entry)
+>  {
+> -	WARN_ON_ONCE(!page->share);
+> -	WARN_ON_ONCE(page->mapping);
+> -	page->share++;
+> +	struct folio *folio = dax_to_folio(entry);
+> +
+> +	WARN_ON_ONCE(!folio->share);
+> +	WARN_ON_ONCE(folio->mapping);
+> +	WARN_ON_ONCE(dax_entry_order(entry) != folio_order(folio));
+> +	folio->share++;
+> +}
+> +
+> +static inline unsigned long dax_folio_share_put(struct folio *folio)
+> +{
+> +	unsigned long ref;
+> +
+> +	if (!dax_folio_is_shared(folio))
+> +		ref = 0;
+> +	else
+> +		ref = --folio->share;
+> +
+> +	WARN_ON_ONCE(ref < 0);
+> +	if (!ref) {
+> +		folio->mapping = NULL;
+> +		if (folio_order(folio)) {
+> +			struct dev_pagemap *pgmap = page_pgmap(&folio->page);
+> +			unsigned int order = folio_order(folio);
+> +			unsigned int i;
+> +
+> +			for (i = 0; i < (1UL << order); i++) {
+> +				struct page *page = folio_page(folio, i);
+> +
+> +				ClearPageHead(page);
+> +				clear_compound_head(page);
+> +
+> +				/*
+> +				 * Reset pgmap which was over-written by
+> +				 * prep_compound_page().
+> +				 */
+> +				page_folio(page)->pgmap = pgmap;
+> +
+> +				/* Make sure this isn't set to TAIL_MAPPING */
+> +				page->mapping = NULL;
+> +				page->share = 0;
+> +				WARN_ON_ONCE(page_ref_count(page));
+> +			}
+> +		}
+> +	}
+> +
+> +	return ref;
+>  }
+>  
+> -static inline unsigned long dax_page_share_put(struct page *page)
+> +static void dax_device_folio_init(void *entry)
+>  {
+> -	WARN_ON_ONCE(!page->share);
+> -	return --page->share;
+> +	struct folio *folio = dax_to_folio(entry);
+> +	int order = dax_entry_order(entry);
+> +
+> +	/*
+> +	 * Folio should have been split back to order-0 pages in
+> +	 * dax_folio_share_put() when they were removed from their
+> +	 * final mapping.
+> +	 */
+> +	WARN_ON_ONCE(folio_order(folio));
+> +
+> +	if (order > 0) {
+> +		prep_compound_page(&folio->page, order);
+> +		if (order > 1)
+> +			INIT_LIST_HEAD(&folio->_deferred_list);
+> +		WARN_ON_ONCE(folio_ref_count(folio));
+> +	}
+>  }
+>  
+>  /*
+> @@ -388,72 +437,58 @@ static inline unsigned long dax_page_share_put(struct page *page)
+>   * dax_holder_operations.
+>   */
+>  static void dax_associate_entry(void *entry, struct address_space *mapping,
+> -		struct vm_area_struct *vma, unsigned long address, bool shared)
+> +				struct vm_area_struct *vma, unsigned long address, bool shared)
+>  {
+> -	unsigned long size = dax_entry_size(entry), pfn, index;
+> -	int i = 0;
+> +	unsigned long size = dax_entry_size(entry), index;
+> +	struct folio *folio = dax_to_folio(entry);
+>  
+>  	if (IS_ENABLED(CONFIG_FS_DAX_LIMITED))
+>  		return;
+>  
+>  	index = linear_page_index(vma, address & ~(size - 1));
+> -	for_each_mapped_pfn(entry, pfn) {
+> -		struct page *page = pfn_to_page(pfn);
+> -
+> -		if (shared && page->mapping && page->share) {
+> -			if (page->mapping) {
+> -				page->mapping = NULL;
+> +	if (shared && (folio->mapping || dax_folio_is_shared(folio))) {
+> +		if (folio->mapping) {
+> +			folio->mapping = NULL;
+>  
+> -				/*
+> -				 * Page has already been mapped into one address
+> -				 * space so set the share count.
+> -				 */
+> -				page->share = 1;
+> -			}
+> -
+> -			dax_page_share_get(page);
+> -		} else {
+> -			WARN_ON_ONCE(page->mapping);
+> -			page->mapping = mapping;
+> -			page->index = index + i++;
+> +			/*
+> +			 * folio has already been mapped into one address
+> +			 * space so set the share count.
+> +			 */
+> +			folio->share = 1;
+>  		}
+> +
+> +		dax_folio_share_get(entry);
+> +	} else {
+> +		WARN_ON_ONCE(folio->mapping);
+> +		dax_device_folio_init(entry);
+> +		folio = dax_to_folio(entry);
+> +		folio->mapping = mapping;
+> +		folio->index = index;
+>  	}
+>  }
+>  
+>  static void dax_disassociate_entry(void *entry, struct address_space *mapping,
+> -		bool trunc)
+> +				bool trunc)
+>  {
+> -	unsigned long pfn;
+> +	struct folio *folio = dax_to_folio(entry);
+>  
+>  	if (IS_ENABLED(CONFIG_FS_DAX_LIMITED))
+>  		return;
+>  
+> -	for_each_mapped_pfn(entry, pfn) {
+> -		struct page *page = pfn_to_page(pfn);
+> -
+> -		WARN_ON_ONCE(trunc && page_ref_count(page) > 1);
+> -		if (dax_page_is_shared(page)) {
+> -			/* keep the shared flag if this page is still shared */
+> -			if (dax_page_share_put(page) > 0)
+> -				continue;
+> -		} else
+> -			WARN_ON_ONCE(page->mapping && page->mapping != mapping);
+> -		page->mapping = NULL;
+> -		page->index = 0;
+> -	}
+> +	dax_folio_share_put(folio);
+>  }
+>  
+>  static struct page *dax_busy_page(void *entry)
+>  {
+> -	unsigned long pfn;
+> +	struct folio *folio = dax_to_folio(entry);
+>  
+> -	for_each_mapped_pfn(entry, pfn) {
+> -		struct page *page = pfn_to_page(pfn);
+> +	if (dax_is_zero_entry(entry) || dax_is_empty_entry(entry))
+> +		return NULL;
+>  
+> -		if (page_ref_count(page) > 1)
+> -			return page;
+> -	}
+> -	return NULL;
+> +	if (folio_ref_count(folio) - folio_mapcount(folio))
+> +		return &folio->page;
+> +	else
+> +		return NULL;
+>  }
+>  
+>  /**
+> @@ -786,7 +821,7 @@ struct page *dax_layout_busy_page(struct address_space *mapping)
+>  EXPORT_SYMBOL_GPL(dax_layout_busy_page);
+>  
+>  static int __dax_invalidate_entry(struct address_space *mapping,
+> -					  pgoff_t index, bool trunc)
+> +				  pgoff_t index, bool trunc)
+>  {
+>  	XA_STATE(xas, &mapping->i_pages, index);
+>  	int ret = 0;
+> @@ -892,7 +927,7 @@ static int wait_page_idle(struct page *page,
+>  			void (cb)(struct inode *),
+>  			struct inode *inode)
+>  {
+> -	return ___wait_var_event(page, page_ref_count(page) == 1,
+> +	return ___wait_var_event(page, page_ref_count(page) == 0,
+>  				TASK_INTERRUPTIBLE, 0, 0, cb(inode));
+>  }
+>  
+> @@ -900,7 +935,7 @@ static void wait_page_idle_uninterruptible(struct page *page,
+>  					void (cb)(struct inode *),
+>  					struct inode *inode)
+>  {
+> -	___wait_var_event(page, page_ref_count(page) == 1,
+> +	___wait_var_event(page, page_ref_count(page) == 0,
+>  			TASK_UNINTERRUPTIBLE, 0, 0, cb(inode));
+>  }
+>  
+> @@ -949,7 +984,8 @@ void dax_break_mapping_uninterruptible(struct inode *inode,
+>  		wait_page_idle_uninterruptible(page, cb, inode);
+>  	} while (true);
+>  
+> -	dax_delete_mapping_range(inode->i_mapping, 0, LLONG_MAX);
+> +	if (!page)
+> +		dax_delete_mapping_range(inode->i_mapping, 0, LLONG_MAX);
+>  }
+>  EXPORT_SYMBOL_GPL(dax_break_mapping_uninterruptible);
+>  
+> @@ -1035,8 +1071,10 @@ static void *dax_insert_entry(struct xa_state *xas, struct vm_fault *vmf,
+>  		void *old;
+>  
+>  		dax_disassociate_entry(entry, mapping, false);
+> -		dax_associate_entry(new_entry, mapping, vmf->vma, vmf->address,
+> -				shared);
+> +		if (!(flags & DAX_ZERO_PAGE))
+> +			dax_associate_entry(new_entry, mapping, vmf->vma, vmf->address,
+> +						shared);
+> +
+>  		/*
+>  		 * Only swap our new entry into the page cache if the current
+>  		 * entry is a zero page or an empty entry.  If a normal PTE or
+> @@ -1224,9 +1262,7 @@ static int dax_iomap_direct_access(const struct iomap *iomap, loff_t pos,
+>  		goto out;
+>  	if (pfn_t_to_pfn(*pfnp) & (PHYS_PFN(size)-1))
+>  		goto out;
+> -	/* For larger pages we need devmap */
+> -	if (length > 1 && !pfn_t_devmap(*pfnp))
+> -		goto out;
+> +
+>  	rc = 0;
+>  
+>  out_check_addr:
+> @@ -1333,7 +1369,7 @@ static vm_fault_t dax_load_hole(struct xa_state *xas, struct vm_fault *vmf,
+>  
+>  	*entry = dax_insert_entry(xas, vmf, iter, *entry, pfn, DAX_ZERO_PAGE);
+>  
+> -	ret = vmf_insert_mixed(vmf->vma, vaddr, pfn);
+> +	ret = vmf_insert_page_mkwrite(vmf, pfn_t_to_page(pfn), false);
+>  	trace_dax_load_hole(inode, vmf, ret);
+>  	return ret;
+>  }
+> @@ -1804,7 +1840,8 @@ static vm_fault_t dax_fault_iter(struct vm_fault *vmf,
+>  	loff_t pos = (loff_t)xas->xa_index << PAGE_SHIFT;
+>  	bool write = iter->flags & IOMAP_WRITE;
+>  	unsigned long entry_flags = pmd ? DAX_PMD : 0;
+> -	int err = 0;
+> +	struct folio *folio;
+> +	int ret, err = 0;
+>  	pfn_t pfn;
+>  	void *kaddr;
+>  
+> @@ -1836,17 +1873,18 @@ static vm_fault_t dax_fault_iter(struct vm_fault *vmf,
+>  			return dax_fault_return(err);
+>  	}
+>  
+> +	folio = dax_to_folio(*entry);
+>  	if (dax_fault_is_synchronous(iter, vmf->vma))
+>  		return dax_fault_synchronous_pfnp(pfnp, pfn);
+>  
+> -	/* insert PMD pfn */
+> +	folio_ref_inc(folio);
+>  	if (pmd)
+> -		return vmf_insert_pfn_pmd(vmf, pfn, write);
+> +		ret = vmf_insert_folio_pmd(vmf, pfn_folio(pfn_t_to_pfn(pfn)), write);
+> +	else
+> +		ret = vmf_insert_page_mkwrite(vmf, pfn_t_to_page(pfn), write);
+> +	folio_put(folio);
+>  
+> -	/* insert PTE pfn */
+> -	if (write)
+> -		return vmf_insert_mixed_mkwrite(vmf->vma, vmf->address, pfn);
+> -	return vmf_insert_mixed(vmf->vma, vmf->address, pfn);
+> +	return ret;
+>  }
+>  
+>  static vm_fault_t dax_iomap_pte_fault(struct vm_fault *vmf, pfn_t *pfnp,
+> @@ -2085,6 +2123,7 @@ dax_insert_pfn_mkwrite(struct vm_fault *vmf, pfn_t pfn, unsigned int order)
+>  {
+>  	struct address_space *mapping = vmf->vma->vm_file->f_mapping;
+>  	XA_STATE_ORDER(xas, &mapping->i_pages, vmf->pgoff, order);
+> +	struct folio *folio;
+>  	void *entry;
+>  	vm_fault_t ret;
+>  
+> @@ -2102,14 +2141,17 @@ dax_insert_pfn_mkwrite(struct vm_fault *vmf, pfn_t pfn, unsigned int order)
+>  	xas_set_mark(&xas, PAGECACHE_TAG_DIRTY);
+>  	dax_lock_entry(&xas, entry);
+>  	xas_unlock_irq(&xas);
+> +	folio = pfn_folio(pfn_t_to_pfn(pfn));
+> +	folio_ref_inc(folio);
+>  	if (order == 0)
+> -		ret = vmf_insert_mixed_mkwrite(vmf->vma, vmf->address, pfn);
+> +		ret = vmf_insert_page_mkwrite(vmf, &folio->page, true);
+>  #ifdef CONFIG_FS_DAX_PMD
+>  	else if (order == PMD_ORDER)
+> -		ret = vmf_insert_pfn_pmd(vmf, pfn, FAULT_FLAG_WRITE);
+> +		ret = vmf_insert_folio_pmd(vmf, folio, FAULT_FLAG_WRITE);
+>  #endif
+>  	else
+>  		ret = VM_FAULT_FALLBACK;
+> +	folio_put(folio);
+>  	dax_unlock_entry(&xas, entry);
+>  	trace_dax_insert_pfn_mkwrite(mapping->host, vmf, ret);
+>  	return ret;
+> diff --git a/fs/fuse/virtio_fs.c b/fs/fuse/virtio_fs.c
+> index 82afe78..2c7b24c 100644
+> --- a/fs/fuse/virtio_fs.c
+> +++ b/fs/fuse/virtio_fs.c
+> @@ -1017,8 +1017,7 @@ static long virtio_fs_direct_access(struct dax_device *dax_dev, pgoff_t pgoff,
+>  	if (kaddr)
+>  		*kaddr = fs->window_kaddr + offset;
+>  	if (pfn)
+> -		*pfn = phys_to_pfn_t(fs->window_phys_addr + offset,
+> -					PFN_DEV | PFN_MAP);
+> +		*pfn = phys_to_pfn_t(fs->window_phys_addr + offset, 0);
+>  	return nr_pages > max_nr_pages ? max_nr_pages : nr_pages;
+>  }
+>  
+> diff --git a/fs/xfs/xfs_inode.c b/fs/xfs/xfs_inode.c
+> index c7ec5ab..7bfb4eb 100644
+> --- a/fs/xfs/xfs_inode.c
+> +++ b/fs/xfs/xfs_inode.c
+> @@ -2740,7 +2740,7 @@ xfs_mmaplock_two_inodes_and_break_dax_layout(
+>  	 * for this nested lock case.
+>  	 */
+>  	page = dax_layout_busy_page(VFS_I(ip2)->i_mapping);
+> -	if (page && page_ref_count(page) != 1) {
+> +	if (page && page_ref_count(page) != 0) {
 
-Co-developed-by: Nam Cao <namcao@linutronix.de>
-Signed-off-by: Nam Cao <namcao@linutronix.de>
-Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
----
- include/asm-generic/vdso/vsyscall.h | 24 +++--------------
- include/linux/time_namespace.h      |  3 ---
- include/vdso/datapage.h             | 16 +-----------
- include/vdso/helpers.h              |  8 +++---
- kernel/time/namespace.c             | 12 ++++-----
- kernel/time/vsyscall.c              | 19 +++++++-------
- lib/vdso/datastore.c                | 10 +++-----
- lib/vdso/gettimeofday.c             | 51 ++++++++++++++++++-------------------
- 8 files changed, 53 insertions(+), 90 deletions(-)
+You might want to wrap this weird detail for the next filesystem that
+uses it, so that the fine details of fsdax aren't opencoded in xfs:
 
-diff --git a/include/asm-generic/vdso/vsyscall.h b/include/asm-generic/vdso/vsyscall.h
-index 13e2ac3736ee9b4aea6800117997ee165a7e2b9d..d6aebd519be8edd9d2d2fe674dcc641befc267a5 100644
---- a/include/asm-generic/vdso/vsyscall.h
-+++ b/include/asm-generic/vdso/vsyscall.h
-@@ -4,8 +4,6 @@
- 
- #ifndef __ASSEMBLY__
- 
--#ifdef CONFIG_GENERIC_VDSO_DATA_STORE
--
- #ifndef __arch_get_vdso_u_time_data
- static __always_inline const struct vdso_time_data *__arch_get_vdso_u_time_data(void)
- {
-@@ -20,31 +18,17 @@ static __always_inline const struct vdso_rng_data *__arch_get_vdso_u_rng_data(vo
- }
- #endif
- 
--#else  /* !CONFIG_GENERIC_VDSO_DATA_STORE */
--
--#ifndef __arch_get_k_vdso_data
--static __always_inline struct vdso_data *__arch_get_k_vdso_data(void)
--{
--	return NULL;
--}
--#endif /* __arch_get_k_vdso_data */
--#define vdso_k_time_data __arch_get_k_vdso_data()
--
--#define __arch_get_vdso_u_time_data __arch_get_vdso_data
--
--#endif /* CONFIG_GENERIC_VDSO_DATA_STORE */
--
- #ifndef __arch_update_vsyscall
--static __always_inline void __arch_update_vsyscall(struct vdso_data *vdata)
-+static __always_inline void __arch_update_vsyscall(struct vdso_time_data *vdata)
- {
- }
- #endif /* __arch_update_vsyscall */
- 
--#ifndef __arch_sync_vdso_data
--static __always_inline void __arch_sync_vdso_data(struct vdso_data *vdata)
-+#ifndef __arch_sync_vdso_time_data
-+static __always_inline void __arch_sync_vdso_time_data(struct vdso_time_data *vdata)
- {
- }
--#endif /* __arch_sync_vdso_data */
-+#endif /* __arch_sync_vdso_time_data */
- 
- #endif /* !__ASSEMBLY__ */
- 
-diff --git a/include/linux/time_namespace.h b/include/linux/time_namespace.h
-index 4b81db223f5450218dfaf553b24195be9ba97c08..0b8b32bf0655109d368c5dacc23ca5efcbb5aa80 100644
---- a/include/linux/time_namespace.h
-+++ b/include/linux/time_namespace.h
-@@ -8,7 +8,6 @@
- #include <linux/ns_common.h>
- #include <linux/err.h>
- #include <linux/time64.h>
--#include <vdso/datapage.h>
- 
- struct user_namespace;
- extern struct user_namespace init_user_ns;
-@@ -166,6 +165,4 @@ static inline ktime_t timens_ktime_to_host(clockid_t clockid, ktime_t tim)
- }
- #endif
- 
--struct vdso_data *arch_get_vdso_data(void *vvar_page);
--
- #endif /* _LINUX_TIMENS_H */
-diff --git a/include/vdso/datapage.h b/include/vdso/datapage.h
-index 497907c3aa11fcae913f62ef7373bbe6a1026bd6..8eea8ed0e14362545dd2cfe317e88ac0c77243ac 100644
---- a/include/vdso/datapage.h
-+++ b/include/vdso/datapage.h
-@@ -128,8 +128,6 @@ struct vdso_time_data {
- 	struct arch_vdso_time_data arch_data;
- };
- 
--#define vdso_data vdso_time_data
--
- /**
-  * struct vdso_rng_data - vdso RNG state information
-  * @generation:	counter representing the number of RNG reseeds
-@@ -149,10 +147,7 @@ struct vdso_rng_data {
-  * With the hidden visibility, the compiler simply generates a PC-relative
-  * relocation, and this is what we need.
-  */
--#ifndef CONFIG_GENERIC_VDSO_DATA_STORE
--extern struct vdso_time_data _vdso_data[CS_BASES] __attribute__((visibility("hidden")));
--extern struct vdso_time_data _timens_data[CS_BASES] __attribute__((visibility("hidden")));
--#else
-+#ifdef CONFIG_GENERIC_VDSO_DATA_STORE
- extern struct vdso_time_data vdso_u_time_data[CS_BASES] __attribute__((visibility("hidden")));
- extern struct vdso_rng_data vdso_u_rng_data __attribute__((visibility("hidden")));
- extern struct vdso_arch_data vdso_u_arch_data __attribute__((visibility("hidden")));
-@@ -162,14 +157,6 @@ extern struct vdso_rng_data *vdso_k_rng_data;
- extern struct vdso_arch_data *vdso_k_arch_data;
- #endif
- 
--/**
-- * union vdso_data_store - Generic vDSO data page
-- */
--union vdso_data_store {
--	struct vdso_time_data	data[CS_BASES];
--	u8			page[1U << CONFIG_PAGE_SHIFT];
--};
--
- #ifdef CONFIG_GENERIC_VDSO_DATA_STORE
- 
- #define VDSO_ARCH_DATA_SIZE ALIGN(sizeof(struct vdso_arch_data), PAGE_SIZE)
-@@ -189,7 +176,6 @@ enum vdso_pages {
- /*
-  * The generic vDSO implementation requires that gettimeofday.h
-  * provides:
-- * - __arch_get_vdso_data(): to get the vdso datapage.
-  * - __arch_get_hw_counter(): to get the hw counter based on the
-  *   clock_mode.
-  * - gettimeofday_fallback(): fallback for gettimeofday.
-diff --git a/include/vdso/helpers.h b/include/vdso/helpers.h
-index 3ddb03bb05cbeefc110adf0e672c2cd68848a0ae..41c3087070c7ab21d7adec04e6cd30c4b32ea221 100644
---- a/include/vdso/helpers.h
-+++ b/include/vdso/helpers.h
-@@ -7,7 +7,7 @@
- #include <asm/barrier.h>
- #include <vdso/datapage.h>
- 
--static __always_inline u32 vdso_read_begin(const struct vdso_data *vd)
-+static __always_inline u32 vdso_read_begin(const struct vdso_time_data *vd)
- {
- 	u32 seq;
- 
-@@ -18,7 +18,7 @@ static __always_inline u32 vdso_read_begin(const struct vdso_data *vd)
- 	return seq;
- }
- 
--static __always_inline u32 vdso_read_retry(const struct vdso_data *vd,
-+static __always_inline u32 vdso_read_retry(const struct vdso_time_data *vd,
- 					   u32 start)
- {
- 	u32 seq;
-@@ -28,7 +28,7 @@ static __always_inline u32 vdso_read_retry(const struct vdso_data *vd,
- 	return seq != start;
- }
- 
--static __always_inline void vdso_write_begin(struct vdso_data *vd)
-+static __always_inline void vdso_write_begin(struct vdso_time_data *vd)
- {
- 	/*
- 	 * WRITE_ONCE() is required otherwise the compiler can validly tear
-@@ -40,7 +40,7 @@ static __always_inline void vdso_write_begin(struct vdso_data *vd)
- 	smp_wmb();
- }
- 
--static __always_inline void vdso_write_end(struct vdso_data *vd)
-+static __always_inline void vdso_write_end(struct vdso_time_data *vd)
- {
- 	smp_wmb();
- 	/*
-diff --git a/kernel/time/namespace.c b/kernel/time/namespace.c
-index 0775b9ec952af9639480db9480d06d12293d1ceb..12f55aa539adbc11cce4055f519dbeca8a73320c 100644
---- a/kernel/time/namespace.c
-+++ b/kernel/time/namespace.c
-@@ -165,18 +165,18 @@ static struct timens_offset offset_from_ts(struct timespec64 off)
-  *     HVCLOCK
-  *     VVAR
-  *
-- * The check for vdso_data->clock_mode is in the unlikely path of
-+ * The check for vdso_time_data->clock_mode is in the unlikely path of
-  * the seq begin magic. So for the non-timens case most of the time
-  * 'seq' is even, so the branch is not taken.
-  *
-  * If 'seq' is odd, i.e. a concurrent update is in progress, the extra check
-- * for vdso_data->clock_mode is a non-issue. The task is spin waiting for the
-+ * for vdso_time_data->clock_mode is a non-issue. The task is spin waiting for the
-  * update to finish and for 'seq' to become even anyway.
-  *
-- * Timens page has vdso_data->clock_mode set to VDSO_CLOCKMODE_TIMENS which
-+ * Timens page has vdso_time_data->clock_mode set to VDSO_CLOCKMODE_TIMENS which
-  * enforces the time namespace handling path.
-  */
--static void timens_setup_vdso_data(struct vdso_data *vdata,
-+static void timens_setup_vdso_data(struct vdso_time_data *vdata,
- 				   struct time_namespace *ns)
- {
- 	struct timens_offset *offset = vdata->offset;
-@@ -219,7 +219,7 @@ static DEFINE_MUTEX(offset_lock);
- static void timens_set_vvar_page(struct task_struct *task,
- 				struct time_namespace *ns)
- {
--	struct vdso_data *vdata;
-+	struct vdso_time_data *vdata;
- 	unsigned int i;
- 
- 	if (ns == &init_time_ns)
-@@ -235,7 +235,7 @@ static void timens_set_vvar_page(struct task_struct *task,
- 		goto out;
- 
- 	ns->frozen_offsets = true;
--	vdata = arch_get_vdso_data(page_address(ns->vvar_page));
-+	vdata = page_address(ns->vvar_page);
- 
- 	for (i = 0; i < CS_BASES; i++)
- 		timens_setup_vdso_data(&vdata[i], ns);
-diff --git a/kernel/time/vsyscall.c b/kernel/time/vsyscall.c
-index 09c1e39a6dd8e24aa161982c04078e78d52fa737..418192296ef7dd3c1772d50f129e7838883cf00c 100644
---- a/kernel/time/vsyscall.c
-+++ b/kernel/time/vsyscall.c
-@@ -15,8 +15,7 @@
- 
- #include "timekeeping_internal.h"
- 
--static inline void update_vdso_data(struct vdso_data *vdata,
--				    struct timekeeper *tk)
-+static inline void update_vdso_time_data(struct vdso_time_data *vdata, struct timekeeper *tk)
- {
- 	struct vdso_timestamp *vdso_ts;
- 	u64 nsec, sec;
-@@ -77,7 +76,7 @@ static inline void update_vdso_data(struct vdso_data *vdata,
- 
- void update_vsyscall(struct timekeeper *tk)
- {
--	struct vdso_data *vdata = vdso_k_time_data;
-+	struct vdso_time_data *vdata = vdso_k_time_data;
- 	struct vdso_timestamp *vdso_ts;
- 	s32 clock_mode;
- 	u64 nsec;
-@@ -117,23 +116,23 @@ void update_vsyscall(struct timekeeper *tk)
- 	 * update of the high resolution parts.
- 	 */
- 	if (clock_mode != VDSO_CLOCKMODE_NONE)
--		update_vdso_data(vdata, tk);
-+		update_vdso_time_data(vdata, tk);
- 
- 	__arch_update_vsyscall(vdata);
- 
- 	vdso_write_end(vdata);
- 
--	__arch_sync_vdso_data(vdata);
-+	__arch_sync_vdso_time_data(vdata);
- }
- 
- void update_vsyscall_tz(void)
- {
--	struct vdso_data *vdata = vdso_k_time_data;
-+	struct vdso_time_data *vdata = vdso_k_time_data;
- 
- 	vdata[CS_HRES_COARSE].tz_minuteswest = sys_tz.tz_minuteswest;
- 	vdata[CS_HRES_COARSE].tz_dsttime = sys_tz.tz_dsttime;
- 
--	__arch_sync_vdso_data(vdata);
-+	__arch_sync_vdso_time_data(vdata);
- }
- 
- /**
-@@ -150,7 +149,7 @@ void update_vsyscall_tz(void)
-  */
- unsigned long vdso_update_begin(void)
- {
--	struct vdso_data *vdata = vdso_k_time_data;
-+	struct vdso_time_data *vdata = vdso_k_time_data;
- 	unsigned long flags = timekeeper_lock_irqsave();
- 
- 	vdso_write_begin(vdata);
-@@ -167,9 +166,9 @@ unsigned long vdso_update_begin(void)
-  */
- void vdso_update_end(unsigned long flags)
- {
--	struct vdso_data *vdata = vdso_k_time_data;
-+	struct vdso_time_data *vdata = vdso_k_time_data;
- 
- 	vdso_write_end(vdata);
--	__arch_sync_vdso_data(vdata);
-+	__arch_sync_vdso_time_data(vdata);
- 	timekeeper_unlock_irqrestore(flags);
- }
-diff --git a/lib/vdso/datastore.c b/lib/vdso/datastore.c
-index 0959d62d78586ef458eb5f7c1e152f6b5d4cbf85..e227fbbcb79694f9a40606ac864f52cf1fdbfcf4 100644
---- a/lib/vdso/datastore.c
-+++ b/lib/vdso/datastore.c
-@@ -12,7 +12,10 @@
-  * The vDSO data page.
-  */
- #ifdef CONFIG_HAVE_GENERIC_VDSO
--static union vdso_data_store vdso_time_data_store __page_aligned_data;
-+static union {
-+	struct vdso_time_data	data[CS_BASES];
-+	u8			page[PAGE_SIZE];
-+} vdso_time_data_store __page_aligned_data;
- struct vdso_time_data *vdso_k_time_data = vdso_time_data_store.data;
- static_assert(sizeof(vdso_time_data_store) == PAGE_SIZE);
- #endif /* CONFIG_HAVE_GENERIC_VDSO */
-@@ -123,9 +126,4 @@ int vdso_join_timens(struct task_struct *task, struct time_namespace *ns)
- 
- 	return 0;
- }
--
--struct vdso_time_data *arch_get_vdso_data(void *vvar_page)
--{
--	return (struct vdso_time_data *)vvar_page;
--}
- #endif
-diff --git a/lib/vdso/gettimeofday.c b/lib/vdso/gettimeofday.c
-index 20c5b8752fcc81d9a044169b9a3ae534d840ef91..299f027116ee0e50a69c5a8a17218004e4af0ea1 100644
---- a/lib/vdso/gettimeofday.c
-+++ b/lib/vdso/gettimeofday.c
-@@ -17,12 +17,12 @@
- #endif
- 
- #ifdef CONFIG_GENERIC_VDSO_OVERFLOW_PROTECT
--static __always_inline bool vdso_delta_ok(const struct vdso_data *vd, u64 delta)
-+static __always_inline bool vdso_delta_ok(const struct vdso_time_data *vd, u64 delta)
- {
- 	return delta < vd->max_cycles;
- }
- #else
--static __always_inline bool vdso_delta_ok(const struct vdso_data *vd, u64 delta)
-+static __always_inline bool vdso_delta_ok(const struct vdso_time_data *vd, u64 delta)
- {
- 	return true;
- }
-@@ -39,7 +39,7 @@ static __always_inline u64 vdso_shift_ns(u64 ns, u32 shift)
-  * Default implementation which works for all sane clocksources. That
-  * obviously excludes x86/TSC.
-  */
--static __always_inline u64 vdso_calc_ns(const struct vdso_data *vd, u64 cycles, u64 base)
-+static __always_inline u64 vdso_calc_ns(const struct vdso_time_data *vd, u64 cycles, u64 base)
- {
- 	u64 delta = (cycles - vd->cycle_last) & VDSO_DELTA_MASK(vd);
- 
-@@ -58,7 +58,7 @@ static inline bool __arch_vdso_hres_capable(void)
- #endif
- 
- #ifndef vdso_clocksource_ok
--static inline bool vdso_clocksource_ok(const struct vdso_data *vd)
-+static inline bool vdso_clocksource_ok(const struct vdso_time_data *vd)
- {
- 	return vd->clock_mode != VDSO_CLOCKMODE_NONE;
- }
-@@ -79,21 +79,20 @@ const struct vdso_time_data *__arch_get_vdso_u_timens_data(const struct vdso_tim
- {
- 	return (void *)vd + PAGE_SIZE;
- }
--#define __arch_get_timens_vdso_data(vd) __arch_get_vdso_u_timens_data(vd)
- #endif /* CONFIG_GENERIC_VDSO_DATA_STORE */
- 
--static __always_inline int do_hres_timens(const struct vdso_data *vdns, clockid_t clk,
-+static __always_inline int do_hres_timens(const struct vdso_time_data *vdns, clockid_t clk,
- 					  struct __kernel_timespec *ts)
- {
- 	const struct timens_offset *offs = &vdns->offset[clk];
- 	const struct vdso_timestamp *vdso_ts;
--	const struct vdso_data *vd;
-+	const struct vdso_time_data *vd;
- 	u64 cycles, ns;
- 	u32 seq;
- 	s64 sec;
- 
- 	vd = vdns - (clk == CLOCK_MONOTONIC_RAW ? CS_RAW : CS_HRES_COARSE);
--	vd = __arch_get_timens_vdso_data(vd);
-+	vd = __arch_get_vdso_u_timens_data(vd);
- 	if (clk != CLOCK_MONOTONIC_RAW)
- 		vd = &vd[CS_HRES_COARSE];
- 	else
-@@ -128,19 +127,19 @@ static __always_inline int do_hres_timens(const struct vdso_data *vdns, clockid_
- }
- #else
- static __always_inline
--const struct vdso_data *__arch_get_timens_vdso_data(const struct vdso_data *vd)
-+const struct vdso_time_data *__arch_get_vdso_u_timens_data(const struct vdso_time_data *vd)
- {
- 	return NULL;
- }
- 
--static __always_inline int do_hres_timens(const struct vdso_data *vdns, clockid_t clk,
-+static __always_inline int do_hres_timens(const struct vdso_time_data *vdns, clockid_t clk,
- 					  struct __kernel_timespec *ts)
- {
- 	return -EINVAL;
- }
- #endif
- 
--static __always_inline int do_hres(const struct vdso_data *vd, clockid_t clk,
-+static __always_inline int do_hres(const struct vdso_time_data *vd, clockid_t clk,
- 				   struct __kernel_timespec *ts)
- {
- 	const struct vdso_timestamp *vdso_ts = &vd->basetime[clk];
-@@ -192,10 +191,10 @@ static __always_inline int do_hres(const struct vdso_data *vd, clockid_t clk,
- }
- 
- #ifdef CONFIG_TIME_NS
--static __always_inline int do_coarse_timens(const struct vdso_data *vdns, clockid_t clk,
-+static __always_inline int do_coarse_timens(const struct vdso_time_data *vdns, clockid_t clk,
- 					    struct __kernel_timespec *ts)
- {
--	const struct vdso_data *vd = __arch_get_timens_vdso_data(vdns);
-+	const struct vdso_time_data *vd = __arch_get_vdso_u_timens_data(vdns);
- 	const struct vdso_timestamp *vdso_ts = &vd->basetime[clk];
- 	const struct timens_offset *offs = &vdns->offset[clk];
- 	u64 nsec;
-@@ -221,14 +220,14 @@ static __always_inline int do_coarse_timens(const struct vdso_data *vdns, clocki
- 	return 0;
- }
- #else
--static __always_inline int do_coarse_timens(const struct vdso_data *vdns, clockid_t clk,
-+static __always_inline int do_coarse_timens(const struct vdso_time_data *vdns, clockid_t clk,
- 					    struct __kernel_timespec *ts)
- {
- 	return -1;
- }
- #endif
- 
--static __always_inline int do_coarse(const struct vdso_data *vd, clockid_t clk,
-+static __always_inline int do_coarse(const struct vdso_time_data *vd, clockid_t clk,
- 				     struct __kernel_timespec *ts)
- {
- 	const struct vdso_timestamp *vdso_ts = &vd->basetime[clk];
-@@ -255,7 +254,7 @@ static __always_inline int do_coarse(const struct vdso_data *vd, clockid_t clk,
- }
- 
- static __always_inline int
--__cvdso_clock_gettime_common(const struct vdso_data *vd, clockid_t clock,
-+__cvdso_clock_gettime_common(const struct vdso_time_data *vd, clockid_t clock,
- 			     struct __kernel_timespec *ts)
- {
- 	u32 msk;
-@@ -282,7 +281,7 @@ __cvdso_clock_gettime_common(const struct vdso_data *vd, clockid_t clock,
- }
- 
- static __maybe_unused int
--__cvdso_clock_gettime_data(const struct vdso_data *vd, clockid_t clock,
-+__cvdso_clock_gettime_data(const struct vdso_time_data *vd, clockid_t clock,
- 			   struct __kernel_timespec *ts)
- {
- 	int ret = __cvdso_clock_gettime_common(vd, clock, ts);
-@@ -300,7 +299,7 @@ __cvdso_clock_gettime(clockid_t clock, struct __kernel_timespec *ts)
- 
- #ifdef BUILD_VDSO32
- static __maybe_unused int
--__cvdso_clock_gettime32_data(const struct vdso_data *vd, clockid_t clock,
-+__cvdso_clock_gettime32_data(const struct vdso_time_data *vd, clockid_t clock,
- 			     struct old_timespec32 *res)
- {
- 	struct __kernel_timespec ts;
-@@ -326,7 +325,7 @@ __cvdso_clock_gettime32(clockid_t clock, struct old_timespec32 *res)
- #endif /* BUILD_VDSO32 */
- 
- static __maybe_unused int
--__cvdso_gettimeofday_data(const struct vdso_data *vd,
-+__cvdso_gettimeofday_data(const struct vdso_time_data *vd,
- 			  struct __kernel_old_timeval *tv, struct timezone *tz)
- {
- 
-@@ -343,7 +342,7 @@ __cvdso_gettimeofday_data(const struct vdso_data *vd,
- 	if (unlikely(tz != NULL)) {
- 		if (IS_ENABLED(CONFIG_TIME_NS) &&
- 		    vd->clock_mode == VDSO_CLOCKMODE_TIMENS)
--			vd = __arch_get_timens_vdso_data(vd);
-+			vd = __arch_get_vdso_u_timens_data(vd);
- 
- 		tz->tz_minuteswest = vd[CS_HRES_COARSE].tz_minuteswest;
- 		tz->tz_dsttime = vd[CS_HRES_COARSE].tz_dsttime;
-@@ -360,13 +359,13 @@ __cvdso_gettimeofday(struct __kernel_old_timeval *tv, struct timezone *tz)
- 
- #ifdef VDSO_HAS_TIME
- static __maybe_unused __kernel_old_time_t
--__cvdso_time_data(const struct vdso_data *vd, __kernel_old_time_t *time)
-+__cvdso_time_data(const struct vdso_time_data *vd, __kernel_old_time_t *time)
- {
- 	__kernel_old_time_t t;
- 
- 	if (IS_ENABLED(CONFIG_TIME_NS) &&
- 	    vd->clock_mode == VDSO_CLOCKMODE_TIMENS)
--		vd = __arch_get_timens_vdso_data(vd);
-+		vd = __arch_get_vdso_u_timens_data(vd);
- 
- 	t = READ_ONCE(vd[CS_HRES_COARSE].basetime[CLOCK_REALTIME].sec);
- 
-@@ -384,7 +383,7 @@ static __maybe_unused __kernel_old_time_t __cvdso_time(__kernel_old_time_t *time
- 
- #ifdef VDSO_HAS_CLOCK_GETRES
- static __maybe_unused
--int __cvdso_clock_getres_common(const struct vdso_data *vd, clockid_t clock,
-+int __cvdso_clock_getres_common(const struct vdso_time_data *vd, clockid_t clock,
- 				struct __kernel_timespec *res)
- {
- 	u32 msk;
-@@ -396,7 +395,7 @@ int __cvdso_clock_getres_common(const struct vdso_data *vd, clockid_t clock,
- 
- 	if (IS_ENABLED(CONFIG_TIME_NS) &&
- 	    vd->clock_mode == VDSO_CLOCKMODE_TIMENS)
--		vd = __arch_get_timens_vdso_data(vd);
-+		vd = __arch_get_vdso_u_timens_data(vd);
- 
- 	/*
- 	 * Convert the clockid to a bitmask and use it to check which
-@@ -425,7 +424,7 @@ int __cvdso_clock_getres_common(const struct vdso_data *vd, clockid_t clock,
- }
- 
- static __maybe_unused
--int __cvdso_clock_getres_data(const struct vdso_data *vd, clockid_t clock,
-+int __cvdso_clock_getres_data(const struct vdso_time_data *vd, clockid_t clock,
- 			      struct __kernel_timespec *res)
- {
- 	int ret = __cvdso_clock_getres_common(vd, clock, res);
-@@ -443,7 +442,7 @@ int __cvdso_clock_getres(clockid_t clock, struct __kernel_timespec *res)
- 
- #ifdef BUILD_VDSO32
- static __maybe_unused int
--__cvdso_clock_getres_time32_data(const struct vdso_data *vd, clockid_t clock,
-+__cvdso_clock_getres_time32_data(const struct vdso_time_data *vd, clockid_t clock,
- 				 struct old_timespec32 *res)
- {
- 	struct __kernel_timespec ts;
+static inline bool dax_page_in_use(struct page *page)
+{
+	return page && page_ref_count(page) != 0;
+}
 
--- 
-2.47.1
+	page = dax_layout_busy_page(VFS_I(ip2)->i_mapping);
+	if (dax_page_in_use(page)) {
+		/* unlock and retry... */
+	}
 
+--D
+
+>  		xfs_iunlock(ip2, XFS_MMAPLOCK_EXCL);
+>  		xfs_iunlock(ip1, XFS_MMAPLOCK_EXCL);
+>  		goto again;
+> diff --git a/include/linux/dax.h b/include/linux/dax.h
+> index 7c3773f..dbefea1 100644
+> --- a/include/linux/dax.h
+> +++ b/include/linux/dax.h
+> @@ -211,8 +211,12 @@ static inline int dax_wait_page_idle(struct page *page,
+>  				void (cb)(struct inode *),
+>  				struct inode *inode)
+>  {
+> -	return ___wait_var_event(page, page_ref_count(page) == 1,
+> +	int ret;
+> +
+> +	ret = ___wait_var_event(page, !page_ref_count(page),
+>  				TASK_INTERRUPTIBLE, 0, 0, cb(inode));
+> +
+> +	return ret;
+>  }
+>  
+>  #if IS_ENABLED(CONFIG_DAX)
+> diff --git a/include/linux/mm.h b/include/linux/mm.h
+> index 01edca9..a734278 100644
+> --- a/include/linux/mm.h
+> +++ b/include/linux/mm.h
+> @@ -1161,6 +1161,8 @@ int vma_is_stack_for_current(struct vm_area_struct *vma);
+>  struct mmu_gather;
+>  struct inode;
+>  
+> +extern void prep_compound_page(struct page *page, unsigned int order);
+> +
+>  /*
+>   * compound_order() can be called without holding a reference, which means
+>   * that niceties like page_folio() don't work.  These callers should be
+> @@ -1482,25 +1484,6 @@ vm_fault_t finish_fault(struct vm_fault *vmf);
+>   *   back into memory.
+>   */
+>  
+> -#if defined(CONFIG_ZONE_DEVICE) && defined(CONFIG_FS_DAX)
+> -DECLARE_STATIC_KEY_FALSE(devmap_managed_key);
+> -
+> -bool __put_devmap_managed_folio_refs(struct folio *folio, int refs);
+> -static inline bool put_devmap_managed_folio_refs(struct folio *folio, int refs)
+> -{
+> -	if (!static_branch_unlikely(&devmap_managed_key))
+> -		return false;
+> -	if (!folio_is_zone_device(folio))
+> -		return false;
+> -	return __put_devmap_managed_folio_refs(folio, refs);
+> -}
+> -#else /* CONFIG_ZONE_DEVICE && CONFIG_FS_DAX */
+> -static inline bool put_devmap_managed_folio_refs(struct folio *folio, int refs)
+> -{
+> -	return false;
+> -}
+> -#endif /* CONFIG_ZONE_DEVICE && CONFIG_FS_DAX */
+> -
+>  /* 127: arbitrary random number, small enough to assemble well */
+>  #define folio_ref_zero_or_close_to_overflow(folio) \
+>  	((unsigned int) folio_ref_count(folio) + 127u <= 127u)
+> @@ -1615,12 +1598,6 @@ static inline void put_page(struct page *page)
+>  {
+>  	struct folio *folio = page_folio(page);
+>  
+> -	/*
+> -	 * For some devmap managed pages we need to catch refcount transition
+> -	 * from 2 to 1:
+> -	 */
+> -	if (put_devmap_managed_folio_refs(folio, 1))
+> -		return;
+>  	folio_put(folio);
+>  }
+>  
+> diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
+> index 54b59b8..e308cb9 100644
+> --- a/include/linux/mm_types.h
+> +++ b/include/linux/mm_types.h
+> @@ -295,6 +295,8 @@ typedef struct {
+>   *    anonymous memory.
+>   * @index: Offset within the file, in units of pages.  For anonymous memory,
+>   *    this is the index from the beginning of the mmap.
+> + * @share: number of DAX mappings that reference this folio. See
+> + *    dax_associate_entry.
+>   * @private: Filesystem per-folio data (see folio_attach_private()).
+>   * @swap: Used for swp_entry_t if folio_test_swapcache().
+>   * @_mapcount: Do not access this member directly.  Use folio_mapcount() to
+> @@ -344,7 +346,10 @@ struct folio {
+>  				struct dev_pagemap *pgmap;
+>  			};
+>  			struct address_space *mapping;
+> -			pgoff_t index;
+> +			union {
+> +				pgoff_t index;
+> +				unsigned long share;
+> +			};
+>  			union {
+>  				void *private;
+>  				swp_entry_t swap;
+> diff --git a/mm/gup.c b/mm/gup.c
+> index 9b587b5..d6575ed 100644
+> --- a/mm/gup.c
+> +++ b/mm/gup.c
+> @@ -96,8 +96,7 @@ static inline struct folio *try_get_folio(struct page *page, int refs)
+>  	 * belongs to this folio.
+>  	 */
+>  	if (unlikely(page_folio(page) != folio)) {
+> -		if (!put_devmap_managed_folio_refs(folio, refs))
+> -			folio_put_refs(folio, refs);
+> +		folio_put_refs(folio, refs);
+>  		goto retry;
+>  	}
+>  
+> @@ -116,8 +115,7 @@ static void gup_put_folio(struct folio *folio, int refs, unsigned int flags)
+>  			refs *= GUP_PIN_COUNTING_BIAS;
+>  	}
+>  
+> -	if (!put_devmap_managed_folio_refs(folio, refs))
+> -		folio_put_refs(folio, refs);
+> +	folio_put_refs(folio, refs);
+>  }
+>  
+>  /**
+> @@ -565,8 +563,7 @@ static struct folio *try_grab_folio_fast(struct page *page, int refs,
+>  	 */
+>  	if (unlikely((flags & FOLL_LONGTERM) &&
+>  		     !folio_is_longterm_pinnable(folio))) {
+> -		if (!put_devmap_managed_folio_refs(folio, refs))
+> -			folio_put_refs(folio, refs);
+> +		folio_put_refs(folio, refs);
+>  		return NULL;
+>  	}
+>  
+> diff --git a/mm/huge_memory.c b/mm/huge_memory.c
+> index d1ea76e..0cf1151 100644
+> --- a/mm/huge_memory.c
+> +++ b/mm/huge_memory.c
+> @@ -2209,7 +2209,7 @@ int zap_huge_pmd(struct mmu_gather *tlb, struct vm_area_struct *vma,
+>  						tlb->fullmm);
+>  	arch_check_zapped_pmd(vma, orig_pmd);
+>  	tlb_remove_pmd_tlb_entry(tlb, pmd, addr);
+> -	if (vma_is_special_huge(vma)) {
+> +	if (!vma_is_dax(vma) && vma_is_special_huge(vma)) {
+>  		if (arch_needs_pgtable_deposit())
+>  			zap_deposited_table(tlb->mm, pmd);
+>  		spin_unlock(ptl);
+> @@ -2853,13 +2853,15 @@ static void __split_huge_pmd_locked(struct vm_area_struct *vma, pmd_t *pmd,
+>  		 */
+>  		if (arch_needs_pgtable_deposit())
+>  			zap_deposited_table(mm, pmd);
+> -		if (vma_is_special_huge(vma))
+> +		if (!vma_is_dax(vma) && vma_is_special_huge(vma))
+>  			return;
+>  		if (unlikely(is_pmd_migration_entry(old_pmd))) {
+>  			swp_entry_t entry;
+>  
+>  			entry = pmd_to_swp_entry(old_pmd);
+>  			folio = pfn_swap_entry_folio(entry);
+> +		} else if (is_huge_zero_pmd(old_pmd)) {
+> +			return;
+>  		} else {
+>  			page = pmd_page(old_pmd);
+>  			folio = page_folio(page);
+> diff --git a/mm/internal.h b/mm/internal.h
+> index 3922788..c4df0ad 100644
+> --- a/mm/internal.h
+> +++ b/mm/internal.h
+> @@ -733,8 +733,6 @@ static inline void prep_compound_tail(struct page *head, int tail_idx)
+>  	set_page_private(p, 0);
+>  }
+>  
+> -extern void prep_compound_page(struct page *page, unsigned int order);
+> -
+>  void post_alloc_hook(struct page *page, unsigned int order, gfp_t gfp_flags);
+>  extern bool free_pages_prepare(struct page *page, unsigned int order);
+>  
+> diff --git a/mm/memory-failure.c b/mm/memory-failure.c
+> index a7b8ccd..7838bf1 100644
+> --- a/mm/memory-failure.c
+> +++ b/mm/memory-failure.c
+> @@ -419,18 +419,18 @@ static unsigned long dev_pagemap_mapping_shift(struct vm_area_struct *vma,
+>  	pud = pud_offset(p4d, address);
+>  	if (!pud_present(*pud))
+>  		return 0;
+> -	if (pud_devmap(*pud))
+> +	if (pud_trans_huge(*pud))
+>  		return PUD_SHIFT;
+>  	pmd = pmd_offset(pud, address);
+>  	if (!pmd_present(*pmd))
+>  		return 0;
+> -	if (pmd_devmap(*pmd))
+> +	if (pmd_trans_huge(*pmd))
+>  		return PMD_SHIFT;
+>  	pte = pte_offset_map(pmd, address);
+>  	if (!pte)
+>  		return 0;
+>  	ptent = ptep_get(pte);
+> -	if (pte_present(ptent) && pte_devmap(ptent))
+> +	if (pte_present(ptent))
+>  		ret = PAGE_SHIFT;
+>  	pte_unmap(pte);
+>  	return ret;
+> diff --git a/mm/memory.c b/mm/memory.c
+> index c60b819..02e12b0 100644
+> --- a/mm/memory.c
+> +++ b/mm/memory.c
+> @@ -3843,13 +3843,15 @@ static vm_fault_t do_wp_page(struct vm_fault *vmf)
+>  	if (vma->vm_flags & (VM_SHARED | VM_MAYSHARE)) {
+>  		/*
+>  		 * VM_MIXEDMAP !pfn_valid() case, or VM_SOFTDIRTY clear on a
+> -		 * VM_PFNMAP VMA.
+> +		 * VM_PFNMAP VMA. FS DAX also wants ops->pfn_mkwrite called.
+>  		 *
+>  		 * We should not cow pages in a shared writeable mapping.
+>  		 * Just mark the pages writable and/or call ops->pfn_mkwrite.
+>  		 */
+> -		if (!vmf->page)
+> +		if (!vmf->page || is_fsdax_page(vmf->page)) {
+> +			vmf->page = NULL;
+>  			return wp_pfn_shared(vmf);
+> +		}
+>  		return wp_page_shared(vmf, folio);
+>  	}
+>  
+> diff --git a/mm/memremap.c b/mm/memremap.c
+> index 68099af..9a8879b 100644
+> --- a/mm/memremap.c
+> +++ b/mm/memremap.c
+> @@ -458,8 +458,13 @@ EXPORT_SYMBOL_GPL(get_dev_pagemap);
+>  
+>  void free_zone_device_folio(struct folio *folio)
+>  {
+> -	if (WARN_ON_ONCE(!folio->pgmap->ops ||
+> -			!folio->pgmap->ops->page_free))
+> +	struct dev_pagemap *pgmap = folio->pgmap;
+> +
+> +	if (WARN_ON_ONCE(!pgmap->ops))
+> +		return;
+> +
+> +	if (WARN_ON_ONCE(pgmap->type != MEMORY_DEVICE_FS_DAX &&
+> +			 !pgmap->ops->page_free))
+>  		return;
+>  
+>  	mem_cgroup_uncharge(folio);
+> @@ -484,26 +489,36 @@ void free_zone_device_folio(struct folio *folio)
+>  	 * For other types of ZONE_DEVICE pages, migration is either
+>  	 * handled differently or not done at all, so there is no need
+>  	 * to clear folio->mapping.
+> +	 *
+> +	 * FS DAX pages clear the mapping when the folio->share count hits
+> +	 * zero which indicating the page has been removed from the file
+> +	 * system mapping.
+>  	 */
+> -	folio->mapping = NULL;
+> -	folio->pgmap->ops->page_free(folio_page(folio, 0));
+> +	if (pgmap->type != MEMORY_DEVICE_FS_DAX)
+> +		folio->mapping = NULL;
+>  
+> -	switch (folio->pgmap->type) {
+> +	switch (pgmap->type) {
+>  	case MEMORY_DEVICE_PRIVATE:
+>  	case MEMORY_DEVICE_COHERENT:
+> -		put_dev_pagemap(folio->pgmap);
+> +		pgmap->ops->page_free(folio_page(folio, 0));
+> +		put_dev_pagemap(pgmap);
+>  		break;
+>  
+> -	case MEMORY_DEVICE_FS_DAX:
+>  	case MEMORY_DEVICE_GENERIC:
+>  		/*
+>  		 * Reset the refcount to 1 to prepare for handing out the page
+>  		 * again.
+>  		 */
+> +		pgmap->ops->page_free(folio_page(folio, 0));
+>  		folio_set_count(folio, 1);
+>  		break;
+>  
+> +	case MEMORY_DEVICE_FS_DAX:
+> +		wake_up_var(&folio->page);
+> +		break;
+> +
+>  	case MEMORY_DEVICE_PCI_P2PDMA:
+> +		pgmap->ops->page_free(folio_page(folio, 0));
+>  		break;
+>  	}
+>  }
+> @@ -519,21 +534,3 @@ void zone_device_page_init(struct page *page)
+>  	lock_page(page);
+>  }
+>  EXPORT_SYMBOL_GPL(zone_device_page_init);
+> -
+> -#ifdef CONFIG_FS_DAX
+> -bool __put_devmap_managed_folio_refs(struct folio *folio, int refs)
+> -{
+> -	if (folio->pgmap->type != MEMORY_DEVICE_FS_DAX)
+> -		return false;
+> -
+> -	/*
+> -	 * fsdax page refcounts are 1-based, rather than 0-based: if
+> -	 * refcount is 1, then the page is free and the refcount is
+> -	 * stable because nobody holds a reference on the page.
+> -	 */
+> -	if (folio_ref_sub_return(folio, refs) == 1)
+> -		wake_up_var(&folio->_refcount);
+> -	return true;
+> -}
+> -EXPORT_SYMBOL(__put_devmap_managed_folio_refs);
+> -#endif /* CONFIG_FS_DAX */
+> diff --git a/mm/mm_init.c b/mm/mm_init.c
+> index cb73402..0c12b29 100644
+> --- a/mm/mm_init.c
+> +++ b/mm/mm_init.c
+> @@ -1017,23 +1017,22 @@ static void __ref __init_zone_device_page(struct page *page, unsigned long pfn,
+>  	}
+>  
+>  	/*
+> -	 * ZONE_DEVICE pages other than MEMORY_TYPE_GENERIC and
+> -	 * MEMORY_TYPE_FS_DAX pages are released directly to the driver page
+> -	 * allocator which will set the page count to 1 when allocating the
+> -	 * page.
+> +	 * ZONE_DEVICE pages other than MEMORY_TYPE_GENERIC are released
+> +	 * directly to the driver page allocator which will set the page count
+> +	 * to 1 when allocating the page.
+>  	 *
+>  	 * MEMORY_TYPE_GENERIC and MEMORY_TYPE_FS_DAX pages automatically have
+>  	 * their refcount reset to one whenever they are freed (ie. after
+>  	 * their refcount drops to 0).
+>  	 */
+>  	switch (pgmap->type) {
+> +	case MEMORY_DEVICE_FS_DAX:
+>  	case MEMORY_DEVICE_PRIVATE:
+>  	case MEMORY_DEVICE_COHERENT:
+>  	case MEMORY_DEVICE_PCI_P2PDMA:
+>  		set_page_count(page, 0);
+>  		break;
+>  
+> -	case MEMORY_DEVICE_FS_DAX:
+>  	case MEMORY_DEVICE_GENERIC:
+>  		break;
+>  	}
+> diff --git a/mm/swap.c b/mm/swap.c
+> index 062c856..a587842 100644
+> --- a/mm/swap.c
+> +++ b/mm/swap.c
+> @@ -952,8 +952,6 @@ void folios_put_refs(struct folio_batch *folios, unsigned int *refs)
+>  				unlock_page_lruvec_irqrestore(lruvec, flags);
+>  				lruvec = NULL;
+>  			}
+> -			if (put_devmap_managed_folio_refs(folio, nr_refs))
+> -				continue;
+>  			if (folio_ref_sub_and_test(folio, nr_refs))
+>  				free_zone_device_folio(folio);
+>  			continue;
+> -- 
+> git-series 0.9.1
+> 
 
