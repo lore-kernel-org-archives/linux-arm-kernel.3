@@ -4,80 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C445E7719C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 05:55:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B236E7719D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 06:02:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y/H1/66UDvPrheBRvBuoxi2lKElwVj6+XZjBmNOSEDM=; b=t/aubG5E+wRwVCVDq8D/Rx0ak5
-	i/920HYJQo9FKD/RZD9U8P3CPhstXQDepoYhsbtubYt6CSUoYDjZRHZpfGb0I8ICwmTyN+t+fQS2m
-	cQeMKi01XLZm4Pf5V1gLm6kZYGtgu1gZBSdWZ0qn3WiNaUUPtmxowl1/HU8aaP3I7hPPi+lqgq2MJ
-	KkhCMdTwQ8kQXi7phCW4Bf1d3bENLsbb9A8OF+i7TjN2ErkSqCBs1S5onz+Gh/G5Krde9yMP9NTj0
-	lb8PiFoemSwkV2Hxqio9QS9//pJpmOMy0L2vtV6BHP3GKX840pLzIctVcWX7xfNdx4qIHZhYoTybL
-	x4Kg3NTw==;
+	bh=MrQ31d1bY/cKpDYWBrbItZRfGT2L+q8R8FcHhJHpDDk=; b=sVCFPM7cKZGu/TBP7EeqycLuLw
+	MvHXb2pPYnOHoN0LqQdcsSP+7C3pt/T6AsgHpLNgbdUx+JVOZR/r/KXwchXWu9uI+Foy4I3K0W0x+
+	7wyqAQAZEGOWQV40sXuBo7JlpdWw8vrLxvEk/lz/ROaWqhd7DgsMGAoMKuUuO/3MMxvTHR8k97eZi
+	4/sTZ9OLxYT3B7OniwZyBFaIRBembOJiauGDh/nOZ+tvduWIeZUYZrFFttrY3dp6mPzO+Ex3vg+z5
+	7r8XzYOKeYEmiSsj03q2zXxkPswvnrC6D/dpk9HexljY/E60NKT/ZYXhyH5smG9H0q0HpVx0ydll0
+	p7QSvMPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW7z2-0000000E6aT-0fNL;
-	Fri, 10 Jan 2025 05:55:00 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tW866-0000000E8qw-0AaJ;
+	Fri, 10 Jan 2025 06:02:18 +0000
+Received: from server.wki.vra.mybluehostin.me ([162.240.238.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW7kT-0000000E3HA-3zbY;
-	Fri, 10 Jan 2025 05:40:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5228CA41507;
-	Fri, 10 Jan 2025 05:38:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 324BCC4CED6;
-	Fri, 10 Jan 2025 05:39:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736487596;
-	bh=A4KxmvopAA+Hm/kYNJV9mPMn0fwfIEGmJrGcIKh2zkI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=d2Qk3eO1hUR2UYk8mN/k52zAtcs6G4Fud5/iQ0jM2KOEMEl5HofUHpjTWZDpTRYax
-	 IFjzxq7vAn3fF4CdW4g/a8Qab9W18XwfTmo8CR+BFI7bbZBHKSwABEvfS6egPqByXO
-	 R9rrPZ0qSc85x1PVKcgJeiuEgMzd96vZntQ0s0xjX3Jbs5H+Ur18KY7hTZMxvOWeQz
-	 JKJqc8i1kHyJwmxbnFMc7IIAXo2h0eB4y9ZDe6H+c1ETzhE2uJckOzI16DftzVc4nD
-	 XyCGWnHxq0lbispcACobtjadg1GjHznOyNvBftd2ZpXx9z00Ha5H1Fy4pWyBQXyJp+
-	 ouuPVMa1sW36Q==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2BB8EE7719D;
-	Fri, 10 Jan 2025 05:39:56 +0000 (UTC)
-From: Ao Xu via B4 Relay <devnull+ao.xu.amlogic.com@kernel.org>
-Date: Fri, 10 Jan 2025 13:39:59 +0800
-Subject: [PATCH 09/11] drm: meson: add vpu clk setting for S4
+	id 1tW84p-0000000E8BB-2y5h
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 10 Jan 2025 06:01:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=MrQ31d1bY/cKpDYWBrbItZRfGT2L+q8R8FcHhJHpDDk=; b=O0UO1UfWN6ncL0JcJMfMI6oIl0
+	ATZbYt1U/ACyZTV5Kcn5jChMEf5ibdUTknLyc7QV5Er/XZz7a+jYodh2gbs7NBR6mwgOSraowit0i
+	TM7gzSbFS6SXzQ4kPh8h9jfsymb9eRYh3c5MPVLe+KeI/8RTLP9WDtgvrdKVqLxNxJcF/dGjJoNm1
+	Sr6yJHdAwGjsGCIfexTHrxTcwwWyTdrteI2uJLNDO7tXRUgQ103TpG0F1AMdjQVLVNVVESNcIHGF7
+	UAp61Imx8HeQQ6BFug7QFw1uS9atiid2P5gZHAa8FqYNiZWnF8OU1O5R8RIVgLlV6vVhU3Fd5MoBG
+	6mEXY+hw==;
+Received: from [122.175.9.182] (port=1293 helo=cypher.couthit.local)
+	by server.wki.vra.mybluehostin.me with esmtpa (Exim 4.96.2)
+	(envelope-from <basharath@couthit.com>)
+	id 1tW844-0001E8-1q;
+	Fri, 10 Jan 2025 11:30:12 +0530
+From: Basharath Hussain Khaja <basharath@couthit.com>
+To: danishanwar@ti.com,
+	rogerq@kernel.org,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	nm@ti.com,
+	ssantosh@kernel.org,
+	tony@atomide.com,
+	richardcochran@gmail.com,
+	parvathi@couthit.com,
+	basharath@couthit.com,
+	schnelle@linux.ibm.com,
+	rdunlap@infradead.org,
+	diogo.ivo@siemens.com,
+	m-karicheri2@ti.com,
+	horms@kernel.org,
+	jacob.e.keller@intel.com,
+	m-malladi@ti.com,
+	javier.carrasco.cruz@gmail.com,
+	afd@ti.com,
+	s-anna@ti.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-omap@vger.kernel.org,
+	pratheesh@ti.com,
+	prajith@ti.com,
+	vigneshr@ti.com,
+	praneeth@ti.com,
+	srk@ti.com,
+	rogerq@ti.com,
+	krishna@couthit.com,
+	pmohan@couthit.com,
+	mohan@couthit.com
+Subject: [RFC PATCH 05/10] net: ti: prueth: Adds ethtool support for ICSSM PRUETH Driver
+Date: Fri, 10 Jan 2025 11:29:01 +0530
+Message-Id: <20250110055906.65086-6-basharath@couthit.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250109105600.41297-1-basharath@couthit.com>
+References: <20250109105600.41297-1-basharath@couthit.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250110-drm-s4-v1-9-cbc2d5edaae8@amlogic.com>
-References: <20250110-drm-s4-v1-0-cbc2d5edaae8@amlogic.com>
-In-Reply-To: <20250110-drm-s4-v1-0-cbc2d5edaae8@amlogic.com>
-To: Neil Armstrong <neil.armstrong@linaro.org>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
- Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: dri-devel@lists.freedesktop.org, linux-amlogic@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Ao Xu <ao.xu@amlogic.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1736487593; l=43875;
- i=ao.xu@amlogic.com; s=20250103; h=from:subject:message-id;
- bh=f6o59xzgL5AIXyJBq/G+Mt5LS+R9oNyy1GZNtQlTZRg=;
- b=2Hn5s539SFAvUsFAS1lBuCgh2BvSs3dZcYAgI/uf1nyd/4PNtzejCxAe81oJGmSnaps+MJmXv
- wz8gCF/dFUqCVUDsmlgMi8Qehr434Q8crDwbrpxjT0QSp6GGmFg+fIT
-X-Developer-Key: i=ao.xu@amlogic.com; a=ed25519;
- pk=c0TSXrwQuL4EhPVf3lJ676U27ax2yfFTqmRoseP/fA8=
-X-Endpoint-Received: by B4 Relay for ao.xu@amlogic.com/20250103 with
- auth_id=308
-X-Original-From: Ao Xu <ao.xu@amlogic.com>
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.wki.vra.mybluehostin.me
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.wki.vra.mybluehostin.me: authenticated_id: basharath@couthit.com
+X-Authenticated-Sender: server.wki.vra.mybluehostin.me: basharath@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_213958_216585_2381F0B4 
-X-CRM114-Status: GOOD (  15.86  )
+X-CRM114-CacheID: sfid-20250109_220059_790223_7BEF9318 
+X-CRM114-Status: GOOD (  20.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,1209 +117,486 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: ao.xu@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ao Xu <ao.xu@amlogic.com>
+From: Roger Quadros <rogerq@ti.com>
 
-The S4-series splits the HIU into `sys_ctrl`, `pwr_ctrl`, and `clk_ctrl`.
-Introduce VPU clock settings specific to the Amlogic S4 SoC,
-which differ from the configurations used for G12.
+Changes for enabling ethtool support for the newly added PRU Ethernet
+interfaces. Extends the support for statistics collection from PRU internal
+memory and displays it in the user space. Along with statistics,
+enable/disable of features, configuring link speed etc.are now supported.
 
-Signed-off-by: Ao Xu <ao.xu@amlogic.com>
+The firmware running on PRU maintains statistics in internal data memory.
+When requested ethtool collects all the statistics for the specified
+interface and displays it in the user space.
+
+Makefile is updated to include ethtool support into PRUETH driver.
+
+Signed-off-by: Roger Quadros <rogerq@ti.com>
+Signed-off-by: Andrew F. Davis <afd@ti.com>
+Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
+Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
 ---
- drivers/gpu/drm/meson/meson_vclk.c | 1018 +++++++++++++++++++++++++-----------
- 1 file changed, 720 insertions(+), 298 deletions(-)
+ drivers/net/ethernet/ti/Makefile              |   2 +-
+ drivers/net/ethernet/ti/icssm/icssm_ethtool.c | 203 ++++++++++++++++++
+ drivers/net/ethernet/ti/icssm/icssm_prueth.c  |  31 +++
+ drivers/net/ethernet/ti/icssm/icssm_prueth.h  | 127 +++++++++++
+ 4 files changed, 362 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_ethtool.c
 
-diff --git a/drivers/gpu/drm/meson/meson_vclk.c b/drivers/gpu/drm/meson/meson_vclk.c
-index 2a942dc6a6dc23561ec26a54139b27acf8009ccb..b2707af2a5283874936658d2749cecb4ef86beb5 100644
---- a/drivers/gpu/drm/meson/meson_vclk.c
-+++ b/drivers/gpu/drm/meson/meson_vclk.c
-@@ -87,8 +87,11 @@
- #define CTS_VDAC_EN		BIT(4)
- #define HDMI_TX_PIXEL_EN	BIT(5)
- #define HHI_HDMI_CLK_CNTL	0x1cc /* 0x73 offset in data sheet */
--#define HDMI_TX_PIXEL_SEL_MASK	(0xf << 16)
-+#define HDMI_TX_PIXEL_SEL_MASK	GENMASK(19, 16)
- #define HDMI_TX_PIXEL_SEL_SHIFT	16
-+
-+#define HDMI_TX_FE_SEL_MASK	GENMASK(23, 20)
-+#define HDMI_TX_FE_SEL_SHIFT	20
- #define CTS_HDMI_SYS_SEL_MASK	(0x7 << 9)
- #define CTS_HDMI_SYS_DIV_MASK	(0x7f)
- #define CTS_HDMI_SYS_EN		BIT(8)
-@@ -110,6 +113,30 @@
- #define HDMI_PLL_LOCK		BIT(31)
- #define HDMI_PLL_LOCK_G12A	(3 << 30)
+diff --git a/drivers/net/ethernet/ti/Makefile b/drivers/net/ethernet/ti/Makefile
+index 93c0a4d0e33a..f21dd11118ab 100644
+--- a/drivers/net/ethernet/ti/Makefile
++++ b/drivers/net/ethernet/ti/Makefile
+@@ -4,7 +4,7 @@
+ #
  
-+/* ANA Registers */
-+/* REG_BASE:  REGISTER_BASE_ADDR = 0xfe000000 */
-+#define CLKCTRL_VID_CLK_CTRL	0x0c0 /* 0x30 offset in data sheet */
-+#define CLKCTRL_VID_CLK_CTRL2	0x0c4 /* 0x31 offset in data sheet */
-+#define CLKCTRL_VID_CLK_DIV	0x0c8 /* 0x32 offset in data sheet */
-+#define CLKCTRL_VIID_CLK_DIV	0x0cc /* 0x33 offset in data sheet */
-+#define CLKCTRL_VIID_CLK_CTRL	0x0d0 /* 0x34 offset in data sheet */
-+
-+#define CLKCTRL_VID_PLL_CLK_DIV	0x0e4 /* 0x39 offset in data sheet */
-+#define CLKCTRL_HDMI_CLK_CTRL	0x0e0  /* 0x38 */
-+
-+/* REG_BASE:  REGISTER_BASE_ADDR = 0xfe008000 */
-+#define ANACTRL_HDMIPLL_CTRL0	0x1c0 /* 0x70 offset in data sheet */
-+#define ANACTRL_HDMIPLL_CTRL1	0x1c4 /* 0x71 offset in data sheet */
-+#define ANACTRL_HDMIPLL_CTRL2	0x1c8 /* 0x72 offset in data sheet */
-+#define ANACTRL_HDMIPLL_CTRL3	0x1cc /* 0x73 offset in data sheet */
-+#define ANACTRL_HDMIPLL_CTRL4	0x1d0 /* 0x74 offset in data sheet */
-+#define ANACTRL_HDMIPLL_CTRL5	0x1d4 /* 0x75 offset in data sheet */
-+#define ANACTRL_HDMIPLL_CTRL6	0x1d8 /* 0x76 offset in data sheet */
-+#define ANACTRL_HDMIPLL_STS	0x1dc /* 0x77 offset in data sheet */
-+#define ANACTRL_HDMIPLL_VLOCK	0x1e4 /* 0x79 offset in data sheet */
-+#define HDMI_PLL_RESET_S4	BIT(29)
-+#define HDMI_PLL_LOCK_S4	(3 << 30)
-+
- #define FREQ_1000_1001(_freq)	DIV_ROUND_CLOSEST(_freq * 1000, 1001)
+ obj-$(CONFIG_TI_PRUETH) += icssm-prueth.o
+-icssm-prueth-y := icssm/icssm_prueth.o
++icssm-prueth-y := icssm/icssm_prueth.o icssm/icssm_ethtool.o
  
- /* VID PLL Dividers */
-@@ -137,8 +164,13 @@ static void meson_vid_pll_set(struct meson_drm *priv, unsigned int div)
- 	unsigned int shift_sel = 0;
- 
- 	/* Disable vid_pll output clock */
--	regmap_update_bits(priv->hhi, HHI_VID_PLL_CLK_DIV, VID_PLL_EN, 0);
--	regmap_update_bits(priv->hhi, HHI_VID_PLL_CLK_DIV, VID_PLL_PRESET, 0);
-+	if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_S4)) {
-+		regmap_update_bits(priv->clkctrl, CLKCTRL_VID_PLL_CLK_DIV, VID_PLL_EN, 0);
-+		regmap_update_bits(priv->clkctrl, CLKCTRL_VID_PLL_CLK_DIV, VID_PLL_PRESET, 0);
-+	} else {
-+		regmap_update_bits(priv->hhi, HHI_VID_PLL_CLK_DIV, VID_PLL_EN, 0);
-+		regmap_update_bits(priv->hhi, HHI_VID_PLL_CLK_DIV, VID_PLL_PRESET, 0);
-+	}
- 
- 	switch (div) {
- 	case VID_PLL_DIV_2:
-@@ -199,37 +231,71 @@ static void meson_vid_pll_set(struct meson_drm *priv, unsigned int div)
- 		break;
- 	}
- 
--	if (div == VID_PLL_DIV_1)
--		/* Enable vid_pll bypass to HDMI pll */
--		regmap_update_bits(priv->hhi, HHI_VID_PLL_CLK_DIV,
--				   VID_PLL_BYPASS, VID_PLL_BYPASS);
--	else {
--		/* Disable Bypass */
--		regmap_update_bits(priv->hhi, HHI_VID_PLL_CLK_DIV,
--				   VID_PLL_BYPASS, 0);
--		/* Clear sel */
--		regmap_update_bits(priv->hhi, HHI_VID_PLL_CLK_DIV,
--				   3 << 16, 0);
--		regmap_update_bits(priv->hhi, HHI_VID_PLL_CLK_DIV,
--				   VID_PLL_PRESET, 0);
--		regmap_update_bits(priv->hhi, HHI_VID_PLL_CLK_DIV,
--				   0x7fff, 0);
-+	if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_S4)) {
-+		if (div == VID_PLL_DIV_1) {
-+			/* Enable vid_pll bypass to HDMI pll */
-+			regmap_update_bits(priv->clkctrl, CLKCTRL_VID_PLL_CLK_DIV,
-+					   VID_PLL_BYPASS, VID_PLL_BYPASS);
-+		} else {
-+			/* Disable Bypass */
-+			regmap_update_bits(priv->clkctrl, CLKCTRL_VID_PLL_CLK_DIV,
-+					   VID_PLL_BYPASS, 0);
-+			/* Clear sel */
-+			regmap_update_bits(priv->clkctrl, CLKCTRL_VID_PLL_CLK_DIV,
-+					   3 << 16, 0);
-+			regmap_update_bits(priv->clkctrl, CLKCTRL_VID_PLL_CLK_DIV,
-+					   VID_PLL_PRESET, 0);
-+			regmap_update_bits(priv->clkctrl, CLKCTRL_VID_PLL_CLK_DIV,
-+					   0x7fff, 0);
+ obj-$(CONFIG_TI_CPSW) += cpsw-common.o
+ obj-$(CONFIG_TI_DAVINCI_EMAC) += cpsw-common.o
+diff --git a/drivers/net/ethernet/ti/icssm/icssm_ethtool.c b/drivers/net/ethernet/ti/icssm/icssm_ethtool.c
+new file mode 100644
+index 000000000000..cce3276d5565
+--- /dev/null
++++ b/drivers/net/ethernet/ti/icssm/icssm_ethtool.c
+@@ -0,0 +1,203 @@
++// SPDX-License-Identifier: GPL-2.0
++/* Texas Instruments ICSSM Ethernet Driver
++ *
++ * Copyright (C) 2018-2022 Texas Instruments Incorporated - https://www.ti.com/
++ *
++ */
 +
-+			/* Setup sel and val */
-+			regmap_update_bits(priv->clkctrl, CLKCTRL_VID_PLL_CLK_DIV,
-+					   3 << 16, shift_sel << 16);
-+			regmap_update_bits(priv->clkctrl, CLKCTRL_VID_PLL_CLK_DIV,
-+					   VID_PLL_PRESET, VID_PLL_PRESET);
-+			regmap_update_bits(priv->clkctrl, CLKCTRL_VID_PLL_CLK_DIV,
-+					   0x7fff, shift_val);
++#include <linux/if_bridge.h>
++#include "icssm_prueth.h"
 +
-+			regmap_update_bits(priv->clkctrl, CLKCTRL_VID_PLL_CLK_DIV,
-+					   VID_PLL_PRESET, 0);
-+		}
- 
--		/* Setup sel and val */
--		regmap_update_bits(priv->hhi, HHI_VID_PLL_CLK_DIV,
--				   3 << 16, shift_sel << 16);
--		regmap_update_bits(priv->hhi, HHI_VID_PLL_CLK_DIV,
--				   VID_PLL_PRESET, VID_PLL_PRESET);
--		regmap_update_bits(priv->hhi, HHI_VID_PLL_CLK_DIV,
--				   0x7fff, shift_val);
-+		/* Enable the vid_pll output clock */
-+		regmap_update_bits(priv->clkctrl, CLKCTRL_VID_PLL_CLK_DIV,
-+					VID_PLL_EN, VID_PLL_EN);
-+	} else {
-+		if (div == VID_PLL_DIV_1) {
-+			/* Enable vid_pll bypass to HDMI pll */
-+			regmap_update_bits(priv->hhi, HHI_VID_PLL_CLK_DIV,
-+					   VID_PLL_BYPASS, VID_PLL_BYPASS);
-+		} else {
-+			/* Disable Bypass */
-+			regmap_update_bits(priv->hhi, HHI_VID_PLL_CLK_DIV,
-+					   VID_PLL_BYPASS, 0);
-+			/* Clear sel */
-+			regmap_update_bits(priv->hhi, HHI_VID_PLL_CLK_DIV,
-+					   3 << 16, 0);
-+			regmap_update_bits(priv->hhi, HHI_VID_PLL_CLK_DIV,
-+					   VID_PLL_PRESET, 0);
-+			regmap_update_bits(priv->hhi, HHI_VID_PLL_CLK_DIV,
-+					   0x7fff, 0);
++#define PRUETH_MODULE_VERSION "0.2"
++#define PRUETH_MODULE_DESCRIPTION "PRUSS Ethernet driver"
 +
-+			/* Setup sel and val */
-+			regmap_update_bits(priv->hhi, HHI_VID_PLL_CLK_DIV,
-+					   3 << 16, shift_sel << 16);
-+			regmap_update_bits(priv->hhi, HHI_VID_PLL_CLK_DIV,
-+					   VID_PLL_PRESET, VID_PLL_PRESET);
-+			regmap_update_bits(priv->hhi, HHI_VID_PLL_CLK_DIV,
-+					   0x7fff, shift_val);
-+
-+			regmap_update_bits(priv->hhi, HHI_VID_PLL_CLK_DIV,
-+					   VID_PLL_PRESET, 0);
-+		}
- 
-+		/* Enable the vid_pll output clock */
- 		regmap_update_bits(priv->hhi, HHI_VID_PLL_CLK_DIV,
--				   VID_PLL_PRESET, 0);
-+					VID_PLL_EN, VID_PLL_EN);
- 	}
--
--	/* Enable the vid_pll output clock */
--	regmap_update_bits(priv->hhi, HHI_VID_PLL_CLK_DIV,
--				VID_PLL_EN, VID_PLL_EN);
- }
- 
- /*
-@@ -287,56 +353,117 @@ static void meson_venci_cvbs_clock_config(struct meson_drm *priv)
- 		regmap_read_poll_timeout(priv->hhi, HHI_HDMI_PLL_CNTL, val,
- 			((val & HDMI_PLL_LOCK_G12A) == HDMI_PLL_LOCK_G12A),
- 			10, 0);
-+	} else if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_S4)) {
-+		regmap_write(priv->hhi, ANACTRL_HDMIPLL_CTRL0, 0x3b01047b);
-+		regmap_write(priv->hhi, ANACTRL_HDMIPLL_CTRL1, 0x00018000);
-+		regmap_write(priv->hhi, ANACTRL_HDMIPLL_CTRL2, 0x00000000);
-+		regmap_write(priv->hhi, ANACTRL_HDMIPLL_CTRL3, 0x0a691c00);
-+		regmap_write(priv->hhi, ANACTRL_HDMIPLL_CTRL4, 0x33771290);
-+		regmap_write(priv->hhi, ANACTRL_HDMIPLL_CTRL5, 0x39270000);
-+		regmap_write(priv->hhi, ANACTRL_HDMIPLL_CTRL6, 0x50540000);
-+		regmap_write(priv->hhi, ANACTRL_HDMIPLL_CTRL0, 0x1b01047b);
-+
-+		/* Poll for lock bit */
-+		regmap_read_poll_timeout(priv->hhi, ANACTRL_HDMIPLL_CTRL0, val,
-+			((val & HDMI_PLL_LOCK) == HDMI_PLL_LOCK),
-+			10, 0);
- 	}
-+	if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_S4)) {
-+		/* Disable VCLK2 */
-+		regmap_update_bits(priv->clkctrl, CLKCTRL_VIID_CLK_CTRL, VCLK2_EN, 0);
- 
--	/* Disable VCLK2 */
--	regmap_update_bits(priv->hhi, HHI_VIID_CLK_CNTL, VCLK2_EN, 0);
-+		/* Setup vid_pll to /1 */
-+		meson_vid_pll_set(priv, VID_PLL_DIV_1);
- 
--	/* Setup vid_pll to /1 */
--	meson_vid_pll_set(priv, VID_PLL_DIV_1);
-+		/* Setup the VCLK2 divider value to achieve 27MHz */
-+		regmap_update_bits(priv->clkctrl, CLKCTRL_VIID_CLK_DIV,
-+					VCLK2_DIV_MASK, (55 - 1));
- 
--	/* Setup the VCLK2 divider value to achieve 27MHz */
--	regmap_update_bits(priv->hhi, HHI_VIID_CLK_DIV,
--				VCLK2_DIV_MASK, (55 - 1));
-+		/* select vid_pll for vclk2 */
-+		regmap_update_bits(priv->clkctrl, CLKCTRL_VIID_CLK_CTRL,
-+					VCLK2_SEL_MASK, (0 << VCLK2_SEL_SHIFT));
- 
--	/* select vid_pll for vclk2 */
--	if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_G12A))
-+		/* enable vclk2 gate */
-+		regmap_update_bits(priv->clkctrl, CLKCTRL_VIID_CLK_CTRL, VCLK2_EN, VCLK2_EN);
-+
-+		/* select vclk_div1 for enci */
-+		regmap_update_bits(priv->clkctrl, CLKCTRL_VID_CLK_DIV,
-+					CTS_ENCI_SEL_MASK, (8 << CTS_ENCI_SEL_SHIFT));
-+		/* select vclk_div1 for vdac */
-+		regmap_update_bits(priv->clkctrl, CLKCTRL_VIID_CLK_DIV,
-+					CTS_VDAC_SEL_MASK, (8 << CTS_VDAC_SEL_SHIFT));
-+
-+		/* release vclk2_div_reset and enable vclk2_div */
-+		regmap_update_bits(priv->clkctrl, CLKCTRL_VIID_CLK_DIV,
-+					VCLK2_DIV_EN | VCLK2_DIV_RESET, VCLK2_DIV_EN);
-+
-+		/* enable vclk2_div1 gate */
-+		regmap_update_bits(priv->clkctrl, CLKCTRL_VIID_CLK_CTRL,
-+					VCLK2_DIV1_EN, VCLK2_DIV1_EN);
-+
-+		/* reset vclk2 */
-+		regmap_update_bits(priv->clkctrl, CLKCTRL_VIID_CLK_CTRL,
-+					VCLK2_SOFT_RESET, VCLK2_SOFT_RESET);
-+		regmap_update_bits(priv->clkctrl, CLKCTRL_VIID_CLK_CTRL,
-+					VCLK2_SOFT_RESET, 0);
-+
-+		/* enable enci_clk */
-+		regmap_update_bits(priv->clkctrl, CLKCTRL_VID_CLK_CTRL2,
-+					CTS_ENCI_EN, CTS_ENCI_EN);
-+		/* enable vdac_clk */
-+		regmap_update_bits(priv->clkctrl, CLKCTRL_VID_CLK_CTRL2,
-+					CTS_VDAC_EN, CTS_VDAC_EN);
-+
-+	} else {
-+		/* Disable VCLK2 */
-+		regmap_update_bits(priv->hhi, HHI_VIID_CLK_CNTL, VCLK2_EN, 0);
-+
-+		/* Setup vid_pll to /1 */
-+		meson_vid_pll_set(priv, VID_PLL_DIV_1);
-+
-+		/* Setup the VCLK2 divider value to achieve 27MHz */
-+		regmap_update_bits(priv->hhi, HHI_VIID_CLK_DIV,
-+					VCLK2_DIV_MASK, (55 - 1));
-+
-+		/* select vid_pll for vclk2 */
-+		if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_G12A))
-+			regmap_update_bits(priv->hhi, HHI_VIID_CLK_CNTL,
-+						VCLK2_SEL_MASK, (0 << VCLK2_SEL_SHIFT));
-+		else
-+			regmap_update_bits(priv->hhi, HHI_VIID_CLK_CNTL,
-+						VCLK2_SEL_MASK, (4 << VCLK2_SEL_SHIFT));
-+
-+		/* enable vclk2 gate */
-+		regmap_update_bits(priv->hhi, HHI_VIID_CLK_CNTL, VCLK2_EN, VCLK2_EN);
-+
-+		/* select vclk_div1 for enci */
-+		regmap_update_bits(priv->hhi, HHI_VID_CLK_DIV,
-+					CTS_ENCI_SEL_MASK, (8 << CTS_ENCI_SEL_SHIFT));
-+		/* select vclk_div1 for vdac */
-+		regmap_update_bits(priv->hhi, HHI_VIID_CLK_DIV,
-+					CTS_VDAC_SEL_MASK, (8 << CTS_VDAC_SEL_SHIFT));
-+
-+		/* release vclk2_div_reset and enable vclk2_div */
-+		regmap_update_bits(priv->hhi, HHI_VIID_CLK_DIV,
-+					VCLK2_DIV_EN | VCLK2_DIV_RESET, VCLK2_DIV_EN);
-+
-+		/* enable vclk2_div1 gate */
- 		regmap_update_bits(priv->hhi, HHI_VIID_CLK_CNTL,
--					VCLK2_SEL_MASK, (0 << VCLK2_SEL_SHIFT));
--	else
-+					VCLK2_DIV1_EN, VCLK2_DIV1_EN);
-+
-+		/* reset vclk2 */
-+		regmap_update_bits(priv->hhi, HHI_VIID_CLK_CNTL,
-+					VCLK2_SOFT_RESET, VCLK2_SOFT_RESET);
- 		regmap_update_bits(priv->hhi, HHI_VIID_CLK_CNTL,
--					VCLK2_SEL_MASK, (4 << VCLK2_SEL_SHIFT));
--
--	/* enable vclk2 gate */
--	regmap_update_bits(priv->hhi, HHI_VIID_CLK_CNTL, VCLK2_EN, VCLK2_EN);
--
--	/* select vclk_div1 for enci */
--	regmap_update_bits(priv->hhi, HHI_VID_CLK_DIV,
--				CTS_ENCI_SEL_MASK, (8 << CTS_ENCI_SEL_SHIFT));
--	/* select vclk_div1 for vdac */
--	regmap_update_bits(priv->hhi, HHI_VIID_CLK_DIV,
--				CTS_VDAC_SEL_MASK, (8 << CTS_VDAC_SEL_SHIFT));
--
--	/* release vclk2_div_reset and enable vclk2_div */
--	regmap_update_bits(priv->hhi, HHI_VIID_CLK_DIV,
--				VCLK2_DIV_EN | VCLK2_DIV_RESET, VCLK2_DIV_EN);
--
--	/* enable vclk2_div1 gate */
--	regmap_update_bits(priv->hhi, HHI_VIID_CLK_CNTL,
--				VCLK2_DIV1_EN, VCLK2_DIV1_EN);
--
--	/* reset vclk2 */
--	regmap_update_bits(priv->hhi, HHI_VIID_CLK_CNTL,
--				VCLK2_SOFT_RESET, VCLK2_SOFT_RESET);
--	regmap_update_bits(priv->hhi, HHI_VIID_CLK_CNTL,
--				VCLK2_SOFT_RESET, 0);
--
--	/* enable enci_clk */
--	regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL2,
--				CTS_ENCI_EN, CTS_ENCI_EN);
--	/* enable vdac_clk */
--	regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL2,
--				CTS_VDAC_EN, CTS_VDAC_EN);
-+					VCLK2_SOFT_RESET, 0);
-+
-+		/* enable enci_clk */
-+		regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL2,
-+					CTS_ENCI_EN, CTS_ENCI_EN);
-+		/* enable vdac_clk */
-+		regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL2,
-+					CTS_VDAC_EN, CTS_VDAC_EN);
-+	}
- }
- 
- enum {
-@@ -357,6 +484,8 @@ enum {
- 	MESON_VCLK_HDMI_594000,
- /* 2970 /1 /1 /1 /5 /1  => /1 /2 */
- 	MESON_VCLK_HDMI_594000_YUV420,
-+/* 4320 /4 /4 /1 /5 /1  => /2 /2 */
-+	MESON_VCLK_HDMI_27000,
- };
- 
- struct meson_vclk_params {
-@@ -467,6 +596,18 @@ struct meson_vclk_params {
- 		.vid_pll_div = VID_PLL_DIV_5,
- 		.vclk_div = 1,
- 	},
-+	[MESON_VCLK_HDMI_27000] = {
-+		.pll_freq = 4320000,
-+		.phy_freq = 270000,
-+		.vclk_freq = 54000,
-+		.venc_freq = 27000,
-+		.pixel_freq = 27000,
-+		.pll_od1 = 4,
-+		.pll_od2 = 4,
-+		.pll_od3 = 1,
-+		.vid_pll_div = VID_PLL_DIV_5,
-+		.vclk_div = 1,
-+	},
- 	{ /* sentinel */ },
- };
- 
-@@ -487,136 +628,226 @@ static inline unsigned int pll_od_to_reg(unsigned int od)
- 	return 0;
- }
- 
--static void meson_hdmi_pll_set_params(struct meson_drm *priv, unsigned int m,
-+static void gxbb_pll_set_params(struct meson_drm *priv, unsigned int m,
- 				      unsigned int frac, unsigned int od1,
- 				      unsigned int od2, unsigned int od3)
- {
- 	unsigned int val;
- 
--	if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_GXBB)) {
--		regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL, 0x58000200 | m);
--		if (frac)
--			regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL2,
--				     0x00004000 | frac);
--		else
--			regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL2,
--				     0x00000000);
--		regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL3, 0x0d5c5091);
--		regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL4, 0x801da72c);
--		regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL5, 0x71486980);
--		regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL6, 0x00000e55);
-+	regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL, 0x58000200 | m);
-+	if (frac)
-+		regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL2,
-+			     0x00004000 | frac);
-+	else
-+		regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL2,
-+			     0x00000000);
-+	regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL3, 0x0d5c5091);
-+	regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL4, 0x801da72c);
-+	regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL5, 0x71486980);
-+	regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL6, 0x00000e55);
-+
-+	/* Enable and unreset */
-+	regmap_update_bits(priv->hhi, HHI_HDMI_PLL_CNTL,
-+			   0x7 << 28, HHI_HDMI_PLL_CNTL_EN);
-+
-+	/* Poll for lock bit */
-+	regmap_read_poll_timeout(priv->hhi, HHI_HDMI_PLL_CNTL,
-+				 val, (val & HDMI_PLL_LOCK), 10, 0);
-+
-+	regmap_update_bits(priv->hhi, HHI_HDMI_PLL_CNTL2,
-+				3 << 16, pll_od_to_reg(od1) << 16);
-+	regmap_update_bits(priv->hhi, HHI_HDMI_PLL_CNTL2,
-+				3 << 22, pll_od_to_reg(od2) << 22);
-+	regmap_update_bits(priv->hhi, HHI_HDMI_PLL_CNTL2,
-+				3 << 18, pll_od_to_reg(od3) << 18);
-+}
- 
--		/* Enable and unreset */
--		regmap_update_bits(priv->hhi, HHI_HDMI_PLL_CNTL,
--				   0x7 << 28, HHI_HDMI_PLL_CNTL_EN);
-+static void gxm_pll_set_params(struct meson_drm *priv, unsigned int m,
-+				      unsigned int frac, unsigned int od1,
-+				      unsigned int od2, unsigned int od3)
++/* set PRU firmware statistics */
++void icssm_emac_set_stats(struct prueth_emac *emac,
++			  struct port_statistics *pstats)
 +{
-+	unsigned int val;
- 
--		/* Poll for lock bit */
--		regmap_read_poll_timeout(priv->hhi, HHI_HDMI_PLL_CNTL,
--					 val, (val & HDMI_PLL_LOCK), 10, 0);
--	} else if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_GXM) ||
--		   meson_vpu_is_compatible(priv, VPU_COMPATIBLE_GXL)) {
--		regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL, 0x40000200 | m);
--		regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL2, 0x800cb000 | frac);
--		regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL3, 0x860f30c4);
--		regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL4, 0x0c8e0000);
--		regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL5, 0x001fa729);
--		regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL6, 0x01a31500);
-+	regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL, 0x40000200 | m);
-+	regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL2, 0x800cb000 | frac);
-+	regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL3, 0x860f30c4);
-+	regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL4, 0x0c8e0000);
-+	regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL5, 0x001fa729);
-+	regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL6, 0x01a31500);
- 
--		/* Reset PLL */
--		regmap_update_bits(priv->hhi, HHI_HDMI_PLL_CNTL,
--				HDMI_PLL_RESET, HDMI_PLL_RESET);
--		regmap_update_bits(priv->hhi, HHI_HDMI_PLL_CNTL,
--				HDMI_PLL_RESET, 0);
-+	/* Reset PLL */
-+	regmap_update_bits(priv->hhi, HHI_HDMI_PLL_CNTL,
-+			HDMI_PLL_RESET, HDMI_PLL_RESET);
-+	regmap_update_bits(priv->hhi, HHI_HDMI_PLL_CNTL,
-+			HDMI_PLL_RESET, 0);
- 
--		/* Poll for lock bit */
--		regmap_read_poll_timeout(priv->hhi, HHI_HDMI_PLL_CNTL, val,
--				(val & HDMI_PLL_LOCK), 10, 0);
--	} else if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_G12A)) {
--		regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL, 0x0b3a0400 | m);
-+	/* Poll for lock bit */
-+	regmap_read_poll_timeout(priv->hhi, HHI_HDMI_PLL_CNTL, val,
-+			(val & HDMI_PLL_LOCK), 10, 0);
- 
--		/* Enable and reset */
--		/* TODO: add specific macro for g12a here */
--		regmap_update_bits(priv->hhi, HHI_HDMI_PLL_CNTL,
--				   0x3 << 28, 0x3 << 28);
-+	regmap_update_bits(priv->hhi, HHI_HDMI_PLL_CNTL3,
-+				3 << 21, pll_od_to_reg(od1) << 21);
-+	regmap_update_bits(priv->hhi, HHI_HDMI_PLL_CNTL3,
-+				3 << 23, pll_od_to_reg(od2) << 23);
-+	regmap_update_bits(priv->hhi, HHI_HDMI_PLL_CNTL3,
-+				3 << 19, pll_od_to_reg(od3) << 19);
-+}
- 
--		regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL2, frac);
--		regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL3, 0x00000000);
-+static void g12a_pll_set_params(struct meson_drm *priv, unsigned int m,
-+				      unsigned int frac, unsigned int od1,
-+				      unsigned int od2, unsigned int od3)
-+{
-+	unsigned int val;
++	void __iomem *dram;
 +
-+	regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL, 0x0b3a0400 | m);
-+
-+	/* Enable and reset */
-+	/* TODO: add specific macro for g12a here */
-+	regmap_update_bits(priv->hhi, HHI_HDMI_PLL_CNTL,
-+			   0x3 << 28, 0x3 << 28);
- 
--		/* G12A HDMI PLL Needs specific parameters for 5.4GHz */
--		if (m >= 0xf7) {
--			if (frac < 0x10000) {
--				regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL4,
--							0x6a685c00);
--				regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL5,
--							0x11551293);
--			} else {
--				regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL4,
--							0xea68dc00);
--				regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL5,
--							0x65771290);
--			}
--			regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL6, 0x39272000);
--			regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL7, 0x55540000);
-+	regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL2, frac);
-+	regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL3, 0x00000000);
-+
-+	/* G12A HDMI PLL Needs specific parameters for 5.4GHz */
-+	if (m >= 0xf7) {
-+		if (frac < 0x10000) {
-+			regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL4,
-+						0x6a685c00);
-+			regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL5,
-+						0x11551293);
- 		} else {
--			regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL4, 0x0a691c00);
--			regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL5, 0x33771290);
--			regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL6, 0x39270000);
--			regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL7, 0x50540000);
-+			regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL4,
-+						0xea68dc00);
-+			regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL5,
-+						0x65771290);
- 		}
--
--		do {
--			/* Reset PLL */
--			regmap_update_bits(priv->hhi, HHI_HDMI_PLL_CNTL,
--					HDMI_PLL_RESET_G12A, HDMI_PLL_RESET_G12A);
--
--			/* UN-Reset PLL */
--			regmap_update_bits(priv->hhi, HHI_HDMI_PLL_CNTL,
--					HDMI_PLL_RESET_G12A, 0);
--
--			/* Poll for lock bits */
--			if (!regmap_read_poll_timeout(priv->hhi,
--						      HHI_HDMI_PLL_CNTL, val,
--						      ((val & HDMI_PLL_LOCK_G12A)
--						        == HDMI_PLL_LOCK_G12A),
--						      10, 100))
--				break;
--		} while(1);
-+		regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL6, 0x39272000);
-+		regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL7, 0x55540000);
-+	} else {
-+		regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL4, 0x0a691c00);
-+		regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL5, 0x33771290);
-+		regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL6, 0x39270000);
-+		regmap_write(priv->hhi, HHI_HDMI_PLL_CNTL7, 0x50540000);
- 	}
- 
--	if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_GXBB))
--		regmap_update_bits(priv->hhi, HHI_HDMI_PLL_CNTL2,
--				3 << 16, pll_od_to_reg(od1) << 16);
--	else if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_GXM) ||
--		 meson_vpu_is_compatible(priv, VPU_COMPATIBLE_GXL))
--		regmap_update_bits(priv->hhi, HHI_HDMI_PLL_CNTL3,
--				3 << 21, pll_od_to_reg(od1) << 21);
--	else if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_G12A))
-+	do {
-+		/* Reset PLL */
- 		regmap_update_bits(priv->hhi, HHI_HDMI_PLL_CNTL,
--				3 << 16, pll_od_to_reg(od1) << 16);
-+				HDMI_PLL_RESET_G12A, HDMI_PLL_RESET_G12A);
- 
--	if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_GXBB))
--		regmap_update_bits(priv->hhi, HHI_HDMI_PLL_CNTL2,
--				3 << 22, pll_od_to_reg(od2) << 22);
--	else if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_GXM) ||
--		 meson_vpu_is_compatible(priv, VPU_COMPATIBLE_GXL))
--		regmap_update_bits(priv->hhi, HHI_HDMI_PLL_CNTL3,
--				3 << 23, pll_od_to_reg(od2) << 23);
--	else if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_G12A))
-+		/* UN-Reset PLL */
- 		regmap_update_bits(priv->hhi, HHI_HDMI_PLL_CNTL,
--				3 << 18, pll_od_to_reg(od2) << 18);
-+				HDMI_PLL_RESET_G12A, 0);
-+
-+		/* Poll for lock bits */
-+		if (!regmap_read_poll_timeout(priv->hhi,
-+					      HHI_HDMI_PLL_CNTL, val,
-+					      ((val & HDMI_PLL_LOCK_G12A)
-+					      == HDMI_PLL_LOCK_G12A),
-+					      10, 100))
-+			break;
-+	} while (1);
- 
--	if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_GXBB))
--		regmap_update_bits(priv->hhi, HHI_HDMI_PLL_CNTL2,
--				3 << 18, pll_od_to_reg(od3) << 18);
--	else if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_GXM) ||
--		 meson_vpu_is_compatible(priv, VPU_COMPATIBLE_GXL))
--		regmap_update_bits(priv->hhi, HHI_HDMI_PLL_CNTL3,
--				3 << 19, pll_od_to_reg(od3) << 19);
--	else if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_G12A))
--		regmap_update_bits(priv->hhi, HHI_HDMI_PLL_CNTL,
-+	regmap_update_bits(priv->hhi, HHI_HDMI_PLL_CNTL,
-+				3 << 16, pll_od_to_reg(od1) << 16);
-+	regmap_update_bits(priv->hhi, HHI_HDMI_PLL_CNTL,
-+					3 << 18, pll_od_to_reg(od2) << 18);
-+	regmap_update_bits(priv->hhi, HHI_HDMI_PLL_CNTL,
-+				3 << 20, pll_od_to_reg(od3) << 20);
++	dram = emac->prueth->mem[emac->dram].va;
++	memcpy_toio(dram + STATISTICS_OFFSET, pstats, STAT_SIZE);
 +}
 +
-+static void s4_pll_set_params(struct meson_drm *priv, unsigned int m,
-+				      unsigned int frac, unsigned int od1,
-+				      unsigned int od2, unsigned int od3)
++/* get statistics maintained by the PRU firmware into @pstats */
++void icssm_emac_get_stats(struct prueth_emac *emac,
++			  struct port_statistics *pstats)
 +{
-+	unsigned int val;
++	void __iomem *dram;
 +
-+	DRM_DEBUG_DRIVER("%s: m = %d, frac = %d, od1 = %d, od2 = %d, od3 = %d\n",
-+			__func__, m, frac, od1, od2, od3);
++	dram = emac->prueth->mem[emac->dram].va;
++	memcpy_fromio(pstats, dram + STATISTICS_OFFSET, STAT_SIZE);
++}
 +
-+	regmap_write(priv->hhi, ANACTRL_HDMIPLL_CTRL0, 0x0b3a0400 | m);
++/**
++ * icssm_emac_get_drvinfo - Get EMAC driver information
++ * @ndev: The network adapter
++ * @info: ethtool info structure containing name and version
++ *
++ * Returns EMAC driver information (name and version)
++ */
++static void icssm_emac_get_drvinfo(struct net_device *ndev,
++				   struct ethtool_drvinfo *info)
++{
++	strscpy(info->driver, PRUETH_MODULE_DESCRIPTION, sizeof(info->driver));
++	strscpy(info->version, PRUETH_MODULE_VERSION, sizeof(info->version));
++}
 +
-+	/* Enable and reset */
-+	/* TODO: add specific macro for g12a here */
-+	regmap_update_bits(priv->hhi, ANACTRL_HDMIPLL_CTRL0,
-+			   0x3 << 28, 0x3 << 28);
++/**
++ * icssm_emac_get_link_ksettings - Get EMAC settings
++ * @ndev: The network adapter
++ * @ecmd: ethtool command
++ *
++ * Executes ethool get command
++ *
++ * Return: 0 (Success)
++ */
++static int icssm_emac_get_link_ksettings(struct net_device *ndev,
++					 struct ethtool_link_ksettings *ecmd)
++{
++	return phy_ethtool_get_link_ksettings(ndev, ecmd);
++}
 +
-+	regmap_write(priv->hhi, ANACTRL_HDMIPLL_CTRL1, frac);
-+	regmap_write(priv->hhi, ANACTRL_HDMIPLL_CTRL2, 0x00000000);
++/**
++ * icssm_emac_set_link_ksettings - Set EMAC settings
++ * @ndev: The EMAC network adapter
++ * @ecmd: ethtool command
++ *
++ * Executes ethool set command
++ *
++ * Return: 0 (Success)
++ */
++static int
++icssm_emac_set_link_ksettings(struct net_device *ndev,
++			      const struct ethtool_link_ksettings *ecmd)
++{
++	return phy_ethtool_set_link_ksettings(ndev, ecmd);
++}
 +
-+	/* S4 HDMI PLL Needs specific parameters for 5.4GHz */
-+	if (m >= 0xf7) {
-+		if (frac < 0x10000) {
-+			regmap_write(priv->hhi, ANACTRL_HDMIPLL_CTRL3,
-+						0x6a685c00);
-+			regmap_write(priv->hhi, ANACTRL_HDMIPLL_CTRL4,
-+						0x11551293);
-+		} else {
-+			regmap_write(priv->hhi, ANACTRL_HDMIPLL_CTRL3,
-+						0x6a685c00);
-+			regmap_write(priv->hhi, ANACTRL_HDMIPLL_CTRL4,
-+						0x44331290);
-+		}
-+		regmap_write(priv->hhi, ANACTRL_HDMIPLL_CTRL5, 0x39272008);
-+		regmap_write(priv->hhi, ANACTRL_HDMIPLL_CTRL6, 0x56540000);
-+	} else {
-+		regmap_write(priv->hhi, ANACTRL_HDMIPLL_CTRL3, 0x6a68dc00);
-+		regmap_write(priv->hhi, ANACTRL_HDMIPLL_CTRL4, 0x65771290);
-+		regmap_write(priv->hhi, ANACTRL_HDMIPLL_CTRL5, 0x39272008);
-+		regmap_write(priv->hhi, ANACTRL_HDMIPLL_CTRL6, 0x56540000);
++#define PRUETH_STAT_OFFSET(m) offsetof(struct port_statistics, m)
++
++static const struct {
++	char string[ETH_GSTRING_LEN];
++	u32 offset;
++} prueth_ethtool_stats[] = {
++	{"txBcast", PRUETH_STAT_OFFSET(tx_bcast)},
++	{"txMcast", PRUETH_STAT_OFFSET(tx_mcast)},
++	{"txUcast", PRUETH_STAT_OFFSET(tx_ucast)},
++	{"txOctets", PRUETH_STAT_OFFSET(tx_octets)},
++	{"rxBcast", PRUETH_STAT_OFFSET(rx_bcast)},
++	{"rxMcast", PRUETH_STAT_OFFSET(rx_mcast)},
++	{"rxUcast", PRUETH_STAT_OFFSET(rx_ucast)},
++	{"rxOctets", PRUETH_STAT_OFFSET(rx_octets)},
++
++	{"tx64byte", PRUETH_STAT_OFFSET(tx64byte)},
++	{"tx65_127byte", PRUETH_STAT_OFFSET(tx65_127byte)},
++	{"tx128_255byte", PRUETH_STAT_OFFSET(tx128_255byte)},
++	{"tx256_511byte", PRUETH_STAT_OFFSET(tx256_511byte)},
++	{"tx512_1023byte", PRUETH_STAT_OFFSET(tx512_1023byte)},
++	{"tx1024byte", PRUETH_STAT_OFFSET(tx1024byte)},
++	{"rx64byte", PRUETH_STAT_OFFSET(rx64byte)},
++	{"rx65_127byte", PRUETH_STAT_OFFSET(rx65_127byte)},
++	{"rx128_255byte", PRUETH_STAT_OFFSET(rx128_255byte)},
++	{"rx256_511byte", PRUETH_STAT_OFFSET(rx256_511byte)},
++	{"rx512_1023byte", PRUETH_STAT_OFFSET(rx512_1023byte)},
++	{"rx1024byte", PRUETH_STAT_OFFSET(rx1024byte)},
++
++	{"lateColl", PRUETH_STAT_OFFSET(late_coll)},
++	{"singleColl", PRUETH_STAT_OFFSET(single_coll)},
++	{"multiColl", PRUETH_STAT_OFFSET(multi_coll)},
++	{"excessColl", PRUETH_STAT_OFFSET(excess_coll)},
++
++	{"rxMisAlignmentFrames", PRUETH_STAT_OFFSET(rx_misalignment_frames)},
++	{"stormPrevCounterBC", PRUETH_STAT_OFFSET(stormprev_counter_bc)},
++	{"stormPrevCounterMC", PRUETH_STAT_OFFSET(stormprev_counter_mc)},
++	{"stormPrevCounterUC", PRUETH_STAT_OFFSET(stormprev_counter_uc)},
++	{"macRxError", PRUETH_STAT_OFFSET(mac_rxerror)},
++	{"SFDError", PRUETH_STAT_OFFSET(sfd_error)},
++	{"defTx", PRUETH_STAT_OFFSET(def_tx)},
++	{"macTxError", PRUETH_STAT_OFFSET(mac_txerror)},
++	{"rxOverSizedFrames", PRUETH_STAT_OFFSET(rx_oversized_frames)},
++	{"rxUnderSizedFrames", PRUETH_STAT_OFFSET(rx_undersized_frames)},
++	{"rxCRCFrames", PRUETH_STAT_OFFSET(rx_crc_frames)},
++	{"droppedPackets", PRUETH_STAT_OFFSET(dropped_packets)},
++
++	{"txHWQOverFlow", PRUETH_STAT_OFFSET(tx_hwq_overflow)},
++	{"txHWQUnderFlow", PRUETH_STAT_OFFSET(tx_hwq_underflow)},
++	{"vlanDropped", PRUETH_STAT_OFFSET(vlan_dropped)},
++	{"multicastDropped", PRUETH_STAT_OFFSET(multicast_dropped)},
++};
++
++static int icssm_emac_get_sset_count(struct net_device *ndev, int stringset)
++{
++	int a_size;
++
++	switch (stringset) {
++	case ETH_SS_STATS:
++		a_size = ARRAY_SIZE(prueth_ethtool_stats);
++
++		return a_size;
++	default:
++		return -EOPNOTSUPP;
 +	}
++}
 +
-+	do {
-+		//todo, need confir rst and lock bit
-+		/* Reset PLL */
-+		regmap_update_bits(priv->hhi, ANACTRL_HDMIPLL_CTRL0,
-+				HDMI_PLL_RESET_S4, HDMI_PLL_RESET_S4);
-+
-+		/* UN-Reset PLL */
-+		regmap_update_bits(priv->hhi, ANACTRL_HDMIPLL_CTRL0,
-+				HDMI_PLL_RESET_S4, 0);
-+
-+		/* Poll for lock bits */
-+		if (!regmap_read_poll_timeout(priv->hhi,
-+					      ANACTRL_HDMIPLL_CTRL0, val,
-+					      ((val & HDMI_PLL_LOCK_S4)
-+					      == HDMI_PLL_LOCK_S4),
-+					      10, 100))
-+			break;
-+	} while (1);
-+
-+	regmap_update_bits(priv->hhi, ANACTRL_HDMIPLL_CTRL0,
-+				3 << 16, pll_od_to_reg(od1) << 16);
-+	regmap_update_bits(priv->hhi, ANACTRL_HDMIPLL_CTRL0,
-+					3 << 18, pll_od_to_reg(od2) << 18);
-+	regmap_update_bits(priv->hhi, ANACTRL_HDMIPLL_CTRL0,
- 				3 << 20, pll_od_to_reg(od3) << 20);
- }
- 
-+static void meson_hdmi_pll_set_params(struct meson_drm *priv, unsigned int m,
-+				      unsigned int frac, unsigned int od1,
-+				      unsigned int od2, unsigned int od3)
++static void icssm_emac_get_strings(struct net_device *ndev, u32 stringset,
++				   u8 *data)
 +{
-+	switch (priv->compat) {
-+	case VPU_COMPATIBLE_GXBB:
-+		gxbb_pll_set_params(priv, m, frac, od1, od2, od3);
-+		break;
-+	case VPU_COMPATIBLE_GXM:
-+	case VPU_COMPATIBLE_GXL:
-+		gxm_pll_set_params(priv, m, frac, od1, od2, od3);
-+		break;
-+	case VPU_COMPATIBLE_G12A:
-+		g12a_pll_set_params(priv, m, frac, od1, od2, od3);
-+		break;
-+	case VPU_COMPATIBLE_S4:
-+		s4_pll_set_params(priv, m, frac, od1, od2, od3);
++	u8 *p = data;
++	int i;
++
++	switch (stringset) {
++	case ETH_SS_STATS:
++		for (i = 0; i < ARRAY_SIZE(prueth_ethtool_stats); i++) {
++			memcpy(p, prueth_ethtool_stats[i].string,
++			       ETH_GSTRING_LEN);
++			p += ETH_GSTRING_LEN;
++		}
 +		break;
 +	default:
 +		break;
 +	}
 +}
 +
- #define XTAL_FREQ 24000
- 
- static unsigned int meson_hdmi_pll_get_m(struct meson_drm *priv,
-@@ -632,6 +863,7 @@ static unsigned int meson_hdmi_pll_get_m(struct meson_drm *priv,
- #define HDMI_FRAC_MAX_GXBB	4096
- #define HDMI_FRAC_MAX_GXL	1024
- #define HDMI_FRAC_MAX_G12A	131072
-+#define HDMI_FRAC_MAX_S4	131072
- 
- static unsigned int meson_hdmi_pll_get_frac(struct meson_drm *priv,
- 					    unsigned int m,
-@@ -651,6 +883,9 @@ static unsigned int meson_hdmi_pll_get_frac(struct meson_drm *priv,
- 	if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_G12A))
- 		frac_max = HDMI_FRAC_MAX_G12A;
- 
-+	if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_S4))
-+		frac_max = HDMI_FRAC_MAX_S4;
++static void icssm_emac_get_ethtool_stats(struct net_device *ndev,
++					 struct ethtool_stats *stats, u64 *data)
++{
++	struct prueth_emac *emac = netdev_priv(ndev);
++	struct port_statistics pstats;
++	void *ptr;
++	u32 val;
++	int i;
 +
- 	/* We can have a perfect match !*/
- 	if (pll_freq / m == parent_freq &&
- 	    pll_freq % m == 0)
-@@ -688,6 +923,12 @@ static bool meson_hdmi_pll_validate_params(struct meson_drm *priv,
- 			return false;
- 		if (frac >= HDMI_FRAC_MAX_G12A)
- 			return false;
-+	} else if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_S4)) {
-+		/* Empiric supported min/max dividers */
-+		if (m < 106 || m > 247)
-+			return false;
-+		if (frac >= HDMI_FRAC_MAX_S4)
-+			return false;
- 	}
- 
- 	return true;
-@@ -813,14 +1054,22 @@ static void meson_vclk_set(struct meson_drm *priv, unsigned int pll_base_freq,
- {
- 	unsigned int m = 0, frac = 0;
- 
--	/* Set HDMI-TX sys clock */
--	regmap_update_bits(priv->hhi, HHI_HDMI_CLK_CNTL,
--			   CTS_HDMI_SYS_SEL_MASK, 0);
--	regmap_update_bits(priv->hhi, HHI_HDMI_CLK_CNTL,
--			   CTS_HDMI_SYS_DIV_MASK, 0);
--	regmap_update_bits(priv->hhi, HHI_HDMI_CLK_CNTL,
--			   CTS_HDMI_SYS_EN, CTS_HDMI_SYS_EN);
--
-+	if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_S4)) {
-+		regmap_update_bits(priv->clkctrl, CLKCTRL_HDMI_CLK_CTRL,
-+				CTS_HDMI_SYS_SEL_MASK, 0);
-+		regmap_update_bits(priv->clkctrl, CLKCTRL_HDMI_CLK_CTRL,
-+				   CTS_HDMI_SYS_DIV_MASK, 0);
-+		regmap_update_bits(priv->clkctrl, CLKCTRL_HDMI_CLK_CTRL,
-+				   CTS_HDMI_SYS_EN, CTS_HDMI_SYS_EN);
-+	} else {
-+		/* Set HDMI-TX sys clock */
-+		regmap_update_bits(priv->hhi, HHI_HDMI_CLK_CNTL,
-+				   CTS_HDMI_SYS_SEL_MASK, 0);
-+		regmap_update_bits(priv->hhi, HHI_HDMI_CLK_CNTL,
-+				   CTS_HDMI_SYS_DIV_MASK, 0);
-+		regmap_update_bits(priv->hhi, HHI_HDMI_CLK_CNTL,
-+				   CTS_HDMI_SYS_EN, CTS_HDMI_SYS_EN);
++	icssm_emac_get_stats(emac, &pstats);
++
++	for (i = 0; i < ARRAY_SIZE(prueth_ethtool_stats); i++) {
++		ptr = &pstats;
++		ptr += prueth_ethtool_stats[i].offset;
++		val = *(u32 *)ptr;
++		data[i] = val;
 +	}
- 	/* Set HDMI PLL rate */
- 	if (!od1 && !od2 && !od3) {
- 		meson_hdmi_pll_generic_set(priv, pll_base_freq);
-@@ -875,6 +1124,22 @@ static void meson_vclk_set(struct meson_drm *priv, unsigned int pll_base_freq,
- 			break;
- 		}
++}
++
++static void icssm_emac_get_regs(struct net_device *ndev,
++				struct ethtool_regs *regs, void *p)
++{
++	struct prueth_emac *emac = netdev_priv(ndev);
++	struct prueth *prueth = emac->prueth;
++
++	regs->version = PRUETH_REG_DUMP_GET_VER(prueth);
++}
++
++/* Ethtool support for EMAC adapter */
++const struct ethtool_ops emac_ethtool_ops = {
++	.get_drvinfo = icssm_emac_get_drvinfo,
++	.get_link_ksettings = icssm_emac_get_link_ksettings,
++	.set_link_ksettings = icssm_emac_set_link_ksettings,
++	.get_link = ethtool_op_get_link,
++	.get_sset_count = icssm_emac_get_sset_count,
++	.get_strings = icssm_emac_get_strings,
++	.get_ethtool_stats = icssm_emac_get_ethtool_stats,
++	.get_regs = icssm_emac_get_regs,
++};
++EXPORT_SYMBOL_GPL(emac_ethtool_ops);
+diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+index 3112135e0641..d65676202e7c 100644
+--- a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
++++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+@@ -879,6 +879,8 @@ static int icssm_emac_ndo_open(struct net_device *ndev)
  
-+		meson_hdmi_pll_set_params(priv, m, frac, od1, od2, od3);
-+	} else if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_S4)) {
-+		switch (pll_base_freq) {
-+		case 2970000:
-+			m = 0x7b;
-+			frac = vic_alternate_clock ? 0x140b4 : 0x18000;
-+			break;
-+		case 4320000:
-+			m = vic_alternate_clock ? 0xb3 : 0xb4;
-+			frac = vic_alternate_clock ? 0x1a3ee : 0;
-+			break;
-+		case 5940000:
-+			m = 0xf7;
-+			frac = vic_alternate_clock ? 0x8148 : 0x10000;
-+			break;
-+		}
- 		meson_hdmi_pll_set_params(priv, m, frac, od1, od2, od3);
- 	}
+ 	icssm_prueth_emac_config(emac);
  
-@@ -882,146 +1147,303 @@ static void meson_vclk_set(struct meson_drm *priv, unsigned int pll_base_freq,
- 	meson_vid_pll_set(priv, vid_pll_div);
++	icssm_emac_set_stats(emac, &emac->stats);
++
+ 	ret = icssm_emac_set_boot_pru(emac, ndev);
+ 	if (ret)
+ 		netdev_err(ndev, "failed to boot PRU: %d\n", ret);
+@@ -930,6 +932,8 @@ static int icssm_emac_ndo_stop(struct net_device *ndev)
+ 	/* stop the PRU */
+ 	rproc_shutdown(emac->pru);
  
- 	/* Set VCLK div */
--	regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL,
--			   VCLK_SEL_MASK, 0);
--	regmap_update_bits(priv->hhi, HHI_VID_CLK_DIV,
--			   VCLK_DIV_MASK, vclk_div - 1);
-+	if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_S4)) {
-+		regmap_update_bits(priv->clkctrl, CLKCTRL_VID_CLK_CTRL,
-+				   VCLK_SEL_MASK, 0);
-+		regmap_update_bits(priv->clkctrl, CLKCTRL_VID_CLK_DIV,
-+				   VCLK_DIV_MASK, vclk_div - 1);
-+	} else {
-+		regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL,
-+				   VCLK_SEL_MASK, 0);
-+		regmap_update_bits(priv->hhi, HHI_VID_CLK_DIV,
-+				   VCLK_DIV_MASK, vclk_div - 1);
-+	}
- 
- 	/* Set HDMI-TX source */
- 	switch (hdmi_tx_div) {
- 	case 1:
--		/* enable vclk_div1 gate */
--		regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL,
--				   VCLK_DIV1_EN, VCLK_DIV1_EN);
-+		if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_S4)) {
-+			/* enable vclk_div1 gate */
-+			regmap_update_bits(priv->clkctrl, CLKCTRL_VID_CLK_CTRL,
-+					   VCLK_DIV1_EN, VCLK_DIV1_EN);
++	icssm_emac_get_stats(emac, &emac->stats);
 +
-+			/* select vclk_div1 for HDMI-TX */
-+			regmap_update_bits(priv->clkctrl, CLKCTRL_HDMI_CLK_CTRL,
-+					   HDMI_TX_PIXEL_SEL_MASK, 0);
-+			regmap_update_bits(priv->clkctrl, CLKCTRL_HDMI_CLK_CTRL,
-+						HDMI_TX_FE_SEL_MASK, 0);
-+		} else {
-+			/* enable vclk_div1 gate */
-+			regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL,
-+					   VCLK_DIV1_EN, VCLK_DIV1_EN);
- 
--		/* select vclk_div1 for HDMI-TX */
--		regmap_update_bits(priv->hhi, HHI_HDMI_CLK_CNTL,
--				   HDMI_TX_PIXEL_SEL_MASK, 0);
-+			/* select vclk_div1 for HDMI-TX */
-+			regmap_update_bits(priv->hhi, HHI_HDMI_CLK_CNTL,
-+					   HDMI_TX_PIXEL_SEL_MASK, 0);
-+		}
- 		break;
- 	case 2:
--		/* enable vclk_div2 gate */
--		regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL,
--				   VCLK_DIV2_EN, VCLK_DIV2_EN);
-+		if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_S4)) {
-+			/* enable vclk_div2 gate */
-+			regmap_update_bits(priv->clkctrl, CLKCTRL_VID_CLK_CTRL,
-+					   VCLK_DIV2_EN, VCLK_DIV2_EN);
-+
-+			/* select vclk_div2 for HDMI-TX */
-+			regmap_update_bits(priv->clkctrl, CLKCTRL_HDMI_CLK_CTRL,
-+				HDMI_TX_PIXEL_SEL_MASK, 1 << HDMI_TX_PIXEL_SEL_SHIFT);
-+			regmap_update_bits(priv->clkctrl, CLKCTRL_HDMI_CLK_CTRL,
-+				HDMI_TX_FE_SEL_MASK, 1 << HDMI_TX_FE_SEL_SHIFT);
-+		} else {
-+			/* enable vclk_div2 gate */
-+			regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL,
-+					   VCLK_DIV2_EN, VCLK_DIV2_EN);
- 
--		/* select vclk_div2 for HDMI-TX */
--		regmap_update_bits(priv->hhi, HHI_HDMI_CLK_CNTL,
--			HDMI_TX_PIXEL_SEL_MASK, 1 << HDMI_TX_PIXEL_SEL_SHIFT);
-+			/* select vclk_div2 for HDMI-TX */
-+			regmap_update_bits(priv->hhi, HHI_HDMI_CLK_CNTL,
-+				HDMI_TX_PIXEL_SEL_MASK, 1 << HDMI_TX_PIXEL_SEL_SHIFT);
-+		}
- 		break;
- 	case 4:
--		/* enable vclk_div4 gate */
--		regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL,
--				   VCLK_DIV4_EN, VCLK_DIV4_EN);
-+		if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_S4)) {
-+			/* enable vclk_div4 gate */
-+			regmap_update_bits(priv->clkctrl, CLKCTRL_VID_CLK_CTRL,
-+					   VCLK_DIV4_EN, VCLK_DIV4_EN);
-+
-+			/* select vclk_div4 for HDMI-TX */
-+			regmap_update_bits(priv->clkctrl, CLKCTRL_HDMI_CLK_CTRL,
-+				HDMI_TX_PIXEL_SEL_MASK, 2 << HDMI_TX_PIXEL_SEL_SHIFT);
-+			regmap_update_bits(priv->clkctrl, CLKCTRL_HDMI_CLK_CTRL,
-+				HDMI_TX_FE_SEL_MASK, 2 << HDMI_TX_FE_SEL_SHIFT);
-+		} else {
-+			/* enable vclk_div4 gate */
-+			regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL,
-+					   VCLK_DIV4_EN, VCLK_DIV4_EN);
- 
--		/* select vclk_div4 for HDMI-TX */
--		regmap_update_bits(priv->hhi, HHI_HDMI_CLK_CNTL,
--			HDMI_TX_PIXEL_SEL_MASK, 2 << HDMI_TX_PIXEL_SEL_SHIFT);
-+			/* select vclk_div4 for HDMI-TX */
-+			regmap_update_bits(priv->hhi, HHI_HDMI_CLK_CNTL,
-+				HDMI_TX_PIXEL_SEL_MASK, 2 << HDMI_TX_PIXEL_SEL_SHIFT);
-+		}
- 		break;
- 	case 6:
--		/* enable vclk_div6 gate */
--		regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL,
--				   VCLK_DIV6_EN, VCLK_DIV6_EN);
-+		if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_S4)) {
-+			/* enable vclk_div6 gate */
-+			regmap_update_bits(priv->clkctrl, CLKCTRL_VID_CLK_CTRL,
-+					   VCLK_DIV6_EN, VCLK_DIV6_EN);
-+
-+			/* select vclk_div6 for HDMI-TX */
-+			regmap_update_bits(priv->clkctrl, CLKCTRL_HDMI_CLK_CTRL,
-+				HDMI_TX_PIXEL_SEL_MASK, 3 << HDMI_TX_PIXEL_SEL_SHIFT);
-+			regmap_update_bits(priv->clkctrl, CLKCTRL_HDMI_CLK_CTRL,
-+				HDMI_TX_FE_SEL_MASK, 3 << HDMI_TX_FE_SEL_SHIFT);
-+		} else {
-+			/* enable vclk_div6 gate */
-+			regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL,
-+					   VCLK_DIV6_EN, VCLK_DIV6_EN);
- 
--		/* select vclk_div6 for HDMI-TX */
--		regmap_update_bits(priv->hhi, HHI_HDMI_CLK_CNTL,
--			HDMI_TX_PIXEL_SEL_MASK, 3 << HDMI_TX_PIXEL_SEL_SHIFT);
-+			/* select vclk_div6 for HDMI-TX */
-+			regmap_update_bits(priv->hhi, HHI_HDMI_CLK_CNTL,
-+				HDMI_TX_PIXEL_SEL_MASK, 3 << HDMI_TX_PIXEL_SEL_SHIFT);
-+		}
- 		break;
- 	case 12:
--		/* enable vclk_div12 gate */
--		regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL,
--				   VCLK_DIV12_EN, VCLK_DIV12_EN);
-+		if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_S4)) {
-+			/* enable vclk_div12 gate */
-+			regmap_update_bits(priv->clkctrl, CLKCTRL_VID_CLK_CTRL,
-+					   VCLK_DIV12_EN, VCLK_DIV12_EN);
-+
-+			/* select vclk_div12 for HDMI-TX */
-+			regmap_update_bits(priv->clkctrl, CLKCTRL_HDMI_CLK_CTRL,
-+				HDMI_TX_PIXEL_SEL_MASK, 4 << HDMI_TX_PIXEL_SEL_SHIFT);
-+			regmap_update_bits(priv->clkctrl, CLKCTRL_HDMI_CLK_CTRL,
-+				HDMI_TX_FE_SEL_MASK, 4 << HDMI_TX_FE_SEL_SHIFT);
-+		} else {
-+			/* enable vclk_div12 gate */
-+			regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL,
-+					   VCLK_DIV12_EN, VCLK_DIV12_EN);
- 
--		/* select vclk_div12 for HDMI-TX */
--		regmap_update_bits(priv->hhi, HHI_HDMI_CLK_CNTL,
--			HDMI_TX_PIXEL_SEL_MASK, 4 << HDMI_TX_PIXEL_SEL_SHIFT);
-+			/* select vclk_div12 for HDMI-TX */
-+			regmap_update_bits(priv->hhi, HHI_HDMI_CLK_CNTL,
-+				HDMI_TX_PIXEL_SEL_MASK, 4 << HDMI_TX_PIXEL_SEL_SHIFT);
-+		}
- 		break;
- 	}
--	regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL2,
-+	if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_S4))
-+		regmap_update_bits(priv->clkctrl, CLKCTRL_VID_CLK_CTRL2,
-+				   HDMI_TX_PIXEL_EN, HDMI_TX_PIXEL_EN);
-+	else
-+		regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL2,
- 				   HDMI_TX_PIXEL_EN, HDMI_TX_PIXEL_EN);
- 
- 	/* Set ENCI/ENCP Source */
--	switch (venc_div) {
--	case 1:
--		/* enable vclk_div1 gate */
--		regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL,
--				   VCLK_DIV1_EN, VCLK_DIV1_EN);
--
--		if (hdmi_use_enci)
--			/* select vclk_div1 for enci */
--			regmap_update_bits(priv->hhi, HHI_VID_CLK_DIV,
--					   CTS_ENCI_SEL_MASK, 0);
--		else
--			/* select vclk_div1 for encp */
--			regmap_update_bits(priv->hhi, HHI_VID_CLK_DIV,
--					   CTS_ENCP_SEL_MASK, 0);
--		break;
--	case 2:
--		/* enable vclk_div2 gate */
--		regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL,
--				   VCLK_DIV2_EN, VCLK_DIV2_EN);
--
--		if (hdmi_use_enci)
--			/* select vclk_div2 for enci */
--			regmap_update_bits(priv->hhi, HHI_VID_CLK_DIV,
--				CTS_ENCI_SEL_MASK, 1 << CTS_ENCI_SEL_SHIFT);
--		else
--			/* select vclk_div2 for encp */
--			regmap_update_bits(priv->hhi, HHI_VID_CLK_DIV,
--				CTS_ENCP_SEL_MASK, 1 << CTS_ENCP_SEL_SHIFT);
--		break;
--	case 4:
--		/* enable vclk_div4 gate */
--		regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL,
--				   VCLK_DIV4_EN, VCLK_DIV4_EN);
-+	if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_S4)) {
-+		switch (venc_div) {
-+		case 1:
-+			/* enable vclk_div1 gate */
-+			regmap_update_bits(priv->clkctrl, CLKCTRL_VID_CLK_CTRL,
-+					   VCLK_DIV1_EN, VCLK_DIV1_EN);
-+
-+			if (hdmi_use_enci)
-+				/* select vclk_div1 for enci */
-+				regmap_update_bits(priv->clkctrl, CLKCTRL_VID_CLK_DIV,
-+						   CTS_ENCI_SEL_MASK, 0);
-+			else
-+				/* select vclk_div1 for encp */
-+				regmap_update_bits(priv->clkctrl, CLKCTRL_VID_CLK_DIV,
-+						   CTS_ENCP_SEL_MASK, 0);
-+			break;
-+		case 2:
-+			/* enable vclk_div2 gate */
-+			regmap_update_bits(priv->clkctrl, CLKCTRL_VID_CLK_CTRL,
-+					   VCLK_DIV2_EN, VCLK_DIV2_EN);
-+
-+			if (hdmi_use_enci)
-+				/* select vclk_div2 for enci */
-+				regmap_update_bits(priv->clkctrl, CLKCTRL_VID_CLK_DIV,
-+					CTS_ENCI_SEL_MASK, 1 << CTS_ENCI_SEL_SHIFT);
-+			else
-+				/* select vclk_div2 for encp */
-+				regmap_update_bits(priv->clkctrl, CLKCTRL_VID_CLK_DIV,
-+					CTS_ENCP_SEL_MASK, 1 << CTS_ENCP_SEL_SHIFT);
-+			break;
-+		case 4:
-+			/* enable vclk_div4 gate */
-+			regmap_update_bits(priv->clkctrl, CLKCTRL_VID_CLK_CTRL,
-+					   VCLK_DIV4_EN, VCLK_DIV4_EN);
-+
-+			if (hdmi_use_enci)
-+				/* select vclk_div4 for enci */
-+				regmap_update_bits(priv->clkctrl, CLKCTRL_VID_CLK_DIV,
-+					CTS_ENCI_SEL_MASK, 2 << CTS_ENCI_SEL_SHIFT);
-+			else
-+				/* select vclk_div4 for encp */
-+				regmap_update_bits(priv->clkctrl, CLKCTRL_VID_CLK_DIV,
-+					CTS_ENCP_SEL_MASK, 2 << CTS_ENCP_SEL_SHIFT);
-+			break;
-+		case 6:
-+			/* enable vclk_div6 gate */
-+			regmap_update_bits(priv->clkctrl, CLKCTRL_VID_CLK_CTRL,
-+					   VCLK_DIV6_EN, VCLK_DIV6_EN);
-+
-+			if (hdmi_use_enci)
-+				/* select vclk_div6 for enci */
-+				regmap_update_bits(priv->clkctrl, CLKCTRL_VID_CLK_DIV,
-+					CTS_ENCI_SEL_MASK, 3 << CTS_ENCI_SEL_SHIFT);
-+			else
-+				/* select vclk_div6 for encp */
-+				regmap_update_bits(priv->clkctrl, CLKCTRL_VID_CLK_DIV,
-+					CTS_ENCP_SEL_MASK, 3 << CTS_ENCP_SEL_SHIFT);
-+			break;
-+		case 12:
-+			/* enable vclk_div12 gate */
-+			regmap_update_bits(priv->clkctrl, CLKCTRL_VID_CLK_CTRL,
-+					   VCLK_DIV12_EN, VCLK_DIV12_EN);
-+
-+			if (hdmi_use_enci)
-+				/* select vclk_div12 for enci */
-+				regmap_update_bits(priv->clkctrl, CLKCTRL_VID_CLK_DIV,
-+					CTS_ENCI_SEL_MASK, 4 << CTS_ENCI_SEL_SHIFT);
-+			else
-+				/* select vclk_div12 for encp */
-+				regmap_update_bits(priv->clkctrl, CLKCTRL_VID_CLK_DIV,
-+					CTS_ENCP_SEL_MASK, 4 << CTS_ENCP_SEL_SHIFT);
-+			break;
-+		}
- 
- 		if (hdmi_use_enci)
--			/* select vclk_div4 for enci */
--			regmap_update_bits(priv->hhi, HHI_VID_CLK_DIV,
--				CTS_ENCI_SEL_MASK, 2 << CTS_ENCI_SEL_SHIFT);
-+			/* Enable ENCI clock gate */
-+			regmap_update_bits(priv->clkctrl, CLKCTRL_VID_CLK_CTRL2,
-+					   CTS_ENCI_EN, CTS_ENCI_EN);
- 		else
--			/* select vclk_div4 for encp */
--			regmap_update_bits(priv->hhi, HHI_VID_CLK_DIV,
--				CTS_ENCP_SEL_MASK, 2 << CTS_ENCP_SEL_SHIFT);
--		break;
--	case 6:
--		/* enable vclk_div6 gate */
--		regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL,
--				   VCLK_DIV6_EN, VCLK_DIV6_EN);
-+			/* Enable ENCP clock gate */
-+			regmap_update_bits(priv->clkctrl, CLKCTRL_VID_CLK_CTRL2,
-+					   CTS_ENCP_EN, CTS_ENCP_EN);
-+
-+		regmap_update_bits(priv->clkctrl, CLKCTRL_VID_CLK_CTRL, VCLK_EN, VCLK_EN);
-+	} else {
-+		switch (venc_div) {
-+		case 1:
-+			/* enable vclk_div1 gate */
-+			regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL,
-+					   VCLK_DIV1_EN, VCLK_DIV1_EN);
-+
-+			if (hdmi_use_enci)
-+				/* select vclk_div1 for enci */
-+				regmap_update_bits(priv->hhi, HHI_VID_CLK_DIV,
-+						   CTS_ENCI_SEL_MASK, 0);
-+			else
-+				/* select vclk_div1 for encp */
-+				regmap_update_bits(priv->hhi, HHI_VID_CLK_DIV,
-+						   CTS_ENCP_SEL_MASK, 0);
-+			break;
-+		case 2:
-+			/* enable vclk_div2 gate */
-+			regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL,
-+					   VCLK_DIV2_EN, VCLK_DIV2_EN);
-+
-+			if (hdmi_use_enci)
-+				/* select vclk_div2 for enci */
-+				regmap_update_bits(priv->hhi, HHI_VID_CLK_DIV,
-+						CTS_ENCI_SEL_MASK, 1 << CTS_ENCI_SEL_SHIFT);
-+			else
-+				/* select vclk_div2 for encp */
-+				regmap_update_bits(priv->hhi, HHI_VID_CLK_DIV,
-+						CTS_ENCP_SEL_MASK, 1 << CTS_ENCP_SEL_SHIFT);
-+			break;
-+		case 4:
-+			/* enable vclk_div4 gate */
-+			regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL,
-+					   VCLK_DIV4_EN, VCLK_DIV4_EN);
-+
-+			if (hdmi_use_enci)
-+				/* select vclk_div4 for enci */
-+				regmap_update_bits(priv->hhi, HHI_VID_CLK_DIV,
-+						CTS_ENCI_SEL_MASK, 2 << CTS_ENCI_SEL_SHIFT);
-+			else
-+				/* select vclk_div4 for encp */
-+				regmap_update_bits(priv->hhi, HHI_VID_CLK_DIV,
-+						CTS_ENCP_SEL_MASK, 2 << CTS_ENCP_SEL_SHIFT);
-+			break;
-+		case 6:
-+			/* enable vclk_div6 gate */
-+			regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL,
-+					   VCLK_DIV6_EN, VCLK_DIV6_EN);
-+
-+			if (hdmi_use_enci)
-+				/* select vclk_div6 for enci */
-+				regmap_update_bits(priv->hhi, HHI_VID_CLK_DIV,
-+						CTS_ENCI_SEL_MASK, 3 << CTS_ENCI_SEL_SHIFT);
-+			else
-+				/* select vclk_div6 for encp */
-+				regmap_update_bits(priv->hhi, HHI_VID_CLK_DIV,
-+						CTS_ENCP_SEL_MASK, 3 << CTS_ENCP_SEL_SHIFT);
-+			break;
-+		case 12:
-+			/* enable vclk_div12 gate */
-+			regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL,
-+					   VCLK_DIV12_EN, VCLK_DIV12_EN);
-+
-+			if (hdmi_use_enci)
-+				/* select vclk_div12 for enci */
-+				regmap_update_bits(priv->hhi, HHI_VID_CLK_DIV,
-+						CTS_ENCI_SEL_MASK, 4 << CTS_ENCI_SEL_SHIFT);
-+			else
-+				/* select vclk_div12 for encp */
-+				regmap_update_bits(priv->hhi, HHI_VID_CLK_DIV,
-+						CTS_ENCP_SEL_MASK, 4 << CTS_ENCP_SEL_SHIFT);
-+			break;
-+		}
- 
- 		if (hdmi_use_enci)
--			/* select vclk_div6 for enci */
--			regmap_update_bits(priv->hhi, HHI_VID_CLK_DIV,
--				CTS_ENCI_SEL_MASK, 3 << CTS_ENCI_SEL_SHIFT);
-+			/* Enable ENCI clock gate */
-+			regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL2,
-+					   CTS_ENCI_EN, CTS_ENCI_EN);
- 		else
--			/* select vclk_div6 for encp */
--			regmap_update_bits(priv->hhi, HHI_VID_CLK_DIV,
--				CTS_ENCP_SEL_MASK, 3 << CTS_ENCP_SEL_SHIFT);
--		break;
--	case 12:
--		/* enable vclk_div12 gate */
--		regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL,
--				   VCLK_DIV12_EN, VCLK_DIV12_EN);
-+			/* Enable ENCP clock gate */
-+			regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL2,
-+					   CTS_ENCP_EN, CTS_ENCP_EN);
- 
--		if (hdmi_use_enci)
--			/* select vclk_div12 for enci */
--			regmap_update_bits(priv->hhi, HHI_VID_CLK_DIV,
--				CTS_ENCI_SEL_MASK, 4 << CTS_ENCI_SEL_SHIFT);
--		else
--			/* select vclk_div12 for encp */
--			regmap_update_bits(priv->hhi, HHI_VID_CLK_DIV,
--				CTS_ENCP_SEL_MASK, 4 << CTS_ENCP_SEL_SHIFT);
--		break;
-+		regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL, VCLK_EN, VCLK_EN);
- 	}
--
--	if (hdmi_use_enci)
--		/* Enable ENCI clock gate */
--		regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL2,
--				   CTS_ENCI_EN, CTS_ENCI_EN);
--	else
--		/* Enable ENCP clock gate */
--		regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL2,
--				   CTS_ENCP_EN, CTS_ENCP_EN);
--
--	regmap_update_bits(priv->hhi, HHI_VID_CLK_CNTL, VCLK_EN, VCLK_EN);
+ 	/* free rx and tx interrupts */
+ 	if (emac->tx_irq > 0)
+ 		free_irq(emac->tx_irq, ndev);
+@@ -1035,10 +1039,36 @@ static int icssm_emac_ndo_start_xmit(struct sk_buff *skb,
+ 	return ret;
  }
  
- void meson_vclk_setup(struct meson_drm *priv, unsigned int target,
-
++/**
++ * icssm_emac_ndo_get_stats - EMAC get statistics function
++ * @ndev: The EMAC network adapter
++ *
++ * Called when system wants to get statistics from the device.
++ *
++ * We return the statistics in net_device_stats structure pulled from emac
++ *
++ * Return: stats
++ */
++static struct net_device_stats
++*icssm_emac_ndo_get_stats(struct net_device *ndev)
++{
++	struct net_device_stats *stats = &ndev->stats;
++	struct prueth_emac *emac = netdev_priv(ndev);
++	struct port_statistics pstats;
++
++	icssm_emac_get_stats(emac, &pstats);
++	stats->collisions = pstats.late_coll + pstats.single_coll +
++			    pstats.multi_coll + pstats.excess_coll;
++	stats->multicast = pstats.rx_mcast;
++
++	return stats;
++}
++
+ static const struct net_device_ops emac_netdev_ops = {
+ 	.ndo_open = icssm_emac_ndo_open,
+ 	.ndo_stop = icssm_emac_ndo_stop,
+ 	.ndo_start_xmit = icssm_emac_ndo_start_xmit,
++	.ndo_get_stats = icssm_emac_ndo_get_stats,
+ };
+ 
+ /* get emac_port corresponding to eth_node name */
+@@ -1190,6 +1220,7 @@ static int icssm_prueth_netdev_init(struct prueth *prueth,
+ 	phy_remove_link_mode(emac->phydev, ETHTOOL_LINK_MODE_Asym_Pause_BIT);
+ 
+ 	ndev->netdev_ops = &emac_netdev_ops;
++	ndev->ethtool_ops = &emac_ethtool_ops;
+ 
+ 	return 0;
+ free:
+diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.h b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
+index a818c0e49155..3af5b5d87702 100644
+--- a/drivers/net/ethernet/ti/icssm/icssm_prueth.h
++++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
+@@ -23,6 +23,12 @@
+  */
+ #define EMAC_MAX_FRM_SUPPORT (ETH_HLEN + VLAN_HLEN + ETH_DATA_LEN + 6)
+ 
++#define PRUETH_REG_DUMP_VER		1
++
++/* Encoding: 32-16: Reserved, 16-8: Reg dump version, 8-0: Ethertype  */
++#define PRUETH_REG_DUMP_GET_VER(x)	((PRUETH_REG_DUMP_VER << 8) | \
++					 ((x)->eth_type))
++
+ /* PRU Ethernet Type - Ethernet functionality (protocol
+  * implemented) provided by the PRU firmware being loaded.
+  */
+@@ -104,6 +110,119 @@ struct prueth_packet_info {
+ 	bool timestamp;
+ };
+ 
++/**
++ * struct port_statistics - Statistics structure for capturing statistics
++ *			    on PRUs
++ * @tx_bcast: Number of broadcast packets sent
++ * @tx_mcast:Number of multicast packets sent
++ * @tx_ucast:Number of unicast packets sent
++ *
++ * @tx_octets:Number of undersized frames rcvd
++ *
++ * @rx_bcast:Number of broadcast packets rcvd
++ * @rx_mcast:Number of multicast packets rcvd
++ * @rx_ucast:Number of unicast packets rcvd
++ *
++ * @rx_octets:Number of Rx packets
++ *
++ * @tx64byte:Number of 64 byte packets sent
++ * @tx65_127byte:Number of 65-127 byte packets sent
++ * @tx128_255byte:Number of 128-255 byte packets sent
++ * @tx256_511byte:Number of 256-511 byte packets sent
++ * @tx512_1023byte:Number of 512-1023 byte packets sent
++ * @tx1024byte:Number of 1024 and larger size packets sent
++ *
++ * @rx64byte:Number of 64 byte packets rcvd
++ * @rx65_127byte:Number of 65-127 byte packets rcvd
++ * @rx128_255byte:Number of 128-255 byte packets rcvd
++ * @rx256_511byte:Number of 256-511 byte packets rcvd
++ * @rx512_1023byte:Number of 512-1023 byte packets rcvd
++ * @rx1024byte:Number of 1024 and larger size packets rcvd
++ *
++ * @late_coll:Number of late collisions(Half Duplex)
++ * @single_coll:Number of single collisions (Half Duplex)
++ * @multi_coll:Number of multiple collisions (Half Duplex)
++ * @excess_coll:Number of excess collisions(Half Duplex)
++ *
++ * @rx_misalignment_frames:Number of non multiple of 8 byte frames rcvd
++ * @stormprev_counter:Number of packets dropped because of Storm Prevention
++ * @mac_rxerror:Number of MAC receive errors
++ * @sfd_error:Number of invalid SFD
++ * @def_tx:Number of transmissions deferred
++ * @mac_txerror:Number of MAC transmit errors
++ * @rx_oversized_frames:Number of oversized frames rcvd
++ * @rx_undersized_frames:Number of undersized frames rcvd
++ * @rx_crc_frames:Number of CRC error frames rcvd
++ * @dropped_packets:Number of packets dropped due to link down on opposite port
++ *
++ * @tx_hwq_overflow:Hardware Tx Queue (on PRU) over flow count
++ * @tx_hwq_underflow:Hardware Tx Queue (on PRU) under flow count
++ *
++ * @u32 cs_error: Number of carrier sense errors
++ * @sqe_test_error: Number of MAC receive errors
++ *
++ * Above fields are aligned so that it's consistent
++ * with the memory layout in PRU DRAM, this is to facilitate easy
++ * memcpy. Don't change the order of the fields.
++ *
++ * @vlan_dropped: Number of VLAN tagged packets dropped
++ * @multicast_dropped: Number of multicast packets dropped
++ */
++struct port_statistics {
++	u32 tx_bcast;
++	u32 tx_mcast;
++	u32 tx_ucast;
++
++	u32 tx_octets;
++
++	u32 rx_bcast;
++	u32 rx_mcast;
++	u32 rx_ucast;
++
++	u32 rx_octets;
++
++	u32 tx64byte;
++	u32 tx65_127byte;
++	u32 tx128_255byte;
++	u32 tx256_511byte;
++	u32 tx512_1023byte;
++	u32 tx1024byte;
++
++	u32 rx64byte;
++	u32 rx65_127byte;
++	u32 rx128_255byte;
++	u32 rx256_511byte;
++	u32 rx512_1023byte;
++	u32 rx1024byte;
++
++	u32 late_coll;
++	u32 single_coll;
++	u32 multi_coll;
++	u32 excess_coll;
++
++	u32 rx_misalignment_frames;
++	u32 stormprev_counter_bc;
++	u32 stormprev_counter_mc;
++	u32 stormprev_counter_uc;
++	u32 mac_rxerror;
++	u32 sfd_error;
++	u32 def_tx;
++	u32 mac_txerror;
++	u32 rx_oversized_frames;
++	u32 rx_undersized_frames;
++	u32 rx_crc_frames;
++	u32 dropped_packets;
++
++	u32 tx_hwq_overflow;
++	u32 tx_hwq_underflow;
++
++	u32 cs_error;
++	u32 sqe_test_error;
++
++	u32 vlan_dropped;
++	u32 multicast_dropped;
++} __packed;
++
+ /* In switch mode there are 3 real ports i.e. 3 mac addrs.
+  * however Linux sees only the host side port. The other 2 ports
+  * are the switch ports.
+@@ -190,6 +309,7 @@ struct prueth_emac {
+ 	struct phy_device *phydev;
+ 	struct prueth_queue_desc __iomem *rx_queue_descs;
+ 	struct prueth_queue_desc __iomem *tx_queue_descs;
++	struct port_statistics stats; /* stats holder when i/f is down */
+ 
+ 	int link;
+ 	int speed;
+@@ -228,9 +348,16 @@ struct prueth {
+ 	u8 emac_configured;
+ };
+ 
++extern const struct ethtool_ops emac_ethtool_ops;
++
+ void icssm_parse_packet_info(struct prueth *prueth, u32 buffer_descriptor,
+ 			     struct prueth_packet_info *pkt_info);
+ int icssm_emac_rx_packet(struct prueth_emac *emac, u16 *bd_rd_ptr,
+ 			 struct prueth_packet_info *pkt_info,
+ 			 const struct prueth_queue_info *rxqueue);
++
++void icssm_emac_set_stats(struct prueth_emac *emac,
++			  struct port_statistics *pstats);
++void icssm_emac_get_stats(struct prueth_emac *emac,
++			  struct port_statistics *pstats);
+ #endif /* __NET_TI_PRUETH_H */
 -- 
-2.43.0
-
+2.34.1
 
 
