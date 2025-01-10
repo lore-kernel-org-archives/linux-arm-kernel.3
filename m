@@ -4,39 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3572DE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 19:27:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA3C0E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 19:29:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=FxFSWBvNwwzGpNauOKJOh690c9DKh5Hm6FAncQMyVDc=; b=TQz97zMU5j5hF/cfIYIYEALbGm
-	0X9907xxNeZU1dLU9gL0w1/YmlPWivIFb1+ZkMUESzScchEEOUeYW887WD/9YRZlULkd0nCH7PhTy
-	UsU1EaVRqcFKPuJP4pC5TmMP6trHog+QCAHI/mvnk+Qh7odU3D5q/3j1hzthkUOQilLMlzu5O8KsB
-	POwEocCRDgjJObynIYkn8tMrk2jbjkAlSg4s8/p+PQE6cO2yC0KPK5hXuH21tfzFnj3jzGbKY+yCl
-	SZ4HrOeBC6USKUkhRZe79+5OWPCjET54VNB5QUXDyzOUO3vFJ2T9FqVQh6Mi1IteMtpa00pXQ8znH
-	HoNE4X+Q==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BxtNKnXtGG2RerY8yHOdZZuD70UM+T9bfGtOFf/xcMw=; b=AjUNEQ1UlMbN4rWdcVddY2T6Fs
+	vevk7Ivp62nZ7+eE4r1dB9t6RGYvpHavP9Bwl2wUD6VJvJ75oQK2DhBaKNeiWVjm+cLuDpO7+rK0L
+	WrKx2UwivGIx187NBm0oUhSbYoiRIXV2loUpXyQBH0xJ4KP8jf1C8bS2nNnzZ9GJ6tYinMBdx08sm
+	6bScaadIa1/aoCjy/HxRosMNDZ8JZt/kXee0kSJpdUOvqogNwy0cGyOdWxiJvVmXVgNHXuUgkGkP1
+	0ydMTwtD27YHsumdQv3JY3xK6sAeXcB7qnT86nBJpxFTAnHz/BYvL7PgkkGuB6Kb3WHMEJ5PQXGBx
+	wuSNj/2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWKfX-0000000GlDP-0sTx;
-	Fri, 10 Jan 2025 19:27:43 +0000
-Received: from out-176.mta1.migadu.com ([2001:41d0:203:375::b0])
+	id 1tWKgj-0000000GlaQ-3Yk0;
+	Fri, 10 Jan 2025 19:28:57 +0000
+Received: from out-174.mta1.migadu.com ([95.215.58.174])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWKeI-0000000Gks5-0fn0
+	id 1tWKeI-0000000GksG-3bZD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 19:26:27 +0000
+	Fri, 10 Jan 2025 19:26:30 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1736537182;
+	t=1736537184;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=FxFSWBvNwwzGpNauOKJOh690c9DKh5Hm6FAncQMyVDc=;
-	b=GGKDDtacV4yf0lK6ELn1ocYpufe2by1H/DwGK/SqiiJuk0KQ/wG34ylMnBZ1SnQofYAL2/
-	SZ7+uYXtWjP4W39fxdF+BHQ4WjGEyqISAZs6LwY306b3RJhG0hmXfUuYI3UvCyYzpkx1r1
-	VkBuneSKfG79zdyLae0gtuNrh73i7Jc=
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=BxtNKnXtGG2RerY8yHOdZZuD70UM+T9bfGtOFf/xcMw=;
+	b=hxQH/BGnm/yae6MCS5tk3JyBGXqbZymGi8NcB29z/IYfHbg8adEhKSHkVkvP8m4/pCe8G/
+	tOTl15Wy9KBOywtVA8y/UHnP0H56uJo22U8UiZ/W1OLLRdz2bczLRLCDenMjhtYZC05+zl
+	leZOgT2jBQCr6JLN5pNVvxB28iSVucw=
 From: Sean Anderson <sean.anderson@linux.dev>
 To: "David S . Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
@@ -48,17 +49,18 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Shannon Nelson <shannon.nelson@amd.com>,
 	Michal Simek <michal.simek@amd.com>,
 	linux-kernel@vger.kernel.org,
-	Sean Anderson <sean.anderson@linux.dev>,
-	Heng Qi <hengqi@linux.alibaba.com>
-Subject: [PATCH net-next v3 0/6] net: xilinx: axienet: Enable adaptive IRQ coalescing with DIM
-Date: Fri, 10 Jan 2025 14:26:10 -0500
-Message-Id: <20250110192616.2075055-1-sean.anderson@linux.dev>
+	Sean Anderson <sean.anderson@linux.dev>
+Subject: [PATCH net-next v3 1/6] net: xilinx: axienet: Add some symbolic constants for IRQ delay timer
+Date: Fri, 10 Jan 2025 14:26:11 -0500
+Message-Id: <20250110192616.2075055-2-sean.anderson@linux.dev>
+In-Reply-To: <20250110192616.2075055-1-sean.anderson@linux.dev>
+References: <20250110192616.2075055-1-sean.anderson@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_112626_465481_0B7FE0E1 
-X-CRM114-Status: GOOD (  11.24  )
+X-CRM114-CacheID: sfid-20250110_112627_247991_C769BEB3 
+X-CRM114-Status: GOOD (  10.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,54 +75,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To improve performance without sacrificing latency under low load,
-enable DIM. While I appreciate not having to write the library myself, I
-do think there are many unusual aspects to DIM, as detailed in the last
-patch.
+Instead of using literals, add some symbolic constants for the IRQ delay
+timer calculation.
 
-This series depends on [1].
+Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
+Reviewed by: Shannon Nelson <shannon.nelson@amd.com>
+---
 
-[1] https://lore.kernel.org/netdev/20250110190726.2057790-1-sean.anderson@linux.dev/
-
-Changes in v3:
-- Fix mismatched parameter name documentation for axienet_calc_cr
-- Integrate some cleanups originally included in
-  https://lore.kernel.org/netdev/20240909230908.1319982-1-sean.anderson@linux.dev/
-- Move spin (un)locking in IRQs inside the if condition of
-  napi_schedule_prep. This lets us hold the lock just for the rmw.
-- Fix function name in doc comments for axienet_update_coalesce_rx/tx
-- Adjust axienet_local doc comment order to match the members
-- Rebase onto net-next/master
+(no changes since v2)
 
 Changes in v2:
-- Add some symbolic constants for IRQ delay timer
-- Report an error for bad coalesce settings
-- Don't use spin_lock_irqsave when we know the context
-- Split the CR calculation refactor from runtime coalesce settings
-  adjustment support for easier review.
-- Have axienet_update_coalesce_rx/tx take the cr value/mask instead of
-  calculating it with axienet_calc_cr. This will make it easier to add
-  partial updates in the next few commits.
-- Get coalesce parameters from driver state
-- Don't take the RTNL in axienet_rx_dim_work to avoid deadlock. Instead,
-  calculate a partial cr update that axienet_update_coalesce_rx can
-  perform under a spin lock.
-- Use READ/WRITE_ONCE when accessing/modifying rx_irqs
+- New
 
-Sean Anderson (6):
-  net: xilinx: axienet: Add some symbolic constants for IRQ delay timer
-  net: xilinx: axienet: Report an error for bad coalesce settings
-  net: xilinx: axienet: Combine CR calculation
-  net: xilinx: axienet: Support adjusting coalesce settings while
-    running
-  net: xilinx: axienet: Get coalesce parameters from driver state
-  net: xilinx: axienet: Enable adaptive IRQ coalescing with DIM
+ drivers/net/ethernet/xilinx/xilinx_axienet.h      | 3 +++
+ drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 7 ++-----
+ 2 files changed, 5 insertions(+), 5 deletions(-)
 
- drivers/net/ethernet/xilinx/Kconfig           |   1 +
- drivers/net/ethernet/xilinx/xilinx_axienet.h  |  32 +-
- .../net/ethernet/xilinx/xilinx_axienet_main.c | 330 ++++++++++++++----
- 3 files changed, 280 insertions(+), 83 deletions(-)
-
+diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet.h b/drivers/net/ethernet/xilinx/xilinx_axienet.h
+index d64b8abcf018..a3f4f3e42587 100644
+--- a/drivers/net/ethernet/xilinx/xilinx_axienet.h
++++ b/drivers/net/ethernet/xilinx/xilinx_axienet.h
+@@ -120,6 +120,9 @@
+ #define XAXIDMA_IRQ_ERROR_MASK		0x00004000 /* Error interrupt */
+ #define XAXIDMA_IRQ_ALL_MASK		0x00007000 /* All interrupts */
+ 
++/* Constant to convert delay counts to microseconds */
++#define XAXIDMA_DELAY_SCALE		(125ULL * USEC_PER_SEC)
++
+ /* Default TX/RX Threshold and delay timer values for SGDMA mode */
+ #define XAXIDMA_DFT_TX_THRESHOLD	24
+ #define XAXIDMA_DFT_TX_USEC		50
+diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+index ae743991117c..62638e2a086e 100644
+--- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
++++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+@@ -238,11 +238,8 @@ static u32 axienet_usec_to_timer(struct axienet_local *lp, u32 coalesce_usec)
+ 
+ 	/* 1 Timeout Interval = 125 * (clock period of SG clock) */
+ 	result = DIV64_U64_ROUND_CLOSEST((u64)coalesce_usec * clk_rate,
+-					 (u64)125000000);
+-	if (result > 255)
+-		result = 255;
+-
+-	return result;
++					 XAXIDMA_DELAY_SCALE);
++	return min(result, FIELD_MAX(XAXIDMA_DELAY_MASK));
+ }
+ 
+ /**
 -- 
 2.35.1.1320.gc452695387.dirty
 
