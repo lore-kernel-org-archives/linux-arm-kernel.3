@@ -4,60 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4CD8E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 16:38:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48A3BE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 16:46:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7er3opSYby3NP27eo0o9TgpEwI26lkeOJxlM8PGkSVc=; b=yc2vbmOMQZBbx/U7PkWIxIIUgF
-	9BOwQBYMKeeufEdVyVqExESB/hiXdRfcwLBWm/Y4nlcnyijvtbPQNt708SH1ut3Pr5bCw7sO3bRIo
-	bmX1eU4fTbZg9A6MIJUj5OAEjwtseta/BHPxbRxJx+FO+N3VS92HSOLOUP0nC//MxV7dTyaEX1SEF
-	rqd7tnjqsWLhtiK271V7eOZbLVZ1am2qaaHLuiEBcez/5Pv0nlprmdBIIWP+pfjjg3seBdbDtvWGb
-	qGmA6wQancwOnpmzEur0Rv8lYCMv15FUuTur6cvtdym8ppn+E3qMEvEVMfrx14yOqpRgRKkV0C/GA
-	yKOTemUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eDYFOGueTkvy+TGXt7yHjBF4hDSaK2IB0+UVMd/GAfc=; b=j31U+7Up4xKwaFdip4PkoBDbx1
+	wQyemOTAI3Ou5MWymHwiHrrdB39Ave6c65OIoX35wLoA2vsfqBXx/jVIGVa8j7uYBDuFpVDJz3lbI
+	byfZuac8nQKcRgACHWVQ/hE7EB9ezXPOVJ1tW4Qsqfdz49QrJpQ4sYBMeRgdRS+gBrBbJzCUv1hJx
+	r7rLr0+/BKPxf9B6J6v2hP9wLNFfWziByIr9GrFQeq/srunoAdcDpIdh4Cjirgs+clTdeGG/xU63b
+	IM4b1z66IUFBhn+Ghkcws1VUAsRVJPF4Lbk3cE1W06FBBnfWB2/kXjbAnS65WsqnGUnNbH6uYsVF4
+	a9yYym3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWI1k-0000000GIny-0ygK;
-	Fri, 10 Jan 2025 16:38:28 +0000
-Received: from out-186.mta1.migadu.com ([95.215.58.186])
+	id 1tWI90-0000000GJpr-33Vz;
+	Fri, 10 Jan 2025 16:45:58 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWHxb-0000000GHw6-0YEc
+	id 1tWI7j-0000000GJav-2wHq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 16:34:13 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1736526846;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=7er3opSYby3NP27eo0o9TgpEwI26lkeOJxlM8PGkSVc=;
-	b=pqCLo51zdyht5882klDKd9uScHG6XyoVHwTWIZWZ2LAJ3HvN1v1gQnm2elWdF+bWvRhJq4
-	P5KmVS5mWEZOiK2PSA9L6qhULJf+3JltmhKq7sJAxN1YTXkRVjIqMhcQjWpI77enJiNrfj
-	DsG3UPv03cLn3wunCGmhqnVAZdTFKt0=
-From: Sean Anderson <sean.anderson@linux.dev>
-To: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	linux-gpio@vger.kernel.org
-Cc: Michal Simek <michal.simek@amd.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Robert Hancock <hancock@sedsystems.ca>,
-	Srinivas Neeli <srinivas.neeli@amd.com>,
-	linux-kernel@vger.kernel.org,
-	Sean Anderson <sean.anderson@linux.dev>,
-	stable@vger.kernel.org
-Subject: [PATCH] gpio: xilinx: Convert gpio_lock to raw spinlock
-Date: Fri, 10 Jan 2025 11:33:54 -0500
-Message-Id: <20250110163354.2012654-1-sean.anderson@linux.dev>
+	Fri, 10 Jan 2025 16:44:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 15F5B5C4363;
+	Fri, 10 Jan 2025 16:43:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADD1CC4CED6;
+	Fri, 10 Jan 2025 16:44:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736527478;
+	bh=C4CeHm6Or5VLGEzPlFMQwU1Lqi8VzWhjclCv/3py67E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=O5UR+WQTuOopW+m3Pi1zmwj3sDf93V+XjOFJYBM1RzPO3sDZ1K+ormfip92T4e79w
+	 U7XfSgY+NLYzXu3FSqu6NPO6Duv551jmp1bCI/QrpFZEE2pZI1sr9JEOmCb6BY1OnU
+	 ygd6hC3MnYQ2N+RhjQSfldq11cHroGlaZKiItHVNmIb3DkLT0NVgh6huf2W9+DLo9X
+	 YeINgKpATzcjR+uCpeX3HIxD3GxiQDjsZM7pKUDW6Vf7Go2Sgai6ua3WPKo0H4Ox5B
+	 AqV/p/rvC1rT0uQQGOw0QzXTSq+PszsSgUN9oJlsXQxouGCrMbf3PP8PksxH6qiYUq
+	 YoNvaeUovuyGw==
+Date: Fri, 10 Jan 2025 08:44:38 -0800
+From: "Darrick J. Wong" <djwong@kernel.org>
+To: Alistair Popple <apopple@nvidia.com>
+Cc: akpm@linux-foundation.org, dan.j.williams@intel.com, linux-mm@kvack.org,
+	alison.schofield@intel.com, lina@asahilina.net,
+	zhang.lyra@gmail.com, gerald.schaefer@linux.ibm.com,
+	vishal.l.verma@intel.com, dave.jiang@intel.com, logang@deltatee.com,
+	bhelgaas@google.com, jack@suse.cz, jgg@ziepe.ca,
+	catalin.marinas@arm.com, will@kernel.org, mpe@ellerman.id.au,
+	npiggin@gmail.com, dave.hansen@linux.intel.com, ira.weiny@intel.com,
+	willy@infradead.org, tytso@mit.edu, linmiaohe@huawei.com,
+	david@redhat.com, peterx@redhat.com, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org, nvdimm@lists.linux.dev,
+	linux-cxl@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+	linux-ext4@vger.kernel.org, linux-xfs@vger.kernel.org,
+	jhubbard@nvidia.com, hch@lst.de, david@fromorbit.com,
+	chenhuacai@kernel.org, kernel@xen0n.name, loongarch@lists.linux.dev
+Subject: Re: [PATCH v6 05/26] fs/dax: Create a common implementation to break
+ DAX layouts
+Message-ID: <20250110164438.GJ6156@frogsfrogsfrogs>
+References: <cover.11189864684e31260d1408779fac9db80122047b.1736488799.git-series.apopple@nvidia.com>
+ <79936ac15c917f4004397027f648d4fc9c092424.1736488799.git-series.apopple@nvidia.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <79936ac15c917f4004397027f648d4fc9c092424.1736488799.git-series.apopple@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_083412_251593_EB561BBE 
-X-CRM114-Status: GOOD (  11.12  )
+X-CRM114-CacheID: sfid-20250110_084439_825506_A21A55F4 
+X-CRM114-Status: GOOD (  33.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,198 +86,264 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-irq_chip functions may be called in raw spinlock context. Therefore, we
-must also use a raw spinlock for our own internal locking.
+On Fri, Jan 10, 2025 at 05:00:33PM +1100, Alistair Popple wrote:
+> Prior to freeing a block file systems supporting FS DAX must check
+> that the associated pages are both unmapped from user-space and not
+> undergoing DMA or other access from eg. get_user_pages(). This is
+> achieved by unmapping the file range and scanning the FS DAX
+> page-cache to see if any pages within the mapping have an elevated
+> refcount.
+> 
+> This is done using two functions - dax_layout_busy_page_range() which
+> returns a page to wait for the refcount to become idle on. Rather than
+> open-code this introduce a common implementation to both unmap and
+> wait for the page to become idle.
+> 
+> Signed-off-by: Alistair Popple <apopple@nvidia.com>
 
-This fixes the following lockdep splat:
+So now that Dan Carpenter has complained, I guess I should look at
+this...
 
-[    5.349336] =============================
-[    5.353349] [ BUG: Invalid wait context ]
-[    5.357361] 6.13.0-rc5+ #69 Tainted: G        W
-[    5.363031] -----------------------------
-[    5.367045] kworker/u17:1/44 is trying to lock:
-[    5.371587] ffffff88018b02c0 (&chip->gpio_lock){....}-{3:3}, at: xgpio_irq_unmask (drivers/gpio/gpio-xilinx.c:433 (discriminator 8))
-[    5.380079] other info that might help us debug this:
-[    5.385138] context-{5:5}
-[    5.387762] 5 locks held by kworker/u17:1/44:
-[    5.392123] #0: ffffff8800014958 ((wq_completion)events_unbound){+.+.}-{0:0}, at: process_one_work (kernel/workqueue.c:3204)
-[    5.402260] #1: ffffffc082fcbdd8 (deferred_probe_work){+.+.}-{0:0}, at: process_one_work (kernel/workqueue.c:3205)
-[    5.411528] #2: ffffff880172c900 (&dev->mutex){....}-{4:4}, at: __device_attach (drivers/base/dd.c:1006)
-[    5.419929] #3: ffffff88039c8268 (request_class#2){+.+.}-{4:4}, at: __setup_irq (kernel/irq/internals.h:156 kernel/irq/manage.c:1596)
-[    5.428331] #4: ffffff88039c80c8 (lock_class#2){....}-{2:2}, at: __setup_irq (kernel/irq/manage.c:1614)
-[    5.436472] stack backtrace:
-[    5.439359] CPU: 2 UID: 0 PID: 44 Comm: kworker/u17:1 Tainted: G        W          6.13.0-rc5+ #69
-[    5.448690] Tainted: [W]=WARN
-[    5.451656] Hardware name: xlnx,zynqmp (DT)
-[    5.455845] Workqueue: events_unbound deferred_probe_work_func
-[    5.461699] Call trace:
-[    5.464147] show_stack+0x18/0x24 C
-[    5.467821] dump_stack_lvl (lib/dump_stack.c:123)
-[    5.471501] dump_stack (lib/dump_stack.c:130)
-[    5.474824] __lock_acquire (kernel/locking/lockdep.c:4828 kernel/locking/lockdep.c:4898 kernel/locking/lockdep.c:5176)
-[    5.478758] lock_acquire (arch/arm64/include/asm/percpu.h:40 kernel/locking/lockdep.c:467 kernel/locking/lockdep.c:5851 kernel/locking/lockdep.c:5814)
-[    5.482429] _raw_spin_lock_irqsave (include/linux/spinlock_api_smp.h:111 kernel/locking/spinlock.c:162)
-[    5.486797] xgpio_irq_unmask (drivers/gpio/gpio-xilinx.c:433 (discriminator 8))
-[    5.490737] irq_enable (kernel/irq/internals.h:236 kernel/irq/chip.c:170 kernel/irq/chip.c:439 kernel/irq/chip.c:432 kernel/irq/chip.c:345)
-[    5.494060] __irq_startup (kernel/irq/internals.h:241 kernel/irq/chip.c:180 kernel/irq/chip.c:250)
-[    5.497645] irq_startup (kernel/irq/chip.c:270)
-[    5.501143] __setup_irq (kernel/irq/manage.c:1807)
-[    5.504728] request_threaded_irq (kernel/irq/manage.c:2208)
+> ---
+> 
+> Changes for v5:
+> 
+>  - Don't wait for idle pages on non-DAX mappings
+> 
+> Changes for v4:
+> 
+>  - Fixed some build breakage due to missing symbol exports reported by
+>    John Hubbard (thanks!).
+> ---
+>  fs/dax.c            | 33 +++++++++++++++++++++++++++++++++
+>  fs/ext4/inode.c     | 10 +---------
+>  fs/fuse/dax.c       | 27 +++------------------------
+>  fs/xfs/xfs_inode.c  | 23 +++++------------------
+>  fs/xfs/xfs_inode.h  |  2 +-
+>  include/linux/dax.h | 21 +++++++++++++++++++++
+>  mm/madvise.c        |  8 ++++----
+>  7 files changed, 68 insertions(+), 56 deletions(-)
+> 
+> diff --git a/fs/dax.c b/fs/dax.c
+> index d010c10..9c3bd07 100644
+> --- a/fs/dax.c
+> +++ b/fs/dax.c
+> @@ -845,6 +845,39 @@ int dax_delete_mapping_entry(struct address_space *mapping, pgoff_t index)
+>  	return ret;
+>  }
+>  
+> +static int wait_page_idle(struct page *page,
+> +			void (cb)(struct inode *),
+> +			struct inode *inode)
+> +{
+> +	return ___wait_var_event(page, page_ref_count(page) == 1,
+> +				TASK_INTERRUPTIBLE, 0, 0, cb(inode));
+> +}
+> +
+> +/*
+> + * Unmaps the inode and waits for any DMA to complete prior to deleting the
+> + * DAX mapping entries for the range.
+> + */
+> +int dax_break_mapping(struct inode *inode, loff_t start, loff_t end,
+> +		void (cb)(struct inode *))
+> +{
+> +	struct page *page;
+> +	int error;
+> +
+> +	if (!dax_mapping(inode->i_mapping))
+> +		return 0;
+> +
+> +	do {
+> +		page = dax_layout_busy_page_range(inode->i_mapping, start, end);
+> +		if (!page)
+> +			break;
+> +
+> +		error = wait_page_idle(page, cb, inode);
+> +	} while (error == 0);
 
-Fixes: a32c7caea292 ("gpio: gpio-xilinx: Add interrupt support")
-Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
-Cc: stable@vger.kernel.org
----
+You didn't initialize error to 0, so it could be any value.  What if
+dax_layout_busy_page_range returns null the first time through the loop?
 
- drivers/gpio/gpio-xilinx.c | 32 ++++++++++++++++----------------
- 1 file changed, 16 insertions(+), 16 deletions(-)
+> +
+> +	return error;
+> +}
+> +EXPORT_SYMBOL_GPL(dax_break_mapping);
+> +
+>  /*
+>   * Invalidate DAX entry if it is clean.
+>   */
 
-diff --git a/drivers/gpio/gpio-xilinx.c b/drivers/gpio/gpio-xilinx.c
-index c6a8f2c82680..792d94c49077 100644
---- a/drivers/gpio/gpio-xilinx.c
-+++ b/drivers/gpio/gpio-xilinx.c
-@@ -65,7 +65,7 @@ struct xgpio_instance {
- 	DECLARE_BITMAP(state, 64);
- 	DECLARE_BITMAP(last_irq_read, 64);
- 	DECLARE_BITMAP(dir, 64);
--	spinlock_t gpio_lock;	/* For serializing operations */
-+	raw_spinlock_t gpio_lock;	/* For serializing operations */
- 	int irq;
- 	DECLARE_BITMAP(enable, 64);
- 	DECLARE_BITMAP(rising_edge, 64);
-@@ -179,14 +179,14 @@ static void xgpio_set(struct gpio_chip *gc, unsigned int gpio, int val)
- 	struct xgpio_instance *chip = gpiochip_get_data(gc);
- 	int bit = xgpio_to_bit(chip, gpio);
- 
--	spin_lock_irqsave(&chip->gpio_lock, flags);
-+	raw_spin_lock_irqsave(&chip->gpio_lock, flags);
- 
- 	/* Write to GPIO signal and set its direction to output */
- 	__assign_bit(bit, chip->state, val);
- 
- 	xgpio_write_ch(chip, XGPIO_DATA_OFFSET, bit, chip->state);
- 
--	spin_unlock_irqrestore(&chip->gpio_lock, flags);
-+	raw_spin_unlock_irqrestore(&chip->gpio_lock, flags);
- }
- 
- /**
-@@ -210,7 +210,7 @@ static void xgpio_set_multiple(struct gpio_chip *gc, unsigned long *mask,
- 	bitmap_remap(hw_mask, mask, chip->sw_map, chip->hw_map, 64);
- 	bitmap_remap(hw_bits, bits, chip->sw_map, chip->hw_map, 64);
- 
--	spin_lock_irqsave(&chip->gpio_lock, flags);
-+	raw_spin_lock_irqsave(&chip->gpio_lock, flags);
- 
- 	bitmap_replace(state, chip->state, hw_bits, hw_mask, 64);
- 
-@@ -218,7 +218,7 @@ static void xgpio_set_multiple(struct gpio_chip *gc, unsigned long *mask,
- 
- 	bitmap_copy(chip->state, state, 64);
- 
--	spin_unlock_irqrestore(&chip->gpio_lock, flags);
-+	raw_spin_unlock_irqrestore(&chip->gpio_lock, flags);
- }
- 
- /**
-@@ -236,13 +236,13 @@ static int xgpio_dir_in(struct gpio_chip *gc, unsigned int gpio)
- 	struct xgpio_instance *chip = gpiochip_get_data(gc);
- 	int bit = xgpio_to_bit(chip, gpio);
- 
--	spin_lock_irqsave(&chip->gpio_lock, flags);
-+	raw_spin_lock_irqsave(&chip->gpio_lock, flags);
- 
- 	/* Set the GPIO bit in shadow register and set direction as input */
- 	__set_bit(bit, chip->dir);
- 	xgpio_write_ch(chip, XGPIO_TRI_OFFSET, bit, chip->dir);
- 
--	spin_unlock_irqrestore(&chip->gpio_lock, flags);
-+	raw_spin_unlock_irqrestore(&chip->gpio_lock, flags);
- 
- 	return 0;
- }
-@@ -265,7 +265,7 @@ static int xgpio_dir_out(struct gpio_chip *gc, unsigned int gpio, int val)
- 	struct xgpio_instance *chip = gpiochip_get_data(gc);
- 	int bit = xgpio_to_bit(chip, gpio);
- 
--	spin_lock_irqsave(&chip->gpio_lock, flags);
-+	raw_spin_lock_irqsave(&chip->gpio_lock, flags);
- 
- 	/* Write state of GPIO signal */
- 	__assign_bit(bit, chip->state, val);
-@@ -275,7 +275,7 @@ static int xgpio_dir_out(struct gpio_chip *gc, unsigned int gpio, int val)
- 	__clear_bit(bit, chip->dir);
- 	xgpio_write_ch(chip, XGPIO_TRI_OFFSET, bit, chip->dir);
- 
--	spin_unlock_irqrestore(&chip->gpio_lock, flags);
-+	raw_spin_unlock_irqrestore(&chip->gpio_lock, flags);
- 
- 	return 0;
- }
-@@ -398,7 +398,7 @@ static void xgpio_irq_mask(struct irq_data *irq_data)
- 	int bit = xgpio_to_bit(chip, irq_offset);
- 	u32 mask = BIT(bit / 32), temp;
- 
--	spin_lock_irqsave(&chip->gpio_lock, flags);
-+	raw_spin_lock_irqsave(&chip->gpio_lock, flags);
- 
- 	__clear_bit(bit, chip->enable);
- 
-@@ -408,7 +408,7 @@ static void xgpio_irq_mask(struct irq_data *irq_data)
- 		temp &= ~mask;
- 		xgpio_writereg(chip->regs + XGPIO_IPIER_OFFSET, temp);
- 	}
--	spin_unlock_irqrestore(&chip->gpio_lock, flags);
-+	raw_spin_unlock_irqrestore(&chip->gpio_lock, flags);
- 
- 	gpiochip_disable_irq(&chip->gc, irq_offset);
- }
-@@ -428,7 +428,7 @@ static void xgpio_irq_unmask(struct irq_data *irq_data)
- 
- 	gpiochip_enable_irq(&chip->gc, irq_offset);
- 
--	spin_lock_irqsave(&chip->gpio_lock, flags);
-+	raw_spin_lock_irqsave(&chip->gpio_lock, flags);
- 
- 	__set_bit(bit, chip->enable);
- 
-@@ -447,7 +447,7 @@ static void xgpio_irq_unmask(struct irq_data *irq_data)
- 		xgpio_writereg(chip->regs + XGPIO_IPIER_OFFSET, val);
- 	}
- 
--	spin_unlock_irqrestore(&chip->gpio_lock, flags);
-+	raw_spin_unlock_irqrestore(&chip->gpio_lock, flags);
- }
- 
- /**
-@@ -512,7 +512,7 @@ static void xgpio_irqhandler(struct irq_desc *desc)
- 
- 	chained_irq_enter(irqchip, desc);
- 
--	spin_lock(&chip->gpio_lock);
-+	raw_spin_lock(&chip->gpio_lock);
- 
- 	xgpio_read_ch_all(chip, XGPIO_DATA_OFFSET, all);
- 
-@@ -529,7 +529,7 @@ static void xgpio_irqhandler(struct irq_desc *desc)
- 	bitmap_copy(chip->last_irq_read, all, 64);
- 	bitmap_or(all, rising, falling, 64);
- 
--	spin_unlock(&chip->gpio_lock);
-+	raw_spin_unlock(&chip->gpio_lock);
- 
- 	dev_dbg(gc->parent, "IRQ rising %*pb falling %*pb\n", 64, rising, 64, falling);
- 
-@@ -620,7 +620,7 @@ static int xgpio_probe(struct platform_device *pdev)
- 	bitmap_set(chip->hw_map,  0, width[0]);
- 	bitmap_set(chip->hw_map, 32, width[1]);
- 
--	spin_lock_init(&chip->gpio_lock);
-+	raw_spin_lock_init(&chip->gpio_lock);
- 
- 	chip->gc.base = -1;
- 	chip->gc.ngpio = bitmap_weight(chip->hw_map, 64);
--- 
-2.35.1.1320.gc452695387.dirty
+<I'm no expert, skipping to xfs>
 
+> diff --git a/fs/xfs/xfs_inode.c b/fs/xfs/xfs_inode.c
+> index 42ea203..295730a 100644
+> --- a/fs/xfs/xfs_inode.c
+> +++ b/fs/xfs/xfs_inode.c
+> @@ -2715,21 +2715,17 @@ xfs_mmaplock_two_inodes_and_break_dax_layout(
+>  	struct xfs_inode	*ip2)
+>  {
+>  	int			error;
+> -	bool			retry;
+>  	struct page		*page;
+>  
+>  	if (ip1->i_ino > ip2->i_ino)
+>  		swap(ip1, ip2);
+>  
+>  again:
+> -	retry = false;
+>  	/* Lock the first inode */
+>  	xfs_ilock(ip1, XFS_MMAPLOCK_EXCL);
+> -	error = xfs_break_dax_layouts(VFS_I(ip1), &retry);
+> -	if (error || retry) {
+> +	error = xfs_break_dax_layouts(VFS_I(ip1));
+> +	if (error) {
+>  		xfs_iunlock(ip1, XFS_MMAPLOCK_EXCL);
+> -		if (error == 0 && retry)
+> -			goto again;
+
+Hmm, so the retry loop has moved into xfs_break_dax_layouts, which means
+that we no longer cycle the MMAPLOCK.  Why was the lock cycling
+unnecessary?
+
+>  		return error;
+>  	}
+>  
+> @@ -2988,19 +2984,11 @@ xfs_wait_dax_page(
+>  
+>  int
+>  xfs_break_dax_layouts(
+> -	struct inode		*inode,
+> -	bool			*retry)
+> +	struct inode		*inode)
+>  {
+> -	struct page		*page;
+> -
+>  	xfs_assert_ilocked(XFS_I(inode), XFS_MMAPLOCK_EXCL);
+>  
+> -	page = dax_layout_busy_page(inode->i_mapping);
+> -	if (!page)
+> -		return 0;
+> -
+> -	*retry = true;
+> -	return dax_wait_page_idle(page, xfs_wait_dax_page, inode);
+> +	return dax_break_mapping_inode(inode, xfs_wait_dax_page);
+>  }
+>  
+>  int
+> @@ -3018,8 +3006,7 @@ xfs_break_layouts(
+>  		retry = false;
+>  		switch (reason) {
+>  		case BREAK_UNMAP:
+> -			error = xfs_break_dax_layouts(inode, &retry);
+> -			if (error || retry)
+> +			if (xfs_break_dax_layouts(inode))
+
+dax_break_mapping can return -ERESTARTSYS, right?  So doesn't this need
+to be:
+			error = xfs_break_dax_layouts(inode);
+			if (error)
+				break;
+
+Hm?
+
+--D
+
+>  				break;
+>  			fallthrough;
+>  		case BREAK_WRITE:
+> diff --git a/fs/xfs/xfs_inode.h b/fs/xfs/xfs_inode.h
+> index 1648dc5..c4f03f6 100644
+> --- a/fs/xfs/xfs_inode.h
+> +++ b/fs/xfs/xfs_inode.h
+> @@ -593,7 +593,7 @@ xfs_itruncate_extents(
+>  	return xfs_itruncate_extents_flags(tpp, ip, whichfork, new_size, 0);
+>  }
+>  
+> -int	xfs_break_dax_layouts(struct inode *inode, bool *retry);
+> +int	xfs_break_dax_layouts(struct inode *inode);
+>  int	xfs_break_layouts(struct inode *inode, uint *iolock,
+>  		enum layout_break_reason reason);
+>  
+> diff --git a/include/linux/dax.h b/include/linux/dax.h
+> index 9b1ce98..f6583d3 100644
+> --- a/include/linux/dax.h
+> +++ b/include/linux/dax.h
+> @@ -228,6 +228,20 @@ static inline void dax_read_unlock(int id)
+>  {
+>  }
+>  #endif /* CONFIG_DAX */
+> +
+> +#if !IS_ENABLED(CONFIG_FS_DAX)
+> +static inline int __must_check dax_break_mapping(struct inode *inode,
+> +			    loff_t start, loff_t end, void (cb)(struct inode *))
+> +{
+> +	return 0;
+> +}
+> +
+> +static inline void dax_break_mapping_uninterruptible(struct inode *inode,
+> +						void (cb)(struct inode *))
+> +{
+> +}
+> +#endif
+> +
+>  bool dax_alive(struct dax_device *dax_dev);
+>  void *dax_get_private(struct dax_device *dax_dev);
+>  long dax_direct_access(struct dax_device *dax_dev, pgoff_t pgoff, long nr_pages,
+> @@ -251,6 +265,13 @@ vm_fault_t dax_finish_sync_fault(struct vm_fault *vmf,
+>  int dax_delete_mapping_entry(struct address_space *mapping, pgoff_t index);
+>  int dax_invalidate_mapping_entry_sync(struct address_space *mapping,
+>  				      pgoff_t index);
+> +int __must_check dax_break_mapping(struct inode *inode, loff_t start,
+> +				loff_t end, void (cb)(struct inode *));
+> +static inline int __must_check dax_break_mapping_inode(struct inode *inode,
+> +						void (cb)(struct inode *))
+> +{
+> +	return dax_break_mapping(inode, 0, LLONG_MAX, cb);
+> +}
+>  int dax_dedupe_file_range_compare(struct inode *src, loff_t srcoff,
+>  				  struct inode *dest, loff_t destoff,
+>  				  loff_t len, bool *is_same,
+> diff --git a/mm/madvise.c b/mm/madvise.c
+> index 49f3a75..1f4c99e 100644
+> --- a/mm/madvise.c
+> +++ b/mm/madvise.c
+> @@ -1063,7 +1063,7 @@ static int guard_install_pud_entry(pud_t *pud, unsigned long addr,
+>  	pud_t pudval = pudp_get(pud);
+>  
+>  	/* If huge return >0 so we abort the operation + zap. */
+> -	return pud_trans_huge(pudval) || pud_devmap(pudval);
+> +	return pud_trans_huge(pudval);
+>  }
+>  
+>  static int guard_install_pmd_entry(pmd_t *pmd, unsigned long addr,
+> @@ -1072,7 +1072,7 @@ static int guard_install_pmd_entry(pmd_t *pmd, unsigned long addr,
+>  	pmd_t pmdval = pmdp_get(pmd);
+>  
+>  	/* If huge return >0 so we abort the operation + zap. */
+> -	return pmd_trans_huge(pmdval) || pmd_devmap(pmdval);
+> +	return pmd_trans_huge(pmdval);
+>  }
+>  
+>  static int guard_install_pte_entry(pte_t *pte, unsigned long addr,
+> @@ -1183,7 +1183,7 @@ static int guard_remove_pud_entry(pud_t *pud, unsigned long addr,
+>  	pud_t pudval = pudp_get(pud);
+>  
+>  	/* If huge, cannot have guard pages present, so no-op - skip. */
+> -	if (pud_trans_huge(pudval) || pud_devmap(pudval))
+> +	if (pud_trans_huge(pudval))
+>  		walk->action = ACTION_CONTINUE;
+>  
+>  	return 0;
+> @@ -1195,7 +1195,7 @@ static int guard_remove_pmd_entry(pmd_t *pmd, unsigned long addr,
+>  	pmd_t pmdval = pmdp_get(pmd);
+>  
+>  	/* If huge, cannot have guard pages present, so no-op - skip. */
+> -	if (pmd_trans_huge(pmdval) || pmd_devmap(pmdval))
+> +	if (pmd_trans_huge(pmdval))
+>  		walk->action = ACTION_CONTINUE;
+>  
+>  	return 0;
+> -- 
+> git-series 0.9.1
+> 
 
