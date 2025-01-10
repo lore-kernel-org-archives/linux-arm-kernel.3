@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56C62E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 13:55:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 284F5E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 13:56:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i95Hu7Hh9+L+yRS4YSCvP8MpAQsWD38sUVxRKHZxbEw=; b=TGvm4vzoQ+6UnZ6yAX9WWcYbU4
-	xNxv2dAQI1x09ZTLkTNLtkLsO0HD4fsOGWT0Z0XOReVhJ6E+P5SyoOZ8/hFbehWNN173ctC+nYxHz
-	rddnVKzjEmSm3tlSdxd/H0b/pAtUS5wIs4q8webx94MRHeguHd4V8E8Qc4ibikVY3JEfsiQGsugXy
-	0iOspobpolwKR5LxApxQeFJIq7wtNnU68U4DJEkUbAcIhjKddga1B5XfWQiFVLA5IjkSRNpa9RlGe
-	9LsrGtLlgCQRq4+6XF8FznYC0QXei0odhLtdgnE1NE5knPtKaTgdt61DPE63ySBPvoZwg2ANwrrXt
-	+aL0wqOg==;
+	bh=jEVCuEZV5Gr8pXT1qYg9b6tzkbYnHjzSBCglmFu48nc=; b=jPDVWn00tstel7us/NMB9QcCuo
+	oq8thaIgB9Gh8ohhva3C3E9ayYvKofYwgwOU6dmFvb1OHuozBqP3VG6meb5jOsC61nQfTwLyVCK/x
+	posm5MEptTMOCDuCjr67nMDTJ7vVcTN+fQ/ZYDwbkx0WwjrhMZvXBvO+nEoJvWCoAlmoU89PJwrKv
+	fiC0wVU+yKXYIWcPoYPgP48k1CIKajGivOvUzuCnQKvUGkj+Y0dlJi8UbyTs4D+HvXUpBIVLcJqLo
+	ZFdvIi77f32eZiE7x6VgfP4/NcWLj9vQyuc7OfADCSrcKbsE3mjE6MvOsG73WKBuz4/c47utlDoT+
+	S5nOyIfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWFTO-0000000FXc3-478g;
-	Fri, 10 Jan 2025 13:54:50 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tWFUb-0000000FXwc-38n6;
+	Fri, 10 Jan 2025 13:56:05 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWFS9-0000000FXOk-1fdK;
-	Fri, 10 Jan 2025 13:53:34 +0000
+	id 1tWFSm-0000000FXSZ-14M4;
+	Fri, 10 Jan 2025 13:54:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BC0ACA41F1A;
-	Fri, 10 Jan 2025 13:51:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1FE1C4CED6;
-	Fri, 10 Jan 2025 13:53:22 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 957C65C4333;
+	Fri, 10 Jan 2025 13:53:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 921FDC4CED6;
+	Fri, 10 Jan 2025 13:54:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736517211;
-	bh=0riks6cOaH09jocWG7yCJOIFBOexy2n5FPMx4nlkjLE=;
+	s=k20201202; t=1736517251;
+	bh=jEVCuEZV5Gr8pXT1qYg9b6tzkbYnHjzSBCglmFu48nc=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ZgHwmnCpsG+wlKwA7BiVSLSUQmmVPtr0WHYYHNolJhRpbZKLzOJdzA4IxudfAXvUX
-	 yZXWmjLrPMuzWkWzeecfvwvCqMa2921CIDdZvc1QUzn2iYa/qONmycv+SKJTjH+LyU
-	 oiTUVsOIKfr87cobD2FAOEE1CGRUNMyG47okfVc31hA4JAGYVkRiPeLWWdCoAIgjTf
-	 3VljjVP/WMfiohJzFLYoygBLLc6jVVlGIFCWohjYsGxNnz7QoGzYYYdNr6md2u0fTi
-	 KUOVnWnSEr7+CK8HSqijO5q7KkHq04ZMSqpqmoRic4+UUebotWq8Zp0BVqm2Ks8XwJ
-	 9vgs0nAQDijug==
-Message-ID: <39444068-0996-4699-b1f9-d34c911dbd6a@kernel.org>
-Date: Fri, 10 Jan 2025 14:53:20 +0100
+	b=TOvaP1heR4Ub7inpuLtgEwGwSQ9y1fkA0FVa+8VWiaH7mpstEm+NodxZX4p2rqV+8
+	 hVGLu+HrHOPv3Dw6I5QoH7fxzVP96CFx0ysGgCWCCz2VZ7iuQL6FNoIKeHDu+oWrN/
+	 vg4Fa8TFAEy0Yr1lWYQQLjxM7I8iiDwRUkABALDu6gUjmDLY89ORHTE1ouHE41wTrH
+	 RGABTcBwqjrxKihT1ugdZTHSO8iq9RlKCAxSnD/kxXTh4WogbecrMkdJ2H5070TN42
+	 GktNsn1wPo6V7DwW8Ek2n/CN5QraK8D7Z9da0orkvRJ9WKGuGp588JtQf+2Gy8Jive
+	 FOe3yARaYywmw==
+Message-ID: <f3712c29-47b0-42bc-9135-c35a24fafb35@kernel.org>
+Date: Fri, 10 Jan 2025 14:53:59 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 10/12] dt-bindings: phy: allwinner: add v853 usb phy
+Subject: Re: [PATCH 09/12] dt-bindings: power: add V853 ppu bindings
 To: Andras Szemzo <szemzo.andras@gmail.com>,
  Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
  <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -66,7 +66,7 @@ Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
  linux-phy@lists.infradead.org, linux-gpio@vger.kernel.org,
  linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org
 References: <20250110123923.270626-1-szemzo.andras@gmail.com>
- <20250110123923.270626-11-szemzo.andras@gmail.com>
+ <20250110123923.270626-10-szemzo.andras@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -112,12 +112,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250110123923.270626-11-szemzo.andras@gmail.com>
+In-Reply-To: <20250110123923.270626-10-szemzo.andras@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_055333_575983_B7F91B7A 
-X-CRM114-Status: GOOD (  10.16  )
+X-CRM114-CacheID: sfid-20250110_055412_389012_3394DB6C 
+X-CRM114-Status: UNSURE (   5.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,102 +134,11 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 10/01/2025 13:39, Andras Szemzo wrote:
-> +
-> +properties:
-> +  "#phy-cells":
-> +    const: 1
-> +
-> +  compatible:
-> +    const:
-> +	- allwinner,sun8i-v853-usb-phy
-
-Wrong indentation, never tested.
-
-Compatible is always the first property.
-
-> +
-> +  reg:
-> +    items:
-> +      - description: PHY Control registers
-> +      - description: PHY PMU0 registers
-> +
-> +  reg-names:
-> +    items:
-> +      - const: phy_ctrl
-> +      - const: pmu0
-> +
-> +  clocks:
-> +    maxItems: 1
-> +    description: USB OHCI PHY bus clock
-
-Redundant description really...
-
-> +
-> +  clock-names:
-> +    const: usb0_phy
-
-Drop clock-names, not really helpful.
+> The device-tree needs ppu indexes, add it.
 
 
-> +
-> +  resets:
-> +    maxItems: 1
-> +    description: USB OHCI reset
-> +
-> +  reset-names:
-> +    const: usb0_reset
+This belongs to the commit introducing binding. Squash it.
 
-Drop names, also not really helping.
-
-> +
-> +  usb0_id_det-gpios:
-
-There are no properties with underscores.
-
-I don't get why you are using "usb0" prefix. Document all pins, so
-"usb1" as well, assuming it exists.
-
-It anyway looks questionable - aren't these properties of connector?
-
-
-> +    maxItems: 1
-> +    description: GPIO to the USB OTG ID pin
-> +
-> +  usb0_vbus_det-gpios:
-> +    maxItems: 1
-> +    description: GPIO to the USB OTG VBUS detect pin
-> +
-> +  usb0_vbus_power-supply:
-> +    description: Power supply to detect the USB OTG VBUS
-> +
-> +  usb0_vbus-supply:
-> +    description: Regulator controlling USB OTG VBUS
-
-Regulator and power supply are here synonyms, so I don't understand
-these two properties.
-
-> +
-> +required:
-> +  - "#phy-cells"
-> +  - compatible
-> +  - clocks
-> +  - clock-names
-> +  - reg
-> +  - reg-names
-> +  - resets
-> +  - reset-names
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/gpio/gpio.h>
-> +    #include <dt-bindings/clock/sun8i-v853-ccu.h>
-> +    #include <dt-bindings/reset/sun8i-v853-ccu.h>
-> +
-> +    usbphy: phy@4100400 {
-> +        #phy-cells = <1>;
-Please follow DTS coding style.
 
 Best regards,
 Krzysztof
