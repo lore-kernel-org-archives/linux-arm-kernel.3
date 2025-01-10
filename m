@@ -4,108 +4,180 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B236E7719D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 06:02:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65F32E7719C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 06:03:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MrQ31d1bY/cKpDYWBrbItZRfGT2L+q8R8FcHhJHpDDk=; b=sVCFPM7cKZGu/TBP7EeqycLuLw
-	MvHXb2pPYnOHoN0LqQdcsSP+7C3pt/T6AsgHpLNgbdUx+JVOZR/r/KXwchXWu9uI+Foy4I3K0W0x+
-	7wyqAQAZEGOWQV40sXuBo7JlpdWw8vrLxvEk/lz/ROaWqhd7DgsMGAoMKuUuO/3MMxvTHR8k97eZi
-	4/sTZ9OLxYT3B7OniwZyBFaIRBembOJiauGDh/nOZ+tvduWIeZUYZrFFttrY3dp6mPzO+Ex3vg+z5
-	7r8XzYOKeYEmiSsj03q2zXxkPswvnrC6D/dpk9HexljY/E60NKT/ZYXhyH5smG9H0q0HpVx0ydll0
-	p7QSvMPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=O+ETWHCw+kESvn8e/BiAqQ/rHRY+W9sQ0yNvEdshxTY=; b=OHuMi5HOrsV9sh6WZx5t7B6jl7
+	TrEhCzovMlsxYJga83dNy/f6QNOAC643jX7NQwlCxamT7wyERi2+4GcxJilVKaFu9zAnTnPR0b+53
+	oAm6xZ/Sj1VBFX2OJvnrUpdkUHHBA3atBG0lXDV42wWyzq/f2H5r/0jHZgtdcGr9eAqoxDuYGR6gz
+	BSahyFhucpZUcveg/Hf6KSXF9gccf1kJRL1S5/nJDzRbxr0XnP4d+/QgKMhaSp1t+6i8xt76ST0mf
+	7BhDkuyUhEB9xxWytk3NSVH+NCsBIgyoZn2jE7jskQ+cU11fXv+DrtoxvFwdQy0vZkrFYhiXyo4Xj
+	0bLscg2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW866-0000000E8qw-0AaJ;
-	Fri, 10 Jan 2025 06:02:18 +0000
-Received: from server.wki.vra.mybluehostin.me ([162.240.238.73])
+	id 1tW87J-0000000E9fp-2ygE;
+	Fri, 10 Jan 2025 06:03:33 +0000
+Received: from mail-co1nam11on20608.outbound.protection.outlook.com ([2a01:111:f403:2416::608] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW84p-0000000E8BB-2y5h
+	id 1tW85C-0000000E8Ki-1kOJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 06:01:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=MrQ31d1bY/cKpDYWBrbItZRfGT2L+q8R8FcHhJHpDDk=; b=O0UO1UfWN6ncL0JcJMfMI6oIl0
-	ATZbYt1U/ACyZTV5Kcn5jChMEf5ibdUTknLyc7QV5Er/XZz7a+jYodh2gbs7NBR6mwgOSraowit0i
-	TM7gzSbFS6SXzQ4kPh8h9jfsymb9eRYh3c5MPVLe+KeI/8RTLP9WDtgvrdKVqLxNxJcF/dGjJoNm1
-	Sr6yJHdAwGjsGCIfexTHrxTcwwWyTdrteI2uJLNDO7tXRUgQ103TpG0F1AMdjQVLVNVVESNcIHGF7
-	UAp61Imx8HeQQ6BFug7QFw1uS9atiid2P5gZHAa8FqYNiZWnF8OU1O5R8RIVgLlV6vVhU3Fd5MoBG
-	6mEXY+hw==;
-Received: from [122.175.9.182] (port=1293 helo=cypher.couthit.local)
-	by server.wki.vra.mybluehostin.me with esmtpa (Exim 4.96.2)
-	(envelope-from <basharath@couthit.com>)
-	id 1tW844-0001E8-1q;
-	Fri, 10 Jan 2025 11:30:12 +0530
-From: Basharath Hussain Khaja <basharath@couthit.com>
-To: danishanwar@ti.com,
-	rogerq@kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	nm@ti.com,
-	ssantosh@kernel.org,
-	tony@atomide.com,
-	richardcochran@gmail.com,
-	parvathi@couthit.com,
-	basharath@couthit.com,
-	schnelle@linux.ibm.com,
-	rdunlap@infradead.org,
-	diogo.ivo@siemens.com,
-	m-karicheri2@ti.com,
-	horms@kernel.org,
-	jacob.e.keller@intel.com,
-	m-malladi@ti.com,
-	javier.carrasco.cruz@gmail.com,
-	afd@ti.com,
-	s-anna@ti.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	Fri, 10 Jan 2025 06:01:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UdRqWGWwrvs8cnCPShh3PCHVIYgPCYqkJi72C8OfAyQJ5gyAR6zFOn3csg/1tylUv4ZIDnvTTPZWh2xH+BgNIC35FngUOgUHXJtbprYtzGLtmxCrLqlkiyeHvzs+E89PVUwWQdCkIZcLlN229nzDRQzVUB+MIhlYGQj37sphZ/ldUuPlOmtya7kPelK34hb9a+fX9w5fjaIXHX5/czqp+OiWY+HwtTgvxm5cQLgTErazPEmzduD2YXyhM+nYmT1fT06hgwBPaZ/XKDvzM70LhXpEkyIzluREFluo1UkgPii2AAQIpgXE6LBN6MZ9QEWJYDd55ojZRQTuOfusBFC0UQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=O+ETWHCw+kESvn8e/BiAqQ/rHRY+W9sQ0yNvEdshxTY=;
+ b=Ta30VdLBH5b4KskN6BV4h3R+c4d4uH7U6l6JZz/9k2eMZ8fVQNtYkA0JGf9a9A5OqH4ES3PdAyPn4iJRR+9nD0TqENJyEfMow4TNKgZvJyZ27VlU3o/FAh2lC77P0Bdct40zVp59JADRamyy59TLQBEMDmEpZFszOaAI0qbdq+G3BVe50izLYN0EFYsnIm9DQRPELwwxUo+Ohu1oVnCpWvtkPlpApDxGd4HO3K53nZDvr849YWo0j7zZJZo7uSDSin4ZRPK22j7zCX/YQ3EIHvWLAPQj1ltd0a7Zqarzlmsjvu15d1DLNjByiJZEdt/3LjdbmTw04+7DBb1rmxcAiA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=O+ETWHCw+kESvn8e/BiAqQ/rHRY+W9sQ0yNvEdshxTY=;
+ b=N431crZqsg6jiaAQiMqLe5LXSQBl18/kVEcyVKNBG0kqrW02gBrCuNFHCL3Yu1cncEhLklFvIfFrJDjNNq7hkhqNnAQo1gTl6lWZthhceGWjz9EFL60Td+qig2VHuEksYo3uFrY3jZUiVQdl80WIX1UItJ+S6w6j+bsp3+/2uw4hGwITJkYS1xCoxo71HsY/FY+ZGgfvEOXpaUssJVZF4gp8wJp5imdqdiav6T5Vt3Ffs9NBZSlsXo19Vs57Jnjesz7njjoBW8yyYkYvNkifsxPx37OnzgsVhykZTyUYW2nf3LXTaGmhHTP2hPBWe92EPrpvWrvLrv0kQZzoBJ6Wvg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS0PR12MB7726.namprd12.prod.outlook.com (2603:10b6:8:130::6) by
+ BY5PR12MB4132.namprd12.prod.outlook.com (2603:10b6:a03:209::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.10; Fri, 10 Jan
+ 2025 06:01:18 +0000
+Received: from DS0PR12MB7726.namprd12.prod.outlook.com
+ ([fe80::953f:2f80:90c5:67fe]) by DS0PR12MB7726.namprd12.prod.outlook.com
+ ([fe80::953f:2f80:90c5:67fe%7]) with mapi id 15.20.8335.011; Fri, 10 Jan 2025
+ 06:01:18 +0000
+From: Alistair Popple <apopple@nvidia.com>
+To: akpm@linux-foundation.org,
+	dan.j.williams@intel.com,
+	linux-mm@kvack.org
+Cc: alison.schofield@intel.com,
+	Alistair Popple <apopple@nvidia.com>,
+	lina@asahilina.net,
+	zhang.lyra@gmail.com,
+	gerald.schaefer@linux.ibm.com,
+	vishal.l.verma@intel.com,
+	dave.jiang@intel.com,
+	logang@deltatee.com,
+	bhelgaas@google.com,
+	jack@suse.cz,
+	jgg@ziepe.ca,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	mpe@ellerman.id.au,
+	npiggin@gmail.com,
+	dave.hansen@linux.intel.com,
+	ira.weiny@intel.com,
+	willy@infradead.org,
+	djwong@kernel.org,
+	tytso@mit.edu,
+	linmiaohe@huawei.com,
+	david@redhat.com,
+	peterx@redhat.com,
+	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-omap@vger.kernel.org,
-	pratheesh@ti.com,
-	prajith@ti.com,
-	vigneshr@ti.com,
-	praneeth@ti.com,
-	srk@ti.com,
-	rogerq@ti.com,
-	krishna@couthit.com,
-	pmohan@couthit.com,
-	mohan@couthit.com
-Subject: [RFC PATCH 05/10] net: ti: prueth: Adds ethtool support for ICSSM PRUETH Driver
-Date: Fri, 10 Jan 2025 11:29:01 +0530
-Message-Id: <20250110055906.65086-6-basharath@couthit.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250109105600.41297-1-basharath@couthit.com>
-References: <20250109105600.41297-1-basharath@couthit.com>
-MIME-Version: 1.0
+	linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org,
+	nvdimm@lists.linux.dev,
+	linux-cxl@vger.kernel.org,
+	linux-fsdevel@vger.kernel.org,
+	linux-ext4@vger.kernel.org,
+	linux-xfs@vger.kernel.org,
+	jhubbard@nvidia.com,
+	hch@lst.de,
+	david@fromorbit.com,
+	chenhuacai@kernel.org,
+	kernel@xen0n.name,
+	loongarch@lists.linux.dev
+Subject: [PATCH v6 00/26] fs/dax: Fix ZONE_DEVICE page reference counts
+Date: Fri, 10 Jan 2025 17:00:28 +1100
+Message-ID: <cover.11189864684e31260d1408779fac9db80122047b.1736488799.git-series.apopple@nvidia.com>
+X-Mailer: git-send-email 2.45.2
 Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.wki.vra.mybluehostin.me
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.wki.vra.mybluehostin.me: authenticated_id: basharath@couthit.com
-X-Authenticated-Sender: server.wki.vra.mybluehostin.me: basharath@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Content-Type: text/plain
+X-ClientProxiedBy: SY2PR01CA0023.ausprd01.prod.outlook.com
+ (2603:10c6:1:14::35) To DS0PR12MB7726.namprd12.prod.outlook.com
+ (2603:10b6:8:130::6)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB7726:EE_|BY5PR12MB4132:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4ace6797-add2-4fc4-e082-08dd313c32f0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?CBLVPcOYaYEJYbkSQ3VUQvJrJ9fKa8kjwxNV1uTtYlVNzP9gktOtNkN2H8ts?=
+ =?us-ascii?Q?imUjkql6eKDdMXMEhwQracQRgsoN/ShOMP8g3FZ3otx0PyS/m3SR/tgOxDKh?=
+ =?us-ascii?Q?v6ZaQ0YLXjoom8FaTlxqGl1rusZ701CnEKPwueK0CCrC6uSwSWFT87/miP9R?=
+ =?us-ascii?Q?zKGdG+fY8FXhsLqQNgHwX8iNdwk2vpADhjhIhrcUEh/wZZHUmINJt5JODmgP?=
+ =?us-ascii?Q?CDrDNuY1l7+oArLqndDanJ9+xDZpl8tN1zXmVDRbGRnXsmwR36g6oLZKqFwa?=
+ =?us-ascii?Q?QdaaOfksBhAeiWDj3gmjktKQlH+j4CjkcCqUUv//UEsAA3OqwUgoTTniNNF6?=
+ =?us-ascii?Q?ixr5aBCubxLYkXknx+cItoeCNQl0u0Jmy7p5p9puf2dmr/PJ8HVtlWlc5WmB?=
+ =?us-ascii?Q?AfEWRXgQ9Z/QmCXqhzY5X4UwG2hOvw8bJEJr/06r0L1JurFp02okvnzUJiZj?=
+ =?us-ascii?Q?MQbwKC9kvMK4zBETKfNNxQmtz87Wzi0eb0wjLHlygy4D9mi04pb8mDE/RDlX?=
+ =?us-ascii?Q?DUorsKR5XVkU3Zjr5XOz4ymsf5OIRQo0xeRWbNYGj/z9S8m7QGBPebGtrYJ5?=
+ =?us-ascii?Q?WoIk5fchzhpYP1j5J6cdo05HhvKcDSj3hKqV1lZQJvEPNmGz8KP+x8YjZod7?=
+ =?us-ascii?Q?iDx7nWXk+8k6wSdg1DAn0P7rolU6yiJug94SSsM+ITMukkKuNPAO8dY0bRjb?=
+ =?us-ascii?Q?VZXLpY5dkFRJofOEbqFyp669Oo9SJk6/JEF++F207joJA2Vt57tkV2WirFY9?=
+ =?us-ascii?Q?cV8sV6fpQeYnyIoxLYt+DLHw3Fkun2NZCJ6KN9Ith2Aty+vl1FeQUod+x3t3?=
+ =?us-ascii?Q?MGHv+9l9fnsHN6WIsUMu79OY/D+IIGako64ExC7F9WIrUwvoarg2dEHP+o0E?=
+ =?us-ascii?Q?PVxYpp2nyTDi4DRTsQWoEMrwHkJhIrdNCXV3fMDnlSQxANc9Ou9oJCjo3SCQ?=
+ =?us-ascii?Q?cgATuVsmtUftcyRx/iRsL8maODL67MolObJ7M2NI6BW0smjTh6szxZe9RDik?=
+ =?us-ascii?Q?DHnsD8592vfp0lDSCWQZg4BakyQX/RFg6b8TVOuhD5EUK+0ZA8by1SKN8h5d?=
+ =?us-ascii?Q?tA/jEnumKJ5c5PkqxbnrpsfdzB82EMKa5vVqPeRwwysq5uj25+gc9MJvsrSp?=
+ =?us-ascii?Q?KwqJfDbpv4FNi1+CjSyWCOWv4V/N6til+VzIE3+6YA+rfu/qlQ52gQG/yPkh?=
+ =?us-ascii?Q?FGzIxfSDbO2rJucIC3qoW+q1EsyzI6L9NEhNuUld7laP7VDt0SIXx+fFH+pq?=
+ =?us-ascii?Q?OGhNinNyxt2LMS0MmAOgiN8vv7qUiUwruEiQw4LNhwmH1f+kKzUqF2LkP2PP?=
+ =?us-ascii?Q?x47rcqzvSbtaAgQYnStEifmNfdFDYeJJUA84FfwOA7jYsDdahJi+nF/WFvJn?=
+ =?us-ascii?Q?vgQkuNpg/l31SPTHRZJWccyq1kDt?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB7726.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?mzhGNZPsBssJ33djBOUuaZE5rcN4fffcLxJj+73YFogJ+/mnRZZRo1AKAZ0u?=
+ =?us-ascii?Q?sIzz+CO+74OTqdjWEQh6/Y0pCi8V3WYn4Xnvl77MmBDIuzaUawAKFzG0u1Qg?=
+ =?us-ascii?Q?aBb7NIQC5JkUsXBKW/K5/7Uw28LWVYnidAJ/ot0WqRnPpHa3AztrXq/hgI1n?=
+ =?us-ascii?Q?aqWHhCiiFSj0LEvSbiCdhNngrzdRhxtd+w3mCtdILYLrOlCC5BRGS9YZyhuH?=
+ =?us-ascii?Q?5fbSxLYlo1MOrbsCk8djpYjEU9qZB2CkB5xqDUsJkzxl/ZWyUVoVh0QTzGH2?=
+ =?us-ascii?Q?TEs+Edewie9rDL9OJZzjmBTbwzBLMsTOZtOuI6rEuIw09N8pvXBeMqJ/WYFi?=
+ =?us-ascii?Q?X+1oumlvhBXp8vqgPGu6JLTmxzKq+6DAy/Z4zx7tXnnU27dibpTxziPml9io?=
+ =?us-ascii?Q?dRZUSB0x35Ih9fm4uVFqgonKkjLfsMwvs6WZSfUlFITSjlvaOxBHLXax2gxM?=
+ =?us-ascii?Q?HBmQKb2y/yqGAgCIbi3DDgFD87J2WVWYG4aIo3tSYTtjC8sP2ZZMS0Q1QVwT?=
+ =?us-ascii?Q?ZmcBVFgpZU3ESIIKGWnhe61SbVONSkGM3PsXnUmT1sQrMOcrrxlhO32D/cOo?=
+ =?us-ascii?Q?O/9kSEtcXM0NL7Z3Q/0AXbjHJkumWg5PWfGXNvB/zgK8wjAaM3n3eUDq6Xwg?=
+ =?us-ascii?Q?rn1POGGx4bAsVI6ROEwXrbRcw4NXpNL5LE4tfDqVOJaGRFtBm9k9uitgHa5p?=
+ =?us-ascii?Q?8cwwK1UtdBxbyeG6KangMm3b4weRnwsu4Gc/p0rISR20WxGaqbgkO536x7F1?=
+ =?us-ascii?Q?KslM7egv/8nwXg9YUf1Mz8ozktuFMUErmGSd0Yub0o7XpG4UVf0hHufUole9?=
+ =?us-ascii?Q?NOWR0QZ1lC/1QKlgLVsTWBR+Y0p1++97oiEXzO3/8eL3o3s+ECYYmJBrUo2r?=
+ =?us-ascii?Q?bLUSeqDZZd/We1fs+vS3yZQppSxlS+jUsKNmPLgPlSTjlr3PlNJYUO2zbFl2?=
+ =?us-ascii?Q?Qn+c2BCjb4AP5jCn2njuBM4qM9XPFMH+QQCrCxrVk5pAu0S3HsbyW/gvDILO?=
+ =?us-ascii?Q?p6zVA6MCZAMy8epLxGwKAYvXNmUVSZarNFOxukpIqeklZMGnlSCsIcNIeViq?=
+ =?us-ascii?Q?5OrZG6FJ1Lshi1q8ANcUhaJelsZBcs6wPq2EkvxYbnxGftnUaYcZNt5uMzVq?=
+ =?us-ascii?Q?Bw7XK3tMdLjmcKjyQrTo4MaA6aejSHzXNC6SP6TYWvmaa/MQygH2X97xWeOx?=
+ =?us-ascii?Q?HqkXCNS9EksTkdtyAD7n1bTMBefThRnt3MCESIy2GxUJxObLNPdcvRTcGXoL?=
+ =?us-ascii?Q?IJmPV66EWkoDPBNknOoUWxQFTpkqhDmO510LDR662Dpj4nSzL8V61dy5R69a?=
+ =?us-ascii?Q?qE3dUiFeiIv576Uaa9IcVNyoVUWuSIMxkHB0ZEN4hayGd9G580BnEofsr/bL?=
+ =?us-ascii?Q?GP/xZQVgOyO5EHzy6dMWz50J2qDv5u3zFut8CM4HLKlb3eEATxIXobdpvAKl?=
+ =?us-ascii?Q?AvN7J4M+OHEYMn5jMphBwejij2z5YVDhs7pXsL8Vkat0e9Fo4vcedBwUppz4?=
+ =?us-ascii?Q?lzEFXAH8IPlFJrlAKhEfsv+M5zRXI/oR5kTL4sS1bvoJMlP5FbWAn+oU3eRY?=
+ =?us-ascii?Q?+Uc7lQHxyJc1j56FCdOGpC7PEWY5avLMDpWl73Cw?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4ace6797-add2-4fc4-e082-08dd313c32f0
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB7726.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jan 2025 06:01:18.0876
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: BYS11yP6/10kv6WUcPTb1COot2sZGnOIrJplwswS9h0J58vCizjgazUak9mxBbjfbIyb/y/O5tLYClx+JTKqxw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4132
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_220059_790223_7BEF9318 
-X-CRM114-Status: GOOD (  20.17  )
+X-CRM114-CacheID: sfid-20250109_220122_514720_4401E411 
+X-CRM114-Status: GOOD (  19.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,483 +192,234 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Roger Quadros <rogerq@ti.com>
+Main updates since v5:
 
-Changes for enabling ethtool support for the newly added PRU Ethernet
-interfaces. Extends the support for statistics collection from PRU internal
-memory and displays it in the user space. Along with statistics,
-enable/disable of features, configuring link speed etc.are now supported.
+ - Reworked patch 1 based on Dan's feedback.
 
-The firmware running on PRU maintains statistics in internal data memory.
-When requested ethtool collects all the statistics for the specified
-interface and displays it in the user space.
+ - Fixed build issues on PPC and when CONFIG_PGTABLE_HAS_HUGE_LEAVES
+   is no defined.
 
-Makefile is updated to include ethtool support into PRUETH driver.
+ - Minor comment formatting and documentation fixes.
 
-Signed-off-by: Roger Quadros <rogerq@ti.com>
-Signed-off-by: Andrew F. Davis <afd@ti.com>
-Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
-Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
+ - Remove PTE_DEVMAP definitions from Loongarch which were added since
+   this series was initially written.
+
+Main updates since v4:
+
+ - Removed most of the devdax/fsdax checks in fs/proc/task_mmu.c. This
+   means smaps/pagemap may contain DAX pages.
+
+ - Fixed rmap accounting of PUD mapped pages.
+
+ - Minor code clean-ups.
+
+Main updates since v3:
+
+ - Rebased onto next-20241216. The rebase wasn't too difficult, but in
+   the interests of getting this out sooner for Andrew to look at as
+   requested by him I have yet to extensively build/run test this
+   version of the series.
+
+ - Fixed a bunch of build breakages reported by John Hubbard and the
+   kernel test robot due to various combinations of CONFIG options.
+
+ - Split the rmap changes into a separate patch as suggested by David H.
+
+ - Reworded the description for the P2PDMA change.
+
+Main updates since v2:
+
+ - Rename the DAX specific dax_insert_XXX functions to vmf_insert_XXX
+   and have them pass the vmf struct.
+
+ - Separate out the device DAX changes.
+
+ - Restore the page share mapping counting and associated warnings.
+
+ - Rework truncate to require file-systems to have previously called
+   dax_break_layout() to remove the address space mapping for a
+   page. This found several bugs which are fixed by the first half of
+   the series. The motivation for this was initially to allow the FS
+   DAX page-cache mappings to hold a reference on the page.
+
+   However that turned out to be a dead-end (see the comments on patch
+   21), but it found several bugs and I think overall it is an
+   improvement so I have left it here.
+
+Device and FS DAX pages have always maintained their own page
+reference counts without following the normal rules for page reference
+counting. In particular pages are considered free when the refcount
+hits one rather than zero and refcounts are not added when mapping the
+page.
+
+Tracking this requires special PTE bits (PTE_DEVMAP) and a secondary
+mechanism for allowing GUP to hold references on the page (see
+get_dev_pagemap). However there doesn't seem to be any reason why FS
+DAX pages need their own reference counting scheme.
+
+By treating the refcounts on these pages the same way as normal pages
+we can remove a lot of special checks. In particular pXd_trans_huge()
+becomes the same as pXd_leaf(), although I haven't made that change
+here. It also frees up a valuable SW define PTE bit on architectures
+that have devmap PTE bits defined.
+
+It also almost certainly allows further clean-up of the devmap managed
+functions, but I have left that as a future improvment. It also
+enables support for compound ZONE_DEVICE pages which is one of my
+primary motivators for doing this work.
+
+Signed-off-by: Alistair Popple <apopple@nvidia.com>
+Tested-by: Alison Schofield <alison.schofield@intel.com>
+
 ---
- drivers/net/ethernet/ti/Makefile              |   2 +-
- drivers/net/ethernet/ti/icssm/icssm_ethtool.c | 203 ++++++++++++++++++
- drivers/net/ethernet/ti/icssm/icssm_prueth.c  |  31 +++
- drivers/net/ethernet/ti/icssm/icssm_prueth.h  | 127 +++++++++++
- 4 files changed, 362 insertions(+), 1 deletion(-)
- create mode 100644 drivers/net/ethernet/ti/icssm/icssm_ethtool.c
 
-diff --git a/drivers/net/ethernet/ti/Makefile b/drivers/net/ethernet/ti/Makefile
-index 93c0a4d0e33a..f21dd11118ab 100644
---- a/drivers/net/ethernet/ti/Makefile
-+++ b/drivers/net/ethernet/ti/Makefile
-@@ -4,7 +4,7 @@
- #
- 
- obj-$(CONFIG_TI_PRUETH) += icssm-prueth.o
--icssm-prueth-y := icssm/icssm_prueth.o
-+icssm-prueth-y := icssm/icssm_prueth.o icssm/icssm_ethtool.o
- 
- obj-$(CONFIG_TI_CPSW) += cpsw-common.o
- obj-$(CONFIG_TI_DAVINCI_EMAC) += cpsw-common.o
-diff --git a/drivers/net/ethernet/ti/icssm/icssm_ethtool.c b/drivers/net/ethernet/ti/icssm/icssm_ethtool.c
-new file mode 100644
-index 000000000000..cce3276d5565
---- /dev/null
-+++ b/drivers/net/ethernet/ti/icssm/icssm_ethtool.c
-@@ -0,0 +1,203 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/* Texas Instruments ICSSM Ethernet Driver
-+ *
-+ * Copyright (C) 2018-2022 Texas Instruments Incorporated - https://www.ti.com/
-+ *
-+ */
-+
-+#include <linux/if_bridge.h>
-+#include "icssm_prueth.h"
-+
-+#define PRUETH_MODULE_VERSION "0.2"
-+#define PRUETH_MODULE_DESCRIPTION "PRUSS Ethernet driver"
-+
-+/* set PRU firmware statistics */
-+void icssm_emac_set_stats(struct prueth_emac *emac,
-+			  struct port_statistics *pstats)
-+{
-+	void __iomem *dram;
-+
-+	dram = emac->prueth->mem[emac->dram].va;
-+	memcpy_toio(dram + STATISTICS_OFFSET, pstats, STAT_SIZE);
-+}
-+
-+/* get statistics maintained by the PRU firmware into @pstats */
-+void icssm_emac_get_stats(struct prueth_emac *emac,
-+			  struct port_statistics *pstats)
-+{
-+	void __iomem *dram;
-+
-+	dram = emac->prueth->mem[emac->dram].va;
-+	memcpy_fromio(pstats, dram + STATISTICS_OFFSET, STAT_SIZE);
-+}
-+
-+/**
-+ * icssm_emac_get_drvinfo - Get EMAC driver information
-+ * @ndev: The network adapter
-+ * @info: ethtool info structure containing name and version
-+ *
-+ * Returns EMAC driver information (name and version)
-+ */
-+static void icssm_emac_get_drvinfo(struct net_device *ndev,
-+				   struct ethtool_drvinfo *info)
-+{
-+	strscpy(info->driver, PRUETH_MODULE_DESCRIPTION, sizeof(info->driver));
-+	strscpy(info->version, PRUETH_MODULE_VERSION, sizeof(info->version));
-+}
-+
-+/**
-+ * icssm_emac_get_link_ksettings - Get EMAC settings
-+ * @ndev: The network adapter
-+ * @ecmd: ethtool command
-+ *
-+ * Executes ethool get command
-+ *
-+ * Return: 0 (Success)
-+ */
-+static int icssm_emac_get_link_ksettings(struct net_device *ndev,
-+					 struct ethtool_link_ksettings *ecmd)
-+{
-+	return phy_ethtool_get_link_ksettings(ndev, ecmd);
-+}
-+
-+/**
-+ * icssm_emac_set_link_ksettings - Set EMAC settings
-+ * @ndev: The EMAC network adapter
-+ * @ecmd: ethtool command
-+ *
-+ * Executes ethool set command
-+ *
-+ * Return: 0 (Success)
-+ */
-+static int
-+icssm_emac_set_link_ksettings(struct net_device *ndev,
-+			      const struct ethtool_link_ksettings *ecmd)
-+{
-+	return phy_ethtool_set_link_ksettings(ndev, ecmd);
-+}
-+
-+#define PRUETH_STAT_OFFSET(m) offsetof(struct port_statistics, m)
-+
-+static const struct {
-+	char string[ETH_GSTRING_LEN];
-+	u32 offset;
-+} prueth_ethtool_stats[] = {
-+	{"txBcast", PRUETH_STAT_OFFSET(tx_bcast)},
-+	{"txMcast", PRUETH_STAT_OFFSET(tx_mcast)},
-+	{"txUcast", PRUETH_STAT_OFFSET(tx_ucast)},
-+	{"txOctets", PRUETH_STAT_OFFSET(tx_octets)},
-+	{"rxBcast", PRUETH_STAT_OFFSET(rx_bcast)},
-+	{"rxMcast", PRUETH_STAT_OFFSET(rx_mcast)},
-+	{"rxUcast", PRUETH_STAT_OFFSET(rx_ucast)},
-+	{"rxOctets", PRUETH_STAT_OFFSET(rx_octets)},
-+
-+	{"tx64byte", PRUETH_STAT_OFFSET(tx64byte)},
-+	{"tx65_127byte", PRUETH_STAT_OFFSET(tx65_127byte)},
-+	{"tx128_255byte", PRUETH_STAT_OFFSET(tx128_255byte)},
-+	{"tx256_511byte", PRUETH_STAT_OFFSET(tx256_511byte)},
-+	{"tx512_1023byte", PRUETH_STAT_OFFSET(tx512_1023byte)},
-+	{"tx1024byte", PRUETH_STAT_OFFSET(tx1024byte)},
-+	{"rx64byte", PRUETH_STAT_OFFSET(rx64byte)},
-+	{"rx65_127byte", PRUETH_STAT_OFFSET(rx65_127byte)},
-+	{"rx128_255byte", PRUETH_STAT_OFFSET(rx128_255byte)},
-+	{"rx256_511byte", PRUETH_STAT_OFFSET(rx256_511byte)},
-+	{"rx512_1023byte", PRUETH_STAT_OFFSET(rx512_1023byte)},
-+	{"rx1024byte", PRUETH_STAT_OFFSET(rx1024byte)},
-+
-+	{"lateColl", PRUETH_STAT_OFFSET(late_coll)},
-+	{"singleColl", PRUETH_STAT_OFFSET(single_coll)},
-+	{"multiColl", PRUETH_STAT_OFFSET(multi_coll)},
-+	{"excessColl", PRUETH_STAT_OFFSET(excess_coll)},
-+
-+	{"rxMisAlignmentFrames", PRUETH_STAT_OFFSET(rx_misalignment_frames)},
-+	{"stormPrevCounterBC", PRUETH_STAT_OFFSET(stormprev_counter_bc)},
-+	{"stormPrevCounterMC", PRUETH_STAT_OFFSET(stormprev_counter_mc)},
-+	{"stormPrevCounterUC", PRUETH_STAT_OFFSET(stormprev_counter_uc)},
-+	{"macRxError", PRUETH_STAT_OFFSET(mac_rxerror)},
-+	{"SFDError", PRUETH_STAT_OFFSET(sfd_error)},
-+	{"defTx", PRUETH_STAT_OFFSET(def_tx)},
-+	{"macTxError", PRUETH_STAT_OFFSET(mac_txerror)},
-+	{"rxOverSizedFrames", PRUETH_STAT_OFFSET(rx_oversized_frames)},
-+	{"rxUnderSizedFrames", PRUETH_STAT_OFFSET(rx_undersized_frames)},
-+	{"rxCRCFrames", PRUETH_STAT_OFFSET(rx_crc_frames)},
-+	{"droppedPackets", PRUETH_STAT_OFFSET(dropped_packets)},
-+
-+	{"txHWQOverFlow", PRUETH_STAT_OFFSET(tx_hwq_overflow)},
-+	{"txHWQUnderFlow", PRUETH_STAT_OFFSET(tx_hwq_underflow)},
-+	{"vlanDropped", PRUETH_STAT_OFFSET(vlan_dropped)},
-+	{"multicastDropped", PRUETH_STAT_OFFSET(multicast_dropped)},
-+};
-+
-+static int icssm_emac_get_sset_count(struct net_device *ndev, int stringset)
-+{
-+	int a_size;
-+
-+	switch (stringset) {
-+	case ETH_SS_STATS:
-+		a_size = ARRAY_SIZE(prueth_ethtool_stats);
-+
-+		return a_size;
-+	default:
-+		return -EOPNOTSUPP;
-+	}
-+}
-+
-+static void icssm_emac_get_strings(struct net_device *ndev, u32 stringset,
-+				   u8 *data)
-+{
-+	u8 *p = data;
-+	int i;
-+
-+	switch (stringset) {
-+	case ETH_SS_STATS:
-+		for (i = 0; i < ARRAY_SIZE(prueth_ethtool_stats); i++) {
-+			memcpy(p, prueth_ethtool_stats[i].string,
-+			       ETH_GSTRING_LEN);
-+			p += ETH_GSTRING_LEN;
-+		}
-+		break;
-+	default:
-+		break;
-+	}
-+}
-+
-+static void icssm_emac_get_ethtool_stats(struct net_device *ndev,
-+					 struct ethtool_stats *stats, u64 *data)
-+{
-+	struct prueth_emac *emac = netdev_priv(ndev);
-+	struct port_statistics pstats;
-+	void *ptr;
-+	u32 val;
-+	int i;
-+
-+	icssm_emac_get_stats(emac, &pstats);
-+
-+	for (i = 0; i < ARRAY_SIZE(prueth_ethtool_stats); i++) {
-+		ptr = &pstats;
-+		ptr += prueth_ethtool_stats[i].offset;
-+		val = *(u32 *)ptr;
-+		data[i] = val;
-+	}
-+}
-+
-+static void icssm_emac_get_regs(struct net_device *ndev,
-+				struct ethtool_regs *regs, void *p)
-+{
-+	struct prueth_emac *emac = netdev_priv(ndev);
-+	struct prueth *prueth = emac->prueth;
-+
-+	regs->version = PRUETH_REG_DUMP_GET_VER(prueth);
-+}
-+
-+/* Ethtool support for EMAC adapter */
-+const struct ethtool_ops emac_ethtool_ops = {
-+	.get_drvinfo = icssm_emac_get_drvinfo,
-+	.get_link_ksettings = icssm_emac_get_link_ksettings,
-+	.set_link_ksettings = icssm_emac_set_link_ksettings,
-+	.get_link = ethtool_op_get_link,
-+	.get_sset_count = icssm_emac_get_sset_count,
-+	.get_strings = icssm_emac_get_strings,
-+	.get_ethtool_stats = icssm_emac_get_ethtool_stats,
-+	.get_regs = icssm_emac_get_regs,
-+};
-+EXPORT_SYMBOL_GPL(emac_ethtool_ops);
-diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-index 3112135e0641..d65676202e7c 100644
---- a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-+++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-@@ -879,6 +879,8 @@ static int icssm_emac_ndo_open(struct net_device *ndev)
- 
- 	icssm_prueth_emac_config(emac);
- 
-+	icssm_emac_set_stats(emac, &emac->stats);
-+
- 	ret = icssm_emac_set_boot_pru(emac, ndev);
- 	if (ret)
- 		netdev_err(ndev, "failed to boot PRU: %d\n", ret);
-@@ -930,6 +932,8 @@ static int icssm_emac_ndo_stop(struct net_device *ndev)
- 	/* stop the PRU */
- 	rproc_shutdown(emac->pru);
- 
-+	icssm_emac_get_stats(emac, &emac->stats);
-+
- 	/* free rx and tx interrupts */
- 	if (emac->tx_irq > 0)
- 		free_irq(emac->tx_irq, ndev);
-@@ -1035,10 +1039,36 @@ static int icssm_emac_ndo_start_xmit(struct sk_buff *skb,
- 	return ret;
- }
- 
-+/**
-+ * icssm_emac_ndo_get_stats - EMAC get statistics function
-+ * @ndev: The EMAC network adapter
-+ *
-+ * Called when system wants to get statistics from the device.
-+ *
-+ * We return the statistics in net_device_stats structure pulled from emac
-+ *
-+ * Return: stats
-+ */
-+static struct net_device_stats
-+*icssm_emac_ndo_get_stats(struct net_device *ndev)
-+{
-+	struct net_device_stats *stats = &ndev->stats;
-+	struct prueth_emac *emac = netdev_priv(ndev);
-+	struct port_statistics pstats;
-+
-+	icssm_emac_get_stats(emac, &pstats);
-+	stats->collisions = pstats.late_coll + pstats.single_coll +
-+			    pstats.multi_coll + pstats.excess_coll;
-+	stats->multicast = pstats.rx_mcast;
-+
-+	return stats;
-+}
-+
- static const struct net_device_ops emac_netdev_ops = {
- 	.ndo_open = icssm_emac_ndo_open,
- 	.ndo_stop = icssm_emac_ndo_stop,
- 	.ndo_start_xmit = icssm_emac_ndo_start_xmit,
-+	.ndo_get_stats = icssm_emac_ndo_get_stats,
- };
- 
- /* get emac_port corresponding to eth_node name */
-@@ -1190,6 +1220,7 @@ static int icssm_prueth_netdev_init(struct prueth *prueth,
- 	phy_remove_link_mode(emac->phydev, ETHTOOL_LINK_MODE_Asym_Pause_BIT);
- 
- 	ndev->netdev_ops = &emac_netdev_ops;
-+	ndev->ethtool_ops = &emac_ethtool_ops;
- 
- 	return 0;
- free:
-diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.h b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
-index a818c0e49155..3af5b5d87702 100644
---- a/drivers/net/ethernet/ti/icssm/icssm_prueth.h
-+++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
-@@ -23,6 +23,12 @@
-  */
- #define EMAC_MAX_FRM_SUPPORT (ETH_HLEN + VLAN_HLEN + ETH_DATA_LEN + 6)
- 
-+#define PRUETH_REG_DUMP_VER		1
-+
-+/* Encoding: 32-16: Reserved, 16-8: Reg dump version, 8-0: Ethertype  */
-+#define PRUETH_REG_DUMP_GET_VER(x)	((PRUETH_REG_DUMP_VER << 8) | \
-+					 ((x)->eth_type))
-+
- /* PRU Ethernet Type - Ethernet functionality (protocol
-  * implemented) provided by the PRU firmware being loaded.
-  */
-@@ -104,6 +110,119 @@ struct prueth_packet_info {
- 	bool timestamp;
- };
- 
-+/**
-+ * struct port_statistics - Statistics structure for capturing statistics
-+ *			    on PRUs
-+ * @tx_bcast: Number of broadcast packets sent
-+ * @tx_mcast:Number of multicast packets sent
-+ * @tx_ucast:Number of unicast packets sent
-+ *
-+ * @tx_octets:Number of undersized frames rcvd
-+ *
-+ * @rx_bcast:Number of broadcast packets rcvd
-+ * @rx_mcast:Number of multicast packets rcvd
-+ * @rx_ucast:Number of unicast packets rcvd
-+ *
-+ * @rx_octets:Number of Rx packets
-+ *
-+ * @tx64byte:Number of 64 byte packets sent
-+ * @tx65_127byte:Number of 65-127 byte packets sent
-+ * @tx128_255byte:Number of 128-255 byte packets sent
-+ * @tx256_511byte:Number of 256-511 byte packets sent
-+ * @tx512_1023byte:Number of 512-1023 byte packets sent
-+ * @tx1024byte:Number of 1024 and larger size packets sent
-+ *
-+ * @rx64byte:Number of 64 byte packets rcvd
-+ * @rx65_127byte:Number of 65-127 byte packets rcvd
-+ * @rx128_255byte:Number of 128-255 byte packets rcvd
-+ * @rx256_511byte:Number of 256-511 byte packets rcvd
-+ * @rx512_1023byte:Number of 512-1023 byte packets rcvd
-+ * @rx1024byte:Number of 1024 and larger size packets rcvd
-+ *
-+ * @late_coll:Number of late collisions(Half Duplex)
-+ * @single_coll:Number of single collisions (Half Duplex)
-+ * @multi_coll:Number of multiple collisions (Half Duplex)
-+ * @excess_coll:Number of excess collisions(Half Duplex)
-+ *
-+ * @rx_misalignment_frames:Number of non multiple of 8 byte frames rcvd
-+ * @stormprev_counter:Number of packets dropped because of Storm Prevention
-+ * @mac_rxerror:Number of MAC receive errors
-+ * @sfd_error:Number of invalid SFD
-+ * @def_tx:Number of transmissions deferred
-+ * @mac_txerror:Number of MAC transmit errors
-+ * @rx_oversized_frames:Number of oversized frames rcvd
-+ * @rx_undersized_frames:Number of undersized frames rcvd
-+ * @rx_crc_frames:Number of CRC error frames rcvd
-+ * @dropped_packets:Number of packets dropped due to link down on opposite port
-+ *
-+ * @tx_hwq_overflow:Hardware Tx Queue (on PRU) over flow count
-+ * @tx_hwq_underflow:Hardware Tx Queue (on PRU) under flow count
-+ *
-+ * @u32 cs_error: Number of carrier sense errors
-+ * @sqe_test_error: Number of MAC receive errors
-+ *
-+ * Above fields are aligned so that it's consistent
-+ * with the memory layout in PRU DRAM, this is to facilitate easy
-+ * memcpy. Don't change the order of the fields.
-+ *
-+ * @vlan_dropped: Number of VLAN tagged packets dropped
-+ * @multicast_dropped: Number of multicast packets dropped
-+ */
-+struct port_statistics {
-+	u32 tx_bcast;
-+	u32 tx_mcast;
-+	u32 tx_ucast;
-+
-+	u32 tx_octets;
-+
-+	u32 rx_bcast;
-+	u32 rx_mcast;
-+	u32 rx_ucast;
-+
-+	u32 rx_octets;
-+
-+	u32 tx64byte;
-+	u32 tx65_127byte;
-+	u32 tx128_255byte;
-+	u32 tx256_511byte;
-+	u32 tx512_1023byte;
-+	u32 tx1024byte;
-+
-+	u32 rx64byte;
-+	u32 rx65_127byte;
-+	u32 rx128_255byte;
-+	u32 rx256_511byte;
-+	u32 rx512_1023byte;
-+	u32 rx1024byte;
-+
-+	u32 late_coll;
-+	u32 single_coll;
-+	u32 multi_coll;
-+	u32 excess_coll;
-+
-+	u32 rx_misalignment_frames;
-+	u32 stormprev_counter_bc;
-+	u32 stormprev_counter_mc;
-+	u32 stormprev_counter_uc;
-+	u32 mac_rxerror;
-+	u32 sfd_error;
-+	u32 def_tx;
-+	u32 mac_txerror;
-+	u32 rx_oversized_frames;
-+	u32 rx_undersized_frames;
-+	u32 rx_crc_frames;
-+	u32 dropped_packets;
-+
-+	u32 tx_hwq_overflow;
-+	u32 tx_hwq_underflow;
-+
-+	u32 cs_error;
-+	u32 sqe_test_error;
-+
-+	u32 vlan_dropped;
-+	u32 multicast_dropped;
-+} __packed;
-+
- /* In switch mode there are 3 real ports i.e. 3 mac addrs.
-  * however Linux sees only the host side port. The other 2 ports
-  * are the switch ports.
-@@ -190,6 +309,7 @@ struct prueth_emac {
- 	struct phy_device *phydev;
- 	struct prueth_queue_desc __iomem *rx_queue_descs;
- 	struct prueth_queue_desc __iomem *tx_queue_descs;
-+	struct port_statistics stats; /* stats holder when i/f is down */
- 
- 	int link;
- 	int speed;
-@@ -228,9 +348,16 @@ struct prueth {
- 	u8 emac_configured;
- };
- 
-+extern const struct ethtool_ops emac_ethtool_ops;
-+
- void icssm_parse_packet_info(struct prueth *prueth, u32 buffer_descriptor,
- 			     struct prueth_packet_info *pkt_info);
- int icssm_emac_rx_packet(struct prueth_emac *emac, u16 *bd_rd_ptr,
- 			 struct prueth_packet_info *pkt_info,
- 			 const struct prueth_queue_info *rxqueue);
-+
-+void icssm_emac_set_stats(struct prueth_emac *emac,
-+			  struct port_statistics *pstats);
-+void icssm_emac_get_stats(struct prueth_emac *emac,
-+			  struct port_statistics *pstats);
- #endif /* __NET_TI_PRUETH_H */
+Cc: lina@asahilina.net
+Cc: zhang.lyra@gmail.com
+Cc: gerald.schaefer@linux.ibm.com
+Cc: dan.j.williams@intel.com
+Cc: vishal.l.verma@intel.com
+Cc: dave.jiang@intel.com
+Cc: logang@deltatee.com
+Cc: bhelgaas@google.com
+Cc: jack@suse.cz
+Cc: jgg@ziepe.ca
+Cc: catalin.marinas@arm.com
+Cc: will@kernel.org
+Cc: mpe@ellerman.id.au
+Cc: npiggin@gmail.com
+Cc: dave.hansen@linux.intel.com
+Cc: ira.weiny@intel.com
+Cc: willy@infradead.org
+Cc: djwong@kernel.org
+Cc: tytso@mit.edu
+Cc: linmiaohe@huawei.com
+Cc: david@redhat.com
+Cc: peterx@redhat.com
+Cc: linux-doc@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linuxppc-dev@lists.ozlabs.org
+Cc: nvdimm@lists.linux.dev
+Cc: linux-cxl@vger.kernel.org
+Cc: linux-fsdevel@vger.kernel.org
+Cc: linux-mm@kvack.org
+Cc: linux-ext4@vger.kernel.org
+Cc: linux-xfs@vger.kernel.org
+Cc: jhubbard@nvidia.com
+Cc: hch@lst.de
+Cc: david@fromorbit.com
+Cc: chenhuacai@kernel.org
+Cc: kernel@xen0n.name
+Cc: loongarch@lists.linux.dev
+
+Alistair Popple (26):
+  fuse: Fix dax truncate/punch_hole fault path
+  fs/dax: Return unmapped busy pages from dax_layout_busy_page_range()
+  fs/dax: Don't skip locked entries when scanning entries
+  fs/dax: Refactor wait for dax idle page
+  fs/dax: Create a common implementation to break DAX layouts
+  fs/dax: Always remove DAX page-cache entries when breaking layouts
+  fs/dax: Ensure all pages are idle prior to filesystem unmount
+  fs/dax: Remove PAGE_MAPPING_DAX_SHARED mapping flag
+  mm/gup: Remove redundant check for PCI P2PDMA page
+  mm/mm_init: Move p2pdma page refcount initialisation to p2pdma
+  mm: Allow compound zone device pages
+  mm/memory: Enhance insert_page_into_pte_locked() to create writable mappings
+  mm/memory: Add vmf_insert_page_mkwrite()
+  rmap: Add support for PUD sized mappings to rmap
+  huge_memory: Add vmf_insert_folio_pud()
+  huge_memory: Add vmf_insert_folio_pmd()
+  memremap: Add is_devdax_page() and is_fsdax_page() helpers
+  mm/gup: Don't allow FOLL_LONGTERM pinning of FS DAX pages
+  proc/task_mmu: Mark devdax and fsdax pages as always unpinned
+  mm/mlock: Skip ZONE_DEVICE PMDs during mlock
+  fs/dax: Properly refcount fs dax pages
+  device/dax: Properly refcount device dax pages when mapping
+  mm: Remove pXX_devmap callers
+  mm: Remove devmap related functions and page table bits
+  Revert "riscv: mm: Add support for ZONE_DEVICE"
+  Revert "LoongArch: Add ARCH_HAS_PTE_DEVMAP support"
+
+ Documentation/mm/arch_pgtable_helpers.rst     |   6 +-
+ arch/arm64/Kconfig                            |   1 +-
+ arch/arm64/include/asm/pgtable-prot.h         |   1 +-
+ arch/arm64/include/asm/pgtable.h              |  24 +-
+ arch/loongarch/Kconfig                        |   1 +-
+ arch/loongarch/include/asm/pgtable-bits.h     |   6 +-
+ arch/loongarch/include/asm/pgtable.h          |  19 +-
+ arch/powerpc/Kconfig                          |   1 +-
+ arch/powerpc/include/asm/book3s/64/hash-4k.h  |   6 +-
+ arch/powerpc/include/asm/book3s/64/hash-64k.h |   7 +-
+ arch/powerpc/include/asm/book3s/64/pgtable.h  |  53 +---
+ arch/powerpc/include/asm/book3s/64/radix.h    |  14 +-
+ arch/powerpc/mm/book3s64/hash_hugepage.c      |   2 +-
+ arch/powerpc/mm/book3s64/hash_pgtable.c       |   3 +-
+ arch/powerpc/mm/book3s64/hugetlbpage.c        |   2 +-
+ arch/powerpc/mm/book3s64/pgtable.c            |  10 +-
+ arch/powerpc/mm/book3s64/radix_pgtable.c      |   5 +-
+ arch/powerpc/mm/pgtable.c                     |   2 +-
+ arch/riscv/Kconfig                            |   1 +-
+ arch/riscv/include/asm/pgtable-64.h           |  20 +-
+ arch/riscv/include/asm/pgtable-bits.h         |   1 +-
+ arch/riscv/include/asm/pgtable.h              |  17 +-
+ arch/x86/Kconfig                              |   1 +-
+ arch/x86/include/asm/pgtable.h                |  51 +---
+ arch/x86/include/asm/pgtable_types.h          |   5 +-
+ drivers/dax/device.c                          |  15 +-
+ drivers/gpu/drm/nouveau/nouveau_dmem.c        |   3 +-
+ drivers/nvdimm/pmem.c                         |   4 +-
+ drivers/pci/p2pdma.c                          |  19 +-
+ fs/dax.c                                      | 363 ++++++++++++++-----
+ fs/ext4/inode.c                               |  43 +--
+ fs/fuse/dax.c                                 |  30 +--
+ fs/fuse/dir.c                                 |   2 +-
+ fs/fuse/file.c                                |   4 +-
+ fs/fuse/virtio_fs.c                           |   3 +-
+ fs/proc/task_mmu.c                            |   2 +-
+ fs/userfaultfd.c                              |   2 +-
+ fs/xfs/xfs_inode.c                            |  40 +-
+ fs/xfs/xfs_inode.h                            |   3 +-
+ fs/xfs/xfs_super.c                            |  18 +-
+ include/linux/dax.h                           |  37 ++-
+ include/linux/huge_mm.h                       |  12 +-
+ include/linux/memremap.h                      |  28 +-
+ include/linux/migrate.h                       |   4 +-
+ include/linux/mm.h                            |  40 +--
+ include/linux/mm_types.h                      |  16 +-
+ include/linux/mmzone.h                        |  12 +-
+ include/linux/page-flags.h                    |   6 +-
+ include/linux/pfn_t.h                         |  20 +-
+ include/linux/pgtable.h                       |  21 +-
+ include/linux/rmap.h                          |  15 +-
+ lib/test_hmm.c                                |   3 +-
+ mm/Kconfig                                    |   4 +-
+ mm/debug_vm_pgtable.c                         |  59 +---
+ mm/gup.c                                      | 176 +---------
+ mm/hmm.c                                      |  12 +-
+ mm/huge_memory.c                              | 220 +++++++-----
+ mm/internal.h                                 |   2 +-
+ mm/khugepaged.c                               |   2 +-
+ mm/madvise.c                                  |   8 +-
+ mm/mapping_dirty_helpers.c                    |   4 +-
+ mm/memory-failure.c                           |   6 +-
+ mm/memory.c                                   | 118 ++++--
+ mm/memremap.c                                 |  59 +--
+ mm/migrate_device.c                           |   9 +-
+ mm/mlock.c                                    |   2 +-
+ mm/mm_init.c                                  |  23 +-
+ mm/mprotect.c                                 |   2 +-
+ mm/mremap.c                                   |   5 +-
+ mm/page_vma_mapped.c                          |   5 +-
+ mm/pagewalk.c                                 |  14 +-
+ mm/pgtable-generic.c                          |   7 +-
+ mm/rmap.c                                     |  67 +++-
+ mm/swap.c                                     |   2 +-
+ mm/truncate.c                                 |  16 +-
+ mm/userfaultfd.c                              |   5 +-
+ mm/vmscan.c                                   |   5 +-
+ 77 files changed, 895 insertions(+), 961 deletions(-)
+
+base-commit: e25c8d66f6786300b680866c0e0139981273feba
 -- 
-2.34.1
-
+git-series 0.9.1
 
