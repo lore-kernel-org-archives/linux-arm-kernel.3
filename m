@@ -4,73 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF123E7719E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02639E7719D
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jan 2025 17:07:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pb4GBhKQiAPeI5WQISI+V799wMN7xGf8Ayu3es8NaR0=; b=qcvCbj6a4V+3iVZZzC/ZcE2rmc
-	uJsG5bxhC27i0g1LNfHzhswFXuquLNy2XHg25JhEwA2XAld8xws+WckS7PTUrx0Mmes3MDOurQmGc
-	cAuGdfEaJD1xSlVTgz1rq3yEMu5MvDOsSDyI5szy1aL+hwAZO5o3sg8a/jA+ze0yjcLS+Q+PewntL
-	L+NA3148loHdXAB+9IEfyYVXzz2O10zbyDtN9shDMhhiRIn4AE46NYYxg5h70/828zz3YLqUSsRAk
-	+ZLD5UT8kxkht+w6OcHNqjTY6loY3OlBw4yJCzXemfyTrucAT5F3KeHUvLJreiIaHwTTyM4sjPKBN
-	hfGnKJGA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BZ7N9DxFJs+ypWx4tpIWo4afnbo0gO3jjiMo2DbsJnA=; b=ts6sNgbDKzGXvcaImIH17a2MZw
+	Hd4zhV8sdg4cxj7IcKckp/0sM66nmutHUtpujTnX0K/hGSBaNPO4wk74PA4mvA7CpZtZ0DUX20t5U
+	gTqKKL3YRGCuWQmBbPFeL3+7WqXpUEO1KqrYkiHjO6QJmL/GsSYXswym4GXRBioSr5c1uVg0bCYmt
+	RocZ/loLYyAeWlTUO6qwYpYILlagPeSHB4gazN2530RKH3J9kyRjhVeBUSgnBzRgIelCf6sfvYSqw
+	MAE/j7qeNaFa0VM844cBWYv5XyaFlpyilXxe3m3/L97Z351yGZmRRS0fyr8njpjM2o1e7X/oXKXxA
+	rz4jRTXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWITw-0000000GN7y-26p1;
-	Fri, 10 Jan 2025 17:07:36 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tWITv-0000000GN6z-2arb;
+	Fri, 10 Jan 2025 17:07:35 +0000
+Received: from relay9-d.mail.gandi.net ([217.70.183.199])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWH8K-0000000G1Wj-1weR
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 10 Jan 2025 15:41:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Pb4GBhKQiAPeI5WQISI+V799wMN7xGf8Ayu3es8NaR0=; b=ltbbMziw5Jih2uuUkO3UwPe94+
-	NOqTyDW8utfRm9uU2OALS4tGjru+uS6TQ4yoNFvKXcsZRUNS7QhOZTJE4127v9d5Y0/puXn47NG9V
-	OSx96UbU3Q6Ps1R1N9zEJBlodqGSCcnstCxKHPEasopKikaxelMxtNKINHUUg9Z2z0qQlNooQQWOK
-	PgId6p6FPy4UHf4E/pzEGRNW5vDuAhgwb/1pR0ISlE9m7FrxvROQka3IZw5bii3qQPsJ0s1KpQeYk
-	/gvIpZ3L8uI3gSAzWTTn9Brl7QF+ps5rjdLXk/Qt7hEugj8cg2Zikc9SqSvt8nprLingqB7JqvPOw
-	tyXtmYxg==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWH8H-00000009pWE-1auZ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jan 2025 15:41:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 88D6BA4255A;
-	Fri, 10 Jan 2025 15:39:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BB2CC4CED6;
-	Fri, 10 Jan 2025 15:41:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736523665;
-	bh=Fz1hdRpMSaNxgYitNuIdWW/Q+HmiuFoLhZClbSqU+5M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=csOH5GaBLGUkXLKqbMmlyMLCK4kS4AsqClm5SXDSSpcYTDUl+H+BW3QLqllLG1+9v
-	 OLo1qD2zhk7rZajbRe2JsURbMwozC+vTIE1OAhub5uB1RjgVhNLdFmLwCF4vDVV8nw
-	 bkr4IxHePQQuHodzG20XM+hzgTXfy4FUka3w+4tGvP/o91CQkEaZhWfREz/G/bB+Vi
-	 fyZ3XaXFIPo5CXaJLHor9MiEanT2tz4OBSpK2t5YrIGP9bbCHrRkoDkg6qmhAqAU+q
-	 +KotOiCSZWSvh8wKgkTcTLwff4zmlyOXEtikAZH04E6jMpe2sOWBRPVx3QWZeyXQIn
-	 ptpCQRdVEI7Mw==
-Date: Fri, 10 Jan 2025 09:41:04 -0600
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH] dt-bindings: pinctrl: Correct indentation and style in
- DTS example
-Message-ID: <173652366373.2919481.16688678408505042633.robh@kernel.org>
-References: <20250107125836.225447-1-krzysztof.kozlowski@linaro.org>
+	id 1tWGGT-0000000FgAs-2kJP;
+	Fri, 10 Jan 2025 14:45:35 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 1317AFF807;
+	Fri, 10 Jan 2025 14:45:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1736520331;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=BZ7N9DxFJs+ypWx4tpIWo4afnbo0gO3jjiMo2DbsJnA=;
+	b=Ep+W3RwwhmDUkoOO8gMAhVAvq+JxfEHNNEhlItnkm6ggFf2cddQXzxap3MgR9mXKCDscmq
+	m/wfrLsZs+FKMbbg3tKL/2WRy+/PqYCmxdj31+BFkJ6U5x977eYrMYR4dWMjtIP/3LrZOr
+	+9YwOhVFPYowtfyY29H0gM+j+73hpW4Om/PtB2G7ZEY2XAWCJZ8fN34jETT6A7RWvtNVug
+	+95UyUbdJXRSJsOX/bPjB6A+lRpnt8Hsb4V24g0Id8tv5VrIKh/LnBd4/KNLdRLwc3FzxP
+	0132EdjtSokHP0suQe2WqJ8kvsWTOT3s3qDIdFB6l5xjeBP3BxhjdUWbwB3+gg==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+Date: Fri, 10 Jan 2025 15:45:09 +0100
+Subject: [PATCH v3 07/27] spi: dw: Support per spi-mem operation frequency
+ switches
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250107125836.225447-1-krzysztof.kozlowski@linaro.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250110-winbond-6-11-rc1-quad-support-v3-7-7ab4bd56cf6e@bootlin.com>
+References: <20250110-winbond-6-11-rc1-quad-support-v3-0-7ab4bd56cf6e@bootlin.com>
+In-Reply-To: <20250110-winbond-6-11-rc1-quad-support-v3-0-7ab4bd56cf6e@bootlin.com>
+To: Mark Brown <broonie@kernel.org>, Sanjay R Mehta <sanju.mehta@amd.com>, 
+ Serge Semin <fancer.lancer@gmail.com>, Han Xu <han.xu@nxp.com>, 
+ Conor Dooley <conor.dooley@microchip.com>, 
+ Daire McNamara <daire.mcnamara@microchip.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Haibo Chen <haibo.chen@nxp.com>, Yogesh Gaur <yogeshgaur.83@gmail.com>, 
+ Heiko Stuebner <heiko@sntech.de>, Michal Simek <michal.simek@amd.com>, 
+ Miquel Raynal <miquel.raynal@bootlin.com>, 
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
+ Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>, 
+ =?utf-8?q?C=C3=A9dric_Le_Goater?= <clg@kaod.org>, 
+ Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
+ Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, 
+ Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, 
+ Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Raju Rangoju <Raju.Rangoju@amd.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Steam Lin <stlin2@winbond.com>, linux-spi@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-mtd@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+ openbmc@lists.ozlabs.org, linux-stm32@st-md-mailman.stormreply.com
+X-Mailer: b4 0.15-dev
+X-GND-Sasl: miquel.raynal@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_154109_706662_289DDDA5 
-X-CRM114-Status: GOOD (  11.36  )
+X-CRM114-CacheID: sfid-20250110_064533_956882_FB9F1598 
+X-CRM114-Status: GOOD (  14.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,29 +93,62 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Manikandan Muralidharan <manikandan.m@microchip.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, linux-kernel@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, linux-gpio@vger.kernel.org, TY Chang <tychang@realtek.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Michal Simek <michal.simek@amd.com>, linux-arm-kernel@lists.infradead.org, Krishna Potthuri <sai.krishna.potthuri@amd.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Every ->exec_op() call correctly configures the spi bus speed to the
+maximum allowed frequency for the memory using the constant spi default
+parameter. Since we can now have per-operation constraints, let's use
+the value that comes from the spi-mem operation structure instead. In
+case there is no specific limitation for this operation, the default spi
+device value will be given anyway.
 
-On Tue, 07 Jan 2025 13:58:34 +0100, Krzysztof Kozlowski wrote:
-> DTS example in the bindings should be indented with 2- or 4-spaces and
-> aligned with opening '- |', so correct any differences like 3-spaces or
-> mixtures 2- and 4-spaces in one binding.
-> 
-> No functional changes here, but saves some comments during reviews of
-> new patches built on existing code.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> ---
->  .../pinctrl/atmel,at91rm9200-pinctrl.yaml     | 64 +++++++++----------
->  .../pinctrl/realtek,rtd1315e-pinctrl.yaml     | 50 +++++++--------
->  .../pinctrl/realtek,rtd1319d-pinctrl.yaml     | 50 +++++++--------
->  .../pinctrl/realtek,rtd1619b-pinctrl.yaml     | 50 +++++++--------
->  .../bindings/pinctrl/xlnx,pinctrl-zynq.yaml   | 53 +++++++--------
->  5 files changed, 130 insertions(+), 137 deletions(-)
-> 
+The per-operation frequency capability is thus advertised to the spi-mem
+core.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+---
+ drivers/spi/spi-dw-core.c | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/spi/spi-dw-core.c b/drivers/spi/spi-dw-core.c
+index 431788dd848cea1d854affe0d1fb971f680824a1..3d49b1dbaed4d491c0df659c061582e71f2c514d 100644
+--- a/drivers/spi/spi-dw-core.c
++++ b/drivers/spi/spi-dw-core.c
+@@ -677,7 +677,7 @@ static int dw_spi_exec_mem_op(struct spi_mem *mem, const struct spi_mem_op *op)
+ 	 * operation. Transmit-only mode is suitable for the rest of them.
+ 	 */
+ 	cfg.dfs = 8;
+-	cfg.freq = clamp(mem->spi->max_speed_hz, 0U, dws->max_mem_freq);
++	cfg.freq = clamp(op->max_freq, 0U, dws->max_mem_freq);
+ 	if (op->data.dir == SPI_MEM_DATA_IN) {
+ 		cfg.tmode = DW_SPI_CTRLR0_TMOD_EPROMREAD;
+ 		cfg.ndf = op->data.nbytes;
+@@ -894,6 +894,10 @@ static void dw_spi_hw_init(struct device *dev, struct dw_spi *dws)
+ 		dw_writel(dws, DW_SPI_CS_OVERRIDE, 0xF);
+ }
+ 
++static const struct spi_controller_mem_caps dw_spi_mem_caps = {
++	.per_op_freq = true,
++};
++
+ int dw_spi_add_host(struct device *dev, struct dw_spi *dws)
+ {
+ 	struct spi_controller *host;
+@@ -941,8 +945,10 @@ int dw_spi_add_host(struct device *dev, struct dw_spi *dws)
+ 		host->set_cs = dw_spi_set_cs;
+ 	host->transfer_one = dw_spi_transfer_one;
+ 	host->handle_err = dw_spi_handle_err;
+-	if (dws->mem_ops.exec_op)
++	if (dws->mem_ops.exec_op) {
+ 		host->mem_ops = &dws->mem_ops;
++		host->mem_caps = &dw_spi_mem_caps;
++	}
+ 	host->max_speed_hz = dws->max_freq;
+ 	host->flags = SPI_CONTROLLER_GPIO_SS;
+ 	host->auto_runtime_pm = true;
+
+-- 
+2.47.0
 
 
