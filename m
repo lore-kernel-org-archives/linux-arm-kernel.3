@@ -4,146 +4,195 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E0A6E7719A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jan 2025 03:50:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36ED7E7719C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jan 2025 03:51:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5+cYuVWoTFkp7rL+GzblKSnvY9PzSqXeL4iPuXRfwgg=; b=19OLgFQesjmgTTczaFrpy6CdK1
-	clJEmGIaA4QUxI13GGwjYPnLTwaftuSUdPIiP3FUNTp2UQL0tfoqifAtItqVIakMObbPZlUpAtAp9
-	5ILySUqJiDvCXC2U9sGJKQlrr9Z/aGoCfhGj7sARwAH41/rMytldEudw0uBiMj/bvKomheI18RTJY
-	QPTh1kQPa6BcvnKViedsQ/W5OJXW0+JiZqFb0l1vaQ9WRSg/ZdRscm1NjIdSoD9k7d6r7LvJcQcRM
-	/hqwIOVOmRfYInfypm6BqHSOG45Xiy/6+NNBS+x3sPPv3hKKezI0E5PjmSLrAwgswavPV2Amo4FcC
-	Is9JaGvA==;
+	bh=dBxqOSV+angmDHddWyjD5evPnVpLVNI0FqkRhDUNfQE=; b=n4vj3V5GPrtQzQM0uepEAbAHby
+	38vYLDEyN7jftwvdVpo8sTJGmdQqRZ57W2eEp6/qcmKcDwEbZT/dPFyVCysBs74a8BEYX0fNO8amL
+	9fnJMDFVvux9t6tvQgGZElm59upHBuKWrjATq6PzGaapnU1rW2PO82H+01qWltKKq5jwNC6KW44Wq
+	6x4GeWDuwHtkGhke6TjAcN1l3hRLJjEpYpVFggGIDeYVcQz/Ote+fkpcwn8axUUlLF7w5etH5ZFs/
+	8Y6JE+FSUfhSvF3TTRV5JZkhoKrlLd4BKWJNidkIFK3mulBh7wRHwbVXM13NSFmUmMVrRrMluN3oD
+	z5/ZhmFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWSW0-000000005zS-147R;
-	Sat, 11 Jan 2025 03:50:24 +0000
-Received: from mail-co1nam11on20606.outbound.protection.outlook.com ([2a01:111:f403:2416::606] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
+	id 1tWSXC-0000000066T-3dfj;
+	Sat, 11 Jan 2025 03:51:39 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWSFq-000000003Cr-0xPZ
+	id 1tWSIH-000000003yD-0NB1
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jan 2025 03:33:43 +0000
+	Sat, 11 Jan 2025 03:36:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1736566574; x=1768102574;
+  h=date:from:to:cc:subject:message-id:references:
+   in-reply-to:mime-version;
+  bh=g78/J/miIPXOqYI2NML2fT0xSbuNUIq2sURBYKmxrnU=;
+  b=BSaWbZPvxS6CBPQyeJEJIxJlUpVfyl9R4C9Y9ebeiosSSa5cjJ5P57fm
+   kS6BpiDRIw869KlOEAeNfe8MPv2XuoIbWhZw7/6480MBGL9/pB48y3dYN
+   oM3GU6/CPdMx7mc38EL2qcaf5cSq/2xhEiusuJcL2OF+zn5idVYIng3iv
+   0aLtL2A9wpgh6NS72Zlbkm/uyiahUIP7u0cnFnJQS0cPDqqIwV3JpcY/p
+   F/EzNFKs/D6OZyP+MFW45ZZFCWkYTSwPoSQTZYTa/8p7u45LfWnjO7iaB
+   6tM52fB0VmnNwNMvdsWXz+GBOBxUvzNZ5JxCGaMo+cNxKgQzOkgOM2zfc
+   Q==;
+X-CSE-ConnectionGUID: YrGOXPXaRIq2BXkuPHVvIg==
+X-CSE-MsgGUID: m22cHiH/TGSMJ7UMWqD0CQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11311"; a="48238015"
+X-IronPort-AV: E=Sophos;i="6.12,306,1728975600"; 
+   d="scan'208";a="48238015"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Jan 2025 19:36:09 -0800
+X-CSE-ConnectionGUID: AqV9EqY7Q5a580ncqm9K5Q==
+X-CSE-MsgGUID: CkCCl5ZMQ5u0JHOE3xpp6Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="104792621"
+Received: from orsmsx601.amr.corp.intel.com ([10.22.229.14])
+  by orviesa008.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 10 Jan 2025 19:36:08 -0800
+Received: from orsmsx601.amr.corp.intel.com (10.22.229.14) by
+ ORSMSX601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Fri, 10 Jan 2025 19:36:06 -0800
+Received: from ORSEDG601.ED.cps.intel.com (10.7.248.6) by
+ orsmsx601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44 via Frontend Transport; Fri, 10 Jan 2025 19:36:06 -0800
+Received: from NAM10-DM6-obe.outbound.protection.outlook.com (104.47.58.45) by
+ edgegateway.intel.com (134.134.137.102) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.44; Fri, 10 Jan 2025 19:36:06 -0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NqZQ3gOafsKPnEmHH5rxSFZaOls1XO9KSE6yAH3YFJyXmdk/wcsA6XIbIhFY1ftsy9BxXkm8MApKxakpalFWuT6IgXvsHKN7IQ+7kssL3oIylMJx9CqqkKD0H5FTO+1fJf9mFl25O3+yvXbNc5uR6zqRg36v3YYWQ46wgNqiVVLXZPgovDjlbzv6RhePja4730VNDHdVwntEmHCkDpHGjC8NcLIrsIB8wxfcXvkDlwVnWJfv+goZABfjVaQFr9k95o6hlPOmENyUK2P2/CfX53fr2P1n8RPTXyeBTt1tbxIuRorpmFCxRSMeHLNFUiDLr8S6YW92TLTjKcFRF/ZU0Q==
+ b=eufqVSvQRf8GH+3atm4X40PopC6FB0R4YMHozu5lrdpI+Cg/1Hv7y0GwFFNamFEW9aagpVKGMzlp9y2BxXbTvgtA2q9vwvPoVUbSqVuINLhV6TC5Jixn/w0UXlV9/+lfc7bF9gc0m7qWG+ia3Zgyp05ZTD/A5jldMgk1hYk2KEloAjrUGbjJVcg18hHA5+cacRaocJbFi84cR2QLDQXbGMWhy2T4SCz8PeHwYGeOmYGpWnQ27+jh29rCvALSZdbfYUUgIh2tPyN/SHKF9fkKUUvn/WXmf+H6NUuDuCXmRQqb4wVHQQ63ttJqYgWnyS9Wk+hlr1RiHdY0C5KSxUl+4w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5+cYuVWoTFkp7rL+GzblKSnvY9PzSqXeL4iPuXRfwgg=;
- b=IEM+/2kT1e9U2gTGMRb18Qf5T8QegN54l/Phd4MmhztSG63z41D3j82aoajl/ycM/Krb7PZwRMVSLN0Muz4WJ8c39T+f/5DjJnfa3kn8dg7kY9RyTKDM5DCkKZGqmIQa/EIVVsh/Zx332x0xt1YJMZuWGjWUwF7Xx1bLiFcPy810BjQdXhbOl2VZJEcLvWlkliDhEaA8TxOfXxDvwL2U28rXpXa3fEhPdHPcX5XeBed3RjVfhmq9smquLHPBIQz6CPFjv5AQ3EUVk6pzSY3X23qXcxYOSy28d2DcHHOIQRERdR1COTGwZ0hz4BonedWYIB79p2YMekhFiNf+tNwkoA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5+cYuVWoTFkp7rL+GzblKSnvY9PzSqXeL4iPuXRfwgg=;
- b=WOrPawZsZjyrYEceKrO1eDJEB3TRg0nvqZU1o8octRy0ctoWq0zYXclv4XwrXLN8pBG9+CMuOYzPVmyJnyN7Um4MDJ+iigNFBQpb6bltsuwWgLWvIGucvuevOzAPUAdYsVWRWKOy9gXm80smBlMB1FhqgxiFd/MQDs/lxMvOHKnaicoLFPmhBFPkuQSyy5m2sLbY50bv+pO8GT0A9YhHBBYLsfm5RN3WQPeNcBG/dUMoPlfrOv3mGhK9a5+YtipByaCcdnI+G5PIvQGdXNqDVj3gPp7xoz9LEDQtKkg4aFCFdp/lsOgEHcuZkmUsZHMoNAWQW0vjzLI8LbpTKr8SOg==
-Received: from DM5PR08CA0048.namprd08.prod.outlook.com (2603:10b6:4:60::37) by
- DS0PR12MB7948.namprd12.prod.outlook.com (2603:10b6:8:152::17) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8335.10; Sat, 11 Jan 2025 03:33:34 +0000
-Received: from DS1PEPF0001709B.namprd05.prod.outlook.com
- (2603:10b6:4:60:cafe::e) by DM5PR08CA0048.outlook.office365.com
- (2603:10b6:4:60::37) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8314.16 via Frontend Transport; Sat,
- 11 Jan 2025 03:33:34 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- DS1PEPF0001709B.mail.protection.outlook.com (10.167.18.105) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8335.7 via Frontend Transport; Sat, 11 Jan 2025 03:33:34 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Fri, 10 Jan
- 2025 19:33:19 -0800
-Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.4; Fri, 10 Jan 2025 19:33:19 -0800
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.9) by mail.nvidia.com
- (10.126.190.182) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
- Transport; Fri, 10 Jan 2025 19:33:17 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <will@kernel.org>, <robin.murphy@arm.com>, <jgg@nvidia.com>,
-	<kevin.tian@intel.com>, <tglx@linutronix.de>, <maz@kernel.org>,
-	<alex.williamson@redhat.com>
-CC: <joro@8bytes.org>, <shuah@kernel.org>, <reinette.chatre@intel.com>,
-	<eric.auger@redhat.com>, <yebin10@huawei.com>, <apatel@ventanamicro.com>,
-	<shivamurthy.shastri@linutronix.de>, <bhelgaas@google.com>,
-	<anna-maria@linutronix.de>, <yury.norov@gmail.com>, <nipun.gupta@amd.com>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <kvm@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>, <patches@lists.linux.dev>,
-	<jean-philippe@linaro.org>, <mdf@kernel.org>, <mshavit@google.com>,
-	<shameerali.kolothum.thodi@huawei.com>, <smostafa@google.com>,
-	<ddutile@redhat.com>
-Subject: [PATCH RFCv2 13/13] vfio/pci: Allow preset MSI IOVAs via VFIO_IRQ_SET_ACTION_PREPARE
-Date: Fri, 10 Jan 2025 19:32:29 -0800
-Message-ID: <d8b285b10bb888c3687330c529516b415d466686.1736550979.git.nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1736550979.git.nicolinc@nvidia.com>
-References: <cover.1736550979.git.nicolinc@nvidia.com>
+ bh=dBxqOSV+angmDHddWyjD5evPnVpLVNI0FqkRhDUNfQE=;
+ b=p2rpCoJf6tYlTVt6/+ZfY57WIcS8DBC+DSqZbxHQKNwntw8CPU8XIY3iY4XNVFH3qEgu0yGdWCg2CLi4dAlQii7daNeOnY/KBTOy0Qh1Off06wB91Deu8zZe7f3izOoY3x7eJU365lIiHQ0T5wSuFaOHI6Vtvos281aMvRnt9Fn0zEGP5+VwZpbvbI+TWuX7me9RO68tZQJvzimY/n4Pc2B8NgAUogTLil0Hc1l8mdej7rZLrvhErmfbPyLW3sZlUXi3UVPEeNkQwBHx76BRUSw/UBmZmK/QPuBVb+fe5VNyTlAWnENOZ5YRtkNgSvCLhy1eqvGsF8rLUYTKTs6z4g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from PH8PR11MB8107.namprd11.prod.outlook.com (2603:10b6:510:256::6)
+ by PH0PR11MB5109.namprd11.prod.outlook.com (2603:10b6:510:3e::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.11; Sat, 11 Jan
+ 2025 03:36:02 +0000
+Received: from PH8PR11MB8107.namprd11.prod.outlook.com
+ ([fe80::6b05:74cf:a304:ecd8]) by PH8PR11MB8107.namprd11.prod.outlook.com
+ ([fe80::6b05:74cf:a304:ecd8%4]) with mapi id 15.20.8314.015; Sat, 11 Jan 2025
+ 03:36:02 +0000
+Date: Fri, 10 Jan 2025 19:35:57 -0800
+From: Dan Williams <dan.j.williams@intel.com>
+To: Andrew Morton <akpm@linux-foundation.org>, Dan Williams
+	<dan.j.williams@intel.com>
+CC: Alistair Popple <apopple@nvidia.com>, <linux-mm@kvack.org>,
+	<alison.schofield@intel.com>, <lina@asahilina.net>, <zhang.lyra@gmail.com>,
+	<gerald.schaefer@linux.ibm.com>, <vishal.l.verma@intel.com>,
+	<dave.jiang@intel.com>, <logang@deltatee.com>, <bhelgaas@google.com>,
+	<jack@suse.cz>, <jgg@ziepe.ca>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<mpe@ellerman.id.au>, <npiggin@gmail.com>, <dave.hansen@linux.intel.com>,
+	<ira.weiny@intel.com>, <willy@infradead.org>, <djwong@kernel.org>,
+	<tytso@mit.edu>, <linmiaohe@huawei.com>, <david@redhat.com>,
+	<peterx@redhat.com>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linuxppc-dev@lists.ozlabs.org>, <nvdimm@lists.linux.dev>,
+	<linux-cxl@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
+	<linux-ext4@vger.kernel.org>, <linux-xfs@vger.kernel.org>,
+	<jhubbard@nvidia.com>, <hch@lst.de>, <david@fromorbit.com>,
+	<chenhuacai@kernel.org>, <kernel@xen0n.name>, <loongarch@lists.linux.dev>
+Subject: Re: [PATCH v6 00/26] fs/dax: Fix ZONE_DEVICE page reference counts
+Message-ID: <6781e71d986e7_2aff4294d4@dwillia2-xfh.jf.intel.com.notmuch>
+References: <cover.11189864684e31260d1408779fac9db80122047b.1736488799.git-series.apopple@nvidia.com>
+ <6780c6d43d73e_2aff42943b@dwillia2-xfh.jf.intel.com.notmuch>
+ <20250110173048.5565901e0fec24556325bd18@linux-foundation.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250110173048.5565901e0fec24556325bd18@linux-foundation.org>
+X-ClientProxiedBy: MW4PR04CA0166.namprd04.prod.outlook.com
+ (2603:10b6:303:85::21) To PH8PR11MB8107.namprd11.prod.outlook.com
+ (2603:10b6:510:256::6)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS1PEPF0001709B:EE_|DS0PR12MB7948:EE_
-X-MS-Office365-Filtering-Correlation-Id: da8246e0-122f-481e-6345-08dd31f0ba46
+X-MS-TrafficTypeDiagnostic: PH8PR11MB8107:EE_|PH0PR11MB5109:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8aa2035f-9f24-4316-1e46-08dd31f11225
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|82310400026|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5fGGaafnLtwGvDwL86dbuDTk2bl9wEFvuCAiudRKrwTe7QPTSLkpnBMaVe5c?=
- =?us-ascii?Q?0RW+MLb1GZKVkHgnfqnE209jgfPeUo7LiE+8vuGOkj4GfN0uO5ajq1aQxg/R?=
- =?us-ascii?Q?IjoG3FxfLDG7JbJoQ31BUTixjqW/4SdXhaGbO4quaEBmar78i+zQCC1CHk/q?=
- =?us-ascii?Q?lFNjLhieQcJ673BtJKyokKWcpQeFnXZDGX/9B+JfonHyBNGGZXk/w9OIGoq0?=
- =?us-ascii?Q?SBdy372vNMFFNm+RBipIciQSG1Q8aIXHSw005yqpj71cdTN3R5CaVewntkAT?=
- =?us-ascii?Q?fgGWU2xlkcKRIlR6y47Q21vQVgbUqX5CRaISuveeZa3EYRTq6FNoOHFAgpmp?=
- =?us-ascii?Q?FzIt7U5CcGMEIqhvdIco0esoa3nzUIBMuA0zCJJyqGlM3kEVs/SuQoEDdgku?=
- =?us-ascii?Q?ewlPv0Vkq6Ib3LJecorkoEebNmlANaJ/50qxUvhzQ5CaW4jJS5uGJo4EksX7?=
- =?us-ascii?Q?IhP4/UJO+uGJsd2zab6HI0z4FHKUWzhqZKsQ0/ogXCQwjbZWT0A2KGMvYDk0?=
- =?us-ascii?Q?fODwuG/R4XRrIh8gAROAV7SOiZ1pMHBdHh7S8ttz0bAqyrB+DCTGT0ApPyMw?=
- =?us-ascii?Q?2PxLwCRJDKhUrGOs4kjlPmg78MLVt9ttApUwWo5PPHJgMh9w+FfWR6+Qjach?=
- =?us-ascii?Q?U+t+MfbhA1igaUXDMYxB0N16wg2TMEMudI8KamO1GGS3BBTn3wRLT9YeCZV5?=
- =?us-ascii?Q?6M8BL4oIHhH9JmZU0REmGruj8SbgAkhbKXUaceLUaGcELIV9bqJRwAW4lXVi?=
- =?us-ascii?Q?0mmYzpCWoc+9pDT25G+cyO0hmBGgft1AO4A6TsbWBOaOYdaWZ0NMV1XNul3z?=
- =?us-ascii?Q?8PsR4P4v7fV/0gqqY6kIaiMM0iK7USnwmh4NG7WQXJ/rWbfcnLP2r7RfsBbt?=
- =?us-ascii?Q?85OIKTJWjy+Ofzc6SOYAmdQP0NxgVso37qXc/SyL9y5MJ/21/OZph/3qy5ZS?=
- =?us-ascii?Q?UlZ3fRFUAsl05oAy45dGp/VMUOxPnPdCno+rXIfS6iRYj3jC0Zq4U/n4XYB6?=
- =?us-ascii?Q?+fZPnB1ZqH00D0Gvxwdtg6bkQP6IRMY3WMwh9oV2tsfDonRgodjGdvn53UTe?=
- =?us-ascii?Q?7ZblBi/JP9z3d2rH8WNLKX7hkOi0p1GiCHj83rCnCbFJjFNX7SPvmIA8lTYx?=
- =?us-ascii?Q?quWDe4sSydwz3v9QWtCEQ1pNUKWFFC3ifS+qOaxv/pCtSlBq+6JHNpUcv7dG?=
- =?us-ascii?Q?W/iUdV6DOMNVQyXFMBJBLIm5gSEfmRgQdViqDTbsyp+5uDTYiupFbZEjiQIu?=
- =?us-ascii?Q?SvFhuKwX3qd35v8fJCpY+UJJw1e1XABGUo+aNY/i1Z0zYDpbtc946sQ2fKDz?=
- =?us-ascii?Q?n6kUId9WVRCgDE+kJM01DvKGh3WXwptv4C177diRlmvAnK/vkm/zXtXtXbbM?=
- =?us-ascii?Q?iqyIzCkKQ/7rDvp13wtSgWKXzzxbrvyJrzViQbHLxwBO8O8Fe/rJbx4GJaY8?=
- =?us-ascii?Q?lS79xEUbfRD0rMSTo/wybKh4RVmiuFT1o0JmVOJLXsbo+aUTxzdvZCaw/DtN?=
- =?us-ascii?Q?i2xYIbr1VHfWruY=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(82310400026)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jan 2025 03:33:34.2471
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?3TqS+09SoFVO2UdbD4/Vj36oV6f2m4ZaRHDdiRw15u6fmpcgn3hQ7bq6TNcQ?=
+ =?us-ascii?Q?saCJNXBpfebU6XUGJCh9+O4hwTKPuRgAab8RTqCy8Gt9g8xZ3+R6druqmlzf?=
+ =?us-ascii?Q?EsuNjsfO9/OydkNB9gCOsz2it3VM/6rNEaO8lGvQMTPV4a557ARuZEXX6z2M?=
+ =?us-ascii?Q?hYsZXqNk4Rdr8nZg0M/f03I5efDFQ7P1cxrqR0IwvLxvokLR/dyfa6PMe2gX?=
+ =?us-ascii?Q?vSiFS1vd5HwLg0MtglBv9JGFCpZz3c3HKqah31Yzds/EC6297ilhGdxz1BCX?=
+ =?us-ascii?Q?JuxGSFenaw3GZ+y4DRMFVHg3xDNgZW3EdPRrqWrpYzuVBbaQKDDd6Hq9oILs?=
+ =?us-ascii?Q?g6DKz2d2EfzOYhvlXxFgSPsWtsUhWyCT5V/j44tOEZEqCoh3tRg5HArreFTZ?=
+ =?us-ascii?Q?NyyEkmy5atlH1tHlibmE7dEcnqUvseBiqXFUL9/y0mgx4U1qzUcJmPYZHnZM?=
+ =?us-ascii?Q?EaovN6Dds1ER59jiUsrXKtN+UDw4OXAufkA6lZ2QKOhfegwYcQOkhzUC3+Bp?=
+ =?us-ascii?Q?BXXoB2YFuE8bmE3eiDJkbmx4GhfuU+evtfHPx6cGXQNisaAPYyUfX5Li7p3u?=
+ =?us-ascii?Q?93IdDDKjvj3zk67uIckWY4ux+6mr8E2B9EHyl6Clper5Nh7yFuf7SUVWgPP+?=
+ =?us-ascii?Q?9NVJw5KvDHSleEGn8HYkWexznDe7oV2sK3XLuw7kO5M80m9EofhbB4oCB3Sd?=
+ =?us-ascii?Q?t5eVJpBP1n9fNI6btqnkVJbQ/0WPrAliZGJtzEoN05Zv3hk5fPcltDbn+YOh?=
+ =?us-ascii?Q?jZ3NsV1IR4GNo6J4jgz4iu7wcPvWCCf7E3sOitHupcdWI0KoFRnu+ffWMifo?=
+ =?us-ascii?Q?feDeunpb8P46n0aljuHN3xlgBEgGRMNwRAfsZNFWtcvuWjPQfDGSUgspeQx3?=
+ =?us-ascii?Q?tzC/NfE23cdQDqgwDxIFq+LvRAsUwOrojRmeWc/GAebUfRAs6jR4NgeDlT+4?=
+ =?us-ascii?Q?DVoLrozY66j6g+nPrVKpx5nFBRoQVGTtGk7XNEFfRAODeHa6ZJ3N9pKQ/0JY?=
+ =?us-ascii?Q?F3bd1NhQubECyrO6X/T9r9TJto+yJW0nuZrJ25f9V2zg8YR3Mpd1R5ozNIvG?=
+ =?us-ascii?Q?BLISe1n4J+aCd9PjRZbGDglv9ntxVtCQF0+PGGZnyvu9KrnPVuUQkaCeCqka?=
+ =?us-ascii?Q?OP8ENAFHtHRxVGCq5Chla2zrBSIEKb9iy7H1o/LC9GB7zrJa0R6ycP9Ea3dz?=
+ =?us-ascii?Q?AeDllfqouOweHv4jR1UFcsZpshL8jKjKKpEwsIKsYd873pcnVOu/krynr5rS?=
+ =?us-ascii?Q?WqsVVEmOcGp6Te2rz86Ift7Y8NzFXWNs9Jpr7q0dalb3GtCL/1uKkqjW4zD8?=
+ =?us-ascii?Q?iGZ9DnOurpT9ss8p4pktRz9WWb887m9DVxZZx9OXkliZkxkTbVCxAO+oXh+Q?=
+ =?us-ascii?Q?vrROWcAz9L8S/cVi21xjdhMRhfc9?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH8PR11MB8107.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?pXMMpM6JFHwZM+duYL4RDJBY31jSVtalKIJ7EPEEGpRpZDNQkJFh9jsx47qf?=
+ =?us-ascii?Q?r5h2+8dlUIX/pDIAmAFYRzcPFiBr2EnBReeV9O0aHnpnKpnkMuwWbN3RfIns?=
+ =?us-ascii?Q?VNdrA7IAhNtkbJWisO+aMunZRdqzyySL7Swe1q9wnDo+kt5rQlCiOpSpoKEg?=
+ =?us-ascii?Q?4fCeW3TtlxOaFjsCMOr5JhY1A+mLn0AnMhMqeaPbRIWFGX1HU/I7c92s7GjB?=
+ =?us-ascii?Q?DJ/0RoQk8tLjHK4IkmDWFqUpas5fi2D25SAQp5SRQIQZ4PMvdTgg/tfI9DHb?=
+ =?us-ascii?Q?YMZyft6WYgXWjJO5UsMcO1ePUBsctWI5+D5mALOe7VKWH+0c34bq546PIXl3?=
+ =?us-ascii?Q?/KG9NbEiKdT92EGqDxQffm6A1OcFgPl8F+nColnJnhO+IctbQQPFrmhecJ5n?=
+ =?us-ascii?Q?xrZXwsnOvT5VurHyG+YwhaKVV+OEl6LztdTlVolnxJ42/EzPGCUHQSyddiBt?=
+ =?us-ascii?Q?iIgTWJJp6nu1Th4ai52bVzcSsuSnZJuyF8F4rf6QZDNEGEy+Rx9kuXKeGuV1?=
+ =?us-ascii?Q?uQENYpiV8mS7LR0l38kfvPXfuYSSNGDKPat0c846b4QwCz8dHM6iwe2pftHw?=
+ =?us-ascii?Q?Pbgh6J4YDRBShqd+jZA11LrMGDVKvOh7dkRWI8WKFqKmr+eeebU0sldMi4Ln?=
+ =?us-ascii?Q?3hcPMwWYV+PCv6qKTXCMXfDIrDfIpFdRM9nW598zjO4nF5QsrZd1c3lZs4Xl?=
+ =?us-ascii?Q?MpYO4WSwXlAw3fCYkwz7uWySU3pfirAfGrhhUKNIJ8R1THxb6rRaJojiz+dY?=
+ =?us-ascii?Q?jP0PlRCOqFJPqPESy8Nh5rOQQrqb+BSuhru4iE57IDfDX2dmSml2KeEu9hqN?=
+ =?us-ascii?Q?hiz7YcoUD1GliuOHGOr7JUMA8157bwKkiTGWGrwq7qNlN2P6U0Quy8xa9VZV?=
+ =?us-ascii?Q?KqrrrmovNucFWr7RF3qWILAm5vtNwOLeXW6GanL+9TDcbijIsH8wEfpa2vUm?=
+ =?us-ascii?Q?vW+fVgGFCzxiKizXBCO/A7Hh/9/c/qdYyMC0Z86UuiWXDZQrLywEFUkNMJnn?=
+ =?us-ascii?Q?p1mqAGSf2/rO/KXgGOaiqGeFuQQDalWFaZrP8Zu7W4bSzLNyotsK3DA07Gn7?=
+ =?us-ascii?Q?kt2BkCsK7v8gdxtKStKLYVz3WAdtoZh3h6uW7SxqNoc7wojpLKkVXSTUQkFT?=
+ =?us-ascii?Q?5XYZaCUKmUuvTYlNlknfPb+FywXGl8Bzs5bjL/87CxM0rAY38KgvgYn/AqOI?=
+ =?us-ascii?Q?+cY95tCMJfUGPLKz8WjAj97ThCh1C2Zkxz6/O/H2pjSho6oBQu1cd6MFAy3u?=
+ =?us-ascii?Q?/3cRDJbY1NpWAY+4sD5H1XYmHdWS2uk8hEVANNrn7f3WpV4R2ADz8zkBz+ZX?=
+ =?us-ascii?Q?4lSzQpGFdsbkGXUG23hDXhZMmKz/3eAmrsdb+m7cvZmh4SNWw0i/gfc3ZHyz?=
+ =?us-ascii?Q?el23RynurIqiK1mj911Fco0l6wNK9vAnNEh3m/421+ZPwpihtq3D4o7V0a8a?=
+ =?us-ascii?Q?T4+sdFl3JqGHMRSsjqJhQvXaA3Qbv+3DOrogsE9NOdjRtRv451nXHjXlCMZy?=
+ =?us-ascii?Q?zQ+wo6C85lT8V4mVh2RJtHafNsODddvhCYjFOjbp54Q+51TgGozt0qlVb4fo?=
+ =?us-ascii?Q?O+7+QSbapEkDrM6Eta0T+Hc1CIg+zFLIVjolHGX2k+qjSUpJVgqDa5YaKW7F?=
+ =?us-ascii?Q?Ww=3D=3D?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8aa2035f-9f24-4316-1e46-08dd31f11225
+X-MS-Exchange-CrossTenant-AuthSource: PH8PR11MB8107.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jan 2025 03:36:01.9169
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: da8246e0-122f-481e-6345-08dd31f0ba46
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF0001709B.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7948
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: rOVI/IuVKYf/ZnHOp3U3snRB4yShCCHafnjTGuO4CI2egWj9RaEZKbzSLjyiFLAKebqSe8bXpwEwc2OzUjhDpDgcsLcximEGcI0MPvmi/HA=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR11MB5109
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_193342_267599_5038A0B0 
-X-CRM114-Status: GOOD (  16.44  )
+X-CRM114-CacheID: sfid-20250110_193613_287410_1E79287D 
+X-CRM114-Status: GOOD (  24.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,133 +207,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a new VFIO_IRQ_SET_ACTION_PREPARE to set VFIO_IRQ_SET_DATA_MSI_IOVA,
-giving user space an interface to forward to kernel the stage-1 IOVA (of
-a 2-stage translation: IOVA->IPA->PA) for an MSI doorbell address, since
-the ITS hardware needs to be programmed with the top level IOVA address,
-in order to work with the IOMMU on ARM64.
+Andrew Morton wrote:
+> On Thu, 9 Jan 2025 23:05:56 -0800 Dan Williams <dan.j.williams@intel.com> wrote:
+> 
+> > >  - Remove PTE_DEVMAP definitions from Loongarch which were added since
+> > >    this series was initially written.
+> > [..]
+> > > 
+> > > base-commit: e25c8d66f6786300b680866c0e0139981273feba
+> > 
+> > If this is going to go through nvdimm.git I will need it against a
+> > mainline tag baseline. Linus will want to see the merge conflicts.
+> > 
+> > Otherwise if that merge commit is too messy, or you would rather not
+> > rebase, then it either needs to go one of two options:
+> > 
+> > - Andrew's tree which is the only tree I know of that can carry
+> >   patches relative to linux-next.
+> 
+> I used to be able to do that but haven't got around to setting up such
+> a thing with mm.git.  This is the first time the need has arisen,
+> really.
 
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
----
- include/uapi/linux/vfio.h         |  8 ++++--
- drivers/vfio/pci/vfio_pci_intrs.c | 46 +++++++++++++++++++++++++++++++
- drivers/vfio/vfio_main.c          |  3 ++
- 3 files changed, 55 insertions(+), 2 deletions(-)
+Oh, good to know.
 
-diff --git a/include/uapi/linux/vfio.h b/include/uapi/linux/vfio.h
-index c8dbf8219c4f..85095e59a3c6 100644
---- a/include/uapi/linux/vfio.h
-+++ b/include/uapi/linux/vfio.h
-@@ -590,6 +590,8 @@ struct vfio_irq_set {
- #define VFIO_IRQ_SET_ACTION_MASK	(1 << 3) /* Mask interrupt */
- #define VFIO_IRQ_SET_ACTION_UNMASK	(1 << 4) /* Unmask interrupt */
- #define VFIO_IRQ_SET_ACTION_TRIGGER	(1 << 5) /* Trigger interrupt */
-+#define VFIO_IRQ_SET_DATA_MSI_IOVA	(1 << 6) /* Data is MSI IOVA (u64) */
-+#define VFIO_IRQ_SET_ACTION_PREPARE	(1 << 7) /* Prepare interrupt */
- 	__u32	index;
- 	__u32	start;
- 	__u32	count;
-@@ -599,10 +601,12 @@ struct vfio_irq_set {
- 
- #define VFIO_IRQ_SET_DATA_TYPE_MASK	(VFIO_IRQ_SET_DATA_NONE | \
- 					 VFIO_IRQ_SET_DATA_BOOL | \
--					 VFIO_IRQ_SET_DATA_EVENTFD)
-+					 VFIO_IRQ_SET_DATA_EVENTFD | \
-+					 VFIO_IRQ_SET_DATA_MSI_IOVA)
- #define VFIO_IRQ_SET_ACTION_TYPE_MASK	(VFIO_IRQ_SET_ACTION_MASK | \
- 					 VFIO_IRQ_SET_ACTION_UNMASK | \
--					 VFIO_IRQ_SET_ACTION_TRIGGER)
-+					 VFIO_IRQ_SET_ACTION_TRIGGER | \
-+					 VFIO_IRQ_SET_ACTION_PREPARE)
- /**
-  * VFIO_DEVICE_RESET - _IO(VFIO_TYPE, VFIO_BASE + 11)
-  *
-diff --git a/drivers/vfio/pci/vfio_pci_intrs.c b/drivers/vfio/pci/vfio_pci_intrs.c
-index 8382c5834335..80ea6bc1941f 100644
---- a/drivers/vfio/pci/vfio_pci_intrs.c
-+++ b/drivers/vfio/pci/vfio_pci_intrs.c
-@@ -685,6 +685,8 @@ static int vfio_pci_set_msi_trigger(struct vfio_pci_core_device *vdev,
- 
- 	if (irq_is(vdev, index) && !count && (flags & VFIO_IRQ_SET_DATA_NONE)) {
- 		vfio_msi_disable(vdev, msix);
-+		for (i = start; i < start + count; i++)
-+			vfio_iommufd_device_unset_msi_iova(&vdev->vdev, i);
- 		return 0;
- 	}
- 
-@@ -728,6 +730,47 @@ static int vfio_pci_set_msi_trigger(struct vfio_pci_core_device *vdev,
- 	return 0;
- }
- 
-+static int vfio_pci_set_msi_prepare(struct vfio_pci_core_device *vdev,
-+				    unsigned int index, unsigned int start,
-+				    unsigned int count, uint32_t flags,
-+				    void *data)
-+{
-+	struct vfio_device *core = &vdev->vdev;
-+	uint64_t *iovas = data;
-+	unsigned int i;
-+	int ret;
-+
-+	if (!vfio_iommufd_device_ictx(core))
-+		return -EOPNOTSUPP;
-+	if (!(irq_is(vdev, index) || is_irq_none(vdev)))
-+		return -EINVAL;
-+
-+	if (flags & VFIO_IRQ_SET_DATA_NONE) {
-+		if (!count)
-+			return -EINVAL;
-+		for (i = start; i < start + count; i++)
-+			vfio_iommufd_device_unset_msi_iova(core, i);
-+		return 0;
-+	}
-+
-+	if (!(flags & VFIO_IRQ_SET_DATA_MSI_IOVA))
-+		return -EOPNOTSUPP;
-+	if (!IS_ENABLED(CONFIG_IRQ_MSI_IOMMU))
-+		return -EOPNOTSUPP;
-+
-+	ret = vfio_iommufd_device_set_num_msi_iovas(core, start + count);
-+	if (ret)
-+		return ret;
-+
-+	for (i = start; i < start + count; i++) {
-+		ret = vfio_iommufd_device_set_msi_iova(core, i, iovas[i]);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return 0;
-+}
-+
- static int vfio_pci_set_ctx_trigger_single(struct eventfd_ctx **ctx,
- 					   unsigned int count, uint32_t flags,
- 					   void *data)
-@@ -837,6 +880,9 @@ int vfio_pci_set_irqs_ioctl(struct vfio_pci_core_device *vdev, uint32_t flags,
- 		case VFIO_IRQ_SET_ACTION_TRIGGER:
- 			func = vfio_pci_set_msi_trigger;
- 			break;
-+		case VFIO_IRQ_SET_ACTION_PREPARE:
-+			func = vfio_pci_set_msi_prepare;
-+			break;
- 		}
- 		break;
- 	case VFIO_PCI_ERR_IRQ_INDEX:
-diff --git a/drivers/vfio/vfio_main.c b/drivers/vfio/vfio_main.c
-index 1fd261efc582..ad11c8e7da7b 100644
---- a/drivers/vfio/vfio_main.c
-+++ b/drivers/vfio/vfio_main.c
-@@ -1554,6 +1554,9 @@ int vfio_set_irqs_validate_and_prepare(struct vfio_irq_set *hdr, int num_irqs,
- 	case VFIO_IRQ_SET_DATA_EVENTFD:
- 		size = sizeof(int32_t);
- 		break;
-+	case VFIO_IRQ_SET_DATA_MSI_IOVA:
-+		size = sizeof(uint64_t);
-+		break;
- 	default:
- 		return -EINVAL;
- 	}
--- 
-2.43.0
+> 
+> > - Wait for v6.14-rc1 
+> 
+> I'm thinking so.  Darrick's review comments indicate that we'll be seeing a v7.
+> 
+> > and get this into nvdimm.git early in the cycle
+> >   when the conflict storm will be low.
+> 
+> erk.  This patchset hits mm/ a lot, and nvdimm hardly at all.  Is it
+> not practical to carry this in mm.git?
 
+I'm totally fine with it going through mm.git. nvdimm.git is just the
+historical path for touches to fs/dax.c, and git blame points mostly to
+me for the issues Alistair is fixing. I am happy to review and ack and
+watch this go through mm.git.
 
