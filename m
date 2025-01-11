@@ -4,147 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 450D2E7719A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jan 2025 03:36:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B479AE7719A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jan 2025 03:37:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
+	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qoXekFxtbvtfkYYjQ86gBLmp2tdvWSiJ9hckxytv87I=; b=wm2s4QPdaGRhqky96VMWyhTU/0
-	LxdSzFwIwsTK5YEMjhrGIhwpDmP3ozMwfRiJjW39tWLnFvFD0s3+vrU73kOK5FzN/ddoBZhqGB/ye
-	JjEZaidnsshYXiwKi8BPycedbyJqRUdPOgC7IqNdJRTDASVQrfK/CZf91Q63AQQqxIu0cVw977bjy
-	98UAvWXGyj2/raJgT9DIdUGkRvEH2sX1RgzcgO9Nm/JOecbwO7ZXjz3XPsjEydGSQAh5fLQ1B2duE
-	Oe3dlJ6zre2Qjr7LLdq/c7FQGIvs5eTj4I8hpB9wJQ7Wnx6XSu6Yzhfai3CARNh1gF3IbO+oBH/lb
-	nQmex1ug==;
+	bh=L3TyIoxqzKbU5TOqXbLBWWXwSPvFkN5kGJBIZi+nPuA=; b=Ex1Et5ghDQNXBUuiXO0RWd6oUm
+	M2Ial2q0ZqjiotsoY1E+H+nZqM0Yu+0wbF/Q1Za2FGU7nT2V6tK1nY9aOxjKWwtsEs1Vx3UWKZ2v0
+	I4yuhahfa4ytJa3Q2mBnHbX0VrL5h2uGZqRzDH8hGthbKnbtX4W5h8WPBQbAQiua9Z2ilfXVKmnjy
+	OeuHJ5kK9qq24ySOPbea4xE74wE62CUmCGL07kM24zkeuLu+BekmQ/vKOF8iuRlGvQ6vBg3DsvJ71
+	wipUjz+04VgdJb0/1tTqrL8LGJZ9ryf630EGZ87SnMPGIHNey60U1KsnwRwTrTxVchyf8z73VZO+u
+	6OeXNbqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWSIo-000000004AE-1FR1;
-	Sat, 11 Jan 2025 03:36:46 +0000
-Received: from mail-mw2nam10on20626.outbound.protection.outlook.com ([2a01:111:f403:2412::626] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1tWSJj-000000004Tq-38NL;
+	Sat, 11 Jan 2025 03:37:43 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWSFA-000000002v2-2JdP
+	id 1tWQFD-0000000HUQz-36un
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jan 2025 03:33:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vPVvCOy5SLU0a4eiazDCi15V7EmVV+1PPRCPAErBGV4Ej5y/zm6C6LqyuLAqtzH1ecrNMInu4smyy8LHrPfmnOnwDteon7uUXoYtiVXm7Ug+9soGe1geZSZ6J8lmGMBEvu8vB8P2RfJ77P4NKFzC/5vGhomkLGWzqxWHJ8V9N/8ds7ZVVvHyff+SrT+0OGDiGvk/0Zmdls/GvzJCPD1RGEFf+/cB2QukTkTKXZ+/DeaUZyFIJM+9wKVbbK8i99BBPgdHrCd5rtiQeV6EuVC1nroySKD8DodFheyP8ooIQy2rJxreaPxRjs3+ma3qgKoBc06qes+rxKPPUxniJVwE4Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qoXekFxtbvtfkYYjQ86gBLmp2tdvWSiJ9hckxytv87I=;
- b=Ssy0n/AYCejr5Q+oPvKoEZ+gTMlAUTwyLbmWDUtRb6Xer7Kf0c400KrqxLOVQYIoE8+N7qTaPOOgnHtsf9+caX4dr5TgN2rrkvvdxh+B71nwehsF5vM9lNHvkRQ3CiaRb9jVKv+AP7CVe5PEZHKDLu2daGCsfVpJFa+dBNqkd6BaOB6zwU65kIz9uBaodFs0ckgDYLueqw1SIp0tk4C3YLq+Kzz/zFAlxxCyiyJ+x7srkihBEESw+hJvTdcMdZ3TiCcyD9bGjl+9lscq2hS7Ed3IcVUaFdAISLel3dzCdDQ1MV5OWox+vVAntl9KVpj/IJL7TXoBOrvnY5r+3Xi7Vg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qoXekFxtbvtfkYYjQ86gBLmp2tdvWSiJ9hckxytv87I=;
- b=JIAEpN3NybmygG0uOMPYUNC2CO9Aq7lJazBhZ4tB1kOBec//FVlM/dmJbwUXuaElm2GJ0zFpT6Y/OgRNRm2GOaB101O7PVXu3UW68obZoUclqJbS38ZAbd8KG8jFMGzHRQHRnUR0DRxHWRkY0/Ro3/jtcir/JL4Sve1DP5wvwQSJGAPpFlvvasSsN9SWNjM4qsC+JQiR/4H2PtYhVDBITNw08yoXVfobvxtTJzAsQ6mrUaTHPMGp7InftwFpuvfy2daWtzwzfJXL7A9/WsP4hpxF1HGnomVQdlhljkooaoG3tee6Ada8pNR1cBgFLP8OsCdXu0wr1ybrDalyvSFCvQ==
-Received: from DM6PR11CA0065.namprd11.prod.outlook.com (2603:10b6:5:14c::42)
- by DM4PR12MB6279.namprd12.prod.outlook.com (2603:10b6:8:a3::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.10; Sat, 11 Jan
- 2025 03:32:52 +0000
-Received: from DS1PEPF00017099.namprd05.prod.outlook.com
- (2603:10b6:5:14c:cafe::70) by DM6PR11CA0065.outlook.office365.com
- (2603:10b6:5:14c::42) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8335.12 via Frontend Transport; Sat,
- 11 Jan 2025 03:32:52 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- DS1PEPF00017099.mail.protection.outlook.com (10.167.18.103) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8335.7 via Frontend Transport; Sat, 11 Jan 2025 03:32:52 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Fri, 10 Jan
- 2025 19:32:52 -0800
-Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.4; Fri, 10 Jan 2025 19:32:51 -0800
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.9) by mail.nvidia.com
- (10.126.190.182) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
- Transport; Fri, 10 Jan 2025 19:32:49 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <will@kernel.org>, <robin.murphy@arm.com>, <jgg@nvidia.com>,
-	<kevin.tian@intel.com>, <tglx@linutronix.de>, <maz@kernel.org>,
-	<alex.williamson@redhat.com>
-CC: <joro@8bytes.org>, <shuah@kernel.org>, <reinette.chatre@intel.com>,
-	<eric.auger@redhat.com>, <yebin10@huawei.com>, <apatel@ventanamicro.com>,
-	<shivamurthy.shastri@linutronix.de>, <bhelgaas@google.com>,
-	<anna-maria@linutronix.de>, <yury.norov@gmail.com>, <nipun.gupta@amd.com>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <kvm@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>, <patches@lists.linux.dev>,
-	<jean-philippe@linaro.org>, <mdf@kernel.org>, <mshavit@google.com>,
-	<shameerali.kolothum.thodi@huawei.com>, <smostafa@google.com>,
-	<ddutile@redhat.com>
-Subject: [PATCH RFCv2 02/13] genirq/msi: Rename iommu_dma_compose_msi_msg() to msi_msg_set_msi_addr()
-Date: Fri, 10 Jan 2025 19:32:18 -0800
-Message-ID: <242034456c0bfcd7ecf75cb29d8e5c99db0675d6.1736550979.git.nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1736550979.git.nicolinc@nvidia.com>
-References: <cover.1736550979.git.nicolinc@nvidia.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS1PEPF00017099:EE_|DM4PR12MB6279:EE_
-X-MS-Office365-Filtering-Correlation-Id: 229d0163-a0d3-4d97-53de-08dd31f0a186
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|82310400026|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?PrOtRRaXbwLyEfxBH44VbUhqWRxIQMYi+Mtd5AyyejoJty/VSjeCPaZmCOBk?=
- =?us-ascii?Q?T5XvtJbe4O9Wbct5QI+Lig6owbA2JsITITUkKkDRBwkggKWouMsVWDdsz0h5?=
- =?us-ascii?Q?uCsMq1GKDMmbQ4/cxhha5ozmmoRySMwtB1ixJcsPzCExlnxCvn56MX2kGv3V?=
- =?us-ascii?Q?UyAAaFe3ja3NNNYoZI8e70Q9RhbLJ6vS5NAmFghARUO9rWjx7dQHfQv0KS+Q?=
- =?us-ascii?Q?8ViJAfmAkGDli0XKsGriFqy5sxYeDCK72kG5fLKdUzXvkh/82wYBl4YdqlKk?=
- =?us-ascii?Q?mVav6K7yzO5bOnhv8dcGuaOaLxIDZpm2gOACOudGZHfeibiQei/mJyV8hIbG?=
- =?us-ascii?Q?Yc02DebUuKVHoQW7qDcVr+zSg8cM5HqdqZumBedZ+GQDJBFd7ulMEN7tpwuW?=
- =?us-ascii?Q?mXDAcyOAH0jvTuJ4d8QTbQNv4BdYfahBzYkPbdT+un9IA2Dv5Fd5reTtGp4+?=
- =?us-ascii?Q?5xtQqLKDHSsbBB199lYH9dOBrW1Gu99McArmQG/jfvuMyM1ai/xTs5drfEyN?=
- =?us-ascii?Q?TAMJbdwxPApLm7INaLxVwd/bDarHU8la2gAcRZxDFqvrIIx6pQFa7UBG6poe?=
- =?us-ascii?Q?dTLsoDxha3VORhWkt5m9fBPUn5E4JL7zqzZijvQgWnAgNF5IFFMI8ZJ926sx?=
- =?us-ascii?Q?aTPsl/Dw8g48hM39NNkQOwUDXm06rhhTReeE8V6euQbEWbEorZCbZT8tizJF?=
- =?us-ascii?Q?wRYKyevTEGNq5Ys+bncS9NB5U9icT8qDYuG5gx6GAnOKHcB8A6SDNEyraxzz?=
- =?us-ascii?Q?Jku/sRtYpKizzq1Uqknwy/ZgXP1rnh2BczN/5yV99bqAw6nfQ80sI86kYiCe?=
- =?us-ascii?Q?PJj941bWfytr7fDEPhI9+dVDD9B6XqL9FOIfDDoFOvtpAFwu3niQTH16JaGV?=
- =?us-ascii?Q?K4ZTkpon2sY8ptzv0TQXq7SkSM8qOdZwQ4brC78MXTe9n/nAasXM5sOzVToS?=
- =?us-ascii?Q?AFG5cdvw7tXTLBhqhX90UpjtNAVle8/gMO9FAsfNgaRXTdykAVNsz0Qaw/vo?=
- =?us-ascii?Q?qtwdiQBCbPtMRr18rrErkXZ57jTyr+t8LWN0laiB89rIbSvI/a3cmm9jEVsc?=
- =?us-ascii?Q?tp4vPetMAJ53M5muWdxP1HJcLpjbt3lWwXCgdxUBrsw+O4JhpDFck6MCXdal?=
- =?us-ascii?Q?H38lHAxyXq10CMsJ5QFu4ZnEbwTBKpq4JrCUcEXiKhDxBeueAGgU1dCvMwiV?=
- =?us-ascii?Q?Hp6Pz4Jh8DXPs5TojkxEZlRKNW2ON0f2YmpsdlMG0f7GenmpLc38PSkhX+Ml?=
- =?us-ascii?Q?UdzTVsNCpsci5XYL0Cm86UobrX2AlMqxjuNQY/QOn+e1uLTd60nqGRmja7U4?=
- =?us-ascii?Q?mK67vPJ8zJ/NemZ7tIy+XrJiNFvMA+CMCSILwsxqrgN5r/GzV53HVgzVg5aB?=
- =?us-ascii?Q?vE79uou/a/qEaIvIgv3EkXzD55TqLy15ogHZS0dLgNJqNX5ql99yAWjJh922?=
- =?us-ascii?Q?pF3tj7gAFey7znj7SYBcovZ0VvdLZm1wwcAjTBNFKWeezVCbU7IvmltsQbSX?=
- =?us-ascii?Q?9JWiiNYUB1EfYGA=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(82310400026)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jan 2025 03:32:52.7075
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 229d0163-a0d3-4d97-53de-08dd31f0a186
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF00017099.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6279
+	Sat, 11 Jan 2025 01:24:56 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2ef6ef9ba3fso4790115a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jan 2025 17:24:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1736558694; x=1737163494; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=L3TyIoxqzKbU5TOqXbLBWWXwSPvFkN5kGJBIZi+nPuA=;
+        b=MZama5LY0TAW+qKnvCzVZfDiLty1i3X1R2et7hn9QtmfESyqNSh8j52ECO84N+vWLK
+         WOQx1uwgQxcLYjSXBz+OyFDIQBOTeuhoCVrYolvHhdB0Vg1sNz415OJ78hXbErIhjZLe
+         rRR//ZJBb2tvq2mEeVEcaW63bFgbBadf6lsRE2lUwbu6BJXZPGbEj157OGlS0afWTDp5
+         ShYTAbPm9xlIZ8K/ZsNo44eNarkfh9nmw+e0n8GB/kg7HcO1mtfczSYS6C6IjPdzsBLm
+         mZrHuWxVUKi6eJvzdUWj+xGu1cuUoBu/fIcsZS7PhS4ZC3+H7tjJpZeVIiKYeJc5PLrp
+         2ygQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736558694; x=1737163494;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=L3TyIoxqzKbU5TOqXbLBWWXwSPvFkN5kGJBIZi+nPuA=;
+        b=If7Pe2zbNoEPe709HZiFFyfMYths3zQB9SntxbErrzuaNaxtlEY7kvYw4BFm8xIdoz
+         mYooHRjgRo1qgLVenIqTl/nP6pN2JRWcUYhYo2uTWs3K+GbIMyO7lQzgi7r7pwbq7LTT
+         VyJBnblWgl58/uSu8xU1GDl3J4xqoUpclJNuJSlhIFUE6UjDfWnb4HlYIFO0uu/0hhm0
+         ydsRZI9v6PB38xNpTulSty7OV+YtB/yoOzrXKbhsTAsps3gk7SLa1Uvf9FBeoEimmtmK
+         hpvZDydKmn9KjJxV+DnTV47OoV0VpwvyLJAV6M3f0yCaUXNgcRXXsnyyduLeO32TBahx
+         Is9Q==
+X-Forwarded-Encrypted: i=1; AJvYcCW6TtI1BkC13fbM/WA0BPt9hOvcd2p14Bqxj4oQSbD1zmUa/TypT60O2MgIUR9a48ASW3ZWGoleExZCa5SqA5Iw@lists.infradead.org
+X-Gm-Message-State: AOJu0YzuuAilBkeq84JBuCtrJ4PIQE5oXpyh2yfy+5iL4IqAVSJsp3hG
+	sHEeHhxEy/5CgCwF+L/Pqk2N14ARxeJjLmHvr/yxqpOQOq345Z7q8lUYuCgOPhRCJkaSGYv0gMM
+	8sw==
+X-Google-Smtp-Source: AGHT+IHQFtnrz9Qz4G4DVM+w+HCWHLq9SWFcOY5MsmF5EmSUkf18xpdPguK9lOowTA48c954eXDA8ByTfJE=
+X-Received: from pfld20.prod.google.com ([2002:a05:6a00:1994:b0:728:b3dd:ba8c])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:114e:b0:728:f337:a721
+ with SMTP id d2e1a72fcca58-72d21f29214mr17702842b3a.7.1736558694264; Fri, 10
+ Jan 2025 17:24:54 -0800 (PST)
+Date: Fri, 10 Jan 2025 17:24:46 -0800
+In-Reply-To: <20250111012450.1262638-1-seanjc@google.com>
+Mime-Version: 1.0
+References: <20250111012450.1262638-1-seanjc@google.com>
+X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
+Message-ID: <20250111012450.1262638-2-seanjc@google.com>
+Subject: [PATCH 1/5] KVM: x86: Document that KVM_EXIT_HYPERCALL requires completion
+From: Sean Christopherson <seanjc@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Sean Christopherson <seanjc@google.com>
+Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_193300_594694_76B0B00D 
-X-CRM114-Status: GOOD (  14.75  )
+X-CRM114-CacheID: sfid-20250110_172455_782593_400F46CC 
+X-CRM114-Status: GOOD (  13.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,169 +90,83 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jason Gunthorpe <jgg@nvidia.com>
+Update KVM's documentation to call out that KVM_EXIT_HYPERCALL requires
+userspace to do KVM_RUN before state save/restore, so that KVM can skip
+the hypercall instruction, otherwise resuming the vCPU after restore will
+restart the instruction and potentially lead to a spurious MAP_GPA_RANGE.
 
-The new function is used to take in a u64 MSI address and store it in the
-msi_msg. If the iommu has provided an alternative address then that is
-replaced instead.
-
-All callers have a tidy u64 already so this also consolidates the repeated
-low/high code into a small helper.
-
-Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+Fixes: 0dbb11230437 ("KVM: X86: Introduce KVM_HC_MAP_GPA_RANGE hypercall")
+Cc: stable@vger.kernel.org
+Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- include/linux/msi.h               | 18 ++++++++----------
- drivers/irqchip/irq-gic-v2m.c     |  5 +----
- drivers/irqchip/irq-gic-v3-its.c  | 13 +++----------
- drivers/irqchip/irq-gic-v3-mbi.c  | 12 ++++--------
- drivers/irqchip/irq-ls-scfg-msi.c |  5 ++---
- 5 files changed, 18 insertions(+), 35 deletions(-)
+ Documentation/virt/kvm/api.rst | 39 +++++++++++++++++-----------------
+ 1 file changed, 20 insertions(+), 19 deletions(-)
 
-diff --git a/include/linux/msi.h b/include/linux/msi.h
-index d442b4a69d56..f6369748fc6e 100644
---- a/include/linux/msi.h
-+++ b/include/linux/msi.h
-@@ -296,13 +296,8 @@ static inline void msi_desc_set_iommu_msi_iova(struct msi_desc *desc,
- #endif
- }
+diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+index 454c2aaa155e..c92c8d4e8779 100644
+--- a/Documentation/virt/kvm/api.rst
++++ b/Documentation/virt/kvm/api.rst
+@@ -6615,13 +6615,29 @@ The 'data' member contains, in its first 'len' bytes, the value as it would
+ appear if the VCPU performed a load or store of the appropriate width directly
+ to the byte array.
  
--/**
-- * iommu_dma_compose_msi_msg() - Apply translation to an MSI message
-- * @desc: MSI descriptor prepared by iommu_dma_prepare_msi()
-- * @msg: MSI message containing target physical address
-- */
--static inline void iommu_dma_compose_msi_msg(struct msi_desc *desc,
--					     struct msi_msg *msg)
-+static inline void msi_msg_set_msi_addr(struct msi_desc *desc,
-+					struct msi_msg *msg, u64 msi_addr)
- {
- #ifdef CONFIG_IRQ_MSI_IOMMU
- 	if (desc->iommu_msi_page_shift) {
-@@ -310,11 +305,14 @@ static inline void iommu_dma_compose_msi_msg(struct msi_desc *desc,
- 			       << desc->iommu_msi_page_shift;
++It is strongly recommended that userspace use ``KVM_EXIT_IO`` (x86) or
++``KVM_EXIT_MMIO`` (all except s390) to implement functionality that
++requires a guest to interact with host userspace.
++
++.. note:: KVM_EXIT_IO is significantly faster than KVM_EXIT_MMIO.
++
++		/* KVM_EXIT_HYPERCALL */
++		struct {
++			__u64 nr;
++			__u64 args[6];
++			__u64 ret;
++			__u64 flags;
++		} hypercall;
++
++
+ .. note::
  
- 		msg->address_hi = upper_32_bits(msi_iova);
--		msg->address_lo = lower_32_bits(msi_iova) |
--				  (msg->address_lo &
--				   ((1 << desc->iommu_msi_page_shift) - 1));
-+		msg->address_lo =
-+			lower_32_bits(msi_iova) |
-+			(msi_addr & ((1 << desc->iommu_msi_page_shift) - 1));
-+		return;
- 	}
- #endif
-+	msg->address_hi = upper_32_bits(msi_addr);
-+	msg->address_lo = lower_32_bits(msi_addr);
- }
+       For KVM_EXIT_IO, KVM_EXIT_MMIO, KVM_EXIT_OSI, KVM_EXIT_PAPR, KVM_EXIT_XEN,
+-      KVM_EXIT_EPR, KVM_EXIT_X86_RDMSR and KVM_EXIT_X86_WRMSR the corresponding
+-      operations are complete (and guest state is consistent) only after userspace
+-      has re-entered the kernel with KVM_RUN.  The kernel side will first finish
+-      incomplete operations and then check for pending signals.
++      KVM_EXIT_EPR, KVM_EXIT_X86_RDMSR, KVM_EXIT_X86_WRMSR, and KVM_EXIT_HYPERCALL
++      the corresponding operations are complete (and guest state is consistent)
++      only after userspace has re-entered the kernel with KVM_RUN.  The kernel
++      side will first finish incomplete operations and then check for pending
++      signals.
  
- int msi_domain_insert_msi_desc(struct device *dev, unsigned int domid,
-diff --git a/drivers/irqchip/irq-gic-v2m.c b/drivers/irqchip/irq-gic-v2m.c
-index be35c5349986..6599c56873ad 100644
---- a/drivers/irqchip/irq-gic-v2m.c
-+++ b/drivers/irqchip/irq-gic-v2m.c
-@@ -87,9 +87,6 @@ static void gicv2m_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
- 	struct v2m_data *v2m = irq_data_get_irq_chip_data(data);
- 	phys_addr_t addr = gicv2m_get_msi_addr(v2m, data->hwirq);
+       The pending state of the operation is not preserved in state which is
+       visible to userspace, thus userspace should ensure that the operation is
+@@ -6632,21 +6648,6 @@ to the byte array.
  
--	msg->address_hi = upper_32_bits(addr);
--	msg->address_lo = lower_32_bits(addr);
+ ::
+ 
+-		/* KVM_EXIT_HYPERCALL */
+-		struct {
+-			__u64 nr;
+-			__u64 args[6];
+-			__u64 ret;
+-			__u64 flags;
+-		} hypercall;
 -
- 	if (v2m->flags & GICV2M_GRAVITON_ADDRESS_ONLY)
- 		msg->data = 0;
- 	else
-@@ -97,7 +94,7 @@ static void gicv2m_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
- 	if (v2m->flags & GICV2M_NEEDS_SPI_OFFSET)
- 		msg->data -= v2m->spi_offset;
- 
--	iommu_dma_compose_msi_msg(irq_data_get_msi_desc(data), msg);
-+	msi_msg_set_msi_addr(irq_data_get_msi_desc(data), msg, addr);
- }
- 
- static struct irq_chip gicv2m_irq_chip = {
-diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index 92244cfa0464..8c3ab7b471ca 100644
---- a/drivers/irqchip/irq-gic-v3-its.c
-+++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -1809,17 +1809,10 @@ static u64 its_irq_get_msi_base(struct its_device *its_dev)
- static void its_irq_compose_msi_msg(struct irq_data *d, struct msi_msg *msg)
- {
- 	struct its_device *its_dev = irq_data_get_irq_chip_data(d);
--	struct its_node *its;
--	u64 addr;
 -
--	its = its_dev->its;
--	addr = its->get_msi_base(its_dev);
+-It is strongly recommended that userspace use ``KVM_EXIT_IO`` (x86) or
+-``KVM_EXIT_MMIO`` (all except s390) to implement functionality that
+-requires a guest to interact with host userspace.
 -
--	msg->address_lo		= lower_32_bits(addr);
--	msg->address_hi		= upper_32_bits(addr);
--	msg->data		= its_get_event_id(d);
- 
--	iommu_dma_compose_msi_msg(irq_data_get_msi_desc(d), msg);
-+	msg->data = its_get_event_id(d);
-+	msi_msg_set_msi_addr(irq_data_get_msi_desc(d), msg,
-+			     its_dev->its->get_msi_base(its_dev));
- }
- 
- static int its_irq_set_irqchip_state(struct irq_data *d,
-diff --git a/drivers/irqchip/irq-gic-v3-mbi.c b/drivers/irqchip/irq-gic-v3-mbi.c
-index 3fe870f8ee17..513479da9ee3 100644
---- a/drivers/irqchip/irq-gic-v3-mbi.c
-+++ b/drivers/irqchip/irq-gic-v3-mbi.c
-@@ -147,22 +147,18 @@ static const struct irq_domain_ops mbi_domain_ops = {
- 
- static void mbi_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
- {
--	msg[0].address_hi = upper_32_bits(mbi_phys_base + GICD_SETSPI_NSR);
--	msg[0].address_lo = lower_32_bits(mbi_phys_base + GICD_SETSPI_NSR);
- 	msg[0].data = data->parent_data->hwirq;
+-.. note:: KVM_EXIT_IO is significantly faster than KVM_EXIT_MMIO.
 -
--	iommu_dma_compose_msi_msg(irq_data_get_msi_desc(data), msg);
-+	msi_msg_set_msi_addr(irq_data_get_msi_desc(data), &msg[0],
-+			     mbi_phys_base + GICD_SETSPI_NSR);
- }
+ For arm64:
+ ----------
  
- static void mbi_compose_mbi_msg(struct irq_data *data, struct msi_msg *msg)
- {
- 	mbi_compose_msi_msg(data, msg);
- 
--	msg[1].address_hi = upper_32_bits(mbi_phys_base + GICD_CLRSPI_NSR);
--	msg[1].address_lo = lower_32_bits(mbi_phys_base + GICD_CLRSPI_NSR);
- 	msg[1].data = data->parent_data->hwirq;
--
--	iommu_dma_compose_msi_msg(irq_data_get_msi_desc(data), &msg[1]);
-+	msi_msg_set_msi_addr(irq_data_get_msi_desc(data), &msg[1],
-+			     mbi_phys_base + GICD_CLRSPI_NSR);
- }
- 
- static bool mbi_init_dev_msi_info(struct device *dev, struct irq_domain *domain,
-diff --git a/drivers/irqchip/irq-ls-scfg-msi.c b/drivers/irqchip/irq-ls-scfg-msi.c
-index c0e1aafe468c..2ac6d89b4cb4 100644
---- a/drivers/irqchip/irq-ls-scfg-msi.c
-+++ b/drivers/irqchip/irq-ls-scfg-msi.c
-@@ -87,8 +87,6 @@ static void ls_scfg_msi_compose_msg(struct irq_data *data, struct msi_msg *msg)
- {
- 	struct ls_scfg_msi *msi_data = irq_data_get_irq_chip_data(data);
- 
--	msg->address_hi = upper_32_bits(msi_data->msiir_addr);
--	msg->address_lo = lower_32_bits(msi_data->msiir_addr);
- 	msg->data = data->hwirq;
- 
- 	if (msi_affinity_flag) {
-@@ -98,7 +96,8 @@ static void ls_scfg_msi_compose_msg(struct irq_data *data, struct msi_msg *msg)
- 		msg->data |= cpumask_first(mask);
- 	}
- 
--	iommu_dma_compose_msi_msg(irq_data_get_msi_desc(data), msg);
-+	msi_msg_set_msi_addr(irq_data_get_msi_desc(data), msg,
-+			     msi_data->msiir_addr);
- }
- 
- static int ls_scfg_msi_set_affinity(struct irq_data *irq_data,
 -- 
-2.43.0
+2.47.1.613.gc27f4b7a9f-goog
 
 
