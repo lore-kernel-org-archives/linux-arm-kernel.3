@@ -4,65 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEB14E7719A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jan 2025 09:42:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90494E7719A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jan 2025 10:03:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p0PvdyyA8A+UdtbGGyBfXQPktdqAIZJzrabZ5gBuj0c=; b=bmMuLoVEOiIkTx8xpMv8afxGXd
-	bsqrg6wqDrFiCwdUK3zgFb/Mx0aGzxIjVJ1/+lp34NPjOX7Crn4Wxhhht6nrBBwOVK5wUWm9bz9KG
-	AiwUqa7m+R3JgmZxkxLT6kGiZ7lbfT5/dv2XSxW69FrjCH+F2fbC6Z8jGKZxl9aWfFJkg4JQ/q9EG
-	DWB9sckT/4N7hpTcu2Cwzw0QeII+SEYxUF+TpD3UphkbxxPMsrX3ADCyVLpeJ6mpmpV3fMidNVgf2
-	rRwUajzOnvbH4eeqgkQbbHlQecTmT2Fuh8znf+ZQwO1R76fEVZcmn+a+MP7sftFa6h4NAIYPwMcKM
-	Sa4Hu5Ag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rjIk5IWPX/sFgqupdD4dSWcOuD6lN7+QBI/rBP5fj18=; b=rVKf0Zl/5XVGWwF2O3UV3WaRza
+	eCX+sC040n8krQDCaqNuAYtgUG3jiCjdwmiJvI3pRTw46WWpzU8CGkWgNCGXFCW2zj3FDF4vlkpkm
+	771aj25blDgwoelpOxSlMewkg5yE/6Uz03aYF3jaljCzrANfPluWiqOcpzuNYQpvZFwm8BgRG7+8G
+	CQZbo0/xTqG+nzgqvuV6nhQdi2I8hixEkKdAJ1W/K9YlPGUqO18sKRhH07R2LQimqq1NDgaxkEzsR
+	t7iqdoc2HxzTggB00WniP4n2UEZMMHmvZd/1kccT3HKvYOaJh4wvlGX6Wwx7vnE08gH2Mbz6Khlru
+	0UtFfv0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWY0q-00000000Xcj-2PLq;
-	Sat, 11 Jan 2025 09:42:36 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tWYL0-00000000Zdh-3fFB;
+	Sat, 11 Jan 2025 10:03:26 +0000
+Received: from out203-205-221-252.mail.qq.com ([203.205.221.252])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWXzd-00000000XVd-3S77;
-	Sat, 11 Jan 2025 09:41:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5FBD0A406D8;
-	Sat, 11 Jan 2025 09:39:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84F75C4CED2;
-	Sat, 11 Jan 2025 09:41:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736588480;
-	bh=N2CiOKl4IO7VYA0htePZV6dQy45186pHAoS2+zEndyY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JB8uxI4fL6BuzX4kp/L0rMg5AOp7YyL7Mhx0P7zggTV00JqJhkNBUEomUB/YKeeeR
-	 cbnmiezAeb2+52k6SJXWLmoMW0CFF3UWyCGAROdDKUaWOa/N7OpVAiiJRagflEzdjk
-	 e6DUwOtDZSIRblUgTJl2ghCHnyi/cah9nt8o/E/7u76ldJJvOGK+IfKc5qMoSl8tkL
-	 H5zB6zrEtkG7meoOiHjyBrS96cBzw/02J3PY80jtTGsBrW5x8NpffpzV4AmBx4wTss
-	 qvtDM2ePDGf1qj+3i+RxBSU2kzMzcw2eLh5cOXSbDP1zcSs1tQAi3+f1a9cBpF2QS1
-	 c6WlqQBMyRxCw==
-Date: Sat, 11 Jan 2025 10:41:16 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Cathy Xu <ot_cathy.xu@mediatek.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sean Wang <sean.wang@kernel.org>, Lei Xue <lei.xue@mediatek.com>, 
-	wenbin.mei@mediatek.com, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, Guodong Liu <guodong.liu@mediatek.com>
-Subject: Re: [PATCH v2 1/2] dt-bindings: pinctrl: mediatek: add support for
- mt8196
-Message-ID: <dnjtaapqbn6zy55k5ky7zltswkbg7cjh2xwlnrmqdiz7tfm6rc@wbepc5koem6e>
-References: <20250110104703.13625-1-ot_cathy.xu@mediatek.com>
- <20250110104703.13625-2-ot_cathy.xu@mediatek.com>
+	id 1tWYJm-00000000ZZH-2ya0
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 11 Jan 2025 10:02:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1736589406; bh=rjIk5IWPX/sFgqupdD4dSWcOuD6lN7+QBI/rBP5fj18=;
+	h=From:To:Cc:Subject:Date;
+	b=ayKACWz0WHnJhH7o+T/era1/U6932U7zK3/HftL5OOWKkP5UGF1hMXBhLSzRhl0W8
+	 +/M+edKLdCxssfN7jc1cdQyceh/4Ib1ncPXL1n8wA3oc3TMgsFGNQGJuS/g37aqbgp
+	 NKcVFpK/l/caryNMWKInl0IjaxuNtKN13Pp7Ud1Q=
+Received: from u22.. ([208.115.96.45])
+	by newxmesmtplogicsvrszb21-0.qq.com (NewEsmtp) with SMTP
+	id E24AD6B7; Sat, 11 Jan 2025 17:56:36 +0800
+X-QQ-mid: xmsmtpt1736589396tszkecd4g
+Message-ID: <tencent_4B60C577479F735A75E6459B9AEAB3F54A05@qq.com>
+X-QQ-XMAILINFO: NmxDRtNfo6mLCtlJ3NUEaLEv/0UxDoISsTe+ak3zBbPJ4DaE9J0Bm5Sg35AlKD
+	 xVEZndEBtZP7yjTu40DZ2oUisibTHpHr0mPtReka6BXItsdxGNZaDPulzeNrL14cBuM0eKXSeidU
+	 V8NgmPhuJxhPjLNwX2lR3mtbBSSHsVVIGhzsHtkNUYTdXoK9t/ySxGrzHCOcwvyETY221kbeNj9s
+	 PgoxUQHGkczthhqIiuQvJT4s/jghKb1WVRBDjkjxVYSZUl+TGONl9nyVbgG7+iTejWy5Q0QN9wBS
+	 eMoA405b9zTJLiGBYqi/OUJEjGMuq3xBDXU1PA3e/n4gCBci0qS4qIWL04aWAhioXnMcycw5SgYm
+	 nmv74Wa+agBgIDobFq+C+Imunn8z/5m5voXLdZF8oGK/LUkGf+REam0C12PogLO2GwbXO/c9Fuz4
+	 MspoA2dZbRNa8uqQKpuBxEZn5LG2DkSSCebUeby9/UDKHNBogelDYM9Yc82N/CAZR2iM4uZOehw8
+	 euo86vPTdNs9u3Sji123Vc12K+6pWdLx+9snYJbo/u1PV/NFLlb04peJtdBRdzPIKVPVqXIAU/7+
+	 CJ18duhpMjrkR7WebAd0FEjJ4dxNSa/qB01HnJpTk13va4OCsePnOcj3WjVgwedrU6ZqGak640Qi
+	 oMpCv2TYow0Pj43EHmHt+79ceuFCKlBUhJCeL7pRJKC9Jv5wdtovwJVVbtQcLZ2e8SCHrs2cOkVE
+	 ZUIdGSfaFKYk6HFiYovSMibCfFbPFqXJSAkXAJvj3iXHGDx7j+EzI1zHwflXb4D5aiuVRIPQ9ob3
+	 dD9IrzbKY5rdgDJo/LxB3R18ZesZ2zcjp4sju6xC+nkMWj5ec3r9rURHGPUC1RrBHzh6qhcAe+8j
+	 rEGOG1g29it7go1dcemiAuMbWPWyWdV2NpsGsROty6kRCBi9K61+UPhZ3OB9vOW2f4HdD4GtmnL7
+	 ZhHtN/QvYYTy1yXSMEqE8e5HcJfUyIsuLn8DuV3Z4T53JzKgTsLq+/RidJqyyz2ube5dgH3KQH0x
+	 mieEzFHVIr4UBgdzvUw7+/JdJiJZsa3sAiNQceyl1CkMoZPGa+1DJm2dtEA0k=
+X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
+From: 1534428646@qq.com
+To: catalin.marinas@arm.com,
+	will@kernel.org
+Cc: mark.rutland@arm.com,
+	kristina.martsenko@arm.com,
+	liaochang1@huawei.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	"Yiren.Xie" <1534428646@qq.com>
+Subject: [PATCH] arm64: kprobe: fix an error in single stepping support
+Date: Sat, 11 Jan 2025 17:56:32 +0800
+X-OQ-MSGID: <20250111095632.738024-1-1534428646@qq.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250110104703.13625-2-ot_cathy.xu@mediatek.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250111_014122_000855_9ED584B7 
-X-CRM114-Status: GOOD (  29.27  )
+X-CRM114-CacheID: sfid-20250111_020211_354901_F48C2138 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,223 +87,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 10, 2025 at 06:42:28PM +0800, Cathy Xu wrote:
-> 1.Add pinctrl file on MediaTek mt8196.
+From: "Yiren.Xie" <1534428646@qq.com>
 
-Where? What is pinctrl file?
+It is obvious a conflict between the code and the comment.
+And verified that with this modification it can read the DAIF status.
 
-> 2.Add the new binding document for pinctrl on MediaTek mt8196.
+Signed-off-by: Yiren.Xie <1534428646@qq.com>
+---
+ arch/arm64/kernel/probes/decode-insn.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Look at git history how commit msgs are written for such changes.
-
-> 
-> Signed-off-by: Guodong Liu <guodong.liu@mediatek.com>
-> Signed-off-by: Cathy Xu <ot_cathy.xu@mediatek.com>
-> ---
->  .../pinctrl/mediatek,mt8196-pinctrl.yaml      |  266 +++
->  include/dt-bindings/pinctrl/mt8196-pinfunc.h  | 1572 +++++++++++++++++
->  2 files changed, 1838 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pinctrl/mediatek,mt8196-pinctrl.yaml
->  create mode 100644 include/dt-bindings/pinctrl/mt8196-pinfunc.h
-> 
-> diff --git a/Documentation/devicetree/bindings/pinctrl/mediatek,mt8196-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/mediatek,mt8196-pinctrl.yaml
-> new file mode 100644
-> index 000000000000..abeb0d942cc4
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pinctrl/mediatek,mt8196-pinctrl.yaml
-> @@ -0,0 +1,266 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/pinctrl/mediatek,mt8196-pinctrl.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: MediaTek MT8196 Pin Controller
-> +
-> +maintainers:
-> +  - Lei Xue <lei.xue@mediatek.com>
-> +  - Cathy Xu <ot_cathy.xu@mediatek.com>
-> +
-> +description:
-> +  The MediaTek's MT8196 Pin controller is used to control SoC pins.
-> +
-> +properties:
-> +  compatible:
-> +    const: mediatek,mt8196-pinctrl
-> +
-> +  gpio-controller: true
-> +
-> +  '#gpio-cells':
-> +    description:
-> +      Number of cells in GPIO specifier, should be two. The first cell is the
-> +      pin number, the second cell is used to specify optional parameters which
-> +      are defined in <dt-bindings/gpio/gpio.h>.
-> +    const: 2
-> +
-> +  gpio-ranges:
-> +    maxItems: 1
-> +
-> +  gpio-line-names: true
-> +
-> +  reg:
-> +    items:
-> +      - description: gpio registers base address
-> +      - description: rt group io configuration registers base address
-> +      - description: rm1 group io configuration registers base address
-> +      - description: rm2 group io configuration registers base address
-> +      - description: rb group io configuration registers base address
-> +      - description: bm1 group io configuration registers base address
-> +      - description: bm2 group io configuration registers base address
-> +      - description: bm3 group io configuration registers base address
-> +      - description: lt group io configuration registers base address
-> +      - description: lm1 group io configuration registers base address
-> +      - description: lm2 group io configuration registers base address
-> +      - description: lb1 group io configuration registers base address
-> +      - description: lb2 group io configuration registers base address
-> +      - description: tm1 group io configuration registers base address
-> +      - description: tm2 group io configuration registers base address
-> +      - description: tm3 group io configuration registers base address
-> +
-> +  reg-names:
-> +    items:
-> +      - const: iocfg0
-> +      - const: iocfg_rt
-> +      - const: iocfg_rm1
-> +      - const: iocfg_rm2
-> +      - const: iocfg_rb
-> +      - const: iocfg_bm1
-> +      - const: iocfg_bm2
-> +      - const: iocfg_bm3
-> +      - const: iocfg_lt
-> +      - const: iocfg_lm1
-> +      - const: iocfg_lm2
-> +      - const: iocfg_lb1
-> +      - const: iocfg_lb2
-> +      - const: iocfg_tm1
-> +      - const: iocfg_tm2
-> +      - const: iocfg_tm3
-
-Are you sure these are separate address spaces?
-
-> +
-> +  interrupt-controller: true
-> +
-> +  '#interrupt-cells':
-> +    const: 2
-> +
-> +  interrupts:
-> +    description: The interrupt outputs to sysirq.
-> +    maxItems: 1
-> +
-> +  mediatek,rsel-resistance-in-si-unit:
-> +    type: boolean
-> +    description:
-> +      We provide two methods to select the resistance for I2C when pull up or
-> +      pull down. The first is by RSEL definition value, another one is by
-> +      resistance value(ohm). This flag is used to identify if the method is
-> +      resistance(si unit) value.
-
-What is the point of choosing it? This is one hardware, one SoC, so how
-different boards can have different units? No, just use Ohms
-
-> +
-> +# PIN CONFIGURATION NODES
-> +patternProperties:
-> +  '-pins$':
-> +    type: object
-> +    additionalProperties: false
-> +
-> +    patternProperties:
-> +      '^pins':
-> +        type: object
-> +        $ref: /schemas/pinctrl/pincfg-node.yaml
-> +        additionalProperties: false
-> +        description:
-> +          A pinctrl node should contain at least one subnode representing the
-> +          pinctrl groups available on the machine. Each subnode will list the
-> +          pins it needs, and how they should be configured, with regard to muxer
-> +          configuration, pullups, drive strength, input enable/disable and input
-> +          schmitt.
-> +
-> +        properties:
-> +          pinmux:
-> +            description:
-> +              Integer array, represents gpio pin number and mux setting.
-> +              Supported pin number and mux varies for different SoCs, and are
-> +              defined as macros in dt-bindings/pinctrl/mt8196-pinfunc.h
-> +              directly, for this SoC.
-> +
-> +          drive-strength:
-> +            enum: [2, 4, 6, 8, 10, 12, 14, 16]
-> +
-> +          drive-strength-microamp:
-> +            enum: [125, 250, 500, 1000]
-
-Why duplicating properties? No, use only one.
-
-> +
-> +          bias-pull-down:
-> +            oneOf:
-> +              - type: boolean
-> +              - enum: [100, 101, 102, 103]
-> +                description: mt8196 pull down PUPD/R0/R1 type define value.
-> +              - enum: [200, 201, 202, 203, 204, 205, 206, 207]
-> +                description: mt8196 pull down RSEL type define value.
-> +              - enum: [75000, 5000]
-> +                description: mt8196 pull down RSEL type si unit value(ohm).
-> +            description: |
-> +              For pull down type is normal, it doesn't need add RSEL & R1R0
-> +              define and resistance value.
-> +              For pull down type is PUPD/R0/R1 type, it can add R1R0 define to
-> +              set different resistance. It can support "MTK_PUPD_SET_R1R0_00" &
-> +              "MTK_PUPD_SET_R1R0_01" & "MTK_PUPD_SET_R1R0_10" &
-> +              "MTK_PUPD_SET_R1R0_11" define in mt8196.
-> +              For pull down type is RSEL, it can add RSEL define & resistance
-> +              value(ohm) to set different resistance by identifying property
-> +              "mediatek,rsel-resistance-in-si-unit". It can support
-> +              "MTK_PULL_SET_RSEL_000" & "MTK_PULL_SET_RSEL_001" &
-> +              "MTK_PULL_SET_RSEL_010" & "MTK_PULL_SET_RSEL_011" &
-> +              "MTK_PULL_SET_RSEL_100" & "MTK_PULL_SET_RSEL_101" &
-> +              "MTK_PULL_SET_RSEL_110" & "MTK_PULL_SET_RSEL_111" define in
-> +              mt8196. It can also support resistance value(ohm) "75000" & "5000"
-> +              in mt8196.
-> +
-> +          bias-pull-up:
-> +            oneOf:
-> +              - type: boolean
-> +              - enum: [100, 101, 102, 103]
-> +                description: mt8196 pull up PUPD/R0/R1 type define value.
-> +              - enum: [200, 201, 202, 203, 204, 205, 206, 207]
-> +                description: mt8196 pull up RSEL type define value.
-> +              - enum: [1000, 1500, 2000, 3000, 4000, 5000, 10000, 75000]
-> +                description: mt8196 pull up RSEL type si unit value(ohm).
-
-Same problems.
-
-> +++ b/include/dt-bindings/pinctrl/mt8196-pinfunc.h
-> @@ -0,0 +1,1572 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
-> +/*
-> + * Copyright (C) 2025 Mediatek Inc.
-> + * Author: Guodong Liu <Guodong.Liu@mediatek.com>
-> + */
-> +
-> +#ifndef __MT8196_PINFUNC_H
-> +#define __MT8196_PINFUNC_H
-> +
-> +#include <dt-bindings/pinctrl/mt65xx.h>
-> +
-> +#define PINMUX_GPIO0__FUNC_GPIO0 (MTK_PIN_NO(0) | 0)
-> +#define PINMUX_GPIO0__FUNC_DMIC1_CLK (MTK_PIN_NO(0) | 1)
-> +#define PINMUX_GPIO0__FUNC_SPI3_A_MO (MTK_PIN_NO(0) | 3)
-> +#define PINMUX_GPIO0__FUNC_FMI2S_B_LRCK (MTK_PIN_NO(0) | 4)
-> +#define PINMUX_GPIO0__FUNC_SCP_DMIC1_CLK (MTK_PIN_NO(0) | 5)
-> +#define PINMUX_GPIO0__FUNC_TP_GPIO14_AO (MTK_PIN_NO(0) | 6)
-
-You got comment, so respond to it. Sending the same and expecting
-different results is fast way to get a grumpy response.
-
-Best regards,
-Krzysztof
+diff --git a/arch/arm64/kernel/probes/decode-insn.c b/arch/arm64/kernel/probes/decode-insn.c
+index 6438bf62e753..22383eb1c22c 100644
+--- a/arch/arm64/kernel/probes/decode-insn.c
++++ b/arch/arm64/kernel/probes/decode-insn.c
+@@ -40,7 +40,7 @@ static bool __kprobes aarch64_insn_is_steppable(u32 insn)
+ 		 */
+ 		if (aarch64_insn_is_mrs(insn))
+ 			return aarch64_insn_extract_system_reg(insn)
+-			     != AARCH64_INSN_SPCLREG_DAIF;
++			     == AARCH64_INSN_SPCLREG_DAIF;
+ 
+ 		/*
+ 		 * The HINT instruction is steppable only if it is in whitelist
+-- 
+2.34.1
 
 
