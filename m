@@ -4,72 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE822E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jan 2025 01:33:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37ACBE7719C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jan 2025 01:52:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JSJ2//G/dyGy/Z/QtKtRmb1VcieLheCT8CgoEclYxvU=; b=z3UruojRKnfIIe/zZxHKLQHrJ4
-	cOc+CNnycJem1iat6JXcEZvYJwiMUhrzMm6M0hdLsYkjsll4/ZWmfHCE3fiyRdslVSd+PzZz3rir3
-	fuirI4jolKKykZZJdLqp9xl4GWrnTLPZ9jQN9LRkbvIu3dNSxAfDRTJvGZVzh+YF0JiUuKR/fqZLH
-	Q/Qv0MRnSZmX/R+Nf6LqcT+6X3kpII8T4/ZDRj52gLC7kBxNyTAfGllMP9yF5eopGlztQhcBw+xrk
-	D6+B4P3UKDA59WEh0N9gZwZ9j8bHTppHCIh0QwCnLEyNfJ3mCNcOX74ONoh96Kr4DM+I3Ihhu5RVg
-	dcJkj9jQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
+	From:Subject:Message-ID:Mime-Version:Date:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9xron+KThU7T77R5VL2QV4m0fAH5NzD4XXNwhcBHEXQ=; b=sZNPDamAx31izo+nuyz+tw4kKE
+	ogCSKuKSPuiCT/Q4m93kyeqVtiLgiIbr3gsBV83FV+D1lw0NV7jbKNNppz1E0dxD4iAZ/pjYvUt46
+	RIvB5nX5CnX9fFqZt2LwcaHsX5V2yqRrrQmk3PnwKgpR8FDyvQbFcou5dqzJGUjmOU+RL1zoXdl+c
+	aE+bYeRS5breVmxmFMp7KuHnIVzV4sQn0zBE5hb35CGRid4JIxIgNIDlYJu+n99olIt0DQ81i5TLl
+	qHtuBqolpeBsc8ie/sXDcnZQysFLOEZiU7FDsCvawIxRqac/P3pAR1c2BiV3RqNzrPaBcb3arAVMH
+	YcPg050Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWQNj-0000000HVmy-2r9x;
-	Sat, 11 Jan 2025 01:33:43 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tWQg9-0000000HX6F-214W;
+	Sat, 11 Jan 2025 01:52:45 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWQKy-0000000HVQn-1e0T
+	id 1tWPiH-0000000HQJw-0xeo
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jan 2025 01:30:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1C3F25C3674;
-	Sat, 11 Jan 2025 01:30:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CC51C4CED6;
-	Sat, 11 Jan 2025 01:30:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
-	s=korg; t=1736559049;
-	bh=7I1OBfWbo908Mx7qvQkrDHGouLRf+dWAo5fEwim6p1w=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=wCdNg1TFG2mQ2V7JLabBLagQ3iPh1FJkujMfPxuiGPq8mHSUiRbicfuDz2i9VqjFf
-	 EAUFhX6Dmh7OxXqZl8IYRBtst8NCQct6t/dFbEismIfwpRA3Qoo2LI1c6LPpWu8fRG
-	 2Kmoai3+QNA8Ga1fKjMEVJkS7d/Z4QkUiwdQ67Rg=
-Date: Fri, 10 Jan 2025 17:30:48 -0800
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Dan Williams <dan.j.williams@intel.com>
-Cc: Alistair Popple <apopple@nvidia.com>, <linux-mm@kvack.org>,
- <alison.schofield@intel.com>, <lina@asahilina.net>, <zhang.lyra@gmail.com>,
- <gerald.schaefer@linux.ibm.com>, <vishal.l.verma@intel.com>,
- <dave.jiang@intel.com>, <logang@deltatee.com>, <bhelgaas@google.com>,
- <jack@suse.cz>, <jgg@ziepe.ca>, <catalin.marinas@arm.com>,
- <will@kernel.org>, <mpe@ellerman.id.au>, <npiggin@gmail.com>,
- <dave.hansen@linux.intel.com>, <ira.weiny@intel.com>,
- <willy@infradead.org>, <djwong@kernel.org>, <tytso@mit.edu>,
- <linmiaohe@huawei.com>, <david@redhat.com>, <peterx@redhat.com>,
- <linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linuxppc-dev@lists.ozlabs.org>,
- <nvdimm@lists.linux.dev>, <linux-cxl@vger.kernel.org>,
- <linux-fsdevel@vger.kernel.org>, <linux-ext4@vger.kernel.org>,
- <linux-xfs@vger.kernel.org>, <jhubbard@nvidia.com>, <hch@lst.de>,
- <david@fromorbit.com>, <chenhuacai@kernel.org>, <kernel@xen0n.name>,
- <loongarch@lists.linux.dev>
-Subject: Re: [PATCH v6 00/26] fs/dax: Fix ZONE_DEVICE page reference counts
-Message-Id: <20250110173048.5565901e0fec24556325bd18@linux-foundation.org>
-In-Reply-To: <6780c6d43d73e_2aff42943b@dwillia2-xfh.jf.intel.com.notmuch>
-References: <cover.11189864684e31260d1408779fac9db80122047b.1736488799.git-series.apopple@nvidia.com>
-	<6780c6d43d73e_2aff42943b@dwillia2-xfh.jf.intel.com.notmuch>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Sat, 11 Jan 2025 00:50:54 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2efa0eb9dacso4827635a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jan 2025 16:50:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1736556652; x=1737161452; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:reply-to:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=9xron+KThU7T77R5VL2QV4m0fAH5NzD4XXNwhcBHEXQ=;
+        b=DUF/pvUe1GyOJnaDxbJ3MNai7b0eIuV8a3V19fvMEHvvE5Sw7O4e++F0ZjptgLKs9Y
+         jewklpyZWMOI4jFqHWtlFog1vOB5sXCsxmJ3u8Ac7XDOMt2aQ9bYuy0cvCR2lCyRoBLP
+         cM01EmkX43QAKYbvz2MVLvBLKRCqZbOFupyCGbY7qb8SxvoGwTjWxNuqMcq849HH+mcJ
+         gVAkeyePCbFgMpPBPcNJK8jVVy6IMgdVFaRvlbPbTKqbBpXowpHKXwy70qulEu2kh3hj
+         hbh5aPew4xfPFOkrVRNzUPhM8HVVXebEhfDQv2zKkd8A00I58Nv+OYHBwfRJx5Oh7iCu
+         EpIw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736556652; x=1737161452;
+        h=cc:to:from:subject:message-id:mime-version:date:reply-to
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=9xron+KThU7T77R5VL2QV4m0fAH5NzD4XXNwhcBHEXQ=;
+        b=IqKTE+FNMjlXwXCX16rGKz8usvC/iUnLqydw3lUR1BRC4sd4rSJnYiEIbARHOW3lSe
+         0Cyo4/Pjfr2swrjeTwXKHHzWCmpfbTIdmmT2sAlIdBBdCd2rMpn1oXMXzaYQ+L24QRw7
+         dnd5R38sBZrgDhWCMp9qJyGb7EMApyH+9lYcq08jQa6HhGir/GAy6S7nuP/a5VZMncQn
+         daBr/J8y/TGgf3ppjbsJEEiJVTOVSPyq6qejRwgg6oZHFioLhPrc7Wh1z4EJm+WEHi24
+         SoT5EaHPhVvL8OaYYiWsIzUJaudKntaHaDmEhjVWbXqPG/aPo6vRCjLeyaNAlznbOmke
+         E7pw==
+X-Gm-Message-State: AOJu0Yzz3dueebx9cF2NOHDeb31J9+3d7tCLkEYBBYRm0fSdGBQWzOtP
+	WTy4vQzaqtjyXsuAE6jmFPulJmprwRM1MGNbIYeX0v8ASsI6brt5Z12FQPCyPgzZ0E81TIip3Qp
+	QAQ==
+X-Google-Smtp-Source: AGHT+IFGHtmLK/IYHq0Rf1GMc11fdZBgGQoU3n0wFrQS04Q/FED/wp6nrTmZr2LCO3EYVe3us4g7I58uwQQ=
+X-Received: from pjbqi13.prod.google.com ([2002:a17:90b:274d:b0:2ef:82c0:cb8d])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4a44:b0:2ea:61de:38f7
+ with SMTP id 98e67ed59e1d1-2f548f1d420mr19019162a91.29.1736556651751; Fri, 10
+ Jan 2025 16:50:51 -0800 (PST)
+Date: Fri, 10 Jan 2025 16:50:40 -0800
 Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
+Message-ID: <20250111005049.1247555-1-seanjc@google.com>
+Subject: [PATCH v2 0/9] KVM: selftests: Binary stats fixes and infra updates
+From: Sean Christopherson <seanjc@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, Sean Christopherson <seanjc@google.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_173052_470189_8CBA4211 
-X-CRM114-Status: GOOD (  17.99  )
+X-CRM114-CacheID: sfid-20250110_165053_271069_D3FB23B2 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,38 +89,61 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 9 Jan 2025 23:05:56 -0800 Dan Williams <dan.j.williams@intel.com> wrote:
+Fix a handful of bugs in the binary stats infrastructure, expand support
+to vCPU-scoped stats, enumerate all KVM stats in selftests, and use the
+enumerated stats to assert at compile-time that {vm,vcpu}_get_stat() is
+getting a stat that actually exists.
 
-> >  - Remove PTE_DEVMAP definitions from Loongarch which were added since
-> >    this series was initially written.
-> [..]
-> > 
-> > base-commit: e25c8d66f6786300b680866c0e0139981273feba
-> 
-> If this is going to go through nvdimm.git I will need it against a
-> mainline tag baseline. Linus will want to see the merge conflicts.
-> 
-> Otherwise if that merge commit is too messy, or you would rather not
-> rebase, then it either needs to go one of two options:
-> 
-> - Andrew's tree which is the only tree I know of that can carry
->   patches relative to linux-next.
+Most of the bugs are benign, and AFAICT, none actually cause problems in
+the current code base.  The worst of the bugs is lack of validation that
+the requested stat actually exists, which is quite annoying if someone
+fat fingers a stat name, tries to get a vCPU stat on a VM FD, etc.
 
-I used to be able to do that but haven't got around to setting up such
-a thing with mm.git.  This is the first time the need has arisen,
-really.
+As called out multiple times in v1, I'm on the fence regarding the last
+patch (compile-time assertions).  My plan is to apply everything except the
+last patch fairly quickly, so that the vCPU stats stuff in particular can be
+used in x86 tests, and hold off on the compile-time assertion goo until
+someone comes along with a strong opinion one way or the other.
 
-> - Wait for v6.14-rc1 
+v2:
+ - Update rlimit number of files for all "standard" VMs.
+ - Account for the vCPU stats fd when updating rlimits.
 
-I'm thinking so.  Darrick's review comments indicate that we'll be seeing a v7.
+v1: https://lore.kernel.org/all/20241220013906.3518334-1-seanjc@google.com
 
-> and get this into nvdimm.git early in the cycle
->   when the conflict storm will be low.
+Sean Christopherson (9):
+  KVM: selftests: Fix mostly theoretical leak of VM's binary stats FD
+  KVM: selftests: Close VM's binary stats FD when releasing VM
+  KVM: selftests: Assert that __vm_get_stat() actually finds a stat
+  KVM: selftests: Macrofy vm_get_stat() to auto-generate stat name
+    string
+  KVM: selftests: Add struct and helpers to wrap binary stats cache
+  KVM: selftests: Get VM's binary stats FD when opening VM
+  KVM: selftests: Adjust number of files rlimit for all "standard" VMs
+  KVM: selftests: Add infrastructure for getting vCPU binary stats
+  KVM: selftests: Add compile-time assertions to guard against stats
+    typos
 
-erk.  This patchset hits mm/ a lot, and nvdimm hardly at all.  Is it
-not practical to carry this in mm.git?
+ .../kvm/include/arm64/kvm_util_arch.h         |  12 ++
+ .../testing/selftests/kvm/include/kvm_util.h  |  51 ++++++--
+ .../selftests/kvm/include/kvm_util_types.h    |   6 +
+ .../kvm/include/riscv/kvm_util_arch.h         |  14 +++
+ .../kvm/include/s390/kvm_util_arch.h          | 113 +++++++++++++++++
+ .../selftests/kvm/include/x86/kvm_util_arch.h |  52 ++++++++
+ .../selftests/kvm/kvm_create_max_vcpus.c      |  28 +----
+ tools/testing/selftests/kvm/lib/kvm_util.c    | 114 ++++++++++++------
+ .../kvm/x86/dirty_log_page_splitting_test.c   |   6 +-
+ .../selftests/kvm/x86/nx_huge_pages_test.c    |   4 +-
+ .../selftests/kvm/x86/xapic_ipi_test.c        |   2 +
+ 11 files changed, 324 insertions(+), 78 deletions(-)
+
+
+base-commit: 10b2c8a67c4b8ec15f9d07d177f63b563418e948
+-- 
+2.47.1.613.gc27f4b7a9f-goog
 
 
