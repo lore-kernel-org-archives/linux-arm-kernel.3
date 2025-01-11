@@ -4,195 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36ED7E7719C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jan 2025 03:51:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2697E7719A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jan 2025 06:42:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dBxqOSV+angmDHddWyjD5evPnVpLVNI0FqkRhDUNfQE=; b=n4vj3V5GPrtQzQM0uepEAbAHby
-	38vYLDEyN7jftwvdVpo8sTJGmdQqRZ57W2eEp6/qcmKcDwEbZT/dPFyVCysBs74a8BEYX0fNO8amL
-	9fnJMDFVvux9t6tvQgGZElm59upHBuKWrjATq6PzGaapnU1rW2PO82H+01qWltKKq5jwNC6KW44Wq
-	6x4GeWDuwHtkGhke6TjAcN1l3hRLJjEpYpVFggGIDeYVcQz/Ote+fkpcwn8axUUlLF7w5etH5ZFs/
-	8Y6JE+FSUfhSvF3TTRV5JZkhoKrlLd4BKWJNidkIFK3mulBh7wRHwbVXM13NSFmUmMVrRrMluN3oD
-	z5/ZhmFw==;
+	bh=/8Lb2giPFFy7bBVRTak6nhC8FrBjyWi3VmJmqFitXg4=; b=G1cE4YOZZXIBjG3BHQQf0qgmIY
+	nlq5cTm8OoO6a5igKJ6msX0U5iaK6BFwfcZ0bN+NQYDEYvnxXPHRpDtCIKwvOdvkJUQdyMMKFgEoJ
+	Izt/MS8/X+2GSe9BEFNKcZq/CtlhX3a9WJH5N5QqCtl28kYVYaAvOWlG0JGuPPeUDL7VG9+p67oXi
+	GOuKC1cWg7gioxvkxY1Kvm7Ii3vi867JRXTkT3bfX8YbOY9HU4ybuBVEWwsunIUawNb+HlojWVoVT
+	AZYOAMZ2nXlOQBbqtSuUneR997r34ypqk6XuOOTXW9HHGCjxKZfKrjcTM2ACXi/+sCoRH7sK85YU4
+	5eSwm9rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWSXC-0000000066T-3dfj;
-	Sat, 11 Jan 2025 03:51:39 +0000
-Received: from mgamail.intel.com ([198.175.65.12])
+	id 1tWVCY-00000000IaP-044q;
+	Sat, 11 Jan 2025 06:42:30 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWSIH-000000003yD-0NB1
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jan 2025 03:36:14 +0000
+	id 1tWVBH-00000000IT3-2vXj;
+	Sat, 11 Jan 2025 06:41:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1736566574; x=1768102574;
+  t=1736577671; x=1768113671;
   h=date:from:to:cc:subject:message-id:references:
-   in-reply-to:mime-version;
-  bh=g78/J/miIPXOqYI2NML2fT0xSbuNUIq2sURBYKmxrnU=;
-  b=BSaWbZPvxS6CBPQyeJEJIxJlUpVfyl9R4C9Y9ebeiosSSa5cjJ5P57fm
-   kS6BpiDRIw869KlOEAeNfe8MPv2XuoIbWhZw7/6480MBGL9/pB48y3dYN
-   oM3GU6/CPdMx7mc38EL2qcaf5cSq/2xhEiusuJcL2OF+zn5idVYIng3iv
-   0aLtL2A9wpgh6NS72Zlbkm/uyiahUIP7u0cnFnJQS0cPDqqIwV3JpcY/p
-   F/EzNFKs/D6OZyP+MFW45ZZFCWkYTSwPoSQTZYTa/8p7u45LfWnjO7iaB
-   6tM52fB0VmnNwNMvdsWXz+GBOBxUvzNZ5JxCGaMo+cNxKgQzOkgOM2zfc
-   Q==;
-X-CSE-ConnectionGUID: YrGOXPXaRIq2BXkuPHVvIg==
-X-CSE-MsgGUID: m22cHiH/TGSMJ7UMWqD0CQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11311"; a="48238015"
+   mime-version:in-reply-to;
+  bh=HdKyHxggIQYtQM8D7g0jk2NHrHn+fD9Taizzo5G8HcU=;
+  b=N+zDx0/j24/tOCLn0ssCya0eSd5xO3DwU/Qan8ILZNbFSE5l62VN3POq
+   Udids+ctmEhbmcnS1wnAW4uA4ByZ4EZdA4u/UYfSSX/I2SlAJlPdlnE3a
+   95MzK6U7EoNCkFivjem9HzGCc4/Xdy7jQetL7Ikgoq9Ga5ksAFczSpv1v
+   rnnNNERfzkIVsXo8JZPrMa72TRlZjTGsaCNwCStVpplAdojfg1fB3OAqQ
+   4ifMYALVbP4FUDPv0eW2ZsVcIaBazUstNqnnLnsbaFqXGwLl7Pp2Sl8Wt
+   zyklSfdSVX9sEMRNy2TXcFwoIYSUwwWnq9Miak2RWBQJ44MD7blxVrJWI
+   A==;
+X-CSE-ConnectionGUID: 9JwbofChSpOFMviEBYzr5g==
+X-CSE-MsgGUID: nrA54mqRSKCuun/0/4ieuw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11311"; a="62251524"
 X-IronPort-AV: E=Sophos;i="6.12,306,1728975600"; 
-   d="scan'208";a="48238015"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Jan 2025 19:36:09 -0800
-X-CSE-ConnectionGUID: AqV9EqY7Q5a580ncqm9K5Q==
-X-CSE-MsgGUID: CkCCl5ZMQ5u0JHOE3xpp6Q==
+   d="scan'208";a="62251524"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Jan 2025 22:41:09 -0800
+X-CSE-ConnectionGUID: KFeE8qvWSK6up/z+Ktgo8A==
+X-CSE-MsgGUID: dtAxG4+LTHiYIXjPvV1chg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="104792621"
-Received: from orsmsx601.amr.corp.intel.com ([10.22.229.14])
-  by orviesa008.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 10 Jan 2025 19:36:08 -0800
-Received: from orsmsx601.amr.corp.intel.com (10.22.229.14) by
- ORSMSX601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Fri, 10 Jan 2025 19:36:06 -0800
-Received: from ORSEDG601.ED.cps.intel.com (10.7.248.6) by
- orsmsx601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44 via Frontend Transport; Fri, 10 Jan 2025 19:36:06 -0800
-Received: from NAM10-DM6-obe.outbound.protection.outlook.com (104.47.58.45) by
- edgegateway.intel.com (134.134.137.102) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.44; Fri, 10 Jan 2025 19:36:06 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eufqVSvQRf8GH+3atm4X40PopC6FB0R4YMHozu5lrdpI+Cg/1Hv7y0GwFFNamFEW9aagpVKGMzlp9y2BxXbTvgtA2q9vwvPoVUbSqVuINLhV6TC5Jixn/w0UXlV9/+lfc7bF9gc0m7qWG+ia3Zgyp05ZTD/A5jldMgk1hYk2KEloAjrUGbjJVcg18hHA5+cacRaocJbFi84cR2QLDQXbGMWhy2T4SCz8PeHwYGeOmYGpWnQ27+jh29rCvALSZdbfYUUgIh2tPyN/SHKF9fkKUUvn/WXmf+H6NUuDuCXmRQqb4wVHQQ63ttJqYgWnyS9Wk+hlr1RiHdY0C5KSxUl+4w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dBxqOSV+angmDHddWyjD5evPnVpLVNI0FqkRhDUNfQE=;
- b=p2rpCoJf6tYlTVt6/+ZfY57WIcS8DBC+DSqZbxHQKNwntw8CPU8XIY3iY4XNVFH3qEgu0yGdWCg2CLi4dAlQii7daNeOnY/KBTOy0Qh1Off06wB91Deu8zZe7f3izOoY3x7eJU365lIiHQ0T5wSuFaOHI6Vtvos281aMvRnt9Fn0zEGP5+VwZpbvbI+TWuX7me9RO68tZQJvzimY/n4Pc2B8NgAUogTLil0Hc1l8mdej7rZLrvhErmfbPyLW3sZlUXi3UVPEeNkQwBHx76BRUSw/UBmZmK/QPuBVb+fe5VNyTlAWnENOZ5YRtkNgSvCLhy1eqvGsF8rLUYTKTs6z4g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from PH8PR11MB8107.namprd11.prod.outlook.com (2603:10b6:510:256::6)
- by PH0PR11MB5109.namprd11.prod.outlook.com (2603:10b6:510:3e::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.11; Sat, 11 Jan
- 2025 03:36:02 +0000
-Received: from PH8PR11MB8107.namprd11.prod.outlook.com
- ([fe80::6b05:74cf:a304:ecd8]) by PH8PR11MB8107.namprd11.prod.outlook.com
- ([fe80::6b05:74cf:a304:ecd8%4]) with mapi id 15.20.8314.015; Sat, 11 Jan 2025
- 03:36:02 +0000
-Date: Fri, 10 Jan 2025 19:35:57 -0800
-From: Dan Williams <dan.j.williams@intel.com>
-To: Andrew Morton <akpm@linux-foundation.org>, Dan Williams
-	<dan.j.williams@intel.com>
-CC: Alistair Popple <apopple@nvidia.com>, <linux-mm@kvack.org>,
-	<alison.schofield@intel.com>, <lina@asahilina.net>, <zhang.lyra@gmail.com>,
-	<gerald.schaefer@linux.ibm.com>, <vishal.l.verma@intel.com>,
-	<dave.jiang@intel.com>, <logang@deltatee.com>, <bhelgaas@google.com>,
-	<jack@suse.cz>, <jgg@ziepe.ca>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<mpe@ellerman.id.au>, <npiggin@gmail.com>, <dave.hansen@linux.intel.com>,
-	<ira.weiny@intel.com>, <willy@infradead.org>, <djwong@kernel.org>,
-	<tytso@mit.edu>, <linmiaohe@huawei.com>, <david@redhat.com>,
-	<peterx@redhat.com>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linuxppc-dev@lists.ozlabs.org>, <nvdimm@lists.linux.dev>,
-	<linux-cxl@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
-	<linux-ext4@vger.kernel.org>, <linux-xfs@vger.kernel.org>,
-	<jhubbard@nvidia.com>, <hch@lst.de>, <david@fromorbit.com>,
-	<chenhuacai@kernel.org>, <kernel@xen0n.name>, <loongarch@lists.linux.dev>
-Subject: Re: [PATCH v6 00/26] fs/dax: Fix ZONE_DEVICE page reference counts
-Message-ID: <6781e71d986e7_2aff4294d4@dwillia2-xfh.jf.intel.com.notmuch>
-References: <cover.11189864684e31260d1408779fac9db80122047b.1736488799.git-series.apopple@nvidia.com>
- <6780c6d43d73e_2aff42943b@dwillia2-xfh.jf.intel.com.notmuch>
- <20250110173048.5565901e0fec24556325bd18@linux-foundation.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250110173048.5565901e0fec24556325bd18@linux-foundation.org>
-X-ClientProxiedBy: MW4PR04CA0166.namprd04.prod.outlook.com
- (2603:10b6:303:85::21) To PH8PR11MB8107.namprd11.prod.outlook.com
- (2603:10b6:510:256::6)
+   d="scan'208";a="108564311"
+Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
+  by fmviesa005.fm.intel.com with ESMTP; 10 Jan 2025 22:41:05 -0800
+Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tWVB9-000KIR-1m;
+	Sat, 11 Jan 2025 06:41:03 +0000
+Date: Sat, 11 Jan 2025 14:40:17 +0800
+From: kernel test robot <lkp@intel.com>
+To: Ao Xu via B4 Relay <devnull+ao.xu.amlogic.com@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: oe-kbuild-all@lists.linux.dev, dri-devel@lists.freedesktop.org,
+	linux-amlogic@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Ao Xu <ao.xu@amlogic.com>
+Subject: Re: [PATCH 03/11] drm: meson: add S4 compatible for DRM driver
+Message-ID: <202501111433.iVcR3vZY-lkp@intel.com>
+References: <20250110-drm-s4-v1-3-cbc2d5edaae8@amlogic.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH8PR11MB8107:EE_|PH0PR11MB5109:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8aa2035f-9f24-4316-1e46-08dd31f11225
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?3TqS+09SoFVO2UdbD4/Vj36oV6f2m4ZaRHDdiRw15u6fmpcgn3hQ7bq6TNcQ?=
- =?us-ascii?Q?saCJNXBpfebU6XUGJCh9+O4hwTKPuRgAab8RTqCy8Gt9g8xZ3+R6druqmlzf?=
- =?us-ascii?Q?EsuNjsfO9/OydkNB9gCOsz2it3VM/6rNEaO8lGvQMTPV4a557ARuZEXX6z2M?=
- =?us-ascii?Q?hYsZXqNk4Rdr8nZg0M/f03I5efDFQ7P1cxrqR0IwvLxvokLR/dyfa6PMe2gX?=
- =?us-ascii?Q?vSiFS1vd5HwLg0MtglBv9JGFCpZz3c3HKqah31Yzds/EC6297ilhGdxz1BCX?=
- =?us-ascii?Q?JuxGSFenaw3GZ+y4DRMFVHg3xDNgZW3EdPRrqWrpYzuVBbaQKDDd6Hq9oILs?=
- =?us-ascii?Q?g6DKz2d2EfzOYhvlXxFgSPsWtsUhWyCT5V/j44tOEZEqCoh3tRg5HArreFTZ?=
- =?us-ascii?Q?NyyEkmy5atlH1tHlibmE7dEcnqUvseBiqXFUL9/y0mgx4U1qzUcJmPYZHnZM?=
- =?us-ascii?Q?EaovN6Dds1ER59jiUsrXKtN+UDw4OXAufkA6lZ2QKOhfegwYcQOkhzUC3+Bp?=
- =?us-ascii?Q?BXXoB2YFuE8bmE3eiDJkbmx4GhfuU+evtfHPx6cGXQNisaAPYyUfX5Li7p3u?=
- =?us-ascii?Q?93IdDDKjvj3zk67uIckWY4ux+6mr8E2B9EHyl6Clper5Nh7yFuf7SUVWgPP+?=
- =?us-ascii?Q?9NVJw5KvDHSleEGn8HYkWexznDe7oV2sK3XLuw7kO5M80m9EofhbB4oCB3Sd?=
- =?us-ascii?Q?t5eVJpBP1n9fNI6btqnkVJbQ/0WPrAliZGJtzEoN05Zv3hk5fPcltDbn+YOh?=
- =?us-ascii?Q?jZ3NsV1IR4GNo6J4jgz4iu7wcPvWCCf7E3sOitHupcdWI0KoFRnu+ffWMifo?=
- =?us-ascii?Q?feDeunpb8P46n0aljuHN3xlgBEgGRMNwRAfsZNFWtcvuWjPQfDGSUgspeQx3?=
- =?us-ascii?Q?tzC/NfE23cdQDqgwDxIFq+LvRAsUwOrojRmeWc/GAebUfRAs6jR4NgeDlT+4?=
- =?us-ascii?Q?DVoLrozY66j6g+nPrVKpx5nFBRoQVGTtGk7XNEFfRAODeHa6ZJ3N9pKQ/0JY?=
- =?us-ascii?Q?F3bd1NhQubECyrO6X/T9r9TJto+yJW0nuZrJ25f9V2zg8YR3Mpd1R5ozNIvG?=
- =?us-ascii?Q?BLISe1n4J+aCd9PjRZbGDglv9ntxVtCQF0+PGGZnyvu9KrnPVuUQkaCeCqka?=
- =?us-ascii?Q?OP8ENAFHtHRxVGCq5Chla2zrBSIEKb9iy7H1o/LC9GB7zrJa0R6ycP9Ea3dz?=
- =?us-ascii?Q?AeDllfqouOweHv4jR1UFcsZpshL8jKjKKpEwsIKsYd873pcnVOu/krynr5rS?=
- =?us-ascii?Q?WqsVVEmOcGp6Te2rz86Ift7Y8NzFXWNs9Jpr7q0dalb3GtCL/1uKkqjW4zD8?=
- =?us-ascii?Q?iGZ9DnOurpT9ss8p4pktRz9WWb887m9DVxZZx9OXkliZkxkTbVCxAO+oXh+Q?=
- =?us-ascii?Q?vrROWcAz9L8S/cVi21xjdhMRhfc9?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH8PR11MB8107.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?pXMMpM6JFHwZM+duYL4RDJBY31jSVtalKIJ7EPEEGpRpZDNQkJFh9jsx47qf?=
- =?us-ascii?Q?r5h2+8dlUIX/pDIAmAFYRzcPFiBr2EnBReeV9O0aHnpnKpnkMuwWbN3RfIns?=
- =?us-ascii?Q?VNdrA7IAhNtkbJWisO+aMunZRdqzyySL7Swe1q9wnDo+kt5rQlCiOpSpoKEg?=
- =?us-ascii?Q?4fCeW3TtlxOaFjsCMOr5JhY1A+mLn0AnMhMqeaPbRIWFGX1HU/I7c92s7GjB?=
- =?us-ascii?Q?DJ/0RoQk8tLjHK4IkmDWFqUpas5fi2D25SAQp5SRQIQZ4PMvdTgg/tfI9DHb?=
- =?us-ascii?Q?YMZyft6WYgXWjJO5UsMcO1ePUBsctWI5+D5mALOe7VKWH+0c34bq546PIXl3?=
- =?us-ascii?Q?/KG9NbEiKdT92EGqDxQffm6A1OcFgPl8F+nColnJnhO+IctbQQPFrmhecJ5n?=
- =?us-ascii?Q?xrZXwsnOvT5VurHyG+YwhaKVV+OEl6LztdTlVolnxJ42/EzPGCUHQSyddiBt?=
- =?us-ascii?Q?iIgTWJJp6nu1Th4ai52bVzcSsuSnZJuyF8F4rf6QZDNEGEy+Rx9kuXKeGuV1?=
- =?us-ascii?Q?uQENYpiV8mS7LR0l38kfvPXfuYSSNGDKPat0c846b4QwCz8dHM6iwe2pftHw?=
- =?us-ascii?Q?Pbgh6J4YDRBShqd+jZA11LrMGDVKvOh7dkRWI8WKFqKmr+eeebU0sldMi4Ln?=
- =?us-ascii?Q?3hcPMwWYV+PCv6qKTXCMXfDIrDfIpFdRM9nW598zjO4nF5QsrZd1c3lZs4Xl?=
- =?us-ascii?Q?MpYO4WSwXlAw3fCYkwz7uWySU3pfirAfGrhhUKNIJ8R1THxb6rRaJojiz+dY?=
- =?us-ascii?Q?jP0PlRCOqFJPqPESy8Nh5rOQQrqb+BSuhru4iE57IDfDX2dmSml2KeEu9hqN?=
- =?us-ascii?Q?hiz7YcoUD1GliuOHGOr7JUMA8157bwKkiTGWGrwq7qNlN2P6U0Quy8xa9VZV?=
- =?us-ascii?Q?KqrrrmovNucFWr7RF3qWILAm5vtNwOLeXW6GanL+9TDcbijIsH8wEfpa2vUm?=
- =?us-ascii?Q?vW+fVgGFCzxiKizXBCO/A7Hh/9/c/qdYyMC0Z86UuiWXDZQrLywEFUkNMJnn?=
- =?us-ascii?Q?p1mqAGSf2/rO/KXgGOaiqGeFuQQDalWFaZrP8Zu7W4bSzLNyotsK3DA07Gn7?=
- =?us-ascii?Q?kt2BkCsK7v8gdxtKStKLYVz3WAdtoZh3h6uW7SxqNoc7wojpLKkVXSTUQkFT?=
- =?us-ascii?Q?5XYZaCUKmUuvTYlNlknfPb+FywXGl8Bzs5bjL/87CxM0rAY38KgvgYn/AqOI?=
- =?us-ascii?Q?+cY95tCMJfUGPLKz8WjAj97ThCh1C2Zkxz6/O/H2pjSho6oBQu1cd6MFAy3u?=
- =?us-ascii?Q?/3cRDJbY1NpWAY+4sD5H1XYmHdWS2uk8hEVANNrn7f3WpV4R2ADz8zkBz+ZX?=
- =?us-ascii?Q?4lSzQpGFdsbkGXUG23hDXhZMmKz/3eAmrsdb+m7cvZmh4SNWw0i/gfc3ZHyz?=
- =?us-ascii?Q?el23RynurIqiK1mj911Fco0l6wNK9vAnNEh3m/421+ZPwpihtq3D4o7V0a8a?=
- =?us-ascii?Q?T4+sdFl3JqGHMRSsjqJhQvXaA3Qbv+3DOrogsE9NOdjRtRv451nXHjXlCMZy?=
- =?us-ascii?Q?zQ+wo6C85lT8V4mVh2RJtHafNsODddvhCYjFOjbp54Q+51TgGozt0qlVb4fo?=
- =?us-ascii?Q?O+7+QSbapEkDrM6Eta0T+Hc1CIg+zFLIVjolHGX2k+qjSUpJVgqDa5YaKW7F?=
- =?us-ascii?Q?Ww=3D=3D?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8aa2035f-9f24-4316-1e46-08dd31f11225
-X-MS-Exchange-CrossTenant-AuthSource: PH8PR11MB8107.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jan 2025 03:36:01.9169
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: rOVI/IuVKYf/ZnHOp3U3snRB4yShCCHafnjTGuO4CI2egWj9RaEZKbzSLjyiFLAKebqSe8bXpwEwc2OzUjhDpDgcsLcximEGcI0MPvmi/HA=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR11MB5109
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250110-drm-s4-v1-3-cbc2d5edaae8@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_193613_287410_1E79287D 
-X-CRM114-Status: GOOD (  24.28  )
+X-CRM114-CacheID: sfid-20250110_224111_782931_18AF7909 
+X-CRM114-Status: GOOD (  11.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -207,43 +99,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Andrew Morton wrote:
-> On Thu, 9 Jan 2025 23:05:56 -0800 Dan Williams <dan.j.williams@intel.com> wrote:
-> 
-> > >  - Remove PTE_DEVMAP definitions from Loongarch which were added since
-> > >    this series was initially written.
-> > [..]
-> > > 
-> > > base-commit: e25c8d66f6786300b680866c0e0139981273feba
-> > 
-> > If this is going to go through nvdimm.git I will need it against a
-> > mainline tag baseline. Linus will want to see the merge conflicts.
-> > 
-> > Otherwise if that merge commit is too messy, or you would rather not
-> > rebase, then it either needs to go one of two options:
-> > 
-> > - Andrew's tree which is the only tree I know of that can carry
-> >   patches relative to linux-next.
-> 
-> I used to be able to do that but haven't got around to setting up such
-> a thing with mm.git.  This is the first time the need has arisen,
-> really.
+Hi Ao,
 
-Oh, good to know.
+kernel test robot noticed the following build errors:
 
-> 
-> > - Wait for v6.14-rc1 
-> 
-> I'm thinking so.  Darrick's review comments indicate that we'll be seeing a v7.
-> 
-> > and get this into nvdimm.git early in the cycle
-> >   when the conflict storm will be low.
-> 
-> erk.  This patchset hits mm/ a lot, and nvdimm hardly at all.  Is it
-> not practical to carry this in mm.git?
+[auto build test ERROR on 6ecd20965bdc21b265a0671ccf36d9ad8043f5ab]
 
-I'm totally fine with it going through mm.git. nvdimm.git is just the
-historical path for touches to fs/dax.c, and git blame points mostly to
-me for the issues Alistair is fixing. I am happy to review and ack and
-watch this go through mm.git.
+url:    https://github.com/intel-lab-lkp/linux/commits/Ao-Xu-via-B4-Relay/dt-bindings-display-meson-dw-hdmi-Add-compatible-for-S4-HDMI-controller/20250110-134113
+base:   6ecd20965bdc21b265a0671ccf36d9ad8043f5ab
+patch link:    https://lore.kernel.org/r/20250110-drm-s4-v1-3-cbc2d5edaae8%40amlogic.com
+patch subject: [PATCH 03/11] drm: meson: add S4 compatible for DRM driver
+config: csky-randconfig-002-20250111 (https://download.01.org/0day-ci/archive/20250111/202501111433.iVcR3vZY-lkp@intel.com/config)
+compiler: csky-linux-gcc (GCC) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250111/202501111433.iVcR3vZY-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202501111433.iVcR3vZY-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   In file included from include/linux/device.h:15,
+                    from include/linux/sys_soc.h:9,
+                    from drivers/gpu/drm/meson/meson_drv.c:16:
+   drivers/gpu/drm/meson/meson_drv.c: In function 'meson_drv_pm_suspend':
+>> include/drm/drm_print.h:588:42: error: 'struct device' has no member named 'dev'; did you mean 'devt'?
+     588 |         dev_##level##type((drm) ? (drm)->dev : NULL, "[drm] " fmt, ##__VA_ARGS__)
+         |                                          ^~~
+   include/linux/dev_printk.h:110:25: note: in definition of macro 'dev_printk_index_wrap'
+     110 |                 _p_func(dev, fmt, ##__VA_ARGS__);                       \
+         |                         ^~~
+   include/drm/drm_print.h:588:9: note: in expansion of macro 'dev_err'
+     588 |         dev_##level##type((drm) ? (drm)->dev : NULL, "[drm] " fmt, ##__VA_ARGS__)
+         |         ^~~~
+   include/drm/drm_print.h:601:9: note: in expansion of macro '__drm_printk'
+     601 |         __drm_printk((drm), err,, "*ERROR* " fmt, ##__VA_ARGS__)
+         |         ^~~~~~~~~~~~
+   drivers/gpu/drm/meson/meson_drv.c:541:17: note: in expansion of macro 'drm_err'
+     541 |                 drm_err(dev, "suspend error: %d", ret);
+         |                 ^~~~~~~
+--
+   In file included from include/linux/device.h:15,
+                    from include/linux/sys_soc.h:9,
+                    from meson_drv.c:16:
+   meson_drv.c: In function 'meson_drv_pm_suspend':
+>> include/drm/drm_print.h:588:42: error: 'struct device' has no member named 'dev'; did you mean 'devt'?
+     588 |         dev_##level##type((drm) ? (drm)->dev : NULL, "[drm] " fmt, ##__VA_ARGS__)
+         |                                          ^~~
+   include/linux/dev_printk.h:110:25: note: in definition of macro 'dev_printk_index_wrap'
+     110 |                 _p_func(dev, fmt, ##__VA_ARGS__);                       \
+         |                         ^~~
+   include/drm/drm_print.h:588:9: note: in expansion of macro 'dev_err'
+     588 |         dev_##level##type((drm) ? (drm)->dev : NULL, "[drm] " fmt, ##__VA_ARGS__)
+         |         ^~~~
+   include/drm/drm_print.h:601:9: note: in expansion of macro '__drm_printk'
+     601 |         __drm_printk((drm), err,, "*ERROR* " fmt, ##__VA_ARGS__)
+         |         ^~~~~~~~~~~~
+   meson_drv.c:541:17: note: in expansion of macro 'drm_err'
+     541 |                 drm_err(dev, "suspend error: %d", ret);
+         |                 ^~~~~~~
+
+
+vim +588 include/drm/drm_print.h
+
+e820f52577b14c Jim Cromie            2022-09-11  548  
+02c9656b2f0d69 Haneen Mohammed       2017-10-17  549  /**
+b52817e9de06a3 Mauro Carvalho Chehab 2020-10-27  550   * DRM_DEV_DEBUG() - Debug output for generic drm code
+02c9656b2f0d69 Haneen Mohammed       2017-10-17  551   *
+306589856399e1 Douglas Anderson      2021-09-21  552   * NOTE: this is deprecated in favor of drm_dbg_core().
+306589856399e1 Douglas Anderson      2021-09-21  553   *
+091756bbb1a961 Haneen Mohammed       2017-10-17  554   * @dev: device pointer
+091756bbb1a961 Haneen Mohammed       2017-10-17  555   * @fmt: printf() like format string.
+02c9656b2f0d69 Haneen Mohammed       2017-10-17  556   */
+db87086492581c Joe Perches           2018-03-16  557  #define DRM_DEV_DEBUG(dev, fmt, ...)					\
+db87086492581c Joe Perches           2018-03-16  558  	drm_dev_dbg(dev, DRM_UT_CORE, fmt, ##__VA_ARGS__)
+b52817e9de06a3 Mauro Carvalho Chehab 2020-10-27  559  /**
+b52817e9de06a3 Mauro Carvalho Chehab 2020-10-27  560   * DRM_DEV_DEBUG_DRIVER() - Debug output for vendor specific part of the driver
+b52817e9de06a3 Mauro Carvalho Chehab 2020-10-27  561   *
+306589856399e1 Douglas Anderson      2021-09-21  562   * NOTE: this is deprecated in favor of drm_dbg() or dev_dbg().
+306589856399e1 Douglas Anderson      2021-09-21  563   *
+b52817e9de06a3 Mauro Carvalho Chehab 2020-10-27  564   * @dev: device pointer
+b52817e9de06a3 Mauro Carvalho Chehab 2020-10-27  565   * @fmt: printf() like format string.
+b52817e9de06a3 Mauro Carvalho Chehab 2020-10-27  566   */
+db87086492581c Joe Perches           2018-03-16  567  #define DRM_DEV_DEBUG_DRIVER(dev, fmt, ...)				\
+db87086492581c Joe Perches           2018-03-16  568  	drm_dev_dbg(dev, DRM_UT_DRIVER,	fmt, ##__VA_ARGS__)
+b52817e9de06a3 Mauro Carvalho Chehab 2020-10-27  569  /**
+b52817e9de06a3 Mauro Carvalho Chehab 2020-10-27  570   * DRM_DEV_DEBUG_KMS() - Debug output for modesetting code
+b52817e9de06a3 Mauro Carvalho Chehab 2020-10-27  571   *
+306589856399e1 Douglas Anderson      2021-09-21  572   * NOTE: this is deprecated in favor of drm_dbg_kms().
+306589856399e1 Douglas Anderson      2021-09-21  573   *
+b52817e9de06a3 Mauro Carvalho Chehab 2020-10-27  574   * @dev: device pointer
+b52817e9de06a3 Mauro Carvalho Chehab 2020-10-27  575   * @fmt: printf() like format string.
+b52817e9de06a3 Mauro Carvalho Chehab 2020-10-27  576   */
+db87086492581c Joe Perches           2018-03-16  577  #define DRM_DEV_DEBUG_KMS(dev, fmt, ...)				\
+db87086492581c Joe Perches           2018-03-16  578  	drm_dev_dbg(dev, DRM_UT_KMS, fmt, ##__VA_ARGS__)
+a18b21929453af Lyude Paul            2018-07-16  579  
+fb6c7ab8718eb2 Jani Nikula           2019-12-10  580  /*
+fb6c7ab8718eb2 Jani Nikula           2019-12-10  581   * struct drm_device based logging
+fb6c7ab8718eb2 Jani Nikula           2019-12-10  582   *
+fb6c7ab8718eb2 Jani Nikula           2019-12-10  583   * Prefer drm_device based logging over device or prink based logging.
+fb6c7ab8718eb2 Jani Nikula           2019-12-10  584   */
+fb6c7ab8718eb2 Jani Nikula           2019-12-10  585  
+fb6c7ab8718eb2 Jani Nikula           2019-12-10  586  /* Helper for struct drm_device based logging. */
+fb6c7ab8718eb2 Jani Nikula           2019-12-10  587  #define __drm_printk(drm, level, type, fmt, ...)			\
+e04d24c4e8062b Luben Tuikov          2023-11-16 @588  	dev_##level##type((drm) ? (drm)->dev : NULL, "[drm] " fmt, ##__VA_ARGS__)
+fb6c7ab8718eb2 Jani Nikula           2019-12-10  589  
+fb6c7ab8718eb2 Jani Nikula           2019-12-10  590  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
