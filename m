@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A417E7719A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jan 2025 18:45:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D10FCE7719C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jan 2025 18:47:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JrWgmrs35qmM7zcBJM5ziQC8fwc8DVMRLjP8FP/is9k=; b=NKjFOTJnI8VAoRUA/SjLeLkVCN
-	rsxPpYpOqDZmKz1LQudz5NsmJQbGUDaxIQkolcLU2/Ekz6TSD4fbFVqjlxIsbhJ+1u1ch29F3CKyX
-	IdzKkW3pQpxtDL8xUzA1wKH+mqZXqy6/qexfT+Jy4G0x+eRftbVNFJ5zTTKNxYSqn2LUFzHrXIxqZ
-	rqrg1buBhUGCRgRKpjIwbGzb5a/hrFpUTNuK8KepvwABh1H3+oEgmDOEWDNBkw45sIAXMk18Hbjrx
-	1juVxRSiQO7u5QTWHATq22F1Dji7qoYFQmRZV3aQPYU9OViDxKZRSGbr6M6kcFFEFqood5ZZGnO8P
-	GbKGZUXg==;
+	bh=GSWM4xAa3F4ckNNT2rCjA6WUCAPjzPoqRakDwXZXtqg=; b=1mBPRWvo7XkEKk7Qh5a/msDE2a
+	DfAAmeMa9Kc3hm/iWsCVayVVgSAg1XCQrkK4ma12wCWz3wuc+nDN4Dd1Pgkukw2xJPTMERTAzsU4b
+	+mx3oA+XjxL4sORYuahdViD2sxTWa4oR0wUHnA02i/O16+NBHTHcc4oVYbxh7BjaxrxwHK/+Mdxk5
+	XMtZWrOlvhY4mqsH2FJUevqQwFPe08+ySzxWFrObQ21Q+gxvHAQzDgmbdKRpirPYiqaoHIZMUOiEV
+	sKRagSYNl0RRAT0cI1mInb0/tjGyUEltx2YEzt7Y2jLPzCOOPKNZ341PIPtaXoxl9Ayzw2imKSbYJ
+	NGfcrsPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWgUP-00000001GN6-1Q0L;
-	Sat, 11 Jan 2025 18:45:41 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1tWgVc-00000001GUn-026s;
+	Sat, 11 Jan 2025 18:46:56 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWgRy-00000001Fc6-0tDI
+	id 1tWgS0-00000001FcS-17Zk
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jan 2025 18:43:11 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-385e0d47720so236733f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Jan 2025 10:43:09 -0800 (PST)
+	Sat, 11 Jan 2025 18:43:13 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4361e82e3c3so4372915e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Jan 2025 10:43:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736620988; x=1737225788; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1736620990; x=1737225790; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=JrWgmrs35qmM7zcBJM5ziQC8fwc8DVMRLjP8FP/is9k=;
-        b=ISVulYMmb26/VQjIx/ChEEZw3cHWy3h3txV0DKHBEUUmkQhiroPDO9sFNHm3FM2NOl
-         Meg/e9rqz3j6REV8EbgAPUglYY4Ien3Guz5hKHfPjuJ7LWANH8gTjiVU54kr7NUmlLOr
-         ybVoPOebH93hzS9e+mG2AcEMKoKOmKWEny2WTKLzSIkHJiDqWv/h/Fe5ortOwGAokiI7
-         2p3VFR8FsvqD6QVBWUCIO9fthtCKUh7G4uY9Y9Li1ohoeFB3uUpWrgi+DQDuRENzxfVU
-         7fPldWyWIbiJ7LrPCwJpSNlz1nOrC/MLAyrs7v5qTsk4tpavKAvNnGWjSzKTwyxsNAls
-         /QZw==
+        bh=GSWM4xAa3F4ckNNT2rCjA6WUCAPjzPoqRakDwXZXtqg=;
+        b=Ha+ga19gnmB4gqNy3eki8K6uQFZcJIw5/SJGWk/WOxekaHPHid18vlQ1xXhO/o2bG/
+         PwhHf4IvWIoqJ2GRhfbkLGZzuVM8Eth4yW165a4JaoXerAaTjRctsBCL6CWPj2AuCo+a
+         tIqLwIW5tA3/rHR9FJr81I6WJ4hC+9H/M5/ZoDgIrH+T3XZoHy2sTxGL/g4bArHETWj/
+         Tvv5FPzdB5czQn4WPNR055NsyvwPLCaSNhtViXFToMaIJCfR8vC0ivUBkqFQUVTQwL4c
+         I9VtifI7od48nuDW77Weog9aa4RHSiCDuIarsi+4ifCC+XB7Cc6hvYGCdg9OSq5itD1r
+         9Ctw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736620988; x=1737225788;
+        d=1e100.net; s=20230601; t=1736620990; x=1737225790;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=JrWgmrs35qmM7zcBJM5ziQC8fwc8DVMRLjP8FP/is9k=;
-        b=spUUTgH8jymmlp2sRuz6FVKrluQfxtljcMA3M6VotB4845cFH31byb5lzLKg+ywe4d
-         ukqflEWrlOqTIlC0vVXO40M8ibD3V1vxT+CUDWS4/hq9sVpektL/IqL8S4VQnYdCm/Fd
-         pT60KMv4eLxqkjD88uuAx4JUPN1E6MWM8PRE6Qb2F0A9vFsIcXrAFLxgTf6Jy4g/b4jZ
-         wEdoKMZgMqFLriUJVdjJ3s6Yk/9krJvYGvZLvlV+edZFKdIA+94eH7CEHOYAqmUStkmi
-         Zvi0CgRYQzbjyCDJt+XEXjb1Gew708KsoAByVsmOKNxSRDBV6jxjEsEN+dJoc8zw5gDn
-         +D/g==
-X-Forwarded-Encrypted: i=1; AJvYcCWTwTqvIsPFBnlti9J3gDPbsemqdiaAwg6SmtRX4l7fil6M1fjHbO35Zy/GbDXA/1JkQbpcRQIR/ON7onwoqlUj@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJG04wjIC+h5G6fCx+fPzseqTsef1xpw0SM1bDJ5eMSSCOxVwH
-	uemtv+3QzD0Hgd0Msc4PMaFQEURxVBeGjgKTCnJwD5TFIc2s44GYGGKILoML5U4=
-X-Gm-Gg: ASbGnct6pJ3hlrOIxFPPXVu7aWe1xR8pEsvcAzI8bGul090lejcIXp6o5EZ5t641Iyi
-	Ww608STUiydPiN1uf22NB2PjAstAiO6byZ9QuC70NThwLvhdYKBSeMn+BElTG4ZGTkRvV9Xz2Xu
-	/cJgfWoqfVetWrobXBx3axNOdezn64kgDPT4kB7BY3yvnNGk6iySPiofvkQQ3ZGOqUrckITzAEO
-	I0PfUWW/L9n2TH3D/G6AvpJg+dNXEeItzSdyLJMKSHI1gMvwtn2dWwrhdD2T0oeRGojXsHz
-X-Google-Smtp-Source: AGHT+IFKDnROQFshibfBSRD1Lf3riCi0exaKnWhO407hgCFDnzE6W++oH5UDeHTKmJMD9omzpTVJLw==
-X-Received: by 2002:a05:600c:4f03:b0:436:1ada:944d with SMTP id 5b1f17b1804b1-436e26ff7famr56841985e9.4.1736620988522;
-        Sat, 11 Jan 2025 10:43:08 -0800 (PST)
+        bh=GSWM4xAa3F4ckNNT2rCjA6WUCAPjzPoqRakDwXZXtqg=;
+        b=nc2jHIDiZviYdY/+4YlxZHTI8s1N5dC0M2Y7XPufkI6nRIzAkTp7GN/LH4+fwLMZi1
+         ALXetOZYslD9NSEAIjYvWHHx0AvLkAAr7t+KavMA4zrW77BbA+YX/m8UVrbladTkQBSb
+         UTu1d9wkY0dS5zgqGVZQn1jJbFGI5A3AiQUgvMli8DKXDq4fS1tPZlPLczvoK6iMbSW4
+         NJZy00++dBi+7Y+DqG8aW98vy97o/KFTZim8lN1J5trDJR1LKWoM/+m80azPvU1ynDZR
+         QBGGPuDYB6euLlOTfOfOdL/Z6a25ebHe3LE1/2Le96GLGonrWm0Uc6JNfDDmtyTMBKj7
+         eT8A==
+X-Forwarded-Encrypted: i=1; AJvYcCXUGonzahQRVjFNXzr42EpjCinNjApKhPTy3XjLXCQZgGYr15pE+51THXwI6a7zcof6B3G51TpEkV/XQk2DuqEF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz4wJM20/vgcv4GfFXu3eEwQwHyU4lDi3VjQvft/e+I6ZAzJ0su
+	nJfofsjyDW0vXr7F7PWOhGF5u8O7QK2aBPFkRKghgK8vr8wf/reZMIQZ06C3L2b0OrBfQ/Lxn8q
+	r
+X-Gm-Gg: ASbGncusQCK6uXLPHs3N8GPAihP8lKJ4NnbWpPDatZhfQWXoiNfE8h2PeMPWgkmvxeE
+	5h1wUfybtVjBC/2SG7SeplDsg5asPxBDtTSw5F+vdFtKltCJ2+c6CDcovJOpzm9xWlNismJffFA
+	/4faIeNBHRXo9MVaZcm1qd1L9xMbnVRihFpWA83YTA6FEjV+pqmbws+CPcVHxJ0YqNiyudNiVhV
+	NwSW5YDWxCZlhIJXUXoDnMe/3nyPdoJTGPojEbuCow0KoM1EAxYgULfgmcHsNNs7e88I3L7
+X-Google-Smtp-Source: AGHT+IECs0vQ4xGmYsqqwraczYKPphscfapxLBfYSJTZ3A0WZWrloSMYovDfByM3Hw1oG9LXyt8FmA==
+X-Received: by 2002:a05:600c:4f14:b0:42c:aeee:e604 with SMTP id 5b1f17b1804b1-436e27170d3mr54335455e9.8.1736620990615;
+        Sat, 11 Jan 2025 10:43:10 -0800 (PST)
 Received: from [127.0.1.1] ([178.197.223.165])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436f9bc6b9bsm205885e9.22.2025.01.11.10.43.05
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436f9bc6b9bsm205885e9.22.2025.01.11.10.43.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 11 Jan 2025 10:43:06 -0800 (PST)
+        Sat, 11 Jan 2025 10:43:09 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Date: Sat, 11 Jan 2025 19:42:49 +0100
-Subject: [PATCH 1/5] remoteproc: keystone: Simplify returning syscon
- PTR_ERR
+Date: Sat, 11 Jan 2025 19:42:50 +0100
+Subject: [PATCH 2/5] remoteproc: omap: Simplify returning syscon PTR_ERR
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250111-b4-syscon-phandle-args-remoteproc-v1-1-73ed6fafa1e3@linaro.org>
+Message-Id: <20250111-b4-syscon-phandle-args-remoteproc-v1-2-73ed6fafa1e3@linaro.org>
 References: <20250111-b4-syscon-phandle-args-remoteproc-v1-0-73ed6fafa1e3@linaro.org>
 In-Reply-To: <20250111-b4-syscon-phandle-args-remoteproc-v1-0-73ed6fafa1e3@linaro.org>
 To: Bjorn Andersson <andersson@kernel.org>, 
@@ -84,26 +84,26 @@ Cc: linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, 
  Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1302;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1310;
  i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
- bh=dxtKqbdRSIen5PNncZ7Djuqqg+VHZ66erVjbW40h3Ag=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBngruxgmXjE2NenPQvILvqAG52ACPXhjQMaq/PA
- y+Mf4jh0fmJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCZ4K7sQAKCRDBN2bmhouD
- 17TWEACEqyJNLB/LphpIvS2gKLrGdhyf+saL3KcUE2FQkE6z+o40bCffqSAEHgcaCVxCzURTM6x
- Bqz8k/RXxeMwQ+rHvLRbOS3cbtI2KRJSYQAmilUBHpSRMNuqPzNVTbOIXdjAmEMVYXrV8U5I+UW
- 40OcL61dEQsfnLkT+OywO22JSX1hWYYqmj/OavGgivZiriwr85OJrqI0chsTmGUxqWe3vQrHxhh
- 6kHn9ifUFxPaUsZLnmrcWOvWzuB93Hl/Z8NTmd+za/Xw9CkYs1oNWOZNteeLQoeh7M4izktjEPb
- wfGb6/RwhEN7XQbyrKiINfzoBPldqiVnrZ9M8pN2SAavWdRUlE8vmoIZBfgNaLnvDyp/nxT/Mju
- XW2WlVOocPc24DoQS6LhvWyCMww63DBPnpL3W83ECdcZahDdzinWFF/G4EdfZfQ0iwQpnGM8bYM
- oIXuxfV7XR1rX1sFC9L46DBybMDiig+YtreFlVN2sz+ZrvvPF2hOsQPfddA60Z6nTWDGfZMwr0F
- IO4uAUkQfJTq8xE16NNFwik6aEgOiRgdi+2Lp2G7tNoz5062D4z2EXKQVC7fRpH8S2qbXClz2j4
- Ayu/WKa8rwbi0O/SGedETwp2Mv4EgJMRCpAxpioix2tmoyFISTSwuEba8s2OAm90o1h8h+JkaOw
- h9GFaheuc2AYC9A==
+ bh=fWYltI4xM/KDDIH8KFL0uiLtzD8nY+Kjalail67u2Hc=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBngruymH5IcFgYiymLuIIna6pft0HBEyMUVO7El
+ 2ttiACWVGKJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCZ4K7sgAKCRDBN2bmhouD
+ 17gFD/4+1JVyb2aRlgR8NEL4n+4O90KtSJz4kqJMdeGGUNV1Ohj6Y6AWtKMEdSq3NfQnBom2HPS
+ EkgOJdgGC7D2Qa6O8SUtSNRRTsQapl131iDg0fldAlnhyCi5N+N0oSvtjc9GMJrlfDhVJaBl61s
+ PmL2+vk9b7x5TX6MHlbuG100rClHpr8jFoP020URdpbfwZ18pGVaNyKT/wxANBeSLYX2cGtF6bf
+ gBjBeNdd0oGAdbkDEL5m/kyxtibo4AZj50NRR5Un73S/dqn+aCBde7ittIXnoJkpGkq1Q58QPaS
+ CaD8KQk4fxXAE/r/c7mxCH3ERV5cpRdUKnVK3Lo+IZ6+w9iuOr8J4ZZwLweWkNFhAbfzg8bSYJP
+ 8RFEYWmMD9VblWeBzD/V5lwGVSDzDTPeVqozSpgTK64mcaobtM98ae01pTkT8/FKq6cl+/SPTns
+ OtmneVgj4clWsAhQ6UXeOdVvt04Rxow3XOijZqtGFebZJ9wfzMz4PbdV9NLf3ovkOK0VVh/lAGK
+ ZVXL8HSLEBgZpUl/giEQ6qL7tG0VsM85oKamuZk4YO3ozmcALAVOjuTxrEPT99uaNMn6lYT3z3J
+ ZE85re7iAH/ozV4uGtU6fAfTiSaLuUMVhNlBh+GDdIh9z/rv7pok8bR71II7/7Ym6g3u6PwaiVn
+ j1//l9IGlqsOGxw==
 X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
  fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250111_104310_254821_FED54AAC 
-X-CRM114-Status: GOOD (  11.66  )
+X-CRM114-CacheID: sfid-20250111_104312_309941_14A60A8D 
+X-CRM114-Status: GOOD (  11.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,34 +122,34 @@ No need to store PTR_ERR into temporary, local 'ret' variable.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- drivers/remoteproc/keystone_remoteproc.c | 7 ++-----
+ drivers/remoteproc/omap_remoteproc.c | 7 ++-----
  1 file changed, 2 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/remoteproc/keystone_remoteproc.c b/drivers/remoteproc/keystone_remoteproc.c
-index 6e54093d1732314d234e85bf6cf7fb6f1d9bf994..83c8e568f7ce3ec3ca3a534d2566f6437e9d403a 100644
---- a/drivers/remoteproc/keystone_remoteproc.c
-+++ b/drivers/remoteproc/keystone_remoteproc.c
-@@ -335,7 +335,6 @@ static int keystone_rproc_of_get_dev_syscon(struct platform_device *pdev,
- {
+diff --git a/drivers/remoteproc/omap_remoteproc.c b/drivers/remoteproc/omap_remoteproc.c
+index 3260dd512491e8920fc881b6a7c0d9b6f725e7f5..5f463937cbbff2c9ed5b22bed42454a0ae290f0f 100644
+--- a/drivers/remoteproc/omap_remoteproc.c
++++ b/drivers/remoteproc/omap_remoteproc.c
+@@ -1137,7 +1137,6 @@ static int omap_rproc_get_boot_data(struct platform_device *pdev,
  	struct device_node *np = pdev->dev.of_node;
- 	struct device *dev = &pdev->dev;
+ 	struct omap_rproc *oproc = rproc->priv;
+ 	const struct omap_rproc_dev_data *data;
 -	int ret;
  
- 	if (!of_property_read_bool(np, "ti,syscon-dev")) {
- 		dev_err(dev, "ti,syscon-dev property is absent\n");
-@@ -344,10 +343,8 @@ static int keystone_rproc_of_get_dev_syscon(struct platform_device *pdev,
+ 	data = of_device_get_match_data(&pdev->dev);
+ 	if (!data)
+@@ -1153,10 +1152,8 @@ static int omap_rproc_get_boot_data(struct platform_device *pdev,
  
- 	ksproc->dev_ctrl =
- 		syscon_regmap_lookup_by_phandle(np, "ti,syscon-dev");
--	if (IS_ERR(ksproc->dev_ctrl)) {
--		ret = PTR_ERR(ksproc->dev_ctrl);
+ 	oproc->boot_data->syscon =
+ 			syscon_regmap_lookup_by_phandle(np, "ti,bootreg");
+-	if (IS_ERR(oproc->boot_data->syscon)) {
+-		ret = PTR_ERR(oproc->boot_data->syscon);
 -		return ret;
 -	}
-+	if (IS_ERR(ksproc->dev_ctrl))
-+		return PTR_ERR(ksproc->dev_ctrl);
++	if (IS_ERR(oproc->boot_data->syscon))
++		return PTR_ERR(oproc->boot_data->syscon);
  
- 	if (of_property_read_u32_index(np, "ti,syscon-dev", 1,
- 				       &ksproc->boot_offset)) {
+ 	if (of_property_read_u32_index(np, "ti,bootreg", 1,
+ 				       &oproc->boot_data->boot_reg)) {
 
 -- 
 2.43.0
