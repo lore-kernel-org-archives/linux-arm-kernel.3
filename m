@@ -4,78 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F767E7719C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jan 2025 11:03:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7911FE7719C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jan 2025 11:28:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+2Lyxnn3SuZHHFiWkx4BH6h2lDgHJEAKzd/2NJLj860=; b=keI+qB7hfo8BKnAVFcGfzUPdco
-	3XuOQtHfZ9r0wF8zk2aM+7rgh9le8PtGmg5eqDMZfBbSeF7PQfexv7ljMclvQPl2oyILHTpv/Dvrs
-	F3g81Xxju6QiovBhM2qDSwYbIrsq1icQUcfHw8AHodSltPJ9pieYuwjhUYApecn3FfgITwACvyY8N
-	yASzCATbvFgjXTN3Npt/0zU4hSpwu0bh4aK/oNYj4Qrje3HCAfRtsREq0UHYEutwv81oKCUm8l/F9
-	5EK+NrsftsMbOS0mESsDvMCQIa73CLqSUuTWiRUr9AR+MzShHYY9Sr4EWGkw6UMZWVQGVkM3R4VKQ
-	CSLX8Pjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=axwj1a7CY9td4ZxrvElu+4T1mZkP2eLMBnmoeanF1YY=; b=C7Th4mM8TP6oJOtlNUiC+yDATx
+	xB1DaeEjXEzoAk/opSRHyQi08ZejcOTetiZeUsoxxaR4XI8kJiGZwy6+NmnS2UVHNb3SL/+l6nyO1
+	1QtzLO62/yO2jQqcGvO1FwtBJtvwcCzh9kr4VrC+iBzli6EtlFV5h6ojrkODpQU8XTr8zaAXsSPMq
+	zFCouCfnYrHLxGi3iTI9B6dNZT0YLkL/Bw7cZgEnH6/L9zFbLdJzlhY5McwMmxuaZt/xpzvoI/uD2
+	rgsKSKsNXlklALeUqXPAORsA49Y7f9TQ1N6taHlSlQI3xXGhUfgpv8miKMQA6Qbc6CcsipG/WRoXk
+	YAWLsTxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWZGW-00000000erL-3c5X;
-	Sat, 11 Jan 2025 11:02:53 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWZFJ-00000000egm-28Kj
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jan 2025 11:01:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 949745C12A6;
-	Sat, 11 Jan 2025 11:00:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B134C4CED2;
-	Sat, 11 Jan 2025 11:01:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736593296;
-	bh=gy67Eo8C1hKneW/xn+UE+Oh9vmay9ok/H+SGcDXNdi8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=s5/bVuzbBSzTi3/QQcP+Y5MyFvpGcjUyPB4u8ZMRYy0G+Pa+O0yWM7q7/jnwyAI8n
-	 lTwe1nz38A6Bibbxyz/hndpTkb3vjQFTiwJAS5t+XIIhRP3WeI5b84YSIiZaz4VuMZ
-	 YTpIm+6Iid4koRAJwFjMR6C2FC62G7CMhrmd5KTYuD0wkH6lO78w5jNrlfcH+oKZp9
-	 06HYKpx254waJxqGuoxRbXper7rm/FeuXfIR66r/Wv8xArJK/xuWmLtvMc4LGs2gfx
-	 eb7JOt1v/wlvhMvB47kcDPS9oZHCYxmp3PJCpwInb8C/xqs+7FwXVi8cojI57iQkI/
-	 T2Ri6OEh71jxw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=wait-a-minute.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tWZFE-00B9ML-Kd;
-	Sat, 11 Jan 2025 11:01:33 +0000
-Date: Sat, 11 Jan 2025 11:01:31 +0000
-Message-ID: <87ikqlr4vo.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	kvm@vger.kernel.org,
+	id 1tWZfJ-00000000giB-0itt;
+	Sat, 11 Jan 2025 11:28:29 +0000
+Received: from m16.mail.163.com ([117.135.210.5])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tWZe4-00000000gJ6-1DEE;
+	Sat, 11 Jan 2025 11:27:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=axwj1
+	a7CY9td4ZxrvElu+4T1mZkP2eLMBnmoeanF1YY=; b=IZ8Bp6y97t05YdKAo3FkW
+	8+NHlaWeD7Ye1emzbe8zwYf6Yx0hAfnznTOyq2TWryIFY63IVNgmj0DyxmQ8fUZj
+	stV6VSvL2Ju0Q3uDt7jQ1HzTCG30WT1t4BmT3+vZRbo7Pg1lixEfTQe0X16F465t
+	iE1GJW5lGm7dvsN/cCCF2U=
+Received: from ProDesk.. (unknown [])
+	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wDn36JYVYJnnIeyFQ--.42561S2;
+	Sat, 11 Jan 2025 19:26:20 +0800 (CST)
+From: Andy Yan <andyshrk@163.com>
+To: heiko@sntech.de
+Cc: hjc@rock-chips.com,
+	krzk+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/5] KVM: Add a common kvm_run flag to communicate an exit needs completion
-In-Reply-To: <20250111012450.1262638-4-seanjc@google.com>
-References: <20250111012450.1262638-1-seanjc@google.com>
-	<20250111012450.1262638-4-seanjc@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: seanjc@google.com, pbonzini@redhat.com, oliver.upton@linux.dev, mpe@ellerman.id.au, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	derek.foreman@collabora.com,
+	detlev.casanova@collabora.com,
+	daniel@fooishbar.org,
+	robh@kernel.org,
+	sebastian.reichel@collabora.com,
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: [PATCH v11 00/11] VOP Support for rk3576
+Date: Sat, 11 Jan 2025 19:25:58 +0800
+Message-ID: <20250111112614.432247-1-andyshrk@163.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wDn36JYVYJnnIeyFQ--.42561S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxGw1xuryUGryxXrW3Zr4xZwb_yoW5uryrp3
+	95C3s8XrWxGF1jqr4kJw1DCr1SqanIyFWfK34fKw13Ja4qyFyIkrWa9r1Yvr9xX3W8Zr4j
+	9F4Sya1UKanFvF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UkrchUUUUU=
+X-Originating-IP: [103.29.142.67]
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0gzRXmeCTmhtaAAAsX
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250111_030137_637202_7D518313 
-X-CRM114-Status: GOOD (  41.57  )
+X-CRM114-CacheID: sfid-20250111_032712_718585_27EF84BC 
+X-CRM114-Status: GOOD (  12.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,144 +80,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 11 Jan 2025 01:24:48 +0000,
-Sean Christopherson <seanjc@google.com> wrote:
-> 
-> Add a kvm_run flag, KVM_RUN_NEEDS_COMPLETION, to communicate to userspace
-> that KVM_RUN needs to be re-executed prior to save/restore in order to
-> complete the instruction/operation that triggered the userspace exit.
-> 
-> KVM's current approach of adding notes in the Documentation is beyond
-> brittle, e.g. there is at least one known case where a KVM developer added
-> a new userspace exit type, and then that same developer forgot to handle
-> completion when adding userspace support.
+From: Andy Yan <andy.yan@rock-chips.com>
 
-Is this going to fix anything? If they couldn't be bothered to read
-the documentation, let alone update it, how is that going to be
-improved by extra rules and regulations?
 
-I don't see how someone ignoring the documented behaviour of a given
-exit reason is, all of a sudden, have an epiphany and take a *new*
-flag into account.
+Patches that have already been merged in drm-misc-next are dropped.
 
-> 
-> On x86, there are multiple exits that need completion, but they are all
-> conveniently funneled through a single callback, i.e. in theory, this is a
-> one-time thing for KVM x86 (and other architectures could follow suit with
-> additional refactoring).
-> 
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  Documentation/virt/kvm/api.rst    | 48 ++++++++++++++++++++++---------
->  arch/powerpc/kvm/book3s_emulate.c |  1 +
->  arch/powerpc/kvm/book3s_hv.c      |  1 +
->  arch/powerpc/kvm/book3s_pr.c      |  2 ++
->  arch/powerpc/kvm/booke.c          |  1 +
->  arch/x86/include/uapi/asm/kvm.h   |  7 +++--
->  arch/x86/kvm/x86.c                |  2 ++
->  include/uapi/linux/kvm.h          |  3 ++
->  virt/kvm/kvm_main.c               |  1 +
->  9 files changed, 49 insertions(+), 17 deletions(-)
-> 
-> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-> index c92c8d4e8779..8e172675d8d6 100644
-> --- a/Documentation/virt/kvm/api.rst
-> +++ b/Documentation/virt/kvm/api.rst
-> @@ -6505,7 +6505,7 @@ local APIC is not used.
->  
->  	__u16 flags;
->  
-> -More architecture-specific flags detailing state of the VCPU that may
-> +Common and architecture-specific flags detailing state of the VCPU that may
->  affect the device's behavior. Current defined flags::
->  
->    /* x86, set if the VCPU is in system management mode */
-> @@ -6518,6 +6518,8 @@ affect the device's behavior. Current defined flags::
->    /* arm64, set for KVM_EXIT_DEBUG */
->    #define KVM_DEBUG_ARCH_HSR_HIGH_VALID  (1 << 0)
->  
-> +  /* all architectures, set when the exit needs completion (via KVM_RUN) */
-> +  #define KVM_RUN_NEEDS_COMPLETION  (1 << 15)
->  ::
->  
->  	/* in (pre_kvm_run), out (post_kvm_run) */
-> @@ -6632,19 +6634,10 @@ requires a guest to interact with host userspace.
->  
->  .. note::
->  
-> -      For KVM_EXIT_IO, KVM_EXIT_MMIO, KVM_EXIT_OSI, KVM_EXIT_PAPR, KVM_EXIT_XEN,
-> -      KVM_EXIT_EPR, KVM_EXIT_X86_RDMSR, KVM_EXIT_X86_WRMSR, and KVM_EXIT_HYPERCALL
-> -      the corresponding operations are complete (and guest state is consistent)
-> -      only after userspace has re-entered the kernel with KVM_RUN.  The kernel
-> -      side will first finish incomplete operations and then check for pending
-> -      signals.
-> +      For some exits, userspace must re-enter the kernel with KVM_RUN to
-> +      complete the exit and ensure guest state is consistent.
->  
-> -      The pending state of the operation is not preserved in state which is
-> -      visible to userspace, thus userspace should ensure that the operation is
-> -      completed before performing a live migration.  Userspace can re-enter the
-> -      guest with an unmasked signal pending or with the immediate_exit field set
-> -      to complete pending operations without allowing any further instructions
-> -      to be executed.
-> +      See KVM_CAP_NEEDS_COMPLETION for details.
->  
->  ::
->  
-> @@ -8239,7 +8232,7 @@ Note: Userspace is responsible for correctly configuring CPUID 0x15, a.k.a. the
->  core crystal clock frequency, if a non-zero CPUID 0x15 is exposed to the guest.
->  
->  7.36 KVM_CAP_X86_GUEST_MODE
-> -------------------------------
-> +---------------------------
->  
->  :Architectures: x86
->  :Returns: Informational only, -EINVAL on direct KVM_ENABLE_CAP.
-> @@ -8252,6 +8245,33 @@ KVM exits with the register state of either the L1 or L2 guest
->  depending on which executed at the time of an exit. Userspace must
->  take care to differentiate between these cases.
->  
-> +7.37 KVM_CAP_NEEDS_COMPLETION
-> +-----------------------------
-> +
-> +:Architectures: all
-> +:Returns: Informational only, -EINVAL on direct KVM_ENABLE_CAP.
-> +
-> +The presence of this capability indicates that KVM_RUN will set
-> +KVM_RUN_NEEDS_COMPLETION in kvm_run.flags if KVM requires userspace to re-enter
-> +the kernel KVM_RUN to complete the exit.
-> +
-> +For select exits, userspace must re-enter the kernel with KVM_RUN to complete
-> +the corresponding operation, only after which is guest state guaranteed to be
-> +consistent.  On such a KVM_RUN, the kernel side will first finish incomplete
-> +operations and then check for pending signals.
-> +
-> +The pending state of the operation for such exits is not preserved in state
-> +which is visible to userspace, thus userspace should ensure that the operation
-> +is completed before performing state save/restore, e.g. for live migration.
-> +Userspace can re-enter the guest with an unmasked signal pending or with the
-> +immediate_exit field set to complete pending operations without allowing any
-> +further instructions to be executed.
-> +
-> +Without KVM_CAP_NEEDS_COMPLETION, KVM_RUN_NEEDS_COMPLETION will never be set
-> +and userspace must assume that exits of type KVM_EXIT_IO, KVM_EXIT_MMIO,
-> +KVM_EXIT_OSI, KVM_EXIT_PAPR, KVM_EXIT_XEN, KVM_EXIT_EPR, KVM_EXIT_X86_RDMSR,
-> +KVM_EXIT_X86_WRMSR, and KVM_EXIT_HYPERCALL require completion.
+PATCH 1~9 are preparations for rk3576 support
+PATCH 10~11 are real support for rk376
 
-So once you advertise KVM_CAP_NEEDS_COMPLETION, the completion flag
-must be present for all of these exits, right? And from what I can
-tell, this capability is unconditionally advertised.
+I test it with a 1080P/4K HDMI output with modetest and weston
+output.
 
-Yet, you don't amend arm64 to publish that flag. Not that I think this
-causes any issue (even if you save the state at that point without
-reentering the guest, it will be still be consistent), but that
-directly contradicts the documentation (isn't that ironic? ;-).
+If there are some one want to have a try, I have a tree based on
+Linux 6.13-rc6 here[0]
 
-Or is your intent to *relax* the requirements on arm64 (and anything
-else but x86 and POWER)?
+[0]https://github.com/andyshrk/linux/tree/rk3576-vop2-upstream-v10
 
-	M.
+Links to V10:
+https://lore.kernel.org/linux-rockchip/20250110100832.27551-1-andyshrk@163.com/
+
+Changes in v11:
+- Remove redundant min/maxItems constraint
+
+Changes in v10:
+- Move interrupt-names back to top level
+- Add constraint of interrupts for all platform
+- Add constraint for all grf phandles
+- Reorder some properties
+
+Changes in v9:
+- Drop 'vop-' prefix of interrupt-names.
+- Add blank line between DT properties
+- Remove list interrupt-names in top level
+- Drop 'vop-' prefix of interrupt-names.
+
+Changes in v8:
+- Remove redundant blank line before drm_bus_format_enum_list
+- Add a blank line before DRM_ENUM_NAME_FN
+- Fix dt_binding_check errors
+- ordered by soc name
+- Link to the previous version:
+  https://lore.kernel.org/linux-rockchip/6pn3qjxotdtpzucpul24yro7ppddezwuizneovqvmgdwyv2j7p@ztg4mqyiqmjf/T/#u
+
+Changes in v7:
+- Fix rk3588 dp+dsi maxclk verification
+
+Changes in v6:
+- Add a blank line after hardware version check code
+-  More specific explanation about the AXI_BUS_ID register bit of
+   cluster window.
+
+Changes in v5:
+- Add axi id configuration
+- Remove the non-existent CBCR scale register.
+
+Changes in v4:
+- Typo fix: selet->select
+- describe constraint SOC by SOC, as interrupts of rk3576 is very
+  different from others
+- Drop Krzysztof's Reviewed-by, as this version changed a lot.
+
+Changes in v3:
+- Add comments for why we should treat rk3566 with special care.
+- Add hardware version check
+- Add comments for why we should treat rk3566 with special care.
+- ordered by soc name
+- Add description for newly added interrupt
+- Share the alpha setup function with rk3568
+- recoder the code block by soc
+
+Changes in v2:
+- Add platform specific callback
+- Introduce vop hardware version
+- Add dt bindings
+- Add platform specific callback
+
+Andy Yan (10):
+  drm/rockchip: vop2: Rename TRANSFORM_OFFSET to TRANSFORM_OFFS
+  drm/rockchip: vop2: Add platform specific callback
+  drm/rockchip: vop2: Merge vop2_cluster/esmart_init function
+  drm/rockchip: vop2: Support for different layer select configuration
+    between VPs
+  drm/rockchip: vop2: Introduce vop hardware version
+  drm/rockchip: vop2: Register the primary plane and overlay plane
+    separately
+  drm/rockchip: vop2: Set plane possible crtcs by possible vp mask
+  drm/rockchip: vop2: Add uv swap for cluster window
+  dt-bindings: display: vop2: Add rk3576 support
+  drm/rockchip: vop2: Add support for rk3576
+
+Heiko Stuebner (1):
+  drm/rockchip: vop2: use devm_regmap_field_alloc for cluster-regs
+
+ .../display/rockchip/rockchip-vop2.yaml       |   97 +-
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c  | 1473 +++-----------
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.h  |  275 ++-
+ drivers/gpu/drm/rockchip/rockchip_vop2_reg.c  | 1798 ++++++++++++++++-
+ 4 files changed, 2377 insertions(+), 1266 deletions(-)
 
 -- 
-Without deviation from the norm, progress is not possible.
+2.34.1
+
 
