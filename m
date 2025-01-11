@@ -4,84 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B8D0E7719A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jan 2025 18:55:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF192E7719A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jan 2025 18:56:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jpeJmNd3SZuuzmsG64ANuW49jVrr7teCJ/vcrUeE7Ig=; b=hjLEHWoomo/B7sRzcSyoVzrFbh
-	2ikB0dejYXSUGbjMXGukCou86W+S7RYH4OPAaPSqVu7e4aYA+wIuqvTbcM8z7sDns7DciQSkfZP4d
-	TffsH76ay4Tulbxhkv5RyeKCZ/BfdKA4LqEaZ7zzdwfh88/6j1/+hQhY84e6lTjKYoDm/t2i+pL8c
-	SIvqrJiCegCCTS7mZMmE1yY//D9IWXR4kT1/JH4o7CpOcAD8sYnVnhtgzcUhF6i/pvcrQdKyZ7Kby
-	6XsXPHMN/iUQSIibG1oICXMAGCfThl6HRLbOgDsZXE93P2Xnx88+LpwYQv1kxV/2zx7z77xyGCzwZ
-	X+F5KyjQ==;
+	bh=xPRSMg1Y79bflHzzHnMnAqsVQxqcpqEauFJNoySqrOM=; b=Z8v98z20zSw4La4AiNCrnT/2wi
+	7N6iV63utE3nNX8ZtXztqw75it7Tkge4w2XX2yxR4CY8L6Sp24KTAPudR0sSfQcRpNEfs1ZevlDXu
+	58q6kkSRpwIYEIObVV2t7LQShXmiMWwOReSev7KaOTjeGsltVHnG/+X8G4lG3U6UXHPlzYGBc0NB2
+	BUBM7cIuOY0OYKrXRbLKCvCQ2D+5CGGXhR7xhVQMlsNfE9jZMZyq3e9dVmJl749vQ7AogigeuISv7
+	s7tQDYBPlCTJHHkxrf55pRU4ALwzwL9TxoeAIPKok51urbhlR/TtMwLWN91ULhIIyO0kXZdX53tWz
+	t0y4xC8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWgdo-00000001HPy-4ANr;
-	Sat, 11 Jan 2025 18:55:24 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1tWgf2-00000001Hcx-2cWW;
+	Sat, 11 Jan 2025 18:56:40 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWgcY-00000001H7O-33wb
+	id 1tWgca-00000001H85-3Grg
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jan 2025 18:54:08 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-436230de7a3so4209465e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Jan 2025 10:54:06 -0800 (PST)
+	Sat, 11 Jan 2025 18:54:09 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-43620a5f81bso2910085e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Jan 2025 10:54:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736621645; x=1737226445; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1736621647; x=1737226447; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=jpeJmNd3SZuuzmsG64ANuW49jVrr7teCJ/vcrUeE7Ig=;
-        b=aXB8rF0RuyFzKLHuWfZQ7KKyuhr0epyhfWzAo99mCIMJtuaXRYXPYoUkGBAX1ejKW7
-         NmMwvGNbO65MgTIcGDwXOLL8m7JhF1GydTCOPxxYL8IIfYUOHWQ01rjFHns8GurISoh3
-         NNiALrsrHUc1tgyJvwDT/L9D2qV2eYUaEYjnn+XrGDr0B88DVnqCdKk31KpDHTQXKjzq
-         Efijy8dU9SfJX4wS0I8eqsAN+qpEOgAanOVgRnvlpvO9l1+BkC43jPf3N/mBK6wfKW1g
-         69GqXRFirewjlZ0e1ar+S1c79eKIoteTzgA2jJxUCaX5qOIJyHu8AV4MxlZ/nlHP6PmO
-         lo9A==
+        bh=xPRSMg1Y79bflHzzHnMnAqsVQxqcpqEauFJNoySqrOM=;
+        b=F6WJBFge9AEyi9TJeU4iSQcgThuUI5HkJ1wgElf5t2Po6/NUIpAB0Lg4XutY784daq
+         wRz0heSPsYouD5nTxL4fxxmEKi5lHJqwvvMrNE8XsV9AAmNJh0VWKUgXGQSoeKLn34DP
+         69mZ8iI3/jIY4cgXbIo7rPf6+jDpcFYXrRH0U5PrO0arp/lkma5EPJ5LkjS8prKsH+DF
+         FizvuHQZGl9sdYqFmfa6JzqCod2QGH5oLOfxcAuj8qFkpNTEc2ZLksPAywr7i23kmVmR
+         vp21I0nc0JGfw/DVFCJ+3ONJNjU8pwCSFa3+nboxMkXsEn8+fPXRjM7ZD2X8jTPiBeTZ
+         B97w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736621645; x=1737226445;
+        d=1e100.net; s=20230601; t=1736621647; x=1737226447;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=jpeJmNd3SZuuzmsG64ANuW49jVrr7teCJ/vcrUeE7Ig=;
-        b=uCBAQzUOlUp64m5FKQ3ECpHpYw9MYQ7bOy+kUyTZCWyfR5jJN1KZlqmnIJN7aORY9z
-         zvwDhm7PszDpqseuge3LrbyPq4optkspjwLr+r2YpmtdHbdP82yFLkjQYdryZacVBw8h
-         1w/7e0Y2uTFI5H/y8/63EF1y7Z/lF/m5oNMz7w0eb20LfSviePDWFqTJa8DY9V2dJQ6D
-         RYHsJQPLS3/yH6O2xtQGT8HjYg908TgrIbzjiTcGm37YGRtsYq4gtWpjMIKqCqZvCdO3
-         8A6L6ddrtU7YlBPLmmfwbfsINiqnPZY24Ed2umUgCFT+QLlmzJ1Bm5EFgdtROB/L+3hK
-         6icw==
-X-Forwarded-Encrypted: i=1; AJvYcCX0GbT4Hn6wXFtVX8p4eIp9LTAps2/1PfBgnSGmr8eh+5ohI24ynHgR7n7JH/Sp8pgWv5dy79HnvCP0HKDq52Ry@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJnk1nXovtdvVoUEnpqf7UVh1o4uFOzjzlz3f4v/3puMnu1HZ1
-	z/HRUJBlY5vco7f/TQScSA3sS6b9RlyUGF2litsDKvPiZLzjwzHWZ0OYy6CCt/w=
-X-Gm-Gg: ASbGncu50Unq3yO1MO4ElE5ns2Owvrd3LMHTw14YurM+/gJB12Ysjsu1Hmr8rr02e9e
-	gmByULU/Mmhtn2BTQHxczQz7brBDgyH7UxAPYh6d/SV+qZOmzVSD5V/ZFcMwDaeA/1DOgvvzcb3
-	9/VAe05gvZndtMTiHkVBM7W2gCUwhyO+j38kk2xVPzYexAPgyINmrbO1oFO+Vlg5pgyNTG2u8r1
-	hQuy2nGfNqCv4XSqSCJUqiMLYi46pcdrdxQd/SFDSe81zL/Es5PozeqG7kvqw+uwmukTUQ=
-X-Google-Smtp-Source: AGHT+IGhaDDKUbfokl+jU7qgUB7s/J6vYAVw+eGLas1JhElcOU2I0jx8Rxm9e4DElHdlP23nsTC55w==
-X-Received: by 2002:a05:600c:63d5:b0:436:ee2e:ef12 with SMTP id 5b1f17b1804b1-436ee2ef108mr32106725e9.5.1736621644668;
-        Sat, 11 Jan 2025 10:54:04 -0800 (PST)
+        bh=xPRSMg1Y79bflHzzHnMnAqsVQxqcpqEauFJNoySqrOM=;
+        b=F6RCsTEoa30VUD1my0JklXtdAu2ExEROYzjQ97+2RC4IwEJV+w/aCn0DPOjpfTGEco
+         a5myvAzoz8G6kZNXYbyLomrbdk1D4T4aOQ0M2Lk72tJkLTh37I5bslg7z0ljLdMyxFlo
+         7W7Ac/9jBj7+SY4cuI+7pg8e1OH0uTffc7b7pwdLe4fn/F/RjckM7XO1ZaI8ZrJ19Zm6
+         vn074eim7gyTh3NUMGmemQDQFE/RH6bGm7eYYn+PRYtmS4QIrE3CaEdd419g8lJK/7GC
+         eehAQ2Vy/3ZUvvmNxd9WwJh+IyNQMeY6GuKWOhBjnHCUFnOfQB8yfvgbrxfHrRE6c2+Y
+         tYfw==
+X-Forwarded-Encrypted: i=1; AJvYcCUBEx+ReBqYl7hQOqxww/EkuW9zSlrwbXiQtXSE1dwHIIoTTOL492EPiHTLWPBxP46tzNY+yi++Yuy9HSIgW613@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVEvTFeaGTnHCRdaS6mto64UspudQK5UIJC9sMFRAH8Z6J+6ml
+	DkDBaArUJcW7mlFiD7KHZPrj4I2JJCFs2fDmqdTMu2q/18aYPH7UtV8yagDi5tf555seDIkAYw7
+	5
+X-Gm-Gg: ASbGnctjWhGKU/ZXYJZmP352WuB2uJnrV/1bGaRLBJEOQjk9+HIzmpANj5d2DYgFPbD
+	dWX0Y5PJ7z866065exAYwbNT/1tDmbfjkfPWzB4W/UHRxi+gc612kpwrLB588E9XMT50kIEdRsZ
+	OJPRS0FyYaaE/IcLN0j/mm5XOY4b8qrVEpW2R5vO/b50mkHzr1tNRzzd3tGyG7dOOP0SM3SmcOp
+	re7EYar6RXxn1Zpia4EjtKWPSF10cQvXBg+70IYLcAFygJVMyzqoWU46dUfFwEXQdhsXIo=
+X-Google-Smtp-Source: AGHT+IGKMCNZ9lSIpKE90rRk19Kureh0VeUXVKcP8mbMQG8DavWdzbFmeA+Vz1ozm2bjDyjv4IITPQ==
+X-Received: by 2002:adf:e3c4:0:b0:38a:888c:6785 with SMTP id ffacd0b85a97d-38a888c69bcmr4077895f8f.6.1736621647135;
+        Sat, 11 Jan 2025 10:54:07 -0800 (PST)
 Received: from krzk-bin.. ([178.197.223.165])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e9d8fc5csm90730145e9.2.2025.01.11.10.54.03
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a9fcb7a11sm2315556f8f.75.2025.01.11.10.54.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 11 Jan 2025 10:54:04 -0800 (PST)
+        Sat, 11 Jan 2025 10:54:06 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-rtc@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH] soc: samsung: Use syscon_regmap_lookup_by_phandle_args
-Date: Sat, 11 Jan 2025 19:54:02 +0100
-Message-ID: <20250111185402.183793-1-krzysztof.kozlowski@linaro.org>
+Subject: [PATCH] rtc: stm32: Use syscon_regmap_lookup_by_phandle_args
+Date: Sat, 11 Jan 2025 19:54:05 +0100
+Message-ID: <20250111185405.183824-1-krzysztof.kozlowski@linaro.org>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250111_105406_788980_50B4CC54 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20250111_105408_819253_D07D6098 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,33 +104,54 @@ syscon_regmap_lookup_by_phandle() combined with getting the syscon
 argument.  Except simpler code this annotates within one line that given
 phandle has arguments, so grepping for code would be easier.
 
+There is also no real benefit in printing errors on missing syscon
+argument, because this is done just too late: runtime check on
+static/build-time data.  Dtschema and Devicetree bindings offer the
+static/build-time check for this already.
+
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- drivers/soc/samsung/exynos-usi.c | 8 ++------
- 1 file changed, 2 insertions(+), 6 deletions(-)
+ drivers/rtc/rtc-stm32.c | 22 +++++++---------------
+ 1 file changed, 7 insertions(+), 15 deletions(-)
 
-diff --git a/drivers/soc/samsung/exynos-usi.c b/drivers/soc/samsung/exynos-usi.c
-index 114352695ac2..1fda8d72f687 100644
---- a/drivers/soc/samsung/exynos-usi.c
-+++ b/drivers/soc/samsung/exynos-usi.c
-@@ -186,15 +186,11 @@ static int exynos_usi_parse_dt(struct device_node *np, struct exynos_usi *usi)
- 		return -EINVAL;
- 	usi->mode = mode;
+diff --git a/drivers/rtc/rtc-stm32.c b/drivers/rtc/rtc-stm32.c
+index 9f1a019ec8af..a0564d443569 100644
+--- a/drivers/rtc/rtc-stm32.c
++++ b/drivers/rtc/rtc-stm32.c
+@@ -1074,26 +1074,18 @@ static int stm32_rtc_probe(struct platform_device *pdev)
+ 	regs = &rtc->data->regs;
  
--	usi->sysreg = syscon_regmap_lookup_by_phandle(np, "samsung,sysreg");
-+	usi->sysreg = syscon_regmap_lookup_by_phandle_args(np, "samsung,sysreg",
-+							   1, &usi->sw_conf);
- 	if (IS_ERR(usi->sysreg))
- 		return PTR_ERR(usi->sysreg);
+ 	if (rtc->data->need_dbp) {
+-		rtc->dbp = syscon_regmap_lookup_by_phandle(pdev->dev.of_node,
+-							   "st,syscfg");
++		unsigned int args[2];
++
++		rtc->dbp = syscon_regmap_lookup_by_phandle_args(pdev->dev.of_node,
++								"st,syscfg",
++								2, args);
+ 		if (IS_ERR(rtc->dbp)) {
+ 			dev_err(&pdev->dev, "no st,syscfg\n");
+ 			return PTR_ERR(rtc->dbp);
+ 		}
  
--	ret = of_property_read_u32_index(np, "samsung,sysreg", 1,
--					 &usi->sw_conf);
--	if (ret)
--		return ret;
+-		ret = of_property_read_u32_index(pdev->dev.of_node, "st,syscfg",
+-						 1, &rtc->dbp_reg);
+-		if (ret) {
+-			dev_err(&pdev->dev, "can't read DBP register offset\n");
+-			return ret;
+-		}
 -
- 	usi->clkreq_on = of_property_read_bool(np, "samsung,clkreq-on");
+-		ret = of_property_read_u32_index(pdev->dev.of_node, "st,syscfg",
+-						 2, &rtc->dbp_mask);
+-		if (ret) {
+-			dev_err(&pdev->dev, "can't read DBP register mask\n");
+-			return ret;
+-		}
++		rtc->dbp_reg = args[0];
++		rtc->dbp_mask = args[1];
+ 	}
  
- 	return 0;
+ 	if (!rtc->data->has_pclk) {
 -- 
 2.43.0
 
