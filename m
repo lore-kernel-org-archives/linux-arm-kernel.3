@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8353E7719A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jan 2025 18:49:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6140E7719A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jan 2025 18:50:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wj0vaQkEs5xJl4pAen9qgeha8m1m7A5Rzf7Lm9ycX6o=; b=e1uUxuNHqa+NzCZA+9fuovlmUp
-	iIgd1zI6w6y8aJrwmKHIlDWl08A+afxuZAQuOpWHIrs5SJ+CtPEzRhY5uN4F0E+nRd4RcoR6c7z1g
-	oNb0nChTAR1fMr52H0Pfn4zlga/jtDnUMNwpd8ae6D/j/x7kYa6tImUJ2mjfzs8ye0cVtMErN3OZO
-	53t5vlyfYTcyEOSO01A2CvtAQMm+3k8jOq1h4s3xGqk7d1kbiS0SjRNsgzQvnHxgknXCbhrRzAdQj
-	86XGzqwPKQi7JBGFT+vKWUMYCEMMYOGSlTmqFsRw84i16rg+h29FJjzq3XpKCibDBpn2vHoNO2bN+
-	CCQdOrFg==;
+	bh=4ZfLFbNpnmpDV2565vRSGO4sUYMlrYKX9NM4kz4voi8=; b=T8K1yFAO8V7/t5N1gByZIwUSVl
+	QqrIEbNmye/Rcd4kG0rB0opG5bW2f4JGDxnReDxlM3lbFaCkJLKR4n78TsIX6picaYrqIttCxCAFq
+	q0KrY4AVALZIHaZtPCHitZTUzsAvX+1PYeWDYks6d/hGtEZ1Nc8gK99fgUHjl1A6Wdh7mBZWDZxAm
+	r8ImUU4Pimttd0W65thgSIa5mudiOfCtL7yTlvjWMWZOoUkiFBjVg2PnV8yHghimwDv18cQOUhdUc
+	EKJe/NOO/zv7U2mURo4g0ncUWitVM82DsFn9eyhqDdhHDJVFz8wbHdw/fUyP4CuYpRddFPVlv1Pn9
+	zh3d4n9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWgY2-00000001Gms-1fWB;
-	Sat, 11 Jan 2025 18:49:26 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1tWgZF-00000001Gtw-05iC;
+	Sat, 11 Jan 2025 18:50:41 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWgS4-00000001FdJ-1muC
+	id 1tWgS6-00000001Fe0-2F76
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jan 2025 18:43:17 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-436246b1f9bso4361405e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Jan 2025 10:43:16 -0800 (PST)
+	Sat, 11 Jan 2025 18:43:19 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-38625aa01b3so322515f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Jan 2025 10:43:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736620995; x=1737225795; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1736620997; x=1737225797; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Wj0vaQkEs5xJl4pAen9qgeha8m1m7A5Rzf7Lm9ycX6o=;
-        b=vtIn6nZlGYXGd1JNqVxM24gmrzPGZ2pRul4YG+Qlspx1Y2Cj7QHltpoA/8prOQOSWP
-         fmGusdFUd6arJa4bZ/NiGq0owxPkUlSHvtmkAhEDtD4YgN4u3M//NAjn0sh9+dF36WF1
-         tEjaFKR7SAlXuof1VmV88owZr8Vyq7VkBAMyuHhH0G5AhVVwzKMpc4us5MDgzhrsrulS
-         5dPqRaq3aI0JTkbWsiSSj25veDC8fXL25dWHmqK8ODIUafjr/SSKqlf567lciRKYBe+2
-         Qh1hguLfsnZ/6cXI88LAP/Djy4ONasIIgV8PV8YKGx/PCqHSTjayirLkc/4letPJN1EX
-         FisQ==
+        bh=4ZfLFbNpnmpDV2565vRSGO4sUYMlrYKX9NM4kz4voi8=;
+        b=BluVuAVn3hng6sWF2tUvkNO+eBiLfpVQoWqS4FggobbogxV9rY39VLQOmKvI5t+vLw
+         UyxsZo9aNIl8ePGjxazLqffxJhpH/srbMF8vSnzzSn6g4FgxcreeOoT2fXTMWeEK6KCr
+         P5FtcjAtfewtaM3LkwcRmCdf9EbFlDFRPjGr4XzWAYEe1ZU41AL49OLslDW5qCGdIKpG
+         leuyg8mQA2b9/i8AGh+PEYXjF6c60Rqgiei9anTzPMr/KNlU1l7iRaqIDysW9v3Pyxvc
+         /WxOPIZda1PMbKzLt8fp0mxultsjw/833ztKsPGe7iZdT2vkDtFpLCRTSd+0UX5I9UVd
+         dpOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736620995; x=1737225795;
+        d=1e100.net; s=20230601; t=1736620997; x=1737225797;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Wj0vaQkEs5xJl4pAen9qgeha8m1m7A5Rzf7Lm9ycX6o=;
-        b=QqbUIO4D8ZJHf6rnYV3IIpvX1s1orPBDikOI2f7mhr2348HyaS0AceOw4ABP9F+qbF
-         cz7pzwNlDLjepzGuGffz/McCYFFRjegf8VoRY19Fn+BxvswU+4stcGIU5u5dCnCB3qkN
-         MZ3FdwxAU+XU4O/f6/OyEyDnItqqYUx0qa0bXVDMSd7Qbfnhr5BfItwlBiYub29+ZmUN
-         L18A4nJ1qIKjikKqkuKdsNe9dyMc8b0pbsJL8ZTUMlJOtPoEsUQNzycjiH5vJ79Z6oBY
-         1BisHsZbZvO6sSToPyOSJSainwjAcHKyLj1jXb8gASEiZg3kqzllJ5RqRLUOJgKDkpVO
-         65Mw==
-X-Forwarded-Encrypted: i=1; AJvYcCVL5UooO3UZsfwUtLUF9YPFQ4AVA235Pzsw9FKCIPTBxpyGY24wB69dzN0pVkn2rfaiGnI0CDlmEoIXUmKzENVD@lists.infradead.org
-X-Gm-Message-State: AOJu0YwiBzZE+SNzEmuID+VSmMnEtRc43m64DnYlaL5hLixHUInwqr9I
-	zImyv2UAvHA5HU4Zi47vleHLFbuLb4vjvVDOIaGT7/jTqlvHVhmyJaYJDZhA2h4=
-X-Gm-Gg: ASbGncuym/DhA5xlsAoFhu+EI1XQvr9K5CIiVaWV/8jZMUmUL4md6gUjIhvDybAadVB
-	79zMpIUPyk7psaLl/PU87wWHzkwjqIOKpA72jUHBVvOWm560nOprfs7zvUBoJR1WMRDcnvcsLIM
-	h17AYeszdhGnD9UurJWsYo7ESqFv9jdCU29EoXu3WwPNIAx8Ybq+duBI5yrKhv7F+CqNE//8n/J
-	Vi4JZo5K2/4NRz0pSTeGOsGQFGc3wfS4CB4yL+iLQUuUj0jrLb621U9XKAl7US91wvWUZgm
-X-Google-Smtp-Source: AGHT+IFkdUd7VDoNBV8ocBwBMK7rs6FdwNt8/W12AAqlsigJ8QUMOV8NnmmD5VdugurJ8kLk5KPd8w==
-X-Received: by 2002:a05:600c:3ca0:b0:436:17f4:9b3b with SMTP id 5b1f17b1804b1-436e270729bmr58969015e9.6.1736620994797;
-        Sat, 11 Jan 2025 10:43:14 -0800 (PST)
+        bh=4ZfLFbNpnmpDV2565vRSGO4sUYMlrYKX9NM4kz4voi8=;
+        b=F/AXcRLpOBwzv1AJMZFRz+NTjbemPs7rIVj0WHdycKZ0p/eYvfe4c3KO4KIjWalYcj
+         yRcoWcVFFMTfTjKIOjE0uPS0orZZTt2vsTBf3KlEfuBumfmyFUws/Hb4atQAU/4k6t7V
+         /jwQwn+6cUM/oP1W89CqafeyawGaiVVXpO7Pr52bbr5Mib/0GbQQmA8qUDurWyDoh3Xv
+         4F7ZWioMK/sAI+2iI6hP64TK2TGuOAkHnKLDrXOimSC7tO7hL7EMqihFg6XgxgG0plQa
+         Gq9Xh3T6U4acn8YM1NMG11NTyJQPbwg7Y8Nle+if39/ogAi/gbvTHtlXhl4v81vN7Rr6
+         HYWA==
+X-Forwarded-Encrypted: i=1; AJvYcCUtvs4ynmiGJzA52OHbp8IRurZ6b6jSFfnKUHDWrEJYMr767TmZwf5PjsZZtCd19cx6lJQ5rnS6w9ssJwnh/1sZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyVLA8wh7vzzpAeAVxDyFMXtqOanC5Qg+A0UfPrc2jCZvqhHJu5
+	wybFnX2SXK4ERag4+UsmguwXG6jo1hHRPK5M6w/qrAZ9B3kFTdYaEojWVLqGT8k=
+X-Gm-Gg: ASbGnctTphEM/oVuvTIZXP2YvoVS7rYJsHTXRs8uG93CfQ8ioPB6cfVgnI/QvNdCkQq
+	dhOhn+1tppnYUBvhjAFKIpr1ER1ufNBPiGIU3M4D4SywNOP+1VtxhT5mdMp0FOp3ndFRgJgfu+N
+	ARqPFGig5Rjh4ZFuxD+qoONtq2spwkhL3mzQ3M4ygAWTWqFCVTySShK+OuuG9rwwb20CgieYb/G
+	sLCsdaXu8HSlRjAjwExySufFFtqvL3Osi8+IBf04UsZPRWtOyO5uqm1cAmDQvvY1Szg4sYq
+X-Google-Smtp-Source: AGHT+IFW0/peneFHNHf0VQ2I87ynYNTzqYw++V8lH2N+J7woIMmlHMzRJMHLntn2pbYLKroEqwtCug==
+X-Received: by 2002:a05:600c:5027:b0:434:a30b:5433 with SMTP id 5b1f17b1804b1-436e26ff752mr59166135e9.5.1736620996872;
+        Sat, 11 Jan 2025 10:43:16 -0800 (PST)
 Received: from [127.0.1.1] ([178.197.223.165])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436f9bc6b9bsm205885e9.22.2025.01.11.10.43.12
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436f9bc6b9bsm205885e9.22.2025.01.11.10.43.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 11 Jan 2025 10:43:14 -0800 (PST)
+        Sat, 11 Jan 2025 10:43:15 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Date: Sat, 11 Jan 2025 19:42:52 +0100
-Subject: [PATCH 4/5] remoteproc: keystone: Use
+Date: Sat, 11 Jan 2025 19:42:53 +0100
+Subject: [PATCH 5/5] remoteproc: st: Use
  syscon_regmap_lookup_by_phandle_args
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250111-b4-syscon-phandle-args-remoteproc-v1-4-73ed6fafa1e3@linaro.org>
+Message-Id: <20250111-b4-syscon-phandle-args-remoteproc-v1-5-73ed6fafa1e3@linaro.org>
 References: <20250111-b4-syscon-phandle-args-remoteproc-v1-0-73ed6fafa1e3@linaro.org>
 In-Reply-To: <20250111-b4-syscon-phandle-args-remoteproc-v1-0-73ed6fafa1e3@linaro.org>
 To: Bjorn Andersson <andersson@kernel.org>, 
@@ -84,26 +84,26 @@ Cc: linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, 
  Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1595;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1645;
  i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
- bh=U1lpQENfUy62bKJcih/Uez8/c/JkobPMvDaQfWStUtU=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBngru0T07FNjrF45YdoyIyJ1321KdY1szRRaMcz
- awXkyq3kByJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCZ4K7tAAKCRDBN2bmhouD
- 1/y/D/9Wp1pomIMLnGfNlycKgEqkDLs1RC8JXV8VmnlFsO/F/uAK8zuzhbnzwYpcUyYhtvvtvxx
- DPqHgkEvgWB6c9+6paOQ62wZ5tR2FFXbZNdwSLAd+J24sEpjCU3ndi/CJI2zz1soIn4qTCGNc8/
- Mp0+omFvxrzBQlFcuBhYTSjDPbuKaMszNOWme3yxA3ML9DTNQYs+mQVIxFRE1ro1Mn4dy38xnm/
- yF7RPpE4VKP1SA/5T8iGXzM5PLFxXYmCbl92fg7geryPjIDMAeYuWe9HAasEA3DPuzMp+3Dtp5g
- InuAOkuCoYpwHdqhQ5fZfaWDazKGgpcOsLBJJQuvjadJDhf4qYbEbCXDVbjJzgvsfXGf09QwTAu
- VvA+QJ0CL78fuxrvpchTNwnmVidiaY8q7vkhjTL0qNIVg3VZ8ybNqoKR5s7qIQF9du+jqWx0Po0
- 3CKfa9DF+PJcIoi0nP6sm8Y+aC04iLDecYPLQKWQUDhXLYnAv/uQNv7XxBhWi2VGcSV0ticidg8
- BfwMX0BLA+sgJ+SvlHOJ2t1zQNKSWUDWk5/8QKYH/1GPgOODY3grkMJK17SrMDVv077HwMl9uvp
- tKbvfdKBlfbTROPOXl9vq6zyqAKfuv/4rGL1JMDcWjD4d0tKJNH3ja92Mq3dvKGYn2MQQdUBqnC
- NxtVbmuq8+MwGjA==
+ bh=qF4PHMuL+t0qB80xl2hrwOztjmUZsyo+dEMuKAh+IB4=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBngru0nQc+fzofOvHIUV+/fgemqTdgb2BKYWbit
+ e6gPsMjdtKJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCZ4K7tAAKCRDBN2bmhouD
+ 1yAJD/9qGYLOD6d1yxq+cU4dWnu4tTUYO2HfUKb3UxNFVYISpIcj7Fg/t9w6XscXb+F1dhdEuqQ
+ Qo0sEKZLgMV+JVGLP4yG/wpPv1lz4lPtuTc50hpJS/SyOVckngINxUNKatVoRo/brjSSCjWKEPE
+ TEYJAtE0v7oS7Y5zxCJDZWPdhukQb/Laes2GlHC2zXGRbWqpkLnyoPJsWhGxq4UQHADX1XzZYBQ
+ SSq2OKw8Q8F9+Q1b9z6Oc25dw4LWHX4MTiPRxo73ls8Yz/9MsiSmFLO4cG8su8U3blX3VNwwKLJ
+ mfBCEg450PfOR0hEv0PH3dFgPOy2eWDDEMHR/hv9weZtJhO657ODwYu6wEfTyWnzz5xqo+/S9QH
+ Wed4A/iSt7Y91Qv3X/dmf+3cK38qH/sdheiCwCbF4ul84pOC2PK7slF4XITdZ9tFa+fqbVkb74Z
+ vmwH4GPTDGzuCo7s1QwLaP+E+I/dbAaDX9TWO2K2TWlJiNkHxRTKBuXkTv0LvTw8k4kgsJtsqYg
+ WtbDn/wo/G+ESTk5a+RBWLESQPBfQG/jK+DOvqsdFOZtnGHZjnvFdEFH6vX8jse32I8VEgsjtLy
+ peNwU+JATuXIBWcNFBkq2ZsCEtc/PVsdY06n23bstvpwN4ZQdo996sgJ/UeBqV7JRYC4JxfXpVb
+ YbAPZrXD5w08gFA==
 X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
  fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250111_104316_471406_DB7E22CC 
-X-CRM114-Status: GOOD (  11.55  )
+X-CRM114-CacheID: sfid-20250111_104318_577158_F5211AB1 
+X-CRM114-Status: GOOD (  11.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,33 +130,34 @@ static/build-time check for this already.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- drivers/remoteproc/keystone_remoteproc.c | 10 ++--------
+ drivers/remoteproc/st_remoteproc.c | 10 ++--------
  1 file changed, 2 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/remoteproc/keystone_remoteproc.c b/drivers/remoteproc/keystone_remoteproc.c
-index 83c8e568f7ce3ec3ca3a534d2566f6437e9d403a..7b41b4547fa803fe19d5e5e6b1a8c8c4e5760632 100644
---- a/drivers/remoteproc/keystone_remoteproc.c
-+++ b/drivers/remoteproc/keystone_remoteproc.c
-@@ -341,17 +341,11 @@ static int keystone_rproc_of_get_dev_syscon(struct platform_device *pdev,
- 		return -EINVAL;
+diff --git a/drivers/remoteproc/st_remoteproc.c b/drivers/remoteproc/st_remoteproc.c
+index d1f35e8a83ba525613ed4e54d2269b7e9f427e46..e6566a9839dc5ffc83d907a3076fc4b0a644138a 100644
+--- a/drivers/remoteproc/st_remoteproc.c
++++ b/drivers/remoteproc/st_remoteproc.c
+@@ -314,18 +314,12 @@ static int st_rproc_parse_dt(struct platform_device *pdev)
+ 		return err;
  	}
  
--	ksproc->dev_ctrl =
--		syscon_regmap_lookup_by_phandle(np, "ti,syscon-dev");
-+	ksproc->dev_ctrl = syscon_regmap_lookup_by_phandle_args(np, "ti,syscon-dev",
-+								1, &ksproc->boot_offset);
- 	if (IS_ERR(ksproc->dev_ctrl))
- 		return PTR_ERR(ksproc->dev_ctrl);
+-	ddata->boot_base = syscon_regmap_lookup_by_phandle(np, "st,syscfg");
++	ddata->boot_base = syscon_regmap_lookup_by_phandle_args(np, "st,syscfg",
++								1, &ddata->boot_offset);
+ 	if (IS_ERR(ddata->boot_base))
+ 		return dev_err_probe(dev, PTR_ERR(ddata->boot_base),
+ 				     "Boot base not found\n");
  
--	if (of_property_read_u32_index(np, "ti,syscon-dev", 1,
--				       &ksproc->boot_offset)) {
--		dev_err(dev, "couldn't read the boot register offset\n");
+-	err = of_property_read_u32_index(np, "st,syscfg", 1,
+-					 &ddata->boot_offset);
+-	if (err) {
+-		dev_err(dev, "Boot offset not found\n");
 -		return -EINVAL;
 -	}
 -
- 	return 0;
- }
- 
+ 	err = clk_prepare(ddata->clk);
+ 	if (err)
+ 		dev_err(dev, "failed to get clock\n");
 
 -- 
 2.43.0
