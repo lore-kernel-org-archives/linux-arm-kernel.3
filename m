@@ -4,83 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F791E7719A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jan 2025 16:36:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A45BFE7719A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jan 2025 17:13:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3QFpAwlhscCSDaqV4J6CvbYoGhHQAUaA0Ln+PXMaf8A=; b=fCh1LZ7/oJdm9Os33uoCR/C9IX
-	lA2mo6isSLA4lvsRLIOW/7JeNxkqIB3rSUOXumGg/c8cf+VHlS3w5ogVOz8uuNsJk6XKKkj/XX6m+
-	+KZxiKQX/PAB0Vj0COTxvJyND9LXLV7sqqARvAlH6kfWSipX4MzQjQJkgR6kjEsj4ezSNu9kN1yHH
-	43eIJaq/3wKu/C80/kyURNnaNG18fTUGrdM0/s6P+sYRvjXTwDdP0PT8rGGHBwksSPh0AGrEKw5Cl
-	ws5/KwTOKQNR+jZCyVpuJNayCmnSlDG29XLZKCYnCdkvJ6P6MVXV2DW27gTKB5FC4wKteyZQxjk6u
-	UNK4dVPQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=neOtGy660wrg7yoU7nTMUphYsloLgbcU0e4CDGQ9whw=; b=TxunRaIxNwrpCcI/CTPxSMGI2S
+	BoCCUH6OGwP6H0b9ZcJGGqUPl1lUnCFNpJlBidh+kq8Eht6wUQB2DYA4Zn4290AsWB/wXCreahk1H
+	QJBEQubLP9XxITtmEAtcu4SXvePWcpCMoxNPBvlGJ5nxVH2hzNKK8FYn8zu5ZS8Lz1WvU/JjeHadZ
+	APW28hJ7nQGSXzs8JZctblwDftx7i3vqUalGRWTETj4NOhas8ZYIOT3AIAp0xRaO6ZQJXRMIqokbk
+	yKbfTGl2X9rBfAoJkar3rBo6/twpnh1xzf3+WaYn5KdLrMKJuoAhw/D6AR+XMoERZbSQposdPn/DL
+	AwSQohtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWeTX-000000015Qx-2eYj;
-	Sat, 11 Jan 2025 16:36:39 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1tWf2V-000000018GN-0WTc;
+	Sat, 11 Jan 2025 17:12:47 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWeSJ-0000000159j-16EL
+	id 1tWf1G-0000000189m-2Nq5
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jan 2025 16:35:24 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2166f1e589cso61939575ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Jan 2025 08:35:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736613322; x=1737218122; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=3QFpAwlhscCSDaqV4J6CvbYoGhHQAUaA0Ln+PXMaf8A=;
-        b=NrGYuflMXdt89LxG/jKfa91U3naT4Wm8QrCdW7winDZ33nUt5NQoTE/aOpuwVaOC+F
-         fLPBR7SoIWdYPX8T9vgZdm4R41sfD2/LAG8pYMeu/Bxt2efTlJqqaQqJDUICZzJhcG8E
-         DWYDAzhvJolYaJ0VBFGvELjwC0AiWqQjJW/JbTG1x9iSoVC4JDi/CLUQ2UwQFUjMizE9
-         w5qEGF0NqA/AhIgHhVKhNZ/4WW95VXbyI505rRyuxG0W0EyhVYHjfkRJy3Un2XuwWTW7
-         pV4CKDyYSimnr5XlLtaXeEs4m1KUPqd3MiRNws7ZqVDDbc3rj1L2/Mt7WhS1M5CQE0bC
-         E0yQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736613322; x=1737218122;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3QFpAwlhscCSDaqV4J6CvbYoGhHQAUaA0Ln+PXMaf8A=;
-        b=Oou5rBLWppxVkZic4dzJkb3EMIObH6wnaEZwMNc0fePvRocDrucphFbyNfgLY+N/LU
-         7FYfi/F/uiIgL18Mx2KsLtEzeEK+sTAQCyhCpLbAWJc45U9PKbcHNPWHPVui+J6vXM89
-         MKOoM+YyU+pHqxnyRJRsepZ8mWlYKtTNXBKtwZS8BrM82ujeSzgmKmW4lTExJtVX+Iae
-         FnBl/TP5kil1t39a9lpGPzbPe39chj0hUBAflLoZ9E4ny4jBVpkMMhe2gaM9ajQ+X+99
-         gXhr+6dxissVVlKt8rJWdc6lqFJCxYdqWxKj9TpBIGfCgDZnhOc5fQqwwhGX+wbPapXr
-         fWXg==
-X-Forwarded-Encrypted: i=1; AJvYcCU8DJajBrarbOXzUVj/ztuYzNU97qiQjzLV+cbBvETh5UwKULYhCxOkCY9f8ufxpZYA7XmuzoaoIqTXsGNxwvbo@lists.infradead.org
-X-Gm-Message-State: AOJu0YzXIAxYaoL07oJxeVSoq+zUBiKrnFpja803mzp18clAfjrzByra
-	Zk4KblDrvqrlAfvb93UiCN2hY7bACeufGD1AT/ieaHY1loZHLZt/
-X-Gm-Gg: ASbGncujSAVKn8vHM91KElCGaesHqSWpESrGx7gZKuxX1N3Xcl6W/Jvn0QVg7zXefsL
-	J9cXfa1PB0+Xe1vcAD/grPUlw16hZZBcELhPDuhh9wCHIQfDX3P2iA7DlGewmgAtWmH/Fep4itw
-	ABUOfPEi7B+w8hcKkIohOyumyjp76ey4eQ5PoN/hyWwezgzewBCLryQi4LqS+kqZNO+svRk4ACw
-	yBP3V8i5H09sMm/sDXGKczUJBDRE+An8nF14Itq1K7mDZ2vPRe0k8l64rPQA45kn0y05t0fvs+e
-X-Google-Smtp-Source: AGHT+IFg0xphykRhQKusjtbwyZ+bfCNk9Lo/GQN5SR+nGcOGfnhtXjaDW/RgazWXKPH9B+cVxv1LDQ==
-X-Received: by 2002:a17:902:ecc7:b0:215:a18f:88a8 with SMTP id d9443c01a7336-21a83fdf379mr199295665ad.51.1736613321903;
-        Sat, 11 Jan 2025 08:35:21 -0800 (PST)
-Received: from hoboy.vegasvil.org ([2600:1700:2430:6f6f:e2d5:5eff:fea5:802f])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21a9f259fb5sm29138805ad.239.2025.01.11.08.35.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 11 Jan 2025 08:35:21 -0800 (PST)
-Date: Sat, 11 Jan 2025 08:35:17 -0800
-From: Richard Cochran <richardcochran@gmail.com>
-To: Basharath Hussain Khaja <basharath@couthit.com>
-Subject: Re: [RFC PATCH 06/10] net: ti: prueth: Adds HW timestamping support
- for PTP using PRU-ICSS IEP module
-Message-ID: <Z4KdxQMBXmkF37KI@hoboy.vegasvil.org>
-References: <20250109105600.41297-1-basharath@couthit.com>
- <20250110055906.65086-7-basharath@couthit.com>
+	Sat, 11 Jan 2025 17:11:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id AA8ECA40582;
+	Sat, 11 Jan 2025 17:09:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F473C4CED2;
+	Sat, 11 Jan 2025 17:11:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736615488;
+	bh=TV4EgiOr0QvNxIquX6LwrbCC+EAwZWTAXAYrvwrxvm8=;
+	h=From:To:Cc:Subject:Date:From;
+	b=KHhY5vzCaRsnIxvM2lIqM3SGvVAVEuKfQDXnZW1BIrlVdMwxqRZ3G1J2pt7Wo8SeM
+	 Kj7+ot43FvoeLCPp/Wpca1aYMV8dgHcD5/eNPxSocVGmTbbrkJjmWv4JQ8T7hXLnXG
+	 AJJt/2hw/9OnJf2TSisL6KGv79DJqx+T1pPtfo84QgueGrVgOvPx19RUi7nJAtD2xo
+	 4oJV6j0ZveghB+9Oc8huTm6t//FXXXtZ6gYSG4BxV3/hFrh/tx6bC5N+5SWfFARMZm
+	 zwCFm28uAsbKU4BUW42Vo0wgSUeJnHOGGZtCw36bDswWhWxMCa5p6y5JqKUz08cDwI
+	 RjPEdJtsHp8GA==
+From: Bjorn Andersson <andersson@kernel.org>
+To: arm@kernel.org,
+	soc@kernel.org
+Cc: linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Arnd Bergmann <arnd@arndb.de>,
+	Krishna chaitanya chundru <quic_krichai@quicinc.com>,
+	Prashanth K <quic_prashk@quicinc.com>
+Subject: [GIT PULL] Qualcomm Arm32 DeviceTree updates for v6.14
+Date: Sat, 11 Jan 2025 11:11:26 -0600
+Message-ID: <20250111171126.369502-1-andersson@kernel.org>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250110055906.65086-7-basharath@couthit.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250111_083523_328751_A6B27FC6 
-X-CRM114-Status: GOOD (  18.26  )
+X-CRM114-CacheID: sfid-20250111_091130_675323_9D1D6DD3 
+X-CRM114-Status: UNSURE (   6.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,101 +71,38 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: nm@ti.com, vigneshr@ti.com, tony@atomide.com, edumazet@google.com, krishna@couthit.com, pmohan@couthit.com, diogo.ivo@siemens.com, robh@kernel.org, javier.carrasco.cruz@gmail.com, praneeth@ti.com, m-karicheri2@ti.com, jacob.e.keller@intel.com, kuba@kernel.org, pabeni@redhat.com, devicetree@vger.kernel.org, conor+dt@kernel.org, schnelle@linux.ibm.com, mohan@couthit.com, prajith@ti.com, rogerq@kernel.org, ssantosh@kernel.org, linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org, rogerq@ti.com, srk@ti.com, pratheesh@ti.com, m-malladi@ti.com, netdev@vger.kernel.org, rdunlap@infradead.org, linux-kernel@vger.kernel.org, danishanwar@ti.com, afd@ti.com, andrew+netdev@lunn.ch, parvathi@couthit.com, horms@kernel.org, krzk+dt@kernel.org, davem@davemloft.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 10, 2025 at 11:29:02AM +0530, Basharath Hussain Khaja wrote:
 
-> @@ -189,12 +190,37 @@ static void icssm_emac_get_regs(struct net_device *ndev,
->  	regs->version = PRUETH_REG_DUMP_GET_VER(prueth);
->  }
->  
-> +static int icssm_emac_get_ts_info(struct net_device *ndev,
-> +				  struct kernel_ethtool_ts_info *info)
-> +{
-> +	struct prueth_emac *emac = netdev_priv(ndev);
-> +
-> +	if ((PRUETH_IS_EMAC(emac->prueth) && !emac->emac_ptp_tx_irq))
-> +		return ethtool_op_get_ts_info(ndev, info);
-> +
-> +	info->so_timestamping =
-> +		SOF_TIMESTAMPING_TX_HARDWARE |
-> +		SOF_TIMESTAMPING_TX_SOFTWARE |
+The following changes since commit 40384c840ea1944d7c5a392e8975ed088ecf0b37:
 
-The driver advertises software Transmit time stamping, but where is
-the call to skb_tx_timestamp() ?
+  Linux 6.13-rc1 (2024-12-01 14:28:56 -0800)
 
-I didn't see it in Patch #4.
+are available in the Git repository at:
 
-> +		SOF_TIMESTAMPING_RX_HARDWARE |
-> +		SOF_TIMESTAMPING_RX_SOFTWARE |
-> +		SOF_TIMESTAMPING_SOFTWARE |
-> +		SOF_TIMESTAMPING_RAW_HARDWARE;
-> +
-> +	info->phc_index = icss_iep_get_ptp_clock_idx(emac->prueth->iep);
-> +	info->tx_types = BIT(HWTSTAMP_TX_OFF) | BIT(HWTSTAMP_TX_ON);
-> +	info->rx_filters = BIT(HWTSTAMP_FILTER_NONE) |
-> +				BIT(HWTSTAMP_FILTER_PTP_V2_EVENT);
-> +
-> +	return 0;
-> +}
+  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-arm32-for-6.14
 
-> @@ -442,6 +482,173 @@ static void icssm_emac_adjust_link(struct net_device *ndev)
->  	spin_unlock_irqrestore(&emac->lock, flags);
->  }
->  
-> +static u8 icssm_prueth_ptp_ts_event_type(struct sk_buff *skb, u8 *ptp_msgtype)
-> +{
-> +	unsigned int ptp_class = ptp_classify_raw(skb);
-> +	struct ptp_header *hdr;
-> +	u8 msgtype, event_type;
-> +
-> +	if (ptp_class == PTP_CLASS_NONE)
-> +		return PRUETH_PTP_TS_EVENTS;
-> +
-> +	hdr = ptp_parse_header(skb, ptp_class);
-> +	if (!hdr)
-> +		return PRUETH_PTP_TS_EVENTS;
-> +
-> +	msgtype = ptp_get_msgtype(hdr, ptp_class);
-> +	/* Treat E2E Delay Req/Resp messages sane as P2P peer delay req/resp
+for you to fetch changes up to e3bab40d5961453545ef39aeb5198d2e718c9693:
 
-s/sane/in the same way/
+  ARM: dts: qcom: sdx55: Disable USB U1/U2 entry (2025-01-06 17:49:34 -0600)
 
-> +	 * in driver here since firmware stores timestamps in the same memory
-> +	 * location for either (since they cannot operate simultaneously
-> +	 * anyway)
-> +	 */
-> +	switch (msgtype) {
-> +	case PTP_MSGTYPE_SYNC:
-> +		event_type = PRUETH_PTP_SYNC;
-> +		break;
-> +	case PTP_MSGTYPE_DELAY_REQ:
-> +	case PTP_MSGTYPE_PDELAY_REQ:
-> +		event_type = PRUETH_PTP_DLY_REQ;
-> +		break;
-> +	/* TODO: Check why PTP_MSGTYPE_DELAY_RESP needs timestamp
-> +	 * and need for it.
-> +	 */
-> +	case 0x9:
+----------------------------------------------------------------
+Qualcomm Arm32 DeviceTree updates for v6.14
 
-Delay response messages are PTP "general" messages and not event
-messages, and as such they do not require time stamps.
+Describe the interconnect paths for PCIe EP controllers on SDX55 and
+SDX65. Disable USB U1/U2 entry to improve USB stability on the same.
 
-> +	case PTP_MSGTYPE_PDELAY_RESP:
-> +		event_type = PRUETH_PTP_DLY_RESP;
-> +		break;
-> +	default:
-> +		event_type = PRUETH_PTP_TS_EVENTS;
-> +	}
-> +
-> +	if (ptp_msgtype)
-> +		*ptp_msgtype = msgtype;
-> +
-> +	return event_type;
-> +}
+----------------------------------------------------------------
+Krishna chaitanya chundru (2):
+      ARM: dts: qcom: sdx65: Add PCIe EP interconnect path
+      ARM: dts: qcom: sdx55: Add CPU PCIe EP interconnect path
 
-Thanks,
-Richard
+Prashanth K (2):
+      ARM: dts: qcom: sdx65: Disable USB U1/U2 entry
+      ARM: dts: qcom: sdx55: Disable USB U1/U2 entry
+
+ arch/arm/boot/dts/qcom/qcom-sdx55.dtsi | 7 +++++--
+ arch/arm/boot/dts/qcom/qcom-sdx65.dtsi | 6 ++++++
+ 2 files changed, 11 insertions(+), 2 deletions(-)
 
