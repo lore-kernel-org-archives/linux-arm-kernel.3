@@ -4,85 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9E9CE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jan 2025 01:02:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B015E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jan 2025 01:03:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
-	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wbJUIEbFpcT4LmqIjAYiV2s86GObQLOrAwx+1Pf2g7A=; b=tGikIsJDJoP4+ZenE5mlvHiPfi
-	YiiwO0NJ6W6t/nMuLkWJM/3BBbDE1rfqA2ztd3Thys4HDem3aUgwIVVAHi0l7qnuQysJl68rloY7B
-	Kc/FFUEef4ddIWaXIslkg7ZUt5Pnlnh9rvwAaLIviHd7NptEepoXNI8UmLs82QbMD9+QvVOFh8y4A
-	CwQwv+lOHnmUIzqCh0NuJKQJtxBIp5jMKqh0rl/u/PpdhMonaoI3pof3XLc+IKsjA/4q6mzlxQKu5
-	nlLCNeuemjApoxqB5PFKriJIcQY3fCeY5Ohr6aD3McA0HfSFfCoVncStEJSbqYDCoAyU3yer3/jsY
-	Usb8zNew==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+d9N3KJHkNXRjOZutdW8pQt5lh1Ed4rA4mypMg2qOMY=; b=3TqriHGmgfQL1M
+	jUHZzO0VnD1bMdX1e7F0aVT8BRvbYsJSS7TueBExyDxGdAzFhl2WA+OUQLyjlF+paCGUnHPtpx2bY
+	LUpPFNrrOpvvr+U2p9Abx3spGTzfaoOSaTgu6zcUYaRcasjMIsDX9h1l/Shw/0nhRpB8UtWHLKcl4
+	xgypg9nwouZochQZutmZcV8IHnaRlLnCRGz4FznRrbfintS40RX72dAHZmCLNY7+FHVG2uh0tV+4Q
+	2r4VKEN0HOdLxcKU6/hEoh8kf1SdYKy24FDrysGsFcCHtDBoDVkK5eimYIEbm1f2foHsB9SFxd3aM
+	i3KmjVjtgNa/xNzgyNTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWPt8-0000000HSGD-3CaP;
-	Sat, 11 Jan 2025 01:02:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tWPuL-0000000HSQv-1v40;
+	Sat, 11 Jan 2025 01:03:21 +0000
+Received: from mail-pj1-f73.google.com ([209.85.216.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWPiX-0000000HQQW-0rrl
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sat, 11 Jan 2025 00:51:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=wbJUIEbFpcT4LmqIjAYiV2s86GObQLOrAwx+1Pf2g7A=; b=csgnvTl2NpXQUEOiVKURkC6Fyr
-	2N+47ZBzHLA/rI/tUQQ+Qdcf0jrJstvuLheBRo3AKD/dLflAPSKDPjZvhmGv54ZbGvMYm5ML7Tjfb
-	UoFifVKiEb7nYudI1s+g/CrbwnnGtPwGknx4AFzuunrbWWW34Nc0XmApmTosRO0TGo8O8S3Js8G5f
-	lg6yDBMQ0Ntl60mtIkd7mPBEA7vVhTOXWa8o0k4lKPCWvOP3ZtclW4uQk9zhfjumGl9qcv7VSPGu+
-	kzCa4/RjIHmtTQcsRCrXl3v5DqYzwrJUmMqNK1Zt+wRyUzGl6cXM1dLc+Ax3fpwZSOeJuh6istTGW
-	ijIyXgFw==;
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWPiT-00000009yOp-371Z
+	id 1tWPiW-0000000HQPy-1i77
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jan 2025 00:51:07 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2ee86953aeaso4615108a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jan 2025 16:51:05 -0800 (PST)
+	Sat, 11 Jan 2025 00:51:09 +0000
+Received: by mail-pj1-f73.google.com with SMTP id 98e67ed59e1d1-2ef9864e006so7408536a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jan 2025 16:51:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1736556663; x=1737161463; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=wbJUIEbFpcT4LmqIjAYiV2s86GObQLOrAwx+1Pf2g7A=;
-        b=FfssiFP0BcRe15VL0ylY8Fdny/41w6R6TdoZsXD6hyL8GOsIeAIGTLrFFQpwbYxOWZ
-         9o9Zp/2kjNxAqnJGjm5VCim+5fsEnyKHGbM0NwXKNt/OPIyt6JoAOc2VBZBlg7x6ZDrG
-         qy3XmKTO4XA+8aAeYLThlUeCpWcMIovo7BXlAq3D2s5eyuS23FTpQZ6VLHajShhm+O06
-         t5hk+ZkfRqgw8T+Mom1kv6Xv5F1/AcDsVjTtSnWT4PGOyO0Z7X/TSckC+Irdq5XzIuKq
-         Sjb2cLTYMZ1GWc7vN9Cf+jE43YuxMLhkT4mPsmusqOMgYvORs29JPUOnymwsNBk17zUJ
-         a3hg==
+        d=google.com; s=20230601; t=1736556667; x=1737161467; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:reply-to:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+d9N3KJHkNXRjOZutdW8pQt5lh1Ed4rA4mypMg2qOMY=;
+        b=TR2iwZhiAWn/PH9yeBtsW/n5EKQ8APl6+5qhvYRvz4aE1ylygZ7/6CjS/kyEXnWKfe
+         m+7EV939FtV3SBMe7pChImBpKf742Is0zRC7h/RJkm3iwlFMkOFvwN7ymzb2friQThsT
+         N5G5IIav4plWELFzMGYFdz4wzadSXEa69I1vq70kXf7ro6cxqFTQTRZFhp2dPmMIHetl
+         wFEl6r+wyirgPfwwcyid2/n39SSa+FMzvgy5e8hzdwsUg/n0iDLVINLNuB/rgyH7hR8h
+         afxRHBV+Eo9SjAPdlJnvkYgD8D/54YtYkCy2F0stCvfLnUryYLcuJlx7ZRbK4IPHTn8q
+         b2WQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736556663; x=1737161463;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=wbJUIEbFpcT4LmqIjAYiV2s86GObQLOrAwx+1Pf2g7A=;
-        b=WIr3uhahFMPqH/ByEFP5BFoDbQiEnncq0yAcuV3FYfRBdWsISFynR2OT/ZVH3i3OZa
-         8iPEo/4DbIzsEDkdyGSCVkwsLK21pzCXrgPPo2CxPMOZJsDxlOn1P/o0qpiVdb678mYb
-         gFTNPxb8TGR2FCLZDS7AsIf39SqwgJ3m7r6fptEchW4ji+jWwNi44O98JOu6fvb3tkIl
-         cyg71BNM9ueBq3dsUsZo25xMjIX7QpV4hkcKorRsMxek+j5Z+bSi1F97DcQmnuP9pJ0A
-         klZ3gZlZnO/A5htJP3XvBN1kmcjrfhLm4v/TmqW3VMbC6UC2gCeMha3O0CCv2qF5jiMG
-         wxrw==
-X-Gm-Message-State: AOJu0YxLTqsZF5/2tU72GzMoeOodwgJLcO0/HZL6gFLNMIZbX6QE5ZOR
-	DydysVv0o5FsRVe7Tu//xkcg6dXEdQw0iv2QkVj/o4LhENnGCxWL7ULwZHbJNL6PrA1xxftjQPv
-	cbQ==
-X-Google-Smtp-Source: AGHT+IGH6342S92kOvdYD94+ymoteQzN/cfHIZ0hJZS0WFG0jyjicN3k4eAbOT3Lbu+t8kUVV+/QXmvVvSI=
-X-Received: from pjboi12.prod.google.com ([2002:a17:90b:3a0c:b0:2eb:12c1:bf8f])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:270c:b0:2ee:6e22:bfd0
- with SMTP id 98e67ed59e1d1-2f548ee48demr16948021a91.21.1736556663692; Fri, 10
- Jan 2025 16:51:03 -0800 (PST)
-Date: Fri, 10 Jan 2025 16:50:47 -0800
+        d=1e100.net; s=20230601; t=1736556667; x=1737161467;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:reply-to:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=+d9N3KJHkNXRjOZutdW8pQt5lh1Ed4rA4mypMg2qOMY=;
+        b=fJMg4WRAfY7H2wiBghpq1kkZCKeD7c7nyYQslicPNJfbSLD4hfBTuosmHhEFlmvEG0
+         8v9RNypcZdwjXPeJay9Ap9rqtmKm/B1OFdZYOAuU1TqWaCQvml3DOIZcaWKromI+Q+kw
+         NL2ULtNSL/I3xABBR2n9dJHDNOZzMEwohcbS7vny+7TzLa8P9vAExT2ctwWsql1PDVeS
+         xwap39BIE9jOO8I93BqRrQWur/n/4HyX5jquI7I0FEu/ka00EA0OWCOIuIuBDdQLb6ny
+         TzOeZx/11owtcqiZrUjYuaUF07wRn1IEmIg2wRrCtxly4WQjSPRaFMJ2T8jjS/9ChveF
+         At2Q==
+X-Gm-Message-State: AOJu0YysSgRjB7s6Q+M+jvJ3wLzMPMS1b4fgfjxmGu/VrrATKDIXgaud
+	zyazq3OfeL9A1kC7/CT3ENxujuUasUnPvFCmPWHZhZM9B4dgC3/tJ0uiYmn7xJDZcgWptO/ZqS8
+	2KQ==
+X-Google-Smtp-Source: AGHT+IG4ZDxN55fz763KYhU4ygCt6fNKcRVhx7HviNi6kdOkpJz+b/vIZA/QjwyAghwU09pB3HIzfMoXqiw=
+X-Received: from pjbee12.prod.google.com ([2002:a17:90a:fc4c:b0:2e5:5ffc:1c36])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2b8f:b0:2ef:2d9f:8e58
+ with SMTP id 98e67ed59e1d1-2f5490dbe3fmr16185263a91.34.1736556667051; Fri, 10
+ Jan 2025 16:51:07 -0800 (PST)
+Date: Fri, 10 Jan 2025 16:50:49 -0800
 In-Reply-To: <20250111005049.1247555-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20250111005049.1247555-1-seanjc@google.com>
 X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
-Message-ID: <20250111005049.1247555-8-seanjc@google.com>
-Subject: [PATCH v2 7/9] KVM: selftests: Adjust number of files rlimit for all
- "standard" VMs
+Message-ID: <20250111005049.1247555-10-seanjc@google.com>
+Subject: [PATCH v2 9/9] KVM: selftests: Add compile-time assertions to guard
+ against stats typos
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -94,9 +80,10 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250111_005105_918492_86A4793A 
-X-CRM114-Status: GOOD (  16.54  )
+X-CRM114-CacheID: sfid-20250110_165108_451396_3EBA28D4 
+X-CRM114-Status: GOOD (  15.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,142 +99,353 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the max vCPUs test's RLIMIT_NOFILE adjustments to common code, and
-use the new helper to adjust the resource limit for non-barebones VMs by
-default.  x86's recalc_apic_map_test creates 512 vCPUs, and a future
-change will open the binary stats fd for all vCPUs, which will put the
-recalc APIC test above some distros' default limit of 1024.
+Add compile-time assertions to the main binary stats accessor to verify
+the stat is a known KVM stat of the appropriate scope, and "add" all
+known stats for all architectures.
+
+To build the set of known stats, define enums for each stat, with a
+completely arbitrary magic value to specify the scope of the stat.  With
+the assert in place, misuse of stat (or usage of a new stat) generates
+error like so:
+
+  In file included from include/x86/kvm_util_arch.h:8,
+                   from include/kvm_util.h:23,
+                   from x86/dirty_log_page_splitting_test.c:16:
+   x86/dirty_log_page_splitting_test.c: In function =E2=80=98get_page_stats=
+=E2=80=99:
+  include/kvm_util.h:563:42: error: =E2=80=98VM_STAT_pages_4m=E2=80=99 unde=
+clared
+    (first use in this function); did you mean =E2=80=98VM_STAT_pages_2m=E2=
+=80=99?
+    563 | #define vm_get_stat(vm, stat) __get_stat(VM, &(vm)->stats, stat)
+        |                                          ^~
+
+  ...
+  x86/dirty_log_page_splitting_test.c:45:27: note: in expansion of macro =
+=E2=80=98vm_get_stat=E2=80=99
+     45 |         stats->pages_2m =3D vm_get_stat(vm, pages_4m);
+        |                           ^~~~~~~~~~~
+
+Using pre-defined lists of stats doesn't completely eliminate human error,
+e.g. it's obviously possible to make a typo when adding a state.  And
+while there is also a non-zero cost to maintaining the set of stats,
+adding stats in KVM is relatively uncommon, and removing stats is extremely
+rare.  On the flip side, providing a list of known stats should make it
+easier to use stats in test, at which point detecting goofs at compile-time
+will also be more valuable.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- .../testing/selftests/kvm/include/kvm_util.h  |  2 ++
- .../selftests/kvm/kvm_create_max_vcpus.c      | 28 +--------------
- tools/testing/selftests/kvm/lib/kvm_util.c    | 34 +++++++++++++++++++
- 3 files changed, 37 insertions(+), 27 deletions(-)
+ .../kvm/include/arm64/kvm_util_arch.h         |  12 ++
+ .../testing/selftests/kvm/include/kvm_util.h  |  24 +++-
+ .../selftests/kvm/include/kvm_util_types.h    |   6 +
+ .../kvm/include/riscv/kvm_util_arch.h         |  14 +++
+ .../kvm/include/s390/kvm_util_arch.h          | 113 ++++++++++++++++++
+ .../selftests/kvm/include/x86/kvm_util_arch.h |  52 ++++++++
+ 6 files changed, 218 insertions(+), 3 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
-index 9a64bab42f89..d4670b5962ab 100644
+diff --git a/tools/testing/selftests/kvm/include/arm64/kvm_util_arch.h b/to=
+ols/testing/selftests/kvm/include/arm64/kvm_util_arch.h
+index e43a57d99b56..12097262f585 100644
+--- a/tools/testing/selftests/kvm/include/arm64/kvm_util_arch.h
++++ b/tools/testing/selftests/kvm/include/arm64/kvm_util_arch.h
+@@ -2,6 +2,18 @@
+ #ifndef SELFTEST_KVM_UTIL_ARCH_H
+ #define SELFTEST_KVM_UTIL_ARCH_H
+=20
++#include "kvm_util_types.h"
++
+ struct kvm_vm_arch {};
+=20
++enum kvm_arm64_stats {
++	VCPU_STAT(hvc_exit_stat),
++	VCPU_STAT(wfe_exit_stat),
++	VCPU_STAT(wfi_exit_stat),
++	VCPU_STAT(mmio_exit_user),
++	VCPU_STAT(mmio_exit_kernel),
++	VCPU_STAT(signal_exits),
++	VCPU_STAT(exits),
++};
++
+ #endif  // SELFTEST_KVM_UTIL_ARCH_H
+diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing=
+/selftests/kvm/include/kvm_util.h
+index 373912464fb4..de2dfbb07071 100644
 --- a/tools/testing/selftests/kvm/include/kvm_util.h
 +++ b/tools/testing/selftests/kvm/include/kvm_util.h
-@@ -966,6 +966,8 @@ static inline struct kvm_vm *vm_create_shape_with_one_vcpu(struct vm_shape shape
- 
- struct kvm_vcpu *vm_recreate_with_one_vcpu(struct kvm_vm *vm);
- 
-+void kvm_set_files_rlimit(uint32_t nr_vcpus);
+@@ -535,19 +535,37 @@ void read_stat_data(int stats_fd, struct kvm_stats_he=
+ader *header,
+ 		    struct kvm_stats_desc *desc, uint64_t *data,
+ 		    size_t max_elements);
+=20
++enum kvm_common_stats {
++	VM_STAT(remote_tlb_flush),
++	VM_STAT(remote_tlb_flush_requests),
 +
- void kvm_pin_this_task_to_pcpu(uint32_t pcpu);
- void kvm_print_vcpu_pinning_help(void);
- void kvm_parse_vcpu_pinning(const char *pcpus_string, uint32_t vcpu_to_pcpu[],
-diff --git a/tools/testing/selftests/kvm/kvm_create_max_vcpus.c b/tools/testing/selftests/kvm/kvm_create_max_vcpus.c
-index c78f34699f73..c5310736ed06 100644
---- a/tools/testing/selftests/kvm/kvm_create_max_vcpus.c
-+++ b/tools/testing/selftests/kvm/kvm_create_max_vcpus.c
-@@ -10,7 +10,6 @@
- #include <stdio.h>
- #include <stdlib.h>
- #include <string.h>
--#include <sys/resource.h>
- 
- #include "test_util.h"
- 
-@@ -39,36 +38,11 @@ int main(int argc, char *argv[])
- {
- 	int kvm_max_vcpu_id = kvm_check_cap(KVM_CAP_MAX_VCPU_ID);
- 	int kvm_max_vcpus = kvm_check_cap(KVM_CAP_MAX_VCPUS);
--	/*
--	 * Number of file descriptors reqired, KVM_CAP_MAX_VCPUS for vCPU fds +
--	 * an arbitrary number for everything else.
--	 */
--	int nr_fds_wanted = kvm_max_vcpus + 100;
--	struct rlimit rl;
- 
- 	pr_info("KVM_CAP_MAX_VCPU_ID: %d\n", kvm_max_vcpu_id);
- 	pr_info("KVM_CAP_MAX_VCPUS: %d\n", kvm_max_vcpus);
- 
--	/*
--	 * Check that we're allowed to open nr_fds_wanted file descriptors and
--	 * try raising the limits if needed.
--	 */
--	TEST_ASSERT(!getrlimit(RLIMIT_NOFILE, &rl), "getrlimit() failed!");
--
--	if (rl.rlim_cur < nr_fds_wanted) {
--		rl.rlim_cur = nr_fds_wanted;
--		if (rl.rlim_max < nr_fds_wanted) {
--			int old_rlim_max = rl.rlim_max;
--			rl.rlim_max = nr_fds_wanted;
--
--			int r = setrlimit(RLIMIT_NOFILE, &rl);
--			__TEST_REQUIRE(r >= 0,
--				       "RLIMIT_NOFILE hard limit is too low (%d, wanted %d)",
--				       old_rlim_max, nr_fds_wanted);
--		} else {
--			TEST_ASSERT(!setrlimit(RLIMIT_NOFILE, &rl), "setrlimit() failed!");
--		}
--	}
-+	kvm_set_files_rlimit(kvm_max_vcpus);
- 
- 	/*
- 	 * Upstream KVM prior to 4.8 does not support KVM_CAP_MAX_VCPU_ID.
-diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
-index 16ee03e76d66..f49bb504fa72 100644
---- a/tools/testing/selftests/kvm/lib/kvm_util.c
-+++ b/tools/testing/selftests/kvm/lib/kvm_util.c
-@@ -12,6 +12,7 @@
- #include <assert.h>
- #include <sched.h>
- #include <sys/mman.h>
-+#include <sys/resource.h>
- #include <sys/types.h>
- #include <sys/stat.h>
- #include <unistd.h>
-@@ -411,6 +412,37 @@ static uint64_t vm_nr_pages_required(enum vm_guest_mode mode,
- 	return vm_adjust_num_guest_pages(mode, nr_pages);
- }
- 
-+void kvm_set_files_rlimit(uint32_t nr_vcpus)
-+{
-+	/*
-+	 * Number of file descriptors required, nr_vpucs vCPU fds + an arbitrary
-+	 * number for everything else.
-+	 */
-+	int nr_fds_wanted = nr_vcpus + 100;
-+	struct rlimit rl;
++	VCPU_STAT(halt_successfull_poll),
++	VCPU_STAT(halt_attempted_poll),
++	VCPU_STAT(halt_poll_invalid),
++	VCPU_STAT(halt_wakeup),
++	VCPU_STAT(halt_poll_success_ns),
++	VCPU_STAT(halt_poll_fail_ns),
++	VCPU_STAT(halt_wait_ns),
++	VCPU_STAT(halt_poll_success_hist),
++	VCPU_STAT(halt_poll_fail_hist),
++	VCPU_STAT(halt_wait_hist),
++	VCPU_STAT(blocking),
++};
 +
-+	/*
-+	 * Check that we're allowed to open nr_fds_wanted file descriptors and
-+	 * try raising the limits if needed.
-+	 */
-+	TEST_ASSERT(!getrlimit(RLIMIT_NOFILE, &rl), "getrlimit() failed!");
+ void kvm_get_stat(struct kvm_binary_stats *stats, const char *name,
+ 		  uint64_t *data, size_t max_elements);
+=20
+-#define __get_stat(stats, stat)							\
++#define __get_stat(type, stats, stat)						\
+ ({										\
+ 	uint64_t data;								\
+ 										\
++	kvm_static_assert(type##_STAT_##stat =3D=3D type##_STAT_MAGIC_NUMBER);	\
+ 	kvm_get_stat(stats, #stat, &data, 1);					\
+ 	data;									\
+ })
+=20
+-#define vm_get_stat(vm, stat) __get_stat(&(vm)->stats, stat)
+-#define vcpu_get_stat(vcpu, stat) __get_stat(&(vcpu)->stats, stat)
++#define vm_get_stat(vm, stat) __get_stat(VM, &(vm)->stats, stat)
++#define vcpu_get_stat(vcpu, stat) __get_stat(VCPU, &(vcpu)->stats, stat)
+=20
+ void vm_create_irqchip(struct kvm_vm *vm);
+=20
+diff --git a/tools/testing/selftests/kvm/include/kvm_util_types.h b/tools/t=
+esting/selftests/kvm/include/kvm_util_types.h
+index ec787b97cf18..20e6717a0d24 100644
+--- a/tools/testing/selftests/kvm/include/kvm_util_types.h
++++ b/tools/testing/selftests/kvm/include/kvm_util_types.h
+@@ -17,4 +17,10 @@
+ typedef uint64_t vm_paddr_t; /* Virtual Machine (Guest) physical address *=
+/
+ typedef uint64_t vm_vaddr_t; /* Virtual Machine (Guest) virtual address */
+=20
++#define VM_STAT_MAGIC_NUMBER   1
++#define VM_STAT(stat)  VM_STAT_##stat =3D VM_STAT_MAGIC_NUMBER
 +
-+	if (rl.rlim_cur < nr_fds_wanted) {
-+		rl.rlim_cur = nr_fds_wanted;
-+		if (rl.rlim_max < nr_fds_wanted) {
-+			int old_rlim_max = rl.rlim_max;
++#define VCPU_STAT_MAGIC_NUMBER   2
++#define VCPU_STAT(stat) VCPU_STAT_##stat =3D VCPU_STAT_MAGIC_NUMBER
 +
-+			rl.rlim_max = nr_fds_wanted;
-+			__TEST_REQUIRE(setrlimit(RLIMIT_NOFILE, &rl) >= 0,
-+				       "RLIMIT_NOFILE hard limit is too low (%d, wanted %d)",
-+				       old_rlim_max, nr_fds_wanted);
-+		} else {
-+			TEST_ASSERT(!setrlimit(RLIMIT_NOFILE, &rl), "setrlimit() failed!");
-+		}
-+	}
+ #endif /* SELFTEST_KVM_UTIL_TYPES_H */
+diff --git a/tools/testing/selftests/kvm/include/riscv/kvm_util_arch.h b/to=
+ols/testing/selftests/kvm/include/riscv/kvm_util_arch.h
+index e43a57d99b56..ea53d6aeb693 100644
+--- a/tools/testing/selftests/kvm/include/riscv/kvm_util_arch.h
++++ b/tools/testing/selftests/kvm/include/riscv/kvm_util_arch.h
+@@ -2,6 +2,20 @@
+ #ifndef SELFTEST_KVM_UTIL_ARCH_H
+ #define SELFTEST_KVM_UTIL_ARCH_H
+=20
++#include "kvm_util_types.h"
 +
-+}
+ struct kvm_vm_arch {};
+=20
++enum kvm_riscv_stats {
++	VCPU_STAT(ecall_exit_stat),
++	VCPU_STAT(wfi_exit_stat),
++	VCPU_STAT(wrs_exit_stat),
++	VCPU_STAT(mmio_exit_user),
++	VCPU_STAT(mmio_exit_kernel),
++	VCPU_STAT(csr_exit_user),
++	VCPU_STAT(csr_exit_kernel),
++	VCPU_STAT(signal_exits),
++	VCPU_STAT(exits),
++};
 +
- struct kvm_vm *__vm_create(struct vm_shape shape, uint32_t nr_runnable_vcpus,
- 			   uint64_t nr_extra_pages)
- {
-@@ -420,6 +452,8 @@ struct kvm_vm *__vm_create(struct vm_shape shape, uint32_t nr_runnable_vcpus,
- 	struct kvm_vm *vm;
- 	int i;
- 
-+	kvm_set_files_rlimit(nr_runnable_vcpus);
+ #endif  // SELFTEST_KVM_UTIL_ARCH_H
+diff --git a/tools/testing/selftests/kvm/include/s390/kvm_util_arch.h b/too=
+ls/testing/selftests/kvm/include/s390/kvm_util_arch.h
+index e43a57d99b56..64d4de333e09 100644
+--- a/tools/testing/selftests/kvm/include/s390/kvm_util_arch.h
++++ b/tools/testing/selftests/kvm/include/s390/kvm_util_arch.h
+@@ -2,6 +2,119 @@
+ #ifndef SELFTEST_KVM_UTIL_ARCH_H
+ #define SELFTEST_KVM_UTIL_ARCH_H
+=20
++#include "kvm_util_types.h"
 +
- 	pr_debug("%s: mode='%s' type='%d', pages='%ld'\n", __func__,
- 		 vm_guest_mode_string(shape.mode), shape.type, nr_pages);
- 
--- 
+ struct kvm_vm_arch {};
+=20
++enum kvm_s390_stats {
++	VM_STAT(inject_io),
++	VM_STAT(inject_float_mchk),
++	VM_STAT(inject_pfault_done),
++	VM_STAT(inject_service_signal),
++	VM_STAT(inject_virtio),
++	VM_STAT(aen_forward),
++	VM_STAT(gmap_shadow_reuse),
++	VM_STAT(gmap_shadow_create),
++	VM_STAT(gmap_shadow_r1_entry),
++	VM_STAT(gmap_shadow_r2_entry),
++	VM_STAT(gmap_shadow_r3_entry),
++	VM_STAT(gmap_shadow_sg_entry),
++	VM_STAT(gmap_shadow_pg_entry),
++
++	VCPU_STAT(exit_userspace),
++	VCPU_STAT(exit_null),
++	VCPU_STAT(exit_external_request),
++	VCPU_STAT(exit_io_request),
++	VCPU_STAT(exit_external_interrupt),
++	VCPU_STAT(exit_stop_request),
++	VCPU_STAT(exit_validity),
++	VCPU_STAT(exit_instruction),
++	VCPU_STAT(exit_pei),
++	VCPU_STAT(halt_no_poll_steal),
++	VCPU_STAT(instruction_lctl),
++	VCPU_STAT(instruction_lctlg),
++	VCPU_STAT(instruction_stctl),
++	VCPU_STAT(instruction_stctg),
++	VCPU_STAT(exit_program_interruption),
++	VCPU_STAT(exit_instr_and_program),
++	VCPU_STAT(exit_operation_exception),
++	VCPU_STAT(deliver_ckc),
++	VCPU_STAT(deliver_cputm),
++	VCPU_STAT(deliver_external_call),
++	VCPU_STAT(deliver_emergency_signal),
++	VCPU_STAT(deliver_service_signal),
++	VCPU_STAT(deliver_virtio),
++	VCPU_STAT(deliver_stop_signal),
++	VCPU_STAT(deliver_prefix_signal),
++	VCPU_STAT(deliver_restart_signal),
++	VCPU_STAT(deliver_program),
++	VCPU_STAT(deliver_io),
++	VCPU_STAT(deliver_machine_check),
++	VCPU_STAT(exit_wait_state),
++	VCPU_STAT(inject_ckc),
++	VCPU_STAT(inject_cputm),
++	VCPU_STAT(inject_external_call),
++	VCPU_STAT(inject_emergency_signal),
++	VCPU_STAT(inject_mchk),
++	VCPU_STAT(inject_pfault_init),
++	VCPU_STAT(inject_program),
++	VCPU_STAT(inject_restart),
++	VCPU_STAT(inject_set_prefix),
++	VCPU_STAT(inject_stop_signal),
++	VCPU_STAT(instruction_epsw),
++	VCPU_STAT(instruction_gs),
++	VCPU_STAT(instruction_io_other),
++	VCPU_STAT(instruction_lpsw),
++	VCPU_STAT(instruction_lpswe),
++	VCPU_STAT(instruction_lpswey),
++	VCPU_STAT(instruction_pfmf),
++	VCPU_STAT(instruction_ptff),
++	VCPU_STAT(instruction_sck),
++	VCPU_STAT(instruction_sckpf),
++	VCPU_STAT(instruction_stidp),
++	VCPU_STAT(instruction_spx),
++	VCPU_STAT(instruction_stpx),
++	VCPU_STAT(instruction_stap),
++	VCPU_STAT(instruction_iske),
++	VCPU_STAT(instruction_ri),
++	VCPU_STAT(instruction_rrbe),
++	VCPU_STAT(instruction_sske),
++	VCPU_STAT(instruction_ipte_interlock),
++	VCPU_STAT(instruction_stsi),
++	VCPU_STAT(instruction_stfl),
++	VCPU_STAT(instruction_tb),
++	VCPU_STAT(instruction_tpi),
++	VCPU_STAT(instruction_tprot),
++	VCPU_STAT(instruction_tsch),
++	VCPU_STAT(instruction_sie),
++	VCPU_STAT(instruction_essa),
++	VCPU_STAT(instruction_sthyi),
++	VCPU_STAT(instruction_sigp_sense),
++	VCPU_STAT(instruction_sigp_sense_running),
++	VCPU_STAT(instruction_sigp_external_call),
++	VCPU_STAT(instruction_sigp_emergency),
++	VCPU_STAT(instruction_sigp_cond_emergency),
++	VCPU_STAT(instruction_sigp_start),
++	VCPU_STAT(instruction_sigp_stop),
++	VCPU_STAT(instruction_sigp_stop_store_status),
++	VCPU_STAT(instruction_sigp_store_status),
++	VCPU_STAT(instruction_sigp_store_adtl_status),
++	VCPU_STAT(instruction_sigp_arch),
++	VCPU_STAT(instruction_sigp_prefix),
++	VCPU_STAT(instruction_sigp_restart),
++	VCPU_STAT(instruction_sigp_init_cpu_reset),
++	VCPU_STAT(instruction_sigp_cpu_reset),
++	VCPU_STAT(instruction_sigp_unknown),
++	VCPU_STAT(instruction_diagnose_10),
++	VCPU_STAT(instruction_diagnose_44),
++	VCPU_STAT(instruction_diagnose_9c),
++	VCPU_STAT(diag_9c_ignored),
++	VCPU_STAT(diag_9c_forward),
++	VCPU_STAT(instruction_diagnose_258),
++	VCPU_STAT(instruction_diagnose_308),
++	VCPU_STAT(instruction_diagnose_500),
++	VCPU_STAT(instruction_diagnose_other),
++	VCPU_STAT(pfault_sync),
++};
++
+ #endif  // SELFTEST_KVM_UTIL_ARCH_H
+diff --git a/tools/testing/selftests/kvm/include/x86/kvm_util_arch.h b/tool=
+s/testing/selftests/kvm/include/x86/kvm_util_arch.h
+index 972bb1c4ab4c..f9c4aedddbd0 100644
+--- a/tools/testing/selftests/kvm/include/x86/kvm_util_arch.h
++++ b/tools/testing/selftests/kvm/include/x86/kvm_util_arch.h
+@@ -48,4 +48,56 @@ do {											\
+ 	}										\
+ } while (0)
+=20
++enum kvm_x86_stats {
++	VM_STAT(mmu_shadow_zapped),
++	VM_STAT(mmu_pte_write),
++	VM_STAT(mmu_pde_zapped),
++	VM_STAT(mmu_flooded),
++	VM_STAT(mmu_recycled),
++	VM_STAT(mmu_cache_miss),
++	VM_STAT(mmu_unsync),
++	VM_STAT(pages_4k),
++	VM_STAT(pages_2m),
++	VM_STAT(pages_1g),
++	VM_STAT(pages),
++	VM_STAT(nx_lpage_splits),
++	VM_STAT(max_mmu_page_hash_collisions),
++	VM_STAT(max_mmu_rmap_size),
++
++	VCPU_STAT(pf_taken),
++	VCPU_STAT(pf_fixed),
++	VCPU_STAT(pf_emulate),
++	VCPU_STAT(pf_spurious),
++	VCPU_STAT(pf_fast),
++	VCPU_STAT(pf_mmio_spte_created),
++	VCPU_STAT(pf_guest),
++	VCPU_STAT(tlb_flush),
++	VCPU_STAT(invlpg),
++	VCPU_STAT(exits),
++	VCPU_STAT(io_exits),
++	VCPU_STAT(mmio_exits),
++	VCPU_STAT(signal_exits),
++	VCPU_STAT(irq_window_exits),
++	VCPU_STAT(nmi_window_exits),
++	VCPU_STAT(l1d_flush),
++	VCPU_STAT(halt_exits),
++	VCPU_STAT(request_irq_exits),
++	VCPU_STAT(irq_exits),
++	VCPU_STAT(host_state_reload),
++	VCPU_STAT(fpu_reload),
++	VCPU_STAT(insn_emulation),
++	VCPU_STAT(insn_emulation_fail),
++	VCPU_STAT(hypercalls),
++	VCPU_STAT(irq_injections),
++	VCPU_STAT(nmi_injections),
++	VCPU_STAT(req_event),
++	VCPU_STAT(nested_run),
++	VCPU_STAT(directed_yield_attempted),
++	VCPU_STAT(directed_yield_successful),
++	VCPU_STAT(preemption_reported),
++	VCPU_STAT(preemption_other),
++	VCPU_STAT(guest_mode),
++	VCPU_STAT(notify_window_exits),
++};
++
+ #endif  // SELFTEST_KVM_UTIL_ARCH_H
+--=20
 2.47.1.613.gc27f4b7a9f-goog
 
 
