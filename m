@@ -4,79 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43BE7E7719A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jan 2025 15:05:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EA4CE7719C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jan 2025 16:34:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sw7XA2U/N3uu2fW/FyWd8CDrTwYMoPwEo9nZ69J/7zo=; b=gnKx5ntf7tqQZpf8euKOKj/Q2t
-	0mPDtr/cbnqYKZ1nihB7Og+ZfAvUE0ig0cNPNj+/1WLsfBwYlMt+BGAG3RsquZbtC3kuNvl4vsnQV
-	UE9TuVjnp8b0knWi4ZlUhn3daM06SVsKoV13j5pITWaXSNSKQJ+YM8pddCQA88Pw9Iq2LYb6g2hDH
-	lq2RxlvCPE6eWbkQedpv6yLTDkmAdT5DDm/65Z+yeF76uMz5tXPg8hDIk6uLe7DNRO6dVRzU/di/7
-	2rz/XCYkRM0qJ5OWBn2ZHwKnqvip9C66K4P6an8rYHdMf+bFzBiCp+DFeFDH9So2pr3H+Lr8qpRjt
-	5hhoobug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=p277N2zcOSFcrIl+0nU2lR3lgwZBU33+NKTXAlrVPD0=; b=dY93iwwKpi8TxbJrb9K6YJGYM0
+	OopoaSuDHdVXE0A2spAmK0q1Mn1wiPO9yvLO55zOYteHFzoJpsCBxCG6ye6Vk+TxX7glB9/zdg5r2
+	g3omElqVenwog8zlqUdD+NL+/IVWOkGrOnGGg4mUSAPTPidIuiImuRlml5QqD3r3ww6uQRdrQiVn1
+	6bre1aj+4Em8t7TnuEX0q65UVlc/lKv/9APaSbqYfnXqArwI1ukRZ9RxsvlDz4nNOyLQ9pl1Db6CU
+	sk7u3nWaJv/JMJQuQ3gtd4cRd3eeyU5rAKkSNCZ0bAebpq4Q28JOkY1X/umbVSISdrXwMtUGkxbHf
+	+vXM2+vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWd2p-00000000xk2-2c26;
-	Sat, 11 Jan 2025 15:04:59 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tWeRW-0000000152U-0ttf;
+	Sat, 11 Jan 2025 16:34:34 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWd0Z-00000000xVk-0akp
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jan 2025 15:02:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BDAC45C5480;
-	Sat, 11 Jan 2025 15:01:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C313C4CED2;
-	Sat, 11 Jan 2025 15:02:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736607758;
-	bh=U6bro49caK6aBzW6XG6V8QOCPxjNZ0rPepiWlKEKqd0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=pAxFbrlvT1HYG5aLIdA47ajh4hlbVAT+fWIMgcyLXsQM239da7+yQ0KjaOad78SDC
-	 a1uYSdK7mXAdYP0jWelWC3fHZAWcYqshrtiMtqagMwb9vmLpSpGIWO3B5+7/SZ3rCf
-	 E0xRN6O/0IcTbHN2XDkzU7yA+WTdqFfGqq5ZEzCLzrFCqIZyNxM9X8c/JHQRAoxfhn
-	 +tSpngkIwXnPJwoseZQ7eb6AI1OFOLhNUwxqpHtJDyswqmJarqnrmIgrIn3EWpqmih
-	 p/muBQthODZyn/ERV8zdLWr7vEJoTN7LIZxZUy4Fy0B8nPWRdtqhR523CMZtXSiWdg
-	 Ee14JZGEMVMTA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tWd0W-00BBeb-3P;
-	Sat, 11 Jan 2025 15:02:36 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"Rob Herring (Arm)" <robh@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: Explicitly handle BRBE traps as UNDEFINED
-Date: Sat, 11 Jan 2025 15:02:33 +0000
-Message-Id: <173660773861.818546.3192188976167687860.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250109223836.419240-1-robh@kernel.org>
-References: <20250109223836.419240-1-robh@kernel.org>
+	id 1tWeQF-000000014v3-2tAq;
+	Sat, 11 Jan 2025 16:33:18 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id C8A5425B0A;
+	Sat, 11 Jan 2025 17:33:07 +0100 (CET)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id unQxvsKQvIgB; Sat, 11 Jan 2025 17:33:03 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1736613183; bh=m33bPEFe8tV+b4Hv2+2AcKBR6ewzDTZegjr1D2kPCaY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=D4INJEUMB2Ada9Fu+aAQjqUet9PPThcZKKuTMzUYBg5gw5wHyCjLtjSARq8Hr7mt9
+	 nfUXWpNb6p6JNnEhQvbmp4PFC7xdKlwGeV5sgfzAQw9wteNKhIfTjOemWtbxWrnYuC
+	 CacO2aMen8F+07Nun844liml2y1NJQWpIrOoRhGhwDtKzCvMnXJTHpnVGREHYIt7hq
+	 vMIi5tcS7Xm0QWOYMJDuCvzlsRXvCG5XQpEINxHwT7mWhsQ3e25pp9NPN3Kt9OL8aM
+	 wOH6mpQwq56uaGlAGKBqowHmGNfg5MvCd0EZH9qHNvrTx9QoLyqxVATNLv4M3+bEU2
+	 J39OG0OkAyd6Q==
+Date: Sat, 11 Jan 2025 16:32:52 +0000
+From: Yao Zi <ziyao@disroot.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/5] dt-bindings: clock: Document clock and reset unit
+ of RK3528
+Message-ID: <Z4KdNGPVpZxJXqxa@pie>
+References: <20250108114605.1960-2-ziyao@disroot.org>
+ <20250108114605.1960-3-ziyao@disroot.org>
+ <tep74dy3oc6y2wwhp6bthv6brhkge7cojzrtj6x53lvtsws4g5@areqtyxhyayq>
+ <Z3-T3JwcsW0xYKvk@pie>
+ <9caddd6a-fe1b-468a-ba1e-0513e46404dc@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, robh@kernel.org, mark.rutland@arm.com, anshuman.khandual@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <9caddd6a-fe1b-468a-ba1e-0513e46404dc@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250111_070239_218831_BF833561 
-X-CRM114-Status: GOOD (  10.91  )
+X-CRM114-CacheID: sfid-20250111_083316_284726_667DBCDE 
+X-CRM114-Status: GOOD (  29.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,29 +82,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 09 Jan 2025 16:38:36 -0600, Rob Herring (Arm) wrote:
-> The Branch Record Buffer Extension (BRBE) adds a number of system
-> registers and instructions which we don't currently intend to expose to
-> guests. Our existing logic handles this safely, but this could be
-> improved with some explicit handling of BRBE.
-> 
-> KVM currently hides BRBE from guests: the cpufeature code's
-> ftr_id_aa64dfr0[] table doesn't have an entry for the BRBE field, and so
-> this will be zero in the sanitised value of ID_AA64DFR0 exposed to
-> guests via read_sanitised_id_aa64dfr0_el1().
-> 
-> [...]
+On Fri, Jan 10, 2025 at 08:42:40AM +0100, Krzysztof Kozlowski wrote:
+> On 09/01/2025 10:16, Yao Zi wrote:
+> > On Thu, Jan 09, 2025 at 09:59:25AM +0100, Krzysztof Kozlowski wrote:
+> >> On Wed, Jan 08, 2025 at 11:46:02AM +0000, Yao Zi wrote:
+> >>> There are two types of clocks in RK3528 SoC, CRU-managed and
+> >>> SCMI-managed. Independent IDs are assigned to them.
+> >>>
+> >>> For the reset part, differing from previous Rockchip SoCs and
+> >>> downstream bindings which embeds register offsets into the IDs, gapless
+> >>> numbers starting from zero are used.
+> >>>
+> >>> Signed-off-by: Yao Zi <ziyao@disroot.org>
+> >>> ---
+> >>>  .../bindings/clock/rockchip,rk3528-cru.yaml   |  67 +++
+> >>>  .../dt-bindings/clock/rockchip,rk3528-cru.h   | 453 ++++++++++++++++++
+> >>>  .../dt-bindings/reset/rockchip,rk3528-cru.h   | 241 ++++++++++
+> >>>  3 files changed, 761 insertions(+)
+> >>>  create mode 100644 Documentation/devicetree/bindings/clock/rockchip,rk3528-cru.yaml
+> >>>  create mode 100644 include/dt-bindings/clock/rockchip,rk3528-cru.h
+> >>>  create mode 100644 include/dt-bindings/reset/rockchip,rk3528-cru.h
+> >>>
+> >>> diff --git a/Documentation/devicetree/bindings/clock/rockchip,rk3528-cru.yaml b/Documentation/devicetree/bindings/clock/rockchip,rk3528-cru.yaml
+> >>> new file mode 100644
+> >>> index 000000000000..19dbda858172
+> >>> --- /dev/null
+> >>> +++ b/Documentation/devicetree/bindings/clock/rockchip,rk3528-cru.yaml
+> >>> @@ -0,0 +1,67 @@
+> >>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> >>> +%YAML 1.2
+> >>> +---
+> >>> +$id: http://devicetree.org/schemas/clock/rockchip,rk3528-cru.yaml#
+> >>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> >>> +
+> >>> +title: Rockchip RK3528 Clock and Reset Controller
+> >>> +
+> >>> +maintainers:
+> >>> +  - Yao Zi <ziyao@disroot.org>
+> >>> +
+> >>> +description: |
+> >>> +  The RK3528 clock controller generates the clock and also implements a reset
+> >>> +  controller for SoC peripherals. For example, it provides SCLK_UART0 and
+> >>> +  PCLK_UART0 as well as SRST_P_UART0 and SRST_S_UART0 for the first UART
+> >>> +  module.
+> >>> +  Each clock is assigned an identifier, consumer nodes can use it to specify
+> >>> +  the clock. All available clock and reset IDs are defined in dt-binding
+> >>> +  headers.
+> >>> +
+> >>> +properties:
+> >>> +  compatible:
+> >>> +    const: rockchip,rk3528-cru
+> >>> +
+> >>> +  reg:
+> >>> +    maxItems: 1
+> >>> +
+> >>> +  assigned-clocks: true
+> >>> +
+> >>> +  assigned-clock-rates: true
+> >>
+> >> Drop both, totally redundant.
+> > 
+> > Okay, will fix in next version.
+> > 
+> >>> +
+> >>> +  clocks:
+> >>> +    items:
+> >>> +      - description: External 24MHz oscillator clock
+> >>> +      - description: 50MHz clock generated by PHY module
+> >>> +
+> >>> +  clock-names:
+> >>> +    items:
+> >>> +      - const: xin24m
+> >>> +      - const: gmac0
+> >>
+> >> gmac
+> >> (unless you have gmac1 here as well but then please add it now)
+> > 
+> > RK3528 comes with two onchip gmacs. This input clock is only used for
+> > the first one and I think keeping the number would give the reader an
+> > extra hint. What do you think about it?
+> You don't get the point. What clock is from this module perspective? gmac.
 
-Applied to next, thanks!
+I'm not sure what "from this module perspective" means. If it's about
+the source of the input clock, it's also gmac0 and gmac1 has nothing to
+do with it. Pointing this out explicitly brings us (and the later
+reader) only extra information.
 
-[1/1] KVM: arm64: Explicitly handle BRBE traps as UNDEFINED
-      commit: a7f1fa5564be565bd4bc18875bb46ffd0c01d292
+And in the previous series, Conor mentioned[1],
 
-Cheers,
+> clocks should be named after how they're used in the IP in question,
+> not the name of the source of that clock in the SoC.
 
-	M.
--- 
-Without deviation from the norm, progress is not possible.
+Since its usage is exactly to generate clocks required by gmac0, as
+confirmed by Heiko, I consider gmac0 appropriate and am willing to
+make its description more clear.
 
+Further explanation will be appreciated, thanks for your review.
 
+Best regards,
+Yao Zi
+
+[1]: https://lore.kernel.org/linux-rockchip/20241001-name-stooge-7a939f71a08e@spud/
 
