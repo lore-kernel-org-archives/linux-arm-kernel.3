@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4A7FE7719A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jan 2025 20:02:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB927E7719A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jan 2025 21:21:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9KWfY8Hcp2UXnIZNmRYFkTUKCk5ns1ec7UAiWxB9nqE=; b=duReVOktqZClkVfrSV5EMv93pW
-	As9VzQFd3b6eG4Hs45xm0zBWv6ZbePRaJoJr4OTtov8fNsuX1ZJ6gZgxp0HvOhfNvGHYl0N3TbDjE
-	BcMgj1Z4OhRDUIV65jcE+ahh3XckjUMUdEoFCIArQu9FPKramw6TD94nWJEnCFegabCRyubDd20vy
-	1jCRKvZenasTTLTiYicgzSvgWz5YoZIMRnyg9NJ7RCsU/B69gH5MBS1IE217hYtMWPO3sGqFL99bR
-	0w3nCtTTQnXEK3sSByQKCgOX1mcFHsRQa6AjOXtc4bZoZiiKIg1pOx2vorKpRflTc4nw1BRFSKgaM
-	+K2n+DQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q/I8MT+eVEIJlkDqXpv6xPh7XxleYT2QyYUi7oa6+Qg=; b=LaidO7T9jRG3KB/IkzebziMeUJ
+	mhPwdpPGy6ttPZ6YHcoT2iATSO9op3A5b3XjYjHZVZAdjLTHGfYKB4hW5vbNaxiCuvumUF7rZDDkN
+	ODgYzea2frhtOqt8JExj/9pV1ez42krdCPrI/zQNWTr542u37Q59monyee1OvVqtlbYxrSPch79PJ
+	GzjQS3gVYanUJUp/tifMBUWex8gGQqy0XjfXwo+82j6v48DHjKf+gfZkr+6F9X7gUy0yyiM6q+VrE
+	x+zfG3uK+oNHRG2MDjUvuAGYPVT1sFe4Esgf4xBzozNxt0Drb+CGNlXnqg/SGA80yxfUpG5AhI74q
+	tamMzF4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWhgi-00000001NXg-3NNv;
-	Sat, 11 Jan 2025 20:02:28 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tWiv9-00000001TvY-2ktk;
+	Sat, 11 Jan 2025 21:21:27 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWhfR-00000001NK5-0F4Z
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jan 2025 20:01:10 +0000
+	id 1tWitv-00000001TjH-28cH;
+	Sat, 11 Jan 2025 21:20:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1B00FA407F9;
-	Sat, 11 Jan 2025 19:59:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1CEDBC4CED2;
-	Sat, 11 Jan 2025 20:01:07 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id EC3AF5C0685;
+	Sat, 11 Jan 2025 21:19:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AE65C4CED2;
+	Sat, 11 Jan 2025 21:20:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736625667;
-	bh=Sgwi84VkkgZnJ6vUPufItBOuLmdBhf9RZRhF/vTtie0=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=CDSBF2pyUb4YrSZtWUey1O1ehqdrJl1uomgkobFYraOljjghax69bHKTAUcSRTkPw
-	 KAoTMI4lZUsTuf9PWTGO+pimBFF4T/FvNwMAaxMTEBcLLhROcbtYT+KNZH07FT23ev
-	 EIDSmd/WAV6YElDqwcrha+8vemq7JuosWhZQviBuz9NnflaB/bN3r1ApkE+ZGYnPsI
-	 M/hM1qF23N3XhWyjAkRx4A52FvQHq2m9vd9gvLGXWugs5TmGzTDGuf+FsbrAzmOk+v
-	 IuDFdKmzjcUGTXHJKP+F8sx2ztK/Qnfg3bVlgx5w1o0tY7vsiMMfYmibyY042yIJa4
-	 WuQh5ZiO+ecqw==
+	s=k20201202; t=1736630409;
+	bh=d+CjSnWYenwUHwQ3HAhXwdYz3H2sh3KOtK+AFQLc9Gs=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=LKuhullKPphx1ny0+ac63nI5jTOPOCf7LO5GCh71ih+T7THXUBcMl1Q48NjtN2D5L
+	 aBGpfuySR3at8Wx0mDQQjfR0wwpwJ0Z04hwGYIg+VE644gHHflwj/Y+Ei/I4/3lGkb
+	 C9CDvR/A91LC3vsbRGtIJ6jcwB6adDuBhmmgLYvXupS38X0T52Ix2rICvTxSMpOLgw
+	 pfW3diLLygbO8LW6Qnj/YfyRyyWnofQvSzvsBbJjVwwhOk6HX7T/z5QUAGS00KkEFd
+	 M4PsUyarW1nh0Ez+p3GPZo4y7WMjVuvpOnY0kGEipulf+SS8A3FGOHGXQbZWBSeZfc
+	 c9RjHZQnAm6eA==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70E81380AA54;
-	Sat, 11 Jan 2025 20:01:30 +0000 (UTC)
-Subject: Re: [GIT PULL] soc: fixes for 6.13, part 3
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <ffc40760-bb53-4e6f-8e0b-efa1fbb171e0@app.fastmail.com>
-References: <ffc40760-bb53-4e6f-8e0b-efa1fbb171e0@app.fastmail.com>
-X-PR-Tracked-List-Id: <linux-arm-kernel.lists.infradead.org>
-X-PR-Tracked-Message-Id: <ffc40760-bb53-4e6f-8e0b-efa1fbb171e0@app.fastmail.com>
-X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-6.13-3
-X-PR-Tracked-Commit-Id: 5391c5d8e60610bf914f767a6a749004e2d223f0
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: da60d1547deea5d597a0a70d43a547e6148b719c
-Message-Id: <173662568895.2439897.8837686119817785965.pr-tracker-bot@kernel.org>
-Date: Sat, 11 Jan 2025 20:01:28 +0000
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev, Shawn Guo <shawnguo@kernel.org>, Bjorn Andersson <andersson@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB242380AA54;
+	Sat, 11 Jan 2025 21:20:32 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next] net: airoha: Fix channel configuration for ETS
+ Qdisc
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <173663043176.2451513.12890809036064265655.git-patchwork-notify@kernel.org>
+Date: Sat, 11 Jan 2025 21:20:31 +0000
+References: <20250107-airoha-ets-fix-chan-v1-1-97f66ed3a068@kernel.org>
+In-Reply-To: <20250107-airoha-ets-fix-chan-v1-1-97f66ed3a068@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: nbd@nbd.name, sean.wang@mediatek.com, Mark-MC.Lee@mediatek.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ netdev@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250111_120109_163844_5CC622FD 
-X-CRM114-Status: UNSURE (   5.11  )
+X-CRM114-CacheID: sfid-20250111_132011_585003_D42E3941 
+X-CRM114-Status: UNSURE (   8.10  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,16 +79,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Sat, 11 Jan 2025 15:41:22 +0100:
+Hello:
 
-> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-6.13-3
+This patch was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/da60d1547deea5d597a0a70d43a547e6148b719c
+On Tue, 07 Jan 2025 23:26:28 +0100 you wrote:
+> Limit ETS QoS channel to AIROHA_NUM_QOS_CHANNELS in
+> airoha_tc_setup_qdisc_ets() in order to align the configured channel to
+> the value set in airoha_dev_select_queue().
+> 
+> Fixes: 20bf7d07c956 ("net: airoha: Add sched ETS offload support")
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> 
+> [...]
 
-Thank you!
+Here is the summary with links:
+  - [net-next] net: airoha: Fix channel configuration for ETS Qdisc
+    https://git.kernel.org/netdev/net-next/c/7d0da8f86234
 
+You are awesome, thank you!
 -- 
 Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
