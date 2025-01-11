@@ -4,106 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6140E7719A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jan 2025 18:50:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B8D0E7719A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jan 2025 18:55:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4ZfLFbNpnmpDV2565vRSGO4sUYMlrYKX9NM4kz4voi8=; b=T8K1yFAO8V7/t5N1gByZIwUSVl
-	QqrIEbNmye/Rcd4kG0rB0opG5bW2f4JGDxnReDxlM3lbFaCkJLKR4n78TsIX6picaYrqIttCxCAFq
-	q0KrY4AVALZIHaZtPCHitZTUzsAvX+1PYeWDYks6d/hGtEZ1Nc8gK99fgUHjl1A6Wdh7mBZWDZxAm
-	r8ImUU4Pimttd0W65thgSIa5mudiOfCtL7yTlvjWMWZOoUkiFBjVg2PnV8yHghimwDv18cQOUhdUc
-	EKJe/NOO/zv7U2mURo4g0ncUWitVM82DsFn9eyhqDdhHDJVFz8wbHdw/fUyP4CuYpRddFPVlv1Pn9
-	zh3d4n9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jpeJmNd3SZuuzmsG64ANuW49jVrr7teCJ/vcrUeE7Ig=; b=hjLEHWoomo/B7sRzcSyoVzrFbh
+	2ikB0dejYXSUGbjMXGukCou86W+S7RYH4OPAaPSqVu7e4aYA+wIuqvTbcM8z7sDns7DciQSkfZP4d
+	TffsH76ay4Tulbxhkv5RyeKCZ/BfdKA4LqEaZ7zzdwfh88/6j1/+hQhY84e6lTjKYoDm/t2i+pL8c
+	SIvqrJiCegCCTS7mZMmE1yY//D9IWXR4kT1/JH4o7CpOcAD8sYnVnhtgzcUhF6i/pvcrQdKyZ7Kby
+	6XsXPHMN/iUQSIibG1oICXMAGCfThl6HRLbOgDsZXE93P2Xnx88+LpwYQv1kxV/2zx7z77xyGCzwZ
+	X+F5KyjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWgZF-00000001Gtw-05iC;
-	Sat, 11 Jan 2025 18:50:41 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1tWgdo-00000001HPy-4ANr;
+	Sat, 11 Jan 2025 18:55:24 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWgS6-00000001Fe0-2F76
+	id 1tWgcY-00000001H7O-33wb
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jan 2025 18:43:19 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-38625aa01b3so322515f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Jan 2025 10:43:18 -0800 (PST)
+	Sat, 11 Jan 2025 18:54:08 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-436230de7a3so4209465e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Jan 2025 10:54:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736620997; x=1737225797; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=4ZfLFbNpnmpDV2565vRSGO4sUYMlrYKX9NM4kz4voi8=;
-        b=BluVuAVn3hng6sWF2tUvkNO+eBiLfpVQoWqS4FggobbogxV9rY39VLQOmKvI5t+vLw
-         UyxsZo9aNIl8ePGjxazLqffxJhpH/srbMF8vSnzzSn6g4FgxcreeOoT2fXTMWeEK6KCr
-         P5FtcjAtfewtaM3LkwcRmCdf9EbFlDFRPjGr4XzWAYEe1ZU41AL49OLslDW5qCGdIKpG
-         leuyg8mQA2b9/i8AGh+PEYXjF6c60Rqgiei9anTzPMr/KNlU1l7iRaqIDysW9v3Pyxvc
-         /WxOPIZda1PMbKzLt8fp0mxultsjw/833ztKsPGe7iZdT2vkDtFpLCRTSd+0UX5I9UVd
-         dpOw==
+        d=linaro.org; s=google; t=1736621645; x=1737226445; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=jpeJmNd3SZuuzmsG64ANuW49jVrr7teCJ/vcrUeE7Ig=;
+        b=aXB8rF0RuyFzKLHuWfZQ7KKyuhr0epyhfWzAo99mCIMJtuaXRYXPYoUkGBAX1ejKW7
+         NmMwvGNbO65MgTIcGDwXOLL8m7JhF1GydTCOPxxYL8IIfYUOHWQ01rjFHns8GurISoh3
+         NNiALrsrHUc1tgyJvwDT/L9D2qV2eYUaEYjnn+XrGDr0B88DVnqCdKk31KpDHTQXKjzq
+         Efijy8dU9SfJX4wS0I8eqsAN+qpEOgAanOVgRnvlpvO9l1+BkC43jPf3N/mBK6wfKW1g
+         69GqXRFirewjlZ0e1ar+S1c79eKIoteTzgA2jJxUCaX5qOIJyHu8AV4MxlZ/nlHP6PmO
+         lo9A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736620997; x=1737225797;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=4ZfLFbNpnmpDV2565vRSGO4sUYMlrYKX9NM4kz4voi8=;
-        b=F/AXcRLpOBwzv1AJMZFRz+NTjbemPs7rIVj0WHdycKZ0p/eYvfe4c3KO4KIjWalYcj
-         yRcoWcVFFMTfTjKIOjE0uPS0orZZTt2vsTBf3KlEfuBumfmyFUws/Hb4atQAU/4k6t7V
-         /jwQwn+6cUM/oP1W89CqafeyawGaiVVXpO7Pr52bbr5Mib/0GbQQmA8qUDurWyDoh3Xv
-         4F7ZWioMK/sAI+2iI6hP64TK2TGuOAkHnKLDrXOimSC7tO7hL7EMqihFg6XgxgG0plQa
-         Gq9Xh3T6U4acn8YM1NMG11NTyJQPbwg7Y8Nle+if39/ogAi/gbvTHtlXhl4v81vN7Rr6
-         HYWA==
-X-Forwarded-Encrypted: i=1; AJvYcCUtvs4ynmiGJzA52OHbp8IRurZ6b6jSFfnKUHDWrEJYMr767TmZwf5PjsZZtCd19cx6lJQ5rnS6w9ssJwnh/1sZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyVLA8wh7vzzpAeAVxDyFMXtqOanC5Qg+A0UfPrc2jCZvqhHJu5
-	wybFnX2SXK4ERag4+UsmguwXG6jo1hHRPK5M6w/qrAZ9B3kFTdYaEojWVLqGT8k=
-X-Gm-Gg: ASbGnctTphEM/oVuvTIZXP2YvoVS7rYJsHTXRs8uG93CfQ8ioPB6cfVgnI/QvNdCkQq
-	dhOhn+1tppnYUBvhjAFKIpr1ER1ufNBPiGIU3M4D4SywNOP+1VtxhT5mdMp0FOp3ndFRgJgfu+N
-	ARqPFGig5Rjh4ZFuxD+qoONtq2spwkhL3mzQ3M4ygAWTWqFCVTySShK+OuuG9rwwb20CgieYb/G
-	sLCsdaXu8HSlRjAjwExySufFFtqvL3Osi8+IBf04UsZPRWtOyO5uqm1cAmDQvvY1Szg4sYq
-X-Google-Smtp-Source: AGHT+IFW0/peneFHNHf0VQ2I87ynYNTzqYw++V8lH2N+J7woIMmlHMzRJMHLntn2pbYLKroEqwtCug==
-X-Received: by 2002:a05:600c:5027:b0:434:a30b:5433 with SMTP id 5b1f17b1804b1-436e26ff752mr59166135e9.5.1736620996872;
-        Sat, 11 Jan 2025 10:43:16 -0800 (PST)
-Received: from [127.0.1.1] ([178.197.223.165])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436f9bc6b9bsm205885e9.22.2025.01.11.10.43.15
+        d=1e100.net; s=20230601; t=1736621645; x=1737226445;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=jpeJmNd3SZuuzmsG64ANuW49jVrr7teCJ/vcrUeE7Ig=;
+        b=uCBAQzUOlUp64m5FKQ3ECpHpYw9MYQ7bOy+kUyTZCWyfR5jJN1KZlqmnIJN7aORY9z
+         zvwDhm7PszDpqseuge3LrbyPq4optkspjwLr+r2YpmtdHbdP82yFLkjQYdryZacVBw8h
+         1w/7e0Y2uTFI5H/y8/63EF1y7Z/lF/m5oNMz7w0eb20LfSviePDWFqTJa8DY9V2dJQ6D
+         RYHsJQPLS3/yH6O2xtQGT8HjYg908TgrIbzjiTcGm37YGRtsYq4gtWpjMIKqCqZvCdO3
+         8A6L6ddrtU7YlBPLmmfwbfsINiqnPZY24Ed2umUgCFT+QLlmzJ1Bm5EFgdtROB/L+3hK
+         6icw==
+X-Forwarded-Encrypted: i=1; AJvYcCX0GbT4Hn6wXFtVX8p4eIp9LTAps2/1PfBgnSGmr8eh+5ohI24ynHgR7n7JH/Sp8pgWv5dy79HnvCP0HKDq52Ry@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJnk1nXovtdvVoUEnpqf7UVh1o4uFOzjzlz3f4v/3puMnu1HZ1
+	z/HRUJBlY5vco7f/TQScSA3sS6b9RlyUGF2litsDKvPiZLzjwzHWZ0OYy6CCt/w=
+X-Gm-Gg: ASbGncu50Unq3yO1MO4ElE5ns2Owvrd3LMHTw14YurM+/gJB12Ysjsu1Hmr8rr02e9e
+	gmByULU/Mmhtn2BTQHxczQz7brBDgyH7UxAPYh6d/SV+qZOmzVSD5V/ZFcMwDaeA/1DOgvvzcb3
+	9/VAe05gvZndtMTiHkVBM7W2gCUwhyO+j38kk2xVPzYexAPgyINmrbO1oFO+Vlg5pgyNTG2u8r1
+	hQuy2nGfNqCv4XSqSCJUqiMLYi46pcdrdxQd/SFDSe81zL/Es5PozeqG7kvqw+uwmukTUQ=
+X-Google-Smtp-Source: AGHT+IGhaDDKUbfokl+jU7qgUB7s/J6vYAVw+eGLas1JhElcOU2I0jx8Rxm9e4DElHdlP23nsTC55w==
+X-Received: by 2002:a05:600c:63d5:b0:436:ee2e:ef12 with SMTP id 5b1f17b1804b1-436ee2ef108mr32106725e9.5.1736621644668;
+        Sat, 11 Jan 2025 10:54:04 -0800 (PST)
+Received: from krzk-bin.. ([178.197.223.165])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e9d8fc5csm90730145e9.2.2025.01.11.10.54.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 11 Jan 2025 10:43:15 -0800 (PST)
+        Sat, 11 Jan 2025 10:54:04 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Date: Sat, 11 Jan 2025 19:42:53 +0100
-Subject: [PATCH 5/5] remoteproc: st: Use
- syscon_regmap_lookup_by_phandle_args
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH] soc: samsung: Use syscon_regmap_lookup_by_phandle_args
+Date: Sat, 11 Jan 2025 19:54:02 +0100
+Message-ID: <20250111185402.183793-1-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250111-b4-syscon-phandle-args-remoteproc-v1-5-73ed6fafa1e3@linaro.org>
-References: <20250111-b4-syscon-phandle-args-remoteproc-v1-0-73ed6fafa1e3@linaro.org>
-In-Reply-To: <20250111-b4-syscon-phandle-args-remoteproc-v1-0-73ed6fafa1e3@linaro.org>
-To: Bjorn Andersson <andersson@kernel.org>, 
- Mathieu Poirier <mathieu.poirier@linaro.org>, 
- Patrice Chotard <patrice.chotard@foss.st.com>
-Cc: linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1645;
- i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
- bh=qF4PHMuL+t0qB80xl2hrwOztjmUZsyo+dEMuKAh+IB4=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBngru0nQc+fzofOvHIUV+/fgemqTdgb2BKYWbit
- e6gPsMjdtKJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCZ4K7tAAKCRDBN2bmhouD
- 1yAJD/9qGYLOD6d1yxq+cU4dWnu4tTUYO2HfUKb3UxNFVYISpIcj7Fg/t9w6XscXb+F1dhdEuqQ
- Qo0sEKZLgMV+JVGLP4yG/wpPv1lz4lPtuTc50hpJS/SyOVckngINxUNKatVoRo/brjSSCjWKEPE
- TEYJAtE0v7oS7Y5zxCJDZWPdhukQb/Laes2GlHC2zXGRbWqpkLnyoPJsWhGxq4UQHADX1XzZYBQ
- SSq2OKw8Q8F9+Q1b9z6Oc25dw4LWHX4MTiPRxo73ls8Yz/9MsiSmFLO4cG8su8U3blX3VNwwKLJ
- mfBCEg450PfOR0hEv0PH3dFgPOy2eWDDEMHR/hv9weZtJhO657ODwYu6wEfTyWnzz5xqo+/S9QH
- Wed4A/iSt7Y91Qv3X/dmf+3cK38qH/sdheiCwCbF4ul84pOC2PK7slF4XITdZ9tFa+fqbVkb74Z
- vmwH4GPTDGzuCo7s1QwLaP+E+I/dbAaDX9TWO2K2TWlJiNkHxRTKBuXkTv0LvTw8k4kgsJtsqYg
- WtbDn/wo/G+ESTk5a+RBWLESQPBfQG/jK+DOvqsdFOZtnGHZjnvFdEFH6vX8jse32I8VEgsjtLy
- peNwU+JATuXIBWcNFBkq2ZsCEtc/PVsdY06n23bstvpwN4ZQdo996sgJ/UeBqV7JRYC4JxfXpVb
- YbAPZrXD5w08gFA==
-X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
- fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250111_104318_577158_F5211AB1 
-X-CRM114-Status: GOOD (  11.94  )
+X-CRM114-CacheID: sfid-20250111_105406_788980_50B4CC54 
+X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,46 +97,37 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Use syscon_regmap_lookup_by_phandle_args() which is a wrapper over
-syscon_regmap_lookup_by_phandle() and getting the argument.  Except
-simpler code this annotates within one line that given phandle has
-arguments, so grepping for code would be easier.
-
-There is also no real benefit in printing errors on missing syscon
-argument, because this is done just too late: runtime check on
-static/build-time data.  Dtschema and Devicetree bindings offer the
-static/build-time check for this already.
+syscon_regmap_lookup_by_phandle() combined with getting the syscon
+argument.  Except simpler code this annotates within one line that given
+phandle has arguments, so grepping for code would be easier.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- drivers/remoteproc/st_remoteproc.c | 10 ++--------
- 1 file changed, 2 insertions(+), 8 deletions(-)
+ drivers/soc/samsung/exynos-usi.c | 8 ++------
+ 1 file changed, 2 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/remoteproc/st_remoteproc.c b/drivers/remoteproc/st_remoteproc.c
-index d1f35e8a83ba525613ed4e54d2269b7e9f427e46..e6566a9839dc5ffc83d907a3076fc4b0a644138a 100644
---- a/drivers/remoteproc/st_remoteproc.c
-+++ b/drivers/remoteproc/st_remoteproc.c
-@@ -314,18 +314,12 @@ static int st_rproc_parse_dt(struct platform_device *pdev)
- 		return err;
- 	}
+diff --git a/drivers/soc/samsung/exynos-usi.c b/drivers/soc/samsung/exynos-usi.c
+index 114352695ac2..1fda8d72f687 100644
+--- a/drivers/soc/samsung/exynos-usi.c
++++ b/drivers/soc/samsung/exynos-usi.c
+@@ -186,15 +186,11 @@ static int exynos_usi_parse_dt(struct device_node *np, struct exynos_usi *usi)
+ 		return -EINVAL;
+ 	usi->mode = mode;
  
--	ddata->boot_base = syscon_regmap_lookup_by_phandle(np, "st,syscfg");
-+	ddata->boot_base = syscon_regmap_lookup_by_phandle_args(np, "st,syscfg",
-+								1, &ddata->boot_offset);
- 	if (IS_ERR(ddata->boot_base))
- 		return dev_err_probe(dev, PTR_ERR(ddata->boot_base),
- 				     "Boot base not found\n");
+-	usi->sysreg = syscon_regmap_lookup_by_phandle(np, "samsung,sysreg");
++	usi->sysreg = syscon_regmap_lookup_by_phandle_args(np, "samsung,sysreg",
++							   1, &usi->sw_conf);
+ 	if (IS_ERR(usi->sysreg))
+ 		return PTR_ERR(usi->sysreg);
  
--	err = of_property_read_u32_index(np, "st,syscfg", 1,
--					 &ddata->boot_offset);
--	if (err) {
--		dev_err(dev, "Boot offset not found\n");
--		return -EINVAL;
--	}
+-	ret = of_property_read_u32_index(np, "samsung,sysreg", 1,
+-					 &usi->sw_conf);
+-	if (ret)
+-		return ret;
 -
- 	err = clk_prepare(ddata->clk);
- 	if (err)
- 		dev_err(dev, "failed to get clock\n");
-
+ 	usi->clkreq_on = of_property_read_bool(np, "samsung,clkreq-on");
+ 
+ 	return 0;
 -- 
 2.43.0
 
