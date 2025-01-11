@@ -4,96 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F40BE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jan 2025 01:31:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE822E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jan 2025 01:33:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
-	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3UIVRx5jS5uHOad/ZRxuC+ZyfJfWx7WVNf7AHGunc9Q=; b=M3h2JMqIQC3c+pxdJRKm6jRWsz
-	g86W3DpFWS7mdx6nEo81ujE39ydJwSDaK99ZebGQF5zzPNdKH4mMqLoiM2FTSfKg6mOKEMifBVWXR
-	GrUyGwoDaEvFdTuQ9jTEvQS6+tvo7MRZtsxbi1Xwk3q2/FB/iAEOag/jKQ3TEFCMra5new8mi557F
-	TwsEdinXUA4QEvqDOUZlGXWcq6U6cgbz6J/MIgaCLrCk7Yk0X3X4Kh+5e+QPR82z6vzfCGeIby5lp
-	swrOquHoTJI3bc8Qyqk8Q61el40izsahhUSKVNB1JOdQCwJ95a6CTlXIlvMCO7dY3IQwkGXZ35Sz+
-	sbJRbzfw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JSJ2//G/dyGy/Z/QtKtRmb1VcieLheCT8CgoEclYxvU=; b=z3UruojRKnfIIe/zZxHKLQHrJ4
+	cOc+CNnycJem1iat6JXcEZvYJwiMUhrzMm6M0hdLsYkjsll4/ZWmfHCE3fiyRdslVSd+PzZz3rir3
+	fuirI4jolKKykZZJdLqp9xl4GWrnTLPZ9jQN9LRkbvIu3dNSxAfDRTJvGZVzh+YF0JiUuKR/fqZLH
+	Q/Qv0MRnSZmX/R+Nf6LqcT+6X3kpII8T4/ZDRj52gLC7kBxNyTAfGllMP9yF5eopGlztQhcBw+xrk
+	D6+B4P3UKDA59WEh0N9gZwZ9j8bHTppHCIh0QwCnLEyNfJ3mCNcOX74ONoh96Kr4DM+I3Ihhu5RVg
+	dcJkj9jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWQLB-0000000HVV4-3856;
-	Sat, 11 Jan 2025 01:31:05 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tWQNj-0000000HVmy-2r9x;
+	Sat, 11 Jan 2025 01:33:43 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWQFM-0000000HUT6-1Lmp
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sat, 11 Jan 2025 01:25:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=3UIVRx5jS5uHOad/ZRxuC+ZyfJfWx7WVNf7AHGunc9Q=; b=qUKEFdA5fIgGjPuYf/0ytLSvH0
-	NiUMy2SzLc3q6adzjbyB8wywAkmCycw+8VTD7Ek7MGMdmW8LpUYRi0TrDpBkWGg+8LCS7K5zVdGrE
-	RLUS4Ycu0oaO/k0h4wypX5V3CvKJyW6BnPJsdQLKGvSG8EbGKhXXT9c27gEjTHfptTmqfmkWYmwYr
-	S7oR8lNZmytKs5FHvyFYhRUJgmsRhaT+T5HT9M/sn0lUNsj3mq6tpeBo8kJqdQhDim5al1k1utxwo
-	porqrp04RXAnY4dQqmAl+LE/DR4+OMHLrXjAolmnZUzMr85cRUrA+gArLQa7uftf+mLBd7KrLDIKZ
-	WP0NpqTQ==;
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWQFJ-00000009zIB-0NiF
+	id 1tWQKy-0000000HVQn-1e0T
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jan 2025 01:25:02 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2eeeb5b7022so4818735a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jan 2025 17:25:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1736558699; x=1737163499; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=3UIVRx5jS5uHOad/ZRxuC+ZyfJfWx7WVNf7AHGunc9Q=;
-        b=23dgqUCpv9Xgjh09BpxpCdW8sVlLnE2vDx9YEsBy/Y9F0AYQWuGAMeWuHPmgMAFKuj
-         XfMDuUItO4tG5TF3ODqCS6cNUh2iV5BP2vJCK2aJO0vbVtqMiZS6sW21EPNzOkPS/pj1
-         Mo/1LPqdI5vCNhDlfKMfYaYoRWv1oryFix3fEpljefVniC9pG3jqN9UP5929F4sdSMt3
-         GWFc9Ovh4rpmvmjxKrwrlc+UiffhiPWViZ3uFEnJbbRiHkwjnBrQDfG5dDtoHv/mb9UW
-         3UW7crh6MydeSDg4gYWG6LZDLoHZCbpojkF88t6wv4RbzzmVaEV61HmLxbdMDC1VgF94
-         9IjQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736558699; x=1737163499;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=3UIVRx5jS5uHOad/ZRxuC+ZyfJfWx7WVNf7AHGunc9Q=;
-        b=LC+7Hsy5RsKPwKTZyHwcdUxNwVvesYmuEXQahTQkqcniyT0qqZsdxrKUpNvBfbmjVe
-         8d8KPECsY1PsU5KoVHPEOElGyPks/SyqYlDoL+7ryCipMnE+aKaZ7HNjASa4MtXzkHwV
-         VlD6mihBgnYnwsoqs+BL/hrTTvDbZuExNJalYZDczVmRtE0Fo37GrTm5Zj1mwnfdDU99
-         x05QPYz4DH+IwMoEZmPqWI10r7Uipeaaqv1cRB3Iuwyn/k0XgzqARhncSBmQZtvKCMK9
-         3iY2x0ZYzfg5DbSZKepCzPtfFRreZ9p9Q5GqqmJQCLo2byhUc2DPVZObPdC7C1GmSpQg
-         gu9A==
-X-Forwarded-Encrypted: i=1; AJvYcCW7745YboIl38iPwqdTzsfjmlnsqYyIPIrLet75ly6w60kipPGaNWtqLGl/E4wScYV/xUq6NT0ASCZD0ayNXEku@lists.infradead.org
-X-Gm-Message-State: AOJu0YxrW3YHFKmAvbbetL0IqIUTQzuG/TkJqe/uwkyXdfkafCn4MPk/
-	7LwkVbcH0ph2zYxn2j5hYNrhPzJPpT6GctSzrX3Lvf2vNNWTP9PTquuGNNwcVRXKt6JBZ9cI6Rs
-	lAw==
-X-Google-Smtp-Source: AGHT+IHf025t1EVvlV+j91gbU3uZgm+9mZiPk2JrEEttgvDlmrVpnhWnRwbzCB96nhWXuJS4v4uP1KYHMJk=
-X-Received: from pjbnw13.prod.google.com ([2002:a17:90b:254d:b0:2ee:4b69:50e1])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:5188:b0:2ee:df57:b194
- with SMTP id 98e67ed59e1d1-2f548eceb00mr17022072a91.21.1736558698928; Fri, 10
- Jan 2025 17:24:58 -0800 (PST)
-Date: Fri, 10 Jan 2025 17:24:49 -0800
-In-Reply-To: <20250111012450.1262638-1-seanjc@google.com>
+	Sat, 11 Jan 2025 01:30:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1C3F25C3674;
+	Sat, 11 Jan 2025 01:30:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CC51C4CED6;
+	Sat, 11 Jan 2025 01:30:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+	s=korg; t=1736559049;
+	bh=7I1OBfWbo908Mx7qvQkrDHGouLRf+dWAo5fEwim6p1w=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=wCdNg1TFG2mQ2V7JLabBLagQ3iPh1FJkujMfPxuiGPq8mHSUiRbicfuDz2i9VqjFf
+	 EAUFhX6Dmh7OxXqZl8IYRBtst8NCQct6t/dFbEismIfwpRA3Qoo2LI1c6LPpWu8fRG
+	 2Kmoai3+QNA8Ga1fKjMEVJkS7d/Z4QkUiwdQ67Rg=
+Date: Fri, 10 Jan 2025 17:30:48 -0800
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Dan Williams <dan.j.williams@intel.com>
+Cc: Alistair Popple <apopple@nvidia.com>, <linux-mm@kvack.org>,
+ <alison.schofield@intel.com>, <lina@asahilina.net>, <zhang.lyra@gmail.com>,
+ <gerald.schaefer@linux.ibm.com>, <vishal.l.verma@intel.com>,
+ <dave.jiang@intel.com>, <logang@deltatee.com>, <bhelgaas@google.com>,
+ <jack@suse.cz>, <jgg@ziepe.ca>, <catalin.marinas@arm.com>,
+ <will@kernel.org>, <mpe@ellerman.id.au>, <npiggin@gmail.com>,
+ <dave.hansen@linux.intel.com>, <ira.weiny@intel.com>,
+ <willy@infradead.org>, <djwong@kernel.org>, <tytso@mit.edu>,
+ <linmiaohe@huawei.com>, <david@redhat.com>, <peterx@redhat.com>,
+ <linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linuxppc-dev@lists.ozlabs.org>,
+ <nvdimm@lists.linux.dev>, <linux-cxl@vger.kernel.org>,
+ <linux-fsdevel@vger.kernel.org>, <linux-ext4@vger.kernel.org>,
+ <linux-xfs@vger.kernel.org>, <jhubbard@nvidia.com>, <hch@lst.de>,
+ <david@fromorbit.com>, <chenhuacai@kernel.org>, <kernel@xen0n.name>,
+ <loongarch@lists.linux.dev>
+Subject: Re: [PATCH v6 00/26] fs/dax: Fix ZONE_DEVICE page reference counts
+Message-Id: <20250110173048.5565901e0fec24556325bd18@linux-foundation.org>
+In-Reply-To: <6780c6d43d73e_2aff42943b@dwillia2-xfh.jf.intel.com.notmuch>
+References: <cover.11189864684e31260d1408779fac9db80122047b.1736488799.git-series.apopple@nvidia.com>
+	<6780c6d43d73e_2aff42943b@dwillia2-xfh.jf.intel.com.notmuch>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 Mime-Version: 1.0
-References: <20250111012450.1262638-1-seanjc@google.com>
-X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
-Message-ID: <20250111012450.1262638-5-seanjc@google.com>
-Subject: [PATCH 4/5] KVM: selftests: Provide separate helper for KVM_RUN with immediate_exit
-From: Sean Christopherson <seanjc@google.com>
-To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Sean Christopherson <seanjc@google.com>
-Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250111_012501_322612_ECDC3AE7 
-X-CRM114-Status: GOOD (  11.19  )
+X-CRM114-CacheID: sfid-20250110_173052_470189_8CBA4211 
+X-CRM114-Status: GOOD (  17.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,73 +81,38 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Turn vcpu_run_complete_io() into a wrapper for a dedicated helper for
-doing KVM_RUN with immediate_exit = true, so that a future patch can do
-userspace exit completion if and only if it's actually necessary,
-whereas x86's nested exceptions test wants to unconditionally do KVM_RUN
-with an immediate exit.
+On Thu, 9 Jan 2025 23:05:56 -0800 Dan Williams <dan.j.williams@intel.com> wrote:
 
-No functional change intended.
+> >  - Remove PTE_DEVMAP definitions from Loongarch which were added since
+> >    this series was initially written.
+> [..]
+> > 
+> > base-commit: e25c8d66f6786300b680866c0e0139981273feba
+> 
+> If this is going to go through nvdimm.git I will need it against a
+> mainline tag baseline. Linus will want to see the merge conflicts.
+> 
+> Otherwise if that merge commit is too messy, or you would rather not
+> rebase, then it either needs to go one of two options:
+> 
+> - Andrew's tree which is the only tree I know of that can carry
+>   patches relative to linux-next.
 
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- tools/testing/selftests/kvm/include/kvm_util.h           | 9 ++++++++-
- tools/testing/selftests/kvm/lib/kvm_util.c               | 2 +-
- tools/testing/selftests/kvm/x86/nested_exceptions_test.c | 3 +--
- 3 files changed, 10 insertions(+), 4 deletions(-)
+I used to be able to do that but haven't got around to setting up such
+a thing with mm.git.  This is the first time the need has arisen,
+really.
 
-diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
-index 4c4e5a847f67..78fd597c1b60 100644
---- a/tools/testing/selftests/kvm/include/kvm_util.h
-+++ b/tools/testing/selftests/kvm/include/kvm_util.h
-@@ -631,7 +631,14 @@ static inline int __vcpu_run(struct kvm_vcpu *vcpu)
- 	return __vcpu_ioctl(vcpu, KVM_RUN, NULL);
- }
- 
--void vcpu_run_complete_io(struct kvm_vcpu *vcpu);
-+
-+void vcpu_run_immediate_exit(struct kvm_vcpu *vcpu);
-+
-+static inline void vcpu_run_complete_io(struct kvm_vcpu *vcpu)
-+{
-+	vcpu_run_immediate_exit(vcpu);
-+}
-+
- struct kvm_reg_list *vcpu_get_reg_list(struct kvm_vcpu *vcpu);
- 
- static inline void vcpu_enable_cap(struct kvm_vcpu *vcpu, uint32_t cap,
-diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
-index 33fefeb3ca44..c9a33766f673 100644
---- a/tools/testing/selftests/kvm/lib/kvm_util.c
-+++ b/tools/testing/selftests/kvm/lib/kvm_util.c
-@@ -1665,7 +1665,7 @@ void vcpu_run(struct kvm_vcpu *vcpu)
- 	TEST_ASSERT(!ret, KVM_IOCTL_ERROR(KVM_RUN, ret));
- }
- 
--void vcpu_run_complete_io(struct kvm_vcpu *vcpu)
-+void vcpu_run_immediate_exit(struct kvm_vcpu *vcpu)
- {
- 	int ret;
- 
-diff --git a/tools/testing/selftests/kvm/x86/nested_exceptions_test.c b/tools/testing/selftests/kvm/x86/nested_exceptions_test.c
-index 3eb0313ffa39..4f144576a6da 100644
---- a/tools/testing/selftests/kvm/x86/nested_exceptions_test.c
-+++ b/tools/testing/selftests/kvm/x86/nested_exceptions_test.c
-@@ -238,8 +238,7 @@ int main(int argc, char *argv[])
- 
- 	/* Pend #SS and request immediate exit.  #SS should still be pending. */
- 	queue_ss_exception(vcpu, false);
--	vcpu->run->immediate_exit = true;
--	vcpu_run_complete_io(vcpu);
-+	vcpu_run_immediate_exit(vcpu);
- 
- 	/* Verify the pending events comes back out the same as it went in. */
- 	vcpu_events_get(vcpu, &events);
--- 
-2.47.1.613.gc27f4b7a9f-goog
+> - Wait for v6.14-rc1 
+
+I'm thinking so.  Darrick's review comments indicate that we'll be seeing a v7.
+
+> and get this into nvdimm.git early in the cycle
+>   when the conflict storm will be low.
+
+erk.  This patchset hits mm/ a lot, and nvdimm hardly at all.  Is it
+not practical to carry this in mm.git?
 
 
