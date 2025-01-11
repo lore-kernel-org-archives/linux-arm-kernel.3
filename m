@@ -4,66 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37ACBE7719C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jan 2025 01:52:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD888E7719C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jan 2025 02:07:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
-	From:Subject:Message-ID:Mime-Version:Date:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9xron+KThU7T77R5VL2QV4m0fAH5NzD4XXNwhcBHEXQ=; b=sZNPDamAx31izo+nuyz+tw4kKE
-	ogCSKuKSPuiCT/Q4m93kyeqVtiLgiIbr3gsBV83FV+D1lw0NV7jbKNNppz1E0dxD4iAZ/pjYvUt46
-	RIvB5nX5CnX9fFqZt2LwcaHsX5V2yqRrrQmk3PnwKgpR8FDyvQbFcou5dqzJGUjmOU+RL1zoXdl+c
-	aE+bYeRS5breVmxmFMp7KuHnIVzV4sQn0zBE5hb35CGRid4JIxIgNIDlYJu+n99olIt0DQ81i5TLl
-	qHtuBqolpeBsc8ie/sXDcnZQysFLOEZiU7FDsCvawIxRqac/P3pAR1c2BiV3RqNzrPaBcb3arAVMH
-	YcPg050Q==;
+	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9d0sb2aXj7DAHSi3NyOXr17347erebt+0rHoY2hViJM=; b=NXKKdUGFFr5Gqix+I90s1103gH
+	Wfo/rOYM3FgB7YU7x88aqkSVayBToZPVBN6AwUju58M4nSuOmrS5ChU0vS+QasYg7+QWBhm7+raQh
+	Px+gUknRhzWPXTnFj5D7q2bdwB033wF3zfEa3YFNvBB9vIN4YycwWEPF/NQEYbbN9EZmA5fmptvMU
+	xkKNglfDfv+zWT+XfqLlWju2YqXr6dTNGxuOdzdguB+ExT47LeHL1tYRty+NdzLw/z0fCez1txt2H
+	sH2Yds/8kOOWJquIkUrnCmkJ3wJ8VqlMvDa0ZAggXxMUoLGKTqW60oJqnLtJdtr7AZYkw7+vECCG7
+	yrMJq2PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWQg9-0000000HX6F-214W;
-	Sat, 11 Jan 2025 01:52:45 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1tWQue-0000000HYGx-1TU5;
+	Sat, 11 Jan 2025 02:07:44 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWPiH-0000000HQJw-0xeo
+	id 1tWPiW-0000000HQQ7-21CT
+	for linux-arm-kernel@bombadil.infradead.org;
+	Sat, 11 Jan 2025 00:51:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=9d0sb2aXj7DAHSi3NyOXr17347erebt+0rHoY2hViJM=; b=hVLOuZqwyAoQ3S/Qaf/XtNXrCy
+	oZ7dSfy5tQL71oCOZf+KBzjSzbDFEEntfr9U3qGJCc1LSTJjvAiEOmQeFUmaCv9tH0yYTQlJ2qAW9
+	kbgvE/pbXhMfcBVDVcoVijmsxmN1YbB2AImSnEnWCqMI8+Iiow7ULPmmDf9LB3duvbLx4QeSwxQKW
+	XmiNQXF+IyrFqCD96UaV8NNw33gYy/5fsD67CkA3FSAOH5PmUbaTIMKRwUENE3avIfBSMr3STEpTV
+	Vs/Q3E9gBItWE5pWt81SGF3W1Dir44r+by/E9o4FOleNnQj8BTkVYjs17y4uUVtHE0R0zUbPSxvaS
+	9T4cXnWQ==;
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tWPiR-00000009yMs-3Y1P
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jan 2025 00:50:54 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2efa0eb9dacso4827635a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jan 2025 16:50:52 -0800 (PST)
+	Sat, 11 Jan 2025 00:51:07 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2eeeb5b7022so4795285a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jan 2025 16:51:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1736556652; x=1737161452; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:reply-to:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=9xron+KThU7T77R5VL2QV4m0fAH5NzD4XXNwhcBHEXQ=;
-        b=DUF/pvUe1GyOJnaDxbJ3MNai7b0eIuV8a3V19fvMEHvvE5Sw7O4e++F0ZjptgLKs9Y
-         jewklpyZWMOI4jFqHWtlFog1vOB5sXCsxmJ3u8Ac7XDOMt2aQ9bYuy0cvCR2lCyRoBLP
-         cM01EmkX43QAKYbvz2MVLvBLKRCqZbOFupyCGbY7qb8SxvoGwTjWxNuqMcq849HH+mcJ
-         gVAkeyePCbFgMpPBPcNJK8jVVy6IMgdVFaRvlbPbTKqbBpXowpHKXwy70qulEu2kh3hj
-         hbh5aPew4xfPFOkrVRNzUPhM8HVVXebEhfDQv2zKkd8A00I58Nv+OYHBwfRJx5Oh7iCu
-         EpIw==
+        d=google.com; s=20230601; t=1736556662; x=1737161462; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=9d0sb2aXj7DAHSi3NyOXr17347erebt+0rHoY2hViJM=;
+        b=C590g53WBTBH2pglqPV7I0aj/YKCkAN9TTbKfsWGVOceLorqDGvkIJLWyc8tJJfrTR
+         o4HrFCnu5TYSoSVv3XOsZMmcQICHSV71ejFYuwXeHKdURoUfRmXkwFyhsX4UfBqT2uoS
+         qn8V4ECAuETc1IBZdtMtTdjOAReubE/cBPufozVitqNI60sRlpx4jNP1i7oSFP9W434d
+         A0coBi9zQ94MwiUQ6tVDgnSel/2frzretUV4kMQliikYftueLev0/hGCex2QuWbKaIna
+         yEehPpez8m8RmJ+Qvj2+xe8odLy+KDVtRnrWanmQ54NcgOf70lr3M+mOvWuXxIuy/yqm
+         L0LQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736556652; x=1737161452;
-        h=cc:to:from:subject:message-id:mime-version:date:reply-to
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=9xron+KThU7T77R5VL2QV4m0fAH5NzD4XXNwhcBHEXQ=;
-        b=IqKTE+FNMjlXwXCX16rGKz8usvC/iUnLqydw3lUR1BRC4sd4rSJnYiEIbARHOW3lSe
-         0Cyo4/Pjfr2swrjeTwXKHHzWCmpfbTIdmmT2sAlIdBBdCd2rMpn1oXMXzaYQ+L24QRw7
-         dnd5R38sBZrgDhWCMp9qJyGb7EMApyH+9lYcq08jQa6HhGir/GAy6S7nuP/a5VZMncQn
-         daBr/J8y/TGgf3ppjbsJEEiJVTOVSPyq6qejRwgg6oZHFioLhPrc7Wh1z4EJm+WEHi24
-         SoT5EaHPhVvL8OaYYiWsIzUJaudKntaHaDmEhjVWbXqPG/aPo6vRCjLeyaNAlznbOmke
-         E7pw==
-X-Gm-Message-State: AOJu0Yzz3dueebx9cF2NOHDeb31J9+3d7tCLkEYBBYRm0fSdGBQWzOtP
-	WTy4vQzaqtjyXsuAE6jmFPulJmprwRM1MGNbIYeX0v8ASsI6brt5Z12FQPCyPgzZ0E81TIip3Qp
-	QAQ==
-X-Google-Smtp-Source: AGHT+IFGHtmLK/IYHq0Rf1GMc11fdZBgGQoU3n0wFrQS04Q/FED/wp6nrTmZr2LCO3EYVe3us4g7I58uwQQ=
-X-Received: from pjbqi13.prod.google.com ([2002:a17:90b:274d:b0:2ef:82c0:cb8d])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4a44:b0:2ea:61de:38f7
- with SMTP id 98e67ed59e1d1-2f548f1d420mr19019162a91.29.1736556651751; Fri, 10
- Jan 2025 16:50:51 -0800 (PST)
-Date: Fri, 10 Jan 2025 16:50:40 -0800
+        d=1e100.net; s=20230601; t=1736556662; x=1737161462;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9d0sb2aXj7DAHSi3NyOXr17347erebt+0rHoY2hViJM=;
+        b=NtuR2He5W7mCL3vcXDJzMNFJ0jChS2gGNSVheiqAeIjpVak5I/Lq8kg8TMwmYcoojW
+         slUWsrUOBLp3C77xQsT98RJFEt9ZqCPughmXG/luB2suiamhyQaiCvil1LXbPeOvjus2
+         p0g3Sh0Ttj/iF3GRWeokYsRBpRcyY/iET8iPEKKUtiDVFHLHT6qW9YapQVT0O1fQ8u0O
+         31H+JiJhcmdsB5CCAulx32LxATSp5643ddggB+OLzYPFcep1aOuuqhdDpivfcA1LCvBQ
+         wXztdyD0ng8phvg7J695gR7joVfGmQhUjoPdsrANjKBXZS+/zkTNiKT09GpGkJ8WJCd2
+         In4w==
+X-Gm-Message-State: AOJu0YxpdC7/sczmBIncNQ1e3LsKgRic9VaIQzMmhJTY/GRl7XShAGTi
+	x2H8OJ0MygCS4KZedkAVNt5rRGfH+QvJOS4XBwdmqmlbZoMSawP7Xh58XHSEdZ1TFNunsFToIcW
+	CBQ==
+X-Google-Smtp-Source: AGHT+IGlLX0aEPqXGbQsPjSqI3Z9q/GgP2EA9enACEq8PUpXduEFLRvRbXw1OHEj1+uEtI1vezl+E8v1zzM=
+X-Received: from pjbnw2.prod.google.com ([2002:a17:90b:2542:b0:2f4:4222:ebba])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:51c5:b0:2f4:423a:8fb2
+ with SMTP id 98e67ed59e1d1-2f548eca27emr18806754a91.20.1736556661971; Fri, 10
+ Jan 2025 16:51:01 -0800 (PST)
+Date: Fri, 10 Jan 2025 16:50:46 -0800
+In-Reply-To: <20250111005049.1247555-1-seanjc@google.com>
 Mime-Version: 1.0
+References: <20250111005049.1247555-1-seanjc@google.com>
 X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
-Message-ID: <20250111005049.1247555-1-seanjc@google.com>
-Subject: [PATCH v2 0/9] KVM: selftests: Binary stats fixes and infra updates
+Message-ID: <20250111005049.1247555-7-seanjc@google.com>
+Subject: [PATCH v2 6/9] KVM: selftests: Get VM's binary stats FD when opening VM
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -76,8 +94,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_165053_271069_D3FB23B2 
-X-CRM114-Status: GOOD (  10.82  )
+X-CRM114-CacheID: sfid-20250111_005103_955145_E70608F6 
+X-CRM114-Status: GOOD (  13.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,56 +111,64 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix a handful of bugs in the binary stats infrastructure, expand support
-to vCPU-scoped stats, enumerate all KVM stats in selftests, and use the
-enumerated stats to assert at compile-time that {vm,vcpu}_get_stat() is
-getting a stat that actually exists.
+Get and cache a VM's binary stats FD when the VM is opened, as opposed to
+waiting until the stats are first used.  Opening the stats FD outside of
+__vm_get_stat() will allow converting it to a scope-agnostic helper.
 
-Most of the bugs are benign, and AFAICT, none actually cause problems in
-the current code base.  The worst of the bugs is lack of validation that
-the requested stat actually exists, which is quite annoying if someone
-fat fingers a stat name, tries to get a vCPU stat on a VM FD, etc.
+Note, this doesn't interfere with kvm_binary_stats_test's testcase that
+verifies a stats FD can be used after its own VM's FD is closed, as the
+cached FD is also closed during kvm_vm_free().
 
-As called out multiple times in v1, I'm on the fence regarding the last
-patch (compile-time assertions).  My plan is to apply everything except the
-last patch fairly quickly, so that the vCPU stats stuff in particular can be
-used in x86 tests, and hold off on the compile-time assertion goo until
-someone comes along with a strong opinion one way or the other.
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ tools/testing/selftests/kvm/lib/kvm_util.c | 15 +++++++++++----
+ 1 file changed, 11 insertions(+), 4 deletions(-)
 
-v2:
- - Update rlimit number of files for all "standard" VMs.
- - Account for the vCPU stats fd when updating rlimits.
-
-v1: https://lore.kernel.org/all/20241220013906.3518334-1-seanjc@google.com
-
-Sean Christopherson (9):
-  KVM: selftests: Fix mostly theoretical leak of VM's binary stats FD
-  KVM: selftests: Close VM's binary stats FD when releasing VM
-  KVM: selftests: Assert that __vm_get_stat() actually finds a stat
-  KVM: selftests: Macrofy vm_get_stat() to auto-generate stat name
-    string
-  KVM: selftests: Add struct and helpers to wrap binary stats cache
-  KVM: selftests: Get VM's binary stats FD when opening VM
-  KVM: selftests: Adjust number of files rlimit for all "standard" VMs
-  KVM: selftests: Add infrastructure for getting vCPU binary stats
-  KVM: selftests: Add compile-time assertions to guard against stats
-    typos
-
- .../kvm/include/arm64/kvm_util_arch.h         |  12 ++
- .../testing/selftests/kvm/include/kvm_util.h  |  51 ++++++--
- .../selftests/kvm/include/kvm_util_types.h    |   6 +
- .../kvm/include/riscv/kvm_util_arch.h         |  14 +++
- .../kvm/include/s390/kvm_util_arch.h          | 113 +++++++++++++++++
- .../selftests/kvm/include/x86/kvm_util_arch.h |  52 ++++++++
- .../selftests/kvm/kvm_create_max_vcpus.c      |  28 +----
- tools/testing/selftests/kvm/lib/kvm_util.c    | 114 ++++++++++++------
- .../kvm/x86/dirty_log_page_splitting_test.c   |   6 +-
- .../selftests/kvm/x86/nx_huge_pages_test.c    |   4 +-
- .../selftests/kvm/x86/xapic_ipi_test.c        |   2 +
- 11 files changed, 324 insertions(+), 78 deletions(-)
-
-
-base-commit: 10b2c8a67c4b8ec15f9d07d177f63b563418e948
+diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
+index c88f5e7871f7..16ee03e76d66 100644
+--- a/tools/testing/selftests/kvm/lib/kvm_util.c
++++ b/tools/testing/selftests/kvm/lib/kvm_util.c
+@@ -196,6 +196,11 @@ static void vm_open(struct kvm_vm *vm)
+ 
+ 	vm->fd = __kvm_ioctl(vm->kvm_fd, KVM_CREATE_VM, (void *)vm->type);
+ 	TEST_ASSERT(vm->fd >= 0, KVM_IOCTL_ERROR(KVM_CREATE_VM, vm->fd));
++
++	if (kvm_has_cap(KVM_CAP_BINARY_STATS_FD))
++		vm->stats.fd = vm_get_stats_fd(vm);
++	else
++		vm->stats.fd = -1;
+ }
+ 
+ const char *vm_guest_mode_string(uint32_t i)
+@@ -661,14 +666,17 @@ static void kvm_stats_release(struct kvm_binary_stats *stats)
+ {
+ 	int ret;
+ 
+-	if (!stats->desc)
++	if (stats->fd < 0)
+ 		return;
+ 
+-	free(stats->desc);
+-	stats->desc = NULL;
++	if (stats->desc) {
++		free(stats->desc);
++		stats->desc = NULL;
++	}
+ 
+ 	ret = close(stats->fd);
+ 	TEST_ASSERT(!ret,  __KVM_SYSCALL_ERROR("close()", ret));
++	stats->fd = -1;
+ }
+ 
+ __weak void vcpu_arch_free(struct kvm_vcpu *vcpu)
+@@ -2231,7 +2239,6 @@ void __vm_get_stat(struct kvm_vm *vm, const char *name, uint64_t *data,
+ 	int i;
+ 
+ 	if (!stats->desc) {
+-		stats->fd = vm_get_stats_fd(vm);
+ 		read_stats_header(stats->fd, &stats->header);
+ 		stats->desc = read_stats_descriptors(stats->fd, &stats->header);
+ 	}
 -- 
 2.47.1.613.gc27f4b7a9f-goog
 
