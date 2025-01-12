@@ -4,59 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F16EBE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 20:46:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADBCAE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 20:48:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/+10wZ3MgBf+cYk6Dq4f9vBqSCbY7QWXJeQblH9Xv5Y=; b=HG1wCKKmcbloeOcRUpSVSWuDAj
-	DnMVXKluBXBw7DFyQBv+5gtJkiPrHmA3ALpuNsbNyeckpYq3XmjF+ZVE3j+xJqejaxLeExiCVyUcB
-	UHO+TpobbcJRRKS6TEYcYnMRY5limprKU3x6kac4lYQzGdBtfSX5jCFQSgknDVNW1qNvKfjG0rr6D
-	QTmxI3NM/T3zvsU9oCKrz5qSN9CfJLfIvOr6U4pua9VkjtDcyp8Ec/RtinXxn0WXzkBS/iiOK/QzZ
-	8+jJjJht/+Kbn0JJhBAgX2hpxmT3PpOT+wO8d6u8Mnynusjn8IthGKgibarV4U4FXA82rvFH7qeri
-	MTn0QtQw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+4WWCOusd3lGhZVenog2kI2nbfxxLMHPA48uOSRsoeA=; b=o8WY3AxpDOOeyCpA8W1GISOIms
+	qYaj2tmobK/d0+UiD1/unPuZvHrvJisFSLc57dGVuEgpTMIH4aWvGIGzyhlemJyWvWFtkTe+/MCTJ
+	vAtQRuWrqNzp0HaqfqDkTARVJsV6vPPgsMRotsEdXhNnm6FW4RbARn4LXjlhjGx9gqPuWMuiKE5b4
+	BZ6F0B0CE5TdDjuc0IIq8Oy5DRqp55Ay23fPrGoZwReA1bo7z8OLxRglzFxJ1UM5iUWJ9KGhWuI1b
+	T4AP/MpkIquIJokPXKTiO5vMr5kg0DYggSoBEsE4HHbBzfMDjPyiZAModpr7v7Y+Kg4BNwbUf8UEU
+	0g+iQ79A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tX4qx-00000003QKy-3Klz;
-	Sun, 12 Jan 2025 20:46:35 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tX4sB-00000003QSp-305j;
+	Sun, 12 Jan 2025 20:47:51 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tX4oT-00000003Pkq-1z2s
+	id 1tX4oT-00000003Pl3-3pBt
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jan 2025 20:44:02 +0000
+	Sun, 12 Jan 2025 20:44:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D2CFB5C439F;
-	Sun, 12 Jan 2025 20:43:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 38527C4CEDF;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8185F5C4860;
+	Sun, 12 Jan 2025 20:43:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 7AD70C4AF09;
 	Sun, 12 Jan 2025 20:43:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1736714639;
-	bh=aSXypBQ4M4GEZW3R7qstW6YXcVlzlDqvGf92lCWFtXA=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=IoBMzj/7Vpz+Cp1AE1jX2a2UilXkfhl+9xZuWV50pwUI71yYEsRaDgMHsmJQUSe1Q
-	 MLFWS8h2T5xNVdW+LwvUg7L23KpLRqLc1zZ/gGk+3tCI6LRC1Jrc6CEUalV0W3io4R
-	 5Aw+dV651OaPK0xZxNJYaBePmyo/Sguag9MEfM2yEa1rVsOk1XJmICvfYP8OdgwLr0
-	 +LI/VDQttHmsQXchn7+hjz8xWVs/nRkg6LRiEzjvO18XXdSSFuMqxEYDT+tXpZRk7+
-	 BYpzkzsX3iDBuqzz+MA+gWQwJ5f+kmq4EPmrP+QtM6c08BKslTO8BxRZqoZcoZbq36
-	 ZbkQ3q6RCyWXA==
+	bh=UXXVGCa+xRNk2SvCaJv+CA8sBSVJyc/q/PCalr6FFr0=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=FcazkaHcSkQwCUEfYt/sytxCPmfi1F6DLoDGXUPcrX2/2JA/p/ivChG53ac/cCIP6
+	 yRn7gC7BFA9pVHMjztAEJh3/vknH5tSea3+YiahUsESVjJ9zey+jm5236I+4rG4xVE
+	 mFQBXiqX4GP1vYSeqahavKHfQpH0SBFDt/8gIqM+IWd2IXRfY1rhXwsLXoFT0+EKPW
+	 5ng6M4mNCNTW6EC3psckLMGm2fxqqEeNgsbL5rCg/RnwyR8I9/QMVropGq/JQ72TmO
+	 +UAkfNCr5gus009xywfgVN9DFzRcKDxWmtNlrQmRg3ILmXKhskoS/b9zi2AHKtH5Yp
+	 83VeHhrxxqutg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 22880E77188;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 68EA8E77188;
 	Sun, 12 Jan 2025 20:43:59 +0000 (UTC)
 From: Sasha Finkelstein via B4 Relay <devnull+fnkl.kernel.gmail.com@kernel.org>
-Subject: [PATCH v3 0/5] Driver for pre-DCP apple display controller.
-Date: Sun, 12 Jan 2025 21:43:47 +0100
-Message-Id: <20250112-adpdrm-v3-0-c674dc19fa7f@gmail.com>
+Date: Sun, 12 Jan 2025 21:43:51 +0100
+Subject: [PATCH v3 4/5] arm64: dts: apple: Add touchbar screen nodes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAIMphGcC/2WMywrCMBBFf6XM2kherY0r/0NchGTaDtgHiQSl5
- N9Nu5CCy3O556wQMRBGuFYrBEwUaZ4KqFMFbrBTj4x8YZBcaiGkZtYvPoxM1p1D5X1rLwLKeQn
- Y0XsP3R+FB4qvOXz2bhLb+pdIgnGmhBG+xQa1sbd+tPQ8u3mELZHkUWt+miyaM1y3tVKN4+ao5
- Zy/9YZBwtMAAAA=
-X-Change-ID: 20241124-adpdrm-25fce3dd8a71
+Message-Id: <20250112-adpdrm-v3-4-c674dc19fa7f@gmail.com>
+References: <20250112-adpdrm-v3-0-c674dc19fa7f@gmail.com>
+In-Reply-To: <20250112-adpdrm-v3-0-c674dc19fa7f@gmail.com>
 To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
  Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -69,21 +66,21 @@ To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
 Cc: linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Alyssa Ross <hi@alyssa.is>, Sasha Finkelstein <fnkl.kernel@gmail.com>, 
- Janne Grunau <j@jannau.net>, Nick Chan <towinchenmi@gmail.com>
+ Janne Grunau <j@jannau.net>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1736714637; l=2197;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1736714637; l=6646;
  i=fnkl.kernel@gmail.com; s=20241124; h=from:subject:message-id;
- bh=aSXypBQ4M4GEZW3R7qstW6YXcVlzlDqvGf92lCWFtXA=;
- b=0ES7EgYhRigv+ZjTrUSeVVUQfqHEAOH6+eytjDGYMLKzgXd+ysLojOO+92rvHsbNPQJBQFvqU
- MEJhK7tmE36BCmmWbRwjwyhSjAvgCUnu8CN+JMXF7Yd8ek6rf6g0PL6
+ bh=WG7cNcrZYygeOthLbnszjYaIOX1Y805VEv9FfVcvhss=;
+ b=ztOGvO4oyWk7vGO+d1mZ3viS7ISkBHkNDags3PxGSDJZmlxsgQz0X3s/zhh1HL0qsStCbDO63
+ /nRWkfOHE/wCKdWGT+K6wsfAjPradz5K7qJe3lXZ7r4Nl4MDn69AgPM
 X-Developer-Key: i=fnkl.kernel@gmail.com; a=ed25519;
  pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
 X-Endpoint-Received: by B4 Relay for fnkl.kernel@gmail.com/20241124 with
  auth_id=283
 X-Original-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250112_124401_618037_25A99567 
-X-CRM114-Status: GOOD (  12.15  )
+X-CRM114-CacheID: sfid-20250112_124402_047385_FD220706 
+X-CRM114-Status: GOOD (  10.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,53 +96,247 @@ Reply-To: fnkl.kernel@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi.
+From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 
-This patch series adds support for a secondary display controller
-present on Apple M1/M2 chips and used to drive the display of the
-"touchbar" touch panel present on those. 
+Adds device tree entries for the touchbar screen
 
+Co-developed-by: Janne Grunau <j@jannau.net>
+Signed-off-by: Janne Grunau <j@jannau.net>
 Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
 ---
-Changes in v3:
-- Fixed building as module after splitting out mipi block
-- Addressing the review feedback.
-- Link to v2: https://lore.kernel.org/r/20241126-adpdrm-v2-0-c90485336c09@gmail.com
+ arch/arm64/boot/dts/apple/t8103-j293.dts | 31 ++++++++++++++++
+ arch/arm64/boot/dts/apple/t8103.dtsi     | 60 +++++++++++++++++++++++++++++++
+ arch/arm64/boot/dts/apple/t8112-j493.dts | 31 ++++++++++++++++
+ arch/arm64/boot/dts/apple/t8112.dtsi     | 61 ++++++++++++++++++++++++++++++++
+ 4 files changed, 183 insertions(+)
 
-Changes in v2:
-- Addressing the review feedback.
-- Split out the mipi part of the display controller into a separate device
-- Link to v1: https://lore.kernel.org/r/20241124-adpdrm-v1-0-3191d8e6e49a@gmail.com
+diff --git a/arch/arm64/boot/dts/apple/t8103-j293.dts b/arch/arm64/boot/dts/apple/t8103-j293.dts
+index 56b0c67bfcda321b60c621de092643017693ff91..3af8536da779b56bf856cf40befd74d4737baa8f 100644
+--- a/arch/arm64/boot/dts/apple/t8103-j293.dts
++++ b/arch/arm64/boot/dts/apple/t8103-j293.dts
+@@ -49,3 +49,34 @@ &i2c4 {
+ &fpwm1 {
+ 	status = "okay";
+ };
++
++&display_dfr {
++	status = "okay";
++};
++
++&dfr_mipi_out {
++	dfr_mipi_out_panel: endpoint@0 {
++		reg = <0>;
++		remote-endpoint = <&dfr_panel_in>;
++	};
++};
++
++&displaydfr_mipi {
++	status = "okay";
++
++	dfr_panel: panel@0 {
++		compatible = "apple,j293-summit", "apple,summit";
++		reg = <0>;
++		max-brightness = <255>;
++
++		port {
++			dfr_panel_in: endpoint {
++				remote-endpoint = <&dfr_mipi_out_panel>;
++			};
++		};
++	};
++};
++
++&displaydfr_dart {
++	status = "okay";
++};
+diff --git a/arch/arm64/boot/dts/apple/t8103.dtsi b/arch/arm64/boot/dts/apple/t8103.dtsi
+index 9b0dad6b618444ac6b1c9735c50cccfc3965f947..9b088f74e0cb9f42fbc8df822fca6451dcd1b717 100644
+--- a/arch/arm64/boot/dts/apple/t8103.dtsi
++++ b/arch/arm64/boot/dts/apple/t8103.dtsi
+@@ -356,6 +356,66 @@ cpufreq_p: performance-controller@211e20000 {
+ 			#performance-domain-cells = <0>;
+ 		};
+ 
++		display_dfr: display-pipe@228200000 {
++			compatible = "apple,t8103-display-pipe", "apple,h7-display-pipe";
++			reg = <0x2 0x28200000 0x0 0xc000>,
++			      <0x2 0x28400000 0x0 0x4000>;
++			reg-names = "be", "fe";
++			power-domains = <&ps_dispdfr_fe>, <&ps_dispdfr_be>;
++			interrupt-parent = <&aic>;
++			interrupts = <AIC_IRQ 502 IRQ_TYPE_LEVEL_HIGH>,
++				     <AIC_IRQ 506 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "be", "fe";
++			iommus = <&displaydfr_dart 0>;
++			status = "disabled";
++
++			port {
++				dfr_adp_out_mipi: endpoint {
++					remote-endpoint = <&dfr_mipi_in_adp>;
++				};
++			};
++		};
++
++		displaydfr_dart: iommu@228304000 {
++			compatible = "apple,t8103-dart";
++			reg = <0x2 0x28304000 0x0 0x4000>;
++			interrupt-parent = <&aic>;
++			interrupts = <AIC_IRQ 504 IRQ_TYPE_LEVEL_HIGH>;
++			#iommu-cells = <1>;
++			power-domains = <&ps_dispdfr_fe>;
++			status = "disabled";
++		};
++
++		displaydfr_mipi: dsi@228600000 {
++			compatible = "apple,t8103-display-pipe-mipi", "apple,h7-display-pipe-mipi";
++			reg = <0x2 0x28600000 0x0 0x100000>;
++			power-domains = <&ps_mipi_dsi>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				dfr_mipi_in: port@0 {
++					reg = <0>;
++					#address-cells = <1>;
++					#size-cells = <0>;
++
++					dfr_mipi_in_adp: endpoint@0 {
++						reg = <0>;
++						remote-endpoint = <&dfr_adp_out_mipi>;
++					};
++				};
++
++				dfr_mipi_out: port@1 {
++					reg = <1>;
++					#address-cells = <1>;
++					#size-cells = <0>;
++				};
++			};
++		};
++
+ 		sio_dart: iommu@235004000 {
+ 			compatible = "apple,t8103-dart";
+ 			reg = <0x2 0x35004000 0x0 0x4000>;
+diff --git a/arch/arm64/boot/dts/apple/t8112-j493.dts b/arch/arm64/boot/dts/apple/t8112-j493.dts
+index 0ad908349f55406783942735a2e9dad54cda00ec..372fe69a96f6b84f576221101a4127d68bb54691 100644
+--- a/arch/arm64/boot/dts/apple/t8112-j493.dts
++++ b/arch/arm64/boot/dts/apple/t8112-j493.dts
+@@ -35,6 +35,37 @@ led-0 {
+ 	};
+ };
+ 
++&display_dfr {
++	status = "okay";
++};
++
++&dfr_mipi_out {
++	dfr_mipi_out_panel: endpoint@0 {
++		reg = <0>;
++		remote-endpoint = <&dfr_panel_in>;
++	};
++};
++
++&displaydfr_mipi {
++	status = "okay";
++
++	dfr_panel: panel@0 {
++		compatible = "apple,j493-summit", "apple,summit";
++		reg = <0>;
++		max-brightness = <255>;
++
++		port {
++			dfr_panel_in: endpoint {
++				remote-endpoint = <&dfr_mipi_out_panel>;
++			};
++		};
++	};
++};
++
++&displaydfr_dart {
++	status = "okay";
++};
++
+ /*
+  * Force the bus number assignments so that we can declare some of the
+  * on-board devices and properties that are populated by the bootloader
+diff --git a/arch/arm64/boot/dts/apple/t8112.dtsi b/arch/arm64/boot/dts/apple/t8112.dtsi
+index 1666e6ab250bc0be9b8318e3c8fc903ccd3f3760..1eead9640543632c3ba86c1ff766258e3158c84c 100644
+--- a/arch/arm64/boot/dts/apple/t8112.dtsi
++++ b/arch/arm64/boot/dts/apple/t8112.dtsi
+@@ -379,6 +379,67 @@ cpufreq_p: cpufreq@211e20000 {
+ 			#performance-domain-cells = <0>;
+ 		};
+ 
++		display_dfr: display-pipe@228200000 {
++			compatible = "apple,t8112-display-pipe", "apple,h7-display-pipe";
++			reg = <0x2 0x28200000 0x0 0xc000>,
++			      <0x2 0x28400000 0x0 0x4000>;
++			reg-names = "be", "fe";
++			power-domains = <&ps_dispdfr_fe>, <&ps_dispdfr_be>;
++			interrupt-parent = <&aic>;
++			interrupts = <AIC_IRQ 614 IRQ_TYPE_LEVEL_HIGH>,
++				     <AIC_IRQ 618 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "be", "fe";
++			iommus = <&displaydfr_dart 0>;
++			status = "disabled";
++
++			port {
++				dfr_adp_out_mipi: endpoint {
++					remote-endpoint = <&dfr_mipi_in_adp>;
++				};
++			};
++		};
++
++		displaydfr_dart: iommu@228304000 {
++			compatible = "apple,t8110-dart";
++			reg = <0x2 0x28304000 0x0 0x4000>;
++			interrupt-parent = <&aic>;
++			interrupts = <AIC_IRQ 616 IRQ_TYPE_LEVEL_HIGH>;
++			#iommu-cells = <1>;
++			power-domains = <&ps_dispdfr_fe>;
++			status = "disabled";
++		};
++
++		displaydfr_mipi: dsi@228600000 {
++			compatible = "apple,t8112-display-pipe-mipi", "apple,h7-display-pipe-mipi";
++			reg = <0x2 0x28600000 0x0 0x100000>;
++			power-domains = <&ps_mipi_dsi>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				dfr_mipi_in: port@0 {
++					reg = <0>;
++					#address-cells = <1>;
++					#size-cells = <0>;
++
++					dfr_mipi_in_adp: endpoint@0 {
++						reg = <0>;
++						remote-endpoint = <&dfr_adp_out_mipi>;
++					};
++				};
++
++				dfr_mipi_out: port@1 {
++					reg = <1>;
++					#address-cells = <1>;
++					#size-cells = <0>;
++				};
++			};
++		};
++
+ 		sio_dart: iommu@235004000 {
+ 			compatible = "apple,t8110-dart";
+ 			reg = <0x2 0x35004000 0x0 0x4000>;
 
----
-Sasha Finkelstein (5):
-      dt-bindings: display: Add Apple pre-DCP display controller
-      drm: adp: Add Apple Display Pipe driver
-      drm: panel: Add a panel driver for the Summit display
-      arm64: dts: apple: Add touchbar screen nodes
-      MAINTAINERS: Add entries for touchbar display driver
-
- .../display/apple,h7-display-pipe-mipi.yaml        |  79 +++
- .../bindings/display/apple,h7-display-pipe.yaml    |  88 +++
- .../bindings/display/panel/apple,summit.yaml       |  58 ++
- MAINTAINERS                                        |   5 +
- arch/arm64/boot/dts/apple/t8103-j293.dts           |  31 ++
- arch/arm64/boot/dts/apple/t8103.dtsi               |  60 +++
- arch/arm64/boot/dts/apple/t8112-j493.dts           |  31 ++
- arch/arm64/boot/dts/apple/t8112.dtsi               |  61 +++
- drivers/gpu/drm/Kconfig                            |   2 +
- drivers/gpu/drm/Makefile                           |   1 +
- drivers/gpu/drm/adp/Kconfig                        |  16 +
- drivers/gpu/drm/adp/Makefile                       |   5 +
- drivers/gpu/drm/adp/adp-mipi.c                     | 251 +++++++++
- drivers/gpu/drm/adp/adp_drv.c                      | 594 +++++++++++++++++++++
- drivers/gpu/drm/panel/Kconfig                      |   9 +
- drivers/gpu/drm/panel/Makefile                     |   1 +
- drivers/gpu/drm/panel/panel-summit.c               | 132 +++++
- 17 files changed, 1424 insertions(+)
----
-base-commit: b62cef9a5c673f1b8083159f5dc03c1c5daced2f
-change-id: 20241124-adpdrm-25fce3dd8a71
+-- 
+2.48.0
 
 
 
