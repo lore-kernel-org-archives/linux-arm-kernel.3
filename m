@@ -4,90 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01AECE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 15:31:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2509E7719C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 16:49:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pwdo4qQeCKznPv9ebQBvPBmgu2DZRJWGaG2NfRNb44U=; b=Za5/dcv1wpNBe6GtuMS4UhOr6E
-	XV8cIqINEWSk7qTxlJsWb/iI91xWQeoQ7Ll28dVMB/ZgsY1i0gxTCiq/91XMHgaoDJWoFhsgX10CS
-	rQxzml6pWqq9TAd+iHD37YdhIf3waGNtLtM81IRLDjCXpZmxrsMKrjhLky25mjfZNPGLUbKOo+K1u
-	NWcReCuLDBXTJdtWCL3KK98mH5B/ak+os3PC0Pxtlc8d4GkEo9LGPWzoCQKyjUXtcZXhRCdVGsHRG
-	h0tn5E7vwsZOgtJYBsCSITME+w4aekpEYo5MxtTddrA3AAj1wGGPz060rFP1qWb1JdwnsV6NRb4qp
-	oofZ2I2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4sen/KQvowlVDuXXQp6C1WU9Vh4kdtp0pCZBfFYVlVk=; b=P3xHMHkzabLX6v0sTrhGgU+GJf
+	UG8lcmJZwqEN1hfusNhWLeBCDdmBbxeWLFIPmboBgQpehbke5yFDCiWpVG5RgKfW9ABUhUkTez/Kc
+	eXrohiQNriyONCSHLsAXNdNpzLCfDa6glALORv0QbsadKsS0R9hxiHzzzCIF9+hsTGSwSC36HFj8/
+	zrIidjS2LgJ41gVWFUItIyUR7Cp/xpLRaTbL6H8nitKdD9eiw1KCv+FN16TuTua/AgFa40czDac5w
+	7GtoHIR8Ufggg8TZOTQ1tN3nRLxJeVSlV08wYLZO17WK78j/ANimIQsH8qx0f6oXlrrA6r9xHgFru
+	2NoQCP/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWzvO-00000002yUJ-3JLx;
-	Sun, 12 Jan 2025 15:30:50 +0000
-Received: from mail-ot1-x334.google.com ([2607:f8b0:4864:20::334])
+	id 1tX18s-000000035Pj-1rPz;
+	Sun, 12 Jan 2025 16:48:50 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWzsf-00000002xo3-0SLa
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jan 2025 15:28:02 +0000
-Received: by mail-ot1-x334.google.com with SMTP id 46e09a7af769-71e17ab806bso1940053a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jan 2025 07:28:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736695680; x=1737300480; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Pwdo4qQeCKznPv9ebQBvPBmgu2DZRJWGaG2NfRNb44U=;
-        b=Qp7luOBfdr2vZ/YwG0OVQNgJDm+Eg4kn+ythMctGk0Xe8LfR0XzJk5SgUY80AQTwc3
-         qQ59/fSTeAmnrizElPxAk1SY0BY36ZSZpP/TsyammDFpLLTQdNIOwT5w/7VaXGh9z5Am
-         /Sb8JfogQDvupCwPI1DrVWPaz348CdgHFMy192TXKg/kQjXHMFTlrsqE19yy+R9wNzMz
-         fCJ79Y9ROnTEvW9rhjZgFkRhBs++otYyEuKmArbmct1IXB5PGG3KVrrTRsF33IFBeciE
-         BdHiGtSe+Iud8jLT9uPdI0eIvUIc+fPBHDzLgCb9KHrICG7zl2zRDIJyAdlV0ilVju2O
-         qRVg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736695680; x=1737300480;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Pwdo4qQeCKznPv9ebQBvPBmgu2DZRJWGaG2NfRNb44U=;
-        b=Nn+Y2AyvzLrO1tEtVqJumLS1x5o+5oE9r33EMTqwMaq7cETeUCpTH9BFJ61MpAHz2x
-         K4oeBuKeo4F2gchxSFVycqLyjXSxbPY6jMjOUcaClCX8ICNRPOsXVtQyXjQ1v8n/L4jW
-         RthWcPZ7cLGo9xANL1xIG+LxDaSF90cpc2CTS69Z9Mc/PPTGeE5KU+EMS7Pnl9yGtMyg
-         Qaj9uyqc0VcmHwVVj2iul8BZjH5jwJcs1gBStsnWdS2MM3KlWQQ1QdKBrdp0OQWx2dER
-         1PfXtLH7V4EcQ8HiVU7pARzsQGwbTnKyv6gsgvQ37MyDYG95a7V3FL9wZlU8e4JKNAFZ
-         7H9A==
-X-Forwarded-Encrypted: i=1; AJvYcCUD+Q0w/2ONEW9fgWu/s5ildaeImPKFs71c81TFoqKZ3uggv1hF3nT94Q0TGoOJ8UYetUzCE6pei2Hf0djPaiwW@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhNdG8PP6WJFffqSmB63Jmydwd/ygbIP0ySZobod5MFVcVuqp2
-	VH9jbKe27/5JAo0nMkdKeZy8jQf8USuegbwHi9NoSTgOc63eUnmp
-X-Gm-Gg: ASbGncu6uPf6EJ0rOOI59vE+M5GT0f+omFQft7muxwXna6gqY+njAZ2LcNKszHpuSOS
-	N6cXG3YBW0Cs/jTMJP7yMhE0x2OX5EPT+ToQF89pE15PVsPHfmrCYEMfPWj9c+OyTTqsgVb3YpY
-	JSwekVfKcQNPxFBXEBOd62hNKI1I370vV5WWvS6d4ez+h7uYiH0prU23YEqa0bV4kAK2pjGOaFP
-	AJzsCmXuglGwsB3EIIakRXeRD5lUB6AbRrEUISGbYkd+X3Qx0KP9T4TnlkS3RhWTfWcAA==
-X-Google-Smtp-Source: AGHT+IHGgArEfN9u2RPH9RRrlk20P9prFqs8qFY9RW76sTAmV/urO4/B2SkzhIvQzXSVvGyn3gaIBQ==
-X-Received: by 2002:a05:6870:7e8c:b0:29e:2d50:11aa with SMTP id 586e51a60fabf-2aa066b6229mr9191645fac.18.1736695680164;
-        Sun, 12 Jan 2025 07:28:00 -0800 (PST)
-Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:8c53:b609:d83:9568])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-2ad80547c11sm2858083fac.18.2025.01.12.07.27.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Jan 2025 07:27:58 -0800 (PST)
-From: Fabio Estevam <festevam@gmail.com>
-To: shawnguo@kernel.org
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	kernel@pengutronix.de,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
+	id 1tX17c-000000035IA-0wO6;
+	Sun, 12 Jan 2025 16:47:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=4sen/KQvowlVDuXXQp6C1WU9Vh4kdtp0pCZBfFYVlVk=; b=d5hw8F+xTeAqzu4BiYHbCWkGBP
+	atom2+LrfuHb383eByLuiMaRP0Wm8aBJeVo6zhtblFvwIfFHwWNlXyAV/qi1EDOxp8RUxdRkdZERt
+	qDKR8+a5+MSbySi8vPZCqC28vfyssjmkcxal1QH4IJMTmnCB64OV2sj9Vm1dyOcT2Ndc=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tX171-003q0p-8Z; Sun, 12 Jan 2025 17:46:55 +0100
+Date: Sun, 12 Jan 2025 17:46:55 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+Cc: Michael Hennerich <michael.hennerich@analog.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Qingfang Deng <dqfext@gmail.com>,
+	SkyLake Huang <SkyLake.Huang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Arun Ramadoss <arun.ramadoss@microchip.com>,
+	UNGLinuxDriver@microchip.com, Xu Liang <lxu@maxlinear.com>,
+	Piergiorgio Beruto <piergiorgio.beruto@gmail.com>,
+	Andrei Botila <andrei.botila@oss.nxp.com>,
+	Heiko Stuebner <heiko@sntech.de>, linux-kernel@vger.kernel.org,
+	kernel-janitors@vger.kernel.org, netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Fabio Estevam <festevam@denx.de>
-Subject: [PATCH v2 2/2] dt-bindings: clock: imx5: Fix the CCM interrupts description
-Date: Sun, 12 Jan 2025 12:27:45 -0300
-Message-Id: <20250112152745.1079880-2-festevam@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250112152745.1079880-1-festevam@gmail.com>
-References: <20250112152745.1079880-1-festevam@gmail.com>
+	linux-mediatek@lists.infradead.org,
+	linux-amlogic@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH net-next] net: phy: Constify struct mdio_device_id
+Message-ID: <9dfeb860-3c0c-4f16-a150-fdce133281e8@lunn.ch>
+References: <403c381b7d9156b67ad68ffc44b8eee70c5e86a9.1736691226.git.christophe.jaillet@wanadoo.fr>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <403c381b7d9156b67ad68ffc44b8eee70c5e86a9.1736691226.git.christophe.jaillet@wanadoo.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250112_072801_147406_DC9F8AC1 
-X-CRM114-Status: GOOD (  10.66  )
+X-CRM114-CacheID: sfid-20250112_084732_293906_929A97D9 
+X-CRM114-Status: UNSURE (   9.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,41 +95,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fabio Estevam <festevam@denx.de>
+On Sun, Jan 12, 2025 at 03:14:50PM +0100, Christophe JAILLET wrote:
+> 'struct mdio_device_id' is not modified in these drivers.
+> 
+> Constifying these structures moves some data to a read-only section, so
+> increase overall security.
+> 
+> On a x86_64, with allmodconfig, as an example:
+> Before:
+> ======
+>    text	   data	    bss	    dec	    hex	filename
+>   27014	  12792	      0	  39806	   9b7e	drivers/net/phy/broadcom.o
+> 
+> After:
+> =====
+>    text	   data	    bss	    dec	    hex	filename
+>   27206	  12600	      0	  39806	   9b7e	drivers/net/phy/broadcom.o
+> 
+> Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
 
-On the i.MX5 chips the peripheral interrupts are represented directly only
-by their interrupt numbers.
+Seems sensible.
 
-Make the CCM nodes to follow this format.
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-Signed-off-by: Fabio Estevam <festevam@denx.de>
----
-Changes since v1:
-- Use interrupts = <71>, <72>;
+Is the long terms goal to make MODULE_DEVICE_TABLE() enforce the
+const?
 
- Documentation/devicetree/bindings/clock/imx5-clock.yaml | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
-
-diff --git a/Documentation/devicetree/bindings/clock/imx5-clock.yaml b/Documentation/devicetree/bindings/clock/imx5-clock.yaml
-index 423c0142c1d3..ad03c0a13e64 100644
---- a/Documentation/devicetree/bindings/clock/imx5-clock.yaml
-+++ b/Documentation/devicetree/bindings/clock/imx5-clock.yaml
-@@ -46,13 +46,11 @@ additionalProperties: false
- examples:
-   - |
-     #include <dt-bindings/clock/imx5-clock.h>
--    #include <dt-bindings/interrupt-controller/arm-gic.h>
- 
-     clock-controller@53fd4000{
-         compatible = "fsl,imx53-ccm";
-         reg = <0x53fd4000 0x4000>;
--        interrupts = <0 71 IRQ_TYPE_LEVEL_HIGH>,
--                     <0 72 IRQ_TYPE_LEVEL_HIGH>;
-+        interrupts = <71>, <72>;
-         #clock-cells = <1>;
-     };
- ...
--- 
-2.34.1
-
+    Andrew
 
