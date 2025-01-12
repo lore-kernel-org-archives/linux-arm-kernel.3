@@ -4,112 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BC06E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 13:40:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C6CEE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 13:42:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TB4adxko33N4lxV8vB34w9Deg0raCbTSnaXjgezepI0=; b=Cq4jDufPzwAUvHw7XFfkaXzcSU
-	D5NsNq1sGs9F8p5fnQJKQmDj2JnT2SBQ3gfBISQcaNgZxxw85/O9eT7Z4Torl1mBLfVnOVh9kv+4I
-	FsbbuODcwVpO9a3k6I0DhutqLKH3H36gUJmzOHSh9ty7uf2F+tblRZc4exrcuP0uysgF3uP7xzqeV
-	+zxAf3w8K9XyfMDCQSm1nEMwegIqmZot+kY+bhpxLz64mCOc+PFO8WNqKSIvIrYXHTzyfz8UP1nKJ
-	eLWa2m3swl69i+JwBOdmdbpdHbCDWdoNxIbd6P7vILsHeZ7CRsXSc5Qk+CCIIvNVGpUKjI62aakfT
-	rdLlKeNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N+BSR2G0cMJ9Y7HcWPQWzV/6c0g6tf2URTDEKKAmo2c=; b=cLCwC7705sLfVPNBV2gBDBHayQ
+	X9MWOp8Pn0Af5ehwdWKQwr0/2Lc8fDe3FQ56/3u+wDxnbNbJy0qbUPxBGSE94hl1A7L4hZqyrsZkY
+	duP2gb6ghstHJk80gFz2BMu8ujc6YNqLsy+43g0ezHqhT+AR5U9zK448XCyPhzRh5zSTOjz93vItG
+	DmbgruADSHsu2vXXyOtT2YQXdkxfJIDrlGVEOgnCBT04dskX8VnCQO0gmuu+jQ1GavZOK4ifUVNX1
+	IEMpkUunSykwtZYFGEAWM9O/87E3DwCy2wYSZ+S/BkV8Na21/VsU2dtLEHLEG4tJWksKLnMLZIirq
+	z1LPGV0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWyCk-00000002n63-0RCo;
-	Sun, 12 Jan 2025 13:40:38 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
+	id 1tWyDx-00000002nOY-3PTQ;
+	Sun, 12 Jan 2025 13:41:53 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWy5Y-00000002ler-3vY1
+	id 1tWy8i-00000002mNj-1ZCs
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jan 2025 13:33:14 +0000
-Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-5d3ea2a5a9fso441143a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jan 2025 05:33:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736688791; x=1737293591; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=TB4adxko33N4lxV8vB34w9Deg0raCbTSnaXjgezepI0=;
-        b=zpJlymowe7mhELLVgjrh+onfq2styhDj3IWlTk39Emlt7FsASh7T1rhUNPAqsQkyFM
-         ixxueDtuUBG8CJAXuiTesmIKD+94P1+2dtsbyZ98N/0Cjy6KsnqjxOP8JOCaFXaviOgL
-         i+W8dNKPNBVgm/xOlmEqAvRGLoS2wRkPH9T6fsY2FQThwCF7+7mG4GsWyy0NtUiBza38
-         1AgcPyaPZxAzPvg+OPe/bntUdvIsBS3v0E6GjoM/Tf4RI2ncN7oSsKH//6EQZy/do179
-         MjVE4YVZnKGWqqNhGyK+HyrKswd1z0+7+/EFB8EiXsg1+WZ2pADH05hEx1/QRy1nNEod
-         lTqw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736688791; x=1737293591;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TB4adxko33N4lxV8vB34w9Deg0raCbTSnaXjgezepI0=;
-        b=iL63YdXqnhNXcWA2cw0pXGZetP6VsIazc1ipnIQJO9Ikj8urABEUjj0UnVj6K6gMh5
-         DI1I1JXgWqVfubQ8aoD/v4F592/FCpxh948wMZaGi9X9BlM5CjhIFwS1IDm/nF8nfRpC
-         4dG/kXEWP/IJ+BbTFG2/NE5DaqV8b85/FtzLF1VrMwWHz5mp21ebzpFba8NbyDCjft/2
-         hz3bbA4s0q9b0o+52jfU6z+Fp60DFN8h9b6/y1Kq34PvX+sxbRjrn6YuYhehwjqMr3T3
-         wEDO3MqxPrgwFzVelWjgfHDw41o7EWzO2q1KhuxZhVhNPglK9Shm6mcPh0NHLo+5kHWp
-         c+ig==
-X-Gm-Message-State: AOJu0YzkvM3LhMN7IW83q5hBfUEtuzoYOsKjYVTlQofs8PeVe0cov6EJ
-	K830ZtY1CnK8PyJ70T6xGeOFg450VuZUyc3VUdnGVHTcabXed21pGzYhhzEU+xw=
-X-Gm-Gg: ASbGncu6s8w5j9ue+Hzg08YnDsS0Jpd8VHe16HhvDzG4DMfz1EHD6WYZenoZXdaTxFx
-	IgSTPQByoMxw33qsWRyNWTKZCL+M8N7K0wbX6yVWByxdk3dzwoZwaMnGa+asn0WYIL0OdAE34r5
-	uZRk184V09KOCLllMT5GvdOpu86E+hEdm/VW6zpkUSzhHv3hduUAExCN0MgQbZRrmqnXoIi6cL/
-	twjMKPA8TqJbCu0YMLHs9QSEbjSrbtWEfRDLdOvZH0+GO7eFvrkw40eWGzKI1HH8LBprJCI
-X-Google-Smtp-Source: AGHT+IHIeA9RUVsHVjCtYBXrSzIpeTFeEgLh0b/t4eC6XNfpXfMITPN9fmFvIdYvwM7BkZDK6rGKqw==
-X-Received: by 2002:a05:6402:2355:b0:5d0:8111:e946 with SMTP id 4fb4d7f45d1cf-5d972e15f45mr5790801a12.5.1736688791295;
-        Sun, 12 Jan 2025 05:33:11 -0800 (PST)
-Received: from [127.0.1.1] ([178.197.223.165])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d9903c4477sm3584609a12.51.2025.01.12.05.33.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Jan 2025 05:33:09 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Date: Sun, 12 Jan 2025 14:32:47 +0100
-Subject: [PATCH net-next 5/5] net: stmmac: stm32: Use
- syscon_regmap_lookup_by_phandle_args
-MIME-Version: 1.0
+	Sun, 12 Jan 2025 13:36:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7F8F35C4076;
+	Sun, 12 Jan 2025 13:35:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E22A1C4CEDF;
+	Sun, 12 Jan 2025 13:36:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736688987;
+	bh=QZcrZWvks66LVdzTQOYREinftqMEv37ZYZC7nabyMGc=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=WF1QK/k0pcSAWth0kTisAImgLfWO4kjyamVC+wBdQ5aXS9RpK99JQOxe1XQ9XlhDM
+	 r2A7TGAxd7E5q+2k/436AK47nAy2G3MSUDZWGVlBpm9D/86Y0Vi+gytxE1Ov086h61
+	 2bNAeak5aJEynjCo5mAVlNrYZ8pZIS1jJnMGl5kCTxG8dbWj//hYQuuyP0cGhQb30A
+	 lN5MInbo46T9FhWyz7Sbli7+9h0WIKd/8rsIBwhGpTn/aRfsvbaOzOXNjjhDH8BiZG
+	 9eigd+xnO6QXkfRabc7LX8ev9u42R+sEDP1INtwutJxUpko8MfOfc2RyV+YB1cNvQc
+	 /pZCO1BBa0cyA==
+Date: Sun, 12 Jan 2025 07:36:25 -0600
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250112-syscon-phandle-args-net-v1-5-3423889935f7@linaro.org>
-References: <20250112-syscon-phandle-args-net-v1-0-3423889935f7@linaro.org>
-In-Reply-To: <20250112-syscon-phandle-args-net-v1-0-3423889935f7@linaro.org>
-To: MD Danish Anwar <danishanwar@ti.com>, Roger Quadros <rogerq@kernel.org>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Jose Abreu <joabreu@synopsys.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- imx@lists.linux.dev, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1641;
- i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
- bh=56BLcFVoX+7Lw71cTwO9yffs0jhx9suVmg3Qou8SBBk=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBng8SEkQmvfABZs7QuVyVH4wapih3fPoh+Xo3JF
- lM90gZIsb6JAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCZ4PEhAAKCRDBN2bmhouD
- 14yoD/9oAXKquSceP15cb4gscg+NjoZ+s/tq5Q7p4hSunWTAFL8/Wd9T3H6hKFgZZce+fKazJeH
- OuMNJ+xcL0SXlWwVY9G4b9YXdEuYoJA6TSXQUiajhx0AbWHblwVbebmLTEJVyYxSPWKdYMkDOM1
- TwZdHK7mwNYgdJvCSJ5ND4AME0ONupR57eCjYKJHW06hflFBoqQ8JoXGpkG1cVrGrD5Yc/OpRdL
- qs0TPrx9Pcx0TLduLA4Y0WEIwAjWwQqipQVQXuiGf7bJDAcmgmrl3MMGhztBFz53tcAzWArA+wz
- vb3OxaD76FgG1AH8bHu1gUF6XiOMqGyO5MNclKzxnq20cnvmD51A9HJVo4AZ6Kn5iyQ2Uc7JAmX
- f852BpZXk+tD20hJ4LWw1CunjrtcZMKrTZs3KwJJqwhYUcylqd5+Jud0bH/kIJ0hy0kr4HV12ME
- 3cNiRRBx75ErXkyDnOh85zzcqJ1wHwyKln9Bu5QVcuOFmneuqUyzyCf1YYN/Yo/V1dGEMoThVcc
- Q91OFMfYpRjz4xynGG/SP2H+RVf9RMxS4KE0TyKWEUrX2T7KR3PB9WV0SZsrOss40nqpKqD7WaP
- y8K8kyRxarGD7SGNq5RqQXaHmQcDpKew2kHjLq1oC/56T8THHvlHWulDPgyaCHBrlE/uSvzogDW
- bj/Ib9m93TZhnaA==
-X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
- fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: krzk+dt@kernel.org, devicetree@vger.kernel.org, conor+dt@kernel.org, 
+ shawnguo@kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, Fabio Estevam <festevam@denx.de>, 
+ kernel@pengutronix.de
+To: Fabio Estevam <festevam@gmail.com>
+In-Reply-To: <20250112122939.988309-2-festevam@gmail.com>
+References: <20250112122939.988309-1-festevam@gmail.com>
+ <20250112122939.988309-2-festevam@gmail.com>
+Message-Id: <173668898583.2984154.9988580107147542250.robh@kernel.org>
+Subject: Re: [PATCH 2/2] dt-bindings: clock: imx5: Fix the CCM interrupts
+ description
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250112_053312_985085_3D43CB15 
-X-CRM114-Status: GOOD (  10.80  )
+X-CRM114-CacheID: sfid-20250112_053628_457763_404B3C3C 
+X-CRM114-Status: GOOD (  11.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,46 +75,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use syscon_regmap_lookup_by_phandle_args() which is a wrapper over
-syscon_regmap_lookup_by_phandle() combined with getting the syscon
-argument.  Except simpler code this annotates within one line that given
-phandle has arguments, so grepping for code would be easier.
 
-There is also no real benefit in printing errors on missing syscon
-argument, because this is done just too late: runtime check on
-static/build-time data.  Dtschema and Devicetree bindings offer the
-static/build-time check for this already.
+On Sun, 12 Jan 2025 09:29:39 -0300, Fabio Estevam wrote:
+> From: Fabio Estevam <festevam@denx.de>
+> 
+> On the i.MX5 chips the peripheral interrupts are represented directly only
+> by their interrupt numbers.
+> 
+> Make the CCM nodes to follow this format.
+> 
+> Signed-off-by: Fabio Estevam <festevam@denx.de>
+> ---
+>  Documentation/devicetree/bindings/clock/imx5-clock.yaml | 4 +---
+>  1 file changed, 1 insertion(+), 3 deletions(-)
+> 
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c | 9 ++-------
- 1 file changed, 2 insertions(+), 7 deletions(-)
+My bot found errors running 'make dt_binding_check' on your patch:
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c
-index 1e8bac665cc9bc95c3aa96e87a8e95d9c63ba8e1..1fcb74e9e3ffacdc7581b267febb55d015a83aed 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c
-@@ -419,16 +419,11 @@ static int stm32_dwmac_parse_data(struct stm32_dwmac *dwmac,
- 	}
- 
- 	/* Get mode register */
--	dwmac->regmap = syscon_regmap_lookup_by_phandle(np, "st,syscon");
-+	dwmac->regmap = syscon_regmap_lookup_by_phandle_args(np, "st,syscon",
-+							     1, &dwmac->mode_reg);
- 	if (IS_ERR(dwmac->regmap))
- 		return PTR_ERR(dwmac->regmap);
- 
--	err = of_property_read_u32_index(np, "st,syscon", 1, &dwmac->mode_reg);
--	if (err) {
--		dev_err(dev, "Can't get sysconfig mode offset (%d)\n", err);
--		return err;
--	}
--
- 	if (dwmac->ops->is_mp2)
- 		return 0;
- 
+yamllint warnings/errors:
 
--- 
-2.43.0
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/clock/imx5-clock.example.dtb: clock-controller@53fd4000: interrupts: [[71, 72]] is too short
+	from schema $id: http://devicetree.org/schemas/clock/imx5-clock.yaml#
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250112122939.988309-2-festevam@gmail.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
