@@ -4,67 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA0D9E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 18:35:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6A49E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 18:43:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cNNEQTfDk8Yom1JObfiP3ux4k8qElkfZC1BvWtIlhPM=; b=PR23h9khfaLjp3tKw81uh/ly3Q
-	E6586o3SvJScz5wpk+z4w16gzazL6ZrwXWDV3nvaXpSikUt2H98YK4tpL6lzWLgMXs9y+aoXgt4Zw
-	EBT3vzkNdNPSn9qeUweJCA47KYW9aZs3Q0CRwVTET7R1xTaIY4FUT3co6pWPhqIHOjacnCUP2HqQw
-	e8mq7A0XtRz7opaQ8g0ECephLs9H8/NP9Ksp+M6hRV6wFKTiwuoh+98MNWrRrhyVZXuYmBx1fa5fM
-	o44zeyWD6lJpQqhshp7bCLt80EY7ksSuzOVYilxH4rmo5OhdazELvYYWI/J2qSc8N1ac7MP9qrmy0
-	nnI2USVA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hu8tlV+AImA7XSKCrIANalfshktTpBGCYwDBJTyvc6c=; b=KVaB6YGDF+2qQywV3X7K8RkrQu
+	glozeDNoLjMTjnzCmzui1w5rKZhpLpwRSbow2WHRPRVIizR2D9swCebSwhQ6ryM5B71BHUZLlYXYI
+	o+lWGL4FVyaMs1KOcdNiQTHiDkV6hu/jh7V6Tjhm1pY33gLiYd6WSsn8MpvS1evjbl1db4LPKZX8q
+	1nPm6NmIgbTZD/KE1Ykpx4rVQHiVUiViB02cpajiWh9cutT/MH/XTMrEL4UtS0mFo8cgvc7x+PuA8
+	4PvTC99w9DTwPs0QbSllHjGaJbdgBvzqT89kKb0xjm/i7MoTezBDtJEcewnt2xwm3DtJt8V9L4g7x
+	Z/acXIzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tX2nP-00000003GH2-0Pn8;
-	Sun, 12 Jan 2025 18:34:47 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tX2vO-00000003H9X-2WWU;
+	Sun, 12 Jan 2025 18:43:02 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tX2m9-00000003GCh-2cCc;
-	Sun, 12 Jan 2025 18:33:30 +0000
+	id 1tX2u7-00000003Gfw-475k
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 12 Jan 2025 18:41:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 73EDAA40708;
-	Sun, 12 Jan 2025 18:31:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEA33C4CEDF;
-	Sun, 12 Jan 2025 18:33:26 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 12D785C48BA;
+	Sun, 12 Jan 2025 18:41:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 71249C4CEED;
+	Sun, 12 Jan 2025 18:41:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736706807;
-	bh=4WQQaCak4TJuaVWaDAMb3yACSDF7AlTUwq82HMM4tQo=;
-	h=From:Date:Subject:To:Cc:From;
-	b=vDAXRM3US9kpZLqIDfuJztnFopiRf/XL2Z4SjUeicqPbmPgFeZXBiEFWAmR+1dqgz
-	 ol7fQN0lR0fA1RIByTY04bp+PH1doZpW/Sh5xeURJco7kvHWizz7dmdkbDMiKEFcqG
-	 pwuDNoLMFMTbGJDNThywbLMPW3NLy0Fy0emoLF5LQZv5YeiLBejN4YSRuLBxoy0EbN
-	 UeEgJkebg1bWdFTc+pkLhoe489MFibL2m7f3g4g8rfQ0bgcoP92X9C4idZIGI8l0wk
-	 T5PxrL3TGDn8YFwUOjf7vAHro5PaKb/eaN9K4tY+qnHyL8zxfGHg5O4bWQY9FuyB3n
-	 DBCngiY45Iv3A==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Sun, 12 Jan 2025 19:32:45 +0100
-Subject: [PATCH net-next] net: airoha: Enforce ETS Qdisc priomap
+	s=k20201202; t=1736707302;
+	bh=mfzps7MrY/bcz2UOrFkJP6HwpcWdEzOi6VXm2UtiSLM=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=gmM0o+N5BZKpmf9pSN8jbpqgiaALBly7UPVknThgrJfzmJcrpSvA0AihIrpcoJtIS
+	 I7R8cWvs4YYL5mdQCGNZVMvoUatEKdBseudRKd9Mj+bvc+dd8gYYA87jF1rsF1IP1B
+	 Q6eS83W3D2IEzIUicsljY3FVlolYoI+TgHTPhMLWa59KAVK3CpsmMf4fzmRVI13Su3
+	 zjcGLHmBojmYvGR5BNCEmcVNZgRPgK7kikxXTOSdvd0GdiHUFJEUgzhQLfXI3BSGmC
+	 8g4Wa1SYXtAcbSHArSD6ez/ISwE1u9BwT6MYACKtjC0/5ois38K97zJPS+2yp6eu+h
+	 DnqMSBNd9B3AQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 55C54E77188;
+	Sun, 12 Jan 2025 18:41:42 +0000 (UTC)
+From: Sasha Finkelstein via B4 Relay <devnull+fnkl.kernel.gmail.com@kernel.org>
+Date: Sun, 12 Jan 2025 19:41:35 +0100
+Subject: [PATCH v3 4/4] MAINTAINERS: Add entries for Apple Z2 touchscreen
+ driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250112-airoha_ets_priomap-v1-1-fb616de159ba@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAMwKhGcC/x3MMQqAMAxA0atIZgs2WBGvIiJBU82gLamIULy7x
- fEN/2dIrMIJhiqD8i1Jwllg6wqWnc6NjazFgA26xlo0JBp2mvlKc1QJB0WDzmHXUtuT91DCqOz
- l+afj9L4fh7NURWQAAAA=
-X-Change-ID: 20250112-airoha_ets_priomap-255264a48aff
-To: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- Davide Caratti <dcaratti@redhat.com>, Lorenzo Bianconi <lorenzo@kernel.org>
+Message-Id: <20250112-z2-v3-4-5c0e555d3df1@gmail.com>
+References: <20250112-z2-v3-0-5c0e555d3df1@gmail.com>
+In-Reply-To: <20250112-z2-v3-0-5c0e555d3df1@gmail.com>
+To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Henrik Rydberg <rydberg@bitmath.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-input@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Sasha Finkelstein <fnkl.kernel@gmail.com>, 
+ Neal Gompa <neal@gompa.dev>
 X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1736707300; l=1260;
+ i=fnkl.kernel@gmail.com; s=20241124; h=from:subject:message-id;
+ bh=DolVP44jd1KXaKyL604wEY81MMwwSbO5gUWo7+wphsY=;
+ b=NhvWzFlm/5HCPps/mEweIMa0RiunolaAB9St3Bq7UUTyCbgCkeqmaPkaqoQUPsvrLO2W1VQ59
+ smCIUZTcS+7BzDfuu6SSqU//daFhO58PStBmVuluBUcllnI0iuyzyZ8
+X-Developer-Key: i=fnkl.kernel@gmail.com; a=ed25519;
+ pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
+X-Endpoint-Received: by B4 Relay for fnkl.kernel@gmail.com/20241124 with
+ auth_id=283
+X-Original-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250112_103329_735328_BCF58B2B 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20250112_104144_069649_7F2EA51E 
+X-CRM114-Status: UNSURE (   9.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,63 +90,43 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: fnkl.kernel@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-EN7581 SoC supports fixed QoS band priority where WRR queues have lowest
-priorities with respect to SP ones.
-E.g: WRR0, WRR1, .., WRRm, SP0, SP1, .., SPn
+From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 
-Enforce ETS Qdisc priomap according to the hw capabilities.
+Add the MAINTAINERS entries for the driver
 
-Suggested-by: Davide Caratti <dcaratti@redhat.com>
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Reviewed-by: Neal Gompa <neal@gompa.dev>
+Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
 ---
- drivers/net/ethernet/mediatek/airoha_eth.c | 17 +++++++++++++++--
- 1 file changed, 15 insertions(+), 2 deletions(-)
+ MAINTAINERS | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/net/ethernet/mediatek/airoha_eth.c b/drivers/net/ethernet/mediatek/airoha_eth.c
-index a30c417d66f2f9b0958fe1dd3829fb9ac530a34c..415d784de741c991fa521243783860dee1ed0bfa 100644
---- a/drivers/net/ethernet/mediatek/airoha_eth.c
-+++ b/drivers/net/ethernet/mediatek/airoha_eth.c
-@@ -2793,7 +2793,7 @@ static int airoha_qdma_set_tx_ets_sched(struct airoha_gdm_port *port,
- 	struct tc_ets_qopt_offload_replace_params *p = &opt->replace_params;
- 	enum tx_sched_mode mode = TC_SCH_SP;
- 	u16 w[AIROHA_NUM_QOS_QUEUES] = {};
--	int i, nstrict = 0;
-+	int i, nstrict = 0, nwrr, qidx;
- 
- 	if (p->bands > AIROHA_NUM_QOS_QUEUES)
- 		return -EINVAL;
-@@ -2807,7 +2807,20 @@ static int airoha_qdma_set_tx_ets_sched(struct airoha_gdm_port *port,
- 	if (nstrict == AIROHA_NUM_QOS_QUEUES - 1)
- 		return -EINVAL;
- 
--	for (i = 0; i < p->bands - nstrict; i++)
-+	/* EN7581 SoC supports fixed QoS band priority where WRR queues have
-+	 * lowest priorities with respect to SP ones.
-+	 * e.g: WRR0, WRR1, .., WRRm, SP0, SP1, .., SPn
-+	 */
-+	nwrr = p->bands - nstrict;
-+	qidx = nstrict && nwrr ? nstrict : 0;
-+	for (i = 1; i <= p->bands; i++) {
-+		if (p->priomap[i % AIROHA_NUM_QOS_QUEUES] != qidx)
-+			return -EINVAL;
-+
-+		qidx = i == nwrr ? 0 : qidx + 1;
-+	}
-+
-+	for (i = 0; i < nwrr; i++)
- 		w[i] = p->weights[nstrict + i];
- 
- 	if (!nstrict)
+diff --git a/MAINTAINERS b/MAINTAINERS
+index a87ddad78e26f28ffd0f3433560d6db1518f9f95..8b3776eb748e128f87c44886b117e0652447fb37 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2191,6 +2191,7 @@ F:	Documentation/devicetree/bindings/clock/apple,nco.yaml
+ F:	Documentation/devicetree/bindings/cpufreq/apple,cluster-cpufreq.yaml
+ F:	Documentation/devicetree/bindings/dma/apple,admac.yaml
+ F:	Documentation/devicetree/bindings/i2c/apple,i2c.yaml
++F:	Documentation/devicetree/bindings/input/touchscreen/apple,z2-multitouch.yaml
+ F:	Documentation/devicetree/bindings/interrupt-controller/apple,*
+ F:	Documentation/devicetree/bindings/iommu/apple,dart.yaml
+ F:	Documentation/devicetree/bindings/iommu/apple,sart.yaml
+@@ -2211,6 +2212,7 @@ F:	drivers/dma/apple-admac.c
+ F:	drivers/pmdomain/apple/
+ F:	drivers/i2c/busses/i2c-pasemi-core.c
+ F:	drivers/i2c/busses/i2c-pasemi-platform.c
++F:	drivers/input/touchscreen/apple_z2.c
+ F:	drivers/iommu/apple-dart.c
+ F:	drivers/iommu/io-pgtable-dart.c
+ F:	drivers/irqchip/irq-apple-aic.c
 
----
-base-commit: 7d0da8f862340c5f42f0062b8560b8d0971a6ac4
-change-id: 20250112-airoha_ets_priomap-255264a48aff
-
-Best regards,
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.48.0
+
 
 
