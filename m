@@ -4,93 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF5D5E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 10:38:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8008E7719C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 10:43:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sjZIf+MqzlX40O8hdTacUc+jXg2UIC0x4trWd6422To=; b=HlcTfyzcDkTb398tN7qftVMN+0
-	0O4cJ+ub0SUSrwPTvihT6Y8+ljGP7RZcqUvxiBlutaEeAjYv26laH6a91k2rGYBX7VW4P/pvbv9Ox
-	A961LmFQ5oh0PZ58Jzixcjybl5fXdxphDJhjlDXxwKq6BJJ9QMET/fjbYvqDJS6OiPy/oJTqREr91
-	aS1xggz5QfYvFmfZa2b5Or58HkqpxacQ4cxAZ7WX3rtmr3jLojMFlUOwpfmym5jk2PJSR9PdeiUYc
-	nH+b0yL/uT+Bx19gTkdddC4OpX3CYSqtPxltA22+JE+R2IIZDAuYxNCqys0lk9araeTIal6s8AYcF
-	cqDzkFyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DQKaCrLafnAeCsjenj8BSF9jYYSFkigm9jehL8ddLSo=; b=J7uzQRaKGLHHvy+yvuRkY01jhO
+	cAhk/Ljpp+8JK6ZXMKzcEXgmEbfPcheg7NYOTN8F6CdpqkFdLRZY9/oeF0FEDcZNa7klFTpGwGJEi
+	s5eaa6fBEp3+jFOhd2m4FRf/YgOTRFb/8MOtr6rh4ckxFLYrqNoFPTU2jhQxcLtL6vNcZI292fVWS
+	gCVVcb5fbnFGtEwAVwZZSr5d6OyeRdxbubMUzVeYyIlqclk53zg3hays22VrfMdKdRKULaBAcFAy5
+	XvSmTbDphbpEeHhMv1/DtYMep9TzKKRpyD234bJT7HS/KdwQGvbEKJZD2lnAbZNihcybW/KtY/esh
+	k+2SdZag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWvMA-00000002WTJ-1VsG;
-	Sun, 12 Jan 2025 10:38:10 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1tWvRN-00000002Wyz-3LQ1;
+	Sun, 12 Jan 2025 10:43:33 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWvKr-00000002WA1-3pEp
+	id 1tWvQ7-00000002WlX-2slD
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jan 2025 10:36:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1736678207;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=sjZIf+MqzlX40O8hdTacUc+jXg2UIC0x4trWd6422To=;
-	b=goh6LFI0BorCJNDiSrzjPNHTJPbuCbid6WOTNGhx7jU99Bm5zzdEvIo168uYZTDDpGuBp7
-	UnSKNw3LiOYAUyn9/jY+Hj8q5VKzPF7uEs6j9R1lDkNz92IQ3905eGmtInMMCNrgQLCm/E
-	LGMY9P8MDhWMPusJynLhGLHCy3iH3k8=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-543-0DSN8VPiNBSr_DA-YHIeIA-1; Sun,
- 12 Jan 2025 05:36:43 -0500
-X-MC-Unique: 0DSN8VPiNBSr_DA-YHIeIA-1
-X-Mimecast-MFC-AGG-ID: 0DSN8VPiNBSr_DA-YHIeIA
-Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A2F3A19560BB;
-	Sun, 12 Jan 2025 10:36:36 +0000 (UTC)
-Received: from localhost (unknown [10.72.113.4])
-	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 5808B195608A;
-	Sun, 12 Jan 2025 10:36:31 +0000 (UTC)
-Date: Sun, 12 Jan 2025 18:36:27 +0800
-From: Baoquan He <bhe@redhat.com>
-To: Joel Granados <joel.granados@kernel.org>
-Cc: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>,
-	Kees Cook <kees@kernel.org>, Luis Chamberlain <mcgrof@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
-	openipmi-developer@lists.sourceforge.net,
-	intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org, linux-hyperv@vger.kernel.org,
-	linux-rdma@vger.kernel.org, linux-raid@vger.kernel.org,
-	linux-scsi@vger.kernel.org, linux-serial@vger.kernel.org,
-	xen-devel@lists.xenproject.org, linux-aio@kvack.org,
-	linux-fsdevel@vger.kernel.org, netfs@lists.linux.dev,
-	codalist@coda.cs.cmu.edu, linux-mm@kvack.org,
-	linux-nfs@vger.kernel.org, ocfs2-devel@lists.linux.dev,
-	fsverity@lists.linux.dev, linux-xfs@vger.kernel.org,
-	io-uring@vger.kernel.org, bpf@vger.kernel.org,
-	kexec@lists.infradead.org, linux-trace-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org, apparmor@lists.ubuntu.com,
-	linux-security-module@vger.kernel.org, keyrings@vger.kernel.org,
-	Song Liu <song@kernel.org>,
-	"Steven Rostedt (Google)" <rostedt@goodmis.org>,
-	"Martin K. Petersen" <martin.petersen@oracle.com>,
-	"Darrick J. Wong" <djwong@kernel.org>,
-	Jani Nikula <jani.nikula@intel.com>,
-	Corey Minyard <cminyard@mvista.com>
-Subject: Re: [PATCH v2] treewide: const qualify ctl_tables where applicable
-Message-ID: <Z4ObK5hkQ7qjWgbf@MiWiFi-R3L-srv>
-References: <20250110-jag-ctl_table_const-v2-1-0000e1663144@kernel.org>
+	Sun, 12 Jan 2025 10:42:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id F1A255C2DAE;
+	Sun, 12 Jan 2025 10:41:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83B29C4CEDF;
+	Sun, 12 Jan 2025 10:42:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736678534;
+	bh=R7njldLDOz8MV+CZLpoFpvBPG4OpdGcvpLOzHB78ebk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=o79/IqzlgeWXj8aFVfeBJ0yTS6UJ4ZM5TaD2tf626OSCln+In8HPJnvW4+R2vDG68
+	 7WfGLN8ZlnI1A/lNz66TRBgM81AFGCebhSViaRjfYTSG1k2S4xp3mWw4shP99vedJt
+	 fAgWSAcSMfmv/2/fzCsF5SZqxttWAfsn27TuhCuoF83fEX6E4NbCyrCOsVzLZtkfbB
+	 E0+pgCJSHiCKW6674OH0L15SVy12WoWkdWqwtl66PWXNBCWjhwoDC0Ua0Zn1Xd4+9v
+	 HChnmpU5Ibxi1xVTeHBCL4pZD8Msl2wYs/kNFeqQiyXpyP3jYHfeihja2Px/n8rDYu
+	 MfazNqKy6LvvA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tWvQ4-00BKDr-3a;
+	Sun, 12 Jan 2025 10:42:12 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Quentin Perret <qperret@google.com>
+Cc: Fuad Tabba <tabba@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/3] KVM: arm64: Simplify pKVM memory transitions
+Date: Sun, 12 Jan 2025 10:42:07 +0000
+Message-Id: <173667852147.882737.8982373220700597868.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250110121936.1559655-1-qperret@google.com>
+References: <20250110121936.1559655-1-qperret@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250110-jag-ctl_table_const-v2-1-0000e1663144@kernel.org>
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, qperret@google.com, tabba@google.com, vdonnefort@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250112_023650_026640_BA4B9D55 
-X-CRM114-Status: GOOD (  10.86  )
+X-CRM114-CacheID: sfid-20250112_024215_812246_9424D1CC 
+X-CRM114-Status: GOOD (  15.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,25 +91,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/10/25 at 03:16pm, Joel Granados wrote:
-...snip...
-> diff --git a/kernel/kexec_core.c b/kernel/kexec_core.c
-> index c0caa14880c3..71b0809e06d6 100644
-> --- a/kernel/kexec_core.c
-> +++ b/kernel/kexec_core.c
-> @@ -925,7 +925,7 @@ static int kexec_limit_handler(const struct ctl_table *table, int write,
->  	return proc_dointvec(&tmp, write, buffer, lenp, ppos);
->  }
->  
-> -static struct ctl_table kexec_core_sysctls[] = {
-> +static const struct ctl_table kexec_core_sysctls[] = {
->  	{
->  		.procname	= "kexec_load_disabled",
->  		.data		= &kexec_load_disabled,
+On Fri, 10 Jan 2025 12:19:33 +0000, Quentin Perret wrote:
+> Since its early days, pKVM has formalized memory 'transitions' (shares
+> and donations) using 'struct pkvm_mem_transition' and bunch of helpers
+> to manipulate it. The intention was for all transitions to use this
+> machinery to ensure we're checking things consistently. However, as
+> development progressed, it became clear that the rigidity of this model
+> made it really difficult to use in some use-cases which ended-up
+> side-stepping it entirely. That is the case for the
+> hyp_{un}pin_shared_mem() and host_{un}share_guest() paths upstream which
+> use lower level helpers directly, as well as for several other pKVM
+> features that should land upstream in the future (ex: when a guest
+> relinquishes a page during ballooning, when annotating a page that is
+> being DMA'd to, ...). On top of this, the pkvm_mem_transition machinery
+> requires a lot of boilerplate which makes the code hard to read, but
+> also adds layers of indirection that no compilers seems to see through,
+> hence leading to suboptimal generated code.
+> 
+> [...]
 
-For the kexec/kdump part,
+Applied to next, thanks!
 
-Acked-by: Baoquan He <bhe@redhat.com>
-......
+[1/3] KVM: arm64: Drop pkvm_mem_transition for FF-A
+      commit: ed2f80fd76bd2c6e00d2e90f78d21a3055ee3562
+[2/3] KVM: arm64: Drop pkvm_mem_transition for host/hyp sharing
+      commit: d3b3473c15e4391673d8dca9c36dd5e9c3a8a4ac
+[3/3] KVM: arm64: Drop pkvm_mem_transition for host/hyp donations
+      commit: 2d2aa2eb275fa6f80d68ed442c3328273bbbecba
+
+Cheers,
+
+	M.
+-- 
+Without deviation from the norm, progress is not possible.
+
 
 
