@@ -4,65 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96951E7719C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 15:28:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B674E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 15:29:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QO3RztPZkCFDs5GuDcMkH2fRDOHXj32L+L7NG6jybn8=; b=Jyv5gHbWINvOzBVqWmwAApw3tf
-	7mw8DD1PD9EBZsC2w/Y0meKSExFpxNpy1QvRiSUNe0pAX9OD5jBStBDmXCAiYwUrTJok/XpPmepzg
-	sJcis3HXR9AnCb/C95KA6ITTA8XFqsI3CGyUnWMD4QklfB/GeTg9N6J0EqS3CcIKt5mUthxfyZJZM
-	I7x8630L3LCQBlxhyCAD2jro2X61ISnfTe2y2OKC7V/Ovd9fh9f/wXKkqS/Y/6IV2hlZ0mtZGKMwT
-	+BmVFOj58PZ4uHb7tMbBLEYiYBJ9G4V0NbXYatArshs131FWtgnqDUFkwzCqBhBOW+wXWN8Dgu276
-	WXDhZHwA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ufSZmiJg7tnVJs1W6WLAaINWDzw9jNeKjD7XxxhjWnI=; b=TS68T8gd5Ov+EjBxWP1U0lIo+X
+	68sNKKh65oFq3n53mq9n5YaUZcXrFRD6FZuoOK5QtFrgUREnfX0G3I0f+fHMJqrq+0LBg7ha2Pkyl
+	zLYsoC2+eUV7NpkFwhES/EPG8OnhwYsdHseY9xOS0RXsdlWiqvrvKyZudFjPyz5iDAvckQUvlMKyD
+	Q6BfjONg1JKgBW995rnX8Y4kQZcQaNyjqak6s6f402vv4n/NndAHIISiWSG/UARG6RpXJ8wLkAf4B
+	pPHK3ge2cYscCDh0m6m02n4gYzjy0/Izobr33lPPJZ0VsOOHpz7UW9R8kJ2siJ7O04lgyMgP4IuPM
+	dGPZuESQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWzsx-00000002xtZ-1wVZ;
-	Sun, 12 Jan 2025 15:28:19 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tWzuB-00000002y4X-0NZb;
+	Sun, 12 Jan 2025 15:29:35 +0000
+Received: from mail-oa1-x2c.google.com ([2001:4860:4864:20::2c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWzrh-00000002xXp-14R2
+	id 1tWzsa-00000002xnb-0iVv
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jan 2025 15:27:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C18C65C41F2;
-	Sun, 12 Jan 2025 15:26:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22B44C4CEDF;
-	Sun, 12 Jan 2025 15:26:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736695620;
-	bh=oQB4d3mtZNWze0IAzdVih8xUg0nziFR7hFNGRVfmzgE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=kXvUmjwYxKBceJrH7aU+jE3oW4MizvS+7TZOOGhRVef3y974AtqDgPhhSbN5MHvZ/
-	 lNT3GFCnRq9q9j2ahjyqJXyLI5jTEN0bX3pKN6jqsPC/Ovmg86d2l8Sn2ARdOGBeNd
-	 VxLvnzWvHhRW+it2C6E0v/8hG8d8b8pVfn8iMvaYCIzr7qWP6Pr4wtX72D0uV0LyDV
-	 m9NcJ7bppwlg/g9ZhIMZdAWcniFm7wcCZMJO0ZyBIsY3qpcnxFKX0ZJjpioldI+jH9
-	 p7qgS44K0n2rHjrHf3yVJCp+Cm2Xbbwix4fhCm1sUr2O9J8z+O7hkGAHl0ieVwyRfg
-	 3ezxYbJcuTH+w==
-Date: Sun, 12 Jan 2025 15:26:51 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Lars-Peter Clausen <lars@metafoo.de>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Liam Girdwood <lgirdwood@gmail.com>, Mark
- Brown <broonie@kernel.org>, linux-iio@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iio: adc: stm32: Drop unnecessary DT property presence
- check
-Message-ID: <20250112152651.30b343dd@jic23-huawei>
-In-Reply-To: <20250109182325.3973684-2-robh@kernel.org>
-References: <20250109182325.3973684-2-robh@kernel.org>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-pc-linux-gnu)
+	Sun, 12 Jan 2025 15:27:57 +0000
+Received: by mail-oa1-x2c.google.com with SMTP id 586e51a60fabf-29fe7ff65e6so1212243fac.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jan 2025 07:27:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1736695675; x=1737300475; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ufSZmiJg7tnVJs1W6WLAaINWDzw9jNeKjD7XxxhjWnI=;
+        b=R/gJ5L2J3d5yILxQctYlFmaXJm5XHGOkXeeaE9D2NRqTXFfxu0u12Is3eWjwZJ/I35
+         rXoa9A3mFk1POJe8hDi0F3nil5/zHgN4kQiVOIRW4hTY6XrlVDfz/FTJEPqfpeqn9u/j
+         GyI6rEcQcEfUMnlvURpsQuumKF80vbb+ly8XNvm9P8Zg4y5LquRe9TLHF6dyICnNKfZs
+         S+DNWluIWK+iID2PTZ0wCXkI0OiVYE5pxvJ3aCMHFeB18WssnCTPOXdZ7+FZc1/2Cssu
+         F+h9v059Fg11AlW1RYpKcz7oC/l5Pk4O6vG8IMd1lAsKGhs0Vw98rrpTEXeIxVMv6fN3
+         D7YA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736695675; x=1737300475;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ufSZmiJg7tnVJs1W6WLAaINWDzw9jNeKjD7XxxhjWnI=;
+        b=nFIDqcQo0mb0m9aTn1hN6CLMr/JiWZ3sRVsvxGtyWv924m4gf38+ByAKDzlV0P2jke
+         XXw+6nxoLgFgeMUX9pbnlcpnmBzIIGGGze6Gc9ydTGfrm3piYNBe/GRI4ntqunZDBYdX
+         kagX4n67d9AP8e2Gv4sia/FpHA3X7r6isg5E0juFXtA3qd5grHxOr/2eeJrkFm/R/dv1
+         WC3wShS//2Pq+1QKr/thkQbY9AY4f2MzrqkN+U7OVCD2gD9wSSK/8DW80qoFlUiQsb1M
+         ZkWIoc2wiOAXG2lcGa3W1B5Rpj7FZrGRCmlNasgqWZ8rnhwYR5KM9WdPtIfwb7/ddt5G
+         A/FQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUuUfmy0XL+qAIs/58VYJka2+AXvFi/8nOu0vd7jAHX2lhXmxQRj2hi93S4d/kxht/+zWzDMN3T7s8DFqzlU5Z1@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRT3rUvWibWfKQ+YMw5iNhWKi7uvmanra30pCZU1Gd19Tiaqij
+	18JWYdaZCWX33EY3p5T0eaeyM/G6cPdnDMbVeomNaWbfJg3OTiIX
+X-Gm-Gg: ASbGncsHSpKsXGxfOXjhQKiAScXPTqNIUbLOyB7GvmlUDUj8nxAroZ/Vhbebn2E42ug
+	nw95VbNxWvaJUCX3vbelYICbOv/D+K141FtOqk4Os7oBqO8P0KmLPZoNGK+csvmvS/4D6bJNnjD
+	27YhNq0jxnnv9Q344ZW0jpRtiGQt1AtCckXe9oLdN8cNelKAR9j68MnarZVhRLdri0VS4yVJRdZ
+	aq/2dvI73Gq1ZeOtgFIsnEXMo99fGuFbeZboE+I9Hf6KpvR7C7BN5oHE94kMqW8zwLGBw==
+X-Google-Smtp-Source: AGHT+IH/+RAxHFYqIOyPuZoSqSonhUnJs+lnRAyM2sKWo1AcFTT4c04wf85xXiYXKcP61dZvTha1Lw==
+X-Received: by 2002:a05:6871:a08b:b0:29e:76d1:db3b with SMTP id 586e51a60fabf-2aa066470fdmr9828945fac.5.1736695675132;
+        Sun, 12 Jan 2025 07:27:55 -0800 (PST)
+Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:8c53:b609:d83:9568])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-2ad80547c11sm2858083fac.18.2025.01.12.07.27.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 12 Jan 2025 07:27:53 -0800 (PST)
+From: Fabio Estevam <festevam@gmail.com>
+To: shawnguo@kernel.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	kernel@pengutronix.de,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Fabio Estevam <festevam@denx.de>
+Subject: [PATCH v2 1/2] ARM: dts: imx5: Fix the CCM interrupts description
+Date: Sun, 12 Jan 2025 12:27:44 -0300
+Message-Id: <20250112152745.1079880-1-festevam@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250112_072701_344244_20181225 
-X-CRM114-Status: GOOD (  18.40  )
+X-CRM114-CacheID: sfid-20250112_072756_222654_EA20C649 
+X-CRM114-Status: GOOD (  11.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,50 +99,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu,  9 Jan 2025 12:23:25 -0600
-"Rob Herring (Arm)" <robh@kernel.org> wrote:
+From: Fabio Estevam <festevam@denx.de>
 
-> There's no reason to check for regulator supply property presence before
-> calling devm_regulator_get_optional() as that will return -ENODEV if
-> the supply is not present.
-> 
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
-> The diff context doesn't show it, but the next line returns on error 
-> other than -ENODEV.
-Thanks for that. Saved me opening the file.
+On the i.MX5 chips the peripheral interrupts are represented directly only
+by their interrupt numbers.
 
-Applied to the testing branch of iio.git. Probably next cycle material now.
+The CCM nodes are not following this format and cause the following
+dt-schema warnings:
 
-Jonathan
+ccm@73fd4000: interrupts: [[0], [71], [4], [0], [72], [4]] is too long
 
-> 
->  drivers/iio/adc/stm32-adc-core.c | 6 ++----
->  1 file changed, 2 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/iio/adc/stm32-adc-core.c b/drivers/iio/adc/stm32-adc-core.c
-> index 2201ee9987ae..0914148d1a22 100644
-> --- a/drivers/iio/adc/stm32-adc-core.c
-> +++ b/drivers/iio/adc/stm32-adc-core.c
-> @@ -615,8 +615,7 @@ static int stm32_adc_core_switches_probe(struct device *dev,
->  	}
->  
->  	/* Booster can be used to supply analog switches (optional) */
-> -	if (priv->cfg->has_syscfg & HAS_VBOOSTER &&
-> -	    of_property_read_bool(np, "booster-supply")) {
-> +	if (priv->cfg->has_syscfg & HAS_VBOOSTER) {
->  		priv->booster = devm_regulator_get_optional(dev, "booster");
->  		if (IS_ERR(priv->booster)) {
->  			ret = PTR_ERR(priv->booster);
-> @@ -628,8 +627,7 @@ static int stm32_adc_core_switches_probe(struct device *dev,
->  	}
->  
->  	/* Vdd can be used to supply analog switches (optional) */
-> -	if (priv->cfg->has_syscfg & HAS_ANASWVDD &&
-> -	    of_property_read_bool(np, "vdd-supply")) {
-> +	if (priv->cfg->has_syscfg & HAS_ANASWVDD) {
->  		priv->vdd = devm_regulator_get_optional(dev, "vdd");
->  		if (IS_ERR(priv->vdd)) {
->  			ret = PTR_ERR(priv->vdd);
+Fix it by passing only the two interrupt numbers.
+
+Run-time tested in on an imx53-qsb board.
+
+Signed-off-by: Fabio Estevam <festevam@denx.de>
+---
+Changes since v1:
+- Use interrupts = <71>, <72>;
+
+ arch/arm/boot/dts/nxp/imx/imx50.dtsi | 2 +-
+ arch/arm/boot/dts/nxp/imx/imx51.dtsi | 2 +-
+ arch/arm/boot/dts/nxp/imx/imx53.dtsi | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/arch/arm/boot/dts/nxp/imx/imx50.dtsi b/arch/arm/boot/dts/nxp/imx/imx50.dtsi
+index 1b6f444443dd..f0b12a70f614 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx50.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx50.dtsi
+@@ -338,7 +338,7 @@ src: reset-controller@53fd0000 {
+ 			clks: ccm@53fd4000 {
+ 				compatible = "fsl,imx50-ccm";
+ 				reg = <0x53fd4000 0x4000>;
+-				interrupts = <0 71 0x04 0 72 0x04>;
++				interrupts = <71>, <72>;
+ 				#clock-cells = <1>;
+ 			};
+ 
+diff --git a/arch/arm/boot/dts/nxp/imx/imx51.dtsi b/arch/arm/boot/dts/nxp/imx/imx51.dtsi
+index cc88da4d7785..2bfb6baa67fc 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx51.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx51.dtsi
+@@ -458,7 +458,7 @@ src: reset-controller@73fd0000 {
+ 			clks: ccm@73fd4000 {
+ 				compatible = "fsl,imx51-ccm";
+ 				reg = <0x73fd4000 0x4000>;
+-				interrupts = <0 71 0x04 0 72 0x04>;
++				interrupts = <71>, <72>;
+ 				#clock-cells = <1>;
+ 			};
+ 		};
+diff --git a/arch/arm/boot/dts/nxp/imx/imx53.dtsi b/arch/arm/boot/dts/nxp/imx/imx53.dtsi
+index 845e2bf8460a..b7147cc7a316 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx53.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx53.dtsi
+@@ -598,7 +598,7 @@ src: reset-controller@53fd0000 {
+ 			clks: ccm@53fd4000 {
+ 				compatible = "fsl,imx53-ccm";
+ 				reg = <0x53fd4000 0x4000>;
+-				interrupts = <0 71 0x04 0 72 0x04>;
++				interrupts = <71>, <72>;
+ 				#clock-cells = <1>;
+ 			};
+ 
+-- 
+2.34.1
 
 
