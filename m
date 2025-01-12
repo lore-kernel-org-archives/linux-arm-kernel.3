@@ -4,87 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36461E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 18:10:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA0D9E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 18:35:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PZ+KKaJmXPxzxDNxe6MA06Q8Nc2be0rN6nRzuoDVTD0=; b=O2WwwTT99aE/oXXHpm6mUhXT20
-	8u8YfN85bY1Xre9Q+t4fAaEcqftlCUdyayjNwlnKpN6UChiB+4cs4a/w/gEfdrlfvqyschtBKsW6r
-	95iu98Xky9iTiL9YV5s/R/qQRCx+KcYoq6NkAOqwIJgNrEpaeqUd94QkUfJY+KEZPGAGt3QD7vs/r
-	kvuRAX1SxWtK/xBq+IQlgC1woK1K9vw5P5fpHiMATfCjjDdpfCfS4OujaD/AaHFLVHtHmclpUpCNm
-	US0OhRjOjtLMksvBQgSAcruh56fC6NGzDsvShncb+rYTODWmmFVyXo0MDy1EU5hiooUo+GX1dSQwG
-	QyU095uA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cNNEQTfDk8Yom1JObfiP3ux4k8qElkfZC1BvWtIlhPM=; b=PR23h9khfaLjp3tKw81uh/ly3Q
+	E6586o3SvJScz5wpk+z4w16gzazL6ZrwXWDV3nvaXpSikUt2H98YK4tpL6lzWLgMXs9y+aoXgt4Zw
+	EBT3vzkNdNPSn9qeUweJCA47KYW9aZs3Q0CRwVTET7R1xTaIY4FUT3co6pWPhqIHOjacnCUP2HqQw
+	e8mq7A0XtRz7opaQ8g0ECephLs9H8/NP9Ksp+M6hRV6wFKTiwuoh+98MNWrRrhyVZXuYmBx1fa5fM
+	o44zeyWD6lJpQqhshp7bCLt80EY7ksSuzOVYilxH4rmo5OhdazELvYYWI/J2qSc8N1ac7MP9qrmy0
+	nnI2USVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tX2Pa-00000003EWi-2B87;
-	Sun, 12 Jan 2025 18:10:10 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1tX2nP-00000003GH2-0Pn8;
+	Sun, 12 Jan 2025 18:34:47 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tX2OK-00000003EP8-107E
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jan 2025 18:08:53 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-43616c12d72so4780115e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jan 2025 10:08:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736705330; x=1737310130; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=PZ+KKaJmXPxzxDNxe6MA06Q8Nc2be0rN6nRzuoDVTD0=;
-        b=H7xE5MGV4zHecpfeGCr7X7aApeGdfXvBlurHuxLhicr1MvADZuK960BxcBFKjWaB+c
-         +eOSS6Sdq1S6gZEsO8fBlFIel8pse2M8WuTk8LsfNqGRAw9pNF8GEQk/DgA5eBlkiO9U
-         qV0Q+2Ld0PwDYxIgIF+GhwzpV2AjcA7a6A+K46IWsXiSmbcjrOWjio4BYqLvQ2OkrYWm
-         HdOF7tIl5mo+45xz1z8gSbrMu166+7oO5fXpLHrNIsI12Redzdowp4viWoDO2kkLR1wU
-         uFdcfjJA4uWgh9OS5YKihabu51M4v0YHn6VtqaWW/E+sScn3ndYcNLwme+EvX2vWrfl/
-         gm0w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736705330; x=1737310130;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=PZ+KKaJmXPxzxDNxe6MA06Q8Nc2be0rN6nRzuoDVTD0=;
-        b=VYtRMhQ+MmfhWmrM03/wgBpJTyZ3Rqwc0fIOpz+R+q+wYS848q6ghiMYOn47K+z7Y6
-         gLe8hbUtX5TEj3p+V7+rnSju4ZiuDcrvCCZLVPnhtkX6jVrLZoswjLWa32dmLuOcrxGH
-         5sknnXQz1D53NpBrcy4WDdukmfcLwlHLifibEYd5VlPxbaGu4aiboGOJ/zoOAwci4aTH
-         JiykdmbBESlkIyIs4MVhePw5RMyyrq7ZhzL1O6rMvxO1Mq9R+3qpD3iBnbOoo/IBja23
-         vE3qE8+Lbcd/xXuWuZ52oJD6un2okJhlhk2gsr2vpPL94fBCk/E+Nyp8YRpXLnv8xzCZ
-         1ZNQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU5lJxgTl/c6fCd2tNW26JvCL7LNJDpRVp5v2dSD8VUEkWX+J6arYalb6lR/134cFINm7BIDPbeBkWNc0MHgD0H@lists.infradead.org
-X-Gm-Message-State: AOJu0YyFK43N4OtHlsVsxfA6KLMtdXvuTuiPAjrGKCLO7ZLdFxoEDe7a
-	PP1miVmSlU6Zlp/u3Y0t1dOqGzdmjDE8T/v59+CRhlb6BDlEmzpaAP5+VMcVfuQ=
-X-Gm-Gg: ASbGncurOT3ph6EoPqRdB6WuzMoX2LT69xacValiHgM8p2O1RR7i9jVHz/M5L8FDR3k
-	Q7Df0IjdNj8y3xzXj5EROdF6YFDIgBdurzYk0Om6bkhGt+IRNBhraASvlOqO/SMcEokf3OiKhgZ
-	9e3TVp6hdnWJrGsey9+ynkpTZ086eg4lYCNGeDRRghOfZyo7JZPA6UUq3MK1elX3w/8g/owVUO0
-	G3Dzl5VEwkOl9lIRq9EQkRsyBthsqgK8F3kKtLYKygTu1zD8DOvv/npJsxJLNTXqvT94aM=
-X-Google-Smtp-Source: AGHT+IHu9JNZR3ElrmXphabS7z0OElOospxIN9/DnCZllvZLlZCEZRz4dgWabn67diqwb3Q/GAGKmQ==
-X-Received: by 2002:a05:600c:1385:b0:436:1b94:2deb with SMTP id 5b1f17b1804b1-436e26f556fmr67303905e9.5.1736705330605;
-        Sun, 12 Jan 2025 10:08:50 -0800 (PST)
-Received: from krzk-bin.. ([178.197.223.165])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e2e89de4sm150842705e9.34.2025.01.12.10.08.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Jan 2025 10:08:49 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Arnd Bergmann <arnd@arndb.de>,
-	soc@lists.linux.dev
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk@kernel.org>
-Subject: [GIT PULL] samsung: drivers: for v6.14, part two
-Date: Sun, 12 Jan 2025 19:08:46 +0100
-Message-ID: <20250112180846.64154-1-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.43.0
+	id 1tX2m9-00000003GCh-2cCc;
+	Sun, 12 Jan 2025 18:33:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 73EDAA40708;
+	Sun, 12 Jan 2025 18:31:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEA33C4CEDF;
+	Sun, 12 Jan 2025 18:33:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736706807;
+	bh=4WQQaCak4TJuaVWaDAMb3yACSDF7AlTUwq82HMM4tQo=;
+	h=From:Date:Subject:To:Cc:From;
+	b=vDAXRM3US9kpZLqIDfuJztnFopiRf/XL2Z4SjUeicqPbmPgFeZXBiEFWAmR+1dqgz
+	 ol7fQN0lR0fA1RIByTY04bp+PH1doZpW/Sh5xeURJco7kvHWizz7dmdkbDMiKEFcqG
+	 pwuDNoLMFMTbGJDNThywbLMPW3NLy0Fy0emoLF5LQZv5YeiLBejN4YSRuLBxoy0EbN
+	 UeEgJkebg1bWdFTc+pkLhoe489MFibL2m7f3g4g8rfQ0bgcoP92X9C4idZIGI8l0wk
+	 T5PxrL3TGDn8YFwUOjf7vAHro5PaKb/eaN9K4tY+qnHyL8zxfGHg5O4bWQY9FuyB3n
+	 DBCngiY45Iv3A==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Sun, 12 Jan 2025 19:32:45 +0100
+Subject: [PATCH net-next] net: airoha: Enforce ETS Qdisc priomap
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250112-airoha_ets_priomap-v1-1-fb616de159ba@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAMwKhGcC/x3MMQqAMAxA0atIZgs2WBGvIiJBU82gLamIULy7x
+ fEN/2dIrMIJhiqD8i1Jwllg6wqWnc6NjazFgA26xlo0JBp2mvlKc1QJB0WDzmHXUtuT91DCqOz
+ l+afj9L4fh7NURWQAAAA=
+X-Change-ID: 20250112-airoha_ets_priomap-255264a48aff
+To: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
+ Davide Caratti <dcaratti@redhat.com>, Lorenzo Bianconi <lorenzo@kernel.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250112_100852_426377_C6A76779 
-X-CRM114-Status: GOOD (  10.75  )
+X-CRM114-CacheID: sfid-20250112_103329_735328_BCF58B2B 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,43 +79,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+EN7581 SoC supports fixed QoS band priority where WRR queues have lowest
+priorities with respect to SP ones.
+E.g: WRR0, WRR1, .., WRRm, SP0, SP1, .., SPn
 
-Previously I sent just one patch alone. It is not included here.
+Enforce ETS Qdisc priomap according to the hw capabilities.
+
+Suggested-by: Davide Caratti <dcaratti@redhat.com>
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ drivers/net/ethernet/mediatek/airoha_eth.c | 17 +++++++++++++++--
+ 1 file changed, 15 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/net/ethernet/mediatek/airoha_eth.c b/drivers/net/ethernet/mediatek/airoha_eth.c
+index a30c417d66f2f9b0958fe1dd3829fb9ac530a34c..415d784de741c991fa521243783860dee1ed0bfa 100644
+--- a/drivers/net/ethernet/mediatek/airoha_eth.c
++++ b/drivers/net/ethernet/mediatek/airoha_eth.c
+@@ -2793,7 +2793,7 @@ static int airoha_qdma_set_tx_ets_sched(struct airoha_gdm_port *port,
+ 	struct tc_ets_qopt_offload_replace_params *p = &opt->replace_params;
+ 	enum tx_sched_mode mode = TC_SCH_SP;
+ 	u16 w[AIROHA_NUM_QOS_QUEUES] = {};
+-	int i, nstrict = 0;
++	int i, nstrict = 0, nwrr, qidx;
+ 
+ 	if (p->bands > AIROHA_NUM_QOS_QUEUES)
+ 		return -EINVAL;
+@@ -2807,7 +2807,20 @@ static int airoha_qdma_set_tx_ets_sched(struct airoha_gdm_port *port,
+ 	if (nstrict == AIROHA_NUM_QOS_QUEUES - 1)
+ 		return -EINVAL;
+ 
+-	for (i = 0; i < p->bands - nstrict; i++)
++	/* EN7581 SoC supports fixed QoS band priority where WRR queues have
++	 * lowest priorities with respect to SP ones.
++	 * e.g: WRR0, WRR1, .., WRRm, SP0, SP1, .., SPn
++	 */
++	nwrr = p->bands - nstrict;
++	qidx = nstrict && nwrr ? nstrict : 0;
++	for (i = 1; i <= p->bands; i++) {
++		if (p->priomap[i % AIROHA_NUM_QOS_QUEUES] != qidx)
++			return -EINVAL;
++
++		qidx = i == nwrr ? 0 : qidx + 1;
++	}
++
++	for (i = 0; i < nwrr; i++)
+ 		w[i] = p->weights[nstrict + i];
+ 
+ 	if (!nstrict)
+
+---
+base-commit: 7d0da8f862340c5f42f0062b8560b8d0971a6ac4
+change-id: 20250112-airoha_ets_priomap-255264a48aff
 
 Best regards,
-Krzysztof
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
 
-
-The following changes since commit 40384c840ea1944d7c5a392e8975ed088ecf0b37:
-
-  Linux 6.13-rc1 (2024-12-01 14:28:56 -0800)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-drivers-6.14
-
-for you to fetch changes up to eca836dfd8386b32f1aae60f8e323218ac6a0b75:
-
-  soc: samsung: exynos-pmu: Fix uninitialized ret in tensor_set_bits_atomic() (2025-01-06 10:54:04 +0100)
-
-----------------------------------------------------------------
-Samsung SoC drivers for v6.14
-
-1. Add new bindings for sysreg in Exynos8895.
-2. Minor improvements in Exynos USI bindings.
-3. Fix for Smatch warning in Exynos PMU syscon driver.
-
-----------------------------------------------------------------
-Ivaylo Ivanov (1):
-      dt-bindings: soc: samsung: exynos-sysreg: add sysreg compatibles for exynos8895
-
-Krzysztof Kozlowski (2):
-      dt-bindings: samsung: exynos-usi: Restrict possible samsung,mode values
-      soc: samsung: exynos-pmu: Fix uninitialized ret in tensor_set_bits_atomic()
-
- Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml     | 1 +
- .../devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml    | 8 ++++++++
- drivers/soc/samsung/exynos-pmu.c                                  | 2 +-
- 3 files changed, 10 insertions(+), 1 deletion(-)
 
