@@ -4,55 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE5C9E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 19:36:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0AE6E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 20:28:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZtBqhdvDtSMZSifwdEtbxuLavEcjAiJgqkWtN+G3/74=; b=f1W2c8SEH9fJINQ8IS33PwTGoY
-	YNUAGAVjJQBf0ViBkA9x64zEARtH+ghUtWWBopGvo1LVXeBbi+yS41W1wfU3hGYqb8YOjHaxEq3wq
-	ZhNsqJABaf9rSldTpZLDZkBxoqoU5B1F0gAAGKCSUilDA6Ad77IgLB6GHqQvBnFzOjMftaH4j14tH
-	yPbPAI4GZeurMng21Rr+IWrBpqXjyPiUfXyvpLYj5XxNx14Po4LeG9/zqAwGRxtpodnhya8mZ8xCQ
-	uaqWKqH0hd6QstGfUKVi2b5jVSJqj1h+hFamxH4M7bvkYo4tGtBZm5uPOvAgqrI2EbybQOaZQLGDL
-	ByHg14Eg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KJYZhiH1O+bZsc5L8JaNjFOdX3p057BdE/GBSMGoaaw=; b=O+miB6zLR5wZ9Xo8ljRy8ZzwNb
+	HvkSCZseJ9wR08VXVwGYRTpgnPK319+OUYPJHkBZayO4JMqsNx+g0KoZ9wqUJtk+fh2wzP9jmK7yA
+	t29ib5J7GehgWpKbKG7hElY+xleWYUT+LNdw3HluMKkpMBWoJx9u20CM4WOsiDE/ibwdHpFHCTVGI
+	rqW7OylcbdhrpKyroPmAqqj2US2a4rfLmEEsQ09U6tWawU0/Vk614Fxzy5/z79FGIfMk/SYOVF967
+	cisY5L4nQrI4Toney6d10jpAhtfOiSwOg8mb/ItcjTGfTAJY2Ze/mCexeGJCEjrzdbNllNG6bh9Br
+	kgH40XTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tX3lJ-00000003L7i-2wqH;
-	Sun, 12 Jan 2025 19:36:41 +0000
-Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
+	id 1tX4ZS-00000003ORf-1HmW;
+	Sun, 12 Jan 2025 20:28:30 +0000
+Received: from mail-yb1-xb34.google.com ([2607:f8b0:4864:20::b34])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tX3k3-00000003L2p-0xrG
+	id 1tX4YC-00000003OLT-3Fuf
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jan 2025 19:35:24 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 842A4FF803;
-	Sun, 12 Jan 2025 19:35:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1736710517;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type;
-	bh=ZtBqhdvDtSMZSifwdEtbxuLavEcjAiJgqkWtN+G3/74=;
-	b=YaPPvibscYQZa+LJLSt5HaYahNFKdc9GFsiNmqWvpniX7X31YicBAri0U+ReH2HOOBSbW8
-	odWpyJzU0yKdPHxnS6c15XzH9qXCUePHMfC7QyJdPbnwonfFWbKSvyKgqV9+ky3PvFN1ox
-	13P9kT6Z2Aj2tw6eG35P2qKIErdbW/G4F1ZkWXT3JDVSXQBe5kkgbjNWQQcbHPK8cB/0RD
-	rlY0mQGhYgsFP01NYsPS3RK8kFO6hvw4mBEHJt4+cXJUpzpYNV25i0fqdMcccafq/Mkqpw
-	uF1c6UP2ioGgSBIfbAY4HpkpoCBoL4ZSdusPUReBB/2Z876HbvUET59ZU92UtA==
-From: Gregory CLEMENT <gregory.clement@bootlin.com>
-To: Arnd Bergmann <arnd@arndb.de>, Olof Johansson <olof@lixom.net>,
- <arm@kernel.org>, soc@kernel.org
-Cc: Andrew Lunn <andrew@lunn.ch>, Sebastian Hesselbarth
- <sebastian.hesselbarth@gmail.com>, <linux-arm-kernel@lists.infradead.org>
-Subject: [GIT PULL] ARM: mvebu: dt64 for v6.14 (#1)
-Date: Sun, 12 Jan 2025 20:35:16 +0100
-Message-ID: <87frlnygej.fsf@BLaptop.bootlin.com>
+	Sun, 12 Jan 2025 20:27:13 +0000
+Received: by mail-yb1-xb34.google.com with SMTP id 3f1490d57ef6-e5372a2fbddso5861031276.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jan 2025 12:27:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1736713631; x=1737318431; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=KJYZhiH1O+bZsc5L8JaNjFOdX3p057BdE/GBSMGoaaw=;
+        b=RftgS+ROqzxEPtiq2nk5eT6MuVXvrh2x1Sde20HTlpTSWty/EmxQXfeKwuo6+9lWMb
+         sJMJcXJcU6yjERyMb8IHBij0Ldqi98L2q42tikYxub2pVD1geMFAyRXVJkTMArsJzwy2
+         2+1AtjudcGf+dYCw0e/FjmbSulRiB1DBSFA9zrK7wHpOjnlcGfcH5BEfsVt9m/JGVzYE
+         Zp1Xvrxw/HtFskQtFjk6nT3A0QbdOuyKvsw3VfIcVeR2MBEjgMExyfKKEcN+RRiN+7c0
+         fOAyb0Ktb3cvWDifAbGLBmv+zL4QR3+jbn+C9hTgqa3YHubc7F4xn9k81tYWHQPkubXw
+         bBgA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736713631; x=1737318431;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=KJYZhiH1O+bZsc5L8JaNjFOdX3p057BdE/GBSMGoaaw=;
+        b=iVbJ9MFJVQhGmW9ryGwRqLtX3FpjggTtE01Y50ABlrVweTaTpjMc2VuUUmjocI63fq
+         pvgBeonkSkVdhAfbg9hIEJBrdNzLRQJhHcTVj1Juygq64wGA086squ78gRBJvuYJoZlL
+         U9a98OdyW2OeRXt1YbZ5f0CItUDY6ymGQx+U2/QxacohJuDpzsweq3I/ZDTVKywde2LF
+         KXjfB4o4TQaBp4dGVTwgL5cy/VgcOjrIpz/sLAThV8cBq81VPfJXHzyfpKXDcyHxiTsn
+         1eQ6XxMTJPU94V0E8wvA924BzxVk08GpTpu1itq5nASjUf2igaXT0JFg9Mm2XysXCwyH
+         pOnA==
+X-Forwarded-Encrypted: i=1; AJvYcCVx5txIt6fPNmYfpDzLeQhJtSYmxQx04criQvCTQKNDQz6LgXw8LqLr7u8sZTLsPj0l0OPCSxy5Q4jQSOXQYoVY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzwn52ys3YswSqY7KCvjL8MhpXY+VgzBLVu4P7eTOxoVHh1b6r4
+	mxw1k8pCuSHgjEugmJOkuQNRdTclDrSLvNpiAjfY0G03XKQlPld2q8al320sTNvdUzY2vvKA5LG
+	Ld20XAq+gU1NohdK0+HOdICJMU5o=
+X-Gm-Gg: ASbGncvBcfEMVvoEdTjRbsG5S0JIWgM485NgmyuC1ia+KVplb+JL9Jcm9AoLzkeLV61
+	7DtxvivjrZAexRCidyGNB42d/GPXHcQgN6OJCatY=
+X-Google-Smtp-Source: AGHT+IGZaC/OlbRbsNvYaMYjxRBnL+2yYyfV0AIbRIBDdrnHp3fqv3tpczf0rasT8ptHihHYsOZGlHD6v1QG5rnyZfw=
+X-Received: by 2002:a05:690c:c8c:b0:6f1:5591:2c6a with SMTP id
+ 00721157ae682-6f5311ef109mr147703997b3.3.1736713631265; Sun, 12 Jan 2025
+ 12:27:11 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain
-X-GND-Sasl: gregory.clement@bootlin.com
+References: <20241126-adpdrm-v2-0-c90485336c09@gmail.com> <20241126-adpdrm-v2-3-c90485336c09@gmail.com>
+ <pokf4zrrm7utx4dlq7sfob3pb4m2dh47eyw2g345tvh75x3s2s@ylajym3brih3>
+ <CAMT+MTTGtmMvbPy7HvTQ+AdF_X4dTcfXV5n=krm414MnXYqxjg@mail.gmail.com> <qowuzrx7s76r3soelwcvlbnksvstlpdind5xxejuqeeohjzsbh@evmuvvzxp3qh>
+In-Reply-To: <qowuzrx7s76r3soelwcvlbnksvstlpdind5xxejuqeeohjzsbh@evmuvvzxp3qh>
+From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+Date: Sun, 12 Jan 2025 21:27:00 +0100
+X-Gm-Features: AbW1kvY_ntIDfWPnmKQupEStaGCx1YY-X1bjoh686czSMiCWmY8vjsKf9KrYKtY
+Message-ID: <CAMT+MTTOeyAKUDYYwN+hO_QVBhPK4w7cktx5LQyrxrfDTq-wcw@mail.gmail.com>
+Subject: Re: [PATCH v2 3/5] drm: panel: Add a panel driver for the Summit display
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Jessica Zhang <quic_jesszhan@quicinc.com>, 
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Nick Chan <towinchenmi@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250112_113523_577117_52A888F1 
-X-CRM114-Status: UNSURE (   7.99  )
+X-CRM114-CacheID: sfid-20250112_122712_817626_55976973 
+X-CRM114-Status: UNSURE (   9.52  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -68,48 +101,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Sat, 30 Nov 2024 at 12:36, Dmitry Baryshkov
+<dmitry.baryshkov@linaro.org> wrote:
+> Please add BL_CORE_SUSPENDRESUME option to the backlight device.
+> But interestingly enough, none of the panels set that flag.
 
-Here is the first pull request for dt64 for mvebu for v6.14.
-
-Gregory
-
-The following changes since commit 40384c840ea1944d7c5a392e8975ed088ecf0b37:
-
-  Linux 6.13-rc1 (2024-12-01 14:28:56 -0800)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/gclement/mvebu.git tags/mvebu-dt64-6.14-1
-
-for you to fetch changes up to a34c9fac85b2fe9d2a4191b3d5cc3a459823124e:
-
-  arm64: dts: marvell: drop additional phy-names for sata (2025-01-08 09:24:38 +0100)
-
-----------------------------------------------------------------
-mvebu dt64 for 6.14 (part 1)
-
-Fix errors reported by dtbs_check for sata related nodes
-Fix cp1 comphy link on Marvell CN913x platforms
-
-----------------------------------------------------------------
-Frank Wunderlich (2):
-      arm64: dts: marvell: only enable complete sata nodes
-      arm64: dts: marvell: drop additional phy-names for sata
-
-Josua Mayer (1):
-      arm64: dts: marvell: cn9131-cf-solidwan: fix cp1 comphy links
-
- arch/arm64/boot/dts/marvell/armada-7040-db.dts             | 1 +
- arch/arm64/boot/dts/marvell/armada-7040-mochabin.dts       | 2 ++
- arch/arm64/boot/dts/marvell/armada-8040-clearfog-gt-8k.dts | 1 +
- arch/arm64/boot/dts/marvell/armada-8040-db.dts             | 5 +++--
- arch/arm64/boot/dts/marvell/armada-8040-mcbin.dtsi         | 3 +--
- arch/arm64/boot/dts/marvell/armada-8040-puzzle-m801.dts    | 2 ++
- arch/arm64/boot/dts/marvell/armada-cp11x.dtsi              | 2 ++
- arch/arm64/boot/dts/marvell/cn9130-crb-B.dts               | 1 +
- arch/arm64/boot/dts/marvell/cn9131-cf-solidwan.dts         | 4 ++--
- arch/arm64/boot/dts/marvell/cn9131-db.dtsi                 | 1 +
- arch/arm64/boot/dts/marvell/cn9132-db.dtsi                 | 1 +
- 11 files changed, 17 insertions(+), 6 deletions(-)
+It appears that setting that option re-orders something in the resume process
+in such a way that the entire display locks up and becomes unusable until
+the machine is rebooted. I will be sending v3 without this change.
 
