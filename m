@@ -4,78 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 638B0E7719C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 17:05:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DC3CE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 17:10:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gcp02vfLN1uVTWXJ8UJ8BzKX5eeyuNnorXOtRkd8w94=; b=dN6pgfcT5DX/tdrf9XFn7nexR3
-	Q1LEc4NsKH1Y6pcw0Rtc8L2zTUhhjuIEUgkGH3iKtXTeX3HReKMGTjorHnMhwWyuK2lzUordXlxvX
-	/SZpfTCnDpOLEwvCsPGDdYI5M32hhEPOiQ7zr7xJUnsMbY1bkt/YqpZvhmZbdpY20gEW/eopelfuJ
-	/QDKQ3lVsDNuIRQlpm/EMCbFkad1W8PYyUYLddhAlSuEww63SQIn7d0l/7B7zLl58lc3/LUzveuIy
-	2chhsyGJpZDoSM/iN9dfWDRbW4Jk7Z1comhHx+PGLovC0E9vDtRK41GJp7TgcruOp/JKI3R04EGjU
-	6DbuVHqQ==;
+	bh=ztCzC+Lvlvy00t5E1RNs8GskFXpdUBmmuEHVPxyMboA=; b=zlwkOw6BgSkEI06W82cu1NWQ8X
+	cyeux5Duq+0xWBHjDGAhNhdsEC3SeMtZd0JgQ1uPIvgWOeoZzGoM+reM4suaMp2HMzYxNNiaMOaZs
+	nObcp76Eyd5kXczggBLbHUuHuVLBIwR/3qnJpHojDYAAYKrnCJlPxueEFulfiYPmQE7GUFX4Rg6PJ
+	LDDMjUQYldCf0RJqjgDiNZJTOLpCppG98gXigkouvo/admW+2/JBu5w9Bt506MDjIqJGiiWiLfYa7
+	/QyLwooPEZmkq0XzVFJugTA6SgtkaH6z8cj/xlL05rW4EkLegOAq12PBC8QaSs/VSMBx76orchANC
+	+ClnYreQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tX1Om-000000037Ps-4B7L;
-	Sun, 12 Jan 2025 17:05:17 +0000
-Received: from smtp-26.smtpout.orange.fr ([80.12.242.26] helo=smtp.smtpout.orange.fr)
+	id 1tX1TW-0000000386t-2lu2;
+	Sun, 12 Jan 2025 17:10:10 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tX1NQ-000000037BH-1p5z;
-	Sun, 12 Jan 2025 17:03:54 +0000
-Received: from [192.168.1.37] ([90.11.132.44])
-	by smtp.orange.fr with ESMTPA
-	id X1NCt2XX5qZ5JX1NGt8sSO; Sun, 12 Jan 2025 18:03:49 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1736701429;
-	bh=gcp02vfLN1uVTWXJ8UJ8BzKX5eeyuNnorXOtRkd8w94=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From;
-	b=fnH0iNQQzQe3piqBMIVE5d9BG6+w8xEgN2VBqmi8AXirOeRy60NrMR/v+/jXABh16
-	 JpvenW7mQrRyQJNS7ODfCQud/A0sHpCYumL7Rxo4dvkQRkFn5Sq+X8YWWLh1l3Npj7
-	 EKCh7IqNNNluOSSWpJWw/jeZKljq/zAdtpT71biBfD3cTuF1rjWn5vFZEgL0E6FQCj
-	 rUQtMFXuQPg5CYG5zF84tPPtJtZ/Li8U3366GMCLOd/+RYloATVfvXiYux/yyQLhAh
-	 h/GhbIjMLlosT95vg3PB740gtcl7sPYn5Kc0tMKx+JEYGR+BJ4RpBBEKNHbPCy3uh+
-	 8FUFx8/CX7JlA==
-X-ME-Helo: [192.168.1.37]
-X-ME-Auth: bWFyaW9uLmphaWxsZXRAd2FuYWRvby5mcg==
-X-ME-Date: Sun, 12 Jan 2025 18:03:49 +0100
-X-ME-IP: 90.11.132.44
-Message-ID: <05dfdd2f-e2c2-40ff-8a84-038c4da8385a@wanadoo.fr>
-Date: Sun, 12 Jan 2025 18:03:38 +0100
+	id 1tX1SG-000000037es-1XeA
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 12 Jan 2025 17:08:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7C3C45C2F22;
+	Sun, 12 Jan 2025 17:08:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B614EC4CEE3;
+	Sun, 12 Jan 2025 17:08:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736701730;
+	bh=ZazDMacD+OsJwszhNsJs0jzCPTWHDxmUqkqRwrsHAVw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=EKYEnCTHRr+ohN9OKsx53JncA23TH2nqxcApNL8JjNqXBlj/RvMZLGr1SQbR06lED
+	 ebG1Uq4d/La1KZSYeKdKopxr3AwOGlg/YbNVxH5ISB/RfUgMBxzx03666E6DTyeb5I
+	 hGbCAjqUE5VQig7ympaUZpwZ9a5WYLWUxalHI3OaRIE3YaqnOiQYnuhHtU8/Uo+fln
+	 aUVKy1M0QczmFPORBEtL30OYEVibgung23jpRHXgSKt8gMIb+3HKrhk0ekuDyB26C4
+	 KhVkql2I81wdWDV/z9MoqTeRRytmzyYnipB6y0X8guuplpkXb1TMrTTRXYsXvjawqH
+	 Vb8C3SBKMGEVA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tX1SC-00BNxR-NF;
+	Sun, 12 Jan 2025 17:08:48 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Eric Auger <eric.auger@redhat.com>
+Subject: [PATCH v2 01/17] arm64: sysreg: Add layout for ICH_HCR_EL2
+Date: Sun, 12 Jan 2025 17:08:29 +0000
+Message-Id: <20250112170845.1181891-2-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250112170845.1181891-1-maz@kernel.org>
+References: <20250112170845.1181891-1-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net: phy: Constify struct mdio_device_id
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: SkyLake.Huang@mediatek.com, UNGLinuxDriver@microchip.com,
- andrei.botila@oss.nxp.com, andrew@lunn.ch,
- angelogioacchino.delregno@collabora.com, arun.ramadoss@microchip.com,
- bcm-kernel-feedback-list@broadcom.com, daniel@makrotopia.org,
- davem@davemloft.net, dqfext@gmail.com, edumazet@google.com,
- florian.fainelli@broadcom.com, heiko@sntech.de, hkallweit1@gmail.com,
- jbrunet@baylibre.com, kabel@kernel.org, kernel-janitors@vger.kernel.org,
- khilman@baylibre.com, kuba@kernel.org, linux-amlogic@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux@armlinux.org.uk,
- lxu@maxlinear.com, martin.blumenstingl@googlemail.com,
- matthias.bgg@gmail.com, michael.hennerich@analog.com,
- neil.armstrong@linaro.org, netdev@vger.kernel.org, pabeni@redhat.com,
- piergiorgio.beruto@gmail.com, richardcochran@gmail.com, rjui@broadcom.com,
- sbranden@broadcom.com
-References: <403c381b7d9156b67ad68ffc44b8eee70c5e86a9.1736691226.git.christophe.jaillet@wanadoo.fr>
- <9dfeb860-3c0c-4f16-a150-fdce133281e8@lunn.ch>
-Content-Language: en-US, fr-FR
-From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-In-Reply-To: <9dfeb860-3c0c-4f16-a150-fdce133281e8@lunn.ch>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, andre.przywara@arm.com, eric.auger@redhat.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250112_090352_879874_2BE381FA 
-X-CRM114-Status: UNSURE (   8.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250112_090852_494209_3ACE4ADA 
+X-CRM114-Status: GOOD (  18.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,43 +87,307 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le 12/01/2025 à 17:46, Andrew Lunn a écrit :
-> On Sun, Jan 12, 2025 at 03:14:50PM +0100, Christophe JAILLET wrote:
->> 'struct mdio_device_id' is not modified in these drivers.
->>
->> Constifying these structures moves some data to a read-only section, so
->> increase overall security.
->>
->> On a x86_64, with allmodconfig, as an example:
->> Before:
->> ======
->>     text	   data	    bss	    dec	    hex	filename
->>    27014	  12792	      0	  39806	   9b7e	drivers/net/phy/broadcom.o
->>
->> After:
->> =====
->>     text	   data	    bss	    dec	    hex	filename
->>    27206	  12600	      0	  39806	   9b7e	drivers/net/phy/broadcom.o
->>
->> Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-> 
-> Seems sensible.
-> 
-> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-> 
-> Is the long terms goal to make MODULE_DEVICE_TABLE() enforce the
-> const?
+The ICH_HCR_EL2-related macros are missing a number of control
+bits that we are about to handle. Take this opportunity to fully
+describe the layout of that register as part of the automatic
+generation infrastructure.
 
-It was not my initial goal, but I can give it a look if you think it's 
-worth it.
+This results in a bit of churn, unfortunately.
 
-But some other constifications will be needed before that.
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/include/asm/sysreg.h       | 12 ------------
+ arch/arm64/kvm/emulate-nested.c       | 16 ++++++++--------
+ arch/arm64/kvm/hyp/vgic-v3-sr.c       | 14 +++++++-------
+ arch/arm64/kvm/vgic/vgic-v3.c         | 17 +++++++++--------
+ arch/arm64/tools/sysreg               | 22 ++++++++++++++++++++++
+ drivers/irqchip/irq-apple-aic.c       |  8 ++++----
+ tools/arch/arm64/include/asm/sysreg.h | 12 ------------
+ 7 files changed, 50 insertions(+), 51 deletions(-)
 
-CJ
-
-> 
->      Andrew
-> 
-> 
+diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+index b8303a83c0bff..3e84ef8f5b311 100644
+--- a/arch/arm64/include/asm/sysreg.h
++++ b/arch/arm64/include/asm/sysreg.h
+@@ -561,7 +561,6 @@
+ 
+ #define SYS_ICH_VSEIR_EL2		sys_reg(3, 4, 12, 9, 4)
+ #define SYS_ICC_SRE_EL2			sys_reg(3, 4, 12, 9, 5)
+-#define SYS_ICH_HCR_EL2			sys_reg(3, 4, 12, 11, 0)
+ #define SYS_ICH_VTR_EL2			sys_reg(3, 4, 12, 11, 1)
+ #define SYS_ICH_MISR_EL2		sys_reg(3, 4, 12, 11, 2)
+ #define SYS_ICH_EISR_EL2		sys_reg(3, 4, 12, 11, 3)
+@@ -1011,17 +1010,6 @@
+ #define ICH_LR_PRIORITY_SHIFT	48
+ #define ICH_LR_PRIORITY_MASK	(0xffULL << ICH_LR_PRIORITY_SHIFT)
+ 
+-/* ICH_HCR_EL2 bit definitions */
+-#define ICH_HCR_EN		(1 << 0)
+-#define ICH_HCR_UIE		(1 << 1)
+-#define ICH_HCR_NPIE		(1 << 3)
+-#define ICH_HCR_TC		(1 << 10)
+-#define ICH_HCR_TALL0		(1 << 11)
+-#define ICH_HCR_TALL1		(1 << 12)
+-#define ICH_HCR_TDIR		(1 << 14)
+-#define ICH_HCR_EOIcount_SHIFT	27
+-#define ICH_HCR_EOIcount_MASK	(0x1f << ICH_HCR_EOIcount_SHIFT)
+-
+ /* ICH_VMCR_EL2 bit definitions */
+ #define ICH_VMCR_ACK_CTL_SHIFT	2
+ #define ICH_VMCR_ACK_CTL_MASK	(1 << ICH_VMCR_ACK_CTL_SHIFT)
+diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
+index 1ffbfd1c3cf2e..c460b8403aec5 100644
+--- a/arch/arm64/kvm/emulate-nested.c
++++ b/arch/arm64/kvm/emulate-nested.c
+@@ -395,26 +395,26 @@ static const struct trap_bits coarse_trap_bits[] = {
+ 	},
+ 	[CGT_ICH_HCR_TC] = {
+ 		.index		= ICH_HCR_EL2,
+-		.value		= ICH_HCR_TC,
+-		.mask		= ICH_HCR_TC,
++		.value		= ICH_HCR_EL2_TC,
++		.mask		= ICH_HCR_EL2_TC,
+ 		.behaviour	= BEHAVE_FORWARD_RW,
+ 	},
+ 	[CGT_ICH_HCR_TALL0] = {
+ 		.index		= ICH_HCR_EL2,
+-		.value		= ICH_HCR_TALL0,
+-		.mask		= ICH_HCR_TALL0,
++		.value		= ICH_HCR_EL2_TALL0,
++		.mask		= ICH_HCR_EL2_TALL0,
+ 		.behaviour	= BEHAVE_FORWARD_RW,
+ 	},
+ 	[CGT_ICH_HCR_TALL1] = {
+ 		.index		= ICH_HCR_EL2,
+-		.value		= ICH_HCR_TALL1,
+-		.mask		= ICH_HCR_TALL1,
++		.value		= ICH_HCR_EL2_TALL1,
++		.mask		= ICH_HCR_EL2_TALL1,
+ 		.behaviour	= BEHAVE_FORWARD_RW,
+ 	},
+ 	[CGT_ICH_HCR_TDIR] = {
+ 		.index		= ICH_HCR_EL2,
+-		.value		= ICH_HCR_TDIR,
+-		.mask		= ICH_HCR_TDIR,
++		.value		= ICH_HCR_EL2_TDIR,
++		.mask		= ICH_HCR_EL2_TDIR,
+ 		.behaviour	= BEHAVE_FORWARD_RW,
+ 	},
+ };
+diff --git a/arch/arm64/kvm/hyp/vgic-v3-sr.c b/arch/arm64/kvm/hyp/vgic-v3-sr.c
+index 3f9741e51d41b..b47dede973b3c 100644
+--- a/arch/arm64/kvm/hyp/vgic-v3-sr.c
++++ b/arch/arm64/kvm/hyp/vgic-v3-sr.c
+@@ -218,7 +218,7 @@ void __vgic_v3_save_state(struct vgic_v3_cpu_if *cpu_if)
+ 
+ 		elrsr = read_gicreg(ICH_ELRSR_EL2);
+ 
+-		write_gicreg(cpu_if->vgic_hcr & ~ICH_HCR_EN, ICH_HCR_EL2);
++		write_gicreg(cpu_if->vgic_hcr & ~ICH_HCR_EL2_En, ICH_HCR_EL2);
+ 
+ 		for (i = 0; i < used_lrs; i++) {
+ 			if (elrsr & (1 << i))
+@@ -274,7 +274,7 @@ void __vgic_v3_activate_traps(struct vgic_v3_cpu_if *cpu_if)
+ 	 * system registers to trap to EL1 (duh), force ICC_SRE_EL1.SRE to 1
+ 	 * so that the trap bits can take effect. Yes, we *loves* the GIC.
+ 	 */
+-	if (!(cpu_if->vgic_hcr & ICH_HCR_EN)) {
++	if (!(cpu_if->vgic_hcr & ICH_HCR_EL2_En)) {
+ 		write_gicreg(ICC_SRE_EL1_SRE, ICC_SRE_EL1);
+ 		isb();
+ 	} else if (!cpu_if->vgic_sre) {
+@@ -752,7 +752,7 @@ static void __vgic_v3_bump_eoicount(void)
+ 	u32 hcr;
+ 
+ 	hcr = read_gicreg(ICH_HCR_EL2);
+-	hcr += 1 << ICH_HCR_EOIcount_SHIFT;
++	hcr += 1 << ICH_HCR_EL2_EOIcount_SHIFT;
+ 	write_gicreg(hcr, ICH_HCR_EL2);
+ }
+ 
+@@ -1069,7 +1069,7 @@ static bool __vgic_v3_check_trap_forwarding(struct kvm_vcpu *vcpu,
+ 	case SYS_ICC_EOIR0_EL1:
+ 	case SYS_ICC_HPPIR0_EL1:
+ 	case SYS_ICC_IAR0_EL1:
+-		return ich_hcr & ICH_HCR_TALL0;
++		return ich_hcr & ICH_HCR_EL2_TALL0;
+ 
+ 	case SYS_ICC_IGRPEN1_EL1:
+ 		if (is_read &&
+@@ -1090,10 +1090,10 @@ static bool __vgic_v3_check_trap_forwarding(struct kvm_vcpu *vcpu,
+ 	case SYS_ICC_EOIR1_EL1:
+ 	case SYS_ICC_HPPIR1_EL1:
+ 	case SYS_ICC_IAR1_EL1:
+-		return ich_hcr & ICH_HCR_TALL1;
++		return ich_hcr & ICH_HCR_EL2_TALL1;
+ 
+ 	case SYS_ICC_DIR_EL1:
+-		if (ich_hcr & ICH_HCR_TDIR)
++		if (ich_hcr & ICH_HCR_EL2_TDIR)
+ 			return true;
+ 
+ 		fallthrough;
+@@ -1101,7 +1101,7 @@ static bool __vgic_v3_check_trap_forwarding(struct kvm_vcpu *vcpu,
+ 	case SYS_ICC_RPR_EL1:
+ 	case SYS_ICC_CTLR_EL1:
+ 	case SYS_ICC_PMR_EL1:
+-		return ich_hcr & ICH_HCR_TC;
++		return ich_hcr & ICH_HCR_EL2_TC;
+ 
+ 	default:
+ 		return false;
+diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
+index f267bc2486a18..6c21be12959d6 100644
+--- a/arch/arm64/kvm/vgic/vgic-v3.c
++++ b/arch/arm64/kvm/vgic/vgic-v3.c
+@@ -23,7 +23,7 @@ void vgic_v3_set_underflow(struct kvm_vcpu *vcpu)
+ {
+ 	struct vgic_v3_cpu_if *cpuif = &vcpu->arch.vgic_cpu.vgic_v3;
+ 
+-	cpuif->vgic_hcr |= ICH_HCR_UIE;
++	cpuif->vgic_hcr |= ICH_HCR_EL2_UIE;
+ }
+ 
+ static bool lr_signals_eoi_mi(u64 lr_val)
+@@ -41,7 +41,7 @@ void vgic_v3_fold_lr_state(struct kvm_vcpu *vcpu)
+ 
+ 	DEBUG_SPINLOCK_BUG_ON(!irqs_disabled());
+ 
+-	cpuif->vgic_hcr &= ~ICH_HCR_UIE;
++	cpuif->vgic_hcr &= ~ICH_HCR_EL2_UIE;
+ 
+ 	for (lr = 0; lr < cpuif->used_lrs; lr++) {
+ 		u64 val = cpuif->vgic_lr[lr];
+@@ -291,7 +291,7 @@ void vgic_v3_enable(struct kvm_vcpu *vcpu)
+ 					    ICH_VTR_PRI_BITS_SHIFT) + 1;
+ 
+ 	/* Get the show on the road... */
+-	vgic_v3->vgic_hcr = ICH_HCR_EN;
++	vgic_v3->vgic_hcr = ICH_HCR_EL2_En;
+ }
+ 
+ void vcpu_set_ich_hcr(struct kvm_vcpu *vcpu)
+@@ -300,18 +300,19 @@ void vcpu_set_ich_hcr(struct kvm_vcpu *vcpu)
+ 
+ 	/* Hide GICv3 sysreg if necessary */
+ 	if (!kvm_has_gicv3(vcpu->kvm)) {
+-		vgic_v3->vgic_hcr |= ICH_HCR_TALL0 | ICH_HCR_TALL1 | ICH_HCR_TC;
++		vgic_v3->vgic_hcr |= (ICH_HCR_EL2_TALL0 | ICH_HCR_EL2_TALL1 |
++				      ICH_HCR_EL2_TC);
+ 		return;
+ 	}
+ 
+ 	if (group0_trap)
+-		vgic_v3->vgic_hcr |= ICH_HCR_TALL0;
++		vgic_v3->vgic_hcr |= ICH_HCR_EL2_TALL0;
+ 	if (group1_trap)
+-		vgic_v3->vgic_hcr |= ICH_HCR_TALL1;
++		vgic_v3->vgic_hcr |= ICH_HCR_EL2_TALL1;
+ 	if (common_trap)
+-		vgic_v3->vgic_hcr |= ICH_HCR_TC;
++		vgic_v3->vgic_hcr |= ICH_HCR_EL2_TC;
+ 	if (dir_trap)
+-		vgic_v3->vgic_hcr |= ICH_HCR_TDIR;
++		vgic_v3->vgic_hcr |= ICH_HCR_EL2_TDIR;
+ }
+ 
+ int vgic_v3_lpi_sync_pending_status(struct kvm *kvm, struct vgic_irq *irq)
+diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+index b081b54d6d227..9938926421b5c 100644
+--- a/arch/arm64/tools/sysreg
++++ b/arch/arm64/tools/sysreg
+@@ -2938,6 +2938,28 @@ Field	31:16	PhyPARTID29
+ Field	15:0	PhyPARTID28
+ EndSysreg
+ 
++Sysreg	ICH_HCR_EL2	3	4	12	11	0
++Res0	63:32
++Field	31:27	EOIcount
++Res0	26:16
++Field	15	DVIM
++Field	14	TDIR
++Field	13	TSEI
++Field	12	TALL1
++Field	11	TALL0
++Field	10	TC
++Res0	9
++Field	8	vSGIEOICount
++Field	7	VGrp1DIE
++Field	6	VGrp1EIE
++Field	5	VGrp0DIE
++Field	4	VGrp0EIE
++Field	3	NPIE
++Field	2	LRENPIE
++Field	1	UIE
++Field	0	En
++EndSysreg
++
+ Sysreg	CONTEXTIDR_EL2	3	4	13	0	1
+ Fields	CONTEXTIDR_ELx
+ EndSysreg
+diff --git a/drivers/irqchip/irq-apple-aic.c b/drivers/irqchip/irq-apple-aic.c
+index da5250f0155cf..7a5cc26529f82 100644
+--- a/drivers/irqchip/irq-apple-aic.c
++++ b/drivers/irqchip/irq-apple-aic.c
+@@ -409,15 +409,15 @@ static void __exception_irq_entry aic_handle_irq(struct pt_regs *regs)
+ 	 * in use, and be cleared when coming back from the handler.
+ 	 */
+ 	if (is_kernel_in_hyp_mode() &&
+-	    (read_sysreg_s(SYS_ICH_HCR_EL2) & ICH_HCR_EN) &&
++	    (read_sysreg_s(SYS_ICH_HCR_EL2) & ICH_HCR_EL2_En) &&
+ 	    read_sysreg_s(SYS_ICH_MISR_EL2) != 0) {
+ 		generic_handle_domain_irq(aic_irqc->hw_domain,
+ 					  AIC_FIQ_HWIRQ(AIC_VGIC_MI));
+ 
+-		if (unlikely((read_sysreg_s(SYS_ICH_HCR_EL2) & ICH_HCR_EN) &&
++		if (unlikely((read_sysreg_s(SYS_ICH_HCR_EL2) & ICH_HCR_EL2_En) &&
+ 			     read_sysreg_s(SYS_ICH_MISR_EL2))) {
+ 			pr_err_ratelimited("vGIC IRQ fired and not handled by KVM, disabling.\n");
+-			sysreg_clear_set_s(SYS_ICH_HCR_EL2, ICH_HCR_EN, 0);
++			sysreg_clear_set_s(SYS_ICH_HCR_EL2, ICH_HCR_EL2_En, 0);
+ 		}
+ 	}
+ }
+@@ -840,7 +840,7 @@ static int aic_init_cpu(unsigned int cpu)
+ 				   VM_TMR_FIQ_ENABLE_V | VM_TMR_FIQ_ENABLE_P, 0);
+ 
+ 		/* vGIC maintenance IRQ */
+-		sysreg_clear_set_s(SYS_ICH_HCR_EL2, ICH_HCR_EN, 0);
++		sysreg_clear_set_s(SYS_ICH_HCR_EL2, ICH_HCR_EL2_En, 0);
+ 	}
+ 
+ 	/* PMC FIQ */
+diff --git a/tools/arch/arm64/include/asm/sysreg.h b/tools/arch/arm64/include/asm/sysreg.h
+index cd8420e8c3ad8..d314ccab7560a 100644
+--- a/tools/arch/arm64/include/asm/sysreg.h
++++ b/tools/arch/arm64/include/asm/sysreg.h
+@@ -420,7 +420,6 @@
+ 
+ #define SYS_ICH_VSEIR_EL2		sys_reg(3, 4, 12, 9, 4)
+ #define SYS_ICC_SRE_EL2			sys_reg(3, 4, 12, 9, 5)
+-#define SYS_ICH_HCR_EL2			sys_reg(3, 4, 12, 11, 0)
+ #define SYS_ICH_VTR_EL2			sys_reg(3, 4, 12, 11, 1)
+ #define SYS_ICH_MISR_EL2		sys_reg(3, 4, 12, 11, 2)
+ #define SYS_ICH_EISR_EL2		sys_reg(3, 4, 12, 11, 3)
+@@ -654,17 +653,6 @@
+ #define ICH_LR_PRIORITY_SHIFT	48
+ #define ICH_LR_PRIORITY_MASK	(0xffULL << ICH_LR_PRIORITY_SHIFT)
+ 
+-/* ICH_HCR_EL2 bit definitions */
+-#define ICH_HCR_EN		(1 << 0)
+-#define ICH_HCR_UIE		(1 << 1)
+-#define ICH_HCR_NPIE		(1 << 3)
+-#define ICH_HCR_TC		(1 << 10)
+-#define ICH_HCR_TALL0		(1 << 11)
+-#define ICH_HCR_TALL1		(1 << 12)
+-#define ICH_HCR_TDIR		(1 << 14)
+-#define ICH_HCR_EOIcount_SHIFT	27
+-#define ICH_HCR_EOIcount_MASK	(0x1f << ICH_HCR_EOIcount_SHIFT)
+-
+ /* ICH_VMCR_EL2 bit definitions */
+ #define ICH_VMCR_ACK_CTL_SHIFT	2
+ #define ICH_VMCR_ACK_CTL_MASK	(1 << ICH_VMCR_ACK_CTL_SHIFT)
+-- 
+2.39.2
 
 
