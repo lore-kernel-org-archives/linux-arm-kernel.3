@@ -4,82 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AABE4E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 04:43:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C45BE7719C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 07:35:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=B4Sfrt8uyUySFDJ3bjoV+mUUJjuD5J/DmG9W2o8vDO4=; b=q02qmyduj+U3clZ8Mf+rL82CTF
-	Y/nFJaFz9wJ9TRIhB6gZ6dQ539wKAgqBqSYOAd3fpltjAXKJ5jajTwAyFzEQmHSYW5yCkHHiqyqp6
-	IwzUTWsE6qz4AEnakRQ8nXexQoDPRVFafCqEdiYw+F9nw1eJjnhlZ/ySapjJ8MQVL+Wd4X6uPlGa6
-	0RHdUeZY+MsJo1JzR8HfZDuKaczXqUWc2pGcxWVvBHKF4aIIxY+nFuBjg/SiI/mE/a17GOTa3kjFd
-	d/Gqv/g76pCnXYH9BEiAbIFC/ZkvgfS3wfO/qUmMMoWYWQDAUVmMenEAogMuHJtzX/CBdGGkwnI3w
-	+bvMWyEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=11bw0J6qO+9mxKLe0Z2Gb7Ay6M6TocNEYgsoy2WMvnc=; b=oN428uQrweiFKgeQoiqWUB3mJ4
+	uh0X/5DjLoe6q+4wIDemXtIur37wGV4UUMzDLAcXe3D4iTnCWiFTFf9dYXC+d8HLJ9NSgIOAm48v7
+	20vnvptcCRcGAgQpdHt6ldFWpnHin7fu7fy5q99uuYwl2FGfjX4pSFoadzMCPZ7o66DU+1/1lcgLX
+	6kdYbz5yTO8sRpY/SDDi0XEVmhKNqVI+8Lqf8CuLOC5qk2D7dA2aeReey0Len4ZialReUHAHXE71e
+	EgpbWfW5NONtDP4/W5b+157WOj7h3tXIr+WLg9JpLXT4IxQkVvsZ4hePPfNC0ZWbsiCQsmqRU/v/t
+	Qd5G4uTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWpok-000000024fJ-07Re;
-	Sun, 12 Jan 2025 04:43:18 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWpnT-000000024Wd-2hkt
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jan 2025 04:42:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1736656920; x=1768192920;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:to:cc;
-  bh=QWX/DIgncBhwnmRSUaBeYNsVbCo0MhvPrLkGImBuVwU=;
-  b=ROr8FErxh60bIsKExeORCLFrnSp/0wh6t5AOdWKaVvmiRI+ym4Qkmcml
-   ve7pb3xjJQqrt8rMxosqFUgieX+jxuVTjF74yyj5XHzSPUzHCDe3oHEOP
-   RiwRwlwUo5ai0usA7KhXPfvP/KVzEIo8GV5ofNiLq9mhmBZ1OF9ZM0CyO
-   jZAkZk8J8nyaemUnz32wyc+DLA3vSH/cL49VY0yILtodXXOxEwLU9zjMi
-   5D8Dlh5Q9GAz7YUXBAfyO/NRnvEwxIGRnZif9G/QCdKfxFeNCpLrTbfcK
-   1Yz9/DuuuMGiGhKiFph9S+5JgDtMZ70XPME+n9dvV+nlz1rdXZTTVcaYI
-   w==;
-X-CSE-ConnectionGUID: 5EsYT+VbR9e2cYwCsEZWUg==
-X-CSE-MsgGUID: RQgX0DutSgOxxTzaHEUgAA==
-X-IronPort-AV: E=Sophos;i="6.12,308,1728975600"; 
-   d="scan'208";a="36430852"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 11 Jan 2025 21:41:55 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Sat, 11 Jan 2025 21:41:15 -0700
-Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
- Transport; Sat, 11 Jan 2025 21:41:12 -0700
-From: Dharma Balasubiramani <dharma.b@microchip.com>
-Date: Sun, 12 Jan 2025 10:11:10 +0530
-Subject: [PATCH] drivers: soc: atmel: fix the args passed to AT91_SOC
+	id 1tWsVM-00000002Etk-1915;
+	Sun, 12 Jan 2025 07:35:28 +0000
+Received: from [129.204.178.38] (helo=classfun.cn)
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tWsU5-00000002Ejr-3jD7;
+	Sun, 12 Jan 2025 07:34:11 +0000
+Received: from bigfoot-server-storage.classfun.cn (unknown [124.72.162.122])
+	(Authenticated sender: bigfoot)
+	by classfun.cn (Postfix) with ESMTPSA id 97CB878923;
+	Sun, 12 Jan 2025 15:34:02 +0800 (CST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 classfun.cn 97CB878923
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=classfun.cn;
+	s=default; t=1736667248;
+	bh=11bw0J6qO+9mxKLe0Z2Gb7Ay6M6TocNEYgsoy2WMvnc=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Pa5JZGh8Q/GoplWoqorEtRoQY/Lvh3Y8FgHNXzSHf6UdKW+tSyT/h3+SY47JxzBzl
+	 hBAvVpob8+DnpDBhmNCteTbZgaeKselD6pDSrCmdi5AsMhZBPh5UstdnHxHn23KHLg
+	 b9YKnMwUwGfZNy7jeasSpsE3YX6gtDZL+CRKDw+0=
+From: Junhao Xie <bigfoot@classfun.cn>
+To: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Chukun Pan <amadeus@jmu.edu.cn>,
+	Junhao Xie <bigfoot@classfun.cn>,
+	FUKAUMI Naoki <naoki@radxa.com>,
+	Dragan Simic <dsimic@manjaro.org>,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v6 2/3] dt-bindings: arm: rockchip: Add Ariaboard Photonicat RK3568
+Date: Sun, 12 Jan 2025 15:33:43 +0800
+Message-ID: <20250112073344.1976411-3-bigfoot@classfun.cn>
+X-Mailer: git-send-email 2.47.1
+In-Reply-To: <20250112073344.1976411-1-bigfoot@classfun.cn>
+References: <20250112073344.1976411-1-bigfoot@classfun.cn>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250112-atmel-soc-v1-1-822937f1dd5a@microchip.com>
-X-B4-Tracking: v=1; b=H4sIAOVHg2cC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1MDQ0Mj3cSS3NQc3eL8ZF0Tg2STJCBhmWRmoQRUX1CUmpZZATYrOra2FgC
- InqGaWwAAAA==
-To: Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre Belloni
-	<alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Varshini Rajendran <varshini.rajendran@microchip.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Dharma Balasubiramani <dharma.b@microchip.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1736656871; l=1897;
- i=dharma.b@microchip.com; s=20240209; h=from:subject:message-id;
- bh=QWX/DIgncBhwnmRSUaBeYNsVbCo0MhvPrLkGImBuVwU=;
- b=D9b0zLBYcFNhvFkmEj5yqTP90zbB+tXIzRIrUAS699NZCFCcq3/ZgiGuN06fw00hMw4g0HCU1
- mjPXJsyFdtsC0U+XtGSGZpTGmhD2mYFq2U7jgzEmjvnUDmQrcxQmdmp
-X-Developer-Key: i=dharma.b@microchip.com; a=ed25519;
- pk=kCq31LcpLAe9HDfIz9ZJ1U7T+osjOi7OZSbe0gqtyQ4=
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250111_204200_204434_E3424647 
-X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-CacheID: sfid-20250111_233410_223372_5CFD191D 
+X-CRM114-Status: UNSURE (   7.68  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -95,51 +79,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-fix the arguments passed to the AT91_SOC for SAM9X75 SiP.
+This documents Ariaboard Photonicat which is a router based on RK3568 SoC.
 
-Fixes: 5eb64f2b368f ("ARM: at91: add support in SoC driver for new sam9x7")
-Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
+Link: https://ariaboard.com/
+Link: https://photonicat.com/
+
+Signed-off-by: Junhao Xie <bigfoot@classfun.cn>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- drivers/soc/atmel/soc.c | 16 ++++++++--------
- 1 file changed, 8 insertions(+), 8 deletions(-)
+ Documentation/devicetree/bindings/arm/rockchip.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/drivers/soc/atmel/soc.c b/drivers/soc/atmel/soc.c
-index 298b542dd1c0..273c1420fd40 100644
---- a/drivers/soc/atmel/soc.c
-+++ b/drivers/soc/atmel/soc.c
-@@ -111,17 +111,17 @@ static const struct at91_soc socs[] __initconst = {
- 	AT91_SOC(SAM9X7_CIDR_MATCH, AT91_CIDR_MATCH_MASK,
- 		 AT91_CIDR_VERSION_MASK, SAM9X75_EXID_MATCH,
- 		 "sam9x75", "sam9x7"),
--	AT91_SOC(SAM9X7_CIDR_MATCH, SAM9X75_D1M_EXID_MATCH,
--		 AT91_CIDR_VERSION_MASK, SAM9X75_EXID_MATCH,
-+	AT91_SOC(SAM9X7_CIDR_MATCH, AT91_CIDR_MATCH_MASK,
-+		 AT91_CIDR_VERSION_MASK, SAM9X75_D1M_EXID_MATCH,
- 		 "sam9x75 16MB DDR2 SiP", "sam9x7"),
--	AT91_SOC(SAM9X7_CIDR_MATCH, SAM9X75_D5M_EXID_MATCH,
--		 AT91_CIDR_VERSION_MASK, SAM9X75_EXID_MATCH,
-+	AT91_SOC(SAM9X7_CIDR_MATCH, AT91_CIDR_MATCH_MASK,
-+		 AT91_CIDR_VERSION_MASK, SAM9X75_D5M_EXID_MATCH,
- 		 "sam9x75 64MB DDR2 SiP", "sam9x7"),
--	AT91_SOC(SAM9X7_CIDR_MATCH, SAM9X75_D1G_EXID_MATCH,
--		 AT91_CIDR_VERSION_MASK, SAM9X75_EXID_MATCH,
-+	AT91_SOC(SAM9X7_CIDR_MATCH, AT91_CIDR_MATCH_MASK,
-+		 AT91_CIDR_VERSION_MASK, SAM9X75_D1G_EXID_MATCH,
- 		 "sam9x75 125MB DDR3L SiP ", "sam9x7"),
--	AT91_SOC(SAM9X7_CIDR_MATCH, SAM9X75_D2G_EXID_MATCH,
--		 AT91_CIDR_VERSION_MASK, SAM9X75_EXID_MATCH,
-+	AT91_SOC(SAM9X7_CIDR_MATCH, AT91_CIDR_MATCH_MASK,
-+		 AT91_CIDR_VERSION_MASK, SAM9X75_D2G_EXID_MATCH,
- 		 "sam9x75 250MB DDR3L SiP", "sam9x7"),
- #endif
- #ifdef CONFIG_SOC_SAMA5
-
----
-base-commit: 2b88851f583d3c4e40bcd40cfe1965241ec229dd
-change-id: 20250112-atmel-soc-40c4b40c9b68
-
-Best regards,
+diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
+index 753199a12923..4802ced008b7 100644
+--- a/Documentation/devicetree/bindings/arm/rockchip.yaml
++++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
+@@ -49,6 +49,11 @@ properties:
+               - anbernic,rg-arc-s
+           - const: rockchip,rk3566
+ 
++      - description: Ariaboard Photonicat
++        items:
++          - const: ariaboard,photonicat
++          - const: rockchip,rk3568
++
+       - description: ArmSoM Sige5 board
+         items:
+           - const: armsom,sige5
 -- 
-Dharma Balasubiramani <dharma.b@microchip.com>
+2.47.1
 
 
