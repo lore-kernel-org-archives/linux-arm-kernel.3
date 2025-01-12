@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27C35E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 17:11:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B90D3E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 17:12:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mpBu9RavHdcH7vWc/kdhsQ489MwQZIDsWif440iCdUs=; b=yrTaeSxVKDqEaRZZZp8u6iq4T9
-	xqsd5oicx6SF0j2KWuZxQCbzF5uZ8wrRJ62rX9mAzGUZ29KCPnJ+y9cT7uE/C3HpGyIo3DPSf+mjz
-	YJWbfYKhY/50yPyxMZWHyo5pBrR+dnHLurulboIwwg5DWd2ZS0CXDh4OP6SIKbxUsNs7xZoCsm0fY
-	UE/k7Th/A65nGngl1p1FIq8J/PPZwBidf0kNFdAL1X/yJ6v/uKHsZShHaYotO3IGWzc8/l1dsdKKc
-	ZaFopXHcEISS/h4afr5/QY5f7R7oofdXaLYQmsAE3ZvAKCS/O7BuLiCYdWY6Jh6HV3CgfIbSG1XYx
-	ZY6VCTvQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NzgfnWrd8Ok0AaW095dBj61O+smV0OmH0m6FsR0c72k=; b=yIVb/MPDJdFzhQ0RBxkcGj42mo
+	k7SAXXFFOzDOgJKM9vo38X+LzyQ6SyIBWZRbn42JK7VMx6kG7iuSthG5x+cMHLoV0r97nFHq8XFqr
+	siZ5IA3DZYCkRp6+Dhz2JeDxgpYHx4s38TZdhusvY9OgC8qEzp0ZaABigjLwRw7nhm673t+OjX+33
+	Buhh7AnxNaDk2RwmXZwzJbqCLsqfv3zPsv03h3sTjPs+3NFYuxUWOUQKFYwf0uiMtxDvDotYGTdPi
+	igkIWtLDl94iWjvagPKnFZ1L535ajXo3GV/QBFitzJTy9plAW65qG0MjwwcU6ZhDD9c+CIIIrhdOF
+	vSyMqoGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tX1Ul-000000038NA-1YAt;
-	Sun, 12 Jan 2025 17:11:27 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tX1Vz-000000038Xo-0FTh;
+	Sun, 12 Jan 2025 17:12:43 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tX1SG-000000037et-259b
+	id 1tX1SG-000000037eu-2br8
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jan 2025 17:08:53 +0000
+	Sun, 12 Jan 2025 17:08:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1C7E0A40388;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1F4F8A4091C;
 	Sun, 12 Jan 2025 17:07:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94E75C4CEDF;
-	Sun, 12 Jan 2025 17:08:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02F28C4CEE0;
+	Sun, 12 Jan 2025 17:08:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736701730;
-	bh=ltGcXV/WVvzdPg+NYIBes+nZMKBH831xK6fnn/akLnw=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Di8vsgyGqxtp03nq8SuQk1tSaUAfb16RYfkJB86Vj/8hRf84jXguQD+rzBjLwyo3Y
-	 mhl9DqBJnbX75Clu9loN59d0VU0PG0l7cdWDUvUdN8VDjmhQzbVd/eJQg97GIbc+WN
-	 5WgKzK8OHcIccXgwp7HXFoHAdnT4lClo4KUWpK1KqvHqNQcVemIe7iZ5f7TMaj0NWL
-	 Rnv8EKGAjXFC9YQ1OMwAYIhThdd7kv1D4fraUPrFbuFmL9MjFruh1HnjWQWK+Q+0rd
-	 K3TDIhLkbzY00nQGbNf41MUTYkNLtH0iUxf1DMkYjEcIbIumePk+/zZ+g9IuZ+LFhA
-	 yu7Ufz6sgcmqg==
+	s=k20201202; t=1736701731;
+	bh=irvSisWdAInReDQ60ym0hyaAWo7RRhDjgjlmicXlLCQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=QlhOf7f8FK6GPUU7CsV5bWrCvZMjP+yQcTYqWH/rWUDAUVZLyduNLk5oB97a1Shxv
+	 DVMENmBD3P7Kdq1A5fFFqjRwPgRZ5MSOo7yNA/ls892nAifR2KUfjAjmIi3QO2N3DV
+	 5P6UyEs7LDEpfBunEtjJf/BvvOAAZGhjEqFmEkP/Mj58Jznq5jfcij8fzRD03q6P3i
+	 DFc8yUD9s822glF3BAFo6V36iktGowieXyF7Uhs3Jpt1A5iY+h+cZ1iPby/UnSGyNU
+	 hfi4TxpLQpLuEkcAN3nQHBqcfFDlhJiPiIrwjadcoZyMvO3Dvj0Ber2CvP4gxPrl3I
+	 JrmDcgn7JVdgw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tX1SC-00BNxR-CH;
-	Sun, 12 Jan 2025 17:08:48 +0000
+	id 1tX1SD-00BNxR-6t;
+	Sun, 12 Jan 2025 17:08:49 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -58,10 +58,12 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Andre Przywara <andre.przywara@arm.com>,
 	Eric Auger <eric.auger@redhat.com>
-Subject: [PATCH v2 00/17] KVM: arm64: Add NV GICv3 support
-Date: Sun, 12 Jan 2025 17:08:28 +0000
-Message-Id: <20250112170845.1181891-1-maz@kernel.org>
+Subject: [PATCH v2 03/17] arm64: sysreg: Add layout for ICH_MISR_EL2
+Date: Sun, 12 Jan 2025 17:08:31 +0000
+Message-Id: <20250112170845.1181891-4-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250112170845.1181891-1-maz@kernel.org>
+References: <20250112170845.1181891-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
@@ -69,8 +71,9 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250112_090852_659309_DF48272E 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20250112_090852_827043_C32B617C 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,75 +88,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Here's a respin of the NV support for GICv3. The integration branch
-containing this (and the rest of the NV stack) is still at [2].
+The ICH_MISR_EL2-related macros are missing a number of status
+bits that we are about to handle. Take this opportunity to fully
+describe the layout of that register as part of the automatic
+generation infrastructure.
 
-* From v1 [1]:
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/include/asm/sysreg.h       |  5 -----
+ arch/arm64/tools/sysreg               | 12 ++++++++++++
+ tools/arch/arm64/include/asm/sysreg.h |  5 -----
+ 3 files changed, 12 insertions(+), 10 deletions(-)
 
-  - Fix the default value for the MI INTID to PPI9, instead of
-    something fairly random...
-
-  - Fail KVM initialisation if asking for NV on HW without a virtual
-    GICv3.
-
-[1] https://lore.kernel.org/r/20241217151331.934077-1-maz@kernel.org
-[2] https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git/log/?h=kvm-arm64/nv-next
-
-Andre Przywara (1):
-  KVM: arm64: nv: Allow userland to set VGIC maintenance IRQ
-
-Jintack Lim (1):
-  KVM: arm64: nv: Respect virtual HCR_EL2.TWx setting
-
-Marc Zyngier (13):
-  arm64: sysreg: Add layout for ICH_HCR_EL2
-  arm64: sysreg: Add layout for ICH_VTR_EL2
-  arm64: sysreg: Add layout for ICH_MISR_EL2
-  KVM: arm64: nv: Load timer before the GIC
-  KVM: arm64: nv: Add ICH_*_EL2 registers to vpcu_sysreg
-  KVM: arm64: nv: Plumb handling of GICv3 EL2 accesses
-  KVM: arm64: nv: Sanitise ICH_HCR_EL2 accesses
-  KVM: arm64: nv: Nested GICv3 emulation
-  KVM: arm64: nv: Handle L2->L1 transition on interrupt injection
-  KVM: arm64: nv: Add Maintenance Interrupt emulation
-  KVM: arm64: nv: Propagate used_lrs between L1 and L0 contexts
-  KVM: arm64: nv: Fold GICv3 host trapping requirements into guest setup
-  KVM: arm64: nv: Fail KVM init if asking for NV without GICv3
-
-Oliver Upton (2):
-  KVM: arm64: Move host SVE/SME state flags out of vCPU
-  KVM: arm64: nv: Request vPE doorbell upon nested ERET to L2
-
- .../virt/kvm/devices/arm-vgic-v3.rst          |  12 +-
- arch/arm64/include/asm/kvm_emulate.h          |  13 +
- arch/arm64/include/asm/kvm_host.h             |  71 ++-
- arch/arm64/include/asm/kvm_hyp.h              |   2 +
- arch/arm64/include/asm/sysreg.h               |  30 --
- arch/arm64/include/uapi/asm/kvm.h             |   1 +
- arch/arm64/kvm/Makefile                       |   2 +-
- arch/arm64/kvm/arm.c                          |  20 +-
- arch/arm64/kvm/emulate-nested.c               |  18 +-
- arch/arm64/kvm/fpsimd.c                       |  12 +-
- arch/arm64/kvm/handle_exit.c                  |   6 +-
- arch/arm64/kvm/hyp/vgic-v3-sr.c               |  16 +-
- arch/arm64/kvm/nested.c                       |  12 +
- arch/arm64/kvm/sys_regs.c                     |  95 +++-
- arch/arm64/kvm/vgic-sys-reg-v3.c              |   8 +-
- arch/arm64/kvm/vgic/vgic-init.c               |  29 ++
- arch/arm64/kvm/vgic/vgic-kvm-device.c         |  29 +-
- arch/arm64/kvm/vgic/vgic-v3-nested.c          | 409 ++++++++++++++++++
- arch/arm64/kvm/vgic/vgic-v3.c                 |  44 +-
- arch/arm64/kvm/vgic/vgic-v4.c                 |  18 +-
- arch/arm64/kvm/vgic/vgic.c                    |  38 ++
- arch/arm64/kvm/vgic/vgic.h                    |   6 +
- arch/arm64/tools/sysreg                       |  48 ++
- drivers/irqchip/irq-apple-aic.c               |   8 +-
- include/kvm/arm_vgic.h                        |  10 +
- tools/arch/arm/include/uapi/asm/kvm.h         |   1 +
- tools/arch/arm64/include/asm/sysreg.h         |  30 --
- 27 files changed, 855 insertions(+), 133 deletions(-)
- create mode 100644 arch/arm64/kvm/vgic/vgic-v3-nested.c
-
+diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+index cf74ebcd46d95..815e9b0bdff27 100644
+--- a/arch/arm64/include/asm/sysreg.h
++++ b/arch/arm64/include/asm/sysreg.h
+@@ -561,7 +561,6 @@
+ 
+ #define SYS_ICH_VSEIR_EL2		sys_reg(3, 4, 12, 9, 4)
+ #define SYS_ICC_SRE_EL2			sys_reg(3, 4, 12, 9, 5)
+-#define SYS_ICH_MISR_EL2		sys_reg(3, 4, 12, 11, 2)
+ #define SYS_ICH_EISR_EL2		sys_reg(3, 4, 12, 11, 3)
+ #define SYS_ICH_ELRSR_EL2		sys_reg(3, 4, 12, 11, 5)
+ #define SYS_ICH_VMCR_EL2		sys_reg(3, 4, 12, 11, 7)
+@@ -991,10 +990,6 @@
+ #define TRFCR_ELx_E0TRE			BIT(0)
+ 
+ /* GIC Hypervisor interface registers */
+-/* ICH_MISR_EL2 bit definitions */
+-#define ICH_MISR_EOI		(1 << 0)
+-#define ICH_MISR_U		(1 << 1)
+-
+ /* ICH_LR*_EL2 bit definitions */
+ #define ICH_LR_VIRTUAL_ID_MASK	((1ULL << 32) - 1)
+ 
+diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+index f5927d345eea3..a601231a088d7 100644
+--- a/arch/arm64/tools/sysreg
++++ b/arch/arm64/tools/sysreg
+@@ -2974,6 +2974,18 @@ Res0	17:5
+ Field	4:0	ListRegs
+ EndSysreg
+ 
++Sysreg	ICH_MISR_EL2	3	4	12	11	2
++Res0	63:8
++Field	7	VGrp1D
++Field	6	VGrp1E
++Field	5	VGrp0D
++Field	4	VGrp0E
++Field	3	NP
++Field	2	LRENP
++Field	1	U
++Field	0	EOI
++EndSysreg
++
+ Sysreg	CONTEXTIDR_EL2	3	4	13	0	1
+ Fields	CONTEXTIDR_ELx
+ EndSysreg
+diff --git a/tools/arch/arm64/include/asm/sysreg.h b/tools/arch/arm64/include/asm/sysreg.h
+index f43e303d31d25..0169bd3137caf 100644
+--- a/tools/arch/arm64/include/asm/sysreg.h
++++ b/tools/arch/arm64/include/asm/sysreg.h
+@@ -420,7 +420,6 @@
+ 
+ #define SYS_ICH_VSEIR_EL2		sys_reg(3, 4, 12, 9, 4)
+ #define SYS_ICC_SRE_EL2			sys_reg(3, 4, 12, 9, 5)
+-#define SYS_ICH_MISR_EL2		sys_reg(3, 4, 12, 11, 2)
+ #define SYS_ICH_EISR_EL2		sys_reg(3, 4, 12, 11, 3)
+ #define SYS_ICH_ELRSR_EL2		sys_reg(3, 4, 12, 11, 5)
+ #define SYS_ICH_VMCR_EL2		sys_reg(3, 4, 12, 11, 7)
+@@ -634,10 +633,6 @@
+ #define TRFCR_ELx_E0TRE			BIT(0)
+ 
+ /* GIC Hypervisor interface registers */
+-/* ICH_MISR_EL2 bit definitions */
+-#define ICH_MISR_EOI		(1 << 0)
+-#define ICH_MISR_U		(1 << 1)
+-
+ /* ICH_LR*_EL2 bit definitions */
+ #define ICH_LR_VIRTUAL_ID_MASK	((1ULL << 32) - 1)
+ 
 -- 
 2.39.2
 
