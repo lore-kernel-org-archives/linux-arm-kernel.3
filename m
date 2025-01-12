@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE012E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 12:50:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A545E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 13:00:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SWqaERbETudr//jZR8INAk5dG5pGbiCmxe7wEbVoPcY=; b=01wIa4hdS14OOv7uk1MxnLYmVA
-	B0/4vSo39TR6Mcqb/6Z/EqOFRD/PA+dkpQN0Z3rxsSmafgWUz6oFX25ZT6p7wHUSNtZ5wBLcV413H
-	wrIXLc7VXiowjBFFw1AojIvDrW3GHLeTisFgW1PimZ2IVyYW3biZxRoS0XodLfkO5crkPiuG9cyu0
-	5OxabJmEowyH7QA/MicUkfTJMZOMoNeBw8I36A3OfBgNNecpFdpAF0ZxLCeVZrfX84LDESTTvBjJo
-	T/wjw59Xzrqh1al9VvMfX01twR49XTPp5rkKD/32PBNLjwOBfsRdKqPb5mTtYm6p3AmFZKt5CPHxK
-	qEn6oa4Q==;
+	bh=gzQBIltkVdFiimtur1UPQfvVqr/NVVbSvLbvK9j3QXo=; b=LcVH/fz6NFxFr1zNcFGn+OWBYg
+	6scvordjWejtLfCT3ShWk1wJllDVntaOUizfgf5E5JEeQUg7RBr3Potx09EA9kgIdD4bZbwOqV8Nu
+	Ap7obfJClVmSpH9KCBhVZNQfCuunitx2sVby3A0vGf8bAQrsemCmwEIBSvTelzby6KFtbFp6+s4y5
+	rm3SqE9FlEHxq7M9aTZcFET6I5DoPG0YWomsNZWWiX2sWSojFS6s9bF+5jQz/vrLJuOStqQjwmsAV
+	9bz+giYq6l1HBuWt2n/N7fFD8grxILL2KAdn9q4FWklntj/4H4cIuUNHe0Vn1Lb8d7Ln4f+3kgk8U
+	FBtjt1Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWxQM-00000002i7z-0ITN;
-	Sun, 12 Jan 2025 12:50:38 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tWxZg-00000002ijN-1cmA;
+	Sun, 12 Jan 2025 13:00:16 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWxP6-00000002i1p-0rvE
+	id 1tWxYM-00000002iau-0leZ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jan 2025 12:49:21 +0000
+	Sun, 12 Jan 2025 12:58:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 58C1EA40144;
-	Sun, 12 Jan 2025 12:47:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B727C4CEE2;
-	Sun, 12 Jan 2025 12:49:15 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 86E1B5C3DE4;
+	Sun, 12 Jan 2025 12:58:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20E7CC4CEDF;
+	Sun, 12 Jan 2025 12:58:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736686155;
-	bh=pgxRYdQSas+8D8GFL+/3jRqY0sesne7tj5/idkHo+64=;
+	s=k20201202; t=1736686733;
+	bh=Dn0A/hZnSx7rcNLYXtBgP0818NrFi873fUUXKhxXm6E=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=D8LTWOkxziU8CYSQSBNeQyDpwmMngkHtBPzbJPGF2zq3NgoKRMi2Hx6HM8NymWfDa
-	 mOeD4FqHiEs1IyC+hoNyXShzaa8LFHkqXs3EY/2ISsIEuLq1IXSIeYNW+8h2QFABA8
-	 SPq749cIOB3uqvlzZy1Q2DV0mv2mj+UqwLEppMBRPbfp8r511nr2TM7/13kZp4hu47
-	 NCTL9kZNRbjYu6opg1vUw2jIXY5lLy/3U4cPmxDqYwpD/vTjHIYhQmSoRMR9U5++7U
-	 CdFYJvcrL3qfqzj7XY7JVHhPcIX7apf2++UrlXIHij1gG9iuvOZEPzl68rpAnMn51g
-	 SfwIc+a1odiwg==
+	b=PW4fKqazKtF9eWeqz4+Py+YJ7AX3e50V4ResuvlU9RTn71jfKSGxhjhP0eeUMysSi
+	 QHojkxLNid+iVyrYYPK5ADUrqSkYcAxLd3qjWeiUucfiRXQuVDsDfulXMsmHAmjCbZ
+	 a8DFL2qrsXpvtScHP0PTO66dJDbG3H3O4Vo0HAHBDJ/9xEsel8JPfffcGZyICL7AWI
+	 6nzY4VBIrdR8FCw/vmhNMCtRWcos53qQiImNT2UrEl7Nri9+iU444AKEcr/XkO4RDd
+	 9sk2indaYVtq+eIJo7uVEuBc41qXRgXNjQZzHu3KKkGt7W0uokTA3vqyET5Nly8liv
+	 vUykHGPIs+uVw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=wait-a-minute.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tWxOy-00BLMB-L3;
-	Sun, 12 Jan 2025 12:49:12 +0000
-Date: Sun, 12 Jan 2025 12:49:11 +0000
-Message-ID: <87frloqjso.wl-maz@kernel.org>
+	id 1tWxYJ-00BLRv-0s;
+	Sun, 12 Jan 2025 12:58:51 +0000
+Date: Sun, 12 Jan 2025 12:58:49 +0000
+Message-ID: <87ed18qjcm.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: James Clark <james.clark@linaro.org>
 Cc: kvmarm@lists.linux.dev,
@@ -65,30 +65,30 @@ Cc: kvmarm@lists.linux.dev,
 	Mike Leach <mike.leach@linaro.org>,
 	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
 	Mark Rutland <mark.rutland@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	"Rob Herring (Arm)" <robh@kernel.org>,
 	Shiqi Liu <shiqiliu@hust.edu.cn>,
 	James Morse <james.morse@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
 	Fuad Tabba <tabba@google.com>,
+	"Rob Herring (Arm)" <robh@kernel.org>,
 	Raghavendra Rao Ananta <rananta@google.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v10 04/10] arm64/sysreg: Add a comment that the sysreg file should be sorted
-In-Reply-To: <20250107113252.260631-5-james.clark@linaro.org>
+Subject: Re: [PATCH v10 06/10] arm64/sysreg/tools: Move TRFCR definitions to sysreg
+In-Reply-To: <20250107113252.260631-7-james.clark@linaro.org>
 References: <20250107113252.260631-1-james.clark@linaro.org>
-	<20250107113252.260631-5-james.clark@linaro.org>
+	<20250107113252.260631-7-james.clark@linaro.org>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
  (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: james.clark@linaro.org, kvmarm@lists.linux.dev, oliver.upton@linux.dev, suzuki.poulose@arm.com, coresight@lists.linaro.org, james.clark@arm.com, broonie@kernel.org, joey.gouly@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mike.leach@linaro.org, alexander.shishkin@linux.intel.com, mark.rutland@arm.com, anshuman.khandual@arm.com, robh@kernel.org, shiqiliu@hust.edu.cn, james.morse@arm.com, tabba@google.com, rananta@google.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Rcpt-To: james.clark@linaro.org, kvmarm@lists.linux.dev, oliver.upton@linux.dev, suzuki.poulose@arm.com, coresight@lists.linaro.org, james.clark@arm.com, broonie@kernel.org, joey.gouly@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mike.leach@linaro.org, alexander.shishkin@linux.intel.com, mark.rutland@arm.com, shiqiliu@hust.edu.cn, james.morse@arm.com, anshuman.khandual@arm.com, tabba@google.com, robh@kernel.org, rananta@google.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250112_044920_373981_2703FD0B 
-X-CRM114-Status: GOOD (  23.67  )
+X-CRM114-CacheID: sfid-20250112_045854_316059_E7869479 
+X-CRM114-Status: GOOD (  25.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,40 +103,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 07 Jan 2025 11:32:41 +0000,
+On Tue, 07 Jan 2025 11:32:43 +0000,
 James Clark <james.clark@linaro.org> wrote:
 > 
 > From: James Clark <james.clark@arm.com>
 > 
-> There are a few entries particularly at the end of the file that aren't
-> in order. To avoid confusion, add a comment that might help new entries
-> to be added in the right place.
+> Convert TRFCR to automatic generation. Add separate definitions for ELx
+> and EL2 as TRFCR_EL1 doesn't have CX. This also mirrors the previous
+> definition so no code change is required.
+> 
+> Also add TRFCR_EL12 which will start to be used in a later commit.
+> 
+> Unfortunately, to avoid breaking the Perf build with duplicate
+> definition errors, the tools copy of the sysreg.h header needs to be
+> updated at the same time rather than the usual second commit. This is
+> because the generated version of sysreg
+> (arch/arm64/include/generated/asm/sysreg-defs.h), is currently shared
+> and tools/ does not have its own copy.
 > 
 > Reviewed-by: Mark Brown <broonie@kernel.org>
 > Signed-off-by: James Clark <james.clark@arm.com>
 > Signed-off-by: James Clark <james.clark@linaro.org>
 > ---
->  arch/arm64/tools/sysreg | 2 ++
->  1 file changed, 2 insertions(+)
+>  arch/arm64/include/asm/sysreg.h       | 12 ---------
+>  arch/arm64/tools/sysreg               | 36 +++++++++++++++++++++++++++
+>  tools/arch/arm64/include/asm/sysreg.h | 12 ---------
+>  3 files changed, 36 insertions(+), 24 deletions(-)
 > 
+> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+> index b8303a83c0bf..808f65818b91 100644
+> --- a/arch/arm64/include/asm/sysreg.h
+> +++ b/arch/arm64/include/asm/sysreg.h
+> @@ -283,8 +283,6 @@
+>  #define SYS_RGSR_EL1			sys_reg(3, 0, 1, 0, 5)
+>  #define SYS_GCR_EL1			sys_reg(3, 0, 1, 0, 6)
+>  
+> -#define SYS_TRFCR_EL1			sys_reg(3, 0, 1, 2, 1)
+> -
+>  #define SYS_TCR_EL1			sys_reg(3, 0, 2, 0, 2)
+>  
+>  #define SYS_APIAKEYLO_EL1		sys_reg(3, 0, 2, 1, 0)
+> @@ -519,7 +517,6 @@
+>  #define SYS_VTTBR_EL2			sys_reg(3, 4, 2, 1, 0)
+>  #define SYS_VTCR_EL2			sys_reg(3, 4, 2, 1, 2)
+>  
+> -#define SYS_TRFCR_EL2			sys_reg(3, 4, 1, 2, 1)
+>  #define SYS_VNCR_EL2			sys_reg(3, 4, 2, 2, 0)
+>  #define SYS_HAFGRTR_EL2			sys_reg(3, 4, 3, 1, 6)
+>  #define SYS_SPSR_EL2			sys_reg(3, 4, 4, 0, 0)
+> @@ -983,15 +980,6 @@
+>  /* Safe value for MPIDR_EL1: Bit31:RES1, Bit30:U:0, Bit24:MT:0 */
+>  #define SYS_MPIDR_SAFE_VAL	(BIT(31))
+>  
+> -#define TRFCR_ELx_TS_SHIFT		5
+> -#define TRFCR_ELx_TS_MASK		((0x3UL) << TRFCR_ELx_TS_SHIFT)
+> -#define TRFCR_ELx_TS_VIRTUAL		((0x1UL) << TRFCR_ELx_TS_SHIFT)
+> -#define TRFCR_ELx_TS_GUEST_PHYSICAL	((0x2UL) << TRFCR_ELx_TS_SHIFT)
+> -#define TRFCR_ELx_TS_PHYSICAL		((0x3UL) << TRFCR_ELx_TS_SHIFT)
+> -#define TRFCR_EL2_CX			BIT(3)
+> -#define TRFCR_ELx_ExTRE			BIT(1)
+> -#define TRFCR_ELx_E0TRE			BIT(0)
+> -
+>  /* GIC Hypervisor interface registers */
+>  /* ICH_MISR_EL2 bit definitions */
+>  #define ICH_MISR_EOI		(1 << 0)
 > diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-> index b081b54d6d22..4ba167089e2a 100644
+> index 4ba167089e2a..ef8a06e180b3 100644
 > --- a/arch/arm64/tools/sysreg
 > +++ b/arch/arm64/tools/sysreg
-> @@ -48,6 +48,8 @@
->  # feature that introduces them (eg, FEAT_LS64_ACCDATA introduces enumeration
->  # item ACCDATA) though it may be more taseful to do something else.
+> @@ -1997,6 +1997,22 @@ Sysreg	CPACR_EL1	3	0	1	0	2
+>  Fields	CPACR_ELx
+>  EndSysreg
 >  
-> +# Please try to keep entries in this file sorted by sysreg encoding.
+> +SysregFields TRFCR_ELx
+> +Res0	63:7
+> +UnsignedEnum	6:5	TS
+> +	0b0001	VIRTUAL
+> +	0b0010	GUEST_PHYSICAL
+> +	0b0011	PHYSICAL
+> +EndEnum
+> +Res0	4:2
+> +Field	1	ExTRE
+> +Field	0	E0TRE
+> +EndSysregFields
 > +
->  Sysreg	OSDTRRX_EL1	2	0	0	0	2
->  Res0	63:32
->  Field	31:0	DTRRX
+> +Sysreg	TRFCR_EL1	3	0	1	2	1
+> +Fields	TRFCR_ELx
+> +EndSysreg
+> +
+>  Sysreg	SMPRI_EL1	3	0	1	2	4
+>  Res0	63:4
+>  Field	3:0	PRIORITY
+> @@ -2546,6 +2562,22 @@ Field	1	ICIALLU
+>  Field	0	ICIALLUIS
+>  EndSysreg
+>  
+> +Sysreg TRFCR_EL2	3	4	1	2	1
+> +Res0	63:7
+> +UnsignedEnum	6:5	TS
+> +	0b0000	USE_TRFCR_EL1_TS
+> +	0b0001	VIRTUAL
+> +	0b0010	GUEST_PHYSICAL
+> +	0b0011	PHYSICAL
+> +EndEnum
+> +Res0	4
+> +Field	3	CX
+> +Res0	2
+> +Field	1	E2TRE
+> +Field	0	E0HTRE
+> +EndSysreg
+> +
+> +
+>  Sysreg HDFGRTR_EL2	3	4	3	1	4
+>  Field	63	PMBIDR_EL1
+>  Field	62	nPMSNEVFR_EL1
+> @@ -2956,6 +2988,10 @@ Sysreg	ZCR_EL12	3	5	1	2	0
+>  Fields	ZCR_ELx
+>  EndSysreg
+>  
+> +Sysreg	TRFCR_EL12	3	5	1	2	1
+> +Fields	TRFCR_ELx
+> +EndSysreg
+> +
 
-"Do as I say, don't do as I do".
-
-I don't think this makes any sense if we don't actually sort the file
-the first place.
+This (and the TRFCR_ELx nonsense) should be killed. I will fix it up
+locally.
 
 	M.
 
