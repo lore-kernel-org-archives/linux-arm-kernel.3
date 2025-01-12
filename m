@@ -4,56 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC282E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 12:46:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE012E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 12:50:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=17MB3TLnenjye6H1Wgw3t+f82X2T7JkkcYw29QUShNk=; b=jJAv5aI8cY5N7or/hB8O6NWLTi
-	gL8r5U979AS0cGxMk5VPT9VB8/HLXK5RUSrj/ofEtW1vHHZA+S+51CB5PnI5HYO55h8v8ptQr92Wg
-	DBu4thssckIqqMzTk8eNHZph9QSchP0I8i2YK51poGhOCeeEIWdTqeVXH47/osvexaoNAvFJn9ARi
-	pzWNidstF8c/bc4dEsxhYlNjyB35h7SWRtvfifdSc2nBoSBaUshNrflZrVSHh4w23Pbw3+T8Egr2a
-	W55c6T0PsPFTVRePrzD8ITRyOHX6kD7+sIeema6kPNIlpSgqOIygl9JiOIt+O+/HuYauqFYt4wFST
-	McUZiM5A==;
+	bh=SWqaERbETudr//jZR8INAk5dG5pGbiCmxe7wEbVoPcY=; b=01wIa4hdS14OOv7uk1MxnLYmVA
+	B0/4vSo39TR6Mcqb/6Z/EqOFRD/PA+dkpQN0Z3rxsSmafgWUz6oFX25ZT6p7wHUSNtZ5wBLcV413H
+	wrIXLc7VXiowjBFFw1AojIvDrW3GHLeTisFgW1PimZ2IVyYW3biZxRoS0XodLfkO5crkPiuG9cyu0
+	5OxabJmEowyH7QA/MicUkfTJMZOMoNeBw8I36A3OfBgNNecpFdpAF0ZxLCeVZrfX84LDESTTvBjJo
+	T/wjw59Xzrqh1al9VvMfX01twR49XTPp5rkKD/32PBNLjwOBfsRdKqPb5mTtYm6p3AmFZKt5CPHxK
+	qEn6oa4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWxLu-00000002hmG-3FWO;
-	Sun, 12 Jan 2025 12:46:02 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tWxQM-00000002i7z-0ITN;
+	Sun, 12 Jan 2025 12:50:38 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWxKc-00000002heW-0wla
+	id 1tWxP6-00000002i1p-0rvE
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jan 2025 12:44:43 +0000
+	Sun, 12 Jan 2025 12:49:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A2A0E5C10AB;
-	Sun, 12 Jan 2025 12:44:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D393BC4CEDF;
-	Sun, 12 Jan 2025 12:44:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1736685881;
-	bh=SGllNDQtfY4Ioj4kwHQcJnTsMZp8InaZQaPZjyspb44=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=O59FhdXcMxnLugD3ZLfoBntsy9I+yNpPQ+88G87nJ5p3j+Uv0lyf4fCA/+zAuKJI9
-	 b3jCbkzVbCuatmI3Gyb6dOHSMGSIIhLja/gxovBbeS8LkroCVzlA9HmA883+eQaklt
-	 wAyOigmEcybzwQa9OCcmJTeCnsxzN79YXxiLAocY=
-Date: Sun, 12 Jan 2025 13:44:15 +0100
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [GIT PULL] coresight: Updates for Linux v6.14
-Message-ID: <2025011203-rinse-statutory-f53d@gregkh>
-References: <20250109220732.2032306-1-suzuki.poulose@arm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250109220732.2032306-1-suzuki.poulose@arm.com>
+	by nyc.source.kernel.org (Postfix) with ESMTP id 58C1EA40144;
+	Sun, 12 Jan 2025 12:47:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B727C4CEE2;
+	Sun, 12 Jan 2025 12:49:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736686155;
+	bh=pgxRYdQSas+8D8GFL+/3jRqY0sesne7tj5/idkHo+64=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=D8LTWOkxziU8CYSQSBNeQyDpwmMngkHtBPzbJPGF2zq3NgoKRMi2Hx6HM8NymWfDa
+	 mOeD4FqHiEs1IyC+hoNyXShzaa8LFHkqXs3EY/2ISsIEuLq1IXSIeYNW+8h2QFABA8
+	 SPq749cIOB3uqvlzZy1Q2DV0mv2mj+UqwLEppMBRPbfp8r511nr2TM7/13kZp4hu47
+	 NCTL9kZNRbjYu6opg1vUw2jIXY5lLy/3U4cPmxDqYwpD/vTjHIYhQmSoRMR9U5++7U
+	 CdFYJvcrL3qfqzj7XY7JVHhPcIX7apf2++UrlXIHij1gG9iuvOZEPzl68rpAnMn51g
+	 SfwIc+a1odiwg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tWxOy-00BLMB-L3;
+	Sun, 12 Jan 2025 12:49:12 +0000
+Date: Sun, 12 Jan 2025 12:49:11 +0000
+Message-ID: <87frloqjso.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: James Clark <james.clark@linaro.org>
+Cc: kvmarm@lists.linux.dev,
+	oliver.upton@linux.dev,
+	suzuki.poulose@arm.com,
+	coresight@lists.linaro.org,
+	James Clark <james.clark@arm.com>,
+	Mark Brown <broonie@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mike Leach <mike.leach@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	"Rob Herring (Arm)" <robh@kernel.org>,
+	Shiqi Liu <shiqiliu@hust.edu.cn>,
+	James Morse <james.morse@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v10 04/10] arm64/sysreg: Add a comment that the sysreg file should be sorted
+In-Reply-To: <20250107113252.260631-5-james.clark@linaro.org>
+References: <20250107113252.260631-1-james.clark@linaro.org>
+	<20250107113252.260631-5-james.clark@linaro.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: james.clark@linaro.org, kvmarm@lists.linux.dev, oliver.upton@linux.dev, suzuki.poulose@arm.com, coresight@lists.linaro.org, james.clark@arm.com, broonie@kernel.org, joey.gouly@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mike.leach@linaro.org, alexander.shishkin@linux.intel.com, mark.rutland@arm.com, anshuman.khandual@arm.com, robh@kernel.org, shiqiliu@hust.edu.cn, james.morse@arm.com, tabba@google.com, rananta@google.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250112_044442_314532_97DDB3BF 
-X-CRM114-Status: UNSURE (   9.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250112_044920_373981_2703FD0B 
+X-CRM114-Status: GOOD (  23.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,27 +103,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 09, 2025 at 10:07:32PM +0000, Suzuki K Poulose wrote:
-> Greg,
+On Tue, 07 Jan 2025 11:32:41 +0000,
+James Clark <james.clark@linaro.org> wrote:
 > 
-> Please find the changes targeting v6.14 for the CoreSight self hosted tracing
-> subsystem.
+> From: James Clark <james.clark@arm.com>
 > 
-> Kindly pull
+> There are a few entries particularly at the end of the file that aren't
+> in order. To avoid confusion, add a comment that might help new entries
+> to be added in the right place.
 > 
-> Suzuki
+> Reviewed-by: Mark Brown <broonie@kernel.org>
+> Signed-off-by: James Clark <james.clark@arm.com>
+> Signed-off-by: James Clark <james.clark@linaro.org>
+> ---
+>  arch/arm64/tools/sysreg | 2 ++
+>  1 file changed, 2 insertions(+)
 > 
-> 
-> 
-> The following changes since commit fac04efc5c793dccbd07e2d59af9f90b7fc0dca4:
-> 
->   Linux 6.13-rc2 (2024-12-08 14:03:39 -0800)
-> 
-> are available in the Git repository at:
-> 
->   git://git.kernel.org/pub/scm/linux/kernel/git/coresight/linux.git tags/coresight-next-v6.14
+> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+> index b081b54d6d22..4ba167089e2a 100644
+> --- a/arch/arm64/tools/sysreg
+> +++ b/arch/arm64/tools/sysreg
+> @@ -48,6 +48,8 @@
+>  # feature that introduces them (eg, FEAT_LS64_ACCDATA introduces enumeration
+>  # item ACCDATA) though it may be more taseful to do something else.
+>  
+> +# Please try to keep entries in this file sorted by sysreg encoding.
+> +
+>  Sysreg	OSDTRRX_EL1	2	0	0	0	2
+>  Res0	63:32
+>  Field	31:0	DTRRX
 
-Pulled and pushed out, thanks.
+"Do as I say, don't do as I do".
 
-greg k-h
+I don't think this makes any sense if we don't actually sort the file
+the first place.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
