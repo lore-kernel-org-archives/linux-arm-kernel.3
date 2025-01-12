@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63C92E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 17:23:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE804E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 17:24:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5KvmCEAGlm+bTGs5uSdcjjBclifUoSwXdBme61AX1J0=; b=3BcPbNlDiekos8V1N3EBPn9C99
-	CagJaGjcD0YVsZVPpJxe6Wg1f9zTzCTVaPj/WASpm2+s++ufMwZUPMpHfjiV1tw9/yG8Esf5EAGt6
-	59DGigWRsIrxLSzI4fPEAIhbfXE8GC7ehPwCg2gH7OtW95oaTwgHywCBigojl9hZImaaaCiF9glwi
-	eFIXTbKO/xAhfbUN3dNdxdeaMs+aFBxef8Ug1hXgobLiXH1BYN/aTZraJvbTzOchi2u8V7HIQS+VP
-	b7RmKNJX5A2EbIwDbKQob1s/EmGAFeDOWOE7hcxYOGCgYeWx543cWsvo2GlRyHr0NLEii0QkJhifJ
-	uO665plg==;
+	bh=vLkOUnfvrMr56Ihfpy3Sfoqx94Fc1N1WgaqZqbK0Eu4=; b=2XbBkg7HzhQOIAp4Oqx2cq9syh
+	Oze7osBmGhOASAON9eyX/M/r7TRa4ZoepayJXlYK9TtFYS1cNDDtIJJyO8y8TKDsnTKf0xWZKZN3R
+	2kKtRai8/4xUVeTGxmJHRAIeAcr7RslIhhzCehwHnwPT1YIPcJQDgZgIi9fpRGiP54DziHmW8J/4F
+	D2I3CFWypvoR64FloqOWsACIdz7PgSk43liHbhmxCZLKE3a/KwJvtbtCHXYvDaPJz6xs77/33J4mc
+	ewk7/vTMm0oscNp35JH8sgEeMF/GdLBl/bmeizXxv1oqYvDnoM52AmiNeJyoWHPEhRE32c/Ul1Dkr
+	PdrckX+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tX1fk-000000039ZY-109f;
-	Sun, 12 Jan 2025 17:22:48 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tX1gx-000000039ii-3b3Q;
+	Sun, 12 Jan 2025 17:24:03 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tX1SH-000000037g8-0knc
+	id 1tX1SJ-000000037i3-2sbr
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jan 2025 17:08:56 +0000
+	Sun, 12 Jan 2025 17:08:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AB3D15C482F;
-	Sun, 12 Jan 2025 17:08:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6057CC4CEE6;
-	Sun, 12 Jan 2025 17:08:52 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 31B05A40A6C;
+	Sun, 12 Jan 2025 17:07:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5217DC4CEE6;
+	Sun, 12 Jan 2025 17:08:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736701732;
-	bh=AAx1thK/qARvmlKm/GHshhs0gk8iIkS9tRKm3XsQwuI=;
+	s=k20201202; t=1736701733;
+	bh=yZevPphbLIaRcs4edJZitg1YrBi5XxHxu0Vy608/eXQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Xe15X6xcCjeakafeevsW/ZBDTh4R/38gRiKU6jqOGwESh+mv5KBmh6Ho1TuNy3D99
-	 jn2BzauGSfEKXGqXTDNz8V/KE16JSfNdQZMFentmZAy+H+rLFeTqwvqyZi1sd/CrQS
-	 TtxzCMpOersUMmOiZB0/Jtx7ox1UkE5yMSrXF6GF9wh45mQZJFIqW0P9qXwDVQm4Sd
-	 S8i4sDFdnqfnzcJm+urlFQtSvru+BTk7kldCQHXncYnmxw30S29QdFeayDADzNFGiy
-	 1poELrz9DueczH95mBE9iQacIp5UpMSSCjoLlZBoZnnlGXS11AzJRODRwJBuO38QeD
-	 a9KUf9fF02zLg==
+	b=Nn7phORi2D2cdJrrCJ+J6XtT2kCIx/ox4PbjewvjK1uRkcpBRd+9/2hI4lyE5DBD+
+	 hF0+YtYEPlfkOlmag5yRgNE/Ub2KZ5XUaJuFcZZzlBnZDg0RLhLVufnupE2OsIv9wV
+	 a05ymBZlYer07/uisCAd3hhfg5/sqywBiTEFpHO55hcC1A1FxPy0o/XL/zKvwXfEii
+	 EbY1PJWHlINaQG5K0PE/YJLNHQGeCtf3i5LESOzrp2o8/KqNkVW65CBcf+qm43e3xA
+	 y9mnaXMCLa6filTVH6z8oGjzbKmWTXRaZnfaIw7KmDHF1+x7ivyDw+Ld7j2RnXNkb1
+	 /R/FWHJ37ZM7A==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tX1SE-00BNxR-Ex;
-	Sun, 12 Jan 2025 17:08:50 +0000
+	id 1tX1SF-00BNxR-Et;
+	Sun, 12 Jan 2025 17:08:51 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Andre Przywara <andre.przywara@arm.com>,
 	Eric Auger <eric.auger@redhat.com>
-Subject: [PATCH v2 08/17] KVM: arm64: nv: Sanitise ICH_HCR_EL2 accesses
-Date: Sun, 12 Jan 2025 17:08:36 +0000
-Message-Id: <20250112170845.1181891-9-maz@kernel.org>
+Subject: [PATCH v2 12/17] KVM: arm64: nv: Respect virtual HCR_EL2.TWx setting
+Date: Sun, 12 Jan 2025 17:08:40 +0000
+Message-Id: <20250112170845.1181891-13-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250112170845.1181891-1-maz@kernel.org>
 References: <20250112170845.1181891-1-maz@kernel.org>
@@ -71,8 +71,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250112_090853_280161_DAAD01E2 
-X-CRM114-Status: GOOD (  11.27  )
+X-CRM114-CacheID: sfid-20250112_090855_859015_D05CB7C6 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,37 +87,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As ICH_HCR_EL2 is a VNCR accessor when runnintg NV, add some
-sanitising to what gets written. Crucially, mark TDIR as RES0
-if the HW doesn't support it (unlikely, but hey...), as well
-as anything GICv4 related, since we only expose a GICv3 to the
-uest.
+From: Jintack Lim <jintack.lim@linaro.org>
 
+Forward exceptions due to WFI or WFE instructions to the virtual EL2 if
+they are not coming from the virtual EL2 and virtual HCR_EL2.TWx is set.
+
+Signed-off-by: Jintack Lim <jintack.lim@linaro.org>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/nested.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ arch/arm64/include/asm/kvm_emulate.h | 13 +++++++++++++
+ arch/arm64/kvm/handle_exit.c         |  6 +++++-
+ 2 files changed, 18 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 9b36218b48def..37f7ef2f44bd8 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -1271,6 +1271,15 @@ int kvm_init_nv_sysregs(struct kvm *kvm)
- 		res0 |= MDCR_EL2_EnSTEPOP;
- 	set_sysreg_masks(kvm, MDCR_EL2, res0, res1);
- 
-+	/* ICH_HCR_EL2 */
-+	res0 = ICH_HCR_EL2_RES0;
-+	res1 = ICH_HCR_EL2_RES1;
-+	if (!(kvm_vgic_global_state.ich_vtr_el2 & ICH_VTR_EL2_TDS))
-+		res0 |= ICH_HCR_EL2_TDIR;
-+	/* No GICv4 is presented to the guest */
-+	res0 |= ICH_HCR_EL2_DVIM | ICH_HCR_EL2_vSGIEOICount;
-+	set_sysreg_masks(kvm, ICH_HCR_EL2, res0, res1);
-+
- 	return 0;
+diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+index cf811009a33c9..5d2af20f75890 100644
+--- a/arch/arm64/include/asm/kvm_emulate.h
++++ b/arch/arm64/include/asm/kvm_emulate.h
+@@ -281,6 +281,19 @@ static __always_inline u64 kvm_vcpu_get_esr(const struct kvm_vcpu *vcpu)
+ 	return vcpu->arch.fault.esr_el2;
  }
  
++static inline bool guest_hyp_wfx_traps_enabled(const struct kvm_vcpu *vcpu)
++{
++	u64 esr = kvm_vcpu_get_esr(vcpu);
++	bool is_wfe = !!(esr & ESR_ELx_WFx_ISS_WFE);
++	u64 hcr_el2 = __vcpu_sys_reg(vcpu, HCR_EL2);
++
++	if (!vcpu_has_nv(vcpu) || vcpu_is_el2(vcpu))
++		return false;
++
++	return ((is_wfe && (hcr_el2 & HCR_TWE)) ||
++		(!is_wfe && (hcr_el2 & HCR_TWI)));
++}
++
+ static __always_inline int kvm_vcpu_get_condition(const struct kvm_vcpu *vcpu)
+ {
+ 	u64 esr = kvm_vcpu_get_esr(vcpu);
+diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
+index d7c2990e7c9ed..206eb6698db70 100644
+--- a/arch/arm64/kvm/handle_exit.c
++++ b/arch/arm64/kvm/handle_exit.c
+@@ -129,8 +129,12 @@ static int kvm_handle_fpasimd(struct kvm_vcpu *vcpu)
+ static int kvm_handle_wfx(struct kvm_vcpu *vcpu)
+ {
+ 	u64 esr = kvm_vcpu_get_esr(vcpu);
++	bool is_wfe = !!(esr & ESR_ELx_WFx_ISS_WFE);
+ 
+-	if (esr & ESR_ELx_WFx_ISS_WFE) {
++	if (guest_hyp_wfx_traps_enabled(vcpu))
++		return kvm_inject_nested_sync(vcpu, kvm_vcpu_get_esr(vcpu));
++
++	if (is_wfe) {
+ 		trace_kvm_wfx_arm64(*vcpu_pc(vcpu), true);
+ 		vcpu->stat.wfe_exit_stat++;
+ 	} else {
 -- 
 2.39.2
 
