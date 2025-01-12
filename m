@@ -4,88 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ED19E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 17:04:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 638B0E7719C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 17:05:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mLHGH+epv3M5YYT+PPWV3TJBLGXoTr8WFrivrQEhYaU=; b=3jyTNWxUphruwk4bcpar1OebLe
-	8InlS3UeOwOFxnV2JhZwTKvlsq4Me4BFBu49wHJAwUNT5J3gQG9xlGM8IWZXOE+Zc54cr9wJwo0Cb
-	ZoKSQTX5axii7GtEvi2OHH4BBg8YKGNrvA++hGYFa8C/P/NlTdwMqrQHh7zv2/cblDGKkywamvasa
-	P3XSx/tkXQ2F+GKGyNkl1q5oE6y+mShv4M0VarGM8NaBqa9eDogLLuOYP26i5iEcvH0eNIFAUYF4T
-	KtIcSIIFQrwgl1EeXbQ9/BQ9QtjTD0nAlRzcEqhqlXxbkXUBEFavo7a7djt+N0Y5tATGXL/WefklJ
-	+RVao3aA==;
+	bh=gcp02vfLN1uVTWXJ8UJ8BzKX5eeyuNnorXOtRkd8w94=; b=dN6pgfcT5DX/tdrf9XFn7nexR3
+	Q1LEc4NsKH1Y6pcw0Rtc8L2zTUhhjuIEUgkGH3iKtXTeX3HReKMGTjorHnMhwWyuK2lzUordXlxvX
+	/SZpfTCnDpOLEwvCsPGDdYI5M32hhEPOiQ7zr7xJUnsMbY1bkt/YqpZvhmZbdpY20gEW/eopelfuJ
+	/QDKQ3lVsDNuIRQlpm/EMCbFkad1W8PYyUYLddhAlSuEww63SQIn7d0l/7B7zLl58lc3/LUzveuIy
+	2chhsyGJpZDoSM/iN9dfWDRbW4Jk7Z1comhHx+PGLovC0E9vDtRK41GJp7TgcruOp/JKI3R04EGjU
+	6DbuVHqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tX1NY-000000037CG-19DI;
-	Sun, 12 Jan 2025 17:04:00 +0000
-Received: from mail-oo1-xc29.google.com ([2607:f8b0:4864:20::c29])
+	id 1tX1Om-000000037Ps-4B7L;
+	Sun, 12 Jan 2025 17:05:17 +0000
+Received: from smtp-26.smtpout.orange.fr ([80.12.242.26] helo=smtp.smtpout.orange.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tX1MI-0000000373G-2FJv;
-	Sun, 12 Jan 2025 17:02:43 +0000
-Received: by mail-oo1-xc29.google.com with SMTP id 006d021491bc7-5f2e2608681so1768770eaf.1;
-        Sun, 12 Jan 2025 09:02:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736701361; x=1737306161; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mLHGH+epv3M5YYT+PPWV3TJBLGXoTr8WFrivrQEhYaU=;
-        b=Tta6eMwanuUqRleyRoGCdlpJDRyIWjRpXMa4W/6upWJ3A5uNcHr1AjyBVn+azUL1Nm
-         SNNF4betHMvNUmytnKQ86k8gIbQ68CkP17OpQZHIQFedvgIHBjafZoVV7v/SCwc7C2wp
-         s+hbh86LxTwojSn8dCM90JYnO+OioWdeg+sYPIF+QPziH62d5Zbl8d7kGIegaEbdeuiF
-         W/6G/Euzwhoy/K+OVPlg9Dvv+vtqXCw6wBLnREvosrfVibzXi5X2G63llSw01FZ+juTW
-         VwzvqVrVFEYtmZ1vnaYkHSTzdZ45jiz9PQHX1zA7jCtd7uGBLZeBX1ApxwFNQzEFIqvR
-         rPaA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736701361; x=1737306161;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=mLHGH+epv3M5YYT+PPWV3TJBLGXoTr8WFrivrQEhYaU=;
-        b=CEhxCwlx+LzzraikK4meAjnSFrvw9YPC26oNdNC7COqPhaN8doRI05jb3G3b0AcqpV
-         0G7Ly5xRxipVd5qa0KdFE8f/Ahwp9MhtVXkf+fvYmnwlOa2XwWlgeCCoM3si82qIqWe6
-         N91oJo96BvUdT4c/7MKEFYdMIN2h6ZuMfIeCZGQn/B6ZBT5vkFsIM++ebousnmMBHUCq
-         Qq8dhtvk/Bq0ZDjxYnMuNvNtRJNAk991JPclcrxhByEWiHH/7yIVyRIQ46/xomFQ/Kws
-         eZc5hkkV6xZSpbwSZz+AAe0gV+4MQy44Y/aEGFmrUmvZ5Sy8JUE14m2EjDwFFnOfSMZv
-         mDiQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVVhzY/0H/rHgCP28m7tXhdxzx09EIz5XSKBrQBrB2n7hdID35qMLGmMkIlWcIyIYVuYktxCWsJT76E6XgVPdTF@lists.infradead.org, AJvYcCWzXvVNLdAK9cYemcn8vx/Y9zOktk0+wJAJs0lnig957qtPSnT7+hHKqLI+e6MXxqv7lZTsJz2EP7D1uGzn++Y=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzZSGGTBuoUcblae2hWJZntIuY8dlIc+cj1XXYdQmgaMuLmHi59
-	4y1s4O62LkQcHylDWmySUalgPK8YFxCsApCfa+9cGwctga4+DZXriEx+j9cajE4LCJt2l+WLI27
-	M+Cu2iAxM8WYMIF38t+jRbAj4NPZSlS9Kpw0=
-X-Gm-Gg: ASbGncu1wWyMRIcgdiEb8nuHl9l9F2jILNc4H1afc1pzreN/OVFlSxj3z8fTo9uzQcC
-	AufB7ET2i59MFbZq6P8318mEaZy8lgXKGz258/bI=
-X-Google-Smtp-Source: AGHT+IE+nbx6AlzWrejQjGji+VB54fgrOIOIydNSnwo6l8H/PczwvJZYdI9qfx3ZuLqSObfZhkV7LJ2bPXcsbulebYg=
-X-Received: by 2002:a05:6871:a403:b0:29e:6ae2:442 with SMTP id
- 586e51a60fabf-2aa068d6800mr9772628fac.32.1736701361506; Sun, 12 Jan 2025
- 09:02:41 -0800 (PST)
+	id 1tX1NQ-000000037BH-1p5z;
+	Sun, 12 Jan 2025 17:03:54 +0000
+Received: from [192.168.1.37] ([90.11.132.44])
+	by smtp.orange.fr with ESMTPA
+	id X1NCt2XX5qZ5JX1NGt8sSO; Sun, 12 Jan 2025 18:03:49 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
+	s=t20230301; t=1736701429;
+	bh=gcp02vfLN1uVTWXJ8UJ8BzKX5eeyuNnorXOtRkd8w94=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From;
+	b=fnH0iNQQzQe3piqBMIVE5d9BG6+w8xEgN2VBqmi8AXirOeRy60NrMR/v+/jXABh16
+	 JpvenW7mQrRyQJNS7ODfCQud/A0sHpCYumL7Rxo4dvkQRkFn5Sq+X8YWWLh1l3Npj7
+	 EKCh7IqNNNluOSSWpJWw/jeZKljq/zAdtpT71biBfD3cTuF1rjWn5vFZEgL0E6FQCj
+	 rUQtMFXuQPg5CYG5zF84tPPtJtZ/Li8U3366GMCLOd/+RYloATVfvXiYux/yyQLhAh
+	 h/GhbIjMLlosT95vg3PB740gtcl7sPYn5Kc0tMKx+JEYGR+BJ4RpBBEKNHbPCy3uh+
+	 8FUFx8/CX7JlA==
+X-ME-Helo: [192.168.1.37]
+X-ME-Auth: bWFyaW9uLmphaWxsZXRAd2FuYWRvby5mcg==
+X-ME-Date: Sun, 12 Jan 2025 18:03:49 +0100
+X-ME-IP: 90.11.132.44
+Message-ID: <05dfdd2f-e2c2-40ff-8a84-038c4da8385a@wanadoo.fr>
+Date: Sun, 12 Jan 2025 18:03:38 +0100
 MIME-Version: 1.0
-References: <20241230034446.1195728-1-karl.li@mediatek.com>
- <20241230034446.1195728-4-karl.li@mediatek.com> <CABb+yY2G1C7rvsha9qm7mRSk1e_xBahshzHCs39=DzTCUGrsuQ@mail.gmail.com>
- <CAGXv+5E98VZnf_PL2kEF=VxytNVyCEV4iY=aEnEoZz0Z7AJiTg@mail.gmail.com>
-In-Reply-To: <CAGXv+5E98VZnf_PL2kEF=VxytNVyCEV4iY=aEnEoZz0Z7AJiTg@mail.gmail.com>
-From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Sun, 12 Jan 2025 11:02:30 -0600
-X-Gm-Features: AbW1kvawhR9q_j_zMWhY9OH_vnifw3V8ugjcAxvz2Ds9ffqbhNNV3c1iJIS2tYA
-Message-ID: <CABb+yY0FHBxvc2Lwg9O1G9O+rxoXk-tS1QFwi63=_zsV0SyYuw@mail.gmail.com>
-Subject: Re: [PATCH v2 3/3] mailbox: mediatek: Add mtk-apu-mailbox driver
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: "Karl.Li" <karl.li@mediatek.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, Chungying Lu <chungying.lu@mediatek.com>, 
-	Chien-Chih Tseng <Chien-Chih.Tseng@mediatek.com>, Andy Teng <Andy.Teng@mediatek.com>, 
-	Project_Global_Chrome_Upstream_Group@mediatek.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next] net: phy: Constify struct mdio_device_id
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: SkyLake.Huang@mediatek.com, UNGLinuxDriver@microchip.com,
+ andrei.botila@oss.nxp.com, andrew@lunn.ch,
+ angelogioacchino.delregno@collabora.com, arun.ramadoss@microchip.com,
+ bcm-kernel-feedback-list@broadcom.com, daniel@makrotopia.org,
+ davem@davemloft.net, dqfext@gmail.com, edumazet@google.com,
+ florian.fainelli@broadcom.com, heiko@sntech.de, hkallweit1@gmail.com,
+ jbrunet@baylibre.com, kabel@kernel.org, kernel-janitors@vger.kernel.org,
+ khilman@baylibre.com, kuba@kernel.org, linux-amlogic@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux@armlinux.org.uk,
+ lxu@maxlinear.com, martin.blumenstingl@googlemail.com,
+ matthias.bgg@gmail.com, michael.hennerich@analog.com,
+ neil.armstrong@linaro.org, netdev@vger.kernel.org, pabeni@redhat.com,
+ piergiorgio.beruto@gmail.com, richardcochran@gmail.com, rjui@broadcom.com,
+ sbranden@broadcom.com
+References: <403c381b7d9156b67ad68ffc44b8eee70c5e86a9.1736691226.git.christophe.jaillet@wanadoo.fr>
+ <9dfeb860-3c0c-4f16-a150-fdce133281e8@lunn.ch>
+Content-Language: en-US, fr-FR
+From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+In-Reply-To: <9dfeb860-3c0c-4f16-a150-fdce133281e8@lunn.ch>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250112_090242_571254_E7367F95 
-X-CRM114-Status: GOOD (  18.99  )
+X-CRM114-CacheID: sfid-20250112_090352_879874_2BE381FA 
+X-CRM114-Status: UNSURE (   8.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,49 +90,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 2, 2025 at 10:56=E2=80=AFPM Chen-Yu Tsai <wenst@chromium.org> w=
-rote:
->
-> On Fri, Jan 3, 2025 at 12:30=E2=80=AFPM Jassi Brar <jassisinghbrar@gmail.=
-com> wrote:
-> >
-> > On Sun, Dec 29, 2024 at 9:46=E2=80=AFPM Karl.Li <karl.li@mediatek.com> =
-wrote:
-> > ....
-> > > +
-> > > +static irqreturn_t mtk_apu_mailbox_irq(int irq, void *data)
-> > > +{
-> > > +       struct mbox_chan *chan =3D data;
-> > > +       struct mtk_apu_mailbox *apu_mbox =3D get_mtk_apu_mailbox(chan=
-->mbox);
-> > > +       struct mbox_chan *link =3D &apu_mbox->mbox.chans[0];
-> > > +       u8 data_cnt =3D fls(readl(apu_mbox->regs + MTK_APU_MBOX_OUTBO=
-X_IRQ));
-> > > +
-> > > +       memcpy_fromio(apu_mbox->msgs.data, apu_mbox->regs + MTK_APU_M=
-BOX_OUTBOX,
-> > > +                     sizeof(*apu_mbox->msgs.data) * data_cnt);
-> > > +
-> > > +       mbox_chan_received_data(link, apu_mbox->msgs.data);
-> > > +
-> > > +       return IRQ_WAKE_THREAD;
-> > > +}
-> > > +
-> > You don't seem to do anything that 'ack' the irq line. So if you merge
-> > this into mtk_apu_mailbox_irq_thread() and do
-> >  devm_request_threaded_irq(dev, irq,   NULL,
-> > mtk_apu_mailbox_irq_thread,  IRQF_ONESHOT,  ...);
-> > you can avoid adding a new api and keep your client code simple.
-> > mbox_chan_received_data() is strictly between the client and
-> > controller driver. If it is not called from an atomic context, feel
-> > free to do memcpy() from it.
->
-> That sounds great. Could we perhaps update the API documentation and
-> drop the "atomic" requirement, or update it to something you describe
-> here as "between the client and controller driver".
->
-Not drop, but simply add a line that the client needs to respect the
-context in which the controller does the callback.
+Le 12/01/2025 à 17:46, Andrew Lunn a écrit :
+> On Sun, Jan 12, 2025 at 03:14:50PM +0100, Christophe JAILLET wrote:
+>> 'struct mdio_device_id' is not modified in these drivers.
+>>
+>> Constifying these structures moves some data to a read-only section, so
+>> increase overall security.
+>>
+>> On a x86_64, with allmodconfig, as an example:
+>> Before:
+>> ======
+>>     text	   data	    bss	    dec	    hex	filename
+>>    27014	  12792	      0	  39806	   9b7e	drivers/net/phy/broadcom.o
+>>
+>> After:
+>> =====
+>>     text	   data	    bss	    dec	    hex	filename
+>>    27206	  12600	      0	  39806	   9b7e	drivers/net/phy/broadcom.o
+>>
+>> Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+> 
+> Seems sensible.
+> 
+> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+> 
+> Is the long terms goal to make MODULE_DEVICE_TABLE() enforce the
+> const?
 
-thanks
+It was not my initial goal, but I can give it a look if you think it's 
+worth it.
+
+But some other constifications will be needed before that.
+
+CJ
+
+> 
+>      Andrew
+> 
+> 
+
 
