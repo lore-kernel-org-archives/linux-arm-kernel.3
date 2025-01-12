@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D44FEE7719C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 13:48:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3E8CE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 13:50:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RBnsV3mFkJmXnRbQqOXQC7xiyTGmF2RqY1RW5wKJo0U=; b=P9S11XRV/b/+TSi9qQ0gBVnEQP
-	QaRl2UjD/G21AxTIao/G8scShIBc9nrPU7lR1hqc4MN7I1vqWihb7Oui25w/D9oCI2UgeF27cLfTh
-	9/zETONkFWZAF46wZ4ibKu5jsox7tNi3dZsHiKJ/CCQdWvzkL003AjfaUmNuUJ68qNBYtpCu+gVHT
-	O6Gbn3NaVh+rW+DisjSGQ1w9r0IHD7r/TRYHUPR6ICiA37MgqMlvtVlPDt49MTXkzB1jqj9/8xuD3
-	nC6KlYfa7szhX53BWHYofLeYq9AW3JUZ+7p+wK6aTwDCjD0JwtRb/QfAcROgBBfWQn+tK31hi9utS
-	IFCUmdDA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0DoP8JyX0Rn+t869X/69C5AdIYY282FJMkh2+vYUqvg=; b=Ybqgi9sZQYKpGH3uZoK2F5oPsU
+	A3PDVvHGmF9kHXcwj6+SEjKwj/zcieA0e6kXK+vhgJyIJLsZkg4VSLrGdnVuQaNpY4Loi8/dOb8bk
+	8Pfc0fflWyultFRrx8LIhNDw0dJ4bPCf3AxXw4ROnDYmyzY88uzBt0TODXk2XrEJ/afXoKUoW+ncg
+	ym9rl7KEAv7cTGq9QBQmMu4D0u3K9wUi0fJk1W5XDdHG/dgOH94L9gxrb6P+fg3zjm5car+Nw1PO7
+	OIO2VkU5rd1h2RjxG8AtgjlKGbEg2LXPCu3xuQdRIbD3FJI7fi+EnLwc7tSwfLOW5V3d2g6e7Vsb7
+	H1D1nIYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWyKO-00000002oL5-0lvS;
-	Sun, 12 Jan 2025 13:48:32 +0000
+	id 1tWyLb-00000002oU0-2fV6;
+	Sun, 12 Jan 2025 13:49:47 +0000
 Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWyJ7-00000002o5P-3g6k
+	id 1tWyJ8-00000002o5g-2HGg
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jan 2025 13:47:15 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-aa6954ec439so45232766b.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jan 2025 05:47:13 -0800 (PST)
+	Sun, 12 Jan 2025 13:47:16 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-aa659775dd5so46322366b.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jan 2025 05:47:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736689632; x=1737294432; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=RBnsV3mFkJmXnRbQqOXQC7xiyTGmF2RqY1RW5wKJo0U=;
-        b=qhK0/tIJ8b+zFtWV2hW1C0URglvlLhLH7t5WQ9xJipRqKfg12dF7rO7txvwLAnm3/I
-         AqlVEpySnk1iBGkbMowKYSrPOQAU8yR6iJ9BOrnbyD5TibOEA9KNU4v1YSpVHTllSWoa
-         PttaPuJkREVOH5gW7FHadKmXh25tYmcfaHb5Nd8GxZF6Z7A0/K7LM6G349GUSiVmB8v+
-         pODSUqvqxK4QnBKjyIunHsY8b0pL3y8v5ytojoy21ODiRH2jmNyJnsFRNgZ9y6HJPP0q
-         SRSCiJ6Ix+xeLxoBXd/dZfuxhgC2VAQwxMXRcNWHH6JpClKidcsUqMuLlqsj+j6ALpUZ
-         dS0w==
+        d=linaro.org; s=google; t=1736689633; x=1737294433; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0DoP8JyX0Rn+t869X/69C5AdIYY282FJMkh2+vYUqvg=;
+        b=HDCABn4muM7+ljhDkdj82gjdePV2ZLfxnUoLaBqMRZmMTv9cGY0u/ZScd61qTTgVZ4
+         GSrro7H+l+QKyQrCAhLZAeXrUf2GawUNuGFm7zn5PGoigoxbLzJd/zZ9inwGy2uTmD9e
+         VGWpHm5/GHLFBEHdpGuSlRI0bE73hX2YD6l9SaaUaKYJ901hbEFoDj+OkhmS0m5pctVz
+         Glm2gbpY0qBUZzL7IzC3vqcRKIcYPU7JwlZIFn/vme/wsZsAwTq3IAJOvMLgEP7FMgE4
+         iWpMeLkIGGYHK5jA0G80h8IZvkZtKogUGbs6Ol3PxXRP8sdFl0OoNjShj94cZJJs5o2k
+         jbTQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736689632; x=1737294432;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=RBnsV3mFkJmXnRbQqOXQC7xiyTGmF2RqY1RW5wKJo0U=;
-        b=I1bAyLgACyZGYaGDW0xF24UAijej365Nh72odHXJlrA06+PLsc7FcP7LG5lJLwSZq1
-         0C8uswVxsf0/nRN0opGPrhd8aIEI7gF8BZQW0VPH/UA4wr9TOrOyU2EHbTkEpGalNAMM
-         PvrfoERm9UKFkmEl1pX2d99QRu73bITSF8daDtiju0S2uXA1p/T1/Ry9EYurbOuNgkMv
-         Apx/ZFOwUxqrQ/+IEilnXmME1SxR6pk8QZ5RyKEcC6I5jMWtrcHduyMmdKuGOqlv9RvX
-         TSr/hv+hl97eBDcVuZdOPeZbQ96XGxdAjzJO2uF9d149steBirpcMPjJFJUtVvztSIjh
-         bu5A==
-X-Forwarded-Encrypted: i=1; AJvYcCVLbg6WFRlVzrtcd3g9I2LeSGCVk+M3QmqLrveCCi36XCZnwma8Uk68NzwQqItT03//b6mWwwGNM19VpWstALEE@lists.infradead.org
-X-Gm-Message-State: AOJu0YzdQo+PuBZS9V49iyvAQqUnF50NujSjzFGPzYZTbaHa7XSM+s8I
-	Nm9LVFABrG4h9oqCUQnYsWn7z2QDMK+vfTbTMvw2BfjINYmsPVa8VR0fe+Y76vg=
-X-Gm-Gg: ASbGncu5sr1K182G952UInRe8Yu7p2vjYVdl8MrxKx3dRz3sPrYHOVmk8iaNCsQgEu7
-	MWbDKW5qT17bvUhaAUBkz6GWIvjhgHiItSRHfHq/2dbLVwL0xRUri1pl+qWzjqW3jLy/2OSxKJv
-	xa+GXD9yvKbkMuW27oFwVR9X5gvLJD6ZqOw71W/w4BW2ZrbQeuWYg92sc/94+X053NoXRDpvtpM
-	ZmMOScZ1bOkpwXf15hZ3JghxhO2mux5hwCsiwRI91OHO9LWte4SRMzOYv7JUs++26luMwo=
-X-Google-Smtp-Source: AGHT+IE5jjxbpuHLDjgHBaaKsQqbYx5oIutu5BOQFvdU7mITc2KX+nB9WMaHa1nRj5jMwrSpxOe8VQ==
-X-Received: by 2002:a17:906:c10f:b0:aa6:9631:9237 with SMTP id a640c23a62f3a-ab2ab6cd374mr674812366b.10.1736689631988;
-        Sun, 12 Jan 2025 05:47:11 -0800 (PST)
+        d=1e100.net; s=20230601; t=1736689633; x=1737294433;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=0DoP8JyX0Rn+t869X/69C5AdIYY282FJMkh2+vYUqvg=;
+        b=PrC2TmHa3e8ntsah/2+iQLEQgZobfO9rEzGcYKgS7S2F02fpaEd178RzieeBzQdiyn
+         74YTPzRiShbJFfws5gAluaoM1zP27rNSkoLfqpHG8DnYLmTVsTcyW54SBXe6RBG9HNoa
+         mnM5DoNUHM1h0UssHaw1pE2b3HDXabOl9VWXsHhMHGRNIx9qHEIONbs3nQJHVqa3MYyI
+         ue0im7xRHUMcGErE0OkJacLu3NOHL/DCe0meNAuxeJuA7X9CGc+cvKXoMwc4f/mqcMKb
+         QNWWNxhX1bWYzuSgEit9p1bwwbblz7sq1gdmKkrfPhS9y5Xzxqef4MegJjfLxVwp2Blk
+         fYSw==
+X-Forwarded-Encrypted: i=1; AJvYcCXBpxh/jZKKGrx5GNmkHO5cfg7SGJbemPU/RrKO94zzsXw5+IWX35u4NLPnpjKOk1Kn7vXuHY7Yypzz8lzNez+Z@lists.infradead.org
+X-Gm-Message-State: AOJu0YxVp9jd2qMRGdVnCyB2JcniesneLj40Q31gtKWspDJcP9JHcoSv
+	mkRCEuIBDmEurHNFCKVh9g5q+Y0fqnuBSVqRF8fSsM+NVQ3YNUADaENTI7S/jNg=
+X-Gm-Gg: ASbGncvJaPRh2aK5BqM+183J5v3tPpROBpzouVvWZ6UslWspuJ71IAm9wAmptXkupc6
+	U2vJeqXGMDdJ/S2hEfKeR69rwPau1rxXvsZ/5Jq/Vfxc7coPbIK7eTPMeMxnn6zazOvZITAgHBw
+	orggQdOiaZ+AVWKVlosQuv8jJWKI8IJTjJLkWWWb278IiDDhCqT9ICTKlfCcCELHVOZU4N0COk9
+	pFjR3N/NYLxIl14j0squ8TLkMN6NUsw7Omw8SMk1otb2RYgnPpJXUDKhg5hzxvcKT2CdTs=
+X-Google-Smtp-Source: AGHT+IEHAXrRzzhrt3gFm4JeAOOOtrjD1qbFZyqfcMZ+AbnWgJcTH3bD4AwNeCzDVpq7CMRHO0fkfA==
+X-Received: by 2002:a17:907:8689:b0:a9a:2afc:e4ef with SMTP id a640c23a62f3a-ab2ab60355cmr584894566b.7.1736689633230;
+        Sun, 12 Jan 2025 05:47:13 -0800 (PST)
 Received: from krzk-bin.. ([178.197.223.165])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab2c9060c00sm374899866b.41.2025.01.12.05.47.10
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab2c9060c00sm374899866b.41.2025.01.12.05.47.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Jan 2025 05:47:11 -0800 (PST)
+        Sun, 12 Jan 2025 05:47:12 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 To: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
 	Philipp Zabel <p.zabel@pengutronix.de>,
@@ -78,15 +79,17 @@ To: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH 1/2] drm/mediatek/hdmi: Use syscon_regmap_lookup_by_phandle_args
-Date: Sun, 12 Jan 2025 14:47:07 +0100
-Message-ID: <20250112134708.46100-1-krzysztof.kozlowski@linaro.org>
+Subject: [PATCH 2/2] drm/mediatek/hdmi: Simplify with dev_err_probe
+Date: Sun, 12 Jan 2025 14:47:08 +0100
+Message-ID: <20250112134708.46100-2-krzysztof.kozlowski@linaro.org>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250112134708.46100-1-krzysztof.kozlowski@linaro.org>
+References: <20250112134708.46100-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250112_054713_906821_070D5AA8 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20250112_054714_579375_BDE9763A 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,46 +104,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use syscon_regmap_lookup_by_phandle_args() which is a wrapper over
-syscon_regmap_lookup_by_phandle() combined with getting the syscon
-argument.  Except simpler code this annotates within one line that given
-phandle has arguments, so grepping for code would be easier.
-
-There is also no real benefit in printing errors on missing syscon
-argument, because this is done just too late: runtime check on
-static/build-time data.  Dtschema and Devicetree bindings offer the
-static/build-time check for this already.
+Use dev_err_probe() to make error code and deferred probe handling
+simpler.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- drivers/gpu/drm/mediatek/mtk_hdmi.c | 14 +++++---------
- 1 file changed, 5 insertions(+), 9 deletions(-)
+ drivers/gpu/drm/mediatek/mtk_hdmi.c | 22 +++++++---------------
+ 1 file changed, 7 insertions(+), 15 deletions(-)
 
 diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-index ca82bc829cb9..4b0eb7dc25d8 100644
+index 4b0eb7dc25d8..22935fdc5afe 100644
 --- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
 +++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-@@ -1458,15 +1458,11 @@ static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi,
- 	 * MMSYS_CONFIG device and the register offset of the HDMI_SYS_CFG
- 	 * registers it contains.
- 	 */
--	regmap = syscon_regmap_lookup_by_phandle(np, "mediatek,syscon-hdmi");
--	ret = of_property_read_u32_index(np, "mediatek,syscon-hdmi", 1,
--					 &hdmi->sys_offset);
--	if (IS_ERR(regmap))
--		ret = PTR_ERR(regmap);
+@@ -1429,19 +1429,13 @@ static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi,
+ 	int ret;
+ 
+ 	ret = mtk_hdmi_get_all_clk(hdmi, np);
 -	if (ret) {
--		dev_err(dev,
--			"Failed to get system configuration registers: %d\n",
--			ret);
-+	regmap = syscon_regmap_lookup_by_phandle_args(np, "mediatek,syscon-hdmi",
-+						      1, &hdmi->sys_offset);
-+	if (IS_ERR(regmap)) {
-+		ret = dev_err_probe(dev, PTR_ERR(regmap),
-+				    "Failed to get system configuration registers\n");
+-		if (ret != -EPROBE_DEFER)
+-			dev_err(dev, "Failed to get clocks: %d\n", ret);
+-
+-		return ret;
+-	}
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to get clocks\n");
+ 
+ 	/* The CEC module handles HDMI hotplug detection */
+ 	cec_np = of_get_compatible_child(np->parent, "mediatek,mt8173-cec");
+-	if (!cec_np) {
+-		dev_err(dev, "Failed to find CEC node\n");
+-		return -EINVAL;
+-	}
++	if (!cec_np)
++		return dev_err_probe(dev, -EINVAL, "Failed to find CEC node\n");
+ 
+ 	cec_pdev = of_find_device_by_node(cec_np);
+ 	if (!cec_pdev) {
+@@ -1492,10 +1486,9 @@ static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi,
+ 
+ 	i2c_np = of_parse_phandle(remote, "ddc-i2c-bus", 0);
+ 	if (!i2c_np) {
+-		dev_err(dev, "Failed to find ddc-i2c-bus node in %pOF\n",
+-			remote);
++		ret = dev_err_probe(dev, -EINVAL, "Failed to find ddc-i2c-bus node in %pOF\n",
++				    remote);
+ 		of_node_put(remote);
+-		ret = -EINVAL;
  		goto put_device;
  	}
- 	hdmi->sys_regmap = regmap;
+ 	of_node_put(remote);
+@@ -1503,8 +1496,7 @@ static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi,
+ 	hdmi->ddc_adpt = of_find_i2c_adapter_by_node(i2c_np);
+ 	of_node_put(i2c_np);
+ 	if (!hdmi->ddc_adpt) {
+-		dev_err(dev, "Failed to get ddc i2c adapter by node\n");
+-		ret = -EINVAL;
++		ret = dev_err_probe(dev, -EINVAL, "Failed to get ddc i2c adapter by node\n");
+ 		goto put_device;
+ 	}
+ 
 -- 
 2.43.0
 
