@@ -4,98 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCDCEE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 17:33:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36461E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 18:10:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BRSvG4lHDviRuzjJRGYuKFbYzwOqYOzJbZ32m62ocNE=; b=v/IuUwzXsKOpe9Yh9/hOGk2j9Y
-	PCGKriLj2t1nv2SMZV5GY/PmxINGWYf6J3mict5jHyBySq8E03ahrkiMutXV1saztrpl5oGJy40fC
-	fqrhmaVn5hAWUPhcG6X3tMerSA2MadrJkk2zZNiE6h6DD553gaBzY4uzNRxomflS7uJlviXlPWxjK
-	3dk5LBmiYP9VMFL3csVXqu7zy8VHepaDs/LEx3G7+fg8KuB0gni/qgbTF8raII3o2yK0ihNZyYgWo
-	yqvbR4lGt3ER6Y/w0siEdtasbj7nXS/vvF0wXXLMLo5jrApmTW/1lFvvMIH4kXIQiafDOAFZpZzBh
-	qeaxAnSQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PZ+KKaJmXPxzxDNxe6MA06Q8Nc2be0rN6nRzuoDVTD0=; b=O2WwwTT99aE/oXXHpm6mUhXT20
+	8u8YfN85bY1Xre9Q+t4fAaEcqftlCUdyayjNwlnKpN6UChiB+4cs4a/w/gEfdrlfvqyschtBKsW6r
+	95iu98Xky9iTiL9YV5s/R/qQRCx+KcYoq6NkAOqwIJgNrEpaeqUd94QkUfJY+KEZPGAGt3QD7vs/r
+	kvuRAX1SxWtK/xBq+IQlgC1woK1K9vw5P5fpHiMATfCjjDdpfCfS4OujaD/AaHFLVHtHmclpUpCNm
+	US0OhRjOjtLMksvBQgSAcruh56fC6NGzDsvShncb+rYTODWmmFVyXo0MDy1EU5hiooUo+GX1dSQwG
+	QyU095uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tX1q0-00000003Bvv-0dj0;
-	Sun, 12 Jan 2025 17:33:24 +0000
-Received: from mail-oa1-x2f.google.com ([2001:4860:4864:20::2f])
+	id 1tX2Pa-00000003EWi-2B87;
+	Sun, 12 Jan 2025 18:10:10 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tX1Ub-000000038MW-0sMb
+	id 1tX2OK-00000003EP8-107E
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jan 2025 17:11:18 +0000
-Received: by mail-oa1-x2f.google.com with SMTP id 586e51a60fabf-2a7ccb2c618so2064544fac.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jan 2025 09:11:16 -0800 (PST)
+	Sun, 12 Jan 2025 18:08:53 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-43616c12d72so4780115e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jan 2025 10:08:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736701876; x=1737306676; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BRSvG4lHDviRuzjJRGYuKFbYzwOqYOzJbZ32m62ocNE=;
-        b=YKCJ0drNz5WfWdKvQnE8NHlJBNCPvegeOG52VIc3JSQjFG3bCL8A3p6nIlFQQLgimN
-         pzXVvhnR2xTgSFhx7IOZyF8s0apF64Rn5cpFygp28VIIV6d08H4RimH721ZpZM+KYIp6
-         +te6ehMLzCzwzWklS1/KnHFDgJkSBN8MTiLre4s85DvOCgqzPlMTiVOsWBqsQWULD9z1
-         emMu9LYvGDYR+limZqSVbWmQ06zKLYT+LOvnTIOB7Su7C9DRzDE2oDhJwx9HvLa6iRbx
-         RP75ZfXsd7j/fY6b0XkheUHVL7z62Y3Gwko4fLCdde6sM4Dkrz3mg/2jLqhW7iNelI9H
-         qLbg==
+        d=linaro.org; s=google; t=1736705330; x=1737310130; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=PZ+KKaJmXPxzxDNxe6MA06Q8Nc2be0rN6nRzuoDVTD0=;
+        b=H7xE5MGV4zHecpfeGCr7X7aApeGdfXvBlurHuxLhicr1MvADZuK960BxcBFKjWaB+c
+         +eOSS6Sdq1S6gZEsO8fBlFIel8pse2M8WuTk8LsfNqGRAw9pNF8GEQk/DgA5eBlkiO9U
+         qV0Q+2Ld0PwDYxIgIF+GhwzpV2AjcA7a6A+K46IWsXiSmbcjrOWjio4BYqLvQ2OkrYWm
+         HdOF7tIl5mo+45xz1z8gSbrMu166+7oO5fXpLHrNIsI12Redzdowp4viWoDO2kkLR1wU
+         uFdcfjJA4uWgh9OS5YKihabu51M4v0YHn6VtqaWW/E+sScn3ndYcNLwme+EvX2vWrfl/
+         gm0w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736701876; x=1737306676;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=BRSvG4lHDviRuzjJRGYuKFbYzwOqYOzJbZ32m62ocNE=;
-        b=p1bixqF6TDYrCIuX95BFyHTYnxxoBljohMJ+45qWVOSw1wZ9HdIW/TAMXZ6AEpj1fm
-         lSObJTEk2eJt+/DxINfBqqeL0tJY73TYXb1fZGMC/JU4AWGJxpIOW7nZVsfsoexlGRLO
-         sF3w1SyjO1cfh5NjGfCgNty2jCQa5u9qUlRAzKQfYqB3v2pGvf+BPIUZdXi2YLswAnjj
-         mAr1yYXfbR6GQs8oK6gYagtU2RmflU6uLw8K8R9C++Ak/Agnrg1gZe7A80QVFiNFfeH6
-         KrK7DeqfSinp0fSxLKMWPGEgGctOCQZz2474SK/flUG5TCEr66gqwV4Qvk7vpy3x8bnn
-         0gOw==
-X-Forwarded-Encrypted: i=1; AJvYcCXoq+rH/JBMWulGwiRsm8gQ9/8rWcUj0Sm4o77HaDWrettZg19drdUjUA8Fbwj77aYupCmDaVsLpn7soy2kA7T/@lists.infradead.org
-X-Gm-Message-State: AOJu0YwTl37h5SjNWrQMFGQEQKT24AJTPGamoHKIgMdinSFCJU72HCdU
-	kQS+zInKLUaMhgzZ6JprC3Kh6Js6HxXI9G+ISUN8ke0IkJXFshGOYBZk5uhsiHk3dIH7eup0xGo
-	DDqr3xcpUidCqPBQhNryxCpd+aXU=
-X-Gm-Gg: ASbGnctBGyWOCC9ja1G0ilPkPVI8h1yyDm4sDGjCyjdi3t5uTK2OY4xK9Xbwc4e31u8
-	CrWUWESN6ZiXwf+vSAbdCnnuIrF7fkzku9hkzYgM=
-X-Google-Smtp-Source: AGHT+IENGjLXxXcSGe+w7tY3R64tOX7yK5WBTBwurxfDdtVFwVvG/FRtTErahZqTGTD6G89aj5oqyZiB1L1vqwlTv1w=
-X-Received: by 2002:a05:6870:ad84:b0:296:bbc8:4a82 with SMTP id
- 586e51a60fabf-2aa0690e4f6mr10712332fac.27.1736701876276; Sun, 12 Jan 2025
- 09:11:16 -0800 (PST)
+        d=1e100.net; s=20230601; t=1736705330; x=1737310130;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=PZ+KKaJmXPxzxDNxe6MA06Q8Nc2be0rN6nRzuoDVTD0=;
+        b=VYtRMhQ+MmfhWmrM03/wgBpJTyZ3Rqwc0fIOpz+R+q+wYS848q6ghiMYOn47K+z7Y6
+         gLe8hbUtX5TEj3p+V7+rnSju4ZiuDcrvCCZLVPnhtkX6jVrLZoswjLWa32dmLuOcrxGH
+         5sknnXQz1D53NpBrcy4WDdukmfcLwlHLifibEYd5VlPxbaGu4aiboGOJ/zoOAwci4aTH
+         JiykdmbBESlkIyIs4MVhePw5RMyyrq7ZhzL1O6rMvxO1Mq9R+3qpD3iBnbOoo/IBja23
+         vE3qE8+Lbcd/xXuWuZ52oJD6un2okJhlhk2gsr2vpPL94fBCk/E+Nyp8YRpXLnv8xzCZ
+         1ZNQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU5lJxgTl/c6fCd2tNW26JvCL7LNJDpRVp5v2dSD8VUEkWX+J6arYalb6lR/134cFINm7BIDPbeBkWNc0MHgD0H@lists.infradead.org
+X-Gm-Message-State: AOJu0YyFK43N4OtHlsVsxfA6KLMtdXvuTuiPAjrGKCLO7ZLdFxoEDe7a
+	PP1miVmSlU6Zlp/u3Y0t1dOqGzdmjDE8T/v59+CRhlb6BDlEmzpaAP5+VMcVfuQ=
+X-Gm-Gg: ASbGncurOT3ph6EoPqRdB6WuzMoX2LT69xacValiHgM8p2O1RR7i9jVHz/M5L8FDR3k
+	Q7Df0IjdNj8y3xzXj5EROdF6YFDIgBdurzYk0Om6bkhGt+IRNBhraASvlOqO/SMcEokf3OiKhgZ
+	9e3TVp6hdnWJrGsey9+ynkpTZ086eg4lYCNGeDRRghOfZyo7JZPA6UUq3MK1elX3w/8g/owVUO0
+	G3Dzl5VEwkOl9lIRq9EQkRsyBthsqgK8F3kKtLYKygTu1zD8DOvv/npJsxJLNTXqvT94aM=
+X-Google-Smtp-Source: AGHT+IHu9JNZR3ElrmXphabS7z0OElOospxIN9/DnCZllvZLlZCEZRz4dgWabn67diqwb3Q/GAGKmQ==
+X-Received: by 2002:a05:600c:1385:b0:436:1b94:2deb with SMTP id 5b1f17b1804b1-436e26f556fmr67303905e9.5.1736705330605;
+        Sun, 12 Jan 2025 10:08:50 -0800 (PST)
+Received: from krzk-bin.. ([178.197.223.165])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e2e89de4sm150842705e9.34.2025.01.12.10.08.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 12 Jan 2025 10:08:49 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Arnd Bergmann <arnd@arndb.de>,
+	soc@lists.linux.dev
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzk@kernel.org>
+Subject: [GIT PULL] samsung: drivers: for v6.14, part two
+Date: Sun, 12 Jan 2025 19:08:46 +0100
+Message-ID: <20250112180846.64154-1-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20250107131015.246461-1-krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20250107131015.246461-1-krzysztof.kozlowski@linaro.org>
-From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Sun, 12 Jan 2025 11:11:04 -0600
-X-Gm-Features: AbW1kvbXjyqTnf9gPwBQ9ZLkKzxPws-DMkCbBAzJp--cshKBewoVPRLg0dMWqYE
-Message-ID: <CABb+yY0sgg6-zF-0shQbcZ=TqxYGDO=S847WpLGFcF3Xh9f2Nw@mail.gmail.com>
-Subject: Re: [PATCH] dt-bindings: usb: Correct indentation and style in DTS example
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
-	Andrew Jeffery <andrew@codeconstruct.com.au>, Justin Chen <justin.chen@broadcom.com>, 
-	Al Cooper <alcooperx@gmail.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>, Florian Fainelli <f.fainelli@gmail.com>, 
-	Benjamin Bara <benjamin.bara@skidata.com>, Bjorn Andersson <andersson@kernel.org>, 
-	Ahmad Zainie <wan.ahmad.zainie.wan.mohamad@intel.com>, 
-	Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Tianping Fang <tianping.fang@mediatek.com>, Jassi Brar <jaswinder.singh@linaro.org>, 
-	Biju Das <biju.das.jz@bp.renesas.com>, 
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, 
-	Francesco Dolcini <francesco.dolcini@toradex.com>, Macpaul Lin <macpaul.lin@mediatek.com>, 
-	Alexander Stein <alexander.stein@ew.tq-group.com>, linux-usb@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
-	linux-tegra@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250112_091117_247490_ED2EC008 
-X-CRM114-Status: GOOD (  12.82  )
+X-CRM114-CacheID: sfid-20250112_100852_426377_C6A76779 
+X-CRM114-Status: GOOD (  10.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,26 +99,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 7, 2025 at 7:10=E2=80=AFAM Krzysztof Kozlowski
-<krzysztof.kozlowski@linaro.org> wrote:
->
-> DTS example in the bindings should be indented with 2- or 4-spaces and
-> aligned with opening '- |', so correct any differences like 3-spaces or
-> mixtures 2- and 4-spaces in one binding.
->
-> No functional changes here, but saves some comments during reviews of
-> new patches built on existing code.
->
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> ---
->  .../bindings/usb/aspeed,usb-vhub.yaml         | 40 +++++++++----------
->  .../devicetree/bindings/usb/brcm,bdc.yaml     | 14 +++----
->  .../devicetree/bindings/usb/cypress,hx3.yaml  | 24 +++++------
->  .../devicetree/bindings/usb/dwc2.yaml         |  4 +-
->  .../devicetree/bindings/usb/fcs,fsa4480.yaml  | 20 +++++-----
->  .../bindings/usb/intel,keembay-dwc3.yaml      | 30 +++++++-------
->  .../devicetree/bindings/usb/ite,it5205.yaml   | 18 ++++-----
->  .../bindings/usb/maxim,max3420-udc.yaml       | 28 ++++++-------
+Hi,
 
-Acked-by: Jassi Brar <jassisinghbrar@gmail.com>
+Previously I sent just one patch alone. It is not included here.
+
+Best regards,
+Krzysztof
+
+
+The following changes since commit 40384c840ea1944d7c5a392e8975ed088ecf0b37:
+
+  Linux 6.13-rc1 (2024-12-01 14:28:56 -0800)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-drivers-6.14
+
+for you to fetch changes up to eca836dfd8386b32f1aae60f8e323218ac6a0b75:
+
+  soc: samsung: exynos-pmu: Fix uninitialized ret in tensor_set_bits_atomic() (2025-01-06 10:54:04 +0100)
+
+----------------------------------------------------------------
+Samsung SoC drivers for v6.14
+
+1. Add new bindings for sysreg in Exynos8895.
+2. Minor improvements in Exynos USI bindings.
+3. Fix for Smatch warning in Exynos PMU syscon driver.
+
+----------------------------------------------------------------
+Ivaylo Ivanov (1):
+      dt-bindings: soc: samsung: exynos-sysreg: add sysreg compatibles for exynos8895
+
+Krzysztof Kozlowski (2):
+      dt-bindings: samsung: exynos-usi: Restrict possible samsung,mode values
+      soc: samsung: exynos-pmu: Fix uninitialized ret in tensor_set_bits_atomic()
+
+ Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml     | 1 +
+ .../devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml    | 8 ++++++++
+ drivers/soc/samsung/exynos-pmu.c                                  | 2 +-
+ 3 files changed, 10 insertions(+), 1 deletion(-)
 
