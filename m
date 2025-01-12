@@ -4,92 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3E8CE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 13:50:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89555E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jan 2025 14:00:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0DoP8JyX0Rn+t869X/69C5AdIYY282FJMkh2+vYUqvg=; b=Ybqgi9sZQYKpGH3uZoK2F5oPsU
-	A3PDVvHGmF9kHXcwj6+SEjKwj/zcieA0e6kXK+vhgJyIJLsZkg4VSLrGdnVuQaNpY4Loi8/dOb8bk
-	8Pfc0fflWyultFRrx8LIhNDw0dJ4bPCf3AxXw4ROnDYmyzY88uzBt0TODXk2XrEJ/afXoKUoW+ncg
-	ym9rl7KEAv7cTGq9QBQmMu4D0u3K9wUi0fJk1W5XDdHG/dgOH94L9gxrb6P+fg3zjm5car+Nw1PO7
-	OIO2VkU5rd1h2RjxG8AtgjlKGbEg2LXPCu3xuQdRIbD3FJI7fi+EnLwc7tSwfLOW5V3d2g6e7Vsb7
-	H1D1nIYw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=slC3bj+2PXNsI2CZ00XOm9vevnGTXZAdNzucMbyd294=; b=4u+/6GpiuX6+oczbm2oq+o7blg
+	22B+zDLzEJ1Ek6RmXplSwm12BXEqs9Z/aawvW/gpIzPNCCnAtfUG9uH+WihIkgOTz74MUCbTu7N5F
+	jqR9vCacZ4MgWbSkI0I6cq9fdlCjiVdyjmujUkUcNPlNwdYXoULGm89qV7nS+YAgHc6yFJg2z3fpK
+	3lOU83usvNbOxihPaZcKQ7nzoMCl1KejRHH17a0ItQWau7XqHdrNAzhQ5oY3MJwkOhIPJIou3bN06
+	0hIxI4s5PgtgpQKK/whJ9gD4Tb5PT5jDUAq9mM5RmaJR9yEljoAjBHGjByTWXiI4uk2o2aXz6+hmq
+	OzvAP+Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWyLb-00000002oU0-2fV6;
-	Sun, 12 Jan 2025 13:49:47 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1tWyVl-00000002p3U-3tZQ;
+	Sun, 12 Jan 2025 14:00:17 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWyJ8-00000002o5g-2HGg
+	id 1tWyUV-00000002oy6-1GPJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jan 2025 13:47:16 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-aa659775dd5so46322366b.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jan 2025 05:47:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736689633; x=1737294433; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0DoP8JyX0Rn+t869X/69C5AdIYY282FJMkh2+vYUqvg=;
-        b=HDCABn4muM7+ljhDkdj82gjdePV2ZLfxnUoLaBqMRZmMTv9cGY0u/ZScd61qTTgVZ4
-         GSrro7H+l+QKyQrCAhLZAeXrUf2GawUNuGFm7zn5PGoigoxbLzJd/zZ9inwGy2uTmD9e
-         VGWpHm5/GHLFBEHdpGuSlRI0bE73hX2YD6l9SaaUaKYJ901hbEFoDj+OkhmS0m5pctVz
-         Glm2gbpY0qBUZzL7IzC3vqcRKIcYPU7JwlZIFn/vme/wsZsAwTq3IAJOvMLgEP7FMgE4
-         iWpMeLkIGGYHK5jA0G80h8IZvkZtKogUGbs6Ol3PxXRP8sdFl0OoNjShj94cZJJs5o2k
-         jbTQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736689633; x=1737294433;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=0DoP8JyX0Rn+t869X/69C5AdIYY282FJMkh2+vYUqvg=;
-        b=PrC2TmHa3e8ntsah/2+iQLEQgZobfO9rEzGcYKgS7S2F02fpaEd178RzieeBzQdiyn
-         74YTPzRiShbJFfws5gAluaoM1zP27rNSkoLfqpHG8DnYLmTVsTcyW54SBXe6RBG9HNoa
-         mnM5DoNUHM1h0UssHaw1pE2b3HDXabOl9VWXsHhMHGRNIx9qHEIONbs3nQJHVqa3MYyI
-         ue0im7xRHUMcGErE0OkJacLu3NOHL/DCe0meNAuxeJuA7X9CGc+cvKXoMwc4f/mqcMKb
-         QNWWNxhX1bWYzuSgEit9p1bwwbblz7sq1gdmKkrfPhS9y5Xzxqef4MegJjfLxVwp2Blk
-         fYSw==
-X-Forwarded-Encrypted: i=1; AJvYcCXBpxh/jZKKGrx5GNmkHO5cfg7SGJbemPU/RrKO94zzsXw5+IWX35u4NLPnpjKOk1Kn7vXuHY7Yypzz8lzNez+Z@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVp9jd2qMRGdVnCyB2JcniesneLj40Q31gtKWspDJcP9JHcoSv
-	mkRCEuIBDmEurHNFCKVh9g5q+Y0fqnuBSVqRF8fSsM+NVQ3YNUADaENTI7S/jNg=
-X-Gm-Gg: ASbGncvJaPRh2aK5BqM+183J5v3tPpROBpzouVvWZ6UslWspuJ71IAm9wAmptXkupc6
-	U2vJeqXGMDdJ/S2hEfKeR69rwPau1rxXvsZ/5Jq/Vfxc7coPbIK7eTPMeMxnn6zazOvZITAgHBw
-	orggQdOiaZ+AVWKVlosQuv8jJWKI8IJTjJLkWWWb278IiDDhCqT9ICTKlfCcCELHVOZU4N0COk9
-	pFjR3N/NYLxIl14j0squ8TLkMN6NUsw7Omw8SMk1otb2RYgnPpJXUDKhg5hzxvcKT2CdTs=
-X-Google-Smtp-Source: AGHT+IEHAXrRzzhrt3gFm4JeAOOOtrjD1qbFZyqfcMZ+AbnWgJcTH3bD4AwNeCzDVpq7CMRHO0fkfA==
-X-Received: by 2002:a17:907:8689:b0:a9a:2afc:e4ef with SMTP id a640c23a62f3a-ab2ab60355cmr584894566b.7.1736689633230;
-        Sun, 12 Jan 2025 05:47:13 -0800 (PST)
-Received: from krzk-bin.. ([178.197.223.165])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab2c9060c00sm374899866b.41.2025.01.12.05.47.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Jan 2025 05:47:12 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH 2/2] drm/mediatek/hdmi: Simplify with dev_err_probe
-Date: Sun, 12 Jan 2025 14:47:08 +0100
-Message-ID: <20250112134708.46100-2-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250112134708.46100-1-krzysztof.kozlowski@linaro.org>
-References: <20250112134708.46100-1-krzysztof.kozlowski@linaro.org>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Sun, 12 Jan 2025 13:59:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id C7E15A40A6E;
+	Sun, 12 Jan 2025 13:57:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BF85C4CEDF;
+	Sun, 12 Jan 2025 13:58:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736690337;
+	bh=APhxbnjBE8VyIpBOed7Hi5AvGBInNUGG+g4deDfnG4g=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=MdcVsStasamu1oIzH5gBxL5q3MGP98/HsqC4ijiVTxQB5C9iLdfTJCaE18jrem8J9
+	 Ec95Wq8IZwXp2BMnE2M96Ad1sJyeoEK/WfCbYY3Bdb90lqIvG954nELKOjrrONzUN9
+	 joB5nxYRKJdFJpdaOpwjc5Cfu8u4Ih8qKGCtdw2X2rPC/dSA+1RnVVcukHbjFFuCeq
+	 A2Zo7woNcF+HVZNzxfxvXouLV/LHmjClnNu8ebavVz7RwtShiw4QhikOWwAC3TS1AW
+	 UGt8/BAC6FSD1+wNOZ1DzRrWJD1+v/B8JVmGYjdPDc9D8RcKhwP11TUMA3Khu1pLuz
+	 9UGP6VPiHeFOw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tWyUR-00BM6X-3S;
+	Sun, 12 Jan 2025 13:58:55 +0000
+Date: Sun, 12 Jan 2025 13:58:54 +0000
+Message-ID: <87cygsqgkh.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: James Clark <james.clark@linaro.org>
+Cc: kvmarm@lists.linux.dev,
+	oliver.upton@linux.dev,
+	suzuki.poulose@arm.com,
+	coresight@lists.linaro.org,
+	James Clark <james.clark@arm.com>,
+	Mark Brown <broonie@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mike Leach <mike.leach@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Shiqi Liu <shiqiliu@hust.edu.cn>,
+	James Morse <james.morse@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	"Rob Herring (Arm)" <robh@kernel.org>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v10 06/10] arm64/sysreg/tools: Move TRFCR definitions to sysreg
+In-Reply-To: <20250107113252.260631-7-james.clark@linaro.org>
+References: <20250107113252.260631-1-james.clark@linaro.org>
+	<20250107113252.260631-7-james.clark@linaro.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: james.clark@linaro.org, kvmarm@lists.linux.dev, oliver.upton@linux.dev, suzuki.poulose@arm.com, coresight@lists.linaro.org, james.clark@arm.com, broonie@kernel.org, joey.gouly@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mike.leach@linaro.org, alexander.shishkin@linux.intel.com, mark.rutland@arm.com, shiqiliu@hust.edu.cn, james.morse@arm.com, anshuman.khandual@arm.com, tabba@google.com, robh@kernel.org, rananta@google.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250112_054714_579375_BDE9763A 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20250112_055859_471901_F6081834 
+X-CRM114-Status: GOOD (  31.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,66 +104,194 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use dev_err_probe() to make error code and deferred probe handling
-simpler.
+On Tue, 07 Jan 2025 11:32:43 +0000,
+James Clark <james.clark@linaro.org> wrote:
+>=20
+> From: James Clark <james.clark@arm.com>
+>=20
+> Convert TRFCR to automatic generation. Add separate definitions for ELx
+> and EL2 as TRFCR_EL1 doesn't have CX. This also mirrors the previous
+> definition so no code change is required.
+>=20
+> Also add TRFCR_EL12 which will start to be used in a later commit.
+>=20
+> Unfortunately, to avoid breaking the Perf build with duplicate
+> definition errors, the tools copy of the sysreg.h header needs to be
+> updated at the same time rather than the usual second commit. This is
+> because the generated version of sysreg
+> (arch/arm64/include/generated/asm/sysreg-defs.h), is currently shared
+> and tools/ does not have its own copy.
+>=20
+> Reviewed-by: Mark Brown <broonie@kernel.org>
+> Signed-off-by: James Clark <james.clark@arm.com>
+> Signed-off-by: James Clark <james.clark@linaro.org>
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+I've added the following patch to the series, dropping the TCFCR_ELx
+construct and fixing the code that makes use of it.
+
+	M.
+
+=46rom fc77862e06ca1c15e44b0c915da193bd8ed855bc Mon Sep 17 00:00:00 2001
+From: Marc Zyngier <maz@kernel.org>
+Date: Sun, 12 Jan 2025 13:08:59 +0000
+Subject: [PATCH] arm64/sysreg: Get rid of TRFCR_ELx SysregFields
+
+There is no such thing as TRFCR_ELx in the architecture.
+What we have is TRFCR_EL1, for which TRFCR_EL12 is an accessor.
+
+Rename TRFCR_ELx_* to TRFCR_EL1_*, and fix the bit of code using
+these names.
+
+Similarly, TRFCR_EL12 is redefined as a mapping to TRFCR_EL1.
+
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Cc: James Clark <james.clark@linaro.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Mark Brown <broonie@kernel.org>
+Cc: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
 ---
- drivers/gpu/drm/mediatek/mtk_hdmi.c | 22 +++++++---------------
- 1 file changed, 7 insertions(+), 15 deletions(-)
+ arch/arm64/tools/sysreg                          |  8 ++------
+ .../hwtracing/coresight/coresight-etm4x-core.c   | 16 ++++++++--------
+ .../hwtracing/coresight/coresight-etm4x-sysfs.c  | 10 +++++-----
+ drivers/hwtracing/coresight/coresight-trbe.c     |  2 +-
+ 4 files changed, 16 insertions(+), 20 deletions(-)
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-index 4b0eb7dc25d8..22935fdc5afe 100644
---- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
-+++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-@@ -1429,19 +1429,13 @@ static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi,
- 	int ret;
- 
- 	ret = mtk_hdmi_get_all_clk(hdmi, np);
--	if (ret) {
--		if (ret != -EPROBE_DEFER)
--			dev_err(dev, "Failed to get clocks: %d\n", ret);
+diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+index 4c2c9c6767c93..ac5202e1df862 100644
+--- a/arch/arm64/tools/sysreg
++++ b/arch/arm64/tools/sysreg
+@@ -1999,7 +1999,7 @@ Field	17:16	ZEN
+ Res0	15:0
+ EndSysreg
+=20
+-SysregFields TRFCR_ELx
++Sysreg	TRFCR_EL1	3	0	1	2	1
+ Res0	63:7
+ UnsignedEnum	6:5	TS
+ 	0b0001	VIRTUAL
+@@ -2011,10 +2011,6 @@ Field	1	ExTRE
+ Field	0	E0TRE
+ EndSysregFields
+=20
+-Sysreg	TRFCR_EL1	3	0	1	2	1
+-Fields	TRFCR_ELx
+-EndSysreg
 -
--		return ret;
--	}
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to get clocks\n");
- 
- 	/* The CEC module handles HDMI hotplug detection */
- 	cec_np = of_get_compatible_child(np->parent, "mediatek,mt8173-cec");
--	if (!cec_np) {
--		dev_err(dev, "Failed to find CEC node\n");
--		return -EINVAL;
--	}
-+	if (!cec_np)
-+		return dev_err_probe(dev, -EINVAL, "Failed to find CEC node\n");
- 
- 	cec_pdev = of_find_device_by_node(cec_np);
- 	if (!cec_pdev) {
-@@ -1492,10 +1486,9 @@ static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi,
- 
- 	i2c_np = of_parse_phandle(remote, "ddc-i2c-bus", 0);
- 	if (!i2c_np) {
--		dev_err(dev, "Failed to find ddc-i2c-bus node in %pOF\n",
--			remote);
-+		ret = dev_err_probe(dev, -EINVAL, "Failed to find ddc-i2c-bus node in %pOF\n",
-+				    remote);
- 		of_node_put(remote);
--		ret = -EINVAL;
- 		goto put_device;
+ Sysreg	SMPRI_EL1	3	0	1	2	4
+ Res0	63:4
+ Field	3:0	PRIORITY
+@@ -2991,7 +2987,7 @@ Mapping	ZCR_EL1
+ EndSysreg
+=20
+ Sysreg	TRFCR_EL12	3	5	1	2	1
+-Fields	TRFCR_ELx
++Mapping	TRFCR_EL1
+ EndSysreg
+=20
+ Sysreg	SMCR_EL12	3	5	1	2	6
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/h=
+wtracing/coresight/coresight-etm4x-core.c
+index fbc4aa3785279..2c1a60577728e 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+@@ -275,7 +275,7 @@ static void etm4x_prohibit_trace(struct etmv4_drvdata *=
+drvdata)
+ 	if (!drvdata->trfcr)
+ 		return;
+=20
+-	trfcr =3D drvdata->trfcr & ~(TRFCR_ELx_ExTRE | TRFCR_ELx_E0TRE);
++	trfcr =3D drvdata->trfcr & ~(TRFCR_EL1_ExTRE | TRFCR_EL1_E0TRE);
+=20
+ 	write_trfcr(trfcr);
+ 	kvm_tracing_set_el1_configuration(trfcr);
+@@ -286,9 +286,9 @@ static u64 etm4x_get_kern_user_filter(struct etmv4_drvd=
+ata *drvdata)
+ 	u64 trfcr =3D drvdata->trfcr;
+=20
+ 	if (drvdata->config.mode & ETM_MODE_EXCL_KERN)
+-		trfcr &=3D ~TRFCR_ELx_ExTRE;
++		trfcr &=3D ~TRFCR_EL1_ExTRE;
+ 	if (drvdata->config.mode & ETM_MODE_EXCL_USER)
+-		trfcr &=3D ~TRFCR_ELx_E0TRE;
++		trfcr &=3D ~TRFCR_EL1_E0TRE;
+=20
+ 	return trfcr;
+ }
+@@ -312,7 +312,7 @@ static void etm4x_allow_trace(struct etmv4_drvdata *drv=
+data)
+ 		return;
+=20
+ 	if (drvdata->config.mode & ETM_MODE_EXCL_HOST)
+-		trfcr =3D drvdata->trfcr & ~(TRFCR_ELx_ExTRE | TRFCR_ELx_E0TRE);
++		trfcr =3D drvdata->trfcr & ~(TRFCR_EL1_ExTRE | TRFCR_EL1_E0TRE);
+ 	else
+ 		trfcr =3D etm4x_get_kern_user_filter(drvdata);
+=20
+@@ -320,7 +320,7 @@ static void etm4x_allow_trace(struct etmv4_drvdata *drv=
+data)
+=20
+ 	/* Set filters for guests and pass to KVM */
+ 	if (drvdata->config.mode & ETM_MODE_EXCL_GUEST)
+-		guest_trfcr =3D drvdata->trfcr & ~(TRFCR_ELx_ExTRE | TRFCR_ELx_E0TRE);
++		guest_trfcr =3D drvdata->trfcr & ~(TRFCR_EL1_ExTRE | TRFCR_EL1_E0TRE);
+ 	else
+ 		guest_trfcr =3D etm4x_get_kern_user_filter(drvdata);
+=20
+@@ -1176,9 +1176,9 @@ static void cpu_detect_trace_filtering(struct etmv4_d=
+rvdata *drvdata)
+ 	 * tracing at the kernel EL and EL0, forcing to use the
+ 	 * virtual time as the timestamp.
+ 	 */
+-	trfcr =3D (TRFCR_ELx_TS_VIRTUAL |
+-		 TRFCR_ELx_ExTRE |
+-		 TRFCR_ELx_E0TRE);
++	trfcr =3D (TRFCR_EL1_TS_VIRTUAL |
++		 TRFCR_EL1_ExTRE |
++		 TRFCR_EL1_E0TRE);
+=20
+ 	/* If we are running at EL2, allow tracing the CONTEXTIDR_EL2. */
+ 	if (is_kernel_in_hyp_mode())
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c b/drivers/=
+hwtracing/coresight/coresight-etm4x-sysfs.c
+index a9f19629f3f84..c767f8ae4cf1d 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+@@ -2319,11 +2319,11 @@ static ssize_t ts_source_show(struct device *dev,
+ 		goto out;
  	}
- 	of_node_put(remote);
-@@ -1503,8 +1496,7 @@ static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi,
- 	hdmi->ddc_adpt = of_find_i2c_adapter_by_node(i2c_np);
- 	of_node_put(i2c_np);
- 	if (!hdmi->ddc_adpt) {
--		dev_err(dev, "Failed to get ddc i2c adapter by node\n");
--		ret = -EINVAL;
-+		ret = dev_err_probe(dev, -EINVAL, "Failed to get ddc i2c adapter by node\n");
- 		goto put_device;
- 	}
- 
--- 
-2.43.0
+=20
+-	switch (drvdata->trfcr & TRFCR_ELx_TS_MASK) {
+-	case TRFCR_ELx_TS_VIRTUAL:
+-	case TRFCR_ELx_TS_GUEST_PHYSICAL:
+-	case TRFCR_ELx_TS_PHYSICAL:
+-		val =3D FIELD_GET(TRFCR_ELx_TS_MASK, drvdata->trfcr);
++	switch (drvdata->trfcr & TRFCR_EL1_TS_MASK) {
++	case TRFCR_EL1_TS_VIRTUAL:
++	case TRFCR_EL1_TS_GUEST_PHYSICAL:
++	case TRFCR_EL1_TS_PHYSICAL:
++		val =3D FIELD_GET(TRFCR_EL1_TS_MASK, drvdata->trfcr);
+ 		break;
+ 	default:
+ 		val =3D -1;
+diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtraci=
+ng/coresight/coresight-trbe.c
+index d6eb0d525a4d6..fff67aac84181 100644
+--- a/drivers/hwtracing/coresight/coresight-trbe.c
++++ b/drivers/hwtracing/coresight/coresight-trbe.c
+@@ -1118,7 +1118,7 @@ static u64 cpu_prohibit_trace(void)
+ 	u64 trfcr =3D read_trfcr();
+=20
+ 	/* Prohibit tracing at EL0 & the kernel EL */
+-	write_trfcr(trfcr & ~(TRFCR_ELx_ExTRE | TRFCR_ELx_E0TRE));
++	write_trfcr(trfcr & ~(TRFCR_EL1_ExTRE | TRFCR_EL1_E0TRE));
+ 	/* Return the original value of the TRFCR */
+ 	return trfcr;
+ }
+--=20
+2.39.2
 
+
+--=20
+Without deviation from the norm, progress is not possible.
 
