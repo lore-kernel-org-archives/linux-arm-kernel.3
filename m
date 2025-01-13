@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88BECC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 15:41:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2714FC02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 15:43:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5oL+ODcQasvCBAzRTJ+DvIqFD3YhC5IBkuyemaByobY=; b=dfzhdertFQjrIkYWUKkcVeNqwt
-	U7ATqlAwuKM22ud3YxTcKiHlPk5N2gEZBNwjnkBAByo8hlFYGkq881XqFWywNDrfa3LKlGB0icNuo
-	Uk1XoybdzCDCmhXvgO9Rm71LREaaCKyrPNVS6a2GWPtSHOnwXSDFN7v88uEhzUxofUbZVRQZhsqJS
-	fzYkBPX76pyLYpQ2aBcLGAhlUVDvKU2SjJSMe/y8ZI6mnSzQuSQNP7ylxm9SX8UGScAiyvZ954vCw
-	4TV02ibO70Kjgmtci/s9vhGXHpadbkcp0bSj+7fFAU/Y65/w1CYylZ59RWPC0dBfXZkQUaeAD6MIq
-	CL1dFfrg==;
+	bh=VK0RSe0ldjtHClEHoqi5wXPziNZcvh2YDnOa/fSuvqM=; b=D3+11q/+H+cCJyoxmE95jJLvsd
+	wYt7z4Wqwlrg0hWcIaeFc1WhgYTU4RJW743S+VOK4V+H85VWCX4D9oBn0XaFIHY6ADkhj+84DFjOa
+	fiHxYecdzWeSwIAERdBSMAZmqnKVMGsGu0Zjgyl1gZhQOEm0CLo7MKtzEbNUK0jo2o8lx/MWZmZ/1
+	FZFsB5Dfq3jiVP7NxUYb5WscAR0UZw8HRkgAzBgNWHle87wMcwCfBZahs2FJ/8T0tcTUDg92uZeIs
+	1KOHGwLfoR9yVxX8uPflRXJX1bl/k6rhcXRjYN5+aOlHsbNkInuEE6b7mpX+EapJ7jlRhk/Qi5uwS
+	BuyTmGCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXMZJ-00000005gcK-1X0m;
-	Mon, 13 Jan 2025 15:41:33 +0000
+	id 1tXMaW-00000005gt6-2BBS;
+	Mon, 13 Jan 2025 15:42:48 +0000
 Received: from mail-ed1-x542.google.com ([2a00:1450:4864:20::542])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXLsb-00000005VpQ-3jqZ
+	id 1tXLsd-00000005Vr0-1wYp
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 13 Jan 2025 14:57:29 +0000
-Received: by mail-ed1-x542.google.com with SMTP id 4fb4d7f45d1cf-5d3f65844deso7204246a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 06:57:25 -0800 (PST)
+Received: by mail-ed1-x542.google.com with SMTP id 4fb4d7f45d1cf-5d41848901bso1183343a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 06:57:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1736780244; x=1737385044; darn=lists.infradead.org;
+        d=suse.com; s=google; t=1736780246; x=1737385046; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5oL+ODcQasvCBAzRTJ+DvIqFD3YhC5IBkuyemaByobY=;
-        b=JYw1wTtrmV+wj/4UY3n2BPmT/VZIxUrbA3uKxlfMofxqeny/bYEUXmHLNbxAy2Eqqa
-         hMfK0ov9C9lXt1oiSBTGGzcjHDFQDmUAi7HiRuL0MnNgnfNKwS5zqDdq1xyGLIClxrfL
-         QHmBxxBplBWyOZIV5hjh14FCod+M4FaUJt6WrDgvD6SRqLnkyvVubconLom5dj9w0VB+
-         AB3g4tFgH+D13VJeE4uT+4X5AME7Sr3X/064/Lk9QJjz6dynuH9jVfSEXTs8wjvG4bbm
-         E3JJFk/a/zcmEeiru+Srs0Sov+iY4/azndEG4tewkRMfUv6sokDem2IF49RNef40fbcy
-         8lGQ==
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=VK0RSe0ldjtHClEHoqi5wXPziNZcvh2YDnOa/fSuvqM=;
+        b=W4ihprYN6/61amAt8BfmFuXWo9qd+zhYyrBGQhmCz2Gn0y/cZFwclKwByUZf5eZ+kW
+         zUBxRFgYrgmnqyuYSQTymHI7LQl/RbjazUYOr4M7rbnQ3Fvn5xLTFrFBXvuCScrnFKzW
+         Er60J7Hx4cJd/HrgQIglD4cQMjDbkpiBmC/IEAG56P6uIt8R/5qYo5WmkpNUG61eogwg
+         szR+DzMGzktnxm5lj6eWe2MAi0oJiqMsB15d1wQHwcfEWOIxAQDxbKxqRePgftAYmoJj
+         NBrpBWTnWzVKTUyYqKtc1AJ2yBVRG2zUF/seNsQ/jFLbLdxJEyhX086KrZhTJtarE6hj
+         DZ9Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736780244; x=1737385044;
+        d=1e100.net; s=20230601; t=1736780246; x=1737385046;
         h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=5oL+ODcQasvCBAzRTJ+DvIqFD3YhC5IBkuyemaByobY=;
-        b=mdbmBBXwgxaG4Ilk3HeQBgdJX9J6umzHkrqHxjPsgT34dSaCJB2WoZNz19GFGVmGo5
-         9EFUboVzlDk64V2YoYmL3fP1GDGua1/F3lCIF/eZgob5QkK0HDU1lBx7/bXggQNBGp1s
-         /AjUX9zuNd0Qm4ggy8dOmXj0eByK3RgceEKHrTTlcMse+SNmVc3wl6hLuEeJG9Lm+wsE
-         fPZchdgrGDPjPX870FHHiMP5G9GfLejRTGlf2vO9GkRItfB9bn9Ur/F0MOp6Qsk6IMGU
-         hgq27Kc5K1m2cKKnLgiP4s2Q/XOnMhuSjpgB8ERn75SmVc1PjFbI4st1rP6Nxq5jrUNx
-         wC/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXXCC4eVaGxLNIT0IhUa7ED1BF00r/MS8Yt0u3rYqVNs2jCxknpYkQJtoq4Nhsic1jxaenAGy3JJP3ySTgU1vsJ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx0wiHBulcsDezBKwZiSL5ML6dFaZkeAVuX3xCUlKb+BsfMeNee
-	i++2WtaqZaZkMXfJaWAjGoH3fdv76mPSNZ2lLvr1E2vhRv8ntKYdM8LFfDIdv84=
-X-Gm-Gg: ASbGncu1AO4qFpLv89QZHS4zLsbaMaQqsDErdiWVemp72xnnBGD8BVHQYseUb7My+iI
-	b/BLRos4MX3NuYOLJDfc0dD2XuDfvHxnqrD3qBF/D9OZ0wp3yYN37GhRqOA6eHUCV1uEDZWasUN
-	KtQrMpqure0uCHgXIe4q5ko+PdTIF9gSjZtv9eCcF5yTgcw3Xgtn5NV7w2yEpyjcthszg4axA/e
-	ZzfGzjClD8V40rkZCZFBtIjn8tCIZAd/4sp70/cvKAYfPqBFqMl8xH+yMO1B30p41RrGzKCraQA
-	7BmqOx5b10JO+XYV3d0zvVq00Jc=
-X-Google-Smtp-Source: AGHT+IF1eb9wjyemuA/CkQvKrnWPvUi+BW6RlRVhXADP33sG5miX/dPcvtlInui9RO166jo+y/C63Q==
-X-Received: by 2002:a05:6402:3585:b0:5d9:f1f8:e726 with SMTP id 4fb4d7f45d1cf-5d9f1f8ed05mr270635a12.2.1736780244150;
-        Mon, 13 Jan 2025 06:57:24 -0800 (PST)
+        bh=VK0RSe0ldjtHClEHoqi5wXPziNZcvh2YDnOa/fSuvqM=;
+        b=eQnGLbx6bBdnCai4mQKNw45ZQfc+wI70SA17BKIq6VglV6z93JxrlPSj5ToVtvTfoO
+         eNCN4I3w86yxObe44+pqDXdyVdpMgN52ZU/8TaPxuujn6wVhfrMMQq/VBiH0yO2X+bAY
+         EBxSwbCkNrJ0lODj6FK0iJeTJdxrWKN7MOzs3NhTxkYIQGnD6WhrPTqW4RsOxsGltW2n
+         +xdEL4EC/C0hzt8RXh8ji2gABSRoPk1fpELXs1QrWUdIc8RBH+CayT2nxgVyC9Z0hG5K
+         sULO04e+5oTnTc3JoEA9RtHxugd9rtNMXQm62rYZqxbR2UmqbOazNletv5sAQ23Emadi
+         yELQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWVRmeZY+JdEiXoro/xqE6eKswntQbju+BaxTNgd0Un6Zad6TS8oUjy0nWsHbTUGombJokcRJXnp2msr+IJe/K2@lists.infradead.org
+X-Gm-Message-State: AOJu0YwrBLE/1WWEreUKUAXJgNLxXzhoXxJmgmeerrH7MS32bQtPh8Cy
+	5Yf+r09wVvy9hBOGeheKiJiTvMi75/5XQJSY/YnJEj7Kn16X1Pj6eFtO0YLrSms=
+X-Gm-Gg: ASbGncuGn3lEJmTZTKcxpmXgZ+Spf0gySCIZEBJ2u8cBh82LUkD+J8/Z0F6/MH3MsWV
+	x9+IOpvm68jdqaaR+xAQX/0iYc/pnwdZSmG76lyHSOMbKtRvGL4tpYbFQ3FeqodVtJTUHaLZh9S
+	aTVOWIzfviAPjnvs3kWcQ3C2OWDops5VUwe0xAwxEDLJ6s3YvIlCpktMHpMTCoAGU2kDNoYCIpd
+	9jOzRe0g/ORKMBL+8+XWVLU0QuNz/su3wHI4H9Z/K3WMPMh5ioFhK9QfEDyRjaugjpi4Fre3nby
+	e07Uea8D09lFOu8TuwFJVAalxl0=
+X-Google-Smtp-Source: AGHT+IFe6wqfMpYd/sg7qDfaYNOJsN6JxiXCoEz9GuSlottMuQRBLVNKGO+AkEcqEE65UuRk+0LkNw==
+X-Received: by 2002:a05:6402:3483:b0:5d0:d06b:cdc4 with SMTP id 4fb4d7f45d1cf-5d98a50fa60mr14110801a12.15.1736780246102;
+        Mon, 13 Jan 2025 06:57:26 -0800 (PST)
 Received: from localhost (host-87-14-236-197.retail.telecomitalia.it. [87.14.236.197])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d99046a05asm5069944a12.67.2025.01.13.06.57.23
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d99008c3b5sm5056878a12.12.2025.01.13.06.57.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jan 2025 06:57:23 -0800 (PST)
+        Mon, 13 Jan 2025 06:57:25 -0800 (PST)
 From: Andrea della Porta <andrea.porta@suse.com>
 To: Andrea della Porta <andrea.porta@suse.com>,
 	Michael Turquette <mturquette@baylibre.com>,
@@ -103,18 +103,17 @@ To: Andrea della Porta <andrea.porta@suse.com>,
 	Luca Ceresoli <luca.ceresoli@bootlin.com>,
 	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 	Andrew Lunn <andrew@lunn.ch>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v6 01/10] dt-bindings: clock: Add RaspberryPi RP1 clock bindings
-Date: Mon, 13 Jan 2025 15:58:00 +0100
-Message-ID: <ae94e78443099cb6c48528ac8b18daaaae41419a.1736776658.git.andrea.porta@suse.com>
+Subject: [PATCH v6 03/10] dt-bindings: pci: Add common schema for devices accessible through PCI BARs
+Date: Mon, 13 Jan 2025 15:58:02 +0100
+Message-ID: <c687b606c5ae6a4397dbf12c874c690da5e4b344.1736776658.git.andrea.porta@suse.com>
 X-Mailer: git-send-email 2.44.0
 In-Reply-To: <cover.1736776658.git.andrea.porta@suse.com>
 References: <cover.1736776658.git.andrea.porta@suse.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_065725_925622_A31E9319 
-X-CRM114-Status: GOOD (  17.88  )
+X-CRM114-CacheID: sfid-20250113_065727_544742_CBF4AA0D 
+X-CRM114-Status: GOOD (  19.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,167 +128,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add device tree bindings for the clock generator found in RP1 multi
-function device, and relative entries in MAINTAINERS file.
+Common YAML schema for devices that exports internal peripherals through
+PCI BARs. The BARs are exposed as simple-buses through which the
+peripherals can be accessed.
+
+This is not intended to be used as a standalone binding, but should be
+included by device specific bindings.
 
 Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- .../clock/raspberrypi,rp1-clocks.yaml         | 58 ++++++++++++++++++
- MAINTAINERS                                   |  6 ++
- .../clock/raspberrypi,rp1-clocks.h            | 61 +++++++++++++++++++
- 3 files changed, 125 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/clock/raspberrypi,rp1-clocks.yaml
- create mode 100644 include/dt-bindings/clock/raspberrypi,rp1-clocks.h
+ .../devicetree/bindings/pci/pci-ep-bus.yaml   | 58 +++++++++++++++++++
+ MAINTAINERS                                   |  1 +
+ 2 files changed, 59 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pci/pci-ep-bus.yaml
 
-diff --git a/Documentation/devicetree/bindings/clock/raspberrypi,rp1-clocks.yaml b/Documentation/devicetree/bindings/clock/raspberrypi,rp1-clocks.yaml
+diff --git a/Documentation/devicetree/bindings/pci/pci-ep-bus.yaml b/Documentation/devicetree/bindings/pci/pci-ep-bus.yaml
 new file mode 100644
-index 000000000000..b2670cf7403a
+index 000000000000..33479a5b40c6
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/raspberrypi,rp1-clocks.yaml
++++ b/Documentation/devicetree/bindings/pci/pci-ep-bus.yaml
 @@ -0,0 +1,58 @@
 +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/clock/raspberrypi,rp1-clocks.yaml#
++$id: http://devicetree.org/schemas/pci/pci-ep-bus.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: RaspberryPi RP1 clock generator
++title: Common Properties for PCI MFD EP with Peripherals Addressable from BARs
 +
 +maintainers:
-+  - Andrea della Porta <andrea.porta@suse.com>
++  - Andrea della Porta  <andrea.porta@suse.com>
 +
-+description: |
-+  The RP1 contains a clock generator designed as three PLLs (CORE, AUDIO,
-+  VIDEO), and each PLL output can be programmed though dividers to generate
-+  the clocks to drive the sub-peripherals embedded inside the chipset.
-+
-+  Link to datasheet:
-+  https://datasheets.raspberrypi.com/rp1/rp1-peripherals.pdf
++description:
++  Define a generic node representing a PCI endpoint which contains several sub-
++  peripherals. The peripherals can be accessed through one or more BARs.
++  This common schema is intended to be referenced from device tree bindings, and
++  does not represent a device tree binding by itself.
 +
 +properties:
-+  compatible:
-+    const: raspberrypi,rp1-clocks
++  '#address-cells':
++    const: 3
 +
-+  reg:
-+    maxItems: 1
++  '#size-cells':
++    const: 2
 +
-+  '#clock-cells':
-+    const: 1
++  ranges:
++    minItems: 1
++    maxItems: 6
++    items:
++      maxItems: 8
++      additionalItems: true
++      items:
++        - maximum: 5  # The BAR number
++        - const: 0
++        - const: 0
++
++patternProperties:
++  '^pci-ep-bus@[0-5]$':
++    type: object
 +    description:
-+      The available clocks are defined in
-+      include/dt-bindings/clock/raspberrypi,rp1-clocks.h.
++      One node for each BAR used by peripherals contained in the PCI endpoint.
++      Each node represent a bus on which peripherals are connected.
++      This allows for some segmentation, e.g. one peripheral is accessible
++      through BAR0 and another through BAR1, and you don't want the two
++      peripherals to be able to act on the other BAR. Alternatively, when
++      different peripherals need to share BARs, you can define only one node
++      and use 'ranges' property to map all the used BARs.
 +
-+  clocks:
-+    maxItems: 1
++    additionalProperties: true
 +
-+required:
-+  - compatible
-+  - reg
-+  - '#clock-cells'
-+  - clocks
++    properties:
++      compatible:
++        const: simple-bus
 +
-+additionalProperties: false
++    required:
++      - compatible
 +
-+examples:
-+  - |
-+    #include <dt-bindings/clock/raspberrypi,rp1-clocks.h>
-+
-+    rp1 {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+
-+        clocks@c040018000 {
-+            compatible = "raspberrypi,rp1-clocks";
-+            reg = <0xc0 0x40018000 0x0 0x10038>;
-+            #clock-cells = <1>;
-+            clocks = <&clk_rp1_xosc>;
-+        };
-+    };
++additionalProperties: true
++...
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 1e930c7a58b1..8ced4ed32c00 100644
+index a547e863807c..ceed86755da4 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -19574,6 +19574,12 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/media/raspberrypi,rp1-cfe.yaml
- F:	drivers/media/platform/raspberrypi/rp1-cfe/
- 
-+RASPBERRY PI RP1 PCI DRIVER
-+M:	Andrea della Porta <andrea.porta@suse.com>
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/clock/raspberrypi,rp1-clocks.yaml
-+F:	include/dt-bindings/clock/rp1.h
-+
- RC-CORE / LIRC FRAMEWORK
- M:	Sean Young <sean@mess.org>
- L:	linux-media@vger.kernel.org
-diff --git a/include/dt-bindings/clock/raspberrypi,rp1-clocks.h b/include/dt-bindings/clock/raspberrypi,rp1-clocks.h
-new file mode 100644
-index 000000000000..248efb895f35
---- /dev/null
-+++ b/include/dt-bindings/clock/raspberrypi,rp1-clocks.h
-@@ -0,0 +1,61 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+/*
-+ * Copyright (C) 2021 Raspberry Pi Ltd.
-+ */
-+
-+#ifndef __DT_BINDINGS_CLOCK_RASPBERRYPI_RP1
-+#define __DT_BINDINGS_CLOCK_RASPBERRYPI_RP1
-+
-+#define RP1_PLL_SYS_CORE		0
-+#define RP1_PLL_AUDIO_CORE		1
-+#define RP1_PLL_VIDEO_CORE		2
-+
-+#define RP1_PLL_SYS			3
-+#define RP1_PLL_AUDIO			4
-+#define RP1_PLL_VIDEO			5
-+
-+#define RP1_PLL_SYS_PRI_PH		6
-+#define RP1_PLL_SYS_SEC_PH		7
-+#define RP1_PLL_AUDIO_PRI_PH		8
-+
-+#define RP1_PLL_SYS_SEC			9
-+#define RP1_PLL_AUDIO_SEC		10
-+#define RP1_PLL_VIDEO_SEC		11
-+
-+#define RP1_CLK_SYS			12
-+#define RP1_CLK_SLOW_SYS		13
-+#define RP1_CLK_DMA			14
-+#define RP1_CLK_UART			15
-+#define RP1_CLK_ETH			16
-+#define RP1_CLK_PWM0			17
-+#define RP1_CLK_PWM1			18
-+#define RP1_CLK_AUDIO_IN		19
-+#define RP1_CLK_AUDIO_OUT		20
-+#define RP1_CLK_I2S			21
-+#define RP1_CLK_MIPI0_CFG		22
-+#define RP1_CLK_MIPI1_CFG		23
-+#define RP1_CLK_PCIE_AUX		24
-+#define RP1_CLK_USBH0_MICROFRAME	25
-+#define RP1_CLK_USBH1_MICROFRAME	26
-+#define RP1_CLK_USBH0_SUSPEND		27
-+#define RP1_CLK_USBH1_SUSPEND		28
-+#define RP1_CLK_ETH_TSU			29
-+#define RP1_CLK_ADC			30
-+#define RP1_CLK_SDIO_TIMER		31
-+#define RP1_CLK_SDIO_ALT_SRC		32
-+#define RP1_CLK_GP0			33
-+#define RP1_CLK_GP1			34
-+#define RP1_CLK_GP2			35
-+#define RP1_CLK_GP3			36
-+#define RP1_CLK_GP4			37
-+#define RP1_CLK_GP5			38
-+#define RP1_CLK_VEC			39
-+#define RP1_CLK_DPI			40
-+#define RP1_CLK_MIPI0_DPI		41
-+#define RP1_CLK_MIPI1_DPI		42
-+
-+/* Extra PLL output channels - RP1B0 only */
-+#define RP1_PLL_VIDEO_PRI_PH		43
-+#define RP1_PLL_AUDIO_TERN		44
-+
-+#endif
+@@ -19578,6 +19578,7 @@ RASPBERRY PI RP1 PCI DRIVER
+ M:	Andrea della Porta <andrea.porta@suse.com>
+ S:	Maintained
+ F:	Documentation/devicetree/bindings/clock/raspberrypi,rp1-clocks.yaml
++F:	Documentation/devicetree/bindings/pci/pci-ep-bus.yaml
+ F:	Documentation/devicetree/bindings/pinctrl/raspberrypi,rp1-gpio.yaml
+ F:	include/dt-bindings/clock/rp1.h
+ F:	include/dt-bindings/misc/rp1.h
 -- 
 2.35.3
 
