@@ -4,153 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46322E7719E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 11:39:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AAA8E7719E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 11:46:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1wOr+QyrX5yxcT7d2QM5eAx6iCn3ARXiVZwzDt/1eYo=; b=XFdMbnpSyNk7PSbCP+BbQ7AfKm
-	nkvNUwJSTq5uEx8B8fNqMRh7tsOmlKnxtqZH58xJKvBNwnrhJENS+QV5gWi+ajAMNBzNezkp8ttT8
-	d944onwAPBEygPkXLs0qDN8HB6p5ZO2dgKjxaBXvmr9HmaREmLcFoCPI+DnVRRG4nc2UvDjEfFebY
-	0fcaigvwFIQLpH1M+jYetfE1Rg/igA8tRGYaS3RSNaKCCO4Ll9+9D5X+hTI0q2xv4IbaLzKNUcR7A
-	0B2m8w5hhNmCUT++oOmcnzpPjInJreOFHg+m7LdtHtSMOuUweVKM8ejb9wE7JMiWWTrSFZ1t8EMjx
-	bJAS9zng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ww/NJVPcRv9ikhyEBRdtYI98rEh+ExDHcvkvWghNMdA=; b=eKsGALcb5bvrmJeFyhgY0kPGVz
+	yXpAvPxMWyrwbnU8uNYb/U2CaNJ63fYUD2r359BZHdl084Zomyk2dzF7Dh1Z9vH/z0n6RflecQWA5
+	hWCFYnXPdBR+0DBlPvtr0spQbfwU9fGmGaK+JrZKRmEF/IOjdUZPMLqpA9qTcSsUFBhw6yTumrCO3
+	HtH1UsG4AEph5nSO2WdaDfIJShTfasT5l6Ww0avF5Ef083vpU6hPa3bBU/dCdCnjwooZ+wNdMbHhd
+	nSmYoCmA9XwAjsRhaBecZ1J2BUhtF7+8rssNraaNpmQ6Y8rauc6IsYF0lZiX7+pikGRh5dUirJnPn
+	R03DJbtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXImP-00000004xAe-05Lr;
-	Mon, 13 Jan 2025 11:38:49 +0000
-Received: from mail-am0eur02on2062f.outbound.protection.outlook.com ([2a01:111:f403:2606::62f] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
+	id 1tXIta-00000004yeZ-3dPp;
+	Mon, 13 Jan 2025 11:46:14 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXIlA-00000004x1H-1vEa
+	id 1tXIsL-00000004yRR-3yw3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 11:37:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wLQBIfE/CQtblevhJ+nct8PgNZna9v4fjhn9zWVn4aETmywuLLfbAsMLJOJqJDoRnUbtVuriXm1EwivUr5ijJ0DlRzV+GtMU6mKB1xPcHgNa3u8m+lOBNJ/hmX6HDuXYM7MI0V16IZOBrMqz9tHDV9HXWkbhw78cE8he25qXTF7FW64XDPrjbG00z48U5lSBYmjwHvpBEe7f50H6d02qe/sodepI/HcDgToQrpLbKwlnAcNrlH4MBnS/Z8tlmOGqIb9vvStl1y4S0gn3dDkKRVTCx/nnRv5Slo0+WgbEASihm/zAtjQkwK/GWwLZjv9JJipzIzAu15JOc5qgQOe5CA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1wOr+QyrX5yxcT7d2QM5eAx6iCn3ARXiVZwzDt/1eYo=;
- b=YplMxk+O5RYX7BstHUY0ABCkNAPQ6mjlr64YbeLUl89jJnH75EfV93aWbvKp2iIxiydxHHjKRljerKudQ1tKtANqdg/l4VXsMi7WsQi+dQCdmoNOHXiLUr6mpNBzmFv4W1OqNASzHZXi7AWlA2FT+SyzBNFJpVTAL86nfulW3DSgicmmXu7P4Cmoshw2TnoSq9rX5YKjR7THFijJMw2ilUj2mv7t+uPKak+HOM7GtCvMxvGv10P/UAGX22cZ7newdtlpf0TGJMMWBFxDul0bPv5MVyWWKR4IUrjw2MoLL2ezJfhSb6RooW0WwB9G5hDUlnKb7J7jIasrnkDRpmjdJg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1wOr+QyrX5yxcT7d2QM5eAx6iCn3ARXiVZwzDt/1eYo=;
- b=ltanpgRsHG/bjEwE0GVITlD2K+GV1fSB0rmPCTTDTRq8lB+vqHGY1il6acv0hTZfaUDlb4N0NCanMcxicGBdh3AO856tNmhqC81Lo7rr61ZoqlVfGtLy/InCDCG6/bJj4NvKNf5iVBR4rDUuMlFJa22iYXwNMuYcFC077AXMU1cqbi/WsAdHkseK2jr+rlffKFYgO9k/yUq6z+D6FRJOdXll6tQ2iyYf1QXm86KYDsLUxfN6GxTRqhTWsEFpTf5a5HI23r0NBB1Gx+CDiW8UTFeWBSBXqcKMRxAoQCBtDFONqbRq++CPqw8eEE+1GsIfInl1jkZ9U0XH9xkOalYUuA==
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by DBBPR04MB7626.eurprd04.prod.outlook.com (2603:10a6:10:201::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.18; Mon, 13 Jan
- 2025 11:37:24 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%5]) with mapi id 15.20.8335.017; Mon, 13 Jan 2025
- 11:37:23 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: Sudeep Holla <sudeep.holla@arm.com>, "Peng Fan (OSS)"
-	<peng.fan@oss.nxp.com>
-CC: "cristian.marussi@arm.com" <cristian.marussi@arm.com>,
-	"ulf.hansson@linaro.org" <ulf.hansson@linaro.org>, "arm-scmi@vger.kernel.org"
-	<arm-scmi@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-pm@vger.kernel.org"
-	<linux-pm@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Ranjani Vaidyanathan
-	<ranjani.vaidyanathan@nxp.com>
-Subject: RE: [PATCH] pmdomain: arm: scmi_pm_domain: Initialize state as off
-Thread-Topic: [PATCH] pmdomain: arm: scmi_pm_domain: Initialize state as off
-Thread-Index: AQHbYybo8rOmeh/en0qIMyX2XTiTxLMUhkWAgAARnlA=
-Date: Mon, 13 Jan 2025 11:37:23 +0000
-Message-ID: <PAXPR04MB8459F33BCC84CCA8F49F3B60881F2@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20250110061346.2440772-1-peng.fan@oss.nxp.com>
- <Z4TreQ5bA9qiMTgC@bogus>
-In-Reply-To: <Z4TreQ5bA9qiMTgC@bogus>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|DBBPR04MB7626:EE_
-x-ms-office365-filtering-correlation-id: 7697b2b0-f7e6-4c1e-7592-08dd33c6a60f
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?c+R7M70Tn6byx0gslYWRkdyTJoQs4ZO4Xq2uhdox0FV20UGFQ/XfXiu86msR?=
- =?us-ascii?Q?34DU1JHJWGI0Q264wcD6qV5NxsAe0iH8rbvvrkd/7GM1g1i0YMxKDx7y98Hu?=
- =?us-ascii?Q?9e6vElDv2Ls+u6eHFb6a0ciaPKCDCCBLAqQDRG4bQJNyQt8N0V/W0tELVL3N?=
- =?us-ascii?Q?GJ6ERnoJweWygjsONF4f19wKcgBzPJfJmx9kZcMYn037eH7M3h0CpXq000fU?=
- =?us-ascii?Q?TeJoNibFVj5BHRd/ZxVGI8Fi0cBvlA3PGuDIlywcLd3+2soxP5RFbtpZtq2n?=
- =?us-ascii?Q?hrowWngXGnl6ZIHbt8fUixJZE27QkCVhSgxpXg0k9RCjmVUWL8fEiyBcpx6t?=
- =?us-ascii?Q?OoF2pvcA0Vm+ZLJfK/IDqa+5JCtLAMwKWXoPVGmdl3M/XpNmPmnKz+qObnsq?=
- =?us-ascii?Q?uGYjlx+/qS/2bja8Q/ovapihCmmEOXtFwVjxHN/WhwP93FBLyopPaIgyCfLU?=
- =?us-ascii?Q?c/LnhBZCQQ3cJaf89rdQFUgj323fKh2noPnRe0K55iW8RX6bHrPpZUzhc0eU?=
- =?us-ascii?Q?vVPNQ7xia7hrIk0+ygFO8hFjxm2J0QT4nnypkBPSZswbgUqxtkztVlzHnynn?=
- =?us-ascii?Q?1JEb0mknC8+nupTMmqof4KNIPCgqsz3ixEhIz+rme0qi17Zc/a1YlVS6ZNh3?=
- =?us-ascii?Q?tgjvFkhtyhCRkh/weS9hwPeN8oEelVRhFNdrR6ltq0whTx4WHmCO2ay/PHlJ?=
- =?us-ascii?Q?sHbmPZ4DJksEbVKxSvJxnqrc7lsY7wdTcyMfAuQ/NHKpocN9YVRVndNyvM2H?=
- =?us-ascii?Q?xFch0cPEvo1JptCqCTkfIir8d3F0i8XNnnTwByW423Bj74cSUh5Zmw30cYm5?=
- =?us-ascii?Q?A0F60HWNqWS19NarDj6MmnrlyUeRb9AsB6///l9fB5T1yXk/5o1RTnqPXyWB?=
- =?us-ascii?Q?6hOHH/OFDZ7v/HZxbxZQIwC6zJyI8hqG2WusUq3l+cKLHixcd2FKIHPqN6oN?=
- =?us-ascii?Q?DAyyyAqrh3AM71BADfafCEuK+TzDHpYJRZdY8newSHB1EKYidf56YGGNneeQ?=
- =?us-ascii?Q?7HtcASDrZ6g4efLyAgZx9wryto8VAuTt0vI7Hy6Bdm3nRZa8+7dnwVjlPUBe?=
- =?us-ascii?Q?P/UC9Xq/kcTpiYeURRT8WtQyElZZuewX9CNkt0CgUZ4CtZjqN+apWMg+r4zr?=
- =?us-ascii?Q?ZH5X0eXL6YbNp0Y07O/tfV71l44susmqUal4EJgro8D3ZV+hOHUjmfG9j2Ma?=
- =?us-ascii?Q?CJPnaG40eQxdKXqfsVMZyIuphu1DYi0ftekYa+cWu8uP4vN9yhLaphVBcMe1?=
- =?us-ascii?Q?YoE8DFflBgC9+mdIaJqIy+Oj0H8V60CBBTQtK9/HhgSQE6KbA4L6e4HZPq5Z?=
- =?us-ascii?Q?ulFtZ5fcy7VaW43sio8cs1SWnqUWFYboLkrPszwtCtmtpeA8tNbYERAjAFkk?=
- =?us-ascii?Q?nCQ8a2Hnw0TcIEnqBLA20k35UcutpKjtw9iKnI5q/rc52+AT+n18zYhhTD0b?=
- =?us-ascii?Q?7sS4k+8JLIObdsRO/GfIaGBYze3vDVcm?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?RP93KBir1VoF1u09HCd2b0p8XRy0mZ9JUr36ir5kOBwuxilzz61XyxdIGoT5?=
- =?us-ascii?Q?DgNJ8AfY22fzFcBa/jloQfj3vQdL1t6MZwfZR8/Nwh1/CUygQDZaGEhLbEGE?=
- =?us-ascii?Q?ovWAkwUEibjYldeHIIbVk8nyHeQCaWnXYSPBKj7bMlVSZ0pO81OqnbHRPRG9?=
- =?us-ascii?Q?VfKD3a/+di0dswJ7XeiZyGPKTEqn2E5k6j/GarOb95nVyCcXBqCSJJJTXkf5?=
- =?us-ascii?Q?eOiK766ZA2l8qhuKvlTijAx2cnupdhOcoOPSd+j02/oKKkjWLDV/5ecIsWQB?=
- =?us-ascii?Q?zIuF0h25FNUyHOZRoPY8f/rdGdxjTis4fdFZAUX5fby9Zu2ZBxDM0p5ZwPsj?=
- =?us-ascii?Q?8apaOYxRZ8LqMliKUgimBm5/jI5NZexKXhuMQGNnp4vIOm7wztK9SnfMlmxA?=
- =?us-ascii?Q?GolKoAMbuA84eeAJ1RibxvaGHpkUjR5F2pXh1unYkr0vpFyOe4wLvJHggQZV?=
- =?us-ascii?Q?Grxp/AuC7vlGSU8gnKPnqsDfPCI3kD4Z2eLVP6V1yFCViEDsYS96sqWnmF6v?=
- =?us-ascii?Q?NA2OEnhmofkeCusNvBwqHyni/QD7e5j/6ffWDtlUUlazgNTh4YvQRSqIwK7R?=
- =?us-ascii?Q?82lDYi6AMhbSlkvSIAKPKHqIB3xp3IRmTIebnyly0Mfo7Lbi/Skhhg3uJ1YE?=
- =?us-ascii?Q?MmALiWyJdteJnW6W6QWdiYM6jPUbgotTJYQ9F7kdakMbjvowYAZ99JA5Ii3s?=
- =?us-ascii?Q?uvnhvCSurgcJ27AS90z5Lxfr1IQskm55RjuWTaUYhgqFA7D6jFw+1YEzlViD?=
- =?us-ascii?Q?m5bz7oc+ygPYXSbdATa711RbhOIXDDnFJKqE+YkNeNkXzRBsBdQIPKtIiZ6D?=
- =?us-ascii?Q?t5VQ8/2FZff22Qe89veMLvNO3Si8RpT4+GI3YtWWUhZfMMsCi70Pc40yh1ud?=
- =?us-ascii?Q?eESP/4rAwmSaGr7JDUfbwqQCTh8782il0qZ6w8+ooyxij2ugfZQdx3c1v+5P?=
- =?us-ascii?Q?Bzg5tMaznulGBYobpHcOVB81AijTyBZX3MVB7SCAD3tt7ib0eCvMlHAC60XQ?=
- =?us-ascii?Q?pequWxNf3ewYL+FThHkNxBFul9RM0zWNsyBL+llWuruXeCYrxI5L/iblWLQL?=
- =?us-ascii?Q?Tlc82uM7GXb8eD/zWZOQ5TNI6j5qalQ9xNcuR3Eu5hBia/OaWlzaS3svhlv5?=
- =?us-ascii?Q?6hWXxV+Uh2CzComRg+KH4ujWC9yOkHC0EhofjhnLp1i47el4HYunfimNDzu0?=
- =?us-ascii?Q?tRfsPFnixWMykvXx307CvSN6HjzXOeF1HAdeEs16zDnOs/iimqKNsO5LvwOQ?=
- =?us-ascii?Q?n9hgVZv6n/jKXbU+Jv0jYEzVsVbBPTQI2oZi4gA0SxpyKYigZRo2YaPglobx?=
- =?us-ascii?Q?uYpzoRQTq5Yiu8a/eg7TfIqFeuIqUYLdwJaNVhTomJDs85caA2J+H73Kcepm?=
- =?us-ascii?Q?FyhcV0rCp/SPjnPgNmLYvLOCLO9bIZrB/Vi/4rWseeQBZub8rAdL1UzzbjP7?=
- =?us-ascii?Q?J5Xms9T+3JEd+geLiijAS6fbCESO906Spdz24ud5PqcwqjzOTFQ4FAVZsp4v?=
- =?us-ascii?Q?n27ToRucaXzTFnrG6qs4GOGrXC2Mxl4seygw7YzIaF8br6gfmKuV3aTD565J?=
- =?us-ascii?Q?fymVS48I91V5dpimGac=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Mon, 13 Jan 2025 11:44:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id D437CA40F22;
+	Mon, 13 Jan 2025 11:43:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB246C4CED6;
+	Mon, 13 Jan 2025 11:44:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736768696;
+	bh=LVtEFY41ensxufRFG4hAMlaOCuTkTZrxHeKsNslynlY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=iUJTtFYGhRtto7Q3CbZ3GIkwWMLu5Cyb2J1ciWAftdVwfY69rW1h3XTDgnxfm5oHQ
+	 C+4yiDqDchI9QOQEi2lQtQpaiynatrAs2NtCwnJ3UE3CgEUGWeXeoPTu3w22WKqjvs
+	 DEFeshE5Wbvq5wgVPNQ//G03vJdi8+EdWq1rJhFS8RXANh2pyPH0EiMxv7mOOlriT6
+	 wzMc5ml+kl7BJZs+hgaRfSLc36weK54iCFK3L1evHkofYjvnf3aXhtDgIy2G3X+Bfv
+	 uyBHNovzgGk6SY7PZeZI8C4yvMut6iQcImtspCViAvxh+kDY2fCOTLgaKRIqtwn6fo
+	 xm5fB6Dd/0wag==
+Message-ID: <79672620-9bfa-4162-9555-3f7274914cbf@kernel.org>
+Date: Mon, 13 Jan 2025 12:44:49 +0100
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7697b2b0-f7e6-4c1e-7592-08dd33c6a60f
-X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Jan 2025 11:37:23.8439
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: evruhrHdMkcS3Os7WzQacTZAzDtylwDVQOmE4+cqA/mjqL9LBU2I0rlkbp7DXWQBrX1WR/8lt5djtrEfcp3Jbg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7626
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/5] ASoC: dt-bindings: audio-graph-card2: add widgets
+ and hp-det-gpios support
+To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>, Daniel Baluta <daniel.baluta@nxp.com>,
+ Mark Brown <broonie@kernel.org>,
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+ Takashi Iwai <tiwai@suse.com>, Bard Liao <yung-chuan.liao@linux.intel.com>,
+ Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
+ Jaroslav Kysela <perex@perex.cz>, Frank Li <Frank.li@nxp.com>,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-sound@vger.kernel.org, imx@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20241216145039.3074-1-laurentiumihalcea111@gmail.com>
+ <20241216145039.3074-4-laurentiumihalcea111@gmail.com>
+ <nxcoukgiwtcsowi2uxytxa32mdp5dhl4tvnetpd2spti7oiiu3@mpqbv43ivznc>
+ <e5665b6a-c2ad-470f-8a36-b7adc05c1cf0@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <e5665b6a-c2ad-470f-8a36-b7adc05c1cf0@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_033732_527927_FDF9B43A 
-X-CRM114-Status: GOOD (  19.87  )
+X-CRM114-CacheID: sfid-20250113_034458_117340_78A04940 
+X-CRM114-Status: GOOD (  15.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,46 +128,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: Re: [PATCH] pmdomain: arm: scmi_pm_domain: Initialize
-> state as off
->=20
-> On Fri, Jan 10, 2025 at 02:13:46PM +0800, Peng Fan (OSS) wrote:
-> > From: Peng Fan <peng.fan@nxp.com>
-> >
-> > Per ARM SCMI Spec DEN0056E, page 16, "The platform may disable a
-> > resource if no agent has requested to use that resource."
-> >
->=20
-> True, but ...
->=20
-> > Linux Kernel should not rely on a state that it has not requested, so
-> > make state as off during initialization.
-> >
->=20
-> IIUC, this was done to avoid any transitions if the bootloader like U-
-> Boot has turned on the resource and OS can just rely on that stay.
+On 08/01/2025 13:19, Laurentiu Mihalcea wrote:
+> 
+> 
+> 
+> On 12/17/2024 9:07 AM, Krzysztof Kozlowski wrote:
+>> On Mon, Dec 16, 2024 at 09:50:37AM -0500, Laurentiu Mihalcea wrote:
+>>> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+>>>
+>>> Introduce the 'widgets' property, allowing the creation of widgets from
+>>> 4 template widgets: Microphone, Line, Headphone, and Speaker. Also
+>>> introduce the 'hp-det-gpios' property, which allows using headphone
+>>> detection using the specified GPIO.
+>>>
+>>> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+>>> ---
+>>>  .../devicetree/bindings/sound/audio-graph-card2.yaml          | 4 ++++
+>> I have impression you are duplicating audio graph properties instead of
+>> referencing proper schema, but considering that the bindings
+>> audio-graph-card and audio-graph-card2 differ only by number "2" without
+>> any description, not sure what is correct here.
+> 
+> Please correct me if I'm wrong here.
+> 
+> As things stand now and based on Kuninori Morimoto's comment on this
+> (https://lore.kernel.org/lkml/87cyhw8lg5.wl-kuninori.morimoto.gx@renesas.com/) I'd say we can't
+> (or, rather, shouldn't) directly reference audio-graph.yaml here.
 
-But if it is not U-Boot turned it on? Or U-Boot is in a separate agent?
+Thanks
 
-> Anyways if the resource is not used by any driver/device in the kernel,
-> won't it be turned off anyways ? What am I missing ?
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Because the power domain is ON, kernel will not issue SCMI
-to platform to request it ON when kernel needs this power domain
-on.
+> 
+> Now, I wonder if the "proper" solution here would be to take the common properties
+> of audio-graph.yaml and audio-graph-card2.yaml and create a new binding that can be
+> referenced by both aforementioned bindings? Would that make things even more confusing
+> (we'd probably end up with audio-graph.yaml, audio-graph-card.yaml, audio-graph-card2.yaml,
+> and audio-graph-common.yaml)? Should this be addressed as part of this series?
 
-But in case when kernel is doing some jobs that needs the
-power domain ON, SCMI platform might power down the
-power domain because kernel agent not request that.
 
-Thanks,
-Peng.
+Really not sure. Common bindings are often good choice but I already
+struggle with grasping the differences between both audio-graph-cards,
+so more of it might not help.
 
->=20
-> I need to dig details, but I remember doing what this patch does and
-> reverting to what we have based on the feedback IIRC.
->=20
-> --
-> Regards,
-> Sudeep
+Best regards,
+Krzysztof
 
