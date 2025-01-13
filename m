@@ -4,156 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F2D4C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 19:08:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 328E0C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 19:11:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k+fwWfH7oCvr0hX6NpoD3FKue+QYWaXbtFQH/dHQ1ns=; b=khR23Y/vKq/QKs7PXoUEpMOTvv
-	1OgHs8DiLXDaOodjCaWJUjwBCimRfDkJCu0aCGp2UaNIp2bOFuWHqN/oIIqQtW4ndHHUJ/0az3Cyu
-	8MD198UA9q8bUFJ+HSaH1fg2J2yddncrdm2WUudES3XpIn3cK/FsM/fUKm1P0UHRCSGXcXrJLtzVa
-	E8m7+WfYLR5MEqjfShEaTEPNEiqwtqzZvI7fqx4qQp0pm5PdkVl8jyKK7nM482tavBYnKJUiRAd4X
-	g3vJkgtlObAEVdrMZFNBv4C23zoLyQPNQU5kEJMZCq6+QmRN/VreiKxGfFoJ/3bCZkmLIXGjvOLKT
-	Nv/04nwg==;
+	bh=N545VQJ4bn+y0pSdJjf/mDvicZgnxEN0HYSjLOeVRco=; b=SgMRtGLQ+hY+UQQlfVBdcNjkyo
+	DMAhplfa5Jl1Ww9UKeCte9DA5/g4GnG4E97Zn6jssGy2weSgFXT4Gl3QSTFZDBRp4Fiso5Kbg0UUL
+	zsHRdVv/uN3OnNf2xvXEYTPE8Rs17x/JFGBEpfPM0pph3LmhMWdaTX3mvsVkzAbi+DCVcPRoPwLcr
+	3y3GJrQuXNMCtBAH+TZUWRZnE9Svx2OSH6nCH8/XWo9z2QjIebDo5lfwU/uuLAEX/4oq6m7RPv6tz
+	NKAG8HZV/iXmoeh2u+gRG+3W2gAHDbk+65So1HfTIJDWGozj74qgk/IEgg8AooD+BmbjCJ/I0dtg/
+	AcZh8iFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXPn9-00000006K74-3AvN;
-	Mon, 13 Jan 2025 19:08:03 +0000
-Received: from mail-bn8nam12on2061c.outbound.protection.outlook.com ([2a01:111:f403:2418::61c] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	id 1tXPpp-00000006KUB-3rjC;
+	Mon, 13 Jan 2025 19:10:49 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXPlv-00000006Jpr-1SoP
+	id 1tXPoa-00000006KH2-3NsK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 19:06:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=J5kOjYoyp1RI2tPpcYI7sH5me7Mmc39cyJbke1Ie7LkcC/qSMRXW8V/aRbENGWyzP628rWTqDmBK05x3/RX9lGCFu4/pPuTLsJ+DVmIntpCyKDCQB7FJHkpPGB86TNtGNWzoYNNIz+37NTz2iZ/m6PMiu9hRleto0xJI05sW88URccbvSx6qM2V5S29lVLI/zi8IEPzitixyf544BXvXvuGwVAcGe1xg6cqRfKwclkiG5je4th6tZ+7IIw8qpvnsteXadWhR46nuQ6NW5PrOsz3d4fCXwimdCa2tbqbs7lhBCrB4s5UImFm1DJInWJT3P/08BJ99+05m2vX7Ghwg3Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=k+fwWfH7oCvr0hX6NpoD3FKue+QYWaXbtFQH/dHQ1ns=;
- b=iqTpCYtEo1RyncwZPGeeGuUe38l8ZUbBAFxCgLVMjMv5r+14WnG8bxfzOTyEUlkzGhtA/GO1vdpEQuchTJdxx3yIwtvZVW0dn3pgjfNOMu7yt1TsRNYZm3ciiAqbcqApraqle+3x+a2W07UpW588vE6+cF5wgG9baqY2K9f97f/X6Sbj5J1HJalTsY4pNETK55M/vizmVe0jHT6D/uwFYo7DzlstOzxt/BXyImV09UGLf0cURe9A47HUySvOFysQEQcX8AuxKhae5ce0fwPN1rf8RI5HhiMTm6pOZeuOJBBDx3dF9iqFmTdLazZJfTOC/rZ85n5+XYTxDNzJ0ue+Eg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=k+fwWfH7oCvr0hX6NpoD3FKue+QYWaXbtFQH/dHQ1ns=;
- b=QXi9NCc6UthFEXcTIR4SaEkQamau0/WMgTErfTHO9FyY51ZMePy2ihq8UP8eWtmONkMQ47MhfBMcEnJcLphuTUzFDtI7sO0wArOZ5CmnkSph9wy45Zuuib12JVUD7HyPHhDuNB70TsSb1DJdJDpThf+0LB/J0lox4jxIK3IJ2CaDSTB7t2z5WWS0wY0Ozms0gY+82QnAMpP55jwS6F9Yxeh31op0RdX4y/xFSGnpOuUUcj/315U1BLG5NHSwthkAwmvs4uHZTiWKj7l5+Ob3X3NSyQHL2j6NYp4JLAoLo4CfrPa80hkDEyJ79++IXAPcQz0MECBr47AWARL537xN4A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by PH7PR12MB8428.namprd12.prod.outlook.com (2603:10b6:510:243::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.18; Mon, 13 Jan
- 2025 19:06:43 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%5]) with mapi id 15.20.8314.022; Mon, 13 Jan 2025
- 19:06:43 +0000
-Date: Mon, 13 Jan 2025 15:06:41 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: will@kernel.org, kevin.tian@intel.com, corbet@lwn.net,
-	oe-kbuild-all@lists.linux.dev, joro@8bytes.org,
-	suravee.suthikulpanit@amd.com, robin.murphy@arm.com,
-	dwmw2@infradead.org, baolu.lu@linux.intel.com, shuah@kernel.org,
-	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
-	eric.auger@redhat.com, jean-philippe@linaro.org, mdf@kernel.org,
-	mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
-	smostafa@google.com, ddutile@redhat.com, yi.l.liu@intel.com,
-	patches@lists.linux.dev
-Subject: Re: [PATCH v5 14/14] iommu/arm-smmu-v3: Report events that belong to
- devices attached to vIOMMU
-Message-ID: <20250113190641.GQ5556@nvidia.com>
-References: <03c01be90e53f743a91b6c1376c408404b891867.1736237481.git.nicolinc@nvidia.com>
- <202501091822.4ocbIobQ-lkp@intel.com>
- <Z4Vi9raM/lOot/SQ@Asurada-Nvidia>
+	Mon, 13 Jan 2025 19:09:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5A2CBA40BA4;
+	Mon, 13 Jan 2025 19:07:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB76EC4CED6;
+	Mon, 13 Jan 2025 19:09:28 +0000 (UTC)
+Date: Mon, 13 Jan 2025 19:09:26 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Steven Price <steven.price@arm.com>, Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
+	Peter Collingbourne <pcc@google.com>
+Subject: Re: [PATCH v2 5/7] KVM: arm64: MTE: Use stage-2 NoTagAccess memory
+ attribute if supported
+Message-ID: <Z4Vk5gTnd8o7VKWL@arm.com>
+References: <20250110110023.2963795-1-aneesh.kumar@kernel.org>
+ <20250110110023.2963795-6-aneesh.kumar@kernel.org>
+ <Z4Fk58k8YptDkVgm@arm.com>
+ <yq5amsfxtrlw.fsf@kernel.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z4Vi9raM/lOot/SQ@Asurada-Nvidia>
-X-ClientProxiedBy: BN9PR03CA0301.namprd03.prod.outlook.com
- (2603:10b6:408:112::6) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|PH7PR12MB8428:EE_
-X-MS-Office365-Filtering-Correlation-Id: 113abfac-cde4-4921-c7fe-08dd34056ac7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?J+G+sQzvnUO3h8R64JyONcEQc+7vNINQNJsFTwYk+kR69phaIak6Q8vSdSVH?=
- =?us-ascii?Q?2Kl2N1OYMC8uFlL3kMuBdmApA7Z4tYF6s29R5klaLhEd2XvHarDSC9GJ7Lwy?=
- =?us-ascii?Q?jpN+Y7K1YjIp6dWpMMWt9KRvvXa7Z1dIt7CGfrjSjX6G3mAXWCKIS4eBoQwt?=
- =?us-ascii?Q?F5hdJ6Y/HczKCnt+1k+6OHar0hyRyCHqT3JKRjeYdI3FdFxgy6twMIAS7hLd?=
- =?us-ascii?Q?cDSXDuw2XW8oA68zj5j4NYV6C8F5PRSnKEQ7NWG/ky88JOBkYhutMVFC+AAK?=
- =?us-ascii?Q?IoI0HhK9RpHEPw77T2hBbjJa20/vEa8j4WolVer/YW2l6Gf4fmWZfYxDeeOW?=
- =?us-ascii?Q?a2yOwIhmxrLzMh+mo7pJJSOn686pFp8wDYyh61EmE/0mEBWDFk5rmjJ0hRuA?=
- =?us-ascii?Q?jf6Tg0BW65kkIgEi2BhIAGKbdwGzS6rw9OND6e4MAhqy1KGnPLd2rSMIkNgt?=
- =?us-ascii?Q?53N9DmWvKorcnRI6dVCPEQypHgYmZFwMAEtmyV5pfsfZsT+RJea4VmfAiGDF?=
- =?us-ascii?Q?Ax0qAQkgVuvhObO+aeP52qVPRv7aClG8tJYiqT1gdvbUDOtjo2ZBXzdUKNbs?=
- =?us-ascii?Q?Hk74yS8hkQH/nRYYmlG6N+/fHOHtgYA9Cd8IzGDIwow5XoKZOtdg5gK4tA1y?=
- =?us-ascii?Q?T0VYhun7lxkZHQPkRtBHCdjLKYUI5iKAGtrktXMDBLRbFnAew6DlS9MU6gV1?=
- =?us-ascii?Q?3qBqzsjREa4Wk4lYWLs0xYnVo2PAcC1Hw7u+2DUBJzQIfh8pPyrOtoq51gKL?=
- =?us-ascii?Q?ke/BYKEhkw8gmcYXAuEOAhGwxgG9OSegQh8t5ZRWXJuXU0gzgHa18xw5e1Zx?=
- =?us-ascii?Q?d0wMS2EZvHEuS2JSW8tZT5Wcv1h1b69Yt+CopX3SzdkuboE9xN5Hx/Ou5dVz?=
- =?us-ascii?Q?C/A/joff3dBpWTJ2/eZ/hchV7t7GcdqBBtT65zdVaBSSAJlQaORxo0PpkZrs?=
- =?us-ascii?Q?jSc0PEJmtJ+0qwT22IgyRKCCGBk6kEEnu3GLjtJqyoKXVMLYR9MQKCM1z7fr?=
- =?us-ascii?Q?pw7rzHfJSwe/Pgjoe8zGzbaTiq/6RrxSnidUKXbwKQPm4s+aXPDnsDzOVRO0?=
- =?us-ascii?Q?RgIydQsYSbL5O/XiTC00cNbU0B+YGqGJ/X2UWFpi0KhPMoIGD+x0mo6NyA43?=
- =?us-ascii?Q?vyqu/6dGcKnvXPY6CTlpWPghno9Qx8Y7IxFGlADQu/uqjvG81Gjd2dNeDKJc?=
- =?us-ascii?Q?AHyaxRRU+9sggARwJfQNJYuQdmDpp9k3CZ7GjGT1rP+1SGg8Ntnvr/BiY8Th?=
- =?us-ascii?Q?nc4Mnb6iD90mRhQUscl2AFajsyNGxIHOJO8EGqOMGqWLajzDqctqo/BjfXQ8?=
- =?us-ascii?Q?6TCUVWVk9ydbMMFnHgLdTGDfZajINnrBrgawFuHiOIt/jGb33HI3cRG/HBVD?=
- =?us-ascii?Q?4lMDAyVrDqqca+n8FIVWPbQNu73r?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?OXoGxBKS3ADsqe0xo2TQOfgvZJ7hATu0qq7ljTV8ntKdna/tdxjry6aUnzKF?=
- =?us-ascii?Q?q8Ff0sA7iEcAABTiBFFym9RhqckPb6+zfgDjunfGutO2b8PFUJ3oqDrJTrU2?=
- =?us-ascii?Q?ChaDgPybsah2eIpOEB3pVaqNsDLecCeHBxpMWO+aKgjJbb7l4HPctoZ7F1pE?=
- =?us-ascii?Q?GdFbGFvoaA7z8AtMauA5AUdgUzOhP/tOoDjl9FG0A3TXnbd+I0r+PNqo9sJt?=
- =?us-ascii?Q?1gdnlM4MDB6Iwm0jP3ccDjAvJy6w1sbB+8SgiTW7hMy+WT5+TG0bVJTs5Srq?=
- =?us-ascii?Q?yEHH/JChHZ2tfUJ3W9Y9la3HRqj88hP94YRLSBtXNblvFPBCpt0B5RuwLlg+?=
- =?us-ascii?Q?PQ2yIBiTt7li3CBrX9IF+clB6DeUOznBp38X89rlTqTkPbVHPe/A4UksYUIX?=
- =?us-ascii?Q?7GiOQ6VXayBSzHnBIOlgqFIz1ulCbUktXjf38Fxs4wJYp+BZjEbn5AzoxPNl?=
- =?us-ascii?Q?XVRDcPVhrdeGX22JqMumnqWhtxN/2cbQOEBl7Qror1XCrOCFeFQJ+pclNrSX?=
- =?us-ascii?Q?sBZObWwmjfqlZct+/F+XCtJmvCmvGEpTTvjnvD4KFslMFsbmV83AQ2/DbDhL?=
- =?us-ascii?Q?S8Se2j5Lu7jJVCpqORKTBFAEPFGd3fqLYiy/1kSfY0HxlLk6UpDZv9gB/fvo?=
- =?us-ascii?Q?XMwAwc4797gNaqB/ZlA8ud0RW+EqW1K8/phn/ktlUpt6DfJ3Fb4H3pHxoTza?=
- =?us-ascii?Q?EuTG+jV0wbI7f4f7ikbJulWggSn0Qi4aCO8hX5sbB0WZoQ6v+FvDcaXCL9Gz?=
- =?us-ascii?Q?WVmZWXzq5eGB9lOMw3YFpnhgJ0LmI9z5pzJecjjZX8itsC3/1e4M3YYlIeDS?=
- =?us-ascii?Q?ZrMhWUssGSEm9ofP4mPOjBxEPgXOMHJv4fYw9CWlev1PiPJZLrxTMJN8k7EQ?=
- =?us-ascii?Q?Wo1deR55SLCwMq1y0k0oh3+tbKzqzJiwgC1Lptp/UY3GRSzUFlesIfI4HSuk?=
- =?us-ascii?Q?ZMsbpTCbMtiL2OGOhyZN7YR1fT2zFsDuY1tU0PIbic0fVjCsQDEYWOK2igh9?=
- =?us-ascii?Q?iWISmf2z/FHvhHpDz/zFK5Wdvs3X54ZoFgFkGMi9gz6fBux91Q08biWyFjiH?=
- =?us-ascii?Q?484/UxTraseUq575BMMhCvp2njuaMzdMEGJjdqyXaB0M0b1J9DNam1pph/xq?=
- =?us-ascii?Q?yh6UEdBbF4yvPhIZ2r2T+E77nJlHIZHicR0+H4mPt3b3Wi8hqXRscjyd23ID?=
- =?us-ascii?Q?Uo7iNGSvKO3AE34PdHqn7vCAdRRZweO67hgQK4KFGIcgS3yVq1aT7zowhdWI?=
- =?us-ascii?Q?dDgVRB5bQteNrbwqsy0vICE2wRhLFJB1o3pwi2oBe2oA5eqUhUHtSK6CsqA2?=
- =?us-ascii?Q?1Y6FuKfBFq2rIxA/EeqyP4P6eae2C/eLkBM7rgwcuJv9d38UBRr6D2RqusXT?=
- =?us-ascii?Q?fSvUpFiGsaPMdYEr6lwvt9UqRBtwPhjhyr1UCGFoqwALgB552D4wJSh/1Wld?=
- =?us-ascii?Q?syXfCPcnTz7FYOH0JiI2WY86RtbUQPpcmlqgel4juBJD5a4isetCJDRqgckp?=
- =?us-ascii?Q?B0ipSV/sdhbBEAVomvenAX/YANyFv3FgV/wtLb78sACmq4MvawV+pkpu1w6a?=
- =?us-ascii?Q?lcZCRIQIDZnz7shhXCUALIUfsay9qzbXZzpW/JKP?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 113abfac-cde4-4921-c7fe-08dd34056ac7
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jan 2025 19:06:42.9272
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: BW+GK5gC4E2derRh7zHwnl2HUH9fp/HgZDWxsEvGG0Oljgg4H+NiSRkL64BxmCUP
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB8428
+In-Reply-To: <yq5amsfxtrlw.fsf@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_110647_394348_4F124D93 
-X-CRM114-Status: UNSURE (   9.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250113_110932_913129_CD9ABAB2 
+X-CRM114-Status: GOOD (  24.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,31 +70,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 13, 2025 at 11:01:10AM -0800, Nicolin Chen wrote:
+On Sat, Jan 11, 2025 at 06:49:55PM +0530, Aneesh Kumar K.V wrote:
+> Catalin Marinas <catalin.marinas@arm.com> writes:
+> > On Fri, Jan 10, 2025 at 04:30:21PM +0530, Aneesh Kumar K.V (Arm) wrote:
+> >> Currently, the kernel won't start a guest if the MTE feature is enabled
+> 
+> ...
+> 
+> >> @@ -2152,7 +2162,8 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
+> >>  		if (!vma)
+> >>  			break;
+> >>  
+> >> -		if (kvm_has_mte(kvm) && !kvm_vma_mte_allowed(vma)) {
+> >> +		if (kvm_has_mte(kvm) &&
+> >> +		    !kvm_has_mte_perm(kvm) && !kvm_vma_mte_allowed(vma)) {
+> >>  			ret = -EINVAL;
+> >>  			break;
+> >>  		}
+> >
+> > I don't think we should change this, or at least not how it's done above
+> > (Suzuki raised a related issue internally relaxing this for VM_PFNMAP).
+> >
+> > For standard memory slots, we want to reject them upfront rather than
+> > deferring to the fault handler. An example here is file mmap() passed as
+> > standard RAM to the VM. It's an unnecessary change in behaviour IMHO.
+> > I'd only relax this for VM_PFNMAP mappings further down in this
+> > function (and move the VM_PFNMAP check above; see Suzuki's internal
+> > patch, unless he posted it publicly already).
+> 
+> But we want to handle memslots backed by pagecache pages for virtio-shm
+> here (virtiofs dax use case).
 
-> +/* This is basically iommu_vevent_arm_smmuv3 in u64 for conversion */
-> +struct arm_vsmmu_evt {
-> +	union {
-> +		u64 evt[EVTQ_ENT_DWORDS];
-> +		struct iommu_vevent_arm_smmuv3 uevt;
-> +	};
-> +};
+Ah, I forgot about this use case. So with virtiofs DAX, does a host page
+cache page (host VMM mmap()) get mapped directly into the guest as a
+separate memory slot? In this case, the host vma would not have
+VM_MTE_ALLOWED set.
 
-This doesn't seem right, don't make unions like this
+> With MTE_PERM, we can essentially skip the
+> kvm_vma_mte_allowed(vma) check because we handle all types in the fault
+> handler.
 
->  int arm_vmaster_report_event(struct arm_smmu_vmaster *vmaster, u64 *evt)
->  {
-> -	struct iommu_vevent_arm_smmuv3 vevt =
-> -		*(struct iommu_vevent_arm_smmuv3 *)evt;
+This was pretty much the early behaviour when we added KVM support for
+MTE, allow !VM_MTE_ALLOWED and trap them later. However, we disallowed
+VM_SHARED because of some non-trivial race. Commit d89585fbb308 ("KVM:
+arm64: unify the tests for VMAs in memslots when MTE is enabled")
+changed this behaviour and the VM_MTE_ALLOWED check happens upfront. A
+subsequent commit removed the VM_SHARED check.
 
-evt is clearly not a iommu_vevent_arm_smmuv3 since it has the wrong
-endianess? It should stay in its own type.
+It's a minor ABI change but I'm trying to figure out why we needed this
+upfront check rather than simply dropping the VM_SHARED check. Adding
+Peter in case he remembers. I can't see any race if we simply skipped
+this check altogether, irrespective of FEAT_MTE_PERM.
 
-struct struct iommu_vevent_arm_smmuv3 uevt;
-
-uet.evt[0] = cpu_to_le64((evt[0] & ~EVTQ_0_SID) | FIELD_PREP(EVTQ_0_SID, vmaster->vsid));
-for (i = 1; i != EVTQ_ENT_DWORDS; i++)
-    uet.evt[i] = cpu_to_le64(evt[i]);
-
-Jason
+-- 
+Catalin
 
