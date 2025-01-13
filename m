@@ -4,167 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E011E7719A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 05:26:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 378E1E7719A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 05:39:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/FtEINNO6A5Tk+s4Kcy/I7l4YRUi5WWY5d36HdKUKxg=; b=ydZfoMdSn/fAD9Zto25bUVZ2lc
-	QnFdCfiYBZsuwpdQx6X+WJDLml4gN/qeXMQ2yQ5M5RoW3eD5KM1CazJbpodz6Z2hdloIsiYsj7Tax
-	L09+lOt26zNtc1op0XpF4OXu6k08ctnjvtSP/1YPmUXHkUKzHFndJb826ELBf2lrkQRfeym5C4zRr
-	AnX0Jw3C9qAYWvhxS+MYi1lvoODDzRIrZi2EsI3SKO5dKu4qVnXXsKFnGnd9eECsqVLBkwe709Kbe
-	g37NQrXMnGNxiwJu2M5tSgUW+knoYqRrC1n+SHIVSjOzNcVXSrYK94iCmFTh2/1lNgnJR3DQMaooN
-	0KaHxIaA==;
+	bh=iC7dAT1cm3S9lm5BjcfdsDD451BrotIPbGb04BcZtGg=; b=nyJf7WB/ncxV3S3ivMfiqOfP3Y
+	IMEU08nC8tQHnSuZ9PeFAMKqmoVBozM5rbew5OWaHKa2VL4R91bEKAoJKHhW5FxM/2stPRqYyRXS9
+	HfuJX58/H8dTLnJyM5cOr5WmfpbCw+p2nw0AqOm6+vKjO8v5RY6dog60epi56QCtYWyaRGilpbajN
+	fI5/OO7tqP47xAhR6fzvgWzX1JbE5+30u8Oa/UIQcxH2DsRh40lysRoLCn2F1u+fM4MsFovspxgTN
+	l2jRcdDYGemiUA3DHlngSxxHOu+3uvQpnELSf4k8UkqofRE1STj0XvTijtItnCxqAywwBc2W17+hD
+	CYk6Tgzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXCy8-000000043Pi-15My;
-	Mon, 13 Jan 2025 05:26:32 +0000
-Received: from mail-koreacentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c40f::7] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1tXDAY-000000044Sb-0XaS;
+	Mon, 13 Jan 2025 05:39:22 +0000
+Received: from mail-bn8nam12on20629.outbound.protection.outlook.com ([2a01:111:f403:2418::629] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXCwt-000000043Jl-2p1C;
-	Mon, 13 Jan 2025 05:25:17 +0000
+	id 1tXD9J-000000044L2-2Hvc
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Jan 2025 05:38:06 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=faDyGdjtsOm5g0wy/4Ph/TwhJFUH/PbunxZE5lVC+pJxLSDFxNDXlzu/vLXa+fguDHUxEGlGJmvKRZlMPda2QqJ2R6Vb+bYE+6c8+rMINlYIfTAO6ItMR9aa/7BR5sjMNSirY0znFKRz/TanPPUMDa65oXU8cbpmf5OH3s0uWMQyZY4T9Ck4t7eZhxt/oeYLUCY5W7FEebkmCFNRRVpqTWeofhZi+/8TM3J3vF0k3Eu166ExKs1BvA9BN11h0Cwm7VVjoF2Oi3dUZ27hQsGcEKIr7Nsz54nML0HB9E2xoFglC9C7b55hxJGmogcoEsQhckTepolbr98hQCIuqqZogg==
+ b=sqpqB0WhZH66O4IrT/tQGYCEHLmVeaqWGCM1NXkPbFdmetbd8tIiRp6k+wivM2BJwF6Ybo5JXvTQmzLvIxFomJNl1iGOY11rIrKzuQ2IAW7uczOm0J+axQgEaEd7nvJu2Gz/6ADlCEO6wUd6j6XxARfd16+RIFeez8poL2uaAyCpWXc9dWLS3iFLXyZlPGrlh4qIYUkiw9GR6Sgy1eWH3MIzbxF91CzxzP3Bfl5qAkPZ4PE7bQIjAvv46cJZnBLZMqcBuAl5PeODlLH53jOLdiUlwTi9IOXO9p689zyViCE4XcDpmY5lZaKmqZN+H5A/z0S5NOj7n0cxh0tfnPqsFA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/FtEINNO6A5Tk+s4Kcy/I7l4YRUi5WWY5d36HdKUKxg=;
- b=xoo/UhDu+MeTyL+AX98syVmUtjmBDVShBAO0LU01B2Xe52bUM6INHB0FzE7eyhwEd3Snk1DzlIvPAJjC2j+coenb6B4XNNALyQGud//i2bFKpBmU5XE+hk5qiRVI3NNj6c8SWdUcHAxeWs19Ly+IpYD7QSQTTR48+rv267IU6uu29h402NYSRAuOMX2Cy7WMrRdno6lBXgayijESYLyJDTTSRtQhTFrtgy+gA5YSgKTqzsNplXLwHUMawYd6QvpveuHlj3c8J2btnKbBcq1t3Bn0ntpkzToUts5h5GLf+ITKY4zQTaFVe/sFR3cFrhBiRPp/j3lhuCD0VpQ81VM3uQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
+ bh=iC7dAT1cm3S9lm5BjcfdsDD451BrotIPbGb04BcZtGg=;
+ b=rrr37O9lK+9uYDHlHhcwRsXPUkH+k44LpRWns1qcgZQDEIsJseiRh58FT3lE8DLpK37nsBdf1TnC4oipFYL4HlK7nA7F46ofsppHfXRhBiP4o0RJW43ndJcE+xkk37x9z0nA6ImL+cJwdp5tMPzvi8NrfL62cOUP1nczAooafOTcI/I+VF6piK7Zp2MQKg/uc85CL0qCLeywMh3HEsuEWK8NB8jcgcn0CvOZrl9SMSMawNocL/3Qx7hX5WTJuGhKPu7fTM7gPrC9TnyzhQnuBoTBIYHHxK1UtE0IU4ypv4cRH0I/h42fWtLfKSfTfv3wffSajX8rw+PbooXh/6NPIQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=redhat.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/FtEINNO6A5Tk+s4Kcy/I7l4YRUi5WWY5d36HdKUKxg=;
- b=BXe3bMJiGY+ceuI8AAO8lk16ZOEFa3Sr4Q612182Faq9jUxsus+ovdyY75KeUHwECPJeX8I7Y0z9TiLce3KyJjxeHF1peVx9zZatFy1anrjIAwFI63uI5JsEAzhDbkXyiC9Gl473BHIKVXcQVc4IhHejMj9xt/Usc1NGFNFQ6Hi6c3gUDGSwtu8BZhm5MEdbK40L4fgCnZjq5Z6Rhms04rSAr9ysgxoXPHYIi1rAKgNZnM65tfa3eZ1+F50fCF6Qr+uPGTcuH9Vj57DOfy0vdan1Ms63lCPQTJiM9M9fXLemrcLaZZeZ0pcZtHbdS7KrUq7rQHYIp7oM1wBLer7LTA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from KL1PR03MB5778.apcprd03.prod.outlook.com (2603:1096:820:6d::13)
- by SEYPR03MB6603.apcprd03.prod.outlook.com (2603:1096:101:85::14) with
+ bh=iC7dAT1cm3S9lm5BjcfdsDD451BrotIPbGb04BcZtGg=;
+ b=oEQD9peOlcVhq5EKjs/YED0Z+ipBDkYsGV54zulIjAy90PXor0Y5DRjsibxL9iHSQChYOuXuJouGlI3RVkwAol79hHyuuovdh+dQXdpubtSD4NkQGgHQICKpSx+b7+F1Rwg6tAtfeo2OrwLeeWLDXpblkyCynVMmv5juxJ2UbXTKBkLha46ki2AqbIT9JbnECito1PU2Xsz/lfAyXyYeEL/PY5bbW+hoEOQcJITgYkJ98yHVh+pZKHFTlmzWP4sHUrekBiJtPhB7O2wLtSVkI2zF/dfg+dV7fEXrRYp2ve8likqUosbwfT+KkO5fm5A8fLg1+5NNpjFTkQ3298ExpA==
+Received: from SJ0PR05CA0136.namprd05.prod.outlook.com (2603:10b6:a03:33d::21)
+ by MN6PR12MB8515.namprd12.prod.outlook.com (2603:10b6:208:470::15) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.17; Mon, 13 Jan
- 2025 05:24:56 +0000
-Received: from KL1PR03MB5778.apcprd03.prod.outlook.com
- ([fe80::9d11:d1f6:1097:22ca]) by KL1PR03MB5778.apcprd03.prod.outlook.com
- ([fe80::9d11:d1f6:1097:22ca%7]) with mapi id 15.20.8335.017; Mon, 13 Jan 2025
- 05:24:54 +0000
-Message-ID: <2578a79d-1e24-4336-9859-e384c8f69269@amlogic.com>
-Date: Mon, 13 Jan 2025 13:24:41 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] clk: amlogic: c3: Limit the rate boundaries of clk_hw
-To: Jerome Brunet <jbrunet@baylibre.com>,
- Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-References: <20250110-limit-rate-range-of-clk-v1-0-dd618adc4aa8@amlogic.com>
- <20250110-limit-rate-range-of-clk-v1-2-dd618adc4aa8@amlogic.com>
- <1j34hqai39.fsf@starbuckisacylon.baylibre.com>
-From: Chuan Liu <chuan.liu@amlogic.com>
-In-Reply-To: <1j34hqai39.fsf@starbuckisacylon.baylibre.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: TYAPR03CA0022.apcprd03.prod.outlook.com
- (2603:1096:404:14::34) To KL1PR03MB5778.apcprd03.prod.outlook.com
- (2603:1096:820:6d::13)
+ 2025 05:37:55 +0000
+Received: from SJ1PEPF00002318.namprd03.prod.outlook.com
+ (2603:10b6:a03:33d:cafe::6e) by SJ0PR05CA0136.outlook.office365.com
+ (2603:10b6:a03:33d::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8356.6 via Frontend Transport; Mon,
+ 13 Jan 2025 05:37:55 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ SJ1PEPF00002318.mail.protection.outlook.com (10.167.242.228) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8356.11 via Frontend Transport; Mon, 13 Jan 2025 05:37:55 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Sun, 12 Jan
+ 2025 21:37:44 -0800
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Sun, 12 Jan
+ 2025 21:37:44 -0800
+Received: from Asurada-Nvidia (10.127.8.10) by mail.nvidia.com (10.129.68.8)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4 via Frontend
+ Transport; Sun, 12 Jan 2025 21:37:43 -0800
+Date: Sun, 12 Jan 2025 21:37:41 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <kevin.tian@intel.com>, <corbet@lwn.net>, <will@kernel.org>,
+	<joro@8bytes.org>, <suravee.suthikulpanit@amd.com>, <robin.murphy@arm.com>,
+	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>, <shuah@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>, <eric.auger@redhat.com>,
+	<jean-philippe@linaro.org>, <mdf@kernel.org>, <mshavit@google.com>,
+	<shameerali.kolothum.thodi@huawei.com>, <smostafa@google.com>,
+	<ddutile@redhat.com>, <yi.l.liu@intel.com>, <patches@lists.linux.dev>
+Subject: Re: [PATCH v5 08/14] iommufd/viommu: Add iommufd_viommu_report_event
+ helper
+Message-ID: <Z4Smpeb4k4UF3Qso@Asurada-Nvidia>
+References: <cover.1736237481.git.nicolinc@nvidia.com>
+ <b9b4f3df990934cb80b2f5e1e49e555e50c1c857.1736237481.git.nicolinc@nvidia.com>
+ <20250110174132.GH396083@nvidia.com>
+ <Z4FpMs4qx3NdwrnZ@Asurada-Nvidia>
+ <20250110195114.GJ5556@nvidia.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250110195114.GJ5556@nvidia.com>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: KL1PR03MB5778:EE_|SEYPR03MB6603:EE_
-X-MS-Office365-Filtering-Correlation-Id: e9d33e99-dc36-484f-d408-08dd33929c3f
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00002318:EE_|MN6PR12MB8515:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5a574c76-9cc0-4808-73bf-08dd33946e47
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|1800799024|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?SEVHZmVRcUcxRXpPdXJFRndOQjN2WkdXd0lLcGd6bFMvMTVPNDRqUjBFVEJV?=
- =?utf-8?B?M2Y5R3ZYNkRZclM2MHN3MEIyM2h3dGJuOWUrbEZpOEZMOG9lb1VnSDc1SkRW?=
- =?utf-8?B?aEVOenJQYWkyeEdWQ1RyVHcwMnJxWkxDeGh0NjFodmRDWkRCb3cxcXhkSlA0?=
- =?utf-8?B?L0JEeXNSQjBNNGZjR0ZTcXBGVVRMSUFUdG5kVXFmOG5hWXU1OXdkWHMxdTVB?=
- =?utf-8?B?bVppK1lxVm5aTzdxaHJYWTRDaXdCbGNKSVNCN05aS3FEZGV3MEkweVlJc0Mr?=
- =?utf-8?B?R215cU40QU9TNVhXOWRWKzZZbTFoa2FnMGVKeTNDQy9ySkNxTk13WG9VdW03?=
- =?utf-8?B?SGJTZUdvYnQzb1JaYnNXM21Rb2xxZ3hEajR6MGE3ZXJlaTJsSFFvUUhuV1Bp?=
- =?utf-8?B?RVlMRmoyWFJ4cHJWdUt3VGV6ZG8yOEdpL2FYSFBIZFlneUpWcWRaUTJxOXFx?=
- =?utf-8?B?YTRFWlpPZWZrUm9xeWhKY2xnRG5Ra09uTzYzaWJHaW9Sa0xQTXd3OHllcTJB?=
- =?utf-8?B?NzQzQ29YcFl5eVF3YkZad1IwSFl5Y0ZtZE41NnpoUGVwcHZyYWxvaXV5T0pT?=
- =?utf-8?B?N0l3WUQ2MnVWWTlrd2tsQ3dUVVh2K3BOT3MzcmJ3bmRMbCtDSnYzNWRIdWli?=
- =?utf-8?B?M0N3QWpONjNIdFR3STA3M0RGeUptNXcwbFVWby92bFVkNmprMzd5R2JYaFpD?=
- =?utf-8?B?QVZseTJjdTE4SVJiR3ZaZ25PcHdCa2FOYlc5WjhUczQrRjd2TUtMcE9rbjJr?=
- =?utf-8?B?MXZYTWNsWXlrTjI0ZzBEMHN2T1dtblFsRTNKQ2FiMVc4dWxpUC9pUUUrTk1G?=
- =?utf-8?B?eFJjWGE5STV6MFFXaGc0NzBLV1FSOEFSMlZ6V3FUdTE3S05HUURMRWxrU3Jv?=
- =?utf-8?B?RW5SQ1JvR3V4TnpHWE5SelZGbTJ4OCtIeWNTYjR2UTFnV1V2aUJna0gxLzhP?=
- =?utf-8?B?aFFxdjQ4Y3B3ZnI2am5CbW55M0llb0Q2M1ZWZ1gzeFZHcmNWeklNYXFSWnhy?=
- =?utf-8?B?TzdsbmNpa3VPZlFPU0pmditteVdMMTYybEFPUEl0V1Z6NkM2amhmYTFTejNP?=
- =?utf-8?B?Z3Nhd1lYMlFEWlNwaGpPS2Q1K0FRbEd6c3R3UWJCMkl0WVZpRmRFVStpclFT?=
- =?utf-8?B?aFpleGNGZ2xkL2JSNHByUklienkxQ1N0Yld3dzV3cjhnaTFNbndKdFE2QU4z?=
- =?utf-8?B?NWFyeDBWOGRhOUlzMm81WFZlRnA2YjhVVzdmbmpsZ3JUZi9ORGM0OVRxdy8r?=
- =?utf-8?B?ekZBcVczMXJqd3Y3ZnU4YnRQUDhxSS9NZTlkazBnVkdJQVcrVnZ4U25Famt0?=
- =?utf-8?B?a2xsYmxKejNxRzIzV04zZlBvTDAvSUwwY2hlWTY4bEZhSXJBczh1V1pPbWVp?=
- =?utf-8?B?c1BuVVVsNElDeEQ3K0ZhclJEWWhHcWI2cXllNnFzTmZPV25Sek95Y0RJdVA1?=
- =?utf-8?B?ak5GRTBUNDBHOHowQm5pNEtaVWlKdlRmenJaVXJwaGUxbnF4Nk1sNEhPejhM?=
- =?utf-8?B?aytLc0J1ZVAxOTBIMXhTeWh3dFNoVkFtT0tQSHcyZWdGaG8xQ25VWkV1cnpm?=
- =?utf-8?B?ZDJsV2c4MVNCQ1d2WFY2b1FqeFNlUFd5YUtoeTJrU3ExOEk0U2NudzNITjY2?=
- =?utf-8?B?MTRVRUxPRit6OUtyRTcwSVdQOHkyUGM3VEdxUXEzelRTaENrZ2RQQmJ2bUxL?=
- =?utf-8?B?WHNOaXdweGRsR3p1Z2lZNFB4WjY0WmRQNlFiNTlWbEN0N0YvV2Jib05KV3BP?=
- =?utf-8?B?cTBzVEtoNGFwTms1WExWSUkwZi9wdThzUWZGY1U3b2poSXp2czdvV0ErckYx?=
- =?utf-8?B?c0dJcVlPUWhscm5Jcy9WUmdRQ2FoMENINHpYSUx6aUFBK2NKY3pZZm1Cbnlo?=
- =?utf-8?Q?O8P4o8bGBZ6hn?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB5778.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(1800799024)(376014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?a0FYS0FlUllSOVBxQmZBem5PWXZsbXR1TlhRK2J1eWovWktLQ094N0M2Mkoy?=
- =?utf-8?B?Y3ZoRHJvT1VXWmtJNUcvZHFKdmpTM1VGQzBmdzdhMXlxeWtRZStJMzBqenpz?=
- =?utf-8?B?SHc3QmczZG8rN0xETkFlSnBpOERYWGtJdGEyWlVVZWNUL3hYWXNtSEk4dC9l?=
- =?utf-8?B?T0F2alFaVHhEbXlKVmtSanZJK1RpQzU4aWRkTUZYakhrVHBqNHpJSVdZSlJn?=
- =?utf-8?B?cUQ5U0lsNjdyTklhdjA5NDJpUTJkdGpjZnJLU3NUWENIVGZabGZ5d09LNFNa?=
- =?utf-8?B?dHYzTFZBVFlNdU5TbkhIRGlkL2lvbE5DSjdDY2RCUlFpUGtXZ0piVDRpL1R1?=
- =?utf-8?B?a3lPWXpwbnFQZy90NEFaNG03SmhjTktIeUMxOHRuWm1ncmNIVDZKUDVaUmY4?=
- =?utf-8?B?RjJXU0F4L2hta3lwOG8vWktoK25QSjNYS2N2RkhxM1pjWkp4Smlha1hYSEEw?=
- =?utf-8?B?YU5JbWpIYSs2T3lGRVkvbkYrb3FQbnV1UEoxN0MwY2pmb21ZclZ3VzU0a0VE?=
- =?utf-8?B?WG1aM3RYeHBkRVlnbVFDNG1SR01MMDVGallnNDRtWTEwUklLd2NtRjllaFMy?=
- =?utf-8?B?UTlXc0U5TWRVMmZyOWthMXI0Y1hybDYrbnlHZXZGWENNVmdqOUJseStXeUVG?=
- =?utf-8?B?TU9ONXkzTW9SaTc0Qy9QN3NTQURNWnVVMktnaTI3aXJscGlHcGNxd29wOE5s?=
- =?utf-8?B?Rm9zQzZwenVNZUdHN1A4L2ZOWWI0ZGFRd1RzZ2prV08yYk9DNGZ3VHVBYlF4?=
- =?utf-8?B?YWhDRnNvZDM2YTlRdmo5YXhDYlZiM0h3TmR4em5heEtmc2kwa1g3bmYzc01q?=
- =?utf-8?B?bngwSUtYNXA2MTkxSlRFbkNPdFdZRDdzRWJXQ01CYzd2QlJad2lXRlYvbTc3?=
- =?utf-8?B?MDhTMUcwSERWMDNXcUFqRkJMaXRxdFhWSlFpQ3lseVFYSE4xK0VBVzdMYkxx?=
- =?utf-8?B?VDVYeUoyMHkxcDBkU0ZnQnFucnowQW1QNDQyOGZSUWpUZnVrV1JhNDFETWdL?=
- =?utf-8?B?cElwdkFRVVBLdjloTU8vY1FVQkNqcURyakoyNnV5OFZGSEdER3NMUVZmOEdJ?=
- =?utf-8?B?S1hIS3NnMEkrWmdPVXVNc0tGVXVySit4Sm5jVkpuTHVHR1lIK2NtSWVXL0dF?=
- =?utf-8?B?SzY2SSs1TWpLSmFWV2ZNWWFSaFRxV3E1RnAwNWVFdTNTdVU1RncvV05ieWJs?=
- =?utf-8?B?aG9OSGtmRU1EYjM2WWRIMVNTNVFtcVNqNVdMZzhpaStTaS9LNUJNbHNzTjRJ?=
- =?utf-8?B?d3BJR3pZUWtrMytaZ3BVQ0VreHAwLzRtYmtIQWlnVTdaT2Y1dGZTQnlkM0Q5?=
- =?utf-8?B?NEZ3ejVCdW8yV1cvd3JUbTBhbStZMllWc1oyQ3RadHBZSjRSN1FNWGRCQUJP?=
- =?utf-8?B?dWMyRTVuejN4VHc4aEJ6Z2lFbnk4ZkRSYnd3SkI1cGZCUnk4cVUzanZGUWEy?=
- =?utf-8?B?akpEM0hIYlNGOURXOHJKeEU1Q1p0VlcvSXQrT1hWNXdFekpHcHBXdUN3dzBq?=
- =?utf-8?B?aTJlYWp4clZtUFl1aXErcWZOYXJMVGNMS3BQejJlME9FUHB2WHRKdlJURzVQ?=
- =?utf-8?B?R3F4Z3RaK2tNMVZxbGd0TUhBRDl3QVJiZ2dxZFpWNDlTYTJsZkwrRmxsdkNw?=
- =?utf-8?B?SmoyTVBxdmU5d3c5QlYwM3NPL0Q1T2YrWnJiNUpHQ01qdXBKR1lnZzMrZjFZ?=
- =?utf-8?B?QnNPY2FNR2dzYWIyWXY0TmdySDdUdUd4dzduV0pxcVJmaUJ0THVqc0FDamNy?=
- =?utf-8?B?dUp6R2dPc2szVnVRNXdnOTNadkk2TWZLV3ZHNUVKZndPN3NSRzJpMzY4cWsw?=
- =?utf-8?B?Z3h5alU1UnBHaXdzQWhKUU95SGVGUU5LaXI2ekUvRGFkK3dIUUNjdUI0ektm?=
- =?utf-8?B?bmJmQUp2OENCNERpZ2NxRzkyaUE0TStpZkJMcTh3bU1lc0l4QVFlMU0xVG9o?=
- =?utf-8?B?dlhuNnpCM0MybzRWNkZVT0hIRzJpV0tTZS9aRjFnZWVQQ3draU1uWDBsSWxS?=
- =?utf-8?B?d3VWMXpaRDhsbExZL2xSMEd3WjZxNnZQbG5KYlJ5R25sMmg0WWJ1K2RYNmR2?=
- =?utf-8?B?aFBYQnhiVWFQN0YrNWE5dVpwd3ZJRVpIYTBubXFyM0FGMjlYZW5YMmhIaXZY?=
- =?utf-8?Q?UesccBQHXUS9/eIllkF000/qb?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e9d33e99-dc36-484f-d408-08dd33929c3f
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB5778.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jan 2025 05:24:53.9398
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|82310400026|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?0JfM7h6EqTTArKnlpH36ruJ4R5j9RslLlDLZiwCpN755PRsb4Q5u91uMNVC5?=
+ =?us-ascii?Q?ajvTu2MqnKxWUldbBW53cdIg83HpVAfzpa/cIAYvntG6D1tIHzAbehRyxGaV?=
+ =?us-ascii?Q?ONbhxwEweKiQ+Z8MhJsNE6dcVEA5CSAjsyjfBuAld05Oh00Ea56zY+rr40sp?=
+ =?us-ascii?Q?MiYHkLfKafhVzfM27Rnv686KTr8uDah3ObbZ/YgkKqPnwtchvhVnA+daIM4j?=
+ =?us-ascii?Q?1gUe6cqkHjtWaYqlDwcg2Ow0eRxLz1n38FiW+y5hShqkean0l5I3YmOBm7S9?=
+ =?us-ascii?Q?JNMTAl4DoMc8wCFwkPVVT+qmVKpn4qySvSWAZJjX/ZaQVSXVZ2uqtOfpTLWQ?=
+ =?us-ascii?Q?8zKRUlHOueP+X/q9lrtZo23pdXqFXTepjMkPZ9mzK3Lpi/T5ZnAMsBNwXnDj?=
+ =?us-ascii?Q?DJGGC7sxMORM6ieNNs/k3YvFvJXF94Rb4Y8FvmfajzmNP++8G129pToHKipm?=
+ =?us-ascii?Q?aQTe98zomELL7lJYn8iN+6GYxScBE0mtsj2Db+IItE68GYrAgGC7zj3JwWcT?=
+ =?us-ascii?Q?5S8cuQkRBsLT0uRAlcAtvppX1DZerRAMo0TshqZ1jO7wpur7OUM8ZpxMJaWF?=
+ =?us-ascii?Q?Vl7BPXa8uJKCmaY81wW/6QgJfqNyKfxvOuv7u0aCeyKD26WZd/9Fhqloiufg?=
+ =?us-ascii?Q?dKozI4K2FL3+QuxQvA8f1c92gnnGqwesThHm1nBD5TQJXYHIuoeZXdAwdjkB?=
+ =?us-ascii?Q?C+oFI15GAY/8dm6fJHCxcch+amjBGQhKGwHLAS7ENcJXjM4AaYkY38Q3qmd5?=
+ =?us-ascii?Q?HS63CDPRJux5cIStRjHnGbrYzOpc+hpTqukWF26/Jlqz3rdOwM1B4rBFPkD8?=
+ =?us-ascii?Q?2ru1r+anDFFoS659RH3OfeU1pMFIkoEogv6fMUEwfyWj2nGGc+GldAEgPhyo?=
+ =?us-ascii?Q?FKvwuZuFUNm1Ipj6t/pfhBdJ96qYADOae/cAwrBAMYU8zkTXuVXVPizOknu2?=
+ =?us-ascii?Q?DGNtK9icZ8bpVTbtjEFHaZ63wefSvaPUEP5SO8jY7Qe+bTIp3hUWE9Dmyg7R?=
+ =?us-ascii?Q?EsmSf1xyT+s3nxAsCRSRWBfbwd56wBqquNVxUouBXgoXvvD9OHvL6MXVHfWX?=
+ =?us-ascii?Q?RO3Fs0YjCYCOT4HaDrJltYC319JRfeF2Ryejck6G/gIUZvW3n56ig8JyMUeB?=
+ =?us-ascii?Q?BCKIWqDADEgx7philUeleBjsKIFW0uVLc40VbR4Ot8KX9+geBzF/OvrHXbXk?=
+ =?us-ascii?Q?6cOsBU7eS64lay8mOG37fcYEXBf2hhxT0tcmm2RTgey0G/vXdYns69vjZNAe?=
+ =?us-ascii?Q?rNORUqvkrx7caeAoZwTxCDDXMlTGSenVE+juaQ2BV8YYOzyy1PD5f5dpZkj2?=
+ =?us-ascii?Q?RkTnRAO1oHHd0OeBLUF8EgTbtJdQ+8GnOm1ByauzV6muZqqw5xP8MQof/Kxn?=
+ =?us-ascii?Q?OSEaYAKS/iYRz25a4PNYh4eOLsalcNUmMI40A2vc2hdcauhL9ZaH0gGkKWlc?=
+ =?us-ascii?Q?5mHSDfQUCaN1BQm7KUf6BSonz4HJBFBUYWcQXPHFkU/G63JgbDuijza/XLlg?=
+ =?us-ascii?Q?rYhTytqu8b7wdbg=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(82310400026)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jan 2025 05:37:55.3581
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /TYq6AGPF0ysytgt4VR/ZNdzK/66Eg6TFDZnmSvfZnMbB9HAMvp11XHJ4NcMF/Vqzu5+LHoDxzDNQinwYJ4qpQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR03MB6603
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5a574c76-9cc0-4808-73bf-08dd33946e47
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002318.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN6PR12MB8515
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250112_212515_847828_D7FEDBB5 
-X-CRM114-Status: GOOD (  26.62  )
+X-CRM114-CacheID: sfid-20250112_213805_589253_FC0D70A6 
+X-CRM114-Status: GOOD (  24.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,279 +161,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-hi Jerome,
+On Fri, Jan 10, 2025 at 03:51:14PM -0400, Jason Gunthorpe wrote:
+> On Fri, Jan 10, 2025 at 10:38:42AM -0800, Nicolin Chen wrote:
+> > > The virtual event queue should behave the same as if the physical
+> > > event queue overflows, and that logic should be in the smmu driver -
+> > > this should return some Exxx to indicate the queue is filled.
+> > 
+> > Hmm, the driver only screams...
+> > 
+> > static irqreturn_t arm_smmu_evtq_thread(int irq, void *dev)
+> > {
+> > [...]
+> > 		/*
+> > 		 * Not much we can do on overflow, so scream and pretend we're
+> > 		 * trying harder.
+> > 		 */
+> > 		if (queue_sync_prod_in(q) == -EOVERFLOW)
+> > 			dev_err(smmu->dev, "EVTQ overflow detected -- events lost\n");
+> 
+> Well it must know from the HW somehow that the overflow has happened??
+> 
+> > > I supposed we will need a way to indicate lost events to userspace on
+> > > top of this?
+> > 
+> > Perhaps another u32 flag in the arm_smmuv3_vevent struct to report
+> > an overflow. That said, what userspace/VMM will need to do with it?
+> 
+> Trigger the above code in the VM somehow?
 
-Thanks for your prompt reply.
+I found two ways of forwarding an overflow flag:
 
+1. Return -EOVERFLOW to read(). But it cannot return the read bytes
+any more:
+--------------------------------------------------
+@@ -95,2 +95,3 @@ int iommufd_viommu_report_event(struct iommufd_viommu *viommu,
+        if (atomic_read(&veventq->num_events) == veventq->depth) {
++               set_bit(IOMMUFD_VEVENTQ_ERROR_OVERFLOW, veventq->errors);
+                rc = -EOVERFLOW;
 
-On 1/10/2025 9:55 PM, Jerome Brunet wrote:
-> [ EXTERNAL EMAIL ]
->
-> On Fri 10 Jan 2025 at 19:47, Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org> wrote:
->
->> From: Chuan Liu <chuan.liu@amlogic.com>
->>
->> The PLL can only stably lock within a limited frequency range.
->>
->> Due to timing constraints, the maximum frequency of the peripheral clock
->> cannot exceed the design specifications.
->>
->> Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
->> ---
->>   drivers/clk/meson/c3-peripherals.c | 21 +++++++++++++++++++++
->>   drivers/clk/meson/c3-pll.c         |  4 ++++
->>   2 files changed, 25 insertions(+)
->>
->> diff --git a/drivers/clk/meson/c3-peripherals.c b/drivers/clk/meson/c3-peripherals.c
->> index 7dcbf4ebee07..9f0a3990f0d6 100644
->> --- a/drivers/clk/meson/c3-peripherals.c
->> +++ b/drivers/clk/meson/c3-peripherals.c
->> @@ -568,6 +568,7 @@ static const struct clk_parent_data pwm_parent_data[] = {
->>                .ops = &clk_regmap_gate_ops,                    \
->>                .parent_names = (const char *[]) { #_name "_div" },\
->>                .num_parents = 1,                               \
->> +             .max_rate = 200000000,                          \
->>                .flags = CLK_SET_RATE_PARENT,                   \
->>        },                                                      \
->>   }
->> @@ -724,6 +725,7 @@ static struct clk_regmap spicc_a = {
->>                        &spicc_a_div.hw
->>                },
->>                .num_parents = 1,
->> +             .max_rate = 500000000,
-> I'm sorry but the whole thing is completly wrong.
->
-> All the clocks I'm seeing here are gates. This type of HW hardly cares
-> what rates it handles. Same goes from mux, dividers, etc ...
+[..]
 
+@@ -386,2 +386,5 @@ static ssize_t iommufd_veventq_fops_read(struct file *filep, char __user *buf,
+ 
++       if (test_bit(IOMMUFD_VEVENTQ_ERROR_OVERFLOW, veventq->errors))
++               rc = -EOVERFLOW;
++
+        mutex_lock(&eventq->mutex);
+@@ -398,2 +401,3 @@ static ssize_t iommufd_veventq_fops_read(struct file *filep, char __user *buf,
+                }
++               clear_bit(IOMMUFD_VEVENTQ_ERROR_OVERFLOW, veventq->errors);
+                atomic_dec(&veventq->num_events);
+@@ -405,2 +409,4 @@ static ssize_t iommufd_veventq_fops_read(struct file *filep, char __user *buf,
+ 
++       if (rc == -EOVERFLOW)
++               return rc;
+        return done == 0 ? rc : done;
 
-The purpose of the patch is to constrain the clock network between
-"clk_hw" and "clk_sonsumers". The output source of this clock network
-may come from gate, mux, divider, etc.
+[..]
 
+@@ -554,2 +554,4 @@ struct iommufd_veventq {
+        atomic_t num_events;
++#define IOMMUFD_VEVENTQ_ERROR_OVERFLOW 0
++       DECLARE_BITMAP(errors, 32);
+ };
+--------------------------------------------------
 
->
-> All you are doing here is trying enforce some made up "safety" / use-case
-> defined limits that do not belong in the clock controller.
+2. Return EPOLLERR via pollfd.revents. But it cannot use POLLERR
+for other errors any more:
+--------------------------------------------------
+@@ -420,2 +421,4 @@ static __poll_t iommufd_eventq_fops_poll(struct file *filep,
+        poll_wait(filep, &eventq->wait_queue, wait);
++       if (test_bit(IOMMUFD_VEVENTQ_ERROR_OVERFLOW, veventq->errors))
++               return EPOLLERR;
+        mutex_lock(&eventq->mutex);
 
+[..]
 
-Yes, the purpose is also to ensure "safety". From a strict perspective,
-this constraint indeed does not belong to the clock controller. However,
-the source of the potential hazard comes from the clock driver, and we
-have already identified this hazard. Therefore, I think it is better to
-avoid it in the clock driver?
+@@ -1001,2 +1001,5 @@ static int _test_cmd_trigger_vevent(int fd, __u32 dev_id, __u32 event_fd,
+ 
++       if (pollfd.revents & POLLERR)
++               return -1;
++
+        return event.virt_id == virt_id ? 0 : -EINVAL
+--------------------------------------------------
 
+It feels that returning at read() might be slightly nicer?
 
->
-> The only piece of HW where limits could possibly make sense are PLL DCO,
-> and even there, you've got multiplier range which is way better as an
-> abstraction.
-
-
- From the perspective of HW, the timing constraints of the clock are for
-the entire clock network with the same name. The output source of this
-clock network may come from PLL, gate, mux, etc. The multiplier range
-of the PLL can also achieve a similar effect. If this approach works,
-we don't need to define the multiplier range for the PLL (PS: Our
-current multiplier range is limited to the case where "n" is not divided).
-
-
->
-> So it's a nack on the series.
->
-> If devices are have particular requirement on rate range, have the
-> related driver set it.
-
-
-I think that the clock configuration exceeding the timing constraints
-is a hidden danger that all chips have and face, but this hidden danger
-is not easy to be exposed?
-
-For instance, if the routing of a clock network is close to the clock
-or data bus of other modules, and this clock network is wrongly
-configured to a frequency beyond the constraints, causing crosstalk
-that affects the normal operation of other modules. If such a situation
-occurs, it will be very difficult to troubleshoot. How should this
-situation be handled more reasonably?
-
-
->
->>                .flags = CLK_SET_RATE_PARENT,
->>        },
->>   };
->> @@ -771,6 +773,7 @@ static struct clk_regmap spicc_b = {
->>                        &spicc_b_div.hw
->>                },
->>                .num_parents = 1,
->> +             .max_rate = 500000000,
->>                .flags = CLK_SET_RATE_PARENT,
->>        },
->>   };
->> @@ -829,6 +832,7 @@ static struct clk_regmap spifc = {
->>                        &spifc_div.hw
->>                },
->>                .num_parents = 1,
->> +             .max_rate = 167000000,
->>                .flags = CLK_SET_RATE_PARENT,
->>        },
->>   };
->> @@ -887,6 +891,7 @@ static struct clk_regmap sd_emmc_a = {
->>                        &sd_emmc_a_div.hw
->>                },
->>                .num_parents = 1,
->> +             .max_rate = 250000000,
->>                .flags = CLK_SET_RATE_PARENT,
->>        },
->>   };
->> @@ -934,6 +939,7 @@ static struct clk_regmap sd_emmc_b = {
->>                        &sd_emmc_b_div.hw
->>                },
->>                .num_parents = 1,
->> +             .max_rate = 250000000,
->>                .flags = CLK_SET_RATE_PARENT,
->>        },
->>   };
->> @@ -981,6 +987,7 @@ static struct clk_regmap sd_emmc_c = {
->>                        &sd_emmc_c_div.hw
->>                },
->>                .num_parents = 1,
->> +             .max_rate = 1200000000,
->>                .flags = CLK_SET_RATE_PARENT,
->>        },
->>   };
->> @@ -1074,6 +1081,7 @@ static struct clk_regmap eth_rmii = {
->>                        &eth_rmii_div.hw
->>                },
->>                .num_parents = 1,
->> +             .max_rate = 50000000,
->>                .flags = CLK_SET_RATE_PARENT,
->>        },
->>   };
->> @@ -1132,6 +1140,7 @@ static struct clk_regmap mipi_dsi_meas = {
->>                        &mipi_dsi_meas_div.hw
->>                },
->>                .num_parents = 1,
->> +             .max_rate = 200000000,
->>                .flags = CLK_SET_RATE_PARENT,
->>        },
->>   };
->> @@ -1190,6 +1199,7 @@ static struct clk_regmap dsi_phy = {
->>                        &dsi_phy_div.hw
->>                },
->>                .num_parents = 1,
->> +             .max_rate = 1500000000,
->>                .flags = CLK_SET_RATE_PARENT,
->>        },
->>   };
->> @@ -1248,6 +1258,7 @@ static struct clk_regmap vout_mclk = {
->>                        &vout_mclk_div.hw
->>                },
->>                .num_parents = 1,
->> +             .max_rate = 334000000,
->>                .flags = CLK_SET_RATE_PARENT,
->>        },
->>   };
->> @@ -1306,6 +1317,7 @@ static struct clk_regmap vout_enc = {
->>                        &vout_enc_div.hw
->>                },
->>                .num_parents = 1,
->> +             .max_rate = 200000000,
->>                .flags = CLK_SET_RATE_PARENT,
->>        },
->>   };
->> @@ -1431,6 +1443,7 @@ static struct clk_regmap hcodec = {
->>                .ops = &clk_regmap_mux_ops,
->>                .parent_data = hcodec_parent_data,
->>                .num_parents = ARRAY_SIZE(hcodec_parent_data),
->> +             .max_rate = 667000000,
->>                .flags = CLK_SET_RATE_PARENT,
->>        },
->>   };
->> @@ -1489,6 +1502,7 @@ static struct clk_regmap vc9000e_aclk = {
->>                        &vc9000e_aclk_div.hw
->>                },
->>                .num_parents = 1,
->> +             .max_rate = 667000000,
->>                .flags = CLK_SET_RATE_PARENT,
->>        },
->>   };
->> @@ -1536,6 +1550,7 @@ static struct clk_regmap vc9000e_core = {
->>                        &vc9000e_core_div.hw
->>                },
->>                .num_parents = 1,
->> +             .max_rate = 400000000,
->>                .flags = CLK_SET_RATE_PARENT,
->>        },
->>   };
->> @@ -1594,6 +1609,7 @@ static struct clk_regmap csi_phy0 = {
->>                        &csi_phy0_div.hw
->>                },
->>                .num_parents = 1,
->> +             .max_rate = 200000000,
->>                .flags = CLK_SET_RATE_PARENT,
->>        },
->>   };
->> @@ -1652,6 +1668,7 @@ static struct clk_regmap dewarpa = {
->>                        &dewarpa_div.hw
->>                },
->>                .num_parents = 1,
->> +             .max_rate = 800000000,
->>                .flags = CLK_SET_RATE_PARENT,
->>        },
->>   };
->> @@ -1710,6 +1727,7 @@ static struct clk_regmap isp0 = {
->>                        &isp0_div.hw
->>                },
->>                .num_parents = 1,
->> +             .max_rate = 400000000,
->>                .flags = CLK_SET_RATE_PARENT,
->>        },
->>   };
->> @@ -1768,6 +1786,7 @@ static struct clk_regmap nna_core = {
->>                        &nna_core_div.hw
->>                },
->>                .num_parents = 1,
->> +             .max_rate = 800000000,
->>                .flags = CLK_SET_RATE_PARENT,
->>        },
->>   };
->> @@ -1826,6 +1845,7 @@ static struct clk_regmap ge2d = {
->>                        &ge2d_div.hw
->>                },
->>                .num_parents = 1,
->> +             .max_rate = 667000000,
->>                .flags = CLK_SET_RATE_PARENT,
->>        },
->>   };
->> @@ -1884,6 +1904,7 @@ static struct clk_regmap vapb = {
->>                        &vapb_div.hw
->>                },
->>                .num_parents = 1,
->> +             .max_rate = 400000000,
->>                .flags = CLK_SET_RATE_PARENT,
->>        },
->>   };
->> diff --git a/drivers/clk/meson/c3-pll.c b/drivers/clk/meson/c3-pll.c
->> index 35fda31a19e2..d80d6ee2409d 100644
->> --- a/drivers/clk/meson/c3-pll.c
->> +++ b/drivers/clk/meson/c3-pll.c
->> @@ -286,6 +286,8 @@ static struct clk_regmap gp0_pll_dco = {
->>                        .fw_name = "top",
->>                },
->>                .num_parents = 1,
->> +             .min_rate = 3000000000,
->> +             .max_rate = 6000000000,
->>        },
->>   };
->>
->> @@ -370,6 +372,8 @@ static struct clk_regmap hifi_pll_dco = {
->>                        .fw_name = "top",
->>                },
->>                .num_parents = 1,
->> +             .min_rate = 3000000000,
->> +             .max_rate = 6000000000,
->>        },
->>   };
-> --
-> Jerome
+Thanks
+Nicolin
 
