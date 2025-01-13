@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0234E7719E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 11:51:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A624EE7719E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 11:52:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hOdrpZAmSqRk7KcSBI8gGwUZGDxOvGDd/H3Zqd4B98k=; b=PWzShlz+6SEd/gP9WX3a+sy0eD
-	4lm1ex3cyW4afe9IGBPzgbqcV/gnpLpgsbMHEg68ppUhcSp7JkCYo8jBSVZtVaBs4qdtjYszVuHeL
-	o2Xm6mNX8nq/gKgirjKtDu/Q93RDsnFjQ6LIxYHb5X0Du6rex+MF7HhDWVJ7+iqCub1/FeT5nXq9p
-	PXTjFU6Sp7wac9I9L3ewqqVMD8K6NsjpvBsoZAx3sC4T54Y+o+405DJk1BhGHRfouI0fMvCnZIH5X
-	NX+W2ZBHehp5tL0QiN5+PctaDWdCsZg/ORtJH9Vu4cYFL7qAOyLLV3cG57qIqhknGQuF93EiE7ai+
-	AiAQR/Fw==;
+	bh=chXwxPSm499N84MeQ/hbX0oDsMrVYQ0eEiWb6Bzy+XA=; b=quiwRkzCV2/UhcHHwodjHDOUXw
+	/2BuDBd9AHiBS5cXHs8suATDtvtP/K4qjJvDmu4sNd1rGetMntruAzcwd400cbca9CBq9z4R3Gcpj
+	Sf7PdaRgKbQdFT+P36rzQ+W0vrWCi1DAw6UajHffJzELKsPsW9Eu3NHQooOEfHn8JsHrHFOmygSbp
+	/QCLmnbCPdbBnKgpvpDWOsxs/odbCJ9Rio4mzJhrTcHxav1ltH9SazgSJS9On4r8WZBk0oW/LZwiK
+	7H3eoH1mE6AQQTDrG7MS5r+X4QvXo4GX8hVNriqJVlfnqcOi/irL+10Kdl5kfVwJvFGfLAaw451Y+
+	ZEycbC6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXIyP-00000004zdS-2Bc6;
-	Mon, 13 Jan 2025 11:51:13 +0000
+	id 1tXIzc-00000004zsM-0VgD;
+	Mon, 13 Jan 2025 11:52:28 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXItb-00000004yeX-3Qw3
+	id 1tXIti-00000004ygZ-0GsP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 11:46:16 +0000
+	Mon, 13 Jan 2025 11:46:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=hOdrpZAmSqRk7KcSBI8gGwUZGDxOvGDd/H3Zqd4B98k=; b=j00IdBCfKR/wGmZxAJzkeUg4bb
-	CZ0lU6ZzRKt6fvWLNS+BdXQ3P9thS8ZKaGuGxqTc9G5gg0pb2o3gJ2vtGjYobsB+o2tq/RQ6offB/
-	0z0XgeQwLFF9XPyPv/OblcLDH+T+ZUPC0TNLSOS6Z3NVV0yokCphg2MduP1C/6ieoWiKXrx2ORN4w
-	ldD9jA+cHAY1mix6C3xOH5yUkqsTRN80a/cS9OCX/UnZT2c4WG8wD7Y91tPzH/VPhY25d/nz0g3cF
-	XQjKDe/C69TChJhKZwWv1beMdzqB/sqma8cj9f1mrSoJGEbLe58E+zUQS6pWjNvF2cHEi8Y3qE0Pb
-	eCGBzmgA==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:48036 helo=rmk-PC.armlinux.org.uk)
+	bh=chXwxPSm499N84MeQ/hbX0oDsMrVYQ0eEiWb6Bzy+XA=; b=J57ZEuuJoJ9EkO5nhs+61xeyAh
+	lrtQfofdDXMP1xze95c3uPiqKDHNQ2kPdIkx57CQABhEG72XQ9tsxJcF3150ZXG1T3ajtQC+LQCVK
+	N7NYo76PjIr+UeC8uunP/67W4fAkYQWujWMxUrHXWRZv4IebagEQRThuTdxhCAY1uCeutbbgOIt8U
+	eBZkVHlccjVxQi46R8m5lRE9kIUsDtETwsD964F5Sm+CrVSBX6QetO6QcRFJJRZa8798iakjvPijv
+	IQskVvpgpGhaFxkPhn6jMzZh8DfiVuExRrsUiiO1pOKjuYwpTDCVHUZuCKvnJVQj1QuynNIutP1Bv
+	pBOzySsA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:35688 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tXItV-0006VQ-0K;
-	Mon, 13 Jan 2025 11:46:09 +0000
+	id 1tXIta-0006Vg-18;
+	Mon, 13 Jan 2025 11:46:14 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tXItC-000MB6-54; Mon, 13 Jan 2025 11:45:50 +0000
+	id 1tXItH-000MBC-8i; Mon, 13 Jan 2025 11:45:55 +0000
 In-Reply-To: <Z4T84SbaC4D-fN5y@shell.armlinux.org.uk>
 References: <Z4T84SbaC4D-fN5y@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -64,17 +64,17 @@ Cc: Eric Woudstra <ericwouds@gmail.com>,
 	netdev@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH net-next 3/9] net: stmmac: simplify TX cleanup decision for
- ending sw LPI mode
+Subject: [PATCH net-next 4/9] net: stmmac: check priv->eee_sw_timer_en in
+ suspend path
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tXItC-000MB6-54@rmk-PC.armlinux.org.uk>
-Date: Mon, 13 Jan 2025 11:45:50 +0000
+Message-Id: <E1tXItH-000MBC-8i@rmk-PC.armlinux.org.uk>
+Date: Mon, 13 Jan 2025 11:45:55 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_034615_853556_2315D78E 
-X-CRM114-Status: GOOD (  11.89  )
+X-CRM114-CacheID: sfid-20250113_034622_124964_E3AFF864 
+X-CRM114-Status: GOOD (  11.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,33 +89,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As mentioned in "net: stmmac: correct priv->eee_sw_timer_en setting",
-we can simplify some fast-path tests.
-
-The transmit cleaning path checks whether EEE is enabled, the transmit
-path is not in LPI mode, and that we're using software timed mode.
-Since the above mentioned commit, checking whether EEE is enabled is
-no longer necessary as priv->eee_sw_timer_en will be false when EEE is
-disabled. Simplify this test.
+The suspend path uses priv->eee_enabled when cleaning up the software
+timed LPI mode. Use priv->eee_sw_timer_en instead so we're consistently
+using a single control for software-based timer handling.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index f1e416b03349..e8667848e0ee 100644
+index e8667848e0ee..26ff1ded4e3d 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -2782,8 +2782,7 @@ static int stmmac_tx_clean(struct stmmac_priv *priv, int budget, u32 queue,
- 			xmits = budget;
- 	}
+@@ -7719,7 +7719,7 @@ int stmmac_suspend(struct device *dev)
+ 	for (chan = 0; chan < priv->plat->tx_queues_to_use; chan++)
+ 		hrtimer_cancel(&priv->dma_conf.tx_queue[chan].txtimer);
  
--	if (priv->eee_enabled && !priv->tx_path_in_lpi_mode &&
--	    priv->eee_sw_timer_en) {
-+	if (priv->eee_sw_timer_en && !priv->tx_path_in_lpi_mode) {
- 		if (stmmac_enable_eee_mode(priv))
- 			mod_timer(&priv->eee_ctrl_timer, STMMAC_LPI_T(priv->tx_lpi_timer));
+-	if (priv->eee_enabled) {
++	if (priv->eee_sw_timer_en) {
+ 		priv->tx_path_in_lpi_mode = false;
+ 		del_timer_sync(&priv->eee_ctrl_timer);
  	}
 -- 
 2.30.2
