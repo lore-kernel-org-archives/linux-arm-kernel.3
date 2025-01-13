@@ -4,121 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9926FE7719E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 11:27:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AFC4E7719E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 11:28:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r1sB2UwzokGR5fvxX5Dn3UFsQqfgn903xTPdJon0Jvk=; b=CQ2eh6zHO+YFOua96dUGPVb//Z
-	YFinXNHMZzkzBDJYMVeFFUjJdm0PuXK9uEfjbZnjkm4llNpQoGZ5LcfSU7iEP3z5QqGLh9F8T7yRB
-	Wa2qn8IKyNxhL4opakptHrrn8mYbD5uSylinReh1ju59I428f9IV1ia9XHF/S2oyL/sxRCGC2s7es
-	LzQWhfaKuyT6SVc7W10UOiO16vfZRMY55PJ1cP0Y0wsg+8UUjOS/etySwOHeEhDioQK8f85fxUBk7
-	2H4mR6YrkI/Stuz++A+9eOHOKOEX72C0rR46+hCpCZa3vpBZrxhkmyMxaxbjJ0uzKANUpKVdHITOU
-	kXnUxBEw==;
+	bh=u3hahkWocHwmmkAO+vdyrc0iLuCr5couR8jZqwcdfd0=; b=reRjjlEmXkrvHuNbBQE8t62qzG
+	XeTX1L+Mb4SafdThMnmwWW6PXLdGAdXx3e1/51PkygpPu+oCqtAaUaKqNZ67wa3zgMqARpoyJHla+
+	W/t3OUEFHdydD+ZZWuXPeV+b7kApJdmfVo+itmqB+ZnARcNGKCT+7/XvEA74CPWbSxVE/Tdgn91hW
+	BpkIkwLngbD7x3cwpnzhe/Uzcf+kXxX2AoXZjyY05jrYXShGsJnAMuB5WKFJZtLCTyJ+XAbtfVOjo
+	+Gevhy2j/hz1ZUryLFp9hG0WFdJJKM9C+vpfByqndzcKhk248Nlvw1HHUc5lJFPt/a1gWVw4OqwgC
+	OjCOjL7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXIbP-00000004u3W-3lA5;
-	Mon, 13 Jan 2025 11:27:27 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tXIcd-00000004uOP-2DSX;
+	Mon, 13 Jan 2025 11:28:43 +0000
+Received: from mail-ua1-x929.google.com ([2607:f8b0:4864:20::929])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXIaA-00000004tir-01sz
+	id 1tXIaB-00000004tjH-47Kc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 11:26:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E6D03A40EEF;
-	Mon, 13 Jan 2025 11:24:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94A87C4CED6;
-	Mon, 13 Jan 2025 11:26:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736767568;
-	bh=XcLozn4zX9P4PK+jgJPOpEix1IEYh5jHwJQNST5Qp5U=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=GxieR594U5Pc8sXylVWalAObd8c+jbAoRK5gbMR2gsLe7CV6WpQv9+d/16k+5gj0C
-	 M3dbGszsAfYn2iWtPA0CFWKJILeJV5hQiopJnFRy6fHKpDKpZg0SjWcEfvrgVcwD4c
-	 BA5NN9Ff1VIeo9thjlkM5C9CGBTv32MMlbBmtMi/YNKJCMfOrZvz+F5KK9fCJpMKV5
-	 6wO3lnR7rJrBHXxnhUNGLRN8pwEevkQWXAwwrewj+q6Lh4pQ+oGkuM1i/OYeBLSS7j
-	 1ouAmqiA8dfq6MOu3XSHkuQf8CDdKA+3RVqqXXIt5C3IWUjs3oNfcMnQXXGtd3jyDQ
-	 uZLZXiIxBpd7Q==
-Message-ID: <0d2ebb1c-be69-45ca-8a66-4e4a8ca59513@kernel.org>
-Date: Mon, 13 Jan 2025 12:26:00 +0100
+	Mon, 13 Jan 2025 11:26:13 +0000
+Received: by mail-ua1-x929.google.com with SMTP id a1e0cc1a2514c-85bb264993cso924773241.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 03:26:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1736767570; x=1737372370; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=u3hahkWocHwmmkAO+vdyrc0iLuCr5couR8jZqwcdfd0=;
+        b=FIDMBW1n0uzFLAfzZMapagDFGKtlvlL71hDNaLt699Ig/qwQpk+rRmg6KkA2C5Q9CH
+         dA7CkamZJfbeDAuKMRK/s2xQ76ewh9C6aRqIxdCe/sWQ5aEG2XrcwL26+NmT1MU12P9V
+         RdDn2Sqfpk/P2rxqOnv7ADtqb+B86DAYXEn+I=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736767570; x=1737372370;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=u3hahkWocHwmmkAO+vdyrc0iLuCr5couR8jZqwcdfd0=;
+        b=D0C2Gv2f4IkyzZJJJtusiqZjInwQq1OzxCHwsoGNyjYW+sZlwWIZPlzghtHyQIpEBN
+         1h5kHJe6daqe4w4r9yDAKQ6jNisMeHzPtfGbVkRY5Pm/Ypm4KT983+lhxPYDzwv1GLaq
+         HZTN5UWBA0jisR04m9QDXaTvPKfgb3TMB4+A3l6shuULJhh5VcoM/8CnQh69gRa2OnYh
+         jK6UGOjhOEyPCBGFwp7VESvaPiJTMkHKX0txN+HyxKLXSK7LTAhwnjenTvQSODq39t79
+         5XrL5VLzOHf5w5bYQwEQNHl2PXI8kgdD2oKZNsR6oCAn5Bl3ZuTq5SMj/DJqTNX1JdjP
+         RdZA==
+X-Forwarded-Encrypted: i=1; AJvYcCWHMb1VPtRvOuOI6Ae2O5Uab+75kpehgRQ4nkzcYzMMwmTf0SfZY2qmeOC4EqZbNdwhGofX1EHKzyZzh+U9i336@lists.infradead.org
+X-Gm-Message-State: AOJu0YzpjyCsNgNqbkumN1iEsYEmhhmjJuB6L21gmEYRQKSjT8lNkam6
+	H11SxRdNJ6aMXv0HKOdKaNPdaBFKrx+EBkbitiWPhXzCG0+jc4A4lZiqoyXTZgO8lVxgx6/D+z0
+	=
+X-Gm-Gg: ASbGncvyql1AARlb+oWp9xZzolWYGvStLmw7Y7jKB5Oz04YtCZTP8dn8u4zRlQmP8oO
+	5kYCJd2sHeliOkY2NqVH0Sr+FFc0PJc7B8qPCKDz2qWRrH5n2u0hUF8Rv+9NgRUq91fTMFh2MVd
+	55miAgeuWSnZAmtYhbHIMjmsUcYf+F0AoHA3AXn4YXQS8xInHtbJU5JoB4FnDP3l8Hbi71WPuxe
+	Xh0S1gm/lSL2FSjsh5iphCl/BHHOS8/9hPP7PoNXua5v3+4eFVyt9uZwX60dGzwErt6Ub5fZsZA
+	A2zSTH6knV0r89hI
+X-Google-Smtp-Source: AGHT+IEg5+j1zCJjrHKbsBS5MrXju/MypUUJs21PmN2YlJ3bO/XZRZt+R66PgQS3sO0zj5PF7nXk1Q==
+X-Received: by 2002:a05:6102:d89:b0:4af:bf45:39a8 with SMTP id ada2fe7eead31-4b3d0f41da6mr15616059137.16.1736767570343;
+        Mon, 13 Jan 2025 03:26:10 -0800 (PST)
+Received: from mail-ua1-f49.google.com (mail-ua1-f49.google.com. [209.85.222.49])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-4b60916fe94sm4129569137.24.2025.01.13.03.26.08
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 13 Jan 2025 03:26:08 -0800 (PST)
+Received: by mail-ua1-f49.google.com with SMTP id a1e0cc1a2514c-85c15e283bfso861327241.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 03:26:08 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVUrh4RqA+V0mV5JKj/XOPM8mpcuF381009sVtGWbWN+n8I/ORbJ/OP6lBySlBfVo3aSobOioKviarlUShfPvhp@lists.infradead.org
+X-Received: by 2002:a05:6102:26d6:b0:4a3:ab95:9637 with SMTP id
+ ada2fe7eead31-4b3d0f1a897mr14365630137.12.1736767568272; Mon, 13 Jan 2025
+ 03:26:08 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] net: stmmac: qcom-ethqos: Enable RX programmable swap
- on qcs615
-To: Yijie Yang <quic_yijiyang@quicinc.com>, Vinod Koul <vkoul@kernel.org>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Jose Abreu <joabreu@synopsys.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Cc: netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20241225-support_10m100m-v1-0-4b52ef48b488@quicinc.com>
- <20241225-support_10m100m-v1-2-4b52ef48b488@quicinc.com>
- <4b4ef1c1-a20b-4b65-ad37-b9aabe074ae1@kernel.org>
- <278de6e8-de8f-458a-a4b9-92b3eb81fa77@quicinc.com>
- <df1e2fbd-7fae-4910-9908-10fdb78e4299@kernel.org>
- <e2625cfd-128c-4b56-a1c5-c0256db5c486@quicinc.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <e2625cfd-128c-4b56-a1c5-c0256db5c486@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250110123835.2719824-1-paul-pl.chen@mediatek.com>
+ <20250110123835.2719824-2-paul-pl.chen@mediatek.com> <0499ee04-0fcc-42e1-aab8-3cb8daa88c88@kernel.org>
+In-Reply-To: <0499ee04-0fcc-42e1-aab8-3cb8daa88c88@kernel.org>
+From: Fei Shao <fshao@chromium.org>
+Date: Mon, 13 Jan 2025 19:25:32 +0800
+X-Gmail-Original-Message-ID: <CAC=S1nionnQ=g-7Ys=D_iQegPebuPfOH5S9aOx73aVh987DMLA@mail.gmail.com>
+X-Gm-Features: AbW1kvai0eVMYu31zp3zyb5u2A5YMsTuoKfeRhXsuHOuCIeklBH2XCKHTQA_efQ
+Message-ID: <CAC=S1nionnQ=g-7Ys=D_iQegPebuPfOH5S9aOx73aVh987DMLA@mail.gmail.com>
+Subject: Re: [PATCH 01/12] dt-bindings: arm: mediatek: mmsys: add compatible
+ for MT8196
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: "paul-pl.chen" <paul-pl.chen@mediatek.com>, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, chunkuang.hu@kernel.org, 
+	angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com, 
+	p.zabel@pengutronix.de, jason-jh.lin@mediatek.com, nancy.lin@mediatek.com, 
+	singo.chang@mediatek.com, xiandong.wang@mediatek.com, 
+	sirius.wang@mediatek.com, sunny.shen@mediatek.com, treapking@chromium.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, 
+	Project_Global_Chrome_Upstream_Group@mediatek.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_032610_179020_0FD9E37F 
-X-CRM114-Status: GOOD (  20.59  )
+X-CRM114-CacheID: sfid-20250113_032612_043941_810D9129 
+X-CRM114-Status: GOOD (  14.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,71 +114,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/01/2025 11:33, Yijie Yang wrote:
-> 
-> 
-> On 2024-12-27 15:03, Krzysztof Kozlowski wrote:
->> On 26/12/2024 03:29, Yijie Yang wrote:
->>>
->>>
->>> On 2024-12-25 19:37, Krzysztof Kozlowski wrote:
->>>> On 25/12/2024 11:04, Yijie Yang wrote:
->>>>
->>>>>    static int qcom_ethqos_probe(struct platform_device *pdev)
->>>>>    {
->>>>> -	struct device_node *np = pdev->dev.of_node;
->>>>> +	struct device_node *np = pdev->dev.of_node, *root;
->>>>>    	const struct ethqos_emac_driver_data *data;
->>>>>    	struct plat_stmmacenet_data *plat_dat;
->>>>>    	struct stmmac_resources stmmac_res;
->>>>> @@ -810,6 +805,15 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
->>>>>    	ret = of_get_phy_mode(np, &ethqos->phy_mode);
->>>>>    	if (ret)
->>>>>    		return dev_err_probe(dev, ret, "Failed to get phy mode\n");
->>>>> +
->>>>> +	root = of_find_node_by_path("/");
->>>>> +	if (root && of_device_is_compatible(root, "qcom,sa8540p-ride"))
->>>>
->>>>
->>>> Nope, your drivers are not supposed to poke root compatibles. Drop and
->>>> fix your driver to behave correctly for all existing devices.
->>>>
->>>
->>> Since this change introduces a new flag in the DTS, we must maintain ABI
->>> compatibility with the kernel. The new flag is specific to the board, so
->>
->> It's not, I don't see it specific to the board in the bindings.
-> 
-> I'm sorry for the confusion. This feature is not board-specific but 
-> rather a tunable option. All RGMII boards can choose whether to enable 
-> this bit in the DTS, so there are no restrictions in the binding.
+On Fri, Jan 10, 2025 at 8:58=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.or=
+g> wrote:
+>
+> On 10/01/2025 13:33, paul-pl.chen wrote:
+> > From: "Paul-pl.Chen" <paul-pl.chen@mediatek.com>
+> >
+> > Add compatible for mmsys yaml of MT8196
+> >
+> > Signed-off-by: Paul-pl.Chen <paul-pl.chen@mediatek.com>
+>
+>
+> This is a wide pattern now in Mediatek: login name is used as family
+> name. Repeating the same comment to every Mediatek employee is a bit
+> tedious, so maybe you could fix it internally?
+>
+> Create some guideline for your colleagues so you won't repeat the same
+> things over and over?
 
-If it is not specific to the board, I don't see why this cannot be
-implied by compatible.
+Not a guarantee that this will go away once and for all, but I can
+ping some MediaTek folks via a separate channel, and hopefully they
+can amplify this message internally.
 
-> 
->>
->>> I need to ensure root nodes are matched to allow older boards to
->>> continue functioning as before. I'm happy to adopt that approach if
->>> there are any more elegant solutions.
->>
->> I don't think you understood the problem. Why you are not handling this
->> for my board, sa8775p-rideX and sa8225-pre-ride-yellow-shrimp?
->>
-> 
-> This feature is specifically for RGMII boards. The driver won't enable 
+Regards,
+Fei
 
-So board specific?
-
-> this bit if the DTS doesn't specify it. To handle compatibility, we need 
-
-Do not describe us how drivers and DTS work. We all know.
-
-> to identify legacy RGMII boards with MAC versions greater or equal to 3 
-> which require this bit to be enabled.
-> According to my knowledge, the SA8775P is of the SGMII type.
-
-
-Best regards,
-Krzysztof
+>
+> Best regards,
+> Krzysztof
 
