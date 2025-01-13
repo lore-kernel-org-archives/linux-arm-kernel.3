@@ -4,95 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AD67C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 17:52:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D29B0C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 17:55:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+V4+ss7VmfFv1ZzmIjUW4cCV/+dSLMs2iLGWhoJnQnc=; b=veucBM20bBbQDXdWhzyvI1UrXB
-	eqe0iPP3Dwsar3448fiaRZ5OBbTGjAU36iYry3kOZzFGwmyHdqFMfkPOnIIi/mXgkKi0/vXA3Vyig
-	NGmR1+Vp+A6i7EsAsxMtWfzbM6t78MCeriM3jOCZHmHunAu4/+mI/pzqb7L7Ipg60Bl/WYMP7H/nQ
-	msmpv4SWPNO7qpGKD/5G3JEYdv20KTCeQWbgVmGKGugn4bKo1MxBlmH7gKpeeS//ZZgxi2nPLfznf
-	OqdyOaUMGOgXX3HG3iNptzL5KzgzbeIcpHscYG7KKOs7YYYabjjmFYXSLmTWoKXcEpcnMf9fsZJok
-	Mu0NDScg==;
+	bh=8t4PmpW1xAxaZBSiQ+U5aJRZbcC7Oj+dB2snQB8pfj4=; b=HHHpQnHnjTgkLdkyWAP1qCcEzd
+	e3h+5r17QwJahA16GiSIGI/uw/OxSMzTZxgkIxTdK26y/RN9xoYBGOHr09Jt1zduLdutFVRJgTPtA
+	U+0G0/HLewXShCglh1pF2MAx5V9STWF2A3mnTsGRJWKl6IBHeQ77KJlY218UNn/NU81R9jzVMRizN
+	0lMGaBJVLtPiZv0oIoPjUD/zccJMigY30A4thEPuuMaliLEZNMW5bk2twDFZ/bYoT93CQC8tYMt9s
+	D0E3pxMzPm+futeGKCHl/dutYNTYklrBfg5uVaSk2z1Cm8ACqm7P/bfmYt65IqRDWuUDPq1DJE197
+	wbyhywFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXObU-000000066Su-1Vnz;
-	Mon, 13 Jan 2025 17:51:56 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXOaE-000000066HH-0FcX
+	id 1tXOf3-000000067av-3wiE;
+	Mon, 13 Jan 2025 17:55:37 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tXOdo-000000067F2-0yrQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 17:50:40 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-385deda28b3so2584141f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 09:50:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1736790636; x=1737395436; darn=lists.infradead.org;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=+V4+ss7VmfFv1ZzmIjUW4cCV/+dSLMs2iLGWhoJnQnc=;
-        b=BG7FK4YW2mOLK2PdopyWpQKLlJVPQky+hdkk8aRnmlSX2ugGJMyJfTpOSLQm3oikmr
-         tQfKepeJXOWIUWawKiNOIQLRPgD8i8N4mDx7tBaHBSsbKDZY+pqQu28FoPMsXZAi0lMT
-         kspyi/R+OgIFgJYpfePrmqYW+WDmblbEcXjkZnhW1X6be14Npi0BpXALT2s/GGQ3TTtb
-         GyBy8ofi86jg8mQl7S1QQlZzqvZ4KGXR2/wjS4qgixG89zMABQliv9tp/Z5Uh/i2obXE
-         OSxgrd0pTnzC60NtJoIuCErWRzv1cJqqq2iKooobq+orEuAqoOaiIoFp8V0eF1qwyvOI
-         3tfA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736790636; x=1737395436;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+V4+ss7VmfFv1ZzmIjUW4cCV/+dSLMs2iLGWhoJnQnc=;
-        b=QWRMRE39K44A4icMNDDFlKqpf1EfeFbtuZ89MDs3z/BJMHD0bvpHHJts3XGFTI0T0y
-         gxMe5mntxw19HUD/b1V32xdDb3xZqu9ToP3Hyuofr375LCkECR1bT4ZLAJWvBwBqV17n
-         mgLvjXs+tum3mYBzvGtGfPpr3tUiApsdFzGtYf9siCf3nc+iLu88sIGvwvL8Y3wGdobM
-         XvVq5AoVD0TATNA5+uuY+uGhPFhN43E1lIQjfTxQr+cZzxn+HVo7gbhNq/94Fb/Me/JN
-         t4FRA561bjYkj3NoYo+y+/D5PQumvFtIJhIZUMoBlwwkP7WR/nLADOln4kSxiWtZRB11
-         OWcA==
-X-Forwarded-Encrypted: i=1; AJvYcCURdkMbqDrPA3qas+ApnwygqDSvR/JF+nIHasiq3jtQ9QmRCTdrBh8uAlXCdfs3fSMpipP0HVu610tU64NeOkVV@lists.infradead.org
-X-Gm-Message-State: AOJu0YwxlMbsGJ3hi4iDPggFlLohsdhsxiCwNAiiNqNEsgwHdZhoHuJS
-	x9ZggR4RqbmRBsdiZm0YtQKRIxM4/4gGbhk6Trxf6veZkjDF1qvdO3AyHu7l9D0=
-X-Gm-Gg: ASbGncuTxTMgsUTDvsaAlMi6wO7uzjqOb7sZxAl2Fyem2bnuk3XfC2CEASbcl1yW7WN
-	luv3NFPRAVzHPq12XpLJOMs9L+x7SZ6edc7dLqhRaaA4wG8xknM4TpoyPddCH2dFL27h77b/39H
-	BdFHktUcJDcVgtJfSXXtz5hhilRNqrV9UE69RDxY/WugF0+/9RafwcUfUGjwspnisylmyxh9Lky
-	vgX5JfRHgAmFCcD8PLxYiRh285FlgQgthCeTPauSCGld8Ffz5A5lfey
-X-Google-Smtp-Source: AGHT+IHoW/dJXXFDIaypQq5flb4uL8n3vMd3OOwNi9RrzsjX+joUmbyw1Xx/wzp9vW06KectOo11Ig==
-X-Received: by 2002:a05:6000:4020:b0:385:e3c1:50d5 with SMTP id ffacd0b85a97d-38a87338fa8mr22388141f8f.48.1736790636460;
-        Mon, 13 Jan 2025 09:50:36 -0800 (PST)
-Received: from localhost ([2a01:e0a:3c5:5fb1:9d2d:28cc:aafd:8429])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a8e383df8sm12973781f8f.38.2025.01.13.09.50.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jan 2025 09:50:35 -0800 (PST)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Rob Herring <robh@kernel.org>
-Cc: Jian Hu <jian.hu@amlogic.com>,  Xianwei Zhao <xianwei.zhao@amlogic.com>,
-  Chuan Liu <chuan.liu@amlogic.com>,  Neil Armstrong
- <neil.armstrong@linaro.org>,  Kevin Hilman <khilman@baylibre.com>,
-  Stephen Boyd <sboyd@kernel.org>,  Michael Turquette
- <mturquette@baylibre.com>,  Dmitry Rokosov <ddrokosov@sberdevices.ru>,
-  devicetree <devicetree@vger.kernel.org>,  linux-clk
- <linux-clk@vger.kernel.org>,  linux-amlogic
- <linux-amlogic@lists.infradead.org>,  linux-kernel
- <linux-kernel@vger.kernel.org>,  linux-arm-kernel
- <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v2 1/5] dt-bindings: clock: add Amlogic T7 PLL clock
- controller
-In-Reply-To: <20250110155404.GA2928945-robh@kernel.org> (Rob Herring's message
-	of "Fri, 10 Jan 2025 09:54:04 -0600")
-References: <20250108094025.2664201-1-jian.hu@amlogic.com>
-	<20250108094025.2664201-2-jian.hu@amlogic.com>
-	<20250110155404.GA2928945-robh@kernel.org>
-User-Agent: mu4e 1.12.7; emacs 29.4
-Date: Mon, 13 Jan 2025 18:50:35 +0100
-Message-ID: <1j4j228uxg.fsf@starbuckisacylon.baylibre.com>
+	Mon, 13 Jan 2025 17:54:22 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8609A12FC;
+	Mon, 13 Jan 2025 09:54:44 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 459913F66E;
+	Mon, 13 Jan 2025 09:54:14 -0800 (PST)
+Date: Mon, 13 Jan 2025 17:54:03 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Sudeep Holla <sudeep.holla@arm.com>,
+	Ranjani Vaidyanathan <ranjani.vaidyanathan@nxp.com>
+Cc: Peng Fan <peng.fan@nxp.com>, "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
+	"cristian.marussi@arm.com" <cristian.marussi@arm.com>,
+	"ulf.hansson@linaro.org" <ulf.hansson@linaro.org>,
+	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [EXT] Re: [PATCH] pmdomain: arm: scmi_pm_domain: Initialize
+ state as off
+Message-ID: <Z4VTO9mowkMfpZiI@pluto>
+References: <20250110061346.2440772-1-peng.fan@oss.nxp.com>
+ <Z4TreQ5bA9qiMTgC@bogus>
+ <PAXPR04MB8459F33BCC84CCA8F49F3B60881F2@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <Z4UZ2Au7KSFMibDW@bogus>
+ <PA4PR04MB94855052830C8F4874237BA6921F2@PA4PR04MB9485.eurprd04.prod.outlook.com>
+ <Z4VLZgAWR7ugDl7W@bogus>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z4VLZgAWR7ugDl7W@bogus>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_095038_308933_ECF0C1CE 
-X-CRM114-Status: GOOD (  22.30  )
+X-CRM114-CacheID: sfid-20250113_095420_354836_D55BA715 
+X-CRM114-Status: GOOD (  36.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,224 +74,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri 10 Jan 2025 at 09:54, Rob Herring <robh@kernel.org> wrote:
+On Mon, Jan 13, 2025 at 05:20:38PM +0000, Sudeep Holla wrote:
+> On Mon, Jan 13, 2025 at 03:30:58PM +0000, Ranjani Vaidyanathan wrote:
+> > -----Original Message-----
+> > From: Sudeep Holla [mailto:sudeep.holla@arm.com]
+> > Sent: Monday, January 13, 2025 7:49 AM
+> > To: Peng Fan <peng.fan@nxp.com>
+> > Cc: Peng Fan (OSS) <peng.fan@oss.nxp.com>; cristian.marussi@arm.com; Sudeep Holla <sudeep.holla@arm.com>; ulf.hansson@linaro.org; arm-scmi@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-pm@vger.kernel.org; linux-kernel@vger.kernel.org; Ranjani Vaidyanathan <ranjani.vaidyanathan@nxp.com>
+> > Subject: [EXT] Re: [PATCH] pmdomain: arm: scmi_pm_domain: Initialize state as off
+> >
+> > On Mon, Jan 13, 2025 at 11:37:23AM +0000, Peng Fan wrote:
+> > > > Subject: Re: [PATCH] pmdomain: arm: scmi_pm_domain: Initialize state
+> > > > as off
+> > > >
+> > > > On Fri, Jan 10, 2025 at 02:13:46PM +0800, Peng Fan (OSS) wrote:
+> > > > > From: Peng Fan <peng.fan@nxp.com>
+> > > > >
+> > > > > Per ARM SCMI Spec DEN0056E, page 16, "The platform may disable a
+> > > > > resource if no agent has requested to use that resource."
+> > > > >
+> > > >
+> > > > True, but ...
+> > > >
+> > > > > Linux Kernel should not rely on a state that it has not requested,
+> > > > > so make state as off during initialization.
+> > > > >
+> > > >
+> > > > IIUC, this was done to avoid any transitions if the bootloader like
+> > > > U- Boot has turned on the resource and OS can just rely on that stay.
+> > >
+> > > But if it is not U-Boot turned it on?
 
-> On Wed, Jan 08, 2025 at 05:40:21PM +0800, Jian Hu wrote:
->> Add DT bindings for the PLL clock controller of the Amlogic T7 SoC family.
->> 
->> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
->> ---
->>  .../bindings/clock/amlogic,t7-pll-clkc.yaml   | 103 ++++++++++++++++++
->>  .../dt-bindings/clock/amlogic,t7-pll-clkc.h   |  57 ++++++++++
->>  2 files changed, 160 insertions(+)
->>  create mode 100644 Documentation/devicetree/bindings/clock/amlogic,t7-pll-clkc.yaml
->>  create mode 100644 include/dt-bindings/clock/amlogic,t7-pll-clkc.h
->> 
->> diff --git
->> a/Documentation/devicetree/bindings/clock/amlogic,t7-pll-clkc.yaml
->> b/Documentation/devicetree/bindings/clock/amlogic,t7-pll-clkc.yaml
->> new file mode 100644
->> index 000000000000..fd0323678d37
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/clock/amlogic,t7-pll-clkc.yaml
->> @@ -0,0 +1,103 @@
->> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
->> +# Copyright (C) 2024 Amlogic, Inc. All rights reserved
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/clock/amlogic,t7-pll-clkc.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: Amlogic T7 PLL Clock Control Controller
->> +
->> +maintainers:
->> +  - Neil Armstrong <neil.armstrong@linaro.org>
->> +  - Jerome Brunet <jbrunet@baylibre.com>
->> +  - Jian Hu <jian.hu@amlogic.com>
->> +  - Xianwei Zhao <xianwei.zhao@amlogic.com>
->> +
->> +if:
->
-> Move this after 'required' section.
->
-> Generally we put 'if' under 'allOf' because we're likely to have another 
-> if/then schema on the next compatible added. If you don't think this 
-> binding will ever get used on another chip, then it is fine as-is.
->
->> +  properties:
->> +    compatible:
->> +      contains:
->> +        const: amlogic,t7-pll-mclk
->> +
->> +then:
->> +  properties:
->> +    clocks:
->> +      items:
->> +        - description: mclk pll input oscillator gate
->> +        - description: 24M oscillator input clock source for mclk_sel_0
->> +        - description: fix 50Mhz input clock source for mclk_sel_0
+Hi Sudeep, Ranjani,
 
-The rate is whatever the clock will actually be. Better not to mention
-it in this doc.
+> >
+> > Not sure if I understand what exactly you mean by that.
+> > [RV] Its possible that some other agent (M33/M7 running OS) in the system
+> > turned on the power domain. Resources in the same power domain can shared
+> > across agents.  That being said, uboot provides mechanism to clean up any
+> > power domains/clocks that it enabled. And our implementation of uboot does
+> > disable any power domain it powered up for downloading of images or anything
+> > else (display is a unique case if splash screen is enabled).
+> >
+> 
 
->> +
->> +    clock-names:
->> +      items:
+So, RV,  you are saying that the your UBoot is cleanly releasing/turning_OFF all
+the resources that it claimed during its life before giving control to
+Linux (sicne no more needed) BUT some other agent in the system has requested
+that resource to be ON, so when Linux query the status of the resources it sees
+it as ON since it sees the physical real status of the resource ?
 
-one being "input" and other suffixed "_in" looks really odd
+If this is the case, I suspected this was the issue, and I will address these
+scenario in a separate mail on this thread that I was already in the middle of
+writing....
 
->> +        - const: input
->> +        - const: mclk_in0
->> +        - const: mclk_in1
+> Right I was referring to the display as one of the example when I referred
+> to the case where bootloader turns on the resource.
+> 
+> > >
+> > > Because the power domain is ON, kernel will not issue SCMI to platform
+> > > to request it ON when kernel needs this power domain on.
+> > >
+> >
+> > Yes, but the agent(via bootloader) has already requested the SCMI platform,
+> > so it should be fine. No ?
+> > [RV] As mentioned above, it need not be the bootloader. And secondly how to
+> > handle this power domain during suspend/resume? It's possible that the agent
+> > that turned on the power domain initially will have different wakeup
+> > requirements. IMO Linux should completely be responsible for the power
+> > domains that the drivers need.
+> >
+> 
+> May be I am still missing something. The genpd framework does issue power
+> down of all the PD that are not used once we boot. Is that not sufficient.
+> We are just not changing the pd state when initialising the genpds.
+> Is that causing the issue ? I was under the impression that it shouldn't
+> matter if the driver manages the genpds they consume and all unused ones
+> get turned off eventually.
 
-or just in0, in1, in2 if you are going with Rob's suggestion.
-Having "mclk_" in the top level would be confusing.
+I think GenPD turns off unused PD domains ONLY if pd_ignore_unused
+kernel-param is false, BUT it is true by default AFAICS.
 
->
-> Move these to top-level and then both of these are just 'minItems: 3'.
->
->> +
->> +else:
->> +  properties:
->> +    clocks:
->> +      items:
->> +        - description: pll input oscillator gate
->> +
->> +    clock-names:
->> +      items:
->> +        - const: input
->
-> And 'maxItems: 1' here.
->
->> +
->> +properties:
->> +  compatible:
->> +    enum:
->> +      - amlogic,t7-pll-gp0
->> +      - amlogic,t7-pll-gp1
->> +      - amlogic,t7-pll-hifi
->> +      - amlogic,t7-pll-pcie
->> +      - amlogic,t7-mpll
->> +      - amlogic,t7-pll-hdmi
->> +      - amlogic,t7-pll-mclk
->> +
->> +  reg:
->> +    maxItems: 1
->> +
->> +  '#clock-cells':
->> +    const: 1
->> +
->> +  clocks:
->> +    minItems: 1
->> +    maxItems: 3
->> +
->> +  clock-names:
->> +    minItems: 1
->> +    maxItems: 3
->
-> These are the 'top-level' definitions if that's not clear.
->
->> +
->> +required:
->> +  - compatible
->> +  - '#clock-cells'
->> +  - reg
->> +  - clocks
->> +  - clock-names
->> +
->> +additionalProperties: false
->> +
->> +examples:
->> +  - |
->> +    apb {
->> +        #address-cells = <2>;
->> +        #size-cells = <2>;
->> +
->> +        clock-controller@8080 {
->> +            compatible = "amlogic,t7-pll-gp0";
->> +            reg = <0 0x8080 0 0x20>;
->> +            clocks = <&scmi_clk 2>;
->> +            clock-names = "input";
->> +            #clock-cells = <1>;
->> +        };
->> +
->> +        clock-controller@8300 {
->> +            compatible = "amlogic,t7-pll-mclk";
->> +            reg = <0 0x8300 0 0x18>;
->> +            clocks = <&scmi_clk 2>,
->> +                     <&xtal>,
->> +                     <&scmi_clk 31>;
->> +            clock-names = "input", "mclk_in0", "mclk_in1";
->> +            #clock-cells = <1>;
->> +        };
->> +    };
->> diff --git a/include/dt-bindings/clock/amlogic,t7-pll-clkc.h b/include/dt-bindings/clock/amlogic,t7-pll-clkc.h
->> new file mode 100644
->> index 000000000000..e88c342028db
->> --- /dev/null
->> +++ b/include/dt-bindings/clock/amlogic,t7-pll-clkc.h
->> @@ -0,0 +1,57 @@
->> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
->> +/*
->> + * Copyright (c) 2024 Amlogic, Inc. All rights reserved.
->> + * Author: Jian Hu <jian.hu@amlogic.com>
->> + */
->> +
->> +#ifndef __T7_PLL_CLKC_H
->> +#define __T7_PLL_CLKC_H
->> +
->> +/* GP0 */
->> +#define CLKID_GP0_PLL_DCO	0
->> +#define CLKID_GP0_PLL		1
->> +
->> +/* GP1 */
->> +#define CLKID_GP1_PLL_DCO	0
->> +#define CLKID_GP1_PLL		1
->> +
->> +/* HIFI */
->> +#define CLKID_HIFI_PLL_DCO	0
->> +#define CLKID_HIFI_PLL		1
->> +
->> +/* PCIE */
->> +#define CLKID_PCIE_PLL_DCO	0
->> +#define CLKID_PCIE_PLL_DCO_DIV2	1
->> +#define CLKID_PCIE_PLL_OD	2
->> +#define CLKID_PCIE_PLL		3
->> +
->> +/* MPLL */
->> +#define CLKID_MPLL_PREDIV	0
->> +#define CLKID_MPLL0_DIV		1
->> +#define CLKID_MPLL0		2
->> +#define CLKID_MPLL1_DIV		3
->> +#define CLKID_MPLL1		4
->> +#define CLKID_MPLL2_DIV		5
->> +#define CLKID_MPLL2		6
->> +#define CLKID_MPLL3_DIV		7
->> +#define CLKID_MPLL3		8
->> +
->> +/* HDMI */
->> +#define CLKID_HDMI_PLL_DCO	0
->> +#define CLKID_HDMI_PLL_OD	1
->> +#define CLKID_HDMI_PLL		2
->> +
->> +/* MCLK */
->> +#define CLKID_MCLK_PLL_DCO	0
->> +#define CLKID_MCLK_PRE		1
->> +#define CLKID_MCLK_PLL		2
->> +#define CLKID_MCLK_0_SEL	3
->> +#define CLKID_MCLK_0_DIV2	4
->> +#define CLKID_MCLK_0_PRE	5
->> +#define CLKID_MCLK_0		6
->> +#define CLKID_MCLK_1_SEL	7
->> +#define CLKID_MCLK_1_DIV2	8
->> +#define CLKID_MCLK_1_PRE	9
->> +#define CLKID_MCLK_1		10
->> +
->> +#endif /* __T7_PLL_CLKC_H */
->> -- 
->> 2.47.1
->> 
-
--- 
-Jerome
+Thanks,
+Cristian
 
