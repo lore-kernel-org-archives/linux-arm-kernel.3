@@ -4,81 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11427E7719F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 12:18:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9BD9E7719F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 12:24:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h/I8ofgS/1dP08mnYQl4u8YsIuLHQEi0Cj5vHjiYV6k=; b=O3cwOnTMRPJhXfjVwP9w/6xijm
-	xfmz2AAuVRXUSpP84Rnun9xv6fwABezTdmcuXsYjsRftL9oTBv2KSWrxSo3bR594e5EQ6Ibx+ikO2
-	GoEHiuwyf4MRh+YfeJcdW5JJR4xmuN1b5x+kXX+b/87mAYZBVETjuhV0uKQ/7PKnWhqGr2gfhlPY+
-	GlO5W81T3nZD/sKRCk7cl0grdFR7SM0fIG3XHzhw/tX9icvt+aSFvAHt9PXab4PgoOk3/C51z5I3C
-	fc2eopQkJeA84coG+r2JNWzSiUo19MX/KA7K+uelU/5Tisna18l7QED30sGD3PNLX+2v7HzKeitNq
-	9AMRSxMQ==;
+	bh=yNtWlbuRALowbs7LIfJF5Me+LBBi+cNfwLP2FF5ZLd4=; b=Axkc5aJZ13OA8jr1S/01qH7J6L
+	LedRhoq6Mk3MQaDF9x9Tv+iFP+MaHGQ9PdO1PUpFfGnlLu7CxUJ1olyKJlZpTO3fgNZaC6IqDdQfB
+	3uPulc3aarfVsuhMhOhLcJx9tq392b8jTv2aFtSGWp9UaIe4+bdotmostMbrMRDYrFkTv/1T4ZJQc
+	CqjYW9JtSxYtNY45s/CtT+Pup/VWguYaG2lB6T2EHknmy8pGxS6y5vDIOYtWhBZfsodW7EvXZfonw
+	Jn2sxVroaeC3SYIywFHteHd+QX5qa8FwqrOYvbFYqsRcu6ooO9YKaC9lgdJCpcqvAA2VJYzpUrT7M
+	M1QjWUPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXJOa-000000053wC-06Bb;
-	Mon, 13 Jan 2025 12:18:16 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1tXJU3-000000055aB-2rC9;
+	Mon, 13 Jan 2025 12:23:55 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXJNK-000000053dD-2EBz
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 12:17:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1736770618; x=1768306618;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=h/I8ofgS/1dP08mnYQl4u8YsIuLHQEi0Cj5vHjiYV6k=;
-  b=XpbXElht8CJeAGtpPaQpQIJ/iKnY6Fe8cJpdZ9/px+uZSelUDyMFbm2I
-   tGSnQ95CCGpjrU7LQRFsrrbLikgvviv0xx8cnJXUSyACgpfGId28Zt4aO
-   8x64cWTI0MtGf6bsfEQukOHvvO8vkDDd5KlrmdeMlk8RZVzT/gl97wlSb
-   VQStB8Sm9jtS4fH4Yml2YnUrWV22oI9hyX00yWujyfqeoSyML6e2UZz45
-   Ur0URhUr2WW4PzOFnHt3LIUeCigM2KYz6dUHxyUgwyGSXfhhdepPKhJXN
-   YGnzY9C6si0EIVZbVT1Ifepk3ZvPUrXbtq/p+8ILmn0lycwsBoz9ijffI
+	id 1tXJSp-000000055MD-1Zes;
+	Mon, 13 Jan 2025 12:22:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1736770959; x=1768306959;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=stEywmXG1laYnRzODs69aFGDvg28c4l68K3KGTA7Rvo=;
+  b=HA+mCuXd8hMVXP+Q4cZCSucY3jNVy16d0KPgdZjb5driasJMBNtHfX4z
+   5LCbtX1wXKxwGP3jgwvtLX0/07mYVxPRZHZ5/IYdIMTRWUzk0A7yJnojq
+   J2HIx+OnMlIrlVSGb2VXJJT8TZndJrbYE1Rs0nYtiKCn0AJ3tDwQcr1/s
+   Bx2GXjjeZ9chp+lOjrk/TzT3XiDaz2FJ4WOjb8nrWdRQ1loN4UDa4QqXh
+   8KX5Dox6gyBfq33J4sC0LXEKNZdqBnZjPlvlKtyHuquozjQObbloRYzw1
+   1BnYYJgReMmN/rAg820O/E5QFZ/1ky62yXt2VwFEpAUejEA5sZ+5wPLBX
    g==;
-X-CSE-ConnectionGUID: 1qdIUrH+QMyWDUbbj50IAQ==
-X-CSE-MsgGUID: EUfQ4QiHQJW34iNFwyctOg==
-X-IronPort-AV: E=Sophos;i="6.12,310,1728943200"; 
-   d="scan'208";a="41016138"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 13 Jan 2025 13:16:53 +0100
-X-CheckPoint: {67850435-31-1CE016C0-E589DA3E}
-X-MAIL-CPID: 120C5A0C0DE13FDF760E80BE027CE42F_1
-X-Control-Analysis: str=0001.0A682F27.67850436.001E,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 09A9D16126B;
-	Mon, 13 Jan 2025 13:16:47 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1736770609;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=h/I8ofgS/1dP08mnYQl4u8YsIuLHQEi0Cj5vHjiYV6k=;
-	b=Ac7C9uQCZ35A/+fQR7yoeb9o+uj1ZH9FqfqxRd7hKAgFaWh/j+iTwniqK8GbVh57j87e9d
-	yjYbycnZ4bUgeunosg5mLFOHd8hvvjNeJaGVzdkt3Un8CQ+wj9i4KIuskUtbjNkTD10xrX
-	3BoV4+gVy2z4jbviap+kygofq0nUFr7GFLMo7tx8Ap0/PNPHEYqa20+RA2laaFtgxc+djW
-	HKmzaECbg4tm2aJat6yqYki94rj3B4cGHhRV6DawPB6wWciNI3cmkAqHFELOJq8KtSG8pj
-	H7DFC3wwhqJ7AfQSqrkfj6Avw4rD5mGCaa1NE2/nOwjVzJtWNCwB0Et+q2I22A==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Peng Fan <peng.fan@nxp.com>
-Cc: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v5 2/2] nvmem: imx-ocotp-ele: Support accessing controller for i.MX9
-Date: Mon, 13 Jan 2025 13:16:48 +0100
-Message-ID: <4956524.GXAFRqVoOG@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <DB9PR04MB84615C152538FD411F462B19881D2@DB9PR04MB8461.eurprd04.prod.outlook.com>
-References: <20250108-imx-ocotp-v5-0-a6d90e18ebe9@nxp.com> <868241455.0ifERbkFSE@steina-w> <DB9PR04MB84615C152538FD411F462B19881D2@DB9PR04MB8461.eurprd04.prod.outlook.com>
+X-CSE-ConnectionGUID: UV6Uenb4TdOcqHJ1kgJFTw==
+X-CSE-MsgGUID: iTJLLCR/TXOLqRy7c3q91g==
+X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="47695718"
+X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
+   d="scan'208";a="47695718"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jan 2025 04:22:38 -0800
+X-CSE-ConnectionGUID: ogta3rT+TIGgYDeY4fP/6w==
+X-CSE-MsgGUID: l0qv6h4BSKS//whYdBgmHQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="127720416"
+Received: from black.fi.intel.com ([10.237.72.28])
+  by fmviesa002.fm.intel.com with ESMTP; 13 Jan 2025 04:22:31 -0800
+Received: by black.fi.intel.com (Postfix, from userid 1000)
+	id 0E7E039C; Mon, 13 Jan 2025 14:22:29 +0200 (EET)
+Date: Mon, 13 Jan 2025 14:22:29 +0200
+From: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+To: Borislav Petkov <bp@alien8.de>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+	Andy Lutomirski <luto@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexei Starovoitov <ast@kernel.org>, Andrea Parri <parri.andrea@gmail.com>, 
+	Arnd Bergmann <arnd@arndb.de>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Eric Chan <ericchancf@google.com>, Jason Gunthorpe <jgg@ziepe.ca>, Kai Huang <kai.huang@intel.com>, 
+	Kefeng Wang <wangkefeng.wang@huawei.com>, Kent Overstreet <kent.overstreet@linux.dev>, 
+	Palmer Dabbelt <palmer@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Russell King <linux@armlinux.org.uk>, Samuel Holland <samuel.holland@sifive.com>, 
+	Suren Baghdasaryan <surenb@google.com>, Yuntao Wang <ytcoode@gmail.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Tom Lendacky <thomas.lendacky@amd.com>, Ashish Kalra <ashish.kalra@amd.com>, 
+	"Maciej W. Rozycki" <macro@orcam.me.uk>
+Subject: Re: [PATCHv2 2/2] x86/mm: Make memremap(MEMREMAP_WB) map memory as
+ encrypted by defaultk
+Message-ID: <frry56jwxk6cpesuk4u5mcnkaxq3c4xqhdi52irdvabwtn5smt@t2tudprmocs4>
+References: <20241021105723.2707507-1-kirill.shutemov@linux.intel.com>
+ <20241021105723.2707507-3-kirill.shutemov@linux.intel.com>
+ <20241118164616.GAZztvWGs9cOV8t20_@fat_crate.local>
+ <s4frmqwtuvclinuu7ttyzfpe7bj7hju5xgt6sxzy3gyt3prr62@rrgvhkv4lgwv>
+ <20241121114952.GCZz8eYEVa3yubYQzO@fat_crate.local>
+ <bz3vlh3lri7yfckdkddopwhsgvkmizhw5q6ecomgeba7q22ufp@ntu2kugiho4o>
+ <ejh2llcaxahkgz3k2ji3b35dfdss3bfgztyhsfgtu6adejasr7@ajehr7ac3bp3>
+ <20250113103238.GCZ4TrxlX-VbHLkoNo@fat_crate.local>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250113103238.GCZ4TrxlX-VbHLkoNo@fat_crate.local>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_041659_065400_CACCFE13 
-X-CRM114-Status: GOOD (  25.10  )
+X-CRM114-CacheID: sfid-20250113_042239_423683_35771CDE 
+X-CRM114-Status: GOOD (  13.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,71 +103,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Mon, Jan 13, 2025 at 11:32:38AM +0100, Borislav Petkov wrote:
+> On Mon, Jan 13, 2025 at 12:03:22PM +0200, Kirill A. Shutemov wrote:
+> > Borislav,
+> > 
+> > Is there anything I need to do to get this patchset merged?
+> 
+> Your updated commit message here:
+> 
+> https://lore.kernel.org/r/bz3vlh3lri7yfckdkddopwhsgvkmizhw5q6ecomgeba7q22ufp@ntu2kugiho4o
+> 
+> Reads better, yes.
+> 
+> > This change fixes the crash on kexec in TDX guests if CONFIG_EISA is
+> > enabled.
+> 
+> s/This change fixes/Fix/
+> 
+> In imperative tone pls.
 
-Am Samstag, 11. Januar 2025, 13:41:58 CET schrieb Peng Fan:
-> > Subject: Re: [PATCH v5 2/2] nvmem: imx-ocotp-ele: Support accessing
-> > controller for i.MX9
-> >=20
-> > Hi,
-> >=20
-> > Am Donnerstag, 9. Januar 2025, 04:34:18 CET schrieb Peng Fan:
-> > > On Wed, Jan 08, 2025 at 11:15:40AM +0100, Alexander Stein wrote:
-> > > >Hi Peng,
-> > > >
-> > > >Am Mittwoch, 8. Januar 2025, 08:00:18 CET schrieb Peng Fan (OSS):
-> > > >> From: Peng Fan <peng.fan@nxp.com>
-> > > >>
-> > > >> i.MX9 OCOTP supports a specific peripheral or function being
-> > fused
-> > > >> which means disabled, so
-> > > >>  - Introduce ocotp_access_gates to be container of efuse gate info
-> > > >>  - Iterate all nodes to check accessing permission. If not
-> > > >>    allowed to be accessed, detach the node
-> > > >>
-> > > >> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> > > >> ---
-> > > >>  drivers/nvmem/imx-ocotp-ele.c | 172
-> > > >> +++++++++++++++++++++++++++++++++++++++++-
-> > > >>  1 file changed, 171 insertions(+), 1 deletion(-)
-> > > >>
-> > > [....]
-> > > >> +
-> > > >> +	return imx_ele_ocotp_access_control(priv);
-> > > >
-> > > >In [1] you mentioned devlink should solve the probe order. How
-> > does
-> > > >this play when the driver is compiled in (e.g. ethernet for NFS boot)
-> > > >but this OCOTP driver is just a module?
-> > >
-> > > OCOTP needs to built in for using devlink. Or the users needs to be
-> > > built as module.
-> >=20
-> > I don't like this kind of assumption. Would it make more sense to make
-> > CONFIG_NVMEM_IMX_OCOTP_ELE as bool instead of tristate?
->=20
-> No. Users could setup their own system with this driver build in
-> or built related drivers as modules.
+Okay.
 
-Sure, but if the kernel locks/fails/panics while accessing peripherals
-just because of the kernel config seems at east very unfortunate to me.
-How is someone supposed to analyze/debug this?
+> And that sentence begs the question: does this need to go to stable?
 
-> At least for Android GKI, this driver needs to be as module.
+Right.
 
-Any particular reason this needs to be a module?
-Which means any affected driver needs to be a module as well just because if
-a DT reference, no? With no means to know which drivers are affected, despi=
-te
-checking for the DT references manually?
+It is hard to pin down Fixes commit as the bug is inherited from initial
+encrypted/decrypted handling implementation, but it is not useful to
+backport it all the way.
 
-Best regards,
-Alexander
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
+I'll add
 
+Cc: stable@vger.kernel.org # 6.11+
 
+6.11 is where kexec handling for TDX was introduced.
+
+-- 
+  Kiryl Shutsemau / Kirill A. Shutemov
 
