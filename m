@@ -4,92 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AE11E7719F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 12:39:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D607E7719F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 12:43:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XYspswNAJVbjIJeGSav8oevdZS2Al30TlAOrfrWoHgI=; b=SbaSLMj+9hXrMUXrb4fGz1/gAd
-	wTkwOt6/hqDbySqcy5pyRkHs6RFLsTaeF3E9CQ9zWJiARrZT62NKIoFvUzzyK8AcR6gjtq4jgwiUl
-	gBzUVpebLcompw8L4B+l5gOtoadt9V0SalwTYhTVzXzwCf+WaVQWNO6EBw8WZo2aLyUFRNboSj9t6
-	U1Y0hgR/RBG/ftrKE+TNnr5WjsYYLCWUcULhnYCISwveO4016boRJecsgtA/82Ltw/Yv8GmVSivD+
-	k2x4LccrNCyiC9txIv/kOnjOsfSTADIAtVwDGcZWcKufeEe0bU3JaSMEbfBGkXCXtJvQ1RzHoheud
-	sT8sk77w==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pk5TzG9ulHaPrWI6Yef9KB4XVNg6BFE1tRPKJ6lzZbg=; b=qGwAHeEw5anc+ZzijcMA4RG/lQ
+	ElY9voRGBg1G3+Um5sroJTeXEvDViEL+isOoAgUmQ2xDidD6eXUgMzq35ljmDXZzQpAiAaKpGv2I5
+	k76C5xO5KFp1QXCPEENaF73uzLLx54Xv2av6wbT8OmYCzH2WBMadM3xE9Z479PyBrh2JGzZh6TES5
+	leo4IvQRB5NNfGXPNcyxHa2sGtIUAaHxpiorwaTVctBpnUCbo0fLxadbzJd0KW3Hf0TO/QdkZjAkv
+	9Vm4Gvg4kbgGrjXvKKIoHz7P3BVoxOUZ2DqiSUHXApfzhNl5IC7tRsqxVQbNoiFwKI5tBlXE2zI4y
+	qA9vfmvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXJiQ-000000057Xk-1sRX;
-	Mon, 13 Jan 2025 12:38:46 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1tXJmc-000000058HI-3iw8;
+	Mon, 13 Jan 2025 12:43:06 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXJhB-000000057Id-1uhM
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 12:37:30 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-2f43d17b0e3so7415736a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 04:37:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736771848; x=1737376648; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XYspswNAJVbjIJeGSav8oevdZS2Al30TlAOrfrWoHgI=;
-        b=MQyi+T0f3vrmMVi3H37uCG7SvzKXGLEVVCdTyeKSaf9qJpzC6aNc/dtIjcPPA15UXD
-         jKbWtbO647moDRAKScp8bz8ZcAqGzC2nQZ2451G+YxL99VG8SjR6j7tuD6YhQdI6zIjD
-         ElFzgFwMQX0Vkyclp+AjP4WtYYI+gOhfdqYHkEvveGrHT5Y5MOMFeAIrCzFsszG9idCd
-         sXITsO4xF5Qy5+lOlyyw3a2XEj4PTfLG73vpuT2AIvABS33c5h5scnUyk7+p1+x0ZCPj
-         ySMnStnHJpTZ5ysytIOKwLMWiOXbNNyq7pWvrcT8b/JoUEmdCST4PXp224hs/6yrRR4E
-         YJIw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736771848; x=1737376648;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=XYspswNAJVbjIJeGSav8oevdZS2Al30TlAOrfrWoHgI=;
-        b=IClPLNPuSPGWNsrInUwtbCsntYgE5L9r/sQV9IotAHxakil8uq/bTmg2c/atcdWg2X
-         4Rj8NuLcG9GUb104fDY4uYZ26ian4QIC4D8ds5LXMcFVI0X1BkGX7sjwB8+E+qLAi15x
-         fr+HY9BHR19P4oawaDgG5H69h7vCFmAy9Z/WSNkJKoyFANT2ei07UvxIZvnl0f4KLuLl
-         OZZHPsy5THvPKx2seIR6U5A7bK1L/xY/Qa6U2xFXHMdbxeEov28ZcDJqFlD2TONMs+aQ
-         IxP5pVYHnKfmxOqlPPVBjrMCpdOhUW99JPN3v7YSBzACnNcmZxeJyVD9GNw1iuEvbDLk
-         Dm/g==
-X-Forwarded-Encrypted: i=1; AJvYcCUE/bKTeucbCOFROxjgPhB/wKNXrNYoXtXWKW3MWkiizNSgcIdykroOkiQHG6G1EtHSX8YGBiFsk0z2SSVQnA1Q@lists.infradead.org
-X-Gm-Message-State: AOJu0YxpSACkyU97NmoBwkhU7m6z4dbIsxyTI2+MuKtDxYcVx1GSxgtQ
-	+KgEjbLDz4oiqvbo59fQU/wiZRi4k6i/kKd+hvjGQ4S21/PVzM6Y
-X-Gm-Gg: ASbGncv9sMMij2uxopvx1WXkT5t1ybVX+wWXLibZQ5xs8IhKNSm/mJJ0RDWeMaNCbxf
-	EYGJQrkRm6MuVkK21hZbCvnuKPBQCF7GzX84tb7uZVDsRVtARpCR+p7sDlfkhFzxqKvo2R5adGv
-	cMi163acd5lO/qtMRZXaIzoQXzoTHzwpKIGJSM5CM+zcNpTf6cVrx7W34RtyaH8ia6EVsWqGtHu
-	aZmuZb1YhyB2Yt6vdXIooUq60XhWeQuGjAaPG/aHxoVdmkqYQYaJA==
-X-Google-Smtp-Source: AGHT+IHe1pVSKvtAf8tEME92BvPU8bFiXiKYwUp2o19enb2ske+ljaAhyVZKHCMtZv5/6JQqhbrv8A==
-X-Received: by 2002:a17:90b:53c5:b0:2f2:f6e0:3f6a with SMTP id 98e67ed59e1d1-2f548f3979bmr32049199a91.14.1736771847927;
-        Mon, 13 Jan 2025 04:37:27 -0800 (PST)
-Received: from localhost ([129.146.253.192])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f5593d07cbsm8624004a91.3.2025.01.13.04.37.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jan 2025 04:37:27 -0800 (PST)
-Date: Mon, 13 Jan 2025 20:37:10 +0800
-From: Furong Xu <0x1207@gmail.com>
-To: Alexander Lobakin <aleksander.lobakin@intel.com>
-Cc: <netdev@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
- <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, <xfr@outlook.com>
-Subject: Re: [PATCH net-next v1 3/3] net: stmmac: Optimize cache prefetch in
- RX path
-Message-ID: <20250113203710.000033dc@gmail.com>
-In-Reply-To: <f20c339f-5286-477c-9255-e2e1fbeba57c@intel.com>
-References: <cover.1736500685.git.0x1207@gmail.com>
-	<b992690bf7197e4b967ed9f7a0422edae50129f2.1736500685.git.0x1207@gmail.com>
-	<f20c339f-5286-477c-9255-e2e1fbeba57c@intel.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	id 1tXJlN-00000005819-3dKl;
+	Mon, 13 Jan 2025 12:41:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1736772107;
+	bh=IPHpSM0gHK7uddhO4HkJ69FBlgIeHdL9qA0Mae2fHr4=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=VC+R6ACbOfUWrWeEV/dMVdMegVVfY293Z272WfnnP9gAAe5nGySUw7Ewsk/E3Mq1O
+	 R1fl+ysBGlkyUOzEBNvKO+NuPduRw2z+69b4EVq0ikhR+cjRZa0qwXJm/s3gd9p7Os
+	 MnD+yVax1J7MizNFBV5K4F9roF0QbZ+qfVV+HXTse9tcTVEoex06shQRq0NgOoDIZe
+	 XmFk/gS8WvyoY7+pcWKQFz4iMw5TB7KaElIzYhaNcLYlBN4JGvoMEdODEQ1qi2oyV1
+	 lGNVd+LyU7G6/RpQ14TausVzYeZZ3iI9LD9lAEvCRGwpKkZ3/EgVXgw18sEpm1bh9j
+	 MnzwmWE6zz56A==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1160917E04AC;
+	Mon, 13 Jan 2025 13:41:47 +0100 (CET)
+Message-ID: <516d16e3-6fc6-49ba-a0ce-f451b65a6c1a@collabora.com>
+Date: Mon, 13 Jan 2025 13:41:46 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] drm/mediatek/hdmi: Use
+ syscon_regmap_lookup_by_phandle_args
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>,
+ dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20250112134708.46100-1-krzysztof.kozlowski@linaro.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250112134708.46100-1-krzysztof.kozlowski@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_043729_513918_E0DB94BC 
-X-CRM114-Status: GOOD (  12.71  )
+X-CRM114-CacheID: sfid-20250113_044150_063911_346A3130 
+X-CRM114-Status: GOOD (  19.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,24 +78,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 13 Jan 2025 13:10:46 +0100, Alexander Lobakin <aleksander.lobakin@intel.com> wrote:
-
-> > @@ -5596,6 +5593,7 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
-> >  		} else if (buf1_len) {
-> >  			dma_sync_single_for_cpu(priv->device, buf->addr,
-> >  						buf1_len, dma_dir);
-> > +			prefetch(page_address(buf->page) + buf->page_offset);
-> >  			skb_add_rx_frag(skb, skb_shinfo(skb)->nr_frags,
-> >  					buf->page, buf->page_offset, buf1_len,
-> >  					priv->dma_conf.dma_buf_sz);  
+Il 12/01/25 14:47, Krzysztof Kozlowski ha scritto:
+> Use syscon_regmap_lookup_by_phandle_args() which is a wrapper over
+> syscon_regmap_lookup_by_phandle() combined with getting the syscon
+> argument.  Except simpler code this annotates within one line that given
+> phandle has arguments, so grepping for code would be easier.
 > 
-> Are you sure you need to prefetch frags as well? I'd say this is a waste
-> of cycles, as the kernel core stack barely looks at payload...
-> Probably prefetching only header buffers would be enough.
+> There is also no real benefit in printing errors on missing syscon
+> argument, because this is done just too late: runtime check on
+> static/build-time data.  Dtschema and Devicetree bindings offer the
+> static/build-time check for this already.
 > 
 
-Yes, do not prefetch for frags is more reasonable.
-Thanks!
+I agree with this change but can you please rebase it over [1]?
 
-pw-bot: changes-requested
+The same code got migrated to mtk_hdmi_common.c instead :-)
+
+[1]: 
+https://lore.kernel.org/r/20250108112744.64686-1-angelogioacchino.delregno@collabora.com
+
+Thanks,
+Angelo
+
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> ---
+>   drivers/gpu/drm/mediatek/mtk_hdmi.c | 14 +++++---------
+>   1 file changed, 5 insertions(+), 9 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
+> index ca82bc829cb9..4b0eb7dc25d8 100644
+> --- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
+> +++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
+> @@ -1458,15 +1458,11 @@ static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi,
+>   	 * MMSYS_CONFIG device and the register offset of the HDMI_SYS_CFG
+>   	 * registers it contains.
+>   	 */
+> -	regmap = syscon_regmap_lookup_by_phandle(np, "mediatek,syscon-hdmi");
+> -	ret = of_property_read_u32_index(np, "mediatek,syscon-hdmi", 1,
+> -					 &hdmi->sys_offset);
+> -	if (IS_ERR(regmap))
+> -		ret = PTR_ERR(regmap);
+> -	if (ret) {
+> -		dev_err(dev,
+> -			"Failed to get system configuration registers: %d\n",
+> -			ret);
+> +	regmap = syscon_regmap_lookup_by_phandle_args(np, "mediatek,syscon-hdmi",
+> +						      1, &hdmi->sys_offset);
+> +	if (IS_ERR(regmap)) {
+> +		ret = dev_err_probe(dev, PTR_ERR(regmap),
+> +				    "Failed to get system configuration registers\n");
+>   		goto put_device;
+>   	}
+>   	hdmi->sys_regmap = regmap;
+
+
+-- 
+AngeloGioacchino Del Regno
+Senior Software Engineer
+
+Collabora Ltd.
+Platinum Building, St John's Innovation Park, Cambridge CB4 0DS, UK
+Registered in England & Wales, no. 5513718
 
