@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0D45E7719E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 09:41:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5364BE7719E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 09:43:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xe5wMoct/kmwDf2zKa7aZzdKTC4p94nSDuPr1vWOIWg=; b=dAb5zdyL8xQ4Q/RSAy1iiY5cOM
-	qNC15eaBPaaj69ZgjH2BbJu2iHTc7ZBj8nOomBSUJ+qNjxRKGxLWnoaM6oI/B9v1TNeOyT6+IJmI9
-	4RJy6tJIpPSYaTr/Mk5o30q0B76Y/hTnOVJXT/Xe2v6z2NGJEJvDdosLChQDxSzQJbSxshUGAebqn
-	tRpzr7y9AkFmryPGweZQS5CX6N5uP1fPrXFaJu+V2NYtnlJ20i6Aj0Fa4rr13TKMgMTbs5MVXU/IG
-	34fhOyAOJehlkelNpcgF6z9dDqzEppExsBHY3+GSscfNxjV20kkAcStf8gfu0jwAWbYkMPhz2FuM8
-	o0S17NvA==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gQdcg7kA7Svf14MOdb4iykEN+5HWOLbKVycowHGDDfo=; b=nQYb7l0qslwUlC0vRXlkR0xf4N
+	4AaxxhgaU6BNmrN49FBwJOFlHZxjPT8VNqQvC9PvpC6M7hxr1I5nOGR40nJ+lKKGWfFCkeGmUkNWB
+	ioss5jxovK+5V+Q7uY58q/9VEHb2l8/R3QkhNMYv9XMatfSTaZSZNehae+3un4ufOJ6EtkYJVZUA4
+	ECC7Z1VWrGhYuMF9mhEAqw3QPeYc7Ti944jBhAgxx2CdORe9jYmxirTxwscmHNiLNSWEvn1I4Pbio
+	yAkW31/RHcSXgzMmgRyfDCefi6B8q2A/rdLJCP9VF94nQytD0neHrM78FUC3xLsmwz2lvYJ5/N9/a
+	0TnxSszg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXGwx-00000004fJr-0Yv3;
-	Mon, 13 Jan 2025 09:41:35 +0000
+	id 1tXGyA-00000004ffv-31y5;
+	Mon, 13 Jan 2025 09:42:50 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXGtG-00000004eKG-3VCy
+	id 1tXGtJ-00000004eKG-2iJU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 09:37:49 +0000
+	Mon, 13 Jan 2025 09:37:50 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1258.12; Mon, 13 Jan
@@ -42,17 +42,18 @@ To: <patrick@stwcx.xyz>, <andrew@codeconstruct.com.au>, <linux@roeck-us.net>,
 CC: <Peter.Yin@quantatw.com>, <Patrick_NC_Lin@wiwynn.com>,
 	<BMC-SW@aspeedtech.com>, <chnguyen@amperecomputing.com>,
 	<aaron_lee@aspeedtech.com>
-Subject: [PATCH v7 0/1] Update ASPEED WDT bootstatus
-Date: Mon, 13 Jan 2025 17:37:36 +0800
-Message-ID: <20250113093737.845097-1-chin-ting_kuo@aspeedtech.com>
+Subject: [PATCH v7 1/1] watchdog: aspeed: Update bootstatus handling
+Date: Mon, 13 Jan 2025 17:37:37 +0800
+Message-ID: <20250113093737.845097-2-chin-ting_kuo@aspeedtech.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250113093737.845097-1-chin-ting_kuo@aspeedtech.com>
+References: <20250113093737.845097-1-chin-ting_kuo@aspeedtech.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_013746_872559_CD78CD2D 
-X-CRM114-Status: UNSURE (   8.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250113_013749_684614_33D179AC 
+X-CRM114-Status: GOOD (  17.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,45 +68,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series inherits the patch submitted by Peter.
-https://patchwork.kernel.org/project/linux-watchdog/patch/20240430143114.1323686-2-peteryin.openbmc@gmail.com/
-Bootstatus mechanism is reconstructed to the latest
-architecture and for all existing ASPEED BMC platforms.
+The boot status in the watchdog device struct is updated during
+controller probe stage. Application layer can get the boot status
+through the command, cat /sys/class/watchdog/watchdogX/bootstatus.
+The bootstatus can be,
+WDIOF_CARDRESET => System is reset due to WDT timeout occurs.
+Others          => Other reset events, e.g., power on reset.
 
-Changes in v2:
-  - Support SW restart on AST2600 by default without
-    adding any dts property.
+On ASPEED platforms, boot status is recorded in the SCU registers.
+- AST2400: Only a bit is used to represent system reset triggered by
+           any WDT controller.
+- AST2500/AST2600: System reset triggered by different WDT controllers
+                   can be distinguished by different SCU bits.
 
-Changes in v3:
-  - Get watchdog controller index by dividing register
-    base offset by register size.
+Besides, on AST2400 and AST2500, since alternating boot event is
+also triggered by using WDT timeout mechanism, it is classified
+as WDIOF_CARDRESET.
 
-Changes in v4:
-  - Update the commit message for updating bootstatus
-    handling patch.
-  - Rename aspeed_wdt_config struct to aspeed_wdt_data.
-  - Create restart callback function.
-
-Changes in v5:
-  - Remove SW reset mechanism since there is no consensus
-    about bootstatus for SW reset currently.
-  - Correct the method for clearing reset event flag on
-    AST2400 and AST2500 legacy platforms.
-
-Changes in v6:
-  - Use resource_size() function to get WDT controller
-    registers size.
-
-Changes in v7:
-  - Update commit message. WDIOF_CARDRESET flag is
-    used to represent all WDT reset events.
-
-Chin-Ting Kuo (1):
-  watchdog: aspeed: Update bootstatus handling
-
+Signed-off-by: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
+---
  drivers/watchdog/aspeed_wdt.c | 81 ++++++++++++++++++++++++++++++++++-
  1 file changed, 79 insertions(+), 2 deletions(-)
 
+diff --git a/drivers/watchdog/aspeed_wdt.c b/drivers/watchdog/aspeed_wdt.c
+index b4773a6aaf8c..369635b38ca0 100644
+--- a/drivers/watchdog/aspeed_wdt.c
++++ b/drivers/watchdog/aspeed_wdt.c
+@@ -11,21 +11,30 @@
+ #include <linux/io.h>
+ #include <linux/kernel.h>
+ #include <linux/kstrtox.h>
++#include <linux/mfd/syscon.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
+ #include <linux/of_irq.h>
+ #include <linux/platform_device.h>
++#include <linux/regmap.h>
+ #include <linux/watchdog.h>
+ 
+ static bool nowayout = WATCHDOG_NOWAYOUT;
+ module_param(nowayout, bool, 0);
+ MODULE_PARM_DESC(nowayout, "Watchdog cannot be stopped once started (default="
+ 				__MODULE_STRING(WATCHDOG_NOWAYOUT) ")");
++struct aspeed_wdt_scu {
++	const char *compatible;
++	u32 reset_status_reg;
++	u32 wdt_reset_mask;
++	u32 wdt_reset_mask_shift;
++};
+ 
+ struct aspeed_wdt_config {
+ 	u32 ext_pulse_width_mask;
+ 	u32 irq_shift;
+ 	u32 irq_mask;
++	struct aspeed_wdt_scu scu;
+ };
+ 
+ struct aspeed_wdt {
+@@ -39,18 +48,36 @@ static const struct aspeed_wdt_config ast2400_config = {
+ 	.ext_pulse_width_mask = 0xff,
+ 	.irq_shift = 0,
+ 	.irq_mask = 0,
++	.scu = {
++		.compatible = "aspeed,ast2400-scu",
++		.reset_status_reg = 0x3c,
++		.wdt_reset_mask = 0x1,
++		.wdt_reset_mask_shift = 1,
++	},
+ };
+ 
+ static const struct aspeed_wdt_config ast2500_config = {
+ 	.ext_pulse_width_mask = 0xfffff,
+ 	.irq_shift = 12,
+ 	.irq_mask = GENMASK(31, 12),
++	.scu = {
++		.compatible = "aspeed,ast2500-scu",
++		.reset_status_reg = 0x3c,
++		.wdt_reset_mask = 0x1,
++		.wdt_reset_mask_shift = 2,
++	},
+ };
+ 
+ static const struct aspeed_wdt_config ast2600_config = {
+ 	.ext_pulse_width_mask = 0xfffff,
+ 	.irq_shift = 0,
+ 	.irq_mask = GENMASK(31, 10),
++	.scu = {
++		.compatible = "aspeed,ast2600-scu",
++		.reset_status_reg = 0x74,
++		.wdt_reset_mask = 0xf,
++		.wdt_reset_mask_shift = 16,
++	},
+ };
+ 
+ static const struct of_device_id aspeed_wdt_of_table[] = {
+@@ -213,6 +240,56 @@ static int aspeed_wdt_restart(struct watchdog_device *wdd,
+ 	return 0;
+ }
+ 
++static void aspeed_wdt_update_bootstatus(struct platform_device *pdev,
++					 struct aspeed_wdt *wdt)
++{
++	const struct resource *res;
++	struct aspeed_wdt_scu scu = wdt->cfg->scu;
++	struct regmap *scu_base;
++	u32 reset_mask_width;
++	u32 reset_mask_shift;
++	u32 idx = 0;
++	u32 status;
++	int ret;
++
++	if (!of_device_is_compatible(pdev->dev.of_node, "aspeed,ast2400-wdt")) {
++		res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
++		idx = ((intptr_t)wdt->base & 0x00000fff) / resource_size(res);
++	}
++
++	scu_base = syscon_regmap_lookup_by_compatible(scu.compatible);
++	if (IS_ERR(scu_base)) {
++		wdt->wdd.bootstatus = WDIOS_UNKNOWN;
++		return;
++	}
++
++	ret = regmap_read(scu_base, scu.reset_status_reg, &status);
++	if (ret) {
++		wdt->wdd.bootstatus = WDIOS_UNKNOWN;
++		return;
++	}
++
++	reset_mask_width = hweight32(scu.wdt_reset_mask);
++	reset_mask_shift = scu.wdt_reset_mask_shift +
++			   reset_mask_width * idx;
++
++	if (status & (scu.wdt_reset_mask << reset_mask_shift))
++		wdt->wdd.bootstatus = WDIOF_CARDRESET;
++
++	/* clear wdt reset event flag */
++	if (of_device_is_compatible(pdev->dev.of_node, "aspeed,ast2400-wdt") ||
++	    of_device_is_compatible(pdev->dev.of_node, "aspeed,ast2500-wdt")) {
++		ret = regmap_read(scu_base, scu.reset_status_reg, &status);
++		if (!ret) {
++			status &= ~(scu.wdt_reset_mask << reset_mask_shift);
++			regmap_write(scu_base, scu.reset_status_reg, status);
++		}
++	} else {
++		regmap_write(scu_base, scu.reset_status_reg,
++			     scu.wdt_reset_mask << reset_mask_shift);
++	}
++}
++
+ /* access_cs0 shows if cs0 is accessible, hence the reverted bit */
+ static ssize_t access_cs0_show(struct device *dev,
+ 			       struct device_attribute *attr, char *buf)
+@@ -458,10 +535,10 @@ static int aspeed_wdt_probe(struct platform_device *pdev)
+ 		writel(duration - 1, wdt->base + WDT_RESET_WIDTH);
+ 	}
+ 
++	aspeed_wdt_update_bootstatus(pdev, wdt);
++
+ 	status = readl(wdt->base + WDT_TIMEOUT_STATUS);
+ 	if (status & WDT_TIMEOUT_STATUS_BOOT_SECONDARY) {
+-		wdt->wdd.bootstatus = WDIOF_CARDRESET;
+-
+ 		if (of_device_is_compatible(np, "aspeed,ast2400-wdt") ||
+ 		    of_device_is_compatible(np, "aspeed,ast2500-wdt"))
+ 			wdt->wdd.groups = bswitch_groups;
 -- 
 2.34.1
 
