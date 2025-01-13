@@ -4,139 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE721C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 14:34:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2943C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 14:35:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=weZd1YPhQuUCvQ4RDNP5bOvLU3u0h0XqN020or2wmR4=; b=3ZvLnx3Cu9Gvf/LM3YkPAI3S76
-	ArGZpfWr6XGmirQhA4kC3H/dh/TsIrLjamZdkOHuPDQmCF+bLD9Es2OzOq3V/fjTSc01tdTwrgvQx
-	lTRTJ0WWBujgmGZzdEM/pTUXYQYOITodD1ftwLp6uzgFPRZWNcTGsS5aKIF6mmZgfOZkGLhh+dm0z
-	0CUTlRYeXV8YsLp7I4xrMk/j7+LOt5TUnTN1+XBdMV73xyCN3WjG/FrpZmXjs8vuRzp7p4ZjxvFui
-	M/8nEO8+ew15IeGgXq1feLcOmB0q3DpviZz8vjBCXLRzeZ+e6WkQ/F3mAIOVcDx/IvtK3lHi6ScAh
-	CShLAVyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tkJZOWdQ7DSSfWzIyKLMYvgbqLowNP+cyEYkO9/h/9A=; b=L6L9jLuArKY/MfJC8mcLo8huL/
+	wJApjMvpJXx0syDA717kimxsWWZlkrCRhhA6uAs+MZvMvgAHZD8lihrYZrELSox2EfiPSgH3r1geJ
+	wfRJdM206c379dnxO6rt68/u1irwsXe28uJGtyG0Z+EKNwPqZPTkm/W6oCWzsoYuMAjLHPSmKfcR0
+	N/0Zr6ZvkzXyFvsJlTiVrd1J+iGDxyofKXvr2eXhTopjc2gZotjvuvYa+pdvUtD8KIWrafwg58HFX
+	hwx+tMrKUyjCfhj19/pgzUJT6KFzysbd4/8G6wfjPWTMvOy+DUSS75hfTimJh0bQLClt0BP2yIJVV
+	HRmVg6JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXLW0-00000005QSV-3QJg;
-	Mon, 13 Jan 2025 14:34:04 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1tXLXC-00000005Qch-1xwY;
+	Mon, 13 Jan 2025 14:35:18 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXLTL-00000005Pnv-39YQ
+	id 1tXLTh-00000005PwD-45Uy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 14:31:21 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-aab73e995b5so56928566b.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 06:31:19 -0800 (PST)
+	Mon, 13 Jan 2025 14:31:44 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4361f664af5so50341875e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 06:31:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736778678; x=1737383478; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :references:to:from:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=weZd1YPhQuUCvQ4RDNP5bOvLU3u0h0XqN020or2wmR4=;
-        b=WbTa/dtT9AHtxKU1KQwiQGGwaBQTK6GjRCc9Z4JgYAL0SqfNnoEd3ExD4MqUIiTG60
-         YrGGG6pkGl8Xs4o6I2HKlgOCZIE8PM4vQs93KvfKngjkoC+tzFohWmRxXFsOx3IrjdYt
-         il5CkK4gj5F52eh1wzdmd3zI1SRv8mLNr7wQ6eiu8yy3KVWmBP9Q9uCfkUFHm9jUYv/U
-         Xjc4jkybf+6VxqoxN5r4MD7zQc3vqb9X4Q+0wbazFHrmw8ELdCxInXLnI1DKl7Mo8pJ3
-         1xTZcLF+EiSqvKve+JnA/yH7Vzeik8a0kj68jHzJ6KXDHtmzWq1uDF5z8L4eEDchMKua
-         N9ZQ==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1736778700; x=1737383500; darn=lists.infradead.org;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=tkJZOWdQ7DSSfWzIyKLMYvgbqLowNP+cyEYkO9/h/9A=;
+        b=XdPZTvkJ/Y+VCp4QRXrrQJ97dr8HcFYlY+mGEI7++6D13e0GXY6bvAUsuQjXkKCw2R
+         xDn0aZJ3ZGtNjpgkWNiiqry3UPpJJNYzMePY84wvYqeu0DQ2zzTQoFA/QxWgbzaurmri
+         Pz1vKm+Z3JwZzTzKdtCNz6P8dvIC1wdGAZETW2IM2Q1Ks9RhBbe6xM5KKW04DQ/bQ9Xa
+         53P9S/b6j0owLSFpKgyVmxMWP8jtv3GgfS4TQd0ZYm61OSfe8G8hxAqpsp6WKqG5Ns5j
+         hoGwjVVJlze9TDgDv++KgpKYXtB9iTCAv9DHpIn5pWp8sbqHy0V/uD84HtdYB4ny0hO0
+         0R4w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736778678; x=1737383478;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :references:to:from:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=weZd1YPhQuUCvQ4RDNP5bOvLU3u0h0XqN020or2wmR4=;
-        b=k+TquRHVJQu/025DQ66seVR6tJayIorj3bIXqp20yF+XHnCq6T58eizZqQKwHlCpFh
-         tBxzo1iR2WpYQFVJyap+32rR5GxhLRYN5qJ9GWkX0qhWPKSIOnflQ8B25aULAHewcB3p
-         4lpvgOgHRBYWymVSLXvZlboeHKXUHvzVYJD+oQrBcQfeJq/kdxbiapE8VqJ/tYI2sDz4
-         PYl0vzlR+V0qLc2JPDb6qwzgouzv+d5sZRmRt4+sXf5wLCRYSGodxroOPoX4jeIJHGO4
-         fRe17uflVx2FjmR+BGR1MeSEqo+aEWrsW72RY6/TZbwmCImS7ZRPBkeZr3+PLhPQnIZH
-         pb2g==
-X-Forwarded-Encrypted: i=1; AJvYcCVPhb+hr5BR6esZWyj6NNDaeqaPgPuzy2y+9mUS52aXW+IcqZy54eNBXiWAf0P96QolSEjTkoeXT5m4jLKpYLpe@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVGqp2Ul9LAMxJ/T/Ny6rTJKDvyuwMwA7aln7lwWT6oBfLkE3x
-	u6f27EMKKOhjXeKLqmjAQd6hiE9zQREnwfCLgUeuPHmWh6pKc9uC2vMXRElNHIRmwssswiFdQ3y
-	h
-X-Gm-Gg: ASbGncvvs/Fq5plrdps4WBmGNckFzd1jErxlj7t4WpyjHMtHXhuL+BL8CLevTe74Esv
-	PxxRXCwrWSh4jFCKfMOxmL4IvXOSTYrFVyU+PiRAd/ewwHtfrimugiyeyfMaTcxhgoECveyviHX
-	q5AiA3nX2wqEsxiA6/m8cVh0OQV3zGkf9QLEEDd6xnZ8mkg7wXVi8VIMTcfKQ+d97QWznpknEN2
-	hzR1vwKkqMxi6bAVoMAt2Zq5eRSlKgYff3INu6/SPnBi1zvhGhHeYA48+2hLwdDC3m/EdaI9FwM
-X-Google-Smtp-Source: AGHT+IEAnOrirhqKrZI35EhezJop8U5ASFryXKh28Rcj0FE/w9WQIIxkrVg+p1gB3+++8zgOwVFz+A==
-X-Received: by 2002:a17:907:9686:b0:aa6:193c:f391 with SMTP id a640c23a62f3a-ab2ab170994mr728819566b.2.1736778677847;
-        Mon, 13 Jan 2025 06:31:17 -0800 (PST)
-Received: from [192.168.1.20] ([178.197.223.165])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab2c9134403sm516717666b.90.2025.01.13.06.31.16
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Jan 2025 06:31:17 -0800 (PST)
-Message-ID: <48e4def6-3d40-4cbe-8008-a299869342b0@linaro.org>
-Date: Mon, 13 Jan 2025 15:31:16 +0100
+        d=1e100.net; s=20230601; t=1736778700; x=1737383500;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=tkJZOWdQ7DSSfWzIyKLMYvgbqLowNP+cyEYkO9/h/9A=;
+        b=gChAp4RqHZtxDN2Y5Jo7EhH7Bx5QkSXqR3KKVKf0jLqSAfrAi9XnVgOXPsIt6RSP8p
+         ssEnHlO0AuA7ZNzXz6JDRwCeU4hEMlBOLBazmWXSqhkHhG0tUz3u2fZSepeUgPFaQbou
+         QBGKgjwfDZ28qishtRYduWMCxyq2MrXvRnMd4zZAKNSnFxabM+mkw5MkBfn+TGhucUd6
+         2Nm9Ks18e50mXsF7aaMp0r2tUYNZgeBwH4t4gitf6y5yU+1xtnS6qsFOhyIBJ5lZMfFq
+         r94RQ8clum+T/QgxoU43yCc8eChODzqXlxICB6h1pXNGTq6lVU+NjaV9JkYVUEOOo3ri
+         AfPA==
+X-Forwarded-Encrypted: i=1; AJvYcCUU1vwJRypKIPVNoW9ou+1hs5LxTyAao58qUoG9UAOsvUZup2j99+f8p1a2NcVo44pfJBlMc6VPgXqiXcRSTRk0@lists.infradead.org
+X-Gm-Message-State: AOJu0YzR/CSze7OqVXD2JxEB8dTcpe3nfHS+NO+C7aiRbf2pU8m9QHYD
+	DnURKNY2HZXO/0tLmGOA0GQ6JY8RSAHe2VDNDpQHDL20GV5ZDEhN7Ij9gq4Le10=
+X-Gm-Gg: ASbGncu1yJ3SSjYwWYpmQ4OVpx8Iej2ZfpH2S8kOOIEuKcNPW18E2gxbDWG3ILysm2h
+	4+Tv7lOemO/9un3d/yzmsAYRynglr3BatPm6WKuFSua9jYYc9durBjq0pMeHJgqarMQeTdLQqCD
+	btTGuMw6D9OlU+qIZxl7HI9luGk5oTngGNNH4DsP9OUx51S3ltVRugQaYfHPl3jhxRgsLMz2pS+
+	yJlQkxcqHL2UPAimoVEvROOYdPR2gTh7CKIS50Y+Jgu/rXwX/fN55na
+X-Google-Smtp-Source: AGHT+IH5sJ5xFp1Qx36jmJXkEkjo1gH2JT5g2s2ZQM9VcCRmiSmu2sWdlu3uMuHB4dSa4Y2Ssfc6+Q==
+X-Received: by 2002:a05:600c:46ce:b0:436:6ddf:7a27 with SMTP id 5b1f17b1804b1-436e27072a7mr170981525e9.23.1736778699604;
+        Mon, 13 Jan 2025 06:31:39 -0800 (PST)
+Received: from localhost ([2a01:e0a:3c5:5fb1:9d2d:28cc:aafd:8429])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e9dd1cc3sm144236365e9.14.2025.01.13.06.31.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jan 2025 06:31:39 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: jiebing chen via B4 Relay <devnull+jiebing.chen.amlogic.com@kernel.org>
+Cc: Liam Girdwood <lgirdwood@gmail.com>,  Mark Brown <broonie@kernel.org>,
+  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,
+  Conor Dooley <conor+dt@kernel.org>,  Jaroslav Kysela <perex@perex.cz>,
+  Takashi Iwai <tiwai@suse.com>,  Neil Armstrong
+ <neil.armstrong@linaro.org>,  Kevin Hilman <khilman@baylibre.com>,  Martin
+ Blumenstingl <martin.blumenstingl@googlemail.com>,
+  jiebing.chen@amlogic.com,  linux-sound@vger.kernel.org,
+  devicetree@vger.kernel.org,  linux-kernel@vger.kernel.org,
+  linux-arm-kernel@lists.infradead.org,  linux-amlogic@lists.infradead.org
+Subject: Re: [PATCH 2/3] ASoC: meson: s4:support for the on-chip audio
+In-Reply-To: <20250113-audio_drvier-v1-2-8c14770f38a0@amlogic.com> (jiebing
+	chen via's message of "Mon, 13 Jan 2025 14:35:14 +0800")
+References: <20250113-audio_drvier-v1-0-8c14770f38a0@amlogic.com>
+	<20250113-audio_drvier-v1-2-8c14770f38a0@amlogic.com>
+User-Agent: mu4e 1.12.7; emacs 29.4
+Date: Mon, 13 Jan 2025 15:31:38 +0100
+Message-ID: <1jwmey9451.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] drm/mediatek/hdmi: Use
- syscon_regmap_lookup_by_phandle_args
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Chun-Kuang Hu <chunkuang.hu@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>,
- dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20250112134708.46100-1-krzysztof.kozlowski@linaro.org>
- <516d16e3-6fc6-49ba-a0ce-f451b65a6c1a@collabora.com>
- <fef6b198-d916-4b71-86ed-0cbdd55cb3c4@linaro.org>
- <fcf8ebde-46c9-406e-b4d9-933623a9786b@collabora.com>
- <e64ab0c7-25da-449e-abd2-e4c70dee3041@linaro.org>
-Content-Language: en-US
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- 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
- D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <e64ab0c7-25da-449e-abd2-e4c70dee3041@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_063119_802937_2DC108C9 
-X-CRM114-Status: GOOD (  13.41  )
+X-CRM114-CacheID: sfid-20250113_063142_243716_590B4D7D 
+X-CRM114-Status: GOOD (  33.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,45 +104,881 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/01/2025 15:27, Krzysztof Kozlowski wrote:
-> On 13/01/2025 14:58, AngeloGioacchino Del Regno wrote:
->> Il 13/01/25 14:05, Krzysztof Kozlowski ha scritto:
->>> On 13/01/2025 13:41, AngeloGioacchino Del Regno wrote:
->>>> Il 12/01/25 14:47, Krzysztof Kozlowski ha scritto:
->>>>> Use syscon_regmap_lookup_by_phandle_args() which is a wrapper over
->>>>> syscon_regmap_lookup_by_phandle() combined with getting the syscon
->>>>> argument.  Except simpler code this annotates within one line that given
->>>>> phandle has arguments, so grepping for code would be easier.
->>>>>
->>>>> There is also no real benefit in printing errors on missing syscon
->>>>> argument, because this is done just too late: runtime check on
->>>>> static/build-time data.  Dtschema and Devicetree bindings offer the
->>>>> static/build-time check for this already.
->>>>>
->>>>
->>>> I agree with this change but can you please rebase it over [1]?
->>>>
->>>> The same code got migrated to mtk_hdmi_common.c instead :-)
->>>>
->>>> [1]:
->>>> https://lore.kernel.org/r/20250108112744.64686-1-angelogioacchino.delregno@collabora.com
->>> My is 2-patch cleanup, your is 34 patch rework and new features with
->>> existing build reports, so rebase is not reasonable. It would make this
->>> 2-patch cleanup wait for many cycles.
->>>
->> If adding the `#include <linux/bitfield.h>` line to a file would take
->> *many cycles*, that'd be a bit weird, wouldn't it? :-)
-> It's not about include, it is about rebase. If I rebase on 34-patchset,
-> that's my dependency and this work cannot be merged before yours is.
-> 
-> And yours already have kbuild reports, so there will be v5, maybe v6 etc.
+On Mon 13 Jan 2025 at 14:35, jiebing chen via B4 Relay <devnull+jiebing.chen.amlogic.com@kernel.org> wrote:
+
+> From: jiebing chen <jiebing.chen@amlogic.com>
+>
+> Add audio support for Amlogic S4.The audio output pad
+> can be freelycombined with the output lane,and the tocodec
+> control logic has been optimized.
+
+The patch is a mixture of different HW modules.
+
+Each patch should have one clear purpose and, as such, deal with a
+single HW module
+
+>
+> Signed-off-by: jiebing chen <jiebing.chen@amlogic.com>
+> ---
+>  sound/soc/meson/Kconfig              |  16 ++
+>  sound/soc/meson/Makefile             |   6 +
+>  sound/soc/meson/s4-pad-out-control.c | 372 ++++++++++++++++++++++++++++++++++
+>  sound/soc/meson/s4-tocodec-control.c | 376 +++++++++++++++++++++++++++++++++++
+>  sound/soc/meson/t9015.c              |   5 +-
+>  5 files changed, 771 insertions(+), 4 deletions(-)
+>
+> diff --git a/sound/soc/meson/Kconfig b/sound/soc/meson/Kconfig
+> index 6458d5dc4902f665211bb9e4ae7d274e4bff2fdc..d01e284642fd987cf4bdf88e5bf5f7c9a241af59 100644
+> --- a/sound/soc/meson/Kconfig
+> +++ b/sound/soc/meson/Kconfig
+> @@ -69,6 +69,8 @@ config SND_MESON_AXG_SOUND_CARD
+>  	imply SND_MESON_AXG_SPDIFIN
+>  	imply SND_MESON_AXG_PDM
+>  	imply SND_MESON_G12A_TOACODEC
+> +	imply SND_SOC_MESON_PAD_OUT
+> +	imply SND_SOC_MESON_TOCODEC_CONTROL
+>  	imply SND_MESON_G12A_TOHDMITX if DRM_MESON_DW_HDMI
+>  	help
+>  	  Select Y or M to add support for the AXG SoC sound card
+> @@ -135,4 +137,18 @@ config SND_SOC_MESON_T9015
+>  	help
+>  	  Say Y or M if you want to add support for the internal DAC found
+>  	  on GXL, G12 and SM1 SoC family.
+> +
+> +config SND_SOC_MESON_PAD_OUT
+> +	tristate "Amlogic PAD OUT"
+> +	select REGMAP_MMIO
+> +	help
+> +	  Say Y or M if you want to add support for the S4 Audio Output from
+> +	  the data Pad.
+> +
+> +config SND_SOC_MESON_TOCODEC_CONTROL
+> +	tristate "Amlogic TOCODEC CONTROL"
+> +	select REGMAP_MMIO
+> +	help
+> +	 Say Y or M if you want to add support for the internal DAC control
+> +	 on SM1 SoC family.
+>  endmenu
+> diff --git a/sound/soc/meson/Makefile b/sound/soc/meson/Makefile
+> index 24078e4396b02d545d8ba4bcb1632979001354e3..afbefcb1313670f9b1365e88b8eb1a0badd7dc1e 100644
+> --- a/sound/soc/meson/Makefile
+> +++ b/sound/soc/meson/Makefile
+> @@ -24,8 +24,11 @@ snd-soc-meson-codec-glue-y := meson-codec-glue.o
+>  snd-soc-meson-gx-sound-card-y := gx-card.o
+>  snd-soc-meson-g12a-toacodec-y := g12a-toacodec.o
+>  snd-soc-meson-g12a-tohdmitx-y := g12a-tohdmitx.o
+> +snd-soc-meson-s4-padout-objs := s4-pad-out-control.o
+> +snd-soc-meson-s4-tocodec-control-objs := s4-tocodec-control.o
+>  snd-soc-meson-t9015-y := t9015.o
+>  
+> +
+>  obj-$(CONFIG_SND_MESON_AIU) += snd-soc-meson-aiu.o
+>  obj-$(CONFIG_SND_MESON_AXG_FIFO) += snd-soc-meson-axg-fifo.o
+>  obj-$(CONFIG_SND_MESON_AXG_FRDDR) += snd-soc-meson-axg-frddr.o
+> @@ -43,4 +46,7 @@ obj-$(CONFIG_SND_MESON_CODEC_GLUE) += snd-soc-meson-codec-glue.o
+>  obj-$(CONFIG_SND_MESON_GX_SOUND_CARD) += snd-soc-meson-gx-sound-card.o
+>  obj-$(CONFIG_SND_MESON_G12A_TOACODEC) += snd-soc-meson-g12a-toacodec.o
+>  obj-$(CONFIG_SND_MESON_G12A_TOHDMITX) += snd-soc-meson-g12a-tohdmitx.o
+> +obj-$(CONFIG_SND_SOC_MESON_PAD_OUT) += snd-soc-meson-s4-padout.o
+> +obj-$(CONFIG_SND_SOC_MESON_TOCODEC_CONTROL) += snd-soc-meson-s4-tocodec-control.o
+>  obj-$(CONFIG_SND_SOC_MESON_T9015) += snd-soc-meson-t9015.o
+> +
+> diff --git a/sound/soc/meson/s4-pad-out-control.c b/sound/soc/meson/s4-pad-out-control.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..a86dcf8a5995926f0ddf8d2911f42006daed0feb
+> --- /dev/null
+> +++ b/sound/soc/meson/s4-pad-out-control.c
+> @@ -0,0 +1,372 @@
+> +// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+> +/*
+> + * Copyright (C) 2024 Amlogic, Inc. All rights reserved
+> + */
+> +
+> +#include <linux/module.h>
+> +#include <linux/of_platform.h>
+> +#include <linux/regmap.h>
+> +#include <sound/soc.h>
+> +#include <sound/soc-dai.h>
+> +#include <linux/init.h>
+> +#include <linux/kernel.h>
+> +#include<linux/kstrtox.h>
+> +
+> +#include "axg-tdm.h"
+> +
+> +static const struct regmap_config tdmout_pad_regmap_cfg = {
+> +	.reg_bits	= 32,
+> +	.val_bits	= 32,
+> +	.reg_stride	= 4,
+> +	.max_register	= 0x28,
+> +};
+> +
+> +#define TDM_IFACE 0
+> +#define TDM_A_PAD 0
+> +#define TDM_B_PAD 1
+> +#define TDM_C_PAD 2
+> +
+> +#define EE_AUDIO_DAT_PAD_CTRL6 0x0
+> +#define EE_AUDIO_DAT_PAD_CTRL7 0x4
+> +#define EE_AUDIO_DAT_PAD_CTRL8 0x8
+> +#define EE_AUDIO_DAT_PAD_CTRL9 0xc
+> +#define EE_AUDIO_DAT_PAD_CTRLA 0x10
+> +#define EE_AUDIO_DAT_PAD_CTRLB 0x14
+> +#define EE_AUDIO_DAT_PAD_CTRLC 0x1c
+> +#define EE_AUDIO_DAT_PAD_CTRLD 0x20
+> +#define EE_AUDIO_DAT_PAD_CTRLE 0x24
+> +#define EE_AUDIO_DAT_PAD_CTRLF 0x28
+> +
+> +#define REG_OFFSET 4
+> +
+> +static const char * const s4_tdmout_sel_texts[] = {
+> +	"TDM_D0", "TDM_D1", "TDM_D2", "TDM_D3", "TDM_D4", "TDM_D5", "TDM_D6", "TDM_D7",
+> +	"TDM_D8", "TDM_D9", "TDM_D10", "TDM_D11", "TDM_D12", "TDM_D13", "TDM_D14", "TDM_D15",
+> +	"TDM_D16", "TDM_D17", "TDM_D18", "TDM_D19", "TDM_D20", "TDM_D21", "TDM_D22", "TDM_D23",
+> +	"TDM_D24", "TDM_D25", "TDM_D26", "TDM_D27", "TDM_D28", "TDM_D29", "TDM_D30", "TDM_D31"
+> +};
+
+This thing does not belong in ASoC. This is clearly yet another layer of
+pinctrl. Please deal with it there.
 
 
-Although "NO!!!! No more huge patch bombs to
-linux-kernel@vger.kernel.org people!" was removed, but its spirit is
-kind of still valid and requesting to rebase cleanups on top of patch
-bombs with new features is just not reasonable.
+> +
+> +static const struct soc_enum tdmout_sel_enum =
+> +	SOC_ENUM_SINGLE(SND_SOC_NOPM, 0, ARRAY_SIZE(s4_tdmout_sel_texts),
+> +			s4_tdmout_sel_texts);
+> +
+> +static struct snd_soc_dai *tdm_get_ahead_be(struct snd_soc_dapm_widget *w)
+> +{
+> +	struct snd_soc_dapm_path *p;
+> +	struct snd_soc_dai *be;
+> +
+> +	snd_soc_dapm_widget_for_each_source_path(w, p) {
+> +		if (p->source->id == snd_soc_dapm_dai_in)
+> +			return (struct snd_soc_dai *)p->source->priv;
+> +		be = tdm_get_ahead_be(p->source);
+> +		if (be && be->id == TDM_IFACE)
+> +			return be;
+> +	}
+> +	return NULL;
+> +}
+> +
+> +#define SND_SOC_DAPM_DEMUX_E(wname, wreg, wshift, winvert, wcontrols, \
+> +	wevent, wflags) \
+> +((struct snd_soc_dapm_widget) { \
+> +	.id = snd_soc_dapm_demux, .name = wname, \
+> +	SND_SOC_DAPM_INIT_REG_VAL(wreg, wshift, winvert), \
+> +	.kcontrol_news = wcontrols, .num_kcontrols = 1, \
+> +	.event = wevent, .event_flags = wflags})
+> +
+> +static const struct snd_kcontrol_new tdmout_sel_demux[] = {
+> +	SOC_DAPM_ENUM("TDMOUTA SEL", tdmout_sel_enum),
+> +	SOC_DAPM_ENUM("TDMOUTB SEL", tdmout_sel_enum),
+> +	SOC_DAPM_ENUM("TDMOUTC SEL", tdmout_sel_enum),
+> +};
+> +
+> +static unsigned int aml_simple_strtoull(const char *cp)
+> +{
+> +	unsigned int result = 0;
+> +	unsigned int value = 0;
+> +	unsigned int len =  strlen(cp);
+> +
+> +	while (len != 0) {
+> +		len--;
+> +		value = isdigit(*cp);
+> +		if (value) {
+> +			value = *cp - '0';
+> +		} else {
+> +			cp++;
+> +			continue;
+> +		}
+> +		cp++;
+> +		result = result * 10 + value;
+> +	}
+> +	return result;
+> +}
+> +
+> +static int tdm_out_pad_set(struct snd_soc_dapm_widget *w)
+> +{
+> +	struct snd_soc_dai *be;
+> +	struct axg_tdm_stream *stream;
+> +	struct snd_soc_component *component = snd_soc_dapm_to_component(w->dapm);
+> +	unsigned int tdm_id = TDM_A_PAD;
+> +	const char *dai_widget_name;
+> +	struct snd_soc_dapm_path *p;
+> +	unsigned int lane_num = 0;
+> +	unsigned long pin = 0;
+> +	unsigned int reg, mask, val = 0;
+> +	int lane_cnt;
+> +
+> +	be = tdm_get_ahead_be(w);
+> +	if (!be) {
+> +		dev_err(component->dev, "%s not find the be\n", __func__);
+> +		return -EINVAL;
+> +	}
+> +	stream = snd_soc_dai_dma_data_get_playback(be);
+> +	if (!stream) {
+> +		dev_err(component->dev, "%s not find the stream\n", __func__);
+> +		return -EINVAL;
+> +	}
+> +	lane_cnt = (stream->channels - 1) / stream->iface->slots + 1;
+> +	/*we like to use dai id, but it is fixed val*/
+> +	dai_widget_name = be->stream[SNDRV_PCM_STREAM_PLAYBACK].widget->name;
+> +	if (strstr(dai_widget_name, "TDM_A"))
+> +		tdm_id = TDM_A_PAD;
+> +	else if (strstr(dai_widget_name, "TDM_B"))
+> +		tdm_id = TDM_B_PAD;
+> +	else if (strstr(dai_widget_name, "TDM_C"))
+> +		tdm_id = TDM_C_PAD;
+> +	else
+> +		dev_err(component->dev, "%s not find the be dai widget\n", __func__);
+> +	dev_dbg(component->dev, "tdm_id:%d, channel:%d, slot:%d\n",
+> +		tdm_id, stream->channels, stream->iface->slots);
+> +	snd_soc_dapm_widget_for_each_sink_path(w, p) {
+> +		if (p->sink->id == snd_soc_dapm_output) {
+> +			if (p->connect) {
+> +				pin = aml_simple_strtoull(p->name);
+> +				reg = (pin / 4) * REG_OFFSET;
+> +				/*calculate mask pos */
+> +				mask = 0x1f << ((pin % 4) * 8);
+> +				val = tdm_id * 8 + lane_num;
+> +				snd_soc_component_update_bits(component, reg, mask, val);
+> +				snd_soc_component_update_bits(component, EE_AUDIO_DAT_PAD_CTRLF,
+> +							      0x1 << pin, 0 << pin);
+> +				lane_num++;
+> +				if (lane_num > lane_cnt - 1)
+> +					break;
+> +			}
+> +		}
+> +	}
+> +	return 0;
+> +}
+> +
+> +static int tdmout_sel_pad_event(struct snd_soc_dapm_widget *w,
+> +				struct snd_kcontrol *control,
+> +				int event)
+> +{
+> +	int ret = 0;
+> +	struct snd_soc_component *component = snd_soc_dapm_to_component(w->dapm);
+> +
+> +	switch (event) {
+> +	case SND_SOC_DAPM_PRE_PMU:
+> +		tdm_out_pad_set(w);
+> +		break;
+> +
+> +	case SND_SOC_DAPM_PRE_PMD:
+> +		break;
+> +
+> +	default:
+> +		dev_err(component->dev, "Unexpected event %d\n", event);
+> +		return -EINVAL;
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+> +static const struct snd_soc_dapm_widget s4_tdmout_pad_dapm_widgets[] = {
+> +	SND_SOC_DAPM_DEMUX_E("TDMA_OUT SEL", SND_SOC_NOPM, 0, 0,
+> +			     &tdmout_sel_demux[TDM_A_PAD], tdmout_sel_pad_event,
+> +			   (SND_SOC_DAPM_PRE_PMU | SND_SOC_DAPM_PRE_PMD)),
+> +	SND_SOC_DAPM_DEMUX_E("TDMB_OUT SEL", SND_SOC_NOPM, 0, 0,
+> +			     &tdmout_sel_demux[TDM_B_PAD], tdmout_sel_pad_event,
+> +			   (SND_SOC_DAPM_PRE_PMU | SND_SOC_DAPM_PRE_PMD)),
+> +	SND_SOC_DAPM_DEMUX_E("TDMC_OUT SEL", SND_SOC_NOPM, 0, 0,
+> +			     &tdmout_sel_demux[TDM_C_PAD], tdmout_sel_pad_event,
+> +			   (SND_SOC_DAPM_PRE_PMU | SND_SOC_DAPM_PRE_PMD)),
+> +	SND_SOC_DAPM_OUTPUT("TDM_D0"),
+> +	SND_SOC_DAPM_OUTPUT("TDM_D1"),
+> +	SND_SOC_DAPM_OUTPUT("TDM_D2"),
+> +	SND_SOC_DAPM_OUTPUT("TDM_D3"),
+> +	SND_SOC_DAPM_OUTPUT("TDM_D4"),
+> +	SND_SOC_DAPM_OUTPUT("TDM_D5"),
+> +	SND_SOC_DAPM_OUTPUT("TDM_D6"),
+> +	SND_SOC_DAPM_OUTPUT("TDM_D7"),
+> +	SND_SOC_DAPM_OUTPUT("TDM_D8"),
+> +	SND_SOC_DAPM_OUTPUT("TDM_D9"),
+> +	SND_SOC_DAPM_OUTPUT("TDM_D10"),
+> +	SND_SOC_DAPM_OUTPUT("TDM_D11"),
+> +	SND_SOC_DAPM_OUTPUT("TDM_D12"),
+> +	SND_SOC_DAPM_OUTPUT("TDM_D13"),
+> +	SND_SOC_DAPM_OUTPUT("TDM_D14"),
+> +	SND_SOC_DAPM_OUTPUT("TDM_D15"),
+> +	SND_SOC_DAPM_OUTPUT("TDM_D16"),
+> +	SND_SOC_DAPM_OUTPUT("TDM_D17"),
+> +	SND_SOC_DAPM_OUTPUT("TDM_D18"),
+> +	SND_SOC_DAPM_OUTPUT("TDM_D19"),
+> +	SND_SOC_DAPM_OUTPUT("TDM_D20"),
+> +	SND_SOC_DAPM_OUTPUT("TDM_D21"),
+> +	SND_SOC_DAPM_OUTPUT("TDM_D22"),
+> +	SND_SOC_DAPM_OUTPUT("TDM_D23"),
+> +	SND_SOC_DAPM_OUTPUT("TDM_D24"),
+> +	SND_SOC_DAPM_OUTPUT("TDM_D25"),
+> +	SND_SOC_DAPM_OUTPUT("TDM_D26"),
+> +	SND_SOC_DAPM_OUTPUT("TDM_D27"),
+> +	SND_SOC_DAPM_OUTPUT("TDM_D28"),
+> +	SND_SOC_DAPM_OUTPUT("TDM_D29"),
+> +	SND_SOC_DAPM_OUTPUT("TDM_D30"),
+> +	SND_SOC_DAPM_OUTPUT("TDM_D31"),
+> +};
+> +
+> +static const struct snd_soc_dapm_route s4_tdmout_pad_dapm_routes[] = {
+> +	{ "TDM_D0", "TDM_D0", "TDMA_OUT SEL" },
+> +	{ "TDM_D1", "TDM_D1", "TDMA_OUT SEL" },
+> +	{ "TDM_D2", "TDM_D2", "TDMA_OUT SEL" },
+> +	{ "TDM_D3", "TDM_D3", "TDMA_OUT SEL" },
+> +	{ "TDM_D4", "TDM_D4", "TDMA_OUT SEL" },
+> +	{ "TDM_D5", "TDM_D5", "TDMA_OUT SEL" },
+> +	{ "TDM_D6", "TDM_D6", "TDMA_OUT SEL" },
+> +	{ "TDM_D7", "TDM_D7", "TDMA_OUT SEL" },
+> +	{ "TDM_D8", "TDM_D8", "TDMA_OUT SEL" },
+> +	{ "TDM_D9", "TDM_D9", "TDMA_OUT SEL" },
+> +	{ "TDM_D10", "TDM_D10", "TDMA_OUT SEL" },
+> +	{ "TDM_D11", "TDM_D11", "TDMA_OUT SEL" },
+> +	{ "TDM_D12", "TDM_D12", "TDMA_OUT SEL" },
+> +	{ "TDM_D13", "TDM_D13", "TDMA_OUT SEL" },
+> +	{ "TDM_D14", "TDM_D14", "TDMA_OUT SEL" },
+> +	{ "TDM_D15", "TDM_D15", "TDMA_OUT SEL" },
+> +	{ "TDM_D16", "TDM_D16", "TDMA_OUT SEL" },
+> +	{ "TDM_D17", "TDM_D17", "TDMA_OUT SEL" },
+> +	{ "TDM_D18", "TDM_D18", "TDMA_OUT SEL" },
+> +	{ "TDM_D19", "TDM_D19", "TDMA_OUT SEL" },
+> +	{ "TDM_D20", "TDM_D20", "TDMA_OUT SEL" },
+> +	{ "TDM_D21", "TDM_D21", "TDMA_OUT SEL" },
+> +	{ "TDM_D22", "TDM_D22", "TDMA_OUT SEL" },
+> +	{ "TDM_D23", "TDM_D23", "TDMA_OUT SEL" },
+> +	{ "TDM_D24", "TDM_D24", "TDMA_OUT SEL" },
+> +	{ "TDM_D25", "TDM_D25", "TDMA_OUT SEL" },
+> +	{ "TDM_D26", "TDM_D26", "TDMA_OUT SEL" },
+> +	{ "TDM_D27", "TDM_D27", "TDMA_OUT SEL" },
+> +	{ "TDM_D28", "TDM_D28", "TDMA_OUT SEL" },
+> +	{ "TDM_D29", "TDM_D29", "TDMA_OUT SEL" },
+> +	{ "TDM_D30", "TDM_D30", "TDMA_OUT SEL" },
+> +	{ "TDM_D31", "TDM_D31", "TDMA_OUT SEL" },
+> +	{ "TDM_D0", "TDM_D0", "TDMB_OUT SEL" },
+> +	{ "TDM_D1", "TDM_D1", "TDMB_OUT SEL" },
+> +	{ "TDM_D2", "TDM_D2", "TDMB_OUT SEL" },
+> +	{ "TDM_D3", "TDM_D3", "TDMB_OUT SEL" },
+> +	{ "TDM_D4", "TDM_D4", "TDMB_OUT SEL" },
+> +	{ "TDM_D5", "TDM_D5", "TDMB_OUT SEL" },
+> +	{ "TDM_D6", "TDM_D6", "TDMB_OUT SEL" },
+> +	{ "TDM_D7", "TDM_D7", "TDMB_OUT SEL" },
+> +	{ "TDM_D8", "TDM_D8", "TDMB_OUT SEL" },
+> +	{ "TDM_D9", "TDM_D9", "TDMB_OUT SEL" },
+> +	{ "TDM_D10", "TDM_D10", "TDMB_OUT SEL" },
+> +	{ "TDM_D11", "TDM_D11", "TDMB_OUT SEL" },
+> +	{ "TDM_D12", "TDM_D12", "TDMB_OUT SEL" },
+> +	{ "TDM_D13", "TDM_D13", "TDMB_OUT SEL" },
+> +	{ "TDM_D14", "TDM_D14", "TDMB_OUT SEL" },
+> +	{ "TDM_D15", "TDM_D15", "TDMB_OUT SEL" },
+> +
+> +	{ "TDM_D16", "TDM_D16", "TDMB_OUT SEL" },
+> +	{ "TDM_D17", "TDM_D17", "TDMB_OUT SEL" },
+> +	{ "TDM_D18", "TDM_D18", "TDMB_OUT SEL" },
+> +	{ "TDM_D19", "TDM_D19", "TDMB_OUT SEL" },
+> +	{ "TDM_D20", "TDM_D20", "TDMB_OUT SEL" },
+> +	{ "TDM_D21", "TDM_D21", "TDMB_OUT SEL" },
+> +	{ "TDM_D22", "TDM_D22", "TDMB_OUT SEL" },
+> +	{ "TDM_D23", "TDM_D23", "TDMB_OUT SEL" },
+> +	{ "TDM_D24", "TDM_D24", "TDMB_OUT SEL" },
+> +	{ "TDM_D25", "TDM_D25", "TDMB_OUT SEL" },
+> +	{ "TDM_D26", "TDM_D26", "TDMB_OUT SEL" },
+> +	{ "TDM_D27", "TDM_D27", "TDMB_OUT SEL" },
+> +	{ "TDM_D28", "TDM_D28", "TDMB_OUT SEL" },
+> +	{ "TDM_D29", "TDM_D29", "TDMB_OUT SEL" },
+> +	{ "TDM_D30", "TDM_D30", "TDMB_OUT SEL" },
+> +	{ "TDM_D31", "TDM_D31", "TDMB_OUT SEL" },
+> +	{ "TDM_D0", "TDM_D0", "TDMC_OUT SEL" },
+> +	{ "TDM_D1", "TDM_D1", "TDMC_OUT SEL" },
+> +	{ "TDM_D2", "TDM_D2", "TDMC_OUT SEL" },
+> +	{ "TDM_D3", "TDM_D3", "TDMC_OUT SEL" },
+> +	{ "TDM_D4", "TDM_D4", "TDMC_OUT SEL" },
+> +	{ "TDM_D5", "TDM_D5", "TDMC_OUT SEL" },
+> +	{ "TDM_D6", "TDM_D6", "TDMC_OUT SEL" },
+> +	{ "TDM_D7", "TDM_D7", "TDMC_OUT SEL" },
+> +	{ "TDM_D8", "TDM_D8", "TDMC_OUT SEL" },
+> +	{ "TDM_D9", "TDM_D9", "TDMC_OUT SEL" },
+> +	{ "TDM_D10", "TDM_D10", "TDMC_OUT SEL" },
+> +	{ "TDM_D11", "TDM_D11", "TDMC_OUT SEL" },
+> +	{ "TDM_D12", "TDM_D12", "TDMC_OUT SEL" },
+> +	{ "TDM_D13", "TDM_D13", "TDMC_OUT SEL" },
+> +	{ "TDM_D14", "TDM_D14", "TDMC_OUT SEL" },
+> +	{ "TDM_D15", "TDM_D15", "TDMC_OUT SEL" },
+> +	{ "TDM_D16", "TDM_D16", "TDMC_OUT SEL" },
+> +	{ "TDM_D17", "TDM_D17", "TDMC_OUT SEL" },
+> +	{ "TDM_D18", "TDM_D18", "TDMC_OUT SEL" },
+> +	{ "TDM_D19", "TDM_D19", "TDMC_OUT SEL" },
+> +	{ "TDM_D20", "TDM_D20", "TDMC_OUT SEL" },
+> +	{ "TDM_D21", "TDM_D21", "TDMC_OUT SEL" },
+> +	{ "TDM_D22", "TDM_D22", "TDMC_OUT SEL" },
+> +	{ "TDM_D23", "TDM_D23", "TDMC_OUT SEL" },
+> +	{ "TDM_D24", "TDM_D24", "TDMC_OUT SEL" },
+> +	{ "TDM_D25", "TDM_D25", "TDMC_OUT SEL" },
+> +	{ "TDM_D26", "TDM_D26", "TDMC_OUT SEL" },
+> +	{ "TDM_D27", "TDM_D27", "TDMC_OUT SEL" },
+> +	{ "TDM_D28", "TDM_D28", "TDMC_OUT SEL" },
+> +	{ "TDM_D29", "TDM_D29", "TDMC_OUT SEL" },
+> +	{ "TDM_D30", "TDM_D30", "TDMC_OUT SEL" },
+> +	{ "TDM_D31", "TDM_D31", "TDMC_OUT SEL" },
+> +};
+> +
+> +static const struct snd_soc_component_driver s4_tdmout_pad_component_drv = {
+> +	.dapm_widgets		= s4_tdmout_pad_dapm_widgets,
+> +	.num_dapm_widgets	= ARRAY_SIZE(s4_tdmout_pad_dapm_widgets),
+> +	.dapm_routes		= s4_tdmout_pad_dapm_routes,
+> +	.num_dapm_routes	= ARRAY_SIZE(s4_tdmout_pad_dapm_routes),
+> +
+> +};
+> +
+> +static const struct of_device_id s4_tdmout_pad_of_match[] = {
+> +	{
+> +		.compatible = "amlogic,s4-tdmout-pad",
+> +	}, {}
+> +};
+> +
+> +MODULE_DEVICE_TABLE(of, s4_tdmout_pad_of_match);
+> +
+> +static int tdm_pad_out_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct regmap *map;
+> +	void __iomem *regs;
+> +
+> +	regs = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(regs))
+> +		return PTR_ERR(regs);
+> +
+> +	map = devm_regmap_init_mmio(dev, regs, &tdmout_pad_regmap_cfg);
+> +	if (IS_ERR(map))
+> +		return dev_err_probe(dev, PTR_ERR(map), "failed to init regmap\n");
+> +
+> +	return devm_snd_soc_register_component(dev, &s4_tdmout_pad_component_drv,
+> +					       NULL, 0);
+> +}
+> +
+> +static struct platform_driver tdmout_pad_pdrv = {
+> +	.probe = tdm_pad_out_probe,
+> +	.driver = {
+> +		.name = "s4-pad-out",
+> +		.of_match_table = s4_tdmout_pad_of_match,
+> +	},
+> +};
+> +
+> +module_platform_driver(tdmout_pad_pdrv);
+> +
+> +MODULE_DESCRIPTION("Amlogic TDM PAD DRIVER");
+> +MODULE_AUTHOR("jiebing.chen@amlogic.com");
+> +MODULE_LICENSE("GPL");
+> diff --git a/sound/soc/meson/s4-tocodec-control.c b/sound/soc/meson/s4-tocodec-control.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..e5d824fae0eba545d38dc36e2566e7cee590e7f5
+> --- /dev/null
+> +++ b/sound/soc/meson/s4-tocodec-control.c
 
-Best regards,
-Krzysztof
+There is already a to-acodec driver a not reason has been provided as to why a
+completly new driver is required.
+
+Please have look at the existing driver and do try to use it.
+If you need to do things so differently, clear justification are necessary.
+
+> @@ -0,0 +1,376 @@
+> +// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+> +/*
+> + * Copyright (C) 2023 Amlogic, Inc. All rights reserved
+> + */
+> +
+> +#include <linux/module.h>
+> +#include <linux/of_platform.h>
+> +#include <linux/regmap.h>
+> +#include <sound/soc.h>
+> +#include <sound/soc-dai.h>
+> +#include <linux/init.h>
+> +#include <linux/kernel.h>
+> +#include<linux/kstrtox.h>
+> +#include <linux/clk-provider.h>
+> +#include <linux/reset.h>
+> +#include "axg-tdm.h"
+> +
+> +#define TOACODEC_CTRL0			0x0
+> +
+> +#define CTRL0_ENABLE_SHIFT		31
+> +#define CTRL0_BCLK_ENABLE_SHIFT		30
+> +#define CTRL0_MCLK_ENABLE_SHIFT		29
+> +#define CTRL0_BLK_CAP_INV_SHIFT		9
+> +
+> +#define TDM_IFACE 0
+> +#define TDM_A_PAD 0
+> +#define TDM_B_PAD 1
+> +#define TDM_C_PAD 2
+> +
+> +struct toacodec {
+> +	struct regmap_field *field_dat_sel;
+> +	struct regmap_field *field_lrclk_sel;
+> +	struct regmap_field *field_bclk_sel;
+> +	struct regmap_field *field_mclk_sel;
+> +};
+> +
+> +struct toacodec_match_data {
+> +	const struct snd_soc_component_driver *component_drv;
+> +	const struct reg_field field_dat_sel;
+> +	const struct reg_field field_lrclk_sel;
+> +	const struct reg_field field_bclk_sel;
+> +	const struct reg_field field_mclk_sel;
+> +};
+> +
+> +static const struct regmap_config tocodec_regmap_cfg = {
+> +	.reg_bits	= 32,
+> +	.val_bits	= 32,
+> +	.reg_stride	= 4,
+> +	.max_register	= 0x1,
+> +};
+> +
+> +#define S4_LANE_OFFSET 8
+> +
+> +static const char * const s4_tocodec_lane_sel_texts[] = {
+> +	"Lane0", "Lane1", "Lane2", "Lane3", "Lane4", "Lane5", "Lane6", "Lane7"
+> +};
+> +
+> +static const struct soc_enum s4_tocodec_lane_sel_enum =
+> +	SOC_ENUM_SINGLE(SND_SOC_NOPM, 0, ARRAY_SIZE(s4_tocodec_lane_sel_texts),
+> +			s4_tocodec_lane_sel_texts);
+> +
+> +static const struct snd_kcontrol_new s4_tocodec_lane_sel =
+> +	SOC_DAPM_ENUM("TOCODEC LANE SEL", s4_tocodec_lane_sel_enum);
+> +
+> +static const char * const s4_tocodec_src_sel_texts[] = {
+> +	"TDMA", "TDMB", "TDMC"
+> +};
+> +
+> +static const struct soc_enum s4_tocodec_src_sel_enum =
+> +	SOC_ENUM_SINGLE(SND_SOC_NOPM, 0, ARRAY_SIZE(s4_tocodec_src_sel_texts),
+> +			s4_tocodec_src_sel_texts);
+> +
+> +static const struct snd_kcontrol_new s4_tocodec_src_sel =
+> +	SOC_DAPM_ENUM("TOCODEC SEL", s4_tocodec_src_sel_enum);
+> +
+> +static const struct snd_kcontrol_new s4_toacodec_out_enable =
+> +	SOC_DAPM_SINGLE_AUTODISABLE("Switch", TOACODEC_CTRL0,
+> +				    CTRL0_ENABLE_SHIFT, 1, 0);
+> +
+> +static struct snd_soc_dai *tocodec_tdm_get_ahead_be(struct snd_soc_dapm_widget *w)
+> +{
+> +	struct snd_soc_dapm_path *p;
+> +	struct snd_soc_dai *be;
+> +
+> +	snd_soc_dapm_widget_for_each_source_path(w, p) {
+> +		if (!p->connect)
+> +			continue;
+> +		if (p->source->id == snd_soc_dapm_dai_in)
+> +			return (struct snd_soc_dai *)p->source->priv;
+> +		be = tocodec_tdm_get_ahead_be(p->source);
+> +		if (be && be->id == TDM_IFACE)
+> +			return be;
+> +	}
+> +	return NULL;
+> +}
+> +
+> +static unsigned int aml_simple_strtoull(const char *cp)
+> +{
+> +	unsigned int result = 0;
+> +	unsigned int value = 0;
+> +	unsigned int len = strlen(cp);
+> +
+> +	while (len != 0) {
+> +		len--;
+> +		value = isdigit(*cp);
+> +		if (value) {
+> +			value = *cp - '0';
+> +		} else {
+> +			cp++;
+> +			continue;
+> +		}
+> +		cp++;
+> +		result = result * 10 + value;
+> +	}
+> +	return result;
+> +}
+> +
+> +static int aml_get_clk_id(const char *name)
+> +{
+> +	int clk_id = 0;
+> +
+> +	if (strstr(name, "mst_a"))
+> +		clk_id = 0;
+> +	else if (strstr(name, "mst_b"))
+> +		clk_id = 1;
+> +	else if (strstr(name, "mst_c"))
+> +		clk_id = 2;
+> +	else if (strstr(name, "mst_d"))
+> +		clk_id = 3;
+> +	else if (strstr(name, "mst_e"))
+> +		clk_id = 4;
+> +	else if (strstr(name, "mst_f"))
+> +		clk_id = 5;
+> +
+> +	return clk_id;
+> +}
+> +
+> +static int aml_tocodec_sel_set(struct snd_soc_dapm_widget *w)
+> +{
+> +	struct snd_soc_dai *be;
+> +	struct axg_tdm_stream *stream;
+> +	struct axg_tdm_iface *iface;
+> +	struct snd_soc_component *component = snd_soc_dapm_to_component(w->dapm);
+> +	struct toacodec *priv = snd_soc_component_get_drvdata(component);
+> +	unsigned int tdm_id = TDM_A_PAD;
+> +	const char *dai_widget_name;
+> +	struct snd_soc_dapm_path *p;
+> +	unsigned int lane = 0;
+> +	unsigned int val = 0;
+> +	struct clk *sclk, *mclk;
+> +	char *clk_name;
+> +	int mclk_id, sclk_id;
+> +
+> +	be = tocodec_tdm_get_ahead_be(w);
+> +	if (!be) {
+> +		dev_err(component->dev, "%s not find the be\n", __func__);
+> +		return -EINVAL;
+> +	}
+> +	stream = snd_soc_dai_dma_data_get_playback(be);
+> +	if (!stream) {
+> +		dev_err(component->dev, "%s not find the stream\n", __func__);
+> +		return -EINVAL;
+> +	}
+> +	/*we like to use dai id, but it is fixed val*/
+> +	dai_widget_name = be->stream[SNDRV_PCM_STREAM_PLAYBACK].widget->name;
+> +	if (strstr(dai_widget_name, "TDM_A"))
+> +		tdm_id = TDM_A_PAD;
+> +	else if (strstr(dai_widget_name, "TDM_B"))
+> +		tdm_id = TDM_B_PAD;
+> +	else if (strstr(dai_widget_name, "TDM_C"))
+> +		tdm_id = TDM_C_PAD;
+> +	snd_soc_dapm_widget_for_each_source_path(w, p) {
+> +		if (p->connect && p->name) {
+> +			lane = aml_simple_strtoull(p->name);
+> +			val = lane + tdm_id * S4_LANE_OFFSET;
+> +			regmap_field_write(priv->field_dat_sel, val);
+> +		}
+> +	}
+> +	iface = stream->iface;
+> +	mclk = iface->mclk;
+> +	sclk = iface->sclk;
+> +	mclk_id = aml_get_clk_id(__clk_get_name(mclk));
+> +	sclk_id = aml_get_clk_id(__clk_get_name(sclk));
+> +	regmap_field_write(priv->field_mclk_sel, mclk_id);
+> +	regmap_field_write(priv->field_bclk_sel, sclk_id);
+> +	regmap_field_write(priv->field_lrclk_sel, sclk_id);
+> +
+> +	return 0;
+> +}
+> +
+> +static int tocodec_sel_event(struct snd_soc_dapm_widget *w,
+> +			     struct snd_kcontrol *control,
+> +			     int event)
+> +{
+> +	struct snd_soc_component *component = snd_soc_dapm_to_component(w->dapm);
+> +	int ret = 0;
+> +
+> +	switch (event) {
+> +	case SND_SOC_DAPM_PRE_PMU:
+> +		ret = aml_tocodec_sel_set(w);
+> +		break;
+> +
+> +	case SND_SOC_DAPM_PRE_PMD:
+> +		break;
+> +
+> +	default:
+> +		dev_err(component->dev, "Unexpected event %d\n", event);
+> +		return -EINVAL;
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+> +static int tocodec_clk_enable(struct snd_soc_dapm_widget *w,
+> +			      struct snd_kcontrol *control,
+> +			      int event)
+> +{
+> +	int ret = 0;
+> +	unsigned int mask = 0, val = 0;
+> +	struct snd_soc_component *component = snd_soc_dapm_to_component(w->dapm);
+> +
+> +	snd_soc_component_update_bits(component, TOACODEC_CTRL0,
+> +				      1 << CTRL0_BLK_CAP_INV_SHIFT, 1 << CTRL0_BLK_CAP_INV_SHIFT);
+> +	switch (event) {
+> +	case SND_SOC_DAPM_PRE_PMU:
+> +		mask = 1 << CTRL0_MCLK_ENABLE_SHIFT | 1 << CTRL0_BCLK_ENABLE_SHIFT;
+> +		val = 1 << CTRL0_MCLK_ENABLE_SHIFT | 1 << CTRL0_BCLK_ENABLE_SHIFT;
+> +		snd_soc_component_update_bits(component, TOACODEC_CTRL0, mask, val);
+> +		break;
+> +	case SND_SOC_DAPM_PRE_PMD:
+> +		mask = 1 << CTRL0_MCLK_ENABLE_SHIFT | 1 << CTRL0_BCLK_ENABLE_SHIFT;
+> +		val = 0 << CTRL0_MCLK_ENABLE_SHIFT | 0 << CTRL0_BCLK_ENABLE_SHIFT;
+> +		snd_soc_component_update_bits(component, TOACODEC_CTRL0, mask, val);
+> +		break;
+> +	default:
+> +		dev_err(component->dev, "Unexpected event %d\n", event);
+> +		return -EINVAL;
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+> +static const struct snd_soc_dapm_widget s4_toacodec_widgets[] = {
+> +	SND_SOC_DAPM_MUX_E("Lane SRC", SND_SOC_NOPM, 0, 0,
+> +			   &s4_tocodec_lane_sel, tocodec_sel_event,
+> +			   (SND_SOC_DAPM_PRE_PMU | SND_SOC_DAPM_PRE_PMD)),
+> +	SND_SOC_DAPM_MUX("INPUT SRC", SND_SOC_NOPM, 0, 0, &s4_tocodec_src_sel),
+> +	SND_SOC_DAPM_SWITCH_E("OUT EN", SND_SOC_NOPM, 0, 0,
+> +			      &s4_toacodec_out_enable, tocodec_clk_enable,
+> +				(SND_SOC_DAPM_PRE_PMU | SND_SOC_DAPM_PRE_PMD)),
+> +	SND_SOC_DAPM_AIF_IN("TDMA", NULL, 0, SND_SOC_NOPM, 0, 0),
+> +	SND_SOC_DAPM_AIF_IN("TDMB", NULL, 0, SND_SOC_NOPM, 0, 0),
+> +	SND_SOC_DAPM_AIF_IN("TDMC", NULL, 0, SND_SOC_NOPM, 0, 0),
+> +	SND_SOC_DAPM_OUT_DRV("Lane0", SND_SOC_NOPM, 0, 0, NULL, 0),
+> +	SND_SOC_DAPM_OUT_DRV("Lane1", SND_SOC_NOPM, 0, 0, NULL, 0),
+> +	SND_SOC_DAPM_OUT_DRV("Lane2", SND_SOC_NOPM, 0, 0, NULL, 0),
+> +	SND_SOC_DAPM_OUT_DRV("Lane3", SND_SOC_NOPM, 0, 0, NULL, 0),
+> +	SND_SOC_DAPM_OUT_DRV("Lane4", SND_SOC_NOPM, 0, 0, NULL, 0),
+> +	SND_SOC_DAPM_OUT_DRV("Lane5", SND_SOC_NOPM, 0, 0, NULL, 0),
+> +	SND_SOC_DAPM_OUT_DRV("Lane6", SND_SOC_NOPM, 0, 0, NULL, 0),
+> +	SND_SOC_DAPM_OUT_DRV("Lane7", SND_SOC_NOPM, 0, 0, NULL, 0),
+> +	SND_SOC_DAPM_OUTPUT("TDM_TO_ACODEC"),
+> +};
+> +
+> +static const struct snd_soc_dapm_route s4_tocodec_dapm_routes[] = {
+> +	{ "INPUT SRC", "TDMA", "TDMA"},
+> +	{ "INPUT SRC", "TDMB", "TDMB"},
+> +	{ "INPUT SRC", "TDMC", "TDMC"},
+> +	{ "Lane0", NULL, "INPUT SRC" },
+> +	{ "Lane1", NULL, "INPUT SRC"},
+> +	{ "Lane2", NULL, "INPUT SRC"},
+> +	{ "Lane3", NULL, "INPUT SRC"},
+> +	{ "Lane4", NULL, "INPUT SRC"},
+> +	{ "Lane5", NULL, "INPUT SRC"},
+> +	{ "Lane6", NULL, "INPUT SRC"},
+> +	{ "Lane7", NULL, "INPUT SRC"},
+> +	{ "Lane SRC", "Lane0", "Lane0"},
+> +	{ "Lane SRC", "Lane1", "Lane1"},
+> +	{ "Lane SRC", "Lane2", "Lane2"},
+> +	{ "Lane SRC", "Lane3", "Lane3"},
+> +	{ "Lane SRC", "Lane4", "Lane4"},
+> +	{ "Lane SRC", "Lane5", "Lane5"},
+> +	{ "Lane SRC", "Lane6", "Lane6"},
+> +	{ "Lane SRC", "Lane7", "Lane7"},
+> +	{ "OUT EN", "Switch", "Lane SRC"},
+> +	{ "TDM_TO_ACODEC", NULL, "OUT EN"},
+> +
+> +};
+> +
+> +static const struct snd_soc_component_driver s4_tocodec_component_drv = {
+> +	.dapm_widgets		= s4_toacodec_widgets,
+> +	.num_dapm_widgets	= ARRAY_SIZE(s4_toacodec_widgets),
+> +	.dapm_routes		= s4_tocodec_dapm_routes,
+> +	.num_dapm_routes	= ARRAY_SIZE(s4_tocodec_dapm_routes),
+> +};
+> +
+> +static const struct toacodec_match_data s4_toacodec_match_data = {
+> +	.component_drv	= &s4_tocodec_component_drv,
+> +	.field_dat_sel	= REG_FIELD(TOACODEC_CTRL0, 16, 20),
+> +	.field_lrclk_sel = REG_FIELD(TOACODEC_CTRL0, 12, 14),
+> +	.field_bclk_sel	= REG_FIELD(TOACODEC_CTRL0, 4, 6),
+> +	.field_mclk_sel	= REG_FIELD(TOACODEC_CTRL0, 0, 2),
+> +};
+> +
+> +static const struct of_device_id s4_tocodec_of_match[] = {
+> +	{
+> +		.compatible = "amlogic,s4-tocodec",
+> +		.data = &s4_toacodec_match_data,
+> +	}, {}
+> +};
+> +
+> +MODULE_DEVICE_TABLE(of, s4_tocodec_of_match);
+> +
+> +static int tocodec_probe(struct platform_device *pdev)
+> +{
+> +	const struct toacodec_match_data *data;
+> +	struct device *dev = &pdev->dev;
+> +	struct toacodec *priv;
+> +	void __iomem *regs;
+> +	struct regmap *map;
+> +	int ret;
+> +
+> +	data = device_get_match_data(dev);
+> +	if (!data)
+> +		return dev_err_probe(dev, -ENODEV, "failed to match device\n");
+> +	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
+> +	if (!priv)
+> +		return -ENOMEM;
+> +
+> +	platform_set_drvdata(pdev, priv);
+> +
+> +	ret = device_reset(dev);
+> +	if (ret)
+> +		return ret;
+> +
+> +	regs = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(regs))
+> +		return PTR_ERR(regs);
+> +
+> +	map = devm_regmap_init_mmio(dev, regs, &tocodec_regmap_cfg);
+> +	if (IS_ERR(map))
+> +		return dev_err_probe(dev, PTR_ERR(map), "failed to init regmap\n");
+> +
+> +	priv->field_dat_sel = devm_regmap_field_alloc(dev, map, data->field_dat_sel);
+> +	if (IS_ERR(priv->field_dat_sel))
+> +		return PTR_ERR(priv->field_dat_sel);
+> +
+> +	priv->field_lrclk_sel = devm_regmap_field_alloc(dev, map, data->field_lrclk_sel);
+> +	if (IS_ERR(priv->field_lrclk_sel))
+> +		return PTR_ERR(priv->field_lrclk_sel);
+> +
+> +	priv->field_bclk_sel = devm_regmap_field_alloc(dev, map, data->field_bclk_sel);
+> +	if (IS_ERR(priv->field_bclk_sel))
+> +		return PTR_ERR(priv->field_bclk_sel);
+> +
+> +	priv->field_mclk_sel = devm_regmap_field_alloc(dev, map, data->field_mclk_sel);
+> +	if (IS_ERR(priv->field_mclk_sel))
+> +		return PTR_ERR(priv->field_mclk_sel);
+> +
+> +	return devm_snd_soc_register_component(dev,
+> +			data->component_drv, NULL, 0);
+> +}
+> +
+> +static struct platform_driver tocodec_pdrv = {
+> +	.probe = tocodec_probe,
+> +	.driver = {
+> +		.name = "s4-tocodec",
+> +		.of_match_table = s4_tocodec_of_match,
+> +	},
+> +};
+> +
+> +module_platform_driver(tocodec_pdrv);
+> +
+> +MODULE_DESCRIPTION("Amlogic to codec driver");
+> +MODULE_AUTHOR("jiebing.chen@amlogic.com");
+> +MODULE_LICENSE("GPL");
+> diff --git a/sound/soc/meson/t9015.c b/sound/soc/meson/t9015.c
+> index 571f65788c592050abdca264f5656d4d1a9d99f6..2db1cd18cf2cea507f3d7282054e03d953586648 100644
+> --- a/sound/soc/meson/t9015.c
+> +++ b/sound/soc/meson/t9015.c
+> @@ -89,10 +89,7 @@ static struct snd_soc_dai_driver t9015_dai = {
+>  		.channels_min = 1,
+>  		.channels_max = 2,
+>  		.rates = SNDRV_PCM_RATE_8000_96000,
+> -		.formats = (SNDRV_PCM_FMTBIT_S8 |
+> -			    SNDRV_PCM_FMTBIT_S16_LE |
+> -			    SNDRV_PCM_FMTBIT_S20_LE |
+> -			    SNDRV_PCM_FMTBIT_S24_LE),
+> +		.formats = (SNDRV_PCM_FMTBIT_S16_LE | SNDRV_PCM_FMTBIT_S32_LE),
+
+Again, mixed up changes with zero justification.
+
+This drops S8 and S16 format support for the existing SoCs (such as GXL)
+which is known to work and add S32 support on an HW documented as 24bits
+only. Can you explain ?
+
+>  	},
+>  	.ops = &t9015_dai_ops,
+>  };
+
+-- 
+Jerome
 
