@@ -4,59 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1EBAC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 19:36:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EC92C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 19:38:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/NU9ZyEiDBIAR3Kkfgc1gxjh1OQ/edA9cRtomivcM8E=; b=nlcVA0jSh8xHvijFDVrLaEhoLS
-	x6mPviCbX46+v/NFAnOPLo8Ve7lcbh3Lq3zsdtCB8GSdZ3EZ3siFxHOt6dnfO8AHlqKWZrNC0HNvE
-	0AhFKHJ1AzvVn9r33DnD9ZRRzqPUMy2TIBD0HjW0fO2aUzG8DL1H2+ipPOjbI+LgXnh6F17+s3bZ7
-	Fst8RWdC6eaGGuOZxtRiCO9xujD3mtLzFacvOVASBl3nuV1I5Qux8+1DCsMYeTHGfU1wv7okUePqO
-	uEKQbu6zKot8+vJ4Osra7wC9yUucPDJ6fCkRY4iGN6NAmBvOYkMhWv7NfQSY5mpRtIlp5GX0ilN2y
-	lpux8TCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iFkWnrlscGMyVXcRQE/gzR0O9GqEn/e/k8M3jQoAxfQ=; b=MA3b0EutzNENd/mdQxuey+/Epf
+	47jZUN5Q5JFNCL2EUo+rashhyvShjcfPCNO8cPzmP/M1RPUZ9lwCTUN9zqNAKnSYnnvUQN4fN4EU+
+	cgdBOTjvvXq+2BVwrwyUB1wjOLsMN3tK7RSTnqKrlPJGp8khvTbUHIwqPWnvaWmhjm0FxQ2lWyGRu
+	GcePfPYOWNnj4tWmljdFQLQLFK1WdYu29foBaGzXed33ks0HXH3+piDRKktLGK+wj65yPaE2vISA6
+	ltrGyF3sD/8H4+6OC0oT3dYVlU13DzourdvIkOt7tl+JP4C6LoJp01LsPfRKm3Ff5Dc2RSdEW7AFG
+	k20R87tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXQEp-00000006Pay-1RFg;
-	Mon, 13 Jan 2025 19:36:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXQBv-00000006OoK-1DMT
+	id 1tXQG2-00000006Q2w-298D;
+	Mon, 13 Jan 2025 19:37:54 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tXQEk-00000006PY6-3mUQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 19:33:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 657B712FC;
-	Mon, 13 Jan 2025 11:34:05 -0800 (PST)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1E2473F66E;
-	Mon, 13 Jan 2025 11:33:34 -0800 (PST)
-Date: Mon, 13 Jan 2025 19:33:17 +0000
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: Peng Fan <peng.fan@nxp.com>, "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
-	"cristian.marussi@arm.com" <cristian.marussi@arm.com>,
-	"ulf.hansson@linaro.org" <ulf.hansson@linaro.org>,
-	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Ranjani Vaidyanathan <ranjani.vaidyanathan@nxp.com>
-Subject: Re: [PATCH] pmdomain: arm: scmi_pm_domain: Initialize state as off
-Message-ID: <Z4VqcQuY0VhXDg6g@pluto>
-References: <20250110061346.2440772-1-peng.fan@oss.nxp.com>
- <Z4TreQ5bA9qiMTgC@bogus>
- <PAXPR04MB8459F33BCC84CCA8F49F3B60881F2@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <Z4UZ2Au7KSFMibDW@bogus>
+	Mon, 13 Jan 2025 19:36:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1736796994; x=1768332994;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:references:in-reply-to:to:cc;
+  bh=RWp3FTdHXsv0g7oH1Wf6zDIDMJuYWwCvt1vaU7Vp7Bo=;
+  b=2PXNJPTMslHhfCEeLOhTYsjQbzTj2IuS8a2Yc79ASox4ydMTVrV21iHz
+   swBCNMgNnr9etALHTFgRv61/gCdIrXojHpTioyf6mhOpBjeZE4LYJk4Pv
+   Mkb4PGsloQOQsUhEeDfU84jp2O9jGXVOuK8Eo8zj+Hs/m1IFngEsvwHgx
+   TbGwdmYqNCls0oB0okI1PZvNfqPqRERt8bbhLgfS9TNFP/PB0XQ4VuzUv
+   7p72TE8U87NrtTN1vqppbuPW+MolMZaG9JKwSl3zuV8HNaj+NZQFHO5KO
+   KLB6jkqKXcUxdTG+8No8UiJ+qpAPX0hYDG+u2RGgTv3uyf2eOKPVPfo+b
+   Q==;
+X-CSE-ConnectionGUID: Fja7+Z77S3CaoQEzhBU3bA==
+X-CSE-MsgGUID: VaI5AklMQXSpnmIMZ0+v6g==
+X-IronPort-AV: E=Sophos;i="6.12,312,1728975600"; 
+   d="scan'208";a="203970673"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 13 Jan 2025 12:36:31 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Mon, 13 Jan 2025 12:36:22 -0700
+Received: from DEN-DL-M70577.microchip.com (10.10.85.11) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
+ 15.1.2507.35 via Frontend Transport; Mon, 13 Jan 2025 12:36:19 -0700
+From: Daniel Machon <daniel.machon@microchip.com>
+Date: Mon, 13 Jan 2025 20:36:05 +0100
+Subject: [PATCH net-next v2 1/5] net: sparx5: enable FDMA on lan969x
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z4UZ2Au7KSFMibDW@bogus>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250113-sparx5-lan969x-switch-driver-5-v2-1-c468f02fd623@microchip.com>
+References: <20250113-sparx5-lan969x-switch-driver-5-v2-0-c468f02fd623@microchip.com>
+In-Reply-To: <20250113-sparx5-lan969x-switch-driver-5-v2-0-c468f02fd623@microchip.com>
+To: "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Andrew Lunn
+	<andrew+netdev@lunn.ch>, Lars Povlsen <lars.povlsen@microchip.com>, "Steen
+ Hegelund" <Steen.Hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	<jensemil.schulzostergaard@microchip.com>, <horatiu.vultur@microchip.com>,
+	<jacob.e.keller@intel.com>
+CC: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+X-Mailer: b4 0.14-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_113339_416064_04D2D0A1 
-X-CRM114-Status: GOOD (  30.62  )
+X-CRM114-CacheID: sfid-20250113_113635_115196_13B761E9 
+X-CRM114-Status: GOOD (  13.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,117 +91,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 13, 2025 at 01:49:12PM +0000, Sudeep Holla wrote:
-> On Mon, Jan 13, 2025 at 11:37:23AM +0000, Peng Fan wrote:
-> > > Subject: Re: [PATCH] pmdomain: arm: scmi_pm_domain: Initialize
-> > > state as off
-> > >
-> > > On Fri, Jan 10, 2025 at 02:13:46PM +0800, Peng Fan (OSS) wrote:
-> > > > From: Peng Fan <peng.fan@nxp.com>
-> > > >
-> > > > Per ARM SCMI Spec DEN0056E, page 16, "The platform may disable a
-> > > > resource if no agent has requested to use that resource."
-> > > >
+In a previous series, we made sure that FDMA was not initialized and
+started on lan969x. Now that we are going to support it, undo that
+change. In addition, make sure the chip ID check is only applicable on
+Sparx5, as this is a check that is only relevant on this platform.
 
-Hi,
+Reviewed-by: Steen Hegelund <Steen.Hegelund@microchip.com>
+Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
+---
+ drivers/net/ethernet/microchip/sparx5/sparx5_main.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-not really a short mail this one...
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
+index e68277c38adc..340fedd1d897 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
+@@ -784,8 +784,9 @@ static int sparx5_start(struct sparx5 *sparx5)
+ 
+ 	/* Start Frame DMA with fallback to register based INJ/XTR */
+ 	err = -ENXIO;
+-	if (sparx5->fdma_irq >= 0 && is_sparx5(sparx5)) {
+-		if (GCB_CHIP_ID_REV_ID_GET(sparx5->chip_id) > 0)
++	if (sparx5->fdma_irq >= 0) {
++		if (GCB_CHIP_ID_REV_ID_GET(sparx5->chip_id) > 0 ||
++		    !is_sparx5(sparx5))
+ 			err = devm_request_irq(sparx5->dev,
+ 					       sparx5->fdma_irq,
+ 					       sparx5_fdma_handler,
 
-> > >
-> > > True, but ...
-> > >
-> > > > Linux Kernel should not rely on a state that it has not requested, so
-> > > > make state as off during initialization.
-> > > >
-> > >
-> > > IIUC, this was done to avoid any transitions if the bootloader like U-
-> > > Boot has turned on the resource and OS can just rely on that stay.
-> >
-> > But if it is not U-Boot turned it on?
-> 
-> Not sure if I understand what exactly you mean by that.
-> 
-> > Or U-Boot is in a separate agent?
-> >
-> 
-> No, it will be same as OS for the SCMI platform/agent as they use/share the
-> same transport. It is hard to distinguish between them.
-> 
+-- 
+2.34.1
 
-Exactly, if U-Boot is SCMI capable, its requests will have been accounted,
-lets say, as Agent_X, but when the Kernel springs to life it will take over
-the role and the SAME channel used by the defunct UBoot, so as to appear as
-being effectively the same Agent_X to the platform...
-
-...the tricky part is what happens when, instead, UBoot is NOT an SCMI agent
-and it does leave some resources ON (say some regulator needed while setting up
-the screen...) with the intent of NOT having those turned off by the Kernel ?
-(BUT with such actions not tracked by the platform, not being an SCMI agent)
-
-To make the matter worse, all of this sort of "resource-state-alignment-issue"
-between bootloader, Kernel or other independent agents, greatly depends on how
-the state-get operations were implemented.
-
-IOW, since some resources could be shared between agents (clocks, PDs), a
-set-state on such resources is supposed to be "harmonized" by the platform,
-so that, say, res_X will be enabled physically only when the first agent
-acquires it, and res_X will be finally disabled only when the last agent
-relinquishes it...
-
-....you certainly dont want that after agent_A have issued a set_ON(res_X),
-another agent_B issuing a set_OFF(res_X) can cause that same shared res_X to
-be effectively switched off while still used by agent_A...in such a case agent_B
-should receive an OK but res_X should anyway effectively stay ON until also
-agent_A has relinquished it too...
-
-...now the question is...what state would you expect to read-back from a
-get_state operation on such shared resources ? the real/physical one OR the
-virtual/per_agent state ?
-
-...IOW in the above example, after agent_B successfully issued a set_OFF(res_X),
-on the shared res_X (which indeed did NOT really caused sharted res_X to be
-turned OFF) what will agent_B should read back from a get_state(res_X):
-
-	OFF (virtual-view) ? ... or ON (physical view) ?
-
-This platform "states-view" behaviour was long debated and at the end
-AFAICR it has been left by the spec as IMPDEF, so each platform can
-decide what to return...physical vs virtual state...and that means that,
-whatever we do, Kernel side we should cope with 4 possible scenarios
-
-- Uboot NON-SCMI / physical GET_STATE platform-impl
-- Uboot NON-SCMI / virtual GET_STATE platform-impl
-- Uboot SCMI / physical GET_STATE platform-impl
-- Uboot SCMI / virtual GET_STATE platform-impl
-
-...and in all of these scenarios we should additionally consider what
-happens when the kernel wants or want-not to keep a resource in the state,
-that it has found it (as queried with a get_state (physical or virtual))
-
-IOW, as an example, what if:
-
-I have an UBOOT/NON_SCMI that leaves res_X OFF from its point-of-view at
-the end of its life, BUT res_X is also claimed as ON by another SCMI agent_Z
-at the same time, and the platform implements physical-real-views, so that
-Kernel will see anyway res_X as ON....what should happen, in this context,
-if the Kernel wants to keep res_X ON ?
-
-OR what if:
-
-I have an UBOOT/SCMI agent_X that leaves res_X ON from its point-of-view at
-the end of its life, BUT res_X is also claimed as ON by another SCMI agent_Z
-at the same time, and the platform implements virtual-per-agent-views,
-so that Kernel will see res_X as ON....what will happen, in this
-context, if the Kernel wants to turn res_X OFF ? AND what happens
-instead if, in this scenario, we have additionally the currently proposed patch
-applied (that forcibly would makke the Kernel think that res_X is OFF) ?
-
-All of these scenario should be considered, and I have indeed an even
-longer (:P) mail currently brewing on my side to try to layout all
-possibilities...
-
-...next days once it is more refined I will post it.... you've been warned ! :P
-
-Thanks
-Cristian
 
