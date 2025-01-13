@@ -4,91 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9BD9E7719F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 12:24:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AE11E7719F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 12:39:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yNtWlbuRALowbs7LIfJF5Me+LBBi+cNfwLP2FF5ZLd4=; b=Axkc5aJZ13OA8jr1S/01qH7J6L
-	LedRhoq6Mk3MQaDF9x9Tv+iFP+MaHGQ9PdO1PUpFfGnlLu7CxUJ1olyKJlZpTO3fgNZaC6IqDdQfB
-	3uPulc3aarfVsuhMhOhLcJx9tq392b8jTv2aFtSGWp9UaIe4+bdotmostMbrMRDYrFkTv/1T4ZJQc
-	CqjYW9JtSxYtNY45s/CtT+Pup/VWguYaG2lB6T2EHknmy8pGxS6y5vDIOYtWhBZfsodW7EvXZfonw
-	Jn2sxVroaeC3SYIywFHteHd+QX5qa8FwqrOYvbFYqsRcu6ooO9YKaC9lgdJCpcqvAA2VJYzpUrT7M
-	M1QjWUPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XYspswNAJVbjIJeGSav8oevdZS2Al30TlAOrfrWoHgI=; b=SbaSLMj+9hXrMUXrb4fGz1/gAd
+	wTkwOt6/hqDbySqcy5pyRkHs6RFLsTaeF3E9CQ9zWJiARrZT62NKIoFvUzzyK8AcR6gjtq4jgwiUl
+	gBzUVpebLcompw8L4B+l5gOtoadt9V0SalwTYhTVzXzwCf+WaVQWNO6EBw8WZo2aLyUFRNboSj9t6
+	U1Y0hgR/RBG/ftrKE+TNnr5WjsYYLCWUcULhnYCISwveO4016boRJecsgtA/82Ltw/Yv8GmVSivD+
+	k2x4LccrNCyiC9txIv/kOnjOsfSTADIAtVwDGcZWcKufeEe0bU3JaSMEbfBGkXCXtJvQ1RzHoheud
+	sT8sk77w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXJU3-000000055aB-2rC9;
-	Mon, 13 Jan 2025 12:23:55 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1tXJiQ-000000057Xk-1sRX;
+	Mon, 13 Jan 2025 12:38:46 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXJSp-000000055MD-1Zes;
-	Mon, 13 Jan 2025 12:22:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1736770959; x=1768306959;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=stEywmXG1laYnRzODs69aFGDvg28c4l68K3KGTA7Rvo=;
-  b=HA+mCuXd8hMVXP+Q4cZCSucY3jNVy16d0KPgdZjb5driasJMBNtHfX4z
-   5LCbtX1wXKxwGP3jgwvtLX0/07mYVxPRZHZ5/IYdIMTRWUzk0A7yJnojq
-   J2HIx+OnMlIrlVSGb2VXJJT8TZndJrbYE1Rs0nYtiKCn0AJ3tDwQcr1/s
-   Bx2GXjjeZ9chp+lOjrk/TzT3XiDaz2FJ4WOjb8nrWdRQ1loN4UDa4QqXh
-   8KX5Dox6gyBfq33J4sC0LXEKNZdqBnZjPlvlKtyHuquozjQObbloRYzw1
-   1BnYYJgReMmN/rAg820O/E5QFZ/1ky62yXt2VwFEpAUejEA5sZ+5wPLBX
-   g==;
-X-CSE-ConnectionGUID: UV6Uenb4TdOcqHJ1kgJFTw==
-X-CSE-MsgGUID: iTJLLCR/TXOLqRy7c3q91g==
-X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="47695718"
-X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
-   d="scan'208";a="47695718"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jan 2025 04:22:38 -0800
-X-CSE-ConnectionGUID: ogta3rT+TIGgYDeY4fP/6w==
-X-CSE-MsgGUID: l0qv6h4BSKS//whYdBgmHQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="127720416"
-Received: from black.fi.intel.com ([10.237.72.28])
-  by fmviesa002.fm.intel.com with ESMTP; 13 Jan 2025 04:22:31 -0800
-Received: by black.fi.intel.com (Postfix, from userid 1000)
-	id 0E7E039C; Mon, 13 Jan 2025 14:22:29 +0200 (EET)
-Date: Mon, 13 Jan 2025 14:22:29 +0200
-From: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
-To: Borislav Petkov <bp@alien8.de>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
-	Andy Lutomirski <luto@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexei Starovoitov <ast@kernel.org>, Andrea Parri <parri.andrea@gmail.com>, 
-	Arnd Bergmann <arnd@arndb.de>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Eric Chan <ericchancf@google.com>, Jason Gunthorpe <jgg@ziepe.ca>, Kai Huang <kai.huang@intel.com>, 
-	Kefeng Wang <wangkefeng.wang@huawei.com>, Kent Overstreet <kent.overstreet@linux.dev>, 
-	Palmer Dabbelt <palmer@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Russell King <linux@armlinux.org.uk>, Samuel Holland <samuel.holland@sifive.com>, 
-	Suren Baghdasaryan <surenb@google.com>, Yuntao Wang <ytcoode@gmail.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Tom Lendacky <thomas.lendacky@amd.com>, Ashish Kalra <ashish.kalra@amd.com>, 
-	"Maciej W. Rozycki" <macro@orcam.me.uk>
-Subject: Re: [PATCHv2 2/2] x86/mm: Make memremap(MEMREMAP_WB) map memory as
- encrypted by defaultk
-Message-ID: <frry56jwxk6cpesuk4u5mcnkaxq3c4xqhdi52irdvabwtn5smt@t2tudprmocs4>
-References: <20241021105723.2707507-1-kirill.shutemov@linux.intel.com>
- <20241021105723.2707507-3-kirill.shutemov@linux.intel.com>
- <20241118164616.GAZztvWGs9cOV8t20_@fat_crate.local>
- <s4frmqwtuvclinuu7ttyzfpe7bj7hju5xgt6sxzy3gyt3prr62@rrgvhkv4lgwv>
- <20241121114952.GCZz8eYEVa3yubYQzO@fat_crate.local>
- <bz3vlh3lri7yfckdkddopwhsgvkmizhw5q6ecomgeba7q22ufp@ntu2kugiho4o>
- <ejh2llcaxahkgz3k2ji3b35dfdss3bfgztyhsfgtu6adejasr7@ajehr7ac3bp3>
- <20250113103238.GCZ4TrxlX-VbHLkoNo@fat_crate.local>
+	id 1tXJhB-000000057Id-1uhM
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Jan 2025 12:37:30 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-2f43d17b0e3so7415736a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 04:37:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1736771848; x=1737376648; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=XYspswNAJVbjIJeGSav8oevdZS2Al30TlAOrfrWoHgI=;
+        b=MQyi+T0f3vrmMVi3H37uCG7SvzKXGLEVVCdTyeKSaf9qJpzC6aNc/dtIjcPPA15UXD
+         jKbWtbO647moDRAKScp8bz8ZcAqGzC2nQZ2451G+YxL99VG8SjR6j7tuD6YhQdI6zIjD
+         ElFzgFwMQX0Vkyclp+AjP4WtYYI+gOhfdqYHkEvveGrHT5Y5MOMFeAIrCzFsszG9idCd
+         sXITsO4xF5Qy5+lOlyyw3a2XEj4PTfLG73vpuT2AIvABS33c5h5scnUyk7+p1+x0ZCPj
+         ySMnStnHJpTZ5ysytIOKwLMWiOXbNNyq7pWvrcT8b/JoUEmdCST4PXp224hs/6yrRR4E
+         YJIw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736771848; x=1737376648;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=XYspswNAJVbjIJeGSav8oevdZS2Al30TlAOrfrWoHgI=;
+        b=IClPLNPuSPGWNsrInUwtbCsntYgE5L9r/sQV9IotAHxakil8uq/bTmg2c/atcdWg2X
+         4Rj8NuLcG9GUb104fDY4uYZ26ian4QIC4D8ds5LXMcFVI0X1BkGX7sjwB8+E+qLAi15x
+         fr+HY9BHR19P4oawaDgG5H69h7vCFmAy9Z/WSNkJKoyFANT2ei07UvxIZvnl0f4KLuLl
+         OZZHPsy5THvPKx2seIR6U5A7bK1L/xY/Qa6U2xFXHMdbxeEov28ZcDJqFlD2TONMs+aQ
+         IxP5pVYHnKfmxOqlPPVBjrMCpdOhUW99JPN3v7YSBzACnNcmZxeJyVD9GNw1iuEvbDLk
+         Dm/g==
+X-Forwarded-Encrypted: i=1; AJvYcCUE/bKTeucbCOFROxjgPhB/wKNXrNYoXtXWKW3MWkiizNSgcIdykroOkiQHG6G1EtHSX8YGBiFsk0z2SSVQnA1Q@lists.infradead.org
+X-Gm-Message-State: AOJu0YxpSACkyU97NmoBwkhU7m6z4dbIsxyTI2+MuKtDxYcVx1GSxgtQ
+	+KgEjbLDz4oiqvbo59fQU/wiZRi4k6i/kKd+hvjGQ4S21/PVzM6Y
+X-Gm-Gg: ASbGncv9sMMij2uxopvx1WXkT5t1ybVX+wWXLibZQ5xs8IhKNSm/mJJ0RDWeMaNCbxf
+	EYGJQrkRm6MuVkK21hZbCvnuKPBQCF7GzX84tb7uZVDsRVtARpCR+p7sDlfkhFzxqKvo2R5adGv
+	cMi163acd5lO/qtMRZXaIzoQXzoTHzwpKIGJSM5CM+zcNpTf6cVrx7W34RtyaH8ia6EVsWqGtHu
+	aZmuZb1YhyB2Yt6vdXIooUq60XhWeQuGjAaPG/aHxoVdmkqYQYaJA==
+X-Google-Smtp-Source: AGHT+IHe1pVSKvtAf8tEME92BvPU8bFiXiKYwUp2o19enb2ske+ljaAhyVZKHCMtZv5/6JQqhbrv8A==
+X-Received: by 2002:a17:90b:53c5:b0:2f2:f6e0:3f6a with SMTP id 98e67ed59e1d1-2f548f3979bmr32049199a91.14.1736771847927;
+        Mon, 13 Jan 2025 04:37:27 -0800 (PST)
+Received: from localhost ([129.146.253.192])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f5593d07cbsm8624004a91.3.2025.01.13.04.37.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jan 2025 04:37:27 -0800 (PST)
+Date: Mon, 13 Jan 2025 20:37:10 +0800
+From: Furong Xu <0x1207@gmail.com>
+To: Alexander Lobakin <aleksander.lobakin@intel.com>
+Cc: <netdev@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+ <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, <xfr@outlook.com>
+Subject: Re: [PATCH net-next v1 3/3] net: stmmac: Optimize cache prefetch in
+ RX path
+Message-ID: <20250113203710.000033dc@gmail.com>
+In-Reply-To: <f20c339f-5286-477c-9255-e2e1fbeba57c@intel.com>
+References: <cover.1736500685.git.0x1207@gmail.com>
+	<b992690bf7197e4b967ed9f7a0422edae50129f2.1736500685.git.0x1207@gmail.com>
+	<f20c339f-5286-477c-9255-e2e1fbeba57c@intel.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250113103238.GCZ4TrxlX-VbHLkoNo@fat_crate.local>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_042239_423683_35771CDE 
-X-CRM114-Status: GOOD (  13.52  )
+X-CRM114-CacheID: sfid-20250113_043729_513918_E0DB94BC 
+X-CRM114-Status: GOOD (  12.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,41 +104,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 13, 2025 at 11:32:38AM +0100, Borislav Petkov wrote:
-> On Mon, Jan 13, 2025 at 12:03:22PM +0200, Kirill A. Shutemov wrote:
-> > Borislav,
-> > 
-> > Is there anything I need to do to get this patchset merged?
+On Mon, 13 Jan 2025 13:10:46 +0100, Alexander Lobakin <aleksander.lobakin@intel.com> wrote:
+
+> > @@ -5596,6 +5593,7 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+> >  		} else if (buf1_len) {
+> >  			dma_sync_single_for_cpu(priv->device, buf->addr,
+> >  						buf1_len, dma_dir);
+> > +			prefetch(page_address(buf->page) + buf->page_offset);
+> >  			skb_add_rx_frag(skb, skb_shinfo(skb)->nr_frags,
+> >  					buf->page, buf->page_offset, buf1_len,
+> >  					priv->dma_conf.dma_buf_sz);  
 > 
-> Your updated commit message here:
+> Are you sure you need to prefetch frags as well? I'd say this is a waste
+> of cycles, as the kernel core stack barely looks at payload...
+> Probably prefetching only header buffers would be enough.
 > 
-> https://lore.kernel.org/r/bz3vlh3lri7yfckdkddopwhsgvkmizhw5q6ecomgeba7q22ufp@ntu2kugiho4o
-> 
-> Reads better, yes.
-> 
-> > This change fixes the crash on kexec in TDX guests if CONFIG_EISA is
-> > enabled.
-> 
-> s/This change fixes/Fix/
-> 
-> In imperative tone pls.
 
-Okay.
+Yes, do not prefetch for frags is more reasonable.
+Thanks!
 
-> And that sentence begs the question: does this need to go to stable?
-
-Right.
-
-It is hard to pin down Fixes commit as the bug is inherited from initial
-encrypted/decrypted handling implementation, but it is not useful to
-backport it all the way.
-
-I'll add
-
-Cc: stable@vger.kernel.org # 6.11+
-
-6.11 is where kexec handling for TDX was introduced.
-
--- 
-  Kiryl Shutsemau / Kirill A. Shutemov
+pw-bot: changes-requested
 
