@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69417E7719F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 11:56:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E262E7719F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 11:57:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OlZYWPX0QNCSKKO5JWx1URTrYTNj5bjTeUg1yJzKm6g=; b=Bsg/qXhs+I3pNyBPH1xY9qOjKg
-	QP7B7UuTVOTw/WgNP2/S6rOXMuaohufsh9taw1dpVXuRYnD/dgFHnLdPId7Y93YVnHuDIC999qvuf
-	AnfqmEppXhr4+RI2rHvT1pb7FnCsyQnJuLDmeHqxGOPX/7nBXhE5Ja9/vgWE7eJX+hdHZRD+UBOcP
-	OLKtMNBoV2CUDU73UDvlv9is+tGtiKfbevCMM2Te3k6geDwUJ2MTBKxRCDXI6BORtEbXQpxrFu9sw
-	1NReZYbfcTWeH3X0swDNxOg6dywkIVG/EPg5tu78RppPunEKnKJIHHLB87wX2gsKrEFZB3H7dzzVr
-	Vg/b38Fw==;
+	bh=GEgZ/SvmKDS++MiOXpGxNiPvw6lP1RjmRHXTj59mUno=; b=c9gRykUvwXo2Q6kbw9mo3bAW3H
+	nJnuyInxJ0oCg+02wzNB08x0mitv+aJz06Zf5IZhXE/9jINEYGiMr8bzSE5jek1LBr8b1FkO2Y5in
+	ixdn9HVyj9FDcR9PUWlyn2tG14gMsj5VGaikIdEEDwTnJWzVCxToSu4vWhDY3CChfObmAYVqFg7nb
+	pVOf07/Lz3KwIF7xNeLU8W86M97sNRxsE7y2pHlX2OC47vbrdim8gDGwKmwLM/uFUya4T6yvTxUX1
+	F/KOGxhcedKj6Fb5Ff/SD2iclr8VpuzykTqF+9FeSUN5zJrdphfDWVJq4qeKljE0ZYU2rJSomRr2V
+	eDRdrtiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXJ3D-000000050dO-0S7S;
-	Mon, 13 Jan 2025 11:56:11 +0000
+	id 1tXJ4P-000000050oE-2yzg;
+	Mon, 13 Jan 2025 11:57:25 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXItx-00000004ymv-2qtb
+	id 1tXIu1-00000004yoP-1GIx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 11:46:38 +0000
+	Mon, 13 Jan 2025 11:46:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=OlZYWPX0QNCSKKO5JWx1URTrYTNj5bjTeUg1yJzKm6g=; b=CEVqnTPusTw+aupRrYqlu84HHr
-	/uDDsggTdYHG/CMitY1r+ceWHqYlZxEnITYNiOoqAhCbEbg8LuDndZA2x8+B74LGUlk0xjizBemZY
-	4MLhDG3qwEc/fn4P8fhTQEL5psw6fJsvJ3xYEJSm7ZoUqaUMBa2cVO4vPDBWEATKxqsPljsEjgAVb
-	RAKjZqFXH7GpllEcahl4sbFKHZvhCZH3SgBNFfuzmVNWaD0lZBmaweN1ui4sj2ug2lSy3BAd/L8Q0
-	/T94hvXNLMlEKf5R0f9lq8rVBlt8IMk7IuR7XkaCvdH9uKB7207cUoIp/eadNipG0So3kunn+R54S
-	sx0BhEeg==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:45902 helo=rmk-PC.armlinux.org.uk)
+	bh=GEgZ/SvmKDS++MiOXpGxNiPvw6lP1RjmRHXTj59mUno=; b=UzuOxMvTAtG53wSYLB9oUkGFls
+	0rdlR3mVUqQ5GeDjecci/PdH1Oe6/DtNZDKkXASsZRzNygPm42/To8o7qYkgSfdbtcx08lY25/ZrN
+	hjfhQZJBLUGfRUelbeL5NL+bGjX6pmNXrUKU/9G6PJi4dMVgXdU8CPlnz/ImrwGVp04rZmxPafuw8
+	9SehgNL4lnFstOOuELO1LBX5s/1fbFyhTER+/1Ue7/7VB5if5o9Gvls1vCWu74/nh9yWsxk6QZtbb
+	mLcvTRhxWgXXslab5EJObH47SZHpUGpI6lrKF2WQyGc5fyfTeDz16l56JG8ibY7LrB1lRKg8eKVq6
+	Csr5FThA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:38262 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tXItp-0006WZ-26;
-	Mon, 13 Jan 2025 11:46:29 +0000
+	id 1tXItu-0006Wn-2f;
+	Mon, 13 Jan 2025 11:46:34 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tXItW-000MBU-KQ; Mon, 13 Jan 2025 11:46:10 +0000
+	id 1tXItb-000MBa-OU; Mon, 13 Jan 2025 11:46:15 +0000
 In-Reply-To: <Z4T84SbaC4D-fN5y@shell.armlinux.org.uk>
 References: <Z4T84SbaC4D-fN5y@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -64,18 +64,16 @@ Cc: Eric Woudstra <ericwouds@gmail.com>,
 	netdev@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH net-next 7/9] net: stmmac: provide function for restarting sw
- LPI timer
+Subject: [PATCH net-next 8/9] net: stmmac: combine stmmac_enable_eee_mode()
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tXItW-000MBU-KQ@rmk-PC.armlinux.org.uk>
-Date: Mon, 13 Jan 2025 11:46:10 +0000
+Message-Id: <E1tXItb-000MBa-OU@rmk-PC.armlinux.org.uk>
+Date: Mon, 13 Jan 2025 11:46:15 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_034637_716329_8545EBAC 
-X-CRM114-Status: UNSURE (   9.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250113_034641_338637_ACB71A02 
+X-CRM114-Status: GOOD (  16.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,51 +88,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Provide a function that encapsulates restarting the software LPI
-timer when we have determined that the transmit path is busy, or
-whether the EEE parameters have changed.
+Combine stmmac_enable_eee_mode() with stmmac_try_to_start_sw_lpi()
+which makes the code easier to read and the flow more logical. We
+can now trivially see that if the transmit queues are busy, we
+(re-)start the eee_ctrl_timer. Otherwise, if the transmit path is
+not already in LPI mode, we ask the hardware to enter LPI mode.
+
+I believe that now we can see better what is going on here, this
+shows that there is a bug with the software LPI timer implementation.
+
+The LPI timer is supposed to define how long after the last
+transmittion completed before we start signalling LPI. However,
+this code structure shows that if all transmit queues are empty,
+and stmmac_try_to_start_sw_lpi() is called immediately after cleaning
+the transmit queue, we will instruct the hardware to start signalling
+LPI immediately.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 11 +++++++----
- 1 file changed, 7 insertions(+), 4 deletions(-)
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c   | 17 ++++++-----------
+ 1 file changed, 6 insertions(+), 11 deletions(-)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index ddbcbe3886c0..677a2172a85f 100644
+index 677a2172a85f..72f270013086 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -416,6 +416,11 @@ static bool stmmac_eee_tx_busy(struct stmmac_priv *priv)
- 	return false;
+@@ -422,27 +422,22 @@ static void stmmac_restart_sw_lpi_timer(struct stmmac_priv *priv)
  }
  
-+static void stmmac_restart_sw_lpi_timer(struct stmmac_priv *priv)
-+{
-+	mod_timer(&priv->eee_ctrl_timer, STMMAC_LPI_T(priv->tx_lpi_timer));
-+}
-+
  /**
-  * stmmac_enable_eee_mode - check and enter in LPI mode
+- * stmmac_enable_eee_mode - check and enter in LPI mode
++ * stmmac_try_to_start_sw_lpi - check and enter in LPI mode
   * @priv: driver private structure
-@@ -437,8 +442,7 @@ static int stmmac_enable_eee_mode(struct stmmac_priv *priv)
- static void stmmac_try_to_start_sw_lpi(struct stmmac_priv *priv)
+  * Description: this function is to verify and enter in LPI mode in case of
+  * EEE.
+  */
+-static int stmmac_enable_eee_mode(struct stmmac_priv *priv)
++static void stmmac_try_to_start_sw_lpi(struct stmmac_priv *priv)
  {
- 	if (stmmac_enable_eee_mode(priv))
--		mod_timer(&priv->eee_ctrl_timer,
--			  STMMAC_LPI_T(priv->tx_lpi_timer));
+-	if (stmmac_eee_tx_busy(priv))
+-		return -EBUSY; /* still unfinished work */
++	if (stmmac_eee_tx_busy(priv)) {
 +		stmmac_restart_sw_lpi_timer(priv);
++		return;
++	}
+ 
+ 	/* Check and enter in LPI mode */
+ 	if (!priv->tx_path_in_lpi_mode)
+ 		stmmac_set_eee_mode(priv, priv->hw,
+ 			priv->plat->flags & STMMAC_FLAG_EN_TX_LPI_CLOCKGATING);
+-	return 0;
+-}
+-
+-static void stmmac_try_to_start_sw_lpi(struct stmmac_priv *priv)
+-{
+-	if (stmmac_enable_eee_mode(priv))
+-		stmmac_restart_sw_lpi_timer(priv);
  }
  
  /**
-@@ -526,8 +530,7 @@ static void stmmac_eee_init(struct stmmac_priv *priv, bool active)
- 		/* Use software LPI mode */
- 		priv->eee_sw_timer_en = true;
- 		stmmac_disable_hw_lpi_timer(priv);
--		mod_timer(&priv->eee_ctrl_timer,
--			  STMMAC_LPI_T(priv->tx_lpi_timer));
-+		stmmac_restart_sw_lpi_timer(priv);
- 	}
- 
- 	priv->eee_enabled = true;
 -- 
 2.30.2
 
