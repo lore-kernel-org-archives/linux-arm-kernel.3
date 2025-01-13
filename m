@@ -4,73 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5FEFC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 17:32:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BA26C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 17:34:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H4muWke9H2WAVf+L762qmgkGuimUiHnSY2t6rCZkL3M=; b=jk9D6BI71UQE6qz0WV20paOJt1
-	oHGH5q9PMduclunMxiOxkoETvpiTGfRRWizAFgWDAjueB+06amAkiHoha3mYImoLKRD/utjY2L3rd
-	wNvnEm5NxoKm3Itnpa8v+g1qmMz7SGvwvxrHWjI4sfPme1ZXlMC2W+JJsaMNOlIN4FidxU94HJEpU
-	FHRLFcsTpKpIY9SCTO52Y+BDeSeWTo5wZiTKVhKjOV2/S3GX8wZPiCZVFpebwUoTJndrpa6xrk6ni
-	T14xsqHgBlNF0nbgIfdZumUEzbZRKwoRps+yXrYFIhgAzQqwtw9xRJE1H9bdoiEuzou6odyh7FHeM
-	J2pl9O/A==;
+	bh=JsHTkn0UEejY0NKbuUQmD06tWs6IR3e3B3FlamRDu0Q=; b=ryjDkKXe6Jdcovq+3tE9GnRBmC
+	PWENj/Faks75Y8MF0HdBxORlUNODK3cXFi0anPaII2ZzDH92BJv6IjphiakjgpYKAVcHWvl8hQ62u
+	fD+OL/fF4yGm+k5VtLbSxN9SQA1w1a/7WclrAetdVtl9uNtsVsx/Fan62enSRlt6SypoDvBF7NfvM
+	i83LRyBxg+iaIAKPKtxOJkrhCWM3QWklU6QU5o/ap+4eFBEqmOby5jxFuCClBgEkcIvnNnvQTkyXz
+	j/jG/pK/SSItx/iiUHGXSxsPJQEnOxsb8uS4PJbtQbqLQIrXTl1oCXtAx0dEIRp8xbQz/VJmDZ+sQ
+	YGwXjIFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXOIT-0000000639y-3l6i;
-	Mon, 13 Jan 2025 17:32:17 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tXOKa-000000063Ro-3lRy;
+	Mon, 13 Jan 2025 17:34:28 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXN4X-00000005nvX-3KkC;
-	Mon, 13 Jan 2025 16:13:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1736784827;
-	bh=I/Eu5PyVUWwxt7+WHjFCNjClAcEG0i3DEgLcWXIsrzY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=avKf0pAos+HeOh/45PO/SzNWC8xsmwMdxoy8vvEdkWVQlNT2r8QamalkoD8YSESp3
-	 FZKwfgzWNPDwgW6tSAmFhzdL/PQFWbqGiylGpbg5366YDE8+K2wvddMrLm1y25nxYH
-	 NNuBdNZYy/ID9cwMThj/uki3iuFDn5+eMK78MVb4pf8t9tqcbI4K5drLfBlupLKzWQ
-	 qinRTxkQVCDi3kY0T39zwnyCDSvJWXzRs0WPf4FKanCQ/wzqhyvcHUZ+MQcqaRvMao
-	 U/iPkfT52GmvOnktmH5Bmrcg7FscGbe6soM++XoFDWFEgpOKcYi7oj8YMWDxGJnWD3
-	 SGS7tDVbYohDg==
-Received: from device-327.home (lfbn-tou-1-1147-231.w90-76.abo.wanadoo.fr [90.76.208.231])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id D560417E0CF4;
-	Mon, 13 Jan 2025 17:13:46 +0100 (CET)
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Mon, 13 Jan 2025 17:13:23 +0100
-Subject: [PATCH 1/2] soc: mediatek: mtk-socinfo: Add entry for MT8370AV/AZA
- Genio 510
+	id 1tXOJL-000000063LO-2GLv
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Jan 2025 17:33:13 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-21669fd5c7cso82070995ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 09:33:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1736789590; x=1737394390; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=JsHTkn0UEejY0NKbuUQmD06tWs6IR3e3B3FlamRDu0Q=;
+        b=E2DJKhK9Xl0GAOcfOx1adYgGYqUsz1DT+AQf/1ErERJpIqUP9z2AjeHoVIu0Uh6EKS
+         TEHQCXCvOmtsUZ7fsu+FTo9q/yEN6umqK25e77R+0EsayuoLShZEfVCKNoNQFwuvJ+Pb
+         20VWv0zty341gMlNwN+4EdLvFLi0oOuI9Wv+k=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736789590; x=1737394390;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JsHTkn0UEejY0NKbuUQmD06tWs6IR3e3B3FlamRDu0Q=;
+        b=bX5isgytGaiw/OZYt9aoxaWX6gsAjjtM20RfnNx0fNIYz42qJwNPRrR7YbZdurzzJG
+         0NpfmdCGHNbPjlFHGcslXVnEo+IT/I6lYXJIvBniUsRl0D86hhG/d9n7B81YsaH7+42F
+         LHzMo1RYv5rsll3DYtE32ixdf1vKOZYnETjohxfXAHWdhHn+7uPr4EDtzp13xaR1B+oI
+         NcjxTrmiSw0EFaaUdjajJQ2U06lJZliev0YCkNhrvDA8dHy+yrNsZx4hgCec2jFfstWS
+         1PA9kxsx5dDX94HrJsbqKCjYCcyITKaMkkFXCKHpgnOGm6hJ+7qcFqBxTwsYtpHJNP+a
+         KexQ==
+X-Gm-Message-State: AOJu0YyxeVhOVL8ivNG8AFbrz7tVn1vdtHEhAZEnpm3rP7Ayr2gy+q+t
+	aCAE7PJfnjA8/RXXOcbfmVYWA3uWvBX4SPg8DAxauAet5nYelcKbgw5S12gOQg==
+X-Gm-Gg: ASbGncscdi3wst58E5N3UPv5DFlwO2ZuEh/6Kq6FTaiP89pRRtJLP6BZNXKxjzpwwc4
+	VnWp95u7mohur3xuWMNGsadgQ2xr/apqQc8lG6b3Z3N3umVZ1IGhglHgznWMCrv7YIzBbSLBgUt
+	Rj8jtu+aWOJnEU6/jy4zvlM6NKIY5sPzd5IkDnELSXyLfsPBOs5UMMY9muyFWKG6Fv3rKB8I/bX
+	SXaQyKNTqNZrIQX0+BHFQhMb/qPNs4oZtua9vc+P2NfYjl2aPfSzQ7H5DGj/4ZkuJLkoDNg/SVS
+	j8IU6hCYe0Xy5YhDj/08GojXbf8lI8g=
+X-Google-Smtp-Source: AGHT+IGEtpFio/VZYQKRI3mqtgami6WdXlPv0aTekaxc7wyL2kYN8GhDHCTJXSQ84LlfMNYYrzoO4Q==
+X-Received: by 2002:a17:902:e74d:b0:216:3e9a:89e with SMTP id d9443c01a7336-21a83fde4f2mr335899785ad.35.1736789590489;
+        Mon, 13 Jan 2025 09:33:10 -0800 (PST)
+Received: from [192.168.1.3] (ip68-4-215-93.oc.oc.cox.net. [68.4.215.93])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21a9f22cabdsm56241225ad.183.2025.01.13.09.33.09
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 13 Jan 2025 09:33:09 -0800 (PST)
+Message-ID: <55d3c151-ae5e-4b02-8ac0-987b89b1d731@broadcom.com>
+Date: Mon, 13 Jan 2025 09:33:09 -0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] dt-bindings: memory-controller: Document rev c.1.5
+ compatible
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ "open list:MEMORY CONTROLLER DRIVERS" <linux-kernel@vger.kernel.org>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>
+References: <20241217194439.929040-1-florian.fainelli@broadcom.com>
+ <20241217194439.929040-2-florian.fainelli@broadcom.com>
+ <2e33t7ft5ermsfr7c4ympxrn6l5sqdef3wml4hlbnhdupoouwj@gfjpbmowjadi>
+ <93a1333d-442f-4cec-b823-9b1a5ff6dc6b@broadcom.com>
+ <wxq5zzfh5jesucbbste2j6x2jtj45wjfc5xzjkqbqqta7cprda@oaf5arr3z6pt>
+ <f906a056-3c6b-4115-9fd0-e50da8fc049b@broadcom.com>
+ <a92ff542-6534-4e2e-bef9-6f10c8362d86@kernel.org>
+ <0058c37b-9e7c-4af8-b7c0-c48b5b046d6a@broadcom.com>
+ <1357f0ff-3493-491b-b06f-976c16a81681@kernel.org>
+Content-Language: en-US
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <1357f0ff-3493-491b-b06f-976c16a81681@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250113-mtk-socinfo_genio-510-700-v1-1-cf5112b325b7@collabora.com>
-References: <20250113-mtk-socinfo_genio-510-700-v1-0-cf5112b325b7@collabora.com>
-In-Reply-To: <20250113-mtk-socinfo_genio-510-700-v1-0-cf5112b325b7@collabora.com>
-To: Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, 
- kernel@collabora.com
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1736784826; l=1033;
- i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=I/Eu5PyVUWwxt7+WHjFCNjClAcEG0i3DEgLcWXIsrzY=;
- b=UIzQcaZTEG0UuYqyH+rSRkiRKXLspiShzBwjfcnNGeAc7CspG32Gd1lpB+SzT5Z3gKjNrQVDe
- UEIlDdulnFwCGDGWyrbt+Pqjl4GYSyd+0xWqDaGhP1kVyeDCPd8WiMh
-X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
- pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_081349_998384_328134A1 
-X-CRM114-Status: UNSURE (   8.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250113_093311_677846_9948EB65 
+X-CRM114-Status: GOOD (  30.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,27 +142,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add an entry for the MT8370 SoC with commercial name Genio 510.
 
-Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
----
- drivers/soc/mediatek/mtk-socinfo.c | 1 +
- 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/soc/mediatek/mtk-socinfo.c b/drivers/soc/mediatek/mtk-socinfo.c
-index 123b12cd25432b5db3033fddbff1dcd6f57ed8b1..060e39cc8407dc85a8cd2a6020d187acce73106d 100644
---- a/drivers/soc/mediatek/mtk-socinfo.c
-+++ b/drivers/soc/mediatek/mtk-socinfo.c
-@@ -56,6 +56,7 @@ static struct socinfo_data socinfo_data_table[] = {
- 	MTK_SOCINFO_ENTRY("MT8195", "MT8195GV/EHZA", "Kompanio 1200", 0x81950304, CELL_NOT_USED),
- 	MTK_SOCINFO_ENTRY("MT8195", "MT8195TV/EZA", "Kompanio 1380", 0x81950400, CELL_NOT_USED),
- 	MTK_SOCINFO_ENTRY("MT8195", "MT8195TV/EHZA", "Kompanio 1380", 0x81950404, CELL_NOT_USED),
-+	MTK_SOCINFO_ENTRY("MT8370", "MT8370AV/AZA", "Genio 510", 0x83700000, 0x00000081),
- 	MTK_SOCINFO_ENTRY("MT8395", "MT8395AV/ZA", "Genio 1200", 0x83950100, CELL_NOT_USED),
- };
- 
+On 12/26/2024 10:58 PM, Krzysztof Kozlowski wrote:
+> On 26/12/2024 19:50, Florian Fainelli wrote:
+>>
+>>
+>> On 12/21/2024 12:04 PM, Krzysztof Kozlowski wrote:
+>>> On 20/12/2024 00:43, Florian Fainelli wrote:
+>>>> On 12/19/24 00:58, Krzysztof Kozlowski wrote:
+>>>>> On Wed, Dec 18, 2024 at 09:15:08AM -0800, Florian Fainelli wrote:
+>>>>>> On 12/18/24 03:37, Krzysztof Kozlowski wrote:
+>>>>>>> On Tue, Dec 17, 2024 at 11:44:38AM -0800, Florian Fainelli wrote:
+>>>>>>>> Document the revision c.1.5 compatible string that is present on newer
+>>>>>>>> Broadcom STB memory controllers (74165 and onwards).
+>>>>>>>>
+>>>>>>>> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
+>>>>>>>> ---
+>>>>>>>>      .../bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml       | 1 +
+>>>>>>>>      1 file changed, 1 insertion(+)
+>>>>>>>>
+>>>>>>>> diff --git a/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml b/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml
+>>>>>>>> index 4b072c879b02..99d79ccd1036 100644
+>>>>>>>> --- a/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml
+>>>>>>>> +++ b/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml
+>>>>>>>> @@ -29,6 +29,7 @@ properties:
+>>>>>>>>                - brcm,brcmstb-memc-ddr-rev-c.1.2
+>>>>>>>>                - brcm,brcmstb-memc-ddr-rev-c.1.3
+>>>>>>>>                - brcm,brcmstb-memc-ddr-rev-c.1.4
+>>>>>>>> +          - brcm,brcmstb-memc-ddr-rev-c.1.5
+>>>>>>>
+>>>>>>> You should use v2.1 fallback and drop driver patch. Or explain in
+>>>>>>> commit briefly why different approach is suitable.
+>>>>>>
+>>>>>> Are you suggesting that we should have fallback compatible strings, such
+>>>>>> that we have something like this:
+>>>>>>
+>>>>>> compatible = "brcm,brcmstb-memc-ddr-rev-c.1.5",
+>>>>>> "brcm,brcmstb-memc-ddr-rev-c", "brcm,brcmstb-memc-ddr"
+>>>>>>
+>>>>>> and the driver only needs to match on "brcm,brcmstb-memc-ddr-rev-c" and
+>>>>>> apply the adequate register offset table?
+>>>>>
+>>>>> Almost, fallback should be brcm,brcmstb-memc-ddr-rev-b.2.1 or whatever
+>>>>> was in the driver first or whatever is the oldest known common
+>>>>> interface.
+>>>>>
+>>>>> brcm,brcmstb-memc-ddr-rev-c is not a specific compatible.
+>>>>>
+>>>>>> If so, that is not how the current binding, and therefore DTBs are being
+>>>>>> deployed, so that will introduce a breakage until we update all DTBs in the
+>>>>>> field...
+>>>>>
+>>>>> No. First, I thought about new comaptible so the one you add here. No
+>>>>> breakage, it's new compatible. This saves you these pointless updates of
+>>>>> driver everytime you add new compatible.
+>>>>
+>>>> Yes, but that is not how the binding has been defined until now, so all
+>>>> of the DTBs out there have:
+>>>>
+>>>> compatible = "brcm,brcmstb-memc-ddr-rev-b.2.x", "brcm,brcmstb-memc-ddr"
+>>>
+>>> I don't understand the problem. We talk about new devices here, it does
+>>> not matter what existing/old devices have in binding in that matter.
+>>
+>> It does matter, because the DTBs that contain this compatible string are
+>> already in the field, we cannot retrofit them overnight with an
+>> additional compatible string in order to provide a fallback. Because
+> 
+> Then they run downstream and it does not matter whether you change here
+> something or not. And anyway downstream choices do not shape choices
+> here. We never accept bindings just because downstream already shipped
+> something.
 
+Fair enough, but it does matter anyway, because as you can see from the 
+original binding that you accepted [1] we have a precedent for having 
+compatible strings of the form:
+
+compatible = "brcm,brcmstb-memc-ddr-rev-c.1.x"
+
+with each possible value of X being documented, this is just adding 
+another way, and surprise, keeps things consistent.
+
+Why did not you reject the original binding back then? Why the change of 
+heart now?
+
+All of this feels from my side very very arbitrary, and as such it is 
+difficult to document for other people and build a correct mental model of.
+
+[1]: 
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml?id=fa0321ba51ddff78ebe3c7c945830a85c987e3ed
+
+> 
+>> this is submitted now does not mean it is a new device, this was part of
+>> my backlog to get submitted earlier on.
+> 
+> Well, that's great yet is not an argument in the bindings.
+ > >>
+>>>
+>>>>
+>>>> (where X is in range [1..5])
+>>>>
+>>>> and there is no fallback defined to "brcm,brcmstb-memc-ddr-rev-b.2.1",
+>>>> so it is not like we can retrofit that easily by adding one now.
+>>>>
+>>>>    > > Second, you can introduce fallbacks to older compatibles as well -
+>>>> there
+>>>>> will be no breakage, because you add one more compatible. The old
+>>>>> compatibles (covered by fallback) of course stays in the driver, so
+>>>>> there is no breakage at all. We did it multiple times for several
+>>>>> different bindings in Qualcomm. People were doing exactly the same:
+>>>>> adding compatible for new device to binding and driver, without
+>>>>> considering the compatibility at all.
+>>>>>
+>>>>> Except being logically correct choice - using fallbacks - this really
+>>>>> has huge benefits when later upstreaming complete, big SoCs, like we do
+>>>>> for latest Qualcomm SoCs: several changes will be only bindings updates.
+>>>>
+>>>> Yes, there are advantages to using fallbacks and we (ab)use that
+>>>> whenever practical.
+>>>>
+>>>> The driver only uses a very limited subset of registers (for now), the
+>>>> registers change between minor revisions as well in a way that using a
+>>>> fallback like "brcm,brcmstb-memc-ddr-rev-b.2.1" is not accurate enough
+>>>> not practical. In particular for some of the changes that I am thinking
+>>>> of adding later on, we would need the precise minor version because the
+>>>> behavior and/or register interface is subtly different that this matters.
+>>>
+>>> Devices work fine now with the same driver data, so they are compatible.
+>>
+>> For now they do, but not for other features that will be submitted
+>> later, they will not be, and at that point we will need to know that
+>> this is a rev C.1.5 controller versus say a rev C.1.4 controller.
+> 
+> Which is exactly what compatibility is for.
+
+Are you saying that the compatible strings must now all be updated to be 
+of the form:
+
+compatible = "brcm,brcmstb-memc-ddr-rev-c.1.5", 
+"brcm,brcmstb-memc-ddr-rev-c.1.x", "brcm,brcmstb-memc-ddr"
+
+or something different?
 -- 
-2.47.1
+Florian
 
 
