@@ -4,105 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 991E0E7719E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 09:11:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1197FE7719E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 09:13:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fuFnMO3ijaaacswBw6QbcsmE5nKXXLvyIsQw+1GMwgY=; b=ElhUeCGtDu4WazR4HsfRsuZuQg
-	uhc8BbwEcrP3dQePqE6ZkLBZnbweZtLpnazRWbv4a5dEZ6FX8pAYyfXnITjWdzlqNvQJoJQyvesuO
-	GN7lFXzRje4MqvxLyk726yBVK38GMZzXsmVkq6MVAddR2swtq4l7wHSCjYj5+MWzgFhWcZT/qUXyz
-	4vEx2nvRfH39HGz8l4ZqnbuCMNuBPXlsClF+WPx3kVJFTDVN10+/qOw4Qc+jmAbscL2ahA6/PN7Bv
-	Nx6I/ua/EugPFjlx3y7WdSKcbzlOEdEXJ69ZDgHZzlH5v27o8FS8JlpL/lhB+8P66Btty5qiDpICw
-	ThpGu+nw==;
+	bh=cszX7CaqF/yGZOef+lx+ZccZirVa0cMcifv32LPpuhM=; b=n9YGxUt6ITfao9z58iHTnGFteF
+	Eq0z7AoT56Rs/II8g7YMmpUR+d98qu611xeeX/iDfCah9OooYX8fC15Qt8XZYwMsymtw//TZvPTWZ
+	uN41GFx+F8197IvCYgcEBeT5hBT+EZ/hK8R2HXTLFfhdw27+7ZY6Dc2cE9JslMvLBrFiq78r8Zzj0
+	GOALqVHwAi9vT9A4ppe4D3yli/Lx2Bfu1OrVhJ4ULHdNRd3BE5u7VCKEs4f1DDvX922E6JWzo0g9M
+	/RJKQ+i19XW8VuD2RfKbkqVLrl5vZRM1xERAiPdhzoRobkKigZTSUqar0o0XhwTbdXR5jhvcWLLbI
+	4ztrPC0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXGTs-00000004YNS-0ujx;
-	Mon, 13 Jan 2025 09:11:32 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tXGV4-00000004YWS-0KCZ;
+	Mon, 13 Jan 2025 09:12:46 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXGJI-00000004VkC-3Qry
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 13 Jan 2025 09:00:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
-	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=fuFnMO3ijaaacswBw6QbcsmE5nKXXLvyIsQw+1GMwgY=; b=b7SZJIdwKxiSWHGap9nDtNRj8d
-	tu2Szcm4TJBM4t/B3YmUCN/ATlz94oxP7fnhGdK5QT7m95JvMtSY7/EAtDxdQhug9eHXlIVJpXbbN
-	MGtXfPf/BrJ/Xdz9i+yVCSfPfjOjUK1/ERnDzLKVG96oHX5fCqrSCskVOBIumNRiX5uW2RWNI8jkw
-	tBe04Dd5IHO8YMY2C3lRqMB+4M/430arlm63UCZ8yfVMrhgUV2MvcDIggEhMo7fXD216+kPdeZc8v
-	tMg2iP+Zgn9Xv5svlGEhpRqaIjxe0qc2HxAf2MSx89hH7iZNUD37NBZV2DfAljUwTXpF2r9MmBBYU
-	ucnNaX/w==;
-Received: from mx08-00178001.pphosted.com ([91.207.212.93])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXGJE-0000000AGpR-0I73
+	id 1tXGJy-00000004W4c-2CsU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 09:00:35 +0000
-Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50D7BRLA001654;
-	Mon, 13 Jan 2025 10:00:23 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	fuFnMO3ijaaacswBw6QbcsmE5nKXXLvyIsQw+1GMwgY=; b=Y/aX81U5DO5HpUBI
-	8suxhaWBt3NvqIdy0mmViky8OmvTmu6+j2YBRZD7J0/pjnfaZGfJLOtuE7dpnioC
-	waarFgK0mNyvLW9PjIeIJJVdLFEiKvzAKXXd9tZepVq3MCs0e7g1uNejplMCo1W1
-	vCIaoerLgB5VUjUP+JJct9OqFuyADQtkVP/+fgsvkp6UYyKA2FJMT04Kl8na+/AS
-	hMpIusAPb/V4RCpiwREap7E3Oz6obqOJhH3eMC7bA6F/LY81LA0L6ttcByniel03
-	SGtmkohfAYjyIhmT90XATMv721fhFRJClZojnErcKtuBM0TQQ8vm9N9krPPbfxR/
-	I+rftw==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4444fmub66-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 13 Jan 2025 10:00:23 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 7696A40056;
-	Mon, 13 Jan 2025 09:59:05 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 0E811234C26;
-	Mon, 13 Jan 2025 09:58:16 +0100 (CET)
-Received: from localhost (10.129.178.39) by SHFDAG1NODE1.st.com (10.75.129.69)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Mon, 13 Jan
- 2025 09:58:15 +0100
-From: Alain Volmat <alain.volmat@foss.st.com>
-Date: Mon, 13 Jan 2025 09:57:56 +0100
-Subject: [PATCH v3 6/9] media: stm32: csi: simplify enable_streams error
- handling
+	Mon, 13 Jan 2025 09:01:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1736758878; x=1768294878;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=GjpsjNBlCIvWjfSOKHK63am7WrBnSESbIOn/HxwUlNw=;
+  b=W6ZO+Y9lJtZyVEG7tKobQL5pcGpxhAHf4b2ZD/wUB/GP6jJAN1V7Tgnt
+   3L8CrgkLAjHPFubuCiJWZM79SHKS4iJ2Mf3n/FIfUaNuQtrp2fu1pTi36
+   d4Jb6mLjCxK3SCVBC2YYWb6zD6hvy5v4spQgXaupUAfVCsklJa5RR5P+q
+   glPpcGu48fga2IVTh7NWezjNK5rIJWEF5hV53R5Ti6Zy3Fibu+4DqCscU
+   IOq2pOBRWPU8+31UX+C/E6TJZqvkG1R5Lyb39GM/HigylAtm/3OR4920s
+   GoN90T8kzuxbPxa7v+2qSQrbitVnK3tUlXcnKtCOFx5vgc071UbbBG4pH
+   g==;
+X-CSE-ConnectionGUID: kJ90j6hsQK2BtbVEnEMGPw==
+X-CSE-MsgGUID: +VLj2Qq5SWGzaI8+YMcnEA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11313"; a="40684253"
+X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
+   d="scan'208";a="40684253"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jan 2025 01:01:17 -0800
+X-CSE-ConnectionGUID: MAr8JHcoQGOpnWk/c3wvbw==
+X-CSE-MsgGUID: dQcu4Sj3RBa4cQc9Tnhosg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="104923153"
+Received: from unknown (HELO [10.238.1.62]) ([10.238.1.62])
+  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jan 2025 01:01:15 -0800
+Message-ID: <f333d871-f579-4579-86a6-58030b9f024b@linux.intel.com>
+Date: Mon, 13 Jan 2025 17:01:12 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250113-csi_dcmipp_mp25_enhancements-v3-6-33b96744df46@foss.st.com>
-References: <20250113-csi_dcmipp_mp25_enhancements-v3-0-33b96744df46@foss.st.com>
-In-Reply-To: <20250113-csi_dcmipp_mp25_enhancements-v3-0-33b96744df46@foss.st.com>
-To: Hugues Fruchet <hugues.fruchet@foss.st.com>,
-        Mauro Carvalho Chehab
-	<mchehab@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre
- Torgue <alexandre.torgue@foss.st.com>,
-        Hans Verkuil <hverkuil@xs4all.nl>,
-        Sakari Ailus <sakari.ailus@linux.intel.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>
-CC: <linux-media@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, Alain Volmat <alain.volmat@foss.st.com>
-X-Mailer: b4 0.14.1
-X-Originating-IP: [10.129.178.39]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/5] KVM: Add a common kvm_run flag to communicate an exit
+ needs completion
+To: Chao Gao <chao.gao@intel.com>, Sean Christopherson <seanjc@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>, Michael Ellerman
+ <mpe@ellerman.id.au>, kvm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org
+References: <20250111012450.1262638-1-seanjc@google.com>
+ <20250111012450.1262638-4-seanjc@google.com> <Z4R12HOD1o8ETYzm@intel.com>
+Content-Language: en-US
+From: Binbin Wu <binbin.wu@linux.intel.com>
+In-Reply-To: <Z4R12HOD1o8ETYzm@intel.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_090032_340002_A0DD50B9 
-X-CRM114-Status: GOOD (  10.08  )
+X-CRM114-CacheID: sfid-20250113_010118_613576_1420F942 
+X-CRM114-Status: GOOD (  22.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,49 +90,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Put all error handling for VC stop and CSI stop together
-to avoid duplication of code.
 
-Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
----
- drivers/media/platform/st/stm32/stm32-csi.c | 16 +++++++++-------
- 1 file changed, 9 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/media/platform/st/stm32/stm32-csi.c b/drivers/media/platform/st/stm32/stm32-csi.c
-index 3654f9895dbc..4affbc00b042 100644
---- a/drivers/media/platform/st/stm32/stm32-csi.c
-+++ b/drivers/media/platform/st/stm32/stm32-csi.c
-@@ -694,19 +694,21 @@ static int stm32_csi_enable_streams(struct v4l2_subdev *sd,
- 	ret = stm32_csi_start_vc(csidev, state, 0);
- 	if (ret) {
- 		dev_err(csidev->dev, "Failed to start VC0\n");
--		stm32_csi_stop(csidev);
--		return ret;
-+		goto failed_start_vc;
- 	}
- 
- 	ret = v4l2_subdev_enable_streams(csidev->s_subdev,
- 					 csidev->s_subdev_pad_nb, BIT_ULL(0));
--	if (ret) {
--		stm32_csi_stop_vc(csidev, 0);
--		stm32_csi_stop(csidev);
--		return ret;
--	}
-+	if (ret)
-+		goto failed_enable_streams;
- 
- 	return 0;
-+
-+failed_enable_streams:
-+	stm32_csi_stop_vc(csidev, 0);
-+failed_start_vc:
-+	stm32_csi_stop(csidev);
-+	return ret;
- }
- 
- static int stm32_csi_init_state(struct v4l2_subdev *sd,
 
--- 
-2.34.1
+On 1/13/2025 10:09 AM, Chao Gao wrote:
+> On Fri, Jan 10, 2025 at 05:24:48PM -0800, Sean Christopherson wrote:
+>> Add a kvm_run flag, KVM_RUN_NEEDS_COMPLETION, to communicate to userspace
+>> that KVM_RUN needs to be re-executed prior to save/restore in order to
+>> complete the instruction/operation that triggered the userspace exit.
+>>
+>> KVM's current approach of adding notes in the Documentation is beyond
+>> brittle, e.g. there is at least one known case where a KVM developer added
+>> a new userspace exit type, and then that same developer forgot to handle
+>> completion when adding userspace support.
+> This answers one question I had:
+> https://lore.kernel.org/kvm/Z1bmUCEdoZ87wIMn@intel.com/
+In current QEMU code, it always returns back to KVM via KVM_RUN after it
+successfully handled a KVM exit reason, no matter what the exit reason is.
+The complete_userspace_io() callback will be called if it has been setup.
+So if a new kvm exit reason is added in QEMU, it seems QEMU doesn't need
+special handing to make the complete_userspace_io() callback be called.
+
+However, QEMU is not the only userspace VMM that supports KVM, it makes
+sense to make the solution generic and clear for different userspace VMMs.
+
+Regarding the support of MapGPA for TDX when live migration is considered,
+since a big range will be split into 2MB chunks, in order the status is
+right after TD live migration, it needs to set the return code to retry
+with the next_gpa in the complete_userspace_io() callback if vcpu->wants_to_run
+is false or vcpu->run->immediate_exit__unsafe is set, otherwise, TDX guest
+will see return code as successful and think the whole range has been converted
+successfully.
+
+@@ -1093,7 +1093,8 @@ static int tdx_complete_vmcall_map_gpa(struct kvm_vcpu *vcpu)
+          * immediately after STI or MOV/POP SS.
+          */
+         if (pi_has_pending_interrupt(vcpu) ||
+-           kvm_test_request(KVM_REQ_NMI, vcpu) || vcpu->arch.nmi_pending) {
++           kvm_test_request(KVM_REQ_NMI, vcpu) || vcpu->arch.nmi_pending ||
++           !vcpu->wants_to_run) {
+                 tdvmcall_set_return_code(vcpu, TDVMCALL_STATUS_RETRY);
+                 tdx->vp_enter_args.r11 = tdx->map_gpa_next;
+                 return 1;
+
+Of course, it can be addressed later when TD live migration is supported.
+
+
+>
+> So, it is the VMM's (i.e., QEMU's) responsibility to re-execute KVM_RUN in this
+> case.
+>
+> Btw, can this flag be used to address the issue [*] with steal time accounting?
+> We can set the new flag for each vCPU in the PM notifier and we need to change
+> the re-execution to handle steal time accounting (not just IO completion).
+>
+> [*]: https://lore.kernel.org/kvm/Z36XJl1OAahVkxhl@google.com/
+>
+> one nit below,
+>
+>> --- a/arch/x86/include/uapi/asm/kvm.h
+>> +++ b/arch/x86/include/uapi/asm/kvm.h
+>> @@ -104,9 +104,10 @@ struct kvm_ioapic_state {
+>> #define KVM_IRQCHIP_IOAPIC       2
+>> #define KVM_NR_IRQCHIPS          3
+>>
+>> -#define KVM_RUN_X86_SMM		 (1 << 0)
+>> -#define KVM_RUN_X86_BUS_LOCK     (1 << 1)
+>> -#define KVM_RUN_X86_GUEST_MODE   (1 << 2)
+>> +#define KVM_RUN_X86_SMM			(1 << 0)
+>> +#define KVM_RUN_X86_BUS_LOCK		(1 << 1)
+>> +#define KVM_RUN_X86_GUEST_MODE		(1 << 2)
+>> +#define KVM_RUN_X86_NEEDS_COMPLETION	(1 << 2)
+> This X86_NEEDS_COMPLETION should be dropped. It is never used.
+>
 
 
