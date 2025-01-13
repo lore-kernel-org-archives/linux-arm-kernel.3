@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE723E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 03:43:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08607E7719E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 03:44:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eULRCDFJ0DJzA6lc7vvdVA8dxS/L+jVPc2aRWImXMe0=; b=K7xE+xtpDAqI/WWB2yE0wMNz9S
-	FVA34cDAmQrgqDvzvXL5lYIPKcRgNaSy2OAGYX299yMENgjEzjsii2EKsVjpoProvZlfWZ5/7IWCR
-	zbQjlHfQmV679nEx1f/8v/ZSJ3gt5VV10cFhJcbMsQVcKaeVdiwl7y9jfD1T01IVSea5U/XfRjn70
-	foc2AOkbxNd/0iR5ToXuyD/cdU6WX3cmY1EnMoQnvwPGsXbmbAng+PTBlHLCkippkgeSq/DCUDgki
-	oeXP8qFbquufnhwvwdd4OXqbVifa9lmD7gds/nPg4EzN4Ul3TMuXvXuBiIbVdxwsu7kd8j+ew1xL+
-	xXncPvwQ==;
+	bh=7ePF7LRaXT6WJxMxcE/kQzKdknlZvi8u0Wr7nYwGrGY=; b=fxaRi9mQRTNfEQdDGV2TGVpxY9
+	lrSw0PKJDwhJJ4T6NfFcFyaWq6RWD+V/av1v0s1lZ0fmN0RMO6uYkMhmFCuROIItX80lXJLUANckc
+	IvCvg/EUUcfjX8kkhZb6kxSFBr/Bv1VS9K18czJddzKKrbWDDhxZJQ+7Ees4UeVNnopF+KOvmjZBV
+	ppwMoqNHedCfVEQLejJloxFqTDFh+aZINlGLb4f5UHM8JacTG4BaGBTHSx3yCSVWXo4DK9eckluEY
+	c/ZSIYGrbxt/z/8xyFHh7W2mUlswS5I8KD3ed6OxuTzYfhHltarZr10XMzqj9zTwfJp/uMc5Q2D5P
+	J/VPNyAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXBMF-00000003vpw-00B1;
-	Mon, 13 Jan 2025 03:43:19 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1tXBNZ-00000003w0p-13wP;
+	Mon, 13 Jan 2025 03:44:41 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXBIh-00000003vB1-1RG1;
-	Mon, 13 Jan 2025 03:39:40 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-21a7ed0155cso63606035ad.3;
-        Sun, 12 Jan 2025 19:39:39 -0800 (PST)
+	id 1tXBIo-00000003vDi-13AS;
+	Mon, 13 Jan 2025 03:39:47 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2166022c5caso57669165ad.2;
+        Sun, 12 Jan 2025 19:39:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736739578; x=1737344378; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1736739585; x=1737344385; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=eULRCDFJ0DJzA6lc7vvdVA8dxS/L+jVPc2aRWImXMe0=;
-        b=KPrsC2EUtUU8My0Sw58c/wgLVC3zx4BnO+52vKGilyOxOlWlTomeYWrpkTFyXa7iN8
-         Uk6o3i7tOKjW6FFEdVGF4K3i6HnqEJ5kK3g6/dOJAfWA1A9+8ouc3deOs72BenhbGnX4
-         eV/FRchjB5VLSUqu6U1vwsz1v3xWZn13wALhLpmGkQ9WqP1smCcy8O/ArWQwRJDE4NG3
-         MroghzEmgMjedy5UWg+PKaYbZcUFql/shNhoWWtg/xXGQMCE0DRFJo1OjvU46915TXkj
-         Zyt6PVtsekOPWnKmz0IxB72Rj63LU0n1F8hp9mzyO+lsAKCbigrcAzZVBFhXC7MlzB6P
-         afpg==
+        bh=7ePF7LRaXT6WJxMxcE/kQzKdknlZvi8u0Wr7nYwGrGY=;
+        b=UyM5xxsTJK0r7Lxtl0mQNjxLAje4sgp4Uko93B0sTl+olrdpaZRC/u/Zj0anPZzprF
+         W6m6K7RDMlbbujgYRcpP/uVt117PXLlwCxeMG6ILoCUZUh6tZEwsqQhVqJkBxpJ57UzT
+         pNVFJ2u+/PTSgjSRGgimIuVBcG2/mLEoCBHPjI46ONsN9i6/qW4gjK5lCD+KprfRF21O
+         mT3hV+N6AYD1IQTtlHWglWaS34Xu6IGusxlgGsM2Ag9nZo+Ou3ebRlt9lIK/QgWxo/+O
+         VL5YI8xulWD3Lf+PiDPVAhv9xbdT7mPxN1fmkxN1ezNI1IevJQtJiVIkRLQI0zIV/pi0
+         rfRw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736739578; x=1737344378;
+        d=1e100.net; s=20230601; t=1736739585; x=1737344385;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=eULRCDFJ0DJzA6lc7vvdVA8dxS/L+jVPc2aRWImXMe0=;
-        b=M6igPMsW/mTzjTs1X3Ilw2jsYyK+qvexFl526Q+iWOVegIUrgwWddN6fa2GeeyzrGh
-         rJ/wv+7EW1ARtrPF19aANwLV1NSaivT0bmfDzdtqLiEZxKwimzMvlAFBDu2BjC2NCMST
-         LVNZoyNNmw7TJOok4yi8EOpcZDMbRW7vteGJPTYC/cv2u7ErDU+m0rKhmqBpx+7l76V/
-         AYTxLK2IsaOPnnvn1teopsQw8kUVSBcwwiR0M6/TW0rdgUIbM4q7pWTlvAv/qkTfNEGY
-         HaW1Grkwdfssg0ol7WLdsllWVf1GxKIoa+a/y3fCwuJPdPZqw3vlMqgVFtg/xW2kyNwG
-         N0fQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVLgCvoUyS0gOHyUTjbMxgxSr5aqvl++aoAfqWWwQSkkGXTmyEDjaw3tPsHBF2RzhTqLsJhXgDfWyrIXO0=@lists.infradead.org, AJvYcCWAS4cZqUsI2WJTgQw/rNyjxRbfrJ4+r3CxEm2w9aPm6hX1dWy4tLm+BWCHnI33NM5l175c3bhz/EtO8rSILr3M@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx9ks0TjJBR0jqLPGYUn6ABU/GPtbylPhrjUOudZ4Jd62ibTMpC
-	xrgl5YbVDroRNEfDVOMPo6TSAvn9915QaaZNXe9JVuzL8WAxtlfx
-X-Gm-Gg: ASbGncvBiVAZta4zaSu2QsgHYXEt8nT3qf7hYhJeU1Bk7+mIe9bcAaYwqromtXElSem
-	UfVRKKVtDyu8niyU6Q1oOYPaHGAA6ChbsVUKvr6MZohEbd40t9NUjF/H6mgjiS6za0QVEIxIvaI
-	9RECwX7VQNdiEChCBn9pKh32vw1NJuFbIYU8h9sVB6yPoV0h441s0UqJrMHDhHAWzkFICgiwWIN
-	8MMfVL+vfCpX9oaZ1ra+P4ucveIMkpss/Wrqbh93weYeUSYMDTi6IdWOaxA5qCAbNYwKq2q2WFq
-	+PJ0F/02
-X-Google-Smtp-Source: AGHT+IGyqwjrrsZeQxoPWWpl+Lu4WtU0rXovoTE/PMvKn9xWPcPyfiEtn9aeXvMxYF6gWs977A6wvQ==
-X-Received: by 2002:a17:902:c951:b0:215:bc30:c952 with SMTP id d9443c01a7336-21a83f4298fmr238697265ad.6.1736739578393;
-        Sun, 12 Jan 2025 19:39:38 -0800 (PST)
+        bh=7ePF7LRaXT6WJxMxcE/kQzKdknlZvi8u0Wr7nYwGrGY=;
+        b=we411H3eT86uod7o6C8yzg+3f7YZEJhFhaqboHvaOpGsdMsnwibYQQO1UpNLYm8Kr2
+         MGiWS/3sv/fwCBURNbqY9iYpus3W9+w1FVSZpl9nfQwqUfA56KXoDof5RVnsACG1G+Bn
+         m8GwUZhkPv9mgwYa4PsYQjRMheWl+p9Uv89aEV7E2tWuuPrthUPFtn5oZ/nxMfVesV/K
+         xdCTQozWwLqC70NeimXBGheYpPxDreNn80heuq7VFqnmTdXnsVPCYpAzlzIwDasbN4IH
+         hVR9VPk0ClG+kVxrHXCTZ2EvqJeP+qEC/Lgx54Ftux8dRKgf7H0QUs5OLT/5bR+YR+QW
+         7YNg==
+X-Forwarded-Encrypted: i=1; AJvYcCX/XYbsCBBU8ji7czV72uin6WIEESar6m6cxsVOT+kTuXNT+LAJXq6v5i7+lO6dxmE/xSqFlGlxMS0nyK7sNvtl@lists.infradead.org, AJvYcCXrCMmYUpIW0M5jdIIvc6wAsgLIsA1WkJcE5HIcM3dvVqXocAN/qYdONAeQY9a7+Q2fKDuKp1j+vFZaP8g=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIYcrpjYHf/HPQB470qo/vQgND0Jqbs8XGmicKcmbSvwZF2UGA
+	07JY3f5Qn8unfN7eI1MPXUV4A7bBLOzO6DMwnwtuiHAkkfxeiu9h
+X-Gm-Gg: ASbGncvpH1AKYrQ1j7E2RbKJwaJ6fbiFYC5PN1/OC/BkX1rLBdm06SxICINLYh4DO+Q
+	tgNrCG3AB1XN9Va8FF1EPpUGbn/ajpcPAzq5Z2gWCOp7Pi3KQZLtHFD4cdhrXEk70AtxLb4nZaS
+	jYdJn1c2DA+AWS29Q29kTauoecwocXLaseDn6hOlcrkCvlLkMaTfpJvzkoEO3fJ3h5Ux/bpxDeu
+	6l7WDFRWa90dLmXFJYNcJUKHrued2/obQOb4Eucl3Q6K8dneNQe9s0ESfyqnvdBb3hgrjY6XINS
+	pOOYxyvW
+X-Google-Smtp-Source: AGHT+IEJyXTMuDf5NuY3j1SIPBbXyZqFASFj5tk1fMcghhN0EpO5xryOPxQNqGVnzZ7Hib6ZrPMFDA==
+X-Received: by 2002:a17:903:3385:b0:216:1cf8:8b8 with SMTP id d9443c01a7336-21a83f69643mr199408035ad.27.1736739585271;
+        Sun, 12 Jan 2025 19:39:45 -0800 (PST)
 Received: from Barrys-MBP.hub ([2407:7000:af65:8200:39b5:3f0b:acf3:9158])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21a9f25aabfsm44368405ad.246.2025.01.12.19.39.27
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21a9f25aabfsm44368405ad.246.2025.01.12.19.39.39
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sun, 12 Jan 2025 19:39:38 -0800 (PST)
+        Sun, 12 Jan 2025 19:39:44 -0800 (PST)
 From: Barry Song <21cnbao@gmail.com>
 To: akpm@linux-foundation.org,
 	linux-mm@kvack.org
@@ -83,36 +83,18 @@ Cc: baolin.wang@linux.alibaba.com,
 	linux-riscv@lists.infradead.org,
 	ying.huang@intel.com,
 	zhengtangquan@oppo.com,
-	lorenzo.stoakes@oracle.com,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Shaoqin Huang <shahuang@redhat.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Kefeng Wang <wangkefeng.wang@huawei.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
-	Yosry Ahmed <yosryahmed@google.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Yicong Yang <yangyicong@hisilicon.com>
-Subject: [PATCH v2 2/4] mm: Support tlbbatch flush for a range of PTEs
-Date: Mon, 13 Jan 2025 16:38:59 +1300
-Message-Id: <20250113033901.68951-3-21cnbao@gmail.com>
+	lorenzo.stoakes@oracle.com
+Subject: [PATCH v2 3/4] mm: Support batched unmap for lazyfree large folios during reclamation
+Date: Mon, 13 Jan 2025 16:39:00 +1300
+Message-Id: <20250113033901.68951-4-21cnbao@gmail.com>
 X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 In-Reply-To: <20250113033901.68951-1-21cnbao@gmail.com>
 References: <20250113033901.68951-1-21cnbao@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250112_193939_385674_6C4DAE90 
-X-CRM114-Status: GOOD (  16.60  )
+X-CRM114-CacheID: sfid-20250112_193946_313541_97C58AC9 
+X-CRM114-Status: GOOD (  17.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,224 +111,212 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Barry Song <v-songbaohua@oppo.com>
 
-This is a preparatory patch to support batch PTE unmapping in
-`try_to_unmap_one`. It first introduces range handling for
-`tlbbatch` flush. Currently, the range is always set to the size of
-PAGE_SIZE.
+Currently, the PTEs and rmap of a large folio are removed one at a time.
+This is not only slow but also causes the large folio to be unnecessarily
+added to deferred_split, which can lead to races between the
+deferred_split shrinker callback and memory reclamation. This patch
+releases all PTEs and rmap entries in a batch.
+Currently, it only handles lazyfree large folios.
 
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: Ingo Molnar <mingo@redhat.com>
-Cc: Borislav Petkov <bp@alien8.de>
-Cc: Dave Hansen <dave.hansen@linux.intel.com>
-Cc: "H. Peter Anvin" <hpa@zytor.com>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Shaoqin Huang <shahuang@redhat.com>
-Cc: Gavin Shan <gshan@redhat.com>
-Cc: Kefeng Wang <wangkefeng.wang@huawei.com>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: David Hildenbrand <david@redhat.com>
-Cc: Lance Yang <ioworker0@gmail.com>
-Cc: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
-Cc: Yosry Ahmed <yosryahmed@google.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: Yicong Yang <yangyicong@hisilicon.com>
+The below microbench tries to reclaim 128MB lazyfree large folios
+whose sizes are 64KiB:
+
+ #include <stdio.h>
+ #include <sys/mman.h>
+ #include <string.h>
+ #include <time.h>
+
+ #define SIZE 128*1024*1024  // 128 MB
+
+ unsigned long read_split_deferred()
+ {
+ 	FILE *file = fopen("/sys/kernel/mm/transparent_hugepage"
+			"/hugepages-64kB/stats/split_deferred", "r");
+ 	if (!file) {
+ 		perror("Error opening file");
+ 		return 0;
+ 	}
+
+ 	unsigned long value;
+ 	if (fscanf(file, "%lu", &value) != 1) {
+ 		perror("Error reading value");
+ 		fclose(file);
+ 		return 0;
+ 	}
+
+ 	fclose(file);
+ 	return value;
+ }
+
+ int main(int argc, char *argv[])
+ {
+ 	while(1) {
+ 		volatile int *p = mmap(0, SIZE, PROT_READ | PROT_WRITE,
+ 				MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+
+ 		memset((void *)p, 1, SIZE);
+
+ 		madvise((void *)p, SIZE, MADV_FREE);
+
+ 		clock_t start_time = clock();
+ 		unsigned long start_split = read_split_deferred();
+ 		madvise((void *)p, SIZE, MADV_PAGEOUT);
+ 		clock_t end_time = clock();
+ 		unsigned long end_split = read_split_deferred();
+
+ 		double elapsed_time = (double)(end_time - start_time) / CLOCKS_PER_SEC;
+ 		printf("Time taken by reclamation: %f seconds, split_deferred: %ld\n",
+ 			elapsed_time, end_split - start_split);
+
+ 		munmap((void *)p, SIZE);
+ 	}
+ 	return 0;
+ }
+
+w/o patch:
+~ # ./a.out
+Time taken by reclamation: 0.177418 seconds, split_deferred: 2048
+Time taken by reclamation: 0.178348 seconds, split_deferred: 2048
+Time taken by reclamation: 0.174525 seconds, split_deferred: 2048
+Time taken by reclamation: 0.171620 seconds, split_deferred: 2048
+Time taken by reclamation: 0.172241 seconds, split_deferred: 2048
+Time taken by reclamation: 0.174003 seconds, split_deferred: 2048
+Time taken by reclamation: 0.171058 seconds, split_deferred: 2048
+Time taken by reclamation: 0.171993 seconds, split_deferred: 2048
+Time taken by reclamation: 0.169829 seconds, split_deferred: 2048
+Time taken by reclamation: 0.172895 seconds, split_deferred: 2048
+Time taken by reclamation: 0.176063 seconds, split_deferred: 2048
+Time taken by reclamation: 0.172568 seconds, split_deferred: 2048
+Time taken by reclamation: 0.171185 seconds, split_deferred: 2048
+Time taken by reclamation: 0.170632 seconds, split_deferred: 2048
+Time taken by reclamation: 0.170208 seconds, split_deferred: 2048
+Time taken by reclamation: 0.174192 seconds, split_deferred: 2048
+...
+
+w/ patch:
+~ # ./a.out
+Time taken by reclamation: 0.074231 seconds, split_deferred: 0
+Time taken by reclamation: 0.071026 seconds, split_deferred: 0
+Time taken by reclamation: 0.072029 seconds, split_deferred: 0
+Time taken by reclamation: 0.071873 seconds, split_deferred: 0
+Time taken by reclamation: 0.073573 seconds, split_deferred: 0
+Time taken by reclamation: 0.071906 seconds, split_deferred: 0
+Time taken by reclamation: 0.073604 seconds, split_deferred: 0
+Time taken by reclamation: 0.075903 seconds, split_deferred: 0
+Time taken by reclamation: 0.073191 seconds, split_deferred: 0
+Time taken by reclamation: 0.071228 seconds, split_deferred: 0
+Time taken by reclamation: 0.071391 seconds, split_deferred: 0
+Time taken by reclamation: 0.071468 seconds, split_deferred: 0
+Time taken by reclamation: 0.071896 seconds, split_deferred: 0
+Time taken by reclamation: 0.072508 seconds, split_deferred: 0
+Time taken by reclamation: 0.071884 seconds, split_deferred: 0
+Time taken by reclamation: 0.072433 seconds, split_deferred: 0
+Time taken by reclamation: 0.071939 seconds, split_deferred: 0
+...
+
 Signed-off-by: Barry Song <v-songbaohua@oppo.com>
 ---
- arch/arm64/include/asm/tlbflush.h | 26 ++++++++++++++------------
- arch/arm64/mm/contpte.c           |  2 +-
- arch/riscv/include/asm/tlbflush.h |  3 ++-
- arch/riscv/mm/tlbflush.c          |  3 ++-
- arch/x86/include/asm/tlbflush.h   |  3 ++-
- mm/rmap.c                         | 12 +++++++-----
- 6 files changed, 28 insertions(+), 21 deletions(-)
+ mm/rmap.c | 46 ++++++++++++++++++++++++++++++++++++++++------
+ 1 file changed, 40 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-index bc94e036a26b..f34e4fab5aa2 100644
---- a/arch/arm64/include/asm/tlbflush.h
-+++ b/arch/arm64/include/asm/tlbflush.h
-@@ -322,13 +322,6 @@ static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
- 	return true;
- }
- 
--static inline void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *batch,
--					     struct mm_struct *mm,
--					     unsigned long uaddr)
--{
--	__flush_tlb_page_nosync(mm, uaddr);
--}
--
- /*
-  * If mprotect/munmap/etc occurs during TLB batched flushing, we need to
-  * synchronise all the TLBI issued with a DSB to avoid the race mentioned in
-@@ -448,7 +441,7 @@ static inline bool __flush_tlb_range_limit_excess(unsigned long start,
- 	return false;
- }
- 
--static inline void __flush_tlb_range_nosync(struct vm_area_struct *vma,
-+static inline void __flush_tlb_range_nosync(struct mm_struct *mm,
- 				     unsigned long start, unsigned long end,
- 				     unsigned long stride, bool last_level,
- 				     int tlb_level)
-@@ -460,12 +453,12 @@ static inline void __flush_tlb_range_nosync(struct vm_area_struct *vma,
- 	pages = (end - start) >> PAGE_SHIFT;
- 
- 	if (__flush_tlb_range_limit_excess(start, end, pages, stride)) {
--		flush_tlb_mm(vma->vm_mm);
-+		flush_tlb_mm(mm);
- 		return;
- 	}
- 
- 	dsb(ishst);
--	asid = ASID(vma->vm_mm);
-+	asid = ASID(mm);
- 
- 	if (last_level)
- 		__flush_tlb_range_op(vale1is, start, pages, stride, asid,
-@@ -474,7 +467,7 @@ static inline void __flush_tlb_range_nosync(struct vm_area_struct *vma,
- 		__flush_tlb_range_op(vae1is, start, pages, stride, asid,
- 				     tlb_level, true, lpa2_is_enabled());
- 
--	mmu_notifier_arch_invalidate_secondary_tlbs(vma->vm_mm, start, end);
-+	mmu_notifier_arch_invalidate_secondary_tlbs(mm, start, end);
- }
- 
- static inline void __flush_tlb_range(struct vm_area_struct *vma,
-@@ -482,7 +475,7 @@ static inline void __flush_tlb_range(struct vm_area_struct *vma,
- 				     unsigned long stride, bool last_level,
- 				     int tlb_level)
- {
--	__flush_tlb_range_nosync(vma, start, end, stride,
-+	__flush_tlb_range_nosync(vma->vm_mm, start, end, stride,
- 				 last_level, tlb_level);
- 	dsb(ish);
- }
-@@ -533,6 +526,15 @@ static inline void __flush_tlb_kernel_pgtable(unsigned long kaddr)
- 	dsb(ish);
- 	isb();
- }
-+
-+static inline void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *batch,
-+					     struct mm_struct *mm,
-+					     unsigned long uaddr,
-+					     unsigned long size)
-+{
-+	__flush_tlb_range_nosync(mm, uaddr, uaddr + size,
-+				 PAGE_SIZE, true, 3);
-+}
- #endif
- 
- #endif
-diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
-index 55107d27d3f8..bcac4f55f9c1 100644
---- a/arch/arm64/mm/contpte.c
-+++ b/arch/arm64/mm/contpte.c
-@@ -335,7 +335,7 @@ int contpte_ptep_clear_flush_young(struct vm_area_struct *vma,
- 		 * eliding the trailing DSB applies here.
- 		 */
- 		addr = ALIGN_DOWN(addr, CONT_PTE_SIZE);
--		__flush_tlb_range_nosync(vma, addr, addr + CONT_PTE_SIZE,
-+		__flush_tlb_range_nosync(vma->vm_mm, addr, addr + CONT_PTE_SIZE,
- 					 PAGE_SIZE, true, 3);
- 	}
- 
-diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
-index 72e559934952..7f3ea687ce33 100644
---- a/arch/riscv/include/asm/tlbflush.h
-+++ b/arch/riscv/include/asm/tlbflush.h
-@@ -61,7 +61,8 @@ void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
- bool arch_tlbbatch_should_defer(struct mm_struct *mm);
- void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *batch,
- 			       struct mm_struct *mm,
--			       unsigned long uaddr);
-+			       unsigned long uaddr,
-+			       unsigned long size);
- void arch_flush_tlb_batched_pending(struct mm_struct *mm);
- void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch);
- 
-diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-index 9b6e86ce3867..aeda64a36d50 100644
---- a/arch/riscv/mm/tlbflush.c
-+++ b/arch/riscv/mm/tlbflush.c
-@@ -187,7 +187,8 @@ bool arch_tlbbatch_should_defer(struct mm_struct *mm)
- 
- void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *batch,
- 			       struct mm_struct *mm,
--			       unsigned long uaddr)
-+			       unsigned long uaddr,
-+			       unsigned long size)
- {
- 	cpumask_or(&batch->cpumask, &batch->cpumask, mm_cpumask(mm));
- }
-diff --git a/arch/x86/include/asm/tlbflush.h b/arch/x86/include/asm/tlbflush.h
-index 69e79fff41b8..4b62a6329b8f 100644
---- a/arch/x86/include/asm/tlbflush.h
-+++ b/arch/x86/include/asm/tlbflush.h
-@@ -279,7 +279,8 @@ static inline u64 inc_mm_tlb_gen(struct mm_struct *mm)
- 
- static inline void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *batch,
- 					     struct mm_struct *mm,
--					     unsigned long uaddr)
-+					     unsigned long uaddr,
-+					     unsigned long size)
- {
- 	inc_mm_tlb_gen(mm);
- 	cpumask_or(&batch->cpumask, &batch->cpumask, mm_cpumask(mm));
 diff --git a/mm/rmap.c b/mm/rmap.c
-index de6b8c34e98c..365112af5291 100644
+index 365112af5291..3ef659310797 100644
 --- a/mm/rmap.c
 +++ b/mm/rmap.c
-@@ -672,7 +672,8 @@ void try_to_unmap_flush_dirty(void)
- 	(TLB_FLUSH_BATCH_PENDING_MASK / 2)
- 
- static void set_tlb_ubc_flush_pending(struct mm_struct *mm, pte_t pteval,
--				      unsigned long uaddr)
-+				      unsigned long uaddr,
-+				      unsigned long size)
- {
- 	struct tlbflush_unmap_batch *tlb_ubc = &current->tlb_ubc;
- 	int batch;
-@@ -681,7 +682,7 @@ static void set_tlb_ubc_flush_pending(struct mm_struct *mm, pte_t pteval,
- 	if (!pte_accessible(mm, pteval))
- 		return;
- 
--	arch_tlbbatch_add_pending(&tlb_ubc->arch, mm, uaddr);
-+	arch_tlbbatch_add_pending(&tlb_ubc->arch, mm, uaddr, size);
- 	tlb_ubc->flush_required = true;
- 
- 	/*
-@@ -757,7 +758,8 @@ void flush_tlb_batched_pending(struct mm_struct *mm)
- }
- #else
- static void set_tlb_ubc_flush_pending(struct mm_struct *mm, pte_t pteval,
--				      unsigned long uaddr)
-+				      unsigned long uaddr,
-+				      unsigned long size)
- {
+@@ -1642,6 +1642,25 @@ void folio_remove_rmap_pmd(struct folio *folio, struct page *page,
+ #endif
  }
  
-@@ -1792,7 +1794,7 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
- 				 */
- 				pteval = ptep_get_and_clear(mm, address, pvmw.pte);
++/* We support batch unmapping of PTEs for lazyfree large folios */
++static inline bool can_batch_unmap_folio_ptes(unsigned long addr,
++			struct folio *folio, pte_t *ptep)
++{
++	const fpb_t fpb_flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
++	int max_nr = folio_nr_pages(folio);
++	pte_t pte = ptep_get(ptep);
++
++	if (!folio_test_anon(folio) || folio_test_swapbacked(folio))
++		return false;
++	if (pte_none(pte) || pte_unused(pte) || !pte_present(pte))
++		return false;
++	if (pte_pfn(pte) != folio_pfn(folio))
++		return false;
++
++	return folio_pte_batch(folio, addr, ptep, pte, max_nr, fpb_flags, NULL,
++			       NULL, NULL) == max_nr;
++}
++
+ /*
+  * @arg: enum ttu_flags will be passed to this argument
+  */
+@@ -1655,6 +1674,7 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
+ 	bool anon_exclusive, ret = true;
+ 	struct mmu_notifier_range range;
+ 	enum ttu_flags flags = (enum ttu_flags)(long)arg;
++	int nr_pages = 1;
+ 	unsigned long pfn;
+ 	unsigned long hsz = 0;
  
--				set_tlb_ubc_flush_pending(mm, pteval, address);
-+				set_tlb_ubc_flush_pending(mm, pteval, address, PAGE_SIZE);
- 			} else {
- 				pteval = ptep_clear_flush(vma, address, pvmw.pte);
+@@ -1780,6 +1800,15 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
+ 				hugetlb_vma_unlock_write(vma);
  			}
-@@ -2164,7 +2166,7 @@ static bool try_to_migrate_one(struct folio *folio, struct vm_area_struct *vma,
- 				 */
- 				pteval = ptep_get_and_clear(mm, address, pvmw.pte);
+ 			pteval = huge_ptep_clear_flush(vma, address, pvmw.pte);
++		} else if (folio_test_large(folio) && !(flags & TTU_HWPOISON) &&
++				can_batch_unmap_folio_ptes(address, folio, pvmw.pte)) {
++			nr_pages = folio_nr_pages(folio);
++			flush_cache_range(vma, range.start, range.end);
++			pteval = get_and_clear_full_ptes(mm, address, pvmw.pte, nr_pages, 0);
++			if (should_defer_flush(mm, flags))
++				set_tlb_ubc_flush_pending(mm, pteval, address, folio_size(folio));
++			else
++				flush_tlb_range(vma, range.start, range.end);
+ 		} else {
+ 			flush_cache_page(vma, address, pfn);
+ 			/* Nuke the page table entry. */
+@@ -1875,7 +1904,7 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
+ 					 * redirtied either using the page table or a previously
+ 					 * obtained GUP reference.
+ 					 */
+-					set_pte_at(mm, address, pvmw.pte, pteval);
++					set_ptes(mm, address, pvmw.pte, pteval, nr_pages);
+ 					folio_set_swapbacked(folio);
+ 					goto walk_abort;
+ 				} else if (ref_count != 1 + map_count) {
+@@ -1888,10 +1917,10 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
+ 					 * We'll come back here later and detect if the folio was
+ 					 * dirtied when the additional reference is gone.
+ 					 */
+-					set_pte_at(mm, address, pvmw.pte, pteval);
++					set_ptes(mm, address, pvmw.pte, pteval, nr_pages);
+ 					goto walk_abort;
+ 				}
+-				dec_mm_counter(mm, MM_ANONPAGES);
++				add_mm_counter(mm, MM_ANONPAGES, -nr_pages);
+ 				goto discard;
+ 			}
  
--				set_tlb_ubc_flush_pending(mm, pteval, address);
-+				set_tlb_ubc_flush_pending(mm, pteval, address, PAGE_SIZE);
- 			} else {
- 				pteval = ptep_clear_flush(vma, address, pvmw.pte);
- 			}
+@@ -1943,13 +1972,18 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
+ 			dec_mm_counter(mm, mm_counter_file(folio));
+ 		}
+ discard:
+-		if (unlikely(folio_test_hugetlb(folio)))
++		if (unlikely(folio_test_hugetlb(folio))) {
+ 			hugetlb_remove_rmap(folio);
+-		else
+-			folio_remove_rmap_pte(folio, subpage, vma);
++		} else {
++			folio_remove_rmap_ptes(folio, subpage, nr_pages, vma);
++			folio_ref_sub(folio, nr_pages - 1);
++		}
+ 		if (vma->vm_flags & VM_LOCKED)
+ 			mlock_drain_local();
+ 		folio_put(folio);
++		/* We have already batched the entire folio */
++		if (nr_pages > 1)
++			goto walk_done;
+ 		continue;
+ walk_abort:
+ 		ret = false;
 -- 
 2.39.3 (Apple Git-146)
 
