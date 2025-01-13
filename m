@@ -4,92 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C455BC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 16:55:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 092A1C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 17:01:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xyt88DTwvTCEU6IZGu6Ff5eOVi1/kjHctehvZyzlhzk=; b=PeOgoNAwnDxkQ8g6tpqssyEbnS
-	y95zvg0FZTwu4pAtA9/GrkXCBoLF3KrYS4pAJ3CA4frfM6T/K/kLSmsvnNAwLBZUMCSxWQhGdcV9M
-	xVdJ+zJJ26DPL8X2AaymBhWrXg1MQ9KdQ0SGOpJAifG8cCEAV3pbiWYS+jeXkC3jECVXkVWWqE3fL
-	ZAoL+E3blifdAu2qQ6oTZ47CyTdt71OTvz/LKMzcJYj8/ke4Mbufg9iv0NjYKcIq3UO4dsDLPI4sU
-	mOGavDZgWwNzVmNqZHJH3e4hX4H34B2si/jhB2C0UrTLybJKVUbBudmB7pA+Qf1Ose1VKmKJxAUIr
-	8hkFehtw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lNi4ttNXrfrXDMynei5+HVfxxr2BRc6T71jVjH9tT8o=; b=axpidWdVyGP/5O8U9+FwgRpsgy
+	yQYR+XypNKXvKHt1El4WHHYhiC3d7cg5fZqvc4jWyhhI069y7I++wNKVMAZXRfxA+rb2S3X/rwYUx
+	S8x/79p0ppWhAZ6lkHmjaYTsFF/ij2jue9gVlu/exBvK+KKd5e0d4nPF2100yajMuO2gt6/4ixqC8
+	TqddFKHWutMFMCOspUaXQ1nty5pUA240xF7mfPhSFGYtqF4lbWsHrcMNhs8tzFbl5SkQlX6mMAMvn
+	dwzFNpFjyvxfmnmD4Pi/O79GJPB+bswA+U238VsKDLvAtnqT/xfM/EsYwmosGiiQOKATHF740z3ov
+	UM+VBZrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXNj4-00000005xCi-0f2o;
-	Mon, 13 Jan 2025 16:55:42 +0000
-Received: from mail-ot1-x32b.google.com ([2607:f8b0:4864:20::32b])
+	id 1tXNo8-00000005y6I-3OL7;
+	Mon, 13 Jan 2025 17:00:56 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXNgU-00000005woI-1Xo6
+	id 1tXNmr-00000005xlD-40r8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 16:53:03 +0000
-Received: by mail-ot1-x32b.google.com with SMTP id 46e09a7af769-71e10e6a1ceso1158160a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 08:53:02 -0800 (PST)
+	Mon, 13 Jan 2025 16:59:39 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-21661949f23so132881645ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 08:59:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736787181; x=1737391981; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Xyt88DTwvTCEU6IZGu6Ff5eOVi1/kjHctehvZyzlhzk=;
-        b=Y+iBiyWdh8dGt/OSViYnwtLmA2XLzJDrV17V97khYxm5AXFZvpMTfooFsmnCC9Mh51
-         bbES2PwwM6IQ64zSuaBkFfYjOR09py0WGcLMl6PVORePZedWXGkQ9uoZgCfq5NijUsji
-         ur7CNfhsN7VjYiU4sdCQ8qiBiWeymzFmaJ6DFEJlrOKf88+XTo2mSFufyF+rn7GlTqAV
-         rXjBkLqFnlZLA8iBdMFHmZgHJXt8mjLzG6+ccIaqINV+aaFYA1YFzruzYfhpTqutkfZC
-         e4mYxvCHhRlNxZ+AvTbTGzCE6crLTL4d7BTrHg9SR4LPZlKPqf98zeirtD6T+oS/uZE+
-         twxg==
+        d=google.com; s=20230601; t=1736787576; x=1737392376; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=lNi4ttNXrfrXDMynei5+HVfxxr2BRc6T71jVjH9tT8o=;
+        b=HCNPl27gaUzZXif+Ems2r5KHDFPmnLCD4I/97wd2HZBm7b4BX5FyBySMpgZxccidMK
+         RoPP3a67kfal1JAJDp39jEve92h65m2h6D/E3DR2QHBlpH62vI4rFeT9C6fzW50f+55U
+         IRFC4VSMEKpQLL1LRGALwD6Ft4eD79LAwdf6qmhIiTdYpyZ1RLeGusH+PoIKzSIJb9SO
+         I41u6WMqux2PHbZ45yTxoWUUADUmkO1gj+kNnc1yYosfN+J8rLLsDWRUPxRVIMngDVRf
+         bqreX7Kp3mqbLVrMqVQdvBxneIQCncGJGlHahucYflI2T+/oSAvAkhXxfwwaH/nJYPWt
+         X2Zg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736787181; x=1737391981;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Xyt88DTwvTCEU6IZGu6Ff5eOVi1/kjHctehvZyzlhzk=;
-        b=nphqA5T4/byUWWVJPm0xqHcHfHgvNz7OqUGo16IXiQBRYkphvXhNZMcKGNLcYWgSPe
-         2OXS4bqEx4CXYO0ufPB98+h28ZifLbFzxDz2N2Vtw1x0Be+OO+ngSaYglLXxBIX2zhLW
-         lcw7E9hLnf+g201C4gR3JdKB3SI+FaZJNfeMCYXV/Rt16MBQqd5+L8B3Z31sE+mVTqbi
-         wXmCFW1ooM/KuxUrmrW+cSIoGTiNiOI3jA8464Sb5hH1kcI+6OIXSht+Nh9glod4DVzB
-         j7s6eagcn0zSKHeo+g9kuUFxsO26Yw0MDNL1ZgYK7KX57poSd1dOq++YQbiIv4wWHg88
-         WcTA==
-X-Forwarded-Encrypted: i=1; AJvYcCV67Vb/ZJYZW+x7mRWYKe2VZ3/ru2YLvmGx8kceVWx13nwcvzI5j6XNDCYJ3HU2MNyq1fk2m9390YtDeH8xSkn3@lists.infradead.org
-X-Gm-Message-State: AOJu0YzV/g3LSqsm8RuZTUQzH++FfBTcqnnZ5FIaRDhnz1E146SRHe/v
-	jCGwHIcmTsMw1XCm216bqjbrwN8vo9JxTqGYQTPGuejjNMr1dkCEoD8QJLXb4lN1q/5rIytR6IO
-	+Q/DcswlFIL9GzDccm6Yg30KwOmY=
-X-Gm-Gg: ASbGncu86izg87SI28jiCct85AqbARynOEXdI1Ofjo/yv/n/AdGE31jTaOQjTPrDADU
-	XdBVB4J1i7TpLoQIwIVObQD4OwDOzoek9xtnZHvc=
-X-Google-Smtp-Source: AGHT+IE5cxXt5JR2u+4N8NH2RBAsVODsNa5JluDfwkyKK+baKOF8L+HdL9nECoJbbVjINZwSD4iihC1AJMlo6/b1Pu4=
-X-Received: by 2002:a05:6870:2a42:b0:29d:c5e8:e424 with SMTP id
- 586e51a60fabf-2aa065478eamr12278674fac.9.1736787181336; Mon, 13 Jan 2025
- 08:53:01 -0800 (PST)
-MIME-Version: 1.0
-References: <20241217-acpm-v4-upstream-mbox-v5-0-cd1d3951fe84@linaro.org>
- <20241217-acpm-v4-upstream-mbox-v5-1-cd1d3951fe84@linaro.org>
- <ec3cdfd1-df7a-466c-8581-c9546ca6b089@linaro.org> <CABb+yY0rBzP8JPAik5aaXp6GivQKEf++sgiMM9fTPgd_5YXT1w@mail.gmail.com>
- <eaab647a-f6f4-4562-89fa-e64daa80bdf4@linaro.org> <CABb+yY0AkpqC_P-3cHeuWDu-gJzxCnarsNFNQWk45+tHKrDLmg@mail.gmail.com>
- <4e97b33f-b4a5-4875-a65d-9e25bcc5a46c@linaro.org> <8f21d5f2-5327-488c-878c-a62d85857240@linaro.org>
- <CABb+yY0JMZfwR9xQ8s80Kmg0gE1DRDJ9bHB=eMnw70uw5nBshw@mail.gmail.com> <7dc02926-905e-430d-91f5-e1ad7af7135e@linaro.org>
-In-Reply-To: <7dc02926-905e-430d-91f5-e1ad7af7135e@linaro.org>
-From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Mon, 13 Jan 2025 10:52:50 -0600
-X-Gm-Features: AbW1kvYv4JplEEr5H_7RAD_-cm61d0McdldDJA9WpeTQeMp8PAvtnMQYQCFpZzc
-Message-ID: <CABb+yY0k7rWoJ6foQLHqxsvZuAiE1XnopP5cOceFgNocygQhSQ@mail.gmail.com>
-Subject: Re: [PATCH v5 1/3] dt-bindings: mailbox: add google,gs101-mbox
-To: Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, linux-kernel@vger.kernel.org, 
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, andre.draszik@linaro.org, 
-	peter.griffin@linaro.org, kernel-team@android.com, willmcvicker@google.com, 
-	daniel.lezcano@linaro.org, vincent.guittot@linaro.org, ulf.hansson@linaro.org, 
-	arnd@arndb.de
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+        d=1e100.net; s=20230601; t=1736787576; x=1737392376;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=lNi4ttNXrfrXDMynei5+HVfxxr2BRc6T71jVjH9tT8o=;
+        b=au+pmMibHDywCPfzQvo8S32Fw9x+yikoUxnkMXoa3RTT7H7SPejRxHRu8Zk3rO2Yr9
+         4GSmAz7rC65QbHSNAoxpczyl0KGmS4gdGOvfwQ/0uBtwXMmdSHWZOjXZEcxYF0Llw/hq
+         jpuqNTbYXlBUFmSowNhgCaIJ8/OM6rmpLhH2WrBV7OasuAaUvniATUR1KZr3XqK3949a
+         jsaoSQz2UEQVReEI5IFO80NO8vzofCC1tgxoLOSw3FcVGI2iw0UbF/5g5jx9K1jIBum1
+         f5VQzvWn02SMCzTfJa0oBol4Lz3eFZE7gdMEfFzx4+QYcJu1JrYThF0ZmyD4+YPw33zR
+         g/vg==
+X-Forwarded-Encrypted: i=1; AJvYcCUpM7qFv4XthqCOrfOMYwl5U/TQZUPzlHUxdoTL34ru/y3nl8xi48y2U2as81EcnyGuT5w7WVhNb84cAfG9342t@lists.infradead.org
+X-Gm-Message-State: AOJu0YzZy++mkysFctN+9aSHp/+NEgrH8485Ce/RECC8awm7xuUcD+It
+	t2z1P6AQ7VHxXm5Xjv+gRE9pTCIkSW39wNmIJdOas/lpo+jyO6aoqXYct+AOCN9AGw3FKjBau9L
+	2yQ==
+X-Google-Smtp-Source: AGHT+IENu5ZK9kPpRwdS1+EeXpR6nVCXMTR+IXJJExBjfsTrkclg65OJwbQ4mKEvtimncd2M4JDnxOz3MCM=
+X-Received: from plks12.prod.google.com ([2002:a17:903:2cc:b0:211:fb3b:763b])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:e74b:b0:215:5ea2:654b
+ with SMTP id d9443c01a7336-21a83f3eebemr334554025ad.1.1736787576636; Mon, 13
+ Jan 2025 08:59:36 -0800 (PST)
+Date: Mon, 13 Jan 2025 08:59:35 -0800
+In-Reply-To: <Z4R12HOD1o8ETYzm@intel.com>
+Mime-Version: 1.0
+References: <20250111012450.1262638-1-seanjc@google.com> <20250111012450.1262638-4-seanjc@google.com>
+ <Z4R12HOD1o8ETYzm@intel.com>
+Message-ID: <Z4VGdxyswQ6qcKR0@google.com>
+Subject: Re: [PATCH 3/5] KVM: Add a common kvm_run flag to communicate an exit
+ needs completion
+From: Sean Christopherson <seanjc@google.com>
+To: Chao Gao <chao.gao@intel.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Michael Ellerman <mpe@ellerman.id.au>, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_085302_404648_F65BF1FD 
-X-CRM114-Status: GOOD (  18.10  )
+X-CRM114-CacheID: sfid-20250113_085937_994933_EDCA7D55 
+X-CRM114-Status: GOOD (  19.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,48 +92,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 13, 2025 at 3:34=E2=80=AFAM Tudor Ambarus <tudor.ambarus@linaro=
-.org> wrote:
-> On 1/12/25 4:59 PM, Jassi Brar wrote:
->
-> >>>>> Then I updated the mailbox core to allow clients to request channel=
-s by
-> >>>>> passing some args containing channel identifiers to the controllers=
-,
-> >>>>> that the controllers xlate() using their own method.
-> >>>>>
-> >>>> This is unnecessary.
-> >>>> If you don't pass the doorbell number from DT, each channel populate=
-d
-> >>>> by the driver is just a s/w construct or a 'virtual' channel. Make u=
-se
-> >>>> of 'void *data'  in send_data() to specify the doorbell.
-> >>>>
-> >>> I think this introduces concurrency problems if the channel identifie=
-rs
-> >>> passed by 'void *data' don't match the virtual channel used for sendi=
-ng
-> >>> the messages. Do we want to allow this?
-> >>>
-> >>> Also, if we use 'void *data' to pass channel identifiers, the channel
-> >>> checks will have to be made at send_data() time. Thus if passing wron=
-g
-> >>> channel type for example, the mailbox client will eventually get a
-> >>> -ENOBUFS and a "Try increasing MBOX_TX_QUEUE_LEN" message, which I fi=
-nd
-> >>> misleading.
-> >>
-> >> Shall I still use 'void *data' to pass channel identifiers through
-> >> send_data()? I'd like to respin everything.
-> >>
-> > Yes, please do.
+On Mon, Jan 13, 2025, Chao Gao wrote:
+> On Fri, Jan 10, 2025 at 05:24:48PM -0800, Sean Christopherson wrote:
+> >Add a kvm_run flag, KVM_RUN_NEEDS_COMPLETION, to communicate to userspace
+> >that KVM_RUN needs to be re-executed prior to save/restore in order to
+> >complete the instruction/operation that triggered the userspace exit.
 > >
->
-> What shall I do in driver's of_xlate method, always return
-> &mbox->chans[0], as bcm2835 does?
->
-No, not the first. The first _free_ channel. One way to identify a
-free channel is by checking mbox_chan.cl is NULL.
+> >KVM's current approach of adding notes in the Documentation is beyond
+> >brittle, e.g. there is at least one known case where a KVM developer added
+> >a new userspace exit type, and then that same developer forgot to handle
+> >completion when adding userspace support.
+> 
+> This answers one question I had:
+> https://lore.kernel.org/kvm/Z1bmUCEdoZ87wIMn@intel.com/
+> 
+> So, it is the VMM's (i.e., QEMU's) responsibility to re-execute KVM_RUN in this
+> case.
 
-thnx
+Yep.
+
+> Btw, can this flag be used to address the issue [*] with steal time accounting?
+> We can set the new flag for each vCPU in the PM notifier and we need to change
+> the re-execution to handle steal time accounting (not just IO completion).
+> 
+> [*]: https://lore.kernel.org/kvm/Z36XJl1OAahVkxhl@google.com/
+
+Uh, hmm.  Partially?  And not without creating new, potentially worse problems.
+
+I like the idea, but (a) there's no guarantee a vCPU would be "in" KVM_RUN at
+the time of suspend, and (b) KVM would need to take vcpu->mutex in the PM notifier
+in order to avoid clobbering the current completion callback, which is definitely
+a net negative (hello, deadlocks).
+
+E.g. if a vCPU task is in userspace processing emulated MMIO at the time of
+suspend+resume, KVM's completion callback will be non-zero and must be preserved.
+And if a vCPU task is in userspace processing an exit that _doesn't_ require
+completion, setting KVM_RUN_NEEDS_COMPLETION would likely be missed by userspace,
+e.g. if userspace checks the flag only after regaining control from KVM_RUN.
+
+In general, I think setting KVM_RUN_NEEDS_COMPLETION outside of KVM_RUN would add
+too much complexity.
+
+> one nit below,
+> 
+> >--- a/arch/x86/include/uapi/asm/kvm.h
+> >+++ b/arch/x86/include/uapi/asm/kvm.h
+> >@@ -104,9 +104,10 @@ struct kvm_ioapic_state {
+> > #define KVM_IRQCHIP_IOAPIC       2
+> > #define KVM_NR_IRQCHIPS          3
+> > 
+> >-#define KVM_RUN_X86_SMM		 (1 << 0)
+> >-#define KVM_RUN_X86_BUS_LOCK     (1 << 1)
+> >-#define KVM_RUN_X86_GUEST_MODE   (1 << 2)
+> >+#define KVM_RUN_X86_SMM			(1 << 0)
+> >+#define KVM_RUN_X86_BUS_LOCK		(1 << 1)
+> >+#define KVM_RUN_X86_GUEST_MODE		(1 << 2)
+> >+#define KVM_RUN_X86_NEEDS_COMPLETION	(1 << 2)
+> 
+> This X86_NEEDS_COMPLETION should be dropped. It is never used.
+
+Gah, thanks!
 
