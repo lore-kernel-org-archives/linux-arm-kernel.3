@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B271C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 13:07:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21DD9C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 13:08:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kWJosQxppl/LButOmLsCXsOURqYTt3fhYwtWT4WdU2Y=; b=0+iXXW35/bkgogNNzs4CvFISbY
-	I+5J3VAeX6zeBPp3XAiwyFya4ax/aEVifY8MgvluyKPJn4aw533k4JfxBCeuzL0jZxAgCDMQp1uvH
-	aTXQfdaFoZH/l9aB+KUDUkFpN5VrZwwmSFNo2gv1vlnMWN2qWLCRQmMMddc/Cy0GDO9uEtMNPkiXl
-	AISsSc68Aj91HscqtUD6JcxOp8y328mOtxaec4VfY9dq/p8CBj4Wx1/flGG7ZGpL0bFB/0jQbgIMY
-	eip2r5PIxwcu/gHP0IuzwGUU7F/+tS8dkdqoEwx0D4/vZXVy1JtpmgiVJeIl+bsBwbwSniU++uCoP
-	IFyTYxRA==;
+	bh=2XbjvOHgX6cEaqQor2rPngcF665AthpQbidXcULPyXE=; b=iyETUGIoyTEKeGoPXQPxJvUjQq
+	fxBm+838lmlCbX0snv8PupetCvwhiAQLqbMYBTbkhZTE5vlgZQydNamIG0JuYbHXgmOzYdso3lSqj
+	05VApnpq8od+5iQmmKvqJgjDPP6MLsSH6WYYFuBaw86CtUy4vV30QZO/1X5BpGiqZ3lrJviVil1/7
+	ehD3GzIFlgTBZCLAH0LLWzvyj5yH58884CBdw5O2WUgIUQg8PLsR8Z24z2mmnb4LZNM4SXv9W+XBB
+	i+r10JYqpPFFHdv4XOrpguVJzPVnjd5RrEhCf6SLv+7vjE1st/GcpzNcd5241QObhsGQL++QnryTy
+	TEjxtNTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXK9o-00000005BOR-2FIX;
-	Mon, 13 Jan 2025 13:07:04 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1tXKB7-00000005Bk3-3ANm;
+	Mon, 13 Jan 2025 13:08:25 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXK8Z-00000005BH7-3lhI
+	id 1tXK9s-00000005BPp-1tiv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 13:05:49 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43616c12d72so5667465e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 05:05:47 -0800 (PST)
+	Mon, 13 Jan 2025 13:07:09 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43658c452f5so3898165e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 05:07:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736773546; x=1737378346; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1736773627; x=1737378427; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=kWJosQxppl/LButOmLsCXsOURqYTt3fhYwtWT4WdU2Y=;
-        b=aeOiqD63MdYtb4TSsCpt51deBUK3lH0SKDN8g9mo1q8CC0xwyWBgsixCRd9yr8tz0V
-         znajJTsYESFmqQC6yw7dRU+dxi+VMU1XlUDQrU8CW4wlt8S0pfTMy3ecIJbDSCm7q2lF
-         yfftd9eag+dJXc//Q7k8DIDI+DMQykhsRWXSE2wmypNeOlwBNBIUU7JAa1stCfuTEO53
-         bli+zxGsCnMjH73C46pLNvsLtkZAjhrfKjZzxCm8rXo5YOGp0tyVRDh3cdZkAn7IkiJV
-         cIS3bf4ERuR/epahTWdAjhvcI9rk6rIm5Ld0rFFfYxd8oTqnR0VS6Tznt1BDFmHDzL74
-         hH0w==
+        bh=2XbjvOHgX6cEaqQor2rPngcF665AthpQbidXcULPyXE=;
+        b=cqJzAZRSgXoo0B29Uii9QviraF+jj2nzFeE6lxS+sf+Uq7of5AtmzyCKWSeO3y09K2
+         pMs2OwbK4xJSCr1x6gJ4qSDIDX687Y4qhEnmJrxgvQ/ysnlaER5CKYqWVH94zok0o8ea
+         J672LEi1fC/4k6suXYhR2RqxlhLxaap9zGU6Ahm4rePyjM3C/FRUXv1/l8/Sz9RnkSe6
+         pCq8FM/2AFnO9npzKifdQFvtkRLM2vjgADaRwSsF5shFv92girw0sf7+t9oBcXPaHpfu
+         cNo3/gpbQDQPRqx0p/H7cPorqe2zupa6hcBqZKMUMEyBPtEWCxb/0kWPBnnwDw2TrfOU
+         sw4Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736773546; x=1737378346;
+        d=1e100.net; s=20230601; t=1736773627; x=1737378427;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=kWJosQxppl/LButOmLsCXsOURqYTt3fhYwtWT4WdU2Y=;
-        b=NYY/eesYHUHvjOMAKJWIuFZc7hyKM+ZLDiovdPhQ3HJC0VYsBHV/9WrD0wzRqSWXfz
-         5hJ3mfJ3NYt+128lw7ns9ocehV5L+HhUUZQgW+nhSxMRt0Ds4G5CugpZV67XUdDbDBN5
-         PaYixfwXPOljlg1Oc73zJ/O8jQXTpWrZrvYK0e6t7mnjtPEtTjpX81k7snNr+X8SDBbg
-         MHyHLm8SfsCgVOCLuksqWyAi+XxE7QutWzOIYjfM9SRA24o4a+AsooblD7noTsai62WK
-         WG39MZD9KdxyDh3deed71C5pq4j4ww0pDpK62Sb2L0Ue36A8e/W1dCQrtEkqNBDdsywA
-         dO9A==
-X-Forwarded-Encrypted: i=1; AJvYcCXZDRsFJthEIOMqLftTIOvwl/xioN5jdToC7uhgC+zfs8bolifjXhTZI00Z0dmNWD7IamyYJn6j6LJ7mqxjPQeW@lists.infradead.org
-X-Gm-Message-State: AOJu0YxCYLCqdG7pRKtrljzFo8UmURF7AA0tr2ZkmPYxRbLJ3V5XU3QS
-	K2i1n4vzcqf9JFlyMOgKxphhfM8EI6WZEoKce6QKT8ovHs4QNyAA6hAVhzJoUus=
-X-Gm-Gg: ASbGnctOWC6cuJUQNq28X0Nrx21x1TkFCU8qgkh2cNYw/R37hsR9CAq+NOYU/uq5dph
-	/eONNMJNiGQjDjOJHcNbMVMHXfKF6zYrp7CO0iwO53ChdPHpB6sotq6bHsh2D/19kT+e0lJ8oj2
-	T/V830PNlx6t7IVsA+pFkjE3BdbYJao4Q3dMycpObEq/sTYi2dqvV+SlNAvFS/9EmgsS+Pard0s
-	WXtuF4NSwhSBa2HRH85r8OagSqiGNoN8buakoIwUDUC6GvkwfDvLQju+8Mx2wrcEu3KF1nf9Mku
-X-Google-Smtp-Source: AGHT+IFQoL1eqWZUzLXO8xn5aiYWFXQjNuPE/7Kefiqj01sIwoayBrPT0tSc64kY0x+XJrkSFZxmQg==
-X-Received: by 2002:a05:600c:1d07:b0:436:1902:23b5 with SMTP id 5b1f17b1804b1-436e26f4abbmr73098815e9.4.1736773546344;
-        Mon, 13 Jan 2025 05:05:46 -0800 (PST)
+        bh=2XbjvOHgX6cEaqQor2rPngcF665AthpQbidXcULPyXE=;
+        b=Me/l3nhkYWTLDlYAdDfgwAkrkRc3UEnwOCbZTTAGLp4ii/DlFG+huGPxGY5PlHbks9
+         fDoial2la2412tMgjxUYC3ur+UE/bdEYtF+CxekP9N5Joae8bhdlsMTf5FAbhNv0bg2G
+         a7JQZYgxlVix5f2KielTu5TtgZZOFfWyQtK8EJMF8YEE7s98FzrurwKxP3nMToPuwVPm
+         DMjBBLKPHE4V8QlKDfHAdKbg9ISVUpoDrOoaolZiVumLm1eoTk9XXribnPaFsraAWQzC
+         k0jP3p1a/elAObkzFDFMLo9E/1bnowxC+/xVVg+UEtikpIS2syevnU7taabcDvCxqPg9
+         IS/w==
+X-Forwarded-Encrypted: i=1; AJvYcCX35KAaEi+xDStF7DCD+ydFwO4ZQp/Cxf7dRf/Tis4Y4rJKfrvdhW32a/3U4eZQ0tvBsSpW9zdBX8ZPosyLq1zZ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx32ctBGJfX5lw+yccZyD225YGs7LsXUFxJghxw930cMI5xYGSs
+	9WerT6n0ai9A5Q8xdFIPes9sW+mG5JrhKrSMur3WdtIi05pavmnfM+RrTXxtJsY=
+X-Gm-Gg: ASbGncuqFxva7/kdUh42VuY11/zriwh7cO7klCmqvUzFT3qmCuZELYckHzJLapT9APj
+	XxAEJDjGMwXs2NaMzejHNbsApGoGSR7QBY2ytSoH94HEMkiln1Ys5rSc9nGTLgb/7oYyxLaP6MX
+	iIvhOReUWgScVJQYVOxAWQVdOuwxEelFi3nxX/f/R/1wtUd/wn5JRRoNqqa0J1yDBbxulERnsfh
+	gs/lskrMi/ErJ7SwZ14kmvuRjdKBxeCS2vy7u1mutRLBD/JXAbYM2mB0wau6UiKfITWgb2XdRHd
+X-Google-Smtp-Source: AGHT+IFiS18jgHH9bOldeMosMuJrC0O44MTlecZH01J7dg1Y0bV9+S1yOTILTG51FUOyHKtLpcBIJg==
+X-Received: by 2002:a05:600c:3c97:b0:42c:b55f:f4f with SMTP id 5b1f17b1804b1-436e2713e51mr80617645e9.6.1736773626697;
+        Mon, 13 Jan 2025 05:07:06 -0800 (PST)
 Received: from [192.168.1.20] ([178.197.223.165])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e2da66d9sm179163385e9.1.2025.01.13.05.05.44
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e9dc8802sm141839725e9.10.2025.01.13.05.07.05
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Jan 2025 05:05:45 -0800 (PST)
-Message-ID: <fef6b198-d916-4b71-86ed-0cbdd55cb3c4@linaro.org>
-Date: Mon, 13 Jan 2025 14:05:43 +0100
+        Mon, 13 Jan 2025 05:07:06 -0800 (PST)
+Message-ID: <59f8a02e-a716-40a8-bf73-111ad2a7af79@linaro.org>
+Date: Mon, 13 Jan 2025 14:07:03 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] drm/mediatek/hdmi: Use
- syscon_regmap_lookup_by_phandle_args
+Subject: Re: [PATCH 2/2] drm/mediatek/hdmi: Simplify with dev_err_probe
 To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
  Chun-Kuang Hu <chunkuang.hu@kernel.org>,
  Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>,
@@ -80,7 +79,8 @@ To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
  dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 References: <20250112134708.46100-1-krzysztof.kozlowski@linaro.org>
- <516d16e3-6fc6-49ba-a0ce-f451b65a6c1a@collabora.com>
+ <20250112134708.46100-2-krzysztof.kozlowski@linaro.org>
+ <ef0baed6-54d2-4f1f-9a4a-769ec09a069f@collabora.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Content-Language: en-US
 Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
@@ -127,12 +127,13 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  KQ06ztUMRrj8eVtpImjsWCd0bDWRaaR4vqhCHvAG9iWXZu4qh3ipie2Y0oSJygcZT7H3UZxq
  fyYKiqEmRuqsvv6dcbblD8ZLkz1EVZL6djImH5zc5x8qpVxlA0A0i23v5QvN00m6G9NFF0Le
  D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <516d16e3-6fc6-49ba-a0ce-f451b65a6c1a@collabora.com>
+In-Reply-To: <ef0baed6-54d2-4f1f-9a4a-769ec09a069f@collabora.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_050547_991943_08BAE5D8 
-X-CRM114-Status: GOOD (  12.22  )
+X-CRM114-CacheID: sfid-20250113_050708_498010_AE708259 
+X-CRM114-Status: UNSURE (   8.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,26 +150,18 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 On 13/01/2025 13:41, AngeloGioacchino Del Regno wrote:
 > Il 12/01/25 14:47, Krzysztof Kozlowski ha scritto:
->> Use syscon_regmap_lookup_by_phandle_args() which is a wrapper over
->> syscon_regmap_lookup_by_phandle() combined with getting the syscon
->> argument.  Except simpler code this annotates within one line that given
->> phandle has arguments, so grepping for code would be easier.
->>
->> There is also no real benefit in printing errors on missing syscon
->> argument, because this is done just too late: runtime check on
->> static/build-time data.  Dtschema and Devicetree bindings offer the
->> static/build-time check for this already.
+>> Use dev_err_probe() to make error code and deferred probe handling
+>> simpler.
 >>
 > 
-> I agree with this change but can you please rebase it over [1]?
-> 
-> The same code got migrated to mtk_hdmi_common.c instead :-)
+> That's already done in [1] so you can drop this commit.
 > 
 > [1]: 
 > https://lore.kernel.org/r/20250108112744.64686-1-angelogioacchino.delregno@collabora.com
-My is 2-patch cleanup, your is 34 patch rework and new features with
-existing build reports, so rebase is not reasonable. It would make this
-2-patch cleanup wait for many cycles.
+> 
+Eh, this was first in v3 in the middle of Dec, so why you cannot get it
+merged first? Creating such 34-behemoths causes simple cleanups to
+unnecessarily wait.
 
 Best regards,
 Krzysztof
