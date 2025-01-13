@@ -4,130 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BA26C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 17:34:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0D9DC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 17:39:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JsHTkn0UEejY0NKbuUQmD06tWs6IR3e3B3FlamRDu0Q=; b=ryjDkKXe6Jdcovq+3tE9GnRBmC
-	PWENj/Faks75Y8MF0HdBxORlUNODK3cXFi0anPaII2ZzDH92BJv6IjphiakjgpYKAVcHWvl8hQ62u
-	fD+OL/fF4yGm+k5VtLbSxN9SQA1w1a/7WclrAetdVtl9uNtsVsx/Fan62enSRlt6SypoDvBF7NfvM
-	i83LRyBxg+iaIAKPKtxOJkrhCWM3QWklU6QU5o/ap+4eFBEqmOby5jxFuCClBgEkcIvnNnvQTkyXz
-	j/jG/pK/SSItx/iiUHGXSxsPJQEnOxsb8uS4PJbtQbqLQIrXTl1oCXtAx0dEIRp8xbQz/VJmDZ+sQ
-	YGwXjIFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nfIml/GWxEsZm0NpaVbjbKNfBZtmD00u78N6+zE2OWk=; b=scnsOLvB+DoYnFA0imBiKz791V
+	B4GFhUNeLAjxhMUW6MRt/y7Y8PPwHCVkuHqJ9f92CN6sd1PCL/dQAQm5ke9AHqMTuTvDH0aIemyH9
+	bRPX+SYlAIotGNBUmBOEEObv3ptC242Sh5FrSslordHjKjhq40FFHV5sS+e8agakyCe/O5SBbNibF
+	LCjEZlaMwdOsB0mfNtyK7ALy8XcGtepOwBYt0NszffUllkv989sATUQ8tw6h2IW65wdrhAGXTz5Tq
+	abGirtuaLR4qURV9zOQS3DAOL8ZyJU5Cdd20PLpzmNe7WpDDBlxxm7u/vLbSZ0iEbsOUd26th85+X
+	bD23t88Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXOKa-000000063Ro-3lRy;
-	Mon, 13 Jan 2025 17:34:28 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1tXOP4-000000064Bv-3Sjp;
+	Mon, 13 Jan 2025 17:39:06 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXOJL-000000063LO-2GLv
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 17:33:13 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-21669fd5c7cso82070995ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 09:33:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1736789590; x=1737394390; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=JsHTkn0UEejY0NKbuUQmD06tWs6IR3e3B3FlamRDu0Q=;
-        b=E2DJKhK9Xl0GAOcfOx1adYgGYqUsz1DT+AQf/1ErERJpIqUP9z2AjeHoVIu0Uh6EKS
-         TEHQCXCvOmtsUZ7fsu+FTo9q/yEN6umqK25e77R+0EsayuoLShZEfVCKNoNQFwuvJ+Pb
-         20VWv0zty341gMlNwN+4EdLvFLi0oOuI9Wv+k=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736789590; x=1737394390;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JsHTkn0UEejY0NKbuUQmD06tWs6IR3e3B3FlamRDu0Q=;
-        b=bX5isgytGaiw/OZYt9aoxaWX6gsAjjtM20RfnNx0fNIYz42qJwNPRrR7YbZdurzzJG
-         0NpfmdCGHNbPjlFHGcslXVnEo+IT/I6lYXJIvBniUsRl0D86hhG/d9n7B81YsaH7+42F
-         LHzMo1RYv5rsll3DYtE32ixdf1vKOZYnETjohxfXAHWdhHn+7uPr4EDtzp13xaR1B+oI
-         NcjxTrmiSw0EFaaUdjajJQ2U06lJZliev0YCkNhrvDA8dHy+yrNsZx4hgCec2jFfstWS
-         1PA9kxsx5dDX94HrJsbqKCjYCcyITKaMkkFXCKHpgnOGm6hJ+7qcFqBxTwsYtpHJNP+a
-         KexQ==
-X-Gm-Message-State: AOJu0YyxeVhOVL8ivNG8AFbrz7tVn1vdtHEhAZEnpm3rP7Ayr2gy+q+t
-	aCAE7PJfnjA8/RXXOcbfmVYWA3uWvBX4SPg8DAxauAet5nYelcKbgw5S12gOQg==
-X-Gm-Gg: ASbGncscdi3wst58E5N3UPv5DFlwO2ZuEh/6Kq6FTaiP89pRRtJLP6BZNXKxjzpwwc4
-	VnWp95u7mohur3xuWMNGsadgQ2xr/apqQc8lG6b3Z3N3umVZ1IGhglHgznWMCrv7YIzBbSLBgUt
-	Rj8jtu+aWOJnEU6/jy4zvlM6NKIY5sPzd5IkDnELSXyLfsPBOs5UMMY9muyFWKG6Fv3rKB8I/bX
-	SXaQyKNTqNZrIQX0+BHFQhMb/qPNs4oZtua9vc+P2NfYjl2aPfSzQ7H5DGj/4ZkuJLkoDNg/SVS
-	j8IU6hCYe0Xy5YhDj/08GojXbf8lI8g=
-X-Google-Smtp-Source: AGHT+IGEtpFio/VZYQKRI3mqtgami6WdXlPv0aTekaxc7wyL2kYN8GhDHCTJXSQ84LlfMNYYrzoO4Q==
-X-Received: by 2002:a17:902:e74d:b0:216:3e9a:89e with SMTP id d9443c01a7336-21a83fde4f2mr335899785ad.35.1736789590489;
-        Mon, 13 Jan 2025 09:33:10 -0800 (PST)
-Received: from [192.168.1.3] (ip68-4-215-93.oc.oc.cox.net. [68.4.215.93])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21a9f22cabdsm56241225ad.183.2025.01.13.09.33.09
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Jan 2025 09:33:09 -0800 (PST)
-Message-ID: <55d3c151-ae5e-4b02-8ac0-987b89b1d731@broadcom.com>
-Date: Mon, 13 Jan 2025 09:33:09 -0800
+	id 1tXONr-000000063tT-1uFo;
+	Mon, 13 Jan 2025 17:37:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=nfIml/GWxEsZm0NpaVbjbKNfBZtmD00u78N6+zE2OWk=; b=lUQo3GShJsI3XG0RttPTE+3duR
+	j8aZhW/Rldn6/mTwZwsUbCKLnQShsexG5IBa4fPPz7fYX6aLCN46uUVGSndvKzMFUNLm4WCj5maph
+	fqUmlQfL3wlJk/r2Hr7Pudu2cwx2ycFLhWQKc+YqTc6L45cxJjy86Zgw2faR+Q/7iAsS7mMZbrSDK
+	PVJr7hDPKFxzNDdLYf+jeivZoPlV6HFEZGJXIwFlQqzSMc8Ue9V7cePsUhrXRlNNZfSHTZTeavIq3
+	hULWSB2Wjmbn7gV/N2VCgu6wrQGZS954bHiiGp4ItkXIkWbOutS9fxBKt+b1bEotisWZyeFL2A5EW
+	Kirwnzmg==;
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tXONo-0000000AKJL-1R28;
+	Mon, 13 Jan 2025 17:37:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id EA004A41272;
+	Mon, 13 Jan 2025 17:35:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20DABC4CEEE;
+	Mon, 13 Jan 2025 17:37:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736789864;
+	bh=nfIml/GWxEsZm0NpaVbjbKNfBZtmD00u78N6+zE2OWk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FumxbJgQ71kYmQkug7xA2BOvkp9Uq19JqUckCrQngg8pIz7gfiQ8tHxNC8jN3Mmsa
+	 03YDC69Plg4fxc21wEzIkGOWPT9cSOmYc5HSxafS/s15bBKOa5VR8U7YKaNVl2ZSMI
+	 PNKK/fmoEO9pq1X4RHTD4aIeZW/8HN5rP7WQjnTN+d1ABvEu05PHkykdWUtqYlVfm4
+	 Qe3R/n40ETrlSw6bj5zcJNBE1vQrPzmP+R/yiepJiKa/LZ9VMIoNmkm6EiTEzB+uTT
+	 aN2RIq2XsmBRCoqxIAogTmLncrnSUuX4GuFigGNj77gFzbJ3MZoOKaUuDgYwakmax9
+	 eMakHZ9M5EXYQ==
+Date: Mon, 13 Jan 2025 17:37:39 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH RFC] arm64: dts: sophgo: Add initial SG2000 SoC device
+ tree
+Message-ID: <20250113-aftermost-whole-18401dc54137@spud>
+References: <19bb108e93bb58eecc6a53d78ff4e75fc380f072.camel@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: memory-controller: Document rev c.1.5
- compatible
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- "open list:MEMORY CONTROLLER DRIVERS" <linux-kernel@vger.kernel.org>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>
-References: <20241217194439.929040-1-florian.fainelli@broadcom.com>
- <20241217194439.929040-2-florian.fainelli@broadcom.com>
- <2e33t7ft5ermsfr7c4ympxrn6l5sqdef3wml4hlbnhdupoouwj@gfjpbmowjadi>
- <93a1333d-442f-4cec-b823-9b1a5ff6dc6b@broadcom.com>
- <wxq5zzfh5jesucbbste2j6x2jtj45wjfc5xzjkqbqqta7cprda@oaf5arr3z6pt>
- <f906a056-3c6b-4115-9fd0-e50da8fc049b@broadcom.com>
- <a92ff542-6534-4e2e-bef9-6f10c8362d86@kernel.org>
- <0058c37b-9e7c-4af8-b7c0-c48b5b046d6a@broadcom.com>
- <1357f0ff-3493-491b-b06f-976c16a81681@kernel.org>
-Content-Language: en-US
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <1357f0ff-3493-491b-b06f-976c16a81681@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="z1X8w3KbdPQChHSz"
+Content-Disposition: inline
+In-Reply-To: <19bb108e93bb58eecc6a53d78ff4e75fc380f072.camel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_093311_677846_9948EB65 
-X-CRM114-Status: GOOD (  30.49  )
+X-CRM114-CacheID: sfid-20250113_173748_704861_2C4228CE 
+X-CRM114-Status: GOOD (  28.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,148 +94,80 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--z1X8w3KbdPQChHSz
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On 12/26/2024 10:58 PM, Krzysztof Kozlowski wrote:
-> On 26/12/2024 19:50, Florian Fainelli wrote:
->>
->>
->> On 12/21/2024 12:04 PM, Krzysztof Kozlowski wrote:
->>> On 20/12/2024 00:43, Florian Fainelli wrote:
->>>> On 12/19/24 00:58, Krzysztof Kozlowski wrote:
->>>>> On Wed, Dec 18, 2024 at 09:15:08AM -0800, Florian Fainelli wrote:
->>>>>> On 12/18/24 03:37, Krzysztof Kozlowski wrote:
->>>>>>> On Tue, Dec 17, 2024 at 11:44:38AM -0800, Florian Fainelli wrote:
->>>>>>>> Document the revision c.1.5 compatible string that is present on newer
->>>>>>>> Broadcom STB memory controllers (74165 and onwards).
->>>>>>>>
->>>>>>>> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
->>>>>>>> ---
->>>>>>>>      .../bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml       | 1 +
->>>>>>>>      1 file changed, 1 insertion(+)
->>>>>>>>
->>>>>>>> diff --git a/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml b/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml
->>>>>>>> index 4b072c879b02..99d79ccd1036 100644
->>>>>>>> --- a/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml
->>>>>>>> +++ b/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml
->>>>>>>> @@ -29,6 +29,7 @@ properties:
->>>>>>>>                - brcm,brcmstb-memc-ddr-rev-c.1.2
->>>>>>>>                - brcm,brcmstb-memc-ddr-rev-c.1.3
->>>>>>>>                - brcm,brcmstb-memc-ddr-rev-c.1.4
->>>>>>>> +          - brcm,brcmstb-memc-ddr-rev-c.1.5
->>>>>>>
->>>>>>> You should use v2.1 fallback and drop driver patch. Or explain in
->>>>>>> commit briefly why different approach is suitable.
->>>>>>
->>>>>> Are you suggesting that we should have fallback compatible strings, such
->>>>>> that we have something like this:
->>>>>>
->>>>>> compatible = "brcm,brcmstb-memc-ddr-rev-c.1.5",
->>>>>> "brcm,brcmstb-memc-ddr-rev-c", "brcm,brcmstb-memc-ddr"
->>>>>>
->>>>>> and the driver only needs to match on "brcm,brcmstb-memc-ddr-rev-c" and
->>>>>> apply the adequate register offset table?
->>>>>
->>>>> Almost, fallback should be brcm,brcmstb-memc-ddr-rev-b.2.1 or whatever
->>>>> was in the driver first or whatever is the oldest known common
->>>>> interface.
->>>>>
->>>>> brcm,brcmstb-memc-ddr-rev-c is not a specific compatible.
->>>>>
->>>>>> If so, that is not how the current binding, and therefore DTBs are being
->>>>>> deployed, so that will introduce a breakage until we update all DTBs in the
->>>>>> field...
->>>>>
->>>>> No. First, I thought about new comaptible so the one you add here. No
->>>>> breakage, it's new compatible. This saves you these pointless updates of
->>>>> driver everytime you add new compatible.
->>>>
->>>> Yes, but that is not how the binding has been defined until now, so all
->>>> of the DTBs out there have:
->>>>
->>>> compatible = "brcm,brcmstb-memc-ddr-rev-b.2.x", "brcm,brcmstb-memc-ddr"
->>>
->>> I don't understand the problem. We talk about new devices here, it does
->>> not matter what existing/old devices have in binding in that matter.
->>
->> It does matter, because the DTBs that contain this compatible string are
->> already in the field, we cannot retrofit them overnight with an
->> additional compatible string in order to provide a fallback. Because
-> 
-> Then they run downstream and it does not matter whether you change here
-> something or not. And anyway downstream choices do not shape choices
-> here. We never accept bindings just because downstream already shipped
-> something.
+On Sun, Jan 12, 2025 at 01:55:05AM +0100, Alexander Sverdlin wrote:
+> Add initial device tree for the SG2000 SoC by SOPHGO (from ARM64 PoV).
+>=20
+> ---
+> Dear ARM, RISCV, DT maintainers, I'd like to ask your opinion on the
+> below patch, which I plan as a base for ARM64 BSP for dual-arch (RISCV or
+> ARM64) Cvitek SoC SG2000. The main motivation for ARM64 support is the
+> ARCH support in the upstream gcc, which is not that mature for RISCV.
+>=20
+> I believe it's the first time we already have quite some base in the
+> tree for a SoC, so it would be advantageous to re-use it and not
+> duplicate the same SoC structures in two places, especially having
+> in mind that Cvitek/Sophgo are still working on upstreaming and by
+> far not all HW blocks are populated in the SoC DTs. They focus primarely
+> on RISCV, so ARM64 would be dragging behind in this case if it would be
+> forked.
+>=20
+> On the other hand, including SoC dtsi from RISCV into ARM64 poses
+> some technical challenges by itself, obviously CPU cores have to be
+> deleted, same is true for interrupt controller. And the interrupt
+> numbers are of course difference for ARM GIC, so they have to be
+> overwritten.
+>=20
+> Alternatively I can split existing .dtsi included below into their
+> RISCV-specific and generic parts, so that both ARM64 and RISCV would
+> include generic part and their corresponding ARCH-specific parts
+> bringing CPU cores + interrupt controller + IRQ numbers for each and
+> every device separately.
+>=20
+> The below example isactually booting (being included into board-level
+> DT), so it's a real example I'd be ready to submit if there will be
+> no objections of the cross-ARCH include approach in general.
+>=20
+> What are your thoughts?
+>=20
+> =A0arch/arm64/boot/dts/sophgo/sg2000.dtsi | 164 +++++++++++++++++++++++++
+> =A01 file changed, 164 insertions(+)
+> =A0create mode 100644 arch/arm64/boot/dts/sophgo/sg2000.dtsi
+>=20
+> diff --git a/arch/arm64/boot/dts/sophgo/sg2000.dtsi b/arch/arm64/boot/dts=
+/sophgo/sg2000.dtsi
+> new file mode 100644
+> index 000000000000..96afd342bde5
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/sophgo/sg2000.dtsi
+> @@ -0,0 +1,164 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +
+> +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> +#include "../../../../riscv/boot/dts/sophgo/cv18xx.dtsi"
+> +#include "../../../../riscv/boot/dts/sophgo/cv181x.dtsi"
 
-Fair enough, but it does matter anyway, because as you can see from the 
-original binding that you accepted [1] we have a precedent for having 
-compatible strings of the form:
+FWIW, this can just be #include <riscv/sophgo/<whatever>, /should/ be a
+symlink for that, as there is for arm64. At the very least, I did see a
+patch adding that link in the past. Check out what the RZ/Five is doing
+(that's the riscv renesas chip) for an example of how this already has
+been done - I think it's doing what your "Alternatively I can..."
+paragraph describes.
 
-compatible = "brcm,brcmstb-memc-ddr-rev-c.1.x"
+--z1X8w3KbdPQChHSz
+Content-Type: application/pgp-signature; name="signature.asc"
 
-with each possible value of X being documented, this is just adding 
-another way, and surprise, keeps things consistent.
+-----BEGIN PGP SIGNATURE-----
 
-Why did not you reject the original binding back then? Why the change of 
-heart now?
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ4VPYwAKCRB4tDGHoIJi
+0tPdAP92+UcHJCss0o1ICZL++iZWw/z31s3IyurwEC7rC33EMQEA4xiVuLT7bFTc
+b7Xyw1nOCCorNKX2WrA3s8zMRWo1LA4=
+=34ET
+-----END PGP SIGNATURE-----
 
-All of this feels from my side very very arbitrary, and as such it is 
-difficult to document for other people and build a correct mental model of.
-
-[1]: 
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml?id=fa0321ba51ddff78ebe3c7c945830a85c987e3ed
-
-> 
->> this is submitted now does not mean it is a new device, this was part of
->> my backlog to get submitted earlier on.
-> 
-> Well, that's great yet is not an argument in the bindings.
- > >>
->>>
->>>>
->>>> (where X is in range [1..5])
->>>>
->>>> and there is no fallback defined to "brcm,brcmstb-memc-ddr-rev-b.2.1",
->>>> so it is not like we can retrofit that easily by adding one now.
->>>>
->>>>    > > Second, you can introduce fallbacks to older compatibles as well -
->>>> there
->>>>> will be no breakage, because you add one more compatible. The old
->>>>> compatibles (covered by fallback) of course stays in the driver, so
->>>>> there is no breakage at all. We did it multiple times for several
->>>>> different bindings in Qualcomm. People were doing exactly the same:
->>>>> adding compatible for new device to binding and driver, without
->>>>> considering the compatibility at all.
->>>>>
->>>>> Except being logically correct choice - using fallbacks - this really
->>>>> has huge benefits when later upstreaming complete, big SoCs, like we do
->>>>> for latest Qualcomm SoCs: several changes will be only bindings updates.
->>>>
->>>> Yes, there are advantages to using fallbacks and we (ab)use that
->>>> whenever practical.
->>>>
->>>> The driver only uses a very limited subset of registers (for now), the
->>>> registers change between minor revisions as well in a way that using a
->>>> fallback like "brcm,brcmstb-memc-ddr-rev-b.2.1" is not accurate enough
->>>> not practical. In particular for some of the changes that I am thinking
->>>> of adding later on, we would need the precise minor version because the
->>>> behavior and/or register interface is subtly different that this matters.
->>>
->>> Devices work fine now with the same driver data, so they are compatible.
->>
->> For now they do, but not for other features that will be submitted
->> later, they will not be, and at that point we will need to know that
->> this is a rev C.1.5 controller versus say a rev C.1.4 controller.
-> 
-> Which is exactly what compatibility is for.
-
-Are you saying that the compatible strings must now all be updated to be 
-of the form:
-
-compatible = "brcm,brcmstb-memc-ddr-rev-c.1.5", 
-"brcm,brcmstb-memc-ddr-rev-c.1.x", "brcm,brcmstb-memc-ddr"
-
-or something different?
--- 
-Florian
-
+--z1X8w3KbdPQChHSz--
 
