@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19157C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 15:11:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30E45C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 15:13:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dht6ZNuECD6c4dTcLa2Z8AkzLnlwU8PgCjJx1030rM0=; b=bWxmEXvFBOVzXqQo1xisAZwE2N
-	Fjz5NE7pMvhV+eU8vnxYkQRSGBgsUSomahknUN7Sb8TdMJ71aWB5/6OVPsYPRXUkWL6qvvYJDibFa
-	LmVERkatEnuQ+onsqBmbIK39ZiSDZ9CuWdS2FJSKE61N25oaej6MebraHJmpDazhDxPld7ecFxF4e
-	//anWszcFZZUDnWVNuQmSPPB7UHj9e+egKafw3eoVcFYNBcu9+OM3GYBRmx1IR+vqebOoOTHBY7TI
-	9tTvmFvpNA5zO4TLpplZmSI84QoTHMTEbgY5tI9d3mx8JjYp410gvZwdCddm1052K5gYCa0tO2WvB
-	QK7795EA==;
+	bh=wQGuBMM1hhcosAPOVUI/e712RQjQKGng2V8KOmiUc+g=; b=tTe15lVaHcWmHZL7dZdSbU2q6Q
+	KPXygbGeVB6C+zdIIUflmuiC6JfrzqXd3cZdi6dxBJlREnWjE9e8t6n/nDyk8rsEZ0VAU+7cJgDH+
+	3vchxdnTacT3pV6axgNSF22HOCb9hR0kOOjDmMfoF7hVc0ROJ0NpLODokht9sMTeuQ3NSumUJgmHV
+	6W2sygcAmtueEchjVJqZ0xLhzOZXoWF1N3g5E8neeMOuc7eaYh6bWMXUCb3/epUnJSPsh/xpQwCjH
+	o/cmGtnTykkA7R+YAhyk1VRKKIqJVyIvhgmM8/21RmsiqMePGFc5vJuevm6DqytyIQ7zIoZXn0YTz
+	Q9fWH3uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXM6L-00000005ZPZ-0mEC;
-	Mon, 13 Jan 2025 15:11:37 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tXM7Y-00000005Zky-0WqP;
+	Mon, 13 Jan 2025 15:12:52 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXLoJ-00000005UFE-2Vre;
-	Mon, 13 Jan 2025 14:53:00 +0000
+	id 1tXLoL-00000005UGA-0DVq;
+	Mon, 13 Jan 2025 14:53:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1736779978;
-	bh=a2OWBKJlnvrJCtFuyy3c9YvslADD+a8T1BgzsJ1m+Kk=;
+	s=mail; t=1736779979;
+	bh=2lC7g1LSWPEUEbqCeWO0TGph8BkzQOPgxf4X4ydCeSw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kTPGH/9uhC1E8PHHIhTRRcL4H5ewUY90tPXAW1eDF1V9/DGvEhToHwCrUD8grMvs0
-	 vWozM8t9qJKYCh3A9TIfG10i8wVzIOd9ZjiRgPo7bK0jzyMXJkgPhYWwgLHTC4oirm
-	 Ol71qE8dkkrA2Q7xWNjmN71eHJFlUuZjg6RA3LniM1jvVVo5a878M38O2rBfocOuum
-	 cm6Jth3VWt9PGmUxLeJzfw4DQ3nzmjrqbdzxYKOcKMMODiKlzaiOP2wxxw5EfpBaox
-	 9SASK0+Pw3mO5+2v1sySKKpJw0rzL1s8wrONbwE3G0N5XuNhTqJM4/6WMfVQ8JVIye
-	 yAg7Ni8RsRBIA==
+	b=a34Q3/cmIKuolkkoA0Q8d3cTpYCfvqcaAS4rFzOQJyT0CrneJcaWqhwv/mVwwR9DP
+	 y6Wm9jfQCE1Dke4u803qgnGQ1KuUap0gL2PJUCxorwh6qX6XI1WP7xCI5NqCNVvQvd
+	 kSk3GGeuGDUyiemZOJWXXRDL7xPoFwYF20JTCcSTYoablv/SfysDAOwnwvjJVQCl2d
+	 Yeer0P58AQu5d6PBZM0cBJ2u6YZaLF2bq8YcKPCP3KOM9l9PFF50TOw6evL6D2IPvO
+	 WeTagg4mXkkh9EKePDSzxuV6hYTLCtilfqD3NLk79QaPp7kIZPpIT6I99x1kaK6M/D
+	 WmAFYEm9yPHxw==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0974617E0F6B;
-	Mon, 13 Jan 2025 15:52:56 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7DAA117E0FAD;
+	Mon, 13 Jan 2025 15:52:58 +0100 (CET)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: chunkuang.hu@kernel.org
 Cc: p.zabel@pengutronix.de,
@@ -71,18 +71,17 @@ Cc: p.zabel@pengutronix.de,
 	ives.chenjh@mediatek.com,
 	tommyyl.chen@mediatek.com,
 	jason-jh.lin@mediatek.com
-Subject: [PATCH v5 14/34] drm/mediatek: mtk_hdmi: Fix typo for aud_sampe_size member
-Date: Mon, 13 Jan 2025 15:52:12 +0100
-Message-ID: <20250113145232.227674-15-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v5 15/34] drm/mediatek: mtk_hdmi: Disgregate function mtk_hdmi_audio_set_param()
+Date: Mon, 13 Jan 2025 15:52:13 +0100
+Message-ID: <20250113145232.227674-16-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20250113145232.227674-1-angelogioacchino.delregno@collabora.com>
 References: <20250113145232.227674-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_065259_788752_A3CC2754 
-X-CRM114-Status: UNSURE (   9.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250113_065301_236421_9202DD3D 
+X-CRM114-Status: GOOD (  12.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,57 +96,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rename member aud_sampe_size of struct hdmi_audio_param to
-aud_sample_size to fix a typo and enhance readability.
+As a cleanup, and in preparation for splitting common bits of this
+driver, disgregate the code in function mtk_hdmi_audio_set_param()
+to the beginning and end of function mtk_hdmi_audio_hw_params().
 
-This commit brings no functional changes.
+In a later commit, the hw_params callback function will also be
+disgregated so that the code will get two functions: one that
+performs the generic hdmi_audio_param copy, and one that performs
+IP specific setup, both of which will be called in the callback,
+allowing all of the non IP version specific code to get moved in
+a common file.
 
-Fixes: 8f83f26891e1 ("drm/mediatek: Add HDMI support")
-Reviewed-by: CK Hu <ck.hu@mediatek.com>
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/gpu/drm/mediatek/mtk_hdmi.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ drivers/gpu/drm/mediatek/mtk_hdmi.c | 26 +++++++++++---------------
+ 1 file changed, 11 insertions(+), 15 deletions(-)
 
 diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-index 91af5f7df47a..e60d3cf7e83d 100644
+index e60d3cf7e83d..065750075d7c 100644
 --- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
 +++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-@@ -136,7 +136,7 @@ enum hdmi_aud_channel_swap_type {
+@@ -1054,20 +1054,6 @@ static void mtk_hdmi_audio_disable(struct mtk_hdmi *hdmi)
+ 	hdmi->audio_enable = false;
+ }
  
- struct hdmi_audio_param {
- 	enum hdmi_audio_coding_type aud_codec;
--	enum hdmi_audio_sample_size aud_sampe_size;
-+	enum hdmi_audio_sample_size aud_sample_size;
- 	enum hdmi_aud_input_type aud_input_type;
- 	enum hdmi_aud_i2s_fmt aud_i2s_fmt;
- 	enum hdmi_aud_mclk aud_mclk;
-@@ -1033,7 +1033,7 @@ static int mtk_hdmi_output_init(struct mtk_hdmi *hdmi)
+-static int mtk_hdmi_audio_set_param(struct mtk_hdmi *hdmi,
+-				    struct hdmi_audio_param *param)
+-{
+-	if (!hdmi->audio_enable) {
+-		dev_err(hdmi->dev, "hdmi audio is in disable state!\n");
+-		return -EINVAL;
+-	}
+-	dev_dbg(hdmi->dev, "codec:%d, input:%d, channel:%d, fs:%d\n",
+-		param->aud_codec, param->aud_input_type,
+-		param->aud_input_chan_type, param->codec_params.sample_rate);
+-	memcpy(&hdmi->aud_param, param, sizeof(*param));
+-	return mtk_hdmi_aud_output_config(hdmi, &hdmi->mode);
+-}
+-
+ static int mtk_hdmi_output_set_display_mode(struct mtk_hdmi *hdmi,
+ 					    struct drm_display_mode *mode)
+ {
+@@ -1487,6 +1473,11 @@ static int mtk_hdmi_audio_hw_params(struct device *dev, void *data,
+ 	struct hdmi_audio_param hdmi_params;
+ 	unsigned int chan = params->cea.channels;
  
- 	hdmi->csp = HDMI_COLORSPACE_RGB;
- 	aud_param->aud_codec = HDMI_AUDIO_CODING_TYPE_PCM;
--	aud_param->aud_sampe_size = HDMI_AUDIO_SAMPLE_SIZE_16;
-+	aud_param->aud_sample_size = HDMI_AUDIO_SAMPLE_SIZE_16;
- 	aud_param->aud_input_type = HDMI_AUD_INPUT_I2S;
- 	aud_param->aud_i2s_fmt = HDMI_I2S_MODE_I2S_24BIT;
- 	aud_param->aud_mclk = HDMI_AUD_MCLK_128FS;
-@@ -1529,14 +1529,14 @@ static int mtk_hdmi_audio_hw_params(struct device *dev, void *data,
- 	switch (daifmt->fmt) {
- 	case HDMI_I2S:
- 		hdmi_params.aud_codec = HDMI_AUDIO_CODING_TYPE_PCM;
--		hdmi_params.aud_sampe_size = HDMI_AUDIO_SAMPLE_SIZE_16;
-+		hdmi_params.aud_sample_size = HDMI_AUDIO_SAMPLE_SIZE_16;
- 		hdmi_params.aud_input_type = HDMI_AUD_INPUT_I2S;
- 		hdmi_params.aud_i2s_fmt = HDMI_I2S_MODE_I2S_24BIT;
- 		hdmi_params.aud_mclk = HDMI_AUD_MCLK_128FS;
- 		break;
- 	case HDMI_SPDIF:
- 		hdmi_params.aud_codec = HDMI_AUDIO_CODING_TYPE_PCM;
--		hdmi_params.aud_sampe_size = HDMI_AUDIO_SAMPLE_SIZE_16;
-+		hdmi_params.aud_sample_size = HDMI_AUDIO_SAMPLE_SIZE_16;
- 		hdmi_params.aud_input_type = HDMI_AUD_INPUT_SPDIF;
- 		break;
- 	default:
++	if (!hdmi->audio_enable) {
++		dev_err(hdmi->dev, "hdmi audio is in disable state!\n");
++		return -EINVAL;
++	}
++
+ 	dev_dbg(hdmi->dev, "%s: %u Hz, %d bit, %d channels\n", __func__,
+ 		params->sample_rate, params->sample_width, chan);
+ 
+@@ -1547,8 +1538,13 @@ static int mtk_hdmi_audio_hw_params(struct device *dev, void *data,
+ 
+ 	memcpy(&hdmi_params.codec_params, params,
+ 	       sizeof(hdmi_params.codec_params));
++	memcpy(&hdmi->aud_param, &hdmi_params, sizeof(hdmi_params));
++
++	dev_dbg(hdmi->dev, "codec:%d, input:%d, channel:%d, fs:%d\n",
++		hdmi_params.aud_codec, hdmi_params.aud_input_type,
++		hdmi_params.aud_input_chan_type, hdmi_params.codec_params.sample_rate);
+ 
+-	mtk_hdmi_audio_set_param(hdmi, &hdmi_params);
++	mtk_hdmi_aud_output_config(hdmi, &hdmi->mode);
+ 
+ 	return 0;
+ }
 -- 
 2.47.0
 
