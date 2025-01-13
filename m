@@ -4,57 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ECDCC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 22:22:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1D18C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 22:23:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=wHgNI30FIRLmiB1sqGDtaulbGiT7oavU3GyKrdsMwjo=; b=N4hQoy1TlU55e5
-	mw8mxE7MoAQHBKOrRVcYzzESA6X8374nIw6Tlq/tyvcSUj+mp27peG2H1IziqWqLGF+vNl16KSXdH
-	ZeE/i5F8tan4n3vxQWL0KTxAMhvWpkXCimiMagP3UoShU7qZkKxOo+T6NkvvcPKMF0EtWhgujZ8V3
-	L0RUI4I3HXWcW3aHf8rArV2qpQhasZRpPHNjdMnEJF6fjvL85bsZd4uO3f9LVjQKkTLbdrTgn1A8L
-	1FzvJRzgn84KyEkL5+bSa72wa7eBmiO9Rqr5sYTWARVMGaLn4CyVxmwoWay7lT2Ph5RxhKLQKelUB
-	7m73zG8dtiaXGiRDwfmg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gw2ISPLjNimM28R4wKMb5wcLoiSEVpqMnbgIf/NwU50=; b=1v/tDH8Sx1hqXHOwfkDaPLQEWu
+	o301kkWlMLVSvfT6sk0haO+h2PsPup4Jf+siu1PL0G27OFG4CQt/F8EUqlzEprVWzmQYA2cPyyEqq
+	ZZxdbZdUFQGxAlGaMsvLn2k0gJuf3zUyZNhUE7n6XvjgdFPAtFi09L2rgGFyRSXo0Q398HZdoGyZj
+	Zt3kFLdFzDOYzo8jE2Xb33Zhep+hxT5pnyX3HmB12F1BPdzcFuM+a05zbPZzo5t7pVX5LZykWLbjo
+	5pZiQUf/+o1gTaXB/QqKtS8vBRViXaI9FMACM/HatcG8XJt7XDloS5ep8qJyqSzY0aMVojZ4//FiH
+	ZCTKr/5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXSou-00000006nvg-0UZr;
-	Mon, 13 Jan 2025 22:22:04 +0000
+	id 1tXSq6-00000006o7T-35sv;
+	Mon, 13 Jan 2025 22:23:18 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXSmZ-00000006nY0-00Jc
+	id 1tXSmg-00000006nYj-0yhP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 22:19:40 +0000
+	Mon, 13 Jan 2025 22:19:47 +0000
 Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
 	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
 	(Exim 4.92)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tXSmF-0005yi-7t; Mon, 13 Jan 2025 23:19:19 +0100
+	id 1tXSmF-0005ym-7s; Mon, 13 Jan 2025 23:19:19 +0100
 Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
 	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tXSmD-000KYe-27;
+	id 1tXSmD-000KYi-2G;
 	Mon, 13 Jan 2025 23:19:18 +0100
 Received: from localhost ([::1] helo=dude05.red.stw.pengutronix.de)
 	by dude05.red.stw.pengutronix.de with esmtp (Exim 4.96)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tXSmE-008p8i-2b;
+	id 1tXSmE-008p8i-2f;
 	Mon, 13 Jan 2025 23:19:18 +0100
 From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Subject: [PATCH 0/4] gpio: mxc: silence warning about GPIO base being
+Date: Mon, 13 Jan 2025 23:19:12 +0100
+Subject: [PATCH 4/4] gpio: mxc: silence warning about GPIO base being
  statically allocated
-Date: Mon, 13 Jan 2025 23:19:08 +0100
-Message-Id: <20250113-b4-imx-gpio-base-warning-v1-0-0a28731a5cf6@pengutronix.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAFyRhWcC/x3MQQqAIBBA0avErBvQMrKuEi2sJptFKgoVhHdPW
- r7F/y8kikwJxuqFSBcn9q5A1hWsh3GWkLdiaETTCSlbXBTy+aAN7HExifA20bGzqPbBkB607jc
- BJQ+Rdn7+9TTn/AFVrBsJagAAAA==
-X-Change-ID: 20250113-b4-imx-gpio-base-warning-4f9ae89887d0
+Message-Id: <20250113-b4-imx-gpio-base-warning-v1-4-0a28731a5cf6@pengutronix.de>
+References: <20250113-b4-imx-gpio-base-warning-v1-0-0a28731a5cf6@pengutronix.de>
+In-Reply-To: <20250113-b4-imx-gpio-base-warning-v1-0-0a28731a5cf6@pengutronix.de>
 To: Linus Walleij <linus.walleij@linaro.org>, 
  Bartosz Golaszewski <brgl@bgdev.pl>, Andy Whitcroft <apw@canonical.com>, 
  Joe Perches <joe@perches.com>, Dwaipayan Ray <dwaipayanray1@gmail.com>, 
@@ -74,8 +72,8 @@ X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_141939_042400_DC468F0C 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20250113_141946_274186_2A156D27 
+X-CRM114-Status: GOOD (  18.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,44 +88,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The i.MX GPIO driver has had deterministic numbering for the GPIOs
-for more than 12 years.
+GPIO numbering has been deterministic since commit 7e6086d9e54a
+("gpio/mxc: specify gpio base for device tree probe"), a year after
+device tree support was first added back in 2011.
 
-Reverting this to dynamically numbered will break existing setups in the
-worst manner possible: The build will succeed, the kernel will not print
-warnings, but users will find their devices essentially toggling GPIOs
-at random with the potential of permanent damage. We thus want to keep
-the numbering as-is until the SysFS API is removed and script fail
-instead of toggling GPIOs dependent on probe order.
+Reverting to dynamically allocated GPIO base now would break most
+systems making use of the sysfs API. These systems will be eventually
+broken by the removal of the sysfs API, but that would result in GPIO
+scripts not working instead of essentially toggling at random according
+to probe order, which would happen if we change the base to -1.
 
-Yet, the warning:
+Yet, the warning is annoying and has resulted in many attempts
+to remove it over the years[1][2][3].
 
-  gpio gpiochip0: Static allocation of GPIO base is deprecated,
-  use dynamic allocation.
+Fix this by silencing the warning via the gpio_base_static_alloc
+opt-out instead.
 
-is annoying and prompts people to set the base to -1 from time to time.
+[1]: https://lore.kernel.org/all/20230226205319.1013332-1-dario.binacchi@amarulasolutions.com/
+[2]: https://lore.kernel.org/all/20230506085928.933737-2-haibo.chen@nxp.com/
+[3]: https://lore.kernel.org/all/20241121145515.3087855-1-catalin.popescu@leica-geosystems.com/
 
-Let's workaround this by adding an opt-out for existing drivers and have
-i.MX make use of it.
-
+Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
 ---
-Ahmad Fatoum (4):
-      gpiolib: add opt-out for existing drivers with static GPIO base
-      checkpatch: warn about use of legacy_static_base
-      gpio: mxc: remove dead code after switch to DT-only
-      gpio: mxc: silence warning about GPIO base being statically allocated
-
- drivers/gpio/gpio-mxc.c     | 23 +++++++++++++++++++++--
- drivers/gpio/gpiolib.c      |  2 +-
- include/linux/gpio/driver.h |  5 +++++
- scripts/checkpatch.pl       | 11 +++++++++--
- 4 files changed, 36 insertions(+), 5 deletions(-)
+This triggers the newly added checkpatch.pl warning, but this is
+intended.
 ---
-base-commit: 37136bf5c3a6f6b686d74f41837a6406bec6b7bc
-change-id: 20250113-b4-imx-gpio-base-warning-4f9ae89887d0
+ drivers/gpio/gpio-mxc.c | 22 +++++++++++++++++++++-
+ 1 file changed, 21 insertions(+), 1 deletion(-)
 
-Best regards,
+diff --git a/drivers/gpio/gpio-mxc.c b/drivers/gpio/gpio-mxc.c
+index 619b6fb9d833a4bb94a93b4209f01b49ad1cbdb0..c25a50abb02389e75b5ca2924828f4a7fb32fe6c 100644
+--- a/drivers/gpio/gpio-mxc.c
++++ b/drivers/gpio/gpio-mxc.c
+@@ -45,6 +45,11 @@ struct mxc_gpio_hwdata {
+ 	unsigned high_level;
+ 	unsigned rise_edge;
+ 	unsigned fall_edge;
++	/*
++	 * Static allocation of GPIO base is deprecated.
++	 * Set this to false for future SoCs.
++	 */
++	bool gpio_base_static_alloc;
+ };
+ 
+ struct mxc_gpio_reg_saved {
+@@ -88,6 +93,7 @@ static struct mxc_gpio_hwdata imx1_imx21_gpio_hwdata = {
+ 	.high_level	= 0x02,
+ 	.rise_edge	= 0x00,
+ 	.fall_edge	= 0x01,
++	.gpio_base_static_alloc = true,
+ };
+ 
+ static struct mxc_gpio_hwdata imx31_gpio_hwdata = {
+@@ -103,6 +109,7 @@ static struct mxc_gpio_hwdata imx31_gpio_hwdata = {
+ 	.high_level	= 0x01,
+ 	.rise_edge	= 0x02,
+ 	.fall_edge	= 0x03,
++	.gpio_base_static_alloc = true,
+ };
+ 
+ static struct mxc_gpio_hwdata imx35_gpio_hwdata = {
+@@ -118,6 +125,7 @@ static struct mxc_gpio_hwdata imx35_gpio_hwdata = {
+ 	.high_level	= 0x01,
+ 	.rise_edge	= 0x02,
+ 	.fall_edge	= 0x03,
++	.gpio_base_static_alloc = true,
+ };
+ 
+ #define GPIO_DR			(port->hwdata->dr_reg)
+@@ -490,7 +498,19 @@ static int mxc_gpio_probe(struct platform_device *pdev)
+ 	port->gc.request = mxc_gpio_request;
+ 	port->gc.free = mxc_gpio_free;
+ 	port->gc.to_irq = mxc_gpio_to_irq;
+-	port->gc.base = of_alias_get_id(np, "gpio") * 32;
++	port->gc.base = -1;
++
++	if (port->hwdata->gpio_base_static_alloc) {
++		/*
++		 * GPIO indices have been fixed for the i.MX GPIO controllers
++		 * for many years and changing that now will induce a lot of
++		 * breakage at runtime. Setting this member buys users some time
++		 * until they are forced to migrate when sysfs GPIO support is
++		 * removed completely.
++		 */
++		port->gc.legacy_static_base = true;
++		port->gc.base = of_alias_get_id(np, "gpio") * 32;
++	}
+ 
+ 	err = devm_gpiochip_add_data(&pdev->dev, &port->gc, port);
+ 	if (err)
+
 -- 
-Ahmad Fatoum <a.fatoum@pengutronix.de>
+2.39.5
 
 
