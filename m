@@ -4,83 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E9C3C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 19:48:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70917C02184
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 19:49:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
-	:Mime-Version:Message-Id:Date:Reply-To:Cc:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=goPA9POgRXj4f93RyPr/Z9XtnzuLxQ1Bng9Turo+0F0=; b=rwGxFk/Y5L1QMbYs42SkyNS6E/
-	nzg5e0QnR/pmQjJWdpUBHgfc9aInM9cFt6fDh/WVvQkEhOy8AY6N+4XbuT6hkr6zm2kocvcJmyMkR
-	VbcQLTJxloAKD9x9MKLvnmoHQwnORuRKPkLNX4FpwNI5DPeKGp/8nE8fpaye63zgRu5O2RRvCm9nW
-	iFq5KzvGl7aO+igW6Q9Im4oKk+wJNOY1hWZ5r7VkhdL7f8ApAOVBumPTAqy6/G3z0qBDa+LZEtnIy
-	PNSjwBeYDytec2sxwtZOnZY81WLBsan6u0JJdi9PSsltlUfcI4nvIbW4GWM1E3qeK5WP1LSqNVWMm
-	YPWiD8Ig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Hwt7foqPGbr8kdHPd5ocJGr4Mx/PTPZZTqQyE6Xian0=; b=M7QfaVH3Vti8FPcpeGN8mz7qnS
+	KfUrnbOlgBx1GFvUqMFzuaXm1CmKBUdtVlm8qm1CRi+NDnsS1P6ZVf+Fp0BgQRXxYYkD5g5dlW07i
+	QCQPjakkffo+ZmUzUyTtyDldeLtgOq1vzypVkJNME+AC7VXUkr/8DEKNmbPvfSi+0pOntlzGouL7Q
+	+w7GuUAGDYFIFQ3mtz+HGlxDdG+5xDre68UG6/IPXyj1Dhpj+Bun4ALNRoz8L81VrK1Vow/nWQD4N
+	eOTf/sGqFCTbsapCdQaAK4+4fMwrM9h0//RbnS4JfRmfq+74tonyaRaG8cWjvKAjsK3OPW9zhRcGW
+	o8IAZ0IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXQPg-00000006RVH-3mpx;
-	Mon, 13 Jan 2025 19:47:52 +0000
-Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
+	id 1tXQRK-00000006S1u-2M7F;
+	Mon, 13 Jan 2025 19:49:35 +0000
+Received: from mail-mw2nam12on20626.outbound.protection.outlook.com ([2a01:111:f403:200a::626] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXQLw-00000006Qqq-25MG
+	id 1tXQQ2-00000006Rg0-0wPu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 19:44:02 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-e3a109984a5so9463246276.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 11:43:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1736797438; x=1737402238; darn=lists.infradead.org;
-        h=to:from:subject:mime-version:message-id:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=goPA9POgRXj4f93RyPr/Z9XtnzuLxQ1Bng9Turo+0F0=;
-        b=Amkcyt/+ROMc/wXJdW1MEnGy5cCT65laCIJKAW4QM/j1fHgVZczFBEZNImafESC8Pa
-         MbVo4oreGEusBEba1ANuNvsdvQe6VbPyfeypOiwrPGpeADxI3DEs2ziBxPgq1dndVCsx
-         yINYKnrDpFP7PYybkhMrbMBVALYrcm4dMy8lluBbdcIrTNeYA1Fet8gaCZwAxG8tteoi
-         wS+iMbWEiiRWD7D2UmchEjvT81qHKGjC0ohp0hen87u/o1zuo00TfGtshelEnWumLoEE
-         xI6uRofHNp9tmQ8crkJ9AxAPOAwrfQjJad/EZlMfWhjdhCIq0RUef7R7/MxNi5a0njUR
-         eebg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736797438; x=1737402238;
-        h=to:from:subject:mime-version:message-id:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=goPA9POgRXj4f93RyPr/Z9XtnzuLxQ1Bng9Turo+0F0=;
-        b=CvJTmCqI9jqv1fvwgSMFgGEArZRb0X9N3az0/h+6XwV+0Rz68Lv18+5E5KB9GjVdvc
-         BlRDe2g3HmuxpfBRZcYXtY/vgBq/GPI0u6hCH38bO8NqTH+A6VouLxlm7vaESDEGAcrX
-         kyBBYPs4XQWDpjI9k850miE+aCVf3K8X10QaNRw4JwnAypxr7Q3FFSdy2LXK7rCYcyVm
-         IIQeJJJo2Cow/nDH1fWDBgfmEUm7Y192Wb0EdsfSvlC+EnK1Py74gbL5rxFzi7aoyanb
-         VY3mRFsBhr/Cdn36tIqWsZO1KhMsMJ83oUGU0Jz58SLnUK8N3BDNyAZ+jn2sAJP+66hB
-         WOBw==
-X-Forwarded-Encrypted: i=1; AJvYcCWOuYXQytC+J8EoxK1Z4uqsejmscMi878OC3PanTfdi//8/yxQhLTs3ummh+ufcjPZWUmlwf9NZVX6Dgzcl6qA8@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy4YMVBz7tpcJVmI8X0AmfZFoM6oyGiD2zDjqyYEl/prbzqkCqk
-	7SJiTjKAyn4/LzoM5W8Lbin0ab9FbeCTSkafq5COvC+Zd5RnNR584YYbmkNcr55g1D2qBBKwEo6
-	HOf/hYA==
-X-Google-Smtp-Source: AGHT+IHTxZ/aQEv+ORT5tC0uvvwcwLKdkbJGI+Lspdo4GFA7X3N7lz0iuLa0F/Sn0L3KgS0t+AMDN64jxF6G
-X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:ebe9:d18b:1686:dd20])
- (user=irogers job=sendgmr) by 2002:a25:d694:0:b0:e57:3500:2294 with SMTP id
- 3f1490d57ef6-e5735d05edemr21979276.3.1736797438471; Mon, 13 Jan 2025 11:43:58
- -0800 (PST)
-Date: Mon, 13 Jan 2025 11:43:45 -0800
-Message-Id: <20250113194345.1537821-1-irogers@google.com>
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.47.1.688.g23fc6f90ad-goog
-Subject: [PATCH v1] perf sample: Make user_regs and intr_regs optional
-From: Ian Rogers <irogers@google.com>
-To: Tavian Barnes <tavianator@tavianator.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
-	Kan Liang <kan.liang@linux.intel.com>, John Garry <john.g.garry@oracle.com>, 
-	James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@linux.dev>, 
-	Charlie Jenkins <charlie@rivosinc.com>, Andi Kleen <ak@linux.intel.com>, 
-	Veronika Molnarova <vmolnaro@redhat.com>, Michael Petlan <mpetlan@redhat.com>, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	coresight@lists.linaro.org
-Content-Type: text/plain; charset="UTF-8"
+	Mon, 13 Jan 2025 19:48:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rViPTrz5ZoqSY3oozGFowGl1F8jE4Ka10wBffzRYgKl0cIe4yO+OAEkwlkbh2vYIjkZbomYvPciznuCb3T2CJwldYJ+OhAfIVUFNpzyCN1WYfsYTgjXiJBavBYBzrPjs4lgGWXwEa3NHOShO8Kkx4Q664rbt3/E6puLBxho9MowRU7zuhVzkxyjUdm4qoOfCgOOvNuTyTkyVtDeSGYWsBnQcEx4ZExiMPtljwc1L+ef1a1cGQNen75kat9tHYAyCU5QVUhb/OOAQH42I0scHgUpeNJJFdnLUff6FoXpjUBcpGa6gt0Bcq+4gIJOFMbzR0UBgBvaPbfoYteilMl6IYA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Hwt7foqPGbr8kdHPd5ocJGr4Mx/PTPZZTqQyE6Xian0=;
+ b=FBxnRb0WImumn+WWpo3m3YaXEiAxuE6Mtn1aGTiJOzxy093awUoMQ6qWcnA6pFGE3VlauFh5wcKdu6Kidp+VrjgqWnbuET2R7eXPf2yIjMIOtXHtzIqnja1t3kwQD890DILbQcloT8r+nr1cDyzYojFqQN+Cx79VjCZ9oZMjPec2CLSCcGHS8+cxj2BngsFmepaPzpuDopEl7Gg6ssThWkgkVTQ3iscenhTxeGi2HWVzyq9057A7Gn+1z2YwuM35DQXG5ddR04TurPZYTP0gSa8eA5cU11yQg1DtUxI+mZmZd2/aZw/qq9VIfk0/B0YfLYGNQPH3sg1mifFP3LXZDQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=redhat.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Hwt7foqPGbr8kdHPd5ocJGr4Mx/PTPZZTqQyE6Xian0=;
+ b=UsFv//2qc5EZllUrRf8kGo0GSjJRG4BF6hQGVaQ/UVWO1z/TyYxmkbT/6Rqtz45Jvrwe3YECU0232cydCSSbw67QX2CG/JmuqVwM+lCzCHGHoFq7Vq0j8k9nTI4tFVk7XdfmXUwY5jN+C5p04C25x0hWnkJ9r3QhKPctdbAz4BxwY/BPlZlN3iLvEUVc+HQmwRNRX6PAuoL9uMXbAUgcQWKyjtSmib9uIlhD1ydscCfyYlq6hN5FURkY6NtltNQ+TAD7NuEAhi4btbsK6oycE6ePadWY2lh+gB2r2lFYzQGtcQmUTbNhNZwZ21RFdY1XYvGRfhiNXTNOAVrVD8UwPg==
+Received: from SJ0PR03CA0341.namprd03.prod.outlook.com (2603:10b6:a03:39c::16)
+ by SN7PR12MB7129.namprd12.prod.outlook.com (2603:10b6:806:2a1::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.17; Mon, 13 Jan
+ 2025 19:48:05 +0000
+Received: from SJ5PEPF000001E8.namprd05.prod.outlook.com
+ (2603:10b6:a03:39c:cafe::4b) by SJ0PR03CA0341.outlook.office365.com
+ (2603:10b6:a03:39c::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8335.18 via Frontend Transport; Mon,
+ 13 Jan 2025 19:48:05 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ SJ5PEPF000001E8.mail.protection.outlook.com (10.167.242.196) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8356.11 via Frontend Transport; Mon, 13 Jan 2025 19:48:04 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 13 Jan
+ 2025 11:47:55 -0800
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 13 Jan
+ 2025 11:47:54 -0800
+Received: from Asurada-Nvidia (10.127.8.10) by mail.nvidia.com (10.129.68.7)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4 via Frontend
+ Transport; Mon, 13 Jan 2025 11:47:53 -0800
+Date: Mon, 13 Jan 2025 11:47:52 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <kevin.tian@intel.com>, <corbet@lwn.net>, <will@kernel.org>,
+	<joro@8bytes.org>, <suravee.suthikulpanit@amd.com>, <robin.murphy@arm.com>,
+	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>, <shuah@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>, <eric.auger@redhat.com>,
+	<jean-philippe@linaro.org>, <mdf@kernel.org>, <mshavit@google.com>,
+	<shameerali.kolothum.thodi@huawei.com>, <smostafa@google.com>,
+	<ddutile@redhat.com>, <yi.l.liu@intel.com>, <patches@lists.linux.dev>
+Subject: Re: [PATCH v5 08/14] iommufd/viommu: Add iommufd_viommu_report_event
+ helper
+Message-ID: <Z4Vt6DAMDfEv6tb5@Asurada-Nvidia>
+References: <cover.1736237481.git.nicolinc@nvidia.com>
+ <b9b4f3df990934cb80b2f5e1e49e555e50c1c857.1736237481.git.nicolinc@nvidia.com>
+ <20250110174132.GH396083@nvidia.com>
+ <Z4FpMs4qx3NdwrnZ@Asurada-Nvidia>
+ <20250110195114.GJ5556@nvidia.com>
+ <Z4Smpeb4k4UF3Qso@Asurada-Nvidia>
+ <20250113192144.GT5556@nvidia.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250113192144.GT5556@nvidia.com>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF000001E8:EE_|SN7PR12MB7129:EE_
+X-MS-Office365-Filtering-Correlation-Id: 35320ea1-0dce-4161-3de2-08dd340b3259
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|82310400026|36860700013|30052699003;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?AcAsj7t9A4LDREi+gXwIE0IxFVCzBBpkzSx6TYpPfG7QqXBJ+On7PTTA+vMl?=
+ =?us-ascii?Q?clflmFRkajj0pIn1xp5uVZnPdeFFSExg/7eEjuaIAJtBIitCJpZ9QvAsjads?=
+ =?us-ascii?Q?miv4WTNGXL1CnK+C0ZkZjWzrPU99MUVB+YdRw8K2AX6bnVKyc6evZiMTLR3w?=
+ =?us-ascii?Q?0+2aU+wRiUPqHNL4x4l1lGxQG92mNbrzqZznWUadawJjwQS92RTiiWh0epyw?=
+ =?us-ascii?Q?wDhEhDzB/hJunBDOeEUAbnyeUtg+NJs/sKNnkDycsDfEjCt4fP0b357g2fk7?=
+ =?us-ascii?Q?3RejppS7Kk+zbQv/HRG0iomD2ACfCmDpKqXKLMwoNXB98v2LSyzxwrLhaqSs?=
+ =?us-ascii?Q?/2K4reJW9evyQ7zcQtD+MokiyR6s1QxsqF9O+YshOb8DiFnn72cuF2NLzi9m?=
+ =?us-ascii?Q?cMts/zixjQUKInbwvvQfTh81HlfnNyl+ygv4nQWXXCj55YttUczGEk7+RzdJ?=
+ =?us-ascii?Q?mSCe07nwTiWPrTN8WiIZ7ZScSJ+Yj5mpG3uhsELw3HuYowjcGXZhFXz0TyIL?=
+ =?us-ascii?Q?4E+WWKD3f/WrX+EH/1XEfFuAW6M1+W2DmIM4koMx+uYiSJvapApRi2lPEDsJ?=
+ =?us-ascii?Q?dobuNQwXXrQLu6PJz8FFuIDGGGie5J4zxU9KCDeUgX8zzTkhoTZTzV3diA2Y?=
+ =?us-ascii?Q?pYcZZctgwJK6EawI4Du0HYbo5qREtHAW8YDsKpirQrzgvu8gYxvVNCAJz8Ca?=
+ =?us-ascii?Q?w6vmG4ceQNPsZU0si6m4DVX1zualqhI9DNTPbgGaJpRATdJ2lsaZTF4/WCsU?=
+ =?us-ascii?Q?PlFV/h3Wbx1VMy0XdOiPuOPL3HDLlZFYn95XFXQX3q/5Tc80ezL13mwXAIAp?=
+ =?us-ascii?Q?OyOB0RTGD4gaYLSQcUAQCinU1IQfFNOv2yLgcj0pGLfm/Uxa/p29KDH2dDM+?=
+ =?us-ascii?Q?5Io7Kglly85KQIgBsMD/LM9sbXjW9abX8x1PkTuUafZkSU7tWuFG6+TRQCnb?=
+ =?us-ascii?Q?n7wfJQ5nPsTRdTv5qBQkO4OYQ7uCFzbWnLZ4dXbMq3CElRo5oHLRpO4U+yPp?=
+ =?us-ascii?Q?trSBUV/dpyMKXjKhlHvpaHw3mFaFvOTsoGPSTUYGGN8hNIUrvucX3wW70mB2?=
+ =?us-ascii?Q?692qV47uUmCuOLeCzPD9QZGbLC74hMwjII4zWKB2FtUuviU1lRG92Iwt6fFu?=
+ =?us-ascii?Q?l9mBWnU0yovz3p0y1r8Zj58T7Q3aVCyluEWMPvw0zizFrjMZKZ8Nv+Edhd7c?=
+ =?us-ascii?Q?skgOJHsNAFQEo+53v3b3fFU0lXAiGxidsQg23HPWLcVgsuCvkkFdHon6yfn8?=
+ =?us-ascii?Q?Z8aaOH3TeI/5Hq5Ym/ts0sJeahoBpJUr+v6X1/6DDfwxx65wfFaxxDumUYC2?=
+ =?us-ascii?Q?omsW0lusueyQ3qLqc1xok+EHdvQ8exuRAM8cAW8jxgtpi06i7jy+PAKknbik?=
+ =?us-ascii?Q?1hmx7RA6f+hGMfGSONuODDMsjc5ys461hPURskhz7Xpbg6YnY4nIr0bFVVrm?=
+ =?us-ascii?Q?vEtS+RtQ7gPBe/xMogfpJoGP3cFVJ28XGd3HnomGsiNg2lDANGYk4SqjpYno?=
+ =?us-ascii?Q?AN7WMQQ2HPhB3N0=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(82310400026)(36860700013)(30052699003);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jan 2025 19:48:04.9847
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 35320ea1-0dce-4161-3de2-08dd340b3259
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001E8.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7129
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_114400_627919_1B96560E 
-X-CRM114-Status: GOOD (  26.57  )
+X-CRM114-CacheID: sfid-20250113_114814_259499_C19BF8DE 
+X-CRM114-Status: GOOD (  31.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,1842 +163,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The struct dump_regs contains 512 bytes of cache_regs, meaning the two
-values in perf_sample contribute 1088 bytes of its total 1384 bytes
-size. Initializing this much memory has a cost reported by Tavian
-Barnes <tavianator@tavianator.com> as about 2.5% when running `perf
-script --itrace=i0`:
-https://lore.kernel.org/lkml/d841b97b3ad2ca8bcab07e4293375fb7c32dfce7.1736618095.git.tavianator@tavianator.com/
+On Mon, Jan 13, 2025 at 03:21:44PM -0400, Jason Gunthorpe wrote:
+> On Sun, Jan 12, 2025 at 09:37:41PM -0800, Nicolin Chen wrote:
+> 
+> > > > > I supposed we will need a way to indicate lost events to userspace on
+> > > > > top of this?
+> > > > 
+> > > > Perhaps another u32 flag in the arm_smmuv3_vevent struct to report
+> > > > an overflow. That said, what userspace/VMM will need to do with it?
+> > > 
+> > > Trigger the above code in the VM somehow?
+> > 
+> > I found two ways of forwarding an overflow flag:
+> > 
+> > 1. Return -EOVERFLOW to read(). But it cannot return the read bytes
+> > any more:
+> 
+> You could not return any bytes, it would have to be 0 bytes read, ie
+> immediately return EOVERFLOW and do nothing else.
+> 
+> Returning EOVERFLOW from read would have to also clear the overflow
+> indicator.
 
-Adrian Hunter <adrian.hunter@intel.com> replied that the zero
-initialization was necessary and couldn't simply be removed.
+OK. That means user space should read again for actual events in the
+queue, after getting the first EOVERFLOW.
 
-This patch aims to strike a middle ground of still zeroing the
-perf_sample, but removing 79% of its size by make user_regs and
-intr_regs optional pointers to zalloc-ed memory. To support the
-allocation accessors are created for user_regs and intr_regs. To
-support correct cleanup perf_sample__init and perf_sample__exit
-functions are created and added throughout the code base.
+One concern is, if the report() keeps producing events to the queue,
+it will always set the EOVERFLOW flag, then user space won't have a
+chance to read the events out until the last report(). Wondering if
+this would make sense, as I see SMMU driver's arm_smmu_evtq_thread()
+reporting an OVERFLOW while allowing SW to continue reading the evtq.
 
-Signed-off-by: Ian Rogers <irogers@google.com>
----
-It is likely the size of this patch will be complained about. The
-majority of the size comes from the addition of calls to
-init/exit/accessor (and avoiding early returns) which don't need to
-exist prior to this patch. Whilst adding init/exit/accessor could be
-done separately the difference in file size would be minimal and the
-separation of one problem across multiple patches was considered worse
-than having 1 bigger patch.
----
- tools/perf/arch/x86/tests/dwarf-unwind.c      |   2 +-
- tools/perf/arch/x86/util/unwind-libdw.c       |   2 +-
- tools/perf/builtin-record.c                   |   4 +-
- tools/perf/builtin-script.c                   |  10 +-
- tools/perf/builtin-top.c                      |   8 +-
- tools/perf/builtin-trace.c                    |   5 +-
- tools/perf/tests/code-reading.c               |  12 +-
- tools/perf/tests/dwarf-unwind.c               |   6 +-
- tools/perf/tests/mmap-basic.c                 |   3 +
- tools/perf/tests/openat-syscall-tp-fields.c   |   4 +-
- tools/perf/tests/parse-no-sample-id-all.c     |   6 +-
- tools/perf/tests/perf-record.c                |   2 +
- tools/perf/tests/perf-time-to-tsc.c           |   2 +
- tools/perf/tests/sample-parsing.c             |  62 ++++----
- tools/perf/tests/sw-clock.c                   |   3 +
- tools/perf/tests/switch-tracking.c            |  14 +-
- tools/perf/util/Build                         |   1 +
- tools/perf/util/arm-spe.c                     |  24 +++-
- .../util/arm64-frame-pointer-unwind-support.c |  29 ++--
- tools/perf/util/auxtrace.c                    |  15 +-
- tools/perf/util/cs-etm.c                      |  31 ++--
- tools/perf/util/evsel.c                       |  21 +--
- tools/perf/util/intel-bts.c                   |   4 +-
- tools/perf/util/intel-pt.c                    | 136 ++++++++++++------
- tools/perf/util/jitdump.c                     |  10 +-
- tools/perf/util/machine.c                     |   4 +-
- tools/perf/util/python.c                      |   9 ++
- tools/perf/util/s390-cpumsf.c                 |   6 +-
- tools/perf/util/sample.c                      |  43 ++++++
- tools/perf/util/sample.h                      |   9 +-
- .../scripting-engines/trace-event-python.c    |  29 ++--
- tools/perf/util/session.c                     |  94 ++++++++----
- tools/perf/util/synthetic-events.c            |  24 ++--
- tools/perf/util/unwind-libdw.c                |   9 +-
- 34 files changed, 450 insertions(+), 193 deletions(-)
- create mode 100644 tools/perf/util/sample.c
+> The other approach would be to add a sequence number to each event and
+> let userspace detect the non-montonicity. It would require adding a
+> header to the native ARM evt.
 
-diff --git a/tools/perf/arch/x86/tests/dwarf-unwind.c b/tools/perf/arch/x86/tests/dwarf-unwind.c
-index c05c0a85dad4..e91a73d09cec 100644
---- a/tools/perf/arch/x86/tests/dwarf-unwind.c
-+++ b/tools/perf/arch/x86/tests/dwarf-unwind.c
-@@ -53,7 +53,7 @@ static int sample_ustack(struct perf_sample *sample,
- int test__arch_unwind_sample(struct perf_sample *sample,
- 			     struct thread *thread)
- {
--	struct regs_dump *regs = &sample->user_regs;
-+	struct regs_dump *regs = perf_sample__user_regs(sample);
- 	u64 *buf;
- 
- 	buf = malloc(sizeof(u64) * PERF_REGS_MAX);
-diff --git a/tools/perf/arch/x86/util/unwind-libdw.c b/tools/perf/arch/x86/util/unwind-libdw.c
-index edb77e20e083..798493e887d7 100644
---- a/tools/perf/arch/x86/util/unwind-libdw.c
-+++ b/tools/perf/arch/x86/util/unwind-libdw.c
-@@ -8,7 +8,7 @@
- bool libdw__arch_set_initial_registers(Dwfl_Thread *thread, void *arg)
- {
- 	struct unwind_info *ui = arg;
--	struct regs_dump *user_regs = &ui->sample->user_regs;
-+	struct regs_dump *user_regs = perf_sample__user_regs(ui->sample);
- 	Dwarf_Word dwarf_regs[17];
- 	unsigned nregs;
- 
-diff --git a/tools/perf/builtin-record.c b/tools/perf/builtin-record.c
-index 5db1aedf48df..cda7e6a7b45d 100644
---- a/tools/perf/builtin-record.c
-+++ b/tools/perf/builtin-record.c
-@@ -1917,9 +1917,10 @@ static void __record__save_lost_samples(struct record *rec, struct evsel *evsel,
- 					u16 misc_flag)
- {
- 	struct perf_sample_id *sid;
--	struct perf_sample sample = {};
-+	struct perf_sample sample;
- 	int id_hdr_size;
- 
-+	perf_sample__init(&sample, /*all=*/true);
- 	lost->lost = lost_count;
- 	if (evsel->core.ids) {
- 		sid = xyarray__entry(evsel->core.sample_id, cpu_idx, thread_idx);
-@@ -1931,6 +1932,7 @@ static void __record__save_lost_samples(struct record *rec, struct evsel *evsel,
- 	lost->header.size = sizeof(*lost) + id_hdr_size;
- 	lost->header.misc = misc_flag;
- 	record__write(rec, NULL, lost, lost->header.size);
-+	perf_sample__exit(&sample);
- }
- 
- static void record__read_lost_samples(struct record *rec)
-diff --git a/tools/perf/builtin-script.c b/tools/perf/builtin-script.c
-index 33667b534634..d797cec4f054 100644
---- a/tools/perf/builtin-script.c
-+++ b/tools/perf/builtin-script.c
-@@ -783,14 +783,20 @@ tod_scnprintf(struct perf_script *script, char *buf, int buflen,
- static int perf_sample__fprintf_iregs(struct perf_sample *sample,
- 				      struct perf_event_attr *attr, const char *arch, FILE *fp)
- {
--	return perf_sample__fprintf_regs(&sample->intr_regs,
-+	if (!sample->intr_regs)
-+		return 0;
-+
-+	return perf_sample__fprintf_regs(perf_sample__intr_regs(sample),
- 					 attr->sample_regs_intr, arch, fp);
- }
- 
- static int perf_sample__fprintf_uregs(struct perf_sample *sample,
- 				      struct perf_event_attr *attr, const char *arch, FILE *fp)
- {
--	return perf_sample__fprintf_regs(&sample->user_regs,
-+	if (!sample->user_regs)
-+		return 0;
-+
-+	return perf_sample__fprintf_regs(perf_sample__user_regs(sample),
- 					 attr->sample_regs_user, arch, fp);
- }
- 
-diff --git a/tools/perf/builtin-top.c b/tools/perf/builtin-top.c
-index ca3e8eca6610..43abd06c7a8a 100644
---- a/tools/perf/builtin-top.c
-+++ b/tools/perf/builtin-top.c
-@@ -1157,6 +1157,7 @@ static int deliver_event(struct ordered_events *qe,
- 		return 0;
- 	}
- 
-+	perf_sample__init(&sample, /*all=*/false);
- 	ret = evlist__parse_sample(evlist, event, &sample);
- 	if (ret) {
- 		pr_err("Can't parse sample, err = %d\n", ret);
-@@ -1167,8 +1168,10 @@ static int deliver_event(struct ordered_events *qe,
- 	assert(evsel != NULL);
- 
- 	if (event->header.type == PERF_RECORD_SAMPLE) {
--		if (evswitch__discard(&top->evswitch, evsel))
--			return 0;
-+		if (evswitch__discard(&top->evswitch, evsel)) {
-+			ret = 0;
-+			goto next_event;
-+		}
- 		++top->samples;
- 	}
- 
-@@ -1219,6 +1222,7 @@ static int deliver_event(struct ordered_events *qe,
- 
- 	ret = 0;
- next_event:
-+	perf_sample__exit(&sample);
- 	return ret;
- }
- 
-diff --git a/tools/perf/builtin-trace.c b/tools/perf/builtin-trace.c
-index d7c7d29291fb..01469c90fdc3 100644
---- a/tools/perf/builtin-trace.c
-+++ b/tools/perf/builtin-trace.c
-@@ -4015,13 +4015,16 @@ static int __trace__deliver_event(struct trace *trace, union perf_event *event)
- {
- 	struct evlist *evlist = trace->evlist;
- 	struct perf_sample sample;
--	int err = evlist__parse_sample(evlist, event, &sample);
-+	int err;
- 
-+	perf_sample__init(&sample, /*all=*/false);
-+	err = evlist__parse_sample(evlist, event, &sample);
- 	if (err)
- 		fprintf(trace->output, "Can't parse sample, err = %d, skipping...\n", err);
- 	else
- 		trace__handle_event(trace, event, &sample);
- 
-+	perf_sample__exit(&sample);
- 	return 0;
- }
- 
-diff --git a/tools/perf/tests/code-reading.c b/tools/perf/tests/code-reading.c
-index b1abb34d7818..cf6edbe697b2 100644
---- a/tools/perf/tests/code-reading.c
-+++ b/tools/perf/tests/code-reading.c
-@@ -479,19 +479,25 @@ static int process_sample_event(struct machine *machine,
- 	struct thread *thread;
- 	int ret;
- 
--	if (evlist__parse_sample(evlist, event, &sample)) {
-+	perf_sample__init(&sample, /*all=*/false);
-+	ret = evlist__parse_sample(evlist, event, &sample);
-+	if (ret) {
- 		pr_debug("evlist__parse_sample failed\n");
--		return -1;
-+		ret = -1;
-+		goto out;
- 	}
- 
- 	thread = machine__findnew_thread(machine, sample.pid, sample.tid);
- 	if (!thread) {
- 		pr_debug("machine__findnew_thread failed\n");
--		return -1;
-+		ret = -1;
-+		goto out;
- 	}
- 
- 	ret = read_object_code(sample.ip, READLEN, sample.cpumode, thread, state);
- 	thread__put(thread);
-+out:
-+	perf_sample__exit(&sample);
- 	return ret;
- }
- 
-diff --git a/tools/perf/tests/dwarf-unwind.c b/tools/perf/tests/dwarf-unwind.c
-index f85d391ced98..4803ab2d97ba 100644
---- a/tools/perf/tests/dwarf-unwind.c
-+++ b/tools/perf/tests/dwarf-unwind.c
-@@ -115,8 +115,7 @@ NO_TAIL_CALL_ATTRIBUTE noinline int test_dwarf_unwind__thread(struct thread *thr
- 	unsigned long cnt = 0;
- 	int err = -1;
- 
--	memset(&sample, 0, sizeof(sample));
--
-+	perf_sample__init(&sample, /*all=*/true);
- 	if (test__arch_unwind_sample(&sample, thread)) {
- 		pr_debug("failed to get unwind sample\n");
- 		goto out;
-@@ -134,7 +133,8 @@ NO_TAIL_CALL_ATTRIBUTE noinline int test_dwarf_unwind__thread(struct thread *thr
- 
-  out:
- 	zfree(&sample.user_stack.data);
--	zfree(&sample.user_regs.regs);
-+	zfree(&sample.user_regs->regs);
-+	perf_sample__exit(&sample);
- 	return err;
- }
- 
-diff --git a/tools/perf/tests/mmap-basic.c b/tools/perf/tests/mmap-basic.c
-index 012c8ae439fd..bd2106628b34 100644
---- a/tools/perf/tests/mmap-basic.c
-+++ b/tools/perf/tests/mmap-basic.c
-@@ -130,14 +130,17 @@ static int test__basic_mmap(struct test_suite *test __maybe_unused, int subtest
- 			goto out_delete_evlist;
- 		}
- 
-+		perf_sample__init(&sample, /*all=*/false);
- 		err = evlist__parse_sample(evlist, event, &sample);
- 		if (err) {
- 			pr_err("Can't parse sample, err = %d\n", err);
-+			perf_sample__exit(&sample);
- 			goto out_delete_evlist;
- 		}
- 
- 		err = -1;
- 		evsel = evlist__id2evsel(evlist, sample.id);
-+		perf_sample__exit(&sample);
- 		if (evsel == NULL) {
- 			pr_debug("event with id %" PRIu64
- 				 " doesn't map to an evsel\n", sample.id);
-diff --git a/tools/perf/tests/openat-syscall-tp-fields.c b/tools/perf/tests/openat-syscall-tp-fields.c
-index 3943da441979..0ef4ba7c1571 100644
---- a/tools/perf/tests/openat-syscall-tp-fields.c
-+++ b/tools/perf/tests/openat-syscall-tp-fields.c
-@@ -111,14 +111,16 @@ static int test__syscall_openat_tp_fields(struct test_suite *test __maybe_unused
- 					continue;
- 				}
- 
-+				perf_sample__init(&sample, /*all=*/false);
- 				err = evsel__parse_sample(evsel, event, &sample);
- 				if (err) {
- 					pr_debug("Can't parse sample, err = %d\n", err);
-+					perf_sample__exit(&sample);
- 					goto out_delete_evlist;
- 				}
- 
- 				tp_flags = evsel__intval(evsel, &sample, "flags");
--
-+				perf_sample__exit(&sample);
- 				if (flags != tp_flags) {
- 					pr_debug("%s: Expected flags=%#x, got %#x\n",
- 						 __func__, flags, tp_flags);
-diff --git a/tools/perf/tests/parse-no-sample-id-all.c b/tools/perf/tests/parse-no-sample-id-all.c
-index 202f0a9a6796..50e68b7d43aa 100644
---- a/tools/perf/tests/parse-no-sample-id-all.c
-+++ b/tools/perf/tests/parse-no-sample-id-all.c
-@@ -13,6 +13,7 @@
- static int process_event(struct evlist **pevlist, union perf_event *event)
- {
- 	struct perf_sample sample;
-+	int ret;
- 
- 	if (event->header.type == PERF_RECORD_HEADER_ATTR) {
- 		if (perf_event__process_attr(NULL, event, pevlist)) {
-@@ -28,7 +29,10 @@ static int process_event(struct evlist **pevlist, union perf_event *event)
- 	if (!*pevlist)
- 		return -1;
- 
--	if (evlist__parse_sample(*pevlist, event, &sample)) {
-+	perf_sample__init(&sample, /*all=*/false);
-+	ret = evlist__parse_sample(*pevlist, event, &sample);
-+	perf_sample__exit(&sample);
-+	if (ret) {
- 		pr_debug("evlist__parse_sample failed\n");
- 		return -1;
- 	}
-diff --git a/tools/perf/tests/perf-record.c b/tools/perf/tests/perf-record.c
-index 1c4feec1adff..0958c7c8995f 100644
---- a/tools/perf/tests/perf-record.c
-+++ b/tools/perf/tests/perf-record.c
-@@ -70,6 +70,7 @@ static int test__PERF_RECORD(struct test_suite *test __maybe_unused, int subtest
- 	int total_events = 0, nr_events[PERF_RECORD_MAX] = { 0, };
- 	char sbuf[STRERR_BUFSIZE];
- 
-+	perf_sample__init(&sample, /*all=*/false);
- 	if (evlist == NULL) /* Fallback for kernels lacking PERF_COUNT_SW_DUMMY */
- 		evlist = evlist__new_default();
- 
-@@ -330,6 +331,7 @@ static int test__PERF_RECORD(struct test_suite *test __maybe_unused, int subtest
- out_delete_evlist:
- 	evlist__delete(evlist);
- out:
-+	perf_sample__exit(&sample);
- 	if (err == -EACCES)
- 		return TEST_SKIP;
- 	if (err < 0 || errs != 0)
-diff --git a/tools/perf/tests/perf-time-to-tsc.c b/tools/perf/tests/perf-time-to-tsc.c
-index bbe2ddeb9b74..d3e40fa5482c 100644
---- a/tools/perf/tests/perf-time-to-tsc.c
-+++ b/tools/perf/tests/perf-time-to-tsc.c
-@@ -153,6 +153,7 @@ static int test__perf_time_to_tsc(struct test_suite *test __maybe_unused, int su
- 		while ((event = perf_mmap__read_event(&md->core)) != NULL) {
- 			struct perf_sample sample;
- 
-+			perf_sample__init(&sample, /*all=*/false);
- 			if (event->header.type != PERF_RECORD_COMM ||
- 			    (pid_t)event->comm.pid != getpid() ||
- 			    (pid_t)event->comm.tid != getpid())
-@@ -170,6 +171,7 @@ static int test__perf_time_to_tsc(struct test_suite *test __maybe_unused, int su
- 			}
- next_event:
- 			perf_mmap__consume(&md->core);
-+			perf_sample__exit(&sample);
- 		}
- 		perf_mmap__read_done(&md->core);
- 	}
-diff --git a/tools/perf/tests/sample-parsing.c b/tools/perf/tests/sample-parsing.c
-index 25a3f6cece50..72411580f869 100644
---- a/tools/perf/tests/sample-parsing.c
-+++ b/tools/perf/tests/sample-parsing.c
-@@ -40,8 +40,8 @@
- #define BS_EXPECTED_LE	0x1aa00000000
- #define FLAG(s)	s->branch_stack->entries[i].flags
- 
--static bool samples_same(const struct perf_sample *s1,
--			 const struct perf_sample *s2,
-+static bool samples_same(struct perf_sample *s1,
-+			 struct perf_sample *s2,
- 			 u64 type, u64 read_format, bool needs_swap)
- {
- 	size_t i;
-@@ -126,13 +126,15 @@ static bool samples_same(const struct perf_sample *s1,
- 	}
- 
- 	if (type & PERF_SAMPLE_REGS_USER) {
--		size_t sz = hweight_long(s1->user_regs.mask) * sizeof(u64);
--
--		COMP(user_regs.mask);
--		COMP(user_regs.abi);
--		if (s1->user_regs.abi &&
--		    (!s1->user_regs.regs || !s2->user_regs.regs ||
--		     memcmp(s1->user_regs.regs, s2->user_regs.regs, sz))) {
-+		struct regs_dump *s1_regs = perf_sample__user_regs(s1);
-+		struct regs_dump *s2_regs = perf_sample__user_regs(s2);
-+		size_t sz = hweight_long(s1_regs->mask) * sizeof(u64);
-+
-+		COMP(user_regs->mask);
-+		COMP(user_regs->abi);
-+		if (s1_regs->abi &&
-+		    (!s1_regs->regs || !s2_regs->regs ||
-+		     memcmp(s1_regs->regs, s2_regs->regs, sz))) {
- 			pr_debug("Samples differ at 'user_regs'\n");
- 			return false;
- 		}
-@@ -157,13 +159,15 @@ static bool samples_same(const struct perf_sample *s1,
- 		COMP(transaction);
- 
- 	if (type & PERF_SAMPLE_REGS_INTR) {
--		size_t sz = hweight_long(s1->intr_regs.mask) * sizeof(u64);
--
--		COMP(intr_regs.mask);
--		COMP(intr_regs.abi);
--		if (s1->intr_regs.abi &&
--		    (!s1->intr_regs.regs || !s2->intr_regs.regs ||
--		     memcmp(s1->intr_regs.regs, s2->intr_regs.regs, sz))) {
-+		struct regs_dump *s1_regs = perf_sample__intr_regs(s1);
-+		struct regs_dump *s2_regs = perf_sample__intr_regs(s2);
-+		size_t sz = hweight_long(s1_regs->mask) * sizeof(u64);
-+
-+		COMP(intr_regs->mask);
-+		COMP(intr_regs->abi);
-+		if (s1_regs->abi &&
-+		    (!s1_regs->regs || !s2_regs->regs ||
-+		     memcmp(s1_regs->regs, s2_regs->regs, sz))) {
- 			pr_debug("Samples differ at 'intr_regs'\n");
- 			return false;
- 		}
-@@ -223,6 +227,16 @@ static int do_test(u64 sample_type, u64 sample_regs, u64 read_format)
- 	const u32 raw_data[] = {0x12345678, 0x0a0b0c0d, 0x11020304, 0x05060708, 0 };
- 	const u64 data[] = {0x2211443366558877ULL, 0, 0xaabbccddeeff4321ULL};
- 	const u64 aux_data[] = {0xa55a, 0, 0xeeddee, 0x0282028202820282};
-+	struct regs_dump user_regs = {
-+		.abi	= PERF_SAMPLE_REGS_ABI_64,
-+		.mask	= sample_regs,
-+		.regs	= regs,
-+	};
-+	struct regs_dump intr_regs = {
-+		.abi	= PERF_SAMPLE_REGS_ABI_64,
-+		.mask	= sample_regs,
-+		.regs	= regs,
-+	};
- 	struct perf_sample sample = {
- 		.ip		= 101,
- 		.pid		= 102,
-@@ -241,11 +255,7 @@ static int do_test(u64 sample_type, u64 sample_regs, u64 read_format)
- 		.callchain	= &callchain.callchain,
- 		.no_hw_idx      = false,
- 		.branch_stack	= &branch_stack.branch_stack,
--		.user_regs	= {
--			.abi	= PERF_SAMPLE_REGS_ABI_64,
--			.mask	= sample_regs,
--			.regs	= regs,
--		},
-+		.user_regs	= &user_regs,
- 		.user_stack	= {
- 			.size	= sizeof(data),
- 			.data	= (void *)data,
-@@ -254,11 +264,7 @@ static int do_test(u64 sample_type, u64 sample_regs, u64 read_format)
- 			.time_enabled = 0x030a59d664fca7deULL,
- 			.time_running = 0x011b6ae553eb98edULL,
- 		},
--		.intr_regs	= {
--			.abi	= PERF_SAMPLE_REGS_ABI_64,
--			.mask	= sample_regs,
--			.regs	= regs,
--		},
-+		.intr_regs	= &intr_regs,
- 		.phys_addr	= 113,
- 		.cgroup		= 114,
- 		.data_page_size = 115,
-@@ -273,6 +279,8 @@ static int do_test(u64 sample_type, u64 sample_regs, u64 read_format)
- 	size_t i, sz, bufsz;
- 	int err, ret = -1;
- 
-+	perf_sample__init(&sample_out, /*all=*/false);
-+	perf_sample__init(&sample_out_endian, /*all=*/false);
- 	if (sample_type & PERF_SAMPLE_REGS_USER)
- 		evsel.core.attr.sample_regs_user = sample_regs;
- 
-@@ -361,6 +369,8 @@ static int do_test(u64 sample_type, u64 sample_regs, u64 read_format)
- 	ret = 0;
- out_free:
- 	free(event);
-+	perf_sample__exit(&sample_out_endian);
-+	perf_sample__exit(&sample_out);
- 	if (ret && read_format)
- 		pr_debug("read_format %#"PRIx64"\n", read_format);
- 	return ret;
-diff --git a/tools/perf/tests/sw-clock.c b/tools/perf/tests/sw-clock.c
-index 290716783ac6..4a2ad7176fa0 100644
---- a/tools/perf/tests/sw-clock.c
-+++ b/tools/perf/tests/sw-clock.c
-@@ -104,12 +104,14 @@ static int __test__sw_clock_freq(enum perf_sw_ids clock_id)
- 	while ((event = perf_mmap__read_event(&md->core)) != NULL) {
- 		struct perf_sample sample;
- 
-+		perf_sample__init(&sample, /*all=*/false);
- 		if (event->header.type != PERF_RECORD_SAMPLE)
- 			goto next_event;
- 
- 		err = evlist__parse_sample(evlist, event, &sample);
- 		if (err < 0) {
- 			pr_debug("Error during parse sample\n");
-+			perf_sample__exit(&sample);
- 			goto out_delete_evlist;
- 		}
- 
-@@ -117,6 +119,7 @@ static int __test__sw_clock_freq(enum perf_sw_ids clock_id)
- 		nr_samples++;
- next_event:
- 		perf_mmap__consume(&md->core);
-+		perf_sample__exit(&sample);
- 	}
- 	perf_mmap__read_done(&md->core);
- 
-diff --git a/tools/perf/tests/switch-tracking.c b/tools/perf/tests/switch-tracking.c
-index 576f82a15015..8df3f9d9ffd2 100644
---- a/tools/perf/tests/switch-tracking.c
-+++ b/tools/perf/tests/switch-tracking.c
-@@ -131,9 +131,11 @@ static int process_sample_event(struct evlist *evlist,
- 	pid_t next_tid, prev_tid;
- 	int cpu, err;
- 
-+	perf_sample__init(&sample, /*all=*/false);
- 	if (evlist__parse_sample(evlist, event, &sample)) {
- 		pr_debug("evlist__parse_sample failed\n");
--		return -1;
-+		err = -1;
-+		goto out;
- 	}
- 
- 	evsel = evlist__id2evsel(evlist, sample.id);
-@@ -145,7 +147,7 @@ static int process_sample_event(struct evlist *evlist,
- 			  cpu, prev_tid, next_tid);
- 		err = check_cpu(switch_tracking, cpu);
- 		if (err)
--			return err;
-+			goto out;
- 		/*
- 		 * Check for no missing sched_switch events i.e. that the
- 		 * evsel->core.system_wide flag has worked.
-@@ -153,7 +155,8 @@ static int process_sample_event(struct evlist *evlist,
- 		if (switch_tracking->tids[cpu] != -1 &&
- 		    switch_tracking->tids[cpu] != prev_tid) {
- 			pr_debug("Missing sched_switch events\n");
--			return -1;
-+			err = -1;
-+			goto out;
- 		}
- 		switch_tracking->tids[cpu] = next_tid;
- 	}
-@@ -169,7 +172,10 @@ static int process_sample_event(struct evlist *evlist,
- 			switch_tracking->cycles_after_comm_4 = 1;
- 	}
- 
--	return 0;
-+	err = 0;
-+out:
-+	perf_sample__exit(&sample);
-+	return err;
- }
- 
- static int process_event(struct evlist *evlist, union perf_event *event,
-diff --git a/tools/perf/util/Build b/tools/perf/util/Build
-index 5ec97e8d6b6d..034a6603d5a8 100644
---- a/tools/perf/util/Build
-+++ b/tools/perf/util/Build
-@@ -67,6 +67,7 @@ perf-util-y += maps.o
- perf-util-y += pstack.o
- perf-util-y += session.o
- perf-util-y += tool.o
-+perf-util-y += sample.o
- perf-util-y += sample-raw.o
- perf-util-y += s390-sample-raw.o
- perf-util-y += amd-sample-raw.o
-diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-index 12761c39788f..251d214adf7f 100644
---- a/tools/perf/util/arm-spe.c
-+++ b/tools/perf/util/arm-spe.c
-@@ -379,8 +379,10 @@ static int arm_spe__synth_mem_sample(struct arm_spe_queue *speq,
- 	struct arm_spe *spe = speq->spe;
- 	struct arm_spe_record *record = &speq->decoder->record;
- 	union perf_event *event = speq->event_buf;
--	struct perf_sample sample = { .ip = 0, };
-+	struct perf_sample sample;
-+	int ret;
- 
-+	perf_sample__init(&sample, /*all=*/true);
- 	arm_spe_prep_sample(spe, speq, event, &sample);
- 
- 	sample.id = spe_events_id;
-@@ -390,7 +392,9 @@ static int arm_spe__synth_mem_sample(struct arm_spe_queue *speq,
- 	sample.data_src = data_src;
- 	sample.weight = record->latency;
- 
--	return arm_spe_deliver_synth_event(spe, speq, event, &sample);
-+	ret = arm_spe_deliver_synth_event(spe, speq, event, &sample);
-+	perf_sample__exit(&sample);
-+	return ret;
- }
- 
- static int arm_spe__synth_branch_sample(struct arm_spe_queue *speq,
-@@ -399,8 +403,10 @@ static int arm_spe__synth_branch_sample(struct arm_spe_queue *speq,
- 	struct arm_spe *spe = speq->spe;
- 	struct arm_spe_record *record = &speq->decoder->record;
- 	union perf_event *event = speq->event_buf;
--	struct perf_sample sample = { .ip = 0, };
-+	struct perf_sample sample;
-+	int ret;
- 
-+	perf_sample__init(&sample, /*all=*/true);
- 	arm_spe_prep_sample(spe, speq, event, &sample);
- 
- 	sample.id = spe_events_id;
-@@ -409,7 +415,9 @@ static int arm_spe__synth_branch_sample(struct arm_spe_queue *speq,
- 	sample.weight = record->latency;
- 	sample.flags = speq->flags;
- 
--	return arm_spe_deliver_synth_event(spe, speq, event, &sample);
-+	ret = arm_spe_deliver_synth_event(spe, speq, event, &sample);
-+	perf_sample__exit(&sample);
-+	return ret;
- }
- 
- static int arm_spe__synth_instruction_sample(struct arm_spe_queue *speq,
-@@ -418,7 +426,8 @@ static int arm_spe__synth_instruction_sample(struct arm_spe_queue *speq,
- 	struct arm_spe *spe = speq->spe;
- 	struct arm_spe_record *record = &speq->decoder->record;
- 	union perf_event *event = speq->event_buf;
--	struct perf_sample sample = { .ip = 0, };
-+	struct perf_sample sample;
-+	int ret;
- 
- 	/*
- 	 * Handles perf instruction sampling period.
-@@ -428,6 +437,7 @@ static int arm_spe__synth_instruction_sample(struct arm_spe_queue *speq,
- 		return 0;
- 	speq->period_instructions = 0;
- 
-+	perf_sample__init(&sample, /*all=*/true);
- 	arm_spe_prep_sample(spe, speq, event, &sample);
- 
- 	sample.id = spe_events_id;
-@@ -439,7 +449,9 @@ static int arm_spe__synth_instruction_sample(struct arm_spe_queue *speq,
- 	sample.weight = record->latency;
- 	sample.flags = speq->flags;
- 
--	return arm_spe_deliver_synth_event(spe, speq, event, &sample);
-+	ret = arm_spe_deliver_synth_event(spe, speq, event, &sample);
-+	perf_sample__exit(&sample);
-+	return ret;
- }
- 
- static const struct midr_range common_ds_encoding_cpus[] = {
-diff --git a/tools/perf/util/arm64-frame-pointer-unwind-support.c b/tools/perf/util/arm64-frame-pointer-unwind-support.c
-index 4940be4a0569..958afe8b821e 100644
---- a/tools/perf/util/arm64-frame-pointer-unwind-support.c
-+++ b/tools/perf/util/arm64-frame-pointer-unwind-support.c
-@@ -4,6 +4,7 @@
- #include "event.h"
- #include "perf_regs.h" // SMPL_REG_MASK
- #include "unwind.h"
-+#include <string.h>
- 
- #define perf_event_arm_regs perf_event_arm64_regs
- #include "../../arch/arm64/include/uapi/asm/perf_regs.h"
-@@ -16,8 +17,13 @@ struct entries {
- 
- static bool get_leaf_frame_caller_enabled(struct perf_sample *sample)
- {
--	return callchain_param.record_mode == CALLCHAIN_FP && sample->user_regs.regs
--		&& sample->user_regs.mask & SMPL_REG_MASK(PERF_REG_ARM64_LR);
-+	struct regs_dump *regs;
-+
-+	if (callchain_param.record_mode != CALLCHAIN_FP)
-+		return false;
-+
-+	regs = perf_sample__user_regs(sample);
-+	return  regs->regs && regs->mask & SMPL_REG_MASK(PERF_REG_ARM64_LR);
- }
- 
- static int add_entry(struct unwind_entry *entry, void *arg)
-@@ -32,7 +38,7 @@ u64 get_leaf_frame_caller_aarch64(struct perf_sample *sample, struct thread *thr
- {
- 	int ret;
- 	struct entries entries = {};
--	struct regs_dump old_regs = sample->user_regs;
-+	struct regs_dump old_regs, *regs;
- 
- 	if (!get_leaf_frame_caller_enabled(sample))
- 		return 0;
-@@ -42,19 +48,20 @@ u64 get_leaf_frame_caller_aarch64(struct perf_sample *sample, struct thread *thr
- 	 * and set its mask. SP is not used when doing the unwinding but it
- 	 * still needs to be set to prevent failures.
- 	 */
--
--	if (!(sample->user_regs.mask & SMPL_REG_MASK(PERF_REG_ARM64_PC))) {
--		sample->user_regs.cache_mask |= SMPL_REG_MASK(PERF_REG_ARM64_PC);
--		sample->user_regs.cache_regs[PERF_REG_ARM64_PC] = sample->callchain->ips[usr_idx+1];
-+	regs = perf_sample__user_regs(sample);
-+	memcpy(&old_regs, regs, sizeof(*regs));
-+	if (!(regs->mask & SMPL_REG_MASK(PERF_REG_ARM64_PC))) {
-+		regs->cache_mask |= SMPL_REG_MASK(PERF_REG_ARM64_PC);
-+		regs->cache_regs[PERF_REG_ARM64_PC] = sample->callchain->ips[usr_idx+1];
- 	}
- 
--	if (!(sample->user_regs.mask & SMPL_REG_MASK(PERF_REG_ARM64_SP))) {
--		sample->user_regs.cache_mask |= SMPL_REG_MASK(PERF_REG_ARM64_SP);
--		sample->user_regs.cache_regs[PERF_REG_ARM64_SP] = 0;
-+	if (!(regs->mask & SMPL_REG_MASK(PERF_REG_ARM64_SP))) {
-+		regs->cache_mask |= SMPL_REG_MASK(PERF_REG_ARM64_SP);
-+		regs->cache_regs[PERF_REG_ARM64_SP] = 0;
- 	}
- 
- 	ret = unwind__get_entries(add_entry, &entries, thread, sample, 2, true);
--	sample->user_regs = old_regs;
-+	memcpy(regs, &old_regs, sizeof(*regs));
- 
- 	if (ret || entries.length != 2)
- 		return ret;
-diff --git a/tools/perf/util/auxtrace.c b/tools/perf/util/auxtrace.c
-index 4d1633d87eff..03211c2623de 100644
---- a/tools/perf/util/auxtrace.c
-+++ b/tools/perf/util/auxtrace.c
-@@ -1173,16 +1173,19 @@ static int auxtrace_queue_data_cb(struct perf_session *session,
- 	if (!qd->samples || event->header.type != PERF_RECORD_SAMPLE)
- 		return 0;
- 
-+	perf_sample__init(&sample, /*all=*/false);
- 	err = evlist__parse_sample(session->evlist, event, &sample);
- 	if (err)
--		return err;
--
--	if (!sample.aux_sample.size)
--		return 0;
-+		goto out;
- 
--	offset += sample.aux_sample.data - (void *)event;
-+	if (sample.aux_sample.size) {
-+		offset += sample.aux_sample.data - (void *)event;
- 
--	return session->auxtrace->queue_data(session, &sample, NULL, offset);
-+		err = session->auxtrace->queue_data(session, &sample, NULL, offset);
-+	}
-+out:
-+	perf_sample__exit(&sample);
-+	return err;
- }
- 
- int auxtrace_queue_data(struct perf_session *session, bool samples, bool events)
-diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-index 0bf9e5c27b59..30f4bb3e7fa3 100644
---- a/tools/perf/util/cs-etm.c
-+++ b/tools/perf/util/cs-etm.c
-@@ -506,20 +506,27 @@ static int cs_etm__process_aux_output_hw_id(struct perf_session *session,
- 	evsel = evlist__event2evsel(session->evlist, event);
- 	if (!evsel)
- 		return -EINVAL;
-+	perf_sample__init(&sample, /*all=*/false);
- 	err = evsel__parse_sample(evsel, event, &sample);
- 	if (err)
--		return err;
-+		goto out;
- 	cpu = sample.cpu;
- 	if (cpu == -1) {
- 		/* no CPU in the sample - possibly recorded with an old version of perf */
- 		pr_err("CS_ETM: no CPU AUX_OUTPUT_HW_ID sample. Use compatible perf to record.");
--		return -EINVAL;
-+		err = -EINVAL;
-+		goto out;
- 	}
- 
--	if (FIELD_GET(CS_AUX_HW_ID_MINOR_VERSION_MASK, hw_id) == 0)
--		return cs_etm__process_trace_id_v0(etm, cpu, hw_id);
-+	if (FIELD_GET(CS_AUX_HW_ID_MINOR_VERSION_MASK, hw_id) == 0) {
-+		err = cs_etm__process_trace_id_v0(etm, cpu, hw_id);
-+		goto out;
-+	}
- 
--	return cs_etm__process_trace_id_v0_1(etm, cpu, hw_id);
-+	err = cs_etm__process_trace_id_v0_1(etm, cpu, hw_id);
-+out:
-+	perf_sample__exit(&sample);
-+	return err;
- }
- 
- void cs_etm__etmq_set_traceid_queue_timestamp(struct cs_etm_queue *etmq,
-@@ -1560,8 +1567,9 @@ static int cs_etm__synth_instruction_sample(struct cs_etm_queue *etmq,
- 	int ret = 0;
- 	struct cs_etm_auxtrace *etm = etmq->etm;
- 	union perf_event *event = tidq->event_buf;
--	struct perf_sample sample = {.ip = 0,};
-+	struct perf_sample sample;
- 
-+	perf_sample__init(&sample, /*all=*/true);
- 	event->sample.header.type = PERF_RECORD_SAMPLE;
- 	event->sample.header.misc = cs_etm__cpu_mode(etmq, addr, tidq->el);
- 	event->sample.header.size = sizeof(struct perf_event_header);
-@@ -1598,6 +1606,7 @@ static int cs_etm__synth_instruction_sample(struct cs_etm_queue *etmq,
- 			"CS ETM Trace: failed to deliver instruction event, error %d\n",
- 			ret);
- 
-+	perf_sample__exit(&sample);
- 	return ret;
- }
- 
-@@ -3151,9 +3160,10 @@ static int cs_etm__queue_aux_records_cb(struct perf_session *session, union perf
- 	evsel = evlist__event2evsel(session->evlist, event);
- 	if (!evsel)
- 		return -EINVAL;
-+	perf_sample__init(&sample, /*all=*/false);
- 	ret = evsel__parse_sample(evsel, event, &sample);
- 	if (ret)
--		return ret;
-+		goto out;
- 
- 	/*
- 	 * Loop through the auxtrace index to find the buffer that matches up with this aux event.
-@@ -3168,7 +3178,7 @@ static int cs_etm__queue_aux_records_cb(struct perf_session *session, union perf
- 			 * 1 ('not found')
- 			 */
- 			if (ret != 1)
--				return ret;
-+				goto out;
- 		}
- 	}
- 
-@@ -3178,7 +3188,10 @@ static int cs_etm__queue_aux_records_cb(struct perf_session *session, union perf
- 	 */
- 	pr_err("CS ETM: Couldn't find auxtrace buffer for aux_offset: %#"PRI_lx64
- 	       " tid: %d cpu: %d\n", event->aux.aux_offset, sample.tid, sample.cpu);
--	return 0;
-+	ret = 0;
-+out:
-+	perf_sample__exit(&sample);
-+	return ret;
- }
- 
- static int cs_etm__queue_aux_records(struct perf_session *session)
-diff --git a/tools/perf/util/evsel.c b/tools/perf/util/evsel.c
-index bc144388f892..008a208f6fee 100644
---- a/tools/perf/util/evsel.c
-+++ b/tools/perf/util/evsel.c
-@@ -3164,17 +3164,19 @@ int evsel__parse_sample(struct evsel *evsel, union perf_event *event,
- 	}
- 
- 	if (type & PERF_SAMPLE_REGS_USER) {
-+		struct regs_dump *regs = perf_sample__user_regs(data);
-+
- 		OVERFLOW_CHECK_u64(array);
--		data->user_regs.abi = *array;
-+		regs->abi = *array;
- 		array++;
- 
--		if (data->user_regs.abi) {
-+		if (regs->abi) {
- 			u64 mask = evsel->core.attr.sample_regs_user;
- 
- 			sz = hweight64(mask) * sizeof(u64);
- 			OVERFLOW_CHECK(array, sz, max_size);
--			data->user_regs.mask = mask;
--			data->user_regs.regs = (u64 *)array;
-+			regs->mask = mask;
-+			regs->regs = (u64 *)array;
- 			array = (void *)array + sz;
- 		}
- 	}
-@@ -3218,19 +3220,20 @@ int evsel__parse_sample(struct evsel *evsel, union perf_event *event,
- 		array++;
- 	}
- 
--	data->intr_regs.abi = PERF_SAMPLE_REGS_ABI_NONE;
- 	if (type & PERF_SAMPLE_REGS_INTR) {
-+		struct regs_dump *regs = perf_sample__intr_regs(data);
-+
- 		OVERFLOW_CHECK_u64(array);
--		data->intr_regs.abi = *array;
-+		regs->abi = *array;
- 		array++;
- 
--		if (data->intr_regs.abi != PERF_SAMPLE_REGS_ABI_NONE) {
-+		if (regs->abi != PERF_SAMPLE_REGS_ABI_NONE) {
- 			u64 mask = evsel->core.attr.sample_regs_intr;
- 
- 			sz = hweight64(mask) * sizeof(u64);
- 			OVERFLOW_CHECK(array, sz, max_size);
--			data->intr_regs.mask = mask;
--			data->intr_regs.regs = (u64 *)array;
-+			regs->mask = mask;
-+			regs->regs = (u64 *)array;
- 			array = (void *)array + sz;
- 		}
- 	}
-diff --git a/tools/perf/util/intel-bts.c b/tools/perf/util/intel-bts.c
-index a7c589fecb98..3625c6224750 100644
---- a/tools/perf/util/intel-bts.c
-+++ b/tools/perf/util/intel-bts.c
-@@ -275,12 +275,13 @@ static int intel_bts_synth_branch_sample(struct intel_bts_queue *btsq,
- 	int ret;
- 	struct intel_bts *bts = btsq->bts;
- 	union perf_event event;
--	struct perf_sample sample = { .ip = 0, };
-+	struct perf_sample sample;
- 
- 	if (bts->synth_opts.initial_skip &&
- 	    bts->num_events++ <= bts->synth_opts.initial_skip)
- 		return 0;
- 
-+	perf_sample__init(&sample, /*all=*/true);
- 	sample.ip = le64_to_cpu(branch->from);
- 	sample.cpumode = intel_bts_cpumode(bts, sample.ip);
- 	sample.pid = btsq->pid;
-@@ -312,6 +313,7 @@ static int intel_bts_synth_branch_sample(struct intel_bts_queue *btsq,
- 		pr_err("Intel BTS: failed to deliver branch event, error %d\n",
- 		       ret);
- 
-+	perf_sample__exit(&sample);
- 	return ret;
- }
- 
-diff --git a/tools/perf/util/intel-pt.c b/tools/perf/util/intel-pt.c
-index 30be6dfe09eb..4e8a9b172fbc 100644
---- a/tools/perf/util/intel-pt.c
-+++ b/tools/perf/util/intel-pt.c
-@@ -1764,12 +1764,13 @@ static int intel_pt_synth_branch_sample(struct intel_pt_queue *ptq)
- {
- 	struct intel_pt *pt = ptq->pt;
- 	union perf_event *event = ptq->event_buf;
--	struct perf_sample sample = { .ip = 0, };
-+	struct perf_sample sample;
- 	struct dummy_branch_stack {
- 		u64			nr;
- 		u64			hw_idx;
- 		struct branch_entry	entries;
- 	} dummy_bs;
-+	int ret;
- 
- 	if (pt->branches_filter && !(pt->branches_filter & ptq->flags))
- 		return 0;
-@@ -1777,6 +1778,7 @@ static int intel_pt_synth_branch_sample(struct intel_pt_queue *ptq)
- 	if (intel_pt_skip_event(pt))
- 		return 0;
- 
-+	perf_sample__init(&sample, /*all=*/true);
- 	intel_pt_prep_b_sample(pt, ptq, event, &sample);
- 
- 	sample.id = ptq->pt->branches_id;
-@@ -1806,8 +1808,10 @@ static int intel_pt_synth_branch_sample(struct intel_pt_queue *ptq)
- 		ptq->last_br_cyc_cnt = ptq->ipc_cyc_cnt;
- 	}
- 
--	return intel_pt_deliver_synth_event(pt, event, &sample,
-+	perf_sample__exit(&sample);
-+	ret = intel_pt_deliver_synth_event(pt, event, &sample,
- 					    pt->branches_sample_type);
-+	return ret;
- }
- 
- static void intel_pt_prep_sample(struct intel_pt *pt,
-@@ -1835,11 +1839,13 @@ static int intel_pt_synth_instruction_sample(struct intel_pt_queue *ptq)
- {
- 	struct intel_pt *pt = ptq->pt;
- 	union perf_event *event = ptq->event_buf;
--	struct perf_sample sample = { .ip = 0, };
-+	struct perf_sample sample;
-+	int ret;
- 
- 	if (intel_pt_skip_event(pt))
- 		return 0;
- 
-+	perf_sample__init(&sample, /*all=*/true);
- 	intel_pt_prep_sample(pt, ptq, event, &sample);
- 
- 	sample.id = ptq->pt->instructions_id;
-@@ -1859,16 +1865,19 @@ static int intel_pt_synth_instruction_sample(struct intel_pt_queue *ptq)
- 
- 	ptq->last_insn_cnt = ptq->state->tot_insn_cnt;
- 
--	return intel_pt_deliver_synth_event(pt, event, &sample,
--					    pt->instructions_sample_type);
-+	ret = intel_pt_deliver_synth_event(pt, event, &sample,
-+					   pt->instructions_sample_type);
-+	perf_sample__exit(&sample);
-+	return ret;
- }
- 
- static int intel_pt_synth_cycle_sample(struct intel_pt_queue *ptq)
- {
- 	struct intel_pt *pt = ptq->pt;
- 	union perf_event *event = ptq->event_buf;
--	struct perf_sample sample = { .ip = 0, };
-+	struct perf_sample sample;
- 	u64 period = 0;
-+	int ret;
- 
- 	if (ptq->sample_ipc)
- 		period = ptq->ipc_cyc_cnt - ptq->last_cy_cyc_cnt;
-@@ -1876,6 +1885,7 @@ static int intel_pt_synth_cycle_sample(struct intel_pt_queue *ptq)
- 	if (!period || intel_pt_skip_event(pt))
- 		return 0;
- 
-+	perf_sample__init(&sample, /*all=*/true);
- 	intel_pt_prep_sample(pt, ptq, event, &sample);
- 
- 	sample.id = ptq->pt->cycles_id;
-@@ -1887,25 +1897,31 @@ static int intel_pt_synth_cycle_sample(struct intel_pt_queue *ptq)
- 	ptq->last_cy_insn_cnt = ptq->ipc_insn_cnt;
- 	ptq->last_cy_cyc_cnt = ptq->ipc_cyc_cnt;
- 
--	return intel_pt_deliver_synth_event(pt, event, &sample, pt->cycles_sample_type);
-+	ret = intel_pt_deliver_synth_event(pt, event, &sample, pt->cycles_sample_type);
-+	perf_sample__exit(&sample);
-+	return ret;
- }
- 
- static int intel_pt_synth_transaction_sample(struct intel_pt_queue *ptq)
- {
- 	struct intel_pt *pt = ptq->pt;
- 	union perf_event *event = ptq->event_buf;
--	struct perf_sample sample = { .ip = 0, };
-+	struct perf_sample sample;
-+	int ret;
- 
- 	if (intel_pt_skip_event(pt))
- 		return 0;
- 
-+	perf_sample__init(&sample, /*all=*/true);
- 	intel_pt_prep_sample(pt, ptq, event, &sample);
- 
- 	sample.id = ptq->pt->transactions_id;
- 	sample.stream_id = ptq->pt->transactions_id;
- 
--	return intel_pt_deliver_synth_event(pt, event, &sample,
--					    pt->transactions_sample_type);
-+	ret = intel_pt_deliver_synth_event(pt, event, &sample,
-+					   pt->transactions_sample_type);
-+	perf_sample__exit(&sample);
-+	return ret;
- }
- 
- static void intel_pt_prep_p_sample(struct intel_pt *pt,
-@@ -1953,15 +1969,17 @@ static int intel_pt_synth_cbr_sample(struct intel_pt_queue *ptq)
- {
- 	struct intel_pt *pt = ptq->pt;
- 	union perf_event *event = ptq->event_buf;
--	struct perf_sample sample = { .ip = 0, };
-+	struct perf_sample sample;
- 	struct perf_synth_intel_cbr raw;
- 	u32 flags;
-+	int ret;
- 
- 	if (intel_pt_skip_cbr_event(pt))
- 		return 0;
- 
- 	ptq->cbr_seen = ptq->state->cbr;
- 
-+	perf_sample__init(&sample, /*all=*/true);
- 	intel_pt_prep_p_sample(pt, ptq, event, &sample);
- 
- 	sample.id = ptq->pt->cbr_id;
-@@ -1975,20 +1993,24 @@ static int intel_pt_synth_cbr_sample(struct intel_pt_queue *ptq)
- 	sample.raw_size = perf_synth__raw_size(raw);
- 	sample.raw_data = perf_synth__raw_data(&raw);
- 
--	return intel_pt_deliver_synth_event(pt, event, &sample,
--					    pt->pwr_events_sample_type);
-+	ret = intel_pt_deliver_synth_event(pt, event, &sample,
-+					   pt->pwr_events_sample_type);
-+	perf_sample__exit(&sample);
-+	return ret;
- }
- 
- static int intel_pt_synth_psb_sample(struct intel_pt_queue *ptq)
- {
- 	struct intel_pt *pt = ptq->pt;
- 	union perf_event *event = ptq->event_buf;
--	struct perf_sample sample = { .ip = 0, };
-+	struct perf_sample sample;
- 	struct perf_synth_intel_psb raw;
-+	int ret;
- 
- 	if (intel_pt_skip_event(pt))
- 		return 0;
- 
-+	perf_sample__init(&sample, /*all=*/true);
- 	intel_pt_prep_p_sample(pt, ptq, event, &sample);
- 
- 	sample.id = ptq->pt->psb_id;
-@@ -2001,20 +2023,24 @@ static int intel_pt_synth_psb_sample(struct intel_pt_queue *ptq)
- 	sample.raw_size = perf_synth__raw_size(raw);
- 	sample.raw_data = perf_synth__raw_data(&raw);
- 
--	return intel_pt_deliver_synth_event(pt, event, &sample,
--					    pt->pwr_events_sample_type);
-+	ret = intel_pt_deliver_synth_event(pt, event, &sample,
-+					   pt->pwr_events_sample_type);
-+	perf_sample__exit(&sample);
-+	return ret;
- }
- 
- static int intel_pt_synth_mwait_sample(struct intel_pt_queue *ptq)
- {
- 	struct intel_pt *pt = ptq->pt;
- 	union perf_event *event = ptq->event_buf;
--	struct perf_sample sample = { .ip = 0, };
-+	struct perf_sample sample;
- 	struct perf_synth_intel_mwait raw;
-+	int ret;
- 
- 	if (intel_pt_skip_event(pt))
- 		return 0;
- 
-+	perf_sample__init(&sample, /*all=*/true);
- 	intel_pt_prep_p_sample(pt, ptq, event, &sample);
- 
- 	sample.id = ptq->pt->mwait_id;
-@@ -2026,20 +2052,24 @@ static int intel_pt_synth_mwait_sample(struct intel_pt_queue *ptq)
- 	sample.raw_size = perf_synth__raw_size(raw);
- 	sample.raw_data = perf_synth__raw_data(&raw);
- 
--	return intel_pt_deliver_synth_event(pt, event, &sample,
--					    pt->pwr_events_sample_type);
-+	ret = intel_pt_deliver_synth_event(pt, event, &sample,
-+					   pt->pwr_events_sample_type);
-+	perf_sample__exit(&sample);
-+	return ret;
- }
- 
- static int intel_pt_synth_pwre_sample(struct intel_pt_queue *ptq)
- {
- 	struct intel_pt *pt = ptq->pt;
- 	union perf_event *event = ptq->event_buf;
--	struct perf_sample sample = { .ip = 0, };
-+	struct perf_sample sample;
- 	struct perf_synth_intel_pwre raw;
-+	int ret;
- 
- 	if (intel_pt_skip_event(pt))
- 		return 0;
- 
-+	perf_sample__init(&sample, /*all=*/true);
- 	intel_pt_prep_p_sample(pt, ptq, event, &sample);
- 
- 	sample.id = ptq->pt->pwre_id;
-@@ -2051,20 +2081,24 @@ static int intel_pt_synth_pwre_sample(struct intel_pt_queue *ptq)
- 	sample.raw_size = perf_synth__raw_size(raw);
- 	sample.raw_data = perf_synth__raw_data(&raw);
- 
--	return intel_pt_deliver_synth_event(pt, event, &sample,
--					    pt->pwr_events_sample_type);
-+	ret = intel_pt_deliver_synth_event(pt, event, &sample,
-+					   pt->pwr_events_sample_type);
-+	perf_sample__exit(&sample);
-+	return ret;
- }
- 
- static int intel_pt_synth_exstop_sample(struct intel_pt_queue *ptq)
- {
- 	struct intel_pt *pt = ptq->pt;
- 	union perf_event *event = ptq->event_buf;
--	struct perf_sample sample = { .ip = 0, };
-+	struct perf_sample sample;
- 	struct perf_synth_intel_exstop raw;
-+	int ret;
- 
- 	if (intel_pt_skip_event(pt))
- 		return 0;
- 
-+	perf_sample__init(&sample, /*all=*/true);
- 	intel_pt_prep_p_sample(pt, ptq, event, &sample);
- 
- 	sample.id = ptq->pt->exstop_id;
-@@ -2076,20 +2110,24 @@ static int intel_pt_synth_exstop_sample(struct intel_pt_queue *ptq)
- 	sample.raw_size = perf_synth__raw_size(raw);
- 	sample.raw_data = perf_synth__raw_data(&raw);
- 
--	return intel_pt_deliver_synth_event(pt, event, &sample,
--					    pt->pwr_events_sample_type);
-+	ret = intel_pt_deliver_synth_event(pt, event, &sample,
-+					   pt->pwr_events_sample_type);
-+	perf_sample__exit(&sample);
-+	return ret;
- }
- 
- static int intel_pt_synth_pwrx_sample(struct intel_pt_queue *ptq)
- {
- 	struct intel_pt *pt = ptq->pt;
- 	union perf_event *event = ptq->event_buf;
--	struct perf_sample sample = { .ip = 0, };
-+	struct perf_sample sample;
- 	struct perf_synth_intel_pwrx raw;
-+	int ret;
- 
- 	if (intel_pt_skip_event(pt))
- 		return 0;
- 
-+	perf_sample__init(&sample, /*all=*/true);
- 	intel_pt_prep_p_sample(pt, ptq, event, &sample);
- 
- 	sample.id = ptq->pt->pwrx_id;
-@@ -2101,8 +2139,10 @@ static int intel_pt_synth_pwrx_sample(struct intel_pt_queue *ptq)
- 	sample.raw_size = perf_synth__raw_size(raw);
- 	sample.raw_data = perf_synth__raw_data(&raw);
- 
--	return intel_pt_deliver_synth_event(pt, event, &sample,
--					    pt->pwr_events_sample_type);
-+	ret = intel_pt_deliver_synth_event(pt, event, &sample,
-+					   pt->pwr_events_sample_type);
-+	perf_sample__exit(&sample);
-+	return ret;
- }
- 
- /*
-@@ -2235,16 +2275,18 @@ static void intel_pt_add_lbrs(struct branch_stack *br_stack,
- static int intel_pt_do_synth_pebs_sample(struct intel_pt_queue *ptq, struct evsel *evsel, u64 id)
- {
- 	const struct intel_pt_blk_items *items = &ptq->state->items;
--	struct perf_sample sample = { .ip = 0, };
-+	struct perf_sample sample;
- 	union perf_event *event = ptq->event_buf;
- 	struct intel_pt *pt = ptq->pt;
- 	u64 sample_type = evsel->core.attr.sample_type;
- 	u8 cpumode;
--	u64 regs[8 * sizeof(sample.intr_regs.mask)];
-+	u64 regs[8 * sizeof(sample.intr_regs->mask)];
-+	int ret;
- 
- 	if (intel_pt_skip_event(pt))
- 		return 0;
- 
-+	perf_sample__init(&sample, /*all=*/true);
- 	intel_pt_prep_a_sample(ptq, event, &sample);
- 
- 	sample.id = id;
-@@ -2291,15 +2333,16 @@ static int intel_pt_do_synth_pebs_sample(struct intel_pt_queue *ptq, struct evse
- 	     items->mask[INTEL_PT_XMM_POS])) {
- 		u64 regs_mask = evsel->core.attr.sample_regs_intr;
- 		u64 *pos;
-+		struct regs_dump *intr_regs = perf_sample__intr_regs(&sample);
- 
--		sample.intr_regs.abi = items->is_32_bit ?
-+		intr_regs->abi = items->is_32_bit ?
- 				       PERF_SAMPLE_REGS_ABI_32 :
- 				       PERF_SAMPLE_REGS_ABI_64;
--		sample.intr_regs.regs = regs;
-+		intr_regs->regs = regs;
- 
--		pos = intel_pt_add_gp_regs(&sample.intr_regs, regs, items, regs_mask);
-+		pos = intel_pt_add_gp_regs(intr_regs, regs, items, regs_mask);
- 
--		intel_pt_add_xmm(&sample.intr_regs, pos, items, regs_mask);
-+		intel_pt_add_xmm(intr_regs, pos, items, regs_mask);
- 	}
- 
- 	if (sample_type & PERF_SAMPLE_BRANCH_STACK) {
-@@ -2361,7 +2404,9 @@ static int intel_pt_do_synth_pebs_sample(struct intel_pt_queue *ptq, struct evse
- 		sample.transaction = txn;
- 	}
- 
--	return intel_pt_deliver_synth_event(pt, event, &sample, sample_type);
-+	ret = intel_pt_deliver_synth_event(pt, event, &sample, sample_type);
-+	perf_sample__exit(&sample);
-+	return ret;
- }
- 
- static int intel_pt_synth_single_pebs_sample(struct intel_pt_queue *ptq)
-@@ -2407,16 +2452,17 @@ static int intel_pt_synth_events_sample(struct intel_pt_queue *ptq)
- {
- 	struct intel_pt *pt = ptq->pt;
- 	union perf_event *event = ptq->event_buf;
--	struct perf_sample sample = { .ip = 0, };
-+	struct perf_sample sample;
- 	struct {
- 		struct perf_synth_intel_evt cfe;
- 		struct perf_synth_intel_evd evd[INTEL_PT_MAX_EVDS];
- 	} raw;
--	int i;
-+	int i, ret;
- 
- 	if (intel_pt_skip_event(pt))
- 		return 0;
- 
-+	perf_sample__init(&sample, /*all=*/true);
- 	intel_pt_prep_p_sample(pt, ptq, event, &sample);
- 
- 	sample.id        = ptq->pt->evt_id;
-@@ -2438,20 +2484,24 @@ static int intel_pt_synth_events_sample(struct intel_pt_queue *ptq)
- 			  ptq->state->evd_cnt * sizeof(struct perf_synth_intel_evd);
- 	sample.raw_data = perf_synth__raw_data(&raw);
- 
--	return intel_pt_deliver_synth_event(pt, event, &sample,
--					    pt->evt_sample_type);
-+	ret = intel_pt_deliver_synth_event(pt, event, &sample,
-+					   pt->evt_sample_type);
-+	perf_sample__exit(&sample);
-+	return ret;
- }
- 
- static int intel_pt_synth_iflag_chg_sample(struct intel_pt_queue *ptq)
- {
- 	struct intel_pt *pt = ptq->pt;
- 	union perf_event *event = ptq->event_buf;
--	struct perf_sample sample = { .ip = 0, };
-+	struct perf_sample sample;
- 	struct perf_synth_intel_iflag_chg raw;
-+	int ret;
- 
- 	if (intel_pt_skip_event(pt))
- 		return 0;
- 
-+	perf_sample__init(&sample, /*all=*/true);
- 	intel_pt_prep_p_sample(pt, ptq, event, &sample);
- 
- 	sample.id = ptq->pt->iflag_chg_id;
-@@ -2471,8 +2521,10 @@ static int intel_pt_synth_iflag_chg_sample(struct intel_pt_queue *ptq)
- 	sample.raw_size = perf_synth__raw_size(raw);
- 	sample.raw_data = perf_synth__raw_data(&raw);
- 
--	return intel_pt_deliver_synth_event(pt, event, &sample,
--					    pt->iflag_chg_sample_type);
-+	ret = intel_pt_deliver_synth_event(pt, event, &sample,
-+					   pt->iflag_chg_sample_type);
-+	perf_sample__exit(&sample);
-+	return ret;
- }
- 
- static int intel_pt_synth_error(struct intel_pt *pt, int code, int cpu,
-diff --git a/tools/perf/util/jitdump.c b/tools/perf/util/jitdump.c
-index f23e21502bf8..624964f01b5f 100644
---- a/tools/perf/util/jitdump.c
-+++ b/tools/perf/util/jitdump.c
-@@ -516,7 +516,7 @@ static int jit_repipe_code_load(struct jit_buf_desc *jd, union jr_entry *jr)
- 	 * create pseudo sample to induce dso hit increment
- 	 * use first address as sample address
- 	 */
--	memset(&sample, 0, sizeof(sample));
-+	perf_sample__init(&sample, /*all=*/true);
- 	sample.cpumode = PERF_RECORD_MISC_USER;
- 	sample.pid  = pid;
- 	sample.tid  = tid;
-@@ -535,6 +535,7 @@ static int jit_repipe_code_load(struct jit_buf_desc *jd, union jr_entry *jr)
- 		build_id__mark_dso_hit(tool, event, &sample, NULL, jd->machine);
- 
- out:
-+	perf_sample__exit(&sample);
- 	free(event);
- 	return ret;
- }
-@@ -611,7 +612,7 @@ static int jit_repipe_code_move(struct jit_buf_desc *jd, union jr_entry *jr)
- 	 * create pseudo sample to induce dso hit increment
- 	 * use first address as sample address
- 	 */
--	memset(&sample, 0, sizeof(sample));
-+	perf_sample__init(&sample, /*all=*/true);
- 	sample.cpumode = PERF_RECORD_MISC_USER;
- 	sample.pid  = pid;
- 	sample.tid  = tid;
-@@ -620,12 +621,13 @@ static int jit_repipe_code_move(struct jit_buf_desc *jd, union jr_entry *jr)
- 
- 	ret = perf_event__process_mmap2(tool, event, &sample, jd->machine);
- 	if (ret)
--		return ret;
-+		goto out;
- 
- 	ret = jit_inject_event(jd, event);
- 	if (!ret)
- 		build_id__mark_dso_hit(tool, event, &sample, NULL, jd->machine);
--
-+out:
-+	perf_sample__exit(&sample);
- 	return ret;
- }
- 
-diff --git a/tools/perf/util/machine.c b/tools/perf/util/machine.c
-index 2d51badfbf2e..29903f805645 100644
---- a/tools/perf/util/machine.c
-+++ b/tools/perf/util/machine.c
-@@ -2929,8 +2929,8 @@ static int thread__resolve_callchain_unwind(struct thread *thread,
- 		return 0;
- 
- 	/* Bail out if nothing was captured. */
--	if ((!sample->user_regs.regs) ||
--	    (!sample->user_stack.size))
-+	if (!sample->user_regs || !sample->user_regs->regs ||
-+	    !sample->user_stack.size)
- 		return 0;
- 
- 	if (!symbols)
-diff --git a/tools/perf/util/python.c b/tools/perf/util/python.c
-index b4bc57859f73..e2b9032c1311 100644
---- a/tools/perf/util/python.c
-+++ b/tools/perf/util/python.c
-@@ -270,6 +270,12 @@ static PyMemberDef pyrf_sample_event__members[] = {
- 	{ .name = NULL, },
- };
- 
-+static void pyrf_sample_event__delete(struct pyrf_event *pevent)
-+{
-+	perf_sample__exit(&pevent->sample);
-+	Py_TYPE(pevent)->tp_free((PyObject*)pevent);
-+}
-+
- static PyObject *pyrf_sample_event__repr(const struct pyrf_event *pevent)
- {
- 	PyObject *ret;
-@@ -428,6 +434,9 @@ static int pyrf_event__setup_types(void)
- 	pyrf_sample_event__type.tp_new =
- 	pyrf_context_switch_event__type.tp_new =
- 	pyrf_throttle_event__type.tp_new = PyType_GenericNew;
-+
-+	pyrf_sample_event__type.tp_dealloc = (destructor)pyrf_sample_event__delete,
-+
- 	err = PyType_Ready(&pyrf_mmap_event__type);
- 	if (err < 0)
- 		goto out;
-diff --git a/tools/perf/util/s390-cpumsf.c b/tools/perf/util/s390-cpumsf.c
-index 30638653ad2d..0ce52f0280b8 100644
---- a/tools/perf/util/s390-cpumsf.c
-+++ b/tools/perf/util/s390-cpumsf.c
-@@ -513,6 +513,7 @@ static bool s390_cpumsf_make_event(size_t pos,
- 				.period = 1
- 			    };
- 	union perf_event event;
-+	int ret;
- 
- 	memset(&event, 0, sizeof(event));
- 	if (basic->CL == 1)	/* Native LPAR mode */
-@@ -536,8 +537,9 @@ static bool s390_cpumsf_make_event(size_t pos,
- 	pr_debug4("%s pos:%#zx ip:%#" PRIx64 " P:%d CL:%d pid:%d.%d cpumode:%d cpu:%d\n",
- 		 __func__, pos, sample.ip, basic->P, basic->CL, sample.pid,
- 		 sample.tid, sample.cpumode, sample.cpu);
--	if (perf_session__deliver_synth_event(sfq->sf->session, &event,
--					      &sample)) {
-+	ret = perf_session__deliver_synth_event(sfq->sf->session, &event, &sample);
-+	perf_sample__exit(&sample);
-+	if (ret) {
- 		pr_err("s390 Auxiliary Trace: failed to deliver event\n");
- 		return false;
- 	}
-diff --git a/tools/perf/util/sample.c b/tools/perf/util/sample.c
-new file mode 100644
-index 000000000000..605fee971f55
---- /dev/null
-+++ b/tools/perf/util/sample.c
-@@ -0,0 +1,43 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#include "sample.h"
-+#include "debug.h"
-+#include <linux/zalloc.h>
-+#include <stdlib.h>
-+#include <string.h>
-+
-+void perf_sample__init(struct perf_sample *sample, bool all)
-+{
-+	if (all) {
-+		memset(sample, 0, sizeof(*sample));
-+	} else {
-+		sample->user_regs = NULL;
-+		sample->intr_regs = NULL;
-+	}
-+}
-+
-+void perf_sample__exit(struct perf_sample *sample)
-+{
-+	free(sample->user_regs);
-+	free(sample->intr_regs);
-+}
-+
-+struct regs_dump *perf_sample__user_regs(struct perf_sample *sample)
-+{
-+	if (!sample->user_regs) {
-+		sample->user_regs = zalloc(sizeof(*sample->user_regs));
-+		if (!sample->user_regs)
-+			pr_err("Failure to allocate sample user_regs");
-+	}
-+	return sample->user_regs;
-+}
-+
-+
-+struct regs_dump *perf_sample__intr_regs(struct perf_sample *sample)
-+{
-+	if (!sample->intr_regs) {
-+		sample->intr_regs = zalloc(sizeof(*sample->intr_regs));
-+		if (!sample->intr_regs)
-+			pr_err("Failure to allocate sample intr_regs");
-+	}
-+	return sample->intr_regs;
-+}
-diff --git a/tools/perf/util/sample.h b/tools/perf/util/sample.h
-index 70b2c3135555..bbf71e6406c4 100644
---- a/tools/perf/util/sample.h
-+++ b/tools/perf/util/sample.h
-@@ -114,14 +114,19 @@ struct perf_sample {
- 	struct ip_callchain *callchain;
- 	struct branch_stack *branch_stack;
- 	u64 *branch_stack_cntr;
--	struct regs_dump  user_regs;
--	struct regs_dump  intr_regs;
-+	struct regs_dump  *user_regs;
-+	struct regs_dump  *intr_regs;
- 	struct stack_dump user_stack;
- 	struct sample_read read;
- 	struct aux_sample aux_sample;
- 	struct simd_flags simd_flags;
- };
- 
-+void perf_sample__init(struct perf_sample *sample, bool all);
-+void perf_sample__exit(struct perf_sample *sample);
-+struct regs_dump *perf_sample__user_regs(struct perf_sample *sample);
-+struct regs_dump *perf_sample__intr_regs(struct perf_sample *sample);
-+
- /*
-  * raw_data is always 4 bytes from an 8-byte boundary, so subtract 4 to get
-  * 8-byte alignment.
-diff --git a/tools/perf/util/scripting-engines/trace-event-python.c b/tools/perf/util/scripting-engines/trace-event-python.c
-index b1b5e94537e4..520729e78965 100644
---- a/tools/perf/util/scripting-engines/trace-event-python.c
-+++ b/tools/perf/util/scripting-engines/trace-event-python.c
-@@ -745,19 +745,30 @@ static int set_regs_in_dict(PyObject *dict,
- 	const char *arch = perf_env__arch(evsel__env(evsel));
- 
- 	int size = (__sw_hweight64(attr->sample_regs_intr) * MAX_REG_SIZE) + 1;
--	char *bf = malloc(size);
--	if (!bf)
--		return -1;
-+	char *bf = NULL;
- 
--	regs_map(&sample->intr_regs, attr->sample_regs_intr, arch, bf, size);
-+	if (sample->intr_regs) {
-+		bf = malloc(size);
-+		if (!bf)
-+			return -1;
- 
--	pydict_set_item_string_decref(dict, "iregs",
--			_PyUnicode_FromString(bf));
-+		regs_map(sample->intr_regs, attr->sample_regs_intr, arch, bf, size);
- 
--	regs_map(&sample->user_regs, attr->sample_regs_user, arch, bf, size);
-+		pydict_set_item_string_decref(dict, "iregs",
-+					_PyUnicode_FromString(bf));
-+	}
- 
--	pydict_set_item_string_decref(dict, "uregs",
--			_PyUnicode_FromString(bf));
-+	if (sample->user_regs) {
-+		if (!bf) {
-+			bf = malloc(size);
-+			if (!bf)
-+				return -1;
-+		}
-+		regs_map(sample->user_regs, attr->sample_regs_user, arch, bf, size);
-+
-+		pydict_set_item_string_decref(dict, "uregs",
-+					_PyUnicode_FromString(bf));
-+	}
- 	free(bf);
- 
- 	return 0;
-diff --git a/tools/perf/util/session.c b/tools/perf/util/session.c
-index c06e3020a976..c35b7e8ad51f 100644
---- a/tools/perf/util/session.c
-+++ b/tools/perf/util/session.c
-@@ -950,7 +950,12 @@ static void regs__printf(const char *type, struct regs_dump *regs, const char *a
- 
- static void regs_user__printf(struct perf_sample *sample, const char *arch)
- {
--	struct regs_dump *user_regs = &sample->user_regs;
-+	struct regs_dump *user_regs;
-+
-+	if (!sample->user_regs)
-+		return;
-+
-+	user_regs = perf_sample__user_regs(sample);
- 
- 	if (user_regs->regs)
- 		regs__printf("user", user_regs, arch);
-@@ -958,7 +963,12 @@ static void regs_user__printf(struct perf_sample *sample, const char *arch)
- 
- static void regs_intr__printf(struct perf_sample *sample, const char *arch)
- {
--	struct regs_dump *intr_regs = &sample->intr_regs;
-+	struct regs_dump *intr_regs;
-+
-+	if (!sample->intr_regs)
-+		return;
-+
-+	intr_regs = perf_sample__intr_regs(sample);
- 
- 	if (intr_regs->regs)
- 		regs__printf("intr", intr_regs, arch);
-@@ -1351,25 +1361,30 @@ static int perf_session__deliver_event(struct perf_session *session,
- 				       const char *file_path)
- {
- 	struct perf_sample sample;
--	int ret = evlist__parse_sample(session->evlist, event, &sample);
-+	int ret;
- 
-+	perf_sample__init(&sample, /*all=*/false);
-+	ret = evlist__parse_sample(session->evlist, event, &sample);
- 	if (ret) {
- 		pr_err("Can't parse sample, err = %d\n", ret);
--		return ret;
-+		goto out;
- 	}
- 
- 	ret = auxtrace__process_event(session, event, &sample, tool);
- 	if (ret < 0)
--		return ret;
--	if (ret > 0)
--		return 0;
-+		goto out;
-+	if (ret > 0) {
-+		ret = 0;
-+		goto out;
-+	}
- 
- 	ret = machines__deliver_event(&session->machines, session->evlist,
- 				      event, &sample, tool, file_offset, file_path);
- 
- 	if (dump_trace && sample.aux_sample.size)
- 		auxtrace__dump_auxtrace_sample(session, &sample);
--
-+out:
-+	perf_sample__exit(&sample);
- 	return ret;
- }
- 
-@@ -1380,10 +1395,11 @@ static s64 perf_session__process_user_event(struct perf_session *session,
- {
- 	struct ordered_events *oe = &session->ordered_events;
- 	const struct perf_tool *tool = session->tool;
--	struct perf_sample sample = { .time = 0, };
-+	struct perf_sample sample;
- 	int fd = perf_data__fd(session->data);
- 	int err;
- 
-+	perf_sample__init(&sample, /*all=*/true);
- 	if (event->header.type != PERF_RECORD_COMPRESSED || perf_tool__compressed_is_stub(tool))
- 		dump_event(session->evlist, event, file_offset, &sample, file_path);
- 
-@@ -1395,15 +1411,17 @@ static s64 perf_session__process_user_event(struct perf_session *session,
- 			perf_session__set_id_hdr_size(session);
- 			perf_session__set_comm_exec(session);
- 		}
--		return err;
-+		break;
- 	case PERF_RECORD_EVENT_UPDATE:
--		return tool->event_update(tool, event, &session->evlist);
-+		err = tool->event_update(tool, event, &session->evlist);
-+		break;
- 	case PERF_RECORD_HEADER_EVENT_TYPE:
- 		/*
- 		 * Deprecated, but we need to handle it for sake
- 		 * of old data files create in pipe mode.
- 		 */
--		return 0;
-+		err = 0;
-+		break;
- 	case PERF_RECORD_HEADER_TRACING_DATA:
- 		/*
- 		 * Setup for reading amidst mmap, but only when we
-@@ -1412,15 +1430,20 @@ static s64 perf_session__process_user_event(struct perf_session *session,
- 		 */
- 		if (!perf_data__is_pipe(session->data))
- 			lseek(fd, file_offset, SEEK_SET);
--		return tool->tracing_data(session, event);
-+		err = tool->tracing_data(session, event);
-+		break;
- 	case PERF_RECORD_HEADER_BUILD_ID:
--		return tool->build_id(session, event);
-+		err = tool->build_id(session, event);
-+		break;
- 	case PERF_RECORD_FINISHED_ROUND:
--		return tool->finished_round(tool, event, oe);
-+		err = tool->finished_round(tool, event, oe);
-+		break;
- 	case PERF_RECORD_ID_INDEX:
--		return tool->id_index(session, event);
-+		err = tool->id_index(session, event);
-+		break;
- 	case PERF_RECORD_AUXTRACE_INFO:
--		return tool->auxtrace_info(session, event);
-+		err = tool->auxtrace_info(session, event);
-+		break;
- 	case PERF_RECORD_AUXTRACE:
- 		/*
- 		 * Setup for reading amidst mmap, but only when we
-@@ -1429,35 +1452,48 @@ static s64 perf_session__process_user_event(struct perf_session *session,
- 		 */
- 		if (!perf_data__is_pipe(session->data))
- 			lseek(fd, file_offset + event->header.size, SEEK_SET);
--		return tool->auxtrace(session, event);
-+		err = tool->auxtrace(session, event);
-+		break;
- 	case PERF_RECORD_AUXTRACE_ERROR:
- 		perf_session__auxtrace_error_inc(session, event);
--		return tool->auxtrace_error(session, event);
-+		err = tool->auxtrace_error(session, event);
-+		break;
- 	case PERF_RECORD_THREAD_MAP:
--		return tool->thread_map(session, event);
-+		err = tool->thread_map(session, event);
-+		break;
- 	case PERF_RECORD_CPU_MAP:
--		return tool->cpu_map(session, event);
-+		err = tool->cpu_map(session, event);
-+		break;
- 	case PERF_RECORD_STAT_CONFIG:
--		return tool->stat_config(session, event);
-+		err = tool->stat_config(session, event);
-+		break;
- 	case PERF_RECORD_STAT:
--		return tool->stat(session, event);
-+		err = tool->stat(session, event);
-+		break;
- 	case PERF_RECORD_STAT_ROUND:
--		return tool->stat_round(session, event);
-+		err = tool->stat_round(session, event);
-+		break;
- 	case PERF_RECORD_TIME_CONV:
- 		session->time_conv = event->time_conv;
--		return tool->time_conv(session, event);
-+		err = tool->time_conv(session, event);
-+		break;
- 	case PERF_RECORD_HEADER_FEATURE:
--		return tool->feature(session, event);
-+		err = tool->feature(session, event);
-+		break;
- 	case PERF_RECORD_COMPRESSED:
- 		err = tool->compressed(session, event, file_offset, file_path);
- 		if (err)
- 			dump_event(session->evlist, event, file_offset, &sample, file_path);
--		return err;
-+		break;
- 	case PERF_RECORD_FINISHED_INIT:
--		return tool->finished_init(session, event);
-+		err = tool->finished_init(session, event);
-+		break;
- 	default:
--		return -EINVAL;
-+		err = -EINVAL;
-+		break;
- 	}
-+	perf_sample__exit(&sample);
-+	return err;
- }
- 
- int perf_session__deliver_synth_event(struct perf_session *session,
-diff --git a/tools/perf/util/synthetic-events.c b/tools/perf/util/synthetic-events.c
-index 6923b0d5efed..2dfc4260d36d 100644
---- a/tools/perf/util/synthetic-events.c
-+++ b/tools/perf/util/synthetic-events.c
-@@ -1508,9 +1508,9 @@ size_t perf_event__sample_event_size(const struct perf_sample *sample, u64 type,
- 	}
- 
- 	if (type & PERF_SAMPLE_REGS_USER) {
--		if (sample->user_regs.abi) {
-+		if (sample->user_regs && sample->user_regs->abi) {
- 			result += sizeof(u64);
--			sz = hweight64(sample->user_regs.mask) * sizeof(u64);
-+			sz = hweight64(sample->user_regs->mask) * sizeof(u64);
- 			result += sz;
- 		} else {
- 			result += sizeof(u64);
-@@ -1536,9 +1536,9 @@ size_t perf_event__sample_event_size(const struct perf_sample *sample, u64 type,
- 		result += sizeof(u64);
- 
- 	if (type & PERF_SAMPLE_REGS_INTR) {
--		if (sample->intr_regs.abi) {
-+		if (sample->intr_regs && sample->intr_regs->abi) {
- 			result += sizeof(u64);
--			sz = hweight64(sample->intr_regs.mask) * sizeof(u64);
-+			sz = hweight64(sample->intr_regs->mask) * sizeof(u64);
- 			result += sz;
- 		} else {
- 			result += sizeof(u64);
-@@ -1707,10 +1707,10 @@ int perf_event__synthesize_sample(union perf_event *event, u64 type, u64 read_fo
- 	}
- 
- 	if (type & PERF_SAMPLE_REGS_USER) {
--		if (sample->user_regs.abi) {
--			*array++ = sample->user_regs.abi;
--			sz = hweight64(sample->user_regs.mask) * sizeof(u64);
--			memcpy(array, sample->user_regs.regs, sz);
-+		if (sample->user_regs && sample->user_regs->abi) {
-+			*array++ = sample->user_regs->abi;
-+			sz = hweight64(sample->user_regs->mask) * sizeof(u64);
-+			memcpy(array, sample->user_regs->regs, sz);
- 			array = (void *)array + sz;
- 		} else {
- 			*array++ = 0;
-@@ -1743,10 +1743,10 @@ int perf_event__synthesize_sample(union perf_event *event, u64 type, u64 read_fo
- 	}
- 
- 	if (type & PERF_SAMPLE_REGS_INTR) {
--		if (sample->intr_regs.abi) {
--			*array++ = sample->intr_regs.abi;
--			sz = hweight64(sample->intr_regs.mask) * sizeof(u64);
--			memcpy(array, sample->intr_regs.regs, sz);
-+		if (sample->intr_regs && sample->intr_regs->abi) {
-+			*array++ = sample->intr_regs->abi;
-+			sz = hweight64(sample->intr_regs->mask) * sizeof(u64);
-+			memcpy(array, sample->intr_regs->regs, sz);
- 			array = (void *)array + sz;
- 		} else {
- 			*array++ = 0;
-diff --git a/tools/perf/util/unwind-libdw.c b/tools/perf/util/unwind-libdw.c
-index bde216e630d2..793d11832694 100644
---- a/tools/perf/util/unwind-libdw.c
-+++ b/tools/perf/util/unwind-libdw.c
-@@ -190,7 +190,10 @@ static bool memory_read(Dwfl *dwfl __maybe_unused, Dwarf_Addr addr, Dwarf_Word *
- 	int offset;
- 	int ret;
- 
--	ret = perf_reg_value(&start, &ui->sample->user_regs,
-+	if (!ui->sample->user_regs)
-+		return false;
-+
-+	ret = perf_reg_value(&start, ui->sample->user_regs,
- 			     perf_arch_reg_sp(arch));
- 	if (ret)
- 		return false;
-@@ -273,7 +276,7 @@ int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
- 	Dwarf_Word ip;
- 	int err = -EINVAL, i;
- 
--	if (!data->user_regs.regs)
-+	if (!data->user_regs || !data->user_regs->regs)
- 		return -EINVAL;
- 
- 	ui = zalloc(sizeof(ui_buf) + sizeof(ui_buf.entries[0]) * max_stack);
-@@ -286,7 +289,7 @@ int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
- 	if (!ui->dwfl)
- 		goto out;
- 
--	err = perf_reg_value(&ip, &data->user_regs, perf_arch_reg_ip(arch));
-+	err = perf_reg_value(&ip, data->user_regs, perf_arch_reg_ip(arch));
- 	if (err)
- 		goto out;
- 
--- 
-2.47.1.688.g23fc6f90ad-goog
+Yea, I thought about that. The tricky thing is that the header will
+be a core-level header pairing with a driver-level vEVENTQ type and
+can never change its length, though we can define a 64-bit flag that
+can reserve the other 63 bits for future use?
 
+That being asked, this seems to be a better approach as user space
+can get the overflow flag while doing the read() that can potentially
+clear the overflow flag too, v.s. blocked until the last report().
+
+> > 2. Return EPOLLERR via pollfd.revents. But it cannot use POLLERR
+> > for other errors any more:
+> > --------------------------------------------------
+> > @@ -420,2 +421,4 @@ static __poll_t iommufd_eventq_fops_poll(struct file *filep,
+> >         poll_wait(filep, &eventq->wait_queue, wait);
+> > +       if (test_bit(IOMMUFD_VEVENTQ_ERROR_OVERFLOW, veventq->errors))
+> > +               return EPOLLERR;
+> >         mutex_lock(&eventq->mutex);
+> 
+> But then how do you clear the error? I've only seen POLLERR used for
+> fatal conditions so there is no recovery, it is permanent.
+
+Overflow means the queue has tons of events for user space to read(),
+so user space should read() to clear the error.
+
+I found this piece in eventfd manual, so was wondering if we can resue:
+https://man7.org/linux/man-pages/man2/eventfd.2.html
+              ?  If an overflow of the counter value was detected, then
+                 select(2) indicates the file descriptor as being both
+                 readable and writable, and poll(2) returns a POLLERR
+                 event.  As noted above, write(2) can never overflow the
+                 counter.  However an overflow can occur if 2^64 eventfd
+                 "signal posts" were performed by the KAIO subsystem
+                 (theoretically possible, but practically unlikely).  If
+                 an overflow has occurred, then read(2) will return that
+                 maximum uint64_t value (i.e., 0xffffffffffffffff).
+
+Thanks
+Nicolin
 
