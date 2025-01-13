@@ -4,72 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53754C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 19:24:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3B92C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 19:28:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WNN9EUj7l1rXOKEJZ+RQUOY7RfFLAGhX4k2AMpejsVs=; b=ejgo4+Pq1z4hbVCUqGGk5sHCqv
-	nLSBszDQbIwM4t2IuYiPJAqHlEXGmvrxdqxAEtA67GYD24N7j0UUe83/zk1sleRtC8MPzLHJn9H84
-	PjKNPZAqFnLEgSaJJ7FFgmTvVd4ZDsucstV6IlUV5SP0kbzfkv/VLUI3a2nnE+/UvfEzyMagOHewB
-	A+MmmjI1mEMsZworudW3H3DpQaNsCQrF3LYhv8ZLDDjNKO8DsPgmWQ8Ke99mdUl4AttUgcp1jOlGH
-	8JGrT749dkeVXvmjN1CBjIvv+eJKMvSkMlw4MkHJH9TfmNtYofvfBIYJK1Hs8I8umN09qTgPb7FrN
-	mvKxC0Tw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=9IwnQVbNfaB+ZNTJjHRlr8glhXVBJVzpCBXKFIrslYc=; b=b1ZireshdEfT5w
+	pAvookn4Mzirpt55GyIf59sHqGb/Yl1kMNw7frF3UBlyB/LW3WhoLW6On5EwpH/f8bboebv2RKqfC
+	DQVYTDVl/a4U7coVDY+DqffIsIS0anKpRpP5evt0vLzATrcgDZeU4chKRIxeTN64IkIVPuj0VvdSI
+	24xOWWdl8Uh19oHjg0OeyNX+7vW30c/tvoMKp/vf+ro3YwknrdvC+jaQbP6fb9NEzuvEKqxK04FI4
+	Y6Qru0FrdGTsgn/kx4I4wwHoI22WJaqVfa7D5UZBuC5bzjYOem3/5/zNhX59Blt6C6VCf3veNlkjO
+	mv5G0DKg4BAHlg4pqZng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXQ2z-00000006MqT-0WDd;
-	Mon, 13 Jan 2025 19:24:25 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tXQ76-00000006NbW-1J5K;
+	Mon, 13 Jan 2025 19:28:40 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXQ1G-00000006MUe-2cI0
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 19:22:39 +0000
+	id 1tXQ5r-00000006NFl-2Qrh;
+	Mon, 13 Jan 2025 19:27:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EA2365C5521;
-	Mon, 13 Jan 2025 19:21:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3415BC4CED6;
-	Mon, 13 Jan 2025 19:22:37 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id DD3ADA41328;
+	Mon, 13 Jan 2025 19:25:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9317FC4CED6;
+	Mon, 13 Jan 2025 19:27:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736796157;
-	bh=GYRl0JUZIQEqvO6vIvCY3c08OntyOFNpU1PBoZi0uB4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OZrTsEWcVJZhrWFOkubBdWS+o+oe3T/Oe90mZhFD1EKM6zKWBITjGnXAEr6OCIcnk
-	 FL18cswuKd2Aedr48cxyhG9PG4mJhUYERvMvYkQmnnnU39oUC2jePzKB8HA1hAHyvs
-	 v2Un/pY/53ikG5UaPl6zyF6leOC4XUxp9yT9SYA+nsj+dEhY45U9wfMRp1ngSV4rLQ
-	 /eJSx07dEwWnG6E9JP/gsJ5u92o3RsXW1erry8GEL28QBKYO2IEbZdXOd3xYMw9MY3
-	 qP5e9TeDu2NEzgSx3dV5kxVXVQwdv+PilroCIxx8U/uXHyRbNHa+aXVoap7ul3zHNt
-	 Wm6dlwnDnJg2w==
-Date: Mon, 13 Jan 2025 19:22:35 +0000
-From: Eric Biggers <ebiggers@kernel.org>
-To: =?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>,
-	Avri Altman <avri.altman@wdc.com>,
-	Bart Van Assche <bvanassche@acm.org>,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	"Martin K. Petersen" <martin.petersen@oracle.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
+	s=k20201202; t=1736796441;
+	bh=CjvjHO6S+8TLxs+4MjSObjN8IEm72lKwk6gKdw1AnX4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=SBBjA9YtHpIZAElZpnXG7eyfeQ47XnV2mrw7Y/If8zZYzI8PeuENl94vB2jeUoJnY
+	 CiIUpMTsmqzDqMGlRcbPenMZOXjlEwNutg5rBIpj9tRinHVXehfiNZIxjLero1PSAt
+	 YVEXx3MYLSUJbNpj4tIzDymbUCfohNWie4Cugfj9NsNZd+Uv0uUbWcWmRrRZH2d8RS
+	 J4+cMxU8CUP/HsaLwat+svRKSxflCFf6t39tCclPh0wZ8yRjxJrQo2su3DiQQr/80a
+	 HkJ/u3IdJsSHFRtJlcbtIIlHibWB/ZMWEWJjO7j5XjQmrmQbuQ5fJxOvLxaCs+nHR+
+	 HLTx8TXjhKJEQ==
+Date: Mon, 13 Jan 2025 13:27:20 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Niklas Cassel <cassel@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
 	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
-	linux-scsi@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH] scsi: ufs: pltfrm: fix use-after free in init error and
- remove paths
-Message-ID: <20250113192235.GA1800842@google.com>
-References: <20250113-ufshcd-fix-v1-1-ca63d1d4bd55@linaro.org>
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Damien Le Moal <dlemoal@kernel.org>,
+	Anand Moon <linux.amoon@gmail.com>, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Krishna chaitanya chundru <quic_krichai@quicinc.com>
+Subject: Re: [PATCH] PCI: dw-rockchip: Skip waiting for link up
+Message-ID: <20250113192720.GA414640@bhelgaas>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250113-ufshcd-fix-v1-1-ca63d1d4bd55@linaro.org>
+In-Reply-To: <20250113-rockchip-no-wait-v1-1-25417f37b92f@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_112238_745230_CD68809B 
-X-CRM114-Status: GOOD (  23.81  )
+X-CRM114-CacheID: sfid-20250113_112723_678162_E97F6CC9 
+X-CRM114-Status: GOOD (  21.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,111 +77,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 13, 2025 at 07:13:45PM +0000, André Draszik wrote:
-> devm_blk_crypto_profile_init() registers a cleanup handler to run when
-> the associated (platform-) device is being released. For UFS, the
-> crypto private data and pointers are stored as part of the ufs_hba's
-> data structure 'struct ufs_hba::crypto_profile'. This structure is
-> allocated as part of the underlying ufshd allocation.
+On Mon, Jan 13, 2025 at 11:59:34AM +0100, Niklas Cassel wrote:
+> The Root Complex specific device tree binding for pcie-dw-rockchip has the
+> 'sys' interrupt marked as required.
 > 
-> During driver release or during error handling in ufshcd_pltfrm_init(),
-> this structure is released as part of ufshcd_dealloc_host() before the
-> (platform-) device associated with the crypto call above is released.
-> Once this device is released, the crypto cleanup code will run, using
-> the just-released 'struct ufs_hba::crypto_profile'. This causes a
-> use-after-free situation:
+> The driver requests the 'sys' IRQ unconditionally, and errors out if not
+> provided.
 > 
->     exynos-ufshc 14700000.ufs: ufshcd_pltfrm_init() failed -11
->     exynos-ufshc 14700000.ufs: probe with driver exynos-ufshc failed with error -11
->     Unable to handle kernel paging request at virtual address 01adafad6dadad88
->     Mem abort info:
->       ESR = 0x0000000096000004
->       EC = 0x25: DABT (current EL), IL = 32 bits
->       SET = 0, FnV = 0
->       EA = 0, S1PTW = 0
->       FSC = 0x04: level 0 translation fault
->     Data abort info:
->       ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
->       CM = 0, WnR = 0, TnD = 0, TagAccess = 0
->       GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
->     [01adafad6dadad88] address between user and kernel address ranges
->     Internal error: Oops: 0000000096000004 [#1] PREEMPT SMP
->     Modules linked in:
->     CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Tainted: G        W          6.13.0-rc5-next-20250106+ #70
->     Tainted: [W]=WARN
->     Hardware name: Oriole (DT)
->     pstate: 20400005 (nzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
->     pc : kfree+0x60/0x2d8
->     lr : kvfree+0x44/0x60
->     sp : ffff80008009ba80
->     x29: ffff80008009ba90 x28: 0000000000000000 x27: ffffbcc6591e0130
->     x26: ffffbcc659309960 x25: ffffbcc658f89c50 x24: ffffbcc659539d80
->     x23: ffff22e000940040 x22: ffff22e001539010 x21: ffffbcc65714b22c
->     x20: 6b6b6b6b6b6b6b6b x19: 01adafad6dadad80 x18: 0000000000000000
->     x17: ffffbcc6579fbac8 x16: ffffbcc657a04300 x15: ffffbcc657a027f4
->     x14: ffffbcc656f969cc x13: ffffbcc6579fdc80 x12: ffffbcc6579fb194
->     x11: ffffbcc6579fbc34 x10: 0000000000000000 x9 : ffffbcc65714b22c
->     x8 : ffff80008009b880 x7 : 0000000000000000 x6 : ffff80008009b940
->     x5 : ffff80008009b8c0 x4 : ffff22e000940518 x3 : ffff22e006f54f40
->     x2 : ffffbcc657a02268 x1 : ffff80007fffffff x0 : ffffc1ffc0000000
->     Call trace:
->      kfree+0x60/0x2d8 (P)
->      kvfree+0x44/0x60
->      blk_crypto_profile_destroy_callback+0x28/0x70
->      devm_action_release+0x1c/0x30
->      release_nodes+0x6c/0x108
->      devres_release_all+0x98/0x100
->      device_unbind_cleanup+0x20/0x70
->      really_probe+0x218/0x2d0
+> Thus, we can unconditionally set use_linkup_irq before calling
+> dw_pcie_host_init().
 > 
-> In other words, the initialisation code flow is:
+> This will skip the wait for link up (since the bus will be enumerated once
+> the link up IRQ is triggered), which reduces the bootup time.
 > 
->   platform-device probe
->     ufshcd_pltfrm_init()
->       ufshcd_alloc_host()
->         scsi_host_alloc()
->           allocation of struct ufs_hba
->           creation of scsi-host devices
->     devm_blk_crypto_profile_init()
->       devm registration of cleanup handler using platform-device
-> 
-> and during error handling of ufshcd_pltfrm_init() or during driver
-> removal:
-> 
->   ufshcd_dealloc_host()
->     scsi_host_put()
->       put_device(scsi-host)
->         release of struct ufs_hba
->   put_device(platform-device)
->     crypto cleanup handler
-> 
-> To fix this use-after free, register the crypto cleanup handler against
-> the scsi-host device instead, so that it runs before release of struct
-> ufs_hba.
-> 
-> Signed-off-by: André Draszik <andre.draszik@linaro.org>
+> Signed-off-by: Niklas Cassel <cassel@kernel.org>
+
+Thanks!  I was just reviewing the addition of your dll_link_up IRQ
+handler, and was about to ask whether you wanted to set use_linkup_irq
+to avoid the wait, but here's the patch already :)
+
+I think I'll sort out the branches so the dll_link_up IRQ handler,
+this patch, and the corresponding qcom change go on the same branch as
+Krishna's patch to skip waiting if pp->use_linkup_irq.
+
 > ---
-> In my case, as per above trace I initially encountered an error in
-> ufshcd_verify_dev_init(), which made me notice this problem. For
-> reproducing, it'd be possible to change that function to just return an
-> error.
+>  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 1 +
+>  1 file changed, 1 insertion(+)
 > 
-> Other approaches for solving this issue I see are the following, but I
-> believe this one here is the cleanest:
+> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> index 1170e1107508bd793b610949b0afe98516c177a4..62034affb95fbb965aad3cebc613a83e31c90aee 100644
+> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> @@ -435,6 +435,7 @@ static int rockchip_pcie_configure_rc(struct rockchip_pcie *rockchip)
+>  
+>  	pp = &rockchip->pci.pp;
+>  	pp->ops = &rockchip_pcie_host_ops;
+> +	pp->use_linkup_irq = true;
+>  
+>  	return dw_pcie_host_init(pp);
+>  }
 > 
-> * turn 'struct ufs_hba::crypto_profile' into a dynamically allocated
->   pointer, in which case it doesn't matter if cleanup runs after
->   scsi_host_put()
-> * add an explicit devm_blk_crypto_profile_deinit() to be called by API
->   users when necessary, e.g. before ufshcd_dealloc_host() in this case
-
-Thanks for catching this.
-
-There's also the option of using blk_crypto_profile_init() instead of
-devm_blk_crypto_profile_init(), and calling blk_crypto_profile_destroy()
-explicitly.  Would that be any easier here?
-
-Please also include a Fixes tag in the commit message.
-
-- Eric
+> ---
+> base-commit: 2adda4102931b152f35d054055497631ed97fe73
+> change-id: 20250113-rockchip-no-wait-403ffbc42313
+> 
+> Best regards,
+> -- 
+> Niklas Cassel <cassel@kernel.org>
+> 
 
