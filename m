@@ -4,93 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17E6BC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 16:54:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C455BC02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 16:55:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/SSF08AXo37Ms74Q5MW/F4QSbA1Q6n/g4A90uEk6KjQ=; b=dFrBMvKX2yC7dtxA6igokfs09s
-	ModnkLUKdM+wOFHVtFJ+3tthkpoyksTxdAJnIjtn9MVihSPCfe5J9QOA+Ny58UDE+PPdgtOCqTaa1
-	hDihVeJt+JICecjuokaY5JC9vtexZ5abTdKdl8tWvGsOo9tS8mkvH5oUa7DcDrLGBMG3pjIZy22oq
-	VX0XBjKL1uQEJZAYrCrlLBG3Kn7UC356PMvaxBQVbODToPbJuLiLaUfR+h4LubxivxVtBRsngZBb1
-	243ygzdDPiAkfC+tWsrqOCxWq7a3qDsXUajguZ7WArvZtnbU30brL4t5mlpVzuNc8ef1Jrbou1b9z
-	eZ14PydQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Xyt88DTwvTCEU6IZGu6Ff5eOVi1/kjHctehvZyzlhzk=; b=PeOgoNAwnDxkQ8g6tpqssyEbnS
+	y95zvg0FZTwu4pAtA9/GrkXCBoLF3KrYS4pAJ3CA4frfM6T/K/kLSmsvnNAwLBZUMCSxWQhGdcV9M
+	xVdJ+zJJ26DPL8X2AaymBhWrXg1MQ9KdQ0SGOpJAifG8cCEAV3pbiWYS+jeXkC3jECVXkVWWqE3fL
+	ZAoL+E3blifdAu2qQ6oTZ47CyTdt71OTvz/LKMzcJYj8/ke4Mbufg9iv0NjYKcIq3UO4dsDLPI4sU
+	mOGavDZgWwNzVmNqZHJH3e4hX4H34B2si/jhB2C0UrTLybJKVUbBudmB7pA+Qf1Ose1VKmKJxAUIr
+	8hkFehtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXNhr-00000005wzy-2H10;
-	Mon, 13 Jan 2025 16:54:27 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tXNj4-00000005xCi-0f2o;
+	Mon, 13 Jan 2025 16:55:42 +0000
+Received: from mail-ot1-x32b.google.com ([2607:f8b0:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXNdT-00000005wKs-34DF
+	id 1tXNgU-00000005woI-1Xo6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 16:49:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 75851A41187;
-	Mon, 13 Jan 2025 16:48:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BFAAC4CEE1;
-	Mon, 13 Jan 2025 16:49:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736786994;
-	bh=krodteQ9YYEeKdLpxISnJBtZdT55UGPVBi/zs6nCa/Y=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=jhSd41QXu4NPMNaE/qYkDHUaJYo3IwT5C53zoZkL8DnuSw4hGJQ5ZYDzREGEEOdL7
-	 GdbuXLk2etxvHkv1LRYazY25EaSlp7dsKzA/6JpxdQ8mpS6LG3TwiGexF5QklU1Z0I
-	 PkM6up5FmW7k7+8zQ5nfUpn64U14iK7PTTJRW2Z0D2CB/Icv708N9+u+gtfqfmiTMw
-	 ZnmHqH/bHbd6ALxU+nGFI1WQDZ9zwXATs61o8CmRBoyTUBRdKM5Ep3jdd5ax50xz7w
-	 /hcWBuuPcgwtfW2Euv0fnliPg4+1riDGal3wXzFp1fTNz+6gQf2GCHSPfIE3Qxhlwa
-	 yNEJ1rNTOiYrw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tXNdO-00BhXU-G7;
-	Mon, 13 Jan 2025 16:49:50 +0000
-Date: Mon, 13 Jan 2025 16:49:49 +0000
-Message-ID: <86jzaywtea.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: James Clark <james.clark@linaro.org>
-Cc: Mark Brown <broonie@kernel.org>,
-	kvmarm@lists.linux.dev,
-	oliver.upton@linux.dev,
-	suzuki.poulose@arm.com,
-	coresight@lists.linaro.org,
-	James Clark <james.clark@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mike Leach <mike.leach@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	"Rob Herring (Arm)" <robh@kernel.org>,
-	Shiqi Liu <shiqiliu@hust.edu.cn>,
-	James Morse <james.morse@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v10 04/10] arm64/sysreg: Add a comment that the sysreg file should be sorted
-In-Reply-To: <760969b6-18b7-42ac-9524-2f1f845b3703@linaro.org>
-References: <20250107113252.260631-1-james.clark@linaro.org>
-	<20250107113252.260631-5-james.clark@linaro.org>
-	<87frloqjso.wl-maz@kernel.org>
-	<760969b6-18b7-42ac-9524-2f1f845b3703@linaro.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: james.clark@linaro.org, broonie@kernel.org, kvmarm@lists.linux.dev, oliver.upton@linux.dev, suzuki.poulose@arm.com, coresight@lists.linaro.org, james.clark@arm.com, joey.gouly@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mike.leach@linaro.org, alexander.shishkin@linux.intel.com, mark.rutland@arm.com, anshuman.khandual@arm.com, robh@kernel.org, shiqiliu@hust.edu.cn, james.morse@arm.com, tabba@google.com, rananta@google.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Mon, 13 Jan 2025 16:53:03 +0000
+Received: by mail-ot1-x32b.google.com with SMTP id 46e09a7af769-71e10e6a1ceso1158160a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 08:53:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1736787181; x=1737391981; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Xyt88DTwvTCEU6IZGu6Ff5eOVi1/kjHctehvZyzlhzk=;
+        b=Y+iBiyWdh8dGt/OSViYnwtLmA2XLzJDrV17V97khYxm5AXFZvpMTfooFsmnCC9Mh51
+         bbES2PwwM6IQ64zSuaBkFfYjOR09py0WGcLMl6PVORePZedWXGkQ9uoZgCfq5NijUsji
+         ur7CNfhsN7VjYiU4sdCQ8qiBiWeymzFmaJ6DFEJlrOKf88+XTo2mSFufyF+rn7GlTqAV
+         rXjBkLqFnlZLA8iBdMFHmZgHJXt8mjLzG6+ccIaqINV+aaFYA1YFzruzYfhpTqutkfZC
+         e4mYxvCHhRlNxZ+AvTbTGzCE6crLTL4d7BTrHg9SR4LPZlKPqf98zeirtD6T+oS/uZE+
+         twxg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736787181; x=1737391981;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Xyt88DTwvTCEU6IZGu6Ff5eOVi1/kjHctehvZyzlhzk=;
+        b=nphqA5T4/byUWWVJPm0xqHcHfHgvNz7OqUGo16IXiQBRYkphvXhNZMcKGNLcYWgSPe
+         2OXS4bqEx4CXYO0ufPB98+h28ZifLbFzxDz2N2Vtw1x0Be+OO+ngSaYglLXxBIX2zhLW
+         lcw7E9hLnf+g201C4gR3JdKB3SI+FaZJNfeMCYXV/Rt16MBQqd5+L8B3Z31sE+mVTqbi
+         wXmCFW1ooM/KuxUrmrW+cSIoGTiNiOI3jA8464Sb5hH1kcI+6OIXSht+Nh9glod4DVzB
+         j7s6eagcn0zSKHeo+g9kuUFxsO26Yw0MDNL1ZgYK7KX57poSd1dOq++YQbiIv4wWHg88
+         WcTA==
+X-Forwarded-Encrypted: i=1; AJvYcCV67Vb/ZJYZW+x7mRWYKe2VZ3/ru2YLvmGx8kceVWx13nwcvzI5j6XNDCYJ3HU2MNyq1fk2m9390YtDeH8xSkn3@lists.infradead.org
+X-Gm-Message-State: AOJu0YzV/g3LSqsm8RuZTUQzH++FfBTcqnnZ5FIaRDhnz1E146SRHe/v
+	jCGwHIcmTsMw1XCm216bqjbrwN8vo9JxTqGYQTPGuejjNMr1dkCEoD8QJLXb4lN1q/5rIytR6IO
+	+Q/DcswlFIL9GzDccm6Yg30KwOmY=
+X-Gm-Gg: ASbGncu86izg87SI28jiCct85AqbARynOEXdI1Ofjo/yv/n/AdGE31jTaOQjTPrDADU
+	XdBVB4J1i7TpLoQIwIVObQD4OwDOzoek9xtnZHvc=
+X-Google-Smtp-Source: AGHT+IE5cxXt5JR2u+4N8NH2RBAsVODsNa5JluDfwkyKK+baKOF8L+HdL9nECoJbbVjINZwSD4iihC1AJMlo6/b1Pu4=
+X-Received: by 2002:a05:6870:2a42:b0:29d:c5e8:e424 with SMTP id
+ 586e51a60fabf-2aa065478eamr12278674fac.9.1736787181336; Mon, 13 Jan 2025
+ 08:53:01 -0800 (PST)
+MIME-Version: 1.0
+References: <20241217-acpm-v4-upstream-mbox-v5-0-cd1d3951fe84@linaro.org>
+ <20241217-acpm-v4-upstream-mbox-v5-1-cd1d3951fe84@linaro.org>
+ <ec3cdfd1-df7a-466c-8581-c9546ca6b089@linaro.org> <CABb+yY0rBzP8JPAik5aaXp6GivQKEf++sgiMM9fTPgd_5YXT1w@mail.gmail.com>
+ <eaab647a-f6f4-4562-89fa-e64daa80bdf4@linaro.org> <CABb+yY0AkpqC_P-3cHeuWDu-gJzxCnarsNFNQWk45+tHKrDLmg@mail.gmail.com>
+ <4e97b33f-b4a5-4875-a65d-9e25bcc5a46c@linaro.org> <8f21d5f2-5327-488c-878c-a62d85857240@linaro.org>
+ <CABb+yY0JMZfwR9xQ8s80Kmg0gE1DRDJ9bHB=eMnw70uw5nBshw@mail.gmail.com> <7dc02926-905e-430d-91f5-e1ad7af7135e@linaro.org>
+In-Reply-To: <7dc02926-905e-430d-91f5-e1ad7af7135e@linaro.org>
+From: Jassi Brar <jassisinghbrar@gmail.com>
+Date: Mon, 13 Jan 2025 10:52:50 -0600
+X-Gm-Features: AbW1kvYv4JplEEr5H_7RAD_-cm61d0McdldDJA9WpeTQeMp8PAvtnMQYQCFpZzc
+Message-ID: <CABb+yY0k7rWoJ6foQLHqxsvZuAiE1XnopP5cOceFgNocygQhSQ@mail.gmail.com>
+Subject: Re: [PATCH v5 1/3] dt-bindings: mailbox: add google,gs101-mbox
+To: Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, linux-kernel@vger.kernel.org, 
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, andre.draszik@linaro.org, 
+	peter.griffin@linaro.org, kernel-team@android.com, willmcvicker@google.com, 
+	daniel.lezcano@linaro.org, vincent.guittot@linaro.org, ulf.hansson@linaro.org, 
+	arnd@arndb.de
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_084955_897401_C158B783 
-X-CRM114-Status: GOOD (  28.80  )
+X-CRM114-CacheID: sfid-20250113_085302_404648_F65BF1FD 
+X-CRM114-Status: GOOD (  18.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,59 +104,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 13 Jan 2025 15:43:39 +0000,
-James Clark <james.clark@linaro.org> wrote:
-> 
-> 
-> 
-> On 12/01/2025 12:49 pm, Marc Zyngier wrote:
-> > On Tue, 07 Jan 2025 11:32:41 +0000,
-> > James Clark <james.clark@linaro.org> wrote:
-> >> 
-> >> From: James Clark <james.clark@arm.com>
-> >> 
-> >> There are a few entries particularly at the end of the file that aren't
-> >> in order. To avoid confusion, add a comment that might help new entries
-> >> to be added in the right place.
-> >> 
-> >> Reviewed-by: Mark Brown <broonie@kernel.org>
-> >> Signed-off-by: James Clark <james.clark@arm.com>
-> >> Signed-off-by: James Clark <james.clark@linaro.org>
-> >> ---
-> >>   arch/arm64/tools/sysreg | 2 ++
-> >>   1 file changed, 2 insertions(+)
-> >> 
-> >> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-> >> index b081b54d6d22..4ba167089e2a 100644
-> >> --- a/arch/arm64/tools/sysreg
-> >> +++ b/arch/arm64/tools/sysreg
-> >> @@ -48,6 +48,8 @@
-> >>   # feature that introduces them (eg, FEAT_LS64_ACCDATA introduces enumeration
-> >>   # item ACCDATA) though it may be more taseful to do something else.
-> >>   +# Please try to keep entries in this file sorted by sysreg
-> >> encoding.
-> >> +
-> >>   Sysreg	OSDTRRX_EL1	2	0	0	0	2
-> >>   Res0	63:32
-> >>   Field	31:0	DTRRX
-> > 
-> > "Do as I say, don't do as I do".
-> > 
-> > I don't think this makes any sense if we don't actually sort the file
-> > the first place.
-> > 
-> > 	M.
-> > 
-> 
-> I think it's ok if it avoids review comments that new entries should
-> be sorted. Or maybe we do the opposite and the comment should say this
-> file is allowed to be unsorted...
+On Mon, Jan 13, 2025 at 3:34=E2=80=AFAM Tudor Ambarus <tudor.ambarus@linaro=
+.org> wrote:
+> On 1/12/25 4:59 PM, Jassi Brar wrote:
+>
+> >>>>> Then I updated the mailbox core to allow clients to request channel=
+s by
+> >>>>> passing some args containing channel identifiers to the controllers=
+,
+> >>>>> that the controllers xlate() using their own method.
+> >>>>>
+> >>>> This is unnecessary.
+> >>>> If you don't pass the doorbell number from DT, each channel populate=
+d
+> >>>> by the driver is just a s/w construct or a 'virtual' channel. Make u=
+se
+> >>>> of 'void *data'  in send_data() to specify the doorbell.
+> >>>>
+> >>> I think this introduces concurrency problems if the channel identifie=
+rs
+> >>> passed by 'void *data' don't match the virtual channel used for sendi=
+ng
+> >>> the messages. Do we want to allow this?
+> >>>
+> >>> Also, if we use 'void *data' to pass channel identifiers, the channel
+> >>> checks will have to be made at send_data() time. Thus if passing wron=
+g
+> >>> channel type for example, the mailbox client will eventually get a
+> >>> -ENOBUFS and a "Try increasing MBOX_TX_QUEUE_LEN" message, which I fi=
+nd
+> >>> misleading.
+> >>
+> >> Shall I still use 'void *data' to pass channel identifiers through
+> >> send_data()? I'd like to respin everything.
+> >>
+> > Yes, please do.
+> >
+>
+> What shall I do in driver's of_xlate method, always return
+> &mbox->chans[0], as bcm2835 does?
+>
+No, not the first. The first _free_ channel. One way to identify a
+free channel is by checking mbox_chan.cl is NULL.
 
-The better option would be to add the comment *and* sort the file.
-Leading by example has some value, it seems.
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+thnx
 
