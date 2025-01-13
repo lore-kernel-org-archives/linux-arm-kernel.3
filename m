@@ -4,97 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16D67C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 19:16:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C66B1C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 19:17:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OE33POUt2+iszfpt20Nqlmknt+0wqjiuw4LPVCBXmGE=; b=LdlnO8W4Oghu4bpYaDigDk0BIL
-	dN9EitKEPzi/0u9J7NR9AqRXvc+/4IQkaJkiT0K3R42FP50IBMbN4T1UK7epeVTbPYp3Pluc/F7zy
-	p9vgodyzdV0CXVaXos3eWk8GnFCrsQ2V4WNhL5yjKZAIpHwJELkrnfGgsT0m0Obj4H/+QIIldhfsu
-	zisYpxxJXmMRdZJ6+32ka7RFmAmZUCcru2ezHFgQYo5JXAQIC3KZJsU2wEoBkkvctzMzsxIF1SdTq
-	5bvadWtIzbkNyUKt1kweIkXS6BXgq1v6U2y+GfaOfZGnuH1NJD2DQap88FZwu39/k7IFF6/S5Rg91
-	kz5sNo+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NgH/bYoXOlU+D6BFKNzLvH0Vgy+IJ7NgGRWzYusKxTA=; b=FooXO1wdDjDxMWteiBxLQMeQKR
+	Mh4nW0mqFAuy6/eqYG9w5BUWVNcNMXB9IBxDuiWA55bF4ZhFRXWzN15FNOSX21+3Jzrv+rOdxwkmj
+	UKiL3wba5gB0lWKLUhz9ug+74ijEkUPFYyplCbSIE5W2aprMvddG2eunIMGh1d6RLqYCEn6nC3Q9H
+	IBcHZ6sGxPzOL1siWGS5XwRxJV3L818VLHCmc17lyKgZO1ZNdnxwvWp2Vy6wjlSWZpj6zSvdf3O+o
+	2JjZapvEqnUBPgNx02Y5nWifY1DKnNRRk8Wcotz3beIl1gVftilNup5BYEndkIlU8M8c9dQsun1Un
+	xOey6M4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXPv1-00000006LT7-3d8i;
-	Mon, 13 Jan 2025 19:16:11 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1tXPwE-00000006LfV-2Vc5;
+	Mon, 13 Jan 2025 19:17:26 +0000
+Received: from mail-mw2nam04on20603.outbound.protection.outlook.com ([2a01:111:f403:240a::603] helo=NAM04-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXPsi-00000006KzE-2xG1
+	id 1tXPue-00000006LNN-0GC5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 19:13:49 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-5d3f28a4fccso6784718a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 11:13:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736795627; x=1737400427; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=OE33POUt2+iszfpt20Nqlmknt+0wqjiuw4LPVCBXmGE=;
-        b=sAUByIheDIofpJuIRCPSuRFzCF+Y8h+uRS3kEqV6O3CJDqQmeu9srzzU/hdaZuJN5o
-         Stbv2ctdewgIpenisCdHNFJosmme+dEUVkLyA0iZ+QxXrMaYA1zdqIkur2jOSdXk8AYp
-         XdGon16AydsvP5FvZ0wlh+n7semfOv+Ao4c6+E86sEgJNUmXS+gfotSjeqMGX/N8GQci
-         dXjVgsim7pahRKYfhsMklmg+AUvXoOC2ZYRayj5NLZmAwhv+WkaO920QR+eEc25LTFla
-         8L+BauhlBPRMlfBjlC7F4cdUQDplKJ0ztcWzPLRhgkSdJlDTj8TBuO005KWR7k3+P7JU
-         s2pw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736795627; x=1737400427;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=OE33POUt2+iszfpt20Nqlmknt+0wqjiuw4LPVCBXmGE=;
-        b=bk7RW2Fg8a5noqc5gDy/eA6Zgz4jTKL4Dgz1gjhs2v8OSOFeHMtBcheGsXxjuiT/Ou
-         QKZn5uvrbhEX7BDMXDDo9b+9I+xXsRxukjh9em/lPzCFlDDfFwzKKhWuglhyL/IvvdyA
-         b+yxjr/fGmGrfIG920jsIpqYPUj+6wkqpTJ7ZYWzfWn8JkR4fJfXWTh3+AP7S7qhMY/d
-         iZVGBgo22Oe3TdvfV+2mP7NAs9k3UV1n30URoLa1fVaxVOKSDZ2Q0kfW5yexYWEulj2K
-         Qk6Ir3qYxxfnTq9dtZCzWzeeXG48hVThAXu8BBHWax1YnxkRBBtTG0SzYqZDXEwLuDr4
-         Ydkw==
-X-Forwarded-Encrypted: i=1; AJvYcCWllGCnjv2e2M3ei3B/qD+RCD/lE7AmVNnIjJK33STzt7vIc5J2Sgi4TVdxsDHMw9+LUVGgwicrpdzp8GRtaXN3@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfOhgvZOaRlTiPCXskgEiTD+KHHDqSZSBI6i2lyojK3jTceW0i
-	gO/2r7aibG4Jcd+mvgdOYRQMsMMkPi2n/7OMSTGjAodh7859/K5Tto7z1VcawD8=
-X-Gm-Gg: ASbGncvny+HIfDLsmwiM6PfyJGLES1F6RpxE16ObeFjaDKvZgfshD2zzzEfF+SmZFA7
-	V+duSDRFpbDeRLzBFfWUmjNa/uJxRsXD8UGkJmrNkan+87DmmQSZRITqVWtvNDFdt6Q4pqjzxrf
-	1GaY0fIJZArp5JGCMhTVUTWQCb6o8uNTOs3FgoRMK7PLNezMKGl+3QsUFCfgVKNTfRZDsOxDAHs
-	cMLstC/lmP0gD7CAlnh1G1r7EOEJIrB/UHjShctsJJE3oCO/8A9L+D5H5aywDgSiQOAkDVLMFbo
-	uWF/EZjoY8kBFCF1vX5/mXcU3o0xd+NH3ritiEVa
-X-Google-Smtp-Source: AGHT+IHCboU7f9NwsTjWB7S/v4RS6GfG3YG/9+YBh8V6k+rI8SG1CJroMnepLppBr6OtsLwC4toMYg==
-X-Received: by 2002:a05:6402:254b:b0:5cf:e9d6:cc8a with SMTP id 4fb4d7f45d1cf-5d972e1a09cmr20527141a12.20.1736795626519;
-        Mon, 13 Jan 2025 11:13:46 -0800 (PST)
-Received: from puffmais.c.googlers.com (140.20.91.34.bc.googleusercontent.com. [34.91.20.140])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d9903c2d58sm5238605a12.39.2025.01.13.11.13.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jan 2025 11:13:46 -0800 (PST)
-From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Mon, 13 Jan 2025 19:13:45 +0000
-Subject: [PATCH] scsi: ufs: pltfrm: fix use-after free in init error and
- remove paths
+	Mon, 13 Jan 2025 19:15:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YqbQbltcJqduCcTZ4354OGQ2L++Tmck4MxbrjfY3r/6dhXEtZI7jj2SQJ0i3e2Cjxo0SWxsT1zoMRo0S4Ub5qh4tjUNjerZTed94DomZ/Bz/VEp2gzSmPLPQNO8LP5/DV7M7OgPeeNc5ryej3hEj/PFYo3xyVRRqHql8qU8A5eqPZopFaKFI2C8yZs8g24ItAFwJoyliYtXAAh+32yLTt/W6GZULxjA9PXM/jtUVYbQ++j0HXMRGGuHjm8ran0MOnWPgJuqWsota3QSCj8wMu0J0qmxGyJntdO5XzqPJ2+LYtKFZiIewxJFmkkHy3LlHyeLdsYwZX2XlfIJW54gqqQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NgH/bYoXOlU+D6BFKNzLvH0Vgy+IJ7NgGRWzYusKxTA=;
+ b=e9JPd23ANOeLcpr8SJFvwl/85/gRrmprLB2tlyvoBsJqY87NL0wxirkagKjg/0/m9ZSqOPFzkcrpX27i+IxxTVs9Ka1ImmEUoWEdYshlI2RNzNfwdj678AlwBAvpbRdoJAwwrdn3YXe0bVN2Rg0LekJ5moPzJbi1H7lX4jCE6qMACWn2URAIjkFXkcud8xySLyggE9XawVYfthE6mVNssdrBPgjw1IhIBK3wf23iTGhPSqitRcLMVkz/lnuHhTxJ7J+kd+WIxMsN4eYqwU40qx2WaRm5gitAc9juG5C6ag3xKmryFx7ASEaMBDq6sruxtSlphn8smjpFXYotGIP7kA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=redhat.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NgH/bYoXOlU+D6BFKNzLvH0Vgy+IJ7NgGRWzYusKxTA=;
+ b=ROSjsiXi7gyKdLF6WDc8QpthxHlsGTxcLPZQgClauZwNIsjwAu81tgyOb7CwyM2z+f1TPhkppVb2Prz7ySUNL76hL1pYgn/xwvG6H9VSMMio3Z6AGgPqADM3Qqkcj2ydV5TQEZEk7fET30OX2nTghPDNq4mXD4/F2ARWL2zAxzqluWeqJBTZFYNz21vNIwWB8JsN+lbyUygeVD7OueDLiD7RpyrIsdQuRwrkH4hd7KjVFgqUsHXcnLS+zkLYgzv/PEngYSQQlOWZj0k6I4S1W53fqHLlhTGjU7ZnE9yJJmP8wuQQxmVTKQ3D898MmxOGYZisramozo//JCySV8PG/Q==
+Received: from BN9PR03CA0584.namprd03.prod.outlook.com (2603:10b6:408:10d::19)
+ by DM4PR12MB7502.namprd12.prod.outlook.com (2603:10b6:8:112::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.18; Mon, 13 Jan
+ 2025 19:15:42 +0000
+Received: from BN2PEPF000044A1.namprd02.prod.outlook.com
+ (2603:10b6:408:10d:cafe::b4) by BN9PR03CA0584.outlook.office365.com
+ (2603:10b6:408:10d::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8335.18 via Frontend Transport; Mon,
+ 13 Jan 2025 19:15:41 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ BN2PEPF000044A1.mail.protection.outlook.com (10.167.243.152) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8356.11 via Frontend Transport; Mon, 13 Jan 2025 19:15:41 +0000
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 13 Jan
+ 2025 11:15:25 -0800
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail205.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 13 Jan
+ 2025 11:15:24 -0800
+Received: from Asurada-Nvidia (10.127.8.10) by mail.nvidia.com (10.129.68.7)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4 via Frontend
+ Transport; Mon, 13 Jan 2025 11:15:22 -0800
+Date: Mon, 13 Jan 2025 11:15:21 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <will@kernel.org>, <kevin.tian@intel.com>, <corbet@lwn.net>,
+	<oe-kbuild-all@lists.linux.dev>, <joro@8bytes.org>,
+	<suravee.suthikulpanit@amd.com>, <robin.murphy@arm.com>,
+	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>, <shuah@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>, <eric.auger@redhat.com>,
+	<jean-philippe@linaro.org>, <mdf@kernel.org>, <mshavit@google.com>,
+	<shameerali.kolothum.thodi@huawei.com>, <smostafa@google.com>,
+	<ddutile@redhat.com>, <yi.l.liu@intel.com>, <patches@lists.linux.dev>
+Subject: Re: [PATCH v5 14/14] iommu/arm-smmu-v3: Report events that belong to
+ devices attached to vIOMMU
+Message-ID: <Z4VmST8xyAluL858@Asurada-Nvidia>
+References: <03c01be90e53f743a91b6c1376c408404b891867.1736237481.git.nicolinc@nvidia.com>
+ <202501091822.4ocbIobQ-lkp@intel.com>
+ <Z4Vi9raM/lOot/SQ@Asurada-Nvidia>
+ <20250113190641.GQ5556@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250113-ufshcd-fix-v1-1-ca63d1d4bd55@linaro.org>
-X-B4-Tracking: v=1; b=H4sIAOhlhWcC/x2MQQqAIBAAvxJ7TtA1D/WV6BC6m3uxUIpA/HvSc
- QZmKhTKQgWWoUKmR4qcqYMZB/BxTwcpCZ0BNTptjFU3l+iDYnmVw0nPjMEiM/TgytT1P1u31j6
- 1C2T/XAAAAA==
-To: Alim Akhtar <alim.akhtar@samsung.com>, 
- Avri Altman <avri.altman@wdc.com>, Bart Van Assche <bvanassche@acm.org>, 
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
- "Martin K. Petersen" <martin.petersen@oracle.com>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
- linux-scsi@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-arm-msm@vger.kernel.org, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-X-Mailer: b4 0.13.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250113190641.GQ5556@nvidia.com>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN2PEPF000044A1:EE_|DM4PR12MB7502:EE_
+X-MS-Office365-Filtering-Correlation-Id: 15c262e1-3ec6-4f29-4d3d-08dd3406abf9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|1800799024|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Uh4NGjlgt9bQddpOjwgETXjuPjIWxFMcrqUOSnGilL8xYHDcg36tu4g/STyc?=
+ =?us-ascii?Q?aw5GMICwBrlXlLeafMB2WZZi9pWyI6pt/ICWTkXb+H7+kV6pUjJ7EIeIf1Gr?=
+ =?us-ascii?Q?n+YP4h+WrOmynf4TlWCtGRVfU/nBzcrBJoxVfFHNsBFF8jgmPTB/JAik4SQ6?=
+ =?us-ascii?Q?4wVCxdQCifCozWPZxuuZasv2FtFjn8bsbrBVamOJn6/7qBudpf46N5D47YOE?=
+ =?us-ascii?Q?frsXQG37E9b3YwXejz44/zMTRS4OMYCa2pSzmFrR5VM9rr7JmtGMQiI1EuKH?=
+ =?us-ascii?Q?lQfv8g6Yo1gea7ffJ7icOek/uVymePp7/gho8TKCsr54WQC/2oS3tg+o8Q5a?=
+ =?us-ascii?Q?HJB0K2FCvUZhXc+FBMNzWUFqpJzaC7dLe4wC2z4TvPR+IgemgTNzYXExpE7Z?=
+ =?us-ascii?Q?knREcb1HEiS+5nMoDtIwEeqj/POLi7Duq6NnmY7ddfKvDHNPOIJws7nQKB2h?=
+ =?us-ascii?Q?DX8Hl9NlLi6JiLw5DE8hEdwpWyhyl6W84UYP0GYQR3K38Kf49KXC2no5thio?=
+ =?us-ascii?Q?YntdpPlU2Vc34hsfkAJ3Z13cNM+gMm6dP5O1wYGaVh5HI6n5L7umOHnuPVbp?=
+ =?us-ascii?Q?GbQbkbGdAfBMmXDI/Up+nLHKaZE/IV4ZSqQv+hS4IpFslSOT5O96pPxz0Erb?=
+ =?us-ascii?Q?K2XXuaNuHn6Y5ZcpejsVQQObSTtY2jLNwswtdCrOb257MYu91oNfR17Q4JJT?=
+ =?us-ascii?Q?+DrLRUaVFCcUaewTVq7HVBRmHg0d2KEVIXeh1RHXtW88f2ydfN5SqTBT24KB?=
+ =?us-ascii?Q?+A+h1qngRUP3H/lKIm2Ag6KVJu/m2NKs8HTcF9H6LMIvOnm/7pSY0OGduIUD?=
+ =?us-ascii?Q?ojaEQGT6e2c80cXWq6YNUyGn5ZGIhAURjTbwP36MwPK4lfHI2Uow9q2XM+mt?=
+ =?us-ascii?Q?lCSdusru76pzHPtGIvB6XMGlF1+QPPSG7mk8GdqSjCDYt7MvmMoQo9ZkCTFy?=
+ =?us-ascii?Q?EaI/HYKDFpPItiMdwfqCWECoU+rWHe3Zc9VmBoPpDGxJCe8iFpSee3Rm2/Vj?=
+ =?us-ascii?Q?mlhPQR9TQS1MeNcwwjn0OdV/TTHYcJwmLAkfSJPAEjTE1m+clVVg/7QLp7t9?=
+ =?us-ascii?Q?Z0nVBqlfaxqn6dO18TXmAZGjEJ4j8WzVyOj85kKe4VsYRgnD4RZLt+Urk2CM?=
+ =?us-ascii?Q?pv3D9gqyfrkYb1bDyN6s7fkwCyL+EySWDX0DVRYGney95Zb/ZFPtWoKZWDLo?=
+ =?us-ascii?Q?gMg9YXreN5tjwNo1HlTcr5whgUuKlUJy2+WLWaDvf147nJG+nEBuvckRe6vT?=
+ =?us-ascii?Q?7uBlW1ombeU40U7e33iEvhnAnuCHws0y2WRNYscgYd9SEx+1R7QcdaaRK0ME?=
+ =?us-ascii?Q?s3Nal6CvvIexqpivzPgTzaSLr7y9oDtX5IL0tEue2kzpbMGBKkxalxNrS38k?=
+ =?us-ascii?Q?2/qdED86ykpOeKRBjJQrAEnv2zYlCQor+/ExnaCDN7CujqtQ4ppXwBkBefSF?=
+ =?us-ascii?Q?IEbac7Swu7vfmcPuI/XnkRbFgVbBywXDnZciZfT4I1n4X801XeAm9hFiDQFv?=
+ =?us-ascii?Q?LRoq2Xy8lpKY12I=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jan 2025 19:15:41.3981
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 15c262e1-3ec6-4f29-4d3d-08dd3406abf9
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044A1.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB7502
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_111348_802130_83BEC007 
-X-CRM114-Status: GOOD (  19.14  )
+X-CRM114-CacheID: sfid-20250113_111548_093399_9E26F538 
+X-CRM114-Status: GOOD (  13.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,156 +161,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-devm_blk_crypto_profile_init() registers a cleanup handler to run when
-the associated (platform-) device is being released. For UFS, the
-crypto private data and pointers are stored as part of the ufs_hba's
-data structure 'struct ufs_hba::crypto_profile'. This structure is
-allocated as part of the underlying ufshd allocation.
+On Mon, Jan 13, 2025 at 03:06:41PM -0400, Jason Gunthorpe wrote:
+> On Mon, Jan 13, 2025 at 11:01:10AM -0800, Nicolin Chen wrote:
+> 
+> > +/* This is basically iommu_vevent_arm_smmuv3 in u64 for conversion */
+> > +struct arm_vsmmu_evt {
+> > +	union {
+> > +		u64 evt[EVTQ_ENT_DWORDS];
+> > +		struct iommu_vevent_arm_smmuv3 uevt;
+> > +	};
+> > +};
+> 
+> This doesn't seem right, don't make unions like this
 
-During driver release or during error handling in ufshcd_pltfrm_init(),
-this structure is released as part of ufshcd_dealloc_host() before the
-(platform-) device associated with the crypto call above is released.
-Once this device is released, the crypto cleanup code will run, using
-the just-released 'struct ufs_hba::crypto_profile'. This causes a
-use-after-free situation:
+This is copied from the invalidate union though... Any reason why
+this is no longer good for evt v.s. cmd?
 
-    exynos-ufshc 14700000.ufs: ufshcd_pltfrm_init() failed -11
-    exynos-ufshc 14700000.ufs: probe with driver exynos-ufshc failed with error -11
-    Unable to handle kernel paging request at virtual address 01adafad6dadad88
-    Mem abort info:
-      ESR = 0x0000000096000004
-      EC = 0x25: DABT (current EL), IL = 32 bits
-      SET = 0, FnV = 0
-      EA = 0, S1PTW = 0
-      FSC = 0x04: level 0 translation fault
-    Data abort info:
-      ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
-      CM = 0, WnR = 0, TnD = 0, TagAccess = 0
-      GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-    [01adafad6dadad88] address between user and kernel address ranges
-    Internal error: Oops: 0000000096000004 [#1] PREEMPT SMP
-    Modules linked in:
-    CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Tainted: G        W          6.13.0-rc5-next-20250106+ #70
-    Tainted: [W]=WARN
-    Hardware name: Oriole (DT)
-    pstate: 20400005 (nzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-    pc : kfree+0x60/0x2d8
-    lr : kvfree+0x44/0x60
-    sp : ffff80008009ba80
-    x29: ffff80008009ba90 x28: 0000000000000000 x27: ffffbcc6591e0130
-    x26: ffffbcc659309960 x25: ffffbcc658f89c50 x24: ffffbcc659539d80
-    x23: ffff22e000940040 x22: ffff22e001539010 x21: ffffbcc65714b22c
-    x20: 6b6b6b6b6b6b6b6b x19: 01adafad6dadad80 x18: 0000000000000000
-    x17: ffffbcc6579fbac8 x16: ffffbcc657a04300 x15: ffffbcc657a027f4
-    x14: ffffbcc656f969cc x13: ffffbcc6579fdc80 x12: ffffbcc6579fb194
-    x11: ffffbcc6579fbc34 x10: 0000000000000000 x9 : ffffbcc65714b22c
-    x8 : ffff80008009b880 x7 : 0000000000000000 x6 : ffff80008009b940
-    x5 : ffff80008009b8c0 x4 : ffff22e000940518 x3 : ffff22e006f54f40
-    x2 : ffffbcc657a02268 x1 : ffff80007fffffff x0 : ffffc1ffc0000000
-    Call trace:
-     kfree+0x60/0x2d8 (P)
-     kvfree+0x44/0x60
-     blk_crypto_profile_destroy_callback+0x28/0x70
-     devm_action_release+0x1c/0x30
-     release_nodes+0x6c/0x108
-     devres_release_all+0x98/0x100
-     device_unbind_cleanup+0x20/0x70
-     really_probe+0x218/0x2d0
+> >  int arm_vmaster_report_event(struct arm_smmu_vmaster *vmaster, u64 *evt)
+> >  {
+> > -	struct iommu_vevent_arm_smmuv3 vevt =
+> > -		*(struct iommu_vevent_arm_smmuv3 *)evt;
+> 
+> evt is clearly not a iommu_vevent_arm_smmuv3 since it has the wrong
+> endianess? It should stay in its own type.
+> 
+> struct struct iommu_vevent_arm_smmuv3 uevt;
+> 
+> uet.evt[0] = cpu_to_le64((evt[0] & ~EVTQ_0_SID) | FIELD_PREP(EVTQ_0_SID, vmaster->vsid));
+> for (i = 1; i != EVTQ_ENT_DWORDS; i++)
+>     uet.evt[i] = cpu_to_le64(evt[i]);
 
-In other words, the initialisation code flow is:
+I will use this.
 
-  platform-device probe
-    ufshcd_pltfrm_init()
-      ufshcd_alloc_host()
-        scsi_host_alloc()
-          allocation of struct ufs_hba
-          creation of scsi-host devices
-    devm_blk_crypto_profile_init()
-      devm registration of cleanup handler using platform-device
-
-and during error handling of ufshcd_pltfrm_init() or during driver
-removal:
-
-  ufshcd_dealloc_host()
-    scsi_host_put()
-      put_device(scsi-host)
-        release of struct ufs_hba
-  put_device(platform-device)
-    crypto cleanup handler
-
-To fix this use-after free, register the crypto cleanup handler against
-the scsi-host device instead, so that it runs before release of struct
-ufs_hba.
-
-Signed-off-by: André Draszik <andre.draszik@linaro.org>
----
-In my case, as per above trace I initially encountered an error in
-ufshcd_verify_dev_init(), which made me notice this problem. For
-reproducing, it'd be possible to change that function to just return an
-error.
-
-Other approaches for solving this issue I see are the following, but I
-believe this one here is the cleanest:
-
-* turn 'struct ufs_hba::crypto_profile' into a dynamically allocated
-  pointer, in which case it doesn't matter if cleanup runs after
-  scsi_host_put()
-* add an explicit devm_blk_crypto_profile_deinit() to be called by API
-  users when necessary, e.g. before ufshcd_dealloc_host() in this case
----
- drivers/ufs/core/ufshcd-crypto.c | 2 +-
- drivers/ufs/host/ufs-exynos.c    | 3 ++-
- drivers/ufs/host/ufs-qcom.c      | 3 ++-
- 3 files changed, 5 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/ufs/core/ufshcd-crypto.c b/drivers/ufs/core/ufshcd-crypto.c
-index 694ff7578fc1..cb9db79ca185 100644
---- a/drivers/ufs/core/ufshcd-crypto.c
-+++ b/drivers/ufs/core/ufshcd-crypto.c
-@@ -177,7 +177,7 @@ int ufshcd_hba_init_crypto_capabilities(struct ufs_hba *hba)
- 
- 	/* The actual number of configurations supported is (CFGC+1) */
- 	err = devm_blk_crypto_profile_init(
--			hba->dev, &hba->crypto_profile,
-+			&hba->host->shost_gendev, &hba->crypto_profile,
- 			hba->crypto_capabilities.config_count + 1);
- 	if (err)
- 		goto out;
-diff --git a/drivers/ufs/host/ufs-exynos.c b/drivers/ufs/host/ufs-exynos.c
-index 13dd5dfc03eb..6874c769b697 100644
---- a/drivers/ufs/host/ufs-exynos.c
-+++ b/drivers/ufs/host/ufs-exynos.c
-@@ -1312,7 +1312,8 @@ static void exynos_ufs_fmp_init(struct ufs_hba *hba, struct exynos_ufs *ufs)
- 	}
- 
- 	/* Advertise crypto capabilities to the block layer. */
--	err = devm_blk_crypto_profile_init(hba->dev, profile, 0);
-+	err = devm_blk_crypto_profile_init(&hba->host->shost_gendev,
-+					   profile, 0);
- 	if (err) {
- 		/* Only ENOMEM should be possible here. */
- 		dev_err(hba->dev, "Failed to initialize crypto profile: %d\n",
-diff --git a/drivers/ufs/host/ufs-qcom.c b/drivers/ufs/host/ufs-qcom.c
-index 23b9f6efa047..d0a1e0f20a2f 100644
---- a/drivers/ufs/host/ufs-qcom.c
-+++ b/drivers/ufs/host/ufs-qcom.c
-@@ -141,7 +141,8 @@ static int ufs_qcom_ice_init(struct ufs_qcom_host *host)
- 	caps.reg_val = cpu_to_le32(ufshcd_readl(hba, REG_UFS_CCAP));
- 
- 	/* The number of keyslots supported is (CFGC+1) */
--	err = devm_blk_crypto_profile_init(dev, profile, caps.config_count + 1);
-+	err = devm_blk_crypto_profile_init(&hba->host->shost_gendev, profile,
-+					   caps.config_count + 1);
- 	if (err)
- 		return err;
- 
-
----
-base-commit: 4e16367cfe0ce395f29d0482b78970cce8e1db73
-change-id: 20250113-ufshcd-fix-52409f2d32ff
-
-Best regards,
--- 
-André Draszik <andre.draszik@linaro.org>
-
+Thanks!
+Nicolin
 
