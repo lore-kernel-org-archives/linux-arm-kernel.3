@@ -4,74 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9BBFE7719F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 11:17:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9926FE7719E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 11:27:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9ERGR8dP0B+c7V85+mnkhP0f9o6QzzMxgWRVM6WJHLU=; b=QFOiSnWg2DKbyhGLLGMzqa6YeU
-	ExIOANxDTjxwzdf2qlG2uU/bIHDI8uLJ53mQqRcRRveaBCrAhnZ+aKjkTc9ZCls+sx9fGv2NT/Vxr
-	cEG/Q8pDt5eMLyOvNQzzasgmaGaqxyWAY0q2FaPrl9XEO3vlNULZdXEkmew/vsuyP+eOiXBbEEssA
-	ogenI+he8tkxYkRmhHz+rHZu14fE5hs/hWCz1n7z4IxOETF3wo9tgchqOlppxmmovsn+XFJn5WTL8
-	0cBzoNkLTDV4w9FnXgiDhDQWq1zUTTWNUTnHhHr1h7gMIkhy0xQyibzMEoySpMrz94dMCI8oSOfsE
-	qbs1ZrOg==;
+	bh=r1sB2UwzokGR5fvxX5Dn3UFsQqfgn903xTPdJon0Jvk=; b=CQ2eh6zHO+YFOua96dUGPVb//Z
+	YFinXNHMZzkzBDJYMVeFFUjJdm0PuXK9uEfjbZnjkm4llNpQoGZ5LcfSU7iEP3z5QqGLh9F8T7yRB
+	Wa2qn8IKyNxhL4opakptHrrn8mYbD5uSylinReh1ju59I428f9IV1ia9XHF/S2oyL/sxRCGC2s7es
+	LzQWhfaKuyT6SVc7W10UOiO16vfZRMY55PJ1cP0Y0wsg+8UUjOS/etySwOHeEhDioQK8f85fxUBk7
+	2H4mR6YrkI/Stuz++A+9eOHOKOEX72C0rR46+hCpCZa3vpBZrxhkmyMxaxbjJ0uzKANUpKVdHITOU
+	kXnUxBEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXIRH-00000004sGV-0JIR;
-	Mon, 13 Jan 2025 11:16:59 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tXIbP-00000004u3W-3lA5;
+	Mon, 13 Jan 2025 11:27:27 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXIQ3-00000004sBE-1CgZ;
-	Mon, 13 Jan 2025 11:15:44 +0000
+	id 1tXIaA-00000004tir-01sz
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Jan 2025 11:26:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 44BB65C54D0;
-	Mon, 13 Jan 2025 11:15:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26A53C4CED6;
-	Mon, 13 Jan 2025 11:15:32 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id E6D03A40EEF;
+	Mon, 13 Jan 2025 11:24:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94A87C4CED6;
+	Mon, 13 Jan 2025 11:26:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736766941;
-	bh=kiAl0Orq62GNHYsnLzi0tHTsX57qkEmoeq2JoqLDODA=;
+	s=k20201202; t=1736767568;
+	bh=XcLozn4zX9P4PK+jgJPOpEix1IEYh5jHwJQNST5Qp5U=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=CHLmBUpc9bFAia2rJKwJPFbR5eNafdTO1HJyQ5Rd7ruDrAMZ1omH3pUJBp8fanZ+x
-	 xHH3WDt1s55oczPRUQzqs+uqJqWN/MrUwRIBp6KcugDXdCkCNdffa2cqE5DsX5vhtO
-	 fADLe7cvT3lFu3P/txprfnrsGoCq9sxa8tL7rlCf4zAd7NiBn3b3vSUBLup932wd0I
-	 06dIv4mgPw9G+jTreFd5ZQajgJYzOe3c5C+USNj7LoWjopgGUA0Vg5rCyxLXeiYVT5
-	 xAa43H2ij5adFiVCvdIiY5bPiuK4dHXWm3dge9kLjqDSoWXk+vtJj7Y0KBxvGj4snM
-	 zxBiVXjDMymjg==
-Message-ID: <69b42fb4-75c7-478d-8c15-ba3eb287b136@kernel.org>
-Date: Mon, 13 Jan 2025 12:15:30 +0100
+	b=GxieR594U5Pc8sXylVWalAObd8c+jbAoRK5gbMR2gsLe7CV6WpQv9+d/16k+5gj0C
+	 M3dbGszsAfYn2iWtPA0CFWKJILeJV5hQiopJnFRy6fHKpDKpZg0SjWcEfvrgVcwD4c
+	 BA5NN9Ff1VIeo9thjlkM5C9CGBTv32MMlbBmtMi/YNKJCMfOrZvz+F5KK9fCJpMKV5
+	 6wO3lnR7rJrBHXxnhUNGLRN8pwEevkQWXAwwrewj+q6Lh4pQ+oGkuM1i/OYeBLSS7j
+	 1ouAmqiA8dfq6MOu3XSHkuQf8CDdKA+3RVqqXXIt5C3IWUjs3oNfcMnQXXGtd3jyDQ
+	 uZLZXiIxBpd7Q==
+Message-ID: <0d2ebb1c-be69-45ca-8a66-4e4a8ca59513@kernel.org>
+Date: Mon, 13 Jan 2025 12:26:00 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 06/12] dt-bindings: clk: sunxi-ng: add V853 CCU
- clock/reset
-To: wens@csie.org
-Cc: Andras Szemzo <szemzo.andras@gmail.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Maxime Ripard <mripard@kernel.org>,
- Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
- Ulf Hansson <ulf.hansson@linaro.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-gpio@vger.kernel.org,
- linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <20250110123923.270626-1-szemzo.andras@gmail.com>
- <20250110123923.270626-7-szemzo.andras@gmail.com>
- <de280eed-bcc8-4802-9734-5e95ad1f6611@kernel.org>
- <CAGb2v65arvBMg+reReVqK-Y6dL+CSrSx4618msiRKcNf=Vk1=A@mail.gmail.com>
- <fef71e03-489f-4503-9d1b-d61051d45dde@kernel.org>
- <CAGb2v67_yMB_4SCjFOR5S6nDxX9=zbX-mDM6YjjL_NRxrEMUFg@mail.gmail.com>
+Subject: Re: [PATCH 2/3] net: stmmac: qcom-ethqos: Enable RX programmable swap
+ on qcs615
+To: Yijie Yang <quic_yijiyang@quicinc.com>, Vinod Koul <vkoul@kernel.org>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <joabreu@synopsys.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>
+Cc: netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20241225-support_10m100m-v1-0-4b52ef48b488@quicinc.com>
+ <20241225-support_10m100m-v1-2-4b52ef48b488@quicinc.com>
+ <4b4ef1c1-a20b-4b65-ad37-b9aabe074ae1@kernel.org>
+ <278de6e8-de8f-458a-a4b9-92b3eb81fa77@quicinc.com>
+ <df1e2fbd-7fae-4910-9908-10fdb78e4299@kernel.org>
+ <e2625cfd-128c-4b56-a1c5-c0256db5c486@quicinc.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -117,12 +113,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <CAGb2v67_yMB_4SCjFOR5S6nDxX9=zbX-mDM6YjjL_NRxrEMUFg@mail.gmail.com>
+In-Reply-To: <e2625cfd-128c-4b56-a1c5-c0256db5c486@quicinc.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_031543_413654_2FF49278 
-X-CRM114-Status: GOOD (  18.67  )
+X-CRM114-CacheID: sfid-20250113_032610_179020_0FD9E37F 
+X-CRM114-Status: GOOD (  20.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,125 +133,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/01/2025 09:45, Chen-Yu Tsai wrote:
-> On Mon, Jan 13, 2025 at 4:21 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+On 08/01/2025 11:33, Yijie Yang wrote:
+> 
+> 
+> On 2024-12-27 15:03, Krzysztof Kozlowski wrote:
+>> On 26/12/2024 03:29, Yijie Yang wrote:
+>>>
+>>>
+>>> On 2024-12-25 19:37, Krzysztof Kozlowski wrote:
+>>>> On 25/12/2024 11:04, Yijie Yang wrote:
+>>>>
+>>>>>    static int qcom_ethqos_probe(struct platform_device *pdev)
+>>>>>    {
+>>>>> -	struct device_node *np = pdev->dev.of_node;
+>>>>> +	struct device_node *np = pdev->dev.of_node, *root;
+>>>>>    	const struct ethqos_emac_driver_data *data;
+>>>>>    	struct plat_stmmacenet_data *plat_dat;
+>>>>>    	struct stmmac_resources stmmac_res;
+>>>>> @@ -810,6 +805,15 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
+>>>>>    	ret = of_get_phy_mode(np, &ethqos->phy_mode);
+>>>>>    	if (ret)
+>>>>>    		return dev_err_probe(dev, ret, "Failed to get phy mode\n");
+>>>>> +
+>>>>> +	root = of_find_node_by_path("/");
+>>>>> +	if (root && of_device_is_compatible(root, "qcom,sa8540p-ride"))
+>>>>
+>>>>
+>>>> Nope, your drivers are not supposed to poke root compatibles. Drop and
+>>>> fix your driver to behave correctly for all existing devices.
+>>>>
+>>>
+>>> Since this change introduces a new flag in the DTS, we must maintain ABI
+>>> compatibility with the kernel. The new flag is specific to the board, so
 >>
->> On 13/01/2025 09:06, Chen-Yu Tsai wrote:
->>> On Fri, Jan 10, 2025 at 9:56 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>>>
->>>> On 10/01/2025 13:39, Andras Szemzo wrote:
->>>>> As the device tree needs the clock/reset indices, add them to DT binding
->>>>> headers.
->>>>>
->>>>> Signed-off-by: Andras Szemzo <szemzo.andras@gmail.com>
->>>>
->>>> That's never a separate commit from the binding.
->>>>
->>>>
->>>> ...
->>>>
->>>>> --- /dev/null
->>>>> +++ b/include/dt-bindings/clock/sun8i-v853-r-ccu.h
->>>>> @@ -0,0 +1,16 @@
->>>>> +/* SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
->>>>> +/* Copyright(c) 2020 - 2023 Allwinner Technology Co.,Ltd. All rights reserved.
->>>>> + *
->>>>> + * Copyright (C) 2023 rengaomin@allwinnertech.com
->>>>> + */
->>>>> +#ifndef _DT_BINDINGS_CLK_SUN8I_V85X_R_CCU_H_
->>>>> +#define _DT_BINDINGS_CLK_SUN8I_V85X_R_CCU_H_
->>>>> +
->>>>> +#define CLK_R_TWD            0
->>>>> +#define CLK_R_PPU            1
->>>>> +#define CLK_R_RTC            2
->>>>> +#define CLK_R_CPUCFG         3
->>>>> +
->>>>> +#define CLK_R_MAX_NO         (CLK_R_CPUCFG + 1)
->>>>
->>>> Nope, drop. Not a binding.
->>>>
->>>>> +
->>>>> +#endif
->>>>> diff --git a/include/dt-bindings/reset/sun8i-v853-ccu.h b/include/dt-bindings/reset/sun8i-v853-ccu.h
->>>>> new file mode 100644
->>>>> index 000000000000..89d94fcbdb55
->>>>> --- /dev/null
->>>>> +++ b/include/dt-bindings/reset/sun8i-v853-ccu.h
->>>>> @@ -0,0 +1,62 @@
->>>>> +/* SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
->>>>
->>>> Odd license. Did you copy the file with such license from the downstream?
->>>
->>> AFAIK all the existing sunxi clock / reset binding header files are
->>> dual licensed. OOTH all the YAML files are GPL 2.0 only.
->>>
->>> IIRC we started out GPL 2.0 only, but then figured that the header files
->>> couldn't be shared with non-GPL projects, so we changed those to dual
->>> license.
->>>
->>> Hope that explains the current situation. Relicensing the whole lot
->>> to just MIT or BSD is probably doable.
->> That's not what the comment is about. Dual license, as expressed by
->> submitting bindings/patches and enforced by checkpatch are expected. But
->> not GPLv3, GPLv4 and GPLv10.
+>> It's not, I don't see it specific to the board in the bindings.
 > 
-> I take back my statement. It seems we have a lot of GPLv2 or later going on.
+> I'm sorry for the confusion. This feature is not board-specific but 
+> rather a tunable option. All RGMII boards can choose whether to enable 
+> this bit in the DTS, so there are no restrictions in the binding.
 
-There are a lot of bugs, so we can add them as well?
+If it is not specific to the board, I don't see why this cannot be
+implied by compatible.
 
 > 
-> include/dt-bindings/clock/sun20i-d1-ccu.h:/* SPDX-License-Identifier:
-> (GPL-2.0+ OR MIT) */
-> include/dt-bindings/clock/sun20i-d1-r-ccu.h:/*
-> SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
-> include/dt-bindings/clock/sun50i-a100-ccu.h:/*
-> SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
-> include/dt-bindings/clock/sun50i-a100-r-ccu.h:/*
-> SPDX-License-Identifier: GPL-2.0 */
-> include/dt-bindings/clock/sun50i-h6-ccu.h:/* SPDX-License-Identifier:
-> (GPL-2.0+ OR MIT) */
-> include/dt-bindings/clock/sun50i-h6-r-ccu.h:/*
-> SPDX-License-Identifier: GPL-2.0 */
-> include/dt-bindings/clock/sun50i-h616-ccu.h:/*
-> SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
-> include/dt-bindings/clock/sun5i-ccu.h:/* SPDX-License-Identifier:
-> GPL-2.0-or-later */
-> include/dt-bindings/clock/sun6i-rtc.h:/* SPDX-License-Identifier:
-> (GPL-2.0+ OR MIT) */
-> include/dt-bindings/clock/sun8i-de2.h: * SPDX-License-Identifier:
-> (GPL-2.0+ OR MIT)
-> include/dt-bindings/clock/sun8i-tcon-top.h:/* SPDX-License-Identifier:
-> (GPL-2.0+ OR MIT) */
-> include/dt-bindings/clock/suniv-ccu-f1c100s.h:/*
-> SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> include/dt-bindings/reset/sun20i-d1-ccu.h:/* SPDX-License-Identifier:
-> (GPL-2.0+ OR MIT) */
-> include/dt-bindings/reset/sun20i-d1-r-ccu.h:/*
-> SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
-> include/dt-bindings/reset/sun50i-a100-ccu.h:/*
-> SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
-> include/dt-bindings/reset/sun50i-a100-r-ccu.h:/*
-> SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
-> include/dt-bindings/reset/sun50i-h6-ccu.h:/* SPDX-License-Identifier:
-> (GPL-2.0+ OR MIT) */
-> include/dt-bindings/reset/sun50i-h6-r-ccu.h:/*
-> SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
-> include/dt-bindings/reset/sun50i-h616-ccu.h:/*
-> SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
-> include/dt-bindings/reset/sun5i-ccu.h:/* SPDX-License-Identifier:
-> GPL-2.0-or-later */
-> include/dt-bindings/reset/sun8i-de2.h: * SPDX-License-Identifier:
-> (GPL-2.0+ OR MIT)
-> include/dt-bindings/reset/suniv-ccu-f1c100s.h:/*
-> SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+>>
+>>> I need to ensure root nodes are matched to allow older boards to
+>>> continue functioning as before. I'm happy to adopt that approach if
+>>> there are any more elegant solutions.
+>>
+>> I don't think you understood the problem. Why you are not handling this
+>> for my board, sa8775p-rideX and sa8225-pre-ride-yellow-shrimp?
+>>
 > 
-> Is there a requirement that new files have to be GPL 2.0 only, not
-> GPL 2.0 or later?
+> This feature is specifically for RGMII boards. The driver won't enable 
 
-I think that's obvious preference and brought to the list multiple times
-already. And that's easy to justify reversing the question: why would
-GPLv4 be okay here? If you can find the reason, sure we can go with
-2.0+. If you cannot find the reason, well, it's obvious, right?
+So board specific?
+
+> this bit if the DTS doesn't specify it. To handle compatibility, we need 
+
+Do not describe us how drivers and DTS work. We all know.
+
+> to identify legacy RGMII boards with MAC versions greater or equal to 3 
+> which require this bit to be enabled.
+> According to my knowledge, the SA8775P is of the SGMII type.
+
 
 Best regards,
 Krzysztof
