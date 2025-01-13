@@ -4,100 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38592C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 09:38:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AC67E7719F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 09:39:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mcn9xoOYu8W8aqg79TZi7MJEchbnlTtS4s5gSCJbvAQ=; b=vW/yn0G5rD+xxWWuffAOFChEaz
-	W+uwCvZ1V4knup4s0mfPY7DcbbJhPqJQI34Wqs7SaOApLgocSFR8Y7Wpx+4eWrYW8vlvBbAcC1EBF
-	QTi27DtRE0jWeS+nOBJYCxungURsX79D7RTIofEzn+etLqFXnAjl+M3Zb7JJIp7S3ILbGE3fK2oZS
-	SynDSDc3Ej6BCdtmUEICyp+8dPQ6km+mGeQb/08xIPUtHHbH/c52wsuiQmkkq7YRN3uv99Bx7WO+X
-	JT2PlKtgx10Y49tT5LeGVXoxbCcmWYLZz/AH6eWrOQvScIJsmXBKDfp5pF3RTZfp8TxzFt7Il94wl
-	g2t6JElA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rZu9QqBriWk4/CpGcgr7d0di4oBFieKVARWfDfbeYoM=; b=kmPqSOu+QzhOfUseo8b5ZxmHv2
+	gBjhhPD+tWbnk4cWbQxdVx3Q4xEH8EV3CihFter3xqcnPJwWKKxyX9/J3NdedBwkZ/YLq774itbw5
+	g1bN/vCOjGEOE0PppFpKdJcuW3eqUA4V0Pa+IpyZr39RfWdTgoPrkaisiE8V25HrR5SJ/Jc9OsHHq
+	XrVrjIDcqlhDc1cXJ0TyWZry10WXk7Bjq+RaZaBRUu/K0eVF3z+YZOHikuUX010SSqOLmUDd/+Hv5
+	OyXLnkxzGueM8er82KO/QSEALi3Q69e+nuJ5kdMoyIbAntZTQfiQyoQRnp1CSZFPwvlmkZUtOywC6
+	8jGS/6ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXGtL-00000004eMG-1SqC;
-	Mon, 13 Jan 2025 09:37:51 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1tXGuY-00000004egi-2SKP;
+	Mon, 13 Jan 2025 09:39:06 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXGpy-00000004dNo-09Mk
+	id 1tXGqg-00000004dbC-35uC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 09:34:23 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4361f796586so41375235e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 01:34:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736760860; x=1737365660; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Mcn9xoOYu8W8aqg79TZi7MJEchbnlTtS4s5gSCJbvAQ=;
-        b=a3wsw0afHQvp+be1JwmC8hunXnuM2vM7V6I4jbKblMIpIj0kMrpiUucqBfNUT1U8R4
-         InZb7Nza36INCYKv/HPiNqIZRgQOTJdl7rs9McB2CJRNVZ1uoPTNJR6ttFsqeQIUn8dz
-         rXtAO1FeBWyLFuMSKlnyf7DSXUz6aGuVq4NDyft3g0nhQ5R6kUjI1RCH3Ck5498+EgAF
-         JCLV0N/MYwPJ16iPIChVsIucCoMINnTdqD4TiqMHMzAUtB5Jantwq0Ez0Je3t3kc+Xza
-         WbuGL5OIrX0iTLIAyXl83Mz39wCIpdeeDD8gbTs0viHNwAA653hd0DYpC0SCda5fbJul
-         urhg==
+	Mon, 13 Jan 2025 09:35:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1736760905;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rZu9QqBriWk4/CpGcgr7d0di4oBFieKVARWfDfbeYoM=;
+	b=Uhyt6gjk8qVjuVsiN2P3mXEv+cjHJKJKZ3lXZR9cgv+JQDxcmtqUtQAgvBfHw9up9iQd8L
+	4GoQUjLCNhtIlLs729bGvMM7dLvZcTn6MKNS6uMQl8g7AyY0NS4GR48fgx04oMiO2MJrnR
+	mEo717C2M6k+xgTH/uEBaT0KrTkDSrk=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-586-XbKmSvZiMyqN-1QTLEHfwA-1; Mon, 13 Jan 2025 04:35:03 -0500
+X-MC-Unique: XbKmSvZiMyqN-1QTLEHfwA-1
+X-Mimecast-MFC-AGG-ID: XbKmSvZiMyqN-1QTLEHfwA
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-385d7611ad3so2392669f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 01:35:03 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736760860; x=1737365660;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Mcn9xoOYu8W8aqg79TZi7MJEchbnlTtS4s5gSCJbvAQ=;
-        b=VTdGb0xzed1ZkxGLqhVHGSCHPBWcfrLYJpROay743l/aUWRmu0Vy8u06JznKGkH1r+
-         lIn0p66O4inRrCd7w+Hp+JP+mgNEqZkn+a1nTTDPMxIxOvuKp41s64Jph1qNzmfb7YOW
-         0k0kN85dcCOqPXtEWa9mR3n7i9h6PB7y3SmE3pwvrLUm8syNDrmoY2UYF3qeavj8xoCq
-         vs45zqoIW3tRu/W2Ie8ZWxTtdQ9RYJOxQk8Dpe/1t5/Xl3r4JG6Ariy3Wp9yvLxFWMB0
-         tGdE3DaoFioAzkbT3qVO9WNEXqCE/fK73EyG3W5RCUyazdfnAbonCAh5UG7myKXyl4Gi
-         Fc/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXFVJU3ZHKUL/EA6yyPNcnfwPVIT+gqPLncYCQ5bULP8UYExrNPKzks0aqplFLomHU6YRHc9BWqsRF5kyAx82l1@lists.infradead.org
-X-Gm-Message-State: AOJu0YyziYf0LkKRg/8vbqngdr4D+jLTA256rvo2zrIS4z9CswNEVMFr
-	PLOMDFVvyBDhZzUtkekqI3toCyj0gn9LX/c1Zj+OqtRXwvBcfmqafK6fNu79JyI=
-X-Gm-Gg: ASbGncv9lLnQEfbPX7raifHoFuQSR0M12+iJiC61p+8cFUEMsXosEQ6QtM4X0tCAMDb
-	ApSbujbbjAeqqXmXOb7z2xDo5bouyeOdcXxN/UeZ4yZiwb2WY+xFpGp3yc7yZLJu8HS1rgps1NV
-	5E4Mw/glbBMV0ZU6/w7jA0XtNF/pPY/LahAMlkVSZTfs3FdYkJUGyIhACR4rh73RfP77C5NBt8D
-	ghNKIRdlz7PK+bqBsoDwNjXKCWtqHStZwr1r8xY7NfKlD3gGcsBFu2pInHQ/IjiIg==
-X-Google-Smtp-Source: AGHT+IGFH+x4nfdStxwZGkAyFCJvnk1LXrp25GiWHQEWRueM3fKqk/Y3Ijad7YFj8i45jHfeLn4/VQ==
-X-Received: by 2002:a05:600c:1c8b:b0:434:a852:ba77 with SMTP id 5b1f17b1804b1-436e26a7e1emr197156785e9.15.1736760859971;
-        Mon, 13 Jan 2025 01:34:19 -0800 (PST)
-Received: from [192.168.0.14] ([188.26.60.120])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e9e37d69sm136986415e9.30.2025.01.13.01.34.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Jan 2025 01:34:19 -0800 (PST)
-Message-ID: <7dc02926-905e-430d-91f5-e1ad7af7135e@linaro.org>
-Date: Mon, 13 Jan 2025 09:34:17 +0000
+        d=1e100.net; s=20230601; t=1736760902; x=1737365702;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rZu9QqBriWk4/CpGcgr7d0di4oBFieKVARWfDfbeYoM=;
+        b=G8th2znJgjBYofL04QqJiqHER4F+f6XpWTCxyszNJnuOcGr/8E34j0MxK9Vh4dMeKm
+         643jyPWL51SYx5L4mQTa+MWQl+nQAAf9Ffnzq0aN5LOo3/PRWtJs+6JOZTtNODtx/erX
+         4jCGNwndQhYIBdkRimhhGamvGtGthBi/m7jsy5540oxGHy8MiVOJiGOAJ4cbAEc9lmYb
+         P4zZ2BP4k5nLoL0Olvs2cYG0l8De/lKeOE9uss3tOuV7vEZaRhB1vJzCMp3aJ4XDJ/gV
+         GGX8nkR+pzU6RjJ6zGORvGW9nPewZyPkALwwcnG2mqiC33FpLn1QP+xgK4sxbcTkI7qc
+         69NA==
+X-Forwarded-Encrypted: i=1; AJvYcCXqm8h7UubpOb6UwvteoB7scql6eIpMyu+isdV/Onsv/jmMtHDPbiAghYAI6ANw3PCFR7swaHSJ9WtUQMxQVnfz@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz9QNYgjILBjKY/Y5RNJ2dYRga9f2TB0Va9KnKRREOzs+pINtr2
+	P5jj1kzXyju9UA1bWT3CyhFWwQGBMWvIy6GTi+muMmg8nCV8NVUleWAvryZKrkpNNNABAYLaZrQ
+	nEP3d8/lw2adEkK96GVTJEr4/Ftt4drOmrOmyJDCe1F1v8Lr+pWqETrwEJ97yy2y52cSxo16V
+X-Gm-Gg: ASbGncvEvkkxmS+UyLJ6aPEwmKOHPN3S7ncfsUVW0i+F+isnAjezjNCw2Qmjpj4Cdeu
+	XwIRWBJ3FJ7GV6FV9pVHzrX3zjzbuMn2RqsUAg8wv2K544NEv7GD77jEBX7cUweDyeC/KSr4YiD
+	w2Y6GydcgQGIIfWBlIOg0GALVlykqku/ZpwT9o2YjO+1HahGoG50mZOy3aHvewkdLxpfamd1klF
+	xA0pW6R2s26Bhsh6Etw9LJFlRAYAZgJBVkbNFYzzA2t62f/fY6oyqE=
+X-Received: by 2002:a5d:648a:0:b0:386:3e87:2cd6 with SMTP id ffacd0b85a97d-38a8730fb57mr18342360f8f.38.1736760902193;
+        Mon, 13 Jan 2025 01:35:02 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHKWbgJ+p8D2nSL1Tg89dORue0vrIpeKEyO3MQ6XFunbZcOEjwxPA5lI+qzzFC0qFwWNbxBmQ==
+X-Received: by 2002:a5d:648a:0:b0:386:3e87:2cd6 with SMTP id ffacd0b85a97d-38a8730fb57mr18342327f8f.38.1736760901806;
+        Mon, 13 Jan 2025 01:35:01 -0800 (PST)
+Received: from localhost ([2a01:e11:1007:ea0:8374:5c74:dd98:a7b2])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38b15d3c7a5sm5224226f8f.32.2025.01.13.01.35.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jan 2025 01:35:00 -0800 (PST)
+Date: Mon, 13 Jan 2025 10:34:59 +0100
+From: Davide Caratti <dcaratti@redhat.com>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net-next] net: airoha: Enforce ETS Qdisc priomap
+Message-ID: <Z4TeQ0b2d6vt4AID@dcaratti.users.ipa.redhat.com>
+References: <20250112-airoha_ets_priomap-v1-1-fb616de159ba@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/3] dt-bindings: mailbox: add google,gs101-mbox
-To: Jassi Brar <jassisinghbrar@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, linux-kernel@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, andre.draszik@linaro.org,
- peter.griffin@linaro.org, kernel-team@android.com, willmcvicker@google.com,
- daniel.lezcano@linaro.org, vincent.guittot@linaro.org,
- ulf.hansson@linaro.org, arnd@arndb.de
-References: <20241217-acpm-v4-upstream-mbox-v5-0-cd1d3951fe84@linaro.org>
- <20241217-acpm-v4-upstream-mbox-v5-1-cd1d3951fe84@linaro.org>
- <ec3cdfd1-df7a-466c-8581-c9546ca6b089@linaro.org>
- <CABb+yY0rBzP8JPAik5aaXp6GivQKEf++sgiMM9fTPgd_5YXT1w@mail.gmail.com>
- <eaab647a-f6f4-4562-89fa-e64daa80bdf4@linaro.org>
- <CABb+yY0AkpqC_P-3cHeuWDu-gJzxCnarsNFNQWk45+tHKrDLmg@mail.gmail.com>
- <4e97b33f-b4a5-4875-a65d-9e25bcc5a46c@linaro.org>
- <8f21d5f2-5327-488c-878c-a62d85857240@linaro.org>
- <CABb+yY0JMZfwR9xQ8s80Kmg0gE1DRDJ9bHB=eMnw70uw5nBshw@mail.gmail.com>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <CABb+yY0JMZfwR9xQ8s80Kmg0gE1DRDJ9bHB=eMnw70uw5nBshw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+In-Reply-To: <20250112-airoha_ets_priomap-v1-1-fb616de159ba@kernel.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: ImPHq3NpsjPQGiffCCyypPPvD2bftGPjEVn3X7c3GeU_1736760902
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_013422_098177_4E7C182F 
-X-CRM114-Status: GOOD (  14.91  )
+X-CRM114-CacheID: sfid-20250113_013506_843985_FD01F879 
+X-CRM114-Status: UNSURE (   8.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,49 +113,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+hello Lorenzo, thanks for following up!
 
-
-On 1/12/25 4:59 PM, Jassi Brar wrote:
-
->>>>> Then I updated the mailbox core to allow clients to request channels by
->>>>> passing some args containing channel identifiers to the controllers,
->>>>> that the controllers xlate() using their own method.
->>>>>
->>>> This is unnecessary.
->>>> If you don't pass the doorbell number from DT, each channel populated
->>>> by the driver is just a s/w construct or a 'virtual' channel. Make use
->>>> of 'void *data'  in send_data() to specify the doorbell.
->>>>
->>> I think this introduces concurrency problems if the channel identifiers
->>> passed by 'void *data' don't match the virtual channel used for sending
->>> the messages. Do we want to allow this?
->>>
->>> Also, if we use 'void *data' to pass channel identifiers, the channel
->>> checks will have to be made at send_data() time. Thus if passing wrong
->>> channel type for example, the mailbox client will eventually get a
->>> -ENOBUFS and a "Try increasing MBOX_TX_QUEUE_LEN" message, which I find
->>> misleading.
->>
->> Shall I still use 'void *data' to pass channel identifiers through
->> send_data()? I'd like to respin everything.
->>
-> Yes, please do.
+On Sun, Jan 12, 2025 at 07:32:45PM +0100, Lorenzo Bianconi wrote:
+> EN7581 SoC supports fixed QoS band priority where WRR queues have lowest
+> priorities with respect to SP ones.
+> E.g: WRR0, WRR1, .., WRRm, SP0, SP1, .., SPn
 > 
+> Enforce ETS Qdisc priomap according to the hw capabilities.
+> 
+> Suggested-by: Davide Caratti <dcaratti@redhat.com>
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
-What shall I do in driver's of_xlate method, always return
-&mbox->chans[0], as bcm2835 does? All 14 doorbels will be serialized
-with mobox->chans[0].lock.
+Reviewed-by: Davide Caratti <dcaratti@redhat.com>
 
-I could use a list of channels in the controller and provide some
-get/put channel methods, but the virtual channel ID will not match the
-actual channel ID that's used for communication. I'll also need to
-introduce channel ops, to put the channel that was acquired via of_xlate
-from the list of available channels.
+-- 
+davide
 
-Aren't we better off with the mbox_request_channel_by_args() that I
-introduced in v6? Or if you think there's better option I'll be happy to
-implement it. I need an agreement on the overall idea.
-
-Thanks,
-ta
 
