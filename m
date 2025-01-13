@@ -4,94 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0955C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 16:21:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C32EEC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 16:22:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Azq+DaVA//EhU0oOCgPNA2FLamSCcJm54Ub5++OHsas=; b=qDoKHjyL5GV38eJ5FUpJiXjMKj
-	vYz50djiX5YE8xt4XDXg6p57JIeFmAm+12MrWmCI4VO49bb3LwYL0PDg5qRW7J11bdNY1yMhRRvQN
-	oBxw8+vt2itY+kkEyF1pt9SqG07KFB08YC4eIpg/PzN+d8tMnKOZR1TOBK/2tkycSr3qVBnVAXLdE
-	dv+mZahswpbm4bzT8i4SMXdrr7YpKUPsiKUniejOb30uCZ42Db28Jhe1GdV5sz4Sej/OltX0YIPTg
-	0Xs78n1rqgv2lP8I8doEd5HRdQMp6n/9V8e/4DQGKywMaCYbQIAZjlLPxv0hVCBZ1RYfddRqtawBJ
-	/Uiz5F1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=INZ0B6iBklDeX2F+5IYxEoS6jrTc6xAI91JQU5/uctI=; b=RQ6ja6h5urBx+nj1aW7vz4hVI3
+	ry5S3ICBEkE0BWKv6gHsJ36yUg9L+ms7BARqTC1uVObJUlVDM0p4bOcmNymdYcm3Pn9GZvpO6liio
+	FDIj1MbvVodc/gIHKCEGNbwHXo4alaMnfn9isDPdWto24wQfTLQFQKgHGjoxDbbAZckvSrXTFH+lc
+	WkfW1J7m6RiOXCewIQ9qshOPHTmmTqQrPuU+S22Iba24Q4icdxJEHgCSthiYWFh+AvPq0u/QKK55z
+	X2xx0b7VngCw9dsGvlt8Kocnqs/kh2jpyxKNbS0QHIdcxATszMzsvBMWZxqQ29Fgl8tqWADaVzAbH
+	m0NzAOdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXNBz-00000005p8u-2Xu3;
-	Mon, 13 Jan 2025 16:21:31 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1tXNDC-00000005pTj-3of0;
+	Mon, 13 Jan 2025 16:22:46 +0000
+Received: from mail-il1-x12d.google.com ([2607:f8b0:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXMh1-00000005ieu-2Prx
+	id 1tXMiv-00000005j5L-1V7V
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 15:49:33 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-436326dcb1cso31597605e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 07:49:31 -0800 (PST)
+	Mon, 13 Jan 2025 15:51:31 +0000
+Received: by mail-il1-x12d.google.com with SMTP id e9e14a558f8ab-3a815a5fb60so340735ab.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 07:51:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1736783370; x=1737388170; darn=lists.infradead.org;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Azq+DaVA//EhU0oOCgPNA2FLamSCcJm54Ub5++OHsas=;
-        b=xUC3oP0p8ITnNkLWxqp50l0U2D12MbtVz8iMCZwf3KTuITQhVsMRga2QYKDVkG1+z2
-         iJBShjTl6es7PEkjYyQXkt/9FZICjbSC8wLjlKAfOsbCP4P0sScxvvWIKxR4nGZxfyPc
-         w5rEreOqxEKWxRLflWUfFo1IQMRVU5Y95MOjJop05U1r+sr0+W9YlSu1eIv6kY888wNL
-         dgbGY61tCuQKeGgg3DwDi8hjgicI9sbLZDTkd1tW4tBph1rLDJmR8qxPInKtua2QrUYt
-         LKhyTUXl2q+QLTmODRlyyujv86HOQv4uRmq8l7Izt1evdRODqnR/D1n2wI7EZ+9zW89N
-         TgRQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736783370; x=1737388170;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
+        d=google.com; s=20230601; t=1736783487; x=1737388287; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Azq+DaVA//EhU0oOCgPNA2FLamSCcJm54Ub5++OHsas=;
-        b=xVWzZ5a4rz9eH1ioL66R2LEDruMs+X6D7mxsBs6mK8smkjlbZF44cXPHbzAficJyY2
-         S0gUTqJXwPnHt2F3PiIl9YoAjKrok7n213aM0OERpIos5RpvFgsS9XO6GBL3PTfdU+Mu
-         U+e6zSfFfbuROKpSBqUToou/W16WFAPwFD6EXltQzm3RfVOPar1eGk3eqCfxvvW5C2pn
-         o9Hs97ZNlk5o0EhBaYVzHG/71NknVNxR4B3s2OxvBehQj0nEJwuXGxyRsUoKbxFfORUs
-         31U/XP6LVioYkJNB0q0lmdVSFwa3momtqR0tAlvYooZ1indfllagBAvB1rEufviEA+mO
-         3X4w==
-X-Forwarded-Encrypted: i=1; AJvYcCWKurLg9VKsxl9VVRCSd0WU4kALC2gUid2pdD0PQITANwsWCSPDD7km36QJe6XK5kYx+wpuTXQIYF0pK7trWEom@lists.infradead.org
-X-Gm-Message-State: AOJu0YzCoL7b59ZEj7+i66ifai4q77aw8CARsN4zeRkrw4ueWP/JzKhV
-	+fhRY2669MMugRdS3vZ8GVAi0lCYNLM+pVcSNMqHQspvolOL8RmWiHCwwfAwHLg=
-X-Gm-Gg: ASbGncvhpF7pqbgRaCIopTunyG3r6oXpWzXeSdF3Mh97upto/1PrAH6+YIkspZwVQ6s
-	mOFPaDmcKb8x3qFT4r3rRONAXE158Wq/ndp65F9PaoTlfiWNk4o9Uk5Gx4NbnoGR1VQsZ2OF2EO
-	qNsSrjhL3z6N2/TujfcRrxLTXfaRS73ry6bUtITksqDysvsyuCEG3OEbr6q4VAupPxrYaFRvg0/
-	bgGHh+k7fqfSDbERWa7FzursYfiYsdsKcScrqW4diTDhv3oi+fB/0Un
-X-Google-Smtp-Source: AGHT+IF09k926b51tgNC96zHwr2fNP9lLjmS+3CaIX3Evh6rq9eXJgioLCN7Rbq+LYTF7EgYPM9XXg==
-X-Received: by 2002:a05:6000:1446:b0:385:f47a:e9d1 with SMTP id ffacd0b85a97d-38a872dec76mr17354805f8f.17.1736783369675;
-        Mon, 13 Jan 2025 07:49:29 -0800 (PST)
-Received: from localhost ([2a01:e0a:3c5:5fb1:9d2d:28cc:aafd:8429])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a8e384054sm12552709f8f.36.2025.01.13.07.49.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jan 2025 07:49:29 -0800 (PST)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Neil Armstrong <neil.armstrong@linaro.org>
-Cc: Chuan Liu <chuan.liu@amlogic.com>,  Chuan Liu via B4 Relay
- <devnull+chuan.liu.amlogic.com@kernel.org>,  Michael Turquette
- <mturquette@baylibre.com>,  Stephen Boyd <sboyd@kernel.org>,  Kevin Hilman
- <khilman@baylibre.com>,  Martin Blumenstingl
- <martin.blumenstingl@googlemail.com>,  linux-clk@vger.kernel.org,
-  linux-kernel@vger.kernel.org,  linux-amlogic@lists.infradead.org,
-  linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/2] clk: amlogic: c3: Limit the rate boundaries of clk_hw
-In-Reply-To: <af501f2e-2dd6-4182-872d-76260edba973@linaro.org> (Neil
-	Armstrong's message of "Mon, 13 Jan 2025 15:46:39 +0100")
-References: <20250110-limit-rate-range-of-clk-v1-0-dd618adc4aa8@amlogic.com>
-	<20250110-limit-rate-range-of-clk-v1-2-dd618adc4aa8@amlogic.com>
-	<1j34hqai39.fsf@starbuckisacylon.baylibre.com>
-	<2578a79d-1e24-4336-9859-e384c8f69269@amlogic.com>
-	<1jr05693nn.fsf@starbuckisacylon.baylibre.com>
-	<af501f2e-2dd6-4182-872d-76260edba973@linaro.org>
-User-Agent: mu4e 1.12.7; emacs 29.4
-Date: Mon, 13 Jan 2025 16:49:28 +0100
-Message-ID: <1ja5bu90jb.fsf@starbuckisacylon.baylibre.com>
+        bh=INZ0B6iBklDeX2F+5IYxEoS6jrTc6xAI91JQU5/uctI=;
+        b=a1xEUbO8NNDCrSUucY0fl/Fg5Bd2oGsAg0NpSCgoIK8Jqimp5mB4mBdna5iEc6uUfM
+         zubfByJUA8jIWXXHFGM7dVHK47R8pLPhzoQQIe+uBGwzKagMXYcbLNBnEMYJOCdzplRC
+         3/0gpfR2wCI18MNmdHxt3SupnKcjhX9Pt7edPCTW/WHsme0M/1+fA3wCGnPMHGAWPHuY
+         5eaKMzkboFzLCefl6cZJqzY+FW/De+HkwMU1GjL9kmqlIfPfi25JlBfK3GpN5cOX7L5T
+         MRa1/q8H6TwhvSo1D1JNLe88XzFXKhMPmzXogywSOAKSep+n0gS03lrhNuZKxXa9n+J1
+         AslA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736783487; x=1737388287;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=INZ0B6iBklDeX2F+5IYxEoS6jrTc6xAI91JQU5/uctI=;
+        b=HRz54tF6VqUg+2lNdww5unbV/kHNwPWRo0/S6zm6hz9HxpF42AXK2uZaTJzyPmwGxJ
+         4CI4DI8YmD2SjechbDKcgwwUnINkP2gNjIz/y74xTqydPnOrSdErKvfEpOXNbvokUWwv
+         42kF7L3D/zVRDtTi3WM6peUpViVZwd1nU6zAT7lA4g3L/4H0ewD5Cdd41eHcFDzE68x3
+         d/b3E4LJdkCNZ/JS8QYWn0eZdVYDfiafEMajBt2W84o6UuSVjBjXt9owuXMlOWCxBbwA
+         L+IpoV2iciXtfMlaqZsqXjnx3tTN77kjpQ5EQ4CFSI14mzmXTRKgoo9lI4l2te3yEf6A
+         tRmA==
+X-Forwarded-Encrypted: i=1; AJvYcCVvM5eVUjV/v+3UKcdIQCfZ1wiwwc+RNl/9JwaKugK0ttdE9cAgBFxaLUQwpbu/NwqjmGmygTATsFVF6zOG6Lpg@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx786s51CbLrX5gkpzf0z/USRKnwKhqels7lbZMk8UiNUIDl6sx
+	FkE2neIyXExyiAJQETexwF5Nw4/lQM1X7O0p9HlIIP8vubBOZ94k+pUX2fcjLHSUoD4q6/6dTZW
+	IXqZchjIxoAKBk5bvs6ZosL4q/hiyrmLd9gXUSZl/uN4fkEwZuw==
+X-Gm-Gg: ASbGncvzeSb2Lb60yb7vCTMV4TMj/4rewYpfvBzZL6hDbN0nK1mt8z8AExm+/O9YiPh
+	x1rZaV9lkRkhKn4CbCyBlfZo1ZYtZmu4Qdr7cPe5YfrZpB102XJN4/8OEtK1wtg7SGRUTEg==
+X-Google-Smtp-Source: AGHT+IFz8DLc5V3tpQN5NvmsIMT92IiGQbP2/vAb0j4DorUhoh9QalNbZkYCxgWQ1g7pdxxS+Ai2nY25JT8YyPyej/Y=
+X-Received: by 2002:a05:6e02:20c6:b0:3a7:df79:71b3 with SMTP id
+ e9e14a558f8ab-3ce589396d5mr9241005ab.19.1736783487009; Mon, 13 Jan 2025
+ 07:51:27 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain
+References: <20250110172006.680753-1-irogers@google.com> <da5792c3-8f53-4be8-8f53-e1cf6660feab@linaro.org>
+In-Reply-To: <da5792c3-8f53-4be8-8f53-e1cf6660feab@linaro.org>
+From: Ian Rogers <irogers@google.com>
+Date: Mon, 13 Jan 2025 07:51:15 -0800
+X-Gm-Features: AbW1kvYBgR1Ge8kRNpf5x-KRRsTH8l00xG8qTvKhzBXVQx8QamgOWcH3rbBgrMk
+Message-ID: <CAP-5=fXyVtZChi1fkochiyKw6AztdhEE_rfpJUsz_P9po5bhXA@mail.gmail.com>
+Subject: Re: [PATCH v1 1/2] perf vendor events arm64: Add N3 events/metrics
+To: James Clark <james.clark@linaro.org>
+Cc: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>, 
+	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, Kan Liang <kan.liang@linux.intel.com>, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-perf-users@vger.kernel.org, Nick Forrington <nick.forrington@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_074931_809907_48DD793A 
-X-CRM114-Status: GOOD (  16.31  )
+X-CRM114-CacheID: sfid-20250113_075129_401900_8982BF6E 
+X-CRM114-Status: GOOD (  18.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,44 +100,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon 13 Jan 2025 at 15:46, Neil Armstrong <neil.armstrong@linaro.org> wrote:
-
->>>
->>> I think that the clock configuration exceeding the timing constraints
->>> is a hidden danger that all chips have and face, but this hidden danger
->>> is not easy to be exposed?
->>>
->>> For instance, if the routing of a clock network is close to the clock
->>> or data bus of other modules, and this clock network is wrongly
->>> configured to a frequency beyond the constraints, causing crosstalk
->>> that affects the normal operation of other modules. If such a situation
->>> occurs, it will be very difficult to troubleshoot. How should this
->>> situation be handled more reasonably?
->> Fix your consumers drivers if you need to. Set range if you must.
->> Those are not clock provider constraints. Those are use-case ones. It
->> does belong here and CCF already provides the necessary infra to deal
->> with ranges.
+On Mon, Jan 13, 2025 at 4:35=E2=80=AFAM James Clark <james.clark@linaro.org=
+> wrote:
 >
-> I kind of disagree here, if the vendor has the data and is willing to share
-> the range for each clock path of the system, I think it should be welcome!
 >
-> Usually those ranges are not disclosed, so we don't set them, but CCF will
-> certainly use all those range to make an even better decision on the lock
-> routing.
-
-I did not say you should not use them, I say that a platform
-use-case, which is what this is, should not be hard coded within the
-clock provider driver.
-
-This is no different than an assigned-rate, and like any other platform
-description, it belong in DT.
-
-We've already seen how these ranges may depend on what else you choose
-to do on the system or even what package a particular SoC variant is
-using.
-
 >
-> Neil
+> On 10/01/2025 5:20 pm, Ian Rogers wrote:
+> > Using the scripts at:
+> > https://gitlab.arm.com/telemetry-solution/telemetry-solution/
+> >
+> > Generate perf json for neoverse-n3 using the following command:
+> > ```
+> > $ telemetry-solution/tools/perf_json_generator/generate.py \
+> >    tools/perf/ --telemetry-files \
+> >    telemetry-solution/data/pmu/cpu/neoverse/neoverse-n3.json:neoverse-n=
+3
+> > ```
+> >
+> > Signed-off-by: Ian Rogers <irogers@google.com>
+> > ---
+> >   .../arm64/arm/neoverse-n3/core-imp-def.json   | 930 +++++++++++++++++=
++
 >
->> 
+> I assume you got warnings about missing groups, if one is missing that
+> results in everything being dumped in core-imp-def.json. I have an
+> internal ticket open about it which is why I didn't post N3 and V3 jsons
+> yet, I'll check on it again.
+
+I was testing with JEVENTS_ARCH=3Dall. I'm not sure what the group
+warning is, do you have a link?
+
+> Up to you whether you want to continue with it like this and I can send
+> a fix up later but there's also a conflict with the recent Fujitsu
+> Monaka events.
+
+I'm happy to let you push the updates. An alternative, that may work
+around the group issue, is just to push the event updates. Any chance
+on an ETA?
+
+Thanks,
+Ian
 
