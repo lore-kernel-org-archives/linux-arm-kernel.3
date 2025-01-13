@@ -4,74 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01697C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 20:33:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A0ADC02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 20:46:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Oo6S/NbiC36DkS7Kap9xyJe9NBN1Xps0or4tNn+/IDo=; b=ghxT0gXXnNMy4H1HCxI1xYkO73
-	B0cumkmbXHrPiJGadMXBEAkrXhRY2/zD763hRhd01CPOQMGvDaAQzRc+t2FcdiNzNmzwkoI4gASh/
-	qcR8+2A15/cS8KE73JgTMCKHGB5YcFrXFNxYTwxo11ilSskI27B3wBtIb5EZuzbmxIEZnDv4BMMo5
-	hqU0I3GeqiFYOiLlZwqWXlfB2cEEAk6r7SbLBVkZRcbtfGkU43r125R0YNYzG/qdAsdDpv2dMaAtC
-	OHoGAh3fL1kMBwGFjROiLQwNZWZbVC+NyyhOPPXWb0m659YXgRWARDgbpPNDL4Z3St+BIqprCpsQ4
-	Z022I6gQ==;
+	bh=neC8swkEuw03PDXTtFTGziwBfO46T9kvPiTjQuZg9eE=; b=f6r/Q8s5rlgfNEjdE+3m2S91kh
+	NqDwqimVKNFHsuJdaxMHXqp/TaIfJ62aVTsmGv1nFrr9J9aMo+EIYxPbeFW5F7vATuozj4rfl2+Df
+	z8yYxMd3iCZECbLh15NvezENii0nwGr7Lokwfc/9rYhq8zTx34p5TeNxo6TxC8ChoHxsndwae/vZJ
+	pEqfHxqBkIFackb+af/O//HStCvFoCgOSNw99TpTe5oglsDqr9wU2WbV3wq25j2SvzHK6YomzzarB
+	UUdCNg0ATRLIB2F+JiJofhbqtzN9Hg82HHCjOdHGLtNVpagQGFzM2yUP6KEkLO01P7tzgqr3YqfII
+	4E3ifCHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXR7H-00000006ZKr-2PQQ;
-	Mon, 13 Jan 2025 20:32:55 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tXRKG-00000006aQN-0S43;
+	Mon, 13 Jan 2025 20:46:20 +0000
+Received: from mail-bn8nam11on2061d.outbound.protection.outlook.com ([2a01:111:f403:2414::61d] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXR62-00000006Yr9-2vqO
+	id 1tXRJ1-00000006aJz-1NLz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 20:31:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4050C5C57DD;
-	Mon, 13 Jan 2025 20:30:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8053DC4CEE1;
-	Mon, 13 Jan 2025 20:31:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736800297;
-	bh=Up9r2sF9a7ds9s6HK6Cfz2WXo56DasNauR2Pfzo2u2c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eSJcAYi42WHeJopVXG2d4MstJhfedjBfC2USIrP0nvBv8QEYaT9cYrmwkM57tIUb1
-	 w6kkoH5b6qF05D1LSj9GA3his4Tuei4M3TaD3qhtttIYCs5tihJEclBlAnUrMG2tFl
-	 djLQ4YKvvFWaTlU9vKbqoBGu2L7G0hQCrBpj3+LM0AbIoeSt/tnHouzZnfWCgd/Fms
-	 whfJzQN9T4TvrZNNDtZCE1cdaBWz/sa3zwTyq+aaBotUBM49Srf6T/yaZdvFcfoPaQ
-	 FZRNrtsPZFsH8h+0dEpGnd2YVZUsjBbh/LZ0IPlaGw5RlqtOX6Xh65zhY0y6nqh56l
-	 tCeWqclB7sUvA==
-Date: Mon, 13 Jan 2025 20:31:36 +0000
-From: Eric Biggers <ebiggers@kernel.org>
-To: =?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>,
-	Avri Altman <avri.altman@wdc.com>,
-	Bart Van Assche <bvanassche@acm.org>,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	"Martin K. Petersen" <martin.petersen@oracle.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
-	linux-scsi@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH] scsi: ufs: pltfrm: fix use-after free in init error and
- remove paths
-Message-ID: <20250113203136.GB1800842@google.com>
-References: <20250113-ufshcd-fix-v1-1-ca63d1d4bd55@linaro.org>
- <20250113192235.GA1800842@google.com>
- <c4129ea9da39badb3a686f7f93c334ecbc6d83f6.camel@linaro.org>
+	Mon, 13 Jan 2025 20:45:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dj1nBoqmV3yYCaY2Fk6GhmNj9zphe+mquNzTHYCxhvJJOkFYLLc1eM3MOn4U4t30AWDXNw5Xp34hXjPGT8wN678VY8CIWqPtQZu0euyNYlY3utbn/dWeN1u3CnDWuNhjLFf5cQpbzW3ZNWDCNbwokCemrlLySoCdH6GGVrlUiOwk5/AxG2U+xAmAOKpMxvissWm+rYD4/ti4JQpPpWmeRGdDDBJF8szi+48HeykoBdv4LNfGkgh4DJ7tu13kxfF9GizYLdZUvv8IKFKQl3yTYhldMlh/fjmWxvuqyCYCd09v8aMsSrhJo8w73sx91za6760WRlIaH//bvx+dSilCoQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=neC8swkEuw03PDXTtFTGziwBfO46T9kvPiTjQuZg9eE=;
+ b=B9WzOISv9cL09jELXu+wMRcAQWSlYQfeR3zUY2z3a+B0uZnHtKaBr+QHvtI1WJphsNtUjDJCjB1iU2y0iMDT5HNbpe0qooV3XT8UitFLdRUCVLzHaLI3cCQkX9MGrUNtzXJ9viA8HNp5aVSJogYZHj59eL+S3eeOm4+5Qs9700vlFjvbHY7MaqxzRvKBATcoaFRONnUsCGTxj0lCTxzHQgzRKeTxbVqTUPaghz/TASyBhQhe+DyjcFoYTbCuREqjgPdHDNTJNFzyq8tFtzvjV41pJbPQByfUrAbUr3blYf7TtqF/sD4IzGAccbtIdWj6II2m4XQ1VaL0yEIdqCA4Tw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=redhat.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=neC8swkEuw03PDXTtFTGziwBfO46T9kvPiTjQuZg9eE=;
+ b=Y5wd9O6F2z4NevbM4v6OvyTMxTOHg7RzTBVrK8c63B5YXcO0ry6ciTnB5VbzBrXRhcoaN2TQcKmwRdr2+4hT5ArTUWC8F5mPgYI+xLZAy3uoOsYwBRjB+aLhbHaSrxWd7sDzSYwOvTQaiE6suxsYM5Jd5b0+lqMvMOLtvafZiyHGH+NCR8vRj2JdxKhzFQs4u/5D7B9t0z3xHeM6Zt0cz7pIDlIeQbVI+DNA2vqAZxkBTyuh/pU8h8djsuhW1vhn3qMaTzfy2mWt7oOlBQoESR0icSQjBCbzgsrc7t9S7W6mcYrI2Ijz6ZKKFi9NGyfD9jcVHMXgVBlnPJ7PhYAHLg==
+Received: from SA9PR10CA0017.namprd10.prod.outlook.com (2603:10b6:806:a7::22)
+ by DM6PR12MB4283.namprd12.prod.outlook.com (2603:10b6:5:211::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.18; Mon, 13 Jan
+ 2025 20:44:57 +0000
+Received: from SN1PEPF000397B0.namprd05.prod.outlook.com
+ (2603:10b6:806:a7:cafe::f8) by SA9PR10CA0017.outlook.office365.com
+ (2603:10b6:806:a7::22) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8335.18 via Frontend Transport; Mon,
+ 13 Jan 2025 20:44:57 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ SN1PEPF000397B0.mail.protection.outlook.com (10.167.248.54) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8356.11 via Frontend Transport; Mon, 13 Jan 2025 20:44:57 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 13 Jan
+ 2025 12:44:40 -0800
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 13 Jan
+ 2025 12:44:40 -0800
+Received: from Asurada-Nvidia (10.127.8.10) by mail.nvidia.com (10.129.68.6)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4 via Frontend
+ Transport; Mon, 13 Jan 2025 12:44:39 -0800
+Date: Mon, 13 Jan 2025 12:44:37 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <kevin.tian@intel.com>, <corbet@lwn.net>, <will@kernel.org>,
+	<joro@8bytes.org>, <suravee.suthikulpanit@amd.com>, <robin.murphy@arm.com>,
+	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>, <shuah@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>, <eric.auger@redhat.com>,
+	<jean-philippe@linaro.org>, <mdf@kernel.org>, <mshavit@google.com>,
+	<shameerali.kolothum.thodi@huawei.com>, <smostafa@google.com>,
+	<ddutile@redhat.com>, <yi.l.liu@intel.com>, <patches@lists.linux.dev>
+Subject: Re: [PATCH v5 08/14] iommufd/viommu: Add iommufd_viommu_report_event
+ helper
+Message-ID: <Z4V7NbxGyYoQN0yV@Asurada-Nvidia>
+References: <cover.1736237481.git.nicolinc@nvidia.com>
+ <b9b4f3df990934cb80b2f5e1e49e555e50c1c857.1736237481.git.nicolinc@nvidia.com>
+ <20250110174132.GH396083@nvidia.com>
+ <Z4FpMs4qx3NdwrnZ@Asurada-Nvidia>
+ <20250110195114.GJ5556@nvidia.com>
+ <Z4Smpeb4k4UF3Qso@Asurada-Nvidia>
+ <20250113192144.GT5556@nvidia.com>
+ <Z4Vt6DAMDfEv6tb5@Asurada-Nvidia>
+ <20250113195433.GV5556@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <c4129ea9da39badb3a686f7f93c334ecbc6d83f6.camel@linaro.org>
+In-Reply-To: <20250113195433.GV5556@nvidia.com>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF000397B0:EE_|DM6PR12MB4283:EE_
+X-MS-Office365-Filtering-Correlation-Id: ac85281a-37a4-4838-6c83-08dd3413242d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|1800799024|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?FlPLho091fwMX08/BwjJzhAoWn+KQD8ej7xopkQzmoKrcyX4ZLOFn1N1/VYc?=
+ =?us-ascii?Q?dE1Hin/bJPjpZmOfcTWcpsGUrGg8tybn1rqB9+OCq+nKwpSyRs8BIGuF855J?=
+ =?us-ascii?Q?nNMmqbZxgGprighbhed8HSqijhg7xQdBp4lSjppoOnjG+3/brBPm+bU1gAFv?=
+ =?us-ascii?Q?yhx0ZCz8J+6c+F/m2AlHYEmUp9I/UOGeFfTbnwfl4blNOnptl+N4p+8oexdm?=
+ =?us-ascii?Q?PO1vqOJT/ot+cQb9PJVIGi8Ffsq7YlC4Sh0CQiVsXQYa0oasJLyGUbfmt36c?=
+ =?us-ascii?Q?T77EJeJ4UvrzxN4ssmveBBznhTflyJiEb++WB38rdDt5eaHDi+CUh5KfYRS1?=
+ =?us-ascii?Q?AgoiUWvc0vD39evqAi6WeebVbQMp+5hM/ZbuZp2Se7jr/T6ist2Ps+AKGPPn?=
+ =?us-ascii?Q?OdOUkr5HyStG7Waf05x6z9ti3AHdm6ozVSa0N2aw2wh7zpreNWNJO3gsOJAn?=
+ =?us-ascii?Q?FaX45mfakCYSWCaEdhCYsC53LxcesQFrprxRBSvcpy2bWa+I68EkM+TjFLYq?=
+ =?us-ascii?Q?nYCSFxeCk54EZlG3J5v9DJhVqdZCIQRk3/3jPuKKMa+Vn2kLkN2xAtJUYTV7?=
+ =?us-ascii?Q?JBFsY8iIiEYVW3dPIuo5QXGq1T5e6VG9nYnNT3+FLWqenaOuDmkBQvmvozld?=
+ =?us-ascii?Q?FaAUAbEyEdvDVDd1jpvtu3pYoNYpGojVKdIVl/8g//zGWbW6FmnMILuNPT8c?=
+ =?us-ascii?Q?Z0UC3X21x6a7k+qATZqpKGjH+lIhM5IbRN1OKoedzcVsYz/dgJwYcbu00kdp?=
+ =?us-ascii?Q?UqGHUDxYC2xA4Hi2kQ2ch5U+8ZmcenWwM7oM/U/j6gh1d7A+prq+0kVXLusQ?=
+ =?us-ascii?Q?D97TP8QxHyZKRCeucZZaW+LyTkTkgVZFTXcxc1okChn1FzqfbL0/xaRJ9v6O?=
+ =?us-ascii?Q?RWSVds9Z07Zrek3BMgkdeKJRIKP8XbPEYoiNmuizbRz6N29qQUsBMMWtnL8Q?=
+ =?us-ascii?Q?S+kN7LYvlzzuOD5J6V4RBA8/8vDo/WoyemGkIrA6GIpEpHZqxmki2ppC+4sp?=
+ =?us-ascii?Q?8g9sXSoe6rtkkqB0IszyuXIBCL5KFgTztbNt6Djy83ecHcLR23oaN+VOAvLs?=
+ =?us-ascii?Q?FK1I7JOQlR+gbxL2Xgk8T7BoPgJHEIcf8yiKjrAwY7/7w6XLbyOOZDpNBHMF?=
+ =?us-ascii?Q?qmDA1RWAO8KK/EhVLITOnw1UbTtrzvMrXl17Gk8mruDkBf5DdV/fLyD+hfE0?=
+ =?us-ascii?Q?WAUouEnUfz0N3nhfaPsA+XY8F48ph1Htms/143Err1rivgQknaaFkmQPbXi6?=
+ =?us-ascii?Q?YLfyoe4XKLQNNCRGESQqeH4qBlJYgODWTxdMel7N/hjDpBxmC5Svi+2yqq1/?=
+ =?us-ascii?Q?8R/7sUtalDzjW85uvOlvRGiNwC5P4kP6TKQNacPGAPVwwJFYTcvb3SHFXJsr?=
+ =?us-ascii?Q?JLdgg0VyOVtsa16kQQObAJFsBIJ79Tqnu+TCuRVY1vTFA8ZnMjajnGVAhB0v?=
+ =?us-ascii?Q?3b1Ks3w0Od4So9emlB+F+X1Zu5FUxzkaMqsliGex30P/xyIE5X/1CqOXAy2u?=
+ =?us-ascii?Q?87x35+1htXktY2g=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jan 2025 20:44:57.1051
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ac85281a-37a4-4838-6c83-08dd3413242d
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF000397B0.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4283
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_123138_835403_DA28CE0E 
-X-CRM114-Status: GOOD (  38.35  )
+X-CRM114-CacheID: sfid-20250113_124503_359977_80672577 
+X-CRM114-Status: GOOD (  23.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,139 +165,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 13, 2025 at 07:28:00PM +0000, André Draszik wrote:
-> On Mon, 2025-01-13 at 19:22 +0000, Eric Biggers wrote:
-> > On Mon, Jan 13, 2025 at 07:13:45PM +0000, André Draszik wrote:
-> > > devm_blk_crypto_profile_init() registers a cleanup handler to run when
-> > > the associated (platform-) device is being released. For UFS, the
-> > > crypto private data and pointers are stored as part of the ufs_hba's
-> > > data structure 'struct ufs_hba::crypto_profile'. This structure is
-> > > allocated as part of the underlying ufshd allocation.
-> > > 
-> > > During driver release or during error handling in ufshcd_pltfrm_init(),
-> > > this structure is released as part of ufshcd_dealloc_host() before the
-> > > (platform-) device associated with the crypto call above is released.
-> > > Once this device is released, the crypto cleanup code will run, using
-> > > the just-released 'struct ufs_hba::crypto_profile'. This causes a
-> > > use-after-free situation:
-> > > 
-> > >     exynos-ufshc 14700000.ufs: ufshcd_pltfrm_init() failed -11
-> > >     exynos-ufshc 14700000.ufs: probe with driver exynos-ufshc failed with error -11
-> > >     Unable to handle kernel paging request at virtual address 01adafad6dadad88
-> > >     Mem abort info:
-> > >       ESR = 0x0000000096000004
-> > >       EC = 0x25: DABT (current EL), IL = 32 bits
-> > >       SET = 0, FnV = 0
-> > >       EA = 0, S1PTW = 0
-> > >       FSC = 0x04: level 0 translation fault
-> > >     Data abort info:
-> > >       ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
-> > >       CM = 0, WnR = 0, TnD = 0, TagAccess = 0
-> > >       GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-> > >     [01adafad6dadad88] address between user and kernel address ranges
-> > >     Internal error: Oops: 0000000096000004 [#1] PREEMPT SMP
-> > >     Modules linked in:
-> > >     CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Tainted: G        W          6.13.0-rc5-next-20250106+ #70
-> > >     Tainted: [W]=WARN
-> > >     Hardware name: Oriole (DT)
-> > >     pstate: 20400005 (nzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-> > >     pc : kfree+0x60/0x2d8
-> > >     lr : kvfree+0x44/0x60
-> > >     sp : ffff80008009ba80
-> > >     x29: ffff80008009ba90 x28: 0000000000000000 x27: ffffbcc6591e0130
-> > >     x26: ffffbcc659309960 x25: ffffbcc658f89c50 x24: ffffbcc659539d80
-> > >     x23: ffff22e000940040 x22: ffff22e001539010 x21: ffffbcc65714b22c
-> > >     x20: 6b6b6b6b6b6b6b6b x19: 01adafad6dadad80 x18: 0000000000000000
-> > >     x17: ffffbcc6579fbac8 x16: ffffbcc657a04300 x15: ffffbcc657a027f4
-> > >     x14: ffffbcc656f969cc x13: ffffbcc6579fdc80 x12: ffffbcc6579fb194
-> > >     x11: ffffbcc6579fbc34 x10: 0000000000000000 x9 : ffffbcc65714b22c
-> > >     x8 : ffff80008009b880 x7 : 0000000000000000 x6 : ffff80008009b940
-> > >     x5 : ffff80008009b8c0 x4 : ffff22e000940518 x3 : ffff22e006f54f40
-> > >     x2 : ffffbcc657a02268 x1 : ffff80007fffffff x0 : ffffc1ffc0000000
-> > >     Call trace:
-> > >      kfree+0x60/0x2d8 (P)
-> > >      kvfree+0x44/0x60
-> > >      blk_crypto_profile_destroy_callback+0x28/0x70
-> > >      devm_action_release+0x1c/0x30
-> > >      release_nodes+0x6c/0x108
-> > >      devres_release_all+0x98/0x100
-> > >      device_unbind_cleanup+0x20/0x70
-> > >      really_probe+0x218/0x2d0
-> > > 
-> > > In other words, the initialisation code flow is:
-> > > 
-> > >   platform-device probe
-> > >     ufshcd_pltfrm_init()
-> > >       ufshcd_alloc_host()
-> > >         scsi_host_alloc()
-> > >           allocation of struct ufs_hba
-> > >           creation of scsi-host devices
-> > >     devm_blk_crypto_profile_init()
-> > >       devm registration of cleanup handler using platform-device
-> > > 
-> > > and during error handling of ufshcd_pltfrm_init() or during driver
-> > > removal:
-> > > 
-> > >   ufshcd_dealloc_host()
-> > >     scsi_host_put()
-> > >       put_device(scsi-host)
-> > >         release of struct ufs_hba
-> > >   put_device(platform-device)
-> > >     crypto cleanup handler
-> > > 
-> > > To fix this use-after free, register the crypto cleanup handler against
-> > > the scsi-host device instead, so that it runs before release of struct
-> > > ufs_hba.
-> > > 
-> > > Signed-off-by: André Draszik <andre.draszik@linaro.org>
-> > > ---
-> > > In my case, as per above trace I initially encountered an error in
-> > > ufshcd_verify_dev_init(), which made me notice this problem. For
-> > > reproducing, it'd be possible to change that function to just return an
-> > > error.
-> > > 
-> > > Other approaches for solving this issue I see are the following, but I
-> > > believe this one here is the cleanest:
-> > > 
-> > > * turn 'struct ufs_hba::crypto_profile' into a dynamically allocated
-> > >   pointer, in which case it doesn't matter if cleanup runs after
-> > >   scsi_host_put()
-> > > * add an explicit devm_blk_crypto_profile_deinit() to be called by API
-> > >   users when necessary, e.g. before ufshcd_dealloc_host() in this case
+On Mon, Jan 13, 2025 at 03:54:33PM -0400, Jason Gunthorpe wrote:
+> On Mon, Jan 13, 2025 at 11:47:52AM -0800, Nicolin Chen wrote:
+> > > The other approach would be to add a sequence number to each event and
+> > > let userspace detect the non-montonicity. It would require adding a
+> > > header to the native ARM evt.
 > > 
-> > Thanks for catching this.
-> > 
-> > There's also the option of using blk_crypto_profile_init() instead of
-> > devm_blk_crypto_profile_init(), and calling blk_crypto_profile_destroy()
-> > explicitly.  Would that be any easier here?
+> > Yea, I thought about that. The tricky thing is that the header will
+> > be a core-level header pairing with a driver-level vEVENTQ type and
+> > can never change its length, though we can define a 64-bit flag that
+> > can reserve the other 63 bits for future use?
 > 
-> Ah, yes, that was actually my initial fix for testing, but I dismissed
-> that due to needing more changes and potentially not knowing in all
-> situation if it needs to be called or not.
+> The header format could be revised by changing the driver specific
+> format tag.
+
+Yea, we need a header format (or "header type") when the vEVENTQ
+is allocated.
+
+> You'd want to push a special event when the first overflow happens and
+> probably also report a counter so userspace can know how many events
+> got lost.
+
+How about this:
+
+enum iommufd_veventq_header_type {
+	IOMMU_VEVENTQ_HEADER_TYPE_V1,
+};
+
+enum iommu_hwpt_pgfault_flags {
+	IOMMU_VEVENT_HEADER_FLAGS_OVERFLOW = (1 << 0),
+};
+
+struct iommufd_vevent_header_v1 {
+	__u64 flags;
+	__u32 num_events;
+	__u32 num_overflows; // valid if flag_overflow is set
+};
+
+> This seems most robust and simplest to implement..
 > 
-> TBH, my preferred fix would actually be the alternative 1 outlined
-> above (dynamic allocation). This way future drivers can not make this
-> same mistake.
-> 
-> Any thoughts?
-> 
+> I think I'd implement it by having a static overflow list entry so no
+> memory allocation is needed and just keep moving that entry to the
+> back of the list every time an event is lost. This way it will cover
+> lost events due to memory outages too
 
-I assume you mean replacing devm_blk_crypto_profile_init() with a new function
-devm_blk_crypto_profile_new() that dynamically allocates a struct
-blk_crypto_profile, and making struct ufs_hba store a pointer to struct
-blk_crypto_profile instead of embed it.  And likewise for struct mmc_host.
+Could double-adding the same static node to the list happen and
+corrupt the list?
 
-I think that would avoid this bug, but it seems suboptimal to introduce the
-extra level of indirection.  The blk_crypto_profile is not really an independent
-object from struct ufs_hba; all its methods need to cast the blk_crypto_profile
-to the struct ufs_hba that contains it.  We could replace the container_of()
-with a back-pointer, so technically it would work.  But the fact that both would
-be pointing to each other suggests that they really should be in the same
-struct.
+I think the vevent_header doesn't need to be exactly match with
+the driver event. So, maybe a vEVENTQ object could hold a header
+structure during iommu_veventq_alloc?
 
-If it's possible, it would be nice to just make the destruction of the crypto
-profile happen at the right time, when the other resources owned by the ufs_hba
-are destroyed.
+struct iommufd_veventq {
+	...
+	atomic_t num_events;
+	atomic_t num_overflows;
+	DECLARE_BITMAP(errors, 32);
+	struct iommufd_vevent_header_v1 *header;
+};
 
-- Eric
+The header is a bit redundant to its upper three members though.
+
+> For old formats like the fault queue you could return EOVERFLOW
+> whenever the sequence number becomes discontiguous or it sees the
+> overflow event..
+
+So, IOMMU_OBJ_FAULT is safe to return EOVERFLOW via read(), as
+you mentioned that it is self-limited right?
+
+Thanks
+Nicolin
 
