@@ -4,57 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ECEAC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 16:53:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17E6BC02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 16:54:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KjEaQPolBs9hP9oTl8saVrilietuPbZ4nXibpbsmGtc=; b=ZmAoH4Sfppi+HtAQ8pDTLCw23F
-	Zz4Mgmn9c2ipxiezSo069A5wEhw007r6YKlK13/JTokJUgFvuLqyWDcpmIru+RAsJZ+VledxBog7/
-	ccptc30rhCqR/CXWdh+wYxFmb3w6vtBf3jz/IGhuaGen1v2gdFL7Fk9zl2LxPExNx4ga1WqVXKBZw
-	UMahbezo72CyTmYun/6LSTY13H1ViKuB8HRKGOsI35z6oXJZcOG9IGvZeSBjZTSM9KS62pC7jaAJQ
-	slZc4Q/pmo/6MJotAq1TpWDrjmt54tgacxohvCMojz4NmbtOgTQbmj+mPPt0uI2BQysedChwNoavA
-	Dw78bKLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/SSF08AXo37Ms74Q5MW/F4QSbA1Q6n/g4A90uEk6KjQ=; b=dFrBMvKX2yC7dtxA6igokfs09s
+	ModnkLUKdM+wOFHVtFJ+3tthkpoyksTxdAJnIjtn9MVihSPCfe5J9QOA+Ny58UDE+PPdgtOCqTaa1
+	hDihVeJt+JICecjuokaY5JC9vtexZ5abTdKdl8tWvGsOo9tS8mkvH5oUa7DcDrLGBMG3pjIZy22oq
+	VX0XBjKL1uQEJZAYrCrlLBG3Kn7UC356PMvaxBQVbODToPbJuLiLaUfR+h4LubxivxVtBRsngZBb1
+	243ygzdDPiAkfC+tWsrqOCxWq7a3qDsXUajguZ7WArvZtnbU30brL4t5mlpVzuNc8ef1Jrbou1b9z
+	eZ14PydQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXNge-00000005wqD-3j9a;
-	Mon, 13 Jan 2025 16:53:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXNcj-00000005w8c-0CcB
+	id 1tXNhr-00000005wzy-2H10;
+	Mon, 13 Jan 2025 16:54:27 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tXNdT-00000005wKs-34DF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 16:49:10 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 56F0A12FC;
-	Mon, 13 Jan 2025 08:49:34 -0800 (PST)
-Received: from [10.57.35.117] (unknown [10.57.35.117])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id DDE4B3F673;
-	Mon, 13 Jan 2025 08:49:04 -0800 (PST)
-Message-ID: <b5ee243c-5122-4476-8978-0454b54283d8@arm.com>
-Date: Mon, 13 Jan 2025 16:49:04 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coresight: catu: Fix number of pages while using 64k
- pages
-Content-Language: en-GB
-To: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-Cc: Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250109215348.5483-1-ilkka@os.amperecomputing.com>
- <7fa2c7c2-0bbf-4d45-bc90-71c4a4a82c0c@arm.com>
- <6d6128d4-778f-fc9c-651b-53de199d023@os.amperecomputing.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <6d6128d4-778f-fc9c-651b-53de199d023@os.amperecomputing.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+	Mon, 13 Jan 2025 16:49:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 75851A41187;
+	Mon, 13 Jan 2025 16:48:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BFAAC4CEE1;
+	Mon, 13 Jan 2025 16:49:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736786994;
+	bh=krodteQ9YYEeKdLpxISnJBtZdT55UGPVBi/zs6nCa/Y=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=jhSd41QXu4NPMNaE/qYkDHUaJYo3IwT5C53zoZkL8DnuSw4hGJQ5ZYDzREGEEOdL7
+	 GdbuXLk2etxvHkv1LRYazY25EaSlp7dsKzA/6JpxdQ8mpS6LG3TwiGexF5QklU1Z0I
+	 PkM6up5FmW7k7+8zQ5nfUpn64U14iK7PTTJRW2Z0D2CB/Icv708N9+u+gtfqfmiTMw
+	 ZnmHqH/bHbd6ALxU+nGFI1WQDZ9zwXATs61o8CmRBoyTUBRdKM5Ep3jdd5ax50xz7w
+	 /hcWBuuPcgwtfW2Euv0fnliPg4+1riDGal3wXzFp1fTNz+6gQf2GCHSPfIE3Qxhlwa
+	 yNEJ1rNTOiYrw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tXNdO-00BhXU-G7;
+	Mon, 13 Jan 2025 16:49:50 +0000
+Date: Mon, 13 Jan 2025 16:49:49 +0000
+Message-ID: <86jzaywtea.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: James Clark <james.clark@linaro.org>
+Cc: Mark Brown <broonie@kernel.org>,
+	kvmarm@lists.linux.dev,
+	oliver.upton@linux.dev,
+	suzuki.poulose@arm.com,
+	coresight@lists.linaro.org,
+	James Clark <james.clark@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mike Leach <mike.leach@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	"Rob Herring (Arm)" <robh@kernel.org>,
+	Shiqi Liu <shiqiliu@hust.edu.cn>,
+	James Morse <james.morse@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v10 04/10] arm64/sysreg: Add a comment that the sysreg file should be sorted
+In-Reply-To: <760969b6-18b7-42ac-9524-2f1f845b3703@linaro.org>
+References: <20250107113252.260631-1-james.clark@linaro.org>
+	<20250107113252.260631-5-james.clark@linaro.org>
+	<87frloqjso.wl-maz@kernel.org>
+	<760969b6-18b7-42ac-9524-2f1f845b3703@linaro.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: james.clark@linaro.org, broonie@kernel.org, kvmarm@lists.linux.dev, oliver.upton@linux.dev, suzuki.poulose@arm.com, coresight@lists.linaro.org, james.clark@arm.com, joey.gouly@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mike.leach@linaro.org, alexander.shishkin@linux.intel.com, mark.rutland@arm.com, anshuman.khandual@arm.com, robh@kernel.org, shiqiliu@hust.edu.cn, james.morse@arm.com, tabba@google.com, rananta@google.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_084909_128013_B1C9FAE9 
-X-CRM114-Status: GOOD (  15.19  )
+X-CRM114-CacheID: sfid-20250113_084955_897401_C158B783 
+X-CRM114-Status: GOOD (  28.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,65 +105,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/01/2025 21:32, Ilkka Koskinen wrote:
+On Mon, 13 Jan 2025 15:43:39 +0000,
+James Clark <james.clark@linaro.org> wrote:
 > 
-> Hi Suzuko,
 > 
-> On Fri, 10 Jan 2025, Suzuki K Poulose wrote:
->> On 09/01/2025 21:53, Ilkka Koskinen wrote:
->>> Trying to record a trace on kernel with 64k pages resulted in -ENOMEM.
->>> This happens due to a bug in calculating the number of table pages, 
->>> which
->>> returns zero. Fix the issue by rounding up.
->>>
->>> $ perf record --kcore -e cs_etm/@tmc_etr55,cycacc,branch_broadcast/k 
->>> --per-thread taskset --cpu-list 1 dd if=/dev/zero of=/dev/null
->>> failed to mmap with 12 (Cannot allocate memory)
->>>
->>
->> Needs a Fixes tag.
->>
->> Fixes : 8ed536b1e283 ("coresight: catu: Add support for scatter gather 
->> tables")
 > 
-> That's a good point
+> On 12/01/2025 12:49 pm, Marc Zyngier wrote:
+> > On Tue, 07 Jan 2025 11:32:41 +0000,
+> > James Clark <james.clark@linaro.org> wrote:
+> >> 
+> >> From: James Clark <james.clark@arm.com>
+> >> 
+> >> There are a few entries particularly at the end of the file that aren't
+> >> in order. To avoid confusion, add a comment that might help new entries
+> >> to be added in the right place.
+> >> 
+> >> Reviewed-by: Mark Brown <broonie@kernel.org>
+> >> Signed-off-by: James Clark <james.clark@arm.com>
+> >> Signed-off-by: James Clark <james.clark@linaro.org>
+> >> ---
+> >>   arch/arm64/tools/sysreg | 2 ++
+> >>   1 file changed, 2 insertions(+)
+> >> 
+> >> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+> >> index b081b54d6d22..4ba167089e2a 100644
+> >> --- a/arch/arm64/tools/sysreg
+> >> +++ b/arch/arm64/tools/sysreg
+> >> @@ -48,6 +48,8 @@
+> >>   # feature that introduces them (eg, FEAT_LS64_ACCDATA introduces enumeration
+> >>   # item ACCDATA) though it may be more taseful to do something else.
+> >>   +# Please try to keep entries in this file sorted by sysreg
+> >> encoding.
+> >> +
+> >>   Sysreg	OSDTRRX_EL1	2	0	0	0	2
+> >>   Res0	63:32
+> >>   Field	31:0	DTRRX
+> > 
+> > "Do as I say, don't do as I do".
+> > 
+> > I don't think this makes any sense if we don't actually sort the file
+> > the first place.
+> > 
+> > 	M.
+> > 
 > 
->>
->>> Signed-off-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
->>> ---
->>>   drivers/hwtracing/coresight/coresight-catu.c | 2 +-
->>>   1 file changed, 1 insertion(+), 1 deletion(-)
->>>
->>> diff --git a/drivers/hwtracing/coresight/coresight-catu.c b/drivers/ 
->>> hwtracing/coresight/coresight-catu.c
->>> index 275cc0d9f505..3378bb77e6b4 100644
->>> --- a/drivers/hwtracing/coresight/coresight-catu.c
->>> +++ b/drivers/hwtracing/coresight/coresight-catu.c
->>> @@ -269,7 +269,7 @@ catu_init_sg_table(struct device *catu_dev, int 
->>> node,
->>>        * Each table can address upto 1MB and we can have
->>>        * CATU_PAGES_PER_SYSPAGE tables in a system page.
->>>        */
->>> -    nr_tpages = DIV_ROUND_UP(size, SZ_1M) / CATU_PAGES_PER_SYSPAGE;
->>> +    nr_tpages = DIV_ROUND_UP(size, CATU_PAGES_PER_SYSPAGE * SZ_1M);
->>>       catu_table = tmc_alloc_sg_table(catu_dev, node, nr_tpages,
->>>                       size >> PAGE_SHIFT, pages);
->>>       if (IS_ERR(catu_table))
->>
->> Looks good to me, I will queue this later for v6.15.
->>
->> Suzuki
-> 
-> Sounds great. Just to confirm, are you ok to add the fixes line or would 
-> you prefer me to submit v2 with it?
+> I think it's ok if it avoids review comments that new entries should
+> be sorted. Or maybe we do the opposite and the comment should say this
+> file is allowed to be unsorted...
 
-No, not required. I have picked this up for v6.15, and will push it out
-once v6.14-rc is out.
+The better option would be to add the comment *and* sort the file.
+Leading by example has some value, it seems.
 
-Suzuki
+	M.
 
-
-> 
-> Cheers, Ilkka
-
+-- 
+Without deviation from the norm, progress is not possible.
 
