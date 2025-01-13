@@ -4,150 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 301A9E7719F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 13:23:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DCA7C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 13:29:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A3R7ega60i2XI0ngndIHudoIs2LUtdofitS/MXH9C7I=; b=MA5JzXns+sOR5wuscbbkA2azi8
-	2XdFuzpyLdx6ewupkfY8Au2MdXLgFkcZFfux7kfqQY2QZiwurAguEOSeltxsYfo21QRIjtQ0kjWl5
-	ZnYOy3LaLZMecdq0M5LpJZNK1s2CTj0b5KGtu5McYW8vRB58EbFf08EO7ufZldrrrfw1gOrrI9hcd
-	I6Q2kIMdYIcC/GH2tqtuZ3nWTSlfIZV8xlPSzMEzI7X5Pbc8/lUwr2EjIDOUX6USvb8NsPtlPUx45
-	CFVcu9frf60eZbeZEo75F1QxD3dOPNOgc5Wf/BxGs2Swmm0XmB3kzYS0AghjCy7AZM8XfHyKLTQSn
-	/eWxAc9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=YUMYQOIXLWXZ0xu21z8a2F/DBC+sSJEk31/h6id2njo=; b=VdDnbO5r06SBbl
+	ZP8awVUUl/KH5cINSCcv/0+5fxNfn5Yhf498ZU6I8bT5LNxKQDfddyfqTS+/hpzJvuXn3dcArRh5t
+	c0FnhNl4BRQjTFsML9O2XsFkXzyEfOFoAgfxkLBG2wg0m/kFd8Nmg09gt8RhONf4y70vAz5SMYsZs
+	TRMcNunQ63ZNI44jCDpJB4IL3rrU6Tvgvtis97BJyIdREyXbR/xWtDXSKeUpw+1gYH3hpNcmM+iEE
+	Z0iivovOLK+0SmcC/jWtJJqUOe10AsXduFMlJgF01WsxhaAes9FG3UVwKF3k62H1CwhCX28hnqWZD
+	4O1CUZSVTXiM6Nd+8uuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXKPh-00000005Eg0-0s0a;
-	Mon, 13 Jan 2025 13:23:29 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1tXKVH-00000005FH8-0tkl;
+	Mon, 13 Jan 2025 13:29:15 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXKNQ-00000005EJi-2lE1
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 13:21:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1736774467;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=A3R7ega60i2XI0ngndIHudoIs2LUtdofitS/MXH9C7I=;
-	b=XlRuU5p17u8esuz3j83DsOXR8EbyZlo1z2o+c5wlYA0I19vWyn4m0x4hWmJLBXKEeapyRC
-	eTBHb10jb8XLMNqbIWnl6rxTIvd0BPupYulxsxr1hhaSPElCiM//VvJ4yPuTM6zN2+cFfQ
-	+O8l6tj0i4xbBjZsVDtzx1CwA46yrwU=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-427-Ra5KuG_9PF-bTpo8jz-ydg-1; Mon, 13 Jan 2025 08:21:04 -0500
-X-MC-Unique: Ra5KuG_9PF-bTpo8jz-ydg-1
-X-Mimecast-MFC-AGG-ID: Ra5KuG_9PF-bTpo8jz-ydg
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-43624b08181so20937485e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 05:21:04 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736774463; x=1737379263;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:from:subject:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=A3R7ega60i2XI0ngndIHudoIs2LUtdofitS/MXH9C7I=;
-        b=d0J07hKGySigQRbNBf53YMsc8BTAYP8idstUgh2uN0OHdzxl+nvXwLPtBSofNRWQDI
-         xopJTjNuJ4Z6AIPMWfU32bdyfrep6kvEqQf5HSnl/0mHnDhntyi6dYcI2XPIMRvAVShd
-         +kZL7g0k7wWvfFdDwRXw40snlOfB9YsMUmlgCZH8zJAgSZCV42udvWZnaL6eghqvXeRE
-         qU7OotPzizIHjVgvlCvSOEwV0lmazSuc7kwPU2IP24xYICpkeCrAB62h8pdkdPLxDBot
-         vC4+yRyGeAhyD1brg6XtcmdlVKZGIlF0VwrToZQbLG1PXZB9TfqncQSke+RXQzGkotp4
-         DW5Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUzcoWghvFKu+EV20f3cWqVdoLecOwa9U0Z8wNNFF/cXuKcpQssYvIHGTrTRd29lcverHO15RhAA+KKGGhSp3jY@lists.infradead.org
-X-Gm-Message-State: AOJu0YxgOHX9D7Att0MOEwp2AsXvVmr/+X0oE8gX6y6+mYEyKVf0/801
-	ILmKKQ9Sx1BA8YcWCH7F/AEF3Q0tNZjICThoEZq6hKzuBh4lLfxwJ3KknmtWJhMcCrpejC2IcVu
-	mi/3NCX3JfbD6TLJAajt1yLu6jEeCwqK0jY8LmszBV0wwqhf35RQ50dOxoUq4RCHl+AjB74AP
-X-Gm-Gg: ASbGnctko97mIPECl0xQcOJnSedfq1ABk8w7xfZYMCAh3rbw9tKGrzDaews9g0pqxns
-	vHNgSiCIS0OZ8bkubsyBExy/OI/cSInF5/rt0720YvzgWLXOeUrGJtsQpCxrl5Q1/he0voMUr9F
-	KX/1VcOTv7aloFJzZSFEJuErHfXH679p62E8rohyf0V/87gIm49rnGYHmzqrnphrwWNmOMdjKTW
-	uBSrPyjKsu/4tUn45JAMfD9IMp5JBSaku4q5hVVZwgjgmv46m46Gkouu1QeCa2oDbnLgjWrDdIJ
-	3RPPQeBEWEOXgeA=
-X-Received: by 2002:a05:600c:5918:b0:436:185f:dfae with SMTP id 5b1f17b1804b1-436e881e681mr125927745e9.6.1736774463348;
-        Mon, 13 Jan 2025 05:21:03 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGKcgi8IHOeELIAQ3P3feBXZIx+FPb9LcEzOeJE3vptCqKAaI/6YDc2O3yD/xkGQL19Z3ey2w==
-X-Received: by 2002:a05:600c:5918:b0:436:185f:dfae with SMTP id 5b1f17b1804b1-436e881e681mr125927535e9.6.1736774462981;
-        Mon, 13 Jan 2025 05:21:02 -0800 (PST)
-Received: from ?IPV6:2a09:80c0:192:0:5dac:bf3d:c41:c3e7? ([2a09:80c0:192:0:5dac:bf3d:c41:c3e7])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e9e6251asm147879855e9.40.2025.01.13.05.21.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Jan 2025 05:21:01 -0800 (PST)
-Message-ID: <e36243bb-5a6f-4ef7-ae3e-99d204009afb@redhat.com>
-Date: Mon, 13 Jan 2025 14:20:59 +0100
+	id 1tXKU1-00000005F3P-45jj;
+	Mon, 13 Jan 2025 13:27:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1736774875;
+	bh=ysn17uQxkXzPtLZxnOMKYQsJkVa5vH4rdmQv56kQ19U=;
+	h=From:Subject:Date:To:Cc:From;
+	b=cQaPL3eg4q1NUlufcAKQoR5YN+GJdtn/17lbSWYbgPS62pYxsKam4SPZ548d2AyK4
+	 B7Gwf9LXiQSZFWXafmSR+l9+v9jZg7ANIXuR+KYY7HeZoJqvoSXLaRZafvPE/13rpv
+	 RZEqnGdGh9aJKmMut9Nzm1onHdZ8Bl9bg6PwyIg1VeBdCcVroCb9ipVtoQpz+/YhP7
+	 iyj4UBNRh8XNkj5RtVi34nxGOPhbl4+sYBuKMYzMqpjIo9aBycm3QQGwSMBNak0aQD
+	 6hsDK5vatfHXymp8xVUCFgAJpwcRiCVMxDbmCSdLvmt2hOhD+oPFIBqY/qlaFOexDH
+	 kObWOr2klR1vg==
+Received: from [192.168.0.47] (unknown [IPv6:2804:14c:1a9:53ee::1000])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nfraprado)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1941F17E0DB7;
+	Mon, 13 Jan 2025 14:27:50 +0100 (CET)
+From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+Subject: [PATCH RESEND v2 0/5] thermal/drivers/mediatek/lvts: Fixes for
+ suspend and IRQ storm, and cleanups
+Date: Mon, 13 Jan 2025 10:27:11 -0300
+Message-Id: <20250113-mt8192-lvts-filtered-suspend-fix-v2-0-07a25200c7c6@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] mm: Set folio swapbacked iff folios are dirty in
- try_to_unmap_one
-From: David Hildenbrand <david@redhat.com>
-To: Barry Song <21cnbao@gmail.com>, akpm@linux-foundation.org,
- linux-mm@kvack.org
-Cc: baolin.wang@linux.alibaba.com, chrisl@kernel.org, ioworker0@gmail.com,
- kasong@tencent.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, ryan.roberts@arm.com, v-songbaohua@oppo.com,
- x86@kernel.org, linux-riscv@lists.infradead.org, ying.huang@intel.com,
- zhengtangquan@oppo.com, lorenzo.stoakes@oracle.com
-References: <20250113033901.68951-1-21cnbao@gmail.com>
- <20250113033901.68951-2-21cnbao@gmail.com>
- <296b04db-9524-48f1-9fa1-0b028bc939a6@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- WNyWQQ==
-Organization: Red Hat
-In-Reply-To: <296b04db-9524-48f1-9fa1-0b028bc939a6@redhat.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 1c9uNqmglGaWqEBAIUsNO0OiuB3w7vclzv8xY3gs4h0_1736774463
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+To: "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
+ Lukasz Luba <lukasz.luba@arm.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Alexandre Mergnat <amergnat@baylibre.com>, 
+ Balsam CHIHI <bchihi@baylibre.com>
+Cc: kernel@collabora.com, linux-pm@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, Hsin-Te Yuan <yuanhsinte@chromium.org>, 
+ Chen-Yu Tsai <wenst@chromium.org>, 
+ =?utf-8?q?Bernhard_Rosenkr=C3=A4nzer?= <bero@baylibre.com>, 
+ "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>, 
+ stable@vger.kernel.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_052108_764896_B88083EC 
-X-CRM114-Status: GOOD (  10.76  )
+X-CRM114-CacheID: sfid-20250113_052758_159710_7B9ABD06 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,31 +84,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13.01.25 14:19, David Hildenbrand wrote:
-> On 13.01.25 04:38, Barry Song wrote:
->> From: Barry Song <v-songbaohua@oppo.com>
->>
->> The refcount may be temporarily or long-term increased, but this does
->> not change the fundamental nature of the folio already being lazy-
->> freed. Therefore, we only reset 'swapbacked' when we are certain the
->> folio is dirty and not droppable.
->>
->> Suggested-by: David Hildenbrand <david@redhat.com>
->> Signed-off-by: Barry Song <v-songbaohua@oppo.com>
->> ---
-> 
-> Acked-by: David Hildenbrand <david@redhat.com>
-> 
+Patches 1 and 2 of this series fix the issue reported by Hsin-Te Yuan
+[1] where MT8192-based Chromebooks are not able to suspend/resume 10
+times in a row. Either one of those patches on its own is enough to fix
+the issue, but I believe both are desirable, so I've included them both
+here.
 
-Ah, should this have a Fixes: ?
+Patches 3-5 fix unrelated issues that I've noticed while debugging.
+Patch 3 fixes IRQ storms when the temperature sensors drop to 20
+Celsius. Patches 4 and 5 are cleanups to prevent future issues.
 
-Because of a speculative reference, we might not reclaim MADV_FREE 
-folios as we silently mark them as swapbacked again, which sounds fairly 
-wrong.
+To test this series, I've run 'rtcwake -m mem -d 60' 10 times in a row
+on a MT8192-Asurada-Spherion-rev3 Chromebook and checked that the wakeup
+happened 60 seconds later (+-5 seconds). I've repeated that test on 10
+separate runs. Not once did the chromebook wake up early with the series
+applied.
 
+I've also checked that during those runs, the LVTS interrupt didn't
+trigger even once, while before the series it would trigger a few times
+per run, generally during boot or resume.
+
+Finally, as a sanity check I've verified that the interrupts still work
+by lowering the thermal trip point to 45 Celsius and running 'stress -c
+8'. Indeed they still do, and the temperature showed by the
+thermal_temperature ftrace event matched the expected value.
+
+[1] https://lore.kernel.org/all/20241108-lvts-v1-1-eee339c6ca20@chromium.org/
+
+Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+---
+Changes in v2:
+- Renamed bitmasks for interrupt enable (added "INTEN" to the name)
+- Made read-only arrays static const
+- Changed sensor_filt_bitmap array from u32 to u8 to save memory
+- Rebased on next-20241209
+- Link to v1: https://lore.kernel.org/r/20241125-mt8192-lvts-filtered-suspend-fix-v1-0-42e3c0528c6c@collabora.com
+
+---
+Nícolas F. R. A. Prado (5):
+      thermal/drivers/mediatek/lvts: Disable monitor mode during suspend
+      thermal/drivers/mediatek/lvts: Disable Stage 3 thermal threshold
+      thermal/drivers/mediatek/lvts: Disable low offset IRQ for minimum threshold
+      thermal/drivers/mediatek/lvts: Start sensor interrupts disabled
+      thermal/drivers/mediatek/lvts: Only update IRQ enable for valid sensors
+
+ drivers/thermal/mediatek/lvts_thermal.c | 103 ++++++++++++++++++++++----------
+ 1 file changed, 72 insertions(+), 31 deletions(-)
+---
+base-commit: d1486dca38afd08ca279ae94eb3a397f10737824
+change-id: 20241121-mt8192-lvts-filtered-suspend-fix-a5032ca8eceb
+
+Best regards,
 -- 
-Cheers,
-
-David / dhildenb
+Nícolas F. R. A. Prado <nfraprado@collabora.com>
 
 
