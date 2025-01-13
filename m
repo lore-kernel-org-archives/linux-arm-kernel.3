@@ -4,78 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1197FE7719E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 09:13:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A94AAE7719E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 09:14:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cszX7CaqF/yGZOef+lx+ZccZirVa0cMcifv32LPpuhM=; b=n9YGxUt6ITfao9z58iHTnGFteF
-	Eq0z7AoT56Rs/II8g7YMmpUR+d98qu611xeeX/iDfCah9OooYX8fC15Qt8XZYwMsymtw//TZvPTWZ
-	uN41GFx+F8197IvCYgcEBeT5hBT+EZ/hK8R2HXTLFfhdw27+7ZY6Dc2cE9JslMvLBrFiq78r8Zzj0
-	GOALqVHwAi9vT9A4ppe4D3yli/Lx2Bfu1OrVhJ4ULHdNRd3BE5u7VCKEs4f1DDvX922E6JWzo0g9M
-	/RJKQ+i19XW8VuD2RfKbkqVLrl5vZRM1xERAiPdhzoRobkKigZTSUqar0o0XhwTbdXR5jhvcWLLbI
-	4ztrPC0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gVmv06UiciOif9n0zEXjWMnBVceV6C66Mfpmv3QehtQ=; b=suC1rnb7+ok9SmOxWMzj36Ioy5
+	weDYx/izaOrtPfoGwG5tkhIS4trM7A3rW4ZcQ7LblpkyA/2DG67zPQOHB/k7UPQHsSJvYNTBjsmvH
+	slmJBdy+kVYuDG2oUZ9faNcOyRP4sbt7AB6kI+/c+WSMOCkZZlUb+BDkHQJs3HmcCuEn67pgmp6Bb
+	Hpsi6+74RF6wpxN78kgcG36lwEQm8Jne0svRi2FIonxc1ki1sskiq7wKyeKfjgD9XAI4P2PaIl9FW
+	L+IfI5y0f0h+/xOsAkHfPBwGhhOoNAP0qcB3UAFvUGvFo4A+3bF701xxACV3wQvchIKiOhLZt1HYQ
+	LxSMRsFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXGV4-00000004YWS-0KCZ;
-	Mon, 13 Jan 2025 09:12:46 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1tXGWH-00000004Ydu-0AfC;
+	Mon, 13 Jan 2025 09:14:01 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXGJy-00000004W4c-2CsU
+	id 1tXGK5-00000004W9b-1DiE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 09:01:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1736758878; x=1768294878;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=GjpsjNBlCIvWjfSOKHK63am7WrBnSESbIOn/HxwUlNw=;
-  b=W6ZO+Y9lJtZyVEG7tKobQL5pcGpxhAHf4b2ZD/wUB/GP6jJAN1V7Tgnt
-   3L8CrgkLAjHPFubuCiJWZM79SHKS4iJ2Mf3n/FIfUaNuQtrp2fu1pTi36
-   d4Jb6mLjCxK3SCVBC2YYWb6zD6hvy5v4spQgXaupUAfVCsklJa5RR5P+q
-   glPpcGu48fga2IVTh7NWezjNK5rIJWEF5hV53R5Ti6Zy3Fibu+4DqCscU
-   IOq2pOBRWPU8+31UX+C/E6TJZqvkG1R5Lyb39GM/HigylAtm/3OR4920s
-   GoN90T8kzuxbPxa7v+2qSQrbitVnK3tUlXcnKtCOFx5vgc071UbbBG4pH
-   g==;
-X-CSE-ConnectionGUID: kJ90j6hsQK2BtbVEnEMGPw==
-X-CSE-MsgGUID: +VLj2Qq5SWGzaI8+YMcnEA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11313"; a="40684253"
-X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
-   d="scan'208";a="40684253"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jan 2025 01:01:17 -0800
-X-CSE-ConnectionGUID: MAr8JHcoQGOpnWk/c3wvbw==
-X-CSE-MsgGUID: dQcu4Sj3RBa4cQc9Tnhosg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="104923153"
-Received: from unknown (HELO [10.238.1.62]) ([10.238.1.62])
-  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jan 2025 01:01:15 -0800
-Message-ID: <f333d871-f579-4579-86a6-58030b9f024b@linux.intel.com>
-Date: Mon, 13 Jan 2025 17:01:12 +0800
+	Mon, 13 Jan 2025 09:01:27 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-54024ecc33dso4232206e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 01:01:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1736758883; x=1737363683; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=gVmv06UiciOif9n0zEXjWMnBVceV6C66Mfpmv3QehtQ=;
+        b=Z6CDI2TMxUj4g+zyv3MC3DKRmY3yb8rFxUlfMitamOcl412PJpEX6GY6d3kykm8SfD
+         OpwAVRjAq0TgDRdAvLsFr67pF+PWR24VB1BBBN9szjahzlGF6x7VTCHQFFRBfeUMEDoG
+         CZpkTsacwy4wYjgmb9m3b4ZxMDnadIgvp64USuP6S10+l7S7UaEOEi7KBdsmJ+g5VhRj
+         EAJjnh36WnSjHMJVZX+0700VFbLexrC/0H61ekgNkcCYO/u9PENQXaLlzX06atxfqY5z
+         JqbYzatEu3AVbEZZmY9oAx+xK3g/lKBXh1XKOY/3n3u1i2mjj8I2H39nnURqhXch0oCV
+         7N3g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736758883; x=1737363683;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=gVmv06UiciOif9n0zEXjWMnBVceV6C66Mfpmv3QehtQ=;
+        b=uE/53XJsPGmG7FWUxy+f6VPe45xW+esXoLyfLL28UZJCPARvmgs+MId60mnyIMnlw2
+         zkSEqnxzGrNiupB2h9Ik71JmY0cPIQGtuUr61LKJyyesGGmS42+oO/2RM0sbgKX3jO4V
+         jquS5DJ+T6QYR+vPE1xUaHA3fiQKldG06zolNT2Xr4PrURNeticba5rZYYDIHyxcLbsd
+         MK7RljPV/T/jpRlvxF/vDldhdZxIr1M2MQe18nnKKbHD139nOgWF/9vm87Kfoy/r3Lc8
+         qsA1sfUWQlkubj4A/ZqlQqaMg2REfj2k3BRe/pFcXTF0HxwZYEIZam6Guptb+AbpTDuS
+         dhPQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX+BeosfrQ83Sptv4wt23SiEAVZTUaZWibFiX6zi4zJBPCHfVxpckr2NtgmFut3D0vjvRQWiodjRMDKF+aSBZ1H@lists.infradead.org
+X-Gm-Message-State: AOJu0YzkP34oTBd1yiGA+DE5RZyXw1o1ycNHx5MBjfQLEYyVtVWh2jkl
+	p8X6aZt36/fo7uxe+7/n6NJ37BfW+iQAzVWEU+url+ghl7Qo1FSQ1gNB0Gk4YAa3aGhYShq+eZJ
+	7
+X-Gm-Gg: ASbGncv3D2MYClz+LmOEu4W5H1PTqAeGAO6lKWje/yjD0CsQ1OKEFo7h6YELinHV+0S
+	NfPmiTa3qYknPbeFaIUm03oexv5he9cT1bZbzBroqvIlKySswA7TV4hixE8f5jDWZJDUKq3xYnr
+	cKVODuUxiEdwH7fhN6zr92+jtY6C6G6MkJmX5tZONzQa//J1Z3zK9sxJ1+3T+WG2RfwMkXN7+Vi
+	uuWsExveKiZs/cNFOnj+3/CItH+/9KoTCJl78lvq6iqSdloRvS0B4jqULRtwBH9dGAzuFEAqQgj
+	TgD9eNKEllZzXaxEG13kutEsGXmwNE41QM9U
+X-Google-Smtp-Source: AGHT+IGcTFUXjIwHW9lpVqJAyyIcRCFXMgiGOEb3ziE970UiReLi1TBQykdVRRw2foBrKdh4TrGJCQ==
+X-Received: by 2002:a05:6512:2214:b0:542:29e5:731c with SMTP id 2adb3069b0e04-542844f649cmr6246866e87.11.1736758883364;
+        Mon, 13 Jan 2025 01:01:23 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5428be49d7esm1279018e87.19.2025.01.13.01.01.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jan 2025 01:01:22 -0800 (PST)
+Date: Mon, 13 Jan 2025 11:01:20 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: "maxime@cerno.tech" <maxime@cerno.tech>
+Cc: Jason-JH Lin =?utf-8?B?KOael+edv+elpSk=?= <Jason-JH.Lin@mediatek.com>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>, "michel@daenzer.net" <michel@daenzer.net>, 
+	"intel-gfx@lists.freedesktop.org" <intel-gfx@lists.freedesktop.org>, "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>, 
+	"linux-arm-msm@vger.kernel.org" <linux-arm-msm@vger.kernel.org>, "mikita.lipski@amd.com" <mikita.lipski@amd.com>, 
+	"tzimmermann@suse.de" <tzimmermann@suse.de>, "daniel.vetter@intel.com" <daniel.vetter@intel.com>, 
+	"nicholas.kazlauskas@amd.com" <nicholas.kazlauskas@amd.com>, 
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>, "quic_abhinavk@quicinc.com" <quic_abhinavk@quicinc.com>, 
+	Project_Global_Chrome_Upstream_Group <Project_Global_Chrome_Upstream_Group@mediatek.com>, "manasi.d.navare@intel.com" <manasi.d.navare@intel.com>, 
+	"lucas.demarchi@intel.com" <lucas.demarchi@intel.com>, "sean@poorly.run" <sean@poorly.run>, 
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>, "dmitry.osipenko@collabora.com" <dmitry.osipenko@collabora.com>, 
+	"fshao@chromium.org" <fshao@chromium.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "jani.nikula@intel.com" <jani.nikula@intel.com>, 
+	"angelogioacchino.delregno@collabora.com" <angelogioacchino.delregno@collabora.com>, 
+	"freedreno@lists.freedesktop.org" <freedreno@lists.freedesktop.org>
+Subject: Re: [PATCH] drm/atomic-helpers: remove legacy_cursor_update hacks
+Message-ID: <4getu2xtlxudcy53emipvtfxjnxg2mrupwfcekdjizjdtbk3k7@nlii76skfuh4>
+References: <20230216111214.3489223-1-daniel.vetter@ffwll.ch>
+ <20230307145613.xvhru3fpcudlpazt@houat>
+ <aac416742920953999a9ce230ac68139bf5b9790.camel@mediatek.com>
+ <ZbKlsTEvGPiGtzS3@phenom.ffwll.local>
+ <1349365de499bae53a8c868738c7270fc16813d5.camel@mediatek.com>
+ <ZboOp7JOp5teV1Cs@phenom.ffwll.local>
+ <CAA8EJpqAU=RvqJUPmPO2LCJ+6KMOT8Pi2WrkPq8YHzhyRVxHeg@mail.gmail.com>
+ <Zbou-y7eNhQTMpKo@phenom.ffwll.local>
+ <20250113-melodic-cuckoo-of-experience-bb6ac7@houat>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/5] KVM: Add a common kvm_run flag to communicate an exit
- needs completion
-To: Chao Gao <chao.gao@intel.com>, Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>, Michael Ellerman
- <mpe@ellerman.id.au>, kvm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org
-References: <20250111012450.1262638-1-seanjc@google.com>
- <20250111012450.1262638-4-seanjc@google.com> <Z4R12HOD1o8ETYzm@intel.com>
-Content-Language: en-US
-From: Binbin Wu <binbin.wu@linux.intel.com>
-In-Reply-To: <Z4R12HOD1o8ETYzm@intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250113-melodic-cuckoo-of-experience-bb6ac7@houat>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_010118_613576_1420F942 
-X-CRM114-Status: GOOD (  22.27  )
+X-CRM114-CacheID: sfid-20250113_010125_348261_5BEE7328 
+X-CRM114-Status: GOOD (  42.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,78 +120,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jan 13, 2025 at 09:28:36AM +0100, maxime@cerno.tech wrote:
+> Hi Dmitry,
+> 
+> On Wed, Jan 31, 2024 at 12:28:59PM +0100, Daniel Vetter wrote:
+> > On Wed, Jan 31, 2024 at 12:26:45PM +0200, Dmitry Baryshkov wrote:
+> > > On Wed, 31 Jan 2024 at 11:11, Daniel Vetter <daniel@ffwll.ch> wrote:
+> > > >
+> > > > On Wed, Jan 31, 2024 at 05:17:08AM +0000, Jason-JH Lin (林睿祥) wrote:
+> > > > > On Thu, 2024-01-25 at 19:17 +0100, Daniel Vetter wrote:
+> > > > > >
+> > > > > > External email : Please do not click links or open attachments until
+> > > > > > you have verified the sender or the content.
+> > > > > >  On Tue, Jan 23, 2024 at 06:09:05AM +0000, Jason-JH Lin (林睿祥) wrote:
+> > > > > > > Hi Maxime, Daniel,
+> > > > > > >
+> > > > > > > We encountered similar issue with mediatek SoCs.
+> > > > > > >
+> > > > > > > We have found that in drm_atomic_helper_commit_rpm(), when
+> > > > > > disabling
+> > > > > > > the cursor plane, the old_state->legacy_cursor_update in
+> > > > > > > drm_atomic_wait_for_vblank() is set to true.
+> > > > > > > As the result, we are not actually waiting for a vlbank to wait for
+> > > > > > our
+> > > > > > > hardware to close the cursor plane. Subsequently, the execution
+> > > > > > > proceeds to drm_atomic_helper_cleanup_planes() to  free the cursor
+> > > > > > > buffer. This can lead to use-after-free issues with our hardware.
+> > > > > > >
+> > > > > > > Could you please apply this patch to fix our problem?
+> > > > > > > Or are there any considerations for not applying this patch?
+> > > > > >
+> > > > > > Mostly it needs someone to collect a pile of acks/tested-by and then
+> > > > > > land
+> > > > > > it.
+> > > > > >
+> > > > >
+> > > > > Got it. I would add tested-by tag for mediatek SoC.
+> > > > >
+> > > > > > I'd be _very_ happy if someone else can take care of that ...
+> > > > > >
+> > > > > > There's also the potential issue that it might slow down some of the
+> > > > > > legacy X11 use-cases that really needed a non-blocking cursor, but I
+> > > > > > think
+> > > > > > all the drivers where this matters have switched over to the async
+> > > > > > plane
+> > > > > > update stuff meanwhile. So hopefully that's good.
+> > > > > >
+> > > > >
+> > > > > I think all the drivers should have switched to async plane update.
+> > > > >
+> > > > > Can we add the checking condition to see if atomic_async_update/check
+> > > > > function are implemented?
+> > > >
+> > > > Pretty sure not all have done that, so really it boils down to whether we
+> > > > break a real user's use-case. Which pretty much can only be checked by
+> > > > merging the patch (hence the requirement to get as many acks as possible
+> > > > from display drivers) and then being willing to handle any fallout that's
+> > > > reported as regressions for a specific driver.
+> > > >
+> > > > It's a pile of work, at least when it goes south, that's why I'm looking
+> > > > for volunteers.
+> > > 
+> > > I can check this on all sensible msm generations, including mdp4, but
+> > > it will be next week, after the FOSDEM.
+> > > 
+> > > BTW, for technical reasons one of the msm platforms still has the
+> > > legacy cursor implementation might it be related?
+> > 
+> > Yeah, msm is one of the drivers I had to change with some hacks to avoid
+> > really bad fallout. It should still work like before, but that's one that
+> > definitely needs testing.
+> 
+> Since it looks like you're in a mood to deal with kms reworks vs msm, we
+> still have this one to address too :)
 
+And of course this has falled of my radar into the memory blackhole. I
+will take a look in one of the forcoming weeks, thanks for the reminder.
 
-
-On 1/13/2025 10:09 AM, Chao Gao wrote:
-> On Fri, Jan 10, 2025 at 05:24:48PM -0800, Sean Christopherson wrote:
->> Add a kvm_run flag, KVM_RUN_NEEDS_COMPLETION, to communicate to userspace
->> that KVM_RUN needs to be re-executed prior to save/restore in order to
->> complete the instruction/operation that triggered the userspace exit.
->>
->> KVM's current approach of adding notes in the Documentation is beyond
->> brittle, e.g. there is at least one known case where a KVM developer added
->> a new userspace exit type, and then that same developer forgot to handle
->> completion when adding userspace support.
-> This answers one question I had:
-> https://lore.kernel.org/kvm/Z1bmUCEdoZ87wIMn@intel.com/
-In current QEMU code, it always returns back to KVM via KVM_RUN after it
-successfully handled a KVM exit reason, no matter what the exit reason is.
-The complete_userspace_io() callback will be called if it has been setup.
-So if a new kvm exit reason is added in QEMU, it seems QEMU doesn't need
-special handing to make the complete_userspace_io() callback be called.
-
-However, QEMU is not the only userspace VMM that supports KVM, it makes
-sense to make the solution generic and clear for different userspace VMMs.
-
-Regarding the support of MapGPA for TDX when live migration is considered,
-since a big range will be split into 2MB chunks, in order the status is
-right after TD live migration, it needs to set the return code to retry
-with the next_gpa in the complete_userspace_io() callback if vcpu->wants_to_run
-is false or vcpu->run->immediate_exit__unsafe is set, otherwise, TDX guest
-will see return code as successful and think the whole range has been converted
-successfully.
-
-@@ -1093,7 +1093,8 @@ static int tdx_complete_vmcall_map_gpa(struct kvm_vcpu *vcpu)
-          * immediately after STI or MOV/POP SS.
-          */
-         if (pi_has_pending_interrupt(vcpu) ||
--           kvm_test_request(KVM_REQ_NMI, vcpu) || vcpu->arch.nmi_pending) {
-+           kvm_test_request(KVM_REQ_NMI, vcpu) || vcpu->arch.nmi_pending ||
-+           !vcpu->wants_to_run) {
-                 tdvmcall_set_return_code(vcpu, TDVMCALL_STATUS_RETRY);
-                 tdx->vp_enter_args.r11 = tdx->map_gpa_next;
-                 return 1;
-
-Of course, it can be addressed later when TD live migration is supported.
-
-
->
-> So, it is the VMM's (i.e., QEMU's) responsibility to re-execute KVM_RUN in this
-> case.
->
-> Btw, can this flag be used to address the issue [*] with steal time accounting?
-> We can set the new flag for each vCPU in the PM notifier and we need to change
-> the re-execution to handle steal time accounting (not just IO completion).
->
-> [*]: https://lore.kernel.org/kvm/Z36XJl1OAahVkxhl@google.com/
->
-> one nit below,
->
->> --- a/arch/x86/include/uapi/asm/kvm.h
->> +++ b/arch/x86/include/uapi/asm/kvm.h
->> @@ -104,9 +104,10 @@ struct kvm_ioapic_state {
->> #define KVM_IRQCHIP_IOAPIC       2
->> #define KVM_NR_IRQCHIPS          3
->>
->> -#define KVM_RUN_X86_SMM		 (1 << 0)
->> -#define KVM_RUN_X86_BUS_LOCK     (1 << 1)
->> -#define KVM_RUN_X86_GUEST_MODE   (1 << 2)
->> +#define KVM_RUN_X86_SMM			(1 << 0)
->> +#define KVM_RUN_X86_BUS_LOCK		(1 << 1)
->> +#define KVM_RUN_X86_GUEST_MODE		(1 << 2)
->> +#define KVM_RUN_X86_NEEDS_COMPLETION	(1 << 2)
-> This X86_NEEDS_COMPLETION should be dropped. It is never used.
->
-
+-- 
+With best wishes
+Dmitry
 
