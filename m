@@ -4,74 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CBF6C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 15:51:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F12AC02184
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 15:53:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I7DoRoSQhfGEEiwrOmrkb3fYiMDiOc3RYtmBjR6uEQY=; b=MO3/MVzqKpY3RKv00zeck0NGoX
-	9bEOrGxJ3awF4EMWxgFVfbA3VhNfuOv6eRTD8WtkosXi/A1W7f3AOtXD/kkt0wHNcXJviQFBG/T8h
-	lx4xfjC+F7M5OgtWI7YSCuj68WRrKtvhuEhEQXBv9zdYRy1ap2hVfDA6TZwJNkBhtQRnznKMjTPkP
-	xN5q5cbQrYY/B9qM9TT4Yt4nzNv1KVt2n9pkzPeLNfOGE6qzE+ZCLsEHVaTsXia1cv7WDeMEvuQN2
-	ordJbKZ3jLOebwv4KwXxZLxPcBMfdrUVeiZEyRgm+TjgGy20/fuxGuqvB6ZqQGnCXFZlY42xPKtBo
-	mLQQNC3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5wK2BGx//zUz/XNuJSSzKnvYT5PA/aXDXBm8lXWbTas=; b=QNmjNrSOPvfmBm4vE6Q/g+Ek1L
+	9KDLn8xN0LVkS9EMXa3vHMRVM8LVGw4CeSN/24yi06gdvjgnKSwI2o+yA+eaVcy/VoW0+KH0xD92e
+	fp1SJhTUvCpZvsC8y39VYA6B6Pu/+qw0yDR20qa5UlwCGbzNYOy4zWiwIyMNOx44E4GBl1ntqQvgG
+	j616lZ+QMdqtUPZIXhlDbt0OYkeN/gUwsdLTiZ8iIHRLcF4cyZJ9g3BDqSH0OFXYQqBPfhD7yvZN/
+	ID19GJ1NgIhzWDGLrlEZqPEbaXRaJGDDGgwYvUSCfJPjIlQL9mGD+fQhacvobpiFpRNg/y1bycCrX
+	O3ZxiIyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXMj2-00000005j75-2XIm;
-	Mon, 13 Jan 2025 15:51:36 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tXMkG-00000005jMQ-1Z5H;
+	Mon, 13 Jan 2025 15:52:52 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXM2M-00000005YNS-09XC
+	id 1tXM2g-00000005YS4-2jZg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 15:07:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C46E0A40C72;
-	Mon, 13 Jan 2025 15:05:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7123C4CED6;
-	Mon, 13 Jan 2025 15:07:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736780848;
-	bh=oi6ab4XbpzTbc1+7t7QB9hXM8i6N02vrJ4FXa3pV+hk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EzyQJyi9R/9hVcyvFqkltzhelPri5SRJlX5xK/GsdadHsGHy6z6r+wcQUsDeH/BHL
-	 4pcIYDHSJqxLxsTeaj8GXbDxU2m1zcxj71cqt0xQ13xFueay0+PH7rWdBi2bgLEccE
-	 XJkXsiVza9TkZs0C6ibyIYWdHZ6H5l2ayPHEoE5+/1VlbbqVINM2rwCnvPTX/r8fOE
-	 oEwtZHKWjcDmYxEJj5yN+YmNrmND1Nip98WxsBQeoREkKkT8x1yQGU+iNIDbUrGlc1
-	 WMFX0z9ZFKPpyv3G3PWr+cdrqoXmVGyoyh3NMhzV02OMzbwRhFSCSIwD1U6WVERwaB
-	 mWZAbuvY3KbGA==
-Date: Mon, 13 Jan 2025 15:07:21 +0000
-From: Mark Brown <broonie@kernel.org>
-To: James Clark <james.clark@linaro.org>
-Cc: maz@kernel.org, kvmarm@lists.linux.dev, oliver.upton@linux.dev,
-	suzuki.poulose@arm.com, coresight@lists.linaro.org,
-	James Clark <james.clark@arm.com>, Joey Gouly <joey.gouly@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mike Leach <mike.leach@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	James Morse <james.morse@arm.com>, Shiqi Liu <shiqiliu@hust.edu.cn>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	"Rob Herring (Arm)" <robh@kernel.org>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Aishwarya TCV <Aishwarya.TCV@arm.com>
-Subject: Re: [PATCH v9 2/7] tools: arm64: Update sysreg.h header files
-Message-ID: <1dad2a07-6aa2-4ddb-a337-ca3bba560f92@sirena.org.uk>
-References: <20250106142446.628923-1-james.clark@linaro.org>
- <20250106142446.628923-3-james.clark@linaro.org>
+	Mon, 13 Jan 2025 15:07:55 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-540254357c8so4009732e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 07:07:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1736780869; x=1737385669; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5wK2BGx//zUz/XNuJSSzKnvYT5PA/aXDXBm8lXWbTas=;
+        b=C6pOHdBhnwhqktvYph45ACSRi25ZTT3a5XHo1NWK6zLD0oBVJEKuMa5v6lRYsYQu3q
+         xPafga6O3HbTtY22S4MA/RSj5+wAvHV1f/HVHlIY4rCxe7iDSrLlLpOVGz4c4wuAvffS
+         drhc/S1VRhYsIX5ABu1Juef6/d2uUhQ4KS8g6yfoXfZx2hXyEuJk78Z1sw98I5WQ9iTI
+         wME6b/JnE3kTAtz2F1UBAi2XOJ0L7tDRHe6rCRW6BRplAzwkmvqym70JqV30H5h01QLm
+         aRXAT8Yyr+q5Wg9iSaFH0OJLbvJrHoN5V2ghwgyVPW3lCTa+zq6y6h76z5cMigIUwk+/
+         OSOw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736780869; x=1737385669;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=5wK2BGx//zUz/XNuJSSzKnvYT5PA/aXDXBm8lXWbTas=;
+        b=GsllA03D0eOasev2jfi3r7GwyZm9Szr+Gpuv2Vr9mk9TPmOJ2MU7YOzFfx7y+6ad8j
+         16dBr6XxvpycqYnl/LYI9QkSsm7X6XDwHKwEHaa+T0CToKBUCpMbOQ+P1vi+LDit6X2p
+         wjZiTiQg0e83VPstMNV2xQ8CRE3arUEfvBVCq0SLb15BVE9wZOMRTcK0ZdG0OGYfHUYM
+         bhoPJUkOmlP5K8r45AbO+R8dGaJ7p1tHjjJZyEO4QBJ3kYh7z/NYDk8I+FeaPJrcRJzT
+         KEqS6nNfhQpXxgzzOPbioQGPDXbQ5YbD97L/tKcdz+rCbLbzjV7wU+WE2AxuYN4AZS2b
+         zMMQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWsHGemGmFKf8ApJpZQ+kAKu+MsRhXPkMtFXQBQhbLWzmqJ+5XfBJS2G/aL8y26DGKWNfUuRxGLVnqomN+TrzZF@lists.infradead.org
+X-Gm-Message-State: AOJu0YxS1isOzuku9E4BUT92PqJCqlQa/xv/ESNowi3/SNuiYmUePCll
+	MmaZx6zTFqbZymR//C2YWyenXhVv09OOhy1Umm8+QixjaTB5HhiQy30H3olgD+Jy6tCjGWesr2m
+	ct83FxnQBs5zQ0SSdB51KWveSECnnWSGPwDdMKA==
+X-Gm-Gg: ASbGncsaybKjl5LRwK9r8Wv5u1BE0e/ItDIjcXseAauGUWYB+YOM2nAW32BaHk0HOIs
+	TFZLcVcHlmkhh0+pahyEYC/X4/6nWFqNEfHJz
+X-Google-Smtp-Source: AGHT+IES3tZBy6Xs2c9tlrWY162TnjF3uWtTrphszdVGsSsqqCXRWdJUrRBTJwefuNL0CvDs1zX4DNXrPFBHB8nhuyM=
+X-Received: by 2002:a05:6512:a96:b0:540:1f7d:8bce with SMTP id
+ 2adb3069b0e04-542845b9744mr5354221e87.38.1736780868642; Mon, 13 Jan 2025
+ 07:07:48 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="whoHAOHtY/l4dkaU"
-Content-Disposition: inline
-In-Reply-To: <20250106142446.628923-3-james.clark@linaro.org>
-X-Cookie: Marriage is the sole cause of divorce.
+References: <20241014-armv7-cacheinfo-v2-0-38ab76d2b7fa@linaro.org>
+ <CACRpkdbfckBBW5W5sEvz1LwzdOvTKi_fi7tDu+9nPeKumYkPeA@mail.gmail.com>
+ <lkxm6m2u25o4qfvpja7qsldqm7zjxejkn6d5qihyxbg2zvntwh@icvun74e6rll> <y74nrynys7srlwmtfzpjwklfkw33vijrnefjm3iyngn2y35mlz@joqsk74rwl2l>
+In-Reply-To: <y74nrynys7srlwmtfzpjwklfkw33vijrnefjm3iyngn2y35mlz@joqsk74rwl2l>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Mon, 13 Jan 2025 16:07:36 +0100
+X-Gm-Features: AbW1kvYQ4bwujBVNetakHufjq4DsT8RTYbJHLkl_N2maIXPBhXD2T0GN-Pxhbsg
+Message-ID: <CACRpkdZ1Joi+UW6EQuatx3Z0P0o+HULjwXB9vaAWOJxdBsNO8Q@mail.gmail.com>
+Subject: Re: [PATCH v2 0/2] ARM: implement cacheinfo support (for v7/v7m)
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: Sudeep Holla <sudeep.holla@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
+	Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Arnd Bergmann <arnd@arndb.de>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_070730_135112_AF4EF377 
-X-CRM114-Status: GOOD (  14.27  )
+X-CRM114-CacheID: sfid-20250113_070751_496723_1543DDA1 
+X-CRM114-Status: GOOD (  24.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,51 +98,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Jan 3, 2025 at 6:55=E2=80=AFAM Dmitry Baryshkov
+<dmitry.baryshkov@linaro.org> wrote:
+> On Thu, Nov 07, 2024 at 04:34:36PM +0200, Dmitry Baryshkov wrote:
+> > On Thu, Nov 07, 2024 at 02:55:55PM +0100, Linus Walleij wrote:
+> > > Hi Dmitry,
+> > >
+> > > On Mon, Oct 14, 2024 at 3:55=E2=80=AFPM Dmitry Baryshkov
+> > > <dmitry.baryshkov@linaro.org> wrote:
+> > >
+> > > > Follow the ARM64 platform and implement simple cache information dr=
+iver.
+> > > > As it reads data from CTR (ARMv6+) and CLIDR (ARMv7+) registers, it=
+ is
+> > > > limited to the ARMv7 / ARMv7M, providing simple fallback or just
+> > > > returning -EOPNOTSUPP in case of older platforms.
+> > > >
+> > > > In theory we should be able to skip CLIDR reading and assume that D=
+cache
+> > > > and Icache (or unified L1 cache) always exist if CTR is supported a=
+nd
+> > > > returns sensible value. However I think this better be handled by t=
+he
+> > > > maintainers of corresponding platforms.
+> > > >
+> > > > Other than just providing information to the userspace, this patchs=
+et is
+> > > > required in order to implement L2 cache driver (and in the end CPU
+> > > > frequency scaling) on ARMv7-based Qualcomm devices.
+> > > >
+> > > > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> > >
+> > > I added my review tags to the v2 patches, can you put them
+> > > into Russell's patch tracker?
+> >
+> > Done, 9432/1 and 9433/1, thank you!
+>
+> These patches are still in the patch tracker in the "Incoming" state.
+>
+> Russell, Linus (and Sudeep, Ard, Arnd), is there anything blocking them
+> from being accepted?
 
---whoHAOHtY/l4dkaU
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I added my Reviewed-by, perhaps rebase them on v6.13-rc1 so
+Russell knows it applies cleanly? (It's pretty straight-forward to
+supercede a patch in the tracker.)
 
-On Mon, Jan 06, 2025 at 02:24:37PM +0000, James Clark wrote:
-> From: James Clark <james.clark@arm.com>
->=20
-> Created with the following:
->=20
->   cp include/linux/kasan-tags.h tools/include/linux/
->   cp arch/arm64/include/asm/sysreg.h tools/arch/arm64/include/asm/
->=20
-> Update the tools copy of sysreg.h so that the next commit to add a new
-> register doesn't have unrelated changes in it. Because the new version
-> of sysreg.h includes kasan-tags.h, that file also now needs to be copied
-> into tools.
-
-This breaks the build of the KVM selftests:
-
-aarch64/aarch32_id_regs.c:150:16: error: use of undeclared identifier 'ID_A=
-A64PFR0_EL1_ELx_64BIT_ONLY'
-  150 |         return el0 =3D=3D ID_AA64PFR0_EL1_ELx_64BIT_ONLY;
-      |                       ^
-1 warning and 1 error generated.
-
-since it's pulled over the changes in 056600ff7330 ("arm64/cpufeature:
-Replace custom macros with fields from ID_AA64PFR0_EL1") but not updated
-the test to reflect this.
-
---whoHAOHtY/l4dkaU
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmeFLCkACgkQJNaLcl1U
-h9B6Qwf/QPeV8LvvKgGAErZB3th7rCS0P+WFRYom7XPEzXTvxrJkMpfproE/YfIe
-yb8cRX+Wm65xgxozRV7WfJBq19dyU+TirkCiY4DFTF7uuOHr61tbkDzRP+/Y4VnT
-HM/92xixwLioSy4xt6byM8GbaPzDi5uNS841VPbG8hzayntBbt17TgsPq7KAzNCh
-F2v4Mxr7OoQlL7xLa6C47AOSvb3tekvB3Yy22IKm2IK+TBSotrwDrxnmH8iNtwUv
-PsUYYM0iQr6RixcpqymDN+fZ+VGXZ+jR8/vCBPv9KWqSkLUnj9Dtu/Hw45oaqsAT
-HDflGT7KLQF8JB/nIGGEeRsIUSkK9g==
-=01JN
------END PGP SIGNATURE-----
-
---whoHAOHtY/l4dkaU--
+Yours,
+Linus Walleij
 
