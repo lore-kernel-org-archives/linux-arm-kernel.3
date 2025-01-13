@@ -4,107 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D80F1E7719E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 07:05:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDF6EE7719E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 07:19:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NqfFf4fv96alvmAhC70OVRBAMo6UG+0b5So5mFEFih0=; b=4RAlZmZno77Rcgzi5qVDHxluFx
-	h+b0zXQ7OsRqBejlaztqtNbnCoApEHTaxeNSjmFF//udMplYqJZLamqe1zmrLnRP5KJ+S2MotcE2K
-	U7bImxwB3f/nGYxgIvH+ht+6HtPXVbufcjm3Aj1kSowsPUwVVIGmiBUowP5hWbBUYeQD4u8+eNgJt
-	mY7AsJGS5fQvWliN9fS3/1KsmHULT7KfsLIM6o9y7vn2gcp0CYJZ52YeVLDRR/+NP3X+U9qC1i+5n
-	VKsdtqgUozzhjPy/lkN+s7b3pwjf3uY56Xfp/Wi1ll4wb9IqEUUok6tBjbXXwttEzd028gc4UsmH1
-	5IISLRSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RNaoyIxlpY2lE0hVw65vIx3L2KQZHXOg/YIxxeFvTz8=; b=PF5Jeu82DzPLUhsDMJKmhAEcSs
+	D2HJTJLQn6XU+dve/FLYY1fq/3Hbdl8SPqaOAM/35GHh+xeGn7EUFRYvRKppkq6hJAwQACH/UXqjs
+	Y5iOdoiexlvRhWzNv5EBb3oYHBV5SjOUo6PWw4Er11rjtsbQ+jlQgiZY0eJ5QUXPDcuym1UYzJYcI
+	2F/n0euLKzF2/QfrUSNXEGDasqK/RO1G53i/qF32RbvqNbbgtePYujRQFkrzAi0W9p6iQWDCEazfV
+	2l4NYwjo1M16pdvl1y4xcs09IXzaloFvSJzjemYlHcnr+cEeGkXbE1gOeCRHD3j1kr9O3axiJrgEn
+	k0GhfyOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXEVO-00000004Bup-2xRQ;
-	Mon, 13 Jan 2025 07:04:58 +0000
-Received: from smtpbg151.qq.com ([18.169.211.239])
+	id 1tXEja-00000004ED9-08dx;
+	Mon, 13 Jan 2025 07:19:38 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXETy-00000004Bd1-2cTr;
-	Mon, 13 Jan 2025 07:03:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1736751781;
-	bh=NqfFf4fv96alvmAhC70OVRBAMo6UG+0b5So5mFEFih0=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=h9oYIPNr8VTOIaZg0lQ6jY/J0s5u2uloGOtLNe2Sks6gJPYa/yZwP5ELxhx4/VffW
-	 t8uq+T8+DiERceRd0ZEL7mxe5VUk9Oa/gAHVzyLKAKFYecADuuhO99lPCAT5amG6L3
-	 S6zLVw8XpTRNjZ33jX5tZE1lSz8W6lm/4qtSCVOE=
-X-QQ-mid: bizesmtpip3t1736751767tk1inzv
-X-QQ-Originating-IP: LJtxmZbB0DRaJHg91pmdGdfDROe6I8rMwyDT1D/Zhos=
-Received: from localhost.localdomain ( [localhost])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 13 Jan 2025 15:02:44 +0800 (CST)
-X-QQ-SSF: 0002000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 12665532747322616285
-From: WangYuli <wangyuli@uniontech.com>
-To: nbd@nbd.name,
-	lorenzo@kernel.org,
-	ryder.lee@mediatek.com,
-	shayne.chen@mediatek.com,
-	sean.wang@mediatek.com,
-	kvalo@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	deren.wu@mediatek.com,
-	mingyen.hsieh@mediatek.com,
-	chui-hao.chiu@mediatek.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com
-Cc: linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	netdev@vger.kernel.org,
-	raoxu@uniontech.com,
-	guanwentao@uniontech.com,
-	chenlinxuan@uniontech.com,
-	zhanjun@uniontech.com,
-	cug_yangyuancong@hotmail.com,
-	lorenzo.bianconi@redhat.com,
-	kvalo@codeaurora.org,
-	aleksander.lobakin@intel.com,
-	michal.pecio@gmail.com,
-	dzm91@hust.edu.cn,
-	jiefeng_li@hust.edu.cn,
-	wangyuli@uniontech.com
-Subject: [PATCH v3] wifi: mt76: mt76u_vendor_request: Do not print error messages when -EPROTO
-Date: Mon, 13 Jan 2025 15:02:41 +0800
-Message-ID: <9DD7DE7AAB497CB7+20250113070241.63590-1-wangyuli@uniontech.com>
-X-Mailer: git-send-email 2.47.1
+	id 1tXEiJ-00000004E2j-2eos
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Jan 2025 07:18:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1736752699; x=1768288699;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=42oYf7k1pGRgtJYa8Ps3IOlsFdSUm4C/6z8/MyTKOKE=;
+  b=uN3c9TG56U6fUvflVI89g6f9MhvwpvhpsCqpLzvWdibDtWvo5JasR2xS
+   Qd5bI29Dc84P6i70zKG67Py3iIGqw0BiTV4KtI5EawAMWN6yDqqgqj603
+   8rXhz4VPDHY+fDjziilPFo3zYuS9Rhbr4SjTXW3Jdp2ZVw3lzmijgFYuu
+   DPTOvpu8Y44Sy3qvYcD4j5sLa6SMlH4R/DvCNuXEaKuDDZvS4awggIz+I
+   fbYc8lcvZSAW730HQFpTFpQG5poNSU3myqNCb3uml7YlSM9FuoWfnTeEv
+   8gBaNSRM+0PVxN43dtA5uD6Xl5hRnUQDQTy2q6ZNgvOdzXKR5B32S9wrD
+   w==;
+X-CSE-ConnectionGUID: n6lK1I+ESfyKbS9ug4OrHw==
+X-CSE-MsgGUID: 93KtI5A/Q/iv4dsczwbKVQ==
+X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
+   d="scan'208";a="36094120"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 13 Jan 2025 00:18:16 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Mon, 13 Jan 2025 00:17:59 -0700
+Received: from ROB-ULT-M76677.microchip.com (10.10.85.11) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
+ 15.1.2507.35 via Frontend Transport; Mon, 13 Jan 2025 00:17:57 -0700
+From: Andrei Simion <andrei.simion@microchip.com>
+To: <nicolas.ferre@microchip.com>, <claudiu.beznea@tuxon.dev>,
+	<alexandre.belloni@bootlin.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>
+CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Andrei Simion <andrei.simion@microchip.com>
+Subject: [PATCH] ARM: dts: microchip: at91-sam9x75_curiosity: Add PMIC suspend voltage configuration
+Date: Mon, 13 Jan 2025 09:17:11 +0200
+Message-ID: <20250113071710.40821-1-andrei.simion@microchip.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtpip:uniontech.com:qybglogicsvrgz:qybglogicsvrgz8a-1
-X-QQ-XMAILINFO: NyhJqhc7wbHljMlVxsI5kTQy1AWnzg6d+ypniyrx3/rRK8MyM9Imnp1M
-	s5J+Lj/XlwwYkT+e9/xK2IvEpAYHHDTBW2cr6/EUx4HUiz5sbp/SjHMipMsDowHN4lKpF0s
-	8Tkm6GPfDyrg3G1jBJin+cU2bvis0WJxZhksYLjdGVn2Catbw62w2NBAnzLmUv+jQPNzI4W
-	VUZmPsZ6me7DlgMLDc+cI59cIxGG6swBj2eUdcOyX8al/UP98FzjPq0TUhEXs40ohQQhjDj
-	twqrurUR1xnamNaK8Dr3c0OqNGr9jQWYNwslvOYApJfE/sp9e3NtzbsPinSAzV9LTO+oGZO
-	RS1eizC5NUbscmtaQEMnyjtSbUd9rm+XFD3Tltg+xgWgucF+dPYd/wH9laQFjgVJo2TQhV+
-	D0PRM57A1c5K38+oLe+UXsJ5LWD20bB2ZMavAstpkep8Z/8W+1KS4MhQZTF5JVn8TIIWtNm
-	E/tbAaY9dl7P0vgHjLESstJ6HR/H2oKKttETF6WME8oy7Xtzhj7lWa5gkbhMnTnADJs3YNI
-	bmp4G7wPblgCaHWAO5zhAZimUC21tyvhq5M3GWCAm/gD9msPG36xSzOx/Pgq8boAmkViUVt
-	QSDhHHwok4+PvEOx+c1AJ9Vm66f8qxxcOEihOuo7QtJuIDRtKuRrflRWJhWlEGOiuxFWpWV
-	vK/ABwx3MHCGSX61NEXAeamVtonI5wTPE6t7q0dZ5TcPP45nezeTGjVdWxcAH8KiZUFQndg
-	CgXMv33JR3YhLc0LC52GoRVbKIsDBJzKCOXGH6Ki7VXXxUxlLV2mPt6zvrc/bDfjbBotJhd
-	fPx7bP90gtwDH/vxehZ0pvGVkG0bXhYNbvhx1hXCubT1FfMzh7V1Gv335TkBW1CXna/VdG8
-	/kXaP6mPSVXZMmsGLQofWGWqjgtSbUpY3YQqlGZHVqmnlpU6u8zVuiG1QtUp/jh4E6DmNVe
-	TV/jTvH9LV3GEEMSWYMYpguOJ6alkV7W7k1wE6nNpal0KdjdGXaVomvkXYutHqileO6HUVm
-	V4eCqROk/JxiWFiMnF
-X-QQ-XMRINFO: NS+P29fieYNw95Bth2bWPxk=
-X-QQ-RECHKSPAM: 0
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250112_230331_544481_F045EC6E 
-X-CRM114-Status: GOOD (  14.18  )
+X-CRM114-CacheID: sfid-20250112_231819_855173_02E1EA14 
+X-CRM114-Status: GOOD (  12.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,66 +84,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When initializing the network card, unplugging the device will
-trigger an -EPROTO error, resulting in a flood of error messages
-being printed frantically.
+Add missing essential configuration for the PMIC rails, which is necessary
+for proper low-power mode operation. This patch adds the required settings
+to ensure that the regulators behave correctly during Suspend-to-RAM and
+Standby states. Otherwise, after resuming, it receives: "No configuration"
+message.
 
-The exception is printed as follows：
+Our driver implements the set_suspend_voltage and set_suspend_mode
+callbacks, which require the `regulator-suspend-microvolt` property to be
+specified in the device tree for each regulator node. This property defines
+the voltage level that the regulator should maintain during suspend mode.
 
-         mt76x2u 2-2.4:1.0: vendor request req:47 off:9018 failed:-71
-         mt76x2u 2-2.4:1.0: vendor request req:47 off:9018 failed:-71
-         ...
+Additionally, according to the datasheet, some regulators need to be turned
+on or off during suspend mode. This patch addresses these requirements by
+adding the `regulator-on-in-suspend` and `regulator-off-in-suspend`
+properties where appropriate.
 
-It will continue to print more than 2000 times for about 5 minutes,
-causing the usb device to be unable to be disconnected. During this
-period, the usb port cannot recognize the new device because the old
-device has not disconnected.
-
-There may be other operating methods that cause -EPROTO, but -EPROTO is
-a low-level hardware error. It is unwise to repeat vendor requests
-expecting to read correct data. It is a better choice to treat -EPROTO
-and -ENODEV the same way.
-
-Similar to commit 9b0f100c1970 ("mt76: usb: process URBs with status
-EPROTO properly") do no schedule rx_worker for urb marked with status
-set  -EPROTO. I also reproduced this situation when plugging and
-unplugging the device, and this patch is effective.
-
-Just do not vendor request again for urb marked with status set -EPROTO.
-
-Link: https://lore.kernel.org/all/531681bd-30f5-4a70-a156-bf8754b8e072@intel.com/
-Link: https://lore.kernel.org/all/D4B9CC1FFC0CBAC3+20250105040607.154706-1-wangyuli@uniontech.com/
-Fixes: b40b15e1521f ("mt76: add usb support to mt76 layer")
-Co-developed-by: Xu Rao <raoxu@uniontech.com>
-Signed-off-by: Xu Rao <raoxu@uniontech.com>
-Signed-off-by: WangYuli <wangyuli@uniontech.com>
+Fixes: 371a47c9a58a ("ARM: dts: microchip: sam9x75_curiosity: add sam9x75 curiosity board")
+Signed-off-by: Andrei Simion <andrei.simion@microchip.com>
 ---
-Changlog:
- *v1 -> v2: Modify the commit title and message to provide a more
-comprehensive description of the changes made. Additionally, append
-a "Fixes" tag to accurately categorize the commit as a bug fix.
-  v2 -> v3: Add the changelog and fix a typo in the commit message.
----
- drivers/net/wireless/mediatek/mt76/usb.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ .../dts/microchip/at91-sam9x75_curiosity.dts   | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/usb.c b/drivers/net/wireless/mediatek/mt76/usb.c
-index 58ff06823389..f9e67b8c3b3c 100644
---- a/drivers/net/wireless/mediatek/mt76/usb.c
-+++ b/drivers/net/wireless/mediatek/mt76/usb.c
-@@ -33,9 +33,9 @@ int __mt76u_vendor_request(struct mt76_dev *dev, u8 req, u8 req_type,
+diff --git a/arch/arm/boot/dts/microchip/at91-sam9x75_curiosity.dts b/arch/arm/boot/dts/microchip/at91-sam9x75_curiosity.dts
+index 1a6a909a5043..5514ad10cda5 100644
+--- a/arch/arm/boot/dts/microchip/at91-sam9x75_curiosity.dts
++++ b/arch/arm/boot/dts/microchip/at91-sam9x75_curiosity.dts
+@@ -110,10 +110,12 @@ vdd_3v3: VDD_IO {
  
- 		ret = usb_control_msg(udev, pipe, req, req_type, val,
- 				      offset, buf, len, MT_VEND_REQ_TOUT_MS);
--		if (ret == -ENODEV)
-+		if (ret == -ENODEV || ret == -EPROTO)
- 			set_bit(MT76_REMOVED, &dev->phy.state);
--		if (ret >= 0 || ret == -ENODEV)
-+		if (ret >= 0 || ret == -ENODEV || ret == -EPROTO)
- 			return ret;
- 		usleep_range(5000, 10000);
- 	}
+ 				regulator-state-standby {
+ 					regulator-on-in-suspend;
++					regulator-suspend-microvolt = <3300000>;
+ 					regulator-mode = <4>;
+ 				};
+ 
+ 				regulator-state-mem {
++					regulator-off-in-suspend;
+ 					regulator-mode = <4>;
+ 				};
+ 			};
+@@ -128,11 +130,13 @@ vddioddr: VDD_DDR {
+ 
+ 				regulator-state-standby {
+ 					regulator-on-in-suspend;
++					regulator-suspend-microvolt = <1350000>;
+ 					regulator-mode = <4>;
+ 				};
+ 
+ 				regulator-state-mem {
+ 					regulator-on-in-suspend;
++					regulator-suspend-microvolt = <1350000>;
+ 					regulator-mode = <4>;
+ 				};
+ 			};
+@@ -147,10 +151,12 @@ vddcore: VDD_CORE {
+ 
+ 				regulator-state-standby {
+ 					regulator-on-in-suspend;
++					regulator-suspend-microvolt = <1150000>;
+ 					regulator-mode = <4>;
+ 				};
+ 
+ 				regulator-state-mem {
++					regulator-off-in-suspend;
+ 					regulator-mode = <4>;
+ 				};
+ 			};
+@@ -166,10 +172,12 @@ dcdc4: VDD_OTHER {
+ 
+ 				regulator-state-standby {
+ 					regulator-on-in-suspend;
++					regulator-suspend-microvolt = <1150000>;
+ 					regulator-mode = <4>;
+ 				};
+ 
+ 				regulator-state-mem {
++					regulator-off-in-suspend;
+ 					regulator-mode = <4>;
+ 				};
+ 			};
+@@ -182,6 +190,11 @@ vldo1: LDO1 {
+ 
+ 				regulator-state-standby {
+ 					regulator-on-in-suspend;
++					regulator-suspend-microvolt = <3300000>;
++				};
++
++				regulator-state-mem {
++					regulator-off-in-suspend;
+ 				};
+ 			};
+ 
+@@ -192,6 +205,11 @@ vldo2: LDO2 {
+ 
+ 				regulator-state-standby {
+ 					regulator-on-in-suspend;
++					regulator-suspend-microvolt = <1800000>;
++				};
++
++				regulator-state-mem {
++					regulator-off-in-suspend;
+ 				};
+ 			};
+ 		};
+
+base-commit: 37136bf5c3a6f6b686d74f41837a6406bec6b7bc
 -- 
-2.47.1
+2.34.1
 
 
