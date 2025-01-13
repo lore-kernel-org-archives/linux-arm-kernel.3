@@ -4,67 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EB60E7719F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 12:48:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24FABE7719F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 12:52:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8uYjioPZNuJ6YChCFOyKD8QRQiGxZ9HzZH2bKWJtRrI=; b=grdOGe1ZQQMiSYuaXxN5preCRm
-	B6d2Ss4q9hmwd75aHxKWUNAjVS/5lyH4JliK1lrGDwNV/6WebIjJKyeQerkz/3urOZ6arqeyxhtbh
-	kZH0LEMirgJ3eqVksCQj7g/VsWnkD926MdL5iBfRmGxDoYhi8fxIx/de2l3EkZkstLC536gBW5FmG
-	dYK746ONEZrvCmNLsgXgGYMP4f4IoB7yQtxeO6qFYS7cG3De2UapK0u0cs5ZUs3YtLgDjYgC38q7y
-	VQqt+JJFobQ6+m06Yy/PYXSIMRPkL3E0eVHSUHRzuaBuYW24ytf6oj+UNMCLo9L5zcMZR1F44VPjr
-	UNzSBdtA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oTn+fUrZWPJt3cVJB052txby8zpAUGR3MLFYQ7IK6nI=; b=NAnLNg4UR/wuRgOmFTbUXvPCfX
+	8eUsNxdl0fBsWgDLKEs5dv8scQtVOZGzGuVwO4s4VcqkAnjwZOVP0gPN71+6dZuvFcC15Q8A0XLWs
+	DXkna0gORBqqHY2VkI7TD0MYQBlcruPsv2ZQ4Al/70i/0G3ytRQa66aJT0WgDQusSFblsCswsrr22
+	nBp9brDQmGiKLTeQoFptwKEgf/3cIQDIWMNbTVBR2/QmvWcZyBtqni4ciEHvtzlElv99O2Nx0en+O
+	xCmbVhyD0fbk9+2H8/xxyENvzCsEVeOpXi5oXbiIpl125qH7f6CL9cCfrhADsQTaCVn0cdMqoeHuU
+	Z7KXQAmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXJrT-000000059Ri-0l1h;
-	Mon, 13 Jan 2025 12:48:07 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tXJva-000000059v0-0SB3;
+	Mon, 13 Jan 2025 12:52:22 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXJpA-0000000595R-2utV
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 12:45:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=8uYjioPZNuJ6YChCFOyKD8QRQiGxZ9HzZH2bKWJtRrI=; b=Fae87ay4QR+GdKJIedcJz0wjs/
-	JToWgOq4sJJF2L5iGuef0qYPgR80j6hXyz7/BzqV1uUpAw3Wbs8VThMOOmsXhgkN4+Ewae9TQUX2b
-	8/qnj/aQlyQp6TC/vT6yhxqTbGwxWfAD7cHPMCP1mi5iNg8b+dU4uP9BHapG4QZHEQM7Do3MP0dUs
-	qTUz5RTaV4RiCmNlCmfgBYCScYwG8dYruq5rxIx0ETN3DDX7CvXoRB2QOK1Kw7cSlzdCpAOLwDL2Y
-	6jAMtcreKo8R7DUFfk2xpNT/OBWgeH1XI/ruzTlogHqbpZoGPHorkLNpSrk5pr/eRMvsOfsWYqIkM
-	OwUN+7RQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:44950)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tXJp4-0006cH-2R;
-	Mon, 13 Jan 2025 12:45:38 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tXJp1-00045B-28;
-	Mon, 13 Jan 2025 12:45:35 +0000
-Date: Mon, 13 Jan 2025 12:45:35 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Ma Ke <make24@iscas.ac.cn>
-Cc: sumit.garg@linaro.org, gregkh@linuxfoundation.org, elder@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v4] [ARM] fix reference leak in locomo_init_one_child()
-Message-ID: <Z4UK7__tlAZrucRd@shell.armlinux.org.uk>
-References: <20250108033049.1206055-1-make24@iscas.ac.cn>
+	id 1tXJuK-000000059j6-2Vde;
+	Mon, 13 Jan 2025 12:51:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1736772661;
+	bh=l5Yi6dDEY/SW8SVIP06gR3s9bTtz+F9A6zrpSwBrNTk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Dy0k6PBF18AOmyn3UeO46HEbOcPjhLi4tKlmGaXxz3wjQ1Kn4XX8BWL4mqoAs3fU1
+	 fH6uGhumN1OnXXajFVFjoKWiA6ggJUGAX+F6rjImRWXuvLkWI5Q88E5wu3j4oq+yW5
+	 VianQ4HEe/WRpAWn9KSiLsRg6cCZJHmMHDp2OGBIM2l6F10pT2QRcUaigN4NavkfXZ
+	 5EDp6ICYiNdWnhry0i1uyM06Ls0I1EdoG+Anta98o0vLJbRG2FdKvirUvvyqAGKp36
+	 NlyyIBuc3LgY3tuujNDEp9CQNE+ME46PGQ6lMa8gFHxRa1boAtZOLPyKRZ3wl936ks
+	 aqup0t6zj6n0g==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9BF9317E04AC;
+	Mon, 13 Jan 2025 13:51:00 +0100 (CET)
+Message-ID: <09c87f13-477d-4721-b27d-f2f2e48f4f71@collabora.com>
+Date: Mon, 13 Jan 2025 13:50:59 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250108033049.1206055-1-make24@iscas.ac.cn>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 00/12] Add Mediatek Soc DRM support for mt8196
+To: "paul-pl.chen" <paul-pl.chen@mediatek.com>, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, chunkuang.hu@kernel.org
+Cc: matthias.bgg@gmail.com, p.zabel@pengutronix.de,
+ jason-jh.lin@mediatek.com, nancy.lin@mediatek.com, singo.chang@mediatek.com,
+ xiandong.wang@mediatek.com, sirius.wang@mediatek.com,
+ sunny.shen@mediatek.com, fshao@chromium.org, treapking@chromium.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org,
+ Project_Global_Chrome_Upstream_Group@mediatek.com
+References: <20250110123835.2719824-1-paul-pl.chen@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250110123835.2719824-1-paul-pl.chen@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_044544_750048_FD47356D 
-X-CRM114-Status: GOOD (  24.08  )
+X-CRM114-CacheID: sfid-20250113_045104_786304_6FCF6AF8 
+X-CRM114-Status: GOOD (  11.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,86 +81,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 08, 2025 at 11:30:49AM +0800, Ma Ke wrote:
-> Once device_register() failed, we should call put_device() to
-> decrement reference count for cleanup. Or it could cause memory leak.
+Il 10/01/25 13:33, paul-pl.chen ha scritto:
+> From: "Paul-pl.Chen" <paul-pl.chen@mediatek.com>
 > 
-> device_register() includes device_add(). As comment of device_add()
-> says, 'if device_add() succeeds, you should call device_del() when you
-> want to get rid of it. If device_add() has not succeeded, use only
-> put_device() to drop the reference count'.
-
-I reviewed a previous version of this patch, and commented about the
-commit message:
-
- The commit message is not quite correct:
-
- "After calling device_register(), the correct way to dispose of the
- device is to call put_device() as per the device_register()
- documentation rather than kfree()."
-
-Alex Elder also commented about this. Please fix the commit message.
-What device_add() doesn't matter, this code isn't calling device_add(),
-it's calling device_register(), and the comments against
-device_register() should be appearing in the commit message, not
-the comments against device_add().
-
-Thanks.
-
-> 
-> Found by code review.
-> 
-> Cc: stable@vger.kernel.org
-> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-> Signed-off-by: Ma Ke <make24@iscas.ac.cn>
-> ---
-> Changes in v4:
-> - deleted the redundant initialization;
-> Changes in v3:
-> - modified the patch as suggestions;
-> Changes in v2:
-> - modified the patch as suggestions.
-> ---
->  arch/arm/common/locomo.c | 13 +++++--------
->  1 file changed, 5 insertions(+), 8 deletions(-)
-> 
-> diff --git a/arch/arm/common/locomo.c b/arch/arm/common/locomo.c
-> index cb6ef449b987..45106066a17f 100644
-> --- a/arch/arm/common/locomo.c
-> +++ b/arch/arm/common/locomo.c
-> @@ -223,10 +223,8 @@ locomo_init_one_child(struct locomo *lchip, struct locomo_dev_info *info)
->  	int ret;
->  
->  	dev = kzalloc(sizeof(struct locomo_dev), GFP_KERNEL);
-> -	if (!dev) {
-> -		ret = -ENOMEM;
-> -		goto out;
-> -	}
-> +	if (!dev)
-> +		return -ENOMEM;
->  
->  	/*
->  	 * If the parent device has a DMA mask associated with it,
-> @@ -254,10 +252,9 @@ locomo_init_one_child(struct locomo *lchip, struct locomo_dev_info *info)
->  			NO_IRQ : lchip->irq_base + info->irq[0];
->  
->  	ret = device_register(&dev->dev);
-> -	if (ret) {
-> - out:
-> -		kfree(dev);
-> -	}
-> +	if (ret)
-> +		put_device(&dev->dev);
-> +
->  	return ret;
->  }
->  
-> -- 
-> 2.25.1
-> 
+> Add support multiple mmsys instances in the one mediatek-drm instance.
 > 
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Hello Paul,
+
+EXDMA, BLENDER and OUTPROC seem to have many things in common with the current
+mtk_disp_ovl.c driver.
+
+Please commonize code from mtk_disp_ovl to reuse in these three components that
+you're adding, as there is a lot of code duplication.
+
+Thanks,
+Angelo
+
+> Nancy.Lin (7):
+>    soc: mediatek: add mmsys support for MT8196
+>    soc: mediatek: mutex: add mutex support for MT8196
+>    drm/mediatek: add EXDMA support for MT8196
+>    drm/mediatek: add BLENDER support for MT8196
+>    drm/mediatek: add OUTPROC support for MT8196
+>    drm/mediatek: add ovlsys_adaptor support for MT8196
+>    drm/mediatek: Add support for multiple mmsys in the one mediatek-drm
+>      driver
+> 
+> Paul-pl.Chen (5):
+>    dt-bindings: arm: mediatek: mmsys: add compatible for MT8196
+>    dt-bindings: soc: mediatek: add mutex yaml for MT8196
+>    dt-bindings: display: mediatek: add EXDMA yaml for MT8196
+>    dt-bindings: display: mediatek: add BLENDER yaml for MT8196
+>    dt-bindings: display: mediatek: add OUTPROC yaml for MT8196
+> 
+>   .../bindings/arm/mediatek/mediatek,mmsys.yaml |   5 +
+>   .../display/mediatek/mediatek,blender.yaml    |  50 ++
+>   .../display/mediatek/mediatek,exdma.yaml      |  77 ++
+>   .../display/mediatek/mediatek,outproc.yaml    |  57 ++
+>   .../bindings/soc/mediatek/mediatek,mutex.yaml |   2 +
+>   drivers/gpu/drm/mediatek/Makefile             |   4 +
+>   drivers/gpu/drm/mediatek/mtk_crtc.c           | 350 ++++++--
+>   drivers/gpu/drm/mediatek/mtk_crtc.h           |   6 +-
+>   drivers/gpu/drm/mediatek/mtk_ddp_comp.c       | 134 +++-
+>   drivers/gpu/drm/mediatek/mtk_ddp_comp.h       |   6 +
+>   drivers/gpu/drm/mediatek/mtk_disp_blender.c   | 352 ++++++++
+>   drivers/gpu/drm/mediatek/mtk_disp_blender.h   |  17 +
+>   drivers/gpu/drm/mediatek/mtk_disp_drv.h       |  66 +-
+>   drivers/gpu/drm/mediatek/mtk_disp_exdma.c     | 447 +++++++++++
+>   drivers/gpu/drm/mediatek/mtk_disp_outproc.c   | 244 ++++++
+>   drivers/gpu/drm/mediatek/mtk_disp_outproc.h   |  22 +
+>   .../drm/mediatek/mtk_disp_ovlsys_adaptor.c    | 758 ++++++++++++++++++
+>   drivers/gpu/drm/mediatek/mtk_drm_drv.c        | 287 ++++++-
+>   drivers/gpu/drm/mediatek/mtk_drm_drv.h        |  28 +-
+>   drivers/soc/mediatek/mt8196-mmsys.h           | 447 +++++++++++
+>   drivers/soc/mediatek/mtk-mmsys.c              | 204 ++++-
+>   drivers/soc/mediatek/mtk-mmsys.h              |  18 +
+>   drivers/soc/mediatek/mtk-mutex.c              | 233 +++++-
+>   include/linux/soc/mediatek/mtk-mmsys.h        |  60 ++
+>   include/linux/soc/mediatek/mtk-mutex.h        |   2 +
+>   25 files changed, 3734 insertions(+), 142 deletions(-)
+>   create mode 100644 Documentation/devicetree/bindings/display/mediatek/mediatek,blender.yaml
+>   create mode 100644 Documentation/devicetree/bindings/display/mediatek/mediatek,exdma.yaml
+>   create mode 100644 Documentation/devicetree/bindings/display/mediatek/mediatek,outproc.yaml
+>   create mode 100644 drivers/gpu/drm/mediatek/mtk_disp_blender.c
+>   create mode 100644 drivers/gpu/drm/mediatek/mtk_disp_blender.h
+>   create mode 100644 drivers/gpu/drm/mediatek/mtk_disp_exdma.c
+>   create mode 100644 drivers/gpu/drm/mediatek/mtk_disp_outproc.c
+>   create mode 100644 drivers/gpu/drm/mediatek/mtk_disp_outproc.h
+>   create mode 100644 drivers/gpu/drm/mediatek/mtk_disp_ovlsys_adaptor.c
+>   create mode 100644 drivers/soc/mediatek/mt8196-mmsys.h
+> 
+
+
+
 
