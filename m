@@ -4,108 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A94AAE7719E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 09:14:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F5B3E7719E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 09:15:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gVmv06UiciOif9n0zEXjWMnBVceV6C66Mfpmv3QehtQ=; b=suC1rnb7+ok9SmOxWMzj36Ioy5
-	weDYx/izaOrtPfoGwG5tkhIS4trM7A3rW4ZcQ7LblpkyA/2DG67zPQOHB/k7UPQHsSJvYNTBjsmvH
-	slmJBdy+kVYuDG2oUZ9faNcOyRP4sbt7AB6kI+/c+WSMOCkZZlUb+BDkHQJs3HmcCuEn67pgmp6Bb
-	Hpsi6+74RF6wpxN78kgcG36lwEQm8Jne0svRi2FIonxc1ki1sskiq7wKyeKfjgD9XAI4P2PaIl9FW
-	L+IfI5y0f0h+/xOsAkHfPBwGhhOoNAP0qcB3UAFvUGvFo4A+3bF701xxACV3wQvchIKiOhLZt1HYQ
-	LxSMRsFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mvpHg9TQ6IL1UuT8hLct/OvilUvBkO53Z6F+HaXouII=; b=0jlThkanJ/nvoIiSaVgNSix+2H
+	pRjGmI0ayh0TqRIvaQiLAL0b4/nT3miQVYytO7DfJTr4tbd+QBt/ZshZb9hbKWW3Psks0p3uZ3417
+	73Q5RsUV7lrGiP50UNQL2vhFT1HazYM8igvCOFI6wEjH4JclPs/CotvHC0OGqPdmeV7ckQSStoFMf
+	4uRHFqClG/F2FQJtBrYXBtkKllCMLLcRuxFqk5j171axu3xY0jnWuc7AKHWYRojyUwuCAWZDj/O7r
+	oTINwdAXGv8RoW0ePjXj0zbrXshhuQQ5ouD/RBUdH7+B/t+51DxG1fHErUsBhahNM61Um6h/kE6fy
+	n0OzPbkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXGWH-00000004Ydu-0AfC;
-	Mon, 13 Jan 2025 09:14:01 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1tXGXS-00000004Yqt-2uu9;
+	Mon, 13 Jan 2025 09:15:14 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXGK5-00000004W9b-1DiE
+	id 1tXGJE-00000004Vhu-2hNz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 09:01:27 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-54024ecc33dso4232206e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 01:01:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736758883; x=1737363683; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=gVmv06UiciOif9n0zEXjWMnBVceV6C66Mfpmv3QehtQ=;
-        b=Z6CDI2TMxUj4g+zyv3MC3DKRmY3yb8rFxUlfMitamOcl412PJpEX6GY6d3kykm8SfD
-         OpwAVRjAq0TgDRdAvLsFr67pF+PWR24VB1BBBN9szjahzlGF6x7VTCHQFFRBfeUMEDoG
-         CZpkTsacwy4wYjgmb9m3b4ZxMDnadIgvp64USuP6S10+l7S7UaEOEi7KBdsmJ+g5VhRj
-         EAJjnh36WnSjHMJVZX+0700VFbLexrC/0H61ekgNkcCYO/u9PENQXaLlzX06atxfqY5z
-         JqbYzatEu3AVbEZZmY9oAx+xK3g/lKBXh1XKOY/3n3u1i2mjj8I2H39nnURqhXch0oCV
-         7N3g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736758883; x=1737363683;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=gVmv06UiciOif9n0zEXjWMnBVceV6C66Mfpmv3QehtQ=;
-        b=uE/53XJsPGmG7FWUxy+f6VPe45xW+esXoLyfLL28UZJCPARvmgs+MId60mnyIMnlw2
-         zkSEqnxzGrNiupB2h9Ik71JmY0cPIQGtuUr61LKJyyesGGmS42+oO/2RM0sbgKX3jO4V
-         jquS5DJ+T6QYR+vPE1xUaHA3fiQKldG06zolNT2Xr4PrURNeticba5rZYYDIHyxcLbsd
-         MK7RljPV/T/jpRlvxF/vDldhdZxIr1M2MQe18nnKKbHD139nOgWF/9vm87Kfoy/r3Lc8
-         qsA1sfUWQlkubj4A/ZqlQqaMg2REfj2k3BRe/pFcXTF0HxwZYEIZam6Guptb+AbpTDuS
-         dhPQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX+BeosfrQ83Sptv4wt23SiEAVZTUaZWibFiX6zi4zJBPCHfVxpckr2NtgmFut3D0vjvRQWiodjRMDKF+aSBZ1H@lists.infradead.org
-X-Gm-Message-State: AOJu0YzkP34oTBd1yiGA+DE5RZyXw1o1ycNHx5MBjfQLEYyVtVWh2jkl
-	p8X6aZt36/fo7uxe+7/n6NJ37BfW+iQAzVWEU+url+ghl7Qo1FSQ1gNB0Gk4YAa3aGhYShq+eZJ
-	7
-X-Gm-Gg: ASbGncv3D2MYClz+LmOEu4W5H1PTqAeGAO6lKWje/yjD0CsQ1OKEFo7h6YELinHV+0S
-	NfPmiTa3qYknPbeFaIUm03oexv5he9cT1bZbzBroqvIlKySswA7TV4hixE8f5jDWZJDUKq3xYnr
-	cKVODuUxiEdwH7fhN6zr92+jtY6C6G6MkJmX5tZONzQa//J1Z3zK9sxJ1+3T+WG2RfwMkXN7+Vi
-	uuWsExveKiZs/cNFOnj+3/CItH+/9KoTCJl78lvq6iqSdloRvS0B4jqULRtwBH9dGAzuFEAqQgj
-	TgD9eNKEllZzXaxEG13kutEsGXmwNE41QM9U
-X-Google-Smtp-Source: AGHT+IGcTFUXjIwHW9lpVqJAyyIcRCFXMgiGOEb3ziE970UiReLi1TBQykdVRRw2foBrKdh4TrGJCQ==
-X-Received: by 2002:a05:6512:2214:b0:542:29e5:731c with SMTP id 2adb3069b0e04-542844f649cmr6246866e87.11.1736758883364;
-        Mon, 13 Jan 2025 01:01:23 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5428be49d7esm1279018e87.19.2025.01.13.01.01.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jan 2025 01:01:22 -0800 (PST)
-Date: Mon, 13 Jan 2025 11:01:20 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: "maxime@cerno.tech" <maxime@cerno.tech>
-Cc: Jason-JH Lin =?utf-8?B?KOael+edv+elpSk=?= <Jason-JH.Lin@mediatek.com>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>, "michel@daenzer.net" <michel@daenzer.net>, 
-	"intel-gfx@lists.freedesktop.org" <intel-gfx@lists.freedesktop.org>, "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>, 
-	"linux-arm-msm@vger.kernel.org" <linux-arm-msm@vger.kernel.org>, "mikita.lipski@amd.com" <mikita.lipski@amd.com>, 
-	"tzimmermann@suse.de" <tzimmermann@suse.de>, "daniel.vetter@intel.com" <daniel.vetter@intel.com>, 
-	"nicholas.kazlauskas@amd.com" <nicholas.kazlauskas@amd.com>, 
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>, "quic_abhinavk@quicinc.com" <quic_abhinavk@quicinc.com>, 
-	Project_Global_Chrome_Upstream_Group <Project_Global_Chrome_Upstream_Group@mediatek.com>, "manasi.d.navare@intel.com" <manasi.d.navare@intel.com>, 
-	"lucas.demarchi@intel.com" <lucas.demarchi@intel.com>, "sean@poorly.run" <sean@poorly.run>, 
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>, "dmitry.osipenko@collabora.com" <dmitry.osipenko@collabora.com>, 
-	"fshao@chromium.org" <fshao@chromium.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "jani.nikula@intel.com" <jani.nikula@intel.com>, 
-	"angelogioacchino.delregno@collabora.com" <angelogioacchino.delregno@collabora.com>, 
-	"freedreno@lists.freedesktop.org" <freedreno@lists.freedesktop.org>
-Subject: Re: [PATCH] drm/atomic-helpers: remove legacy_cursor_update hacks
-Message-ID: <4getu2xtlxudcy53emipvtfxjnxg2mrupwfcekdjizjdtbk3k7@nlii76skfuh4>
-References: <20230216111214.3489223-1-daniel.vetter@ffwll.ch>
- <20230307145613.xvhru3fpcudlpazt@houat>
- <aac416742920953999a9ce230ac68139bf5b9790.camel@mediatek.com>
- <ZbKlsTEvGPiGtzS3@phenom.ffwll.local>
- <1349365de499bae53a8c868738c7270fc16813d5.camel@mediatek.com>
- <ZboOp7JOp5teV1Cs@phenom.ffwll.local>
- <CAA8EJpqAU=RvqJUPmPO2LCJ+6KMOT8Pi2WrkPq8YHzhyRVxHeg@mail.gmail.com>
- <Zbou-y7eNhQTMpKo@phenom.ffwll.local>
- <20250113-melodic-cuckoo-of-experience-bb6ac7@houat>
+	Mon, 13 Jan 2025 09:00:34 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50D4XvuX008255;
+	Mon, 13 Jan 2025 10:00:24 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	mvpHg9TQ6IL1UuT8hLct/OvilUvBkO53Z6F+HaXouII=; b=SnSWLvBm+iMa9qDv
+	9EZh5y70pbxqyVMhH5H8alY6MMIR4CKUH/O3Vh0wbWpo2OUpBj9v6DS3EgU680nW
+	Y9t/AwkljqiJcyYN0Nh1kY4LFPtv6ehTtiu+OmwnInQkm+2cYRbu5AjvgHyLKQRj
+	EbZhSf3hLzKsYq3QA6o/xibQj0Hqq2mqxhCkvHYXOjvMeLqQaSP0tCUUdyRQmc8A
+	iTKBqeNUR9lw27uOKdtzUAB2Qlgn7gEtUDuYz+asmVlBPj5qLshJz53ss93vD36T
+	4d5XZWwrmtNwtWHoGcpg5YiXfQsvzT0C+jBr2E2T8NH8UY8LzBLjiCFFSw//9ElT
+	wnKY1g==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 443hj5d85m-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 13 Jan 2025 10:00:23 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 5692440054;
+	Mon, 13 Jan 2025 09:59:05 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id E727D234C36;
+	Mon, 13 Jan 2025 09:58:17 +0100 (CET)
+Received: from localhost (10.129.178.39) by SHFDAG1NODE1.st.com (10.75.129.69)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Mon, 13 Jan
+ 2025 09:58:17 +0100
+From: Alain Volmat <alain.volmat@foss.st.com>
+Date: Mon, 13 Jan 2025 09:57:59 +0100
+Subject: [PATCH v3 9/9] media: stm32: dcmipp: add has_csi2 & needs_mclk in
+ match data
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250113-melodic-cuckoo-of-experience-bb6ac7@houat>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250113-csi_dcmipp_mp25_enhancements-v3-9-33b96744df46@foss.st.com>
+References: <20250113-csi_dcmipp_mp25_enhancements-v3-0-33b96744df46@foss.st.com>
+In-Reply-To: <20250113-csi_dcmipp_mp25_enhancements-v3-0-33b96744df46@foss.st.com>
+To: Hugues Fruchet <hugues.fruchet@foss.st.com>,
+        Mauro Carvalho Chehab
+	<mchehab@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre
+ Torgue <alexandre.torgue@foss.st.com>,
+        Hans Verkuil <hverkuil@xs4all.nl>,
+        Sakari Ailus <sakari.ailus@linux.intel.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>
+CC: <linux-media@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, Alain Volmat <alain.volmat@foss.st.com>
+X-Mailer: b4 0.14.1
+X-Originating-IP: [10.129.178.39]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_010125_348261_5BEE7328 
-X-CRM114-Status: GOOD (  42.78  )
+X-CRM114-CacheID: sfid-20250113_010032_971055_E5F8D973 
+X-CRM114-Status: GOOD (  17.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,84 +102,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 13, 2025 at 09:28:36AM +0100, maxime@cerno.tech wrote:
-> Hi Dmitry,
-> 
-> On Wed, Jan 31, 2024 at 12:28:59PM +0100, Daniel Vetter wrote:
-> > On Wed, Jan 31, 2024 at 12:26:45PM +0200, Dmitry Baryshkov wrote:
-> > > On Wed, 31 Jan 2024 at 11:11, Daniel Vetter <daniel@ffwll.ch> wrote:
-> > > >
-> > > > On Wed, Jan 31, 2024 at 05:17:08AM +0000, Jason-JH Lin (林睿祥) wrote:
-> > > > > On Thu, 2024-01-25 at 19:17 +0100, Daniel Vetter wrote:
-> > > > > >
-> > > > > > External email : Please do not click links or open attachments until
-> > > > > > you have verified the sender or the content.
-> > > > > >  On Tue, Jan 23, 2024 at 06:09:05AM +0000, Jason-JH Lin (林睿祥) wrote:
-> > > > > > > Hi Maxime, Daniel,
-> > > > > > >
-> > > > > > > We encountered similar issue with mediatek SoCs.
-> > > > > > >
-> > > > > > > We have found that in drm_atomic_helper_commit_rpm(), when
-> > > > > > disabling
-> > > > > > > the cursor plane, the old_state->legacy_cursor_update in
-> > > > > > > drm_atomic_wait_for_vblank() is set to true.
-> > > > > > > As the result, we are not actually waiting for a vlbank to wait for
-> > > > > > our
-> > > > > > > hardware to close the cursor plane. Subsequently, the execution
-> > > > > > > proceeds to drm_atomic_helper_cleanup_planes() to  free the cursor
-> > > > > > > buffer. This can lead to use-after-free issues with our hardware.
-> > > > > > >
-> > > > > > > Could you please apply this patch to fix our problem?
-> > > > > > > Or are there any considerations for not applying this patch?
-> > > > > >
-> > > > > > Mostly it needs someone to collect a pile of acks/tested-by and then
-> > > > > > land
-> > > > > > it.
-> > > > > >
-> > > > >
-> > > > > Got it. I would add tested-by tag for mediatek SoC.
-> > > > >
-> > > > > > I'd be _very_ happy if someone else can take care of that ...
-> > > > > >
-> > > > > > There's also the potential issue that it might slow down some of the
-> > > > > > legacy X11 use-cases that really needed a non-blocking cursor, but I
-> > > > > > think
-> > > > > > all the drivers where this matters have switched over to the async
-> > > > > > plane
-> > > > > > update stuff meanwhile. So hopefully that's good.
-> > > > > >
-> > > > >
-> > > > > I think all the drivers should have switched to async plane update.
-> > > > >
-> > > > > Can we add the checking condition to see if atomic_async_update/check
-> > > > > function are implemented?
-> > > >
-> > > > Pretty sure not all have done that, so really it boils down to whether we
-> > > > break a real user's use-case. Which pretty much can only be checked by
-> > > > merging the patch (hence the requirement to get as many acks as possible
-> > > > from display drivers) and then being willing to handle any fallout that's
-> > > > reported as regressions for a specific driver.
-> > > >
-> > > > It's a pile of work, at least when it goes south, that's why I'm looking
-> > > > for volunteers.
-> > > 
-> > > I can check this on all sensible msm generations, including mdp4, but
-> > > it will be next week, after the FOSDEM.
-> > > 
-> > > BTW, for technical reasons one of the msm platforms still has the
-> > > legacy cursor implementation might it be related?
-> > 
-> > Yeah, msm is one of the drivers I had to change with some hacks to avoid
-> > really bad fallout. It should still work like before, but that's one that
-> > definitely needs testing.
-> 
-> Since it looks like you're in a mood to deal with kms reworks vs msm, we
-> still have this one to address too :)
+Introduce two variable has_csi and has_mclk within the
+match data of the driver in order to know, depending on
+the compatible if CSI-2 interface is available and if
+the mclk clk should be retrieved.
 
-And of course this has falled of my radar into the memory blackhole. I
-will take a look in one of the forcoming weeks, thanks for the reminder.
+Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
+---
+ .../platform/st/stm32/stm32-dcmipp/dcmipp-core.c   | 23 ++++++++++++----------
+ 1 file changed, 13 insertions(+), 10 deletions(-)
+
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c
+index 5a04018a6a9d..1b7bae3266c8 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c
+@@ -89,6 +89,8 @@ struct dcmipp_pipeline_config {
+ 	const struct dcmipp_ent_link *links;
+ 	size_t num_links;
+ 	u32 hw_revision;
++	bool has_csi2;
++	bool needs_mclk;
+ };
+ 
+ /* --------------------------------------------------------------------------
+@@ -164,7 +166,9 @@ static const struct dcmipp_pipeline_config stm32mp25_pipe_cfg = {
+ 	.num_ents	= ARRAY_SIZE(stm32mp25_ent_config),
+ 	.links		= stm32mp25_ent_links,
+ 	.num_links	= ARRAY_SIZE(stm32mp25_ent_links),
+-	.hw_revision    = DCMIPP_STM32MP25_VERR
++	.hw_revision    = DCMIPP_STM32MP25_VERR,
++	.has_csi2	= true,
++	.needs_mclk	= true
+ };
+ 
+ #define LINK_FLAG_TO_STR(f) ((f) == 0 ? "" :\
+@@ -296,7 +300,7 @@ static int dcmipp_graph_notify_bound(struct v4l2_async_notifier *notifier,
+ 				     struct v4l2_async_connection *asd)
+ {
+ 	struct dcmipp_device *dcmipp = notifier_to_dcmipp(notifier);
+-	int ret;
++	int ret = -EINVAL;
+ 	int src_pad, i;
+ 	struct dcmipp_ent_device *sink;
+ 	struct v4l2_fwnode_endpoint vep = { 0 };
+@@ -304,15 +308,9 @@ static int dcmipp_graph_notify_bound(struct v4l2_async_notifier *notifier,
+ 	enum v4l2_mbus_type supported_types[] = {
+ 		V4L2_MBUS_PARALLEL, V4L2_MBUS_BT656, V4L2_MBUS_CSI2_DPHY
+ 	};
+-	int supported_types_nb = ARRAY_SIZE(supported_types);
+ 
+ 	dev_dbg(dcmipp->dev, "Subdev \"%s\" bound\n", subdev->name);
+ 
+-	/* Only MP25 supports CSI input */
+-	if (!of_device_is_compatible(dcmipp->dev->of_node,
+-				     "st,stm32mp25-dcmipp"))
+-		supported_types_nb--;
+-
+ 	/*
+ 	 * Link this sub-device to DCMIPP, it could be
+ 	 * a parallel camera sensor or a CSI-2 to parallel bridge
+@@ -330,7 +328,12 @@ static int dcmipp_graph_notify_bound(struct v4l2_async_notifier *notifier,
+ 	}
+ 
+ 	/* Check for supported MBUS type */
+-	for (i = 0; i < supported_types_nb; i++) {
++	for (i = 0; i < ARRAY_SIZE(supported_types); i++) {
++		/* Only MP25 supports CSI input */
++		if (supported_types[i] == V4L2_MBUS_CSI2_DPHY &&
++		    !dcmipp->pipe_cfg->has_csi2)
++			continue;
++
+ 		vep.bus_type = supported_types[i];
+ 		ret = v4l2_fwnode_endpoint_parse(ep, &vep);
+ 		if (!ret)
+@@ -529,7 +532,7 @@ static int dcmipp_probe(struct platform_device *pdev)
+ 				     "Unable to get kclk\n");
+ 	dcmipp->kclk = kclk;
+ 
+-	if (!of_device_is_compatible(pdev->dev.of_node, "st,stm32mp13-dcmipp")) {
++	if (dcmipp->pipe_cfg->needs_mclk) {
+ 		mclk = devm_clk_get(&pdev->dev, "mclk");
+ 		if (IS_ERR(mclk))
+ 			return dev_err_probe(&pdev->dev, PTR_ERR(mclk),
 
 -- 
-With best wishes
-Dmitry
+2.34.1
+
 
