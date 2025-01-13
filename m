@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C718C02180
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 557EBC02186
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 16:45:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,44 +12,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hdwH0+Ma7z4A3lM33Hof3O/qzAA0Pn4zBG69gjg/6CA=; b=GVLJXZAK+NAmKDTVR/rXgE95Ey
-	AXx6kQ4Vec3tAS85Q3JzonrKfC5Jz6Vci/51u+orX/RkcmkAKeCbVuBskTpzqps1c0xRM8Zfw4mik
-	x6avvN004WoLntHtjJeSBXr1fo4mrWcYcvIuN3SIbYzvqfnbcOc6k9fLFrPU840ESMJd6dvhYTJ86
-	UrzOmbvfabVb1siaKfpmVD6yVgxZcbS+Hxt1yC3hKx7xRf9dS7RkDnfe5eazncXoiygji4eKUBNw9
-	MWGOIDOl35gSDy2r+73SzjvHUXjR58ewuy2ri6W2b0AESnzoj+1fUA+PrrQoSsfurwf2t195S4xi6
-	MxjuOcmw==;
+	bh=pl+wZ2x+ZdqTG0lEglmVegKw0Hhj58CtH64CcDGmvHU=; b=p2UKT4TBlSUIBHK9DReHoI9n+I
+	0E5GtmeV8faFz6SMAMlQRHAv6jvSg741rnuH3S8vQiTrCUjerwe6dNjXilFRW5eAvhLm6uCKBIUbM
+	fjvuXDvqTYzBi7BAtKI3Bb9vtHjvu8Q3mxqtKnIfYHbMAklVDldytocDKxrD7gn6pyFddSPDcQ8iR
+	00VIH/+uSFhLzq41BlzbxtNobFiiVF1PmLHycDbPODJ0mSClRjCwo1xJgpEv+ud+4k5qUrpk9mFx4
+	OjwuNyyaB1aR8misCXv3xdWcDbxAG7h/DNI1K+IxHYeYIzjAh5TNCOmokmSg0LU4h13WjBx7dfutz
+	2FrgskLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXNZH-00000005ul1-1ES3;
-	Mon, 13 Jan 2025 16:45:35 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tXNZE-00000005ui6-3asg;
+	Mon, 13 Jan 2025 16:45:32 +0000
+Received: from out-178.mta1.migadu.com ([2001:41d0:203:375::b2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXNQl-00000005tFD-07m0
+	id 1tXNKW-00000005rTp-0eUT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 16:36:48 +0000
-Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1tXNQi-0001XT-Ck; Mon, 13 Jan 2025 17:36:44 +0100
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: soc@kernel.org
+	Mon, 13 Jan 2025 16:30:22 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1736785815;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=pl+wZ2x+ZdqTG0lEglmVegKw0Hhj58CtH64CcDGmvHU=;
+	b=goFtUNsyFKOML04zHS6B/aG6lQPGVAgvkHREkRd2ONO2kArsAR7tInmmevzqhWY7ZgLB0p
+	qj2BwfUGVQtBR2KQBzOMycMYLcIVBaKzWuFp0SRU4pNkNUo3I2Fuefx9NpdXGEL+H6AWu3
+	TK6FoJ+cChKKcMoOIWi3B7rC1oB5+S4=
+From: Sean Anderson <sean.anderson@linux.dev>
+To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	Shannon Nelson <shannon.nelson@amd.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org
 Cc: linux-arm-kernel@lists.infradead.org,
-	kernel@pengutronix.de,
-	Philipp Zabel <p.zabel@pengutronix.de>
-Subject: [GIT PULL] Reset controller fixes for v6.13
-Date: Mon, 13 Jan 2025 17:36:42 +0100
-Message-Id: <20250113163642.1757160-1-p.zabel@pengutronix.de>
-X-Mailer: git-send-email 2.39.5
+	Simon Horman <horms@kernel.org>,
+	Michal Simek <michal.simek@amd.com>,
+	linux-kernel@vger.kernel.org,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Sean Anderson <sean.anderson@linux.dev>
+Subject: [PATCH net v5] net: xilinx: axienet: Fix IRQ coalescing packet count overflow
+Date: Mon, 13 Jan 2025 11:30:00 -0500
+Message-Id: <20250113163001.2335235-1-sean.anderson@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::54
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_083647_062748_16587FB0 
-X-CRM114-Status: UNSURE (   6.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250113_083021_282844_FA957E99 
+X-CRM114-Status: GOOD (  10.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,30 +74,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dear arm-soc maintainers,
+If coalesce_count is greater than 255 it will not fit in the register and
+will overflow. This can be reproduced by running
 
-The following changes since commit 40384c840ea1944d7c5a392e8975ed088ecf0b37:
+    # ethtool -C ethX rx-frames 256
 
-  Linux 6.13-rc1 (2024-12-01 14:28:56 -0800)
+which will result in a timeout of 0us instead. Fix this by checking for
+invalid values and reporting an error.
 
-are available in the Git repository at:
+Fixes: 8a3b7a252dca ("drivers/net/ethernet/xilinx: added Xilinx AXI Ethernet driver")
+Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
+Reviewed-by: Shannon Nelson <shannon.nelson@amd.com>
+---
 
-  git://git.pengutronix.de/pza/linux.git tags/reset-fixes-for-v6.13
+Changes in v5:
+- Fix typo in commit message
 
-for you to fetch changes up to 1f8af9712413f456849fdf3f3a782cbe099476d7:
+Changes in v4:
+- Fix checking rx twice instead of rx and tx
 
-  reset: rzg2l-usbphy-ctrl: Assign proper of node to the allocated device (2024-12-06 16:51:28 +0100)
+Changes in v3:
+- Validate and reject instead of silently clamping
 
-----------------------------------------------------------------
-Reset controller fixes for v6.13
+Changes in v2:
+- Use FIELD_MAX to extract the max value from the mask
+- Expand the commit message with an example on how to reproduce this
+  issue
 
-* Fix rzg2l-usb-vbus-regulator lookup by assigning the proper of node
-  to the allocated platform device in the rzg2l-usbphy-ctrl driver.
+ drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-----------------------------------------------------------------
-Claudiu Beznea (1):
-      reset: rzg2l-usbphy-ctrl: Assign proper of node to the allocated device
+diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+index 0f4b02fe6f85..ae743991117c 100644
+--- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
++++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+@@ -2056,6 +2056,12 @@ axienet_ethtools_set_coalesce(struct net_device *ndev,
+ 		return -EBUSY;
+ 	}
+ 
++	if (ecoalesce->rx_max_coalesced_frames > 255 ||
++	    ecoalesce->tx_max_coalesced_frames > 255) {
++		NL_SET_ERR_MSG(extack, "frames must be less than 256");
++		return -EINVAL;
++	}
++
+ 	if (ecoalesce->rx_max_coalesced_frames)
+ 		lp->coalesce_count_rx = ecoalesce->rx_max_coalesced_frames;
+ 	if (ecoalesce->rx_coalesce_usecs)
+-- 
+2.35.1.1320.gc452695387.dirty
 
- drivers/reset/reset-rzg2l-usbphy-ctrl.c | 1 +
- 1 file changed, 1 insertion(+)
 
