@@ -4,70 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53283C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 22:38:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32B21C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 23:00:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q+Jyn+jdW5rMasfbzdDzyFkIudIUO29Rgzp5bgXsj2s=; b=JKIukSjr1f4Mz+ZNyns2rD5ZS8
-	K3mSUSkRUWfLw0ki6dSj/kdtkL896tZ6W8UhiZ7+EFvzaWBs73qPThKCWkCkpLwSn+/ItCxMLZjwb
-	KZgJ+rIdT91Jeyp/P83MK1v8WM7ji+OrPDJ5CAm0ILjsSzypq9M6K4A8D45LXlfRIQe0WBkq99311
-	vC8yHbQK7FwbNW81ERUOWSf1IV0KGrUap2w/W0JnIxeR8X/mXZJTbemXoRb8eWLkL54SXnyOLMKY1
-	Nh0UYiB8loyIhAbXFQkrBReWp6+1aN49sULy2+qSjw8oLNlcWhQpPlBFYEtRpYYzyaJoIiJUZcJa6
-	vn/YAerA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u630hSWrpEF0CebJbB6DuRMnuHhQEbtm42ncUru71/0=; b=O4xK+WfHIARQGWvcLPO6vnkW+1
+	rwvel0F1e6DY0v7Lia7/fHXoLYxT/S2eHsH9dGSTgSmShPxyBcKX1o2BSlW5roP+oBTLasU59RWKu
+	Wg9dqkZMikjTulp9MHtJG3NGD0mW3jkJxzDEjcYNPhAg4jJ+2TyZtQKVXp0nmOKHKKt/uk7B6YF9p
+	rzGtYBBMRWuNvAfuZl4iyQc12TrSEQu2NAyULOKV1wN7zw+hxbFJb8JdVYK00uEhksyV0tjbHOaHH
+	jNr5MtZ7vA+hLZsCSH2bZ5+w5aK2+q7djPl8AtB3NLZc1X8K7Tqke4GIMaNEdVzuQsE0Y8fpjtXtn
+	OkMb8MGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXT4T-00000006rR4-4BGB;
-	Mon, 13 Jan 2025 22:38:09 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tXTQ1-00000006tSb-0qel;
+	Mon, 13 Jan 2025 23:00:25 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXSwF-00000006pTg-2mfd
+	id 1tXTOl-00000006tJh-3ucF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 22:29:40 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tXSvv-0006tw-5k; Mon, 13 Jan 2025 23:29:19 +0100
-Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tXSvu-000KaJ-0u;
-	Mon, 13 Jan 2025 23:29:18 +0100
-Received: from localhost ([::1] helo=dude05.red.stw.pengutronix.de)
-	by dude05.red.stw.pengutronix.de with esmtp (Exim 4.96)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tXSvv-008syM-1L;
-	Mon, 13 Jan 2025 23:29:18 +0100
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Date: Mon, 13 Jan 2025 23:29:09 +0100
-Subject: [PATCH 5/6] arm64: dts: imx8mp-skov: add revC BD500 board
+	Mon, 13 Jan 2025 22:59:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id CD012A41486;
+	Mon, 13 Jan 2025 22:57:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D9E6C4CED6;
+	Mon, 13 Jan 2025 22:59:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736809146;
+	bh=n1oeyvHgtjf48GNwmyAUR0RM/+tJ12mmaPeKvDNvC7g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BxAXjVFFtgapVMyWqFQYJtaM4MjM0tbw6wKmn+XgfwlbqQ6jPsB+X/SMPGVa2ko9j
+	 CklKrIu3MjvLQNtceyTQpyiRkJv73BirjTlPmeuBc0dUXqe5EyoLn8IuztY8Irka68
+	 EiLU31oGONV2tbJERUANVagQ1i/owH2gYY7OJPDFG8PsYBl+BKzxrg2IaA7lYPIcJF
+	 e9ITlaxl8E8pdUYxv2Y7knrMKNAllvHOHaYgV+9MqvbSACPYlVNvrmrt1hStGZfFhH
+	 7bajJw04rwyhQ6ewVi5wU9Dwo0XR54KcyfNyRzbnkhLew3N25h1oN/0ENEd61VGpMt
+	 F0Hi06lcQsHoA==
+Date: Mon, 13 Jan 2025 16:59:05 -0600
+From: Rob Herring <robh@kernel.org>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, robin.murphy@arm.com,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev, alyssa@rosenzweig.io, bpf@vger.kernel.org,
+	broonie@kernel.org, jgg@ziepe.ca, joro@8bytes.org,
+	lgirdwood@gmail.com, maz@kernel.org, p.zabel@pengutronix.de,
+	will@kernel.org
+Subject: Re: [PATCH v8 2/2] PCI: imx6: Add IOMMU and ITS MSI support for
+ i.MX95
+Message-ID: <20250113225905.GA3325507-robh@kernel.org>
+References: <20241210-imx95_lut-v8-0-2e730b2e5fde@nxp.com>
+ <20241210-imx95_lut-v8-2-2e730b2e5fde@nxp.com>
+ <Z1sTUaoA5yk9RcIc@lpieralisi>
+ <Z1sdbH7N1Ly9eXc0@lizhi-Precision-Tower-5810>
+ <Z1v/LCHsGOgnasuf@lpieralisi>
+ <Z1xs6GkcdTg2c73F@lizhi-Precision-Tower-5810>
+ <Z2FDp1zQ7JzxQKJT@lpieralisi>
+ <Z2GdvpzT6MOygG4W@lizhi-Precision-Tower-5810>
+ <Z256NxZF/+jO2bkR@lpieralisi>
+ <Z31eaxD1h3Om3bHS@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250113-skov-imx8mp-new-boards-v1-5-75288def1271@pengutronix.de>
-References: <20250113-skov-imx8mp-new-boards-v1-0-75288def1271@pengutronix.de>
-In-Reply-To: <20250113-skov-imx8mp-new-boards-v1-0-75288def1271@pengutronix.de>
-To: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- Oleksij Rempel <o.rempel@pengutronix.de>, 
- Ahmad Fatoum <a.fatoum@pengutronix.de>
-X-Mailer: b4 0.14.2
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z31eaxD1h3Om3bHS@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_142939_707242_93A61D7A 
-X-CRM114-Status: GOOD (  13.91  )
+X-CRM114-CacheID: sfid-20250113_145908_097138_6B603842 
+X-CRM114-Status: GOOD (  32.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,127 +94,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The BD500 replaces the touch display with 3 bicolor LEDs and a push
-button on top of a Skov i.MX8-CPU revision C.
+On Tue, Jan 07, 2025 at 12:03:39PM -0500, Frank Li wrote:
+> On Fri, Dec 27, 2024 at 10:58:15AM +0100, Lorenzo Pieralisi wrote:
+> > On Tue, Dec 17, 2024 at 10:50:22AM -0500, Frank Li wrote:
+> >
+> > [...]
+> >
+> > > > > > Right. Question: what happens if DT shows that there are SMMU and/or
+> > > > > > ITS bindings/mappings but the SMMU driver and ITS driver are either not
+> > > > > > enabled or have not probed ?
+> > > > >
+> > > > > It is little bit complex.
+> > > > > iommu:
+> > > > > Case 1:
+> > > > > 	iommu{
+> > > > > 		status = "disabled"
+> > > > > 	};
+> > > > >
+> > > > > 	PCI driver normal probed. if RID is in range of iommu-map, not
+> > > > > any functional impact and harmless.
+> > > > > 	If RID is out of range of iommu-map, "false alarm" will return.
+> > > > > enable PCI EP device failure, but actually it can work without IOMMU.
+> > > >
+> > > > What does "false alarm" mean in practice ? PCI device enable fails
+> > > > but actually it should not ?
+> > >
+> > > Yes, you are right. It should work without iommu. but return failure for
+> > > this case.
+> >
+> > Rob, Robin, are you OK with this patch DT bindings usage (and the
+> > related dependencies described in Frank's reply) ?
+> >
+> > I am referring to "iommu-map" and "msi-map" usage, everything else
+> > is platform specific code.
+> >
+> > It looks like things can break in multiple ways but I don't want
+> > to hold up this series forever.
+> 
+> Rob and Robin:
+> 
+> 	Let me simple summary situation. PCIe controler driver need config
+> "stream id" for each PCI endpoint devices for IOMMU and MSI.
+> 
+> 	So add callback for host bridge enable/disable an endpoint devices.
+> In callback function, call of_map_id("iommu-map" | "msi-map") to get
+> devices's "stream id" from pci's rid.  Then config hardware.
+> 
+> 	The limiation is, if smmu/its controller's "status" is disabled
+> and rid is out of the range of "iommu-map" and "msi-map". Enable device
+> will be fail although it should be success because "stream id" will not be
+> used at all at this case. The out of range of "iommu-map" and "msi-map" is
+> rare.
+> 
+> 	dwc common pci driver simple check "msi-map", which should be
+> another limition and not related this patch.
+> 
+> 	In many dwc platform (like qcom) need config "stream id" also. But
+> that direct parse "iommu-map" and "msi-map" by their drivers, which is not
+> prefered by Rob now when I try to upstream at v3
+> https://lore.kernel.org/imx/20240429150842.GC1709920-robh@kernel.org/
+> 
+> 	Rob: can you help check if this is correct direction?
 
-Signed-off-by: Oleksij Rempel <o.rempel@pengutronix.de>
-Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
----
- arch/arm64/boot/dts/freescale/Makefile             |  1 +
- .../boot/dts/freescale/imx8mp-skov-revc-bd500.dts  | 91 ++++++++++++++++++++++
- 2 files changed, 92 insertions(+)
+My objection was only parsing the property yourself rather than using 
+existing functions. So it looks fine to me now. Though you might 
+consider if there is something to be shared with QCom driver.
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index ea4da899b44be0aaac745f6a0503bed3bb8ba20c..6ee3a7ffe4792106118b8201c1f5f51c8ecd0ff2 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -197,6 +197,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-basic.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revb-hdmi.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revb-lt6.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revb-mi1010ait-1cp1.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-bd500.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mpxl.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mp-ras314.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-var-som-symphony.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-bd500.dts b/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-bd500.dts
-new file mode 100644
-index 0000000000000000000000000000000000000000..b816c6cd3bca60b14cf6bc7f40cb780aa893958d
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-bd500.dts
-@@ -0,0 +1,91 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+
-+/dts-v1/;
-+
-+#include "imx8mp-skov-reva.dtsi"
-+
-+/ {
-+	model = "SKOV IMX8MP CPU revC - bd500";
-+	compatible = "skov,imx8mp-skov-revc-bd500", "fsl,imx8mp";
-+
-+	leds {
-+		led_system_red: led-3 {
-+			label = "bd500:system:red";
-+			color = <LED_COLOR_ID_RED>;
-+			/* Inverted compared to others due to NMOS inverter */
-+			gpios = <&gpioexp 3 GPIO_ACTIVE_HIGH>;
-+			default-state = "off";
-+		};
-+
-+		led_system_green: led-4 {
-+			label = "bd500:system:green";
-+			color = <LED_COLOR_ID_GREEN>;
-+			gpios = <&gpioexp 2 GPIO_ACTIVE_LOW>;
-+			default-state = "on";
-+		};
-+
-+		led_lan1_red: led-5 {
-+			label = "bd500:lan1:act";
-+			color = <LED_COLOR_ID_RED>;
-+			linux,default-trigger = "netdev";
-+			gpios = <&gpioexp 1 GPIO_ACTIVE_LOW>;
-+		};
-+
-+		led_lan1_green: led-6 {
-+			label = "bd500:lan1:link";
-+			color = <LED_COLOR_ID_GREEN>;
-+			linux,default-trigger = "netdev";
-+			gpios = <&gpioexp 0 GPIO_ACTIVE_LOW>;
-+		};
-+
-+		led_lan2_red: led-7 {
-+			label = "bd500:lan2:act";
-+			color = <LED_COLOR_ID_RED>;
-+			linux,default-trigger = "netdev";
-+			gpios = <&gpioexp 6 GPIO_ACTIVE_LOW>;
-+		};
-+
-+		led_lan2_green: led-8 {
-+			label = "bd500:lan2:link";
-+			color = <LED_COLOR_ID_GREEN>;
-+			linux,default-trigger = "netdev";
-+			gpios = <&gpioexp 7 GPIO_ACTIVE_LOW>;
-+		};
-+	};
-+
-+	gpio-keys {
-+		compatible = "gpio-keys";
-+
-+		button-1 {
-+			label = "S1";
-+			linux,code = <KEY_CONFIG>;
-+			gpios = <&gpioexp 5 GPIO_ACTIVE_LOW>;
-+		};
-+	};
-+};
-+
-+&i2c2 {
-+	clock-frequency = <100000>;
-+	status = "okay";
-+
-+	gpioexp: gpio@20 {
-+		compatible = "nxp,pca6408";
-+		reg = <0x20>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_gpio_exp>;
-+		interrupts-extended = <&gpio4 28 IRQ_TYPE_EDGE_FALLING>;
-+		reset-gpios = <&gpio4 29 GPIO_ACTIVE_LOW>;
-+		vcc-supply = <&reg_vdd_3v3>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+	};
-+};
-+
-+&iomuxc {
-+	pinctrl_gpio_exp: gpioexpgrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_SAI3_RXFS__GPIO4_IO28	0x0
-+			MX8MP_IOMUXC_SAI3_RXC__GPIO4_IO29	0x0
-+		>;
-+	};
-+};
-
--- 
-2.39.5
-
+Rob
 
