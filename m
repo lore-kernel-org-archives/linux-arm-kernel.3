@@ -4,59 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7A57C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 14:46:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68612C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 14:47:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QQy24ZZml8HQrl2vEdFyQVgSMaSKPtzzQxyxVrjwnJM=; b=YCUcSDzS3tX6lvOjs7eiEM4Egy
-	hTXJHqc2+4cubuP7Kqs0L92Ij6nwoY8yKm6LzN11t8Ibm1jguO4QB90X3yrsyoXBCitZsrG3hH2sJ
-	FxyazG5nrezZz1qsvgODR4TI5sRBl/3wvVchRa7LxBzjEKLrr2e5Y4o13nikXsAv4CYzVI9A6YRjT
-	tJJ+8yYMYe5QrjQX1VqfO3cjsT7TbDF9i7gWOTXH/BFgohxBDCkuQPOKOgEKy/HVg9dyoEHrFalo1
-	nsCSQzH28T/4Pb/QfJtT4vvdb7tdMlBeSl264vMZqUT7ck+kWn+4n2+BObW4xkw3jfijtP/lO8r5a
-	XGK4L3ew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ntDSP9NBqde2ne2PTQLM76C9YokBfgo9U0qc1q22R24=; b=q9oTwe3x2x/JVjf5H9pWG8EqqU
+	bcrcBEHJ7tAVbQ+i+anjwtIfCm6SqagtHQIU2dQlgoqM+CrBwIVH8sZ7Ega0alQ2cJbFDTkO3BJHR
+	aToCNsMX8VRnbh0yo/C/s8917EOtlfgWT/YjYYx4gik+JNf6MCakCt4NtAj1vPcFj2X9+ojbvghiu
+	gq+pk3v0VK3bqqTT11+1A9Sx9fiiaYQ9boMSBzlqRY17zSBsG/yd6gyTPTizreydT0tPa4ZGyOdIO
+	Lu9ju56ZRmieotCWhc5/7Gfnc+5RvgOXEbXBR6mkLWE42lo8zzVP4knd1yacp66mnwyD+hxxcxh4z
+	lqzd7IWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXLhs-00000005Sd0-1x4y;
-	Mon, 13 Jan 2025 14:46:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXLgd-00000005SND-0e04
+	id 1tXLj5-00000005Sx3-0ONh;
+	Mon, 13 Jan 2025 14:47:35 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tXLhV-00000005SXQ-2m5a
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 14:45:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A78E812FC;
-	Mon, 13 Jan 2025 06:45:30 -0800 (PST)
-Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7FABA3F66E;
-	Mon, 13 Jan 2025 06:45:00 -0800 (PST)
-Date: Mon, 13 Jan 2025 14:44:57 +0000
-From: Andre Przywara <andre.przywara@arm.com>
-To: Chen-Yu Tsai <wens@csie.org>
-Cc: Evgeny Boger <boger@wirenboard.com>, <jernej.skrabec@gmail.com>,
- <linux-arm-kernel@lists.infradead.org>, <linux-clk@vger.kernel.org>,
- <linux-sunxi@lists.linux.dev>, <mturquette@baylibre.com>,
- <samuel@sholland.org>, <sboyd@kernel.org>, <simons.philippe@gmail.com>
-Subject: Re: [RFC PATCH] clk: sunxi-ng: h616: Reparent CPU clock during
- frequency changes
-Message-ID: <20250113144457.5b884799@donnerap.manchester.arm.com>
-In-Reply-To: <CAGb2v65-4VK_V4Ob__VAB0+qETuisvdUEUFVwg-7SfHy4rv6_g@mail.gmail.com>
-References: <20241025105620.1891596-1-andre.przywara@arm.com>
-	<7b63b316-4cd7-48ee-ae32-3750d25e2307@wirenboard.com>
-	<20241108223400.460982d6@minigeek.lan>
-	<a4fada26-7ef8-4618-9ddd-0962b7dc6efb@wirenboard.com>
-	<CAGb2v65-4VK_V4Ob__VAB0+qETuisvdUEUFVwg-7SfHy4rv6_g@mail.gmail.com>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	Mon, 13 Jan 2025 14:45:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 966555C4AE2;
+	Mon, 13 Jan 2025 14:45:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A543CC4AF0B;
+	Mon, 13 Jan 2025 14:45:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736779556;
+	bh=4Vujzbm4kNtV5/o/KXPggv4nUMTIKxP0LOJAZ9i8Z+Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cjGQw4qrc+25VwrU5o7c9G3d/cR+3CwDJHhEQLzEagi/U7UsotaPFVUfY5mHihKPM
+	 ukP5fL2SRcmpEtGWyI5yFsXX8LS09ahNaQE30YcFWnTS4U6dGx3OhImPgnoSir5OL0
+	 fSkkiFeSOy1h5QOSf2yTbdTDuVCT73Hpy4bnFcS8qSWoFm2Zkssdqb3/L9cbdcX7+q
+	 AYbcvhxZA+tV+1TqTQcGkiWDwG5SHCgshXTJj05m0o5U9yGH0jjEQkaMmK16Ic3ovU
+	 M3F6JXJRcgdrURmFSPsuUuQRuZXpOPAicnrl91k9kRkz3AgC0XIE5+EjEhwXNxXgoy
+	 Bz8YtOupu7h4Q==
+Date: Mon, 13 Jan 2025 11:45:52 -0300
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+	irogers@google.com, yeoreum.yun@arm.com, mark.rutland@arm.com,
+	namhyung@kernel.org, James Clark <james.clark@linaro.org>,
+	catalin.marinas@arm.com, kernel-team@android.com, robh@kernel.org,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	"Liang, Kan" <kan.liang@linux.intel.com>,
+	John Garry <john.g.garry@oracle.com>,
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+	Graham Woodward <graham.woodward@arm.com>,
+	Michael Petlan <mpetlan@redhat.com>,
+	Veronika Molnarova <vmolnaro@redhat.com>,
+	Thomas Richter <tmricht@linux.ibm.com>,
+	Athira Rajeev <atrajeev@linux.vnet.ibm.com>,
+	linux-kernel@vger.kernel.org, bpf@vger.kernel.org
+Subject: Re: [PATCH v3 0/5] perf: arm_spe: Add format option for discard mode
+Message-ID: <Z4UnIH8SXQC7kGXL@x1>
+References: <20250108142904.401139-1-james.clark@linaro.org>
+ <173652065683.3245172.11665292685923367751.b4-ty@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <173652065683.3245172.11665292685923367751.b4-ty@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_064503_283816_7859CD11 
-X-CRM114-Status: GOOD (  32.14  )
+X-CRM114-CacheID: sfid-20250113_064557_742155_7266CB77 
+X-CRM114-Status: GOOD (  21.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,96 +88,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 10 Nov 2024 20:33:47 +0800
-Chen-Yu Tsai <wens@csie.org> wrote:
+On Fri, Jan 10, 2025 at 04:22:48PM +0000, Will Deacon wrote:
+> On Wed, 08 Jan 2025 14:28:55 +0000, James Clark wrote:
+> > Discard mode (Armv8.6) is a way to enable SPE related PMU events without
+> > the overhead of recording any data. Add a format option, tests and docs
+> > for it.
+> > 
+> > In theory we could make the driver drop calls to allocate the aux buffer
+> > when discard mode is enabled. This would give a small memory saving,
+> > but I think there is potential to interfere with any tools that don't
+> > expect this so I left the aux allocation untouched. Even old tools that
+> > don't know about discard mode will be able to use it because we publish
+> > the format option. Not allocating the aux buffer will have to be added
+> > to tools which I've done in Perf.
+> > 
+> > [...]
+> 
+> Applied driver and docs patches to will (for-next/perf), thanks!
 
-Hi,
+Picked the rest and added it to perf-tools-next,
 
-> On Sat, Nov 9, 2024 at 7:15=E2=80=AFAM Evgeny Boger <boger@wirenboard.com=
-> wrote:
-> >
-> > On 11/9/24 01:34, Andre Przywara wrote: =20
-> > > On Fri, 8 Nov 2024 23:14:51 +0300
-> > > Evgeny Boger <boger@wirenboard.com> wrote:
-> > >
-> > > Hi Evgeny,
-> > > =20
-> > >> Tested-by: Evgeny Boger <boger@wirenboard.com>
-> > >>
-> > >> We had stability issues with some of our T507-based boards. T507 is =
-the
-> > >> same die as H616, to my knowledge.
-> > >> They were fixed by essentially the same patch, which we unfortunately
-> > >> didn't submitted to mainline:
-> > >> https://github.com/wirenboard/linux/commit/dc06e377108c935b2d1f5ce3d=
-54ca1a1756458af
-> > >>
-> > >> It's worth noticing that not only the reparenting is mandated by T5 =
-User
-> > >> Manual (section 3.3.3.1), it's also is implemented in vendor BSP in =
-the
-> > >> same way.
-> > >>
-> > >> We tested the patch extensively on dozens of custom T507 boards (Wir=
-en
-> > >> Board 8 PLC). In our test it significantly improved the stability,
-> > >> especially at low core voltages. =20
-> > > many thanks for this reply, I was hoping for such a kind of report!
-> > > I typically don't test those things in anger, and only have a few
-> > > boards, so having those reports from the real world is very helpful!
-> > >
-> > > Can you maybe give some hint on how you tested this? Does "at low core
-> > > voltages" mean you forced transitions between the lower OPPs only, or
-> > > were the chips undervolted? =20
-> > Both, in a way. Some boards (about 1 in 20 or so) would hang after a few
-> > days of operation.
-> >
-> > During our investigation, we found they would never hang under stress
-> > testing, so we started examining cpufreq-related factors.
-> >
-> > Disabling lower OPPs also prevented hanging. If we artificially lowered
-> > the OPP voltages (undervolting the chip), the boards would hang much
-> > faster without the patch, and even the previously stable ones would
-> > start to hang. =20
->=20
-> I guess we can merge this one then?
+Thanks,
 
-Sorry, didn't realise this was a question.
-
-So yes, please, from my side this looks like the right to do, and Evgeny's
-report supports the need for this.
-
-So please queue this somewhere.
-
-Cheers,
-Andre
->=20
-> ChenYu
->=20
-> > >>   From my understanding, all Allwinner SoCs need to follow this kind=
- of
-> > >> procedure, however it's only implemented in mainline for a handful o=
-f chips. =20
-> > > Yes, I saw, I have added this to my A523 code already, and prepared a
-> > > patch for the H6.
-> > > Do you have boards with any other Allwinner SoCs you could test on, or
-> > > even already have experience with? =20
-> > Unfortunately, no, not really. We only use the T507 and A40i at the mom=
-ent.
-> > We=E2=80=99ve never had these kinds of issues with the A40i, though. By=
- the way,
-> > the A40i is among the few Allwinner chips with reparenting implemented
-> > in the mainline.
-> >
-> > The A523/T527 is really nice; it's a pity it's limited to 4GB RAM.
-> > =20
-> > >
-> > > Cheers,
-> > > Andre =20
-> >
-> > --
-> > Kind regards,
-> > Evgeny Boger
-> > =20
-
+- Arnaldo
+ 
+> [1/5] perf: arm_spe: Add format option for discard mode
+>       https://git.kernel.org/will/c/d28d95bc63cb
+> [2/5] perf docs: arm_spe: Document new discard mode
+>       https://git.kernel.org/will/c/ba113ecad81a
+> 
+> Cheers,
+> -- 
+> Will
+> 
+> https://fixes.arm64.dev
+> https://next.arm64.dev
+> https://will.arm64.dev
 
