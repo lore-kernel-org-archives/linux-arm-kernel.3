@@ -4,55 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66DDEE7719F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 13:45:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4A73C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 13:47:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ksUmkieZ2qiaPfVdZPGvB1BNOsGmHEe1GbgO+K/6IT4=; b=EIR5yqPxUJoGyk0tptHZllrH8b
-	jNER0pektMkA8LfDIYpDZ+EH40/SrK59NAm32234rDNj3R6EKxIJSX5GTocFwj2/eHCwcaNPf6Np4
-	LG7D5nKiSo13wjVl5njCs2omSIw157F6Z/s6st7w5LEXImVJyHOi2ob1HDrxcG50+dmPPt5EcrlU7
-	yyKn2IoN1tEAy78VMtmhGTWjPomhjYOHuGwij90pxLQoqEPfYVx638pVX4w49IouDp5uOCX8lpIw7
-	m1gxpdQCK3u7qGMBPWqXmZpOSo+6lAR4pv+t+kGJwrWYopHV71pkVIGO3iAcTShDHNlDEx4tkTSlr
-	jREE6FLA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=j4e+Haxfk0quznaJK3unHVuZUERCgLpoVhoi6RHHiSY=; b=duK5AgeZT3qfek
+	p5RE+kRUQPIwHFnFKE0lZJ0r+AERhYVvIUzJChy14eEU4sbQn0/Wvcu76G0Dgycn4H/9HgG/mz4Vv
+	jnY+H/rfxmt43qSV/d1Q04zKoU5oiyF/BvbDKsreLU6lKaTR8oa1qLsua7BRmU+GFFcm0w49jTVuy
+	xdWDsNNNxjk5EpZl+pYNqysUd1IRimwzuPGcrgTstpcf47PvFhInaX/ucf+hON4mM640LldaQNr7a
+	qpe1J55fBMbNALsnltjvyYy36Wzjzs2LfdkcJa1pdj2/HsS+XmYNKBVQKlpYzs9r8nDxPCb+ju2RV
+	2f3KPry3E0MXDUj8Damg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXKl3-00000005ILl-26xf;
-	Mon, 13 Jan 2025 13:45:33 +0000
+	id 1tXKmH-00000005Idy-0skO;
+	Mon, 13 Jan 2025 13:46:49 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXKic-00000005Hnm-3v4g
+	id 1tXKic-00000005Hnl-3ue6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 13:43:04 +0000
+	Mon, 13 Jan 2025 13:43:05 +0000
 Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
 	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
 	(Exim 4.92)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tXKib-0002p4-Dh; Mon, 13 Jan 2025 14:43:01 +0100
+	id 1tXKib-0002oy-Dh; Mon, 13 Jan 2025 14:43:01 +0100
 Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
 	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tXKia-000Ghz-1Z;
-	Mon, 13 Jan 2025 14:43:01 +0100
+	id 1tXKia-000Ghu-1M;
+	Mon, 13 Jan 2025 14:43:00 +0100
 Received: from localhost ([::1] helo=dude05.red.stw.pengutronix.de)
 	by dude05.red.stw.pengutronix.de with esmtp (Exim 4.96)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tXKib-00GZFh-1u;
+	id 1tXKib-00GZFh-1p;
 	Mon, 13 Jan 2025 14:43:00 +0100
 From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Date: Mon, 13 Jan 2025 14:42:55 +0100
-Subject: [PATCH v3 5/6] arm64: dts: freescale: imx8mp-skov: operate SoC in
- nominal mode
+Subject: [PATCH v3 0/6] arm64: dts: freescale: imx8mp-skov: switch to
+ nominal drive mode
+Date: Mon, 13 Jan 2025 14:42:50 +0100
+Message-Id: <20250113-imx8m-clk-v3-0-0d6e9bdeaa4e@pengutronix.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250113-imx8m-clk-v3-5-0d6e9bdeaa4e@pengutronix.de>
-References: <20250113-imx8m-clk-v3-0-0d6e9bdeaa4e@pengutronix.de>
-In-Reply-To: <20250113-imx8m-clk-v3-0-0d6e9bdeaa4e@pengutronix.de>
+X-B4-Tracking: v=1; b=H4sIAFoYhWcC/2WMywqDMBQFf0WybkoSNdGu+h+li0tyo6H1QWKDR
+ fz3RkEQupzDmVlIQO8wkFu2EI/RBTf0CfJLRnQLfYPUmcREMFFwwRV13Vx1VL9ftC6kUjI3Vpu
+ KpP/o0bp5bz2eiVsXpsF/93Tk23pU6lMlcsqotmAtsEoZkPcR++Yz+aF389Ug2VJRHHrJOJNnX
+ SRdAiAY0LK0+Kev6/oDL4II0uYAAAA=
+X-Change-ID: 20241217-imx8m-clk-9467763dfcd8
 To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
  Michael Turquette <mturquette@baylibre.com>, 
  Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -71,8 +74,8 @@ X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_054302_973184_6882312C 
-X-CRM114-Status: GOOD (  12.44  )
+X-CRM114-CacheID: sfid-20250113_054302_974775_BFBE2007 
+X-CRM114-Status: GOOD (  14.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,43 +90,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To reduce heat generation, the Skov i.MX8MP boards should run in nominal
-drive mode with a VDD_SOC voltage of 850 mV.
+Unlike the i.MX8MM and i.MX8MN SoCs added earlier, the imx8mp.dtsi
+configures some clocks at frequencies that are only validated for
+overdrive mode, i.e., when VDD_SOC is 950 mV.
 
-At this operating point, not all frequencies that are achievable with
-overdrive mode are possible, so import imx8mp-nominal.dtsi to clock down
-the clocks.
+For the Skov i.MX8MP board, we want to run the SoC at the lower voltage of
+850 mV though to reduce heat generation and power usage. For this to work,
+clock rates need to adhere to the limits of the nominal drive mode.
 
-Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
+This is done by this series: A new imx8mp-nominal.dtsi reconfigures
+the imx8mp.dtsi clock tree to be compatible with nominal mode, an adaptation
+to the Linux clock driver makes it sanity check the actual clock rates against
+the SoC operating mode's constraints and finally the Skov DT makes use
+of it.
+
+Actual configuration of the VDD_SOC rail continues to happen prior to Linux
+as well as PLL configuration that needs to happen earlier than the kernel
+running. See the corresponding barebox patch series[1] for details.
+Note that the barebox series didn't yet include VDD_SOC reconfiguration
+to 850mV, that would follow once the kernel changes have been merged.
+
+[1]: https://lore.kernel.org/barebox/20240503103717.1370636-1-a.fatoum@pengutronix.de/
+
 ---
- arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+Changes in v3:
+- change boolean mode properties to string property, so it's possible to
+  override in overlays (Frank).
+- Dropped Conor's Ack again due to aforementioned binding change.
+- make struct imx8mp_clock_constraints::clkid unsigned (Stephen)
+- Remove comma after sentinel member (Stephen)
+- Link to v2: https://lore.kernel.org/r/20250106-imx8m-clk-v2-0-6aaeadac65fe@pengutronix.de
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
-index 59813ef8e2bb3a3d5672ba1c5776cf0e45fb6862..9dc36517e90c16dd10d14f55d8d5582e845b0f60 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
-@@ -1,6 +1,7 @@
- // SPDX-License-Identifier: (GPL-2.0 OR MIT)
- 
- #include "imx8mp.dtsi"
-+#include "imx8mp-nominal.dtsi"
- 
- #include <dt-bindings/leds/common.h>
- 
-@@ -237,8 +238,8 @@ pmic@25 {
- 		regulators {
- 			reg_vdd_soc: BUCK1 {
- 				regulator-name = "VDD_SOC";
--				regulator-min-microvolt = <600000>;
--				regulator-max-microvolt = <2187500>;
-+				regulator-min-microvolt = <850000>;
-+				regulator-max-microvolt = <850000>;
- 				vin-supply = <&reg_5v_p>;
- 				regulator-boot-on;
- 				regulator-always-on;
+Changes in v2:
+- Explain in Patch 1/6 why two properties are added instead of one
+  (Conor)
+- Collect Conor's Acked-by
+- Collect Peng's Reviewed-by
+- Link to v1: https://lore.kernel.org/r/20241219-imx8m-clk-v1-0-cfaffa087da6@pengutronix.de
 
+---
+Ahmad Fatoum (6):
+      dt-bindings: clock: imx8m: document nominal/overdrive properties
+      arm64: dts: imx8mp: Add optional nominal drive mode DTSI
+      arm64: dts: imx8mp: add fsl,nominal-mode property into nominal.dtsi
+      arm64: dts: freescale: imx8mp-skov: fix LDB clock rate configuration
+      arm64: dts: freescale: imx8mp-skov: operate SoC in nominal mode
+      clk: imx8mp: inform CCF of maximum frequency of clocks
+
+ .../devicetree/bindings/clock/imx8m-clock.yaml     |  11 ++
+ arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi  |  64 +++++++++
+ .../arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi |   5 +-
+ .../freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts  |  19 +--
+ drivers/clk/imx/clk-imx8mp.c                       | 151 +++++++++++++++++++++
+ 5 files changed, 234 insertions(+), 16 deletions(-)
+---
+base-commit: 78d4f34e2115b517bcbfe7ec0d018bbbb6f9b0b8
+change-id: 20241217-imx8m-clk-9467763dfcd8
+
+Best regards,
 -- 
-2.39.5
+Ahmad Fatoum <a.fatoum@pengutronix.de>
 
 
