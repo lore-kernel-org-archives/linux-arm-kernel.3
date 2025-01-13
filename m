@@ -4,153 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D995C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 19:31:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFE2FC02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 19:33:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tznFUpkm55GBM122K42pYBY0AK6rtwVoKb4/51ZMqtw=; b=VSX1fwNAbOvgZ/GE00hFPSFmmH
-	NCaBWYsQw6wl45+YS/koy7SwYRXDxNinf0IfYodInuxni9r2EiIYSvf4acPPUdAgdDslcqtlthiyy
-	kgjBHclHBubnUfVfufgPLidjcE18eAA8GpXWqp9NkSJZAlRaCl4ZUzVJXAFm4G4PvwRjfrPwSaDhy
-	9TyJK/5BAcb4BQ1VLmX675TgChwar8+7JVevYDtIeK3K/EGGhQHIK45d/GruxugupD5TxrG67skds
-	i/e14mHMfcujnNWb8uY3x23ZCL6vVbfeeRARkdzeRKzel33rEskbT6aw3RwyG4v6vi7AghdmLjdkz
-	WYvI6O+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zQuLNus1VAxZrNBZ43k6Ya2LjBOws5SGp9azJjVVqPM=; b=fTAcnp0aQcM8P5Dxr2MeeGWbWK
+	xKiSEURYZE7KVqHx/Tbntqo6+iNsXsQ3HQj8UgbIuE/zC9UfhLG6njtoRzAmeRhrmKhy+M3a2AqdM
+	10jYvNWhRFSzAAP1jI+xmA3X1bv74+zDOfZK4c4i9Y724vsT/sWMi91sOMRZMMDVQXqjaPbqXuz63
+	QagrnQHl1vzYI0meLj2RwA3s+QdO4h2SjhvCI8x67mtxnLuRX3ZX9kxsX1utXWhlh+f8fIcq5tvWe
+	lsNp6iR5tGQNLEJDSXxwtagbJsn5ewellzVFI2YS/LzD5upsLo3LoYWMC9UNme9nftdBw7iKNKzz4
+	96LE3wkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXQ9X-00000006OAk-0c7I;
-	Mon, 13 Jan 2025 19:31:11 +0000
-Received: from mail-mw2nam12on2060f.outbound.protection.outlook.com ([2a01:111:f403:200a::60f] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1tXQBA-00000006Ob4-0rkO;
+	Mon, 13 Jan 2025 19:32:52 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXQ7y-00000006Nqe-0HE7
+	id 1tXQ9t-00000006OHK-2JRs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 19:29:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=V4mc+WIYslsD4eJXkhbNousbNgM4wwWU36kIhCN+lFdH4KPbTbCFvAo8HpIKmBXOiOZIGNLYrMN0IZJKZTHI1FPSw8eNsHpaO+VLyNABTTCpMSKxitUHXuhGsTHrWsXPPIE0PruUFKDxaU8dB86I2ONUIqQ6RgnH94rHjIq9XzDZYAhdVVp9pJEz7IrjUKVk4ELdw1Q0GAvBabWn9DpwmWxI49SCj7SlI5LCnKcPL1eoaagZnzb5wEd82eOEN4miAcYkf0B9vcEh9QaoijROnIhyl0wxvFjygOkKVeDSk95LJZgYNtzXbwQhjGRSO+fAoXoEuEt6OUC7P0NkHqAQlQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tznFUpkm55GBM122K42pYBY0AK6rtwVoKb4/51ZMqtw=;
- b=HgxoGwdrghcgBsEj/5VQwDMgZiZTS7tJBEnvrEGrIxJjJhSY5Jfr9OLMAW5WUwGjpEFyII7s/4QGe9JCbQL3+i579fsoCClA0F1JoDCEliIbSwmBpi3ouzhROXR8T61ISuMWfLrIF381atkYAhmB4s6H8e8v20IF5jV0sKUktxJa+qZfX9pBkZ22/DuPyL5fhkW440zFda5aN6ta2r8ixFN1PDRHV8aznWuVcVNeFvs2DVQ810nu+XHulKUuZB3tI8iB2bQv9hPyK3kXVtyjKHj74rOoog3rm0ESsRkvDzU3Wsg0/PN023UeA2k47uC+Y8emtAE4HRQUoC+ENpR/RQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tznFUpkm55GBM122K42pYBY0AK6rtwVoKb4/51ZMqtw=;
- b=GpHa0+HD4VQwqx/EdGSARLoHP/nlr7fzQVpnChJspCAnSpwXBBwDhSNQBQg70Wb6GZAUTVoSvdPYyv7Kole7cr513QysjhVl87UWEh9cM2PtzuCWk32werQ5Wy75Vk+Ju2WlSUpSu52XjO/niqPW5BJf/OG8FjqhDnVrGMYnK3Xug/uFlQJqQ5ElGCZ5bVwT9YuyEkc8Rm1AtkEAxfXOI9UWz9KSABLIEuAbBNAXY6INjn8GB71Ne/e3QNXrmZxqevUp1XWRxx6tuDKCFO++wCieXPY1YOvIe3SklkyykSEvqSl2FS8/7QtOpyLs0E1BDgD4N0YcxsZ7J99We5pKYw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by DS7PR12MB6141.namprd12.prod.outlook.com (2603:10b6:8:9b::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.17; Mon, 13 Jan
- 2025 19:29:29 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%5]) with mapi id 15.20.8314.022; Mon, 13 Jan 2025
- 19:29:28 +0000
-Date: Mon, 13 Jan 2025 15:29:27 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: kevin.tian@intel.com, corbet@lwn.net, will@kernel.org, joro@8bytes.org,
-	suravee.suthikulpanit@amd.com, robin.murphy@arm.com,
-	dwmw2@infradead.org, baolu.lu@linux.intel.com, shuah@kernel.org,
-	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
-	eric.auger@redhat.com, jean-philippe@linaro.org, mdf@kernel.org,
-	mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
-	smostafa@google.com, ddutile@redhat.com, yi.l.liu@intel.com,
-	patches@lists.linux.dev
-Subject: Re: [PATCH v5 13/14] iommu/arm-smmu-v3: Introduce struct
- arm_smmu_vmaster
-Message-ID: <20250113192927.GJ396083@nvidia.com>
-References: <cover.1736237481.git.nicolinc@nvidia.com>
- <115d6015219e5850ea49dc9f1247f9c3eb515770.1736237481.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <115d6015219e5850ea49dc9f1247f9c3eb515770.1736237481.git.nicolinc@nvidia.com>
-X-ClientProxiedBy: BN0PR03CA0040.namprd03.prod.outlook.com
- (2603:10b6:408:e7::15) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|DS7PR12MB6141:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2a4763a1-5bb7-45c8-8f3a-08dd340898e7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ZSGu9npLbcZ9WRa/EPZegtYkzb8cN2HLTcYNUmZzzaR0cGTizwWVoDQBoLwr?=
- =?us-ascii?Q?Tg+hhgQFz/R/02vhv5HbIV2b3WIkzB+pSoj+3GwMGrq7vssb4ZRt0fWKLBBX?=
- =?us-ascii?Q?WCRaw61L1GKLsEqcSHlVp9GVQpJLzSWoEpb5Wpe5JxEjduY4YKaUrLS5od/m?=
- =?us-ascii?Q?RkWnvZMY0EqrZBfQ4fSGQNMPM2aBe8U5s9BQZvPNcb+HI+WT7/hkZ0QMVqr6?=
- =?us-ascii?Q?r5h4ktuGkJdbuaxX8uRlBIwPWwrkAMA/lCuj0HmCx+n7zVqfHKZwcP5y0n56?=
- =?us-ascii?Q?c50KMXYpLDP2uPDHdYljXBF8erxgxLiiqQ2hT07AP9lAj8+qurYvKtvAY3qY?=
- =?us-ascii?Q?g2quTO/Tl1T4uv+1chArsEnxxmcUDEVg+TXFNz16NOlYN28X3qNHwRqPMo4S?=
- =?us-ascii?Q?eCqDRSO5bpP/XIxIG1BEjczonYWO7l29BMfxJTWackn5op30C28ztfsTls4O?=
- =?us-ascii?Q?zvqOu3NedsPtcnm5s1VBTP1ms2JQ3Ph5vl4uxDJ3tge6ELiP6T/+slzmEfdt?=
- =?us-ascii?Q?92B8D9ikVDA5TCL/jqO83hQZwPabd3JZ0d5+MmPBlueAj7jE4qEBCjENeS7E?=
- =?us-ascii?Q?fdtk/ZDUUu/BL4cCeHPnLsvcrAvZpgwNWfaA1nFKb2NEFrMPhPfmiuKXgoTk?=
- =?us-ascii?Q?IqPEp9X5RBuce2XUGavuTbgwAS/kYxQpWlg5FqALyGAw0wC6bfHjUnV23sUE?=
- =?us-ascii?Q?tpsnUNNGrVEbew+9AzsKxeySiPCC5T/s7bjeitC6J+/ZYA/cgALOXWR+LP5N?=
- =?us-ascii?Q?pT10pjjYgtkTso0xgxcjkZP8q1UD1nu8PWpUHhuhYKP2a6gEgbYBDYCp/+Ij?=
- =?us-ascii?Q?UATfCNdvHpWOY4ebIAUkWZQOQlK8Qa+wSOwPVDaf4Hw0h5kqc5cptG6Gc2rz?=
- =?us-ascii?Q?fT+EAOPQqG0oyaPS3ghaZh2ZbKKn5UJcQaQZqP1OoQXi2ulRcCpJLGwn509e?=
- =?us-ascii?Q?3CuzH3Zsx6dLU6jSjogkgAXiCpWn9Oy3mE4HAXsBxa85+VxnsOAWr7aIMdhS?=
- =?us-ascii?Q?86no4BW7uUVtCB9u4konnqvDjOPf2ylbBLWL5LytsvzWFjemQjBpqCBG1Yjw?=
- =?us-ascii?Q?hSeqRftM/JRao1hGzfoq1b/Q4kojLfibWsDPHSe+eEfSNCL0JsCvzAci9AFX?=
- =?us-ascii?Q?c7Fdp6gwOI+LvhekNdBapZz+uie10cuvaxf4t0K3rvZICyo7b8GlKGgQOc00?=
- =?us-ascii?Q?92jOpZVbROTLQxW+DblF7wBKql9i2Y7KeYN/h57hmaGZbOHLqFYynx1G52Za?=
- =?us-ascii?Q?tGX+e86Wx6WoERnD+mRgRZdwFImZOnrUgdyMcqKQx45VauPTiFWfQpMCsywy?=
- =?us-ascii?Q?BQvJT85UADreWpVHoul0tREiPfLGE9KdG4HLQOptexJpa0hHJhs8LaLiebMb?=
- =?us-ascii?Q?v7A7y7UaEx35ovKlzdB/GPUtLsVQ?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?B2LRzBPG0CwS6gSSDbXtmiecHGZ9Q47XpmWBVF46HScfNDnuiRcOvrD7zZZX?=
- =?us-ascii?Q?LowB+gwbItKFU/TxMv35OSpxX9NH5pVoCc0HKTymTKw2MKdK7A775kKKp+HJ?=
- =?us-ascii?Q?frNt+ttkNvoDIlb21DohDc9p5v2cVrqEUgO59uZUSv8K3w11+IwDZJh2r5Ip?=
- =?us-ascii?Q?UZqcR2SKA6J6NHqt747Jf5Br8CD4mvCt8MouQsAO1xjicweK7zTPGRc4+tcd?=
- =?us-ascii?Q?pgCG6yAFuxTxiz6NJj+qu2TJ3H/dmlWRF96JCALfEi4ry1vho9hgIiq89HmP?=
- =?us-ascii?Q?A7u63NArViCEEde0QsJTFUvkke0HEOCkHW4qIBnX7xB6mFSR3VFqPppussWO?=
- =?us-ascii?Q?vhhCio2YSOV/86NwecDFwesIDhHyHdmaL1sOXl8jLz7T4lqxZpkSf3L5EZKv?=
- =?us-ascii?Q?ZFCP/l0I4MJ8zhfNUmpZtTrBlonRXoHk8fXsBBlLbF0w0xSHhHx0minBbziX?=
- =?us-ascii?Q?CeJI+fNdl27hbTWill6pbY4L9BdN8mn42SRLLsuNS/j/zO1pf5e0qK0gFxxc?=
- =?us-ascii?Q?KTIvd8IwCUz4sDpE8BtkOXaxT7meHrrcLeSJVjahc8//bChS5t2fQ0x7LIPZ?=
- =?us-ascii?Q?fjVnMnXSrE2vyfYxqlDRFclIYaCF+zzXWge98hOm3r0kdzBCQmph6rlqRVGS?=
- =?us-ascii?Q?/CDz7ZRxJwiKcREhtqbncNtWzyB0Q9ErdN6jyReQ/HkqeBD+TnI03LPor1Y/?=
- =?us-ascii?Q?9sfFPdGm1UK2BfCLw7j68IBZNTm0F06l5/vHUHYIPKeNXLOPlXdEovKY+1ey?=
- =?us-ascii?Q?1BuFydj7sH8l8gQ/5MtfTI/5Tql//E0/L3HKOcMYbsj+6E499OvnGPTka0al?=
- =?us-ascii?Q?c3DJaZtjJQ44P5Z5kVSEIpBrTCECLlL3psFemwB1zMdwkUyoUfT9ov4f2UGm?=
- =?us-ascii?Q?azp8wdQkuMywjO/znqkeVG5FpdB6XZCnz+vbzfl3v84VG8EqSM5STgxN6nLu?=
- =?us-ascii?Q?QznOXbu5nDnXwz3bWSidIWSfFmghVJTZhsK753U/9Pdy5NDRkOKhZI55vgT3?=
- =?us-ascii?Q?x59X6HnkydmhI1R0oFfxsC7rUVHvbE6OIDFHQjqyPTnncmUVGv9VSEQ4ffvD?=
- =?us-ascii?Q?bydJFQigiF5ijsipAr9Myg+rIO6EBliSdRWNAWM1xKEojl9JeHBPlnA2g5nu?=
- =?us-ascii?Q?bMJFB9/r2IKQwiQmSznjgLnVkGAP18bc1PefVpwXRYMqD66QRjH21Y3opOwC?=
- =?us-ascii?Q?vn8r+cLRiRZZowAmIJvAjAmeHOGGAl9kqnfuQZAKjDEZYNWIOyCQtI/TcZbz?=
- =?us-ascii?Q?p1Mv+LZDcEu15Ep4ahIPDPtvXsxTw6GU/+0wqCgU9INpyuknkrbgWZWyWilP?=
- =?us-ascii?Q?77lBsQZrZ2ptob9yd3O6OdSP1KQtIBXjJ6JCsZe4H0t1xv/SmVi8IXZMiAuL?=
- =?us-ascii?Q?cgD+qUg4KREYbFrMSH7RIFQDIIYMWhbnutojjGthxUe8m8xexU22yripatQ2?=
- =?us-ascii?Q?a/dEbIW0cd2Z0u3r9sLiBIpjY3udgxVL+9anhghT89QCE+9xeD8qEkW8l6cb?=
- =?us-ascii?Q?7NY0e81xeX1Lxkluakj7Hs3HjtzbeEx6maClVzHLGexpQUCkk8+StIHSmlhU?=
- =?us-ascii?Q?oegbK/MnpO5TYzUqmEs=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2a4763a1-5bb7-45c8-8f3a-08dd340898e7
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jan 2025 19:29:28.7780
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: kYUrMxAq9U3GbIQtKbOK2VMp082fgd2NXSvfdx7lgwIa6Hq/pqusSqxk1DhNoAum
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB6141
+	Mon, 13 Jan 2025 19:31:34 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-218cf85639eso126204295ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 11:31:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1736796692; x=1737401492; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=zQuLNus1VAxZrNBZ43k6Ya2LjBOws5SGp9azJjVVqPM=;
+        b=j3kpRKXRVbFdaru+LWkbdUO/PxCn/NFZS5GhVeWqkx2Hhc3qZ039tT74DlU8ySRlCA
+         VVrdlSAZvLu6Ywbxo3B+Hn2/Pa1BXSgyddEtkPN2QBR0ZPGcslTpO/4Vrb5WvXoyqLTF
+         tBl/L2nOk5joc1p7Ndg+UxM8101L80UxhknkbrXu5K09544eGa0kjuyMcM3/wI8Rtx+D
+         6OARmeFiJBTfi03hPSl1L33JZq+oKWlvHLFRHWo/nTJn5d/+zCU/084th3iNxbktALol
+         xR0rumOoVQBKetvGM77SXK2wiy3Fcm4qZwTFkxYvnl0weMxbzx4dAVOXsj+JqKTcqjm3
+         0JFw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736796692; x=1737401492;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=zQuLNus1VAxZrNBZ43k6Ya2LjBOws5SGp9azJjVVqPM=;
+        b=E6IwH9GDjk8CY1ZztSSGSTRBikhOjPBZfDj67e0LJGaI7QMK6s3u5V1DIuSRanhcB8
+         efE1JXsfTh2Tk9nKeFtdb/e3MJOYPSa8S1ZKhnP4zGhlyo0PlO1cQhyMGGPHXN+0k3TG
+         Us3A1cHWsROcQmOyn79xveelVAkdL8Fc4I0f0dbZnRbAjpjTOH4V01fSsKgst7OVBNEl
+         FX1Ra9WmPWBcx7gspn0Kq1CZG/eL3apw9eTExAvKrHjweNkZ8Oqz0t27Jq3OOFiqpUUy
+         oMTgPapGgPV1BHRlQydMvdZks7QUsKPiE2PSM6E1FMALA+e2p+AR8SwXtRhbP0GumaHO
+         TYgg==
+X-Forwarded-Encrypted: i=1; AJvYcCWaIvlBFbte2iSct3YmPSfHa5zquX+XNE227mNyRxOlE5NBBei5LrwEvCwSG9btdpbpPth/NBy36S8AC88N9d/q@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6i52e5fFg359GotZ7nMKc/FWfDDNDQcDx4HbcoC/DMLLy/VK+
+	61l0I9nUEDGd2l8a8GFMmFjzE4sG7lzgNWPdlgUbMUs/jBmLdDLllO5zQJZui1ssrGF359JsJqt
+	ZiUv6Bttn5Wftkjj6kyKPrw==
+X-Google-Smtp-Source: AGHT+IFTTR9jWVG4vVEvgyv+yC8hp1O0OmOvPiyAoIVKcAx8u7/sqAUQ1P0efNDOYAB1okcT0cVybvPbu9xCmAhOiA==
+X-Received: from plkl13.prod.google.com ([2002:a17:902:d34d:b0:212:10e4:fc1a])
+ (user=jingzhangos job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:902:cccb:b0:216:4d1f:5c83 with SMTP id d9443c01a7336-21a84010cb0mr327348885ad.47.1736796692096;
+ Mon, 13 Jan 2025 11:31:32 -0800 (PST)
+Date: Mon, 13 Jan 2025 11:31:26 -0800
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.47.1.688.g23fc6f90ad-goog
+Message-ID: <20250113193128.1533449-1-jingzhangos@google.com>
+Subject: [RFC PATCH 0/2] KVM: arm64: vgic-its: Enhance debugging with debugfs
+ and tracepoints
+From: Jing Zhang <jingzhangos@google.com>
+To: KVMARM <kvmarm@lists.linux.dev>, ARMLinux <linux-arm-kernel@lists.infradead.org>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Joey Gouly <joey.gouly@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Jing Zhang <jingzhangos@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_112934_105960_B88B089C 
-X-CRM114-Status: GOOD (  13.49  )
+X-CRM114-CacheID: sfid-20250113_113133_590729_0BFC7C98 
+X-CRM114-Status: GOOD (  12.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,44 +89,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 07, 2025 at 09:10:16AM -0800, Nicolin Chen wrote:
+This patch introduces two significant enhancements to the debugging
+capabilities of the KVM VGIC ITS for ARM64 systems:
 
-> +int arm_smmu_attach_prepare_vmaster(struct arm_smmu_attach_state *state,
-> +				    struct iommu_domain *domain)
-> +{
-> +	struct arm_smmu_nested_domain *nested_domain;
-> +	struct arm_smmu_vmaster *vmaster;
-> +	unsigned long vsid;
-> +	unsigned int cfg;
-> +
-> +	iommu_group_mutex_assert(state->master->dev);
-> +
-> +	if (domain->type != IOMMU_DOMAIN_NESTED)
-> +		return 0;
-> +	nested_domain = to_smmu_nested_domain(domain);
-> +
-> +	/* Skip ABORT/BYPASS or invalid vSTE */
-> +	cfg = FIELD_GET(STRTAB_STE_0_CFG, le64_to_cpu(nested_domain->ste[0]));
-> +	if (cfg == STRTAB_STE_0_CFG_ABORT || cfg == STRTAB_STE_0_CFG_BYPASS)
-> +		return 0;
+* Debugfs Interface for ITS Tables:
+  A new debugfs interface is added, accessible at
+  /sys/kernel/debug/kvm/<vm_name>/vgic-its-state@<its_base_address>.
+  This interface exposes the internal ITS tables, allowing developers
+  to inspect the mappings between Event IDs, Interrupt IDs, and their
+  associated target processors. The information is presented in a clear,
+  tabular format, making it easy to understand the current state of the
+  ITS configuration.
+* Tracepoints for ITS Commands:
+  Tracepoints have been added to cover all major ITS commands. These
+  tracepoints provide detailed information about each command execution,
+  including device IDs, event IDs, collection IDs, and other relevant
+  parameters. This allows for fine-grained monitoring of ITS activity
+  and facilitates debugging of complex interrupt routing scenarios.
 
-Why? If the VM sets an ABORT vSTE then I would expect that any
-protection violation events the VM triggers are captured and forwarded
-as well?
+Motivation:
 
-Basically any time a vSTE is in place we should capture events that
-are affiliated with the SID?
+The ITS is a critical component for interrupt routing in virtualized
+environments, but its complexity can make it difficult to debug and
+optimize. The current lack of visibility into its internal state hinders
+the ability to diagnose issues related to interrupt delivery, performance
+bottlenecks, and configuration errors.
 
-> +	if (!(nested_domain->ste[0] & cpu_to_le64(STRTAB_STE_0_V)))
-> +		return 0;
-> +
-> +	vsid = iommufd_viommu_get_vdev_id(&nested_domain->vsmmu->core,
-> +					  state->master->dev);
-> +	/* Fail the attach if vSID is not correct set by the user space */
-> +	if (!vsid)
-> +		return -ENOENT;
+This patch addresses these challenges by providing tools to:
 
-Is it really OK that 0 is being used as invalid here?
+* Inspect ITS Table Mappings:
+  The debugfs interface allows developers to directly examine the ITS
+  tables, verify the correctness of mappings, and identify potential
+  misconfigurations.
+* Monitor ITS Command Execution:
+  The tracepoints provide a detailed log of ITS command activity, making
+  it easier to understand the flow of interrupt routing and pinpoint the
+  root cause of issues.
+* Improve Debuggability:
+  By combining the static view of the ITS tables with the dynamic
+  information from tracepoints, developers gain a comprehensive
+  understanding of the ITS's behavior.
 
-Jason
+Implementation Details:
+
+The debugfs interface is implemented using the seq_file interface to
+present the ITS table data in a user-friendly format.
+Tracepoints are defined using TRACE_EVENT and DECLARE_EVENT_CLASS macros
+for efficient tracing. Tracepoints are strategically placed within each
+ITS command handler function to capture relevant information.
+The patch includes necessary modifications to the KVM Makefile and VGIC
+header files to incorporate the new functionality.
+
+---
+
+Jing Zhang (2):
+  KVM: arm64: vgic-its: Add debugfs interface to expose ITS tables
+  KVM: arm64: vgic-its: Add tracepoints for VGIC ITS commands
+
+ arch/arm64/kvm/Makefile              |   2 +-
+ arch/arm64/kvm/vgic/trace.h          | 135 ++++++++++++++++
+ arch/arm64/kvm/vgic/vgic-its-debug.c | 234 +++++++++++++++++++++++++++
+ arch/arm64/kvm/vgic/vgic-its.c       |  58 ++++---
+ arch/arm64/kvm/vgic/vgic.h           |  33 ++++
+ 5 files changed, 430 insertions(+), 32 deletions(-)
+ create mode 100644 arch/arm64/kvm/vgic/vgic-its-debug.c
+
+
+base-commit: 9d89551994a430b50c4fffcb1e617a057fa76e20
+-- 
+2.47.1.613.gc27f4b7a9f-goog
+
 
