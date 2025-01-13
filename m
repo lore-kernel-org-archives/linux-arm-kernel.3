@@ -4,62 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D29B0C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 17:55:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 938ACC02185
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 17:59:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8t4PmpW1xAxaZBSiQ+U5aJRZbcC7Oj+dB2snQB8pfj4=; b=HHHpQnHnjTgkLdkyWAP1qCcEzd
-	e3h+5r17QwJahA16GiSIGI/uw/OxSMzTZxgkIxTdK26y/RN9xoYBGOHr09Jt1zduLdutFVRJgTPtA
-	U+0G0/HLewXShCglh1pF2MAx5V9STWF2A3mnTsGRJWKl6IBHeQ77KJlY218UNn/NU81R9jzVMRizN
-	0lMGaBJVLtPiZv0oIoPjUD/zccJMigY30A4thEPuuMaliLEZNMW5bk2twDFZ/bYoT93CQC8tYMt9s
-	D0E3pxMzPm+futeGKCHl/dutYNTYklrBfg5uVaSk2z1Cm8ACqm7P/bfmYt65IqRDWuUDPq1DJE197
-	wbyhywFQ==;
+	bh=f0HdX6nZDX+G98yLEbZCGcTbMpwIzUuclg8fJaP7sTA=; b=soFJ2py5pxzk7pyoLmQwmJ7b0o
+	8CBMMOLhWgAHeCPOJIxpYviWg32c1sDx+lBOLlnlHy7FZ0nw6E3ZtwQV8h+YVVm2NuZ9gVePvMvC3
+	hmUxcSVNZjShCHJ/yLMlV3yFvk2/lZ/nejSE7ASNcOwZtwlTZo+iVrZ3QMI8igFaqDdazU2pykttR
+	7E4k1yfAoS+0GiWE/uBM30///qLq6DZdMrNROwAHz35kQEycKZw3UXyvMhADeTiT40n5O4P3mB6Wf
+	WgbUKpvuKLiRuod1SckZGZNzM43BS2xoBqLDCNGE9mZCLICuxA1fN77ZDlQwoRv0id2LOe2kIJbst
+	kqDw/tGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXOf3-000000067av-3wiE;
-	Mon, 13 Jan 2025 17:55:37 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXOdo-000000067F2-0yrQ
+	id 1tXOj4-000000068CB-09Rr;
+	Mon, 13 Jan 2025 17:59:46 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tXOhp-0000000685Y-0YwZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 17:54:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8609A12FC;
-	Mon, 13 Jan 2025 09:54:44 -0800 (PST)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 459913F66E;
-	Mon, 13 Jan 2025 09:54:14 -0800 (PST)
-Date: Mon, 13 Jan 2025 17:54:03 +0000
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Sudeep Holla <sudeep.holla@arm.com>,
-	Ranjani Vaidyanathan <ranjani.vaidyanathan@nxp.com>
-Cc: Peng Fan <peng.fan@nxp.com>, "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
-	"cristian.marussi@arm.com" <cristian.marussi@arm.com>,
-	"ulf.hansson@linaro.org" <ulf.hansson@linaro.org>,
-	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [EXT] Re: [PATCH] pmdomain: arm: scmi_pm_domain: Initialize
- state as off
-Message-ID: <Z4VTO9mowkMfpZiI@pluto>
-References: <20250110061346.2440772-1-peng.fan@oss.nxp.com>
- <Z4TreQ5bA9qiMTgC@bogus>
- <PAXPR04MB8459F33BCC84CCA8F49F3B60881F2@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <Z4UZ2Au7KSFMibDW@bogus>
- <PA4PR04MB94855052830C8F4874237BA6921F2@PA4PR04MB9485.eurprd04.prod.outlook.com>
- <Z4VLZgAWR7ugDl7W@bogus>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z4VLZgAWR7ugDl7W@bogus>
+	Mon, 13 Jan 2025 17:58:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7ECC55C56C1;
+	Mon, 13 Jan 2025 17:57:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12333C4CED6;
+	Mon, 13 Jan 2025 17:58:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736791108;
+	bh=C4U6jDO5tq6E1mF/aBnMvfQnGQRHeO89RHzRkvIhJs4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=psvnlW4wafKLVUpZBhNf6LkVPQOrFv6SKqJM0kifmMX54rU4xub0H+UAf1xugSgmM
+	 moc6VjZ331Ircoli93W25Z8NosRTi9AbmDVjtUbn8IpTreweH93OkwH4lY3aTOPFMJ
+	 bz/tgzDFfnETQHbGpaYrQTkJRGOzkV8n2TWGPiwWKxXZGWLddZk1KH72egmd275I+7
+	 02c3/sDd0VfdinwVbal7Pbu33AfO2Yp5TcXkNp2RnKCeXQfi5DXuZc0kAoPCf6KO3L
+	 rE4n6tNNW/hFUrUtOlc8j3jebW9cEG+0NLmZRFl97Lj/g4up9g8GXP8V+8B8HwW9jW
+	 sUzQJW0KDIZCQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tXOhl-00Bj4p-S9;
+	Mon, 13 Jan 2025 17:58:25 +0000
+Date: Mon, 13 Jan 2025 17:58:25 +0000
+Message-ID: <86ikqiwq7y.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/5] KVM: Add a common kvm_run flag to communicate an exit needs completion
+In-Reply-To: <Z4U03KRYy2DVEgJR@google.com>
+References: <20250111012450.1262638-1-seanjc@google.com>
+	<20250111012450.1262638-4-seanjc@google.com>
+	<87ikqlr4vo.wl-maz@kernel.org>
+	<Z4U03KRYy2DVEgJR@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: seanjc@google.com, pbonzini@redhat.com, oliver.upton@linux.dev, mpe@ellerman.id.au, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_095420_354836_D55BA715 
-X-CRM114-Status: GOOD (  36.89  )
+X-CRM114-CacheID: sfid-20250113_095829_256222_9E924D60 
+X-CRM114-Status: GOOD (  40.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,87 +92,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 13, 2025 at 05:20:38PM +0000, Sudeep Holla wrote:
-> On Mon, Jan 13, 2025 at 03:30:58PM +0000, Ranjani Vaidyanathan wrote:
-> > -----Original Message-----
-> > From: Sudeep Holla [mailto:sudeep.holla@arm.com]
-> > Sent: Monday, January 13, 2025 7:49 AM
-> > To: Peng Fan <peng.fan@nxp.com>
-> > Cc: Peng Fan (OSS) <peng.fan@oss.nxp.com>; cristian.marussi@arm.com; Sudeep Holla <sudeep.holla@arm.com>; ulf.hansson@linaro.org; arm-scmi@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-pm@vger.kernel.org; linux-kernel@vger.kernel.org; Ranjani Vaidyanathan <ranjani.vaidyanathan@nxp.com>
-> > Subject: [EXT] Re: [PATCH] pmdomain: arm: scmi_pm_domain: Initialize state as off
-> >
-> > On Mon, Jan 13, 2025 at 11:37:23AM +0000, Peng Fan wrote:
-> > > > Subject: Re: [PATCH] pmdomain: arm: scmi_pm_domain: Initialize state
-> > > > as off
-> > > >
-> > > > On Fri, Jan 10, 2025 at 02:13:46PM +0800, Peng Fan (OSS) wrote:
-> > > > > From: Peng Fan <peng.fan@nxp.com>
-> > > > >
-> > > > > Per ARM SCMI Spec DEN0056E, page 16, "The platform may disable a
-> > > > > resource if no agent has requested to use that resource."
-> > > > >
-> > > >
-> > > > True, but ...
-> > > >
-> > > > > Linux Kernel should not rely on a state that it has not requested,
-> > > > > so make state as off during initialization.
-> > > > >
-> > > >
-> > > > IIUC, this was done to avoid any transitions if the bootloader like
-> > > > U- Boot has turned on the resource and OS can just rely on that stay.
-> > >
-> > > But if it is not U-Boot turned it on?
-
-Hi Sudeep, Ranjani,
-
-> >
-> > Not sure if I understand what exactly you mean by that.
-> > [RV] Its possible that some other agent (M33/M7 running OS) in the system
-> > turned on the power domain. Resources in the same power domain can shared
-> > across agents.  That being said, uboot provides mechanism to clean up any
-> > power domains/clocks that it enabled. And our implementation of uboot does
-> > disable any power domain it powered up for downloading of images or anything
-> > else (display is a unique case if splash screen is enabled).
-> >
+On Mon, 13 Jan 2025 15:44:28 +0000,
+Sean Christopherson <seanjc@google.com> wrote:
 > 
-
-So, RV,  you are saying that the your UBoot is cleanly releasing/turning_OFF all
-the resources that it claimed during its life before giving control to
-Linux (sicne no more needed) BUT some other agent in the system has requested
-that resource to be ON, so when Linux query the status of the resources it sees
-it as ON since it sees the physical real status of the resource ?
-
-If this is the case, I suspected this was the issue, and I will address these
-scenario in a separate mail on this thread that I was already in the middle of
-writing....
-
-> Right I was referring to the display as one of the example when I referred
-> to the case where bootloader turns on the resource.
+> On Sat, Jan 11, 2025, Marc Zyngier wrote:
+> > On Sat, 11 Jan 2025 01:24:48 +0000,
+> > Sean Christopherson <seanjc@google.com> wrote:
+> > > 
+> > > Add a kvm_run flag, KVM_RUN_NEEDS_COMPLETION, to communicate to userspace
+> > > that KVM_RUN needs to be re-executed prior to save/restore in order to
+> > > complete the instruction/operation that triggered the userspace exit.
+> > > 
+> > > KVM's current approach of adding notes in the Documentation is beyond
+> > > brittle, e.g. there is at least one known case where a KVM developer added
+> > > a new userspace exit type, and then that same developer forgot to handle
+> > > completion when adding userspace support.
+> > 
+> > Is this going to fix anything? If they couldn't be bothered to read
+> > the documentation, let alone update it, how is that going to be
+> > improved by extra rules and regulations?
+> > 
+> > I don't see how someone ignoring the documented behaviour of a given
+> > exit reason is, all of a sudden, have an epiphany and take a *new*
+> > flag into account.
 > 
-> > >
-> > > Because the power domain is ON, kernel will not issue SCMI to platform
-> > > to request it ON when kernel needs this power domain on.
-> > >
-> >
-> > Yes, but the agent(via bootloader) has already requested the SCMI platform,
-> > so it should be fine. No ?
-> > [RV] As mentioned above, it need not be the bootloader. And secondly how to
-> > handle this power domain during suspend/resume? It's possible that the agent
-> > that turned on the power domain initially will have different wakeup
-> > requirements. IMO Linux should completely be responsible for the power
-> > domains that the drivers need.
-> >
+> The idea is to reduce the probability of introducing bugs, in KVM or userspace,
+> every time KVM attaches a completion callback.  Yes, userspace would need to be
+> updated to handle KVM_RUN_NEEDS_COMPLETION, but once that flag is merged, neither
+> KVM's documentation nor userspace would never need to be updated again.  And if
+> all architectures took an approach of handling completion via function callback,
+> I'm pretty sure we'd never need to manually update KVM itself either.
+
+You are assuming that we need this completion, and I dispute this
+assertion.
+
+>
+> > > +7.37 KVM_CAP_NEEDS_COMPLETION
+> > > +-----------------------------
+> > > +
+> > > +:Architectures: all
+> > > +:Returns: Informational only, -EINVAL on direct KVM_ENABLE_CAP.
+> > > +
+> > > +The presence of this capability indicates that KVM_RUN will set
+> > > +KVM_RUN_NEEDS_COMPLETION in kvm_run.flags if KVM requires userspace to re-enter
+> > > +the kernel KVM_RUN to complete the exit.
+> > > +
+> > > +For select exits, userspace must re-enter the kernel with KVM_RUN to complete
+> > > +the corresponding operation, only after which is guest state guaranteed to be
+> > > +consistent.  On such a KVM_RUN, the kernel side will first finish incomplete
+> > > +operations and then check for pending signals.
+> > > +
+> > > +The pending state of the operation for such exits is not preserved in state
+> > > +which is visible to userspace, thus userspace should ensure that the operation
+> > > +is completed before performing state save/restore, e.g. for live migration.
+> > > +Userspace can re-enter the guest with an unmasked signal pending or with the
+> > > +immediate_exit field set to complete pending operations without allowing any
+> > > +further instructions to be executed.
+> > > +
+> > > +Without KVM_CAP_NEEDS_COMPLETION, KVM_RUN_NEEDS_COMPLETION will never be set
+> > > +and userspace must assume that exits of type KVM_EXIT_IO, KVM_EXIT_MMIO,
+> > > +KVM_EXIT_OSI, KVM_EXIT_PAPR, KVM_EXIT_XEN, KVM_EXIT_EPR, KVM_EXIT_X86_RDMSR,
+> > > +KVM_EXIT_X86_WRMSR, and KVM_EXIT_HYPERCALL require completion.
+> > 
+> > So once you advertise KVM_CAP_NEEDS_COMPLETION, the completion flag
+> > must be present for all of these exits, right? And from what I can
+> > tell, this capability is unconditionally advertised.
+> > 
+> > Yet, you don't amend arm64 to publish that flag. Not that I think this
+> > causes any issue (even if you save the state at that point without
+> > reentering the guest, it will be still be consistent), but that
+> > directly contradicts the documentation (isn't that ironic? ;-).
 > 
-> May be I am still missing something. The genpd framework does issue power
-> down of all the PD that are not used once we boot. Is that not sufficient.
-> We are just not changing the pd state when initialising the genpds.
-> Is that causing the issue ? I was under the impression that it shouldn't
-> matter if the driver manages the genpds they consume and all unused ones
-> get turned off eventually.
+> It does cause issues, I missed this code in kvm_arch_vcpu_ioctl_run():
+> 
+> 	if (run->exit_reason == KVM_EXIT_MMIO) {
+> 		ret = kvm_handle_mmio_return(vcpu);
+> 		if (ret <= 0)
+> 			return ret;
+> 	}
 
-I think GenPD turns off unused PD domains ONLY if pd_ignore_unused
-kernel-param is false, BUT it is true by default AFAICS.
+That's satisfying a load from the guest forwarded to userspace. If the
+VMM did a save of the guest at this stage, restored and resumed it,
+*nothing* bad would happen, as PC still points to the instruction that
+got forwarded. You'll see the same load again.
 
-Thanks,
-Cristian
+As for all arm64 synchronous exceptions, they are idempotent, and can
+be repeated as often as you want without side effects.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
