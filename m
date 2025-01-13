@@ -4,83 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56A23C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 15:38:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA40EC02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 15:39:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vPElJjdBIyvXysgwmuTEuhrSS5NfGy31HKmL/cX76vU=; b=1gp+sSJoSbEO2/jXCXKjlvDB1M
-	W5InnmNhHhF5Xhaw3kVWOGl5cPoy6jMIHH8dRiak1CDd9LZ8YWHrSwLNHWAs0quenR5hOpHaI7WhS
-	dc64XZ5CZ+uFvRsGmlpfXI8c9wuDqQ2iJ1I3p/npQCaP3wnsx/sxY+CoZdXQCr4RMcepoApPAVDy4
-	krMs9m1pDPMPZuzuUXsk69ln9T/hwDrbaXiSW0MgSVNJ7CkzWo8E58Dhjy6In+1GIfVzwbGsZAOjP
-	6Qx0HyZFOwZM5/kE5WMObwh6Gs242n+fXmHlwfFDSH175hA+NR4CiYdjLY9AdF61sgnDrQatb1+1T
-	qwjj8V8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FwnS3vaGfU2joF6cYNFfsBCgKjyVEnMzRnIWwalUQU8=; b=0Aivceav8tpr4uEhh7GsMIkftc
+	LkhFi7i/nCmplndlodiKsMe41113Z3ted5WhXPfTiDOor9gWqxURFmCGsbBX40LfEmIcD+5HXhb3E
+	WKcGHbwcCg8o3TMhI4S2KAjtOj2CTCteR5Z7wQAqNN4ZYP+PmkVl2gBez2bOtypjuyz4WH1JKzIlb
+	1uvNvqb8ls8Ezg2vDBMuk0xogVzkdBlv898AY8rvPaDPkPNwCIOIzMu/p2RjcMTZimvOr8AAaXTf1
+	4NaU5WG4j19AvTQVDpM3UrFbNq1wOXFcGml+/kgeS5a3t2ej89vXcDPeEgE4uKr0TuTLKuFTy8aa1
+	0oJ9YUaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXMVf-00000005frw-2OeZ;
-	Mon, 13 Jan 2025 15:37:47 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tXMWt-00000005gEU-0son;
+	Mon, 13 Jan 2025 15:39:03 +0000
+Received: from mail-ed1-x543.google.com ([2a00:1450:4864:20::543])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXLqM-00000005VCU-00mj;
-	Mon, 13 Jan 2025 14:55:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A83405C5439;
-	Mon, 13 Jan 2025 14:54:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADB7AC4CEE2;
-	Mon, 13 Jan 2025 14:55:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736780105;
-	bh=rMXm59SPTsrymD3C2yxFqEbLQ1YAvMyEOn3UiB05slc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ljKxA0aFAxh2ONCcjbhbD784GF9s1PYXJEEhRvReBgZEd6mDOgNWpdwwkyWfeJtFD
-	 ms5xEGQtINBAIYgUytnrPynqhAUDRqfv74ujLH6UCshPh2cTPoJ8hPIZXvR3svIiA7
-	 o7F2SGfoA9kSXA0z25eLW/4YvTTMEneP+GangqZLdQgRreaEQhitpVt0fc/v6k9WRZ
-	 cHiPMwk4/ZkoSkgvizHC3Z1Z7DkSrh/HkjwDNIqWHODpNSrreAduK5Y/WeqkUAORaC
-	 kmspZTxOCvVnKX0NexSwAos/8QKdXhniXRbJetXIy518kJYNu8Z9wNyrPdc2P/rmCr
-	 sNZbLt631SwvQ==
-Date: Mon, 13 Jan 2025 11:55:02 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	=?iso-8859-1?Q?Micka=EBl_Sala=FCn?= <mic@digikod.net>,
-	=?iso-8859-1?Q?G=FCnther?= Noack <gnoack@google.com>,
-	Christian Brauner <brauner@kernel.org>, Guo Ren <guoren@kernel.org>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	Jonathan Corbet <corbet@lwn.net>, Arnd Bergmann <arnd@arndb.de>,
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-security-module@vger.kernel.org, bpf@vger.kernel.org,
-	linux-csky@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v6 00/16] perf tools: Use generic syscall scripts for all
- archs
-Message-ID: <Z4UpRqywqYPZSUM_@x1>
-References: <20250108-perf_syscalltbl-v6-0-7543b5293098@rivosinc.com>
- <Z3_ybwWW3QZvJ4V6@x1>
- <Z4AoFA974kauIJ9T@ghost>
- <Z4A2Y269Ffo0ERkS@x1>
- <Z4BEygdXmofWBr0-@x1>
- <Z4BVK3D7sN-XYg2o@ghost>
- <Z4F1dXQLPGZ3JFI5@ghost>
+	id 1tXLsb-00000005Vp6-1VFe
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Jan 2025 14:57:26 +0000
+Received: by mail-ed1-x543.google.com with SMTP id 4fb4d7f45d1cf-5d3d0205bd5so6682492a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 06:57:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1736780243; x=1737385043; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=FwnS3vaGfU2joF6cYNFfsBCgKjyVEnMzRnIWwalUQU8=;
+        b=L+2/ZnRK3Pn0qEkRY8RKGPbB4JB68xzzG9FhNIlJB0kFH0B+fgJCRKyM/37XrF6rnS
+         g1IHwNsfAyO1F3p3SB1MeWXNBgBZk1+a0GzPbsbSgAZPc86t/IyeVEXU1R0u6ga2iOPk
+         xJMXFYe2OjDrK60Lg79b7Y2ZU9eEXPdmG/WcwvbsoJgJ3VPJ/iPXBUHezxbbvTdpsI4x
+         0zgVs3XCvlAcRP/C3lgUyAfu9eUDRk6QZ0hJ61D9cIpIQ4HDbf6VLafz0kIL5T6+zoXG
+         BRLt+4x0DEB9VyVqDMossPHlAU8pJMrOdWiKJVrnxgm8nbXiXrP8BSB+ZzuSlruH0oQ0
+         Whww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736780243; x=1737385043;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=FwnS3vaGfU2joF6cYNFfsBCgKjyVEnMzRnIWwalUQU8=;
+        b=C3Ty+6xOu2UMMy9N/jrRsIq30k6DHkHjHnAQoihMll1SY4Dj+Z4jEKxj5svqYv+Lb0
+         1l6Wyep1K8yiI025a1TSCenc59l8PpBUU+DYZv8w7alLtqwv2BllZQP760qgCveuJSF6
+         rL3OxCZjxvgV41Xfybv/7/1+v9yT875H8XMwzlXBsDp79fhowt5+wvshgto2PqfQxzQl
+         dKraj9t1OZLNGpgeekybDebS35dibBw4tGO7DscRc0wKSVront3Jw/V7ImIuy+TOr5qU
+         +1lDbxXUjY109bU7MJlp+PRTVaUsgIDdXRuoBuTL+9NMC94LDFeo3ZXxCXg9JOou3m+Z
+         appg==
+X-Forwarded-Encrypted: i=1; AJvYcCW/J7S2r8CqmN5+FbVV2XnhPNpelCxy/hXw1l3khnhgVg2WWIWrNq8CAGjbqek3ZE8/rvTKWYh17uj9UomZs1UH@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxt4Vu3IwX7KK/FNN+uOQdS1n/Of6lKDz7Cg9wuApO84r3/Fqq5
+	8j+lVwLYhBW6Qmdrnm1u109prUL0FRAUHCEcIHh+7Wz7nKWh/hN8kBGrZy7GFWc=
+X-Gm-Gg: ASbGncs2ZqSVFfTcZd12BPQFCC7Bp3tOuc1ZaglBqHQCZp1C8s1v2BSli4sigym+Ltk
+	l6wKhg3O5lhnxs0gaKevpAYDcFLseTNqzBhClNqLgCAUKn6ifccoPH79aDwjAj/Zi3wjwEuwOkz
+	ln+T2eonM3h0k6RQAzzr64w4F6VnAQGeDHaCcnOx9xj4StLDPdFxfQsXEmm4ZchqAFbU3mN+rVx
+	m4XJPxLgutzv4kh2+8FQ9MLLBwXhAtIDV0UkDA+0m+2dJJAH6sBxeJhxCqVYWLtXQ6APYanOE1y
+	86dXjZoux72v8Y9ZIUthTJ4pQ1Q=
+X-Google-Smtp-Source: AGHT+IF+dQmIb1tSxF2qnawRLekJBTCQVTuDzMZWssaSx8RiWN62SO954NQh7GFSKEfS+l/Tll7rpQ==
+X-Received: by 2002:a17:906:ef0d:b0:aab:d7ef:d44 with SMTP id a640c23a62f3a-ab2ab6c1ad2mr2040825166b.24.1736780242877;
+        Mon, 13 Jan 2025 06:57:22 -0800 (PST)
+Received: from localhost (host-87-14-236-197.retail.telecomitalia.it. [87.14.236.197])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab2c90da2c8sm516494166b.62.2025.01.13.06.57.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jan 2025 06:57:22 -0800 (PST)
+From: Andrea della Porta <andrea.porta@suse.com>
+To: Andrea della Porta <andrea.porta@suse.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof Wilczynski <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Saravana Kannan <saravanak@google.com>,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Andrew Lunn <andrew@lunn.ch>
+Subject: [PATCH v6 00/10] Add support for RaspberryPi RP1 PCI device using a DT overlay
+Date: Mon, 13 Jan 2025 15:57:59 +0100
+Message-ID: <cover.1736776658.git.andrea.porta@suse.com>
+X-Mailer: git-send-email 2.44.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z4F1dXQLPGZ3JFI5@ghost>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_065506_122436_807E560E 
-X-CRM114-Status: GOOD (  18.63  )
+X-CRM114-CacheID: sfid-20250113_065725_412793_2DD560D4 
+X-CRM114-Status: GOOD (  25.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,56 +124,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 10, 2025 at 11:31:01AM -0800, Charlie Jenkins wrote:
-> On Thu, Jan 09, 2025 at 03:00:59PM -0800, Charlie Jenkins wrote:
-> > Ooh okay I see, the quiet commands were being ignored as-is. We could
-> > add the lines to handle this to Makefile.syscalls, but I think the
-> > better solution is to move the lines from Makefile.build to
-> > Makefile.perf to be more generically available. Here is a patch for
-> > that. I also added the comment from the kernel Makefile describing what
-> > this does.
+RP1 is an MFD chipset that acts as a south-bridge PCIe endpoint sporting
+a pletora of subdevices (i.e.  Ethernet, USB host controller, I2C, PWM,
+etc.) whose registers are all reachable starting from an offset from the
+BAR address.  The main point here is that while the RP1 as an endpoint
+itself is discoverable via usual PCI enumeraiton, the devices it contains
+are not discoverable and must be declared e.g. via the devicetree.
 
-> > From 8dcec7f5d937ede3d33c687573dc2f1654ddc59e Mon Sep 17 00:00:00 2001
-> > From: Charlie Jenkins <charlie@rivosinc.com>
-> > Date: Thu, 9 Jan 2025 14:36:40 -0800
-> > Subject: [PATCH] perf tools: Expose quiet/verbose variables in Makefile.perf
-> > 
-> > The variables to make builds silent/verbose live inside
-> > tools/build/Makefile.build. Move those variables to the top-level
-> > Makefile.perf to be generally available.
+This patchset is an attempt to provide a minimum infrastructure to allow
+the RP1 chipset to be discovered and perpherals it contains to be added
+from a devictree overlay loaded during RP1 PCI endpoint enumeration.
+Followup patches should add support for the several peripherals contained
+in RP1.
 
-<SNIP applied patch>
- 
-> Let me know how you want to handle this, I can send this out as a
-> separate patch if that's better.
+This work is based upon dowstream drivers code and the proposal from RH
+et al. (see [1] and [2]). A similar approach is also pursued in [3].
 
-I used the patch you provided above after hand editing the message
-before feeding it to 'git am', added these comments:
+The patches are ordered as follows:
 
-    Committer testing:
-    
-    See the SYSCALL lines, now they are consistent with the other
-    operations in other lines:
-    
-      SYSTBL  /tmp/build/perf-tools-next/arch/x86/include/generated/asm/syscalls_32.h
-      SYSTBL  /tmp/build/perf-tools-next/arch/x86/include/generated/asm/syscalls_64.h
-      GEN     /tmp/build/perf-tools-next/common-cmds.h
-      GEN     /tmp/build/perf-tools-next/arch/arm64/include/generated/asm/sysreg-defs.h
-      PERF_VERSION = 6.13.rc2.g3d94bb6ed1d0
-      GEN     perf-archive
-      MKDIR   /tmp/build/perf-tools-next/jvmti/
-      MKDIR   /tmp/build/perf-tools-next/jvmti/
-      MKDIR   /tmp/build/perf-tools-next/jvmti/
-      MKDIR   /tmp/build/perf-tools-next/jvmti/
-      GEN     perf-iostat
-      CC      /tmp/build/perf-tools-next/jvmti/libjvmti.o
-      CC      /tmp/build/perf-tools-next/jvmti/jvmti_agent.o
-    
-    Reported-by: Arnaldo Carvalho de Melo <acme@redhat.com>
-    Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-    Tested-by: Arnaldo Carvalho de Melo <acme@redhat.com>
+-PATCHES 1 to 4: add binding schemas for clock, gpio and RP1 peripherals.
+ They are needed to support the other peripherals, e.g. the ethernet mac
+ depends on a clock generated by RP1 and the phy is reset though the
+ on-board gpio controller.
 
-Thanks,
+-PATCH 5 and 6: add clock and gpio device drivers.
 
-- Arnaldo
+-PATCH 7: the devicetree overlay describing the RP1 chipset. Please
+ note that this patch should be taken by the same maintainer that will
+ also take patch 11, since txeieh dtso is compiled in as binary blob and is
+ closely coupled to the driver.
+
+-PATCH 8: this is the main patch to support RP1 chipset and peripherals
+ enabling through dtb overlay. The dtso since is intimately coupled with
+ the driver and will be linked in as binary blob in the driver obj.
+ The real dtso is in devicetree folder while the dtso in driver folder is
+ just a placeholder to include the real dtso.
+ In this way it is possible to check the dtso against dt-bindings.
+ The reason why drivers/misc has been selected as containing folder
+ for this driver can be seen in [6], [7] and [8].
+
+-PATCH 9: add the external clock node (used by RP1) to the main dts.
+
+-PATCH 10: add the relevant kernel CONFIG_ options to defconfig.
+
+This patchset is also a first attempt to be more agnostic wrt hardware
+description standards such as OF devicetree and ACPI, where 'agnostic'
+means "using DT in coexistence with ACPI", as been already promoted
+by e.g. AL (see [4]). Although there's currently no evidence it will also
+run out of the box on purely ACPI system, it is a first step towards
+that direction.
+
+Please note that albeit this patchset has no prerequisites in order to
+be applied cleanly, it still depends on Stanimir's WIP patchset for BCM2712
+PCIe controller (see [5]) in order to work at runtime.
+
+Many thanks,
+Andrea della Porta
+
+Links:
+- [1]: https://lpc.events/event/17/contributions/1421/attachments/1337/2680/LPC2023%20Non-discoverable%20devices%20in%20PCI.pdf
+- [2]: https://lore.kernel.org/lkml/20230419231155.GA899497-robh@kernel.org/t/
+- [3]: https://lore.kernel.org/all/20240808154658.247873-1-herve.codina@bootlin.com/#t
+- [4]: https://lore.kernel.org/all/73e05c77-6d53-4aae-95ac-415456ff0ae4@lunn.ch/
+- [5]: https://lore.kernel.org/all/20240626104544.14233-1-svarbanov@suse.de/
+- [6]: https://lore.kernel.org/all/20240612140208.GC1504919@google.com/
+- [7]: https://lore.kernel.org/all/83f7fa09-d0e6-4f36-a27d-cee08979be2a@app.fastmail.com/
+- [8]: https://lore.kernel.org/all/2024081356-mutable-everyday-6f9d@gregkh/
+
+CHANGES IN V6:
+
+PATCH RELATED -------------------------------------------------
+
+- patch 2: added: Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+- patch 3 and 4: added: 'Reviewed-by: Rob Herring (Arm) <robh@kernel.org>'
+- patch 8: removed a stale paragraph from git commit message regarding
+  gpio renaming through configfs
+
+
+RP1 MISC DRIVER -----------------------------------
+
+- interrupts definitions moved as documentation from rp1_pci.c to
+  pci1de4,1.yaml binding schema
+
+
+Andrea della Porta (10):
+  dt-bindings: clock: Add RaspberryPi RP1 clock bindings
+  dt-bindings: pinctrl: Add RaspberryPi RP1 gpio/pinctrl/pinmux bindings
+  dt-bindings: pci: Add common schema for devices accessible through PCI
+    BARs
+  dt-bindings: misc: Add device specific bindings for RaspberryPi RP1
+  clk: rp1: Add support for clocks provided by RP1
+  pinctrl: rp1: Implement RaspberryPi RP1 gpio support
+  arm64: dts: rp1: Add support for RaspberryPi's RP1 device
+  misc: rp1: RaspberryPi RP1 misc driver
+  arm64: dts: bcm2712: Add external clock for RP1 chipset on Rpi5
+  arm64: defconfig: Enable RP1 misc/clock/gpio drivers
+
+ .../clock/raspberrypi,rp1-clocks.yaml         |   58 +
+ .../devicetree/bindings/misc/pci1de4,1.yaml   |  135 ++
+ .../devicetree/bindings/pci/pci-ep-bus.yaml   |   58 +
+ .../pinctrl/raspberrypi,rp1-gpio.yaml         |  198 +++
+ MAINTAINERS                                   |   14 +
+ .../boot/dts/broadcom/bcm2712-rpi-5-b.dts     |    7 +
+ arch/arm64/boot/dts/broadcom/rp1.dtso         |   58 +
+ arch/arm64/configs/defconfig                  |    3 +
+ drivers/clk/Kconfig                           |    9 +
+ drivers/clk/Makefile                          |    1 +
+ drivers/clk/clk-rp1.c                         | 1527 +++++++++++++++++
+ drivers/misc/Kconfig                          |    1 +
+ drivers/misc/Makefile                         |    1 +
+ drivers/misc/rp1/Kconfig                      |   21 +
+ drivers/misc/rp1/Makefile                     |    3 +
+ drivers/misc/rp1/rp1-pci.dtso                 |    8 +
+ drivers/misc/rp1/rp1_pci.c                    |  305 ++++
+ drivers/misc/rp1/rp1_pci.h                    |   14 +
+ drivers/pci/quirks.c                          |    1 +
+ drivers/pinctrl/Kconfig                       |   11 +
+ drivers/pinctrl/Makefile                      |    1 +
+ drivers/pinctrl/pinctrl-rp1.c                 |  789 +++++++++
+ .../clock/raspberrypi,rp1-clocks.h            |   61 +
+ include/linux/pci_ids.h                       |    3 +
+ 24 files changed, 3287 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/clock/raspberrypi,rp1-clocks.yaml
+ create mode 100644 Documentation/devicetree/bindings/misc/pci1de4,1.yaml
+ create mode 100644 Documentation/devicetree/bindings/pci/pci-ep-bus.yaml
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/raspberrypi,rp1-gpio.yaml
+ create mode 100644 arch/arm64/boot/dts/broadcom/rp1.dtso
+ create mode 100644 drivers/clk/clk-rp1.c
+ create mode 100644 drivers/misc/rp1/Kconfig
+ create mode 100644 drivers/misc/rp1/Makefile
+ create mode 100644 drivers/misc/rp1/rp1-pci.dtso
+ create mode 100644 drivers/misc/rp1/rp1_pci.c
+ create mode 100644 drivers/misc/rp1/rp1_pci.h
+ create mode 100644 drivers/pinctrl/pinctrl-rp1.c
+ create mode 100644 include/dt-bindings/clock/raspberrypi,rp1-clocks.h
+
+-- 
+2.35.3
+
 
