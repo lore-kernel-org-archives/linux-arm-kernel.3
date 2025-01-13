@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77166E7719E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 09:24:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 512EBE7719E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 09:25:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IaTTfpWYjlxdD5b/j6mvCfJ8+dYOS1EuVU8HtmB+G68=; b=JAYbnhOx7//pVRkXICIacNfOwi
-	GJrsx9yjpXVm2ldnSCBRKKXv/9jdbtnQLmacGALLgzFFNiVmEUvPGpk5XvZrdf6mABkM9UoejzW2e
-	dvD+PQxoVi33738dUPh+vDTPG9ZBwS2rZ6M4aXWA/4f3Pi42QTsgFDUdq+uH4Q1Xt4UTMWlhMNld4
-	Hz/VpOQZnMG9wrjhmtjRK3jIaI68nH1ONLWAJbUOC559MuYk9++BeOdkVAouOtrqwPTZ9zS55Z/qY
-	tM0Q1lPkqA5UeK+H8P7b1A6KPm0Gz0ZIGq6o9hYsG/uWAiDEUeClffmrtY8MhmLBLWx23k4w3T6d+
-	kgr70VVw==;
+	bh=1SSTzS99BYsiM+oBx4byfpdIc4HV6ye8QqH1Uy/uwK8=; b=gUd4rQ8B9U8sHqX0JBh32leNy1
+	eheJ8G3WJ0WpPYQZrHImw6vgI+NVkipuZihSpo9zgQNq4sRrlIVyLKcIqEf6mETjQlupSby4ECS+z
+	iDn8vn0VbeALfn79qT7c1MwKLqmFF4PdN5KWtKVt4rqzTHXblpYWGdciGLxzh9o8YUXcwTUp8c8Bs
+	UCeJUQbSLrvO12gfUoQ34DLd9O0QjEooyUH9Ob5fdV7etkiJTj7mLQd8Wh0bmIYJ3rYF4Lvt6icMd
+	QNUDGsp56oKnloV4qbk/QP8XcB7WZaj4sz1w1MvBY6vTF5oLePNAR7SA/kK+hE4AsE/0iKb5Nlb9Z
+	qDDkvj0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXGg5-00000004ahS-1kl0;
-	Mon, 13 Jan 2025 09:24:09 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tXGhI-00000004axg-2Kqq;
+	Mon, 13 Jan 2025 09:25:24 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXGYW-00000004Z9X-3G2I
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 09:16:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 690D35C4869;
-	Mon, 13 Jan 2025 09:15:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1EA21C4CEE2;
-	Mon, 13 Jan 2025 09:16:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736759780;
-	bh=3yK1CkFMlEOY/PMetAalc6+5NlmHuoFvXe8naQX+ibc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fqYj4ms/J59VU+rulw5bVn1dpacZEPaDFi4u5FfQfCtx0YqZob88dC2qEedkQZe8r
-	 DXsUtla/sIjD3QoKjPJSvMMZ99PMkMwbz1YrPdx9wQ/vG4JIt5AQmbw0fY3RqhFEuR
-	 p0vToZ0FkZ6EyVGHnhO7TewLbyXqBin8my7w4rvCItoW6BHWj+Yam8zO72HNtEIU1x
-	 sXGzIG9s55gd99X+7IsIY9TFIUt+QuUvQixCJKJSAyUC6tQiF9VyXWuBa88jdC4KGe
-	 SCLWdX3EbgxCNB+rJYKUOkETRfcA6gjZotnf/DKGrF0xnvoeWiwMbfyg/K+O0tkVBv
-	 nWR0blci4JIBA==
-Date: Mon, 13 Jan 2025 10:16:16 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Fabio Estevam <festevam@gmail.com>
-Cc: shawnguo@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, kernel@pengutronix.de, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	Fabio Estevam <festevam@denx.de>
-Subject: Re: [PATCH v2 2/2] dt-bindings: clock: imx5: Fix the CCM interrupts
- description
-Message-ID: <irln3zatlquwajbh66uxfo5kvw32pjzrldjfnuxc4bawv7k4q3@6dp4wnonvtw3>
-References: <20250112152745.1079880-1-festevam@gmail.com>
- <20250112152745.1079880-2-festevam@gmail.com>
+	id 1tXGdz-00000004aJh-3A7C;
+	Mon, 13 Jan 2025 09:22:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=1SSTzS99BYsiM+oBx4byfpdIc4HV6ye8QqH1Uy/uwK8=; b=fYdoFmz7gBQiSp0E0N+IE+M+N0
+	FPcncnIjDuC2EtVNdNKtyxGuoX5fZDq/bAPi7doFZlFyn9BSfhQVBAwgJn/0GfYc6vUqJIYmhZdvc
+	8OwDpi+kSkIcJJ68qnMeO34+RnIUxE3PlIpBo8p+4a1XW5daaIyXjYgBKzDFhuPsbLLAFJYTlBtb+
+	lhphYEILFzAetzKI3H1cxIOXa0Jft4he4cmWgjpaYrFuJABv4aEgmW4qjpO1eJqEI2PPAw7/33Xkf
+	WMPrY+vubq6uZo76PH9DkDYrYu8fbYMgrl+B809jKvAj7Dr3RfKcKA+RO9x7lIZV6zdxlollS4a6s
+	0K7rZRxQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:54286)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tXGdU-0006Fg-0X;
+	Mon, 13 Jan 2025 09:21:28 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tXGdK-0003wv-2z;
+	Mon, 13 Jan 2025 09:21:18 +0000
+Date: Mon, 13 Jan 2025 09:21:18 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Subject: [PATCH net-next v2 0/5] net: phylink: fix PCS without autoneg
+Message-ID: <Z4TbDnXtG8f3SRmC@shell.armlinux.org.uk>
+References: <Z3_n_5BXkxQR4zEG@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250112152745.1079880-2-festevam@gmail.com>
+In-Reply-To: <Z3_n_5BXkxQR4zEG@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_011620_854300_E63A0271 
-X-CRM114-Status: UNSURE (   9.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250113_012200_073698_CCF457FE 
+X-CRM114-Status: GOOD (  16.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,25 +72,81 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Taras Chornyi <taras.chornyi@plvision.eu>, Marcin Wojtas <marcin.s.wojtas@gmail.com>, Madalin Bucur <madalin.bucur@nxp.com>, Alexander Duyck <alexanderduyck@fb.com>, Daniel Golle <daniel@makrotopia.org>, Eric Dumazet <edumazet@google.com>, Ioana Ciornei <ioana.ciornei@nxp.com>, Horatiu Vultur <horatiu.vultur@microchip.com>, Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>, Florian Fainelli <florian.fainelli@broadcom.com>, Sean Anderson <sean.anderson@seco.com>, Steen Hegelund <Steen.Hegelund@microchip.com>, Lars Povlsen <lars.povlsen@microchip.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Jose Abreu <Jose.Abreu@synopsys.com>, Sean Wang <sean.wang@mediatek.com>, Daniel Machon <daniel.machon@microchip.com>, kernel-team@meta.com, DENG Qingfang <dqfext@gmail.com>, linux-mediatek@lists.infradead.org, Matthias Brugger <matthias.bgg@gmail.com>, Michal Simek <michal.simek@amd.com>, linux-arm-kernel@lists.infradead.org, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, =?utf-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>, netdev@vger.kernel.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, UNGLinuxDriver@microchip.com, Andrew Lunn <andrew+netdev@lunn.ch>, Eric Woudstra <ericwouds@gmail.com>, Alexander Couzens <lynxis@fe80.eu>, Vladimir Oltean <olteanv@gmail.com>, "David S. Miller" <davem@davemloft.net>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jan 12, 2025 at 12:27:45PM -0300, Fabio Estevam wrote:
-> From: Fabio Estevam <festevam@denx.de>
-> 
-> On the i.MX5 chips the peripheral interrupts are represented directly only
-> by their interrupt numbers.
-> 
-> Make the CCM nodes to follow this format.
-> 
-> Signed-off-by: Fabio Estevam <festevam@denx.de>
-> ---
-> Changes since v1:
-> - Use interrupts = <71>, <72>;
+Hi,
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Eric Woudstra reported that a PCS attached using 2500base-X does not
+see link when phylink is using in-band mode, but autoneg is disabled,
+despite there being a valid 2500base-X signal being received. We have
+these settings:
 
-Best regards,
-Krzysztof
+	act_link_an_mode = MLO_AN_INBAND
+	pcs_neg_mode = PHYLINK_PCS_NEG_INBAND_DISABLED
 
+Eric diagnosed it to phylink_decode_c37_word() setting state->link
+false because the full-duplex bit isn't set in the non-existent link
+partner advertisement word (which doesn't exist because in-band
+autoneg is disabled!)
+
+The test in phylink_mii_c22_pcs_decode_state() is supposed to catch
+this state, but since we converted PCS to use neg_mode, testing the
+Autoneg in the local advertisement is no longer sufficient - we need
+to be looking at the neg_mode, which currently isn't provided.
+
+We need to provide this via the .pcs_get_state() method, and this
+will require modifying all PCS implementations to add the extra
+argument to this method.
+
+Patch 1 uses the PCS neg_mode in phylink_mac_pcs_get_state() to correct
+the now obsolute usage of the Autoneg bit in the advertisement.
+
+Patch 2 passes neg_mode into the .pcs_get_state() method, and updates
+all users.
+
+Patch 3 adds neg_mode as an argument to the various clause 22 state
+decoder functions in phylink, modifying drivers to pass the neg_mode
+through.
+
+Patch 4 makes use of phylink_mii_c22_pcs_decode_state() rather than
+using the Autoneg bit in the advertising field.
+
+Patch 5 may be required for Eric's case - it ensures that we report
+the correct state for interface types that we support only one set
+of modes for when autoneg is disabled.
+
+Changes in v2:
+- Add test for NULL pcs in patch 1
+
+I haven't added Eric's t-b because I used a different fix in patch 1.
+
+ drivers/net/dsa/b53/b53_serdes.c                   |  4 +-
+ drivers/net/dsa/mt7530.c                           |  2 +-
+ drivers/net/dsa/mv88e6xxx/pcs-6185.c               |  1 +
+ drivers/net/dsa/mv88e6xxx/pcs-6352.c               |  1 +
+ drivers/net/dsa/mv88e6xxx/pcs-639x.c               |  5 +-
+ drivers/net/dsa/qca/qca8k-8xxx.c                   |  2 +-
+ drivers/net/ethernet/cadence/macb_main.c           |  3 +-
+ drivers/net/ethernet/freescale/fman/fman_dtsec.c   |  4 +-
+ drivers/net/ethernet/marvell/mvneta.c              |  2 +-
+ drivers/net/ethernet/marvell/mvpp2/mvpp2_main.c    |  2 +
+ .../net/ethernet/marvell/prestera/prestera_main.c  |  1 +
+ drivers/net/ethernet/meta/fbnic/fbnic_phylink.c    |  2 +-
+ .../net/ethernet/microchip/lan966x/lan966x_main.h  |  2 +-
+ .../ethernet/microchip/lan966x/lan966x_phylink.c   |  3 +-
+ .../net/ethernet/microchip/lan966x/lan966x_port.c  |  4 +-
+ .../net/ethernet/microchip/sparx5/sparx5_phylink.c |  2 +-
+ drivers/net/ethernet/xilinx/xilinx_axienet_main.c  |  3 +-
+ drivers/net/pcs/pcs-lynx.c                         |  4 +-
+ drivers/net/pcs/pcs-mtk-lynxi.c                    |  4 +-
+ drivers/net/pcs/pcs-xpcs.c                         |  7 +--
+ drivers/net/phy/phylink.c                          | 60 ++++++++++++++++------
+ include/linux/phylink.h                            | 11 ++--
+ 22 files changed, 87 insertions(+), 42 deletions(-)
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
