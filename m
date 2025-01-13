@@ -4,90 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77545E7719E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 09:01:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC469E7719E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 09:02:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NA98flkcRX3iZq22t3Nzla7Qgw0N/tZv3BerTN5QpRs=; b=dzm9Mli/6WNHrIv/gKszI5wokU
-	ocAe67MEX2mOutkGJzyngQBPstOIQqOEKBcZPiX9Grxlb/AtWguG3mgm49MS8F/tREfedOOM1a1H8
-	l6cF1jtnIPVxkBPLkiW3HIB7FNsG6HbzV0vUUpilXWx88HD+E0REsT1AwD6VAey881hsWfHKYfcnD
-	Icl+Uu6SmeYUAtIdF+Li+y6xB4MHVWbLWXMGGMk+nGjKLejzhaHCKd+GsOHpaTEHiWVIZKjUlU1gx
-	RggaPWI9Jpd/SmqruGCMW+ktA+yjrovxXdgQtf5/x4pS7AluqsVMgqzIh/d93CZQilKiQ2g8FMCOs
-	ODutS0EQ==;
+	bh=wpLq8XGKNPM5E/3NwdY8kWBPVV+tl98pEqUKOGCmCG0=; b=AKJGmHQ2Y+cceCmTEG3rxrJ3Bj
+	ecPLFlOKFrWO5XBjx1Y9cVg+JjsNcQ17eVXuVNamS7Ezn4AZ/Gg57RathaHjQ+CDXF+SixeBri7xo
+	sjpf+fym99KWqFqItdtXUl4aN155TVo/2B9qDloEkrUVzODt98SLLxqhrZ+EdJwC2/pHa7HEvPKhw
+	yAQF5qvF4wLg/g6aeNBsOO9DCRPPIxOfDGKFnTHhnkJUaQFOxz38E0TTdiwIUIS0rILnTd2AxF2Ay
+	NldSZAqgxJM9KMffaL4NDjvEVaa//LcYq9MWOv0MZxuaIaRjkVGvydealWRdY05dmJg4mTPGR5LEi
+	ksjaeTJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXGJb-00000004Vp0-0hEt;
-	Mon, 13 Jan 2025 09:00:55 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1tXGKo-00000004WZ5-3ace;
+	Mon, 13 Jan 2025 09:02:10 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXGGu-00000004Uyd-0Vja
+	id 1tXGHn-00000004VFH-12Fn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 08:58:09 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50D2hToA027841;
-	Mon, 13 Jan 2025 09:57:55 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=selector1; bh=NA98flkcRX3iZq22t3Nzla7Q
-	gw0N/tZv3BerTN5QpRs=; b=Cd3ZP5WHPIQx17atCrPy4B0yuH3aCTB4x4xT3QZ2
-	y2hx9rillYCNvM1vjOshKXxouzn/wIGNNDXIr1bUD52EPzolT23JsMA6VBd9w/6G
-	0tY1E+YycgCIF9p5L/rsGy7CM4otx1Gx1YSfdG09Pg/WDecm+q8Z4Az5pFCCNTex
-	cVolpq/52va72AkJbslde9nauF99o8D6zc5gDS+seijPYufoyqNEfUJhMmWq4rcq
-	zm9On8B+okBsTK3rA9cc2yaRiQ86T0dVWtwNv9Wr2XeqaqHnQgzxqttXvO4L5IXG
-	OdfyaSeGyrelFUN0MRY0G3Gxcjk1zVHV239DawKgy/mbBQ==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 444t9x1530-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 13 Jan 2025 09:57:55 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 2E37740045;
-	Mon, 13 Jan 2025 09:56:46 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id B7AF4234551;
-	Mon, 13 Jan 2025 09:55:58 +0100 (CET)
-Received: from gnbcxd0016.gnb.st.com (10.129.178.213) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Mon, 13 Jan
- 2025 09:55:58 +0100
-Date: Mon, 13 Jan 2025 09:55:52 +0100
-From: Alain Volmat <alain.volmat@foss.st.com>
-To: Sakari Ailus <sakari.ailus@linux.intel.com>
-CC: Hugues Fruchet <hugues.fruchet@foss.st.com>,
-        Mauro Carvalho Chehab
-	<mchehab@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre
- Torgue <alexandre.torgue@foss.st.com>,
-        Hans Verkuil <hverkuil@xs4all.nl>, Rob
- Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor
- Dooley <conor+dt@kernel.org>, <linux-media@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <devicetree@vger.kernel.org>
-Subject: Re: [PATCH v2 0/8] media: stm32: csi / dcmipp corrections
-Message-ID: <20250113085529.GA499619@gnbcxd0016.gnb.st.com>
-References: <20250108-csi_dcmipp_mp25_enhancements-v2-0-05808ce50e41@foss.st.com>
- <Z4DVj9ubGkAmkZKN@kekkonen.localdomain>
+	Mon, 13 Jan 2025 08:59:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id C76405C26EA;
+	Mon, 13 Jan 2025 08:58:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F7ABC4CED6;
+	Mon, 13 Jan 2025 08:59:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736758742;
+	bh=2wJJM13zlSd944RH/1F0Bz3tql/OxPThH7169R04jPw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=iF3rsECnnNXnLPj/o91djAfP13GvTUDHa2aK3jynTdpWUxaFsoHt+YYpkPFr2bKhE
+	 paaaxfqSUYRyNmmn5DgXeZlS7H1ClTLKP+oyDF+5GGDc2WsJ1et8+uLlDwJA6dc8Yh
+	 iBKHhWS8W7njrgoB4rmdN/Dy6jnx/scMlCusFopJtOhRwT7LIC432I46q+uA2e4VTT
+	 IygCnhmFDWjW+tC5D5GmeULFnqs4qDnkJIkQqQYXJQsOvzLw5ublYsF1jTSODgkwbC
+	 9BDvIfgqmUwktgiixLRMuCPn3STy19yGn/+3RanXIrVLiaNUHa+N7JZ6x5ru221kEl
+	 e3ah5b52n3SCg==
+Date: Mon, 13 Jan 2025 09:58:59 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Sasha Finkelstein <fnkl.kernel@gmail.com>
+Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Alyssa Ross <hi@alyssa.is>
+Subject: Re: [PATCH v3 1/5] dt-bindings: display: Add Apple pre-DCP display
+ controller
+Message-ID: <7rr3fja4rxjbdmgpdqaid5fybiu6uctpbvp24ujv5drfmeiowf@u4pkhzyhy3pd>
+References: <20250112-adpdrm-v3-0-c674dc19fa7f@gmail.com>
+ <20250112-adpdrm-v3-1-c674dc19fa7f@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <Z4DVj9ubGkAmkZKN@kekkonen.localdomain>
-X-Disclaimer: ce message est personnel / this message is private
-X-Originating-IP: [10.129.178.213]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+In-Reply-To: <20250112-adpdrm-v3-1-c674dc19fa7f@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_005808_458397_ABC93D61 
-X-CRM114-Status: GOOD (  17.57  )
+X-CRM114-CacheID: sfid-20250113_005903_375205_D5C47AD2 
+X-CRM114-Status: GOOD (  16.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,34 +79,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sakari,
+On Sun, Jan 12, 2025 at 09:43:48PM +0100, Sasha Finkelstein wrote:
+ +  ports:
+> +    $ref: /schemas/graph.yaml#/properties/ports
+> +
+> +    properties:
+> +      port@0:
+> +        $ref: /schemas/graph.yaml#/properties/port
+> +        description: Input port. Always connected to the primary controller
+> +
+> +      port@1:
+> +        $ref: /schemas/graph.yaml#/properties/port
+> +        description: Output MIPI DSI port to the panel
+> +
+> +    required:
+> +      - port@0
+> +      - port@1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - ports
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    dsi@228200000 {
+> +        compatible = "apple,t8103-display-pipe-mipi", "apple,h7-display-pipe-mipi";
+> +        reg = <0x28200000 0xc000>;
 
-On Fri, Jan 10, 2025 at 08:08:47AM +0000, Sakari Ailus wrote:
-> Hi Alain,
-> 
-> On Wed, Jan 08, 2025 at 02:16:03PM +0100, Alain Volmat wrote:
-> > Various fixes within the stm32 csi bindings/drivers and
-> > stm32 dcmipp driver.
-> > 
-> > Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
-> 
-> Thanks for the update. I tried to apply this but it doesn't, and the
-> culprit appears to be this line in dcmipp_graph_notify_bound():
-> 
-> 	unsigned int ret;
-> 
-> That appears to be a bug as such. The interesting thing is that the patch
-> changing things around it presumes
-> 
-> 	int ret;
-> 
-> so it won't apply. Do you already have a patch that fixes it? It should be
-> cc'd to stable, too, with a Fixes: tag.
+This looks not matching unit address.
 
-Apologies for that, I might have made a mistake while rebase and somehow
-a patch went before the b4 header commit. Pushing again a v3 with the
-missing commit added.
+> +        power-domains = <&ps_dispdfr_mipi>;
+> +
+> +        ports {
+> +            #address-cells = <1>;
+> +            #size-cells = <0>;
+> +
+> +            port@0 {
+> +                reg = <0>;
+> +                #address-cells = <1>;
+> +                #size-cells = <0>;
 
-Regards,
-Alain
+Make the example complete, so you will see that address/size cells are
+unnecessary here or, if you really have more than one endpoint, they are
+supposed to be here.
+
+> +            };
+> +
+> +            port@1 {
+> +                reg = <1>;
+> +                #address-cells = <1>;
+> +                #size-cells = <0>;
+> +            };
+> +        };
+> +    };
+> +...
+> diff --git a/Documentation/devicetree/bindings/display/apple,h7-display-pipe.yaml b/Documentation/devicetree/bindings/display/apple,h7-display-pipe.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..dc07edccb437b221ea9772b9356e1896326aa7da
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/display/apple,h7-display-pipe.yaml
+> @@ -0,0 +1,88 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/display/apple,h7-display-pipe.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Apple pre-DCP display controller
+> +
+> +maintainers:
+> +  - Sasha Finkelstein <fnkl.kernel@gmail.com>
+> +
+> +description:
+> +  A secondary display controller used to drive the "touchbar" on
+> +  certain Apple laptops.
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - enum:
+> +          - apple,t8112-display-pipe
+> +          - apple,t8103-display-pipe
+> +      - const: apple,h7-display-pipe
+> +
+> +  reg:
+> +    maxItems: 2
+> +
+> +  reg-names:
+> +    items:
+> +      - const: be
+> +        description: Primary register block, controls planes and blendinga
+
+Description goes to 'reg:' field, just like I asked last time.
+
+> +      - const: fe
+> +        description:
+> +          Contains other configuration registers like interrupt
+> +          and FIFO control
+> +
+> +  power-domains:
+> +    description:
+> +      Phandles to pmgr entries that are needed for this controller to turn on.
+> +      Aside from that, their specific functions are unknown
+> +    maxItems: 2
+> +
+> +  interrupts:
+
+Same comments as before - list and describe the items.
+
+Best regards,
+Krzysztof
+
 
