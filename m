@@ -4,75 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A406EC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 13:52:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0D0DE7719F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 13:53:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UVDeO5APEsQZzhVQ1M0xMzbJWE1HXOlbdXixFNuMeLg=; b=ty3SkZosP3sCxamLJrMd3pSbAk
-	lKHG8LEPb8zQ7epnRQ776UjqYjSp4Hlznp1uwg9Bf6w0z8zLqXpmq6WZIuT4/t3LH5iw5a6vXIz2U
-	LwctYtzIzYfXbevXSn/6iC+jr9+t03Rg4JwSe/Q/WK/TliBQtF7F3NwhNp6fIpEin3mcdLwSqJzzH
-	IHkyi/9JNtdR5MlgSp+x2dnB0Dy9ow4VaLNfVpTh1ZQ3LYT7r0IXnENdR6BgijT7IhwHzY+QdoaVV
-	06AfvJzFIVLnWcfLx7VWTctiDGWDUgkrMyf1kTz21YK8yIliHRyhkarS5za7RkTx6hH6MvuFmhf+n
-	v9WOV9xg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hTKU8HaQVMsfaXH/Y/UaKLedhu+tQc8goyNqDmKfOhs=; b=MkV3g7NBiIqDYPRRkND6RrQLaW
+	nx6zz3aFE6LK4oDclFhUQMUcEvPe5AqaINT9dtPcBWCRAhURcApJ18UWF/+4M/XG605XTs8xHYNnr
+	u9HVnIi44qC+343wZ1yB5cfkCRkHpp+a5SxSIJE7Flr4nH/5RpVP1nzblePGzHGqJbwMvWTxIErXU
+	AYVZwk+5NpgBg1hrlFfnCfaHSPyApHrlpi/SFBBkVQuFCoaAZ3odVGP31PaRnYvVpW+LTJF18Xjk3
+	WzwgfxrhRZ1FIyyHzo91MpE1McNXLGgUPjd0ThZ56ecB4EQbt/mTsBNr7nxry9mGHW9TEsyc2TdT4
+	r4hyp8cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXKr5-00000005JY0-30Z0;
-	Mon, 13 Jan 2025 13:51:47 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tXKsI-00000005Jp8-1fu4;
+	Mon, 13 Jan 2025 13:53:02 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXKis-00000005Hss-3pgV
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 13:43:19 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tXKib-0002p2-Dq; Mon, 13 Jan 2025 14:43:01 +0100
-Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tXKia-000Ghx-1W;
-	Mon, 13 Jan 2025 14:43:00 +0100
-Received: from localhost ([::1] helo=dude05.red.stw.pengutronix.de)
-	by dude05.red.stw.pengutronix.de with esmtp (Exim 4.96)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tXKib-00GZFh-1s;
-	Mon, 13 Jan 2025 14:43:00 +0100
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Date: Mon, 13 Jan 2025 14:42:53 +0100
-Subject: [PATCH v3 3/6] arm64: dts: imx8mp: add fsl,nominal-mode property
- into nominal.dtsi
+	id 1tXKnc-00000005IqA-39GJ;
+	Mon, 13 Jan 2025 13:48:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1736776090;
+	bh=hj/tpubYtWMF9OtI/D/dKcAezXzb8evhqd+mQKXW1QI=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=Gn3SbNgJ/Y8hdqYSwdOXqZ9DsEkzobA5L8GJFfxvwQ8W8KXgRF8gmBtrLOedmph27
+	 TUM9w4ikBq9IOfm5B/aP8dRpOAGxyfoOH2Iveh+yDSLFgEsDhjQx/Mg04CJn10YE5m
+	 xKt3MuKbAG16e8F2ebTvKbKheEOGGMh7ehTntr6TrE2Yuere64IU7Et59VLo3zngyE
+	 i1hH5X2TTiIl2GGjsHYxaaC9BdQkX19pM2tNkI2XMVMmCp+QWk+MhAqtEyHI2gTwwi
+	 6gZEIP14DUWgXyt7nq/XujEF+vqFigyIukgEU5OQDq3iKx+aRy2S5kDnlSvbK7o4hL
+	 3e79G/MFOVuCQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A8CDC17E0DB7;
+	Mon, 13 Jan 2025 14:48:09 +0100 (CET)
+Message-ID: <8e8e3eca-dee0-43ab-95d9-aebd636245c7@collabora.com>
+Date: Mon, 13 Jan 2025 14:48:09 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] drm/mediatek/hdmi: Simplify with dev_err_probe
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>,
+ dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20250112134708.46100-1-krzysztof.kozlowski@linaro.org>
+ <20250112134708.46100-2-krzysztof.kozlowski@linaro.org>
+ <ef0baed6-54d2-4f1f-9a4a-769ec09a069f@collabora.com>
+ <59f8a02e-a716-40a8-bf73-111ad2a7af79@linaro.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <59f8a02e-a716-40a8-bf73-111ad2a7af79@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250113-imx8m-clk-v3-3-0d6e9bdeaa4e@pengutronix.de>
-References: <20250113-imx8m-clk-v3-0-0d6e9bdeaa4e@pengutronix.de>
-In-Reply-To: <20250113-imx8m-clk-v3-0-0d6e9bdeaa4e@pengutronix.de>
-To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Abel Vesa <abel.vesa@linaro.org>, 
- Marek Vasut <marex@denx.de>
-Cc: linux-clk@vger.kernel.org, imx@lists.linux.dev, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Ahmad Fatoum <a.fatoum@pengutronix.de>
-X-Mailer: b4 0.14.2
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_054318_954219_A9D465FC 
-X-CRM114-Status: GOOD (  10.47  )
+X-CRM114-CacheID: sfid-20250113_054812_974542_AC980A13 
+X-CRM114-Status: UNSURE (   8.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,33 +81,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The imx8mp-nominal.dtsi is meant to be included into boards that want to
-override the default overdrive clock settings with settings suitable for
-running in nominal drive mode at its lower required voltage.
+Il 13/01/25 14:07, Krzysztof Kozlowski ha scritto:
+> On 13/01/2025 13:41, AngeloGioacchino Del Regno wrote:
+>> Il 12/01/25 14:47, Krzysztof Kozlowski ha scritto:
+>>> Use dev_err_probe() to make error code and deferred probe handling
+>>> simpler.
+>>>
+>>
+>> That's already done in [1] so you can drop this commit.
+>>
+>> [1]:
+>> https://lore.kernel.org/r/20250108112744.64686-1-angelogioacchino.delregno@collabora.com
+>>
+> Eh, this was first in v3 in the middle of Dec, so why you cannot get it
+> merged first? Creating such 34-behemoths causes simple cleanups to
+> unnecessarily wait.
+> 
 
-Specifying fsl,operating-mode = "nominal" informs drivers of this fact,
-so they can sanity check runtime clock reconfiguration to observe the
-limits imposed by nominal mode.
+Getting the series partially merged is okay for me, no complaints about that,
+but then ... in v4, there are two minor comments to address (one of which
+is a one-char nitpick!) that might as well be done while applying, depending
+on what CK thinks about that, so there's no real benefit in getting 28 commits
+out of 34 picked instead of, well, just everything...
 
-Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
----
- arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi
-index f9a82a663033a1dfb72163eebb62e4aee66cee2f..a1b75c9068b288a2fba73bbd96b1519a50df85a3 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi
-@@ -21,6 +21,7 @@ &clk {
- 			       <800000000>,
- 			       <600000000>,
- 			       <400000000>;
-+	fsl,operating-mode = "nominal";
- };
- 
- &pgc_hdmimix {
-
--- 
-2.39.5
-
+Cheers!
+Angelo
 
