@@ -4,80 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 092A1C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 17:01:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A24CC02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 17:03:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lNi4ttNXrfrXDMynei5+HVfxxr2BRc6T71jVjH9tT8o=; b=axpidWdVyGP/5O8U9+FwgRpsgy
-	yQYR+XypNKXvKHt1El4WHHYhiC3d7cg5fZqvc4jWyhhI069y7I++wNKVMAZXRfxA+rb2S3X/rwYUx
-	S8x/79p0ppWhAZ6lkHmjaYTsFF/ij2jue9gVlu/exBvK+KKd5e0d4nPF2100yajMuO2gt6/4ixqC8
-	TqddFKHWutMFMCOspUaXQ1nty5pUA240xF7mfPhSFGYtqF4lbWsHrcMNhs8tzFbl5SkQlX6mMAMvn
-	dwzFNpFjyvxfmnmD4Pi/O79GJPB+bswA+U238VsKDLvAtnqT/xfM/EsYwmosGiiQOKATHF740z3ov
-	UM+VBZrA==;
+	bh=258ufSRhmAKCNH7ZmIiFnUQr7BuMTzRbL7O6cvZOqdU=; b=TiJ1lXjjn+xSuH88NG0M13MwKT
+	q+GisPxutd/wOB8ns6VbSq99oix220jcwE9KBFhaAQcPC9/0lKa0M0oNAoqyHYNezC7BaHEgJMM71
+	/28J4g6eIzLaOOzxHLWhIrYV4mwk7mROOhfD0vf70yeTMHq7JOi7AHQjBywjRbuB1m/+5xDG7T5Br
+	pzLmdTgA/w3CNjdKv190m1qLkT4PfhA0OU9QaYjQoAFDeMjb2+H/AN6IS40lRoB4pdiCP3W/FxWPM
+	8WI0FnKPGKv4gAVTdLaoptoO/ey+8xEwNFVj72t72vHpegkv679zkYc4vdKaJhmvmoO2nP2vXd51Y
+	pnRxRztQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXNo8-00000005y6I-3OL7;
-	Mon, 13 Jan 2025 17:00:56 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1tXNqI-00000005yTa-0I3q;
+	Mon, 13 Jan 2025 17:03:10 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXNmr-00000005xlD-40r8
+	id 1tXNp2-00000005yHX-40ix
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 16:59:39 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-21661949f23so132881645ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 08:59:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1736787576; x=1737392376; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=lNi4ttNXrfrXDMynei5+HVfxxr2BRc6T71jVjH9tT8o=;
-        b=HCNPl27gaUzZXif+Ems2r5KHDFPmnLCD4I/97wd2HZBm7b4BX5FyBySMpgZxccidMK
-         RoPP3a67kfal1JAJDp39jEve92h65m2h6D/E3DR2QHBlpH62vI4rFeT9C6fzW50f+55U
-         IRFC4VSMEKpQLL1LRGALwD6Ft4eD79LAwdf6qmhIiTdYpyZ1RLeGusH+PoIKzSIJb9SO
-         I41u6WMqux2PHbZ45yTxoWUUADUmkO1gj+kNnc1yYosfN+J8rLLsDWRUPxRVIMngDVRf
-         bqreX7Kp3mqbLVrMqVQdvBxneIQCncGJGlHahucYflI2T+/oSAvAkhXxfwwaH/nJYPWt
-         X2Zg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736787576; x=1737392376;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=lNi4ttNXrfrXDMynei5+HVfxxr2BRc6T71jVjH9tT8o=;
-        b=au+pmMibHDywCPfzQvo8S32Fw9x+yikoUxnkMXoa3RTT7H7SPejRxHRu8Zk3rO2Yr9
-         4GSmAz7rC65QbHSNAoxpczyl0KGmS4gdGOvfwQ/0uBtwXMmdSHWZOjXZEcxYF0Llw/hq
-         jpuqNTbYXlBUFmSowNhgCaIJ8/OM6rmpLhH2WrBV7OasuAaUvniATUR1KZr3XqK3949a
-         jsaoSQz2UEQVReEI5IFO80NO8vzofCC1tgxoLOSw3FcVGI2iw0UbF/5g5jx9K1jIBum1
-         f5VQzvWn02SMCzTfJa0oBol4Lz3eFZE7gdMEfFzx4+QYcJu1JrYThF0ZmyD4+YPw33zR
-         g/vg==
-X-Forwarded-Encrypted: i=1; AJvYcCUpM7qFv4XthqCOrfOMYwl5U/TQZUPzlHUxdoTL34ru/y3nl8xi48y2U2as81EcnyGuT5w7WVhNb84cAfG9342t@lists.infradead.org
-X-Gm-Message-State: AOJu0YzZy++mkysFctN+9aSHp/+NEgrH8485Ce/RECC8awm7xuUcD+It
-	t2z1P6AQ7VHxXm5Xjv+gRE9pTCIkSW39wNmIJdOas/lpo+jyO6aoqXYct+AOCN9AGw3FKjBau9L
-	2yQ==
-X-Google-Smtp-Source: AGHT+IENu5ZK9kPpRwdS1+EeXpR6nVCXMTR+IXJJExBjfsTrkclg65OJwbQ4mKEvtimncd2M4JDnxOz3MCM=
-X-Received: from plks12.prod.google.com ([2002:a17:903:2cc:b0:211:fb3b:763b])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:e74b:b0:215:5ea2:654b
- with SMTP id d9443c01a7336-21a83f3eebemr334554025ad.1.1736787576636; Mon, 13
- Jan 2025 08:59:36 -0800 (PST)
-Date: Mon, 13 Jan 2025 08:59:35 -0800
-In-Reply-To: <Z4R12HOD1o8ETYzm@intel.com>
-Mime-Version: 1.0
-References: <20250111012450.1262638-1-seanjc@google.com> <20250111012450.1262638-4-seanjc@google.com>
- <Z4R12HOD1o8ETYzm@intel.com>
-Message-ID: <Z4VGdxyswQ6qcKR0@google.com>
-Subject: Re: [PATCH 3/5] KVM: Add a common kvm_run flag to communicate an exit
- needs completion
-From: Sean Christopherson <seanjc@google.com>
-To: Chao Gao <chao.gao@intel.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Michael Ellerman <mpe@ellerman.id.au>, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="us-ascii"
+	Mon, 13 Jan 2025 17:01:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
+	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
+	In-Reply-To:References; bh=258ufSRhmAKCNH7ZmIiFnUQr7BuMTzRbL7O6cvZOqdU=; b=f8
+	iBETVcZeENe2KuK9+Iy18jnMuirgQ/hRPCOx2rLaLlicuMaOXL8rdhDRoW1J3quvkUQKdiLu1YWeV
+	YGTl1z0lCXqNWsCoGTCykYSkg5wl8hkOkkrX04qPOoRlQH8xIGw6S3hbgdVKClW2y1BsZNomObUrY
+	reA/JawS4XnvhSs=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tXNol-0049xb-4Q; Mon, 13 Jan 2025 18:01:35 +0100
+Date: Mon, 13 Jan 2025 18:01:35 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Yanteng Si <si.yanteng@linux.dev>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	MD Danish Anwar <danishanwar@ti.com>,
+	Roger Quadros <rogerq@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com, imx@lists.linux.dev
+Subject: Re: [PATCH net-next 5/5] net: stmmac: stm32: Use
+ syscon_regmap_lookup_by_phandle_args
+Message-ID: <c4714984-8250-4bf2-9ac1-5a9204d3aca8@lunn.ch>
+References: <20250112-syscon-phandle-args-net-v1-0-3423889935f7@linaro.org>
+ <20250112-syscon-phandle-args-net-v1-5-3423889935f7@linaro.org>
+ <5d97dd34-f293-4403-b605-c0ae7b5490fd@linux.dev>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <5d97dd34-f293-4403-b605-c0ae7b5490fd@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_085937_994933_EDCA7D55 
-X-CRM114-Status: GOOD (  19.74  )
+X-CRM114-CacheID: sfid-20250113_090152_991261_36CBC791 
+X-CRM114-Status: GOOD (  22.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,64 +87,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 13, 2025, Chao Gao wrote:
-> On Fri, Jan 10, 2025 at 05:24:48PM -0800, Sean Christopherson wrote:
-> >Add a kvm_run flag, KVM_RUN_NEEDS_COMPLETION, to communicate to userspace
-> >that KVM_RUN needs to be re-executed prior to save/restore in order to
-> >complete the instruction/operation that triggered the userspace exit.
-> >
-> >KVM's current approach of adding notes in the Documentation is beyond
-> >brittle, e.g. there is at least one known case where a KVM developer added
-> >a new userspace exit type, and then that same developer forgot to handle
-> >completion when adding userspace support.
-> 
-> This answers one question I had:
-> https://lore.kernel.org/kvm/Z1bmUCEdoZ87wIMn@intel.com/
-> 
-> So, it is the VMM's (i.e., QEMU's) responsibility to re-execute KVM_RUN in this
-> case.
-
-Yep.
-
-> Btw, can this flag be used to address the issue [*] with steal time accounting?
-> We can set the new flag for each vCPU in the PM notifier and we need to change
-> the re-execution to handle steal time accounting (not just IO completion).
-> 
-> [*]: https://lore.kernel.org/kvm/Z36XJl1OAahVkxhl@google.com/
-
-Uh, hmm.  Partially?  And not without creating new, potentially worse problems.
-
-I like the idea, but (a) there's no guarantee a vCPU would be "in" KVM_RUN at
-the time of suspend, and (b) KVM would need to take vcpu->mutex in the PM notifier
-in order to avoid clobbering the current completion callback, which is definitely
-a net negative (hello, deadlocks).
-
-E.g. if a vCPU task is in userspace processing emulated MMIO at the time of
-suspend+resume, KVM's completion callback will be non-zero and must be preserved.
-And if a vCPU task is in userspace processing an exit that _doesn't_ require
-completion, setting KVM_RUN_NEEDS_COMPLETION would likely be missed by userspace,
-e.g. if userspace checks the flag only after regaining control from KVM_RUN.
-
-In general, I think setting KVM_RUN_NEEDS_COMPLETION outside of KVM_RUN would add
-too much complexity.
-
-> one nit below,
-> 
-> >--- a/arch/x86/include/uapi/asm/kvm.h
-> >+++ b/arch/x86/include/uapi/asm/kvm.h
-> >@@ -104,9 +104,10 @@ struct kvm_ioapic_state {
-> > #define KVM_IRQCHIP_IOAPIC       2
-> > #define KVM_NR_IRQCHIPS          3
+On Mon, Jan 13, 2025 at 04:05:13PM +0800, Yanteng Si wrote:
+> 在 2025/1/12 21:32, Krzysztof Kozlowski 写道:
+> > Use syscon_regmap_lookup_by_phandle_args() which is a wrapper over
+> > syscon_regmap_lookup_by_phandle() combined with getting the syscon
+> > argument.  Except simpler code this annotates within one line that given
+> > phandle has arguments, so grepping for code would be easier.
 > > 
-> >-#define KVM_RUN_X86_SMM		 (1 << 0)
-> >-#define KVM_RUN_X86_BUS_LOCK     (1 << 1)
-> >-#define KVM_RUN_X86_GUEST_MODE   (1 << 2)
-> >+#define KVM_RUN_X86_SMM			(1 << 0)
-> >+#define KVM_RUN_X86_BUS_LOCK		(1 << 1)
-> >+#define KVM_RUN_X86_GUEST_MODE		(1 << 2)
-> >+#define KVM_RUN_X86_NEEDS_COMPLETION	(1 << 2)
+> > There is also no real benefit in printing errors on missing syscon
+> > argument, because this is done just too late: runtime check on
+> > static/build-time data.  Dtschema and Devicetree bindings offer the
+> > static/build-time check for this already.
+> > 
+> > Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> > ---
+> >   drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c | 9 ++-------
+> >   1 file changed, 2 insertions(+), 7 deletions(-)
+> > 
+> > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c
+> > index 1e8bac665cc9bc95c3aa96e87a8e95d9c63ba8e1..1fcb74e9e3ffacdc7581b267febb55d015a83aed 100644
+> > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c
+> > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c
+> > @@ -419,16 +419,11 @@ static int stm32_dwmac_parse_data(struct stm32_dwmac *dwmac,
+> >   	}
+> >   	/* Get mode register */
+> > -	dwmac->regmap = syscon_regmap_lookup_by_phandle(np, "st,syscon");
+> > +	dwmac->regmap = syscon_regmap_lookup_by_phandle_args(np, "st,syscon",
+> > +							     1, &dwmac->mode_reg);
+> The network subsystem still requires that the length of
+> each line of code should not exceed 80 characters.
+> So, let's silence the warning:
 > 
-> This X86_NEEDS_COMPLETION should be dropped. It is never used.
+> WARNING: line length of 83 exceeds 80 columns
+> #33: FILE: drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c:307:
+> +							     &dwmac->intf_reg_off);
 
-Gah, thanks!
+checkpatch should be considered a guide, not a strict conformance
+tool. You often need to look at its output and consider does what it
+suggest really make the code better? In this case, i would disagree
+with checkpatch and allow this code.
+
+If the code had all been on one long line, then i would suggest to
+wrap it. But as it is, it keeps with the spirit of 80 characters, even
+if it is technically not.
+
+	Andrew
 
