@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3EE6E7719F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 13:48:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79659C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 13:49:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+dBKBnh3CJfG06Ryt8DRzl1xWWHQ5QRNIi+bxJtn0Jc=; b=pJRHmcCLA070zy9bpSclOdEf87
-	r8ShD0R9cOo37RorzcV2+BQ2hsv88yDs1tVOY3SXyN8gEmJAikCDJfRylDmO0nyMSR9xPZHIP+INf
-	Pl1ej9zjAgjbRBA6DazjjVmWv6FrY0fCGbCxV0PakYv7hniBrappzt1JkBsbHFUztaiCILUDvqTqw
-	S4GZetT2/IjvJTfSVcPZBVGGgODxX4UhkBbGMJQDxBoMl+ytL7RJVkWqG36sagDfsTsgJefQw4A+V
-	7nzQTjcSgEomC4nrDq2Hzfm29KF2aI4X13ai4DF6/jgueBlglYN5dvoZy16kGSL0iFG7+IoESBhXC
-	3szc5+qA==;
+	bh=aVACOVNF3iosJwGrzNQ3kbSFQ7Wdthdx1wHxrTp5rl0=; b=ViJSvAFs5i/NzGsusTeCjaEK9W
+	sm3lewGaCv7GuP7Zgl3D7GaObPb7awyl5/OPeDV35d2ySOXp02L7bP7zAlv87Y3dBFzfWidMrtLvt
+	VjNvYqp23y1QsnSxHrWRsHrG7/0dRZtOG1lKOVpROxl8FUe0li4WxO1k/WvjgtoRghLkg+QuUDxq5
+	LYj1wwwqmaWjl5/xDY8CAYufsRVkLKHA1YjdqneCiN/n0yFoA4jdyrDZNZl2myBeSP03bDanMABfN
+	0+IXkb55+XBheOgsTSN2TxEjRSBkKkYeMGY3c12LUbPj6D1g939F2qu+obb+jMkC1bHon16jCNna2
+	sFKoGfdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXKnT-00000005Iov-3Qz2;
-	Mon, 13 Jan 2025 13:48:03 +0000
+	id 1tXKog-00000005J77-1sU2;
+	Mon, 13 Jan 2025 13:49:18 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXKik-00000005Hps-3a6G
+	id 1tXKik-00000005Hpt-3ajd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 13:43:11 +0000
+	Mon, 13 Jan 2025 13:43:12 +0000
 Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
 	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
 	(Exim 4.92)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tXKib-0002p5-Dg; Mon, 13 Jan 2025 14:43:01 +0100
+	id 1tXKib-0002p1-Dg; Mon, 13 Jan 2025 14:43:01 +0100
 Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
 	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tXKia-000Ghy-1W;
-	Mon, 13 Jan 2025 14:43:01 +0100
+	id 1tXKia-000Ghw-1S;
+	Mon, 13 Jan 2025 14:43:00 +0100
 Received: from localhost ([::1] helo=dude05.red.stw.pengutronix.de)
 	by dude05.red.stw.pengutronix.de with esmtp (Exim 4.96)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tXKib-00GZFh-1t;
+	id 1tXKib-00GZFh-1r;
 	Mon, 13 Jan 2025 14:43:00 +0100
 From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Date: Mon, 13 Jan 2025 14:42:54 +0100
-Subject: [PATCH v3 4/6] arm64: dts: freescale: imx8mp-skov: fix LDB clock
- rate configuration
+Date: Mon, 13 Jan 2025 14:42:52 +0100
+Subject: [PATCH v3 2/6] arm64: dts: imx8mp: Add optional nominal drive mode
+ DTSI
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250113-imx8m-clk-v3-4-0d6e9bdeaa4e@pengutronix.de>
+Message-Id: <20250113-imx8m-clk-v3-2-0d6e9bdeaa4e@pengutronix.de>
 References: <20250113-imx8m-clk-v3-0-0d6e9bdeaa4e@pengutronix.de>
 In-Reply-To: <20250113-imx8m-clk-v3-0-0d6e9bdeaa4e@pengutronix.de>
 To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
@@ -71,8 +71,8 @@ X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_054310_895880_C594B74D 
-X-CRM114-Status: GOOD (  14.21  )
+X-CRM114-CacheID: sfid-20250113_054310_898572_1AA913E7 
+X-CRM114-Status: GOOD (  13.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,69 +87,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When the imx8mp-skov-revb-mi1010ait-1cp1 device tree was first added, it
-configured the minimum clock rate supported by the panel instead of
-the typical clock rate:
+Unlike the i.MX8MM and i.MX8MN SoCs added earlier, the device tree for
+the i.MX8MP configures some clocks at frequencies that are only validated
+for overdrive mode, i.e. when VDD_SOC is 950 mV.
 
-  fsl-ldb 32ec0000.blk-ctrl:bridge@5c: Configured LDB clock
-  (482300000 Hz) does not match requested LVDS clock: 490000000 Hz
+Boards may want to run their SoC at the lower voltage of 850 mV though
+to reduce heat generation and power usage. For this to work, clock rates
+need to adhere to the limits of the nominal drive mode.
 
-Besides the warning, the display functioned normally though
-This broke with commit ff06ea04e4cf ("clk: imx: clk-imx8mp: Allow
-media_disp pixel clock reconfigure parent rate") as the reconfiguration
-of the parent clocks removed setting the IMX8MP_VIDEO_PLL1 to 7 times
-the display clock rate:
+Add an optional DTSI file which can be included by various boards to run
+in this mode.
 
-  fsl-ldb 32ec0000.blk-ctrl:bridge@5c: Configured LDB clock
-  (70000000 Hz) does not match requested LVDS clock: 490000000 Hz
-
-Fix this by configuring the typical rate instead and benefit from
-the new commit by dropping the now unneeded assigned-clock-rates
-in &media_blk_ctrl.
-
-Fixes: ff06ea04e4cf ("clk: imx: clk-imx8mp: Allow media_disp pixel clock reconfigure parent rate")
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
 Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
 ---
- .../dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts | 19 +++++--------------
- 1 file changed, 5 insertions(+), 14 deletions(-)
+ arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi | 63 +++++++++++++++++++++++
+ 1 file changed, 63 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts b/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts
-index 30962922b361c9d05887722769c7585eb85b44a0..a13f6d76a495936575ead53e4ea69ed39f80d61c 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts
-@@ -51,8 +51,11 @@ &lcdif2 {
- };
- 
- &lvds_bridge {
--	/* IMX8MP_CLK_MEDIA_LDB = IMX8MP_CLK_MEDIA_DISP2_PIX * 7 */
--	assigned-clock-rates = <482300000>;
-+	assigned-clocks = <&clk IMX8MP_CLK_MEDIA_LDB>,
-+				 <&clk IMX8MP_VIDEO_PLL1>;
-+	assigned-clock-parents = <&clk IMX8MP_VIDEO_PLL1_OUT>;
-+	/* IMX8MP_VIDEO_PLL1 = IMX8MP_CLK_MEDIA_DISP2_PIX * 2 * 7 */
-+	assigned-clock-rates = <0>, <980000000>;
- 	status = "okay";
- 
- 	ports {
-@@ -64,18 +67,6 @@ ldb_lvds_ch0: endpoint {
- 	};
- };
- 
--&media_blk_ctrl {
--	/* currently it is not possible to let display clocks confugure
--	 * automatically, so we need to set them manually
--	 */
--	assigned-clock-rates = <500000000>, <200000000>, <0>,
--		/* IMX8MP_CLK_MEDIA_DISP2_PIX = pixelclk of lvds panel */
--		<68900000>,
--		<500000000>,
--		/* IMX8MP_VIDEO_PLL1 = IMX8MP_CLK_MEDIA_LDB * 2 */
--		<964600000>;
--};
--
- &pwm4 {
- 	status = "okay";
- };
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi
+new file mode 100644
+index 0000000000000000000000000000000000000000..f9a82a663033a1dfb72163eebb62e4aee66cee2f
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi
+@@ -0,0 +1,63 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Copyright (C) 2024 Pengutronix, Ahmad Fatoum <kernel@pengutronix.de>
++ */
++
++&clk {
++	assigned-clocks = <&clk IMX8MP_CLK_A53_SRC>,
++			  <&clk IMX8MP_CLK_A53_CORE>,
++			  <&clk IMX8MP_SYS_PLL3>,
++			  <&clk IMX8MP_CLK_NOC>,
++			  <&clk IMX8MP_CLK_NOC_IO>,
++			  <&clk IMX8MP_CLK_GIC>;
++	assigned-clock-parents = <&clk IMX8MP_SYS_PLL1_800M>,
++				 <&clk IMX8MP_ARM_PLL_OUT>,
++				 <0>,
++				 <&clk IMX8MP_SYS_PLL1_800M>,
++				 <&clk IMX8MP_SYS_PLL3_OUT>,
++				 <&clk IMX8MP_SYS_PLL1_800M>;
++	assigned-clock-rates = <0>, <0>,
++			       <600000000>,
++			       <800000000>,
++			       <600000000>,
++			       <400000000>;
++};
++
++&pgc_hdmimix {
++	assigned-clocks = <&clk IMX8MP_CLK_HDMI_AXI>,
++			  <&clk IMX8MP_CLK_HDMI_APB>;
++	assigned-clock-parents = <&clk IMX8MP_SYS_PLL1_800M>,
++				 <&clk IMX8MP_SYS_PLL1_133M>;
++	assigned-clock-rates = <400000000>, <133000000>;
++};
++
++&pgc_hsiomix {
++	assigned-clocks = <&clk IMX8MP_CLK_HSIO_AXI>;
++	assigned-clock-parents = <&clk IMX8MP_SYS_PLL1_800M>;
++	assigned-clock-rates = <400000000>;
++};
++
++&pgc_gpumix {
++	assigned-clocks = <&clk IMX8MP_CLK_GPU_AXI>,
++			  <&clk IMX8MP_CLK_GPU_AHB>;
++	assigned-clock-parents = <&clk IMX8MP_SYS_PLL3_OUT>,
++				 <&clk IMX8MP_SYS_PLL3_OUT>;
++	assigned-clock-rates = <600000000>, <300000000>;
++};
++
++&media_blk_ctrl {
++	assigned-clocks = <&clk IMX8MP_CLK_MEDIA_AXI>,
++			  <&clk IMX8MP_CLK_MEDIA_APB>,
++			  <&clk IMX8MP_CLK_MEDIA_DISP1_PIX>,
++			  <&clk IMX8MP_CLK_MEDIA_DISP2_PIX>,
++			  <&clk IMX8MP_CLK_MEDIA_ISP>,
++			  <&clk IMX8MP_VIDEO_PLL1>;
++	assigned-clock-parents = <&clk IMX8MP_SYS_PLL1_800M>,
++				 <&clk IMX8MP_SYS_PLL1_800M>,
++				 <&clk IMX8MP_VIDEO_PLL1_OUT>,
++				 <&clk IMX8MP_VIDEO_PLL1_OUT>,
++				 <&clk IMX8MP_SYS_PLL1_800M>;
++	assigned-clock-rates = <400000000>, <200000000>,
++			       <0>, <0>, <400000000>,
++			       <1039500000>;
++};
 
 -- 
 2.39.5
