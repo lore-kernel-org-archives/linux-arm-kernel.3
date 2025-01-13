@@ -4,123 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 328CDE7719E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 08:22:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA286E7719E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 08:25:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rc1u8tQZc2uQbTUGqGQTBxzgZG8c9ttvmWLwWPuvBMI=; b=uBoc6SkJHo9bxRHCs8HaIFc7F7
-	G+bk3HjLSnDCKtmNvew8pi6WVw9TgVpfBDEiR6o/CFUCtwv2vChCzNtKy32iUfzdq9X4r3BjTeuWU
-	QAG3jgeUNCE9iJbGFRFz91rmjJ1lo8fexTdRpL7Vxn0lJcUUFjcZQfELRekQMOpTQ+3i16Os4ohgs
-	neoOhV0HBkpcvnzEPd3gGEc9x/nJy3L1rdEcLuCGw6lzGwT3HYCkRiuKiYD3mUnzYP5FCkrkr6VQo
-	LvprmoUKGhrnWERVcg+NSIKT+n35/qxq3irGc/Lw34xTG7UlBvJgfGco3DXCQwLVI4z/SPaph3uHh
-	540mNK2Q==;
+	bh=NP5Y8/O0Oc9k478L1LRw9mJQHwjSZlVZoadTLuLD3bY=; b=pcM2mjc1Pe4FzFKbg3eA23IZRi
+	SnkY+nxs4+DRZMj72+BdEeJkx65zRNAjgvtb/O+gXuI6LrYhO/szK9Id6kgbHptCfdzrVYAPGb1oh
+	5iDZaWF4zvFXROiZsNuJP3BvL/al0+ztXGJywQeNITcwec3Ce6e1o4+JeVPoAkFnfT2JtV8A4ccr8
+	BDfF7b47cPbBvra2pFgHnT9t8EqnM+DxbHMbK/GP1bezMh/hlk8cqmeZ8KpH3G1XQLXYjubTKlu3R
+	jGQVd1Scz/tCb6jDClrp14FObnWH8SxtnW9/vQDy5DWXEFzkECkxNXSLr5P7EecBd3+qRQNqhfgZm
+	vjSF62mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXFia-00000004NO1-0YIb;
-	Mon, 13 Jan 2025 08:22:40 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tXFlR-00000004NjU-0hHu;
+	Mon, 13 Jan 2025 08:25:37 +0000
+Received: from mail.manjaro.org ([116.203.91.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXFhM-00000004NDZ-1eL0;
-	Mon, 13 Jan 2025 08:21:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 62D84A40C03;
-	Mon, 13 Jan 2025 08:19:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B38EC4CED6;
-	Mon, 13 Jan 2025 08:21:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736756483;
-	bh=IUwQT37Q5694N5OlGBsritmBKUoU/caZrqNKpv5TSTE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Rr6SUMaXT2aCGEE9bCvykrGWWIX1Y1VLQ5cWQyPPPQlVkJCI51myzrYxLfCO4vYl7
-	 17IndjbH51OpMRrtxus+AyAVkp5zjOHBMuIp6Ki9TxffSXeAImhpUM/KrBBD4hQWC1
-	 qcAsJyhWg+g034H97T+MwMM/CAbE7rMwXN9NK5JgpypNdN7dcwO4AJM31+eGw/Z2Zt
-	 lgLqsrmBMbp28T4a2/SgjNNLmf7ttjfcGVnkadVSOwqcMX0RlPl8BuN9aJMuY0y/JC
-	 PqyC/UrZWgyjeQ0NKoMtIRil+6utW+E+xtOsDrVFV2Aiiabhuhth2HeOahxqvdis/i
-	 rpkNgYHRx6PJQ==
-Message-ID: <fef71e03-489f-4503-9d1b-d61051d45dde@kernel.org>
-Date: Mon, 13 Jan 2025 09:21:10 +0100
+	id 1tXFkC-00000004Ncd-0dpE;
+	Mon, 13 Jan 2025 08:24:21 +0000
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 06/12] dt-bindings: clk: sunxi-ng: add V853 CCU
- clock/reset
-To: wens@csie.org
-Cc: Andras Szemzo <szemzo.andras@gmail.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Maxime Ripard <mripard@kernel.org>,
- Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
- Ulf Hansson <ulf.hansson@linaro.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-gpio@vger.kernel.org,
- linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <20250110123923.270626-1-szemzo.andras@gmail.com>
- <20250110123923.270626-7-szemzo.andras@gmail.com>
- <de280eed-bcc8-4802-9734-5e95ad1f6611@kernel.org>
- <CAGb2v65arvBMg+reReVqK-Y6dL+CSrSx4618msiRKcNf=Vk1=A@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <CAGb2v65arvBMg+reReVqK-Y6dL+CSrSx4618msiRKcNf=Vk1=A@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
+	t=1736756657;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=NP5Y8/O0Oc9k478L1LRw9mJQHwjSZlVZoadTLuLD3bY=;
+	b=d8Empi5WA2UJ1zS0ddwUrM+Qk1NkOfJa4O3dj5SEXV6LaLW7Y+bc12XtymLBfnjfJ6AgIt
+	sf/zpnRI2sY1w1ufENH7lsq77JuGSqiG8Td2KqrSyllg3aqZthzhUOWKQcWfVXzlnh9n9p
+	dZT1YstAPQKIzzzJWDIxgoHf4KrYWzWgolISWRgFS1fN0vRprnNkcGA9HTODoDwmrfU47C
+	eMai8Ilw7AxGhPCMWO6oGs0+Fwa4ZtXEX+98DYe7iRKAA7k/Pc2dy2Mzbm/e8R0hVILBxM
+	fGNUlWyfs/7sVCUtcMkdK3zpn4r3OmQqBgMLkhnUrWlel2a+BNWaVQKoVLZ49g==
+Date: Mon, 13 Jan 2025 09:24:16 +0100
+From: Dragan Simic <dsimic@manjaro.org>
+To: Junhao Xie <bigfoot@classfun.cn>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Jonas
+ Karlman <jonas@kwiboo.se>, Chukun Pan <amadeus@jmu.edu.cn>, FUKAUMI Naoki
+ <naoki@radxa.com>, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 3/3] arm64: dts: rockchip: add dts for Ariaboard
+ Photonicat RK3568
+In-Reply-To: <54b5dac0-5791-4b20-a237-dac6fd03c259@classfun.cn>
+References: <20250112073344.1976411-1-bigfoot@classfun.cn>
+ <20250112073344.1976411-4-bigfoot@classfun.cn>
+ <1e72cc9cdc390e79e97806fe4f7d8abf@manjaro.org>
+ <35f8fe37-b06f-49eb-b0c2-430421f1ff3b@classfun.cn>
+ <7b55c7469774c41d9896df3100df1630@manjaro.org>
+ <54b5dac0-5791-4b20-a237-dac6fd03c259@classfun.cn>
+Message-ID: <3ee25756b12e999631bd959d787ff248@manjaro.org>
+X-Sender: dsimic@manjaro.org
+Content-Type: text/plain; charset=UTF-8;
+ format=flowed
 Content-Transfer-Encoding: 8bit
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_002124_557656_DCCE0867 
-X-CRM114-Status: GOOD (  15.34  )
+X-CRM114-CacheID: sfid-20250113_002420_482874_8C39A5A4 
+X-CRM114-Status: GOOD (  13.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,65 +81,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/01/2025 09:06, Chen-Yu Tsai wrote:
-> On Fri, Jan 10, 2025 at 9:56 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>
->> On 10/01/2025 13:39, Andras Szemzo wrote:
->>> As the device tree needs the clock/reset indices, add them to DT binding
->>> headers.
->>>
->>> Signed-off-by: Andras Szemzo <szemzo.andras@gmail.com>
->>
->> That's never a separate commit from the binding.
->>
->>
->> ...
->>
->>> --- /dev/null
->>> +++ b/include/dt-bindings/clock/sun8i-v853-r-ccu.h
->>> @@ -0,0 +1,16 @@
->>> +/* SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
->>> +/* Copyright(c) 2020 - 2023 Allwinner Technology Co.,Ltd. All rights reserved.
->>> + *
->>> + * Copyright (C) 2023 rengaomin@allwinnertech.com
->>> + */
->>> +#ifndef _DT_BINDINGS_CLK_SUN8I_V85X_R_CCU_H_
->>> +#define _DT_BINDINGS_CLK_SUN8I_V85X_R_CCU_H_
->>> +
->>> +#define CLK_R_TWD            0
->>> +#define CLK_R_PPU            1
->>> +#define CLK_R_RTC            2
->>> +#define CLK_R_CPUCFG         3
->>> +
->>> +#define CLK_R_MAX_NO         (CLK_R_CPUCFG + 1)
->>
->> Nope, drop. Not a binding.
->>
->>> +
->>> +#endif
->>> diff --git a/include/dt-bindings/reset/sun8i-v853-ccu.h b/include/dt-bindings/reset/sun8i-v853-ccu.h
->>> new file mode 100644
->>> index 000000000000..89d94fcbdb55
->>> --- /dev/null
->>> +++ b/include/dt-bindings/reset/sun8i-v853-ccu.h
->>> @@ -0,0 +1,62 @@
->>> +/* SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
->>
->> Odd license. Did you copy the file with such license from the downstream?
-> 
-> AFAIK all the existing sunxi clock / reset binding header files are
-> dual licensed. OOTH all the YAML files are GPL 2.0 only.
-> 
-> IIRC we started out GPL 2.0 only, but then figured that the header files
-> couldn't be shared with non-GPL projects, so we changed those to dual
-> license.
-> 
-> Hope that explains the current situation. Relicensing the whole lot
-> to just MIT or BSD is probably doable.
-That's not what the comment is about. Dual license, as expressed by
-submitting bindings/patches and enforced by checkpatch are expected. But
-not GPLv3, GPLv4 and GPLv10.
+Hello Junhao,
 
-Best regards,
-Krzysztof
+On 2025-01-13 09:18, Junhao Xie wrote:
+> On 2025/1/13 12:25, Dragan Simic wrote:
+>> On 2025-01-12 23:16, Junhao Xie wrote:
+>>> On 2025/1/12 16:47, Dragan Simic wrote:
+>>>> Unless the design of the board is proprietary, it would be good
+>>>> to provide a link to the board schematic, for those interested
+>>>> in verifying the board DT file.
+>>>> 
+>>>> As a note, I already tried to find the board schematic with no
+>>>> success, so the design might be proprietary.
+>>> 
+>>> Yes, this board is proprietary. I asked the manufacturer and
+>>> they don't provide schematics.
+>>> 
+>>> But I found a partial schematic diagram of some of connectors
+>>> on the board here
+>>> https://dl.ariaboard.com/photonicat_rk3568/Photonicat%20rk3568%20EVB%20Board%20spec.pdf
+>> 
+>> Yes, I also found that PDF file.  It's somewhat similar to what
+>> Raspberry Pi provides with its reduced schematics -- helpful to
+>> an extent, but still leaving a lot to be desired.
+>> 
+>> Out of curiosity, what did you actually use as a reference to create
+>> the board dts file?  Perhaps some downstream dts file provided by
+>> the manufacturer or found in some operating system image?
+> 
+> I wrote this device tree based on other rk3568 devices in mainline,
+> and downstream board dts:
+> https://github.com/photonicat/rockchip_rk3568_kernel/blob/novotech-5.10/arch/arm64/boot/dts/rockchip/rk3568-photonicat-base.dtsi
+
+Thanks for the clarification.  It would be good to include that
+link in the description of patch 3/3, for future reference.
 
