@@ -4,52 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21175C02184
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B46F8C02185
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 16:45:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RPQlBEKI41ckh1JfJYSmq0NbDtrYqFYCWZof69veic8=; b=lThZWuJEgrcAAKNWSI7qQz3Shk
-	+zNGT8fYrdJRsE3kGxBNszNFikYb+IxOqVNxj6fd0RoBljipm1uzYewfnYg0HNyqQHUwg5jyuOEut
-	5Ay5vhTTqW2iMUeW+OXjyn51TMjh2Xk5aj74B2gt6y1lNQGjch89s3OV/3mB0BII4HzqlsM7vLgu/
-	FF8zRQTUuedFpoknvwtuQftRRFYJ5LM/E+fEvQRvtYrw55B0Z1vrS6bFVRanxDXxP9nlwBTiopDWt
-	kPkiiCqjAIlA4zKx69PjxBUq4Iau61ZdaJbERJ3toL8qEYoog99/kzZnl/gFgbodBfNIIRnkeh2Zx
-	Hre8Tvrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6Ih4TQsGi33I+NDjev0OgeD34K68qDcxVxjqWxI1rxc=; b=mjpcTDdw8GvROucxbPw93sp8sZ
+	5tedDoVpzwd5h4CKtxVdMtDzW4LNHW87UuqqlEHQHcicSAqfWBF9G2VZLf7YSgDrpYOh0d48Llcmo
+	nK9gSBe52wPnk3GdJc3jh99RHBRr50jR4rBm/OndhOUW3VQh6EBrGwhhoKdrQZ1mvCVzMKE44HqhU
+	ivr01hy8r+iQgR41nhUYjXd409mmxQQ2Vq/eL7EWqUs+lpoX+ffIFFP2WUDNgts6/Sbkk1A92eJRk
+	qe9GqtrK1H9zC3TgkFzm4GqRt4ESi/FbZEt+TL0b1Cr2cXK0heSlryI0un0E7IQym6tQgxgGm6kZ0
+	0OAqNNXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXNZI-00000005umG-195N;
-	Mon, 13 Jan 2025 16:45:36 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tXNZG-00000005ujq-1aOa;
+	Mon, 13 Jan 2025 16:45:34 +0000
+Received: from mail-bn8nam12on20610.outbound.protection.outlook.com ([2a01:111:f403:2418::610] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXNQo-00000005tGA-1knQ
+	id 1tXNQG-00000005tB4-28N9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 16:36:51 +0000
-Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1tXNQn-0001a4-7L; Mon, 13 Jan 2025 17:36:49 +0100
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: soc@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	kernel@pengutronix.de,
-	Philipp Zabel <p.zabel@pengutronix.de>
-Subject: [GIT PULL] Reset controller updates for v6.14
-Date: Mon, 13 Jan 2025 17:36:48 +0100
-Message-Id: <20250113163648.1757178-1-p.zabel@pengutronix.de>
-X-Mailer: git-send-email 2.39.5
+	Mon, 13 Jan 2025 16:36:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=qfu0js/DbJwhhA3PjleFGM/wJW8ORSgKxLjbcAd9wApAmNF8a1W+bedS9Xad/vv0W5HTic5ZllsLRKfWov85KEKiMbzqEbQO6t8gweC/Hewsb1j20YJxQ0uty5UdLQGoTJnoEzeUR3RimyGISAJJ4svu00+kKkXVHWAaikEvK94mh82Lf+JJEXyBlt7QIjENyyY/qBYpF93elKQhSrJxmNO8OpK0WQxu7pajc2zImnnaqP8gmrT0zJU5JkfhFubquwCt0I49GKzLnA7KcVdoFzzPGYWaA8BuNzOhrA2vK7pjFtypIFqdne5mN4sQozJpEE6cJDitB+DT4VGX5cwd/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6Ih4TQsGi33I+NDjev0OgeD34K68qDcxVxjqWxI1rxc=;
+ b=u8NwS2MeI2IjiXNilPW1JKgsnFLqe0trpenWFfpGePmKsT5G1ru/0HrwtJpt+/CGfqQYCPKjrSdhSdFbJ19y/II/dFqWMjNI+wbfRCZfWsZpiACE9B66tPn+qKAy39U7JpNfkffIjBup88XZi9WLDJlUYTSv12mBQyOxqJQRBo+VsdbdWTpIYEC24emIjlEZQ62p8ucDaHdF+u1Wb7l7ALrLJAese+14ja4iH9vJixnB/kAGE4aTM7i39ruVx6pBPWwekG/oVqiJu+WTGFL4CLV/78rF0QIsQ5QyI0rVFihe059M/4hXBnSBB6HE0H0tidBqveTgUSI6totxvrl0xQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6Ih4TQsGi33I+NDjev0OgeD34K68qDcxVxjqWxI1rxc=;
+ b=rPxnomgjJG7kOfcGDwdFcNPSRfH6+WFJT59bJ0thIe9LtzzA8n0SgAUasd85P0+57R2+IvSv4C6JVOW6j3SjFc0iyI1qvAMNCMHon+G8meSz3QlJ60KNikyXrmhuLEjGybEuLyHMP5igDWGOT2yHJ1gP+sGvuGxs3QdvAqsJ8K8=
+Received: from MN0PR12MB5953.namprd12.prod.outlook.com (2603:10b6:208:37c::15)
+ by PH7PR12MB7940.namprd12.prod.outlook.com (2603:10b6:510:275::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.17; Mon, 13 Jan
+ 2025 16:36:09 +0000
+Received: from MN0PR12MB5953.namprd12.prod.outlook.com
+ ([fe80::6798:13c6:d7ba:e01c]) by MN0PR12MB5953.namprd12.prod.outlook.com
+ ([fe80::6798:13c6:d7ba:e01c%3]) with mapi id 15.20.8335.011; Mon, 13 Jan 2025
+ 16:36:09 +0000
+From: "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>
+To: Sean Anderson <sean.anderson@linux.dev>, "Nelson, Shannon"
+	<Shannon.Nelson@amd.com>, "David S . Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, "netdev@vger.kernel.org" <netdev@vger.kernel.org>
+CC: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, Simon Horman <horms@kernel.org>,
+	"Simek, Michal" <michal.simek@amd.com>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Daniel Borkmann <daniel@iogearbox.net>
+Subject: RE: [PATCH net v5] net: xilinx: axienet: Fix IRQ coalescing packet
+ count overflow
+Thread-Topic: [PATCH net v5] net: xilinx: axienet: Fix IRQ coalescing packet
+ count overflow
+Thread-Index: AQHbZdh8u507f+QAB0CFZ0mPgE2ku7MU5mqQ
+Date: Mon, 13 Jan 2025 16:36:08 +0000
+Message-ID: <MN0PR12MB5953D13156EB1257EC961C9BB71F2@MN0PR12MB5953.namprd12.prod.outlook.com>
+References: <20250113163001.2335235-1-sean.anderson@linux.dev>
+In-Reply-To: <20250113163001.2335235-1-sean.anderson@linux.dev>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: MN0PR12MB5953:EE_|PH7PR12MB7940:EE_
+x-ms-office365-filtering-correlation-id: f54846d1-1298-4ea5-2580-08dd33f06243
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?xzIHgTwuRwGtSNk3L9zlRCu9l9frbrxKu0E93uthez6dZF0LnAMagrvAeLCf?=
+ =?us-ascii?Q?wrSoxkac4z605+Nq+JpV57SdP17MXnzshJO/wBKHTguHBtCC6Zp7cw9Zw5rI?=
+ =?us-ascii?Q?5J1SwGZ566wpHQePipiR/2GXybykNyFxut/8rIYYPzyEiXXpEYW5smPwAqBh?=
+ =?us-ascii?Q?yupsvSZSNstIOUj+d1Bo0f+6CcR1zehxETVeoTMb6ZZPnauCH5gufLIF6gKU?=
+ =?us-ascii?Q?pH50JopeKxlua5DIa/P8tneImZGNUd4ZFTScFk1NAsBeI3Ph56cvkMw/0gUO?=
+ =?us-ascii?Q?f5QUYQ2AbYH6w4cjVZPNUEOGu9lpx43zfy9WYmi+NKBopUPhJGsApZzBAuQC?=
+ =?us-ascii?Q?Cvyv56la4SD65VrF8ZlRwrX6zGZpbO6WZLTxyqWE5VeXCS5UUCIqIh13ISkw?=
+ =?us-ascii?Q?kGLAiYY2lrAWJqKLIq1UMflPkAbKlugO+otjDXmgIfJyCq2R9w+eQFbFUNM+?=
+ =?us-ascii?Q?rB0zwnGMqBfbJG1eRMI8uRLhaGFLQ6ErkUpt2COvFXDi5GdLZnMTp5snwb6L?=
+ =?us-ascii?Q?jXtuHWD0ZbN5QIbSsJjN197FK14BIhuoCnybp+NIyU0ADiNM4sKV2tfTMnlf?=
+ =?us-ascii?Q?c0NizcDc/5CUz88V3BZlZoZvG3MMySGa8zUEQuNrc5atstqN9QDcKMOtwZOi?=
+ =?us-ascii?Q?lsxbNe2/FOm7Dw2DhVCTmfh8Ta/aNLsSF21O6la9BFrknX/BAO+WYBxbNzh5?=
+ =?us-ascii?Q?5ja/xV4DJ4Uavq4Beyrpkxmwcve5Z/aiM1qWdyZpljtyeKxJj8fDqvBIORJH?=
+ =?us-ascii?Q?RIY1UfusCMapKMYx4yuX7lXXx2kagvbxGTfGUbKAwWmYVLHKPbVEdn/Yi74j?=
+ =?us-ascii?Q?6xecxXDoOmGpEzJKCAChtzCZtDz2cy83HVpOptsBqhnRzpPWrqs8klA3L8Pw?=
+ =?us-ascii?Q?LY8Ju1telcJqo3XcCtOeXwKPo4tibrSLVmW23ErVj7ZKb62Q9WY/1R+sxtX1?=
+ =?us-ascii?Q?x1XCjCwsdo2VlSRvyEfiFKAl9G7OUJ/CNXrXj7rEZDBewcG7XrcQoJys3WQJ?=
+ =?us-ascii?Q?bSQ6oCD6cC7VlWb/TGV6+oiu9Ls1pfglaMRI4tDiIP66WAYuNqZ9wFdIPttq?=
+ =?us-ascii?Q?dxmAr9vJuIhog5Pa8uOIwInrzMslCy1q8EDvvbS2QMXDjJGpeglGchb7uV3L?=
+ =?us-ascii?Q?gipXXmUgeItUFpRzxaa7K0mhdZVWqK6boXnVP/Daz+RUONBR8DAL8lMi6AoX?=
+ =?us-ascii?Q?nRxXDsRUAO5bkEucD0d7OxfjRmk89oTO9b/00BrKV5zNX49MwcpkNDhh0ydm?=
+ =?us-ascii?Q?CGks0b55QXQbdq2XmUQoif9wZkaVkcqWw00DS+sIDCgz9yBHPMLlnddU0pvc?=
+ =?us-ascii?Q?EI3n9VNjkGOdX62n3YCr7/h+g/stFfpOhHER2RS15eBKp3sS+3BkmK2vGtoS?=
+ =?us-ascii?Q?C+7eIhNHPuJ0E60ltqgycWosBCeRvwoRrSIMOHwIgTnUkUacic3weafwk2oh?=
+ =?us-ascii?Q?0R26ecxi+Mf409m147r2167GjtXwyrW+?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN0PR12MB5953.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?EO2m7xrcuXDzeLhBvFPBva4TPLdOXwC4ESelt355PBGUq8IG3pRifFlSeZFu?=
+ =?us-ascii?Q?gDKqLs/GlYDkiPuS9ShQ2n/Frb3zgZ6Fhg9CId4rrC+LsK2rNQMOwDoIhiKh?=
+ =?us-ascii?Q?wnDKFXYCM3o0rsPziGQbPVCEU03pvvg6alngLxs2QUCTZddVurVJVO47uqMr?=
+ =?us-ascii?Q?pc75K1jvqFP348KKNR3wHDoumGTW895YXKgU96gJodTiZZZW3xcW1VMXUqJx?=
+ =?us-ascii?Q?CCKGRY+L9pN7ac0NkPwSiSjeQgMD8qVEwLpVw/WuoBYAqlDpjGcWPPSoLB7D?=
+ =?us-ascii?Q?9SvX1MFD/Xtfn6GWE6gP34aPUsyM0Iih6Bf7qKhzIFvihnoVh38d/tfZ7bNt?=
+ =?us-ascii?Q?4WWDxT+FJBLLJqlMe4mBwqLwHv1LLxQq9TwAvuQ0f2IAyrba5hfaJGFerCTY?=
+ =?us-ascii?Q?8TzfYg+vbhQ3mQhVCB7pIMvKf0oDh1Gip9BC/qE33ExWxfa2QXLuRCUZEdAs?=
+ =?us-ascii?Q?QyYGqYpnWGAOZIw9NjmwLHOWXQDN9wGkkq2mg3wscuh5XycdqlEgjy5majvj?=
+ =?us-ascii?Q?yhUmaA8HY99PZzrYseHwjtuCUmC8FdjRla69j0HGrAUTqVoRew6Lgcj3qBI/?=
+ =?us-ascii?Q?Igki9TRGriCsdrUl4/pEidzUVV/JEIggNzprbliNYEdW5G9W7d2HcQGgSw58?=
+ =?us-ascii?Q?dIrnaMDMuEDS2DBrbx7c5izBno1WfsffAlhRi5Cda/wQVXqYUUbmYphBpgYo?=
+ =?us-ascii?Q?mKrRMuphs/urqRtYSpVhU7eSh+bOmuL2n+HuI/g/eSE7UCF3/251jrBBxdeZ?=
+ =?us-ascii?Q?1RVnNMfm2fOfflajHi/SmCF92nv1eIvMxVWiKsIlCI2HLcNCOc5TfrZ9cgHW?=
+ =?us-ascii?Q?+1ZBsI6TlAdcdEn88YIwtl1ScFXorAt4MnUGmRIVRMHYun13a1z9QNonqAn/?=
+ =?us-ascii?Q?fob0z7pRAfNsKSOXoJuYEV9ksR4a38um7WAv/PHCH4p60J0gqqkU5Z+XfN9q?=
+ =?us-ascii?Q?aRJ7kwdb564gHHD8XIqo6efUsS8PYrfB/WMpNA8Xi0w1IwVpPN02jovVUFyw?=
+ =?us-ascii?Q?kO3ATjb5eWSHUalnhJ289YQ9E61S/BZP7ywJ4NHDlilagS25nWYYJRPnqxJC?=
+ =?us-ascii?Q?JIEcsWtyt+qDk647yQoufuwWrGUZX78qz2oYxseDH2MCFzNKE4ffqsrHfwgl?=
+ =?us-ascii?Q?UESWfiBAFlH57fdrBLpcLxBcfH9baFW2mPSBaUtmMMj06qANKd7iEBk5Beir?=
+ =?us-ascii?Q?QFf9DmFQIlzs+Idy8XHaLyf2apTw6xqPS8qj4UBORljm2bMYeH/+R6mgbkcG?=
+ =?us-ascii?Q?zVaBVcXqIHv1OOI/ERKdS11EKSYxzwxxVWwHnAFDHU8gLpAFecvyLlJ+M5zy?=
+ =?us-ascii?Q?0s9aGIwk18c+FfLXLVlQnyCvxFppGFyFNcMCIW2ttquHYGkqLl4uC7i3q0/Z?=
+ =?us-ascii?Q?twiG6Xcnn5vVfet24RXohbBRYtXVcFZK5fQmM/HmNzZv/y2m28qCmNzfnGRD?=
+ =?us-ascii?Q?656z73hDJH90JpeasDN2uXy/Fv2U6QZzUeNa1ZZ9D03oJHsDI7VVdIGZSU5N?=
+ =?us-ascii?Q?JtnMxQQbMMNsnz9pVhJ+xjFvCu8/wW1AxIJ+WvJ68fhQBVF4idFwNXQpk0Dw?=
+ =?us-ascii?Q?gohFH0SwL7LMKGE0AH0=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::54
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: MN0PR12MB5953.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f54846d1-1298-4ea5-2580-08dd33f06243
+X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Jan 2025 16:36:09.0061
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: SS4qchY8YAdisu+ve+Jd0VzX6/S/9PnRzlVNsxrsC46TZQN1DqcFiuLoAUmPusyv
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7940
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_083650_452611_35B06F7C 
-X-CRM114-Status: UNSURE (   7.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250113_083616_741854_0AC2137D 
+X-CRM114-Status: GOOD (  19.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,39 +165,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dear arm-soc maintainers,
+> -----Original Message-----
+> From: Sean Anderson <sean.anderson@linux.dev>
+> Sent: Monday, January 13, 2025 10:00 PM
+> To: Pandey, Radhey Shyam <radhey.shyam.pandey@amd.com>; Nelson, Shannon
+> <Shannon.Nelson@amd.com>; David S . Miller <davem@davemloft.net>; Eric
+> Dumazet <edumazet@google.com>; Jakub Kicinski <kuba@kernel.org>; Paolo
+> Abeni <pabeni@redhat.com>; netdev@vger.kernel.org
+> Cc: linux-arm-kernel@lists.infradead.org; Simon Horman <horms@kernel.org>=
+;
+> Simek, Michal <michal.simek@amd.com>; linux-kernel@vger.kernel.org; Danie=
+l
+> Borkmann <daniel@iogearbox.net>; Sean Anderson <sean.anderson@linux.dev>
+> Subject: [PATCH net v5] net: xilinx: axienet: Fix IRQ coalescing packet c=
+ount
+> overflow
+>=20
+> If coalesce_count is greater than 255 it will not fit in the register and
+> will overflow. This can be reproduced by running
+>=20
+>     # ethtool -C ethX rx-frames 256
+>=20
+> which will result in a timeout of 0us instead. Fix this by checking for
+> invalid values and reporting an error.
+>=20
+> Fixes: 8a3b7a252dca ("drivers/net/ethernet/xilinx: added Xilinx AXI Ether=
+net driver")
+> Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
+> Reviewed-by: Shannon Nelson <shannon.nelson@amd.com>
 
-The following changes since commit 78d4f34e2115b517bcbfe7ec0d018bbbb6f9b0b8:
+Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Thanks!
+> ---
+>=20
+> Changes in v5:
+> - Fix typo in commit message
+>=20
+> Changes in v4:
+> - Fix checking rx twice instead of rx and tx
+>=20
+> Changes in v3:
+> - Validate and reject instead of silently clamping
+>=20
+> Changes in v2:
+> - Use FIELD_MAX to extract the max value from the mask
+> - Expand the commit message with an example on how to reproduce this
+>   issue
+>=20
+>  drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 6 ++++++
+>  1 file changed, 6 insertions(+)
+>=20
+> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> index 0f4b02fe6f85..ae743991117c 100644
+> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> @@ -2056,6 +2056,12 @@ axienet_ethtools_set_coalesce(struct net_device *n=
+dev,
+>  		return -EBUSY;
+>  	}
+>=20
+> +	if (ecoalesce->rx_max_coalesced_frames > 255 ||
+> +	    ecoalesce->tx_max_coalesced_frames > 255) {
+> +		NL_SET_ERR_MSG(extack, "frames must be less than 256");
+> +		return -EINVAL;
+> +	}
+> +
+>  	if (ecoalesce->rx_max_coalesced_frames)
+>  		lp->coalesce_count_rx =3D ecoalesce->rx_max_coalesced_frames;
+>  	if (ecoalesce->rx_coalesce_usecs)
+> --
+> 2.35.1.1320.gc452695387.dirty
 
-  Linux 6.13-rc3 (2024-12-15 15:58:23 -0800)
-
-are available in the Git repository at:
-
-  git://git.pengutronix.de/pza/linux.git tags/reset-for-v6.14
-
-for you to fetch changes up to 262c84cd062c8ea0ba9e1289ea64ebcbffb31794:
-
-  reset: amlogic: aux: drop aux registration helper (2025-01-10 17:43:56 +0100)
-
-----------------------------------------------------------------
-Reset controller updates for v6.14
-
-* Add support for A1 SoC in amlogic reset driver.
-* Drop aux registration helper from amlogic reset driver.
-
-----------------------------------------------------------------
-Jan Dakinevich (2):
-      dt-bindings: reset: add bindings for A1 SoC audio reset controller
-      reset: amlogic: add support for A1 SoC in auxiliary reset driver
-
-Jerome Brunet (2):
-      reset: amlogic: aux: get regmap through parent device
-      reset: amlogic: aux: drop aux registration helper
-
- drivers/reset/amlogic/reset-meson-aux.c            | 97 +++++-----------------
- .../reset/amlogic,meson-a1-audio-reset.h           | 36 ++++++++
- include/soc/amlogic/reset-meson-aux.h              | 23 -----
- 3 files changed, 57 insertions(+), 99 deletions(-)
- create mode 100644 include/dt-bindings/reset/amlogic,meson-a1-audio-reset.h
- delete mode 100644 include/soc/amlogic/reset-meson-aux.h
 
