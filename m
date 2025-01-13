@@ -4,63 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0DAFE7719F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 09:44:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87228E7719E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 09:48:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RjB6WK0e1BonkXyM1rzb2pTfxLH0vAZTTZRJAaWMzIU=; b=DM+whAkpEB+e3P8aueSu3aAPrO
-	lfDmT+Ub2mdHsG930O5vfdnFKtmc0n6p2bAOVfBsIM7DDT2+fQiW4jXT69pBnJuM3mE6cwlQdyIqR
-	wpKIQl4G5pgDZx1djn9CoSf9g6ut89FEaU1RfNyfIuMaZM2dsDpC9aFeFGGYstAmtdbonfGQOlqzu
-	jiwWhHz/++u+jzwpUjQsNPPFulaQNX5wT4uG5oO6p+zFb8j8LhkhUXPAfmvjyCB0dSwNeeUrKEQyI
-	dSvQscWot59gM6rxUYc40J7EI31LH+PDFs/ZRouvWVSeH+79tHSlIoSted4yUBWDgNIk1ZTzoY6lt
-	zrlH6vrA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=P/Vpk+fuONkvTQ0KzQxSovHrQHyHGceSyePSaTNOG1w=; b=sFHKC/+dfV8NWHv6whk2geKc4W
+	Vrfrsz5kyy/m0iKuw95T/sb6hgVNWz70jT6NUBer/qwl7Cx7C8F7PHvcaLMji64NFh+gjC1JzocYd
+	7uqgJSK/EcIfPLMEZ3374X9htpU0XsFYiKansFdBA9lIjwD8Gth6h8zQecS1Olvfig+5HFHcz+/BO
+	wc/umjShRf5ImuAs6AKXDStwpbQ51fdbeO7BQueLjGmltE6i4tw94Q3PD6HLXri4TrOZjKoYVitVz
+	8dzZ1/A7KRdcaLleF3u9Jp6UmM892Cxfk/Wk/8246PSKrWcbYV0BWIqFfPn2YCpBbTkLt6MYzwbUG
+	vSuhsjdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXGzM-00000004fyY-3kIn;
-	Mon, 13 Jan 2025 09:44:04 +0000
-Received: from out-183.mta0.migadu.com ([91.218.175.183])
+	id 1tXH3a-00000004gqt-1ESP;
+	Mon, 13 Jan 2025 09:48:26 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXGy2-00000004fdz-3qUU
+	id 1tXH2K-00000004gcY-36Jx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 09:42:44 +0000
-Message-ID: <f1062d1c-f39d-4c9e-9b50-f6ae0bcf27d5@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1736761355;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=RjB6WK0e1BonkXyM1rzb2pTfxLH0vAZTTZRJAaWMzIU=;
-	b=FSvBoOR/2lGsPOrxt2XCfKh4xJt4s9aq0Soaqo+ujJeGo1zgsSoFjz/dbxC0X6Wt6Wzm1h
-	gUnPg9mGmD2dnliNDp+r/yXxQpGllafOGvKp2C9uQVepdcAO9uVnIchrJHbE1UMid6zH6e
-	feKvgHJ/zRi0H+1a5Gyl3/QcoKX+jIY=
-Date: Mon, 13 Jan 2025 17:41:41 +0800
+	Mon, 13 Jan 2025 09:47:09 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4361c705434so28547055e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 01:47:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1736761626; x=1737366426; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=P/Vpk+fuONkvTQ0KzQxSovHrQHyHGceSyePSaTNOG1w=;
+        b=R9800ez42EbjVyhazVojqRU43to6ipnliAZoTcI0gzAwLXrK/vuYD12OAuYta8VWnm
+         4GOa5dYlfV9lLepc68PSY6PRO1sOHJ8OK0krjj9aik8wirDswp/9TKDq5/sYUeBRNyso
+         xdqxXSg7UBuvIl1HxqkdShOWP+cOqA58MEM0hre23dzj5dle7LjgiNS7GrnPX+QvpzcI
+         AiyHhfN8w0GzP5miGwfR0cBp1Ngm+pkHT+V5kg8WlZh9QVpyUweYbH4H2xs9IsREmAJ0
+         0Bx60tl0L9hxWS4oAnTdedlKd1X25WbD3MHe2PBo2ZNJVZxNGCVyFI+IlFHojnk9n3cE
+         eprw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736761626; x=1737366426;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=P/Vpk+fuONkvTQ0KzQxSovHrQHyHGceSyePSaTNOG1w=;
+        b=DWvKZfi6bASfx84eljLnYbCrEO1nY8wrru4NjJOoWoYpf2fqfa+FUIxTVcVad9pg4K
+         gC/XSz7h2pMWvX4oBxwQCISPTs0V2xaUiVXScMna2L+phV8ludjwXx6RU+NO/kCtXoQV
+         RLe1Kv8UFCiyO44lO8MQvisNzOTExOCsjlRkiVAIUaJoMknsGpLrV6WBjX69yR62wmRd
+         XLVl6UabSgJElfMLpy2lxWehYFlU7hBS76AN9ZJmapnnIf7erXw4zyMvedESTY2C8o36
+         amGBcbMbtFf0sTsQ/Ua1KYWW9yma4qca174ePpxoiDlZh1Szm34ScIph6zdfar2pHg4N
+         unVQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVZtDX7X1P+xaTxgnzXSXUSO59ju41145GRKHZKahiuSskWhesFGMqKyKtV2lagGpi2hld/f3y4KLkZt6ALBkG0@lists.infradead.org
+X-Gm-Message-State: AOJu0YyHFV0dxZvLe43ddJOpphCXWCGdafullgKygD7sJnuwSUDAv3Eo
+	+AvgX1aneko/isfrrTbvUdeOSXBF9+YulWbRcZQkazC3QcMhstJ3
+X-Gm-Gg: ASbGncsfbPAaj4Gk7lXg8SBF1QyjW2cCb4BX/wZSItjmVQAyjjwR0DIH7NOxlasOiKe
+	Irj4iN2SIgK+YE29uIlvcTxeHVSiDE8wIM1DmQuDYCChUO+NtKVykGz6/+8ce2M3lfc0Ne6Ns6J
+	z5NHojSLCYenR9UAHTrGh6qgGXOt0IZWI+RRWjlVl+bCfi/HoC3CDxZi446xnjUEsp5djzczeja
+	WPIsEU59vBkvABXqQoo5EVM3tjw48iGNp7VyZKKhj3lqoOLGIdurbdmPdFf6xI051iAd8GS
+X-Google-Smtp-Source: AGHT+IHP5Bm+4RrlbE63eSMQZv1afGLq2XBlbRHRzKAffDpxJbpr/cFucD7iCpIjpeVScKlPbLduCA==
+X-Received: by 2002:a05:6000:18ab:b0:385:f349:ffe7 with SMTP id ffacd0b85a97d-38a872f6d5fmr17550961f8f.2.1736761625584;
+        Mon, 13 Jan 2025 01:47:05 -0800 (PST)
+Received: from eichest-laptop.toradex.int ([2a02:168:af72:0:a5a1:302a:fcf7:c337])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a8e4b80besm11472257f8f.83.2025.01.13.01.47.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jan 2025 01:47:05 -0800 (PST)
+From: Stefan Eichenberger <eichest@gmail.com>
+To: abelvesa@kernel.org,
+	peng.fan@nxp.com,
+	mturquette@baylibre.com,
+	sboyd@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	shengjiu.wang@nxp.com,
+	francesco.dolcini@toradex.com
+Cc: linux-clk@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Stefan Eichenberger <stefan.eichenberger@toradex.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v1] clk: imx: imx8-acm: fix flags for acm clocks
+Date: Mon, 13 Jan 2025 10:46:08 +0100
+Message-ID: <20250113094654.12998-1-eichest@gmail.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Subject: Re: [PATCH net-next v1 1/3] net: stmmac: Switch to zero-copy in
- non-XDP RX path
-To: Furong Xu <0x1207@gmail.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com
-References: <cover.1736500685.git.0x1207@gmail.com>
- <600c76e88b6510f6a4635401ec1e224b3bbb76ec.1736500685.git.0x1207@gmail.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Yanteng Si <si.yanteng@linux.dev>
-In-Reply-To: <600c76e88b6510f6a4635401ec1e224b3bbb76ec.1736500685.git.0x1207@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_014243_241781_24434AFA 
-X-CRM114-Status: GOOD (  18.63  )
+X-CRM114-CacheID: sfid-20250113_014708_775482_728D7E2D 
+X-CRM114-Status: GOOD (  16.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,96 +106,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-在 2025/1/10 17:53, Furong Xu 写道:
-> Avoid memcpy in non-XDP RX path by marking all allocated SKBs to
-> be recycled in the upper network stack.
-> 
-> This patch brings ~11.5% driver performance improvement in a TCP RX
-> throughput test with iPerf tool on a single isolated Cortex-A65 CPU
-> core, from 2.18 Gbits/sec increased to 2.43 Gbits/sec.
-> 
-> Signed-off-by: Furong Xu <0x1207@gmail.com>
-> ---
->   drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  1 +
->   .../net/ethernet/stmicro/stmmac/stmmac_main.c | 23 +++++++++++--------
->   2 files changed, 15 insertions(+), 9 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-> index 548b28fed9b6..5c39292313de 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-> @@ -126,6 +126,7 @@ struct stmmac_rx_queue {
->   	unsigned int cur_rx;
->   	unsigned int dirty_rx;
->   	unsigned int buf_alloc_num;
-> +	unsigned int napi_skb_frag_size;
->   	dma_addr_t dma_rx_phy;
->   	u32 rx_tail_addr;
->   	unsigned int state_saved;
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 038df1b2bb58..43125a6f8f6b 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -1320,7 +1320,7 @@ static unsigned int stmmac_rx_offset(struct stmmac_priv *priv)
->   	if (stmmac_xdp_is_enabled(priv))
->   		return XDP_PACKET_HEADROOM;
->   
-> -	return 0;
-> +	return NET_SKB_PAD;
->   }
->   
->   static int stmmac_set_bfsize(int mtu, int bufsize)
-> @@ -2019,17 +2019,21 @@ static int __alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
->   	struct stmmac_channel *ch = &priv->channel[queue];
->   	bool xdp_prog = stmmac_xdp_is_enabled(priv);
->   	struct page_pool_params pp_params = { 0 };
-> -	unsigned int num_pages;
-> +	unsigned int dma_buf_sz_pad, num_pages;
->   	unsigned int napi_id;
->   	int ret;
->   
-> +	dma_buf_sz_pad = stmmac_rx_offset(priv) + dma_conf->dma_buf_sz +
-> +			 SKB_DATA_ALIGN(sizeof(struct skb_shared_info));
-> +	num_pages = DIV_ROUND_UP(dma_buf_sz_pad, PAGE_SIZE);
-> +
->   	rx_q->queue_index = queue;
->   	rx_q->priv_data = priv;
-> +	rx_q->napi_skb_frag_size = num_pages * PAGE_SIZE;
->   
->   	pp_params.flags = PP_FLAG_DMA_MAP | PP_FLAG_DMA_SYNC_DEV;
->   	pp_params.pool_size = dma_conf->dma_rx_size;
-> -	num_pages = DIV_ROUND_UP(dma_conf->dma_buf_sz, PAGE_SIZE);
-> -	pp_params.order = ilog2(num_pages);
-> +	pp_params.order = order_base_2(num_pages);
->   	pp_params.nid = dev_to_node(priv->device);
->   	pp_params.dev = priv->device;
->   	pp_params.dma_dir = xdp_prog ? DMA_BIDIRECTIONAL : DMA_FROM_DEVICE;
-> @@ -5574,19 +5578,20 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
->   			/* XDP program may expand or reduce tail */
->   			buf1_len = ctx.xdp.data_end - ctx.xdp.data;
->   
-> -			skb = napi_alloc_skb(&ch->rx_napi, buf1_len);
-> +			skb = napi_build_skb(page_address(buf->page),
-> +					     rx_q->napi_skb_frag_size);
->   			if (!skb) {
-> +				page_pool_recycle_direct(rx_q->page_pool,
-> +							 buf->page);
->   				rx_dropped++;
->   				count++;
->   				goto drain_data;
->   			}
->   
->   			/* XDP program may adjust header */
-> -			skb_copy_to_linear_data(skb, ctx.xdp.data, buf1_len);
-> +			skb_reserve(skb, ctx.xdp.data - ctx.xdp.data_hard_start);
-The network subsystem still requires that the length
-of each line of code should not exceed 80 characters.
-So let's silence the warning:
+From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
 
-WARNING: line length of 81 exceeds 80 columns
-#87: FILE: drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:5592:
-+			skb_reserve(skb, ctx.xdp.data - ctx.xdp.data_hard_start);
+Currently, the flags for the ACM clocks are set to 0. This configuration
+causes the fsl-sai audio driver to fail when attempting to set the
+sysclk, returning an EINVAL error. The following error messages
+highlight the issue:
+fsl-sai 59090000.sai: ASoC: error at snd_soc_dai_set_sysclk on 59090000.sai: -22
+imx-hdmi sound-hdmi: failed to set cpu sysclk: -22
 
-Thanks,
-Yanteng
+By setting the flag CLK_SET_RATE_NO_REPARENT, we signal that the ACM
+driver does not support reparenting and instead relies on the clock tree
+as defined in the device tree. This change resolves the issue with the
+fsl-sai audio driver.
+
+CC: stable@vger.kernel.org
+Fixes: d3a0946d7ac9 ("clk: imx: imx8: add audio clock mux driver")
+Signed-off-by: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+---
+ drivers/clk/imx/clk-imx8-acm.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/clk/imx/clk-imx8-acm.c b/drivers/clk/imx/clk-imx8-acm.c
+index c169fe53a35f..f20832a17ea3 100644
+--- a/drivers/clk/imx/clk-imx8-acm.c
++++ b/drivers/clk/imx/clk-imx8-acm.c
+@@ -371,7 +371,8 @@ static int imx8_acm_clk_probe(struct platform_device *pdev)
+ 	for (i = 0; i < priv->soc_data->num_sels; i++) {
+ 		hws[sels[i].clkid] = devm_clk_hw_register_mux_parent_data_table(dev,
+ 										sels[i].name, sels[i].parents,
+-										sels[i].num_parents, 0,
++										sels[i].num_parents,
++										CLK_SET_RATE_NO_REPARENT,
+ 										base + sels[i].reg,
+ 										sels[i].shift, sels[i].width,
+ 										0, NULL, NULL);
+-- 
+2.45.2
+
 
