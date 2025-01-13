@@ -4,81 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4EA9C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 19:44:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D864C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 19:45:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=gOdpesMW14UW+7iRsA7yLZUvOjrorEdcd4iGXZtQ6ys=; b=jLmu5A/QsfMOw4
-	oSgqSWsQiLvqd/btiU3qkZjtL6usVuQCJS9jIJEspEdbs9uKZ60H4F3D0mNEK4+2kqOTTkQt1Pp2U
-	CEedwmQRk70i81v4QhcqStpxOVrq1g/SbkNqnFx7GZqTiJFCpce2DpUnCPRWDCpHY7zNbVQkUvr60
-	znOr8wvR4rKIv1J5tcqFScD+iYp2WeK2ThbhSgWVKORywLU+MC6F7egVBd49dUQOJFN6xqSNuKlpc
-	Q6fBEYFkAko9tZa95gzWLHlVPog6hh9Bic7YXgBTxzYGo4LcqmWnDMZRnVTz8WXBWvR6sTovSqTSy
-	6oDk0OViyK3YgBZCQnBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/rjWWyywyHLKDMYuI2ahh5YT8tgxFksz90V6c+HpW8o=; b=dI6QMxlRlV/Gr7Lmga6bQUdsMn
+	6SZonlMsRqDxdhpGs+3ui83P1I2bISt+StVassw51q0X24zSFd2XhscfPaQY7Wel8CyyS8Iv16k7g
+	fpJgfwBZo3nHd3CSe/UplWlFPDzhSOcVIWNI4GCElzQSq7K2Ut2BQo2+9ybhATBScLFiUZxBuP3WG
+	hQuF+TzQ4H5Bc71VFHS6YrOCssJ2v+xftL2E1PgmAfjiZo7AQGfMJnJecqk/CL+Wq3VFLSPOD5xL8
+	4h7T92tL2J1grgP4RouZrCIbwYkJ3iZ2HlOc86p5pccvqfSjPVL+hDAgZhk1bwMn36ERPkk2KjffL
+	3Q8KFbGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXQM4-00000006Qtw-1eh5;
-	Mon, 13 Jan 2025 19:44:08 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1tXQNH-00000006R6w-0OEB;
+	Mon, 13 Jan 2025 19:45:23 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXQF1-00000006Phf-3fsq
+	id 1tXQGL-00000006Q92-0dCl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 19:36:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1736797012; x=1768333012;
-  h=from:subject:date:message-id:mime-version:
-   content-transfer-encoding:to:cc;
-  bh=ZBgcmgeXhqAq+4It4G7OLJFKW5gmvl7N+d8m/V4d8qg=;
-  b=Ufr3NXF03Cv6J0ZzyRvYu8xD41/o2rM8FZEore0ajj50F3gFBU7baRHy
-   XmHsR5t/8giEF9DG7IzGzfP68QrGfzdbLwmO2DWbXbEgnR1JLxjmqssXo
-   EJHxIgYPYr6J50XedjS9Yxn2lke2PK88beRgs2A2egvp9EXgTmvTZFDNA
-   PanOoN8Ig9TUhTNm0aRAmr+92ARrBNL3AVvEfggxKHO79uOS8JT3S4Hv4
-   D4Q14SEdq3PttuWnBXaIXJeyXiFyGSYwzo/uRm4XbvEImiCd6+jUHrf9z
-   QficYrrL9SkkYPA5Tu0iIWvqrhrgRHhiIabnt67ToeIS3uB/r6TAe4m2B
-   w==;
-X-CSE-ConnectionGUID: 4DuCEr1pTqyIbpjtrGnA+g==
-X-CSE-MsgGUID: 7KULwLI4Qqa/5V2pjNyVxg==
-X-IronPort-AV: E=Sophos;i="6.12,312,1728975600"; 
-   d="scan'208";a="267757600"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 13 Jan 2025 12:36:51 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Mon, 13 Jan 2025 12:36:19 -0700
-Received: from DEN-DL-M70577.microchip.com (10.10.85.11) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.35 via Frontend Transport; Mon, 13 Jan 2025 12:36:16 -0700
-From: Daniel Machon <daniel.machon@microchip.com>
-Subject: [PATCH net-next v2 0/5] net: lan969x: add FDMA support
-Date: Mon, 13 Jan 2025 20:36:04 +0100
-Message-ID: <20250113-sparx5-lan969x-switch-driver-5-v2-0-c468f02fd623@microchip.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIACRrhWcC/4WOwQ6CMBBEf8Xs2TUUaAOe/A/DoZTVbiKFbAliC
- P9uId49TiZv3qwQSZgiXE8rCM0ceQgp5OcTOG/Dk5C7lCHPcp2pzGAcrSwaXzbUpl4wvnlyHjv
- hmQQ16tyWhlyry6qCNDIKPXg5BHcINGGgZYImNa2NhK3Y4Pwu6C2HHfAcp0E+x6FZHdjPXf9zz
- wozVEVnuqrUikxx69nJ4DyPFzf00Gzb9gWMCa0v8QAAAA==
-To: "David S. Miller" <davem@davemloft.net>, Eric Dumazet
-	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, Lars Povlsen <lars.povlsen@microchip.com>, "Steen
- Hegelund" <Steen.Hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	<jensemil.schulzostergaard@microchip.com>, <horatiu.vultur@microchip.com>,
-	<jacob.e.keller@intel.com>
-CC: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-X-Mailer: b4 0.14-dev
+	Mon, 13 Jan 2025 19:38:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 212D4A41340;
+	Mon, 13 Jan 2025 19:36:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDA9AC4CEE1;
+	Mon, 13 Jan 2025 19:38:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736797092;
+	bh=yDf65y7+IH8PA/+JZhqUXTr3IxuryhUAx9rLn3yyULs=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=mYmJ9Ai9JhKhbnL/24T8j29IHGHpFxP7mY+XRsEHVBJu++4+QAEE05xDeaQ0loZUH
+	 uI9f//3bbpxPTDmCqxr8uK1bsOeR84DIBfnfN314ou1gekXcm4sWwtM8IoL1N9owcO
+	 uYNOxhB4CMZQndJw7LPUNF3sjdk3UrS69dt9otVHmnzFz66RM27r5QwFGcDyVkSFe5
+	 qfh4TD/mPUmFZ3N1TK4/VhH3sEE84uIZjQv4/qGrhfUtTD6xplhEQJi2rG2n4E+wu6
+	 4bmcAAje2IIvRAwPdYo90ZHDMB1+pS1ASzL73O2f2C+D4HdK0TjfHizjClScKO7qfz
+	 257t6nkLTBD/w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tXQGH-00Bltd-Ms;
+	Mon, 13 Jan 2025 19:38:09 +0000
+Date: Mon, 13 Jan 2025 19:38:08 +0000
+Message-ID: <87bjwaqzbz.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/5] KVM: Add a common kvm_run flag to communicate an exit needs completion
+In-Reply-To: <Z4ViZb7rruRiN-Oe@google.com>
+References: <20250111012450.1262638-1-seanjc@google.com>
+	<20250111012450.1262638-4-seanjc@google.com>
+	<87ikqlr4vo.wl-maz@kernel.org>
+	<Z4U03KRYy2DVEgJR@google.com>
+	<86ikqiwq7y.wl-maz@kernel.org>
+	<Z4ViZb7rruRiN-Oe@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: seanjc@google.com, pbonzini@redhat.com, oliver.upton@linux.dev, mpe@ellerman.id.au, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_113651_928354_5F8819B4 
-X-CRM114-Status: GOOD (  16.09  )
+X-CRM114-CacheID: sfid-20250113_113813_313278_7F9CB2B4 
+X-CRM114-Status: GOOD (  46.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,84 +94,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-== Description:
+On Mon, 13 Jan 2025 18:58:45 +0000,
+Sean Christopherson <seanjc@google.com> wrote:
+> 
+> On Mon, Jan 13, 2025, Marc Zyngier wrote:
+> > On Mon, 13 Jan 2025 15:44:28 +0000,
+> > Sean Christopherson <seanjc@google.com> wrote:
+> > > 
+> > > On Sat, Jan 11, 2025, Marc Zyngier wrote:
+> > > > On Sat, 11 Jan 2025 01:24:48 +0000,
+> > > > Sean Christopherson <seanjc@google.com> wrote:
+> > > > > 
+> > > > > Add a kvm_run flag, KVM_RUN_NEEDS_COMPLETION, to communicate to userspace
+> > > > > that KVM_RUN needs to be re-executed prior to save/restore in order to
+> > > > > complete the instruction/operation that triggered the userspace exit.
+> > > > > 
+> > > > > KVM's current approach of adding notes in the Documentation is beyond
+> > > > > brittle, e.g. there is at least one known case where a KVM developer added
+> > > > > a new userspace exit type, and then that same developer forgot to handle
+> > > > > completion when adding userspace support.
+> > > > 
+> > > > Is this going to fix anything? If they couldn't be bothered to read
+> > > > the documentation, let alone update it, how is that going to be
+> > > > improved by extra rules and regulations?
+> > > > 
+> > > > I don't see how someone ignoring the documented behaviour of a given
+> > > > exit reason is, all of a sudden, have an epiphany and take a *new*
+> > > > flag into account.
+> > > 
+> > > The idea is to reduce the probability of introducing bugs, in KVM or userspace,
+> > > every time KVM attaches a completion callback.  Yes, userspace would need to be
+> > > updated to handle KVM_RUN_NEEDS_COMPLETION, but once that flag is merged, neither
+> > > KVM's documentation nor userspace would never need to be updated again.  And if
+> > > all architectures took an approach of handling completion via function callback,
+> > > I'm pretty sure we'd never need to manually update KVM itself either.
+> > 
+> > You are assuming that we need this completion, and I dispute this
+> > assertion.
+> 
+> Ah, gotcha.
+> 
+> > > > > +The pending state of the operation for such exits is not preserved in state
+> > > > > +which is visible to userspace, thus userspace should ensure that the operation
+> > > > > +is completed before performing state save/restore, e.g. for live migration.
+> > > > > +Userspace can re-enter the guest with an unmasked signal pending or with the
+> > > > > +immediate_exit field set to complete pending operations without allowing any
+> > > > > +further instructions to be executed.
+> > > > > +
+> > > > > +Without KVM_CAP_NEEDS_COMPLETION, KVM_RUN_NEEDS_COMPLETION will never be set
+> > > > > +and userspace must assume that exits of type KVM_EXIT_IO, KVM_EXIT_MMIO,
+> > > > > +KVM_EXIT_OSI, KVM_EXIT_PAPR, KVM_EXIT_XEN, KVM_EXIT_EPR, KVM_EXIT_X86_RDMSR,
+> > > > > +KVM_EXIT_X86_WRMSR, and KVM_EXIT_HYPERCALL require completion.
+> > > > 
+> > > > So once you advertise KVM_CAP_NEEDS_COMPLETION, the completion flag
+> > > > must be present for all of these exits, right? And from what I can
+> > > > tell, this capability is unconditionally advertised.
+> > > > 
+> > > > Yet, you don't amend arm64 to publish that flag. Not that I think this
+> > > > causes any issue (even if you save the state at that point without
+> > > > reentering the guest, it will be still be consistent), but that
+> > > > directly contradicts the documentation (isn't that ironic? ;-).
+> > > 
+> > > It does cause issues, I missed this code in kvm_arch_vcpu_ioctl_run():
+> > > 
+> > > 	if (run->exit_reason == KVM_EXIT_MMIO) {
+> > > 		ret = kvm_handle_mmio_return(vcpu);
+> > > 		if (ret <= 0)
+> > > 			return ret;
+> > > 	}
+> > 
+> > That's satisfying a load from the guest forwarded to userspace.
+> 
+> And MMIO stores, no?  I.e. PC needs to be incremented on stores as well.
 
-This series is the last of a multi-part series, that prepares and adds
-support for the new lan969x switch driver.
+Yes, *after* the store as completed. If you replay the instruction,
+the same store comes out.
 
-The upstreaming efforts has been split into multiple series:
+>
+> > If the VMM did a save of the guest at this stage, restored and resumed it,
+> > *nothing* bad would happen, as PC still points to the instruction that got
+> > forwarded. You'll see the same load again.
+> 
+> But replaying an MMIO store could cause all kinds of problems, and even MMIO
+> loads could theoretically be problematic, e.g. if there are side effects in the
+> device that trigger on access to a device register.
 
-        1) Prepare the Sparx5 driver for lan969x (merged)
+But that's the VMM's problem. If it has modified its own state and
+doesn't return to the guest to complete the instruction, that's just
+as bad as a load, which *do* have side effects as well.
 
-        2) Add support for lan969x (same basic features as Sparx5
-           provides excl. FDMA and VCAP, merged).
+Overall, the guest state exposed by KVM is always correct, and
+replaying the instruction is not going to change that. It is if the
+VMM is broken that things turn ugly *for the VMM itself*, and I claim
+that no amount of flag being added is going to help that.
 
-        3) Add lan969x VCAP functionality (merged).
+	M.
 
-        4) Add RGMII support (merged).
-
-    --> 5) Add FDMA support.
-
-== FDMA support:
-
-The lan969x switch device uses the same FDMA engine as the Sparx5 switch
-device, with the same number of channels etc. This means we can utilize
-the newly added FDMA library, that is already in use by the lan966x and
-sparx5 drivers.
-
-As previous lan969x series, the FDMA implementation will hook into the
-Sparx5 implementation where possible, however both RX and TX handling
-will be done differently on lan969x and therefore requires a separate
-implementation of the RX and TX path.
-
-Details are in the commit description of the individual patches
-
-== Patch breakdown:
-
-Patch #1: Enable FDMA support on lan969x
-Patch #2: Split start()/stop() functions
-Patch #3: Activate TX FDMA in start()
-Patch #4: Ops out a few functions that differ on the two platforms
-Patch #5: Add FDMA implementation for lan969x
-
-Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
----
-Changes in v2:
-- Dropped patch 4/6. Added a conditional check in 5/5 instead. This
-  check makes sure SKB's are not freed in xmit() on lan969x, but rather
-  the TX completion loop.
-
-- Added 'struct net_device' to xmit() prototypes.
-
-- Removed duplicate dcb_reload in NAPI poll loop 
-
-- Link to v1:
-  https://lore.kernel.org/r/20250109-sparx5-lan969x-switch-driver-5-v1-0-13d6d8451e63@microchip.com
-
----
-Daniel Machon (5):
-      net: sparx5: enable FDMA on lan969x
-      net: sparx5: split sparx5_fdma_{start(),stop()}
-      net: sparx5: activate FDMA tx in start()
-      net: sparx5: ops out certain FDMA functions
-      net: lan969x: add FDMA implementation
-
- drivers/net/ethernet/microchip/sparx5/Kconfig      |   1 +
- drivers/net/ethernet/microchip/sparx5/Makefile     |   3 +-
- .../ethernet/microchip/sparx5/lan969x/lan969x.c    |   4 +
- .../ethernet/microchip/sparx5/lan969x/lan969x.h    |   7 +
- .../microchip/sparx5/lan969x/lan969x_fdma.c        | 406 +++++++++++++++++++++
- .../net/ethernet/microchip/sparx5/sparx5_fdma.c    |  68 ++--
- .../net/ethernet/microchip/sparx5/sparx5_main.c    |  19 +-
- .../net/ethernet/microchip/sparx5/sparx5_main.h    |  32 +-
- .../net/ethernet/microchip/sparx5/sparx5_packet.c  |  11 +-
- 9 files changed, 518 insertions(+), 33 deletions(-)
----
-base-commit: 7d0da8f862340c5f42f0062b8560b8d0971a6ac4
-change-id: 20250106-sparx5-lan969x-switch-driver-5-52a46ecb5488
-
-Best regards,
 -- 
-Daniel Machon <daniel.machon@microchip.com>
-
+Without deviation from the norm, progress is not possible.
 
