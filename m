@@ -4,71 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6760CE7719E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 10:30:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED922E7719E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 10:32:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7SY9dzjKuFYaWIhOmfp5jeHgUuobuUgczbpetRcCZ/E=; b=QcmJD5Slg8ThHllMWQUoUyferD
-	VaHfbaf6EAjhAZ39/bzGljnohuh8gmvXCF06cjS6ncNC4PXk5zBZdZum7WIlH6zJAW8moQaNkOcOt
-	UjQtWSN9Tuy5jCgUsAxMSsLLxLbYgtoZigPQyFaC1WHf+wytcTunElfnayq1uDFZxfaHJA5vEPO+4
-	3XOUpcAw/zAqqOaROo9207lZVEJuq6yPWry/GUAh2Dur+ScRtc5HbfLTjT9PJGXPy9OHBnFyA5Vrs
-	Ej55lt7Z1M3szumVDQB16wl6c3Nm2lnzx2tcVg/m/87FzEWd/Yj6BdYLl+fAhQpH3DljAKtpCBowl
-	mMwAGlAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AUjut5G7ewo0W3DwgvTi4atJ8dPOpW5TupiydsaLSXg=; b=a6Qli/wrYWgpPIkMPmEDfkRFjy
+	YFnwplBvGbwAAAyRyTsyii0BlFBSeYGkY1wLMnGW3LiGErnwcEFk0pGb1SjbQoFH50zJVojFqrJoI
+	zf9sCg9t5JumwChhIdxmYOPZ4OlwAfajvEooMbSZHi6zKxyfEF3dI/K4KU35IJF5DsWsH2LhmcpML
+	CpE0Q9Di/Mk7j8WuLbr59+Po7kct2AJaZqA/btLhtC558gBeTFguNWOzGxN+MhhFuj7RDUCTUt2UL
+	O0xBIgQ3rdlTEY2of7MS4WDIP8pbgHcOaWc9WaSeMrM0uOV5gAocAJlVJrRZbeNobmqNgXqpxo96k
+	lupT6kpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXHiD-00000004nAX-1wj6;
-	Mon, 13 Jan 2025 10:30:25 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXHg4-00000004mjt-3ElR;
-	Mon, 13 Jan 2025 10:28:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 99B7AA40DAC;
-	Mon, 13 Jan 2025 10:26:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEADDC4CED6;
-	Mon, 13 Jan 2025 10:28:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736764091;
-	bh=YjPRYyKxFWfwBGyFIc8FXbd9BDk5/XxDt0/Kay6MfyM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=k46+ZMIP6SHUP2Fkk1BFOsyeCxNX7n2Tbjur95ZFq5q2DbYzf7Sq7EDdqsA8gxEw5
-	 570kJOPmVAKjtq8E9Y0dQK+N6RUIYBoAPh1pf8BclgS2AoQSKlvcj6V+7UmQC7mIvC
-	 d5tqvfmtzqkpnwC1+bmRQXvrRUAgd99KDExOArPK3jp+uz2O4kmquwgbeLJQpflqNN
-	 lAaxMVXiDX/VqfFItKZm0K1OR1kNR9F6xwBYmpfQKxM9JI+JctSA9RMh/y5e2JNAqS
-	 g/K7zuvMLn60B2XgLZ2+GjAoNBJ7fDdNtAb9EFajN/cChTAQ2P4+8MBXv3SsExmI/6
-	 VH9T+9u0N03Cg==
-From: Niklas Cassel <cassel@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Damien Le Moal <dlemoal@kernel.org>,
-	Siddharth Vadapalli <s-vadapalli@ti.com>,
-	Udit Kumar <u-kumar1@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Niklas Cassel <cassel@kernel.org>,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: [PATCH v3 6/6] PCI: dw-rockchip: Describe resizable BARs as resizable BARs
-Date: Mon, 13 Jan 2025 11:27:37 +0100
-Message-ID: <20250113102730.1700963-14-cassel@kernel.org>
-X-Mailer: git-send-email 2.47.1
-In-Reply-To: <20250113102730.1700963-8-cassel@kernel.org>
-References: <20250113102730.1700963-8-cassel@kernel.org>
+	id 1tXHkR-00000004nX2-2AkI;
+	Mon, 13 Jan 2025 10:32:43 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tXHjD-00000004nNL-2sJ6
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Jan 2025 10:31:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9CB371424;
+	Mon, 13 Jan 2025 02:31:53 -0800 (PST)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C5B243F66E;
+	Mon, 13 Jan 2025 02:31:23 -0800 (PST)
+Date: Mon, 13 Jan 2025 10:31:21 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: <cristian.marussi@arm.com>, <ulf.hansson@linaro.org>,
+	Sudeep Holla <sudeep.holla@arm.com>, <arm-scmi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <ranjani.vaidyanathan@nxp.com>,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH] pmdomain: arm: scmi_pm_domain: Initialize state as off
+Message-ID: <Z4TreQ5bA9qiMTgC@bogus>
+References: <20250110061346.2440772-1-peng.fan@oss.nxp.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2520; i=cassel@kernel.org; h=from:subject; bh=YjPRYyKxFWfwBGyFIc8FXbd9BDk5/XxDt0/Kay6MfyM=; b=owGbwMvMwCV2MsVw8cxjvkWMp9WSGNJbXs08/n9iHc+0po1bBV95XOt7xmsjf82T498kUZ67P 91vNnQs7ihlYRDjYpAVU2Tx/eGyv7jbfcpxxTs2MHNYmUCGMHBxCsBE7GMY/kpNM51z/fnWH8tX b7Xh0/42q2HXBuZbPxdmfDMJZlx2vlGE4X9Z2e8H766k1KS8PhzEVXg+4ctaAwNWl2L7hMSNJ9o X/eEBAA==
-X-Developer-Key: i=cassel@kernel.org; a=openpgp; fpr=5ADE635C0E631CBBD5BE065A352FE6582ED9B5DA
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250110061346.2440772-1-peng.fan@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_022812_945026_1D0E67B1 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20250113_023127_763978_E475D58D 
+X-CRM114-Status: GOOD (  10.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,64 +65,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Looking at "11.4.4.29 USP_PCIE_RESBAR Registers Summary" in the rk3588 TRM,
-we can see that none of the BARs are Fixed BARs, but actually Resizable
-BARs.
+On Fri, Jan 10, 2025 at 02:13:46PM +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
+> 
+> Per ARM SCMI Spec DEN0056E, page 16, "The platform may disable a resource
+> if no agent has requested to use that resource."
+>
 
-I couldn't find any reference in the rk3568 TRM, but looking at the
-downstream PCIe endpoint driver, rk3568 and rk3588 are treated as the same,
-so the BARs on rk3568 must also be Resizable BARs.
+True, but ...
 
-Now when we actually have support for Resizable BARs, let's configure
-these BARs as such.
+> Linux Kernel should not rely on a state that it has not requested, so
+> make state as off during initialization.
+>
 
-Signed-off-by: Niklas Cassel <cassel@kernel.org>
----
- drivers/pci/controller/dwc/pcie-dw-rockchip.c | 22 +++++++++----------
- 1 file changed, 11 insertions(+), 11 deletions(-)
+IIUC, this was done to avoid any transitions if the bootloader like U-Boot
+has turned on the resource and OS can just rely on that stay. Anyways if
+the resource is not used by any driver/device in the kernel, won't it be
+turned off anyways ? What am I missing ?
 
-diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index ce4b511bff9b..6a307a961756 100644
---- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-+++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-@@ -273,12 +273,12 @@ static const struct pci_epc_features rockchip_pcie_epc_features_rk3568 = {
- 	.msi_capable = true,
- 	.msix_capable = true,
- 	.align = SZ_64K,
--	.bar[BAR_0] = { .type = BAR_FIXED, .fixed_size = SZ_1M, },
--	.bar[BAR_1] = { .type = BAR_FIXED, .fixed_size = SZ_1M, },
--	.bar[BAR_2] = { .type = BAR_FIXED, .fixed_size = SZ_1M, },
--	.bar[BAR_3] = { .type = BAR_FIXED, .fixed_size = SZ_1M, },
--	.bar[BAR_4] = { .type = BAR_FIXED, .fixed_size = SZ_1M, },
--	.bar[BAR_5] = { .type = BAR_FIXED, .fixed_size = SZ_1M, },
-+	.bar[BAR_0] = { .type = BAR_RESIZABLE, },
-+	.bar[BAR_1] = { .type = BAR_RESIZABLE, },
-+	.bar[BAR_2] = { .type = BAR_RESIZABLE, },
-+	.bar[BAR_3] = { .type = BAR_RESIZABLE, },
-+	.bar[BAR_4] = { .type = BAR_RESIZABLE, },
-+	.bar[BAR_5] = { .type = BAR_RESIZABLE, },
- };
- 
- /*
-@@ -293,12 +293,12 @@ static const struct pci_epc_features rockchip_pcie_epc_features_rk3588 = {
- 	.msi_capable = true,
- 	.msix_capable = true,
- 	.align = SZ_64K,
--	.bar[BAR_0] = { .type = BAR_FIXED, .fixed_size = SZ_1M, },
--	.bar[BAR_1] = { .type = BAR_FIXED, .fixed_size = SZ_1M, },
--	.bar[BAR_2] = { .type = BAR_FIXED, .fixed_size = SZ_1M, },
--	.bar[BAR_3] = { .type = BAR_FIXED, .fixed_size = SZ_1M, },
-+	.bar[BAR_0] = { .type = BAR_RESIZABLE, },
-+	.bar[BAR_1] = { .type = BAR_RESIZABLE, },
-+	.bar[BAR_2] = { .type = BAR_RESIZABLE, },
-+	.bar[BAR_3] = { .type = BAR_RESIZABLE, },
- 	.bar[BAR_4] = { .type = BAR_RESERVED, },
--	.bar[BAR_5] = { .type = BAR_FIXED, .fixed_size = SZ_1M, },
-+	.bar[BAR_5] = { .type = BAR_RESIZABLE, },
- };
- 
- static const struct pci_epc_features *
--- 
-2.47.1
+I need to dig details, but I remember doing what this patch does and
+reverting to what we have based on the feedback IIRC.
 
+--
+Regards,
+Sudeep
 
