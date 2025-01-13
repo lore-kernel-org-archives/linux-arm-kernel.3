@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10315C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 22:32:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA713C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 22:33:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q5TzoVcyPY2HpEvaUSecM6HAUO6Mvunepsp/be+mQjE=; b=GQcGaoMiHcNzAxUHRlZq8h+ui8
-	oMkSQPuRgdYeBfWj/kJevPh+fI1ZzdTDjKwQdvVcBnKwA5Y0KCYqTV7SC/zuvbT0mVTyTVDq6X3Nm
-	Yfl3cBXCTu3PEKQVrvgQy00LbFzTYNPHjR6qyg+B56cEwv+3BhpyVpLf/Ue2S3qUk8vJV9VCecXtl
-	mTBxzBbWf5X32gilXMysN0ZfU3tIiiBu80I+H0I/tkj15fIoKf55B84aiF73mvM46xaiJzU//hoMS
-	Cx2+MYbFvBJuzqWfpx/JCZGjU4cUGg0EqcHP0TpcoQSQ8oXvEW0KYVbdBiXVoJ3HDj68in5IQ1GqH
-	ro9KsO4Q==;
+	bh=W8NYcl7F/GSow2VjOSizbaa+ew1YaU+CHmXQ9vQseJI=; b=ZogU3IuSamSAtHxjE64TELBbuR
+	KIU9X01ulEFzle+PN40XwKG002PbYM1yvTH2ovKkDZzlGTb75h97uoyk30sLNMNParYhfGXzXXl/3
+	YkVaOOggQhVFBxZLADWjg/OPTw9fxTeEHTsl28NBevj9Gwt9eJWNzwCr2Q0+uOxmnKB2kpCwO9RK0
+	KpUDMsazrdtbnJBuwrt7JlGRKVkpny1eBsv/JIFxqBP+d/tngYDWePQUE2ArnPhydZylaTge1TYAP
+	Q4N1VKcfmHVk8gmOi0NiRlqItrpDr2w8IfhPvNNiv/hrYUPmmgVKmsPgWxYm8VLLcVCwnjhCicY+O
+	BgyGGAtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXSyR-00000006q0J-0xBS;
-	Mon, 13 Jan 2025 22:31:55 +0000
+	id 1tXSze-00000006qNn-03SA;
+	Mon, 13 Jan 2025 22:33:10 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXSw0-00000006pMP-27gh
+	id 1tXSw0-00000006pMR-3V3u
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 13 Jan 2025 22:29:26 +0000
 Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
 	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
 	(Exim 4.92)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tXSvv-0006tr-5e; Mon, 13 Jan 2025 23:29:19 +0100
+	id 1tXSvv-0006tt-5d; Mon, 13 Jan 2025 23:29:19 +0100
 Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
 	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tXSvu-000KaF-0j;
+	id 1tXSvu-000KaH-0o;
 	Mon, 13 Jan 2025 23:29:18 +0100
 Received: from localhost ([::1] helo=dude05.red.stw.pengutronix.de)
 	by dude05.red.stw.pengutronix.de with esmtp (Exim 4.96)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tXSvv-008syM-1H;
+	id 1tXSvv-008syM-1J;
 	Mon, 13 Jan 2025 23:29:18 +0100
 From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Date: Mon, 13 Jan 2025 23:29:05 +0100
-Subject: [PATCH 1/6] dt-bindings: arm: fsl: add more compatibles for Skov
- i.MX8MP variants
+Date: Mon, 13 Jan 2025 23:29:07 +0100
+Subject: [PATCH 3/6] arm64: dts: imx8mp-skov: move I2C2 pin control group
+ into DTSI
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250113-skov-imx8mp-new-boards-v1-1-75288def1271@pengutronix.de>
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250113-skov-imx8mp-new-boards-v1-3-75288def1271@pengutronix.de>
 References: <20250113-skov-imx8mp-new-boards-v1-0-75288def1271@pengutronix.de>
 In-Reply-To: <20250113-skov-imx8mp-new-boards-v1-0-75288def1271@pengutronix.de>
 To: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
@@ -66,9 +66,8 @@ X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_142924_539489_5C52012F 
-X-CRM114-Status: UNSURE (   9.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250113_142924_874089_2B8EBB94 
+X-CRM114-Status: GOOD (  13.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,33 +82,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Skov i.MX8MP boards are a family of climate controllers.
+I2C2 is exposed on a pin header on the base board, so its pinmux is
+always the same if it's enabled.
 
-In preparation for adding device trees for three more variants,
-describe their DT compatible in the bindings.
+Therefore, move the definition to the common DTSI, so board DTs only
+need to override the status to enable it.
 
 Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
 ---
- Documentation/devicetree/bindings/arm/fsl.yaml | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi          | 12 ++++++++++++
+ .../boot/dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts   | 11 -----------
+ 2 files changed, 12 insertions(+), 11 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
-index 3713175548637ec17561c068932123c558776435..0adc5495622ee788ac310bd8e48ef9f83b59735f 100644
---- a/Documentation/devicetree/bindings/arm/fsl.yaml
-+++ b/Documentation/devicetree/bindings/arm/fsl.yaml
-@@ -1097,9 +1097,12 @@ properties:
-               - gateworks,imx8mp-gw74xx   # i.MX8MP Gateworks Board
-               - gateworks,imx8mp-gw75xx-2x # i.MX8MP Gateworks Board
-               - gateworks,imx8mp-gw82xx-2x # i.MX8MP Gateworks Board
-+              - skov,imx8mp-skov-basic # SKOV i.MX8MP baseboard without frontplate
-               - skov,imx8mp-skov-revb-hdmi # SKOV i.MX8MP climate control without panel
-               - skov,imx8mp-skov-revb-lt6 # SKOV i.MX8MP climate control with 7” panel
-               - skov,imx8mp-skov-revb-mi1010ait-1cp1 # SKOV i.MX8MP climate control with 10.1" panel
-+              - skov,imx8mp-skov-revc-bd500 # SKOV i.MX8MP climate control with LED frontplate
-+              - skov,imx8mp-skov-revc-tian-g07017 # SKOV i.MX8MP climate control with LED frontplate
-               - toradex,verdin-imx8mp     # Verdin iMX8M Plus Modules
-               - toradex,verdin-imx8mp-nonwifi  # Verdin iMX8M Plus Modules without Wi-Fi / BT
-               - toradex,verdin-imx8mp-wifi  # Verdin iMX8M Plus Wi-Fi / BT Modules
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
+index 59813ef8e2bb3a3d5672ba1c5776cf0e45fb6862..9dca829581137bc0c3026caf7cda112b859ec092 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
+@@ -314,6 +314,11 @@ reg_nvcc_sd2: LDO5 {
+ 	};
+ };
+ 
++&i2c2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_i2c2>;
++};
++
+ &i2c3 {
+ 	clock-frequency = <100000>;
+ 	pinctrl-names = "default";
+@@ -538,6 +543,13 @@ MX8MP_IOMUXC_I2C1_SDA__I2C1_SDA				0x400001c2
+ 		>;
+ 	};
+ 
++	pinctrl_i2c2: i2c2grp {
++		fsl,pins = <
++			MX8MP_IOMUXC_I2C2_SCL__I2C2_SCL				0x400001c2
++			MX8MP_IOMUXC_I2C2_SDA__I2C2_SDA				0x400001c2
++		>;
++	};
++
+ 	pinctrl_i2c3: i2c3grp {
+ 		fsl,pins = <
+ 			MX8MP_IOMUXC_I2C3_SCL__I2C3_SCL				0x400001c2
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts b/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts
+index 2c75da5f064f2b0cd97f5040febac13c4adc020b..ba581765b52298ea26a5a63079c08f39f10e4e3b 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts
+@@ -27,8 +27,6 @@ &backlight {
+ 
+ &i2c2 {
+ 	clock-frequency = <100000>;
+-	pinctrl-names = "default";
+-	pinctrl-0 = <&pinctrl_i2c2>;
+ 	status = "okay";
+ 
+ 	touchscreen@38 {
+@@ -90,12 +88,3 @@ &reg_tft_vcom {
+ 	voltage-table = <3160000 73>;
+ 	status = "okay";
+ };
+-
+-&iomuxc {
+-	pinctrl_i2c2: i2c2grp {
+-		fsl,pins = <
+-			MX8MP_IOMUXC_I2C2_SCL__I2C2_SCL				0x400001c2
+-			MX8MP_IOMUXC_I2C2_SDA__I2C2_SDA				0x400001c2
+-		>;
+-	};
+-};
 
 -- 
 2.39.5
