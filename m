@@ -4,76 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7627CE7719F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 13:04:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B271C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 13:07:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=UKAKOw5AHSSA271RHj0PbuCadekf/r4yr8s/+3x6ls4=; b=ICzw2/t3J547PzKfiYoUQaieEd
-	yWMml7R1c33WAmsMMK1yc4fnIJZIvdwZ67+qqjzgvC8xFVbpY+exklAKr49f+rSx3Q0FFwZqkSCfZ
-	AggoOHCNBQYEGbuumHXdAp8UWv0aFBo0V0n+fkGIylBXQEhwOukA016go+4JlIvflW8Mf+HdwlAGH
-	bKJ6wepEpqDnvl7UAHuWG/jvTsH2tHYZ8w45bQeCkw+nGV48fcH6AenuUS/jpfACsaddfJhfKHK6a
-	OcQiGtdDlLm7TocskvZvIadP5ZbhEo76i/AEsUD+kPOMk8YQM8xbjF8O/pfs6Hlswys11n1jMXnML
-	f8zqQiLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kWJosQxppl/LButOmLsCXsOURqYTt3fhYwtWT4WdU2Y=; b=0+iXXW35/bkgogNNzs4CvFISbY
+	I+5J3VAeX6zeBPp3XAiwyFya4ax/aEVifY8MgvluyKPJn4aw533k4JfxBCeuzL0jZxAgCDMQp1uvH
+	aTXQfdaFoZH/l9aB+KUDUkFpN5VrZwwmSFNo2gv1vlnMWN2qWLCRQmMMddc/Cy0GDO9uEtMNPkiXl
+	AISsSc68Aj91HscqtUD6JcxOp8y328mOtxaec4VfY9dq/p8CBj4Wx1/flGG7ZGpL0bFB/0jQbgIMY
+	eip2r5PIxwcu/gHP0IuzwGUU7F/+tS8dkdqoEwx0D4/vZXVy1JtpmgiVJeIl+bsBwbwSniU++uCoP
+	IFyTYxRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXK7D-00000005B6f-2Dik;
-	Mon, 13 Jan 2025 13:04:23 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tXK9o-00000005BOR-2FIX;
+	Mon, 13 Jan 2025 13:07:04 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXK5y-00000005AyZ-0p0t;
-	Mon, 13 Jan 2025 13:03:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C4F19A40CF8;
-	Mon, 13 Jan 2025 13:01:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88652C4CEDD;
-	Mon, 13 Jan 2025 13:03:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736773384;
-	bh=gxKUzAtTDd8hl6jQZuFLEfBmWufxBWklf6Zp182WRmM=;
-	h=From:Date:Subject:To:Cc:From;
-	b=Z8VuwfbcDocbz003Zb1iXhy9oxNyb6kXolp3Vr5DUg1LJtHri7cNClnTwkwewtEpf
-	 dK/Pla2NlR8CkH7QDIPbsddNkqTE2sit3tARjh6Jj+YAoe3/9OB0KKElR1gBY4WB8k
-	 Osli3oFGAsnuGj3JdTw4wGZx+M0py6RHvmyoSXckV2UzXiJrNZyfESKkD2AVgkqGhj
-	 U9eAegX2NUzwxbjxywVbUOGGUPNHYu7MartHg7cJ74ljUCUtGU9l+ad36tLH2Wjqmv
-	 GEHcVHKl/bxO6l3f9iheWNtozZkPkWow4Rv1REAIOYi7rUKQHwoFlmg2Nj7D1oyj5i
-	 YwwYjz54hik9g==
-From: Konrad Dybcio <konradybcio@kernel.org>
-Date: Mon, 13 Jan 2025 14:02:58 +0100
-Subject: [PATCH v2] spmi: Fix controller->node != parent->node breakage
+	id 1tXK8Z-00000005BH7-3lhI
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Jan 2025 13:05:49 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43616c12d72so5667465e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 05:05:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1736773546; x=1737378346; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=kWJosQxppl/LButOmLsCXsOURqYTt3fhYwtWT4WdU2Y=;
+        b=aeOiqD63MdYtb4TSsCpt51deBUK3lH0SKDN8g9mo1q8CC0xwyWBgsixCRd9yr8tz0V
+         znajJTsYESFmqQC6yw7dRU+dxi+VMU1XlUDQrU8CW4wlt8S0pfTMy3ecIJbDSCm7q2lF
+         yfftd9eag+dJXc//Q7k8DIDI+DMQykhsRWXSE2wmypNeOlwBNBIUU7JAa1stCfuTEO53
+         bli+zxGsCnMjH73C46pLNvsLtkZAjhrfKjZzxCm8rXo5YOGp0tyVRDh3cdZkAn7IkiJV
+         cIS3bf4ERuR/epahTWdAjhvcI9rk6rIm5Ld0rFFfYxd8oTqnR0VS6Tznt1BDFmHDzL74
+         hH0w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736773546; x=1737378346;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=kWJosQxppl/LButOmLsCXsOURqYTt3fhYwtWT4WdU2Y=;
+        b=NYY/eesYHUHvjOMAKJWIuFZc7hyKM+ZLDiovdPhQ3HJC0VYsBHV/9WrD0wzRqSWXfz
+         5hJ3mfJ3NYt+128lw7ns9ocehV5L+HhUUZQgW+nhSxMRt0Ds4G5CugpZV67XUdDbDBN5
+         PaYixfwXPOljlg1Oc73zJ/O8jQXTpWrZrvYK0e6t7mnjtPEtTjpX81k7snNr+X8SDBbg
+         MHyHLm8SfsCgVOCLuksqWyAi+XxE7QutWzOIYjfM9SRA24o4a+AsooblD7noTsai62WK
+         WG39MZD9KdxyDh3deed71C5pq4j4ww0pDpK62Sb2L0Ue36A8e/W1dCQrtEkqNBDdsywA
+         dO9A==
+X-Forwarded-Encrypted: i=1; AJvYcCXZDRsFJthEIOMqLftTIOvwl/xioN5jdToC7uhgC+zfs8bolifjXhTZI00Z0dmNWD7IamyYJn6j6LJ7mqxjPQeW@lists.infradead.org
+X-Gm-Message-State: AOJu0YxCYLCqdG7pRKtrljzFo8UmURF7AA0tr2ZkmPYxRbLJ3V5XU3QS
+	K2i1n4vzcqf9JFlyMOgKxphhfM8EI6WZEoKce6QKT8ovHs4QNyAA6hAVhzJoUus=
+X-Gm-Gg: ASbGnctOWC6cuJUQNq28X0Nrx21x1TkFCU8qgkh2cNYw/R37hsR9CAq+NOYU/uq5dph
+	/eONNMJNiGQjDjOJHcNbMVMHXfKF6zYrp7CO0iwO53ChdPHpB6sotq6bHsh2D/19kT+e0lJ8oj2
+	T/V830PNlx6t7IVsA+pFkjE3BdbYJao4Q3dMycpObEq/sTYi2dqvV+SlNAvFS/9EmgsS+Pard0s
+	WXtuF4NSwhSBa2HRH85r8OagSqiGNoN8buakoIwUDUC6GvkwfDvLQju+8Mx2wrcEu3KF1nf9Mku
+X-Google-Smtp-Source: AGHT+IFQoL1eqWZUzLXO8xn5aiYWFXQjNuPE/7Kefiqj01sIwoayBrPT0tSc64kY0x+XJrkSFZxmQg==
+X-Received: by 2002:a05:600c:1d07:b0:436:1902:23b5 with SMTP id 5b1f17b1804b1-436e26f4abbmr73098815e9.4.1736773546344;
+        Mon, 13 Jan 2025 05:05:46 -0800 (PST)
+Received: from [192.168.1.20] ([178.197.223.165])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e2da66d9sm179163385e9.1.2025.01.13.05.05.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 13 Jan 2025 05:05:45 -0800 (PST)
+Message-ID: <fef6b198-d916-4b71-86ed-0cbdd55cb3c4@linaro.org>
+Date: Mon, 13 Jan 2025 14:05:43 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] drm/mediatek/hdmi: Use
+ syscon_regmap_lookup_by_phandle_args
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>,
+ dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20250112134708.46100-1-krzysztof.kozlowski@linaro.org>
+ <516d16e3-6fc6-49ba-a0ce-f451b65a6c1a@collabora.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Content-Language: en-US
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ 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
+ D2GYIS41Kv4Isx2dEFh+/Q==
+In-Reply-To: <516d16e3-6fc6-49ba-a0ce-f451b65a6c1a@collabora.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250113-topic-spmi_node_breakage-v2-1-dd35a3a6daa6@oss.qualcomm.com>
-X-B4-Tracking: v=1; b=H4sIAAEPhWcC/42NTQ6CMBCFr0JmbQlTIgZX3oMQUsogE4XWDhIN4
- e4WTuDmJd/L+1lBKDAJXJMVAi0s7KYI+pSAHcx0J8VdZNCZPmeIqGbn2SrxIzeT66hpA5mHibm
- +uORam9IitRDrPlDPn2O6qiMPLLML3+Npwd39Y3RBhSrviz1lsMPy5kTS19s8rRvHNArU27b9A
- A3431rHAAAA
-X-Change-ID: 20250111-topic-spmi_node_breakage-f67322a9c1eb
-To: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, 
- Stephen Boyd <sboyd@kernel.org>, Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Marijn Suijten <marijn.suijten@somainline.org>, 
- linux-kernel@vger.kernel.org, 
- Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>, 
- Abel Vesa <abel.vesa@linaro.org>, Johan Hovold <johan+linaro@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1736773380; l=6539;
- i=konrad.dybcio@oss.qualcomm.com; s=20230215; h=from:subject:message-id;
- bh=DqX1WVd2JuumRTJdsiTYoseI5AlgMkGptxuwXEqoFHE=;
- b=TG7O555KEHCny2KxcOoz0npZyLvP2Zsq0HcIr+1elTK9JgF0RIjAUWSOOCQYa7Osc8HZ7bNWc
- VLreZVn+EqpBxSdE+efGfw+MoRB/nNWiEZ+r5yx3CvTHcZL4tRXBA8L
-X-Developer-Key: i=konrad.dybcio@oss.qualcomm.com; a=ed25519;
- pk=iclgkYvtl2w05SSXO5EjjSYlhFKsJ+5OSZBjOkQuEms=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_050306_367392_9FD5C799 
-X-CRM114-Status: GOOD (  15.16  )
+X-CRM114-CacheID: sfid-20250113_050547_991943_08BAE5D8 
+X-CRM114-Status: GOOD (  12.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,168 +147,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-
-On some platforms, like recent Qualcomm SoCs with multi-bus SPMI
-arbiters, controller->node must be assigned to the individual buses'
-subnodes, as the slave devices are children of these, like so:
-
-arbiter@c400000
-	spmi@c42d000
-		pmic@0
-
-	spmi@c432000
-		pmic@0
-
-The commit referenced in Fixes changed that assignment, such that
-spmi_controller_alloc() always assumes the PMICs come directly under
-the arbiter node (which is true when there's only a single bus per
-controller).
-
-Make controller->node specifiable to both benefit from Joe's refcount
-improvements and un-break the aforementioned platforms.
-
-Fixes: 821b07853e32 ("spmi: hisi-spmi-controller: manage the OF node reference in device initialization and cleanup")
-Signed-off-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
----
-Changes in v2:
-- Fix compile errors
-- Link to v1: https://lore.kernel.org/r/20250111-topic-spmi_node_breakage-v1-1-3f60111a1d19@oss.qualcomm.com
----
- drivers/spmi/hisi-spmi-controller.c | 4 +++-
- drivers/spmi/spmi-devres.c          | 6 ++++--
- drivers/spmi/spmi-mtk-pmif.c        | 4 +++-
- drivers/spmi/spmi-pmic-arb.c        | 2 +-
- drivers/spmi/spmi.c                 | 4 +++-
- include/linux/spmi.h                | 5 ++++-
- 6 files changed, 18 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/spmi/hisi-spmi-controller.c b/drivers/spmi/hisi-spmi-controller.c
-index dd21c5d1ca8301d508b85dfaf61ddfabed17aca9..030b4f86af6329d1c5694ec6440aceaa60f563ad 100644
---- a/drivers/spmi/hisi-spmi-controller.c
-+++ b/drivers/spmi/hisi-spmi-controller.c
-@@ -267,7 +267,9 @@ static int spmi_controller_probe(struct platform_device *pdev)
- 	struct resource *iores;
- 	int ret;
- 
--	ctrl = devm_spmi_controller_alloc(&pdev->dev, sizeof(*spmi_controller));
-+	ctrl = devm_spmi_controller_alloc(&pdev->dev,
-+					  pdev->dev.of_node,
-+					  sizeof(*spmi_controller));
- 	if (IS_ERR(ctrl)) {
- 		dev_err(&pdev->dev, "can not allocate spmi_controller data\n");
- 		return PTR_ERR(ctrl);
-diff --git a/drivers/spmi/spmi-devres.c b/drivers/spmi/spmi-devres.c
-index 62c4b3f24d0656eea9b6da489b7716b9965bedbe..e84af711714d1892a5781111dc538747f5a5e835 100644
---- a/drivers/spmi/spmi-devres.c
-+++ b/drivers/spmi/spmi-devres.c
-@@ -11,7 +11,9 @@ static void devm_spmi_controller_release(struct device *parent, void *res)
- 	spmi_controller_put(*(struct spmi_controller **)res);
- }
- 
--struct spmi_controller *devm_spmi_controller_alloc(struct device *parent, size_t size)
-+struct spmi_controller *devm_spmi_controller_alloc(struct device *parent,
-+						   struct device_node *node,
-+						   size_t size)
- {
- 	struct spmi_controller **ptr, *ctrl;
- 
-@@ -19,7 +21,7 @@ struct spmi_controller *devm_spmi_controller_alloc(struct device *parent, size_t
- 	if (!ptr)
- 		return ERR_PTR(-ENOMEM);
- 
--	ctrl = spmi_controller_alloc(parent, size);
-+	ctrl = spmi_controller_alloc(parent, node, size);
- 	if (IS_ERR(ctrl)) {
- 		devres_free(ptr);
- 		return ctrl;
-diff --git a/drivers/spmi/spmi-mtk-pmif.c b/drivers/spmi/spmi-mtk-pmif.c
-index 160d36f7d238e7eb4122091a53b779c18e9d91a4..8cff60f68f98a9d59d8f4423d746018135514e41 100644
---- a/drivers/spmi/spmi-mtk-pmif.c
-+++ b/drivers/spmi/spmi-mtk-pmif.c
-@@ -453,7 +453,9 @@ static int mtk_spmi_probe(struct platform_device *pdev)
- 	int err, i;
- 	u32 chan_offset;
- 
--	ctrl = devm_spmi_controller_alloc(&pdev->dev, sizeof(*arb));
-+	ctrl = devm_spmi_controller_alloc(&pdev->dev,
-+					  pdev->dev.of_node,
-+					  sizeof(*arb));
- 	if (IS_ERR(ctrl))
- 		return PTR_ERR(ctrl);
- 
-diff --git a/drivers/spmi/spmi-pmic-arb.c b/drivers/spmi/spmi-pmic-arb.c
-index 73f2f19737f8cec266a051a956ce2123661a714e..226f51d94a70328c6322664d2d05a8b64645674a 100644
---- a/drivers/spmi/spmi-pmic-arb.c
-+++ b/drivers/spmi/spmi-pmic-arb.c
-@@ -1674,7 +1674,7 @@ static int spmi_pmic_arb_bus_init(struct platform_device *pdev,
- 	int index, ret;
- 	int irq;
- 
--	ctrl = devm_spmi_controller_alloc(dev, sizeof(*bus));
-+	ctrl = devm_spmi_controller_alloc(dev, node, sizeof(*bus));
- 	if (IS_ERR(ctrl))
- 		return PTR_ERR(ctrl);
- 
-diff --git a/drivers/spmi/spmi.c b/drivers/spmi/spmi.c
-index 166beb2083a3f801435d8ffd843310582911e3ab..c1a03da55a265c9294f6a16bc285310cebd00726 100644
---- a/drivers/spmi/spmi.c
-+++ b/drivers/spmi/spmi.c
-@@ -435,6 +435,7 @@ EXPORT_SYMBOL_GPL(spmi_device_alloc);
- /**
-  * spmi_controller_alloc() - Allocate a new SPMI controller
-  * @parent:	parent device
-+ * @node:	device node to associate with the controller (usually parent->of_node)
-  * @size:	size of private data
-  *
-  * Caller is responsible for either calling spmi_controller_add() to add the
-@@ -443,6 +444,7 @@ EXPORT_SYMBOL_GPL(spmi_device_alloc);
-  * spmi_controller_get_drvdata()
-  */
- struct spmi_controller *spmi_controller_alloc(struct device *parent,
-+					      struct device_node *node,
- 					      size_t size)
- {
- 	struct spmi_controller *ctrl;
-@@ -459,7 +461,7 @@ struct spmi_controller *spmi_controller_alloc(struct device *parent,
- 	ctrl->dev.type = &spmi_ctrl_type;
- 	ctrl->dev.bus = &spmi_bus_type;
- 	ctrl->dev.parent = parent;
--	device_set_node(&ctrl->dev, of_fwnode_handle(of_node_get(parent->of_node)));
-+	device_set_node(&ctrl->dev, of_fwnode_handle(of_node_get(node)));
- 	spmi_controller_set_drvdata(ctrl, &ctrl[1]);
- 
- 	id = ida_alloc(&ctrl_ida, GFP_KERNEL);
-diff --git a/include/linux/spmi.h b/include/linux/spmi.h
-index 28e8c8bd39441fa6451be3364006fb3b47a47dc9..9de74000911456800237a3244d5e8158fadf8317 100644
---- a/include/linux/spmi.h
-+++ b/include/linux/spmi.h
-@@ -105,6 +105,7 @@ static inline void spmi_controller_set_drvdata(struct spmi_controller *ctrl,
- }
- 
- struct spmi_controller *spmi_controller_alloc(struct device *parent,
-+					      struct device_node *node,
- 					      size_t size);
- 
- /**
-@@ -120,7 +121,9 @@ static inline void spmi_controller_put(struct spmi_controller *ctrl)
- int spmi_controller_add(struct spmi_controller *ctrl);
- void spmi_controller_remove(struct spmi_controller *ctrl);
- 
--struct spmi_controller *devm_spmi_controller_alloc(struct device *parent, size_t size);
-+struct spmi_controller *devm_spmi_controller_alloc(struct device *parent,
-+						   struct device_node *node,
-+						   size_t size);
- int devm_spmi_controller_add(struct device *parent, struct spmi_controller *ctrl);
- 
- /**
-
----
-base-commit: 2b88851f583d3c4e40bcd40cfe1965241ec229dd
-change-id: 20250111-topic-spmi_node_breakage-f67322a9c1eb
+On 13/01/2025 13:41, AngeloGioacchino Del Regno wrote:
+> Il 12/01/25 14:47, Krzysztof Kozlowski ha scritto:
+>> Use syscon_regmap_lookup_by_phandle_args() which is a wrapper over
+>> syscon_regmap_lookup_by_phandle() combined with getting the syscon
+>> argument.  Except simpler code this annotates within one line that given
+>> phandle has arguments, so grepping for code would be easier.
+>>
+>> There is also no real benefit in printing errors on missing syscon
+>> argument, because this is done just too late: runtime check on
+>> static/build-time data.  Dtschema and Devicetree bindings offer the
+>> static/build-time check for this already.
+>>
+> 
+> I agree with this change but can you please rebase it over [1]?
+> 
+> The same code got migrated to mtk_hdmi_common.c instead :-)
+> 
+> [1]: 
+> https://lore.kernel.org/r/20250108112744.64686-1-angelogioacchino.delregno@collabora.com
+My is 2-patch cleanup, your is 34 patch rework and new features with
+existing build reports, so rebase is not reasonable. It would make this
+2-patch cleanup wait for many cycles.
 
 Best regards,
--- 
-Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-
+Krzysztof
 
