@@ -4,76 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5819CE7719F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 11:01:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F0EEE7719E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 11:06:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=d50+4kQ7WdAm5ia8p2HevnBpfNxkxsfSO0lYdUIg1b0=; b=JueqdRVTHssNyVBj/cwXF3uM1u
-	uhjfEOOwMMWUpndYCG6M+MqzOYD4NAYo2rRLQFqRyh658TWCfS26CS+JDsEahjbywEWdcde6sw9Zs
-	bRt/3QzDpJgLNunPN3t3aKOVya/X3XwXkV6mAKm8zw6c8PTY15XSzSHUgRzDarornQdUWmJ2T5lxX
-	1c1Uxj/lAUJc2X2WfpT7dqEM8G/MqSKLOdspWe+5KJJylOHmqlK8kiNeKwhFepOqcEbrb90PTz7/1
-	WSSgnO/oYnW71WulsFFjq263Jy4W+KQWemXaA5IVAzfz0GtXMDR+dKBm0bc4+dEEAcAOzfmdj/+YL
-	jdDlzr2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gEmfuSom1K4g2Z3xa5ZnSesfn3qFrMdTPJjB5HBZZu8=; b=AxoZATtThs220aR9ubZyfAjFCs
+	kZhHzcru1Xv9A/BI6Qey7x5SQbDjSSs8Hp0yW79NLDiXlkOb88UcPD6eiV/5nfbczJJHwiZRZ0l1J
+	tP2tHFtN0RQIrzW7MGNcMl1lpDX/793IGLGoLIbQOK3KLCmAdITSkmf2Y0FSxo1kYednJCG4QX0LN
+	DV+6oWm/jis/pbDZ8MQMsY4H2xZ2vQ1gRmUp/rO94STwLe6xQvOxNGOK57A6kwIjhrsS3Tfynr+To
+	8GhCbrXexwBAG96r+Lpy3FVx6LzrzoFbotF61sxwsOvM1R8FPsmjckioJp7vnpAM6eJEpvludHiGC
+	PINbJgaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXIBy-00000004qAX-0FH2;
-	Mon, 13 Jan 2025 11:01:10 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tXIGb-00000004qnd-1T2G;
+	Mon, 13 Jan 2025 11:05:57 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXIAi-00000004pzU-3GIi;
-	Mon, 13 Jan 2025 10:59:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 171495C49F8;
-	Mon, 13 Jan 2025 10:59:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E513FC4CED6;
-	Mon, 13 Jan 2025 10:59:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736765991;
-	bh=QIWLDCAmcI1C+xvUDFC7xp8Yn/Gi3b0khk0TnqElATQ=;
-	h=From:Date:Subject:To:Cc:From;
-	b=jjoGlL0+Uy+eDbOExpu6Pn9TRlQ5ZGhlp1GN9Q3LgRjHfA9SdeElCX+nlXjGZE4Zb
-	 vRKGAsp4zVpJCJ5ZI5oleD2VC7fNUL2zcEQnaUpJZdMlEIFPmSjd5vz4VR11LRDc0o
-	 AMWvRW3/c64M/UbhWcOV1wBJN52e1BrG5QojGDmUTe6cy5Dnlo13w/0AAVGiwIJbZj
-	 ICU5FtJupJeEQOWIhmBWtvlOxjZ4hZWIvbYQEJ00IIyRu8HVQpFK4yvWjj8Lu+Ie40
-	 SVoc4wLHhXmuUhJXNE6XqNBfFEltijb8+maPBJHvZyDDUS3pIC6NkftT/aNuvqUxye
-	 gQdU/bkNaZchw==
-From: Niklas Cassel <cassel@kernel.org>
-Date: Mon, 13 Jan 2025 11:59:34 +0100
-Subject: [PATCH] PCI: dw-rockchip: Skip waiting for link up
+	id 1tXIFL-00000004qau-1xmy
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Jan 2025 11:04:41 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-436381876e2so3773885e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 03:04:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1736766277; x=1737371077; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=gEmfuSom1K4g2Z3xa5ZnSesfn3qFrMdTPJjB5HBZZu8=;
+        b=uAM92ip6DdnPK1Y1U267Bot6+Tx1tuuHDavkJ059DOh6fEcdniHZECnzUPYP8X63I/
+         ZD52ccYUeg1EnECxHCwSFrFer+EcLwcwKF8JwUAsi3U2TlNmpRfWqCMM1hxLEr5trSpW
+         mw+dkBQ3Da+LpCMLAfm8EnqeGgRAtu1bgAXUD0JOcou6lgPqDvPolqz5j/DYvpDyeqAC
+         JUDZjTdc8eJGZyJW83Cz4atGrAyNVKJQ3gIBj8yEK5Jch+9wohoAfXGqWDpAhFdzXnvV
+         xLHJklguvs6xxSTvPOxnjFU6WdYvlZhXVB7rzZFI4hF9+HzWTlmRdCpGVn3uHoyYz+XZ
+         /AKA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736766277; x=1737371077;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=gEmfuSom1K4g2Z3xa5ZnSesfn3qFrMdTPJjB5HBZZu8=;
+        b=TzMfkIO0ZPP2J+PCVS2u6oj6DTEXpd+iKiK7PnFuHQYnLkqpTY6g2c5CVgZAMzBACR
+         bUgvJDSeeg3KUEbXkJxNSOqy3pzrg5+X4nc5QLrKXJOv2dMm++2bLqyYrNL2CMrgnFNc
+         N3Xw0SeZbiGGQTJ7lmAh+WsmDjcf3hID+ayfJRaAYPZwl50Vs4oU8StQaSLldFBs2bh/
+         siApgvpHJxcs0dLSYpn3UihVUfn6aWUxXqXGeBxSFXduS6N42VWS8UdNG0Va32SnEwyN
+         tN71csYuMKLrKn0fEmN2RCFaA/upJBMvmIvnzNx8u/SciZDBCS3pCohQRn5SdGWJMz3j
+         SI5g==
+X-Gm-Message-State: AOJu0YyjgDZR3UDNcgUiVN3KI4c9i4g6SF8y1yIq4bPnHvgpcDLmkiaR
+	MdK2H9FZOPziRSggvPxz30Us6Cb1jz4vLZeqPpAng2OhJ1CcGVQ5kaSXvTxO2Wc=
+X-Gm-Gg: ASbGnctB/maXhu98whyv0PFcxEuegxJMfqh4RA7QhKItqjHCX7elUppun8BzfJ/TfIc
+	zq3qtp2fTNYS00AIZwW/8xIwnLc4GFXw2KaD1WH5aDfEmvDthVZ/Zwq6G/LItLkjq1Olf+UN3Vm
+	xpOQmVYgwlVnYAVvO9Q3Ci6FSbbjDgIM9ixqwbg8rmHaqAzvZqVYhvX9Kbv0MSK6/PD6SiRi6bN
+	TlPCIHO/m/j0TCBhzyl2L9K6wWMXzWUTqyTMG+W/ONOSWBClDjNoFr1otQdqK7cgsHMA/NNcXUc
+X-Google-Smtp-Source: AGHT+IFBhgHEBA9yuB0/M8KWfTrBEJrfmm5y1LllORvx6tSaZm1AW8LC5fWL6ENzzzSz3Irm4PbRow==
+X-Received: by 2002:a05:600c:35c2:b0:434:941c:9df2 with SMTP id 5b1f17b1804b1-436e272c89cmr71879115e9.8.1736766277438;
+        Mon, 13 Jan 2025 03:04:37 -0800 (PST)
+Received: from [192.168.1.20] ([178.197.223.165])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e9e37d74sm139859755e9.29.2025.01.13.03.04.35
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 13 Jan 2025 03:04:36 -0800 (PST)
+Message-ID: <1376b2b3-90c4-4f06-b05c-10b9e5d1535e@linaro.org>
+Date: Mon, 13 Jan 2025 12:04:35 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 2/5] net: ti: icssg-prueth: Use
+ syscon_regmap_lookup_by_phandle_args
+To: MD Danish Anwar <danishanwar@ti.com>, Roger Quadros <rogerq@kernel.org>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <joabreu@synopsys.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, Shawn Guo
+ <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ imx@lists.linux.dev
+References: <20250112-syscon-phandle-args-net-v1-0-3423889935f7@linaro.org>
+ <20250112-syscon-phandle-args-net-v1-2-3423889935f7@linaro.org>
+ <0eaff868-f67f-4e8a-ade8-4bdf98d9d094@ti.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Content-Language: en-US
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ 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
+ D2GYIS41Kv4Isx2dEFh+/Q==
+In-Reply-To: <0eaff868-f67f-4e8a-ade8-4bdf98d9d094@ti.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250113-rockchip-no-wait-v1-1-25417f37b92f@kernel.org>
-X-B4-Tracking: v=1; b=H4sIABXyhGcC/x3MTQqAIBBA4avErBvwpzZdJVqYjTkEKhoVSHdPW
- n6L9yoUykwFpq5CposLx9Ag+w6sN2En5K0ZlFCjkFJjjvawnhOGiLfhEwehnVvtoLTU0LKUyfH
- zL+flfT8OWRQhYgAAAA==
-X-Change-ID: 20250113-rockchip-no-wait-403ffbc42313
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
- Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
- Heiko Stuebner <heiko@sntech.de>
-Cc: Damien Le Moal <dlemoal@kernel.org>, Anand Moon <linux.amoon@gmail.com>, 
- linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Niklas Cassel <cassel@kernel.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1285; i=cassel@kernel.org;
- h=from:subject:message-id; bh=QIWLDCAmcI1C+xvUDFC7xp8Yn/Gi3b0khk0TnqElATQ=;
- b=owGbwMvMwCV2MsVw8cxjvkWMp9WSGNJbPqmYqOpeqY05+MXbvOGK0ZtZrkU2Hi0rufiTuJ6au
- 4rv2W3XUcrCIMbFICumyOL7w2V/cbf7lOOKd2xg5rAygQxh4OIUgImwKTL8z9E/tSODJaq3VWFq
- W5d83n+fe5OWlbFfOSd6sDBUQaZYg5FhatCf175aTldnTm572Pi2sv/x5JBbOyeoa9WsSNZYvtq
- UFwA=
-X-Developer-Key: i=cassel@kernel.org; a=openpgp;
- fpr=5ADE635C0E631CBBD5BE065A352FE6582ED9B5DA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_025952_861658_72F3E7A9 
-X-CRM114-Status: UNSURE (   8.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250113_030440_322486_C1E3B5CF 
+X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,42 +155,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Root Complex specific device tree binding for pcie-dw-rockchip has the
-'sys' interrupt marked as required.
+On 13/01/2025 09:07, MD Danish Anwar wrote:
+> 
+> 
+> On 12/01/25 7:02 pm, Krzysztof Kozlowski wrote:
+>> Use syscon_regmap_lookup_by_phandle_args() which is a wrapper over
+>> syscon_regmap_lookup_by_phandle() combined with getting the syscon
+>> argument.  Except simpler code this annotates within one line that given
+>> phandle has arguments, so grepping for code would be easier.
+>>
+>> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>> ---
+>>  drivers/net/ethernet/ti/am65-cpsw-nuss.c | 9 ++-------
+>>  1 file changed, 2 insertions(+), 7 deletions(-)
+>>
+> 
+> The patch only touches `drivers/net/ethernet/ti/am65-cpsw-nuss.c`
+> however the subject suggests the patch is related to "icssg-prueth".
+> 
+> I suppose the subject should be changed to "am65-cpsw-nuss" instead of
+> "icssg-prueth"
 
-The driver requests the 'sys' IRQ unconditionally, and errors out if not
-provided.
-
-Thus, we can unconditionally set use_linkup_irq before calling
-dw_pcie_host_init().
-
-This will skip the wait for link up (since the bus will be enumerated once
-the link up IRQ is triggered), which reduces the bootup time.
-
-Signed-off-by: Niklas Cassel <cassel@kernel.org>
----
- drivers/pci/controller/dwc/pcie-dw-rockchip.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index 1170e1107508bd793b610949b0afe98516c177a4..62034affb95fbb965aad3cebc613a83e31c90aee 100644
---- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-+++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-@@ -435,6 +435,7 @@ static int rockchip_pcie_configure_rc(struct rockchip_pcie *rockchip)
- 
- 	pp = &rockchip->pci.pp;
- 	pp->ops = &rockchip_pcie_host_ops;
-+	pp->use_linkup_irq = true;
- 
- 	return dw_pcie_host_init(pp);
- }
-
----
-base-commit: 2adda4102931b152f35d054055497631ed97fe73
-change-id: 20250113-rockchip-no-wait-403ffbc42313
+Indeed, copy paste.
 
 Best regards,
--- 
-Niklas Cassel <cassel@kernel.org>
-
+Krzysztof
 
