@@ -4,66 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B75AFC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 15:54:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 297B3C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 15:55:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LKOrjtOEkYBN2Y2LO0sJXjsSTOuS88NhX+jEyFyuLf4=; b=vWqnI0WjrdD11AFhvbgBANqeYA
-	objkgg6RlLF8htqpLAO05Ft+36simT9ShHidGX3Vebu+XNGkfpKSr7UxTAxZZURjOYXFAFAe7Ohej
-	cY5FU1HliOFcURSqnZf4dzz0lSuXKEUME3Rf0RRHz+jQZAzyZY98mp9AjOtEIjsbcK8/OoxH04bTf
-	CSqSFq0SVBaPx/77njXsxY4MAr2BIm2mQRZmuh+C2j2ub5AgBPqKfVTT6kRzuNM0YpWyNsTDbPewq
-	I/N5YfUavjSqIAFYFQDfjmx96QHCjte4Rz/0uW42A2M1I+vEBzBwYZz7jlwKHsAKVgJRCOUVKRzv8
-	F7B+shFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QHgW608OeSqVydNghj5dcp4WR3HJYBdWQoOvC9POCrw=; b=ldU/lHN/RsM/xMcgjPso7KtiFh
+	bD9jjwnhvPn25NBGKm6Ztx3nObc0LEsVPxDPIm5lt/Z5rhojmcQtHyP9BzR76JACvhW7SptvWWiWX
+	TiWucwAplNHsadxn7P7fiXeVEML9q9xLnx4LJzgwLWGwJoSpjAflQR5QiT/fpxWWCs+oYhGrOIgGB
+	4au0Q9Eruu1cUZUhBqPoxzZ1gOrvF5lIJrIYkT0ycNx2r9UdF1mlQshMiHYdsIxTn2CvuLdSpGR/P
+	rP3hLyQkLFFCNNws1yZK8gP/6ifKDZtaRSTUWCeKwI+cQAC2AiToxqI+AYSPnrAqWN/pOBlCEeV4r
+	GTl8shfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXMlT-00000005k0v-1aTV;
-	Mon, 13 Jan 2025 15:54:07 +0000
-Received: from out-172.mta0.migadu.com ([91.218.175.172])
+	id 1tXMmg-00000005kE4-1mPJ;
+	Mon, 13 Jan 2025 15:55:22 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXMC4-00000005b06-3yFn
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 15:17:34 +0000
-Message-ID: <8d6303f1-37f1-4298-b377-d2bd55ac01de@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1736781445;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LKOrjtOEkYBN2Y2LO0sJXjsSTOuS88NhX+jEyFyuLf4=;
-	b=rD84PlDUF7tV0r+jkJkCgDrEoNeOaEMHi608IRg8N81+ci74WGf0OKgNh24HHbN4Sph+1N
-	hTfzeEEUvRJ2ZB9UaseGrbhcdEB3h93gQu/S18Ld/hslY7OehFIPg/wryHw4BsEigAc9qe
-	ZeqMUjaMTnzYv4+6LVyWmvq2bvDky64=
-Date: Mon, 13 Jan 2025 23:16:31 +0800
-MIME-Version: 1.0
-Subject: Re: [PATCH net-next v1 1/3] net: stmmac: Switch to zero-copy in
- non-XDP RX path
-To: Alexander Lobakin <aleksander.lobakin@intel.com>
-Cc: Furong Xu <0x1207@gmail.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com
-References: <cover.1736500685.git.0x1207@gmail.com>
- <600c76e88b6510f6a4635401ec1e224b3bbb76ec.1736500685.git.0x1207@gmail.com>
- <f1062d1c-f39d-4c9e-9b50-f6ae0bcf27d5@linux.dev>
- <054ae4bf-37a8-4e4e-8631-dedded8f30f1@intel.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Yanteng Si <si.yanteng@linux.dev>
-In-Reply-To: <054ae4bf-37a8-4e4e-8631-dedded8f30f1@intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+	id 1tXMKL-00000005chp-19ZY;
+	Mon, 13 Jan 2025 15:26:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id F408DA4101F;
+	Mon, 13 Jan 2025 15:24:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8BACC4CED6;
+	Mon, 13 Jan 2025 15:26:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736781963;
+	bh=yPKcwvMEc1LS0HKT9AuScKrjPr7zkhgV+Fd5sl68nR8=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=F6TTET+Sb0BKahiFIUm0XJTQiKk18f6lKSazk1qg0bT3j3iUwp6Ro7Se9JdvIn/tD
+	 hiXTSTGuH6OYu+TEtVqB5kR+xdVbyJwnuvafSxBCyS3Sik66s1vafXL4dS3SfDpIcV
+	 vWUimkSnEHOOsEXKCqzKEfOvbzDlEmburaxaVp7AEB/8BYltEWKXgqRd6L5CSd2A9t
+	 wLgK0z1U2PkV/A3XfCilaEk4D0RL9GTTYvnP3egiaZVdYDmRiBHdsdsHZTFXNRYp9u
+	 LYXGJdvPjhQWHEwS3XhZ384B5gtWd3dkVUAN7AqzEt1LQ0kp/OUgCZLNKJH2iu7OoZ
+	 bYD/qBIgI57Wg==
+Date: Mon, 13 Jan 2025 09:26:02 -0600
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Jonas Karlman <jonas@kwiboo.se>, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, FUKAUMI Naoki <naoki@radxa.com>, 
+ Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org, 
+ Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+ Chukun Pan <amadeus@jmu.edu.cn>, Dragan Simic <dsimic@manjaro.org>
+To: Junhao Xie <bigfoot@classfun.cn>
+In-Reply-To: <20250112073344.1976411-1-bigfoot@classfun.cn>
+References: <20250112073344.1976411-1-bigfoot@classfun.cn>
+Message-Id: <173678159607.2153021.5826282359797453753.robh@kernel.org>
+Subject: Re: [PATCH v6 0/3] Add support for Ariaboard Photonicat RK3568
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_071733_129295_084CE9E1 
-X-CRM114-Status: GOOD (  19.48  )
+X-CRM114-CacheID: sfid-20250113_072605_441011_75A6772C 
+X-CRM114-Status: GOOD (  17.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,124 +75,94 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-在 1/13/25 20:03, Alexander Lobakin 写道:
-> From: Yanteng Si <si.yanteng@linux.dev>
-> Date: Mon, 13 Jan 2025 17:41:41 +0800
->
->> 在 2025/1/10 17:53, Furong Xu 写道:
->>> Avoid memcpy in non-XDP RX path by marking all allocated SKBs to
->>> be recycled in the upper network stack.
->>>
->>> This patch brings ~11.5% driver performance improvement in a TCP RX
->>> throughput test with iPerf tool on a single isolated Cortex-A65 CPU
->>> core, from 2.18 Gbits/sec increased to 2.43 Gbits/sec.
->>>
->>> Signed-off-by: Furong Xu <0x1207@gmail.com>
->>> ---
->>>    drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  1 +
->>>    .../net/ethernet/stmicro/stmmac/stmmac_main.c | 23 +++++++++++--------
->>>    2 files changed, 15 insertions(+), 9 deletions(-)
->>>
->>> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/
->>> net/ethernet/stmicro/stmmac/stmmac.h
->>> index 548b28fed9b6..5c39292313de 100644
->>> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
->>> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
->>> @@ -126,6 +126,7 @@ struct stmmac_rx_queue {
->>>        unsigned int cur_rx;
->>>        unsigned int dirty_rx;
->>>        unsigned int buf_alloc_num;
->>> +    unsigned int napi_skb_frag_size;
->>>        dma_addr_t dma_rx_phy;
->>>        u32 rx_tail_addr;
->>>        unsigned int state_saved;
->>> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/
->>> drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
->>> index 038df1b2bb58..43125a6f8f6b 100644
->>> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
->>> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
->>> @@ -1320,7 +1320,7 @@ static unsigned int stmmac_rx_offset(struct
->>> stmmac_priv *priv)
->>>        if (stmmac_xdp_is_enabled(priv))
->>>            return XDP_PACKET_HEADROOM;
->>>    -    return 0;
->>> +    return NET_SKB_PAD;
->>>    }
->>>      static int stmmac_set_bfsize(int mtu, int bufsize)
->>> @@ -2019,17 +2019,21 @@ static int
->>> __alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
->>>        struct stmmac_channel *ch = &priv->channel[queue];
->>>        bool xdp_prog = stmmac_xdp_is_enabled(priv);
->>>        struct page_pool_params pp_params = { 0 };
->>> -    unsigned int num_pages;
->>> +    unsigned int dma_buf_sz_pad, num_pages;
->>>        unsigned int napi_id;
->>>        int ret;
->>>    +    dma_buf_sz_pad = stmmac_rx_offset(priv) + dma_conf->dma_buf_sz +
->>> +             SKB_DATA_ALIGN(sizeof(struct skb_shared_info));
->>> +    num_pages = DIV_ROUND_UP(dma_buf_sz_pad, PAGE_SIZE);
->>> +
->>>        rx_q->queue_index = queue;
->>>        rx_q->priv_data = priv;
->>> +    rx_q->napi_skb_frag_size = num_pages * PAGE_SIZE;
->>>          pp_params.flags = PP_FLAG_DMA_MAP | PP_FLAG_DMA_SYNC_DEV;
->>>        pp_params.pool_size = dma_conf->dma_rx_size;
->>> -    num_pages = DIV_ROUND_UP(dma_conf->dma_buf_sz, PAGE_SIZE);
->>> -    pp_params.order = ilog2(num_pages);
->>> +    pp_params.order = order_base_2(num_pages);
->>>        pp_params.nid = dev_to_node(priv->device);
->>>        pp_params.dev = priv->device;
->>>        pp_params.dma_dir = xdp_prog ? DMA_BIDIRECTIONAL : DMA_FROM_DEVICE;
->>> @@ -5574,19 +5578,20 @@ static int stmmac_rx(struct stmmac_priv *priv,
->>> int limit, u32 queue)
->>>                /* XDP program may expand or reduce tail */
->>>                buf1_len = ctx.xdp.data_end - ctx.xdp.data;
->>>    -            skb = napi_alloc_skb(&ch->rx_napi, buf1_len);
->>> +            skb = napi_build_skb(page_address(buf->page),
->>> +                         rx_q->napi_skb_frag_size);
->>>                if (!skb) {
->>> +                page_pool_recycle_direct(rx_q->page_pool,
->>> +                             buf->page);
->>>                    rx_dropped++;
->>>                    count++;
->>>                    goto drain_data;
->>>                }
->>>                  /* XDP program may adjust header */
->>> -            skb_copy_to_linear_data(skb, ctx.xdp.data, buf1_len);
->>> +            skb_reserve(skb, ctx.xdp.data - ctx.xdp.data_hard_start);
->> The network subsystem still requires that the length
->> of each line of code should not exceed 80 characters.
->> So let's silence the warning:
->>
->> WARNING: line length of 81 exceeds 80 columns
->> #87: FILE: drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:5592:
->> +            skb_reserve(skb, ctx.xdp.data - ctx.xdp.data_hard_start);
-> I agree that &ctx.xdp could be made an onstack pointer to shorten these
-> lines, but please don't spam with the checkpatch output.
->
-> 1. It's author's responsibility to read netdev CI output on Patchwork,
->     reviewers shouldn't copy its logs.
-Sorry, I shouldn't have made noise on the mailing list.
-> 2. The only alternative without making a shortcut for &ctx.xdp is
->
-> 			skb_reserve(skb,
-> 				    ctx.xdp.data - ctx.xdp.data_hard_start);
->
-> This looks really ugly and does more harm than good.
-Agree!
->
-> If you really want to help, pls come with good propositions how to avoid
-> such warnings in an elegant way.
+On Sun, 12 Jan 2025 15:33:41 +0800, Junhao Xie wrote:
+> Add dts for Ariaboard Photonicat RK3568.
+> 
+> This series bring support for:
+> * Debug UART
+> * SDIO QCA9377 WiFi and Bluetooth
+> * M.2 E-Key PCIe WiFi and Bluetooth
+> * M.2 B-Key USB Modem WWAN
+> * Ethernet WAN Port
+> * MicroSD Card slot
+> * eMMC
+> * HDMI Output
+> * Mali GPU
+> * USB Type-A
+> 
+> Changed from v1:
+> - move some general nodes (firmware, ramoops, reboot-mode) to rk356x.dtsi
+> - gmac1 change to phy-mode rgmii-id
+> - corrected some regulator to be closer to schematics
+> - rename rk3568-ariaboard-photonicat.dts to rk3568-photonicat.dts
+> https://lore.kernel.org/lkml/20240904111456.87089-1-bigfoot@classfun.cn/
+> 
+> Changed from v2:
+> - remove unused headers
+> - corrected some regulator to be closer to schematics
+> - remove usb_host1_ohci, usb_host1_ehci, usb2phy1_host that have no connection
+> https://lore.kernel.org/lkml/20240906045706.1004813-1-bigfoot@classfun.cn/
+> 
+> Changed from v3:
+> - corrected some regulator to be closer to schematics
+> - changed to using clk32k_out1 in xin32k
+> https://lore.kernel.org/lkml/20240911122809.1789778-2-bigfoot@classfun.cn/
+> 
+> Changed from v4:
+> - corrected some regulator to be closer to schematics
+> - corrected some label to match node name
+> - use resets props in phy node instead deprecated snps,reset-gpio
+> https://lore.kernel.org/lkml/20240914145549.879936-1-bigfoot@classfun.cn/
+> 
+> Changed from v5:
+> - resort regulator nodes
+> - remove dr_mode from usb_host1_xhci
+> https://lore.kernel.org/lkml/20241108031847.700606-1-bigfoot@classfun.cn/
+> 
+> Junhao Xie (3):
+>   dt-bindings: vendor-prefixes: Add prefix for Ariaboard
+>   dt-bindings: arm: rockchip: Add Ariaboard Photonicat RK3568
+>   arm64: dts: rockchip: add dts for Ariaboard Photonicat RK3568
+> 
+>  .../devicetree/bindings/arm/rockchip.yaml     |   5 +
+>  .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+>  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+>  .../boot/dts/rockchip/rk3568-photonicat.dts   | 599 ++++++++++++++++++
+>  4 files changed, 607 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts
+> 
+> --
+> 2.47.1
+> 
+> 
+> 
 
-Simple. Just do as with buf1_len.
 
-Thanks,
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
-Yanteng
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
 
->
->> Thanks,
->> Yanteng
-> Thanks,
-> Olek
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/rockchip/' for 20250112073344.1976411-1-bigfoot@classfun.cn:
+
+arch/arm64/boot/dts/rockchip/rk3568-photonicat.dtb: bluetooth: 'clock-names' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/net/bluetooth/qualcomm-bluetooth.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-photonicat.dtb: phy@fe8c0000: 'phy-supply' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/phy/rockchip,pcie3-phy.yaml#
+arch/arm64/boot/dts/rockchip/rk3568-photonicat.dtb: rfkill-modem: 'reset-gpios' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/net/rfkill-gpio.yaml#
+
+
+
+
+
 
