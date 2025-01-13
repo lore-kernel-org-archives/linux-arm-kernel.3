@@ -4,63 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 517FFE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 03:30:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4D04E7719E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 03:40:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JMeokgEoqvclzQzNSXe8UO+DR4Tug5q56qg8MyJQ7h8=; b=QA8EIzBVZnU68AWHSLrsetkWH2
-	gbwCpKBvKRWaIIrRjg1vSPGY0PrRSN3qgN0MUFNlTZVK0xeUPzI542+GHgJYO5tz4iMpT0/8JDgGO
-	gRSITS5AegEvRjq7VK6qnJUoXc00P6OsYmj6ZCIE3F11GGGNRLs7fP8o5O3CSvP7VUxAhXm9xIhwM
-	GXqUBGOuoGdNBR+38Usjz0WoFs2mRBbQO7tJetNXn7Iw2ehiaxm2ziUL/u+7dXuuq3z9Sdp9XU4Bl
-	SfGyIFgvujPKu9EFLBiiS2Q+hFidx2vdxDfR8U9EGI7oz53sAw8FJ+5HlHqnWsC6mPgV5Q1AmdBOg
-	8Ah47QxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FsECYO8sB292CmYpC3fxwMu7nIovFj7xiGwzKOJEc7U=; b=RW8VruuVVvnxvKpkzpTr+/R7Jz
+	R/0cQQtvHG3sZDTk1X559oxAFT3jBJoNtzICjMKEZycLowg34qeaV7ZN5MoGoTOLnwb8/SM5BmT5m
+	JiYr3MLWBrOqKW8k72xH9rdheo0NYEulwvDiBYy1XR8pq4qlJayIkcWx54zND0j18rwzz8EbWkeYn
+	Vhh+pf9txtAuX68tjvSx9Ykp0Hqm8VTJmpgAOnBcABAEE2MyB6b9AZJTWXjK7NK1oykjCbJc4QPn/
+	alQ2RPYvMIEBwQTOLRulNVb5IUnZxvGdfFROJNSF1pAefTNPAfhi4OwXiwBJxmg3HbWQpr0uUa2Qi
+	77eaeuSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXB9T-00000003uZK-0Ps8;
-	Mon, 13 Jan 2025 03:30:07 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1tXBJf-00000003vRi-1qqS;
+	Mon, 13 Jan 2025 03:40:39 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXB8B-00000003uKu-3bhw
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 03:28:49 +0000
+	id 1tXBIM-00000003v6A-2Z43;
+	Mon, 13 Jan 2025 03:39:20 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-2ee50ffcf14so7330552a91.0;
+        Sun, 12 Jan 2025 19:39:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1736738919;
-	bh=JMeokgEoqvclzQzNSXe8UO+DR4Tug5q56qg8MyJQ7h8=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=aCnVO0AsWXP3yQJfv8dtCs95hQsS/mgyQAnN0Uc82KOc5dhwaTibVpguz3UfD/B7S
-	 Ls6yPyn86vVgAQdJFykVU1YRETCxZd3PnEXKgU33CzpdowoidiP0/zcZTgBkRIU3Lh
-	 VWEV8Im4qzSU7quz6cwWrt1bKXzlJ3KrGmGpCIJ4fU7NARNZCsTqQ86qwFbINVJKKE
-	 FJHtmqn348D81zdPYQxHWvf2KENgfN3DZlKqdGelSduV31TXpK2Qyw3fJEpuzADUT1
-	 o3sqkOVqjPetA3pjm6n6IvYrh9jCgOO4id9Axv+CNVcOQseiOSUqPNlWa2pRGJiqRp
-	 RFwMB3wF2cfug==
-Received: from [192.168.68.112] (ppp118-210-178-153.adl-adc-lon-bras34.tpg.internode.on.net [118.210.178.153])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 9D4B371781;
-	Mon, 13 Jan 2025 11:28:35 +0800 (AWST)
-Message-ID: <b4fa429c6c7df899281d36f295b4431c90fe443c.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v6 1/1] watchdog: aspeed: Update bootstatus handling
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>, patrick@stwcx.xyz, 
-	linux@roeck-us.net, wim@linux-watchdog.org, joel@jms.id.au, 
-	linux-watchdog@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Cc: Peter.Yin@quantatw.com, Patrick_NC_Lin@wiwynn.com,
- BMC-SW@aspeedtech.com,  chnguyen@amperecomputing.com,
- aaron_lee@aspeedtech.com
-Date: Mon, 13 Jan 2025 13:58:35 +1030
-In-Reply-To: <20250112081204.263216-2-chin-ting_kuo@aspeedtech.com>
-References: <20250112081204.263216-1-chin-ting_kuo@aspeedtech.com>
-	 <20250112081204.263216-2-chin-ting_kuo@aspeedtech.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: base64
-User-Agent: Evolution 3.46.4-2 
+        d=gmail.com; s=20230601; t=1736739558; x=1737344358; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=FsECYO8sB292CmYpC3fxwMu7nIovFj7xiGwzKOJEc7U=;
+        b=KcFwuuKjqVPMik/afWzb0jQ8dr+lcGEfJrTHoX34/i+c+4zBUQEpoPYNhUJCZXoQTg
+         GJ4dnlfpR7Mxt0jM50fuH5d64QPdcjb20nz5GHSY0TMjv/G/CCMS7ItBW/S26AmeakA3
+         HIeSg3gmXNSlSpw97rVEV91SQDwHXI7wDHRVf5fHEIJwiMlPldCgKc4Z5830H4jwC9NR
+         UWYDI0YRirZ82u7yLtZPxcoC94ZEDRE16MqEpvXq9UE7FB+Bb9Fu2MbrZI6r74PXq2H1
+         vKpPXg98n6/wmuQbNM7bipwNHc2aXhB88/vKp2xR3x3sG3oC1dqOq16OnSDbqXG1BnrE
+         fNGw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736739558; x=1737344358;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=FsECYO8sB292CmYpC3fxwMu7nIovFj7xiGwzKOJEc7U=;
+        b=u4yIWW0cvCv4Zwa6nJh6emAvuDBUzc77MMkIsIsG4nZtXV6on/y3IvHHzr0zqP7dpu
+         TgkiQvqZ1ts9eMDzJ26wqwvlLe43roH/W5jhF7eUKWwVnFd2B4cUMhVqqJButo5OegFi
+         x5+gQTYwbsQFfvJo6ga9iFUfZXlkmliOuFT/6yV302eNynZiSog7m8mXEqxHxmeMTH0i
+         yvfvXOdBhSnyEr58Uiz3vTeO5ySAyVd4WEZteaMR6zs5431JBj6PXhPUuLEa+F4LwTPg
+         TjIPeyU/VSS9AEjLNsOr6/ynubmxpOCh3huAUr7H4vm7h9nCKXBafs8iofYirJKzD9ou
+         SwPg==
+X-Forwarded-Encrypted: i=1; AJvYcCUPlFToCiow+jmgh/N2K2H2hzEpG3mYEhO3U3+lRBC2edoa+bP2vsR6O2VEOWBe/1dWEFJsz5SFgDK6QY0v5hQ1@lists.infradead.org, AJvYcCVTVUDyE3mrc3wucyXVz15HwSsyy0FOhbfh9LnlJUAbRame1W3+squDlqo1NbNBz5hMJ876Ze/wbZJwTVw=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3u/iDAWvx7578uRmYYu/c7pur10ethlFjPd1fmgEr0IN7BY0f
+	ZLecbR4FBpBBmHJa2JBt2aSgEIdaPyc6OGdiYgTVkwrHHDlC3Sa1FauxHw==
+X-Gm-Gg: ASbGncvtnp74KQ3vFNXJbVkWy4L0J0qC38vZ9p9fo46X+dkZCL8jp4K/FZD29cRJk+V
+	dwp1i5dR3hpOhGOZIF1hZCiPtVPGBdzEVN+wRIYB8EQIhwhJZjQTygytLk+VRtnuNCAr4tNyvaY
+	i3sQLWgP4XYwSjHrISPh+fM0Nq5k/zO78qBZYa7QyVUUoOoe1HMDcgZcv+OPR5mLr0FwI0yRQG1
+	HEtEzv59uPRVlPlkPNciluan4tOzQ+pRWEfL92b+GID1HINvsvFZR981FOeZgmhZomuV15Wy1m9
+	+R9RzfLl
+X-Google-Smtp-Source: AGHT+IHOVUEQIwahsNe0JPIF/xCrkqjPY47Zb3CsoPvALwPFRqBWuqOSOx1Y9Cfq48Gfus/C7iH6nw==
+X-Received: by 2002:a17:90b:3848:b0:2f5:63a:44f8 with SMTP id 98e67ed59e1d1-2f55443a0e3mr25854156a91.8.1736739557599;
+        Sun, 12 Jan 2025 19:39:17 -0800 (PST)
+Received: from Barrys-MBP.hub ([2407:7000:af65:8200:39b5:3f0b:acf3:9158])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21a9f25aabfsm44368405ad.246.2025.01.12.19.39.11
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sun, 12 Jan 2025 19:39:17 -0800 (PST)
+From: Barry Song <21cnbao@gmail.com>
+To: akpm@linux-foundation.org,
+	linux-mm@kvack.org
+Cc: baolin.wang@linux.alibaba.com,
+	chrisl@kernel.org,
+	david@redhat.com,
+	ioworker0@gmail.com,
+	kasong@tencent.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	ryan.roberts@arm.com,
+	v-songbaohua@oppo.com,
+	x86@kernel.org,
+	linux-riscv@lists.infradead.org,
+	ying.huang@intel.com,
+	zhengtangquan@oppo.com,
+	lorenzo.stoakes@oracle.com
+Subject: [PATCH v2 0/4] mm: batched unmap lazyfree large folios during reclamation
+Date: Mon, 13 Jan 2025 16:38:57 +1300
+Message-Id: <20250113033901.68951-1-21cnbao@gmail.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250112_192848_134640_61309752 
-X-CRM114-Status: GOOD (  25.24  )
+X-CRM114-CacheID: sfid-20250112_193918_654798_ABEC0B43 
+X-CRM114-Status: GOOD (  11.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,117 +107,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gU3VuLCAyMDI1LTAxLTEyIGF0IDE2OjEyICswODAwLCBDaGluLVRpbmcgS3VvIHdyb3RlOgo+
-IFRoZSBib290IHN0YXR1cyBpbiB0aGUgd2F0Y2hkb2cgZGV2aWNlIHN0cnVjdCBpcyB1cGRhdGVk
-IGR1cmluZwo+IGNvbnRyb2xsZXIgcHJvYmUgc3RhZ2UuIEFwcGxpY2F0aW9uIGxheWVyIGNhbiBn
-ZXQgdGhlIGJvb3Qgc3RhdHVzCj4gdGhyb3VnaCB0aGUgY29tbWFuZCwgY2F0IC9zeXMvY2xhc3Mv
-d2F0Y2hkb2cvd2F0Y2hkb2dYL2Jvb3RzdGF0dXMuCj4gVGhlIGJvb3RzdGF0dXMgY2FuIGJlLAo+
-IFdESU9GX0NBUkRSRVNFVCA9PiB0aGUgc3lzdGVtIGlzIHJlc2V0IGJ5IFdEVCBTb0MgcmVzZXQu
-Cj4gT3RoZXJzwqDCoMKgwqDCoMKgwqDCoMKgID0+IG90aGVyIHJlc2V0IGV2ZW50cywgZS5nLiwg
-cG93ZXIgb24gcmVzZXQuCj4gCj4gT24gQVNQRUVEIHBsYXRmb3JtLCB0aGUgYm9vdCBzdGF0dXMg
-aXMgcmVjb3JkZWQgaW4gdGhlIFNDVSByZWdpc3RlcnMuCj4gLSBBU1QyNDAwOiBPbmx5IGEgYml0
-IHJlcHJlc2VudHMgZm9yIGFueSBXRFQgcmVzZXQuCj4gLSBBU1QyNTAwL0FTVDI2MDA6IFRoZSBy
-ZXNldCB0cmlnZ2VyZWQgYnkgZGlmZmVyZW50IFdEVCBjb250cm9sbGVycwo+IMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBjYW4gYmUgZGlzdGluZ3Vpc2hlZCBieSBkaWZmZXJl
-bnQgU0NVIGJpdHMuCj4gCj4gQmVzaWRlcywgb24gQVNUMjQwMCBhbmQgQVNUMjUwMCwgc2luY2Ug
-YWx0ZXJuYXRpbmcgYm9vdCBldmVudCBpcwo+IHRyaWdnZXJlZCBieSBXRFQgU29DIHJlc2V0LCBp
-dCBpcyBjbGFzc2lmaWVkIGFzIFdESU9GX0NBUkRSRVNFVC4KPiAKPiBTaWduZWQtb2ZmLWJ5OiBD
-aGluLVRpbmcgS3VvIDxjaGluLXRpbmdfa3VvQGFzcGVlZHRlY2guY29tPgo+IC0tLQo+IMKgZHJp
-dmVycy93YXRjaGRvZy9hc3BlZWRfd2R0LmMgfCA4MQo+ICsrKysrKysrKysrKysrKysrKysrKysr
-KysrKysrKysrKystCj4gwqAxIGZpbGUgY2hhbmdlZCwgNzkgaW5zZXJ0aW9ucygrKSwgMiBkZWxl
-dGlvbnMoLSkKPiAKPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy93YXRjaGRvZy9hc3BlZWRfd2R0LmMK
-PiBiL2RyaXZlcnMvd2F0Y2hkb2cvYXNwZWVkX3dkdC5jCj4gaW5kZXggYjQ3NzNhNmFhZjhjLi4z
-Njk2MzViMzhjYTAgMTAwNjQ0Cj4gLS0tIGEvZHJpdmVycy93YXRjaGRvZy9hc3BlZWRfd2R0LmMK
-PiArKysgYi9kcml2ZXJzL3dhdGNoZG9nL2FzcGVlZF93ZHQuYwo+IEBAIC0xMSwyMSArMTEsMzAg
-QEAKPiDCoCNpbmNsdWRlIDxsaW51eC9pby5oPgo+IMKgI2luY2x1ZGUgPGxpbnV4L2tlcm5lbC5o
-Pgo+IMKgI2luY2x1ZGUgPGxpbnV4L2tzdHJ0b3guaD4KPiArI2luY2x1ZGUgPGxpbnV4L21mZC9z
-eXNjb24uaD4KPiDCoCNpbmNsdWRlIDxsaW51eC9tb2R1bGUuaD4KPiDCoCNpbmNsdWRlIDxsaW51
-eC9vZi5oPgo+IMKgI2luY2x1ZGUgPGxpbnV4L29mX2lycS5oPgo+IMKgI2luY2x1ZGUgPGxpbnV4
-L3BsYXRmb3JtX2RldmljZS5oPgo+ICsjaW5jbHVkZSA8bGludXgvcmVnbWFwLmg+Cj4gwqAjaW5j
-bHVkZSA8bGludXgvd2F0Y2hkb2cuaD4KPiDCoAo+IMKgc3RhdGljIGJvb2wgbm93YXlvdXQgPSBX
-QVRDSERPR19OT1dBWU9VVDsKPiDCoG1vZHVsZV9wYXJhbShub3dheW91dCwgYm9vbCwgMCk7Cj4g
-wqBNT0RVTEVfUEFSTV9ERVNDKG5vd2F5b3V0LCAiV2F0Y2hkb2cgY2Fubm90IGJlIHN0b3BwZWQg
-b25jZSBzdGFydGVkCj4gKGRlZmF1bHQ9Igo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBfX01PRFVMRV9TVFJJTkcoV0FUQ0hE
-T0dfTk9XQVlPVVQpCj4gIikiKTsKPiArc3RydWN0IGFzcGVlZF93ZHRfc2N1IHsKPiArwqDCoMKg
-wqDCoMKgwqBjb25zdCBjaGFyICpjb21wYXRpYmxlOwo+ICvCoMKgwqDCoMKgwqDCoHUzMiByZXNl
-dF9zdGF0dXNfcmVnOwo+ICvCoMKgwqDCoMKgwqDCoHUzMiB3ZHRfcmVzZXRfbWFzazsKPiArwqDC
-oMKgwqDCoMKgwqB1MzIgd2R0X3Jlc2V0X21hc2tfc2hpZnQ7Cj4gK307Cj4gwqAKPiDCoHN0cnVj
-dCBhc3BlZWRfd2R0X2NvbmZpZyB7Cj4gwqDCoMKgwqDCoMKgwqDCoHUzMiBleHRfcHVsc2Vfd2lk
-dGhfbWFzazsKPiDCoMKgwqDCoMKgwqDCoMKgdTMyIGlycV9zaGlmdDsKPiDCoMKgwqDCoMKgwqDC
-oMKgdTMyIGlycV9tYXNrOwo+ICvCoMKgwqDCoMKgwqDCoHN0cnVjdCBhc3BlZWRfd2R0X3NjdSBz
-Y3U7Cj4gwqB9Owo+IMKgCj4gwqBzdHJ1Y3QgYXNwZWVkX3dkdCB7Cj4gQEAgLTM5LDE4ICs0OCwz
-NiBAQCBzdGF0aWMgY29uc3Qgc3RydWN0IGFzcGVlZF93ZHRfY29uZmlnCj4gYXN0MjQwMF9jb25m
-aWcgPSB7Cj4gwqDCoMKgwqDCoMKgwqDCoC5leHRfcHVsc2Vfd2lkdGhfbWFzayA9IDB4ZmYsCj4g
-wqDCoMKgwqDCoMKgwqDCoC5pcnFfc2hpZnQgPSAwLAo+IMKgwqDCoMKgwqDCoMKgwqAuaXJxX21h
-c2sgPSAwLAo+ICvCoMKgwqDCoMKgwqDCoC5zY3UgPSB7Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoC5jb21wYXRpYmxlID0gImFzcGVlZCxhc3QyNDAwLXNjdSIsCj4gK8KgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoC5yZXNldF9zdGF0dXNfcmVnID0gMHgzYywKPiArwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgLndkdF9yZXNldF9tYXNrID0gMHgxLAo+ICvCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAud2R0X3Jlc2V0X21hc2tfc2hpZnQgPSAxLAo+ICvCoMKg
-wqDCoMKgwqDCoH0sCj4gwqB9Owo+IMKgCj4gwqBzdGF0aWMgY29uc3Qgc3RydWN0IGFzcGVlZF93
-ZHRfY29uZmlnIGFzdDI1MDBfY29uZmlnID0gewo+IMKgwqDCoMKgwqDCoMKgwqAuZXh0X3B1bHNl
-X3dpZHRoX21hc2sgPSAweGZmZmZmLAo+IMKgwqDCoMKgwqDCoMKgwqAuaXJxX3NoaWZ0ID0gMTIs
-Cj4gwqDCoMKgwqDCoMKgwqDCoC5pcnFfbWFzayA9IEdFTk1BU0soMzEsIDEyKSwKPiArwqDCoMKg
-wqDCoMKgwqAuc2N1ID0gewo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAuY29tcGF0
-aWJsZSA9ICJhc3BlZWQsYXN0MjUwMC1zY3UiLAo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqAucmVzZXRfc3RhdHVzX3JlZyA9IDB4M2MsCj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoC53ZHRfcmVzZXRfbWFzayA9IDB4MSwKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgLndkdF9yZXNldF9tYXNrX3NoaWZ0ID0gMiwKPiArwqDCoMKgwqDCoMKgwqB9LAo+IMKg
-fTsKPiDCoAo+IMKgc3RhdGljIGNvbnN0IHN0cnVjdCBhc3BlZWRfd2R0X2NvbmZpZyBhc3QyNjAw
-X2NvbmZpZyA9IHsKPiDCoMKgwqDCoMKgwqDCoMKgLmV4dF9wdWxzZV93aWR0aF9tYXNrID0gMHhm
-ZmZmZiwKPiDCoMKgwqDCoMKgwqDCoMKgLmlycV9zaGlmdCA9IDAsCj4gwqDCoMKgwqDCoMKgwqDC
-oC5pcnFfbWFzayA9IEdFTk1BU0soMzEsIDEwKSwKPiArwqDCoMKgwqDCoMKgwqAuc2N1ID0gewo+
-ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAuY29tcGF0aWJsZSA9ICJhc3BlZWQsYXN0
-MjYwMC1zY3UiLAo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAucmVzZXRfc3RhdHVz
-X3JlZyA9IDB4NzQsCj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoC53ZHRfcmVzZXRf
-bWFzayA9IDB4ZiwKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgLndkdF9yZXNldF9t
-YXNrX3NoaWZ0ID0gMTYsCj4gK8KgwqDCoMKgwqDCoMKgfSwKPiDCoH07Cj4gwqAKPiDCoHN0YXRp
-YyBjb25zdCBzdHJ1Y3Qgb2ZfZGV2aWNlX2lkIGFzcGVlZF93ZHRfb2ZfdGFibGVbXSA9IHsKPiBA
-QCAtMjEzLDYgKzI0MCw1NiBAQCBzdGF0aWMgaW50IGFzcGVlZF93ZHRfcmVzdGFydChzdHJ1Y3QK
-PiB3YXRjaGRvZ19kZXZpY2UgKndkZCwKPiDCoMKgwqDCoMKgwqDCoMKgcmV0dXJuIDA7Cj4gwqB9
-Cj4gwqAKPiArc3RhdGljIHZvaWQgYXNwZWVkX3dkdF91cGRhdGVfYm9vdHN0YXR1cyhzdHJ1Y3Qg
-cGxhdGZvcm1fZGV2aWNlCj4gKnBkZXYsCj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBzdHJ1Y3Qg
-YXNwZWVkX3dkdCAqd2R0KQo+ICt7Cj4gK8KgwqDCoMKgwqDCoMKgY29uc3Qgc3RydWN0IHJlc291
-cmNlICpyZXM7Cj4gK8KgwqDCoMKgwqDCoMKgc3RydWN0IGFzcGVlZF93ZHRfc2N1IHNjdSA9IHdk
-dC0+Y2ZnLT5zY3U7Cj4gK8KgwqDCoMKgwqDCoMKgc3RydWN0IHJlZ21hcCAqc2N1X2Jhc2U7Cj4g
-K8KgwqDCoMKgwqDCoMKgdTMyIHJlc2V0X21hc2tfd2lkdGg7Cj4gK8KgwqDCoMKgwqDCoMKgdTMy
-IHJlc2V0X21hc2tfc2hpZnQ7Cj4gK8KgwqDCoMKgwqDCoMKgdTMyIGlkeCA9IDA7Cj4gK8KgwqDC
-oMKgwqDCoMKgdTMyIHN0YXR1czsKPiArwqDCoMKgwqDCoMKgwqBpbnQgcmV0Owo+ICsKPiArwqDC
-oMKgwqDCoMKgwqBpZiAoIW9mX2RldmljZV9pc19jb21wYXRpYmxlKHBkZXYtPmRldi5vZl9ub2Rl
-LAo+ICJhc3BlZWQsYXN0MjQwMC13ZHQiKSkgewo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqByZXMgPSBwbGF0Zm9ybV9nZXRfcmVzb3VyY2UocGRldiwgSU9SRVNPVVJDRV9NRU0sIDAp
-Owo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBpZHggPSAoKGludHB0cl90KXdkdC0+
-YmFzZSAmIDB4MDAwMDBmZmYpIC8KPiByZXNvdXJjZV9zaXplKHJlcyk7Cj4gK8KgwqDCoMKgwqDC
-oMKgfQo+ICsKPiArwqDCoMKgwqDCoMKgwqBzY3VfYmFzZSA9Cj4gc3lzY29uX3JlZ21hcF9sb29r
-dXBfYnlfY29tcGF0aWJsZShzY3UuY29tcGF0aWJsZSk7Cj4gK8KgwqDCoMKgwqDCoMKgaWYgKElT
-X0VSUihzY3VfYmFzZSkpIHsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgd2R0LT53
-ZGQuYm9vdHN0YXR1cyA9IFdESU9TX1VOS05PV047Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoHJldHVybjsKPiArwqDCoMKgwqDCoMKgwqB9Cj4gKwo+ICvCoMKgwqDCoMKgwqDCoHJl
-dCA9IHJlZ21hcF9yZWFkKHNjdV9iYXNlLCBzY3UucmVzZXRfc3RhdHVzX3JlZywgJnN0YXR1cyk7
-Cj4gK8KgwqDCoMKgwqDCoMKgaWYgKHJldCkgewo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqB3ZHQtPndkZC5ib290c3RhdHVzID0gV0RJT1NfVU5LTk9XTjsKPiArwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgcmV0dXJuOwo+ICvCoMKgwqDCoMKgwqDCoH0KPiArCj4gK8KgwqDC
-oMKgwqDCoMKgcmVzZXRfbWFza193aWR0aCA9IGh3ZWlnaHQzMihzY3Uud2R0X3Jlc2V0X21hc2sp
-Owo+ICvCoMKgwqDCoMKgwqDCoHJlc2V0X21hc2tfc2hpZnQgPSBzY3Uud2R0X3Jlc2V0X21hc2tf
-c2hpZnQgKwo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoCByZXNldF9tYXNrX3dpZHRoICogaWR4Owo+ICsKPiArwqDCoMKgwqDCoMKgwqBpZiAoc3Rh
-dHVzICYgKHNjdS53ZHRfcmVzZXRfbWFzayA8PCByZXNldF9tYXNrX3NoaWZ0KSkKPiArwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgd2R0LT53ZGQuYm9vdHN0YXR1cyA9IFdESU9GX0NBUkRS
-RVNFVDsKCkhvdyBwcmVjaXNlIGlzIHRoZSB3b3JkaW5nIGluIHlvdXIgY29tbWl0IG1lc3NhZ2U/
-IFRoZSBBU1QyNjAwLCBmb3IKaW5zdGFuY2UsIGhhcyA0IHJlc2V0IHR5cGVzOgoKMS4gIlNvQyIK
-Mi4gIkZ1bGwiCjMuICJBUk0iCjQuICJTb2Z0d2FyZSIKCkluIHRoZSBjb21taXQgbWVzc2FnZSwg
-eW91IHNhaWQ6Cgo+IFdESU9GX0NBUkRSRVNFVCA9PiB0aGUgc3lzdGVtIGlzIHJlc2V0IGJ5IFdE
-VCBTb0MgcmVzZXQuCgpIb3dldmVyIHRoZSBsb2dpYyBoZXJlICh3aXRoIHRoZSB3YXkgeW91J3Zl
-IGluaXRpYWxpc2VkIHRoZSBjb25maWcKc3RydWN0IGZvciB0aGUgQVNUMjYwMCkgd2lsbCBzaWdu
-YWwgV0RJT0ZfQ0FSRFJFU0VUIGV2ZW4gaWYgd2hhdApvY2N1cnJlZCB3YXMgZS5nLiBhIChncmFj
-ZWZ1bD8pIHNvZnR3YXJlIHJlc2V0LgoKVGhlIG9ubHkgdGhpbmcgV0RJT0ZfQ0FSRFJFU0VUIGRp
-ZmZlcmVudGlhdGVzIGlzIGEgcG93ZXItb24gcmVzZXQgZnJvbQphbnkgb3RoZXIga2luZCBvZiB3
-YXRjaGRvZy1kcml2ZW4gcmVzZXQuCgpJcyB0aGF0IHdoYXQncyBpbnRlbmRlZD8gSSdtIGp1c3Qg
-d2FyeSBvZiBjb25mdXNpb24gZm9yIHdoYXQgYXBwZWFycyB0bwpiZSBhIGdlbmVyaWMgdXNlIG9m
-ICJTb0MiIGluIHRoZSBjb21taXQgbWVzc2FnZSB2cyB0aGUgc3BlY2lmaWMgIlNvQyIKbW9kZSBv
-ZiB0aGUgd2F0Y2hkb2cgY29udHJvbGxlciAoc2hvdWxkIHNvbWUgZG9jdW1lbnRhdGlvbiBiZQp3
-cml0dGVuL3VwZGF0ZWQ/KQoKQW5kcmV3Cg==
+From: Barry Song <v-songbaohua@oppo.com>
+
+Commit 735ecdfaf4e8 ("mm/vmscan: avoid split lazyfree THP during
+shrink_folio_list()") prevents the splitting of MADV_FREE'd THP in
+madvise.c. 
+However, those folios are still added to the deferred_split list in 
+try_to_unmap_one() because we are unmapping PTEs and removing rmap
+entries one by one.
+
+Firstly, this has rendered the following counter somewhat confusing, 
+/sys/kernel/mm/transparent_hugepage/hugepages-size/stats/split_deferred
+The split_deferred counter was originally designed to track operations 
+such as partial unmap or madvise of large folios. However, in practice, 
+most split_deferred cases arise from memory reclamation of aligned 
+lazyfree mTHPs as observed by Tangquan. This discrepancy has made
+the split_deferred counter highly misleading.
+
+Secondly, this approach is slow because it requires iterating through 
+each PTE and removing the rmap one by one for a large folio. In fact, 
+all PTEs of a pte-mapped large folio should be unmapped at once, and
+the entire folio should be removed from the rmap as a whole.
+
+Thirdly, it also increases the risk of a race condition where lazyfree
+folios are incorrectly set back to swapbacked, as a speculative folio_get
+may occur in the shrinker's callback.
+deferred_split_scan() might call folio_try_get(folio) since we have
+added the folio to split_deferred list while removing rmap for the
+1st subpage, and while we are scanning the 2nd to nr_pages PTEs of
+this folio in try_to_unmap_one(), the entire mTHP could be
+transitioned back to swap-backed because the reference count is
+incremented, which can make "ref_count == 1 + map_count" within
+try_to_unmap_one() false.
+
+   /*
+    * The only page refs must be one from isolation
+    * plus the rmap(s) (dropped by discard:).
+    */
+   if (ref_count == 1 + map_count &&
+       (!folio_test_dirty(folio) ||
+        ...
+        (vma->vm_flags & VM_DROPPABLE))) {
+           dec_mm_counter(mm, MM_ANONPAGES);
+           goto discard;
+   }
+
+This patchset resolves the issue by marking only genuinely dirty folios 
+as swap-backed, as suggested by David, and transitioning to batched 
+unmapping of entire folios in try_to_unmap_one(). Consequently, the 
+deferred_split count drops to zero, and memory reclamation performance 
+improves significantly — reclaiming 64KiB lazyfree large folios is now 
+2.5x faster(The specific data is embedded in the changelog of patch
+3/4).
+
+By the way, while the patchset is primarily aimed at PTE-mapped large 
+folios, Baolin and Lance also found that try_to_unmap_one() handles 
+lazyfree redirtied PMD-mapped large folios inefficiently — it splits 
+the PMD into PTEs and iterates over them. This patchset removes the 
+unnecessary splitting, enabling us to skip redirtied PMD-mapped large 
+folios 3.5X faster during memory reclamation. (The specific data can 
+be found in the changelog of patch 4/4).
+
+-v2:
+ * describle backgrounds, problems more clearly in cover-letter per
+   Lorenzo Stoakes;
+ * also handle redirtied pmd-mapped large folios per Baolin and Lance;
+ * handle some corner cases such as HWPOSION, pte_unused;
+ * riscv and x86 build issues.
+
+-v1:
+ https://lore.kernel.org/linux-mm/20250106031711.82855-1-21cnbao@gmail.com/
+
+Barry Song (4):
+  mm: Set folio swapbacked iff folios are dirty in try_to_unmap_one
+  mm: Support tlbbatch flush for a range of PTEs
+  mm: Support batched unmap for lazyfree large folios during reclamation
+  mm: Avoid splitting pmd for lazyfree pmd-mapped THP in try_to_unmap
+
+ arch/arm64/include/asm/tlbflush.h |  26 +++----
+ arch/arm64/mm/contpte.c           |   2 +-
+ arch/riscv/include/asm/tlbflush.h |   3 +-
+ arch/riscv/mm/tlbflush.c          |   3 +-
+ arch/x86/include/asm/tlbflush.h   |   3 +-
+ mm/huge_memory.c                  |  17 ++++-
+ mm/rmap.c                         | 112 ++++++++++++++++++++----------
+ 7 files changed, 111 insertions(+), 55 deletions(-)
+
+-- 
+2.39.3 (Apple Git-146)
 
 
