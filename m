@@ -4,69 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90614C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 21:47:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3573EC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 21:53:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+p3HjcTPs6cUGhlZ08w+IM+7oSzoEOQFMQB2ubcEu1k=; b=nJeMa0MQTgNY82Ej7VG1QWc48U
-	B4q7JdJDa7s5Zjc27fnQOAewFhZpCyX5ek5j39e7AnbGqmwrfSKx+5RvluVUDdRoayG+6DkOxeyee
-	hJd7QPx7yzohZ4PhAEg+T46oQ4dgmkp34o2wCLm0qJCCE9EJPGFBi/qLsaYXgf/qnujrsrQ6KPYqO
-	dq9l8vnzAjDpPTDLySPqKCaRN8sjiQydjhNOakhVmhLjmE77X9/caN63srwoVpOVv5pyQrurD5Uaf
-	LNGVBfnBSfYz4h7zdOKLIJ6/vHs/m26lxKS+NHE46zwdnmgY0lRNUX2KEovpcmXcoI8Al62D7P7WH
-	1WaGwOUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=dv4IcBAjfmR+8HBRab6BpcxMQm42RAKQVauGMIi29SI=; b=NmYv136NfP0jJj
+	IZaT2M7Ipf3fIksTcRnMp6MiCvwS23s6QBN33qtc3GN4t1ufLrepOL6JeHMIZiSQNOFdwpKEHhCPG
+	MUiDkoU6R8q3D48hIILmUedMYgtKkOeRVf+asny2bJxvy7aUS7rovYKAEIBC3+VOCn5f2A/Yy/Ycx
+	ExCqc+iSPkmkY2dAnxtXTT8nnBH5BWvaMkfCcsu1czT9gJgZINayRbvv+31eAKRkW3dO1jFF4Ul6/
+	nJJW21b/GmsyLoT8TXDQoOogVCsKpeA6pmJCaNDcvEBuAaXXw7uamzXeZjTAxuWBn8T1GMs83LBwa
+	Nud0M5fGRBRZQh1LLVxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXSHZ-00000006iq1-30mO;
-	Mon, 13 Jan 2025 21:47:37 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1tXSNS-00000006jid-2AuS;
+	Mon, 13 Jan 2025 21:53:42 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXSGJ-00000006iV7-2Iww
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 21:46:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1736804776;
- bh=+p3HjcTPs6cUGhlZ08w+IM+7oSzoEOQFMQB2ubcEu1k=;
- b=haS6i7qiFGlb4OflBSu0Eab3+0Rv/nUYP6T5++9RpNbPa4fyv2EqGz+jLlBab2TpgUUc4DN28
- Wz3naM4LBwWb4Lsq9mK88uATL2JYwZ2bOAMdRbU6KAxvKSaU3c4WjZjVQp5oyDUM9i6n+5AkyYx
- ETy3s9yHN4tdES6We1jdigY7+4zNkSGczWtMrON3HiOJzYcVd6dhuF/uxALmanHGiy/NOHf0JPW
- Q5CqwR3teJiHgarqu0BgL3V1ovYJ2olc7J1MZvclCYdV6nAC+9yoa9uKOiBJWQ6HaGdTV4rCpGu
- sFuD+8lyNS+67JoSfXrR6qGwcvOwbP11UYTvq+h4iWVw==
-X-Forward-Email-ID: 6785899ca2e821240c331f5b
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 0.4.40
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <df8e0ff8-355b-4c18-9349-0f04ae16e01b@kwiboo.se>
-Date: Mon, 13 Jan 2025 22:45:57 +0100
+	id 1tXSMC-00000006jRz-1zuI;
+	Mon, 13 Jan 2025 21:52:25 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50DErdiY021698;
+	Mon, 13 Jan 2025 21:52:18 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=dv4IcBAjfmR+8HBRab6Bpc
+	xMQm42RAKQVauGMIi29SI=; b=Zy1Ekw2712um8rh9fLkX/hg6lIwwYjsnqrNWjV
+	nVZRT+Mw2lh1r4C20NX7/zFov1+WxbznyK7BYhz0tU8dJ0mxxlykkjwXB7A6gEE/
+	noUwOqygHAetmtXzyFGTVSo7ZGGr82CNA/RE0x8/Ay/7N6Q7Xqx29pBKII1fldaU
+	S0DB2JMdZqFw2nNo6zlmbRWFY+ud3Q2JuICodLsvXegUZf4HCopZWesh6NXvMWmW
+	NBZeO6ruKZrOjHFPjmarrWl3U22Q3oBwIP6KsSdOmxMg6mgnYxZZnAvsrUrKvqvX
+	OADDm/Gz6LEEDlnCjzK4UrpLbV+y+mXAEUurDrFN0jvGxgaQ==
+Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44550agy5p-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 13 Jan 2025 21:52:17 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 50DLqGm2007327
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 13 Jan 2025 21:52:16 GMT
+Received: from hu-molvera-lv.qualcomm.com (10.49.16.6) by
+ nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Mon, 13 Jan 2025 13:52:15 -0800
+From: Melody Olvera <quic_molvera@quicinc.com>
+Subject: [PATCH 0/7] phy: qcom: Introduce USB support for SM8750
+Date: Mon, 13 Jan 2025 13:52:06 -0800
+Message-ID: <20250113-sm8750_usb_master-v1-0-09afe1dc2524@quicinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/1] phy: rockchip: naneng-combphy: compatible reset
- with old DT
-To: Vinod Koul <vkoul@kernel.org>, Chukun Pan <amadeus@jmu.edu.cn>
-Cc: Heiko Stuebner <heiko@sntech.de>, Philipp Zabel <p.zabel@pengutronix.de>,
- Kishon Vijay Abraham I <kishon@kernel.org>,
- Jianfeng Liu <liujianfeng1994@gmail.com>,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250106100001.1344418-1-amadeus@jmu.edu.cn>
- <20250106100001.1344418-2-amadeus@jmu.edu.cn>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20250106100001.1344418-2-amadeus@jmu.edu.cn>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAaLhWcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIxNDIyNj3eJcC3NTg/jS4qT43MTiktQi3TQj88TUFPM0sxQTAyWgvoKi1LT
+ MCrCZ0bEQflFqYSnQ6BKoYG0tANI1Wr14AAAA
+X-Change-ID: 20241223-sm8750_usb_master-f27aed7f6d40
+To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Wesley Cheng <quic_wcheng@quicinc.com>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Philipp Zabel
+	<p.zabel@pengutronix.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        "Will
+ Deacon" <will@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        "Konrad
+ Dybcio" <konradybcio@kernel.org>,
+        Satya Durga Srinivasu Prabhala
+	<quic_satyap@quicinc.com>,
+        Trilok Soni <quic_tsoni@quicinc.com>
+CC: <linux-arm-msm@vger.kernel.org>, <linux-phy@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-usb@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        "Melody
+ Olvera" <quic_molvera@quicinc.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1736805135; l=1558;
+ i=quic_molvera@quicinc.com; s=20241204; h=from:subject:message-id;
+ bh=9yBaQXiDZeh03gIlt6HNO/bkE/PQmksKg5pRplG5EhI=;
+ b=xuMgWRgaCzMFnPtCOE1uIVMKz0zTJxnpSvsVo7wQdqAQ8QRca8m2ngKmEpetwypNUmW2nRpKN
+ 7JDJe+6I9+YCroZDfta4/4pR5kfZ891+49bGC/WQhjrQvlJwVFhQzIF
+X-Developer-Key: i=quic_molvera@quicinc.com; a=ed25519;
+ pk=1DGLp3zVYsHAWipMaNZZTHR321e8xK52C9vuAoeca5c=
+X-Originating-IP: [10.49.16.6]
+X-ClientProxiedBy: nalasex01a.na.qualcomm.com (10.47.209.196) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: ctpwBzOBrwmZZzf8Apdt_vlSGSkLeujJ
+X-Proofpoint-GUID: ctpwBzOBrwmZZzf8Apdt_vlSGSkLeujJ
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 priorityscore=1501
+ suspectscore=0 mlxlogscore=652 adultscore=0 impostorscore=0 spamscore=0
+ clxscore=1011 malwarescore=0 bulkscore=0 phishscore=0 lowpriorityscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
+ definitions=main-2501130172
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_134619_619364_A775B118 
-X-CRM114-Status: GOOD (  16.28  )
+X-CRM114-CacheID: sfid-20250113_135224_644873_3F28A6CB 
+X-CRM114-Status: GOOD (  10.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,65 +123,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vinod,
+Add support for the PHYs and controllers used for USB on SM8750 SoCs.
 
-On 2025-01-06 11:00, Chukun Pan wrote:
-> The device tree of RK3568 did not specify reset-names before.
-> So add fallback to old behaviour to be compatible with old DT.
-> 
-> Fixes: fbcbffbac994 ("phy: rockchip: naneng-combphy: fix phy reset")
+Signed-off-by: Melody Olvera <quic_molvera@quicinc.com>
+---
+Melody Olvera (1):
+      arm64: defconfig: Add M31 eUSB2 PHY config
 
-The commit fbcbffbac994 ("phy: rockchip: naneng-combphy: fix phy reset")
-broke backwards compatibly with old DTs and has already been backported
-breaking i.e. PCIe and USB on Rockchip RK356x boards on stable and
-longterm kernels.
+Wesley Cheng (6):
+      dt-bindings: phy: qcom,sc8280xp-qmp-usb43dp-phy: Add SM8750 to QMP PHY
+      dt-bindings: phy: Add the M31 based eUSB2 PHY bindings
+      dt-bindings: usb: qcom,dwc3: Add SM8750 compatible
+      phy: qcom: qmp-combo: Add new PHY sequences for SM8750
+      phy: qcom: Add M31 based eUSB2 PHY driver
+      arm64: dts: qcom: sm8750: Add USB support to SM8750 platforms
 
-E.g with v6.12.9 on a Radxa ROCK 3A (RK3568) board:
+ .../bindings/phy/qcom,m31-eusb2-phy.yaml           |  84 +++++++
+ .../phy/qcom,sc8280xp-qmp-usb43dp-phy.yaml         |   2 +
+ .../devicetree/bindings/usb/qcom,dwc3.yaml         |   3 +
+ arch/arm64/boot/dts/qcom/sm8750-mtp.dts            |  24 ++
+ arch/arm64/boot/dts/qcom/sm8750-qrd.dts            |  24 ++
+ arch/arm64/boot/dts/qcom/sm8750.dtsi               | 134 ++++++++++
+ arch/arm64/configs/defconfig                       |   1 +
+ drivers/phy/qualcomm/Kconfig                       |  12 +-
+ drivers/phy/qualcomm/Makefile                      |   1 +
+ drivers/phy/qualcomm/phy-qcom-m31-eusb2.c          | 269 +++++++++++++++++++++
+ drivers/phy/qualcomm/phy-qcom-qmp-combo.c          | 198 +++++++++++++++
+ 11 files changed, 751 insertions(+), 1 deletion(-)
+---
+base-commit: 37136bf5c3a6f6b686d74f41837a6406bec6b7bc
+change-id: 20241223-sm8750_usb_master-f27aed7f6d40
 
-  rockchip-naneng-combphy fe830000.phy: error -ENOENT: failed to get phy reset
-  rockchip-naneng-combphy fe830000.phy: probe with driver rockchip-naneng-combphy failed with error -2
-  rockchip-naneng-combphy fe840000.phy: error -ENOENT: failed to get phy reset
-  rockchip-naneng-combphy fe840000.phy: probe with driver rockchip-naneng-combphy failed with error -2
-  rockchip-naneng-combphy fe820000.phy: error -ENOENT: failed to get phy reset
-  rockchip-naneng-combphy fe820000.phy: probe with driver rockchip-naneng-combphy failed with error -2
-
-  # cat /sys/kernel/debug/devices_deferred
-  3c0000000.pcie  platform: supplier fe840000.phy not ready
-  fcc00000.usb    platform: supplier fe820000.phy not ready
-  fd000000.usb    platform: supplier fe830000.phy not ready
-
-Please revert the commit fbcbffbac994 ("phy: rockchip: naneng-combphy:
-fix phy reset") or merge this patch to restore PCIe and USB RK356x.
-
-> Cc: Jianfeng Liu <liujianfeng1994@gmail.com>
-> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
-
-With this patch PCIe and USB start working again on same board.
-
-Reviewed-by: Jonas Karlman <jonas@kwiboo.se>
-
-Regards,
-Jonas
-
-> ---
->  drivers/phy/rockchip/phy-rockchip-naneng-combphy.c | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-> index a1532ef8bbe9..8c3ce57f8915 100644
-> --- a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-> +++ b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-> @@ -324,7 +324,10 @@ static int rockchip_combphy_parse_dt(struct device *dev, struct rockchip_combphy
->  
->  	priv->ext_refclk = device_property_present(dev, "rockchip,ext-refclk");
->  
-> -	priv->phy_rst = devm_reset_control_get(dev, "phy");
-> +	priv->phy_rst = devm_reset_control_get_exclusive(dev, "phy");
-> +	/* fallback to old behaviour */
-> +	if (PTR_ERR(priv->phy_rst) == -ENOENT)
-> +		priv->phy_rst = devm_reset_control_array_get_exclusive(dev);
->  	if (IS_ERR(priv->phy_rst))
->  		return dev_err_probe(dev, PTR_ERR(priv->phy_rst), "failed to get phy reset\n");
->  
+Best regards,
+-- 
+Melody Olvera <quic_molvera@quicinc.com>
 
 
