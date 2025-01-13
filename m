@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D1E8C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 22:37:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53283C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 22:38:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AcsMBz0WvMGOleLkk5ZIiMibQ6UUYcWf2fEdUfN37sI=; b=29S9T6ZUyRcGwJBroR9PL4Cx30
-	zYiSn9QHzbUME+iXI/OgfDr5wAKiMDDO8cun0bZEvBQaleoh0zO/cNlVeYtwhTHXFDIybUMvLJPGF
-	5E6+1Ywh9fO1ePec+iB3qlnBJQak3d5iW0HmahmgZ4nmupkL/F+UrfU/1jF2cyh4apMKhgjgwPCs2
-	ygpC4CCGwCZqyrZ/wLhSGR119EpFs1RyHFHe/nrQsJdXTxYMSWadtcaAahfQ3j9KYQ/jtJxX/e5lF
-	FdEZZESEoeS7P8qF8VGtswOK3QcLn7Pdv4nDpFU3gYzWuSbuyoXGEOZxYS2F8T+S5g7TLgutUdlDO
-	OhQ0e/Mg==;
+	bh=q+Jyn+jdW5rMasfbzdDzyFkIudIUO29Rgzp5bgXsj2s=; b=JKIukSjr1f4Mz+ZNyns2rD5ZS8
+	K3mSUSkRUWfLw0ki6dSj/kdtkL896tZ6W8UhiZ7+EFvzaWBs73qPThKCWkCkpLwSn+/ItCxMLZjwb
+	KZgJ+rIdT91Jeyp/P83MK1v8WM7ji+OrPDJ5CAm0ILjsSzypq9M6K4A8D45LXlfRIQe0WBkq99311
+	vC8yHbQK7FwbNW81ERUOWSf1IV0KGrUap2w/W0JnIxeR8X/mXZJTbemXoRb8eWLkL54SXnyOLMKY1
+	Nh0UYiB8loyIhAbXFQkrBReWp6+1aN49sULy2+qSjw8oLNlcWhQpPlBFYEtRpYYzyaJoIiJUZcJa6
+	vn/YAerA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXT3I-00000006rFF-05F9;
-	Mon, 13 Jan 2025 22:36:56 +0000
+	id 1tXT4T-00000006rR4-4BGB;
+	Mon, 13 Jan 2025 22:38:09 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXSw7-00000006pOd-3oub
+	id 1tXSwF-00000006pTg-2mfd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 22:29:33 +0000
+	Mon, 13 Jan 2025 22:29:40 +0000
 Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
 	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
 	(Exim 4.92)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tXSvv-0006tu-5f; Mon, 13 Jan 2025 23:29:19 +0100
+	id 1tXSvv-0006tw-5k; Mon, 13 Jan 2025 23:29:19 +0100
 Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
 	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tXSvu-000KaK-0u;
+	id 1tXSvu-000KaJ-0u;
 	Mon, 13 Jan 2025 23:29:18 +0100
 Received: from localhost ([::1] helo=dude05.red.stw.pengutronix.de)
 	by dude05.red.stw.pengutronix.de with esmtp (Exim 4.96)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tXSvv-008syM-1M;
+	id 1tXSvv-008syM-1L;
 	Mon, 13 Jan 2025 23:29:18 +0100
 From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Date: Mon, 13 Jan 2025 23:29:10 +0100
-Subject: [PATCH 6/6] arm64: dts: imx8mp-skov: support new 7" panel board
+Date: Mon, 13 Jan 2025 23:29:09 +0100
+Subject: [PATCH 5/6] arm64: dts: imx8mp-skov: add revC BD500 board
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250113-skov-imx8mp-new-boards-v1-6-75288def1271@pengutronix.de>
+Message-Id: <20250113-skov-imx8mp-new-boards-v1-5-75288def1271@pengutronix.de>
 References: <20250113-skov-imx8mp-new-boards-v1-0-75288def1271@pengutronix.de>
 In-Reply-To: <20250113-skov-imx8mp-new-boards-v1-0-75288def1271@pengutronix.de>
 To: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
@@ -58,6 +58,7 @@ To: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
  Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>
 Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Oleksij Rempel <o.rempel@pengutronix.de>, 
  Ahmad Fatoum <a.fatoum@pengutronix.de>
 X-Mailer: b4 0.14.2
 X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
@@ -65,8 +66,8 @@ X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_142931_959040_BCD3E25E 
-X-CRM114-Status: GOOD (  13.29  )
+X-CRM114-CacheID: sfid-20250113_142939_707242_93A61D7A 
+X-CRM114-Status: GOOD (  13.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,36 +82,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This board is very similar to the already upstream
-imx8mp-skov-revb-mi1010ait-1cp1.dts with the difference that it uses a
-different 7" LVDS panel.
+The BD500 replaces the touch display with 3 bicolor LEDs and a push
+button on top of a Skov i.MX8-CPU revision C.
 
+Signed-off-by: Oleksij Rempel <o.rempel@pengutronix.de>
 Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
 ---
-Note: The panel's binding is already in linux-next.
----
  arch/arm64/boot/dts/freescale/Makefile             |  1 +
- .../dts/freescale/imx8mp-skov-revc-tian-g07017.dts | 81 ++++++++++++++++++++++
- 2 files changed, 82 insertions(+)
+ .../boot/dts/freescale/imx8mp-skov-revc-bd500.dts  | 91 ++++++++++++++++++++++
+ 2 files changed, 92 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 6ee3a7ffe4792106118b8201c1f5f51c8ecd0ff2..986c4f974da51fb8a6fb3bc7be1ec664f7db629e 100644
+index ea4da899b44be0aaac745f6a0503bed3bb8ba20c..6ee3a7ffe4792106118b8201c1f5f51c8ecd0ff2 100644
 --- a/arch/arm64/boot/dts/freescale/Makefile
 +++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -198,6 +198,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revb-hdmi.dtb
+@@ -197,6 +197,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-basic.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revb-hdmi.dtb
  dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revb-lt6.dtb
  dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revb-mi1010ait-1cp1.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-bd500.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-tian-g07017.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-bd500.dtb
  dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mpxl.dtb
  dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mp-ras314.dtb
  dtb-$(CONFIG_ARCH_MXC) += imx8mp-var-som-symphony.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-tian-g07017.dts b/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-tian-g07017.dts
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-bd500.dts b/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-bd500.dts
 new file mode 100644
-index 0000000000000000000000000000000000000000..9a562c011f2c292861c2e57e0e74aa3acd063e0c
+index 0000000000000000000000000000000000000000..b816c6cd3bca60b14cf6bc7f40cb780aa893958d
 --- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-tian-g07017.dts
-@@ -0,0 +1,81 @@
++++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-bd500.dts
+@@ -0,0 +1,91 @@
 +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
 +
 +/dts-v1/;
@@ -118,79 +117,89 @@ index 0000000000000000000000000000000000000000..9a562c011f2c292861c2e57e0e74aa3a
 +#include "imx8mp-skov-reva.dtsi"
 +
 +/ {
-+	model = "SKOV IMX8MP CPU revC - TIAN G07017";
-+	compatible = "skov,imx8mp-skov-revc-tian-g07017", "fsl,imx8mp";
++	model = "SKOV IMX8MP CPU revC - bd500";
++	compatible = "skov,imx8mp-skov-revc-bd500", "fsl,imx8mp";
 +
-+	panel {
-+		compatible = "topland,tian-g07017-01";
-+		backlight = <&backlight>;
-+		power-supply = <&reg_tft_vcom>;
++	leds {
++		led_system_red: led-3 {
++			label = "bd500:system:red";
++			color = <LED_COLOR_ID_RED>;
++			/* Inverted compared to others due to NMOS inverter */
++			gpios = <&gpioexp 3 GPIO_ACTIVE_HIGH>;
++			default-state = "off";
++		};
 +
-+		port {
-+			in_lvds0: endpoint {
-+				remote-endpoint = <&ldb_lvds_ch0>;
-+			};
++		led_system_green: led-4 {
++			label = "bd500:system:green";
++			color = <LED_COLOR_ID_GREEN>;
++			gpios = <&gpioexp 2 GPIO_ACTIVE_LOW>;
++			default-state = "on";
++		};
++
++		led_lan1_red: led-5 {
++			label = "bd500:lan1:act";
++			color = <LED_COLOR_ID_RED>;
++			linux,default-trigger = "netdev";
++			gpios = <&gpioexp 1 GPIO_ACTIVE_LOW>;
++		};
++
++		led_lan1_green: led-6 {
++			label = "bd500:lan1:link";
++			color = <LED_COLOR_ID_GREEN>;
++			linux,default-trigger = "netdev";
++			gpios = <&gpioexp 0 GPIO_ACTIVE_LOW>;
++		};
++
++		led_lan2_red: led-7 {
++			label = "bd500:lan2:act";
++			color = <LED_COLOR_ID_RED>;
++			linux,default-trigger = "netdev";
++			gpios = <&gpioexp 6 GPIO_ACTIVE_LOW>;
++		};
++
++		led_lan2_green: led-8 {
++			label = "bd500:lan2:link";
++			color = <LED_COLOR_ID_GREEN>;
++			linux,default-trigger = "netdev";
++			gpios = <&gpioexp 7 GPIO_ACTIVE_LOW>;
 +		};
 +	};
-+};
 +
-+&backlight {
-+	status = "okay";
++	gpio-keys {
++		compatible = "gpio-keys";
++
++		button-1 {
++			label = "S1";
++			linux,code = <KEY_CONFIG>;
++			gpios = <&gpioexp 5 GPIO_ACTIVE_LOW>;
++		};
++	};
 +};
 +
 +&i2c2 {
 +	clock-frequency = <100000>;
 +	status = "okay";
 +
-+	touchscreen@38 {
-+		compatible = "edt,edt-ft5506";
-+		reg = <0x38>;
++	gpioexp: gpio@20 {
++		compatible = "nxp,pca6408";
++		reg = <0x20>;
 +		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_touchscreen>;
++		pinctrl-0 = <&pinctrl_gpio_exp>;
 +		interrupts-extended = <&gpio4 28 IRQ_TYPE_EDGE_FALLING>;
 +		reset-gpios = <&gpio4 29 GPIO_ACTIVE_LOW>;
-+		touchscreen-size-x = <1024>;
-+		touchscreen-size-y = <600>;
 +		vcc-supply = <&reg_vdd_3v3>;
-+		iovcc-supply = <&reg_vdd_3v3>;
-+		wakeup-source;
++		gpio-controller;
++		#gpio-cells = <2>;
 +	};
 +};
 +
-+&lcdif2 {
-+	status = "okay";
-+};
-+
-+&lvds_bridge {
-+	assigned-clocks = <&clk IMX8MP_CLK_MEDIA_LDB>,
-+				 <&clk IMX8MP_VIDEO_PLL1>;
-+	assigned-clock-parents = <&clk IMX8MP_VIDEO_PLL1_OUT>;
-+	/* IMX8MP_VIDEO_PLL1 = IMX8MP_CLK_MEDIA_DISP2_PIX * 2 * 7 */
-+	assigned-clock-rates = <0>, <358400000>;
-+	status = "okay";
-+
-+	ports {
-+		port@1 {
-+			ldb_lvds_ch0: endpoint {
-+				remote-endpoint = <&in_lvds0>;
-+			};
-+		};
++&iomuxc {
++	pinctrl_gpio_exp: gpioexpgrp {
++		fsl,pins = <
++			MX8MP_IOMUXC_SAI3_RXFS__GPIO4_IO28	0x0
++			MX8MP_IOMUXC_SAI3_RXC__GPIO4_IO29	0x0
++		>;
 +	};
-+};
-+
-+&pwm4 {
-+	status = "okay";
-+};
-+
-+&pwm1 {
-+	status = "okay";
-+};
-+
-+&reg_tft_vcom {
-+	regulator-min-microvolt = <3160000>;
-+	regulator-max-microvolt = <3160000>;
-+	voltage-table = <3160000 73>;
-+	status = "okay";
 +};
 
 -- 
