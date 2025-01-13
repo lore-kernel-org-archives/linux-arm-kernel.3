@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99439C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 15:58:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61BA2C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 15:59:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RwpA8xODhzN3xLYmkbGM7YwDr68SjVQSY2NFZwecLcw=; b=PdUXdFUTv+NXulI3zei/RVOSO6
-	BTE72JJr4yotRM0gI9Q8adFwDzuvX/ZqdGdVHJSt6sKy3swZpz+XFeG4czSF4K77SWsCONy1O5hHi
-	jmTmZQ+qt87FwCwhUYCb6QW5f5SVLFCtiD06DNHCRZ4O3M1HDnT9ZfqMrUvrpCfOK/mYSV+9wVgsw
-	D0Zgm/ngUcybiOWU+OBZCpvoGtDEoDz38Ws6JKMEa0rFSdz3Ii9dcH5QNw45Bg0E1QB1fRIFiakQc
-	Xmc+eGQNMF0hC6f4sBQ7nZ0qb18leAWwNgcjKTcu6m3vOCPzY+bpJya3cflsdEOR69dMNld4nXYYm
-	qtUOBOfg==;
+	bh=t0kV+LP6F/u1+R8EaS8B14VwEW/IGDvbboxxcr8/3pc=; b=JCjRfad+/XX73txDWDLU+8/Fhf
+	YwAZwceaDopIe2hUsBS26j+9HHYMuxCjnMLk5+6MTwNhzPUyeRwfLh86BFhvHMABC8iK7XpAtLuLd
+	g4Z3ltFgIK0Gr8RMUQWQ2xhnFXNWYCxvcE1oEjfxBKr7IA9wmq2RiQvragqdETkyU0z+CVlNl8Tma
+	WZ023Eio/Ln3YxeWWvavG/gNPZd+ZCU2Dj7/BOV8lugTzJuY9VCAJNGESP2sSUKWfiqiFcGtM1AU6
+	ycFVtr+02Ywhi8hFIwA4oJNN7icFhGbvAE4nT0Usqk86vfiZOGte6nwCbIcaPNWe8ZPa0Fk/hqdFo
+	iyCe7DjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXMp4-00000005kYc-3yui;
-	Mon, 13 Jan 2025 15:57:50 +0000
+	id 1tXMqH-00000005kiB-2gnQ;
+	Mon, 13 Jan 2025 15:59:05 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXMKM-00000005ciC-4B57
+	id 1tXMKO-00000005ciz-17E1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 15:26:08 +0000
+	Mon, 13 Jan 2025 15:26:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 959DB5C5612;
-	Mon, 13 Jan 2025 15:25:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A0B1C4CEE2;
-	Mon, 13 Jan 2025 15:26:06 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id D93C05C5659;
+	Mon, 13 Jan 2025 15:25:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 505FDC4CEE8;
+	Mon, 13 Jan 2025 15:26:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736781966;
-	bh=5GmGthLpYKunN5PaKte3BBzy6UppfieKww7/WXUP5fA=;
+	s=k20201202; t=1736781967;
+	bh=PDn7b4rZVG80Mpecsub3/9L/gDd/HzzWKwGdflNiHpo=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=GWpRYI/2DdvEHmcIowU64Rkn7Km1medSGOtScIVhKoMtIGA7Zu5Qrazfk9p4G2uIa
-	 1WFsIg0MOhWDtYkhf1UeGufO4PxyeSa7B2GWF2XKoBonf/kt+vlgOnJu+Ej066C0ll
-	 nYdfmW70wT6nvXb3aKxSBBexbp3uqVKuOH7HEIoObwdEkPkt6WWxt1aXXyAs2TuWSY
-	 ldvWzxayMwf1OXlhDTOPrcKTaEUmnucFQVJL3k4KrXXMDTtRJ+xI6SFRO23eK80qXf
-	 R7uSBy6s4a3bkvxAV3KAOHo+r2bFF5+0P8OhxnSEvDBjn1lhev1uGUAY8jUkeE7uOV
-	 k+EBFdu3RJmTg==
-Date: Mon, 13 Jan 2025 09:26:05 -0600
+	b=Y6sd3x9EfE9NDXbhAt1sPTUbu89mP9g32MfuibLmihWDWTwIFgLAMcqC6Mf0CptFr
+	 AGmbffW31KHAo84ukeBA0bWtSpzOCmcxl8pYc01OL/Xpmu8Z0aTeipFyXpeLHZIE/3
+	 58pF0MwEvqwfAfE5zeKhC2dhtCRVMTsFeo+1EomeLXI+XrOOJKkyMC5wQ3a4NXk1Pz
+	 B0dmrvD20MLFxZl5yVRdA4nQVj942FzdrDQIhYCsMSSlPKYZ8Zr/rkGjR2XjkASluM
+	 Lh6cI1xcfNRmJ4oSBgoHe8Iwg+K/PRyu94VAxvqhvq8ymeuI+qfCT5tv7EwiHHz2bU
+	 r06z1Kgls05cg==
+Date: Mon, 13 Jan 2025 09:26:06 -0600
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: shawnguo@kernel.org, imx@lists.linux.dev, krzk+dt@kernel.org, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- Fabio Estevam <festevam@denx.de>, conor+dt@kernel.org, 
- kernel@pengutronix.de
+Cc: Fabio Estevam <festevam@denx.de>, conor+dt@kernel.org, 
+ kernel@pengutronix.de, devicetree@vger.kernel.org, shawnguo@kernel.org, 
+ krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org, 
+ imx@lists.linux.dev
 To: Fabio Estevam <festevam@gmail.com>
-In-Reply-To: <20250112124127.994141-1-festevam@gmail.com>
-References: <20250112124127.994141-1-festevam@gmail.com>
-Message-Id: <173678159815.2153167.409339104856435537.robh@kernel.org>
-Subject: Re: [PATCH] ARM: dts: vfxxx: Fix the CAAM job ring node names
+In-Reply-To: <20250112152745.1079880-1-festevam@gmail.com>
+References: <20250112152745.1079880-1-festevam@gmail.com>
+Message-Id: <173678159965.2153204.13999632845078780464.robh@kernel.org>
+Subject: Re: [PATCH v2 1/2] ARM: dts: imx5: Fix the CCM interrupts
+ description
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_072607_119292_FEB88C37 
-X-CRM114-Status: GOOD (  13.84  )
+X-CRM114-CacheID: sfid-20250113_072608_397110_5B1A98DB 
+X-CRM114-Status: GOOD (  15.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,21 +75,30 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sun, 12 Jan 2025 09:41:27 -0300, Fabio Estevam wrote:
+On Sun, 12 Jan 2025 12:27:44 -0300, Fabio Estevam wrote:
 > From: Fabio Estevam <festevam@denx.de>
 > 
-> According to fsl,sec-v4.0.yaml, the job ring node names
-> should be 'jr'.
+> On the i.MX5 chips the peripheral interrupts are represented directly only
+> by their interrupt numbers.
 > 
-> Change them to fix the following dt-schema warnings:
+> The CCM nodes are not following this format and cause the following
+> dt-schema warnings:
 > 
-> crypto@400f0000: 'jr0@1000', 'jr1@2000' do not match any of the regexes:
-> '^jr@[0-9a-f]+$', '^rtic@[0-9a-f]+$', 'pinctrl-[0-9]+'
+> ccm@73fd4000: interrupts: [[0], [71], [4], [0], [72], [4]] is too long
+> 
+> Fix it by passing only the two interrupt numbers.
+> 
+> Run-time tested in on an imx53-qsb board.
 > 
 > Signed-off-by: Fabio Estevam <festevam@denx.de>
 > ---
->  arch/arm/boot/dts/nxp/vf/vfxxx.dtsi | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+> Changes since v1:
+> - Use interrupts = <71>, <72>;
+> 
+>  arch/arm/boot/dts/nxp/imx/imx50.dtsi | 2 +-
+>  arch/arm/boot/dts/nxp/imx/imx51.dtsi | 2 +-
+>  arch/arm/boot/dts/nxp/imx/imx53.dtsi | 2 +-
+>  3 files changed, 3 insertions(+), 3 deletions(-)
 > 
 
 
@@ -106,21 +116,18 @@ make sure dt-schema is up to date:
   pip3 install dtschema --upgrade
 
 
-New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/nxp/' for 20250112124127.994141-1-festevam@gmail.com:
+New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/nxp/' for 20250112152745.1079880-1-festevam@gmail.com:
 
-arch/arm/boot/dts/nxp/mxs/imx28-cfa10036.dtb: spi@80010000: $nodename:0: 'spi@80010000' does not match '^mmc(@.*)?$'
-	from schema $id: http://devicetree.org/schemas/mmc/mxs-mmc.yaml#
-arch/arm/boot/dts/nxp/lpc/lpc3250-ea3250.dtb: /ahb/flash@20020000: failed to match any schema with compatible: ['nxp,lpc3220-slc']
-arch/arm/boot/dts/nxp/ls/ls1021a-moxa-uc-8410a.dtb: /soc/dcu@2ce0000: failed to match any schema with compatible: ['fsl,ls1021a-dcu']
-arch/arm/boot/dts/nxp/imx/imx53-usbarmory.dtb: /soc/bus@50000000/iomuxc-gpr@53fa8000: failed to match any schema with compatible: ['fsl,imx53-iomuxc-gpr', 'syscon']
-arch/arm/boot/dts/nxp/imx/imx6q-lxr.dtb: /display-subsystem: failed to match any schema with compatible: ['fsl,imx-display-subsystem']
-arch/arm/boot/dts/nxp/imx/imx6q-gw553x.dtb: /display-subsystem: failed to match any schema with compatible: ['fsl,imx-display-subsystem']
-arch/arm/boot/dts/nxp/imx/imx6qp-tx6qp-8137.dtb: iomuxc-gpr@20e0000: 'ipu1_csi0_mux', 'ipu2_csi1_mux' do not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/soc/imx/fsl,imx-iomuxc-gpr.yaml#
-arch/arm/boot/dts/nxp/imx/imx6q-gw53xx.dtb: ds1672@68: $nodename:0: 'ds1672@68' does not match '^rtc(@.*|-([0-9]|[1-9][0-9]+))?$'
-	from schema $id: http://devicetree.org/schemas/rtc/trivial-rtc.yaml#
-arch/arm/boot/dts/nxp/imx/imx53-mba53.dtb: /soc/bus@50000000/ldb@53fa8008: failed to match any schema with compatible: ['fsl,imx53-ldb']
-arch/arm/boot/dts/nxp/imx/imx6q-apalis-eval.dtb: /soc/bus@2100000/mipi@21dc000: failed to match any schema with compatible: ['fsl,imx6-mipi-csi2']
+arch/arm/boot/dts/nxp/mxs/imx28-apx4devkit.dtb: pinctrl@80018000: compatible: ['fsl,imx28-pinctrl', 'simple-bus'] is too long
+	from schema $id: http://devicetree.org/schemas/gpio/gpio-mxs.yaml#
+arch/arm/boot/dts/nxp/lpc/lpc4337-ciaa.dtb: sram@20000000: '#address-cells' is a required property
+	from schema $id: http://devicetree.org/schemas/sram/sram.yaml#
+arch/arm/boot/dts/nxp/imx/imx6q-gw52xx.dtb: /soc/bus@2100000/mipi@21dc000: failed to match any schema with compatible: ['fsl,imx6-mipi-csi2']
+arch/arm/boot/dts/nxp/imx/imx6dl-hummingboard2-emmc-som-v15.dtb: /soc/bus@2100000/mipi@21dc000: failed to match any schema with compatible: ['fsl,imx6-mipi-csi2']
+arch/arm/boot/dts/nxp/imx/imx6dl-tx6u-8033.dtb: /soc/bus@2100000/mipi@21dc000: failed to match any schema with compatible: ['fsl,imx6-mipi-csi2']
+arch/arm/boot/dts/nxp/imx/imx6dl-colibri-iris-v2.dtb: /capture-subsystem: failed to match any schema with compatible: ['fsl,imx-capture-subsystem']
+arch/arm/boot/dts/nxp/imx/imx6qp-tx6qp-8037-mb7.dtb: gpio-keys: 'power' does not match any of the regexes: '^(button|event|key|switch|(button|event|key|switch)-[a-z0-9-]+|[a-z0-9-]+-(button|event|key|switch))$', 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/input/gpio-keys.yaml#
 
 
 
