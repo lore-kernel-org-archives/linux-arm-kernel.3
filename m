@@ -4,71 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8203E7719E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 10:59:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5819CE7719F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 11:01:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eRC7z4Sk0+zr7sT02/jVlflc2yDG3KVJ3Wx0roL3xqY=; b=DXyvOZOlbUo8rPVs/wq5/19T6m
-	Uves8G4xwdl4pNpFZ5Z/I6Or2826S5rP4G/LfxfGFkYNwtQbm5SmRTkQxgi6mRfzsesE7SWSASqmR
-	idhNnPIi8gk91nly7f+6ivhq2e4tJlPjrjBA8iyq/ynmsRyMo3onu+mU7J6ixUtZspDdhIg0iHm/W
-	7DC4INyDHg26E1/Ak7Cqbh/hX5xXoiMFrwBqtzItX8n7HvGscKk/LG0mDaqz22a3VO8Dex595AHld
-	U0fiKtPeT3Klx0Z3sPRJ71z2lPrwtaR2K17D650eYwOK5LSDg09EnY+P2T8FVM6yr/6TdE1NUaxXs
-	fRPb42fA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=d50+4kQ7WdAm5ia8p2HevnBpfNxkxsfSO0lYdUIg1b0=; b=JueqdRVTHssNyVBj/cwXF3uM1u
+	uhjfEOOwMMWUpndYCG6M+MqzOYD4NAYo2rRLQFqRyh658TWCfS26CS+JDsEahjbywEWdcde6sw9Zs
+	bRt/3QzDpJgLNunPN3t3aKOVya/X3XwXkV6mAKm8zw6c8PTY15XSzSHUgRzDarornQdUWmJ2T5lxX
+	1c1Uxj/lAUJc2X2WfpT7dqEM8G/MqSKLOdspWe+5KJJylOHmqlK8kiNeKwhFepOqcEbrb90PTz7/1
+	WSSgnO/oYnW71WulsFFjq263Jy4W+KQWemXaA5IVAzfz0GtXMDR+dKBm0bc4+dEEAcAOzfmdj/+YL
+	jdDlzr2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXIA6-00000004psQ-26RC;
-	Mon, 13 Jan 2025 10:59:14 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXI8q-00000004pjp-2WsA;
-	Mon, 13 Jan 2025 10:57:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 840A31424;
-	Mon, 13 Jan 2025 02:58:22 -0800 (PST)
-Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3FFBB3F66E;
-	Mon, 13 Jan 2025 02:57:49 -0800 (PST)
-Date: Mon, 13 Jan 2025 10:57:44 +0000
-From: Andre Przywara <andre.przywara@arm.com>
-To: Chen-Yu Tsai <wens@csie.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Andras Szemzo
- <szemzo.andras@gmail.com>, Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Jernej
- Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
- Linus Walleij <linus.walleij@linaro.org>, Philipp Zabel
- <p.zabel@pengutronix.de>, Maxime Ripard <mripard@kernel.org>, Vinod Koul
- <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Ulf Hansson
- <ulf.hansson@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Uwe
- =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <u.kleine-koenig@baylibre.com>, Florian
- Fainelli <florian.fainelli@broadcom.com>, <linux-clk@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
- <linux-phy@lists.infradead.org>, <linux-gpio@vger.kernel.org>,
- <linux-pm@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH 06/12] dt-bindings: clk: sunxi-ng: add V853 CCU
- clock/reset
-Message-ID: <20250113105744.6f7a47b9@donnerap.manchester.arm.com>
-In-Reply-To: <CAGb2v67_yMB_4SCjFOR5S6nDxX9=zbX-mDM6YjjL_NRxrEMUFg@mail.gmail.com>
-References: <20250110123923.270626-1-szemzo.andras@gmail.com>
-	<20250110123923.270626-7-szemzo.andras@gmail.com>
-	<de280eed-bcc8-4802-9734-5e95ad1f6611@kernel.org>
-	<CAGb2v65arvBMg+reReVqK-Y6dL+CSrSx4618msiRKcNf=Vk1=A@mail.gmail.com>
-	<fef71e03-489f-4503-9d1b-d61051d45dde@kernel.org>
-	<CAGb2v67_yMB_4SCjFOR5S6nDxX9=zbX-mDM6YjjL_NRxrEMUFg@mail.gmail.com>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	id 1tXIBy-00000004qAX-0FH2;
+	Mon, 13 Jan 2025 11:01:10 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tXIAi-00000004pzU-3GIi;
+	Mon, 13 Jan 2025 10:59:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 171495C49F8;
+	Mon, 13 Jan 2025 10:59:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E513FC4CED6;
+	Mon, 13 Jan 2025 10:59:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736765991;
+	bh=QIWLDCAmcI1C+xvUDFC7xp8Yn/Gi3b0khk0TnqElATQ=;
+	h=From:Date:Subject:To:Cc:From;
+	b=jjoGlL0+Uy+eDbOExpu6Pn9TRlQ5ZGhlp1GN9Q3LgRjHfA9SdeElCX+nlXjGZE4Zb
+	 vRKGAsp4zVpJCJ5ZI5oleD2VC7fNUL2zcEQnaUpJZdMlEIFPmSjd5vz4VR11LRDc0o
+	 AMWvRW3/c64M/UbhWcOV1wBJN52e1BrG5QojGDmUTe6cy5Dnlo13w/0AAVGiwIJbZj
+	 ICU5FtJupJeEQOWIhmBWtvlOxjZ4hZWIvbYQEJ00IIyRu8HVQpFK4yvWjj8Lu+Ie40
+	 SVoc4wLHhXmuUhJXNE6XqNBfFEltijb8+maPBJHvZyDDUS3pIC6NkftT/aNuvqUxye
+	 gQdU/bkNaZchw==
+From: Niklas Cassel <cassel@kernel.org>
+Date: Mon, 13 Jan 2025 11:59:34 +0100
+Subject: [PATCH] PCI: dw-rockchip: Skip waiting for link up
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250113-rockchip-no-wait-v1-1-25417f37b92f@kernel.org>
+X-B4-Tracking: v=1; b=H4sIABXyhGcC/x3MTQqAIBBA4avErBvwpzZdJVqYjTkEKhoVSHdPW
+ n6L9yoUykwFpq5CposLx9Ag+w6sN2En5K0ZlFCjkFJjjvawnhOGiLfhEwehnVvtoLTU0LKUyfH
+ zL+flfT8OWRQhYgAAAA==
+X-Change-ID: 20250113-rockchip-no-wait-403ffbc42313
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+ Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+ Heiko Stuebner <heiko@sntech.de>
+Cc: Damien Le Moal <dlemoal@kernel.org>, Anand Moon <linux.amoon@gmail.com>, 
+ linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Niklas Cassel <cassel@kernel.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1285; i=cassel@kernel.org;
+ h=from:subject:message-id; bh=QIWLDCAmcI1C+xvUDFC7xp8Yn/Gi3b0khk0TnqElATQ=;
+ b=owGbwMvMwCV2MsVw8cxjvkWMp9WSGNJbPqmYqOpeqY05+MXbvOGK0ZtZrkU2Hi0rufiTuJ6au
+ 4rv2W3XUcrCIMbFICumyOL7w2V/cbf7lOOKd2xg5rAygQxh4OIUgImwKTL8z9E/tSODJaq3VWFq
+ W5d83n+fe5OWlbFfOSd6sDBUQaZYg5FhatCf175aTldnTm572Pi2sv/x5JBbOyeoa9WsSNZYvtq
+ UFwA=
+X-Developer-Key: i=cassel@kernel.org; a=openpgp;
+ fpr=5ADE635C0E631CBBD5BE065A352FE6582ED9B5DA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_025756_731739_F8178600 
-X-CRM114-Status: GOOD (  30.41  )
+X-CRM114-CacheID: sfid-20250113_025952_861658_72F3E7A9 
+X-CRM114-Status: UNSURE (   8.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,164 +88,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 13 Jan 2025 16:45:10 +0800
-Chen-Yu Tsai <wens@csie.org> wrote:
+The Root Complex specific device tree binding for pcie-dw-rockchip has the
+'sys' interrupt marked as required.
 
-> On Mon, Jan 13, 2025 at 4:21=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.=
-org> wrote:
-> >
-> > On 13/01/2025 09:06, Chen-Yu Tsai wrote: =20
-> > > On Fri, Jan 10, 2025 at 9:56=E2=80=AFPM Krzysztof Kozlowski <krzk@ker=
-nel.org> wrote: =20
-> > >>
-> > >> On 10/01/2025 13:39, Andras Szemzo wrote: =20
-> > >>> As the device tree needs the clock/reset indices, add them to DT bi=
-nding
-> > >>> headers.
-> > >>>
-> > >>> Signed-off-by: Andras Szemzo <szemzo.andras@gmail.com> =20
-> > >>
-> > >> That's never a separate commit from the binding.
-> > >>
-> > >>
-> > >> ...
-> > >> =20
-> > >>> --- /dev/null
-> > >>> +++ b/include/dt-bindings/clock/sun8i-v853-r-ccu.h
-> > >>> @@ -0,0 +1,16 @@
-> > >>> +/* SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
-> > >>> +/* Copyright(c) 2020 - 2023 Allwinner Technology Co.,Ltd. All righ=
-ts reserved.
-> > >>> + *
-> > >>> + * Copyright (C) 2023 rengaomin@allwinnertech.com
-> > >>> + */
-> > >>> +#ifndef _DT_BINDINGS_CLK_SUN8I_V85X_R_CCU_H_
-> > >>> +#define _DT_BINDINGS_CLK_SUN8I_V85X_R_CCU_H_
-> > >>> +
-> > >>> +#define CLK_R_TWD            0
-> > >>> +#define CLK_R_PPU            1
-> > >>> +#define CLK_R_RTC            2
-> > >>> +#define CLK_R_CPUCFG         3
-> > >>> +
-> > >>> +#define CLK_R_MAX_NO         (CLK_R_CPUCFG + 1) =20
-> > >>
-> > >> Nope, drop. Not a binding.
-> > >> =20
-> > >>> +
-> > >>> +#endif
-> > >>> diff --git a/include/dt-bindings/reset/sun8i-v853-ccu.h b/include/d=
-t-bindings/reset/sun8i-v853-ccu.h
-> > >>> new file mode 100644
-> > >>> index 000000000000..89d94fcbdb55
-> > >>> --- /dev/null
-> > >>> +++ b/include/dt-bindings/reset/sun8i-v853-ccu.h
-> > >>> @@ -0,0 +1,62 @@
-> > >>> +/* SPDX-License-Identifier: (GPL-2.0+ OR MIT) */ =20
-> > >>
-> > >> Odd license. Did you copy the file with such license from the downst=
-ream? =20
-> > >
-> > > AFAIK all the existing sunxi clock / reset binding header files are
-> > > dual licensed. OOTH all the YAML files are GPL 2.0 only.
-> > >
-> > > IIRC we started out GPL 2.0 only, but then figured that the header fi=
-les
-> > > couldn't be shared with non-GPL projects, so we changed those to dual
-> > > license.
-> > >
-> > > Hope that explains the current situation. Relicensing the whole lot
-> > > to just MIT or BSD is probably doable. =20
-> > That's not what the comment is about. Dual license, as expressed by
-> > submitting bindings/patches and enforced by checkpatch are expected. But
-> > not GPLv3, GPLv4 and GPLv10. =20
->=20
-> I take back my statement. It seems we have a lot of GPLv2 or later going =
-on.
->=20
-> include/dt-bindings/clock/sun20i-d1-ccu.h:/* SPDX-License-Identifier:
-> (GPL-2.0+ OR MIT) */
-> include/dt-bindings/clock/sun20i-d1-r-ccu.h:/*
-> SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
-> include/dt-bindings/clock/sun50i-a100-ccu.h:/*
-> SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
-> include/dt-bindings/clock/sun50i-a100-r-ccu.h:/*
-> SPDX-License-Identifier: GPL-2.0 */
-> include/dt-bindings/clock/sun50i-h6-ccu.h:/* SPDX-License-Identifier:
-> (GPL-2.0+ OR MIT) */
-> include/dt-bindings/clock/sun50i-h6-r-ccu.h:/*
-> SPDX-License-Identifier: GPL-2.0 */
-> include/dt-bindings/clock/sun50i-h616-ccu.h:/*
-> SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
-> include/dt-bindings/clock/sun5i-ccu.h:/* SPDX-License-Identifier:
-> GPL-2.0-or-later */
-> include/dt-bindings/clock/sun6i-rtc.h:/* SPDX-License-Identifier:
-> (GPL-2.0+ OR MIT) */
-> include/dt-bindings/clock/sun8i-de2.h: * SPDX-License-Identifier:
-> (GPL-2.0+ OR MIT)
-> include/dt-bindings/clock/sun8i-tcon-top.h:/* SPDX-License-Identifier:
-> (GPL-2.0+ OR MIT) */
-> include/dt-bindings/clock/suniv-ccu-f1c100s.h:/*
-> SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> include/dt-bindings/reset/sun20i-d1-ccu.h:/* SPDX-License-Identifier:
-> (GPL-2.0+ OR MIT) */
-> include/dt-bindings/reset/sun20i-d1-r-ccu.h:/*
-> SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
-> include/dt-bindings/reset/sun50i-a100-ccu.h:/*
-> SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
-> include/dt-bindings/reset/sun50i-a100-r-ccu.h:/*
-> SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
-> include/dt-bindings/reset/sun50i-h6-ccu.h:/* SPDX-License-Identifier:
-> (GPL-2.0+ OR MIT) */
-> include/dt-bindings/reset/sun50i-h6-r-ccu.h:/*
-> SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
-> include/dt-bindings/reset/sun50i-h616-ccu.h:/*
-> SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
-> include/dt-bindings/reset/sun5i-ccu.h:/* SPDX-License-Identifier:
-> GPL-2.0-or-later */
-> include/dt-bindings/reset/sun8i-de2.h: * SPDX-License-Identifier:
-> (GPL-2.0+ OR MIT)
-> include/dt-bindings/reset/suniv-ccu-f1c100s.h:/*
-> SPDX-License-Identifier: (GPL-2.0+ OR MIT)
->=20
-> Is there a requirement that new files have to be GPL 2.0 only, not
-> GPL 2.0 or later?
->=20
-> Documentation/process/license-rules.rst says:
-> The license described in the COPYING file applies to the kernel source
-> as a whole, though individual source files can have a different license
-> which is required to be compatible with the GPL-2.0::
->=20
->     GPL-1.0+  :  GNU General Public License v1.0 or later
->     GPL-2.0+  :  GNU General Public License v2.0 or later
->     ...
->=20
-> Aside from that, individual files can be provided under a dual license,
-> e.g. one of the compatible GPL variants and alternatively under a
-> permissive license like BSD, MIT etc.
+The driver requests the 'sys' IRQ unconditionally, and errors out if not
+provided.
 
-Documentation/devicetree/bindings/submitting-patches.rst overrides the
-general rule, for binding files, and it says (GPL-2.0-only OR BSD-2-Clause)
-is preferred. Also when I checked checkpatch indeed warned about this. As
-for the existing files: yes, many of them are not compliant atm:
-$ git grep -h SPDX include/dt-bindings | sort | uniq -c | sort -n | tail -13
-     10 /* SPDX-License-Identifier: GPL-2.0 OR MIT */
-     13 /* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
-     13 /* SPDX-License-Identifier: GPL-2.0 OR BSD-2-Clause */
-     14 /* SPDX-License-Identifier: GPL-2.0+
-     19 /* SPDX-License-Identifier: GPL-2.0
-     27 /* SPDX-License-Identifier: (GPL-2.0 OR MIT) */
-     31 /* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
-     31 /* SPDX-License-Identifier: GPL-2.0-or-later */
-     33 /* SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
-     36 /* SPDX-License-Identifier: GPL-2.0+ */
-    176 /* SPDX-License-Identifier: GPL-2.0-only */
-    192 /* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-    281 /* SPDX-License-Identifier: GPL-2.0 */
+Thus, we can unconditionally set use_linkup_irq before calling
+dw_pcie_host_init().
 
-But for new patches we should definitely aim to be correct. Differing
-license requirements are one price we pay for not having a separate DT
-repository.
+This will skip the wait for link up (since the bus will be enumerated once
+the link up IRQ is triggered), which reduces the bootup time.
 
-Cheers,
-Andre
+Signed-off-by: Niklas Cassel <cassel@kernel.org>
+---
+ drivers/pci/controller/dwc/pcie-dw-rockchip.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+index 1170e1107508bd793b610949b0afe98516c177a4..62034affb95fbb965aad3cebc613a83e31c90aee 100644
+--- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
++++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+@@ -435,6 +435,7 @@ static int rockchip_pcie_configure_rc(struct rockchip_pcie *rockchip)
+ 
+ 	pp = &rockchip->pci.pp;
+ 	pp->ops = &rockchip_pcie_host_ops;
++	pp->use_linkup_irq = true;
+ 
+ 	return dw_pcie_host_init(pp);
+ }
+
+---
+base-commit: 2adda4102931b152f35d054055497631ed97fe73
+change-id: 20250113-rockchip-no-wait-403ffbc42313
+
+Best regards,
+-- 
+Niklas Cassel <cassel@kernel.org>
+
 
