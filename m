@@ -4,100 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F8FEC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 16:13:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28526C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 16:14:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kTGNxm9xYnn4cWmuziKMIalKHLj2jvSVwL5+1WZXiyg=; b=zryeJidjAtqHiFVw7AxAiutb1Q
-	66Wn0WWfApu68W63xHZp/LmLZ4koRiFMwPqohepWGu8p2sYNirddh2scQSg/UuVWT0itZBHeo31pb
-	EIx+9CZd4NXFpYbZDThZ2EP4rl+PhYsjPX1sRIbZtqoCFN1z/vTmFE2R7MMS1CM2wEDgxWF57RQlI
-	VKrVDuPgJ/J/1tBKpZKxmKusvfQNxca+hxVvB+O/PDQMdb7F5dc8cGIeOgTWtFvUnGzDwPe3gEPvH
-	ilegSdu53ZGFsNSzDjelgZw8RVwGp0t2avysrWFneREAiEJ9VgzEGwVmDMmX1grXem8BTh0Wlc8lh
-	0quI38WQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f9GN/9Nt3vZP1g4PXg+O1YxepiT+zT9oJT9rhlVkhGw=; b=e3LXP8lgAdhLlrhyyY8gBBKDmb
+	DSqTIc3lKSsfhaS2dlciCI1oRXaXCYQsBKXIuy3W7PwegnurGsaLRxBfMoXCTovZ/olOVOLm7WBZs
+	TQrcHduVl0a4rCMykhNGYG/BDu/2LgLxV7KLd1G589WcA0XxvNJRwA4JQDZ689vPLtltcFafMlo0i
+	BLGoBYt4QeWhY9Who+kP+Afa7LQsyMua6wJ0jG+OQaxFXA6PF4Fyyh23Zd/TOqbl3K26WPyGbuFzq
+	YO8OS3ktTd0mCFV8CBXM6j05Qd/vNb++FatCT/wZQC2OUD5J7XkZEH5CUZNBLyMXPF62rLVZGBSe2
+	aGPkEgqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXN3X-00000005nhc-3zKW;
-	Mon, 13 Jan 2025 16:12:48 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1tXN4k-00000005nxp-2sWJ;
+	Mon, 13 Jan 2025 16:14:02 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXMba-00000005hAP-3KWM
+	id 1tXMcB-00000005hIy-2BuT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 15:43:55 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-436249df846so30975485e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 07:43:54 -0800 (PST)
+	Mon, 13 Jan 2025 15:44:32 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-216717543b7so114001565ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 07:44:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736783033; x=1737387833; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=kTGNxm9xYnn4cWmuziKMIalKHLj2jvSVwL5+1WZXiyg=;
-        b=ss+zRzgcrq1vT/S17E3jBhSTWNYkEQMckf+WQYHezL6qQUBYlKod3w4eEfrhd32TDD
-         fWWEm3vEDYI8yP9L0eIrakQxr+wP0UDxy3v6okS2X0OaZkbBEYXp4YrZ8h4ZiklAIidI
-         nS27zAfCzEBUOzsmaqjz3LKgbGadfTS+BmyvY1Hu6+2UwCkPZCBnYN1jkcG7x8k3VAE+
-         vVfk8XK+uLPNES5qqfSZ7YWGLscJDJ5xjHmdxSwFX6zD+6R5OHKlBeCdzddeBQwsYEkw
-         UQ1OwATSDXY0rOqBDvIDmqksG7mFq3sH4l1WfXSDdQbXGfHsutOBVV83VuvjQ1NSUH3W
-         HrpQ==
+        d=google.com; s=20230601; t=1736783070; x=1737387870; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=f9GN/9Nt3vZP1g4PXg+O1YxepiT+zT9oJT9rhlVkhGw=;
+        b=akXHQBcobt55w39MHjzFp/QpNrOZfSWXv0vY2EAYR2iHf8atJCPButl7qZgO518+HH
+         8Cj84KZKBpjrC78GWCRBpcjDzCkQ/0VNAR0+A85NMwEmsS0OvsOmuaA+IlQSF+AI/fpb
+         LH7JnOBY0w0qopa4c2//Vb5HlGCs1dWfw8zV4rbUFZEeSOkerWK/hJGQw6Jsw1ZPMaYW
+         Y4vStfQ/hljb/9jExtJRYH1IWVDZgvU65X5bE5m7+kOY8bATSSbUlVWLAQidfze9ZoWb
+         zyG6Kg/Z99ocGEmVPfKyQbeR65/GtTU+PvXhTk8ERxAkgSR7zrpcm/H/bHfElTGPhMzJ
+         cf2w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736783033; x=1737387833;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=kTGNxm9xYnn4cWmuziKMIalKHLj2jvSVwL5+1WZXiyg=;
-        b=urPRTJXXmPV7DyjsEPwtXaVrByb6rs1UtijKRPZ9eGWyBf9KDG08n5GbAQ9Aoz8nGf
-         rv2zMEFSpLQEdDTuS2lPWxeWGFzdCxlnQH2S7jgdIou1ByKYfnS05klaPfO97zFXvPOW
-         hXfK0SdSH8aalXJunJtmu6RSQETtEPe0DVMYe5BRhMQjzsRuloguviCHvHRba0YC8VnU
-         BootFJQvLs6GMMcODYbwN8FKunSsXHnQ1AkSWWvQCsqDyFvEKIqrlNUF1lwbgy8Ac4xH
-         IRobUM8XQdolMwr095b/K6MWsznV2ITfmjTBnlmFV2/6CzNmEsjx0ulVbR8HHDrKd5Qi
-         d0zA==
-X-Forwarded-Encrypted: i=1; AJvYcCXs5+fvNerG/NROagInFoCpy0X64b5lcIokOxai2U+hCQvG+mjoZiX6Vs45DuG+ELkmTjoo1wDgwPlqr8osbihM@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPGkNlnww9DIwWU9ZbpedQHhfFH2hyLbgEjYLtUCr4ELm8s03K
-	Sm9RYR1Pp1LCfEJuvXaKOVwMEeSJIIJgqYtAMiOoszqk6GPQQvxPGm9X+UdJYHQ=
-X-Gm-Gg: ASbGnctaXPkTHK1EPUf3N/1Qu7moyIs8ls+9qdhbIQxeflssiAYsba8iLLD8+XJBcuY
-	cQZsEPX3jw+uJwkQOW5xyvvWA0ZLTmYygMv5qDpFlbqwiPfcjVMX/lgnLitu2TxHdLK+S+49Xjy
-	ovcvdL6sJfrJjDNZl5ii1/+9Be7EnfRplifqeFX/yK/PUJ/xQ5J2hpbNcxWqDg8RcClwmbU7uPh
-	5SinWczWmh8ZpbM+6iz8kAXZceqqjs3Rm1xx1vJUFr6SI/KYqLxRRh+PdVmqi/l5nWB
-X-Google-Smtp-Source: AGHT+IHYI0z58G3tmL4uSQ3a1JaItNifz0mtTDEQSbqhFfFgd11vVuTxyh8yF5a5Jh2ewY4Zed7z1Q==
-X-Received: by 2002:a05:600c:4f4e:b0:434:a902:97cd with SMTP id 5b1f17b1804b1-436e26935cbmr178745305e9.12.1736783033077;
-        Mon, 13 Jan 2025 07:43:53 -0800 (PST)
-Received: from [192.168.68.163] ([212.105.145.205])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e9e62333sm144996065e9.36.2025.01.13.07.43.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Jan 2025 07:43:52 -0800 (PST)
-Message-ID: <dcd3918d-feb6-412c-8f1c-b19e01241790@linaro.org>
-Date: Mon, 13 Jan 2025 15:43:50 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 2/7] tools: arm64: Update sysreg.h header files
-To: Marc Zyngier <maz@kernel.org>, Mark Brown <broonie@kernel.org>
-Cc: kvmarm@lists.linux.dev, oliver.upton@linux.dev, suzuki.poulose@arm.com,
- coresight@lists.linaro.org, James Clark <james.clark@arm.com>,
- Joey Gouly <joey.gouly@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mike Leach <mike.leach@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Mark Rutland <mark.rutland@arm.com>, James Morse <james.morse@arm.com>,
- Shiqi Liu <shiqiliu@hust.edu.cn>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- "Rob Herring (Arm)" <robh@kernel.org>,
- Raghavendra Rao Ananta <rananta@google.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Aishwarya TCV <Aishwarya.TCV@arm.com>
-References: <20250106142446.628923-1-james.clark@linaro.org>
- <20250106142446.628923-3-james.clark@linaro.org>
- <1dad2a07-6aa2-4ddb-a337-ca3bba560f92@sirena.org.uk>
- <86ldvewx5g.wl-maz@kernel.org>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <86ldvewx5g.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+        d=1e100.net; s=20230601; t=1736783070; x=1737387870;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=f9GN/9Nt3vZP1g4PXg+O1YxepiT+zT9oJT9rhlVkhGw=;
+        b=nANVQvZMdOn9ci2GBCy9RoR6KdAPWPYZbZ76b3R+KK8jl9bOQCVcUf1bn6kmyopUwf
+         owPD+owOCkLlsCpm9V9Phkyfu6IJQlkJvOnqD/NKh4IDxFMqRc9JEnlgvnF1c3UzXN8L
+         zmC/tiUFs5xxGZkKtvnYoeRrNudmmSCb1BennKSB21w2KBPVVIz2diB04cOn5AxUIsYX
+         y/sRzEK9IC6V4m95Wro6UW2pDvnjTlmkNnTheLOEkkQbmiyB+pLKUyKDSCyF/NiYIpd2
+         KZiFoJ0fLos1Q6imRV0j+XvarTl/OkW/+h3J+P2hqI/lTyJSV4pzfvkIoKbidnjYOhsF
+         ob1Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUDdPoc/3zBs1dcCnkFh6k8hOADDxq2bhxs5mhE3VBrX3kYPjEJdBwpcNsEP3pNKjwOB0+kKyqvKWbwoFSWCBFA@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyci82VhkT48p2oqZrjv8zhd4lxH66SsiWyrFl9nYJv7X/tFr0g
+	XCDGml/2ZT/W+sQlu6SdOFpvKrEo1MXffB91CyMPvOMx2fZWechFBk9VjXPSIqrmuzIF8cMkkyM
+	Q4Q==
+X-Google-Smtp-Source: AGHT+IHIQyazhiyyUpnFFe5650540BmH10WSCzq7nQUkxQTSPWj6gISntiQcqyGsVty8NrTJi6F4Z/IpKIc=
+X-Received: from pfbfh41.prod.google.com ([2002:a05:6a00:3929:b0:72a:bc54:8507])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:3993:b0:1e1:adb9:d1a6
+ with SMTP id adf61e73a8af0-1e88d0f000fmr33694244637.41.1736783070268; Mon, 13
+ Jan 2025 07:44:30 -0800 (PST)
+Date: Mon, 13 Jan 2025 07:44:28 -0800
+In-Reply-To: <87ikqlr4vo.wl-maz@kernel.org>
+Mime-Version: 1.0
+References: <20250111012450.1262638-1-seanjc@google.com> <20250111012450.1262638-4-seanjc@google.com>
+ <87ikqlr4vo.wl-maz@kernel.org>
+Message-ID: <Z4U03KRYy2DVEgJR@google.com>
+Subject: Re: [PATCH 3/5] KVM: Add a common kvm_run flag to communicate an exit
+ needs completion
+From: Sean Christopherson <seanjc@google.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	Michael Ellerman <mpe@ellerman.id.au>, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_074354_832688_7C767FA2 
-X-CRM114-Status: GOOD (  15.65  )
+X-CRM114-CacheID: sfid-20250113_074431_561424_96F8377F 
+X-CRM114-Status: GOOD (  32.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,46 +92,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 13/01/2025 3:28 pm, Marc Zyngier wrote:
-> On Mon, 13 Jan 2025 15:07:21 +0000,
-> Mark Brown <broonie@kernel.org> wrote:
->>
->> [1  <text/plain; us-ascii (quoted-printable)>]
->> On Mon, Jan 06, 2025 at 02:24:37PM +0000, James Clark wrote:
->>> From: James Clark <james.clark@arm.com>
->>>
->>> Created with the following:
->>>
->>>    cp include/linux/kasan-tags.h tools/include/linux/
->>>    cp arch/arm64/include/asm/sysreg.h tools/arch/arm64/include/asm/
->>>
->>> Update the tools copy of sysreg.h so that the next commit to add a new
->>> register doesn't have unrelated changes in it. Because the new version
->>> of sysreg.h includes kasan-tags.h, that file also now needs to be copied
->>> into tools.
->>
->> This breaks the build of the KVM selftests:
->>
->> aarch64/aarch32_id_regs.c:150:16: error: use of undeclared identifier 'ID_AA64PFR0_EL1_ELx_64BIT_ONLY'
->>    150 |         return el0 == ID_AA64PFR0_EL1_ELx_64BIT_ONLY;
->>        |                       ^
->> 1 warning and 1 error generated.
->>
->> since it's pulled over the changes in 056600ff7330 ("arm64/cpufeature:
->> Replace custom macros with fields from ID_AA64PFR0_EL1") but not updated
->> the test to reflect this.
+On Sat, Jan 11, 2025, Marc Zyngier wrote:
+> On Sat, 11 Jan 2025 01:24:48 +0000,
+> Sean Christopherson <seanjc@google.com> wrote:
+> > 
+> > Add a kvm_run flag, KVM_RUN_NEEDS_COMPLETION, to communicate to userspace
+> > that KVM_RUN needs to be re-executed prior to save/restore in order to
+> > complete the instruction/operation that triggered the userspace exit.
+> > 
+> > KVM's current approach of adding notes in the Documentation is beyond
+> > brittle, e.g. there is at least one known case where a KVM developer added
+> > a new userspace exit type, and then that same developer forgot to handle
+> > completion when adding userspace support.
 > 
-> Thanks for the heads up. I've stashed a fix on top, which hopefully
-> will be in next tomorrow.
+> Is this going to fix anything? If they couldn't be bothered to read
+> the documentation, let alone update it, how is that going to be
+> improved by extra rules and regulations?
 > 
-> 	M.
+> I don't see how someone ignoring the documented behaviour of a given
+> exit reason is, all of a sudden, have an epiphany and take a *new*
+> flag into account.
+
+The idea is to reduce the probability of introducing bugs, in KVM or userspace,
+every time KVM attaches a completion callback.  Yes, userspace would need to be
+updated to handle KVM_RUN_NEEDS_COMPLETION, but once that flag is merged, neither
+KVM's documentation nor userspace would never need to be updated again.  And if
+all architectures took an approach of handling completion via function callback,
+I'm pretty sure we'd never need to manually update KVM itself either.
+
+> > +7.37 KVM_CAP_NEEDS_COMPLETION
+> > +-----------------------------
+> > +
+> > +:Architectures: all
+> > +:Returns: Informational only, -EINVAL on direct KVM_ENABLE_CAP.
+> > +
+> > +The presence of this capability indicates that KVM_RUN will set
+> > +KVM_RUN_NEEDS_COMPLETION in kvm_run.flags if KVM requires userspace to re-enter
+> > +the kernel KVM_RUN to complete the exit.
+> > +
+> > +For select exits, userspace must re-enter the kernel with KVM_RUN to complete
+> > +the corresponding operation, only after which is guest state guaranteed to be
+> > +consistent.  On such a KVM_RUN, the kernel side will first finish incomplete
+> > +operations and then check for pending signals.
+> > +
+> > +The pending state of the operation for such exits is not preserved in state
+> > +which is visible to userspace, thus userspace should ensure that the operation
+> > +is completed before performing state save/restore, e.g. for live migration.
+> > +Userspace can re-enter the guest with an unmasked signal pending or with the
+> > +immediate_exit field set to complete pending operations without allowing any
+> > +further instructions to be executed.
+> > +
+> > +Without KVM_CAP_NEEDS_COMPLETION, KVM_RUN_NEEDS_COMPLETION will never be set
+> > +and userspace must assume that exits of type KVM_EXIT_IO, KVM_EXIT_MMIO,
+> > +KVM_EXIT_OSI, KVM_EXIT_PAPR, KVM_EXIT_XEN, KVM_EXIT_EPR, KVM_EXIT_X86_RDMSR,
+> > +KVM_EXIT_X86_WRMSR, and KVM_EXIT_HYPERCALL require completion.
 > 
+> So once you advertise KVM_CAP_NEEDS_COMPLETION, the completion flag
+> must be present for all of these exits, right? And from what I can
+> tell, this capability is unconditionally advertised.
+> 
+> Yet, you don't amend arm64 to publish that flag. Not that I think this
+> causes any issue (even if you save the state at that point without
+> reentering the guest, it will be still be consistent), but that
+> directly contradicts the documentation (isn't that ironic? ;-).
 
-Oops sorry about that. I only tested the Perf build and hadn't done the 
-self tests for a few versions.
+It does cause issues, I missed this code in kvm_arch_vcpu_ioctl_run():
 
-Thanks for making the fix.
+	if (run->exit_reason == KVM_EXIT_MMIO) {
+		ret = kvm_handle_mmio_return(vcpu);
+		if (ret <= 0)
+			return ret;
+	}
 
+> Or is your intent to *relax* the requirements on arm64 (and anything
+> else but x86 and POWER)?
 
