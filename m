@@ -4,99 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9931DC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 17:17:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 608FEC02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 17:22:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=onYqQa61OGFyF4QvM2h8YBVOy4czv714EXLgoMhI3Xc=; b=r3bSrBFwDXrkuPOcYO8mZynr41
-	Cs4D+RjegIrUaRgzMMjDVyQwae5HLWTXpHUu6CQoeV4PKAnsVHoHAwrc128Fp8KV1tH217OlBhKeT
-	dnNP0IRlFh09ZBOXU02P+xJMDNoeZTLsGOfhXq8AvC2X3b+7cORW1gTooyjgtoYqhsgA3vv2bTgOh
-	0FAuvnjMnFfqfZ4NoIYQc25z65xAfJF8YJCuNkdHuAgcaiLK1RBdwfdgLS3qCU8Qkg5i79FuOFN9O
-	Q7bs5Epd7tcr2wlz/7C41yK4SNbcp5ft559HK9beGff7MBY1JjR0zeKkhQoE30WCq6zHZXNUX2c/k
-	MtObhRcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=law80226u3AWlrq6yxFB70PHIkAwqM4FNGhTA4Vmihw=; b=46Gy8rKosOCGF9wRbEQnBI2MHa
+	jCtoB+1uPhQPQ07rPgpyZSN6bZYrukFQJHqWnGx08vjOVC0rh8Iq7SzC/9YIoWBHmJtHeAm1CV6mB
+	HX5FMGAlWbHAXIJHS+0DGi7FdR96527g2NPSBeiIhHmkB/SMhl3pmM0/BhsKGOiRTgL3hOC7jz+Hk
+	V+n9oFChrk+3bD99ssjYRqPrieGknVOlbWaZoadHdFsOdNYjV3bRAZdUYWmGON3c2FtZn2F3o20z3
+	6dl8OL0FLW059cURVru5thpaMNneTpGUWhf2tq6W83O5K1NDbuJ0k1SctKx7g+82Fo37jdkVtN/c2
+	Xni27AYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXO3x-000000061EO-2fhG;
-	Mon, 13 Jan 2025 17:17:17 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXMbP-00000005h79-08OQ
+	id 1tXO8W-000000061hP-0Omg;
+	Mon, 13 Jan 2025 17:22:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tXO7H-000000061bS-2Opz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 15:43:44 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43690d4605dso31167425e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 07:43:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736783021; x=1737387821; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=onYqQa61OGFyF4QvM2h8YBVOy4czv714EXLgoMhI3Xc=;
-        b=mts+p/+32qNLvHKU6lo4p2ork588KC9PufibZ94uzToQmlJFfI14N8GNI9iVdE5bUz
-         4pHIHJRvttgmd23jfIUBs+oBxTG9mMKxB7NPAsskHyfsamEmS/HGfw+T47tlEYWEGbmR
-         VsBPqGG5xW/FInuxkUBQ6gzJF8+q1NpPEkR7oqZm2H4KLCAAvUkuXCSakDjJKaAlE39G
-         Met8n9djlWzAED3082usbfh1ywJbMk1a/HTWMHHVEgZh9dRaddABXCcEIgcIaNSmafI1
-         fMkpIqZYxRQL3/YVvMsbqZsDqSW5tlmKnoZJVsHXO1WnwJZ2HNMGXdV9FZL8MUGNFSIu
-         r4vQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736783021; x=1737387821;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=onYqQa61OGFyF4QvM2h8YBVOy4czv714EXLgoMhI3Xc=;
-        b=G+z7aEdzVT1AjQGc6pYBtWtC9PYWLl51gCGdd8l1pZYlgoRf/S9Uo8r8d7iK1GAayv
-         XqS4tEDUo31PJ2HYaraCLjtoeCX6SNyCWVbrCLVbsL0yT9Ec/FoFZzsLfxKEhOUKLLOV
-         w7A0pL3qzWkSSFGdCq6jUPhJG4H/jI+f58h0Z0+urNyEI2cWQ1D9pMYN4f/FyI7P7t4O
-         u/sbXFWQKEbZFoEY+y/xE79sBmPooUWjiXgr1UIOfZ80isO1InvsVXIdQx8FUJuhKQ7C
-         MYxk1s2gB5Dd4iwkcSGCjMvN2ZTJqY2iMf5J5iIRrz7JjVs4gg5FcnFZiGyFJ16stPLb
-         hl3g==
-X-Forwarded-Encrypted: i=1; AJvYcCXrP5fDoKwLvg1FGSWdSS331dW6ABrdfkPJFavDwByCGvXc8rGDgMyry+RG+gPuAQgcgU8Gl3sA/bjfDbouOOzk@lists.infradead.org
-X-Gm-Message-State: AOJu0YwXnNGRQ9pADuDcIpML0MqhtahkwNmezkuzYSDHL2/LXzxfCqti
-	1gkohbtFzO4PfBK69tqbxa/6d6q4/hyp768zERT+RfHw02bwoTJA2rjqGPtSzxQ=
-X-Gm-Gg: ASbGncsjfuUAdWY0WzLcpoVGb0MKCo1AfzhjuqYpOx436CJADF2d44kwgNjQ5tJE7IJ
-	CziUFbV2QClx7IYpNMw5M2o7dxBCFMp6kPnlFbS5FWOoxNBBbgONWHDkHgvLwlguMqeLfRMyAPG
-	+h8Im3uJYIPdA+SasuBX2a9iElBgeiAv4uqNBqInFftDDTSObEoT9EyNAFKmxu2MeZOvUwlL9K1
-	1zaJSoTj0tJQWsk1ZjkiCqwIHuLPaJFORJGf+D9Zm+l3yFsRcOCV1Y+deSJdwQGvOLL
-X-Google-Smtp-Source: AGHT+IGQr4kpiFB9wczlaOYRTmEvbwC5k8AQlqeQKyaHs7iqTu2Ox0YvNOuXblM8h6c/Pixyirgj0Q==
-X-Received: by 2002:a05:600c:1c28:b0:434:a734:d268 with SMTP id 5b1f17b1804b1-436e2699dfbmr216122595e9.14.1736783021472;
-        Mon, 13 Jan 2025 07:43:41 -0800 (PST)
-Received: from [192.168.68.163] ([212.105.145.205])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e2e89f29sm181691685e9.28.2025.01.13.07.43.40
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Jan 2025 07:43:41 -0800 (PST)
-Message-ID: <760969b6-18b7-42ac-9524-2f1f845b3703@linaro.org>
-Date: Mon, 13 Jan 2025 15:43:39 +0000
+	Mon, 13 Jan 2025 17:20:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 635391424;
+	Mon, 13 Jan 2025 09:21:11 -0800 (PST)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 891B33F673;
+	Mon, 13 Jan 2025 09:20:41 -0800 (PST)
+Date: Mon, 13 Jan 2025 17:20:38 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Ranjani Vaidyanathan <ranjani.vaidyanathan@nxp.com>
+Cc: Peng Fan <peng.fan@nxp.com>, "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	"cristian.marussi@arm.com" <cristian.marussi@arm.com>,
+	"ulf.hansson@linaro.org" <ulf.hansson@linaro.org>,
+	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [EXT] Re: [PATCH] pmdomain: arm: scmi_pm_domain: Initialize
+ state as off
+Message-ID: <Z4VLZgAWR7ugDl7W@bogus>
+References: <20250110061346.2440772-1-peng.fan@oss.nxp.com>
+ <Z4TreQ5bA9qiMTgC@bogus>
+ <PAXPR04MB8459F33BCC84CCA8F49F3B60881F2@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <Z4UZ2Au7KSFMibDW@bogus>
+ <PA4PR04MB94855052830C8F4874237BA6921F2@PA4PR04MB9485.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 04/10] arm64/sysreg: Add a comment that the sysreg
- file should be sorted
-To: Marc Zyngier <maz@kernel.org>, Mark Brown <broonie@kernel.org>
-Cc: kvmarm@lists.linux.dev, oliver.upton@linux.dev, suzuki.poulose@arm.com,
- coresight@lists.linaro.org, James Clark <james.clark@arm.com>,
- Joey Gouly <joey.gouly@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mike Leach <mike.leach@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Mark Rutland <mark.rutland@arm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- "Rob Herring (Arm)" <robh@kernel.org>, Shiqi Liu <shiqiliu@hust.edu.cn>,
- James Morse <james.morse@arm.com>, Fuad Tabba <tabba@google.com>,
- Raghavendra Rao Ananta <rananta@google.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250107113252.260631-1-james.clark@linaro.org>
- <20250107113252.260631-5-james.clark@linaro.org>
- <87frloqjso.wl-maz@kernel.org>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <87frloqjso.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <PA4PR04MB94855052830C8F4874237BA6921F2@PA4PR04MB9485.eurprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_074343_091076_7C68D9A3 
-X-CRM114-Status: GOOD (  18.64  )
+X-CRM114-CacheID: sfid-20250113_092043_694645_82FA3074 
+X-CRM114-Status: GOOD (  33.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,49 +73,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jan 13, 2025 at 03:30:58PM +0000, Ranjani Vaidyanathan wrote:
+> -----Original Message-----
+> From: Sudeep Holla [mailto:sudeep.holla@arm.com]
+> Sent: Monday, January 13, 2025 7:49 AM
+> To: Peng Fan <peng.fan@nxp.com>
+> Cc: Peng Fan (OSS) <peng.fan@oss.nxp.com>; cristian.marussi@arm.com; Sudeep Holla <sudeep.holla@arm.com>; ulf.hansson@linaro.org; arm-scmi@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-pm@vger.kernel.org; linux-kernel@vger.kernel.org; Ranjani Vaidyanathan <ranjani.vaidyanathan@nxp.com>
+> Subject: [EXT] Re: [PATCH] pmdomain: arm: scmi_pm_domain: Initialize state as off
+>
+> On Mon, Jan 13, 2025 at 11:37:23AM +0000, Peng Fan wrote:
+> > > Subject: Re: [PATCH] pmdomain: arm: scmi_pm_domain: Initialize state
+> > > as off
+> > >
+> > > On Fri, Jan 10, 2025 at 02:13:46PM +0800, Peng Fan (OSS) wrote:
+> > > > From: Peng Fan <peng.fan@nxp.com>
+> > > >
+> > > > Per ARM SCMI Spec DEN0056E, page 16, "The platform may disable a
+> > > > resource if no agent has requested to use that resource."
+> > > >
+> > >
+> > > True, but ...
+> > >
+> > > > Linux Kernel should not rely on a state that it has not requested,
+> > > > so make state as off during initialization.
+> > > >
+> > >
+> > > IIUC, this was done to avoid any transitions if the bootloader like
+> > > U- Boot has turned on the resource and OS can just rely on that stay.
+> >
+> > But if it is not U-Boot turned it on?
+>
+> Not sure if I understand what exactly you mean by that.
+> [RV] Its possible that some other agent (M33/M7 running OS) in the system
+> turned on the power domain. Resources in the same power domain can shared
+> across agents.  That being said, uboot provides mechanism to clean up any
+> power domains/clocks that it enabled. And our implementation of uboot does
+> disable any power domain it powered up for downloading of images or anything
+> else (display is a unique case if splash screen is enabled).
+>
 
+Right I was referring to the display as one of the example when I referred
+to the case where bootloader turns on the resource.
 
-On 12/01/2025 12:49 pm, Marc Zyngier wrote:
-> On Tue, 07 Jan 2025 11:32:41 +0000,
-> James Clark <james.clark@linaro.org> wrote:
->>
->> From: James Clark <james.clark@arm.com>
->>
->> There are a few entries particularly at the end of the file that aren't
->> in order. To avoid confusion, add a comment that might help new entries
->> to be added in the right place.
->>
->> Reviewed-by: Mark Brown <broonie@kernel.org>
->> Signed-off-by: James Clark <james.clark@arm.com>
->> Signed-off-by: James Clark <james.clark@linaro.org>
->> ---
->>   arch/arm64/tools/sysreg | 2 ++
->>   1 file changed, 2 insertions(+)
->>
->> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
->> index b081b54d6d22..4ba167089e2a 100644
->> --- a/arch/arm64/tools/sysreg
->> +++ b/arch/arm64/tools/sysreg
->> @@ -48,6 +48,8 @@
->>   # feature that introduces them (eg, FEAT_LS64_ACCDATA introduces enumeration
->>   # item ACCDATA) though it may be more taseful to do something else.
->>   
->> +# Please try to keep entries in this file sorted by sysreg encoding.
->> +
->>   Sysreg	OSDTRRX_EL1	2	0	0	0	2
->>   Res0	63:32
->>   Field	31:0	DTRRX
-> 
-> "Do as I say, don't do as I do".
-> 
-> I don't think this makes any sense if we don't actually sort the file
-> the first place.
-> 
-> 	M.
-> 
+> >
+> > Because the power domain is ON, kernel will not issue SCMI to platform
+> > to request it ON when kernel needs this power domain on.
+> >
+>
+> Yes, but the agent(via bootloader) has already requested the SCMI platform,
+> so it should be fine. No ?
+> [RV] As mentioned above, it need not be the bootloader. And secondly how to
+> handle this power domain during suspend/resume? It's possible that the agent
+> that turned on the power domain initially will have different wakeup
+> requirements. IMO Linux should completely be responsible for the power
+> domains that the drivers need.
+>
 
-I think it's ok if it avoids review comments that new entries should be 
-sorted. Or maybe we do the opposite and the comment should say this file 
-is allowed to be unsorted...
+May be I am still missing something. The genpd framework does issue power
+down of all the PD that are not used once we boot. Is that not sufficient.
+We are just not changing the pd state when initialising the genpds.
+Is that causing the issue ? I was under the impression that it shouldn't
+matter if the driver manages the genpds they consume and all unused ones
+get turned off eventually.
 
+What exactly is the issue for which this patch is the solution ? I think
+I might have not understood the issue properly here. Sorry if that is the
+case.
+
+--
+Regards,
+Sudeep
 
