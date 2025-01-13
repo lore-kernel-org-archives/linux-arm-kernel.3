@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFE2FC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 19:33:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2ECBC02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 19:34:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zQuLNus1VAxZrNBZ43k6Ya2LjBOws5SGp9azJjVVqPM=; b=fTAcnp0aQcM8P5Dxr2MeeGWbWK
-	xKiSEURYZE7KVqHx/Tbntqo6+iNsXsQ3HQj8UgbIuE/zC9UfhLG6njtoRzAmeRhrmKhy+M3a2AqdM
-	10jYvNWhRFSzAAP1jI+xmA3X1bv74+zDOfZK4c4i9Y724vsT/sWMi91sOMRZMMDVQXqjaPbqXuz63
-	QagrnQHl1vzYI0meLj2RwA3s+QdO4h2SjhvCI8x67mtxnLuRX3ZX9kxsX1utXWhlh+f8fIcq5tvWe
-	lsNp6iR5tGQNLEJDSXxwtagbJsn5ewellzVFI2YS/LzD5upsLo3LoYWMC9UNme9nftdBw7iKNKzz4
-	96LE3wkQ==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2PWimBk5DhwL9cF43Xhuc6g6cWmEmAEK8mMsdBs1h1s=; b=ARX+ItRshx7kZ2mJRT1F8m758i
+	iwnjg63/ei+gp5tgD2xAULyoh0MOb2FOhpDnBm6uwE/ri++bZ6tCb7feInIqOfXoSdDH20C3c7uEI
+	f/Ra3DeA/Tct7WNcMtZTKKppEkgILPhsTocy/kn1cenl89SKTszg6+7/Kom6g9cbSpj6vIjkuIalo
+	7l576I2/2DSlRAPF7ga60RzNx3J9pQrgdODCO78oElAjKIG6oF9TPOAXLYALwFYNANaUGm4azobNM
+	4m8W+swoFr6p5TiwdxRWkHb6IUGEtUD69ETlDFwRSCayiYywrlNH14zxZ5N2jlsT+z74IEv4MYmi+
+	y/PeuVYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXQBA-00000006Ob4-0rkO;
-	Mon, 13 Jan 2025 19:32:52 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1tXQCN-00000006OwC-3v0x;
+	Mon, 13 Jan 2025 19:34:07 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXQ9t-00000006OHK-2JRs
+	id 1tXQ9v-00000006OII-35N3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 19:31:34 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-218cf85639eso126204295ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 11:31:32 -0800 (PST)
+	Mon, 13 Jan 2025 19:31:36 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2166f9f52fbso142522525ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 11:31:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1736796692; x=1737401492; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=zQuLNus1VAxZrNBZ43k6Ya2LjBOws5SGp9azJjVVqPM=;
-        b=j3kpRKXRVbFdaru+LWkbdUO/PxCn/NFZS5GhVeWqkx2Hhc3qZ039tT74DlU8ySRlCA
-         VVrdlSAZvLu6Ywbxo3B+Hn2/Pa1BXSgyddEtkPN2QBR0ZPGcslTpO/4Vrb5WvXoyqLTF
-         tBl/L2nOk5joc1p7Ndg+UxM8101L80UxhknkbrXu5K09544eGa0kjuyMcM3/wI8Rtx+D
-         6OARmeFiJBTfi03hPSl1L33JZq+oKWlvHLFRHWo/nTJn5d/+zCU/084th3iNxbktALol
-         xR0rumOoVQBKetvGM77SXK2wiy3Fcm4qZwTFkxYvnl0weMxbzx4dAVOXsj+JqKTcqjm3
-         0JFw==
+        d=google.com; s=20230601; t=1736796694; x=1737401494; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=2PWimBk5DhwL9cF43Xhuc6g6cWmEmAEK8mMsdBs1h1s=;
+        b=VHW/NC5g3ukoh0CdhzvBG1LiUzLgtKsMDbXAxyxBy6jl7kfhc6ZjQoAPHMmfIuDELo
+         EX8RdL+3gp4sCp4msdAzQh6FFGFx3Oi1UUoXVeRe+o0RzScE3x/E8675ncYQ6y+43E5v
+         vBLCec2gtYE+nCGIzrj/157eiuCK59wHA1Qe9gI7Y40S7LuUEu/ScKMryMPM17JRfO4O
+         mSJFfdd2+KdzqG0EZPldtbWEgrN/NwgwEGJtmpwpBABGhPscciy6VaKk1eUUEOx5wXji
+         Xz4Hp7BmNQGVCb1B5dFDjgTY9Z4RfKc6x0eBXZMKN/hS9yiBY9y7qR2C5Afft4gftrPx
+         uJ2w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736796692; x=1737401492;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=zQuLNus1VAxZrNBZ43k6Ya2LjBOws5SGp9azJjVVqPM=;
-        b=E6IwH9GDjk8CY1ZztSSGSTRBikhOjPBZfDj67e0LJGaI7QMK6s3u5V1DIuSRanhcB8
-         efE1JXsfTh2Tk9nKeFtdb/e3MJOYPSa8S1ZKhnP4zGhlyo0PlO1cQhyMGGPHXN+0k3TG
-         Us3A1cHWsROcQmOyn79xveelVAkdL8Fc4I0f0dbZnRbAjpjTOH4V01fSsKgst7OVBNEl
-         FX1Ra9WmPWBcx7gspn0Kq1CZG/eL3apw9eTExAvKrHjweNkZ8Oqz0t27Jq3OOFiqpUUy
-         oMTgPapGgPV1BHRlQydMvdZks7QUsKPiE2PSM6E1FMALA+e2p+AR8SwXtRhbP0GumaHO
-         TYgg==
-X-Forwarded-Encrypted: i=1; AJvYcCWaIvlBFbte2iSct3YmPSfHa5zquX+XNE227mNyRxOlE5NBBei5LrwEvCwSG9btdpbpPth/NBy36S8AC88N9d/q@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx6i52e5fFg359GotZ7nMKc/FWfDDNDQcDx4HbcoC/DMLLy/VK+
-	61l0I9nUEDGd2l8a8GFMmFjzE4sG7lzgNWPdlgUbMUs/jBmLdDLllO5zQJZui1ssrGF359JsJqt
-	ZiUv6Bttn5Wftkjj6kyKPrw==
-X-Google-Smtp-Source: AGHT+IFTTR9jWVG4vVEvgyv+yC8hp1O0OmOvPiyAoIVKcAx8u7/sqAUQ1P0efNDOYAB1okcT0cVybvPbu9xCmAhOiA==
-X-Received: from plkl13.prod.google.com ([2002:a17:902:d34d:b0:212:10e4:fc1a])
+        d=1e100.net; s=20230601; t=1736796694; x=1737401494;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=2PWimBk5DhwL9cF43Xhuc6g6cWmEmAEK8mMsdBs1h1s=;
+        b=vr6T5XkRhXL5tm8dsg3wa3FTuDR8BeQXpZlmHLfDre0wt9h+unIbShlv3jqmls8C/U
+         bm9cLJblqVErn+uqgtAheIV9ZNqYCuZveJeFj7/Ml0/iBcpKyJktN4Wxqmng8cGYZ0PR
+         JUKkwOaOFm9FKihFTnhvjROQPaXSsT3q+10UsmZ8SaXwUh9cxrosfKNnjW8UXyA/t/ss
+         qzL7f0iX9R7nGrOAd16cYuh+anNtW2ADuGtj4qehKgnorAfPbBi1f60EpCI8fssgqUvT
+         TKiO7Bks+JBzHH41FtEeVadi8No1mR0PGpihjImpY76CnKcrdTvmAqEm/WqkK5aQ6/sD
+         sOkQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUDd24odpUoG4/PZwgAAp4jkOHFAZNoAsQjNi8dJDsQmdol9QqXwYk70idpuLiF6kDchg8jERIIK9EhwSCyvMIc@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz8k/5dGK9QAKk2p+GH/WZ7q1WpEX2Afz/3irxzuMPJvkBSdFwW
+	tjTBduAi8p6A/wfxDVZBCqsdvHfUotd4LILOTv+IqhEMFum7kKitBWTvlAksGBQKMFL93EplnDF
+	K0S+pPapobW51Y0OSKF2mKg==
+X-Google-Smtp-Source: AGHT+IE53D6sRek6iO0DXKKc/drL2kO78dR/t9m8UV/64TjSz8QuQZBuhOrcyZOy57H9+hzVq/ih8zpJhVPFYciB2Q==
+X-Received: from plbkl14.prod.google.com ([2002:a17:903:74e:b0:215:57bd:17e7])
  (user=jingzhangos job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:902:cccb:b0:216:4d1f:5c83 with SMTP id d9443c01a7336-21a84010cb0mr327348885ad.47.1736796692096;
- Mon, 13 Jan 2025 11:31:32 -0800 (PST)
-Date: Mon, 13 Jan 2025 11:31:26 -0800
+ 2002:a17:902:e74f:b0:216:7cde:523 with SMTP id d9443c01a7336-21a83f6710dmr367766355ad.32.1736796693775;
+ Mon, 13 Jan 2025 11:31:33 -0800 (PST)
+Date: Mon, 13 Jan 2025 11:31:27 -0800
+In-Reply-To: <20250113193128.1533449-1-jingzhangos@google.com>
 Mime-Version: 1.0
+References: <20250113193128.1533449-1-jingzhangos@google.com>
 X-Mailer: git-send-email 2.47.1.688.g23fc6f90ad-goog
-Message-ID: <20250113193128.1533449-1-jingzhangos@google.com>
-Subject: [RFC PATCH 0/2] KVM: arm64: vgic-its: Enhance debugging with debugfs
- and tracepoints
+Message-ID: <20250113193128.1533449-2-jingzhangos@google.com>
+Subject: [RFC PATCH 1/2] KVM: arm64: vgic-its: Add debugfs interface to expose
+ ITS tables
 From: Jing Zhang <jingzhangos@google.com>
 To: KVMARM <kvmarm@lists.linux.dev>, ARMLinux <linux-arm-kernel@lists.infradead.org>
 Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
@@ -73,8 +75,8 @@ Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>, Jing Zhang <jingzhangos@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_113133_590729_0BFC7C98 
-X-CRM114-Status: GOOD (  12.76  )
+X-CRM114-CacheID: sfid-20250113_113135_783289_6CC57456 
+X-CRM114-Status: GOOD (  32.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,73 +91,404 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch introduces two significant enhancements to the debugging
-capabilities of the KVM VGIC ITS for ARM64 systems:
+This commit introduces a debugfs interface to display the contents of the
+VGIC Interrupt Translation Service (ITS) tables.
 
-* Debugfs Interface for ITS Tables:
-  A new debugfs interface is added, accessible at
-  /sys/kernel/debug/kvm/<vm_name>/vgic-its-state@<its_base_address>.
-  This interface exposes the internal ITS tables, allowing developers
-  to inspect the mappings between Event IDs, Interrupt IDs, and their
-  associated target processors. The information is presented in a clear,
-  tabular format, making it easy to understand the current state of the
-  ITS configuration.
-* Tracepoints for ITS Commands:
-  Tracepoints have been added to cover all major ITS commands. These
-  tracepoints provide detailed information about each command execution,
-  including device IDs, event IDs, collection IDs, and other relevant
-  parameters. This allows for fine-grained monitoring of ITS activity
-  and facilitates debugging of complex interrupt routing scenarios.
+The ITS tables map Device/Event IDs to Interrupt IDs and target processors.
+Exposing this information through debugfs allows for easier inspection and
+debugging of the interrupt routing configuration.
 
-Motivation:
+The debugfs interface presents the ITS table data in a tabular format:
 
-The ITS is a critical component for interrupt routing in virtualized
-environments, but its complexity can make it difficult to debug and
-optimize. The current lack of visibility into its internal state hinders
-the ability to diagnose issues related to interrupt delivery, performance
-bottlenecks, and configuration errors.
+  Device ID: 0, Event ID Range: [0 - 65535]
+  EVENT_ID    INTID  HWINTID   TARGET   COL_ID HW
+  -----------------------------------------------
+         0       32        0        0        0  0
+         1       33        0        0        0  0
+         2       34        0        0        0  0
+       ...      ...      ...      ...      ... ..
 
-This patch addresses these challenges by providing tools to:
+The output is generated using the seq_file interface, allowing for efficient
+handling of potentially large ITS tables.
 
-* Inspect ITS Table Mappings:
-  The debugfs interface allows developers to directly examine the ITS
-  tables, verify the correctness of mappings, and identify potential
-  misconfigurations.
-* Monitor ITS Command Execution:
-  The tracepoints provide a detailed log of ITS command activity, making
-  it easier to understand the flow of interrupt routing and pinpoint the
-  root cause of issues.
-* Improve Debuggability:
-  By combining the static view of the ITS tables with the dynamic
-  information from tracepoints, developers gain a comprehensive
-  understanding of the ITS's behavior.
+This interface is read-only and does not allow modification of the ITS
+tables. It is intended for debugging and informational purposes only.
 
-Implementation Details:
-
-The debugfs interface is implemented using the seq_file interface to
-present the ITS table data in a user-friendly format.
-Tracepoints are defined using TRACE_EVENT and DECLARE_EVENT_CLASS macros
-for efficient tracing. Tracepoints are strategically placed within each
-ITS command handler function to capture relevant information.
-The patch includes necessary modifications to the KVM Makefile and VGIC
-header files to incorporate the new functionality.
-
+Signed-off-by: Jing Zhang <jingzhangos@google.com>
 ---
-
-Jing Zhang (2):
-  KVM: arm64: vgic-its: Add debugfs interface to expose ITS tables
-  KVM: arm64: vgic-its: Add tracepoints for VGIC ITS commands
-
  arch/arm64/kvm/Makefile              |   2 +-
- arch/arm64/kvm/vgic/trace.h          | 135 ++++++++++++++++
  arch/arm64/kvm/vgic/vgic-its-debug.c | 234 +++++++++++++++++++++++++++
- arch/arm64/kvm/vgic/vgic-its.c       |  58 ++++---
+ arch/arm64/kvm/vgic/vgic-its.c       |  39 +----
  arch/arm64/kvm/vgic/vgic.h           |  33 ++++
- 5 files changed, 430 insertions(+), 32 deletions(-)
+ 4 files changed, 276 insertions(+), 32 deletions(-)
  create mode 100644 arch/arm64/kvm/vgic/vgic-its-debug.c
 
-
-base-commit: 9d89551994a430b50c4fffcb1e617a057fa76e20
+diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
+index 3cf7adb2b503..b1e7b9c29589 100644
+--- a/arch/arm64/kvm/Makefile
++++ b/arch/arm64/kvm/Makefile
+@@ -23,7 +23,7 @@ kvm-y += arm.o mmu.o mmio.o psci.o hypercalls.o pvtime.o \
+ 	 vgic/vgic-v3.o vgic/vgic-v4.o \
+ 	 vgic/vgic-mmio.o vgic/vgic-mmio-v2.o \
+ 	 vgic/vgic-mmio-v3.o vgic/vgic-kvm-device.o \
+-	 vgic/vgic-its.o vgic/vgic-debug.o
++	 vgic/vgic-its.o vgic/vgic-debug.o vgic/vgic-its-debug.o
+ 
+ kvm-$(CONFIG_HW_PERF_EVENTS)  += pmu-emul.o pmu.o
+ kvm-$(CONFIG_ARM64_PTR_AUTH)  += pauth.o
+diff --git a/arch/arm64/kvm/vgic/vgic-its-debug.c b/arch/arm64/kvm/vgic/vgic-its-debug.c
+new file mode 100644
+index 000000000000..1ff0dd013793
+--- /dev/null
++++ b/arch/arm64/kvm/vgic/vgic-its-debug.c
+@@ -0,0 +1,234 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * vgic-its-debug.c - Debugfs interface for exposing VGIC ITS tables.
++ *
++ * Copyright (C) 2025 Google
++ *
++ * This file provides a debugfs interface to display the contents of the
++ * VGIC Interrupt Translation Service (ITS) tables. This allows for
++ * inspection of the mapping between Event IDs, Interrupt IDs, and target
++ * processors. The information is presented in a tabular format through a
++ * seq_file interface.
++ */
++
++#include <linux/debugfs.h>
++#include <linux/kvm_host.h>
++#include <linux/seq_file.h>
++#include <kvm/arm_vgic.h>
++#include "vgic.h"
++
++/**
++ * struct vgic_its_iter - Iterator for traversing VGIC ITS tables.
++ * @dev: Pointer to the current its_device being processed.
++ * @ite: Pointer to the current its_ite within the device being processed.
++ *
++ * This structure is used to maintain the current position during iteration
++ * over the ITS tables. It holds pointers to both the current device and the
++ * current ITE within that device.
++ */
++struct vgic_its_iter {
++	struct its_device *dev;
++	struct its_ite *ite;
++};
++
++/**
++ * end_of_iter - Checks if the iterator has reached the end of the ITS tables.
++ * @iter: The iterator to check.
++ *
++ * Return: True if the iterator is at the end, false otherwise.
++ */
++static inline bool end_of_iter(struct vgic_its_iter *iter)
++{
++	return !iter->dev && !iter->ite;
++}
++
++/**
++ * iter_next - Advances the iterator to the next entry in the ITS tables.
++ * @its: The VGIC ITS structure.
++ * @iter: The iterator to advance.
++ *
++ * This function moves the iterator to the next ITE within the current device,
++ * or to the first ITE of the next device if the current ITE is the last in
++ * the device. If the current device is the last device, the iterator is set
++ * to indicate the end of iteration.
++ */
++static void iter_next(struct vgic_its *its, struct vgic_its_iter *iter)
++{
++	struct its_device *dev = iter->dev;
++	struct its_ite *ite = iter->ite;
++
++	if (!ite || list_is_last(&ite->ite_list, &dev->itt_head)) {
++		if (list_is_last(&dev->dev_list, &its->device_list)) {
++			dev = NULL;
++			ite = NULL;
++		} else {
++			dev = list_next_entry(dev, dev_list);
++			ite = list_first_entry_or_null(&dev->itt_head,
++						       struct its_ite,
++						       ite_list);
++		}
++	} else {
++		ite = list_next_entry(ite, ite_list);
++	}
++
++	iter->dev = dev;
++	iter->ite = ite;
++}
++
++/**
++ * vgic_its_debug_start - Start function for the seq_file interface.
++ * @s: The seq_file structure.
++ * @pos: The starting position (offset).
++ *
++ * This function initializes the iterator to the beginning of the ITS tables
++ * and advances it to the specified position. It acquires the its_lock mutex
++ * to protect shared data.
++ *
++ * Return: An iterator pointer on success, NULL if no devices are found or
++ *         the end of the list is reached, or ERR_PTR(-ENOMEM) on memory
++ *         allocation failure.
++ */
++static void *vgic_its_debug_start(struct seq_file *s, loff_t *pos)
++{
++	struct vgic_its *its = s->private;
++	struct vgic_its_iter *iter;
++	struct its_device *dev;
++	loff_t offset = *pos;
++
++	mutex_lock(&its->its_lock);
++
++	dev = list_first_entry_or_null(&its->device_list,
++				       struct its_device, dev_list);
++	if (!dev)
++		return NULL;
++
++	iter = kmalloc(sizeof(*iter), GFP_KERNEL);
++	if (!iter)
++		return ERR_PTR(-ENOMEM);
++
++	iter->dev = dev;
++	iter->ite = list_first_entry_or_null(&dev->itt_head,
++					     struct its_ite, ite_list);
++
++	while (!end_of_iter(iter) && offset--)
++		iter_next(its, iter);
++
++	if (end_of_iter(iter)) {
++		kfree(iter);
++		return NULL;
++	}
++
++	return iter;
++}
++
++/**
++ * vgic_its_debug_next - Next function for the seq_file interface.
++ * @s: The seq_file structure.
++ * @v: The current iterator.
++ * @pos: The current position (offset).
++ *
++ * This function advances the iterator to the next entry and increments the
++ * position.
++ *
++ * Return: An iterator pointer on success, or NULL if the end of the list is
++ *         reached.
++ */
++static void *vgic_its_debug_next(struct seq_file *s, void *v, loff_t *pos)
++{
++	struct vgic_its *its = s->private;
++	struct vgic_its_iter *iter = v;
++
++	++*pos;
++	iter_next(its, iter);
++
++	if (end_of_iter(iter)) {
++		kfree(iter);
++		return NULL;
++	}
++	return iter;
++}
++
++/**
++ * vgic_its_debug_stop - Stop function for the seq_file interface.
++ * @s: The seq_file structure.
++ * @v: The current iterator.
++ *
++ * This function frees the iterator and releases the its_lock mutex.
++ */
++static void vgic_its_debug_stop(struct seq_file *s, void *v)
++{
++	struct vgic_its *its = s->private;
++	struct vgic_its_iter *iter = v;
++
++	if (!IS_ERR_OR_NULL(iter))
++		kfree(iter);
++	mutex_unlock(&its->its_lock);
++}
++
++/**
++ * vgic_its_debug_show - Show function for the seq_file interface.
++ * @s: The seq_file structure.
++ * @v: The current iterator.
++ *
++ * This function formats and prints the ITS table entry information to the
++ * seq_file output.
++ *
++ * Return: 0 on success.
++ */
++static int vgic_its_debug_show(struct seq_file *s, void *v)
++{
++	struct vgic_its_iter *iter = v;
++	struct its_device *dev = iter->dev;
++	struct its_ite *ite = iter->ite;
++
++	if (list_is_first(&ite->ite_list, &dev->itt_head)) {
++		seq_printf(s, "\n");
++		seq_printf(s, "Device ID: %u, Event ID Range: [0 - %llu]\n",
++			   dev->device_id, BIT_ULL(dev->num_eventid_bits) - 1);
++		seq_printf(s, "EVENT_ID    INTID  HWINTID   TARGET   COL_ID HW\n");
++		seq_printf(s, "-----------------------------------------------\n");
++	}
++
++	if (ite && ite->irq && ite->collection) {
++		seq_printf(s, "%8u %8u %8u %8u %8u %2d\n",
++			   ite->event_id, ite->irq->intid, ite->irq->hwintid,
++			   ite->collection->target_addr,
++			   ite->collection->collection_id, ite->irq->hw);
++	}
++
++	return 0;
++}
++
++static const struct seq_operations vgic_its_debug_sops = {
++	.start = vgic_its_debug_start,
++	.next  = vgic_its_debug_next,
++	.stop  = vgic_its_debug_stop,
++	.show  = vgic_its_debug_show
++};
++
++DEFINE_SEQ_ATTRIBUTE(vgic_its_debug);
++
++/**
++ * vgic_its_debug_init - Initializes the debugfs interface for VGIC ITS.
++ * @dev: The KVM device structure.
++ *
++ * This function creates a debugfs file named "vgic-its-state@%its_base"
++ * to expose the ITS table information.
++ *
++ * Return: 0 on success.
++ */
++int vgic_its_debug_init(struct kvm_device *dev)
++{
++	struct vgic_its *its = dev->private;
++	char name[32];
++
++	snprintf(name, sizeof(name), "vgic-its-state@%llx", (u64)its->vgic_its_base);
++	debugfs_create_file(name, 0444, dev->kvm->debugfs_dentry, its, &vgic_its_debug_fops);
++
++	return 0;
++}
++
++void vgic_its_debug_destroy(struct kvm_device *dev)
++{
++}
++
+diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+index fb96802799c6..569f9da9049f 100644
+--- a/arch/arm64/kvm/vgic/vgic-its.c
++++ b/arch/arm64/kvm/vgic/vgic-its.c
+@@ -154,36 +154,6 @@ static struct vgic_irq *vgic_add_lpi(struct kvm *kvm, u32 intid,
+ 	return irq;
+ }
+ 
+-struct its_device {
+-	struct list_head dev_list;
+-
+-	/* the head for the list of ITTEs */
+-	struct list_head itt_head;
+-	u32 num_eventid_bits;
+-	gpa_t itt_addr;
+-	u32 device_id;
+-};
+-
+-#define COLLECTION_NOT_MAPPED ((u32)~0)
+-
+-struct its_collection {
+-	struct list_head coll_list;
+-
+-	u32 collection_id;
+-	u32 target_addr;
+-};
+-
+-#define its_is_collection_mapped(coll) ((coll) && \
+-				((coll)->target_addr != COLLECTION_NOT_MAPPED))
+-
+-struct its_ite {
+-	struct list_head ite_list;
+-
+-	struct vgic_irq *irq;
+-	struct its_collection *collection;
+-	u32 event_id;
+-};
+-
+ /**
+  * struct vgic_its_abi - ITS abi ops and settings
+  * @cte_esz: collection table entry size
+@@ -1938,6 +1908,8 @@ static void vgic_its_destroy(struct kvm_device *kvm_dev)
+ 
+ 	mutex_lock(&its->its_lock);
+ 
++	vgic_its_debug_destroy(kvm_dev);
++
+ 	vgic_its_free_device_list(kvm, its);
+ 	vgic_its_free_collection_list(kvm, its);
+ 	vgic_its_invalidate_cache(its);
+@@ -2771,7 +2743,12 @@ static int vgic_its_set_attr(struct kvm_device *dev,
+ 		if (ret)
+ 			return ret;
+ 
+-		return vgic_register_its_iodev(dev->kvm, its, addr);
++		ret = vgic_register_its_iodev(dev->kvm, its, addr);
++		if (ret)
++			return ret;
++
++		return vgic_its_debug_init(dev);
++
+ 	}
+ 	case KVM_DEV_ARM_VGIC_GRP_CTRL:
+ 		return vgic_its_ctrl(dev->kvm, its, attr->attr);
+diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
+index 122d95b4e284..c2891d7b5e62 100644
+--- a/arch/arm64/kvm/vgic/vgic.h
++++ b/arch/arm64/kvm/vgic/vgic.h
+@@ -172,6 +172,36 @@ struct vgic_reg_attr {
+ 	gpa_t addr;
+ };
+ 
++struct its_device {
++	struct list_head dev_list;
++
++	/* the head for the list of ITTEs */
++	struct list_head itt_head;
++	u32 num_eventid_bits;
++	gpa_t itt_addr;
++	u32 device_id;
++};
++
++#define COLLECTION_NOT_MAPPED ((u32)~0)
++
++struct its_collection {
++	struct list_head coll_list;
++
++	u32 collection_id;
++	u32 target_addr;
++};
++
++#define its_is_collection_mapped(coll) ((coll) && \
++				((coll)->target_addr != COLLECTION_NOT_MAPPED))
++
++struct its_ite {
++	struct list_head ite_list;
++
++	struct vgic_irq *irq;
++	struct its_collection *collection;
++	u32 event_id;
++};
++
+ int vgic_v3_parse_attr(struct kvm_device *dev, struct kvm_device_attr *attr,
+ 		       struct vgic_reg_attr *reg_attr);
+ int vgic_v2_parse_attr(struct kvm_device *dev, struct kvm_device_attr *attr,
+@@ -353,4 +383,7 @@ static inline bool kvm_has_gicv3(struct kvm *kvm)
+ 	return kvm_has_feat(kvm, ID_AA64PFR0_EL1, GIC, IMP);
+ }
+ 
++int vgic_its_debug_init(struct kvm_device *dev);
++void vgic_its_debug_destroy(struct kvm_device *dev);
++
+ #endif
 -- 
 2.47.1.613.gc27f4b7a9f-goog
 
