@@ -4,106 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16A68E7719E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 06:01:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 990E0E7719E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 06:20:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U48TSgabfztIChpY/YcUw3f4s/Na48EmHD0/5TQejLo=; b=hfQGKrLKNUjlbf2AcFZIDnfxKn
-	ioxvnQopeiWw8tz6Jh0vOnLXJPS7vYBXxKIiBsnsidIXKzsy+Z9Wzy+us46PX1GuCwBBAJnczxt6F
-	QwuCHUoOMojCSTYVxsxO8Jj80IC0dpPnrIW3i7YvDpACNiyTYbL5aqYlSa96BFjqI7eMa+w9O2TSK
-	AwmWA6QJ2Rh+cIm1Tv/8rbTyM3/NhrmBmFDVr95/J4Fwg1/PtZvrt0CWoa90d/FHgjBNG6vvMCR1w
-	C5SuKS/lbSKctVH93CuQuU8g8bPJ+vF/uvsRsn37vKlgAjSnUbPQwFOE4rGYMf2xWbApwT20i0y8D
-	+JspqeKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UXMYkhj5IZ9Mb+wHyrW48mIfsHQ1A9AFKPYuWPrAkpY=; b=l1ekjfVfvxUQWafvBARdnM0I3O
+	0ux3Q8oGZlLLw4KddUeUKlmMJ1TGf7rC2MII+WwY7KNtMWZBRdj8agOF0Cp2dUtqALVW0Ux9JgWIP
+	XW2Vba5N9V2PYlpf/Q/G5ZNx3w7vs6RpfWFk++7pJ4D6wfusS/qiyIJIMPLlQj7Y9KJgAcV0KKXKS
+	NMLu+iJgbOoCibWLkFGrxAQtGeuzNAgKe6t7ZvknMuMc6zdoi5VUlEu9oAvvPUk0vogGBFRLM1oQM
+	AF+yGkZPEEpkZLQregxkcmz4+OhkVo6pYOGtVldPY2WjrfS8wQJeQc9PIQfQpn5hvq5PKyvej6DFy
+	wNTxbu1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXDVw-000000046CE-2UwX;
-	Mon, 13 Jan 2025 06:01:28 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1tXDo2-000000047SR-2AC2;
+	Mon, 13 Jan 2025 06:20:10 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXDR5-000000045Vh-0v1j
+	id 1tXDmm-000000047Ff-3fSE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 05:56:28 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-2f4448bf96fso4886723a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jan 2025 21:56:27 -0800 (PST)
+	Mon, 13 Jan 2025 06:18:54 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-21619108a6bso65214435ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jan 2025 22:18:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736747787; x=1737352587; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=U48TSgabfztIChpY/YcUw3f4s/Na48EmHD0/5TQejLo=;
-        b=ITdMDGSW903M7O4HUSPm32CFv052SBlEyZaXDf8mkcyxjzfadiqoyC2+nj+AjAdrUZ
-         UBea1AdZ84n7cjsJss4pX8908VUtEJdqK8hwiQJY8L7GkBUWUJlJuVejmECvkImtKRmj
-         xahYB6Ft5wkxfaKwgJipF8g3wmQHbsbGe8EcMmz9TyktVQsuu8x41g1RV63lruifarVD
-         m3sHSAlV8SjCr6nXRDR8AP5tMfUQzzxUyPexz6/iDHD7I9X9h6Mm4+HEhzN4pBiyYQ0t
-         wj5b4bwCgrCWqnB/H1S86nevXuo3lHsCAUB8tfLFAgEVGw9yXm6wak9ilvwXmJAgA7kT
-         kYKw==
+        d=gmail.com; s=20230601; t=1736749131; x=1737353931; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=UXMYkhj5IZ9Mb+wHyrW48mIfsHQ1A9AFKPYuWPrAkpY=;
+        b=a1wR1+86kJlINGWYiloSh1s3LKJHHczsOXs37WdQ0tSRrON59qKGuCXafJm7aBylHc
+         3EDS0ZSLnIUDwJOpL0jLd+5D6OtqalZvpWwNkjsG2Cy2YHmIDjfaqfYIxigUu9/OQ9SG
+         6tQmXUIu1zCxFngItuBmzJ2TKLFW9tETezOWK+v7Nro38qTJS8XEemtZExbdR1XV/2WI
+         M04553JaISsxKzVEKlWQhss1vazgrldd3YpgkVdM8YGZoVQbvWYBvxzz6N9CYV1HWL/y
+         ofkIEL8sZ6Y2SodvO+ERzbTrsQw/JCblxXqRKnRxntVj3GSFIX2AEeHQkgPE27v2sb40
+         zKDw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736747787; x=1737352587;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=U48TSgabfztIChpY/YcUw3f4s/Na48EmHD0/5TQejLo=;
-        b=vBu7XZIkhMG4egreMcoSLua7rDJCO1orXDNiGrltOIeSwW36eEm+I55Y+qv062V7w+
-         ZRLLCuPFmfaGISnxp8+lv+MrSsFkjG1Z48Jlm6iD51gora7Vo76lLJETsotDW/cOiGES
-         XBswG69DWyKg1ya31/skwsE8bghLUsy8m3hP12qAOD8mSJMgRip/1D+npWhlopSf5hFw
-         SgFmK0TL/YGCVdUC3laAY8tBITBaVh0iQaHKdV+IEYFaAdMhHIQ+hICwEMqC80js3koC
-         altKNopjmIPx02Rt3L2qDLIKNJ41fgdmRBx9FAOAXP9/uxFWnciJp9L1WZUIBjZ+j9Ks
-         mZNQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVEs9ye2hab6jJ0YlgZx9Fn7iEgY2zcPLNdvWn9WTsSs2/BYKHruCSGjYFKlqsZkUUDXsNeE5CPMfMfXlsQV9pZ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yww/CMDR10cnp5IOgFkPmTwZETFclFdNiXkGOr18ungrEZvnt34
-	9md74hXTxggHbJnWGE/RE6lcZp7WByP8+6STs2EbQEL0aUBHklwL
-X-Gm-Gg: ASbGnctaeN11ZSancm5IOSAVsE0FcLirLXUf550O0nJyQkwE0AKIE2ytzzcMtf2vfMm
-	st4b7VaLI2LZWy6w2aqgcfLTiZXxjMLuOA/odL0tadmowyKPBUEZDKfk/wdZkJZz0w/AhUo8cIM
-	+LoBXUwoXju7R4vWUI2HmLYy3htNj3xfC83Aqjt9VlZm0+QCx64T58A081vWyohst/jbkiJAiR/
-	NkY42GBBoGDsVHzci4KsCMRLh3CeXU+dghRnxFe2X6W46clt/x5CGAvZ0rXCaxEDyrKUrDh6W1X
-	68VP0FiM66A+fG8hm2Wm1w==
-X-Google-Smtp-Source: AGHT+IHq4nFYCX5oUS/d00SLHYVZ4r1y9q1MsRKolWEZOp+Pi9Kz0fTEOdLKt+U5D9jMV30/g0WbUg==
-X-Received: by 2002:a17:90b:288a:b0:2f2:a664:df19 with SMTP id 98e67ed59e1d1-2f548e991b9mr29698807a91.7.1736747786582;
-        Sun, 12 Jan 2025 21:56:26 -0800 (PST)
-Received: from yclu-ubuntu.. (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f55942188csm7768806a91.23.2025.01.12.21.56.22
+        d=1e100.net; s=20230601; t=1736749131; x=1737353931;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=UXMYkhj5IZ9Mb+wHyrW48mIfsHQ1A9AFKPYuWPrAkpY=;
+        b=LH680is3Ql7KUyPJJt9iXe2XX7mnJhAaijlP+/3JG5bstVs0gnSDBzT9BuNvJWSsy2
+         IrD4KP9WV/m9sfk1iiibewsa6Z93Rlc5oQ5wng5XvyfoitRXkQnpzr3v3amH5ZAvDBen
+         cdqzHabpTG2Iakuzaja3mJtQDO5jhQU3fQdB62tTwM9ELOYBc74aIXt/Z7F46BLRHznM
+         faP6/QP+J3kqk97gV0cIMLAP1tcEXIUMO2Bfutjdh4Ol+RMrGlgTCsPOrJMmPMhgbhNS
+         si+ciDBXMDjutXu6yzWd0/RjkeVqTx2X0278Q7tdOfqkH5Z7nrQIlWShuWRAFWoEp0FX
+         gMKA==
+X-Forwarded-Encrypted: i=1; AJvYcCWh6/3RXrMrYBKqDBg1fwmY6/W13+0+2/ZDPVbDz1UikL2AK3KcbsruPxi5BuCYyuhlbhe2DsSvSSrgxvLcE4FG@lists.infradead.org
+X-Gm-Message-State: AOJu0YyDyRJqgwkFNgOM2ixv82xxHeYTNAZ2uwPw4I4U9cgcxehz2I7Z
+	jC5iwkqITsTl3WbdjSg5qCMzabqLGviEBz/2FaLGbnAGvjAnJLKakekYWQ==
+X-Gm-Gg: ASbGncs7oTI/lOiF5asQBaTfXdm3VqyHRc80Ol8qZhxhmo0vgc3Mf3+4El1UZtS/6xN
+	VGjq3fsL6MBJxijqv+59pkS/3aCDS9YrCEGCRBjokgLcZV5sbnBQQqVdKKQTb00XJSA7r0P1wcw
+	+EqBhmUBukXyaA/bawAfEWF2lsAFq9ggbtmMhrJigs4bnVwOvbS+ClSqswFXGo8gQPQoIEFx+wk
+	YNkzndj/b5TDGp6jLsLHUuxi4zZoHKE/tA455V59hbB6Jfiv4bj5ZNkptxDBu0f5vnwO8TGGnnZ
+	GlmhunKeO0hv44ydV2/PXywFPjGtb7Wu3A==
+X-Google-Smtp-Source: AGHT+IFigaJwgK7Z0NX1dvC/nKexlb3PogVsWIi3IglxLkUsghZrWcqjcsFlHJl2DP1Q0iXvPWIhFg==
+X-Received: by 2002:a05:6a20:6a25:b0:1e7:6f82:321f with SMTP id adf61e73a8af0-1e88d10749amr27730415637.17.1736749131204;
+        Sun, 12 Jan 2025 22:18:51 -0800 (PST)
+Received: from localhost.localdomain (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-a318e8ecacfsm6279705a12.38.2025.01.12.22.18.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Jan 2025 21:56:26 -0800 (PST)
-From: Joey Lu <a0987203069@gmail.com>
-To: andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	mcoquelin.stm32@gmail.com,
-	richardcochran@gmail.com
-Cc: alexandre.torgue@foss.st.com,
-	joabreu@synopsys.com,
-	ychuang3@nuvoton.com,
-	schung@nuvoton.com,
-	yclu4@nuvoton.com,
-	peppe.cavallaro@st.com,
-	linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	openbmc@lists.ozlabs.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Joey Lu <a0987203069@gmail.com>,
-	Andrew Lunn <andrew@lunn.ch>
-Subject: [PATCH net-next v7 3/3] net: stmmac: dwmac-nuvoton: Add dwmac glue for Nuvoton MA35 family
-Date: Mon, 13 Jan 2025 13:54:34 +0800
-Message-Id: <20250113055434.3377508-4-a0987203069@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250113055434.3377508-1-a0987203069@gmail.com>
-References: <20250113055434.3377508-1-a0987203069@gmail.com>
+        Sun, 12 Jan 2025 22:18:50 -0800 (PST)
+From: Potin Lai <potin.lai.pt@gmail.com>
+Date: Mon, 13 Jan 2025 14:16:23 +0800
+Subject: [PATCH v2] ARM: dts: aspeed: catalina: Update DTS to support
+ multiple PDB board sources
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250113-potin-catalina-dts-update-20250102-v2-1-1725117fe7a9@gmail.com>
+X-B4-Tracking: v=1; b=H4sIALavhGcC/42Nyw6CMBBFf4V07Zi2PBRX/odhMX0Ik0BL2ko0h
+ H+3kuja5bm5OWdl0QaykV2KlQW7UCTvMshDwfSArrdAJjOTXNZccAmzT+RAY8KRHIJJER6zwWT
+ hd2lFpXiDlTIKWRbNwd7puUduXeaBYvLhtTcX8Vm/+vIf/SJAgOLqhLUsdducr/2ENB61n1i3b
+ dsbWGRFVdQAAAA=
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>, 
+ Patrick Williams <patrick@stwcx.xyz>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+ Cosmo Chou <cosmo.chou@quantatw.com>, Potin Lai <potin.lai@quantatw.com>, 
+ Potin Lai <potin.lai.pt@gmail.com>
+X-Mailer: b4 0.12.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1736749128; l=6860;
+ i=potin.lai.pt@gmail.com; s=20240724; h=from:subject:message-id;
+ bh=+9P1SAFUTyPeHDsem7TQlwq42JcEr9R7g9tjaiPQiIs=;
+ b=q7cGmq9jtHu+sNoOLc89cs/9abzrthQEj0V4PmdvhAoWoyNT0lNHWSLu3QYfxAkuzcEU+acMA
+ 7Tg1EZrRPQwBE6NOoGguYQPQg0a5TPmzZ+TijEtlbwyFcTemAXAhs20
+X-Developer-Key: i=potin.lai.pt@gmail.com; a=ed25519;
+ pk=6Z4H4V4fJwLteH/WzIXSsx6TkuY5FOcBBP+4OflJ5gM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250112_215627_259255_A36D38E6 
-X-CRM114-Status: GOOD (  24.04  )
+X-CRM114-CacheID: sfid-20250112_221852_934770_4025E2E8 
+X-CRM114-Status: GOOD (  13.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,237 +112,287 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for Gigabit Ethernet on Nuvoton MA35 series using dwmac driver.
+This patch updates the Catalina device tree to support different sources
+of PDB boards.
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-Signed-off-by: Joey Lu <a0987203069@gmail.com>
+Changes for Main source PDB board
+- Thermal Sensor Monitoring:
+  - Added IOB NIC nodes (TMP421) for thermal sensor monitoring.
+  - Added FIO remote thermal node (TMP75) for thermal sensor monitoring.
+- Fan Monitoring and Control:
+  - Add fan p12V power sensor node (MP5990) for sensor monitoring.
+  - Add fan controllers (MAX31790) for fan control and tach monitoring.
+
+Changes for 2nd source PDB board
+- Fan Monitoring and Control:
+  - Added 2nd source fan controllers (NCT7363) for fan duty control and
+    tach monitoring.
+- Power Monitoring:
+  - Added 2nd source HSC nodes (XDP710) for power sensor monitoring.
+- Address Conflicts:
+  - Removed all ina238 nodes due to address conflicts. Moved the driver
+    probe for ina238 to userspace.
+
+Changes for PDB brick board
+- Power Monitoring:
+  - Add delta brick nodes for power sensor monitoring.
+
+Signed-off-by: Potin Lai <potin.lai.pt@gmail.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 ++
- drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
- .../ethernet/stmicro/stmmac/dwmac-nuvoton.c   | 179 ++++++++++++++++++
- 3 files changed, 191 insertions(+)
- create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c
+Updating the Catalina DTS to support multiple PDB board sources.
+---
+Changes in v2:
+- Add delta_brick nodes to support PDB brick board
+- Link to v1: https://lore.kernel.org/r/20250103-potin-catalina-dts-update-20250102-v1-1-b0b7a523c968@gmail.com
+---
+ .../dts/aspeed/aspeed-bmc-facebook-catalina.dts    | 170 ++++++++++++++++++---
+ 1 file changed, 147 insertions(+), 23 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-index 4cc85a36a1ab..2b424544cf6f 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-+++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-@@ -121,6 +121,17 @@ config DWMAC_MESON
- 	  the stmmac device driver. This driver is used for Meson6,
- 	  Meson8, Meson8b and GXBB SoCs.
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
+index 3822bb3c9243..49230e6a749e 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
+@@ -190,6 +190,12 @@ i2c0mux0ch0: i2c@0 {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			reg = <0>;
++
++			// IOB0 NIC0 TEMP
++			temperature-sensor@1f {
++				compatible = "ti,tmp421";
++				reg = <0x1f>;
++			};
+ 		};
+ 		i2c0mux0ch1: i2c@1 {
+ 			#address-cells = <1>;
+@@ -200,6 +206,12 @@ i2c0mux0ch2: i2c@2 {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			reg = <2>;
++
++			// IOB0 NIC1 TEMP
++			temperature-sensor@1f {
++				compatible = "ti,tmp421";
++				reg = <0x1f>;
++			};
+ 		};
+ 		i2c0mux0ch3: i2c@3 {
+ 			#address-cells = <1>;
+@@ -361,6 +373,12 @@ i2c0mux3ch0: i2c@0 {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			reg = <0>;
++
++			// IOB1 NIC0 TEMP
++			temperature-sensor@1f {
++				compatible = "ti,tmp421";
++				reg = <0x1f>;
++			};
+ 		};
+ 		i2c0mux3ch1: i2c@1 {
+ 			#address-cells = <1>;
+@@ -371,6 +389,12 @@ i2c0mux3ch2: i2c@2 {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			reg = <2>;
++
++			// IOB1 NIC1 TEMP
++			temperature-sensor@1f {
++				compatible = "ti,tmp421";
++				reg = <0x1f>;
++			};
+ 		};
+ 		i2c0mux3ch3: i2c@3 {
+ 			#address-cells = <1>;
+@@ -464,51 +488,145 @@ i2c1mux0ch0: i2c@0 {
+ 			#size-cells = <0>;
+ 			reg = <0x0>;
  
-+config DWMAC_NUVOTON
-+	tristate "Nuvoton MA35 dwmac support"
-+	default ARCH_MA35
-+	depends on OF && (ARCH_MA35 || COMPILE_TEST)
-+	select MFD_SYSCON
-+	help
-+	  Support for Ethernet controller on Nuvoton MA35 series SoC.
+-			power-sensor@41 {
+-				compatible = "ti,ina238";
+-				reg = <0x41>;
+-				shunt-resistor = <500>;
+-			};
+-			power-sensor@42 {
+-				compatible = "ti,ina238";
+-				reg = <0x42>;
+-				shunt-resistor = <500>;
+-			};
+-			power-sensor@44 {
+-				compatible = "ti,ina238";
+-				reg = <0x44>;
+-				shunt-resistor = <500>;
++			power-sensor@22 {
++				compatible = "mps,mp5990";
++				reg = <0x22>;
+ 			};
+ 		};
+ 		i2c1mux0ch1: i2c@1 {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			reg = <0x1>;
+-
+-			power-sensor@41 {
+-				compatible = "ti,ina238";
+-				reg = <0x41>;
+-			};
+-			power-sensor@43 {
+-				compatible = "ti,ina238";
+-				reg = <0x43>;
+-			};
+ 		};
+ 		i2c1mux0ch2: i2c@2 {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			reg = <0x2>;
 +
-+	  This selects the Nuvoton MA35 series SoC glue layer support
-+	  for the stmmac device driver.
++			hwmon0: hwmon@1 {
++				compatible = "nuvoton,nct7363";
++				reg = <0x01>;
++				#pwm-cells = <2>;
 +
- config DWMAC_QCOM_ETHQOS
- 	tristate "Qualcomm ETHQOS support"
- 	default ARCH_QCOM
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
-index b26f0e79c2b3..48e25b85ea06 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Makefile
-+++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
-@@ -19,6 +19,7 @@ obj-$(CONFIG_DWMAC_IPQ806X)	+= dwmac-ipq806x.o
- obj-$(CONFIG_DWMAC_LPC18XX)	+= dwmac-lpc18xx.o
- obj-$(CONFIG_DWMAC_MEDIATEK)	+= dwmac-mediatek.o
- obj-$(CONFIG_DWMAC_MESON)	+= dwmac-meson.o dwmac-meson8b.o
-+obj-$(CONFIG_DWMAC_NUVOTON)	+= dwmac-nuvoton.o
- obj-$(CONFIG_DWMAC_QCOM_ETHQOS)	+= dwmac-qcom-ethqos.o
- obj-$(CONFIG_DWMAC_ROCKCHIP)	+= dwmac-rk.o
- obj-$(CONFIG_DWMAC_RZN1)	+= dwmac-rzn1.o
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c
-new file mode 100644
-index 000000000000..edf1b88ce1cd
---- /dev/null
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c
-@@ -0,0 +1,179 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Nuvoton DWMAC specific glue layer
-+ *
-+ * Copyright (C) 2024 Nuvoton Technology Corp.
-+ *
-+ * Author: Joey Lu <yclu4@nuvoton.com>
-+ */
++				fan-9 {
++					pwms = <&hwmon0 0 40000>;
++					tach-ch = /bits/ 8 <0x09>;
++				};
++				fan-11 {
++					pwms = <&hwmon0 0 40000>;
++					tach-ch = /bits/ 8 <0x0b>;
++				};
++				fan-10 {
++					pwms = <&hwmon0 4 40000>;
++					tach-ch = /bits/ 8 <0x0a>;
++				};
++				fan-13 {
++					pwms = <&hwmon0 4 40000>;
++					tach-ch = /bits/ 8 <0x0d>;
++				};
++				fan-15 {
++					pwms = <&hwmon0 6 40000>;
++					tach-ch = /bits/ 8 <0x0f>;
++				};
++				fan-1 {
++					pwms = <&hwmon0 6 40000>;
++					tach-ch = /bits/ 8 <0x01>;
++				};
++				fan-0 {
++					pwms = <&hwmon0 10 40000>;
++					tach-ch = /bits/ 8 <0x00>;
++				};
++				fan-3 {
++					pwms = <&hwmon0 10 40000>;
++					tach-ch = /bits/ 8 <0x03>;
++				};
++			};
++			hwmon1: hwmon@2 {
++				compatible = "nuvoton,nct7363";
++				reg = <0x02>;
++				#pwm-cells = <2>;
 +
-+#include <linux/mfd/syscon.h>
-+#include <linux/of_device.h>
-+#include <linux/of_net.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+#include <linux/stmmac.h>
++				fan-9 {
++					pwms = <&hwmon1 0 40000>;
++					tach-ch = /bits/ 8 <0x09>;
++				};
++				fan-11 {
++					pwms = <&hwmon1 0 40000>;
++					tach-ch = /bits/ 8 <0x0b>;
++				};
++				fan-10 {
++					pwms = <&hwmon1 4 40000>;
++					tach-ch = /bits/ 8 <0x0a>;
++				};
++				fan-13 {
++					pwms = <&hwmon1 4 40000>;
++					tach-ch = /bits/ 8 <0x0d>;
++				};
++				fan-15 {
++					pwms = <&hwmon1 6 40000>;
++					tach-ch = /bits/ 8 <0x0f>;
++				};
++				fan-1 {
++					pwms = <&hwmon1 6 40000>;
++					tach-ch = /bits/ 8 <0x01>;
++				};
++				fan-0 {
++					pwms = <&hwmon1 10 40000>;
++					tach-ch = /bits/ 8 <0x00>;
++				};
++				fan-3 {
++					pwms = <&hwmon1 10 40000>;
++					tach-ch = /bits/ 8 <0x03>;
++				};
++			};
++			pwm@21{
++				compatible = "maxim,max31790";
++				reg = <0x21>;
++			};
++			pwm@27{
++				compatible = "maxim,max31790";
++				reg = <0x27>;
++			};
+ 		};
+ 		i2c1mux0ch3: i2c@3 {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			reg = <0x3>;
 +
-+#include "stmmac.h"
-+#include "stmmac_platform.h"
++			delta_brick@63 {
++				compatible = "pmbus";
++				reg = <0x63>;
++			};
++			delta_brick@64 {
++				compatible = "pmbus";
++				reg = <0x64>;
++			};
++			delta_brick@65 {
++				compatible = "pmbus";
++				reg = <0x65>;
++			};
++			delta_brick@66 {
++				compatible = "pmbus";
++				reg = <0x66>;
++			};
++			delta_brick@67 {
++				compatible = "pmbus";
++				reg = <0x67>;
++			};
+ 		};
+ 		i2c1mux0ch4: i2c@4 {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			reg = <0x4>;
+ 
++			power-monitor@13 {
++				compatible = "infineon,xdp710";
++				reg = <0x13>;
++			};
++			power-monitor@1c {
++				compatible = "infineon,xdp710";
++				reg = <0x1c>;
++			};
+ 			power-monitor@42 {
+ 				compatible = "lltc,ltc4287";
+ 				reg = <0x42>;
+@@ -580,6 +698,12 @@ temperature-sensor@4b {
+ 				compatible = "ti,tmp75";
+ 				reg = <0x4b>;
+ 			};
 +
-+#define NVT_REG_SYS_GMAC0MISCR  0x108
-+#define NVT_REG_SYS_GMAC1MISCR  0x10C
-+
-+#define NVT_MISCR_RMII          BIT(0)
-+
-+/* 2000ps is mapped to 0x0 ~ 0xF */
-+#define NVT_PATH_DELAY_DEC      134
-+#define NVT_TX_DELAY_MASK       GENMASK(19, 16)
-+#define NVT_RX_DELAY_MASK       GENMASK(23, 20)
-+
-+struct nvt_priv_data {
-+	struct platform_device *pdev;
-+	struct regmap *regmap;
-+};
-+
-+static struct nvt_priv_data *
-+nvt_gmac_setup(struct platform_device *pdev, struct plat_stmmacenet_data *plat)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct nvt_priv_data *bsp_priv;
-+	phy_interface_t phy_mode;
-+	u32 tx_delay, rx_delay;
-+	u32 macid, arg, reg;
-+
-+	bsp_priv = devm_kzalloc(dev, sizeof(*bsp_priv), GFP_KERNEL);
-+	if (!bsp_priv)
-+		return ERR_PTR(-ENOMEM);
-+
-+	bsp_priv->regmap =
-+		syscon_regmap_lookup_by_phandle_args(dev->of_node, "nuvoton,sys", 1, &macid);
-+	if (IS_ERR(bsp_priv->regmap)) {
-+		dev_err_probe(dev, PTR_ERR(bsp_priv->regmap), "Failed to get sys register\n");
-+		return ERR_PTR(-ENODEV);
-+	}
-+	if (macid > 1) {
-+		dev_err_probe(dev, -EINVAL, "Invalid sys arguments\n");
-+		return ERR_PTR(-EINVAL);
-+	}
-+
-+	if (of_property_read_u32(dev->of_node, "tx-internal-delay-ps", &arg)) {
-+		tx_delay = 0;
-+	} else {
-+		if (arg <= 2000) {
-+			tx_delay = (arg == 2000) ? 0xF : (arg / NVT_PATH_DELAY_DEC);
-+			dev_dbg(dev, "Set Tx path delay to 0x%x\n", tx_delay);
-+		} else {
-+			dev_err(dev, "Invalid Tx path delay argument.\n");
-+			return ERR_PTR(-EINVAL);
-+		}
-+	}
-+	if (of_property_read_u32(dev->of_node, "rx-internal-delay-ps", &arg)) {
-+		rx_delay = 0;
-+	} else {
-+		if (arg <= 2000) {
-+			rx_delay = (arg == 2000) ? 0xF : (arg / NVT_PATH_DELAY_DEC);
-+			dev_dbg(dev, "Set Rx path delay to 0x%x\n", rx_delay);
-+		} else {
-+			dev_err(dev, "Invalid Rx path delay argument.\n");
-+			return ERR_PTR(-EINVAL);
-+		}
-+	}
-+
-+	regmap_read(bsp_priv->regmap,
-+		    macid == 0 ? NVT_REG_SYS_GMAC0MISCR : NVT_REG_SYS_GMAC1MISCR, &reg);
-+	reg &= ~(NVT_TX_DELAY_MASK | NVT_RX_DELAY_MASK);
-+
-+	if (of_get_phy_mode(pdev->dev.of_node, &phy_mode)) {
-+		dev_err(dev, "missing phy mode property\n");
-+		return ERR_PTR(-EINVAL);
-+	}
-+
-+	switch (phy_mode) {
-+	case PHY_INTERFACE_MODE_RGMII:
-+	case PHY_INTERFACE_MODE_RGMII_ID:
-+	case PHY_INTERFACE_MODE_RGMII_RXID:
-+	case PHY_INTERFACE_MODE_RGMII_TXID:
-+		reg &= ~NVT_MISCR_RMII;
-+		break;
-+	case PHY_INTERFACE_MODE_RMII:
-+		reg |= NVT_MISCR_RMII;
-+		break;
-+	default:
-+		dev_err(dev, "Unsupported phy-mode (%d)\n", phy_mode);
-+		return ERR_PTR(-EINVAL);
-+	}
-+
-+	if (!(reg & NVT_MISCR_RMII)) {
-+		reg |= FIELD_PREP(NVT_TX_DELAY_MASK, tx_delay);
-+		reg |= FIELD_PREP(NVT_RX_DELAY_MASK, rx_delay);
-+	}
-+
-+	regmap_write(bsp_priv->regmap,
-+		     macid == 0 ? NVT_REG_SYS_GMAC0MISCR : NVT_REG_SYS_GMAC1MISCR, reg);
-+
-+	bsp_priv->pdev = pdev;
-+
-+	return bsp_priv;
-+}
-+
-+static int nvt_gmac_probe(struct platform_device *pdev)
-+{
-+	struct plat_stmmacenet_data *plat_dat;
-+	struct stmmac_resources stmmac_res;
-+	struct nvt_priv_data *priv_data;
-+	int ret;
-+
-+	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
-+	if (ret)
-+		return ret;
-+
-+	plat_dat = devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
-+	if (IS_ERR(plat_dat))
-+		return PTR_ERR(plat_dat);
-+
-+	/* Nuvoton DWMAC configs */
-+	plat_dat->has_gmac = 1;
-+	plat_dat->tx_fifo_size = 2048;
-+	plat_dat->rx_fifo_size = 4096;
-+	plat_dat->multicast_filter_bins = 0;
-+	plat_dat->unicast_filter_entries = 8;
-+	plat_dat->flags &= ~STMMAC_FLAG_USE_PHY_WOL;
-+
-+	priv_data = nvt_gmac_setup(pdev, plat_dat);
-+	if (IS_ERR(priv_data))
-+		return PTR_ERR(priv_data);
-+
-+	ret = stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
-+	if (ret)
-+		return ret;
-+
-+	/* The PMT flag is determined by the RWK property.
-+	 * However, our hardware is configured to support only MGK.
-+	 * This is an override on PMT to enable WoL capability.
-+	 */
-+	plat_dat->pmt = 1;
-+	device_set_wakeup_capable(&pdev->dev, 1);
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id nvt_dwmac_match[] = {
-+	{ .compatible = "nuvoton,ma35d1-dwmac"},
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, nvt_dwmac_match);
-+
-+static struct platform_driver nvt_dwmac_driver = {
-+	.probe  = nvt_gmac_probe,
-+	.remove = stmmac_pltfr_remove,
-+	.driver = {
-+		.name           = "nuvoton-dwmac",
-+		.pm		= &stmmac_pltfr_pm_ops,
-+		.of_match_table = nvt_dwmac_match,
-+	},
-+};
-+module_platform_driver(nvt_dwmac_driver);
-+
-+MODULE_AUTHOR("Joey Lu <yclu4@nuvoton.com>");
-+MODULE_DESCRIPTION("Nuvoton DWMAC specific glue layer");
-+MODULE_LICENSE("GPL v2");
++			// FIO REMOTE TEMP SENSOR
++			temperature-sensor@4f {
++				compatible = "ti,tmp75";
++				reg = <0x4f>;
++			};
+ 		};
+ 	};
+ };
+
+---
+base-commit: becaccc292bfbd12df81148746043c5221e49da8
+change-id: 20250102-potin-catalina-dts-update-20250102-914b06a4bdba
+
+Best regards,
 -- 
-2.34.1
+Potin Lai <potin.lai.pt@gmail.com>
 
 
