@@ -4,94 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89C89E7719E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 08:05:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2030EE7719E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 08:07:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qSW8VsRMXbq3sSb57eaX0dEK1UpZGs9dyfJAciyuhos=; b=G8Lex2/Obwj7z9JNewNABxBNxz
-	Q4oXN49TLYxynLajbtEP0nFTxOPTueTYrjcy0XwALgoue70WCbpX01CnBiQN53J/4rxhup6PISjRy
-	qQLlEaGdepx5s8ntX8V0Qh33hsIoMFvIQZgJCfmy0tcLXADWZDOPNCf4DP3ge/XV+4tDS9EoBUDQF
-	bqzRKJkmZ+n4+QzP2+hE5S+rNAlZ0LPE5URk6NBtBTwAFAzSp1L2OyrMkKH9UThJ7TEVOpAuLUaBO
-	hZtdbRSKIpxuIlICo2dVQAQsIY9xsCvxBPDeEuX0c080kcJshBmiE9z0dyk1vmPYm3YcX+Zcdyt27
-	HL9fZQzQ==;
+	bh=pcuNFQWJylkhPh7t8gonvzvwWsZ6sN4LnbhC8eusAv0=; b=DswLgeEc/JtsPPuQKqe6uu1sfD
+	R5ZbmvzcQMHxTeEGpgU4RoBrMD0AHbHCNXJOar6xqF3o36AEFU+X7OqLEcGQw6gbHsjZfjud+XT2/
+	Ul7y6b1z/cY6NtEY+ql/R5tcalzPJkRnFNYQM8CTcJm7g3C5iMP7S20lrjam0oipPRgu9g4ZgNDX9
+	jMSOSsBtqWKJQA812gBErWjXmjKdbVKNoi0+LDs/cqvsz5kxrLGT+NJFAhqb/bErDFDc+PSmXkI7N
+	nBapXsj8CvO+xcD1bBN9KYQRATOdlF7rBTrhCH0iRBEhS7o1/0B160zPOE5BfY8iekgSX9+1/oGxL
+	dx5UJvrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXFRf-00000004JNC-2syf;
-	Mon, 13 Jan 2025 08:05:11 +0000
-Received: from fllv0015.ext.ti.com ([198.47.19.141])
+	id 1tXFTq-00000004JxZ-44JS;
+	Mon, 13 Jan 2025 08:07:26 +0000
+Received: from out-187.mta0.migadu.com ([91.218.175.187])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXFQR-00000004JGz-0uxl
+	id 1tXFSY-00000004Jep-3feh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 08:03:56 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 50D83ZXR026475;
-	Mon, 13 Jan 2025 02:03:35 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1736755415;
-	bh=qSW8VsRMXbq3sSb57eaX0dEK1UpZGs9dyfJAciyuhos=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=THf2oCBc+cWD9sEwWiOq1EUoUG8XfBSDFs/vyyq450/w+4ZLTXiJJacNZ+2oYF/t9
-	 zGZhDIIlUj7wtZ+heIDz8YamomhQ18Wd6alisu5dxljAgRSA4lPfUIZhL+aTk9lZZ1
-	 oa6MaYRMQsC49E+lsW4eYnOgAMqPSWHmMFWw9CJk=
-Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 50D83Z2V045615;
-	Mon, 13 Jan 2025 02:03:35 -0600
-Received: from DLEE103.ent.ti.com (157.170.170.33) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 13
- Jan 2025 02:03:34 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE103.ent.ti.com
- (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 13 Jan 2025 02:03:34 -0600
-Received: from [10.24.69.25] (danish-tpc.dhcp.ti.com [10.24.69.25])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 50D83T2u113090;
-	Mon, 13 Jan 2025 02:03:29 -0600
-Message-ID: <e08733fc-3dca-43e8-bcb6-c7d86c9f0982@ti.com>
-Date: Mon, 13 Jan 2025 13:33:28 +0530
+	Mon, 13 Jan 2025 08:06:11 +0000
+Message-ID: <5d97dd34-f293-4403-b605-c0ae7b5490fd@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1736755559;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=pcuNFQWJylkhPh7t8gonvzvwWsZ6sN4LnbhC8eusAv0=;
+	b=X8Hz6+4QavDAiS3Ew+4O7uWu/tOuSMl4stek9qSeQKLJAusNsXpq1L88iuACDbzN77VEkg
+	dwdnWW1K6ANumpRwxOSgxq1C3eSzvUt0qkcxWVD99BYd1ErmKtoYhWWYw2jQuObsjnhUpf
+	UnCeBErX+lqVQJ7NUvQ5rjqnRMFbWy4=
+Date: Mon, 13 Jan 2025 16:05:13 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 1/5] net: ti: icssg-prueth: Do not print physical
- memory addresses
+Subject: Re: [PATCH net-next 5/5] net: stmmac: stm32: Use
+ syscon_regmap_lookup_by_phandle_args
 To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-        Roger Quadros
-	<rogerq@kernel.org>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller"
-	<davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Jose Abreu <joabreu@synopsys.com>,
-        Maxime
- Coquelin <mcoquelin.stm32@gmail.com>,
-        Shawn Guo <shawnguo@kernel.org>,
-        Sascha
- Hauer <s.hauer@pengutronix.de>,
-        Pengutronix Kernel Team
-	<kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>, <imx@lists.linux.dev>
+ MD Danish Anwar <danishanwar@ti.com>, Roger Quadros <rogerq@kernel.org>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <joabreu@synopsys.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, Shawn Guo
+ <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ imx@lists.linux.dev
 References: <20250112-syscon-phandle-args-net-v1-0-3423889935f7@linaro.org>
- <20250112-syscon-phandle-args-net-v1-1-3423889935f7@linaro.org>
+ <20250112-syscon-phandle-args-net-v1-5-3423889935f7@linaro.org>
 Content-Language: en-US
-From: MD Danish Anwar <danishanwar@ti.com>
-In-Reply-To: <20250112-syscon-phandle-args-net-v1-1-3423889935f7@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Yanteng Si <si.yanteng@linux.dev>
+In-Reply-To: <20250112-syscon-phandle-args-net-v1-5-3423889935f7@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_000355_393376_3F1E5DC2 
-X-CRM114-Status: UNSURE (   4.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250113_000607_384977_FED0798D 
+X-CRM114-Status: GOOD (  17.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,20 +82,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 12/01/25 7:02 pm, Krzysztof Kozlowski wrote:
-> Debugging messages should not reveal anything about memory addresses.
-> This also solves arm compile test warnings:
+在 2025/1/12 21:32, Krzysztof Kozlowski 写道:
+> Use syscon_regmap_lookup_by_phandle_args() which is a wrapper over
+> syscon_regmap_lookup_by_phandle() combined with getting the syscon
+> argument.  Except simpler code this annotates within one line that given
+> phandle has arguments, so grepping for code would be easier.
 > 
->   drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c:1034:49: error:
->     format specifies type 'unsigned long long' but the argument has type 'phys_addr_t' (aka 'unsigned int') [-Werror,-Wformat]
+> There is also no real benefit in printing errors on missing syscon
+> argument, because this is done just too late: runtime check on
+> static/build-time data.  Dtschema and Devicetree bindings offer the
+> static/build-time check for this already.
 > 
 > Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> ---
+>   drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c | 9 ++-------
+>   1 file changed, 2 insertions(+), 7 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c
+> index 1e8bac665cc9bc95c3aa96e87a8e95d9c63ba8e1..1fcb74e9e3ffacdc7581b267febb55d015a83aed 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c
+> @@ -419,16 +419,11 @@ static int stm32_dwmac_parse_data(struct stm32_dwmac *dwmac,
+>   	}
+>   
+>   	/* Get mode register */
+> -	dwmac->regmap = syscon_regmap_lookup_by_phandle(np, "st,syscon");
+> +	dwmac->regmap = syscon_regmap_lookup_by_phandle_args(np, "st,syscon",
+> +							     1, &dwmac->mode_reg);
+The network subsystem still requires that the length of
+each line of code should not exceed 80 characters.
+So, let's silence the warning:
 
-Reviewed-by: MD Danish Anwar <danishanwar@ti.com>
+WARNING: line length of 83 exceeds 80 columns
+#33: FILE: drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c:307:
++							     &dwmac->intf_reg_off);
 
--- 
-Thanks and Regards,
-Danish
+
+BTW, The other two stmmac patches also need to adjust
+the code so that each line doesn't exceed 80 characters.
+
+Thanks,
+Yanteng
 
