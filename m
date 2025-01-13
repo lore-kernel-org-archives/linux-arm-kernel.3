@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59CCDC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 16:00:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F5C8C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 16:01:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a4IntZx8T++xezyKkQzpmI+9FPCXAyPDtOToEJbE7HM=; b=4vamCc8nCmj0XSGZbeKmYL7bRM
-	Ldah8GtrY29llYrkhdrN1IpMYqm9JCyBuz2jxUDwDeEsNVNv7jugjWAEsBQ6g+2v7AFFk2JPP8i0y
-	hvCqEoC5pAe+d7TFMLxHbHLXTAaAoIqaLuYV+fb5hHSNBicWtihK7DNbfKFCvhqLwSjV4khoZUkxw
-	UHRjjNOkrF43EyVTVJEc6L7sYxjkoMgU//gk+CRN+8Jj0W7KykfnXmMfY9YFDoGvVTYEKHJdxSB7t
-	vANquYnbkbvEZOYrwcrvLKy3ieNxjP8NaFDXUH5hyeCqR6Qo/8gD4geptAda1YYgTN46RrShAQev+
-	DZiimGyw==;
+	bh=pCexijReCLDALyBYDT/wveBapsUoKXzsuwJVO6B+djg=; b=AnHNl8ogh6Fq2FaC1e0PdWXeiJ
+	4G0a6pVLW3+gB3goks8C7ZeyJ3+sl15jAXp+Mr3yYSlajZDRKxIwfnZSJCn6SKlK9kDz9iQRtqEiy
+	ls1VALH+C5KEevf0cwPvUCw0v3pO4gydRu5Cmeqq1i4iQH5L6RvXyEOSRCeMCJYkdxQ8wYi0r1nSX
+	76BnmIn9y/pVxsgghcUNnTdFNSwGcIJupzghSVwlgctj/n5SaAlRluqn9Aown/Dh9KYX9rr4pNiKt
+	TGtnSBljcFh8+nLqGvqJyxXOtC+vT7AL/SqKRFCPCgWuEVaRT6zqu9S+7YDGydWGnb4yvLsoxORBh
+	Z2HI2bLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXMrU-00000005l0R-28ZR;
-	Mon, 13 Jan 2025 16:00:20 +0000
+	id 1tXMsh-00000005laF-0ga2;
+	Mon, 13 Jan 2025 16:01:35 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXMKR-00000005ck2-2enD;
+	id 1tXMKS-00000005cky-1zht
+	for linux-arm-kernel@lists.infradead.org;
 	Mon, 13 Jan 2025 15:26:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 336065C564A;
-	Mon, 13 Jan 2025 15:25:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 980F5C4CEE6;
-	Mon, 13 Jan 2025 15:26:10 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 299B25C4C14;
+	Mon, 13 Jan 2025 15:25:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA5F9C4CEE3;
+	Mon, 13 Jan 2025 15:26:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736781970;
-	bh=T7t+1Ze8yLQOWuB84xpWs3Ri1LIErbNg7RQFQV/TxUQ=;
+	s=k20201202; t=1736781971;
+	bh=mgTx6aOYLPXtqcfI3g1VHKq5JpmA5YkehPbZVMZdgaY=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=jYfqx2/Z4QGhBfoSDKllsJeP9TSCI17tpVC+pdmI+BN+iG1sGEOtdQGgrZIldw7wh
-	 kHluGCOY0QaXSPFusc2eiQI4+bqmFDgr/mUud5vGEJGaA/CYoGYtWA8IdBsN+KojWS
-	 /sggSFJ2hQw+t+BfLhsJWTFKNOCJU/2jb42LqVV6nrW/trDBNWHYZvw/Z6SLBcY5Dx
-	 mKgqPiuJ8yFCE8nV4EzMPibJ+IUJ5km+9PlhM7lUkrMi3z+vyJ2zNkzq0+jGcqGraJ
-	 w5wnBXBcPK8mSJg1InYS54PA/zwBDNgzdEWFZZ3GV1Fbn13B4cOC0S1Mwl0Ye+S+Kn
-	 ssXo7DlFm3Tqg==
-Date: Mon, 13 Jan 2025 09:26:09 -0600
+	b=dSDMpSA6C7sZPmyjE97Q3KaGNovHhACtHy3/gldzUUQqt9qeDYLvlneExcnp17wec
+	 aGF6aHuF648gSUljdj7UGdneY2TzkuZUQKHYM23k6PZDdCIn24Jn5aw4QWm8CQw3uy
+	 TcGDVNQLuJhTaTJnT1sOvQnROTcb1NfDd7PYRJzHz8uMUbUZLztdDoRvUERcE9Qu2k
+	 zrpoeT4L4CMextWc8WgHGUmFXmO7lrc+92rsTeqV8o+nNyIf3MTkCKXv4sRlmgvx7k
+	 YraJ4NYWaU9a6ffYM1hGo0tuEB3Imd/BikEWjpw71do+MOUdhBx7rBt4ideXfkwSK/
+	 aWfifrReyTnpg==
+Date: Mon, 13 Jan 2025 09:26:10 -0600
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Mark Brown <broonie@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
- Jaroslav Kysela <perex@perex.cz>, linux-kernel@vger.kernel.org, 
- Conor Dooley <conor+dt@kernel.org>, Jerome Brunet <jbrunet@baylibre.com>, 
- devicetree@vger.kernel.org, Liam Girdwood <lgirdwood@gmail.com>, 
- linux-arm-kernel@lists.infradead.org, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Takashi Iwai <tiwai@suse.com>, 
- linux-amlogic@lists.infradead.org, linux-sound@vger.kernel.org, 
- Neil Armstrong <neil.armstrong@linaro.org>
-To: jiebing chen <jiebing.chen@amlogic.com>
-In-Reply-To: <20250113-audio_drvier-v1-0-8c14770f38a0@amlogic.com>
-References: <20250113-audio_drvier-v1-0-8c14770f38a0@amlogic.com>
-Message-Id: <173678161502.2153418.9839486392491673173.robh@kernel.org>
-Subject: Re: [PATCH 0/3] Add support for S4 audio
+Cc: linux-aspeed@lists.ozlabs.org, Joel Stanley <joel@jms.id.au>, 
+ devicetree@vger.kernel.org, Andrew Jeffery <andrew@codeconstruct.com.au>, 
+ linux-arm-kernel@lists.infradead.org, Patrick Williams <patrick@stwcx.xyz>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org, 
+ Cosmo Chou <cosmo.chou@quantatw.com>, Potin Lai <potin.lai@quantatw.com>, 
+ Conor Dooley <conor+dt@kernel.org>
+To: Potin Lai <potin.lai.pt@gmail.com>
+In-Reply-To: <20250113-potin-catalina-dts-update-20250102-v2-1-1725117fe7a9@gmail.com>
+References: <20250113-potin-catalina-dts-update-20250102-v2-1-1725117fe7a9@gmail.com>
+Message-Id: <173678161661.2153651.3945745286602645687.robh@kernel.org>
+Subject: Re: [PATCH v2] ARM: dts: aspeed: catalina: Update DTS to support
+ multiple PDB board sources
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_072611_758509_6CB97C8F 
-X-CRM114-Status: GOOD (  14.10  )
+X-CRM114-CacheID: sfid-20250113_072612_602915_68365D77 
+X-CRM114-Status: GOOD (  15.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,35 +77,42 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 13 Jan 2025 14:35:12 +0800, jiebing chen wrote:
-> Add the tdmout pad control and tocodec control driver.
+On Mon, 13 Jan 2025 14:16:23 +0800, Potin Lai wrote:
+> This patch updates the Catalina device tree to support different sources
+> of PDB boards.
 > 
-> Signed-off-by: jiebing chen <jiebing.chen@amlogic.com>
+> Changes for Main source PDB board
+> - Thermal Sensor Monitoring:
+>   - Added IOB NIC nodes (TMP421) for thermal sensor monitoring.
+>   - Added FIO remote thermal node (TMP75) for thermal sensor monitoring.
+> - Fan Monitoring and Control:
+>   - Add fan p12V power sensor node (MP5990) for sensor monitoring.
+>   - Add fan controllers (MAX31790) for fan control and tach monitoring.
+> 
+> Changes for 2nd source PDB board
+> - Fan Monitoring and Control:
+>   - Added 2nd source fan controllers (NCT7363) for fan duty control and
+>     tach monitoring.
+> - Power Monitoring:
+>   - Added 2nd source HSC nodes (XDP710) for power sensor monitoring.
+> - Address Conflicts:
+>   - Removed all ina238 nodes due to address conflicts. Moved the driver
+>     probe for ina238 to userspace.
+> 
+> Changes for PDB brick board
+> - Power Monitoring:
+>   - Add delta brick nodes for power sensor monitoring.
+> 
+> Signed-off-by: Potin Lai <potin.lai.pt@gmail.com>
 > ---
-> jiebing chen (3):
->       ASoC: dt-bindings: Add Amlogic S4 audio
->       ASoC: meson: s4:support for the on-chip audio
->       arm64: dts: amlogic: Add Amlogic S4 Audio
-> 
->  .../bindings/sound/amlogic,s4-tdmout-pad.yaml      |  36 ++
->  .../bindings/sound/amlogic,s4-tocodec.yaml         |  44 +++
->  .../boot/dts/amlogic/meson-s4-s805x2-aq222.dts     | 226 ++++++++++++
->  arch/arm64/boot/dts/amlogic/meson-s4.dtsi          | 385 ++++++++++++++++++++-
->  sound/soc/meson/Kconfig                            |  16 +
->  sound/soc/meson/Makefile                           |   6 +
->  sound/soc/meson/s4-pad-out-control.c               | 372 ++++++++++++++++++++
->  sound/soc/meson/s4-tocodec-control.c               | 376 ++++++++++++++++++++
->  sound/soc/meson/t9015.c                            |   5 +-
->  9 files changed, 1461 insertions(+), 5 deletions(-)
+> Updating the Catalina DTS to support multiple PDB board sources.
 > ---
-> base-commit: 6ecd20965bdc21b265a0671ccf36d9ad8043f5ab
-> change-id: 20250110-audio_drvier-07a5381c494b
-> 
-> Best regards,
-> --
-> jiebing chen <jiebing.chen@amlogic.com>
-> 
-> 
+> Changes in v2:
+> - Add delta_brick nodes to support PDB brick board
+> - Link to v1: https://lore.kernel.org/r/20250103-potin-catalina-dts-update-20250102-v1-1-b0b7a523c968@gmail.com
+> ---
+>  .../dts/aspeed/aspeed-bmc-facebook-catalina.dts    | 170 ++++++++++++++++++---
+>  1 file changed, 147 insertions(+), 23 deletions(-)
 > 
 
 
@@ -124,54 +130,20 @@ make sure dt-schema is up to date:
   pip3 install dtschema --upgrade
 
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/amlogic/' for 20250113-audio_drvier-v1-0-8c14770f38a0@amlogic.com:
+New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/aspeed/' for 20250113-potin-catalina-dts-update-20250102-v2-1-1725117fe7a9@gmail.com:
 
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-0: clock-names:0: 'sclk' was expected
-	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-0: clock-names:1: 'lrclk' was expected
-	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-0: clock-names:2: 'mclk' was expected
-	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-0: Unevaluated properties are not allowed ('clock-names' was unexpected)
-	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-1: clock-names:0: 'sclk' was expected
-	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-1: clock-names:1: 'lrclk' was expected
-	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-1: clock-names:2: 'mclk' was expected
-	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-1: Unevaluated properties are not allowed ('clock-names' was unexpected)
-	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-2: clock-names:0: 'sclk' was expected
-	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-2: clock-names:1: 'lrclk' was expected
-	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-2: clock-names:2: 'mclk' was expected
-	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-2: Unevaluated properties are not allowed ('clock-names' was unexpected)
-	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: bus@fe000000: audio-controller@1A000: 'ranges' is a required property
-	from schema $id: http://devicetree.org/schemas/simple-bus.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: bus@330000: audio-controller@E58: 'ranges' is a required property
-	from schema $id: http://devicetree.org/schemas/simple-bus.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: clock-controller@0: 'power-domains' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller@300: compatible: ['amlogic,sm1-tdmin', 'amlogic,axg-tdmin'] is too long
-	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-formatters.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller@340: compatible: ['amlogic,sm1-tdmin', 'amlogic,axg-tdmin'] is too long
-	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-formatters.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller@380: compatible: ['amlogic,sm1-tdmin', 'amlogic,axg-tdmin'] is too long
-	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-formatters.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller@3c0: compatible: ['amlogic,sm1-tdmin', 'amlogic,axg-tdmin'] is too long
-	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-formatters.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller@1A000: 'AVDD-supply' is a required property
-	from schema $id: http://devicetree.org/schemas/sound/amlogic,t9015.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-amplifier-0: '#sound-dai-cells' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/sound/simple-audio-amplifier.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: sound: 'anyOf' conditional failed, one must be fixed:
-	'clocks' is a required property
-	'#clock-cells' is a required property
-	from schema $id: http://devicetree.org/schemas/clock/clock.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-everest.dtb: /ahb/apb/fsi@1e79b000/cfam@0,0/hub@3400/cfam@1,0/i2c@1800: failed to match any schema with compatible: ['ibm,fsi-i2c-master']
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-rainier.dtb: /ahb/apb/display@1e6e6000: failed to match any schema with compatible: ['aspeed,ast2600-gfx', 'syscon']
+arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-x570d4u.dtb: lpc@1e789000: lpc-snoop@90: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: /ahb/apb/bus@1e78a000/i2c@100/i2c-mux@70/i2c@3/delta_brick@63: failed to match any schema with compatible: ['pmbus']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: /ahb/apb/bus@1e78a000/i2c@100/i2c-mux@70/i2c@3/delta_brick@64: failed to match any schema with compatible: ['pmbus']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: /ahb/apb/bus@1e78a000/i2c@100/i2c-mux@70/i2c@3/delta_brick@65: failed to match any schema with compatible: ['pmbus']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: /ahb/apb/bus@1e78a000/i2c@100/i2c-mux@70/i2c@3/delta_brick@66: failed to match any schema with compatible: ['pmbus']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: /ahb/apb/bus@1e78a000/i2c@100/i2c-mux@70/i2c@3/delta_brick@67: failed to match any schema with compatible: ['pmbus']
+arch/arm/boot/dts/aspeed/aspeed-bmc-opp-nicole.dtb: /ahb/apb/display@1e6e6000: failed to match any schema with compatible: ['aspeed,ast2500-gfx', 'syscon']
+arch/arm/boot/dts/aspeed/aspeed-bmc-asus-x4tf.dtb: /ahb/apb/video@1e700000: failed to match any schema with compatible: ['aspeed,ast2600-video-engine']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-minerva.dtb: /ahb/apb/display@1e6e6000: failed to match any schema with compatible: ['aspeed,ast2600-gfx', 'syscon']
 
 
 
