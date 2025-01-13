@@ -4,86 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F12AC02184
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 15:53:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B75AFC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 15:54:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5wK2BGx//zUz/XNuJSSzKnvYT5PA/aXDXBm8lXWbTas=; b=QNmjNrSOPvfmBm4vE6Q/g+Ek1L
-	9KDLn8xN0LVkS9EMXa3vHMRVM8LVGw4CeSN/24yi06gdvjgnKSwI2o+yA+eaVcy/VoW0+KH0xD92e
-	fp1SJhTUvCpZvsC8y39VYA6B6Pu/+qw0yDR20qa5UlwCGbzNYOy4zWiwIyMNOx44E4GBl1ntqQvgG
-	j616lZ+QMdqtUPZIXhlDbt0OYkeN/gUwsdLTiZ8iIHRLcF4cyZJ9g3BDqSH0OFXYQqBPfhD7yvZN/
-	ID19GJ1NgIhzWDGLrlEZqPEbaXRaJGDDGgwYvUSCfJPjIlQL9mGD+fQhacvobpiFpRNg/y1bycCrX
-	O3ZxiIyQ==;
+	bh=LKOrjtOEkYBN2Y2LO0sJXjsSTOuS88NhX+jEyFyuLf4=; b=vWqnI0WjrdD11AFhvbgBANqeYA
+	objkgg6RlLF8htqpLAO05Ft+36simT9ShHidGX3Vebu+XNGkfpKSr7UxTAxZZURjOYXFAFAe7Ohej
+	cY5FU1HliOFcURSqnZf4dzz0lSuXKEUME3Rf0RRHz+jQZAzyZY98mp9AjOtEIjsbcK8/OoxH04bTf
+	CSqSFq0SVBaPx/77njXsxY4MAr2BIm2mQRZmuh+C2j2ub5AgBPqKfVTT6kRzuNM0YpWyNsTDbPewq
+	I/N5YfUavjSqIAFYFQDfjmx96QHCjte4Rz/0uW42A2M1I+vEBzBwYZz7jlwKHsAKVgJRCOUVKRzv8
+	F7B+shFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXMkG-00000005jMQ-1Z5H;
-	Mon, 13 Jan 2025 15:52:52 +0000
-Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	id 1tXMlT-00000005k0v-1aTV;
+	Mon, 13 Jan 2025 15:54:07 +0000
+Received: from out-172.mta0.migadu.com ([91.218.175.172])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXM2g-00000005YS4-2jZg
+	id 1tXMC4-00000005b06-3yFn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 15:07:55 +0000
-Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-540254357c8so4009732e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 07:07:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736780869; x=1737385669; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5wK2BGx//zUz/XNuJSSzKnvYT5PA/aXDXBm8lXWbTas=;
-        b=C6pOHdBhnwhqktvYph45ACSRi25ZTT3a5XHo1NWK6zLD0oBVJEKuMa5v6lRYsYQu3q
-         xPafga6O3HbTtY22S4MA/RSj5+wAvHV1f/HVHlIY4rCxe7iDSrLlLpOVGz4c4wuAvffS
-         drhc/S1VRhYsIX5ABu1Juef6/d2uUhQ4KS8g6yfoXfZx2hXyEuJk78Z1sw98I5WQ9iTI
-         wME6b/JnE3kTAtz2F1UBAi2XOJ0L7tDRHe6rCRW6BRplAzwkmvqym70JqV30H5h01QLm
-         aRXAT8Yyr+q5Wg9iSaFH0OJLbvJrHoN5V2ghwgyVPW3lCTa+zq6y6h76z5cMigIUwk+/
-         OSOw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736780869; x=1737385669;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=5wK2BGx//zUz/XNuJSSzKnvYT5PA/aXDXBm8lXWbTas=;
-        b=GsllA03D0eOasev2jfi3r7GwyZm9Szr+Gpuv2Vr9mk9TPmOJ2MU7YOzFfx7y+6ad8j
-         16dBr6XxvpycqYnl/LYI9QkSsm7X6XDwHKwEHaa+T0CToKBUCpMbOQ+P1vi+LDit6X2p
-         wjZiTiQg0e83VPstMNV2xQ8CRE3arUEfvBVCq0SLb15BVE9wZOMRTcK0ZdG0OGYfHUYM
-         bhoPJUkOmlP5K8r45AbO+R8dGaJ7p1tHjjJZyEO4QBJ3kYh7z/NYDk8I+FeaPJrcRJzT
-         KEqS6nNfhQpXxgzzOPbioQGPDXbQ5YbD97L/tKcdz+rCbLbzjV7wU+WE2AxuYN4AZS2b
-         zMMQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWsHGemGmFKf8ApJpZQ+kAKu+MsRhXPkMtFXQBQhbLWzmqJ+5XfBJS2G/aL8y26DGKWNfUuRxGLVnqomN+TrzZF@lists.infradead.org
-X-Gm-Message-State: AOJu0YxS1isOzuku9E4BUT92PqJCqlQa/xv/ESNowi3/SNuiYmUePCll
-	MmaZx6zTFqbZymR//C2YWyenXhVv09OOhy1Umm8+QixjaTB5HhiQy30H3olgD+Jy6tCjGWesr2m
-	ct83FxnQBs5zQ0SSdB51KWveSECnnWSGPwDdMKA==
-X-Gm-Gg: ASbGncsaybKjl5LRwK9r8Wv5u1BE0e/ItDIjcXseAauGUWYB+YOM2nAW32BaHk0HOIs
-	TFZLcVcHlmkhh0+pahyEYC/X4/6nWFqNEfHJz
-X-Google-Smtp-Source: AGHT+IES3tZBy6Xs2c9tlrWY162TnjF3uWtTrphszdVGsSsqqCXRWdJUrRBTJwefuNL0CvDs1zX4DNXrPFBHB8nhuyM=
-X-Received: by 2002:a05:6512:a96:b0:540:1f7d:8bce with SMTP id
- 2adb3069b0e04-542845b9744mr5354221e87.38.1736780868642; Mon, 13 Jan 2025
- 07:07:48 -0800 (PST)
+	Mon, 13 Jan 2025 15:17:34 +0000
+Message-ID: <8d6303f1-37f1-4298-b377-d2bd55ac01de@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1736781445;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LKOrjtOEkYBN2Y2LO0sJXjsSTOuS88NhX+jEyFyuLf4=;
+	b=rD84PlDUF7tV0r+jkJkCgDrEoNeOaEMHi608IRg8N81+ci74WGf0OKgNh24HHbN4Sph+1N
+	hTfzeEEUvRJ2ZB9UaseGrbhcdEB3h93gQu/S18Ld/hslY7OehFIPg/wryHw4BsEigAc9qe
+	ZeqMUjaMTnzYv4+6LVyWmvq2bvDky64=
+Date: Mon, 13 Jan 2025 23:16:31 +0800
 MIME-Version: 1.0
-References: <20241014-armv7-cacheinfo-v2-0-38ab76d2b7fa@linaro.org>
- <CACRpkdbfckBBW5W5sEvz1LwzdOvTKi_fi7tDu+9nPeKumYkPeA@mail.gmail.com>
- <lkxm6m2u25o4qfvpja7qsldqm7zjxejkn6d5qihyxbg2zvntwh@icvun74e6rll> <y74nrynys7srlwmtfzpjwklfkw33vijrnefjm3iyngn2y35mlz@joqsk74rwl2l>
-In-Reply-To: <y74nrynys7srlwmtfzpjwklfkw33vijrnefjm3iyngn2y35mlz@joqsk74rwl2l>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Mon, 13 Jan 2025 16:07:36 +0100
-X-Gm-Features: AbW1kvYQ4bwujBVNetakHufjq4DsT8RTYbJHLkl_N2maIXPBhXD2T0GN-Pxhbsg
-Message-ID: <CACRpkdZ1Joi+UW6EQuatx3Z0P0o+HULjwXB9vaAWOJxdBsNO8Q@mail.gmail.com>
-Subject: Re: [PATCH v2 0/2] ARM: implement cacheinfo support (for v7/v7m)
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: Sudeep Holla <sudeep.holla@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Arnd Bergmann <arnd@arndb.de>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH net-next v1 1/3] net: stmmac: Switch to zero-copy in
+ non-XDP RX path
+To: Alexander Lobakin <aleksander.lobakin@intel.com>
+Cc: Furong Xu <0x1207@gmail.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com
+References: <cover.1736500685.git.0x1207@gmail.com>
+ <600c76e88b6510f6a4635401ec1e224b3bbb76ec.1736500685.git.0x1207@gmail.com>
+ <f1062d1c-f39d-4c9e-9b50-f6ae0bcf27d5@linux.dev>
+ <054ae4bf-37a8-4e4e-8631-dedded8f30f1@intel.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Yanteng Si <si.yanteng@linux.dev>
+In-Reply-To: <054ae4bf-37a8-4e4e-8631-dedded8f30f1@intel.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_070751_496723_1543DDA1 
-X-CRM114-Status: GOOD (  24.97  )
+X-CRM114-CacheID: sfid-20250113_071733_129295_084CE9E1 
+X-CRM114-Status: GOOD (  19.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,51 +78,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 3, 2025 at 6:55=E2=80=AFAM Dmitry Baryshkov
-<dmitry.baryshkov@linaro.org> wrote:
-> On Thu, Nov 07, 2024 at 04:34:36PM +0200, Dmitry Baryshkov wrote:
-> > On Thu, Nov 07, 2024 at 02:55:55PM +0100, Linus Walleij wrote:
-> > > Hi Dmitry,
-> > >
-> > > On Mon, Oct 14, 2024 at 3:55=E2=80=AFPM Dmitry Baryshkov
-> > > <dmitry.baryshkov@linaro.org> wrote:
-> > >
-> > > > Follow the ARM64 platform and implement simple cache information dr=
-iver.
-> > > > As it reads data from CTR (ARMv6+) and CLIDR (ARMv7+) registers, it=
- is
-> > > > limited to the ARMv7 / ARMv7M, providing simple fallback or just
-> > > > returning -EOPNOTSUPP in case of older platforms.
-> > > >
-> > > > In theory we should be able to skip CLIDR reading and assume that D=
-cache
-> > > > and Icache (or unified L1 cache) always exist if CTR is supported a=
-nd
-> > > > returns sensible value. However I think this better be handled by t=
-he
-> > > > maintainers of corresponding platforms.
-> > > >
-> > > > Other than just providing information to the userspace, this patchs=
-et is
-> > > > required in order to implement L2 cache driver (and in the end CPU
-> > > > frequency scaling) on ARMv7-based Qualcomm devices.
-> > > >
-> > > > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-> > >
-> > > I added my review tags to the v2 patches, can you put them
-> > > into Russell's patch tracker?
-> >
-> > Done, 9432/1 and 9433/1, thank you!
->
-> These patches are still in the patch tracker in the "Incoming" state.
->
-> Russell, Linus (and Sudeep, Ard, Arnd), is there anything blocking them
-> from being accepted?
 
-I added my Reviewed-by, perhaps rebase them on v6.13-rc1 so
-Russell knows it applies cleanly? (It's pretty straight-forward to
-supercede a patch in the tracker.)
+在 1/13/25 20:03, Alexander Lobakin 写道:
+> From: Yanteng Si <si.yanteng@linux.dev>
+> Date: Mon, 13 Jan 2025 17:41:41 +0800
+>
+>> 在 2025/1/10 17:53, Furong Xu 写道:
+>>> Avoid memcpy in non-XDP RX path by marking all allocated SKBs to
+>>> be recycled in the upper network stack.
+>>>
+>>> This patch brings ~11.5% driver performance improvement in a TCP RX
+>>> throughput test with iPerf tool on a single isolated Cortex-A65 CPU
+>>> core, from 2.18 Gbits/sec increased to 2.43 Gbits/sec.
+>>>
+>>> Signed-off-by: Furong Xu <0x1207@gmail.com>
+>>> ---
+>>>    drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  1 +
+>>>    .../net/ethernet/stmicro/stmmac/stmmac_main.c | 23 +++++++++++--------
+>>>    2 files changed, 15 insertions(+), 9 deletions(-)
+>>>
+>>> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/
+>>> net/ethernet/stmicro/stmmac/stmmac.h
+>>> index 548b28fed9b6..5c39292313de 100644
+>>> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+>>> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+>>> @@ -126,6 +126,7 @@ struct stmmac_rx_queue {
+>>>        unsigned int cur_rx;
+>>>        unsigned int dirty_rx;
+>>>        unsigned int buf_alloc_num;
+>>> +    unsigned int napi_skb_frag_size;
+>>>        dma_addr_t dma_rx_phy;
+>>>        u32 rx_tail_addr;
+>>>        unsigned int state_saved;
+>>> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/
+>>> drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+>>> index 038df1b2bb58..43125a6f8f6b 100644
+>>> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+>>> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+>>> @@ -1320,7 +1320,7 @@ static unsigned int stmmac_rx_offset(struct
+>>> stmmac_priv *priv)
+>>>        if (stmmac_xdp_is_enabled(priv))
+>>>            return XDP_PACKET_HEADROOM;
+>>>    -    return 0;
+>>> +    return NET_SKB_PAD;
+>>>    }
+>>>      static int stmmac_set_bfsize(int mtu, int bufsize)
+>>> @@ -2019,17 +2019,21 @@ static int
+>>> __alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
+>>>        struct stmmac_channel *ch = &priv->channel[queue];
+>>>        bool xdp_prog = stmmac_xdp_is_enabled(priv);
+>>>        struct page_pool_params pp_params = { 0 };
+>>> -    unsigned int num_pages;
+>>> +    unsigned int dma_buf_sz_pad, num_pages;
+>>>        unsigned int napi_id;
+>>>        int ret;
+>>>    +    dma_buf_sz_pad = stmmac_rx_offset(priv) + dma_conf->dma_buf_sz +
+>>> +             SKB_DATA_ALIGN(sizeof(struct skb_shared_info));
+>>> +    num_pages = DIV_ROUND_UP(dma_buf_sz_pad, PAGE_SIZE);
+>>> +
+>>>        rx_q->queue_index = queue;
+>>>        rx_q->priv_data = priv;
+>>> +    rx_q->napi_skb_frag_size = num_pages * PAGE_SIZE;
+>>>          pp_params.flags = PP_FLAG_DMA_MAP | PP_FLAG_DMA_SYNC_DEV;
+>>>        pp_params.pool_size = dma_conf->dma_rx_size;
+>>> -    num_pages = DIV_ROUND_UP(dma_conf->dma_buf_sz, PAGE_SIZE);
+>>> -    pp_params.order = ilog2(num_pages);
+>>> +    pp_params.order = order_base_2(num_pages);
+>>>        pp_params.nid = dev_to_node(priv->device);
+>>>        pp_params.dev = priv->device;
+>>>        pp_params.dma_dir = xdp_prog ? DMA_BIDIRECTIONAL : DMA_FROM_DEVICE;
+>>> @@ -5574,19 +5578,20 @@ static int stmmac_rx(struct stmmac_priv *priv,
+>>> int limit, u32 queue)
+>>>                /* XDP program may expand or reduce tail */
+>>>                buf1_len = ctx.xdp.data_end - ctx.xdp.data;
+>>>    -            skb = napi_alloc_skb(&ch->rx_napi, buf1_len);
+>>> +            skb = napi_build_skb(page_address(buf->page),
+>>> +                         rx_q->napi_skb_frag_size);
+>>>                if (!skb) {
+>>> +                page_pool_recycle_direct(rx_q->page_pool,
+>>> +                             buf->page);
+>>>                    rx_dropped++;
+>>>                    count++;
+>>>                    goto drain_data;
+>>>                }
+>>>                  /* XDP program may adjust header */
+>>> -            skb_copy_to_linear_data(skb, ctx.xdp.data, buf1_len);
+>>> +            skb_reserve(skb, ctx.xdp.data - ctx.xdp.data_hard_start);
+>> The network subsystem still requires that the length
+>> of each line of code should not exceed 80 characters.
+>> So let's silence the warning:
+>>
+>> WARNING: line length of 81 exceeds 80 columns
+>> #87: FILE: drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:5592:
+>> +            skb_reserve(skb, ctx.xdp.data - ctx.xdp.data_hard_start);
+> I agree that &ctx.xdp could be made an onstack pointer to shorten these
+> lines, but please don't spam with the checkpatch output.
+>
+> 1. It's author's responsibility to read netdev CI output on Patchwork,
+>     reviewers shouldn't copy its logs.
+Sorry, I shouldn't have made noise on the mailing list.
+> 2. The only alternative without making a shortcut for &ctx.xdp is
+>
+> 			skb_reserve(skb,
+> 				    ctx.xdp.data - ctx.xdp.data_hard_start);
+>
+> This looks really ugly and does more harm than good.
+Agree!
+>
+> If you really want to help, pls come with good propositions how to avoid
+> such warnings in an elegant way.
 
-Yours,
-Linus Walleij
+Simple. Just do as with buf1_len.
+
+Thanks,
+
+Yanteng
+
+>
+>> Thanks,
+>> Yanteng
+> Thanks,
+> Olek
 
