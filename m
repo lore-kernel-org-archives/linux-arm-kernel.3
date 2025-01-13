@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 992EAE7719F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 13:59:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0681EC02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 14:00:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8r1hjTIFjPvRs4fRe4EVsNk1THfnvdi0jx4B8ZmE++o=; b=BCu1vHSrQlTlC4QfO7IiPd1MOY
-	Qd/PBJU4p+OVY14kP5d6S3QZI+Nu8EJwB8Daih3e7LHu7Ks497ukfuCxAyQqUk5mTiYuk6nfVpNa/
-	fNDMhEe6X0jppi0A7YOXLMF2jVgflPIPwRLPcadJ8/Mf6OWJlrcm1dPNYUIaOrWEdGVmt6zeQeSGr
-	XHyTcv8mwF40nOmc1e7i9LBNUevy71L3UD9PVb9C2KWaWJSOrJUZ6+wGRqCMAcV6lTHI4Y+ySqqMV
-	g+ut18Zg0HpqyCFVJUG3V1yZVgUN2p2NMyP378MgCv9yysqqWeZtmEJnGzbSMp0ImnqXEUpOS8aqb
-	ECztGjcg==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7kFHK6z+bpULeMhGwjcx+ba0mINBF+orggGX0e7FfZ8=; b=bOSDhbSY59UEhohu7H2HwOgq6A
+	UtcA48DzhO450lWQ43opRQmP7qYJfR8SoaIM4mF7yaVEhJfGuYSAMIKApeiVNEPG67Jx36c53teX6
+	XV0I8DQyOVQD7/7FTB7R6YyBekTF9kpaZGQuOagzrPrEQYR8kerGILXpE+0Oa9yWy7ddk8ayu2vgD
+	UTZtTaV0FhtgEPyaQCLogrtg0HNgmjfRqK4XGLXsYroHMfqSllYV2GbXS3/9sg/XyGG3tpey4J4LM
+	sTxbS/qhFhBrplcuSZ7ug5zCuCPVMTeWxGDUHRPgELzhmv9OT7I2MwI+AVlYqOeWOfRcjI96ttn5H
+	wImLVfWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXKyJ-00000005L2P-0miP;
-	Mon, 13 Jan 2025 13:59:15 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tXKzV-00000005L9v-3Ifx;
+	Mon, 13 Jan 2025 14:00:29 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXKsS-00000005JsB-0aeK
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 13:53:13 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tXKsA-0004SJ-SF; Mon, 13 Jan 2025 14:52:54 +0100
-Message-ID: <0ef15155-c124-423f-bd00-ccde0fb1a741@pengutronix.de>
-Date: Mon, 13 Jan 2025 14:52:53 +0100
+	id 1tXKxx-00000005Kyl-3QnL;
+	Mon, 13 Jan 2025 13:58:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1736776731;
+	bh=Fxot0/yllsfFV5MpcU+4oD888BMjMbr6+B9CyzdSk2A=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=dGb0uA4y3MK0iODtk5hcPqliinJfUVu12AvzbkKAuD8ezo4OmZyvS7IqIolui1RMS
+	 fHnjAGS1j66g3CZbVWjyVxp1QVMlb+ZsFnQGBdKql1h6Z9IJVcHciM8fwUQm1GikTs
+	 r+upWgRknwrFxnxkrjvsybcMpVV17TJs4oBAR330FbfX3hZefckL0goxO/nJNV0u0t
+	 2BHDmKYRr1Y87xF9ohjzRcuhH/0AZU6kCVfqU5u0jzDHi14GEV1IzcQjx2Fcv4ESTs
+	 jGQg6mJ2XTwxzklEDB8arc/sIy5aDexGFU7rypzRxKmf61eSpHaVt/O73ylf+98xlI
+	 oz1oKPUYaFQJg==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E245117E0E64;
+	Mon, 13 Jan 2025 14:58:50 +0100 (CET)
+Message-ID: <fcf8ebde-46c9-406e-b4d9-933623a9786b@collabora.com>
+Date: Mon, 13 Jan 2025 14:58:50 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/6] dt-bindings: clock: imx8m: document
- nominal/overdrive properties
-To: Frank Li <Frank.li@nxp.com>
-Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Abel Vesa <abel.vesa@linaro.org>,
- Marek Vasut <marex@denx.de>, linux-clk@vger.kernel.org, imx@lists.linux.dev,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>
-References: <20250106-imx8m-clk-v2-0-6aaeadac65fe@pengutronix.de>
- <20250106-imx8m-clk-v2-1-6aaeadac65fe@pengutronix.de>
- <Z3wHp6eLQuV9GGvh@lizhi-Precision-Tower-5810>
- <957ad153-17f3-4cb8-8878-73093a9a2724@pengutronix.de>
- <Z3wyG61QEzgCJFh+@lizhi-Precision-Tower-5810>
+Subject: Re: [PATCH 1/2] drm/mediatek/hdmi: Use
+ syscon_regmap_lookup_by_phandle_args
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>,
+ dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20250112134708.46100-1-krzysztof.kozlowski@linaro.org>
+ <516d16e3-6fc6-49ba-a0ce-f451b65a6c1a@collabora.com>
+ <fef6b198-d916-4b71-86ed-0cbdd55cb3c4@linaro.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-In-Reply-To: <Z3wyG61QEzgCJFh+@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8
+In-Reply-To: <fef6b198-d916-4b71-86ed-0cbdd55cb3c4@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_055312_182949_C5E5D115 
-X-CRM114-Status: GOOD (  16.16  )
+X-CRM114-CacheID: sfid-20250113_055854_003206_B3DFD2EA 
+X-CRM114-Status: GOOD (  11.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,73 +80,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
-
-On 06.01.25 20:42, Frank Li wrote:
-> On Mon, Jan 06, 2025 at 08:25:38PM +0100, Ahmad Fatoum wrote:
->> [1]: https://lore.kernel.org/all/4e2250b3-5170-4e88-aa0a-dd796b81e78b@pengutronix.de/
->>
-> 
-> But there are problem if use dts overlay because dts overlay can't support
-> delete property.
-> 
-> If one dts file use "fsl,overdrive-mode", dts overlay file can't delete
-> this property. "mutually exclusive optional properties" was not preferred.
-> 
-> mode = ["normal" | "overdrive"]
-
-I just sent out v3[1] with your suggestion incorporated, but missed adding
-you to Cc.
-
-[1]: https://lore.kernel.org/all/20250113-imx8m-clk-v3-0-0d6e9bdeaa4e@pengutronix.de/
-
-Thanks,
-Ahmad
-
-> 
-> Frank
-> 
->> Thanks,
->> Ahmad
->>
->>
+Il 13/01/25 14:05, Krzysztof Kozlowski ha scritto:
+> On 13/01/2025 13:41, AngeloGioacchino Del Regno wrote:
+>> Il 12/01/25 14:47, Krzysztof Kozlowski ha scritto:
+>>> Use syscon_regmap_lookup_by_phandle_args() which is a wrapper over
+>>> syscon_regmap_lookup_by_phandle() combined with getting the syscon
+>>> argument.  Except simpler code this annotates within one line that given
+>>> phandle has arguments, so grepping for code would be easier.
 >>>
->>> Frank
->>>
->>>>  required:
->>>>    - compatible
->>>>    - reg
->>>> @@ -95,6 +103,12 @@ allOf:
->>>>              - const: clk_ext2
->>>>              - const: clk_ext3
->>>>              - const: clk_ext4
->>>> +  - if:
->>>> +      required:
->>>> +        - fsl,overdrive-mode
->>>> +    then:
->>>> +      properties:
->>>> +        fsl,nominal-mode: false
->>>>
->>>>  additionalProperties: false
->>>>
->>>>
->>>> --
->>>> 2.39.5
->>>>
+>>> There is also no real benefit in printing errors on missing syscon
+>>> argument, because this is done just too late: runtime check on
+>>> static/build-time data.  Dtschema and Devicetree bindings offer the
+>>> static/build-time check for this already.
 >>>
 >>
+>> I agree with this change but can you please rebase it over [1]?
 >>
->> --
->> Pengutronix e.K.                           |                             |
->> Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
->> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
->> Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+>> The same code got migrated to mtk_hdmi_common.c instead :-)
+>>
+>> [1]:
+>> https://lore.kernel.org/r/20250108112744.64686-1-angelogioacchino.delregno@collabora.com
+> My is 2-patch cleanup, your is 34 patch rework and new features with
+> existing build reports, so rebase is not reasonable. It would make this
+> 2-patch cleanup wait for many cycles.
 > 
+If adding the `#include <linux/bitfield.h>` line to a file would take
+*many cycles*, that'd be a bit weird, wouldn't it? :-)
 
-
--- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+Regards,
+Angelo
 
