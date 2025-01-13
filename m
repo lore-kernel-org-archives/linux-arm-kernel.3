@@ -4,65 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B356E7719E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 04:32:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0301BE7719A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 04:53:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=07ejYXIKIrcD3/kHRGf9djGVZsaJOUEXa1BtdRMH9Dw=; b=sjijA1EkZIULSP9P+H5j5bef0w
-	GfsElJmc/pH76lQkWHSMFnduBbdBHkgWgZpCdgR3PIXqq8zjRgxtVGi8NJS2dzGyAc1qlYxlXjQ93
-	6pizPOepO1dZg9WL2h+eSU2YHEGvqNeZXf6rUCEfF+h0WIyx7IM3+aoVQpLV+kKXH1iKvACIEnPgv
-	Czi3E2K2j7CqHTMYwi/oqXtTaYi9NCdkPrAWkYa08dAZULGkA04lyNdQrqF/O5erYylWFNBxOUAdY
-	dNnTQZNsfUd+WHTCCvGF91tmp02dtT+aogM7ie6kIovdDqKPENkKSAuSJbE9oixlJcSjgzG9n6Cpd
-	iVa+RO8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3UMtk1xYSGUTtbGHYzhYqAkUHV7L9bGvsOsrTe+89Ds=; b=YLwkMaiTMJaZYOM0HPVA584XZM
+	3YkE2m5Vk5xcMklyb0rACM3TzQYL5QlzH0bI2rIoznZ3mI6fyW2MvmTQxUI934/09TkCmFI8pvvqx
+	dXhuAYuDpBOILgmDYIbx1lZpv/Ya3Hksw1UShf2MSa/KE1bwzm4XZ2Fb8fyHAD+K0QqXEhJZRNYlw
+	XFmGJhT3oKVryAO7IihRhmuZp994Fw9spZS9GDyv0jSV3QwrIXsP28GJtt9hKoTiaBcszhgPdF8+n
+	qB7RKsxer43q3KoyODSY4nCQbjH6JRtC2tlNmFRk67K9pTdAi1VB1xMBHT+7YpUwpGA6u/e4hcVwp
+	EGlv4eAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXC7f-00000003zFw-1CqL;
-	Mon, 13 Jan 2025 04:32:19 +0000
-Received: from mail.manjaro.org ([116.203.91.91])
+	id 1tXCRk-0000000419K-3iEW;
+	Mon, 13 Jan 2025 04:53:04 +0000
+Received: from mail-bn8nam12on2062b.outbound.protection.outlook.com ([2a01:111:f403:2418::62b] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXC6P-00000003z64-1JVb;
-	Mon, 13 Jan 2025 04:31:02 +0000
+	id 1tXCQU-0000000413w-2mlB
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Jan 2025 04:51:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PkvTqVIsst09FnCY1L3oHvSAq5bTonUwSk99GZPJBDYQlQv9hN34chBBf0wcEWLUv5ozsa2+/Nfg0n6qdwIqF7FcLZ0ac6QbxK7jiZlbLJq6/IhcI3lWwSTqjC7dRLocRTbbdqbPKc4jIBov8E0cqDs/2NWuax4tpYkr3XFteFL6eRCr+62V5sH60oD0/LspGPCWYPVFwoOfCVV1xqQWF8tA7vxXUNPEpAf7CDoC49WUi80qcH57SwssrGqOfFCtZ4zX6eETdh1MHAtfsOB8cc1Cr3CzRvemdKN9QJdCU/vXIndl0C/8ezmZXEC0+FFrGygCPS8PIvPrxOWmr/nCGA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3UMtk1xYSGUTtbGHYzhYqAkUHV7L9bGvsOsrTe+89Ds=;
+ b=warV0g7cXBriDWKrskASwl2vR/dFjc+BOawqrCOKGkQ05hUdH+wBuR2VXuqMNrIXtCT4TJcLKe1tI5eig4o4KvZNSM3nN4725sluMlUs8YiIGjuPFUeQzpebIRB1nWapB316EIqK/hWsn55Q5CV/32lNozLLL8jhnoZG6dkLp3nlSJVZJNDvF8z7hvFu8blsw3wHvf5GGx4EpeTigZ/ucZFyr3ou9EmTPEj/aA6c/kL0lJ4nbnKXb/qrfTD4gjB9b9UJckduWuI5CKR0Ln1nBiHvOo/HjaDyBbi+yz6lvVEJc7AD71b2HQI+R7giP00acw4vzy71iawHhrsB2T107A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=intel.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3UMtk1xYSGUTtbGHYzhYqAkUHV7L9bGvsOsrTe+89Ds=;
+ b=NmpvVC3fvthv7PLqqvmlhBu+CVRz9WmxC6AgTZLVt7+qxz8RUMQU8J4/5iKTtRJ+pTp7z/50GOd+py/luxKiiTH+0bEXMkHPlS6bg/uKayHOqtUyDLRv5qcxoF/wNYvpRYJASLzUa9Yv6A+4sHNEEB3IdzDh10Ma6pWwgoJM/izqhf4NUmevSL4sVFlqO1Zso4OXfxLyzsjFeEFoktl+JKkfsRCCiPFIcPnCbNzaM0TxR+Zg34z1bm2BKOu1oY5jXobcHUZqw7HpNgiRa5VvQ1DGB6j8NdRaOjie0fRgtsc756C7C1HKOVkf0JFi+4VYi5jXDrs864ISYTVQbteibg==
+Received: from DS7P220CA0011.NAMP220.PROD.OUTLOOK.COM (2603:10b6:8:1ca::16) by
+ DS0PR12MB6629.namprd12.prod.outlook.com (2603:10b6:8:d3::15) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8335.17; Mon, 13 Jan 2025 04:51:37 +0000
+Received: from DS1PEPF0001709B.namprd05.prod.outlook.com
+ (2603:10b6:8:1ca:cafe::f2) by DS7P220CA0011.outlook.office365.com
+ (2603:10b6:8:1ca::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8335.18 via Frontend Transport; Mon,
+ 13 Jan 2025 04:51:37 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ DS1PEPF0001709B.mail.protection.outlook.com (10.167.18.105) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8356.11 via Frontend Transport; Mon, 13 Jan 2025 04:51:37 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Sun, 12 Jan
+ 2025 20:51:27 -0800
+Received: from drhqmail202.nvidia.com (10.126.190.181) by
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.4; Sun, 12 Jan 2025 20:51:27 -0800
+Received: from Asurada-Nvidia (10.127.8.10) by mail.nvidia.com
+ (10.126.190.181) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4 via Frontend
+ Transport; Sun, 12 Jan 2025 20:51:26 -0800
+Date: Sun, 12 Jan 2025 20:51:25 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: "Tian, Kevin" <kevin.tian@intel.com>
+CC: "jgg@nvidia.com" <jgg@nvidia.com>, "corbet@lwn.net" <corbet@lwn.net>,
+	"will@kernel.org" <will@kernel.org>, "joro@8bytes.org" <joro@8bytes.org>,
+	"suravee.suthikulpanit@amd.com" <suravee.suthikulpanit@amd.com>,
+	"robin.murphy@arm.com" <robin.murphy@arm.com>, "dwmw2@infradead.org"
+	<dwmw2@infradead.org>, "baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
+	"shuah@kernel.org" <shuah@kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kselftest@vger.kernel.org"
+	<linux-kselftest@vger.kernel.org>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, "eric.auger@redhat.com" <eric.auger@redhat.com>,
+	"jean-philippe@linaro.org" <jean-philippe@linaro.org>, "mdf@kernel.org"
+	<mdf@kernel.org>, "mshavit@google.com" <mshavit@google.com>,
+	"shameerali.kolothum.thodi@huawei.com"
+	<shameerali.kolothum.thodi@huawei.com>, "smostafa@google.com"
+	<smostafa@google.com>, "ddutile@redhat.com" <ddutile@redhat.com>, "Liu, Yi L"
+	<yi.l.liu@intel.com>, "patches@lists.linux.dev" <patches@lists.linux.dev>
+Subject: Re: [PATCH v5 06/14] iommufd: Add IOMMUFD_OBJ_VEVENTQ and
+ IOMMUFD_CMD_VEVENTQ_ALLOC
+Message-ID: <Z4SbzRB8/me4kbDF@Asurada-Nvidia>
+References: <cover.1736237481.git.nicolinc@nvidia.com>
+ <86e78625c48d0c8fb815496dbc57708b98a46ec7.1736237481.git.nicolinc@nvidia.com>
+ <BN9PR11MB52768B2EA84EDEFFB04662598C1C2@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <Z4GRMEjAIoBjHnMe@Asurada-Nvidia>
+ <BN9PR11MB5276AAC06F5B90D09923677F8C1F2@BN9PR11MB5276.namprd11.prod.outlook.com>
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1736742659;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=07ejYXIKIrcD3/kHRGf9djGVZsaJOUEXa1BtdRMH9Dw=;
-	b=HQMw8pc01xVq5qweIoyG+O9dX2sCtsMT7qubGQMankj+ewQmkUqfUteq8KagLgXr7fnQd6
-	hX6ey6CdgF+DAzQezUXMy35u0pzDqfb0MjCtblTTnjSYd9WV8MzPN0FpZdekwZpgNNx+bZ
-	1bM4jjH7prDU6UYUaOP9R7U3hEWg/4DzLN/UmeM2i6JQraf/kAw7i/3sQnlnf3H6FKV7XR
-	NtA1pggxmGSz+I6CqJjnYi1balKCXFERMvNWL3/xbABDtQ3D0IkUxDghMChXL4cWEuiOoA
-	U2u+v1od9oU7zB64+kyXInci43aYdfACpWZaGtNQDzm8Ti3glxnOZ3vhmYJAsA==
-Date: Mon, 13 Jan 2025 05:30:59 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: Junhao Xie <bigfoot@classfun.cn>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Jonas
- Karlman <jonas@kwiboo.se>, Chukun Pan <amadeus@jmu.edu.cn>, FUKAUMI Naoki
- <naoki@radxa.com>, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 0/3] Add support for Ariaboard Photonicat RK3568
-In-Reply-To: <526e0c19-6495-4dcf-bf6b-b5bd62a7a631@classfun.cn>
-References: <20250112073344.1976411-1-bigfoot@classfun.cn>
- <c520a0d829bbe26b9802f57f94f3957c@manjaro.org>
- <526e0c19-6495-4dcf-bf6b-b5bd62a7a631@classfun.cn>
-Message-ID: <ff16c764821c3d010f49524e4a3a177b@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=UTF-8;
- format=flowed
-Content-Transfer-Encoding: 8bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <BN9PR11MB5276AAC06F5B90D09923677F8C1F2@BN9PR11MB5276.namprd11.prod.outlook.com>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS1PEPF0001709B:EE_|DS0PR12MB6629:EE_
+X-MS-Office365-Filtering-Correlation-Id: e65c8aef-4191-4eda-bfa9-08dd338df69c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|7416014|1800799024|82310400026|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?h/lwC05Paox/t9/FAWhcPvFCAgpit1B8T07RuPCzMCAUFajKJIEeU2k97lgu?=
+ =?us-ascii?Q?gbg5ONNuisIg8+4focIENqK5W4voIW0js8aidwAetymhODo2CfLUES5AqRRR?=
+ =?us-ascii?Q?1h1M/ycX13Eh+yYAlaIfIf/VWifDl74RhrxDBIABiT941Bg+FdsRzA3WTw4R?=
+ =?us-ascii?Q?Dt+YZjtHS5wkQzohOjGuUMEDzxHhW5jEG82tjsDNHprmE+5o5A1qzagEYg2s?=
+ =?us-ascii?Q?mnZfz6GNHT0gbkuWigzlilqi/RHVCgtpNeqIAXc2m8K3sxapRBeFHmJ18Tft?=
+ =?us-ascii?Q?FVKm4qLsAYrlxaQlY9FVdVZh6zwEVVfVAASXH0ZIg/tLZkLMmJ7c9Q8ZL54f?=
+ =?us-ascii?Q?rKG+7KuD0rh2IarW4XFggW5oMc0LFrgxSwjhAegzbdqPs92PN/yN/GAIMg41?=
+ =?us-ascii?Q?Yp6JuXGkNjRHnKJm6eCKWuejjNiUAr9GAZs2qFHMhaZaCxdOk1a12y8NODMB?=
+ =?us-ascii?Q?/ug0gl81sVX3qnX0QbJ5ZUL4n8ygF67QILUmrL5v7bpqd4Vwq7qRloyaq8n2?=
+ =?us-ascii?Q?db/awduWTJC1ua6Mj8NiUFVHUtNHlQBD0MEl0lH5aoKuZVq/Zu+EdCNKzHW+?=
+ =?us-ascii?Q?7eApm/fr3D02y5jowZcmNOXlRnpPqPbx0dk71GCmLNN7LEbnxWNWuD63iLUw?=
+ =?us-ascii?Q?1IMEQlr1lpt8+eoeDez2RdaFLdIXAjg+w/hlbuNimlCspai0aFxbTE24f3qm?=
+ =?us-ascii?Q?qOC0nh2ywOwqXCq7z/t1CGjuFv2wvgWy26N0ntIMf7VCafFTiBCwXaXmMxTi?=
+ =?us-ascii?Q?+Kz+gt4DKGT2m6bCL2wKNuJ6OIC/Aen3FMM+po/tdqDbUEazeTqhPToTFLX8?=
+ =?us-ascii?Q?Xl9BKh8aA2SNfWnOd/sI4HKFzDnZfF1zveBquk7hR9Lo9swCH6TbJwFz8vMQ?=
+ =?us-ascii?Q?KoRkIh33Pq3GGMZLH825OxrGbuD+xD2EoSTHPaId4uli09G5dkw3JSGdZplw?=
+ =?us-ascii?Q?8xmaLAJn5N89qjWHvIq7gI150y9gikRk+KLNTrcjoTQQ7kBH7jawsEI2LHmC?=
+ =?us-ascii?Q?L/DX6iS1S7Sy4q4wWOUPFL4NKoDjvM6zXr5eWgzzUcEeLsciOI93pfP59ZhW?=
+ =?us-ascii?Q?geVBXBVEjTa5YQZIRt+Z5iVQw7b6+8ZTR/16htpAQjE5IWGSyLLqNA4cAw+5?=
+ =?us-ascii?Q?Cgy8zLNDIv+y1px0vDo4zVytBDjY6kluQy5eYJyXKFxCm+yS6SH8fSK/FB6o?=
+ =?us-ascii?Q?rckkEE+lVU/K+04YjkC7WYTnJOZt3hMmwepOgr2aXL76lJvq+jABHA90cdNy?=
+ =?us-ascii?Q?HuxrNv5/t0qBNjll863KRIAXMJJMS5po1EbP8ZghSyAqRRJ+oYZ3IM6zs7vG?=
+ =?us-ascii?Q?AxJk/2nWUcz4dlAqSLZhuH6rW/8mNXHI56Gf2vkSGGm6Czv/0aTzlk7cjB9E?=
+ =?us-ascii?Q?gp1JDxGVwPGeiIdoRH9wJLtszwS1ncRwptrHkCdFmSwotf8cv/yd7WYIr1iy?=
+ =?us-ascii?Q?DxGXi6EMh2RCnK/EVm9Ngjdwow2j1voAbwXzxRwFaaefjhLn7YZwYl6Sq+OO?=
+ =?us-ascii?Q?ZsK6T+5IJkZK53k=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(7416014)(1800799024)(82310400026)(376014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jan 2025 04:51:37.5945
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e65c8aef-4191-4eda-bfa9-08dd338df69c
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF0001709B.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB6629
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250112_203101_638152_B6AC630C 
-X-CRM114-Status: GOOD (  18.50  )
+X-CRM114-CacheID: sfid-20250112_205146_698423_5DEF9718 
+X-CRM114-Status: GOOD (  40.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,90 +168,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Junhao,
-
-On 2025-01-12 23:27, Junhao Xie wrote:
-> On 2025/1/12 16:50, Dragan Simic wrote:
->> On 2025-01-12 08:33, Junhao Xie wrote:
->>> Add dts for Ariaboard Photonicat RK3568.
->>> 
->>> This series bring support for:
->>> * Debug UART
->>> * SDIO QCA9377 WiFi and Bluetooth
->>> * M.2 E-Key PCIe WiFi and Bluetooth
->>> * M.2 B-Key USB Modem WWAN
->>> * Ethernet WAN Port
->>> * MicroSD Card slot
->>> * eMMC
->>> * HDMI Output
->>> * Mali GPU
->>> * USB Type-A
->>> 
->>> Changed from v1:
->>> - move some general nodes (firmware, ramoops, reboot-mode) to 
->>> rk356x.dtsi
->> 
->> This entry from the changelog caught my attention, so I tried
->> to find out what exactly happened back then.  Though, after going
->> through the mailing list archive, I still don't see where the
->> as-described change took place, so perhaps this changelog entry
->> needs adjusting.
+On Mon, Jan 13, 2025 at 02:52:32AM +0000, Tian, Kevin wrote:
+> > From: Nicolin Chen <nicolinc@nvidia.com>
+> > Sent: Saturday, January 11, 2025 5:29 AM
+> > 
+> > On Fri, Jan 10, 2025 at 07:06:49AM +0000, Tian, Kevin wrote:
+> > > > From: Nicolin Chen <nicolinc@nvidia.com>
+> > > > Sent: Wednesday, January 8, 2025 1:10 AM
+> > > > +
+> > > > +int iommufd_veventq_alloc(struct iommufd_ucmd *ucmd)
+> > > > +{
+> > > > +	struct iommu_veventq_alloc *cmd = ucmd->cmd;
+> > > > +	struct iommufd_veventq *veventq;
+> > > > +	struct iommufd_viommu *viommu;
+> > > > +	int fdno;
+> > > > +	int rc;
+> > > > +
+> > > > +	if (cmd->flags || cmd->type == IOMMU_VEVENTQ_TYPE_DEFAULT)
+> > > > +		return -EOPNOTSUPP;
+> > > > +
+> > > > +	viommu = iommufd_get_viommu(ucmd, cmd->viommu_id);
+> > > > +	if (IS_ERR(viommu))
+> > > > +		return PTR_ERR(viommu);
+> > > > +
+> > > > +	if (!viommu->ops || !viommu->ops->supports_veventq ||
+> > > > +	    !viommu->ops->supports_veventq(cmd->type))
+> > > > +		return -EOPNOTSUPP;
+> > > > +
+> > >
+> > > I'm not sure about the necessity of above check. The event queue
+> > > is just a software struct with a user-specified format for the iommu
+> > > driver to report viommu event. The struct itself is not constrained
+> > > by the hardware capability, though I'm not sure a real usage in
+> > > which a smmu driver wants to report a vtd event. But legitimately
+> > > an user can create any type of event queues which might just be
+> > > never used.
+> > 
+> > Allowing a random type that a driver will never use for reporting
+> > doesn't sound to make a lot of sense to me...
+> > 
+> > That being said, yea..I guess we could drop the limit here, since
+> > it isn't going to break anything?
+> > 
+> > > It sounds clearer to do the check when IOPF cap is actually enabled
+> > > on a device contained in the viommu. At that point check whether
+> > > a required type eventqueue has been created. If not then fail the
+> > > iopf enabling.
+> > 
+> > Hmm, isn't IOPF a different channel?
 > 
-> Chukun Pan suggested moving these nodes to rk356x.dtsi, but I have
-> not done that yet and simply deleted them. I will fix the changelog.
-> https://lore.kernel.org/lkml/20240905034009.28124-1-amadeus@jmu.edu.cn/
+> We have a fault queue for delivering IOPF on hwpt, when vIOMMU is
+> not involved
 > 
-> - remove some general nodes (firmware, ramoops, reboot-mode)
-
-Oh, thanks for the nudge, I just added a TODO to "sprinkle" a few
-"syscon-reboot-mode" and "ramoops" nodes onto the relevant SoC dtsi
-files.  Those will be highly useful when debugging mysterious crashes
-and lockups that happen on various devices in the field.
-
->>> - gmac1 change to phy-mode rgmii-id
->>> - corrected some regulator to be closer to schematics
->>> - rename rk3568-ariaboard-photonicat.dts to rk3568-photonicat.dts
->>> https://lore.kernel.org/lkml/20240904111456.87089-1-bigfoot@classfun.cn/
->>> 
->>> Changed from v2:
->>> - remove unused headers
->>> - corrected some regulator to be closer to schematics
->>> - remove usb_host1_ohci, usb_host1_ehci, usb2phy1_host that have no 
->>> connection
->>> https://lore.kernel.org/lkml/20240906045706.1004813-1-bigfoot@classfun.cn/
->>> 
->>> Changed from v3:
->>> - corrected some regulator to be closer to schematics
->>> - changed to using clk32k_out1 in xin32k
->>> https://lore.kernel.org/lkml/20240911122809.1789778-2-bigfoot@classfun.cn/
->>> 
->>> Changed from v4:
->>> - corrected some regulator to be closer to schematics
->>> - corrected some label to match node name
->>> - use resets props in phy node instead deprecated snps,reset-gpio
->>> https://lore.kernel.org/lkml/20240914145549.879936-1-bigfoot@classfun.cn/
->>> 
->>> Changed from v5:
->>> - resort regulator nodes
->>> - remove dr_mode from usb_host1_xhci
->>> https://lore.kernel.org/lkml/20241108031847.700606-1-bigfoot@classfun.cn/
->>> 
->>> Junhao Xie (3):
->>>   dt-bindings: vendor-prefixes: Add prefix for Ariaboard
->>>   dt-bindings: arm: rockchip: Add Ariaboard Photonicat RK3568
->>>   arm64: dts: rockchip: add dts for Ariaboard Photonicat RK3568
->>> 
->>>  .../devicetree/bindings/arm/rockchip.yaml     |   5 +
->>>  .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
->>>  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
->>>  .../boot/dts/rockchip/rk3568-photonicat.dts   | 599 
->>> ++++++++++++++++++
->>>  4 files changed, 607 insertions(+)
->>>  create mode 100644 
->>> arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts
+> Now with vIOMMU my understanding was that all events including
+> IOPF are delivered via the event queue in the vIOMMU. Just echoed
+> by the documentation patch:
 > 
-> Thanks for your review, I will fix all problems in next version!
+> +- IOMMUFD_OBJ_VEVENTQ, representing a software queue for a vIOMMU to report its
+> +  events such as translation faults occurred to a nested stage-1 and HW-specific
+> +  events.
 
-Thanks, although it was just a "mile-high" review that covered
-only a few things that caught my attention. :)
+Oh, looks like that line misguided you.. It should be non-PRI type
+of fault, e.g. a stage-1 DMA translation error should be forwarded
+to the guest. I can make it clearer.
+
+> > 
+> > And a vEVENTQ is per vIOMMU, not necessarily per vDEVICE/device..
+> 
+> Yes. My point was to verify whether the vEVENTQ type is compatible when
+> a nested faultable hwpt is created with vIOMMU as the parent. then when
+> attaching a device to the nested hwpt we dynamically turn on PRI on the
+> device just like how it's handled in the fault queue path.
+
+We will still have the fault queue:
+	if (error is handled by PRI)
+		report via fault queue; // need response
+	else (error is handled by vEVENTQ)
+		report via vEVENTQ; // no need of response
+	else
+		dump unhandled faults;
+
+> > > Then it reveals probably another todo in this series. Seems you still
+> > > let the smmu driver statically enable iopf when probing the device.
+> > > Sounds like iommufd_viommu_alloc_hwpt_nested() may accept
+> > > IOMMU_HWPT_FAULT_ID_VALID to refer to a event queue and
+> > > later dynamically enable/disable iopf when attaching a device to the
+> > > hwpt and check the event queue type there. Just like how the fault
+> > > object is handled.
+> > 
+> > You've lost me here :-/
+> > 
+> 
+> Hope above explanation makes my point clearer. Then for a nested
+> hwpt created within a vIOMMU there is an open whether we want
+> a per-hwpt option to mark whether it allows fault, or assume that
+> every nested hwpt (and the devices attached to it) must be faultable
+> once any vEVENTQ is created in the vIOMMU.
+
+A vIOMMU-based nested HWPT should still enable IOPF via the flag
+IOMMU_HWPT_FAULT_ID_VALID.
+
+Thanks
+Nicolin
 
