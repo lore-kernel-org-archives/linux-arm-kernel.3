@@ -4,61 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 608FEC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 17:22:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5FEFC02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 17:32:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=law80226u3AWlrq6yxFB70PHIkAwqM4FNGhTA4Vmihw=; b=46Gy8rKosOCGF9wRbEQnBI2MHa
-	jCtoB+1uPhQPQ07rPgpyZSN6bZYrukFQJHqWnGx08vjOVC0rh8Iq7SzC/9YIoWBHmJtHeAm1CV6mB
-	HX5FMGAlWbHAXIJHS+0DGi7FdR96527g2NPSBeiIhHmkB/SMhl3pmM0/BhsKGOiRTgL3hOC7jz+Hk
-	V+n9oFChrk+3bD99ssjYRqPrieGknVOlbWaZoadHdFsOdNYjV3bRAZdUYWmGON3c2FtZn2F3o20z3
-	6dl8OL0FLW059cURVru5thpaMNneTpGUWhf2tq6W83O5K1NDbuJ0k1SctKx7g+82Fo37jdkVtN/c2
-	Xni27AYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H4muWke9H2WAVf+L762qmgkGuimUiHnSY2t6rCZkL3M=; b=jk9D6BI71UQE6qz0WV20paOJt1
+	oHGH5q9PMduclunMxiOxkoETvpiTGfRRWizAFgWDAjueB+06amAkiHoha3mYImoLKRD/utjY2L3rd
+	wNvnEm5NxoKm3Itnpa8v+g1qmMz7SGvwvxrHWjI4sfPme1ZXlMC2W+JJsaMNOlIN4FidxU94HJEpU
+	FHRLFcsTpKpIY9SCTO52Y+BDeSeWTo5wZiTKVhKjOV2/S3GX8wZPiCZVFpebwUoTJndrpa6xrk6ni
+	T14xsqHgBlNF0nbgIfdZumUEzbZRKwoRps+yXrYFIhgAzQqwtw9xRJE1H9bdoiEuzou6odyh7FHeM
+	J2pl9O/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXO8W-000000061hP-0Omg;
-	Mon, 13 Jan 2025 17:22:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXO7H-000000061bS-2Opz
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 17:20:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 635391424;
-	Mon, 13 Jan 2025 09:21:11 -0800 (PST)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 891B33F673;
-	Mon, 13 Jan 2025 09:20:41 -0800 (PST)
-Date: Mon, 13 Jan 2025 17:20:38 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Ranjani Vaidyanathan <ranjani.vaidyanathan@nxp.com>
-Cc: Peng Fan <peng.fan@nxp.com>, "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	"cristian.marussi@arm.com" <cristian.marussi@arm.com>,
-	"ulf.hansson@linaro.org" <ulf.hansson@linaro.org>,
-	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [EXT] Re: [PATCH] pmdomain: arm: scmi_pm_domain: Initialize
- state as off
-Message-ID: <Z4VLZgAWR7ugDl7W@bogus>
-References: <20250110061346.2440772-1-peng.fan@oss.nxp.com>
- <Z4TreQ5bA9qiMTgC@bogus>
- <PAXPR04MB8459F33BCC84CCA8F49F3B60881F2@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <Z4UZ2Au7KSFMibDW@bogus>
- <PA4PR04MB94855052830C8F4874237BA6921F2@PA4PR04MB9485.eurprd04.prod.outlook.com>
+	id 1tXOIT-0000000639y-3l6i;
+	Mon, 13 Jan 2025 17:32:17 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tXN4X-00000005nvX-3KkC;
+	Mon, 13 Jan 2025 16:13:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1736784827;
+	bh=I/Eu5PyVUWwxt7+WHjFCNjClAcEG0i3DEgLcWXIsrzY=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=avKf0pAos+HeOh/45PO/SzNWC8xsmwMdxoy8vvEdkWVQlNT2r8QamalkoD8YSESp3
+	 FZKwfgzWNPDwgW6tSAmFhzdL/PQFWbqGiylGpbg5366YDE8+K2wvddMrLm1y25nxYH
+	 NNuBdNZYy/ID9cwMThj/uki3iuFDn5+eMK78MVb4pf8t9tqcbI4K5drLfBlupLKzWQ
+	 qinRTxkQVCDi3kY0T39zwnyCDSvJWXzRs0WPf4FKanCQ/wzqhyvcHUZ+MQcqaRvMao
+	 U/iPkfT52GmvOnktmH5Bmrcg7FscGbe6soM++XoFDWFEgpOKcYi7oj8YMWDxGJnWD3
+	 SGS7tDVbYohDg==
+Received: from device-327.home (lfbn-tou-1-1147-231.w90-76.abo.wanadoo.fr [90.76.208.231])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D560417E0CF4;
+	Mon, 13 Jan 2025 17:13:46 +0100 (CET)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Date: Mon, 13 Jan 2025 17:13:23 +0100
+Subject: [PATCH 1/2] soc: mediatek: mtk-socinfo: Add entry for MT8370AV/AZA
+ Genio 510
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <PA4PR04MB94855052830C8F4874237BA6921F2@PA4PR04MB9485.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250113-mtk-socinfo_genio-510-700-v1-1-cf5112b325b7@collabora.com>
+References: <20250113-mtk-socinfo_genio-510-700-v1-0-cf5112b325b7@collabora.com>
+In-Reply-To: <20250113-mtk-socinfo_genio-510-700-v1-0-cf5112b325b7@collabora.com>
+To: Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, 
+ kernel@collabora.com
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1736784826; l=1033;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=I/Eu5PyVUWwxt7+WHjFCNjClAcEG0i3DEgLcWXIsrzY=;
+ b=UIzQcaZTEG0UuYqyH+rSRkiRKXLspiShzBwjfcnNGeAc7CspG32Gd1lpB+SzT5Z3gKjNrQVDe
+ UEIlDdulnFwCGDGWyrbt+Pqjl4GYSyd+0xWqDaGhP1kVyeDCPd8WiMh
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_092043_694645_82FA3074 
-X-CRM114-Status: GOOD (  33.88  )
+X-CRM114-CacheID: sfid-20250113_081349_998384_328134A1 
+X-CRM114-Status: UNSURE (   8.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,74 +85,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 13, 2025 at 03:30:58PM +0000, Ranjani Vaidyanathan wrote:
-> -----Original Message-----
-> From: Sudeep Holla [mailto:sudeep.holla@arm.com]
-> Sent: Monday, January 13, 2025 7:49 AM
-> To: Peng Fan <peng.fan@nxp.com>
-> Cc: Peng Fan (OSS) <peng.fan@oss.nxp.com>; cristian.marussi@arm.com; Sudeep Holla <sudeep.holla@arm.com>; ulf.hansson@linaro.org; arm-scmi@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-pm@vger.kernel.org; linux-kernel@vger.kernel.org; Ranjani Vaidyanathan <ranjani.vaidyanathan@nxp.com>
-> Subject: [EXT] Re: [PATCH] pmdomain: arm: scmi_pm_domain: Initialize state as off
->
-> On Mon, Jan 13, 2025 at 11:37:23AM +0000, Peng Fan wrote:
-> > > Subject: Re: [PATCH] pmdomain: arm: scmi_pm_domain: Initialize state
-> > > as off
-> > >
-> > > On Fri, Jan 10, 2025 at 02:13:46PM +0800, Peng Fan (OSS) wrote:
-> > > > From: Peng Fan <peng.fan@nxp.com>
-> > > >
-> > > > Per ARM SCMI Spec DEN0056E, page 16, "The platform may disable a
-> > > > resource if no agent has requested to use that resource."
-> > > >
-> > >
-> > > True, but ...
-> > >
-> > > > Linux Kernel should not rely on a state that it has not requested,
-> > > > so make state as off during initialization.
-> > > >
-> > >
-> > > IIUC, this was done to avoid any transitions if the bootloader like
-> > > U- Boot has turned on the resource and OS can just rely on that stay.
-> >
-> > But if it is not U-Boot turned it on?
->
-> Not sure if I understand what exactly you mean by that.
-> [RV] Its possible that some other agent (M33/M7 running OS) in the system
-> turned on the power domain. Resources in the same power domain can shared
-> across agents.  That being said, uboot provides mechanism to clean up any
-> power domains/clocks that it enabled. And our implementation of uboot does
-> disable any power domain it powered up for downloading of images or anything
-> else (display is a unique case if splash screen is enabled).
->
+Add an entry for the MT8370 SoC with commercial name Genio 510.
 
-Right I was referring to the display as one of the example when I referred
-to the case where bootloader turns on the resource.
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+---
+ drivers/soc/mediatek/mtk-socinfo.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-> >
-> > Because the power domain is ON, kernel will not issue SCMI to platform
-> > to request it ON when kernel needs this power domain on.
-> >
->
-> Yes, but the agent(via bootloader) has already requested the SCMI platform,
-> so it should be fine. No ?
-> [RV] As mentioned above, it need not be the bootloader. And secondly how to
-> handle this power domain during suspend/resume? It's possible that the agent
-> that turned on the power domain initially will have different wakeup
-> requirements. IMO Linux should completely be responsible for the power
-> domains that the drivers need.
->
+diff --git a/drivers/soc/mediatek/mtk-socinfo.c b/drivers/soc/mediatek/mtk-socinfo.c
+index 123b12cd25432b5db3033fddbff1dcd6f57ed8b1..060e39cc8407dc85a8cd2a6020d187acce73106d 100644
+--- a/drivers/soc/mediatek/mtk-socinfo.c
++++ b/drivers/soc/mediatek/mtk-socinfo.c
+@@ -56,6 +56,7 @@ static struct socinfo_data socinfo_data_table[] = {
+ 	MTK_SOCINFO_ENTRY("MT8195", "MT8195GV/EHZA", "Kompanio 1200", 0x81950304, CELL_NOT_USED),
+ 	MTK_SOCINFO_ENTRY("MT8195", "MT8195TV/EZA", "Kompanio 1380", 0x81950400, CELL_NOT_USED),
+ 	MTK_SOCINFO_ENTRY("MT8195", "MT8195TV/EHZA", "Kompanio 1380", 0x81950404, CELL_NOT_USED),
++	MTK_SOCINFO_ENTRY("MT8370", "MT8370AV/AZA", "Genio 510", 0x83700000, 0x00000081),
+ 	MTK_SOCINFO_ENTRY("MT8395", "MT8395AV/ZA", "Genio 1200", 0x83950100, CELL_NOT_USED),
+ };
+ 
 
-May be I am still missing something. The genpd framework does issue power
-down of all the PD that are not used once we boot. Is that not sufficient.
-We are just not changing the pd state when initialising the genpds.
-Is that causing the issue ? I was under the impression that it shouldn't
-matter if the driver manages the genpds they consume and all unused ones
-get turned off eventually.
+-- 
+2.47.1
 
-What exactly is the issue for which this patch is the solution ? I think
-I might have not understood the issue properly here. Sorry if that is the
-case.
-
---
-Regards,
-Sudeep
 
