@@ -4,65 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3DF5E7719E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 08:59:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77545E7719E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 09:01:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zfr8DpirdvoEOXQrS6T/lr3MXojk0w/N00w0cv96f+I=; b=2DhIV/jbsLWf1Z30TFxUfzCfhG
-	yxeFE9q4rgUHEz0Rq5PTFHykHAocoBgE65PvKHXqzXiwZITP7gpddvdTeLu7S3JOuSwmHo1HtbyH/
-	nIDJlwEqKy7Sgsa4iB9dRFUmvnWDRg2yCV3mcfpDCH33DyQDXmobEwe6cs6DuJsmsqDY20RA/JwSE
-	KcsbuZAF1jH5Z8m0EFJk1C2WIedSImXQ1xnbDiVfzclz2Tnx+UrCeUcWnOAdSTMgOgXiBT2LcfAHC
-	lwtvv2O4UgtrlLNgg9vhDxLw9JJ7PTQyqrc2r8bbdxm6orN7WvvinDmJH2u5ljAS1ZkYvQhG5ax/U
-	uIpigcfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NA98flkcRX3iZq22t3Nzla7Qgw0N/tZv3BerTN5QpRs=; b=dzm9Mli/6WNHrIv/gKszI5wokU
+	ocAe67MEX2mOutkGJzyngQBPstOIQqOEKBcZPiX9Grxlb/AtWguG3mgm49MS8F/tREfedOOM1a1H8
+	l6cF1jtnIPVxkBPLkiW3HIB7FNsG6HbzV0vUUpilXWx88HD+E0REsT1AwD6VAey881hsWfHKYfcnD
+	Icl+Uu6SmeYUAtIdF+Li+y6xB4MHVWbLWXMGGMk+nGjKLejzhaHCKd+GsOHpaTEHiWVIZKjUlU1gx
+	RggaPWI9Jpd/SmqruGCMW+ktA+yjrovxXdgQtf5/x4pS7AluqsVMgqzIh/d93CZQilKiQ2g8FMCOs
+	ODutS0EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXGIO-00000004VPK-1DBy;
-	Mon, 13 Jan 2025 08:59:40 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tXGJb-00000004Vp0-0hEt;
+	Mon, 13 Jan 2025 09:00:55 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXGAK-00000004TVR-35aQ;
-	Mon, 13 Jan 2025 08:51:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1736758277;
-	bh=2c6gS4kFlKAOPXXqleMPKWgxpbhFP75goYF7wGfdGW8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Xjl0ttwNlFVoiyfB0MsOpGJKkRVp3tPZeg0MKaXIDxJrQNpuRWv9uYfk3lZlHRwtH
-	 EB8z+ja8vB//UcMZWIqSVavPvx+UhQYB0HL/oYGRv6xfD1Q8lFdl9ovv9jXkcQMWNT
-	 A0tGvBYIE4pCn3r9G1ZJhVVp0f2ETZ6BwCjMj6W5Au01UjAnhEApX3SJogUbg8ZUOI
-	 rxOxrTV7/5UxwB+7uiSRxd5oEJKQ/0XWndbHRs+8zS6ikKOIrPCy0pQ7Ru1cmvnRXD
-	 c3J7TindwDlwzlJ1Pp/R/xrjS6k3hfQvqqNlt8kh8JuyjBBgkWFQDCNamgEnkl3XuJ
-	 sYmIooGFiE4Hw==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1CB4117E0CD5;
-	Mon, 13 Jan 2025 09:51:17 +0100 (CET)
-Message-ID: <99526d14-7c54-44a0-8549-832077d1b418@collabora.com>
-Date: Mon, 13 Jan 2025 09:51:16 +0100
+	id 1tXGGu-00000004Uyd-0Vja
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Jan 2025 08:58:09 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50D2hToA027841;
+	Mon, 13 Jan 2025 09:57:55 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=selector1; bh=NA98flkcRX3iZq22t3Nzla7Q
+	gw0N/tZv3BerTN5QpRs=; b=Cd3ZP5WHPIQx17atCrPy4B0yuH3aCTB4x4xT3QZ2
+	y2hx9rillYCNvM1vjOshKXxouzn/wIGNNDXIr1bUD52EPzolT23JsMA6VBd9w/6G
+	0tY1E+YycgCIF9p5L/rsGy7CM4otx1Gx1YSfdG09Pg/WDecm+q8Z4Az5pFCCNTex
+	cVolpq/52va72AkJbslde9nauF99o8D6zc5gDS+seijPYufoyqNEfUJhMmWq4rcq
+	zm9On8B+okBsTK3rA9cc2yaRiQ86T0dVWtwNv9Wr2XeqaqHnQgzxqttXvO4L5IXG
+	OdfyaSeGyrelFUN0MRY0G3Gxcjk1zVHV239DawKgy/mbBQ==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 444t9x1530-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 13 Jan 2025 09:57:55 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 2E37740045;
+	Mon, 13 Jan 2025 09:56:46 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id B7AF4234551;
+	Mon, 13 Jan 2025 09:55:58 +0100 (CET)
+Received: from gnbcxd0016.gnb.st.com (10.129.178.213) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Mon, 13 Jan
+ 2025 09:55:58 +0100
+Date: Mon, 13 Jan 2025 09:55:52 +0100
+From: Alain Volmat <alain.volmat@foss.st.com>
+To: Sakari Ailus <sakari.ailus@linux.intel.com>
+CC: Hugues Fruchet <hugues.fruchet@foss.st.com>,
+        Mauro Carvalho Chehab
+	<mchehab@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre
+ Torgue <alexandre.torgue@foss.st.com>,
+        Hans Verkuil <hverkuil@xs4all.nl>, Rob
+ Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor
+ Dooley <conor+dt@kernel.org>, <linux-media@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>
+Subject: Re: [PATCH v2 0/8] media: stm32: csi / dcmipp corrections
+Message-ID: <20250113085529.GA499619@gnbcxd0016.gnb.st.com>
+References: <20250108-csi_dcmipp_mp25_enhancements-v2-0-05808ce50e41@foss.st.com>
+ <Z4DVj9ubGkAmkZKN@kekkonen.localdomain>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] pwm/mtk-disp: change mm clock as optional
-To: Bincai Liu <bincai.liu@mediatek.com>, thierry.reding@gmail.com,
- ukleinek@kernel.org, u.kleine-koenig@pengutronix.de, matthias.bgg@gmail.com
-Cc: devicetree@vger.kernel.org, linux-pwm@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org,
- Project_Global_Chrome_Upstream_Group@mediatek.com, jitao.shi@mediatek.com
-References: <20250113061506.23456-1-bincai.liu@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250113061506.23456-1-bincai.liu@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <Z4DVj9ubGkAmkZKN@kekkonen.localdomain>
+X-Disclaimer: ce message est personnel / this message is private
+X-Originating-IP: [10.129.178.213]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_005120_981162_D049C818 
-X-CRM114-Status: GOOD (  14.17  )
+X-CRM114-CacheID: sfid-20250113_005808_458397_ABC93D61 
+X-CRM114-Status: GOOD (  17.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,34 +102,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 13/01/25 07:15, Bincai Liu ha scritto:
-> mt8196 doesn't have mm clock. Make this clock optional for mt8196.
+Hi Sakari,
+
+On Fri, Jan 10, 2025 at 08:08:47AM +0000, Sakari Ailus wrote:
+> Hi Alain,
 > 
-
-This commit is okay, but you have to reflect that change in the bindings as well,
-otherwise you get validation errors in devicetrees.
-
-Cheers,
-Angelo
-
-> Signed-off-by: Bincai Liu <bincai.liu@mediatek.com>
-> ---
->   drivers/pwm/pwm-mtk-disp.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
+> On Wed, Jan 08, 2025 at 02:16:03PM +0100, Alain Volmat wrote:
+> > Various fixes within the stm32 csi bindings/drivers and
+> > stm32 dcmipp driver.
+> > 
+> > Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
 > 
-> diff --git a/drivers/pwm/pwm-mtk-disp.c b/drivers/pwm/pwm-mtk-disp.c
-> index bafd6b6195f6..ad7928cd607f 100644
-> --- a/drivers/pwm/pwm-mtk-disp.c
-> +++ b/drivers/pwm/pwm-mtk-disp.c
-> @@ -250,7 +250,7 @@ static int mtk_disp_pwm_probe(struct platform_device *pdev)
->   		return dev_err_probe(&pdev->dev, PTR_ERR(mdp->clk_main),
->   				     "Failed to get main clock\n");
->   
-> -	mdp->clk_mm = devm_clk_get(&pdev->dev, "mm");
-> +	mdp->clk_mm = devm_clk_get_optional(&pdev->dev, "mm");
->   	if (IS_ERR(mdp->clk_mm))
->   		return dev_err_probe(&pdev->dev, PTR_ERR(mdp->clk_mm),
->   				     "Failed to get mm clock\n");
+> Thanks for the update. I tried to apply this but it doesn't, and the
+> culprit appears to be this line in dcmipp_graph_notify_bound():
+> 
+> 	unsigned int ret;
+> 
+> That appears to be a bug as such. The interesting thing is that the patch
+> changing things around it presumes
+> 
+> 	int ret;
+> 
+> so it won't apply. Do you already have a patch that fixes it? It should be
+> cc'd to stable, too, with a Fixes: tag.
 
+Apologies for that, I might have made a mistake while rebase and somehow
+a patch went before the b4 header commit. Pushing again a v3 with the
+missing commit added.
 
+Regards,
+Alain
 
