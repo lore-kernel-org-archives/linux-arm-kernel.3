@@ -4,205 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04603E7719F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 12:05:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86576E7719F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 12:07:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YFcviSFsewhZfpRuSzhj443Lzr5itag4HVGnSd2jT68=; b=b5PiT7qiTGojVoqXEm0kttE7Zg
-	n6uwghTgOpoi9+8QcLXBXNnUN0lQbLQMPYQ/V1wB6syWS07ht7wFk3o/5ofh6NO/5wAjoJYJ8FMC4
-	M0ls+dOvVfy4v+an/LJLKhAU4YS2ZKtS0BKqvlq4u1zxU9D/AVci07Pz959FwfOPuRo241PkK/BwK
-	k47s+qhKsPvhbUedU7ghyEf0VZmZmBJxmDnc7HK208Ewja0z4gC40HrpyhxaffsjpL2D0ZQSthuob
-	VsnYcqP+Z0KoyT4cTY1Z01C7B1yw8ttyVQIGQI9U+MHyeak+DHuKGyES5sOQpPh0EMveF9bBXH/aO
-	Xlu8+pmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eVtNiN/5nBBT9gWYseRrzePL91kV9DsufoqzndJ0u3c=; b=O+TPW69/xGCMQUu9KeGJTOk+6g
+	3TuwwbTK0+9pGkLzwi7Nc5myj/VTrKlv7A71pInIhbQVB6702Ulhy0E5ydIXJvEKs02iaRaYcD43T
+	hU6yUmQ1+v+3moGfRxlCAy5Jz1tY7k56eyb9g9QDDB8ctAGr5WzpDZPoeCx7lytvogFx9kNocUazg
+	upyBvzBtbAbHuh6HWkgmYyZlpXt92xOeDJ8rFAb90C5m3U8dtPtkMVeVynW3a4ly7hBK3PscL4+vq
+	LSeuuBkQPXYyRwbb3Xe9YxPt7VBQlM0px6d5T/pCe5CLSFc7Nn9e1qYK0v0LT5z21dbexCO13G3p2
+	vSV0iMcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXJBZ-0000000521C-2zMB;
-	Mon, 13 Jan 2025 12:04:49 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1tXJDY-000000052I1-20Zs;
+	Mon, 13 Jan 2025 12:06:52 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXJAK-000000051sx-3jxo
+	id 1tXJCK-0000000525j-0zcM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 12:03:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1736769813; x=1768305813;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=Ai5qOlATFOPAxxDn6pSDhIZyrtCsb7wvx5CoCLlrLMw=;
-  b=QJqs6iY8RzXpdBdx1I3JUEyli1wqrbLQgmBXVUR2b9er/xb76FcVqCve
-   Ok71XQy5z/cMCXVu62AZE8d53JIRTvTWkPoWC4kkhIaz/b0clbNVa3Iob
-   vUNwY52bK9IZgteG7htGkcla8vG6kBfieZdk4RgzOccY3nyEhjxoihk2J
-   JFlLpTVq5Bwc79rtInbWzEvvJ4i9OTYWarpqOaMVT/6LWwVUibmE6MEK9
-   495NFnkWBrm+3Xk/IKrIfviSIoYNeheGmrwlPmyxpXBOmVpME0Sd4rNlm
-   LRgFN8sy60S2ubidkLlKRypVi45DnGporXygfr+6QZ1LlC0jsURkbN6uq
-   w==;
-X-CSE-ConnectionGUID: B6u3DEdPRb6TC3qdwaZ5xg==
-X-CSE-MsgGUID: /J5MbOo8QwCwMR/W2xTJUw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="47693538"
-X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
-   d="scan'208";a="47693538"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jan 2025 04:03:31 -0800
-X-CSE-ConnectionGUID: HQ+cL42pTkqfjgXaEJeHDw==
-X-CSE-MsgGUID: 5X3DBsCUSXqC0EQ6ZGoV+Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
-   d="scan'208";a="135273710"
-Received: from orsmsx603.amr.corp.intel.com ([10.22.229.16])
-  by orviesa002.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 13 Jan 2025 04:03:32 -0800
-Received: from orsmsx601.amr.corp.intel.com (10.22.229.14) by
- ORSMSX603.amr.corp.intel.com (10.22.229.16) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Mon, 13 Jan 2025 04:03:30 -0800
-Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
- orsmsx601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44 via Frontend Transport; Mon, 13 Jan 2025 04:03:30 -0800
-Received: from NAM04-DM6-obe.outbound.protection.outlook.com (104.47.73.49) by
- edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.44; Mon, 13 Jan 2025 04:03:28 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qm2yf3cbZQArk9DdORARaILFk+rLuMljJu9DEWpx+Xy+s2sWAJW9uvysIygqv1Xi64XlfXXlB/SAKYbDzmGMnoUMU7LxKmLtPP8CwfLBNPW3pSmJnjgnFqe5sScPLcRf69Uluvz35ABEgs4Scn2S7/3QwPlp/9rqkP/amKAiswbMlL098Wxy3evZZQRNHnOiYTBVrCLu/jwMlkj/uWOsEQb2LEOlengI8+zYabVQtJK8oE5qpjfzbbaeRl32hv4RLbxgqrHprsYfvOXUTon4y8QTrVBe0C8HodVGrBjV9+/pRQpei6/6DOs+aKoVcZA8uEcU+B5vi0f9XqynGzMBQw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YFcviSFsewhZfpRuSzhj443Lzr5itag4HVGnSd2jT68=;
- b=kP6WcmqetxSxx66DsGBOPw6r88lBOVUl04yGBt4rpYS4CLiK1AaD6Il+k2r6/U5KYgnSj1uiXcAH1HlGwqySFqnN4TJNCvr4wJ03PQuKz8eo69FqRHyCJKyy/3msoWRFJtkh7gHSy1fft49ohxV+s8Zli9sTrg8sFfAHgw5lO/XwWs+U8ozXivjhCveIqtF59u47x1wjU23na19YbdYIc2CNI0GbHnwOlIX/mpRPDnOaPKYGVEeaIgzRG+R6mvgOeGyUnQqzDsJygcAc62mXILCgPNMXsQL6VDf8c6X9cDIerExgmfXCh0iNGJI6O3yyOrBOLrMKeVSddP87Jy9Aqw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from DS0PR11MB8718.namprd11.prod.outlook.com (2603:10b6:8:1b9::20)
- by SA0PR11MB4719.namprd11.prod.outlook.com (2603:10b6:806:95::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.18; Mon, 13 Jan
- 2025 12:03:08 +0000
-Received: from DS0PR11MB8718.namprd11.prod.outlook.com
- ([fe80::4b3b:9dbe:f68c:d808]) by DS0PR11MB8718.namprd11.prod.outlook.com
- ([fe80::4b3b:9dbe:f68c:d808%4]) with mapi id 15.20.8335.017; Mon, 13 Jan 2025
- 12:03:08 +0000
-Message-ID: <054ae4bf-37a8-4e4e-8631-dedded8f30f1@intel.com>
-Date: Mon, 13 Jan 2025 13:03:01 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v1 1/3] net: stmmac: Switch to zero-copy in
- non-XDP RX path
-To: Yanteng Si <si.yanteng@linux.dev>
-CC: Furong Xu <0x1207@gmail.com>, <netdev@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, "Paolo
- Abeni" <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	<xfr@outlook.com>
-References: <cover.1736500685.git.0x1207@gmail.com>
- <600c76e88b6510f6a4635401ec1e224b3bbb76ec.1736500685.git.0x1207@gmail.com>
- <f1062d1c-f39d-4c9e-9b50-f6ae0bcf27d5@linux.dev>
-From: Alexander Lobakin <aleksander.lobakin@intel.com>
-Content-Language: en-US
-In-Reply-To: <f1062d1c-f39d-4c9e-9b50-f6ae0bcf27d5@linux.dev>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: ZR0P278CA0075.CHEP278.PROD.OUTLOOK.COM
- (2603:10a6:910:22::8) To DS0PR11MB8718.namprd11.prod.outlook.com
- (2603:10b6:8:1b9::20)
+	Mon, 13 Jan 2025 12:05:37 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-3862d161947so2104489f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 04:05:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1736769934; x=1737374734; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=eVtNiN/5nBBT9gWYseRrzePL91kV9DsufoqzndJ0u3c=;
+        b=P1YG0Evb8Re9awSuuirNM8KuCy7jeJ2YAovaMT8SEjpGYzBQKNsu7f8VeSmPnwCqKc
+         944mvybCyDjLGe6shUxRFBV/qA4k1X2nEpbgjdXO6oFNaaCFn0+pwF80v1orSh0+Wf44
+         wHL0JT4o4fAmQchZYY90O7PVWhqtxdpZ6RCE5fJjGH8OE/32Oh9hwmel2x8BmppkwjLn
+         dn4/jtNgYmauFu0HSGVQqwOb7iujc8e1z7Z2qP7dskFB9qqp/Rr6Lz/Yiqk5McjdH/AY
+         Un6Ec9nD2s5cg6B7CSmudwPo4JFY+VO4AbyTS3SM19ZAo9hHlox88c6Jdzg2gn0T5iVH
+         Pq3Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736769934; x=1737374734;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=eVtNiN/5nBBT9gWYseRrzePL91kV9DsufoqzndJ0u3c=;
+        b=SYpxfPLlsRgdR9sKu0Gr6G+tbsAnBGP3QK27VKGU2/+wI+tGYwUBm47utvxMeLezxB
+         i7g3cDZ9d9iWK0rxaARVImo0FY4DFXNZSCTezrOzz/ksyUjlno+tznOGrlIXTU5VelsI
+         r0fOP2rZoNi4OacRXhL7kozvx4usV34HmqQXarwv7uqSzERM1r/y2azZWdWgQi2c0UXI
+         E9g9qHslC2JXp7iCFLM4MntZvil77aA4FjQCxpCi3NlbJ4yLjecvS+3su+kAsda7WnaB
+         aaTnwF2kYuxYR8OizjL4FIlcnEHTa8e9j3Yex1jBkaQS66+OmNzNeFeR1lL4j207VnAB
+         KLgQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXZf2k7bPhx5vXXn4+uciN0ZzfIwnCG4lEtPtniCnGwnsTD7joTjh8kK3mUx2kFi6i613G5B7YVE9VLd5Kubot/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy+30Wc7FBdbKVw8M1wNy/MzBhQYSwaFeleM8CSkHVcrTF2NEgx
+	dphSofSyPgPqr+MP9vECKbuFiRgd1Y1HxwfuyIvSTZ9Kj1eunmNGv7CkI7E5pX8=
+X-Gm-Gg: ASbGncvi35p+aqFFgTdN6UBL/aDg7mil+FNHtifyOTyIsNcXpDwNIaWwtwRZu6whz/1
+	NxXUr4XXcYcINclzms2fKkM0EvBaRDIuH9Thiqx2rk3pIrhBMagG2MiTZXJ8TaYk3RgT6DQEEKH
+	wk7uq821FuvupzyeGOvNWqb8g//trqJVhbGTuPNmjAZqoxHJA5iOQcygbqNWSSFMHXDMJUMveE0
+	0LcPLc+Cow3BAKvGW3p0dCGEUBpS0nhmFpgDL+nsFjeae9xVOtXEblmFhfexWUB4flS
+X-Google-Smtp-Source: AGHT+IFsb3yGZvvP2wEwLT0wiKxlNzjlKgWTeZfG9mQp1rnTYe/EhMN71/DxU9unKU0hxtWa58Y2ig==
+X-Received: by 2002:a05:6000:4615:b0:385:e013:39ef with SMTP id ffacd0b85a97d-38a872f6993mr16400128f8f.6.1736769934185;
+        Mon, 13 Jan 2025 04:05:34 -0800 (PST)
+Received: from [192.168.68.163] ([212.105.145.205])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a8e4b80d4sm11698622f8f.85.2025.01.13.04.05.32
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 13 Jan 2025 04:05:33 -0800 (PST)
+Message-ID: <5d8df2d3-41b9-4c21-ba63-c184bad50041@linaro.org>
+Date: Mon, 13 Jan 2025 12:05:32 +0000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS0PR11MB8718:EE_|SA0PR11MB4719:EE_
-X-MS-Office365-Filtering-Correlation-Id: 97f74640-cf59-4fc2-f2ad-08dd33ca3e52
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?bEJHeU41R1ptOHJIRFU1OEdtZ29HV1ROckM2K1hIaEhnMmNjS3dnM1VHZGJr?=
- =?utf-8?B?UjBwMnR0R2Y4MUJWTEkyY1RldnlqL2ZrVEh0S0g2bWU0cEFoazNqTXZKQUcy?=
- =?utf-8?B?ekt5aUpPeXJPS2V1Snl0UllqWU4yZkhqdHhhYkRmTzFHeE8rSGxMUDdVMzRX?=
- =?utf-8?B?Qy9SUWRHaFVUQyttb0E1YUgzKy9PbTRtNVprTWJMR01mRlVxODVSMDUrL3RX?=
- =?utf-8?B?MkhnaU0rVXZkUnF5Qm5LTlVBdDVYNVovTUYxTENhQmV6T1hkOFlQZ2VkZUxj?=
- =?utf-8?B?cnBmVTZsMW1mVjNXbE81Yy9kNk16d2ZxMFp3ZEJGMEtUa2Q3bHpPY1lKUVJC?=
- =?utf-8?B?YW1qdG4zZnE3ZTJXVURmNU0xaERmVWNJMjFHZVVJYjhFRlo2QWVtYWNETE9h?=
- =?utf-8?B?K1ZiR2pLclpjeElDV2NGdHArMDZ0YjRtMTBEQVlNTHlBN2JPcE5pZ0ZHQlBM?=
- =?utf-8?B?SFF0L1RwUXhiOXl6OVhjUEFKcCtHUll6MnpSYkdIbTFrRm1VOUFlTldCMTFI?=
- =?utf-8?B?eFovSVIwT1JLQ0lVSEFiUlBreUgrVTViRlJNR2RrTVRXME45c0Nwb3JhTGxJ?=
- =?utf-8?B?L2ZrY3IvTGhhM3NmS3QzLzV3OVVEU1pUdDFpTVhaV2VubU1RYVpyMTlmZ2VC?=
- =?utf-8?B?UmowVU83RkE2aWlRTk90MUpDUzVwTDVmUnhhZUsyYVpjWDIza01HS09iNXlM?=
- =?utf-8?B?dTlzdytXRFZsSzVFa3VYVWxPY3plRkUreGdoL21vWWVBRzN3K3RxcVRJNGpL?=
- =?utf-8?B?NjFLNVkwT1B6Rk5pTVNYcnFBSHZYdUloR1drNy9PWFRCMnlhWEZid1VacWho?=
- =?utf-8?B?WGxXc25xTU4xaVUyTzVyVkoyU2xic0RpYVVGZEFPSjdlK2x4SGpRbEpOZG9n?=
- =?utf-8?B?aVB6cUlBTEcvSGpjUC9zWjZ1OVAzd0d6WnJhM3l4elZaRGYybjYrdWVaTUF4?=
- =?utf-8?B?MDExdWROZkFxdTJnM3VObHRyMHN4ZHAwTkF0cjRUM0IvdkhmK2F4TEU3ZmFY?=
- =?utf-8?B?RjJ0UmVFQ3V6bkhvV0tYSnNNUVM2YVVmdXpKQW1kOW9sTHZad1J0aTRoY2ds?=
- =?utf-8?B?STBObytxRmNIeTBqa011ajVEOG1hZ0txdnh0THEwcS9JMldWU0Y1ZWNLSkV6?=
- =?utf-8?B?cUtWdFZ5bjBvQ3JqZC9VL2VEdGxkd21zTlZXeDg4bVBxbU5iR0pnWVRTdnlV?=
- =?utf-8?B?VlAzNlEyZDI4cS9KN2Nnam9hSCtnSVlMVFZGeDhBZG4yTzhmeDVWM3hUZ3R6?=
- =?utf-8?B?MlNYQ0I1L0lHY2VvNUNTdHBTSG8wcmR6RENhaEVob0tYRkxIeXRld3lCSWQ5?=
- =?utf-8?B?Y05tVk9RTm1aOVZvZlZraUxNZWtOWXJmL3FSSHB6VzBsU1pmWTdUS01YQ0Qw?=
- =?utf-8?B?UFMzUS83a01SQ1piSms1Mm9FOXpBNmt1a3BtRVRvZGtub1kvQ3RSbk5LaGM5?=
- =?utf-8?B?UW51eFpBQ2RBZ0doWDBsUDA5THBmZDJ5ejNVVGI0YWtJU05yWURxWHFZZWpi?=
- =?utf-8?B?MDduU3NlOXY0dkhjempFVXo4dittRGhGVzgxd1grUkYyYVl5VWhRQWRTUVlG?=
- =?utf-8?B?KzF3S1BFazFsVDUvSFFRaHlWM3E0WnBsYU9sRisyVUxVSy9EZkQzVk90OUw0?=
- =?utf-8?B?UFRmOVpYT2ZDcXdlZDNIdjk2UU5jREtsOW02UFlrRDVoSnFDSHVxSHZnWXJP?=
- =?utf-8?B?OWJMZmVOUVpDalVVOFk3YWRCMk1Galo0eFNhL2gxVENrWVdERTVYRUpuWEIy?=
- =?utf-8?B?UGJsazdRWTRnYndLWHNLS2MrcmwxRmp1OGx5Q2RKR1FwYkdoeUNMRGZkV2tN?=
- =?utf-8?B?dXMzeWo2emg2bFB0QmNwVndSRWNjc0RtOHlPNGNxcFlHREJWN01SalFmR0l6?=
- =?utf-8?Q?2Xg6UmVaQmD+p?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR11MB8718.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OWc4TGFLNWh2Y1JNRXZpOWwwY1dGYytqWkJKZ2tKN1htaVZOVXgzMUdCMjRZ?=
- =?utf-8?B?bDlQdE44UDJHa1BTKzlScUxOQVBoeU5tUkNCVmlrSmFvN21PNU5JaHNLZkl4?=
- =?utf-8?B?NWlLVmlXMnFlN2J1MVFTcFA2dkUvRmd2VCtZOXRFdGQ2amRLTTVpQWRWM2tC?=
- =?utf-8?B?UUZmWHZTTHptU2NTUHBFdEJmczB2WEd1Z3B0Y3N2QlhCQmVGeUZQV2FucGJx?=
- =?utf-8?B?M0plRlNaTDdsWVh4aHdsSlZibHM0ZTFoWjZVSEZuWlZtL3hZMDhGcm1VR0NZ?=
- =?utf-8?B?TDFOTzdsTTFpTHB4ck41TndEMUNJVlRicVpHYTVlUXB0UXNXUWlsdHNlS0w3?=
- =?utf-8?B?OTA4RmQ3QjhaVGNVbm9IR0IzWlp2V0VwbHNCdTFCdjZnL21Jc1dHdXRUVGhD?=
- =?utf-8?B?UGwrNnZpa1JLMzUyNU1IdEFPeWF2ZGxMQUZtalVFQVltNW5jdWEySVpuOEZP?=
- =?utf-8?B?WTlpZ3ZjL2VqYjdlT1hWRUg1NnNobWwweEN5cWRwNEJwZFBxdiswSEZoMTFo?=
- =?utf-8?B?eVY1dmY0ZHFiOTAzYzF6TDZ4Zzd4VXNJSzA5YVhoNTE4K0NxSFVuM0tTYVN5?=
- =?utf-8?B?Rys5WlkwZ1FZTmMrSGNIVnhYZlZ6N1VDODhHckczL1JkTEFWaTZLV005NGFT?=
- =?utf-8?B?WHk4KzMzRVFFdm5SNFA5VTFXbVJRYVUveGc0T01Sc1ZZdnU0NHV5ZklFa2pz?=
- =?utf-8?B?T3FRYzh3SzI5ZTBWRlVQcHBIV2luRzg5N21DTTBIdnlyYk93UWJIVkwyMTF0?=
- =?utf-8?B?ZkdpRG9PekxVSkhTcEJYTVFha2g4SzNEdDZnM3BGMjBZMmZCdFBsSjJlaXND?=
- =?utf-8?B?ZzVMY1lCZzlFRlBFbnRXcGM1cGh4dCtFcHJ3eEFNSnc5OXNpMHFIOEMyZUx3?=
- =?utf-8?B?RnhucHRmcWlNZzVmcUs0eXRvZUQzdHh0NlVncUs2K2gzTlBObXRvRzMwYTgr?=
- =?utf-8?B?RThjWlVnSkVDZ3JKMEpaNjVOT0pWWkh1dnpLWkdyOTFMWTVLQnhDTzFzcklV?=
- =?utf-8?B?M1hsdGFnTzByTHI3bTVkU3RXL3JxRGlrY3ZmL0VvSUR4Y2VDNCtQellLaFcr?=
- =?utf-8?B?N0dVTVFwZnpKWnhZR2J5OW9RS3FHMUhFMU1KSnh2SEoySDhhWFhSd0ZWTGQ1?=
- =?utf-8?B?UDZic3V5b00rUm5KbnRvSWtveEJJUWVxb3VPcEIxR2JGRFRFbmxRUTdFTDZy?=
- =?utf-8?B?MHk3ZGNDMGk1T2tBbDFEdlNBbXJ1TGMxbWUwQTlHUTk3TzcrTys0dXFjMWZp?=
- =?utf-8?B?VUtEU0d0VWt3dE84Z2Q4aThZeEN6UUpTbEUzL3ZmYTIvdkZaRTBBRStKaHF4?=
- =?utf-8?B?VDV4aFlIc3dUTmlNdnA0bU5ycUhDVzdVc29WYko0eE9lZndRbld6UDNYY2M5?=
- =?utf-8?B?eGRGbjdhYi96MWp5Q3grN0xpL2NuYWFDUER6SmRjdWVJT0xQRHZpUm0zZGNS?=
- =?utf-8?B?M3IwL3Nmdk5FU0piMnArZ0h3WWdIRHFCa3MzR1BVYnpqTUorbE1aZ1I0VWhS?=
- =?utf-8?B?K1E3Y1dpbFZNNXBEWVQ4Sml1eDNwbVVMSTNJR1V5NDEwZXNKVzlPWkZ5SFJp?=
- =?utf-8?B?OU5LbmdFY1R0eEtSdWJ0ZXd6cGJKY3U2SWN2WWFsNWNjVkJSOStnZUczdnll?=
- =?utf-8?B?UUJKdDBGcGhYYnMwUnhKdG9obHg3bFM3SnRhTE9kTlNjS0Y3cjRPaWxvK255?=
- =?utf-8?B?RVRML3I4bmFBZ2EyTW9Xd3Uyd2wrNWdxSHppd1pWTUxmUkJJdTkyZjF6UG5Z?=
- =?utf-8?B?VEN5emt5Rjlwa3RKbWhVMEpOYWh3aFJpUnFtb2dhRDV1ODA1K04xK3NBM0s5?=
- =?utf-8?B?WE85YlpLeXI3RUMzZU1LdVZUZmNvSHY1OTdhd0xmK294SWZ0VHNQSU5aaW42?=
- =?utf-8?B?VERaVXFselJ5dGtsbnBmVFk1aEtCNENCTG9mVW9Od2VwSUsyWElLWnhnbHNa?=
- =?utf-8?B?YmxrRWxaWllhQTVlK3JlMmVmQmsyVEMyRHhSOUJHSml4a0twNG5Zall2ZGlt?=
- =?utf-8?B?UlFTaGEybVRYY3hZeGpKVjIvK2VtcEk3MHc1TU84VUQ0OUpCVHMzMVR4cHlI?=
- =?utf-8?B?MkxNWTd6b1czY1hwOHZSZmFSUUcrWGp3eUhtUE9GV2NsMUVORFdQNVR1QllS?=
- =?utf-8?B?NGl2dVR5SHZQVExuY1A0cjNrVEp2WGNWR3ZDVkRyZ2p3RVVoUFRXb1FVYVpB?=
- =?utf-8?B?QVE9PQ==?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 97f74640-cf59-4fc2-f2ad-08dd33ca3e52
-X-MS-Exchange-CrossTenant-AuthSource: DS0PR11MB8718.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jan 2025 12:03:08.1553
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: H1NqRzoBLNrkO0hBz+40/U0YxuxOfIFmExinjBnHwU77kDecdcpPDTGx8gb53YFyPwkrLOBxrUlCVbqj/+yaWCFyOfEOdUOwigB11dljgC8=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR11MB4719
-X-OriginatorOrg: intel.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 4/5] Coresight: Add Coresight TMC Control Unit driver
+To: Jie Gan <quic_jiegan@quicinc.com>
+Cc: Jinlong Mao <quic_jinlmao@quicinc.com>, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, Tingwei Zhang <quic_tingweiz@quicinc.com>,
+ linux-arm-msm@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
+ <mike.leach@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>
+References: <20241226011022.1477160-1-quic_jiegan@quicinc.com>
+ <20241226011022.1477160-5-quic_jiegan@quicinc.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20241226011022.1477160-5-quic_jiegan@quicinc.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_040332_980629_F91C259E 
-X-CRM114-Status: GOOD (  13.27  )
+X-CRM114-CacheID: sfid-20250113_040536_298170_425D146B 
+X-CRM114-Status: GOOD (  40.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -217,117 +109,387 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yanteng Si <si.yanteng@linux.dev>
-Date: Mon, 13 Jan 2025 17:41:41 +0800
 
-> 在 2025/1/10 17:53, Furong Xu 写道:
->> Avoid memcpy in non-XDP RX path by marking all allocated SKBs to
->> be recycled in the upper network stack.
->>
->> This patch brings ~11.5% driver performance improvement in a TCP RX
->> throughput test with iPerf tool on a single isolated Cortex-A65 CPU
->> core, from 2.18 Gbits/sec increased to 2.43 Gbits/sec.
->>
->> Signed-off-by: Furong Xu <0x1207@gmail.com>
->> ---
->>   drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  1 +
->>   .../net/ethernet/stmicro/stmmac/stmmac_main.c | 23 +++++++++++--------
->>   2 files changed, 15 insertions(+), 9 deletions(-)
->>
->> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/
->> net/ethernet/stmicro/stmmac/stmmac.h
->> index 548b28fed9b6..5c39292313de 100644
->> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
->> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
->> @@ -126,6 +126,7 @@ struct stmmac_rx_queue {
->>       unsigned int cur_rx;
->>       unsigned int dirty_rx;
->>       unsigned int buf_alloc_num;
->> +    unsigned int napi_skb_frag_size;
->>       dma_addr_t dma_rx_phy;
->>       u32 rx_tail_addr;
->>       unsigned int state_saved;
->> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/
->> drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
->> index 038df1b2bb58..43125a6f8f6b 100644
->> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
->> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
->> @@ -1320,7 +1320,7 @@ static unsigned int stmmac_rx_offset(struct
->> stmmac_priv *priv)
->>       if (stmmac_xdp_is_enabled(priv))
->>           return XDP_PACKET_HEADROOM;
->>   -    return 0;
->> +    return NET_SKB_PAD;
->>   }
->>     static int stmmac_set_bfsize(int mtu, int bufsize)
->> @@ -2019,17 +2019,21 @@ static int
->> __alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
->>       struct stmmac_channel *ch = &priv->channel[queue];
->>       bool xdp_prog = stmmac_xdp_is_enabled(priv);
->>       struct page_pool_params pp_params = { 0 };
->> -    unsigned int num_pages;
->> +    unsigned int dma_buf_sz_pad, num_pages;
->>       unsigned int napi_id;
->>       int ret;
->>   +    dma_buf_sz_pad = stmmac_rx_offset(priv) + dma_conf->dma_buf_sz +
->> +             SKB_DATA_ALIGN(sizeof(struct skb_shared_info));
->> +    num_pages = DIV_ROUND_UP(dma_buf_sz_pad, PAGE_SIZE);
->> +
->>       rx_q->queue_index = queue;
->>       rx_q->priv_data = priv;
->> +    rx_q->napi_skb_frag_size = num_pages * PAGE_SIZE;
->>         pp_params.flags = PP_FLAG_DMA_MAP | PP_FLAG_DMA_SYNC_DEV;
->>       pp_params.pool_size = dma_conf->dma_rx_size;
->> -    num_pages = DIV_ROUND_UP(dma_conf->dma_buf_sz, PAGE_SIZE);
->> -    pp_params.order = ilog2(num_pages);
->> +    pp_params.order = order_base_2(num_pages);
->>       pp_params.nid = dev_to_node(priv->device);
->>       pp_params.dev = priv->device;
->>       pp_params.dma_dir = xdp_prog ? DMA_BIDIRECTIONAL : DMA_FROM_DEVICE;
->> @@ -5574,19 +5578,20 @@ static int stmmac_rx(struct stmmac_priv *priv,
->> int limit, u32 queue)
->>               /* XDP program may expand or reduce tail */
->>               buf1_len = ctx.xdp.data_end - ctx.xdp.data;
->>   -            skb = napi_alloc_skb(&ch->rx_napi, buf1_len);
->> +            skb = napi_build_skb(page_address(buf->page),
->> +                         rx_q->napi_skb_frag_size);
->>               if (!skb) {
->> +                page_pool_recycle_direct(rx_q->page_pool,
->> +                             buf->page);
->>                   rx_dropped++;
->>                   count++;
->>                   goto drain_data;
->>               }
->>                 /* XDP program may adjust header */
->> -            skb_copy_to_linear_data(skb, ctx.xdp.data, buf1_len);
->> +            skb_reserve(skb, ctx.xdp.data - ctx.xdp.data_hard_start);
-> The network subsystem still requires that the length
-> of each line of code should not exceed 80 characters.
-> So let's silence the warning:
+
+On 26/12/2024 1:10 am, Jie Gan wrote:
+> The Coresight TMC Control Unit hosts miscellaneous configuration registers
+> which control various features related to TMC ETR sink.
 > 
-> WARNING: line length of 81 exceeds 80 columns
-> #87: FILE: drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:5592:
-> +            skb_reserve(skb, ctx.xdp.data - ctx.xdp.data_hard_start);
-
-I agree that &ctx.xdp could be made an onstack pointer to shorten these
-lines, but please don't spam with the checkpatch output.
-
-1. It's author's responsibility to read netdev CI output on Patchwork,
-   reviewers shouldn't copy its logs.
-2. The only alternative without making a shortcut for &ctx.xdp is
-
-			skb_reserve(skb,
-				    ctx.xdp.data - ctx.xdp.data_hard_start);
-
-This looks really ugly and does more harm than good.
-
-If you really want to help, pls come with good propositions how to avoid
-such warnings in an elegant way.
-
+> Based on the trace ID, which is programmed in the related CTCU ATID
+> register of a specific ETR, trace data with that trace ID gets into
+> the ETR buffer, while other trace data gets dropped.
 > 
-> Thanks,
-> Yanteng
+> Enabling source device sets one bit of the ATID register based on
+> source device's trace ID.
+> Disabling source device resets the bit according to the source
+> device's trace ID.
+> 
+> Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
+> ---
+>   drivers/hwtracing/coresight/Kconfig          |   8 +
+>   drivers/hwtracing/coresight/Makefile         |   1 +
+>   drivers/hwtracing/coresight/coresight-ctcu.c | 273 +++++++++++++++++++
+>   drivers/hwtracing/coresight/coresight-ctcu.h |  21 ++
+>   include/linux/coresight.h                    |   3 +-
+>   5 files changed, 305 insertions(+), 1 deletion(-)
+>   create mode 100644 drivers/hwtracing/coresight/coresight-ctcu.c
+>   create mode 100644 drivers/hwtracing/coresight/coresight-ctcu.h
+> 
+> diff --git a/drivers/hwtracing/coresight/Kconfig b/drivers/hwtracing/coresight/Kconfig
+> index 06f0a7594169..152eab0b9b2a 100644
+> --- a/drivers/hwtracing/coresight/Kconfig
+> +++ b/drivers/hwtracing/coresight/Kconfig
+> @@ -133,6 +133,14 @@ config CORESIGHT_STM
+>   	  To compile this driver as a module, choose M here: the
+>   	  module will be called coresight-stm.
+>   
+> +config CORESIGHT_CTCU
+> +	tristate "CoreSight TMC Control Unit driver"
+> +	help
+> +	  This driver provides support for CoreSight TMC Control Unit
+> +	  that hosts miscellaneous configuration registers. This is
+> +	  primarily used for controlling the behaviors of the TMC
+> +	  ETR device.
+> +
+>   config CORESIGHT_CPU_DEBUG
+>   	tristate "CoreSight CPU Debug driver"
+>   	depends on ARM || ARM64
+> diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/hwtracing/coresight/Makefile
+> index 4ba478211b31..1b7869910a12 100644
+> --- a/drivers/hwtracing/coresight/Makefile
+> +++ b/drivers/hwtracing/coresight/Makefile
+> @@ -51,3 +51,4 @@ coresight-cti-y := coresight-cti-core.o	coresight-cti-platform.o \
+>   		   coresight-cti-sysfs.o
+>   obj-$(CONFIG_ULTRASOC_SMB) += ultrasoc-smb.o
+>   obj-$(CONFIG_CORESIGHT_DUMMY) += coresight-dummy.o
+> +obj-$(CONFIG_CORESIGHT_CTCU) += coresight-ctcu.o
+> diff --git a/drivers/hwtracing/coresight/coresight-ctcu.c b/drivers/hwtracing/coresight/coresight-ctcu.c
+> new file mode 100644
+> index 000000000000..7650dbe9a41e
+> --- /dev/null
+> +++ b/drivers/hwtracing/coresight/coresight-ctcu.c
+> @@ -0,0 +1,273 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
+> + */
+> +
+> +#include <linux/clk.h>
+> +#include <linux/coresight.h>
+> +#include <linux/device.h>
+> +#include <linux/err.h>
+> +#include <linux/kernel.h>
+> +#include <linux/init.h>
+> +#include <linux/io.h>
+> +#include <linux/module.h>
+> +#include <linux/mutex.h>
+> +#include <linux/of.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/slab.h>
+> +
+> +#include "coresight-ctcu.h"
+> +#include "coresight-priv.h"
+> +#include "coresight-trace-id.h"
+> +
+> +DEFINE_CORESIGHT_DEVLIST(ctcu_devs, "ctcu");
+> +
+> +#define ctcu_writel(drvdata, val, offset)	__raw_writel((val), drvdata->base + offset)
+> +#define ctcu_readl(drvdata, offset)		__raw_readl(drvdata->base + offset)
+> +
+> +/* The TMC Coresight Control Unit uses four ATID registers to control the data filter function based
+> + * on the trace ID for each TMC ETR sink. The length of each ATID register is 32 bits. Therefore,
+> + * the ETR has a related field in CTCU that is 128 bits long. Each trace ID is represented by one
+> + * bit in that filed.
+> + * e.g. ETR0ATID0 layout, set bit 5 for traceid 5
+> + *                                           bit5
+> + * ------------------------------------------------------
+> + * |   |28|   |24|   |20|   |16|   |12|   |8|  1|4|   |0|
+> + * ------------------------------------------------------
+> + *
+> + * e.g. ETR0:
+> + * 127                     0 from ATID_offset for ETR0ATID0
+> + * -------------------------
+> + * |ATID3|ATID2|ATID1|ATID0|
+> + *
+> + */
+> +#define CTCU_ATID_REG_OFFSET(traceid, atid_offset) \
+> +		((traceid / 32) * 4 + atid_offset)
+> +
+> +#define CTCU_ATID_REG_BIT(traceid)	(traceid % 32)
+> +#define CTCU_ATID_REG_SIZE		0x10
+> +
+> +struct ctcu_atid_config {
+> +	const uint32_t atid_offset;
+> +	const uint32_t port_num;
+> +};
+> +
+> +struct ctcu_config {
+> +	const struct ctcu_atid_config *atid_config;
+> +	int num_atid_config;
+> +};
+> +
+> +static const struct ctcu_atid_config sa8775p_atid_cfgs[] = {
+> +	{0xf8,  0},
+> +	{0x108, 1},
+> +};
+> +
+> +static const struct ctcu_config sa8775p_cfgs = {
+> +	.atid_config		= sa8775p_atid_cfgs,
+> +	.num_atid_config	= ARRAY_SIZE(sa8775p_atid_cfgs),
+> +};
+> +
+> +/*
+> + * __ctcu_set_etr_traceid: Set bit in the ATID register based on trace ID when enable is true.
+> + * Reset the bit of the ATID register based on trace ID when enable is false.
+> + *
+> + * @csdev:	coresight_device struct related to the device
+> + * @traceid:	trace ID of the source tracer.
+> + * @enable:	True for set bit and false for reset bit.
+> + *
+> + * Returns 0 indicates success. Non-zero result means failure.
+> + */
+> +static int __ctcu_set_etr_traceid(struct coresight_device *csdev,
+> +				  u8 traceid,
+> +				  int port_num,
+> +				  bool enable)
+> +{
+> +	uint32_t atid_offset, reg_offset, val;
+> +	struct ctcu_drvdata *drvdata;
+> +	int bit;
+> +
+> +	if (!IS_VALID_CS_TRACE_ID(traceid))
+> +		return -EINVAL;
 
-Thanks,
-Olek
+Minor point, but this was already done in the calling function.
+
+> +
+> +	drvdata = dev_get_drvdata(csdev->dev.parent);
+> +	if (IS_ERR_OR_NULL(drvdata))
+> +		return -EINVAL;
+> +
+> +	atid_offset = drvdata->atid_offset[port_num];
+> +	if (atid_offset == 0)
+> +		return -EINVAL;
+> +
+> +	guard(raw_spinlock_irqsave)(&drvdata->spin_lock);
+> +	CS_UNLOCK(drvdata->base);
+> +
+> +	bit = CTCU_ATID_REG_BIT(traceid);
+> +	reg_offset = CTCU_ATID_REG_OFFSET(traceid, atid_offset);
+
+The locks only need to be around the read/write below. bit and 
+reg_offset are all local and shouldn't be affected. Doesn't really make 
+a difference but makes the code a bit more readable.
+
+> +	if (reg_offset - atid_offset > CTCU_ATID_REG_SIZE) {
+> +		CS_LOCK(drvdata);
+> +		return -EINVAL;
+> +	}
+> +
+> +	val = ctcu_readl(drvdata, reg_offset);
+> +	if (enable)
+> +		val = val | BIT(bit);
+> +	else
+> +		val = val & ~BIT(bit);
+> +
+> +	ctcu_writel(drvdata, val, reg_offset);
+> +	CS_LOCK(drvdata->base);
+> +
+> +	return 0;
+> +}
+> +
+> +static int ctcu_get_active_port(struct coresight_device *sink, struct coresight_device *helper)
+> +{
+> +	int i;
+> +
+> +	for (i = 0; i < sink->pdata->nr_outconns; ++i) {
+> +		if (sink->pdata->out_conns[i]->dest_dev)
+> +			return sink->pdata->out_conns[i]->dest_port;
+> +	}
+> +
+> +	return -EINVAL;
+> +}
+> +
+> +/*
+> + * ctcu_set_etr_traceid: Retrieve the ATID offset and trace ID.
+> + *
+> + * Returns 0 indicates success. None-zero result means failure.
+> + */
+> +static int ctcu_set_etr_traceid(struct coresight_device *csdev,
+> +				struct cs_sink_data *sink_data,
+> +				bool enable)
+> +{
+> +	int port_num;
+> +
+> +	if (!IS_VALID_CS_TRACE_ID(sink_data->traceid) ||
+> +	    (sink_data->sink == NULL)) {
+> +		dev_err(&csdev->dev, "Invalid parameters\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	port_num = ctcu_get_active_port(sink_data->sink, csdev);
+> +	if (port_num < 0)
+> +		return -EINVAL;
+> +
+> +	dev_dbg(&csdev->dev, "traceid is %d\n", sink_data->traceid);
+> +
+> +	return __ctcu_set_etr_traceid(csdev, sink_data->traceid, port_num, enable);
+> +}
+> +
+> +static int ctcu_enable(struct coresight_device *csdev, enum cs_mode mode,
+> +		       void *data)
+> +{
+> +	struct cs_sink_data *sink_data = (struct cs_sink_data *)data;
+> +
+> +	return ctcu_set_etr_traceid(csdev, sink_data, true);
+> +}
+> +
+> +static int ctcu_disable(struct coresight_device *csdev, void *data)
+> +{
+> +	struct cs_sink_data *sink_data = (struct cs_sink_data *)data;
+> +
+> +	return ctcu_set_etr_traceid(csdev, sink_data, false);
+> +}
+> +
+> +static const struct coresight_ops_helper ctcu_helper_ops = {
+> +	.enable = ctcu_enable,
+> +	.disable = ctcu_disable,
+> +};
+> +
+> +static const struct coresight_ops ctcu_ops = {
+> +	.helper_ops = &ctcu_helper_ops,
+> +};
+> +
+> +static int ctcu_probe(struct platform_device *pdev)
+> +{
+> +	int i;
+> +	void __iomem *base;
+> +	struct device *dev = &pdev->dev;
+> +	struct coresight_platform_data *pdata;
+> +	struct ctcu_drvdata *drvdata;
+> +	struct coresight_desc desc = { 0 };
+> +	const struct ctcu_config *cfgs;
+> +	const struct ctcu_atid_config *atid_cfg;
+> +
+> +	desc.name = coresight_alloc_device_name(&ctcu_devs, dev);
+> +	if (!desc.name)
+> +		return -ENOMEM;
+> +
+> +	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
+> +	if (!drvdata)
+> +		return -ENOMEM;
+> +
+> +	pdata = coresight_get_platform_data(dev);
+> +	if (IS_ERR(pdata))
+> +		return PTR_ERR(pdata);
+> +	dev->platform_data = pdata;
+> +
+> +	base = devm_platform_get_and_ioremap_resource(pdev, 0, NULL);
+> +	if (!base)
+> +		return -ENOMEM;
+> +
+> +	drvdata->apb_clk = coresight_get_enable_apb_pclk(dev);
+> +	if (IS_ERR(drvdata->apb_clk))
+> +		return -ENODEV;
+> +
+> +	cfgs = of_device_get_match_data(dev);
+> +	if (cfgs) {
+> +		if (cfgs->num_atid_config <= ATID_MAX_NUM) {
+> +			for (i = 0; i < cfgs->num_atid_config; i++) {
+> +				atid_cfg = &cfgs->atid_config[i];
+> +				drvdata->atid_offset[i] = atid_cfg->atid_offset;
+> +			}
+> +		}
+> +	}
+> +
+> +	drvdata->base = base;
+> +	drvdata->dev = dev;
+> +	platform_set_drvdata(pdev, drvdata);
+> +
+> +	desc.type = CORESIGHT_DEV_TYPE_HELPER;
+> +	desc.subtype.helper_subtype = CORESIGHT_DEV_SUBTYPE_HELPER_CTCU;
+> +	desc.pdata = pdata;
+> +	desc.dev = dev;
+> +	desc.ops = &ctcu_ops;
+> +
+> +	drvdata->csdev = coresight_register(&desc);
+> +	if (IS_ERR(drvdata->csdev)) {
+> +		if (!IS_ERR_OR_NULL(drvdata->apb_clk))
+> +			clk_put(drvdata->apb_clk);
+> +
+> +		return PTR_ERR(drvdata->csdev);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static void ctcu_remove(struct platform_device *pdev)
+> +{
+> +	struct ctcu_drvdata *drvdata = platform_get_drvdata(pdev);
+> +
+> +	coresight_unregister(drvdata->csdev);
+> +	if (!IS_ERR_OR_NULL(drvdata->apb_clk))
+> +		clk_put(drvdata->apb_clk);
+> +}
+> +
+> +static const struct of_device_id ctcu_match[] = {
+> +	{.compatible = "qcom,sa8775p-ctcu", .data = &sa8775p_cfgs},
+> +	{}
+> +};
+> +
+> +static struct platform_driver ctcu_driver = {
+> +	.probe          = ctcu_probe,
+> +	.remove         = ctcu_remove,
+> +	.driver         = {
+> +		.name   = "coresight-ctcu",
+> +		.of_match_table = ctcu_match,
+> +		.suppress_bind_attrs = true,
+> +	},
+> +};
+> +module_platform_driver(ctcu_driver);
+> +
+> +MODULE_LICENSE("GPL");
+> +MODULE_DESCRIPTION("CoreSight TMC Control Unit driver");
+> diff --git a/drivers/hwtracing/coresight/coresight-ctcu.h b/drivers/hwtracing/coresight/coresight-ctcu.h
+> new file mode 100644
+> index 000000000000..fc85f3377872
+> --- /dev/null
+> +++ b/drivers/hwtracing/coresight/coresight-ctcu.h
+> @@ -0,0 +1,21 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
+> + */
+> +
+> +#ifndef _CORESIGHT_CTCU_H
+> +#define _CORESIGHT_CTCU_H
+> +
+> +#define ATID_MAX_NUM 5
+> +
+> +struct ctcu_drvdata {
+> +	void __iomem		*base;
+> +	struct clk		*apb_clk;
+> +	phys_addr_t		pbase;
+> +	struct device		*dev;
+> +	struct coresight_device	*csdev;
+> +	raw_spinlock_t		spin_lock;
+> +	uint32_t		atid_offset[ATID_MAX_NUM];
+> +};
+> +
+> +#endif
+> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+> index 1929f0088c0f..18bb4de1d1e4 100644
+> --- a/include/linux/coresight.h
+> +++ b/include/linux/coresight.h
+> @@ -71,7 +71,8 @@ enum coresight_dev_subtype_source {
+>   
+>   enum coresight_dev_subtype_helper {
+>   	CORESIGHT_DEV_SUBTYPE_HELPER_CATU,
+> -	CORESIGHT_DEV_SUBTYPE_HELPER_ECT_CTI
+> +	CORESIGHT_DEV_SUBTYPE_HELPER_ECT_CTI,
+> +	CORESIGHT_DEV_SUBTYPE_HELPER_CTCU,
+>   };
+>   
+>   /**
+
 
