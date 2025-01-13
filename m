@@ -4,116 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD3DEC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 16:20:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0955C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 16:21:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+dNlxUlq/zQec54ENuov38IuayLoY+NtEDaFnmM1inQ=; b=VpEqbynl4I95seHSlrckU4VjIM
-	niV5gAqnTvZ9qM7PVk3/pxHY/L5G2CP+GKmUtAP7wiyuipsHTemlXFHF68IwqDUhTr494zJRqQd+P
-	rUOE34HihOD+PBVVJYZ3nPn6d2GJL5KvHnbg0Bazz2CuqAqXqwSIXuMnbEBFEwPLINx6b0ulHLP8F
-	G7LParQoTr3hTN38b4QfkIp04aN/abHBZ0L8zBywu877B6XDDYd7F3jN8nYjslH9dsgDIhxdPzng6
-	NHY4HyQceBXlmOo71liJOo/a7Pg22h/J3cmJAe3VaItHj3fi0LDqmhPIM8UdZU7BUoMfm7M96C8rU
-	eI9Jr9Tg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Azq+DaVA//EhU0oOCgPNA2FLamSCcJm54Ub5++OHsas=; b=qDoKHjyL5GV38eJ5FUpJiXjMKj
+	vYz50djiX5YE8xt4XDXg6p57JIeFmAm+12MrWmCI4VO49bb3LwYL0PDg5qRW7J11bdNY1yMhRRvQN
+	oBxw8+vt2itY+kkEyF1pt9SqG07KFB08YC4eIpg/PzN+d8tMnKOZR1TOBK/2tkycSr3qVBnVAXLdE
+	dv+mZahswpbm4bzT8i4SMXdrr7YpKUPsiKUniejOb30uCZ42Db28Jhe1GdV5sz4Sej/OltX0YIPTg
+	0Xs78n1rqgv2lP8I8doEd5HRdQMp6n/9V8e/4DQGKywMaCYbQIAZjlLPxv0hVCBZ1RYfddRqtawBJ
+	/Uiz5F1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXNAn-00000005oub-2nDw;
-	Mon, 13 Jan 2025 16:20:17 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1tXNBz-00000005p8u-2Xu3;
+	Mon, 13 Jan 2025 16:21:31 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXLsk-00000005Vxk-3hZN
+	id 1tXMh1-00000005ieu-2Prx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 14:57:36 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-aaeec07b705so714515666b.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 06:57:34 -0800 (PST)
+	Mon, 13 Jan 2025 15:49:33 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-436326dcb1cso31597605e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 07:49:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1736780253; x=1737385053; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=+dNlxUlq/zQec54ENuov38IuayLoY+NtEDaFnmM1inQ=;
-        b=NnqP3V87QCuE/4uOt7FIfIuotrQmXOYlDALt/u1/YdRlXqWBKllz7B7TUbRKtgLwzB
-         pdUviAkRaYUsfChC06zQJvccWnA967PoaJNZpsjwjxot2J9HqXNAo8vqZjndhm+Ny+WH
-         c2NvQXr+Z3t98S+TeeXpGXdans4weFRFojnsYDOnVZWladatrvTExLvtfmmf3TK3ikx2
-         ZRlkhZP5RyesoHkmlO9zy9Yu7ivzAWTgh2uV/Ms9LFOapFqaFCHdvFVipBe0lAJoCZy8
-         gm/ncxRofc4nXeQIvrFlwLBWbpwYnDNsbMX7sjGT/JvNoJUpECgXyqBoxIPS8H+YUels
-         QXYw==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1736783370; x=1737388170; darn=lists.infradead.org;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Azq+DaVA//EhU0oOCgPNA2FLamSCcJm54Ub5++OHsas=;
+        b=xUC3oP0p8ITnNkLWxqp50l0U2D12MbtVz8iMCZwf3KTuITQhVsMRga2QYKDVkG1+z2
+         iJBShjTl6es7PEkjYyQXkt/9FZICjbSC8wLjlKAfOsbCP4P0sScxvvWIKxR4nGZxfyPc
+         w5rEreOqxEKWxRLflWUfFo1IQMRVU5Y95MOjJop05U1r+sr0+W9YlSu1eIv6kY888wNL
+         dgbGY61tCuQKeGgg3DwDi8hjgicI9sbLZDTkd1tW4tBph1rLDJmR8qxPInKtua2QrUYt
+         LKhyTUXl2q+QLTmODRlyyujv86HOQv4uRmq8l7Izt1evdRODqnR/D1n2wI7EZ+9zW89N
+         TgRQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736780253; x=1737385053;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+dNlxUlq/zQec54ENuov38IuayLoY+NtEDaFnmM1inQ=;
-        b=SpIk5ojfb+qSyOy/nWk3DiBE7vYrNz1YRMMuil6iys4IN2sVd9Dtk16Q4z8gDPZmQp
-         5bYQ1X6my1VYT63NidFGo/a5PT2OvoXF2BkN+S62v6vNjvJmex4GCBLBBmdX6B1vPP0B
-         Qf8M2147RMsHVR1GsMSkEKsLyc33VxfWdnImEXQjFYbcV7VtVL3AOQRQFmMQ3bRCJ+6V
-         626GaM5QNn/joP7WlxqIXv6G0yGOcZbTJOufEBHb/8t241gI8SWEIOvtXQcFvYTqXKPS
-         ypN9GJZ38MTc/rn1SGta0vHFuuN5MDBTHttuavQpsUGgZUeM0U/r/olH0PVCSjLgzglb
-         FJDA==
-X-Forwarded-Encrypted: i=1; AJvYcCWJHAVV5DJK1K58W0PfRQSR9TSmA/xRiw27HsD2UbRiGd08Je5vYBg7nbo2soYoC3hOA8ul1P/gW3UMW4ChT2S9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5LwqWB/+EsurYG6s8Kf30Y4B9y1TLdV6NoQGaUc1i2vAh14q7
-	xl/vmWjgNdek9hWSTWarmkgV8IBHdL8HyWcJLkkixYOLvIr+HQsH426DlGCcQbM=
-X-Gm-Gg: ASbGnctV4c+WaoTAvLaHINx30DDHqfoa0EjDy7u9mNCIotsDYt2L9pLfwSl2jMJpbNQ
-	4euSDvsgbrRjg4razjurt8l1fCllBDlwlK0y/JZsVTZYfvFnlmb/0tlFrR1erREqjKTQ3V+kB7i
-	vETRhgweedE//hGn5zLxKg0KagqmpZ8qQsHYpeahxXG6yxfgUgiD2i1Ve7bEWH1aOFhWGvRjnOG
-	+BH82mvNvukR+tqH1NL4sJH0Y67FoSZL0eFdpszja4ywg52fqFXI5d0/a+hFoZlyVV2CaZCOM1r
-	IPqMeoqrvkAmBLIZcmBaOQ41Efs=
-X-Google-Smtp-Source: AGHT+IGT7ZUyRqjYZDfn2augtPO24Nq1KfGdCS+zaijGp4OI6jVXn2a8avrfPMk2uXfMIqlZpqSwuQ==
-X-Received: by 2002:a17:907:6d29:b0:ab2:f8e9:5f57 with SMTP id a640c23a62f3a-ab2f8e9652bmr767188466b.21.1736780253509;
-        Mon, 13 Jan 2025 06:57:33 -0800 (PST)
-Received: from localhost (host-87-14-236-197.retail.telecomitalia.it. [87.14.236.197])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab2c96475besm506777166b.180.2025.01.13.06.57.33
+        d=1e100.net; s=20230601; t=1736783370; x=1737388170;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Azq+DaVA//EhU0oOCgPNA2FLamSCcJm54Ub5++OHsas=;
+        b=xVWzZ5a4rz9eH1ioL66R2LEDruMs+X6D7mxsBs6mK8smkjlbZF44cXPHbzAficJyY2
+         S0gUTqJXwPnHt2F3PiIl9YoAjKrok7n213aM0OERpIos5RpvFgsS9XO6GBL3PTfdU+Mu
+         U+e6zSfFfbuROKpSBqUToou/W16WFAPwFD6EXltQzm3RfVOPar1eGk3eqCfxvvW5C2pn
+         o9Hs97ZNlk5o0EhBaYVzHG/71NknVNxR4B3s2OxvBehQj0nEJwuXGxyRsUoKbxFfORUs
+         31U/XP6LVioYkJNB0q0lmdVSFwa3momtqR0tAlvYooZ1indfllagBAvB1rEufviEA+mO
+         3X4w==
+X-Forwarded-Encrypted: i=1; AJvYcCWKurLg9VKsxl9VVRCSd0WU4kALC2gUid2pdD0PQITANwsWCSPDD7km36QJe6XK5kYx+wpuTXQIYF0pK7trWEom@lists.infradead.org
+X-Gm-Message-State: AOJu0YzCoL7b59ZEj7+i66ifai4q77aw8CARsN4zeRkrw4ueWP/JzKhV
+	+fhRY2669MMugRdS3vZ8GVAi0lCYNLM+pVcSNMqHQspvolOL8RmWiHCwwfAwHLg=
+X-Gm-Gg: ASbGncvhpF7pqbgRaCIopTunyG3r6oXpWzXeSdF3Mh97upto/1PrAH6+YIkspZwVQ6s
+	mOFPaDmcKb8x3qFT4r3rRONAXE158Wq/ndp65F9PaoTlfiWNk4o9Uk5Gx4NbnoGR1VQsZ2OF2EO
+	qNsSrjhL3z6N2/TujfcRrxLTXfaRS73ry6bUtITksqDysvsyuCEG3OEbr6q4VAupPxrYaFRvg0/
+	bgGHh+k7fqfSDbERWa7FzursYfiYsdsKcScrqW4diTDhv3oi+fB/0Un
+X-Google-Smtp-Source: AGHT+IF09k926b51tgNC96zHwr2fNP9lLjmS+3CaIX3Evh6rq9eXJgioLCN7Rbq+LYTF7EgYPM9XXg==
+X-Received: by 2002:a05:6000:1446:b0:385:f47a:e9d1 with SMTP id ffacd0b85a97d-38a872dec76mr17354805f8f.17.1736783369675;
+        Mon, 13 Jan 2025 07:49:29 -0800 (PST)
+Received: from localhost ([2a01:e0a:3c5:5fb1:9d2d:28cc:aafd:8429])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a8e384054sm12552709f8f.36.2025.01.13.07.49.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jan 2025 06:57:33 -0800 (PST)
-From: Andrea della Porta <andrea.porta@suse.com>
-To: Andrea della Porta <andrea.porta@suse.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof Wilczynski <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Saravana Kannan <saravanak@google.com>,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>
-Subject: [PATCH v6 10/10] arm64: defconfig: Enable RP1 misc/clock/gpio drivers
-Date: Mon, 13 Jan 2025 15:58:09 +0100
-Message-ID: <325cb9d9956344fad68c137b99a9c92bcd707481.1736776658.git.andrea.porta@suse.com>
-X-Mailer: git-send-email 2.44.0
-In-Reply-To: <cover.1736776658.git.andrea.porta@suse.com>
-References: <cover.1736776658.git.andrea.porta@suse.com>
+        Mon, 13 Jan 2025 07:49:29 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Neil Armstrong <neil.armstrong@linaro.org>
+Cc: Chuan Liu <chuan.liu@amlogic.com>,  Chuan Liu via B4 Relay
+ <devnull+chuan.liu.amlogic.com@kernel.org>,  Michael Turquette
+ <mturquette@baylibre.com>,  Stephen Boyd <sboyd@kernel.org>,  Kevin Hilman
+ <khilman@baylibre.com>,  Martin Blumenstingl
+ <martin.blumenstingl@googlemail.com>,  linux-clk@vger.kernel.org,
+  linux-kernel@vger.kernel.org,  linux-amlogic@lists.infradead.org,
+  linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/2] clk: amlogic: c3: Limit the rate boundaries of clk_hw
+In-Reply-To: <af501f2e-2dd6-4182-872d-76260edba973@linaro.org> (Neil
+	Armstrong's message of "Mon, 13 Jan 2025 15:46:39 +0100")
+References: <20250110-limit-rate-range-of-clk-v1-0-dd618adc4aa8@amlogic.com>
+	<20250110-limit-rate-range-of-clk-v1-2-dd618adc4aa8@amlogic.com>
+	<1j34hqai39.fsf@starbuckisacylon.baylibre.com>
+	<2578a79d-1e24-4336-9859-e384c8f69269@amlogic.com>
+	<1jr05693nn.fsf@starbuckisacylon.baylibre.com>
+	<af501f2e-2dd6-4182-872d-76260edba973@linaro.org>
+User-Agent: mu4e 1.12.7; emacs 29.4
+Date: Mon, 13 Jan 2025 16:49:28 +0100
+Message-ID: <1ja5bu90jb.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_065734_964076_389C7517 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20250113_074931_809907_48DD793A 
+X-CRM114-Status: GOOD (  16.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,45 +106,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Select the RP1 drivers needed to operate the PCI endpoint containing
-several peripherals such as Ethernet and USB Controller. This chip is
-present on RaspberryPi 5.
+On Mon 13 Jan 2025 at 15:46, Neil Armstrong <neil.armstrong@linaro.org> wrote:
 
-Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
----
- arch/arm64/configs/defconfig | 3 +++
- 1 file changed, 3 insertions(+)
+>>>
+>>> I think that the clock configuration exceeding the timing constraints
+>>> is a hidden danger that all chips have and face, but this hidden danger
+>>> is not easy to be exposed?
+>>>
+>>> For instance, if the routing of a clock network is close to the clock
+>>> or data bus of other modules, and this clock network is wrongly
+>>> configured to a frequency beyond the constraints, causing crosstalk
+>>> that affects the normal operation of other modules. If such a situation
+>>> occurs, it will be very difficult to troubleshoot. How should this
+>>> situation be handled more reasonably?
+>> Fix your consumers drivers if you need to. Set range if you must.
+>> Those are not clock provider constraints. Those are use-case ones. It
+>> does belong here and CCF already provides the necessary infra to deal
+>> with ranges.
+>
+> I kind of disagree here, if the vendor has the data and is willing to share
+> the range for each clock path of the system, I think it should be welcome!
+>
+> Usually those ranges are not disclosed, so we don't set them, but CCF will
+> certainly use all those range to make an even better decision on the lock
+> routing.
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index c62831e61586..91b39026dc56 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -609,6 +609,7 @@ CONFIG_PINCTRL_QCM2290=y
- CONFIG_PINCTRL_QCS404=y
- CONFIG_PINCTRL_QDF2XXX=y
- CONFIG_PINCTRL_QDU1000=y
-+CONFIG_PINCTRL_RP1=m
- CONFIG_PINCTRL_SA8775P=y
- CONFIG_PINCTRL_SC7180=y
- CONFIG_PINCTRL_SC7280=y
-@@ -690,6 +691,7 @@ CONFIG_SENSORS_RASPBERRYPI_HWMON=m
- CONFIG_SENSORS_SL28CPLD=m
- CONFIG_SENSORS_INA2XX=m
- CONFIG_SENSORS_INA3221=m
-+CONFIG_MISC_RP1=m
- CONFIG_THERMAL_GOV_POWER_ALLOCATOR=y
- CONFIG_CPU_THERMAL=y
- CONFIG_DEVFREQ_THERMAL=y
-@@ -1272,6 +1274,7 @@ CONFIG_COMMON_CLK_CS2000_CP=y
- CONFIG_COMMON_CLK_FSL_SAI=y
- CONFIG_COMMON_CLK_S2MPS11=y
- CONFIG_COMMON_CLK_PWM=y
-+CONFIG_COMMON_CLK_RP1=m
- CONFIG_COMMON_CLK_RS9_PCIE=y
- CONFIG_COMMON_CLK_VC3=y
- CONFIG_COMMON_CLK_VC5=y
--- 
-2.35.3
+I did not say you should not use them, I say that a platform
+use-case, which is what this is, should not be hard coded within the
+clock provider driver.
 
+This is no different than an assigned-rate, and like any other platform
+description, it belong in DT.
+
+We've already seen how these ranges may depend on what else you choose
+to do on the system or even what package a particular SoC variant is
+using.
+
+>
+> Neil
+>
+>> 
 
