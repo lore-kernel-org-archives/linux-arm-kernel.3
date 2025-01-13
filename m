@@ -4,78 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF346C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 17:04:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14681C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 17:08:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s19CEAGQjEkgbjrj5F4lWFyemfQPSIUWWA4sTAuxhsc=; b=YZf1Kj1LOKsx13lqX932CtDYzP
-	zOlBiUZP6/Sa39jlpCgpDSkRaFUfvbE5rDGoemixoXTHxayJ49wu1yickoCLZ+0oz/i2LRdsR1KY9
-	NZeq2FIfc5w9KSsvLmf4w94DJmHltJdwjbKhHXbSpjWbdy7aGOZ7ozqfnFxf1W64hH3SZGEtdiFq8
-	A4vsTr1rvoAgSzL/pdID2yV8WsfbTn0briAUifPpt0UTDFhMYmW29jIBco4btsBiX/Ue0UdEp2EbN
-	DVVp0R+cz2donvugb9NDsFNvTHjDWReRMdlXZNAOERT5vn8cWxu0HcRnWoNnPtQSwAOxm6JHjrCKe
-	rwF1P0HQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=87zAL3DZcqPYFzoHGYuBI9BAT1ktFT16wiQFT/4+t9A=; b=sHXZuv4RNdup08UGZj4Qet4kvt
+	wnvQEjrJdgm59qWr4HjTGt8Q3Et8zPBFdoCoicQrvV5Y6UDV2KdXAsJmupVWvWUJFbs8usXn3yoSa
+	OIlzd9Sg7MwdtEX+wC6h+BV9ci55IA1P5KPMiBcNVF7xVoUESeW4UJJWFY5gCoi530iEmlW/8NIfc
+	jGAk6eH67DsJPRWvUSI4/axxlNE7ulQG1LuO1+N8llRbdqTAQp6ZrrqbBs39VcPbXn23hrKEYGqSu
+	+hO+HXro6uewpkUG2ib87mJdN2HUTlUtDMy+3OHaEbR8K2yiFns1KM9O36zV1REOyKahviiobaTSM
+	U5wKdOSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXNrU-00000005yal-2rZo;
-	Mon, 13 Jan 2025 17:04:24 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXNpg-00000005yMh-2H4a
+	id 1tXNuo-00000005z2d-2ECr;
+	Mon, 13 Jan 2025 17:07:50 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tXNtW-00000005ykc-3rVY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 17:02:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 211B55C10E8;
-	Mon, 13 Jan 2025 17:01:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C24DC4CEE7;
-	Mon, 13 Jan 2025 17:02:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736787751;
-	bh=s19CEAGQjEkgbjrj5F4lWFyemfQPSIUWWA4sTAuxhsc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tEwi4e/vhIgJghd19EYbuksAW5q7HTkMSpVJoP8VYVt4QwFqUvCsB16h5YKrhi1Fa
-	 hP1cHUEbGqrQLgQk9JUMNSegzdy3HeVY422dvAT09HKHI2QvKT9gUY/KZWGRvKX6vO
-	 Ali6n7kZZsQ6NfiCslHqyGuPaLwei2YF48oxiwEGH86kyTI3Sds4aQUS0RZr1esKsJ
-	 8qKTqw5ozxd1roZwm+FX7wWfWAuk1Zfc4PLYrozGPA7m+3l8mYGiNT4nIGqW/aWWz9
-	 1QRw2jGsgnqhdmea39B2Q+QDaHD9K0AxizCBwLwTv0SoI+RUV9SW88GSsHiVT5knas
-	 gr00pN0aXqWKw==
-Date: Mon, 13 Jan 2025 17:02:24 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: James Clark <james.clark@linaro.org>, kvmarm@lists.linux.dev,
-	oliver.upton@linux.dev, suzuki.poulose@arm.com,
-	coresight@lists.linaro.org, James Clark <james.clark@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
+	Mon, 13 Jan 2025 17:06:32 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C242312FC;
+	Mon, 13 Jan 2025 09:06:55 -0800 (PST)
+Received: from udebian.localdomain (unknown [10.1.25.34])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2BE843F673;
+	Mon, 13 Jan 2025 09:06:25 -0800 (PST)
+From: Yury Khrustalev <yury.khrustalev@arm.com>
+To: linux-arch@vger.kernel.org
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Sandipan Das <sandipan@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mike Leach <mike.leach@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	"Rob Herring (Arm)" <robh@kernel.org>,
-	Shiqi Liu <shiqiliu@hust.edu.cn>, James Morse <james.morse@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v10 04/10] arm64/sysreg: Add a comment that the sysreg
- file should be sorted
-Message-ID: <996c7843-7f51-49a0-9122-e688e37f9902@sirena.org.uk>
-References: <20250107113252.260631-1-james.clark@linaro.org>
- <20250107113252.260631-5-james.clark@linaro.org>
- <87frloqjso.wl-maz@kernel.org>
- <760969b6-18b7-42ac-9524-2f1f845b3703@linaro.org>
- <86jzaywtea.wl-maz@kernel.org>
+	linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	x86@kernel.org,
+	linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	nd@arm.com,
+	Yury Khrustalev <yury.khrustalev@arm.com>
+Subject: [RESEND v4 0/3] mm/pkey: Add PKEY_UNRESTRICTED macro
+Date: Mon, 13 Jan 2025 17:06:16 +0000
+Message-Id: <20250113170619.484698-1-yury.khrustalev@arm.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="MSJwDqeLzComXiFD"
-Content-Disposition: inline
-In-Reply-To: <86jzaywtea.wl-maz@kernel.org>
-X-Cookie: You will outgrow your usefulness.
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_090232_624715_7A749AF4 
-X-CRM114-Status: GOOD (  14.22  )
+X-CRM114-CacheID: sfid-20250113_090631_030130_B8DAE9BC 
+X-CRM114-Status: UNSURE (   9.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,37 +74,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add PKEY_UNRESTRICTED macro to mman.h and use it in selftests.
 
---MSJwDqeLzComXiFD
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+For context, this change will also allow for more consistent update of the
+Glibc manual which in turn will help with introducing memory protection
+keys on AArch64 targets.
 
-On Mon, Jan 13, 2025 at 04:49:49PM +0000, Marc Zyngier wrote:
-> James Clark <james.clark@linaro.org> wrote:
+Applies to 5bc55a333a2f (tag: v6.13-rc7).
 
-> > I think it's ok if it avoids review comments that new entries should
-> > be sorted. Or maybe we do the opposite and the comment should say this
-> > file is allowed to be unsorted...
+Note that I couldn't build ppc tests so I would appreciate if someone
+could check the 3rd patch. Thank you!
 
-> The better option would be to add the comment *and* sort the file.
-> Leading by example has some value, it seems.
+Signed-off-by: Yury Khrustalev <yury.khrustalev@arm.com>
 
-Yes, please.
+---
+Changes in v4:
+ - Removed change to tools/include/uapi/asm-generic/mman-common.h as it is not
+   necessary.
 
---MSJwDqeLzComXiFD
-Content-Type: application/pgp-signature; name="signature.asc"
+Link to v3: https://lore.kernel.org/all/20241028090715.509527-1-yury.khrustalev@arm.com/
 
------BEGIN PGP SIGNATURE-----
+Changes in v3:
+ - Replaced previously missed 0-s tools/testing/selftests/mm/mseal_test.c
+ - Replaced previously missed 0-s in tools/testing/selftests/mm/mseal_test.c
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmeFRyAACgkQJNaLcl1U
-h9AcyQgAgEUDp38F8GdJqjTrHtAkDZHEDq6Yrc4P5vWgzbfg2Q7T8jVrvvlzHwe3
-S9SGQlI85G6EL33/wiWUUNEuz77CoeS/ZkF0owwRpN43isyMHsZKKsrs2lK/sVEJ
-gF4Irn9vAAA2WsG4UY8DgzF0qcsAcIxv1u7/NQL2EYF+1OuQWfo9ymVjpDrVhpvP
-fxBKS2qbVqqY5cxbXPlgRJtl/3UVAfnwMliD5FsrphywxOszezOv9WdHZMbztWlS
-KXBhGuWBx8Nh1mTjD4Uo3zWHKDwByKW+kTjvaDfN3l0s1obv4UQqf3COc46533b5
-Lb9Nd03wMIJQNAzGPdjooGJWRVhfeQ==
-=FrjU
------END PGP SIGNATURE-----
+Link to v2: https://lore.kernel.org/linux-arch/20241027170006.464252-2-yury.khrustalev@arm.com/
 
---MSJwDqeLzComXiFD--
+Changes in v2:
+ - Update tools/include/uapi/asm-generic/mman-common.h as well
+ - Add usages of the new macro to selftests.
+
+Link to v1: https://lore.kernel.org/linux-arch/20241022120128.359652-1-yury.khrustalev@arm.com/
+
+---
+
+Yury Khrustalev (3):
+  mm/pkey: Add PKEY_UNRESTRICTED macro
+  selftests/mm: Use PKEY_UNRESTRICTED macro
+  selftests/powerpc: Use PKEY_UNRESTRICTED macro
+
+ include/uapi/asm-generic/mman-common.h               | 1 +
+ tools/testing/selftests/mm/mseal_test.c              | 6 +++---
+ tools/testing/selftests/mm/pkey-helpers.h            | 3 ++-
+ tools/testing/selftests/mm/pkey_sighandler_tests.c   | 4 ++--
+ tools/testing/selftests/mm/protection_keys.c         | 2 +-
+ tools/testing/selftests/powerpc/include/pkeys.h      | 2 +-
+ tools/testing/selftests/powerpc/mm/pkey_exec_prot.c  | 2 +-
+ tools/testing/selftests/powerpc/mm/pkey_siginfo.c    | 2 +-
+ tools/testing/selftests/powerpc/ptrace/core-pkey.c   | 6 +++---
+ tools/testing/selftests/powerpc/ptrace/ptrace-pkey.c | 6 +++---
+ 10 files changed, 18 insertions(+), 16 deletions(-)
+
+-- 
+2.39.5
+
 
