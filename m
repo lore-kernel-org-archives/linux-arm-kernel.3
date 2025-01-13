@@ -4,92 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83582C02185
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 14:53:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA3F7C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 14:54:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1s3giDUI3z0SKMOQ7RZwo1PdDhJrl+0Xcjh+T+MelhY=; b=Sw9fyChbDSFWmQbQbfgjTSJeQ5
-	Zo0fzwNKYAhWJjW1rOoorDB90FYYjeslDtgDDO4VIHY/Xt4pAlsaBU9ILLErcSjV8Ab+QUOvUYaj0
-	0dxjvFnwGpzfNirDKj9bwCZwlXD9jGl3OhoaphwtqqrnLnVeFauBUF7BpJhv02kTw460crfG0P7WQ
-	XyP9QvhFJ9ew1yYU0NtvXbVu2ZKa/NoVwarXTh75kaJ/RfIsM5RismON2AkQl4sleM9wuDH4lsi0O
-	fQTGD6vS7zkB85oARdgZMrICoJ6E9Gwrx9YRDoeIS/R/tXztQ33EwHed/aGb81EzZqAcEZWtgMygp
-	i0yRxOuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qZdvOkpfY54aKCJIK50qxEomHmIoRRzgAMrC9DnQsus=; b=AUAg6BP2eiAiuhPXd04TbMfTB9
+	5GKvh2M1ir+ETcwyd1VNclm93wufUQ7Q8kzJLCQs4ECiOWAPhmLKtv0xJct0yyItfmx9LgsXnoDL8
+	sKc4bRha/rWC4DFew9rUPcBctfkKjfZ7MphmtfGP2GxZ+vzkZxxXsBXpXcNLuklOUDOBocZq29LPF
+	7pj1sea9MtVanpMFZr+lhzqfLtJa0ak1ZiS23zQ67mQysP2svXfRzQwkVpnkJhM1w4ciSkSxssOzR
+	N/Ee1Fu/FBTuSEb6+SZOY4tS4lThsirjqp1Eioec3Q5duM0wweyAFR7BZVxenzGEvuaI4QoAw0ORJ
+	0vfupX8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXLoF-00000005UC4-0mNx;
-	Mon, 13 Jan 2025 14:52:55 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1tXLpT-00000005Uy7-16eT;
+	Mon, 13 Jan 2025 14:54:11 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXLm3-00000005TbH-0qt3
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 14:50:40 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43618283d48so31557215e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 06:50:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1736779838; x=1737384638; darn=lists.infradead.org;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=1s3giDUI3z0SKMOQ7RZwo1PdDhJrl+0Xcjh+T+MelhY=;
-        b=pjQGfpC/sLdh9c85R6OAU7QV8eTlnXNoeyzXhIQvBgMS7vQKbu/ep8n2GfxNvoqIFd
-         Uo0xr+myCp8gLqu/QLdoJZXcTx9TQQuffAMXrc4CgwLy5fArILeFXfzWRGc6/1u3MFnH
-         4hsmIISsYWKC9B8Nde8p3lIGdanE/ngXW+GYPY5JdOI0uFn73t+GMc9OyspeUJvgXDfr
-         7tkADx9ytzn03FPKFvT8mRXKfY50lTakg2NiQp68Iy8CGceAXuV1xTGtvvBJ4Kve4mtp
-         gl5I1qEuKXz3r4lzE5jQtunz+0gIAKK9vRLz2UjkserMMiaxGfVYIqG3NIzLcRQfCsrS
-         gG1Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736779838; x=1737384638;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1s3giDUI3z0SKMOQ7RZwo1PdDhJrl+0Xcjh+T+MelhY=;
-        b=XSDjYzs1nNrJTZi0ke+N0HHL1nLnM/AkzjO1DRjkzSZd5vb83zIarttFmXln5EgiGV
-         Pq+lFJtVBccIjnUPFd7s9tiecTGLyiYYMPH0IKwudZZeRY20yy/L45IdUCHWwoRYRqru
-         wYmQkZntMVt7+0xxEzjJ97FEQRmB9hfjagTTQBDBAFJ6kyhSq2e4z7wKzCs58hwkQc6g
-         pgsr/Avq9FbbdqhNJfPpWvgOaR73a/SEF5QdM/MiSEsNEuZCJb3UwBF4fSaJP8yB6HgU
-         d3E+AzYagofqIO5Nf++oyJdcLA7vsZ5QnJ7aeMmUqH/hm6TY3gB70bNAUACpBQuoYeHn
-         DVKw==
-X-Forwarded-Encrypted: i=1; AJvYcCURhIqd50MUJC+hE5jjD8U55tkqniXFlHJ/SJuSJ3UivbYBlyQMrkdfkpTXaeE0R+6OMs4q94oad94y+rxDI7GW@lists.infradead.org
-X-Gm-Message-State: AOJu0YzN2MzJdkP2SYopoJrw1kKKxVoyRGY3ZnNzEhrLCLKAcUAlGORF
-	LZp2Wg1Ug6/sUkdPgncx0Ga3a/43GM7h3NdKWz4y/CZRFm/Y3g7KPnmG0blSTa0=
-X-Gm-Gg: ASbGncsvQ6NzKJC5whCtJbAdLsnkB2EB4FMMdMvAcnQFkPbjTyk5Tt/XErDZmEpi3sl
-	PxBF92ncqxG5wPDuaNtYaXXH0DRdc/YAbFaY5PxzNs5NiXQzxS2t8s3YegupoWIv303Vlo53AiF
-	LnXFXkZMZEU6W29+IiCYPqG7Rns0Sg8beOo1jRCCPs1gQpsuVDCg7ubvc5oHEQGxsHHtoqFxQaF
-	fA7jxLdRVNpsrknKY7Yoo0TWvLVP7CMSVHWLUkTgeEzGM1tsybhV4AI
-X-Google-Smtp-Source: AGHT+IEMaivEZj86NHY87IPoy73STxO4Y+4wLZhIMG2hyxIdVgYKeXAF+6aPgA6Nv71/tRETIaJqTw==
-X-Received: by 2002:a05:600c:4511:b0:434:fe3c:c67c with SMTP id 5b1f17b1804b1-436e26e51eemr168721215e9.26.1736779837618;
-        Mon, 13 Jan 2025 06:50:37 -0800 (PST)
-Received: from localhost ([2a01:e0a:3c5:5fb1:9d2d:28cc:aafd:8429])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e2ddcb5bsm182910565e9.23.2025.01.13.06.50.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jan 2025 06:50:37 -0800 (PST)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: jiebing chen via B4 Relay <devnull+jiebing.chen.amlogic.com@kernel.org>
-Cc: Liam Girdwood <lgirdwood@gmail.com>,  Mark Brown <broonie@kernel.org>,
-  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,
-  Conor Dooley <conor+dt@kernel.org>,  Jaroslav Kysela <perex@perex.cz>,
-  Takashi Iwai <tiwai@suse.com>,  Neil Armstrong
- <neil.armstrong@linaro.org>,  Kevin Hilman <khilman@baylibre.com>,  Martin
- Blumenstingl <martin.blumenstingl@googlemail.com>,
-  jiebing.chen@amlogic.com,  linux-sound@vger.kernel.org,
-  devicetree@vger.kernel.org,  linux-kernel@vger.kernel.org,
-  linux-arm-kernel@lists.infradead.org,  linux-amlogic@lists.infradead.org
-Subject: Re: [PATCH 3/3] arm64: dts: amlogic: Add Amlogic S4 Audio
-In-Reply-To: <20250113-audio_drvier-v1-3-8c14770f38a0@amlogic.com> (jiebing
-	chen via's message of "Mon, 13 Jan 2025 14:35:15 +0800")
-References: <20250113-audio_drvier-v1-0-8c14770f38a0@amlogic.com>
-	<20250113-audio_drvier-v1-3-8c14770f38a0@amlogic.com>
-User-Agent: mu4e 1.12.7; emacs 29.4
-Date: Mon, 13 Jan 2025 15:50:36 +0100
-Message-ID: <1jldve939f.fsf@starbuckisacylon.baylibre.com>
+	id 1tXLnz-00000005U3Y-1884;
+	Mon, 13 Jan 2025 14:52:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1736779957;
+	bh=mOnoaGS/56qjJj1pufHBy52zxphOeqK0rJ4zuw+X9ts=;
+	h=From:To:Cc:Subject:Date:From;
+	b=nrn7QHFd9al6+RLw0cbl6ZqZU06OJhqCfZnwpr1fz2tx+js6xl9H+fHLqXr4dy6NV
+	 hDiVk/XwCghuFWd9GwKjeg/IsGBpulEXuXbCW1OjLc1V/MLJsrxJubxCYjD4DtPDYF
+	 tb6hGnEnEKLYiq0mMfRgIRI9jAfjHLOy/cFqfzIuN2RBMaD4iuYRsM8vlz20b+jCFd
+	 a97ijkN78u/sw4CYfoLFRUfI8C8rsDRarPMYjg2CEEr1yx0P9UzQixr+kafu9ALi9I
+	 QAKabzA29LQPPE880h8GxJaWVrnMn4oPP+83CvDQ3bh20vXddrBhVcTec2cmpv/IQv
+	 WPiZpUyJdi5PQ==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 47AE317E0D9D;
+	Mon, 13 Jan 2025 15:52:36 +0100 (CET)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: chunkuang.hu@kernel.org
+Cc: p.zabel@pengutronix.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	ck.hu@mediatek.com,
+	jitao.shi@mediatek.com,
+	jie.qiu@mediatek.com,
+	junzhi.zhao@mediatek.com,
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kernel@collabora.com,
+	dmitry.baryshkov@linaro.org,
+	lewis.liao@mediatek.com,
+	ives.chenjh@mediatek.com,
+	tommyyl.chen@mediatek.com,
+	jason-jh.lin@mediatek.com
+Subject: [PATCH v5 00/34] Add support for MT8195/88 DPI, HDMIv2 and DDCv2
+Date: Mon, 13 Jan 2025 15:51:58 +0100
+Message-ID: <20250113145232.227674-1-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_065039_263226_B960A667 
-X-CRM114-Status: GOOD (  20.15  )
+X-CRM114-CacheID: sfid-20250113_065239_483350_09D64792 
+X-CRM114-Status: GOOD (  26.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,684 +94,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon 13 Jan 2025 at 14:35, jiebing chen via B4 Relay <devnull+jiebing.chen.amlogic.com@kernel.org> wrote:
+Changes in v5:
+ - Rebased over next-20250113
+ - Resolved merge issues with next-20250113
+ - Added bitfield.h inclusion in mtk_dpi in commit [02/33] to resolve
+   build issue from 0day CI
+ - Removed .atomic_check callback from mtk_hdmi_v2 as it is now part
+   of drm_bridge_connector as pointed out by Dmitry B
+ - Removed call to pm_runtime_disable() as the driver uses devm
+ - Tested again :-)
 
-> From: jiebing chen <jiebing.chen@amlogic.com>
->
-> Add basic audio driver support for the Amlogic S4 based Amlogic
-> AQ222 board.
->
-> Signed-off-by: jiebing chen <jiebing.chen@amlogic.com>
-> ---
->  .../boot/dts/amlogic/meson-s4-s805x2-aq222.dts     | 226 ++++++++++++
->  arch/arm64/boot/dts/amlogic/meson-s4.dtsi          | 385 ++++++++++++++++++++-
->  2 files changed, 610 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dts b/arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dts
-> index 6730c44642d2910d42ec0c4adf49fefc3514dbec..32f50a5b860435d50d9c5528b43422b705b20130 100644
-> --- a/arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dts
-> +++ b/arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dts
-> @@ -75,6 +75,19 @@ vddio_ao1v8: regulator-vddio-ao1v8 {
->  	       regulator-always-on;
->  	};
->  
-> +	vcc5v_reg: regulator-vcc-5v {
-> +		compatible = "regulator-fixed";
-> +		vin-supply = <&main_12v>;
-> +		regulator-name = "VCC5V";
-> +		regulator-min-microvolt = <5000000>;
-> +		regulator-max-microvolt = <5000000>;
-> +		gpio = <&gpio GPIOH_7 GPIO_ACTIVE_HIGH>;
-> +		startup-delay-us = <7000>;
-> +		enable-active-high;
-> +		regulator-boot-on;
-> +		regulator-always-on;
-> +	};
-> +
->  	/* SY8120B1ABC DC/DC Regulator. */
->  	vddcpu: regulator-vddcpu {
->  		compatible = "pwm-regulator";
-> @@ -129,6 +142,219 @@ vddcpu: regulator-vddcpu {
->  				<699000 98>,
->  				<689000 100>;
->  	};
-> +	dmics: audio-codec-1 {
-> +		compatible = "dmic-codec";
-> +		#sound-dai-cells = <0>;
-> +		num-channels = <2>;
-> +		wakeup-delay-ms = <50>;
-> +		sound-name-prefix = "MIC";
-> +	};
-> +
-> +	dioo2133: audio-amplifier-0 {
-> +		compatible = "simple-audio-amplifier";
-> +		enable-gpios = <&gpio GPIOH_8 GPIO_ACTIVE_HIGH>;
-> +		VCC-supply = <&vcc5v_reg>;
-> +		#sound-dai-cells = <0>;
-> +		sound-name-prefix = "10U2";
-> +	};
-> +
-> +	spdif_dir: audio-spdif-in {
-> +		compatible = "linux,spdif-dir";
-> +		#sound-dai-cells = <0>;
-> +		sound-name-prefix = "DIR";
-> +	};
-> +
-> +	spdif_dit: audio-spdif-out {
-> +		compatible = "linux,spdif-dit";
-> +		#sound-dai-cells = <0>;
-> +		sound-name-prefix = "DIT";
-> +	};
-> +
-> +	sound {
-> +		compatible = "amlogic,axg-sound-card";
-> +		model = "aq222";
-> +		audio-widgets = "Line", "Lineout";
-> +		audio-aux-devs = <&tdmout_a>, <&tdmout_b>, <&tdmout_c>,
-> +				 <&tdmin_a>, <&tdmin_b>, <&tdmin_c>,
-> +				 <&tdmin_lb>, <&dioo2133>, <&tdmout_pad>, <&toacodec>;
-> +		audio-routing = "TDMOUT_A IN 0", "FRDDR_A OUT 0",
-> +				"TDMOUT_A IN 1", "FRDDR_B OUT 0",
-> +				"TDMOUT_A IN 2", "FRDDR_C OUT 0",
-> +				"TDM_A Playback", "TDMOUT_A OUT",
-> +				"TDMA_OUT SEL",   "TDM_A Playback",
-> +				"TDMOUT_B IN 0", "FRDDR_A OUT 1",
-> +				"TDMOUT_B IN 1", "FRDDR_B OUT 1",
-> +				"TDMOUT_B IN 2", "FRDDR_C OUT 1",
-> +				"TDM_B Playback", "TDMOUT_B OUT",
-> +				"TDMB_OUT SEL",   "TDM_B Playback",
-> +				"TDMOUT_C IN 0", "FRDDR_A OUT 2",
-> +				"TDMOUT_C IN 1", "FRDDR_B OUT 2",
-> +				"TDMOUT_C IN 2", "FRDDR_C OUT 2",
-> +				"TDM_C Playback", "TDMOUT_C OUT",
-> +				"TDMC_OUT SEL",   "TDM_C Playback",
-> +				"TOACODEC TDMA", "TDM_A Playback",
-> +				"TOACODEC TDMB", "TDM_B Playback",
-> +				"TOACODEC TDMC", "TDM_C Playback",
-> +				"SPDIFOUT_A IN 0", "FRDDR_A OUT 3",
-> +				"SPDIFOUT_A IN 1", "FRDDR_B OUT 3",
-> +				"SPDIFOUT_A IN 2", "FRDDR_C OUT 3",
-> +				"SPDIFOUT_B IN 0", "FRDDR_A OUT 4",
-> +				"SPDIFOUT_B IN 1", "FRDDR_B OUT 4",
-> +				"SPDIFOUT_B IN 2", "FRDDR_C OUT 4",
-> +				"TDMIN_A IN 0", "TDM_A Capture",
-> +				"TDMIN_A IN 1", "TDM_B Capture",
-> +				"TDMIN_A IN 2", "TDM_C Capture",
-> +				"TDMIN_A IN 3", "TDM_A Loopback",
-> +				"TDMIN_A IN 4", "TDM_B Loopback",
-> +				"TDMIN_A IN 5", "TDM_C Loopback",
-> +				"TDMIN_B IN 0", "TDM_A Capture",
-> +				"TDMIN_B IN 1", "TDM_B Capture",
-> +				"TDMIN_B IN 2", "TDM_C Capture",
-> +				"TDMIN_B IN 3", "TDM_A Loopback",
-> +				"TDMIN_B IN 4", "TDM_B Loopback",
-> +				"TDMIN_B IN 5", "TDM_C Loopback",
-> +				"TDMIN_C IN 0", "TDM_A Capture",
-> +				"TDMIN_C IN 1", "TDM_B Capture",
-> +				"TDMIN_C IN 2", "TDM_C Capture",
-> +				"TDMIN_C IN 3", "TDM_A Loopback",
-> +				"TDMIN_C IN 4", "TDM_B Loopback",
-> +				"TDMIN_C IN 5", "TDM_C Loopback",
-> +				"TDMIN_LB IN 3", "TDM_A Capture",
-> +				"TDMIN_LB IN 4", "TDM_B Capture",
-> +				"TDMIN_LB IN 5", "TDM_C Capture",
-> +				"TDMIN_LB IN 0", "TDM_A Loopback",
-> +				"TDMIN_LB IN 1", "TDM_B Loopback",
-> +				"TDMIN_LB IN 2", "TDM_C Loopback",
-> +				"TODDR_A IN 0", "TDMIN_A OUT",
-> +				"TODDR_B IN 0", "TDMIN_A OUT",
-> +				"TODDR_C IN 0", "TDMIN_A OUT",
-> +				"TODDR_A IN 1", "TDMIN_B OUT",
-> +				"TODDR_B IN 1", "TDMIN_B OUT",
-> +				"TODDR_C IN 1", "TDMIN_B OUT",
-> +				"TODDR_A IN 2", "TDMIN_C OUT",
-> +				"TODDR_B IN 2", "TDMIN_C OUT",
-> +				"TODDR_C IN 2", "TDMIN_C OUT",
-> +				"TODDR_A IN 3", "SPDIFIN Capture",
-> +				"TODDR_B IN 3", "SPDIFIN Capture",
-> +				"TODDR_C IN 3", "SPDIFIN Capture",
-> +				"TODDR_A IN 6", "TDMIN_LB OUT",
-> +				"TODDR_B IN 6", "TDMIN_LB OUT",
-> +				"TODDR_C IN 6", "TDMIN_LB OUT",
-> +				"10U2 INL", "ACODEC LOLP",
-> +				"10U2 INR", "ACODEC LORP",
-> +				"Lineout", "10U2 OUTL",
-> +				"Lineout", "10U2 OUTR";
-> +		assigned-clocks = <&clkc_pll CLKID_HIFI_PLL>,
-> +				  <&clkc_pll CLKID_MPLL2>,
-> +				  <&clkc_pll CLKID_MPLL0>,
-> +				  <&clkc_pll CLKID_MPLL1>;
-> +		assigned-clock-rates = <491520000>,
-> +				       <294912000>,
-> +				       <270950400>,
-> +				       <393216000>;
+Changes in v4:
+ - DDCv2 binding erroneously dropped in v3 is included again (oops!)
+ - Added reference to dai-common.yaml in HDMIv2 binding
+ - Dropped pinctrl entries from HDMIv2 binding
+ - Fixed required list in HDMIv2 binding and changed node name to
+   'hdmi' instead of 'hdmi-tx'
+ - Fixed issue in mtk_hdmi derived from wrong commit splitting action
+   from version 3
+ - Exported necessary symbols and added namespaces for those
+ - Fixed module build for both HDMIv1 and HDMIv2
+ - Other cleanups
 
-Why do you need 4 base rates ? Which rate family does each provide ?
+Changes in v3:
+ - Added hpd_enable() and hpd_disable() callbacks as suggested by Dmitry B
+ - Removed audio mute call in bridge_enable() as suggested by CK
+ - Reworked commonization commits for mtk_hdmi/mtk_hdmi_common and split
+   out debugfs/abist implementation as suggested by CK
+ - Removed .mode_valid() callback as it is now provided by the bridge
+   API in drm_bridge_connector_helper_funcs
+ - A bit of cleanups here and there
+ - Tested again on HW especially for new hpd_enable/disable callbacks.
 
-> +
-> +		dai-link-0 {
-> +			sound-dai = <&frddr_a>;
-> +		};
-> +
-> +		dai-link-1 {
-> +			sound-dai = <&frddr_b>;
-> +		};
-> +
-> +		dai-link-2 {
-> +			sound-dai = <&frddr_c>;
-> +		};
-> +
-> +		dai-link-3 {
-> +			sound-dai = <&toddr_a>;
-> +		};
-> +
-> +		dai-link-4 {
-> +			sound-dai = <&toddr_b>;
-> +		};
-> +
-> +		dai-link-5 {
-> +			sound-dai = <&toddr_c>;
-> +		};
-> +
-> +		/* Connected to the WIFI/BT chip */
-> +		dai-link-6 {
-> +			sound-dai = <&tdmif_a>;
-> +			dai-format = "dsp_a";
-> +			dai-tdm-slot-tx-mask-0 = <1 1>;
-> +			mclk-fs = <256>;
-> +			codec-0 {
-> +				sound-dai = <&tohdmitx TOHDMITX_I2S_IN_A>;
-> +			};
-> +		};
-> +
-> +		/* Connected to the onboard AD82584F DAC */
-> +		dai-link-7 {
-> +			sound-dai = <&tdmif_b>;
-> +			dai-format = "i2s";
-> +			dai-tdm-slot-tx-mask-0 = <1 1>;
-> +			mclk-fs = <256>;
-> +
-> +			codec-0 {
-> +				sound-dai = <&acodec>;
-> +			};
-> +
-> +			codec-1 {
-> +				sound-dai = <&tohdmitx TOHDMITX_I2S_IN_B>;
-> +			};
-> +		};
-> +
-> +		/* 8ch HDMI interface */
-> +		dai-link-8 {
-> +			sound-dai = <&tdmif_c>;
-> +			dai-format = "i2s";
-> +			dai-tdm-slot-tx-mask-0 = <1 1>;
-> +			dai-tdm-slot-tx-mask-1 = <1 1>;
-> +			dai-tdm-slot-tx-mask-2 = <1 1>;
-> +			dai-tdm-slot-tx-mask-3 = <1 1>;
-> +			mclk-fs = <256>;
-> +
-> +			codec-0 {
-> +				sound-dai = <&acodec>;
-> +			};
-> +
-> +			codec-1 {
-> +				sound-dai = <&tohdmitx TOHDMITX_I2S_IN_C>;
-> +			};
-> +		};
-> +
-> +		/* spdif hdmi and coax output */
-> +		dai-link-9 {
-> +			sound-dai = <&spdifout_a>;
-> +
-> +			codec-0 {
-> +				sound-dai = <&spdif_dit>;
-> +			};
-> +
-> +			codec-1 {
-> +				sound-dai = <&tohdmitx TOHDMITX_SPDIF_IN_A>;
-> +			};
-> +		};
-> +
-> +		/* spdif hdmi interface */
-> +		dai-link-10 {
-> +			sound-dai = <&spdifout_b>;
-> +
-> +			codec {
-> +				sound-dai = <&tohdmitx TOHDMITX_SPDIF_IN_B>;
-> +			};
-> +		};
-> +
-> +		/* spdif coax input */
-> +		dai-link-11 {
-> +			sound-dai = <&spdifin>;
-> +
-> +			codec {
-> +				sound-dai = <&spdif_dir>;
-> +			};
-> +		};
-> +	};
-> +
->  };
->  
->  &pwm_ef {
-> diff --git a/arch/arm64/boot/dts/amlogic/meson-s4.dtsi b/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
-> index 957577d986c0675a503115e1ccbc4387c2051620..87a00ace23131e31822bb43fbe956b8abcbaef40 100644
-> --- a/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
-> +++ b/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
-> @@ -11,7 +11,11 @@
->  #include <dt-bindings/clock/amlogic,s4-peripherals-clkc.h>
->  #include <dt-bindings/power/meson-s4-power.h>
->  #include <dt-bindings/reset/amlogic,meson-s4-reset.h>
-> -
-> +#include <dt-bindings/clock/axg-audio-clkc.h>
-> +#include <dt-bindings/reset/amlogic,meson-axg-audio-arb.h>
-> +#include <dt-bindings/reset/amlogic,meson-g12a-audio-reset.h>
-> +#include <dt-bindings/sound/meson-g12a-toacodec.h>
-> +#include <dt-bindings/sound/meson-g12a-tohdmitx.h>
->  / {
->  	cpus {
->  		#address-cells = <2>;
-> @@ -46,6 +50,42 @@ cpu3: cpu@3 {
->  		};
->  	};
->  
-> +	tdmif_a: audio-controller-0 {
-> +		compatible = "amlogic,axg-tdm-iface";
-> +		#sound-dai-cells = <0>;
-> +		sound-name-prefix = "TDM_A";
-> +		clocks = <&clkc_audio AUD_CLKID_MST_A_MCLK>,
-> +			 <&clkc_audio AUD_CLKID_MST_A_SCLK>,
-> +			 <&clkc_audio AUD_CLKID_MST_A_LRCLK>;
-> +		clock-names = "mclk", "sclk", "lrclk";
-> +		assigned-clocks = <&clkc_audio AUD_CLKID_MST_A_MCLK_SEL>;
-> +		assigned-clock-parents = <&clkc_pll CLKID_HIFI_PLL>;
+Changes in v2:
+ - Merged series "Add support for MT8195/8188 and Pattern Generator"
+   and "drm/mediatek: Add support for HDMIv2 and DDCv2 IPs" in one
+   as they are directly related, as requested by CK Hu
+ - More commonization: moved some audio functions to mtk_hdmi_common
+ - Fixed a bug in DDCv2 driver to allow sending a message with len=1
+ - Renamed some functions in HDMIv2 to consistently use the prefix
+   mtk_hdmi_v2_ across the driver
+ - Added .mode_valid() callback to HDMIv2
+ - Added .atomic_check() callback to HDMIv2
+ - Reordered drm_bridge_funcs in HDMIv2 driver
+ - Rewritten .edid_read() callback in HDMIv2 to move checking audio
+   availability to bridge_pre_enable() stage, and to stop using the
+   drm_edid_read_ddc() in favor of drm_edid_read()
+ - Added support for API provided HDMI Helpers
+ - Added .tmds_char_rate_valid() callback to HDMIv2 for HDMI helpers
+ - Added .hdmi_{read,write}_infoframe() callback to HDMIv2 for helpers
+ - Added support for Vendor infoframes in HDMIv2
+ - Added missing audio-dai-cells to HDMIv2 binding to fix check error
+ - Added more information to the HDMIv2 binding for clocks and PHY
+ - Added some comments to the HDMIv2 code to clarify why the controller
+   is preconfigured in bridge_pre_enable() instead of bridge_enable()
+ - Added a mention of the differences in HPD between v1 and v2 to the
+   commit introducing the v2 driver (v2 is not using CEC for HPD)
+ - ...and tested again on HW! :-)
 
-Based on clock provider used, I doubt this is of any use.
 
-> +	};
-> +
-> +	tdmif_b: audio-controller-1 {
-> +		compatible = "amlogic,axg-tdm-iface";
-> +		#sound-dai-cells = <0>;
-> +		sound-name-prefix = "TDM_B";
-> +		clocks = <&clkc_audio AUD_CLKID_MST_B_MCLK>,
-> +			 <&clkc_audio AUD_CLKID_MST_B_SCLK>,
-> +			 <&clkc_audio AUD_CLKID_MST_B_LRCLK>;
-> +		clock-names = "mclk", "sclk", "lrclk";
-> +		assigned-clocks = <&clkc_audio AUD_CLKID_MST_B_MCLK_SEL>;
-> +		assigned-clock-parents = <&clkc_pll CLKID_HIFI_PLL>;
-> +	};
-> +
-> +	tdmif_c: audio-controller-2 {
-> +		compatible = "amlogic,axg-tdm-iface";
-> +		#sound-dai-cells = <0>;
-> +		sound-name-prefix = "TDM_C";
-> +		clocks = <&clkc_audio AUD_CLKID_MST_C_MCLK>,
-> +			 <&clkc_audio AUD_CLKID_MST_C_SCLK>,
-> +			 <&clkc_audio AUD_CLKID_MST_C_LRCLK>;
-> +		clock-names = "mclk", "sclk", "lrclk";
-> +		assigned-clocks = <&clkc_audio AUD_CLKID_MST_C_MCLK_SEL>;
-> +		assigned-clock-parents = <&clkc_pll CLKID_HIFI_PLL>;
-> +	};
-> +
->  	timer {
->  		compatible = "arm,armv8-timer";
->  		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-> @@ -850,3 +890,346 @@ emmc: mmc@fe08c000 {
->  		};
->  	};
->  };
-> +
-> +&apb4 {
-> +	audio: bus@330000 {
-> +		compatible = "simple-bus";
-> +		reg = <0x0 0x330000 0x0 0x1000>;
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		ranges = <0x0 0x0 0x0 0x330000 0x0 0x1000>;
-> +
-> +		clkc_audio: clock-controller@0 {
-> +			compatible = "amlogic,sm1-audio-clkc";
+This series adds support for the HDMI-TX v2 Encoder and DDCv2, and for
+the direct connection DPI as found in MT8195, MT8188 and their variants.
 
-I suspect the DT folks would like having SoC specific compatible in
-addition to the fall back. In that case, I think that would be wise. I
-doubt the compatibility will hold in the long run.
+Tested on Genio 700 EVK:
+ - ABIST ON: ok, pattern generated internally from HDMI is shown on
+   HDMI screen at the correct resolution;
+ - ABIST OFF + DPI Pattern Generator ON: ok, pattern coming from DPI is
+   shown on HDMI screen at the correct resolution;
+ - Can negotiate up to 4k60
 
-Same goes for the other HW components.
+and on MT8395 Radxa NIO 12L:
+ - ABIST ON: ok, pattern generated internally from HDMI is shown on
+   HDMI screen at the correct resolution;
+ - ABIST OFF + DPI Pattern Generator ON: ok, pattern coming from DPI is
+   shown on HDMI screen at the correct resolution;
+ - Dual screen usecase validated (DSI + HDMI 3840x2160p 60Hz)
+ - Can negotiate up to 4k60
 
-> +			reg = <0x0 0x0 0x0 0xb4>;
-> +			#clock-cells = <1>;
-> +			#reset-cells = <1>;
-> +			power-domains = <&pwrc PWRC_S4_AUDIO_ID>;
-> +			clocks = <&clkc_periphs CLKID_AUDIO>,
-> +				 <&clkc_pll CLKID_MPLL0>,
-> +				 <&clkc_pll CLKID_MPLL1>,
-> +				 <&clkc_pll CLKID_MPLL2>,
-> +				 <&clkc_pll CLKID_MPLL3>,
-> +				 <&clkc_pll CLKID_HIFI_PLL>,
-> +				 <&clkc_pll CLKID_FCLK_DIV3>,
-> +				 <&clkc_pll CLKID_FCLK_DIV4>,
-> +				 <&clkc_pll CLKID_FCLK_DIV5>;
-> +			clock-names = "pclk",
-> +				      "mst_in0",
-> +				      "mst_in1",
-> +				      "mst_in2",
-> +				      "mst_in3",
-> +				      "mst_in4",
-> +				      "mst_in5",
-> +				      "mst_in6",
-> +				      "mst_in7";
-> +
-> +			resets = <&reset RESET_AUDIO>;
-> +		};
-> +
-> +		toddr_a: audio-controller@100 {
-> +			compatible = "amlogic,sm1-toddr",
-> +				     "amlogic,axg-toddr";
-> +			reg = <0x0 0x100 0x0 0x2c>;
-> +			#sound-dai-cells = <0>;
-> +			sound-name-prefix = "TODDR_A";
-> +			interrupts = <GIC_SPI 32 IRQ_TYPE_EDGE_RISING>;
-> +			clocks = <&clkc_audio AUD_CLKID_TODDR_A>;
-> +			resets = <&arb AXG_ARB_TODDR_A>,
-> +				 <&clkc_audio AUD_RESET_TODDR_A>;
-> +			reset-names = "arb", "rst";
-> +			amlogic,fifo-depth = <8192>;
-> +		};
-> +
-> +		toddr_b: audio-controller@140 {
-> +			compatible = "amlogic,sm1-toddr",
-> +				     "amlogic,axg-toddr";
-> +			reg = <0x0 0x140 0x0 0x2c>;
-> +			#sound-dai-cells = <0>;
-> +			sound-name-prefix = "TODDR_B";
-> +			interrupts = <GIC_SPI 33 IRQ_TYPE_EDGE_RISING>;
-> +			clocks = <&clkc_audio AUD_CLKID_TODDR_B>;
-> +			resets = <&arb AXG_ARB_TODDR_B>,
-> +				 <&clkc_audio AUD_RESET_TODDR_B>;
-> +			reset-names = "arb", "rst";
-> +			amlogic,fifo-depth = <256>;
-> +		};
-> +
-> +		toddr_c: audio-controller@180 {
-> +			compatible = "amlogic,sm1-toddr",
-> +				     "amlogic,axg-toddr";
-> +			reg = <0x0 0x180 0x0 0x2c>;
-> +			#sound-dai-cells = <0>;
-> +			sound-name-prefix = "TODDR_C";
-> +			interrupts = <GIC_SPI 34 IRQ_TYPE_EDGE_RISING>;
-> +			clocks = <&clkc_audio AUD_CLKID_TODDR_C>;
-> +			resets = <&arb AXG_ARB_TODDR_C>,
-> +				 <&clkc_audio AUD_RESET_TODDR_C>;
-> +			reset-names = "arb", "rst";
-> +			amlogic,fifo-depth = <256>;
-> +		};
-> +
-> +		frddr_a: audio-controller@1c0 {
-> +			compatible = "amlogic,sm1-frddr",
-> +				     "amlogic,axg-frddr";
-> +			reg = <0x0 0x1c0 0x0 0x2c>;
-> +			#sound-dai-cells = <0>;
-> +			sound-name-prefix = "FRDDR_A";
-> +			interrupts = <GIC_SPI 36 IRQ_TYPE_EDGE_RISING>;
-> +			clocks = <&clkc_audio AUD_CLKID_FRDDR_A>;
-> +			resets = <&arb AXG_ARB_FRDDR_A>,
-> +				 <&clkc_audio AUD_RESET_FRDDR_A>;
-> +			reset-names = "arb", "rst";
-> +			amlogic,fifo-depth = <512>;
-> +		};
-> +
-> +		frddr_b: audio-controller@200 {
-> +			compatible = "amlogic,sm1-frddr",
-> +				     "amlogic,axg-frddr";
-> +			reg = <0x0 0x200 0x0 0x2c>;
-> +			#sound-dai-cells = <0>;
-> +			sound-name-prefix = "FRDDR_B";
-> +			interrupts = <GIC_SPI 37 IRQ_TYPE_EDGE_RISING>;
-> +			clocks = <&clkc_audio AUD_CLKID_FRDDR_B>;
-> +			resets = <&arb AXG_ARB_FRDDR_B>,
-> +				 <&clkc_audio AUD_RESET_FRDDR_B>;
-> +			reset-names = "arb", "rst";
-> +			amlogic,fifo-depth = <256>;
-> +		};
-> +
-> +		frddr_c: audio-controller@240 {
-> +			compatible = "amlogic,sm1-frddr",
-> +				     "amlogic,axg-frddr";
-> +			reg = <0x0 0x240 0x0 0x2c>;
-> +			#sound-dai-cells = <0>;
-> +			sound-name-prefix = "FRDDR_C";
-> +			interrupts = <GIC_SPI 38 IRQ_TYPE_EDGE_RISING>;
-> +			clocks = <&clkc_audio AUD_CLKID_FRDDR_C>;
-> +			resets = <&arb AXG_ARB_FRDDR_C>,
-> +				 <&clkc_audio AUD_RESET_FRDDR_C>;
-> +			reset-names = "arb", "rst";
-> +			amlogic,fifo-depth = <256>;
-> +		};
-> +
-> +		arb: reset-controller@280 {
-> +			compatible = "amlogic,meson-sm1-audio-arb";
-> +			reg = <0x0 0x280 0x0 0x4>;
-> +			#reset-cells = <1>;
-> +			clocks = <&clkc_audio AUD_CLKID_DDR_ARB>;
-> +		};
-> +
-> +		tdmin_a: audio-controller@300 {
-> +			compatible = "amlogic,sm1-tdmin",
-> +				     "amlogic,axg-tdmin";
-> +			reg = <0x0 0x300 0x0 0x40>;
-> +			sound-name-prefix = "TDMIN_A";
-> +			resets = <&clkc_audio AUD_RESET_TDMIN_A>;
-> +			clocks = <&clkc_audio AUD_CLKID_TDMIN_A>,
-> +				 <&clkc_audio AUD_CLKID_TDMIN_A_SCLK>,
-> +				 <&clkc_audio AUD_CLKID_TDMIN_A_SCLK_SEL>,
-> +				 <&clkc_audio AUD_CLKID_TDMIN_A_LRCLK>,
-> +				 <&clkc_audio AUD_CLKID_TDMIN_A_LRCLK>;
-> +			clock-names = "pclk", "sclk", "sclk_sel",
-> +				      "lrclk", "lrclk_sel";
-> +		};
-> +
-> +		tdmin_b: audio-controller@340 {
-> +			compatible = "amlogic,sm1-tdmin",
-> +				     "amlogic,axg-tdmin";
-> +			reg = <0x0 0x340 0x0 0x40>;
-> +			sound-name-prefix = "TDMIN_B";
-> +			resets = <&clkc_audio AUD_RESET_TDMIN_B>;
-> +			clocks = <&clkc_audio AUD_CLKID_TDMIN_B>,
-> +				 <&clkc_audio AUD_CLKID_TDMIN_B_SCLK>,
-> +				 <&clkc_audio AUD_CLKID_TDMIN_B_SCLK_SEL>,
-> +				 <&clkc_audio AUD_CLKID_TDMIN_B_LRCLK>,
-> +				 <&clkc_audio AUD_CLKID_TDMIN_B_LRCLK>;
-> +			clock-names = "pclk", "sclk", "sclk_sel",
-> +				      "lrclk", "lrclk_sel";
-> +		};
-> +
-> +		tdmin_c: audio-controller@380 {
-> +			compatible = "amlogic,sm1-tdmin",
-> +				     "amlogic,axg-tdmin";
-> +			reg = <0x0 0x380 0x0 0x40>;
-> +			sound-name-prefix = "TDMIN_C";
-> +			resets = <&clkc_audio AUD_RESET_TDMIN_C>;
-> +			clocks = <&clkc_audio AUD_CLKID_TDMIN_C>,
-> +				 <&clkc_audio AUD_CLKID_TDMIN_C_SCLK>,
-> +				 <&clkc_audio AUD_CLKID_TDMIN_C_SCLK_SEL>,
-> +				 <&clkc_audio AUD_CLKID_TDMIN_C_LRCLK>,
-> +				 <&clkc_audio AUD_CLKID_TDMIN_C_LRCLK>;
-> +			clock-names = "pclk", "sclk", "sclk_sel",
-> +				      "lrclk", "lrclk_sel";
-> +		};
-> +
-> +		tdmin_lb: audio-controller@3c0 {
-> +			compatible = "amlogic,sm1-tdmin",
-> +				     "amlogic,axg-tdmin";
-> +			reg = <0x0 0x3c0 0x0 0x40>;
-> +			sound-name-prefix = "TDMIN_LB";
-> +			resets = <&clkc_audio AUD_RESET_TDMIN_LB>;
-> +			clocks = <&clkc_audio AUD_CLKID_TDMIN_LB>,
-> +				 <&clkc_audio AUD_CLKID_TDMIN_LB_SCLK>,
-> +				 <&clkc_audio AUD_CLKID_TDMIN_LB_SCLK_SEL>,
-> +				 <&clkc_audio AUD_CLKID_TDMIN_LB_LRCLK>,
-> +				 <&clkc_audio AUD_CLKID_TDMIN_LB_LRCLK>;
-> +			clock-names = "pclk", "sclk", "sclk_sel",
-> +				      "lrclk", "lrclk_sel";
-> +		};
-> +
-> +		spdifin: audio-controller@400 {
-> +			compatible = "amlogic,g12a-spdifin",
-> +				     "amlogic,axg-spdifin";
-> +			reg = <0x0 0x400 0x0 0x30>;
-> +			#sound-dai-cells = <0>;
-> +			sound-name-prefix = "SPDIFIN";
-> +			interrupts = <GIC_SPI 151 IRQ_TYPE_EDGE_RISING>;
-> +			clocks = <&clkc_audio AUD_CLKID_SPDIFIN>,
-> +			<&clkc_audio AUD_CLKID_SPDIFIN_CLK>;
-> +			clock-names = "pclk", "refclk";
-> +			resets = <&clkc_audio AUD_RESET_SPDIFIN>;
-> +		};
-> +
-> +		spdifout_a: audio-controller@480 {
-> +			compatible = "amlogic,g12a-spdifout",
-> +				     "amlogic,axg-spdifout";
-> +			reg = <0x0 0x480 0x0 0x50>;
-> +			#sound-dai-cells = <0>;
-> +			sound-name-prefix = "SPDIFOUT_A";
-> +			clocks = <&clkc_audio AUD_CLKID_SPDIFOUT>,
-> +			<&clkc_audio AUD_CLKID_SPDIFOUT_CLK>;
-> +			clock-names = "pclk", "mclk";
-> +			resets = <&clkc_audio AUD_RESET_SPDIFOUT>;
-> +		};
-> +
-> +		tdmout_a: audio-controller@500 {
-> +			compatible = "amlogic,sm1-tdmout";
-> +			reg = <0x0 0x500 0x0 0x40>;
-> +			sound-name-prefix = "TDMOUT_A";
-> +			resets = <&clkc_audio AUD_RESET_TDMOUT_A>;
-> +			clocks = <&clkc_audio AUD_CLKID_TDMOUT_A>,
-> +				 <&clkc_audio AUD_CLKID_TDMOUT_A_SCLK>,
-> +				 <&clkc_audio AUD_CLKID_TDMOUT_A_SCLK_SEL>,
-> +				 <&clkc_audio AUD_CLKID_TDMOUT_A_LRCLK>,
-> +				 <&clkc_audio AUD_CLKID_TDMOUT_A_LRCLK>;
-> +			clock-names = "pclk", "sclk", "sclk_sel",
-> +				      "lrclk", "lrclk_sel";
-> +		};
-> +
-> +		tdmout_b: audio-controller@540 {
-> +			compatible = "amlogic,sm1-tdmout";
-> +			reg = <0x0 0x540 0x0 0x40>;
-> +			sound-name-prefix = "TDMOUT_B";
-> +			resets = <&clkc_audio AUD_RESET_TDMOUT_B>;
-> +			clocks = <&clkc_audio AUD_CLKID_TDMOUT_B>,
-> +				 <&clkc_audio AUD_CLKID_TDMOUT_B_SCLK>,
-> +				 <&clkc_audio AUD_CLKID_TDMOUT_B_SCLK_SEL>,
-> +				 <&clkc_audio AUD_CLKID_TDMOUT_B_LRCLK>,
-> +				 <&clkc_audio AUD_CLKID_TDMOUT_B_LRCLK>;
-> +			clock-names = "pclk", "sclk", "sclk_sel",
-> +				      "lrclk", "lrclk_sel";
-> +		};
-> +
-> +		tdmout_c: audio-controller@580 {
-> +			compatible = "amlogic,sm1-tdmout";
-> +			reg = <0x0 0x580 0x0 0x40>;
-> +			sound-name-prefix = "TDMOUT_C";
-> +			resets = <&clkc_audio AUD_RESET_TDMOUT_C>;
-> +			clocks = <&clkc_audio AUD_CLKID_TDMOUT_C>,
-> +				 <&clkc_audio AUD_CLKID_TDMOUT_C_SCLK>,
-> +				 <&clkc_audio AUD_CLKID_TDMOUT_C_SCLK_SEL>,
-> +				 <&clkc_audio AUD_CLKID_TDMOUT_C_LRCLK>,
-> +				 <&clkc_audio AUD_CLKID_TDMOUT_C_LRCLK>;
-> +			clock-names = "pclk", "sclk", "sclk_sel",
-> +				      "lrclk", "lrclk_sel";
-> +		};
-> +
-> +		spdifout_b: audio-controller@680 {
-> +			compatible = "amlogic,g12a-spdifout",
-> +				     "amlogic,axg-spdifout";
-> +			reg = <0x0 0x680 0x0 0x50>;
-> +			#sound-dai-cells = <0>;
-> +			sound-name-prefix = "SPDIFOUT_B";
-> +			clocks = <&clkc_audio AUD_CLKID_SPDIFOUT_B>,
-> +				 <&clkc_audio AUD_CLKID_SPDIFOUT_B_CLK>;
-> +			clock-names = "pclk", "mclk";
-> +			resets = <&clkc_audio AUD_RESET_SPDIFOUT_B>;
-> +		};
-> +
-> +		toacodec: audio-controller@740 {
-> +			compatible = "amlogic,s4-tocodec";
-> +			reg = <0x0 0x740 0x0 0x4>;
-> +			sound-name-prefix = "TOACODEC";
-> +			resets = <&clkc_audio AUD_RESET_TOACODEC>;
-> +		};
-> +
-> +		tohdmitx: audio-controller@744 {
-> +			compatible = "amlogic,sm1-tohdmitx",
-> +				     "amlogic,g12a-tohdmitx";
-> +			reg = <0x0 0x744 0x0 0x4>;
-> +			#sound-dai-cells = <1>;
-> +			sound-name-prefix = "TOHDMITX";
-> +			resets = <&clkc_audio AUD_RESET_TOHDMITX>;
-> +		};
-> +
-> +		toddr_d: audio-controller@840 {
-> +			compatible = "amlogic,sm1-toddr",
-> +				     "amlogic,axg-toddr";
-> +			reg = <0x0 0x840 0x0 0x2c>;
-> +			#sound-dai-cells = <0>;
-> +			sound-name-prefix = "TODDR_D";
-> +			interrupts = <GIC_SPI 45 IRQ_TYPE_EDGE_RISING>;
-> +			clocks = <&clkc_audio AUD_CLKID_TODDR_D>;
-> +			resets = <&arb AXG_ARB_TODDR_D>,
-> +				 <&clkc_audio AUD_RESET_TODDR_D>;
-> +			reset-names = "arb", "rst";
-> +			amlogic,fifo-depth = <256>;
-> +		};
-> +
-> +		frddr_d: audio-controller@880 {
-> +			 compatible = "amlogic,sm1-frddr",
-> +				      "amlogic,axg-frddr";
-> +			reg = <0x0 0x880 0x0 0x2c>;
-> +			#sound-dai-cells = <0>;
-> +			sound-name-prefix = "FRDDR_D";
-> +			interrupts = <GIC_SPI 46 IRQ_TYPE_EDGE_RISING>;
-> +			clocks = <&clkc_audio AUD_CLKID_FRDDR_D>;
-> +			resets = <&arb AXG_ARB_FRDDR_D>,
-> +				 <&clkc_audio AUD_RESET_FRDDR_D>;
-> +			reset-names = "arb", "rst";
-> +			amlogic,fifo-depth = <256>;
-> +		};
-> +
-> +		tdmout_pad: audio-controller@E58 {
-> +			compatible = "amlogic,s4-tdmout-pad";
-> +			reg = <0x0 0xe58 0x0 0x28>;
-> +		};
-> +	};
-> +
-> +	pdm: audio-controller@331000 {
-> +		compatible = "amlogic,sm1-pdm",
-> +			     "amlogic,axg-pdm";
-> +		reg = <0x0 0x331000 0x0 0x34>;
-> +		#sound-dai-cells = <0>;
-> +		sound-name-prefix = "PDM";
-> +		clocks = <&clkc_audio AUD_CLKID_PDM>,
-> +			 <&clkc_audio AUD_CLKID_PDM_DCLK>,
-> +			 <&clkc_audio AUD_CLKID_PDM_SYSCLK>;
-> +		clock-names = "pclk", "dclk", "sysclk";
-> +		resets = <&clkc_audio AUD_RESET_PDM>;
-> +		assigned-clocks = <&clkc_audio AUD_CLKID_PDM_DCLK_SEL>,
-> +				  <&clkc_audio AUD_CLKID_PDM_SYSCLK_SEL>;
-> +		assigned-clock-parents = <&clkc_pll CLKID_HIFI_PLL>,<&clkc_pll CLKID_HIFI_PLL>;
-> +	};
-> +	 acodec: audio-controller@1A000 {
-> +		compatible = "amlogic,t9015";
-> +		reg = <0x0 0x1A000 0x0 0x14>;
-> +		#sound-dai-cells = <0>;
-> +		sound-name-prefix = "ACODEC";
-> +		clocks = <&clkc_periphs CLKID_ACODEC>;
-> +		clock-names = "pclk";
-> +		resets = <&reset RESET_ACODEC>;
-> +	};
-> +
-> +};
+Please note that this submission does *not* include support for HDCP
+nor for CECv2, as I want this to be upstream before implementing
+additional features which are not strictly required for simple
+HDMI output.
+
+Bonus in this series is the addition of support for the Pattern Generator
+found in the DPI HW: since I needed this for debugging during development,
+I had to code in the actual support bits and it looked like a waste of
+time to just remove it.
+I instead decided to clean it up and upstream it, as this will anyway come
+handy for multiple things, of which the most important (imo) are:
+ - Adding support for new SoCs in the future will be less time consuming
+   as this driver already has the pattern generator in;
+ - CI Testing might be able to make use of this to validate that the
+   data that comes out is not garbled (so, to help testing display
+   support in an automated manner).
+
+AngeloGioacchino Del Regno (33):
+  dt-bindings: display: mediatek: dpi: Add MT8195 and MT8188 compat
+  drm/mediatek: mtk_dpi: Add support for Pattern Generator in debugfs
+  drm/mediatek: mtk_dpi: Use an array for pixclk factor calculation
+  drm/mediatek: mtk_dpi: Move pixel clock setting flow to function
+  drm/mediatek: mtk_dpi: Add checks for reg_h_fre_con existence
+  drm/mediatek: Add support for MT8195 Digital Parallel Interface
+  dt-bindings: display: mediatek: Add binding for HDMIv2 DDC
+  dt-bindings: display: mediatek: Add binding for MT8195 HDMI-TX v2
+  drm/mediatek: mtk_cec: Switch to register as module_platform_driver
+  drm/mediatek: mtk_hdmi_ddc: Switch to register as
+    module_platform_driver
+  drm/mediatek: mtk_hdmi: Convert to module_platform_driver macro
+  drm/mediatek: mtk_hdmi: Unregister audio platform device on failure
+  drm/mediatek: mtk_hdmi: Fix typo for aud_sampe_size member
+  drm/mediatek: mtk_hdmi: Disgregate function mtk_hdmi_audio_set_param()
+  drm/mediatek: mtk_hdmi: Move audio params selection to new function
+  drm/mediatek: mtk_hdmi: Move plugged_cb/codec_dev setting to new
+    function
+  drm/mediatek: mtk_hdmi: Move N/CTS setting to new function
+  drm/mediatek: mtk_hdmi: Move vendor/product strings to drm_bridge
+  drm/mediatek: mtk_hdmi: Use dev_err_probe() in
+    mtk_hdmi_dt_parse_pdata()
+  drm/mediatek: mtk_hdmi: Move CEC device parsing in new function
+  drm/mediatek: mtk_hdmi: Remove unused members of struct mtk_hdmi
+  drm/mediatek: mtk_hdmi: Move output init to
+    mtk_hdmi_register_audio_driver()
+  drm/mediatek: mtk_hdmi: Use devm managed version of drm_bridge_add
+  drm/mediatek: mtk_hdmi: Remove ifdef for CONFIG_PM_SLEEP
+  drm/mediatek: mtk_hdmi: Remove goto in mtk_hdmi_clk_enable_audio()
+  drm/mediatek: mtk_hdmi: Cleanup function mtk_hdmi_resume()
+  drm/mediatek: mtk_hdmi: Improve mtk_hdmi_get_all_clk() flexibility
+  drm/mediatek: mtk_hdmi: Split driver and add common probe function
+  drm/mediatek: mtk_hdmi_common: Assign DDC adapter pointer to bridge
+  drm/mediatek: mtk_hdmi_common: Add OP_HDMI if helper funcs assigned
+  drm/mediatek: Introduce HDMI/DDC v2 for MT8195/MT8188
+  drm/mediatek: mtk_hdmi_common: Add var to enable interlaced modes
+  drm/mediatek: mtk_hdmi_v2: Add debugfs ops and implement ABIST
+
+Guillaume Ranquet (1):
+  drm/mediatek: hdmi: Use regmap instead of iomem for main registers
+
+ .../display/mediatek/mediatek,dpi.yaml        |    5 +
+ .../mediatek/mediatek,mt8195-hdmi-ddc.yaml    |   41 +
+ .../mediatek/mediatek,mt8195-hdmi.yaml        |  151 ++
+ drivers/gpu/drm/mediatek/Kconfig              |   18 +-
+ drivers/gpu/drm/mediatek/Makefile             |   11 +-
+ drivers/gpu/drm/mediatek/mtk_cec.c            |    7 +-
+ drivers/gpu/drm/mediatek/mtk_dpi.c            |  312 +++-
+ drivers/gpu/drm/mediatek/mtk_dpi_regs.h       |   10 +
+ drivers/gpu/drm/mediatek/mtk_drm_drv.c        |    2 +
+ drivers/gpu/drm/mediatek/mtk_hdmi.c           |  811 ++-------
+ drivers/gpu/drm/mediatek/mtk_hdmi.h           |   14 -
+ drivers/gpu/drm/mediatek/mtk_hdmi_common.c    |  443 +++++
+ drivers/gpu/drm/mediatek/mtk_hdmi_common.h    |  198 +++
+ drivers/gpu/drm/mediatek/mtk_hdmi_ddc.c       |    2 +-
+ drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c    |  403 +++++
+ drivers/gpu/drm/mediatek/mtk_hdmi_regs_v2.h   |  263 +++
+ drivers/gpu/drm/mediatek/mtk_hdmi_v2.c        | 1492 +++++++++++++++++
+ 17 files changed, 3386 insertions(+), 797 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/display/mediatek/mediatek,mt8195-hdmi-ddc.yaml
+ create mode 100644 Documentation/devicetree/bindings/display/mediatek/mediatek,mt8195-hdmi.yaml
+ delete mode 100644 drivers/gpu/drm/mediatek/mtk_hdmi.h
+ create mode 100644 drivers/gpu/drm/mediatek/mtk_hdmi_common.c
+ create mode 100644 drivers/gpu/drm/mediatek/mtk_hdmi_common.h
+ create mode 100644 drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c
+ create mode 100644 drivers/gpu/drm/mediatek/mtk_hdmi_regs_v2.h
+ create mode 100644 drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
 
 -- 
-Jerome
+2.47.0
+
 
