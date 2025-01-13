@@ -4,83 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4CCBC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 16:09:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBAF2C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 16:10:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VH4Ljw0lA5sqSWylbksASfV+tDTzuOkHLk1j+OVHBqk=; b=gSDIXceu2B8MYnxqSxjDzz5YDl
-	4WEr9yWaDNJCF5qLTELdwrtnUZ/Qmxw/HKmTBP7t8Sp5YFFty9IHKMdVbbkWJFYgL5uhs3lmaGn6C
-	ol8E+L34uRTUZtzWNC1uPnJID6DAPssNCZmK8S6oJ8EmatExoDzm4v81V36KE2Pl2A+zJ9tIy7gKI
-	gQyBUo8yEfzXZRqMeUxjNEZ5o4gImbcuCOeqpsKt76oHj7jORLABp7jydKS1NYCDLBkhlLiG2CJhQ
-	n087cInBwDAiVWUt9Dp0l4UzS3pzZZpLFi8HlYXZBCWBr4MW6ogHbAC8U+XvQg75ByZPixoUIjPxL
-	gNdb1Z9Q==;
+	bh=xMOmJUfZwM8up3CrPy5oYax53wSUkJw0YSM9enl3yiw=; b=NyJfrFfUspfVkzAXc+ZW69KNwE
+	dCYmI15JVkmGEqx4ifh7UDWUY3XNN3jI0n9atGYAUFIhK33Pf8P3hhXiJ3pRCPZeNtrmiq18tjOh6
+	ZEuH771sHXDb9b5CaTVUDZQAHMZ4+IMlLdAz/UXQC5qi4cq0VNRjBsr85j0DGle20j9KIhrgtXZ6X
+	V9cRs2a9O7sDVmumugSRgPXit0ELorKn8IJrV3OCQ+Mdvxec7V1txmx/VN1WNq6Wel6RWdPXIFoSA
+	jty8I9pea0WfgsXw56qCee+Y8Z5NqiKF/I5+mlEE6ixn3YH47yuxHW+XQP2NvHjja6Pr0qF1qUlit
+	OyZFk4yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXMzv-00000005mzY-24f0;
-	Mon, 13 Jan 2025 16:09:03 +0000
-Received: from mail-yb1-xb2f.google.com ([2607:f8b0:4864:20::b2f])
+	id 1tXN18-00000005nIN-40DK;
+	Mon, 13 Jan 2025 16:10:18 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXMVw-00000005fwR-0Glr
+	id 1tXMZm-00000005gfl-01iI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 15:38:05 +0000
-Received: by mail-yb1-xb2f.google.com with SMTP id 3f1490d57ef6-e549b0f8d57so7477349276.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 07:38:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736782683; x=1737387483; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=VH4Ljw0lA5sqSWylbksASfV+tDTzuOkHLk1j+OVHBqk=;
-        b=TA5aK8k16D367HzG+zF5Uy+wBzpbxfsh3D1L/BkR6TPfbgr3CSf4l9YWccSSQLsoQF
-         pTyAUWoifb0ObAqdacxaAM7SolRScsaj+XLHS0W0/pY5tNJj3l18BUSHLitupkToNcpl
-         fnIMqP5UUPHd82Ynv66QUdrni85IIT1gQ2tH+eOO/JTu28gmIW7CdQKHNTD4j5YQywon
-         D3RC86+Ox0Do+DUwaWVg9cxamtCHUtw9DqhU/OMJERr+s2Htx3klvW13mm33pz3zl0a+
-         m0My+WruqMXe8Snpg5NVzPw4K+jeRYHTdg7L8fIFG5+0YeKlOdQg9e9oLtSMTKUxcmmd
-         UvmQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736782683; x=1737387483;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=VH4Ljw0lA5sqSWylbksASfV+tDTzuOkHLk1j+OVHBqk=;
-        b=iLnchsGI2v4SBf6FjPwyyhKSsOtiVYLqOxWfX9cyx35ZbfGE8OkgSuIX29PTGlPre1
-         1aZJ6okAhUk9qKjTH5SgXjV5ebG0U4kZD8lYDdhJVDjKkKzJBLQcgyGNG2xbGBfup9pU
-         tqCnapSQ9LPJ4gr4hdYBi+bciV+UvhORRzMISqrbJHXckM2CSmSa7OrRj0s3Bu3mGVTs
-         B0BrU3IDDLwVL7gkm4H5RsB0RXK4Mfuw3RqkczN25Pn9qpOYz/QgLrx+LiEHmh8HR8Yw
-         w4h4NIzTJTHeK2j1WF1lBKQ6sBMg2Y/2s9koYV42WhJ7ziElBJ10Gs5Zc51Em1LnlagS
-         pwVw==
-X-Forwarded-Encrypted: i=1; AJvYcCXfEeR3QTJIoth9pjnUpinwdFMoTx6EAfw2G4A99sGIP5coV6PWYgBOFbLfjuhMWJ5moIoCnweOl1FYfc+XDoH3@lists.infradead.org
-X-Gm-Message-State: AOJu0YwpfKsowbiEjSFiKLBDfSbW945Yj62JhUDZBQr65o7TLMVpy8Oj
-	IPMf3iows5aLSIqCPKsxejRRb4q/CCfFNwpxMeACHtYTrLmK58ZWmrZ27Mw1glWmeRAWaMEsHVN
-	lJLKQLGsq8s26pAwrMonABSPPqIY3mPLPZNWNFw==
-X-Gm-Gg: ASbGncv7FFOWdw1WTwXNOePLNOfbNzdwaYOJzaXAsLvgpPhPR/LKHoE63ov3li49E6l
-	voUk93gLlRUAX+l0To+m0GSS1Ilal2zFzh/eImrw=
-X-Google-Smtp-Source: AGHT+IFAIkS2Z8ev5ESTCzuaARgkLxMkSS7mawcnRpdDng9xAPRFBPJa8hXfaPAKe2aLptbdzrTd2lhyEVWCfYs6MeQ=
-X-Received: by 2002:a05:690c:968b:b0:6ea:8d6f:b1bf with SMTP id
- 00721157ae682-6f530eea554mr168333797b3.0.1736782682941; Mon, 13 Jan 2025
- 07:38:02 -0800 (PST)
+	Mon, 13 Jan 2025 15:42:03 +0000
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50DE6HEv018414;
+	Mon, 13 Jan 2025 15:41:47 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=xMOmJUfZwM8up3CrPy5oYax53wSUkJ
+	w0YSM9enl3yiw=; b=VvDqV5JkCneG9RHqiPSkA//pyH9r+ZZTEeWs6yeGPncs1F
+	DQ0LGTIg004AsdW0334Ciw+Wi0T8Fz9s1XuQmNXzDaDzwTaJxAlB2t0a9mfBzSyx
+	sNWRRwI67waTYlZgHehOA12A7/RpNLbpZbFOjE/TRJOUAvF9TwEUFm8vxDvNrGnd
+	jDU8NdUXqmWgwmwMi40PFRZeAEbKwAEZsGu9rBsfSyjbTmsGrjBdLntCyX4iBQ6D
+	48RdhdJpeQbtxD1FNN+OsG3JIv/zSwCIVH/1q4cQEds7uAD1+8vUA39lSLSc6YR4
+	SjgFZuENWmht9VLwbK7+CGjnN3L+R6XmjpgQLTsQ==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4454a58e5b-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 13 Jan 2025 15:41:46 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 50DCNZ9v002663;
+	Mon, 13 Jan 2025 15:41:46 GMT
+Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4443bxxy4j-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 13 Jan 2025 15:41:46 +0000
+Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
+	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 50DFfidX28246616
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 13 Jan 2025 15:41:44 GMT
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 1BB8220043;
+	Mon, 13 Jan 2025 15:41:44 +0000 (GMT)
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 67A8420040;
+	Mon, 13 Jan 2025 15:41:43 +0000 (GMT)
+Received: from osiris (unknown [9.171.45.96])
+	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Mon, 13 Jan 2025 15:41:43 +0000 (GMT)
+Date: Mon, 13 Jan 2025 16:41:41 +0100
+From: Heiko Carstens <hca@linux.ibm.com>
+To: Steven Rostedt <rostedt@goodmis.org>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+        Linux Trace Kernel <linux-trace-kernel@vger.kernel.org>,
+        linux-arm-kernel@lists.infradead.org,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Josh Poimboeuf <jpoimboe@redhat.com>,
+        Masami Hiramatsu <mhiramat@kernel.org>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+        Linus Torvalds <torvalds@linux-foundation.org>,
+        Vasily Gorbik <gor@linux.ibm.com>, linux-s390@vger.kernel.org
+Subject: Re: [RFC][PATCH] arm64: scripts/sorttable: Implement sorting
+ mcount_loc at build for arm64
+Message-ID: <20250113154141.42646-N-hca@linux.ibm.com>
+References: <20250107083214.5a29d429@gandalf.local.home>
 MIME-Version: 1.0
-References: <20250109155255.3438450-1-robh@kernel.org>
-In-Reply-To: <20250109155255.3438450-1-robh@kernel.org>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Mon, 13 Jan 2025 16:37:27 +0100
-X-Gm-Features: AbW1kvYfxaP_KIAtRJ8ddiypXayufpQw7AFPlstt8F8TqoOMhlOX5qWAO8Gx8_g
-Message-ID: <CAPDyKFrPB-Sw2Un1tx_POXc_wRD-A9B_6Syhgu7NNeK9qEomsA@mail.gmail.com>
-Subject: Re: [PATCH v2] mmc: Use of_property_present() for non-boolean properties
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Adrian Hunter <adrian.hunter@intel.com>, Haibo Chen <haibo.chen@nxp.com>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Dragan Simic <dsimic@manjaro.org>, linux-mmc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev, s32@nxp.com, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250107083214.5a29d429@gandalf.local.home>
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: iQ8PN44jIslB0CyVZKKQ4eWaU-hf9tMS
+X-Proofpoint-ORIG-GUID: iQ8PN44jIslB0CyVZKKQ4eWaU-hf9tMS
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
+ definitions=2024-10-15_01,2024-10-11_01,2024-09-30_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 priorityscore=1501
+ suspectscore=0 phishscore=0 mlxlogscore=999 spamscore=0 impostorscore=0
+ clxscore=1011 lowpriorityscore=0 bulkscore=0 malwarescore=0 adultscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
+ definitions=main-2501130129
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_073804_102126_2DF18BED 
-X-CRM114-Status: GOOD (  20.42  )
+X-CRM114-CacheID: sfid-20250113_074202_182702_0A836FC1 
+X-CRM114-Status: GOOD (  24.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,72 +112,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 9 Jan 2025 at 16:53, Rob Herring (Arm) <robh@kernel.org> wrote:
->
-> The use of of_property_read_bool() for non-boolean properties is
-> deprecated in favor of of_property_present() when testing for property
-> presence.
->
-> Reviewed-by: Haibo Chen <haibo.chen@nxp.com>
-> Reviewed-by: Dragan Simic <dsimic@manjaro.org>
-> Acked-by: Adrian Hunter <adrian.hunter@intel.com>
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+Hi Steven,
 
-Applied for next, thanks!
-
-Kind regards
-Uffe
-
-
+On Tue, Jan 07, 2025 at 08:32:14AM -0500, Steven Rostedt wrote:
+> From: Steven Rostedt <rostedt@goodmis.org>
+> 
+> The mcount_loc section holds the addresses of the functions that get
+> patched by ftrace when enabling function callbacks. It can contain tens of
+> thousands of entries. These addresses must be sorted. If they are not
+> sorted at compile time, they are sorted at boot. Sorting at boot does take
+> some time and does have a small impact on boot overhead.
+> 
+> x86 and arm32 have the addresses in the mcount_loc section of the ELF
+> file. But for arm64, the section just contains zeros. The .rela.dyn
+> Elf_Rela section holds the addresses and they get patched at boot during
+> the relocation phase.
+> 
+> In order to sort these addresses, the Elf_Rela needs to be updated instead
+> of the location in the binary that holds the mcount_loc section. Have the
+> sorttable code, allocate an array to hold the function addresses, load the
+> addresses from the Elf_Rela entries, sort them, then put them back in
+> order into the Elf_rela entries so that they will be sorted at boot up
+> without having to sort them during boot up.
+> 
+> Signed-off-by: Steven Rostedt (Google) <rostedt@goodmis.org>
 > ---
-> v2:
->  - Drop initialization of dat3_card_detect
->  - Rebase on next-20250109
-> ---
->  drivers/mmc/host/mxcmmc.c          | 8 ++++----
->  drivers/mmc/host/sdhci-esdhc-imx.c | 2 +-
->  2 files changed, 5 insertions(+), 5 deletions(-)
->
-> diff --git a/drivers/mmc/host/mxcmmc.c b/drivers/mmc/host/mxcmmc.c
-> index e7a286c3216f..0a9affd12532 100644
-> --- a/drivers/mmc/host/mxcmmc.c
-> +++ b/drivers/mmc/host/mxcmmc.c
-> @@ -995,7 +995,7 @@ static int mxcmci_probe(struct platform_device *pdev)
->         struct mxcmci_host *host;
->         struct resource *res;
->         int ret = 0, irq;
-> -       bool dat3_card_detect = false;
-> +       bool dat3_card_detect;
->         dma_cap_mask_t mask;
->         struct imxmmc_platform_data *pdata = pdev->dev.platform_data;
->
-> @@ -1048,9 +1048,9 @@ static int mxcmci_probe(struct platform_device *pdev)
->
->         if (pdata)
->                 dat3_card_detect = pdata->dat3_card_detect;
-> -       else if (mmc_card_is_removable(mmc)
-> -                       && !of_property_read_bool(pdev->dev.of_node, "cd-gpios"))
-> -               dat3_card_detect = true;
-> +       else
-> +               dat3_card_detect = mmc_card_is_removable(mmc) &&
-> +                                  !of_property_present(pdev->dev.of_node, "cd-gpios");
->
->         ret = mmc_regulator_get_supply(mmc);
->         if (ret)
-> diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
-> index e23177ea9d91..ff78a7c6a04c 100644
-> --- a/drivers/mmc/host/sdhci-esdhc-imx.c
-> +++ b/drivers/mmc/host/sdhci-esdhc-imx.c
-> @@ -1648,7 +1648,7 @@ sdhci_esdhc_imx_probe_dt(struct platform_device *pdev,
->          * Retrieving and requesting the actual WP GPIO will happen
->          * in the call to mmc_of_parse().
->          */
-> -       if (of_property_read_bool(np, "wp-gpios"))
-> +       if (of_property_present(np, "wp-gpios"))
->                 boarddata->wp_type = ESDHC_WP_GPIO;
->
->         of_property_read_u32(np, "fsl,tuning-step", &boarddata->tuning_step);
-> --
-> 2.45.2
->
+> 
+> Note, this is based on top of my sorttable clean up code:
+> 
+>   https://lore.kernel.org/linux-trace-kernel/20250105162211.971039541@goodmis.org/
+>   git://git.kernel.org/pub/scm/linux/kernel/git/trace/linux-trace.git sorttable/for-next
+> 
+> I tested this on a arm64 VM (running on x86 host), with
+> CONFIG_FTRACE_SORT_STARTUP_TEST enabled, which verifies the mcount entries
+> are sorted at boot up.
+> 
+> I wonder if this will also work for s390? But I do not know s390 Elf layout.
+
+Thanks for the hint! We look into this, but it might take some time.
 
