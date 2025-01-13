@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F100AE7719F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 13:44:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66DDEE7719F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 13:45:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mbv/9GiXamr/9Lk7uZRJqUP6p8YE/IcYNuKjQmOZPc4=; b=ggcr4OJ1oVCBW7CbSTXNN6dBXO
-	nlTV5CRyAIcahAvRI0wMhcMMf7zJ3XlZvEju/5AEA0XhhaD4u4wfazST5MKAYbFBviC7hOfnH2ZEu
-	bgxX4dyiJ6WBLu3/HEc4Ad2VV09bOhNqCSqi/Oav+S9IJP09ASLo8q+goAiKbfkrS135EpLOO9Ode
-	xAPzUr3AyveSg/aag/U3Xmx0QfSC4iVhD2npLDrSQopy4rN9MYRnmNaZNo1K4sYZpEtwwVtX9/6Ih
-	NoFtcz1NQjNND0r93v/ZUboUA5lCzMcknaUyJFiJ59X0EcMMdJiFxqMZsqjcJgpA0rYFb+mgr2d14
-	cAxobzWw==;
+	bh=ksUmkieZ2qiaPfVdZPGvB1BNOsGmHEe1GbgO+K/6IT4=; b=EIR5yqPxUJoGyk0tptHZllrH8b
+	jNER0pektMkA8LfDIYpDZ+EH40/SrK59NAm32234rDNj3R6EKxIJSX5GTocFwj2/eHCwcaNPf6Np4
+	LG7D5nKiSo13wjVl5njCs2omSIw157F6Z/s6st7w5LEXImVJyHOi2ob1HDrxcG50+dmPPt5EcrlU7
+	yyKn2IoN1tEAy78VMtmhGTWjPomhjYOHuGwij90pxLQoqEPfYVx638pVX4w49IouDp5uOCX8lpIw7
+	m1gxpdQCK3u7qGMBPWqXmZpOSo+6lAR4pv+t+kGJwrWYopHV71pkVIGO3iAcTShDHNlDEx4tkTSlr
+	jREE6FLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXKjr-00000005I4Z-3amG;
-	Mon, 13 Jan 2025 13:44:19 +0000
+	id 1tXKl3-00000005ILl-26xf;
+	Mon, 13 Jan 2025 13:45:33 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXKic-00000005Hnk-3uwo
+	id 1tXKic-00000005Hnm-3v4g
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 13 Jan 2025 13:43:04 +0000
 Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
 	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
 	(Exim 4.92)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tXKib-0002p0-Dk; Mon, 13 Jan 2025 14:43:01 +0100
+	id 1tXKib-0002p4-Dh; Mon, 13 Jan 2025 14:43:01 +0100
 Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
 	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tXKia-000Ghv-1Q;
-	Mon, 13 Jan 2025 14:43:00 +0100
+	id 1tXKia-000Ghz-1Z;
+	Mon, 13 Jan 2025 14:43:01 +0100
 Received: from localhost ([::1] helo=dude05.red.stw.pengutronix.de)
 	by dude05.red.stw.pengutronix.de with esmtp (Exim 4.96)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tXKib-00GZFh-1q;
+	id 1tXKib-00GZFh-1u;
 	Mon, 13 Jan 2025 14:43:00 +0100
 From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Date: Mon, 13 Jan 2025 14:42:51 +0100
-Subject: [PATCH v3 1/6] dt-bindings: clock: imx8m: document
- nominal/overdrive properties
+Date: Mon, 13 Jan 2025 14:42:55 +0100
+Subject: [PATCH v3 5/6] arm64: dts: freescale: imx8mp-skov: operate SoC in
+ nominal mode
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250113-imx8m-clk-v3-1-0d6e9bdeaa4e@pengutronix.de>
+Message-Id: <20250113-imx8m-clk-v3-5-0d6e9bdeaa4e@pengutronix.de>
 References: <20250113-imx8m-clk-v3-0-0d6e9bdeaa4e@pengutronix.de>
 In-Reply-To: <20250113-imx8m-clk-v3-0-0d6e9bdeaa4e@pengutronix.de>
 To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
@@ -71,8 +71,8 @@ X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_054302_974096_F83AEF31 
-X-CRM114-Status: GOOD (  14.74  )
+X-CRM114-CacheID: sfid-20250113_054302_973184_6882312C 
+X-CRM114-Status: GOOD (  12.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,66 +87,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The imx8m-clock.yaml binding covers the clock controller inside all
-of the i.MX8M Q/M/N/P SoCs. All of them have in common that they
-support two operating modes: nominal and overdrive mode.
+To reduce heat generation, the Skov i.MX8MP boards should run in nominal
+drive mode with a VDD_SOC voltage of 850 mV.
 
-While the overdrive mode allows for higher frequencies for many IPs,
-the nominal mode needs a lower SoC voltage, thereby reducing
-heat generation and power usage.
-
-As increasing clock rates beyond the maximum permitted by the supplied
-SoC voltage can lead to difficult to debug issues, device tree consumers
-would benefit from knowing what mode is active to enforce the clock rate
-limits that come with it.
-
-To facilitate this, extend the clock controller bindings with an
-optional fsl,operating-mode property. This intentionally allows the
-absence of the property, because there is no default suitable for all
-boards:
-
-For i.MX8M Mini and Nano, the kernel SoC DTSIs has assigned-clock-rates
-that are all achievable in nominal mode. For i.MX8MP, there are some
-rates only validated for overdrive mode.
-
-But even for the i.MX8M Mini/Nano boards, we don't know what rates they
-may configure at runtime, so it has not been possible so far to infer from
-just the device tree what the mode is.
+At this operating point, not all frequencies that are achievable with
+overdrive mode are possible, so import imx8mp-nominal.dtsi to clock down
+the clocks.
 
 Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
 ---
- Documentation/devicetree/bindings/clock/imx8m-clock.yaml | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+ arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/clock/imx8m-clock.yaml b/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
-index c643d4a814786a1fc7e559140fe58911990f71bb..b03672255cae9462013a8a4e7a2adaff440f1420 100644
---- a/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
-+++ b/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
-@@ -43,6 +43,16 @@ properties:
-       ID in its "clocks" phandle cell. See include/dt-bindings/clock/imx8m-clock.h
-       for the full list of i.MX8M clock IDs.
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
+index 59813ef8e2bb3a3d5672ba1c5776cf0e45fb6862..9dc36517e90c16dd10d14f55d8d5582e845b0f60 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
+@@ -1,6 +1,7 @@
+ // SPDX-License-Identifier: (GPL-2.0 OR MIT)
  
-+  fsl,operating-mode:
-+    $ref: /schemas/types.yaml#/definitions/string
-+    description:
-+      The operating mode of the SoC. This affects the maximum clock rates that
-+      can safely be configured by the clock controller.
-+    oneOf:
-+      - enum:
-+          - nominal
-+          - overdrive
-+
- required:
-   - compatible
-   - reg
-@@ -109,6 +119,7 @@ examples:
-                  <&clk_ext3>, <&clk_ext4>;
-         clock-names = "osc_32k", "osc_24m", "clk_ext1", "clk_ext2",
-                       "clk_ext3", "clk_ext4";
-+        fsl,operating-mode = "nominal";
-     };
+ #include "imx8mp.dtsi"
++#include "imx8mp-nominal.dtsi"
  
-   - |
+ #include <dt-bindings/leds/common.h>
+ 
+@@ -237,8 +238,8 @@ pmic@25 {
+ 		regulators {
+ 			reg_vdd_soc: BUCK1 {
+ 				regulator-name = "VDD_SOC";
+-				regulator-min-microvolt = <600000>;
+-				regulator-max-microvolt = <2187500>;
++				regulator-min-microvolt = <850000>;
++				regulator-max-microvolt = <850000>;
+ 				vin-supply = <&reg_5v_p>;
+ 				regulator-boot-on;
+ 				regulator-always-on;
 
 -- 
 2.39.5
