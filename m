@@ -4,65 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 363B8C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 17:47:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AD67C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 17:52:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ooWFsB+eKdu1sbtdXlptO9kQd/DQBS8X4SFDPHoCJ30=; b=IAO1wWAJcyakNuFcrj7c5pdE/7
-	p4ibItI8zPUF01WcaeI/QaZqNNUmOQf5ZbZxac2UBr1SeD0M/aEI6NNahOgwjjueOHQH3ampg9c6W
-	wVnUf14FHNX8jmkBzTiqiNx9owGlLp1eqUg2fuZXKuDwmLZ0TMom2AnMjKSeFWR1QPwYxhpM+sLXD
-	X2OoqhocZSydoBU30wzOdehU8Aj28AMlJ97XAJqwHtk7vDwzsa0kYvzQ65jNcVZ7Lw38Bo3Evf7NT
-	K6e5LURa8Cdaxb0oCoRBRoHptJr4nSQnu0o5hmyM6LPRRZKsTt5HFmCY7VWi/lFkzArf05Gmk6hkf
-	wFkZTdBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+V4+ss7VmfFv1ZzmIjUW4cCV/+dSLMs2iLGWhoJnQnc=; b=veucBM20bBbQDXdWhzyvI1UrXB
+	eqe0iPP3Dwsar3448fiaRZ5OBbTGjAU36iYry3kOZzFGwmyHdqFMfkPOnIIi/mXgkKi0/vXA3Vyig
+	NGmR1+Vp+A6i7EsAsxMtWfzbM6t78MCeriM3jOCZHmHunAu4/+mI/pzqb7L7Ipg60Bl/WYMP7H/nQ
+	msmpv4SWPNO7qpGKD/5G3JEYdv20KTCeQWbgVmGKGugn4bKo1MxBlmH7gKpeeS//ZZgxi2nPLfznf
+	OqdyOaUMGOgXX3HG3iNptzL5KzgzbeIcpHscYG7KKOs7YYYabjjmFYXSLmTWoKXcEpcnMf9fsZJok
+	Mu0NDScg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXOWX-000000065eo-3V5A;
-	Mon, 13 Jan 2025 17:46:49 +0000
-Received: from out-182.mta1.migadu.com ([95.215.58.182])
+	id 1tXObU-000000066Su-1Vnz;
+	Mon, 13 Jan 2025 17:51:56 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXOVH-000000065Tp-2ktD
+	id 1tXOaE-000000066HH-0FcX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jan 2025 17:45:33 +0000
-Message-ID: <14d13d7e-ef1d-4dcc-bd18-7a6709616678@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1736790328;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ooWFsB+eKdu1sbtdXlptO9kQd/DQBS8X4SFDPHoCJ30=;
-	b=Dfz1Mfh+rNwiXUS4YRtkTYvcug+evu4trTHmj+o6EdBUgPRjKeAEFc656O4id0vm7uj7/K
-	FT2voXbBSL3XnH5twbA+RQk0Z+QmHpXenrblPXhFB0T+aPz/zjThZM01I4d13jDKovDCay
-	dkP2hxzJmOGR9ICN8TTYHast6gyYqck=
-Date: Mon, 13 Jan 2025 12:45:24 -0500
+	Mon, 13 Jan 2025 17:50:40 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-385deda28b3so2584141f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 09:50:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1736790636; x=1737395436; darn=lists.infradead.org;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=+V4+ss7VmfFv1ZzmIjUW4cCV/+dSLMs2iLGWhoJnQnc=;
+        b=BG7FK4YW2mOLK2PdopyWpQKLlJVPQky+hdkk8aRnmlSX2ugGJMyJfTpOSLQm3oikmr
+         tQfKepeJXOWIUWawKiNOIQLRPgD8i8N4mDx7tBaHBSsbKDZY+pqQu28FoPMsXZAi0lMT
+         kspyi/R+OgIFgJYpfePrmqYW+WDmblbEcXjkZnhW1X6be14Npi0BpXALT2s/GGQ3TTtb
+         GyBy8ofi86jg8mQl7S1QQlZzqvZ4KGXR2/wjS4qgixG89zMABQliv9tp/Z5Uh/i2obXE
+         OSxgrd0pTnzC60NtJoIuCErWRzv1cJqqq2iKooobq+orEuAqoOaiIoFp8V0eF1qwyvOI
+         3tfA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736790636; x=1737395436;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+V4+ss7VmfFv1ZzmIjUW4cCV/+dSLMs2iLGWhoJnQnc=;
+        b=QWRMRE39K44A4icMNDDFlKqpf1EfeFbtuZ89MDs3z/BJMHD0bvpHHJts3XGFTI0T0y
+         gxMe5mntxw19HUD/b1V32xdDb3xZqu9ToP3Hyuofr375LCkECR1bT4ZLAJWvBwBqV17n
+         mgLvjXs+tum3mYBzvGtGfPpr3tUiApsdFzGtYf9siCf3nc+iLu88sIGvwvL8Y3wGdobM
+         XvVq5AoVD0TATNA5+uuY+uGhPFhN43E1lIQjfTxQr+cZzxn+HVo7gbhNq/94Fb/Me/JN
+         t4FRA561bjYkj3NoYo+y+/D5PQumvFtIJhIZUMoBlwwkP7WR/nLADOln4kSxiWtZRB11
+         OWcA==
+X-Forwarded-Encrypted: i=1; AJvYcCURdkMbqDrPA3qas+ApnwygqDSvR/JF+nIHasiq3jtQ9QmRCTdrBh8uAlXCdfs3fSMpipP0HVu610tU64NeOkVV@lists.infradead.org
+X-Gm-Message-State: AOJu0YwxlMbsGJ3hi4iDPggFlLohsdhsxiCwNAiiNqNEsgwHdZhoHuJS
+	x9ZggR4RqbmRBsdiZm0YtQKRIxM4/4gGbhk6Trxf6veZkjDF1qvdO3AyHu7l9D0=
+X-Gm-Gg: ASbGncuTxTMgsUTDvsaAlMi6wO7uzjqOb7sZxAl2Fyem2bnuk3XfC2CEASbcl1yW7WN
+	luv3NFPRAVzHPq12XpLJOMs9L+x7SZ6edc7dLqhRaaA4wG8xknM4TpoyPddCH2dFL27h77b/39H
+	BdFHktUcJDcVgtJfSXXtz5hhilRNqrV9UE69RDxY/WugF0+/9RafwcUfUGjwspnisylmyxh9Lky
+	vgX5JfRHgAmFCcD8PLxYiRh285FlgQgthCeTPauSCGld8Ffz5A5lfey
+X-Google-Smtp-Source: AGHT+IHoW/dJXXFDIaypQq5flb4uL8n3vMd3OOwNi9RrzsjX+joUmbyw1Xx/wzp9vW06KectOo11Ig==
+X-Received: by 2002:a05:6000:4020:b0:385:e3c1:50d5 with SMTP id ffacd0b85a97d-38a87338fa8mr22388141f8f.48.1736790636460;
+        Mon, 13 Jan 2025 09:50:36 -0800 (PST)
+Received: from localhost ([2a01:e0a:3c5:5fb1:9d2d:28cc:aafd:8429])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a8e383df8sm12973781f8f.38.2025.01.13.09.50.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jan 2025 09:50:35 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Rob Herring <robh@kernel.org>
+Cc: Jian Hu <jian.hu@amlogic.com>,  Xianwei Zhao <xianwei.zhao@amlogic.com>,
+  Chuan Liu <chuan.liu@amlogic.com>,  Neil Armstrong
+ <neil.armstrong@linaro.org>,  Kevin Hilman <khilman@baylibre.com>,
+  Stephen Boyd <sboyd@kernel.org>,  Michael Turquette
+ <mturquette@baylibre.com>,  Dmitry Rokosov <ddrokosov@sberdevices.ru>,
+  devicetree <devicetree@vger.kernel.org>,  linux-clk
+ <linux-clk@vger.kernel.org>,  linux-amlogic
+ <linux-amlogic@lists.infradead.org>,  linux-kernel
+ <linux-kernel@vger.kernel.org>,  linux-arm-kernel
+ <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v2 1/5] dt-bindings: clock: add Amlogic T7 PLL clock
+ controller
+In-Reply-To: <20250110155404.GA2928945-robh@kernel.org> (Rob Herring's message
+	of "Fri, 10 Jan 2025 09:54:04 -0600")
+References: <20250108094025.2664201-1-jian.hu@amlogic.com>
+	<20250108094025.2664201-2-jian.hu@amlogic.com>
+	<20250110155404.GA2928945-robh@kernel.org>
+User-Agent: mu4e 1.12.7; emacs 29.4
+Date: Mon, 13 Jan 2025 18:50:35 +0100
+Message-ID: <1j4j228uxg.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH net-next v3 5/6] net: xilinx: axienet: Get coalesce
- parameters from driver state
-To: Simon Horman <horms@kernel.org>
-Cc: "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>,
- Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Shannon Nelson
- <shannon.nelson@amd.com>, Michal Simek <michal.simek@amd.com>,
- linux-kernel@vger.kernel.org
-References: <20250110192616.2075055-1-sean.anderson@linux.dev>
- <20250110192616.2075055-6-sean.anderson@linux.dev>
- <20250113173910.GF5497@kernel.org>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <20250113173910.GF5497@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_094532_541276_218205A6 
-X-CRM114-Status: GOOD (  21.54  )
+X-CRM114-CacheID: sfid-20250113_095038_308933_ECF0C1CE 
+X-CRM114-Status: GOOD (  22.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,102 +107,224 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Simon,
+On Fri 10 Jan 2025 at 09:54, Rob Herring <robh@kernel.org> wrote:
 
-On 1/13/25 12:39, Simon Horman wrote:
-> On Fri, Jan 10, 2025 at 02:26:15PM -0500, Sean Anderson wrote:
->> The cr variables now contain the same values as the control registers
->> themselves. Extract/calculate the values from the variables instead of
->> saving the user-specified values. This allows us to remove some
->> bookeeping, and also lets the user know what the actual coalesce
->> settings are.
+> On Wed, Jan 08, 2025 at 05:40:21PM +0800, Jian Hu wrote:
+>> Add DT bindings for the PLL clock controller of the Amlogic T7 SoC family.
 >> 
->> Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
->> Reviewed by: Shannon Nelson <shannon.nelson@amd.com>
-> 
-> Hi Sean,
-> 
-> Unfortunately this series does not appear to apply cleanly to net-next.
-> Which is our CI is currently unable to cope with :(
-> 
-> Please consider rebasing and reposting.
-
-As noted in the cover letter, this series depends on [1] (now [2]). It
-will apply cleanly without rebasing once that patch is applied. So maybe
-you can re-run the CI at that time.
-
---Sean
-
-[1] https://lore.kernel.org/netdev/20250110190726.2057790-1-sean.anderson@linux.dev/
-[2] https://lore.kernel.org/netdev/20250113163001.2335235-1-sean.anderson@linux.dev
-
+>> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
 >> ---
+>>  .../bindings/clock/amlogic,t7-pll-clkc.yaml   | 103 ++++++++++++++++++
+>>  .../dt-bindings/clock/amlogic,t7-pll-clkc.h   |  57 ++++++++++
+>>  2 files changed, 160 insertions(+)
+>>  create mode 100644 Documentation/devicetree/bindings/clock/amlogic,t7-pll-clkc.yaml
+>>  create mode 100644 include/dt-bindings/clock/amlogic,t7-pll-clkc.h
 >> 
->> (no changes since v2)
->> 
->> Changes in v2:
->> - New
->> 
->>  drivers/net/ethernet/xilinx/xilinx_axienet.h  |  8 ---
->>  .../net/ethernet/xilinx/xilinx_axienet_main.c | 70 +++++++++++++------
->>  2 files changed, 47 insertions(+), 31 deletions(-)
->> 
->> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet.h b/drivers/net/ethernet/xilinx/xilinx_axienet.h
->> index 6b8e550c2155..45d8d80dbb1a 100644
->> --- a/drivers/net/ethernet/xilinx/xilinx_axienet.h
->> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet.h
->> @@ -533,10 +533,6 @@ struct skbuf_dma_descriptor {
->>   *		  supported, the maximum frame size would be 9k. Else it is
->>   *		  1522 bytes (assuming support for basic VLAN)
->>   * @rxmem:	Stores rx memory size for jumbo frame handling.
->> - * @coalesce_count_rx:	Store the irq coalesce on RX side.
->> - * @coalesce_usec_rx:	IRQ coalesce delay for RX
->> - * @coalesce_count_tx:	Store the irq coalesce on TX side.
->> - * @coalesce_usec_tx:	IRQ coalesce delay for TX
->>   * @use_dmaengine: flag to check dmaengine framework usage.
->>   * @tx_chan:	TX DMA channel.
->>   * @rx_chan:	RX DMA channel.
->> @@ -615,10 +611,6 @@ struct axienet_local {
->>  	u32 max_frm_size;
->>  	u32 rxmem;
->>  
->> -	u32 coalesce_count_rx;
->> -	u32 coalesce_usec_rx;
->> -	u32 coalesce_count_tx;
->> -	u32 coalesce_usec_tx;
->>  	u8  use_dmaengine;
->>  	struct dma_chan *tx_chan;
->>  	struct dma_chan *rx_chan;
-> 
->> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> 
-> ...
-> 
->> @@ -260,6 +264,23 @@ static u32 axienet_calc_cr(struct axienet_local *lp, u32 count, u32 usec)
->>  	return cr;
->>  }
->>  
->> +/**
->> + * axienet_cr_params() - Extract coalesce parameters from the CR
-> 
-> nit: axienet_coalesce_params
-> 
->> + * @lp: Device private data
->> + * @cr: The control register to parse
->> + * @count: Number of packets before an interrupt
->> + * @usec: Idle time (in usec) before an interrupt
+>> diff --git
+>> a/Documentation/devicetree/bindings/clock/amlogic,t7-pll-clkc.yaml
+>> b/Documentation/devicetree/bindings/clock/amlogic,t7-pll-clkc.yaml
+>> new file mode 100644
+>> index 000000000000..fd0323678d37
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/clock/amlogic,t7-pll-clkc.yaml
+>> @@ -0,0 +1,103 @@
+>> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+>> +# Copyright (C) 2024 Amlogic, Inc. All rights reserved
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/clock/amlogic,t7-pll-clkc.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: Amlogic T7 PLL Clock Control Controller
+>> +
+>> +maintainers:
+>> +  - Neil Armstrong <neil.armstrong@linaro.org>
+>> +  - Jerome Brunet <jbrunet@baylibre.com>
+>> +  - Jian Hu <jian.hu@amlogic.com>
+>> +  - Xianwei Zhao <xianwei.zhao@amlogic.com>
+>> +
+>> +if:
+>
+> Move this after 'required' section.
+>
+> Generally we put 'if' under 'allOf' because we're likely to have another 
+> if/then schema on the next compatible added. If you don't think this 
+> binding will ever get used on another chip, then it is fine as-is.
+>
+>> +  properties:
+>> +    compatible:
+>> +      contains:
+>> +        const: amlogic,t7-pll-mclk
+>> +
+>> +then:
+>> +  properties:
+>> +    clocks:
+>> +      items:
+>> +        - description: mclk pll input oscillator gate
+>> +        - description: 24M oscillator input clock source for mclk_sel_0
+>> +        - description: fix 50Mhz input clock source for mclk_sel_0
+
+The rate is whatever the clock will actually be. Better not to mention
+it in this doc.
+
+>> +
+>> +    clock-names:
+>> +      items:
+
+one being "input" and other suffixed "_in" looks really odd
+
+>> +        - const: input
+>> +        - const: mclk_in0
+>> +        - const: mclk_in1
+
+or just in0, in1, in2 if you are going with Rob's suggestion.
+Having "mclk_" in the top level would be confusing.
+
+>
+> Move these to top-level and then both of these are just 'minItems: 3'.
+>
+>> +
+>> +else:
+>> +  properties:
+>> +    clocks:
+>> +      items:
+>> +        - description: pll input oscillator gate
+>> +
+>> +    clock-names:
+>> +      items:
+>> +        - const: input
+>
+> And 'maxItems: 1' here.
+>
+>> +
+>> +properties:
+>> +  compatible:
+>> +    enum:
+>> +      - amlogic,t7-pll-gp0
+>> +      - amlogic,t7-pll-gp1
+>> +      - amlogic,t7-pll-hifi
+>> +      - amlogic,t7-pll-pcie
+>> +      - amlogic,t7-mpll
+>> +      - amlogic,t7-pll-hdmi
+>> +      - amlogic,t7-pll-mclk
+>> +
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +  '#clock-cells':
+>> +    const: 1
+>> +
+>> +  clocks:
+>> +    minItems: 1
+>> +    maxItems: 3
+>> +
+>> +  clock-names:
+>> +    minItems: 1
+>> +    maxItems: 3
+>
+> These are the 'top-level' definitions if that's not clear.
+>
+>> +
+>> +required:
+>> +  - compatible
+>> +  - '#clock-cells'
+>> +  - reg
+>> +  - clocks
+>> +  - clock-names
+>> +
+>> +additionalProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    apb {
+>> +        #address-cells = <2>;
+>> +        #size-cells = <2>;
+>> +
+>> +        clock-controller@8080 {
+>> +            compatible = "amlogic,t7-pll-gp0";
+>> +            reg = <0 0x8080 0 0x20>;
+>> +            clocks = <&scmi_clk 2>;
+>> +            clock-names = "input";
+>> +            #clock-cells = <1>;
+>> +        };
+>> +
+>> +        clock-controller@8300 {
+>> +            compatible = "amlogic,t7-pll-mclk";
+>> +            reg = <0 0x8300 0 0x18>;
+>> +            clocks = <&scmi_clk 2>,
+>> +                     <&xtal>,
+>> +                     <&scmi_clk 31>;
+>> +            clock-names = "input", "mclk_in0", "mclk_in1";
+>> +            #clock-cells = <1>;
+>> +        };
+>> +    };
+>> diff --git a/include/dt-bindings/clock/amlogic,t7-pll-clkc.h b/include/dt-bindings/clock/amlogic,t7-pll-clkc.h
+>> new file mode 100644
+>> index 000000000000..e88c342028db
+>> --- /dev/null
+>> +++ b/include/dt-bindings/clock/amlogic,t7-pll-clkc.h
+>> @@ -0,0 +1,57 @@
+>> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
+>> +/*
+>> + * Copyright (c) 2024 Amlogic, Inc. All rights reserved.
+>> + * Author: Jian Hu <jian.hu@amlogic.com>
 >> + */
->> +static void axienet_coalesce_params(struct axienet_local *lp, u32 cr,
->> +				    u32 *count, u32 *usec)
->> +{
->> +	u64 clk_rate = axienet_dma_rate(lp);
->> +	u64 timer = FIELD_GET(XAXIDMA_DELAY_MASK, cr);
 >> +
->> +	*count = FIELD_GET(XAXIDMA_COALESCE_MASK, cr);
->> +	*usec = DIV64_U64_ROUND_CLOSEST(timer * XAXIDMA_DELAY_SCALE, clk_rate);
->> +}
+>> +#ifndef __T7_PLL_CLKC_H
+>> +#define __T7_PLL_CLKC_H
 >> +
->>  /**
->>   * axienet_dma_start - Set up DMA registers and start DMA operation
->>   * @lp:		Pointer to the axienet_local structure
+>> +/* GP0 */
+>> +#define CLKID_GP0_PLL_DCO	0
+>> +#define CLKID_GP0_PLL		1
+>> +
+>> +/* GP1 */
+>> +#define CLKID_GP1_PLL_DCO	0
+>> +#define CLKID_GP1_PLL		1
+>> +
+>> +/* HIFI */
+>> +#define CLKID_HIFI_PLL_DCO	0
+>> +#define CLKID_HIFI_PLL		1
+>> +
+>> +/* PCIE */
+>> +#define CLKID_PCIE_PLL_DCO	0
+>> +#define CLKID_PCIE_PLL_DCO_DIV2	1
+>> +#define CLKID_PCIE_PLL_OD	2
+>> +#define CLKID_PCIE_PLL		3
+>> +
+>> +/* MPLL */
+>> +#define CLKID_MPLL_PREDIV	0
+>> +#define CLKID_MPLL0_DIV		1
+>> +#define CLKID_MPLL0		2
+>> +#define CLKID_MPLL1_DIV		3
+>> +#define CLKID_MPLL1		4
+>> +#define CLKID_MPLL2_DIV		5
+>> +#define CLKID_MPLL2		6
+>> +#define CLKID_MPLL3_DIV		7
+>> +#define CLKID_MPLL3		8
+>> +
+>> +/* HDMI */
+>> +#define CLKID_HDMI_PLL_DCO	0
+>> +#define CLKID_HDMI_PLL_OD	1
+>> +#define CLKID_HDMI_PLL		2
+>> +
+>> +/* MCLK */
+>> +#define CLKID_MCLK_PLL_DCO	0
+>> +#define CLKID_MCLK_PRE		1
+>> +#define CLKID_MCLK_PLL		2
+>> +#define CLKID_MCLK_0_SEL	3
+>> +#define CLKID_MCLK_0_DIV2	4
+>> +#define CLKID_MCLK_0_PRE	5
+>> +#define CLKID_MCLK_0		6
+>> +#define CLKID_MCLK_1_SEL	7
+>> +#define CLKID_MCLK_1_DIV2	8
+>> +#define CLKID_MCLK_1_PRE	9
+>> +#define CLKID_MCLK_1		10
+>> +
+>> +#endif /* __T7_PLL_CLKC_H */
+>> -- 
+>> 2.47.1
+>> 
+
+-- 
+Jerome
 
