@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADC0AC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 15:26:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90567C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jan 2025 15:27:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=teUKp1pJ/4kDLhnTuiKQtQ5LTVnj59LsFBS5b+k1gVo=; b=PcepVgfcCqnBxG67EdtNthg7Zf
-	XynyULZcCFPT7hSOksRP5+r9FNC+PWZH+uvPyOh6ncYv+5w/zLfsp71MRmUzQDlvlMV39DW3U0u8+
-	SlyqS+jS+K59tiG8mniAVhAUJ1Mh/nL7YlZcLuiTQuIICEjIiPRjfXEOz628s6VV39+2/cUCgASed
-	7cfsPTVR5w5OwfOgF4VmVbwtEJeQkZxQAZ4jwN+bkJ/SNvPxmZKc5dgKMzlEknpzhoVi+AAuWlxc7
-	K+rR/P/yySICXCf+oPFKB2OFElAXUpc3R5Xp634SSwvVBah/ggyVmSzNXUy2ufLQBRg9XZCF9ZWrv
-	BDbxP2vQ==;
+	bh=APvM9GQh9O2PWKyFwFCtUQ3IDxpuI+CLR7wRhXP1UPg=; b=CWSpGO2KUHWwCo0i6Pks4fpiiJ
+	U8yzjfJj9VUsz4Dp0bk8QbWLzPpEhIXNINt63/u7Cl6aIEvDW0nSt8jRDzAGy16YMDcLia+sUFdsA
+	uGmO1fBONY4TzXhTl7BXUa/OkGuKiaMNA6GOJpe7teejkiLSiRdo4kYNNkAwhkKb62wu7m8RDmnMR
+	sqmuxERlsXSa32eWRrToLZmieUkooVBfh8yrTI667VQiKLiUuQH2Rl2Kr21DJ598i96VbaOVBD2Zi
+	7sSdWV2x4lTSVfT+Dji+vvjeVynJ6ci8hex0kTpTns5l5JzqUwBZo+965Ow7LsGitvT+QOBODfwep
+	6vdjVsYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXMKo-00000005cpt-2d3P;
-	Mon, 13 Jan 2025 15:26:34 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tXMM1-00000005dA9-2WHe;
+	Mon, 13 Jan 2025 15:27:49 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXLob-00000005UUE-19sH;
-	Mon, 13 Jan 2025 14:53:18 +0000
+	id 1tXLoc-00000005UVc-3AEx;
+	Mon, 13 Jan 2025 14:53:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1736779996;
-	bh=GedIFbsSX6/6EX4TXYDKJTD2AnIS6Avole0Kvc9L7W0=;
+	s=mail; t=1736779997;
+	bh=vijtySYZGuBp2L5EdJR00nqGPNxKCmTCX0tgYJX3cOw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=k7LdTqVyfAOVqsh+cjFStYXoG+qKdAMn0DKQOUWNG1VqOwYuABODWbx5mfwYrgb1R
-	 SHenH7sj+kTUGx7d8lFe8nFEeAAZe8rLn4gJm8sRdm8DCMrhvmRxikxAb8PMGXLpj/
-	 dsAPLEuRgnTJbkE0W26+KOIYfoAnq+NcuNbvLkOnlS6wGsEAmsmOkf3rCQbMEm1qCS
-	 Bftt3jdGi8oYxNkj0iMh7AqHhP/nKx7uEvodJJAtq0Yh8G3UuweQwN9fHwzwS2Pe+y
-	 cN+U5ukMb8Qz0X+L5t+CTn/EEEYYuvVqVjZNgnKnuv/4mz1RY9DPN5iDUt/7FY2/yq
-	 EHO3F2vUp/w3g==
+	b=c0/67l6oYdrKzRj7FgZ2lTXW1nnkYWosj7jyWkyLsWySc7sFPJAqAZK/on/9gTf3n
+	 s5aft+qS9J/0kVPOThpYhS2JdBac3d3kYjAIh2nS21Ld6QBUp6t9a5JEONkYYqKaGV
+	 48g/sJqfircCENQAcudMsq+UsVEXK5x5Sy9bs/RF4em5kNqjqtg6yBxW6qlK4caZ+t
+	 NhjpYJ8/6QS5WAsWK+5cJfk61D0way0uQmATCWCY4W+IC8sws9N1ksEIIHwasux9zK
+	 rrlfio0oq3X7rL+Qmwimwpso9/bSoK/k94tDnmmJ1rKQm1WgJo8eCDq8mxs8/CTKk/
+	 1Ej0qQ8WZ5QsA==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B172E17E0ECD;
-	Mon, 13 Jan 2025 15:53:14 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 30C9E17E0FA8;
+	Mon, 13 Jan 2025 15:53:16 +0100 (CET)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: chunkuang.hu@kernel.org
 Cc: p.zabel@pengutronix.de,
@@ -71,17 +71,18 @@ Cc: p.zabel@pengutronix.de,
 	ives.chenjh@mediatek.com,
 	tommyyl.chen@mediatek.com,
 	jason-jh.lin@mediatek.com
-Subject: [PATCH v5 26/34] drm/mediatek: mtk_hdmi: Remove goto in mtk_hdmi_clk_enable_audio()
-Date: Mon, 13 Jan 2025 15:52:24 +0100
-Message-ID: <20250113145232.227674-27-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v5 27/34] drm/mediatek: mtk_hdmi: Cleanup function mtk_hdmi_resume()
+Date: Mon, 13 Jan 2025 15:52:25 +0100
+Message-ID: <20250113145232.227674-28-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20250113145232.227674-1-angelogioacchino.delregno@collabora.com>
 References: <20250113145232.227674-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_065317_455747_8586DB7F 
-X-CRM114-Status: GOOD (  11.16  )
+X-CRM114-CacheID: sfid-20250113_065318_937891_9D1AD965 
+X-CRM114-Status: UNSURE (   9.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,41 +97,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If the clk_prepare_enable() call for the SPDIF clock fails, just
-disable and unprepare the clock in the error check branch and
-return immediately instead of jumping to the end with a goto,
-slightly reducing code size.
+Remove the error print in case of mtk_hdmi_clk_enable_audio()
+failures: since the APIs will already print on their own, having
+one in there is redundant.
 
-This commit brings no functional changes.
-
-Reviewed-by: CK Hu <ck.hu@mediatek.com>
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/gpu/drm/mediatek/mtk_hdmi.c | 9 ++++-----
- 1 file changed, 4 insertions(+), 5 deletions(-)
+ drivers/gpu/drm/mediatek/mtk_hdmi.c | 9 +--------
+ 1 file changed, 1 insertion(+), 8 deletions(-)
 
 diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-index f6b463aaba47..40eea5c125d2 100644
+index 40eea5c125d2..c5431f160fe4 100644
 --- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
 +++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-@@ -1095,13 +1095,12 @@ static int mtk_hdmi_clk_enable_audio(struct mtk_hdmi *hdmi)
- 		return ret;
+@@ -1703,15 +1703,8 @@ static __maybe_unused int mtk_hdmi_suspend(struct device *dev)
+ static __maybe_unused int mtk_hdmi_resume(struct device *dev)
+ {
+ 	struct mtk_hdmi *hdmi = dev_get_drvdata(dev);
+-	int ret = 0;
  
- 	ret = clk_prepare_enable(hdmi->clk[MTK_HDMI_CLK_AUD_SPDIF]);
--	if (ret)
--		goto err;
-+	if (ret) {
-+		clk_disable_unprepare(hdmi->clk[MTK_HDMI_CLK_AUD_BCLK]);
-+		return ret;
-+	}
- 
- 	return 0;
--err:
--	clk_disable_unprepare(hdmi->clk[MTK_HDMI_CLK_AUD_BCLK]);
--	return ret;
+-	ret = mtk_hdmi_clk_enable_audio(hdmi);
+-	if (ret) {
+-		dev_err(dev, "hdmi resume failed!\n");
+-		return ret;
+-	}
+-
+-	return 0;
++	return mtk_hdmi_clk_enable_audio(hdmi);
  }
  
- static void mtk_hdmi_clk_disable_audio(struct mtk_hdmi *hdmi)
+ static SIMPLE_DEV_PM_OPS(mtk_hdmi_pm_ops, mtk_hdmi_suspend, mtk_hdmi_resume);
 -- 
 2.47.0
 
