@@ -4,85 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA5E1C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 09:38:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 605D7E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 09:48:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l89tcIhQpLFA95BmF/dtjUV+SmX9AcHiGhoZt2rDB4Y=; b=vvAMM9NHTIUhUj1PStc5c0Gmne
-	KWx8u7YxIEFgnIN74ke3u00WhdJ75MRcTWkTi/aDd1cDX2sVeAhnsecSPHJ4FEUr0yOPGDISSDlQX
-	Qw2YqoLCRIZZ6VDKtB+FCG4qrI/KCTolr8t0769lWFhLiacteCxA13Tud53E+PNIM4kvATfEv96zq
-	pdKuGfHPKsAIoKWHBc51HoaRmPYx5J75iANTwkmyZWxxripYIXWqTbGcQejCuU3TWZ3bsxF18lYOB
-	KzeVLSTLeCrRQzHnIiVnTWrJtNa8fdbUytZan7Ii7zJETwYhKPLwxOLtWk/wjiyRN2JILkqx4A9vl
-	Yk7nmbOw==;
+	bh=E+VrihHoR/h4+AypzLacJOvZczQ9U9IhBYbAbtlvTqA=; b=I8K30NmcXV7n+96aeFZPKwhJjp
+	j0ndBM00/JaKkpe8aRrUwyN951zloHXuLcEQiy6xMVab15pnFcb04au5S1Ifgax0UKyIWfGicMpfQ
+	LWx2+RfVL9E6I5PfdIodyXpRdaenJiRN70eqyGNbpwa0jgF5Zyu8qaOPXuZ9Aa6vg4/+7xXkg/41w
+	+RngKYnRh3fKDE8G/q5d2vlciHmsKzK/3ke2ANjxl0zF4E3P90QoaSb9gVqdfvXn0vUFKqznz1rPL
+	NkIHr041CXw7J/Q5aLnhMkpFZRM5FIUEWZk6Bv/FWRW6Uz7dz9Rn3OPDToRrM1Jrd1YuM/UEpVrms
+	sKUq13Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXdNT-00000007yKp-2vR0;
-	Tue, 14 Jan 2025 09:38:27 +0000
-Received: from mail-yb1-xb32.google.com ([2607:f8b0:4864:20::b32])
+	id 1tXdWy-00000007zA5-2npL;
+	Tue, 14 Jan 2025 09:48:16 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXdMC-00000007y1c-42ad
+	id 1tXdVj-00000007yzo-1UVM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 09:37:10 +0000
-Received: by mail-yb1-xb32.google.com with SMTP id 3f1490d57ef6-e5372a2fbddso8447774276.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 01:37:08 -0800 (PST)
+	Tue, 14 Jan 2025 09:47:00 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-aaee0b309adso865420466b.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 01:46:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1736847428; x=1737452228; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1736848017; x=1737452817; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=l89tcIhQpLFA95BmF/dtjUV+SmX9AcHiGhoZt2rDB4Y=;
-        b=RakxHprVpuSi5H714B2h9KhocQBzkrd0PqgE9El9C9NvcvEeXMzOX8HfH6KhHWSy3N
-         hzi7xH9tZ9+JL1EQYBYpxaFhCP6Ij0jb0euOTcbL0S9zVb+vx0LXGZxZ5dx+UOwDkyQJ
-         /a5PWbxwDW75+O9ClX3N0zo/6gAW4bm0uD+os=
+        bh=E+VrihHoR/h4+AypzLacJOvZczQ9U9IhBYbAbtlvTqA=;
+        b=Sh3XoPSZdjaMmpG0yZ52t1Xt8OV2bQ8/Iw0+1sVIz/6yH6caAYkYyEv6jS6XAk6aIY
+         o/uStwYR8jInAF2bXEqbUAHpuIujyfGH/Cmh+e5Daf3qswYEXpRn/at+xSLgu7n1qsDK
+         k0JUXMfrudmONwvXvTB+u9mAS+0AOxCMsUVQMefa6dhtWiMIPwOqjaAD/t2iqAhpqMRN
+         g9HNaZThfJwUTY8Z31M10se/TJ520M8xbMzIQ9RECPhIZrcjWe4UfJEkK0n15kQAZGfj
+         cZJiv/03rT7fFrS6e7w4UUV/H+f/uju+PsFs2bmoh1u4P6ZWCvRN3wToYju4BFnoKLx4
+         tMog==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736847428; x=1737452228;
+        d=1e100.net; s=20230601; t=1736848017; x=1737452817;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=l89tcIhQpLFA95BmF/dtjUV+SmX9AcHiGhoZt2rDB4Y=;
-        b=kHHPlsm43D1ODGvqIpVUo7TCX2ilP1lKpEPi0fUn5lZc52rKHYp2+MWMX43LwDFULP
-         3dTiQEua8rEvJOmOeCXEZvnfmTxSTMPEmo1z1t5r3Xo2JAm3Vdp0PLdszshlFn4tNzwN
-         QE579xvucUT25EMkyCSREa4oIrTsx+QgG3J+NRVzRpco1JPUD1injrCsMm3DfkHIlA97
-         MP5xOo7ouC7Vb7yN2fmgYh3PxB0+GcV3tjxIJzcLp/uj3ApO8+zuqiwVF5KoOHiq5PqM
-         uowFVZPzKTQwoP7XGGliu9nhwNkr+OTGR75KdusTHnrsZ4nlOri5obtGL3/U+Dp13iKe
-         OLkA==
-X-Forwarded-Encrypted: i=1; AJvYcCXTNpzojLlJiPUVeB+hkGIB/L4R95mQDdsTk+p/GgaRkr27zLsrYafAwMTxm8ewG819XA7Lk8nVioLj0R4HPkS/@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHmucqNBYo9wHhMudq55EjKOsFFEGLrNI+U6Xza6QStPBHKjwP
-	J/xFU8inhrUs+QT/YRi4n296CqogX29vDPOltX+UeNkpH07+ZrO5AiZYkIzK60e6RmCt6BhZEqz
-	ww9oiaSdYkuUwrCxnyvtataf7HxLlaNgyPIGZHA==
-X-Gm-Gg: ASbGncveSM3VN+sXIxUGex/503Et0im3sXZZZAD1Ju1gwCgbTLgkZKbNNLVF1JbotkV
-	GYTa4+zDcvJgwwt2IheNV7F7Y3NWaezKPmuwb
-X-Google-Smtp-Source: AGHT+IF6e2gulZmmKMZM/9qfdCNmIYsXwgatFmybYBzO3L6nSNvtxPxQhBPTkQU3rmXIGx0U/IzVq/5dxO9CIKDtZus=
-X-Received: by 2002:a05:6902:12cd:b0:e57:2a07:a97b with SMTP id
- 3f1490d57ef6-e572a07ab0bmr10989327276.19.1736847428039; Tue, 14 Jan 2025
- 01:37:08 -0800 (PST)
+        bh=E+VrihHoR/h4+AypzLacJOvZczQ9U9IhBYbAbtlvTqA=;
+        b=r3WSoSIJrEttDfghGnKAwg9vPv5QOitTzJpbo/qSwcEj9t5miIht2RzuWSbqKXjKAy
+         +TsN72ugqW4cO2DGH6DtDKu6kpLIs6tXy7C4owoCHxQYS+Poin8HqUcxUrspbSUcbCFL
+         wgG/sxDdwgsnh9Hx9oINxNu8780xmJPYByIwuDwutKaLC6jI7NHUUzRFcCrIciqHRsFr
+         KYh+u8F2icjwldJo3abZhoTnWlZIMmS90CPUwg/1iuBaN45oleegQrn7CV00efGWNVjN
+         zxmjHAxK1lMkMmM3Eyd0VlEoYUsb36Afnd/XuRvRoi3ztpSMp8xC+rO2Vtgc654yWskG
+         NnkA==
+X-Forwarded-Encrypted: i=1; AJvYcCXM3dtaOiquowdg2h0N04TeqgyTYyGb3uw3hOyttpOv88hoGz5onYStejpDWdAHxe65ca1JTxK4Br+MoIELYv4d@lists.infradead.org
+X-Gm-Message-State: AOJu0YzsqMwtJZGNlZvZovJ6pcmoIiwvUUs/t2+pXcG/EzBYMgf8ogiy
+	Q7nunGLtMT9/uALDfRHGsargy+ra0s7L1zLs8P/HFADvM1Mgo9dMjMdSewxnMFt/D3ygVDNWm/4
+	8L8Y26nW/sa41zn1CTX0Cu6BGlGI=
+X-Gm-Gg: ASbGncvrBNpB/7HEfTwH1m1mws/UUjPOMt1zTbUSMe5hhPABb3s3OxAJ5uj2XsTjmtc
+	kIJXBXymsqVYribdawmbH+B3OqoGc44rQSWho8w==
+X-Google-Smtp-Source: AGHT+IFB5/NOc1qfgm0NgEd7l8XNYPb3tMAQ0jaKenktvVwfRG8D82BYAhUkdvtS+fobYNTzvwEa9ghZFQ38VtjGxFE=
+X-Received: by 2002:a17:907:97d6:b0:aa6:6c6b:15fd with SMTP id
+ a640c23a62f3a-ab2ab6b52b8mr2244703066b.20.1736848017120; Tue, 14 Jan 2025
+ 01:46:57 -0800 (PST)
 MIME-Version: 1.0
-References: <20250114091128.528757-1-dario.binacchi@amarulasolutions.com>
- <20250114091128.528757-2-dario.binacchi@amarulasolutions.com> <79a90c01-9e21-4e3f-a334-6ba9e1df4150@kernel.org>
-In-Reply-To: <79a90c01-9e21-4e3f-a334-6ba9e1df4150@kernel.org>
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Date: Tue, 14 Jan 2025 10:36:57 +0100
-X-Gm-Features: AbW1kvbHaMA7-gPSLKl8JCA0np6oyUkVl3x_8EI0Z9Yf3VmqaAgjofQDW5nCXfo
-Message-ID: <CABGWkvofUphcXTwBS5UBEoQ1GYpngP7gWi9Ax=WW28XKK0qoYA@mail.gmail.com>
-Subject: Re: [PATCH v3 1/4] dt-bindings: clock: convert stm32 rcc bindings to json-schema
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Conor Dooley <conor+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Michael Turquette <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Rob Herring <robh@kernel.org>, Stephen Boyd <sboyd@kernel.org>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com
+References: <20250113-b4-imx-gpio-base-warning-v1-0-0a28731a5cf6@pengutronix.de>
+In-Reply-To: <20250113-b4-imx-gpio-base-warning-v1-0-0a28731a5cf6@pengutronix.de>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Tue, 14 Jan 2025 11:46:21 +0200
+X-Gm-Features: AbW1kvYvnNBxyhX_hjX1s4aWMd-PZURmFnQFTxH_PiHAl6Q2MCYnAuJKZPMjNzw
+Message-ID: <CAHp75Ve8d96Uw1obJVwRPyRE5E0eC8qU7uXe-UKuZeB-3XLPcA@mail.gmail.com>
+Subject: Re: [PATCH 0/4] gpio: mxc: silence warning about GPIO base being
+ statically allocated
+To: Ahmad Fatoum <a.fatoum@pengutronix.de>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, 
+	Andy Whitcroft <apw@canonical.com>, Joe Perches <joe@perches.com>, 
+	Dwaipayan Ray <dwaipayanray1@gmail.com>, Lukas Bulwahn <lukas.bulwahn@gmail.com>, 
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>, Haibo Chen <haibo.chen@nxp.com>, 
+	Catalin Popescu <catalin.popescu@leica-geosystems.com>, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_013709_825788_EC15F357 
-X-CRM114-Status: GOOD (  17.98  )
+X-CRM114-CacheID: sfid-20250114_014659_397413_DB65852A 
+X-CRM114-Status: GOOD (  14.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,85 +101,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 14, 2025 at 10:29=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.o=
-rg> wrote:
+On Tue, Jan 14, 2025 at 12:19=E2=80=AFAM Ahmad Fatoum <a.fatoum@pengutronix=
+.de> wrote:
 >
-> On 14/01/2025 10:11, Dario Binacchi wrote:
-> > The patch converts st,stm32-rcc.txt to the JSON schema, but it does mor=
-e
-> > than that. The old bindings, in fact, only covered the stm32f{4,7}
-> > platforms and not the stm32h7. Therefore, to avoid patch submission tes=
-ts
-> > failing, it was necessary to add the corresponding compatible (i. e.
-> > st,stm32h743-rcc) and specify that, in this case, 3 are the clocks inst=
-ead
-> > of the 2 required for the stm32f{4,7} platforms.
-> > Additionally, the old bindings made no mention of the st,syscfg propert=
-y,
-> > which is used by both the stm32f{4,7} and the stm32h7 platforms.
-> >
-> > The patch also fixes the files referencing to the old st,stm32-rcc.txt.
-> >
-> > Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-> > Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> The i.MX GPIO driver has had deterministic numbering for the GPIOs
+> for more than 12 years.
 >
->
-> Drop the tag. It was conditional.
->
-> > +
-> > +properties:
-> > +  compatible:
-> > +    oneOf:
-> > +      - items:
-> > +          - const: st,stm32f42xx-rcc
-> > +          - const: st,stm32-rcc
-> > +      - items:
-> > +          - enum:
-> > +              - st,stm32f469-rcc
-> > +          - const: st,stm32f42xx-rcc
-> > +          - const: st,stm32-rcc
-> > +      - items:
-> > +          - const: st,stm32f746-rcc
-> > +          - const: st,stm32-rcc
->
-> Nothing improved here.
+> Reverting this to dynamically numbered will break existing setups in the
+> worst manner possible: The build will succeed, the kernel will not print
+> warnings, but users will find their devices essentially toggling GPIOs
+> at random with the potential of permanent damage. We thus want to keep
+> the numbering as-is until the SysFS API is removed and script fail
+> instead of toggling GPIOs dependent on probe order.
 
-In my humble opinion, there is nothing to improve. Any modification
-made causes the tests to fail.
-
-$ git grep st,stm32f746-rcc arch/
-arch/arm/boot/dts/st/stm32f746.dtsi:                    compatible =3D
-"st,stm32f746-rcc", "st,stm32-rcc";
-arch/arm/boot/dts/st/stm32f769-disco.dts:       compatible =3D
-"st,stm32f769-rcc", "st,stm32f746-rcc", "st,stm32-rcc";
-
-Or am I missing something?
-
-Thanks and regards,
-Dario
->
-> Best regards,
-> Krzysztof
-
-
+While I understand the issue this tends to get never fixed until the
+entire support of iMX boards will be dropped. Personally I do not like
+this series at all. Rather let's try to go the hard way and understand
+what's going on to fix the current issues.
 
 --=20
-
-Dario Binacchi
-
-Senior Embedded Linux Developer
-
-dario.binacchi@amarulasolutions.com
-
-__________________________________
-
-
-Amarula Solutions SRL
-
-Via Le Canevare 30, 31100 Treviso, Veneto, IT
-
-T. +39 042 243 5310
-info@amarulasolutions.com
-
-www.amarulasolutions.com
+With Best Regards,
+Andy Shevchenko
 
