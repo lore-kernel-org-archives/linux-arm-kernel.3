@@ -4,114 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E143DC02185
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 20:51:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76D81C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 20:51:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=x6wdS63I7iHxelb/E+SvOq6HbYS9FkarZVemmOHTtbY=; b=Dx44rrDcjPe9UY
-	LjIbiqy+GpDKJOxgCbrAoJ+V4oQExUaHM6jZEE58VNybRm3w7K2hHoXH1ejoi+Bpo+FMgkI2eWx1e
-	pZcBEYklL1LgDXj4aTa7IgP8CoY0hTvSFN2gzrB3RqWZD4Nr3Sf/Dpuy5WF/wf4C9S24MSAmBe5aF
-	0TOVOsiSfM6nagdCOzG22PvFHTgzeXWF7o2hVoiOykmtYW8pmrtsCHspkv98nPrTq6xKe+67M6E6Z
-	ITZQt/ftFZDruC23EPUVU/H2H/Dgf9wFI9oqWGG24CNY7hhVJODu6rhPAHOTE9ZRfAGTV7iAqvR1z
-	DP930XCCXV5WtaWfALLw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l/AGE8pJh7GgNRDEtM0gaQGj3X0ZPhDFL8vEdG1DJNQ=; b=Pu9B3S/iv2Tnmsuc5KHk8N7b0Y
+	8OwTdBt+09rc75EpWxjoN7cN8ybODLxdK7jkkY6k9zKkCS+fJTF7Pdj7Ck1Nshd2xt/5OjwJg57MF
+	WL2ifZMTrqqjYrRnitP9LSntoITcMxr5KD9CYBY6Q8oaUx4XUT8+AHA0GzlkgVltTeANdkDIqV5iT
+	7HMVLW1YMKDEr+kCOqHiIycBBMbKmRnBcKTOvbacqqOON7mojOCPVAstnwk/PUFTI/ueiu6cT/C9T
+	NHqpjg79ISb9zx41goxsapwTdEGYwj9PqSi+aVnIa3wOszh91pSNBpBHVzGlvrD9++5Wu2NBpK0tR
+	FfZfX4lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXnsW-00000009jK3-1cWK;
-	Tue, 14 Jan 2025 20:51:12 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXnji-00000009hq5-2W0I;
-	Tue, 14 Jan 2025 20:42:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=x6wdS63I7iHxelb/E+SvOq6HbYS9FkarZVemmOHTtbY=; b=LNVroRuMPh4eukRsidVZKE/J+M
-	sgHV1PoCrtYjj1gLCKVi5CPaIw8ySNoDrhRP6sC7/kLuTJlq6Aw4KVnSIYryFjRZSdnL2BI31qScT
-	1IYWee05WZ4L3iN0mLxSrvgj987HSPOk2kZavVq8mIwXLqZcWHnq53P4wTyHpqSAHzVFIu+cO7p8l
-	ZkK9xiqPwI2GhQQSPQRdJBNxK9KIHpq1WC5iwSBn0yJDXp3T2MWTlx27cbg1hNZ69fxQkhJ0Wbls8
-	bXaKbZqT2ou9PdPjTFYSFJz1CmcmdnsNOoGvjBXDB0lioCXRXiTz6sTPJHccQIx7Ed83eUonuIK7p
-	LVXOJvxw==;
+	id 1tXnsZ-00000009jMb-00VV;
+	Tue, 14 Jan 2025 20:51:15 +0000
 Received: from fout-b6-smtp.messagingengine.com ([202.12.124.149])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXnje-0000000AcX0-3Dlb;
-	Tue, 14 Jan 2025 20:42:05 +0000
-Received: from phl-compute-04.internal (phl-compute-04.phl.internal [10.202.2.44])
-	by mailfout.stl.internal (Postfix) with ESMTP id EB5D911400D1;
-	Tue, 14 Jan 2025 15:41:58 -0500 (EST)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tXnju-00000009hu8-24gW;
+	Tue, 14 Jan 2025 20:42:19 +0000
+Received: from phl-compute-12.internal (phl-compute-12.phl.internal [10.202.2.52])
+	by mailfout.stl.internal (Postfix) with ESMTP id D7F9611400D1;
+	Tue, 14 Jan 2025 15:42:16 -0500 (EST)
 Received: from phl-mailfrontend-02 ([10.202.2.163])
-  by phl-compute-04.internal (MEProxy); Tue, 14 Jan 2025 15:41:59 -0500
+  by phl-compute-12.internal (MEProxy); Tue, 14 Jan 2025 15:42:17 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	coelacanthus.name; h=cc:cc:content-transfer-encoding
 	:content-type:content-type:date:date:from:from:in-reply-to
-	:message-id:mime-version:reply-to:subject:subject:to:to; s=fm3;
-	 t=1736887318; x=1736973718; bh=x6wdS63I7iHxelb/E+SvOq6HbYS9Fkar
-	ZVemmOHTtbY=; b=Teqv9AqnoHU2b/ZfHDmcu3QdSaoJxH8ugHPqnbyxIMBShcwv
-	Lf2GEsXZukuS9aUclO3QhWHoKvIzbcij/syxWl/4aQI0ZhpNHWXobLO5hcW5ShK9
-	rVBWetAzpiHUUjUJoJuYWIMiTL/WY3l7LkgmZiTge+glzhlm89d/ygR/afLsnG7u
-	SZIkx818drjhQOczxXPZRNjaunM5awjv2mwbxXjwBZp1CKFSF19tv6oHQnPmFRnu
-	g4kWaBM0wy4tq7jyIY29KeVOLG8JPH5Nbz99b10I8yYvmhF7D62o6orTByR1ScZS
-	Tba54HlxHnD+bqVmKjgr+OYMELe8rlbc+aTwVw==
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm3; t=1736887336; x=1736973736; bh=l/AGE8pJh7
+	GgNRDEtM0gaQGj3X0ZPhDFL8vEdG1DJNQ=; b=L8UK+qNtsmAFZQ+3hTNYAXZIpB
+	Qr13KJDajs03XLtUJ5I+ZEH0mOVmXZ3rsNRiNEWx+547dJ8K30+6aOuZYIoPAofL
+	VXNFcJEUV/fPhXRue16Yqgb+VhoM8VJXH3JovgIFMPL0Mg6euHE6Pog9n8jt8Vtm
+	DO1sLrPvlNBFeXEWZ5HnPzd/ZjjAtQBMRaOfBfS9lNLtG53P3uKB2ur4rXTOKn6X
+	qrdjomrCEeY0zr9E5TB9wNEFjEW3CTWE2fUZWHXlj8SREE9Uhnt9JrJEdR/Yc8DQ
+	1FXmCuryCrUZTv4NbBmVFP728Vht4AwZ6pcOfuJYckNrpFhpHy2Bz8sBXl+A==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm2; t=1736887318; x=1736973718; bh=x6wdS63I7iHxelb/E+SvOq6HbYS9
-	FkarZVemmOHTtbY=; b=tf2j1Nh0libscBgGxLeSHwVa4wSGqR3zyUOhelkXgYpn
-	AM/zuLgmrSrQKhQ38X5yQz6/NXCTaKSFf/BuclcebU4us1a42zc4VSJ10ag2JF7r
-	WK4YtF36eJyQH04oHPWkB4LfhhKOAjcYkEcjEzH9JT1iOszYi/b0/NeJOzDMZQKN
-	EID4mYT2SW0ku4m6Lh/BwUGrjjiVI/wVFG7HR0aFaFcI4yLF83nTFooAAR+NO5yQ
-	Gb7cX4mos/IHAOxzB13/ODi2QQdtsI5Fu5vYj3I4Gm39OIlXFxeXg6meYqJji4gB
-	jPLwrgkICd/ju68HrS4i3QsyNIbniILAm3X+178SXg==
-X-ME-Sender: <xms:E8yGZ_j7IlxLrfXjd34wKzUYtithnOt_MYecT_MfeaIN8unmzo8mGw>
-    <xme:E8yGZ8A03Elwj1quJsVtJYfR5hfs2eGd9spsr6mQ-ThDUbt6u4ha53OL_ia3e4A_Q
-    EeXdfl2WFx4ISUa8zk>
-X-ME-Received: <xmr:E8yGZ_FNh2JRLuE24yEj99RqS_R_D3jlCBAeIeuGiksqaYVTBoV7_lO4HBEwFw>
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1736887336; x=
+	1736973736; bh=l/AGE8pJh7GgNRDEtM0gaQGj3X0ZPhDFL8vEdG1DJNQ=; b=T
+	j/+nmxTF/xg51kX7Zt5H8xXFAixMs0vIuoGDDzf0bNzFF6QfwPx+wyhEPb8qBqKk
+	3YnAbrOPq6rK5uSYl7oCtB6bcPSvYdPf8L8ooOYw4PwkM8WkVhrdo2qElr1ieXIQ
+	hrWUWrbBLyjeqyrqhf6zQVG703aUCfLIrR5yLC/rq7suim71bS5nuB+wLT3KL7En
+	QnhgBBgDLBXugDc4uX2KFSZXk73Slme9IVDBdrj01GJcFy4NtzExpdcR+LnAPZ0r
+	0ZoQWHyegmG8vP1dXTDxG9kUw/jFQiWJvP4h/MQ10mc2XO5UXIPeeT1W7fJ//EWx
+	gYSxKSBmJzRmxTfMSFyOw==
+X-ME-Sender: <xms:J8yGZ8BPPFyZZgY0VeFT-K8Rx8m5zEuE-L_GQ1ekgVmyDV9lJPEe4g>
+    <xme:J8yGZ-iQSsLljrFuX004ql6q_iYcQmCNBy4qY7A9oQjLKdjTzgveI6ldAVbi4kWIL
+    GxoocCjxxGxa4VILUY>
+X-ME-Received: <xmr:J8yGZ_l6MHXkb7K75Z56YeaGrBFnBWYk76l1XLPeq7OzzcUCbNtsaRMkI0pnNw>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrudehiedgudefkecutefuodetggdotefrod
     ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
     uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpefhufffkfggtgfgvfevofesthejredtredtjeen
-    ucfhrhhomhepvegvlhgvshhtvgcunfhiuhcuoehufihusegtohgvlhgrtggrnhhthhhush
-    drnhgrmhgvqeenucggtffrrghtthgvrhhnpeefffevkeegffejheejfeefudehffdvleef
-    gfelkeehgffgueejffektefhgeefvdenucffohhmrghinheprhgvughhrghtrdgtohhmpd
-    hgihhthhhusgdrtghomhdpkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivgep
-    tdenucfrrghrrghmpehmrghilhhfrhhomhepuhifuhestghovghlrggtrghnthhhuhhsrd
-    hnrghmvgdpnhgspghrtghpthhtohepfeejpdhmohguvgepshhmthhpohhuthdprhgtphht
-    thhopehglhgruhgsihhtiiesphhhhihsihhkrdhfuhdqsggvrhhlihhnrdguvgdprhgtph
-    htthhopehufihusegtohgvlhgrtggrnhhthhhushdrnhgrmhgvpdhrtghpthhtohepjhho
-    nhgrthhhrghnhhesnhhvihguihgrrdgtohhmpdhrtghpthhtohepfhhlohhrihgrnhdrfh
-    grihhnvghllhhisegsrhhorggutghomhdrtghomhdprhgtphhtthhopehhvghinhhrihgt
-    hhdrshgthhhutghhrghrughtsegtrghnohhnihgtrghlrdgtohhmpdhrtghpthhtohepth
-    honhihsegrthhomhhiuggvrdgtohhmpdhrtghpthhtoheplhhinhhugidqrhhishgtvhes
-    lhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehtrhgvughinhhgse
-    hnvhhiughirgdrtghomhdprhgtphhtthhopegrnhhuphessghrrghinhhfrghulhhtrdho
-    rhhg
-X-ME-Proxy: <xmx:FMyGZ8QhsqC4rulaQQ1Aa6jDtki7bsIRyEly7GnmFj6CQ-R_rWz4IA>
-    <xmx:FMyGZ8w8IstiWH5mJUgk1U5Us_CS5tr7yDg3mKW6kv7Y9UACQv1G4g>
-    <xmx:FMyGZy7HKbVf8qSEvl6NERCLJ3Bssdr-SNDbRcGHhdOJ3l3ZsGr1nQ>
-    <xmx:FMyGZxy0wqD_ZKbT-P7jdqFXDV_l1yDJHtzdX6nsQ-qsxCyoCU4yvw>
-    <xmx:FsyGZ2n2BgBlb2k_ztDznT66FATWySyZ7bhJ-RRz7vOyUskQ5qYN7RJL>
+    hnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredt
+    jeenucfhrhhomhepvegvlhgvshhtvgcunfhiuhcuoehufihusegtohgvlhgrtggrnhhthh
+    hushdrnhgrmhgvqeenucggtffrrghtthgvrhhnpefgkefhjeeiueekgfffuedvheegffdt
+    hffghfetveejtdetffeugeejkeduieehveenucffohhmrghinheprhgvughhrghtrdgtoh
+    hmpdhgihhthhhusgdrtghomhenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhep
+    mhgrihhlfhhrohhmpehufihusegtohgvlhgrtggrnhhthhhushdrnhgrmhgvpdhnsggprh
+    gtphhtthhopeeffedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepghhlrghusghi
+    thiisehphhihshhikhdrfhhuqdgsvghrlhhinhdruggvpdhrtghpthhtohepuhifuhestg
+    hovghlrggtrghnthhhuhhsrdhnrghmvgdprhgtphhtthhopehjohhnrghthhgrnhhhsehn
+    vhhiughirgdrtghomhdprhgtphhtthhopehflhhorhhirghnrdhfrghinhgvlhhlihessg
+    hrohgruggtohhmrdgtohhmpdhrtghpthhtohephhgvihhnrhhitghhrdhstghhuhgthhgr
+    rhguthestggrnhhonhhitggrlhdrtghomhdprhgtphhtthhopehtohhnhiesrghtohhmih
+    guvgdrtghomhdprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhf
+    rhgruggvrggurdhorhhgpdhrtghpthhtoheprghnuhhpsegsrhgrihhnfhgruhhlthdroh
+    hrghdprhgtphhtthhopegthhgvnhhhuhgrtggriheskhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:J8yGZyx-jwTVnE98BQslgJg8IrgRLe5mRexsgAKl1tAJ7E9KF1neTg>
+    <xmx:J8yGZxQFSJHuHrvDQgcIU0QdGyxN72lQs_rbOfnjKaEPPLYWf8DSSw>
+    <xmx:J8yGZ9a9kBdXKWM1jziJfYU9oBLUfJqBmsvOGi5t--0b2D-bHzClvQ>
+    <xmx:J8yGZ6SpFBu2WG9M-nypt5XZ6tUIG0k0NSfomO7CG8db-W-VP9KAHw>
+    <xmx:KMyGZxDHF630JI_6GPEE2KCHBUT1BPaXfGKINgDCuD-5LBjG06KoahJM>
 Feedback-ID: i95c648bc:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 14 Jan 2025 15:41:54 -0500 (EST)
+ 14 Jan 2025 15:42:14 -0500 (EST)
 From: Celeste Liu <uwu@coelacanthus.name>
-Subject: [PATCH v4 0/4] defconfig: drop RT_GROUP_SCHED=y
-Date: Wed, 15 Jan 2025 04:41:19 +0800
-Message-Id: <20250115-fix-riscv-rt_group_sched-v4-0-607606fe73a5@coelacanthus.name>
+Date: Wed, 15 Jan 2025 04:41:22 +0800
+Subject: [PATCH v4 3/4] sh: defconfig: drop RT_GROUP_SCHED=y from
+ sdk7786/urquell
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAO/LhmcC/33OTWrDMBAF4KsErTtBksc/6arQTe8QSlCksSWIr
- TByRELw3Suni2TTbgYezPt4d5GIAyXxvrkLphxSiFMJ+LYR1ptpIAiuZKGlRtnoFvpwBQ7JZuD
- 5MHC8nA/JenLgNEmFR8LOGVHqZ6by+6D33yX3HEeYPZN5gnUllVI7bLc1lovQwWekk7Fmmv0lf
- dH1YxhNOG1tHFfThzRHvj3WZr3Kv06nq7+HZQ0SCN3RkMa+JfVirsNy9YR2Sv4DVQXCrqG2ptp
- Q416hZVl+ALc/HAZNAQAA
-X-Change-ID: 20240627-fix-riscv-rt_group_sched-d2e014be48da
+Message-Id: <20250115-fix-riscv-rt_group_sched-v4-3-607606fe73a5@coelacanthus.name>
+References: <20250115-fix-riscv-rt_group_sched-v4-0-607606fe73a5@coelacanthus.name>
+In-Reply-To: <20250115-fix-riscv-rt_group_sched-v4-0-607606fe73a5@coelacanthus.name>
 To: Paul Walmsley <paul.walmsley@sifive.com>, 
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
  Guo Ren <guoren@kernel.org>, Anup Patel <anup@brainfault.org>, 
@@ -132,21 +115,19 @@ Cc: Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, 
  linux-sh@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-rpi-kernel@lists.infradead.org, linux-omap@vger.kernel.org, 
- linux-tegra@vger.kernel.org, Charlie Jenkins <charlie@rivosinc.com>, 
- Celeste Liu <uwu@coelacanthus.name>, Xi Ruoyao <xry111@xry111.site>, 
- Stefan Wahren <wahrenst@gmx.net>, Thierry Reding <treding@nvidia.com>
+ linux-tegra@vger.kernel.org, Celeste Liu <uwu@coelacanthus.name>
 X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2984; i=uwu@coelacanthus.name;
- h=from:subject:message-id; bh=cv3jA4lBt73juQxv0ekC6L4lkRU8HB1MI/gw7T+FRhc=;
- b=owJ4nJvAy8zAJeafov85RWVtBeNptSSG9LYzrF3Z/pe2qQhcyZn/MCV2WlTgnZb9bI6XGWaqv
- NWMu1li9KSjlIVBjItBVkyRJa+E5SfnpbPdezu2d8HMYWUCGcLAxSkAE2mMYPhnf5ezRCRmNU9M
- 8yb9HuNZh25tn7bKI/6ll/Gjnh18LKWmjAwHNHVXXoyo5D/R+kHNU/Jo6GH+5VxvjMNnC54TvJi
- 4v5EdAFPWRmA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2139; i=uwu@coelacanthus.name;
+ h=from:subject:message-id; bh=BhZXBD4LrwRi3kBTuqWLXE3VKHJ0GCDQScQEjxdA+cU=;
+ b=owJ4nJvAy8zAJeafov85RWVtBeNptSSG9LYznD2fd8RwHNpoculb9K0DbSGum9JK0po6eNP3r
+ XvhzbsqR62jlIVBjItBVkyRJa+E5SfnpbPdezu2d8HMYWUCGcLAxSkAE4mXYPjFdGNfLecKz3NZ
+ c/l+va5WTKo7y3prwpVfJ46wr578m4stjOGf0c+3AjpK3ydda3l2lrmxVG7ynlsv1Z/xT9xxwKV
+ oxbfTPACIpk1T
 X-Developer-Key: i=uwu@coelacanthus.name; a=openpgp;
  fpr=892EBC7DC392DFF9C9C03F1D15F4180E73787863
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_204203_431611_982DEC48 
-X-CRM114-Status: UNSURE (   7.89  )
+X-CRM114-CacheID: sfid-20250114_124218_587711_093A8E9A 
+X-CRM114-Status: UNSURE (   9.43  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -180,58 +161,38 @@ support it.[2]
 [1]: https://bugzilla.redhat.com/show_bug.cgi?id=1229700
 [2]: https://github.com/systemd/systemd/issues/13781#issuecomment-549164383
 
+Signed-off-by: Celeste Liu <uwu@coelacanthus.name>
 ---
-Changes in v4:
-- Update Acked-by
-- Link to v3: https://lore.kernel.org/r/20240910-fix-riscv-rt_group_sched-v3-0-486e75e5ae6d@gmail.com
+ arch/sh/configs/sdk7786_defconfig | 1 -
+ arch/sh/configs/urquell_defconfig | 1 -
+ 2 files changed, 2 deletions(-)
 
-Changes in v3:
-- Remove Fixes: tag because of it's not suitable.
-- Link to v2: https://lore.kernel.org/r/20240823-fix-riscv-rt_group_sched-v2-0-e4dbae24f7e1@gmail.com
+diff --git a/arch/sh/configs/sdk7786_defconfig b/arch/sh/configs/sdk7786_defconfig
+index 07894f13441ef622c3af8d8f4b5770c2ab66bcd8..7a6efd5b4a62463381005072a679a8ce022a2ef9 100644
+--- a/arch/sh/configs/sdk7786_defconfig
++++ b/arch/sh/configs/sdk7786_defconfig
+@@ -17,7 +17,6 @@ CONFIG_CPUSETS=y
+ CONFIG_CGROUP_CPUACCT=y
+ CONFIG_CGROUP_MEMCG=y
+ CONFIG_CGROUP_SCHED=y
+-CONFIG_RT_GROUP_SCHED=y
+ CONFIG_BLK_CGROUP=y
+ CONFIG_RELAY=y
+ CONFIG_NAMESPACES=y
+diff --git a/arch/sh/configs/urquell_defconfig b/arch/sh/configs/urquell_defconfig
+index 00ef62133b04ded8d0b4221f11e0adafde99d386..9cf4a719001ea5ef4b031c1bbbf8098e8af5a2b2 100644
+--- a/arch/sh/configs/urquell_defconfig
++++ b/arch/sh/configs/urquell_defconfig
+@@ -15,7 +15,6 @@ CONFIG_CPUSETS=y
+ CONFIG_CGROUP_CPUACCT=y
+ CONFIG_CGROUP_MEMCG=y
+ CONFIG_CGROUP_SCHED=y
+-CONFIG_RT_GROUP_SCHED=y
+ CONFIG_BLK_DEV_INITRD=y
+ CONFIG_PROFILING=y
+ CONFIG_MODULES=y
 
-Changes in v2:
-* Remove MIPS and PowerPC patch because of merged.
-* Link to v1: https://lore.kernel.org/lkml/20240530111947.549474-8-CoelacanthusHex@gmail.com/T
-
-Celeste Liu (6):
-  riscv: defconfig: drop RT_GROUP_SCHED=y
-  loongarch: defconfig: drop RT_GROUP_SCHED=y
-  sh: defconfig: drop RT_GROUP_SCHED=y from sdk7786/urquell
-  arm: defconfig: drop RT_GROUP_SCHED=y from bcm2855/tegra/omap2plus
-
- arch/arm/configs/bcm2835_defconfig         | 1 -
- arch/arm/configs/omap2plus_defconfig       | 1 -
- arch/arm/configs/tegra_defconfig           | 1 -
- arch/loongarch/configs/loongson3_defconfig | 1 -
- arch/riscv/configs/defconfig               | 1 -
- arch/sh/configs/sdk7786_defconfig          | 1 -
- arch/sh/configs/urquell_defconfig          | 1 -
- 7 files changed, 7 deletions(-)
-
---
-2.45.1
-
----
-Celeste Liu (4):
-      riscv: defconfig: drop RT_GROUP_SCHED=y
-      loongarch: defconfig: drop RT_GROUP_SCHED=y
-      sh: defconfig: drop RT_GROUP_SCHED=y from sdk7786/urquell
-      arm: defconfig: drop RT_GROUP_SCHED=y from bcm2835/tegra/omap2plus
-
- arch/arm/configs/bcm2835_defconfig         | 1 -
- arch/arm/configs/omap2plus_defconfig       | 1 -
- arch/arm/configs/tegra_defconfig           | 1 -
- arch/loongarch/configs/loongson3_defconfig | 1 -
- arch/riscv/configs/defconfig               | 1 -
- arch/sh/configs/sdk7786_defconfig          | 1 -
- arch/sh/configs/urquell_defconfig          | 1 -
- 7 files changed, 7 deletions(-)
----
-base-commit: 0e287d31b62bb53ad81d5e59778384a40f8b6f56
-change-id: 20240627-fix-riscv-rt_group_sched-d2e014be48da
-
-Best regards,
 -- 
-Celeste Liu <uwu@coelacanthus.name>
+2.48.0
 
 
