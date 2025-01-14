@@ -4,81 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BCA7C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 14:15:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B253C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 14:16:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bSpEFY7EzrjMbPzAvp+SMli9ZoKwwgJN9BbiOeWW6CY=; b=WgyBfV3hmnhm+CuLW6FpKVTjUH
-	A+wm4uVgSD7ellmMZ79A2oztiPmwxuWB0RADgsVL3v0ENP70Ws6/+wvxhdMn48cb6EckgS41Og85J
-	qgSAMa53q2h4IxS0deeqlauGbBfT9bGHRxmuzPMCgxnlNQWgxux4v4cFacpnKyCfqyQCnwcExZA+L
-	HWWWpBqWvGql5qiJez5l+jh4kDPjJ/chjAvVRxMNCJ1PBUy6r2ZxcQdmSjkaiUfFlcBnTdPyliSW/
-	4yOygOrCMt1YO0EpdM1y8w1xgldBlvlRs43UfDYbLcUVb1Y9UWr3XeIXDRHo3Q/ABfi/FxRXKt/Dn
-	574wZh9A==;
+	bh=6tKjcpDmSDVi0I0Iymsx6pKq7XeGCNlnh/DkEXq+Kvg=; b=As60XZh+RE3sBB/iDV0+UsvYtj
+	HFdqiPrxxiOWlOoZoXpI3aO3R4Fd/4SCvk3u7Gn0QUwaUIiLYE4BPYE6paa5HdaDWjajioIEUZo8o
+	rCL/Z+VmdzTvs75sk6De/KRRLIGFMQnZw+mr8d/NMNFBvGfvV3Qdb83cKtJz/LyQM2NTgu0mxivx2
+	bEraW+biQbobiUddx4Rsj4MoeNR+YhI8Vyv2u1ejjK1U2TXwCPR8xS5ITd/xRfy3/KkFC8+sR+VGQ
+	SFWNsp/69lXCfCuVOd1wClAAPCVN4mmtnYufFyVL2tzZtG13GxZyL6gDwl0mYxwjG6BPGjwjv2htM
+	CNBoe6Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXhhA-00000008dNT-0jxB;
-	Tue, 14 Jan 2025 14:15:04 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tXhiO-00000008des-22yI;
+	Tue, 14 Jan 2025 14:16:20 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXhVk-00000008akM-2rZ0
+	id 1tXhXr-00000008b9p-39Yx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 14:03:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=bSpEFY7EzrjMbPzAvp+SMli9ZoKwwgJN9BbiOeWW6CY=; b=znlQ3enAOM8n0X/HgNA9XpNIai
-	vXHqjdRRV+WwS0OY/lDVrWGROTwSRAEIKdjbeybiZYZ278+ckMm1JcBbJfZTcym6DpeLQg3XJ5Ggf
-	pWJsYihDy7Wfk+/jSVqVZl+qMIb3H2B71U8jxZehL4rmXNBWAGqS61sdO4HFmDEk2UM26XBu024Bh
-	NiU6gXvBvXkuiaMsqmRAaHXGz3WwlGr8/2mdWMz6C3U3IRay2su8MaYflCHiblpZwrzT0UNFh+LJa
-	yLYekRAyZH7Tue1KjM/8km096fGd/j5ZjMlcOZrkV89j2ZZMl1qaPeuXhmvKWZ09jwjAHWt36QTqy
-	ED9sHvCw==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:54652 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tXhVd-0008BT-1m;
-	Tue, 14 Jan 2025 14:03:09 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tXhVK-000n18-3C; Tue, 14 Jan 2025 14:02:50 +0000
-In-Reply-To: <Z4ZtoeeHIXPucjUv@shell.armlinux.org.uk>
-References: <Z4ZtoeeHIXPucjUv@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Bryan Whitehead <bryan.whitehead@microchip.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Marcin Wojtas <marcin.s.wojtas@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	UNGLinuxDriver@microchip.com,
-	Vladimir Oltean <olteanv@gmail.com>
-Subject: [PATCH RFC net-next 10/10] net: dsa: allow use of phylink managed EEE
- support
+	Tue, 14 Jan 2025 14:05:29 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-437a92d7b96so7568705e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 06:05:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1736863526; x=1737468326; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:user-agent
+         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6tKjcpDmSDVi0I0Iymsx6pKq7XeGCNlnh/DkEXq+Kvg=;
+        b=J6YPReEyVwhtvPLwoif+nRbUjeWO+1ZHeaGsEUs1VyNPSS4U9g2jjtdVBYeAGNTpBn
+         HcUJXv0yxo/97zVMaUXRfmdrorvFPYxvOvKGhIqTnSvmPHOdAdtOcVzdCkRaATLXIUbP
+         TNDG3jVdaA6ckTPkjsmaw1pXjNZ420UIPUaGXTdey/EluPcyL55ejNedexYTj5kwIMGT
+         DfCkQGNzUBcdXHxSCnLLAf+m5SDE+lm7Ex2A4wtRmWSgB0okTbtFGHL8gjSD7MZMgY+3
+         D5pH7ACzKHo8w5lkqJ2HuyFuPMFERuT/Rgqj+Z/IfRthKEfQ4wI2LPJHFcab3gAp44VQ
+         QN4Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736863526; x=1737468326;
+        h=content-transfer-encoding:mime-version:message-id:date:user-agent
+         :references:in-reply-to:subject:cc:to:from:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=6tKjcpDmSDVi0I0Iymsx6pKq7XeGCNlnh/DkEXq+Kvg=;
+        b=h+OIpPxHyhB2btbcpqri6JqEt1i8mHg+jE7mwoP3SeogPiigmD4aClI2ajv8G9U9Ad
+         nc1TjuR+Orqm/ypzxivVfjiO40Rl95dhqOEoecU+ZYaCe2DRFcQheDJSiQDvdiEcyDWg
+         ZfPfRHLwZ57CCHe9kIK5GWb/Wd1/dvp6GzkmGjaefikpF+pT9RZJ3fbxJl9M5mxgHvMc
+         1tNmy0aZnydQzPJL4+ib7FHBjltDmYeJyj+qjioc+D0dSPDAbDHSVCPKD9uGX3sRiWy+
+         kMTR5ZNPBjhH4kmoZAJdWdJoNU5PZGioHQGRpT8um9T9tVz3Dkc1SznexJmFIdbZnfdO
+         wXPw==
+X-Forwarded-Encrypted: i=1; AJvYcCXAV0vYfIsbdKGgHtHJVHudxmLQ6fNk+03QRVlBKx+KEC1MwJqPNTTBvSfhqKP/75sDr/uhHERGX1GP7WhScnny@lists.infradead.org
+X-Gm-Message-State: AOJu0YzEKfBY78Z48BeqmZ7ugLsphnE7caENwRXkJKc/7pkyGjAqfBXy
+	OsU7A6SVqXLMWFHERFzpA5aq4bYIZT+zRH7hP5bPBo0WfsW4GOpTDwDIdgkyoQU=
+X-Gm-Gg: ASbGnctrQmo/DAY0UqJea8U6cR4VnwCu23C2egPUXcOZooWttiGNnf8o8sJjW19ALAf
+	c4jMJXM7BUpGb+seu+GcBWE49s9y4nxT2mGCP+ixlwiq0PqXDihZpx2TryEqNGzqB8AYdYn7bH7
+	JCjEwHl2tiZtlH4myjKjKo9aYpu5fMCrpxKEC96qdZ1YqDdaincLt0tcmZvZaqMz8516WFlKNHT
+	Cf4DQDuQDnlHorDZxqnpOqvsst3tM+bpRAlYoTwPR0+X9D4n2IuRAAJ
+X-Google-Smtp-Source: AGHT+IGYBCH61RKlTG9lkoFWiyGMe6exY5OKDG7Opi27JjRz3QS+q+QxKENJfYtPEqBwzJBVByTGvA==
+X-Received: by 2002:a05:600c:1d03:b0:434:a0bf:98ea with SMTP id 5b1f17b1804b1-436e2699e91mr225375155e9.9.1736863525942;
+        Tue, 14 Jan 2025 06:05:25 -0800 (PST)
+Received: from localhost ([2a01:e0a:3c5:5fb1:317c:3d93:b7d4:96cd])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e2ddc5f5sm210760595e9.18.2025.01.14.06.05.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Jan 2025 06:05:25 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Jiebing Chen <jiebing.chen@amlogic.com>
+Cc: jiebing chen via B4 Relay <devnull+jiebing.chen.amlogic.com@kernel.org>,
+  Liam Girdwood <lgirdwood@gmail.com>,  Mark Brown <broonie@kernel.org>,
+  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,
+  Conor Dooley <conor+dt@kernel.org>,  Jaroslav Kysela <perex@perex.cz>,
+  Takashi Iwai <tiwai@suse.com>,  Neil Armstrong
+ <neil.armstrong@linaro.org>,  Kevin Hilman <khilman@baylibre.com>,  Martin
+ Blumenstingl <martin.blumenstingl@googlemail.com>,
+  linux-sound@vger.kernel.org,  devicetree@vger.kernel.org,
+  linux-kernel@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
+  linux-amlogic@lists.infradead.org
+Subject: Re: [PATCH 2/3] ASoC: meson: s4:support for the on-chip audio
+In-Reply-To: <e69cd38e-898c-4cbc-a327-14148a71c764@amlogic.com> (Jiebing
+	Chen's message of "Tue, 14 Jan 2025 19:20:00 +0800")
+References: <20250113-audio_drvier-v1-0-8c14770f38a0@amlogic.com>
+	<20250113-audio_drvier-v1-2-8c14770f38a0@amlogic.com>
+	<1jwmey9451.fsf@starbuckisacylon.baylibre.com>
+	<e2f26ca2-4c38-4b07-bf17-95544588a2f2@amlogic.com>
+	<e69cd38e-898c-4cbc-a327-14148a71c764@amlogic.com>
+User-Agent: mu4e 1.12.7; emacs 29.4
+Date: Tue, 14 Jan 2025 15:05:24 +0100
+Message-ID: <1j8qrd7aor.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tXhVK-000n18-3C@rmk-PC.armlinux.org.uk>
-Date: Tue, 14 Jan 2025 14:02:50 +0000
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_060316_718493_51B38438 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20250114_060527_792086_93EE5B2F 
+X-CRM114-Status: GOOD (  21.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,55 +110,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In order to allow DSA drivers to use phylink managed EEE, changes are
-necessary to the DSA .set_eee() and .get_eee() methods. Where drivers
-make use of phylink managed EEE, these should just pass the method on
-to their phylink implementation without calling the DSA specific
-operations.
+On Tue 14 Jan 2025 at 19:20, Jiebing Chen <jiebing.chen@amlogic.com> wrote:
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- net/dsa/user.c | 25 ++++++++++++++++---------
- 1 file changed, 16 insertions(+), 9 deletions(-)
+>>>> +
+>>>> +MODULE_DESCRIPTION("Amlogic to codec driver");
+>>>> +MODULE_AUTHOR("jiebing.chen@amlogic.com");
+>>>> +MODULE_LICENSE("GPL");
+>>>> diff --git a/sound/soc/meson/t9015.c b/sound/soc/meson/t9015.c
+>>>> index
+>>>> 571f65788c592050abdca264f5656d4d1a9d99f6..2db1cd18cf2cea507f3d7282054e=
+03d953586648
+>>>> 100644
+>>>> --- a/sound/soc/meson/t9015.c
+>>>> +++ b/sound/soc/meson/t9015.c
+>>>> @@ -89,10 +89,7 @@ static struct snd_soc_dai_driver t9015_dai =3D {
+>>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 .channels_min =3D 1,
+>>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 .channels_max =3D 2,
+>>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 .rates =3D SNDRV_PCM_RATE_8000_96000,
+>>>> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 .formats =3D (SNDRV_PCM_FMTBIT_S8 |
+>>>> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ SNDRV_PCM_FMTBIT_S16_LE |
+>>>> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ SNDRV_PCM_FMTBIT_S20_LE |
+>>>> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ SNDRV_PCM_FMTBIT_S24_LE),
+>>>> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 .formats =3D (SNDRV_PCM_FMTBIT_S16_LE |
+>>>> SNDRV_PCM_FMTBIT_S32_LE),
+>>> Again, mixed up changes with zero justification.
+>>>
+>>> This drops S8 and S16 format support for the existing SoCs (such as GXL)
+>>> which is known to work and add S32 support on an HW documented as 24bits
+>>> only. Can you explain ?
+>
+> for g12a, sm1 etc, it is use new audio ip, GXL is old ip,
 
-diff --git a/net/dsa/user.c b/net/dsa/user.c
-index c74f2b2b92de..6912d2d57486 100644
---- a/net/dsa/user.c
-+++ b/net/dsa/user.c
-@@ -1233,16 +1233,23 @@ static int dsa_user_set_eee(struct net_device *dev, struct ethtool_keee *e)
- 	if (!ds->ops->support_eee || !ds->ops->support_eee(ds, dp->index))
- 		return -EOPNOTSUPP;
- 
--	/* Port's PHY and MAC both need to be EEE capable */
--	if (!dev->phydev)
--		return -ENODEV;
--
--	if (!ds->ops->set_mac_eee)
--		return -EOPNOTSUPP;
-+	/* If the port is using phylink managed EEE, then get_mac_eee is
-+	 * unnecessary.
-+	 */
-+	if (!ds->phylink_mac_ops ||
-+	    !ds->phylink_mac_ops->mac_disable_tx_lpi ||
-+	    !ds->phylink_mac_ops->mac_enable_tx_lpi) {
-+		/* Port's PHY and MAC both need to be EEE capable */
-+		if (!dev->phydev)
-+			return -ENODEV;
-+
-+		if (!ds->ops->set_mac_eee)
-+			return -EOPNOTSUPP;
- 
--	ret = ds->ops->set_mac_eee(ds, dp->index, e);
--	if (ret)
--		return ret;
-+		ret = ds->ops->set_mac_eee(ds, dp->index, e);
-+		if (ret)
-+			return ret;
-+	}
- 
- 	return phylink_ethtool_set_eee(dp->pl, e);
- }
--- 
-2.30.2
+If there are chips difference we did not know about, then you should
+introduce those difference, without breaking existing support -
+including for GXL, which is what you did IIUC.
 
+> the new ip not support 24 bit,
+
+Are sure about that ? that code has been there for a while.
+
+If sm1 does not support SNDRV_PCM_FMTBIT_S24_LE, you should a fix up patch =
+for
+that, with the proper "Fixes:" tag, how to reproduce the problem and
+explaining the fix.
+
+>
+> usually support 16/32 bit for new audio ip , for SNDRV_PCM_FMTBIT_S24_LE,
+> it width =3D24, phy =3D32
+
+Yes physical of SNDRV_PCM_FMTBIT_S24_LE, so most chip supporting 32 bits
+width would support this S24_LE, unless there is something odd.
+
+>
+> it was=C2=A0 treated as 32 bit to send for tdm, so we can only add the S3=
+2LE
+> base on it , right ?
+
+You are asking me ? How am I suppose to know ?
+
+> but if the gxl not support the 32bit
+
+I don't see a problem with a DAC taking input on 32bits physical
+interface and ignoring some bit on processing.
+
+If that's not the case, please send a proper fix change with some explanati=
+on
+
+>
+> we need add new snd_soc_dai_driver t9015_dai_s4 ?
+>
+
+If I understood correctly format depends on the chip and needs to
+adjusted including for sm1.=20
+
+>>>
+>>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 },
+>>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 .ops =3D &t9015_dai_ops,
+>>>> =C2=A0 };
+>>> -- Jerome
+
+--=20
+Jerome
 
