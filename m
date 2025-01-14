@@ -4,81 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F34D0E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 17:38:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BF7EE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 17:39:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wl0OQAceQNZiTRMXXYgPYqORgysEC5Wk2TvfRZlvXhg=; b=uASLVRI1cF/S+P3w5yabve6K0A
-	H5QLGhC3yAnshWKn/3VQAaDOe3yDPc5msQ4+QLM2F1BvEt6Tqxf734/VS59QL0/pqpeu2TktybGgH
-	9j0hBmLA3ta2wcutWXUZ+ypx4LRXf2b1yOPxMui2aUFd3fDy2yBpl9dO1QXlHvP47gEE1fkIBlnOO
-	Ljdiwmdpyu9rrzRBA+EB9RToR/fzJcBKhNwWNBvrO6CR5rRCikvam/8I6UqtNzWPx+xWq9GmxZFCE
-	NWEfaxfQqrcALruk8MXkM7GfwAKeDfKGaF1I19s0NQG1N8TisfXVS6CJBYiReOQXsc4o0ZIKquxX+
-	yfiWS0TA==;
+	bh=7rcl1SX/OvDfBPdSZc3LYo5TUWBN/Uceh2ueRnzxWfk=; b=kYmwA7t5Y79SOrW31qoO7O1JCA
+	ENJx/y1JrY0J/o1ETZPqJDOgzNJjXExgooABhJ655TJFsyjnzBCt/UfwDAYpkWt1us46jJY5GnK9r
+	PPhFLpJBCnZjdYjXrWDUNe+hfYEoojytOxura+aMxbm+o7RD68qu/I7pTaW5o16ie+TgpGA20r7tU
+	b2+tfTyfgStSlQgcvs7OtTP1U6Hwvxk0Y7C61F0G9q1TLe9aa4zT81qipafOwgUFuPITlfi2wC+7R
+	HZCxYEAFEe6ghrJUUr3D0K4gBz2HGIM2hsNbSdbkD7Nibas98rcuhTm+hEJKBuQZKp4hgIs2WbLfh
+	/sU3pbcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXkrX-00000009DzN-3smy;
-	Tue, 14 Jan 2025 17:37:59 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1tXksl-00000009E8V-2FgE;
+	Tue, 14 Jan 2025 17:39:15 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXkqI-00000009DsI-1CVP
+	id 1tXkqc-00000009Duy-1eMk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 17:36:43 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-2eeb4d643a5so9987259a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 09:36:41 -0800 (PST)
+	Tue, 14 Jan 2025 17:37:03 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-216395e151bso159815ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 09:37:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1736876201; x=1737481001; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1736876221; x=1737481021; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:to:subject:user-agent:mime-version:date
          :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=Wl0OQAceQNZiTRMXXYgPYqORgysEC5Wk2TvfRZlvXhg=;
-        b=EbG06lFHH978lbE1344srw4WUVD2Usua8wTkydPk4i2+1XauhTQGMgZ6vz4ixMjEWU
-         +slD8Ov9I8W6hjNCDl9TGPZPQrOs6/anadYLzJbBoYYZkg9XGJ4BvarYsf2ioc/dQPwJ
-         PZR1Jl2McPMcW7v5uiUUyvsq7889eCfwcOHwY=
+        bh=7rcl1SX/OvDfBPdSZc3LYo5TUWBN/Uceh2ueRnzxWfk=;
+        b=Nbd5eBYQvgqXHyN3TgFFeStUlAZo0+cj9sCAxRlrIGXVszYKNnIP3JC7FyM6EtgqGJ
+         MTmFVFi44tDj/ntHfWbGoHzDiWxJCl9sn5JwJQqvhH/VYndJ4J3Sq8cuBtzGGh9IGpNx
+         oj+ZxLf7KXKw2p6JVKOmP7g7JRbS0swyzzYnA=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736876201; x=1737481001;
+        d=1e100.net; s=20230601; t=1736876221; x=1737481021;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:to:subject:user-agent:mime-version:date
          :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Wl0OQAceQNZiTRMXXYgPYqORgysEC5Wk2TvfRZlvXhg=;
-        b=l0hYMDIVHPdqRRCuORCwr3yBo2vxgCz1wpjGywn4qAPrHHtgRdnCytP5LcdK5m/Uq3
-         EFFXT+iohg0wW2Mycqx05jsoEKe9fnUgMoA1j3Q2LoOlGT+HhBmWRLSEnHNacUcwxjIt
-         5W83wMjpiiEyUcZTahKtEH1iwsx6G1rXE4HFPaWVtcXe0X5XDUFp6Kz3VCDIE/yDE/Hc
-         YoUQUplC6uG/kNJQ9YtXImDYT+L3yZC24MKh8gvjo4jIjexcVytYciVUX8FHYroQ+Xi2
-         ip53CMsFsEz8heHRvwfAzDb7tx3e79q89HVVt5btU95gj06e4e+eeIKoOmEaYNeFQ77/
-         iTBQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUxp1pdt+eCPEaOUWyvSmGknF2UxajoSObUtaTIaEP2ojG5KOfr62La2mu/0jyNBzw7cBhW1Nhrz0dhUmWtVxcX@lists.infradead.org
-X-Gm-Message-State: AOJu0YxicGeGRdrkBfl1aB1f7tLczqL7iYdTMufx1Hzs9pkIxZgpGMn0
-	DGbjIYqDRRUuuzF88BMSNZ/Z3ob35VhjpeYSIFKmkuyTAR/ZuBZ9U7fzL4RQMQ==
-X-Gm-Gg: ASbGnctrjb/em6FIZpfHOUwhq1Bi33XOcN9ZJ2OSLacU4myTxQffcNND7YJazG2gsi2
-	H1fKpd4Yw+Nf52ZzYizmpSpA5gxxbwZZz8Uv2oHdJHLXxk1GEUgfrBiAFTE7L3eRRh8coHLdVYi
-	xnWaQdFkvdLXAUfvNHvXc9jN0VpXNu26fGH9G3DzzGqfLFN+EPmUTJ2+O3fRrTXLBSiUTU13e3G
-	k+UJALwc2X+sfZP/jE8GUoKDzu7gJRDAKP1RS1CWin5OhQzq1ByO974LFBk9bKYzvik/7oYAE0N
-	ThfnRl3YS6/aP0uvN/7J
-X-Google-Smtp-Source: AGHT+IHHsWEv45wozGJmxuqAfNmVOO/eL2E6IblEH5O05wgleycnhwaLm+UfIHZkEHKBKpY6IxmalQ==
-X-Received: by 2002:a17:90b:2e44:b0:2ee:3cc1:793e with SMTP id 98e67ed59e1d1-2f5490ee8ecmr31229108a91.32.1736876200871;
-        Tue, 14 Jan 2025 09:36:40 -0800 (PST)
+        bh=7rcl1SX/OvDfBPdSZc3LYo5TUWBN/Uceh2ueRnzxWfk=;
+        b=Ynx4ETg4sOXrf5PQwH3GilTDmM+OYi7in3bxzYCTkFn5K3euQQ2BVEsvpUe2vwmATk
+         IdVuAv+M1cI6HZvqC/HiXfnz4H92VqILYO8T+IbRXZte/uEGfPGiJimId8OmcgnwQZ4x
+         rksyoEaCwUSgWu27DRd+FycL4c1QComZRzu8ecCn8Cy0S39nr0veIEV50rrHRC1YZpVx
+         UmcH97lZuX98hFnxWd4hANDFujnx+XXN2XknfGdG0uMdt5qvaDj/Pp/b4TGUG7mCHSh/
+         HSVUvdhw4WS2ditjDeWwCAzoPq1kMa03fN2/agiOyXcJ4FSVbb5ocQ5wOwXk9ivu5P2d
+         RuLQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXhPjoclgPZST7KL7M5Wl/tJAZo2WyhmQ6cxhewVde0ideHW5313cdzcC0rtYEiqjleIBCC/eS3daGudzQVkYEn@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYd89ffvFb1bfKAoC3Z780OecaMQva7ADneHGEBp6sAlT2Agjy
+	atGovymBm5j/scEbGXm++TCuv3d4K08DOhjT26KjL+vYmgY3wDmznQ4w9cnq+Q==
+X-Gm-Gg: ASbGnct3sxhjmRXz64hdxbqugR2Kto3p0d9aYjqGH0ZzL7EIcvQnLanM8GOT8XX1UqL
+	HTK5Idfi1jX2mjhfne3iJwxjVhFnainjJC8XWvAvNRpsepOzs5tvJyjznlWxpsYcO38P55CIUX/
+	eCVH2qQqI4sO9Um48+rPROe89ChHzayWsVtCkxApehUaK8oNNuZ/Km0F/Fw7HHb6xXIgmwN3s2d
+	dm1zj0l2W+Mj80NIYToBDHRjsYDNmZSijLO1txflOgQ5P+fUKG/aVfbZmTS8TtRVbyiUvfh1/xL
+	7l57KU4Iwep33DYJaW/a
+X-Google-Smtp-Source: AGHT+IEFzv5G0xmABBL+XZICiZP0VhjMpDV3vlDzoecWcnfA7PB2ZBZcrMRU1kwwvn6finYRTqr0/A==
+X-Received: by 2002:a17:902:ecc3:b0:216:14fb:d277 with SMTP id d9443c01a7336-21a8d6c7ab4mr318410025ad.22.1736876221535;
+        Tue, 14 Jan 2025 09:37:01 -0800 (PST)
 Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f559439ae4sm10697210a91.30.2025.01.14.09.36.39
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21a9f10ddeasm70270415ad.48.2025.01.14.09.36.59
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 14 Jan 2025 09:36:40 -0800 (PST)
-Message-ID: <169fe40d-021d-4229-85e0-5dc74cf009b7@broadcom.com>
-Date: Tue, 14 Jan 2025 09:36:38 -0800
+        Tue, 14 Jan 2025 09:37:00 -0800 (PST)
+Message-ID: <96dba1fb-53f3-40fb-8e20-887cd089961c@broadcom.com>
+Date: Tue, 14 Jan 2025 09:36:59 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] gpio: Use str_enable_disable-like helpers
+Subject: Re: [PATCH] clk: Use str_enable_disable-like helpers
 To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Doug Berger <opendmb@gmail.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>,
  Broadcom internal kernel review list
  <bcm-kernel-feedback-list@broadcom.com>,
- Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski
- <brgl@bgdev.pl>, linux-gpio@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250114105553.273085-1-krzysztof.kozlowski@linaro.org>
+ Linus Walleij <linus.walleij@linaro.org>,
+ Bjorn Andersson <andersson@kernel.org>, linux-clk@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-arm-msm@vger.kernel.org
+References: <20250114105618.273302-1-krzysztof.kozlowski@linaro.org>
 Content-Language: en-US
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
@@ -113,12 +116,12 @@ Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
  MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
  7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
  95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20250114105553.273085-1-krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20250114105618.273302-1-krzysztof.kozlowski@linaro.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_093642_447166_A1206765 
-X-CRM114-Status: UNSURE (   9.24  )
+X-CRM114-CacheID: sfid-20250114_093702_434224_FA591FB7 
+X-CRM114-Status: UNSURE (   8.93  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -134,7 +137,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/14/25 02:55, Krzysztof Kozlowski wrote:
+On 1/14/25 02:56, Krzysztof Kozlowski wrote:
 > Replace ternary (condition ? "enable" : "disable") syntax with helpers
 > from string_choices.h because:
 > 1. Simple function call with one argument is easier to read.  Ternary
@@ -146,8 +149,6 @@ On 1/14/25 02:55, Krzysztof Kozlowski wrote:
 >     file.
 > 
 > Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> ---
->   drivers/gpio/gpio-brcmstb.c | 3 ++-
 
 Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
 -- 
