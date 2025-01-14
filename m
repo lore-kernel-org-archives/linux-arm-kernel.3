@@ -4,104 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91A20E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 20:37:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88566C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 20:42:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Ig/5LxUL10bhBFW0xWHuz8rUT0GzUhM//SEgmnsWbuo=; b=OeZcYWYwFRp3vao8I0wxmwhkQf
-	3EPYLpcs3bGQx3Z+zhz81tT5llhYpSpVeASseL2b3afeScvtTn6hpewfO9OOj0xvE+e5lhtsSsNOa
-	5w5r9zKWCpknde3Wou+VpNzWHVrECVLA/4h17IEQTCLpg+8PtPn8xBTxVxp14LXgLNGtH24ssRACf
-	CGFwy1PtqOi1e8OT/r1TKW0SbD4D4NJ0B0gImoolgh/KHs75X3WNYGaJR6uU+ocJ6vFUuyvkFqhvn
-	ghlk07sfPPka4KsQg6IkN4+9iOA6rfE2QFP7/wDHFePi7QFijdLuosXrCuiZvgKQAautiD9NE9p7i
-	JqTJOpJw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TM+Uv2rAwVXzhOGxP6KAZNgm9EHUs0viW3Tg49mr9j0=; b=GkLDgSWmGqBEjog7idSIScQgDn
+	gY7MXt8m6VyRJ1NI849rcafCn3BaN7QZHHjYusE2icq8siuo6FxvzGcIzIhDMJdVOSZ+8VFiwpJru
+	gDAUyY3wGrKQYELKBnTvSul/9dko/1mdt/SHNMP3+4m1BsgdD90+8q1NWy3Wx3tJ12VgHyp64paWU
+	ZcuuBaIDXbx0jiZyTJQP0Z7bD7sRY9wwNHtaWWEIwWFtz9jismIlgY9LJzVsmUi0xVuKHKHp0mqcu
+	3Ay69am+Ei297sI0xD91WeEz/6dn/RjqFnuyG9Leg+8D2s09eLLDaIWCEri5Susljb3ybYju23lYW
+	hZFYI/FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXnes-00000009hFL-0LLq;
-	Tue, 14 Jan 2025 20:37:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tXnjk-00000009hqg-27lN;
+	Tue, 14 Jan 2025 20:42:08 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXndc-00000009gz2-3tjZ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 14 Jan 2025 20:35:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=Ig/5LxUL10bhBFW0xWHuz8rUT0GzUhM//SEgmnsWbuo=; b=BjYE1dYiqXldGExN7Grn5gGnbH
-	qxibC2e3Cq1odaM8vngLH6b0Krn960htXsoIIYPPcGWUApK42SAxq8sxhi+Qv4abPcdoeAoamKBaL
-	ppNh0eTE6Tk3AXVmHw9+OB2gqbOCnElnkI+eoagQc8iKk3QkO9YrbKCNveZh1RGHcb/W1Ryg4Sqx6
-	mEfWcS9VG+JI34+zIZFSPIdBI5Bs8AeDx7glIVs+ZX9PZjtUhS58n+CWCMOp77r0nbgF22iu4TQKn
-	YPY1/jSJsaLE2FIm8r/QwTbLJ9HH5t76JVYSOfYvj9lbYs3O0Yp5ZqkCiiaygpUzuU2ACO4pKBjZb
-	/eSVc8qg==;
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXndZ-0000000AcHw-1qyU
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 20:35:47 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43616bf3358so7513605e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 12:35:44 -0800 (PST)
+	id 1tXnfB-00000009hLP-39N1;
+	Tue, 14 Jan 2025 20:37:26 +0000
+Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-5d9837f201aso331106a12.0;
+        Tue, 14 Jan 2025 12:37:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736886943; x=1737491743; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ig/5LxUL10bhBFW0xWHuz8rUT0GzUhM//SEgmnsWbuo=;
-        b=xSPHXLyjxulv4CmPR97w4vu2FnuxTezDazhLAmAc6TL3CivTMcXpVZKNlvV59H+XPs
-         Di6CeQL5O2/iFWpk2zJJ9jHPqc6QkupbR0dkybVF/EWVDuPkcqD2j/x7nBCf2QaIclj/
-         meLbSLFrQedFkKGX4kAJm+Ue0Ln+4X6tSmPA+UpWLaGM7AgSEwNe6x2TbKncQu9fO9fw
-         IvyAL7K8Fxdl8dYAdkTNs867XDdYg5LBijLlzqfrHrMytLhYqzIofThmr7BpZ2wGdqb2
-         gQS9p73VHPXC/gGCKlgLP0q/lDnoB4Drq1P9/6DtX8E0nK+SDrf9NRiokdyL6LwgOuju
-         b2kg==
+        d=gmail.com; s=20230601; t=1736887044; x=1737491844; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=TM+Uv2rAwVXzhOGxP6KAZNgm9EHUs0viW3Tg49mr9j0=;
+        b=X4MNvGNGCyJfO7F7X61ZyEzfkoRGWrNcECeLcDQuGLwCdMbjxFOeYbXnnGni11dMaw
+         7AzWjgj07ePbo+45apvIUgoa/D8ZU3wyHj9AvcXzZ3etF4mDPhEES6j/NSdu9zThUEqM
+         8UgDhMYcpfDfEgCbWvg5wQiExEoPBSqCA7fFmsiEBnxS6mRtFcAuoeyCy7RXY0ksX346
+         MTxR52epsmh0ojKeJzyN1Y6AIKHZFssZZiz3L6g9Q44aANELPo2qp6uZNY0DzbNxxobj
+         7ZFIurCQ5Muvyn9op1WbbKCuDaMDxkFDG0N4Ce+A6u9QRnrgr4Ri9P2jouDH42GDbSeJ
+         bycw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736886943; x=1737491743;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Ig/5LxUL10bhBFW0xWHuz8rUT0GzUhM//SEgmnsWbuo=;
-        b=C66Wz3XDKcvrq6GBi6f8PDGy8H+9QShAePjljMGXpu0AYtJvIiX7yIOR9MPjOFQ3Ts
-         mLkqSTe7e8oxTvSeOp9k3D3AltraMqAMQPLUokfQ4+1tYS01BKinHrfsY7tFO4nTPr2b
-         2TjXcdbMsgoIVp0L5hgVoOX2YoTacXOZm+clTal+X1tzTNG2LBrHpu5ElPr5suL3/3z1
-         tUw0l8rsBdEvLxsPW/Lgv4bGrolTmH1OoSUSOI++JwIJnZGOXbl99npQfNsi016ARCq/
-         D8rwqjp+/CEzd9SdsAbQG/kyIAbfMTm4TS3gpI1UfPtfboZY3qRUIWamDL/tTb+vVqBT
-         EzIw==
-X-Forwarded-Encrypted: i=1; AJvYcCWEA87jdsOXJVlkGB4DgYBqXMoY5BUFvIujzQ1x5wt7blpVwRin3n9H1bxiofjfOUzlmWOrlocFqPSA7/lJU8f8@lists.infradead.org
-X-Gm-Message-State: AOJu0YwU2ycWPQ7vpdj6xtTjdRxabs13uYvwfXlmtVsoOOhE1IgClB1C
-	dW2XVzDmSN81YYl9fnn1kuuhx5h2YYqoV8fH92FOFBRsHaWJODrtsh+DWZFVT1s=
-X-Gm-Gg: ASbGncs2dg+O9GcCa9nSvHrta/gKMRQLIiDZNZ5JZLIHFOdoefR9VTp3DdNKGPTsA8E
-	KWAw+1NF0RVYuTLF+WEBY4ZoLNBVQcrr+aivaToOulMJ7WqYcYJmGCm+8s+ompBUxtG9f36CB/7
-	Iyp9GwJo++CkmOxUmsf33PoVKUmPmpt7DloSQ5wmwz6f0STjDXwMCc8yslcxO2fYE/emxv66qSG
-	UlFXYQeabMHvDuxPwxd1Es8nyMoAHXo+2Oq7J7v3/6C3as+oofaog9FHGMPhKNodBRdRsI=
-X-Google-Smtp-Source: AGHT+IHWF7xnFpcXGXKNjhHTEjsUJ8iHcCbcevP7fJYnt+RuxU+qwF0tnnycUSXbl2RWpTG3C68iZw==
-X-Received: by 2002:a05:600c:1c88:b0:434:f22e:a5be with SMTP id 5b1f17b1804b1-436e270621emr94885475e9.8.1736886942974;
-        Tue, 14 Jan 2025 12:35:42 -0800 (PST)
-Received: from krzk-bin.. ([178.197.223.165])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e9d8fc81sm189284205e9.5.2025.01.14.12.35.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jan 2025 12:35:42 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Michal Simek <michal.simek@amd.com>,
-	linux-phy@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH] phy: Use str_enable_disable-like helpers
-Date: Tue, 14 Jan 2025 21:35:37 +0100
-Message-ID: <20250114203537.1012955-1-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.43.0
+        d=1e100.net; s=20230601; t=1736887044; x=1737491844;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TM+Uv2rAwVXzhOGxP6KAZNgm9EHUs0viW3Tg49mr9j0=;
+        b=LvOSSkZagGaUZ12iz77eGN9OOkXQ5zqgVbT2DcWbTnrCmEhDQN4tpNLLB9QrDN5Zgj
+         1eRJd4H4m6LENddgaTPVhSe4dpGm8UZsAZLBAHJPBMXqk+DDW1fZUenHQF6YE6Ecz680
+         DKw5veMWMSk9JWAav90aOerTPg802wy52469KgS3KRq15vyE4m4HXlYhhODex/JXs6Gb
+         tk990auWbKFZQr2L+ZvyvFvHfmBaQfPT0ZCEkDnjOlkYQlBnuM9lHTTexg5+p1VdehGw
+         saANEzm0pJwYH4gyzddWzF0QyD2Wdxki8k9pjp6hZIs1NjNuHD5Dmj0T4YL6/Yfypwcz
+         ePHQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU5xtxqDzUGFuuU/dpleoCYBc8WGDyw6DNx8vqeY6hf9f2ShDJTqLjYPAFJnzTer98poNrSEz9ymxP8dzbwVyly@lists.infradead.org, AJvYcCU8NiOumi2tOn78lDIptoOn+l62RPcSdKGbVn/rElqV6AFoo0fNCFHguOwWp3JsCne26oFrBm+D3OeGXoRR6go=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwC0bCIVrNJaEp5/gkWiCMaiTb0vZSBgYAIKL0WQxYriVplzMv4
+	AtVzGgAYvlQgaIGdeJEuM7MZk8oSb5fzZJ9mRLE1GEShKOR95G6cng0WIatR
+X-Gm-Gg: ASbGnctgSNQtzyvMhrBcgpcvck9zkD4KVFMLefL43StR6vhlG4a7rv6V/+ZgY1JQMDZ
+	/robPrFct5O8JBjDmHFm5j6PgUKr6UtVGED7KPYpvyJqb6Zepil3Uvp8Hd5e7mtfWClh61Kn6GK
+	MDfvw4prxzRcB78pRgJQWiRhdNFGLy9TaEYKMFhLh2yh1Zkje15w1i80W3rHlpw5+oNCFUppogg
+	XKmczsq6uUl1B/k+vDGyUnxsDdtMy9Ngs5ODhRsqc3WoBbnaHJWT1AUDZ8ZEUMDtngO8Vm02Ers
+	MpI157Qrl7LobLcxn/+xl8os4E2lU1s=
+X-Google-Smtp-Source: AGHT+IFQEXml/UJ1SmO7RTz8cpqU1evb6c+nigxt0ziAHVC34T7jXKhSq8MBqe+UKpQJZTg3WhWgHA==
+X-Received: by 2002:a17:906:dc92:b0:aa6:7c8e:808c with SMTP id a640c23a62f3a-ab2c3cb6e09mr2218493566b.17.1736887043902;
+        Tue, 14 Jan 2025 12:37:23 -0800 (PST)
+Received: from ?IPV6:2a00:f41:900e:91ba:e7d6:162b:2195:d63b? ([2a00:f41:900e:91ba:e7d6:162b:2195:d63b])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab2c9060bccsm663468466b.22.2025.01.14.12.37.21
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 14 Jan 2025 12:37:23 -0800 (PST)
+Message-ID: <91e2bd5b-71fa-402a-82cb-e68d3295804a@gmail.com>
+Date: Tue, 14 Jan 2025 21:37:20 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] spmi: Fix controller->node != parent->node breakage
+To: Stephen Boyd <sboyd@kernel.org>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>,
+ Konrad Dybcio <konradybcio@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+Cc: Marijn Suijten <marijn.suijten@somainline.org>,
+ linux-kernel@vger.kernel.org,
+ Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
+ Abel Vesa <abel.vesa@linaro.org>, Johan Hovold <johan+linaro@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+References: <20250113-topic-spmi_node_breakage-v2-1-dd35a3a6daa6@oss.qualcomm.com>
+ <5b139af8d639e20a14c8bd00e8e03a4a.sboyd@kernel.org>
+ <58cb6c37-0ea0-4866-a2b1-92cb0f0391a7@gmail.com>
+ <305d7cf5f0a66efc01181f24d3a288d3.sboyd@kernel.org>
+Content-Language: en-US
+From: Konrad Dybcio <konradybcio@gmail.com>
+Autocrypt: addr=konradybcio@gmail.com; keydata=
+ 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
+ izWDgYvmBE8=
+In-Reply-To: <305d7cf5f0a66efc01181f24d3a288d3.sboyd@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_203545_917003_7396D050 
-X-CRM114-Status: GOOD (  12.14  )
+X-CRM114-CacheID: sfid-20250114_123725_794635_07FDD35F 
+X-CRM114-Status: GOOD (  20.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,173 +146,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace ternary (condition ? "enable" : "disable") syntax with helpers
-from string_choices.h because:
-1. Simple function call with one argument is easier to read.  Ternary
-   operator has three arguments and with wrapping might lead to quite
-   long code.
-2. Is slightly shorter thus also easier to read.
-3. It brings uniformity in the text - same string.
-4. Allows deduping by the linker, which results in a smaller binary
-   file.
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- drivers/phy/broadcom/phy-bcm-cygnus-pcie.c |  3 ++-
- drivers/phy/realtek/phy-rtk-usb2.c         | 15 ++++++++-------
- drivers/phy/realtek/phy-rtk-usb3.c         |  9 +++++----
- drivers/phy/ti/phy-twl4030-usb.c           |  4 ++--
- drivers/phy/xilinx/phy-zynqmp.c            |  3 ++-
- 5 files changed, 19 insertions(+), 15 deletions(-)
 
-diff --git a/drivers/phy/broadcom/phy-bcm-cygnus-pcie.c b/drivers/phy/broadcom/phy-bcm-cygnus-pcie.c
-index 462c61a24ec5..562d7d7151c5 100644
---- a/drivers/phy/broadcom/phy-bcm-cygnus-pcie.c
-+++ b/drivers/phy/broadcom/phy-bcm-cygnus-pcie.c
-@@ -7,6 +7,7 @@
- #include <linux/of.h>
- #include <linux/phy/phy.h>
- #include <linux/platform_device.h>
-+#include <linux/string_choices.h>
- 
- #define PCIE_CFG_OFFSET         0x00
- #define PCIE1_PHY_IDDQ_SHIFT    10
-@@ -86,7 +87,7 @@ static int cygnus_pcie_power_config(struct cygnus_pcie_phy *phy, bool enable)
- 
- 	mutex_unlock(&core->lock);
- 	dev_dbg(core->dev, "PCIe PHY %d %s\n", phy->id,
--		enable ? "enabled" : "disabled");
-+		str_enabled_disabled(enable));
- 	return 0;
- }
- 
-diff --git a/drivers/phy/realtek/phy-rtk-usb2.c b/drivers/phy/realtek/phy-rtk-usb2.c
-index 248550ef98ca..14543636796d 100644
---- a/drivers/phy/realtek/phy-rtk-usb2.c
-+++ b/drivers/phy/realtek/phy-rtk-usb2.c
-@@ -14,6 +14,7 @@
- #include <linux/debugfs.h>
- #include <linux/nvmem-consumer.h>
- #include <linux/regmap.h>
-+#include <linux/string_choices.h>
- #include <linux/sys_soc.h>
- #include <linux/mfd/syscon.h>
- #include <linux/phy/phy.h>
-@@ -729,7 +730,7 @@ static int rtk_usb2_parameter_show(struct seq_file *s, void *unused)
- 
- 	seq_puts(s, "Property:\n");
- 	seq_printf(s, "  check_efuse: %s\n",
--		   phy_cfg->check_efuse ? "Enable" : "Disable");
-+		   str_enable_disable(phy_cfg->check_efuse));
- 	seq_printf(s, "  check_efuse_version: %d\n",
- 		   phy_cfg->check_efuse_version);
- 	seq_printf(s, "  efuse_dc_driving_rate: %d\n",
-@@ -741,17 +742,17 @@ static int rtk_usb2_parameter_show(struct seq_file *s, void *unused)
- 	seq_printf(s, "  dc_disconnect_mask: 0x%x\n",
- 		   phy_cfg->dc_disconnect_mask);
- 	seq_printf(s, "  usb_dc_disconnect_at_page0: %s\n",
--		   phy_cfg->usb_dc_disconnect_at_page0 ? "true" : "false");
-+		   str_true_false(phy_cfg->usb_dc_disconnect_at_page0));
- 	seq_printf(s, "  do_toggle: %s\n",
--		   phy_cfg->do_toggle ? "Enable" : "Disable");
-+		   str_enable_disable(phy_cfg->do_toggle));
- 	seq_printf(s, "  do_toggle_driving: %s\n",
--		   phy_cfg->do_toggle_driving ? "Enable" : "Disable");
-+		   str_enable_disable(phy_cfg->do_toggle_driving));
- 	seq_printf(s, "  driving_updated_for_dev_dis: 0x%x\n",
- 		   phy_cfg->driving_updated_for_dev_dis);
- 	seq_printf(s, "  use_default_parameter: %s\n",
--		   phy_cfg->use_default_parameter ? "Enable" : "Disable");
-+		   str_enable_disable(phy_cfg->use_default_parameter));
- 	seq_printf(s, "  is_double_sensitivity_mode: %s\n",
--		   phy_cfg->is_double_sensitivity_mode ? "Enable" : "Disable");
-+		   str_enable_disable(phy_cfg->is_double_sensitivity_mode));
- 
- 	for (index = 0; index < rtk_phy->num_phy; index++) {
- 		struct phy_parameter *phy_parameter;
-@@ -830,7 +831,7 @@ static int rtk_usb2_parameter_show(struct seq_file *s, void *unused)
- 		seq_printf(s, "  efuse_usb_dc_dis: %d\n",
- 			   (int)phy_parameter->efuse_usb_dc_dis);
- 		seq_printf(s, "  inverse_hstx_sync_clock: %s\n",
--			   phy_parameter->inverse_hstx_sync_clock ? "Enable" : "Disable");
-+			   str_enable_disable(phy_parameter->inverse_hstx_sync_clock));
- 		seq_printf(s, "  driving_level: %d\n",
- 			   phy_parameter->driving_level);
- 		seq_printf(s, "  driving_level_compensate: %d\n",
-diff --git a/drivers/phy/realtek/phy-rtk-usb3.c b/drivers/phy/realtek/phy-rtk-usb3.c
-index cce453686db2..77ce58f98302 100644
---- a/drivers/phy/realtek/phy-rtk-usb3.c
-+++ b/drivers/phy/realtek/phy-rtk-usb3.c
-@@ -14,6 +14,7 @@
- #include <linux/debugfs.h>
- #include <linux/nvmem-consumer.h>
- #include <linux/regmap.h>
-+#include <linux/string_choices.h>
- #include <linux/sys_soc.h>
- #include <linux/mfd/syscon.h>
- #include <linux/phy/phy.h>
-@@ -363,13 +364,13 @@ static int rtk_usb3_parameter_show(struct seq_file *s, void *unused)
- 
- 	seq_puts(s, "Property:\n");
- 	seq_printf(s, "  check_efuse: %s\n",
--		   phy_cfg->check_efuse ? "Enable" : "Disable");
-+		   str_enable_disable(phy_cfg->check_efuse));
- 	seq_printf(s, "  do_toggle: %s\n",
--		   phy_cfg->do_toggle ? "Enable" : "Disable");
-+		   str_enable_disable(phy_cfg->do_toggle));
- 	seq_printf(s, "  do_toggle_once: %s\n",
--		   phy_cfg->do_toggle_once ? "Enable" : "Disable");
-+		   str_enable_disable(phy_cfg->do_toggle_once));
- 	seq_printf(s, "  use_default_parameter: %s\n",
--		   phy_cfg->use_default_parameter ? "Enable" : "Disable");
-+		   str_enable_disable(phy_cfg->use_default_parameter));
- 
- 	for (index = 0; index < rtk_phy->num_phy; index++) {
- 		struct phy_reg *phy_reg;
-diff --git a/drivers/phy/ti/phy-twl4030-usb.c b/drivers/phy/ti/phy-twl4030-usb.c
-index 6f12b38cd894..4bf4c4f93b4c 100644
---- a/drivers/phy/ti/phy-twl4030-usb.c
-+++ b/drivers/phy/ti/phy-twl4030-usb.c
-@@ -26,6 +26,7 @@
- #include <linux/usb/ulpi.h>
- #include <linux/mfd/twl.h>
- #include <linux/regulator/consumer.h>
-+#include <linux/string_choices.h>
- #include <linux/err.h>
- #include <linux/slab.h>
- 
-@@ -567,8 +568,7 @@ static ssize_t vbus_show(struct device *dev,
- 	int ret = -EINVAL;
- 
- 	mutex_lock(&twl->lock);
--	ret = sprintf(buf, "%s\n",
--			twl->vbus_supplied ? "on" : "off");
-+	ret = sprintf(buf, "%s\n", str_on_off(twl->vbus_supplied));
- 	mutex_unlock(&twl->lock);
- 
- 	return ret;
-diff --git a/drivers/phy/xilinx/phy-zynqmp.c b/drivers/phy/xilinx/phy-zynqmp.c
-index 05a4a59f7c40..b96bdc39bcc7 100644
---- a/drivers/phy/xilinx/phy-zynqmp.c
-+++ b/drivers/phy/xilinx/phy-zynqmp.c
-@@ -23,6 +23,7 @@
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- #include <linux/slab.h>
-+#include <linux/string_choices.h>
- 
- #include <dt-bindings/phy/phy.h>
- 
-@@ -865,7 +866,7 @@ static int xpsgtr_status_read(struct seq_file *seq, void *data)
- 	seq_printf(seq, "Reference clock: %u (%pC)\n", gtr_phy->refclk, clk);
- 	seq_printf(seq, "Reference rate:  %lu\n", clk_get_rate(clk));
- 	seq_printf(seq, "PLL locked:      %s\n",
--		   pll_status & PLL_STATUS_LOCKED ? "yes" : "no");
-+		   str_yes_no(pll_status & PLL_STATUS_LOCKED));
- 
- 	mutex_unlock(&gtr_phy->phy->mutex);
- 	return 0;
--- 
-2.43.0
+On 1/14/25 19:30, Stephen Boyd wrote:
+> Quoting Konrad Dybcio (2025-01-13 14:12:28)
+>>
+>> On 1/13/25 22:52, Stephen Boyd wrote:
+>>> Quoting Konrad Dybcio (2025-01-13 05:02:58)
+>>>>
+>>>> Make controller->node specifiable to both benefit from Joe's refcount
+>>>> improvements and un-break the aforementioned platforms.
+>>>
+>>> How is it broken? I see spmi_pmic_arb_bus_init() calls
+>>> devm_spmi_controller_alloc() which sets the of_node to the parent device
+>>> and then spmi_pmic_arb_bus_init() overwrites that with
+>>> 'ctrl->dev.of_node = node' later on in the same function. That will
+>>> cause one more of_node_put() than is expected. I don't see that removed
+>>> in this patch though, so the leak is still there?
+>>>
+>>>>
+>>>> Fixes: 821b07853e32 ("spmi: hisi-spmi-controller: manage the OF node reference in device initialization and cleanup")
+>>>
+>>> I've dropped this patch from my queue. I don't know if we're really
+>>> doing anything better by managing the of_node lifetime in that function
+>>> vs. letting the callers assign the node they want and manage the
+>>> lifetime themselves. Maybe we don't need to do anything? Presumably the
+>>> parent device driver will unregister the controller anyway, so the
+>>> lifetime of the of_node will be ensured regardless. For subnodes like
+>>> qcom SPMI, the subnodes are child nodes of the parent device so they
+>>> won't be removed. If they are dynamic nodes, then the caller can manage
+>>> the lifetime.
+>>
+>> Stephen, the wrong node gets assigned in the qcom driver with
+>> multi-master controllers, resulting in probe failures.
+>>
+>> Since the introduction of the commit referenced in fixes,
+>> of_spmi_register_devices() sees the controller's subnodes
+>> (which describe each of the two masters) as slave devices
+>> - meaning no "real" devices ever get to probe
+>>
+> 
+> Ok, I see that I was reading the already reverted state of the tree
+> where the 'ctrl->dev.of_node = node' assignment came back. So there's
+> nothing to do besides drop the patch in fixes, which I already did. We
+> can then apply this patch to drop the duplicate assignment as a cleanup
+> and to avoid a refcount bump on the of_node that isn't needed.
+> 
+> ----8<---
+> diff --git a/drivers/spmi/hisi-spmi-controller.c b/drivers/spmi/hisi-spmi-controller.c
+> index 3cafdf22c909..122140b97579 100644
+> --- a/drivers/spmi/hisi-spmi-controller.c
+> +++ b/drivers/spmi/hisi-spmi-controller.c
+> @@ -300,9 +300,6 @@ static int spmi_controller_probe(struct platform_device *pdev)
+>   
+>   	spin_lock_init(&spmi_controller->lock);
+>   
+> -	ctrl->dev.parent = pdev->dev.parent;
+> -	ctrl->dev.of_node = of_node_get(pdev->dev.of_node);
+> -
+>   	/* Callbacks */
+>   	ctrl->read_cmd = spmi_read_cmd;
+>   	ctrl->write_cmd = spmi_write_cmd;
+
+That works for me, thank you
+
+Konrad
 
 
