@@ -4,98 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDD32E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 07:16:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3DDDE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 07:29:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6wligOEfk1Hx9irR9JibUq3PPtODiEir7MRB/8u1Zdw=; b=x41D85ZtFaoDIRfmdwTMnUiMc/
-	Bb2nN77+Y0r+ABnokaCWGxqpR3/fZdiuxvBDNEIUi/EUFwvqEDL+xdZxvzjTMDDwslgjdtdmw5NPh
-	GccbryAcv2RVO/s2Amgx91DcfuCRI3ZLBS0meYt0E5Xk61Q5Ol5nAPrdX/z6pDg6nVoyDYb6+UAk2
-	8qWR7lKzcsuTuaQZ1xnjnt3Y76rRfir32AXgEfmVRZprhHvBpzYLXvfQ7Pitnv+7HX8KsaVoBsIZt
-	0xUSlXAi14FvYLtmxfefV3/MaTUMK5L2E0nVmg2dIiTfRQGHs+XLYm6oElKlhFu9gasx8hGX3sJZv
-	W7NXUf+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UVEy4JRudpZCxZfDhXaG9w9JfoTpLaK//CCUuMYvpGo=; b=gLLfAyIYB/3mIK/XwE5voDF8lT
+	ELNe8DwqQS/MmJ0etXWPfDGOCXMjddrI6l/Vf4A11DF5b0RIeiClkSykCRND3tPleGKgD0Im4GlpB
+	ETcm9G0uY4u/lPlJPr89Ln42mW+kuPwapz8XrSPnEQTLTgNtCy2l5Ipn0CPapUYXkNDHJfANLSyM/
+	8wxt9p93bM9eTCwR8Ahd8unLqivIau/Oah9+IhwHDVLowOuUVHdFgYIMklqek9ZCTw8PrIRNLDz5L
+	VuP7Cq+7EDnzFSLZpI1hRZH5rTlh6nL99ZtCigEgxxn9JSBqNOyvmKVTMnwa+diHMnE5dNWyN9qcO
+	mg/IRD4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXbAI-00000007f0z-38dD;
-	Tue, 14 Jan 2025 07:16:42 +0000
-Received: from mout.gmx.net ([212.227.15.19])
+	id 1tXbM0-00000007fsa-0jtj;
+	Tue, 14 Jan 2025 07:28:48 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXb8n-00000007er2-2fus
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 07:15:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1736838905; x=1737443705; i=wahrenst@gmx.net;
-	bh=6wligOEfk1Hx9irR9JibUq3PPtODiEir7MRB/8u1Zdw=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:From:To:
-	 Cc:References:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=N15x8nloW6U/tHnSxakvy4lFyEdlHWZW1352kVcV6eXCCPLaaavmVdxuXJphFIey
-	 1N62u61RxILmc8UZIYjYjeIpRcrwJw+Z4mbeI6JZ3y3kZTn/XlDDltxze/J4zIQ35
-	 3P40xveXfHJGfnDnoJY5uKpwIFqRIcmXaaN5c14JcRr1h/e/+XSW0bz4BMy823ABG
-	 tg3L96Apkp9gRa3MbcgEru2SfJKg42nYK0peNtGuasg4iKXexpcWOiPa9HsCP8QrI
-	 g8DVlh3eeTml4E9UI+5Un740YCeBsaarTsZlJtFp1ri7yKaP3Jtx7I1NytNK3uoRU
-	 2mefiNu28qwEg3Cb7A==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.107] ([37.4.251.153]) by mail.gmx.net (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MowGa-1tCK4F2dwc-00hEV4; Tue, 14
- Jan 2025 08:15:05 +0100
-Message-ID: <ad2497ad-17fa-4cde-a83f-e1115f333272@gmx.net>
-Date: Tue, 14 Jan 2025 08:15:04 +0100
+	id 1tXbKj-00000007fdp-3rGS;
+	Tue, 14 Jan 2025 07:27:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1736839650; x=1768375650;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=KJfe9nVlEn8D3imcOLIM2aumy8f4v35mSshgLI8XJhM=;
+  b=Obz2uxCRSOwgqdek2YKqqa/JhqZG8VFFf0cwTy/fo9ggYWmTh9POZ9xc
+   MPijPUiH/ghuFAFt+OJVhWK9ZYp+5Uz/jPr37ZJjtOhwLzt1VTWJ9XMQc
+   gG/GREfRqxEGZjQsyofBpOViDWgc025S0TKvVMPszj2h1McWdTsxm3Uul
+   gFF5g5oSBRwyN//wpuBE2qpqhjGWF3O1FxVjezAwMmuHeYYTg9dRCBshF
+   lxbi6ci1y4JHnkXkqFrYCyz9mI+PV3POzyaZghuyAaTJ0/sdVGMpKXwZK
+   WiQJSflzHyLptY+xUZIiA5clFHgyVmMoof8mF8qgzNBdvFf9fDtr9EQuE
+   Q==;
+X-CSE-ConnectionGUID: 52GIXBlUR6Ww2xd14NUzqg==
+X-CSE-MsgGUID: bcuZrouOQR+LucTcHLudeg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="48505566"
+X-IronPort-AV: E=Sophos;i="6.12,313,1728975600"; 
+   d="scan'208";a="48505566"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jan 2025 23:27:27 -0800
+X-CSE-ConnectionGUID: yfW+ptOYR5mGfoxEhg0Blg==
+X-CSE-MsgGUID: lzW8z/BNT229n2J3J5ggdA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,313,1728975600"; 
+   d="scan'208";a="105286103"
+Received: from black.fi.intel.com ([10.237.72.28])
+  by fmviesa009.fm.intel.com with ESMTP; 13 Jan 2025 23:27:20 -0800
+Received: by black.fi.intel.com (Postfix, from userid 1000)
+	id 773212A6; Tue, 14 Jan 2025 09:27:18 +0200 (EET)
+Date: Tue, 14 Jan 2025 09:27:18 +0200
+From: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+To: Tom Lendacky <thomas.lendacky@amd.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexei Starovoitov <ast@kernel.org>, 
+	Andrea Parri <parri.andrea@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Eric Chan <ericchancf@google.com>, 
+	Jason Gunthorpe <jgg@ziepe.ca>, Kai Huang <kai.huang@intel.com>, 
+	Kefeng Wang <wangkefeng.wang@huawei.com>, Kent Overstreet <kent.overstreet@linux.dev>, 
+	Palmer Dabbelt <palmer@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Russell King <linux@armlinux.org.uk>, Samuel Holland <samuel.holland@sifive.com>, 
+	Suren Baghdasaryan <surenb@google.com>, Yuntao Wang <ytcoode@gmail.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	stable@vger.kernel.org, Ashish Kalra <ashish.kalra@amd.com>, 
+	"Maciej W. Rozycki" <macro@orcam.me.uk>
+Subject: Re: [PATCHv3 2/2] x86/mm: Make memremap(MEMREMAP_WB) map memory as
+ encrypted by default
+Message-ID: <vuj7mlvkvazuz5noupusqt2bk42vjkr5lkgivnrub2nby4ma6y@7ezpclbirwcs>
+References: <20250113131459.2008123-1-kirill.shutemov@linux.intel.com>
+ <20250113131459.2008123-3-kirill.shutemov@linux.intel.com>
+ <1532becb-f2be-4458-5d34-77070f2c5e2d@amd.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: defconfig: Enable pinctrl-based I2C mux
-From: Stefan Wahren <wahrenst@gmx.net>
-To: Florian Fainelli <florian.fainelli@broadcom.com>,
- Arnd Bergmann <arnd@arndb.de>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- linux-arm-kernel@lists.infradead.org, bcm-kernel-feedback-list@broadcom.com
-References: <20241217193356.111102-1-wahrenst@gmx.net>
- <20241217195010.GE23470@pendragon.ideasonboard.com>
- <2f67c714-bdc4-468c-a867-d77e8c61291c@gmx.net>
-Content-Language: en-US
-Autocrypt: addr=wahrenst@gmx.net; keydata=
- xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
- IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
- NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
- JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
- TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
- f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
- V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
- aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <2f67c714-bdc4-468c-a867-d77e8c61291c@gmx.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:o8bfqnBhYsJvl/5rdIDiXLN/cMME75aINFjeuD635LrpbpHQqxe
- TStgpxlYjqeHkMXDuoTZFJV0H+ig/JUeHiO4Yk4f3XxVy2/E9+EXAe307dppKidGhyiJaz/
- DGkmq8WpTSSaXZ/DGhVd/U15DNLzW2rzXzoSuIGWZ9/NJ/5FQoYfLKWGYVDsIeUfpRO0pXE
- z8RnTUd4yiNrjrng6Whfg==
-UI-OutboundReport: notjunk:1;M01:P0:oOFv/PtA7dA=;EnpOaClc4qFVrI6L9plTNps86wq
- F0WATiGg6r6nTaKRzw0CjoJVbGg8NqjQGKzgpNvd1Ikd/L62bIOCALEZ9DgKfO3uzNx08wt/j
- tR7h7zImyJ6cuxxIx+8URQQmAVq1klUTsJhYkmiZKd5WNUmrf1AlKpR/PlvKf96gm6PSgwz27
- i2EGk3iNgAataeq5jCGVREqvf2LtokRt63fQzzYHlt/+ngJleBx1+X5qVdEnc47+BUoQwkbQv
- LEMtPgI/1udKOt9I4WFw4IVamzEzjRM3GSfiBvfLtIJSSBuDCS4iizhDAfiMvKTEJkqYVCWml
- 5qlPpXa//euO2J/qpVlbj8aZcJGY40uHUsJkoQp+RAtJ2/w5rwfF22Hdli2e7S3VXXN8bn+QR
- BVK1I2z1Ft8rIBQfkO3CwjyjHRsb4J80cOVwqCiEZ8CL7+xW8tvOIIvcggZUG7upxZbZaNAwa
- DUjA7BWJOVNOKiXqiZGXABd8RM/cQdzjzuwryiPgw+KyE470oScG4fOdgM/VTY4tfdueDtVGx
- 8brfYJZOVstBReWJcGIPYFePDXd1ssXA8TmXsNq+QPi2bgYBWQOZ8RdLX8gESS3cwwld5HS35
- w5qi/n1TC0OcRogXVVTOI7TsG/Xyc1AyKqVArZOk87QTjxlnrmfjIrMf/zQV0mXwexs2Nv89X
- NFIcE+Zv44z4rFlTeV/mUWFSvLdodOcvUHto+Y8xzvJfsHqwINVuOC2Pi9qE4f8fNRbEMdcXT
- pjRqayBe+aKp9dh/iF635HKDJk94QW+/AtdptcyCgWNn8zgnSTdSXYneebOMA/L9jxYXFTQrQ
- HxulYevU05wfgapYnRlhLmRxtl92UcELUHkdqhA7j4fA0l7ni3eXKaa2J3fX74DMEk9ZujliH
- Z9oyek4GBMiEbCq+UAJo2NyGeUDhMtsbbmIBw2gMaGRKzFQNxK44QRtx+f+7RSGmXj4ffZ8ql
- prl2lHOmzWrYznTskt0Risb16WWOY6UzedL1xGyUGg/VsLzP/m7TCRgP3700FPube4cnVFlIs
- VZI/UzkEcsBZypJYRu2PK52h7L2ncwUm5UjJd1CidxAxF47LpWliq1rY6oLCt24uNYeCX3S6w
- a501NfSINzrCwbMlQarAeAO4GYrMEk
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <1532becb-f2be-4458-5d34-77070f2c5e2d@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_231510_044246_D831B34B 
-X-CRM114-Status: UNSURE (   9.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250113_232730_040323_7E9C01D8 
+X-CRM114-Status: GOOD (  19.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,29 +99,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Mon, Jan 13, 2025 at 02:47:56PM -0600, Tom Lendacky wrote:
+> On 1/13/25 07:14, Kirill A. Shutemov wrote:
+> > Currently memremap(MEMREMAP_WB) can produce decrypted/shared mapping:
+> > 
+> > memremap(MEMREMAP_WB)
+> >   arch_memremap_wb()
+> >     ioremap_cache()
+> >       __ioremap_caller(.encrytped = false)
+> > 
+> > In such cases, the IORES_MAP_ENCRYPTED flag on the memory will determine
+> > if the resulting mapping is encrypted or decrypted.
+> > 
+> > Creating a decrypted mapping without explicit request from the caller is
+> > risky:
+> > 
+> >   - It can inadvertently expose the guest's data and compromise the
+> >     guest.
+> > 
+> >   - Accessing private memory via shared/decrypted mapping on TDX will
+> >     either trigger implicit conversion to shared or #VE (depending on
+> >     VMM implementation).
+> > 
+> >     Implicit conversion is destructive: subsequent access to the same
+> >     memory via private mapping will trigger a hard-to-debug #VE crash.
+> > 
+> > The kernel already provides a way to request decrypted mapping
+> > explicitly via the MEMREMAP_DEC flag.
+> > 
+> > Modify memremap(MEMREMAP_WB) to produce encrypted/private mapping by
+> > default unless MEMREMAP_DEC is specified.
+> > 
+> > Fix the crash due to #VE on kexec in TDX guests if CONFIG_EISA is enabled.
+> 
+> This patch causes my bare-metal system to crash during boot when using
+> mem_encrypt=on:
+> 
+> [    2.392934] efi: memattr: Entry type should be RuntimeServiceCode/Data
+> [    2.393731] efi: memattr: ! 0x214c42f01f1162a-0xee70ac7bd1a9c629 [type=2028324321|attr=0x6590648fa4209879]
 
-Am 03.01.25 um 10:26 schrieb Stefan Wahren:
-> Hi Florian,
->
-> Am 17.12.24 um 20:50 schrieb Laurent Pinchart:
->> On Tue, Dec 17, 2024 at 08:33:56PM +0100, Stefan Wahren wrote:
->>> The commit 84b1d6cc3e4c ("ARM: dts: bcm2711-rpi: Add pinctrl-based
->>> multiplexing for I2C0") introduced multiplexing for I2C on
->>> BCM2711-based
->>> Raspberry Pi boards. Unfortunately we missed to enable the necessary
->>> driver in the defconfig.
->>>
->>> Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
->>> Link:
->>> https://lore.kernel.org/linux-devicetree/961b3d43-b4c9-4573-82d7-844aa=
-129d994@notapiano/
->>> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
->> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> I wish you a happy new year. Do you plan to pick this up for 6.14?
-Florian already send his pull requests for 6.14. Any chance to get this in=
-?
+Could you try if this helps?
 
-Best regards
-
+diff --git a/drivers/firmware/efi/memattr.c b/drivers/firmware/efi/memattr.c
+index c38b1a335590..b5051dcb7c1d 100644
+--- a/drivers/firmware/efi/memattr.c
++++ b/drivers/firmware/efi/memattr.c
+@@ -160,7 +160,7 @@ int __init efi_memattr_apply_permissions(struct mm_struct *mm,
+ 	if (WARN_ON(!efi_enabled(EFI_MEMMAP)))
+ 		return 0;
+ 
+-	tbl = memremap(efi_mem_attr_table, tbl_size, MEMREMAP_WB);
++	tbl = memremap(efi_mem_attr_table, tbl_size, MEMREMAP_WB | MEMREMAP_DEC);
+ 	if (!tbl) {
+ 		pr_err("Failed to map EFI Memory Attributes table @ 0x%lx\n",
+ 		       efi_mem_attr_table);
+-- 
+  Kiryl Shutsemau / Kirill A. Shutemov
 
