@@ -4,86 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D304C02185
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 17:09:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C218CC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 17:12:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:In-reply-to:Date:Subject:Cc:To:From:References:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nnoh24Dz4UQuumTV0v3UEOHMNb0aqFjMMibU0zsSBlc=; b=KpeiGGWjLMfW0lTMezM+n5X5wh
-	QysArp+nozPyp8jcYpMkeRnoM8JjGwV4wXZ1Hj0tALzFDkHcQTKJZtwU+Qag+N69G1fwguzOmJcw9
-	yfLuB3zCNQXVJz9nkGlF7VPyLUEXhhoGGPBW1fCs/8Ew+z51PhCmOl9zq5a8twh2GbHaYO3J7fFQP
-	arAGN5zvPbUYWUAtTLU6NBeoHicUtlIEShRqbrMPiyrFYTuLr8rJxkU6ZiQ3O2XUSBTrHHkAIbvgy
-	HmuFjCm4eYvjfLoxPbliRHmfxV3dUNC0qC9t8eAMaIpoVjr186L3fqja1pHMD9xbHf5cUmaP4ogFi
-	9evUB9gg==;
+	bh=OVD3D4s6909dKMR1kcogLuJbTylhzaKJZZAXsPJevJs=; b=xXemzEmGDBU4mSK8bx+wI7GONn
+	oFcXOoaab8+d8n0tHbBc2iJoNiqZ++lRjrQMjcB5VXBmAEa7bdyO/BNlvdwb5w/oCd/ReHCVLjfyO
+	/boYWmD/9TvTfmD0A6h//OF5OzSzBFCWpOF93TBNG7oIXQfySV9XzJp/iLRMcJwQ6wj4SMhtBOJRO
+	nC0qbT8H8Hq/+AGXw6rqe5VwABFxVg9keOsfEfOsWX/+W7Pz0atsejCNalq24TyQnPZm8LppmjDSu
+	sr5gZnSjR/6na3viyDjl50iuVUbl5ozf7O75jnhjA/DJjnR19PX+JCaHZx7qTuOuWikyd18eF3jAB
+	hfkmbHIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXkPI-000000098U5-3L2n;
-	Tue, 14 Jan 2025 17:08:48 +0000
-Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
+	id 1tXkSU-000000099Sn-0wGr;
+	Tue, 14 Jan 2025 17:12:06 +0000
+Received: from mail-northeuropeazlp170130004.outbound.protection.outlook.com ([2a01:111:f403:c200::4] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXkO2-000000098Dj-09nv;
-	Tue, 14 Jan 2025 17:07:31 +0000
-Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-54298ec925bso3431897e87.3;
-        Tue, 14 Jan 2025 09:07:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736874447; x=1737479247; darn=lists.infradead.org;
-        h=mime-version:message-id:in-reply-to:date:subject:cc:to:from
-         :user-agent:references:from:to:cc:subject:date:message-id:reply-to;
-        bh=Nnoh24Dz4UQuumTV0v3UEOHMNb0aqFjMMibU0zsSBlc=;
-        b=TVJA7EWiRVvBtX6P9pqqV0hxWTWP/Xj43s1e98JKT7C/JDuUMtS6H3SndUmDUIs4op
-         9+YxHkL/ZDpoUZ2Ltcc+pRCGzr92+XU1BdymjtqJ4T6b+dew9Dgif4LZBb040AqlSAXi
-         HRC5iWl1bJhNr/2PHMJTEH9QqCOzz41dI8Zd3MTYEY0ufkxh3mnqPpiJOXi1Y2C8+foM
-         Xg19IJC/0jEms8ArU0ga/EA770h+sfE9bpXgNP6sZKumVbmtn54qh0pcFdiAFpSpo7xm
-         ZN7kfmUD5eK8Xg8K3DoCvAD8KKpFYoNp1mmbVJR375ZbNlujEQ/1U6gh/F4s90kTgYSB
-         hexg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736874447; x=1737479247;
-        h=mime-version:message-id:in-reply-to:date:subject:cc:to:from
-         :user-agent:references:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Nnoh24Dz4UQuumTV0v3UEOHMNb0aqFjMMibU0zsSBlc=;
-        b=vSsrNLc/T/OGntC29T1fTqIWDWUL2q5GuPTfH9homKA5PbdSD/gc34fyiIpT6XCKJC
-         XGvClV+8TeRryvANiJTa7l0yFj937Thv8T2uckyUYiEnM3eM4EoKbGpNT0myD9EMlQ1K
-         KJpqM67weTjJew5U0ucERdsmcVhgial1w/OtCK7B23EhbSR68BN4XJoee9v9Pclydj6T
-         oU9a3bZ9LC52bY/ibO0cO66/OM5OfnRkzdlz/+eIFIydLrrGdCW3rIaywFwV3qW+PHt4
-         XpGeK8TmkgYdgdWTRDX5OIvgtVfL7DG5ZYdhwFqFiGUgqNGL1PiFK3zRZLmwfVqFCHxq
-         /gzA==
-X-Forwarded-Encrypted: i=1; AJvYcCWq/OhZMb83xtAyTQgY1L/iVRB8CTj/yE573t5m34DfhP45lVikUEAG2oc1CZpfXVrA2S+YZa3FegUc6ZusEwI9@lists.infradead.org, AJvYcCXwc8V8WwrGMzdZNnVtwn9IOqDbQ3uZ4QRevic08SeL8BxbpXEhd8m0/j1h6YDrL1uKvF0cAVs1LiTsvI7kf6c=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwSSjzUm3sn6i5wo5xi8BWAbHJHgDngfjrdV+1jrM0wpqSGWgiq
-	auZkzhWYULAs2cAaTxsAYTnrbQcK88A1OnP2aiv0QO4MhZSpEyPNtaRODY0NBuI=
-X-Gm-Gg: ASbGnctrVL0YlcR6drVOGkdcjrlF4Q9E1/kKSNGrNtcPyucK8B98ZhxCLxnLZbo1o/v
-	3BvdfJ/Oi0nQ01N+Lrs2SV7wPlcnPJEySLRLwqWvtCZgw+RGacoqwfUx6MuelSBoH2Yf4pfkCYJ
-	SN7BvgmCyiwb5iX1aHex00GlHsAOJE15DxmCj8LE9bBswpHgt4tBJQhMs75VorZ++e2vm85zi1k
-	CPEw/Vg9Cct7vOn+eGo6ECnYaV3ewQBiLDZRIvkqkIWs2taNkdvLIX3VcfYMwx/7/59531eL9iU
-	ysqy60SeojxpVxJ6IErUmD5BCRGg9dj2pF593mJlfEBa
-X-Google-Smtp-Source: AGHT+IHeaRN9PDguwxNaRUx8e7RlNc1zAJ+FhIwOOoRUyKrjzbduxhH7kD38+VAVbJRFlGbFeDbwlw==
-X-Received: by 2002:a05:6512:3a83:b0:53e:362e:ed3 with SMTP id 2adb3069b0e04-542845aed9emr6667187e87.1.1736874447229;
-        Tue, 14 Jan 2025 09:07:27 -0800 (PST)
-Received: from razdolb (static.248.157.217.95.clients.your-server.de. [95.217.157.248])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5428bec073esm1769027e87.194.2025.01.14.09.07.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jan 2025 09:07:26 -0800 (PST)
-References: <20250102-b4-rkisp-noncoherent-v1-1-bba164f7132c@gmail.com>
- <20250103152326.GP554@pendragon.ideasonboard.com>
-User-agent: mu4e 1.10.9; emacs 29.4.50
-From: Mikhail Rudenko <mike.rudenko@gmail.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Dafna Hirschfeld <dafna@fastmail.com>, Mauro Carvalho Chehab
- <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] media: rkisp1: allow non-coherent video capture buffers
-Date: Tue, 14 Jan 2025 19:00:39 +0300
-In-reply-to: <20250103152326.GP554@pendragon.ideasonboard.com>
-Message-ID: <87bjw9s4s3.fsf@gmail.com>
+	id 1tXkRB-000000099Eh-0nXZ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 14 Jan 2025 17:10:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=qigCTOEwJb4m3auJR8DfCIYEfDS0frSTFUDir+TQMw+GOBmKKZX9MDQs7OEsrTGyofET2WAilGZBou60ZTuFER1zZUUoChtr2dAYdgB5q3X4N7hCK1Cyi1Upr0QIIesFaxLaCh0T608MsMTyZ5h2qCgVAR8vbbL3Id/RbqGmazrj58E40028EFJAMD0MeUmBwdvG8fvdvgXTeBExe9qJNQzu1WgNj6NfD0e1Dj5DFaVaiYIr2NncCMj3kiRMZMBhr2wZfb2nzwzWz0i9IlDblK3V5y6JaZX7v3SfeJMZtfZA9GZ1+bSvp0jSkt4S2R2cO+StMwknNVfVRYXUWeTsig==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=OVD3D4s6909dKMR1kcogLuJbTylhzaKJZZAXsPJevJs=;
+ b=EZ4GCZrqTz5c5n/ZM+ln0Pr/0ajcUB654/h3GZCsz1H7z6YunPmn+1e3NfQwbAkWyrrFKGSqXvK45tJTLeZmrqF/MsnGC6FoV9PAN9oLpTZIWZC02i7lU9ElQ5kIkssvX1GcOUkdz3+VLoBb1BkyQX5sMjjZlWn7gDrfb4di6Bji3nXfEwEHqdN9GHiPNbkhpDSPBwLvTMMxIHprBBUG+NxSs0pceS1z9t5k8cDvQ4bXyT3vJx173biFyzmYZaFK6iKdKYJoKOvmAtFG0UTUmLgAxyvjGEyhZnsBxQDP52Z/tsyZQQG/QZh22aGAEHh0FPMh6qggPDfATj/3De8ybA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=OVD3D4s6909dKMR1kcogLuJbTylhzaKJZZAXsPJevJs=;
+ b=PpQPbi381jiQte7Bv7bKrNptYYQNw5j/yKKwhdxfolDKKi90Zzz1fcySC6bV3mgFnJpiTwyuBpZggoP9KhRQnQBgXeYDoC5ByfuuWhpnBYNvb7AeFK2sBxTselaHOQpNBy2xjUD1dJpSuV/q3Y9Ft/R6kHTqGHovTNduyVpqinLHU/k2mpYkvtRlpI2J+aDtbJ0T2rSTlrNecjT9OUqlTdNdQ7TdcP7D6ZNRKKDQcImOpxtF828Bnm20B1NqzYz9roKG0o0F6W+Sbq821cadgPR1trbnCdDv2KNCtOI4Db34d/a0Bqx1yqjcyKC9kgSFzMvGwEH0euSOKZQnCdJI+g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by PAXPR04MB9678.eurprd04.prod.outlook.com (2603:10a6:102:23c::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.17; Tue, 14 Jan
+ 2025 17:10:37 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8335.017; Tue, 14 Jan 2025
+ 17:10:36 +0000
+Date: Tue, 14 Jan 2025 12:10:26 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Xiaolei Wang <xiaolei.wang@windriver.com>
+Cc: ulf.hansson@linaro.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com, ping.bai@nxp.com,
+	l.stach@pengutronix.de, marex@denx.de, aford173@gmail.com,
+	linux-pm@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] pmdomain: imx8mp-blk-ctrl: add missing loop break
+ condition
+Message-ID: <Z4aagilTZFjaMsFS@lizhi-Precision-Tower-5810>
+References: <20250114011818.2401479-1-xiaolei.wang@windriver.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250114011818.2401479-1-xiaolei.wang@windriver.com>
+X-ClientProxiedBy: SJ0PR13CA0149.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c6::34) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Type: text/plain
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PAXPR04MB9678:EE_
+X-MS-Office365-Filtering-Correlation-Id: 913ed2b2-7823-4bed-ae51-08dd34be5d05
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|52116014|7416014|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?6YQReAsOpwazHdzKSY6SV3OiFLE5NesrFDC6RYbsfKiS61QM0pQk67T3+wLd?=
+ =?us-ascii?Q?XiRZkQ3CwiJ3JNgGm9dRfbTcJgFhba8eWdenHkKqdSVzXEWJKbYOmH8p/Bfd?=
+ =?us-ascii?Q?Et2SitgFsOBI+G5Gia51UUaQ3Qn/T64L27OwtxgAAe9dhtcQ1aWsLzKqkBbR?=
+ =?us-ascii?Q?yDnmaDSpeD01nMekI9/G878eTZQOXsCGz6DklzF2KRxkcE0nNdYyqOyB2qUk?=
+ =?us-ascii?Q?X7MKCNGGhmu9Jx2BCZIP0Ze3gfBOA0AUFdxaFCNSG04pt/VW05xPAm07nEu5?=
+ =?us-ascii?Q?BdJxX3miZ4jSotqcG0hfeIBmaJhAhFV3EbgYiwc//u81ctmt9RH1E4ES1c0+?=
+ =?us-ascii?Q?X+ojGn7cZ9tGzNkU9nTP/KyLRoQVu/tgyhtJrb4o26QUSpPTdWtjmpctnTMf?=
+ =?us-ascii?Q?R1Hfi1+bgY+eCvgQuAO9ajt46eHItVkZCpenIh6tmGWVX1gFUmcIqDiEU7Dl?=
+ =?us-ascii?Q?r8+dFuoRuYQJBj2FhGm3UG0iGhQlCCqGZ334FdhAoH9YKz4G6YmFKx0osaxr?=
+ =?us-ascii?Q?PZrDgZW2nUmdxT5LAOniMAJ5+83x5hgYvgmMNGX3bqni/qV3IFWXHI4kMU3R?=
+ =?us-ascii?Q?PUo8wJZ4ABVWwCNJ8hqKB8lDOT55fRNID+78rh8rkGAsMXkOUYmSk9U15/Jh?=
+ =?us-ascii?Q?2nzkmvArVnxiDMs3oX9Vj7JZVK0/lq5wGOUg86uqGoVY0zyDe1c2wokM8OJa?=
+ =?us-ascii?Q?Ax84JQxcGJyGHQJGOB48VnUTde3OBWmBxLgnj2JCBYNXFmCpDuKdG3Th0uTt?=
+ =?us-ascii?Q?RJu+rEVIPg0pSZI3zJ4FJ4jEcLgg7JC+UvPb/uM6DkXL9/e4DPTCEFZzPqWM?=
+ =?us-ascii?Q?oa45O+Jp2h8/YZIuRBonkHSd4S0pzuwa0b8DsPaspAAR/QJIHyWNKDgqJEDy?=
+ =?us-ascii?Q?1KliVb4gKyhD30M+lwdlqO162PrqgaMQxbR8j5c8usxHPlYmLUOa8976g4N+?=
+ =?us-ascii?Q?xNk++up2sL7irx+1IyZoriYUG4WFcMBM8naoJDCg4a4hYArbIbr33ArJirse?=
+ =?us-ascii?Q?eE9+BgVzruFLjzD2y8mIsUzKXkcjS/Iljz92SGs2nr2+mH7akeVsuWFvYX68?=
+ =?us-ascii?Q?1i64jTyeEy7nqTiwpUOkSZIjffaaCs8Yeh1x2T89cRg+GjZ9flaX+h/vur2w?=
+ =?us-ascii?Q?i7u/S/0s5YHxgtfxXK1H4Tb5edXHdU6MXrYtKSD2/iYp7MMBv0ZRvQcwK7t0?=
+ =?us-ascii?Q?jcH00zSfkL8t7TCxC6YhJ61ViEP3lU6UhPRhtJjbe3cWLbJ51vfIJgJ+JLE/?=
+ =?us-ascii?Q?feoNayiC58xOA8dVW5rt1ICk5+d8UxCFx3hwxMBPyxoNvwaF9vlwe7UyRRcz?=
+ =?us-ascii?Q?w6p+js6l5rwRWVbApieCWfHgh9s5aMmnDj2O2hS9fuNJM0Y+brA8+HWPwZ/8?=
+ =?us-ascii?Q?YKJH9DgLc2Ee2yqbdAVzxNOK79OUSXRxtgvQUY7N7TV2atrwKw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(52116014)(7416014)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?znk5f5uSepwyW1tYB5HPCCV+PwhoMlrxOCbLJwXmdhF8VAnzdfDspsIq9rmE?=
+ =?us-ascii?Q?kW4DOlYQyibbSlLGkPmraco3gEaoIXAZ3DnIa1TKmEb/npobSsXqKaXxnZGY?=
+ =?us-ascii?Q?1RyOLP11z1rJojg5rV8Co+NcckiHRzz/s2rhKe5bPxBVJZk1L7jjsPvGN9cP?=
+ =?us-ascii?Q?lBtJ9z5b1Ewd0qi/rT+xfM6Kj7RiODRQxQVJmAS9DOFTd9d34WcuL/HEgA9F?=
+ =?us-ascii?Q?PCjTxLxsGC1lUPXUJpUK71RbfCwibuME4D+iq0w5bg6UrPB0lgdg5zivutUt?=
+ =?us-ascii?Q?QSI8V6C+1G4YQKWGddzd5AvV6UOZuDH5MGI1Vftny809rLuZ7soQrAmVWG9D?=
+ =?us-ascii?Q?bv/hkSAxxCoWAuorAqcfwTzYhRX1mZVPBVx/2g0DpArnM4J3QKFTE/x1M/W7?=
+ =?us-ascii?Q?aoL7Hqz1wencmLWlb9/ou840o8Wdq1jgUcBE8I9w1SIy31uGtLeTXRVdDJ5F?=
+ =?us-ascii?Q?xOUpLBA0IqvO53KoKSjWeva1NYjNRpmPv+KGVVB/2YtRixmOHKyc4CR+3NWO?=
+ =?us-ascii?Q?l67Gy3l4kl2humxpSf3cKdb6zRmmI2iHw1wOWlDQE2MMH4uLwUzD2w338SZ0?=
+ =?us-ascii?Q?SHn/mCtUKKxQ84/zLvcMEpgZDPL7w1c72F/gKFvwqxZwtK1oUKAN/Vx4xL05?=
+ =?us-ascii?Q?aeShLVsGjDyDj/hBelIkS8043AuOG/OXQWsMwoNOU/7dP7TNRiFbzx9S0VOv?=
+ =?us-ascii?Q?Fq3c0XUMA5AT7jWTBbFAoTPjkXH9yBIGy2ClMz2ZxR2IkzDL2wixpdLT3dLE?=
+ =?us-ascii?Q?o5zoGDHK9w1gFWH8eaFjpDNukDDhHDeDuEqPF1enw8+jx2WkCZuMPrid9Kkq?=
+ =?us-ascii?Q?mb8qHq2+9X01a+FMim4qg4MaVq741tXoFF+XpdhR8XbeOvnK69IdtDLeXrn/?=
+ =?us-ascii?Q?i5Jp8QciYhKlYzgUmiZezACsvV7MSfWbvhX0UTT5f/ezBUY/xxY51OivyKVm?=
+ =?us-ascii?Q?eROupBXAgzuZo3ZHQd2bbBdn2Yj6m9DgLwR9rN7vTxrojnW1pn+NVjR7fpym?=
+ =?us-ascii?Q?jfTALyS1PPmyo0y1SNfMpaTcaQCrel53B8WpXO45Tn0WNqUoCuUFv2FteToP?=
+ =?us-ascii?Q?blNeRPJ6q8LQMhM47fA0YkSJW/VJlN87T8QUiNCpPjfT1SkqSSpgWioIrB2/?=
+ =?us-ascii?Q?6fbG0t74a8DEpKsSgErtTWGD1k66bSEajGHJAnx05uRbkgSU5JEGKAlb/pR5?=
+ =?us-ascii?Q?iRSEm4ofvkLSxs4o+0IrsTk9nUUnt5DOE5GEg+em62mhE1lZzvb5tLCazZfr?=
+ =?us-ascii?Q?/dTdftgwQj+C4DBKI2rHNv64y54qztikxPr144uyrHEgXMHRlLfBtBEcc2ph?=
+ =?us-ascii?Q?y0LSov2AkGIVL4uqOzQPLGGVRPDFF5MZYFqhvW5OVficSN/V7BEXpn6Y4geX?=
+ =?us-ascii?Q?KNyH7vIgOpTU/u2PsJXHmFTckGe970mz7oI0xl1Q4brfANlRsBG6VbFMLPii?=
+ =?us-ascii?Q?XeJwK9mtAjVgJ8SmNjtIkouKqIyUY6C2xfUSDJUd+40U3S6QUfSIownb5eC1?=
+ =?us-ascii?Q?vzg7YghUTVlghBTtjSoWYCb0JCd+V8/D2Q4J321VK7f2UtQePm5OC1NgVOS+?=
+ =?us-ascii?Q?mPgP/MgtOrXtWsdtin9zeJ/wuhgUNpCzdY98Uf/q?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 913ed2b2-7823-4bed-ae51-08dd34be5d05
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jan 2025 17:10:36.7868
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: pNCtgGARVBftMin25SGtxoXsWiMpWvhrMpsgNys5TGyhElKMBGxrYD4Nf8KXlCUuhEPtsThYUxbvivQKQx/3WA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9678
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_090730_076521_9A0EEBD3 
-X-CRM114-Status: GOOD (  15.22  )
+X-CRM114-CacheID: sfid-20250114_091046_060146_1639529D 
+X-CRM114-Status: GOOD (  18.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,50 +158,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-Hi Laurent,
-
-On 2025-01-03 at 17:23 +02, Laurent Pinchart <laurent.pinchart@ideasonboard.com> wrote:
-
-> On Thu, Jan 02, 2025 at 06:35:00PM +0300, Mikhail Rudenko wrote:
->> Currently, the rkisp1 driver always uses coherent DMA allocations for
->> video capture buffers. However, on some platforms, using non-coherent
->> buffers can improve performance, especially when CPU processing of
->> MMAP'ed video buffers is required.
->>
->> For example, on the Rockchip RK3399 running at maximum CPU frequency,
->> the time to memcpy a frame from a 1280x720 XRGB32 MMAP'ed buffer to a
->> malloc'ed userspace buffer decreases from 7.7 ms to 1.1 ms when using
->> non-coherent DMA allocation. CPU usage also decreases accordingly.
+On Tue, Jan 14, 2025 at 09:18:18AM +0800, Xiaolei Wang wrote:
+> Currently imx8mp_blk_ctrl_remove() will continue the for loop
+> until an out-of-bounds exception occurs.
 >
-> What's the time taken by the cache management operations ?
+> pstate: 60000005 (nZCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> pc : dev_pm_domain_detach+0x8/0x48
+> lr : imx8mp_blk_ctrl_shutdown+0x58/0x90
+> sp : ffffffc084f8bbf0
+> x29: ffffffc084f8bbf0 x28: ffffff80daf32ac0 x27: 0000000000000000
+> x26: ffffffc081658d78 x25: 0000000000000001 x24: ffffffc08201b028
+> x23: ffffff80d0db9490 x22: ffffffc082340a78 x21: 00000000000005b0
+> x20: ffffff80d19bc180 x19: 000000000000000a x18: ffffffffffffffff
+> x17: ffffffc080a39e08 x16: ffffffc080a39c98 x15: 4f435f464f006c72
+> x14: 0000000000000004 x13: ffffff80d0172110 x12: 0000000000000000
+> x11: ffffff80d0537740 x10: ffffff80d05376c0 x9 : ffffffc0808ed2d8
+> x8 : ffffffc084f8bab0 x7 : 0000000000000000 x6 : 0000000000000000
+> x5 : ffffff80d19b9420 x4 : fffffffe03466e60 x3 : 0000000080800077
+> x2 : 0000000000000000 x1 : 0000000000000001 x0 : 0000000000000000
+> Call trace:
+>  dev_pm_domain_detach+0x8/0x48
+>  platform_shutdown+0x2c/0x48
+>  device_shutdown+0x158/0x268
+>  kernel_restart_prepare+0x40/0x58
+>  kernel_kexec+0x58/0xe8
+>  __do_sys_reboot+0x198/0x258
+>  __arm64_sys_reboot+0x2c/0x40
+>  invoke_syscall+0x5c/0x138
+>  el0_svc_common.constprop.0+0x48/0xf0
+>  do_el0_svc+0x24/0x38
+>  el0_svc+0x38/0xc8
+>  el0t_64_sync_handler+0x120/0x130
+>  el0t_64_sync+0x190/0x198
+> Code: 8128c2d0 ffffffc0 aa1e03e9 d503201f
+>
+> Fixes: 556f5cf9568a ("soc: imx: add i.MX8MP HSIO blk-ctrl")
 
-Sorry for the late reply, your question turned out a little more
-interesting than I expected initially. :)
+need cc stable?
 
-When capturing using Yavta with MMAP buffers under the conditions mentioned
-in the commit message, ftrace gives 437.6 +- 1.1 us for
-dma_sync_sgtable_for_cpu and 409 +- 14 us for
-dma_sync_sgtable_for_device. Thus, it looks like using non-coherent
-buffers in this case is more CPU-efficient even when considering cache
-management overhead.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-When trying to do the same measurements with libcamera, I failed. In a
-typical libcamera use case when MMAP buffers are allocated from a
-device, exported as dmabufs and then used for capture on the same device
-with DMABUF memory type, cache management in kernel is skipped [1]
-[2]. Also, vb2_dc_dmabuf_ops_{begin,end}_cpu_access are no-ops [3], so
-DMA_BUF_IOCTL_SYNC from userspace does not work either.
-
-So it looks like to make this change really useful, the above issue of
-cache management for libcamera/DMABUF/videobuf2-dma-contig has to be
-solved. I'm not an expert in this area, so any advice is kindly welcome. :)
-
-[1] https://git.linuxtv.org/media.git/tree/drivers/media/common/videobuf2/videobuf2-core.c?id=94794b5ce4d90ab134b0b101a02fddf6e74c437d#n411
-[2] https://git.linuxtv.org/media.git/tree/drivers/media/common/videobuf2/videobuf2-core.c?id=94794b5ce4d90ab134b0b101a02fddf6e74c437d#n829
-[3] https://git.linuxtv.org/media.git/tree/drivers/media/common/videobuf2/videobuf2-dma-contig.c?id=94794b5ce4d90ab134b0b101a02fddf6e74c437d#n426
-
---
-Best regards,
-Mikhail Rudenko
+> Signed-off-by: Xiaolei Wang <xiaolei.wang@windriver.com>
+> Reviewed-by: Lucas Stach <l.stach@pengutronix.de>
+> ---
+> v1:
+>   https://patchwork.kernel.org/project/imx/patch/20250113045609.842243-1-xiaolei.wang@windriver.com/
+>
+> v2:
+>   Update commit subject
+>
+>  drivers/pmdomain/imx/imx8mp-blk-ctrl.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/pmdomain/imx/imx8mp-blk-ctrl.c b/drivers/pmdomain/imx/imx8mp-blk-ctrl.c
+> index e3a0f64c144c..3668fe66b22c 100644
+> --- a/drivers/pmdomain/imx/imx8mp-blk-ctrl.c
+> +++ b/drivers/pmdomain/imx/imx8mp-blk-ctrl.c
+> @@ -770,7 +770,7 @@ static void imx8mp_blk_ctrl_remove(struct platform_device *pdev)
+>
+>  	of_genpd_del_provider(pdev->dev.of_node);
+>
+> -	for (i = 0; bc->onecell_data.num_domains; i++) {
+> +	for (i = 0; i < bc->onecell_data.num_domains; i++) {
+>  		struct imx8mp_blk_ctrl_domain *domain = &bc->domains[i];
+>
+>  		pm_genpd_remove(&domain->genpd);
+> --
+> 2.25.1
+>
 
