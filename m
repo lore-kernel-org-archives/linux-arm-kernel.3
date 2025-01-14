@@ -4,88 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 045DCE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 07:03:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82FB4E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 07:15:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=q+UcOE3NbQ9slLhfP+gmnwjLdrB9FRRmf5lPYamPvI8=; b=Lh6UM28QKmgCpn
-	DOwPu96l834fL36XlRq084eknWHOfe9+NWvSIYRWMQvJ+AztIXA92yJGerWjpFgfO+BMTc3FlQWxf
-	fBGY50MiGpDCM+xjXvwaPv1qs8AZQpUPhFsE9aD3JKStClMrw84SwLplNmVu0NBaTlJIlBR0qLhEB
-	q1dUV1luasTtnT6Cb147iDFW0rKU97EckvnLJwgRYVoD4Ds5jOpzsiYyS0JyjfUPVqmESR8OpK7hl
-	pokWQ7E05bRaj/2GPNiAKnGhA8UI5sMa0edjBf43nYNOZAEnGoqlbu9tYcUfEGqblBwga7j9Hcq+H
-	K0bUXlOiiqx+Ry3Ckfqg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1gi5niZ3O9MtgQ+u471zH+vJ48RDUBXUQA+9NX3J9Kg=; b=cdgnMJXzHvM7vGDnZdBAAvEGDb
+	tg0qHj8Vo13XdFpgS/qlLPJKvAmmbEoBGTdhqTCxXgqArWohurEB4T8j4eEKnwwW4Z1z8PBwjQJhU
+	3C1xNBpUbgD/4BUXdNQHvygI0418IwB8YT6o/J9aRuaycuJ8EJH7I0ub22swE/Iwr4z2854rVsy0z
+	MfAAeP9yo/sA/UsgpV/dxkSW0EpsltWZA0ykyehWozLFqmxBVeUXY0jVlhuaiEbOB+D9F7AmHTrZQ
+	7b3cbLetfXkNo+3Zpg8Jl2BjqtQoWi8JSsxwBXcJzcLXQtuyIW3Hh2zARijnXdiEVaFbwPY7PcZyP
+	S5BWLkiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXax9-00000007e93-32AS;
-	Tue, 14 Jan 2025 07:03:07 +0000
-Received: from mail-lf1-f41.google.com ([209.85.167.41])
+	id 1tXb96-00000007erp-0cAv;
+	Tue, 14 Jan 2025 07:15:28 +0000
+Received: from mail-eastasiaazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c400::] helo=HK2PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXavs-00000007duO-2DTG
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 07:01:51 +0000
-Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-53e3c47434eso4832663e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 23:01:48 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736838105; x=1737442905;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=q+UcOE3NbQ9slLhfP+gmnwjLdrB9FRRmf5lPYamPvI8=;
-        b=uQ27hcuysj/X0UTbJRDymRQytFTnQ3Lms3kL8h/xHecCRxQmRPQbDe6wNe9p3/+RbA
-         VOBsCTFEZGfB3d9hfKbA8lgYyzTgxrsNDyeAJpfTJ98FMWX+SZLd7c29oZYBDjiuEWns
-         +wZZ14BWOJnKrJ42i2tfH7+NZgTuYoADsk4CBueaT1JBzoYOnInnxnAcR1v1YAxZ0wjO
-         Aqc5TZIdsSl+K/o7nUjasUuVnwh4g310jiMWwMV5rL86r9z0IrCDLE/HIc0DYYMnzO68
-         hzeugo4QBd3B+WQh+JtPPG9RK4ciyWV0LDA1fdluH09zU2Orbc8X77n5OzKXQlkrnFrN
-         gI+A==
-X-Forwarded-Encrypted: i=1; AJvYcCXe6YOXgQDuXGNxP4a3PaDTrBWl33+zyyY36vQAtyZW+bxf/fUuvqUSFSoG/PrO2aQpufDHQQGIZ1ZuMjm6FJbr@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywf05K1XcxA2AlC/vDI+HznFk3tqC85Xtvo1TIzlfdfSr7QrgKh
-	mehvR3jryNUiojHL0JHmrp0R8Tx8Pj+3frDuhu98FFl7cuqsNuu/tbP1OGbIU7g=
-X-Gm-Gg: ASbGncvs7dWfp2wdPZB8fz/JyY1lAtvAhcXnrh5Ml7ok1ZUCbwpaQRSTd9flJsnk/yj
-	rfhdbASCq4BKycVZ6Jd3Ri2W9133Mic/hpjOy0lkRb3frg9/z9fB8U2eRs+/SbpBvcCsRCva35W
-	S1DrL/RSYqY0edt2F/m0iEisHOtuTItSAm+p0TM/7MNiWKT3xnxHp/ccVBVIN2L+JXiqtgPQSYL
-	SlPBHwPFt0gUmlf/fazABgimjs+27/UtQOdIOqz4wv3El0Av+J3xV/C/uGu8dUbvbCR/M1Q2s6C
-	HAY1Iz9a0dnMKg==
-X-Google-Smtp-Source: AGHT+IF62JdCLRHQS36CvXjXoz+Rx0JQ/yGW1NeC6LaUxq52vOdCpxhmanVT9OLx4vLDK9mh17X/Qw==
-X-Received: by 2002:ac2:51cd:0:b0:542:9987:6e9f with SMTP id 2adb3069b0e04-54299877145mr3283054e87.53.1736838105075;
-        Mon, 13 Jan 2025 23:01:45 -0800 (PST)
-Received: from mail-lj1-f176.google.com (mail-lj1-f176.google.com. [209.85.208.176])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5428be540fasm1602552e87.81.2025.01.13.23.01.44
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Jan 2025 23:01:44 -0800 (PST)
-Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-30613802a59so27265121fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 23:01:44 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCX1zJl6aysXlJi/4jDPOcacGxgoE7i/5XM1Joqzn9zNAnUhzcrHspiQ0imX0hMKep4sqVLNbxTCpUkaamzlrxd8@lists.infradead.org
-X-Received: by 2002:a05:651c:501:b0:2ff:e6fb:b10 with SMTP id
- 38308e7fff4ca-305f45db1a9mr82180361fa.26.1736838104539; Mon, 13 Jan 2025
- 23:01:44 -0800 (PST)
+	id 1tXb7r-00000007elF-0TNq;
+	Tue, 14 Jan 2025 07:14:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jOI3BRq02JZqz3B6t10mMBJd3rF72n4j4zTN9eMSyixDrGd17ZN/TmlwvjtB4KlGdASYJ2CdgZIHOXl9FzhZ7fm+EDvfHNNJwzEdCIBryAZJj419pA/X6ftMO3FM7ie0woVHBy6qx5I78R057N7EwpywXVWrAOotD65tijm47OLwDgOJANMVkiMPJO9iSnYoTX8T/G0OSaFYqNx5M8ZjNYV9pK+UPdn5mBafPhB0wAUDRZfW9YV7wyqtQtynCJrADnEwNCRH/u33sqUwjjQPyhnd1Bl9rTKFfOOUplKn9E2hirXVaXW2pc1B8PCqmRoci83iSSE9l6zuaCCe07e0ow==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1gi5niZ3O9MtgQ+u471zH+vJ48RDUBXUQA+9NX3J9Kg=;
+ b=UreBVq3FB+wFfscxkdhK+gqS41/7iY7dEwYJXSWJcTqYUfNePIyDu51+yYsiPmBROOPu79XBMASYwUtAZTWmkZcC5MQRUlXsHfnZkWpsflGWVHtzWRRxcmvxFgZET5PGgyIvJI9qJWGtOm7AJo++3kk6fMo1pD6dpfS+RqfwPegKIxW9Y6gc3YleZIN6q4WPssxHHf7MaEIQBAUVlyS96ODQfxcdpil70vNmvHvlaKVRLOkhfK2+0krQxYQ/SKYVPnYVEF8DerWm4Hm/Tl+nPuepqxNXokuFc9YKybRH1dEsY3BNCaE+QOiMkIJbjRT+uTZsqSIfWBkLw1dqA01HDQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1gi5niZ3O9MtgQ+u471zH+vJ48RDUBXUQA+9NX3J9Kg=;
+ b=yLH3qIxFmNSZoi6ZrzI7M6/pcSG5mQDbXMH2JvHYKI6HZLQ8iFK6FZm0FjWKVgAxGNfZFwnipNFEBdH0PDOSaVARpEaLcNSiHcUMjUc2b/tTNNQtsUwsvaN8Jq8EIDOieHemeBCNeu46yJGyAxfFGZhS85qtvQkpU2Y35zq+6Dqs5pAtRld4Pm6JYWKstJ5s37nQlK51QOG4lXSxflmaYxCa7aqPEzBrhGDtuW1va2HSVpxiUo4l4dbT/vYfdutkmwdZO/I+NWs/8zqTt4qDg1x91s1bzKNy059LQVCiUOgFJSMXaZrRLPpINpGKuoy+YJ25+vZ9KYwe8+/cph78nw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from KL1PR03MB5778.apcprd03.prod.outlook.com (2603:1096:820:6d::13)
+ by JH0PR03MB8351.apcprd03.prod.outlook.com (2603:1096:990:49::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.18; Tue, 14 Jan
+ 2025 07:13:54 +0000
+Received: from KL1PR03MB5778.apcprd03.prod.outlook.com
+ ([fe80::9d11:d1f6:1097:22ca]) by KL1PR03MB5778.apcprd03.prod.outlook.com
+ ([fe80::9d11:d1f6:1097:22ca%7]) with mapi id 15.20.8335.017; Tue, 14 Jan 2025
+ 07:13:54 +0000
+Message-ID: <aa5a47a0-8944-428b-907c-c88fa169f841@amlogic.com>
+Date: Tue, 14 Jan 2025 15:13:41 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] clk: amlogic: c3: Limit the rate boundaries of clk_hw
+To: Jerome Brunet <jbrunet@baylibre.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>
+Cc: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+References: <20250110-limit-rate-range-of-clk-v1-0-dd618adc4aa8@amlogic.com>
+ <20250110-limit-rate-range-of-clk-v1-2-dd618adc4aa8@amlogic.com>
+ <1j34hqai39.fsf@starbuckisacylon.baylibre.com>
+ <2578a79d-1e24-4336-9859-e384c8f69269@amlogic.com>
+ <1jr05693nn.fsf@starbuckisacylon.baylibre.com>
+ <af501f2e-2dd6-4182-872d-76260edba973@linaro.org>
+ <1ja5bu90jb.fsf@starbuckisacylon.baylibre.com>
+From: Chuan Liu <chuan.liu@amlogic.com>
+In-Reply-To: <1ja5bu90jb.fsf@starbuckisacylon.baylibre.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SI1PR02CA0036.apcprd02.prod.outlook.com
+ (2603:1096:4:1f6::20) To KL1PR03MB5778.apcprd03.prod.outlook.com
+ (2603:1096:820:6d::13)
 MIME-Version: 1.0
-References: <20241111005750.13071-1-andre.przywara@arm.com>
- <20241111005750.13071-6-andre.przywara@arm.com> <CAGb2v64x_QE8w_4h10waG33xNpkd9QLt_B=xSPMMe0M=6bqsJw@mail.gmail.com>
- <20241120101228.26bbf100@donnerap.manchester.arm.com>
-In-Reply-To: <20241120101228.26bbf100@donnerap.manchester.arm.com>
-From: Chen-Yu Tsai <wens@csie.org>
-Date: Tue, 14 Jan 2025 15:01:31 +0800
-X-Gmail-Original-Message-ID: <CAGb2v663LeDtk1ZGOAztQ+Sx5OtbSx+xkLgypZYRjXkAr6_GRA@mail.gmail.com>
-X-Gm-Features: AbW1kvY5ioH0ofguoIZCmg867-6-rz1ALLpjN9guXZRF83auvJZgI7_L4pl8dSY
-Message-ID: <CAGb2v663LeDtk1ZGOAztQ+Sx5OtbSx+xkLgypZYRjXkAr6_GRA@mail.gmail.com>
-Subject: Re: [PATCH 5/7] dt-bindings: pinctrl: add compatible for Allwinner A523/T527
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: KL1PR03MB5778:EE_|JH0PR03MB8351:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0d260ccb-84bb-42cc-aad4-08dd346b0108
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|1800799024|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?YWlFMU5hcVdaeHFTZFhJd0Y2OUFhNmIxejloRVJSaVR5NHh2cVBxZ2ZPUzkv?=
+ =?utf-8?B?Z3dDNjMrelg3dnZ2d0plRDNBNVJSQ0hPdTBYejYwdzhZb1BuMFhGK2ZJZm82?=
+ =?utf-8?B?Y1cveHl3MkltbjNqYW43TDNhNTZvSUJhZlVTOUxHbDhMNVNWUU8zdStWMS9Y?=
+ =?utf-8?B?M2I2M2o4QVNESU9JcHVmUzFNSC81R0MwNjdWTmlvbHBvZkJIOXhHQTlqZzJ3?=
+ =?utf-8?B?dDdpN3h5aWJPQ0ZERmx2bmFiTHE4ZEp3Mk1MMDNzamVQc3FCbHdiSkdSVnRK?=
+ =?utf-8?B?bWVIL2xZcERjelFCbXE4eStkSVlGODFSTE5NeDNhVTcxK09EYWpTL25iL0do?=
+ =?utf-8?B?b3prcDNSV0ppUjBCcHhQU1RnMkt1SW5Ka3RmVUpxZHFUS2R4bDhCcCtnTXVL?=
+ =?utf-8?B?K0RZRldpdHQxeGQrSmtINDcrazY4elQrWmVpSWdLdDd2K1lkQ0UrTjlKNSt6?=
+ =?utf-8?B?V3daRitMaG9KVURZSk9BOTR0Y1ZDakZPN0xhWjB0bFZOaVRyUlBMQjA2L2c1?=
+ =?utf-8?B?L1pxdENJK0dsVGE4cFh5bTQyYlEvN2VIZERVNFlxTlRmL0k4S3h3ZnVYZ2pX?=
+ =?utf-8?B?ai9EVjdhMnhUTndMUS9LdGxIUUR0T3p1UXgrNTBBYzMvRlhlVXZtZUhqNEkx?=
+ =?utf-8?B?TUxCUW9tbkZ0c2ZkOWZ1T3NMcU1qZng1Q1ZtLzlXbjRlOWp3eDhNem1KTGNN?=
+ =?utf-8?B?S1FUdC9URHMwb0Jlam1XZ09iTHNVZ1FNRlJhNzdia3Y0cnU0dEdaRU9kWjZ3?=
+ =?utf-8?B?UjFQdVRGSGlaamQwa0Q3aWFUNDRXUVZldHJuRmtkcUxyRnNQaHFaM2ZuUGJw?=
+ =?utf-8?B?NU5YMzJVckJoVTZ2RFdmZm9iUDBNc3h6c2dnRmp4RmZhMFU2SXpUdjdMR3h1?=
+ =?utf-8?B?R3hOazNrTmlRQ1pNQktPU282VHI3Z0VoYm10WE03MHVmeEl2RHdBdGRYNkNS?=
+ =?utf-8?B?MnZ5NFNsbkhVS21DUEVCZENTSVdMU3kveGFabWhSOG9lSHkrd1J2eHNWekEy?=
+ =?utf-8?B?YmEzRDdac003TVY5bFBFQUE4ZEFUQUJWdVlPMFpCLzVzbkZUZFdpeE8rWWNt?=
+ =?utf-8?B?d2plQ09EQmhjZVdUYkZmdWUwZXhwQ0JWR0JMcWlzNG0vTXJDelhyQTg3RHRz?=
+ =?utf-8?B?Y2Jmd3hmZUxiOVpuZ1VxenAwWGx0Vys0MXB1U0dxeU5ZNWxiRHBHcEpHVEwy?=
+ =?utf-8?B?VGhxdkdGcjl5dEM3alRpZkZQS0E4VEsrWlBxMVBWTE43MUJaU2s5YW1SUjVp?=
+ =?utf-8?B?bUdHOWp3YWdaQmVTSGRzLzAzZGpCaGRZMXgreG9mTnlVamFpVXo2KzczTnpF?=
+ =?utf-8?B?SWZqZWVuVUg1M3pUQjBVbHpXYW1pOEJUeGRPUVNqNitpOENmU2VCd1p6dUVI?=
+ =?utf-8?B?U2pmaHQ0NEh0aVNGMHYxUm9KWnFpczdWdW9Kc3NYT1dnRm5uNjVhTmNzcjNN?=
+ =?utf-8?B?MHdtWDRtY0FFS3NIMUpjc056RGtZdmJMSTZNZTRzYS9OOXAzSHhDTXNlUTh4?=
+ =?utf-8?B?em5tWjFZcHZqanM4U2o0VEZFcmc2dzUvcW96VkM2QVRBbi9ObDdsb0M2c0Nr?=
+ =?utf-8?B?bWI3OElzd3pvTVQyMlB1ZVVwemlMdi92THF5bHpwSThCUjJSUERTd2huTXM3?=
+ =?utf-8?B?KytTVXFmSDBDNndQUk1UOHpKMGZ5L1FJSnlZR0J2cWdveXE5bkhmTWZvYUxN?=
+ =?utf-8?B?NzhzSTJXSitJNFg4cVhzaWtrZW92NDVvdXVLdkRnZVFsUGJaeEdQK0RDUzFT?=
+ =?utf-8?B?UVNpZ0pta0lNdy9NTDRYWjlZQ2dnSThUZU05TVd0b2Z1V0w1dzJnODRHdWpn?=
+ =?utf-8?B?QmFwdm9hWE5FdVFqd2VXdjRUbzJVcGVMV28xMlpHeHBEUWE4NmY3bG9UdS9n?=
+ =?utf-8?Q?Plv+aE6T/+qhr?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB5778.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(1800799024)(376014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?M2MzWTlNUEMrRWtGOStFS1l2M2UwMTVXTGpJcU52WVg5UnVlQTFEZEV4M1A0?=
+ =?utf-8?B?WU9USURORy9mYkhwWkJnbDltWUJuZVcya2tJT3YzTHZaK3ZpSlR3aWtaeDE3?=
+ =?utf-8?B?cWhRTjVadTRiVzZiUzIvN0JwN25LYy9sQjBqREpMcWlxTjU5ZHFjWGJRa3d3?=
+ =?utf-8?B?SDhjWUlyYmVnNHJRZENjd0xJRVR1aE9UNjJoNUp6ZXFmN012UGc1ZFhPcjdn?=
+ =?utf-8?B?ZG0xTnVSb1ZFTFBCamd3SzNmRlE0RTYvcFpFaWtJU0FUaXJtRk1tdlRUWlp3?=
+ =?utf-8?B?SjFBWlI4bkxGSTJwR1BzVmZwSW1qNW9zNEcxS1R2Z3NHbzd2VDd4alhNcnJH?=
+ =?utf-8?B?MGJYUExNRXhJNWRTNTR4K0VPbm9KWCtPcG9IdGJ1d2NZUFk5YTdlN0poOG9k?=
+ =?utf-8?B?YWdMK2dvL3ZFYTB6djdpYU1wWFVoYm9pc2pEd2JEV0ZldzArVHhoWUlEenNB?=
+ =?utf-8?B?czdBWHFuY1doOEJNVVllejdwbFdtZFZmc0REd044ZW1PTXpuemFnRVNpcGhX?=
+ =?utf-8?B?MmpNSHlQaEFBcXdOU3FZbFJUMkZzVVh6eU1ock5RVXJjRWRHMGc3OFJ0Yzdt?=
+ =?utf-8?B?dGZIWnhQWmhwNlR3bGRqcXBxS3JGWnBGTjNWZk1aTmMyaURpZFJPb0grei9w?=
+ =?utf-8?B?aHZPeUJxSWs2bDVRRjJLaG55WW51anJTL3czZGJpMlZpZW90TnovOHBQKzVK?=
+ =?utf-8?B?aWhxbnBscVU1bU8zMG1XZUdrRnBQazdVQ3Rya2JCT1hNc29SODBUVVZ0TVFs?=
+ =?utf-8?B?enI1L3JWRlo5dkVHRE9TMEZHWUxYSTBjdFliOXVyOFAxYndHQVllNkNQdHZD?=
+ =?utf-8?B?MmwvOHlBdDBnUDgrMlVTR2pUS1FtaWJQdGRYS3ZyTnlBRzRFZFQzMGw1Rm1j?=
+ =?utf-8?B?czBPMS9IMGJScGZ6Z0JwZjh6WU9JbUpQMWNpWEpndXN4K1RwdS9UdmZmaGxW?=
+ =?utf-8?B?VW1LQ2N6WGhKRldoRHNhSlpYTmxReXV2aXF1RG51b0VFcjdNYjhpQ01BMmNI?=
+ =?utf-8?B?VGZvdnQ4dG11SnNPQVdEVWFid1l4TEVRRWlIOTVrNmtmYUhuL3pUSE1UZHkx?=
+ =?utf-8?B?eDVoYS83akVpMHVvdFFWTVlqV3IreHRwQXBzSVNoaVg5d0pzYjQ1YUF3d1pT?=
+ =?utf-8?B?VTdSNmFNamEySGtTY0hJaVhya01URUU2ZEJGdFF1cVZNcXoxbENpZyszajJt?=
+ =?utf-8?B?NVJWNTRsbDdjRFpRTXJwYWpVTE5kbTg3Nzc1bDBxU0RoVlZtNHdDUEZBS3FV?=
+ =?utf-8?B?emZ1TFBiN0FjNi94YUF2dTYzY1U3a2VIY3lBZTFwamcrelVlYkdPd0c0QUZ0?=
+ =?utf-8?B?TDBDQitoT3J5TDY1WTdZR0hVZTB6T21aMkRMV3F0ZUJFcG9mcEliUTZmamRE?=
+ =?utf-8?B?WUFuMU1SRFJnTHgrTTlIK3FySkJnVlQ3Q0NRN3FCUk9HY0dRd2dSZHBxb1Y0?=
+ =?utf-8?B?SlpJYysxZTgxb2t6Z29UWGZORjRLdkJUaWdSOG9ValRZVDM4c3FhaVRHbC8z?=
+ =?utf-8?B?WVJyQ0hVdVEwc0VmYzZHZEJNcW5CWk0zY0JMSndDaTJDZDhaS0wxNC9ob2RN?=
+ =?utf-8?B?NUxRMXB6RkpSNTBTWmFnazdzNlZPeHZYbDNmOGtZQ3l3ekVoYjAyU1NoSnhO?=
+ =?utf-8?B?d3VqNW5GZCtTWXhSL1pONkYxQUEza0FQZStGcnZoYlJhZWErT244WnBVeUZM?=
+ =?utf-8?B?eDB6ZWpjdlIyQzBWS1dJanBRTE1ISnpoclNhUG9NelFDVHExbGtaY1FMVzVJ?=
+ =?utf-8?B?YWdONHdaTktiWkZ1VXVHUGhZRiswZkN1aFNpajliTEtQREtIZkk4ZDl5NUdq?=
+ =?utf-8?B?b09Od0IxYThzNTd1UkhvSnUvT1pPMmVYV3RJcHRqVnhSbVV4MmZTZktZRDdJ?=
+ =?utf-8?B?YmpuWVV6NWhzUGdsZjhnUWF0L2lJejBzNFNNVjZuQmVFSEpJRHhzTWNSRDBx?=
+ =?utf-8?B?VldHMGpUQ3BPQy94UEV5U2YvN2s1dDRsVCsya3hNTEM1V1paaFVFWHF0VU54?=
+ =?utf-8?B?dlpQbVpmSUE4QTBxNndOQzNZSVc1VzRmQ0EvR0pwOXdBTkdEZzl4T05hVTds?=
+ =?utf-8?B?U0FMdnV2NlZtd3NKb2VNc2MyZjBYcjhhbmoxbm5KNVFkbVRsZTU2VUpmR0ow?=
+ =?utf-8?Q?IBhFBHmEtv+QcknUAj0mqCwOH?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0d260ccb-84bb-42cc-aad4-08dd346b0108
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB5778.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jan 2025 07:13:54.1433
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: QCm62dY1yZNwADasTwShlfgGIz7BW8FRvINsr67v3RMzQ8QjVMxLXjj7BhiuSdDa1snTT0MnyXZTQ5L80VpeJg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: JH0PR03MB8351
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_230148_568290_E441439D 
-X-CRM114-Status: GOOD (  35.78  )
+X-CRM114-CacheID: sfid-20250113_231411_151386_068C8706 
+X-CRM114-Status: GOOD (  19.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,172 +180,72 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 20, 2024 at 6:12=E2=80=AFPM Andre Przywara <andre.przywara@arm.=
-com> wrote:
->
-> On Wed, 13 Nov 2024 16:50:19 +0800
-> Chen-Yu Tsai <wens@csie.org> wrote:
->
-> Hi Chen-Yu,
->
-> sorry for the late reply, I was away for a week.
->
-> > On Mon, Nov 11, 2024 at 8:58=E2=80=AFAM Andre Przywara <andre.przywara@=
-arm.com> wrote:
-> > >
-> > > The A523 contains a pin controller similar to previous SoCs, although
-> > > using 10 GPIO banks (PortB-PortK), all of them being IRQ capable.
-> > > This introduces a new style of binding, where the pinmux values for e=
-ach
-> > > pin group is stored in the new "allwinner,pinmux" property in the DT
-> > > node, instead of requiring every driver to store a mapping between th=
-e
-> > > function names and the required pinmux.
-> > >
-> > > Add the new name to the list of compatible strings, and required it t=
-o
-> > > have 10 interrupts described. Also add the new pinmux property.
-> > >
-> > > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> > > ---
-> > >  .../pinctrl/allwinner,sun4i-a10-pinctrl.yaml  | 23 +++++++++++++++++=
---
-> > >  1 file changed, 21 insertions(+), 2 deletions(-)
-> > >
-> > > diff --git a/Documentation/devicetree/bindings/pinctrl/allwinner,sun4=
-i-a10-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/allwinner,su=
-n4i-a10-pinctrl.yaml
-> > > index 4502405703145..6fc18e92e1e94 100644
-> > > --- a/Documentation/devicetree/bindings/pinctrl/allwinner,sun4i-a10-p=
-inctrl.yaml
-> > > +++ b/Documentation/devicetree/bindings/pinctrl/allwinner,sun4i-a10-p=
-inctrl.yaml
-> > > @@ -56,6 +56,8 @@ properties:
-> > >        - allwinner,sun50i-h6-r-pinctrl
-> > >        - allwinner,sun50i-h616-pinctrl
-> > >        - allwinner,sun50i-h616-r-pinctrl
-> > > +      - allwinner,sun55i-a523-pinctrl
-> > > +      - allwinner,sun55i-a523-r-pinctrl
-> > >        - allwinner,suniv-f1c100s-pinctrl
-> > >        - nextthing,gr8-pinctrl
-> > >
-> > > @@ -64,7 +66,7 @@ properties:
-> > >
-> > >    interrupts:
-> > >      minItems: 1
-> > > -    maxItems: 8
-> > > +    maxItems: 10
-> > >      description:
-> > >        One interrupt per external interrupt bank supported on the
-> > >        controller, sorted by bank number ascending order.
-> > > @@ -119,13 +121,17 @@ patternProperties:
-> > >          $ref: /schemas/types.yaml#/definitions/uint32
-> > >          enum: [10, 20, 30, 40]
-> > >
-> > > +      allwinner,pinmux:
-> > > +        $ref: /schemas/types.yaml#/definitions/uint32-array
-> > > +        description: pinmux selector for each pin
-> > > +
-> >
-> > Why not just the standard "pinmux" property, as given in
-> > Documentation/devicetree/bindings/pinctrl/pinmux-node.yaml
->
-> I had it like this in my last post two years ago, but learned from
-> LinusW [1] that the generic pinmux property has a slightly different
-> meaning, and abusing it for just the pinmux index values would not match
-> the generic definition.
-> We *could* use the generic definition, but then this would include what's
-> in the "pins" property, like I sketched out in the cover letter, as an
-> alternative to this approach:
->         pinmux =3D <SUNXI_PIN(PB, 9, 2)>, <SUNXI_PIN(PB, 10, 2)>;
-> Where the SUNXI_PIN macro would combine the pin number and the pinmux int=
-o
-> one 32-bit cell. See the Apple GPIO DT nodes for an example.
-> This looks indeed nicer, but requires quite some rewrite of the existing
-> pinctrl driver, AFAICS.
 
-Sorry for taking so long to get back to this.
+On 1/13/2025 11:49 PM, Jerome Brunet wrote:
+> [ EXTERNAL EMAIL ]
+>
+> On Mon 13 Jan 2025 at 15:46, Neil Armstrong <neil.armstrong@linaro.org> wrote:
+>
+>>>> I think that the clock configuration exceeding the timing constraints
+>>>> is a hidden danger that all chips have and face, but this hidden danger
+>>>> is not easy to be exposed?
+>>>>
+>>>> For instance, if the routing of a clock network is close to the clock
+>>>> or data bus of other modules, and this clock network is wrongly
+>>>> configured to a frequency beyond the constraints, causing crosstalk
+>>>> that affects the normal operation of other modules. If such a situation
+>>>> occurs, it will be very difficult to troubleshoot. How should this
+>>>> situation be handled more reasonably?
+>>> Fix your consumers drivers if you need to. Set range if you must.
 
-Could we maybe add a generic replacement of the existing "function"
-property, which takes a string? Like "function-id" or "function-selector"
-that takes u32 (or u8). Then it could be one or the other. Not sure
-if the binding maintainers would accept this or not.
 
-I understand that we probably don't want the mux value combined with
-the pin number.
+I don't think it's reliable to have consumers drivers self-regulate.
+They are very likely to overlook this constraint. Moreover, when the
+clock configuration exceeds the constraint, if their own module can
+handle it but it affects other modules, this situation can easily
+mislead people to look for the problem in the wrong direction.
 
-ChenYu
+Setting the range offers relatively higher fault tolerance, but it
+requires adding members to each "clk_regmap_**_data" and implementing
+callback functions *init() in the ops of each type of clock (*init()
+calls clk_hw_set_rate_range to set the range of the provider). This
+seems to complicate the originally simple logic.
 
-> [1] Previous reply from LinusW:
-> https://lore.kernel.org/linux-sunxi/CACRpkdbMc-Q6wjgsiddu6-tWC1dt2uFk+4Ly=
-erMdgFk2KRGK4w@mail.gmail.com/
+
+>>> Those are not clock provider constraints. Those are use-case ones. It
+>>> does belong here and CCF already provides the necessary infra to deal
+>>> with ranges.
+>> I kind of disagree here, if the vendor has the data and is willing to share
+>> the range for each clock path of the system, I think it should be welcome!
+>>
+>> Usually those ranges are not disclosed, so we don't set them, but CCF will
+>> certainly use all those range to make an even better decision on the lock
+>> routing.
+> I did not say you should not use them, I say that a platform
+> use-case, which is what this is, should not be hard coded within the
+> clock provider driver.
 >
-> >
-> > >      required:
-> > >        - pins
-> > >        - function
-> >
-> > This section should be made to apply only to the existing
-> > compatibles? Maybe we could just split the files and have
-> > a clean slate for sun55i?
+> This is no different than an assigned-rate, and like any other platform
+> description, it belong in DT.
 >
-> Yeah, I couldn't find a good example how to make it *required* for one
-> compatible and *not allowed* for all the others. But creating a whole new
-> file is actually a good idea, as this also avoids adding another case to
-> the already quite indented if-else cascade.
+> We've already seen how these ranges may depend on what else you choose
+> to do on the system or even what package a particular SoC variant is
+> using.
+
+
+That makes sense. The information I have doesn't make a distinction,
+I'm not sure if other manufacturers do.
+
+
+I think it's more controllable to converge this clock constraint issue
+within our clock driver. Should we implement this constraint in
+Amlogic's clock driver?
+
+
 >
-> Cheers,
-> Andre
->
-> > ChenYu
-> >
-> > >      additionalProperties: false
-> > >
-> > > -  "^vcc-p[a-ilm]-supply$":
-> > > +  "^vcc-p[a-klm]-supply$":
-> > >      description:
-> > >        Power supplies for pin banks.
-> > >
-> > > @@ -156,6 +162,17 @@ allOf:
-> > >          - interrupts
-> > >          - interrupt-controller
-> > >
-> > > +  - if:
-> > > +      properties:
-> > > +        compatible:
-> > > +          enum:
-> > > +            - allwinner,sun55i-a523-pinctrl
-> > > +
-> > > +    then:
-> > > +      properties:
-> > > +        interrupts:
-> > > +          minItems: 10
-> > > +
-> > >    - if:
-> > >        properties:
-> > >          compatible:
-> > > @@ -166,6 +183,7 @@ allOf:
-> > >        properties:
-> > >          interrupts:
-> > >            minItems: 8
-> > > +          maxItems: 8
-> > >
-> > >    - if:
-> > >        properties:
-> > > @@ -244,6 +262,7 @@ allOf:
-> > >              - allwinner,sun8i-v3s-pinctrl
-> > >              - allwinner,sun9i-a80-r-pinctrl
-> > >              - allwinner,sun50i-h6-r-pinctrl
-> > > +            - allwinner,sun55i-a523-r-pinctrl
-> > >
-> > >      then:
-> > >        properties:
-> > > --
-> > > 2.46.2
-> > >
->
+>> Neil
+>>
 
