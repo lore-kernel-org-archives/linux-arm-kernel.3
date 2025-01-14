@@ -4,89 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5260C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 14:38:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78077C02185
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 14:40:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AA0aBoqrZg/WACjAZN52vkKnO6JJJbTCFcrDiMPAINs=; b=ke/zGf3vkHHttriTM2xf23tMqd
-	iRtj/rQQE/vtq3cId9RNfTK/alPMnHjHMIplY4X3HJ6eKoq32+RItZOu6WVHATO9H2sGwoj1BVIXC
-	n1fwN8D6Mm42xfI5zgUDT56BkM77x2Z1rVUnf8xQjtWw5QNitecWzEJheCrERrfi0cYkUjdNyKLYW
-	okZuDmmOJryBxXYs+zwkkwZ8xngi8HzeNV4B4wbyuat9DirrBRv4oVxwliCULj14aomK2G7W1Rrai
-	K9fvnIlE8kJvEc+EaxmeTItBEj+h0344e0+zTLIczVK+wyimvzuME95HsFc47lxNraZdlYjjvQdkI
-	VGHXGfZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7Qi3QUlP8VHmNM0lUc7waZmEAQbupJ6aRIXFzWl95+I=; b=vvN5ggRJL564knWfx2Q/HrSMsp
+	E8YZDf+87rVZ05kx0loNU5NAG1USw1ttl5X12P99ou1KhAv7YOumep7nSWoMQKJNKZipxfEXXYP1T
+	sSEIgHGhMaksacfQPFCiWTJFSNbMGDEDhovwwTrbFwyDmXX9bVYo74kKZIonwmjc9NxKfm3zD3Mwm
+	vtky9RIcJ75Tzh5offLAumsUlfd9USQIxpjiZnlSvyYpcePLdQ2KWITT3oRe3TGDXwL4tz5IgJtbg
+	Oc1okOQ9NxIcgvxhYhtYpUBWfkT4/1t9E3n7ZFZWDLgcfnyvsIJ4xwQGeuLP73y4EEUbH8OKeMwz6
+	uqA+sj0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXi3x-00000008iKQ-0rqz;
-	Tue, 14 Jan 2025 14:38:37 +0000
-Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
+	id 1tXi59-00000008iQr-3Ti7;
+	Tue, 14 Jan 2025 14:39:51 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXi2i-00000008i9p-01ol
+	id 1tXi3b-00000008iG9-43Wj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 14:37:21 +0000
-Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-3003c82c95cso40840501fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 06:37:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736865438; x=1737470238; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AA0aBoqrZg/WACjAZN52vkKnO6JJJbTCFcrDiMPAINs=;
-        b=kzEnt67y8Pi8o9SK1PgFrrNZk4/W5uv3VoHzn24foP/NyjCl3qcg6nZaQP5Xss5w/Q
-         wKvSXWAnjOlwR07ZCagmvHYOLUB21XBPgwtXJBKjdi9MRDIWFZgNqUjUmjoiVfEeDLaJ
-         HjjFHEZChM275YqAft3AC/a86C/nAnz7OXraFq22zD/fTspI0Naa48PPUUKiZztsxhuk
-         SAy/MA02Blu8duDaXaq+BdjIdMq2IlyMtRTj0NTFE1fwCNrGG7wPzXAa6mkJLG8r1Bqd
-         1t3ysbVkGIUJhz/L+6GvIo1FuzE/ktMvCZFJ8CKR7vXKi6CkeVuFFo4tvZoGX9+1kjEK
-         izww==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736865438; x=1737470238;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=AA0aBoqrZg/WACjAZN52vkKnO6JJJbTCFcrDiMPAINs=;
-        b=lOzHyvGENsQpI+vCMGVQoyFvvD5IOvRatxsvQataua4TJ6VV/dGvXBM30f5RUEwNj2
-         eSNUEr9eZuHaUMCU4k+jRa9D9FO+6VNAuNnViEXFBWyGrSTFdT/MKm6m0fMVM45KR0Zc
-         bPWC7y5K/xOaGyr+9Ao0DLCAdN4YfimWzsTfpjsKe2xZMHm1Y72cVvbJldl+md91x+WC
-         70PYh35qDfs68Wp4nGZA3yhC0GTF8WQ4RHTFK+rFIUir3Skj65PbwjoYTnV9jWBW3jwk
-         4wPhhBOpXglnaX/ii7/M08G838Yvt+1JN9SQPbjJx+ar+LuQTx+3UCY8hxGmSur8vJ5i
-         7ZuQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXw/u3m0PYA6Cqt6EmkOUaDemEtGUPsz5lYUIc6kIRLyg+afz/7YtU3UgTXw77MVUHbWI42yEv+aM+mlq2KUZF3@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8GJV/6TIhtSNQhAv9icEvrBI3bjxP3n7yjoQUGDrqwm+JifjP
-	phwcswwLWpgUc6wbAH/THq7G2f093miTL8cZ4GaIaq6Ve6dBRo/owF5n8dWgHBOh7tu6EIkU8oU
-	6wqsDJ4unWQNFqE1zG8jgun46CItLOBAEaMeZHHUpCs5m/Q2I
-X-Gm-Gg: ASbGnctwyeDrvMlJfmxcRFNUBSYc0LyW2cQsPncHfohEe3FAVEfz1fX8d3t7JBs6HXP
-	IbPvbFaXFjv/dIjZR7+XlgqDnAySjErbRfFwS
-X-Google-Smtp-Source: AGHT+IHXHhRBxekKjdM3gRgsDo8MxfQbmM2TrKqIHQrqSEmhLq5g1p0hvMa4d+Gj1XQaBUyrDoQ+cJNCESr9wOng/Qk=
-X-Received: by 2002:a05:651c:544:b0:302:1d24:8d95 with SMTP id
- 38308e7fff4ca-305f45f6484mr75556711fa.29.1736865438026; Tue, 14 Jan 2025
- 06:37:18 -0800 (PST)
-MIME-Version: 1.0
-References: <20250113-b4-imx-gpio-base-warning-v1-0-0a28731a5cf6@pengutronix.de>
- <20250113-b4-imx-gpio-base-warning-v1-2-0a28731a5cf6@pengutronix.de>
-In-Reply-To: <20250113-b4-imx-gpio-base-warning-v1-2-0a28731a5cf6@pengutronix.de>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 14 Jan 2025 15:37:07 +0100
-X-Gm-Features: AbW1kvbhH5ngJuoPoguwTmNwlT9OfxN6ZoGKMuwu-HJLXJn6jxhr1EDmY9GG7Us
-Message-ID: <CACRpkdZtxVSn9D-ro9mjYU=yv0FjE=BO=vPmObT=8=x9coCy5A@mail.gmail.com>
-Subject: Re: [PATCH 2/4] checkpatch: warn about use of legacy_static_base
-To: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Cc: Bartosz Golaszewski <brgl@bgdev.pl>, Andy Whitcroft <apw@canonical.com>, Joe Perches <joe@perches.com>, 
-	Dwaipayan Ray <dwaipayanray1@gmail.com>, Lukas Bulwahn <lukas.bulwahn@gmail.com>, 
-	Fabio Estevam <festevam@gmail.com>, Andy Shevchenko <andy.shevchenko@gmail.com>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>, Haibo Chen <haibo.chen@nxp.com>, 
-	Catalin Popescu <catalin.popescu@leica-geosystems.com>, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 14 Jan 2025 14:38:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 14469A41671;
+	Tue, 14 Jan 2025 14:36:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE596C4CEDD;
+	Tue, 14 Jan 2025 14:38:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736865494;
+	bh=t5pKKRaZXMFN04XNj8c9l0TranyPnmuUTvNseaq70Ko=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=mcVeVHIJlyJjhLxtcTweGFuTVje6KkFV5GA94S+8FW0JiECfQJ7sI+wHbGuz9rb54
+	 OzaZvDk7mKQIf736UjsUpkp/tuF8BDXlPqBTD2A399Ml7FDsw92Z8P0kotee0ERds+
+	 nQeB/x4sljaMu6p1SyBQ/Zvq1NT26wZtqwa/GPpVsB9gM+/E4igMd5WA0nUqUdvVJQ
+	 nQpRnsH+yOhmEfrqISP/eDX6QBfNWlcuzKRE8RWEqKMjPgrga8WgZKkmzDf6ZR4d2G
+	 T4pqA3lCm0x6DYRyK3Y+i/XuxMiwmjLbpDoTAVKyw/dbfR+1o+ZIjU+Z67FYfafiXy
+	 Jcmxbzp0ThLZA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tXi3Y-00CAAy-DX;
+	Tue, 14 Jan 2025 14:38:12 +0000
+Date: Tue, 14 Jan 2025 14:38:11 +0000
+Message-ID: <86h661wje4.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Eric Auger <eauger@redhat.com>
+Cc: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	kvmarm <kvmarm@lists.linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	oliver.upton@linux.dev,
+	christoffer.dall@arm.com,
+	suzuki.poulose@arm.com,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	coltonlewis@google.com,
+	joey.gouly@arm.com,
+	yuzenghui@huawei.com,
+	darren@os.amperecomputing.com,
+	vishnu@os.amperecomputing.com
+Subject: Re: [PATCH] KVM: arm64: nv: Set ISTATUS for emulated timers, If timer expired
+In-Reply-To: <152d262e-641d-4bb1-9656-a13e049d62c4@redhat.com>
+References: <20241209053201.339939-1-gankulkarni@os.amperecomputing.com>
+	<867c89tc4q.wl-maz@kernel.org>
+	<c5b1c3d7-56ca-4afc-a831-045dba4beffa@os.amperecomputing.com>
+	<865xntt2kv.wl-maz@kernel.org>
+	<8be59ff3-6a68-48e1-8181-0ce4b2e7180f@os.amperecomputing.com>
+	<bcb4289b-507c-4ea1-afc7-6febd34d88db@redhat.com>
+	<86y10osr19.wl-maz@kernel.org>
+	<4d443db1-85b1-4071-acd5-3187deb9cb17@redhat.com>
+	<2f6b2cb1-3d32-480a-9801-9b993ae74e2d@os.amperecomputing.com>
+	<152d262e-641d-4bb1-9656-a13e049d62c4@redhat.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: eauger@redhat.com, gankulkarni@os.amperecomputing.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, oliver.upton@linux.dev, christoffer.dall@arm.com, suzuki.poulose@arm.com, will@kernel.org, catalin.marinas@arm.com, coltonlewis@google.com, joey.gouly@arm.com, yuzenghui@huawei.com, darren@os.amperecomputing.com, vishnu@os.amperecomputing.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_063720_056434_85F7F741 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20250114_063816_127315_34439DA8 
+X-CRM114-Status: GOOD (  13.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,22 +104,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 13, 2025 at 11:19=E2=80=AFPM Ahmad Fatoum <a.fatoum@pengutronix=
-.de> wrote:
+Hi Eric,
 
-> gpio_chip::legacy_state_base was recently added as opt-out for
-> existing drivers and shouldn't be used for new drivers. It's thus
-> sensible to add a deprecation warning whenever it's used.
->
-> This doesn't fit with the existing deprecated API check, because it
-> requires a `(' to follow the symbol name, so a new member specific
-> pattern is introduced instead.
->
-> Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
+On Tue, 14 Jan 2025 13:12:21 +0000,
+Eric Auger <eauger@redhat.com> wrote:
+> 
+> I also confirm that using a mailine edk2 fixed the issues I faced
+> previously (fed/rhel L1 guest not booting).
+> 
+> I used Marc's nv-next branch and qemu rebase.
 
-Thanks Ahmad, much appreciated!!
-Acked-by: Linus Walleij <linus.walleij@linaro.org>
+When did you sample this branch? It is almost daily rebased at the
+moment, given that we keep piling up things in kvmarm/next.
 
-Yours,
-Linus Walleij
+> With a rhel L1 guest I can now boot buildroot, debian and rhel guest as
+> L2 (feat mainline edk2). For rhel, I tested different kinds of page size
+> combinations for L1/L2 (4k and 64kB) and it worked.
+> 
+> I tested on AmpereOne and Grace-Hopper systems
+
+Thanks for the confirmation. I haven't had a chance to try QEMU yet,
+but I expect that save/restore will not work. Something to look into,
+I guess.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
