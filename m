@@ -4,61 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C5FEE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 11:23:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 125CCE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 11:27:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WHpC2ITXnPa3M4C6l1303piRfdDRJk4aGd8/G1YYeEc=; b=cA5v+gz1yv69VL+kvIzCKQmSnP
-	3++iD1txaOZdD5tY5zKqErwtArjAdfASAcnbkZkhc/buZ8T+cKvfZ7RiirwY2Kq1sqMCXmvK0l9sY
-	DubN0MY98EP1+gekNqK1qQ7TyhiUN0dDy9Km1foV2wsLo4+q+Yp9a8bwGWCd50lBKKszEi+zGvwl0
-	wgF/ZxBCFCx8U49JMxzURoSgEmRFXXa11NG9H+Uc9SUOjhwbcNcoVviNAIqPKEON8uy90gPnRoLRG
-	fiLee7hMGo433w7JpiAYH2KASd/DcR+vftCl7mULFpq3nmL7Ty3w8dddrv52QJpVN+VbUca2C0xhZ
-	uH4naLqg==;
+	bh=DNeWxGrE8uIS0WDqmIGcYolBV0o+ZDhi6egQ4fiiws8=; b=BQdMyvxmia84L6YOhLRZLI7KmT
+	3L6s+PLg3+DkDD136epo0LfA0JzwsfcaUNRV034Xex9wEwHqCeYDnRnWX/CJRVXb0BHj1P3VYYHlq
+	QtU+TB4Eb7z8Himi/Qx84JANIkrUz3r2k6QXcwKhoGF8P95+Y6EBEgFy5wKpbl1RF9p0gh9KwLZpv
+	xVqBHnuS1uAfWrWm0zhQM3FZZ28XuvW6p8o8+BhYZS5Pn0VF5uuU1MfOcdJn07YT3wwqp03rpxyqQ
+	TWavHjUrA7pfvyVnPEMjBH6YTx5EehyVxXxnEzGoRoR3lU/JG53E7GeXnKDWdxfirCRitKaOT/ZNO
+	7L3diWQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXf0t-00000008Elt-19q3;
-	Tue, 14 Jan 2025 11:23:15 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXeze-00000008Eaw-1awS
+	id 1tXf4F-00000008FDB-0UIz;
+	Tue, 14 Jan 2025 11:26:43 +0000
+Received: from mail-yb1-xb2c.google.com ([2607:f8b0:4864:20::b2c])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tXf30-00000008Eyj-0Iyw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 11:21:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6082E11FB;
-	Tue, 14 Jan 2025 03:22:24 -0800 (PST)
-Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DE7B83F66E;
-	Tue, 14 Jan 2025 03:21:53 -0800 (PST)
-Date: Tue, 14 Jan 2025 11:21:49 +0000
-From: Andre Przywara <andre.przywara@arm.com>
-To: Chen-Yu Tsai <wens@csie.org>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
- Holland <samuel@sholland.org>, <linux-gpio@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 5/7] dt-bindings: pinctrl: add compatible for Allwinner
- A523/T527
-Message-ID: <20250114112149.5448baae@donnerap.manchester.arm.com>
-In-Reply-To: <CAGb2v663LeDtk1ZGOAztQ+Sx5OtbSx+xkLgypZYRjXkAr6_GRA@mail.gmail.com>
-References: <20241111005750.13071-1-andre.przywara@arm.com>
-	<20241111005750.13071-6-andre.przywara@arm.com>
-	<CAGb2v64x_QE8w_4h10waG33xNpkd9QLt_B=xSPMMe0M=6bqsJw@mail.gmail.com>
-	<20241120101228.26bbf100@donnerap.manchester.arm.com>
-	<CAGb2v663LeDtk1ZGOAztQ+Sx5OtbSx+xkLgypZYRjXkAr6_GRA@mail.gmail.com>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	Tue, 14 Jan 2025 11:25:27 +0000
+Received: by mail-yb1-xb2c.google.com with SMTP id 3f1490d57ef6-e549dd7201cso9644232276.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 03:25:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1736853925; x=1737458725; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DNeWxGrE8uIS0WDqmIGcYolBV0o+ZDhi6egQ4fiiws8=;
+        b=YWPLjG/zy5xl2PJvC4vURI3GRHK7MO6sx61E470JhzT3yoHFTy+vy92ZqihhHTB5eK
+         a0ZwYFPbh+rXrxiPPmw4aUg4+ispk1l+ecbRh/dkj9lee6ey8A3Hj00Xim5QsJu0YNPG
+         +bORZhDRicnOcCFUdbY3dKFzOuEn3tsAf/7y4=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736853925; x=1737458725;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=DNeWxGrE8uIS0WDqmIGcYolBV0o+ZDhi6egQ4fiiws8=;
+        b=JQnAQ1ZS7O7MQx42UAZUX5kTvHtzu3DPtzbQMw8QgMIYEnPBMJNyxnkSw5u5hSW+a8
+         /KVP6qn9LJotxwMOVT/YmR1z/NfylpZKMjwRps66yd6/CUSheSJeyIrTjRGlB37HccVM
+         Az6y/HP8sqX6IBaakt5NdjNgGPIpAfvLMHc9s7PspiwVld+PejZz4/N2qb0hLRLZw38K
+         z0bAUv2pRT+SluCE1qJFJ7/ZXqJHciEUoouMV+RiyH38gMd0ChKXjw97eekS/I0BVcOG
+         6J4+oEtfQ9BqbGPkn9CkPlSkfzv17LJNC9OcxcKb6zcjvJgpqyJW6SknWpeijz2H+WFV
+         wQ7Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUPXVOPWz3rGkS5UdiARwF55LfHaJfTI9/CoI/Rq2n3A205AvC06FUmMv8UWbiuoWIris5PFPMq1XJWlyMcfYvh@lists.infradead.org
+X-Gm-Message-State: AOJu0YzoUyI8lyctJ/KoHVKy97+2fjn35mNHpQx5lzZhji8i+wkPz9yk
+	jE+0csiA1NEOEdO3Sis11QEZMaB8tPt2c7b8riqvJ5HsF32c4Hi4N1n+I4B3g0tXgGuDkIuRgVO
+	WWK8WjVYkfFMQ25qph1M6s19YdG4kFkRe4ULcNw==
+X-Gm-Gg: ASbGncvECPzpcf8ysMoJHul/ETPaeNGk2AudDc9npRMSSIqnYxVO51x6P13zd5vHwk0
+	yv5SRnUyLNIozIAOfaeZ7OidzivcOqqrNtok+
+X-Google-Smtp-Source: AGHT+IE5ADFy4Rcdxdx8eIWS6qutMEezXMUhyeb5SIbQjo2wdqwdsiAVueYpuLW3T5twpKf4mq41MGduOKyevWn0ZOQ=
+X-Received: by 2002:a05:6902:988:b0:e57:3a77:99b6 with SMTP id
+ 3f1490d57ef6-e573a779d1bmr8361818276.19.1736853925209; Tue, 14 Jan 2025
+ 03:25:25 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+References: <20250114091128.528757-1-dario.binacchi@amarulasolutions.com>
+ <20250114091128.528757-2-dario.binacchi@amarulasolutions.com>
+ <79a90c01-9e21-4e3f-a334-6ba9e1df4150@kernel.org> <CABGWkvofUphcXTwBS5UBEoQ1GYpngP7gWi9Ax=WW28XKK0qoYA@mail.gmail.com>
+ <54b63cfc-7a51-4b69-8b32-eb7591b2169b@kernel.org> <CABGWkvrYUU=HAh4uYNpZSpzeyanfp5a_xjK_178ftQyDKH=cTg@mail.gmail.com>
+ <581275bf-11f3-4a8a-8e58-75b00c515c79@linaro.org>
+In-Reply-To: <581275bf-11f3-4a8a-8e58-75b00c515c79@linaro.org>
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Date: Tue, 14 Jan 2025 12:25:14 +0100
+X-Gm-Features: AbW1kvaNobnTd2MQAHzRF4uGLRR152GowylzO20cIOWKbfYsbQamDcVMjctIi7w
+Message-ID: <CABGWkvpGGdjJVTHppOohGPq3yi_Y20t9b0WWkPOriFU9=CHQMg@mail.gmail.com>
+Subject: Re: [PATCH v3 1/4] dt-bindings: clock: convert stm32 rcc bindings to json-schema
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-kernel@vger.kernel.org, 
+	linux-amarula@amarulasolutions.com, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Conor Dooley <conor+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Michael Turquette <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Rob Herring <robh@kernel.org>, Stephen Boyd <sboyd@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_032158_508365_337B1210 
-X-CRM114-Status: GOOD (  46.40  )
+X-CRM114-CacheID: sfid-20250114_032526_165258_16334633 
+X-CRM114-Status: GOOD (  21.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,216 +100,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 14 Jan 2025 15:01:31 +0800
-Chen-Yu Tsai <wens@csie.org> wrote:
-
-Hi Chen-Yu,
-
-before I get to your specific question below: what do you think in
-general of the idea of getting rid of that table based approach we use so
-far? Is that something worthwhile? I definitely think yes, but wanted to
-hear the maintainers' opinion about this. Happy to present some arguments
-if need be.
-
-...
-
-> On Wed, Nov 20, 2024 at 6:12=E2=80=AFPM Andre Przywara <andre.przywara@ar=
-m.com> wrote:
+On Tue, Jan 14, 2025 at 11:13=E2=80=AFAM Krzysztof Kozlowski
+<krzysztof.kozlowski@linaro.org> wrote:
+>
+> On 14/01/2025 11:00, Dario Binacchi wrote:
+> > On Tue, Jan 14, 2025 at 10:48=E2=80=AFAM Krzysztof Kozlowski <krzk@kern=
+el.org> wrote:
+> >>
+> >> On 14/01/2025 10:36, Dario Binacchi wrote:
+> >>>> Nothing improved here.
+> >>>
+> >>> In my humble opinion, there is nothing to improve. Any modification
+> >>> made causes the tests to fail.
+> >>>
+> >>> $ git grep st,stm32f746-rcc arch/
+> >>> arch/arm/boot/dts/st/stm32f746.dtsi:                    compatible =
+=3D
+> >>> "st,stm32f746-rcc", "st,stm32-rcc";
+> >>> arch/arm/boot/dts/st/stm32f769-disco.dts:       compatible =3D
+> >>> "st,stm32f769-rcc", "st,stm32f746-rcc", "st,stm32-rcc";
+> >>>
+> >>> Or am I missing something?
+> >>
+> >> How can I know what you are missing if you do not show the code?
 > >
-> > On Wed, 13 Nov 2024 16:50:19 +0800
-> > Chen-Yu Tsai <wens@csie.org> wrote:
+> > Sorry, but I still can't understand. I run multiple tests, trying to
+>
+> You don't understand that I cannot improve your code if I do not see the
+> code? So let me rephrase: In order to tell what is wrong with some sort
+> of code, I need to see it. I cannot tell what is wrong with code without
+> seeing it.
+
+You told me that this code was not exactly correct for the parts
+marked with *********:
+
+properties:
+  compatible:
+    oneOf:
+      - items:
+          - const: st,stm32f42xx-rcc
+          - const: st,stm32-rcc
+      - items:
+          - enum:
+              - st,stm32f469-rcc
+          - const: st,stm32f42xx-rcc
+          - const: st,stm32-rcc
+      - items:
+          - const: st,stm32f746-rcc ********
+          - const: st,stm32-rcc
+      - items:
+          - enum:
+              - st,stm32f769-rcc
+          - const: st,stm32f746-rcc
+          - const: st,stm32-rcc
+      - items:
+          - const: st,stm32h743-rcc *********
+          - const: st,stm32-rcc
+
+I haven't found a way to make changes to those elements without causing the
+tests to fail. Could you kindly provide more explicit guidance on the kind =
+of
+modification you're expecting?
+
+Thanks and regards,
+Dario
+
+>
+> > modify things
+> > based on what I understood of your suggestions, but the tests failed
+> > every time.
 > >
-> > Hi Chen-Yu,
-> >
-> > sorry for the late reply, I was away for a week.
-> > =20
-> > > On Mon, Nov 11, 2024 at 8:58=E2=80=AFAM Andre Przywara <andre.przywar=
-a@arm.com> wrote: =20
-> > > >
-> > > > The A523 contains a pin controller similar to previous SoCs, althou=
-gh
-> > > > using 10 GPIO banks (PortB-PortK), all of them being IRQ capable.
-> > > > This introduces a new style of binding, where the pinmux values for=
- each
-> > > > pin group is stored in the new "allwinner,pinmux" property in the DT
-> > > > node, instead of requiring every driver to store a mapping between =
-the
-> > > > function names and the required pinmux.
-> > > >
-> > > > Add the new name to the list of compatible strings, and required it=
- to
-> > > > have 10 interrupts described. Also add the new pinmux property.
-> > > >
-> > > > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> > > > ---
-> > > >  .../pinctrl/allwinner,sun4i-a10-pinctrl.yaml  | 23 +++++++++++++++=
-++--
-> > > >  1 file changed, 21 insertions(+), 2 deletions(-)
-> > > >
-> > > > diff --git a/Documentation/devicetree/bindings/pinctrl/allwinner,su=
-n4i-a10-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/allwinner,=
-sun4i-a10-pinctrl.yaml
-> > > > index 4502405703145..6fc18e92e1e94 100644
-> > > > --- a/Documentation/devicetree/bindings/pinctrl/allwinner,sun4i-a10=
--pinctrl.yaml
-> > > > +++ b/Documentation/devicetree/bindings/pinctrl/allwinner,sun4i-a10=
--pinctrl.yaml
-> > > > @@ -56,6 +56,8 @@ properties:
-> > > >        - allwinner,sun50i-h6-r-pinctrl
-> > > >        - allwinner,sun50i-h616-pinctrl
-> > > >        - allwinner,sun50i-h616-r-pinctrl
-> > > > +      - allwinner,sun55i-a523-pinctrl
-> > > > +      - allwinner,sun55i-a523-r-pinctrl
-> > > >        - allwinner,suniv-f1c100s-pinctrl
-> > > >        - nextthing,gr8-pinctrl
-> > > >
-> > > > @@ -64,7 +66,7 @@ properties:
-> > > >
-> > > >    interrupts:
-> > > >      minItems: 1
-> > > > -    maxItems: 8
-> > > > +    maxItems: 10
-> > > >      description:
-> > > >        One interrupt per external interrupt bank supported on the
-> > > >        controller, sorted by bank number ascending order.
-> > > > @@ -119,13 +121,17 @@ patternProperties:
-> > > >          $ref: /schemas/types.yaml#/definitions/uint32
-> > > >          enum: [10, 20, 30, 40]
-> > > >
-> > > > +      allwinner,pinmux:
-> > > > +        $ref: /schemas/types.yaml#/definitions/uint32-array
-> > > > +        description: pinmux selector for each pin
-> > > > + =20
-> > >
-> > > Why not just the standard "pinmux" property, as given in
-> > > Documentation/devicetree/bindings/pinctrl/pinmux-node.yaml =20
-> >
-> > I had it like this in my last post two years ago, but learned from
-> > LinusW [1] that the generic pinmux property has a slightly different
-> > meaning, and abusing it for just the pinmux index values would not match
-> > the generic definition.
-> > We *could* use the generic definition, but then this would include what=
-'s
-> > in the "pins" property, like I sketched out in the cover letter, as an
-> > alternative to this approach:
-> >         pinmux =3D <SUNXI_PIN(PB, 9, 2)>, <SUNXI_PIN(PB, 10, 2)>;
-> > Where the SUNXI_PIN macro would combine the pin number and the pinmux i=
-nto
-> > one 32-bit cell. See the Apple GPIO DT nodes for an example.
-> > This looks indeed nicer, but requires quite some rewrite of the existing
-> > pinctrl driver, AFAICS. =20
->=20
-> Sorry for taking so long to get back to this.
->=20
-> Could we maybe add a generic replacement of the existing "function"
-> property, which takes a string? Like "function-id" or "function-selector"
-> that takes u32 (or u8). Then it could be one or the other. Not sure
-> if the binding maintainers would accept this or not.
+> > Could you kindly provide an example of what you'd like me to do?
+> Any qcom binding? Any other SoC binding with multiple devices?
+>
+> Best regards,
+> Krzysztof
+--
 
-Do you mean specifically a *generic* property, as opposed to something
-prefixed with a vendor string, and coded up in just the sunxi driver?
+Dario Binacchi
 
-Because otherwise "allwinner,pinmux" is that numeric equivalent to
-"function". I kept "function", as a string, because the GPIO framework
-still needs a string at places, for instance for sysfs. We could create
-those strings, based on the node name, by sprintf'ing something, but I
-figured we might as well keep "function".
-In my U-Boot patches [1] I actually ignore the new pinmux property, and
-still use the function name, as it was easier to integrate into the
-existing code. U-Boot uses a very limited subset of our current table,
-so each new SoC doesn't add much to the code.
+Senior Embedded Linux Developer
 
-[1] https://github.com/apritzel/u-boot/commit/ab4f7ed0879022357646
+dario.binacchi@amarulasolutions.com
 
-Code-wise I think we would still need our own driver code, so whether we
-use "function-id" or "allwinner,pinmux" in there doesn't make much of a
-difference, I think.=20
+__________________________________
 
-> I understand that we probably don't want the mux value combined with
-> the pin number.
 
-You mean like the Apple GPIO does? I wonder why not, actually? I find this
-actually quite clever and compact. Again the "pins" property atm is quite
-string-heavy, so the code has to translate this back into a bank and pin
-number, then lookup the function string in our table to get the pinmux
-value. We could fit all of this information easily into this new
-generic "pinmux" property, and the code just needs to mask and shift that
-number. Each pin occupies a cell, I don't think we can get much better
-than that?
+Amarula Solutions SRL
 
-Cheers,
-Andre
+Via Le Canevare 30, 31100 Treviso, Veneto, IT
 
-> ChenYu
->=20
-> > [1] Previous reply from LinusW:
-> > https://lore.kernel.org/linux-sunxi/CACRpkdbMc-Q6wjgsiddu6-tWC1dt2uFk+4=
-LyerMdgFk2KRGK4w@mail.gmail.com/
-> > =20
-> > > =20
-> > > >      required:
-> > > >        - pins
-> > > >        - function =20
-> > >
-> > > This section should be made to apply only to the existing
-> > > compatibles? Maybe we could just split the files and have
-> > > a clean slate for sun55i? =20
-> >
-> > Yeah, I couldn't find a good example how to make it *required* for one
-> > compatible and *not allowed* for all the others. But creating a whole n=
-ew
-> > file is actually a good idea, as this also avoids adding another case to
-> > the already quite indented if-else cascade.
-> >
-> > Cheers,
-> > Andre
-> > =20
-> > > ChenYu
-> > > =20
-> > > >      additionalProperties: false
-> > > >
-> > > > -  "^vcc-p[a-ilm]-supply$":
-> > > > +  "^vcc-p[a-klm]-supply$":
-> > > >      description:
-> > > >        Power supplies for pin banks.
-> > > >
-> > > > @@ -156,6 +162,17 @@ allOf:
-> > > >          - interrupts
-> > > >          - interrupt-controller
-> > > >
-> > > > +  - if:
-> > > > +      properties:
-> > > > +        compatible:
-> > > > +          enum:
-> > > > +            - allwinner,sun55i-a523-pinctrl
-> > > > +
-> > > > +    then:
-> > > > +      properties:
-> > > > +        interrupts:
-> > > > +          minItems: 10
-> > > > +
-> > > >    - if:
-> > > >        properties:
-> > > >          compatible:
-> > > > @@ -166,6 +183,7 @@ allOf:
-> > > >        properties:
-> > > >          interrupts:
-> > > >            minItems: 8
-> > > > +          maxItems: 8
-> > > >
-> > > >    - if:
-> > > >        properties:
-> > > > @@ -244,6 +262,7 @@ allOf:
-> > > >              - allwinner,sun8i-v3s-pinctrl
-> > > >              - allwinner,sun9i-a80-r-pinctrl
-> > > >              - allwinner,sun50i-h6-r-pinctrl
-> > > > +            - allwinner,sun55i-a523-r-pinctrl
-> > > >
-> > > >      then:
-> > > >        properties:
-> > > > --
-> > > > 2.46.2
-> > > > =20
-> > =20
+T. +39 042 243 5310
+info@amarulasolutions.com
 
+www.amarulasolutions.com
 
