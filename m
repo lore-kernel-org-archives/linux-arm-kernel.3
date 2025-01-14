@@ -4,113 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4119E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 22:02:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C049C0218A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 22:02:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LAi/vDeugCHa71Ma0EXTvLeZpuJSJHZJbQffJrAlCfU=; b=Y0OKeQBwrYcIy5ytEM/6FxxW1v
-	3aw4Lsehbx0D/Xi31lHZjfqIvvlhy0Dy91u4ikcUCB/1VT3R/U6ojgYmcKHLM/Cp+8fVzpj3T8c5T
-	0K+6eiO+fEW0S3K5lW9owLuY0xMAug6JK6FQ1sWpSkE32nXqFxBvHFjFwZ+CS6oAU55eRgxdVbrRN
-	sIAyQ58qchTgQHLfV8Nd7A2wknWVhw8MuQJKQ0SOZvYdNV3f/qxbRdK+kshyS37utgJA7TdQH5jqU
-	IPBRj3pYQ5ropSurl7L6GrlcApQ6kOsHUItooTFtqD4ofKNzI3iPyRchJlbuqmeF0gTbfAIGEOvaO
-	egl0wtMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SoZljfqV8Y76xmxQUUDqkab4/v2p6BHdmrbK5iG/0+g=; b=G+md2VnKKhofsjJQ7TAh6RptWz
+	7eSCJ4bo2KFni2hLehdzTnefHcJoUU3Ppt7wxHVlALS37g6VkICJ15DllgF0yZssqFXfuS9G2kPA5
+	72dHhS/l/sXrh4rbGJDO9jB78pO5QisjDUAfcNeHijOHCHr7SA4EZA8S5ViL59MakczeGliKitx9R
+	y75dALvNwKnvUTynetSTPAnR87Yodng4uGm5hl8ZgsQf6VNoWOxk/LT4J5IdBt20rcy3l8Crye5jP
+	cMJS5m6xJRnobocySfSkQN5/BsJOKdWvIbGLwNWKmn4rwS1NWKyz0XcxmBy8thB8TGNwDWNFmgvnR
+	lvn1b8aA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXoz3-00000009sWE-2QBh;
-	Tue, 14 Jan 2025 22:02:01 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1tXozU-00000009sb0-0doj;
+	Tue, 14 Jan 2025 22:02:28 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXoxj-00000009sHP-0HBx
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 22:00:42 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-2f13acbe29bso339345a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 14:00:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1736892038; x=1737496838; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=LAi/vDeugCHa71Ma0EXTvLeZpuJSJHZJbQffJrAlCfU=;
-        b=08i8X17VrwWxw0vlPMeWol1UjVRUXmGIdQP4ljnCbyhWr6CRENFNcuDX9AccuktzMD
-         r5yQhdPfWSa9iAGwOmlQzP9rHRZYAd1fk1tphNSGRmvnfkz86tl6FtHUSSMhL34/5Rdi
-         wW8++qHlG7W3TRGi1jnu4aQQv8j+638qB78HTcnUQ6f9wHMnd8f2U6id3ygyBjy4W3DL
-         KK1egm6qRHSG0thE+geVDCboqQRLL+mrYiglR3v1j9n7ea8DLCvzyzZO3iPTdX2TMlFz
-         b9/PqTr6xkhT4VL2kpPjZEllKirb8rsga5q3psjzBgIIyNKDy2+YojI3KswYHqpGNEfw
-         6q3A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736892038; x=1737496838;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=LAi/vDeugCHa71Ma0EXTvLeZpuJSJHZJbQffJrAlCfU=;
-        b=sUjiHXJjn52fytDR7XshDJUxAXzz0Y/O+2Xwnm5+PgfusvZhzZkB8zONLwqjAGdLal
-         8lRsjzPB414hpFZslIp6/Hn6UCBdi83/xfLU5VDmxbO/FXDwWY+1XQ5kD03doB7b2P0E
-         aeir/e7Hj+qmNm6Nc0KH7tYPq8yFmFzUPbqNUZlU+CP4YfsZMvVVs+Tjfpx+YsTujzwE
-         kGDs3ci1a6SknVo19Z/6Oj65D5ZPHXQTcbMOQ0SdzlEuKFlo6oO4pKpsz1WYMzpjSzFZ
-         AY76JkWwwb4t/W7SjA2cjHRRbh9mNXTkI8FgKdgmtLCTRvP066VtmeR6oTw+6p8aVAPu
-         cAew==
-X-Forwarded-Encrypted: i=1; AJvYcCVG29n8HunhelrGamcRflSCxfaJAqTgO+pISdacolSRfB8CplL2qoaGYf6Dv/4OEcgNR5i9Lz7QoWykbmn+fSzw@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzlPKf8fqzVMVSUvw9LGSX3OSoAFvfq/GkySfo0Xkb314BRIam
-	Xg4k84I012FPIQ0y+CSn1kGF6sH2xOviIas462lGaq4AeTJ/Pauut7yTO1z9sto=
-X-Gm-Gg: ASbGncs93YXMHv5ZpJjMFHn3g/b5c7aK7nvmymNfWXz8w7uh3Y8zhCvvp4IR0D0vwrE
-	s4HTVxypKCIPu7CoQIc3U0tD4T/dBt6rYbUcqxD1OvhVIgKrIcHrn1CeMjEgZS9hSun3d1mwgNK
-	BNkHHL1lfJLpVjXoZiYIO4IYVRzim00BLkisBdH98NQG2IsOTkxRslKhw+B1UarVnbnUcaTGcJx
-	Xfd4Gi4mkozcjAeCPYKCSqUHQyUulfNWm+xC6KrK9i7Cyk=
-X-Google-Smtp-Source: AGHT+IHUmOu5Z8yV9askuOExmMIbEPTgLHypbNQwlNxLYlNE9sF/DEJ2VQ1UKljmu+ix+BNJ1HS+qw==
-X-Received: by 2002:a17:90b:3a08:b0:2ee:edae:775 with SMTP id 98e67ed59e1d1-2f728dd351amr804769a91.3.1736892037932;
-        Tue, 14 Jan 2025 14:00:37 -0800 (PST)
-Received: from ghost ([50.145.13.30])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f72c20abc4sm27371a91.34.2025.01.14.14.00.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jan 2025 14:00:36 -0800 (PST)
-Date: Tue, 14 Jan 2025 14:00:33 -0800
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Arnaldo Carvalho de Melo <acme@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	=?iso-8859-1?Q?Micka=EBl_Sala=FCn?= <mic@digikod.net>,
-	=?iso-8859-1?Q?G=FCnther?= Noack <gnoack@google.com>,
-	Christian Brauner <brauner@kernel.org>, Guo Ren <guoren@kernel.org>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	Jonathan Corbet <corbet@lwn.net>, Arnd Bergmann <arnd@arndb.de>,
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-security-module@vger.kernel.org, bpf@vger.kernel.org,
-	linux-csky@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v6 00/16] perf tools: Use generic syscall scripts for all
- archs
-Message-ID: <Z4bega1SChsGKqe6@ghost>
-References: <20250108-perf_syscalltbl-v6-0-7543b5293098@rivosinc.com>
- <Z3_ybwWW3QZvJ4V6@x1>
- <Z4AoFA974kauIJ9T@ghost>
- <Z4A2Y269Ffo0ERkS@x1>
- <Z4BEygdXmofWBr0-@x1>
- <Z4BVK3D7sN-XYg2o@ghost>
- <Z4F1dXQLPGZ3JFI5@ghost>
- <Z4UpRqywqYPZSUM_@x1>
- <Z4alwvqYithaVLSL@x1>
- <Z4a6oivg7f74N12Q@ghost>
+	id 1tXnk4-00000009hwQ-3MN6;
+	Tue, 14 Jan 2025 20:42:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=SoZljfqV8Y76xmxQUUDqkab4/v2p6BHdmrbK5iG/0+g=; b=pcPwtETkheJbp1BOXsfIorpzQn
+	c7yAZfKVAl9ENEfZSjuJ0A1dYDPfGUkV9Nfy4CTtNwf+ndhWbexbmrf3N1pKnwJrd9e74KdPEafmc
+	UOjmypd2+umD4gughbrN69oE1t+LeVERZIjXB0W380YAoXKz+Nf+z13EkKpXvHeGP27G4ogI2ytQ0
+	J82NUdNhtxmSrVTSjAO4MMxx/JyTKEJuH1YfhD6vmcZ1IOVQ88StcBMqpGzAcVNwOJhONp3mdRDDx
+	eeTfNSWo5dGyoVV9agrT6HIPXGvykATezVZet7+kV5Yf18iqFgxKQrvwu2KRH5idjK+kvJuULGJof
+	sFBaM9DA==;
+Received: from fhigh-b5-smtp.messagingengine.com ([202.12.124.156])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tXnjq-0000000AcXr-3yxE;
+	Tue, 14 Jan 2025 20:42:25 +0000
+Received: from phl-compute-02.internal (phl-compute-02.phl.internal [10.202.2.42])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 3E80D25400FF;
+	Tue, 14 Jan 2025 15:42:11 -0500 (EST)
+Received: from phl-mailfrontend-01 ([10.202.2.162])
+  by phl-compute-02.internal (MEProxy); Tue, 14 Jan 2025 15:42:12 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	coelacanthus.name; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm3; t=1736887331; x=1736973731; bh=SoZljfqV8Y
+	76xmxQUUDqkab4/v2p6BHdmrbK5iG/0+g=; b=IAKGZc3athbt3hkSGEEWqMY7ze
+	mRmr7xsvi+z5vfd4Dyr0vRzQ2GGlYCcw84PUlMvxW8DaNNmw3wBRor1f0F53qaQd
+	tHeAPBUuBZcY6Y6STHHI/kGkIAgzqTorwThm7bTMErrdXttKRKmafSTbyk/nl6py
+	FBoaTwMT584P+XAj9Q5jdiiaRhcVU1i18N4MMf+sh1G68koVQop8MIe7fhJe9MEk
+	OzlMBI2QDety9Jrwp17pPArOswDD6duSaRN2bzUVOima8JIx7fjsbH5mVT8vQCeX
+	dB8cW7+ZHZIqPoxRL8CZshzdpehthwupK+h67nIAag0mRbyhtW8PWsuTosGQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1736887331; x=
+	1736973731; bh=SoZljfqV8Y76xmxQUUDqkab4/v2p6BHdmrbK5iG/0+g=; b=I
+	iUpBfISPzKBT9yT6zKuwlNp0GG58m7pSzuKPBqLqZajDBABVXrnH5Ej7rfNVibxS
+	pTdzrR0R0sdoKDWOiNUXhAq9KWKByoCFXzsp9+y9lQ/zIqsZoeNQ7nCesgLzfjba
+	DdzMIThDLkz5tzQzl2M0TqL/SVBVLCG5EmqDC9XdOhD7YgnMeSVA4MecxFIyP3md
+	5sHqSjtVuO+22UKXeUlmSTU2R1MwetSUHCLv6A/dWNrZGQQT3BRsFrBcOGMn7i5/
+	+0/vM1GFLMlc7rGJ0G4J5WxgFAIfCPWOp+Ya9pkHS5R3ZpjUFoJVi/hXD7ypKipx
+	lfQbCq/pVe2nDY9sO9DSQ==
+X-ME-Sender: <xms:IsyGZ1t3Yn6qnH04zPLAsVx000nqjRNfc3f5-430jHs1ZFLNvN6BSg>
+    <xme:IsyGZ-evAoE-ou6IJQWvHR2XLisQXzveprsua1AWjVD5kDnLVFs6OC9d057HsC8A3
+    TlWL7cYohqB6YawfEU>
+X-ME-Received: <xmr:IsyGZ4zHgsprho57NuJk5bkjPslGOoc638dlfvw6LGi9Y29u84mB6SXHglIA0Q>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrudehiedgudefkecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
+    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
+    hnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredt
+    jeenucfhrhhomhepvegvlhgvshhtvgcunfhiuhcuoehufihusegtohgvlhgrtggrnhhthh
+    hushdrnhgrmhgvqeenucggtffrrghtthgvrhhnpefgkefhjeeiueekgfffuedvheegffdt
+    hffghfetveejtdetffeugeejkeduieehveenucffohhmrghinheprhgvughhrghtrdgtoh
+    hmpdhgihhthhhusgdrtghomhenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhep
+    mhgrihhlfhhrohhmpehufihusegtohgvlhgrtggrnhhthhhushdrnhgrmhgvpdhnsggprh
+    gtphhtthhopeefgedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepghhlrghusghi
+    thiisehphhihshhikhdrfhhuqdgsvghrlhhinhdruggvpdhrtghpthhtohepuhifuhestg
+    hovghlrggtrghnthhhuhhsrdhnrghmvgdprhgtphhtthhopehjohhnrghthhgrnhhhsehn
+    vhhiughirgdrtghomhdprhgtphhtthhopehflhhorhhirghnrdhfrghinhgvlhhlihessg
+    hrohgruggtohhmrdgtohhmpdhrtghpthhtohephhgvihhnrhhitghhrdhstghhuhgthhgr
+    rhguthestggrnhhonhhitggrlhdrtghomhdprhgtphhtthhopehtohhnhiesrghtohhmih
+    guvgdrtghomhdprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhf
+    rhgruggvrggurdhorhhgpdhrtghpthhtoheprghnuhhpsegsrhgrihhnfhgruhhlthdroh
+    hrghdprhgtphhtthhopegthhgvnhhhuhgrtggriheskhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:IsyGZ8Mq6lokQUjMTkf5-oN1B3OjLrif_hdRo8RWedxw9y2gQ0zNSw>
+    <xmx:IsyGZ18rJ9o3HDa-BLd2mBSJkEgf9Vct2BQnF-I4X2lQEp6DFaoDRQ>
+    <xmx:IsyGZ8VtH_K_PNRI-CBYupcKeQBpkiXGpfeJRrvxKzwkocRIYmQ39w>
+    <xmx:IsyGZ2dMOs59DD0HY4fv4nk5vTi9e65KEo-dFcTw6QYTVuC4HDqciw>
+    <xmx:I8yGZ0dcWMV8HEOX3jZUxo-Yz2Htf9bMhBbuTGkwnP730D5XQQGCshfI>
+Feedback-ID: i95c648bc:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 14 Jan 2025 15:42:09 -0500 (EST)
+From: Celeste Liu <uwu@coelacanthus.name>
+Date: Wed, 15 Jan 2025 04:41:21 +0800
+Subject: [PATCH v4 2/4] loongarch: defconfig: drop RT_GROUP_SCHED=y
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <Z4a6oivg7f74N12Q@ghost>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250115-fix-riscv-rt_group_sched-v4-2-607606fe73a5@coelacanthus.name>
+References: <20250115-fix-riscv-rt_group_sched-v4-0-607606fe73a5@coelacanthus.name>
+In-Reply-To: <20250115-fix-riscv-rt_group_sched-v4-0-607606fe73a5@coelacanthus.name>
+To: Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Guo Ren <guoren@kernel.org>, Anup Patel <anup@brainfault.org>, 
+ Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, 
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
+ Russell King <linux@armlinux.org.uk>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+ Tony Lindgren <tony@atomide.com>, Thierry Reding <thierry.reding@gmail.com>, 
+ Jonathan Hunter <jonathanh@nvidia.com>, 
+ Aaro Koskinen <aaro.koskinen@iki.fi>, 
+ Andreas Kemnade <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>, 
+ Roger Quadros <rogerq@kernel.org>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, 
+ linux-sh@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rpi-kernel@lists.infradead.org, linux-omap@vger.kernel.org, 
+ linux-tegra@vger.kernel.org, Xi Ruoyao <xry111@xry111.site>, 
+ Celeste Liu <uwu@coelacanthus.name>
+X-Mailer: b4 0.15-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1728; i=uwu@coelacanthus.name;
+ h=from:subject:message-id; bh=faYQjbUe+IZ6IbLVoFWLES94wJ4yKdbIyLHK1P3reTU=;
+ b=owJ4nJvAy8zAJeafov85RWVtBeNptSSG9LYzHNpGz3RdNkcq+138urdnco6HmLJOMKeQx8/dB
+ x+9M/n57GhHKQuDGBeDrJgiS14Jy0/OS2e793Zs74KZw8oEMoSBi1MAJnIth5HhTFFkrOksz5Be
+ jqCyI7OyWK2EubUnagjfyV8kYSe7ROMtw3+f+83SDSq+R6Y+//vmimFTUov/35ffOJ3jLvsv+PF
+ vwT8+AA0oSNQ=
+X-Developer-Key: i=uwu@coelacanthus.name; a=openpgp;
+ fpr=892EBC7DC392DFF9C9C03F1D15F4180E73787863
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_140039_389734_0F80C61E 
-X-CRM114-Status: GOOD (  45.46  )
+X-CRM114-CacheID: sfid-20250114_204222_732446_50A86BD9 
+X-CRM114-Status: UNSURE (   9.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,201 +157,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 14, 2025 at 11:27:30AM -0800, Charlie Jenkins wrote:
-> On Tue, Jan 14, 2025 at 02:58:26PM -0300, Arnaldo Carvalho de Melo wrote:
-> > On Mon, Jan 13, 2025 at 11:55:05AM -0300, Arnaldo Carvalho de Melo wrote:
-> > > On Fri, Jan 10, 2025 at 11:31:01AM -0800, Charlie Jenkins wrote:
-> > > > On Thu, Jan 09, 2025 at 03:00:59PM -0800, Charlie Jenkins wrote:
-> > > > > Ooh okay I see, the quiet commands were being ignored as-is. We could
-> > > > > add the lines to handle this to Makefile.syscalls, but I think the
-> > > > > better solution is to move the lines from Makefile.build to
-> > > > > Makefile.perf to be more generically available. Here is a patch for
-> > > > > that. I also added the comment from the kernel Makefile describing what
-> > > > > this does.
-> > > 
-> > > > > From 8dcec7f5d937ede3d33c687573dc2f1654ddc59e Mon Sep 17 00:00:00 2001
-> > > > > From: Charlie Jenkins <charlie@rivosinc.com>
-> > > > > Date: Thu, 9 Jan 2025 14:36:40 -0800
-> > > > > Subject: [PATCH] perf tools: Expose quiet/verbose variables in Makefile.perf
-> > > > > 
-> > > > > The variables to make builds silent/verbose live inside
-> > > > > tools/build/Makefile.build. Move those variables to the top-level
-> > > > > Makefile.perf to be generally available.
-> > > 
-> > > <SNIP applied patch>
-> > >  
-> > > > Let me know how you want to handle this, I can send this out as a
-> > > > separate patch if that's better.
-> > > 
-> > > I used the patch you provided above after hand editing the message
-> > > before feeding it to 'git am', added these comments:
-> > 
-> > Somehow this is causing some trouble:
-> > 
-> > ⬢ [acme@toolbox perf-tools-next]$ make -C tools/perf build-test
-> > make: Entering directory '/home/acme/git/perf-tools-next/tools/perf'
-> > - tarpkg: ./tests/perf-targz-src-pkg .
-> > /bin/sh: line 1: @make: command not found
-> > make[4]: *** [Makefile:27: clean-asm_pure_loop] Error 127
-> > make[3]: *** [Makefile.perf:764: tests-coresight-targets-clean] Error 2
-> > make[2]: *** [Makefile:96: clean] Error 2
-> > make[1]: *** [tests/make:330: make_static] Error 2
-> > make: *** [Makefile:109: build-test] Error 2
-> > make: Leaving directory '/home/acme/git/perf-tools-next/tools/perf'
-> > ⬢ [acme@toolbox perf-tools-next]$
-> > 
-> > Can you please try fixing it as I'm busy now (I'll be on vacation from
-> > tomorrow till early February)? This is what I extracted:
-> 
-> There was an erroneous $(Q) in
-> tools/perf/tests/shell/coresight/Makefile. Previously it would expand to
-> the empty string so wouldn't cause any problems, but now it's in the
-> middle of an expression so hence the error. I'll send an updated patch.
+For cgroup v1, if turned on, and there's any cgroup in the "cpu" hierarchy it
+needs an RT budget assigned, otherwise the processes in it will not be able to
+get RT at all. The problem with RT group scheduling is that it requires the
+budget assigned but there's no way we could assign a default budget, since the
+values to assign are both upper and lower time limits, are absolute, and need to
+be sum up to < 1 for each individal cgroup. That means we cannot really come up
+with values that would work by default in the general case.[1]
 
-Let me know if this works as expected! I sent it as [1].
+For cgroup v2, it's almost unusable as well. If it turned on, the cpu controller
+can only be enabled when all RT processes are in the root cgroup. But it will
+lose the benefits of cgroup v2 if all RT process were placed in the same cgroup.
 
-[1] https://lore.kernel.org/all/20250114-perf_make_test-v1-1-decc1c517b11@rivosinc.com/
+Red Hat, Gentoo, Arch Linux and Debian all disable it. systemd also doesn't
+support it.[2]
 
-> 
-> > 
-> > commit c199fd785d18121ffd0ba5758e23a42ba2984e11
-> > Author: Charlie Jenkins <charlie@rivosinc.com>
-> > Date:   Mon Jan 13 11:50:55 2025 -0300
-> > 
-> >     perf tools: Expose quiet/verbose variables in Makefile.perf
-> >     
-> >     The variables to make builds silent/verbose live inside
-> >     tools/build/Makefile.build. Move those variables to the top-level
-> >     Makefile.perf to be generally available.
-> >     
-> >     Committer testing:
-> >     
-> >     See the SYSCALL lines, now they are consistent with the other
-> >     operations in other lines:
-> >     
-> >       SYSTBL  /tmp/build/perf-tools-next/arch/x86/include/generated/asm/syscalls_32.h
-> >       SYSTBL  /tmp/build/perf-tools-next/arch/x86/include/generated/asm/syscalls_64.h
-> >       GEN     /tmp/build/perf-tools-next/common-cmds.h
-> >       GEN     /tmp/build/perf-tools-next/arch/arm64/include/generated/asm/sysreg-defs.h
-> >       PERF_VERSION = 6.13.rc2.g3d94bb6ed1d0
-> >       GEN     perf-archive
-> >       MKDIR   /tmp/build/perf-tools-next/jvmti/
-> >       MKDIR   /tmp/build/perf-tools-next/jvmti/
-> >       MKDIR   /tmp/build/perf-tools-next/jvmti/
-> >       MKDIR   /tmp/build/perf-tools-next/jvmti/
-> >       GEN     perf-iostat
-> >       CC      /tmp/build/perf-tools-next/jvmti/libjvmti.o
-> >       CC      /tmp/build/perf-tools-next/jvmti/jvmti_agent.o
-> >     
-> >     Reported-by: Arnaldo Carvalho de Melo <acme@redhat.com>
-> >     Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> >     Tested-by: Arnaldo Carvalho de Melo <acme@redhat.com>
-> >     Cc: Adrian Hunter <adrian.hunter@intel.com>
-> >     Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
-> >     Cc: Arnd Bergmann <arnd@arndb.de>
-> >     Cc: Christian Brauner <brauner@kernel.org>
-> >     Cc: Guo Ren <guoren@kernel.org>
-> >     Cc: Günther Noack <gnoack@google.com>
-> >     Cc: Ian Rogers <irogers@google.com>
-> >     Cc: Ingo Molnar <mingo@redhat.com>
-> >     Cc: James Clark <james.clark@linaro.org>
-> >     Cc: Jiri Olsa <jolsa@kernel.org>
-> >     Cc: John Garry <john.g.garry@oracle.com>
-> >     Cc: Jonathan Corbet <corbet@lwn.net>
-> >     Cc: Leo Yan <leo.yan@linux.dev>
-> >     Cc: Mark Rutland <mark.rutland@arm.com>
-> >     Cc: Mickaël Salaün <mic@digikod.net>
-> >     Cc: Mike Leach <mike.leach@linaro.org>
-> >     Cc: Namhyung Kim <namhyung@kernel.org>
-> >     Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> >     Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> >     Cc: Peter Zijlstra <peterz@infradead.org>
-> >     Cc: Will Deacon <will@kernel.org>
-> >     Link: http://lore.kernel.org/lkml/None
-> >     Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
-> > 
-> > diff --git a/tools/build/Makefile.build b/tools/build/Makefile.build
-> > index 5fb3fb3d97e0fd11..e710ed67a1b49d9f 100644
-> > --- a/tools/build/Makefile.build
-> > +++ b/tools/build/Makefile.build
-> > @@ -12,26 +12,6 @@
-> >  PHONY := __build
-> >  __build:
-> >  
-> > -ifeq ($(V),1)
-> > -  quiet =
-> > -  Q =
-> > -else
-> > -  quiet=quiet_
-> > -  Q=@
-> > -endif
-> > -
-> > -# If the user is running make -s (silent mode), suppress echoing of commands
-> > -# make-4.0 (and later) keep single letter options in the 1st word of MAKEFLAGS.
-> > -ifeq ($(filter 3.%,$(MAKE_VERSION)),)
-> > -short-opts := $(firstword -$(MAKEFLAGS))
-> > -else
-> > -short-opts := $(filter-out --%,$(MAKEFLAGS))
-> > -endif
-> > -
-> > -ifneq ($(findstring s,$(short-opts)),)
-> > -  quiet=silent_
-> > -endif
-> > -
-> >  build-dir := $(srctree)/tools/build
-> >  
-> >  # Define $(fixdep) for dep-cmd function
-> > diff --git a/tools/perf/Makefile.perf b/tools/perf/Makefile.perf
-> > index a449d00155364422..55d6ce9ea52fb2a5 100644
-> > --- a/tools/perf/Makefile.perf
-> > +++ b/tools/perf/Makefile.perf
-> > @@ -161,12 +161,47 @@ export VPATH
-> >  SOURCE := $(shell ln -sf $(srctree)/tools/perf $(OUTPUT)/source)
-> >  endif
-> >  
-> > +# Beautify output
-> > +# ---------------------------------------------------------------------------
-> > +#
-> > +# Most of build commands in Kbuild start with "cmd_". You can optionally define
-> > +# "quiet_cmd_*". If defined, the short log is printed. Otherwise, no log from
-> > +# that command is printed by default.
-> > +#
-> > +# e.g.)
-> > +#    quiet_cmd_depmod = DEPMOD  $(MODLIB)
-> > +#          cmd_depmod = $(srctree)/scripts/depmod.sh $(DEPMOD) $(KERNELRELEASE)
-> > +#
-> > +# A simple variant is to prefix commands with $(Q) - that's useful
-> > +# for commands that shall be hidden in non-verbose mode.
-> > +#
-> > +#    $(Q)$(MAKE) $(build)=scripts/basic
-> > +#
-> > +# To put more focus on warnings, be less verbose as default
-> > +# Use 'make V=1' to see the full commands
-> > +
-> >  ifeq ($(V),1)
-> > +  quiet =
-> >    Q =
-> >  else
-> > -  Q = @
-> > +  quiet=quiet_
-> > +  Q=@
-> >  endif
-> >  
-> > +# If the user is running make -s (silent mode), suppress echoing of commands
-> > +# make-4.0 (and later) keep single letter options in the 1st word of MAKEFLAGS.
-> > +ifeq ($(filter 3.%,$(MAKE_VERSION)),)
-> > +short-opts := $(firstword -$(MAKEFLAGS))
-> > +else
-> > +short-opts := $(filter-out --%,$(MAKEFLAGS))
-> > +endif
-> > +
-> > +ifneq ($(findstring s,$(short-opts)),)
-> > +  quiet=silent_
-> > +endif
-> > +
-> > +export quiet Q
-> > +
-> >  # Do not use make's built-in rules
-> >  # (this improves performance and avoids hard-to-debug behaviour);
-> >  MAKEFLAGS += -r
+[1]: https://bugzilla.redhat.com/show_bug.cgi?id=1229700
+[2]: https://github.com/systemd/systemd/issues/13781#issuecomment-549164383
+
+Reviewed-by: Xi Ruoyao <xry111@xry111.site>
+Signed-off-by: Celeste Liu <uwu@coelacanthus.name>
+---
+ arch/loongarch/configs/loongson3_defconfig | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/arch/loongarch/configs/loongson3_defconfig b/arch/loongarch/configs/loongson3_defconfig
+index 4dffc90192f7816074c3bd4b55c12159d5757676..4387bcec8f484173e5367456a69f6a7f03595d46 100644
+--- a/arch/loongarch/configs/loongson3_defconfig
++++ b/arch/loongarch/configs/loongson3_defconfig
+@@ -24,7 +24,6 @@ CONFIG_NUMA_BALANCING=y
+ CONFIG_MEMCG=y
+ CONFIG_BLK_CGROUP=y
+ CONFIG_CFS_BANDWIDTH=y
+-CONFIG_RT_GROUP_SCHED=y
+ CONFIG_CGROUP_PIDS=y
+ CONFIG_CGROUP_RDMA=y
+ CONFIG_CGROUP_FREEZER=y
+
+-- 
+2.48.0
+
 
