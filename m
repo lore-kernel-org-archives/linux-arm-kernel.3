@@ -4,65 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 422C6C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 02:23:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C42AC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 02:28:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q++QPyxHMp/WwXTDrHwqKxKHjtWXHAXL/aKMbF08JiE=; b=hfj1oOrlegaI+h8pxPS7dRU5JH
-	VoUpyoN8jX61Zbzx0WJfLGlQ7hHua/OBnYmI08HfUlHM2MnEkLRO0xrm0wVTmzJ5NJtZVDNAznxS6
-	553QbID/pJoMHqP0FKOiVTUgFz5oxWrdq/ULHDeQkAjMF7C/9zgqLqDWE5rEeSysmDdfJpna62Mqs
-	u5Xe8biWSolzP1X7pCCFBnEfPOu9QdXjuu0XLz80P9G6tFtCNg0lGfRs85j9HeoSFged56l2gREqo
-	IEQDuFlHs3KAT8K9kwPDQRCaiWGBWYMI348iBGST/2bjzHr+weifVbhuFKX1R4JEliUl3QaK6L07q
-	1QixI8VQ==;
+	bh=Q3uCzTDF/NUXWi9pKun3Q1ZeVpbVlQmIUTgvJ2reRXQ=; b=NXIW6+ZL8jTyCN9t/c37RoAhTX
+	sK1NcuUnTTrRMyriFlWsqG+TFATxAAL88U1AR7H1+kAybHVOFqq47P+/rY+xdmqYwXshx7ber180o
+	RA+Si52rdOpGs7tHCWfbAhOXlsbbyV+iCSNr93TtSLdo4oFeHMKZ11xPaZEaxAejcaMRhpcucndow
+	rKbLV4DmpHL+VgFmEfUyzyCLbsVWvJ75voaors+CwJajTkwVePbbESbKoDm5mr5K80nmd+DTdgAG0
+	2sj7z83sUXFujRBPwLcUK2eiaFw40exdZHcshX20k+KD6iN3RA3LglUR5nqnYCgyfYstXYDgOSLg+
+	vv5Lt+BA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXWag-00000007Ezh-1aOe;
-	Tue, 14 Jan 2025 02:23:38 +0000
-Received: from mx3.molgen.mpg.de ([141.14.17.11])
+	id 1tXWfQ-00000007FcR-13Gm;
+	Tue, 14 Jan 2025 02:28:32 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXWZQ-00000007EtZ-2gD8
+	id 1tXWeB-00000007FFJ-3INz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 02:22:22 +0000
-Received: from [192.168.0.224] (ip5f5ae8ae.dynamic.kabel-deutschland.de [95.90.232.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: pmenzel)
-	by mx.molgen.mpg.de (Postfix) with ESMTPSA id 55E1861E64780;
-	Tue, 14 Jan 2025 03:22:03 +0100 (CET)
-Message-ID: <d9fc5212-9710-449e-90b9-a195305d990f@molgen.mpg.de>
-Date: Tue, 14 Jan 2025 03:21:59 +0100
+	Tue, 14 Jan 2025 02:27:16 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-21680814d42so72595075ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 18:27:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1736821632; x=1737426432; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Q3uCzTDF/NUXWi9pKun3Q1ZeVpbVlQmIUTgvJ2reRXQ=;
+        b=K8aFXw7gyJhWX0ZBNHlubOLIyYeZADf7IRPumXDNCzaApV1dG46yEU2I1D87/q3gwc
+         srhCA0xEEMcYalOoXcZnxIJxvEJIzdTwYP6m6g5b7g4cbkUxD+t6+RKFCjn735RnPelR
+         qtQq7mlAfQ7NAF95IifDQz3IbLAZKqUGk0CicxngD/MjebqfLMaKaQBU3RnjOy58mBkq
+         f0g3xr0RFFmBUoTtG9a1raVhnDVswyKqZb/eSlkxfWc6qwn0hL1mXi4mvDVQRnlM6IYm
+         AX1Jdhm+JmSDI2s4wdU5S5ZXU9i2HCUuzm+ns+vwLuRUT9keuRyh8dv7Qjqp467G+kAQ
+         OtMg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736821632; x=1737426432;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Q3uCzTDF/NUXWi9pKun3Q1ZeVpbVlQmIUTgvJ2reRXQ=;
+        b=rd+CFp0TqyKkxq68dQoS92XaLw4ixSd9w4uWfE52msI5FlmvOgn884OUZWWqw/yE3b
+         5qKGL1TpPyWvGtQUcXuXoAaankxmWTPyHlF5bjt577OqxB/LBLm6eqKz+6Zrw/D/Jt3u
+         eZAYJptBOW6DU/GpGKhRD2birQDKv4zw+FYuedBeUYkzlc6sHEshCjx/yu2IPeAT2IDP
+         X/KoZeXrFqDV2TVIsPI0qNJemk2iSMHvrFaDa9ptnCP3fuG0ShWEKpqksFs+y3D5vvBS
+         mjczJYGaFOZvctMG//a2ZdWN7E7GHyPWpz/o3wan7OvbzW5SXRjTQ75u1gtSkjyPg14h
+         k85w==
+X-Forwarded-Encrypted: i=1; AJvYcCVgxZyyf/mee9zamw1HKhRWk6apTnSWAVr10/XYE9r2aa6LD9FPUSVs6+50z4fzyBfw2MbVDLE5gXHyoGGsO5zG@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyuy4z84O5YR2iQn08EIaXms357pu3o94u0i+kKDMcwgBm24WV+
+	y3V3QyeLEvQOQy+6scmwSYjvKvLvCwdHvhV0o30LTUIvKKOb4HpX9QEzcaCUCEM=
+X-Gm-Gg: ASbGncvm5W5JS67Vnu8tlg06SlsCd+jROqHNaRd77JqwUV/oKEnbdmEliSdO66WDuLX
+	5O1giz6PX8Bh2MB9RZhLrWYjVx35OMI6QYm4kHn5/GyRc/zNPMt9vsQRys0bTtU4rDOk4v4Ga09
+	gkIQSUXZMMI3IHuiyVWM6Kudz6zn4L9c0ubtWVCFmn6YZ8LhMdfN/vmRAB7LUdUDC9goMqrCv+i
+	TjI6A1kmregOX5+G5HG7AGU2YFcklbAcXDys3/uZslbKKIUM8MpEW+IA9BFkpWXIx3fS3BA0N2y
+	9EUZ
+X-Google-Smtp-Source: AGHT+IFszANM2ttg3bHXqwu4kokOxCLHcRwKXlC7FRtBmzrGdqYoySfArdJur+xTrJx3xY86w59zAA==
+X-Received: by 2002:a05:6a20:7f8a:b0:1db:de38:294b with SMTP id adf61e73a8af0-1e88d2f6820mr38362107637.38.1736821632027;
+        Mon, 13 Jan 2025 18:27:12 -0800 (PST)
+Received: from [10.84.148.23] ([63.216.146.178])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72d4056a5e8sm6847007b3a.53.2025.01.13.18.26.58
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 13 Jan 2025 18:27:11 -0800 (PST)
+Message-ID: <a017d072-943f-4008-bb1d-7be438804a44@bytedance.com>
+Date: Tue, 14 Jan 2025 10:26:54 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v7 3/3] net: stmmac: dwmac-nuvoton: Add dwmac
- glue for Nuvoton MA35 family
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Joey Lu <a0987203069@gmail.com>, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- mcoquelin.stm32@gmail.com, richardcochran@gmail.com,
- devicetree@vger.kernel.org, ychuang3@nuvoton.com, netdev@vger.kernel.org,
- openbmc@lists.ozlabs.org, alexandre.torgue@foss.st.com,
- linux-kernel@vger.kernel.org, joabreu@synopsys.com, schung@nuvoton.com,
- peppe.cavallaro@st.com, yclu4@nuvoton.com,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20250113055434.3377508-1-a0987203069@gmail.com>
- <20250113055434.3377508-4-a0987203069@gmail.com>
- <a30b338f-0a6f-47e7-922b-c637a6648a6d@molgen.mpg.de>
- <e7041d36-9bc7-482a-877d-6d8f549c0ada@lunn.ch>
+Subject: Re: [PATCH v5 05/17] arm64: pgtable: use mmu gather to free p4d level
+ page table
+To: Will Deacon <will@kernel.org>
+Cc: peterz@infradead.org, agordeev@linux.ibm.com, kevin.brodsky@arm.com,
+ alex@ghiti.fr, andreas@gaisler.com, palmer@dabbelt.com, tglx@linutronix.de,
+ david@redhat.com, jannh@google.com, hughd@google.com, yuzhao@google.com,
+ willy@infradead.org, muchun.song@linux.dev, vbabka@kernel.org,
+ lorenzo.stoakes@oracle.com, akpm@linux-foundation.org, rientjes@google.com,
+ vishal.moola@gmail.com, arnd@arndb.de, aneesh.kumar@kernel.org,
+ npiggin@gmail.com, dave.hansen@linux.intel.com, rppt@kernel.org,
+ ryan.roberts@arm.com, linux-mm@kvack.org,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org, x86@kernel.org,
+ linux-arch@vger.kernel.org, linux-csky@vger.kernel.org,
+ linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org,
+ linux-um@lists.infradead.org
+References: <cover.1736317725.git.zhengqi.arch@bytedance.com>
+ <3fd48525397b34a64f7c0eb76746da30814dc941.1736317725.git.zhengqi.arch@bytedance.com>
+ <20250113162600.GA14101@willie-the-truck>
 Content-Language: en-US
-From: Paul Menzel <pmenzel@molgen.mpg.de>
-In-Reply-To: <e7041d36-9bc7-482a-877d-6d8f549c0ada@lunn.ch>
+From: Qi Zheng <zhengqi.arch@bytedance.com>
+In-Reply-To: <20250113162600.GA14101@willie-the-truck>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_182220_817756_089D658A 
-X-CRM114-Status: GOOD (  11.63  )
+X-CRM114-CacheID: sfid-20250113_182715_830975_89A79294 
+X-CRM114-Status: GOOD (  15.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,52 +116,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dear Andrew,
+Hi Will,
 
-
-Thank you for your quick reply.
-
-
-Am 14.01.25 um 21:16 schrieb Andrew Lunn:
->>> +#define NVT_MISCR_RMII          BIT(0)
->>> +
->>> +/* 2000ps is mapped to 0x0 ~ 0xF */
+On 2025/1/14 00:26, Will Deacon wrote:
+> On Wed, Jan 08, 2025 at 02:57:21PM +0800, Qi Zheng wrote:
+>> Like other levels of page tables, also use mmu gather mechanism to free
+>> p4d level page table.
 >>
->> Excuse my ignorance: What is ps?
-> 
-> picoseconds. An RGMII link needs a 2ns delay between the clock line
-> and the data lines. Some MACs allow you to tune the delay they can
-> insert, in this case in steps of 2ns / 16.
-
-Thank you for the clarification. Maybe it’s my English, but I didn’t 
-deduce this from how the comment is worded. I do not have a better idea 
-either.
-
->>> +#define NVT_PATH_DELAY_DEC      134
->>> +#define NVT_TX_DELAY_MASK       GENMASK(19, 16)
->>> +#define NVT_RX_DELAY_MASK       GENMASK(23, 20)
->>> +
->>> +struct nvt_priv_data {
->>> +	struct platform_device *pdev;
->>> +	struct regmap *regmap;
->>> +};
->>> +
->>> +static struct nvt_priv_data *
->>> +nvt_gmac_setup(struct platform_device *pdev, struct plat_stmmacenet_data *plat)
->>> +{
->>> +	struct device *dev = &pdev->dev;
->>> +	struct nvt_priv_data *bsp_priv;
->>> +	phy_interface_t phy_mode;
->>> +	u32 tx_delay, rx_delay;
+>> Signed-off-by: Qi Zheng <zhengqi.arch@bytedance.com>
+>> Originally-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+>> Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
+>> Cc: linux-arm-kernel@lists.infradead.org
+>> ---
+>>   arch/arm64/include/asm/pgalloc.h |  1 -
+>>   arch/arm64/include/asm/tlb.h     | 14 ++++++++++++++
+>>   2 files changed, 14 insertions(+), 1 deletion(-)
 >>
->> Please append the unit to the variable name.
+>> diff --git a/arch/arm64/include/asm/pgalloc.h b/arch/arm64/include/asm/pgalloc.h
+>> index 2965f5a7e39e3..1b4509d3382c6 100644
+>> --- a/arch/arm64/include/asm/pgalloc.h
+>> +++ b/arch/arm64/include/asm/pgalloc.h
+>> @@ -85,7 +85,6 @@ static inline void pgd_populate(struct mm_struct *mm, pgd_t *pgdp, p4d_t *p4dp)
+>>   	__pgd_populate(pgdp, __pa(p4dp), pgdval);
+>>   }
+>>   
+>> -#define __p4d_free_tlb(tlb, p4d, addr)  p4d_free((tlb)->mm, p4d)
+>>   #else
+>>   static inline void __pgd_populate(pgd_t *pgdp, phys_addr_t p4dp, pgdval_t prot)
+>>   {
+>> diff --git a/arch/arm64/include/asm/tlb.h b/arch/arm64/include/asm/tlb.h
+>> index a947c6e784ed2..445282cde9afb 100644
+>> --- a/arch/arm64/include/asm/tlb.h
+>> +++ b/arch/arm64/include/asm/tlb.h
+>> @@ -111,4 +111,18 @@ static inline void __pud_free_tlb(struct mmu_gather *tlb, pud_t *pudp,
+>>   }
+>>   #endif
+>>   
+>> +#if CONFIG_PGTABLE_LEVELS > 4
+>> +static inline void __p4d_free_tlb(struct mmu_gather *tlb, p4d_t *p4dp,
+>> +				  unsigned long addr)
+>> +{
+>> +	struct ptdesc *ptdesc = virt_to_ptdesc(p4dp);
+>> +
+>> +	if (!pgtable_l5_enabled())
+>> +		return;
+>> +
+>> +	pagetable_p4d_dtor(ptdesc);
+>> +	tlb_remove_ptdesc(tlb, ptdesc);
+>> +}
 > 
-> Which is trick, because they are in units of 2000/16 of a picosecond.
+> Should we update p4d_free() to call the destructor, too? It looks like
+> it just does free_page() atm.
 
-Understood. Maybe a comment could be added?
+The patch #3 introduces the generic p4d_free() and lets arm64 to use it.
+The patch #4 adds the destructor to generic p4d_free(). So IIUC, there
+is no problem here.
 
+Thanks!
 
-Kind regards,
-
-Paul
+> 
+> Will
 
