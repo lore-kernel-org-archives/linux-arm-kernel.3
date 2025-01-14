@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2A31C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 22:47:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5497BE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 22:47:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=31yd2A2KrJRKEjfaLLciJjaOBpVAtnMtVG3HpORbCUU=; b=EvGD17Mk7GZJj2nD80ZRB6FDgg
-	zohCkl45xwzBB85QwBY6Z4+eqpOPMYxBRxKY9xuZ5Q4kdjbPTv5s/y1zM9in08LOCs20x9OR2B+8y
-	KwJRa628et2EUO7zJRWgDE9cNC0xUJyjmxgKk4fVF0O3VjHmouaGml/rX726MotMcttD4KzuD5TIx
-	XeoiPgCNd0BsJy38HWt++z3uuf2//cvM6gMlyaWrHZVdBxUNAqwLjJqsxFG5eYeyIARgm5C6f8NPR
-	0S2TQ+AUSaPtZWsjJkP2pmEMdE8zz0IVmb6FuhfF1zSVlYau8rPxKjjGFtWKMICNCZ9Gu2JNxx6Dv
-	PlDtqCPg==;
+	bh=4QBe1A84VAMmc4EK5f6d6+MxaEY5qE67he1f561L69M=; b=PBC6xaebi5d9lYzBcoPc6d9rya
+	taZ/edHMueO4cPthLVMhYHyDGpBunhLtsgaUtLWKPgQwBo4pamVBm7yddnDPYmM3a50zVOAfKd8qG
+	uNkXachdkh0FTPY6E+FJGit2f1dun382XqVB0m+4kH/OPnWaI77IcsYQSH1RFMIsBOIcvEXXlklHp
+	DY/d8FvJbzQQNlMJ+JmBO0eY1M5lUrOWdA9ao1aijufKwMRsFreM3czugV76yaviQtkW4eENV8dWU
+	UBB20TxZeVgeYzb3ePXF4/GsTMV5IsNcGtqtm3TUoeaWxsu4f9KzQPGUFENYVSnmYQQdkxKExWLNC
+	HK+Dfitw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXph3-00000009ycL-1SBY;
-	Tue, 14 Jan 2025 22:47:29 +0000
+	id 1tXph2-00000009yc9-3QJx;
+	Tue, 14 Jan 2025 22:47:28 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXofu-00000009q39-0GJD
+	id 1tXofs-00000009q2y-2xhr
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 14 Jan 2025 21:42:14 +0000
+	Tue, 14 Jan 2025 21:42:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Content-ID:Content-Description;
-	bh=31yd2A2KrJRKEjfaLLciJjaOBpVAtnMtVG3HpORbCUU=; b=AOS1TS1ZGMOsMdswyOGFQ9BIOG
-	vijfujAumlI2SgmiumOkmogB+sq8cfBmzRaDkLMixtd7dFruKxduj+sDSZ95ogqJKJGObyP0WLppG
-	aS86RBTOI1Qj72d0p7M23vpqdyXX4sEF3G5smrPCgNkHe8kUAZIz1jPeGUHs9a6caN4Osy/3lF0Gg
-	0+vUmEoThtxxEDPUOiLeIvuFb7r9kjZxrOopWEJKFK90OcSlFjQ69TLoaLaC+cxGxhkcHFV9vHSuY
-	VbYdUvRAF/2+9NqYgsP6JkhBn6sKXX053PQJnZh2bi8DD//dI9KaTZ2uE2jRmxcETjoR9HkURja6k
-	4jOkTpcQ==;
+	bh=4QBe1A84VAMmc4EK5f6d6+MxaEY5qE67he1f561L69M=; b=D2M10dcRifdWePKgzPXuh1hzxc
+	3E9SmoFjListoWOmvJopcURIJKCWjQdUHQV6GvE7wJ+eSrjir8qpGVVktArAhY/osXpP4bMhwxEyh
+	B2u0WuDl6QkRfwf88kCKto8dqz2ES6T+iBpaWoSLkhZn9SZHt6qEEIot9wRVRXXWmJUX9znsaZ5zt
+	oRcgo0D934+cR7dj8tdYcavwCHyrbINytdNg4fEzalZG+N9YgMc/Qgxu5xeXokd1JX6zpEqeGEzTL
+	aib/eYL9A8+WFBCBVGlkWYWVPO11Y640u/QSW4CyHooiIP1azg0aQuAw5PqUp6vyE8ITr5Q/BkBCt
+	vCWuYVfg==;
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXocs-0000000AeGu-2VI6
+	id 1tXocs-0000000AeGt-138P
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 21:42:12 +0000
+	Tue, 14 Jan 2025 21:42:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1E105A41CE3;
-	Tue, 14 Jan 2025 21:37:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 15302C4CEE4;
-	Tue, 14 Jan 2025 21:38:59 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id E3654A41CD9;
+	Tue, 14 Jan 2025 21:37:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id EC41BC4CEE6;
+	Tue, 14 Jan 2025 21:38:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1736890739;
-	bh=y7I3ysTNSviVxSY83s+mUanX/HzCwqOMU6EU00x1sxM=;
+	bh=VDgDWVGfEkGR3QdJku8jaSDzSVlfkBj7qA3Y2VPLcsk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=EFLZhVaeJT6CDmekEYZuOeQdu0U6SclgGrQ+LrZp1Pd5+iNlq2pM2Hd3HOlDln8v/
-	 KFRle1OMq40FGmOJl8doCss2A06D4Du+WY0Uk5D+/yi6n+/Q2dLEGONjRFfX2ij3f1
-	 p7mZrZz8MVu0mi+uxfCTVx/3qAKyQFCJJAIrSONk2htTkmakQOVi7HjYN4dOUh90w0
-	 kE4mupetrAfF5KVOvrMKUhMWu7Yy4jI4qV1F00l8lySWM2AeiZuHGx+MUyFUIPQRna
-	 IcecO1m8wQ+UzWxU1Z5ZKQea1liZoVAfLdWwMVOoDm9Xs7TlobH72DRhfNvq53FhUK
-	 kkLq51OgRjAtA==
+	b=mSTPNm64AqXovEnsH7tTNHMx+8n3uGRvVINXflDEqGTzjH66yS3b51d0w9hxyUBa7
+	 pF3jYErgtV/4YLz0BvwiQVQDs6nfQzp7wTIT9Bb/ZTlhySeQWB+b7d8lisndQLIh5k
+	 etw9EHmjPYM4Z0kM7gjO84z7nfXLAS7AQcbRe5wa+R5Bqc+4FVpl5o+Av5VGHDUtDN
+	 M0QYgLhUI0ZXYNfC2LPk9K8tXl3zYZy0h8Oq7x3YzJZChDyoJw0p58izJ3SeRxIlVc
+	 GOqm2+xVy3iYkzS3S0teoPk1rTtf4KPPc7+1W7PXbqUyyjG31btba4oNXYO5xY2AL5
+	 4lneeLbSz+3dQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0B0E5C02183;
-	Tue, 14 Jan 2025 21:38:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DCB84C02188;
+	Tue, 14 Jan 2025 21:38:58 +0000 (UTC)
 From: Sasha Finkelstein via B4 Relay <devnull+fnkl.kernel.gmail.com@kernel.org>
-Date: Tue, 14 Jan 2025 22:38:56 +0100
-Subject: [PATCH v4 5/5] MAINTAINERS: Add entries for touchbar display
- driver
+Date: Tue, 14 Jan 2025 22:38:54 +0100
+Subject: [PATCH v4 3/5] drm: panel: Add a panel driver for the Summit
+ display
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250114-adpdrm-v4-5-e9b5260a39f1@gmail.com>
+Message-Id: <20250114-adpdrm-v4-3-e9b5260a39f1@gmail.com>
 References: <20250114-adpdrm-v4-0-e9b5260a39f1@gmail.com>
 In-Reply-To: <20250114-adpdrm-v4-0-e9b5260a39f1@gmail.com>
 To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
@@ -81,22 +81,22 @@ To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
  Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Alyssa Ross <hi@alyssa.is>, Sasha Finkelstein <fnkl.kernel@gmail.com>
+ Alyssa Ross <hi@alyssa.is>, Sasha Finkelstein <fnkl.kernel@gmail.com>, 
+ Nick Chan <towinchenmi@gmail.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1736890736; l=1377;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1736890736; l=6078;
  i=fnkl.kernel@gmail.com; s=20241124; h=from:subject:message-id;
- bh=KEf80SVHicxgRXKAdu52Cd2dNEz+kgXSg0wZwqOZ7j0=;
- b=tIjqWyPizwmuQ4MvM1PbsbAt5UwiHuHH2S/xckQkz+poI3Wc1LrropTswbyz0A+KoDSg0qqp3
- rsdSKCfGiq0BCan/6ZNOoqZuNhkkvYcx+c4DdO1OV0ee1JEVHHyD+mw
+ bh=Ow0nORepBUNGoYohTBVqVkG339Ob1ZVg2nGQaMbNqFk=;
+ b=tYG8gmFadyOL355y4NbZwgO2DyFWjqtEQ7ISKX+O+xLOX5bL4nihIUYzNxB6oki+r8s4587h7
+ 3jr5CN7V9NnBCnj64PbrL/dDenKtzMPtt486YAgSeirVAI15uIDO9nj
 X-Developer-Key: i=fnkl.kernel@gmail.com; a=ed25519;
  pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
 X-Endpoint-Received: by B4 Relay for fnkl.kernel@gmail.com/20241124 with
  auth_id=283
 X-Original-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_214040_030222_8ADA9A57 
-X-CRM114-Status: UNSURE (   9.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250114_214035_514105_32131C3C 
+X-CRM114-Status: GOOD (  18.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,36 +114,187 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 
-Add the MAINTAINERS entries for the driver
+This is the display panel used for the touchbar on laptops that have it.
 
+Co-developed-by: Nick Chan <towinchenmi@gmail.com>
+Signed-off-by: Nick Chan <towinchenmi@gmail.com>
 Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
 ---
- MAINTAINERS | 5 +++++
- 1 file changed, 5 insertions(+)
+ drivers/gpu/drm/panel/Kconfig        |   9 +++
+ drivers/gpu/drm/panel/Makefile       |   1 +
+ drivers/gpu/drm/panel/panel-summit.c | 132 +++++++++++++++++++++++++++++++++++
+ 3 files changed, 142 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index a87ddad78e26f28ffd0f3433560d6db1518f9f95..4ce0d3bcf67910d909ba41261535dcb14a24a7b7 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2189,6 +2189,9 @@ F:	Documentation/devicetree/bindings/arm/apple.yaml
- F:	Documentation/devicetree/bindings/arm/apple/*
- F:	Documentation/devicetree/bindings/clock/apple,nco.yaml
- F:	Documentation/devicetree/bindings/cpufreq/apple,cluster-cpufreq.yaml
-+F:	Documentation/devicetree/bindings/display/apple,h7-display-pipe-mipi.yaml
-+F:	Documentation/devicetree/bindings/display/apple,h7-display-pipe.yaml
-+F:	Documentation/devicetree/bindings/display/panel/apple,summit.yaml
- F:	Documentation/devicetree/bindings/dma/apple,admac.yaml
- F:	Documentation/devicetree/bindings/i2c/apple,i2c.yaml
- F:	Documentation/devicetree/bindings/interrupt-controller/apple,*
-@@ -2208,6 +2211,8 @@ F:	drivers/bluetooth/hci_bcm4377.c
- F:	drivers/clk/clk-apple-nco.c
- F:	drivers/cpufreq/apple-soc-cpufreq.c
- F:	drivers/dma/apple-admac.c
-+F:	drivers/gpu/drm/adp/
-+F:	drivers/gpu/drm/panel/panel-summit.c
- F:	drivers/pmdomain/apple/
- F:	drivers/i2c/busses/i2c-pasemi-core.c
- F:	drivers/i2c/busses/i2c-pasemi-platform.c
+diff --git a/drivers/gpu/drm/panel/Kconfig b/drivers/gpu/drm/panel/Kconfig
+index d7469c565d1db8b8e974dd6c45d03d9352d99d63..5085a82e4bc695e85cabbc3200859bbe10cb0f91 100644
+--- a/drivers/gpu/drm/panel/Kconfig
++++ b/drivers/gpu/drm/panel/Kconfig
+@@ -925,6 +925,15 @@ config DRM_PANEL_SIMPLE
+ 	  that it can be automatically turned off when the panel goes into a
+ 	  low power state.
+ 
++config DRM_PANEL_SUMMIT
++	tristate "Apple Summit display panel"
++	depends on OF
++	depends on DRM_MIPI_DSI
++	depends on BACKLIGHT_CLASS_DEVICE
++	help
++	  Say Y if you want to enable support for the "Summit" display panel
++	  used as a touchbar on certain Apple laptops.
++
+ config DRM_PANEL_SYNAPTICS_R63353
+ 	tristate "Synaptics R63353-based panels"
+ 	depends on OF
+diff --git a/drivers/gpu/drm/panel/Makefile b/drivers/gpu/drm/panel/Makefile
+index 7dcf72646cacff11bab90c78e3b8b1f357e5f14a..10ac2e850f5cd6d6546439de75483466e4015d1a 100644
+--- a/drivers/gpu/drm/panel/Makefile
++++ b/drivers/gpu/drm/panel/Makefile
+@@ -89,6 +89,7 @@ obj-$(CONFIG_DRM_PANEL_SHARP_LS060T1SX01) += panel-sharp-ls060t1sx01.o
+ obj-$(CONFIG_DRM_PANEL_SITRONIX_ST7701) += panel-sitronix-st7701.o
+ obj-$(CONFIG_DRM_PANEL_SITRONIX_ST7703) += panel-sitronix-st7703.o
+ obj-$(CONFIG_DRM_PANEL_SITRONIX_ST7789V) += panel-sitronix-st7789v.o
++obj-$(CONFIG_DRM_PANEL_SUMMIT) += panel-summit.o
+ obj-$(CONFIG_DRM_PANEL_SYNAPTICS_R63353) += panel-synaptics-r63353.o
+ obj-$(CONFIG_DRM_PANEL_SONY_ACX565AKM) += panel-sony-acx565akm.o
+ obj-$(CONFIG_DRM_PANEL_SONY_TD4353_JDI) += panel-sony-td4353-jdi.o
+diff --git a/drivers/gpu/drm/panel/panel-summit.c b/drivers/gpu/drm/panel/panel-summit.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..fb084f280c6fa3197b64876edd03172dbdf962b3
+--- /dev/null
++++ b/drivers/gpu/drm/panel/panel-summit.c
+@@ -0,0 +1,132 @@
++// SPDX-License-Identifier: GPL-2.0-only
++
++#include <linux/backlight.h>
++#include <drm/drm_device.h>
++#include <drm/drm_mipi_dsi.h>
++#include <drm/drm_mode.h>
++#include <drm/drm_modes.h>
++#include <drm/drm_panel.h>
++#include <video/mipi_display.h>
++
++struct summit_data {
++	struct mipi_dsi_device *dsi;
++	struct backlight_device *bl;
++	struct drm_panel panel;
++};
++
++static int summit_set_brightness(struct device *dev)
++{
++	struct summit_data *s_data = dev_get_drvdata(dev);
++	int level = backlight_get_brightness(s_data->bl);
++
++	return mipi_dsi_dcs_set_display_brightness(s_data->dsi, level);
++}
++
++static int summit_bl_update_status(struct backlight_device *dev)
++{
++	return summit_set_brightness(&dev->dev);
++}
++
++static const struct backlight_ops summit_bl_ops = {
++	.update_status	= summit_bl_update_status,
++};
++
++static int summit_get_modes(struct drm_panel *panel,
++			    struct drm_connector *connector)
++{
++	struct drm_display_mode *mode = drm_mode_create(connector->dev);
++
++	connector->display_info.non_desktop = true;
++	drm_object_property_set_value(&connector->base,
++				      connector->dev->mode_config.non_desktop_property,
++				      connector->display_info.non_desktop);
++
++	mode->vdisplay = 2008;
++	mode->hdisplay = 60;
++	mode->hsync_start = mode->hdisplay + 8;
++	mode->hsync_end = mode->hsync_start + 80;
++	mode->htotal = mode->hsync_end + 40;
++	mode->vsync_start = mode->vdisplay + 1;
++	mode->vsync_end = mode->vsync_start + 15;
++	mode->vtotal = mode->vsync_end + 6;
++	mode->clock = (mode->vtotal * mode->htotal * 60) / 1000;
++	mode->type = DRM_MODE_TYPE_DRIVER | DRM_MODE_TYPE_PREFERRED;
++	mode->flags = DRM_MODE_FLAG_PHSYNC | DRM_MODE_FLAG_NVSYNC;
++	drm_mode_set_name(mode);
++	drm_mode_probed_add(connector, mode);
++	return 1;
++}
++
++static const struct drm_panel_funcs summit_panel_funcs = {
++	.get_modes = summit_get_modes,
++};
++
++static int summit_probe(struct mipi_dsi_device *dsi)
++{
++	struct backlight_properties props = { 0 };
++	struct device *dev = &dsi->dev;
++	struct summit_data *s_data;
++	int ret;
++
++	s_data = devm_kzalloc(dev, sizeof(*s_data), GFP_KERNEL);
++	if (!s_data)
++		return -ENOMEM;
++
++	mipi_dsi_set_drvdata(dsi, s_data);
++	s_data->dsi = dsi;
++
++	ret = device_property_read_u32(dev, "max-brightness", &props.max_brightness);
++	if (ret)
++		return ret;
++	props.type = BACKLIGHT_RAW;
++
++	s_data->bl = devm_backlight_device_register(dev, dev_name(dev),
++						    dev, s_data, &summit_bl_ops, &props);
++	if (IS_ERR(s_data->bl))
++		return PTR_ERR(s_data->bl);
++
++	drm_panel_init(&s_data->panel, dev, &summit_panel_funcs,
++		       DRM_MODE_CONNECTOR_DSI);
++	drm_panel_add(&s_data->panel);
++
++	return mipi_dsi_attach(dsi);
++}
++
++static void summit_remove(struct mipi_dsi_device *dsi)
++{
++	struct summit_data *s_data = mipi_dsi_get_drvdata(dsi);
++
++	mipi_dsi_detach(dsi);
++	drm_panel_remove(&s_data->panel);
++}
++
++static int summit_suspend(struct device *dev)
++{
++	struct summit_data *s_data = dev_get_drvdata(dev);
++
++	return mipi_dsi_dcs_set_display_brightness(s_data->dsi, 0);
++}
++
++static DEFINE_SIMPLE_DEV_PM_OPS(summit_pm_ops, summit_suspend,
++				summit_set_brightness);
++
++static const struct of_device_id summit_of_match[] = {
++	{ .compatible = "apple,summit" },
++	{},
++};
++
++MODULE_DEVICE_TABLE(of, summit_of_match);
++
++static struct mipi_dsi_driver summit_driver = {
++	.probe = summit_probe,
++	.remove = summit_remove,
++	.driver = {
++		.name = "panel-summit",
++		.of_match_table = summit_of_match,
++		.pm = pm_sleep_ptr(&summit_pm_ops),
++	},
++};
++module_mipi_dsi_driver(summit_driver);
++
++MODULE_DESCRIPTION("Summit Display Panel Driver");
++MODULE_LICENSE("GPL");
 
 -- 
 2.48.0
