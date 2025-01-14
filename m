@@ -4,87 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B43BE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 09:59:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B61AFE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 10:01:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rFXTBiRNyQQWNgSwzsvENgCimi3y6Xr1Z4FM79/PNPM=; b=YgzcQMkHvfnMNo9Yx7EL+UbJOS
-	2G/PO1QG6gLWkqhD7JI5ErrEeeFlTnRZv3kIkHjjtjVB2X/uvuLS4MnuBnYgws/uYl1f2cCC1vUXF
-	t7R7y1YYifR5WJHnA9J6YBPDk00WbD3O1ZZDthFb5mX4vrYAI5dSZ3r9U12znAV+0fwHHpB88ClZR
-	qqcPUmUs3TGWUUN9Bu9erRgMbmI8RyfWHRplqEWnNq8qIiYzQmVQgYy8BLUOUlv7bkqex2hG74IAp
-	QOHpmza55E+s5Yb3jcGy88wvj6/28NdX9EPG6QKQ+ELDKRhmw5A+cDIEvvcf17QKff5VR6GS7+Bdb
-	+LUEVqDg==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jzX5EdLsCWjyFAlDUCXLOh7T18XLl+qs3XwQKiuLtpU=; b=joBBcmLtqrKZI3bb6EL7yeFJgz
+	FELkC9K7/c21wpF3JBTNOVDPdo67Wmv2jjQypTsKXNf6lwvCQ/WXOZ0Ikk6vpE5vjU4+O2GJ/UK2r
+	9gF8zDANWxfUFV9Sv+BlO8eXw/VrxKL17yQKRdFr4wRb2J6ryhwb5QsJn6ZMJ2qUijtcwng3NiTnV
+	ayW3mb+cFe7s+JEwFaXrLbW9Vt0d3is36zDsg6l0NjPPVsqAR8i2lLTWv36xTuywbSjS7B8jitwVu
+	O2ox5nS78JWfBF/ESCvvBMWL8DzfpVnzXfP3xgCtAEnmQo21jQGpyACKz9ba6bDE9vBv/td0j+3hI
+	9HiGAaXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXdhg-000000080r8-19dC;
-	Tue, 14 Jan 2025 09:59:20 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tXdjO-000000081AO-002Y;
+	Tue, 14 Jan 2025 10:01:06 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXdfM-000000080Xx-2pv4
+	id 1tXdi7-000000080tL-41cw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 09:56:58 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50E25Vas020853;
-	Tue, 14 Jan 2025 09:56:50 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	rFXTBiRNyQQWNgSwzsvENgCimi3y6Xr1Z4FM79/PNPM=; b=LOQNs46zuHyJV5tA
-	7vLZM6lWRa4pEXel9bfbl6hUS6kYIYsMiNWQcvTMZPyGEO6UFw0+GsCn7CFGfDge
-	1ZsV/2PwfOVtvUKSFBCApl8FeGahmYECtZ0crZw4/k14rhN/5/1jn68kgZlk13q0
-	76TcOu5fUStgT9qcu/x43JaxiqHSrtQRAqrhUbp+eVVM59X/UJXGtde+ERVhWoR6
-	ZZLWTIIPC0Y3K96fYh+N8eOQo7WQwBc9QEiy8tZB3fLxDeHw81tWjqQzL8i5y/Ha
-	lnGPFvpwtWS4VmQxX3tm2aSRb4sin4FSwvv/U3chYTab6uqzZpCqGeYagv5/5Ed3
-	G/BLyw==
-Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 445eu48wm5-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 14 Jan 2025 09:56:50 +0000 (GMT)
-Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
-	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 50E9unnv005255
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 14 Jan 2025 09:56:49 GMT
-Received: from [10.239.133.114] (10.80.80.8) by nalasex01b.na.qualcomm.com
- (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Tue, 14 Jan
- 2025 01:56:47 -0800
-Message-ID: <55cf5c56-3841-4b1d-9d8b-7b88b8bcff96@quicinc.com>
-Date: Tue, 14 Jan 2025 17:56:45 +0800
+	Tue, 14 Jan 2025 09:59:49 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 0943CA0AB9;
+	Tue, 14 Jan 2025 10:59:37 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=mail; bh=jzX5EdLsCWjyFAlDUCXLOh7T18XLl+qs3XwQKiuLtpU=; b=
+	Vlx49ypumGK4OYALTAT+3gqfJ37n+GyTzB9YcrZhg4vvDhSSXP/xgqjghbq3BqkW
+	99auOeXdbCUZ/ZT1f1KuE3Y0OgBfTHzApliAmgk0bpCmqMvb3P1ZulajE03l3TCo
+	yACcZa9AKvEJS+SCqDZJkFY8x/ESB2BXHCn61BINGXdaj/W/+OcE+H+4joKcu4zB
+	0CXsVUDJRekrWNSKsedX2WBW7wARoKGpDmsfbzeVCQxkoRDKdcJtVnDq9kQDWj8T
+	xjHEei3Zn+R/2PSfguprp4vBMnjwM0GeE3NXfKWXfoCX7bmq4KFALUXH1fBjLIgY
+	XT/oBNBDJNiiS3MgerUjOFfZW+h1ZHHaFfGm3IJaZi+KojaP1Ov8FThP6qBWhd0z
+	Jsw+WxsRA1xi+SZSOKjB0QS7bppm26gDhbdVKCzBiX/MYpmTerSN5/ny00JYxfsX
+	YwOAWTAg+kxjRjXp/S3gjCDgmhfmtxoMdsvOSWAMf3l2DPj0kcNvCQqmgAY1lE9S
+	+HM+gknf3avJybCVpjZA0FGquknN5qtvAi9EE+BToCLWZ7e+ZHIRxEFj9lEUKAIW
+	xyUn3IVUQpjacz4d0tMSld6wkAnjGMToP3Ekhfe/al0fjBsza13gms7IlZQ5lhzY
+	cOtFNmvn/o5gAQwGtmGlSy+3T+uinoHrX0pY1u4IKmU=
+From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+To: <linux-sound@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+CC: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, "Liam
+ Girdwood" <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, "Jaroslav
+ Kysela" <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Chen-Yu Tsai
+	<wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
+	<samuel@sholland.org>, Philipp Zabel <p.zabel@pengutronix.de>
+Subject: [PATCH v2] ASoC: sun4i-codec: Use new devm clk and reset APIs
+Date: Tue, 14 Jan 2025 10:59:07 +0100
+Message-ID: <20250114095909.798559-1-csokas.bence@prolan.hu>
+X-Mailer: git-send-email 2.48.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] coresight-etm4x: add isb() before reading the TRCSTATR
-From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
-To: <suzuki.poulose@arm.com>, <mike.leach@linaro.org>,
-        <james.clark@linaro.org>, <alexander.shishkin@linux.intel.com>
-CC: <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>
-References: <20241206080240.59313-1-quic_yuanfang@quicinc.com>
-Content-Language: en-US
-In-Reply-To: <20241206080240.59313-1-quic_yuanfang@quicinc.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01b.na.qualcomm.com (10.47.209.197)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: -f65y2qI1Xll0TlwDZUVNO7CN98LFVpg
-X-Proofpoint-ORIG-GUID: -f65y2qI1Xll0TlwDZUVNO7CN98LFVpg
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
- suspectscore=0 malwarescore=0 bulkscore=0 phishscore=0 adultscore=0
- impostorscore=0 mlxscore=0 clxscore=1015 lowpriorityscore=0 spamscore=0
- mlxlogscore=914 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2501140083
+Content-Transfer-Encoding: 8bit
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1736848776;VERSION=7983;MC=2726077745;ID=287044;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-Antispam: OK
+X-EsetResult: clean, is OK
+X-EsetId: 37303A2980D9485264766B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_015656_733348_D44723F3 
-X-CRM114-Status: GOOD (  21.94  )
+X-CRM114-CacheID: sfid-20250114_015948_461885_0E82656F 
+X-CRM114-Status: GOOD (  15.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,64 +81,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Clean up error handling by using the new devm_
+clock and reset functions. This should make it
+easier to add new code, as we can eliminate the
+"goto ladder" in probe().
+
+Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
+---
+
+Notes:
+    Changes in v2:
+    * remove unused `scodec` var
+    * rebase onto current for-next
+
+ sound/soc/sunxi/sun4i-codec.c | 42 ++++++-----------------------------
+ 1 file changed, 7 insertions(+), 35 deletions(-)
+
+diff --git a/sound/soc/sunxi/sun4i-codec.c b/sound/soc/sunxi/sun4i-codec.c
+index 3d6156fefe75..886b3fa537d2 100644
+--- a/sound/soc/sunxi/sun4i-codec.c
++++ b/sound/soc/sunxi/sun4i-codec.c
+@@ -2273,7 +2273,7 @@ static int sun4i_codec_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	/* Get the clocks from the DT */
+-	scodec->clk_apb = devm_clk_get(&pdev->dev, "apb");
++	scodec->clk_apb = devm_clk_get_enabled(&pdev->dev, "apb");
+ 	if (IS_ERR(scodec->clk_apb)) {
+ 		dev_err(&pdev->dev, "Failed to get the APB clock\n");
+ 		return PTR_ERR(scodec->clk_apb);
+@@ -2286,8 +2286,7 @@ static int sun4i_codec_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	if (quirks->has_reset) {
+-		scodec->rst = devm_reset_control_get_exclusive(&pdev->dev,
+-							       NULL);
++		scodec->rst = devm_reset_control_get_exclusive_deasserted(&pdev->dev, NULL);
+ 		if (IS_ERR(scodec->rst)) {
+ 			dev_err(&pdev->dev, "Failed to get reset control\n");
+ 			return PTR_ERR(scodec->rst);
+@@ -2323,22 +2322,6 @@ static int sun4i_codec_probe(struct platform_device *pdev)
+ 		return ret;
+ 	}
+ 
+-	/* Enable the bus clock */
+-	if (clk_prepare_enable(scodec->clk_apb)) {
+-		dev_err(&pdev->dev, "Failed to enable the APB clock\n");
+-		return -EINVAL;
+-	}
+-
+-	/* Deassert the reset control */
+-	if (scodec->rst) {
+-		ret = reset_control_deassert(scodec->rst);
+-		if (ret) {
+-			dev_err(&pdev->dev,
+-				"Failed to deassert the reset control\n");
+-			goto err_clk_disable;
+-		}
+-	}
+-
+ 	/* DMA configuration for TX FIFO */
+ 	scodec->playback_dma_data.addr = res->start + quirks->reg_dac_txdata;
+ 	scodec->playback_dma_data.maxburst = quirks->dma_max_burst;
+@@ -2356,7 +2339,7 @@ static int sun4i_codec_probe(struct platform_device *pdev)
+ 				     &sun4i_codec_dai, 1);
+ 	if (ret) {
+ 		dev_err(&pdev->dev, "Failed to register our codec\n");
+-		goto err_assert_reset;
++		return ret;
+ 	}
+ 
+ 	ret = devm_snd_soc_register_component(&pdev->dev,
+@@ -2364,20 +2347,20 @@ static int sun4i_codec_probe(struct platform_device *pdev)
+ 					      &dummy_cpu_dai, 1);
+ 	if (ret) {
+ 		dev_err(&pdev->dev, "Failed to register our DAI\n");
+-		goto err_assert_reset;
++		return ret;
+ 	}
+ 
+ 	ret = devm_snd_dmaengine_pcm_register(&pdev->dev, NULL, 0);
+ 	if (ret) {
+ 		dev_err(&pdev->dev, "Failed to register against DMAEngine\n");
+-		goto err_assert_reset;
++		return ret;
+ 	}
+ 
+ 	card = quirks->create_card(&pdev->dev);
+ 	if (IS_ERR(card)) {
+ 		ret = PTR_ERR(card);
+ 		dev_err(&pdev->dev, "Failed to create our card\n");
+-		goto err_assert_reset;
++		return ret;
+ 	}
+ 
+ 	snd_soc_card_set_drvdata(card, scodec);
+@@ -2385,28 +2368,17 @@ static int sun4i_codec_probe(struct platform_device *pdev)
+ 	ret = snd_soc_register_card(card);
+ 	if (ret) {
+ 		dev_err_probe(&pdev->dev, ret, "Failed to register our card\n");
+-		goto err_assert_reset;
++		return ret;
+ 	}
+ 
+ 	return 0;
+-
+-err_assert_reset:
+-	if (scodec->rst)
+-		reset_control_assert(scodec->rst);
+-err_clk_disable:
+-	clk_disable_unprepare(scodec->clk_apb);
+-	return ret;
+ }
+ 
+ static void sun4i_codec_remove(struct platform_device *pdev)
+ {
+ 	struct snd_soc_card *card = platform_get_drvdata(pdev);
+-	struct sun4i_codec *scodec = snd_soc_card_get_drvdata(card);
+ 
+ 	snd_soc_unregister_card(card);
+-	if (scodec->rst)
+-		reset_control_assert(scodec->rst);
+-	clk_disable_unprepare(scodec->clk_apb);
+ }
+ 
+ static struct platform_driver sun4i_codec_driver = {
+-- 
+2.48.0
 
 
-On 12/6/2024 4:02 PM, yuanfang zhang wrote:
-> From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
-> 
-> As recommended by section 4.3.7 ("Synchronization when using system
-> instructions to progrom the trace unit") of ARM IHI 0064H.b, the
-> self-hosted trace analyzer must perform a Context synchronization
-> event between writing to the TRCPRGCTLR and reading the TRCSTATR.
-> 
-> Fixes: ebddaad09e10 ("coresight: etm4x: Add missing single-shot control API to sysfs")
-> Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
-> ---
-> Changes in V3:
-> 1. Remove dsb(sy) after polling TRCSTATR.
-> 2. Add isb() after polling TRCSTATR.
-> ---
->  .../hwtracing/coresight/coresight-etm4x-core.c   | 16 +++++++++++++++-
->  1 file changed, 15 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> index 66d44a404ad0..c6ea00bba0cc 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> @@ -531,7 +531,6 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
->  	 * As recommended by section 4.3.7 ("Synchronization when using the
->  	 * memory-mapped interface") of ARM IHI 0064D
->  	 */
-> -	dsb(sy);
->  	isb();
->  
->  done:
-> @@ -906,10 +905,25 @@ static void etm4_disable_hw(void *info)
->  	tsb_csync();
->  	etm4x_relaxed_write32(csa, control, TRCPRGCTLR);
->  
-> +	/*
-> +	 * As recommended by section 4.3.7 ("Synchronization when using system
-> +	 * instructions to progrom the trace unit") of ARM IHI 0064H.b, the
-> +	 * self-hosted trace analyzer must perform a Context synchronization
-> +	 * event between writing to the TRCPRGCTLR and reading the TRCSTATR.
-> +	 */
-> +	if (!csa->io_mem)
-> +		isb();
-> +
->  	/* wait for TRCSTATR.PMSTABLE to go to '1' */
->  	if (coresight_timeout(csa, TRCSTATR, TRCSTATR_PMSTABLE_BIT, 1))
->  		dev_err(etm_dev,
->  			"timeout while waiting for PM stable Trace Status\n");
-> +	/*
-> +	 * As recommended by section 4.3.7 (Synchronization of register updates)
-> +	 * of ARM IHI 0064H.b.
-> +	 */
-> +	isb();
-> +
->  	/* read the status of the single shot comparators */
->  	for (i = 0; i < drvdata->nr_ss_cmp; i++) {
->  		config->ss_status[i] =
-
-gently reminder
 
