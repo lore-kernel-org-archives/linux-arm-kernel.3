@@ -4,62 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 086C0C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 01:51:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48E22C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 01:53:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LN4mhBv11bQYirwOYr9gNIgXytcwvkBsTqALtdmLtxE=; b=RztPNaZBwrDeqt/D0Q0GthtZfT
-	zapjdsm84SGZL//wiQ8x3e7Q8eoTtP6XB3m92PlsYbLQuY8k9N5A1541bqqIm3YoAtivjpyUT7OaZ
-	mW+akS/FhXTeTIWlWZ6aiAfNsnQvf4zLQHLT9FOm8pbuvdWCwp/yPBddF1y0Xv2BR0WbdzL2wjiki
-	jYh1rgoXgD/z5hGyHrYGmOHLT8aBpsm32V91BCDyedkZSZh/ClQTwKKlVeCFIphvrW8LJkXgoMmxW
-	eIimkQfLt11N9045CbG3Pg5+McsWvecjD97EjXtoB+M3bLJcty0qcLem293ppcXTZELuLWhWQitig
-	Z7cte4RA==;
+	bh=/KdLI8livRlilT3/R2ER/HwxMqZTMsclsBQBvK2SmQ0=; b=hv0uH6/fOCqCXEPQtpxk6xVuUr
+	nrr74hQgJnui5l+z7yBH0ZV/YvId9zPbKkKZ19cqs8kK1wfZI4t8GLkQ9Mybxt/nUpPEh8d0EBtII
+	QheaQgjdDnSi/DHxT3Q95uboumyz6nFCOCI9mxRfGDJBW2u6WmKfDK1VBp8AMndWOb8vomJbdNTvT
+	qRz+v3SrsjQYOJHPotNxpVQPzUzrEZvDjRKJwiDizUfTdysyCfn2WPbEbDNG8h5YsQC57Z8/dCb2H
+	IoLdnSlxcPkPxq+wERxrcwRcUiAmEV9G8xm1eIQY10siJR6XAssk0ofzZrLhRJfxrDCIx8ziu6qSj
+	/sJZ0n2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXW5m-00000007BOp-3jzp;
-	Tue, 14 Jan 2025 01:51:43 +0000
-Received: from mx3.molgen.mpg.de ([141.14.17.11])
+	id 1tXW70-00000007Bas-3JTB;
+	Tue, 14 Jan 2025 01:52:58 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXW4X-00000007BI6-0yRN
+	id 1tXW5K-00000007BLL-1mYl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 01:50:27 +0000
-Received: from [192.168.0.224] (ip5f5ae8ae.dynamic.kabel-deutschland.de [95.90.232.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: pmenzel)
-	by mx.molgen.mpg.de (Postfix) with ESMTPSA id 7F0A661E64780;
-	Tue, 14 Jan 2025 02:49:37 +0100 (CET)
-Message-ID: <a30b338f-0a6f-47e7-922b-c637a6648a6d@molgen.mpg.de>
-Date: Tue, 14 Jan 2025 02:49:31 +0100
+	Tue, 14 Jan 2025 01:51:15 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50DGveQ5022467;
+	Tue, 14 Jan 2025 01:51:00 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	/KdLI8livRlilT3/R2ER/HwxMqZTMsclsBQBvK2SmQ0=; b=I4mrTD65xqC8i1PT
+	rzqCQQMrs672CL1N3xO9n7tzOvsDTXqdbedznShpOtSiUI4RkTVvXrNHxOzW+amL
+	6aDvk5rrbA9v77IR4rbobSGcgTKAkq1kZySntgWJpPMPkBFNegzoljbKSx15g3yj
+	udFLMQXCzg4CwWNwR5lj5LIDj4cms31V8qxNzZdH8MfZ2zGjL5og36Th6UccoYuA
+	r33Owox3yia+Q4GxlFsgDyGBIvgeSddsSco9iXIhLitwarWjz2KF8A9E8G7cJ7Nw
+	JOTJ4GWLlIFtmX8xSo6G2JfyIFNUfqIjfz9unD3vDkc4zBI+gXsp/XW4Z/s3PQ7E
+	iea4+Q==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 445293a28j-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 14 Jan 2025 01:50:59 +0000 (GMT)
+Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 50E1owOU001385
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 14 Jan 2025 01:50:58 GMT
+Received: from [10.64.68.153] (10.80.80.8) by nalasex01c.na.qualcomm.com
+ (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 13 Jan
+ 2025 17:50:53 -0800
+Message-ID: <a96c2e49-217d-4c90-b32a-ad8eb439a4ec@quicinc.com>
+Date: Tue, 14 Jan 2025 09:50:51 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v7 3/3] net: stmmac: dwmac-nuvoton: Add dwmac
- glue for Nuvoton MA35 family
-To: Joey Lu <a0987203069@gmail.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, mcoquelin.stm32@gmail.com, richardcochran@gmail.com,
- devicetree@vger.kernel.org, ychuang3@nuvoton.com, netdev@vger.kernel.org,
- openbmc@lists.ozlabs.org, alexandre.torgue@foss.st.com,
- linux-kernel@vger.kernel.org, joabreu@synopsys.com,
- Andrew Lunn <andrew@lunn.ch>, schung@nuvoton.com, peppe.cavallaro@st.com,
- yclu4@nuvoton.com, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20250113055434.3377508-1-a0987203069@gmail.com>
- <20250113055434.3377508-4-a0987203069@gmail.com>
+Subject: Re: [PATCH v8 4/5] Coresight: Add Coresight TMC Control Unit driver
+To: James Clark <james.clark@linaro.org>
+CC: Jinlong Mao <quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        Tingwei Zhang <quic_tingweiz@quicinc.com>,
+        <linux-arm-msm@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        Alexander Shishkin
+	<alexander.shishkin@linux.intel.com>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+References: <20241226011022.1477160-1-quic_jiegan@quicinc.com>
+ <20241226011022.1477160-5-quic_jiegan@quicinc.com>
+ <5d8df2d3-41b9-4c21-ba63-c184bad50041@linaro.org>
 Content-Language: en-US
-From: Paul Menzel <pmenzel@molgen.mpg.de>
-In-Reply-To: <20250113055434.3377508-4-a0987203069@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Jie Gan <quic_jiegan@quicinc.com>
+In-Reply-To: <5d8df2d3-41b9-4c21-ba63-c184bad50041@linaro.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01c.na.qualcomm.com (10.47.97.35)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: xk4ojLngdV_PDRmpcdBL4eTSDueLoj9H
+X-Proofpoint-ORIG-GUID: xk4ojLngdV_PDRmpcdBL4eTSDueLoj9H
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 phishscore=0
+ lowpriorityscore=0 bulkscore=0 spamscore=0 mlxscore=0 impostorscore=0
+ malwarescore=0 priorityscore=1501 mlxlogscore=999 adultscore=0
+ clxscore=1015 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501140012
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_175025_564015_B757E94F 
-X-CRM114-Status: GOOD (  30.99  )
+X-CRM114-CacheID: sfid-20250113_175114_595013_089CE279 
+X-CRM114-Status: GOOD (  30.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,271 +117,219 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dear Joey,
 
 
-Thank you for your patch.
-
-Am 13.01.25 um 00:54 schrieb Joey Lu:
-> Add support for Gigabit Ethernet on Nuvoton MA35 series using dwmac driver.
-
-It’d be great if you added the datasheet name and revision to the commit 
-message.
-
-Also, please document how tested the driver. Maybe even paste new log 
-messages.
-
-> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-> Signed-off-by: Joey Lu <a0987203069@gmail.com>
-
-As you use your company email address in the AUTHOR line below, please 
-also add that email address to the commit message (and maybe even as the 
-author).
-
-> ---
->   drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 ++
->   drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
->   .../ethernet/stmicro/stmmac/dwmac-nuvoton.c   | 179 ++++++++++++++++++
->   3 files changed, 191 insertions(+)
->   create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c
+On 1/13/2025 8:05 PM, James Clark wrote:
 > 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-> index 4cc85a36a1ab..2b424544cf6f 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-> +++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-> @@ -121,6 +121,17 @@ config DWMAC_MESON
->   	  the stmmac device driver. This driver is used for Meson6,
->   	  Meson8, Meson8b and GXBB SoCs.
->   
-> +config DWMAC_NUVOTON
-> +	tristate "Nuvoton MA35 dwmac support"
-> +	default ARCH_MA35
-> +	depends on OF && (ARCH_MA35 || COMPILE_TEST)
-> +	select MFD_SYSCON
-> +	help
-> +	  Support for Ethernet controller on Nuvoton MA35 series SoC.
-> +
-> +	  This selects the Nuvoton MA35 series SoC glue layer support
-> +	  for the stmmac device driver.
+> 
+> On 26/12/2024 1:10 am, Jie Gan wrote:
+>> The Coresight TMC Control Unit hosts miscellaneous configuration 
+>> registers
+>> which control various features related to TMC ETR sink.
+>>
+>> Based on the trace ID, which is programmed in the related CTCU ATID
+>> register of a specific ETR, trace data with that trace ID gets into
+>> the ETR buffer, while other trace data gets dropped.
+>>
+>> Enabling source device sets one bit of the ATID register based on
+>> source device's trace ID.
+>> Disabling source device resets the bit according to the source
+>> device's trace ID.
+>>
+>> Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
+>> ---
+>>   drivers/hwtracing/coresight/Kconfig          |   8 +
+>>   drivers/hwtracing/coresight/Makefile         |   1 +
+>>   drivers/hwtracing/coresight/coresight-ctcu.c | 273 +++++++++++++++++++
+>>   drivers/hwtracing/coresight/coresight-ctcu.h |  21 ++
+>>   include/linux/coresight.h                    |   3 +-
+>>   5 files changed, 305 insertions(+), 1 deletion(-)
+>>   create mode 100644 drivers/hwtracing/coresight/coresight-ctcu.c
+>>   create mode 100644 drivers/hwtracing/coresight/coresight-ctcu.h
+>>
+>> diff --git a/drivers/hwtracing/coresight/Kconfig b/drivers/hwtracing/ 
+>> coresight/Kconfig
+>> index 06f0a7594169..152eab0b9b2a 100644
+>> --- a/drivers/hwtracing/coresight/Kconfig
+>> +++ b/drivers/hwtracing/coresight/Kconfig
+>> @@ -133,6 +133,14 @@ config CORESIGHT_STM
+>>         To compile this driver as a module, choose M here: the
+>>         module will be called coresight-stm.
+>> +config CORESIGHT_CTCU
+>> +    tristate "CoreSight TMC Control Unit driver"
+>> +    help
+>> +      This driver provides support for CoreSight TMC Control Unit
+>> +      that hosts miscellaneous configuration registers. This is
+>> +      primarily used for controlling the behaviors of the TMC
+>> +      ETR device.
+>> +
+>>   config CORESIGHT_CPU_DEBUG
+>>       tristate "CoreSight CPU Debug driver"
+>>       depends on ARM || ARM64
+>> diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/hwtracing/ 
+>> coresight/Makefile
+>> index 4ba478211b31..1b7869910a12 100644
+>> --- a/drivers/hwtracing/coresight/Makefile
+>> +++ b/drivers/hwtracing/coresight/Makefile
+>> @@ -51,3 +51,4 @@ coresight-cti-y := coresight-cti-core.o    
+>> coresight-cti-platform.o \
+>>              coresight-cti-sysfs.o
+>>   obj-$(CONFIG_ULTRASOC_SMB) += ultrasoc-smb.o
+>>   obj-$(CONFIG_CORESIGHT_DUMMY) += coresight-dummy.o
+>> +obj-$(CONFIG_CORESIGHT_CTCU) += coresight-ctcu.o
+>> diff --git a/drivers/hwtracing/coresight/coresight-ctcu.c b/drivers/ 
+>> hwtracing/coresight/coresight-ctcu.c
+>> new file mode 100644
+>> index 000000000000..7650dbe9a41e
+>> --- /dev/null
+>> +++ b/drivers/hwtracing/coresight/coresight-ctcu.c
+>> @@ -0,0 +1,273 @@
+>> +// SPDX-License-Identifier: GPL-2.0-only
+>> +/*
+>> + * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights 
+>> reserved.
+>> + */
+>> +
+>> +#include <linux/clk.h>
+>> +#include <linux/coresight.h>
+>> +#include <linux/device.h>
+>> +#include <linux/err.h>
+>> +#include <linux/kernel.h>
+>> +#include <linux/init.h>
+>> +#include <linux/io.h>
+>> +#include <linux/module.h>
+>> +#include <linux/mutex.h>
+>> +#include <linux/of.h>
+>> +#include <linux/platform_device.h>
+>> +#include <linux/slab.h>
+>> +
+>> +#include "coresight-ctcu.h"
+>> +#include "coresight-priv.h"
+>> +#include "coresight-trace-id.h"
+>> +
+>> +DEFINE_CORESIGHT_DEVLIST(ctcu_devs, "ctcu");
+>> +
+>> +#define ctcu_writel(drvdata, val, offset)    __raw_writel((val), 
+>> drvdata->base + offset)
+>> +#define ctcu_readl(drvdata, offset)        __raw_readl(drvdata->base 
+>> + offset)
+>> +
+>> +/* The TMC Coresight Control Unit uses four ATID registers to control 
+>> the data filter function based
+>> + * on the trace ID for each TMC ETR sink. The length of each ATID 
+>> register is 32 bits. Therefore,
+>> + * the ETR has a related field in CTCU that is 128 bits long. Each 
+>> trace ID is represented by one
+>> + * bit in that filed.
+>> + * e.g. ETR0ATID0 layout, set bit 5 for traceid 5
+>> + *                                           bit5
+>> + * ------------------------------------------------------
+>> + * |   |28|   |24|   |20|   |16|   |12|   |8|  1|4|   |0|
+>> + * ------------------------------------------------------
+>> + *
+>> + * e.g. ETR0:
+>> + * 127                     0 from ATID_offset for ETR0ATID0
+>> + * -------------------------
+>> + * |ATID3|ATID2|ATID1|ATID0|
+>> + *
+>> + */
+>> +#define CTCU_ATID_REG_OFFSET(traceid, atid_offset) \
+>> +        ((traceid / 32) * 4 + atid_offset)
+>> +
+>> +#define CTCU_ATID_REG_BIT(traceid)    (traceid % 32)
+>> +#define CTCU_ATID_REG_SIZE        0x10
+>> +
+>> +struct ctcu_atid_config {
+>> +    const uint32_t atid_offset;
+>> +    const uint32_t port_num;
+>> +};
+>> +
+>> +struct ctcu_config {
+>> +    const struct ctcu_atid_config *atid_config;
+>> +    int num_atid_config;
+>> +};
+>> +
+>> +static const struct ctcu_atid_config sa8775p_atid_cfgs[] = {
+>> +    {0xf8,  0},
+>> +    {0x108, 1},
+>> +};
+>> +
+>> +static const struct ctcu_config sa8775p_cfgs = {
+>> +    .atid_config        = sa8775p_atid_cfgs,
+>> +    .num_atid_config    = ARRAY_SIZE(sa8775p_atid_cfgs),
+>> +};
+>> +
+>> +/*
+>> + * __ctcu_set_etr_traceid: Set bit in the ATID register based on 
+>> trace ID when enable is true.
+>> + * Reset the bit of the ATID register based on trace ID when enable 
+>> is false.
+>> + *
+>> + * @csdev:    coresight_device struct related to the device
+>> + * @traceid:    trace ID of the source tracer.
+>> + * @enable:    True for set bit and false for reset bit.
+>> + *
+>> + * Returns 0 indicates success. Non-zero result means failure.
+>> + */
+>> +static int __ctcu_set_etr_traceid(struct coresight_device *csdev,
+>> +                  u8 traceid,
+>> +                  int port_num,
+>> +                  bool enable)
+>> +{
+>> +    uint32_t atid_offset, reg_offset, val;
+>> +    struct ctcu_drvdata *drvdata;
+>> +    int bit;
+>> +
+>> +    if (!IS_VALID_CS_TRACE_ID(traceid))
+>> +        return -EINVAL;
+> 
+> Minor point, but this was already done in the calling function.
+Thanks for comment. Totally agree with you, it's redundant codes here.
+I will remove it in next version.
 
-Also mention the module name `dwmac-nuvoton`?
+> 
+>> +
+>> +    drvdata = dev_get_drvdata(csdev->dev.parent);
+>> +    if (IS_ERR_OR_NULL(drvdata))
+>> +        return -EINVAL;
+>> +
+>> +    atid_offset = drvdata->atid_offset[port_num];
+>> +    if (atid_offset == 0)
+>> +        return -EINVAL;
+>> +
+>> +    guard(raw_spinlock_irqsave)(&drvdata->spin_lock);
+>> +    CS_UNLOCK(drvdata->base);
+>> +
+>> +    bit = CTCU_ATID_REG_BIT(traceid);
+>> +    reg_offset = CTCU_ATID_REG_OFFSET(traceid, atid_offset);
+> 
+> The locks only need to be around the read/write below. bit and 
+> reg_offset are all local and shouldn't be affected. Doesn't really make 
+> a difference but makes the code a bit more readable.
+Yes, agree with you. It makes sense and is easier to read. Will move the 
+CS_UNLOCK to the proper position.
 
-> +
->   config DWMAC_QCOM_ETHQOS
->   	tristate "Qualcomm ETHQOS support"
->   	default ARCH_QCOM
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
-> index b26f0e79c2b3..48e25b85ea06 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/Makefile
-> +++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
-> @@ -19,6 +19,7 @@ obj-$(CONFIG_DWMAC_IPQ806X)	+= dwmac-ipq806x.o
->   obj-$(CONFIG_DWMAC_LPC18XX)	+= dwmac-lpc18xx.o
->   obj-$(CONFIG_DWMAC_MEDIATEK)	+= dwmac-mediatek.o
->   obj-$(CONFIG_DWMAC_MESON)	+= dwmac-meson.o dwmac-meson8b.o
-> +obj-$(CONFIG_DWMAC_NUVOTON)	+= dwmac-nuvoton.o
->   obj-$(CONFIG_DWMAC_QCOM_ETHQOS)	+= dwmac-qcom-ethqos.o
->   obj-$(CONFIG_DWMAC_ROCKCHIP)	+= dwmac-rk.o
->   obj-$(CONFIG_DWMAC_RZN1)	+= dwmac-rzn1.o
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c
-> new file mode 100644
-> index 000000000000..edf1b88ce1cd
-> --- /dev/null
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c
-> @@ -0,0 +1,179 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Nuvoton DWMAC specific glue layer
-> + *
-> + * Copyright (C) 2024 Nuvoton Technology Corp.
-> + *
-> + * Author: Joey Lu <yclu4@nuvoton.com>
-> + */
-> +
-> +#include <linux/mfd/syscon.h>
-> +#include <linux/of_device.h>
-> +#include <linux/of_net.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/regmap.h>
-> +#include <linux/stmmac.h>
-> +
-> +#include "stmmac.h"
-> +#include "stmmac_platform.h"
-> +
-> +#define NVT_REG_SYS_GMAC0MISCR  0x108
-> +#define NVT_REG_SYS_GMAC1MISCR  0x10C
-> +
-> +#define NVT_MISCR_RMII          BIT(0)
-> +
-> +/* 2000ps is mapped to 0x0 ~ 0xF */
+> 
+>> +    if (reg_offset - atid_offset > CTCU_ATID_REG_SIZE) {
+>> +        CS_LOCK(drvdata);
+>> +        return -EINVAL;
+>> +    }
+>> +
+>> +    val = ctcu_readl(drvdata, reg_offset);
+>> +    if (enable)
+>> +        val = val | BIT(bit);
+>> +    else
+>> +        val = val & ~BIT(bit);
+>> +
+>> +    ctcu_writel(drvdata, val, reg_offset);
+>> +    CS_LOCK(drvdata->base);
+>> +
+>> +    return 0;
+>> +}
+>> +
+[...]
 
-Excuse my ignorance: What is ps?
+Thanks,
+Jie
 
-> +#define NVT_PATH_DELAY_DEC      134
-> +#define NVT_TX_DELAY_MASK       GENMASK(19, 16)
-> +#define NVT_RX_DELAY_MASK       GENMASK(23, 20)
-> +
-> +struct nvt_priv_data {
-> +	struct platform_device *pdev;
-> +	struct regmap *regmap;
-> +};
-> +
-> +static struct nvt_priv_data *
-> +nvt_gmac_setup(struct platform_device *pdev, struct plat_stmmacenet_data *plat)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct nvt_priv_data *bsp_priv;
-> +	phy_interface_t phy_mode;
-> +	u32 tx_delay, rx_delay;
-
-Please append the unit to the variable name.
-
-> +	u32 macid, arg, reg;
-> +
-> +	bsp_priv = devm_kzalloc(dev, sizeof(*bsp_priv), GFP_KERNEL);
-> +	if (!bsp_priv)
-> +		return ERR_PTR(-ENOMEM);
-> +
-> +	bsp_priv->regmap =
-> +		syscon_regmap_lookup_by_phandle_args(dev->of_node, "nuvoton,sys", 1, &macid);
-> +	if (IS_ERR(bsp_priv->regmap)) {
-> +		dev_err_probe(dev, PTR_ERR(bsp_priv->regmap), "Failed to get sys register\n");
-> +		return ERR_PTR(-ENODEV);
-> +	}
-> +	if (macid > 1) {
-> +		dev_err_probe(dev, -EINVAL, "Invalid sys arguments\n");
-> +		return ERR_PTR(-EINVAL);
-> +	}
-> +
-> +	if (of_property_read_u32(dev->of_node, "tx-internal-delay-ps", &arg)) {
-> +		tx_delay = 0;
-> +	} else {
-> +		if (arg <= 2000) {
-> +			tx_delay = (arg == 2000) ? 0xF : (arg / NVT_PATH_DELAY_DEC);
-
-Write hexcharacters lowercase?
-
-> +			dev_dbg(dev, "Set Tx path delay to 0x%x\n", tx_delay);
-> +		} else {
-> +			dev_err(dev, "Invalid Tx path delay argument.\n");
-> +			return ERR_PTR(-EINVAL);
-> +		}
-> +	}
-> +	if (of_property_read_u32(dev->of_node, "rx-internal-delay-ps", &arg)) {
-> +		rx_delay = 0;
-> +	} else {
-> +		if (arg <= 2000) {
-> +			rx_delay = (arg == 2000) ? 0xF : (arg / NVT_PATH_DELAY_DEC);
-> +			dev_dbg(dev, "Set Rx path delay to 0x%x\n", rx_delay);
-> +		} else {
-> +			dev_err(dev, "Invalid Rx path delay argument.\n");
-> +			return ERR_PTR(-EINVAL);
-> +		}
-> +	}
-> +
-> +	regmap_read(bsp_priv->regmap,
-> +		    macid == 0 ? NVT_REG_SYS_GMAC0MISCR : NVT_REG_SYS_GMAC1MISCR, &reg);
-> +	reg &= ~(NVT_TX_DELAY_MASK | NVT_RX_DELAY_MASK);
-> +
-> +	if (of_get_phy_mode(pdev->dev.of_node, &phy_mode)) {
-> +		dev_err(dev, "missing phy mode property\n");
-> +		return ERR_PTR(-EINVAL);
-> +	}
-> +
-> +	switch (phy_mode) {
-> +	case PHY_INTERFACE_MODE_RGMII:
-> +	case PHY_INTERFACE_MODE_RGMII_ID:
-> +	case PHY_INTERFACE_MODE_RGMII_RXID:
-> +	case PHY_INTERFACE_MODE_RGMII_TXID:
-> +		reg &= ~NVT_MISCR_RMII;
-> +		break;
-> +	case PHY_INTERFACE_MODE_RMII:
-> +		reg |= NVT_MISCR_RMII;
-> +		break;
-> +	default:
-> +		dev_err(dev, "Unsupported phy-mode (%d)\n", phy_mode);
-> +		return ERR_PTR(-EINVAL);
-> +	}
-> +
-> +	if (!(reg & NVT_MISCR_RMII)) {
-> +		reg |= FIELD_PREP(NVT_TX_DELAY_MASK, tx_delay);
-> +		reg |= FIELD_PREP(NVT_RX_DELAY_MASK, rx_delay);
-> +	}
-> +
-> +	regmap_write(bsp_priv->regmap,
-> +		     macid == 0 ? NVT_REG_SYS_GMAC0MISCR : NVT_REG_SYS_GMAC1MISCR, reg);
-> +
-> +	bsp_priv->pdev = pdev;
-> +
-> +	return bsp_priv;
-> +}
-> +
-> +static int nvt_gmac_probe(struct platform_device *pdev)
-> +{
-> +	struct plat_stmmacenet_data *plat_dat;
-> +	struct stmmac_resources stmmac_res;
-> +	struct nvt_priv_data *priv_data;
-> +	int ret;
-> +
-> +	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
-> +	if (ret)
-> +		return ret;
-> +
-> +	plat_dat = devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
-> +	if (IS_ERR(plat_dat))
-> +		return PTR_ERR(plat_dat);
-> +
-> +	/* Nuvoton DWMAC configs */
-> +	plat_dat->has_gmac = 1;
-> +	plat_dat->tx_fifo_size = 2048;
-> +	plat_dat->rx_fifo_size = 4096;
-> +	plat_dat->multicast_filter_bins = 0;
-> +	plat_dat->unicast_filter_entries = 8;
-> +	plat_dat->flags &= ~STMMAC_FLAG_USE_PHY_WOL;
-> +
-> +	priv_data = nvt_gmac_setup(pdev, plat_dat);
-> +	if (IS_ERR(priv_data))
-> +		return PTR_ERR(priv_data);
-> +
-> +	ret = stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
-> +	if (ret)
-> +		return ret;
-> +
-> +	/* The PMT flag is determined by the RWK property.
-> +	 * However, our hardware is configured to support only MGK.
-> +	 * This is an override on PMT to enable WoL capability.
-> +	 */
-> +	plat_dat->pmt = 1;
-> +	device_set_wakeup_capable(&pdev->dev, 1);
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct of_device_id nvt_dwmac_match[] = {
-> +	{ .compatible = "nuvoton,ma35d1-dwmac"},
-> +	{ }
-> +};
-> +MODULE_DEVICE_TABLE(of, nvt_dwmac_match);
-> +
-> +static struct platform_driver nvt_dwmac_driver = {
-> +	.probe  = nvt_gmac_probe,
-> +	.remove = stmmac_pltfr_remove,
-> +	.driver = {
-> +		.name           = "nuvoton-dwmac",
-> +		.pm		= &stmmac_pltfr_pm_ops,
-> +		.of_match_table = nvt_dwmac_match,
-> +	},
-> +};
-> +module_platform_driver(nvt_dwmac_driver);
-> +
-> +MODULE_AUTHOR("Joey Lu <yclu4@nuvoton.com>");
-
-Maybe Nuvoton can set up a generic address?
-
-> +MODULE_DESCRIPTION("Nuvoton DWMAC specific glue layer");
-> +MODULE_LICENSE("GPL v2");
-
-
-Kind regards,
-
-Paul
 
