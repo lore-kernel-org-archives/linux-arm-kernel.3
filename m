@@ -4,94 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D28E8C02185
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 16:56:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6618AE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 17:07:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=80y0ZD2DqPk4N5CYZbDl0WM8yXhgHTstPGSnJZeMvKg=; b=N+zLNk05ACXIoNkqLq7splQeo1
-	bR/yEVb6z1BrsPs2AwQ7c6l4ryzMd2J05zA5enlQK+Sva/M/C8+uvtjJbgXJWl3GzGaGh1QdPkCVT
-	DMbq3H17+LxLgC3PPNF51ZTnW+1JNMMLAy+GqzI80oZfhnpFcBWCgqqIYaP6+KWIu4WDymGyTDbAI
-	sqOPcR3L1m1O5x/H7LdQnCqHys+s5sdJ/kxUrZdf4mtQUi3cTelCeDe3D1CbdqNkFAAF7Qeskg9Mh
-	7/0c3OZGmiDs9yQNvns8NmZx3qXxibQAUJCGMU3Wx2YPGEfcZmBm956T/VDRko7UeHN0EPolo9Nl1
-	czf6eAeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=9CdsmnJl5aX0L+3MqRS3f3dS0mcweThdi1+oJ2V9Dpw=; b=yC7R+DKpjuL5/E
+	XI3Z6qI07k1A3OOEHNHG7hgAWDbqsGQmonk0bGS6f6IqH9aQDofwCgTlF/c3Sf+IevNDLmSHlaA5h
+	kH5c3mJfDWTR1j+FHCgwojNo4eRofPRxrrcfGABz5uyBeU/omi4kb9TG7l5P76wM/xUC3870X8qQf
+	pvATycgYCdJlH7sIC/fN/h17DHjvyFJQ9apssgxqN+KEoFDk/oefWic3L+foTFya0jljpKMrmV8Fr
+	heWqAaLXoueyslJElnIUSIwFLIjrKfrypDVbcqkswoIkZ97D/hpncplYUnpSfwS0JmyNYbfXtG7n1
+	JKh3aFY0+EJW96q8KTXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXkCt-000000096Cw-2dVE;
-	Tue, 14 Jan 2025 16:55:59 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1tXkNQ-0000000988v-0Kdg;
+	Tue, 14 Jan 2025 17:06:52 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXkBd-000000095wP-3NYF
+	id 1tXkMA-000000097xq-2TkD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 16:54:43 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-43626213fffso41329025e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 08:54:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736873680; x=1737478480; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=80y0ZD2DqPk4N5CYZbDl0WM8yXhgHTstPGSnJZeMvKg=;
-        b=qayvh7cXaL2HRDifWgZ5641H5mlfVEjBGOwAklBX593DpwxTtBx1Ru8nGlrSUNA+fU
-         eJAZ9RwLdztFaPmxNn4fVXmWQSg4yRYNMEl9UPPWEb/McwNmTe5HtVv9Wf86+N0foZ4R
-         vHLTrbcv1gFHkhsId9+X9LInMc0nERbB4oiXcohm96iRz0UX42qP8FpavDzYsudNM2Q0
-         az/XIfT1WjPME64h0M4fHvX0p3iR54FuWsOzA+qUoY3s6J3wumsS0pC6vObfH4RdkMYh
-         LkKWXE72BelpCDvwx/hC7/mu3ZgiGXxHmTOOskXhQX3AvZ34vdhFLiZlpXUK5UZwyZ0m
-         gEgw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736873680; x=1737478480;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=80y0ZD2DqPk4N5CYZbDl0WM8yXhgHTstPGSnJZeMvKg=;
-        b=eRIlmyTcL+IFjABn7Hzn1+oFVMRbw7utOh5x1a/Pur6f1zCF1++fD2rHawiIVv/RZ0
-         uC6Utq3HoM4qwqvGmNve0l+FJsh7bDuWunvq+6aIIQ7rHHiSHZAJ6sP/Ag2MNAQXCkfp
-         exVDC7z6tiiRWRTAJVvSN9h3vbQ+/e4suzENikk//JAKvFhYMa5P+M8VxG0oEY3528wt
-         wdXE7LTEqJfznyRGHYTEXdaKzGj/1QkHdo7fW1X2dRHKJvHr2nZZ7Tb0lYtLUpiJTBpR
-         bi7E2Q48hFx9jLgqgmU/adEZaz4Ul4YYaloBWac1D4L1jutujJwHySWHOnPzo8zwEd6P
-         214Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXM1Y0ibVWhzGO72Qy5OFbaevVO5s1cMn90ZEs1EmF2HaE0PGBrLIYMd5AZVV8ebY6uKYh2Bg6eP97Lu+yjDI8V@lists.infradead.org
-X-Gm-Message-State: AOJu0YzJH4dFrAXWbwdCTL2FMSTHKykNGXLZ6DGiDz8VyGaNBuOS1Wop
-	EkBIeSpdv2pLeLsmopY/OgGMqXSrvL3PrvASf3pefEJMq/B+mFurbQ+T1avQ3qk=
-X-Gm-Gg: ASbGncvGEAwkJ8/gT3cppw7fBmAZhIwd9V5s3e0OBhsAJ6XIMqRel0X0C3iyuLOx8VZ
-	WwYXYjqfos+CRyoW//BSjSaOirSXJ06qCSmLrCDGTwGlaXWYNgreObx06AbpgLR3cIaVRSYDUw2
-	uKWLT8mL5+Xqpmgv4HHIBnZ5O5w70vqrSPIwJjVNHcGObgRZHBcfZnp3FxH5q4+X/qIPqkpOXb2
-	+T1t1UGIMeQYgUWL+ZsFgdblNnBpgJDnG8c9gV3VgzcFhNlGJ9L/gS25Fw4HIW331I=
-X-Google-Smtp-Source: AGHT+IFiSz9B8Y/tFYQ0oTGPiQrOjEXpcMKzTOAox1qutsuyH4237qdiFg4uxD6I3EHJ58Yi2W/NwQ==
-X-Received: by 2002:a05:600c:3d0c:b0:434:9e17:190c with SMTP id 5b1f17b1804b1-436e9c9c052mr164758145e9.0.1736873680089;
-        Tue, 14 Jan 2025 08:54:40 -0800 (PST)
-Received: from [192.168.243.26] ([80.233.75.14])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e2dc0bb7sm213674845e9.16.2025.01.14.08.54.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jan 2025 08:54:39 -0800 (PST)
-Message-ID: <98bc4711aaf8d35f36435da8901e2805d3984db1.camel@linaro.org>
-Subject: Re: [PATCH v2] scsi: ufs: fix use-after free in init error and
- remove paths
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Alim Akhtar <alim.akhtar@samsung.com>, Avri Altman
- <avri.altman@wdc.com>,  Bart Van Assche <bvanassche@acm.org>, "James E.J.
- Bottomley" <James.Bottomley@HansenPartnership.com>, "Martin K. Petersen"
- <martin.petersen@oracle.com>, Peter Griffin <peter.griffin@linaro.org>,
- Krzysztof Kozlowski <krzk@kernel.org>, Manivannan Sadhasivam
- <manivannan.sadhasivam@linaro.org>,  Eric Biggers <ebiggers@kernel.org>
-Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, Will McVicker
- <willmcvicker@google.com>, kernel-team@android.com,
- linux-scsi@vger.kernel.org,  linux-kernel@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
- linux-arm-msm@vger.kernel.org,  stable@vger.kernel.org
-Date: Tue, 14 Jan 2025 16:54:37 +0000
-In-Reply-To: <20250114-ufshcd-fix-v2-1-2dc627590a4a@linaro.org>
-References: <20250114-ufshcd-fix-v2-1-2dc627590a4a@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.1-4 
+	Tue, 14 Jan 2025 17:05:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id ACE23A4190A;
+	Tue, 14 Jan 2025 17:03:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43AF4C4CEDD;
+	Tue, 14 Jan 2025 17:05:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736874333;
+	bh=4l1I+oCpVV7aVqBA/IRj6rgmTYIBnLenVcNim925x0E=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=lDVH8LkqBChhnuAGdV3aOQRdWR9sekjlr8og2bRGHplaBVZoyD1txgGW1pwALmvQq
+	 Hk1pk0EOjmzDMuh8/NRG65sEqF9Zwc0gX7ZSucljn7YKUxU88Cu6j9F2fMYpBKNHNN
+	 PqON+4tUWgo/5Dye6ShWYBh9PLNgsMKL6iYUwXOTED7Zf77Wsw8p8TmBJ/zR/X6uRA
+	 zFEtYX0laUVdmC3xya+m5cgWeu5KI1rhgVN8bF3loS+XAGJa7YZoaWYUKaWs2ZE3cW
+	 5sCdeKVBH8rbx29Dajlly0m5urNK3D3iTGsi5VlgvyP7nNh1EKXi9FSBRCftlmEDh9
+	 TIqh1LgB7cS+g==
+Date: Tue, 14 Jan 2025 11:05:30 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Christian Bruel <christian.bruel@foss.st.com>
+Cc: lpieralisi@kernel.org, kw@linux.com, manivannan.sadhasivam@linaro.org,
+	robh@kernel.org, bhelgaas@google.com, krzk+dt@kernel.org,
+	conor+dt@kernel.org, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, p.zabel@pengutronix.de,
+	cassel@kernel.org, quic_schintav@quicinc.com,
+	fabrice.gasnier@foss.st.com, linux-pci@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 4/5] PCI: stm32: Add PCIe endpoint support for
+ STM32MP25
+Message-ID: <20250114170530.GA464935@bhelgaas>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ef02ddbf-0838-4616-a3c5-ef7ab55de3c9@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_085441_856764_B95EA983 
-X-CRM114-Status: GOOD (  20.13  )
+X-CRM114-CacheID: sfid-20250114_090534_694016_8B04577F 
+X-CRM114-Status: GOOD (  22.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,147 +78,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2025-01-14 at 16:16 +0000, Andr=C3=A9 Draszik wrote:
-> devm_blk_crypto_profile_init() registers a cleanup handler to run when
-> the associated (platform-) device is being released. For UFS, the
-> crypto private data and pointers are stored as part of the ufs_hba's
-> data structure 'struct ufs_hba::crypto_profile'. This structure is
-> allocated as part of the underlying ufshd allocation.
->=20
-> During driver release or during error handling in ufshcd_pltfrm_init(),
-> this structure is released as part of ufshcd_dealloc_host() before the
-> (platform-) device associated with the crypto call above is released.
-> Once this device is released, the crypto cleanup code will run, using
-> the just-released 'struct ufs_hba::crypto_profile'. This causes a
-> use-after-free situation:
->=20
-> =C2=A0=C2=A0=C2=A0 exynos-ufshc 14700000.ufs: ufshcd_pltfrm_init() failed=
- -11
-> =C2=A0=C2=A0=C2=A0 exynos-ufshc 14700000.ufs: probe with driver exynos-uf=
-shc failed with error -11
-> =C2=A0=C2=A0=C2=A0 Unable to handle kernel paging request at virtual addr=
-ess 01adafad6dadad88
-> =C2=A0=C2=A0=C2=A0 Mem abort info:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ESR =3D 0x0000000096000004
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 EC =3D 0x25: DABT (current EL), IL =3D 32 =
-bits
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 SET =3D 0, FnV =3D 0
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 EA =3D 0, S1PTW =3D 0
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 FSC =3D 0x04: level 0 translation fault
-> =C2=A0=C2=A0=C2=A0 Data abort info:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ISV =3D 0, ISS =3D 0x00000004, ISS2 =3D 0x=
-00000000
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 CM =3D 0, WnR =3D 0, TnD =3D 0, TagAccess =
-=3D 0
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 GCS =3D 0, Overlay =3D 0, DirtyBit =3D 0, =
-Xs =3D 0
-> =C2=A0=C2=A0=C2=A0 [01adafad6dadad88] address between user and kernel add=
-ress ranges
-> =C2=A0=C2=A0=C2=A0 Internal error: Oops: 0000000096000004 [#1] PREEMPT SM=
-P
-> =C2=A0=C2=A0=C2=A0 Modules linked in:
-> =C2=A0=C2=A0=C2=A0 CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Tainted: G=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 W=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 6.13.0-rc5-next-20250106+ #70
-> =C2=A0=C2=A0=C2=A0 Tainted: [W]=3DWARN
-> =C2=A0=C2=A0=C2=A0 Hardware name: Oriole (DT)
-> =C2=A0=C2=A0=C2=A0 pstate: 20400005 (nzCv daif +PAN -UAO -TCO -DIT -SSBS =
-BTYPE=3D--)
-> =C2=A0=C2=A0=C2=A0 pc : kfree+0x60/0x2d8
-> =C2=A0=C2=A0=C2=A0 lr : kvfree+0x44/0x60
-> =C2=A0=C2=A0=C2=A0 sp : ffff80008009ba80
-> =C2=A0=C2=A0=C2=A0 x29: ffff80008009ba90 x28: 0000000000000000 x27: ffffb=
-cc6591e0130
-> =C2=A0=C2=A0=C2=A0 x26: ffffbcc659309960 x25: ffffbcc658f89c50 x24: ffffb=
-cc659539d80
-> =C2=A0=C2=A0=C2=A0 x23: ffff22e000940040 x22: ffff22e001539010 x21: ffffb=
-cc65714b22c
-> =C2=A0=C2=A0=C2=A0 x20: 6b6b6b6b6b6b6b6b x19: 01adafad6dadad80 x18: 00000=
-00000000000
-> =C2=A0=C2=A0=C2=A0 x17: ffffbcc6579fbac8 x16: ffffbcc657a04300 x15: ffffb=
-cc657a027f4
-> =C2=A0=C2=A0=C2=A0 x14: ffffbcc656f969cc x13: ffffbcc6579fdc80 x12: ffffb=
-cc6579fb194
-> =C2=A0=C2=A0=C2=A0 x11: ffffbcc6579fbc34 x10: 0000000000000000 x9 : ffffb=
-cc65714b22c
-> =C2=A0=C2=A0=C2=A0 x8 : ffff80008009b880 x7 : 0000000000000000 x6 : ffff8=
-0008009b940
-> =C2=A0=C2=A0=C2=A0 x5 : ffff80008009b8c0 x4 : ffff22e000940518 x3 : ffff2=
-2e006f54f40
-> =C2=A0=C2=A0=C2=A0 x2 : ffffbcc657a02268 x1 : ffff80007fffffff x0 : ffffc=
-1ffc0000000
-> =C2=A0=C2=A0=C2=A0 Call trace:
-> =C2=A0=C2=A0=C2=A0=C2=A0 kfree+0x60/0x2d8 (P)
-> =C2=A0=C2=A0=C2=A0=C2=A0 kvfree+0x44/0x60
-> =C2=A0=C2=A0=C2=A0=C2=A0 blk_crypto_profile_destroy_callback+0x28/0x70
-> =C2=A0=C2=A0=C2=A0=C2=A0 devm_action_release+0x1c/0x30
-> =C2=A0=C2=A0=C2=A0=C2=A0 release_nodes+0x6c/0x108
-> =C2=A0=C2=A0=C2=A0=C2=A0 devres_release_all+0x98/0x100
-> =C2=A0=C2=A0=C2=A0=C2=A0 device_unbind_cleanup+0x20/0x70
-> =C2=A0=C2=A0=C2=A0=C2=A0 really_probe+0x218/0x2d0
->=20
-> In other words, the initialisation code flow is:
->=20
-> =C2=A0 platform-device probe
-> =C2=A0=C2=A0=C2=A0 ufshcd_pltfrm_init()
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ufshcd_alloc_host()
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 scsi_host_alloc()
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 allocation of stru=
-ct ufs_hba
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 creation of scsi-h=
-ost devices
-> =C2=A0=C2=A0=C2=A0 devm_blk_crypto_profile_init()
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 devm registration of cleanup handler using=
- platform-device
->=20
-> and during error handling of ufshcd_pltfrm_init() or during driver
-> removal:
->=20
-> =C2=A0 ufshcd_dealloc_host()
-> =C2=A0=C2=A0=C2=A0 scsi_host_put()
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 put_device(scsi-host)
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 release of struct ufs_hba
-> =C2=A0 put_device(platform-device)
-> =C2=A0=C2=A0=C2=A0 crypto cleanup handler
->=20
-> To fix this use-after free, change ufshcd_alloc_host() to register a
-> devres action to automatically cleanup the underlying SCSI device on
-> ufshcd destruction, without requiring explicit calls to
-> ufshcd_dealloc_host(). This way:
->=20
-> =C2=A0=C2=A0=C2=A0 * the crypto profile and all other ufs_hba-owned resou=
-rces are
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 destroyed before SCSI (as they've been reg=
-istered after)
-> =C2=A0=C2=A0=C2=A0 * a memleak is plugged in tc-dwc-g210-pci.c as a side-=
-effect
-> =C2=A0=C2=A0=C2=A0 * EXPORT_SYMBOL_GPL(ufshcd_dealloc_host) can be remove=
-d fully as
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 it's not needed anymore
-> =C2=A0=C2=A0=C2=A0 * no future drivers using ufshcd_alloc_host() could ev=
-er forget
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 adding the cleanup
->=20
-> Fixes: cb77cb5abe1f ("blk-crypto: rename blk_keyslot_manager to blk_crypt=
-o_profile")
-> Fixes: d76d9d7d1009 ("scsi: ufs: use devm_blk_ksm_init()")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
-> ---
-> Changes in v2:
-> - completely new approach using devres action for Scsi_host cleanup, to
-> =C2=A0 ensure ordering
+On Mon, Dec 16, 2024 at 03:00:58PM +0100, Christian Bruel wrote:
+> On 12/5/24 18:27, Bjorn Helgaas wrote:
+> > On Tue, Nov 26, 2024 at 04:51:18PM +0100, Christian Bruel wrote:
+> > > Add driver to configure the STM32MP25 SoC PCIe Gen2 controller based on the
+> > > DesignWare PCIe core in endpoint mode.
 
-As mentioned, I am not sure if this approach has wider implications
-(in particular if there is any underlying assumption or requirement
-for the Scsi_host device to clean up before the ufshcd device).
+> > > +static void stm32_pcie_ep_init(struct dw_pcie_ep *ep)
+> > > +{
+> > > +	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
+> > > +	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
+> > > +	enum pci_barno bar;
+> > > +
+> > > +	for (bar = 0; bar < PCI_STD_NUM_BARS; bar++)
+> > > +		dw_pcie_ep_reset_bar(pci, bar);
+> > > +
+> > > +	/* Defer Completion Requests until link started */
+> > 
+> > I asked about this before [1] but didn't finish the conversation.  My
+> > main point is that I think "Completion Request" is a misnomer.
+> > There's a "Configuration Request" and a "Completion," but no such
+> > thing as a "Completion Request."
+> > 
+> > Based on your previous response, I think this should say something
+> > like "respond to config requests with Request Retry Status (RRS) until
+> > we're prepared to handle them."
+> 
+> OK thanks for the phrasing. This is inline with the DWC doc:
+> "... controller completes incoming configuration requests with a
+> configuration request retry status."
+> The only thing is that the PCIe specs talks about CRS, not RRS.
+> 
+> so slightly change to
+> "respond to config requests with Configuration Request Retry Status (CRS)
+> until we're prepared to handle them."
 
-Simple testing using a few iteration of manual module bind/unbind
-worked, as did the error handling / cleanup during init. But I'm
-not sure if that is sufficient testing for the changed release
-ordering.
+This terminology between PCIe r5.0 and r6.0.  In r5.0, sec 2.2.9
+labels Completion Status value 010b as "Configuration Request Retry
+Status (CRS)", but in r6.0, sec 2.2.9.1 labels that same value as
+"Request Retry Status (RRS)".
 
-Cheers,
-Andre'
+We changed most usage inside drivers/pci/ to align with the r6.0 term
+with https://git.kernel.org/linus/87f10faf166a ("PCI: Rename CRS
+Completion Status to RRS").
 
+But with respect to this patch, changing "Completion Request" to
+"Configuration Request" is the main thing.
+
+Bjorn
 
