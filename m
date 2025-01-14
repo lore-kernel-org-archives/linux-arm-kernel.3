@@ -4,165 +4,195 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C784C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 00:30:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5903FC02180
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 00:54:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eL4bs8CVlaoVbG2zWUwDRX8wCXxRTxkBkXW/7I5O8Ls=; b=jenqWrds/TVQjFxA7iVb4fmpiE
-	rpiieslGuypO3YETRR+7iggotvcptrHPIfWSyfmnyBmwoCuYOXrRE4u51bLubu2NLQ3K31fHQhKCN
-	7rTWSohirMfa1wGTvJb1CcZFORXgRVYZfDVB0N+ZOMQN+z73Y0+OzeAH8HNPXqX58cwkvFRtcYAbl
-	det3n23ExccXsAbxpT5sMX6TA+TTxkF1s7kJ5bC4fzE8RDkgHOnwG4xIronPpXtIX7z5i3M6aBJlw
-	XyhsuoW9X0S4kDvwJn8g20KKnu6dGw2OF/OYHgm65zCxXQ5lVHKnbgxibVn6ytfK8zk+oGHwraToz
-	vPeK82HQ==;
+	bh=QSFxISSDfwluD9O4dg9MCl2MFC9m1ysTr2vDH0AoHOs=; b=R/2Zfxa6DwW3VmE52v03foaPsm
+	snA/yM0mxkTQX0Y7Irfo315b8XhMk+vkN/xf6NnbhcvyiWT4jG3wVKpWHZ3ZDI2LJvZecc81wDTnL
+	0+PwGewDnF+FYA8x0xB0AuAXZYJ3uCLlUD08rXUwaoyMiVXd95iGudShiyZsWD4pPTxX3xFYoVhOJ
+	oKBYhn7Ach1Iv5e45p9XTbA9OMV0Zgo6epkTvizGGMof8jNtNPzLZJnzslI9htfOE+BriirjHom4L
+	3knGgCOkyNK6cXvsn24Qa1tHyY5zu7JWMazEmwjJpDTGMDpVkR35kcRrti9Zx20sPrD9KixA5KjxA
+	6dk8BRag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXUoa-000000073C1-2TOM;
-	Tue, 14 Jan 2025 00:29:52 +0000
-Received: from mail-westus2azlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c002::] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	id 1tXVCP-000000075SK-2lL3;
+	Tue, 14 Jan 2025 00:54:29 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXUnL-0000000736l-06th
+	id 1tXVBA-000000075He-1NLf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 00:28:36 +0000
+	Tue, 14 Jan 2025 00:53:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1736815993; x=1768351993;
+  h=date:from:to:cc:subject:message-id:references:
+   in-reply-to:mime-version;
+  bh=Fy+oWXZoO04vfjx8tNv5ufVOKcON14nWaCUXDKfmSp0=;
+  b=Sd3A37G06puLxcHyFUOSADsHddPyBnVmd1BCGX2SxTPCIxb0xWl3bD3p
+   pke4c9f1koS/EYowuXHUh0S7Riv8lhkijaVz76fxHUtbXvL0arXiwKpzZ
+   c9CGwpJ1QoxTCQtII+NHzrdVHcJ2/mEfdnesjFPLJuSxQUVPRmr4JdG2Y
+   kHyDmIPmeVRLdXlRe2bEILIrXZSN5M8tDLmravhgDZik65TRGGLvttHnF
+   ar+HraNV/jUV5mN8KcUZa/2PP0FH1nhm4b8/hXgfAFOrf4AnPXX5t/mtn
+   OETQQZ7v+QxLomzc64qfPgDlrbbbUsWYtcuxaFxpo6PkDlnHtxhYLCHLh
+   g==;
+X-CSE-ConnectionGUID: 1sgoByeETqOjMvBlOVxNsA==
+X-CSE-MsgGUID: 698DKPBcSPquCDAp0wfUTw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="37214030"
+X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
+   d="scan'208";a="37214030"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jan 2025 16:53:10 -0800
+X-CSE-ConnectionGUID: Xdfvy6ZzRY2Dp4I70+/E0A==
+X-CSE-MsgGUID: Yd2HPV1ISBiIEUdNw3SCvQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,312,1728975600"; 
+   d="scan'208";a="109632548"
+Received: from orsmsx601.amr.corp.intel.com ([10.22.229.14])
+  by orviesa004.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 13 Jan 2025 16:53:10 -0800
+Received: from orsmsx601.amr.corp.intel.com (10.22.229.14) by
+ ORSMSX601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Mon, 13 Jan 2025 16:53:09 -0800
+Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
+ orsmsx601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44 via Frontend Transport; Mon, 13 Jan 2025 16:53:09 -0800
+Received: from NAM11-DM6-obe.outbound.protection.outlook.com (104.47.57.169)
+ by edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.44; Mon, 13 Jan 2025 16:53:09 -0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gSvq5CF8bgLYxZp/XODGRo1Aq7kQbrV1OSx/3/Vw0cS6gP7sfYfuW3gR5pmR/QGc+Q4rz04INuCWsSREOnlamSO+sRw3sJCwZ3qOxShEUYm06J99q9Sc5HJ8HRfSrvG7Xz6Oju17tVEc5VMJCaLNKevqLbSqS8ZWSbyAHBr60cCfZQKwUSLEPOTCcJXjpOWb53jKiTFXpD3MJ++ixoor1L0EX286Ii4XJBYgaYWcZfsP0r/t4285vPL+/FH8+eqdlW++mw19+K4veLZ6wGXyuqC4/UG1WFxKj9z9CiyvNVhhpddspHrVbGxGfnUXOccD6IHX+zT/PX1l3SeR5j/Pow==
+ b=a+s8H65ic82k/zpoElmrgYd+q1o5MPG1Y29NJHi53TFJVZ6SsLtDgDzQ5y6A+EZ9+8fx3ktYvAThbUROaiCBQ+q12if3sTcb8ZTKSFIu5dRYxKF4Nrbp/qvvktbfja2qm9gLMEWS6jY+jq40Rr3AXpkUOo2OlV6Y/89FWrhCl95gIATAXKdtdKMIKwNT9SrhH5v//o5t0LlTIuZbGjtw4s5HlGx+EJqo8FU+f4ZyLmTl/338965PCFkWRzB02yv75hOm85JXgiqKDfH6Dvb8s+tDlVO6yeSTeYSAa+fn8co1l5u5wJcQhS//kCJOpfmahMwoL83ezClKuLKUFUhtiA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eL4bs8CVlaoVbG2zWUwDRX8wCXxRTxkBkXW/7I5O8Ls=;
- b=xITDbhk7Nab7Rmb7+r23X1GJVVnDyOkEq9VKb6eyk9cU2XgrdcslNLoqjdbbC6Kakxb3cl2zKvDmArZv+52OcRAr472ebqGhaFuYbs1lBtquV5qNgOFlUvPWX+KLl7J2c2G9ZVB8IYqjd0ZY6knDB+6sqcWWQQ6YA8y0qhX/pwMaXnx12Sr8jZgrlqDBhXUWNRrR0aVMzMCB5iWveXElT+OK/zWA5X2r072SVjbzXc4vzm727LdwO4PXW1ZpRS3dOMffpCVvH5SlG1Lg1nLNchB8+hiwLye4fqw03KT8S9P2hGrZ6MhwhmgnHS9S+k6Utq6vXiTAIFzg6DiG701ESw==
+ bh=QSFxISSDfwluD9O4dg9MCl2MFC9m1ysTr2vDH0AoHOs=;
+ b=MWq/TmrCSbtTCqA/oz2t+P7wZsbb9MqoKXK/q/jFpgxY5Ms/LoWdNkWSg5/ECQbeObaah3/QjyH6Qm5ihF6ZVNDODn16V8NHj+eQ83uDgKxrFzb6aVpDELOnikzhbOirdqGuwkfHYKSyR4yEwGgQFkJ5UEZiGx/EeXZYfb5/cTS1CYrsHuiAh78qPII84bHWhDxrmEOd8D8Uu9sJxyRjYgHhdLrY8Becz4o7jqKU7s7nSGY7LukYRBToSIFou5PJ81sgvF1kZhsFQMnNt5l5BCn4uHcO8sTYiU14jKiw5rT07Im/XpnR4wQtaoLZQAtoxbxim4AQ2qY3AI7LOlne/w==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eL4bs8CVlaoVbG2zWUwDRX8wCXxRTxkBkXW/7I5O8Ls=;
- b=KDzTfh1SIBHQUp6z0yB9tFYva3pR22AyOuHr2G2ncaS0jmbUno4c6bWQHDwd9rNDsLkDCy1pdrVrIJ4dT1/p/rn5eEFgCvh+eL/Aefa34t72zU8KAj64Z7JBeLUETvvaSskSQWNWWWXdawowWZqg/PHv+1Xy2hdSWu9Kot6UjdI=
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from MW4PR01MB6228.prod.exchangelabs.com (2603:10b6:303:76::7) by
- PH0PR01MB7995.prod.exchangelabs.com (2603:10b6:510:28c::22) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8356.11; Tue, 14 Jan 2025 00:28:22 +0000
-Received: from MW4PR01MB6228.prod.exchangelabs.com
- ([fe80::13ba:df5b:8558:8bba]) by MW4PR01MB6228.prod.exchangelabs.com
- ([fe80::13ba:df5b:8558:8bba%7]) with mapi id 15.20.8356.010; Tue, 14 Jan 2025
- 00:28:22 +0000
-Date: Mon, 13 Jan 2025 16:28:16 -0800 (PST)
-From: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-cc: Ilkka Koskinen <ilkka@os.amperecomputing.com>, 
-    Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
-    Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
-    coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
-    linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] coresight: catu: Fix number of pages while using 64k
- pages
-In-Reply-To: <b5ee243c-5122-4476-8978-0454b54283d8@arm.com>
-Message-ID: <3e8ea68a-b456-14df-eac1-e2932b3dbab0@os.amperecomputing.com>
-References: <20250109215348.5483-1-ilkka@os.amperecomputing.com> <7fa2c7c2-0bbf-4d45-bc90-71c4a4a82c0c@arm.com> <6d6128d4-778f-fc9c-651b-53de199d023@os.amperecomputing.com> <b5ee243c-5122-4476-8978-0454b54283d8@arm.com>
-Content-Type: multipart/mixed; boundary="1372433909-192168144-1736814501=:2397"
-X-ClientProxiedBy: SA0PR11CA0024.namprd11.prod.outlook.com
- (2603:10b6:806:d3::29) To MW4PR01MB6228.prod.exchangelabs.com
- (2603:10b6:303:76::7)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from PH8PR11MB8107.namprd11.prod.outlook.com (2603:10b6:510:256::6)
+ by CH3PR11MB8774.namprd11.prod.outlook.com (2603:10b6:610:1cd::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.18; Tue, 14 Jan
+ 2025 00:52:38 +0000
+Received: from PH8PR11MB8107.namprd11.prod.outlook.com
+ ([fe80::6b05:74cf:a304:ecd8]) by PH8PR11MB8107.namprd11.prod.outlook.com
+ ([fe80::6b05:74cf:a304:ecd8%5]) with mapi id 15.20.8335.011; Tue, 14 Jan 2025
+ 00:52:38 +0000
+Date: Mon, 13 Jan 2025 16:52:34 -0800
+From: Dan Williams <dan.j.williams@intel.com>
+To: Alistair Popple <apopple@nvidia.com>, <akpm@linux-foundation.org>,
+	<dan.j.williams@intel.com>, <linux-mm@kvack.org>
+CC: <alison.schofield@intel.com>, Alistair Popple <apopple@nvidia.com>,
+	<lina@asahilina.net>, <zhang.lyra@gmail.com>,
+	<gerald.schaefer@linux.ibm.com>, <vishal.l.verma@intel.com>,
+	<dave.jiang@intel.com>, <logang@deltatee.com>, <bhelgaas@google.com>,
+	<jack@suse.cz>, <jgg@ziepe.ca>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<mpe@ellerman.id.au>, <npiggin@gmail.com>, <dave.hansen@linux.intel.com>,
+	<ira.weiny@intel.com>, <willy@infradead.org>, <djwong@kernel.org>,
+	<tytso@mit.edu>, <linmiaohe@huawei.com>, <david@redhat.com>,
+	<peterx@redhat.com>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linuxppc-dev@lists.ozlabs.org>, <nvdimm@lists.linux.dev>,
+	<linux-cxl@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
+	<linux-ext4@vger.kernel.org>, <linux-xfs@vger.kernel.org>,
+	<jhubbard@nvidia.com>, <hch@lst.de>, <david@fromorbit.com>,
+	<chenhuacai@kernel.org>, <kernel@xen0n.name>, <loongarch@lists.linux.dev>
+Subject: Re: [PATCH v6 08/26] fs/dax: Remove PAGE_MAPPING_DAX_SHARED mapping
+ flag
+Message-ID: <6785b5525dd93_20fa294f2@dwillia2-xfh.jf.intel.com.notmuch>
+References: <cover.11189864684e31260d1408779fac9db80122047b.1736488799.git-series.apopple@nvidia.com>
+ <b8b39849e171c120442963d3fd81c49a8f005bf0.1736488799.git-series.apopple@nvidia.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <b8b39849e171c120442963d3fd81c49a8f005bf0.1736488799.git-series.apopple@nvidia.com>
+X-ClientProxiedBy: MW4PR03CA0149.namprd03.prod.outlook.com
+ (2603:10b6:303:8c::34) To PH8PR11MB8107.namprd11.prod.outlook.com
+ (2603:10b6:510:256::6)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MW4PR01MB6228:EE_|PH0PR01MB7995:EE_
-X-MS-Office365-Filtering-Correlation-Id: dd2d5725-6804-43c6-88aa-08dd343259f9
+X-MS-TrafficTypeDiagnostic: PH8PR11MB8107:EE_|CH3PR11MB8774:EE_
+X-MS-Office365-Filtering-Correlation-Id: db15e0ec-4b30-4357-c226-08dd3435be4f
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?MExlOGxGK0pDTzluTnVhOHdycWNIMzZ0RVZ0ZFNRME8vczNFaDlQL2p5aXpJ?=
- =?utf-8?B?OHZnRVlXMEhwdGV6S0hWYWRtUjdXdEgwbUtEQThMR0ZCSGxDbHF5T1pCcW1k?=
- =?utf-8?B?Q2UxTmhQQ1NGVUxKK1FGTmdENEg5ZnN3M0hTN3NHTjhsVGhnaGY3U2JkK1Na?=
- =?utf-8?B?NE4wWUtYT3d4SnhCUlY0L2VMUDJtSjNsSEFYZ1pOS1ljbDdwSE0vSUZiZHZZ?=
- =?utf-8?B?M05PYnBrRVZXcmJDZ1FlV1pTTnllNUp4QVI2Slk5U2xxYmF2bGQzS2dZSmhi?=
- =?utf-8?B?ME4zRGI0UDJGVm55WGs3Y0JlZVMvMVptM0NoVG9PU3FVYnNvWm5sQ3M2WlZ2?=
- =?utf-8?B?WDNhOFlZeDFDd3RpWUdKRHNTOGlDcHVQKzFrSExqaUplODl0TEdEc3Jab2px?=
- =?utf-8?B?VzRMdUdLN2lzR3JITHFoUTZibkZiRlBFR2NaNDJRSTNvSXdTZEliQ1hFdklh?=
- =?utf-8?B?MUJscHhBYUZ5bXBXYmVFT3NZbzhmU3BkTkM1Vm1HcmZHRytmUm9lQWlpL01R?=
- =?utf-8?B?MjAxM3ZqN1A0dE9wVjhOaEpFSUUrZEFoNzhUa2J3UnFGcjJvRmZ4M05ZUERo?=
- =?utf-8?B?WkE2NllZYjFMMzFnb2luVVFwTllFRHMvdkxSL1lNWnIvNE55MjgzaGVvZW9j?=
- =?utf-8?B?ZFZ3cHJPS0dOVXJHSVdXT2x3TkQybGlCL09DSWUzNGZhdEpHM1hUS25lcE1z?=
- =?utf-8?B?V1dwYW42ZzdCZTBRNEd2KzFLZ1R1NjFLVHlybThwMnEzUU5MUlppbTNCTXEw?=
- =?utf-8?B?MDdUL3hrVkFUUlo2V0J6aGdoZ0V5RzMxUXNvUkUxUjgzZkRUb202SUNubXlU?=
- =?utf-8?B?eTlJSWlERGVUcjlLb0tPN1E3OTk2aEdHMld6bzE2Qm5NanZhVFFjSW8yYkl5?=
- =?utf-8?B?UStYZDhUbzFCY1VFRE5jWTMyZlpmaWczRkNnaDJOMDlwdzlQZnk3OWE1ZDlH?=
- =?utf-8?B?M3F0b0xjZnM4L3puUDZMVGxNRFVIUW1Bem1FS0xubHB2U3hoem1tMUhJMk9j?=
- =?utf-8?B?VGV0YTl5L2d1blJFN1ZIazQ1czUxbWI3Wis2M0lPVjY2djFvSDJBQnpMOVFt?=
- =?utf-8?B?Yy9IZElNaE5iK093QW5Xd25oK3MrVHpDZ2t4blI2Sk9ENlg4RWVLWGh5K0pv?=
- =?utf-8?B?T1RialQzQ1doY3BPbWcvUzlSUDdmUzEyckxyUWVWR2tSOWN3WTlyQjJibTFL?=
- =?utf-8?B?TkgrdFpzSTFhM1hrNjhiaWt4c0c4SHNVN2FMVjlyeHZ0Rnh6d0JENjhVQkQ4?=
- =?utf-8?B?eFdXUzNnMkxSSEkvYjlPdUxTdTduWUc3RW12cGRjYlNERi9IZmd6N2RWU1c5?=
- =?utf-8?B?eFcvK0EzaVZCSGI0enkzdk1idi92TklPd1ArRkcvd0VlTkJ4dDU1WkdOM09H?=
- =?utf-8?B?Q1VEYmQ3MUhzUVNjRjVtSzBzZk9ZSUU0MWthNU5iRGZoVXNaVlN4cm4yRndz?=
- =?utf-8?B?RnZYL1IxdUJaUWxhdWo1My9pSUJMVE5SaTI5bzNTOEs2OTBuc3ZrYUx5Mm5x?=
- =?utf-8?B?Vm9rdDlMeVV0TG9mMm5VeXJsOGdoaW83ZHFJUEJwZURXUGdlSnR0aUVOWmE4?=
- =?utf-8?B?NjUrbURvUmZIRUJZOTA4Q29NTVNQTGtBa2Y2NkxkVmFMV0ZKYk02cHc4Y2h1?=
- =?utf-8?B?bnordEJQMlRQaGlreVB0bDNWY1hLL2ZOWHZpZFJOd2Z6SDF3dnZ4UXQ5dFdX?=
- =?utf-8?B?MjlNVEsxeXdqK2lzSExjS1JwV3NtMHR0WnI3WGE2cWtlVXVZNlRmVS9PMXBC?=
- =?utf-8?B?bFNBRDJLb1grYzFLalQxZFZKTUpaOWcxZ3RxZzhVK1VJZkt4Nkc0YUg4ZzVn?=
- =?utf-8?B?a0g2bWR4R2VEbmRDVmN2M3pEeFdKTWlab0hIdkN2YWJjeklKYWJUMHUwbFZL?=
- =?utf-8?B?SlRwcEFrbktQV3dzeDZnREpNRjI1NGg3Y2FHUnhsZVU5YWFsb1VQYXIrM1FD?=
- =?utf-8?Q?HrwdCYOp9G4YcocaHYSoAxddI1HB14mu?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW4PR01MB6228.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(52116014)(38350700014);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?lm9PI4H+wuCESxA3g7ET6waP+GNpzkJxwe5KTDwsIeYBp7L5aJnuJyrhFkX2?=
+ =?us-ascii?Q?dw3LNAL84pUfDx3ubYGlBJ1Pfq0UuUIDoBf2bZouHGumnIrPW3rNmzwDkg7m?=
+ =?us-ascii?Q?Fi7bTBIiuM56+iOuDJl9/obgjIar8FP0zORfJZHtIWsl7wUsRPEhSdXJSZP1?=
+ =?us-ascii?Q?uwHe23lDb76TJBbRYzvvHMmjIJNuzjc7YSGBHNMNafUl2JfA8OFRugEFr12t?=
+ =?us-ascii?Q?qicdbMstYSGzuZnWwhUfFRIp9lyzDLOSwLeZr3rK9MBzDI5/kHjyB4FyhhoJ?=
+ =?us-ascii?Q?26Helyn1gwOKxODX8MSzf9tFaBwBOEMbKh39SEOGr/Q8ypqLpnna0NdWgcUj?=
+ =?us-ascii?Q?scmZ8LZ52h+CVw2CFmQGyS5ZFQ3jbNrW8qY0BzercAbmZfNZNd3WGhdTafd7?=
+ =?us-ascii?Q?9uokX3v0ckzAghIAa0ckazBBEqcrh/qaXQ17178eX3Cl1rOL1YoyHRYoApqQ?=
+ =?us-ascii?Q?Rv6oBUqsM0UhaqIWQgfb57JzDpKvpZpKCalzCwBHwjQGiMInS58iUU7yZAp2?=
+ =?us-ascii?Q?6LCxV827zeF1LASjKOImhvZGhrM00REoo0JlhI+y5n3qO2yjIEBCgQCIs4GB?=
+ =?us-ascii?Q?HFZmzpLXjgILTonpApLcA/a3U/+0c8XRDXRzrPX2qo4jVHLWZGH03oNC2TBy?=
+ =?us-ascii?Q?x1YKAF2bIywlNjhHeVJVsQpAidK+4u4KqhBI25+YAH50FoYP9yzi7NLufaos?=
+ =?us-ascii?Q?wmkJqE//6Ra/3M8PNxNSynTSGULywdK8WSMP03pvHoHGd2drmRsGj5lEGrTz?=
+ =?us-ascii?Q?UU39tsdE0UuHGg/bH4psvfRbOWaVfw+2byaY8ynntUeZgAqm4RYYcNqogAnV?=
+ =?us-ascii?Q?VsxUZNLNWO9FDneRWMvjnGiG6QWPEUDI5kfQiDPWl83GgnQgIQwWsK4U2vwG?=
+ =?us-ascii?Q?06rWX5Ojm4QvsI99bXoVJ9XF6fhGSnc2woZCGYiLIRRVjvgOEAeaYSEqDXh9?=
+ =?us-ascii?Q?BKDld8/SFohqHga8ylL2VoMoD/arcfKwukXEuaQ1krUozmvQj7ac13bXpAcY?=
+ =?us-ascii?Q?Rh7YfvsftxTSR19Ei8f4gIOeE38AZePywkSzQBh1B+wbf/E4fs0lKfmDLihR?=
+ =?us-ascii?Q?i2Vbx+ckSf+z0jzWMcDjYRWmCMbVBRrjPPJAAFXZ12jHkX64xUMp2AiAF34D?=
+ =?us-ascii?Q?VfB9u9ndWKxJ6/jU9NQ9mFc8EUH5WQ1x6lwV6+C+kUPkJqxrdnD4PQK0EXQq?=
+ =?us-ascii?Q?LqbudIDloNIYRjFxHQyawyHKgpQ0OSHw0kZGc8hi13JiT69ckhJTSupDijLb?=
+ =?us-ascii?Q?3RHMg/LtbYyQeDX+/sU7g59p7J5Obaqhak/skdg6gF0OoMvWcgV2s+qjErhs?=
+ =?us-ascii?Q?3Rje3GRHNNINAkWCuEfvUB8iZb2SfdJObJv1MmAsDz2yN32AT83uwB+GuuJ5?=
+ =?us-ascii?Q?NXAwhq8W0Fsfat/y2vEA+5qG7PWv?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH8PR11MB8107.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(366016)(7053199007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VGhzVTYrQlh1TW5wN2ptUENONGRna3ZPV2hWZTA5L0tmZVpkbmNnZFZvNThN?=
- =?utf-8?B?TU1HMjJuYmVPaVBwenZJdVlXckRaNmIraW9VaitwaXJ6cks2SEFFODVHeHEy?=
- =?utf-8?B?UE90Mk9qK0ZjY1hKSEh2YTljMU5OTVZoVG5YckFFK3dJNld4bjhsNkVvcXRE?=
- =?utf-8?B?UGE1ZXZxeFFjdmlKdDZpalg5RzBKZnJXVDI3Nmphb0lKeG1WS2xzQ1dHUE1H?=
- =?utf-8?B?cGhDekw2VU9YYkVjY1hMWXl5bGFkZW56Ky9LaUtma0YwOWt2L0MxRGFxWWxu?=
- =?utf-8?B?eWN4R000Qit4aTcyWWNsQXQwUjRoblJMNWlFT0MySkJUZmlhZHE3eFNDSjJB?=
- =?utf-8?B?cndXcDFNamUza0dSWkhOcGFLclNhOVlpOS9ZNDVobEk3aGRFOGw5K2dDMkl3?=
- =?utf-8?B?ZUdCbElIQjcxZkI1K2JlcmUzQ0hiWkZZZGN2bDB0V3ZtUDY2THRWMzh5dzlK?=
- =?utf-8?B?NWo4TnhWQWZ1YXBLdWNWNEpQVEUvMG9LbXZkWVptRWJnRGFuaHFwV0hxZzZT?=
- =?utf-8?B?SnliRDdIOHNYc3V3WS9IQXRLOTZvWndEd2xUNlFXZHZrUFFQaWxZUjhNRDVh?=
- =?utf-8?B?cG5RbE9SemY2MkVCVnRqRCs1R01Kakl2NDhObTNmUXI0YTdZTUJxcXc5VkdH?=
- =?utf-8?B?WlpyYU9vZDZRNnliWGdFZGtLNk1mRnc5bXY5Y1N2RzcySkpyOERJSFBlcWtr?=
- =?utf-8?B?OG15dkppbERyU09kZk1QYlB6dGdxb3EyVVVMVjY3QzRSM0lwZ2RJRU9sMjB5?=
- =?utf-8?B?cjFDT3duMmozU0syc1djc0RuS0VpYzNOTTJCTjdwZm1RSWlVVzBhQlBoSnVS?=
- =?utf-8?B?YktjR1htUWJqY2h5T0lUWDBQcDRVb3RQenJqaEdDTHAwb0w4T3htQUFMTHRG?=
- =?utf-8?B?OG9mei9sZ0RSWmsrK1IwUlQ4d0N6bEw3STdram45d0Mzbld0WnFMMGowVnNv?=
- =?utf-8?B?RnhKMEVGa3RXSnpzSkw5SmlWNEwrRWVJeTFZWVg0d2dUTzVTRE4yY1FVdjNk?=
- =?utf-8?B?aDZ5OW5EbFlCV1ZkdmJUUTV3UmtQNEpYa1FhRjJCeFk5bkh3M29FNXpMejYw?=
- =?utf-8?B?eFJKSmtaTlVwa1h6VThuSVZpOS9TYUE2NDJySlJpZGw2YjhGbElRZEhWNTVW?=
- =?utf-8?B?aW96TWlHNXlUWlNzcXlJVVdYQmxwenpWRk9sMk4veEZFQlFiWm5kc1hZV2kv?=
- =?utf-8?B?OGFzZU04N0tjTXpINi9XOG10T1dQaXRHNjFUc1BvRU12VkpUdFp4U3d6ME85?=
- =?utf-8?B?alJKTmxjazdDbDFnNTd2UHppeU1Qd1hwYW5tVjhXdmFxVUtnWW9TdXc5Vlg5?=
- =?utf-8?B?bEhORU95ZzA5STd0eVJTM3h1clB3a1BoRktBRlNvMnB3a1pMUmpPRmNxOTQy?=
- =?utf-8?B?YUJLTjlmY1hlcXdBOVJ2aFQvWDV0SXlVaENTYzU0NkNBejNZdlprbUNTVDdl?=
- =?utf-8?B?WVlnZ2t6enVEU09YbTN4QnQyc2FrUGZKelFOUEVPSWkyQW5FY1k3Y2dDMUx5?=
- =?utf-8?B?MDg3d1dZcHJvUUF2bC9SSmQ4K0lGRlJqazlERnJVYVQ0cGlUNUs4M2k1dUli?=
- =?utf-8?B?NnNUVlBlTDhlSDZkQjJJNXBLN21MWklXdGZkQmxiU1FWZkJzelF1dE9sM3JK?=
- =?utf-8?B?S3BaVTU0cU5VanNaS0lrWXg0UFZIQml0L05qM3NIcFVCSDY4ZzljYklUakNE?=
- =?utf-8?B?bkF1dkg4S2N2Q2ZzbVE5OFc3eWMxWE45SW9ubW9aWHVraFMvV1dkMjV5Ymk1?=
- =?utf-8?B?RlhPbDBsWitEeWZTN2R0SHVqMTU3bE81dkNNcEJiblloNDJvUjBnWGhRUnMx?=
- =?utf-8?B?bXQrVGVCQ080VjNnVXJlejBCa0x1akp1TzJWNUF5d1N0NXpXQTdsNFZzQ2tQ?=
- =?utf-8?B?N2RVMk1ndDZPTG1qeXhTenE5Rzl2eGhmTWNCeFRzek5QcCt3QWQrV3k2b0o1?=
- =?utf-8?B?M0V4clpWNHhINXFoQmxybmpyOWhkb2x5TnU3M3JRbWV0dWt6YUtnWFM4YnRF?=
- =?utf-8?B?OUhHUkM2VGRmRTVLRzI2ME5JdDdYY01vTmVpVzJ3SGM2NDNodEpKdU1JUUxD?=
- =?utf-8?B?SWhHNGdXaytGdHdNdUxtKzM4MnNmdEZ3L1QvVXV6Y0dESnFrMDRDVXlrNUpa?=
- =?utf-8?B?bmxzQnBVeTRVblU2dlZUOVpRRnZrS3A5cHRBMGlQWlpLRVdFMkdSMHd4bUtP?=
- =?utf-8?Q?kMzDHa4wtSNGVQ3FYfHLItw=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dd2d5725-6804-43c6-88aa-08dd343259f9
-X-MS-Exchange-CrossTenant-AuthSource: MW4PR01MB6228.prod.exchangelabs.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?t7kILchC1jUZPK8aasoyuhFxfE9oHnrN6JsvA4pP9BDeXZ5d6SGPO5pJ6+68?=
+ =?us-ascii?Q?LaPLoM9wFyZegGpbuGvPfe2Iqq6jwYH68xmu7WcELiXyd1yJ3t1tLhJSP43T?=
+ =?us-ascii?Q?svVgGG9n8wnsc7nMd7h98zvIk8D2gLZ84Xmog+a7hBPbGUQIok5O4vdjjRpz?=
+ =?us-ascii?Q?bf2sbqWJ7vRBNxcORm+cRefiCTRLCJMOHKGsyo3chewfR3S+szHEFPxbYKFj?=
+ =?us-ascii?Q?9p5UndGsZ0VCx8f5UVchYcewXnXzd0XJsSi7MyoUkCDXgiqtLlQ49DutB/tK?=
+ =?us-ascii?Q?AGDa6E8lSiMfHEbF6SwNAzfcyXY7yh7kqc5nXLWRXHLSJa5P0nYcPy9mghg7?=
+ =?us-ascii?Q?Iewm+8NF9mV4TBzAuNN0zDf9AT3MtpsuHji3a0mCO9lDCltVzqbEZ4mRPlwy?=
+ =?us-ascii?Q?lyrwz33VOYx93KIDva4wh5UfdJguIMKu4H03nEu6XO3QLdwKBFUR7pvGh/2B?=
+ =?us-ascii?Q?Eb9X3EI/weDUMVkHrvlirNswInxYGvuwDiDlEmb+FzP7XchKCXpXmTICUirb?=
+ =?us-ascii?Q?/sxmp3mJ1KaNtlM6D1v/FOGlpLteoZ8fhYGNLtQdLr3I6OXRcB+JSihyVqBN?=
+ =?us-ascii?Q?GgkMAB0Sxav/sn2TCJgbLoQoacITSK7QjvpKTk0Ipk+UWIyLhJo0scRtVjyY?=
+ =?us-ascii?Q?oGgS6rG2vnk5aLnC6Mdx2sDrSop4c4buzQWuVePAQApmLVOHqlJ/TQCuWokx?=
+ =?us-ascii?Q?pnaWkrtho2tJBCC2kPl9MObBo2oCyu9pIV9Pfgln40HlbiH73XQoXEfH5P0+?=
+ =?us-ascii?Q?R8YbKqUvv+lHHNR5bWv6S7QgA3RxDjjF7Z7sOilhsUjNA0eTpEFPYugpY28k?=
+ =?us-ascii?Q?Oe70SV6DDJs7SR4DYMqVPk2MmRhMMWA1wX7H3A0Lgoi6pdzr4JAg6X7CUYO1?=
+ =?us-ascii?Q?2WS0XrXPo2/AyxTf31MOJHICA7UnHbTxW+2lVwe9na2ldYihTp/Mpe+p4DhO?=
+ =?us-ascii?Q?gr9XayuYcUfp/5UvvSVnvAwcDWRpDOUmrgn06MO+qZCJ65XmTyNrM+y8IomD?=
+ =?us-ascii?Q?HWQHXywn7tsOSgsHkr/XdPh6+AznzUgwvuu9jBg1yB8C2xV2e6Cs9pmeuSpF?=
+ =?us-ascii?Q?kmxnP9vPW7MLoRd0apuPVBA587vyCVOFGMOgIvN/sz+OWmw+WKwCy1vXXoRO?=
+ =?us-ascii?Q?ADSovHrs3tmrJP708B6ko7DeSlTnzcXQZPztHBixlfNHwLEz3h7F+FwcNeE0?=
+ =?us-ascii?Q?5sGz5RRQ1ElLF+dbBpQdawzf0xrC+XL5dxg+eLfopz/8VlCak0zv+tmrKcq3?=
+ =?us-ascii?Q?Tr+1dKP54gW35FONI3E6Wko9IMqQEoM44CUBfnwL/pvBZHeCGgQAYCsFPfdY?=
+ =?us-ascii?Q?fEOtbIJSLROTjT3V9qnmtOR9McQqW/PfyNW4ELsaeYiI5+UtVELaHsftHzMm?=
+ =?us-ascii?Q?ilg7W14IOvX1CYU7bnaGv1XMEKhEtdTzg7pwMlh5707+N9uOi5BVJ92z3dF+?=
+ =?us-ascii?Q?zsK/+7hHCN+p1pzPQD4NkFJfzzUOC7tyBAQx6OAd65gToBqGULjcPihRLAzg?=
+ =?us-ascii?Q?X4vXg33SAMFu6NxYhmiAvxGFbEOHpzVMbqKHze9mAxLYIl/im6oCCVf5s4ww?=
+ =?us-ascii?Q?IbXna+Y9j8ACOiyhG+WvDtgAh6ptYhNAtMoGTOIJoxr1mbN2a/BNzuIBdSH6?=
+ =?us-ascii?Q?rw=3D=3D?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: db15e0ec-4b30-4357-c226-08dd3435be4f
+X-MS-Exchange-CrossTenant-AuthSource: PH8PR11MB8107.namprd11.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jan 2025 00:28:22.0485
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jan 2025 00:52:38.8715
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Eoph/u7vvUof2H+uTYF1nkVsh8POSErlAPVW/CpN1/cS3x9mhuLhk1DUPsc4K+OwGF+qgKkUyIYjO8DnhUG9eWeRAOTmFgljHr/MwNacqIPCNrsmz4yCeRxLFxJrWDjg
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR01MB7995
+X-MS-Exchange-CrossTenant-UserPrincipalName: An4+64mw0PfVogtGYCWgxhrg/FuW2o7tBiugwuVa0To8jeh3MXKNhHC5yF0XbaNIbTi8viteIXLs2HHa7UYBEyBzFwKIzwdlk1jiLx/471g=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR11MB8774
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_162835_078877_1F641A48 
-X-CRM114-Status: GOOD (  14.18  )
+X-CRM114-CacheID: sfid-20250113_165312_477419_A9F75EF7 
+X-CRM114-Status: GOOD (  35.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,69 +207,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---1372433909-192168144-1736814501=:2397
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8BIT
+Alistair Popple wrote:
+> PAGE_MAPPING_DAX_SHARED is the same as PAGE_MAPPING_ANON. 
 
+I think a bit a bit more detail is warranted, how about?
 
+The page ->mapping pointer can have magic values like
+PAGE_MAPPING_DAX_SHARED and PAGE_MAPPING_ANON for page owner specific
+usage. In fact, PAGE_MAPPING_DAX_SHARED and PAGE_MAPPING_ANON alias the
+same value.
 
-On Mon, 13 Jan 2025, Suzuki K Poulose wrote:
-> On 10/01/2025 21:32, Ilkka Koskinen wrote:
->> 
->> Hi Suzuko,
->> 
->> On Fri, 10 Jan 2025, Suzuki K Poulose wrote:
->>> On 09/01/2025 21:53, Ilkka Koskinen wrote:
->>>> Trying to record a trace on kernel with 64k pages resulted in -ENOMEM.
->>>> This happens due to a bug in calculating the number of table pages, which
->>>> returns zero. Fix the issue by rounding up.
->>>> 
->>>> $ perf record --kcore -e cs_etm/@tmc_etr55,cycacc,branch_broadcast/k 
->>>> --per-thread taskset --cpu-list 1 dd if=/dev/zero of=/dev/null
->>>> failed to mmap with 12 (Cannot allocate memory)
->>>> 
->>> 
->>> Needs a Fixes tag.
->>> 
->>> Fixes : 8ed536b1e283 ("coresight: catu: Add support for scatter gather 
->>> tables")
->> 
->> That's a good point
->> 
->>> 
->>>> Signed-off-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
->>>> ---
->>>>   drivers/hwtracing/coresight/coresight-catu.c | 2 +-
->>>>   1 file changed, 1 insertion(+), 1 deletion(-)
->>>> 
->>>> diff --git a/drivers/hwtracing/coresight/coresight-catu.c b/drivers/ 
->>>> hwtracing/coresight/coresight-catu.c
->>>> index 275cc0d9f505..3378bb77e6b4 100644
->>>> --- a/drivers/hwtracing/coresight/coresight-catu.c
->>>> +++ b/drivers/hwtracing/coresight/coresight-catu.c
->>>> @@ -269,7 +269,7 @@ catu_init_sg_table(struct device *catu_dev, int node,
->>>>        * Each table can address upto 1MB and we can have
->>>>        * CATU_PAGES_PER_SYSPAGE tables in a system page.
->>>>        */
->>>> -    nr_tpages = DIV_ROUND_UP(size, SZ_1M) / CATU_PAGES_PER_SYSPAGE;
->>>> +    nr_tpages = DIV_ROUND_UP(size, CATU_PAGES_PER_SYSPAGE * SZ_1M);
->>>>       catu_table = tmc_alloc_sg_table(catu_dev, node, nr_tpages,
->>>>                       size >> PAGE_SHIFT, pages);
->>>>       if (IS_ERR(catu_table))
->>> 
->>> Looks good to me, I will queue this later for v6.15.
->>> 
->>> Suzuki
->> 
->> Sounds great. Just to confirm, are you ok to add the fixes line or would 
->> you prefer me to submit v2 with it?
->
-> No, not required. I have picked this up for v6.15, and will push it out
-> once v6.14-rc is out.
+> This isn't currently a problem because FS DAX pages are treated
+> specially.
 
-Perfect, thanks!
+s/are treated specially/are never seen by the anonymous mapping code and
+vice versa/
 
---Ilkka
+> However a future change will make FS DAX pages more like
+> normal pages, so folio_test_anon() must not return true for a FS DAX
+> page.
+> 
+> We could explicitly test for a FS DAX page in folio_test_anon(),
+> etc. however the PAGE_MAPPING_DAX_SHARED flag isn't actually
+> needed. Instead we can use the page->mapping field to implicitly track
+> the first mapping of a page. If page->mapping is non-NULL it implies
+> the page is associated with a single mapping at page->index. If the
+> page is associated with a second mapping clear page->mapping and set
+> page->share to 1.
+> 
+> This is possible because a shared mapping implies the file-system
+> implements dax_holder_operations which makes the ->mapping and
+> ->index, which is a union with ->share, unused.
+> 
+> The page is considered shared when page->mapping == NULL and
+> page->share > 0 or page->mapping != NULL, implying it is present in at
+> least one address space. This also makes it easier for a future change
+> to detect when a page is first mapped into an address space which
+> requires special handling.
+> 
+> Signed-off-by: Alistair Popple <apopple@nvidia.com>
+> ---
+>  fs/dax.c                   | 45 +++++++++++++++++++++++++--------------
+>  include/linux/page-flags.h |  6 +-----
+>  2 files changed, 29 insertions(+), 22 deletions(-)
+> 
+> diff --git a/fs/dax.c b/fs/dax.c
+> index 4e49cc4..d35dbe1 100644
+> --- a/fs/dax.c
+> +++ b/fs/dax.c
+> @@ -351,38 +351,41 @@ static unsigned long dax_end_pfn(void *entry)
+>  	for (pfn = dax_to_pfn(entry); \
+>  			pfn < dax_end_pfn(entry); pfn++)
+>  
+> +/*
+> + * A DAX page is considered shared if it has no mapping set and ->share (which
+> + * shares the ->index field) is non-zero. Note this may return false even if the
+> + * page is shared between multiple files but has not yet actually been mapped
+> + * into multiple address spaces.
+> + */
+>  static inline bool dax_page_is_shared(struct page *page)
+>  {
+> -	return page->mapping == PAGE_MAPPING_DAX_SHARED;
+> +	return !page->mapping && page->share;
+>  }
+>  
+>  /*
+> - * Set the page->mapping with PAGE_MAPPING_DAX_SHARED flag, increase the
+> - * refcount.
+> + * Increase the page share refcount, warning if the page is not marked as shared.
+>   */
+>  static inline void dax_page_share_get(struct page *page)
+>  {
+> -	if (page->mapping != PAGE_MAPPING_DAX_SHARED) {
+> -		/*
+> -		 * Reset the index if the page was already mapped
+> -		 * regularly before.
+> -		 */
+> -		if (page->mapping)
+> -			page->share = 1;
+> -		page->mapping = PAGE_MAPPING_DAX_SHARED;
+> -	}
+> +	WARN_ON_ONCE(!page->share);
+> +	WARN_ON_ONCE(page->mapping);
 
---1372433909-192168144-1736814501=:2397--
+Given the only caller of this function is dax_associate_entry() it seems
+like overkill to check that a function only a few lines away manipulated
+->mapping correctly.
+
+I don't see much reason for dax_page_share_get() to exist after your
+changes.
+
+Perhaps all that is needed is a dax_make_shared() helper that does the
+initial fiddling of '->mapping = NULL' and '->share = 1'?
+
+>  	page->share++;
+>  }
+>  
+>  static inline unsigned long dax_page_share_put(struct page *page)
+>  {
+> +	WARN_ON_ONCE(!page->share);
+>  	return --page->share;
+>  }
+>  
+>  /*
+> - * When it is called in dax_insert_entry(), the shared flag will indicate that
+> - * whether this entry is shared by multiple files.  If so, set the page->mapping
+> - * PAGE_MAPPING_DAX_SHARED, and use page->share as refcount.
+> + * When it is called in dax_insert_entry(), the shared flag will indicate
+> + * whether this entry is shared by multiple files. If the page has not
+> + * previously been associated with any mappings the ->mapping and ->index
+> + * fields will be set. If it has already been associated with a mapping
+> + * the mapping will be cleared and the share count set. It's then up to the
+> + * file-system to track which mappings contain which pages, ie. by implementing
+> + * dax_holder_operations.
+
+This feels like a good comment for a new dax_make_shared() not
+dax_associate_entry().
+
+I would also:
+
+s/up to the file-system to track which mappings contain which pages, ie. by implementing
+ dax_holder_operations/up to reverse map users like memory_failure() to
+call back into the filesystem to recover ->mapping and ->index
+information/
+
+>   */
+>  static void dax_associate_entry(void *entry, struct address_space *mapping,
+>  		struct vm_area_struct *vma, unsigned long address, bool shared)
+> @@ -397,7 +400,17 @@ static void dax_associate_entry(void *entry, struct address_space *mapping,
+>  	for_each_mapped_pfn(entry, pfn) {
+>  		struct page *page = pfn_to_page(pfn);
+>  
+> -		if (shared) {
+> +		if (shared && page->mapping && page->share) {
+
+How does this case happen? I don't think any page would ever enter with
+both ->mapping and ->share set, right?
+
+If the file was mapped then reflinked then ->share should be zero at the
+first mapping attempt. It might not be zero because it is aliased with
+index until it is converted to a shared page.
 
