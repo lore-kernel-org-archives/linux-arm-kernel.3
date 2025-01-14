@@ -4,117 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7FEFE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 09:49:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5C8AE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 09:51:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/xN+Y350wDbvHVyl3HxURfb0hCb7MKNkXltxga/kO68=; b=kIHQ/lo9N8ADL8eJMEM8tdMOSR
-	ioBbzAB7RzSK2eX4Ez1xib/rS2Cb91VnNz54+CJTd0vcf2HrLgE46BefWLWn+WyHGNwMYLHQKg5d3
-	ZDyGMHVHEE5tVYPviYPfbg4FmTph6UAvRLycrVkFiEIVItZRn/2aEUN4a22VP8ytUhPFrLblUPP3x
-	CPjxyVRBjXF0FpJvWAhpGSV/ejn2lByenpG/5889vdbysxlFWwiI/xP2clEBbCFG8Ke53o0ZCPt3Z
-	VAVcRqBBFdQyiMUNTt0XDO2UL7v7X4Owktfu2fGFXICmhmKkjJL20CdYlNdQgGoE6ZOnApdLqZ1HJ
-	tbZPOUmw==;
+	bh=iwP1tti+yLWvcbErin2Brt+AMboascV0NwMOTqURVnc=; b=GFzJnjirfXGAjtvM2xNweICJEV
+	dUEycmUDwhG82feN4ZzoLnHsX5INkX+V0V+HQ6Y8K1b/SDIkcE82S0/cPxOcd+vsAfJy3gH5esK/F
+	5bfO9jjyyvpLL6SRUSkYaz3rmgv7Tt4eoW7w+eYGgeGjljFlYQnBChwVA2ImT9M+9JFFjT5Zr8MbZ
+	mgE9ejS8QHh9JwIwe4ZFjaSbwPgtonhZkcQyxp0/6Ivfy/toS/Pg3E5yp4+fma07FMwdAVisZnx4E
+	JqWSywXr/Nr8Ry084UJNP06TMyfDuG3MnGgbeR5I5/ogyr8U+YzadAOJ56l0FarbsbZeRktAehnOY
+	SgfwKW5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXdYP-00000007zIb-1EyW;
-	Tue, 14 Jan 2025 09:49:45 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tXdZj-00000007zY3-3s9t;
+	Tue, 14 Jan 2025 09:51:07 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXdXB-00000007zBM-1jCW
+	id 1tXdYU-00000007zJS-2K2S
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 09:48:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 184D55C575E;
-	Tue, 14 Jan 2025 09:47:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B3B6C4CEDD;
-	Tue, 14 Jan 2025 09:48:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736848108;
-	bh=TQ8w7u/bsH8D9M7txgUCjNloimmDG53pGG2+cWgaGmU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=n2WGI3XeIpKnc5LppwNPNK7xSZi1YsCn4j6pqo7gqASEOaLXry7JlykjRPDuDG7Fl
-	 TrzIRwz2VulFY7DQIEwL1GAk2MVr7i/4rXuqldFTuHlHjyUiJTF5VX75mOVO6XmFPS
-	 0kPGYJeDYVWT56rZNMjIG9kWtaFlgxp7HoYbSiQwPsxSkROsAe5bJ2yR4R6vdpoXm0
-	 cSHU/LMcn1dzsOy2owpIgtuXc6QISYPTQOAkpzalXzpbNsbgtCJQl77uBdAp133IpL
-	 3CSKGkE0MZMtUAoC4+aoDLLu6H07ARQrFCGvHEkE741hIezV03thcXee1buQuOvGqk
-	 SWl+FpEYfmpow==
-Message-ID: <54b63cfc-7a51-4b69-8b32-eb7591b2169b@kernel.org>
-Date: Tue, 14 Jan 2025 10:48:20 +0100
+	Tue, 14 Jan 2025 09:49:51 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-a9e44654ae3so847843866b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 01:49:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1736848189; x=1737452989; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=iwP1tti+yLWvcbErin2Brt+AMboascV0NwMOTqURVnc=;
+        b=Ct4p8cb+bBjPPu7NmMFnicDWwpYrttMxKYuaPcZn8s3ogpMlYDxZUGvhDcc84rj8lb
+         Ol2J9y+SpmtpsNt+CBetTF/p9KMaYlLR8Tfx/g23VNVCYh7DTznWR85eldedifLKia8Q
+         KyRcf1jHKgfocUS4+ozhqwB50SlNPWevz2neOsZtf48NkuYXp4GRmwefu4PnTW/sHKqT
+         51dl3in5nLHXqwTl+2rjP9scQekv0TMcIWHGmLdW6y9BVDE8mlOORzUx3M/kwbXUCzFx
+         q6TrG7y2GUmuiVIRtRP/EeTzej6akpzA+nGdqMNNloh9dIRPnLiwlhDEzioXBRUuvnOD
+         0OJg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736848189; x=1737452989;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=iwP1tti+yLWvcbErin2Brt+AMboascV0NwMOTqURVnc=;
+        b=DCw0CcK+AleKk8Kvlr5GLul8tur9Ftnbp64I69LCxJtk3PZcE3BuCbm02rnN/9t0Pz
+         vyvWULb46Pi9OkLX5qS2BzBR03GTi2WRAPVQef/ZWyaMyHqGlPdRDYV8i1iu+iJW/VJu
+         C3drEu1QE1+UHpzAKPD02urAPZxOPF1jmwPBmpPD1Dqztr3/cQo9TQMq4kCC8ICKmKJY
+         AoVJtxtCSK+17AzSYVXNEtH8gvF3fqMEoAhpalwdniDtM/pxVWpjiIEH45RXhPBdXS45
+         kXPGSjX4z1FwCV4pup7qh2cL3muStLklxR31WdypLKHsgQhiSDULSTY8UshjtzIRNJ1n
+         kdPQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWC8iUC/llU4n/sqoIkNAaJgYvvOeKXxC9fAKeU65uKxUMuUn0HnxCTdT4KOWwLAS5cboHsB5jZFAprsNgUlteu@lists.infradead.org
+X-Gm-Message-State: AOJu0YzpOtJtmqz8vjZJ07+sZjCeeDbkeqZCah2pHoYF5wE7NcQx8xQ8
+	LLVG1AGikT5trK/Nha1YNKSpzqhe2Squm8it4lyNNQSp4dC+QvlntIzdxoa6yuRIwMqXUMqLgzk
+	fWO4TOCLf3aLR73zgLnr25ttcWws=
+X-Gm-Gg: ASbGnctkKjfYOgyb5SI5j86DBI779G6dmMlhVJBu+TgUUD6t6nZCHk60qqcwKonwEQm
+	TQ+Q6GdjMCrzoopDJlrGGCN4hCSoVyIssNJOO+g==
+X-Google-Smtp-Source: AGHT+IHSE0X0c/RAV6RHPYce2+Lu6HtvF4f8pJXDO50RUlRMfR3JVOivMCp53pLKP3YuDBdiRYv5612VS1G8WhdmTEU=
+X-Received: by 2002:a17:907:3e9f:b0:aae:bd4c:22c0 with SMTP id
+ a640c23a62f3a-ab2ab70aeccmr2153858366b.19.1736848188749; Tue, 14 Jan 2025
+ 01:49:48 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/4] dt-bindings: clock: convert stm32 rcc bindings to
- json-schema
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Michael Turquette <mturquette@baylibre.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Stephen Boyd <sboyd@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com
-References: <20250114091128.528757-1-dario.binacchi@amarulasolutions.com>
- <20250114091128.528757-2-dario.binacchi@amarulasolutions.com>
- <79a90c01-9e21-4e3f-a334-6ba9e1df4150@kernel.org>
- <CABGWkvofUphcXTwBS5UBEoQ1GYpngP7gWi9Ax=WW28XKK0qoYA@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <CABGWkvofUphcXTwBS5UBEoQ1GYpngP7gWi9Ax=WW28XKK0qoYA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250113-b4-imx-gpio-base-warning-v1-0-0a28731a5cf6@pengutronix.de>
+ <20250113-b4-imx-gpio-base-warning-v1-1-0a28731a5cf6@pengutronix.de>
+In-Reply-To: <20250113-b4-imx-gpio-base-warning-v1-1-0a28731a5cf6@pengutronix.de>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Tue, 14 Jan 2025 11:49:12 +0200
+X-Gm-Features: AbW1kvaXInedzCQDKle5HtOug-2PYAvJssuAdg06rMQek_Ee7DEA41pCoh3PZGI
+Message-ID: <CAHp75VcnB37ET8mW=m5sXwP4qDQDUPKL0yRy8n49m++zShqPMA@mail.gmail.com>
+Subject: Re: [PATCH 1/4] gpiolib: add opt-out for existing drivers with static
+ GPIO base
+To: Ahmad Fatoum <a.fatoum@pengutronix.de>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, 
+	Andy Whitcroft <apw@canonical.com>, Joe Perches <joe@perches.com>, 
+	Dwaipayan Ray <dwaipayanray1@gmail.com>, Lukas Bulwahn <lukas.bulwahn@gmail.com>, 
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>, Haibo Chen <haibo.chen@nxp.com>, 
+	Catalin Popescu <catalin.popescu@leica-geosystems.com>, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_014829_544245_F1015382 
-X-CRM114-Status: UNSURE (   7.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250114_014950_593082_6B9A8216 
+X-CRM114-Status: GOOD (  13.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,22 +102,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/01/2025 10:36, Dario Binacchi wrote:
->> Nothing improved here.
-> 
-> In my humble opinion, there is nothing to improve. Any modification
-> made causes the tests to fail.
-> 
-> $ git grep st,stm32f746-rcc arch/
-> arch/arm/boot/dts/st/stm32f746.dtsi:                    compatible =
-> "st,stm32f746-rcc", "st,stm32-rcc";
-> arch/arm/boot/dts/st/stm32f769-disco.dts:       compatible =
-> "st,stm32f769-rcc", "st,stm32f746-rcc", "st,stm32-rcc";
-> 
-> Or am I missing something?
+On Tue, Jan 14, 2025 at 12:20=E2=80=AFAM Ahmad Fatoum <a.fatoum@pengutronix=
+.de> wrote:
+>
+> Some drivers have had deterministic GPIO numbering for most of
+> their existence, e.g. the i.MX GPIO since commit 7e6086d9e54a
+> ("gpio/mxc: specify gpio base for device tree probe"), more than
+> 12 years ago.
+>
+> Reverting this to dynamically numbered will break existing setups in
+> the worst manner possible: The build will succeed, the kernel will not
+> print warnings, but users will find their devices essentially toggling
+> GPIOs at random with the potential of permanent damage.
+>
+> As these concerns won't go away until the sysfs interface is removed,
+> let's add a new struct gpio_chip::legacy_static_base member that can be
+> used by existing drivers that have been grandfathered in to suppress
+> the warning currently being printed:
+>
+>   gpio gpiochip0: Static allocation of GPIO base is deprecated,
+>   use dynamic allocation.
 
-How can I know what you are missing if you do not show the code?
+Warning is harmless and still a good reminder for the stuff that needs
+more love.
+NAK.
 
-Best regards,
-Krzysztof
+--=20
+With Best Regards,
+Andy Shevchenko
 
