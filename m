@@ -4,98 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 548ACC02185
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 22:47:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 044A6C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 22:59:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MC9vJ/HbhOxoVSNnDAL3BRrGWfbPcxS3xzbBAxo4bSI=; b=tjx/7M1V8cPCpvcTCHkRruyGP2
-	pYJXSu7yH9Egn1Pyo2LbYgxCDAcGrhw9Ousp7iF9rqd+QwI1HHnF2HsVvYB4tccIGR5WakrAgX6jA
-	bO+nPDLqxLKavplsmg9JXgikfZDus4FStHXn71vKF6p4a4nVU7hxlli1YP50rxW1NbLysOfAEQC9o
-	YTTqtqry+wPXKYyNubJVtc65MQjpbl2YpzA5A5ED3wIPhLhgc3pD/BhJJTzyrvT7ywgFoUjB1o/VN
-	9hMjKZ9ySUsvoXesleaD5S1+x4bL96LYDPorYWQlQr5pX0s4Lto49PgeSeGQB6ACp60Zdw3qEkb+F
-	1iEw6imA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=nYkLU0NirAu9JE4/rkvv4iX0/5kO7v9LARooIOZwEJg=; b=s0wfqRV69dKFBM
+	107xz2cPAaXWBnqx+pSpOE0ZUrNXRIpwPyQct75ubdZc2ZQRKpy6B/fr/A0Qgj2LvEdCmE+DrAhgF
+	po7LEvAtNO004ASebpPIxLxYItm1QJA96zei/f+PDZJdl9Qk8SqQv13c8te1nt/2umuAfPtIDAd2H
+	xQvjDvqjtwZn5YeZS3/r93c2sOK7HzsPb5EFFUusOsHdY/yCh6WddYHtrSz7t00NpehKrGmt70K2a
+	zrR5PGAEAbba2eg+LxKLNtY2pzPZ33ZF3Sq3MeVkz4k4Cp+9k7uzvRZKD2aMeq+fPBkpEmydPKheV
+	3T4LRi17CrfXIJy1ofnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXph3-00000009ycR-3c5m;
-	Tue, 14 Jan 2025 22:47:29 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tXpsp-0000000A0Tx-1PnM;
+	Tue, 14 Jan 2025 22:59:39 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXofu-00000009q3E-3FIv
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 14 Jan 2025 21:42:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Content-ID:Content-Description;
-	bh=MC9vJ/HbhOxoVSNnDAL3BRrGWfbPcxS3xzbBAxo4bSI=; b=fnWHDNje89yAKi+GjL8uP4lY3K
-	TOCQbIGlzasqxkIjshVpErQ87J+jFzPxabf8KQq9yTQdQHnVdbizpYJYkOGSShLCW4fZic03Tzm2m
-	oJt0xHX9E3Z6gZoR1CCNw48qE18qFY5z7GFvkQ4jS30WgUTAunrBpJfu1y1SfP9aLnBUT0ZFLibNO
-	0CbsubbwmMngVWFwNqBJJgZqWC1VWojwWZ6apIueqGTX+a9vq/vgGHz8ieHXZ7cuANrOEqytmDboB
-	yJ2tnsidJoSemauSGOYH7d0ZvOqGGW49/urPICCgbvYXMWQGR6gLdBbDdhM6F4bNx6mwXPORRiByd
-	qWAJdisA==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXocq-0000000AeGr-0wNt
+	id 1tXprW-00000009zhb-2Ztb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 21:42:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8AA4EA41CC1;
-	Tue, 14 Jan 2025 21:37:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id DF831C4CEE3;
-	Tue, 14 Jan 2025 21:38:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736890739;
-	bh=ZQrGXgvM/8tzLcGrR7t7K5NKbQIIvT5ANeLfEZnDzkM=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=dm8f6PY1yEJ8ux6R5Mq1xWrs0qw72mkY9RFdVmHa1jgBhiHyClu+dLxUx6RCh+jVS
-	 orv+9pI/mw60GD0YH5yNu5oqPkXBYvqR2ooDCsSL7nxp8ral9jpEmbOx2Wkv6QMegY
-	 KjTeKk2RJgUuHSSwk80EAooiZB89bHgrsy3srYkmly880SGn4XibF8UxltZq2WEPdS
-	 /QoQVGfg8e8r879X5bsMnd2TF6mfDSmidLQFZ9XEIGxT8iT6G8e6nrfc+WTi4W8QMp
-	 ohXfDv6zB1KHHWTYyG5bfd+k3Tc3iwB4rlgj+eL1A+6ycBTDvgFzGvIfSt7VE0nAeC
-	 35qJxmWu3kAqQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CC08BE77188;
-	Tue, 14 Jan 2025 21:38:58 +0000 (UTC)
-From: Sasha Finkelstein via B4 Relay <devnull+fnkl.kernel.gmail.com@kernel.org>
-Date: Tue, 14 Jan 2025 22:38:53 +0100
-Subject: [PATCH v4 2/5] drm: adp: Add Apple Display Pipe driver
+	Tue, 14 Jan 2025 22:58:20 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2156e078563so90288155ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 14:58:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1736895497; x=1737500297; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=nYkLU0NirAu9JE4/rkvv4iX0/5kO7v9LARooIOZwEJg=;
+        b=WxQEJE+XPtmpSAB/49160zGGvndLZTIc2UiZZAukbWVxoBZDjJ0x2cSM28UHC/DY1y
+         WGKm1iFIT+tQbc2anVoqju+7EhICuUGLknzoUJE08cOukL7x3t52FQS7Ep2OQ8em6CUc
+         jCuWzo+1Ztixv8J1oJVMbVFZC8uMsfH3MA7DHlczveYFLnssI8LhHUwqg9HpRE2fnjbw
+         nkmPTHjUQYxiSLm62qwnz9GNQuM6iFB3+KkBHj7fFPSgqZUoFAlw+eDD+z8fW/WvVzUF
+         LIJenNVgY8WXqcTz0doSmNd/frRoHTM7iIZ5w6E2D3XFfyk4EqmUHtEMDZL+4p75q39L
+         KCOA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736895497; x=1737500297;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=nYkLU0NirAu9JE4/rkvv4iX0/5kO7v9LARooIOZwEJg=;
+        b=Kt8LqvJr3oIcViDiDavFjLAYcxzDKciAPL/IiK7BSIqRG1guPiciDxOKqw1oqvf2+X
+         cMGgXxdMLmGnml+Xk7BbkRmH97z1BIjUZdRv9MLCraCxh0BvDQLCRxnnX2VWIZykRoE6
+         IYDjgSMDaF7ztEEMhoHDYrcrRPCK1+LEfwvGD2TgNcqifGSe0yhEHN8EpWGKU35d5AQm
+         9ILCku+nkPFxvR44wysZRK1lRQoNSNfFpfgoAOyDcUic2w+Fli8KxvLkkzhgaSQggu6p
+         WIrNDBb1gmyUPgExqQakrb36HrdIRQoKrckccw8mZETHUC8/BFJPMudJ3chc+TJ1IZUP
+         /aWA==
+X-Forwarded-Encrypted: i=1; AJvYcCUEOETdomKYLflKFFk013Fs9BM3aJbq4L/oVP9tpvfJqMHMLO+WTcRd6ikrzKod/X5RuKJL/oaxq7HdtZMM39Wl@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZc7ZqR+AB3NB9w8SGXe2Z8xS4zt5pjxhvJD1G7ewJy6B1NfPQ
+	ac7bQW7lgALQU99HYrAoPQh2Vw2gH/6eTYJCOCpagScVfWBP3RjLs8WdKc4o20g=
+X-Gm-Gg: ASbGncuuBEd6Ej7yRIO74tSrv4JyRtX9xzYfwNQQxzPiPpwQZT6fledR0ucrdQCn4Lu
+	yTP7BIkOGIPhRyABlSCimNGKnE+nwg96ZLuhGcmXNbhceSZ91Kax2wyMlqvNcmVo0wHT+wMSKPc
+	vmUa7PEgm6T0UMq0W11Z3SjFO/7p9In4Uun+NwRblr8HrBZYeKpRKmOmI9/d4FPrl60niIx3XjV
+	X8F0js140IGQiCqoat5hbqLYZMe/DwmfdGFkFdR6Rdb7tqIj9IN/c2RHNnuv9bPvaQpmQ==
+X-Google-Smtp-Source: AGHT+IFtG/k42yCeVuHX0tPN9L9VOFBp4AdntnEMp6oqgm8Ihathe3ej6ZuJqnnMKmge/3JMw8KR8w==
+X-Received: by 2002:a17:902:ecc5:b0:215:7dbf:f3de with SMTP id d9443c01a7336-21a83f5e4e5mr418050535ad.28.1736895496910;
+        Tue, 14 Jan 2025 14:58:16 -0800 (PST)
+Received: from atishp.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21a9f10df7asm71746105ad.47.2025.01.14.14.58.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Jan 2025 14:58:16 -0800 (PST)
+From: Atish Patra <atishp@rivosinc.com>
+Subject: [PATCH v2 00/21] Add Counter delegation ISA extension support
+Date: Tue, 14 Jan 2025 14:57:25 -0800
+Message-Id: <20250114-counter_delegation-v2-0-8ba74cdb851b@rivosinc.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250114-adpdrm-v4-2-e9b5260a39f1@gmail.com>
-References: <20250114-adpdrm-v4-0-e9b5260a39f1@gmail.com>
-In-Reply-To: <20250114-adpdrm-v4-0-e9b5260a39f1@gmail.com>
-To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Alyssa Ross <hi@alyssa.is>, Sasha Finkelstein <fnkl.kernel@gmail.com>, 
- Janne Grunau <j@jannau.net>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1736890736; l=27538;
- i=fnkl.kernel@gmail.com; s=20241124; h=from:subject:message-id;
- bh=eTNJQ+WS139aeRPBgYtz3BH1ScqEPN5mi++Yy2UXm4Y=;
- b=u4Rdj5NeN5sVl6N9ymT902Sz+yoo2hcbxx3sgH1+EpSw6Rgw5q7l9NL8qUQDSYZYezUA8T4CL
- +jgcgmTNyZFDWZY8N6QO9+CdjCjplxr8BZgpUItPCtQvJxPKnt5dh1P
-X-Developer-Key: i=fnkl.kernel@gmail.com; a=ed25519;
- pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
-X-Endpoint-Received: by B4 Relay for fnkl.kernel@gmail.com/20241124 with
- auth_id=283
-X-Original-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+X-B4-Tracking: v=1; b=H4sIANXrhmcC/yWNwQ6CMBBEf4Xs2ZJ2AYuc/A9DDFkW2ERb0iLRE
+ P7disc3mXmzQeQgHKHJNgi8ShTvEuApA5o6N7KSPjGgxlJbUynyL7dwuPf84LFbUl2dse4KHGq
+ 6EEEazoEHeR/SW5t4krj48Dk+VvNL/zo0VuvKFnVe2LI0aJRRyRin+Rpk9VEc5eSf0O77/gUwy
+ 20VqQAAAA==
+To: Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Anup Patel <anup@brainfault.org>, 
+ Atish Patra <atishp@atishpatra.org>, Will Deacon <will@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>, 
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, weilin.wang@intel.com
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
+ devicetree@vger.kernel.org, kvm@vger.kernel.org, 
+ kvm-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-perf-users@vger.kernel.org, Atish Patra <atishp@rivosinc.com>, 
+ Kaiwen Xue <kaiwenx@rivosinc.com>, Charlie Jenkins <charlie@rivosinc.com>
+X-Mailer: b4 0.15-dev-13183
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_214043_115221_B04CD02D 
-X-CRM114-Status: GOOD (  26.94  )
+X-CRM114-CacheID: sfid-20250114_145818_650532_678944D2 
+X-CRM114-Status: GOOD (  35.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,945 +109,195 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: fnkl.kernel@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+This series adds the counter delegation extension support. It is based on
+very early PoC work done by Kevin Xue and mostly rewritten after that.
+The counter delegation ISA extension(Smcdeleg/Ssccfg) actually depends
+on multiple ISA extensions.
 
-This display controller is present on M-series chips and is used
-to drive the touchbar display.
+1. S[m|s]csrind : The indirect CSR extension[1] which defines additional
+   5 ([M|S|VS]IREG2-[M|S|VS]IREG6) register to address size limitation of
+   RISC-V CSR address space.
+2. Smstateen: The stateen bit[60] controls the access to the registers
+   indirectly via the above indirect registers.
+3. Smcdeleg/Ssccfg: The counter delegation extensions[2]
 
-Co-developed-by: Janne Grunau <j@jannau.net>
-Signed-off-by: Janne Grunau <j@jannau.net>
-Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
+The counter delegation extension allows Supervisor mode to program the
+hpmevent and hpmcounters directly without needing the assistance from the
+M-mode via SBI calls. This results in a faster perf profiling and very
+few traps. This extension also introduces a scountinhibit CSR which allows
+to stop/start any counter directly from the S-mode. As the counter
+delegation extension potentially can have more than 100 CSRs, the specification
+leverages the indirect CSR extension to save the precious CSR address range.
+
+Due to the dependency of these extensions, the following extensions must be
+enabled in qemu to use the counter delegation feature in S-mode.
+
+"smstateen=true,sscofpmf=true,ssccfg=true,smcdeleg=true,smcsrind=true,sscsrind=true"
+or Virt machine users can just "max" cpu instead.
+
+When we access the counters directly in S-mode, we also need to solve the
+following problems.
+
+1. Event to counter mapping
+2. Event encoding discovery
+
+The RISC-V ISA doesn't define any standard either for event encoding or the
+event to counter mapping rules. Until now, the SBI PMU implementation relies
+on device tree binding[3] to discover the event to counter mapping in RISC-V
+platform in the firmware. The SBI PMU specification[4] defines event encoding
+for standard perf events as well. Thus, the kernel can query the appropriate
+counter for an given event from the firmware.
+
+However, the kernel doesn't need any firmware interaction for hardware
+counters if counter delegation is available in the hardware. Thus, the driver
+needs to discover the above mappings/encodings by itself without any assistance
+from firmware.
+
+Solution to Problem #1:
+This patch series solves the above problem #1 by extending the perf tool in a
+way so that event json file can specify the counter constraints of each event
+and that can be passed to the driver to choose the best counter for a given
+event. The perf stat metric series[5] from Weilin already extend the perf tool
+to parse "Counter" property to specify the hardware counter restriction.
+As that series was not revised in a while, I have rebased it and included in
+this series. I can only include the necessary parts from that patch required
+for this series if required. 
+
+This series extends that support by converting comma separated string to a
+bitmap. The counter constraint bitmap is passed to the perf driver via
+newly introduced "counterid_mask" property set in "config2".
+However, it results in the following event string which has repeated information
+about the counters both in list and bitmask format. I am not sure how I can pass
+the list information to the driver directly. That's why I added a
+counterid_mask property.
+
+Additionaly, the PATCH5 in [5] parses the bitmask information from the
+string and puts it into the metric group structure. We can just convert it in
+python easily and pass it to the metric group instead. The PATCH19 does exactly
+that and sets the counterid_mask property.
+
+@Weilin @Ian : Please let me know if there is a better way to solve the problem I
+described. 
+
+Due to the new counterid_mask property, the layout in empty-pmu-events.c got
+changed which is patched in PATCH 20 based on existing script.
+
+Possible solutions to Problem #2:
+
+1. Extend the PMU DT parsing support to kernel as well. However, that requires
+additional support in ACPI based system. It also needs more infrastructure in
+the virtualization as well.
+
+2. Rename perf legacy events to riscv specific names. This will require users to
+use perf differently than other ISAs which is not ideal.
+
+3. Define a architecture specific override function for legacy events. Earlier
+RFC version did that but it is not preferred as arch specific behavior in perf
+tool has other ramifications on the tests.
+
+4. Ian graciously helped and sent a generic fix[6] for #3 that prefers json
+over legacy encoding. Unfortunately, it had some regressions and the discussions
+are ongoing if it is a viable solution.
+
+5. Specify the encodings in the driver. There were earlier concerns of managing
+these in the driver as these encodings are vendor specific in absence of an ISA
+guidelines. However, we also need to support counter virtualization and legacy
+event users (without perf tool) as described in [7]. That's why, this series
+adapts this solution similar to other ISAs. The vendors can define their pmu
+event encoding and event to counter mapping in the driver.
+
+Note: This solution is still compatible with solution #4 by Ian. It gives vendors
+flexibility to define legacy event encoding in either the driver or json file
+if Ian's series [6] is merged. If we can get rid of the legacy events in the
+future, we can just rely on the json encodings. I have not added a json file for
+qemu as I have not included Ian's patches in this series. But I have verified them
+with a virt machine specific json file.
+
+The Qemu patches can be found here:
+https://github.com/atishp04/qemu/tree/b4/counter_delegation_v4
+
+The Linux kernel patches can be found here:
+https://github.com/atishp04/linux/tree/b4/counter_delegation_v2
+
+[1] https://github.com/riscv/riscv-indirect-csr-access
+[2] https://github.com/riscv/riscv-smcdeleg-ssccfg
+[3] https://www.kernel.org/doc/Documentation/devicetree/bindings/perf/riscv%2Cpmu.yaml
+[4] https://github.com/riscv-non-isa/riscv-sbi-doc/blob/master/src/ext-pmu.adoc
+[5] https://lore.kernel.org/lkml/20240412210756.309828-1-weilin.wang@intel.com/
+[6] https://lore.kernel.org/lkml/20250109222109.567031-1-irogers@google.com/
+[7] https://lore.kernel.org/lkml/20241026121758.143259-1-irogers@google.com/T/#m653a6b98919a365a361a698032502bd26af9f6ba
+
+Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- drivers/gpu/drm/Kconfig        |   2 +
- drivers/gpu/drm/Makefile       |   1 +
- drivers/gpu/drm/adp/Kconfig    |  16 ++
- drivers/gpu/drm/adp/Makefile   |   5 +
- drivers/gpu/drm/adp/adp-mipi.c | 251 +++++++++++++++++
- drivers/gpu/drm/adp/adp_drv.c  | 594 +++++++++++++++++++++++++++++++++++++++++
- 6 files changed, 869 insertions(+)
+Changes in v2:
+- Dropped architecture specific overrides for event encoding.
+- Dropped hwprobe bits.
+- Added a vendor specific event encoding table to support vendor specific event
+  encoding and counter mapping.
+- Fixed few bugs and cleanup.
+- Link to v1: https://lore.kernel.org/r/20240217005738.3744121-1-atishp@rivosinc.com
 
-diff --git a/drivers/gpu/drm/Kconfig b/drivers/gpu/drm/Kconfig
-index 772fc7625639de07de873afa0e5e0c37bf4f4420..bba7a9c1f1d213c9cf0418a388646da7a8504f4f 100644
---- a/drivers/gpu/drm/Kconfig
-+++ b/drivers/gpu/drm/Kconfig
-@@ -503,6 +503,8 @@ source "drivers/gpu/drm/mcde/Kconfig"
- 
- source "drivers/gpu/drm/tidss/Kconfig"
- 
-+source "drivers/gpu/drm/adp/Kconfig"
-+
- source "drivers/gpu/drm/xlnx/Kconfig"
- 
- source "drivers/gpu/drm/gud/Kconfig"
-diff --git a/drivers/gpu/drm/Makefile b/drivers/gpu/drm/Makefile
-index 463afad1b5ca6275e61223adc8ca036c3d4d6b03..acd8d8943ef2bf85c80db7c218c59a7ec2df56da 100644
---- a/drivers/gpu/drm/Makefile
-+++ b/drivers/gpu/drm/Makefile
-@@ -213,6 +213,7 @@ obj-y			+= mxsfb/
- obj-y			+= tiny/
- obj-$(CONFIG_DRM_PL111) += pl111/
- obj-$(CONFIG_DRM_TVE200) += tve200/
-+obj-$(CONFIG_DRM_ADP) += adp/
- obj-$(CONFIG_DRM_XEN) += xen/
- obj-$(CONFIG_DRM_VBOXVIDEO) += vboxvideo/
- obj-$(CONFIG_DRM_LIMA)  += lima/
-diff --git a/drivers/gpu/drm/adp/Kconfig b/drivers/gpu/drm/adp/Kconfig
-new file mode 100644
-index 0000000000000000000000000000000000000000..7e70b2e26555a2c2ddf71350bce74c97dfe292da
---- /dev/null
-+++ b/drivers/gpu/drm/adp/Kconfig
-@@ -0,0 +1,16 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR MIT
-+config DRM_ADP
-+	tristate "DRM Support for pre-DCP Apple display controllers"
-+	depends on DRM && OF && ARM64
-+	depends on ARCH_APPLE || COMPILE_TEST
-+	select DRM_KMS_HELPER
-+	select DRM_BRIDGE_CONNECTOR
-+	select DRM_DISPLAY_HELPER
-+	select DRM_KMS_DMA_HELPER
-+	select DRM_GEM_DMA_HELPER
-+	select VIDEOMODE_HELPERS
-+	select DRM_MIPI_DSI
-+	help
-+	  Chose this option if you have an Apple Arm laptop with a touchbar.
-+
-+	  If M is selected, this module will be called adpdrm.
-diff --git a/drivers/gpu/drm/adp/Makefile b/drivers/gpu/drm/adp/Makefile
-new file mode 100644
-index 0000000000000000000000000000000000000000..8e7b618edd35591ce9b480a8fd3819cce41557f5
---- /dev/null
-+++ b/drivers/gpu/drm/adp/Makefile
-@@ -0,0 +1,5 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR MIT
-+
-+adpdrm-y := adp_drv.o
-+adpdrm-mipi-y := adp-mipi.o
-+obj-$(CONFIG_DRM_ADP) += adpdrm.o adpdrm-mipi.o
-diff --git a/drivers/gpu/drm/adp/adp-mipi.c b/drivers/gpu/drm/adp/adp-mipi.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..7e6135422f65cee2a8df123360ba3c16c886b38a
---- /dev/null
-+++ b/drivers/gpu/drm/adp/adp-mipi.c
-@@ -0,0 +1,251 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+
-+#include <linux/iopoll.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+
-+#include <drm/drm_bridge.h>
-+#include <drm/drm_mipi_dsi.h>
-+
-+#define DSI_GEN_HDR 0x6c
-+#define DSI_GEN_PLD_DATA 0x70
-+
-+#define DSI_CMD_PKT_STATUS 0x74
-+
-+#define GEN_PLD_R_EMPTY BIT(4)
-+#define GEN_PLD_W_FULL BIT(3)
-+#define GEN_PLD_W_EMPTY BIT(2)
-+#define GEN_CMD_FULL BIT(1)
-+#define GEN_CMD_EMPTY BIT(0)
-+#define GEN_RD_CMD_BUSY BIT(6)
-+#define CMD_PKT_STATUS_TIMEOUT_US 20000
-+
-+struct adp_mipi_drv_private {
-+	struct mipi_dsi_host dsi;
-+	struct drm_bridge bridge;
-+	struct drm_bridge *next_bridge;
-+	void __iomem *mipi;
-+};
-+
-+#define mipi_to_adp(x) container_of(x, struct adp_mipi_drv_private, dsi)
-+
-+static int adp_dsi_gen_pkt_hdr_write(struct adp_mipi_drv_private *adp, u32 hdr_val)
-+{
-+	int ret;
-+	u32 val, mask;
-+
-+	ret = readl_poll_timeout(adp->mipi + DSI_CMD_PKT_STATUS,
-+				 val, !(val & GEN_CMD_FULL), 1000,
-+				 CMD_PKT_STATUS_TIMEOUT_US);
-+	if (ret) {
-+		dev_err(adp->dsi.dev, "failed to get available command FIFO\n");
-+		return ret;
-+	}
-+
-+	writel(hdr_val, adp->mipi + DSI_GEN_HDR);
-+
-+	mask = GEN_CMD_EMPTY | GEN_PLD_W_EMPTY;
-+	ret = readl_poll_timeout(adp->mipi + DSI_CMD_PKT_STATUS,
-+				 val, (val & mask) == mask,
-+				 1000, CMD_PKT_STATUS_TIMEOUT_US);
-+	if (ret) {
-+		dev_err(adp->dsi.dev, "failed to write command FIFO\n");
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static int adp_dsi_write(struct adp_mipi_drv_private *adp,
-+			 const struct mipi_dsi_packet *packet)
-+{
-+	const u8 *tx_buf = packet->payload;
-+	int len = packet->payload_length, pld_data_bytes = sizeof(u32), ret;
-+	__le32 word;
-+	u32 val;
-+
-+	while (len) {
-+		if (len < pld_data_bytes) {
-+			word = 0;
-+			memcpy(&word, tx_buf, len);
-+			writel(le32_to_cpu(word), adp->mipi + DSI_GEN_PLD_DATA);
-+			len = 0;
-+		} else {
-+			memcpy(&word, tx_buf, pld_data_bytes);
-+			writel(le32_to_cpu(word), adp->mipi + DSI_GEN_PLD_DATA);
-+			tx_buf += pld_data_bytes;
-+			len -= pld_data_bytes;
-+		}
-+
-+		ret = readl_poll_timeout(adp->mipi + DSI_CMD_PKT_STATUS,
-+					 val, !(val & GEN_PLD_W_FULL), 1000,
-+					 CMD_PKT_STATUS_TIMEOUT_US);
-+		if (ret) {
-+			dev_err(adp->dsi.dev,
-+				"failed to get available write payload FIFO\n");
-+			return ret;
-+		}
-+	}
-+
-+	word = 0;
-+	memcpy(&word, packet->header, sizeof(packet->header));
-+	return adp_dsi_gen_pkt_hdr_write(adp, le32_to_cpu(word));
-+}
-+
-+static int adp_dsi_read(struct adp_mipi_drv_private *adp,
-+			const struct mipi_dsi_msg *msg)
-+{
-+	int i, j, ret, len = msg->rx_len;
-+	u8 *buf = msg->rx_buf;
-+	u32 val;
-+
-+	/* Wait end of the read operation */
-+	ret = readl_poll_timeout(adp->mipi + DSI_CMD_PKT_STATUS,
-+				 val, !(val & GEN_RD_CMD_BUSY),
-+				 1000, CMD_PKT_STATUS_TIMEOUT_US);
-+	if (ret) {
-+		dev_err(adp->dsi.dev, "Timeout during read operation\n");
-+		return ret;
-+	}
-+
-+	for (i = 0; i < len; i += 4) {
-+		/* Read fifo must not be empty before all bytes are read */
-+		ret = readl_poll_timeout(adp->mipi + DSI_CMD_PKT_STATUS,
-+					 val, !(val & GEN_PLD_R_EMPTY),
-+					 1000, CMD_PKT_STATUS_TIMEOUT_US);
-+		if (ret) {
-+			dev_err(adp->dsi.dev, "Read payload FIFO is empty\n");
-+			return ret;
-+		}
-+
-+		val = readl(adp->mipi + DSI_GEN_PLD_DATA);
-+		for (j = 0; j < 4 && j + i < len; j++)
-+			buf[i + j] = val >> (8 * j);
-+	}
-+
-+	return ret;
-+}
-+
-+static ssize_t adp_dsi_host_transfer(struct mipi_dsi_host *host,
-+				     const struct mipi_dsi_msg *msg)
-+{
-+	struct adp_mipi_drv_private *adp = mipi_to_adp(host);
-+	struct mipi_dsi_packet packet;
-+	int ret, nb_bytes;
-+
-+	ret = mipi_dsi_create_packet(&packet, msg);
-+	if (ret) {
-+		dev_err(adp->dsi.dev, "failed to create packet: %d\n", ret);
-+		return ret;
-+	}
-+
-+	ret = adp_dsi_write(adp, &packet);
-+	if (ret)
-+		return ret;
-+
-+	if (msg->rx_buf && msg->rx_len) {
-+		ret = adp_dsi_read(adp, msg);
-+		if (ret)
-+			return ret;
-+		nb_bytes = msg->rx_len;
-+	} else {
-+		nb_bytes = packet.size;
-+	}
-+
-+	return nb_bytes;
-+}
-+
-+static int adp_dsi_host_attach(struct mipi_dsi_host *host,
-+			       struct mipi_dsi_device *dev)
-+{
-+	struct adp_mipi_drv_private *adp = mipi_to_adp(host);
-+	struct drm_bridge *next;
-+
-+	next = devm_drm_of_get_bridge(adp->dsi.dev, adp->dsi.dev->of_node, 1, 0);
-+	if (IS_ERR(next))
-+		return PTR_ERR(next);
-+
-+	adp->next_bridge = next;
-+
-+	drm_bridge_add(&adp->bridge);
-+	return 0;
-+}
-+
-+static int adp_dsi_host_detach(struct mipi_dsi_host *host,
-+			       struct mipi_dsi_device *dev)
-+{
-+	struct adp_mipi_drv_private *adp = mipi_to_adp(host);
-+
-+	drm_bridge_remove(&adp->bridge);
-+	return 0;
-+}
-+
-+static const struct mipi_dsi_host_ops adp_dsi_host_ops = {
-+	.transfer = adp_dsi_host_transfer,
-+	.attach = adp_dsi_host_attach,
-+	.detach = adp_dsi_host_detach,
-+};
-+
-+static int adp_dsi_bridge_attach(struct drm_bridge *bridge,
-+				 enum drm_bridge_attach_flags flags)
-+{
-+	struct adp_mipi_drv_private *adp =
-+		container_of(bridge, struct adp_mipi_drv_private, bridge);
-+
-+	return drm_bridge_attach(bridge->encoder, adp->next_bridge, bridge, flags);
-+}
-+
-+static const struct drm_bridge_funcs adp_dsi_bridge_funcs = {
-+	.attach	= adp_dsi_bridge_attach,
-+};
-+
-+static int adp_mipi_probe(struct platform_device *pdev)
-+{
-+	struct adp_mipi_drv_private *adp;
-+
-+	adp = devm_kzalloc(&pdev->dev, sizeof(*adp), GFP_KERNEL);
-+	if (!adp)
-+		return -ENOMEM;
-+
-+	adp->mipi = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(adp->mipi)) {
-+		dev_err(&pdev->dev, "failed to map mipi mmio");
-+		return PTR_ERR(adp->mipi);
-+	}
-+
-+	adp->dsi.dev = &pdev->dev;
-+	adp->dsi.ops = &adp_dsi_host_ops;
-+	adp->bridge.funcs = &adp_dsi_bridge_funcs;
-+	adp->bridge.of_node = pdev->dev.of_node;
-+	adp->bridge.type = DRM_MODE_CONNECTOR_DSI;
-+	dev_set_drvdata(&pdev->dev, adp);
-+	return mipi_dsi_host_register(&adp->dsi);
-+}
-+
-+static void adp_mipi_remove(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct adp_mipi_drv_private *adp = dev_get_drvdata(dev);
-+
-+	mipi_dsi_host_unregister(&adp->dsi);
-+}
-+
-+static const struct of_device_id adp_mipi_of_match[] = {
-+	{ .compatible = "apple,h7-display-pipe-mipi", },
-+	{ },
-+};
-+MODULE_DEVICE_TABLE(of, adp_mipi_of_match);
-+
-+static struct platform_driver adp_mipi_platform_driver = {
-+	.driver = {
-+		.name = "adp-mipi",
-+		.of_match_table = adp_mipi_of_match,
-+	},
-+	.probe = adp_mipi_probe,
-+	.remove = adp_mipi_remove,
-+};
-+
-+module_platform_driver(adp_mipi_platform_driver);
-+
-+MODULE_DESCRIPTION("Apple Display Pipe MIPI driver");
-+MODULE_LICENSE("GPL");
-diff --git a/drivers/gpu/drm/adp/adp_drv.c b/drivers/gpu/drm/adp/adp_drv.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..9384490e2895f7808a987b0aec147b52516a2f8c
---- /dev/null
-+++ b/drivers/gpu/drm/adp/adp_drv.c
-@@ -0,0 +1,594 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+
-+#include <linux/iopoll.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+
-+#include <drm/drm_atomic.h>
-+#include <drm/drm_atomic_helper.h>
-+#include <drm/drm_bridge.h>
-+#include <drm/drm_bridge_connector.h>
-+#include <drm/drm_drv.h>
-+#include <drm/drm_fb_dma_helper.h>
-+#include <drm/drm_framebuffer.h>
-+#include <drm/drm_gem_atomic_helper.h>
-+#include <drm/drm_gem_dma_helper.h>
-+#include <drm/drm_gem_framebuffer_helper.h>
-+#include <drm/drm_probe_helper.h>
-+#include <drm/drm_simple_kms_helper.h>
-+#include <drm/drm_vblank.h>
-+
-+#define ADP_INT_STATUS 0x34
-+#define ADP_INT_STATUS_INT_MASK 0x7
-+#define ADP_INT_STATUS_VBLANK 0x1
-+#define ADP_CTRL 0x100
-+#define ADP_CTRL_VBLANK_ON 0x12
-+#define ADP_CTRL_FIFO_ON 0x601
-+#define ADP_SCREEN_SIZE 0x0c
-+#define ADP_SCREEN_HSIZE GENMASK(15, 0)
-+#define ADP_SCREEN_VSIZE GENMASK(31, 16)
-+
-+#define ADBE_FIFO 0x10c0
-+#define ADBE_FIFO_SYNC 0xc0000000
-+
-+#define ADBE_BLEND_BYPASS 0x2020
-+#define ADBE_BLEND_EN1 0x2028
-+#define ADBE_BLEND_EN2 0x2074
-+#define ADBE_BLEND_EN3 0x202c
-+#define ADBE_BLEND_EN4 0x2034
-+#define ADBE_MASK_BUF 0x2200
-+
-+#define ADBE_SRC_START 0x4040
-+#define ADBE_SRC_SIZE 0x4048
-+#define ADBE_DST_START 0x4050
-+#define ADBE_DST_SIZE 0x4054
-+#define ADBE_STRIDE 0x4038
-+#define ADBE_FB_BASE 0x4030
-+
-+#define ADBE_LAYER_EN1 0x4020
-+#define ADBE_LAYER_EN2 0x4068
-+#define ADBE_LAYER_EN3 0x40b4
-+#define ADBE_LAYER_EN4 0x40f4
-+#define ADBE_SCALE_CTL 0x40ac
-+#define ADBE_SCALE_CTL_BYPASS 0x100000
-+
-+#define ADBE_LAYER_CTL 0x1038
-+#define ADBE_LAYER_CTL_ENABLE 0x10000
-+
-+#define ADBE_PIX_FMT 0x402c
-+#define ADBE_PIX_FMT_XRGB32 0x53e4001
-+
-+static int adp_open(struct inode *inode, struct file *filp)
-+{
-+	/*
-+	 * The modesetting driver does not check the non-desktop connector
-+	 * property and keeps the device open and locked. If the touchbar daemon
-+	 * opens the device first modesetting breaks the whole X session.
-+	 * Simply refuse to open the device for X11 server processes as
-+	 * workaround.
-+	 */
-+	if (current->comm[0] == 'X')
-+		return -EBUSY;
-+
-+	return drm_open(inode, filp);
-+}
-+
-+static const struct file_operations adp_fops = {
-+	.owner          = THIS_MODULE,
-+	.open           = adp_open,
-+	.release        = drm_release,
-+	.unlocked_ioctl = drm_ioctl,
-+	.compat_ioctl   = drm_compat_ioctl,
-+	.poll           = drm_poll,
-+	.read           = drm_read,
-+	.llseek         = noop_llseek,
-+	.mmap           = drm_gem_mmap,
-+	.fop_flags      = FOP_UNSIGNED_OFFSET,
-+	DRM_GEM_DMA_UNMAPPED_AREA_FOPS
-+};
-+
-+static int adp_drm_gem_dumb_create(struct drm_file *file_priv,
-+					struct drm_device *drm,
-+					struct drm_mode_create_dumb *args)
-+{
-+	args->height = ALIGN(args->height, 64);
-+	args->size = args->pitch * args->height;
-+
-+	return drm_gem_dma_dumb_create_internal(file_priv, drm, args);
-+}
-+
-+static const struct drm_driver adp_driver = {
-+	.driver_features = DRIVER_GEM | DRIVER_MODESET | DRIVER_ATOMIC,
-+	.fops = &adp_fops,
-+	DRM_GEM_DMA_DRIVER_OPS_VMAP_WITH_DUMB_CREATE(adp_drm_gem_dumb_create),
-+	.name = "adp",
-+	.desc = "Apple Display Pipe DRM Driver",
-+	.date = "20230412",
-+	.major = 0,
-+	.minor = 1,
-+};
-+
-+struct adp_drv_private {
-+	struct drm_device drm;
-+	struct drm_crtc crtc;
-+	struct drm_encoder encoder;
-+	struct drm_connector *connector;
-+	struct drm_bridge *next_bridge;
-+	void __iomem *be;
-+	void __iomem *fe;
-+	u32 *mask_buf;
-+	u64 mask_buf_size;
-+	dma_addr_t mask_iova;
-+	int be_irq;
-+	int fe_irq;
-+	spinlock_t irq_lock;
-+	struct drm_pending_vblank_event *event;
-+};
-+
-+struct adp_plane {
-+	struct drm_plane base_plane;
-+	u8 id;
-+};
-+
-+#define to_adp(x) container_of(x, struct adp_drv_private, drm)
-+#define crtc_to_adp(x) container_of(x, struct adp_drv_private, crtc)
-+
-+static int adp_plane_atomic_check(struct drm_plane *plane,
-+				    struct drm_atomic_state *state)
-+{
-+	struct drm_plane_state *new_plane_state;
-+	struct drm_crtc_state *crtc_state;
-+
-+	new_plane_state = drm_atomic_get_new_plane_state(state, plane);
-+
-+	if (!new_plane_state->crtc)
-+		return 0;
-+
-+	crtc_state = drm_atomic_get_crtc_state(state, new_plane_state->crtc);
-+	if (IS_ERR(crtc_state))
-+		return PTR_ERR(crtc_state);
-+	return drm_atomic_helper_check_plane_state(new_plane_state,
-+						   crtc_state,
-+						   DRM_PLANE_NO_SCALING,
-+						   DRM_PLANE_NO_SCALING,
-+						   true, true);
-+}
-+
-+static void adp_plane_atomic_update(struct drm_plane *plane,
-+				    struct drm_atomic_state *state)
-+{
-+	struct adp_drv_private *adp;
-+	struct drm_rect src_rect;
-+	struct drm_gem_dma_object *obj;
-+	struct drm_framebuffer *fb;
-+	struct drm_plane_state *new_state = drm_atomic_get_new_plane_state(state, plane);
-+	u32 src_pos, src_size, dst_pos, dst_size;
-+
-+	if (!plane || !new_state)
-+		return;
-+
-+	fb = new_state->fb;
-+	if (!fb)
-+		return;
-+	adp = to_adp(plane->dev);
-+
-+	drm_rect_fp_to_int(&src_rect, &new_state->src);
-+	src_pos = src_rect.x1 << 16 | src_rect.y1;
-+	dst_pos = new_state->dst.x1 << 16 | new_state->dst.y1;
-+	src_size = drm_rect_width(&src_rect) << 16 | drm_rect_height(&src_rect);
-+	dst_size = drm_rect_width(&new_state->dst) << 16 |
-+		drm_rect_height(&new_state->dst);
-+	writel(src_pos, adp->be + ADBE_SRC_START);
-+	writel(src_size, adp->be + ADBE_SRC_SIZE);
-+	writel(dst_pos, adp->be + ADBE_DST_START);
-+	writel(dst_size, adp->be + ADBE_DST_SIZE);
-+	writel(fb->pitches[0], adp->be + ADBE_STRIDE);
-+	obj = drm_fb_dma_get_gem_obj(fb, 0);
-+	if (obj)
-+		writel(obj->dma_addr + fb->offsets[0], adp->be + ADBE_FB_BASE);
-+
-+	writel(BIT(0), adp->be + ADBE_LAYER_EN1);
-+	writel(BIT(0), adp->be + ADBE_LAYER_EN2);
-+	writel(BIT(0), adp->be + ADBE_LAYER_EN3);
-+	writel(BIT(0), adp->be + ADBE_LAYER_EN4);
-+	writel(ADBE_SCALE_CTL_BYPASS, adp->be + ADBE_SCALE_CTL);
-+	writel(ADBE_LAYER_CTL_ENABLE | BIT(0), adp->be + ADBE_LAYER_CTL);
-+	writel(ADBE_PIX_FMT_XRGB32, adp->be + ADBE_PIX_FMT);
-+}
-+
-+static void adp_plane_atomic_disable(struct drm_plane *plane,
-+				     struct drm_atomic_state *state)
-+{
-+	struct adp_drv_private *adp = to_adp(plane->dev);
-+
-+	writel(0x0, adp->be + ADBE_LAYER_EN1);
-+	writel(0x0, adp->be + ADBE_LAYER_EN2);
-+	writel(0x0, adp->be + ADBE_LAYER_EN3);
-+	writel(0x0, adp->be + ADBE_LAYER_EN4);
-+	writel(ADBE_LAYER_CTL_ENABLE, adp->be + ADBE_LAYER_CTL);
-+}
-+
-+static const struct drm_plane_helper_funcs adp_plane_helper_funcs = {
-+	.atomic_check = adp_plane_atomic_check,
-+	.atomic_update = adp_plane_atomic_update,
-+	.atomic_disable = adp_plane_atomic_disable,
-+	DRM_GEM_SHADOW_PLANE_HELPER_FUNCS
-+};
-+
-+static const struct drm_plane_funcs adp_plane_funcs = {
-+	.update_plane = drm_atomic_helper_update_plane,
-+	.disable_plane = drm_atomic_helper_disable_plane,
-+	DRM_GEM_SHADOW_PLANE_FUNCS
-+};
-+
-+static const u32 plane_formats[] = {
-+	DRM_FORMAT_XRGB8888,
-+};
-+
-+#define ALL_CRTCS 1
-+
-+static struct adp_plane *adp_plane_new(struct adp_drv_private *adp, u8 id)
-+{
-+	struct drm_device *drm = &adp->drm;
-+	struct adp_plane *plane;
-+	enum drm_plane_type plane_type;
-+
-+	plane_type = (id == 0) ? DRM_PLANE_TYPE_PRIMARY :
-+		DRM_PLANE_TYPE_OVERLAY;
-+
-+	plane = drmm_universal_plane_alloc(drm, struct adp_plane, base_plane,
-+					   ALL_CRTCS, &adp_plane_funcs,
-+					   plane_formats, ARRAY_SIZE(plane_formats),
-+					   NULL, plane_type, "plane %d", id);
-+	if (!plane) {
-+		drm_err(drm, "failed to allocate plane");
-+		return ERR_PTR(-ENOMEM);
-+	}
-+	plane->id = id;
-+
-+	drm_plane_helper_add(&plane->base_plane, &adp_plane_helper_funcs);
-+	return plane;
-+}
-+
-+static void adp_enable_vblank(struct adp_drv_private *adp)
-+{
-+	u32 cur_ctrl;
-+
-+	writel(ADP_INT_STATUS_INT_MASK, adp->fe + ADP_INT_STATUS);
-+
-+	cur_ctrl = readl(adp->fe + ADP_CTRL);
-+	writel(cur_ctrl | ADP_CTRL_VBLANK_ON, adp->fe + ADP_CTRL);
-+}
-+
-+static int adp_crtc_enable_vblank(struct drm_crtc *crtc)
-+{
-+	struct drm_device *dev = crtc->dev;
-+	struct adp_drv_private *adp = to_adp(dev);
-+
-+	adp_enable_vblank(adp);
-+
-+	return 0;
-+}
-+
-+static void adp_disable_vblank(struct adp_drv_private *adp)
-+{
-+	u32 cur_ctrl;
-+
-+	cur_ctrl = readl(adp->fe + ADP_CTRL);
-+	writel(cur_ctrl & ~ADP_CTRL_VBLANK_ON, adp->fe + ADP_CTRL);
-+	writel(ADP_INT_STATUS_INT_MASK, adp->fe + ADP_INT_STATUS);
-+}
-+
-+static void adp_crtc_disable_vblank(struct drm_crtc *crtc)
-+{
-+	struct drm_device *dev = crtc->dev;
-+	struct adp_drv_private *adp = to_adp(dev);
-+
-+	adp_disable_vblank(adp);
-+}
-+
-+static void adp_crtc_atomic_enable(struct drm_crtc *crtc,
-+				   struct drm_atomic_state *state)
-+{
-+	struct adp_drv_private *adp = crtc_to_adp(crtc);
-+
-+	writel(BIT(0), adp->be + ADBE_BLEND_EN2);
-+	writel(BIT(4), adp->be + ADBE_BLEND_EN1);
-+	writel(BIT(0), adp->be + ADBE_BLEND_EN3);
-+	writel(BIT(0), adp->be + ADBE_BLEND_BYPASS);
-+	writel(BIT(0), adp->be + ADBE_BLEND_EN4);
-+}
-+
-+static void adp_crtc_atomic_disable(struct drm_crtc *crtc,
-+				    struct drm_atomic_state *state)
-+{
-+	struct adp_drv_private *adp = crtc_to_adp(crtc);
-+	struct drm_crtc_state *old_state = drm_atomic_get_old_crtc_state(state, crtc);
-+
-+	drm_atomic_helper_disable_planes_on_crtc(old_state, false);
-+
-+	writel(0x0, adp->be + ADBE_BLEND_EN2);
-+	writel(0x0, adp->be + ADBE_BLEND_EN1);
-+	writel(0x0, adp->be + ADBE_BLEND_EN3);
-+	writel(0x0, adp->be + ADBE_BLEND_BYPASS);
-+	writel(0x0, adp->be + ADBE_BLEND_EN4);
-+	drm_crtc_vblank_off(crtc);
-+}
-+
-+static void adp_crtc_atomic_flush(struct drm_crtc *crtc,
-+				  struct drm_atomic_state *state)
-+{
-+	u32 frame_num = 1;
-+	struct adp_drv_private *adp = crtc_to_adp(crtc);
-+	struct drm_crtc_state *new_state = drm_atomic_get_new_crtc_state(state, crtc);
-+	u64 new_size = ALIGN(new_state->mode.hdisplay *
-+			     new_state->mode.vdisplay * 4, PAGE_SIZE);
-+
-+	if (new_size != adp->mask_buf_size) {
-+		if (adp->mask_buf)
-+			dma_free_coherent(crtc->dev->dev, adp->mask_buf_size,
-+					  adp->mask_buf, adp->mask_iova);
-+		adp->mask_buf = NULL;
-+		if (new_size != 0) {
-+			adp->mask_buf = dma_alloc_coherent(crtc->dev->dev, new_size,
-+							   &adp->mask_iova, GFP_KERNEL);
-+			memset(adp->mask_buf, 0xFF, new_size);
-+			writel(adp->mask_iova, adp->be + ADBE_MASK_BUF);
-+		}
-+		adp->mask_buf_size = new_size;
-+	}
-+	writel(ADBE_FIFO_SYNC | frame_num, adp->be + ADBE_FIFO);
-+	//FIXME: use adbe flush interrupt
-+	spin_lock_irq(&crtc->dev->event_lock);
-+	if (crtc->state->event) {
-+		drm_crtc_vblank_get(crtc);
-+		adp->event = crtc->state->event;
-+	}
-+	crtc->state->event = NULL;
-+	spin_unlock_irq(&crtc->dev->event_lock);
-+}
-+
-+static const struct drm_crtc_funcs adp_crtc_funcs = {
-+	.destroy = drm_crtc_cleanup,
-+	.set_config = drm_atomic_helper_set_config,
-+	.page_flip = drm_atomic_helper_page_flip,
-+	.reset = drm_atomic_helper_crtc_reset,
-+	.atomic_duplicate_state = drm_atomic_helper_crtc_duplicate_state,
-+	.atomic_destroy_state = drm_atomic_helper_crtc_destroy_state,
-+	.enable_vblank = adp_crtc_enable_vblank,
-+	.disable_vblank = adp_crtc_disable_vblank,
-+};
-+
-+
-+static const struct drm_crtc_helper_funcs adp_crtc_helper_funcs = {
-+	.atomic_enable = adp_crtc_atomic_enable,
-+	.atomic_disable = adp_crtc_atomic_disable,
-+	.atomic_flush = adp_crtc_atomic_flush,
-+};
-+
-+static int adp_setup_crtc(struct adp_drv_private *adp)
-+{
-+	struct drm_device *drm = &adp->drm;
-+	struct adp_plane *primary;
-+	int ret;
-+
-+	primary = adp_plane_new(adp, 0);
-+	if (IS_ERR(primary))
-+		return PTR_ERR(primary);
-+
-+	ret = drm_crtc_init_with_planes(drm, &adp->crtc, &primary->base_plane,
-+					NULL, &adp_crtc_funcs, NULL);
-+	if (ret)
-+		return ret;
-+
-+	drm_crtc_helper_add(&adp->crtc, &adp_crtc_helper_funcs);
-+	return 0;
-+}
-+
-+static const struct drm_mode_config_funcs adp_mode_config_funcs = {
-+	.fb_create = drm_gem_fb_create_with_dirty,
-+	.atomic_check = drm_atomic_helper_check,
-+	.atomic_commit = drm_atomic_helper_commit,
-+};
-+
-+static int adp_setup_mode_config(struct adp_drv_private *adp)
-+{
-+	struct drm_device *drm = &adp->drm;
-+	int ret;
-+	u32 size;
-+
-+	ret = drmm_mode_config_init(drm);
-+	if (ret)
-+		return ret;
-+
-+	/*
-+	 * Query screen size restrict the frame buffer size to the screen size
-+	 * aligned to the next multiple of 64. This is not necessary but can be
-+	 * used as simple check for non-desktop devices.
-+	 * Xorg's modesetting driver does not care about the connector
-+	 * "non-desktop" property. The max frame buffer width or height can be
-+	 * easily checked and a device can be reject if the max width/height is
-+	 * smaller than 120 for example.
-+	 * Any touchbar daemon is not limited by this small framebuffer size.
-+	 */
-+	size = readl(adp->fe + ADP_SCREEN_SIZE);
-+
-+	drm->mode_config.min_width = 32;
-+	drm->mode_config.min_height = 32;
-+	drm->mode_config.max_width = ALIGN(FIELD_GET(ADP_SCREEN_HSIZE, size), 64);
-+	drm->mode_config.max_height = ALIGN(FIELD_GET(ADP_SCREEN_VSIZE, size), 64);
-+	drm->mode_config.preferred_depth = 24;
-+	drm->mode_config.prefer_shadow = 0;
-+	drm->mode_config.funcs = &adp_mode_config_funcs;
-+
-+	ret = adp_setup_crtc(adp);
-+	if (ret) {
-+		drm_err(drm, "failed to create crtc");
-+		return ret;
-+	}
-+
-+	adp->encoder.possible_crtcs = ALL_CRTCS;
-+	ret = drm_simple_encoder_init(drm, &adp->encoder, DRM_MODE_ENCODER_DSI);
-+	if (ret) {
-+		drm_err(drm, "failed to init encoder");
-+		return ret;
-+	}
-+
-+	ret = drm_bridge_attach(&adp->encoder, adp->next_bridge, NULL,
-+				DRM_BRIDGE_ATTACH_NO_CONNECTOR);
-+	if (ret) {
-+		drm_err(drm, "failed to init bridge chain");
-+		return ret;
-+	}
-+
-+	adp->connector = drm_bridge_connector_init(drm, &adp->encoder);
-+	if (IS_ERR(adp->connector))
-+		return PTR_ERR(adp->connector);
-+
-+	drm_connector_attach_encoder(adp->connector, &adp->encoder);
-+
-+	ret = drm_vblank_init(drm, drm->mode_config.num_crtc);
-+	if (ret < 0) {
-+		drm_err(drm, "failed to initialize vblank");
-+		return ret;
-+	}
-+
-+	drm_mode_config_reset(drm);
-+
-+	return 0;
-+}
-+
-+static int adp_parse_of(struct platform_device *pdev, struct adp_drv_private *adp)
-+{
-+	struct device *dev = &pdev->dev;
-+
-+	adp->be = devm_platform_ioremap_resource_byname(pdev, "be");
-+	if (IS_ERR(adp->be)) {
-+		dev_err(dev, "failed to map display backend mmio");
-+		return PTR_ERR(adp->be);
-+	}
-+
-+	adp->fe = devm_platform_ioremap_resource_byname(pdev, "fe");
-+	if (IS_ERR(adp->fe)) {
-+		dev_err(dev, "failed to map display pipe mmio");
-+		return PTR_ERR(adp->fe);
-+	}
-+
-+	adp->be_irq = platform_get_irq_byname(pdev, "be");
-+	if (adp->be_irq < 0) {
-+		dev_err(dev, "failed to find be irq");
-+		return adp->be_irq;
-+	}
-+
-+	adp->fe_irq = platform_get_irq_byname(pdev, "fe");
-+	if (adp->fe_irq < 0) {
-+		dev_err(dev, "failed to find fe irq");
-+		return adp->fe_irq;
-+	}
-+
-+	adp->next_bridge = devm_drm_of_get_bridge(dev, dev->of_node, 0, 0);
-+	if (IS_ERR(adp->next_bridge)) {
-+		if (PTR_ERR(adp->next_bridge) != EPROBE_DEFER)
-+			dev_err(dev, "failed to find next bridge");
-+		return PTR_ERR(adp->next_bridge);
-+	}
-+
-+	return 0;
-+}
-+
-+static irqreturn_t adp_fe_irq(int irq, void *arg)
-+{
-+	struct adp_drv_private *adp = (struct adp_drv_private *)arg;
-+	u32 int_status;
-+	u32 int_ctl;
-+
-+	spin_lock(&adp->irq_lock);
-+
-+	int_status = readl(adp->fe + ADP_INT_STATUS);
-+	if (int_status & ADP_INT_STATUS_VBLANK) {
-+		drm_crtc_handle_vblank(&adp->crtc);
-+		spin_lock(&adp->crtc.dev->event_lock);
-+		if (adp->event) {
-+			int_ctl = readl(adp->fe + ADP_CTRL);
-+			if ((int_ctl & 0xF00) == 0x600) {
-+				drm_crtc_send_vblank_event(&adp->crtc, adp->event);
-+				adp->event = NULL;
-+				drm_crtc_vblank_put(&adp->crtc);
-+			}
-+		}
-+		spin_unlock(&adp->crtc.dev->event_lock);
-+	}
-+
-+	writel(int_status, adp->fe + ADP_INT_STATUS);
-+
-+	spin_unlock(&adp->irq_lock);
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static int adp_probe(struct platform_device *pdev)
-+{
-+	struct adp_drv_private *adp;
-+	int err;
-+
-+	adp = devm_drm_dev_alloc(&pdev->dev, &adp_driver, struct adp_drv_private, drm);
-+	if (IS_ERR(adp))
-+		return PTR_ERR(adp);
-+
-+	spin_lock_init(&adp->irq_lock);
-+
-+	dev_set_drvdata(&pdev->dev, &adp->drm);
-+
-+	err = adp_parse_of(pdev, adp);
-+	if (err < 0)
-+		return err;
-+
-+	adp_disable_vblank(adp);
-+	writel(ADP_CTRL_FIFO_ON | ADP_CTRL_VBLANK_ON, adp->fe + ADP_CTRL);
-+
-+	err = adp_setup_mode_config(adp);
-+	if (err < 0)
-+		return err;
-+
-+	err = devm_request_irq(&pdev->dev, adp->fe_irq, adp_fe_irq, 0,
-+			       "adp-fe", adp);
-+	if (err)
-+		return err;
-+
-+	err = drm_dev_register(&adp->drm, 0);
-+	if (err)
-+		return err;
-+	return 0;
-+}
-+
-+static void adp_remove(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct drm_device *drm = dev_get_drvdata(dev);
-+	struct adp_drv_private *adp = to_adp(drm);
-+
-+	adp_disable_vblank(adp);
-+	drm_dev_unregister(drm);
-+	dev_set_drvdata(dev, NULL);
-+	drm_atomic_helper_shutdown(drm);
-+}
-+
-+static const struct of_device_id adp_of_match[] = {
-+	{ .compatible = "apple,h7-display-pipe", },
-+	{ },
-+};
-+MODULE_DEVICE_TABLE(of, adp_of_match);
-+
-+static struct platform_driver adp_platform_driver = {
-+	.driver = {
-+		.name = "adp",
-+		.of_match_table = adp_of_match,
-+	},
-+	.probe = adp_probe,
-+	.remove = adp_remove,
-+};
-+
-+module_platform_driver(adp_platform_driver);
-+
-+MODULE_DESCRIPTION("Apple Display Pipe DRM driver");
-+MODULE_LICENSE("GPL");
+---
+Atish Patra (17):
+      RISC-V: Add Sxcsrind ISA extension definition and parsing
+      dt-bindings: riscv: add Sxcsrind ISA extension description
+      RISC-V: Define indirect CSR access helpers
+      RISC-V: Add Ssccfg ISA extension definition and parsing
+      dt-bindings: riscv: add Ssccfg ISA extension description
+      RISC-V: Add Smcntrpmf extension parsing
+      dt-bindings: riscv: add Smcntrpmf ISA extension description
+      RISC-V: perf: Restructure the SBI PMU code
+      RISC-V: perf: Modify the counter discovery mechanism
+      RISC-V: perf: Add a mechanism to defined legacy event encoding
+      RISC-V: perf: Implement supervisor counter delegation support
+      RISC-V: perf: Use config2/vendor table for event to counter mapping
+      RISC-V: perf: Add legacy event encodings via sysfs
+      RISC-V: perf: Add Qemu virt machine events
+      tools/perf: Support event code for arch standard events
+      tools/perf: Pass the Counter constraint values in the pmu events
+      Sync empty-pmu-events.c with autogenerated one
 
--- 
-2.48.0
+Charlie Jenkins (1):
+      RISC-V: perf: Skip PMU SBI extension when not implemented
 
+Kaiwen Xue (2):
+      RISC-V: Add Sxcsrind ISA extension CSR definitions
+      RISC-V: Add Sscfg extension CSR definition
+
+Weilin Wang (1):
+      perf pmu-events: Add functions in jevent.py to parse counter and event info for hardware aware grouping
+
+ .../devicetree/bindings/riscv/extensions.yaml      |  34 +
+ MAINTAINERS                                        |   4 +-
+ arch/riscv/include/asm/csr.h                       |  57 ++
+ arch/riscv/include/asm/csr_ind.h                   |  42 +
+ arch/riscv/include/asm/hwcap.h                     |   8 +
+ arch/riscv/include/asm/kvm_vcpu_pmu.h              |   4 +-
+ arch/riscv/include/asm/kvm_vcpu_sbi.h              |   2 +-
+ arch/riscv/include/asm/sbi.h                       |   2 +-
+ arch/riscv/include/asm/vendorid_list.h             |   4 +
+ arch/riscv/kernel/cpufeature.c                     |   5 +
+ arch/riscv/kvm/Makefile                            |   4 +-
+ arch/riscv/kvm/vcpu_pmu.c                          |   2 +-
+ arch/riscv/kvm/vcpu_sbi.c                          |   2 +-
+ drivers/perf/Kconfig                               |  16 +-
+ drivers/perf/Makefile                              |   4 +-
+ drivers/perf/{riscv_pmu.c => riscv_pmu_common.c}   |   0
+ drivers/perf/{riscv_pmu_sbi.c => riscv_pmu_dev.c}  | 941 +++++++++++++++++----
+ include/linux/perf/riscv_pmu.h                     |  26 +-
+ .../perf/pmu-events/arch/riscv/arch-standard.json  |  10 +
+ tools/perf/pmu-events/empty-pmu-events.c           | 299 ++++---
+ tools/perf/pmu-events/jevents.py                   | 218 ++++-
+ tools/perf/pmu-events/pmu-events.h                 |  32 +-
+ 22 files changed, 1422 insertions(+), 294 deletions(-)
+---
+base-commit: 9d89551994a430b50c4fffcb1e617a057fa76e20
+change-id: 20240715-counter_delegation-628a32f8c9cc
+--
+Regards,
+Atish patra
 
 
