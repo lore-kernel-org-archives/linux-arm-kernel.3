@@ -4,87 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8274C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 10:02:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 600E6E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 10:08:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qoa+TnZ+eJVmynifYlg3CNbZeNLJM90IDeQADpEz0bE=; b=YVq78uNSsezEvSzingN2MBuW+L
-	CzHdKrR/a6OFTIUR/2grz/yf0UFUzmwAKffhwgiI0SDfX4ZFJDMKlSqZI0ft3UkA2tlrx3F1c6yj3
-	EPototTPgTzMK60uv3VSNbawbCTnNPVyZ15FVInBKpJGCrLg1oIS0bKI3jNyuD4wWmk/FT3W8KRyp
-	ukWF7NtQ+k6l+HKsYJm+10D42z69tll069fdeNw7Y1J8n40gmhDm/km2zSTsfqaK/KiCgDcViHNrC
-	aTEW72sDtyRFzjvTXgIwyD76J6EiY8oNXeOpjIDwL/MZ4fol8DsU2q9Vlx0xQP5YuefQSCuoF+xyj
-	oLlUHEaA==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Pm8MfIVlLVLaY2lTA2YqyxTx8zEL0e2MzoQv3DGG800=; b=XVr0JIgFtv38JJZeehbf7VBAU/
+	Ffc9cY3d/dLC1nyelUe/ew8Up5IkCeaLKEpQnx0g6EW4uzlv8G2coWKc1/Ionv0M+1IhiSPYv2FP8
+	TeQgC7Yfiekg5X6P3NOO6gP8pezg5RGNcGyDlzFObRM0kc62jYSCB799/oUyBq8/Q/B9o5gXZJ5Dy
+	PeWeyoGAaxcahC1ptMvUcd7NS51qjjZuGmu8AxgDXA2Wa1ahHuQFSp/ut4LSY+4kcOkJfMSFsKdQ5
+	WH3xcyxwUScdPJZz9IM09pzMv00SioVe3qe8LhQom+3+o/EO/A4y+tDs3l/mgrGWj31PAOlxUPtD9
+	5RRhZI0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXdka-000000081M6-2XZV;
-	Tue, 14 Jan 2025 10:02:20 +0000
-Received: from mail-yb1-xb32.google.com ([2607:f8b0:4864:20::b32])
+	id 1tXdqM-000000082R7-2VaY;
+	Tue, 14 Jan 2025 10:08:18 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXdig-0000000814b-0tCw
+	id 1tXdp6-000000082DT-3kVO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 10:00:23 +0000
-Received: by mail-yb1-xb32.google.com with SMTP id 3f1490d57ef6-e460717039fso7351480276.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 02:00:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1736848821; x=1737453621; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Qoa+TnZ+eJVmynifYlg3CNbZeNLJM90IDeQADpEz0bE=;
-        b=bvEND86DYQ0l3F+yyiifDVtdQoPRPHMJOOSJJK8RVk2sJmmlivETMVDOPh91/px3W+
-         Rf5ivGon+krhYXISCJKDjcWCd/IvnHruZ89dmx+2gIsNZOoAgy+POnH2lupYclk3TYaG
-         bm8sTuj96qdwTAMIMtM5A4qJbxZdYOM1yV7xo=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736848821; x=1737453621;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Qoa+TnZ+eJVmynifYlg3CNbZeNLJM90IDeQADpEz0bE=;
-        b=QVy+Z+qriKJ1zTunVHqyDb3CHpBZi2qDIU5YiwY0ecpxNXDiuyf4j84mzwf1YdRp1+
-         fABVcnkPOCV5A9vnNewXgF1NEUL9/oS4osIwP7KI1/L1Y/NdUxv+2DctsBMtvswjTkeF
-         tjS+u1snbWMG4KRlmGqylAV5quaFKNPGrWgAgoRf3RVyWSInlXYTHd2GGevsdMYTk1QM
-         gHa6Hgy/RpCLyFlF9goi1qsfG97iK2ijZsstSZNxyXYZSKUl42478SlR7nCI9N9McmU9
-         Ob4hPHUOYrrgNjxZ1UsJX8yqCUQw3GMr5G8z5gBmqTW67wBAnHujgwLKh0D4XM61Xmyo
-         p5SA==
-X-Forwarded-Encrypted: i=1; AJvYcCUbEWeis9eRTEIqZKp/0yLAR/vPY8fmwUKBu+XvFU5lIGM7XzRLBneg7HiFPH5KeMw7ye0MA/5v/uEDb2XQVpPX@lists.infradead.org
-X-Gm-Message-State: AOJu0YwAC/tVTRRBlKTQXixXhnYi6jlb8/jwt3TgTFhlnZAme87Fi9Rd
-	UnjBIF0ggwc0p0dQtkffqNZqxDeAUybT9JcaVV3AZrtPlaKKSv8rv7F12G3JBZjuEt3nB9jT4/e
-	Ym1dmVfFzmq2stdjXw0SAcSoLLIT+xIuCAYrdkw==
-X-Gm-Gg: ASbGncsv/hEQoFYflzGfFGBfMYmNl+X6MwiJtCj8fuY8sGSJHO3WQOBrQh9Cn8JBZu4
-	qETbFVT8chB2QXt7LJOOPnFXmHbbBtM2Hj6KC
-X-Google-Smtp-Source: AGHT+IHHg2Sovq+Z/vvKo0y9q781hVUrhXP9TC8xIJIu4TiqIQanvvQOUqy3tbZsmXEZ8ARVy4PjE9+PGPJyEEUoEwE=
-X-Received: by 2002:a25:53c9:0:b0:e4a:fc25:30cb with SMTP id
- 3f1490d57ef6-e54ee2345d5mr13391673276.46.1736848819839; Tue, 14 Jan 2025
- 02:00:19 -0800 (PST)
+	Tue, 14 Jan 2025 10:07:02 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 7245CA0D4B;
+	Tue, 14 Jan 2025 11:06:59 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=mail; bh=Pm8MfIVlLVLaY2lTA2YqyxTx8zEL0e2MzoQv3DGG800=; b=
+	FoDG2reu47xYbArOD2zGTMdYX8zVIpG+g4CIhqVxbEtMHsBFXYx9RcQfslUlKTk8
+	5rPyU71T+bnu26Hd+4HTr6qoQ6YpmZQC8lR9qV6JEBEUu8Q39Q2Zy/K9LupAmp+b
+	VBW8ik3ic5jinLhOIPoSR35bvq2zdaxvPP5njyJhaJPLPPmllipNA7umIQ91o3Tv
+	UnC3/SigYL3AzvcIP2G/Yvlm17sHYCbiq5iAFuWI/ytAkRY0dAsHYjqAptFt10dg
+	R9tGDlafO7PkwfFy3IxX0pX0Na2slC0DSgl0LE56u0A5GWP2sUp371rtw1c6yHuG
+	dVfh12iifmjeDEGZyT9Z/h6XKZj96Ga0JMZqOluYn1l44LHGYBX6Mh6KCQgwBluU
+	ds7O6l0oZFGsHS4EUypQX1wVJOuhqAZksOVcNcCOxg5OQmtzW/Eea0H6rIkKyNoz
+	0BkvTFo4nsZ9A+H6iWF80liWGrXbPsDxKamNFv0IGMuQXRAaCIsomSW3qo/2dZ+G
+	FcdBOzCUOw6q3eFutTeWRRgBrVzpcbyAmGM/9ZuKAPZL0GtQzDsx36TVg9Si7Y2u
+	sppxjaLDpokkaWnBPThBcYLUbUx+kwpcZmeioMUg/hfKU3oubwRP13p40edNJwoM
+	5vBd7Kcyy6NO/rJcghm7x2D99OKRpsmnShq6XIQC1RM=
+From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+To: <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+CC: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, "Chen-Yu
+ Tsai" <wens@kernel.org>, Vinod Koul <vkoul@kernel.org>, Chen-Yu Tsai
+	<wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
+	<samuel@sholland.org>
+Subject: [PATCH v2] dma-engine: sun4i: Use devm functions in probe()
+Date: Tue, 14 Jan 2025 11:05:05 +0100
+Message-ID: <20250114100505.799288-2-csokas.bence@prolan.hu>
+X-Mailer: git-send-email 2.48.0
 MIME-Version: 1.0
-References: <20250114091128.528757-1-dario.binacchi@amarulasolutions.com>
- <20250114091128.528757-2-dario.binacchi@amarulasolutions.com>
- <79a90c01-9e21-4e3f-a334-6ba9e1df4150@kernel.org> <CABGWkvofUphcXTwBS5UBEoQ1GYpngP7gWi9Ax=WW28XKK0qoYA@mail.gmail.com>
- <54b63cfc-7a51-4b69-8b32-eb7591b2169b@kernel.org>
-In-Reply-To: <54b63cfc-7a51-4b69-8b32-eb7591b2169b@kernel.org>
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Date: Tue, 14 Jan 2025 11:00:09 +0100
-X-Gm-Features: AbW1kvb-e25fGlxc4UPaUwDS8MpzQn87D6z9dSdnvOHiAHJ_tEcZc2pAxesQjxU
-Message-ID: <CABGWkvrYUU=HAh4uYNpZSpzeyanfp5a_xjK_178ftQyDKH=cTg@mail.gmail.com>
-Subject: Re: [PATCH v3 1/4] dt-bindings: clock: convert stm32 rcc bindings to json-schema
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Conor Dooley <conor+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Michael Turquette <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Rob Herring <robh@kernel.org>, Stephen Boyd <sboyd@kernel.org>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1736849218;VERSION=7983;MC=3794862646;ID=287078;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-Antispam: OK
+X-EsetResult: clean, is OK
+X-EsetId: 37303A2980D9485264766B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_020022_305977_02790BD5 
-X-CRM114-Status: GOOD (  13.47  )
+X-CRM114-CacheID: sfid-20250114_020701_086497_80819788 
+X-CRM114-Status: GOOD (  13.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,57 +80,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 14, 2025 at 10:48=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.o=
-rg> wrote:
->
-> On 14/01/2025 10:36, Dario Binacchi wrote:
-> >> Nothing improved here.
-> >
-> > In my humble opinion, there is nothing to improve. Any modification
-> > made causes the tests to fail.
-> >
-> > $ git grep st,stm32f746-rcc arch/
-> > arch/arm/boot/dts/st/stm32f746.dtsi:                    compatible =3D
-> > "st,stm32f746-rcc", "st,stm32-rcc";
-> > arch/arm/boot/dts/st/stm32f769-disco.dts:       compatible =3D
-> > "st,stm32f769-rcc", "st,stm32f746-rcc", "st,stm32-rcc";
-> >
-> > Or am I missing something?
->
-> How can I know what you are missing if you do not show the code?
+Clean up error handling by using devm functions
+and dev_err_probe(). This should make it easier
+to add new code, as we can eliminate the "goto
+ladder" in probe().
 
-Sorry, but I still can't understand. I run multiple tests, trying to
-modify things
-based on what I understood of your suggestions, but the tests failed
-every time.
+Suggested-by: Chen-Yu Tsai <wens@kernel.org>
+Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
+---
 
-Could you kindly provide an example of what you'd like me to do?
+Notes:
+    Changes in v2:
+    * rebase on current next
 
-Thanks and regards,
-Dario
->
-> Best regards,
-> Krzysztof
+ drivers/dma/sun4i-dma.c | 31 ++++++-------------------------
+ 1 file changed, 6 insertions(+), 25 deletions(-)
+
+diff --git a/drivers/dma/sun4i-dma.c b/drivers/dma/sun4i-dma.c
+index 24796aaaddfa..b10639720efd 100644
+--- a/drivers/dma/sun4i-dma.c
++++ b/drivers/dma/sun4i-dma.c
+@@ -1249,10 +1249,9 @@ static int sun4i_dma_probe(struct platform_device *pdev)
+ 	if (priv->irq < 0)
+ 		return priv->irq;
+ 
+-	priv->clk = devm_clk_get(&pdev->dev, NULL);
++	priv->clk = devm_clk_get_enabled(&pdev->dev, NULL);
+ 	if (IS_ERR(priv->clk)) {
+-		dev_err(&pdev->dev, "No clock specified\n");
+-		return PTR_ERR(priv->clk);
++		return dev_err_probe(&pdev->dev, PTR_ERR(priv->clk), "Couldn't start the clock");
+ 	}
+ 
+ 	if (priv->cfg->has_reset) {
+@@ -1328,12 +1327,6 @@ static int sun4i_dma_probe(struct platform_device *pdev)
+ 		vchan_init(&vchan->vc, &priv->slave);
+ 	}
+ 
+-	ret = clk_prepare_enable(priv->clk);
+-	if (ret) {
+-		dev_err(&pdev->dev, "Couldn't enable the clock\n");
+-		return ret;
+-	}
+-
+ 	/*
+ 	 * Make sure the IRQs are all disabled and accounted for. The bootloader
+ 	 * likes to leave these dirty
+@@ -1344,32 +1337,23 @@ static int sun4i_dma_probe(struct platform_device *pdev)
+ 	ret = devm_request_irq(&pdev->dev, priv->irq, sun4i_dma_interrupt,
+ 			       0, dev_name(&pdev->dev), priv);
+ 	if (ret) {
+-		dev_err(&pdev->dev, "Cannot request IRQ\n");
+-		goto err_clk_disable;
++		return dev_err_probe(&pdev->dev, ret, "Cannot request IRQ");
+ 	}
+ 
+-	ret = dma_async_device_register(&priv->slave);
++	ret = dmaenginem_async_device_register(&priv->slave);
+ 	if (ret) {
+-		dev_warn(&pdev->dev, "Failed to register DMA engine device\n");
+-		goto err_clk_disable;
++		return dev_err_probe(&pdev->dev, ret, "Failed to register DMA engine device");
+ 	}
+ 
+ 	ret = of_dma_controller_register(pdev->dev.of_node, sun4i_dma_of_xlate,
+ 					 priv);
+ 	if (ret) {
+-		dev_err(&pdev->dev, "of_dma_controller_register failed\n");
+-		goto err_dma_unregister;
++		return dev_err_probe(&pdev->dev, ret, "Failed to register translation function");
+ 	}
+ 
+ 	dev_dbg(&pdev->dev, "Successfully probed SUN4I_DMA\n");
+ 
+ 	return 0;
+-
+-err_dma_unregister:
+-	dma_async_device_unregister(&priv->slave);
+-err_clk_disable:
+-	clk_disable_unprepare(priv->clk);
+-	return ret;
+ }
+ 
+ static void sun4i_dma_remove(struct platform_device *pdev)
+@@ -1380,9 +1364,6 @@ static void sun4i_dma_remove(struct platform_device *pdev)
+ 	disable_irq(priv->irq);
+ 
+ 	of_dma_controller_free(pdev->dev.of_node);
+-	dma_async_device_unregister(&priv->slave);
+-
+-	clk_disable_unprepare(priv->clk);
+ }
+ 
+ static struct sun4i_dma_config sun4i_a10_dma_cfg = {
+-- 
+2.48.0
 
 
-
---=20
-
-Dario Binacchi
-
-Senior Embedded Linux Developer
-
-dario.binacchi@amarulasolutions.com
-
-__________________________________
-
-
-Amarula Solutions SRL
-
-Via Le Canevare 30, 31100 Treviso, Veneto, IT
-
-T. +39 042 243 5310
-info@amarulasolutions.com
-
-www.amarulasolutions.com
 
