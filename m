@@ -4,96 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5824BE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 10:58:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5048E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 10:59:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+3rqPuNp/XAiHwmx1Pu2LDapqHlVBx3ScWZfxCOYmYA=; b=g0VJsPqHQanvjM1NSdlz0yDu/e
-	QQ5WVTUe5sTLXTn/jRfEXHyuyVXIR/Npdrgg5v+fPLxAmu4PF3iiJBGzSGWPqGIBJT5FEIwtKDY9Z
-	L9M0gzHbFSijUkuFXuAje72al/Rbgz7UT7TYN1h7Pwjg4W58OJmbl/OFihmxJ9n28xOJoWPv0uhLo
-	FDhwElJ6nM//SdltCjvnbleiUuawpAf4yf45BYOF2dYDWPwRcvmFjTaQqshO2i7AvyZKL3BPjQSmr
-	NfBsiRojOYH15AJDaj5TmCU10ZlVxhNV7xh/o8WU4NvVbheVwTuSZ8Eu4eV1PlYuxU/rbsL2LIc8m
-	mZfU7EDQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6mH6fSABIQjQfrOs63h7SZKqORCSvRUauMFwjb1MJz8=; b=O3jztFsKiJu14Q3y/1VIcN6tmj
+	pZC9C4cMt0ZR4YACXAIyCv/s6vpR2dulHe+tzehYkYmW0QjZDZsxvT+l/7cQ8YO8n8napxiErZL58
+	yQM7xWDUlJryvZj1/quB8CUoywYx9VD7vwD/IY8tWn6cz5ePgyzQ3HyWrZ7VP+SBQFUxy8DGCY81T
+	3rvjob01kaod95s+Jb5haSrrAjMoDQlTVfHVhVa8PtIZifYjD4El7RpaAWnakNmolEUvm3zZzQYQ8
+	sRzeCf4fUaeYh5owBlQZoOC5Pauy3eDKOMhUqe3ilG+gl7UmhZnDiUJwR6nxlRaJg5/nUdppyueSW
+	I5t5I3aA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXecj-00000008B5B-1EeJ;
-	Tue, 14 Jan 2025 10:58:17 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1tXedx-00000008BKK-05NJ;
+	Tue, 14 Jan 2025 10:59:33 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXeaI-00000008AZY-0HXz
+	id 1tXeaU-00000008Ac5-2N3U
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 10:55:47 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-aa6b500a685so76783466b.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 02:55:45 -0800 (PST)
+	Tue, 14 Jan 2025 10:55:59 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-aa67bc91f87so82685566b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 02:55:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736852144; x=1737456944; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+3rqPuNp/XAiHwmx1Pu2LDapqHlVBx3ScWZfxCOYmYA=;
-        b=j9eyOKDNWziwHTTIh1b2wxkdxeY+n3Bk21zNm++XnwLP8wGeycDZBJjRN5bqRkcq9u
-         KOvUUG6HQ6pKQGaz6W3f2dhZ1rvfsdEsUKRaL2nkDIa4nZ/rq5QUm2GoQGSUbNlB7Y9r
-         C9XyXgWvAq0BdOd925BeL/dJUW4YvkYjPK+QwsPWHQJ768gFopKMWlMTGXdfdhZIO5ez
-         CKWX1kgStPTxLlycI6RD1d5+eE1+rjzG3g6vyFDeCzNf6bvnb4USP4egt+BzEBhEll6L
-         ybo3x8qoE4MOEVCz2Ved0+B3HHKqatjjS/BcLrktm23E102xx/hnyaWFqTMixOr9kJ2T
-         T9WQ==
+        d=linaro.org; s=google; t=1736852157; x=1737456957; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=6mH6fSABIQjQfrOs63h7SZKqORCSvRUauMFwjb1MJz8=;
+        b=YtJvxRD/ztRVDKX8C6hSd4C3aqyg3DCHPAGyfwmtMVN/0d9ailCfcTsC9GQ50Z286f
+         9i88pwWZjsKXTEz/KkRfcv7/x81KmbatQsMqX/wxbLWKN96Otmykn2bbvjIblzEdCxXX
+         Ur2e8MyBqbfp4g1+Tmteh2yxR0Xgy1bEWuC3L1RvEniIPG+2+Lx6FJB97gGd5iIGnhmy
+         DKNHEjkXuBeWqw2oCtEqXCQpYoaxJ2ZRfdxbS5DIIoYYL+Lo2gTn2QrF97wuGEv52Vqx
+         yhsA/Tafk0OZiIQKInlWev1DcWnGVRFrFrkqXYBasfcX7w2aEi6bPjfxpeFZlpe+i27Q
+         3B2Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736852144; x=1737456944;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+3rqPuNp/XAiHwmx1Pu2LDapqHlVBx3ScWZfxCOYmYA=;
-        b=WCm0pxhKbCmUcjFxZl+xs6+45ddFANVc0U9QdbJ2dj7jwG3DG1Gd06c1EtNmlzZST4
-         7g6PheNGqAW2cQOUOysGi9kspqF+ECMVjd/yGSqllaLl/DMUdZEDAHY5QNumEr4s6acR
-         YNGG9hffVFRbuJi1EVXEfDnrMDH295/1HrT6X4Y12TnWceuAQHsoXq8g0CopfBYpLZUX
-         Ph0iEhlHRlXOjgyhE+/r9gV/PYCTK3nda7slNQowGh0KlVloSITsDkPNK2W1lD8bcqgy
-         8nE/QEHm7M//geSicwr6p1rokoaMOgNDeC86D6VZ4LK400aLWxnZukJSwHvEbdiqicCV
-         1FJA==
-X-Forwarded-Encrypted: i=1; AJvYcCWVUxPGxzaFiTN7Yp5MYrsDTeJ7Dv/t4AMbo7GuMa6d44+4Xf0n0zkdQneJAxKs8d6x1o0SV5a6Zj7yFgGg0Ioq@lists.infradead.org
-X-Gm-Message-State: AOJu0YzVQTQUCly28Qdyi80XnKR4Cok0gLrTZOAV5gv1QQTPRH4gGjtU
-	bgfCQf6dIw7M/hmVkH0ceVgPKCnp9wrduxsCK7bwPbugVPUEczjM5H1e1kmnwws=
-X-Gm-Gg: ASbGncuNMCKFCzsFpVFlTdqEDwRT8CvwEKOJVzVWh+DHNHQzRRWdTOkNGv1imYcVlp2
-	C8SFka7kEI4d0WHxBSZcP71txLHgDwr9yOp3Hsi83YQey5pTJldMl8WvfmYGapYk//aFOpuVbAw
-	p20hHjd805cEEJ5xDFYfMflApou+9wrsd8ynN5TTG+zSQRXQ9OO+XEqxhMtzT7UFyZuLUmap2JG
-	HvYTD4WaPsA3IqhjJIXiTqS1IQqP0vzGPqlCUBwNJNkZw76hO+1IOa0OdjZjjnM/WmU6Fw=
-X-Google-Smtp-Source: AGHT+IGGLNOo3Y6rZ9xm8aucjHmK0akRyTENMu3IpG6BrZjgAqoEyoZP/GxppQhWGAt606k5yDTcpQ==
-X-Received: by 2002:a17:907:2d8f:b0:aa6:6386:44de with SMTP id a640c23a62f3a-ab2ab73b693mr726196966b.8.1736852144389;
-        Tue, 14 Jan 2025 02:55:44 -0800 (PST)
+        d=1e100.net; s=20230601; t=1736852157; x=1737456957;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=6mH6fSABIQjQfrOs63h7SZKqORCSvRUauMFwjb1MJz8=;
+        b=b3bn9jg9dQ9OWBl7qsvVtpUA7HIdw699wobMNkNY/4BtG989woaT/AUDSX/6DrWuO3
+         oEXFh6wTC+gjNVkMvAKznHVxDadWS32fAzylVlISX0CgM872YSzkKoNhF/So+GpgLTHx
+         nos9Kk34ygOHaSt2lgPADBqdDy16bhOrF6eofoQprch8NujURWPNBQkigO3Q6FBCvrau
+         H1uJRy7pbXmDd9M2wDJVTn6PHFNU0E1PF9jryHHRBiunaYR8PwDj3l+Tx5JkUVeiYthq
+         df+LkPkMJQ8aQTssbzgysU/iqhKds9hnl9jc/wnfA1CCODL5UmWK+kKH4SyfKAgA3JIB
+         oKgQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXwsv8a4g7t9cLFqHJolM9plgK7hvZju9fqTNQ1YNFi1+iCeb/2NVROadZw3pqq2GdCBb2hrrHzHfXdPO/VZxwg@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/PVVCoaEwXAK8pC5i1L+89Z+4gJOTcZhB020rQOXaL0Z3g2kY
+	/qp5TJ/mY/o5oqaAF93qm77FO9RcrtQu8hYNA+2o+Zdaf0E4p9hQxyPAWHCThGg=
+X-Gm-Gg: ASbGnctwFakyzpRT9+nnSrZx16jRZ1g2PUR9oSkhVn+des7K7qPmGZ1xpqingHTiJNc
+	sSWfwO39eBRFDn5c4nag0ffNCAltrjASnGdbfZ++0g15/tG9ZiTvVE8qibTqM8FLjGZFFmVTMUn
+	JqJXvSbY9NJtGc5SZZYGtJv499UBiZPXUbx6y/a6KhAtmZ5oxPPfWwn8qsppv3Fwh0JSDqm1Lj/
+	k69t3PAjJViJF/zLvB4rTuUmnpMOkNnTK8JE3SUuUPTrPZM8pyKSM06eApvgK8ov+q39l0=
+X-Google-Smtp-Source: AGHT+IHbCyEQI2NTIiulDjFObPlITRIekk3IlqsgCYsJ1jdC7IGpxwnbidGWvk7wts9bxMRn/G9I1g==
+X-Received: by 2002:a17:907:72c7:b0:a9e:c430:713d with SMTP id a640c23a62f3a-ab2aa3fc05cmr848583766b.0.1736852156861;
+        Tue, 14 Jan 2025 02:55:56 -0800 (PST)
 Received: from krzk-bin.. ([178.197.223.165])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab2c95624e8sm611169266b.127.2025.01.14.02.55.42
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab2c9564848sm608081066b.125.2025.01.14.02.55.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jan 2025 02:55:43 -0800 (PST)
+        Tue, 14 Jan 2025 02:55:56 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Vinod Koul <vkoul@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Peter Ujfalusi <peter.ujfalusi@gmail.com>,
-	Michal Simek <michal.simek@amd.com>,
-	dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
+To: Doug Berger <opendmb@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH 2/2] dmaengine: pxa: Enavle compile test
-Date: Tue, 14 Jan 2025 11:55:38 +0100
-Message-ID: <20250114105538.272963-2-krzysztof.kozlowski@linaro.org>
+Subject: [PATCH] gpio: Use str_enable_disable-like helpers
+Date: Tue, 14 Jan 2025 11:55:53 +0100
+Message-ID: <20250114105553.273085-1-krzysztof.kozlowski@linaro.org>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250114105538.272963-1-krzysztof.kozlowski@linaro.org>
-References: <20250114105538.272963-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_025546_105271_A6522BBC 
-X-CRM114-Status: GOOD (  12.89  )
+X-CRM114-CacheID: sfid-20250114_025558_604033_8B2137C0 
+X-CRM114-Status: GOOD (  12.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,27 +99,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PXA_DMA driver does not include any asm/mach headers, so it can be
-compile tested for build coverage.
+Replace ternary (condition ? "enable" : "disable") syntax with helpers
+from string_choices.h because:
+1. Simple function call with one argument is easier to read.  Ternary
+   operator has three arguments and with wrapping might lead to quite
+   long code.
+2. Is slightly shorter thus also easier to read.
+3. It brings uniformity in the text - same string.
+4. Allows deduping by the linker, which results in a smaller binary
+   file.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- drivers/dma/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/gpio/gpio-brcmstb.c | 3 ++-
+ drivers/gpio/gpio-grgpio.c  | 3 ++-
+ 2 files changed, 4 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/dma/Kconfig b/drivers/dma/Kconfig
-index 8afea2e23360..cd856c990d17 100644
---- a/drivers/dma/Kconfig
-+++ b/drivers/dma/Kconfig
-@@ -546,7 +546,7 @@ config PL330_DMA
+diff --git a/drivers/gpio/gpio-brcmstb.c b/drivers/gpio/gpio-brcmstb.c
+index 491b529d25f8..ca3472977431 100644
+--- a/drivers/gpio/gpio-brcmstb.c
++++ b/drivers/gpio/gpio-brcmstb.c
+@@ -9,6 +9,7 @@
+ #include <linux/irqchip/chained_irq.h>
+ #include <linux/interrupt.h>
+ #include <linux/platform_device.h>
++#include <linux/string_choices.h>
  
- config PXA_DMA
- 	bool "PXA DMA support"
--	depends on (ARCH_MMP || ARCH_PXA)
-+	depends on (ARCH_MMP || ARCH_PXA) || COMPILE_TEST
- 	select DMA_ENGINE
- 	select DMA_VIRTUAL_CHANNELS
- 	help
+ enum gio_reg_index {
+ 	GIO_REG_ODEN = 0,
+@@ -224,7 +225,7 @@ static int brcmstb_gpio_priv_set_wake(struct brcmstb_gpio_priv *priv,
+ 		ret = disable_irq_wake(priv->parent_wake_irq);
+ 	if (ret)
+ 		dev_err(&priv->pdev->dev, "failed to %s wake-up interrupt\n",
+-				enable ? "enable" : "disable");
++			str_enable_disable(enable));
+ 	return ret;
+ }
+ 
+diff --git a/drivers/gpio/gpio-grgpio.c b/drivers/gpio/gpio-grgpio.c
+index 169f33c41c59..30a0522ae735 100644
+--- a/drivers/gpio/gpio-grgpio.c
++++ b/drivers/gpio/gpio-grgpio.c
+@@ -30,6 +30,7 @@
+ #include <linux/platform_device.h>
+ #include <linux/slab.h>
+ #include <linux/spinlock.h>
++#include <linux/string_choices.h>
+ 
+ #define GRGPIO_MAX_NGPIO 32
+ 
+@@ -438,7 +439,7 @@ static int grgpio_probe(struct platform_device *ofdev)
+ 	}
+ 
+ 	dev_info(dev, "regs=0x%p, base=%d, ngpio=%d, irqs=%s\n",
+-		 priv->regs, gc->base, gc->ngpio, priv->domain ? "on" : "off");
++		 priv->regs, gc->base, gc->ngpio, str_on_off(priv->domain));
+ 
+ 	return 0;
+ }
 -- 
 2.43.0
 
