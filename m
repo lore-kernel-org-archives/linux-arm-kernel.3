@@ -4,105 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2AA6C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 07:33:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF46CC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 07:36:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6k3stSyEIrEanzUwiSISkNwbi2gtHUscqjMu+CEvhEo=; b=OrV0wulFqOL5gsx+Yll0HyZM0K
-	Wu0DCvEEBQhiy1HPBhpdiQ8LOstbHiicWD1yxhbAVm6tyEIJI9M1EfTT0K+Velky7v5OCK3THc8/8
-	3hh0G8vSSazF+b5d5QeGl0H0rsY3GSFRUBeAefdREVzzFxTwJGMia7hXMVG3DvXlJtfLWaCvF9kdj
-	H46pq7NtzafMhDEh/fEeUaPVezzUJ9sPDtc702Gwurk44fgEIBGvFyc9feg8o3+2X3pFKLTNCpU1e
-	DNUW7YxZygcPRUciCOCTxtYyWoUaZA0DSpkJO+WC+e8/CW5bUqQl1kajL6naXxCai4D8avDMf+RhZ
-	XTuaQo2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0n1HU/m4TSdH9CaEx9tsnYmwDr3u9MdOP9L6pDaSTyk=; b=MxFiMcW0scl1aewxVuMuuQ1tn3
+	OsfQ+n0+eH1pRnRox4K3dwfVjolzM+l2BdrZhJZLLej74fraqmrVkNO/BuzrvM2382P93PGwjXDjX
+	Hs5jsr6KOuTy4FYAEsjOtS9oa/X2gLqCDYce9tF77TubIb3sduS1Q06LvshuivfU+zW4flJWNHMLi
+	rVrAcUyNhpyPfIfB5FOWx0gEZKuBwQmfmsHc8iYPuI8473YySUIHFOjCFNrkOMa/aEPZgG2yPiYJU
+	+g6k3wXuUk0s/5V5/dzLW1mW8r0TPqkcivaxzmipPI14z8vEJRC9qRCQRSymEFH/y1Ifjh5tAFnHW
+	wgq8BesA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXbQR-00000007h0D-0ied;
-	Tue, 14 Jan 2025 07:33:23 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tXbSs-00000007hKi-15yK;
+	Tue, 14 Jan 2025 07:35:54 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXbPC-00000007gsl-0MC2;
-	Tue, 14 Jan 2025 07:32:07 +0000
+	id 1tXbRd-00000007h9a-0HAG;
+	Tue, 14 Jan 2025 07:34:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7979A5C5640;
-	Tue, 14 Jan 2025 07:31:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 051B9C4CEDD;
-	Tue, 14 Jan 2025 07:32:00 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9543D5C5606;
+	Tue, 14 Jan 2025 07:33:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B318C4CEDD;
+	Tue, 14 Jan 2025 07:34:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736839924;
-	bh=6ZWmsJ98LtqBrmv5kenGU63vKf2MG1uFnfOYZD2zNO0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RpHZeMeXxr4DhZpwEMuJceut6Au1JIrlqNV6kj/scPxpsTMPePNK1f7WPjziYfnUC
-	 DhlgOTwqAapp9vQd4lPPa4E3KQKsDE5HtdJNu+CyaBw83L45brgV49YEYxf9PwAWh8
-	 wW6TCZNpchdrbeRFFJq0qMyxBxR6Uma9fYy+aKPnTpgFSDvJlHIJVdJNSxk0Qlsz5g
-	 rSHTi9sbaflsUAryRoNIbT49SRhEXKZrs9P3in3bQYp5y7TP0r99UmUlveZ0paTDD6
-	 uWQB7vYSAz17YVldKigAP+H7tfCszV6gqDSd/vBP8WteByh8vGUqAy4SsHZPGb0Oet
-	 DbDshwRciyExQ==
-Message-ID: <79ad2e41-3d27-4dfd-9136-cb0867cb1a36@kernel.org>
-Date: Tue, 14 Jan 2025 08:31:58 +0100
+	s=k20201202; t=1736840076;
+	bh=YxrBUkBOC0+g4ghiLAUJPBhAPUwiWqR+8mCY9TKXTTM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FMcW0/5owhNZEv7H6DT1smEvLGinXH+sRSZKsOvw7cqf6WeJJrCYbZI/QlDJ6tgKM
+	 AFXxbSMo9K/PXcrfuO9w9h2YV2tSl+zwYbPuU21FltWOhm+OoQ+t2ETkKX8r0OniMW
+	 yxPjF42av37lI333//E4cpgDkecvAlmNnTLfsqHj5rKHfyJUabJ2Ept2YuL0ZExO6r
+	 VoWDHxHMsXJwVv32cK/NzPUqqCuPRbE9aBg3IIN8m/M+xSc+LUe3SsD3s4LgSM+Hwg
+	 wak944NxtCrRU8pehD+Qoa1D8z7EL0S7tSgeE86Sk2D1OTZTkAfe2ZLnSGStjVIEdW
+	 +w3IiDdmFm2WQ==
+Date: Tue, 14 Jan 2025 08:34:33 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Melody Olvera <quic_molvera@quicinc.com>
+Cc: Vinod Koul <vkoul@kernel.org>, 
+	Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Wesley Cheng <quic_wcheng@quicinc.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Satya Durga Srinivasu Prabhala <quic_satyap@quicinc.com>, 
+	Trilok Soni <quic_tsoni@quicinc.com>, linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 3/7] dt-bindings: usb: qcom,dwc3: Add SM8750 compatible
+Message-ID: <nrl67b3qrtib4v6bcgpdhomsihphkpkxtnmuwdrdfm26opbdwc@7urmkziycwqt>
+References: <20250113-sm8750_usb_master-v1-0-09afe1dc2524@quicinc.com>
+ <20250113-sm8750_usb_master-v1-3-09afe1dc2524@quicinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] serial: 8250_mtk: Add ACPI support
-To: Yenchia Chen <yenchia.chen@mediatek.com>, gregkh@linuxfoundation.org,
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com
-Cc: yj.chiang@mediatek.com, tbergstrom@nvidia.com, yujiaoliang@vivo.com,
- u.kleine-koenig@baylibre.com, treapking@chromium.org,
- linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20250114033324.3533292-1-yenchia.chen@mediatek.com>
-Content-Language: en-US
-From: Jiri Slaby <jirislaby@kernel.org>
-Autocrypt: addr=jirislaby@kernel.org; keydata=
- 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
-In-Reply-To: <20250114033324.3533292-1-yenchia.chen@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250113-sm8750_usb_master-v1-3-09afe1dc2524@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_233206_220655_E4031A10 
-X-CRM114-Status: GOOD (  26.52  )
+X-CRM114-CacheID: sfid-20250113_233437_147503_B2BD56DC 
+X-CRM114-Status: UNSURE (   7.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,124 +80,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14. 01. 25, 4:33, Yenchia Chen wrote:
-> Add ACPI support to 8250_mtk driver. This makes it possible to
-> use uart with edk2 UEFI firmware.
-
-Could you mention what hardware this is in particular?
-
-> Signed-off-by: Yenchia Chen <yenchia.chen@mediatek.com>
-> ---
->   drivers/tty/serial/8250/8250_mtk.c | 31 ++++++++++++++++++++++++------
->   1 file changed, 25 insertions(+), 6 deletions(-)
+On Mon, Jan 13, 2025 at 01:52:09PM -0800, Melody Olvera wrote:
+> From: Wesley Cheng <quic_wcheng@quicinc.com>
 > 
-> diff --git a/drivers/tty/serial/8250/8250_mtk.c b/drivers/tty/serial/8250/8250_mtk.c
-> index b44de2ed7413..a4f1c30f77b0 100644
-> --- a/drivers/tty/serial/8250/8250_mtk.c
-> +++ b/drivers/tty/serial/8250/8250_mtk.c
-> @@ -19,6 +19,7 @@
->   #include <linux/dma-mapping.h>
->   #include <linux/tty.h>
->   #include <linux/tty_flip.h>
-> +#include <linux/acpi.h>
+> SM8750 uses the Synopsys DWC3 controller. Add this to the compatibles list
+> to utilize the DWC3 QCOM and DWC3 core framework.
 
-Sort this properly.
+We see that from the diff. Say something which we do not see, e.g.
+differences, why is it not compatible with older variant or why
+interrupts are not fixed.
 
->   #include "8250.h"
->   
-> @@ -519,6 +520,7 @@ static int mtk8250_probe(struct platform_device *pdev)
->   	struct mtk8250_data *data;
->   	struct resource *regs;
->   	int irq, err;
-> +	acpi_handle hdl = ACPI_HANDLE(&pdev->dev);
+This comment applies to all the commits here.
 
-'hdl' sounds very weird and is not used in the tree for acpi_handles. 
-I'd use 'acpi_handle' or 'acpi_dev_handle' in this case.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
->   	irq = platform_get_irq(pdev, 0);
->   	if (irq < 0)
-> @@ -545,8 +547,12 @@ static int mtk8250_probe(struct platform_device *pdev)
->   		err = mtk8250_probe_of(pdev, &uart.port, data);
->   		if (err)
->   			return err;
-> -	} else
-> -		return -ENODEV;
-> +	} else {
-> +		if (!hdl) {
+Best regards,
+Krzysztof
 
-so this should be:
-   } else if () {
-
-> +			dev_err(&pdev->dev, "no device\n");
-
-Why this?
-
-> +			return -ENODEV;
-
-As this is self explanatory already, right?
-
-> +		}
-> +	}
->   
->   	spin_lock_init(&uart.port.lock);
->   	uart.port.mapbase = regs->start;
-> @@ -560,16 +566,22 @@ static int mtk8250_probe(struct platform_device *pdev)
->   	uart.port.private_data = data;
->   	uart.port.shutdown = mtk8250_shutdown;
->   	uart.port.startup = mtk8250_startup;
-> -	uart.port.set_termios = mtk8250_set_termios;
-> -	uart.port.uartclk = clk_get_rate(data->uart_clk);
-> +	if (hdl) {
-> +		uart.port.uartclk = 26000000;
-
-This is a magic constant. Define a macro for this. Hint: 26 * HZ_PER_MHZ.
-
-Is it not/cannot it be part of the acpi table? What does MTKI0511 look like?
-
-> +	} else {
-> +		uart.port.set_termios = mtk8250_set_termios;
-> +		uart.port.uartclk = clk_get_rate(data->uart_clk);
-> +	}
->   #ifdef CONFIG_SERIAL_8250_DMA
->   	if (data->dma)
->   		uart.dma = data->dma;
->   #endif
->   
-> -	/* Disable Rate Fix function */
-> -	writel(0x0, uart.port.membase +
-> +	if (!hdl) {
-> +		/* Disable Rate Fix function */
-
-Why is this only for non-ACPI devices?
-
-> +		writel(0x0, uart.port.membase +
->   			(MTK_UART_RATE_FIX << uart.port.regshift));
-> +	}
->   
->   	platform_set_drvdata(pdev, data);
->   
-> @@ -647,11 +659,18 @@ static const struct of_device_id mtk8250_of_match[] = {
->   };
->   MODULE_DEVICE_TABLE(of, mtk8250_of_match);
->   
-> +static const struct acpi_device_id mtk8250_acpi_match[] = {
-> +	{ "MTKI0511", 0 },
-> +	{},
-> +};
-> +MODULE_DEVICE_TABLE(acpi, mtk8250_acpi_match);
-> +
->   static struct platform_driver mtk8250_platform_driver = {
->   	.driver = {
->   		.name		= "mt6577-uart",
->   		.pm		= &mtk8250_pm_ops,
->   		.of_match_table	= mtk8250_of_match,
-> +		.acpi_match_table = ACPI_PTR(mtk8250_acpi_match),
->   	},
->   	.probe			= mtk8250_probe,
->   	.remove			= mtk8250_remove,
-
-thanks,
--- 
-js
-suse labs
 
