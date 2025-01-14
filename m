@@ -4,195 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45D2EE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 06:14:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 541CCE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 06:16:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=idlcfja3DeNfVAR7I+buYIPJo1gL4lVASBdfhSZYaqc=; b=lRkuhlf82Xn10H79PVfbHaTV7o
-	OxTcQ8Pe9PDY+Tdfz5jHLfXGMQ3o3VQyMZtoQb1eG3N3moL7gOcIH1khkx89fa2P64KrpFQVwp8vk
-	psdoSMu1Lw02bij88hdG5+9Ks6OL/7+1bsOuBYEez7I9wQCUQEE8i3Wf2ESKQesVD36PQgqTAZ+zT
-	eOYqxcIdU3aNImKclY4jeiXN05oNh4VYs+nkgMVq08RnEFuEwl3eGba/U2C2ExFp2QldIf38ml2+f
-	pmcFVpmCQCqRhwWJBrnxu/zYDQi3gKDC90Q+x9MzP/lUf90WV+o0Tb5AcdQZMbFBOK/QpDeGbW1Pz
-	I3iVxaug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9+9ADON0/68ayYIfEfVGSHZvOGdkI3057JB+jrkbu/4=; b=ZIgj2OjusHlt/MqEJdembMLdTy
+	eHXSvoIzQCRt7V5qKjlIoLy/Iq8c5X4jyMbRm7uaCIMdoYCwgYJRDFIdbet13o3eBzz8wHI5pd5PT
+	i9xXIVAc3VqJ8NeQkwc3ADqYkTHigopijCUKJUkVBMQkRsgH/0TlKytKbnuR8dEYIUvNhcPZEJqxK
+	1i7q/ul++ATczsmyKA47VgR1SLNcbZLuGau1bWnBc7SZpcbb8Qx2i+1j7khVw/XTP4VXTIS1ON2uK
+	dbRBMXSLHyl4nnahsPMntLSoE0ydnrXI1v5gfLcyrQfxmrgIjkrLdsMXOdVFnIKubmNokhmXwwf2z
+	qfddAveA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXaBm-00000007Zxm-1Q24;
-	Tue, 14 Jan 2025 06:14:10 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1tXaDv-00000007aBk-4C3z;
+	Tue, 14 Jan 2025 06:16:24 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXaAX-00000007ZoW-3Rab
+	id 1tXaCg-00000007a2y-2QPA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 06:12:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1736835174; x=1768371174;
-  h=date:from:to:cc:subject:message-id:references:
-   in-reply-to:mime-version;
-  bh=KEmS1Z299WnqpeOIPpWE9WpBQm5aeOU7PZ93d/CzbY4=;
-  b=Wkp9CXjrsMxcwhe9uusDN7w+puYD5vB2CrlXGecRQH4hn0syeRYK9TOg
-   HbH7gctx33PIAy0XRsvj2Jgo9kO9meO2kENPUfNWIvIHGnKKnSCdmD9N0
-   S4BFqCXsaou4Y6Kj3CfJXCXluJFNl2wUQ+HEqndlGssEYJ38Ko9Emgmp/
-   LplVWm29zhXW+di0XFo56+T7EbRz/58pjlaSVaFsMjNYzQhqYAZP9gPt3
-   Ya7b/7P3C8u7GxJoAjKIQlLjLg8egAnP9IM8ORhcOk8oAJ0xg3+cdJoZV
-   ENf23hpDXZuBJsfQbvADz7Igm6PR3glpOwcY+/2zmlj4bU8bwNjSwZEmj
-   Q==;
-X-CSE-ConnectionGUID: 4Is56ctuTW6pMFaP65y23Q==
-X-CSE-MsgGUID: 0MPdMWgYSsic/aVfbtecRg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="40796914"
-X-IronPort-AV: E=Sophos;i="6.12,313,1728975600"; 
-   d="scan'208";a="40796914"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jan 2025 22:12:50 -0800
-X-CSE-ConnectionGUID: O8SaAUFXTs2y/LLUMLcaiQ==
-X-CSE-MsgGUID: bdo4BKOQQVCWJjYvwrPZfA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="105589580"
-Received: from orsmsx603.amr.corp.intel.com ([10.22.229.16])
-  by orviesa008.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 13 Jan 2025 22:12:49 -0800
-Received: from orsmsx601.amr.corp.intel.com (10.22.229.14) by
- ORSMSX603.amr.corp.intel.com (10.22.229.16) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Mon, 13 Jan 2025 22:12:48 -0800
-Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
- orsmsx601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44 via Frontend Transport; Mon, 13 Jan 2025 22:12:48 -0800
-Received: from NAM04-MW2-obe.outbound.protection.outlook.com (104.47.73.171)
- by edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.44; Mon, 13 Jan 2025 22:12:48 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FgT5bD1n1UqxcJ1crFhf5RZfepsuq+Z4jyzvG40Pg0wundq6iZ93H0g5AkF7LIKlt5U1o2eWEGMphyE3SXL1Zl6yQgvCC+HiWguZxM5bwU6aT4h74tAds34s6fi2G41sAfyrSii8mpOi91eP3RqCB4WUX0RQl0dzuUNArkn1omfIgev2HCCh0a5bpnzsqsJaMyshjHnymtrl3ut7UivW/SOfetER7TXAnGVjEvn/RAm+S2mhnELrCmO0+RtarkYn7AgWpgWCWTVPj9qaadFpcFAeskaDl3Be2zgJYtePVGWmRXIqRUhehSjZg6ZY0/OaJU15HFr4eXoNYgJrdWMIoQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=idlcfja3DeNfVAR7I+buYIPJo1gL4lVASBdfhSZYaqc=;
- b=aEOK8SdTx7pRoJsRpQznzSTSAt1xOK3Ua3Whi+y/XDMIIpMkrGeXqCTk4IL90Zj0Njwsu30ZFteJOnWi/RIcApP6vpqcVtw3b1muEJ9zsUzRF0xPoip/1Ybb7QQC+jsXBwoGObAkpw1RPK1Ckw1m06YG1+rnzzqqvGpbZO21uhmiKOVYbOxf+mEHYegu3PP8L4GxDAbmP+CnozNAdZhOWyE+5tjMiSgKN/SNvEna+fJOviwJiVkr7t7ijJjIT4u+zIPkbqTXzKn8eGQrAL3LlhNQbmwPvdNR8XoofD6+bgM0az1Uijymxa0+sap07ZZgofZJ+W1Ix0kQpAqivvQ4xg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from PH8PR11MB8107.namprd11.prod.outlook.com (2603:10b6:510:256::6)
- by DM6PR11MB4676.namprd11.prod.outlook.com (2603:10b6:5:2a7::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.18; Tue, 14 Jan
- 2025 06:12:46 +0000
-Received: from PH8PR11MB8107.namprd11.prod.outlook.com
- ([fe80::6b05:74cf:a304:ecd8]) by PH8PR11MB8107.namprd11.prod.outlook.com
- ([fe80::6b05:74cf:a304:ecd8%5]) with mapi id 15.20.8335.011; Tue, 14 Jan 2025
- 06:12:46 +0000
-Date: Mon, 13 Jan 2025 22:12:41 -0800
-From: Dan Williams <dan.j.williams@intel.com>
-To: Alistair Popple <apopple@nvidia.com>, <akpm@linux-foundation.org>,
-	<dan.j.williams@intel.com>, <linux-mm@kvack.org>
-CC: <alison.schofield@intel.com>, Alistair Popple <apopple@nvidia.com>,
-	<lina@asahilina.net>, <zhang.lyra@gmail.com>,
-	<gerald.schaefer@linux.ibm.com>, <vishal.l.verma@intel.com>,
-	<dave.jiang@intel.com>, <logang@deltatee.com>, <bhelgaas@google.com>,
-	<jack@suse.cz>, <jgg@ziepe.ca>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<mpe@ellerman.id.au>, <npiggin@gmail.com>, <dave.hansen@linux.intel.com>,
-	<ira.weiny@intel.com>, <willy@infradead.org>, <djwong@kernel.org>,
-	<tytso@mit.edu>, <linmiaohe@huawei.com>, <david@redhat.com>,
-	<peterx@redhat.com>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linuxppc-dev@lists.ozlabs.org>, <nvdimm@lists.linux.dev>,
-	<linux-cxl@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
-	<linux-ext4@vger.kernel.org>, <linux-xfs@vger.kernel.org>,
-	<jhubbard@nvidia.com>, <hch@lst.de>, <david@fromorbit.com>,
-	<chenhuacai@kernel.org>, <kernel@xen0n.name>, <loongarch@lists.linux.dev>
-Subject: Re: [PATCH v6 22/26] device/dax: Properly refcount device dax pages
- when mapping
-Message-ID: <67860059b200b_20fa294b5@dwillia2-xfh.jf.intel.com.notmuch>
-References: <cover.11189864684e31260d1408779fac9db80122047b.1736488799.git-series.apopple@nvidia.com>
- <7d5416ad49341207e5f3c48d5b9c4b7af5fd9ac6.1736488799.git-series.apopple@nvidia.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <7d5416ad49341207e5f3c48d5b9c4b7af5fd9ac6.1736488799.git-series.apopple@nvidia.com>
-X-ClientProxiedBy: MW4PR04CA0293.namprd04.prod.outlook.com
- (2603:10b6:303:89::28) To PH8PR11MB8107.namprd11.prod.outlook.com
- (2603:10b6:510:256::6)
+	Tue, 14 Jan 2025 06:15:07 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2163dc5155fso93238775ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jan 2025 22:15:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1736835306; x=1737440106; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=9+9ADON0/68ayYIfEfVGSHZvOGdkI3057JB+jrkbu/4=;
+        b=muBt7SRN5A9o/2xd3R//xyjemLfgbGq91JG8ieI1OlVMRLZEaNvi/Szz1frIPk15dt
+         lfdgVRK44ds9QbbUfkq+MYXVvkU79Yft5npqO1yoLv6mjsISRCTQXdEukZDFjEklQnHz
+         s60igkLW97SFm6k6NxobbhJwIwwuS0DdPtcbQ/+pZ+lHSb5fG7sNEPZxNQ6t3ko4LTzA
+         s1LQWPjkRAy7LhPNmlkK/xnxhT8gMrb87diLIPvmUqC9aowlGe/2zJTK+FT8Bz0DnGH7
+         rigbpskcejUs8hoSlnh3rIDek2i14VgxG4PyuhXEgl2S0jarO/sAr2remFrLDXHj1txO
+         wWUw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736835306; x=1737440106;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9+9ADON0/68ayYIfEfVGSHZvOGdkI3057JB+jrkbu/4=;
+        b=cp9fj/G6QEL4jT7tMGz1DN3g1/2syQlWCw2bjsbgnFkD/NI9hFBKSzqma12+HWq72/
+         diKyff91YyEjVBB+WI9qfcsj9OfI4uceiMZ/DvO9OjV62xD/aYlqF94EZaO3rWPHouK+
+         GmeVzHh6VxYi2/2q1Ip0Hm/v3Qr5nsc1aKg1Y3n70Zlz/0WsaWZpPfcb4BOBJMztIg5P
+         ahxA6iAK4hHIXuKPow+Enn2b7mJa4qVgyMwKx4VpjiqYermdJLIrx3upTfroWJRNLVqF
+         /dfApLRvt+dHifsjQaR9f3F6na2eMPhxoq9Cw+uW6b3lWbNh8AIGEWHn71U7tRsSW/Mk
+         sObQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXX+5HEfinOGTYGTxrV6jg4VMGSGroAFYIy28YBLNrf751bazUeQ/1eZUqAI5kz1etOd6IFW1oJidlIX7i5uRB4@lists.infradead.org
+X-Gm-Message-State: AOJu0YyVj6Q78Ok5+5oHKlxBD/FsQrTyfjUE89Y26o1gNCxwSzpiOJit
+	m5xEEpn3KwO7wHYb01PAOyH3gNI6NsKZ05vdauQtsYIAtMEGop5U
+X-Gm-Gg: ASbGncvSba3AZi74Yfvkzm0h9UMKk5qH0W8G9r72D+q8kKOYEJP/B7g4L9EX+1kg1Rk
+	6/xfw9x0KQE8W0XmJyWBnBFB1DzQ5pf/48tfLeIGNxlWIUyYLNMuVO9ZlnMQNb3cnBlKtMeo5ua
+	rWRAElChRaknZsVhHrXX7PTa5XLLPiGJa5hPSUyHjiiIuCAYkZSzZmH8xLBQJs0xH7817sohOyh
+	x0cDbizPYxh69NCSZtGNC7CWlNhHXw+8iVnFSZXE7PPtE31Ut9gmrfrxPnDln3Jsz/f2ayqDkgh
+	RHA3tCE0zABy6HRs3x1z38c2yK1XI2BwhQ==
+X-Google-Smtp-Source: AGHT+IEyP70V5BBHMys71/WsXOS/rY0o9WW3Q+/v6dsdado13jARyxFY0TuAdoBRAxFx2Ha6CPRa3g==
+X-Received: by 2002:a05:6a20:244d:b0:1d9:fbc:457c with SMTP id adf61e73a8af0-1e88d0a4771mr20947524637.36.1736835305592;
+        Mon, 13 Jan 2025 22:15:05 -0800 (PST)
+Received: from localhost.localdomain (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72d4065c3b4sm6796218b3a.112.2025.01.13.22.15.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jan 2025 22:15:05 -0800 (PST)
+From: Potin Lai <potin.lai.pt@gmail.com>
+Date: Tue, 14 Jan 2025 14:12:46 +0800
+Subject: [PATCH v3] ARM: dts: aspeed: catalina: Update DTS to support
+ multiple PDB board sources
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH8PR11MB8107:EE_|DM6PR11MB4676:EE_
-X-MS-Office365-Filtering-Correlation-Id: 397e2004-ec33-4c2d-de14-08dd346276c7
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|366016|376014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Ubb35cZFd008eQgbGeHXSwfQx2l9LkE/CzVZ8CXu454g+Z5BkyHj/65VRDN2?=
- =?us-ascii?Q?L3PtsoTtxjijOzIOazA3a6ssovV7mwdiVCWbh6/k1fnO+ucg91JZ/pPeyIv8?=
- =?us-ascii?Q?w5sFRKcgXwCaha26KWhJOxS40xF49OWL908eROXkvwFVVauHaIZQDZYulfwo?=
- =?us-ascii?Q?rhGX7EvS0i1x45wnhtGz8+tph4NWFqHvXpcaijoDnj/0UD6srRhGWi4O4h+g?=
- =?us-ascii?Q?hDqEmvdvY+nrqCC3FvXrB/Fi06cguda9in57OJJOcoGPVWcvt98MzJTiietg?=
- =?us-ascii?Q?sx7kyT9x7nyort90KMAaMgz5uBtSirbRRfI6XesDT0hPKXmxVaWWeORMw6Jt?=
- =?us-ascii?Q?KaIZdXqJAG63MIZVoymryXK862YxkJ6SQCthJOmAVimHksT+qPkRLfZktXKS?=
- =?us-ascii?Q?LXgIUpIE+Occ4UhrpvW1yVOzLJyS9KsjiWhUkxoKhx/aCsK/mhGWST8rDV36?=
- =?us-ascii?Q?Eh5Uhu1CNOp7RIt7Jz61OAf9ENMhoByLzEECwqwqaCYSa+K7ckSQ07/jdzmB?=
- =?us-ascii?Q?1tlQg/k7x2Fx3TNbFgxkk9q/LI7/6ag2u6V0bz4iIWdguAnsYy1kptTpuSLS?=
- =?us-ascii?Q?cEiBgLmejkyhhpjJLtm5/Afn9M1NAJZpttIGC2W/A9S9v87511rlNjvkvIQs?=
- =?us-ascii?Q?db60ov83/T/FLNDMPOcrL+iuzbEJHf7xmMyjjGcfGyrmDZT6HD2kory6Vs/3?=
- =?us-ascii?Q?6P9mV+fX4Nh69/jMB9dX1J0JIPIWMP21DjjaBFBBxRTMDtC+6DarfzoSdlak?=
- =?us-ascii?Q?dVDVuL5p5SebMFhnAAOt2UmOX/wleO/G+roi9Yy2HKXT7kaezfexGpebz13i?=
- =?us-ascii?Q?UBe0ZHDZQ17vGiBmvu6vGhZgkh8Y6Y2CY2lYaYguS6p+c9PaJ0YFwMjbDWxz?=
- =?us-ascii?Q?TWIc7GQqYydnXyzyJsp3yKzyBfcueSSN5/PEQfTAxCgorhPVCwIyoLi+TO20?=
- =?us-ascii?Q?1Xn5cNPry+baM+CJTIktA5Ay2x0nY/I7HMyYcKvve4tuj4lE0YyU6t/fIZjt?=
- =?us-ascii?Q?YrBihU5YUm1kEN7SEiu/BfeNv/+IvsIx/TMYPw+XB9E9jV9A3LsKDzfwOvGd?=
- =?us-ascii?Q?Ms1PZV517DZTpBe8528iMoC9MNqa2cju+yTkJTkXmP+8r3rwugN9rsAkcLiK?=
- =?us-ascii?Q?+nesaPhkZr+UWAKUm8zuFg+lySjsL1GLv8OIacHPagRAmpjyTn11vgepQ/rV?=
- =?us-ascii?Q?V6Mabn7xf9Lirt13o3YofB/ep0M5YGetPJbMrWpO9y/nQ6ouXgB4x6IcQJrt?=
- =?us-ascii?Q?ixm9AfQOyeygA5nZH+if3rdBuGF6L16FOhLCy8sa7uSjlYrsRAOMNg8hhmJN?=
- =?us-ascii?Q?Zx914pckRTZ842j7JnLBcjTyidVo3gI/gVlmfv96nNQwr/XT2+8D4G10o25C?=
- =?us-ascii?Q?LnoQ2EXp8hgB9P9Kl/J5G2/kSDO8?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH8PR11MB8107.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(366016)(376014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?PN15taGIPKxDFj7EX00hMk5j3tlidozrXVnPi8zaSbhD4w736AthXkiMcmcn?=
- =?us-ascii?Q?upksF/7/R1kSCmTQ4B9+S7AOFdXR5wO2BiQ2KWhmfJpMEKvogXiAcZja956l?=
- =?us-ascii?Q?LduF98oPasMfu4Zau8mEJIvosNTKTgp0DwWlyctgkdAd12JOse+IM8qs4t7J?=
- =?us-ascii?Q?DsSiDR+K/NLY2Q+JKlivpdyrgFDMGOtpniy3+hw5gn/nXKqf+y4xaMDEwKkk?=
- =?us-ascii?Q?Pzhg5sRmFOzdLxe2vh1k+kn8GvjDB5i7RwbGEwMoih69yDwN7hNfabyOhf7Q?=
- =?us-ascii?Q?K/kHwgcspd9Alx7pchtZA3n6X1LMpSeiRYJrUY+O7HK2wcR9B+NMjQFD9UNj?=
- =?us-ascii?Q?w20GG+qtkOfUnMvaSkam6N6/GwvLZclR057r5Z7xHCsPviemfU3Nzu98faZ3?=
- =?us-ascii?Q?X7efoz3YvdS6ecsgZcXFA6Zjtgix8azldEoTOZ7JrADbbgtRXb+o8GC4/Y/o?=
- =?us-ascii?Q?ApQs6gB0yhRwdpxD67pWyHs6to03pILPbv6bny1ARFr8qMX7bep0RKqpvp6w?=
- =?us-ascii?Q?QE9rDo2arFZy879HdU8x4NhdK2HO8d10LvfjQBgsZYnKgdRJ7MZ51/os1pgk?=
- =?us-ascii?Q?C096NUdaavbyBK4/TJWNnWT0Kn45Totu5IBm8P/NDe1T/6RSlJ/Sj/lIpaZH?=
- =?us-ascii?Q?K7v3poo0mXGwbROEOGmVwWLxi4V7ZTchF+kPq34qtGkX6EqAHZExuS2lJ4di?=
- =?us-ascii?Q?eMwEpWWydQmJlKN6dUx+mG4Svmz17hhDPOgWmNud/RuQyf8YlagkwGzC21fq?=
- =?us-ascii?Q?+f0ZEo2BIasMjpwWGUe7wHWa4BwhO6J4S6t2enA7sZABJzSRjvblVJ1hYoUn?=
- =?us-ascii?Q?7yYfQVmqqtBcp0p8U6pXdOrUgy2jubF4ntmYB0MH42LmCTWGk2XMXoAqcXq3?=
- =?us-ascii?Q?Ufq2iKozxT8BNdPcSRIGMd1Kq+WtHSwdUR3hauDXxuo6hQHapt0uvYywtos1?=
- =?us-ascii?Q?7ZXMBrvN7kh0H6wQ4S0/dGSxrhdU1f4X5rIZjL2Jk4cE3h14RozlKJf9uaTJ?=
- =?us-ascii?Q?CiXtAPFd1YtHUAd7QFM0LKeYth/jItvvphC7sVZB3iI8S9RsyS9q3CFGr2Yr?=
- =?us-ascii?Q?zIClGjBjb3ocFewoHcUdZ9YoMbwVtLNWxqVEW/8jssJrxscKM+b0CJ2xl/r1?=
- =?us-ascii?Q?T+iTHnFi5mgCr1lWQ1OBjuUSi0iis1bpY+/3Sg6t4u0q2gCxyT6AJqDNb9ZG?=
- =?us-ascii?Q?ea54+ZACTfQEiBSqUTImIy4zzXBe8ijXwjAWX5pVRL0uKCMkt6ieN/9MtFlO?=
- =?us-ascii?Q?4guLwbu8LWY7m/rRIwm1DQnKgZmhKjU5r8QEjJKUoZNWsacC7eMnQolMBhqj?=
- =?us-ascii?Q?myAwn/N3Pdeg8aZQ9ifL4K/RLwjFEvaLppqv4stDzPP7FTls+Sj14DYvJ5E9?=
- =?us-ascii?Q?Cva+fEH9KY9M8t1BCQ0B4rHiMkMmfVzmS11tAsOhp21dgYYShhzj6GlgSyMK?=
- =?us-ascii?Q?q8SgUANCIPL0aTW20jM7AhaMnD5VpFRoO/1kXFNVOnkGmo3z+9nnqd/UrEiY?=
- =?us-ascii?Q?EJFLMTEbIpOMxCxGQJvAK4e8+gaZkV61OlKbNLrXvs+/rPHKz7COE8s3hAkH?=
- =?us-ascii?Q?ztJbJL7A65LWL8lgLllFtPLCIwCROkBHFTtEZoR0oK3DOYoDX9mycOALGaR5?=
- =?us-ascii?Q?OQ=3D=3D?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 397e2004-ec33-4c2d-de14-08dd346276c7
-X-MS-Exchange-CrossTenant-AuthSource: PH8PR11MB8107.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jan 2025 06:12:46.2175
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3BCs1YqIUcRnYVk9zwnblXXOdzusAg8xya7tbVu6H2k6HuEP5VbFPqYftN2iSPgiTG5UkMKi355MHPOOgbAay7x+699o7jt3mU1lsO2Sm4Q=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR11MB4676
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250114-potin-catalina-dts-update-20250102-v3-1-14981744b2fe@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAF0AhmcC/43NTQqDMBCG4auUrJuSiX+1q96jdDGJUQfUiElDi
+ 3j3RqHFpct3GJ5vZs5MZBy7nWY2mUCO7BAjOZ+YbnFoDKcqNpNCZgKE5KP1NHCNHjsakFfe8dd
+ YoTf8/1JCqkSOqaoUsgiNk6npvY08nrFbct5On20zwHr98ckRPgAHroQqMJOJLvPrvemRuou2P
+ Vv5IHckHCNlJKGQGUBRmwLLPbksyxdpc/gjJwEAAA==
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>, 
+ Patrick Williams <patrick@stwcx.xyz>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+ Cosmo Chou <cosmo.chou@quantatw.com>, Potin Lai <potin.lai@quantatw.com>, 
+ Potin Lai <potin.lai.pt@gmail.com>
+X-Mailer: b4 0.12.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1736835302; l=6499;
+ i=potin.lai.pt@gmail.com; s=20240724; h=from:subject:message-id;
+ bh=lbOKlY5AnxmP5unErxDp8hen0opmaKpQ0vRsSWRl/Ao=;
+ b=IAKC+rhHag+WcW2qKa8cX5x57+SOcI0rbFTphPzuFoDlRzL/KC5ugdzDPn5IPheQLvlXqyVd7
+ ZcoCBLS4rpCCT3HUb2ZTb1dF5f2KsU+QtX5VOG6L0RGza74k9vOZ/91
+X-Developer-Key: i=potin.lai.pt@gmail.com; a=ed25519;
+ pk=6Z4H4V4fJwLteH/WzIXSsx6TkuY5FOcBBP+4OflJ5gM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_221253_969530_3B86C645 
-X-CRM114-Status: GOOD (  18.52  )
+X-CRM114-CacheID: sfid-20250113_221506_625947_FE068239 
+X-CRM114-Status: GOOD (  13.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -207,64 +112,262 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Alistair Popple wrote:
-> Device DAX pages are currently not reference counted when mapped,
-> instead relying on the devmap PTE bit to ensure mapping code will not
-> get/put references. This requires special handling in various page
-> table walkers, particularly GUP, to manage references on the
-> underlying pgmap to ensure the pages remain valid.
-> 
-> However there is no reason these pages can't be refcounted properly at
-> map time. Doning so eliminates the need for the devmap PTE bit,
-> freeing up a precious PTE bit. It also simplifies GUP as it no longer
-> needs to manage the special pgmap references and can instead just
-> treat the pages normally as defined by vm_normal_page().
-> 
-> Signed-off-by: Alistair Popple <apopple@nvidia.com>
-> ---
->  drivers/dax/device.c | 15 +++++++++------
->  mm/memremap.c        | 13 ++++++-------
->  2 files changed, 15 insertions(+), 13 deletions(-)
-> 
-> diff --git a/drivers/dax/device.c b/drivers/dax/device.c
-> index 6d74e62..fd22dbf 100644
-> --- a/drivers/dax/device.c
-> +++ b/drivers/dax/device.c
-> @@ -126,11 +126,12 @@ static vm_fault_t __dev_dax_pte_fault(struct dev_dax *dev_dax,
->  		return VM_FAULT_SIGBUS;
->  	}
->  
-> -	pfn = phys_to_pfn_t(phys, PFN_DEV|PFN_MAP);
-> +	pfn = phys_to_pfn_t(phys, 0);
->  
->  	dax_set_mapping(vmf, pfn, fault_size);
->  
-> -	return vmf_insert_mixed(vmf->vma, vmf->address, pfn);
-> +	return vmf_insert_page_mkwrite(vmf, pfn_t_to_page(pfn),
-> +					vmf->flags & FAULT_FLAG_WRITE);
->  }
->  
->  static vm_fault_t __dev_dax_pmd_fault(struct dev_dax *dev_dax,
-> @@ -169,11 +170,12 @@ static vm_fault_t __dev_dax_pmd_fault(struct dev_dax *dev_dax,
->  		return VM_FAULT_SIGBUS;
->  	}
->  
-> -	pfn = phys_to_pfn_t(phys, PFN_DEV|PFN_MAP);
-> +	pfn = phys_to_pfn_t(phys, 0);
->  
->  	dax_set_mapping(vmf, pfn, fault_size);
->  
-> -	return vmf_insert_pfn_pmd(vmf, pfn, vmf->flags & FAULT_FLAG_WRITE);
-> +	return vmf_insert_folio_pmd(vmf, page_folio(pfn_t_to_page(pfn)),
-> +				vmf->flags & FAULT_FLAG_WRITE);
+This patch updates the Catalina device tree to support different sources
+of PDB boards.
 
-This looks suspect without initializing the compound page metadata.
+Changes for Main source PDB board
+- Thermal Sensor Monitoring:
+  - Added IOB NIC nodes (TMP421) for thermal sensor monitoring.
+  - Added FIO remote thermal node (TMP75) for thermal sensor monitoring.
+- Fan Monitoring and Control:
+  - Add fan p12V power sensor node (MP5990) for sensor monitoring.
+  - Add fan controllers (MAX31790) for fan control and tach monitoring.
 
-This might be getting compound pages by default with
-CONFIG_ARCH_WANT_OPTIMIZE_DAX_VMEMMAP. The device-dax unit tests are ok
-so far, but that is not super comforting until I can think about this a
-bit more... but not tonight.
+Changes for 2nd source PDB board
+- Fan Monitoring and Control:
+  - Added 2nd source fan controllers (NCT7363) for fan duty control and
+    tach monitoring.
+- Power Monitoring:
+  - Added 2nd source HSC nodes (XDP710) for power sensor monitoring.
+- Address Conflicts:
+  - Removed all ina238 nodes due to address conflicts. Moved the driver
+    probe for ina238 to userspace.
 
-Might as well fix up device-dax refcounts in this series too, but I
-won't ask you to do that, will send you something to include.
+Signed-off-by: Potin Lai <potin.lai.pt@gmail.com>
+---
+Updating the Catalina DTS to support multiple PDB board sources.
+---
+Changes in v3:
+- Remove delta_brick nodes due to compatible string not supported
+- Link to v2: https://lore.kernel.org/r/20250113-potin-catalina-dts-update-20250102-v2-1-1725117fe7a9@gmail.com
+
+Changes in v2:
+- Add delta_brick nodes to support PDB brick board
+- Link to v1: https://lore.kernel.org/r/20250103-potin-catalina-dts-update-20250102-v1-1-b0b7a523c968@gmail.com
+---
+ .../dts/aspeed/aspeed-bmc-facebook-catalina.dts    | 149 +++++++++++++++++----
+ 1 file changed, 126 insertions(+), 23 deletions(-)
+
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
+index 3822bb3c9243..23583665ba12 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
+@@ -190,6 +190,12 @@ i2c0mux0ch0: i2c@0 {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			reg = <0>;
++
++			// IOB0 NIC0 TEMP
++			temperature-sensor@1f {
++				compatible = "ti,tmp421";
++				reg = <0x1f>;
++			};
+ 		};
+ 		i2c0mux0ch1: i2c@1 {
+ 			#address-cells = <1>;
+@@ -200,6 +206,12 @@ i2c0mux0ch2: i2c@2 {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			reg = <2>;
++
++			// IOB0 NIC1 TEMP
++			temperature-sensor@1f {
++				compatible = "ti,tmp421";
++				reg = <0x1f>;
++			};
+ 		};
+ 		i2c0mux0ch3: i2c@3 {
+ 			#address-cells = <1>;
+@@ -361,6 +373,12 @@ i2c0mux3ch0: i2c@0 {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			reg = <0>;
++
++			// IOB1 NIC0 TEMP
++			temperature-sensor@1f {
++				compatible = "ti,tmp421";
++				reg = <0x1f>;
++			};
+ 		};
+ 		i2c0mux3ch1: i2c@1 {
+ 			#address-cells = <1>;
+@@ -371,6 +389,12 @@ i2c0mux3ch2: i2c@2 {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			reg = <2>;
++
++			// IOB1 NIC1 TEMP
++			temperature-sensor@1f {
++				compatible = "ti,tmp421";
++				reg = <0x1f>;
++			};
+ 		};
+ 		i2c0mux3ch3: i2c@3 {
+ 			#address-cells = <1>;
+@@ -464,40 +488,105 @@ i2c1mux0ch0: i2c@0 {
+ 			#size-cells = <0>;
+ 			reg = <0x0>;
+ 
+-			power-sensor@41 {
+-				compatible = "ti,ina238";
+-				reg = <0x41>;
+-				shunt-resistor = <500>;
+-			};
+-			power-sensor@42 {
+-				compatible = "ti,ina238";
+-				reg = <0x42>;
+-				shunt-resistor = <500>;
+-			};
+-			power-sensor@44 {
+-				compatible = "ti,ina238";
+-				reg = <0x44>;
+-				shunt-resistor = <500>;
++			power-sensor@22 {
++				compatible = "mps,mp5990";
++				reg = <0x22>;
+ 			};
+ 		};
+ 		i2c1mux0ch1: i2c@1 {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			reg = <0x1>;
+-
+-			power-sensor@41 {
+-				compatible = "ti,ina238";
+-				reg = <0x41>;
+-			};
+-			power-sensor@43 {
+-				compatible = "ti,ina238";
+-				reg = <0x43>;
+-			};
+ 		};
+ 		i2c1mux0ch2: i2c@2 {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			reg = <0x2>;
++
++			hwmon0: hwmon@1 {
++				compatible = "nuvoton,nct7363";
++				reg = <0x01>;
++				#pwm-cells = <2>;
++
++				fan-9 {
++					pwms = <&hwmon0 0 40000>;
++					tach-ch = /bits/ 8 <0x09>;
++				};
++				fan-11 {
++					pwms = <&hwmon0 0 40000>;
++					tach-ch = /bits/ 8 <0x0b>;
++				};
++				fan-10 {
++					pwms = <&hwmon0 4 40000>;
++					tach-ch = /bits/ 8 <0x0a>;
++				};
++				fan-13 {
++					pwms = <&hwmon0 4 40000>;
++					tach-ch = /bits/ 8 <0x0d>;
++				};
++				fan-15 {
++					pwms = <&hwmon0 6 40000>;
++					tach-ch = /bits/ 8 <0x0f>;
++				};
++				fan-1 {
++					pwms = <&hwmon0 6 40000>;
++					tach-ch = /bits/ 8 <0x01>;
++				};
++				fan-0 {
++					pwms = <&hwmon0 10 40000>;
++					tach-ch = /bits/ 8 <0x00>;
++				};
++				fan-3 {
++					pwms = <&hwmon0 10 40000>;
++					tach-ch = /bits/ 8 <0x03>;
++				};
++			};
++			hwmon1: hwmon@2 {
++				compatible = "nuvoton,nct7363";
++				reg = <0x02>;
++				#pwm-cells = <2>;
++
++				fan-9 {
++					pwms = <&hwmon1 0 40000>;
++					tach-ch = /bits/ 8 <0x09>;
++				};
++				fan-11 {
++					pwms = <&hwmon1 0 40000>;
++					tach-ch = /bits/ 8 <0x0b>;
++				};
++				fan-10 {
++					pwms = <&hwmon1 4 40000>;
++					tach-ch = /bits/ 8 <0x0a>;
++				};
++				fan-13 {
++					pwms = <&hwmon1 4 40000>;
++					tach-ch = /bits/ 8 <0x0d>;
++				};
++				fan-15 {
++					pwms = <&hwmon1 6 40000>;
++					tach-ch = /bits/ 8 <0x0f>;
++				};
++				fan-1 {
++					pwms = <&hwmon1 6 40000>;
++					tach-ch = /bits/ 8 <0x01>;
++				};
++				fan-0 {
++					pwms = <&hwmon1 10 40000>;
++					tach-ch = /bits/ 8 <0x00>;
++				};
++				fan-3 {
++					pwms = <&hwmon1 10 40000>;
++					tach-ch = /bits/ 8 <0x03>;
++				};
++			};
++			pwm@21{
++				compatible = "maxim,max31790";
++				reg = <0x21>;
++			};
++			pwm@27{
++				compatible = "maxim,max31790";
++				reg = <0x27>;
++			};
+ 		};
+ 		i2c1mux0ch3: i2c@3 {
+ 			#address-cells = <1>;
+@@ -509,6 +598,14 @@ i2c1mux0ch4: i2c@4 {
+ 			#size-cells = <0>;
+ 			reg = <0x4>;
+ 
++			power-monitor@13 {
++				compatible = "infineon,xdp710";
++				reg = <0x13>;
++			};
++			power-monitor@1c {
++				compatible = "infineon,xdp710";
++				reg = <0x1c>;
++			};
+ 			power-monitor@42 {
+ 				compatible = "lltc,ltc4287";
+ 				reg = <0x42>;
+@@ -580,6 +677,12 @@ temperature-sensor@4b {
+ 				compatible = "ti,tmp75";
+ 				reg = <0x4b>;
+ 			};
++
++			// FIO REMOTE TEMP SENSOR
++			temperature-sensor@4f {
++				compatible = "ti,tmp75";
++				reg = <0x4f>;
++			};
+ 		};
+ 	};
+ };
+
+---
+base-commit: becaccc292bfbd12df81148746043c5221e49da8
+change-id: 20250102-potin-catalina-dts-update-20250102-914b06a4bdba
+
+Best regards,
+-- 
+Potin Lai <potin.lai.pt@gmail.com>
+
 
