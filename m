@@ -4,146 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CD6DE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 20:54:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72B41C02185
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 20:55:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0iZWF2p7DdTt4UZs/drcsgp85LST9ju/nBZkrLmrFzQ=; b=oLShItbIOc3+0r7+Z3O7Z1VwWD
-	CRAS66WP93j1vjYMjWC1GQk74wRa01gC6GI0cl6iOiQz33Udc8WCoOMEfEj81Kt8TeaL0dernSKDF
-	wDkB/J/iYiKnC6O952n+CbbsyAoqMnT2wyanV33MCgATN9KFR0K6kTSM36l5R1N16U2aoX/4dNAC2
-	SGii8cHX6rWkSd5l5d1pe9LDgKR106ae+axaLNTgojEfhl/L5bOq22D95UDysr4NIFLeFnS2ry/Y3
-	VGseHRXHgywIJaxGCrUa7+A8vEK6vyIfwI3cflzXaJK5K1RhGqmSkoO8TudvZDKGQ8IQzOk1QP3wp
-	GYwOMH/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EaYv2VZ9MsiLRHsJHqttCi/99UIffkAJmhZGe+nwPnI=; b=K4BwoCXJNJN/HCNbKVZTeisbq3
+	ZzavGen7RzpfFCzHqjOOTTHy6tGF3YEVWIvgYyUIebtCvF5lROSzicpoVXoGzJ517h3w+Nw1m9BSf
+	VPl68mUDTKt0uZg3iRgNQlVAy41t5g2UL47zUeGKUJC7tAazosLpklYKleiB0d4BhTaUFW3LaefAL
+	w2ukTD5zJ772GAJj2hHtcuZBUnRKeBbZto5TwXadF/UvUhUcivONDuCFSgiGlNX9/KjdN0mHC3VNR
+	paMgD1lcIURfoG/eW3HIM92SRokY4jBVeUUc/2S02jfCXuUJZa9AScB1zNUSO8RB3jGlLKxU1V6RC
+	bbKKzc+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXnv0-00000009k4m-0iII;
-	Tue, 14 Jan 2025 20:53:46 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tXnwN-00000009kMr-3gOw;
+	Tue, 14 Jan 2025 20:55:11 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXnk4-00000009hwS-3gCt;
-	Tue, 14 Jan 2025 20:42:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=0iZWF2p7DdTt4UZs/drcsgp85LST9ju/nBZkrLmrFzQ=; b=NjiBbYvkyw/nJCFj+EzAmE5bu5
-	Ea6lMlpGRNnja7T+QpkdkUtR2jxTEJh+Xlz+LKXzFiWKYbj07O3w7HS+nnHNhR1rJeb+qB43VT5to
-	S+WI2t2M8MQ8+JShcGsgKBNu770rYkHY+nuab7Ws1lfTApBhra1eHgpK9PpRSSWe3QLGRVK7vD8xb
-	frT93mZGiTBsbcXmf6NyGwdL51+GICCeXl9aUepKZ1DzoxTRn4rnZpR7CQ7BCEbv6xc9u6eR5yY6L
-	BS/zciC25x/an2Gz2W9UFvuwQscJjnRNrhFnr7UzfSKXSHMnrmmA7ipZdOnUSICo2rSmlO6JtTicT
-	F1goAI/w==;
-Received: from fhigh-b5-smtp.messagingengine.com ([202.12.124.156])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXnjz-0000000AcYc-3bGP;
-	Tue, 14 Jan 2025 20:42:26 +0000
-Received: from phl-compute-02.internal (phl-compute-02.phl.internal [10.202.2.42])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id E302325400D3;
-	Tue, 14 Jan 2025 15:42:21 -0500 (EST)
-Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-02.internal (MEProxy); Tue, 14 Jan 2025 15:42:22 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	coelacanthus.name; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm3; t=1736887341; x=1736973741; bh=0iZWF2p7Dd
-	Tt4UZs/drcsgp85LST9ju/nBZkrLmrFzQ=; b=QZ6xuLkN5pAT1+cm6wn4ZjfgK3
-	UcJKqYc//8mwUoEKYybP4yc3M0ybRXdRyzfZE9EdygfzSlmC9XERU531YCz/jtVR
-	bJnjScooSlL+FEnTpuyc4AqUISgDLwxfF3fkMhSM8e6Df4hwNPg4YFx2lcjrhoMA
-	MHwgG0gGf5BQWFQ/PqdjoUb+ZlEbYZ2j1x4HV392HkT6xG764FjdBfULRFPHcUjA
-	jV+x0iXjY8LCQxBxM7dGeC1qRu1/+hMZVKYqw9EAgDMHIp7+Rl1XzfldAQlymh6S
-	FhrnjzSyZ/tD0l5CV9x/euilBRAU3BzJJLiyWOS1lRodC162G6pgo41ipGbQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1736887341; x=
-	1736973741; bh=0iZWF2p7DdTt4UZs/drcsgp85LST9ju/nBZkrLmrFzQ=; b=a
-	8OTIr7E7G+oQlzNO5rrrZuEG1cg66538u+UhaLh3M7zG3axbN3rD8j4UvpLnY09C
-	H/sHWpt1f1PeucUUU5zFLMf8PZsY2liCwXjWGjHyhzxXkhf10w6ui6sqp/Fk8tWf
-	y6WgNfif6rXUZDJHBhbU1/g0W0ztcrf3ulcTQTRB0fHjy5drfGK0YOPhiag23YrR
-	ewR9kBZE0NAZNu2zTWgl/gIuXNxnNv6ydm6G5bajT0C/Dj3xUQv/3NLpvVoyjU6D
-	6YOeMsFgq6RsTkacxLS06QQSJNBdFMjIXcFCIK7PdSqOItXG+3c28G482i5eC0eq
-	drroWxZqPJzHfvsyyJ0HQ==
-X-ME-Sender: <xms:LcyGZ4dSpGBhUsLcU27nD2aA8I5uT1GPkMjXRxmtefl4An69AzXfgA>
-    <xme:LcyGZ6OJhjb-vZrhUWy-1msAjflrXrfA5IHzxIW97IahUV6XdOXor1hFsGO0cehjT
-    y6rjsqCFBT_b5Sxank>
-X-ME-Received: <xmr:LcyGZ5hklUqMjovwqjSeo1U37rCpSnh_fR3QBoZjW2uLqHfIIQfRA_iEukS_-g>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrudehiedgudefkecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredt
-    jeenucfhrhhomhepvegvlhgvshhtvgcunfhiuhcuoehufihusegtohgvlhgrtggrnhhthh
-    hushdrnhgrmhgvqeenucggtffrrghtthgvrhhnpeegfeekfeelteeufeekleeukeegffef
-    keetveffffethfevheevjeektdelueegteenucffohhmrghinhepghhithhhuhgsrdgtoh
-    hmpdhrvgguhhgrthdrtghomhenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhep
-    mhgrihhlfhhrohhmpehufihusegtohgvlhgrtggrnhhthhhushdrnhgrmhgvpdhnsggprh
-    gtphhtthhopeefhedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepghhlrghusghi
-    thiisehphhihshhikhdrfhhuqdgsvghrlhhinhdruggvpdhrtghpthhtohepuhifuhestg
-    hovghlrggtrghnthhhuhhsrdhnrghmvgdprhgtphhtthhopehjohhnrghthhgrnhhhsehn
-    vhhiughirgdrtghomhdprhgtphhtthhopehflhhorhhirghnrdhfrghinhgvlhhlihessg
-    hrohgruggtohhmrdgtohhmpdhrtghpthhtohephhgvihhnrhhitghhrdhstghhuhgthhgr
-    rhguthestggrnhhonhhitggrlhdrtghomhdprhgtphhtthhopehtohhnhiesrghtohhmih
-    guvgdrtghomhdprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhf
-    rhgruggvrggurdhorhhgpdhrtghpthhtohepthhrvgguihhnghesnhhvihguihgrrdgtoh
-    hmpdhrtghpthhtoheprghnuhhpsegsrhgrihhnfhgruhhlthdrohhrgh
-X-ME-Proxy: <xmx:LcyGZ9_Q_8qzTjPMhOKcejGlvHlTIMC_6qZgGAFnYV5yO6xLViwfjA>
-    <xmx:LcyGZ0sNbHCXXfpj1x7cHlCIRnVvwqXFemfY6wlpXQ3qrV9vxePNug>
-    <xmx:LcyGZ0Gn_b0OU2q5vplJKUr_nOD0e2oWDI-E7zGNfUCObukIi2ficQ>
-    <xmx:LcyGZzMuzskXX7cDrhQPOc_JIWq1xnJNh0krIgzGLMIdtQJRUrUOdQ>
-    <xmx:LcyGZziLCuWeY3Ks6N51TPcevuBObLJX5fbtXXFZpc7HWnumn7K7qoWY>
-Feedback-ID: i95c648bc:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 14 Jan 2025 15:42:20 -0500 (EST)
-From: Celeste Liu <uwu@coelacanthus.name>
-Date: Wed, 15 Jan 2025 04:41:23 +0800
-Subject: [PATCH v4 4/4] arm: defconfig: drop RT_GROUP_SCHED=y from
- bcm2835/tegra/omap2plus
+	id 1tXnl6-00000009i9x-3Ii9;
+	Tue, 14 Jan 2025 20:43:34 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id C6EBBBEB;
+	Tue, 14 Jan 2025 21:42:31 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1736887352;
+	bh=InqNACpUCj9mpYqJ8XnaR7lMhaTuW084yMOuOSGPTxs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bX63zxgmLghan7xFuHE3sZqBz2Oq3frOojXqUqojirlRHuSnXHMeBRCqvlFrJ3WSR
+	 /EG8BSHFgJjPfIggEvmJHRTsPijYoY2Ijyr8sml40uBGfrBiDWMjssvLWD8SyulU0Q
+	 ZH3KZ0euBoWfECAIcllIsybMVPwYmhi5uoi4O4ik=
+Date: Tue, 14 Jan 2025 22:43:23 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Michal Simek <michal.simek@amd.com>, linux-phy@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] phy: Use str_enable_disable-like helpers
+Message-ID: <20250114204323.GB29414@pendragon.ideasonboard.com>
+References: <20250114203537.1012955-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250115-fix-riscv-rt_group_sched-v4-4-607606fe73a5@coelacanthus.name>
-References: <20250115-fix-riscv-rt_group_sched-v4-0-607606fe73a5@coelacanthus.name>
-In-Reply-To: <20250115-fix-riscv-rt_group_sched-v4-0-607606fe73a5@coelacanthus.name>
-To: Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Guo Ren <guoren@kernel.org>, Anup Patel <anup@brainfault.org>, 
- Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, 
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
- Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
- Russell King <linux@armlinux.org.uk>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
- Tony Lindgren <tony@atomide.com>, Thierry Reding <thierry.reding@gmail.com>, 
- Jonathan Hunter <jonathanh@nvidia.com>, 
- Aaro Koskinen <aaro.koskinen@iki.fi>, 
- Andreas Kemnade <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>, 
- Roger Quadros <rogerq@kernel.org>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, 
- linux-sh@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rpi-kernel@lists.infradead.org, linux-omap@vger.kernel.org, 
- linux-tegra@vger.kernel.org, Stefan Wahren <wahrenst@gmx.net>, 
- Thierry Reding <treding@nvidia.com>, Celeste Liu <uwu@coelacanthus.name>
-X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3034; i=uwu@coelacanthus.name;
- h=from:subject:message-id; bh=FD1/1Qa4M60bWS/VL5WGmaGZ5+Z9xkiSLJsG1Uy3KWw=;
- b=owJ4nJvAy8zAJeafov85RWVtBeNptSSG9LYzXHLFi27K+J2ZHz412+f0Dang54s+PZiXrRvfZ
- Mzq7eFZld5RysIgxsUgK6bIklfC8pPz0tnuvR3bu2DmsDKBDGHg4hSAiZwKYPgftqP47j7Xd8HJ
- nxstvriK7bd9n/3oW4KK9qknWza/vBH1hOF/NJsix3WlLcsedN04JFMQH3F0/rRIpYj0J/MeWk4
- 6tv8qCwAph01E
-X-Developer-Key: i=uwu@coelacanthus.name; a=openpgp;
- fpr=892EBC7DC392DFF9C9C03F1D15F4180E73787863
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250114203537.1012955-1-krzysztof.kozlowski@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_204224_440788_0613FC69 
-X-CRM114-Status: UNSURE (   9.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250114_124332_966954_A983FD0D 
+X-CRM114-Status: GOOD (  18.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,76 +69,183 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 673ce00c5d6c ("ARM: omap2plus_defconfig: Add support for distros
-with systemd") said it's because of recommendation from systemd. But
-systemd changed their recommendation later.[1]
+Hi Krzysztof,
 
-For cgroup v1, if turned on, and there's any cgroup in the "cpu" hierarchy it
-needs an RT budget assigned, otherwise the processes in it will not be able to
-get RT at all. The problem with RT group scheduling is that it requires the
-budget assigned but there's no way we could assign a default budget, since the
-values to assign are both upper and lower time limits, are absolute, and need to
-be sum up to < 1 for each individal cgroup. That means we cannot really come up
-with values that would work by default in the general case.[2]
+Thank you for the patch.
 
-For cgroup v2, it's almost unusable as well. If it turned on, the cpu controller
-can only be enabled when all RT processes are in the root cgroup. But it will
-lose the benefits of cgroup v2 if all RT process were placed in the same cgroup.
+On Tue, Jan 14, 2025 at 09:35:37PM +0100, Krzysztof Kozlowski wrote:
+> Replace ternary (condition ? "enable" : "disable") syntax with helpers
+> from string_choices.h because:
+> 1. Simple function call with one argument is easier to read.  Ternary
+>    operator has three arguments and with wrapping might lead to quite
+>    long code.
+> 2. Is slightly shorter thus also easier to read.
+> 3. It brings uniformity in the text - same string.
+> 4. Allows deduping by the linker, which results in a smaller binary
+>    file.
 
-Red Hat, Gentoo, Arch Linux and Debian all disable it. systemd also doesn't
-support it.
+As commented in a similar patch, please drop these changes from drivers
+I maintain.
 
-[1]: https://github.com/systemd/systemd/commit/f4e74be1856b3ac058acbf1be321c31d5299f69f
-[2]: https://bugzilla.redhat.com/show_bug.cgi?id=1229700
-
-Tested-by: Stefan Wahren <wahrenst@gmx.net>
-Acked-by: Kevin Hilman <khilman@baylibre.com>
-Acked-by: Thierry Reding <treding@nvidia.com>
-Signed-off-by: Celeste Liu <uwu@coelacanthus.name>
----
- arch/arm/configs/bcm2835_defconfig   | 1 -
- arch/arm/configs/omap2plus_defconfig | 1 -
- arch/arm/configs/tegra_defconfig     | 1 -
- 3 files changed, 3 deletions(-)
-
-diff --git a/arch/arm/configs/bcm2835_defconfig b/arch/arm/configs/bcm2835_defconfig
-index b5f0bd8dd536990a0726e73a6855d25c1286a768..27dc3bf6b124c2012b7a1a768f2f900f49903cd1 100644
---- a/arch/arm/configs/bcm2835_defconfig
-+++ b/arch/arm/configs/bcm2835_defconfig
-@@ -7,7 +7,6 @@ CONFIG_BSD_PROCESS_ACCT=y
- CONFIG_BSD_PROCESS_ACCT_V3=y
- CONFIG_LOG_BUF_SHIFT=18
- CONFIG_CFS_BANDWIDTH=y
--CONFIG_RT_GROUP_SCHED=y
- CONFIG_CGROUP_FREEZER=y
- CONFIG_CPUSETS=y
- CONFIG_CGROUP_DEVICE=y
-diff --git a/arch/arm/configs/omap2plus_defconfig b/arch/arm/configs/omap2plus_defconfig
-index 3a166c2f02bd80634fee3bd8c4579fdbad84ccfa..9cb265c8d4144ea9a41f02640dbc8a06b710323b 100644
---- a/arch/arm/configs/omap2plus_defconfig
-+++ b/arch/arm/configs/omap2plus_defconfig
-@@ -13,7 +13,6 @@ CONFIG_MEMCG=y
- CONFIG_BLK_CGROUP=y
- CONFIG_CGROUP_SCHED=y
- CONFIG_CFS_BANDWIDTH=y
--CONFIG_RT_GROUP_SCHED=y
- CONFIG_CGROUP_FREEZER=y
- CONFIG_CPUSETS=y
- CONFIG_CGROUP_DEVICE=y
-diff --git a/arch/arm/configs/tegra_defconfig b/arch/arm/configs/tegra_defconfig
-index d2a094ad360cefefbc3bd35226c5d23eadce42c1..3a9bda2bf422b14085c60b39a2c3df86fe0994bb 100644
---- a/arch/arm/configs/tegra_defconfig
-+++ b/arch/arm/configs/tegra_defconfig
-@@ -6,7 +6,6 @@ CONFIG_IKCONFIG=y
- CONFIG_IKCONFIG_PROC=y
- CONFIG_CGROUPS=y
- CONFIG_CGROUP_SCHED=y
--CONFIG_RT_GROUP_SCHED=y
- CONFIG_CGROUP_FREEZER=y
- CONFIG_CGROUP_CPUACCT=y
- CONFIG_CGROUP_DEBUG=y
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> ---
+>  drivers/phy/broadcom/phy-bcm-cygnus-pcie.c |  3 ++-
+>  drivers/phy/realtek/phy-rtk-usb2.c         | 15 ++++++++-------
+>  drivers/phy/realtek/phy-rtk-usb3.c         |  9 +++++----
+>  drivers/phy/ti/phy-twl4030-usb.c           |  4 ++--
+>  drivers/phy/xilinx/phy-zynqmp.c            |  3 ++-
+>  5 files changed, 19 insertions(+), 15 deletions(-)
+> 
+> diff --git a/drivers/phy/broadcom/phy-bcm-cygnus-pcie.c b/drivers/phy/broadcom/phy-bcm-cygnus-pcie.c
+> index 462c61a24ec5..562d7d7151c5 100644
+> --- a/drivers/phy/broadcom/phy-bcm-cygnus-pcie.c
+> +++ b/drivers/phy/broadcom/phy-bcm-cygnus-pcie.c
+> @@ -7,6 +7,7 @@
+>  #include <linux/of.h>
+>  #include <linux/phy/phy.h>
+>  #include <linux/platform_device.h>
+> +#include <linux/string_choices.h>
+>  
+>  #define PCIE_CFG_OFFSET         0x00
+>  #define PCIE1_PHY_IDDQ_SHIFT    10
+> @@ -86,7 +87,7 @@ static int cygnus_pcie_power_config(struct cygnus_pcie_phy *phy, bool enable)
+>  
+>  	mutex_unlock(&core->lock);
+>  	dev_dbg(core->dev, "PCIe PHY %d %s\n", phy->id,
+> -		enable ? "enabled" : "disabled");
+> +		str_enabled_disabled(enable));
+>  	return 0;
+>  }
+>  
+> diff --git a/drivers/phy/realtek/phy-rtk-usb2.c b/drivers/phy/realtek/phy-rtk-usb2.c
+> index 248550ef98ca..14543636796d 100644
+> --- a/drivers/phy/realtek/phy-rtk-usb2.c
+> +++ b/drivers/phy/realtek/phy-rtk-usb2.c
+> @@ -14,6 +14,7 @@
+>  #include <linux/debugfs.h>
+>  #include <linux/nvmem-consumer.h>
+>  #include <linux/regmap.h>
+> +#include <linux/string_choices.h>
+>  #include <linux/sys_soc.h>
+>  #include <linux/mfd/syscon.h>
+>  #include <linux/phy/phy.h>
+> @@ -729,7 +730,7 @@ static int rtk_usb2_parameter_show(struct seq_file *s, void *unused)
+>  
+>  	seq_puts(s, "Property:\n");
+>  	seq_printf(s, "  check_efuse: %s\n",
+> -		   phy_cfg->check_efuse ? "Enable" : "Disable");
+> +		   str_enable_disable(phy_cfg->check_efuse));
+>  	seq_printf(s, "  check_efuse_version: %d\n",
+>  		   phy_cfg->check_efuse_version);
+>  	seq_printf(s, "  efuse_dc_driving_rate: %d\n",
+> @@ -741,17 +742,17 @@ static int rtk_usb2_parameter_show(struct seq_file *s, void *unused)
+>  	seq_printf(s, "  dc_disconnect_mask: 0x%x\n",
+>  		   phy_cfg->dc_disconnect_mask);
+>  	seq_printf(s, "  usb_dc_disconnect_at_page0: %s\n",
+> -		   phy_cfg->usb_dc_disconnect_at_page0 ? "true" : "false");
+> +		   str_true_false(phy_cfg->usb_dc_disconnect_at_page0));
+>  	seq_printf(s, "  do_toggle: %s\n",
+> -		   phy_cfg->do_toggle ? "Enable" : "Disable");
+> +		   str_enable_disable(phy_cfg->do_toggle));
+>  	seq_printf(s, "  do_toggle_driving: %s\n",
+> -		   phy_cfg->do_toggle_driving ? "Enable" : "Disable");
+> +		   str_enable_disable(phy_cfg->do_toggle_driving));
+>  	seq_printf(s, "  driving_updated_for_dev_dis: 0x%x\n",
+>  		   phy_cfg->driving_updated_for_dev_dis);
+>  	seq_printf(s, "  use_default_parameter: %s\n",
+> -		   phy_cfg->use_default_parameter ? "Enable" : "Disable");
+> +		   str_enable_disable(phy_cfg->use_default_parameter));
+>  	seq_printf(s, "  is_double_sensitivity_mode: %s\n",
+> -		   phy_cfg->is_double_sensitivity_mode ? "Enable" : "Disable");
+> +		   str_enable_disable(phy_cfg->is_double_sensitivity_mode));
+>  
+>  	for (index = 0; index < rtk_phy->num_phy; index++) {
+>  		struct phy_parameter *phy_parameter;
+> @@ -830,7 +831,7 @@ static int rtk_usb2_parameter_show(struct seq_file *s, void *unused)
+>  		seq_printf(s, "  efuse_usb_dc_dis: %d\n",
+>  			   (int)phy_parameter->efuse_usb_dc_dis);
+>  		seq_printf(s, "  inverse_hstx_sync_clock: %s\n",
+> -			   phy_parameter->inverse_hstx_sync_clock ? "Enable" : "Disable");
+> +			   str_enable_disable(phy_parameter->inverse_hstx_sync_clock));
+>  		seq_printf(s, "  driving_level: %d\n",
+>  			   phy_parameter->driving_level);
+>  		seq_printf(s, "  driving_level_compensate: %d\n",
+> diff --git a/drivers/phy/realtek/phy-rtk-usb3.c b/drivers/phy/realtek/phy-rtk-usb3.c
+> index cce453686db2..77ce58f98302 100644
+> --- a/drivers/phy/realtek/phy-rtk-usb3.c
+> +++ b/drivers/phy/realtek/phy-rtk-usb3.c
+> @@ -14,6 +14,7 @@
+>  #include <linux/debugfs.h>
+>  #include <linux/nvmem-consumer.h>
+>  #include <linux/regmap.h>
+> +#include <linux/string_choices.h>
+>  #include <linux/sys_soc.h>
+>  #include <linux/mfd/syscon.h>
+>  #include <linux/phy/phy.h>
+> @@ -363,13 +364,13 @@ static int rtk_usb3_parameter_show(struct seq_file *s, void *unused)
+>  
+>  	seq_puts(s, "Property:\n");
+>  	seq_printf(s, "  check_efuse: %s\n",
+> -		   phy_cfg->check_efuse ? "Enable" : "Disable");
+> +		   str_enable_disable(phy_cfg->check_efuse));
+>  	seq_printf(s, "  do_toggle: %s\n",
+> -		   phy_cfg->do_toggle ? "Enable" : "Disable");
+> +		   str_enable_disable(phy_cfg->do_toggle));
+>  	seq_printf(s, "  do_toggle_once: %s\n",
+> -		   phy_cfg->do_toggle_once ? "Enable" : "Disable");
+> +		   str_enable_disable(phy_cfg->do_toggle_once));
+>  	seq_printf(s, "  use_default_parameter: %s\n",
+> -		   phy_cfg->use_default_parameter ? "Enable" : "Disable");
+> +		   str_enable_disable(phy_cfg->use_default_parameter));
+>  
+>  	for (index = 0; index < rtk_phy->num_phy; index++) {
+>  		struct phy_reg *phy_reg;
+> diff --git a/drivers/phy/ti/phy-twl4030-usb.c b/drivers/phy/ti/phy-twl4030-usb.c
+> index 6f12b38cd894..4bf4c4f93b4c 100644
+> --- a/drivers/phy/ti/phy-twl4030-usb.c
+> +++ b/drivers/phy/ti/phy-twl4030-usb.c
+> @@ -26,6 +26,7 @@
+>  #include <linux/usb/ulpi.h>
+>  #include <linux/mfd/twl.h>
+>  #include <linux/regulator/consumer.h>
+> +#include <linux/string_choices.h>
+>  #include <linux/err.h>
+>  #include <linux/slab.h>
+>  
+> @@ -567,8 +568,7 @@ static ssize_t vbus_show(struct device *dev,
+>  	int ret = -EINVAL;
+>  
+>  	mutex_lock(&twl->lock);
+> -	ret = sprintf(buf, "%s\n",
+> -			twl->vbus_supplied ? "on" : "off");
+> +	ret = sprintf(buf, "%s\n", str_on_off(twl->vbus_supplied));
+>  	mutex_unlock(&twl->lock);
+>  
+>  	return ret;
+> diff --git a/drivers/phy/xilinx/phy-zynqmp.c b/drivers/phy/xilinx/phy-zynqmp.c
+> index 05a4a59f7c40..b96bdc39bcc7 100644
+> --- a/drivers/phy/xilinx/phy-zynqmp.c
+> +++ b/drivers/phy/xilinx/phy-zynqmp.c
+> @@ -23,6 +23,7 @@
+>  #include <linux/platform_device.h>
+>  #include <linux/pm_runtime.h>
+>  #include <linux/slab.h>
+> +#include <linux/string_choices.h>
+>  
+>  #include <dt-bindings/phy/phy.h>
+>  
+> @@ -865,7 +866,7 @@ static int xpsgtr_status_read(struct seq_file *seq, void *data)
+>  	seq_printf(seq, "Reference clock: %u (%pC)\n", gtr_phy->refclk, clk);
+>  	seq_printf(seq, "Reference rate:  %lu\n", clk_get_rate(clk));
+>  	seq_printf(seq, "PLL locked:      %s\n",
+> -		   pll_status & PLL_STATUS_LOCKED ? "yes" : "no");
+> +		   str_yes_no(pll_status & PLL_STATUS_LOCKED));
+>  
+>  	mutex_unlock(&gtr_phy->phy->mutex);
+>  	return 0;
 
 -- 
-2.48.0
+Regards,
 
+Laurent Pinchart
 
