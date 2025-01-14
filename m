@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CA4FE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 16:37:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 408B9E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 16:38:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kxm+KcA9BTK38vvygy01RC88dDr9ZX0pTQaI+lcD6ek=; b=prdea5+QTQvdIYHLaZ+5bGXx8u
-	oQN9v9E6n/XjUWslhf0YWTyG4YkwIYfqGsLT+3Mp+nNuJmcBX60YWbVv+XyAE/h6y9xVV49UnEtQs
-	+CnoC692L9HKG0VHHTUT0vSbNjxqg/rwEcN4D4m9HFaG4l7mYyxDWWulBRo9gxuUwmolTyc/OtRyb
-	S+y2b8DgyONPdXv41ppaTueZHEd9GnX3AgNiCAUDxyl3zXpcxfi46qmZoRuRLTnIlBGxXtoN4jYJb
-	DAr+YipmRwj+9NaZIxeqvJNaxrzxmQhhz4lfglmsDt8L9A+0GhkAlfvGSeykEfwXvsdh9fdWo5HAM
-	wqoPcLqA==;
+	bh=XHeWJpmEoFSMvBnZYnATRl3sJr818XQmu3TVK1mf2HQ=; b=4KWGEZfCRAYOX99jmglXpOXzKx
+	+bmqtbXgcU+PW7Ik+NU0yNCxovVQfgx1jG+SNyiLfiSjqvSKFme1BzEhoczKcuoABsIF6g+ZhLcR+
+	SfxGxM+I1tf+tTWI3ymngvQA8r+IQvO7OeZmJyzS4P9ZuYE6UUsujHMXGLVqDhz41sTSko9TpWUFN
+	UCOLOrtM1lrM1GCSH5s+rzTWF+93tHKGUs1CIPYj7gchl445xvbWwFvFo5rfyCSRKoBzeoG8HbwEw
+	XBCUfZbMOYZdoVN8VzhsGKQOkDpUqNW+qEvl1AtfqGYTRFhOaMESUm2L6n3c+ccb4fa2grog1pRMt
+	Cs3a8j+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXjuN-00000009357-1Vtz;
-	Tue, 14 Jan 2025 16:36:51 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tXjvZ-000000093KN-44nX;
+	Tue, 14 Jan 2025 16:38:05 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXjt7-000000092oR-2Sav
+	id 1tXjt9-000000092oq-3U0u
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 16:35:34 +0000
+	Tue, 14 Jan 2025 16:35:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 99308A40BCA;
-	Tue, 14 Jan 2025 16:33:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 478F9C4CEE5;
-	Tue, 14 Jan 2025 16:35:30 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id F40ADA41889;
+	Tue, 14 Jan 2025 16:33:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFE78C4CEDD;
+	Tue, 14 Jan 2025 16:35:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736872532;
-	bh=7FkvUm76EB1H4eG8siTlrCmRFsWt02YP+eTqvnJWGyA=;
+	s=k20201202; t=1736872535;
+	bh=Elen7iUmj/EPR3RMtRSgFS7j/YgmhA9JWL4WxMVNBM8=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=J57Eh36vquih5n+k9qSVy5UotEzL2Ph8IpuHPnsXao1OyO8WzpOBAdaaxKmexasRk
-	 CWGqqIxMDomILpY/HOZb/vy1MV3NSNLJSBZWTGRmtE60KBPuRWSuzh6kkMLtXg4gQD
-	 pGNsEEhU0vCar0pNeYjdcSFse9MRfAMsLR7F44x08IGc5g0kXFkXdmdhPTJo1u/50l
-	 VuFsQ6COE2Zf1q1goHbT1i0BxU5mShwEqgvv1uXmUqsPdvtWaQOGDtJiMsf7naZ7mp
-	 jjC+11mOJDAS2M+O2QcloujhUSSWm+uI9ojHt0YXC33WARrldKsw6NNBKuI1xHo6wk
-	 PihfLLDjSBkFA==
+	b=Rkat0leYsLAj5X6N28+LDl2UqlEzxJRcN9aWFzt6cDS/MmmYPLJXUQjUP+UQSXitK
+	 WKUZB2sW4EK2OvSyMpxRwMlRjF9PsWkX0ut0jOuQuqrBqQSeCSi3FUSXByOIUnepwR
+	 FOS/85CRD8c4yESOa5xQBVrWAZv7/7D7Avi8MaJkIJG3aSlvn80Y52Wn1Ydk33lCtj
+	 guY9CwiOfe+I0yhCfh59C8/eiX1b5fKx5nyP+6gHwa6uoOcQtnpU4p6q+VuWga+qBf
+	 eOcpX//sI9TZEcIKGrZuHf7YgKlG+idTxKBpv7a7jNvSWXuEOSm4vs7rGwbIwCUVm9
+	 IS6F6caqkMeug==
 From: Mark Brown <broonie@kernel.org>
 To: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
@@ -51,18 +51,18 @@ Cc: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
  Jernej Skrabec <jernej.skrabec@gmail.com>, 
  Samuel Holland <samuel@sholland.org>, 
  Philipp Zabel <p.zabel@pengutronix.de>
-In-Reply-To: <20241211222205.1915027-1-csokas.bence@prolan.hu>
-References: <20241211222205.1915027-1-csokas.bence@prolan.hu>
-Subject: Re: [PATCH] ASoC: sun4i-codec: Use new devm clk and reset APIs
-Message-Id: <173687253002.61795.10404801959017049784.b4-ty@kernel.org>
-Date: Tue, 14 Jan 2025 16:35:30 +0000
+In-Reply-To: <20250114095909.798559-1-csokas.bence@prolan.hu>
+References: <20250114095909.798559-1-csokas.bence@prolan.hu>
+Subject: Re: [PATCH v2] ASoC: sun4i-codec: Use new devm clk and reset APIs
+Message-Id: <173687253259.61795.6623030930207706042.b4-ty@kernel.org>
+Date: Tue, 14 Jan 2025 16:35:32 +0000
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailer: b4 0.15-dev-1b0d6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_083533_692526_1611C78A 
-X-CRM114-Status: GOOD (  11.89  )
+X-CRM114-CacheID: sfid-20250114_083535_929472_C3686B7D 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,7 +77,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 11 Dec 2024 23:22:05 +0100, Bence Csókás wrote:
+On Tue, 14 Jan 2025 10:59:07 +0100, Bence Csókás wrote:
 > Clean up error handling by using the new devm_
 > clock and reset functions. This should make it
 > easier to add new code, as we can eliminate the
