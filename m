@@ -4,68 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29167E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 10:54:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC07AE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 10:57:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o1N7xFiNje9aCYN3xxdLskuws49Dt23SKU+L9bCwh3w=; b=4l9iR8IF6QAI1M2Ysg0uK4rTLp
-	TBhRAbvBJs9FR1W+eKfRHX27oTQj/Q1/ImMPFfVUij8b0sClyB5z8pKV1Rs/3U85HEdOKhwZuCmup
-	GVkZu7LOx1HglixGEpEt+/8PWeFHSF0uycDo5TdXDkpGnrfQg48FKgvCqbYSgDMjVCLzfOarcqB6G
-	Mmt46nraswJ4QQlqISZntHyu1vi4f9i4Jg7/PqIetQLPgKHfC0bj6eXvfdCvjY4Z9HUTj7VIPNSdZ
-	K/s+ZWSzjlwwk+zXu5SjhOPdXbW076CJpH2LtQy0m6SNkcBiaRkD7b2tBeGTRkSTi6Xcb6Lehoibh
-	a26EnF1w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=w20vK13nhMzbjHJZSCggje7+hpPlrM9z3S//rlxScS4=; b=cfDKk9cNZNQuhx0+RTMGIgUuhc
+	1q9fulNqkegixN4yjbYlkMVBzjEY9iTWz9cAbzR0WnIPwKE8V7eG0S4Mi+CeO2v2vJdEx830UJG1i
+	6ikYlqMUF4l8hoWz34Uz/1+FHgp2qhixO5ERz5xRJVEDjTpHNVOrtFthw9alJyVOCBfjZRvhU1aED
+	D+3yIXWyjxXcPjHwpw8Vz5VRP7TFJ8tZJt9VcgCkGHDhSri6cfODLWI2r9dA/Ue9CuDPvsfHLerXb
+	frJkJdgAZWuPnxGXtf1P+eXXGOzuk7r5KWKmdfKtS5hlpib/pzRmG7i2fgtqAsu47oj9hu0Gh+8aY
+	XSz6FwBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXeZ8-00000008AFl-18Sh;
-	Tue, 14 Jan 2025 10:54:34 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tXebW-00000008Ata-2p4e;
+	Tue, 14 Jan 2025 10:57:02 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXeXq-000000089wa-48gM;
-	Tue, 14 Jan 2025 10:53:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1736851993;
-	bh=VFBTkgvf44it03ebVdBglu18EVaUx1do0GtbExZwx4U=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=iDFd4VGCE5hZVZcE9/t6wovrVgJmwqegOxRghxqZTJpSB6vfyw+q0+HJvVg7zeZhY
-	 5/iYq1kVtMcg5RFmGSwAlyKyG5YIrdY4bvO1d0wxW3LGeKunPvStLONg3+Oc3grqnt
-	 yzKFSB8km/RuDvhV02jzlTJTRLdL+/7QCSSA7xZ8sMkIdffd/VgRF9lzhGdmc4Km4e
-	 6Nh/1ME5t0ouwDlVcbD4HhUyu46oHBYOcFK3I8J4uJbeG67FkhHQYw0x3CDT1KJksT
-	 jT/12vJZRkkM1gUmPQgS8j5YXkY8uMf9SHcJXC0Mn7uyJRT1CWY2CY+pcEBMXoQDS+
-	 VYDXKmupSmVCQ==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B832717E0DB7;
-	Tue, 14 Jan 2025 11:53:12 +0100 (CET)
-Message-ID: <49b100ae-9b81-404d-b64c-93c60baa859f@collabora.com>
-Date: Tue, 14 Jan 2025 11:53:12 +0100
+	id 1tXeaG-00000008AZ4-1LIV
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 14 Jan 2025 10:55:45 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-5d3ce64e7e5so789810a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 02:55:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1736852143; x=1737456943; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=w20vK13nhMzbjHJZSCggje7+hpPlrM9z3S//rlxScS4=;
+        b=nkciBBjCa2d2Db1divcVcl3X8QqEQke/YIOyn5EOeBy5MuC7mQTjLUetHMEwWLGT/D
+         JKQzOfD3Na544gtwVsKT1jvdOnE6IlKR1q3YPA3JUaaob0wYGgv73Rk2s0v0+8J1ykTK
+         Svo6LgFbFuM3zVF6MdPkji1l33nEhAlNJXKlPhxMQEw5NcmwkytPOo48FmvfA/sod2bB
+         DlaFCyK1LG88OljXl20MniPqtsyxGpXBWd2pI+ZoA05Q0jvRhzQLrQt4iFqpoE9CjE7C
+         op82Q9LI8KyQeEZ99WXU6ISkK0cEw+tXNejKWNm4MSL26TaW5WPKFvOX9znABJamog9C
+         M7bA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736852143; x=1737456943;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=w20vK13nhMzbjHJZSCggje7+hpPlrM9z3S//rlxScS4=;
+        b=Mh6znw26gQguzOK07RHenAGk/Y0uv/hfw4tGCOSoZT0HesPd1vm+1fXCJOjYld6SDI
+         OFeQQBg9hryCcLszcrXftelOkA3ktYRX6r6Zc3yl/bxVvp1NXyokhO0ZS1w5IyC0o1ly
+         rzjqUC+aH6L1sYiloJ9N0/pGSCeb4GcyS2+J5ePPdPx0fr/aaJavwOP/Uq04tJ1X4+Ch
+         /wb3Wg0or26qQ5aBbIzBU81Ma7IJrJcFKzGOO5PFGvc5q9T7pTnESiY+Y7cP2bO/hJ6r
+         t+z5rMd3hZxu/6OwgncfAw7XSkYA/Gn6dnh0QJcZCm18iJH19ZeZNX222JsSQcoyzNGN
+         fRnA==
+X-Forwarded-Encrypted: i=1; AJvYcCVN4msDNbgCqdAzo3uqAPz1AQW00jG/XlFRnmnTqkbQoFTLDptDx16+TYAGvaaecUUYFEbKuZBPgPEZPF4s8YGH@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy33870j4p5rLgURacT3liW2XJ5sB8IzO/duraizDnLTqRmMeZl
+	xCrIJAxlCHCNJ+NjiD3jdN5NaBwHtjy5KbJfvd4fBFJFMYYk2AZJFM3f0AYlA10=
+X-Gm-Gg: ASbGncuraC402tZuhA1cvH569XLB0bRX0TKlSZw0tIxhyYhXNQyBjYpQuJiBAvrJ5Na
+	b8vO8cqTWVS/0fIx8sldmybpQ1UAcI3E3wdoFeDWMrM4aifyAeczcZ8xFbapTMSRMnt2ybkdaun
+	VdJvZGO+l0OWwxOxCIMKRBn+qL1svKerHsHH5XtIDAd8Gc+oPsS3woUbwYqzvcV5i3xl9eg50fJ
+	3Gg5S/NtkYZeT9tpz/BRT8XGs1AFFNH0qieHIzj7Gv5zXGdwhk9OkAMnfDp3mrPIPoHKxg=
+X-Google-Smtp-Source: AGHT+IG+VYqAZEZjAkkDupQTvwlvu2SSq7a2Lp6yZVkX5waA19et6Qvi69lKI25WLQ+J8Hn9t77VNw==
+X-Received: by 2002:a17:906:c14b:b0:aac:619:6411 with SMTP id a640c23a62f3a-ab2abc6fd33mr825598566b.11.1736852142566;
+        Tue, 14 Jan 2025 02:55:42 -0800 (PST)
+Received: from krzk-bin.. ([178.197.223.165])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab2c95624e8sm611169266b.127.2025.01.14.02.55.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Jan 2025 02:55:42 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Vinod Koul <vkoul@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Peter Ujfalusi <peter.ujfalusi@gmail.com>,
+	Michal Simek <michal.simek@amd.com>,
+	dmaengine@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH 1/2] dmaengine: Use str_enable_disable-like helpers
+Date: Tue, 14 Jan 2025 11:55:37 +0100
+Message-ID: <20250114105538.272963-1-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] rtc: mt6359: fix year issue
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Alexandre Mergnat <amergnat@baylibre.com>
-Cc: Eddie Huang <eddie.huang@mediatek.com>, Sean Wang
- <sean.wang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>,
- Macpaul Lin <macpaul.lin@mediatek.com>,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-rtc@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250109-enable-rtc-v1-0-e8223bf55bb8@baylibre.com>
- <20250109-enable-rtc-v1-2-e8223bf55bb8@baylibre.com>
- <202501091546387cff95fd@mail.local>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <202501091546387cff95fd@mail.local>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_025315_190083_34A9207C 
-X-CRM114-Status: GOOD (  19.51  )
+X-CRM114-CacheID: sfid-20250114_025544_359436_6FC8CF64 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,100 +105,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 09/01/25 16:46, Alexandre Belloni ha scritto:
-> On 09/01/2025 16:29:52+0100, Alexandre Mergnat wrote:
->> Removing the RTC_MIN_YEAR_OFFSET addition and subtraction has
->> introduced a regression.
->>
->> ~# hwclock -r --verbose
->> hwclock from util-linux 2.37.4
->> System Time: 1262312013.143552
->> Trying to open: /dev/rtc0
->> Using the rtc interface to the clock.
->> Assuming hardware clock is kept in UTC time.
->> Waiting for clock tick...
->> hwclock: select() to /dev/rtc0 to wait for clock tick timed out
->> ...synchronization failed
->>
->> Bring back the RTC_MIN_YEAR_OFFSET to fix the RTC.
->>
-> 
-> NAK, you'd have to investigate a bit more, I want to get rid of the
-> RTC_MIN_YEAR_OFFSET insanity.
-> 
+Replace ternary (condition ? "enable" : "disable") syntax with helpers
+from string_choices.h because:
+1. Simple function call with one argument is easier to read.  Ternary
+   operator has three arguments and with wrapping might lead to quite
+   long code.
+2. Is slightly shorter thus also easier to read.
+3. It brings uniformity in the text - same string.
+4. Allows deduping by the linker, which results in a smaller binary
+   file.
 
-If literally all currently supported MediaTek PMICs RTC are working fine (and
-it's not just one), but the one that is introduced here has issues, clearly
-the problem is *not* about the min_year_offset not being there, I'd say!
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+---
+ drivers/dma/imx-dma.c           | 3 ++-
+ drivers/dma/pxa_dma.c           | 4 ++--
+ drivers/dma/ti/edma.c           | 3 ++-
+ drivers/dma/xilinx/xilinx_dma.c | 3 ++-
+ 4 files changed, 8 insertions(+), 5 deletions(-)
 
-Btw:
-"hwclock: select() to /dev/rtc0 to wait for clock tick timed out"
-...is the WRTGR write failing? :-)
-
-And no, Alexandre M, don't trust the regmap_read_poll_timeout() to return an
-error, I'm not sure that the CBUSY gets set to zero for *literally all* failures...
-
-In particular.... some RTCs are *locked* and need to be *unlocked*, and in that
-case I'm not sure if the write just goes through but gets ignored or if CBUSY
-stays set.
-
-Anyway, check the RTC_PROT register for the unlocking mechanism :-)
-
-Cheers,
-Angelo
-
->> Fixes: 34bbdc12d04e ("rtc: mt6359: Add RTC hardware range and add support for start-year")
->> Signed-off-by: Alexandre Mergnat <amergnat@baylibre.com>
->> ---
->>   drivers/rtc/rtc-mt6397.c | 9 +++++++++
->>   1 file changed, 9 insertions(+)
->>
->> diff --git a/drivers/rtc/rtc-mt6397.c b/drivers/rtc/rtc-mt6397.c
->> index 55e75712edd4..9930b6bdb6ca 100644
->> --- a/drivers/rtc/rtc-mt6397.c
->> +++ b/drivers/rtc/rtc-mt6397.c
->> @@ -96,6 +96,12 @@ static int mtk_rtc_read_time(struct device *dev, struct rtc_time *tm)
->>   			goto exit;
->>   	} while (sec < tm->tm_sec);
->>   
->> +	/* HW register use 7 bits to store year data, minus
->> +	 * RTC_MIN_YEAR_OFFSET before write year data to register, and plus
->> +	 * RTC_MIN_YEAR_OFFSET back after read year from register
->> +	 */
->> +	tm->tm_year += RTC_MIN_YEAR_OFFSET;
->> +
->>   	/* HW register start mon/wday from one, but tm_mon/tm_wday start from zero. */
->>   	tm->tm_mon--;
->>   	tm->tm_wday--;
->> @@ -110,6 +116,7 @@ static int mtk_rtc_set_time(struct device *dev, struct rtc_time *tm)
->>   	int ret;
->>   	u16 data[RTC_OFFSET_COUNT];
->>   
->> +	tm->tm_year -= RTC_MIN_YEAR_OFFSET;
->>   	tm->tm_mon++;
->>   	tm->tm_wday++;
->>   
->> @@ -167,6 +174,7 @@ static int mtk_rtc_read_alarm(struct device *dev, struct rtc_wkalrm *alm)
->>   	tm->tm_mon = data[RTC_OFFSET_MTH] & RTC_AL_MTH_MASK;
->>   	tm->tm_year = data[RTC_OFFSET_YEAR] & RTC_AL_YEA_MASK;
->>   
->> +	tm->tm_year += RTC_MIN_YEAR_OFFSET;
->>   	tm->tm_mon--;
->>   
->>   	return 0;
->> @@ -182,6 +190,7 @@ static int mtk_rtc_set_alarm(struct device *dev, struct rtc_wkalrm *alm)
->>   	int ret;
->>   	u16 data[RTC_OFFSET_COUNT];
->>   
->> +	tm->tm_year -= RTC_MIN_YEAR_OFFSET;
->>   	tm->tm_mon++;
->>   
->>   	mutex_lock(&rtc->lock);
->>
->> -- 
->> 2.25.1
->>
-> 
-
+diff --git a/drivers/dma/imx-dma.c b/drivers/dma/imx-dma.c
+index a651e0995ce8..de8d7070904e 100644
+--- a/drivers/dma/imx-dma.c
++++ b/drivers/dma/imx-dma.c
+@@ -17,6 +17,7 @@
+ #include <linux/device.h>
+ #include <linux/dma-mapping.h>
+ #include <linux/slab.h>
++#include <linux/string_choices.h>
+ #include <linux/platform_device.h>
+ #include <linux/clk.h>
+ #include <linux/dmaengine.h>
+@@ -942,7 +943,7 @@ static struct dma_async_tx_descriptor *imxdma_prep_dma_interleaved(
+ 		"   src_sgl=%s dst_sgl=%s numf=%zu frame_size=%zu\n", __func__,
+ 		imxdmac->channel, (unsigned long long)xt->src_start,
+ 		(unsigned long long) xt->dst_start,
+-		xt->src_sgl ? "true" : "false", xt->dst_sgl ? "true" : "false",
++		str_true_false(xt->src_sgl), str_true_false(xt->dst_sgl),
+ 		xt->numf, xt->frame_size);
+ 
+ 	if (list_empty(&imxdmac->ld_free) ||
+diff --git a/drivers/dma/pxa_dma.c b/drivers/dma/pxa_dma.c
+index e50cf3357e5e..249296389771 100644
+--- a/drivers/dma/pxa_dma.c
++++ b/drivers/dma/pxa_dma.c
+@@ -10,6 +10,7 @@
+ #include <linux/interrupt.h>
+ #include <linux/dma-mapping.h>
+ #include <linux/slab.h>
++#include <linux/string_choices.h>
+ #include <linux/dmaengine.h>
+ #include <linux/platform_device.h>
+ #include <linux/device.h>
+@@ -277,8 +278,7 @@ static int chan_state_show(struct seq_file *s, void *p)
+ 	seq_printf(s, "\tPriority : %s\n",
+ 			  str_prio[(phy->idx & 0xf) / 4]);
+ 	seq_printf(s, "\tUnaligned transfer bit: %s\n",
+-			  _phy_readl_relaxed(phy, DALGN) & BIT(phy->idx) ?
+-			  "yes" : "no");
++			  str_yes_no(_phy_readl_relaxed(phy, DALGN) & BIT(phy->idx)));
+ 	seq_printf(s, "\tDCSR  = %08x (%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s)\n",
+ 		   dcsr, PXA_DCSR_STR(RUN), PXA_DCSR_STR(NODESC),
+ 		   PXA_DCSR_STR(STOPIRQEN), PXA_DCSR_STR(EORIRQEN),
+diff --git a/drivers/dma/ti/edma.c b/drivers/dma/ti/edma.c
+index 4ece125b2ae7..b1a54655e6ce 100644
+--- a/drivers/dma/ti/edma.c
++++ b/drivers/dma/ti/edma.c
+@@ -16,6 +16,7 @@
+ #include <linux/platform_device.h>
+ #include <linux/slab.h>
+ #include <linux/spinlock.h>
++#include <linux/string_choices.h>
+ #include <linux/of.h>
+ #include <linux/of_dma.h>
+ #include <linux/of_irq.h>
+@@ -2047,7 +2048,7 @@ static int edma_setup_from_hw(struct device *dev, struct edma_soc_info *pdata,
+ 	dev_dbg(dev, "num_qchannels: %u\n", ecc->num_qchannels);
+ 	dev_dbg(dev, "num_slots: %u\n", ecc->num_slots);
+ 	dev_dbg(dev, "num_tc: %u\n", ecc->num_tc);
+-	dev_dbg(dev, "chmap_exist: %s\n", ecc->chmap_exist ? "yes" : "no");
++	dev_dbg(dev, "chmap_exist: %s\n", str_yes_no(ecc->chmap_exist));
+ 
+ 	/* Nothing need to be done if queue priority is provided */
+ 	if (pdata->queue_priority_mapping)
+diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
+index 108a7287f4cd..3ad44afd0e74 100644
+--- a/drivers/dma/xilinx/xilinx_dma.c
++++ b/drivers/dma/xilinx/xilinx_dma.c
+@@ -46,6 +46,7 @@
+ #include <linux/of_irq.h>
+ #include <linux/platform_device.h>
+ #include <linux/slab.h>
++#include <linux/string_choices.h>
+ #include <linux/clk.h>
+ #include <linux/io-64-nonatomic-lo-hi.h>
+ 
+@@ -2940,7 +2941,7 @@ static int xilinx_dma_chan_probe(struct xilinx_dma_device *xdev,
+ 			    XILINX_DMA_DMASR_SG_MASK)
+ 			chan->has_sg = true;
+ 		dev_dbg(chan->dev, "ch %d: SG %s\n", chan->id,
+-			chan->has_sg ? "enabled" : "disabled");
++			str_enabled_disabled(chan->has_sg));
+ 	}
+ 
+ 	/* Initialize the tasklet */
+-- 
+2.43.0
 
 
