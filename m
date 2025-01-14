@@ -4,78 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82BF2C02184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 11:40:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F11A6E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 11:56:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KjQD7wnzrgRiFT2qnnM8Tu9JE5J2THHckGAFjcSoO6I=; b=lYkkiUFufWK7obiUJd464ZzV4d
-	AZLSKM/CihqH6UdP46BKjmCjB6hp91bf7+W7+ND8Cgtjgtlmj0XaFPmpUMH38ifQ32AcVpprToBZj
-	XTUPGU+/NhYTIJXuSL6Q8dKng0KSHJwwVyC6Lk+4H14zQXHP0XqlMPmaTZQhQP22/QaS3FTI9qonz
-	8IMxCi0wONUn5i79+xd7+XS1bLco4MAZG2MyniUDRTdbDzbR5SFdfdV3RyPHiJogdiX0cE9CLMtJA
-	3XBiUAGV2xUWjzZyNnD7C7lv9956Q2H4xJbv3GIwqO+JG55V4qGepAYDaaxFp0gER4DfR//71lNub
-	9jBPxH5A==;
+	bh=qbJZNH3I2kHSJ3p3lZHpAuzG4uICLJvj/AiJ0Ww5yMA=; b=4MY+t5ex+GLb24QLf+1kDVEZb9
+	LXwhS96gskh1jsw84mqeJp4lkv/87KNNPN3v8m74eNxae6n669hg4LfJYoIM7E5u/XBluOItPZ85V
+	dSo+KrnOxxJuwU39yfAXiF8G/3dHehQUHtOWEuywupjR79qNmeefFWX1MYJLh/AKlrddohuwB4IL/
+	NTWyyHrvwAc93n/5KaaOebtc5ZCDXF4nI1Z3nfHB9hnhbMz67UeG04wWwOABUjM/ZIpC6XGUjgAru
+	5VB+2Kfrj/5AGvcNARodX/UWBWY0r1fa8kYYk7jp4Jk8V4Rxxwq6uiL0DOofV8o2TOjN9qRw6EYvd
+	UxoUHI9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXfHR-00000008Hdz-0yzW;
-	Tue, 14 Jan 2025 11:40:21 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1tXfWd-00000008Jx7-3UHH;
+	Tue, 14 Jan 2025 11:56:03 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXfFE-00000008HIY-2ah8;
-	Tue, 14 Jan 2025 11:38:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1736854659; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=K7bpJoRSD9xaIAURIufGX2z7/sm5DwWQadN52Eb15woL8g8Lf+l9p9/fH4LU1XaNc3kS121S+xP3WwsJ9l90mJKRfqo6j02t5fSISv5Dvfj0o/Xzq+eAhlN+xZOxsv77vitaqO8e+idlWO/DOM6aUYA8W8yzzV0pPYjWGgwGCa4=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1736854659; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=KjQD7wnzrgRiFT2qnnM8Tu9JE5J2THHckGAFjcSoO6I=; 
-	b=D8OdykcCRRKQfNSJH6+LY1fhWSWWamjHe89vaxZTl0tIlchBZXVPkL2U5xJAhwB2z3XdCFFi/7ObNaMvIljLtABWGpFhW1yooID9I9HRYQqV2rzWGSHk21mlyARLgd0QHAXobfp9Fr1alm+ZvwQOmQLjcubcXUKnEN6aw+O+tmw=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=dmitry.osipenko@collabora.com;
-	dmarc=pass header.from=<dmitry.osipenko@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1736854659;
-	s=zohomail; d=collabora.com; i=dmitry.osipenko@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=KjQD7wnzrgRiFT2qnnM8Tu9JE5J2THHckGAFjcSoO6I=;
-	b=Oe++g22Q8hGcC3MenJqDOIgRmGKuaE4Q/MQTx0pV4V/Zgii555nAhn0ZyI9oHwX0
-	PmS6jvKZA0git0k/0l+QpCkrUqjzq1KGNfNt06dmlFOOrHaodKl1PddgMUedvXpa0AK
-	vh4bLSzfLHlAUAqDpvH/6TW2FpHOEAingRxHXgMk=
-Received: by mx.zohomail.com with SMTPS id 1736854656305475.3833676137276;
-	Tue, 14 Jan 2025 03:37:36 -0800 (PST)
-Message-ID: <9399a881-7d45-4ca3-8249-2e554184d038@collabora.com>
-Date: Tue, 14 Jan 2025 14:37:30 +0300
+	id 1tXfVN-00000008Jqu-3zV0
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 14 Jan 2025 11:54:47 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4361c705434so38377075e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 03:54:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1736855684; x=1737460484; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=qbJZNH3I2kHSJ3p3lZHpAuzG4uICLJvj/AiJ0Ww5yMA=;
+        b=AulqPZQePp+TrSK/xOGXb3nQOZJvHu3GMytzJvbNkjQWkMsHZbl2plTolkl2FJ14Iw
+         0BxDf5xBtY7PbjmYtBU57MwgmFfdTLYGaM/3jG3OpIdWtZ9GSUse+76KKrd15BOLPNWw
+         HybrYDOnrEDmP5X224JYv7vv7qShry2vCSeUA4qSdkLuop+X7kSbRUWzE1RilM8JQjZL
+         dqfWII6ZVfp0a3k4GjiwjvI1BG79uI9xJMRFIeToybSPBiwuDNI4BBVSLGmCgFgo/UF9
+         YQKvhtiFgBifeFeOlEkk0C30U5VGDyXjQ2e2lA3WgLq4tTDz+b0mFTcuKDRXh8Rz7aLs
+         YDLw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736855684; x=1737460484;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=qbJZNH3I2kHSJ3p3lZHpAuzG4uICLJvj/AiJ0Ww5yMA=;
+        b=BOJ8BssyNlp6eAH+ZTOSOzWE3pGCfv/OtvwqtN5XXQlu0NJ0xOXmEGZ+EH9EXJxSoy
+         o+VO5zpPFl+OVK8iBsQWSHwfkapqwCzhq4sDp79ruEaEUKyq8WiFD3wD5AHYGJ5RnNvZ
+         SMGiVpn732e/bkVKWXo11gMrfL5JfYR6gVSnbTKKWNulGPT+/d4wKQpQ/HiYdLCgIvHy
+         /tFnIXoG6AzFfHc7U5419E9eUN03e8N4ceaMhnylgW5Zp4pQ8v5iwFeedyhxdI1DuR6S
+         EdTY8T2wcvZadCrZTRNckBXh/sFUtKElwfEFsIvnOvSGZCmFXYn8GyNbMRKSdVyJ7EHf
+         OLXg==
+X-Forwarded-Encrypted: i=1; AJvYcCWWGeZd3DeEYlsrHQu3d/+VMjw11cCELK0voeiAABNT4f7zcGm4+og/TN+tSs91r1lLsAHQbOcT3oMkOsbzFTx7@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz0hQrxZtrglPY+V5uNSIsJFIw2EP6nU9tR2JRHUti1I5WtTpkg
+	9KfXPaAxexSvg9kR/ejz8ho3SVjkiQzhAWrdAC+U3YgFR/cK4lOgl8nMosZjzQk=
+X-Gm-Gg: ASbGncvIn1vgsPTh1y82F8VBy/GFNuTypmvmBjHvFQVo86EE2utGz7oMR9sFBM3KkPw
+	dd7VbaITqzlmVioMfEzFHXFDdBOxr2t6t63bfE3UNZdosRoQZvW+PCUHIXc4TkxH+wn0MVRYqcF
+	I/UD+9V2+ZJcDPpVTXh7TImmcb48Hv1gNxV4GXAiMNtIIP/z8m2JdjFeSJBy2q+HgmH7OJHbrv+
+	xrLud1H4GhEwTO1JLh7AiavnsuBDXr+jg+awbt0OCG9DWtgttfvaqKqxEwR7eo+shKxhx9QdLKh
+	MtPJWbhCIErU0Rl5zuUP
+X-Google-Smtp-Source: AGHT+IFlWMbt6nrzrirx/rDmydW/pVj5xprtbzyuAVBQY0lAHuDRdBjo+/B7yttkEhzKPsZ0JknC1w==
+X-Received: by 2002:a05:600c:283:b0:434:f1e9:afae with SMTP id 5b1f17b1804b1-436ee0f8783mr124040565e9.1.1736855684496;
+        Tue, 14 Jan 2025 03:54:44 -0800 (PST)
+Received: from [192.168.10.46] (146725694.box.freepro.com. [130.180.211.218])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-437c0f03984sm13710775e9.0.2025.01.14.03.54.43
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 14 Jan 2025 03:54:44 -0800 (PST)
+Message-ID: <53f3803f-c6ef-40db-9794-6c90b37659c1@linaro.org>
+Date: Tue, 14 Jan 2025 12:54:43 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND PATCH v5 0/4] Add Synopsys DesignWare HDMI RX Controller
-To: Tim Surber <me@timsurber.de>, Shreeya Patel
- <shreeya.patel@collabora.com>, heiko@sntech.de, mchehab@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- mturquette@baylibre.com, sboyd@kernel.org, p.zabel@pengutronix.de,
- jose.abreu@synopsys.com, nelson.costa@synopsys.com,
- shawn.wen@rock-chips.com, nicolas.dufresne@collabora.com,
- hverkuil@xs4all.nl, hverkuil-cisco@xs4all.nl
-Cc: kernel@collabora.com, linux-kernel@vger.kernel.org,
- linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-References: <20241210193904.883225-1-shreeya.patel@collabora.com>
- <acb91a34-c0f8-4f03-8945-755b4e42dcf3@timsurber.de>
- <925d7571-48e4-437d-b55c-3f7bbad8af1d@collabora.com>
- <fbb5016e-678c-4e54-a6a8-0ccaa2bdf45c@timsurber.de>
- <a5226fac-2a5b-47f3-b32e-8662bf932bd4@collabora.com>
- <d61e344f-fcdd-47af-a142-e8d42edec045@timsurber.de>
+Subject: Re: [PATCH RESEND v2 2/5] thermal/drivers/mediatek/lvts: Disable
+ Stage 3 thermal threshold
+To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Matthias Brugger
+ <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Alexandre Mergnat <amergnat@baylibre.com>, Balsam CHIHI <bchihi@baylibre.com>
+Cc: kernel@collabora.com, linux-pm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, Hsin-Te Yuan <yuanhsinte@chromium.org>,
+ Chen-Yu Tsai <wenst@chromium.org>, =?UTF-8?Q?Bernhard_Rosenkr=C3=A4nzer?=
+ <bero@baylibre.com>, "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+ stable@vger.kernel.org
+References: <20250113-mt8192-lvts-filtered-suspend-fix-v2-0-07a25200c7c6@collabora.com>
+ <20250113-mt8192-lvts-filtered-suspend-fix-v2-2-07a25200c7c6@collabora.com>
 Content-Language: en-US
-From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
-In-Reply-To: <d61e344f-fcdd-47af-a142-e8d42edec045@timsurber.de>
-Content-Type: text/plain; charset=UTF-8
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+In-Reply-To: <20250113-mt8192-lvts-filtered-suspend-fix-v2-2-07a25200c7c6@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_033804_750480_F3DE9C1F 
-X-CRM114-Status: GOOD (  29.00  )
+X-CRM114-CacheID: sfid-20250114_035446_000950_E81AD8E4 
+X-CRM114-Status: GOOD (  16.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,139 +110,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/9/25 02:17, Tim Surber wrote:
-> Hi,
+On 13/01/2025 14:27, Nícolas F. R. A. Prado wrote:
+> The Stage 3 thermal threshold is currently configured during
+> the controller initialization to 105 Celsius. From the kernel
+> perspective, this configuration is harmful because:
+> * The stage 3 interrupt that gets triggered when the threshold is
+>    crossed is not handled in any way by the IRQ handler, it just gets
+>    cleared. Besides, the temperature used for stage 3 comes from the
+>    sensors, and the critical thermal trip points described in the
+>    Devicetree will already cause a shutdown when crossed (at a lower
+>    temperature, of 100 Celsius, for all SoCs currently using this
+>    driver).
+> * The only effect of crossing the stage 3 threshold that has been
+>    observed is that it causes the machine to no longer be able to enter
+>    suspend. Even if that was a result of a momentary glitch in the
+>    temperature reading of a sensor (as has been observed on the
+>    MT8192-based Chromebooks).
 > 
-> I tested your patch with the command
-> 
-> # gst-launch-1.0 -v v4l2src device=/dev/video1 ! fakesink
-> 
-> If this worked I moved on to a visual test using
-> 
-> # gst-launch-1.0 -v v4l2src device=/dev/video1 ! queue ! v4l2convert !
-> waylandsink
-> 
-> I used a Windows PC  with a Nvidia GTX 4060 as my source for the
-> following tests.
-> 
-> | Format       | Result                                      |
-> | ------------ | ------------------------------------------- |
-> | 4k60p RGB    | Recognized as 1080p / 120 fps - no output   |
-> | 4k60p 4:2:2  | Recognized as 1080p / 120 fps - no output   |
-> | 4k60p 4:4:4  | Error: Device wants 1 planes                |
-> | 4k30p RGB    | ok                                          |
-> | 4k30p 4:2:2  | ok                                          |
-> | 4k30p 4:4:4  | Error: Device wants 1 planes                |
-> | FHD60p RGB   | ok                                          |
-> | FHD60p 4:2:2 | ok                                          |
-> | FHD60p 4:4:4 | Error: Device wants 1 planes                |
-> 
-> 
-> When testing 4:4:4 chroma I got the following error:
-> 
-> # gst-launch-1.0 -v v4l2src device=/dev/video1 ! fakesink
-> /sys/v4l2/gstv4l2object.c(4344): gst_v4l2_object_set_format_full (): /
-> GstPipeline:pipeline0/GstV4l2Src:v4l2src0:
-> Device wants 1 planes
-> 
-> I could record and convert (with errors) the files with 4:4:4 chroma
-> using the command Shreeya posted, but the resulting video had wrong
-> colors and was flashing.
-> 
-> I was not able to test 4:2:0 chroma. I tried to generate an custom EDID
-> with support for it but I could not select it in the graphics driver in
-> the source, maybe this is just an issue with my setup.
+> For those reasons, disable the Stage 3 thermal threshold configuration.
 
-Thanks a lot for the testing, very appreciate it! Good that RGB works
-for you with no problems.
-
-Testing YUV formats isn't trivial. Personally I've a custom setup with a
-modified display driver of RPi to test them. See more below.
-
-> I also observed that the the framerate is reported wrong, for example
-> setting the source to FHD60p RGB resulted in the following:
-> 
-> # v4l2-ctl --all -L --list-formats-ext -d /dev/video0
-> Active width: 1920
->     Active height: 1080
->     Total width: 2200
->     Total height: 1125
->     Frame format: progressive
->     Polarities: -vsync -hsync
->     Pixelclock: 214076000 Hz (86.50 frames per second)
-> 
-> This wrong framerate reporting seemed to happen across all framerates
-> and resolutions. Gstreamer Pipeline negotation showed the same results.
-
-I've re-tested YUV444 4k capture using RPi4, works flawlessly. Note for
-gst-launch-1.0 you used video1 and video0 device is used by v4l2-ctl
-command above, maybe you're using wrong device. Please post a complete
-output of the v4l2-ctl command.
-
-The command I used to test YUV444 capture:
-
-# v4l2-ctl --verbose -d /dev/video1
---set-fmt-video=width=3840,height=2160,pixelformat=NV24 --stream-mmap=4
---stream-skip=3 --stream-count=3300 --stream-to=hdmi.raw --stream-poll
-
-The I converted captured data to a video file and played it:
-
-# ffmpeg -f rawvideo -vcodec rawvideo -s 3840x2160 -r 30 -pix_fmt nv24
--y -i hdmi.raw output.mkv && mpv output.mkv -loop 0
-
-Don't see any problems with a reported framerate:
-
-DV timings:
-        Active width: 3840
-        Active height: 2160
-        Total width: 4400
-        Total height: 2250
-        Frame format: progressive
-        Polarities: -vsync -hsync
-        Pixelclock: 296992000 Hz (30.00 frames per second)
-
-Note the timing data reported by v4l2-ctl updates after launching the
-capture. It's not updated dynamically when you changing mode on the source.
-
-Lastly, please run `echo 3 >
-/sys/module/synopsys_hdmirx/parameters/debug`.  Watch the kmsg log.
-Check that it says "hdmirx_get_pix_fmt: pix_fmt: YUV444" when you
-connecting HDMI cable to a YUV444 source and see other related messages.
-If it says RGB, then your source is transmitting RGB.
-
-> During my testing I got sometimes an error
-> 
-> 
-> # dmesg
-> dma alloc of size 24883200 failed
-> 
-> 
-> I'm not sure when this happened and how to reproduce it.
-
-This comes from v4l core, should be harmless as long as capture works.
-It's a known noisy msg, you may ignore it for today.
-
-> Then I tried to use an AppleTV 4k as source. I don't know what
-> resolution it tried to negotiate but I got this error in addition to the
-> previous "Device wants 1 planes" and no connection:
-> 
-> # dmesg
-> fdee0000.hdmi_receiver: hdmirx_query_dv_timings: signal is not locked
-> fdee0000.hdmi_receiver: hdmirx_wait_signal_lock: signal not lock,
-> tmds_clk_ratio:0
-> fdee0000.hdmi_receiver: hdmirx_wait_signal_lock: mu_st:0x0, scdc_st:0x0,
-> dma_st10:0x10
-> fdee0000.hdmi_receiver: hdmirx_wait_signal_lock: signal not lock,
-> tmds_clk_ratio:0
-> fdee0000.hdmi_receiver: hdmirx_wait_signal_lock: mu_st:0x0, scdc_st:0x0,
-> dma_st10:0x14
-
-"Device wants 1 planes" sounds like you're using a wrong v4l video
-device. Please double check. Though, the "signal not lock" means it
-doesn't work anyways, please make sure you're using the default driver
-EDID and not a custom one.
+Does this stage 3 not designed to reset the system ? So the interrupt 
+line should be attached to the reset line ? (just asking)
 
 -- 
-Best regards,
-Dmitry
+<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
+
+Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+<http://twitter.com/#!/linaroorg> Twitter |
+<http://www.linaro.org/linaro-blog/> Blog
 
