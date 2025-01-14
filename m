@@ -4,69 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B61AFE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 10:01:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8274C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 10:02:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jzX5EdLsCWjyFAlDUCXLOh7T18XLl+qs3XwQKiuLtpU=; b=joBBcmLtqrKZI3bb6EL7yeFJgz
-	FELkC9K7/c21wpF3JBTNOVDPdo67Wmv2jjQypTsKXNf6lwvCQ/WXOZ0Ikk6vpE5vjU4+O2GJ/UK2r
-	9gF8zDANWxfUFV9Sv+BlO8eXw/VrxKL17yQKRdFr4wRb2J6ryhwb5QsJn6ZMJ2qUijtcwng3NiTnV
-	ayW3mb+cFe7s+JEwFaXrLbW9Vt0d3is36zDsg6l0NjPPVsqAR8i2lLTWv36xTuywbSjS7B8jitwVu
-	O2ox5nS78JWfBF/ESCvvBMWL8DzfpVnzXfP3xgCtAEnmQo21jQGpyACKz9ba6bDE9vBv/td0j+3hI
-	9HiGAaXQ==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Qoa+TnZ+eJVmynifYlg3CNbZeNLJM90IDeQADpEz0bE=; b=YVq78uNSsezEvSzingN2MBuW+L
+	CzHdKrR/a6OFTIUR/2grz/yf0UFUzmwAKffhwgiI0SDfX4ZFJDMKlSqZI0ft3UkA2tlrx3F1c6yj3
+	EPototTPgTzMK60uv3VSNbawbCTnNPVyZ15FVInBKpJGCrLg1oIS0bKI3jNyuD4wWmk/FT3W8KRyp
+	ukWF7NtQ+k6l+HKsYJm+10D42z69tll069fdeNw7Y1J8n40gmhDm/km2zSTsfqaK/KiCgDcViHNrC
+	aTEW72sDtyRFzjvTXgIwyD76J6EiY8oNXeOpjIDwL/MZ4fol8DsU2q9Vlx0xQP5YuefQSCuoF+xyj
+	oLlUHEaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXdjO-000000081AO-002Y;
-	Tue, 14 Jan 2025 10:01:06 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
+	id 1tXdka-000000081M6-2XZV;
+	Tue, 14 Jan 2025 10:02:20 +0000
+Received: from mail-yb1-xb32.google.com ([2607:f8b0:4864:20::b32])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXdi7-000000080tL-41cw
+	id 1tXdig-0000000814b-0tCw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 09:59:49 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 0943CA0AB9;
-	Tue, 14 Jan 2025 10:59:37 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:message-id:mime-version:reply-to:subject:subject:to
-	:to; s=mail; bh=jzX5EdLsCWjyFAlDUCXLOh7T18XLl+qs3XwQKiuLtpU=; b=
-	Vlx49ypumGK4OYALTAT+3gqfJ37n+GyTzB9YcrZhg4vvDhSSXP/xgqjghbq3BqkW
-	99auOeXdbCUZ/ZT1f1KuE3Y0OgBfTHzApliAmgk0bpCmqMvb3P1ZulajE03l3TCo
-	yACcZa9AKvEJS+SCqDZJkFY8x/ESB2BXHCn61BINGXdaj/W/+OcE+H+4joKcu4zB
-	0CXsVUDJRekrWNSKsedX2WBW7wARoKGpDmsfbzeVCQxkoRDKdcJtVnDq9kQDWj8T
-	xjHEei3Zn+R/2PSfguprp4vBMnjwM0GeE3NXfKWXfoCX7bmq4KFALUXH1fBjLIgY
-	XT/oBNBDJNiiS3MgerUjOFfZW+h1ZHHaFfGm3IJaZi+KojaP1Ov8FThP6qBWhd0z
-	Jsw+WxsRA1xi+SZSOKjB0QS7bppm26gDhbdVKCzBiX/MYpmTerSN5/ny00JYxfsX
-	YwOAWTAg+kxjRjXp/S3gjCDgmhfmtxoMdsvOSWAMf3l2DPj0kcNvCQqmgAY1lE9S
-	+HM+gknf3avJybCVpjZA0FGquknN5qtvAi9EE+BToCLWZ7e+ZHIRxEFj9lEUKAIW
-	xyUn3IVUQpjacz4d0tMSld6wkAnjGMToP3Ekhfe/al0fjBsza13gms7IlZQ5lhzY
-	cOtFNmvn/o5gAQwGtmGlSy+3T+uinoHrX0pY1u4IKmU=
-From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
-To: <linux-sound@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-CC: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, "Liam
- Girdwood" <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, "Jaroslav
- Kysela" <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Chen-Yu Tsai
-	<wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
-	<samuel@sholland.org>, Philipp Zabel <p.zabel@pengutronix.de>
-Subject: [PATCH v2] ASoC: sun4i-codec: Use new devm clk and reset APIs
-Date: Tue, 14 Jan 2025 10:59:07 +0100
-Message-ID: <20250114095909.798559-1-csokas.bence@prolan.hu>
-X-Mailer: git-send-email 2.48.0
+	Tue, 14 Jan 2025 10:00:23 +0000
+Received: by mail-yb1-xb32.google.com with SMTP id 3f1490d57ef6-e460717039fso7351480276.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 02:00:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1736848821; x=1737453621; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Qoa+TnZ+eJVmynifYlg3CNbZeNLJM90IDeQADpEz0bE=;
+        b=bvEND86DYQ0l3F+yyiifDVtdQoPRPHMJOOSJJK8RVk2sJmmlivETMVDOPh91/px3W+
+         Rf5ivGon+krhYXISCJKDjcWCd/IvnHruZ89dmx+2gIsNZOoAgy+POnH2lupYclk3TYaG
+         bm8sTuj96qdwTAMIMtM5A4qJbxZdYOM1yV7xo=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736848821; x=1737453621;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Qoa+TnZ+eJVmynifYlg3CNbZeNLJM90IDeQADpEz0bE=;
+        b=QVy+Z+qriKJ1zTunVHqyDb3CHpBZi2qDIU5YiwY0ecpxNXDiuyf4j84mzwf1YdRp1+
+         fABVcnkPOCV5A9vnNewXgF1NEUL9/oS4osIwP7KI1/L1Y/NdUxv+2DctsBMtvswjTkeF
+         tjS+u1snbWMG4KRlmGqylAV5quaFKNPGrWgAgoRf3RVyWSInlXYTHd2GGevsdMYTk1QM
+         gHa6Hgy/RpCLyFlF9goi1qsfG97iK2ijZsstSZNxyXYZSKUl42478SlR7nCI9N9McmU9
+         Ob4hPHUOYrrgNjxZ1UsJX8yqCUQw3GMr5G8z5gBmqTW67wBAnHujgwLKh0D4XM61Xmyo
+         p5SA==
+X-Forwarded-Encrypted: i=1; AJvYcCUbEWeis9eRTEIqZKp/0yLAR/vPY8fmwUKBu+XvFU5lIGM7XzRLBneg7HiFPH5KeMw7ye0MA/5v/uEDb2XQVpPX@lists.infradead.org
+X-Gm-Message-State: AOJu0YwAC/tVTRRBlKTQXixXhnYi6jlb8/jwt3TgTFhlnZAme87Fi9Rd
+	UnjBIF0ggwc0p0dQtkffqNZqxDeAUybT9JcaVV3AZrtPlaKKSv8rv7F12G3JBZjuEt3nB9jT4/e
+	Ym1dmVfFzmq2stdjXw0SAcSoLLIT+xIuCAYrdkw==
+X-Gm-Gg: ASbGncsv/hEQoFYflzGfFGBfMYmNl+X6MwiJtCj8fuY8sGSJHO3WQOBrQh9Cn8JBZu4
+	qETbFVT8chB2QXt7LJOOPnFXmHbbBtM2Hj6KC
+X-Google-Smtp-Source: AGHT+IHHg2Sovq+Z/vvKo0y9q781hVUrhXP9TC8xIJIu4TiqIQanvvQOUqy3tbZsmXEZ8ARVy4PjE9+PGPJyEEUoEwE=
+X-Received: by 2002:a25:53c9:0:b0:e4a:fc25:30cb with SMTP id
+ 3f1490d57ef6-e54ee2345d5mr13391673276.46.1736848819839; Tue, 14 Jan 2025
+ 02:00:19 -0800 (PST)
 MIME-Version: 1.0
+References: <20250114091128.528757-1-dario.binacchi@amarulasolutions.com>
+ <20250114091128.528757-2-dario.binacchi@amarulasolutions.com>
+ <79a90c01-9e21-4e3f-a334-6ba9e1df4150@kernel.org> <CABGWkvofUphcXTwBS5UBEoQ1GYpngP7gWi9Ax=WW28XKK0qoYA@mail.gmail.com>
+ <54b63cfc-7a51-4b69-8b32-eb7591b2169b@kernel.org>
+In-Reply-To: <54b63cfc-7a51-4b69-8b32-eb7591b2169b@kernel.org>
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Date: Tue, 14 Jan 2025 11:00:09 +0100
+X-Gm-Features: AbW1kvb-e25fGlxc4UPaUwDS8MpzQn87D6z9dSdnvOHiAHJ_tEcZc2pAxesQjxU
+Message-ID: <CABGWkvrYUU=HAh4uYNpZSpzeyanfp5a_xjK_178ftQyDKH=cTg@mail.gmail.com>
+Subject: Re: [PATCH v3 1/4] dt-bindings: clock: convert stm32 rcc bindings to json-schema
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Conor Dooley <conor+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Michael Turquette <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Rob Herring <robh@kernel.org>, Stephen Boyd <sboyd@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1736848776;VERSION=7983;MC=2726077745;ID=287044;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
-X-ESET-Antispam: OK
-X-EsetResult: clean, is OK
-X-EsetId: 37303A2980D9485264766B
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_015948_461885_0E82656F 
-X-CRM114-Status: GOOD (  15.25  )
+X-CRM114-CacheID: sfid-20250114_020022_305977_02790BD5 
+X-CRM114-Status: GOOD (  13.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,133 +99,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Clean up error handling by using the new devm_
-clock and reset functions. This should make it
-easier to add new code, as we can eliminate the
-"goto ladder" in probe().
+On Tue, Jan 14, 2025 at 10:48=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.o=
+rg> wrote:
+>
+> On 14/01/2025 10:36, Dario Binacchi wrote:
+> >> Nothing improved here.
+> >
+> > In my humble opinion, there is nothing to improve. Any modification
+> > made causes the tests to fail.
+> >
+> > $ git grep st,stm32f746-rcc arch/
+> > arch/arm/boot/dts/st/stm32f746.dtsi:                    compatible =3D
+> > "st,stm32f746-rcc", "st,stm32-rcc";
+> > arch/arm/boot/dts/st/stm32f769-disco.dts:       compatible =3D
+> > "st,stm32f769-rcc", "st,stm32f746-rcc", "st,stm32-rcc";
+> >
+> > Or am I missing something?
+>
+> How can I know what you are missing if you do not show the code?
 
-Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
----
+Sorry, but I still can't understand. I run multiple tests, trying to
+modify things
+based on what I understood of your suggestions, but the tests failed
+every time.
 
-Notes:
-    Changes in v2:
-    * remove unused `scodec` var
-    * rebase onto current for-next
+Could you kindly provide an example of what you'd like me to do?
 
- sound/soc/sunxi/sun4i-codec.c | 42 ++++++-----------------------------
- 1 file changed, 7 insertions(+), 35 deletions(-)
-
-diff --git a/sound/soc/sunxi/sun4i-codec.c b/sound/soc/sunxi/sun4i-codec.c
-index 3d6156fefe75..886b3fa537d2 100644
---- a/sound/soc/sunxi/sun4i-codec.c
-+++ b/sound/soc/sunxi/sun4i-codec.c
-@@ -2273,7 +2273,7 @@ static int sun4i_codec_probe(struct platform_device *pdev)
- 	}
- 
- 	/* Get the clocks from the DT */
--	scodec->clk_apb = devm_clk_get(&pdev->dev, "apb");
-+	scodec->clk_apb = devm_clk_get_enabled(&pdev->dev, "apb");
- 	if (IS_ERR(scodec->clk_apb)) {
- 		dev_err(&pdev->dev, "Failed to get the APB clock\n");
- 		return PTR_ERR(scodec->clk_apb);
-@@ -2286,8 +2286,7 @@ static int sun4i_codec_probe(struct platform_device *pdev)
- 	}
- 
- 	if (quirks->has_reset) {
--		scodec->rst = devm_reset_control_get_exclusive(&pdev->dev,
--							       NULL);
-+		scodec->rst = devm_reset_control_get_exclusive_deasserted(&pdev->dev, NULL);
- 		if (IS_ERR(scodec->rst)) {
- 			dev_err(&pdev->dev, "Failed to get reset control\n");
- 			return PTR_ERR(scodec->rst);
-@@ -2323,22 +2322,6 @@ static int sun4i_codec_probe(struct platform_device *pdev)
- 		return ret;
- 	}
- 
--	/* Enable the bus clock */
--	if (clk_prepare_enable(scodec->clk_apb)) {
--		dev_err(&pdev->dev, "Failed to enable the APB clock\n");
--		return -EINVAL;
--	}
--
--	/* Deassert the reset control */
--	if (scodec->rst) {
--		ret = reset_control_deassert(scodec->rst);
--		if (ret) {
--			dev_err(&pdev->dev,
--				"Failed to deassert the reset control\n");
--			goto err_clk_disable;
--		}
--	}
--
- 	/* DMA configuration for TX FIFO */
- 	scodec->playback_dma_data.addr = res->start + quirks->reg_dac_txdata;
- 	scodec->playback_dma_data.maxburst = quirks->dma_max_burst;
-@@ -2356,7 +2339,7 @@ static int sun4i_codec_probe(struct platform_device *pdev)
- 				     &sun4i_codec_dai, 1);
- 	if (ret) {
- 		dev_err(&pdev->dev, "Failed to register our codec\n");
--		goto err_assert_reset;
-+		return ret;
- 	}
- 
- 	ret = devm_snd_soc_register_component(&pdev->dev,
-@@ -2364,20 +2347,20 @@ static int sun4i_codec_probe(struct platform_device *pdev)
- 					      &dummy_cpu_dai, 1);
- 	if (ret) {
- 		dev_err(&pdev->dev, "Failed to register our DAI\n");
--		goto err_assert_reset;
-+		return ret;
- 	}
- 
- 	ret = devm_snd_dmaengine_pcm_register(&pdev->dev, NULL, 0);
- 	if (ret) {
- 		dev_err(&pdev->dev, "Failed to register against DMAEngine\n");
--		goto err_assert_reset;
-+		return ret;
- 	}
- 
- 	card = quirks->create_card(&pdev->dev);
- 	if (IS_ERR(card)) {
- 		ret = PTR_ERR(card);
- 		dev_err(&pdev->dev, "Failed to create our card\n");
--		goto err_assert_reset;
-+		return ret;
- 	}
- 
- 	snd_soc_card_set_drvdata(card, scodec);
-@@ -2385,28 +2368,17 @@ static int sun4i_codec_probe(struct platform_device *pdev)
- 	ret = snd_soc_register_card(card);
- 	if (ret) {
- 		dev_err_probe(&pdev->dev, ret, "Failed to register our card\n");
--		goto err_assert_reset;
-+		return ret;
- 	}
- 
- 	return 0;
--
--err_assert_reset:
--	if (scodec->rst)
--		reset_control_assert(scodec->rst);
--err_clk_disable:
--	clk_disable_unprepare(scodec->clk_apb);
--	return ret;
- }
- 
- static void sun4i_codec_remove(struct platform_device *pdev)
- {
- 	struct snd_soc_card *card = platform_get_drvdata(pdev);
--	struct sun4i_codec *scodec = snd_soc_card_get_drvdata(card);
- 
- 	snd_soc_unregister_card(card);
--	if (scodec->rst)
--		reset_control_assert(scodec->rst);
--	clk_disable_unprepare(scodec->clk_apb);
- }
- 
- static struct platform_driver sun4i_codec_driver = {
--- 
-2.48.0
+Thanks and regards,
+Dario
+>
+> Best regards,
+> Krzysztof
 
 
+
+--=20
+
+Dario Binacchi
+
+Senior Embedded Linux Developer
+
+dario.binacchi@amarulasolutions.com
+
+__________________________________
+
+
+Amarula Solutions SRL
+
+Via Le Canevare 30, 31100 Treviso, Veneto, IT
+
+T. +39 042 243 5310
+info@amarulasolutions.com
+
+www.amarulasolutions.com
 
