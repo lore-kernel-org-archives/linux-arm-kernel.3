@@ -4,66 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83498E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 13:34:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5764FC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 13:35:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PXhz4v2yekrKs85FQBVnLqNAuOivEjZLOTeqH0/iKdE=; b=BRLKG9JbhF/y4R3INmy5wqfpYK
-	FYBOk/BCpXqaTQxjrragekMQjfy3wKUX9WsOPMbengdnCV/Pi6fixS1SK4Mmm7rE/L1G77GQ+7ctU
-	N/Sie/Lv4jRHDPnXKsrRT5gbOAMHm9Bd4VD2ajwAYJyhyeHhQWz+83EDGT/1//tARXMH8lLa7ads4
-	BiYtppfOtOwDXuVTsoB9/Df5Z8yva+2hSSmigt0DDvzAhIJFtJCaT95Y9w8uG8vCCOgoAvcVxcxJE
-	isv7a3vpxeEoEOqPIUamRI/TI6Jf9LJ0ykVhrio2MZH33jk00ZuPCdUmVwkluvZrSovaeA6WuhxsY
-	nY+jSCBQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TlqTUnZXimSv0OpNMeG8KSN6cDTihkE7gFuE8ClySV4=; b=Afv0tPrarRIvyu5LTXKOjjlHdD
+	WC0BaVOAWQvappuKCEokj/EHsfJz8yzyrYLlcf2YQESs+3JmxrQ1iLB0dWceH4R0VvDrZSypdV8hL
+	gnnA3AjZ0HtEMFffW46uLsOjw0nV/ElXpWeGgQP1BNvyvLzo/DlZ9b/yBDdC2ouTUE6wALkYY5mNr
+	dJ8ET7mo+D1sNch/NNLIMkGs6znluR1ndvm6ZlevR9wbm0n6mUjTPMbRWv7ZPwqjAsvkTyDX37q/x
+	/q65+YOcelO3FommZG0dqsRizBoVFUgyz6euQY6yd0BAI9IrrTaWe3vKyJbGxLqKtW/hGJNLTtrGK
+	POulc33g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXh3p-00000008XdJ-2Uft;
-	Tue, 14 Jan 2025 13:34:25 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tXh52-00000008Xw8-28rC;
+	Tue, 14 Jan 2025 13:35:40 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXh1Q-00000008X8J-1UOA;
-	Tue, 14 Jan 2025 13:31:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=PXhz4v2yekrKs85FQBVnLqNAuOivEjZLOTeqH0/iKdE=; b=ACRsFW9WU2+DJBTNWVQgV68sLY
-	8wp+9obPu/cISydMFEC83f8go9szWM5DNzJCdWaKur+4DIru28qW8x9cIwS62uRWlLWBX9ny0Ue/W
-	7KDN63dX0MgCLHDs1FdaZB+MQqFa2oeUiHRZjwE05N7hURUleOdMR5Z3d3BMVzFMJ6MLMWRbJj4Bo
-	bafLaSMof+vc7ySuTZNh23qoZcwSL3Ci2q6eWhScPvgh9fP0jWk9laKuJqHIhcc0hklkD4EMRJGFw
-	1BQ558wpb3AyW76xEPS/WlvDa7NqxG37pfnlTGjZwp6n718edU9RET1/5V4FUtR9I5yhHhSz5p4S0
-	Yocf6qhg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:46624)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tXh0z-00086M-0K;
-	Tue, 14 Jan 2025 13:31:29 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tXh0s-00057B-0b;
-	Tue, 14 Jan 2025 13:31:22 +0000
-Date: Tue, 14 Jan 2025 13:31:22 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Vladimir Oltean <olteanv@gmail.com>
-Subject: Re: [PATCH net-next v2 5/5] net: phylink: provide fixed state for
- 1000base-X and 2500base-X
-Message-ID: <Z4ZnKpQgxZCbV5Yk@shell.armlinux.org.uk>
-References: <Z4TbR93B-X8A8iHe@shell.armlinux.org.uk>
- <E1tXGei-000EtL-Fn@rmk-PC.armlinux.org.uk>
- <20250114125739.sgegfxibbzpc2uor@skbuf>
+	id 1tXh1e-00000008XCb-188n
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 14 Jan 2025 13:32:11 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-436202dd7f6so62767285e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 05:32:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1736861528; x=1737466328; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TlqTUnZXimSv0OpNMeG8KSN6cDTihkE7gFuE8ClySV4=;
+        b=X+qG4u5J/VtEOLigdQkDlumO4Nb5CTLC4OP19yyO1HNRjMr0XZ8KHiVki2SELF2/ho
+         YIt1EXvaWR7w5j41ZYmm8MpVuG/ZMuiWJqKXS/YQ57jV22wuf0GHlkWtES0spMq3bDT0
+         5CCwqJVq6ORdNUkaY2NshlIGGkSuS2DHF8JtGlyWQBvzunL4abe54Vglz2PdjhKzniU5
+         KE5PmJNJE2nQ3ek59HSpkVMEZcRaWYX8/MmeSG2OOUP7HoKonSi/obcn0zT+IcTLhooN
+         hpaz9NoMz8MLrO4PLSa1kHBf3G0i/t+I9YsVogHTztsO0VAY2sQsussnEVHAGOS2Cygv
+         rdSg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736861528; x=1737466328;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=TlqTUnZXimSv0OpNMeG8KSN6cDTihkE7gFuE8ClySV4=;
+        b=wFYsPHYaii5gqhGOquH1wUMfDIycXZ05JHyxGgEEFqVDfWRXxP/vb7FNnZNMemSc4Z
+         7hWxWvnZlpA92IZzYVNxF0tBh0JnnL05WmpiEObp9YzP20I2JhEn7mIizd3nKqZSY7dL
+         S5JhpFZCf9VoSkk8nFagUxeTO86uKgq7r6gUrNWcyaVOQ8by3EvIFVDQCmfOe+ePBiyc
+         x7bSrgzAh9DoGBT6KMr1d671KOxxyT9hxbT5pwRIjy9CRDvrP1YE75qLznE24QiGMtiE
+         SMTnYq1zWmALlHiKvHt0vi+7rWLQiB/wiFeKff2OqnREzhs/RSYMICZeUbL4EGAs6o6M
+         yELQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWlohXfYtm1SrQ5RnqsRAT7fbP0dfKMiutdx0fr1Rg2/SWzdjf/LM1nVR3vP0/vJOHmeaAPz02ivMYjJUAR1HJT@lists.infradead.org
+X-Gm-Message-State: AOJu0YzkyWUHDkk9JBxMILTiPhjXUjzn2dMBWRqL7Z3luETvE+ksvK3O
+	+rSkh6FhWw1/rXrzhD2LW3JQ5lxu1vK0Q3IkpzWfGXs/dBv2OcP/xnjAX/OAMsA=
+X-Gm-Gg: ASbGncuETTpzGtgDguBTXCF3sBXgl0Uko0mACor1lNYZYOZD1DwgI/gysbroLfxkZpP
+	IxZNREWd8GgD1x9sFFCsEeYl8vjCoVeVXHBUOkMVDdnl+aCPNqhWs9WoOGvOJT1JLXr1/pcNN6i
+	aIuOwI/wNUFknUdqUp3YYVW1ld+wIv8CrOz8s+AFTxF2xgRY9uiC7aXbgArw9f8ZQJKsc4slnnu
+	2MR4ULt+/xCODEK/FpQ4GVqfLRYJaLa4mjVaRFlmPuIuiYl5wsMYBRf
+X-Google-Smtp-Source: AGHT+IGX7/UMGlqtT7zZvRfxlsgQa+uEneORt172vk0+CI+jGXB6Xgxav5wRl12bJyoriN3HKN0zhQ==
+X-Received: by 2002:a05:6000:4020:b0:385:e3c1:50d5 with SMTP id ffacd0b85a97d-38a87338fa8mr25876636f8f.48.1736861527841;
+        Tue, 14 Jan 2025 05:32:07 -0800 (PST)
+Received: from brgl-uxlite.home ([2a01:cb1d:dc:7e00:a8b0:e23c:79c1:dc2b])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a8e38c7aesm15154949f8f.53.2025.01.14.05.32.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Jan 2025 05:32:07 -0800 (PST)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+To: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	linux-gpio@vger.kernel.org,
+	Sean Anderson <sean.anderson@linux.dev>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Michal Simek <michal.simek@amd.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Robert Hancock <hancock@sedsystems.ca>,
+	Srinivas Neeli <srinivas.neeli@amd.com>,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] gpio: xilinx: Convert gpio_lock to raw spinlock
+Date: Tue, 14 Jan 2025 14:32:06 +0100
+Message-ID: <173686152290.39040.17367940998093783534.b4-ty@linaro.org>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250110163354.2012654-1-sean.anderson@linux.dev>
+References: <20250110163354.2012654-1-sean.anderson@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250114125739.sgegfxibbzpc2uor@skbuf>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_053156_394323_F8CA83AF 
-X-CRM114-Status: GOOD (  25.87  )
+X-CRM114-CacheID: sfid-20250114_053210_514292_A4E13ECE 
+X-CRM114-Status: UNSURE (   9.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,99 +104,59 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Taras Chornyi <taras.chornyi@plvision.eu>, Andrew Lunn <andrew@lunn.ch>, Marcin Wojtas <marcin.s.wojtas@gmail.com>, Madalin Bucur <madalin.bucur@nxp.com>, Alexander Duyck <alexanderduyck@fb.com>, Daniel Golle <daniel@makrotopia.org>, Eric Dumazet <edumazet@google.com>, Ioana Ciornei <ioana.ciornei@nxp.com>, Horatiu Vultur <horatiu.vultur@microchip.com>, Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>, Florian Fainelli <florian.fainelli@broadcom.com>, Sean Anderson <sean.anderson@seco.com>, Steen Hegelund <Steen.Hegelund@microchip.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Sean Wang <sean.wang@mediatek.com>, Daniel Machon <daniel.machon@microchip.com>, kernel-team@meta.com, DENG Qingfang <dqfext@gmail.com>, linux-mediatek@lists.infradead.org, Matthias Brugger <matthias.bgg@gmail.com>, Michal Simek <michal.simek@amd.com>, linux-arm-kernel@lists.infradead.org, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, "Chester A. Unal" <chester.a.unal@arinc9.com>, netdev@vger.kernel.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, UNGLinuxDriver@microchip.com, Andrew Lunn <andrew+netdev@lunn.ch>, Eric Woudstra <ericwouds@gmail.com>, Alexander Couzens <lynxis@fe80.eu>, "David S. Miller" <davem@davemloft.net>, Heiner Kallweit <hkallweit1@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 14, 2025 at 02:57:39PM +0200, Vladimir Oltean wrote:
-> On Mon, Jan 13, 2025 at 09:22:44AM +0000, Russell King (Oracle) wrote:
-> > When decoding clause 22 state, if in-band is disabled and using either
-> > 1000base-X or 2500base-X, rather than reporting link-down, we know the
-> > speed, and we only support full duplex. Pause modes taken from XPCS.
-> > 
-> > This fixes a problem reported by Eric Woudstra.
-> > 
-> > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> > ---
-> >  drivers/net/phy/phylink.c | 29 +++++++++++++++++++----------
-> >  1 file changed, 19 insertions(+), 10 deletions(-)
-> > 
-> > diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
-> > index b79f975bc164..ff0efb52189f 100644
-> > --- a/drivers/net/phy/phylink.c
-> > +++ b/drivers/net/phy/phylink.c
-> > @@ -3882,27 +3882,36 @@ void phylink_mii_c22_pcs_decode_state(struct phylink_link_state *state,
-> >  	if (!state->link)
-> >  		return;
-> >  
-> > -	/* If in-band is disabled, then the advertisement data is not
-> > -	 * meaningful.
-> > -	 */
-> > -	if (neg_mode != PHYLINK_PCS_NEG_INBAND_ENABLED)
-> > -		return;
-> > -
-> >  	switch (state->interface) {
-> >  	case PHY_INTERFACE_MODE_1000BASEX:
-> > -		phylink_decode_c37_word(state, lpa, SPEED_1000);
-> > +		if (neg_mode == PHYLINK_PCS_NEG_INBAND_ENABLED) {
-> > +			phylink_decode_c37_word(state, lpa, SPEED_1000);
-> > +		} else {
-> > +			state->speed = SPEED_1000;
-> > +			state->duplex = DUPLEX_FULL;
-> > +			state->pause |= MLO_PAUSE_TX | MLO_PAUSE_RX;
-> > +		}
-> >  		break;
-> >  
-> >  	case PHY_INTERFACE_MODE_2500BASEX:
-> > -		phylink_decode_c37_word(state, lpa, SPEED_2500);
-> > +		if (neg_mode == PHYLINK_PCS_NEG_INBAND_ENABLED) {
-> > +			phylink_decode_c37_word(state, lpa, SPEED_2500);
-> > +		} else {
-> > +			state->speed = SPEED_2500;
-> > +			state->duplex = DUPLEX_FULL;
-> > +			state->pause |= MLO_PAUSE_TX | MLO_PAUSE_RX;
-> > +		}
-> >  		break;
-> 
-> Are the "else" branches necessary, given the "else" branch from
-> phylink_mac_pcs_get_state?
-> 
-> static void phylink_mac_pcs_get_state(struct phylink *pl,
-> 				      struct phylink_link_state *state)
-> {
-> 	struct phylink_pcs *pcs;
-> 	bool autoneg;
-> 
-> 	linkmode_copy(state->advertising, pl->link_config.advertising);
-> 	linkmode_zero(state->lp_advertising);
-> 	state->interface = pl->link_config.interface;
-> 	state->rate_matching = pl->link_config.rate_matching;
-> 	state->an_complete = 0;
-> 	state->link = 1;
-> 
-> 	pcs = pl->pcs;
-> 	if (!pcs || pcs->neg_mode)
-> 		autoneg = pl->pcs_neg_mode == PHYLINK_PCS_NEG_INBAND_ENABLED;
-> 	else
-> 		autoneg = linkmode_test_bit(ETHTOOL_LINK_MODE_Autoneg_BIT,
-> 					    state->advertising);
-> 
-> 	if (autoneg) {
-> 		state->speed = SPEED_UNKNOWN;
-> 		state->duplex = DUPLEX_UNKNOWN;
-> 		state->pause = MLO_PAUSE_NONE;
-> 	} else {						|
-> 		state->speed =  pl->link_config.speed;		|
-> 		state->duplex = pl->link_config.duplex;		| this
-> 		state->pause = pl->link_config.pause;		|
-> 	}							|
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-This is fine for cases where ethtool is used to turn autoneg off, but
-not if we're in in-band mode and the PCS/PHY have decided to have
-autoneg off - in that case, nothing sets pl->link_config.* to anything
-sensible.
 
+On Fri, 10 Jan 2025 11:33:54 -0500, Sean Anderson wrote:
+> irq_chip functions may be called in raw spinlock context. Therefore, we
+> must also use a raw spinlock for our own internal locking.
+> 
+> This fixes the following lockdep splat:
+> 
+> [    5.349336] =============================
+> [    5.353349] [ BUG: Invalid wait context ]
+> [    5.357361] 6.13.0-rc5+ #69 Tainted: G        W
+> [    5.363031] -----------------------------
+> [    5.367045] kworker/u17:1/44 is trying to lock:
+> [    5.371587] ffffff88018b02c0 (&chip->gpio_lock){....}-{3:3}, at: xgpio_irq_unmask (drivers/gpio/gpio-xilinx.c:433 (discriminator 8))
+> [    5.380079] other info that might help us debug this:
+> [    5.385138] context-{5:5}
+> [    5.387762] 5 locks held by kworker/u17:1/44:
+> [    5.392123] #0: ffffff8800014958 ((wq_completion)events_unbound){+.+.}-{0:0}, at: process_one_work (kernel/workqueue.c:3204)
+> [    5.402260] #1: ffffffc082fcbdd8 (deferred_probe_work){+.+.}-{0:0}, at: process_one_work (kernel/workqueue.c:3205)
+> [    5.411528] #2: ffffff880172c900 (&dev->mutex){....}-{4:4}, at: __device_attach (drivers/base/dd.c:1006)
+> [    5.419929] #3: ffffff88039c8268 (request_class#2){+.+.}-{4:4}, at: __setup_irq (kernel/irq/internals.h:156 kernel/irq/manage.c:1596)
+> [    5.428331] #4: ffffff88039c80c8 (lock_class#2){....}-{2:2}, at: __setup_irq (kernel/irq/manage.c:1614)
+> [    5.436472] stack backtrace:
+> [    5.439359] CPU: 2 UID: 0 PID: 44 Comm: kworker/u17:1 Tainted: G        W          6.13.0-rc5+ #69
+> [    5.448690] Tainted: [W]=WARN
+> [    5.451656] Hardware name: xlnx,zynqmp (DT)
+> [    5.455845] Workqueue: events_unbound deferred_probe_work_func
+> [    5.461699] Call trace:
+> [    5.464147] show_stack+0x18/0x24 C
+> [    5.467821] dump_stack_lvl (lib/dump_stack.c:123)
+> [    5.471501] dump_stack (lib/dump_stack.c:130)
+> [    5.474824] __lock_acquire (kernel/locking/lockdep.c:4828 kernel/locking/lockdep.c:4898 kernel/locking/lockdep.c:5176)
+> [    5.478758] lock_acquire (arch/arm64/include/asm/percpu.h:40 kernel/locking/lockdep.c:467 kernel/locking/lockdep.c:5851 kernel/locking/lockdep.c:5814)
+> [    5.482429] _raw_spin_lock_irqsave (include/linux/spinlock_api_smp.h:111 kernel/locking/spinlock.c:162)
+> [    5.486797] xgpio_irq_unmask (drivers/gpio/gpio-xilinx.c:433 (discriminator 8))
+> [    5.490737] irq_enable (kernel/irq/internals.h:236 kernel/irq/chip.c:170 kernel/irq/chip.c:439 kernel/irq/chip.c:432 kernel/irq/chip.c:345)
+> [    5.494060] __irq_startup (kernel/irq/internals.h:241 kernel/irq/chip.c:180 kernel/irq/chip.c:250)
+> [    5.497645] irq_startup (kernel/irq/chip.c:270)
+> [    5.501143] __setup_irq (kernel/irq/manage.c:1807)
+> [    5.504728] request_threaded_irq (kernel/irq/manage.c:2208)
+> 
+> [...]
+
+Applied, thanks!
+
+[1/1] gpio: xilinx: Convert gpio_lock to raw spinlock
+      commit: 9860370c2172704b6b4f0075a0c2a29fd84af96a
+
+Best regards,
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
