@@ -4,52 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 884CEC02185
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 15:10:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 094E8E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 15:11:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mEp8jki4j8wHtGA8HPSUEfjDaPRr4uGDISU4CCWP3sw=; b=uvv7pFLEHY7L4Hip3oufzvvjDt
-	cUwioyDTn5fKlRFVSZ2K/kgg76y0rirVN5cMeq762r0SXiaIZMgZHNkkS5HOikaPv2R0/DDnc9l82
-	GcXDvvDOjSupY84cRuXOOLNR2RH5yeWJZ0NP8br0eHLH2/vOFebdQlQlZF3lpPDXDYmEj6TdkOVtc
-	j/viD/IRBzfVIgs7ZmMBBSgRE1QomxJs0fNbR3G+PXlaSxVaK+qClN1mZt4C9tvwjntZtjXPqORwQ
-	XhyoqUDZYsYjOeqdkhasmz71lhbhnog72I1N6CkYufgVx/WtmU7OWNhuo2cQWfpSHfycouzX+5/T/
-	l0Nx70dg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PjnGNr60BsE0iYkqDW41oXVpxcRQyFXr2RFnAt5gStg=; b=ehJvGLjkont3H/fzZdLYI1HS8Y
+	voBd3cbKDJFzGIsRYoKKKeG1rwTbga4AtEqzzrhCDb5MTYbphuwVVc7M442qvqAhX+oxdjQhnOaN6
+	7Am5Kj9sZIJWMT7cM8N0l9cSW0bZwAVl0ZYnhzVzsPGyFz4eX1y2PEu78243pPcvSHDX+PDqMNSDW
+	MsUfqAdc06eMIGjTrzS3HrNxCW9XyQb87RPKiWTjuNifTELpEyTFlSiNzB+HkF6WGC9ii3BrajSPe
+	x5Mk013e+skeFFLKSrz2KOriL4N8sxSJFeo+cQzo3aFnRqYLqUz6bnHxKbPnDJMZacWggfTb3grmy
+	FC2auFAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXiYG-00000008o9M-2j86;
-	Tue, 14 Jan 2025 15:09:56 +0000
+	id 1tXiZU-00000008oOV-1CZh;
+	Tue, 14 Jan 2025 15:11:12 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXiWB-00000008nfd-16XU
+	id 1tXiX1-00000008ntS-32pP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 15:07:48 +0000
+	Tue, 14 Jan 2025 15:08:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EC4415C57DA;
-	Tue, 14 Jan 2025 15:07:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BA55C4CEDD;
-	Tue, 14 Jan 2025 15:07:46 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6F4DE5C580E;
+	Tue, 14 Jan 2025 15:07:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8FFAC4CEDD;
+	Tue, 14 Jan 2025 15:08:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736867266;
-	bh=OJUsxyrxfC11aQT26TYfZHa68Gx/au1vC79F/kqbr4M=;
-	h=From:To:Subject:Date:In-Reply-To:References:From;
-	b=eXnV/r9WUSVIa5mpEYC0Ii8R3z9An4EuL+3t/H4jmYLyWT22LC5ojAMXfN78yI1Tu
-	 x5UdwirEFdkPqZvVZ5lqPQZ1lI8PXoy8bPZ5naoykYIipP5dukhr7tgyd3Cmijq69h
-	 Kpj+EkMfGf6KaoQQ3cPKsKH+jBrPpLNLxF2G+JmOVDoQJGFt2bBf567jKsYrYe0vc/
-	 OoPsY/aP0peoscsY0qQYFLawglUFGOPRykmnbi1b41xOpUQ1SV1dQqGSfjU+3ghIYV
-	 yUK12JaDPxn9FKYuhtiMngf0Vut3qPUFK9Udcn6gX2FiqfSI2hvHYvUKjasYe2Dzxr
-	 Ahy2BIcFVMfiw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	s=k20201202; t=1736867319;
+	bh=xJfUfmSMNxwZh9TdSU5lSOsMug3psv6T68LmhCdjkI0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=H4OdmfOA8t0is47SKZQII6aypPMAfS1+hG3tv9HnRJyLyndr/HYKqvopkwa0ah5v3
+	 Q4OCajX5wp244AotJU0dHzCOKXTfLCJb4h+OCzYFvZItsWrdYVubqFU+21Q5Wo8NsW
+	 MZBEkrmNtM02lXIP6L/QtTAbSDpNwTVsvpkmKSKaCAa83xE/DjDVBas3rPTBX6IsVu
+	 ztuzwIM3S8NtCCNTOtKX2SKLPuMcFujM0Lh2+19YWb5kFmjaQh0Fh4VTkfcic+SlEQ
+	 olkKK4DYYVdZNiQjDck5iBaJK1urYA/zv4dcA+hDe6Z/juqH33XDrvb3oMBxESjo/V
+	 cftrLpkwYXptQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tXiW8-00CApI-4F;
-	Tue, 14 Jan 2025 15:07:44 +0000
+	id 1tXiWy-00CAqI-Sw;
+	Tue, 14 Jan 2025 15:08:36 +0000
+Date: Tue, 14 Jan 2025 15:08:36 +0000
+Message-ID: <86ed15whzf.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: catalin.marinas@arm.com,
+To: Sebastian Ene <sebastianene@google.com>
+Cc: catalin.marinas@arm.com,
 	joey.gouly@arm.com,
 	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -57,25 +60,24 @@ To: catalin.marinas@arm.com,
 	oliver.upton@linux.dev,
 	suzuki.poulose@arm.com,
 	will@kernel.org,
-	yuzenghui@huawei.com,
-	Sebastian Ene <sebastianene@google.com>
+	yuzenghui@huawei.com
 Subject: Re: [PATCH] KVM: arm64: Fix the upper limit of the walker range
-Date: Tue, 14 Jan 2025 15:07:40 +0000
-Message-Id: <173686725256.1564007.10057410083015197983.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250114145050.563658-2-sebastianene@google.com>
+In-Reply-To: <Z4Z8yRPGwvqHpzRs@google.com>
 References: <20250114145050.563658-2-sebastianene@google.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	<86frllwilm.wl-maz@kernel.org>
+	<Z4Z8yRPGwvqHpzRs@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: catalin.marinas@arm.com, joey.gouly@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, oliver.upton@linux.dev, suzuki.poulose@arm.com, will@kernel.org, yuzenghui@huawei.com, sebastianene@google.com
+X-SA-Exim-Rcpt-To: sebastianene@google.com, catalin.marinas@arm.com, joey.gouly@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, oliver.upton@linux.dev, suzuki.poulose@arm.com, will@kernel.org, yuzenghui@huawei.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_070747_343230_9A3B06C1 
-X-CRM114-Status: UNSURE (   7.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250114_070839_806788_3EE70545 
+X-CRM114-Status: GOOD (  22.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,22 +92,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 14 Jan 2025 14:50:51 +0000, Sebastian Ene wrote:
-> Prevent the walker from running into weeds when walking an
-> entire address range.
+On Tue, 14 Jan 2025 15:03:37 +0000,
+Sebastian Ene <sebastianene@google.com> wrote:
 > 
+> On Tue, Jan 14, 2025 at 02:55:17PM +0000, Marc Zyngier wrote:
+> > On Tue, 14 Jan 2025 14:50:51 +0000,
+> > Sebastian Ene <sebastianene@google.com> wrote:
+> > > 
+> > > Prevent the walker from running into weeds when walking an
+> > > entire address range.
+> > > 
+> > > Signed-off-by: Sebastian Ene <sebastianene@google.com>
+> > > ---
+> > >  arch/arm64/kvm/hyp/pgtable.c | 2 +-
+> > >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > > 
+> > > diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+> > > index 40bd55966..2ffb5571e 100644
+> > > --- a/arch/arm64/kvm/hyp/pgtable.c
+> > > +++ b/arch/arm64/kvm/hyp/pgtable.c
+> > > @@ -260,7 +260,7 @@ static int _kvm_pgtable_walk(struct kvm_pgtable *pgt, struct kvm_pgtable_walk_da
+> > >  {
+> > >  	u32 idx;
+> > >  	int ret = 0;
+> > > -	u64 limit = BIT(pgt->ia_bits);
+> > > +	u64 limit = BIT(pgt->ia_bits) - 1;
+> > >  
+> > >  	if (data->addr > limit || data->end > limit)
+> > >  		return -ERANGE;
+> > 
+> > Huh, nice catch. I guess this deserves a
+> > 
+> > Fixes: b1e57de62cfb4 ("KVM: arm64: Add stand-alone page-table walker infrastructure")
+> > Cc: stable@vger.kernel.org
+> > 
+> > right?
+> > 
+> > 	M.
 > 
+> Hi Marc,
+> 
+> Thanks for the prompt review. Adding the missing bits now and re-spinnig
+> v2.
 
-Applied to next, thanks!
-
-[1/1] KVM: arm64: Fix the upper limit of the walker range
-      commit: bc9e4ec6e98838314c07575a5fbc06755d21913c
-
-Cheers,
+Too late! ;-)
 
 	M.
+
 -- 
 Without deviation from the norm, progress is not possible.
-
-
 
