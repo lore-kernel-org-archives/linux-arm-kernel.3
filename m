@@ -4,82 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 554FFC02185
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4363FE77188
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 19:32:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FDDXVu9yWbKIpPhiaAvUkWJ+c90gS7PXkQFl/32wnw4=; b=xiyQEmof18KlttiMcoE01+rgKs
-	bURQPkxZ5o2BLX3sqObtNo8RTxN/6gWs5sfc+HD8g0/Qoo5kg0xSxzFGRYORadJ+xW7v/CtrHLu4G
-	IRaxVSWPrw8qdR19cMJcOyiNeOOhluydQtMkNif6lRHpoiqoec5YWRxuYubpVl90JACwEaj2ulnXd
-	LF+sYihkXVct8it6F6V1at9FwCh/GcYYWmiSlAaRi36BnK/N3csbqddJEDSmZ9a8G6I3j0m6LVAqF
-	TihkOXMZvzV2cf1zxNa+2gecXhujKqFVW02zvgbH6+wa89b8ZK2Dz1ApTA2Rk8tcM+5e/rUUZlX2G
-	cKQrNQ9Q==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GeNVBB/i2U4Nsgj/JNEuuNrVAFqI6yjOJA02Gh323ro=; b=WLBkVCvvVS3IH2ZcO3sj8GxKhF
+	5pRB6qZNpekCGPZAYlYeOVH5shqr2UdVz1m3GXALnGG/WnSYDvtxf++WhdusbTbJr3+qwIyDpkMkq
+	1bvwpJJfhsPXrlm3ulwOcpI5GEHWY6ePCsH4VgQ3fbxRSAteei/G+8tNi7NW7IzJ2M0Bx3/cpWM3l
+	2ig0/Uk695x9aeJ6mz3HUNBQ5BhAnDAPHUhHkaSHFA1Q3mCiRiQDlIGzk88Rj05gCcV2i8TAVaUMv
+	R87ICXX2PeOIueD048lu63tw6gc0RgIXQ8qZvkqDOkMUHpmIDvvD5RzI23jI5OSYrcSElXBd7AIwX
+	c6DPR+/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXmeI-00000009Y9R-1XjY;
+	id 1tXmeI-00000009Y9q-3tnL;
 	Tue, 14 Jan 2025 19:32:26 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXlT1-00000009Nua-1wo8
+	id 1tXlWd-00000009OkT-1EgH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 18:16:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6E901A41B27
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 18:14:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B95EC4CEEB
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 18:16:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736878602;
-	bh=RKYfSmZK+kMBn4RgSfJDwulSLPDgEUTwy7dfVhaPYOA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=K/C5wTpfG4Rd2MWgb8z1Md/0zBuecYRLF4yjUTwNCzsEUwnYC9rfJP5HGvNKsdsQ7
-	 DksaQp9opt+0DIrVX09XT+s8ubO47xlLZkLCkD/KuRE+zwQnWyGxyb+7hg50jCeVYQ
-	 MeSGnhYI0UnCUJw3KsIejluh0FFTjHs2DLCw6O4dPSu5vm4Ebd5McmVPyh2Xcig58w
-	 n+bUhXyND9d+xVWCKR+XpsqzHZhACxtKlTPou0UrFRcmGzPnV5pJPfotHIhxGHRKKD
-	 WB1renVdw0E49qNEfSEP38+zjP0HUA1wF6xvenn95g9onngZ6NV/220m44HqWiGr3O
-	 AeQ3N6RZWxzNA==
-Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5401c52000dso5910408e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 10:16:42 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUY6d/DMMLEP8T8O197j8toGQmnOxlIPiF+q8sme9F+14mAveCBp1YKMXvwUBBoZYKj0DU8CWFSoVx5qDy4y/b4@lists.infradead.org
-X-Gm-Message-State: AOJu0YyDEHRZwQxGjx1Tym7XfT0EhIH0jbpJ8v9nW4bRktJ+QDLNDlU+
-	9sqN4BBF18KA7165vxp8IYuPRBy4F5HZA8jXkj9ldflOTDDsB2srkM1bgCiSGSA9lKs/urWZ9Da
-	TjZklFU9ZY6BbfZnldbF+zEwgrw==
-X-Google-Smtp-Source: AGHT+IGGOq29Ly0ZiReSsSG4zDCnevGMV01cjuVIyjShG009A/m7+eOZbOSwPYztyfDKw2UikdO/TdT9vSPsjA2CrSc=
-X-Received: by 2002:a05:6512:ba5:b0:542:a73d:a39c with SMTP id
- 2adb3069b0e04-542a73da516mr1491477e87.49.1736878600307; Tue, 14 Jan 2025
- 10:16:40 -0800 (PST)
+	Tue, 14 Jan 2025 18:20:28 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-436637e8c8dso60420945e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 10:20:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1736878825; x=1737483625; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=GeNVBB/i2U4Nsgj/JNEuuNrVAFqI6yjOJA02Gh323ro=;
+        b=EZ//X4EdmW6qJUBdBoEJsnw9NcTz34Wt5nMJfnEi99MADoYv6jlgc9UxVM6uHk3hTW
+         wmzxDc7IVAg33ve7z7cWsfI2hVvMRs/CNJDXoo4wfdTeBY4zZQ08vwWudAsm9XiX1e3U
+         Rv4B9bdnoGP8pGXdbcQ4OAjnJzLcQUUUDhkkU=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736878825; x=1737483625;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=GeNVBB/i2U4Nsgj/JNEuuNrVAFqI6yjOJA02Gh323ro=;
+        b=DiBgTtLK6e2JqgRheT5Cx2mBoP0bzlzfxpBY1PNReAo8yDBhoUvmjv31QL8dn7gbYX
+         s5XTjjprwWC2tUzNRNlbsmhdHOTVAgf4ULf8Q5qejEEj8tr8ncp67p7oGpaiAoMgEPxn
+         U8OmC2utu8vn68AHvAii4fA+b456w7RjeV/0a2kJnr1N0HxFM6P/AfNJatgHwEGGFL7/
+         DPcSbEdq3HZkXW3UJlQHhRQWXA8H/KqxjwdJyKfFCjVQzTg6ToYYdnWR0Er5wqzvMfNr
+         6nfVPXsnx4sHmOb6H2tHRe59f4KfC/dgbrinLwPWx1+BVQq4E9kl1ZUaiD8ZI+LMFyOU
+         FrgA==
+X-Forwarded-Encrypted: i=1; AJvYcCV7lbbcKDuAV47lC90nA0cOKjv2nRJYd7noBYQ0BXuE7ctJiCzJkBXf8S/zzzA94mentjWcPtHNQnz0t5a41Vk9@lists.infradead.org
+X-Gm-Message-State: AOJu0YzoeU/qr49az6Nc+JuJX8ySHwOWvmtXwjLTks648aMAR++2ZJBE
+	pFR80BSaSOt2DTrB6QPkL89JBZmKFQVyOQb2HkPDiKZraohMWtr3iffvtoQjXy8=
+X-Gm-Gg: ASbGnctGg40iAalPZIC+X7QKkqf5nwUHcFwW+nmQ2wQIMmSipOYjg6CBhz8qe7k1ckm
+	fXQj6EuutoLSRRG0NyQhgLrtaqoqhjox4GezxJ+Iu68G/f7ZNE5IFaIUXXD/s3W1rbB5fWLghJS
+	RoK6ORPMSs1D/YhWgYThlVq7neIDfpQZoG1epagM4C6N76n1YveiGTPW5DHf4AVawnWXsHcvn5O
+	nZeIkSkuS5RTBw/coqe3BYFGlWCcgAhHqnj2VUxKuxXQmtGZYQL++kI2iKgdviZrkEJ/QHUpYGD
+	xVmuZ8xYTXVt2/A5X4oCVg==
+X-Google-Smtp-Source: AGHT+IF0OmB7x+n/pD4cD65liw1i2aC27PQyOn8ab2eaRaudsoa2gu0gSMltwYB/uF3S1FkWb2D2yA==
+X-Received: by 2002:a05:6000:2a2:b0:38a:8906:6b66 with SMTP id ffacd0b85a97d-38a89066f45mr26441005f8f.38.1736878825526;
+        Tue, 14 Jan 2025 10:20:25 -0800 (PST)
+Received: from dario-ThinkPad-T14s-Gen-2i.. ([2.196.42.147])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38be66b01c7sm278970f8f.22.2025.01.14.10.20.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Jan 2025 10:20:25 -0800 (PST)
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+To: linux-kernel@vger.kernel.org
+Cc: linux-amarula@amarulasolutions.com,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: [PATCH v4 0/4] Support spread spectrum clocking for stm32f{4,7} platforms
+Date: Tue, 14 Jan 2025 19:19:45 +0100
+Message-ID: <20250114182021.670435-1-dario.binacchi@amarulasolutions.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20250107113252.260631-1-james.clark@linaro.org>
- <20250107113252.260631-5-james.clark@linaro.org> <87frloqjso.wl-maz@kernel.org>
- <760969b6-18b7-42ac-9524-2f1f845b3703@linaro.org> <86jzaywtea.wl-maz@kernel.org>
-In-Reply-To: <86jzaywtea.wl-maz@kernel.org>
-From: Rob Herring <robh@kernel.org>
-Date: Tue, 14 Jan 2025 12:16:27 -0600
-X-Gmail-Original-Message-ID: <CAL_JsqJFgunOVqpXnj+0HQ_HYbbVrtjCTJ25KzJHhjay-0i5tQ@mail.gmail.com>
-X-Gm-Features: AbW1kvYckisY3EJJj3cTSTGDYaoMGnLnDfmXedaqQOVtLizCHFObKT-9BYcwz9s
-Message-ID: <CAL_JsqJFgunOVqpXnj+0HQ_HYbbVrtjCTJ25KzJHhjay-0i5tQ@mail.gmail.com>
-Subject: Re: [PATCH v10 04/10] arm64/sysreg: Add a comment that the sysreg
- file should be sorted
-To: Marc Zyngier <maz@kernel.org>
-Cc: James Clark <james.clark@linaro.org>, Mark Brown <broonie@kernel.org>, kvmarm@lists.linux.dev, 
-	oliver.upton@linux.dev, suzuki.poulose@arm.com, coresight@lists.linaro.org, 
-	James Clark <james.clark@arm.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Mike Leach <mike.leach@linaro.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Anshuman Khandual <anshuman.khandual@arm.com>, Shiqi Liu <shiqiliu@hust.edu.cn>, 
-	James Morse <james.morse@arm.com>, Fuad Tabba <tabba@google.com>, 
-	Raghavendra Rao Ananta <rananta@google.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_101643_651298_062BCBC7 
-X-CRM114-Status: GOOD (  29.21  )
+X-CRM114-CacheID: sfid-20250114_102027_359113_676695D6 
+X-CRM114-Status: GOOD (  12.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,71 +103,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 13, 2025 at 10:49=E2=80=AFAM Marc Zyngier <maz@kernel.org> wrot=
-e:
->
-> On Mon, 13 Jan 2025 15:43:39 +0000,
-> James Clark <james.clark@linaro.org> wrote:
-> >
-> >
-> >
-> > On 12/01/2025 12:49 pm, Marc Zyngier wrote:
-> > > On Tue, 07 Jan 2025 11:32:41 +0000,
-> > > James Clark <james.clark@linaro.org> wrote:
-> > >>
-> > >> From: James Clark <james.clark@arm.com>
-> > >>
-> > >> There are a few entries particularly at the end of the file that are=
-n't
-> > >> in order. To avoid confusion, add a comment that might help new entr=
-ies
-> > >> to be added in the right place.
-> > >>
-> > >> Reviewed-by: Mark Brown <broonie@kernel.org>
-> > >> Signed-off-by: James Clark <james.clark@arm.com>
-> > >> Signed-off-by: James Clark <james.clark@linaro.org>
-> > >> ---
-> > >>   arch/arm64/tools/sysreg | 2 ++
-> > >>   1 file changed, 2 insertions(+)
-> > >>
-> > >> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-> > >> index b081b54d6d22..4ba167089e2a 100644
-> > >> --- a/arch/arm64/tools/sysreg
-> > >> +++ b/arch/arm64/tools/sysreg
-> > >> @@ -48,6 +48,8 @@
-> > >>   # feature that introduces them (eg, FEAT_LS64_ACCDATA introduces e=
-numeration
-> > >>   # item ACCDATA) though it may be more taseful to do something else=
-.
-> > >>   +# Please try to keep entries in this file sorted by sysreg
-> > >> encoding.
-> > >> +
-> > >>   Sysreg   OSDTRRX_EL1     2       0       0       0       2
-> > >>   Res0     63:32
-> > >>   Field    31:0    DTRRX
-> > >
-> > > "Do as I say, don't do as I do".
-> > >
-> > > I don't think this makes any sense if we don't actually sort the file
-> > > the first place.
-> > >
-> > >     M.
-> > >
-> >
-> > I think it's ok if it avoids review comments that new entries should
-> > be sorted. Or maybe we do the opposite and the comment should say this
-> > file is allowed to be unsorted...
->
-> The better option would be to add the comment *and* sort the file.
-> Leading by example has some value, it seems.
+The series adds support for spread spectrum clocking for stm32f{4,7}
+main PLL.
 
-IME, it's better if documentation just states what the tools enforce.
+To achieve this, it was considered necessary to also apply patches to
+improve the documentation (conversion of `st,stm32-rcc.txt` according to
+the json-schema) and the code (use of FIELD helpers).
 
-Can't we add something like this to the header generation:
+The series has been tested on the STM32F469I-DISCO board.
 
-$ grep '^Sysreg\s' arch/arm64/tools/sysreg | sort -n -k3 -k4 -k5 -k6 -k7 -c
-sort: -:22: disorder: Sysreg ID_MMFR4_EL1       3       0       0
- 2       6
+Changes in v4:
+- Improve the compatible property in patch 1/4 "dt-bindings: clock:
+  convert stm32 rcc bindings to json-schema"
 
-Rob
+Changes in v3:
+- Changes to patch 4/4 "clk: stm32f4: support spread spectrum clock generation"
+  according to Stephen Boyd's suggestions.
+
+Changes in v2:
+- Fixup patches:
+  2/6 dt-bindings: reset: st,stm32-rcc: update reference due to rename
+  3/6 dt-bindings: clock: stm32fx: update reference due to rename
+  to
+  1/6 dt-bindings: clock: convert stm32 rcc bindings to json-schema
+- Changes to dt-bindings: clock: convert stm32 rcc bindings to json-schema
+- Changes to dt-bindings: clock: st,stm32-rcc: support spread spectrum clocking
+
+Dario Binacchi (4):
+  dt-bindings: clock: convert stm32 rcc bindings to json-schema
+  dt-bindings: clock: st,stm32-rcc: support spread spectrum clocking
+  clk: stm32f4: use FIELD helpers to access the PLLCFGR fields
+  clk: stm32f4: support spread spectrum clock generation
+
+ .../bindings/clock/st,stm32-rcc.txt           | 138 ----------------
+ .../bindings/clock/st,stm32-rcc.yaml          | 144 ++++++++++++++++
+ .../bindings/reset/st,stm32-rcc.txt           |   2 +-
+ drivers/clk/clk-stm32f4.c                     | 155 +++++++++++++++++-
+ include/dt-bindings/clock/stm32fx-clock.h     |   2 +-
+ 5 files changed, 295 insertions(+), 146 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/clock/st,stm32-rcc.txt
+ create mode 100644 Documentation/devicetree/bindings/clock/st,stm32-rcc.yaml
+
+-- 
+2.43.0
+
 
