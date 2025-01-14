@@ -4,113 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 512E6E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 20:33:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91A20E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 20:37:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IS4Wxdv2z85JzVf37y1D36qgWJoPNxZK2y7SNaI2jos=; b=lsEoZbxZj1dsXNyglMvsX3XlwT
-	k0FC1NbuQnAP5DrAmuAMpifE9dP5VathXWEzlI4GZhRYUEbD1vwsQ6Bo4KnNYV8RmE/W9FIO18hOj
-	R3pZuoFyWZmgM4nsn2Vv8GFb6Dbf/r4oJKcFNf6iKkCxoCiI9XBKdoXFVxfbanf47N6V31BtOjuZ7
-	Mf9QwSBZgY0rjvuTFEvZ3FXK53NrDQPID8BHW4k8sZ0JUu0Zjnc8yXYrk0zdag2WGaooHY59WQZzk
-	/+5WO70llzTIKs+LIvfY1pa8mzf01Un+nrRoMJSGnt3/mQa5FJC4EJiR4qkuZufp/nfrMMJ4RvH07
-	JfFyAmiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Ig/5LxUL10bhBFW0xWHuz8rUT0GzUhM//SEgmnsWbuo=; b=OeZcYWYwFRp3vao8I0wxmwhkQf
+	3EPYLpcs3bGQx3Z+zhz81tT5llhYpSpVeASseL2b3afeScvtTn6hpewfO9OOj0xvE+e5lhtsSsNOa
+	5w5r9zKWCpknde3Wou+VpNzWHVrECVLA/4h17IEQTCLpg+8PtPn8xBTxVxp14LXgLNGtH24ssRACf
+	CGFwy1PtqOi1e8OT/r1TKW0SbD4D4NJ0B0gImoolgh/KHs75X3WNYGaJR6uU+ocJ6vFUuyvkFqhvn
+	ghlk07sfPPka4KsQg6IkN4+9iOA6rfE2QFP7/wDHFePi7QFijdLuosXrCuiZvgKQAautiD9NE9p7i
+	JqTJOpJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXnbI-00000009gSk-2vPc;
-	Tue, 14 Jan 2025 20:33:24 +0000
+	id 1tXnes-00000009hFL-0LLq;
+	Tue, 14 Jan 2025 20:37:06 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXnZx-00000009gAE-0Sxr
+	id 1tXndc-00000009gz2-3tjZ
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 14 Jan 2025 20:32:01 +0000
+	Tue, 14 Jan 2025 20:35:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=IS4Wxdv2z85JzVf37y1D36qgWJoPNxZK2y7SNaI2jos=; b=BIDsNoqPvIIpk2Uwe253MOJpdo
-	vZY4Ham2wrfTLn1JZWjHVM2Yzt9nGbzhn6S1frzmvwPHXhBVHExSMqLkq2t1AGridEavVki0OAw3Q
-	bQIOf5C0reXwoYP1Kcu5wVK+CoJMDBb8uRwM5j8ZBEuFu5IruW2nR8LlNNqm8wNAqQZkon1eR/9hv
-	v6bIRYeAsYu6GQ2UxBZy2nsHZbE9iLL5Wkf2McgXi6nJj3Q4fAnQBHqvMhClQM4ZMLBbxJJwfS29l
-	UHaMSDUPJMhlJi5jxAFdHkJkKC5PLOjCitMTnFAkLTA81+eCudvE9vfNCw00rBLcqTB+cqjozstpK
-	zVSkSf6w==;
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=Ig/5LxUL10bhBFW0xWHuz8rUT0GzUhM//SEgmnsWbuo=; b=BjYE1dYiqXldGExN7Grn5gGnbH
+	qxibC2e3Cq1odaM8vngLH6b0Krn960htXsoIIYPPcGWUApK42SAxq8sxhi+Qv4abPcdoeAoamKBaL
+	ppNh0eTE6Tk3AXVmHw9+OB2gqbOCnElnkI+eoagQc8iKk3QkO9YrbKCNveZh1RGHcb/W1Ryg4Sqx6
+	mEfWcS9VG+JI34+zIZFSPIdBI5Bs8AeDx7glIVs+ZX9PZjtUhS58n+CWCMOp77r0nbgF22iu4TQKn
+	YPY1/jSJsaLE2FIm8r/QwTbLJ9HH5t76JVYSOfYvj9lbYs3O0Yp5ZqkCiiaygpUzuU2ACO4pKBjZb
+	/eSVc8qg==;
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXnWs-0000000Abxq-1l1a
+	id 1tXndZ-0000000AcHw-1qyU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 20:31:59 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43620a5f81bso6455885e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 12:28:47 -0800 (PST)
+	Tue, 14 Jan 2025 20:35:47 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43616bf3358so7513605e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 12:35:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736886525; x=1737491325; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=IS4Wxdv2z85JzVf37y1D36qgWJoPNxZK2y7SNaI2jos=;
-        b=cuDYmMNMuiPngmK6NNJ78WsnznLTd04/crTU7d0bAtmgwZMiABcpOdBx1C/Oukayx8
-         GFgOU2hdUs/HGa//bVYVyx8ONcAUsXVqlce+pGLVGc9sSVuqwwA80BWOeLbyAdtN6tNF
-         n+Bos0Npll8pFAOvgjm8d43VpaoZ9jIjr1jp2GhBhlVfWCtQjquK1nhZGAPwaKAb+lVI
-         x4lEGPVG2hS1bCQBF5AzHG5AwRwCjEh1xvB6aERt1c5JsXIWzd35ms726Q3uzhNIZB/U
-         e0wrUy9kKcmfQ/h5feWA1N1jKPHko9Vvhk5/Rzzq/jWZFAhJklyTx6+lKF8p6MhZm9fC
-         lZxQ==
+        d=linaro.org; s=google; t=1736886943; x=1737491743; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ig/5LxUL10bhBFW0xWHuz8rUT0GzUhM//SEgmnsWbuo=;
+        b=xSPHXLyjxulv4CmPR97w4vu2FnuxTezDazhLAmAc6TL3CivTMcXpVZKNlvV59H+XPs
+         Di6CeQL5O2/iFWpk2zJJ9jHPqc6QkupbR0dkybVF/EWVDuPkcqD2j/x7nBCf2QaIclj/
+         meLbSLFrQedFkKGX4kAJm+Ue0Ln+4X6tSmPA+UpWLaGM7AgSEwNe6x2TbKncQu9fO9fw
+         IvyAL7K8Fxdl8dYAdkTNs867XDdYg5LBijLlzqfrHrMytLhYqzIofThmr7BpZ2wGdqb2
+         gQS9p73VHPXC/gGCKlgLP0q/lDnoB4Drq1P9/6DtX8E0nK+SDrf9NRiokdyL6LwgOuju
+         b2kg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736886525; x=1737491325;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IS4Wxdv2z85JzVf37y1D36qgWJoPNxZK2y7SNaI2jos=;
-        b=v9n02RYxVeyf5zb/zSrBTmlxKziHt+ihyxgQ8hBd4eVbhYac7Pvj9cu1WibrPejjUp
-         ODdZuhyMAILenhnA55TmDuq3gjlJkZ3XAYc8TQDLkX0ym5Drz0PjVQHhiWi3HZn8kn11
-         f03X6Ta31UAVdxgb/nMaxCCCspOU2/p7fr9EsbhzE6UnqHC5emKthBCvJL/36s1QgzF2
-         3Zp9iuRhbvYeMvdL/kGk3BJm0MLD5vrFDM9qSQ2MEtmhTFDmRzkBEP2t5NM2nA8GPTv3
-         W+W+vTa/bqL5pYhqGu77lyg/7L9BxZaH31k25QI4CnSnOi+ZOvrk56Yvhu96pgls2iOA
-         sC/w==
-X-Forwarded-Encrypted: i=1; AJvYcCUKXMd3LvNRGr6qHJ0qhMD9dnve8HyefiD+Qa50+odzlTmHsP8MLUzThQfDibRNXxqfuKOdZjUUXtftzHBoEjX6@lists.infradead.org
-X-Gm-Message-State: AOJu0YzgXiHNIIhNO7OSjIzuI7gvPjy2bYAVI20x5CiKxRaoS56alEg8
-	PEMswb3K+d7o6sFoCOT62C7pdL0qkTBzU+Gz6hgaIbTG12qMbOfF
-X-Gm-Gg: ASbGncu4eD9NNBKA2/R7Sf4Q0wvMSdmyG4KFd5gKn6Pi1ld9Yg0WnCIntnLiMsgbgWu
-	Km1rt6cbcfDKt/ElzjOxpv9mHtq+YmzN+foM7gITJVzaB6jA2yvcBzZAS8cEBNX3qzyvqMi/gbq
-	YqTOMz8v1iVE4aF5FdO2huE0n3FVcUvIsoV/G9bzYe2wT7DpyP/Sw+gRvZBoSII8waAPqcO28l2
-	1XuzHmjpOGfEtgi7gD7ElLYY31eX5ORahdj01mNjUVG
-X-Google-Smtp-Source: AGHT+IEU33fIHNbn/okRr8JUsVv3C++gKoC0+f27tclkArtV3nUfl1Wc1JVN9bZrD1YIOmFn/4buBw==
-X-Received: by 2002:a05:600c:4fd6:b0:434:f5f8:22cd with SMTP id 5b1f17b1804b1-436e25603fdmr82902975e9.0.1736886525263;
-        Tue, 14 Jan 2025 12:28:45 -0800 (PST)
-Received: from skbuf ([86.127.124.81])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e2e92f7bsm222377555e9.38.2025.01.14.12.28.43
+        d=1e100.net; s=20230601; t=1736886943; x=1737491743;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Ig/5LxUL10bhBFW0xWHuz8rUT0GzUhM//SEgmnsWbuo=;
+        b=C66Wz3XDKcvrq6GBi6f8PDGy8H+9QShAePjljMGXpu0AYtJvIiX7yIOR9MPjOFQ3Ts
+         mLkqSTe7e8oxTvSeOp9k3D3AltraMqAMQPLUokfQ4+1tYS01BKinHrfsY7tFO4nTPr2b
+         2TjXcdbMsgoIVp0L5hgVoOX2YoTacXOZm+clTal+X1tzTNG2LBrHpu5ElPr5suL3/3z1
+         tUw0l8rsBdEvLxsPW/Lgv4bGrolTmH1OoSUSOI++JwIJnZGOXbl99npQfNsi016ARCq/
+         D8rwqjp+/CEzd9SdsAbQG/kyIAbfMTm4TS3gpI1UfPtfboZY3qRUIWamDL/tTb+vVqBT
+         EzIw==
+X-Forwarded-Encrypted: i=1; AJvYcCWEA87jdsOXJVlkGB4DgYBqXMoY5BUFvIujzQ1x5wt7blpVwRin3n9H1bxiofjfOUzlmWOrlocFqPSA7/lJU8f8@lists.infradead.org
+X-Gm-Message-State: AOJu0YwU2ycWPQ7vpdj6xtTjdRxabs13uYvwfXlmtVsoOOhE1IgClB1C
+	dW2XVzDmSN81YYl9fnn1kuuhx5h2YYqoV8fH92FOFBRsHaWJODrtsh+DWZFVT1s=
+X-Gm-Gg: ASbGncs2dg+O9GcCa9nSvHrta/gKMRQLIiDZNZ5JZLIHFOdoefR9VTp3DdNKGPTsA8E
+	KWAw+1NF0RVYuTLF+WEBY4ZoLNBVQcrr+aivaToOulMJ7WqYcYJmGCm+8s+ompBUxtG9f36CB/7
+	Iyp9GwJo++CkmOxUmsf33PoVKUmPmpt7DloSQ5wmwz6f0STjDXwMCc8yslcxO2fYE/emxv66qSG
+	UlFXYQeabMHvDuxPwxd1Es8nyMoAHXo+2Oq7J7v3/6C3as+oofaog9FHGMPhKNodBRdRsI=
+X-Google-Smtp-Source: AGHT+IHWF7xnFpcXGXKNjhHTEjsUJ8iHcCbcevP7fJYnt+RuxU+qwF0tnnycUSXbl2RWpTG3C68iZw==
+X-Received: by 2002:a05:600c:1c88:b0:434:f22e:a5be with SMTP id 5b1f17b1804b1-436e270621emr94885475e9.8.1736886942974;
+        Tue, 14 Jan 2025 12:35:42 -0800 (PST)
+Received: from krzk-bin.. ([178.197.223.165])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e9d8fc81sm189284205e9.5.2025.01.14.12.35.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jan 2025 12:28:44 -0800 (PST)
-Date: Tue, 14 Jan 2025 22:28:42 +0200
-From: Vladimir Oltean <olteanv@gmail.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Bryan Whitehead <bryan.whitehead@microchip.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
+        Tue, 14 Jan 2025 12:35:42 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Michal Simek <michal.simek@amd.com>,
+	linux-phy@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Marcin Wojtas <marcin.s.wojtas@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
-	UNGLinuxDriver@microchip.com
-Subject: Re: [PATCH RFC net-next 10/10] net: dsa: allow use of phylink
- managed EEE support
-Message-ID: <20250114202842.yeevjylh6566wiwm@skbuf>
-References: <Z4ZtoeeHIXPucjUv@shell.armlinux.org.uk>
- <E1tXhVK-000n18-3C@rmk-PC.armlinux.org.uk>
- <20250114192656.l5xlipbe4fkirkq4@skbuf>
- <Z4bC77mwoeypDAdH@shell.armlinux.org.uk>
+	linux-kernel@vger.kernel.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH] phy: Use str_enable_disable-like helpers
+Date: Tue, 14 Jan 2025 21:35:37 +0100
+Message-ID: <20250114203537.1012955-1-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z4bC77mwoeypDAdH@shell.armlinux.org.uk>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_203000_236634_9237506E 
-X-CRM114-Status: GOOD (  29.42  )
+X-CRM114-CacheID: sfid-20250114_203545_917003_7396D050 
+X-CRM114-Status: GOOD (  12.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,51 +116,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 14, 2025 at 08:02:55PM +0000, Russell King (Oracle) wrote:
-> > What is the reason for including this patch with this set, where
-> > it is of no use until at least one DSA driver provides the new API
-> > implementations?
-> 
-> No criticism against you, but I guess you didn't read the cover
-> message? I tend not to read cover messages. I've been wondering for a
-> while now whether anyone actually does and thus whether they are worth
-> the effort of writing anything beyond providing a message ID to tie a
-> series together and a diffstat for the series.
-> 
-> Here's the relevant bit:
-> 
-> "The remainder of the patches convert mvneta, lan743x and stmmac, add
-> support for mvneta, and add the basics that will be necessary into the
-> DSA code for DSA drivers to make use of this.
-> 
-> "I would like to get patches 1 through 9 into net-next before the
-> merge window, but we're running out of time for that."
-> 
-> So, it's included in this RFC series not because I'm intending it to
-> be merged, but so that people can see what DSA requires to make it
-> functional there, and provide review comments if they see fit - which
-> you have done, thanks.
-> 
-> I'm sure if I'd said "I have patches for DSA" you'd have responded
-> asking to see them!
-> 
-> Of course, I do have changes that will require this - mt753x - but
-> that patch is not quite ready because this series I've posted has seen
-> a few changes recently to remove stuff that was never settled (the
-> LPI timer questions, whether it should be validated, clamped, should
-> phylink provide a software timer if the LPI timer is out of range,
-> etc.) That's more proof that text in cover messages is utterly
-> useless!
+Replace ternary (condition ? "enable" : "disable") syntax with helpers
+from string_choices.h because:
+1. Simple function call with one argument is easier to read.  Ternary
+   operator has three arguments and with wrapping might lead to quite
+   long code.
+2. Is slightly shorter thus also easier to read.
+3. It brings uniformity in the text - same string.
+4. Allows deduping by the linker, which results in a smaller binary
+   file.
 
-Ok, for your information, I had read the cover letter in its entirety,
-including the paragraph which you are highlighting here again.
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+---
+ drivers/phy/broadcom/phy-bcm-cygnus-pcie.c |  3 ++-
+ drivers/phy/realtek/phy-rtk-usb2.c         | 15 ++++++++-------
+ drivers/phy/realtek/phy-rtk-usb3.c         |  9 +++++----
+ drivers/phy/ti/phy-twl4030-usb.c           |  4 ++--
+ drivers/phy/xilinx/phy-zynqmp.c            |  3 ++-
+ 5 files changed, 19 insertions(+), 15 deletions(-)
 
-I still find it of limited usefulness for me to see and not be able to
-leave meaningful feedback on a DSA conversion broken down into sets
-which offer an incomplete image, especially when the API itself is still
-subject to change. I wanted to leave an Acked-by but I didn't fully
-understand where the conversion is going, so I asked the question instead.
-I wonder what you would have done in my position.
+diff --git a/drivers/phy/broadcom/phy-bcm-cygnus-pcie.c b/drivers/phy/broadcom/phy-bcm-cygnus-pcie.c
+index 462c61a24ec5..562d7d7151c5 100644
+--- a/drivers/phy/broadcom/phy-bcm-cygnus-pcie.c
++++ b/drivers/phy/broadcom/phy-bcm-cygnus-pcie.c
+@@ -7,6 +7,7 @@
+ #include <linux/of.h>
+ #include <linux/phy/phy.h>
+ #include <linux/platform_device.h>
++#include <linux/string_choices.h>
+ 
+ #define PCIE_CFG_OFFSET         0x00
+ #define PCIE1_PHY_IDDQ_SHIFT    10
+@@ -86,7 +87,7 @@ static int cygnus_pcie_power_config(struct cygnus_pcie_phy *phy, bool enable)
+ 
+ 	mutex_unlock(&core->lock);
+ 	dev_dbg(core->dev, "PCIe PHY %d %s\n", phy->id,
+-		enable ? "enabled" : "disabled");
++		str_enabled_disabled(enable));
+ 	return 0;
+ }
+ 
+diff --git a/drivers/phy/realtek/phy-rtk-usb2.c b/drivers/phy/realtek/phy-rtk-usb2.c
+index 248550ef98ca..14543636796d 100644
+--- a/drivers/phy/realtek/phy-rtk-usb2.c
++++ b/drivers/phy/realtek/phy-rtk-usb2.c
+@@ -14,6 +14,7 @@
+ #include <linux/debugfs.h>
+ #include <linux/nvmem-consumer.h>
+ #include <linux/regmap.h>
++#include <linux/string_choices.h>
+ #include <linux/sys_soc.h>
+ #include <linux/mfd/syscon.h>
+ #include <linux/phy/phy.h>
+@@ -729,7 +730,7 @@ static int rtk_usb2_parameter_show(struct seq_file *s, void *unused)
+ 
+ 	seq_puts(s, "Property:\n");
+ 	seq_printf(s, "  check_efuse: %s\n",
+-		   phy_cfg->check_efuse ? "Enable" : "Disable");
++		   str_enable_disable(phy_cfg->check_efuse));
+ 	seq_printf(s, "  check_efuse_version: %d\n",
+ 		   phy_cfg->check_efuse_version);
+ 	seq_printf(s, "  efuse_dc_driving_rate: %d\n",
+@@ -741,17 +742,17 @@ static int rtk_usb2_parameter_show(struct seq_file *s, void *unused)
+ 	seq_printf(s, "  dc_disconnect_mask: 0x%x\n",
+ 		   phy_cfg->dc_disconnect_mask);
+ 	seq_printf(s, "  usb_dc_disconnect_at_page0: %s\n",
+-		   phy_cfg->usb_dc_disconnect_at_page0 ? "true" : "false");
++		   str_true_false(phy_cfg->usb_dc_disconnect_at_page0));
+ 	seq_printf(s, "  do_toggle: %s\n",
+-		   phy_cfg->do_toggle ? "Enable" : "Disable");
++		   str_enable_disable(phy_cfg->do_toggle));
+ 	seq_printf(s, "  do_toggle_driving: %s\n",
+-		   phy_cfg->do_toggle_driving ? "Enable" : "Disable");
++		   str_enable_disable(phy_cfg->do_toggle_driving));
+ 	seq_printf(s, "  driving_updated_for_dev_dis: 0x%x\n",
+ 		   phy_cfg->driving_updated_for_dev_dis);
+ 	seq_printf(s, "  use_default_parameter: %s\n",
+-		   phy_cfg->use_default_parameter ? "Enable" : "Disable");
++		   str_enable_disable(phy_cfg->use_default_parameter));
+ 	seq_printf(s, "  is_double_sensitivity_mode: %s\n",
+-		   phy_cfg->is_double_sensitivity_mode ? "Enable" : "Disable");
++		   str_enable_disable(phy_cfg->is_double_sensitivity_mode));
+ 
+ 	for (index = 0; index < rtk_phy->num_phy; index++) {
+ 		struct phy_parameter *phy_parameter;
+@@ -830,7 +831,7 @@ static int rtk_usb2_parameter_show(struct seq_file *s, void *unused)
+ 		seq_printf(s, "  efuse_usb_dc_dis: %d\n",
+ 			   (int)phy_parameter->efuse_usb_dc_dis);
+ 		seq_printf(s, "  inverse_hstx_sync_clock: %s\n",
+-			   phy_parameter->inverse_hstx_sync_clock ? "Enable" : "Disable");
++			   str_enable_disable(phy_parameter->inverse_hstx_sync_clock));
+ 		seq_printf(s, "  driving_level: %d\n",
+ 			   phy_parameter->driving_level);
+ 		seq_printf(s, "  driving_level_compensate: %d\n",
+diff --git a/drivers/phy/realtek/phy-rtk-usb3.c b/drivers/phy/realtek/phy-rtk-usb3.c
+index cce453686db2..77ce58f98302 100644
+--- a/drivers/phy/realtek/phy-rtk-usb3.c
++++ b/drivers/phy/realtek/phy-rtk-usb3.c
+@@ -14,6 +14,7 @@
+ #include <linux/debugfs.h>
+ #include <linux/nvmem-consumer.h>
+ #include <linux/regmap.h>
++#include <linux/string_choices.h>
+ #include <linux/sys_soc.h>
+ #include <linux/mfd/syscon.h>
+ #include <linux/phy/phy.h>
+@@ -363,13 +364,13 @@ static int rtk_usb3_parameter_show(struct seq_file *s, void *unused)
+ 
+ 	seq_puts(s, "Property:\n");
+ 	seq_printf(s, "  check_efuse: %s\n",
+-		   phy_cfg->check_efuse ? "Enable" : "Disable");
++		   str_enable_disable(phy_cfg->check_efuse));
+ 	seq_printf(s, "  do_toggle: %s\n",
+-		   phy_cfg->do_toggle ? "Enable" : "Disable");
++		   str_enable_disable(phy_cfg->do_toggle));
+ 	seq_printf(s, "  do_toggle_once: %s\n",
+-		   phy_cfg->do_toggle_once ? "Enable" : "Disable");
++		   str_enable_disable(phy_cfg->do_toggle_once));
+ 	seq_printf(s, "  use_default_parameter: %s\n",
+-		   phy_cfg->use_default_parameter ? "Enable" : "Disable");
++		   str_enable_disable(phy_cfg->use_default_parameter));
+ 
+ 	for (index = 0; index < rtk_phy->num_phy; index++) {
+ 		struct phy_reg *phy_reg;
+diff --git a/drivers/phy/ti/phy-twl4030-usb.c b/drivers/phy/ti/phy-twl4030-usb.c
+index 6f12b38cd894..4bf4c4f93b4c 100644
+--- a/drivers/phy/ti/phy-twl4030-usb.c
++++ b/drivers/phy/ti/phy-twl4030-usb.c
+@@ -26,6 +26,7 @@
+ #include <linux/usb/ulpi.h>
+ #include <linux/mfd/twl.h>
+ #include <linux/regulator/consumer.h>
++#include <linux/string_choices.h>
+ #include <linux/err.h>
+ #include <linux/slab.h>
+ 
+@@ -567,8 +568,7 @@ static ssize_t vbus_show(struct device *dev,
+ 	int ret = -EINVAL;
+ 
+ 	mutex_lock(&twl->lock);
+-	ret = sprintf(buf, "%s\n",
+-			twl->vbus_supplied ? "on" : "off");
++	ret = sprintf(buf, "%s\n", str_on_off(twl->vbus_supplied));
+ 	mutex_unlock(&twl->lock);
+ 
+ 	return ret;
+diff --git a/drivers/phy/xilinx/phy-zynqmp.c b/drivers/phy/xilinx/phy-zynqmp.c
+index 05a4a59f7c40..b96bdc39bcc7 100644
+--- a/drivers/phy/xilinx/phy-zynqmp.c
++++ b/drivers/phy/xilinx/phy-zynqmp.c
+@@ -23,6 +23,7 @@
+ #include <linux/platform_device.h>
+ #include <linux/pm_runtime.h>
+ #include <linux/slab.h>
++#include <linux/string_choices.h>
+ 
+ #include <dt-bindings/phy/phy.h>
+ 
+@@ -865,7 +866,7 @@ static int xpsgtr_status_read(struct seq_file *seq, void *data)
+ 	seq_printf(seq, "Reference clock: %u (%pC)\n", gtr_phy->refclk, clk);
+ 	seq_printf(seq, "Reference rate:  %lu\n", clk_get_rate(clk));
+ 	seq_printf(seq, "PLL locked:      %s\n",
+-		   pll_status & PLL_STATUS_LOCKED ? "yes" : "no");
++		   str_yes_no(pll_status & PLL_STATUS_LOCKED));
+ 
+ 	mutex_unlock(&gtr_phy->phy->mutex);
+ 	return 0;
+-- 
+2.43.0
 
-I wish you a beautiful evening.
 
