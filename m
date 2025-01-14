@@ -4,77 +4,182 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BDF4E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 15:07:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2020E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 15:08:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=iFUw03iAYkA2yPtETYQdaDhPmq7j8x1+kmN1DGn30Jc=; b=AMJ/UILMPEww5xJ4WwOGkmVjv6
-	Oxp5jE24JQ6GSApnthejGk9+J1gIojlQCs1D5CzMGzznC/7tpDmCR1xi/MeFiyPx30OGMt25m03Vw
-	mjUxPNd9dUShTG6Ekpx3ikGhEt4ITKeRBTmidy2uG1QEEmVDkUpWNVmEJS8Wv8xlsbSKUsPsBRfAJ
-	BfUarbk9pfk4DpyCgcfxCrfnu1pOI/gHWDua5sHIozw0lNj9l92iTzGo2Qq+W0vnp9HhYTcfbHJdy
-	zdTBuPoh1kV5ZNZGAKtYBbzdnGVuLNeMEU9Tadv0VISUfLvOyt4IERu3xb9jNWtpkdXKtnFR9vToC
-	xXNEKD0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XcSIlUHab7EiPNlqUScqRMax0+EdpkwGiUs3JT9+UqA=; b=2J3N9lVjixcEyybe0W+CAwjgFX
+	mKpGmNWvVBYZ41SrV5KcW4IESr054e38RSaBD3FKtCDjXuD9cqqW6ozHNOHwdQVGND70ttlh8JlLG
+	8dq7saMSjNUAtXyH0PzlbYTaZzx/fMjIn3GAWTlUMND1XjtdF9zLdjOKL/oJo7GoQh9jQaCZ5Um0o
+	EvOSCMHGylf8ymaRADvf0TUYEF574ke2uJpzENFs7zkFguvMdsTv6B8C3q1fxuJMNA+YQ5GoegxOx
+	uoriLl6+Ofv6nD89tlYCN3kUDUdvd04RKZJaGSiD4FcqL1HFLDZ2uOrDwLZrsls8Bbpo+ZHDgncLS
+	iD6gg0Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXiVp-00000008nTI-07XA;
-	Tue, 14 Jan 2025 15:07:25 +0000
-Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	id 1tXiX3-00000008nuB-2v8g;
+	Tue, 14 Jan 2025 15:08:41 +0000
+Received: from mail-bn8nam12on20606.outbound.protection.outlook.com ([2a01:111:f403:2418::606] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXiSt-00000008mi5-1cfk
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 15:04:24 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-3862e986d17so2199630f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 07:04:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1736867061; x=1737471861; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=iFUw03iAYkA2yPtETYQdaDhPmq7j8x1+kmN1DGn30Jc=;
-        b=RYxDYeCfOdYq5HiBRJ0zfA4CTYFAuDxmBmdIxKZNAxWHxn6EHkO1Ehv7/4aJrFUiXK
-         3p7PadAj53T9u/qfM86ySTySYhwHO7jeHa9j89HOFf4F+puTo8aBtwFoCAJ+BwONeIpl
-         lmXvCZerB2/XejuEWus77UqGr4+0SxYlgZSbjsxnPQZhRZZaiXezlbyxILwnM05xP2EN
-         HajPqXp1BUf0LSinPcX5Ekv3WSnGFyh3V1HFnCjBUuQ4VdChoNkimMZqlssUVLw2iC3A
-         wEaAzDyVZp2saNpzZ+5iMWszlQD2bfiuwgwqtxGj1lNnjyoThm6TAQwfHtwtOb47E4gh
-         rFJA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736867061; x=1737471861;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=iFUw03iAYkA2yPtETYQdaDhPmq7j8x1+kmN1DGn30Jc=;
-        b=bsa/Y3fTXxPz3iaVoATB/TCE2XAg0WURAtNEiXasgL9IiD4A0wCWwxCOkQ8RdA1FYr
-         nNz6NeobBoVVOLBzGBgJzIQZ3L1VwXMfQENx3hWHdbYm02R5uz4cn71SrB8UzJSYpSVW
-         vHFAkNe40nACTTL7U6qyhb5xKFx21jb8+jl7fxaoaoR9IPOWAi4kaI5FXedC3RsRG0kV
-         fP2VtXdv6NHl6vP58p+LHY2Wis1xxtiZ+hki7gVhKnX6xNinc/UVs+SogDMIHa+qQ1/E
-         bTLzmzGZmW1zMNGsfTt5g3JQV+BJ17Awnb4+Q63kdbN64NbL/lZ/cp7lzjGYdEZKCQGO
-         QN1A==
-X-Forwarded-Encrypted: i=1; AJvYcCVw3dDuCO8bWN7e830jvRLAIsqMZjFjJNc1BcOG/g1h5IpzB2Sjo/sacu8uhPhYLbstjzgaGGtNywqehnJtLwFu@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz5n48r2T2OEJzKKItSbyXlP4CLGZpPAz4taZiqYCPo8XbO7V25
-	uVChWGbRAAPGFAoOFwVCbd3/C8UwRdd3p1zerHVdVQZZ8FNu6koQzCrIYmtBqsO5e6T9b3+wjnH
-	wEY4ot6kHWuNxvF0PldFFR4W6fw==
-X-Google-Smtp-Source: AGHT+IFpiqH515zLDuPDEl5YMg0JiAtp3YAmq0zTvt8gaVtr3+uGQ4dNXSPwKEF4OV6mX+3fdYiNTQoSKScQSyAyQUE=
-X-Received: from wmbhu19.prod.google.com ([2002:a05:600c:a293:b0:435:4bd2:1dcd])
- (user=sebastianene job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:2cf:b0:385:e961:6589 with SMTP id ffacd0b85a97d-38a87303d73mr20369063f8f.20.1736867060920;
- Tue, 14 Jan 2025 07:04:20 -0800 (PST)
-Date: Tue, 14 Jan 2025 15:04:08 +0000
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.47.1.688.g23fc6f90ad-goog
-Message-ID: <20250114150407.566762-2-sebastianene@google.com>
-Subject: [PATCH v2 1/1] KVM: arm64: Fix the upper limit of the walker range
-From: Sebastian Ene <sebastianene@google.com>
-To: catalin.marinas@arm.com, joey.gouly@arm.com, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	maz@kernel.org, oliver.upton@linux.dev, sebastianene@google.com, 
-	suzuki.poulose@arm.com, will@kernel.org, yuzenghui@huawei.com
-Cc: stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	id 1tXiVC-00000008nCi-1dMb;
+	Tue, 14 Jan 2025 15:06:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yB985tCf+rWMnMugjTPfHAaURtibFX2eMjEojbyVlT1RzccXgD8ZFFIUeRpKoeIXF8sNAHQgy/J11cFSToHPMkkB+/tDHh7MxFn2QJSSuR0zlannKY8aWEB0yLkEgzafO9CV+TBO3C2NhYl2YZgepu68pA5dTty53HX6TXTAFTQ6gmQ9tcAElpxiqqSOK2u37xsM6AwwrPuBZQ0V5LNYtRfxU9S+C9pR8zfaRqqYxRamQP91Ai6l3Lw6PbLvVzoZBeXSYFNetS+OuY0CEfE9UxFxsfqEQ1Pz8THnXceQm1qomala4vfCDYhJDcT9jReBJT6WBONBrg/z61VmPLqYYA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XcSIlUHab7EiPNlqUScqRMax0+EdpkwGiUs3JT9+UqA=;
+ b=f0/LFd1V8aaFCJL7PLrraCEqYWFmug8Gt64875XgRWddj8oH9DERsI5e/I4FvWi15UQNxerkWYb3n3qv6Qjn636S55uc++MqNVyz2dqt6PiGoRzNismjZQJCcWAm1MpfZJfGY6TSKlLmjwZ9MMVg3yf4M+NosxrjpDJibOFcdDTa6BLJPzM5Do+Xnfb5sNOdgFaobOExUq3j5gRBk3ERLoqam8dkxcVWcAQyHoGlH1N8ClVoJmM6dBUUISsMfJ87M9UN6x9GBKc8Bzdknc9S3xNNsHQIPlo29aEmwepLwxUX4G/1x0slZa9xlUH3774mt2rK7wHeuZ1TXS1z5smfew==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XcSIlUHab7EiPNlqUScqRMax0+EdpkwGiUs3JT9+UqA=;
+ b=UN4dG1hQO8c/za/RhIRGPoXk9KcqXpuap6OJftq54e3X7piPyzCGQ/jrhGcO+UUxMpu7UXtgReUFbiRS+WQpYIrPQsUxLOsmEWLeK9oFO44LRH8PKhv1Ph3Ht+Krxf5aSjvlu8nzWlHlYsKi73eU3SVeotqc++2ve19Anx0mgf4=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from DM4PR12MB5070.namprd12.prod.outlook.com (2603:10b6:5:389::22)
+ by CH3PR12MB9147.namprd12.prod.outlook.com (2603:10b6:610:19a::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.18; Tue, 14 Jan
+ 2025 15:06:39 +0000
+Received: from DM4PR12MB5070.namprd12.prod.outlook.com
+ ([fe80::20a9:919e:fd6b:5a6e]) by DM4PR12MB5070.namprd12.prod.outlook.com
+ ([fe80::20a9:919e:fd6b:5a6e%7]) with mapi id 15.20.8335.017; Tue, 14 Jan 2025
+ 15:06:39 +0000
+Message-ID: <557ecd25-039d-777d-c4ee-f2e83ed8d2dc@amd.com>
+Date: Tue, 14 Jan 2025 09:06:35 -0600
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.15.1
+Subject: Re: [PATCHv3 2/2] x86/mm: Make memremap(MEMREMAP_WB) map memory as
+ encrypted by default
+Content-Language: en-US
+To: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Andy Lutomirski <luto@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexei Starovoitov <ast@kernel.org>, Andrea Parri <parri.andrea@gmail.com>,
+ Arnd Bergmann <arnd@arndb.de>, Daniel Borkmann <daniel@iogearbox.net>,
+ Eric Chan <ericchancf@google.com>, Jason Gunthorpe <jgg@ziepe.ca>,
+ Kai Huang <kai.huang@intel.com>, Kefeng Wang <wangkefeng.wang@huawei.com>,
+ Kent Overstreet <kent.overstreet@linux.dev>,
+ Palmer Dabbelt <palmer@rivosinc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Russell King <linux@armlinux.org.uk>,
+ Samuel Holland <samuel.holland@sifive.com>,
+ Suren Baghdasaryan <surenb@google.com>, Yuntao Wang <ytcoode@gmail.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, stable@vger.kernel.org,
+ Ashish Kalra <ashish.kalra@amd.com>, "Maciej W. Rozycki" <macro@orcam.me.uk>
+References: <20250113131459.2008123-1-kirill.shutemov@linux.intel.com>
+ <20250113131459.2008123-3-kirill.shutemov@linux.intel.com>
+ <1532becb-f2be-4458-5d34-77070f2c5e2d@amd.com>
+ <vuj7mlvkvazuz5noupusqt2bk42vjkr5lkgivnrub2nby4ma6y@7ezpclbirwcs>
+ <9981e3f5-1414-dd82-c6ad-379289575b07@amd.com>
+ <2nc5silj5wbj6kz5tcsutgcjx6wviobhem4z24x4ya2r4q4ra5@5rixeg2wo7c3>
+From: Tom Lendacky <thomas.lendacky@amd.com>
+In-Reply-To: <2nc5silj5wbj6kz5tcsutgcjx6wviobhem4z24x4ya2r4q4ra5@5rixeg2wo7c3>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SA9PR13CA0173.namprd13.prod.outlook.com
+ (2603:10b6:806:28::28) To DM4PR12MB5070.namprd12.prod.outlook.com
+ (2603:10b6:5:389::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM4PR12MB5070:EE_|CH3PR12MB9147:EE_
+X-MS-Office365-Filtering-Correlation-Id: a1043996-eb82-4d72-8c86-08dd34ad0bf9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?TTN3SDdXMEhOVU1rZnFxcEJIUUhlSlZqOEJ6V3RlOWl6WWRYaFdUVHRjSXVD?=
+ =?utf-8?B?ZVdIS1NOL3ozK3JNTlBUSzczeGdWdGFxZGltdE45bEs3TWpjL1pCUnROdnRm?=
+ =?utf-8?B?QjkrVmRDNTZsTTg1dERQS2N1UVFTQUQ3OTA4MkdmWEtXaEZBdzFla1pyQ3lT?=
+ =?utf-8?B?SzB1Vi83cE1sYlpCOTJXSmN0Y0w3RlNqYmVWOWJSM1NUU0RxNjgzMVdMWVBl?=
+ =?utf-8?B?UjVDMVdYcEJwSDBsUTJzclVwd2dDOW5pdEEzVTIxR3VpZDZGN3F5TzA4M0Ix?=
+ =?utf-8?B?OU9qTXdoazNxWmxjamhKclRpaHI0Yjk5Wi9UbkQwamljbHNUQ1NhbXVpTll4?=
+ =?utf-8?B?SHUwWFQ4SzV6QjZHekVlTG9KOXhvbzAzaWJVNVgzSWc5L3IwcmpjVHFkWWRz?=
+ =?utf-8?B?Q1c5MzZodGtkcmpjSXpidXB2Tnd2YytObWJJOEVWTlUrTTBDY0s3SXo1UFRW?=
+ =?utf-8?B?b282QVZ4YmRaNWNWMTNmNk10MlExc0ttTFFoK3NTRnA0WWtTWlJlRm1XSktZ?=
+ =?utf-8?B?dVhxQ2ZnM0NLMXhIdUhXdTBuc3F1NEtMQ01BdG1aMHh3eDE4U2RoVm5lN1Nw?=
+ =?utf-8?B?NHMyOTBFb2tvU2RWMXhHajdoVjhoVXN1bkFIUFgwRWd5eGI4T0NaeW1NK3Q3?=
+ =?utf-8?B?aGJNRWF6bFBOaU5uQ0l2RVhLQTJmcXhnMkhjV3NCZFpxWGIwNHZESUlhWS90?=
+ =?utf-8?B?VFZIcVpzMGJCejlWVlFleGEzcE8rVmZjUURud0I5Y1ZTbU9Ha3R6anpDbGQv?=
+ =?utf-8?B?VE4yT2dpMVBwUG9STW5WRSsvcDZ2VHVJaEdsV09hVXNmbDV4akZoZktibEdC?=
+ =?utf-8?B?Tk1ReEVmWDZlWEJJTXozbTdPZWtBQ1c0SzhkaTltbDRCMCt0dE55TFFNOFJn?=
+ =?utf-8?B?T0dMRWd0OE9GN3FRbTlUUjJTa1g2RlFxZFh6dEhTUjFYMXFKNkFyZjNjNHIz?=
+ =?utf-8?B?RXJNdEpFdUU0cjJlY1lZSzNPUVVQV3czUVc5cllNRE83amdlOW1nTm45NDFG?=
+ =?utf-8?B?M3pDRHdKd1N5ZlFuVENnOTRPUldoUnNhSkJ4bndhWURSY1NINk1kSDAwTnd4?=
+ =?utf-8?B?ZzNMSHdkZmVuNkU4VkpyMFNBenRoU2taWjNIa3V3Yy93Qzc1cGFkMDNwRlZ5?=
+ =?utf-8?B?OWUvb1pnMVJGaHhhcDRVL0luWWxOYWF1YXE4RHhQN2F0Tk1Yb3JaQnhCelhh?=
+ =?utf-8?B?Q291VGk4WjNER2NoT0R2Z3MxRGhSZnZyZWM4Y3Q4ZFc0OHhGZUs3QytOUHA0?=
+ =?utf-8?B?NTB2M1NFRjk1ZXRIT0l6S0NCTmxzY2xTalJyR1R6NnBBUW9zaG1DMnZiRHdN?=
+ =?utf-8?B?bmJRQzA2aDdXY1JKN0J1TktIQVVucGZpd2N1SG5meDRHdUorNkxHVWpoSzJN?=
+ =?utf-8?B?MGJ2TG1GdE5Gc2J5MlFIaU9OZVNpbnZBYi96QWwrdTBOMVI5MmpmVWovMTRQ?=
+ =?utf-8?B?TWNVZnhra0t1aXJlclhOdHc5aDFSa05rK1VNQ2g1WGZUN0xtNmQxWmU2cXZa?=
+ =?utf-8?B?bm9qMndWY3A2VXNxd1JJMGw4L2c0dHFVL20vKzJ6dGtPRVlwSzZ3eFJ5WlJ0?=
+ =?utf-8?B?NksrSmVuWjl3c0hueEZYbGFhNkk0TkdtMTQvVFh4NXpUV211MXJraC9jMTlE?=
+ =?utf-8?B?N1M3RmRXZ3RJbHNVRE9JL1lIMnNqcDZkdGovaFNtMjFPZmhPRDB0Vno4MGdi?=
+ =?utf-8?B?U2dNWGlGWXZQRTVMdkZtK0FjMUcrLzI0cjhLcFRRdTR6b0J6VlFBTi96Y0JL?=
+ =?utf-8?B?bnZjQjlwbGIrVGp0am5oaE1pOCtMWmsxL0FKRUdEZ3B1N3FHVzR6WHlaQ0wz?=
+ =?utf-8?B?SmdXUUhGZUNBSURRZnoyRElqSWdRdUExSVVJRXFQUGlWdmMwTURxVEp3WDEz?=
+ =?utf-8?Q?ccjh4xqG/JYY6?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB5070.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RGlxL0d3c0RUN3NHYzdoUUJJajNSWFB4Z0gwVzVpUUdMMEVlSkMwOE43ZGQ1?=
+ =?utf-8?B?T2pRaVBZVXZhMlZCekFPczhTaTBZNk1ISnV6MWdFMU5rb3hrdmM1NEhPMGkr?=
+ =?utf-8?B?bi9YbkNoSDVvQUZxMCtHYjNBand3N1M4bGIveFJoeENaVXU3L0hSZzZYOWQ4?=
+ =?utf-8?B?ZTN5NGpzMlhDOVBMalpnMXk3R1NpRzRjeWFjZk9vTDdLNU1LbWEwRGlud2dh?=
+ =?utf-8?B?ZXRnbXdnemZ4bmlJU0trc3I4Z3ZVdkZHZU12NGxFSEJUajhnN2lqS25zSDhE?=
+ =?utf-8?B?QnJabGVoWS9BNzluTm1IK0NINTlDUWhGbkd0dU9nNEtFeXpXRmpxTkJVd1Rp?=
+ =?utf-8?B?T21hMzhCQUJOR05yZ21IZlJYOEx0WGE1MEdaNVF2b1NVK3ZQNjNwbGtWRlQ2?=
+ =?utf-8?B?eTJpbVEwOG96NDhPUzQxM0N6YldwWjNtcURTVEtoUEowb1pHTFNldngrRmlG?=
+ =?utf-8?B?aWpSeEYwZWVXblQ4VU4zOVdsN1JNYk9oeGRlNTdPR1FJR1dERCt4d2ZPTklF?=
+ =?utf-8?B?Q2hhVmhQTkpHaTBtM1grRWJwSzBwSkdXazFpR2VhMStNT05iOW0xOTBnS01R?=
+ =?utf-8?B?TmU3R0pDY1pTZTBYcUVCalBJVzMzaVlJQnc4am1BSTBEYTdqak1vL294R09W?=
+ =?utf-8?B?QzFtK05KSElkYkRaTlgvdS9hMTNvK2o4OEpZcyszUksyNU1kZWtxSVhUMSsz?=
+ =?utf-8?B?MWlHSTNFSVVLSHo5V1RQVDg2YkFsa21DT1RIelVkemFPT2dOam9yZEJuSUdO?=
+ =?utf-8?B?NGF6Zk51cEFtcTdyNGd0eWJ1aXFVWXcwZVpvczJMVUY0VnNBa240MERNZW45?=
+ =?utf-8?B?c1N0YmswSVNORWhQMkh1dHg0WlJWSVIyMlcveDV4QlRXN1BZOFRHL3g0YURX?=
+ =?utf-8?B?OVVBV0R5R2x2SmNTanViNlQyZ1ZUV3EzU1prUVkrMDBoc1dhNjRjQm1USUxa?=
+ =?utf-8?B?V0JVSnlTdDN4MkhUWEJ3SEZKSEdZTlVHdDM5SXZMQk8xOVlETTY0Z3RHVHB6?=
+ =?utf-8?B?TFVFN3A5dVhiTnVndXIvSVpyUzZwUGxaS2VNVEV1RTk4UUFDRnE4WGFkb3JD?=
+ =?utf-8?B?VGlSNm5taHd1STZSaHd6akRGSUc3TUNLL2w3OWI3SEFqSkJ3bG9odjNpV0l0?=
+ =?utf-8?B?d1VJcnBoRlYvTS9KdGdtTTNJUTNtV3gvV1lkTCtHaXZsQ1ZzVXlBSVdhMXFU?=
+ =?utf-8?B?a0JNUTdpN2UrQmh3b01teFdzZ2o3ZDVMQmhrdGVwY2srZ3ljT2h5RzBKaVE1?=
+ =?utf-8?B?THVZd1VQLzM2NklVR0dGOUpISEg3RHh6Z3hYSVdqa293dE85cnliZjZOY0o1?=
+ =?utf-8?B?Nng2TVg4VVJ5ZWx1c0RvdSt6QUlNUFpXVXBTTGNwZk5aVmxoaEo3QTZLa2dy?=
+ =?utf-8?B?bWNmclhpS0FhOVpLSnJPN2liMDRwWXJzcHhMUktuY0J0NTJhZWNzak5pbnlv?=
+ =?utf-8?B?ZVErcExCR3ZxSi82OWY1UUF4TlovZTJ2YkZnR2wwQ1NzNUEzNWFEZGdqaEIr?=
+ =?utf-8?B?UEUzN25ENDVpNC9oTWRDUEczRkhxUXYyR2dXMnl5UnZ6YTFmVUJ5N0pCQytO?=
+ =?utf-8?B?WWdRY1lrYnozZXRQbTBOS3dFT1hYczdqWko2eWR6cGFPdEw2NmNnMFhXb2pt?=
+ =?utf-8?B?NDdVeENRZ0dvRFMyV3llYndyMzdGdjZ1N29RTzdoS2ZLZGlrU0NKeS83R2Ju?=
+ =?utf-8?B?aURWZ3NDbXJqSzdoTjRkMTVQNHgvTGQ2OWJzN1RMbkZrSGRYMlMrVkc4bFRo?=
+ =?utf-8?B?N094QmNmRDl4YzR0YlNNQkJESVNndC9xTlV0NG5OY0psR0x1NUF2UFZjd1dz?=
+ =?utf-8?B?QjFzMVRBejRUREFMYXZERzk1TGtRbGJoOGRzL1lDSVd6V3FPVm40RllXUkZE?=
+ =?utf-8?B?M3RET2FPZmZ2SW9BTmdIbUdFanhXb3JEL3NUSWU2MXdIN3JWWlpOOVN3Yzhu?=
+ =?utf-8?B?K1hnK3ZPemJzcVExVnVUQ0N5b0NySlo0UXV5TDBRM2YzUTNZajRBS09oUjZI?=
+ =?utf-8?B?S01DSmFlQmg2djdjU2w3dndxMDhRbkVEZDdXWXMwZWpXYXlxeU5TQVZFelNT?=
+ =?utf-8?B?ZFlkK1ZkSXVFeUx3STFQUlBkSXJtLzRBN0FCb3IzYld0WFNCdzNoZkp3RHVF?=
+ =?utf-8?Q?ICVShvdNONTL6bMDoX5gE+ryl?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a1043996-eb82-4d72-8c86-08dd34ad0bf9
+X-MS-Exchange-CrossTenant-AuthSource: DM4PR12MB5070.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jan 2025 15:06:39.4031
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 8g+dwk2QkRhBvsdKcd5MXiWvQZR38INUoIQ2vLHs2XgMprIm0cdufetphPuizdVpQCNMrRc+AoM/rtxFm0jioQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9147
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_070423_420820_ECAE9BC8 
-X-CRM114-Status: GOOD (  12.57  )
+X-CRM114-CacheID: sfid-20250114_070646_423787_5579F06C 
+X-CRM114-Status: GOOD (  18.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,31 +194,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Prevent the walker from running into weeds when walking an
-entire address range.
+On 1/14/25 08:44, Kirill A. Shutemov wrote:
+> On Tue, Jan 14, 2025 at 08:33:39AM -0600, Tom Lendacky wrote:
+>> On 1/14/25 01:27, Kirill A. Shutemov wrote:
+>>> On Mon, Jan 13, 2025 at 02:47:56PM -0600, Tom Lendacky wrote:
+>>>> On 1/13/25 07:14, Kirill A. Shutemov wrote:
+>>>>> Currently memremap(MEMREMAP_WB) can produce decrypted/shared mapping:
+>>>>>
+>>>>> memremap(MEMREMAP_WB)
+>>>>>   arch_memremap_wb()
+>>>>>     ioremap_cache()
+>>>>>       __ioremap_caller(.encrytped = false)
+>>>>>
+>>>>> In such cases, the IORES_MAP_ENCRYPTED flag on the memory will determine
+>>>>> if the resulting mapping is encrypted or decrypted.
+>>>>>
+>>>>> Creating a decrypted mapping without explicit request from the caller is
+>>>>> risky:
+>>>>>
+>>>>>   - It can inadvertently expose the guest's data and compromise the
+>>>>>     guest.
+>>>>>
+>>>>>   - Accessing private memory via shared/decrypted mapping on TDX will
+>>>>>     either trigger implicit conversion to shared or #VE (depending on
+>>>>>     VMM implementation).
+>>>>>
+>>>>>     Implicit conversion is destructive: subsequent access to the same
+>>>>>     memory via private mapping will trigger a hard-to-debug #VE crash.
+>>>>>
+>>>>> The kernel already provides a way to request decrypted mapping
+>>>>> explicitly via the MEMREMAP_DEC flag.
+>>>>>
+>>>>> Modify memremap(MEMREMAP_WB) to produce encrypted/private mapping by
+>>>>> default unless MEMREMAP_DEC is specified.
+>>>>>
+>>>>> Fix the crash due to #VE on kexec in TDX guests if CONFIG_EISA is enabled.
+>>>>
+>>>> This patch causes my bare-metal system to crash during boot when using
+>>>> mem_encrypt=on:
+>>>>
+>>>> [    2.392934] efi: memattr: Entry type should be RuntimeServiceCode/Data
+>>>> [    2.393731] efi: memattr: ! 0x214c42f01f1162a-0xee70ac7bd1a9c629 [type=2028324321|attr=0x6590648fa4209879]
+>>>
+>>> Could you try if this helps?
+>>>
+>>> diff --git a/drivers/firmware/efi/memattr.c b/drivers/firmware/efi/memattr.c
+>>> index c38b1a335590..b5051dcb7c1d 100644
+>>> --- a/drivers/firmware/efi/memattr.c
+>>> +++ b/drivers/firmware/efi/memattr.c
+>>> @@ -160,7 +160,7 @@ int __init efi_memattr_apply_permissions(struct mm_struct *mm,
+>>>  	if (WARN_ON(!efi_enabled(EFI_MEMMAP)))
+>>>  		return 0;
+>>>  
+>>> -	tbl = memremap(efi_mem_attr_table, tbl_size, MEMREMAP_WB);
+>>> +	tbl = memremap(efi_mem_attr_table, tbl_size, MEMREMAP_WB | MEMREMAP_DEC);
+>>
+>> Well that would work for SME where EFI tables/data are not encrypted,
+>> but will break for SEV where EFI tables/data are encrypted.
+> 
+> Hm. Why would it break for SEV? It brings the situation back to what it
+> was before the patch.
 
-Fixes: b1e57de62cfb4 ("KVM: arm64: Add stand-alone page-table walker
-infrastructure")
-Cc: stable@vger.kernel.org
-Signed-off-by: Sebastian Ene <sebastianene@google.com>
----
- arch/arm64/kvm/hyp/pgtable.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Ah, true. I can try it and see how much further SME gets. Hopefully it
+doesn't turn into a whack-a-mole thing.
 
-diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index 40bd55966..2ffb5571e 100644
---- a/arch/arm64/kvm/hyp/pgtable.c
-+++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -260,7 +260,7 @@ static int _kvm_pgtable_walk(struct kvm_pgtable *pgt, struct kvm_pgtable_walk_da
- {
- 	u32 idx;
- 	int ret = 0;
--	u64 limit = BIT(pgt->ia_bits);
-+	u64 limit = BIT(pgt->ia_bits) - 1;
- 
- 	if (data->addr > limit || data->end > limit)
- 		return -ERANGE;
--- 
-2.47.1.688.g23fc6f90ad-goog
+Thanks,
+Tom
 
+> 
+> Note that that __ioremap_caller() would still check io_desc.flags before
+> mapping it as decrypted.
+> 
 
