@@ -4,93 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC51FE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 10:40:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA6FFE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 10:41:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T82zNstFBnDSTTkW/x3AxhknKVdFYWE7bW1yyO8UUJc=; b=iQA2UTGcUpUDTI314HVL0XQZb5
-	VBrOgDMfA4xoYiMspP8K/VJvGYJwpZip2PTvGgS6AbPYIxVw+73emGnC3TE0/LyCJkW4AV8XJ+B1d
-	/CSDf/pgnhNqZ6xx8ktq4e4vfHIT9EVflq1IfB+npKB08jtp46qSApmT7udSJ0rpfP7Z0xQBXGUvE
-	NTD+C5FuHK+tug7vMNJv94SIdwFjNXOiNekTHM/Yl/GoBS/gjuiU8Gc0UtFt+zAdtBM/DLjKajFjP
-	TPYwH6qG4n0V1aCl7aoKPaTn06Lgc/RzjKLxtvxZ7yubMYyhpkbIo3IaGZht4PGol0orkyW9l6NnM
-	MzTezHTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H/HT78sRahP5ulxdNOkZtrsKmU33SZDp38yP+gXDzbs=; b=xvlosGHCOQoUs8qPCXO+ae8JfC
+	S7tlHBz7yFXnGZ9NFyANj3y4GJ6gejvLRgHixt6M2oeNmxBdziM66doAmIvZ9Gs+hiyueOsWOtPGN
+	8ryhj9pxF3P8/He7pNNy3xpyMnh6l/1X/I102UY3UfoQOOF2p8V19XBLqgKEWrOtNx8Y9Mg1yxSAD
+	l6NjSOkyJdbKbHSZqEn6+yO1ove9a0fW+9lZ7A5GfZw6dpTg6+U0NpBRuYfXTRb6bXscsraU0oOQQ
+	+JBRBSqfnMN27b3ai1gYUfhYkyUH1Agta6JTzzYWxh7u48TtVBKV8A01eT5I+K97Ny+JvQaHkR/6M
+	/sKDh2ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXeL0-0000000888S-2ULZ;
-	Tue, 14 Jan 2025 10:39:58 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	id 1tXeMD-000000088J9-14Jd;
+	Tue, 14 Jan 2025 10:41:13 +0000
+Received: from mail-ua1-x92c.google.com ([2607:f8b0:4864:20::92c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXeGB-000000087B9-0zF6
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 10:35:01 +0000
-Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-53df80eeeedso4950953e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 02:34:58 -0800 (PST)
+	id 1tXeIw-000000087gg-2X9n;
+	Tue, 14 Jan 2025 10:37:51 +0000
+Received: by mail-ua1-x92c.google.com with SMTP id a1e0cc1a2514c-85b9f2de38eso1349520241.2;
+        Tue, 14 Jan 2025 02:37:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736850897; x=1737455697; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=T82zNstFBnDSTTkW/x3AxhknKVdFYWE7bW1yyO8UUJc=;
-        b=JUt9BHMkf3pGpohG/AjwEfRHDl9LAvRbLrt/0qpLaCQ3gKlaL7pas8f8KWqwYc+eKs
-         M6qQK0T4bEowM16uxsx0t2mLHSjFCTx54Kh/iDTeX28Rc4QBsKuzR4QZpDX8NTPEkt16
-         st+GQke1Inecetwd92in8Hr+wG+iN8D7GDnW7RWBiKFuBYQLJIc8k2RYJ2jKulqId1dg
-         D+qul/E56YMnyCqDdkg3Bk9/ZOQdNubyOLPguDzBmlNlrLMDhyXanRvxF7G1zyaCKHwh
-         VOPPQYuJHsxFfT6m8IuRcpCWwKC5NQYbH1XHlLScBOPqD9YDhHJgfEceZ+PbvxlXFI6T
-         SZpA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736850897; x=1737455697;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1736851069; x=1737455869; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=T82zNstFBnDSTTkW/x3AxhknKVdFYWE7bW1yyO8UUJc=;
-        b=p7fFU6OurW0B2xAt18/lVaGRuLAd0ORy2CvhScmzpd9dYmVGXHJA2KDCSG59quGTUG
-         YPlI4e/5EWurn9Wh8QFyuixeE9o2geX0dRLEVkhyoj5/6vOAIIUslOQ8nebQ7CenL1cF
-         twTbqxKK/pVke/2ZO0+UshTGLi+/0wXFuHdVInbxKuDm3v1BA/CQID1YVo6zxZX9XTN9
-         Q3JmjkwR5d0J78TguNnjKkFdvSDKTbROZwapGaCOD7fD2ChxuKtkKcdk2wzjtkQ+3r8y
-         7cLZvx2Cn53Hn4Sk3jY3/HAuXOi0Tit+jm1e8yACTuZq2HbBgX8X2vG047SLRJE50AC2
-         Hlsw==
-X-Forwarded-Encrypted: i=1; AJvYcCW1lUmbxttZMbDehUtePxTox/EuZ6JaJvlcZ5vfwZwDsDY4/polX0aL9Bu5oAQimCWK5e+aBu4gU4T+lgjkes1u@lists.infradead.org
-X-Gm-Message-State: AOJu0YxavE5BRrA/vc9whWBXjYQCMZigGwHVuEAr8KZ+p4nY/4jiUDZD
-	jYzovlyPPek+kKWj1iPc1rtLpgyh1Eqq9opxceZKZHukvUd+orSSB9lCEPxPDyE=
-X-Gm-Gg: ASbGnctJUkh2PET99IAdhlDqKeesH2cpQhUC6l35oJEVSZezuk+n6xWuwUM6w796rpw
-	ZVgaODXdvRTaolSIqEn2hq4U68l1kKo+S0f3SQq4gkgbsJI5vxEd0smCx+qf9/KlUR2abKEu7Gi
-	16eF19kfdOxMleCieO/jLGETchIQHYGN10OKRTCGfhErR1hBCplm7ced8b0sn9c35ZVFE9VZWVG
-	ZSyJEbj1P7oxudmRKqQH8l3Yzri4/QLoMT6heAFeUjaaYjc3DhZYSXEK8e/5EbNmP+mSwFiUnCs
-	hsafrejUVRunzdPNA/MnpB4/rgSyhv1GayPE
-X-Google-Smtp-Source: AGHT+IFwrbLGTrG2dyiu5uP2+GJnDGK0/StK5LmN5McezpTF9gNRaaageIc+tg7gnEcGTINdnMPa7w==
-X-Received: by 2002:a05:6512:ba9:b0:540:2223:9b20 with SMTP id 2adb3069b0e04-542845d1b75mr6413752e87.53.1736850897244;
-        Tue, 14 Jan 2025 02:34:57 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5428be49ee9sm1623927e87.52.2025.01.14.02.34.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jan 2025 02:34:56 -0800 (PST)
-Date: Tue, 14 Jan 2025 12:34:54 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Melody Olvera <quic_molvera@quicinc.com>
-Cc: Vinod Koul <vkoul@kernel.org>, 
-	Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Wesley Cheng <quic_wcheng@quicinc.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Satya Durga Srinivasu Prabhala <quic_satyap@quicinc.com>, 
-	Trilok Soni <quic_tsoni@quicinc.com>, linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 5/7] phy: qcom: Add M31 based eUSB2 PHY driver
-Message-ID: <rpwm6gimdb4zyvyusovfbfaw4uxrossm6elayebvt2gusb7zwk@67w7672qpcto>
-References: <20250113-sm8750_usb_master-v1-0-09afe1dc2524@quicinc.com>
- <20250113-sm8750_usb_master-v1-5-09afe1dc2524@quicinc.com>
+        bh=H/HT78sRahP5ulxdNOkZtrsKmU33SZDp38yP+gXDzbs=;
+        b=bai2P86K/S1xxBBaeTTSUtBaTzLxmWEhxuQfNMcestth+So7X5F1rQkisc02YnMyGf
+         W0kNLPaEM+SYFIArUbqqnWMI39XXl4PwqwXG9BGV7EJgt8AnDzcyjBf29k7vmDlq4m1K
+         MoW1ctYeMrIJ2IKE39XB6ew0aQZ8LeFfC3mPOG/I+oR6ev4je7fqUGYQB4UDURkICRWz
+         R77GMul/xIY9B+6p4QbyXyj1ny22gvryaQc5iSSuVZO2USeD4GHLHZxP8c0S1ofr9fue
+         IMCM2Zctz05cDVuzvS/HeUyEZFEYA7gyZYEP9teZaTEmBaLUOfTcdnvGh3BBDc5UbiBZ
+         CD5A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736851069; x=1737455869;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=H/HT78sRahP5ulxdNOkZtrsKmU33SZDp38yP+gXDzbs=;
+        b=ACyKQAUtHu9ThzHOnSQZhxM/kuPIGgq+hs8Ltjw6ODD4Of8sboPnn7BPimP7QnszDN
+         qYH8/5VyocZpqieyUR+f+bDijSSyHD0WotCPCNxnA5TGG1B7S24DMmdxsakKPu8H5uMl
+         6KckFGvmarG+leBzZ9gZ+sNwVQM6IuOASAAbQ6ofkfKKcmc1OofyzoUzhDgjHaLxl6sn
+         ti9tmxntBOkIIiYX4C4pta9J9TapOCdv7i2ipuEa6pCEz0OWdJD4rM6Qo0K6joWAjWxF
+         jvU5w0Kcf9wapuUz5EJCZNh9/KXN7ua0rxXscxuT/HDumzDDTa0k8pVWV97q1sGrJOsn
+         loVQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV7OkmD+e2lDLzf1GoecTpYA8FhAJqrI1qHxJ+aGtQoKYNEljsDFnym6jE/kqvW0BDtH8S8h92Fqopf0tE=@lists.infradead.org, AJvYcCWy8nxZNTe9SSqWZpqCgX8vhaPF4af5gk3YFUr7vNxd+gOhGMksEW4TJnYnN1JebfxvYm0+BkgQOMRuAxvqgM3G@lists.infradead.org
+X-Gm-Message-State: AOJu0YwTuLRA+9ZXdIEGAsNh2uM8foXIaQwL/v2lkz8IsA5r2D932unT
+	5bDWz6kYamldjSuOwOOq61rSIBQdi0PflXnn/FB4g3e3Utuywdxw0d7sFAfiOhQcu6DADDFlMmE
+	fqXEAti5HdSTKE16IrbEbgQuvkIY=
+X-Gm-Gg: ASbGncsSUzah0PMf4O2u17QeX7u6ZMZNcqnhr/3eXsNu9I6NdIF9CGamzoKijllmCLM
+	fEE1gF1w4iEN2BAeUMNb/TraglAPWuEknb8bAtESvmLY6uGwjArnMEV1dfFxgRuTx1RdPUo71
+X-Google-Smtp-Source: AGHT+IHI2AkOM8Hk95tvTRn7haGosukJN9wvnMrwUWz32Bwljqr7HCbWbJWPleVqx7F/PaKwYeTCyUr8eVtGz6JR8qY=
+X-Received: by 2002:a05:6102:3ca0:b0:4b2:5c4b:5186 with SMTP id
+ ada2fe7eead31-4b3d0fe692emr21832774137.23.1736851069161; Tue, 14 Jan 2025
+ 02:37:49 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250113-sm8750_usb_master-v1-5-09afe1dc2524@quicinc.com>
+References: <20250113033901.68951-1-21cnbao@gmail.com> <20250113033901.68951-3-21cnbao@gmail.com>
+ <f50b59ad-3b15-4ca8-9390-17319d441ed8@redhat.com>
+In-Reply-To: <f50b59ad-3b15-4ca8-9390-17319d441ed8@redhat.com>
+From: Barry Song <21cnbao@gmail.com>
+Date: Tue, 14 Jan 2025 23:37:38 +1300
+X-Gm-Features: AbW1kvb9zzKL_PAv-K0B9SXy-8Bp_Lg8h_lTkXYhRj7eUJYcRuyixwa4RAHqIWw
+Message-ID: <CAGsJ_4zTK853D7m7F0ekeJULhnXxTbAJz8SknH+33gobg9mFVQ@mail.gmail.com>
+Subject: Re: [PATCH v2 2/4] mm: Support tlbbatch flush for a range of PTEs
+To: David Hildenbrand <david@redhat.com>
+Cc: akpm@linux-foundation.org, linux-mm@kvack.org, 
+	baolin.wang@linux.alibaba.com, chrisl@kernel.org, ioworker0@gmail.com, 
+	kasong@tencent.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, ryan.roberts@arm.com, v-songbaohua@oppo.com, 
+	x86@kernel.org, linux-riscv@lists.infradead.org, ying.huang@intel.com, 
+	zhengtangquan@oppo.com, lorenzo.stoakes@oracle.com, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, 
+	Anshuman Khandual <anshuman.khandual@arm.com>, Shaoqin Huang <shahuang@redhat.com>, 
+	Gavin Shan <gshan@redhat.com>, Kefeng Wang <wangkefeng.wang@huawei.com>, 
+	Mark Rutland <mark.rutland@arm.com>, 
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, Yosry Ahmed <yosryahmed@google.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Yicong Yang <yangyicong@hisilicon.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_023459_302530_EED60AA0 
-X-CRM114-Status: GOOD (  27.12  )
+X-CRM114-CacheID: sfid-20250114_023750_647597_E43FE89E 
+X-CRM114-Status: GOOD (  34.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,221 +106,256 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 13, 2025 at 01:52:11PM -0800, Melody Olvera wrote:
-> From: Wesley Cheng <quic_wcheng@quicinc.com>
-> 
-> On SM8750, the eUSB2 PHY used is M31 based. Add the initialization
-> sequences to bring it out of reset, and to initialize the associated eUSB2
-> repeater as well.
+On Tue, Jan 14, 2025 at 10:52=E2=80=AFPM David Hildenbrand <david@redhat.co=
+m> wrote:
+>
+> On 13.01.25 04:38, Barry Song wrote:
+> > From: Barry Song <v-songbaohua@oppo.com>
+> >
+> > This is a preparatory patch to support batch PTE unmapping in
+> > `try_to_unmap_one`. It first introduces range handling for
+> > `tlbbatch` flush. Currently, the range is always set to the size of
+> > PAGE_SIZE.
+>
+> You could have spelled out why you perform the VMA -> MM change.
 
-What does M31 mean? What is the relationship between the eUSB and USB
-M31 PHYs?
+Sure, I=E2=80=99ll include some additional details in v3.
 
-> 
-> Signed-off-by: Wesley Cheng <quic_wcheng@quicinc.com>
-> Signed-off-by: Melody Olvera <quic_molvera@quicinc.com>
-> ---
->  drivers/phy/qualcomm/Kconfig              |  12 +-
->  drivers/phy/qualcomm/Makefile             |   1 +
->  drivers/phy/qualcomm/phy-qcom-m31-eusb2.c | 269 ++++++++++++++++++++++++++++++
->  3 files changed, 281 insertions(+), 1 deletion(-)
+>
+> >
+> > Cc: Catalin Marinas <catalin.marinas@arm.com>
+> > Cc: Will Deacon <will@kernel.org>
+> > Cc: Thomas Gleixner <tglx@linutronix.de>
+> > Cc: Ingo Molnar <mingo@redhat.com>
+> > Cc: Borislav Petkov <bp@alien8.de>
+> > Cc: Dave Hansen <dave.hansen@linux.intel.com>
+> > Cc: "H. Peter Anvin" <hpa@zytor.com>
+> > Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+> > Cc: Ryan Roberts <ryan.roberts@arm.com>
+> > Cc: Shaoqin Huang <shahuang@redhat.com>
+> > Cc: Gavin Shan <gshan@redhat.com>
+> > Cc: Kefeng Wang <wangkefeng.wang@huawei.com>
+> > Cc: Mark Rutland <mark.rutland@arm.com>
+> > Cc: David Hildenbrand <david@redhat.com>
+> > Cc: Lance Yang <ioworker0@gmail.com>
+> > Cc: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+> > Cc: Yosry Ahmed <yosryahmed@google.com>
+> > Cc: Paul Walmsley <paul.walmsley@sifive.com>
+> > Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> > Cc: Albert Ou <aou@eecs.berkeley.edu>
+> > Cc: Yicong Yang <yangyicong@hisilicon.com>
+> > Signed-off-by: Barry Song <v-songbaohua@oppo.com>
+> > ---
+> >   arch/arm64/include/asm/tlbflush.h | 26 ++++++++++++++------------
+> >   arch/arm64/mm/contpte.c           |  2 +-
+> >   arch/riscv/include/asm/tlbflush.h |  3 ++-
+> >   arch/riscv/mm/tlbflush.c          |  3 ++-
+> >   arch/x86/include/asm/tlbflush.h   |  3 ++-
+> >   mm/rmap.c                         | 12 +++++++-----
+> >   6 files changed, 28 insertions(+), 21 deletions(-)
+> >
+> > diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm=
+/tlbflush.h
+> > index bc94e036a26b..f34e4fab5aa2 100644
+> > --- a/arch/arm64/include/asm/tlbflush.h
+> > +++ b/arch/arm64/include/asm/tlbflush.h
+> > @@ -322,13 +322,6 @@ static inline bool arch_tlbbatch_should_defer(stru=
+ct mm_struct *mm)
+> >       return true;
+> >   }
+> >
+> > -static inline void arch_tlbbatch_add_pending(struct arch_tlbflush_unma=
+p_batch *batch,
+> > -                                          struct mm_struct *mm,
+> > -                                          unsigned long uaddr)
+> > -{
+> > -     __flush_tlb_page_nosync(mm, uaddr);
+> > -}
+> > -
+> >   /*
+> >    * If mprotect/munmap/etc occurs during TLB batched flushing, we need=
+ to
+> >    * synchronise all the TLBI issued with a DSB to avoid the race menti=
+oned in
+> > @@ -448,7 +441,7 @@ static inline bool __flush_tlb_range_limit_excess(u=
+nsigned long start,
+> >       return false;
+> >   }
+> >
+> > -static inline void __flush_tlb_range_nosync(struct vm_area_struct *vma=
+,
+> > +static inline void __flush_tlb_range_nosync(struct mm_struct *mm,
+> >                                    unsigned long start, unsigned long e=
+nd,
+> >                                    unsigned long stride, bool last_leve=
+l,
+> >                                    int tlb_level)
+> > @@ -460,12 +453,12 @@ static inline void __flush_tlb_range_nosync(struc=
+t vm_area_struct *vma,
+> >       pages =3D (end - start) >> PAGE_SHIFT;
+> >
+> >       if (__flush_tlb_range_limit_excess(start, end, pages, stride)) {
+> > -             flush_tlb_mm(vma->vm_mm);
+> > +             flush_tlb_mm(mm);
+> >               return;
+> >       }
+> >
+> >       dsb(ishst);
+> > -     asid =3D ASID(vma->vm_mm);
+> > +     asid =3D ASID(mm);
+> >
+> >       if (last_level)
+> >               __flush_tlb_range_op(vale1is, start, pages, stride, asid,
+> > @@ -474,7 +467,7 @@ static inline void __flush_tlb_range_nosync(struct =
+vm_area_struct *vma,
+> >               __flush_tlb_range_op(vae1is, start, pages, stride, asid,
+> >                                    tlb_level, true, lpa2_is_enabled());
+> >
+> > -     mmu_notifier_arch_invalidate_secondary_tlbs(vma->vm_mm, start, en=
+d);
+> > +     mmu_notifier_arch_invalidate_secondary_tlbs(mm, start, end);
+> >   }
+> >
+> >   static inline void __flush_tlb_range(struct vm_area_struct *vma,
+> > @@ -482,7 +475,7 @@ static inline void __flush_tlb_range(struct vm_area=
+_struct *vma,
+> >                                    unsigned long stride, bool last_leve=
+l,
+> >                                    int tlb_level)
+> >   {
+> > -     __flush_tlb_range_nosync(vma, start, end, stride,
+> > +     __flush_tlb_range_nosync(vma->vm_mm, start, end, stride,
+> >                                last_level, tlb_level);
+> >       dsb(ish);
+> >   }
+> > @@ -533,6 +526,15 @@ static inline void __flush_tlb_kernel_pgtable(unsi=
+gned long kaddr)
+> >       dsb(ish);
+> >       isb();
+> >   }
+> > +
+> > +static inline void arch_tlbbatch_add_pending(struct arch_tlbflush_unma=
+p_batch *batch,
+> > +                                          struct mm_struct *mm,
+> > +                                          unsigned long uaddr,
+> > +                                          unsigned long size)
+> > +{
+> > +     __flush_tlb_range_nosync(mm, uaddr, uaddr + size,
+> > +                              PAGE_SIZE, true, 3);
+> > +}
+> >   #endif
+> >
+> >   #endif
+> > diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
+> > index 55107d27d3f8..bcac4f55f9c1 100644
+> > --- a/arch/arm64/mm/contpte.c
+> > +++ b/arch/arm64/mm/contpte.c
+> > @@ -335,7 +335,7 @@ int contpte_ptep_clear_flush_young(struct vm_area_s=
+truct *vma,
+> >                * eliding the trailing DSB applies here.
+> >                */
+> >               addr =3D ALIGN_DOWN(addr, CONT_PTE_SIZE);
+> > -             __flush_tlb_range_nosync(vma, addr, addr + CONT_PTE_SIZE,
+> > +             __flush_tlb_range_nosync(vma->vm_mm, addr, addr + CONT_PT=
+E_SIZE,
+> >                                        PAGE_SIZE, true, 3);
+> >       }
+> >
+> > diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm=
+/tlbflush.h
+> > index 72e559934952..7f3ea687ce33 100644
+> > --- a/arch/riscv/include/asm/tlbflush.h
+> > +++ b/arch/riscv/include/asm/tlbflush.h
+> > @@ -61,7 +61,8 @@ void flush_pmd_tlb_range(struct vm_area_struct *vma, =
+unsigned long start,
+> >   bool arch_tlbbatch_should_defer(struct mm_struct *mm);
+> >   void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *batc=
+h,
+> >                              struct mm_struct *mm,
+> > -                            unsigned long uaddr);
+> > +                            unsigned long uaddr,
+> > +                            unsigned long size);
+>
+> While we're at it, can we just convert this to the "two tabs"
+> indentation starting on second parameter line" way of doing things? Same
+> for all other cases. (at least in core code, if some arch wants their
+> own weird rules on how to handle these things)
 
-Please run the patch through checkpatch.pl --strict
+Sure.
 
-> 
-> diff --git a/drivers/phy/qualcomm/phy-qcom-m31-eusb2.c b/drivers/phy/qualcomm/phy-qcom-m31-eusb2.c
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..e15529673e358db914936a60fa605c872cd2511a
-> --- /dev/null
-> +++ b/drivers/phy/qualcomm/phy-qcom-m31-eusb2.c
-> @@ -0,0 +1,269 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +/*
-> + * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
-> + */
-> +
-> +#include <linux/clk.h>
-> +#include <linux/delay.h>
-> +#include <linux/err.h>
-> +#include <linux/io.h>
-> +#include <linux/kernel.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/phy/phy.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/reset.h>
-> +#include <linux/slab.h>
-> +
-> +#define USB_PHY_UTMI_CTRL0		(0x3c)
-> +
-> +#define USB_PHY_UTMI_CTRL5		(0x50)
-> +
-> +#define USB_PHY_HS_PHY_CTRL_COMMON0	(0x54)
-> +#define FSEL				(0x7 << 4)
+>
+> [...]
+>
+> >       struct tlbflush_unmap_batch *tlb_ubc =3D &current->tlb_ubc;
+> >       int batch;
+> > @@ -681,7 +682,7 @@ static void set_tlb_ubc_flush_pending(struct mm_str=
+uct *mm, pte_t pteval,
+> >       if (!pte_accessible(mm, pteval))
+> >               return;
+> >
+> > -     arch_tlbbatch_add_pending(&tlb_ubc->arch, mm, uaddr);
+> > +     arch_tlbbatch_add_pending(&tlb_ubc->arch, mm, uaddr, size);
+> >       tlb_ubc->flush_required =3D true;
+> >
+> >       /*
+> > @@ -757,7 +758,8 @@ void flush_tlb_batched_pending(struct mm_struct *mm=
+)
+> >   }
+> >   #else
+> >   static void set_tlb_ubc_flush_pending(struct mm_struct *mm, pte_t pte=
+val,
+> > -                                   unsigned long uaddr)
+> > +                                   unsigned long uaddr,
+> > +                                   unsigned long size)
+>
+> I'll note that mist tlb functions seem to consume start+end instead of
+> start+size, like
+>
+> flush_tlb_mm_range()
+> flush_tlb_kernel_range()
+>
+> So I'm wondering if this should be start+end instead of uaddr+size.
 
-GENMASK()
+For some reason, I can=E2=80=99t recall why I originally named it "uaddr" i=
+nstead
+of "address" at:
+https://lore.kernel.org/lkml/20220707125242.425242-4-21cnbao@gmail.com/
 
-> +#define FSEL_38_4_MHZ_VAL		(0x6 << 4)
+The name seems a bit odd now.
 
-FIELD_PREP
+It's probably because the arm64 functions listed below are using "uaddr":
 
-> +
-> +#define USB_PHY_HS_PHY_CTRL2		(0x64)
-> +
-> +#define USB_PHY_CFG0			(0x94)
-> +#define USB_PHY_CFG1			(0x154)
-> +
-> +#define USB_PHY_FSEL_SEL		(0xb8)
-> +
-> +#define USB_PHY_XCFGI_39_32		(0x16c)
-> +#define USB_PHY_XCFGI_71_64		(0x17c)
-> +#define USB_PHY_XCFGI_31_24		(0x168)
-> +#define USB_PHY_XCFGI_7_0		(0x15c)
-> +
-> +#define M31_EUSB_PHY_INIT_CFG(o, b, v)	\
-> +{				\
-> +	.off = o,		\
-> +	.mask = b,		\
-> +	.val = v,		\
-> +}
-> +
-> +struct m31_phy_tbl_entry {
-> +	u32 off;
-> +	u32 mask;
-> +	u32 val;
-> +};
-> +
-> +struct m31_eusb2_priv_data {
-> +	const struct m31_phy_tbl_entry	*setup_seq;
-> +	unsigned int			setup_seq_nregs;
-> +	const struct m31_phy_tbl_entry	*override_seq;
-> +	unsigned int			override_seq_nregs;
-> +	const struct m31_phy_tbl_entry	*reset_seq;
-> +	unsigned int			reset_seq_nregs;
-> +	unsigned int			fsel;
-> +};
-> +
-> +static const struct m31_phy_tbl_entry m31_eusb2_setup_tbl[] = {
-> +	M31_EUSB_PHY_INIT_CFG(USB_PHY_CFG0, BIT(1), 1),
-> +	M31_EUSB_PHY_INIT_CFG(USB_PHY_UTMI_CTRL5, BIT(1), 1),
-> +	M31_EUSB_PHY_INIT_CFG(USB_PHY_CFG1, BIT(0), 1),
-> +	M31_EUSB_PHY_INIT_CFG(USB_PHY_FSEL_SEL, BIT(0), 1),
-> +};
-> +
-> +static const struct m31_phy_tbl_entry m31_eusb_phy_override_tbl[] = {
-> +	M31_EUSB_PHY_INIT_CFG(USB_PHY_XCFGI_39_32, GENMASK(3, 2), 0),
-> +	M31_EUSB_PHY_INIT_CFG(USB_PHY_XCFGI_71_64, GENMASK(3, 0), 7),
-> +	M31_EUSB_PHY_INIT_CFG(USB_PHY_XCFGI_31_24, GENMASK(2, 0), 0),
-> +	M31_EUSB_PHY_INIT_CFG(USB_PHY_XCFGI_7_0, GENMASK(1, 0), 0),
-> +};
-> +
-> +static const struct m31_phy_tbl_entry m31_eusb_phy_reset_tbl[] = {
-> +	M31_EUSB_PHY_INIT_CFG(USB_PHY_HS_PHY_CTRL2, BIT(3), 1),
-> +	M31_EUSB_PHY_INIT_CFG(USB_PHY_HS_PHY_CTRL2, BIT(2), 1),
-> +	M31_EUSB_PHY_INIT_CFG(USB_PHY_UTMI_CTRL0, BIT(0), 1),
-> +	M31_EUSB_PHY_INIT_CFG(USB_PHY_HS_PHY_CTRL_COMMON0, BIT(1), 1),
-> +	M31_EUSB_PHY_INIT_CFG(USB_PHY_HS_PHY_CTRL_COMMON0, BIT(2), 0),
-> +	M31_EUSB_PHY_INIT_CFG(USB_PHY_UTMI_CTRL5, BIT(1), 0),
-> +	M31_EUSB_PHY_INIT_CFG(USB_PHY_HS_PHY_CTRL2, BIT(3), 0),
-> +	M31_EUSB_PHY_INIT_CFG(USB_PHY_CFG0, BIT(1), 0),
-> +};
-> +
-> +struct m31eusb2_phy {
-> +	struct phy			*phy;
-> +	void __iomem			*base;
-> +	const struct m31_eusb2_priv_data	*data;
-> +
-> +	struct regulator		*vreg;
-> +	struct clk			*clk;
-> +	struct reset_control		*reset;
-> +
-> +	struct phy *repeater;
-> +};
-> +
-> +static void msm_m31_eusb2_write_readback(void __iomem *base, u32 offset,
-> +					const u32 mask, u32 val)
-> +{
-> +	u32 write_val, tmp = readl_relaxed(base + offset);
-> +
-> +	tmp &= ~mask;
-> +	write_val = tmp | val;
-> +
-> +	writel_relaxed(write_val, base + offset);
-> +
-> +	tmp = readl_relaxed(base + offset);
-> +	tmp &= mask;
-> +
-> +	if (tmp != val)
-> +		pr_err("write: %x to offset: %x FAILED\n", val, offset);
-> +}
-> +
-> +static void m31eusb2_phy_write_sequence(struct m31eusb2_phy *phy,
-> +					const struct m31_phy_tbl_entry *tbl,
-> +					int num)
-> +{
-> +	int i;
-> +
-> +	for (i = 0 ; i < num; i++, tbl++) {
-> +		dev_dbg(&phy->phy->dev, "Offset:%x BitMask:%x Value:%x",
-> +					tbl->off, tbl->mask, tbl->val);
-> +
-> +		msm_m31_eusb2_write_readback(phy->base,
-> +					tbl->off, tbl->mask,
-> +					tbl->val << __ffs(tbl->mask));
+static inline void __flush_tlb_page_nosync(struct mm_struct *mm,
+ unsigned long uaddr);
+static inline void flush_tlb_page(struct vm_area_struct *vma,
+                                  unsigned long uaddr);
 
-could you please check, what actually gets written? I suspect there
-should be a -1 here.
+At that time, we only supported a single page for TLB deferred shootdown.
 
-> +	}
-> +}
-> +
-> +static int m31eusb2_phy_init(struct phy *uphy)
-> +{
-> +	struct m31eusb2_phy *phy = phy_get_drvdata(uphy);
-> +	const struct m31_eusb2_priv_data *data = phy->data;
-> +	int ret;
-> +
-> +	ret = regulator_enable(phy->vreg);
-> +	if (ret) {
-> +		dev_err(&uphy->dev, "failed to enable regulator, %d\n", ret);
-> +		return ret;
-> +	}
-> +
-> +	ret = phy_init(phy->repeater);
-> +	if (ret) {
-> +		dev_err(&uphy->dev, "repeater init failed. %d\n", ret);
-> +		goto disable_vreg;
-> +	}
-> +
-> +	if (ret) {
-> +		dev_err(&uphy->dev, "failed to enable cfg ahb clock, %d\n", ret);
-> +		goto disable_repeater;
-> +	}
-> +
-> +	/* Perform phy reset */
-> +	reset_control_assert(phy->reset);
-> +	udelay(5);
-> +	reset_control_deassert(phy->reset);
-> +
-> +	m31eusb2_phy_write_sequence(phy, data->setup_seq, data->setup_seq_nregs);
-> +	msm_m31_eusb2_write_readback(phy->base,
-> +					USB_PHY_HS_PHY_CTRL_COMMON0, FSEL,
-> +					data->fsel);
-> +	m31eusb2_phy_write_sequence(phy, data->override_seq, data->override_seq_nregs);
-> +	m31eusb2_phy_write_sequence(phy, data->reset_seq, data->reset_seq_nregs);
-> +
-> +	return 0;
-> +
-> +disable_repeater:
-> +	phy_exit(phy->repeater);
-> +disable_vreg:
-> +	regulator_disable(phy->vreg);
-> +
-> +	return 0;
-> +}
-> +
+Regarding set_tlb_ubc_flush_pending(), I=E2=80=99m fine with either approac=
+h:
+1. start, size
+2. start, end
 
--- 
-With best wishes
-Dmitry
+For option 1, it is eventually converted to (start, start + size) when call=
+ing
+__flush_tlb_range_nosync().
+
+But if we convert to (start, end), it seems to align with
+
+static inline void flush_tlb_range(struct vm_area_struct *vma,
+                                   unsigned long start, unsigned long end);
+
+So if there is no objection from Will, I will move to (start, end)
+in v3.
+
+>
+> --
+> Cheers,
+>
+> David / dhildenb
+>
+
+Thanks
+Barry
 
