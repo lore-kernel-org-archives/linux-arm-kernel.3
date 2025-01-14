@@ -4,65 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA02CC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 15:12:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFF84E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 15:19:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rYThJmbcOREv3PsHgaHEbArEjAKoBFWcy4BkZMOVNJI=; b=E5rX+ozZdbi3I3tIOQpOlBkBuS
-	SBjt8w6+IW2UU9CKfV9bEelSzcrUOdMxv0/r31VWZClA7yZMJKaoBE6HQF5rppztnt7IgWQS1mgwf
-	7sYm7uGYKEv+KTe4cIUh0B6hfflf7Px3qAC1Cp9SOuC6JxsaBgXQ3lZiHWCtJYbAFWav3wiVf58O9
-	RpgYuj7VOTxV0k1e4xsClVsOFyy8scKv3DQ+d2ixUnfPvxsgr2iXtc9CW47vkRc4Lrt2gycQvwOMt
-	MY6DDBBOt/QO7vqwDALnUgW287iN5UvpF/jb+2Xmt5XyLQPoMKd4+es4ENULINOyf7OR6LX0nu/bH
-	qqkUqMMQ==;
+	bh=pQWVZCzJjONf9MD2zqQKoSy7C5/tRi8G57MPvXxDJbk=; b=MxVqBMzH9Xk++CCMV+pTtvx+Ch
+	4Sdz5uBZV8BzPACmfkL2LntCYHWzpXTYRrqsHNrFBAsaLLLs9kI4eCWBMokEhnKj/G11Ne217iUal
+	6R3n2RROi3YotPTc4rMs43HawIvFLseUrpyzI3Pywtb3XajIjMtxtnn1S1Ji2XmazAxKeKWYkko/s
+	QRtyeal3ZZDC2Z6Z4bvUiUS34wdPNBxA2d2hhjLI9nO/rZAlz/Qw5RsNtoV3ngUzH/EDE5vtuSutO
+	T0KMtpMxvLq4vBL0H7d+HOAdUmbpXsJAES/P8cUmRL+v4GzsDgr5BMsyQZ09xOWWIlRdTGm5txtz5
+	xhN16L1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXiah-00000008oaK-3ql4;
-	Tue, 14 Jan 2025 15:12:27 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tXih1-00000008pgP-1AI1;
+	Tue, 14 Jan 2025 15:18:59 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXiYJ-00000008oAO-1GB6;
-	Tue, 14 Jan 2025 15:10:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5F2EA5C5717;
-	Tue, 14 Jan 2025 15:09:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC181C4CEDD;
-	Tue, 14 Jan 2025 15:09:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736867397;
-	bh=pF75XEhCKXfa8xLX7BhBkgUQunabFzT49vPHGlCrxp0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Y8BAvFB9wyfMPoiWJw529UvoYSB6t2kMT9i/2h1HSI4JFMtvWoxIsXQ3GcbgJ9oK6
-	 VH0lVO2wZk9/6yQZ5BLvJBD3yi0IhFH84jdw2+29r9kZodDMMx2P/99jEiANO2JKwf
-	 CK6WrnXksNSX1/HcrvXFyZpplL6njbLq/6Uoy9+FHkpk5vrUZesIQg6KgVULRSitMq
-	 ZNw23DEjnUAn33zZvbr/Dg7P3XO1fwJwoqIkeIg7yqnBpnQ5tdDbyqvZiRqZflndLy
-	 5KhYZ0/sbtdcaH6MVKDAph8GpK/xF6W+jlxnbJUmtQis5udz5Q+7tSA6YEtdFYYlsq
-	 8AC0XTwA+RNWQ==
-Received: from johan by xi.lan with local (Exim 4.97.1)
-	(envelope-from <johan@kernel.org>)
-	id 1tXiYK-0000000079j-0bFX;
-	Tue, 14 Jan 2025 16:10:00 +0100
-Date: Tue, 14 Jan 2025 16:10:00 +0100
-From: Johan Hovold <johan@kernel.org>
-To: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH] gnss: mtk: Simplify return variables in mtk_set_active
- and mtk_set_standby
-Message-ID: <Z4Z-SJZIekQ3SjP4@hovoldconsulting.com>
-References: <20241117052501.1138926-1-iwamatsu@nigauri.org>
+	id 1tXifl-00000008pax-0O2b
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 14 Jan 2025 15:17:42 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-aab6fa3e20eso1015381466b.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 07:17:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ffwll.ch; s=google; t=1736867858; x=1737472658; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references
+         :mail-followup-to:message-id:subject:cc:to:from:date:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=pQWVZCzJjONf9MD2zqQKoSy7C5/tRi8G57MPvXxDJbk=;
+        b=GJVxbOQ33KOKKhuX+YO8qi5KmKlRq3y+63IN4eXJSlYkDV+/JUEsQS6AjaYD81o5oK
+         XiucPfI6OzlHXVlLtrk2Wp9sr2U8byFO0dkDsrPljgsqmQ+V19JqiI1wVJxRCuW3EgYA
+         +bfc3Se95aRekvGCKZg5GYGdkbps3Cs8TNQGc=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736867858; x=1737472658;
+        h=in-reply-to:content-disposition:mime-version:references
+         :mail-followup-to:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=pQWVZCzJjONf9MD2zqQKoSy7C5/tRi8G57MPvXxDJbk=;
+        b=JZ3cw9vNJdxUF/uvZRgxy/zQosKxCjRCJZHBwQgxJvIqreV0U5NrZDC3Fbhs4H3XSX
+         /1BEAhViU3pKdUCSvmCSduhPTtGA/cVtvKNifSJ6svx5nKiI7EX0Wj81oGUi7I33vvGQ
+         rvdGMCgUzws4sZZAUd15wy0bJeG+qOsp2308MvpQ8R1zrx7VmLZHgGwfJSyHXUeoTa4q
+         N1np72BhJkvmC1IVMYHUDtNip+OGcxNgDdjPng3HUH0iN+WmRM36q9vdc34oRzoJuTGN
+         OC7IOHeMIJXjotZ3Tq7IA7V9WPpTXWs7h9/FFrmeXhPCn0kgC07GarKyZnMbDZsJ1oN2
+         McOw==
+X-Forwarded-Encrypted: i=1; AJvYcCXePOsN49v6AbppFBhlwZrcrOOrGBd5cXUWTSUvc0+QqZnJlMBk8/iAWrolDWTdU9Jn5VL4ZNT/c5bGRLGdD+jT@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx59Izue6zRy/Phdv9eZIpMMFXwFqs7JIKiQc2gsN2Y3ds5orRk
+	Km1zsTAvQ7uvW7NKCXn8B4AfPSmirDZ1Tf1Xyk7Xa87xs4T0QI7tlwubo7aDDAs=
+X-Gm-Gg: ASbGnctq9Husb6qan1UmE7+x/NxPRSgmkH1GPgcETdTQv7wcVFcGbOlMceZjHE7Nynq
+	T9ctzqjmxgcocEQFXg3BM/8dbIS2gIXWRK742vGAzPlmaieSLY/OnOH+CLMnxkPsETWTWL4f7C1
+	07rFQelnRSxEv+lR1q5VUQLL46Rb5ynwzzB7Vrp6/zZmZsdOc9n8WJ1u1cxWR+dwv9mwqhHwgEx
+	Ud5sK1RsT7jN7anaDX7e9VWZzk1gt6RKzK0+rNUCk6a4UDTvcbG3y1ormn9YU8nWaP6
+X-Google-Smtp-Source: AGHT+IGT2QdUEExo3ZYiHoJHmXJJ/EkUrorLws5bU4PVtJoU0zzZ/jzA8NZO5j2BZKS0oNyTy74E/g==
+X-Received: by 2002:a17:907:6d04:b0:aa6:9ee2:f4c9 with SMTP id a640c23a62f3a-ab2ab6c6dffmr2382002566b.23.1736867858477;
+        Tue, 14 Jan 2025 07:17:38 -0800 (PST)
+Received: from phenom.ffwll.local ([2a02:168:57f4:0:5485:d4b2:c087:b497])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab2c90d9ae0sm648358966b.68.2025.01.14.07.17.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Jan 2025 07:17:38 -0800 (PST)
+Date: Tue, 14 Jan 2025 16:17:36 +0100
+From: Simona Vetter <simona.vetter@ffwll.ch>
+To: Hector Martin <marcan@marcan.st>
+Cc: devicetree@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>,
+	linux-usb@vger.kernel.org, linux-embedded@vger.kernel.org,
+	Asahi Linux <asahi@lists.linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	dri-devel@lists.freedesktop.org
+Subject: Re: Unified Type C PHYs and top-level port management
+Message-ID: <Z4aAEA6Kmc4R-Wlb@phenom.ffwll.local>
+Mail-Followup-To: Hector Martin <marcan@marcan.st>,
+	devicetree@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>,
+	linux-usb@vger.kernel.org, linux-embedded@vger.kernel.org,
+	Asahi Linux <asahi@lists.linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	dri-devel@lists.freedesktop.org
+References: <fda8b831-1ffc-4087-8e7b-d97779b3ecc5@marcan.st>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241117052501.1138926-1-iwamatsu@nigauri.org>
+In-Reply-To: <fda8b831-1ffc-4087-8e7b-d97779b3ecc5@marcan.st>
+X-Operating-System: Linux phenom 6.12.3-amd64 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_070959_429114_69B6D965 
-X-CRM114-Status: GOOD (  16.38  )
+X-CRM114-CacheID: sfid-20250114_071741_135141_B3757CFF 
+X-CRM114-Status: GOOD (  29.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,34 +103,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 17, 2024 at 02:25:01PM +0900, Nobuhiro Iwamatsu wrote:
-> Simply return directly instead of assign the return value.
-> 
-> Signed-off-by: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>
-> ---
->  drivers/gnss/mtk.c | 14 ++------------
->  1 file changed, 2 insertions(+), 12 deletions(-)
-> 
-> diff --git a/drivers/gnss/mtk.c b/drivers/gnss/mtk.c
-> index c62b1211f4fe4e..be20f6d6470736 100644
-> --- a/drivers/gnss/mtk.c
-> +++ b/drivers/gnss/mtk.c
-> @@ -24,25 +24,15 @@ struct mtk_data {
->  static int mtk_set_active(struct gnss_serial *gserial)
->  {
->  	struct mtk_data *data = gnss_serial_get_drvdata(gserial);
-> -	int ret;
->  
-> -	ret = regulator_enable(data->vcc);
-> -	if (ret)
-> -		return ret;
-> -
-> -	return 0;
-> +	return regulator_enable(data->vcc);
+On Tue, Jan 14, 2025 at 09:32:11PM +0900, Hector Martin wrote:
+> - On the DP/display side, we haven't implemented this yet, but in the
+> future the single "apple,display-subsystem" driver (which actually
+> provides the top-level DRM device for all the underlying discrete
+> display controllers, and is already its own virtual device in the DT)
+> will present virtual ports for the different PHYs, and handle the
+> muxing/assignment between them and the display controllers on its side
+> (there is potentially complex policy here too, since not all display
+> controllers are equal and there may be a need to reassign a display for
+> a lower-spec screen to a lower-spec display controller to free up a
+> higher-spec controller for a higher-spec screen, but we need a
+> controller assigned to a port to even read EDID to figure that out, so
+> it's going to be messy).
 
-The current style with separate success and error paths was used on
-purpose (e.g. to make it obvious from just looking at this function to
-determine what is returned).
+Just on the DP/drm side I think the pieces are there, but might need some
+polish:
 
-Johan
+- with drm_connector_helepr_funcs->detect_ctx and ->mode_valid_ctx you can
+  temporarily steal a crtc for probing, and as long as you don't hold
+  unrelated modeset locks userspace shouldn't notice. This goes back to
+  crt/vga load detection where some hw needed drivers to light up a full
+  crtc. There's also the entire drmGetConnector vs drmGetConnectorCurrent
+  to avoid such potentially expensive probe steps and just reuse cached
+  values.
+
+- if you can't get a crtc for probing there's the "unknown" connector
+  status. We could perhaps sharpen the semantics of this (like officially
+  documenting that reprobing with all other crtc switched off sometimes
+  helps), but it's there. I'm also not super worried about this case
+  because we don't have any available crtc anymore, so even if we can
+  probe there's no way to light it up without disabling some other stuff.
+  And as soon as you disable other stuff you can probe everything again
+  (with the fixed locking of the ->detect/mode_valid_ctx callbacks)
+
+- for the crtc assignment issue there's either drivers virtualizing them,
+  or userspace doing combinatorial probes. Personally I'm leaning towards
+  drivers having to virtualize crtcs (and then you can peak the least one
+  that works, which I think should sort this out), but it's an open and
+  getting discussed in other areas (like having to steal crtc for
+  dual-pipe outputs). We might get a proper documentation patch with an
+  actual kernel/compositor api contract here.
+
+> But I'm not happy at all with the weird, load-bearing intermingling of
+> tipd/atcphy/dwc3 there. There's bound to be places where the
+> abstractions leak and we end up with more and more horrible workarounds,
+> or layering violations.
+> 
+> A further question is how all this should be represented in the device
+> tree. That might drive the software architecture to a point, or vice versa.
+> 
+> Any ideas?
+
+For the larger issue my only uninformed take is ... smells like too much
+midlayer.
+
+Like you'll certainly get some raised eyebrows if you submit a DP driver
+without using dp helpers since that's a proper standard. But if your hw
+has half the DP stack in firmware and just can't be smashed into the drm
+dp helpers we have then I think even that would make sense.
+
+Plus we already have like 3 different generations of dp helpers anyway,
+because getting helpers right is kinda hard.
+
+> Some further reading here:
+> https://social.treehouse.systems/@marcan/113821266231103150
+
+I dropped some unstructured replies with the same stuff on there too
+first.
+
+Cheers, Sima
+-- 
+Simona Vetter
+Software Engineer, Intel Corporation
+http://blog.ffwll.ch
 
