@@ -4,68 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D488C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 15:48:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 239C7E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 15:54:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aa7NdIF/RsOjWlxdLoQ1fr760uFjUhbc7xZg2HditVM=; b=d7PymQlI5tBvFzNf8XNuNJzgTC
-	BZ325KgBbP2JxMkdh/u8I1lV1KBvwoQmZwQ4xI3JrSyoXwoOZyaKvQ9C7jUQP5cc1s8Yd5anziUSH
-	Ka0M+FneptK4RVLzlANYsXZLZdlA/dE+xsAtflEiFlr29fKsfs38IEE4MrqSdcdSqpAqxx6vG28aT
-	GXiXhvRUwDS3F0/m4wvOJIuHcShlmXC92Eu7vxgjbScPqJW3TEjkVDcD9/H2OxQr+3kbeYolQp5rr
-	YR8f4fQIIihxF49M7qi9OlweOqMSFTIDqehb4f3I1i6n55bxnj4vqNI2igyEjq85VYoul4DRsxzVf
-	/ZjBM7vg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EG9/mhIy+21WoE6EhQT5NiBpnNd1Xk5auFLs1Mqn/Og=; b=yZNPkkHZnx8RrOLlj1KwhUqkCw
+	lue8+2JZkrQcpNOWoCyz/rF5LKYv8tOyCKPn04ATwxLwoUpPzwCb88X1L6M33F6gpruw3ukFktE86
+	5xsaRaPycOGGhUOUGeHx7OJtdQGq+GD5CFyibv6scctkoJI54hUHZufYRotM5qv1m59xre3yPNRR9
+	aTpw09Hgwy//TS9alyoauviqkg27xlRetq6UlxWBOO8gAEkumRqbGA1l/pWpy0djnPykV18pEycj1
+	+4dtaEpt4FnBVfkdi4wkYgQihi2sO+zYqs10pX5NGL7/AyIptMkV9bSwGehON6r6cX7WuU9HOIp7E
+	Ag/knrqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXj8y-00000008vK2-0j2N;
-	Tue, 14 Jan 2025 15:47:52 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXj7i-00000008uvG-1k7o;
-	Tue, 14 Jan 2025 15:46:35 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C884E11FB;
-	Tue, 14 Jan 2025 07:47:01 -0800 (PST)
-Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 81B6E3F673;
-	Tue, 14 Jan 2025 07:46:28 -0800 (PST)
-Date: Tue, 14 Jan 2025 15:46:25 +0000
-From: Andre Przywara <andre.przywara@arm.com>
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: Parthiban Nallathambi <parthiban@linumiz.com>, Joerg Roedel
- <joro@8bytes.org>, Will Deacon <will@kernel.org>, Robin Murphy
- <robin.murphy@arm.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai
- <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
- <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, Maarten
- Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann
- <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter
- <simona@ffwll.ch>, Michael Turquette <mturquette@baylibre.com>, Stephen
- Boyd <sboyd@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Vinod Koul
- <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
- iommu@lists.linux.dev, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
- linux-phy@lists.infradead.org
-Subject: Re: [PATCH 10/22] pinctrl: sunxi: add missed lvds pins for
- a100/a133
-Message-ID: <20250114154625.7d82c858@donnerap.manchester.arm.com>
-In-Reply-To: <CACRpkdY29s6Cz3zvtksLO8sESwxhkVdmGUipVAqiEtix3E1=Vw@mail.gmail.com>
-References: <20241227-a133-display-support-v1-0-13b52f71fb14@linumiz.com>
-	<20241227-a133-display-support-v1-10-13b52f71fb14@linumiz.com>
-	<CACRpkdY29s6Cz3zvtksLO8sESwxhkVdmGUipVAqiEtix3E1=Vw@mail.gmail.com>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+	id 1tXjEw-00000008w2d-05Qm;
+	Tue, 14 Jan 2025 15:54:02 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tXjDg-00000008vuR-3neG
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 14 Jan 2025 15:52:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id A7471A417F9;
+	Tue, 14 Jan 2025 15:50:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BC26C4CEDD;
+	Tue, 14 Jan 2025 15:52:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736869962;
+	bh=omFMmTEBpK/gnO0xG7ehWBNCiTsoY48D44tNe3bcc1A=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=TJyD+Z2DVTd3akcBr9IF2RgjYEyFW8I3oNWTffyMzcdwFuy2uliolAwgGLDmx/8rM
+	 rXWKWyPrN1yNO3zzhA3/LUlYAtwiXXtR3bqFNozb47ODMXQL4BCtyPUHcR5uWeFwRe
+	 PAjCSqODwl7OiRJtM2535yf5Nl3sZBSlSCptUgij3rum9FQfYsD3htFGsNZ3njCqjf
+	 ZCKCycTuoESQLmxmfTC8ZQWTl4KObLpePfzILuy/5zZ15RQwDJFTsJy9fr4XsaeOs/
+	 VF7mWEeR9X1Q5L57XB5NAxvOHvIy8DtKcHFBtMNWqwCXS8vroCCX/WU9XVuqiwyjnm
+	 2IWbjUppYgAYw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tXjDc-00CBbV-CN;
+	Tue, 14 Jan 2025 15:52:40 +0000
+Date: Tue, 14 Jan 2025 15:52:39 +0000
+Message-ID: <86cygpwfy0.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Eric Auger <eauger@redhat.com>
+Cc: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	kvmarm <kvmarm@lists.linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	oliver.upton@linux.dev,
+	christoffer.dall@arm.com,
+	suzuki.poulose@arm.com,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	coltonlewis@google.com,
+	joey.gouly@arm.com,
+	yuzenghui@huawei.com,
+	darren@os.amperecomputing.com,
+	vishnu@os.amperecomputing.com
+Subject: Re: [PATCH] KVM: arm64: nv: Set ISTATUS for emulated timers, If timer expired
+In-Reply-To: <4a9fbdd9-ad23-44bc-8ba5-399f08068db4@redhat.com>
+References: <20241209053201.339939-1-gankulkarni@os.amperecomputing.com>
+	<867c89tc4q.wl-maz@kernel.org>
+	<c5b1c3d7-56ca-4afc-a831-045dba4beffa@os.amperecomputing.com>
+	<865xntt2kv.wl-maz@kernel.org>
+	<8be59ff3-6a68-48e1-8181-0ce4b2e7180f@os.amperecomputing.com>
+	<bcb4289b-507c-4ea1-afc7-6febd34d88db@redhat.com>
+	<86y10osr19.wl-maz@kernel.org>
+	<4d443db1-85b1-4071-acd5-3187deb9cb17@redhat.com>
+	<2f6b2cb1-3d32-480a-9801-9b993ae74e2d@os.amperecomputing.com>
+	<152d262e-641d-4bb1-9656-a13e049d62c4@redhat.com>
+	<86h661wje4.wl-maz@kernel.org>
+	<4a9fbdd9-ad23-44bc-8ba5-399f08068db4@redhat.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: eauger@redhat.com, gankulkarni@os.amperecomputing.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, oliver.upton@linux.dev, christoffer.dall@arm.com, suzuki.poulose@arm.com, will@kernel.org, catalin.marinas@arm.com, coltonlewis@google.com, joey.gouly@arm.com, yuzenghui@huawei.com, darren@os.amperecomputing.com, vishnu@os.amperecomputing.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_074634_497604_5B66FC00 
-X-CRM114-Status: GOOD (  10.90  )
+X-CRM114-CacheID: sfid-20250114_075245_067772_8927A964 
+X-CRM114-Status: GOOD (  23.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,29 +106,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 13 Jan 2025 15:30:24 +0100
-Linus Walleij <linus.walleij@linaro.org> wrote:
+On Tue, 14 Jan 2025 14:57:43 +0000,
+Eric Auger <eauger@redhat.com> wrote:
+> 
+> Hi Marc,
+> 
+> On 1/14/25 3:38 PM, Marc Zyngier wrote:
+> > Hi Eric,
+> > 
+> > On Tue, 14 Jan 2025 13:12:21 +0000,
+> > Eric Auger <eauger@redhat.com> wrote:
+> >>
+> >> I also confirm that using a mailine edk2 fixed the issues I faced
+> >> previously (fed/rhel L1 guest not booting).
+> >>
+> >> I used Marc's nv-next branch and qemu rebase.
+> > 
+> > When did you sample this branch? It is almost daily rebased at the
+> > moment, given that we keep piling up things in kvmarm/next.
+> 5 days ago.
 
-> On Fri, Dec 27, 2024 at 12:09=E2=80=AFPM Parthiban Nallathambi
-> <parthiban@linumiz.com> wrote:
->=20
-> > lvds, lcd, dsi all shares the same GPIO D bank and lvds0
-> > data 3 lines and lvds1 pins are missed, add them.
-> >
-> > Signed-off-by: Parthiban Nallathambi <parthiban@linumiz.com> =20
->=20
-> Nobody seems to have any objections about this patch and it seems
-> technically correct so I just applied it to the pin control tree.
+OK, so probably before I reapplied everything on top of kvmarm/next.
+Not necessarily a bad thing, just slightly older. The core NV code
+isn't rapidly changing anymore, with the exception of the recursive
+nesting stuff that I am currently rewriting.
 
-I think Parthiban had troubles with his email server, so not the whole
-series was sent out:
-https://lore.kernel.org/linux-sunxi/314b6bbe-613e-41a6-955e-50db6e11ef8e@li=
-numiz.com/T/#u
-At least that put me off from reviewing it in anger.
+> 
+> If you want me to test a specific branch, please let me know, esp. in
+> the context of latest series including
+> 
+> [PATCH v2 00/17] KVM: arm64: Add NV GICv3 support
 
-I do have a comment on this, will reply in another mail. So can you hold
-this patch back still, for now?
+That'd be the current nv-next then, which has all the series currently
+on the list, and a few more.
 
-Cheers,
-Andre
+> > 
+> >> With a rhel L1 guest I can now boot buildroot, debian and rhel guest as
+> >> L2 (feat mainline edk2). For rhel, I tested different kinds of page size
+> >> combinations for L1/L2 (4k and 64kB) and it worked.
+> >>
+> >> I tested on AmpereOne and Grace-Hopper systems
+> > 
+> > Thanks for the confirmation. I haven't had a chance to try QEMU yet,
+> > but I expect that save/restore will not work. Something to look into,
+> I have not tested this yet.I will give it a try.
+
+Thanks, that'd be super helpful.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
