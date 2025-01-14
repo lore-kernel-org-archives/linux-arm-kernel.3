@@ -4,68 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC339E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 00:00:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC739C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 00:17:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=96OHoOwSN+R+9ZgJ6AGbG6E0JjTK7ibX/wrqTSKXGbo=; b=aIjYpmOmzI0upu9hUd8ZWG3A8r
-	ppbYTyVpUJtDB8sDPKoXzgNLsovmqPlLch7aAEChoh5JWVzKkCUcbKufI154Fjhg6Boy2Pnj0KGdK
-	A30Ea5H3QG4XUqVZB32zni+2Gu7gPZbrn+bSpM+uf0xhHtBCLUz9C2lQZBVahNF7EO+ukKt4Y90Fq
-	IBD/7g90IMP6LCf7+wVdX7xi0lghML6t7gbhzVVxzULsbOTFyFehPTEdEMwNE6KL8noICGApEEAn3
-	CrElwa2Vm0RmkBmVqJdxlG7ZwcQ9vA4POCfdi4FGfji7qkuEdxGRsscmK8UXy5EbwbdFRKa2sFhg2
-	AcyqCMCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XdmJbLVNE72s4snJvlCZyY59rcdtG68osktCOOFf4IU=; b=1Ws2J4jSRNcmFKVPoSn0AneAcg
+	apSXP3D31k4kFosIwPnUoUQvXvzIBIuS9cTNY/CfHNaKnwvxfh0kBLHopcDAalzUMYOtnOQFACEG/
+	jn7CcfebsFCTscvUwn87WElZRa5oPvxQbL9eGeLO9VntsZQa60bqupj7TrBH7/IKeJNwKICT5ewb+
+	Pc3OhBLs/taCsx352TY7xJPBoSGMvxy+e6Fw0qn59g82/U8Ok23DbGhybHm/fyrxa2pFy5VdWtNqe
+	ldm3KPceEz+1DR92KS3yZmBJZMCpVCARTQZ3NuwMZqJu/bAOiAemXys6ZwXKP6xrL7NpZ7UzxCccG
+	ogcufsnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXqph-0000000AA29-0DCj;
-	Wed, 15 Jan 2025 00:00:29 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tXr69-0000000ABSr-2hr0;
+	Wed, 15 Jan 2025 00:17:29 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXqnH-0000000A9ij-1shv
+	id 1tXprb-00000009zlh-03A2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 23:58:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 33BD35C5A5A;
-	Tue, 14 Jan 2025 23:57:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66EA0C4CEDF;
-	Tue, 14 Jan 2025 23:57:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736899078;
-	bh=tpzPtlhfSg1oMQzL2Ct27bJY5cpUAeZYKUcwY61RUAs=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=YR4jv4VqMwHB30SIKNMX6+CkulB9Ga/HxazCKrQ9IEhW3b/hkvOihD10wmNx5Zwep
-	 xgfu+TfRDvQSNWzq+8nyUNAmlBR4NBhplr8wvhekLzglPGcNjTNu9GPdn6wVp4yCMJ
-	 cB+8b70SUbUZECxB/C9SOvcS993DDbrPCKVhNekVJsEnDJ23Rywpi2j2yI8IRb8KSi
-	 ndbzYFzP7E/ezdJa8n1pRKj9+3TwSEnWczBn2EHciN9COm2PPFSXlCg3fUbT5VkQIs
-	 t4uAsa9uobHF8IBR1P+LB6GGxx3R0XxsgDAoDKZjatJ1Nc5cGFNhYhFuvAIUy2jqGB
-	 FVzZJOsLOGrOQ==
-Date: Tue, 14 Jan 2025 17:57:57 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: andrew+netdev@lunn.ch, pabeni@redhat.com, 
- linux-arm-kernel@lists.infradead.org, edumazet@google.com, joel@jms.id.au, 
- krzk+dt@kernel.org, linux-kernel@vger.kernel.org, 
- andrew@codeconstruct.com.au, devicetree@vger.kernel.org, 
- davem@davemloft.net, kuba@kernel.org, 
- openipmi-developer@lists.sourceforge.net, netdev@vger.kernel.org, 
- linux-aspeed@lists.ozlabs.org, conor+dt@kernel.org, eajames@linux.ibm.com, 
- minyard@acm.org
-To: Ninad Palsule <ninad@linux.ibm.com>
-In-Reply-To: <20250114220147.757075-4-ninad@linux.ibm.com>
-References: <20250114220147.757075-1-ninad@linux.ibm.com>
- <20250114220147.757075-4-ninad@linux.ibm.com>
-Message-Id: <173689907575.1972841.5521973699547085746.robh@kernel.org>
-Subject: Re: [PATCH v5 03/10] dt-bindings: gpio: ast2400-gpio: Add hogs
+	Tue, 14 Jan 2025 22:58:24 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-215770613dbso73958775ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 14:58:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1736895502; x=1737500302; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=XdmJbLVNE72s4snJvlCZyY59rcdtG68osktCOOFf4IU=;
+        b=TFp0Zn9PvbZ8anZKpaqnVEj6P/CL/N+u8ZvfxVAGUh/mb++rHfAYcFwfaL3iMO7oGq
+         J29VcOkQZfeHkAdvLOixfN7U/J87VHDg6g0xxIiTzsOKFo5CcGLfZAXny9+7wtJDms6c
+         QnJbNv28VawQwOLgLMjW1gHOGp4IEtYlHAC0IkU290C1v6CnDd8QTlUi5t04oqm9v9G+
+         +voEQQ/Jb5JcQdku7Wg8DPFX+ohlAzHwPyXjqfZ6iurVk8BF6H4zC0QPYBYC1L0HHvim
+         rudxNk8HW4uaE0SLzcoiWMgrCAg9fj7V139kkM5Y9iHAuPWeMz0Z+mFfdLQ2YCdPW+jg
+         ms1w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736895502; x=1737500302;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=XdmJbLVNE72s4snJvlCZyY59rcdtG68osktCOOFf4IU=;
+        b=v7xVkk+oMk/Zrha0rYck0CwNcqYYh3gA13z8lee6D4SCMuO39eIWeE845+VLrm9Qjn
+         hHrEY3e5FwE4nFpFmex1CBLsjwSrANbDO+icXdGlyP0ttbfaw970xyglRrrPBaJuEe9+
+         QxKjFpFx+keNeQfePbS1YKbdWgIiiOb87rWzzmQj4BHeJcwKc7xJSrDQuw5DhfB/+agl
+         oawwj5K1EjGNa9AnUzxbT84hRxa9M6tUyPHd3BBMj2dm/T+TBTPSyEGUZXZs2OHhnU+s
+         riOc68fwCCMr8Un8k4MurlWWxphmqZ0KyFwFaLIzK5MDDspE0EIooT5obSUqxZp7eZrt
+         wGMg==
+X-Forwarded-Encrypted: i=1; AJvYcCUH2T9gB9NyyP6cJZ5ljA+SGeXOkOOxggFgZiTaEM6UDt+33P8PP9PQ8KV435Z6ktk5H6WKEy26gGzdZLk6eU7T@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw49aakXUOpW6ZJ0BgR3zjLyNx4Be46mVvVhV0PyhPfibskoArP
+	UYa+8bHh682idsXGsyyvP84kAMwVdfzFMoYIxYJ9IiP21GinZUGM0Ti9KHwh76U=
+X-Gm-Gg: ASbGncstAMQbyzPzCVoYIZf463NLEZ2rZ2hH6CyvxjJQpdwssxzR9SXCIdmrqlOb0n8
+	S2tvdAj5rw+14Rhb5MYmWgJR8Pmc0vfYPV2s5Fv0pon3w6DtI+/Jfug/bmsY90ac1bKg1qY01Kh
+	bHV006HQQSBF3pt50gq4bOubkFMBjCAGCim6PmPvERl3xR/TbER/4SXpDexeyOXr8qPUcR48gHC
+	9FwYhmy8ueKD17/n1LQAI8S0o1NqAR/kyEHltAkOnelNnU6wVyG8Kh1z4nORmcoJ36ccA==
+X-Google-Smtp-Source: AGHT+IH1ltU/mRUuewPYEws/WbJoOFmxt2kzpsU09c76uR3HaGq/wIEXCgpsEq3E5r1Kj+FsLU8f4Q==
+X-Received: by 2002:a17:902:dad1:b0:21a:8716:fa97 with SMTP id d9443c01a7336-21a87264051mr357793715ad.13.1736895502516;
+        Tue, 14 Jan 2025 14:58:22 -0800 (PST)
+Received: from atishp.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21a9f10df7asm71746105ad.47.2025.01.14.14.58.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Jan 2025 14:58:22 -0800 (PST)
+From: Atish Patra <atishp@rivosinc.com>
+Date: Tue, 14 Jan 2025 14:57:28 -0800
+Subject: [PATCH v2 03/21] RISC-V: Add Sxcsrind ISA extension definition and
  parsing
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250114-counter_delegation-v2-3-8ba74cdb851b@rivosinc.com>
+References: <20250114-counter_delegation-v2-0-8ba74cdb851b@rivosinc.com>
+In-Reply-To: <20250114-counter_delegation-v2-0-8ba74cdb851b@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Anup Patel <anup@brainfault.org>, 
+ Atish Patra <atishp@atishpatra.org>, Will Deacon <will@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>, 
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, weilin.wang@intel.com
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
+ devicetree@vger.kernel.org, kvm@vger.kernel.org, 
+ kvm-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-perf-users@vger.kernel.org, Atish Patra <atishp@rivosinc.com>
+X-Mailer: b4 0.15-dev-13183
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_155759_526379_6E3920B6 
-X-CRM114-Status: UNSURE (   8.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250114_145823_083949_1FCB9740 
+X-CRM114-Status: GOOD (  12.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,38 +111,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The S[m|s]csrind extension extends the indirect CSR access mechanism
+defined in Smaia/Ssaia extensions.
 
-On Tue, 14 Jan 2025 16:01:37 -0600, Ninad Palsule wrote:
-> Allow parsing GPIO controller children nodes with GPIO hogs.
-> 
-> Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
-> ---
->  .../devicetree/bindings/gpio/aspeed,ast2400-gpio.yaml       | 6 ++++++
->  1 file changed, 6 insertions(+)
-> 
+This patch just enables the definition and parsing.
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Signed-off-by: Atish Patra <atishp@rivosinc.com>
+---
+ arch/riscv/include/asm/hwcap.h | 5 +++++
+ arch/riscv/kernel/cpufeature.c | 2 ++
+ 2 files changed, 7 insertions(+)
 
-yamllint warnings/errors:
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index 869da082252a..3d6e706fc5b2 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -100,6 +100,8 @@
+ #define RISCV_ISA_EXT_ZICCRSE		91
+ #define RISCV_ISA_EXT_SVADE		92
+ #define RISCV_ISA_EXT_SVADU		93
++#define RISCV_ISA_EXT_SSCSRIND		94
++#define RISCV_ISA_EXT_SMCSRIND		95
+ 
+ #define RISCV_ISA_EXT_XLINUXENVCFG	127
+ 
+@@ -109,9 +111,12 @@
+ #ifdef CONFIG_RISCV_M_MODE
+ #define RISCV_ISA_EXT_SxAIA		RISCV_ISA_EXT_SMAIA
+ #define RISCV_ISA_EXT_SUPM		RISCV_ISA_EXT_SMNPM
++#define RISCV_ISA_EXT_SxCSRIND		RISCV_ISA_EXT_SMCSRIND
+ #else
+ #define RISCV_ISA_EXT_SxAIA		RISCV_ISA_EXT_SSAIA
+ #define RISCV_ISA_EXT_SUPM		RISCV_ISA_EXT_SSNPM
++#define RISCV_ISA_EXT_SxAIA		RISCV_ISA_EXT_SSAIA
++#define RISCV_ISA_EXT_SxCSRIND		RISCV_ISA_EXT_SSCSRIND
+ #endif
+ 
+ #endif /* _ASM_RISCV_HWCAP_H */
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index c0916ed318c2..d3259b640115 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -393,7 +393,9 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
+ 	__RISCV_ISA_EXT_DATA(smmpm, RISCV_ISA_EXT_SMMPM),
+ 	__RISCV_ISA_EXT_SUPERSET(smnpm, RISCV_ISA_EXT_SMNPM, riscv_xlinuxenvcfg_exts),
+ 	__RISCV_ISA_EXT_DATA(smstateen, RISCV_ISA_EXT_SMSTATEEN),
++	__RISCV_ISA_EXT_DATA(smcsrind, RISCV_ISA_EXT_SMCSRIND),
+ 	__RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
++	__RISCV_ISA_EXT_DATA(sscsrind, RISCV_ISA_EXT_SSCSRIND),
+ 	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
+ 	__RISCV_ISA_EXT_SUPERSET(ssnpm, RISCV_ISA_EXT_SSNPM, riscv_xlinuxenvcfg_exts),
+ 	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
 
-dtschema/dtc warnings/errors:
-
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250114220147.757075-4-ninad@linux.ibm.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+-- 
+2.34.1
 
 
