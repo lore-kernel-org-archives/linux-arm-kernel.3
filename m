@@ -4,120 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E3E8E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 19:37:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 238B2E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 19:45:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zjPSmGagsH0v8BRh7RqgTWU2umihKyaeHVzwlH5BliU=; b=BqAwlA42DISLR50DvohqXczIFW
-	iFsZEgfqm9HPV6f8pSybYjyteqHMidz4NDz+BbckJmXn7vmbjM0x0Gk1VAy6Vbtd/NZhoE6CWqMJZ
-	f52ivkpwi5PoS1s94d7pPoq/hC7d5w0V3RHLpLnziCx+Qk02Nl8ii0uMqj9f8HZGvlB9t7Mj5KTcW
-	YAIFkzvkIJgG9N/P160/kkI8/lXFl2VOEilfP/BVhZnmKeaGFOoKjB5Qs4grieo2wohyNBhcBUQh8
-	0IhJWVAWiCMF9aB9TGtzinx+D/qpKtFB9NnuW1Q/nyAKJ410XQflxclaygjl0LUmvtzTuZegnp2xB
-	lSIVkNPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1gPjOfJWBv7udEX42R/lPZwZsVT3ZK5coiNp2Efpmis=; b=ol2IVe2oDrNnTVM89r+ZuevcCr
+	pHdFJPoOSUrpQ2R2SLUyym73JhftwJIsnFgfBl8cJ6GKDWASgOovHPg6F3RTin/fVUgxYQswpNv80
+	aUWxkA7Z8xt196qhWvex5U0wRFi7rQPV1CUN0798JyK9e7RM3RKw568sZjbpeQvW9dpMhXIflQwZ3
+	fxbYwSd/Ar3kWHwpFtG32L+LCMl3QGRud5jS6eSwE5Jqk0WOXQGiCTm/nv/tl4I9M59vOAa7+NtlW
+	Sizf7jzdkwYixfiQXKGUtscEBPbcPwEeKtn9zyoOeoA4/jQrSaifLw+/I6eO1XxNyrCKWJWkJRcQA
+	KxSifzbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXmj6-00000009Yhh-02Ae;
-	Tue, 14 Jan 2025 19:37:24 +0000
+	id 1tXmqV-00000009ZRp-0pGw;
+	Tue, 14 Jan 2025 19:45:03 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXmhq-00000009Ycd-1hYl
+	id 1tXmpG-00000009ZJB-0FWS
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 14 Jan 2025 19:36:06 +0000
+	Tue, 14 Jan 2025 19:43:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
-	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
-	bh=zjPSmGagsH0v8BRh7RqgTWU2umihKyaeHVzwlH5BliU=; b=qodnBvwJOlXeFl9+qRSTBpvvrQ
-	JydMoMmWS55JLRzk+P6YD7PFi86laIZXZivUcFSwD7hiIZavLUyefB4+Dj0Pji0guLyr8/Yt1vCXi
-	wSpQuGCrusUVD5SH/cAYrmudRrgUXUZh9EZBfcot3gCnfvs17FnA3rtSJH4CQ1U1jHGjnsk4mq5dd
-	TZYTuOcaz/ALIAG7iWCib0DCYcH7w5EpH4gGOAcTW5fwUyQ8EUaEAIfxVBZ8S8q6ZFC0YUpCqPw8+
-	xb2jXjzcvP+QhzdvD/lEYjwKAmMoPDEY84AcpO45ACgjJgdzMiJLfTFCVzo1x8S5K+yQS9bq7sUW7
-	jjOLxrcg==;
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=1gPjOfJWBv7udEX42R/lPZwZsVT3ZK5coiNp2Efpmis=; b=IRrYUzAugO3/WJKjyfu5tCo/9D
+	5cB5/kySBRqgAhbeuBNC90rwIyArkS0KHDIjAJkZZEcw0JDxubQ1JflJe3u4i2k6EE7wEv5ciBYKq
+	5snjk7rOQmkUQOelcgk0t+hycPrUgvSjfozL4wDTDoXt3UQFhPBn4tknk7u+AF88qugVq5dav48vv
+	TagToW5mmviKIvZNMzG97Rv017jfuBKYpPRdojSPOXU2kDXU71/6k8wUuj59KMPD5+kq/VxeVgpnw
+	B/BO3J+p1q1fSZk8b2aM00jnQfwchfuNoQVlyIEhQGMLVarHVSYyU6xbfbyyCCJWxasv/v7I5e/sO
+	nupItSFg==;
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXmhn-0000000AaXp-1w6x
+	id 1tXmpC-0000000Aaho-3zQb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 19:36:05 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2166651f752so132981015ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 11:36:02 -0800 (PST)
+	Tue, 14 Jan 2025 19:43:44 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-aaf60d85238so1075559266b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 11:43:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1736883360; x=1737488160; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=zjPSmGagsH0v8BRh7RqgTWU2umihKyaeHVzwlH5BliU=;
-        b=t9Sw/v/9kMOKiMaolefLRilAoVQgO0dppGWWVUN1R2Jm6u4pu2mAHZeinhfyBsJTUx
-         CEIrbDDVcrBKnRPmIATby0L7wH3kIXEg0sleZiW3VOLrkrkj0YitbhLYiXpMBiPr5tBW
-         NOF99/+GWElSsOgqNsrZWxCKHvjuJ1KbKZkDVOlnVjPOfYte6Dhowvoep/CRQMdwoQDF
-         QiXx42H+dzMlIvLpRIV/5mYyY30zvVUL8cGKFT1aj/h5r6b9hEF2EPAL7pBDTxOEaSLO
-         PYNdvWLgU6e/b/+sDoe0hThJfFpA7k+JdtIcRnKGJzzLQDWX18iQGCbs4PZt33bomLi2
-         e6xQ==
+        d=gmail.com; s=20230601; t=1736883819; x=1737488619; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1gPjOfJWBv7udEX42R/lPZwZsVT3ZK5coiNp2Efpmis=;
+        b=hR/Zo+ILp6g6Tq9SWlL2M+FwE+ljmzQgZt0mGrflULAZ4+/1qeaYNW+9ESbxzvOdwu
+         eqiHY9Oq91ax6EdPlgPcDIx47TkGfgoko/QdCxBy04h83TWdn9pqktkUI4NkFaim8GWb
+         FJFSpuwQ1JuJ9aqI33niQrL+isYaonNp0WzTqIcTwpQBS07CHnI8cYva3/ld2PCbDrBS
+         7MfGS7ywxPqFgaV10BavMHsZ61Wj78VhsuU3Z2WC/N8mB+4YmhBvFKg+rkRyMMuCpBeR
+         /o13gWnb9gwd0OsRTNyBO3dGjXC5iFlfp8ntqapGTvw4qRMXjxc8L5eri8fS9PSIIwGj
+         IooQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736883360; x=1737488160;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=zjPSmGagsH0v8BRh7RqgTWU2umihKyaeHVzwlH5BliU=;
-        b=of81xTUrYFEw6Q+OpEFaxFcnp37PdIGQoEClz6jiB1kNErMz4J7tD1Qb+88TcBby4Q
-         CsqMUFM8vvQdJemNTexJr6i3DO4G5mHeztE75fjfZzGgsZyXzMxgWfhahIL7S7Zf+OQF
-         DKUqE2s5OgiZZutgmHGAweP13d4ogOGHGTffqTBPFEbKLf/snjHQDtQjEI8o0LwCjnI4
-         9WGZtm5tB2IIh03q1OXPLKrPCe7PArew2WExipdDYYkQrzoGgLbBAuT8oqQxLTSmCmVg
-         ZU6xtTj7P2TXsX4xX+KCkNLNID5LKalGya4RUEpeRbcztzmkTu1CSwiJ5DbwJAF8bwCI
-         yfww==
-X-Forwarded-Encrypted: i=1; AJvYcCWYjFTJQoy3w7yB1fIokmtd1v68DAFvdkUagV8/qdLgL3VVLYRNr8Vo9Cp0uCo3NB4VWdbyhy29y/M1Oh6Xtv1/@lists.infradead.org
-X-Gm-Message-State: AOJu0YyShzVcBWlLUcbukRbDPIu2c/mjFZlniZrLl3tWNNBK8hCELpdB
-	3EahWkYwhkvG6/hTZw2u58V49eFNsX+AlfqYq9VUIhSJQdzIg9jfAEmq2oCheeZL5v2XJYbyhrR
-	E
-X-Gm-Gg: ASbGncs56xXDXXzSl8CqMElLocL4eOMkybzOJ7xmfMxwDan2xvZJy/e024HWZZNnnF+
-	qCUEbJlMsJS4js71Inr5N1s/IdJuWeWrNSF6BZHdFmoK2Dlu4NMZit8TIhK/5vSA1a3olSwQRl5
-	KJrrGxQrqVjJPifJTIulg7b1jzRvtmGukaZ4JZrH7epfth1o+8w8DYWow/FDHohU8+CR2bUnbim
-	Wlf15qyHJc1fouiaV1xJZD9kF7sWo7OScB/epZEsoFAcheDkSpX9hbefhdLw1E74lqZCeDq
-X-Google-Smtp-Source: AGHT+IEgEQ10/D4X/vMFHIRsZzWMSEwp0cQc4L0bKoR1oseHYe1ipJQlzxnnAZuOmG10fkB2fgzL1g==
-X-Received: by 2002:a05:6a20:c89b:b0:1e1:aef4:9cd0 with SMTP id adf61e73a8af0-1e88d139b44mr40009862637.3.1736883360270;
-        Tue, 14 Jan 2025 11:36:00 -0800 (PST)
-Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-a317a07c769sm8491598a12.7.2025.01.14.11.35.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jan 2025 11:35:58 -0800 (PST)
-From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Tue, 14 Jan 2025 11:35:44 -0800
-Subject: [PATCH FOR-NEXT] perf tools: Expose quiet/verbose variables in
- Makefile.perf
+        d=1e100.net; s=20230601; t=1736883819; x=1737488619;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=1gPjOfJWBv7udEX42R/lPZwZsVT3ZK5coiNp2Efpmis=;
+        b=h5u15btV7SLpHdXOPig2gh3+Y8WU/VPJCqEajx7BHSerbM0W5YodW4BmC6gdcQN3z1
+         Udg3s+wGzpuYlVipL9pkD6k2ed1zMPvLb3nWYYtdPulYMKJZflWQMvUjnKJbsHCl0qNQ
+         HAgSescaBOO1JGVEaaQePwaWIpY/fQKfcXw5cI7Ah+Fipb3j/je+uS9DwI5jIFToiLdN
+         y29Po+VS0l6tCrSMuOdYAI2WiUfDB51jhOPGUk8BGQ8yTMvbnCF974j1d5HVkozglMOF
+         t0bJHUiRsv6AxZoQnem4tqmu8Wr+2Wax5ZEtLun1V64Z6nQBWv/r4h/uy+UfS6KXbHTv
+         Ciuw==
+X-Forwarded-Encrypted: i=1; AJvYcCUIPuCOVHH+8iA7AEsWilRi9+rZEgImILSxSSFmATD6e7w2ZNofg5Q8Cyt67zNuoeQ2G+t9bGuvkY4fOTAY45yc@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywt+Vo2svS6sL0Q0JVPZo/XnyVdn3Q9ZLKoZkU1gF6la9IHFL4x
+	1aQmih84ssHBGCtZlgCZy2dgmAWxLn5hz6B6thDYDiIKKRmftvvrDV9c2BOKNpyJCuVz8iFzbpl
+	3jllWNM1PJQNiM4kWa+sWEb7Ih9w=
+X-Gm-Gg: ASbGnct0jGahmYTPT3Fo2LpKfOLKivUJdYJbVUplqisjmzUj3X2zVFwQnsGLb3jxEG7
+	y5CqNNoPLDHeHEqQ7Pbsg4mI7k2zqEv0jMZs1O1TS
+X-Google-Smtp-Source: AGHT+IE4RbVs71/smgDj/TU9UMPWxR9g62d8TumLSWo8W/n9+Z0nM2yXhOXr7N7e9uaINKsYnz0zeibsE5WgKYib+Ro=
+X-Received: by 2002:a17:907:9410:b0:aae:8495:e064 with SMTP id
+ a640c23a62f3a-ab2abc78b52mr2090164566b.40.1736883818809; Tue, 14 Jan 2025
+ 11:43:38 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250114-perf_make_test-v1-1-decc1c517b11@rivosinc.com>
-X-B4-Tracking: v=1; b=H4sIAI+8hmcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1MDQ0MT3YLUorT43MTs1PiS1OISXaCQYYpJYoqFhbm5ElBTQVFqWmYF2MB
- oJTf/IF0/14gQpdjaWgCHfi1magAAAA==
-X-Change-ID: 20250114-perf_make_test-1141d4ad8877
-To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>
-Cc: linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
- Arnaldo Carvalho de Melo <acme@redhat.com>, 
- Charlie Jenkins <charlie@rivosinc.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4609; i=charlie@rivosinc.com;
- h=from:subject:message-id; bh=O+yA0BcFooderA43nycapEcPhnF2b5ugZ03N5RSt6H4=;
- b=owGbwMvMwCHWx5hUnlvL8Y3xtFoSQ3rbnqnejl0F6ecsvs39q3Ts5bNnu7cvFnvp+oZNc4vm5
- V7n/u8nOkpZGMQ4GGTFFFl4rjUwt97RLzsqWjYBZg4rE8gQBi5OAZjI7Y0M/33Xrl5X5eh0cIFq
- UJt83mrJvXmVV1i51kZYiin3vmNZvZORYcvzKPOOdemOtbvtu16f1bfbHZ4exGB+qGziPcb3O/P
- imQE=
-X-Developer-Key: i=charlie@rivosinc.com; a=openpgp;
- fpr=7D834FF11B1D8387E61C776FFB10D1F27D6B1354
+References: <20250113-b4-imx-gpio-base-warning-v1-0-0a28731a5cf6@pengutronix.de>
+ <CAHp75Ve8d96Uw1obJVwRPyRE5E0eC8qU7uXe-UKuZeB-3XLPcA@mail.gmail.com> <528b6695-387e-436d-98fc-6f576636d16f@pengutronix.de>
+In-Reply-To: <528b6695-387e-436d-98fc-6f576636d16f@pengutronix.de>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Tue, 14 Jan 2025 21:43:02 +0200
+X-Gm-Features: AbW1kvZ6R2e3yRjumlny6gUuJSkRGD__NmZWUskaVnb9oMxLZs0nWXPBoBuMPXA
+Message-ID: <CAHp75VfOhAmkpB_nhQE8m25p=3P2wvTfOnQFEsLR5KEktLy4vQ@mail.gmail.com>
+Subject: Re: [PATCH 0/4] gpio: mxc: silence warning about GPIO base being
+ statically allocated
+To: Ahmad Fatoum <a.fatoum@pengutronix.de>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, 
+	Andy Whitcroft <apw@canonical.com>, Joe Perches <joe@perches.com>, 
+	Dwaipayan Ray <dwaipayanray1@gmail.com>, Lukas Bulwahn <lukas.bulwahn@gmail.com>, 
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>, Haibo Chen <haibo.chen@nxp.com>, 
+	Catalin Popescu <catalin.popescu@leica-geosystems.com>, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_193603_692750_1AF368EB 
-X-CRM114-Status: GOOD (  13.11  )
+X-CRM114-CacheID: sfid-20250114_194343_127291_917F9620 
+X-CRM114-Status: GOOD (  23.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,137 +117,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The variables to make builds silent/verbose live inside
-tools/build/Makefile.build. Move those variables to the top-level
-Makefile.perf to be generally available.
+On Tue, Jan 14, 2025 at 11:55=E2=80=AFAM Ahmad Fatoum <a.fatoum@pengutronix=
+.de> wrote:
+> On 14.01.25 10:46, Andy Shevchenko wrote:
+> > On Tue, Jan 14, 2025 at 12:19=E2=80=AFAM Ahmad Fatoum <a.fatoum@pengutr=
+onix.de> wrote:
+> >>
+> >> The i.MX GPIO driver has had deterministic numbering for the GPIOs
+> >> for more than 12 years.
+> >>
+> >> Reverting this to dynamically numbered will break existing setups in t=
+he
+> >> worst manner possible: The build will succeed, the kernel will not pri=
+nt
+> >> warnings, but users will find their devices essentially toggling GPIOs
+> >> at random with the potential of permanent damage. We thus want to keep
+> >> the numbering as-is until the SysFS API is removed and script fail
+> >> instead of toggling GPIOs dependent on probe order.
+> >
+> > While I understand the issue this tends to get never fixed until the
+> > entire support of iMX boards will be dropped.
+>
+> i.MX is an actively developed and widely used platform. Why should suppor=
+t
+> be dropped?
 
-Committer testing:
+Exactly, Which means "tend to get never fixed".
 
-See the SYSCALL lines, now they are consistent with the other
-operations in other lines:
-  SYSTBL  /tmp/build/perf-tools-next/arch/x86/include/generated/asm/syscalls_32.h
-  SYSTBL  /tmp/build/perf-tools-next/arch/x86/include/generated/asm/syscalls_64.h
-  GEN     /tmp/build/perf-tools-next/common-cmds.h
-  GEN     /tmp/build/perf-tools-next/arch/arm64/include/generated/asm/sysreg-defs.h
-  PERF_VERSION = 6.13.rc2.g3d94bb6ed1d0
-  GEN     perf-archive
-  MKDIR   /tmp/build/perf-tools-next/jvmti/
-  MKDIR   /tmp/build/perf-tools-next/jvmti/
-  MKDIR   /tmp/build/perf-tools-next/jvmti/
-  MKDIR   /tmp/build/perf-tools-next/jvmti/
-  GEN     perf-iostat
-  CC      /tmp/build/perf-tools-next/jvmti/libjvmti.o
+> > Personally I do not like
+> > this series at all. Rather let's try to go the hard way and understand
+> > what's going on to fix the current issues.
+>
+> /sys/class/gpio is deprecated and when it is finally removed, this series=
+ can
+> be reverted again. The alternatives are either do nothing and live with 6=
+ kernel
+> warnings cluttering every boot or show users the finger as described in
+> the cover letter.
+>
+> Do you see a different path forward?
 
-Reported-by: Arnaldo Carvalho de Melo <acme@redhat.com>
-Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-Tested-by: Arnaldo Carvalho de Melo <acme@redhat.com>
----
- tools/build/Makefile.build                | 20 -----------------
- tools/perf/Makefile.perf                  | 37 ++++++++++++++++++++++++++++++-
- tools/perf/tests/shell/coresight/Makefile |  2 +-
- 3 files changed, 37 insertions(+), 22 deletions(-)
+Yes, try to write your scripts based on the libgpiod or the tools
+provided by the project. I.o.w. follow the warning that SYSFS will be
+removed at some point and prepare yourself for that. If some kernel
+work needs to be done, contribute.
 
-diff --git a/tools/build/Makefile.build b/tools/build/Makefile.build
-index 5fb3fb3d97e0fd114e245805809e4fc926b4343e..e710ed67a1b49d9fda11db02821bbd8d36066b44 100644
---- a/tools/build/Makefile.build
-+++ b/tools/build/Makefile.build
-@@ -12,26 +12,6 @@
- PHONY := __build
- __build:
- 
--ifeq ($(V),1)
--  quiet =
--  Q =
--else
--  quiet=quiet_
--  Q=@
--endif
--
--# If the user is running make -s (silent mode), suppress echoing of commands
--# make-4.0 (and later) keep single letter options in the 1st word of MAKEFLAGS.
--ifeq ($(filter 3.%,$(MAKE_VERSION)),)
--short-opts := $(firstword -$(MAKEFLAGS))
--else
--short-opts := $(filter-out --%,$(MAKEFLAGS))
--endif
--
--ifneq ($(findstring s,$(short-opts)),)
--  quiet=silent_
--endif
--
- build-dir := $(srctree)/tools/build
- 
- # Define $(fixdep) for dep-cmd function
-diff --git a/tools/perf/Makefile.perf b/tools/perf/Makefile.perf
-index a449d0015536442273a9268b37be34e4757f577a..55d6ce9ea52fb2a57b8632cc6d0ddc501e29cbfc 100644
---- a/tools/perf/Makefile.perf
-+++ b/tools/perf/Makefile.perf
-@@ -161,12 +161,47 @@ export VPATH
- SOURCE := $(shell ln -sf $(srctree)/tools/perf $(OUTPUT)/source)
- endif
- 
-+# Beautify output
-+# ---------------------------------------------------------------------------
-+#
-+# Most of build commands in Kbuild start with "cmd_". You can optionally define
-+# "quiet_cmd_*". If defined, the short log is printed. Otherwise, no log from
-+# that command is printed by default.
-+#
-+# e.g.)
-+#    quiet_cmd_depmod = DEPMOD  $(MODLIB)
-+#          cmd_depmod = $(srctree)/scripts/depmod.sh $(DEPMOD) $(KERNELRELEASE)
-+#
-+# A simple variant is to prefix commands with $(Q) - that's useful
-+# for commands that shall be hidden in non-verbose mode.
-+#
-+#    $(Q)$(MAKE) $(build)=scripts/basic
-+#
-+# To put more focus on warnings, be less verbose as default
-+# Use 'make V=1' to see the full commands
-+
- ifeq ($(V),1)
-+  quiet =
-   Q =
- else
--  Q = @
-+  quiet=quiet_
-+  Q=@
- endif
- 
-+# If the user is running make -s (silent mode), suppress echoing of commands
-+# make-4.0 (and later) keep single letter options in the 1st word of MAKEFLAGS.
-+ifeq ($(filter 3.%,$(MAKE_VERSION)),)
-+short-opts := $(firstword -$(MAKEFLAGS))
-+else
-+short-opts := $(filter-out --%,$(MAKEFLAGS))
-+endif
-+
-+ifneq ($(findstring s,$(short-opts)),)
-+  quiet=silent_
-+endif
-+
-+export quiet Q
-+
- # Do not use make's built-in rules
- # (this improves performance and avoids hard-to-debug behaviour);
- MAKEFLAGS += -r
-diff --git a/tools/perf/tests/shell/coresight/Makefile b/tools/perf/tests/shell/coresight/Makefile
-index b070e779703e9fbd70f88c826172b2150ee3d302..fa08fd9a5991dd889583edc1afe8304e72278f64 100644
---- a/tools/perf/tests/shell/coresight/Makefile
-+++ b/tools/perf/tests/shell/coresight/Makefile
-@@ -24,6 +24,6 @@ CLEANDIRS = $(SUBDIRS:%=clean-%)
- 
- clean: $(CLEANDIRS)
- $(CLEANDIRS):
--	$(call QUIET_CLEAN, test-$(@:clean-%=%)) $(Q)$(MAKE) -C $(@:clean-%=%) clean >/dev/null
-+	$(call QUIET_CLEAN, test-$(@:clean-%=%)) $(MAKE) -C $(@:clean-%=%) clean >/dev/null
- 
- .PHONY: all clean $(SUBDIRS) $(CLEANDIRS) $(INSTALLDIRS)
-
----
-base-commit: e9cbc854d8b148e3491291fb615e94261970fb54
-change-id: 20250114-perf_make_test-1141d4ad8877
--- 
-- Charlie
-
+--=20
+With Best Regards,
+Andy Shevchenko
 
