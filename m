@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31A1FE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 14:05:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB8B3E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 14:06:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vaEBlUj0H2VP7EkKYD/BnxmzWZrwL5pRUBoloZUThy4=; b=H9IaXAMdPp+dYpWBN2QNHBRarJ
-	U1RtXX7+GiP81Efxd6fxFV5Dfy19RZy+ats2gUd2HzN4ebmJCNQHQFZoCpb35O/EPICH2vf1LkqBJ
-	DWhlLCoawuOUL1w80nHsiBhxVwNTJTyWr1KQ7taTP03ofx8fl3ij5JcKQOUuRvmMyl6QP2Dd49tbY
-	t/+Vzd9ANB8f8C/8W3or4YY2Tc0CEG8EBwIjkc58fYhJiRbrA7HDUwyp1gVV+tUm5mKr4FVzijXKb
-	46Vi+MTvlhfLMEzrlhnHFffjHFdbzmb1ZMVd6z78T8LMuEkckIaIsYy/E63lBtr8vuVG73JhDGAsS
-	eNTp/ZKw==;
+	bh=weR9Z/CkPANR3PvdWqGOb/Y+LHB/KJHILnKwZHgGiFY=; b=oKJBcgBwCge468AOnpIyJCJgKi
+	WEYrp6rS5E/bWl8U7xu/nUaabfzdgI47TkbML8f3OdDesiDOUz20tYvf9bDO9qpj7g1f/l81+jAch
+	UDw4+RnwGj6JHY5vVesS1QcH5Wse2DZhwb29zgV3duRl79Vkez4O1JU4hmI5BSma9HWot4UFvFPuk
+	yLeb7AzOgJ4Vps0d0MsJpZhrmiLZzCJDhFuYy8eSfrsk6d6AS0sEdWsavhIXqh3raMRrD1twVOSsh
+	00ii9arXPhzzHAnYDFSUala6Q0IcVrzU2V7pAgob+yK+fdhBfUx0M33staJj1+7hKFOvCUKHICnqm
+	N0JFKZ0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXhXS-00000008b6a-3Frb;
-	Tue, 14 Jan 2025 14:05:02 +0000
+	id 1tXhYf-00000008bNj-1mfA;
+	Tue, 14 Jan 2025 14:06:17 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXhV3-00000008aZ1-34Hh
+	id 1tXhV8-00000008aZt-1bse
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 14:02:34 +0000
+	Tue, 14 Jan 2025 14:02:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=vaEBlUj0H2VP7EkKYD/BnxmzWZrwL5pRUBoloZUThy4=; b=hMYYUPUzpr+pwh+DjtycjF1/0w
-	NTyUDBSrBz3gJBGBbnZKDzFIYm3nf7VSLpQSQm/pguT/pSXYINxi+fRrBWB1PG7DaJrGLGudGn71c
-	sSHai4eR08ja1xPXXbZ1UZsov9ntvyXSm/cPw4xNVj3JmVcWb8YiQqvmrN1SlmBl9UbU0FVsftQ4Q
-	XlzaETh6b0cug5Cjo8vwpbly8axZ8rA52dHjSM/jynION9dr2cK1tt5nfu8YY2MghNdIatL2GZEjU
-	IP9KrfbwmRA62Jo6mumO1z4oesG7Q1vF9/ZQ0Sz18IorGPtyQO1TTm/9IzsPhQlV+CSE5N86jikK9
-	dPlmsH6w==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:47348 helo=rmk-PC.armlinux.org.uk)
+	bh=weR9Z/CkPANR3PvdWqGOb/Y+LHB/KJHILnKwZHgGiFY=; b=o+QpDAP0WotUoCL8yFI3LC8G3h
+	jkS3MNa5T4t2kW/SOVBqW0gLol0D7RdET1C9AIo/nB8TFr36CAKZATGINKL91e1kRYHm7Ib/dj/n3
+	CEGIfQWBSupPmCCfKeqPXT7RlBGjehGhDAsJ8+3JnokrOTEOrabMkXf8s0pmuQmoX9/LuLttUD+jE
+	CuOAluaO9oo9rC4owCdT3zcUivSjc5fHQz+xSzh4AH0nPU2Aph4F9440uqAVPW/XtoZMpKFOcwzUY
+	HPVkedwp+DL3Gt/2JmTGkvCAI70xxPQHLIUPgI7bzJ/3770WQ3Kb6/PVjmuEkWYmnmzHupD5vDh9Q
+	+5Op+uQA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:52318 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tXhUy-00088x-0p;
-	Tue, 14 Jan 2025 14:02:28 +0000
+	id 1tXhV3-00089E-0w;
+	Tue, 14 Jan 2025 14:02:33 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tXhUf-000n0M-3N; Tue, 14 Jan 2025 14:02:09 +0000
+	id 1tXhUk-000n0S-6y; Tue, 14 Jan 2025 14:02:14 +0000
 In-Reply-To: <Z4ZtoeeHIXPucjUv@shell.armlinux.org.uk>
 References: <Z4ZtoeeHIXPucjUv@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -68,17 +68,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Simon Horman <horms@kernel.org>,
 	UNGLinuxDriver@microchip.com,
 	Vladimir Oltean <olteanv@gmail.com>
-Subject: [PATCH RFC net-next 02/10] net: phy: add support for querying PHY
- clock stop capability
+Subject: [PATCH RFC net-next 03/10] net: phylink: add phylink_link_is_up()
+ helper
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tXhUf-000n0M-3N@rmk-PC.armlinux.org.uk>
-Date: Tue, 14 Jan 2025 14:02:09 +0000
+Message-Id: <E1tXhUk-000n0S-6y@rmk-PC.armlinux.org.uk>
+Date: Tue, 14 Jan 2025 14:02:14 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_060233_767148_226BD8EA 
-X-CRM114-Status: GOOD (  12.46  )
+X-CRM114-CacheID: sfid-20250114_060238_419009_CFA1370F 
+X-CRM114-Status: GOOD (  10.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,61 +93,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for querying whether the PHY allows the transmit xMII clock
-to be stopped while in LPI mode. This will be used by phylink to pass
-to the MAC driver so it can configure the generation of the xMII clock
-appropriately.
+Add a helper to determine whether the link is up or down. Currently
+this is only used in one location, but becomes necessary to test
+when reconfiguring EEE.
 
 Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/phy/phy.c | 20 ++++++++++++++++++++
- include/linux/phy.h   |  1 +
- 2 files changed, 21 insertions(+)
+ drivers/net/phy/phylink.c | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/net/phy/phy.c b/drivers/net/phy/phy.c
-index a4b9fcc2503a..caf472b5d4e5 100644
---- a/drivers/net/phy/phy.c
-+++ b/drivers/net/phy/phy.c
-@@ -1640,6 +1640,26 @@ void phy_mac_interrupt(struct phy_device *phydev)
+diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
+index 31754d5fd659..e3fc1d1be1ed 100644
+--- a/drivers/net/phy/phylink.c
++++ b/drivers/net/phy/phylink.c
+@@ -1641,20 +1641,21 @@ static void phylink_link_down(struct phylink *pl)
+ 	phylink_info(pl, "Link is Down\n");
  }
- EXPORT_SYMBOL(phy_mac_interrupt);
  
-+/**
-+ * phy_eee_tx_clock_stop_capable() - indicate whether the MAC can stop tx clock
-+ * @phydev: target phy_device struct
-+ *
-+ * Indicate whether the MAC can disable the transmit xMII clock while in LPI
-+ * state. Returns 1 if the MAC may stop the transmit clock, 0 if the MAC must
-+ * not stop the transmit clock, or negative error.
-+ */
-+int phy_eee_tx_clock_stop_capable(struct phy_device *phydev)
++static bool phylink_link_is_up(struct phylink *pl)
 +{
-+	int stat1;
-+
-+	stat1 = phy_read_mmd(phydev, MDIO_MMD_PCS, MDIO_STAT1);
-+	if (stat1 < 0)
-+		return stat1;
-+
-+	return !!(stat1 & MDIO_PCS_STAT1_CLKSTOP_CAP);
++	return pl->netdev ? netif_carrier_ok(pl->netdev) : pl->old_link_state;
 +}
-+EXPORT_SYMBOL_GPL(phy_eee_tx_clock_stop_capable);
 +
- /**
-  * phy_eee_rx_clock_stop() - configure PHY receive clock in LPI
-  * @phydev: target phy_device struct
-diff --git a/include/linux/phy.h b/include/linux/phy.h
-index 4875465653ca..c0b8293e0ac0 100644
---- a/include/linux/phy.h
-+++ b/include/linux/phy.h
-@@ -2096,6 +2096,7 @@ int phy_unregister_fixup(const char *bus_id, u32 phy_uid, u32 phy_uid_mask);
- int phy_unregister_fixup_for_id(const char *bus_id);
- int phy_unregister_fixup_for_uid(u32 phy_uid, u32 phy_uid_mask);
+ static void phylink_resolve(struct work_struct *w)
+ {
+ 	struct phylink *pl = container_of(w, struct phylink, resolve);
+ 	struct phylink_link_state link_state;
+-	struct net_device *ndev = pl->netdev;
+ 	bool mac_config = false;
+ 	bool retrigger = false;
+ 	bool cur_link_state;
  
-+int phy_eee_tx_clock_stop_capable(struct phy_device *phydev);
- int phy_eee_rx_clock_stop(struct phy_device *phydev, bool clk_stop_enable);
- int phy_init_eee(struct phy_device *phydev, bool clk_stop_enable);
- int phy_get_eee_err(struct phy_device *phydev);
+ 	mutex_lock(&pl->state_mutex);
+-	if (pl->netdev)
+-		cur_link_state = netif_carrier_ok(ndev);
+-	else
+-		cur_link_state = pl->old_link_state;
++	cur_link_state = phylink_link_is_up(pl);
+ 
+ 	if (pl->phylink_disable_state) {
+ 		pl->link_failed = false;
 -- 
 2.30.2
 
