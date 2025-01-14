@@ -4,87 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5048E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 10:59:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20852E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 11:01:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6mH6fSABIQjQfrOs63h7SZKqORCSvRUauMFwjb1MJz8=; b=O3jztFsKiJu14Q3y/1VIcN6tmj
-	pZC9C4cMt0ZR4YACXAIyCv/s6vpR2dulHe+tzehYkYmW0QjZDZsxvT+l/7cQ8YO8n8napxiErZL58
-	yQM7xWDUlJryvZj1/quB8CUoywYx9VD7vwD/IY8tWn6cz5ePgyzQ3HyWrZ7VP+SBQFUxy8DGCY81T
-	3rvjob01kaod95s+Jb5haSrrAjMoDQlTVfHVhVa8PtIZifYjD4El7RpaAWnakNmolEUvm3zZzQYQ8
-	sRzeCf4fUaeYh5owBlQZoOC5Pauy3eDKOMhUqe3ilG+gl7UmhZnDiUJwR6nxlRaJg5/nUdppyueSW
-	I5t5I3aA==;
+	bh=4rykRosxrDs/XntXu5KrgDY2INQy7eN85k18sGRgzP0=; b=dWwpqwhlLLP77nrZ/BXc1x3Sik
+	Wtl4z8HEYA+vkTeYUZdJ8kRadA7SWZLnTlzpwDcztsNbbJzH6qL+fgAolQ5VFjpU/FBUVvhqHZJOi
+	D7Ip5yAFYiZlyjrq5kmCeHylOqJzFv2nqiSoHdulfKhfFb3Sx5MHrJuJ3ItZ7VbHguqemSHGXL8Xq
+	FD26NLBgUmvWalYhAye039ej+lah+hlID3n8SipHp395KTYnoDCxq+5Tru0WvES4Zbp2Vcy/L4tI+
+	0FcOOHYrPndVJApxu8NBI59MvReIPJfCz7EXf+DPNBdPiSS8CWsMzlqfH6sABVuYOjbhRjtxqhlZB
+	ILrMfHVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXedx-00000008BKK-05NJ;
-	Tue, 14 Jan 2025 10:59:33 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1tXefA-00000008BZo-2hZ7;
+	Tue, 14 Jan 2025 11:00:48 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXeaU-00000008Ac5-2N3U
+	id 1tXeat-00000008AjA-0SWX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 10:55:59 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-aa67bc91f87so82685566b.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 02:55:58 -0800 (PST)
+	Tue, 14 Jan 2025 10:56:24 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-5d3cd821c60so964257a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 02:56:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736852157; x=1737456957; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1736852181; x=1737456981; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=6mH6fSABIQjQfrOs63h7SZKqORCSvRUauMFwjb1MJz8=;
-        b=YtJvxRD/ztRVDKX8C6hSd4C3aqyg3DCHPAGyfwmtMVN/0d9ailCfcTsC9GQ50Z286f
-         9i88pwWZjsKXTEz/KkRfcv7/x81KmbatQsMqX/wxbLWKN96Otmykn2bbvjIblzEdCxXX
-         Ur2e8MyBqbfp4g1+Tmteh2yxR0Xgy1bEWuC3L1RvEniIPG+2+Lx6FJB97gGd5iIGnhmy
-         DKNHEjkXuBeWqw2oCtEqXCQpYoaxJ2ZRfdxbS5DIIoYYL+Lo2gTn2QrF97wuGEv52Vqx
-         yhsA/Tafk0OZiIQKInlWev1DcWnGVRFrFrkqXYBasfcX7w2aEi6bPjfxpeFZlpe+i27Q
-         3B2Q==
+        bh=4rykRosxrDs/XntXu5KrgDY2INQy7eN85k18sGRgzP0=;
+        b=fNqzm53ZIhZ3bcHu6+gXccXHIipnAhvyBP6WekhYqUS9BITRETwt0jSW13vrmTWM3w
+         3W+KGAZL68kkYfsVv2xD6130+KJ5y3FxMMeRWRxJ7p6SZ7exXK9APUkERs0PUdjPvXuR
+         ddkTJD/DbbYTBtTwNfMy8U4jIDMWKXs/pi7ZhhJLRgc60Ni+XoTzJJPf7SC+oR/C9sGB
+         en/NdXfF2GofX+Lm6I6obZJkD4zyeWuNCrsFpgoHmYf54k975EBKXtwkrWsFLrqwO5ex
+         QXWcgDq/WBSeqKiI14LRNkDmlh8H0BfW63yE7NTNhCmr7EnX4k0J1cYPXxCP0m8oPV64
+         Su8g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736852157; x=1737456957;
+        d=1e100.net; s=20230601; t=1736852181; x=1737456981;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=6mH6fSABIQjQfrOs63h7SZKqORCSvRUauMFwjb1MJz8=;
-        b=b3bn9jg9dQ9OWBl7qsvVtpUA7HIdw699wobMNkNY/4BtG989woaT/AUDSX/6DrWuO3
-         oEXFh6wTC+gjNVkMvAKznHVxDadWS32fAzylVlISX0CgM872YSzkKoNhF/So+GpgLTHx
-         nos9Kk34ygOHaSt2lgPADBqdDy16bhOrF6eofoQprch8NujURWPNBQkigO3Q6FBCvrau
-         H1uJRy7pbXmDd9M2wDJVTn6PHFNU0E1PF9jryHHRBiunaYR8PwDj3l+Tx5JkUVeiYthq
-         df+LkPkMJQ8aQTssbzgysU/iqhKds9hnl9jc/wnfA1CCODL5UmWK+kKH4SyfKAgA3JIB
-         oKgQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXwsv8a4g7t9cLFqHJolM9plgK7hvZju9fqTNQ1YNFi1+iCeb/2NVROadZw3pqq2GdCBb2hrrHzHfXdPO/VZxwg@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/PVVCoaEwXAK8pC5i1L+89Z+4gJOTcZhB020rQOXaL0Z3g2kY
-	/qp5TJ/mY/o5oqaAF93qm77FO9RcrtQu8hYNA+2o+Zdaf0E4p9hQxyPAWHCThGg=
-X-Gm-Gg: ASbGnctwFakyzpRT9+nnSrZx16jRZ1g2PUR9oSkhVn+des7K7qPmGZ1xpqingHTiJNc
-	sSWfwO39eBRFDn5c4nag0ffNCAltrjASnGdbfZ++0g15/tG9ZiTvVE8qibTqM8FLjGZFFmVTMUn
-	JqJXvSbY9NJtGc5SZZYGtJv499UBiZPXUbx6y/a6KhAtmZ5oxPPfWwn8qsppv3Fwh0JSDqm1Lj/
-	k69t3PAjJViJF/zLvB4rTuUmnpMOkNnTK8JE3SUuUPTrPZM8pyKSM06eApvgK8ov+q39l0=
-X-Google-Smtp-Source: AGHT+IHbCyEQI2NTIiulDjFObPlITRIekk3IlqsgCYsJ1jdC7IGpxwnbidGWvk7wts9bxMRn/G9I1g==
-X-Received: by 2002:a17:907:72c7:b0:a9e:c430:713d with SMTP id a640c23a62f3a-ab2aa3fc05cmr848583766b.0.1736852156861;
-        Tue, 14 Jan 2025 02:55:56 -0800 (PST)
+        bh=4rykRosxrDs/XntXu5KrgDY2INQy7eN85k18sGRgzP0=;
+        b=mxUDbo9l9tSh/mG/yXUrVtUdwIIKJmlygd5H4RfXsGa3VnWRM4/UY0AqMNSsBKiXFN
+         lYIklNbNqjH/W9i+sdT0eLhbm/TsFSu/BvPtlUdmM4F/XC9gLaUENQrYBbmpOdnHsYyE
+         +SO8uSdOTfPm8o4YmVnMqMc9xu+5DYT56FzDaUkVX3UlBUxDZ4uL2i7uzOGjkxPV7dHt
+         PhPujpl1QDkZIGngmORe9jzI5g8+LMNfP+Rs4cIFfp9zpqjKIwj8T1aHFEP906zaDVYK
+         rUgXd2P1KU4bBA1hcjYyy0BtP6yU7E7HZ+N4k3IpQgIbUl5FTtttsRhffA/0LaClNmUW
+         C9CA==
+X-Forwarded-Encrypted: i=1; AJvYcCXcyNc6KGIpbbYeRndN8YzJbfEld3jd5pPpkdjT7N+UaOOkjcATfVvUOwy9b1YDoBtbmKXap6VLbwI2o+XAtZo7@lists.infradead.org
+X-Gm-Message-State: AOJu0YxmKhmuBTjaoeMiNlGWVFfdreX+4BFGgab0ZxLxOK/HmZymmnkZ
+	TwixlqVHgot52aKSBljdIewMtR1GjM4BHz1zBwdm6wDXGLE6Dz4A6/fD27t4LrA=
+X-Gm-Gg: ASbGncu6sQV7ylX/Iim8bEbJCqQUjRfWNoxlDnFsXIXPrH6xD6OPdk9zNA3FTqO9nhE
+	4Y9qj7qRX5TF7rFIlS2mpwEM+2ekqqWEuuqVy5xg0aIQ/2j+Nl3NRwtGGxp72RyVd2Bqm4LLJBI
+	ND8tiEuKii6zotdXxTctjr0t+M+2I9WD6oyl8kQfLfOA0qVhId8Bhdy2k5Z98Uen61//GrOwgEp
+	Bl3A3WTuCp1Zr4rfTVDQIno0G4IVo38G/hp7hmkQxVZVDlXhDD9NnpELIh7ufhVTBX/2rU=
+X-Google-Smtp-Source: AGHT+IFVeBR38XvGrfM1ABZ8o3cSy39ubNwiQmJTMlI/28V9aP4xs9GINfaB9e0nRKdDsH7KYOVo0g==
+X-Received: by 2002:a05:6402:1f4c:b0:5d3:fdf5:4b28 with SMTP id 4fb4d7f45d1cf-5d972e88f88mr8233931a12.10.1736852181413;
+        Tue, 14 Jan 2025 02:56:21 -0800 (PST)
 Received: from krzk-bin.. ([178.197.223.165])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab2c9564848sm608081066b.125.2025.01.14.02.55.55
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d9904a40e8sm6118257a12.76.2025.01.14.02.56.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jan 2025 02:55:56 -0800 (PST)
+        Tue, 14 Jan 2025 02:56:20 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Doug Berger <opendmb@gmail.com>,
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
 	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
 	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
 	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	linux-gpio@vger.kernel.org,
+	Bjorn Andersson <andersson@kernel.org>,
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
+	linux-arm-msm@vger.kernel.org
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH] gpio: Use str_enable_disable-like helpers
-Date: Tue, 14 Jan 2025 11:55:53 +0100
-Message-ID: <20250114105553.273085-1-krzysztof.kozlowski@linaro.org>
+Subject: [PATCH] clk: Use str_enable_disable-like helpers
+Date: Tue, 14 Jan 2025 11:56:18 +0100
+Message-ID: <20250114105618.273302-1-krzysztof.kozlowski@linaro.org>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_025558_604033_8B2137C0 
-X-CRM114-Status: GOOD (  12.49  )
+X-CRM114-CacheID: sfid-20250114_025623_150917_38BAFEDC 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,52 +115,77 @@ from string_choices.h because:
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- drivers/gpio/gpio-brcmstb.c | 3 ++-
- drivers/gpio/gpio-grgpio.c  | 3 ++-
- 2 files changed, 4 insertions(+), 2 deletions(-)
+ drivers/clk/bcm/clk-kona.c  | 3 ++-
+ drivers/clk/clk-nomadik.c   | 5 +++--
+ drivers/clk/qcom/clk-rpmh.c | 3 ++-
+ 3 files changed, 7 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/gpio/gpio-brcmstb.c b/drivers/gpio/gpio-brcmstb.c
-index 491b529d25f8..ca3472977431 100644
---- a/drivers/gpio/gpio-brcmstb.c
-+++ b/drivers/gpio/gpio-brcmstb.c
-@@ -9,6 +9,7 @@
- #include <linux/irqchip/chained_irq.h>
- #include <linux/interrupt.h>
- #include <linux/platform_device.h>
+diff --git a/drivers/clk/bcm/clk-kona.c b/drivers/clk/bcm/clk-kona.c
+index ec5749e301ba..2b0ea882f1e4 100644
+--- a/drivers/clk/bcm/clk-kona.c
++++ b/drivers/clk/bcm/clk-kona.c
+@@ -10,6 +10,7 @@
+ #include <linux/io.h>
+ #include <linux/kernel.h>
+ #include <linux/clk-provider.h>
 +#include <linux/string_choices.h>
  
- enum gio_reg_index {
- 	GIO_REG_ODEN = 0,
-@@ -224,7 +225,7 @@ static int brcmstb_gpio_priv_set_wake(struct brcmstb_gpio_priv *priv,
- 		ret = disable_irq_wake(priv->parent_wake_irq);
- 	if (ret)
- 		dev_err(&priv->pdev->dev, "failed to %s wake-up interrupt\n",
--				enable ? "enable" : "disable");
-+			str_enable_disable(enable));
+ /*
+  * "Policies" affect the frequencies of bus clocks provided by a
+@@ -502,7 +503,7 @@ static int clk_gate(struct ccu_data *ccu, const char *name,
+ 		return 0;
+ 
+ 	pr_err("%s: failed to %s gate for %s\n", __func__,
+-		enable ? "enable" : "disable", name);
++		str_enable_disable(enable), name);
+ 
+ 	return -EIO;
+ }
+diff --git a/drivers/clk/clk-nomadik.c b/drivers/clk/clk-nomadik.c
+index 06245681dac7..f3a73ac5a1b9 100644
+--- a/drivers/clk/clk-nomadik.c
++++ b/drivers/clk/clk-nomadik.c
+@@ -17,6 +17,7 @@
+ #include <linux/debugfs.h>
+ #include <linux/seq_file.h>
+ #include <linux/spinlock.h>
++#include <linux/string_choices.h>
+ #include <linux/reboot.h>
+ 
+ /*
+@@ -116,9 +117,9 @@ static void __init nomadik_src_init(void)
+ 
+ 	val = readl(src_base + SRC_XTALCR);
+ 	pr_info("SXTALO is %s\n",
+-		(val & SRC_XTALCR_SXTALDIS) ? "disabled" : "enabled");
++		str_enabled_disabled(val & SRC_XTALCR_SXTALDIS));
+ 	pr_info("MXTAL is %s\n",
+-		(val & SRC_XTALCR_MXTALSTAT) ? "enabled" : "disabled");
++		str_enabled_disabled(val & SRC_XTALCR_MXTALSTAT));
+ 	if (of_property_read_bool(np, "disable-sxtalo")) {
+ 		/* The machine uses an external oscillator circuit */
+ 		val |= SRC_XTALCR_SXTALDIS;
+diff --git a/drivers/clk/qcom/clk-rpmh.c b/drivers/clk/qcom/clk-rpmh.c
+index 18de31889525..c7675930fde1 100644
+--- a/drivers/clk/qcom/clk-rpmh.c
++++ b/drivers/clk/qcom/clk-rpmh.c
+@@ -9,6 +9,7 @@
+ #include <linux/module.h>
+ #include <linux/of.h>
+ #include <linux/platform_device.h>
++#include <linux/string_choices.h>
+ #include <soc/qcom/cmd-db.h>
+ #include <soc/qcom/rpmh.h>
+ #include <soc/qcom/tcs.h>
+@@ -206,7 +207,7 @@ static int clk_rpmh_aggregate_state_send_command(struct clk_rpmh *c,
+ 		c->state = c->valid_state_mask;
+ 
+ 	WARN(1, "clk: %s failed to %s\n", c->res_name,
+-	     enable ? "enable" : "disable");
++	     str_enable_disable(enable));
  	return ret;
  }
  
-diff --git a/drivers/gpio/gpio-grgpio.c b/drivers/gpio/gpio-grgpio.c
-index 169f33c41c59..30a0522ae735 100644
---- a/drivers/gpio/gpio-grgpio.c
-+++ b/drivers/gpio/gpio-grgpio.c
-@@ -30,6 +30,7 @@
- #include <linux/platform_device.h>
- #include <linux/slab.h>
- #include <linux/spinlock.h>
-+#include <linux/string_choices.h>
- 
- #define GRGPIO_MAX_NGPIO 32
- 
-@@ -438,7 +439,7 @@ static int grgpio_probe(struct platform_device *ofdev)
- 	}
- 
- 	dev_info(dev, "regs=0x%p, base=%d, ngpio=%d, irqs=%s\n",
--		 priv->regs, gc->base, gc->ngpio, priv->domain ? "on" : "off");
-+		 priv->regs, gc->base, gc->ngpio, str_on_off(priv->domain));
- 
- 	return 0;
- }
 -- 
 2.43.0
 
