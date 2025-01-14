@@ -4,87 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54441C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 15:06:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BDF4E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 15:07:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r3uX9sXBfAGLVLkprPT9LjGtR+jH3MZBlHxc/29olV4=; b=U7FAEBiqH0JCI/rI/VuIwY4q2y
-	x6X2cQwe/yLnIlnoYtzVF5iOyzjzIjSVzqGK52xjCwR5uPSW2rx8UzftBFIIzQaj0PIlBITZV1qaq
-	QL2mslaWqYyWhQKjk9eVxFzvMyGAHBgvcjmPrOjUk2uycGNA2xYo4VLPVwNfCLXH52xufgTiwFX47
-	VQYIJ49uzp03HKB9LE/szoYlvgfPLoxAFN4grHOgzJEhG2hNTTlXFr5XhBjvqG1TrdXNj/R66iDMt
-	HJwKot/IaoP0kwkwSsNKxrqAXYKgpLdRElpfR7yMc9HtOD9042GDd+JeYemVPa/8nv6V7FoSRRXV4
-	3O67im/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iFUw03iAYkA2yPtETYQdaDhPmq7j8x1+kmN1DGn30Jc=; b=AMJ/UILMPEww5xJ4WwOGkmVjv6
+	Oxp5jE24JQ6GSApnthejGk9+J1gIojlQCs1D5CzMGzznC/7tpDmCR1xi/MeFiyPx30OGMt25m03Vw
+	mjUxPNd9dUShTG6Ekpx3ikGhEt4ITKeRBTmidy2uG1QEEmVDkUpWNVmEJS8Wv8xlsbSKUsPsBRfAJ
+	BfUarbk9pfk4DpyCgcfxCrfnu1pOI/gHWDua5sHIozw0lNj9l92iTzGo2Qq+W0vnp9HhYTcfbHJdy
+	zdTBuPoh1kV5ZNZGAKtYBbzdnGVuLNeMEU9Tadv0VISUfLvOyt4IERu3xb9jNWtpkdXKtnFR9vToC
+	xXNEKD0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXiUc-00000008n4V-1cxb;
-	Tue, 14 Jan 2025 15:06:10 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1tXiVp-00000008nTI-07XA;
+	Tue, 14 Jan 2025 15:07:25 +0000
+Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXiSF-00000008mXn-1AIb
+	id 1tXiSt-00000008mi5-1cfk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 15:03:44 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4361d5730caso44535e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 07:03:42 -0800 (PST)
+	Tue, 14 Jan 2025 15:04:24 +0000
+Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-3862e986d17so2199630f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 07:04:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1736867021; x=1737471821; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=r3uX9sXBfAGLVLkprPT9LjGtR+jH3MZBlHxc/29olV4=;
-        b=K76rwfqQPlgTgl/X7m6v4MUEEArxs9iIBJsqWY6ihT51Un8Sjge6vDbmYaJJMkYB21
-         dj+e/isq73mmSGPfy1k4LOUjVyLvA5foNkmf6MjuyFVJoUtm2RTNEV3R6zp7L9p8+rxV
-         R7R6GeiwUhnoQzv1GeIGPjfoM4cJMwMVSIaSti26os+rti5oXDkLR/7RcWcsvLnbl7Fg
-         T72GNNhE1Ja1MlQgJOeI6vSmwuhZVSJx4+SZbX0zpLGFw3plv1MoqeldM7WNyul2ZQEv
-         CYXs2m+Yu8KY2vSNWvkXzPwKvT1wUy0DGrF08WQrfd0iLOuloKLuTLCscF5JcRofCIcJ
-         EDlw==
+        d=google.com; s=20230601; t=1736867061; x=1737471861; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=iFUw03iAYkA2yPtETYQdaDhPmq7j8x1+kmN1DGn30Jc=;
+        b=RYxDYeCfOdYq5HiBRJ0zfA4CTYFAuDxmBmdIxKZNAxWHxn6EHkO1Ehv7/4aJrFUiXK
+         3p7PadAj53T9u/qfM86ySTySYhwHO7jeHa9j89HOFf4F+puTo8aBtwFoCAJ+BwONeIpl
+         lmXvCZerB2/XejuEWus77UqGr4+0SxYlgZSbjsxnPQZhRZZaiXezlbyxILwnM05xP2EN
+         HajPqXp1BUf0LSinPcX5Ekv3WSnGFyh3V1HFnCjBUuQ4VdChoNkimMZqlssUVLw2iC3A
+         wEaAzDyVZp2saNpzZ+5iMWszlQD2bfiuwgwqtxGj1lNnjyoThm6TAQwfHtwtOb47E4gh
+         rFJA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736867021; x=1737471821;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=r3uX9sXBfAGLVLkprPT9LjGtR+jH3MZBlHxc/29olV4=;
-        b=lEnPpoE2v5EkpI9xCg4jVpkJTjDhGqrsk0YUqyUC0he7AK2qudCu2v1D4vo2sR4lm2
-         86ebHz1ngwsxUj09EbhiCWyVtBj4nZIbaswMhLVHIumdbMGrTZ39HBT9vB7wTJc9QovC
-         JQbpqlRYU8a8/fAG56wgZ5gp5iPtRaUhHbBd11+8lLVaKj911c/YdqjSKfpyXyXCN16P
-         yPaoUOjfegV7ZgOaj1cf9LI53rXvOJycZQsSX5wDbb6/QfdkoclocUsbVfzrB8Smp0Yy
-         iO9gQTsHNHFWSZmxz+gB1cI8KmDFno8SWzemLs+/lgKaS9Lx+N0Go7LMBcsqWUHSjtwD
-         Vf2A==
-X-Forwarded-Encrypted: i=1; AJvYcCUTg+J++iYyIiT7idc3ZkgNrbFLQ7OnD+JpOxNiBgG2Jmt1duNHBjnUgVIYh70zKVmY+OJ63BzvTrlo8PjIp29L@lists.infradead.org
-X-Gm-Message-State: AOJu0Yythx3sPsqqkt1G7VXgTVuqRFwvRhBNvcwR1sZMUL3fQAgDxkoN
-	RCisnj3xpvOJZqJ/FwK8sX+0zJIkMM/K43keVUeGLbmuPRPLVu1oZqzPSrrHDw==
-X-Gm-Gg: ASbGnct6ZElBe4JQ2N48WJGThJ4S+EESSARlLPbl6TvMfIPIOoi8S+tUU/83R3rNVFz
-	+dtIPUJN6tDpFUg1/4yLf63Yb+ShgWgf4TUX+B2EH8X0Aag3IsJ7UF/7/z4lWgMD8GBYZDDcLj8
-	DIIkZsRtFCqqIxvlEgC2fxw9lPCCrdK+BcdER57r1T80PXvuCinMBSP+7Y+Qv2hOEQtF2F9RC2I
-	A/2EROoVJLnCV0coAJYWV8KhCxJ7punstlKdz/MeW/YcEdcJh0vnTo3m/xjBY3J0ILaArQPw55K
-	GE4MmpWNORgXUFB9MpemUsfs
-X-Google-Smtp-Source: AGHT+IGYqkoeO9rhW5ofYX5hkCQ3axs1adHzVPrXSPhBirum2F1DdwApMWgQvcwBhmV8s97iNigOAw==
-X-Received: by 2002:a05:600c:22d4:b0:434:9fac:3408 with SMTP id 5b1f17b1804b1-4376cbbdea5mr1143785e9.2.1736867020368;
-        Tue, 14 Jan 2025 07:03:40 -0800 (PST)
-Received: from google.com (47.246.140.34.bc.googleusercontent.com. [34.140.246.47])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a8e37d2f5sm15218121f8f.17.2025.01.14.07.03.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jan 2025 07:03:39 -0800 (PST)
-Date: Tue, 14 Jan 2025 15:03:37 +0000
+        d=1e100.net; s=20230601; t=1736867061; x=1737471861;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=iFUw03iAYkA2yPtETYQdaDhPmq7j8x1+kmN1DGn30Jc=;
+        b=bsa/Y3fTXxPz3iaVoATB/TCE2XAg0WURAtNEiXasgL9IiD4A0wCWwxCOkQ8RdA1FYr
+         nNz6NeobBoVVOLBzGBgJzIQZ3L1VwXMfQENx3hWHdbYm02R5uz4cn71SrB8UzJSYpSVW
+         vHFAkNe40nACTTL7U6qyhb5xKFx21jb8+jl7fxaoaoR9IPOWAi4kaI5FXedC3RsRG0kV
+         fP2VtXdv6NHl6vP58p+LHY2Wis1xxtiZ+hki7gVhKnX6xNinc/UVs+SogDMIHa+qQ1/E
+         bTLzmzGZmW1zMNGsfTt5g3JQV+BJ17Awnb4+Q63kdbN64NbL/lZ/cp7lzjGYdEZKCQGO
+         QN1A==
+X-Forwarded-Encrypted: i=1; AJvYcCVw3dDuCO8bWN7e830jvRLAIsqMZjFjJNc1BcOG/g1h5IpzB2Sjo/sacu8uhPhYLbstjzgaGGtNywqehnJtLwFu@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz5n48r2T2OEJzKKItSbyXlP4CLGZpPAz4taZiqYCPo8XbO7V25
+	uVChWGbRAAPGFAoOFwVCbd3/C8UwRdd3p1zerHVdVQZZ8FNu6koQzCrIYmtBqsO5e6T9b3+wjnH
+	wEY4ot6kHWuNxvF0PldFFR4W6fw==
+X-Google-Smtp-Source: AGHT+IFpiqH515zLDuPDEl5YMg0JiAtp3YAmq0zTvt8gaVtr3+uGQ4dNXSPwKEF4OV6mX+3fdYiNTQoSKScQSyAyQUE=
+X-Received: from wmbhu19.prod.google.com ([2002:a05:600c:a293:b0:435:4bd2:1dcd])
+ (user=sebastianene job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6000:2cf:b0:385:e961:6589 with SMTP id ffacd0b85a97d-38a87303d73mr20369063f8f.20.1736867060920;
+ Tue, 14 Jan 2025 07:04:20 -0800 (PST)
+Date: Tue, 14 Jan 2025 15:04:08 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.47.1.688.g23fc6f90ad-goog
+Message-ID: <20250114150407.566762-2-sebastianene@google.com>
+Subject: [PATCH v2 1/1] KVM: arm64: Fix the upper limit of the walker range
 From: Sebastian Ene <sebastianene@google.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: catalin.marinas@arm.com, joey.gouly@arm.com, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	oliver.upton@linux.dev, suzuki.poulose@arm.com, will@kernel.org,
-	yuzenghui@huawei.com
-Subject: Re: [PATCH] KVM: arm64: Fix the upper limit of the walker range
-Message-ID: <Z4Z8yRPGwvqHpzRs@google.com>
-References: <20250114145050.563658-2-sebastianene@google.com>
- <86frllwilm.wl-maz@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86frllwilm.wl-maz@kernel.org>
+To: catalin.marinas@arm.com, joey.gouly@arm.com, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	maz@kernel.org, oliver.upton@linux.dev, sebastianene@google.com, 
+	suzuki.poulose@arm.com, will@kernel.org, yuzenghui@huawei.com
+Cc: stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_070343_321268_9DDD4A3C 
-X-CRM114-Status: GOOD (  20.73  )
+X-CRM114-CacheID: sfid-20250114_070423_420820_ECAE9BC8 
+X-CRM114-Status: GOOD (  12.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,50 +89,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 14, 2025 at 02:55:17PM +0000, Marc Zyngier wrote:
-> On Tue, 14 Jan 2025 14:50:51 +0000,
-> Sebastian Ene <sebastianene@google.com> wrote:
-> > 
-> > Prevent the walker from running into weeds when walking an
-> > entire address range.
-> > 
-> > Signed-off-by: Sebastian Ene <sebastianene@google.com>
-> > ---
-> >  arch/arm64/kvm/hyp/pgtable.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > 
-> > diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-> > index 40bd55966..2ffb5571e 100644
-> > --- a/arch/arm64/kvm/hyp/pgtable.c
-> > +++ b/arch/arm64/kvm/hyp/pgtable.c
-> > @@ -260,7 +260,7 @@ static int _kvm_pgtable_walk(struct kvm_pgtable *pgt, struct kvm_pgtable_walk_da
-> >  {
-> >  	u32 idx;
-> >  	int ret = 0;
-> > -	u64 limit = BIT(pgt->ia_bits);
-> > +	u64 limit = BIT(pgt->ia_bits) - 1;
-> >  
-> >  	if (data->addr > limit || data->end > limit)
-> >  		return -ERANGE;
-> 
-> Huh, nice catch. I guess this deserves a
-> 
-> Fixes: b1e57de62cfb4 ("KVM: arm64: Add stand-alone page-table walker infrastructure")
-> Cc: stable@vger.kernel.org
-> 
-> right?
-> 
-> 	M.
+Prevent the walker from running into weeds when walking an
+entire address range.
 
-Hi Marc,
+Fixes: b1e57de62cfb4 ("KVM: arm64: Add stand-alone page-table walker
+infrastructure")
+Cc: stable@vger.kernel.org
+Signed-off-by: Sebastian Ene <sebastianene@google.com>
+---
+ arch/arm64/kvm/hyp/pgtable.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Thanks for the prompt review. Adding the missing bits now and re-spinnig
-v2.
+diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+index 40bd55966..2ffb5571e 100644
+--- a/arch/arm64/kvm/hyp/pgtable.c
++++ b/arch/arm64/kvm/hyp/pgtable.c
+@@ -260,7 +260,7 @@ static int _kvm_pgtable_walk(struct kvm_pgtable *pgt, struct kvm_pgtable_walk_da
+ {
+ 	u32 idx;
+ 	int ret = 0;
+-	u64 limit = BIT(pgt->ia_bits);
++	u64 limit = BIT(pgt->ia_bits) - 1;
+ 
+ 	if (data->addr > limit || data->end > limit)
+ 		return -ERANGE;
+-- 
+2.47.1.688.g23fc6f90ad-goog
 
-> 
-> -- 
-> Without deviation from the norm, progress is not possible.
-
-Cheers
-Sebastian
 
