@@ -4,95 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC842E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 19:58:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57EAAE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 20:04:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OmWlR4cF+mPlvD/SKofAb59V+xFfrfDkiiQN2ULLVu8=; b=gPJERcFZ7Qhb/ew4Fa7Py2vYaM
-	aafKyj+mApoQGU/hihsMxuiv8XBpDsMCwJAzyOeV7Vh4jAdZdAgX75JlLehmx+UMRCEVRhQ9iKqGb
-	CBfUP1OjI/naDefnzBMvLX8+pUTJMuglJZnQzmbpcIkHoLjFLSd+NNmLMetdLmdFw+BTchO48zrGO
-	2rHo4SSE9Y2oKNzH/Wd6YaEOfCO8X4DkBmylwRgEgJfYBt1uOBcGAOvVInXn6YHn2tmFaTd4Z+trG
-	QnRfAulaHDGl1JTQZ+f8qbSMcU0u/D5BsReLM2bGe8Ok+koB19T1FlFZjUCowEZ7Y/c0gWqOJerT8
-	fevdb+KA==;
+	bh=8/+p16atLmySpxduQsu62Wnw8bJeS7JrfosUlk3O+CA=; b=F85ARC3V0kXSKiR7nklE0I5zb1
+	u0SxHBD6JvEWvNY+CnE80X0dqgwyrk+tzZbjtMe8vDf92uWKBjkzOUD6jq4ruiCB8NHHtmG9IAI1Z
+	Ek7mEjRrG6JgqvSay2DnGa9uozQQJ13HDoWY+d+UNfUrdvh0mMxhgPBGwt2gzbwGhzZcuSRWNuKGM
+	dbDa88MEZ7IgRsTftR3/6xP6roGOMel7CxXSO1Ill57KQr+6XGpyqaMgJUxM2n+MnONG7yKcNLmim
+	2SV1XTjfBWqfUE/EhKVAF2PRVvLYLZyi0A3JCIx78HTqKbHRbJmI7HeaEGqCdfIBw8lt3dAQofJy0
+	3ajFPvfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXn30-00000009bP3-0pxO;
-	Tue, 14 Jan 2025 19:57:58 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1tXn9H-00000009cd0-1Mde;
+	Tue, 14 Jan 2025 20:04:27 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXn1j-00000009bGD-1DSV
+	id 1tXn81-00000009cPU-0KPr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 19:56:40 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-436345cc17bso42761505e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 11:56:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736884597; x=1737489397; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=OmWlR4cF+mPlvD/SKofAb59V+xFfrfDkiiQN2ULLVu8=;
-        b=pK59NrAxu0ttPf5noSwP5x8Ok+VUvXbntTz1z/U5Bzd6McHrtk/wXHHjvJX50EiHSb
-         UE5Bp9ayQCuNFc2EoYe+DSFsfEW/KQgyrIV780Hiuw7yNSrNx+6zOced3RfQjjw+NVEi
-         PMGSmotEDclfzavdXCDAge0GUVw+h0wVDpogkBMpSdki9H8Yw7UoDCLTaj+jswY34yT2
-         gged4wgM00vBmjP/kdikhvhRyVyADmIFkx9DVmKt/iECyA2q3+2UaTECmSdZdzgJy6IB
-         +uZENq1HRnSSO6Gfjoc2VFITyS47MDhUKA0Nad74NwlzIs3KK2/i3jK5BKUpV9dXZ6Ml
-         ADWQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736884597; x=1737489397;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=OmWlR4cF+mPlvD/SKofAb59V+xFfrfDkiiQN2ULLVu8=;
-        b=bGj5SqAZ7MAfLSHCDcKqgOu8t0U+h72ZPZTuGPcT7L5i0+oiOFVtdZ08eNKGNJPSLJ
-         eoJTeW3sTXW0o1labq45oEC1qgbgWWT6ks0h8DrFnia1fDD/FoRm2e6JWEyXOpLjnUaF
-         /D6SBloqR4o2TWWKRCHiA26c1xzD4rDrhRmC6Jqidt5b3Xin1WdLNgFKuh6JYgBSUuy9
-         wCTU6egILrSaC8m/yntsOn4uE+sMcZnvq0va1UkIGN6PAXQcEgEhHKL0jEwYRcL2OmI4
-         vyNlZ7ZsJgRIX9rO89RSAGoeNlhL3qA68bU7qm3yQyichSlNNzPO2/NM5GkCJx/bZGGd
-         g7+g==
-X-Forwarded-Encrypted: i=1; AJvYcCVEgR8WkUf8qB/SuxmNYvjvApXkxu6tayo/OClrz6gUQcalUvWenrwRc1Y6NqRgMpF87NWnBg9vW0yZLT6znVBR@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMR4z9c2EZFmN6/hlK0MQN4c01UsXo6dALfBs2YmwzeBSq0hHc
-	n+zO35dOebvQY7+t0HEe4A/OfonU1P7CLTxTS/ECY/Y0V8DC2uN4J1DslQBQy0c=
-X-Gm-Gg: ASbGncs51st/qFpKvjuopnkUS3OrZCj6auktQolB0vbakGDUHCc10Kj+Gx4BkhIq1hB
-	0AKLEROlK4dNTXulniy4px/F0CcA7FL1hwZ9sqosOB7vW9r5b/9KkanhHKQkSRtTPlxeayH6OfR
-	mVfhgfLyC5dI1Y4ZGb3dPIRvSzOFWyPCAKd2sesnS7bdtOmudde1s6LG0IF+bl1cwUeyQ91xayy
-	fev7jeiC0J7ifI4eTp/jiNkiGb6/VII60xuKSVTN0BG8/tJHYofnLoBNkNb
-X-Google-Smtp-Source: AGHT+IGQouXUOO+qEb5G2vSRcAAdIKYNRk9bOvvSttjkX7QyY7z4FXFdlG3d/Ksq2SBLmY2mxOAH8w==
-X-Received: by 2002:a05:6000:1f88:b0:38a:615c:8223 with SMTP id ffacd0b85a97d-38a872f69c7mr22826797f8f.10.1736884597362;
-        Tue, 14 Jan 2025 11:56:37 -0800 (PST)
-Received: from draszik.lan ([80.111.64.44])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38bddbf50a2sm5275313f8f.43.2025.01.14.11.56.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jan 2025 11:56:36 -0800 (PST)
-Message-ID: <13a3fdb675baa36fcda1bb254b05032b1175a2a8.camel@linaro.org>
-Subject: Re: [PATCH v2] scsi: ufs: fix use-after free in init error and
- remove paths
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Bart Van Assche <bvanassche@acm.org>, Alim Akhtar
- <alim.akhtar@samsung.com>,  Avri Altman <avri.altman@wdc.com>, "James E.J.
- Bottomley" <James.Bottomley@HansenPartnership.com>,  "Martin K. Petersen"
- <martin.petersen@oracle.com>, Peter Griffin <peter.griffin@linaro.org>,
- Krzysztof Kozlowski <krzk@kernel.org>, Manivannan Sadhasivam
- <manivannan.sadhasivam@linaro.org>,  Eric Biggers <ebiggers@kernel.org>
-Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, Will McVicker
- <willmcvicker@google.com>, kernel-team@android.com,
- linux-scsi@vger.kernel.org,  linux-kernel@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
- linux-arm-msm@vger.kernel.org,  stable@vger.kernel.org
-Date: Tue, 14 Jan 2025 19:56:35 +0000
-In-Reply-To: <58f1b701-68da-49c0-b2b1-e079bad4cd08@acm.org>
-References: <20250114-ufshcd-fix-v2-1-2dc627590a4a@linaro.org>
-	 <58f1b701-68da-49c0-b2b1-e079bad4cd08@acm.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.1-4 
+	Tue, 14 Jan 2025 20:03:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=8/+p16atLmySpxduQsu62Wnw8bJeS7JrfosUlk3O+CA=; b=WI1twFnY6p36FUl9y0ukPubMsu
+	YGK5qDbWdYT/D91y5+at4hWfw/rei5wIlmsYLys9tK3z9ed8a3pJImdulF7eU4HK2d48cHaW20ohg
+	pwtdyDmArsz8GT0fjg+3Qt5fLhZk0siAD7D//0JOHV4VjJxThlxsykRaza6rTvKpdGGynUhQlJpNo
+	SdVCdZ70RSlPT/DOGe8wYGnxpAEmuUK/+j5gSm6NDpZw5OetXV6l+oAUBzEI2mp+KmfPEIbj/1RxR
+	S2ZMgJivpDA95lcve/H5DhKIcL29thhu8Sl2jnWh2qRnjmnU1LRFFI7Cd5LPdCh1VHDpc48N0gWzk
+	BmtQbvSg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:44790)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tXn7r-0000Au-2N;
+	Tue, 14 Jan 2025 20:02:59 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tXn7n-0005MB-3C;
+	Tue, 14 Jan 2025 20:02:56 +0000
+Date: Tue, 14 Jan 2025 20:02:55 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Vladimir Oltean <olteanv@gmail.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Bryan Whitehead <bryan.whitehead@microchip.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Marcin Wojtas <marcin.s.wojtas@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+	UNGLinuxDriver@microchip.com
+Subject: Re: [PATCH RFC net-next 10/10] net: dsa: allow use of phylink
+ managed EEE support
+Message-ID: <Z4bC77mwoeypDAdH@shell.armlinux.org.uk>
+References: <Z4ZtoeeHIXPucjUv@shell.armlinux.org.uk>
+ <E1tXhVK-000n18-3C@rmk-PC.armlinux.org.uk>
+ <20250114192656.l5xlipbe4fkirkq4@skbuf>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250114192656.l5xlipbe4fkirkq4@skbuf>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_115639_330940_72DBE467 
-X-CRM114-Status: GOOD (  14.52  )
+X-CRM114-CacheID: sfid-20250114_120309_116669_2524DA59 
+X-CRM114-Status: GOOD (  32.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,40 +92,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bart,
+On Tue, Jan 14, 2025 at 09:26:56PM +0200, Vladimir Oltean wrote:
+> On Tue, Jan 14, 2025 at 02:02:50PM +0000, Russell King (Oracle) wrote:
+> > In order to allow DSA drivers to use phylink managed EEE, changes are
+> > necessary to the DSA .set_eee() and .get_eee() methods. Where drivers
+> > make use of phylink managed EEE, these should just pass the method on
+> > to their phylink implementation without calling the DSA specific
+> > operations.
+> > 
+> > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> > ---
+> 
+> What is the reason for including this patch with this set, where
+> it is of no use until at least one DSA driver provides the new API
+> implementations?
 
-On Tue, 2025-01-14 at 09:55 -0800, Bart Van Assche wrote:
-> On 1/14/25 8:16 AM, Andr=C3=A9 Draszik wrote:
-> > +/**
-> > + * ufshcd_scsi_host_put_callback - deallocate underlying Scsi_Host and
-> > + *				=C2=A0=C2=A0 thereby the Host Bus Adapter (HBA)
-> > + * @host: pointer to SCSI host
-> > + */
-> > +static void ufshcd_scsi_host_put_callback(void *host)
-> > +{
-> > +	scsi_host_put(host);
-> > +}
->=20
-> Please rename ufshcd_scsi_host_put_callback() such that the function=20
-> name makes clear when this function is called instead of what the=20
-> function does.
+No criticism against you, but I guess you didn't read the cover
+message? I tend not to read cover messages. I've been wondering for a
+while now whether anyone actually does and thus whether they are worth
+the effort of writing anything beyond providing a message ID to tie a
+series together and a diffstat for the series.
 
-Would you have a suggestion for such a name? Something like
-ufshcd_driver_release_action()?
+Here's the relevant bit:
 
-Unless I'm misunderstanding you, I believe most drivers use
-a function name that says what the function does, e.g.
-dell_wmi_ddv_debugfs_remove (just as a completely random
-example out of many).
+"The remainder of the patches convert mvneta, lan743x and stmmac, add
+support for mvneta, and add the basics that will be necessary into the
+DSA code for DSA drivers to make use of this.
 
-If going by when it is called and if applying this principle
-throughout ufshcd, then there can only ever be one such
-function in ufshcd, as all devm_add_action() callback actions
-happen at driver release, which surely isn't what you mean.
+"I would like to get patches 1 through 9 into net-next before the
+merge window, but we're running out of time for that."
 
-You probably meant something different?
+So, it's included in this RFC series not because I'm intending it to
+be merged, but so that people can see what DSA requires to make it
+functional there, and provide review comments if they see fit - which
+you have done, thanks.
 
-Cheers,
-Andre'
+I'm sure if I'd said "I have patches for DSA" you'd have responded
+asking to see them!
 
+Of course, I do have changes that will require this - mt753x - but
+that patch is not quite ready because this series I've posted has seen
+a few changes recently to remove stuff that was never settled (the
+LPI timer questions, whether it should be validated, clamped, should
+phylink provide a software timer if the LPI timer is out of range,
+etc.) That's more proof that text in cover messages is utterly
+useless!
+
+> >  net/dsa/user.c | 25 ++++++++++++++++---------
+> >  1 file changed, 16 insertions(+), 9 deletions(-)
+> > 
+> > diff --git a/net/dsa/user.c b/net/dsa/user.c
+> > index c74f2b2b92de..6912d2d57486 100644
+> > --- a/net/dsa/user.c
+> > +++ b/net/dsa/user.c
+> > @@ -1233,16 +1233,23 @@ static int dsa_user_set_eee(struct net_device *dev, struct ethtool_keee *e)
+> >  	if (!ds->ops->support_eee || !ds->ops->support_eee(ds, dp->index))
+> >  		return -EOPNOTSUPP;
+> >  
+> > -	/* Port's PHY and MAC both need to be EEE capable */
+> > -	if (!dev->phydev)
+> > -		return -ENODEV;
+> > -
+> > -	if (!ds->ops->set_mac_eee)
+> > -		return -EOPNOTSUPP;
+> > +	/* If the port is using phylink managed EEE, then get_mac_eee is
+> 
+> set_mac_eee() is what is unnecessary.
+
+Thanks for spotting that.
+
+> > +	 * unnecessary.
+> > +	 */
+> > +	if (!ds->phylink_mac_ops ||
+> > +	    !ds->phylink_mac_ops->mac_disable_tx_lpi ||
+> > +	    !ds->phylink_mac_ops->mac_enable_tx_lpi) {
+> 
+> Does it make sense to export pl->mac_supports_eee_ops wrapped into a
+> helper function and call that here? To avoid making DSA too tightly
+> coupled with the phylink MAC operation names.
+
+I could wrap the test up in an inline function which would avoid the
+duplication. Thanks for the suggestion.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
