@@ -4,83 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 856B2E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 21:41:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDCE2C02185
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 21:47:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HEZ1hohA1SfN0xO5CoglM5ucHKcyM83/vRsaJ6+2HNU=; b=REO5Fd1hYNV/2KIWc07KWJClqz
-	gsztiKvOfHnLzFm1TW0aj3vn+5BTkicwAKmmsNmaOamfRqoFk/G9xfBHFXZnUQWoitVXETI91LXJs
-	VtLB0URMOm1qTpqQhClhDPrOQoIMjCE6ZIdEgqFeCTPpEvbpY+8G64EejQ5rpFXKOr92FK6XlmPBf
-	XlRcPvcAn+EP9cOL6U0rH8B5rmVcxoUxwb1d0bHNf39xxbtScRN5JIM5VpJ6REbLvd77pzcItHOhq
-	f7juJoMAzXNy6+GqhQ71oJCB9sg3JEZwAxrDe6UJaiPnVf3s+v/XauC1rQmdkoHGQ1W+zitQ4akYJ
-	C9v62Q2Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3YEUyfDTrDdv/X9cKczpOY/bvfGujRsuEaW/USYXyac=; b=1sThrv0bouOH2U2QAxHEKb7pJu
+	n6M7PW5z9P0b/o/OatVdeZUxisN+kaBzyPPJVTiETiWhFS04c3pPpUqWCfzNme0hlt/0T+gz/uM82
+	LwceyTGYYfH/9jCS3XkcntRQmmwxbPW9zZ8suiDWWt4BhQu5PS7nmi82uLfEWmAVm9NM0LFMa1xxN
+	5+e3gQ02RwAQ4A6KOJCJBGdCAZUxbFzNQsGMfqK7cU3j/0JjdIAXxna3QPYR6HqoZXGLtBreEqUmi
+	18CmRBzFQbR//yCXA+pL9Rr8WF3ZuS/fExz0MafiQ/0rcW4MAWcqUyxenwTx/avGhHnm8dt45bM6k
+	p3wHiEYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXofF-00000009pxQ-2mBq;
-	Tue, 14 Jan 2025 21:41:33 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tXoky-00000009qe0-02hR;
+	Tue, 14 Jan 2025 21:47:28 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXocm-00000009pVp-2MJL
+	id 1tXndk-00000009h06-15tm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 21:39:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 71A10A419D5;
-	Tue, 14 Jan 2025 21:37:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id CBBB4C4CEE0;
-	Tue, 14 Jan 2025 21:38:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736890738;
-	bh=FqqtuHZ2xVpq81aHXkj01ME5McvceHelIy459BBbk2Q=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=kpIlewjODP2b+bu5o8Of38Osa+5QiLTa/XTiSD3LYa1nxbaGr51HiFUCxwm7mBtis
-	 riWip8fozkEaKQ+i8Bu0RBWIPR2NUhz/10q9PZgcYn0uZTr9xuwI48xR0k9EzSptEa
-	 QfCHUJpTDtukQHY9UdhKs9egB7pTI4c3HluS64jh4v0hoGWAbEuu4FbUksloP8VYok
-	 3G4CQ0cGC2jkfD0aq06PbdyFwtp8TCcN2ONbi+p3cPFpj33xbbldGwgIMUnAHh3icz
-	 keNTwJNQ8fLH5/dAze1rEEc+045uMzaoZcm3TKLK5IHCaKqDwQOVpZvZIZvV2AUdFw
-	 prSTtrvMe7mDg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BA3DEC02185;
-	Tue, 14 Jan 2025 21:38:58 +0000 (UTC)
-From: Sasha Finkelstein via B4 Relay <devnull+fnkl.kernel.gmail.com@kernel.org>
-Date: Tue, 14 Jan 2025 22:38:52 +0100
-Subject: [PATCH v4 1/5] dt-bindings: display: Add Apple pre-DCP display
- controller
+	Tue, 14 Jan 2025 20:35:57 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43616bf3358so7513845e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 12:35:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1736886954; x=1737491754; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=3YEUyfDTrDdv/X9cKczpOY/bvfGujRsuEaW/USYXyac=;
+        b=QUgzoThKmhhbGTl9UfOkuQ42UHqH5WVQhM3kSeia8hBakSV9zcm3PiIMHXsawMk1Mt
+         2ThV4VSJra4+wakpFpmGD1skkXSSSD/dwfwfYurNMDn2UO7uFcCcpFjWCoFtLqGjqJGQ
+         h/UYsxaewvGNWl0lyFJvokjKaG64VdnkTbayRSrYS8kg77gohValv8ZCNvBpwpkAwtwT
+         mA5QdeoBwgCwjhHkBjS7ahyVaqDQPyccdv8RRRBfApN3+tdYNG1n1TTdolXnJzRwbSBv
+         vKnOJfYZK3p2T9Anbg79s21xzT16XG77bIOzna/7gTq96/Bi6A9NOhmcnq8SRpDrfzrw
+         U/yQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736886954; x=1737491754;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=3YEUyfDTrDdv/X9cKczpOY/bvfGujRsuEaW/USYXyac=;
+        b=pOyXL5QIOKFNe+41A7PTOh+8P62/P38JTfMIXPe4f59skKeUqLawXvF5uQeh14qi/e
+         V3CKaT9qyw9vw65hkMqKU/Jqvugvm80a2OTVjCwPInwrjbFDEilqsHvZpB522nYhPhoc
+         hqA08kiofAC+emxvHvtaP7OOzHFHLox4vXJca8/0HCYgHSAE9t/dpVmsn2xZV14TX5r0
+         AQ4IutmR4NGXgaNHFHyP/+WK28Z/wP/DfSH02WhXQtt4vefbjZ+lnekpjJIcXeRDDPTO
+         ZQiObgArOtfN7h1ChJ1FqOu9411EaH03AEP5cVFSirS0P/4bPwcHZKXf+3JLdis4VIUL
+         mSmg==
+X-Forwarded-Encrypted: i=1; AJvYcCXoLXHckuRgkrxCpjMhdQCpD3HeevUmcD+CxXXiMGlxNfCwiQIPLFNu6mGKiPwPxVO2JyGGbjSQKZA3lCLQCTpN@lists.infradead.org
+X-Gm-Message-State: AOJu0YxKoKzrF736xXHVtKhaHfkIymme9r3aJmprxb1Yi3Ppk8SA/ac+
+	8ngksH4zWgHgPanWHeXk3OrFNMkFL+mHAH9VSXbWYboiJuNym/97Bp/Qs3OsoFA=
+X-Gm-Gg: ASbGncvffA1JmJb7czvdtF62f4HCPKIa3cy5rCxkResoTh+YugA1GDF5EfNlbuB+rqG
+	Vf85tF4kbhBIBxR0TzoomegZXbIxT6S6auX5SsqU/TurLUgQa3WD7jWB86U0saJn207OkwYruWE
+	/fMUfTMZieKofSQ5NpoGeUN9XgOeHzJ5attkCTM7tR6udM4r/y19q1zeYfwPDWa67AffJeQo+ig
+	KUaXoxuBivRCsUmSEf01UGl0Y0AQgNI9oaedNOdu8uobD0UxxavV3PSGAyscZIAS26wGaE=
+X-Google-Smtp-Source: AGHT+IEGIFldZ+L4k4Dl+6+c14xQU/JWpFaLddSCbKXPeGIlOQ60LNvgiaZaK9zGFGqW8cmq+2DOXg==
+X-Received: by 2002:adf:9ccd:0:b0:386:3c21:b1f7 with SMTP id ffacd0b85a97d-38a872f40f3mr8004257f8f.7.1736886954611;
+        Tue, 14 Jan 2025 12:35:54 -0800 (PST)
+Received: from krzk-bin.. ([178.197.223.165])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a8e4c1c01sm16042789f8f.97.2025.01.14.12.35.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Jan 2025 12:35:54 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Walker Chen <walker.chen@starfivetech.com>,
+	Changhuang Liang <changhuang.liang@starfivetech.com>,
+	linux-renesas-soc@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH] pmdomain: Use str_enable_disable-like helpers
+Date: Tue, 14 Jan 2025 21:35:47 +0100
+Message-ID: <20250114203547.1013010-1-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250114-adpdrm-v4-1-e9b5260a39f1@gmail.com>
-References: <20250114-adpdrm-v4-0-e9b5260a39f1@gmail.com>
-In-Reply-To: <20250114-adpdrm-v4-0-e9b5260a39f1@gmail.com>
-To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Alyssa Ross <hi@alyssa.is>, Sasha Finkelstein <fnkl.kernel@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1736890736; l=7241;
- i=fnkl.kernel@gmail.com; s=20241124; h=from:subject:message-id;
- bh=+zXbhZGcaNGoRP+96oERb98U1ZjM+cx6jbgYsDm87Qc=;
- b=NugG+sm4vlbYEbeP7khDpYjOxGVELtAWLvnq09DHWSXxJgcnu2Bw90xLMsHjpKH6XJI0Drkqy
- 0qo9wr4q42GBsqOqKE1HuYEYc7BnbHZ/po/R2wvTGqjwFeL5F6WTgID
-X-Developer-Key: i=fnkl.kernel@gmail.com; a=ed25519;
- pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
-X-Endpoint-Received: by B4 Relay for fnkl.kernel@gmail.com/20241124 with
- auth_id=283
-X-Original-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_133900_733673_F92FCD5F 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20250114_123556_298420_721B6A50 
+X-CRM114-Status: GOOD (  13.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,272 +100,122 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: fnkl.kernel@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+Replace ternary (condition ? "enable" : "disable") syntax with helpers
+from string_choices.h because:
+1. Simple function call with one argument is easier to read.  Ternary
+   operator has three arguments and with wrapping might lead to quite
+   long code.
+2. Is slightly shorter thus also easier to read.
+3. It brings uniformity in the text - same string.
+4. Allows deduping by the linker, which results in a smaller binary
+   file.
 
-Add bindings for a secondary display controller present on certain
-Apple laptops.
-
-Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- .../display/apple,h7-display-pipe-mipi.yaml        | 83 ++++++++++++++++++++
- .../bindings/display/apple,h7-display-pipe.yaml    | 88 ++++++++++++++++++++++
- .../bindings/display/panel/apple,summit.yaml       | 58 ++++++++++++++
- 3 files changed, 229 insertions(+)
+ drivers/pmdomain/renesas/rcar-gen4-sysc.c    | 3 ++-
+ drivers/pmdomain/renesas/rcar-sysc.c         | 3 ++-
+ drivers/pmdomain/samsung/exynos-pm-domains.c | 6 +++---
+ drivers/pmdomain/starfive/jh71xx-pmu.c       | 3 ++-
+ 4 files changed, 9 insertions(+), 6 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/display/apple,h7-display-pipe-mipi.yaml b/Documentation/devicetree/bindings/display/apple,h7-display-pipe-mipi.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..5e6da66499a508c001670f68fa00d6bab13591d6
---- /dev/null
-+++ b/Documentation/devicetree/bindings/display/apple,h7-display-pipe-mipi.yaml
-@@ -0,0 +1,83 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/display/apple,h7-display-pipe-mipi.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Apple pre-DCP display controller MIPI interface
-+
-+maintainers:
-+  - Sasha Finkelstein <fnkl.kernel@gmail.com>
-+
-+description:
-+  The MIPI controller part of the pre-DCP Apple display controller
-+
-+allOf:
-+  - $ref: dsi-controller.yaml#
-+
-+properties:
-+  compatible:
-+    items:
-+      - enum:
-+          - apple,t8112-display-pipe-mipi
-+          - apple,t8103-display-pipe-mipi
-+      - const: apple,h7-display-pipe-mipi
-+
-+  reg:
-+    maxItems: 1
-+
-+  power-domains:
-+    maxItems: 1
-+
-+  ports:
-+    $ref: /schemas/graph.yaml#/properties/ports
-+
-+    properties:
-+      port@0:
-+        $ref: /schemas/graph.yaml#/properties/port
-+        description: Input port. Always connected to the primary controller
-+
-+      port@1:
-+        $ref: /schemas/graph.yaml#/properties/port
-+        description: Output MIPI DSI port to the panel
-+
-+    required:
-+      - port@0
-+      - port@1
-+
-+required:
-+  - compatible
-+  - reg
-+  - ports
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    dsi@28200000 {
-+        compatible = "apple,t8103-display-pipe-mipi", "apple,h7-display-pipe-mipi";
-+        reg = <0x28200000 0xc000>;
-+        power-domains = <&ps_dispdfr_mipi>;
-+
-+        ports {
-+            #address-cells = <1>;
-+            #size-cells = <0>;
-+
-+            port@0 {
-+                reg = <0>;
-+
-+                dfr_adp_out_mipi: endpoint {
-+                    remote-endpoint = <&dfr_adp_out_mipi>;
-+                };
-+            };
-+
-+            port@1 {
-+                reg = <1>;
-+
-+                dfr_panel_in: endpoint {
-+                    remote-endpoint = <&dfr_mipi_out_panel>;
-+                };
-+            };
-+        };
-+    };
-+...
-diff --git a/Documentation/devicetree/bindings/display/apple,h7-display-pipe.yaml b/Documentation/devicetree/bindings/display/apple,h7-display-pipe.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..102fb1804c0c0b84f590e507ca2d526948e98f68
---- /dev/null
-+++ b/Documentation/devicetree/bindings/display/apple,h7-display-pipe.yaml
-@@ -0,0 +1,88 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/display/apple,h7-display-pipe.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Apple pre-DCP display controller
-+
-+maintainers:
-+  - Sasha Finkelstein <fnkl.kernel@gmail.com>
-+
-+description:
-+  A secondary display controller used to drive the "touchbar" on
-+  certain Apple laptops.
-+
-+properties:
-+  compatible:
-+    items:
-+      - enum:
-+          - apple,t8112-display-pipe
-+          - apple,t8103-display-pipe
-+      - const: apple,h7-display-pipe
-+
-+  reg:
-+    items:
-+      - description: Primary register block, controls planes and blending
-+      - description:
-+          Contains other configuration registers like interrupt
-+          and FIFO control
-+
-+  reg-names:
-+    items:
-+      - const: be
-+      - const: fe
-+
-+  power-domains:
-+    description:
-+      Phandles to pmgr entries that are needed for this controller to turn on.
-+      Aside from that, their specific functions are unknown
-+    maxItems: 2
-+
-+  interrupts:
-+    items:
-+      - description: Unknown function
-+      - description: Primary interrupt. Vsync events are reported via it
-+
-+  interrupt-names:
-+    items:
-+      - const: be
-+      - const: fe
-+
-+  iommus:
-+    maxItems: 1
-+
-+  port:
-+    $ref: /schemas/graph.yaml#/properties/port
-+    description: Output port. Always connected to apple,h7-display-pipe-mipi
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - port
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/apple-aic.h>
-+    display-pipe@28200000 {
-+        compatible = "apple,t8103-display-pipe", "apple,h7-display-pipe";
-+        reg = <0x28200000 0xc000>,
-+              <0x28400000 0x4000>;
-+        reg-names = "be", "fe";
-+        power-domains = <&ps_dispdfr_fe>, <&ps_dispdfr_be>;
-+        interrupt-parent = <&aic>;
-+        interrupts = <AIC_IRQ 502 IRQ_TYPE_LEVEL_HIGH>,
-+                     <AIC_IRQ 506 IRQ_TYPE_LEVEL_HIGH>;
-+        interrupt-names = "be", "fe";
-+        iommus = <&displaydfr_dart 0>;
-+
-+        port {
-+            dfr_adp_out_mipi: endpoint {
-+                remote-endpoint = <&dfr_mipi_in_adp>;
-+            };
-+        };
-+    };
-+...
-diff --git a/Documentation/devicetree/bindings/display/panel/apple,summit.yaml b/Documentation/devicetree/bindings/display/panel/apple,summit.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..f081755325e97ad58b831893b84082cc10f8d5e3
---- /dev/null
-+++ b/Documentation/devicetree/bindings/display/panel/apple,summit.yaml
-@@ -0,0 +1,58 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/display/panel/apple,summit.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Apple "Summit" display panel
-+
-+maintainers:
-+  - Sasha Finkelstein <fnkl.kernel@gmail.com>
-+
-+description:
-+  An OLED panel used as a touchbar on certain Apple laptops.
-+  Contains a backlight device, which controls brightness of the panel itself.
-+  The backlight common properties are included for this reason
-+
-+allOf:
-+  - $ref: panel-common.yaml#
-+  - $ref: /schemas/leds/backlight/common.yaml#
-+
-+properties:
-+  compatible:
-+    items:
-+      - enum:
-+          - apple,j293-summit
-+          - apple,j493-summit
-+      - const: apple,summit
-+
-+  reg:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - max-brightness
-+  - port
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    dsi {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        panel@0 {
-+            compatible = "apple,j293-summit", "apple,summit";
-+            reg = <0>;
-+            max-brightness = <255>;
-+
-+            port {
-+                endpoint {
-+                    remote-endpoint = <&dfr_bridge_out>;
-+                };
-+            };
-+        };
-+    };
-+...
-
+diff --git a/drivers/pmdomain/renesas/rcar-gen4-sysc.c b/drivers/pmdomain/renesas/rcar-gen4-sysc.c
+index 66409cff2083..fe9a0c1deaa3 100644
+--- a/drivers/pmdomain/renesas/rcar-gen4-sysc.c
++++ b/drivers/pmdomain/renesas/rcar-gen4-sysc.c
+@@ -17,6 +17,7 @@
+ #include <linux/pm_domain.h>
+ #include <linux/slab.h>
+ #include <linux/spinlock.h>
++#include <linux/string_choices.h>
+ #include <linux/types.h>
+ 
+ #include "rcar-gen4-sysc.h"
+@@ -171,7 +172,7 @@ static int rcar_gen4_sysc_power(u8 pdr, bool on)
+  out:
+ 	spin_unlock_irqrestore(&rcar_gen4_sysc_lock, flags);
+ 
+-	pr_debug("sysc power %s domain %d: %08x -> %d\n", on ? "on" : "off",
++	pr_debug("sysc power %s domain %d: %08x -> %d\n", str_on_off(on),
+ 		 pdr, ioread32(rcar_gen4_sysc_base + SYSCISCR(reg_idx)), ret);
+ 	return ret;
+ }
+diff --git a/drivers/pmdomain/renesas/rcar-sysc.c b/drivers/pmdomain/renesas/rcar-sysc.c
+index b99326917330..e3f2c7edf22a 100644
+--- a/drivers/pmdomain/renesas/rcar-sysc.c
++++ b/drivers/pmdomain/renesas/rcar-sysc.c
+@@ -14,6 +14,7 @@
+ #include <linux/pm_domain.h>
+ #include <linux/slab.h>
+ #include <linux/spinlock.h>
++#include <linux/string_choices.h>
+ #include <linux/io.h>
+ #include <linux/iopoll.h>
+ #include <linux/soc/renesas/rcar-sysc.h>
+@@ -162,7 +163,7 @@ static int rcar_sysc_power(const struct rcar_sysc_pd *pd, bool on)
+ 
+ 	spin_unlock_irqrestore(&rcar_sysc_lock, flags);
+ 
+-	pr_debug("sysc power %s domain %d: %08x -> %d\n", on ? "on" : "off",
++	pr_debug("sysc power %s domain %d: %08x -> %d\n", str_on_off(on),
+ 		 pd->isr_bit, ioread32(rcar_sysc_base + SYSCISR), ret);
+ 	return ret;
+ }
+diff --git a/drivers/pmdomain/samsung/exynos-pm-domains.c b/drivers/pmdomain/samsung/exynos-pm-domains.c
+index 9b502e8751d1..1a892c611dad 100644
+--- a/drivers/pmdomain/samsung/exynos-pm-domains.c
++++ b/drivers/pmdomain/samsung/exynos-pm-domains.c
+@@ -13,6 +13,7 @@
+ #include <linux/err.h>
+ #include <linux/platform_device.h>
+ #include <linux/slab.h>
++#include <linux/string_choices.h>
+ #include <linux/pm_domain.h>
+ #include <linux/delay.h>
+ #include <linux/of.h>
+@@ -38,7 +39,6 @@ static int exynos_pd_power(struct generic_pm_domain *domain, bool power_on)
+ 	struct exynos_pm_domain *pd;
+ 	void __iomem *base;
+ 	u32 timeout, pwr;
+-	char *op;
+ 
+ 	pd = container_of(domain, struct exynos_pm_domain, pd);
+ 	base = pd->base;
+@@ -51,8 +51,8 @@ static int exynos_pd_power(struct generic_pm_domain *domain, bool power_on)
+ 
+ 	while ((readl_relaxed(base + 0x4) & pd->local_pwr_cfg) != pwr) {
+ 		if (!timeout) {
+-			op = (power_on) ? "enable" : "disable";
+-			pr_err("Power domain %s %s failed\n", domain->name, op);
++			pr_err("Power domain %s %s failed\n", domain->name,
++			       str_enable_disable(power_on));
+ 			return -ETIMEDOUT;
+ 		}
+ 		timeout--;
+diff --git a/drivers/pmdomain/starfive/jh71xx-pmu.c b/drivers/pmdomain/starfive/jh71xx-pmu.c
+index 74720c09a6e3..30c29ac9391f 100644
+--- a/drivers/pmdomain/starfive/jh71xx-pmu.c
++++ b/drivers/pmdomain/starfive/jh71xx-pmu.c
+@@ -12,6 +12,7 @@
+ #include <linux/of.h>
+ #include <linux/platform_device.h>
+ #include <linux/pm_domain.h>
++#include <linux/string_choices.h>
+ #include <dt-bindings/power/starfive,jh7110-pmu.h>
+ 
+ /* register offset */
+@@ -155,7 +156,7 @@ static int jh7110_pmu_set_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool on)
+ 
+ 	if (ret) {
+ 		dev_err(pmu->dev, "%s: failed to power %s\n",
+-			pmd->genpd.name, on ? "on" : "off");
++			pmd->genpd.name, str_on_off(on));
+ 		return -ETIMEDOUT;
+ 	}
+ 
 -- 
-2.48.0
-
+2.43.0
 
 
