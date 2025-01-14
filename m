@@ -4,89 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0BB8E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 14:46:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E0ECC3DA4A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 14:47:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a+ruBf9Oz0qu7iyS4oPe+TZ1G+MgWr5NrR7SFsVkMLM=; b=AbwNuvwzjeADOMUPD4KXGB9N3A
-	e3S/0OuOpCuMuNG2Y8r9PhaUSq5V47zB/h5mTG2ImDrahyyAEbA+bBMoxKixwBaq4Fs4CD0b2q64A
-	Y0ljT9tcff32YEBLgSFXnLDxZbUXI5s5lA6v9/pCIeEb47OXuMVd326n79ExUET/q0R+N7tTxs5Ct
-	LCWmGLgcbKGB/q88t0D5BoxADSJHSj5kz1jJY68ZFVtQsfmFp4NieDe3fqyXefurolTthlyC+Oz6l
-	SvqnrE49WKIZpelfgLSU8UKr+qip6aMOuQLCY5cxfwLz7wvcMjUbsMAWiTtVMjCeWlqTq8ncIfLPV
-	0cSlTNrQ==;
+	bh=Jr+UhJKZsfyYjDO54OHmuicZ8YWvT6WtMPptE5N93Vo=; b=181vwWm26Oy/2Ab+y+ajOly61U
+	l+hOCYeIIucnRztGT/RZUfyMSO9zvVQ57K4iH5y2r2VReFfKfrx8ixaRvYWgCkHcKNuRTW8cD98a4
+	Pyp2HyWHFVomaBX1wvdGtIQFybE5y7peG61p48GTwfVA5jBpa49Bj1j5ycx28nKKaWVYftpLr8Kko
+	SJ1m4xhqp7wWAkY3mUvJxd4fBC1VfG2/MLEqEqNhmoUlOUcfPyxHBlbvBtBcIm5UtGHkdR1o/b6+r
+	R+3hfZkToUWKiL1DTLV+cz8+ZViIj0XXrQnGyS6MMcL8gAEAuptn7vsyVnua+ShrhpDfUb6ATNi4w
+	gppPKoFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXiBU-00000008jDi-38lZ;
-	Tue, 14 Jan 2025 14:46:24 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1tXiCj-00000008jbE-0Bbx;
+	Tue, 14 Jan 2025 14:47:41 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXi9O-00000008io6-25DJ;
-	Tue, 14 Jan 2025 14:44:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1736865855; x=1768401855;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Wt6Jj95+PYNqxpsm1cs8AMmqyXIhoQDmPbP216JDWbc=;
-  b=W1/aXDNIWqJUJizEpjmGYC+qthZkZHPlE+BBctH8x2yqAZeOsqwZAxCs
-   819Mzj9RBmNU9djBL99YsTQ7n2lW6EZ9121w8gqAOzeDS3umcKPI71a9R
-   LaxgFb0RBtLNIKUaeY/QZxIMoBHCC90bMOLmqBB3ILN8Sf5l5EsN5r5hD
-   UKtCNYmG4+zdNjqz6cSndWPru5PTTaQLKfrspQ+Iw0LmIix/jarYpkHFs
-   vcZU32wEZJk21NO+Z9JrM7+EdRAr4t2me8DFs5uO3VgV5zMLez3amf9cS
-   d8oISwYCnvNMzGvC2T3DdSXfILUo8SQFiTvK9w3aNgfFi7BnSpae+issM
-   A==;
-X-CSE-ConnectionGUID: O37oeyuJRNedXzOOY36/gw==
-X-CSE-MsgGUID: cYPxFYGCRaOp7eciTke/lA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11315"; a="47829509"
-X-IronPort-AV: E=Sophos;i="6.12,314,1728975600"; 
-   d="scan'208";a="47829509"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jan 2025 06:44:13 -0800
-X-CSE-ConnectionGUID: JdH1HnLSS7mX4lYDcCZNUg==
-X-CSE-MsgGUID: O+YI7V2YS3Kgh2RHy9TmsA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="109970974"
-Received: from black.fi.intel.com ([10.237.72.28])
-  by orviesa005.jf.intel.com with ESMTP; 14 Jan 2025 06:44:06 -0800
-Received: by black.fi.intel.com (Postfix, from userid 1000)
-	id 948DE39C; Tue, 14 Jan 2025 16:44:04 +0200 (EET)
-Date: Tue, 14 Jan 2025 16:44:04 +0200
-From: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
-To: Tom Lendacky <thomas.lendacky@amd.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
-	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexei Starovoitov <ast@kernel.org>, 
-	Andrea Parri <parri.andrea@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Eric Chan <ericchancf@google.com>, 
-	Jason Gunthorpe <jgg@ziepe.ca>, Kai Huang <kai.huang@intel.com>, 
-	Kefeng Wang <wangkefeng.wang@huawei.com>, Kent Overstreet <kent.overstreet@linux.dev>, 
-	Palmer Dabbelt <palmer@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Russell King <linux@armlinux.org.uk>, Samuel Holland <samuel.holland@sifive.com>, 
-	Suren Baghdasaryan <surenb@google.com>, Yuntao Wang <ytcoode@gmail.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	stable@vger.kernel.org, Ashish Kalra <ashish.kalra@amd.com>, 
-	"Maciej W. Rozycki" <macro@orcam.me.uk>
-Subject: Re: [PATCHv3 2/2] x86/mm: Make memremap(MEMREMAP_WB) map memory as
- encrypted by default
-Message-ID: <2nc5silj5wbj6kz5tcsutgcjx6wviobhem4z24x4ya2r4q4ra5@5rixeg2wo7c3>
-References: <20250113131459.2008123-1-kirill.shutemov@linux.intel.com>
- <20250113131459.2008123-3-kirill.shutemov@linux.intel.com>
- <1532becb-f2be-4458-5d34-77070f2c5e2d@amd.com>
- <vuj7mlvkvazuz5noupusqt2bk42vjkr5lkgivnrub2nby4ma6y@7ezpclbirwcs>
- <9981e3f5-1414-dd82-c6ad-379289575b07@amd.com>
+	id 1tXiAg-00000008j4L-1zwr;
+	Tue, 14 Jan 2025 14:45:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id ED674A416A3;
+	Tue, 14 Jan 2025 14:43:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96D8DC4CEE3;
+	Tue, 14 Jan 2025 14:45:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736865932;
+	bh=njLUbHodj+PkFFJbOpBXMJe/dUHzlPds6g689ssKjDA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ArLYPNP+SZ3jG9EoUmQe5FLLdIDakxwq6Q7RuSD32e73BsYYGiP0HGskwiYISsVk/
+	 A4cN4oaepryylm2zcdyZvwXYmrLXtLEkSjmh3sypogzbKV5dGowGgn5utBYogoeqCQ
+	 gGkaQY0DleA1JU9QhyMp3KQpXRHFHLHLiauaOSxLBjUzjflCEWHxRDD1Tr5JejWzfB
+	 rDcIoXWLIpb1nRBKBBEyfnD3XWjNbkCB8L9qbqxDEpYrpu5k96LEAYFBhQj/kso8Re
+	 cSId/vsSLtV+VWwQndcoz6njFJXIniqcEvPmIAynpF235AZiTHCOJKUOH9gpbPBxqK
+	 RiYjQh2gbztFQ==
+Date: Tue, 14 Jan 2025 14:45:22 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Liam Girdwood <lgirdwood@gmail.com>, Phong LE <ple@baylibre.com>,
+	Inki Dae <inki.dae@samsung.com>,
+	Seung-Woo Kim <sw0312.kim@samsung.com>,
+	Kyungmin Park <kyungmin.park@samsung.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Sandy Huang <hjc@rock-chips.com>,
+	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Alain Volmat <alain.volmat@foss.st.com>,
+	Raphael Gallais-Pou <rgallaispou@gmail.com>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	=?iso-8859-1?Q?Ma=EDra?= Canal <mcanal@igalia.com>,
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+	linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: (subset) [PATCH v10 00/10] drm: add DRM HDMI Codec framework
+Message-ID: <078e2d2f-3bd1-47ed-b6f8-60f6913fdce9@sirena.org.uk>
+References: <20241224-drm-bridge-hdmi-connector-v10-0-dc89577cd438@linaro.org>
+ <173680655387.149204.17517246537828613856.b4-ty@kernel.org>
+ <CAA8EJprDaOTEOYf5JHC7UYwqRn2vXUH9FT==HjZg1QNfDMmBcA@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="nKWVI6A6JSkBavZP"
 Content-Disposition: inline
-In-Reply-To: <9981e3f5-1414-dd82-c6ad-379289575b07@amd.com>
+In-Reply-To: <CAA8EJprDaOTEOYf5JHC7UYwqRn2vXUH9FT==HjZg1QNfDMmBcA@mail.gmail.com>
+X-Cookie: Sauron is alive in Argentina!
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_064414_548914_D8B897B8 
-X-CRM114-Status: GOOD (  23.36  )
+X-CRM114-CacheID: sfid-20250114_064534_652197_F4AB836D 
+X-CRM114-Status: GOOD (  13.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,69 +108,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 14, 2025 at 08:33:39AM -0600, Tom Lendacky wrote:
-> On 1/14/25 01:27, Kirill A. Shutemov wrote:
-> > On Mon, Jan 13, 2025 at 02:47:56PM -0600, Tom Lendacky wrote:
-> >> On 1/13/25 07:14, Kirill A. Shutemov wrote:
-> >>> Currently memremap(MEMREMAP_WB) can produce decrypted/shared mapping:
-> >>>
-> >>> memremap(MEMREMAP_WB)
-> >>>   arch_memremap_wb()
-> >>>     ioremap_cache()
-> >>>       __ioremap_caller(.encrytped = false)
-> >>>
-> >>> In such cases, the IORES_MAP_ENCRYPTED flag on the memory will determine
-> >>> if the resulting mapping is encrypted or decrypted.
-> >>>
-> >>> Creating a decrypted mapping without explicit request from the caller is
-> >>> risky:
-> >>>
-> >>>   - It can inadvertently expose the guest's data and compromise the
-> >>>     guest.
-> >>>
-> >>>   - Accessing private memory via shared/decrypted mapping on TDX will
-> >>>     either trigger implicit conversion to shared or #VE (depending on
-> >>>     VMM implementation).
-> >>>
-> >>>     Implicit conversion is destructive: subsequent access to the same
-> >>>     memory via private mapping will trigger a hard-to-debug #VE crash.
-> >>>
-> >>> The kernel already provides a way to request decrypted mapping
-> >>> explicitly via the MEMREMAP_DEC flag.
-> >>>
-> >>> Modify memremap(MEMREMAP_WB) to produce encrypted/private mapping by
-> >>> default unless MEMREMAP_DEC is specified.
-> >>>
-> >>> Fix the crash due to #VE on kexec in TDX guests if CONFIG_EISA is enabled.
-> >>
-> >> This patch causes my bare-metal system to crash during boot when using
-> >> mem_encrypt=on:
-> >>
-> >> [    2.392934] efi: memattr: Entry type should be RuntimeServiceCode/Data
-> >> [    2.393731] efi: memattr: ! 0x214c42f01f1162a-0xee70ac7bd1a9c629 [type=2028324321|attr=0x6590648fa4209879]
-> > 
-> > Could you try if this helps?
-> > 
-> > diff --git a/drivers/firmware/efi/memattr.c b/drivers/firmware/efi/memattr.c
-> > index c38b1a335590..b5051dcb7c1d 100644
-> > --- a/drivers/firmware/efi/memattr.c
-> > +++ b/drivers/firmware/efi/memattr.c
-> > @@ -160,7 +160,7 @@ int __init efi_memattr_apply_permissions(struct mm_struct *mm,
-> >  	if (WARN_ON(!efi_enabled(EFI_MEMMAP)))
-> >  		return 0;
-> >  
-> > -	tbl = memremap(efi_mem_attr_table, tbl_size, MEMREMAP_WB);
-> > +	tbl = memremap(efi_mem_attr_table, tbl_size, MEMREMAP_WB | MEMREMAP_DEC);
-> 
-> Well that would work for SME where EFI tables/data are not encrypted,
-> but will break for SEV where EFI tables/data are encrypted.
 
-Hm. Why would it break for SEV? It brings the situation back to what it
-was before the patch.
+--nKWVI6A6JSkBavZP
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Note that that __ioremap_caller() would still check io_desc.flags before
-mapping it as decrypted.
+On Tue, Jan 14, 2025 at 03:45:15AM +0200, Dmitry Baryshkov wrote:
+> On Tue, 14 Jan 2025 at 00:16, Mark Brown <broonie@kernel.org> wrote:
 
--- 
-  Kiryl Shutsemau / Kirill A. Shutemov
+> > [01/10] ASoC: hdmi-codec: pass data to get_dai_id too
+> >         commit: a8e792d3f0bbecb87ab05e9592cadf0b178ab952
+> > [02/10] ASoC: hdmi-codec: move no_capture_mute to struct hdmi_codec_pdata
+> >         commit: 5b0779ae13de345b405a67c71cbb63705cadb295
+
+> Mark, they had your Acks, so they were picked into drm-misc-next.
+> Would that be a problem?
+
+No, the reason I applied them was because I was getting fed up of the
+resends and figured it would be easier to just apply the patches so they
+were in -rc1 and could be dropped.  I'll have missed any mail about this
+being applied due to the drm: header.
+
+--nKWVI6A6JSkBavZP
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmeGeIIACgkQJNaLcl1U
+h9BABAf/Rpl0QApU53vHkXku439fvk1W2JlcIkEhtO9wlYIsly+z2mnUMkCOSX4i
+JLpb+GVB0L2TJAF1Y3HQ0ESBC6JzV7JzQiUqBkOTZEOQIXLdCu40xDg5coebNiS4
+sw5DHqMiE7q3rAcXPCkkACdE+o+7S6CuIKgnMXuvMBcNUlNCcmbDEei/z3aSihs+
+A/02s7UlSruEVd5UZv84abvqrMTVq963YEtAnbufnFJ/+xmJzqxzreVWOOMZFG3v
+EmzqBpCq91RmV1JJ8gJe6RnmIfKn2PjesCresNQhoIQecqVkff5nZFIxu77C2vVF
+UlobtBVzPrmFG8C//RkIpQUHCptnCQ==
+=oDw/
+-----END PGP SIGNATURE-----
+
+--nKWVI6A6JSkBavZP--
 
