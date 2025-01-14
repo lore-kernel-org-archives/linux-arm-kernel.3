@@ -4,125 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BF7EE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 17:39:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DF11E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 17:52:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7rcl1SX/OvDfBPdSZc3LYo5TUWBN/Uceh2ueRnzxWfk=; b=kYmwA7t5Y79SOrW31qoO7O1JCA
-	ENJx/y1JrY0J/o1ETZPqJDOgzNJjXExgooABhJ655TJFsyjnzBCt/UfwDAYpkWt1us46jJY5GnK9r
-	PPhFLpJBCnZjdYjXrWDUNe+hfYEoojytOxura+aMxbm+o7RD68qu/I7pTaW5o16ie+TgpGA20r7tU
-	b2+tfTyfgStSlQgcvs7OtTP1U6Hwvxk0Y7C61F0G9q1TLe9aa4zT81qipafOwgUFuPITlfi2wC+7R
-	HZCxYEAFEe6ghrJUUr3D0K4gBz2HGIM2hsNbSdbkD7Nibas98rcuhTm+hEJKBuQZKp4hgIs2WbLfh
-	/sU3pbcg==;
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r7kyhS+AN7mALzi6gxFmcRFltHcX9PkTUE9xxZswSTo=; b=2Ilp9kpLeA3ZbUw9WGmVnpwL+c
+	O8R7abFZHdccdowY4FANioYa/wa+o51gRZUE/tKsAblpMLsRUGYzUs0Sm6xZv8AklwjhdS/D9LkdI
+	6Zx/t0PuIdOKf7a0Dao11Gb2jeCd2rAHPiKK2I7gJjqvxrIAhOnaNh9zFWkXJ15kBdlSrpRIdWyxN
+	s6PnyJkA300IVCj8dqK6Gt6XU3dydZ3aFmsb6Mzxj0weW+BKs6tBfkzLXwTsRFrZafprLtvr2Y1Qw
+	EmgPSOb8E/Li7LmFj5WhV+6/tIjhFrOQwAOHKEs+ZnKI1r5artg+MxzotnP8MCAVoIvED+7I7x2yP
+	NvNo/B3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXksl-00000009E8V-2FgE;
-	Tue, 14 Jan 2025 17:39:15 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1tXl4s-00000009FTh-028a;
+	Tue, 14 Jan 2025 17:51:46 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXkqc-00000009Duy-1eMk
+	id 1tXl3b-00000009FGk-14vu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 17:37:03 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-216395e151bso159815ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 09:37:02 -0800 (PST)
+	Tue, 14 Jan 2025 17:50:28 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4361815b96cso41352155e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 09:50:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1736876221; x=1737481021; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=7rcl1SX/OvDfBPdSZc3LYo5TUWBN/Uceh2ueRnzxWfk=;
-        b=Nbd5eBYQvgqXHyN3TgFFeStUlAZo0+cj9sCAxRlrIGXVszYKNnIP3JC7FyM6EtgqGJ
-         MTmFVFi44tDj/ntHfWbGoHzDiWxJCl9sn5JwJQqvhH/VYndJ4J3Sq8cuBtzGGh9IGpNx
-         oj+ZxLf7KXKw2p6JVKOmP7g7JRbS0swyzzYnA=
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1736877025; x=1737481825; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:user-agent
+         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=r7kyhS+AN7mALzi6gxFmcRFltHcX9PkTUE9xxZswSTo=;
+        b=JaMwXUnAtRDX6W0nPzDBH7iFKqZxE8zignj6Odn6+NkpikSHb8PVKo7myg9H284f28
+         AyBDzSxD+zq0ge2pS5OXbvvc/p7bKRXyamH4NQWJYaFCcW5CqhmUtRyYXbwTIWdit0Nw
+         +ukWZTSEx9DJNxBFsAx1hH0UdC3Cmj/0swoxGnQEux34VN2feZ1uxySb5EF7PJUf8EGb
+         LuqRocvrILXZg9bs9C7Y8NTssgrMmPlzpo1+x7306ZYozCmwWYNLicXHoo6OG0AsmlZf
+         UTuIxgbs30GIPa3xUYJjRQ2c7Hfp5pB97h3h1bQ4lfwEBKWmyCj8fWK8CuttV7ZJY2hI
+         +WbA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736876221; x=1737481021;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=7rcl1SX/OvDfBPdSZc3LYo5TUWBN/Uceh2ueRnzxWfk=;
-        b=Ynx4ETg4sOXrf5PQwH3GilTDmM+OYi7in3bxzYCTkFn5K3euQQ2BVEsvpUe2vwmATk
-         IdVuAv+M1cI6HZvqC/HiXfnz4H92VqILYO8T+IbRXZte/uEGfPGiJimId8OmcgnwQZ4x
-         rksyoEaCwUSgWu27DRd+FycL4c1QComZRzu8ecCn8Cy0S39nr0veIEV50rrHRC1YZpVx
-         UmcH97lZuX98hFnxWd4hANDFujnx+XXN2XknfGdG0uMdt5qvaDj/Pp/b4TGUG7mCHSh/
-         HSVUvdhw4WS2ditjDeWwCAzoPq1kMa03fN2/agiOyXcJ4FSVbb5ocQ5wOwXk9ivu5P2d
-         RuLQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXhPjoclgPZST7KL7M5Wl/tJAZo2WyhmQ6cxhewVde0ideHW5313cdzcC0rtYEiqjleIBCC/eS3daGudzQVkYEn@lists.infradead.org
-X-Gm-Message-State: AOJu0YzYd89ffvFb1bfKAoC3Z780OecaMQva7ADneHGEBp6sAlT2Agjy
-	atGovymBm5j/scEbGXm++TCuv3d4K08DOhjT26KjL+vYmgY3wDmznQ4w9cnq+Q==
-X-Gm-Gg: ASbGnct3sxhjmRXz64hdxbqugR2Kto3p0d9aYjqGH0ZzL7EIcvQnLanM8GOT8XX1UqL
-	HTK5Idfi1jX2mjhfne3iJwxjVhFnainjJC8XWvAvNRpsepOzs5tvJyjznlWxpsYcO38P55CIUX/
-	eCVH2qQqI4sO9Um48+rPROe89ChHzayWsVtCkxApehUaK8oNNuZ/Km0F/Fw7HHb6xXIgmwN3s2d
-	dm1zj0l2W+Mj80NIYToBDHRjsYDNmZSijLO1txflOgQ5P+fUKG/aVfbZmTS8TtRVbyiUvfh1/xL
-	7l57KU4Iwep33DYJaW/a
-X-Google-Smtp-Source: AGHT+IEFzv5G0xmABBL+XZICiZP0VhjMpDV3vlDzoecWcnfA7PB2ZBZcrMRU1kwwvn6finYRTqr0/A==
-X-Received: by 2002:a17:902:ecc3:b0:216:14fb:d277 with SMTP id d9443c01a7336-21a8d6c7ab4mr318410025ad.22.1736876221535;
-        Tue, 14 Jan 2025 09:37:01 -0800 (PST)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21a9f10ddeasm70270415ad.48.2025.01.14.09.36.59
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 14 Jan 2025 09:37:00 -0800 (PST)
-Message-ID: <96dba1fb-53f3-40fb-8e20-887cd089961c@broadcom.com>
-Date: Tue, 14 Jan 2025 09:36:59 -0800
+        d=1e100.net; s=20230601; t=1736877025; x=1737481825;
+        h=content-transfer-encoding:mime-version:message-id:date:user-agent
+         :references:in-reply-to:subject:cc:to:from:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=r7kyhS+AN7mALzi6gxFmcRFltHcX9PkTUE9xxZswSTo=;
+        b=ZNbq4xqyKnj0CvMkXk+DBGhIWVTw51zA+7CiHInr0IMDBP4Nh/Q4Nof8AgO+EZBlug
+         /fh+gdEYgFTsU/aCAghX2JeC8rmTn8wEF5iQQvvfkVPSkFtzJ/kmYLQK3pcKV3wFRiuX
+         97bwo96ugGD4ZbHWu22IPmioBswShMSATbb0d2t1zOrKrp7hfF7R1XaTnwzg2PVRCZys
+         3rrsADEjGLeASkmRrtrPoU6JDXC0Dl29+iJca3NW8K/GAnSEC39Ol5qzmp/gkv4+4uQx
+         rWROEdsB/Lo4tV3YHAz16aV8KbF/oKUoZp7OiOCabLDLONEyln5Jq2HKbLUI9CQ+DSdY
+         suFg==
+X-Forwarded-Encrypted: i=1; AJvYcCW0GZhjE+xA4g3lj2ylb+O12+GO01FiCEl8K6yQaSt/ytQgffax8ubsqlg6vAy0RLsV5Cu5/GUqchQ9EFyke2oF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxq1DzbgjeV/HW7jKl/x/J6vlmGc+e+WJc5aqwQPd4YbePk029J
+	S3BWoPcrHV70VrRqdC0rV3y4T6PMC7xgRq1HMytrdnXr2UNPUUVpvzs0qUX87n8=
+X-Gm-Gg: ASbGnctriBvxumYYaR8bs1b61kHyNm9KtkZQqiEC5k08uNwKQJM969xiPUVUH/mutNX
+	vKuxQ7BLRKzrlpudJfWF1LrvP7NfrjLT8Rus2lidNCKRye7e7pQP0okpFFO7RYifilEFyFO1H/G
+	mryuNoDInx8TwghAbDVX40jVACufJK+qUeKtmyKdQiorqz9nw32eUVtKfG9F3esqYTvRWVDIapW
+	xbLvtZ8/VdtxXFGsvZyx026M5rlwuYbI9esKqo3wF1+cT6yN7Sxbai+
+X-Google-Smtp-Source: AGHT+IGniaS5vKpw5UThOug4qTnk81tkkU2MITchcBy/hQw5sKSXoGOKno5PQ4PZG23+YM4eJ9Ctww==
+X-Received: by 2002:a05:6000:1547:b0:386:391e:bc75 with SMTP id ffacd0b85a97d-38a872debb2mr24343563f8f.16.1736877025045;
+        Tue, 14 Jan 2025 09:50:25 -0800 (PST)
+Received: from localhost ([2a01:e0a:3c5:5fb1:317c:3d93:b7d4:96cd])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a8e4c23dcsm15192221f8f.101.2025.01.14.09.50.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Jan 2025 09:50:24 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: ao.xu@amlogic.com,  Neil Armstrong <neil.armstrong@linaro.org>,  Maarten
+ Lankhorst <maarten.lankhorst@linux.intel.com>,  Maxime Ripard
+ <mripard@kernel.org>,  Thomas Zimmermann <tzimmermann@suse.de>,  David
+ Airlie <airlied@gmail.com>,  Simona Vetter <simona@ffwll.ch>,  Rob Herring
+ <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor
+ Dooley <conor+dt@kernel.org>,  Kevin Hilman <khilman@baylibre.com>,
+  dri-devel@lists.freedesktop.org,  linux-amlogic@lists.infradead.org,
+  devicetree@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
+  linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 00/11] Subject: [PATCH 00/11] Add DRM support for
+ Amlogic S4
+In-Reply-To: <CAFBinCDG2in4ZZAp2LXnz8bgiZoPL3G_c9+aCo9+Ort2W-tFCA@mail.gmail.com>
+	(Martin Blumenstingl's message of "Sun, 12 Jan 2025 23:44:52 +0100")
+References: <20250110-drm-s4-v1-0-cbc2d5edaae8@amlogic.com>
+	<CAFBinCDG2in4ZZAp2LXnz8bgiZoPL3G_c9+aCo9+Ort2W-tFCA@mail.gmail.com>
+User-Agent: mu4e 1.12.7; emacs 29.4
+Date: Tue, 14 Jan 2025 18:50:23 +0100
+Message-ID: <1jwmex5lpc.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] clk: Use str_enable_disable-like helpers
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Ray Jui <rjui@broadcom.com>,
- Scott Branden <sbranden@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- Linus Walleij <linus.walleij@linaro.org>,
- Bjorn Andersson <andersson@kernel.org>, linux-clk@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-arm-msm@vger.kernel.org
-References: <20250114105618.273302-1-krzysztof.kozlowski@linaro.org>
-Content-Language: en-US
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20250114105618.273302-1-krzysztof.kozlowski@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_093702_434224_FA591FB7 
-X-CRM114-Status: UNSURE (   8.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250114_095027_288509_A5011CB4 
+X-CRM114-Status: GOOD (  44.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,20 +107,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/14/25 02:56, Krzysztof Kozlowski wrote:
-> Replace ternary (condition ? "enable" : "disable") syntax with helpers
-> from string_choices.h because:
-> 1. Simple function call with one argument is easier to read.  Ternary
->     operator has three arguments and with wrapping might lead to quite
->     long code.
-> 2. Is slightly shorter thus also easier to read.
-> 3. It brings uniformity in the text - same string.
-> 4. Allows deduping by the linker, which results in a smaller binary
->     file.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+On Sun 12 Jan 2025 at 23:44, Martin Blumenstingl <martin.blumenstingl@googl=
+email.com> wrote:
 
-Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
--- 
-Florian
+> Hello,
+>
+> On Fri, Jan 10, 2025 at 6:39=E2=80=AFAM Ao Xu via B4 Relay
+> <devnull+ao.xu.amlogic.com@kernel.org> wrote:
+>>
+>> This patch series adds DRM support for the Amlogic S4-series SoCs.
+>> Compared to the Amlogic G12-series, the S4-series introduces the followi=
+ng changes:
+> Thanks for your patches. With this mail I'll try to summarize my
+> understanding of the situation with the drm/meson driver as I'm not
+> sure how familiar you are with previous discussions.
+>
+>> 1 The S4-series splits the HIU into three separate components: `sys_ctrl=
+`, `pwr_ctrl`, and `clk_ctrl`.
+>>   As a result, VENC and VCLK drivers are updated with S4-specific compat=
+ible strings to accommodate these changes.
+> Jerome has already commented on patch 3/11 that this mixes in too many
+> IP blocks into one driver.
+> This is not a new situation, the existing code is doing exactly the same.
+>
+> Jerome has previously sent a series which started "an effort to remove
+> the use HHI syscon" [0] from the drm/meson hdmi driver.
+> In the same mail he further notes: "[the patchset] stops short of
+> making any controversial DT changes. To decouple the HDMI
+> phy driver and main DRM driver, allowing the PHY to get hold of its
+> registers, I believe a DT ABI break is inevitable. Ideally the
+> register region of the PHY within the HHI should provided, not the
+> whole HHI. That's pain for another day ..."
+>
+> For now I'm assuming you're familiar with device-tree ABI.
+> If not then please let us know so we can elaborate further on this.
+>
+> My own notes for meson_dw_hdmi.c are:
+> - we should not program HHI_HDMI_CLK_CNTL directly but go through CCF
+> (common clock framework) instead (we should already have the driver
+> for this in place)
+> - we should not program HHI_MEM_PD_REG0 directly but go through the
+> genpd/pmdomain framework (we should already have the driver for this
+> in place)
+> - for the HDMI PHY registers: on Meson8/8b/8m2 (those were 32-bit SoCs
+> in case you're not familiar with them, they predate GXBB/GXL/...) I
+> wrote a PHY driver (which is already upstream:
+> drivers/phy/amlogic/phy-meson8-hdmi-tx.c) as that made most sense to
+> me
+>
+> Then there's meson_venc.c which has two writes to HHI_GCLK_MPEG2.
+> I think those should go through CCF instead of directly accessing this re=
+gister.
+>
+> Also there's the VDAC registers in meson_encoder_cvbs.c:
+> I think Neil suggested at one point to make it a PHY driver. I even
+> started working on this (if you're curious: see [0] and [1]).
+> DT ABI backwards compatibility is also a concern here.
+>
+> And finally there's the video clock tree programming in meson_vclk.c.
+> My understanding here is that video PLL settings are very sensitive
+> and require fine-tuning according to the desired output clock.
+> Since it's a bunch of clocks I'd say that direct programming of the
+> clock registers should be avoided and we need to go through CCF as
+> well.
+> But to me those register values are all magic (as I am not aware of
+> any documentation that's available to me which describes how to
+> determine the correct PLL register values - otherside the standard
+> en/m/n/frac/lock and reset bits).
+>
+> I'm not saying that all of my thoughts are correct and immediately
+> need to be put into code.
+> Think of them more as an explanation to Jerome's reaction.
+>
+> I think what we need next is a discussion on how to move forward with
+> device-tree ABI for new SoCs.
+> Neil, Jerome: I'd like to hear your feedback on this.
+
+I completely agree with your description of the problem, that and
+Krzysztof's remark on patch 6. This is not new with this series indeed,
+so it does not introduce new problems really but it compounds the
+existing ones.
+
+Addressing those issues, if we want to, will get more difficult as more
+support is added for sure.
+
+>
+>> 2 The S4-series secures access to HDMITX DWC and TOP registers,
+>>   requiring modifications to the driver to handle this new access method.
+
+Regmap buses are made for those cases where the registers are the same,
+but accessed differently. There is an example in the patchset referenced by
+Martin, to handle GXL and G12 diff.
+
+> This info should go into patch 1/11 to explain why the g12a compatible
+> string cannot be used as fallback.
+>
+>
+> Best regards,
+> Martin
+>
+>
+> [0] https://github.com/xdarklight/linux/commit/36e698edc25dc698a0d57b729a=
+7a4587fafc0987
+> [1] https://github.com/xdarklight/linux/commit/824b792fdbd2d3c0b71b21e110=
+5eca0aaad8daa6
+
+--=20
+Jerome
 
