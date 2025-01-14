@@ -4,65 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3486C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 18:19:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 133BDE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 18:20:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JbAalSABBfJXtwx3LTEE2uM/q8cdL464L6LDaY1o2Io=; b=4dPEiMFlE/kpXXoNW9Qrw341bb
-	+glndujC/kiqfhovp/YAnLEsNJynOXqMRkZAin2NWumswx22FXdUkyLLHzbIwbNQjjeoKWKfFQjeM
-	AVAU9siuwpwC+ejpMTkxMJ4qFwE+l7xe5McCYhoGDBnCXpWNMcflSw/HzKWNJ/mg4y2MA7XhVBXsg
-	KmLCcEGMtJr1nlANld2oD2/BFrl31j75E5LwsLTH7eTMX9Bx6EaH2XKkAQYBI0CB1TUF1CmUTk2ab
-	k+pAvJNGB8ogU8QNzvjSWof46FHV9b2LcYckwXwDgkNaDjx0prQdyR6OPxbKl5PCqh2fs9PU20TIl
-	5MK7BGRg==;
+	bh=5g/nAbMYMm2p9UdFeUmdEJe1r0jnPaHHIl/UszfI4Xg=; b=SxNU69ecANyxy3s6DygQSXnpBV
+	282DW2Fnf0g5BhKf37AQnSxyecospxRtilDQOqR3kS6l7CW6XenEAvN78Pspye30gfAjrMDE3Vfwu
+	ON/SCD7hGyqTPWixuRwKBcw6wQrIKgW2hu7lDu5+c8H8BoWtIOqpdn7j0FN/ezqyEBWX1xB/ydWYf
+	gKL19IpXv89zg8PANO2sQ6QprjzvvZqfXkqoKqy0rWNdbaKsFgYovk3Qg9mnhGVM9dNOP64SYwGvv
+	1LOLpxmLVRfcwNTk4KhJekQvZLrk1MdwWjBpYxoP8b1xfjZuVHSzrP2FLRVfFpM3KrSNcyY9RX9kj
+	i3qQEnIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXlVc-00000009OON-1Jn3;
-	Tue, 14 Jan 2025 18:19:24 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXlTH-00000009Nxl-12QN
+	id 1tXlWv-00000009Oq6-1Zhg;
+	Tue, 14 Jan 2025 18:20:45 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tXlV6-00000009OJb-0mhn
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 14 Jan 2025 18:18:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=5g/nAbMYMm2p9UdFeUmdEJe1r0jnPaHHIl/UszfI4Xg=; b=hirg1DZxzpPCRiGt1RND5VZsyg
+	xw4InCKrmS8TrGMtc2gsuIq29AsQ6yb0vY/zi4HwxdPZMSPNKIRMaNW4FrvmNgIaBH56U5thxlWSy
+	ooIVcvB1JkjqvoTTJIxtajWsOReAcaP7uIRZCrA/1jvftI0rI3uGbKG4eYUdiYRlADBTwpJnIdfrK
+	nlXO/yR9GWonXrtVR6A8ID/TFhv/nzKqTOeaKcfrom18NOIW1NqJprg0UrEI4h+/YgN+zKtTVhK4U
+	pyxgTObjyKuuAD6GWSJvvPxn074UkxegC9KmGtJeS2PMqbwRgWaZY76PFH/OPnW8fcCabRHTt3grB
+	i0OvdezA==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tXlV2-0000000AXNl-01vS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 18:17:00 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E376E19F0;
-	Tue, 14 Jan 2025 10:17:23 -0800 (PST)
-Received: from bogus (unknown [10.57.34.70])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2ED193F51B;
-	Tue, 14 Jan 2025 10:16:54 -0800 (PST)
-Date: Tue, 14 Jan 2025 18:16:29 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Ranjani Vaidyanathan <ranjani.vaidyanathan@nxp.com>
-Cc: Peng Fan <peng.fan@nxp.com>, "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	"cristian.marussi@arm.com" <cristian.marussi@arm.com>,
-	"ulf.hansson@linaro.org" <ulf.hansson@linaro.org>,
-	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [EXT] Re: [PATCH] pmdomain: arm: scmi_pm_domain: Initialize
- state as off
-Message-ID: <20250114180649.alehyqs657p2vyzl@bogus>
-References: <20250110061346.2440772-1-peng.fan@oss.nxp.com>
- <Z4TreQ5bA9qiMTgC@bogus>
- <PAXPR04MB8459F33BCC84CCA8F49F3B60881F2@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <Z4UZ2Au7KSFMibDW@bogus>
- <PA4PR04MB94855052830C8F4874237BA6921F2@PA4PR04MB9485.eurprd04.prod.outlook.com>
- <Z4VLZgAWR7ugDl7W@bogus>
- <PA4PR04MB9485E9C126E48A088D7E399B921F2@PA4PR04MB9485.eurprd04.prod.outlook.com>
- <Z4aBkezSWOPCXcUh@bogus>
- <PA4PR04MB9485507CCC21354B5ED55C3792182@PA4PR04MB9485.eurprd04.prod.outlook.com>
+	Tue, 14 Jan 2025 18:18:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D1C735C599A;
+	Tue, 14 Jan 2025 18:18:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24DCFC4CEE5;
+	Tue, 14 Jan 2025 18:18:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736878724;
+	bh=5g/nAbMYMm2p9UdFeUmdEJe1r0jnPaHHIl/UszfI4Xg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=S5qEB74nK4TX+OZ3IAzHA+hIuGqmcgZrVfnf0gDSRg4LCBlqUnFUAJWiVuD+VE2MG
+	 Uo+pqf1xKMhzH/OwjvBqeF99EeQpZCHN8WHwQkfwVPucSN9Kc9gmzzFS1PjWTlk6lR
+	 xNwiOBFnWGY7KXa8aHH/y7/4T0ufmy1YAA5IKef+dtC7n2fUAbkvFwNQtuxTMftyKQ
+	 TBfjuZxCd28kC8yfSnorUB+4QdnP4Lv0aGjuf8+jw/38yf6vEJxfgOE2ktkAIB2y/I
+	 Q07V3R35/9pOIn9cOV52anj9XzgcD3QihngfQHS6dL+L0RAWx4j+2zBTe+z/PrexZo
+	 2LPz9GjJ7RRMQ==
+Date: Tue, 14 Jan 2025 18:18:40 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 1/4] dt-bindings: arm: fsl: add i.MX95 15x15 EVK board
+Message-ID: <20250114-imminent-spotted-f6775aa15df5@spud>
+References: <20250114-imx95_15x15-v2-0-2457483bc99d@nxp.com>
+ <20250114-imx95_15x15-v2-1-2457483bc99d@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="pbVmwMD48O6xlCqG"
 Content-Disposition: inline
-In-Reply-To: <PA4PR04MB9485507CCC21354B5ED55C3792182@PA4PR04MB9485.eurprd04.prod.outlook.com>
+In-Reply-To: <20250114-imx95_15x15-v2-1-2457483bc99d@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_101659_367407_E6B01077 
-X-CRM114-Status: GOOD (  36.28  )
+X-CRM114-CacheID: sfid-20250114_181848_232826_15771C77 
+X-CRM114-Status: UNSURE (   8.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,78 +94,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 14, 2025 at 04:09:13PM +0000, Ranjani Vaidyanathan wrote:
-> Hello Sudeep,
->
-> Comments below.
->
-> Regards,
-> Ranjani Vaidyanathan
->
-> -----Original Message-----
-> From: Sudeep Holla [mailto:sudeep.holla@arm.com]
-> Sent: Tuesday, January 14, 2025 9:24 AM
-> To: Ranjani Vaidyanathan <ranjani.vaidyanathan@nxp.com>
-> Cc: Peng Fan <peng.fan@nxp.com>; Peng Fan (OSS) <peng.fan@oss.nxp.com>; cristian.marussi@arm.com; Sudeep Holla <sudeep.holla@arm.com>; ulf.hansson@linaro.org; arm-scmi@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-pm@vger.kernel.org; linux-kernel@vger.kernel.org
-> Subject: Re: [EXT] Re: [PATCH] pmdomain: arm: scmi_pm_domain: Initialize state as off
->
-> Caution: This is an external email. Please take care when clicking links or opening attachments. When in doubt, report the message using the 'Report this email' button
->
->
-> Hi Ranjani,
->
-> On Mon, Jan 13, 2025 at 07:54:06PM +0000, Ranjani Vaidyanathan wrote:
-> > Hello Sudeep,
-> >
-> > Will try to explain the situation we are facing.
-> > 1. We have multiple agents running, Agent-A is booted up first before
-> > Linux is booted and powers up a shared power domain PD-X.
-> > 2. Linux boots and gets the power state of PD-X. And its already ON.
-> > And then PD -X is initialized with a default ON state.
-> > 3. When the driver that needs PD-X  is probed, Linux sees that the
-> > power domain status is ON and never makes an SCMI call to power up the
-> > PD-X for Linux Agent.
-> > 4. Agent-A now is shutdown/suspends. Linux will crash because the
-> > platform disables PD-X because it has no other requests for PD-X.
-> >
->
-> Thanks for the detailed explanation. I understand the issue now.
->
-> I would like to discuss if the below alternative approach works for you.
-> We can debate the pros and cons. I see with the approach in this patch
-> proposed by Peng we would avoid querying and setting genpd all together
-> during the genpd initialisation which is good. But if there are any genpd
-> left on by the platform or bootloader(same agent), it will not get turned
-> off when Linux tries to turn off the unused genpds(IIRC this could be the
-> reason for the current state of code). While your platform may find sending
-> those commands unnecessary, there was some usecase where SCMI platform kept
-> all resources ON by default for faster boot and expects OSPM to turn off
-> unused resources. So we need to support both the cases. I hope my below
-> patch should suffice.
->
-> [RV] Linux can still make the call to disable unused power domains, even if
-> it never explicitly made a request to power it on. The platform will
-> aggregate the request from all agents and will power off the resource if no
-> other agent has enabled it. From Linux point of view it has disabled all
-> unused power domains.
 
-I need to dig into genpd to see if that is possible. IIUC, genpd tracks the
-state and will call off only if it is turned on and is unused. If we
-initialise to default off state, it may not issue the OFF call to the
-firmware irrespective of the actual state(i.e. even if it left ON).
+--pbVmwMD48O6xlCqG
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> Your patch below may also work, but feels like a workaround to artificially
-> (for lack of a better word) enable a resource.
+On Tue, Jan 14, 2025 at 12:56:24PM -0500, Frank Li wrote:
+> Add DT compatible string for NXP i.MX95 15x15 EVK board.
+>=20
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
-I tend to agree this might feel like workaround but I need to look and
-refresh my genpd knowledge. Or we can check with Ulf.
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-> And also makes unnecessary SCMI calls (expensive) for every resource
-> immaterial of it power state (maybe can be improved by a conditional check).
+--pbVmwMD48O6xlCqG
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Yes we can make explicit call only for ON state.
+-----BEGIN PGP SIGNATURE-----
 
---
-Regards,
-Sudeep
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ4aqfwAKCRB4tDGHoIJi
+0vDKAP4/yAJiBRrXaAjIEA6VGYcdE2/l5/vLI9j87t15CNSefgEA0UAdqPLPrB6b
+vqycV/ej/KSaUuTkvsq8BvzMk6liMQo=
+=5FUS
+-----END PGP SIGNATURE-----
+
+--pbVmwMD48O6xlCqG--
 
