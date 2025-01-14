@@ -4,91 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFF84E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 15:19:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91BE9E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 15:25:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pQWVZCzJjONf9MD2zqQKoSy7C5/tRi8G57MPvXxDJbk=; b=MxVqBMzH9Xk++CCMV+pTtvx+Ch
-	4Sdz5uBZV8BzPACmfkL2LntCYHWzpXTYRrqsHNrFBAsaLLLs9kI4eCWBMokEhnKj/G11Ne217iUal
-	6R3n2RROi3YotPTc4rMs43HawIvFLseUrpyzI3Pywtb3XajIjMtxtnn1S1Ji2XmazAxKeKWYkko/s
-	QRtyeal3ZZDC2Z6Z4bvUiUS34wdPNBxA2d2hhjLI9nO/rZAlz/Qw5RsNtoV3ngUzH/EDE5vtuSutO
-	T0KMtpMxvLq4vBL0H7d+HOAdUmbpXsJAES/P8cUmRL+v4GzsDgr5BMsyQZ09xOWWIlRdTGm5txtz5
-	xhN16L1g==;
+	bh=//CcpbPza7N9vgAbhqgFiwyl+uPQhxrQ9mz1hZI00l4=; b=Jj0CA6GVFbgi+IA5D4Hp8OqJiJ
+	Rm5YZgJolyqD47NqlOfE8Rgi/GcGvYFEGtl3l0xJhrAxaa09sgIPFpk8dVzyisagmwJ2F5K9HRsfO
+	BKzY47NOQN6SDXh/B70GtnMOInG3ZzpAfCkxx+tJmaDXmtGI8DH8+Sj0O1qfel6b6NwLRp3xCk39y
+	/T8bLKjxPfMZC+vaI7loP6wlXSYzpwnha8KB2CgtvJyTcSTnIIuSxHUg/oRM04NWfWJyRcJeMC4io
+	Lo+AjTp/1vCZIHPropzLwUMX5Ex8lpAOEaBrjpexV5ZnZNz0Vv9e6d6ul8Y95xlMsvrlc7Efp0Xr7
+	Lnfo5L4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXih1-00000008pgP-1AI1;
-	Tue, 14 Jan 2025 15:18:59 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXifl-00000008pax-0O2b
+	id 1tXinD-00000008qSo-1OYn;
+	Tue, 14 Jan 2025 15:25:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tXily-00000008qFA-0Hxb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 15:17:42 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-aab6fa3e20eso1015381466b.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 07:17:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ffwll.ch; s=google; t=1736867858; x=1737472658; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references
-         :mail-followup-to:message-id:subject:cc:to:from:date:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=pQWVZCzJjONf9MD2zqQKoSy7C5/tRi8G57MPvXxDJbk=;
-        b=GJVxbOQ33KOKKhuX+YO8qi5KmKlRq3y+63IN4eXJSlYkDV+/JUEsQS6AjaYD81o5oK
-         XiucPfI6OzlHXVlLtrk2Wp9sr2U8byFO0dkDsrPljgsqmQ+V19JqiI1wVJxRCuW3EgYA
-         +bfc3Se95aRekvGCKZg5GYGdkbps3Cs8TNQGc=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736867858; x=1737472658;
-        h=in-reply-to:content-disposition:mime-version:references
-         :mail-followup-to:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=pQWVZCzJjONf9MD2zqQKoSy7C5/tRi8G57MPvXxDJbk=;
-        b=JZ3cw9vNJdxUF/uvZRgxy/zQosKxCjRCJZHBwQgxJvIqreV0U5NrZDC3Fbhs4H3XSX
-         /1BEAhViU3pKdUCSvmCSduhPTtGA/cVtvKNifSJ6svx5nKiI7EX0Wj81oGUi7I33vvGQ
-         rvdGMCgUzws4sZZAUd15wy0bJeG+qOsp2308MvpQ8R1zrx7VmLZHgGwfJSyHXUeoTa4q
-         N1np72BhJkvmC1IVMYHUDtNip+OGcxNgDdjPng3HUH0iN+WmRM36q9vdc34oRzoJuTGN
-         OC7IOHeMIJXjotZ3Tq7IA7V9WPpTXWs7h9/FFrmeXhPCn0kgC07GarKyZnMbDZsJ1oN2
-         McOw==
-X-Forwarded-Encrypted: i=1; AJvYcCXePOsN49v6AbppFBhlwZrcrOOrGBd5cXUWTSUvc0+QqZnJlMBk8/iAWrolDWTdU9Jn5VL4ZNT/c5bGRLGdD+jT@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx59Izue6zRy/Phdv9eZIpMMFXwFqs7JIKiQc2gsN2Y3ds5orRk
-	Km1zsTAvQ7uvW7NKCXn8B4AfPSmirDZ1Tf1Xyk7Xa87xs4T0QI7tlwubo7aDDAs=
-X-Gm-Gg: ASbGnctq9Husb6qan1UmE7+x/NxPRSgmkH1GPgcETdTQv7wcVFcGbOlMceZjHE7Nynq
-	T9ctzqjmxgcocEQFXg3BM/8dbIS2gIXWRK742vGAzPlmaieSLY/OnOH+CLMnxkPsETWTWL4f7C1
-	07rFQelnRSxEv+lR1q5VUQLL46Rb5ynwzzB7Vrp6/zZmZsdOc9n8WJ1u1cxWR+dwv9mwqhHwgEx
-	Ud5sK1RsT7jN7anaDX7e9VWZzk1gt6RKzK0+rNUCk6a4UDTvcbG3y1ormn9YU8nWaP6
-X-Google-Smtp-Source: AGHT+IGT2QdUEExo3ZYiHoJHmXJJ/EkUrorLws5bU4PVtJoU0zzZ/jzA8NZO5j2BZKS0oNyTy74E/g==
-X-Received: by 2002:a17:907:6d04:b0:aa6:9ee2:f4c9 with SMTP id a640c23a62f3a-ab2ab6c6dffmr2382002566b.23.1736867858477;
-        Tue, 14 Jan 2025 07:17:38 -0800 (PST)
-Received: from phenom.ffwll.local ([2a02:168:57f4:0:5485:d4b2:c087:b497])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab2c90d9ae0sm648358966b.68.2025.01.14.07.17.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jan 2025 07:17:38 -0800 (PST)
-Date: Tue, 14 Jan 2025 16:17:36 +0100
-From: Simona Vetter <simona.vetter@ffwll.ch>
-To: Hector Martin <marcan@marcan.st>
-Cc: devicetree@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>,
-	linux-usb@vger.kernel.org, linux-embedded@vger.kernel.org,
-	Asahi Linux <asahi@lists.linux.dev>,
-	linux-arm-kernel@lists.infradead.org,
-	dri-devel@lists.freedesktop.org
-Subject: Re: Unified Type C PHYs and top-level port management
-Message-ID: <Z4aAEA6Kmc4R-Wlb@phenom.ffwll.local>
-Mail-Followup-To: Hector Martin <marcan@marcan.st>,
-	devicetree@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>,
-	linux-usb@vger.kernel.org, linux-embedded@vger.kernel.org,
-	Asahi Linux <asahi@lists.linux.dev>,
-	linux-arm-kernel@lists.infradead.org,
-	dri-devel@lists.freedesktop.org
-References: <fda8b831-1ffc-4087-8e7b-d97779b3ecc5@marcan.st>
+	Tue, 14 Jan 2025 15:24:07 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A120611FB;
+	Tue, 14 Jan 2025 07:24:33 -0800 (PST)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C4FE73F673;
+	Tue, 14 Jan 2025 07:24:03 -0800 (PST)
+Date: Tue, 14 Jan 2025 15:24:01 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Ranjani Vaidyanathan <ranjani.vaidyanathan@nxp.com>
+Cc: Peng Fan <peng.fan@nxp.com>, "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
+	"cristian.marussi@arm.com" <cristian.marussi@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	"ulf.hansson@linaro.org" <ulf.hansson@linaro.org>,
+	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [EXT] Re: [PATCH] pmdomain: arm: scmi_pm_domain: Initialize
+ state as off
+Message-ID: <Z4aBkezSWOPCXcUh@bogus>
+References: <20250110061346.2440772-1-peng.fan@oss.nxp.com>
+ <Z4TreQ5bA9qiMTgC@bogus>
+ <PAXPR04MB8459F33BCC84CCA8F49F3B60881F2@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <Z4UZ2Au7KSFMibDW@bogus>
+ <PA4PR04MB94855052830C8F4874237BA6921F2@PA4PR04MB9485.eurprd04.prod.outlook.com>
+ <Z4VLZgAWR7ugDl7W@bogus>
+ <PA4PR04MB9485E9C126E48A088D7E399B921F2@PA4PR04MB9485.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <fda8b831-1ffc-4087-8e7b-d97779b3ecc5@marcan.st>
-X-Operating-System: Linux phenom 6.12.3-amd64 
+In-Reply-To: <PA4PR04MB9485E9C126E48A088D7E399B921F2@PA4PR04MB9485.eurprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_071741_135141_B3757CFF 
-X-CRM114-Status: GOOD (  29.89  )
+X-CRM114-CacheID: sfid-20250114_072406_200074_ABAD5345 
+X-CRM114-Status: GOOD (  27.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,78 +75,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 14, 2025 at 09:32:11PM +0900, Hector Martin wrote:
-> - On the DP/display side, we haven't implemented this yet, but in the
-> future the single "apple,display-subsystem" driver (which actually
-> provides the top-level DRM device for all the underlying discrete
-> display controllers, and is already its own virtual device in the DT)
-> will present virtual ports for the different PHYs, and handle the
-> muxing/assignment between them and the display controllers on its side
-> (there is potentially complex policy here too, since not all display
-> controllers are equal and there may be a need to reassign a display for
-> a lower-spec screen to a lower-spec display controller to free up a
-> higher-spec controller for a higher-spec screen, but we need a
-> controller assigned to a port to even read EDID to figure that out, so
-> it's going to be messy).
+Hi Ranjani,
 
-Just on the DP/drm side I think the pieces are there, but might need some
-polish:
+On Mon, Jan 13, 2025 at 07:54:06PM +0000, Ranjani Vaidyanathan wrote:
+> Hello Sudeep,
+>
+> Will try to explain the situation we are facing.
+> 1. We have multiple agents running, Agent-A is booted up first before Linux
+> is booted and powers up a shared power domain PD-X.
+> 2. Linux boots and gets the power state of PD-X. And its already ON. And
+> then PD -X is initialized with a default ON state.
+> 3. When the driver that needs PD-X  is probed, Linux sees that the power
+> domain status is ON and never makes an SCMI call to power up the PD-X for
+> Linux Agent.
+> 4. Agent-A now is shutdown/suspends. Linux will crash because the platform
+> disables PD-X because it has no other requests for PD-X.
+>
 
-- with drm_connector_helepr_funcs->detect_ctx and ->mode_valid_ctx you can
-  temporarily steal a crtc for probing, and as long as you don't hold
-  unrelated modeset locks userspace shouldn't notice. This goes back to
-  crt/vga load detection where some hw needed drivers to light up a full
-  crtc. There's also the entire drmGetConnector vs drmGetConnectorCurrent
-  to avoid such potentially expensive probe steps and just reuse cached
-  values.
+Thanks for the detailed explanation. I understand the issue now.
 
-- if you can't get a crtc for probing there's the "unknown" connector
-  status. We could perhaps sharpen the semantics of this (like officially
-  documenting that reprobing with all other crtc switched off sometimes
-  helps), but it's there. I'm also not super worried about this case
-  because we don't have any available crtc anymore, so even if we can
-  probe there's no way to light it up without disabling some other stuff.
-  And as soon as you disable other stuff you can probe everything again
-  (with the fixed locking of the ->detect/mode_valid_ctx callbacks)
+I would like to discuss if the below alternative approach works for you.
+We can debate the pros and cons. I see with the approach in this patch
+proposed by Peng we would avoid querying and setting genpd all together
+during the genpd initialisation which is good. But if there are any genpd
+left on by the platform or bootloader(same agent), it will not get turned
+off when Linux tries to turn off the unused genpds(IIRC this could be the
+reason for the current state of code). While your platform may find sending
+those commands unnecessary, there was some usecase where SCMI platform kept
+all resources ON by default for faster boot and expects OSPM to turn off
+unused resources. So we need to support both the cases. I hope my below
+patch should suffice.
 
-- for the crtc assignment issue there's either drivers virtualizing them,
-  or userspace doing combinatorial probes. Personally I'm leaning towards
-  drivers having to virtualize crtcs (and then you can peak the least one
-  that works, which I think should sort this out), but it's an open and
-  getting discussed in other areas (like having to steal crtc for
-  dual-pipe outputs). We might get a proper documentation patch with an
-  actual kernel/compositor api contract here.
+Regards,
+Sudeep
 
-> But I'm not happy at all with the weird, load-bearing intermingling of
-> tipd/atcphy/dwc3 there. There's bound to be places where the
-> abstractions leak and we end up with more and more horrible workarounds,
-> or layering violations.
-> 
-> A further question is how all this should be represented in the device
-> tree. That might drive the software architecture to a point, or vice versa.
-> 
-> Any ideas?
+---->8
 
-For the larger issue my only uninformed take is ... smells like too much
-midlayer.
+From dc755fa02d351e71c727da1c396e2d346b496096 Mon Sep 17 00:00:00 2001
+From: Sudeep Holla <sudeep.holla@arm.com>
+Date: Tue, 14 Jan 2025 15:08:44 +0000
+Subject: [PATCH] pmdomain: arm: scmi_pm_domain: Send an explicit request to
+ set the current state
 
-Like you'll certainly get some raised eyebrows if you submit a DP driver
-without using dp helpers since that's a proper standard. But if your hw
-has half the DP stack in firmware and just can't be smashed into the drm
-dp helpers we have then I think even that would make sense.
+On a system with multiple active SCMI agents, one agent(other than OSPM/
+Linux or bootloader) would request to turn on a shared power domain
+before the Linux boots/initialise the genpds. So when the Linux boots
+and gets the power state as already ON, it just registers the genpd with
+a default ON state.
 
-Plus we already have like 3 different generations of dp helpers anyway,
-because getting helpers right is kinda hard.
+However, when the driver that needs this shared power domain is probed
+genpd sees that the power domain status is ON and never makes any SCMI
+call to power it up which is correct. But, since Linux didn't make an
+explicit request to turn on the shared power domain, the SCMI platform
+firmware will not know if the OSPM agent is actively using it.
 
-> Some further reading here:
-> https://social.treehouse.systems/@marcan/113821266231103150
+Suppose the other agent that requested the shared power domain to be
+powered ON requests to power it OFF as it no longer needs it, the SCMI
+platform firmware needs to turn it off if there are no active users of
+it which in the above scenaro is the case.
 
-I dropped some unstructured replies with the same stuff on there too
-first.
+As a result of SCMI platform firmware turning off the resource, OSPM/
+Linux will crash the moment as it expects the shared power domain to be
+powered ON.
 
-Cheers, Sima
--- 
-Simona Vetter
-Software Engineer, Intel Corporation
-http://blog.ffwll.ch
+Send an explicit request to set the current state when setting up the
+genpd power domains. The other option is to not read the state and set
+the genpds as default OFF, but it can't handle the scenario on certain
+platforms where SCMI platform keeps all the power domains turned ON by
+default for faster boot and expect the OSPM to turn off the unused
+domains if power saving is required.
+
+Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+---
+ drivers/pmdomain/arm/scmi_pm_domain.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/pmdomain/arm/scmi_pm_domain.c b/drivers/pmdomain/arm/scmi_pm_domain.c
+index a7784a8bb5db..255c8c36a15c 100644
+--- a/drivers/pmdomain/arm/scmi_pm_domain.c
++++ b/drivers/pmdomain/arm/scmi_pm_domain.c
+@@ -96,6 +96,8 @@ static int scmi_pm_domain_probe(struct scmi_device *sdev)
+ 			continue;
+ 		}
+
++		power_ops->state_set(ph, i, state);
++
+ 		scmi_pd->domain = i;
+ 		scmi_pd->ph = ph;
+ 		scmi_pd->name = power_ops->name_get(ph, i);
+--
+2.34.1
+
 
