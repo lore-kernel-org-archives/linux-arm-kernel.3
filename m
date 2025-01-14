@@ -4,98 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38F29E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 16:18:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20A71E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 16:23:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mJqg+/HnHgg1RZbPnt+p/XNLoPcWEGRQ84Ss98oznDI=; b=ORwlmC8WltPvzPaJg8/ChyUKMK
-	XnXenpGBmgvLe8U7edzLftbG6E9mj9+QqxIGoGsBXRXnnYm3VZ26W9EhDqj25V38fer25wqLwfnRs
-	RJ+1en27RAGAw7bCdLq/u03pnr6Y6f3GWJLEytWlmqDRnouBamsEKs33yuvyx2eap+6z/3UxUER+u
-	qJmJcXFSOq9JQtAD6SEmGWevAe8gMx4QlEhsddk1ftCLTeOuPf5RGguMYlIt69UVVzFCQlMx33ZNi
-	G0/+/bbEUZRtFGdBn8a2y8hvyfGP0CjZhpwsMzf1rXU0nFgwnnD3MVY7ogyWXcyHuLqpFjmyzQFDy
-	J9W2MsLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gy0Ldt+ZI7Y3XWp3OlPzHMQgs1yINwkH9YDhGI10yLM=; b=A/ww2ngH3EtLMEVSVsrTYnZK8s
+	mGIzgMQv1CpGNL69L/futF07SDfuW10Cv7n5x4lfNQezMbaC611Nek1JBa+u/ONhufVcxvs3Y2/K3
+	dHRu1q1LRKnFFLX1Q16oThgwlwnVDeKNo6oc8nJ8hxmSt3D1G1RC63NDCFoKsGQYnI5mWeelRnXf3
+	7Q/uDoBPJaHaV1ioq3KkdYH5DtP/W5ZfpiaPxzq4lKsOsMTlmFjR6GcztTEFohQSHMXzo07Co4txD
+	nEoRnEe+IOgi1kHPpdRjXfOqHvos+0nAi0B0MaaV2N5zLinoXaMONaXO2svb9t4K3QEGJirNQm4Ie
+	mv6utaCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXjck-000000090mo-14kp;
-	Tue, 14 Jan 2025 16:18:38 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1tXjhe-000000091MO-0xyA;
+	Tue, 14 Jan 2025 16:23:42 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXjaU-000000090Dm-2hPy
+	id 1tXjgO-0000000917O-1889
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 16:16:20 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-aaedd529ba1so799075366b.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 08:16:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736871377; x=1737476177; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=mJqg+/HnHgg1RZbPnt+p/XNLoPcWEGRQ84Ss98oznDI=;
-        b=VVyjKj3q+5LlUtlCJO91tM/MIwy71qXsbYQvz2c/J/ZEAJZw5eYBa4QP7DrCByL1PU
-         uycxsX2r2VFrqbw5KORYfrqhU4SJHLiAXfeKnhXKwTtmEZPRsVkmhwytdLZMmD1roXF+
-         RMUnGHO1KjUHwYaDS9lJz1gGMxRO0ehc5b+YxWL5o1XfDMjjMRHY6+Uy4QPFWNO0mFT7
-         MFbvu5ot9kazKD1r86srS4eMQUNbVHA0UT6RWBhYoAQn/uMJl2WJGZMoRmUpa08H4ryk
-         TfxcPevw9QYA1d0mbkCd+knZlnsWbfE5kyEZfALL/U5x6pBqA7H507KdN4oNzltBI6v1
-         Lvyw==
+	Tue, 14 Jan 2025 16:22:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1736871743;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=Gy0Ldt+ZI7Y3XWp3OlPzHMQgs1yINwkH9YDhGI10yLM=;
+	b=ivzUYf+PpUJkBptQJ3fDkstLLODQqlAFONUlzLIxd9bD3oKukV4sZQzeyyoLkHbf//EPDg
+	gemJaeQ/K5wR5fky1sBaJPvMyDvXZ3DMvSx2QKfSCsydgfxhdHdaghATS3VQ77IuhzElES
+	jTAK9+EbrNlFhBB0me7NvqGjsGlHJes=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-107-OeeeXEweOe6mYyrDImnpWA-1; Tue, 14 Jan 2025 11:22:19 -0500
+X-MC-Unique: OeeeXEweOe6mYyrDImnpWA-1
+X-Mimecast-MFC-AGG-ID: OeeeXEweOe6mYyrDImnpWA
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4361fc2b2d6so31890705e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 08:22:19 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736871377; x=1737476177;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=mJqg+/HnHgg1RZbPnt+p/XNLoPcWEGRQ84Ss98oznDI=;
-        b=eFAXjM8o505l3G45k3snBSJrXrMPRNCZW5WskQCGzvgKpENLTUplQI1F2hNjwPSgFO
-         sWNruje06TTsdwTdCiDUYKD361EC1ts6+1HG3oxkIZpQSqNZMtjmVK5JyjLKqrGkCFOr
-         C+6vZ2pEF1mxywakERy+wQM6cig1PL8VDQq1DTXG2IkBYuvX4hKYWiftG4nSvf6Kzg5Q
-         mbXAAFmWlaYkB8+/YHgeAZ9inGLEnUIKWpimOt03ak+FfgQfIgkeZOHaIHeNpkeGl0j2
-         6Z2kncjZ4wjNQKuesaDggtoT6WTdWw2HjPGlsAQSNPUr4zycx/XTZ3c4PPdR9kCg5NIP
-         OzRg==
-X-Forwarded-Encrypted: i=1; AJvYcCW/e9s/kstAi3vMhvvisvB5tYK1737cGSJR0l/34aWHgT3DAGXdAF59jlUier/sMdBaqYc/nuoQ2F5yzLRdit/h@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+xSDMHstidgR5QDtOKLf6gNidu6m61oTF+jjT/dSB0yMw/gQ4
-	QcW9oBYOjETNpCBHJUiUT7hVsQmw1osbvGTedVHjTpG9VJ1ZL+Z7l+z85EGXWUQ=
-X-Gm-Gg: ASbGncs3LeL9pSSliufd8HI3yUGfpEyrVGxAhFdwnbI4WbWfYt7cZmBqo8wzDB1psVj
-	JsC6GqVaQFhx+lHL8LwMFR7j4svPnMLEa1PjilIgDljDwL463eozp5Om2sFD7iZhi21V654c5qa
-	lVxIe69JLmkfC9EiHLC5MfpqXogJc0MIuBoQCv/YQ8IUY/eXDLm3p1FMKXKVHkb7EQupv91kwXO
-	Ik4uisuwabVI3V4sk8YF8tkBpxQgAA1S9L0RfipHraTXNQyTY0DUvL3MJhXiSioKbOl06fFik50
-	VzaSSR1e90/0BpVbXiYIvzo26xHtPC443ybjVuTK
-X-Google-Smtp-Source: AGHT+IHmGJ4N4gtNTLAv7jsoVRRKVp2DJsAgH9A5WCYjUUasxTeYIS9hpw7fIgUeU/Q/iCGEhglboQ==
-X-Received: by 2002:a05:6402:1e94:b0:5d9:fa36:5964 with SMTP id 4fb4d7f45d1cf-5d9fa365c32mr5873031a12.2.1736871375098;
-        Tue, 14 Jan 2025 08:16:15 -0800 (PST)
-Received: from puffmais.c.googlers.com (140.20.91.34.bc.googleusercontent.com. [34.91.20.140])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab2c90d52edsm643536066b.42.2025.01.14.08.16.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jan 2025 08:16:14 -0800 (PST)
-From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Tue, 14 Jan 2025 16:16:09 +0000
-Subject: [PATCH v2] scsi: ufs: fix use-after free in init error and remove
- paths
+        d=1e100.net; s=20230601; t=1736871739; x=1737476539;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:from:references:cc:to:subject:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=Gy0Ldt+ZI7Y3XWp3OlPzHMQgs1yINwkH9YDhGI10yLM=;
+        b=KeWeAkIlXqm/iQYO76ws9wdhrTQRcZFEXIQAFtyWr7A+gQahQFlTy2iFVo1FEhkrzU
+         rPOJ5v09aL74vmgYoyz54Fv7DGKqZwRnKqLCm6yxPEmVDcDWTONHEXHC5LFfe+YNFHG1
+         Q82WI2mJO6tvMrE1F9EYW5LqksJZ9Pu4TU48uyPrF3YWoPQ8BalYZq/cagKckNS64YUp
+         R+ImX/QPzKzUc5oMtI1nrhl5WAxnmdwezoiy8lrdKHR/lk7IadX47D/cAuP5KESdSw7l
+         lwosnNAerF9I8zcGGjVzYbd5d6e23KlkYRL2UxHPpaN1nP8CgK6lKWZGh/EuH+1m06km
+         596g==
+X-Forwarded-Encrypted: i=1; AJvYcCVEtZMa/fLCD9P2hn+y8EOncMn5099pHVeypHHdPHIltGCI5/x5W8R+u5jcR5leV20ZrU7Fx1QpKy/2do6MvrrJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwCfXHoCG8+bCQqX+dljENu0W3d6ImDV4VI2FMLOWvN4ocJpFO+
+	ANU6JzwuC2pOeS5B4q1tqvHuGxY61kNPEW+xIaXrHH2Rlt9GOmdGExzktXOrvgaiH7TCujhZszR
+	BgavtAVj/GttwKCh023TTlFwCob8yWP3Q7FWLWIELloFWW7IiPw3mLJbjIARSkhgh0BTu28pn
+X-Gm-Gg: ASbGncttn3AI3LqtHUi0mxfH5c1zKf9a5thXnWvHLl9W1bfALSyeNBLTekk43ThXiPC
+	dFpddj6sKkMQt4DjnsIrKJ+Lae4jjkBEA45PqO65lA++dWClHW/NtF2QBSSXR5bGP3aGs2bPoUM
+	gahXrcA4BWoE3ONQc7LDVW/yber4IzSW6O5zWrjcjvQT1ORsyy7mM7VEWUutPhm1RTM/jwPBPvs
+	lITqY7eT3b5pOnwpaAy2Kj+TLTOtm7bK35iZcfpY38LKH6f6YLWEUauR6LrSltGL8OuG8gzcfDe
+	AH4fF3HftnCKYT6H5ia6gW2UPG8xm/xaPP75NzbtRA1mDPRzwst6RNEfCpB7dIx2lJpXxKBAfL+
+	GbUd9QY/p
+X-Received: by 2002:a05:600c:808:b0:436:488f:4f3 with SMTP id 5b1f17b1804b1-436e26a1b3dmr248888005e9.17.1736871738769;
+        Tue, 14 Jan 2025 08:22:18 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGzrt+oh+BDgDr0mTUmNNAkoVBPx3QMSnwQIay9ds7g9OeGpsrnfeAbT16Qe0MdXZET33lN3g==
+X-Received: by 2002:a05:600c:808:b0:436:488f:4f3 with SMTP id 5b1f17b1804b1-436e26a1b3dmr248887545e9.17.1736871738414;
+        Tue, 14 Jan 2025 08:22:18 -0800 (PST)
+Received: from ?IPV6:2003:cb:c738:3100:8133:26cf:7877:94aa? (p200300cbc7383100813326cf787794aa.dip0.t-ipconnect.de. [2003:cb:c738:3100:8133:26cf:7877:94aa])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e9e6249csm178599775e9.38.2025.01.14.08.22.15
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 14 Jan 2025 08:22:17 -0800 (PST)
+Message-ID: <fb1b7d1d-33da-4de1-b863-61ea8421c7fa@redhat.com>
+Date: Tue, 14 Jan 2025 17:22:15 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250114-ufshcd-fix-v2-1-2dc627590a4a@linaro.org>
-X-B4-Tracking: v=1; b=H4sIAMiNhmcC/22MywrCMBAAf6Xs2ZVk2wh68j+kh5hHsyCJJDUoJ
- f9u7NnjDMxsUFxmV+AybJBd5cIpdqDDACbouDhk2xlIkBJSjvjyJRiLnt+oaBJnT3Yk76EHz+y
- 63me3uXPgsqb82d9V/uzfTZUo0ejTaKWd7lap64OjzumY8gJza+0Lkj3a6qUAAAA=
-To: Alim Akhtar <alim.akhtar@samsung.com>, 
- Avri Altman <avri.altman@wdc.com>, Bart Van Assche <bvanassche@acm.org>, 
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
- "Martin K. Petersen" <martin.petersen@oracle.com>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
- Eric Biggers <ebiggers@kernel.org>
-Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
- linux-scsi@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-arm-msm@vger.kernel.org, stable@vger.kernel.org, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-X-Mailer: b4 0.13.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 15/26] huge_memory: Add vmf_insert_folio_pud()
+To: Alistair Popple <apopple@nvidia.com>, akpm@linux-foundation.org,
+ dan.j.williams@intel.com, linux-mm@kvack.org
+Cc: alison.schofield@intel.com, lina@asahilina.net, zhang.lyra@gmail.com,
+ gerald.schaefer@linux.ibm.com, vishal.l.verma@intel.com,
+ dave.jiang@intel.com, logang@deltatee.com, bhelgaas@google.com,
+ jack@suse.cz, jgg@ziepe.ca, catalin.marinas@arm.com, will@kernel.org,
+ mpe@ellerman.id.au, npiggin@gmail.com, dave.hansen@linux.intel.com,
+ ira.weiny@intel.com, willy@infradead.org, djwong@kernel.org, tytso@mit.edu,
+ linmiaohe@huawei.com, peterx@redhat.com, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, nvdimm@lists.linux.dev,
+ linux-cxl@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+ linux-ext4@vger.kernel.org, linux-xfs@vger.kernel.org, jhubbard@nvidia.com,
+ hch@lst.de, david@fromorbit.com, chenhuacai@kernel.org, kernel@xen0n.name,
+ loongarch@lists.linux.dev
+References: <cover.11189864684e31260d1408779fac9db80122047b.1736488799.git-series.apopple@nvidia.com>
+ <60fcfaa3df47885b1df9b064ecb3d4e366fc07e7.1736488799.git-series.apopple@nvidia.com>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ WNyWQQ==
+Organization: Red Hat
+In-Reply-To: <60fcfaa3df47885b1df9b064ecb3d4e366fc07e7.1736488799.git-series.apopple@nvidia.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: CyRxRxLx9Z3d1y9T89lXRWAWP_6ZaTHkusin7q6vjak_1736871739
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_081618_703610_E1BD0C51 
-X-CRM114-Status: GOOD (  23.18  )
+X-CRM114-CacheID: sfid-20250114_082224_377504_3A1263F6 
+X-CRM114-Status: GOOD (  18.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,274 +169,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-devm_blk_crypto_profile_init() registers a cleanup handler to run when
-the associated (platform-) device is being released. For UFS, the
-crypto private data and pointers are stored as part of the ufs_hba's
-data structure 'struct ufs_hba::crypto_profile'. This structure is
-allocated as part of the underlying ufshd allocation.
+On 10.01.25 07:00, Alistair Popple wrote:
+> Currently DAX folio/page reference counts are managed differently to
+> normal pages. To allow these to be managed the same as normal pages
+> introduce vmf_insert_folio_pud. This will map the entire PUD-sized folio
+> and take references as it would for a normally mapped page.
+> 
+> This is distinct from the current mechanism, vmf_insert_pfn_pud, which
+> simply inserts a special devmap PUD entry into the page table without
+> holding a reference to the page for the mapping.
+> 
+> Signed-off-by: Alistair Popple <apopple@nvidia.com>
 
-During driver release or during error handling in ufshcd_pltfrm_init(),
-this structure is released as part of ufshcd_dealloc_host() before the
-(platform-) device associated with the crypto call above is released.
-Once this device is released, the crypto cleanup code will run, using
-the just-released 'struct ufs_hba::crypto_profile'. This causes a
-use-after-free situation:
+[...]
 
-    exynos-ufshc 14700000.ufs: ufshcd_pltfrm_init() failed -11
-    exynos-ufshc 14700000.ufs: probe with driver exynos-ufshc failed with error -11
-    Unable to handle kernel paging request at virtual address 01adafad6dadad88
-    Mem abort info:
-      ESR = 0x0000000096000004
-      EC = 0x25: DABT (current EL), IL = 32 bits
-      SET = 0, FnV = 0
-      EA = 0, S1PTW = 0
-      FSC = 0x04: level 0 translation fault
-    Data abort info:
-      ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
-      CM = 0, WnR = 0, TnD = 0, TagAccess = 0
-      GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-    [01adafad6dadad88] address between user and kernel address ranges
-    Internal error: Oops: 0000000096000004 [#1] PREEMPT SMP
-    Modules linked in:
-    CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Tainted: G        W          6.13.0-rc5-next-20250106+ #70
-    Tainted: [W]=WARN
-    Hardware name: Oriole (DT)
-    pstate: 20400005 (nzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-    pc : kfree+0x60/0x2d8
-    lr : kvfree+0x44/0x60
-    sp : ffff80008009ba80
-    x29: ffff80008009ba90 x28: 0000000000000000 x27: ffffbcc6591e0130
-    x26: ffffbcc659309960 x25: ffffbcc658f89c50 x24: ffffbcc659539d80
-    x23: ffff22e000940040 x22: ffff22e001539010 x21: ffffbcc65714b22c
-    x20: 6b6b6b6b6b6b6b6b x19: 01adafad6dadad80 x18: 0000000000000000
-    x17: ffffbcc6579fbac8 x16: ffffbcc657a04300 x15: ffffbcc657a027f4
-    x14: ffffbcc656f969cc x13: ffffbcc6579fdc80 x12: ffffbcc6579fb194
-    x11: ffffbcc6579fbc34 x10: 0000000000000000 x9 : ffffbcc65714b22c
-    x8 : ffff80008009b880 x7 : 0000000000000000 x6 : ffff80008009b940
-    x5 : ffff80008009b8c0 x4 : ffff22e000940518 x3 : ffff22e006f54f40
-    x2 : ffffbcc657a02268 x1 : ffff80007fffffff x0 : ffffc1ffc0000000
-    Call trace:
-     kfree+0x60/0x2d8 (P)
-     kvfree+0x44/0x60
-     blk_crypto_profile_destroy_callback+0x28/0x70
-     devm_action_release+0x1c/0x30
-     release_nodes+0x6c/0x108
-     devres_release_all+0x98/0x100
-     device_unbind_cleanup+0x20/0x70
-     really_probe+0x218/0x2d0
+> +/**
+> + * vmf_insert_folio_pud - insert a pud size folio mapped by a pud entry
+> + * @vmf: Structure describing the fault
+> + * @folio: folio to insert
+> + * @write: whether it's a write fault
+> + *
+> + * Return: vm_fault_t value.
+> + */
+> +vm_fault_t vmf_insert_folio_pud(struct vm_fault *vmf, struct folio *folio, bool write)
+> +{
+> +	struct vm_area_struct *vma = vmf->vma;
+> +	unsigned long addr = vmf->address & PUD_MASK;
+> +	pud_t *pud = vmf->pud;
+> +	struct mm_struct *mm = vma->vm_mm;
+> +	spinlock_t *ptl;
+> +
+> +	if (addr < vma->vm_start || addr >= vma->vm_end)
+> +		return VM_FAULT_SIGBUS;
+> +
+> +	if (WARN_ON_ONCE(folio_order(folio) != PUD_ORDER))
+> +		return VM_FAULT_SIGBUS;
+> +
+> +	ptl = pud_lock(mm, pud);
+> +	if (pud_none(*vmf->pud)) {
+> +		folio_get(folio);
+> +		folio_add_file_rmap_pud(folio, &folio->page, vma);
+> +		add_mm_counter(mm, mm_counter_file(folio), HPAGE_PUD_NR);
+> +	}
+> +	insert_pfn_pud(vma, addr, vmf->pud, pfn_to_pfn_t(folio_pfn(folio)), write);
 
-In other words, the initialisation code flow is:
+This looks scary at first (inserting something when not taking a 
+reference), but insert_pfn_pud() seems to handle that. A comment here 
+would have been nice.
 
-  platform-device probe
-    ufshcd_pltfrm_init()
-      ufshcd_alloc_host()
-        scsi_host_alloc()
-          allocation of struct ufs_hba
-          creation of scsi-host devices
-    devm_blk_crypto_profile_init()
-      devm registration of cleanup handler using platform-device
+It's weird, though, that if there is already something else, that we 
+only WARN but don't actually return an error. So ...
 
-and during error handling of ufshcd_pltfrm_init() or during driver
-removal:
+> +	spin_unlock(ptl);
+> +
+> +	return VM_FAULT_NOPAGE;
 
-  ufshcd_dealloc_host()
-    scsi_host_put()
-      put_device(scsi-host)
-        release of struct ufs_hba
-  put_device(platform-device)
-    crypto cleanup handler
+I assume always returning VM_FAULT_NOPAGE, even when something went 
+wrong, is the right thing to do?
 
-To fix this use-after free, change ufshcd_alloc_host() to register a
-devres action to automatically cleanup the underlying SCSI device on
-ufshcd destruction, without requiring explicit calls to
-ufshcd_dealloc_host(). This way:
+Apart from that LGTM.
 
-    * the crypto profile and all other ufs_hba-owned resources are
-      destroyed before SCSI (as they've been registered after)
-    * a memleak is plugged in tc-dwc-g210-pci.c as a side-effect
-    * EXPORT_SYMBOL_GPL(ufshcd_dealloc_host) can be removed fully as
-      it's not needed anymore
-    * no future drivers using ufshcd_alloc_host() could ever forget
-      adding the cleanup
 
-Fixes: cb77cb5abe1f ("blk-crypto: rename blk_keyslot_manager to blk_crypto_profile")
-Fixes: d76d9d7d1009 ("scsi: ufs: use devm_blk_ksm_init()")
-Cc: stable@vger.kernel.org
-Signed-off-by: André Draszik <andre.draszik@linaro.org>
----
-Changes in v2:
-- completely new approach using devres action for Scsi_host cleanup, to
-  ensure ordering
-- add Fixes: and CC: stable tags (Eric)
-- Link to v1: https://lore.kernel.org/r/20250113-ufshcd-fix-v1-1-ca63d1d4bd55@linaro.org
----
-In my case, as per above trace I initially encountered an error in
-ufshcd_verify_dev_init(), which made me notice this problem. For
-reproducing, it'd be possible to change that function to just return an
-error.
-
-Other approaches for solving this issue I see are the following, but I
-believe this one here is the cleanest:
-
-* turn 'struct ufs_hba::crypto_profile' into a dynamically allocated
-  pointer, in which case it doesn't matter if cleanup runs after
-  scsi_host_put()
-* add an explicit devm_blk_crypto_profile_deinit() to be called by API
-  users when necessary, e.g. before ufshcd_dealloc_host() in this case
-* register the crypto cleanup handler against the scsi-host device
-  instead, like in v1 of this patch
----
- drivers/ufs/core/ufshcd.c        | 27 +++++++++++++++++----------
- drivers/ufs/host/ufshcd-pci.c    |  2 --
- drivers/ufs/host/ufshcd-pltfrm.c | 11 ++++-------
- include/ufs/ufshcd.h             |  1 -
- 4 files changed, 21 insertions(+), 20 deletions(-)
-
-diff --git a/drivers/ufs/core/ufshcd.c b/drivers/ufs/core/ufshcd.c
-index 43ddae7318cb..84089f3f62b0 100644
---- a/drivers/ufs/core/ufshcd.c
-+++ b/drivers/ufs/core/ufshcd.c
-@@ -10279,16 +10279,6 @@ int ufshcd_system_thaw(struct device *dev)
- EXPORT_SYMBOL_GPL(ufshcd_system_thaw);
- #endif /* CONFIG_PM_SLEEP  */
- 
--/**
-- * ufshcd_dealloc_host - deallocate Host Bus Adapter (HBA)
-- * @hba: pointer to Host Bus Adapter (HBA)
-- */
--void ufshcd_dealloc_host(struct ufs_hba *hba)
--{
--	scsi_host_put(hba->host);
--}
--EXPORT_SYMBOL_GPL(ufshcd_dealloc_host);
--
- /**
-  * ufshcd_set_dma_mask - Set dma mask based on the controller
-  *			 addressing capability
-@@ -10307,6 +10297,16 @@ static int ufshcd_set_dma_mask(struct ufs_hba *hba)
- 	return dma_set_mask_and_coherent(hba->dev, DMA_BIT_MASK(32));
- }
- 
-+/**
-+ * ufshcd_scsi_host_put_callback - deallocate underlying Scsi_Host and
-+ *				   thereby the Host Bus Adapter (HBA)
-+ * @host: pointer to SCSI host
-+ */
-+static void ufshcd_scsi_host_put_callback(void *host)
-+{
-+	scsi_host_put(host);
-+}
-+
- /**
-  * ufshcd_alloc_host - allocate Host Bus Adapter (HBA)
-  * @dev: pointer to device handle
-@@ -10334,6 +10334,13 @@ int ufshcd_alloc_host(struct device *dev, struct ufs_hba **hba_handle)
- 		err = -ENOMEM;
- 		goto out_error;
- 	}
-+
-+	err = devm_add_action_or_reset(dev, ufshcd_scsi_host_put_callback,
-+				       host);
-+	if (err)
-+		return dev_err_probe(dev, err,
-+				     "failed to add ufshcd dealloc action\n");
-+
- 	host->nr_maps = HCTX_TYPE_POLL + 1;
- 	hba = shost_priv(host);
- 	hba->host = host;
-diff --git a/drivers/ufs/host/ufshcd-pci.c b/drivers/ufs/host/ufshcd-pci.c
-index ea39c5d5b8cf..9cfcaad23cf9 100644
---- a/drivers/ufs/host/ufshcd-pci.c
-+++ b/drivers/ufs/host/ufshcd-pci.c
-@@ -562,7 +562,6 @@ static void ufshcd_pci_remove(struct pci_dev *pdev)
- 	pm_runtime_forbid(&pdev->dev);
- 	pm_runtime_get_noresume(&pdev->dev);
- 	ufshcd_remove(hba);
--	ufshcd_dealloc_host(hba);
- }
- 
- /**
-@@ -605,7 +604,6 @@ ufshcd_pci_probe(struct pci_dev *pdev, const struct pci_device_id *id)
- 	err = ufshcd_init(hba, mmio_base, pdev->irq);
- 	if (err) {
- 		dev_err(&pdev->dev, "Initialization failed\n");
--		ufshcd_dealloc_host(hba);
- 		return err;
- 	}
- 
-diff --git a/drivers/ufs/host/ufshcd-pltfrm.c b/drivers/ufs/host/ufshcd-pltfrm.c
-index 505572d4fa87..adb0a65d9df5 100644
---- a/drivers/ufs/host/ufshcd-pltfrm.c
-+++ b/drivers/ufs/host/ufshcd-pltfrm.c
-@@ -488,13 +488,13 @@ int ufshcd_pltfrm_init(struct platform_device *pdev,
- 	if (err) {
- 		dev_err(dev, "%s: clock parse failed %d\n",
- 				__func__, err);
--		goto dealloc_host;
-+		goto out;
- 	}
- 	err = ufshcd_parse_regulator_info(hba);
- 	if (err) {
- 		dev_err(dev, "%s: regulator init failed %d\n",
- 				__func__, err);
--		goto dealloc_host;
-+		goto out;
- 	}
- 
- 	ufshcd_init_lanes_per_dir(hba);
-@@ -502,14 +502,14 @@ int ufshcd_pltfrm_init(struct platform_device *pdev,
- 	err = ufshcd_parse_operating_points(hba);
- 	if (err) {
- 		dev_err(dev, "%s: OPP parse failed %d\n", __func__, err);
--		goto dealloc_host;
-+		goto out;
- 	}
- 
- 	err = ufshcd_init(hba, mmio_base, irq);
- 	if (err) {
- 		dev_err_probe(dev, err, "Initialization failed with error %d\n",
- 			      err);
--		goto dealloc_host;
-+		goto out;
- 	}
- 
- 	pm_runtime_set_active(dev);
-@@ -517,8 +517,6 @@ int ufshcd_pltfrm_init(struct platform_device *pdev,
- 
- 	return 0;
- 
--dealloc_host:
--	ufshcd_dealloc_host(hba);
- out:
- 	return err;
- }
-@@ -534,7 +532,6 @@ void ufshcd_pltfrm_remove(struct platform_device *pdev)
- 
- 	pm_runtime_get_sync(&pdev->dev);
- 	ufshcd_remove(hba);
--	ufshcd_dealloc_host(hba);
- 	pm_runtime_disable(&pdev->dev);
- 	pm_runtime_put_noidle(&pdev->dev);
- }
-diff --git a/include/ufs/ufshcd.h b/include/ufs/ufshcd.h
-index da0fa5c65081..58eb6e897827 100644
---- a/include/ufs/ufshcd.h
-+++ b/include/ufs/ufshcd.h
-@@ -1311,7 +1311,6 @@ static inline void ufshcd_rmwl(struct ufs_hba *hba, u32 mask, u32 val, u32 reg)
- void ufshcd_enable_irq(struct ufs_hba *hba);
- void ufshcd_disable_irq(struct ufs_hba *hba);
- int ufshcd_alloc_host(struct device *, struct ufs_hba **);
--void ufshcd_dealloc_host(struct ufs_hba *);
- int ufshcd_hba_enable(struct ufs_hba *hba);
- int ufshcd_init(struct ufs_hba *, void __iomem *, unsigned int);
- int ufshcd_link_recovery(struct ufs_hba *hba);
-
----
-base-commit: 4e16367cfe0ce395f29d0482b78970cce8e1db73
-change-id: 20250113-ufshcd-fix-52409f2d32ff
-
-Best regards,
 -- 
-André Draszik <andre.draszik@linaro.org>
+Cheers,
+
+David / dhildenb
 
 
