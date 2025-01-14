@@ -4,206 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8600E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 17:27:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2384E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 17:32:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ma/0ON2+w+M/Hi63BNe5ycrBavpRgrWsk3xLs/+m68Q=; b=wSlSq7UtHVPJE2A+jP5k+a4jYW
-	aLxS3JhWCw/kkfBKWCKrVHISAFbjWFIWqhLRCl+4TrE07Hm8wBHVTf3ekcdumJwQ4tvsdEmG5W2fb
-	lguvh1sJpMLsHdXLk826dT86CrR5Ew/9ABrrAkgZ/J90qrTMo8jusSUpUKcgR8COzi6HLRWBG99bA
-	5ojRWVw7hAteHyUSKtoBuycdQ/Anlb9Ya27oFpxCS/92rdEpJsl/j6Ka6Bp9zwh8rn4m8NClO6oxS
-	vACYNfc8Ks+cKkhQOzccMwUVvlg0iO5sEI8WjA9hO0VHY0cyIKOAK7JWYevX0TVw5My0SuFDtcQJz
-	GT7KNxLw==;
+	bh=vK4b5hmfFQg90bKf5c35DlRbGDFITMqw3G3MDy4quhw=; b=Ld+dSPXDQrTCg/2QoKnPR8ivbQ
+	UwC9eQkPVgmTu2aW46ldkmOBYprGFIvx52jLhhn/P8n+elcn9w8qYfJ2UnfUwdwCEyHVCIYQACmi1
+	CZLoNvHu/W9dOsxZFMUFk9JDPOQpMpdz2KclhyvDVumrAYMRO3JMACGrqG5X9FAGyhykXvVwQdSOT
+	ukbYFqWCrk5Ksv0TXSQgEJEEPxr9OtVTOLqQMXjtfaNf6JtzUo7LzTj+h5RrkD0slgUlWtbLVn7GY
+	5deMD5JfKCNoAkOdF/3Z3TzNHClnZ/UuKzqKUM0ZM/LY2i+FA0a2n7ZgSN2I2oLtju9+r9q8W9Dil
+	bgyAxUcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXkgt-00000009CHm-0Kgh;
-	Tue, 14 Jan 2025 17:26:59 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1tXkmD-00000009DDI-0XkL;
+	Tue, 14 Jan 2025 17:32:29 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXke6-00000009BXd-3fLI
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 17:24:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1736875447; x=1768411447;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=js1QsvkZev7ArLWXIMf7YQnczG/yCsuTVHfWrZiqRiM=;
-  b=c5HWQXdDL5SxNJnOqhVktckXowtSDDXpkyRGC4HCiEwk6/q+CqY/KWJ4
-   Q8T8SXvyA3ip5tCrk1oeXI/6AqmbEHtR2tlKeueVMe8iH2eNzHuxbXTU6
-   gWBR7SXKobuRHZSyfOSVvVi1wXFO0o9sBQVm+Or4Oh8EBgEKnvbtrK6Eg
-   5jNmKBtY9jfVwRL6mp/lq94Cnx3j2BKR/0E5ycLM8uk5hDdRIAtOpJr5u
-   atC2FRNhdeduC5WkA30Ncxa7W971K5KQ1HiBOtEzAJU292A4XPGslRmHA
-   TnvPnDC6Rbs3Iru3qOw3ApZJCmy2mnsii811jOs2YHgx/lxrM+SnU1qf1
-   Q==;
-X-CSE-ConnectionGUID: 7FQk9geDSw+74YcHb38IKA==
-X-CSE-MsgGUID: SeZzgUcfStm61laByKFx6w==
-X-IronPort-AV: E=McAfee;i="6700,10204,11315"; a="48184595"
-X-IronPort-AV: E=Sophos;i="6.12,314,1728975600"; 
-   d="scan'208";a="48184595"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jan 2025 09:24:06 -0800
-X-CSE-ConnectionGUID: p+qzN1PsTOWNt+i1jol2yg==
-X-CSE-MsgGUID: nfICS2TaRrmoQbBhXu4c1Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,314,1728975600"; 
-   d="scan'208";a="109836899"
-Received: from orsmsx603.amr.corp.intel.com ([10.22.229.16])
-  by orviesa004.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 14 Jan 2025 09:24:06 -0800
-Received: from orsmsx601.amr.corp.intel.com (10.22.229.14) by
- ORSMSX603.amr.corp.intel.com (10.22.229.16) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Tue, 14 Jan 2025 09:24:04 -0800
-Received: from ORSEDG602.ED.cps.intel.com (10.7.248.7) by
- orsmsx601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44 via Frontend Transport; Tue, 14 Jan 2025 09:24:04 -0800
-Received: from NAM12-MW2-obe.outbound.protection.outlook.com (104.47.66.48) by
- edgegateway.intel.com (134.134.137.103) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.44; Tue, 14 Jan 2025 09:24:03 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tknr6uGdbDEfGpWAzRU8KrAcAOWR0btYL3mMzXMI3Aom3yedyXYeDByZ7fpwIdfNYeTYD6TsBckWIfyxKqo3byDok6zh9rd6r0dRFi1cXS3pPho4s1UfhCywuC+2KxAuQFjd+k8PF4IKRUzb3Uvd913IhPyCCMw48w2eaXrBEqyjpWHLJf2vxbd4kJZ9yVN7lidPoRhJVgxIfgCtWMJ6zAaDmDwako+i0Ihcp1Ohrhh37DfXtOhaUIoy5QgyFYdPhTlQXoYH88hFC5LOLgg2kp00AxWj3zvbEQmVlLYxIo1VmgWZ113zZm6HQ2vVyzlHyDs4LdhrK3PX0NnHlJF5bQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Ma/0ON2+w+M/Hi63BNe5ycrBavpRgrWsk3xLs/+m68Q=;
- b=Gx7hHXVbYbu+Rmwr8uHeUYLjqsXMVgdaNpDF8rwEqTFuizRvP3YeKG0rL8UgnZbmlNY+1fcOpdtYupQH1s9phhY6jn8YyxRfXl4QOcWTIKUBmzrohd/lKS7Cm50/pnXYDDblwg3jXnbaAOGhNxaIiojMTT1Ug/om1+4VdMH3GT+t0QACOk2oXdn7ljmGMQkN6t5HcN07ZSt5UorN7nGefHCZb0KcU6zcdPwJkQxsyETW2uTUIT2bX0wWy1bo/ONTDTP1OcfZ4ARi6yeK/HiLYaNQEHWhasWum0lvEBFejZMSJxoIORVbhh13UmzEImOQEjoLa9xYpme9cItsQC3FjA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from DS0PR11MB8718.namprd11.prod.outlook.com (2603:10b6:8:1b9::20)
- by DM4PR11MB6237.namprd11.prod.outlook.com (2603:10b6:8:a9::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.18; Tue, 14 Jan
- 2025 17:23:57 +0000
-Received: from DS0PR11MB8718.namprd11.prod.outlook.com
- ([fe80::4b3b:9dbe:f68c:d808]) by DS0PR11MB8718.namprd11.prod.outlook.com
- ([fe80::4b3b:9dbe:f68c:d808%4]) with mapi id 15.20.8335.017; Tue, 14 Jan 2025
- 17:23:57 +0000
-Message-ID: <12e126f8-f966-43e3-9fd3-f9105461d7b2@intel.com>
-Date: Tue, 14 Jan 2025 18:23:41 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v1 1/3] net: stmmac: Switch to zero-copy in
- non-XDP RX path
-To: Andrew Lunn <andrew@lunn.ch>
-CC: Yanteng Si <si.yanteng@linux.dev>, Furong Xu <0x1207@gmail.com>,
-	<netdev@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, "Paolo
- Abeni" <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	<xfr@outlook.com>
-References: <cover.1736500685.git.0x1207@gmail.com>
- <600c76e88b6510f6a4635401ec1e224b3bbb76ec.1736500685.git.0x1207@gmail.com>
- <f1062d1c-f39d-4c9e-9b50-f6ae0bcf27d5@linux.dev>
- <054ae4bf-37a8-4e4e-8631-dedded8f30f1@intel.com>
- <e9cacef2-1049-4296-92f4-85041f4b6eaf@lunn.ch>
-From: Alexander Lobakin <aleksander.lobakin@intel.com>
-Content-Language: en-US
-In-Reply-To: <e9cacef2-1049-4296-92f4-85041f4b6eaf@lunn.ch>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MI1P293CA0024.ITAP293.PROD.OUTLOOK.COM (2603:10a6:290:3::6)
- To DS0PR11MB8718.namprd11.prod.outlook.com (2603:10b6:8:1b9::20)
+	id 1tXkku-00000009CwV-2tH0;
+	Tue, 14 Jan 2025 17:31:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=vK4b5hmfFQg90bKf5c35DlRbGDFITMqw3G3MDy4quhw=; b=L+Mn8MLeKAqlc3Yy3KOe4L8g73
+	WZimn4WgzcyM0muig8nFU9U7oZoRkZXYu9gfUshX0xsVcSpeM4ltf2FunIveIcvBkcL4sE330nOwn
+	hvOAQ/fa++zhoCC/Ba8nng+m8vgBLpcuD0b0h4jKnwM5+Xw7bOcS3Fenvvak5uFcZWKHHEnYicAPJ
+	dxqxsWtuX9MGUxNhvXFC75M5LBKbQgyJnOhE9CTzWI29oezpyCTks6eVjB7SeyeMG9nOId+vK7d3f
+	hodL28z6NCAwZsOcVs1TT+N+1yXW9B5ibz6l6Gx5a5Gcdn0Q39dgbEL8wy2ysiy1L/GxhvyXvGjT+
+	X7liPiYA==;
+Received: from i53875b2c.versanet.de ([83.135.91.44] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tXkkJ-0005Ki-N1; Tue, 14 Jan 2025 18:30:31 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Chris Hofstaedtler <zeha@debian.org>, andy.yan@rock-chips.com,
+ Guochun Huang <hero.huang@rock-chips.com>
+Cc: maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+ tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, andrzej.hajda@intel.com, neil.armstrong@linaro.org,
+ rfoss@kernel.org, Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ quentin.schulz@cherry.de, Heiko Stuebner <heiko.stuebner@cherry.de>,
+ Daniel Semkowicz <dse@thaumatec.com>, Dmitry Yashin <dmt.yashin@gmail.com>
+Subject: Re: [PATCH v4 1/3] drm/bridge/synopsys: Add MIPI DSI2 host controller bridge
+Date: Tue, 14 Jan 2025 18:30:30 +0100
+Message-ID: <3556284.QJadu78ljV@diego>
+In-Reply-To: <Z3IDh0TOAKqaovz2@per.namespace.at>
+References: <20241209231021.2180582-1-heiko@sntech.de>
+ <20241209231021.2180582-2-heiko@sntech.de>
+ <Z3IDh0TOAKqaovz2@per.namespace.at>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS0PR11MB8718:EE_|DM4PR11MB6237:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7df9f0e8-d4ce-4db1-0025-08dd34c039fe
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZTN2NTFSV3FIQlBtb0VRUkQ5bUhPQjdFSHVKUnF4YTNUSzVHLzQ3ZFJYc3E5?=
- =?utf-8?B?bUhZY2dwRUpkcWQxb3drRTRBUFFRdjlyclpnWGovQXNneGE4QzF5SGhwTHA5?=
- =?utf-8?B?bVBIeE5nNHp0a3VueE5lc3hzTDhjN3lzRE1YSGZsaXEwTXJhQTR2ZDBTcDFP?=
- =?utf-8?B?TzFuaEN4OXJGTWE3THVJZFQrNEF1YjJxN1VCVVJIUzBtRlowZWFyTlpWME0w?=
- =?utf-8?B?VHBHcGhFQ1Z5NVpCWVFjL2NQUWMwSldHSWcvNCt5d0dpbFBrbjNUR0c2djN0?=
- =?utf-8?B?b3prbmZNd2U5dGVtMHJDTjE5YlUxRGRZS2hWVng0RVFoYWphTDhPbGd3bUZ5?=
- =?utf-8?B?Y1k1Yml0eTJWODZqL2FuRWo3b21yeWFML2wyNTNBY3U1NXNTdTdJeGhhSVZu?=
- =?utf-8?B?WCtyWDJGUnpERWYwWlJaU3Z6di9oVmxud2FvVUJoaWcwb2wzYjRsWU02eEMr?=
- =?utf-8?B?WnpITG9mTWVZU3NmWTBSWElqeDhuYmQzalV1OFBEd2d1NHBIM2M3MFp5cE1r?=
- =?utf-8?B?aDVUb0ZmYUFsYW9oOG9iSVplZ0w1Yjd0dis5cGwxaVRrRUpvK3lXaEpvV0E0?=
- =?utf-8?B?cGlTTWxIWVlES1l0K2ZTRjE3VmJzTFBXenh3djBHcFcydkZlVlFJS1hKa3BL?=
- =?utf-8?B?K25FOTdXbzhaSnpGNFZZRVZXbUh6SHdqOEsrQ0c3K0FiR2VpSVRDYUEvS2dh?=
- =?utf-8?B?ZEw2M1QvR01kTnNHcm43dUpYSTdiTmlWa094eVN3Sm1DSEppek9sK0pkeUxV?=
- =?utf-8?B?a29oZ1FMTHBQTUFORi9LNGVRajVrdE9FVTkyR216R0J6Y2d1TjRqUGFZWXE3?=
- =?utf-8?B?dHYrSkZPQUtvMHdDYWVxZjdBZDN3Sk5sYzJuR2kyZFdrYklScFZUWWx2eEpq?=
- =?utf-8?B?L1pmazhvMXpZWXVGZGg5ZWQyS2twc2tMSnE3alV4RE12MlpNZWJITE4yNWxD?=
- =?utf-8?B?bmI4YWo0MjFHRk8yNENMMWpMVWk1S09KSFlCMzNaV2NkSlhQak9Db0M2K2Vh?=
- =?utf-8?B?cVR4bmRtcTBJY2Nqcld1enhocC9KeVp2VmxOZ2hsaHp3Y1gzREZoL2lwWE5o?=
- =?utf-8?B?RDYxTUZlRTFla2ZUSWVVdXg3QUwvOTVhNWxzTzZQYXk3QU1yNURST2hIeFJO?=
- =?utf-8?B?VkpkQ1VqUTFrMFZNSDBSQUova0tieHpJU2Q2NytpSFRTeEsxQnhveGF0aW5u?=
- =?utf-8?B?c0QwWEVueG5ieXl2Y3IrbmNIYlpZTy9DNEJKQ0toZ2cxek9ra25KMEpLWllN?=
- =?utf-8?B?ajhUNjlKSzNOa0ZhUmZmTGtIQ0pkekZGbVB1RGg5Y0ROTTNBTXBzK2h0NW1I?=
- =?utf-8?B?dEt3T1k4b21qcE9yRVhYYU1CNkpabkEwbWlwZ04zaW9PbTMwekVoR3dNVGNl?=
- =?utf-8?B?R1J2U3JzbCtFYmY2R3JjQnFTZUNRcVlibFZrMzNRditDV3RwWElFbk1ta1p0?=
- =?utf-8?B?K2tVT0V1K0Q4VTR0VnVyaE95VVRuRFowQVVLdTFkamx6cmRuOVYwUWppaWhT?=
- =?utf-8?B?eFVCdjd5bmZyNmUrV2JwRlRDOFZsREdVQlJydE92OWE4MWdoRWk1eGVpOWM3?=
- =?utf-8?B?bnhFZTlxc1VpNVZYS1ZEbURtVTZzcUNCNUJGZXJaaXpRb09WT3FyZjZOSk1Z?=
- =?utf-8?B?M3VQYVgwQnc0bndEYlhMZ29PT0l0MVlITnVYOUJDMHVoY2ZVaGQvaDlNWGxz?=
- =?utf-8?B?b2hpNml1dmpCdytzUVlrdG5FeDU2bjl5QVZKcmVRZUd5cTFVajFuRXd5dFdt?=
- =?utf-8?B?UzJEZHRhL3phZTQzUGpNZEIrdU13VHh6RlBpTWFqRFZWeHl0ek4ybWJnU0Ra?=
- =?utf-8?B?ZVc4TFB3K0JMaHAwNE8xK1IxNTRwVHFOLzNFYlg4S2p0bXJSU25ZMUxZODNl?=
- =?utf-8?Q?uj7LkxlSf7RTS?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR11MB8718.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SHYxR2pxa3VsNmx2c1h6V0NYSUplS2ozWklVQWZzbGhyRnRWbTQzSEkybE9W?=
- =?utf-8?B?NHU3RVRQTzRtdldHVVVBd2lXUjFMVms3K1NjV0hXL01vcS9YYS9uRndlbDY1?=
- =?utf-8?B?QmlJREZjRGVHK0FYSXp4MzV3d0F2MHVpL1pvYWc2SEpiM05DYXVzTEo2TFhY?=
- =?utf-8?B?aVV3Q3ZSWFBZTHdmczN4T3RBRHVFQmphWldvZ1RrZE5KenFUOHFROG1RWmhP?=
- =?utf-8?B?ZW1PSCtYb083VXNHTHlJQUo4Q3QxejkydEJRUlpMYysrL0VZeVZyWWpwcDZE?=
- =?utf-8?B?SjdTRVpvSDdMMWwrVnU1TjVlNC9sRURsMHJRMmV1Y1NDV3ArY2daaE1QTE5G?=
- =?utf-8?B?UWNUeThnNHVlVjdzZU5Od0xPTlNyeTFJeVF2ZHVYMFhMU1pIN0c5RHBsRjZX?=
- =?utf-8?B?bkNjSHB1ek9vdXJQSDAvSTRaNzJQQXAyK1pKSmFkb3hENVQzQkxiVDYzTVdN?=
- =?utf-8?B?UG1hNXB6R0dCNHBUZHc0anVtdlBZM01RVFVleEp0cmpBak1TOUJkUmp5U2o4?=
- =?utf-8?B?aVg4SU9DQ0FML0ZadlF5SUovQ2FISnpNb2duR1VFeDgvSVdFeEMxK0p1NnFX?=
- =?utf-8?B?N1psU3QrV2xMZ2VXaWQ1Z3NxZTNMeDZ4U0l3cDViUHVUZVIwRG5EUkxRM2l0?=
- =?utf-8?B?NjFyalVLZVNUeDdWNmxmL3JKVStkbG5VMWdYOFExa29taEhiNDBWYlZleXNq?=
- =?utf-8?B?NTdjVWFqdTkycExCaG9maUY0SHB4SkRBQjJtR1JrQWZyVFo3NldmeURuVlhP?=
- =?utf-8?B?YWtNTEpJYXYvbi9wOG1uUm5Vb0V1c0RiY1FqcElQQTRBNEdVM3lMc1I3eEMz?=
- =?utf-8?B?Z1daU0hES3B6U0MzWXV0NGViM1VkSkJVdHF0cHkyTnN2Z01rblRnWW5GTGlQ?=
- =?utf-8?B?SUpsam9WbVRlMkxmYmJNUVhpOC8zTXE3bUZ6d0J6QkJIOG92emNOV0FNWE1S?=
- =?utf-8?B?b1FnVmxuZHFWdktTaDlVL09TYkkrdFdBQjdXNnh3TURVRG9oREZxN0RJcDJD?=
- =?utf-8?B?S3g1V1VzQ3hZcFFUeVp6bDdxQ2ZsYUYxMElJYk1DT3FTek00c1MzQmVhTVhB?=
- =?utf-8?B?ZjhOT1Vsb2xBeDhYZ2tKOXZYMmhia2xvWi92SjJqYjBURjhiK2xseHRiR2JI?=
- =?utf-8?B?Y2dFZWNaOFVUUFBTWDRwUW45elpyYlVsMllqL2hSVTg5Qi9ESDlQbFd2MFBK?=
- =?utf-8?B?Vm41M0JXQVUvSGNLQ0V5OGJsRzgwREdqYktoNW1CZW16Vm1HRXd6THF0RHBq?=
- =?utf-8?B?TEJQczFFQUtucGRieGViNkt2R0kwNVJzazZkZ0JtR3hSeUt0c1g5bHVOWUU3?=
- =?utf-8?B?R0gyUlRZclpQNlhRaURpcEFJK0JjNlhNbVpDUElkMVZvT0V6YmNVUHhVR05Z?=
- =?utf-8?B?U0llM0RmalgvN1NVaS9PdkVtVXFaWXJab0Q1UiszeHhPd0xUOGpBVVhjR3pT?=
- =?utf-8?B?OGt5Nmk4b3ZQSXFrOVU5SnpXLzQ0TS9pcGVrU1FocEluUTVSVU1RUUtDUytx?=
- =?utf-8?B?ajZsTjZDelZwenZEcGZQaktqVFdTTzhvRGx1eU1qQmNKbHZ2YktWbkNQV1Mr?=
- =?utf-8?B?bXliSXltV05udUp3dG4xZitrTXo0Zk56UW44eXhyZG4yN0hWWHhZS0ZzR0Zr?=
- =?utf-8?B?YzZpOHNyemZ4UkUzQmhBeEFsQ1ljM0dlUmVkQWl4RXlKTkJESDZoek4yaTBs?=
- =?utf-8?B?U1N0ZzJkUVBYdkRiQ1YyNi84ZjdJaWxORzJoVHlpK0FiN2VEV0lCKzRKWlZH?=
- =?utf-8?B?V3Rzd0l0Y2xPREJpK1ZTbUpOSkl5YWpKd3MxZkpEWng0SklzOWJnbUQvSGJF?=
- =?utf-8?B?OW9yeC95VE1BdGgvenFzTXBOcHRwVEIyTGd2clpQV3A5TTZDVUJUUGwxNVpJ?=
- =?utf-8?B?c3hOUjhoVWRzcGVJUTZHR3NBWVBMemt4bmpNWGdhTm1wZjVEMmxWZU40WmRl?=
- =?utf-8?B?RnY0U2FxN3NlZE5HTFhLMVJwQ1k1dnRDTTJwL2RmTmdSRS9aNmlGUUZNaFcv?=
- =?utf-8?B?TjEwcnhaTWx5NkMzbzFkK1gwOFpsTUpWQ0hONmt2eXQyN2xydnU4WmkxbkQ4?=
- =?utf-8?B?UHlBK3BFT2hpbzFlbmpGek1rczBvSk5MYmtqdUtLbkxEODhLOGNDS2MzOHZR?=
- =?utf-8?B?V2lkVEliNWw5YVlqcm1TZTBXVnVmc3VKbEw1YUxudi9DeVR0bnMyMEpYenZt?=
- =?utf-8?B?eUE9PQ==?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7df9f0e8-d4ce-4db1-0025-08dd34c039fe
-X-MS-Exchange-CrossTenant-AuthSource: DS0PR11MB8718.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jan 2025 17:23:57.0233
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: kp3iIDHi7ssfSirHkfZsPh2EzCj2qfLFk2E4M9RwgixrlKTeLJH3hl8AHo62lt4YSgPXxHKYD5EENc4WC1ZEpOJZl8qY8VxOLpx0jBpL5SA=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR11MB6237
-X-OriginatorOrg: intel.com
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_092406_961787_06A28198 
-X-CRM114-Status: GOOD (  12.73  )
+X-CRM114-CacheID: sfid-20250114_093108_756720_EBCC020F 
+X-CRM114-Status: GOOD (  23.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -218,32 +82,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Andrew Lunn <andrew@lunn.ch>
-Date: Mon, 13 Jan 2025 17:48:22 +0100
+Hi Chris,
 
->> 1. It's author's responsibility to read netdev CI output on Patchwork,
->>    reviewers shouldn't copy its logs.
+Am Montag, 30. Dezember 2024, 03:20:55 CET schrieb Chris Hofstaedtler:
+> On Tue, Dec 10, 2024 at 12:10:19AM +0100, Heiko Stuebner wrote:
+> > From: Heiko Stuebner <heiko.stuebner@cherry.de>
+> > 
+> > Add a Synopsys Designware MIPI DSI host DRM bridge driver for their
+> > DSI2 host controller, based on the Rockchip version from the driver
+> > rockchip/dw-mipi-dsi2.c in their vendor-kernel with phy & bridge APIs.
+> > 
+> > While the driver is heavily modelled after the previous IP, the register
+> > set of this DSI2 controller is completely different and there are also
+> > additional properties like the variable-width phy interface.
+> > 
+> > Tested-by: Daniel Semkowicz <dse@thaumatec.com>
+> > Tested-by: Dmitry Yashin <dmt.yashin@gmail.com>
+> > Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+> > Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+> [..]
+> > +static void dw_mipi_dsi2_set_vid_mode(struct dw_mipi_dsi2 *dsi2)
+> > +{
+> > +	u32 val = 0, mode;
+> > +	int ret;
+> > +
+> > +	if (dsi2->mode_flags & MIPI_DSI_MODE_VIDEO_NO_HFP)
+> > +		val |= BLK_HFP_HS_EN;
+> > +
+> > +	if (dsi2->mode_flags & MIPI_DSI_MODE_VIDEO_NO_HBP)
+> > +		val |= BLK_HBP_HS_EN;
+> > +
+> > +	if (dsi2->mode_flags & MIPI_DSI_MODE_VIDEO_NO_HSA)
+> > +		val |= BLK_HSA_HS_EN;
 > 
-> I somewhat disagree with that. We want the author to of already run
-> all the static analysers before they post code. We don't want the
-> mailing list abused as a CI system.
+> For all three of these: is setting an ENable bit the right thing to
+> turn features *off*?
 
-Sure. Maybe I wasn't clear enough, but I don't encourage using our
-MLs/CIs to test stuff :D What I meant is that reviewers shouldn't copy
-stuff from the Patchwork output. The authors themselves should track
-their series there, but only to make sure everything is fine, not to
-"let's see if I need to fix anything else".
+first of all, thanks a lot for noticing this discrepancy :-) .
 
-> 
-> So rather than pointing out a specific problem, it can be better to
-> say that static analysers XZY is not happy with this patch, please run
-> it and fix the issues it reports.
+Looking at the documentation, all 3 of those hw-bits are described as
+  "Enables filling the H.. period with blanking packets. ..."
 
-Right, probably the best way.
+where the MIPI_DSI_VIDEO_MODE_NO_* flags are described as
+  "disable hfront-porch/... area"
 
-> 
-> 	Andrew
 
-Thanks,
-Olek
+So yes, I _think_ "disable front-porch" would _should_ result in
+"don't fill the period with blanking packets", but am not fully sure.
+
+I've run the two boards I have with inverting the checks as sounds
+sensible right now, aka doing:
+	if (!(dsi2->mode_flags & MIPI_DSI_MODE_VIDEO_NO_HFP))
+etc and both displays I have ran just fine.
+
+As the driver was originally part of a vendor-kernel based on 5.10, which
+I think was before the _NO addition from [0] it could be caused by a
+misread of the flags that were named differently back then.
+
+
+So yes, switching things around does sound like the right thing to do.
+
+
+Heiko
+
+[0] https://lore.kernel.org/all/20210629074703.v2.1.I629b2366a6591410359c7fcf6d385b474b705ca2@changeid/
+
+
+
 
