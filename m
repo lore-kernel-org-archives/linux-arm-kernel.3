@@ -4,73 +4,193 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F463E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 03:35:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F0E0E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 03:36:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9y9THO3YGyTevXlUAOQxK2U1NAtOu/fcfdt10LFF+wI=; b=EkKB0hm3NBjhr1D91g7b0yJCm3
-	YEjhqaxoVy4ETfPEVEJh2aIjI6XwSPHzrZiduics6YbN9yFFP3LNBHvC+nYaH639fMiniLuNUsgyq
-	R2QQYQzARDXUYxNrwX4yTgg01jgL0g4jBse0ELLZ8h6EIom/Fhe6V0iZnCEkGRA4FLbZ++TiV0Oix
-	AyxB46zlYd1yu4l00CoFbVj/V5xrLH4KCANLEZpUUd4QXvhwnDVJfsNDdqgIgB1owpyOVmTaPzhXd
-	oZbfqcg4I6Hy2mtX1tV457Q8rFuALgm3/KRvyjfGcjPCEqgKwKJfOrQj/XknkyeuImT5+QftcY6Wa
-	ZvVRGtmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=95vIoAOe8CqoA5XjEcq8FJSjEz+YWO5Ah2XeYvJPaZw=; b=QGDcumbKFIqsqNkUUmJzQns8/U
+	859DGd5Mr0hBrionpBlPuuZkTkrhpmVKH6VKV+MrZb47uCCPMpgDs33ThoKlunLhXiKiqyU1egNaz
+	npDZ3odwIoo0PmTbZcHDK/rC5JT1muP13ur1bkJxiTlDVo0SrIRckQzFgjOsHkVOzKTmCtfsWu093
+	BlYQ+nTCrfGTUueiP7OgoeO6kRGu20xIgzW0oHkCBkK323At1sbDISo5VTbf4EBDdurrr11NXDK8a
+	a+uyuIYex+10yZRhdw7HSeV4Ocff5qjSYxT2cRpsegMV+WiIc5cB8wKBKOdEuJpKaaIF+A0mq9R/A
+	eb0flMYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXXhf-00000007M5u-2kzQ;
-	Tue, 14 Jan 2025 03:34:55 +0000
-Received: from [216.200.240.185] (helo=mailgw02.mediatek.com)
+	id 1tXXjM-00000007MV0-1Nun;
+	Tue, 14 Jan 2025 03:36:40 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXXgP-00000007LtP-2jD2;
-	Tue, 14 Jan 2025 03:33:39 +0000
-X-UUID: 53a0b1e6d22811ef9048ed6ed365623b-20250113
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=9y9THO3YGyTevXlUAOQxK2U1NAtOu/fcfdt10LFF+wI=;
-	b=s67+htHC/VRh5hdl4uDuYTP34L6SdZ5yYzs6KSFOPHVvQmHjbWbIS81pihr/amGQwuzmvdCuA/NueDfVDjKVbxhZBO8PudNX1HrRinAy4J+m9L9jBOt9mW5Vndgj0nCPwc5L6/wSXR4IJtF2k6UaTAk4aCfIr1gwMAWmssGRJIA=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.46,REQID:0af5614e-8b35-4189-a4cf-862b7ff8ac2c,IP:0,U
-	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-25
-X-CID-META: VersionHash:60aa074,CLOUDID:6c267513-8831-4185-8e40-f83b1917e828,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
-	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
-	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 53a0b1e6d22811ef9048ed6ed365623b-20250113
-Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw02.mediatek.com
-	(envelope-from <yenchia.chen@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1305615122; Mon, 13 Jan 2025 20:33:31 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+	id 1tXXi2-00000007MDC-32nK
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 14 Jan 2025 03:35:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1736825719; x=1768361719;
+  h=date:from:to:cc:subject:message-id:references:
+   in-reply-to:mime-version;
+  bh=9mjNXdtojVKAdRSNBxM9/SK6edWCKbvfiqdwQohIrcg=;
+  b=jBKJuGhgXykBzCiER18KVoqzqa3Zluoy4DuJtBmj6YiS1T7s2DZ2/5mU
+   20uD9Ky8UWMTqJOHahm7hlNnb5Kn3vnsEoY4aQgH/Q5uWs5wC3Fg9pPTM
+   MaHE2Dwe9zjhqCWQDKykGiObKdjumgNZop6FXrt+3oBAWimbiDpHAA1kL
+   l3AkhHeXxz0r1UFbQCjYQflOvKYw3Ij6FNdoLL7otWUqGhAzX1mTH61U/
+   b251W+PZEFQC9GO4OoM/AwOxObiHeRk8A0HXlcU6r0BJHi2MGBzRJqnR/
+   Im+0I5gPnK/YuLZ0qLx/+BhkfJmY49IbjM+HDXIvziFNWpHtOK78A9LAj
+   w==;
+X-CSE-ConnectionGUID: vUiKLazORl+odQb3d6HfqQ==
+X-CSE-MsgGUID: NsbggZqgQNecaSxZXawxaQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="48492411"
+X-IronPort-AV: E=Sophos;i="6.12,313,1728975600"; 
+   d="scan'208";a="48492411"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jan 2025 19:35:17 -0800
+X-CSE-ConnectionGUID: hEOPKjNuQpC/XVeMBOuQdQ==
+X-CSE-MsgGUID: 4+WW7aOxSNy4dDRqGChGcg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="108741792"
+Received: from orsmsx603.amr.corp.intel.com ([10.22.229.16])
+  by fmviesa003.fm.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 13 Jan 2025 19:35:15 -0800
+Received: from orsmsx601.amr.corp.intel.com (10.22.229.14) by
+ ORSMSX603.amr.corp.intel.com (10.22.229.16) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Mon, 13 Jan 2025 19:35:15 -0800
+Received: from ORSEDG601.ED.cps.intel.com (10.7.248.6) by
+ orsmsx601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44 via Frontend Transport; Mon, 13 Jan 2025 19:35:15 -0800
+Received: from NAM11-CO1-obe.outbound.protection.outlook.com (104.47.56.168)
+ by edgegateway.intel.com (134.134.137.102) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.28; Tue, 14 Jan 2025 11:33:28 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.28 via Frontend Transport; Tue, 14 Jan 2025 11:33:28 +0800
-From: Yenchia Chen <yenchia.chen@mediatek.com>
-To: <gregkh@linuxfoundation.org>, <jirislaby@kernel.org>,
-	<matthias.bgg@gmail.com>, <angelogioacchino.delregno@collabora.com>
-CC: <yenchia.chen@mediatek.com>, <yj.chiang@mediatek.com>,
-	<tbergstrom@nvidia.com>, <yujiaoliang@vivo.com>,
-	<u.kleine-koenig@baylibre.com>, <treapking@chromium.org>,
-	<linux-kernel@vger.kernel.org>, <linux-serial@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-Subject: [PATCH] serial: 8250_mtk: Add ACPI support
-Date: Tue, 14 Jan 2025 11:33:21 +0800
-Message-ID: <20250114033324.3533292-1-yenchia.chen@mediatek.com>
-X-Mailer: git-send-email 2.45.2
+ 15.1.2507.44; Mon, 13 Jan 2025 19:35:14 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rC+C9PETVfYRymX2wISgTm0T3hf3c453yUc+pvNEz3qqi/hz4Z+qlY3ulLuVL/AG3ceuwUiepuxvzL5ndVtbefliRTG8zt2ci10VcMZ/NdeKPKP7gR61mpUjc/T1ODzLQPdfqI4WBlR2Mc98tETAjaY5N3FYiPnEUT244M5FPGkFspAJVy3fHEWAv4xCaf2+rhd2J5fvcretoAH/rdBYSoa/1PlGJXvce9/za/3qqhw4KBCkMRadmFypJd7GzKgWb4OZJFk+bMFehQdglMzt1VdFyC/JKbPy4zwxDsxeQ/EucEn8BR0ajICisBfH1A963n6u4TXwtN0w0qnb8Ky8IQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=95vIoAOe8CqoA5XjEcq8FJSjEz+YWO5Ah2XeYvJPaZw=;
+ b=E+3gijDKD3TnW3vL8YquzntUyOC9V7eQaf9SRNJfi3SbKQ0irO8XdNFnoWGeUl+Sve5FwIj42OypjXdDOyvTN62PFOsdaTxnric2UZHj/1/qvvnv7G3gQVPLoLfpfQFDAzJyQJGbN8i64DSe4gMCD7jOcW1pH1/8IPRw/nfyuBK9zhTlsaARnqCh5yePiINYlxXeaTgA84J+BSW8hhLzbRNjYJo0AcEaNrIMONSoWQBHClwRk9WvJ2NDCxvNY8ay+d7wcQkmTGDjigv18HLhN9e7bEIdKHY4W6Jlb4ysHy9YXx5G5iKiZrX9NyjJyxjzA2rcv0rcouf7uXcsRk04tA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from PH8PR11MB8107.namprd11.prod.outlook.com (2603:10b6:510:256::6)
+ by CY8PR11MB7393.namprd11.prod.outlook.com (2603:10b6:930:84::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.18; Tue, 14 Jan
+ 2025 03:35:12 +0000
+Received: from PH8PR11MB8107.namprd11.prod.outlook.com
+ ([fe80::6b05:74cf:a304:ecd8]) by PH8PR11MB8107.namprd11.prod.outlook.com
+ ([fe80::6b05:74cf:a304:ecd8%5]) with mapi id 15.20.8335.011; Tue, 14 Jan 2025
+ 03:35:12 +0000
+Date: Mon, 13 Jan 2025 19:35:07 -0800
+From: Dan Williams <dan.j.williams@intel.com>
+To: Alistair Popple <apopple@nvidia.com>, <akpm@linux-foundation.org>,
+	<dan.j.williams@intel.com>, <linux-mm@kvack.org>
+CC: <alison.schofield@intel.com>, Alistair Popple <apopple@nvidia.com>,
+	<lina@asahilina.net>, <zhang.lyra@gmail.com>,
+	<gerald.schaefer@linux.ibm.com>, <vishal.l.verma@intel.com>,
+	<dave.jiang@intel.com>, <logang@deltatee.com>, <bhelgaas@google.com>,
+	<jack@suse.cz>, <jgg@ziepe.ca>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<mpe@ellerman.id.au>, <npiggin@gmail.com>, <dave.hansen@linux.intel.com>,
+	<ira.weiny@intel.com>, <willy@infradead.org>, <djwong@kernel.org>,
+	<tytso@mit.edu>, <linmiaohe@huawei.com>, <david@redhat.com>,
+	<peterx@redhat.com>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linuxppc-dev@lists.ozlabs.org>, <nvdimm@lists.linux.dev>,
+	<linux-cxl@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
+	<linux-ext4@vger.kernel.org>, <linux-xfs@vger.kernel.org>,
+	<jhubbard@nvidia.com>, <hch@lst.de>, <david@fromorbit.com>,
+	<chenhuacai@kernel.org>, <kernel@xen0n.name>, <loongarch@lists.linux.dev>
+Subject: Re: [PATCH v6 21/26] fs/dax: Properly refcount fs dax pages
+Message-ID: <6785db6bdd17d_20fa294fc@dwillia2-xfh.jf.intel.com.notmuch>
+References: <cover.11189864684e31260d1408779fac9db80122047b.1736488799.git-series.apopple@nvidia.com>
+ <b2175bb80d5be44032da2e2944403d97b48e2985.1736488799.git-series.apopple@nvidia.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <b2175bb80d5be44032da2e2944403d97b48e2985.1736488799.git-series.apopple@nvidia.com>
+X-ClientProxiedBy: MW4PR04CA0254.namprd04.prod.outlook.com
+ (2603:10b6:303:88::19) To PH8PR11MB8107.namprd11.prod.outlook.com
+ (2603:10b6:510:256::6)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH8PR11MB8107:EE_|CY8PR11MB7393:EE_
+X-MS-Office365-Filtering-Correlation-Id: f31e6fe1-5db3-4151-79e4-08dd344c73c7
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?OF0+EUQ7qfNiXiDxdjSyMcMOWPJ/94jyn1nNB3VHESTBbyUX8blO+QuChm8z?=
+ =?us-ascii?Q?lqer5wUa0JQgI1tON16XyrPPe7AakdBMjFF5p/P80O7rIJ49YacQT/Wk3cKG?=
+ =?us-ascii?Q?JUbPa5KnezDpzSztTnF4ks0uwHFtGxc6bqEWiWTsgLmX+/Ml3e8kDWfA+YJq?=
+ =?us-ascii?Q?eXp2DXJ2yWSOUtM9R5SgqK+oXLvw9/22xh05GLGXAv9eAwAS+f5/P8Cg+DiQ?=
+ =?us-ascii?Q?0RsTkm0zLRwAPX7tbLO9nE/YThaHb/IMz+neqDRPEA1AWJzzpUoCk/7/WzJb?=
+ =?us-ascii?Q?hhRpnES8nOjlXQbJC167n0Wvy2eqWuKoQ1offNnrB8fy1KsxQOnu0VcB/Cxo?=
+ =?us-ascii?Q?Fdi+qVZowB4bNIHJH7jmx+JJjBTG8hC7xmKh8PrRYkrpIxI1q24yrLEvpjHY?=
+ =?us-ascii?Q?5BYc1WzdRs+uoqqgW9cmyo6WJgm11+xVkFi+sPUL/fZzevPPjwi2XLhFk4V5?=
+ =?us-ascii?Q?CMYqYoO9s4mhdombjWPETldnQeywixDQ7pxUXMgcbE1ol+5wr1ks4xqzsvTe?=
+ =?us-ascii?Q?yEa8btfUP+y2xMQKaOz3feJUu1SDNBn1tChg/ZVv3zRwSiUSYDSx0BKnNDdF?=
+ =?us-ascii?Q?r5agh6g5ylxnfG4gZ1nse9nry9MoreC5MGCJvDKm2sQpbbbyO+0ps7IRAFc9?=
+ =?us-ascii?Q?tiF9cYKrA4SzGuEFL4C5TV4vM4SnOGbFrNWpYuM/oq7l70+wOq1siWIhZH3K?=
+ =?us-ascii?Q?pPy/OykaqdgwOVRNgoEmhcDI7m5luCiZHMgZlBL4FBWuFtTFLGJUXgCONr1a?=
+ =?us-ascii?Q?FXZwDAPxEKoMedwE54NVVOf3QwUzSf/nHjN+UBGYCoefQZThM2w9+vWt2wV4?=
+ =?us-ascii?Q?RlAlelZekPFoWb5eHLijnc9iC+9Gyy6Gev/quff5PvoGqbEMrOcjoRWP+svA?=
+ =?us-ascii?Q?2fRsfuJo6G3FpA9O1orPJmIcY3f/b5FHUmAbob+ss7gXCzbi6NiyeUCtEgUs?=
+ =?us-ascii?Q?tTqCCLkAgHD+qGiHtfrumN24cXkhI/cYF175cps9gfakki7N6JTECiCx/p5V?=
+ =?us-ascii?Q?d3GMsGxkmb290zYK2iir6hfaOIlVykOyL1i74C6Yz43DN1qa8CjS84+wnWqD?=
+ =?us-ascii?Q?P6a0iHAP1NoEg18jv6saMHqJw/SUQxn6KBB4qKmFrJfH6sD3FAfYPZkZMAF4?=
+ =?us-ascii?Q?haeUPUYePU0cEcKUaXMyZ0E2z8a9U1PHTLRegZzkU5b2aRE8y+agDpVvAzRd?=
+ =?us-ascii?Q?bbeRGBXpoHnHJeU4DyEw6EL/9pyXoXfAfGuzLelInHEyMojso1jpOvtX+IpN?=
+ =?us-ascii?Q?eK78LQTVDfhqSrVCYhtxZratBG4bzyoMFT2fgAarhvriSy1grJTe4SaDdUlO?=
+ =?us-ascii?Q?+wkVac5osJqaMcusOl5fPWDRRIYaY9dy2q6M3f3A1VUyWA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH8PR11MB8107.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fTCPyxX9nidZPQia9egsCsAW7hBjRUv+kDFBnAE7Tyy/Q3+Q+YhwZB0634lR?=
+ =?us-ascii?Q?BlqvLFjgwDHay+eAPKA5xQyKm5RL44F3cCjuy2z1UP5xAFT0NK059pDgRmfy?=
+ =?us-ascii?Q?OFQYGJPVeUE9dnn4oVYtPZLU+5ZVSkOzixgcFGYFXSai70IVZBab7kkF0ZK8?=
+ =?us-ascii?Q?XiM01B623yd6Wya7F6z9+jJhImsuLtW+CPqI3iBKHC3ep4Y9aNv11jd1gBIU?=
+ =?us-ascii?Q?bhEQZRfWs+j1EpRXr/h0ltQAYNaAuDFUPGLIKn1L/ML1isycel9kjwgT8Wop?=
+ =?us-ascii?Q?HLfNVKwS5px1lTHzOigKjOlT9MwwWZi6rlQVPhGTO9zo3o8GMgHi0gQe5C6a?=
+ =?us-ascii?Q?90YpgoC6Xh8o5YKUJZxJOB9WvBrnlCXM5QP3DJvKeqXd4f4nVLOu5QF3Qdc8?=
+ =?us-ascii?Q?idJCxlVhkxIqZ0xlP4VYAr5M/GXO/mxQEt9HV4bXqyzk8kPpKdRPpdBramhV?=
+ =?us-ascii?Q?dHHNfuNxMLj2EK5yjwRS8XoFeIk48N6nXQglJpN1jHGt9jeyR7rQfxXCK4Ko?=
+ =?us-ascii?Q?kTs2l4+idvp6VCCt74I7jAmrQODAhElJ6N1OLbhI9oPUOfJEblJIjuNjyiAr?=
+ =?us-ascii?Q?dAEKYpo4W5Dvt46Q89QsuMoMgDwmRjRuxLFhiVXaL/dirP9jZZUPLv8iffhG?=
+ =?us-ascii?Q?J6oKl7Ev1YhJWz0a6Y8MqPdTmmFhpkcQ599JYOEvepxpmYRts67TYk8UeIMH?=
+ =?us-ascii?Q?mqEwJGl3kxeJQdNFb95yDkSWeguEYQVzI1an06ys//0pmlVUH7/z91u1gVa6?=
+ =?us-ascii?Q?X+ocZ1xZyLieZSjCqsANE/GmCrHOJV3aI+UFlKwSyNdKjiSnjz11ST2wF20W?=
+ =?us-ascii?Q?wdQlyCF9eycaFH9O5/QOdoXpfkk7twdSNQ/X5b7J3All+lIrGdPuYjhzqBBn?=
+ =?us-ascii?Q?VFBQtxQd4/14c5/ZxlWAwIlg5dt6jm+LgGJuifmH6VEsxhMWBSkvdcg0uGk/?=
+ =?us-ascii?Q?5td5qLAILu9nHt+pr3B1zOny4LX65P410eCdbKcXVLerbzyEn5mGO8G+dqXW?=
+ =?us-ascii?Q?cdATemJpO6nvBi+IvlAaCGiq+Iv9ADgCFrohXuTsvbHz6Ed3tPxqBPP0izJu?=
+ =?us-ascii?Q?VUAkXRI4zI++tD8cazeePE+9YwEgGOWFYkpCPcVM4dqz+2Hcyq7pP3c5FUy+?=
+ =?us-ascii?Q?4zPtQ/R3Hm7pLr2K56tMCIi++dvbDhJNLzLqdIQTeP0AO6Chg9eBvTNC971C?=
+ =?us-ascii?Q?793ZBQzsY0sVC4TyCSSEpMmv3UbFMytLXEkiVaX0qRdaHvAQ4c6U6tqWUo94?=
+ =?us-ascii?Q?/16Hr8M3IBFbISegKHi+u+Yg9Csox7DC5pFAp+al+L9UP3+i5kCIElap07ip?=
+ =?us-ascii?Q?BGLs5A7XlMOong99IQ/2t5fLhrW3w464UbfNFCb5PzBp+mITIZbmTBL6XH4Y?=
+ =?us-ascii?Q?OsyU1hgyBkcs81uTWEdORszTe7zDxqsEypRpkxbGoFnAeQBiRroOIeJH8ups?=
+ =?us-ascii?Q?+DTxS1V7YBt6WAmktGt877x1O/IIHXXEH+NaV7MmLWMnHxpc5XQV/0cY2LPk?=
+ =?us-ascii?Q?uWStQdC3HFMQoossa1r4R25cl31jEepqGq0eRg+E654CNILEUzYIylmay2an?=
+ =?us-ascii?Q?29InDfV2mx5qgEJpZCC1fkBCPeTliw5GdpVtzfP7hJTHvqOC3HCXYmigT/3u?=
+ =?us-ascii?Q?pA=3D=3D?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: f31e6fe1-5db3-4151-79e4-08dd344c73c7
+X-MS-Exchange-CrossTenant-AuthSource: PH8PR11MB8107.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jan 2025 03:35:12.2894
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: HEXyKvnkCUYJvk2+Rt1Ho90W0R4ReUjUc5etFWg1sGNPA5r8UOgHdriWmP/TiS0hQXylzglATBzq7RWYc4c1FAvixJtpXQYnBnJ+N4pBfXw=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR11MB7393
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_193337_691106_6CC2DD99 
-X-CRM114-Status: GOOD (  17.14  )
+X-CRM114-CacheID: sfid-20250113_193520_452204_4DECA236 
+X-CRM114-Status: GOOD (  42.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,96 +205,535 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add ACPI support to 8250_mtk driver. This makes it possible to
-use uart with edk2 UEFI firmware.
+Alistair Popple wrote:
+> Currently fs dax pages are considered free when the refcount drops to
+> one and their refcounts are not increased when mapped via PTEs or
+> decreased when unmapped. This requires special logic in mm paths to
+> detect that these pages should not be properly refcounted, and to
+> detect when the refcount drops to one instead of zero.
+> 
+> On the other hand get_user_pages(), etc. will properly refcount fs dax
+> pages by taking a reference and dropping it when the page is
+> unpinned.
+> 
+> Tracking this special behaviour requires extra PTE bits
+> (eg. pte_devmap) and introduces rules that are potentially confusing
+> and specific to FS DAX pages. To fix this, and to possibly allow
+> removal of the special PTE bits in future, convert the fs dax page
+> refcounts to be zero based and instead take a reference on the page
+> each time it is mapped as is currently the case for normal pages.
+> 
+> This may also allow a future clean-up to remove the pgmap refcounting
+> that is currently done in mm/gup.c.
 
-Signed-off-by: Yenchia Chen <yenchia.chen@mediatek.com>
+This patch depends on FS_DAX_LIMITED being abandoned first, so do
+include the patch at the bottom of this reply in your series before this
+patch.
+
+> Signed-off-by: Alistair Popple <apopple@nvidia.com>
+> 
+> ---
+> 
+> Changes since v2:
+> 
+> Based on some questions from Dan I attempted to have the FS DAX page
+> cache (ie. address space) hold a reference to the folio whilst it was
+> mapped. However I came to the strong conclusion that this was not the
+> right thing to do.
+> 
+> If the page refcount == 0 it means the page is:
+> 
+> 1. not mapped into user-space
+> 2. not subject to other access via DMA/GUP/etc.
+> 
+> Ie. From the core MM perspective the page is not in use.
+> 
+> The fact a page may or may not be present in one or more address space
+> mappings is irrelevant for core MM. It just means the page is still in
+> use or valid from the file system perspective, and it's a
+> responsiblity of the file system to remove these mappings if the pfn
+> mapping becomes invalid (along with first making sure the MM state,
+> ie. page->refcount, is idle). So we shouldn't be trying to track that
+> lifetime with MM refcounts.
+> 
+> Doing so just makes DMA-idle tracking more complex because there is
+> now another thing (one or more address spaces) which can hold
+> references on a page. And FS DAX can't even keep track of all the
+> address spaces which might contain a reference to the page in the
+> XFS/reflink case anyway.
+> 
+> We could do this if we made file systems invalidate all address space
+> mappings prior to calling dax_break_layouts(), but that isn't
+> currently neccessary and would lead to increased faults just so we
+> could do some superfluous refcounting which the file system already
+> does.
+> 
+> I have however put the page sharing checks and WARN_ON's back which
+> also turned out to be useful for figuring out when to re-initialising
+> a folio.
+
+I feel like these comments are a useful analysis that deserve not to be
+lost to the sands of time on the list.
+
+Perhaps capture a flavor of this relevant for future consideration in a
+"DAX page Lifetime" section of Documentation/filesystems/dax.rst?
+
+> ---
+>  drivers/nvdimm/pmem.c    |   4 +-
+>  fs/dax.c                 | 212 +++++++++++++++++++++++-----------------
+>  fs/fuse/virtio_fs.c      |   3 +-
+>  fs/xfs/xfs_inode.c       |   2 +-
+>  include/linux/dax.h      |   6 +-
+>  include/linux/mm.h       |  27 +-----
+>  include/linux/mm_types.h |   7 +-
+>  mm/gup.c                 |   9 +--
+>  mm/huge_memory.c         |   6 +-
+>  mm/internal.h            |   2 +-
+>  mm/memory-failure.c      |   6 +-
+>  mm/memory.c              |   6 +-
+>  mm/memremap.c            |  47 ++++-----
+>  mm/mm_init.c             |   9 +--
+>  mm/swap.c                |   2 +-
+>  15 files changed, 183 insertions(+), 165 deletions(-)
+> 
+> diff --git a/drivers/nvdimm/pmem.c b/drivers/nvdimm/pmem.c
+> index d81faa9..785b2d2 100644
+> --- a/drivers/nvdimm/pmem.c
+> +++ b/drivers/nvdimm/pmem.c
+> @@ -513,7 +513,7 @@ static int pmem_attach_disk(struct device *dev,
+>  
+>  	pmem->disk = disk;
+>  	pmem->pgmap.owner = pmem;
+> -	pmem->pfn_flags = PFN_DEV;
+> +	pmem->pfn_flags = 0;
+>  	if (is_nd_pfn(dev)) {
+>  		pmem->pgmap.type = MEMORY_DEVICE_FS_DAX;
+>  		pmem->pgmap.ops = &fsdax_pagemap_ops;
+> @@ -522,7 +522,6 @@ static int pmem_attach_disk(struct device *dev,
+>  		pmem->data_offset = le64_to_cpu(pfn_sb->dataoff);
+>  		pmem->pfn_pad = resource_size(res) -
+>  			range_len(&pmem->pgmap.range);
+> -		pmem->pfn_flags |= PFN_MAP;
+>  		bb_range = pmem->pgmap.range;
+>  		bb_range.start += pmem->data_offset;
+>  	} else if (pmem_should_map_pages(dev)) {
+> @@ -532,7 +531,6 @@ static int pmem_attach_disk(struct device *dev,
+>  		pmem->pgmap.type = MEMORY_DEVICE_FS_DAX;
+>  		pmem->pgmap.ops = &fsdax_pagemap_ops;
+>  		addr = devm_memremap_pages(dev, &pmem->pgmap);
+> -		pmem->pfn_flags |= PFN_MAP;
+>  		bb_range = pmem->pgmap.range;
+>  	} else {
+>  		addr = devm_memremap(dev, pmem->phys_addr,
+> diff --git a/fs/dax.c b/fs/dax.c
+> index d35dbe1..19f444e 100644
+> --- a/fs/dax.c
+> +++ b/fs/dax.c
+> @@ -71,6 +71,11 @@ static unsigned long dax_to_pfn(void *entry)
+>  	return xa_to_value(entry) >> DAX_SHIFT;
+>  }
+>  
+> +static struct folio *dax_to_folio(void *entry)
+> +{
+> +	return page_folio(pfn_to_page(dax_to_pfn(entry)));
+> +}
+> +
+>  static void *dax_make_entry(pfn_t pfn, unsigned long flags)
+>  {
+>  	return xa_mk_value(flags | (pfn_t_to_pfn(pfn) << DAX_SHIFT));
+> @@ -338,44 +343,88 @@ static unsigned long dax_entry_size(void *entry)
+>  		return PAGE_SIZE;
+>  }
+>  
+> -static unsigned long dax_end_pfn(void *entry)
+> -{
+> -	return dax_to_pfn(entry) + dax_entry_size(entry) / PAGE_SIZE;
+> -}
+> -
+> -/*
+> - * Iterate through all mapped pfns represented by an entry, i.e. skip
+> - * 'empty' and 'zero' entries.
+> - */
+> -#define for_each_mapped_pfn(entry, pfn) \
+> -	for (pfn = dax_to_pfn(entry); \
+> -			pfn < dax_end_pfn(entry); pfn++)
+> -
+>  /*
+>   * A DAX page is considered shared if it has no mapping set and ->share (which
+>   * shares the ->index field) is non-zero. Note this may return false even if the
+>   * page is shared between multiple files but has not yet actually been mapped
+>   * into multiple address spaces.
+>   */
+> -static inline bool dax_page_is_shared(struct page *page)
+> +static inline bool dax_folio_is_shared(struct folio *folio)
+>  {
+> -	return !page->mapping && page->share;
+> +	return !folio->mapping && folio->share;
+>  }
+>  
+>  /*
+> - * Increase the page share refcount, warning if the page is not marked as shared.
+> + * Increase the folio share refcount, warning if the folio is not marked as shared.
+>   */
+> -static inline void dax_page_share_get(struct page *page)
+> +static inline void dax_folio_share_get(void *entry)
+>  {
+> -	WARN_ON_ONCE(!page->share);
+> -	WARN_ON_ONCE(page->mapping);
+> -	page->share++;
+> +	struct folio *folio = dax_to_folio(entry);
+> +
+> +	WARN_ON_ONCE(!folio->share);
+> +	WARN_ON_ONCE(folio->mapping);
+> +	WARN_ON_ONCE(dax_entry_order(entry) != folio_order(folio));
+> +	folio->share++;
+> +}
+> +
+> +static inline unsigned long dax_folio_share_put(struct folio *folio)
+> +{
+> +	unsigned long ref;
+> +
+> +	if (!dax_folio_is_shared(folio))
+> +		ref = 0;
+> +	else
+> +		ref = --folio->share;
+> +
+> +	WARN_ON_ONCE(ref < 0);
+> +	if (!ref) {
+> +		folio->mapping = NULL;
+> +		if (folio_order(folio)) {
+> +			struct dev_pagemap *pgmap = page_pgmap(&folio->page);
+> +			unsigned int order = folio_order(folio);
+> +			unsigned int i;
+> +
+> +			for (i = 0; i < (1UL << order); i++) {
+> +				struct page *page = folio_page(folio, i);
+> +
+> +				ClearPageHead(page);
+> +				clear_compound_head(page);
+> +
+> +				/*
+> +				 * Reset pgmap which was over-written by
+> +				 * prep_compound_page().
+> +				 */
+> +				page_folio(page)->pgmap = pgmap;
+> +
+> +				/* Make sure this isn't set to TAIL_MAPPING */
+> +				page->mapping = NULL;
+> +				page->share = 0;
+> +				WARN_ON_ONCE(page_ref_count(page));
+> +			}
+> +		}
+> +	}
+> +
+> +	return ref;
+>  }
+>  
+> -static inline unsigned long dax_page_share_put(struct page *page)
+> +static void dax_device_folio_init(void *entry)
+
+s/dax_device_folio_init/dax_folio_init/
+
+...otherwise I do not see any connection to a "device" concept in this
+file.
+
+
+>  {
+> -	WARN_ON_ONCE(!page->share);
+> -	return --page->share;
+> +	struct folio *folio = dax_to_folio(entry);
+> +	int order = dax_entry_order(entry);
+> +
+> +	/*
+> +	 * Folio should have been split back to order-0 pages in
+> +	 * dax_folio_share_put() when they were removed from their
+> +	 * final mapping.
+> +	 */
+> +	WARN_ON_ONCE(folio_order(folio));
+> +
+> +	if (order > 0) {
+> +		prep_compound_page(&folio->page, order);
+> +		if (order > 1)
+> +			INIT_LIST_HEAD(&folio->_deferred_list);
+> +		WARN_ON_ONCE(folio_ref_count(folio));
+> +	}
+>  }
+>  
+>  /*
+> @@ -388,72 +437,58 @@ static inline unsigned long dax_page_share_put(struct page *page)
+>   * dax_holder_operations.
+>   */
+>  static void dax_associate_entry(void *entry, struct address_space *mapping,
+> -		struct vm_area_struct *vma, unsigned long address, bool shared)
+> +				struct vm_area_struct *vma, unsigned long address, bool shared)
+>  {
+> -	unsigned long size = dax_entry_size(entry), pfn, index;
+> -	int i = 0;
+> +	unsigned long size = dax_entry_size(entry), index;
+> +	struct folio *folio = dax_to_folio(entry);
+>  
+>  	if (IS_ENABLED(CONFIG_FS_DAX_LIMITED))
+>  		return;
+>  
+>  	index = linear_page_index(vma, address & ~(size - 1));
+> -	for_each_mapped_pfn(entry, pfn) {
+> -		struct page *page = pfn_to_page(pfn);
+> -
+> -		if (shared && page->mapping && page->share) {
+> -			if (page->mapping) {
+> -				page->mapping = NULL;
+> +	if (shared && (folio->mapping || dax_folio_is_shared(folio))) {
+
+This change in logic aligns with the previous feedback on the suspect
+
+    "if (shared && page->mapping && page->share)"
+
+...statememt, right?
+
+...and maybe the dax_make_shared() suggestion makes the diff smaller
+here.
+
+> +		if (folio->mapping) {
+> +			folio->mapping = NULL;
+>  
+> -				/*
+> -				 * Page has already been mapped into one address
+> -				 * space so set the share count.
+> -				 */
+> -				page->share = 1;
+> -			}
+> -
+> -			dax_page_share_get(page);
+> -		} else {
+> -			WARN_ON_ONCE(page->mapping);
+> -			page->mapping = mapping;
+> -			page->index = index + i++;
+> +			/*
+> +			 * folio has already been mapped into one address
+> +			 * space so set the share count.
+> +			 */
+> +			folio->share = 1;
+>  		}
+> +
+> +		dax_folio_share_get(entry);
+> +	} else {
+> +		WARN_ON_ONCE(folio->mapping);
+> +		dax_device_folio_init(entry);
+> +		folio = dax_to_folio(entry);
+> +		folio->mapping = mapping;
+> +		folio->index = index;
+>  	}
+>  }
+>  
+>  static void dax_disassociate_entry(void *entry, struct address_space *mapping,
+> -		bool trunc)
+> +				bool trunc)
+>  {
+> -	unsigned long pfn;
+> +	struct folio *folio = dax_to_folio(entry);
+>  
+>  	if (IS_ENABLED(CONFIG_FS_DAX_LIMITED))
+>  		return;
+>  
+> -	for_each_mapped_pfn(entry, pfn) {
+> -		struct page *page = pfn_to_page(pfn);
+> -
+> -		WARN_ON_ONCE(trunc && page_ref_count(page) > 1);
+> -		if (dax_page_is_shared(page)) {
+> -			/* keep the shared flag if this page is still shared */
+> -			if (dax_page_share_put(page) > 0)
+> -				continue;
+> -		} else
+> -			WARN_ON_ONCE(page->mapping && page->mapping != mapping);
+> -		page->mapping = NULL;
+> -		page->index = 0;
+> -	}
+> +	dax_folio_share_put(folio);
+
+Probably should not call this "share_put" anymore since it is handling
+both the shared and non-shared case.
+
+>  }
+>  
+>  static struct page *dax_busy_page(void *entry)
+
+Hmm, will this ultimately become dax_busy_folio()?
+
+[..]
+> diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
+> index 54b59b8..e308cb9 100644
+> --- a/include/linux/mm_types.h
+> +++ b/include/linux/mm_types.h
+> @@ -295,6 +295,8 @@ typedef struct {
+>   *    anonymous memory.
+>   * @index: Offset within the file, in units of pages.  For anonymous memory,
+>   *    this is the index from the beginning of the mmap.
+> + * @share: number of DAX mappings that reference this folio. See
+> + *    dax_associate_entry.
+>   * @private: Filesystem per-folio data (see folio_attach_private()).
+>   * @swap: Used for swp_entry_t if folio_test_swapcache().
+>   * @_mapcount: Do not access this member directly.  Use folio_mapcount() to
+> @@ -344,7 +346,10 @@ struct folio {
+>  				struct dev_pagemap *pgmap;
+>  			};
+>  			struct address_space *mapping;
+> -			pgoff_t index;
+> +			union {
+> +				pgoff_t index;
+> +				unsigned long share;
+> +			};
+
+This feels like it should be an immediate follow-on change if only to
+separate fsdax conversion bugs from ->index ->share aliasing bugs, and
+due to the significance of touching 'struct page'.
+
+[..]
+
+As I only have cosmetic comments you can add:
+
+Reviewed-by: Dan Williams <dan.j.williams@intel.com>
+
+...and here is that aformentioned patch:
+
+-- 8< --
+Subject: dcssblk: Mark DAX broken, remove FS_DAX_LIMITED support
+
+From: Dan Williams <dan.j.williams@intel.com>
+
+The dcssblk driver has long needed special case supoprt to enable
+limited dax operation, so called CONFIG_FS_DAX_LIMITED. This mode
+works around the incomplete support for ZONE_DEVICE on s390 by forgoing
+the ability of dax-mapped pages to support GUP.
+
+Now, pending cleanups to fsdax that fix its reference counting [1] depend on
+the ability of all dax drivers to supply ZONE_DEVICE pages.
+
+To allow that work to move forward, dax support needs to be paused for
+dcssblk until ZONE_DEVICE support arrives. That work has been known for
+a few years [2], and the removal of "pte_devmap" requirements [3] makes the
+conversion easier.
+
+For now, place the support behind CONFIG_BROKEN, and remove PFN_SPECIAL
+(dcssblk was the only user).
+
+Link: http://lore.kernel.org/cover.9f0e45d52f5cff58807831b6b867084d0b14b61c.1725941415.git-series.apopple@nvidia.com [1]
+Link: http://lore.kernel.org/20210820210318.187742e8@thinkpad/ [2]
+Link: http://lore.kernel.org/4511465a4f8429f45e2ac70d2e65dc5e1df1eb47.1725941415.git-series.apopple@nvidia.com [3]
+Reviewed-by: Gerald Schaefer <gerald.schaefer@linux.ibm.com>
+Tested-by: Alexander Gordeev <agordeev@linux.ibm.com>
+Acked-by: David Hildenbrand <david@redhat.com>
+Cc: Heiko Carstens <hca@linux.ibm.com>
+Cc: Vasily Gorbik <gor@linux.ibm.com>
+Cc: Christian Borntraeger <borntraeger@linux.ibm.com>
+Cc: Sven Schnelle <svens@linux.ibm.com>
+Cc: Jan Kara <jack@suse.cz>
+Cc: Matthew Wilcox <willy@infradead.org>
+Cc: Christoph Hellwig <hch@lst.de>
+Cc: Alistair Popple <apopple@nvidia.com>
+Signed-off-by: Dan Williams <dan.j.williams@intel.com>
 ---
- drivers/tty/serial/8250/8250_mtk.c | 31 ++++++++++++++++++++++++------
- 1 file changed, 25 insertions(+), 6 deletions(-)
+ Documentation/filesystems/dax.rst |    1 -
+ drivers/s390/block/Kconfig        |   12 ++++++++++--
+ drivers/s390/block/dcssblk.c      |   27 +++++++++++++++++----------
+ 3 files changed, 27 insertions(+), 13 deletions(-)
 
-diff --git a/drivers/tty/serial/8250/8250_mtk.c b/drivers/tty/serial/8250/8250_mtk.c
-index b44de2ed7413..a4f1c30f77b0 100644
---- a/drivers/tty/serial/8250/8250_mtk.c
-+++ b/drivers/tty/serial/8250/8250_mtk.c
-@@ -19,6 +19,7 @@
- #include <linux/dma-mapping.h>
- #include <linux/tty.h>
- #include <linux/tty_flip.h>
-+#include <linux/acpi.h>
+diff --git a/Documentation/filesystems/dax.rst b/Documentation/filesystems/dax.rst
+index 719e90f1988e..08dd5e254cc5 100644
+--- a/Documentation/filesystems/dax.rst
++++ b/Documentation/filesystems/dax.rst
+@@ -207,7 +207,6 @@ implement direct_access.
  
- #include "8250.h"
+ These block devices may be used for inspiration:
+ - brd: RAM backed block device driver
+-- dcssblk: s390 dcss block device driver
+ - pmem: NVDIMM persistent memory driver
  
-@@ -519,6 +520,7 @@ static int mtk8250_probe(struct platform_device *pdev)
- 	struct mtk8250_data *data;
- 	struct resource *regs;
- 	int irq, err;
-+	acpi_handle hdl = ACPI_HANDLE(&pdev->dev);
  
- 	irq = platform_get_irq(pdev, 0);
- 	if (irq < 0)
-@@ -545,8 +547,12 @@ static int mtk8250_probe(struct platform_device *pdev)
- 		err = mtk8250_probe_of(pdev, &uart.port, data);
- 		if (err)
- 			return err;
--	} else
--		return -ENODEV;
-+	} else {
-+		if (!hdl) {
-+			dev_err(&pdev->dev, "no device\n");
-+			return -ENODEV;
-+		}
-+	}
+diff --git a/drivers/s390/block/Kconfig b/drivers/s390/block/Kconfig
+index e3710a762aba..4bfe469c04aa 100644
+--- a/drivers/s390/block/Kconfig
++++ b/drivers/s390/block/Kconfig
+@@ -4,13 +4,21 @@ comment "S/390 block device drivers"
  
- 	spin_lock_init(&uart.port.lock);
- 	uart.port.mapbase = regs->start;
-@@ -560,16 +566,22 @@ static int mtk8250_probe(struct platform_device *pdev)
- 	uart.port.private_data = data;
- 	uart.port.shutdown = mtk8250_shutdown;
- 	uart.port.startup = mtk8250_startup;
--	uart.port.set_termios = mtk8250_set_termios;
--	uart.port.uartclk = clk_get_rate(data->uart_clk);
-+	if (hdl) {
-+		uart.port.uartclk = 26000000;
-+	} else {
-+		uart.port.set_termios = mtk8250_set_termios;
-+		uart.port.uartclk = clk_get_rate(data->uart_clk);
-+	}
- #ifdef CONFIG_SERIAL_8250_DMA
- 	if (data->dma)
- 		uart.dma = data->dma;
- #endif
+ config DCSSBLK
+ 	def_tristate m
+-	select FS_DAX_LIMITED
+-	select DAX
+ 	prompt "DCSSBLK support"
+ 	depends on S390 && BLOCK
+ 	help
+ 	  Support for dcss block device
  
--	/* Disable Rate Fix function */
--	writel(0x0, uart.port.membase +
-+	if (!hdl) {
-+		/* Disable Rate Fix function */
-+		writel(0x0, uart.port.membase +
- 			(MTK_UART_RATE_FIX << uart.port.regshift));
-+	}
- 
- 	platform_set_drvdata(pdev, data);
- 
-@@ -647,11 +659,18 @@ static const struct of_device_id mtk8250_of_match[] = {
- };
- MODULE_DEVICE_TABLE(of, mtk8250_of_match);
- 
-+static const struct acpi_device_id mtk8250_acpi_match[] = {
-+	{ "MTKI0511", 0 },
-+	{},
-+};
-+MODULE_DEVICE_TABLE(acpi, mtk8250_acpi_match);
++config DCSSBLK_DAX
++	def_bool y
++	depends on DCSSBLK
++	# requires S390 ZONE_DEVICE support
++	depends on BROKEN
++	select DAX
++	prompt "DCSSBLK DAX support"
++	help
++	  Enable DAX operation for the dcss block device
 +
- static struct platform_driver mtk8250_platform_driver = {
- 	.driver = {
- 		.name		= "mt6577-uart",
- 		.pm		= &mtk8250_pm_ops,
- 		.of_match_table	= mtk8250_of_match,
-+		.acpi_match_table = ACPI_PTR(mtk8250_acpi_match),
- 	},
- 	.probe			= mtk8250_probe,
- 	.remove			= mtk8250_remove,
--- 
-2.45.2
-
+ config DASD
+ 	def_tristate y
+ 	prompt "Support for DASD devices"
+diff --git a/drivers/s390/block/dcssblk.c b/drivers/s390/block/dcssblk.c
+index 0f14d279d30b..7248e547fefb 100644
+--- a/drivers/s390/block/dcssblk.c
++++ b/drivers/s390/block/dcssblk.c
+@@ -534,6 +534,21 @@ static const struct attribute_group *dcssblk_dev_attr_groups[] = {
+ 	NULL,
+ };
+ 
++static int dcssblk_setup_dax(struct dcssblk_dev_info *dev_info)
++{
++	struct dax_device *dax_dev;
++
++	if (!IS_ENABLED(CONFIG_DCSSBLK_DAX))
++		return 0;
++
++	dax_dev = alloc_dax(dev_info, &dcssblk_dax_ops);
++	if (IS_ERR(dax_dev))
++		return PTR_ERR(dax_dev);
++	set_dax_synchronous(dax_dev);
++	dev_info->dax_dev = dax_dev;
++	return dax_add_host(dev_info->dax_dev, dev_info->gd);
++}
++
+ /*
+  * device attribute for adding devices
+  */
+@@ -547,7 +562,6 @@ dcssblk_add_store(struct device *dev, struct device_attribute *attr, const char
+ 	int rc, i, j, num_of_segments;
+ 	struct dcssblk_dev_info *dev_info;
+ 	struct segment_info *seg_info, *temp;
+-	struct dax_device *dax_dev;
+ 	char *local_buf;
+ 	unsigned long seg_byte_size;
+ 
+@@ -674,14 +688,7 @@ dcssblk_add_store(struct device *dev, struct device_attribute *attr, const char
+ 	if (rc)
+ 		goto put_dev;
+ 
+-	dax_dev = alloc_dax(dev_info, &dcssblk_dax_ops);
+-	if (IS_ERR(dax_dev)) {
+-		rc = PTR_ERR(dax_dev);
+-		goto put_dev;
+-	}
+-	set_dax_synchronous(dax_dev);
+-	dev_info->dax_dev = dax_dev;
+-	rc = dax_add_host(dev_info->dax_dev, dev_info->gd);
++	rc = dcssblk_setup_dax(dev_info);
+ 	if (rc)
+ 		goto out_dax;
+ 
+@@ -917,7 +924,7 @@ __dcssblk_direct_access(struct dcssblk_dev_info *dev_info, pgoff_t pgoff,
+ 		*kaddr = __va(dev_info->start + offset);
+ 	if (pfn)
+ 		*pfn = __pfn_to_pfn_t(PFN_DOWN(dev_info->start + offset),
+-				PFN_DEV|PFN_SPECIAL);
++				      PFN_DEV);
+ 
+ 	return (dev_sz - offset) / PAGE_SIZE;
+ }
 
