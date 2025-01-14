@@ -4,75 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D36DFE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 11:39:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82BF2C02184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 11:40:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ddeQCvQpSMAJhfvi2BOutn/rnBBVrWvKOGilaDU0tfw=; b=V/4O7S148DFWurZZEid10Wze32
-	CTkMyjbEzmtskMbQ3IXQbIVitJ8CVdlGwz+RaiaQtWM/bu3acMpiCMLaIsCbRWb1Uluod60CTp+ju
-	1mM/f3x2A2NTaeXG+ri/FzKp8ohp3PWg3tmVYxU1kT24WGyBdrPsBR2EXNUfsBN1cKd52DCdJISGK
-	WWh42QhXUYhRd4F+h4OVsYu7DdoQ3/fhUlbfMAq0LbbI/vyaT56vCx8obB9gxO+EIQS47p0FAAczQ
-	c1THCMvl0yE2Y+ee1T0xx4wz7+dTmOKeQC1HCEOU8aMpr9qAlaLztAMcBGOSKH79vir620QQHJKQ+
-	hFna/yLw==;
+	bh=KjQD7wnzrgRiFT2qnnM8Tu9JE5J2THHckGAFjcSoO6I=; b=lYkkiUFufWK7obiUJd464ZzV4d
+	AZLSKM/CihqH6UdP46BKjmCjB6hp91bf7+W7+ND8Cgtjgtlmj0XaFPmpUMH38ifQ32AcVpprToBZj
+	XTUPGU+/NhYTIJXuSL6Q8dKng0KSHJwwVyC6Lk+4H14zQXHP0XqlMPmaTZQhQP22/QaS3FTI9qonz
+	8IMxCi0wONUn5i79+xd7+XS1bLco4MAZG2MyniUDRTdbDzbR5SFdfdV3RyPHiJogdiX0cE9CLMtJA
+	3XBiUAGV2xUWjzZyNnD7C7lv9956Q2H4xJbv3GIwqO+JG55V4qGepAYDaaxFp0gER4DfR//71lNub
+	9jBPxH5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXfGD-00000008HO6-2gLE;
-	Tue, 14 Jan 2025 11:39:05 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tXfHR-00000008Hdz-0yzW;
+	Tue, 14 Jan 2025 11:40:21 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXfEy-00000008HGN-3B66
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 11:37:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 228385C4B7B;
-	Tue, 14 Jan 2025 11:37:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D86CC4CEDD;
-	Tue, 14 Jan 2025 11:37:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736854667;
-	bh=LCU2BqrkYnMixzNGqgtubf2sA3LVBqm5Sym2l2hLSbg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=piXy+fmxJ9AqbQmmPbVJUBW7zZCQU9MOu0QYpes6k3T7aynJbQxQ/qLF8GL2goH9i
-	 oAeTg0zROrvMjRJYFg6y0cor7koLv634jCRK4bX+S9YcOQH0eWwAnpO9HjjVa3tO+P
-	 jPuFArGtrRH9JNW7BuaUvlAYlVzHuPjCy2b4J6eZAOEvIXeIboo8FqwH5iFUccBqJ7
-	 QgCsKqitUqOa39Kc2MddO/U+nVayinfyajuN+kddnklCH7ueNcUS+gUdOyQJ6Pp4Ly
-	 kZ+U4An3H46QJoFZfwOaAcLFgQs7PwB0MocrxQgS98X2AJPr1hrLEm0eStfZM4LFD/
-	 +t4cbH3MP8pDA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tXfEv-00C6r6-9b;
-	Tue, 14 Jan 2025 11:37:45 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Marc Zyngier <maz@kernel.org>
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH 0/2] KVM: arm64: nv: Fix sysreg RESx-ication
-Date: Tue, 14 Jan 2025 11:37:41 +0000
-Message-Id: <173685465356.1386682.11809569175289871162.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250112165029.1181056-1-maz@kernel.org>
-References: <20250112165029.1181056-1-maz@kernel.org>
+	id 1tXfFE-00000008HIY-2ah8;
+	Tue, 14 Jan 2025 11:38:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1736854659; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=K7bpJoRSD9xaIAURIufGX2z7/sm5DwWQadN52Eb15woL8g8Lf+l9p9/fH4LU1XaNc3kS121S+xP3WwsJ9l90mJKRfqo6j02t5fSISv5Dvfj0o/Xzq+eAhlN+xZOxsv77vitaqO8e+idlWO/DOM6aUYA8W8yzzV0pPYjWGgwGCa4=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1736854659; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=KjQD7wnzrgRiFT2qnnM8Tu9JE5J2THHckGAFjcSoO6I=; 
+	b=D8OdykcCRRKQfNSJH6+LY1fhWSWWamjHe89vaxZTl0tIlchBZXVPkL2U5xJAhwB2z3XdCFFi/7ObNaMvIljLtABWGpFhW1yooID9I9HRYQqV2rzWGSHk21mlyARLgd0QHAXobfp9Fr1alm+ZvwQOmQLjcubcXUKnEN6aw+O+tmw=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=dmitry.osipenko@collabora.com;
+	dmarc=pass header.from=<dmitry.osipenko@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1736854659;
+	s=zohomail; d=collabora.com; i=dmitry.osipenko@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=KjQD7wnzrgRiFT2qnnM8Tu9JE5J2THHckGAFjcSoO6I=;
+	b=Oe++g22Q8hGcC3MenJqDOIgRmGKuaE4Q/MQTx0pV4V/Zgii555nAhn0ZyI9oHwX0
+	PmS6jvKZA0git0k/0l+QpCkrUqjzq1KGNfNt06dmlFOOrHaodKl1PddgMUedvXpa0AK
+	vh4bLSzfLHlAUAqDpvH/6TW2FpHOEAingRxHXgMk=
+Received: by mx.zohomail.com with SMTPS id 1736854656305475.3833676137276;
+	Tue, 14 Jan 2025 03:37:36 -0800 (PST)
+Message-ID: <9399a881-7d45-4ca3-8249-2e554184d038@collabora.com>
+Date: Tue, 14 Jan 2025 14:37:30 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RESEND PATCH v5 0/4] Add Synopsys DesignWare HDMI RX Controller
+To: Tim Surber <me@timsurber.de>, Shreeya Patel
+ <shreeya.patel@collabora.com>, heiko@sntech.de, mchehab@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ mturquette@baylibre.com, sboyd@kernel.org, p.zabel@pengutronix.de,
+ jose.abreu@synopsys.com, nelson.costa@synopsys.com,
+ shawn.wen@rock-chips.com, nicolas.dufresne@collabora.com,
+ hverkuil@xs4all.nl, hverkuil-cisco@xs4all.nl
+Cc: kernel@collabora.com, linux-kernel@vger.kernel.org,
+ linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+References: <20241210193904.883225-1-shreeya.patel@collabora.com>
+ <acb91a34-c0f8-4f03-8945-755b4e42dcf3@timsurber.de>
+ <925d7571-48e4-437d-b55c-3f7bbad8af1d@collabora.com>
+ <fbb5016e-678c-4e54-a6a8-0ccaa2bdf45c@timsurber.de>
+ <a5226fac-2a5b-47f3-b32e-8662bf932bd4@collabora.com>
+ <d61e344f-fcdd-47af-a142-e8d42edec045@timsurber.de>
+Content-Language: en-US
+From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+In-Reply-To: <d61e344f-fcdd-47af-a142-e8d42edec045@timsurber.de>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_033748_832745_4C199375 
-X-CRM114-Status: GOOD (  10.44  )
+X-CRM114-CacheID: sfid-20250114_033804_750480_F3DE9C1F 
+X-CRM114-Status: GOOD (  29.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,31 +90,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 12 Jan 2025 16:50:27 +0000, Marc Zyngier wrote:
-> Joey recently reported that some rather basic tests were failing on
-> NV, and managed to track it down to critical register fields (such as
-> HCR_EL2.E2H) not having their expect value.
+On 1/9/25 02:17, Tim Surber wrote:
+> Hi,
 > 
-> Further investigation has outlined a couple of critical issues:
+> I tested your patch with the command
 > 
-> - Evaluating HCR_EL2.E2H must always be done with a sanitising
->   accessor, no ifs, no buts. Given that KVM assumes a fixed value for
->   this bit, we cannot leave it to the guest to mess with.
+> # gst-launch-1.0 -v v4l2src device=/dev/video1 ! fakesink
 > 
-> [...]
+> If this worked I moved on to a visual test using
+> 
+> # gst-launch-1.0 -v v4l2src device=/dev/video1 ! queue ! v4l2convert !
+> waylandsink
+> 
+> I used a Windows PC  with a Nvidia GTX 4060 as my source for the
+> following tests.
+> 
+> | Format       | Result                                      |
+> | ------------ | ------------------------------------------- |
+> | 4k60p RGB    | Recognized as 1080p / 120 fps - no output   |
+> | 4k60p 4:2:2  | Recognized as 1080p / 120 fps - no output   |
+> | 4k60p 4:4:4  | Error: Device wants 1 planes                |
+> | 4k30p RGB    | ok                                          |
+> | 4k30p 4:2:2  | ok                                          |
+> | 4k30p 4:4:4  | Error: Device wants 1 planes                |
+> | FHD60p RGB   | ok                                          |
+> | FHD60p 4:2:2 | ok                                          |
+> | FHD60p 4:4:4 | Error: Device wants 1 planes                |
+> 
+> 
+> When testing 4:4:4 chroma I got the following error:
+> 
+> # gst-launch-1.0 -v v4l2src device=/dev/video1 ! fakesink
+> /sys/v4l2/gstv4l2object.c(4344): gst_v4l2_object_set_format_full (): /
+> GstPipeline:pipeline0/GstV4l2Src:v4l2src0:
+> Device wants 1 planes
+> 
+> I could record and convert (with errors) the files with 4:4:4 chroma
+> using the command Shreeya posted, but the resulting video had wrong
+> colors and was flashing.
+> 
+> I was not able to test 4:2:0 chroma. I tried to generate an custom EDID
+> with support for it but I could not select it in the graphics driver in
+> the source, maybe this is just an issue with my setup.
 
-Applied to next, thanks!
+Thanks a lot for the testing, very appreciate it! Good that RGB works
+for you with no problems.
 
-[1/2] KVM: arm64: nv: Always evaluate HCR_EL2 using sanitising accessors
-      commit: c139b6d1b4d27724987af5071177fb5f3d60c1e4
-[2/2] KVM: arm64: nv: Apply RESx settings to sysreg reset values
-      commit: 36f998de853cfad60508dfdfb41c9c40a2245f19
+Testing YUV formats isn't trivial. Personally I've a custom setup with a
+modified display driver of RPi to test them. See more below.
 
-Cheers,
+> I also observed that the the framerate is reported wrong, for example
+> setting the source to FHD60p RGB resulted in the following:
+> 
+> # v4l2-ctl --all -L --list-formats-ext -d /dev/video0
+> Active width: 1920
+>     Active height: 1080
+>     Total width: 2200
+>     Total height: 1125
+>     Frame format: progressive
+>     Polarities: -vsync -hsync
+>     Pixelclock: 214076000 Hz (86.50 frames per second)
+> 
+> This wrong framerate reporting seemed to happen across all framerates
+> and resolutions. Gstreamer Pipeline negotation showed the same results.
 
-	M.
+I've re-tested YUV444 4k capture using RPi4, works flawlessly. Note for
+gst-launch-1.0 you used video1 and video0 device is used by v4l2-ctl
+command above, maybe you're using wrong device. Please post a complete
+output of the v4l2-ctl command.
+
+The command I used to test YUV444 capture:
+
+# v4l2-ctl --verbose -d /dev/video1
+--set-fmt-video=width=3840,height=2160,pixelformat=NV24 --stream-mmap=4
+--stream-skip=3 --stream-count=3300 --stream-to=hdmi.raw --stream-poll
+
+The I converted captured data to a video file and played it:
+
+# ffmpeg -f rawvideo -vcodec rawvideo -s 3840x2160 -r 30 -pix_fmt nv24
+-y -i hdmi.raw output.mkv && mpv output.mkv -loop 0
+
+Don't see any problems with a reported framerate:
+
+DV timings:
+        Active width: 3840
+        Active height: 2160
+        Total width: 4400
+        Total height: 2250
+        Frame format: progressive
+        Polarities: -vsync -hsync
+        Pixelclock: 296992000 Hz (30.00 frames per second)
+
+Note the timing data reported by v4l2-ctl updates after launching the
+capture. It's not updated dynamically when you changing mode on the source.
+
+Lastly, please run `echo 3 >
+/sys/module/synopsys_hdmirx/parameters/debug`.  Watch the kmsg log.
+Check that it says "hdmirx_get_pix_fmt: pix_fmt: YUV444" when you
+connecting HDMI cable to a YUV444 source and see other related messages.
+If it says RGB, then your source is transmitting RGB.
+
+> During my testing I got sometimes an error
+> 
+> 
+> # dmesg
+> dma alloc of size 24883200 failed
+> 
+> 
+> I'm not sure when this happened and how to reproduce it.
+
+This comes from v4l core, should be harmless as long as capture works.
+It's a known noisy msg, you may ignore it for today.
+
+> Then I tried to use an AppleTV 4k as source. I don't know what
+> resolution it tried to negotiate but I got this error in addition to the
+> previous "Device wants 1 planes" and no connection:
+> 
+> # dmesg
+> fdee0000.hdmi_receiver: hdmirx_query_dv_timings: signal is not locked
+> fdee0000.hdmi_receiver: hdmirx_wait_signal_lock: signal not lock,
+> tmds_clk_ratio:0
+> fdee0000.hdmi_receiver: hdmirx_wait_signal_lock: mu_st:0x0, scdc_st:0x0,
+> dma_st10:0x10
+> fdee0000.hdmi_receiver: hdmirx_wait_signal_lock: signal not lock,
+> tmds_clk_ratio:0
+> fdee0000.hdmi_receiver: hdmirx_wait_signal_lock: mu_st:0x0, scdc_st:0x0,
+> dma_st10:0x14
+
+"Device wants 1 planes" sounds like you're using a wrong v4l video
+device. Please double check. Though, the "signal not lock" means it
+doesn't work anyways, please make sure you're using the default driver
+EDID and not a custom one.
+
 -- 
-Without deviation from the norm, progress is not possible.
-
-
+Best regards,
+Dmitry
 
