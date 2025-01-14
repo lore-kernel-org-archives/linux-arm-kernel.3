@@ -4,66 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 288F4E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 19:55:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC842E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 19:58:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=elTGNPu988fAjTrte4nu/pddpSDUwQszKGZ49ovLxfc=; b=KzulNBkpFg2o5DMEHVwneiRAJh
-	0urfYsuRAGKG7puL3QZpvPWDcrA4p0tgeYP+mvyXpYGhaY1v6s/X79nLjC/KRCDtn9t0OVNUQoG3U
-	CbhiMgixSaupICmbXSHwOqnoFrbaU+pXAXRrS+wzc5Px9H2C/RyHkz8HajkOxU9aZpUUGBoe74+JZ
-	3pMDEj5Wh8o4Jhh5q2im+9ohrJbmBRJ5wT+FizaSw7WwhxVu+YSgiwmjAZIQyXuSSeMjmX/nn+Mbw
-	7CH3F4TO7D0BpSjBs4KNk6wXGU1k7xeHYr7enDFsGw+JoeCkLL2RvJlZNBcVpMZghQoeFaVfoS93w
-	fe8BK5PA==;
+	bh=OmWlR4cF+mPlvD/SKofAb59V+xFfrfDkiiQN2ULLVu8=; b=gPJERcFZ7Qhb/ew4Fa7Py2vYaM
+	aafKyj+mApoQGU/hihsMxuiv8XBpDsMCwJAzyOeV7Vh4jAdZdAgX75JlLehmx+UMRCEVRhQ9iKqGb
+	CBfUP1OjI/naDefnzBMvLX8+pUTJMuglJZnQzmbpcIkHoLjFLSd+NNmLMetdLmdFw+BTchO48zrGO
+	2rHo4SSE9Y2oKNzH/Wd6YaEOfCO8X4DkBmylwRgEgJfYBt1uOBcGAOvVInXn6YHn2tmFaTd4Z+trG
+	QnRfAulaHDGl1JTQZ+f8qbSMcU0u/D5BsReLM2bGe8Ok+koB19T1FlFZjUCowEZ7Y/c0gWqOJerT8
+	fevdb+KA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXn0h-00000009azP-0rxH;
-	Tue, 14 Jan 2025 19:55:35 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tXn30-00000009bP3-0pxO;
+	Tue, 14 Jan 2025 19:57:58 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXmyp-00000009abO-3y7r;
-	Tue, 14 Jan 2025 19:53:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=elTGNPu988fAjTrte4nu/pddpSDUwQszKGZ49ovLxfc=; b=MjPzkRGPKNYsvU1uc5+Pq6wcAk
-	27LVQ7PmktQQgGI9NXBvjERYPeKgL/L/mmM8IYrZHYoxkYntegNpyD6rbfvpjzklp/+3WBdfdAjIU
-	MVdwcwYs3owINMW/gYHJCzQeJLLQCkKuZ69pXn7H7k7y3ejKT54v2Pyw04AoHR03krcXLFuVN1/Yg
-	/U9ZdogGhdv/hjp3ZptTFSmiIQ0TZhEq9m4dooWWKF/1TLw0RyEu5NAV85NJfSWm1htFSo02TiMYx
-	xLItCJwAaQZY/+OEoHtJ8mYm4kGL5qCdE5Rez7RfWfvW1fMzbelTJ+hRurFzyZ2FFTEaBPLDlA9+O
-	fXQof7lQ==;
-Received: from i53875b2c.versanet.de ([83.135.91.44] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tXmyf-0007Mt-L4; Tue, 14 Jan 2025 20:53:29 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
- Joerg Roedel <joro@8bytes.org>, Yong Wu <yong.wu@mediatek.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
- linux-rockchip@lists.infradead.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH] iommu: Use str_enable_disable-like helpers
-Date: Tue, 14 Jan 2025 20:53:28 +0100
-Message-ID: <23826147.6Emhk5qWAg@diego>
-In-Reply-To: <20250114192642.912331-1-krzysztof.kozlowski@linaro.org>
-References: <20250114192642.912331-1-krzysztof.kozlowski@linaro.org>
+	id 1tXn1j-00000009bGD-1DSV
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 14 Jan 2025 19:56:40 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-436345cc17bso42761505e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 11:56:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1736884597; x=1737489397; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=OmWlR4cF+mPlvD/SKofAb59V+xFfrfDkiiQN2ULLVu8=;
+        b=pK59NrAxu0ttPf5noSwP5x8Ok+VUvXbntTz1z/U5Bzd6McHrtk/wXHHjvJX50EiHSb
+         UE5Bp9ayQCuNFc2EoYe+DSFsfEW/KQgyrIV780Hiuw7yNSrNx+6zOced3RfQjjw+NVEi
+         PMGSmotEDclfzavdXCDAge0GUVw+h0wVDpogkBMpSdki9H8Yw7UoDCLTaj+jswY34yT2
+         gged4wgM00vBmjP/kdikhvhRyVyADmIFkx9DVmKt/iECyA2q3+2UaTECmSdZdzgJy6IB
+         +uZENq1HRnSSO6Gfjoc2VFITyS47MDhUKA0Nad74NwlzIs3KK2/i3jK5BKUpV9dXZ6Ml
+         ADWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736884597; x=1737489397;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=OmWlR4cF+mPlvD/SKofAb59V+xFfrfDkiiQN2ULLVu8=;
+        b=bGj5SqAZ7MAfLSHCDcKqgOu8t0U+h72ZPZTuGPcT7L5i0+oiOFVtdZ08eNKGNJPSLJ
+         eoJTeW3sTXW0o1labq45oEC1qgbgWWT6ks0h8DrFnia1fDD/FoRm2e6JWEyXOpLjnUaF
+         /D6SBloqR4o2TWWKRCHiA26c1xzD4rDrhRmC6Jqidt5b3Xin1WdLNgFKuh6JYgBSUuy9
+         wCTU6egILrSaC8m/yntsOn4uE+sMcZnvq0va1UkIGN6PAXQcEgEhHKL0jEwYRcL2OmI4
+         vyNlZ7ZsJgRIX9rO89RSAGoeNlhL3qA68bU7qm3yQyichSlNNzPO2/NM5GkCJx/bZGGd
+         g7+g==
+X-Forwarded-Encrypted: i=1; AJvYcCVEgR8WkUf8qB/SuxmNYvjvApXkxu6tayo/OClrz6gUQcalUvWenrwRc1Y6NqRgMpF87NWnBg9vW0yZLT6znVBR@lists.infradead.org
+X-Gm-Message-State: AOJu0YzMR4z9c2EZFmN6/hlK0MQN4c01UsXo6dALfBs2YmwzeBSq0hHc
+	n+zO35dOebvQY7+t0HEe4A/OfonU1P7CLTxTS/ECY/Y0V8DC2uN4J1DslQBQy0c=
+X-Gm-Gg: ASbGncs51st/qFpKvjuopnkUS3OrZCj6auktQolB0vbakGDUHCc10Kj+Gx4BkhIq1hB
+	0AKLEROlK4dNTXulniy4px/F0CcA7FL1hwZ9sqosOB7vW9r5b/9KkanhHKQkSRtTPlxeayH6OfR
+	mVfhgfLyC5dI1Y4ZGb3dPIRvSzOFWyPCAKd2sesnS7bdtOmudde1s6LG0IF+bl1cwUeyQ91xayy
+	fev7jeiC0J7ifI4eTp/jiNkiGb6/VII60xuKSVTN0BG8/tJHYofnLoBNkNb
+X-Google-Smtp-Source: AGHT+IGQouXUOO+qEb5G2vSRcAAdIKYNRk9bOvvSttjkX7QyY7z4FXFdlG3d/Ksq2SBLmY2mxOAH8w==
+X-Received: by 2002:a05:6000:1f88:b0:38a:615c:8223 with SMTP id ffacd0b85a97d-38a872f69c7mr22826797f8f.10.1736884597362;
+        Tue, 14 Jan 2025 11:56:37 -0800 (PST)
+Received: from draszik.lan ([80.111.64.44])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38bddbf50a2sm5275313f8f.43.2025.01.14.11.56.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Jan 2025 11:56:36 -0800 (PST)
+Message-ID: <13a3fdb675baa36fcda1bb254b05032b1175a2a8.camel@linaro.org>
+Subject: Re: [PATCH v2] scsi: ufs: fix use-after free in init error and
+ remove paths
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Bart Van Assche <bvanassche@acm.org>, Alim Akhtar
+ <alim.akhtar@samsung.com>,  Avri Altman <avri.altman@wdc.com>, "James E.J.
+ Bottomley" <James.Bottomley@HansenPartnership.com>,  "Martin K. Petersen"
+ <martin.petersen@oracle.com>, Peter Griffin <peter.griffin@linaro.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>, Manivannan Sadhasivam
+ <manivannan.sadhasivam@linaro.org>,  Eric Biggers <ebiggers@kernel.org>
+Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, Will McVicker
+ <willmcvicker@google.com>, kernel-team@android.com,
+ linux-scsi@vger.kernel.org,  linux-kernel@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
+ linux-arm-msm@vger.kernel.org,  stable@vger.kernel.org
+Date: Tue, 14 Jan 2025 19:56:35 +0000
+In-Reply-To: <58f1b701-68da-49c0-b2b1-e079bad4cd08@acm.org>
+References: <20250114-ufshcd-fix-v2-1-2dc627590a4a@linaro.org>
+	 <58f1b701-68da-49c0-b2b1-e079bad4cd08@acm.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.1-4 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_115340_008613_5EF2AAC1 
-X-CRM114-Status: GOOD (  15.95  )
+X-CRM114-CacheID: sfid-20250114_115639_330940_72DBE467 
+X-CRM114-Status: GOOD (  14.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,49 +107,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, 14. Januar 2025, 20:26:42 CET schrieb Krzysztof Kozlowski:
-> Replace ternary (condition ? "enable" : "disable") syntax with helpers
-> from string_choices.h because:
-> 1. Simple function call with one argument is easier to read.  Ternary
->    operator has three arguments and with wrapping might lead to quite
->    long code.
-> 2. Is slightly shorter thus also easier to read.
-> 3. It brings uniformity in the text - same string.
-> 4. Allows deduping by the linker, which results in a smaller binary
->    file.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> ---
+Hi Bart,
 
->  drivers/iommu/rockchip-iommu.c              | 3 ++-
+On Tue, 2025-01-14 at 09:55 -0800, Bart Van Assche wrote:
+> On 1/14/25 8:16 AM, Andr=C3=A9 Draszik wrote:
+> > +/**
+> > + * ufshcd_scsi_host_put_callback - deallocate underlying Scsi_Host and
+> > + *				=C2=A0=C2=A0 thereby the Host Bus Adapter (HBA)
+> > + * @host: pointer to SCSI host
+> > + */
+> > +static void ufshcd_scsi_host_put_callback(void *host)
+> > +{
+> > +	scsi_host_put(host);
+> > +}
+>=20
+> Please rename ufshcd_scsi_host_put_callback() such that the function=20
+> name makes clear when this function is called instead of what the=20
+> function does.
 
-For the Rockchip part
-Acked-by: Heiko Stuebner <heiko@sntech.de>
+Would you have a suggestion for such a name? Something like
+ufshcd_driver_release_action()?
 
-> diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iommu.c
-> index 4b369419b32c..323cc665c357 100644
-> --- a/drivers/iommu/rockchip-iommu.c
-> +++ b/drivers/iommu/rockchip-iommu.c
-> @@ -25,6 +25,7 @@
->  #include <linux/pm_runtime.h>
->  #include <linux/slab.h>
->  #include <linux/spinlock.h>
-> +#include <linux/string_choices.h>
->  
->  #include "iommu-pages.h"
->  
-> @@ -611,7 +612,7 @@ static irqreturn_t rk_iommu_irq(int irq, void *dev_id)
->  
->  			dev_err(iommu->dev, "Page fault at %pad of type %s\n",
->  				&iova,
-> -				(flags == IOMMU_FAULT_WRITE) ? "write" : "read");
-> +				str_write_read(flags == IOMMU_FAULT_WRITE));
->  
->  			log_iova(iommu, i, iova);
->  
-> 
+Unless I'm misunderstanding you, I believe most drivers use
+a function name that says what the function does, e.g.
+dell_wmi_ddv_debugfs_remove (just as a completely random
+example out of many).
 
+If going by when it is called and if applying this principle
+throughout ufshcd, then there can only ever be one such
+function in ufshcd, as all devm_add_action() callback actions
+happen at driver release, which surely isn't what you mean.
 
+You probably meant something different?
 
+Cheers,
+Andre'
 
 
