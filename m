@@ -4,180 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EF29E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 13:33:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83498E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 13:34:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2JT+B0LC0vNUQsR8Y9VcYwAtRq7SuBNs/v8OxzVDx3w=; b=mx7zdu/+NHBVnYofD2qhQJ8P8t
-	g6W0pGW50pUw2xf/ImSmuEj79rbimcZXYRz7nbJbTcXzA5HNoukf3JS274X6wZwxeJdqQCJf4NeMi
-	2V48rJEASpzqNdkEbQElodN1QGP/E3Z+shREnibw+Yn+HQgYxp99TpsyC6nUMDBMxix0qG80bEYQV
-	s51HeMCB0U+vUuWy3oAxg9GZM9mB7EG2F4DPihCCfth6j/iK8e47xt6fUKW3u9TwtlUztRH7nyBZ0
-	VL9268VyMJobZA2bc0VXdbVRXf2vfVmoI6aScfgsaxehe53xMPR9UY+zkQp7C5EnP870+lJHTtvoi
-	RJ96wszA==;
+	bh=PXhz4v2yekrKs85FQBVnLqNAuOivEjZLOTeqH0/iKdE=; b=BRLKG9JbhF/y4R3INmy5wqfpYK
+	FYBOk/BCpXqaTQxjrragekMQjfy3wKUX9WsOPMbengdnCV/Pi6fixS1SK4Mmm7rE/L1G77GQ+7ctU
+	N/Sie/Lv4jRHDPnXKsrRT5gbOAMHm9Bd4VD2ajwAYJyhyeHhQWz+83EDGT/1//tARXMH8lLa7ads4
+	BiYtppfOtOwDXuVTsoB9/Df5Z8yva+2hSSmigt0DDvzAhIJFtJCaT95Y9w8uG8vCCOgoAvcVxcxJE
+	isv7a3vpxeEoEOqPIUamRI/TI6Jf9LJ0ykVhrio2MZH33jk00ZuPCdUmVwkluvZrSovaeA6WuhxsY
+	nY+jSCBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXh2c-00000008XT8-4310;
-	Tue, 14 Jan 2025 13:33:10 +0000
-Received: from mail-bn8nam11on20625.outbound.protection.outlook.com ([2a01:111:f403:2414::625] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
+	id 1tXh3p-00000008XdJ-2Uft;
+	Tue, 14 Jan 2025 13:34:25 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXh1M-00000008X7e-45AS
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 13:31:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PXU+GJ+zKe7uSsaIRdeRFCta3VK1m14NzTwH6rhtQnhcr0lk1bFgyiaZ7hO7FE1gnjk8xuiPEpCT43cY2x0rYfi09Qzz1Ja+GIndNfhlWPx4RGaDzReYuB5F3e09lPjPKq2ksxKX9bD2wW8Pcao0fKEEzfFGPai9pyF3jAHFnyQK5d3NYd33H7e/4guX4OFz3nNSPDjtzKN2kkp3OFGkKDqWbIxDEYCpFUesJDeecsIK+aQfs6G44WhWMK+dQFlpxOAaGShOpWs5kcliSf7aFy3Wm29inF2uTY3kmdpnxKo7DItgVPIHHBw6Gk5CXWWtMz0aB5H57ksJ3/trDgXn1w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2JT+B0LC0vNUQsR8Y9VcYwAtRq7SuBNs/v8OxzVDx3w=;
- b=DC9zVQ6DlJ11mB2BNw3DsW4oa018ifXYuAYQP6a6VaTAD454BbWAhxW0y+GVruGokeVGYbpaXGp4ybKDmSuhys2zbbZzbp+QUT9plTTv1HfDLWkj5pEDGIbXIgmTJswN6M2GSnXfLsTaZ9JsmxmWLu+mlFWh3eCXdoSix5Q5z6CWH/H7OpKqPgssQM2CgETeczYeojVFtcKEio6ndn9y/aIyYL2h8sc2M4xAeEun8mz8k3bvIRTKhyYrpa9btPnF6Zz+SmrsK+AypOVjoPlBgMHdUZHHut9O7sv2JBaxgerR+FZAFn42sVK8YB1KDmXu4QqC6w+2uUt8BAENBGA0jA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2JT+B0LC0vNUQsR8Y9VcYwAtRq7SuBNs/v8OxzVDx3w=;
- b=uXg5SEB7BLsruJo4HrzfwtWBdHfdJKyCQXE+c3g+gzeakLiZxZanihYW3NOZFnOqKHQNhVPjibeVD8xIpp5TtqsSQmm5m8+xqdoGEi8rD/rp4qYPPzchtQJXRfTTQQujIqVH4eUNPVGcmT8fezE6tQs5M/y5QXJKgo4Fi8UzvHby9dmX2lwmZw/4J0Hec13drSIYPuw1lvWLWTWp0eMJiGUpo7T0ySw16MuXbzxqRQWYxlZh4Liw+P5dWets6uSkTdzLeN2/1KAu2AgluAeEeFnWWdYZTLgx7bY+sTo6qvcNWFcMqlhW3hzKUfdCPnRgUlRn7mae9bPlv/dBRveMcA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by MW4PR12MB7429.namprd12.prod.outlook.com (2603:10b6:303:21b::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.18; Tue, 14 Jan
- 2025 13:31:46 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%5]) with mapi id 15.20.8335.017; Tue, 14 Jan 2025
- 13:31:46 +0000
-Date: Tue, 14 Jan 2025 09:31:45 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: David Hildenbrand <david@redhat.com>
-Cc: Ankit Agrawal <ankita@nvidia.com>, "maz@kernel.org" <maz@kernel.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	"joey.gouly@arm.com" <joey.gouly@arm.com>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"ryan.roberts@arm.com" <ryan.roberts@arm.com>,
-	"shahuang@redhat.com" <shahuang@redhat.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Aniket Agashe <aniketa@nvidia.com>, Neo Jia <cjia@nvidia.com>,
-	Kirti Wankhede <kwankhede@nvidia.com>,
-	"Tarun Gupta (SW-GPU)" <targupta@nvidia.com>,
-	Vikram Sethi <vsethi@nvidia.com>, Andy Currid <acurrid@nvidia.com>,
-	Alistair Popple <apopple@nvidia.com>,
-	John Hubbard <jhubbard@nvidia.com>, Dan Williams <danw@nvidia.com>,
-	Zhi Wang <zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>,
-	Uday Dhoke <udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>,
-	"alex.williamson@redhat.com" <alex.williamson@redhat.com>,
-	"sebastianene@google.com" <sebastianene@google.com>,
-	"coltonlewis@google.com" <coltonlewis@google.com>,
-	"kevin.tian@intel.com" <kevin.tian@intel.com>,
-	"yi.l.liu@intel.com" <yi.l.liu@intel.com>,
-	"ardb@kernel.org" <ardb@kernel.org>,
-	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
-	"gshan@redhat.com" <gshan@redhat.com>,
-	"linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v2 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
- VMA flags
-Message-ID: <20250114133145.GA5556@nvidia.com>
-References: <20241118131958.4609-1-ankita@nvidia.com>
- <20241118131958.4609-2-ankita@nvidia.com>
- <a2d95399-62ad-46d3-9e48-6fa90fd2c2f3@redhat.com>
- <20250106165159.GJ5556@nvidia.com>
- <f13622a2-6955-48d0-9793-fba6cea97a60@redhat.com>
- <SA1PR12MB7199E3C81FDC017820773DE0B01C2@SA1PR12MB7199.namprd12.prod.outlook.com>
- <20250113162749.GN5556@nvidia.com>
- <0743193c-80a0-4ef8-9cd7-cb732f3761ab@redhat.com>
+	id 1tXh1Q-00000008X8J-1UOA;
+	Tue, 14 Jan 2025 13:31:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=PXhz4v2yekrKs85FQBVnLqNAuOivEjZLOTeqH0/iKdE=; b=ACRsFW9WU2+DJBTNWVQgV68sLY
+	8wp+9obPu/cISydMFEC83f8go9szWM5DNzJCdWaKur+4DIru28qW8x9cIwS62uRWlLWBX9ny0Ue/W
+	7KDN63dX0MgCLHDs1FdaZB+MQqFa2oeUiHRZjwE05N7hURUleOdMR5Z3d3BMVzFMJ6MLMWRbJj4Bo
+	bafLaSMof+vc7ySuTZNh23qoZcwSL3Ci2q6eWhScPvgh9fP0jWk9laKuJqHIhcc0hklkD4EMRJGFw
+	1BQ558wpb3AyW76xEPS/WlvDa7NqxG37pfnlTGjZwp6n718edU9RET1/5V4FUtR9I5yhHhSz5p4S0
+	Yocf6qhg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:46624)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tXh0z-00086M-0K;
+	Tue, 14 Jan 2025 13:31:29 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tXh0s-00057B-0b;
+	Tue, 14 Jan 2025 13:31:22 +0000
+Date: Tue, 14 Jan 2025 13:31:22 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Vladimir Oltean <olteanv@gmail.com>
+Subject: Re: [PATCH net-next v2 5/5] net: phylink: provide fixed state for
+ 1000base-X and 2500base-X
+Message-ID: <Z4ZnKpQgxZCbV5Yk@shell.armlinux.org.uk>
+References: <Z4TbR93B-X8A8iHe@shell.armlinux.org.uk>
+ <E1tXGei-000EtL-Fn@rmk-PC.armlinux.org.uk>
+ <20250114125739.sgegfxibbzpc2uor@skbuf>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <0743193c-80a0-4ef8-9cd7-cb732f3761ab@redhat.com>
-X-ClientProxiedBy: MN0P220CA0022.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:208:52e::12) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|MW4PR12MB7429:EE_
-X-MS-Office365-Filtering-Correlation-Id: ecf764ad-dd16-422a-1c41-08dd349fcab7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?kXVvEG8s8epwJeO1EjvlIq8pdrmAJB/ga6Z8+VLoodWgGubGT+IbJT5yJzC8?=
- =?us-ascii?Q?ypIqtflyXc65NpLVgJ1620tuR/eiq3iBKOsr8i6p+ipOK06sQgZM2VYmO2RW?=
- =?us-ascii?Q?TP3KiS7K7yuwsPrRXEmLgyVnu1ChiHgp5KXDI53e5aO7V7IAySmYeW3PMxIR?=
- =?us-ascii?Q?vf/Ox4rzHBn816e86x5ARgoB1a9oC9am0XJCo+ReniUkMtWIGwtsqS+4N9Dy?=
- =?us-ascii?Q?CO1uvSEw4Z+MKfuh1Ls59RD75ME8N81iKDIcr40T7HAUrR51+UHsoyNRcJMZ?=
- =?us-ascii?Q?yldPvr8l62R2Stxt0KkLtK3XSL7M5GjIEtQlAfAqnkesTg0eK2W/7OY7DoQU?=
- =?us-ascii?Q?H9Z8hU0CovzDEIu2NO1OhkKde27SNs/VksCpMxb/khJoJaGMAydGcwooOQtM?=
- =?us-ascii?Q?kkV24eGP6uzLFx9q58iYRKwsgc9KNSUx1H4D9JFo6YhgvIHAw0m0nx8cNPck?=
- =?us-ascii?Q?HyviwMOke78T/6Ya7cmocG/1w/opPoDuux68N8zddIacQ2v31+EVX4/eObdh?=
- =?us-ascii?Q?nT5LAwayjx6mnaHLHqRy7dISLkmha5c+JBD9u2DlLgtsPEQVcGynxlWJXdC3?=
- =?us-ascii?Q?e8RwUlfYOOP5KI1MlElZwVj3WLZFP8ONMRf5pVyPFTjb/qBmvOrA3mCno9KS?=
- =?us-ascii?Q?bsk6dRAq5elAPlusUAZa2pK/7yuyMmqKAqRoU/PeITmOqZ4iYXLkCMzNGwzq?=
- =?us-ascii?Q?kiL9lqugR1jKogRUgiC0BPBdmdcfp0ojKO/wN6IqgYRpOfcAnoqFrMsf3S76?=
- =?us-ascii?Q?4zB8ivmB+tUW7RzKkFAKhY+fayplyk6faQDI0UN+TF1pjY2Q5ZfJZE3fNjUE?=
- =?us-ascii?Q?7UACb8JhkPnlk31cm2vs2cNkh/0HsX6sxeMJaY2LGSv5lMvRHCBa6Ljx4gWF?=
- =?us-ascii?Q?WtUUdmw14P9sZkNv4WJ47kQFdC5+1StBlFGo1A+lxEt4zC7k+U5DW4Tr2xMf?=
- =?us-ascii?Q?6XLxUVbHFeVwJNFLgVcea9hecyR2VVXDaV0jAeOQZVuaDRT1iV3VHmzcTGFz?=
- =?us-ascii?Q?4wiCoHdLNFh2MZyTzoLnOa5s9ohioeF7aOBmX8+vLtFcObk6lgiRJ26NYSQJ?=
- =?us-ascii?Q?inKaPQESsS01DsYUzht6QjLvurkGFVm57AfjgtVNlpkQdnunVMnHQi+yC33B?=
- =?us-ascii?Q?GxpBnVtaT1Ip0RTwH6hRo6ygmcwrXX04vPg3ejj7aLhwLZjsEq8K+c4f+B49?=
- =?us-ascii?Q?YDmQuE7FwHJRDPQOqbZEIH2YcBST6Vi0xgsuUrQWXl6+jdXXoYOXx34RVlPN?=
- =?us-ascii?Q?cwRxRn0HadZcxo2zXvS1wRl0xS5xPIO7S38Ds5z1Voo82qtXgK0M9sbgDmZt?=
- =?us-ascii?Q?X4w9XPVl5YdbS2qtgnPnB9pKpVXyvQK0iJlUGpjaBCA1tPHo54Z4kiE48qGS?=
- =?us-ascii?Q?4wJ44s0lGIToEK1RUj05n7UyuN0V?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9rHzjuN7gU+B6NKeBUR5ONnJV1Kc+uk09DggDM33le6uPgaf04z9db09My+6?=
- =?us-ascii?Q?PyJ70QFlR9H713wOjc7UvnPfMdOEkYiQqlDuFAfXrma3I7Pfp1NF9m2pG2yc?=
- =?us-ascii?Q?aAmFoUkoajJM0XQezRNyQexE+KxvDmgJfqji/XFub/LUTJwM9F7miSEw76nf?=
- =?us-ascii?Q?LqtXYKzeRTIzKHo/puyOmbuVCokiNK0ySY1gyjOMrOlcslUi5N4eowKHx64/?=
- =?us-ascii?Q?xzfinBi7Ku999nGg4SdQt05v9l3Ev4Cj5WtJ+xYl/Tr0T7WqXliCYWvC1fWV?=
- =?us-ascii?Q?aPwULrCCktPzkc5PIf+yHUQUL45WRwvJmnm8HdtpQ7R8grqAu8zlKRmrtu/b?=
- =?us-ascii?Q?LNNNfki6onWFziUeALgmK/4dH1JquTjGNeAMlT5FoKK/taTmqbDV8Vuzx3UG?=
- =?us-ascii?Q?VNtoS1vH1NNnNuHZRx8wBNdOUqDWqoHVE3GepKAs+fpMO5v1N7tLtRpsC6vr?=
- =?us-ascii?Q?HNTg+1ck4DN5sCkNIxPXvQ75Uq+xaqYI19PMnrc9KG9vW6+JO18SVlD71fM3?=
- =?us-ascii?Q?JGQTAsRgkDh0i+UHSmMGDG9Dos0CumfmACrRZZF7oRekoKBYg+vgdPeTtcA3?=
- =?us-ascii?Q?/GwOI9ZZ3p0w8yAZjW/AkuzRFZTdzCRvJU7SgFb85jkKCg1HVwn8wAIlkCfh?=
- =?us-ascii?Q?Ymsai7GQcwUJjsw2ki0P2ozHKtk9REj5Nnb394m62EEe40K4pJRpO2XuLcF4?=
- =?us-ascii?Q?kKU1deqB48CJU5DBd94I2mrtKfrby7msSoH+P0Qf6D8oNji5dX73eTEy71mv?=
- =?us-ascii?Q?wEezCx6KaolCDmm37z6UrmGQeg1ib/LqYgMmrTsfsYWkbhszhHgC5FAelpRI?=
- =?us-ascii?Q?wUnrDr0fFrIJaoJgZUUc/OSf9zJDyTS6MyOOWkQ8VJ5rYlK+4qsK2gmwsova?=
- =?us-ascii?Q?jklfHSO74qQqcCxS+Oi7E52lIm33orrw+GmPN/L65I37ZKBIdpPhsSNRz57X?=
- =?us-ascii?Q?6Hi06tq100ym24PYZ83HnkcCrMqzEQCl/rbE1HqRGCPsKbSmyRkZrO4vI0Fy?=
- =?us-ascii?Q?rhMNs5Eb/7id/a4QTV5WTcNsLcSvToerU4f5mHcZtpHOqs+Xko0Lpus8ZQGf?=
- =?us-ascii?Q?eREp5g2XCXyODCKPulWLnSotUFKzR+49sC7ktITV9B6VQT3cM9UjJpENcRpo?=
- =?us-ascii?Q?JSj0nuICR/D/g5Q8pkIFxYKJ6HHq8c8Fnj+7hq1Mcbv0pvZ/Cc0NKOdvJcfD?=
- =?us-ascii?Q?VpWNu9n3xfJaLNBSHpnW8fJYxNB/d7elB9r/qMPulE15SrgInhlg99atMw7l?=
- =?us-ascii?Q?olIfAjsnRbNXJaVT/nTAdWm5mDg1U341Y9Mdhos4O/H3cVxpIzYvuGV+eL+X?=
- =?us-ascii?Q?gTr/4cD794uJpJ0o/rd+WRN5maENAZCJz+yXdHS26db63kSXFn7ZAhUm05Oz?=
- =?us-ascii?Q?cW298kwJLdqJSxt7/NKLAoCp22dlQtUosuDzuNrB8lg4tMFexK4xsstJi710?=
- =?us-ascii?Q?7iFc4kiM79bvOWaiDhcWe7E3ZqvxXFFGvY5wMyTC6AFRArIu1pnZDn/+XTzm?=
- =?us-ascii?Q?ox0cGEJvCdujOGlkigsuT5ov7rgIBktVgVsNpp2Wg38+A7o0rGyVmuorktKZ?=
- =?us-ascii?Q?LiOlIDcF3AMM7oesW2/lDtWh3Z1PdOgpWrs0PVS/?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ecf764ad-dd16-422a-1c41-08dd349fcab7
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jan 2025 13:31:46.4340
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: YWuep1+yP3LibgmZTEU9XWCEvlFCX9mD6QiaL7mF4KuW8Sjq3xfQBuPjs6fiq7qU
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB7429
+In-Reply-To: <20250114125739.sgegfxibbzpc2uor@skbuf>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_053153_022712_8514E637 
-X-CRM114-Status: GOOD (  11.79  )
+X-CRM114-CacheID: sfid-20250114_053156_394323_F8CA83AF 
+X-CRM114-Status: GOOD (  25.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,25 +75,99 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Taras Chornyi <taras.chornyi@plvision.eu>, Andrew Lunn <andrew@lunn.ch>, Marcin Wojtas <marcin.s.wojtas@gmail.com>, Madalin Bucur <madalin.bucur@nxp.com>, Alexander Duyck <alexanderduyck@fb.com>, Daniel Golle <daniel@makrotopia.org>, Eric Dumazet <edumazet@google.com>, Ioana Ciornei <ioana.ciornei@nxp.com>, Horatiu Vultur <horatiu.vultur@microchip.com>, Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>, Florian Fainelli <florian.fainelli@broadcom.com>, Sean Anderson <sean.anderson@seco.com>, Steen Hegelund <Steen.Hegelund@microchip.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Sean Wang <sean.wang@mediatek.com>, Daniel Machon <daniel.machon@microchip.com>, kernel-team@meta.com, DENG Qingfang <dqfext@gmail.com>, linux-mediatek@lists.infradead.org, Matthias Brugger <matthias.bgg@gmail.com>, Michal Simek <michal.simek@amd.com>, linux-arm-kernel@lists.infradead.org, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, "Chester A. Unal" <chester.a.unal@arinc9.com>, netdev@vger.kernel.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, UNGLinuxDriver@microchip.com, Andrew Lunn <andrew+netdev@lunn.ch>, Eric Woudstra <ericwouds@gmail.com>, Alexander Couzens <lynxis@fe80.eu>, "David S. Miller" <davem@davemloft.net>, Heiner Kallweit <hkallweit1@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 14, 2025 at 02:17:50PM +0100, David Hildenbrand wrote:
+On Tue, Jan 14, 2025 at 02:57:39PM +0200, Vladimir Oltean wrote:
+> On Mon, Jan 13, 2025 at 09:22:44AM +0000, Russell King (Oracle) wrote:
+> > When decoding clause 22 state, if in-band is disabled and using either
+> > 1000base-X or 2500base-X, rather than reporting link-down, we know the
+> > speed, and we only support full duplex. Pause modes taken from XPCS.
+> > 
+> > This fixes a problem reported by Eric Woudstra.
+> > 
+> > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> > ---
+> >  drivers/net/phy/phylink.c | 29 +++++++++++++++++++----------
+> >  1 file changed, 19 insertions(+), 10 deletions(-)
+> > 
+> > diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
+> > index b79f975bc164..ff0efb52189f 100644
+> > --- a/drivers/net/phy/phylink.c
+> > +++ b/drivers/net/phy/phylink.c
+> > @@ -3882,27 +3882,36 @@ void phylink_mii_c22_pcs_decode_state(struct phylink_link_state *state,
+> >  	if (!state->link)
+> >  		return;
+> >  
+> > -	/* If in-band is disabled, then the advertisement data is not
+> > -	 * meaningful.
+> > -	 */
+> > -	if (neg_mode != PHYLINK_PCS_NEG_INBAND_ENABLED)
+> > -		return;
+> > -
+> >  	switch (state->interface) {
+> >  	case PHY_INTERFACE_MODE_1000BASEX:
+> > -		phylink_decode_c37_word(state, lpa, SPEED_1000);
+> > +		if (neg_mode == PHYLINK_PCS_NEG_INBAND_ENABLED) {
+> > +			phylink_decode_c37_word(state, lpa, SPEED_1000);
+> > +		} else {
+> > +			state->speed = SPEED_1000;
+> > +			state->duplex = DUPLEX_FULL;
+> > +			state->pause |= MLO_PAUSE_TX | MLO_PAUSE_RX;
+> > +		}
+> >  		break;
+> >  
+> >  	case PHY_INTERFACE_MODE_2500BASEX:
+> > -		phylink_decode_c37_word(state, lpa, SPEED_2500);
+> > +		if (neg_mode == PHYLINK_PCS_NEG_INBAND_ENABLED) {
+> > +			phylink_decode_c37_word(state, lpa, SPEED_2500);
+> > +		} else {
+> > +			state->speed = SPEED_2500;
+> > +			state->duplex = DUPLEX_FULL;
+> > +			state->pause |= MLO_PAUSE_TX | MLO_PAUSE_RX;
+> > +		}
+> >  		break;
+> 
+> Are the "else" branches necessary, given the "else" branch from
+> phylink_mac_pcs_get_state?
+> 
+> static void phylink_mac_pcs_get_state(struct phylink *pl,
+> 				      struct phylink_link_state *state)
+> {
+> 	struct phylink_pcs *pcs;
+> 	bool autoneg;
+> 
+> 	linkmode_copy(state->advertising, pl->link_config.advertising);
+> 	linkmode_zero(state->lp_advertising);
+> 	state->interface = pl->link_config.interface;
+> 	state->rate_matching = pl->link_config.rate_matching;
+> 	state->an_complete = 0;
+> 	state->link = 1;
+> 
+> 	pcs = pl->pcs;
+> 	if (!pcs || pcs->neg_mode)
+> 		autoneg = pl->pcs_neg_mode == PHYLINK_PCS_NEG_INBAND_ENABLED;
+> 	else
+> 		autoneg = linkmode_test_bit(ETHTOOL_LINK_MODE_Autoneg_BIT,
+> 					    state->advertising);
+> 
+> 	if (autoneg) {
+> 		state->speed = SPEED_UNKNOWN;
+> 		state->duplex = DUPLEX_UNKNOWN;
+> 		state->pause = MLO_PAUSE_NONE;
+> 	} else {						|
+> 		state->speed =  pl->link_config.speed;		|
+> 		state->duplex = pl->link_config.duplex;		| this
+> 		state->pause = pl->link_config.pause;		|
+> 	}							|
 
-> I assume MTE does not apply at all to VM_PFNMAP, at least
-> arch_calc_vm_flag_bits() tells me that VM_MTE_ALLOWED should never get set
-> there.
+This is fine for cases where ethtool is used to turn autoneg off, but
+not if we're in in-band mode and the PCS/PHY have decided to have
+autoneg off - in that case, nothing sets pl->link_config.* to anything
+sensible.
 
-As far as I know, it is completely platform specific what addresses MTE
-will work on. For instance, I would expect a MTE capable platform with
-CXL to want to make MTE work on the CXL memory too.
-
-However, given we have no way of discovery, limiting MTE to boot time
-system memory seems like the right thing to do for now - which we can
-achieve by forbidding it from VM_PFNMAP.
-
-Having VFIO add VM_MTE_ALLOWED someday might make sense if someone
-solves the discoverability problem.
-
-Jason
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
