@@ -4,91 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85B0BE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 16:48:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D28E8C02185
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 16:56:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RxWYotfxywN3NwGBQO3BiIkoRPcGTpIVsh2/TXME74Q=; b=tQVv0Cl+YClhT7+gfKjDKShL/Z
-	dwjQl4qnN6R471oP2CXtf5Zd59EO0edpahg24bziunGUzonD2fRKn9b0i4rvCi7+kWwnj0SBCV3wJ
-	gN2Qk2dwKjmJ2H3pWwTKmqEqjvAm3iCzBJYrLBHiiLc0JDFU3yFdC1z5u+ExMHPfnFcg/jrJzuGLd
-	AQ79XL0S2592DpIlt6/UJ7xhhd8hY6lrNvvCTepwf9WIwpmhBjc+Unvdt3Rc1HkrCYgpHq1j426PO
-	hS3k6Ailc7Nf2SfszPqsOAJlzYwA7PxRCNKdQRIc0r2Z7yKkykOx0RPrsRvGUOQF8P5m1bRtOQ/Py
-	inKIuouw==;
+	bh=80y0ZD2DqPk4N5CYZbDl0WM8yXhgHTstPGSnJZeMvKg=; b=N+zLNk05ACXIoNkqLq7splQeo1
+	bR/yEVb6z1BrsPs2AwQ7c6l4ryzMd2J05zA5enlQK+Sva/M/C8+uvtjJbgXJWl3GzGaGh1QdPkCVT
+	DMbq3H17+LxLgC3PPNF51ZTnW+1JNMMLAy+GqzI80oZfhnpFcBWCgqqIYaP6+KWIu4WDymGyTDbAI
+	sqOPcR3L1m1O5x/H7LdQnCqHys+s5sdJ/kxUrZdf4mtQUi3cTelCeDe3D1CbdqNkFAAF7Qeskg9Mh
+	7/0c3OZGmiDs9yQNvns8NmZx3qXxibQAUJCGMU3Wx2YPGEfcZmBm956T/VDRko7UeHN0EPolo9Nl1
+	czf6eAeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXk5b-000000095JQ-28Xd;
-	Tue, 14 Jan 2025 16:48:27 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1tXkCt-000000096Cw-2dVE;
+	Tue, 14 Jan 2025 16:55:59 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXk3O-000000094rH-47dk
+	id 1tXkBd-000000095wP-3NYF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 16:46:14 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2166022c5caso90055725ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 08:46:10 -0800 (PST)
+	Tue, 14 Jan 2025 16:54:43 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-43626213fffso41329025e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 08:54:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=minyard-net.20230601.gappssmtp.com; s=20230601; t=1736873169; x=1737477969; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RxWYotfxywN3NwGBQO3BiIkoRPcGTpIVsh2/TXME74Q=;
-        b=vyYYz6WtaO3cRBEnJPFxjIqGrVRgoLhvx6ALgZMP8jnN3W17yL12CMqOOrVAwMH0oX
-         iAfowoTwbJO4Q1MtHZm2ZPgVzeFys4Wkz6+Nxy5/ki1D4mk+0rIib8C9HAcupWxRVCG7
-         j+f/KoQjiFGPHnuTVLAP4jy0ltjj+ldwZNq0iFJx/aVvXMY6bIgCwsLWw9LIZWytVirx
-         37Kaw4Uai/dyq6pebkt+sc7hDp0DIWQuvAxTHIido4lGciyiSXii6vRi+d0tspqxEf7D
-         dQd2yKiLGZ3kuW8boXs96UdZ2SzkX6i0wdVae1Sc1Uj47vYtUEzFRqiQgxM+p6dzTyMb
-         aeZA==
+        d=linaro.org; s=google; t=1736873680; x=1737478480; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=80y0ZD2DqPk4N5CYZbDl0WM8yXhgHTstPGSnJZeMvKg=;
+        b=qayvh7cXaL2HRDifWgZ5641H5mlfVEjBGOwAklBX593DpwxTtBx1Ru8nGlrSUNA+fU
+         eJAZ9RwLdztFaPmxNn4fVXmWQSg4yRYNMEl9UPPWEb/McwNmTe5HtVv9Wf86+N0foZ4R
+         vHLTrbcv1gFHkhsId9+X9LInMc0nERbB4oiXcohm96iRz0UX42qP8FpavDzYsudNM2Q0
+         az/XIfT1WjPME64h0M4fHvX0p3iR54FuWsOzA+qUoY3s6J3wumsS0pC6vObfH4RdkMYh
+         LkKWXE72BelpCDvwx/hC7/mu3ZgiGXxHmTOOskXhQX3AvZ34vdhFLiZlpXUK5UZwyZ0m
+         gEgw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736873169; x=1737477969;
-        h=in-reply-to:content-disposition:mime-version:references:reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=RxWYotfxywN3NwGBQO3BiIkoRPcGTpIVsh2/TXME74Q=;
-        b=hZ3xaAB0cN3GD/D3BZAmXmKhxPNFKl2GbdSWWJuLiVJts67rn11TJVOTXNzWelAUU/
-         U+2obRW7QDODgzgkFIygaKTOOJKrmm2Mttwx4fQRiKbzjXC2KM2GYnNwDx/7LtnyiomD
-         KmYyxRX224rKrXwpUdmFl4ktv696l1EmL8fE8TcYpkwr4vHOivv4yvLqVB7JJ04LAA1o
-         S9yrOOHewhAidyZfzkmVNnhqKfG74L3lPYSbPalQqoYeZ2andh2pM9H1N2eEUtySFLIU
-         v2zm6PbnxqSWpJpO4QRgkktpJYPE8V3KEbIM4KQe3JjZyT2rosbuoCYUT7ZX0FW7HWE+
-         BqFg==
-X-Forwarded-Encrypted: i=1; AJvYcCWP6ljLdctwwNOFtssvZHsAyBLCd1y2tt8+BKPEgRGMswTyg/WzT7ZKBEbAp0MpIdECwo2QJK8zS+N3iUxu/X4S@lists.infradead.org
-X-Gm-Message-State: AOJu0YwzbtA+HlwE6ZY1RCFsYLT3MrVz6VA0kP3OZ2aHdXBXUId+ku8L
-	YYjOVhF6rUuolK58EB5yGJokTWg0PcyK1ENrV8hnxjtKR3M7f2UOLaoTutNKrq8=
-X-Gm-Gg: ASbGncurQASwnM0rVp3jq3API4MqvDhfBUD3121KTnOqfMKt+UAuv3/ikFJtBS/miiq
-	IMOx8axYBFUaKQUGVvbtwKS4NzWgWqOzJJNfwLcwKBztaWbjgkwWtdCN45XZr+cvNR7N66fyXTv
-	o7UWpJRwhzVbBPhDZsVUB+ABbDaPnVpw/dVpJSoBvZg5uO7KXdf27otTWfYsfnJCz4AftiMq1Ww
-	5RLDxoKZmjH6q8v4+yfl4Aecm58iIubykJJgl4o540+zmZAuj8ruIyz8fS7
-X-Google-Smtp-Source: AGHT+IFduq35RcsU3aO5RRhPDalwAW/p83/zhfkLttMULeNifRcViC7DtwI7vuIYT8rQlSliD0flaA==
-X-Received: by 2002:aa7:8887:0:b0:72a:bb83:7804 with SMTP id d2e1a72fcca58-72d21fd2e16mr34122515b3a.17.1736873169522;
-        Tue, 14 Jan 2025 08:46:09 -0800 (PST)
-Received: from mail.minyard.net ([2001:470:b8f6:1b:4641:6dae:60a7:e5ab])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72d4065a560sm7614353b3a.87.2025.01.14.08.46.07
+        d=1e100.net; s=20230601; t=1736873680; x=1737478480;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=80y0ZD2DqPk4N5CYZbDl0WM8yXhgHTstPGSnJZeMvKg=;
+        b=eRIlmyTcL+IFjABn7Hzn1+oFVMRbw7utOh5x1a/Pur6f1zCF1++fD2rHawiIVv/RZ0
+         uC6Utq3HoM4qwqvGmNve0l+FJsh7bDuWunvq+6aIIQ7rHHiSHZAJ6sP/Ag2MNAQXCkfp
+         exVDC7z6tiiRWRTAJVvSN9h3vbQ+/e4suzENikk//JAKvFhYMa5P+M8VxG0oEY3528wt
+         wdXE7LTEqJfznyRGHYTEXdaKzGj/1QkHdo7fW1X2dRHKJvHr2nZZ7Tb0lYtLUpiJTBpR
+         bi7E2Q48hFx9jLgqgmU/adEZaz4Ul4YYaloBWac1D4L1jutujJwHySWHOnPzo8zwEd6P
+         214Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXM1Y0ibVWhzGO72Qy5OFbaevVO5s1cMn90ZEs1EmF2HaE0PGBrLIYMd5AZVV8ebY6uKYh2Bg6eP97Lu+yjDI8V@lists.infradead.org
+X-Gm-Message-State: AOJu0YzJH4dFrAXWbwdCTL2FMSTHKykNGXLZ6DGiDz8VyGaNBuOS1Wop
+	EkBIeSpdv2pLeLsmopY/OgGMqXSrvL3PrvASf3pefEJMq/B+mFurbQ+T1avQ3qk=
+X-Gm-Gg: ASbGncvGEAwkJ8/gT3cppw7fBmAZhIwd9V5s3e0OBhsAJ6XIMqRel0X0C3iyuLOx8VZ
+	WwYXYjqfos+CRyoW//BSjSaOirSXJ06qCSmLrCDGTwGlaXWYNgreObx06AbpgLR3cIaVRSYDUw2
+	uKWLT8mL5+Xqpmgv4HHIBnZ5O5w70vqrSPIwJjVNHcGObgRZHBcfZnp3FxH5q4+X/qIPqkpOXb2
+	+T1t1UGIMeQYgUWL+ZsFgdblNnBpgJDnG8c9gV3VgzcFhNlGJ9L/gS25Fw4HIW331I=
+X-Google-Smtp-Source: AGHT+IFiSz9B8Y/tFYQ0oTGPiQrOjEXpcMKzTOAox1qutsuyH4237qdiFg4uxD6I3EHJ58Yi2W/NwQ==
+X-Received: by 2002:a05:600c:3d0c:b0:434:9e17:190c with SMTP id 5b1f17b1804b1-436e9c9c052mr164758145e9.0.1736873680089;
+        Tue, 14 Jan 2025 08:54:40 -0800 (PST)
+Received: from [192.168.243.26] ([80.233.75.14])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e2dc0bb7sm213674845e9.16.2025.01.14.08.54.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jan 2025 08:46:08 -0800 (PST)
-Date: Tue, 14 Jan 2025 10:46:01 -0600
-From: Corey Minyard <corey@minyard.net>
-To: Ninad Palsule <ninad@linux.ibm.com>
-Cc: minyard@acm.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-	openipmi-developer@lists.sourceforge.net, netdev@vger.kernel.org,
-	joel@jms.id.au, andrew@codeconstruct.com.au,
-	devicetree@vger.kernel.org, eajames@linux.ibm.com,
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 2/9] bindings: ipmi: Add binding for IPMB device intf
-Message-ID: <Z4aUyX8g-JprzLpd@mail.minyard.net>
-References: <20250113194822.571884-1-ninad@linux.ibm.com>
- <20250113194822.571884-3-ninad@linux.ibm.com>
+        Tue, 14 Jan 2025 08:54:39 -0800 (PST)
+Message-ID: <98bc4711aaf8d35f36435da8901e2805d3984db1.camel@linaro.org>
+Subject: Re: [PATCH v2] scsi: ufs: fix use-after free in init error and
+ remove paths
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Alim Akhtar <alim.akhtar@samsung.com>, Avri Altman
+ <avri.altman@wdc.com>,  Bart Van Assche <bvanassche@acm.org>, "James E.J.
+ Bottomley" <James.Bottomley@HansenPartnership.com>, "Martin K. Petersen"
+ <martin.petersen@oracle.com>, Peter Griffin <peter.griffin@linaro.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>, Manivannan Sadhasivam
+ <manivannan.sadhasivam@linaro.org>,  Eric Biggers <ebiggers@kernel.org>
+Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, Will McVicker
+ <willmcvicker@google.com>, kernel-team@android.com,
+ linux-scsi@vger.kernel.org,  linux-kernel@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
+ linux-arm-msm@vger.kernel.org,  stable@vger.kernel.org
+Date: Tue, 14 Jan 2025 16:54:37 +0000
+In-Reply-To: <20250114-ufshcd-fix-v2-1-2dc627590a4a@linaro.org>
+References: <20250114-ufshcd-fix-v2-1-2dc627590a4a@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.1-4 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250113194822.571884-3-ninad@linux.ibm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_084611_286489_B3007CB7 
-X-CRM114-Status: GOOD (  27.00  )
+X-CRM114-CacheID: sfid-20250114_085441_856764_B95EA983 
+X-CRM114-Status: GOOD (  20.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,118 +103,150 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: corey@minyard.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 13, 2025 at 01:48:12PM -0600, Ninad Palsule wrote:
-> Add device tree binding document for the IPMB device interface.
-> This device is already in use in both driver and .dts files.
-> 
-> Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
+On Tue, 2025-01-14 at 16:16 +0000, Andr=C3=A9 Draszik wrote:
+> devm_blk_crypto_profile_init() registers a cleanup handler to run when
+> the associated (platform-) device is being released. For UFS, the
+> crypto private data and pointers are stored as part of the ufs_hba's
+> data structure 'struct ufs_hba::crypto_profile'. This structure is
+> allocated as part of the underlying ufshd allocation.
+>=20
+> During driver release or during error handling in ufshcd_pltfrm_init(),
+> this structure is released as part of ufshcd_dealloc_host() before the
+> (platform-) device associated with the crypto call above is released.
+> Once this device is released, the crypto cleanup code will run, using
+> the just-released 'struct ufs_hba::crypto_profile'. This causes a
+> use-after-free situation:
+>=20
+> =C2=A0=C2=A0=C2=A0 exynos-ufshc 14700000.ufs: ufshcd_pltfrm_init() failed=
+ -11
+> =C2=A0=C2=A0=C2=A0 exynos-ufshc 14700000.ufs: probe with driver exynos-uf=
+shc failed with error -11
+> =C2=A0=C2=A0=C2=A0 Unable to handle kernel paging request at virtual addr=
+ess 01adafad6dadad88
+> =C2=A0=C2=A0=C2=A0 Mem abort info:
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ESR =3D 0x0000000096000004
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 EC =3D 0x25: DABT (current EL), IL =3D 32 =
+bits
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 SET =3D 0, FnV =3D 0
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 EA =3D 0, S1PTW =3D 0
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 FSC =3D 0x04: level 0 translation fault
+> =C2=A0=C2=A0=C2=A0 Data abort info:
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ISV =3D 0, ISS =3D 0x00000004, ISS2 =3D 0x=
+00000000
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 CM =3D 0, WnR =3D 0, TnD =3D 0, TagAccess =
+=3D 0
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 GCS =3D 0, Overlay =3D 0, DirtyBit =3D 0, =
+Xs =3D 0
+> =C2=A0=C2=A0=C2=A0 [01adafad6dadad88] address between user and kernel add=
+ress ranges
+> =C2=A0=C2=A0=C2=A0 Internal error: Oops: 0000000096000004 [#1] PREEMPT SM=
+P
+> =C2=A0=C2=A0=C2=A0 Modules linked in:
+> =C2=A0=C2=A0=C2=A0 CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Tainted: G=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 W=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 6.13.0-rc5-next-20250106+ #70
+> =C2=A0=C2=A0=C2=A0 Tainted: [W]=3DWARN
+> =C2=A0=C2=A0=C2=A0 Hardware name: Oriole (DT)
+> =C2=A0=C2=A0=C2=A0 pstate: 20400005 (nzCv daif +PAN -UAO -TCO -DIT -SSBS =
+BTYPE=3D--)
+> =C2=A0=C2=A0=C2=A0 pc : kfree+0x60/0x2d8
+> =C2=A0=C2=A0=C2=A0 lr : kvfree+0x44/0x60
+> =C2=A0=C2=A0=C2=A0 sp : ffff80008009ba80
+> =C2=A0=C2=A0=C2=A0 x29: ffff80008009ba90 x28: 0000000000000000 x27: ffffb=
+cc6591e0130
+> =C2=A0=C2=A0=C2=A0 x26: ffffbcc659309960 x25: ffffbcc658f89c50 x24: ffffb=
+cc659539d80
+> =C2=A0=C2=A0=C2=A0 x23: ffff22e000940040 x22: ffff22e001539010 x21: ffffb=
+cc65714b22c
+> =C2=A0=C2=A0=C2=A0 x20: 6b6b6b6b6b6b6b6b x19: 01adafad6dadad80 x18: 00000=
+00000000000
+> =C2=A0=C2=A0=C2=A0 x17: ffffbcc6579fbac8 x16: ffffbcc657a04300 x15: ffffb=
+cc657a027f4
+> =C2=A0=C2=A0=C2=A0 x14: ffffbcc656f969cc x13: ffffbcc6579fdc80 x12: ffffb=
+cc6579fb194
+> =C2=A0=C2=A0=C2=A0 x11: ffffbcc6579fbc34 x10: 0000000000000000 x9 : ffffb=
+cc65714b22c
+> =C2=A0=C2=A0=C2=A0 x8 : ffff80008009b880 x7 : 0000000000000000 x6 : ffff8=
+0008009b940
+> =C2=A0=C2=A0=C2=A0 x5 : ffff80008009b8c0 x4 : ffff22e000940518 x3 : ffff2=
+2e006f54f40
+> =C2=A0=C2=A0=C2=A0 x2 : ffffbcc657a02268 x1 : ffff80007fffffff x0 : ffffc=
+1ffc0000000
+> =C2=A0=C2=A0=C2=A0 Call trace:
+> =C2=A0=C2=A0=C2=A0=C2=A0 kfree+0x60/0x2d8 (P)
+> =C2=A0=C2=A0=C2=A0=C2=A0 kvfree+0x44/0x60
+> =C2=A0=C2=A0=C2=A0=C2=A0 blk_crypto_profile_destroy_callback+0x28/0x70
+> =C2=A0=C2=A0=C2=A0=C2=A0 devm_action_release+0x1c/0x30
+> =C2=A0=C2=A0=C2=A0=C2=A0 release_nodes+0x6c/0x108
+> =C2=A0=C2=A0=C2=A0=C2=A0 devres_release_all+0x98/0x100
+> =C2=A0=C2=A0=C2=A0=C2=A0 device_unbind_cleanup+0x20/0x70
+> =C2=A0=C2=A0=C2=A0=C2=A0 really_probe+0x218/0x2d0
+>=20
+> In other words, the initialisation code flow is:
+>=20
+> =C2=A0 platform-device probe
+> =C2=A0=C2=A0=C2=A0 ufshcd_pltfrm_init()
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ufshcd_alloc_host()
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 scsi_host_alloc()
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 allocation of stru=
+ct ufs_hba
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 creation of scsi-h=
+ost devices
+> =C2=A0=C2=A0=C2=A0 devm_blk_crypto_profile_init()
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 devm registration of cleanup handler using=
+ platform-device
+>=20
+> and during error handling of ufshcd_pltfrm_init() or during driver
+> removal:
+>=20
+> =C2=A0 ufshcd_dealloc_host()
+> =C2=A0=C2=A0=C2=A0 scsi_host_put()
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 put_device(scsi-host)
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 release of struct ufs_hba
+> =C2=A0 put_device(platform-device)
+> =C2=A0=C2=A0=C2=A0 crypto cleanup handler
+>=20
+> To fix this use-after free, change ufshcd_alloc_host() to register a
+> devres action to automatically cleanup the underlying SCSI device on
+> ufshcd destruction, without requiring explicit calls to
+> ufshcd_dealloc_host(). This way:
+>=20
+> =C2=A0=C2=A0=C2=A0 * the crypto profile and all other ufs_hba-owned resou=
+rces are
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 destroyed before SCSI (as they've been reg=
+istered after)
+> =C2=A0=C2=A0=C2=A0 * a memleak is plugged in tc-dwc-g210-pci.c as a side-=
+effect
+> =C2=A0=C2=A0=C2=A0 * EXPORT_SYMBOL_GPL(ufshcd_dealloc_host) can be remove=
+d fully as
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 it's not needed anymore
+> =C2=A0=C2=A0=C2=A0 * no future drivers using ufshcd_alloc_host() could ev=
+er forget
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 adding the cleanup
+>=20
+> Fixes: cb77cb5abe1f ("blk-crypto: rename blk_keyslot_manager to blk_crypt=
+o_profile")
+> Fixes: d76d9d7d1009 ("scsi: ufs: use devm_blk_ksm_init()")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
 > ---
->  .../devicetree/bindings/ipmi/ipmb-dev.yaml    | 55 +++++++++++++++++++
->  1 file changed, 55 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/ipmi/ipmb-dev.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/ipmi/ipmb-dev.yaml b/Documentation/devicetree/bindings/ipmi/ipmb-dev.yaml
-> new file mode 100644
-> index 000000000000..136806cba632
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/ipmi/ipmb-dev.yaml
-> @@ -0,0 +1,55 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/ipmi/ipmb-dev.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: The Intelligent Platform Management Bus(IPMB) Device
-> +
-> +description: |
-> +  The IPMB is an I2C bus which provides interconnection between Baseboard
+> Changes in v2:
+> - completely new approach using devres action for Scsi_host cleanup, to
+> =C2=A0 ensure ordering
 
-"Baseboard -> "a Baseboard"
+As mentioned, I am not sure if this approach has wider implications
+(in particular if there is any underlying assumption or requirement
+for the Scsi_host device to clean up before the ufshcd device).
 
-> +  Management Controller(BMC) and chassis electronics. The BMC sends IPMI
-> +  requests to intelligent controllers like Satellite Management Controller(MC)
-> +  device via IPMB and the device sends a response back to the BMC.
+Simple testing using a few iteration of manual module bind/unbind
+worked, as did the error handling / cleanup during init. But I'm
+not sure if that is sufficient testing for the changed release
+ordering.
 
-device -> devices
-"a response" -> responses
+Cheers,
+Andre'
 
-> +  This device binds backend Satelite MC which is a I2C slave device with the BMC
-
-You use IPMB devices on both the BMC and the MCs.  The sentence above is
-a little confusing, too.  How about:
-
-This device uses an I2C slave device to send and receive IPMB messages,
-either on a BMC or other MC.
-
-> +  for management purpose. A miscalleneous device provices a user space program
-
-Misspelling: miscellaneous
-
-> +  to communicate with kernel and backend device. Some IPMB devices only support
-
-"kernel" -> "the kernel"
-
-> +  I2C protocol instead of SMB protocol.
-
-the I2C protocol and not the SMB protocol.
-
-Yes, the English language uses way too many articles...
-
-That is a lot of detail, but it looks good beyond what I've commented
-on.
-
-> +
-> +  IPMB communications protocol Specification V1.0
-> +  https://www.intel.com/content/dam/www/public/us/en/documents/product-briefs/ipmp-spec-v1.0.pdf
-> +
-> +maintainers:
-> +  - Ninad Palsule <ninad@linux.ibm.com>
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - ipmb-dev
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  i2c-protocol:
-> +    description:
-> +      Use I2C block transfer instead of SMBUS block transfer.
-> +    type: boolean
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    i2c {
-> +        #address-cells = <1>;
-> +        #size-cells = <0>;
-> +
-> +        ipmb-dev@10 {
-> +            compatible = "ipmb-dev";
-> +            reg = <0x10>;
-
-I'm not sure of the conventions around device tree here, but the reg is
-not used in the driver and it will always be the I2C address that
-already in that node just one level up.  It does not serve any purpose
-that I can see.  My suggestion would be to remove it.
-
--corey
-
-> +            i2c-protocol;
-> +        };
-> +    };
-> -- 
-> 2.43.0
-> 
 
