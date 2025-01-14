@@ -4,85 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2879FC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 06:32:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F186BE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 06:48:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zFvK5oiBH8+JxtcYHZ8dNqgQlFpHniYFsNHsV6mOU4Y=; b=HYkI4QkB7ViV8nSm9qKzuoT1We
-	jU7maUS27NcKve0bv2EDSxIkdpksOUyn7BzJYwOGDlYy5dF1RMBKk0/266iRuNlMAqoUpm+awonZ/
-	bJXng6oD+YMG0B92/V9+X3y0jLsChb8W5Hg8WQ2OVpxyaO/klGrRDvpCOnGLTL5pWNh9ylsquid36
-	FGD5IAzaPRFN07bzGiFEVtEs6me4Ah5PBX5u1oQIPyK6FgGa9ocIAplFRwps3n34Qa7yG5eqkK9Ob
-	541xHKMTfT2OzlNSdDzwLQiAEx7s9ywQNPMR5vOc2XwAbu+YD/C9ijl51faPQeCdeQ1zCKGSYvXCL
-	+LFuzcjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pfnNY26gZvis41T9pzW/hAZhH2yxNMd7D/7GoQzUilQ=; b=sw1xsxXTlQNxIEij2qWe0rZ6Kp
+	rcVB7QZFyWmmcXwiykGRvSJUX3wi14lKnZi37zhDl1v87AHSPKN9iAWptSF1U9uVzzUUogSMPI/ni
+	VipJ2h9qgxE3X3bASGyBMqAV7ugKwNnqJO7p8FYbSeKSN/anmeX7gt/5UK+nbSDCa3o1/1Eq+oRtO
+	xwf9fBICHXsCJIdZQOCWWN6FjW+zx+XCxWJZRDErU1KJQC5lDLRJdbCE+soyGD9/ZdfreNLN7xNLl
+	qZ1J8XKLhtP300G9re/nQ/li8HukyImb/Rt7RRwbyWcI99y6FRLhoQ8rDO9pm9ULumug8Kb2HmY7v
+	OpKTKuOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXaT5-00000007bGv-2mWz;
-	Tue, 14 Jan 2025 06:32:03 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1tXaiQ-00000007d46-11wO;
+	Tue, 14 Jan 2025 06:47:54 +0000
+Received: from mail-tyzapc01on20714.outbound.protection.outlook.com ([2a01:111:f403:2011::714] helo=APC01-TYZ-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXaRj-00000007b6L-3P6n;
-	Tue, 14 Jan 2025 06:30:41 +0000
-Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-5d9b6b034easo5228170a12.3;
-        Mon, 13 Jan 2025 22:30:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736836238; x=1737441038; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zFvK5oiBH8+JxtcYHZ8dNqgQlFpHniYFsNHsV6mOU4Y=;
-        b=VJlleQ4+VHFJjOp4gq94PH4q63MCiaX7AJT6RZdXXVxxOOS3hKFFd8zkDNuatQskOQ
-         ES3liV2kd2/S98AG3ZgVtCXO76U4PZfYSmg6xs6aCcJblNbAnE4TX9sf3i6HNs77BMPC
-         d8m+5PPn0ev4pf46St7XJxlIgrVVScKpBkjgICOG7HZdVoHpNbP07UvNenCLOy/u2Vtv
-         q0FQZNFISIanEtfQqiARnZzqVnzcM9zsyVrb3/WTGFwaEOUuL6cYTLlGt1/vKn/Kpw+c
-         qgvmZkyUOzXMy6jP01Ay0Mq0jDiJhnsV+jfIj6tEQXp5eDFQFtzNddyBZr9fXEvHbhw2
-         SxqQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736836238; x=1737441038;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zFvK5oiBH8+JxtcYHZ8dNqgQlFpHniYFsNHsV6mOU4Y=;
-        b=oAXVwpv1qLgj0ofYxqDK6m80mb2981jOQySFLBj1bdqj7dm02WuYMRkYYOSIvIaG7k
-         Ani6c+y9vX5isC6dlbfwIvd7c4Nro7Aijboc9iQuFcQnnqRc4XP1dG9/M6KoCX/aNaJt
-         qf/sJrM7tz7dLFIe6EgDUG1m3XEG+1senqvjOn/CUb2TbnwYGXttcmMUe0NY76Xqz9uc
-         w5Ct/2i0+TzJ/UMoulg6MFiaZmdBlZz09spQPKpz2DoPJjSjkh8vUKS6ZWfUsGH8HuPT
-         X6Z43JZptxWDV5fOQLm90+bfHkqNICE9BpCFVDUedI/oPgPuzJqoD26Y7BDLjN8aQm8j
-         Dzkw==
-X-Forwarded-Encrypted: i=1; AJvYcCUHBAWaBuT+/aXD2ioi2BoWHt7GKy21agZstovwaN3ooZyZBeNRJIkElY5+uW5EJ63ZzzSoclTx6FrvdZZ4K9wM@lists.infradead.org, AJvYcCWdEPV1AudGdMZQmWGU2W0wh2Ibw/1g+x64QY6JfnBXtR2mlILDAm0684j+/qYm3/Hd0vq/QKZYpSRpIpY=@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzYOj3NvzgQqPcldAfxtq9NghiDxCoMX5pvHhwnuXsACV7kTIz
-	eOhLv3eLQUXXOeb9iuSn5oinmYPpdRCZFZP/WEPreIHi5vhjLwy3KBp1lIdF95Dz1l1xOTBpdnL
-	62eScr6+ETlTj0ig7ym2+wlryrAgqIw2g
-X-Gm-Gg: ASbGnctqNyAe73PcoTB8HwNSLITXNjhgNsAlVk+3SqsGAX6SGGBpMxO5C3Jk586NCQW
-	7ZbUkAqT5LOsSgPG66lngUsraD7ce2vRoXt7yaNQn
-X-Google-Smtp-Source: AGHT+IGF2PGcv/ddJcvq18Tqw5yvzNhCGSdnO2VVwGsY9CNG0MdQiK0klb2/fYcTkEUzs3VV5uaT0CaCnBfqbFxV2uc=
-X-Received: by 2002:a05:6402:51d0:b0:5d2:723c:a559 with SMTP id
- 4fb4d7f45d1cf-5d972e06b2bmr23233356a12.10.1736836237804; Mon, 13 Jan 2025
- 22:30:37 -0800 (PST)
+	id 1tXahA-00000007cu8-0l1P;
+	Tue, 14 Jan 2025 06:46:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dFG38gYE6Jt3ndZjQTt23ehG/6xgZza7LE1gTA+4bQY13ji7r3zPY4eOwMjM0/cIB9ElJ5Znfqdr09UJLeBsZ70jERfMUE4FFxi/bX4rOm0OqlaPfnTfdmqRggGv+z/V7ASwtjyT3uqbHX1CahhZlXoiQS6XCZzAROyonWDJTeo/az+yKPdyh+0mEBCKIdMbRP4XU/fCak0hDcHYcq/LAKTxun20BjIfCyzP+Twt+wvEZs4QCfbfWyQaUoHAr2yc0q2amHCqm1Q5zXAjL/XNszrsKR6W0y7+6Exn1zHEgZXdxzWHypgIuIdCodQA8D9sEdZJDG4hYHqdaBiBvNWLuw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pfnNY26gZvis41T9pzW/hAZhH2yxNMd7D/7GoQzUilQ=;
+ b=sE3j70C3rdOoms8JylSNzMDm7GkIxhkpMATsWcQ1RVxabxkNkomsZDL/Aal73d1mY4TKnfF4q3UESQ3pMacRjAWvbvChU5rZ5iQJec1rzZ2+IcBIoEHZIhZkquX92hcS/1qXvcurPKqyK3KM0rX8dJfJRpNHURtrqJeqWzNyXmvhm8fBbGxjM3hLSTOvylyg2ogd+uvyeI0FdCfXBU91HTQw6qZZtoWpD+I1dtTtM3WPx1rBJFLjSsxW81ci0sIQ32VDe2afcfz6suwwbpIo9gq7EdH/rkT8J0n4uKBWzyhbYkm14VD93tPubLYZTqfTwa2HKGqKuNdbDjishKq/xQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pfnNY26gZvis41T9pzW/hAZhH2yxNMd7D/7GoQzUilQ=;
+ b=QRyF1Ea7kpmtJEHR31YDklgUoaITo7GW9t+0ieHq64xVpNPBt9x4HFvVp8MwX3tiSOMG4EXx0M6hLKQIZMHKu+uTbIBrUnqNm29NkQC3CCZyy3y61L3bh6MzcB9cuiwbgIyzdTCsuXDzeGp3Z586apN70zej/wEaSdL7eNhCKiTbKp9+EVQBHh6UbOp3iF6JBGXs+c8xaiZthxMNWQZ3/hNR7eLn6YNEbIPQ4rOBWq9gN19EyY/rSQkvTMN+b5EK3Dg9VKGn6JCUNET2FUeAf+Ym4Hoijm7CsgUUmfZq8JrZgyusCxHlFUX9WcKZYtCno8UBKZoNUkX/ur5hjzm2ng==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from TYZPR03MB6896.apcprd03.prod.outlook.com (2603:1096:400:289::14)
+ by SEZPR03MB6513.apcprd03.prod.outlook.com (2603:1096:101:46::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.17; Tue, 14 Jan
+ 2025 06:46:21 +0000
+Received: from TYZPR03MB6896.apcprd03.prod.outlook.com
+ ([fe80::ac4e:718:3b03:3123]) by TYZPR03MB6896.apcprd03.prod.outlook.com
+ ([fe80::ac4e:718:3b03:3123%4]) with mapi id 15.20.8335.017; Tue, 14 Jan 2025
+ 06:46:18 +0000
+Message-ID: <0798c8b8-6b0e-4e24-8d81-5cf8e06d129c@amlogic.com>
+Date: Tue, 14 Jan 2025 14:46:13 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/5] pinctrl: pinconf-generic: Add API for pinmux
+ propertity in DTS file
+Content-Language: en-US
+To: Jerome Brunet <jbrunet@baylibre.com>,
+ Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
+References: <20241226-amlogic-pinctrl-v2-0-cdae42a67b76@amlogic.com>
+ <20241226-amlogic-pinctrl-v2-2-cdae42a67b76@amlogic.com>
+ <1jed1ea7vz.fsf@starbuckisacylon.baylibre.com>
+From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+In-Reply-To: <1jed1ea7vz.fsf@starbuckisacylon.baylibre.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SI2PR01CA0031.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:192::11) To TYZPR03MB6896.apcprd03.prod.outlook.com
+ (2603:1096:400:289::14)
 MIME-Version: 1.0
-References: <c35845be-46dc-4868-b8f7-beb44eee04cc@linux.alibaba.com> <20250114040914.9986-1-21cnbao@gmail.com>
-In-Reply-To: <20250114040914.9986-1-21cnbao@gmail.com>
-From: Lance Yang <ioworker0@gmail.com>
-Date: Tue, 14 Jan 2025 14:30:01 +0800
-X-Gm-Features: AbW1kvaplad4TfLLQqpTXzlvv8FYaLHUCpIqhqpG7RAFpIiKP56uUpv9oj3H-zI
-Message-ID: <CAK1f24=yxwEP1xoC6ZHCXDES8hwD3wA27TxO+XWo8d8LgocDxA@mail.gmail.com>
-Subject: Re: [PATCH v2 4/4] mm: Avoid splitting pmd for lazyfree pmd-mapped
- THP in try_to_unmap
-To: Barry Song <21cnbao@gmail.com>
-Cc: baolin.wang@linux.alibaba.com, akpm@linux-foundation.org, 
-	chrisl@kernel.org, david@redhat.com, kasong@tencent.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-mm@kvack.org, linux-riscv@lists.infradead.org, 
-	lorenzo.stoakes@oracle.com, ryan.roberts@arm.com, v-songbaohua@oppo.com, 
-	x86@kernel.org, ying.huang@intel.com, zhengtangquan@oppo.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TYZPR03MB6896:EE_|SEZPR03MB6513:EE_
+X-MS-Office365-Filtering-Correlation-Id: 04d3e80b-af3b-40b3-6e9d-08dd34672634
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7416014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?c2NCT3FOR29VUU9hbENUeGtKRHlmbVBGQklkaitQY2Zjd3Y5L0tCZTNWRndU?=
+ =?utf-8?B?bi9GVmlBbDhnK0hNRGNiZHF3OVZPTkNVb1k5NnEvWFhQN2V3YVFhczlSU3Fk?=
+ =?utf-8?B?dkdOZDRoNUROQ0tSN1ZSYVVCVElDRW1PeFFxT2tsZEI3aVZQNExwc2piZGM3?=
+ =?utf-8?B?TlJTRTZObkV3cERCK1gyYVIxOXlEb0RDVXJRTm4xT3pMWkdoSEpaejB5Ykc0?=
+ =?utf-8?B?bkdMNUUxNStVOGlseXRIRldKcmhKWW55Q1JwSUY3Y2lwVndEdHlMSVJyTThi?=
+ =?utf-8?B?OEtGd2dkb01tNmo2Mk1SU1dKYTJDd0ZtdndBRkc4eWtrZ0NVRXlQSEJrWmlE?=
+ =?utf-8?B?ZThSWnZNRnVobVV5OCttbk9WSnpqTUZZSmEyWG5CcHFpQVNjZ1ROS2xFcnJC?=
+ =?utf-8?B?L3dxTm1UZzZuMnd2bmJST3N6WjgrU3FHaUZWSVhEbWVyVEZwTjhzK1V2ME9j?=
+ =?utf-8?B?Mlh2bmYxeEdTaUx0c1dzSkJEUG1oTEtqZm1CeGszNFRJQUh1STJnQTBUUmYx?=
+ =?utf-8?B?aHBTR3BhMm1TUFN4WGtQTXpJQmFwd21zMUtsQmR5ckluc1lsTWRiSDBweFdR?=
+ =?utf-8?B?cGYrTzJIZXZBdlp2R3dQYXNON1JUZWFtU2JnakF1dXJnQ2o4Rmlac08xNmU1?=
+ =?utf-8?B?SUFwYkM5QUIzbndIOXBCSGkxOWdKSEx5U2FHeGoyV0hzL2VJaVA1RE93L0J3?=
+ =?utf-8?B?SSs1b1o0QUpnZXhnWXl1ZUlhOTIrOWR6cUVoMjFvWWs2TDB1OEk3VVp5SUR2?=
+ =?utf-8?B?WWFNMWY4SlRMOUNNbmIzSm9RZlBxdFdFakFCK2kyb29lWkJRL2VLekdpa1lV?=
+ =?utf-8?B?dFBCZ1ZIdzlSVGRPRU5LVi9HMWlSc1dsWHFDNWhROExCcnN5SnVwVytVM2lG?=
+ =?utf-8?B?UkRTc3dhOFc3N3ExcDROQ2FhWFhJajFTelNpTXFRbDZrRXVnZUFjQjZsY21Y?=
+ =?utf-8?B?Sk1EQm5DbCt3RitLSWpETk1QREM4bjlhbWJ1NHpRQ3o1NkJNcmk2MTFyQjk2?=
+ =?utf-8?B?YVM3VjRoMjQ0Z3V0dWFoWHNTcWdTU2FmOEwvaDdhNXB4V3c4UUFuWmtnby9p?=
+ =?utf-8?B?Y3BLTlphMXlGbEdDeFF0VlcvOXpnbEZkRzlmS0N3bDE1cGRoSG9wK0tVdGdY?=
+ =?utf-8?B?cHBiV0Q0R0NmMys3ZTJTZm1mVXVSL284ZWtKTFNCMENLdXU3SDlPVkdmbEJD?=
+ =?utf-8?B?dzZ5cXgrZFZwNUcwOWdNZzNldUNmRG1Lajl3eXpVYVNHY3BpZ00zbCtyYTdJ?=
+ =?utf-8?B?Qkt5TlJBcmM5RUpWVFFkZ0JLdFg1QVMyUXVzQ2NrbUVXOTBRRGFacU5keUR1?=
+ =?utf-8?B?OVFrWXNuYmpxMVRjaGVqeW81cFpzSGRXSXladVdFQzdDYmRlVGdrVDNpUnRZ?=
+ =?utf-8?B?Rzh3ZjFsTGlKSWowdW1vUGdGcDR3dTZFdmFFSmZIU1NlME1qZWZPanVpRFFs?=
+ =?utf-8?B?ejdUNzRDOWdSckdIK21RM0MybU14d25LeHYvb1J0TDZMbWZRVE5aVlhXOVBy?=
+ =?utf-8?B?V3N6b1k4QWIyckQ1Q1Eyb0p5UXNRM1lNTGhqK2FIQXBlY1hFR1hSVURTWnNN?=
+ =?utf-8?B?QmRJSWVzK3djSmpaNERZQThQOU1ab2Y2NWVVNmREa1ZlRUNlU1NZMUJ1eG9U?=
+ =?utf-8?B?S1RCOWkvcitmZlZCNjJHT29CaFhoTHAxbmh6YkpYM2NOWWd3SmJCd2g4MC9H?=
+ =?utf-8?B?eVlqTHVXOWtzY3JUWFlSSXQzV0trUjlXclVNeHdZVEg5TFVxVjY4cmgydzhu?=
+ =?utf-8?B?b21rWFZyTHNWQ0FZSmRrdmN6RUNSWGdLZERxOG9aY0ZUL3ZTQW9yT1ozUDZY?=
+ =?utf-8?B?b2QxTjdIMXVvaDY5NzNLUT09?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6896.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7416014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YnNWeTBnVW5MMGgxY0lXQmZKbkZlTDBQR3lJZE0wSU1FeXFsanUyYnBsVzg0?=
+ =?utf-8?B?NUNJY3FBakxHM1pjc0JBZmRteGNtT21Vd2NPcTg2emxsOTN1Q3l3TWNraVJr?=
+ =?utf-8?B?ZnZqeVpZc2dXTDNUVVZHaW9oV3FqamJlT2FwYnVlc0RRa3hqYnliU1VIbTQ5?=
+ =?utf-8?B?ek9rSTlQbnhwQkhHUjZEUGhQa3N0a09mZGVvSTRHdGtuOWswUXRKRDhKMlRW?=
+ =?utf-8?B?RGN6NStYbHJWclQrVWI5OHpnbDRETWdsK1FQMFdMeDhGQmtvdFNyb2RSdHp3?=
+ =?utf-8?B?aTY0SWcyOTB1ZSt2Y05zWW5JbWZaaTJHRXVuTUFXdGlSVGRWUjFEWk9MV0JE?=
+ =?utf-8?B?TFBlTThsNE9yb1IxSEpBLzlzOGR3cDRKd2VTU3NmVVJmYlVFVVBnNzVqVlFY?=
+ =?utf-8?B?ZktVK0hHKzRYOE1LTmRtUzZKTHpYN25pcVprdEcyRDlRUVB5c291MXFwVS94?=
+ =?utf-8?B?aHYvaDhCM1dIRDFQMTVQRXNtcEFMYnA0Z3hkNk5Xd1R5RE03YnZKL0tNa2Ry?=
+ =?utf-8?B?WFYxazNRSmFpbnQ4VERoblJXdHdDM2xkKzJrTGg0VWlKUzJUYzk1NEdCWHdE?=
+ =?utf-8?B?OEFjSlkxZ24wWUhWbHBrYU4zTm9DRjE1QlVScm1MUVltOVNjZU5HQXU3N0VV?=
+ =?utf-8?B?Si9vVHJkVjNKS21CT25pTFNYZmx4VWJqTUhYK0hqdGlCc2VNckFkUWd0c3VU?=
+ =?utf-8?B?MFhwNWpyTWFibXh6UXVRajNLNHhmRHB2bkljS25KeWFvWVFzZmhrQVMyazdO?=
+ =?utf-8?B?bkQzSFlXTDE1ZnRTK1dUcFQ4bndPOVg0NmZyTlJMdUM2NEZqaWNvRUF6bWVt?=
+ =?utf-8?B?K0d0STFicUtzTVpnT0kxVDlVZ09oQnBPY2tTbHhsUXoxVS91eUxkbGhJSVZj?=
+ =?utf-8?B?WkpKVU5vSkhHV0VjeC9OVFU5SW9SQjZZTVE4dkUveFJwcTQ1bTAybFgrS2dz?=
+ =?utf-8?B?SjAzVGVWWEZiVXVEeGFtN3VmSk4vVDM1cEVzUXRHbXllTjljSit4SlhwUHJm?=
+ =?utf-8?B?NjFsUjhoZ0F3MVNpUjhMUXlLanc1Nmx5amVKS3pRMllWazRjTk96L25vZGpj?=
+ =?utf-8?B?MzE5d3Jua1o5QjQ5ZW51SER6aXpsN1gvMXBES2NsczhYb0gzSUtYYlh4Zlp2?=
+ =?utf-8?B?czAxTGhSdlFzVU5YY2NQdjNSdTFHN0NWYUliQ2llT2JMdXFsdmo1a3NBS0V0?=
+ =?utf-8?B?aDhZMjV2eHRMaFpTcWJuemtnbEp1SENuR1ZFSFpSWUR3cUpwRm1uUTBOa05z?=
+ =?utf-8?B?YzRVUjJxTy91UDVndStkcjR2b20rZnhNak83cCt2a0dpYStuS0VtQmExbm1B?=
+ =?utf-8?B?UU1IMUhOQXdhYmsxaHB0MkNyOW50UVFwTVgwNUQ5OTF4azRiR1Y3NjZPbUJP?=
+ =?utf-8?B?MUp4dUdzVzlmSzdiMEkrV2xRVjRNc2hLTU0yZFFyZnlaeVlBdHRwZU5NM2Vq?=
+ =?utf-8?B?RnExTlI0Y1NMd3RpVEJ4RGJ4ZXB4dTZhYkxEYy9JU1AzTWxGamc1aWJmdENL?=
+ =?utf-8?B?L3dzRWZZc3NKbXVqTkREdEh2MUx3M2l6bWI1d3QrWnQ2T3VJSEo1M1BTeFlh?=
+ =?utf-8?B?c2ZJQVVZOG52S212RlcwUWRYb1FzaTZKYjF1SE9pWGlobEVOWEV2U016MGdY?=
+ =?utf-8?B?S3c2eDVKb0JtWkRtZWhQekRCZzVkTWJOMTZSM1lnTlVRODZPYzhSNTFJTm5Z?=
+ =?utf-8?B?OXZuVGJETU93UFp1OUI5aGFwUW12M2VXem9UdHJ6WWZDQkZiSC8wc05VVnYx?=
+ =?utf-8?B?OWJxeFBtYkpGa0o4RTVsd3U1ajNYVkFaMWc0QUs2cklkV0JndGdhM2hTR2tD?=
+ =?utf-8?B?dWRtUkJiYWk4K2ZIN1pWa3JnT1p4eEdkcWEwRkE5RDc2VkZWYmdwYXY4THpN?=
+ =?utf-8?B?dnBZOCtPTW1VNUZZVFEvdEhEZFhWcHB3TTVJcENrNDBzODFUZzZaQ1YyVHpZ?=
+ =?utf-8?B?YjFTbGRidisybVFYNElXWHc1Y3VwVjBodTE2OUZtVDVJWFMvZnVSUTZKN0Zu?=
+ =?utf-8?B?WXpFMmoxWmVNczZZQjAyQys4amRiTUlJMnpXeDNodFlwVlJsQnI4MzBaYThF?=
+ =?utf-8?B?ekViZlgxMFl2YTY1dWdMY0hkaUw3TGIrd2Jucnd2QlAxVU5ZT0lpVGoxNXNS?=
+ =?utf-8?B?czZ1ZlI2WG8wa2FYRlpWY2xGVmxESWxtbUR5Z3pMcWlqaVJJZmNYWTVSVjlQ?=
+ =?utf-8?B?c0E9PQ==?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 04d3e80b-af3b-40b3-6e9d-08dd34672634
+X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6896.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jan 2025 06:46:18.6298
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: K8o31kyMlnmeFvIY9WfvHiYnfUO1S5IzRWjHwbfM5lH15LTDvPvWTMOymgZcECM/tURIX2JsFiNvUwAwZ3wmwLaKBW241i7kAO6eeVAuxDE=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR03MB6513
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_223039_868843_93028528 
-X-CRM114-Status: GOOD (  31.72  )
+X-CRM114-CacheID: sfid-20250113_224636_343626_EA39056B 
+X-CRM114-Status: GOOD (  22.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,292 +183,250 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 14, 2025 at 12:09=E2=80=AFPM Barry Song <21cnbao@gmail.com> wro=
-te:
->
-> On Tue, Jan 14, 2025 at 4:40=E2=80=AFPM Baolin Wang <baolin.wang@linux.al=
-ibaba.com> wrote:
-> >
-> >
-> >
-> > On 2025/1/13 11:39, Barry Song wrote:
-> > > From: Barry Song <v-songbaohua@oppo.com>
-> > >
-> > > The try_to_unmap_one() function currently handles PMD-mapped THPs
-> > > inefficiently. It first splits the PMD into PTEs, copies the dirty
-> > > state from the PMD to the PTEs, iterates over the PTEs to locate
-> > > the dirty state, and then marks the THP as swap-backed. This process
-> > > involves unnecessary PMD splitting and redundant iteration. Instead,
-> > > this functionality can be efficiently managed in
-> > > __discard_anon_folio_pmd_locked(), avoiding the extra steps and
-> > > improving performance.
-> > >
-> > > The following microbenchmark redirties folios after invoking MADV_FRE=
-E,
-> > > then measures the time taken to perform memory reclamation (actually
-> > > set those folios swapbacked again) on the redirtied folios.
-> > >
-> > >   #include <stdio.h>
-> > >   #include <sys/mman.h>
-> > >   #include <string.h>
-> > >   #include <time.h>
-> > >
-> > >   #define SIZE 128*1024*1024  // 128 MB
-> > >
-> > >   int main(int argc, char *argv[])
-> > >   {
-> > >       while(1) {
-> > >               volatile int *p =3D mmap(0, SIZE, PROT_READ | PROT_WRIT=
-E,
-> > >                               MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
-> > >
-> > >               memset((void *)p, 1, SIZE);
-> > >               madvise((void *)p, SIZE, MADV_FREE);
-> > >               /* redirty after MADV_FREE */
-> > >               memset((void *)p, 1, SIZE);
-> > >
-> > >               clock_t start_time =3D clock();
-> > >               madvise((void *)p, SIZE, MADV_PAGEOUT);
-> > >               clock_t end_time =3D clock();
-> > >
-> > >               double elapsed_time =3D (double)(end_time - start_time)=
- / CLOCKS_PER_SEC;
-> > >               printf("Time taken by reclamation: %f seconds\n", elaps=
-ed_time);
-> > >
-> > >               munmap((void *)p, SIZE);
-> > >       }
-> > >       return 0;
-> > >   }
-> > >
-> > > Testing results are as below,
-> > > w/o patch:
-> > > ~ # ./a.out
-> > > Time taken by reclamation: 0.007300 seconds
-> > > Time taken by reclamation: 0.007226 seconds
-> > > Time taken by reclamation: 0.007295 seconds
-> > > Time taken by reclamation: 0.007731 seconds
-> > > Time taken by reclamation: 0.007134 seconds
-> > > Time taken by reclamation: 0.007285 seconds
-> > > Time taken by reclamation: 0.007720 seconds
-> > > Time taken by reclamation: 0.007128 seconds
-> > > Time taken by reclamation: 0.007710 seconds
-> > > Time taken by reclamation: 0.007712 seconds
-> > > Time taken by reclamation: 0.007236 seconds
-> > > Time taken by reclamation: 0.007690 seconds
-> > > Time taken by reclamation: 0.007174 seconds
-> > > Time taken by reclamation: 0.007670 seconds
-> > > Time taken by reclamation: 0.007169 seconds
-> > > Time taken by reclamation: 0.007305 seconds
-> > > Time taken by reclamation: 0.007432 seconds
-> > > Time taken by reclamation: 0.007158 seconds
-> > > Time taken by reclamation: 0.007133 seconds
-> > > =E2=80=A6
-> > >
-> > > w/ patch
-> > >
-> > > ~ # ./a.out
-> > > Time taken by reclamation: 0.002124 seconds
-> > > Time taken by reclamation: 0.002116 seconds
-> > > Time taken by reclamation: 0.002150 seconds
-> > > Time taken by reclamation: 0.002261 seconds
-> > > Time taken by reclamation: 0.002137 seconds
-> > > Time taken by reclamation: 0.002173 seconds
-> > > Time taken by reclamation: 0.002063 seconds
-> > > Time taken by reclamation: 0.002088 seconds
-> > > Time taken by reclamation: 0.002169 seconds
-> > > Time taken by reclamation: 0.002124 seconds
-> > > Time taken by reclamation: 0.002111 seconds
-> > > Time taken by reclamation: 0.002224 seconds
-> > > Time taken by reclamation: 0.002297 seconds
-> > > Time taken by reclamation: 0.002260 seconds
-> > > Time taken by reclamation: 0.002246 seconds
-> > > Time taken by reclamation: 0.002272 seconds
-> > > Time taken by reclamation: 0.002277 seconds
-> > > Time taken by reclamation: 0.002462 seconds
-> > > =E2=80=A6
-> > >
-> > > This patch significantly speeds up try_to_unmap_one() by allowing it
-> > > to skip redirtied THPs without splitting the PMD.
-> > >
-> > > Suggested-by: Baolin Wang <baolin.wang@linux.alibaba.com>
-> > > Suggested-by: Lance Yang <ioworker0@gmail.com>
-> > > Signed-off-by: Barry Song <v-songbaohua@oppo.com>
-> > > ---
-> > >   mm/huge_memory.c | 17 ++++++++++++++---
-> > >   mm/rmap.c        | 11 ++++++++++-
-> > >   2 files changed, 24 insertions(+), 4 deletions(-)
-> > >
-> > > diff --git a/mm/huge_memory.c b/mm/huge_memory.c
-> > > index 3d3ebdc002d5..aea49f7125f1 100644
-> > > --- a/mm/huge_memory.c
-> > > +++ b/mm/huge_memory.c
-> > > @@ -3070,8 +3070,12 @@ static bool __discard_anon_folio_pmd_locked(st=
-ruct vm_area_struct *vma,
-> > >       int ref_count, map_count;
-> > >       pmd_t orig_pmd =3D *pmdp;
-> > >
-> > > -     if (folio_test_dirty(folio) || pmd_dirty(orig_pmd))
-> > > +     if (pmd_dirty(orig_pmd))
-> > > +             folio_set_dirty(folio);
-> > > +     if (folio_test_dirty(folio) && !(vma->vm_flags & VM_DROPPABLE))=
- {
-> > > +             folio_set_swapbacked(folio);
-> > >               return false;
-> > > +     }
-> > >
-> > >       orig_pmd =3D pmdp_huge_clear_flush(vma, addr, pmdp);
-> > >
-> > > @@ -3098,8 +3102,15 @@ static bool __discard_anon_folio_pmd_locked(st=
-ruct vm_area_struct *vma,
-> > >        *
-> > >        * The only folio refs must be one from isolation plus the rmap=
-(s).
-> > >        */
-> > > -     if (folio_test_dirty(folio) || pmd_dirty(orig_pmd) ||
-> > > -         ref_count !=3D map_count + 1) {
-> > > +     if (pmd_dirty(orig_pmd))
-> > > +             folio_set_dirty(folio);
-> > > +     if (folio_test_dirty(folio) && !(vma->vm_flags & VM_DROPPABLE))=
- {
-> > > +             folio_set_swapbacked(folio);
-> > > +             set_pmd_at(mm, addr, pmdp, orig_pmd);
-> > > +             return false;
-> > > +     }
-> > > +
-> > > +     if (ref_count !=3D map_count + 1) {
-> > >               set_pmd_at(mm, addr, pmdp, orig_pmd);
-> > >               return false;
-> > >       }
-> > > diff --git a/mm/rmap.c b/mm/rmap.c
-> > > index 3ef659310797..02c4e4b2cd7b 100644
-> > > --- a/mm/rmap.c
-> > > +++ b/mm/rmap.c
-> > > @@ -1671,7 +1671,7 @@ static bool try_to_unmap_one(struct folio *foli=
-o, struct vm_area_struct *vma,
-> > >       DEFINE_FOLIO_VMA_WALK(pvmw, folio, vma, address, 0);
-> > >       pte_t pteval;
-> > >       struct page *subpage;
-> > > -     bool anon_exclusive, ret =3D true;
-> > > +     bool anon_exclusive, lazyfree, ret =3D true;
-> > >       struct mmu_notifier_range range;
-> > >       enum ttu_flags flags =3D (enum ttu_flags)(long)arg;
-> > >       int nr_pages =3D 1;
-> > > @@ -1724,9 +1724,18 @@ static bool try_to_unmap_one(struct folio *fol=
-io, struct vm_area_struct *vma,
-> > >               }
-> > >
-> > >               if (!pvmw.pte) {
-> > > +                     lazyfree =3D folio_test_anon(folio) && !folio_t=
-est_swapbacked(folio);
-> >
-> > You've checked lazyfree here, so can we remove the duplicate check in
-> > unmap_huge_pmd_locked()? Then the code should be:
-> >
-> >                 if (lazyfree && unmap_huge_pmd_locked(...))
-> >                         goto walk_done;
->
->
-> right. it seems unmap_huge_pmd_locked() only handles lazyfree pmd-mapped
-> thp. so i guess the code could be:
+Hi Jerome,
+     Thanks for your reply.
 
-Yep, it would be better to remove the duplicate check in
-unmap_huge_pmd_locked(), and we can extend unmap_huge_pmd_locked()
-in the future if needed.
+On 2025/1/8 00:47, Jerome Brunet wrote:
+> [ EXTERNAL EMAIL ]
+> 
+> On Thu 26 Dec 2024 at 15:57, Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org> wrote:
+> 
+>> From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+>>
+>> When describing pin mux func through pinmux propertity,
+>> a standard API is added for support. The pinmux contains pin
+>> identification and mux values, which can include multiple
+>> pins. And groups configuration use other word. DTS such as:
+>>
+>> func-name {
+>>        group_alias: group-name{
+>>                pinmux= <pin_id << 8 | mux_value)>,
+>>                        <pin_id << 8 | mux_value)>;
+> 
+> This representation does not seem very generic but more tailored to
+> your use-case
+https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/Documentation/devicetree/bindings/pinctrl/pinmux-node.yaml?h=next-20250113
 
-Thanks,
-Lance
+The document above includes a description of the pinmux property. This 
+is not my personal usage but rather a common practice, as other 
+manufacturers' drivers also use it in a similar way. However, the 
+specific definitions within pinmux may vary between manufacturers.
 
-
->
-> diff --git a/mm/huge_memory.c b/mm/huge_memory.c
-> index aea49f7125f1..c4c3a7896de4 100644
-> --- a/mm/huge_memory.c
-> +++ b/mm/huge_memory.c
-> @@ -3131,11 +3131,10 @@ bool unmap_huge_pmd_locked(struct vm_area_struct =
-*vma, unsigned long addr,
->         VM_WARN_ON_FOLIO(!folio_test_pmd_mappable(folio), folio);
->         VM_WARN_ON_FOLIO(!folio_test_locked(folio), folio);
->         VM_WARN_ON_ONCE(!IS_ALIGNED(addr, HPAGE_PMD_SIZE));
-> +       VM_WARN_ON_FOLIO(!folio_test_anon(folio), folio);
-> +       VM_WARN_ON_FOLIO(folio_test_swapbacked(folio), folio);
->
-> -       if (folio_test_anon(folio) && !folio_test_swapbacked(folio))
-> -               return __discard_anon_folio_pmd_locked(vma, addr, pmdp, f=
-olio);
-> -
-> -       return false;
-> +       return __discard_anon_folio_pmd_locked(vma, addr, pmdp, folio);
->  }
->
->  static void remap_page(struct folio *folio, unsigned long nr, int flags)
-> diff --git a/mm/rmap.c b/mm/rmap.c
-> index 02c4e4b2cd7b..72907eb1b8fe 100644
-> --- a/mm/rmap.c
-> +++ b/mm/rmap.c
-> @@ -1671,7 +1671,7 @@ static bool try_to_unmap_one(struct folio *folio, s=
-truct vm_area_struct *vma,
->         DEFINE_FOLIO_VMA_WALK(pvmw, folio, vma, address, 0);
->         pte_t pteval;
->         struct page *subpage;
-> -       bool anon_exclusive, lazyfree, ret =3D true;
-> +       bool anon_exclusive, ret =3D true;
->         struct mmu_notifier_range range;
->         enum ttu_flags flags =3D (enum ttu_flags)(long)arg;
->         int nr_pages =3D 1;
-> @@ -1724,18 +1724,16 @@ static bool try_to_unmap_one(struct folio *folio,=
- struct vm_area_struct *vma,
->                 }
->
->                 if (!pvmw.pte) {
-> -                       lazyfree =3D folio_test_anon(folio) && !folio_tes=
-t_swapbacked(folio);
-> -
-> -                       if (unmap_huge_pmd_locked(vma, pvmw.address, pvmw=
-.pmd,
-> -                                                 folio))
-> -                               goto walk_done;
-> -                       /*
-> -                        * unmap_huge_pmd_locked has either already marke=
-d
-> -                        * the folio as swap-backed or decided to retain =
-it
-> -                        * due to GUP or speculative references.
-> -                        */
-> -                       if (lazyfree)
-> +                       if (folio_test_anon(folio) && !folio_test_swapbac=
-ked(folio)) {
-> +                               if (unmap_huge_pmd_locked(vma, pvmw.addre=
-ss, pvmw.pmd, folio))
-> +                                       goto walk_done;
-> +                               /*
-> +                                * unmap_huge_pmd_locked has either alrea=
-dy marked
-> +                                * the folio as swap-backed or decided to=
- retain it
-> +                                * due to GUP or speculative references.
-> +                                */
->                                 goto walk_abort;
-> +                       }
->
->                         if (flags & TTU_SPLIT_HUGE_PMD) {
->                                 /*
->
-> >
-> > >                       if (unmap_huge_pmd_locked(vma, pvmw.address, pv=
-mw.pmd,
-> > >                                                 folio))
-> > >                               goto walk_done;
-> > > +                     /*
-> > > +                      * unmap_huge_pmd_locked has either already mar=
-ked
-> > > +                      * the folio as swap-backed or decided to retai=
-n it
-> > > +                      * due to GUP or speculative references.
-> > > +                      */
-> > > +                     if (lazyfree)
-> > > +                             goto walk_abort;
-> > >
-> > >                       if (flags & TTU_SPLIT_HUGE_PMD) {
-> > >                               /*
+> 
+>>                bias-pull-up;
+>>                drive-strength-microamp = <4000>;
+> 
+> If you want to add pinmux (aka alternate function) selection as a
+> pinconf prop then I think there should be a single pinmux setting per
+> group, and as many groups as you need per function defined.
+> 
+> something like
+> 
+> func-foo {
+>          group-a {
+>                  groups = "pin_a", "pin_b";
+>                  bias-pull-up;
+>                  alternate-function = <2>;
+>          };
+> 
+>          group-b {
+>                  groups = "pin_c"";
+>                  bias-disable;
+>                  alternate-function = <5>;
+>          };
+> };
+> 
+> Something similar is already done to handle different pin bias requirement
+> on single function on amlogic platforms:
+> 
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm64/boot/dts/amlogic/meson-axg.dtsi?h=v6.13-rc6#n421
+> 
+> 
+>>        };
+>> };
+>>
+>> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+>> ---
+>>   drivers/pinctrl/pinconf-generic.c       | 130 ++++++++++++++++++++++++++++++++
+>>   drivers/pinctrl/pinconf.h               |   4 +
+>>   include/linux/pinctrl/pinconf-generic.h |   4 +
+>>   3 files changed, 138 insertions(+)
+>>
+>> diff --git a/drivers/pinctrl/pinconf-generic.c b/drivers/pinctrl/pinconf-generic.c
+>> index 0b13d7f17b32..a4d3c12a80c4 100644
+>> --- a/drivers/pinctrl/pinconf-generic.c
+>> +++ b/drivers/pinctrl/pinconf-generic.c
+>> @@ -233,6 +233,67 @@ static void parse_dt_cfg(struct device_node *np,
+>>        }
+>>   }
+>>
+>> +/**
+>> + * pinconf_generic_parse_dt_pinmux()
+>> + * parse the pinmux properties into generic pin mux values.
+>> + * @np: node containing the pinmux properties
+>> + * @pctldev: pincontrol device
+>> + * @pid: array with pin identity entries
+>> + * @pmux: array with pin mux value entries
+>> + * @npins: number of pins
+>> + *
+>> + * pinmux propertity: mux value [0,7]bits and pin identity [8,31]bits.
+>> + */
+>> +int pinconf_generic_parse_dt_pinmux(struct device_node *np, struct device *dev,
+>> +                                 unsigned int **pid, unsigned int **pmux,
+>> +                                 unsigned int *npins)
+>> +{
+>> +     unsigned int *pid_t;
+>> +     unsigned int *pmux_t;
+>> +     struct property *prop;
+>> +     unsigned int npins_t, i;
+>> +     u32 value;
+>> +     int ret;
+>> +
+>> +     prop = of_find_property(np, "pinmux", NULL);
+>> +     if (!prop) {
+>> +             dev_info(dev, "Missing pinmux property\n");
+>> +             return -ENOENT;
+>> +     }
+>> +
+>> +     if (!pid || !pmux || !npins) {
+>> +             dev_err(dev, "paramers error\n");
+>> +             return -EINVAL;
+>> +     }
+>> +
+>> +     npins_t = prop->length / sizeof(u32);
+>> +     pid_t = devm_kcalloc(dev, npins_t, sizeof(*pid_t), GFP_KERNEL);
+>> +     pmux_t = devm_kcalloc(dev, npins_t, sizeof(*pmux_t), GFP_KERNEL);
+>> +     if (!pid_t || !pmux_t) {
+>> +             dev_err(dev, "kalloc memory fail\n");
+>> +             return -ENOMEM;
+>> +     }
+>> +     for (i = 0; i < npins_t; i++) {
+>> +             ret = of_property_read_u32_index(np, "pinmux", i, &value);
+>> +             if (ret) {
+>> +                     dev_err(dev, "get pinmux value fail\n");
+>> +                     goto exit;
+>> +             }
+>> +             pmux_t[i] = value & 0xff;
+>> +             pid_t[i] = (value >> 8) & 0xffffff;
+>> +     }
+>> +     *pid = pid_t;
+>> +     *pmux = pmux_t;
+>> +     *npins = npins_t;
+>> +
+>> +     return 0;
+>> +exit:
+>> +     devm_kfree(dev, pid_t);
+>> +     devm_kfree(dev, pmux_t);
+>> +     return ret;
+>> +}
+>> +EXPORT_SYMBOL_GPL(pinconf_generic_parse_dt_pinmux);
+>> +
+>>   /**
+>>    * pinconf_generic_parse_dt_config()
+>>    * parse the config properties into generic pinconfig values.
+>> @@ -295,6 +356,75 @@ int pinconf_generic_parse_dt_config(struct device_node *np,
+>>   }
+>>   EXPORT_SYMBOL_GPL(pinconf_generic_parse_dt_config);
+>>
+>> +int pinconf_generic_dt_node_to_map_pinmux(struct pinctrl_dev *pctldev,
+>> +                                       struct device_node *np,
+>> +                                       struct pinctrl_map **map,
+>> +                                       unsigned int *num_maps)
+>> +{
+>> +     struct device *dev = pctldev->dev;
+>> +     struct device_node *pnode;
+>> +     unsigned long *configs = NULL;
+>> +     unsigned int num_configs = 0;
+>> +     struct property *prop;
+>> +     unsigned int reserved_maps;
+>> +     int reserve;
+>> +     int ret;
+>> +
+>> +     prop = of_find_property(np, "pinmux", NULL);
+>> +     if (!prop) {
+>> +             dev_info(dev, "Missing pinmux property\n");
+>> +             return -ENOENT;
+>> +     }
+>> +
+>> +     pnode = of_get_parent(np);
+>> +     if (!pnode) {
+>> +             dev_info(dev, "Missing function node\n");
+>> +             return -EINVAL;
+>> +     }
+>> +
+>> +     reserved_maps = 0;
+>> +     *map = NULL;
+>> +     *num_maps = 0;
+>> +
+>> +     ret = pinconf_generic_parse_dt_config(np, pctldev, &configs,
+>> +                                           &num_configs);
+>> +     if (ret < 0) {
+>> +             dev_err(dev, "%pOF: could not parse node property\n", np);
+>> +             return ret;
+>> +     }
+>> +
+>> +     reserve = 1;
+>> +     if (num_configs)
+>> +             reserve++;
+>> +
+>> +     ret = pinctrl_utils_reserve_map(pctldev, map, &reserved_maps,
+>> +                                     num_maps, reserve);
+>> +     if (ret < 0)
+>> +             goto exit;
+>> +
+>> +     ret = pinctrl_utils_add_map_mux(pctldev, map,
+>> +                                     &reserved_maps, num_maps, np->name,
+>> +                                     pnode->name);
+>> +     if (ret < 0)
+>> +             goto exit;
+>> +
+>> +     if (num_configs) {
+>> +             ret = pinctrl_utils_add_map_configs(pctldev, map, &reserved_maps,
+>> +                                                 num_maps, np->name, configs,
+>> +                                                 num_configs, PIN_MAP_TYPE_CONFIGS_GROUP);
+>> +             if (ret < 0)
+>> +                     goto exit;
+>> +     }
+>> +
+>> +exit:
+>> +     kfree(configs);
+>> +     if (ret)
+>> +             pinctrl_utils_free_map(pctldev, *map, *num_maps);
+>> +
+>> +     return ret;
+>> +}
+>> +EXPORT_SYMBOL_GPL(pinconf_generic_dt_node_to_map_pinmux);
+>> +
+>>   int pinconf_generic_dt_subnode_to_map(struct pinctrl_dev *pctldev,
+>>                struct device_node *np, struct pinctrl_map **map,
+>>                unsigned int *reserved_maps, unsigned int *num_maps,
+>> diff --git a/drivers/pinctrl/pinconf.h b/drivers/pinctrl/pinconf.h
+>> index a14c950bc700..a171195b3615 100644
+>> --- a/drivers/pinctrl/pinconf.h
+>> +++ b/drivers/pinctrl/pinconf.h
+>> @@ -138,4 +138,8 @@ int pinconf_generic_parse_dt_config(struct device_node *np,
+>>                                    struct pinctrl_dev *pctldev,
+>>                                    unsigned long **configs,
+>>                                    unsigned int *nconfigs);
+>> +
+>> +int pinconf_generic_parse_dt_pinmux(struct device_node *np, struct device *dev,
+>> +                                 unsigned int **pid, unsigned int **pmux,
+>> +                                 unsigned int *npins);
+>>   #endif
+>> diff --git a/include/linux/pinctrl/pinconf-generic.h b/include/linux/pinctrl/pinconf-generic.h
+>> index 53cfde98433d..1bcf071b860e 100644
+>> --- a/include/linux/pinctrl/pinconf-generic.h
+>> +++ b/include/linux/pinctrl/pinconf-generic.h
+>> @@ -232,4 +232,8 @@ static inline int pinconf_generic_dt_node_to_map_all(struct pinctrl_dev *pctldev
+>>                        PIN_MAP_TYPE_INVALID);
+>>   }
+>>
+>> +int pinconf_generic_dt_node_to_map_pinmux(struct pinctrl_dev *pctldev,
+>> +                                       struct device_node *np,
+>> +                                       struct pinctrl_map **map,
+>> +                                       unsigned int *num_maps);
+>>   #endif /* __LINUX_PINCTRL_PINCONF_GENERIC_H */
+> 
+> --
+> Jerome
 
