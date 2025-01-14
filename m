@@ -4,94 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53E05E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 10:43:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E963E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 10:45:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uNN7B9q2J4hdcvsmifk7w5aJJJisTFxNMJ5KcojNYOk=; b=lqtOxCq1GfMcRdxsYZkGYQsk0Y
-	KvjqyxGRW0lJ8e9AtfEYs80US73KBzl/rFMfFKAs8wwcRnEQjOlG8fLm21Pi8e7UogMhHoDEjMmXv
-	/Ek46YZJ/ajV6ONcLnrfcy1Hnl20eYnDLi6ymG6KpgaqjjOQq2J3O1YCs+V4qiOpU9EliHTcj1wCv
-	TB0cHgu0Iu0ICxhVzzhDBx327pWYVclESyXIRxEau8XeG1TvcXb7jrx+WVimUytG6TFj59rQ6soMt
-	YaKqvo9SpN4J58IcDvc241Rty27Mn44U1FbsLu0KNm+KtzfSsw1fZS5Y3WU71X7IoSUO4LNVbRru/
-	eUG64e1Q==;
+	bh=U+iFfCSA0esMLhZDHY92zW4RJncb7ADni12U1qFlLKc=; b=4xxTW1EmueJILYyVafg1GYFSVZ
+	Hfx6ZcJzQvPk70egNGikDaWrsOHBOIK6uHo4LjW26Mqdb3DQHNoU8UnaC20sdb1Nrl/QKUcaa+Wdt
+	DpepK53xIF0YfCOmAIVx6upDeL2N6X+LaVagWJoLZ6DTbDSAyDBl6mVBtt8yymWBsNVobkiigU8E1
+	YnQY0MNPp/8zDoOgtDHd2DaejFWTHa8Y/2qq/oKbEzaOKPPbMSbcEXcabo+PVuCW/NyzYsMMDm9lL
+	R4B9jNhkbRADEM63WSWB9VYBFZYDAS2NbLAta0iBW/OsOee8rfFX0dfPPZhD0DQPV77yQ2Z5xKyTj
+	/bOq8QZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXeOd-000000088jp-2zbW;
-	Tue, 14 Jan 2025 10:43:43 +0000
-Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
+	id 1tXeQ6-000000088wr-1dYI;
+	Tue, 14 Jan 2025 10:45:14 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXeJX-000000087nt-1ql1
+	id 1tXeOg-000000088k5-0TtF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 10:38:28 +0000
-Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-3003c0c43c0so50667961fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 02:38:26 -0800 (PST)
+	Tue, 14 Jan 2025 10:43:47 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-2ef748105deso6668533a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 02:43:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736851105; x=1737455905; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=uNN7B9q2J4hdcvsmifk7w5aJJJisTFxNMJ5KcojNYOk=;
-        b=oyw+Ohzk6ZnuUeXy/AmfYNS3Wu8sCzxfJn0cAapWwN9VU+CL7rsrk/efOEcBy4gouE
-         naZJOWi9coLTfVRRQiLBHtSThmTUuorOAW5Ka2w5jystE7sGMgDAU79k7mbVcX65x5p9
-         mH/pKzjSWlTYABjcIgfzIPojENeRcE1Ey2Zf1EV63yNePZRHrAqsUV9XLtrL8mZWzgY2
-         RYGEXauYLcJhlsLlpThSxEwB12qdp9f2GngUaE1Z8l/zeAzW0/xzuykHM+d+2l6Y32qn
-         AFqT3meNfs3zWmojgNqlzjpvPmCF6PORv0pclJQADH1ndp82QEIG1UF407H7350o8q6P
-         kW8Q==
+        d=google.com; s=20230601; t=1736851424; x=1737456224; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=U+iFfCSA0esMLhZDHY92zW4RJncb7ADni12U1qFlLKc=;
+        b=q34FODaWfJWNOp+CmxH668G68SFlYBE8L/4qoC0dpcrl+/xnrdXgKgZg4Xba2589Lu
+         KL3VYE8kOEpFc05u4/GDy0Nn1NXpwjWnSlq0Ws1Q79q/8cmkpgfQVeLoW6+t4nUCNycE
+         ziXfnnAzshnu+WKpqYCEa5VDmfACL+yjGxnkASBWH7Axi3mumR9YmMSJ0I3oRTb0eWhg
+         x6PMtNaWHuRIyOjkPuU6UqkeE/1VF3hjKtNpUYSTYE9qg36KjzoqqPtxad7WW7ELcgVI
+         sI36Ub3pXuaeoKzBhZwr+j8C/LB7o4VNqNJBZBptsYPXD7+29EXF67ERZCD5r/ys3LHW
+         CBQw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736851105; x=1737455905;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=uNN7B9q2J4hdcvsmifk7w5aJJJisTFxNMJ5KcojNYOk=;
-        b=K1/p+aEKpGJa2hR7UsXvs+GUFzYaXK+1uyFO3gCD9FL18YKne4i1x8VqxRJOrOBK0r
-         2vZOQJET8GwcPYsoUu9n96/L35iBIbIwXg5YtsEve3HAMZyaWvgkJqIWc4R+8o/dt7TY
-         bJqNMwA2ETGrpJPyCEw02Bzq0/IZ4GLPAZxbnWcB51ejV3EABNS/iwFFxOIcUe5nZTdJ
-         DdEqLCcTvUvCeOP0DWyqy/9hrgE0641n6k//g8LAlilqBj9w/7xVU3DkYNzvA2vD+AvP
-         H0LRMAlnWzg2fynj+C+Jfd4CAxqsG87AGcNpTqxIraJDnV86SfYsl7v61oE8cSvVZUXA
-         EHsQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXCb8wIB+PJZ+GMsZHJu/erA3Q17BlYUmc59MyzzdsztHjCbzendbwyG3UADJFgNDoqbNGM9nF58EKsexuR2PRl@lists.infradead.org
-X-Gm-Message-State: AOJu0YzzdjErC/Lr+kUb58Q/W3WPiC1Js0/q/xzxeNmovaKKCUqUDgbH
-	A8Xte6gsw3/JI5UuLGI5bpwrE6fMzlVcL2tUPnBZKy5ElV8H8a/0KzPgK6/6b/g=
-X-Gm-Gg: ASbGnctKx6kJ52mCjR4vejayFDjuinrlcZv169FmW1O00nQXRXocOa/geRnVT9NBoFp
-	2sTYzU3fRb+ss2mZzjcS+stCvH2sxrBDhR+2sWCXojWMWU8dQThWniZw8BFcYMPtOKsPGd8IhG0
-	av1Y97adQFD5LkzcWquzPlT0u6fIfJtauhqMsynOdQb4iI/z+zJn92a6K7RhUOKzrLFITHmHmn3
-	vYi0xNuY7KRFhXqXWEv6qUsttfJWxtfJ61CBt8BylkPUX4IqOrlLFCxPuVT9QT1x6xpdveKt0jm
-	rFlv1a0il3IejnWXgFdFDkvRTjgnZYDp/mp3
-X-Google-Smtp-Source: AGHT+IH9mYReL6tlrIcgo5opzWGTvKgKAIdX/HKYiCEzoUfpZVvDTRHMg3q7JMHy6gADKHC6a95e6g==
-X-Received: by 2002:a05:651c:1a0b:b0:2ff:cc65:68aa with SMTP id 38308e7fff4ca-305f45ebec5mr63982821fa.31.1736851105153;
-        Tue, 14 Jan 2025 02:38:25 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-305ff1ec12bsm16951771fa.110.2025.01.14.02.38.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jan 2025 02:38:24 -0800 (PST)
-Date: Tue, 14 Jan 2025 12:38:22 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Melody Olvera <quic_molvera@quicinc.com>
-Cc: Vinod Koul <vkoul@kernel.org>, 
-	Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Wesley Cheng <quic_wcheng@quicinc.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Satya Durga Srinivasu Prabhala <quic_satyap@quicinc.com>, 
-	Trilok Soni <quic_tsoni@quicinc.com>, linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 7/7] arm64: dts: qcom: sm8750: Add USB support to SM8750
- platforms
-Message-ID: <lk26ltslmijj7tj2kst2wsvd6d2hyj3zjzcwavwl63evjhcgdh@ewqliiijispu>
-References: <20250113-sm8750_usb_master-v1-0-09afe1dc2524@quicinc.com>
- <20250113-sm8750_usb_master-v1-7-09afe1dc2524@quicinc.com>
+        d=1e100.net; s=20230601; t=1736851424; x=1737456224;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=U+iFfCSA0esMLhZDHY92zW4RJncb7ADni12U1qFlLKc=;
+        b=O7Uwvv8wK5DTA3P+hHMPD64iPlZbpZNGhtRHWbxtiRVNsqq1Um1NMrxAJJ+zrCZ9qI
+         aYbllq1YTzdealRw1TRVaN816SIzmd/FUnNTjsiGAlHlK/mqGBIgDhwqVgol4XkCsct5
+         yQonKk0NW0v3M+zGkk2e6dLNW0wrDEypY6xVkqocrIV1GEeKBbIpWnZi07ebVr57AJgH
+         dhRsR8tO9wVJ2ba4OcqOVub/w0iGHdDsPy5f8yKu1ftC+9c7PX3Kn2C5HYDwcDWgaUNZ
+         6GfOrJSkMFaQ3ViJl/mdWRXH8vpugWbTR0iw1XpRbYyyWfSbEwMrGfR0Ig3dOd3GSOSc
+         7a4w==
+X-Forwarded-Encrypted: i=1; AJvYcCXc5WZg51OIxvjfoJazXsu2U9MAqUjV/4fCXiX2ER38fwDbymooxZx3D9kqtq//biVAqO1HR+vKBSTd4gNt2rZZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZH9638ZOz/qvOHuWijG/au2pwpA4fYLucuOVJwOTp6QtpzhOG
+	IIA6wqw5jjTYMmpkskeT1sOgMpxiJqD7lFaLLhOz147YU6OZhi7x6VKfAoCD6S6HgMnomwnw894
+	0k5JSXUfwHYHwdbI2LoPBXy/CNqo3fp0RGKMx
+X-Gm-Gg: ASbGncvaB6q5D7SullI8/KQD/7CfEzSsi98+wX9gaxz4fvbJX1y/w3o8vt/+5eWgmKP
+	QEvsmwq9mBXG1TF5F8+TjOMkgh89Wk7NjeamUXdAmvEJXj8+NhD55kT9uKk7k8exhabvW
+X-Google-Smtp-Source: AGHT+IGczXH0RwSvDlb2KRoPip36lSqxyB+OuiMrmApQOWno0b47AQpdfRInLeDgapSvPtkwUC9nyMn+0RAYGxD5H2c=
+X-Received: by 2002:a17:90b:540f:b0:2ee:48bf:7dc3 with SMTP id
+ 98e67ed59e1d1-2f548eb321emr37372999a91.15.1736851424249; Tue, 14 Jan 2025
+ 02:43:44 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250113-sm8750_usb_master-v1-7-09afe1dc2524@quicinc.com>
+References: <20250114-kcov-v1-0-004294b931a2@quicinc.com>
+In-Reply-To: <20250114-kcov-v1-0-004294b931a2@quicinc.com>
+From: Marco Elver <elver@google.com>
+Date: Tue, 14 Jan 2025 11:43:08 +0100
+X-Gm-Features: AbW1kvaVa5-9nPmDbOZJ9N5LtR4pKYs5_Kxyb15S0vct137T7GGOlb18swg2wtM
+Message-ID: <CANpmjNPUFnxvY-dnEAv09-qB5d0LY_vmyxhb3ZPJV-T9V9Q6fg@mail.gmail.com>
+Subject: Re: [PATCH 0/7] kcov: Introduce New Unique PC|EDGE|CMP Modes
+To: "Jiao, Joey" <quic_jiangenj@quicinc.com>
+Cc: Dmitry Vyukov <dvyukov@google.com>, Andrey Konovalov <andreyknvl@gmail.com>, 
+	Jonathan Corbet <corbet@lwn.net>, Andrew Morton <akpm@linux-foundation.org>, 
+	Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>, Christoph Lameter <cl@linux.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, kasan-dev@googlegroups.com, 
+	linux-kernel@vger.kernel.org, workflows@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-mm@kvack.org, 
+	linux-arm-kernel@lists.infradead.org, kernel@quicinc.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_023827_489289_B3F53F88 
-X-CRM114-Status: GOOD (  18.57  )
+X-CRM114-CacheID: sfid-20250114_024346_154169_F0A65393 
+X-CRM114-Status: GOOD (  26.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,254 +96,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 13, 2025 at 01:52:13PM -0800, Melody Olvera wrote:
-> From: Wesley Cheng <quic_wcheng@quicinc.com>
-> 
-> Enable USB support on SM8750 MTP and QRD variants. SM8750 has a QMP combo
-> PHY for the SSUSB path, and a M31 eUSB2 PHY for the HSUSB path.
-> 
-> Signed-off-by: Wesley Cheng <quic_wcheng@quicinc.com>
-> Signed-off-by: Melody Olvera <quic_molvera@quicinc.com>
-> ---
->  arch/arm64/boot/dts/qcom/sm8750-mtp.dts |  24 ++++++
->  arch/arm64/boot/dts/qcom/sm8750-qrd.dts |  24 ++++++
->  arch/arm64/boot/dts/qcom/sm8750.dtsi    | 134 ++++++++++++++++++++++++++++++++
+On Tue, 14 Jan 2025 at 06:35, Jiao, Joey <quic_jiangenj@quicinc.com> wrote:
+>
+> Hi,
+>
+> This patch series introduces new kcov unique modes:
+> `KCOV_TRACE_UNIQ_[PC|EDGE|CMP]`, which are used to collect unique PC, EDGE,
+> CMP information.
+>
+> Background
+> ----------
+>
+> In the current kcov implementation, when `__sanitizer_cov_trace_pc` is hit,
+> the instruction pointer (IP) is stored sequentially in an area. Userspace
+> programs then read this area to record covered PCs and calculate covered
+> edges.  However, recent syzkaller runs show that many syscalls likely have
+> `pos > t->kcov_size`, leading to kcov overflow. To address this issue, we
+> introduce new kcov unique modes.
 
-Separate SoC and board patches.
+Overflow by how much? How much space is missing?
 
->  3 files changed, 182 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/qcom/sm8750-mtp.dts b/arch/arm64/boot/dts/qcom/sm8750-mtp.dts
-> index 9e3aacad7bdab6848e86f8e45e04907e1c752a07..059eccbbc3fb05fc8806e36d35dc469d44443a26 100644
-> --- a/arch/arm64/boot/dts/qcom/sm8750-mtp.dts
-> +++ b/arch/arm64/boot/dts/qcom/sm8750-mtp.dts
-> @@ -792,3 +792,27 @@ &tlmm {
->  &uart7 {
->  	status = "okay";
->  };
-> +
-> +&usb_1 {
-> +	status = "okay";
-> +};
-> +
-> +&usb_1_dwc3 {
-> +	dr_mode = "peripheral";
-> +};
-> +
-> +&usb_1_hsphy {
-> +	vdd-supply = <&vreg_l2d_0p88>;
-> +	vdda12-supply = <&vreg_l3g_1p2>;
-> +
-> +	phys = <&pmih0108_eusb2_repeater>;
-> +
-> +	status = "okay";
-> +};
-> +
-> +&usb_dp_qmpphy {
-> +	vdda-phy-supply = <&vreg_l3g_1p2>;
-> +	vdda-pll-supply = <&vreg_l2d_0p88>;
-> +
-> +	status = "okay";
-> +};
-> diff --git a/arch/arm64/boot/dts/qcom/sm8750-qrd.dts b/arch/arm64/boot/dts/qcom/sm8750-qrd.dts
-> index f77efab0aef9bab751a947173bcdcc27df7295a8..01c0af643626917614fbd68cf8962ef947ca6548 100644
-> --- a/arch/arm64/boot/dts/qcom/sm8750-qrd.dts
-> +++ b/arch/arm64/boot/dts/qcom/sm8750-qrd.dts
-> @@ -790,3 +790,27 @@ &tlmm {
->  &uart7 {
->  	status = "okay";
->  };
-> +
-> +&usb_1 {
-> +	status = "okay";
-> +};
-> +
-> +&usb_1_dwc3 {
-> +	dr_mode = "peripheral";
-> +};
-> +
-> +&usb_1_hsphy {
-> +	vdd-supply = <&vreg_l2d_0p88>;
-> +	vdda12-supply = <&vreg_l3g_1p2>;
-> +
-> +	phys = <&pmih0108_eusb2_repeater>;
-> +
-> +	status = "okay";
-> +};
-> +
-> +&usb_dp_qmpphy {
-> +	vdda-phy-supply = <&vreg_l3g_1p2>;
-> +	vdda-pll-supply = <&vreg_l2d_0p88>;
-> +
-> +	status = "okay";
-> +};
-> diff --git a/arch/arm64/boot/dts/qcom/sm8750.dtsi b/arch/arm64/boot/dts/qcom/sm8750.dtsi
-> index 3bbd7d18598ee0a3a0d5130c03a3166e1fc14d82..54522fd3d0e11c3cff02beaf1d249fe654cacc0f 100644
-> --- a/arch/arm64/boot/dts/qcom/sm8750.dtsi
-> +++ b/arch/arm64/boot/dts/qcom/sm8750.dtsi
-> @@ -10,6 +10,7 @@
->  #include <dt-bindings/interconnect/qcom,icc.h>
->  #include <dt-bindings/interconnect/qcom,sm8750-rpmh.h>
->  #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +#include <dt-bindings/phy/phy-qcom-qmp.h>
->  #include <dt-bindings/power/qcom,rpmhpd.h>
->  #include <dt-bindings/power/qcom-rpmpd.h>
->  #include <dt-bindings/soc/qcom,rpmh-rsc.h>
-> @@ -1966,6 +1967,139 @@ lpass_lpicx_noc: interconnect@7420000 {
->  			#interconnect-cells = <2>;
->  		};
->  
-> +		usb_1_hsphy: phy@88e3000 {
-> +			compatible = "qcom,sm8750-m31-eusb2-phy";
-> +			reg = <0x0 0x88e3000 0x0 0x29c>;
-> +
-> +			clocks = <&tcsrcc TCSR_USB2_CLKREF_EN>;
-> +			clock-names = "ref";
-> +
-> +			resets = <&gcc GCC_QUSB2PHY_PRIM_BCR>;
-> +
-> +			#phy-cells = <0>;
-> +
-> +			status = "disabled";
-> +		};
-> +
-> +		usb_dp_qmpphy: phy@88e8000 {
-> +			compatible = "qcom,sm8750-qmp-usb3-dp-phy";
-> +			reg = <0x0 0x088e8000 0x0 0x3000>;
-> +
-> +			clocks = <&gcc GCC_USB3_PRIM_PHY_AUX_CLK>,
-> +				 <&rpmhcc RPMH_CXO_CLK>,
-> +				 <&gcc GCC_USB3_PRIM_PHY_COM_AUX_CLK>,
-> +				 <&gcc GCC_USB3_PRIM_PHY_PIPE_CLK>;
-> +			clock-names = "aux",
-> +				      "ref",
-> +				      "com_aux",
-> +				      "usb3_pipe";
-> +
-> +			resets = <&gcc GCC_USB3_PHY_PRIM_BCR>,
-> +				 <&gcc GCC_USB3_DP_PHY_PRIM_BCR>;
-> +			reset-names = "phy",
-> +				      "common";
-> +
-> +			power-domains = <&gcc GCC_USB3_PHY_GDSC>;
-> +
-> +			#clock-cells = <1>;
-> +			#phy-cells = <1>;
+> Solution Overview
+> -----------------
+>
+> 1. [P 1] Introduce `KCOV_TRACE_UNIQ_PC` Mode:
+>    - Export `KCOV_TRACE_UNIQ_PC` to userspace.
+>    - Add `kcov_map` struct to manage memory during the KCOV lifecycle.
+>      - `kcov_entry` struct as a hashtable entry containing unique PCs.
+>      - Use hashtable buckets to link `kcov_entry`.
+>      - Preallocate memory using genpool during KCOV initialization.
+>      - Move `area` inside `kcov_map` for easier management.
+>    - Use `jhash` for hash key calculation to support `KCOV_TRACE_UNIQ_CMP`
+>      mode.
+>
+> 2. [P 2-3] Introduce `KCOV_TRACE_UNIQ_EDGE` Mode:
+>    - Save `prev_pc` to calculate edges with the current IP.
+>    - Add unique edges to the hashmap.
+>    - Use a lower 12-bit mask to make hash independent of module offsets.
+>    - Distinguish areas for `KCOV_TRACE_UNIQ_PC` and `KCOV_TRACE_UNIQ_EDGE`
+>      modes using `offset` during mmap.
+>    - Support enabling `KCOV_TRACE_UNIQ_PC` and `KCOV_TRACE_UNIQ_EDGE`
+>      together.
+>
+> 3. [P 4] Introduce `KCOV_TRACE_UNIQ_CMP` Mode:
+>    - Shares the area with `KCOV_TRACE_UNIQ_PC`, making these modes
+>      exclusive.
+>
+> 4. [P 5] Add Example Code Documentation:
+>    - Provide examples for testing different modes:
+>      - `KCOV_TRACE_PC`: `./kcov` or `./kcov 0`
+>      - `KCOV_TRACE_CMP`: `./kcov 1`
+>      - `KCOV_TRACE_UNIQ_PC`: `./kcov 2`
+>      - `KCOV_TRACE_UNIQ_EDGE`: `./kcov 4`
+>      - `KCOV_TRACE_UNIQ_PC|KCOV_TRACE_UNIQ_EDGE`: `./kcov 6`
+>      - `KCOV_TRACE_UNIQ_CMP`: `./kcov 8`
+>
+> 5. [P 6-7] Disable KCOV Instrumentation:
+>    - Disable instrumentation like genpool to prevent recursive calls.
+>
+> Caveats
+> -------
+>
+> The userspace program has been tested on Qemu x86_64 and two real Android
+> phones with different ARM64 chips. More syzkaller-compatible tests have
+> been conducted. However, due to limited knowledge of other platforms,
+> assistance from those with access to other systems is needed.
+>
+> Results and Analysis
+> --------------------
+>
+> 1. KMEMLEAK Test on Qemu x86_64:
+>    - No memory leaks found during the `kcov` program run.
+>
+> 2. KCSAN Test on Qemu x86_64:
+>    - No KCSAN issues found during the `kcov` program run.
+>
+> 3. Existing Syzkaller on Qemu x86_64 and Real ARM64 Device:
+>    - Syzkaller can fuzz, show coverage, and find bugs. Adjusting `procs`
+>      and `vm mem` settings can avoid OOM issues caused by genpool in the
+>      patches, so `procs:4 + vm:2GB` or `procs:4 + vm:2GB` are used for
+>      Qemu x86_64.
+>    - `procs:8` is kept on Real ARM64 Device with 12GB/16GB mem.
+>
+> 4. Modified Syzkaller to Support New KCOV Unique Modes:
+>    - Syzkaller runs fine on both Qemu x86_64 and ARM64 real devices.
+>      Limited `Cover overflows` and `Comps overflows` observed.
+>
+> 5. Modified Syzkaller + Upstream Kernel Without Patch Series:
+>    - Not tested. The modified syzkaller will fall back to `KCOV_TRACE_PC`
+>      or `KCOV_TRACE_CMP` if `ioctl` fails for Unique mode.
+>
+> Possible Further Enhancements
+> -----------------------------
+>
+> 1. Test more cases and setups, including those in syzbot.
+> 2. Ensure `hash_for_each_possible_rcu` is protected for reentrance
+>    and atomicity.
+> 3. Find a simpler and more efficient way to store unique coverage.
+>
+> Conclusion
+> ----------
+>
+> These patches add new kcov unique modes to mitigate the kcov overflow
+> issue, compatible with both existing and new syzkaller versions.
 
-Missing orientation-switch and ports{} description.
+Thanks for the analysis, it's clearer now.
 
-> +
-> +			status = "disabled";
-> +		};
-> +
-> +		usb_1: usb@a6f8800 {
-> +			compatible = "qcom,sm8750-dwc3", "qcom,dwc3";
-> +			reg = <0x0 0x0a6f8800 0x0 0x400>;
-> +			status = "disabled";
-> +			#address-cells = <2>;
-> +			#size-cells = <2>;
-> +			ranges;
-> +
-> +			clocks = <&gcc GCC_CFG_NOC_USB3_PRIM_AXI_CLK>,
-> +				 <&gcc GCC_USB30_PRIM_MASTER_CLK>,
-> +				 <&gcc GCC_AGGRE_USB3_PRIM_AXI_CLK>,
-> +				 <&gcc GCC_USB30_PRIM_SLEEP_CLK>,
-> +				 <&gcc GCC_USB30_PRIM_MOCK_UTMI_CLK>,
-> +				 <&tcsrcc TCSR_USB3_CLKREF_EN>;
-> +			clock-names = "cfg_noc",
-> +				      "core",
-> +				      "iface",
-> +				      "sleep",
-> +				      "mock_utmi",
-> +				      "xo";
-> +
-> +			assigned-clocks = <&gcc GCC_USB30_PRIM_MOCK_UTMI_CLK>,
-> +					  <&gcc GCC_USB30_PRIM_MASTER_CLK>;
-> +			assigned-clock-rates = <19200000>, <200000000>;
-> +
-> +			interrupts-extended = <&intc GIC_SPI 130 IRQ_TYPE_LEVEL_HIGH>,
-> +						  <&intc GIC_SPI 131 IRQ_TYPE_LEVEL_HIGH>,
-> +					      <&pdc 14 IRQ_TYPE_EDGE_BOTH>,
-> +					      <&pdc 15 IRQ_TYPE_EDGE_BOTH>,
-> +					      <&pdc 17 IRQ_TYPE_LEVEL_HIGH>;
-> +			interrupt-names = "pwr_event",
-> +					  "hs_phy_irq",
-> +					  "dp_hs_phy_irq",
-> +					  "dm_hs_phy_irq",
-> +					  "ss_phy_irq";
-> +
-> +			power-domains = <&gcc GCC_USB30_PRIM_GDSC>;
-> +			required-opps = <&rpmhpd_opp_nom>;
-> +
-> +			resets = <&gcc GCC_USB30_PRIM_BCR>;
-> +
-> +			interconnects = <&aggre1_noc MASTER_USB3_0 0 &mc_virt SLAVE_EBI1 0>,
-> +					<&gem_noc MASTER_APPSS_PROC 0 &config_noc SLAVE_USB3_0 0>;
-> +			interconnect-names = "usb-ddr", "apps-usb";
-> +
-> +			usb_1_dwc3: usb@a600000 {
-> +				compatible = "snps,dwc3";
-> +				reg = <0x0 0x0a600000 0x0 0xe000>;
-> +
-> +				interrupts = <GIC_SPI 133 IRQ_TYPE_LEVEL_HIGH>;
-> +
-> +				iommus = <&apps_smmu 0x40 0x0>;
-> +
-> +				phys = <&usb_1_hsphy>, <&usb_dp_qmpphy QMP_USB43DP_USB3_PHY>;
-> +				phy-names = "usb2-phy", "usb3-phy";
-> +
-> +				snps,hird-threshold = /bits/ 8 <0x0>;
-> +				snps,usb2-gadget-lpm-disable;
-> +				snps,dis_u2_susphy_quirk;
-> +				snps,dis_enblslpm_quirk;
-> +				snps,dis-u1-entry-quirk;
-> +				snps,dis-u2-entry-quirk;
-> +				snps,is-utmi-l1-suspend;
-> +				snps,usb3_lpm_capable;
-> +				snps,usb2-lpm-disable;
-> +				snps,has-lpm-erratum;
-> +				tx-fifo-resize;
-> +
-> +				dr_mode = "peripheral";
+However, the new design you introduce here adds lots of complexity.
+Answering the question of how much overflow is happening, might give
+better clues if this is the best design or not. Because if the
+overflow amount is relatively small, a better design (IMHO) might be
+simply implementing a compression scheme, e.g. a simple delta
+encoding.
 
-This goes to the board files.
-
-> +
-> +				dma-coherent;
-> +
-> +				ports {
-> +					#address-cells = <1>;
-> +					#size-cells = <0>;
-> +
-> +					port@0 {
-> +						reg = <0>;
-> +
-> +						usb_1_dwc3_hs: endpoint {
-> +						};
-> +					};
-> +
-> +					port@1 {
-> +						reg = <1>;
-> +
-> +						usb_1_dwc3_ss: endpoint {
-
-QMP endpoint.
-
-> +						};
-> +					};
-> +				};
-> +			};
-> +		};
-> +
->  		pdc: interrupt-controller@b220000 {
->  			compatible = "qcom,sm8750-pdc", "qcom,pdc";
->  			reg = <0x0 0x0b220000 0x0 0x10000>, <0x0 0x164400f0 0x0 0x64>;
-> 
-> -- 
-> 2.46.1
-> 
-
--- 
-With best wishes
-Dmitry
+Thanks,
+-- Marco
 
