@@ -4,99 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FDC1C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 00:32:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F9E3C02187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 00:32:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6Y0M33imgYQ7iOQMj5lBrHLPaiCzYIUYZ4s5QSMsm/8=; b=UJaVIxnJwcmBoZ9kD9N3W5eTFe
-	HbhHyqBF/UWSQLDC4Y+8GcGWF6qaARiHAmNm+EncY5X//FYrd8t9sotzVPo9Wsn0RFHvzQsfmfF7x
-	9qdEZsjXNN5lDE8a9QG41J9t0aCN0OwVBODPhADJ0fLwnWK5AJgouwDcN5T6w57e8jF63ygTKZ0m0
-	jj5O239uX7BwSBDmxBSnObTcL8yR7e6UYd66Yiin29Qpz+D0WSsnhGslAY5Nejm+HvXBRvGB5pRcn
-	js0F2dDDBew5b6FT8tLc1kUvI5QTeLyntbKDZ1iolnTly6T3pr3Kxa65k9C2/2VXTfuJjmxXWcziD
-	KaDD4T0Q==;
+	bh=ows9fxQ6w2ckFKFCGen0ggdwFhqcknQQA6+yfxi0nP8=; b=BdTaUgQ8grody0O489gQTdDY2b
+	vZssJ4ZpXJsCWEj/9jr5c/200/EC7QQ5mLvWLo/3Gu3A8eDj47bEZcNzPQx6eQaNGUoxjG4Pvz45z
+	J350tyAmkEz52CC4HuNLeQZ3RFECMNrJ3kbcLCnOCsEqt/tlIV2ABwbW5ZwtGFxMKv9T9Gg3U+tIs
+	I7ibWZpwr7a08vAq1rtuXre0HsyBB6dxsPF1StM2d4WqPVJA086PlyAYkmPKK5yUs5Va3a/2HKXu0
+	LKRn9b+l10XboCZAqaoQzgJ3kYven7LA7Hs+giwYjI5nehyxLCUBQSliWR7yfLltOScP/QDByiBCe
+	NOiZSXpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXrKf-0000000ACuk-0oFU;
-	Wed, 15 Jan 2025 00:32:29 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1tXrKi-0000000ACx9-2ENX;
+	Wed, 15 Jan 2025 00:32:32 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXpry-0000000A07f-3xio
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 22:58:48 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2165448243fso131791225ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 14:58:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1736895526; x=1737500326; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=6Y0M33imgYQ7iOQMj5lBrHLPaiCzYIUYZ4s5QSMsm/8=;
-        b=l4JBiAGMLungE7qqPIJkFDgZyrsgDA4km8c0OdKa3RTtaMoF0eskBAbIDAMyhJn4Uy
-         sv9ReJP2pS3kALSGJ3FzdAmrM0ykP+jyi8QHsoIkkgyNdJr7avGYy8FgklCQH6iG1mSZ
-         dTl+j7tToXyrIEkp3Lv/njZncFY8x3acla5DqoFoWTB0FYq2HsSddPAoEPt88+kUEH/O
-         qknT70FaDrbipkg+CWunL7l4hb0m9Na/sswUyAlPRAg6uuv+nXMOCGunY6cDPwHBs65L
-         roCxBn5/YjtJRJwh2KTCAyfQC+1eA+PK+Vq51FkpwojL/BNMqZx5x9JZ82EF/plk/Pvy
-         nJ7Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736895526; x=1737500326;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=6Y0M33imgYQ7iOQMj5lBrHLPaiCzYIUYZ4s5QSMsm/8=;
-        b=qowfhgOQu6XU+jgIG+DmmkJyIErt1f4Il88XxVNJ5JSmrVFQ0JcEeillfWmWAD3iai
-         4AKhMAOocP4ww04bwCOhBKxXhrQxKJmtX2mLyvWt45X2ltNxIsRT1k6ct+UGIoq7tAki
-         MtQ+dOTPlbirmyDG/oD6pld78xRE4BVGaQofgBY3ingJnDJGkng6b7DcuWXP7DumMr82
-         GuIIiRkI88cAaOILHU6iBS8lzHqTrwnyKV4q/UdCBWjHrcGQzuN5+90BBNF4wc5vOUrC
-         iVql1UrVBu72ubeDStTYgdWYTxK5z8UOk3tz/ah+jJIe3+wk32XI1IAgyvQlhcGp/lAe
-         8KYQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXaH1QZ2wwupWu+VGl7ps42f22PLg2h+HHt8/r900mxSDQXE0rROO/0MYi96/gjG3IWp3dPU1OGqx8E/x3VlYgI@lists.infradead.org
-X-Gm-Message-State: AOJu0YxMAIfvyEFzzbKyxssI8cszEMe2YRu+e+WwmX4W620L5NioleQ5
-	vi8u8YFtkbSpzh8JNJcUbIeVdBLXsTfpIqhFLofDG+ARxT62d1JyL336WHUFics=
-X-Gm-Gg: ASbGncv6+z2OEC2ObyucOlpArre2tPYwSZ37FFnNuo2dPBGFkAQ2dCOt4jrDgd8gjGv
-	ykHNW7YJ6OQharpesHarVL1Jh8Gz2Og5IxVyMdDqrUd8GBJPuiPbOlPNFXF26usgVrQjpmVAgTX
-	ioPvxmTl7JBvE+v55n3nQasrIPlDZRyHTjU66IYLKIsbHtMqNq2fz6YeA4LSVxN111lFLrJO87Q
-	uQRgsUxeNCUNBUhIA50UyhhJU+0i2e/kjpNPvWq2uIoz+yTGLcAtZe4ARs9uDPUC2dlYw==
-X-Google-Smtp-Source: AGHT+IHqzS/Vjctf50pHiq//oKQavezwc50tWzvRtyLeDE1EG5BvxcMNH9WLo20EpXnOKe7Qia3Q0Q==
-X-Received: by 2002:a17:902:d2d0:b0:216:45b9:439b with SMTP id d9443c01a7336-21a8400a357mr420464835ad.50.1736895526354;
-        Tue, 14 Jan 2025 14:58:46 -0800 (PST)
-Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21a9f10df7asm71746105ad.47.2025.01.14.14.58.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jan 2025 14:58:46 -0800 (PST)
-From: Atish Patra <atishp@rivosinc.com>
-Date: Tue, 14 Jan 2025 14:57:41 -0800
-Subject: [PATCH v2 16/21] RISC-V: perf: Use config2/vendor table for event
- to counter mapping
-MIME-Version: 1.0
+	id 1tXptU-0000000A0k0-0OOX;
+	Tue, 14 Jan 2025 23:00:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8CCFE5C5A36;
+	Tue, 14 Jan 2025 22:59:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6275C4CEE1;
+	Tue, 14 Jan 2025 23:00:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736895618;
+	bh=D5byHkrsv5SQKGj+WNn8RIZStWX8kI1/PrV5PEzZm0A=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=quIcSx7cgD9A0L0E/uqHwoCdImsh9ACOP++R5pFgHKNafz+KOv0mwHJEPYQF3bW6G
+	 qnrNyhNrh2e8RFl2eINBY/KgYhslh8JU+ltk3f6fm0YPtImVEsc6ZbQ/sBK7cb5nPI
+	 26Lv8hjZku8e0P0a+/bNrvuu34V7B2pih16SKkl61kqTWyKnIPnA+UoXymheUljAVV
+	 E67N09LHwf/AZSXnPqEE83eVvbs4jrd7FgOrEPM4Zsiu341YhtkZ7tw1Y1m735oaYl
+	 fsbp4J+yy4b0dTugw/+xhTPAgE5rvf2BPDUwv/Wkqpo++RfTl3i4Wq3OdyaXAQ3r2C
+	 XeG0w/NzVljeg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAE4F380AA5F;
+	Tue, 14 Jan 2025 23:00:42 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250114-counter_delegation-v2-16-8ba74cdb851b@rivosinc.com>
-References: <20250114-counter_delegation-v2-0-8ba74cdb851b@rivosinc.com>
-In-Reply-To: <20250114-counter_delegation-v2-0-8ba74cdb851b@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Anup Patel <anup@brainfault.org>, 
- Atish Patra <atishp@atishpatra.org>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>, 
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, weilin.wang@intel.com
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
- devicetree@vger.kernel.org, kvm@vger.kernel.org, 
- kvm-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-perf-users@vger.kernel.org, Atish Patra <atishp@rivosinc.com>
-X-Mailer: b4 0.15-dev-13183
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next] net: airoha: Enforce ETS Qdisc priomap
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <173689564173.170851.2258072492624534440.git-patchwork-notify@kernel.org>
+Date: Tue, 14 Jan 2025 23:00:41 +0000
+References: <20250112-airoha_ets_priomap-v1-1-fb616de159ba@kernel.org>
+In-Reply-To: <20250112-airoha_ets_priomap-v1-1-fb616de159ba@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: nbd@nbd.name, sean.wang@mediatek.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ netdev@vger.kernel.org, dcaratti@redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_145847_063864_A946CE3A 
-X-CRM114-Status: GOOD (  28.93  )
+X-CRM114-CacheID: sfid-20250114_150020_176244_C670F4A0 
+X-CRM114-Status: UNSURE (   6.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,158 +77,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The counter restriction specified in the json file is passed to
-the drivers via config2 paarameter in perf attributes. This allows
-any platform vendor to define their custom mapping between event and
-hpmcounters without any rules defined in the ISA.
+Hello:
 
-For legacy events, the platform vendor may define the mapping in
-the driver in the vendor event table.
-The fixed cycle and instruction counters are fixed (0 and 2
-respectively) by the ISA and maps to the legacy events. The platform
-vendor must specify this in the driver if intended to be used while
-profiling. Otherwise, they can just specify the alternate hpmcounters
-that may monitor and/or sample the cycle/instruction counts.
+This patch was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Signed-off-by: Atish Patra <atishp@rivosinc.com>
----
- drivers/perf/riscv_pmu_dev.c   | 78 ++++++++++++++++++++++++++++++++++--------
- include/linux/perf/riscv_pmu.h |  2 ++
- 2 files changed, 66 insertions(+), 14 deletions(-)
+On Sun, 12 Jan 2025 19:32:45 +0100 you wrote:
+> EN7581 SoC supports fixed QoS band priority where WRR queues have lowest
+> priorities with respect to SP ones.
+> E.g: WRR0, WRR1, .., WRRm, SP0, SP1, .., SPn
+> 
+> Enforce ETS Qdisc priomap according to the hw capabilities.
+> 
+> Suggested-by: Davide Caratti <dcaratti@redhat.com>
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> 
+> [...]
 
-diff --git a/drivers/perf/riscv_pmu_dev.c b/drivers/perf/riscv_pmu_dev.c
-index 83e7d1f6b016..8c5e2474fb7d 100644
---- a/drivers/perf/riscv_pmu_dev.c
-+++ b/drivers/perf/riscv_pmu_dev.c
-@@ -76,6 +76,7 @@ static ssize_t __maybe_unused rvpmu_format_show(struct device *dev, struct devic
- 	RVPMU_ATTR_ENTRY(_name, rvpmu_format_show, (char *)_config)
- 
- PMU_FORMAT_ATTR(firmware, "config:62-63");
-+PMU_FORMAT_ATTR(counterid_mask, "config2:0-31");
- 
- static bool sbi_v2_available;
- static DEFINE_STATIC_KEY_FALSE(sbi_pmu_snapshot_available);
-@@ -112,6 +113,7 @@ static const struct attribute_group *riscv_sbi_pmu_attr_groups[] = {
- static struct attribute *riscv_cdeleg_pmu_formats_attr[] = {
- 	RVPMU_FORMAT_ATTR_ENTRY(event, RVPMU_CDELEG_PMU_FORMAT_ATTR),
- 	&format_attr_firmware.attr,
-+	&format_attr_counterid_mask.attr,
- 	NULL,
- };
- 
-@@ -1390,24 +1392,76 @@ static int rvpmu_deleg_find_ctrs(void)
- 	return num_hw_ctr;
- }
- 
-+/* The json file must correctly specify counter 0 or counter 2 is available
-+ * in the counter lists for cycle/instret events. Otherwise, the drivers have
-+ * no way to figure out if a fixed counter must be used and pick a programmable
-+ * counter if available.
-+ */
- static int get_deleg_fixed_hw_idx(struct cpu_hw_events *cpuc, struct perf_event *event)
- {
--	return -EINVAL;
-+	struct hw_perf_event *hwc = &event->hw;
-+	bool guest_events = event->attr.config1 & RISCV_PMU_CONFIG1_GUEST_EVENTS;
-+
-+	if (guest_events) {
-+		if (hwc->event_base == SBI_PMU_HW_CPU_CYCLES)
-+			return 0;
-+		if (hwc->event_base == SBI_PMU_HW_INSTRUCTIONS)
-+			return 2;
-+		else
-+			return -EINVAL;
-+	}
-+
-+	if (!event->attr.config2)
-+		return -EINVAL;
-+
-+	if (event->attr.config2 & RISCV_PMU_CYCLE_FIXED_CTR_MASK)
-+		return 0; /* CY counter */
-+	else if (event->attr.config2 & RISCV_PMU_INSTRUCTION_FIXED_CTR_MASK)
-+		return 2; /* IR counter */
-+	else
-+		return -EINVAL;
- }
- 
- static int get_deleg_next_hpm_hw_idx(struct cpu_hw_events *cpuc, struct perf_event *event)
- {
--	unsigned long hw_ctr_mask = 0;
-+	u32 hw_ctr_mask = 0, temp_mask = 0;
-+	u32 type = event->attr.type;
-+	u64 config = event->attr.config;
-+	int ret;
- 
--	/*
--	 * TODO: Treat every hpmcounter can monitor every event for now.
--	 * The event to counter mapping should come from the json file.
--	 * The mapping should also tell if sampling is supported or not.
--	 */
-+	/* Select only available hpmcounters */
-+	hw_ctr_mask = cmask & (~0x7) & ~(cpuc->used_hw_ctrs[0]);
-+
-+	switch (type) {
-+	case PERF_TYPE_HARDWARE:
-+		temp_mask = current_pmu_hw_event_map[config].counter_mask;
-+		break;
-+	case PERF_TYPE_HW_CACHE:
-+		ret = cdeleg_pmu_event_find_cache(config, NULL, &temp_mask);
-+		if (ret)
-+			return ret;
-+		break;
-+	case PERF_TYPE_RAW:
-+		/*
-+		 * Mask off the counters that can't monitor this event (specified via json)
-+		 * The counter mask for this event is set in config2 via the property 'Counter'
-+		 * in the json file or manual configuration of config2. If the config2 is not set,
-+		 * it is assumed all the available hpmcounters can monitor this event.
-+		 * Note: This assumption may fail for virtualization use case where they hypervisor
-+		 * (e.g. KVM) virtualizes the counter. Any event to counter mapping provided by the
-+		 * guest is meaningless from a hypervisor perspective. Thus, the hypervisor doesn't
-+		 * set config2 when creating kernel counter and relies default host mapping.
-+		 */
-+		if (event->attr.config2)
-+			temp_mask = event->attr.config2;
-+		break;
-+	default:
-+		break;
-+	}
-+
-+	if (temp_mask)
-+		hw_ctr_mask &= temp_mask;
- 
--	/* Select only hpmcounters */
--	hw_ctr_mask = cmask & (~0x7);
--	hw_ctr_mask &= ~(cpuc->used_hw_ctrs[0]);
- 	return __ffs(hw_ctr_mask);
- }
- 
-@@ -1436,10 +1490,6 @@ static int rvpmu_deleg_ctr_get_idx(struct perf_event *event)
- 	u64 priv_filter;
- 	int idx;
- 
--	/*
--	 * TODO: We should not rely on SBI Perf encoding to check if the event
--	 * is a fixed one or not.
--	 */
- 	if (!is_sampling_event(event)) {
- 		idx = get_deleg_fixed_hw_idx(cpuc, event);
- 		if (idx == 0 || idx == 2) {
-diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
-index 9e2758c32e8b..e58f83811988 100644
---- a/include/linux/perf/riscv_pmu.h
-+++ b/include/linux/perf/riscv_pmu.h
-@@ -30,6 +30,8 @@
- #define RISCV_PMU_CONFIG1_GUEST_EVENTS 0x1
- 
- #define RISCV_PMU_DELEG_RAW_EVENT_MASK GENMASK_ULL(55, 0)
-+#define RISCV_PMU_CYCLE_FIXED_CTR_MASK 0x01
-+#define RISCV_PMU_INSTRUCTION_FIXED_CTR_MASK 0x04
- 
- #define HW_OP_UNSUPPORTED		0xFFFF
- #define CACHE_OP_UNSUPPORTED		0xFFFF
+Here is the summary with links:
+  - [net-next] net: airoha: Enforce ETS Qdisc priomap
+    https://git.kernel.org/netdev/net-next/c/b56e4d660a96
 
+You are awesome, thank you!
 -- 
-2.34.1
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
