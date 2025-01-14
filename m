@@ -4,181 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 672D3E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 23:28:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F47EE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 23:35:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N/OElr2KJMyP+Tiz656096UUQ4ozLsuNa6XyxBOYYLQ=; b=rMoiNEKxDcpL/cIOWv1+TvkNDz
-	xxbdRMRMMIWlwOvTdZmqwGiE+0gfVf1YPzjjI8jpSekZx8ZJZuSZRLFC1ELF9sJOyPQHuuvDOEgGH
-	eZoJANEFmQZuJ/B9Nw7mMxSsW9FqnCGo2ymBknPLYm912l6GJQBA7tyrB8JufuLhDV6YdkUbpeqra
-	L3FSrgNUg3/pzPiHQ5oOevjrI58iehioQThKQClENnDz8UxxAeNQ4goZuumSTU0kR+suPBa0xi2MB
-	TdQ4+QZslznV6hVIa6qXUtS8KkT0iBOTKdWnIYJrSyc8aAKrCAL0Jf1p2y9gsRWTiiQfv9qcT+sNV
-	GpUEahuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JF2SO1JNjZFS/AW+/qwVSLc3H3ROwf+oLgiJ6Im/2BQ=; b=iLMmwjY0UM/xLlUdFbRLgNlyxA
+	C6+H+tMoyk/BUErC6z0d6qJqQe46Znhu0CvUx0I972lgzgvwnnS7UihAXrNgBqslWmgq806WkS2Hb
+	K5RXiIQPlJFOxtk3alUlfOaIiw/f4VypSVUb+D4e2Xc7GUKGZVfsAsnE/kqY88hBuoGfgsTfSaB0u
+	KpKAZzuX6gPNlQ+8KrBigfVcCXNTGL9cdhH3YcUKD//aPMdolxByYMe5MTNDkz5vs97g0lB8KD/uC
+	MhmS7OtjlZC2WJ/uo+A3hOqzeP1aAZbDeu26CE/g6e5t/gADG0Lp3YhQVzeSgiGoVWMHd81eFjubb
+	30PTsjJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXqKn-0000000A6YJ-2EWb;
-	Tue, 14 Jan 2025 23:28:33 +0000
-Received: from mail-bn8nam11on2062a.outbound.protection.outlook.com ([2a01:111:f403:2414::62a] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
+	id 1tXqQs-0000000A7Wm-1LJ2;
+	Tue, 14 Jan 2025 23:34:50 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXq6e-0000000A49y-0OSB
+	id 1tXqFr-0000000A5kV-0X58
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 23:13:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ORHR2r9qr16JfTnDlM1G/WvfHsQ1nNinrS1/Orl7oMgyc0OpkbJAB7ERmsAb+eMZZW1DbcRGF+bMBnfZ1QKyIUuYVnNg04HjmuFqc0CEaOhwktGTwMgSXHPlYbFPHIMEca8kWP1FZ4FzMLkWNvxYuHJFKIslbgfZQh4o60le/BDWsDBEOuRTVXKseYcFgdKnt4s7dP3VCtWRfaeN0i8xR6IFtAhNvjnob0UWpvaH4DpT8NAiuEWMlr2HaXouGnV4ATk1cFau5F6BGbTeCSOYnsilpMnMz0TNjHrlpWXIzLyKiYmkEJljXKfvk7DjOKE5ruWpFpiwjcpO35EV8pTZ2g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=N/OElr2KJMyP+Tiz656096UUQ4ozLsuNa6XyxBOYYLQ=;
- b=Hi5a7zBharlVGRNXb697gN+vvxgDjKph6U2VAzqC8qJeY41B2pab+WEfz21eiS/gu7OhZ1H7QhKNwTlfKWtaZ2vFHy09xivDItnqEOnV/03cGxxGZoLDvD+HbgVebpIebKfKxdhsRay2Jm0JSY89WYFAl1K4o059CRkFqe6v+RL0MV1B5pXtD6cWgnvbo4hYlQBysq5lSAx2nsrQZutRJViZ3CC1JKVTmY4ExvFwjz1W14xKCfKPmwuVZ7eczj/W1kBsy5UkaN9w2vZn2I7+b/iMmIkP8M3M2fE6xMVfjvSVSKOiGM5XqI60Yg4HPEKtUyHD+advWVTLMBVGkhKjJQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=N/OElr2KJMyP+Tiz656096UUQ4ozLsuNa6XyxBOYYLQ=;
- b=sF+I94SGWgkqe37sTHHePNmqRL7k5LpDCyAGg/ovrAZpaipkpazZwVSU3LxnC6feG09U+gJ5YNZc+s0ZPHg/6LwFG1lih5M3INWW5zjfgIFln6ruCQ9HkKufJBTOO0XyhYCPYaPnDXXkejheE3ntM/YYn+HOCOWZOzIAqSTfnX9fnvfBTUvNXKxEP3CUEsQmjRzEYU9Siwsz+kMLqsCIW+2Q4NK3QhkkhVc2L5o1U2iwfr9G2343spMXA/Zlh7iamuqitNEhXwO/jiUonhZzJM2Q8MyUVtiy+bnn4Ln0vzzaA8cmVxPZoqt26diFPTcWob5IRLDiuN72olS/NUcC2g==
-Received: from SA1PR12MB7199.namprd12.prod.outlook.com (2603:10b6:806:2bc::21)
- by CY8PR12MB7537.namprd12.prod.outlook.com (2603:10b6:930:94::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.18; Tue, 14 Jan
- 2025 23:13:49 +0000
-Received: from SA1PR12MB7199.namprd12.prod.outlook.com
- ([fe80::ae1b:d89a:dfb6:37c2]) by SA1PR12MB7199.namprd12.prod.outlook.com
- ([fe80::ae1b:d89a:dfb6:37c2%5]) with mapi id 15.20.8356.010; Tue, 14 Jan 2025
- 23:13:49 +0000
-From: Ankit Agrawal <ankita@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>, David Hildenbrand <david@redhat.com>
-CC: "maz@kernel.org" <maz@kernel.org>, "oliver.upton@linux.dev"
-	<oliver.upton@linux.dev>, "joey.gouly@arm.com" <joey.gouly@arm.com>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "yuzenghui@huawei.com"
-	<yuzenghui@huawei.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"will@kernel.org" <will@kernel.org>, "ryan.roberts@arm.com"
-	<ryan.roberts@arm.com>, "shahuang@redhat.com" <shahuang@redhat.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, Aniket Agashe
-	<aniketa@nvidia.com>, Neo Jia <cjia@nvidia.com>, Kirti Wankhede
-	<kwankhede@nvidia.com>, "Tarun Gupta (SW-GPU)" <targupta@nvidia.com>, Vikram
- Sethi <vsethi@nvidia.com>, Andy Currid <acurrid@nvidia.com>, Alistair Popple
-	<apopple@nvidia.com>, John Hubbard <jhubbard@nvidia.com>, Dan Williams
-	<danw@nvidia.com>, Zhi Wang <zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>,
-	Uday Dhoke <udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>,
-	"alex.williamson@redhat.com" <alex.williamson@redhat.com>,
-	"sebastianene@google.com" <sebastianene@google.com>, "coltonlewis@google.com"
-	<coltonlewis@google.com>, "kevin.tian@intel.com" <kevin.tian@intel.com>,
-	"yi.l.liu@intel.com" <yi.l.liu@intel.com>, "ardb@kernel.org"
-	<ardb@kernel.org>, "akpm@linux-foundation.org" <akpm@linux-foundation.org>,
-	"gshan@redhat.com" <gshan@redhat.com>, "linux-mm@kvack.org"
-	<linux-mm@kvack.org>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v2 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
- VMA flags
-Thread-Topic: [PATCH v2 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
- VMA flags
-Thread-Index: AQHbObyY4gofHx3CJE6tGYAUqrUkhLLveBuAgBrLBoCAAxi2gIADd6/9gARpLICAAV1AAIAAA+OAgACbcik=
-Date: Tue, 14 Jan 2025 23:13:48 +0000
-Message-ID: <SA1PR12MB71998E1E70F3A03D5E30DE40B0182@SA1PR12MB7199.namprd12.prod.outlook.com>
-References: <20241118131958.4609-1-ankita@nvidia.com>
- <20241118131958.4609-2-ankita@nvidia.com>
- <a2d95399-62ad-46d3-9e48-6fa90fd2c2f3@redhat.com>
- <20250106165159.GJ5556@nvidia.com>
- <f13622a2-6955-48d0-9793-fba6cea97a60@redhat.com>
- <SA1PR12MB7199E3C81FDC017820773DE0B01C2@SA1PR12MB7199.namprd12.prod.outlook.com>
- <20250113162749.GN5556@nvidia.com>
- <0743193c-80a0-4ef8-9cd7-cb732f3761ab@redhat.com>
- <20250114133145.GA5556@nvidia.com>
-In-Reply-To: <20250114133145.GA5556@nvidia.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SA1PR12MB7199:EE_|CY8PR12MB7537:EE_
-x-ms-office365-filtering-correlation-id: 41c7b2dc-5dff-45dc-03fe-08dd34f11a48
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|366016|38070700018;
-x-microsoft-antispam-message-info: =?iso-8859-1?Q?ZBed0v2vIPzrs8g0c5NiDCWMozB2qjXDU/RYS28ITJV4CyyNQULFEPTD4E?=
- =?iso-8859-1?Q?r9jIrTCM4rM3PHkDWR0JiV3PfRaQYWymV5nmwfpDL69RKKbYTBR+Op8VH+?=
- =?iso-8859-1?Q?2Ma82XGysbbuuZ6N3qAAkDw6B4KAGkl/L6UXIC5yMbwkBHxdkNl/md7kuh?=
- =?iso-8859-1?Q?sMLHqtOdNO3q3l+TJEzK6Ycm6IVzS93w+RuwjewgZHdLuIbpXF941lMIev?=
- =?iso-8859-1?Q?GxxXK53UrsdVpIYaoboP/b/GA/t7pUpP/NsqbYTNJKlrJrBnPROqB6iNAo?=
- =?iso-8859-1?Q?mbUCtO2lhyw9GaMZiQkL67DpicRhmcJl8iZ6AD5xNEuhx3f8jWFv0rEzLI?=
- =?iso-8859-1?Q?1HAfEX68HswVJ4kVhDEB9UH8xHxwZL+RgJkO0IvXAJBh4zj6eSp6uQsIjc?=
- =?iso-8859-1?Q?bRPLy0Cejj9fvGrktBR8cgiZGjepTpFOJGzttkcaKD1Vzj0PQPequLKuvv?=
- =?iso-8859-1?Q?/EaEGUBNJgTv/hAjyeti2R+tZ/JtiPjIFVZEdP0njGs5MiASWi8dN+yDac?=
- =?iso-8859-1?Q?OnBo5PBUPRrfPP2gA1iYRoq9je0lbDjbkCa7Tre7roEdyvYoHYsrjbtAiZ?=
- =?iso-8859-1?Q?P5FIOEX5JswXQPltAKReD2DJKTxZpDptyaTCfhZKY9RpFzF7Yv7cUCScnh?=
- =?iso-8859-1?Q?IJtA9TBwts9exjjbMCtKIh7mDz9V9Cwdc9Mf7SDCGaw9Rr2zwij+oQM9za?=
- =?iso-8859-1?Q?/xaTTY3iRXhOUBtpo092pbGxQMPld+FJLfaBHovN18I9GiiqNorqaH9GpJ?=
- =?iso-8859-1?Q?eOXu6J2cWpLxqRHZbTRcu5iKZiwrcO/vMJLFUckK497kkm0TFdofQQ1glP?=
- =?iso-8859-1?Q?/rfiNlmBbbme30WYS2O1EOsvfAWoSlvrzHh+VGpiYN6P9jzPF9u7ofdgS4?=
- =?iso-8859-1?Q?/X82xVV3k/VHbFNCeCSokR5biUK4acim6IyEO22nyVu4HlQ0L7iH24BlNO?=
- =?iso-8859-1?Q?YACUw2iFPBF09hr0pW0dlOokGaWFOIGua7C6wjGPk8w+UTjqh7zWsGs9nT?=
- =?iso-8859-1?Q?xlVWjHHrjLUxyT8IIUEN531UDU9DVjmDlWOKcPVYAp2zdR3EIc+HD0yOiZ?=
- =?iso-8859-1?Q?Ob+fuKgD3ou92Rr2EcYJqYRZIN+m5BesISVl5QgD4qwLoxT7rNW52datD+?=
- =?iso-8859-1?Q?gIEygB33iQbajbNc6lMjgmSWZD65NSFDT0RZ2p35Vp3CYaVAJ5gH+D3fuF?=
- =?iso-8859-1?Q?JtW1seRaLYTCgQD8AQOTHxkC+SG+PLEbjhKsSGbSDfDvF87fGBJEGB0Imf?=
- =?iso-8859-1?Q?02z8zO6BFhgFDPe01TvY9R7X/Ls4eNrY++BYnL16QYcQAZ2D8oRQWjNuwu?=
- =?iso-8859-1?Q?N1EdxGsU9XOjhc44RK3H3RIR9Tx9naoqrofE4MyMlNQKjoV7Xrsdgb38Ko?=
- =?iso-8859-1?Q?gwTMmQmFP/AzJV9WAhs3jngaVqQUV9dyrJdZlaDLVBdS+Ffvo64jDd+TzL?=
- =?iso-8859-1?Q?vbBsRxWRCXnRgBSfGkEZF26kF17NG1WxkFsb/6bGFQUWphvXzU0wF1lCzP?=
- =?iso-8859-1?Q?KnXa1thm7/KTxWlR4W/0bP?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB7199.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?jXqbc3wPLefYe/82Zl4VfPGD9F3kvexTnro/LBZ6zpqifQJ3azpmRv7JCE?=
- =?iso-8859-1?Q?qyqTV9NxItNRtEeX5WDZilfvkDggsOuR6GsdDNa5aADfK6TwhklT/b63Id?=
- =?iso-8859-1?Q?pw26zLQ44F1UBvmOeN9ltEf6Rf2gmNGxNxC9NEBbEG2gMq/7NtDphPMZRD?=
- =?iso-8859-1?Q?90qMVY6q8rz/vXrLjlUEPi2nZqcoK8XLgavrMxYTdJd9cfZClZoJz+QDy9?=
- =?iso-8859-1?Q?IQ+ioHmS/uR38OKochRyxI5OHJiqoHqsyM6mnQriFSM/Gk+9kwEsj+Mlhj?=
- =?iso-8859-1?Q?82VJYuqYxHvaPsIm2qdigg7gLnrPGCVn5iw4lgdT/+BTcDmbB4A0iWHm4+?=
- =?iso-8859-1?Q?YiVVgelgrh/oB2DYvLwRc1ahAKVN5m+4TwYCThKQWcQv7A8IFl7QtDLGsW?=
- =?iso-8859-1?Q?QCvRkh0qkCuFcFUbrf65iDRCNOZhemXunW9uJjkkwtsVk7o443IFnzsddd?=
- =?iso-8859-1?Q?yON8+rwVvz/s8VpYEbGy9O4p9dc5kjn0OHZ0+nnkkZXITxTiGAbHwZcQow?=
- =?iso-8859-1?Q?FXbjOljH9TmvaHblrgP9vYPVLzn/e6n4qx5towqzV5fYT6nheOfIXObCJG?=
- =?iso-8859-1?Q?C/pK7N4HqJTArzl9m9pdZzOh54FPRCRHh0f4QdpEIrN9yXBObnWu+88PLe?=
- =?iso-8859-1?Q?zz6YpHKKJSsOI1tkDj/HoYNPInrJziiFc1oRmfu6tAciRO88x0dCmOlZkW?=
- =?iso-8859-1?Q?sgOHFOG3nfay9uZEZbCe+4jz1jIVzwcV7+uTI/jUFJNDITWpzmVueOW11q?=
- =?iso-8859-1?Q?tSj0N+MlNLDpm9ZFU+wNw8rfHx5GC5X6+lTgVHSDtI4rsV9OTjNL8+s7Oz?=
- =?iso-8859-1?Q?2kNqR83iFMWVJntA9GKn2WkV+Pr3Qx/XvkCUjI8FlbUaooxNwIochinL0S?=
- =?iso-8859-1?Q?s4HVgWE55GSAUoDjROAAdQMMTySQepcxSANSnJGmg3WEJEhFW3IwsyIAiF?=
- =?iso-8859-1?Q?Z55hF2hkry3QFV4kopjSznaMmTw5dv5vzgT765kBDw0qmzFdQHPdtTdjPm?=
- =?iso-8859-1?Q?Jd5AwY9+1GO+PP/Dx6ar9aLPFVvlwDQMsN8+ayFFQNpYrLbZ3Y5EZEbwvP?=
- =?iso-8859-1?Q?PTF0RQBZ8qcPhmsdTfsG5i67WFRuzXx2/pBWxUtE+zWmhPW1iycRsRn15U?=
- =?iso-8859-1?Q?foRRFfv8GJYQFQ7NCVvUdIT+yRV4DdahnUkuLxFixn3fINgLjCF4KvHumB?=
- =?iso-8859-1?Q?50tjzvGZk74J9Qf3AE/iARVsvHGsgMx01JPRTtMRpviN6JJWmH7TQ3kzq8?=
- =?iso-8859-1?Q?8dv399YeJxtHAtiWv3LEQFaG/2lCYHaYNbRr6TKNAsS1yT+V9w4z36Wog+?=
- =?iso-8859-1?Q?xulkaHufhjx8Cbcva7dG3F4MeEi2IWzwhlfUOacc83D7qeTo2rhyVEXsu6?=
- =?iso-8859-1?Q?M2ddPpGT2bWxHe5Wadnl6XNR9te4kBMevHV/yXdRs1U9cXTXuMK0lbKkv4?=
- =?iso-8859-1?Q?jxq3fmaiRZxPe0gOtlRXG7F54JH7wqJIEuzMY7HS/FutyC3hjbbhdEWTYz?=
- =?iso-8859-1?Q?Kadlkq/HAkL9sV4Qbxh4YR3FVcy1dzgY88BHyECVjgi/4Sw21jw7Jmd9/1?=
- =?iso-8859-1?Q?a+fgI58kCL+kRJPlnBG6I8u8H5aoJw+hSYU3Yro04Zcj2F08cGzfK+n38C?=
- =?iso-8859-1?Q?3AqoL3D0snPhQ=3D?=
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 14 Jan 2025 23:23:28 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2163dc5155fso111835655ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 15:23:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1736897006; x=1737501806; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=JF2SO1JNjZFS/AW+/qwVSLc3H3ROwf+oLgiJ6Im/2BQ=;
+        b=fZvc+ME2UdvSUOLMGTW1J5WuP3HDx3W5f1k8VHu3f/GTwIpRHFBD/jfYMHTQw45xIU
+         Y8OIXP41Bg5vp+QKRH9/GgY+dKW9CIkoIoFZyO0qJeaDwwPlYgrMMQ5UHBnCKdas6aD3
+         7h84E7wnSwN3cNCzx58Z9yMzt4THF3cdppynY=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736897006; x=1737501806;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=JF2SO1JNjZFS/AW+/qwVSLc3H3ROwf+oLgiJ6Im/2BQ=;
+        b=oWDvhswnynjyBRfNOdXk8VLv3L8D9+ug7d2xF3sXqUiEkJ5YiztObR5aumOzvF7UcM
+         Vc8eKaJDB1SKTmbHDZvDBhBt1RjWu/kkVf4mkR/w0ygWFCYQOiIT1NWu5lDNAdfdluW9
+         76noyoON/cDcOsQVsUQUTG0cAIJ/57oquYoclx2ssF0wpyPBpwgiihg5KZILKiLYuFSf
+         Vu6Pe19hIl6C+dfLTRCvfeM50YpO5pixrl24djEwojeH3vNJunNn2gt8bS0d3mFCIusu
+         gNKJ+eiVumsKcRRv0tKjEu2jo//nRb2nY5GabfDX1j3Z0U0C3pRdV6QUHEalJjq62Vhi
+         Nffg==
+X-Forwarded-Encrypted: i=1; AJvYcCWTahibr2eaXlCXRJUS7NiCGa2i1cUhzCVeKee1m2xhfVD2VqACV+OZ15nINQTmHlQJ+7BxAVIcyIk7iY4Ss7E/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzKfEIvyc+2Bdqy3UNnpxdeYeZjPWvL0p9E5WU+MR68q3trKU7q
+	muP6d4EXfeaCoa4jpZHygl7BAWtGyS88BrIs9gwGKEZU/saezER1HTFvoX7LLg==
+X-Gm-Gg: ASbGncugl3PCFTXwC16tOdfZ433nI+JmFjLlgdT5dQRzk3Zd/Z6Xrs1zQ/A79sYU9Qx
+	I/Eb++PhHspLi7dZxgJ3bwxPe+fUQ1jgg5E7FzNo9jRI04BnoCSkLsMPyc/2KjnubNZr1XYk2qD
+	9KzECTvEHz41mSMDK1b+uSHYmZuAz65uzn/nwFTpUIxRyMnxfI52uZZni9XPwSLLPC82oLYxotP
+	aZ77GQj3dGB5o4vQkGadGbuXYGCSz6LB8YyLpcT1tGcjkFci4SK2xsThXx8TbOUP8U9YEDDG/H5
+	MAaMXf64HbUE9rQt/mEORhHsQt2WzP0=
+X-Google-Smtp-Source: AGHT+IFP+iDz9d53FNYprYxDfsZHKpRDF3bHc76kCec6tsY8vy4yCwcxXTB9ww6UWz6UHEjmZYk7/w==
+X-Received: by 2002:a17:903:244c:b0:216:725c:a137 with SMTP id d9443c01a7336-21a83f72472mr455838475ad.28.1736897006461;
+        Tue, 14 Jan 2025 15:23:26 -0800 (PST)
+Received: from [192.168.1.3] (ip68-4-215-93.oc.oc.cox.net. [68.4.215.93])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21a9f22dd30sm72193155ad.171.2025.01.14.15.23.24
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 14 Jan 2025 15:23:25 -0800 (PST)
+Message-ID: <511eb6d3-ff74-43e8-ad27-808ecb53e698@broadcom.com>
+Date: Tue, 14 Jan 2025 15:23:23 -0800
 MIME-Version: 1.0
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB7199.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 41c7b2dc-5dff-45dc-03fe-08dd34f11a48
-X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Jan 2025 23:13:48.8751
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: DlyLZDylJOXjUQVW+WP4SNZt+IE8NtKvRrFhmiFskr6s0JoJn68op/vSMCqhTG+nTAktvMyLVBHOk3QZEIdnhQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7537
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] phy: Use str_enable_disable-like helpers
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Michal Simek <michal.simek@amd.com>, linux-phy@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250114203537.1012955-1-krzysztof.kozlowski@linaro.org>
+Content-Language: en-US
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <20250114203537.1012955-1-krzysztof.kozlowski@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_151356_150221_16F9B9C1 
-X-CRM114-Status: GOOD (  24.19  )
+X-CRM114-CacheID: sfid-20250114_152327_175914_10D0D534 
+X-CRM114-Status: UNSURE (   8.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -193,97 +135,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks for the responses.=0A=
-=0A=
-> Do we really want another weirdly defined VMA flag? I'd really like to=0A=
-> avoid this.. =0A=
-=0A=
-I'd let Catalin chime in on this. My take of the reason for his suggestion =
-is=0A=
-that we want to reduce the affected configs to only the NVIDIA grace based=
-=0A=
-systems. The nvgrace-gpu module would be setting the flag and the=0A=
-new codepath will only be applicable there. Or am I missing something here?=
-=0A=
-=0A=
-=0A=
->>>>>> Likely you assume to never end up with COW VM_PFNMAP -- I think it's=
-=0A=
->>>>>> possible when doing a MAP_PRIVATE /dev/mem mapping on systems that a=
-llow=0A=
->>>>>> for mapping /dev/mem. Maybe one could just reject such cases (if KVM=
- PFN=0A=
->>>>>> lookup code not already rejects them, which might just be that case =
-IIRC).=0A=
->>>>>=0A=
->>>>> At least VFIO enforces SHARED or it won't create the VMA.=0A=
->>>>>=0A=
->>>>> drivers/vfio/pci/vfio_pci_core.c:       if ((vma->vm_flags & VM_SHARE=
-D) =3D=3D 0)=0A=
->>>>=0A=
->>>> That makes a lot of sense for VFIO.=0A=
->>>=0A=
->>> So, I suppose we don't need to check this? Specially if we only extend =
-the=0A=
->>> changes to the following case:=0A=
->=0A=
-> I would check if it is a VM_PFNMAP, and outright refuse any page if=0A=
-> is_cow_mapping(vma->vm_flags) is true.=0A=
-=0A=
-So IIUC, I'll add the check to return -EINVAL for=0A=
-(vma->vm_flags & VM_PFNMAP) && is_cow_mapping(vma->vm_flags)=0A=
-=0A=
-=0A=
->>> - type is VM_PFNMAP &&=0A=
->>> - user mapping is cacheable (MT_NORMAL or MT_NORMAL_TAGGED) &&=0A=
->>> - The suggested VM_FORCE_CACHED is set.=0A=
->>=0A=
->> Do we really want another weirdly defined VMA flag? I'd really like to=
-=0A=
->> avoid this..=0A=
->=0A=
-> Agreed.=0A=
-> =0A=
-> Can't we do a "this is a weird VM_PFNMAP thing, let's consult the VMA=0A=
-> prot + whatever PFN information to find out if it is weird-device and=0A=
-> how we could safely map it?"=0A=
-=0A=
-My understanding was that the new suggested flag VM_FORCE_CACHED=0A=
-was essentially to represent "whatever PFN information to find out if it is=
-=0A=
-weird-device". Is there an alternate reliable check to figure this out?=0A=
-=0A=
-=0A=
-> Ideally, we'd separate this logic from the "this is a normal VMA that=0A=
-> doesn't need any such special casing", and even stop playing PFN games=0A=
-> on these normal VMAs completely.=0A=
-=0A=
-Sorry David, it isn't clear to me what normal VMA mean here? I suppose you =
-mean=0A=
-the original KVM's non-nvgrace related code piece for MT_NORMAL memory?=0A=
-=0A=
-=0A=
->> I assume MTE does not apply at all to VM_PFNMAP, at least=0A=
->> arch_calc_vm_flag_bits() tells me that VM_MTE_ALLOWED should never get s=
-et=0A=
->> there.=0A=
->=0A=
-> As far as I know, it is completely platform specific what addresses MTE=
-=0A=
-> will work on. For instance, I would expect a MTE capable platform with=0A=
-> CXL to want to make MTE work on the CXL memory too.=0A=
->=0A=
-> However, given we have no way of discovery, limiting MTE to boot time=0A=
-> system memory seems like the right thing to do for now - which we can=0A=
-> achieve by forbidding it from VM_PFNMAP.=0A=
->=0A=
-> Having VFIO add VM_MTE_ALLOWED someday might make sense if someone=0A=
-> solves the discoverability problem.=0A=
-=0A=
-Currently in the patch we check the following. So Jason, is the suggestion =
-that=0A=
-we simply return error to forbid such condition if VM_PFNMAP is set?=0A=
-+	else if (!mte_allowed && kvm_has_mte(kvm))=0A=
-=0A=
-- Ankit Agrawal=0A=
+
+
+On 1/14/2025 12:35 PM, Krzysztof Kozlowski wrote:
+> Replace ternary (condition ? "enable" : "disable") syntax with helpers
+> from string_choices.h because:
+> 1. Simple function call with one argument is easier to read.  Ternary
+>     operator has three arguments and with wrapping might lead to quite
+>     long code.
+> 2. Is slightly shorter thus also easier to read.
+> 3. It brings uniformity in the text - same string.
+> 4. Allows deduping by the linker, which results in a smaller binary
+>     file.
+> 
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+-- 
+Florian
+
 
