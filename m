@@ -4,196 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F8F5C02183
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 064D7E77188
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 20:17:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7V7nhTs2/DcjENjxuMrL/VjH32rJOKo1iudfcp3h9NM=; b=BOwhmICe8I9vXihTBp9AKNZg5Z
-	+nfUqVjkK75flRTFu5HP9HwQyd3jK8aAYgiURl+4Pk22NWntMWO4tsx0aMysku7tHdrT+9XueiAVM
-	hwnZAr2Ox+uIHaCY7yYg7kQN2DFeVIeymSXwQJWWCDDZeaP3pYEzCE5El4RpsR+V43WbgqQeeSsQq
-	1FvzJ2c+1PtYUUQXhy1GZ2L6Q2ZPoxjsFjTrfwJlKmK/LadxMH2nm+vpqkklcipuhUskWwAD+Iddk
-	fBW4cCB78no5T/Eja3FIWxajtZ1Ls6PMVAaCxfdpBac30C1xKUHxutjvIR4vjHQmeOGB3lBXCgKWQ
-	tBjRxxCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oQ6kl1euqxUXFmiD96nPxmfZ3b58EO9sP3qhQv0QOX0=; b=Nm9Zx2eA/LWkoPBqKNFp7RV9l0
+	KaoUwyas1bbx51M6JbTv/jOO2M2HcDiw1Q6WCaSbry1AaOQCcS3ire+tT8tTLKIDRSOr0zqqqi9st
+	v7Q7980PHTJBzmT+X8bGtMznwOKOuOCa4QvyegLA/lrIiuE6zkgd0CRJl2V56QtXZxuengm+Y6+eL
+	2urRam/85h8/kfs3f6jIgtEbUFW30iybwm4Vj6X1GjiO+Jo98/ZcCUeAZgFNGFggJGNPvE+6DwQO3
+	z5l39BQPmsU8Z2A5d33BU7lhULYiMFfUZ/uynh+r9h950Y2CCyc/hmMeHegq38wAS+E21lrK8M5RP
+	47N/P71g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXnLq-00000009eEF-2vtG;
-	Tue, 14 Jan 2025 20:17:26 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1tXnLr-00000009eEa-0woA;
+	Tue, 14 Jan 2025 20:17:27 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXmE1-00000009UHu-3kdE
+	id 1tXmNC-00000009VOs-1lDH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 19:05:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1736881518; x=1768417518;
-  h=date:from:to:cc:subject:message-id:references:
-   in-reply-to:mime-version;
-  bh=BpDA5mU4L0PPNZzo0g4pNf/kJLFJ+/ntb2ma2NNkuA0=;
-  b=HK3XVSDaTp3UnJH2jpMT2eOcmsP6+OqPneC48Z76in2D490HzAvNeJGA
-   Qs8xroJ5iwAilt+kz55tQ75OLo6nhczXtLlkU9vBsGvYBZBfZI+FjS3Se
-   XBl6MAF4tH6aHlSWYzjsI11jyd/RLd+Spt1B8vhlA/nb4CUlgdJzhh6eB
-   4qEUPjHqVMByh0Atjqg55e88toXhLaflZR/5WfDVqV/RXKfZhlDVNOZcB
-   pQO6dyCyqPdFl0rxyJg6bINog7XIDgU717GXUde+xUTOtQufevYjE9XDD
-   VYjUX6lRFXXK7673mlUxfX4qYfq8ub0/Vl6wAPFnMroUv/i3F8GYQl2rG
-   Q==;
-X-CSE-ConnectionGUID: mPRP1lwZQmuwPHXQPXz0lQ==
-X-CSE-MsgGUID: mBOULEk2TfmKUOhlXmBlHg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11315"; a="40872920"
-X-IronPort-AV: E=Sophos;i="6.12,315,1728975600"; 
-   d="scan'208";a="40872920"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jan 2025 11:04:10 -0800
-X-CSE-ConnectionGUID: IHadNigEQv6jB96c0tlPzw==
-X-CSE-MsgGUID: sLbsqhXvQgiZ2O6dMuZt6Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="108947757"
-Received: from orsmsx601.amr.corp.intel.com ([10.22.229.14])
-  by fmviesa003.fm.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 14 Jan 2025 11:03:49 -0800
-Received: from orsmsx601.amr.corp.intel.com (10.22.229.14) by
- ORSMSX601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Tue, 14 Jan 2025 11:03:41 -0800
-Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
- orsmsx601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44 via Frontend Transport; Tue, 14 Jan 2025 11:03:41 -0800
-Received: from NAM04-BN8-obe.outbound.protection.outlook.com (104.47.74.43) by
- edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.44; Tue, 14 Jan 2025 11:03:39 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kGbnHAztHucjTe12A9XHRxrZYgIwIey4NY6Bqm5BuILQsP6iWRcdsOEub7g9cvljOb/UeDR8CeUEdeaBlZjES27Ig03jDWM10u3Mql44tes3uQGB67Xq1M2KR8TxL64QDq+Ha6obbnruZWNM2nvztkl5cuPITso0VhHDOB6w06mkTPgLsgKiaZWkjx70Z0TsUflLB6BI/jA2cncdml8NcMp3Vs+JRwsqYg4Xc0X10Vx4/eAZiO3RJx4H0bID/8Eb16l+zA6UJ7K5gFXyfWCcaQ6u1U6ZhbtlzlBmkhEoCb4GuNkuVHeJUouHeVbBwez1cKKg7n4b0jWHEuVZ1egCng==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7V7nhTs2/DcjENjxuMrL/VjH32rJOKo1iudfcp3h9NM=;
- b=XPi0WCFKv85Ch2ZCimUAdgtO7qpJuiTu4jnXc1Dq+/kYO+Ki3jKjD/eQG9h516gUGqlhERIjDRQjV/aa3zf7zJiXCuC15IBwFXwdCqFfNLFVx3uxRqa+GgA4gWw8K2s7uIKSJjWJNRckDYRatTP2o1XK05Jw9mff+9x7J202xNFT0q13mQGdDLPYLITzB0QM5GVfW7qjzWA5kl6VG76M0thzClTwwCsG7Ph6TYVsfQnNIQQLj5HhURGFr3FTsALg91DYlV8B+W0/0KjX0y4k3S+o9OJ8s0zVqigh2/HH2rWmm6mOablqa2vz46jnvL8/wIrvf498fGo6OoVc2csPBQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from PH8PR11MB8107.namprd11.prod.outlook.com (2603:10b6:510:256::6)
- by PH7PR11MB7498.namprd11.prod.outlook.com (2603:10b6:510:276::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.12; Tue, 14 Jan
- 2025 19:03:36 +0000
-Received: from PH8PR11MB8107.namprd11.prod.outlook.com
- ([fe80::6b05:74cf:a304:ecd8]) by PH8PR11MB8107.namprd11.prod.outlook.com
- ([fe80::6b05:74cf:a304:ecd8%5]) with mapi id 15.20.8356.010; Tue, 14 Jan 2025
- 19:03:36 +0000
-Date: Tue, 14 Jan 2025 11:03:32 -0800
-From: Dan Williams <dan.j.williams@intel.com>
-To: Alistair Popple <apopple@nvidia.com>, <akpm@linux-foundation.org>,
-	<dan.j.williams@intel.com>, <linux-mm@kvack.org>
-CC: <alison.schofield@intel.com>, Alistair Popple <apopple@nvidia.com>,
-	<lina@asahilina.net>, <zhang.lyra@gmail.com>,
-	<gerald.schaefer@linux.ibm.com>, <vishal.l.verma@intel.com>,
-	<dave.jiang@intel.com>, <logang@deltatee.com>, <bhelgaas@google.com>,
-	<jack@suse.cz>, <jgg@ziepe.ca>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<mpe@ellerman.id.au>, <npiggin@gmail.com>, <dave.hansen@linux.intel.com>,
-	<ira.weiny@intel.com>, <willy@infradead.org>, <djwong@kernel.org>,
-	<tytso@mit.edu>, <linmiaohe@huawei.com>, <david@redhat.com>,
-	<peterx@redhat.com>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linuxppc-dev@lists.ozlabs.org>, <nvdimm@lists.linux.dev>,
-	<linux-cxl@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
-	<linux-ext4@vger.kernel.org>, <linux-xfs@vger.kernel.org>,
-	<jhubbard@nvidia.com>, <hch@lst.de>, <david@fromorbit.com>,
-	<chenhuacai@kernel.org>, <kernel@xen0n.name>, <loongarch@lists.linux.dev>
-Subject: Re: [PATCH v6 24/26] mm: Remove devmap related functions and page
- table bits
-Message-ID: <6786b5042faaf_20f329461@dwillia2-xfh.jf.intel.com.notmuch>
-References: <cover.11189864684e31260d1408779fac9db80122047b.1736488799.git-series.apopple@nvidia.com>
- <42a318bcbb65931958e52ce4b1334f3d012cbd6f.1736488799.git-series.apopple@nvidia.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <42a318bcbb65931958e52ce4b1334f3d012cbd6f.1736488799.git-series.apopple@nvidia.com>
-X-ClientProxiedBy: MW3PR06CA0023.namprd06.prod.outlook.com
- (2603:10b6:303:2a::28) To PH8PR11MB8107.namprd11.prod.outlook.com
- (2603:10b6:510:256::6)
+	Tue, 14 Jan 2025 19:14:47 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-385db79aafbso487251f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 11:14:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1736882085; x=1737486885; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=oQ6kl1euqxUXFmiD96nPxmfZ3b58EO9sP3qhQv0QOX0=;
+        b=u9FUSz+bbP+gS8TksWJ1juwLvJbJwg8bsI7cWMO+dCCfMyEImh1aCfyi4KdHl7SZZk
+         ZecsWo9g6wrsWtfSkVVmbXXWksQKPyBWRrGK9FEFwJnzA29sMn+mnl4WwuhAlFknqVar
+         Cpu+r+RlLPoCjr2DwsG2DCQwCm1mR5N4B1W+REiKRWm0+BeZpHgRVnpzJlx+RPHLaKKi
+         aMOoArXNLj5GzTzX23QtvkFjIob3M448GWU4VlETUMlI+Om98HaEy9VH873Orc0xlSMx
+         +PIxQsjhKe3DXvVKlqVHXWBMgpbemenxC9dAfWPYUNDvA0LBUHAG2F+1NwONrbi7CSoT
+         Gfcg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736882085; x=1737486885;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=oQ6kl1euqxUXFmiD96nPxmfZ3b58EO9sP3qhQv0QOX0=;
+        b=gSRmJEP+J0xvTuPJ9hHrY/Q9sTs13i4iCYKEIKL3IsLEKu5p4J/pL8zPBK/on+rFLf
+         UKjJzDbwnEjzExtLePakB3EnL0kCrYe/9zlkIqfCweTq/0PVtVXCWQgATbyOD7OYWnYs
+         2Na48E0y4+Tdvqr4YJTNBaSn5H3pxrCX1nfx/7EKKVD0jr2QEAO7cjD+VK2tXoepOc/M
+         6k0+27G42NgUsBGDhf9d/oEJffDlyWoza8fX2+Mh3+hwi5nFyM+wBKLTviEDDe+wtdqu
+         6/uGMcfyVYREcguRKOZQZ7UFW7FvLluusvDvQ4FybbShTtVUvd3RsTTadSBClmcbH2bA
+         obqw==
+X-Forwarded-Encrypted: i=1; AJvYcCVP1MD1c0jjan8iYTdIVAFpTFnhtkhHXergSudpHixCwvOCf9MI5xt2CDKp0rwZAhcwUoULieGbLJ1MoU6Vfg1b@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzati4C3hTCWAZWJ39RiX2KMeVTdmZlUh60AjcYjXrHHihHLS0z
+	MKtlsJG30lLfCRgLcEF+vg8SLa+8muCCPLk8srVsZEC4tZ+GPDUPWrEoWcQRbgQ=
+X-Gm-Gg: ASbGncvuw2sMCWm4MoJZc295o0wDNXE0+be7t6zhkA22IiOtNBX2hVflcqnZC5f1686
+	mg7vzxVtW6Qukj2QfocbqfQwI+2KbZcJC3mrBA7XqsVu6TAmncbArqDPD3mzYpeN5scU/1sHKpL
+	smu45TtlZkzU+NWKW1WEx4YzBgMx2fbTkstZ5k3Mib+6wc4JsHCjSip7M9MrqErqIh4GjznHdVA
+	P/om8ljsi04spYTAPEJ+Ow2PD0ArfUGh0pmX2LxJR2Jq7t/NfV8qwub6tPXHXxe/zH2B4w=
+X-Google-Smtp-Source: AGHT+IH1zV4TdpuGEzXlmDKzlhTZeOglE/e6Vh0NhLYPgPb3r+w0Yshbz4UIzt3sqXZwggicjeJV+A==
+X-Received: by 2002:a05:6000:18a3:b0:38a:615c:8266 with SMTP id ffacd0b85a97d-38a872d2e1cmr9347396f8f.1.1736882084522;
+        Tue, 14 Jan 2025 11:14:44 -0800 (PST)
+Received: from krzk-bin.. ([178.197.223.165])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a8e4b80b2sm15415992f8f.80.2025.01.14.11.14.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Jan 2025 11:14:43 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Doug Berger <opendmb@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Andy Shevchenko <andy@kernel.org>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Kuppuswamy Sathyanarayanan <sathyanarayanan.kuppuswamy@linux.intel.com>,
+	Nandor Han <nandor.han@ge.com>,
+	linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-pwm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	patches@opensource.cirrus.com
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v2] gpio: Use str_enable_disable-like helpers
+Date: Tue, 14 Jan 2025 20:14:38 +0100
+Message-ID: <20250114191438.857656-1-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH8PR11MB8107:EE_|PH7PR11MB7498:EE_
-X-MS-Office365-Filtering-Correlation-Id: 485f96f0-8827-4d03-df61-08dd34ce264b
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|1800799024|376014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?LT6FEb7V+IJQpITwnWrQ+H6dYvISB9/G/LOXF6Vh50UbvmBqlIpLJg5BSage?=
- =?us-ascii?Q?2o2V/Onsqo6PncDZAUjJqtJoYBfQ614bIyDJGoFBbCLUXa8KKNAR2Qt+4lla?=
- =?us-ascii?Q?f2jD2vind31400UNb3BMPLGewAr06T6hfUSQHh0KZpgiZpcjE6CfwKwng2kT?=
- =?us-ascii?Q?RD8mKIUjWaxPzyvxoiZLKUrkSicSoDiIKAQt/flQsIdZRiKZjyLyly/lrvGG?=
- =?us-ascii?Q?Pd7aw1Bzz4lY2xiMopHIyoGuuZvoIfnyvEZyJ5BUywnoJVjv2dHpZOH0FXcD?=
- =?us-ascii?Q?GhrEO4yLNriTJwGNSb6RUker/y6AvLS5ao8NGPycER/bsBOpJ4xDawdM0Qe3?=
- =?us-ascii?Q?lxVv9W7p56gdPWWMJQimyGYgIGQQcJxRH+JvAndBm4PHWph0FZHPwX9hy1kt?=
- =?us-ascii?Q?0ZNpSWtqoL39K/x/nKhCcNefuy5TOithZGSg9hEgvYdmQq7MzFgZvqCdz2fR?=
- =?us-ascii?Q?RVjepnPD/vZiQ99NCtWNSYajr9/XU/zM+8nxpfq3PZEeooywVZkSJiP7Dhxw?=
- =?us-ascii?Q?oCfsg/Ik26N2hwZtQRKCr7XpaMbWf/ANmQPXgYaLBOaOHP3INIfTLwf0guLR?=
- =?us-ascii?Q?ltlxM0UVXfdFEo0XZANNPz5SJD/KhPOVtvQyhawF4re5yiDA3BWMlHg553Qs?=
- =?us-ascii?Q?U0YgoJgM/SgptyEva/n4rXl43532xX9Q42W+pi59yWZVJzENjEsrIx/IXU1x?=
- =?us-ascii?Q?20TijyyRqaEWzDXnsiJgQN+tCgd/n//hdiNSE4kYnJrmpbgYhBhJRCxz+M7i?=
- =?us-ascii?Q?UI8/EddFFMIqNuyIbdrWDy44e9Zn4PB2HhvKgSJamzmZ99QivnQ3N8X557Et?=
- =?us-ascii?Q?/TqdTRpwOJTy/ihlKg0zWk9RieQg4Li/aH6Qd8hgeQS6PgeSEs48Mrd+W2r0?=
- =?us-ascii?Q?ANvbxTgOp9nNDWbTai0AI3UyTJfwG19IjdtWhxPWtVi3IH3LoubYwYYeCv0k?=
- =?us-ascii?Q?uQF4WEA6GQlXwph2BgRev/Jp7V5jhYxewA7eh2xdftcKYVKRg490DLTyBBZ9?=
- =?us-ascii?Q?w2Yz/zptsBoJQLwd7KUFuPCNqr3l8pT6ew/EDBrjfW4bSTJ1M7elpe6Wl5gI?=
- =?us-ascii?Q?LUWKOCewhCXD4Anlnz/7kyjYhTQvVRKeYsJkp12asTLz7fdTMoetOfDCbtu8?=
- =?us-ascii?Q?QrhBiVvHoGMfxWuqXNlXZY02/P8IoLL0d1ypRlJco4sr/mYrOGVE0+eEg5kB?=
- =?us-ascii?Q?7E7t69lih9JzxRCAHrJhpMASXaUND6Pa4Z1UaWUay66nYN8GadThLF31Cm+s?=
- =?us-ascii?Q?H71NF1Up457/vFGDbBPFIACO8Tmk1anehLdD5QMsMZaqqM7Tzm0ogFBXiLQJ?=
- =?us-ascii?Q?6IHI1wkEuHuX7WZ7nPC/M7eXx0Y8T69Z5PENc1iOOXhHESPq4fG5+MpMvfum?=
- =?us-ascii?Q?ZfVaKJnuGdXzPYvsBXKVVH+cweek?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH8PR11MB8107.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(1800799024)(376014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?5QvotG+uk+5cELluKYFpXxqVNrqtPycJ6oVG/PhbfsUAfC2BhcheJYsmY1dT?=
- =?us-ascii?Q?v2DH7a2n71pVLstI7UNfskRzOah+3FFBT7zd1cI4YqlUR+lkjmmnzEclNHpP?=
- =?us-ascii?Q?ZZP19svUpmhLb3WJvtBMfwoSCiCIp/3oUC1Nl1JIrKzy1rLdKyDU2UthKFUM?=
- =?us-ascii?Q?HbNjcvn+UKbCq2Mi97yD5riU+70bA2xSX7IA/6gJm14SgLY5fkINW9hmkkEV?=
- =?us-ascii?Q?ig6NHZu6O64LFOp+NKmgrz9ULAKK6knoH1Hl3fHY99j4/BwQXymO8A2uCFHT?=
- =?us-ascii?Q?Ni0IFe+nxPh83MxJ/RjbDfDN5HS+O/2/57+mt9p/1sIJubrLjGIKSYqxzTJs?=
- =?us-ascii?Q?sg/TgGBNGlNXWvAdkqMREYJKdePrI8maAIvOKPK954rDrYKg3cb4GPVjjJgm?=
- =?us-ascii?Q?XHyYCBZrpauN0cRwnm1LQ/ilDk6xvTN30EpYiOxOUOXTdbO68FHb25F4E1wl?=
- =?us-ascii?Q?17pgs4zlBWv6vzRDLQJnApRcYVnEvtykc2X3yzigk2xigzwwPL53nEjZ2Pzf?=
- =?us-ascii?Q?2QEQwXHrR2uuS+/yi24+4TWfiBMwKSlcoRUUhOIiIGZQgoK9htNOcSpGYqHo?=
- =?us-ascii?Q?lC7fWneRMC6vHNPaRw23WX2LmldY+TSrCa707yyLvVUkQkyaFF3/8LCScstQ?=
- =?us-ascii?Q?8BD4H19KrMEDIqWNhj30k9dKl8/PcDaTqBDHIaJNeSlq8Ys4T82B888ZkLl/?=
- =?us-ascii?Q?qMyaXd4NLSH8oHcdpg142qqr/Qjv6PM4nqtZ+48u4KueKWP9RMOvDuPd+n3R?=
- =?us-ascii?Q?hMeZVC9u642wdXN9SsLcV/Np8Y8L8JJd5OMMl9TdHQUZ+R5aLXvgGPqywS06?=
- =?us-ascii?Q?0hfZKv/24Q/NCrfyCwLrS36HkD1gR1VRbHAtx7eRCFf/XhMNK7gsevcphhF+?=
- =?us-ascii?Q?KFq+5d1fjFTw/ARxTmMALIsE8bwyMLEO5X4rS7jnQ0/eZt7Q0+s7f33bCJF+?=
- =?us-ascii?Q?bwRQzJjGCqHZkW47uyI8awDWCnqsQJ5Wf103NlRLzYmGHzUt92OdKe5V1XDF?=
- =?us-ascii?Q?DciOthfrjXS7adUIs0U0nn8u6Cjp2hebvtCGydozFiUlw15txIBGApEvxD9p?=
- =?us-ascii?Q?aWaIBGH+g07GjPaxgN6lGALEdPgBWWFeVvrw5e3+BYQL52gH/KOLTd6Du2Vu?=
- =?us-ascii?Q?iMFmcJlLvqJYeEPP3Ghux/YlBvu0TbGlid8GYTKC9iFV1E9GjkDgBY9m2AY7?=
- =?us-ascii?Q?ht3Wh3PSibM9HdAN2e2LkyMYPN9jzDhBO0jl+77FiVjqrLLV/zOM2HB7+fjm?=
- =?us-ascii?Q?Lfw3GsUhT/dnxtOahiwVv0vHeSelNGOLTchrEm4ZS1SIJQ6ixsZxVVDLlHbx?=
- =?us-ascii?Q?U1FRUfN3ZfNia0aSQ/ZMUn+aRDc6lvl5MEAwaCb2pVvp4XR5Ad5IDMu5aY1y?=
- =?us-ascii?Q?z8ce503XfUR2gNRITaiTZZadoCGiZeeCXyU4CDGnXYZHlPClRiUnmGKfEoBE?=
- =?us-ascii?Q?bJ+Hy0wzZN52gammQf4gA5g1i4uAYpVUxuwFOrNq5DuYlO+Ua730bjh/BBjJ?=
- =?us-ascii?Q?2+w4ROtEsJXD92+gni13iFPhlEplR7GyBJ/ekZ3tzmUm0h0om8+JpGkFoX55?=
- =?us-ascii?Q?uq4YV7inHvnledb1QG9t5ltF/SOcT7b9dlmY5f3TGPx1hnh8XJi/V8YVW4Yd?=
- =?us-ascii?Q?Xw=3D=3D?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 485f96f0-8827-4d03-df61-08dd34ce264b
-X-MS-Exchange-CrossTenant-AuthSource: PH8PR11MB8107.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jan 2025 19:03:36.8125
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +4gQ/mdMWOSFyyJiXIWA61+kggst/stmMmqObVTSu+/NUgGTfVew0sR9IrZJsIFth93d3WOFoLre6JzD8TKz5M67VhGqEK4/CVTBHG8A4MU=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR11MB7498
-X-OriginatorOrg: intel.com
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_110517_999445_40C0CE22 
-X-CRM114-Status: UNSURE (   8.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250114_111446_466589_8864D437 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -208,16 +108,265 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Alistair Popple wrote:
-> Now that DAX and all other reference counts to ZONE_DEVICE pages are
-> managed normally there is no need for the special devmap PTE/PMD/PUD
-> page table bits. So drop all references to these, freeing up a
-> software defined page table bit on architectures supporting it.
-> 
-> Signed-off-by: Alistair Popple <apopple@nvidia.com>
-> Acked-by: Will Deacon <will@kernel.org> # arm64
+Replace ternary (condition ? "enable" : "disable") syntax with helpers
+from string_choices.h because:
+1. Simple function call with one argument is easier to read.  Ternary
+   operator has three arguments and with wrapping might lead to quite
+   long code.
+2. Is slightly shorter thus also easier to read.
+3. It brings uniformity in the text - same string.
+4. Allows deduping by the linker, which results in a smaller binary
+   file.
 
-Hooray! Looks good to me modulo breaking up the previous patch.
+Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+---
 
-Reviewed-by: Dan Williams <dan.j.williams@intel.com>
+Changes in v2:
+1. Many more files changed.
+---
+ drivers/gpio/gpio-brcmstb.c     | 3 ++-
+ drivers/gpio/gpio-crystalcove.c | 3 ++-
+ drivers/gpio/gpio-grgpio.c      | 3 ++-
+ drivers/gpio/gpio-mvebu.c       | 7 ++++---
+ drivers/gpio/gpio-nomadik.c     | 3 ++-
+ drivers/gpio/gpio-stmpe.c       | 6 +++---
+ drivers/gpio/gpio-wcove.c       | 3 ++-
+ drivers/gpio/gpio-wm831x.c      | 3 ++-
+ drivers/gpio/gpio-xra1403.c     | 3 ++-
+ drivers/gpio/gpiolib.c          | 3 ++-
+ 10 files changed, 23 insertions(+), 14 deletions(-)
+
+diff --git a/drivers/gpio/gpio-brcmstb.c b/drivers/gpio/gpio-brcmstb.c
+index 491b529d25f8..ca3472977431 100644
+--- a/drivers/gpio/gpio-brcmstb.c
++++ b/drivers/gpio/gpio-brcmstb.c
+@@ -9,6 +9,7 @@
+ #include <linux/irqchip/chained_irq.h>
+ #include <linux/interrupt.h>
+ #include <linux/platform_device.h>
++#include <linux/string_choices.h>
+ 
+ enum gio_reg_index {
+ 	GIO_REG_ODEN = 0,
+@@ -224,7 +225,7 @@ static int brcmstb_gpio_priv_set_wake(struct brcmstb_gpio_priv *priv,
+ 		ret = disable_irq_wake(priv->parent_wake_irq);
+ 	if (ret)
+ 		dev_err(&priv->pdev->dev, "failed to %s wake-up interrupt\n",
+-				enable ? "enable" : "disable");
++			str_enable_disable(enable));
+ 	return ret;
+ }
+ 
+diff --git a/drivers/gpio/gpio-crystalcove.c b/drivers/gpio/gpio-crystalcove.c
+index 25db014494a4..56effd0f50c7 100644
+--- a/drivers/gpio/gpio-crystalcove.c
++++ b/drivers/gpio/gpio-crystalcove.c
+@@ -15,6 +15,7 @@
+ #include <linux/platform_device.h>
+ #include <linux/regmap.h>
+ #include <linux/seq_file.h>
++#include <linux/string_choices.h>
+ #include <linux/types.h>
+ 
+ #define CRYSTALCOVE_GPIO_NUM	16
+@@ -317,7 +318,7 @@ static void crystalcove_gpio_dbg_show(struct seq_file *s, struct gpio_chip *chip
+ 		offset = gpio % 8;
+ 		seq_printf(s, " gpio-%-2d %s %s %s %s ctlo=%2x,%s %s %s\n",
+ 			   gpio, ctlo & CTLO_DIR_OUT ? "out" : "in ",
+-			   ctli & 0x1 ? "hi" : "lo",
++			   str_hi_lo(ctli & 0x1),
+ 			   ctli & CTLI_INTCNT_NE ? "fall" : "    ",
+ 			   ctli & CTLI_INTCNT_PE ? "rise" : "    ",
+ 			   ctlo,
+diff --git a/drivers/gpio/gpio-grgpio.c b/drivers/gpio/gpio-grgpio.c
+index 169f33c41c59..30a0522ae735 100644
+--- a/drivers/gpio/gpio-grgpio.c
++++ b/drivers/gpio/gpio-grgpio.c
+@@ -30,6 +30,7 @@
+ #include <linux/platform_device.h>
+ #include <linux/slab.h>
+ #include <linux/spinlock.h>
++#include <linux/string_choices.h>
+ 
+ #define GRGPIO_MAX_NGPIO 32
+ 
+@@ -438,7 +439,7 @@ static int grgpio_probe(struct platform_device *ofdev)
+ 	}
+ 
+ 	dev_info(dev, "regs=0x%p, base=%d, ngpio=%d, irqs=%s\n",
+-		 priv->regs, gc->base, gc->ngpio, priv->domain ? "on" : "off");
++		 priv->regs, gc->base, gc->ngpio, str_on_off(priv->domain));
+ 
+ 	return 0;
+ }
+diff --git a/drivers/gpio/gpio-mvebu.c b/drivers/gpio/gpio-mvebu.c
+index 5ffb332e9849..363bad286c32 100644
+--- a/drivers/gpio/gpio-mvebu.c
++++ b/drivers/gpio/gpio-mvebu.c
+@@ -49,6 +49,7 @@
+ #include <linux/pwm.h>
+ #include <linux/regmap.h>
+ #include <linux/slab.h>
++#include <linux/string_choices.h>
+ 
+ /*
+  * GPIO unit register offsets.
+@@ -907,14 +908,14 @@ static void mvebu_gpio_dbg_show(struct seq_file *s, struct gpio_chip *chip)
+ 
+ 		if (is_out) {
+ 			seq_printf(s, " out %s %s\n",
+-				   out & msk ? "hi" : "lo",
++				   str_hi_lo(out & msk),
+ 				   blink & msk ? "(blink )" : "");
+ 			continue;
+ 		}
+ 
+ 		seq_printf(s, " in  %s (act %s) - IRQ",
+-			   (data_in ^ in_pol) & msk  ? "hi" : "lo",
+-			   in_pol & msk ? "lo" : "hi");
++			   str_hi_lo((data_in ^ in_pol) & msk),
++			   str_lo_hi(in_pol & msk));
+ 		if (!((edg_msk | lvl_msk) & msk)) {
+ 			seq_puts(s, " disabled\n");
+ 			continue;
+diff --git a/drivers/gpio/gpio-nomadik.c b/drivers/gpio/gpio-nomadik.c
+index 836f1cc760c2..fa19a44943fd 100644
+--- a/drivers/gpio/gpio-nomadik.c
++++ b/drivers/gpio/gpio-nomadik.c
+@@ -30,6 +30,7 @@
+ #include <linux/reset.h>
+ #include <linux/seq_file.h>
+ #include <linux/slab.h>
++#include <linux/string_choices.h>
+ #include <linux/types.h>
+ 
+ #include <linux/gpio/gpio-nomadik.h>
+@@ -430,7 +431,7 @@ void nmk_gpio_dbg_show_one(struct seq_file *s, struct pinctrl_dev *pctldev,
+ 		seq_printf(s, " gpio-%-3d (%-20.20s) out %s           %s",
+ 			   gpio,
+ 			   label ?: "(none)",
+-			   data_out ? "hi" : "lo",
++			   str_hi_lo(data_out),
+ 			   (mode < 0) ? "unknown" : modes[mode]);
+ 	} else {
+ 		int irq = chip->to_irq(chip, offset);
+diff --git a/drivers/gpio/gpio-stmpe.c b/drivers/gpio/gpio-stmpe.c
+index 75a3633ceddb..2e22e1eb7495 100644
+--- a/drivers/gpio/gpio-stmpe.c
++++ b/drivers/gpio/gpio-stmpe.c
+@@ -15,6 +15,7 @@
+ #include <linux/platform_device.h>
+ #include <linux/seq_file.h>
+ #include <linux/slab.h>
++#include <linux/string_choices.h>
+ 
+ /*
+  * These registers are modified under the irq bus lock and cached to avoid
+@@ -273,8 +274,7 @@ static void stmpe_dbg_show_one(struct seq_file *s,
+ 
+ 	if (dir) {
+ 		seq_printf(s, " gpio-%-3d (%-20.20s) out %s",
+-			   gpio, label ?: "(none)",
+-			   val ? "hi" : "lo");
++			   gpio, label ?: "(none)", str_hi_lo(val));
+ 	} else {
+ 		u8 edge_det_reg;
+ 		u8 rise_reg;
+@@ -343,7 +343,7 @@ static void stmpe_dbg_show_one(struct seq_file *s,
+ 
+ 		seq_printf(s, " gpio-%-3d (%-20.20s) in  %s %13s %13s %25s %25s",
+ 			   gpio, label ?: "(none)",
+-			   val ? "hi" : "lo",
++			   str_hi_lo(val),
+ 			   edge_det_values[edge_det],
+ 			   irqen ? "IRQ-enabled" : "IRQ-disabled",
+ 			   rise_values[rise],
+diff --git a/drivers/gpio/gpio-wcove.c b/drivers/gpio/gpio-wcove.c
+index 94ca9d03c094..1ec24f6f9300 100644
+--- a/drivers/gpio/gpio-wcove.c
++++ b/drivers/gpio/gpio-wcove.c
+@@ -15,6 +15,7 @@
+ #include <linux/platform_device.h>
+ #include <linux/regmap.h>
+ #include <linux/seq_file.h>
++#include <linux/string_choices.h>
+ 
+ /*
+  * Whiskey Cove PMIC has 13 physical GPIO pins divided into 3 banks:
+@@ -393,7 +394,7 @@ static void wcove_gpio_dbg_show(struct seq_file *s, struct gpio_chip *chip)
+ 
+ 		seq_printf(s, " gpio-%-2d %s %s %s %s ctlo=%2x,%s %s\n",
+ 			   gpio, ctlo & CTLO_DIR_OUT ? "out" : "in ",
+-			   ctli & 0x1 ? "hi" : "lo",
++			   str_hi_lo(ctli & 0x1),
+ 			   ctli & CTLI_INTCNT_NE ? "fall" : "    ",
+ 			   ctli & CTLI_INTCNT_PE ? "rise" : "    ",
+ 			   ctlo,
+diff --git a/drivers/gpio/gpio-wm831x.c b/drivers/gpio/gpio-wm831x.c
+index f7d5120ff8f1..61bb83a1e8ae 100644
+--- a/drivers/gpio/gpio-wm831x.c
++++ b/drivers/gpio/gpio-wm831x.c
+@@ -16,6 +16,7 @@
+ #include <linux/mfd/core.h>
+ #include <linux/platform_device.h>
+ #include <linux/seq_file.h>
++#include <linux/string_choices.h>
+ 
+ #include <linux/mfd/wm831x/core.h>
+ #include <linux/mfd/wm831x/pdata.h>
+@@ -234,7 +235,7 @@ static void wm831x_gpio_dbg_show(struct seq_file *s, struct gpio_chip *chip)
+ 		seq_printf(s, " %s %s %s %s%s\n"
+ 			   "                                  %s%s (0x%4x)\n",
+ 			   reg & WM831X_GPN_DIR ? "in" : "out",
+-			   wm831x_gpio_get(chip, i) ? "high" : "low",
++			   str_high_low(wm831x_gpio_get(chip, i)),
+ 			   pull,
+ 			   powerdomain,
+ 			   reg & WM831X_GPN_POL ? "" : " inverted",
+diff --git a/drivers/gpio/gpio-xra1403.c b/drivers/gpio/gpio-xra1403.c
+index dc2710c21c50..842cf875bb92 100644
+--- a/drivers/gpio/gpio-xra1403.c
++++ b/drivers/gpio/gpio-xra1403.c
+@@ -13,6 +13,7 @@
+ #include <linux/mutex.h>
+ #include <linux/seq_file.h>
+ #include <linux/spi/spi.h>
++#include <linux/string_choices.h>
+ #include <linux/regmap.h>
+ 
+ /* XRA1403 registers */
+@@ -140,7 +141,7 @@ static void xra1403_dbg_show(struct seq_file *s, struct gpio_chip *chip)
+ 		seq_printf(s, " gpio-%-3d (%-12s) %s %s\n",
+ 			   chip->base + i, label,
+ 			   (gcr & BIT(i)) ? "in" : "out",
+-			   (gsr & BIT(i)) ? "hi" : "lo");
++			   str_hi_lo(gsr & BIT(i)));
+ 	}
+ }
+ #else
+diff --git a/drivers/gpio/gpiolib.c b/drivers/gpio/gpiolib.c
+index 679ed764cb14..be3351583508 100644
+--- a/drivers/gpio/gpiolib.c
++++ b/drivers/gpio/gpiolib.c
+@@ -26,6 +26,7 @@
+ #include <linux/slab.h>
+ #include <linux/srcu.h>
+ #include <linux/string.h>
++#include <linux/string_choices.h>
+ 
+ #include <linux/gpio.h>
+ #include <linux/gpio/driver.h>
+@@ -5007,7 +5008,7 @@ static void gpiolib_dbg_show(struct seq_file *s, struct gpio_device *gdev)
+ 			seq_printf(s, " gpio-%-3u (%-20.20s|%-20.20s) %s %s %s%s\n",
+ 				   gpio, desc->name ?: "", gpiod_get_label(desc),
+ 				   is_out ? "out" : "in ",
+-				   value >= 0 ? (value ? "hi" : "lo") : "?  ",
++				   value >= 0 ? str_hi_lo(value) : "?  ",
+ 				   is_irq ? "IRQ " : "",
+ 				   active_low ? "ACTIVE LOW" : "");
+ 		} else if (desc->name) {
+-- 
+2.43.0
+
 
