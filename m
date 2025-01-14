@@ -4,96 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 064D7E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 20:17:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37BB9C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 20:22:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=oQ6kl1euqxUXFmiD96nPxmfZ3b58EO9sP3qhQv0QOX0=; b=Nm9Zx2eA/LWkoPBqKNFp7RV9l0
-	KaoUwyas1bbx51M6JbTv/jOO2M2HcDiw1Q6WCaSbry1AaOQCcS3ire+tT8tTLKIDRSOr0zqqqi9st
-	v7Q7980PHTJBzmT+X8bGtMznwOKOuOCa4QvyegLA/lrIiuE6zkgd0CRJl2V56QtXZxuengm+Y6+eL
-	2urRam/85h8/kfs3f6jIgtEbUFW30iybwm4Vj6X1GjiO+Jo98/ZcCUeAZgFNGFggJGNPvE+6DwQO3
-	z5l39BQPmsU8Z2A5d33BU7lhULYiMFfUZ/uynh+r9h950Y2CCyc/hmMeHegq38wAS+E21lrK8M5RP
-	47N/P71g==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=au0zSD9uIzk8KDMl++CozfwYKHXdQtHsW0yP2b3i6kg=; b=uw2LR+nax3r4ONdS7k0ilVvCSO
+	iBPtYgHTwUjMrbrJ/2ujfuNtF9EPEzlu15CRi36LKF7NfuDcdMYbOIivjsalpAD1XI9GiUe1fBDRU
+	ct3+yiTvAhF/dw7ErZzOhe5caTV65gtpC1gYqqOgNw7XHDsT5i9xY2GqgRsF0BQFuovfaJw4D6R4/
+	wndWThRAs2CDIz5hmWSZBXxBJqgQnTLmHnVJ/DAoAEGgzq2iRYGnoyMvAPViTu5v6aYuHv6bggNdO
+	c01zxCQ5QK5IZFe9b8rZ1FUvJzJJOAuIEodoZxAPzlUiQYYp068rSNmRaXI0/ZOFUFQoF5wyN8aPD
+	UXErpatg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXnLr-00000009eEa-0woA;
-	Tue, 14 Jan 2025 20:17:27 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1tXnQB-00000009erc-0C0u;
+	Tue, 14 Jan 2025 20:21:55 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXmNC-00000009VOs-1lDH
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 19:14:47 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-385db79aafbso487251f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 11:14:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736882085; x=1737486885; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=oQ6kl1euqxUXFmiD96nPxmfZ3b58EO9sP3qhQv0QOX0=;
-        b=u9FUSz+bbP+gS8TksWJ1juwLvJbJwg8bsI7cWMO+dCCfMyEImh1aCfyi4KdHl7SZZk
-         ZecsWo9g6wrsWtfSkVVmbXXWksQKPyBWRrGK9FEFwJnzA29sMn+mnl4WwuhAlFknqVar
-         Cpu+r+RlLPoCjr2DwsG2DCQwCm1mR5N4B1W+REiKRWm0+BeZpHgRVnpzJlx+RPHLaKKi
-         aMOoArXNLj5GzTzX23QtvkFjIob3M448GWU4VlETUMlI+Om98HaEy9VH873Orc0xlSMx
-         +PIxQsjhKe3DXvVKlqVHXWBMgpbemenxC9dAfWPYUNDvA0LBUHAG2F+1NwONrbi7CSoT
-         Gfcg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736882085; x=1737486885;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=oQ6kl1euqxUXFmiD96nPxmfZ3b58EO9sP3qhQv0QOX0=;
-        b=gSRmJEP+J0xvTuPJ9hHrY/Q9sTs13i4iCYKEIKL3IsLEKu5p4J/pL8zPBK/on+rFLf
-         UKjJzDbwnEjzExtLePakB3EnL0kCrYe/9zlkIqfCweTq/0PVtVXCWQgATbyOD7OYWnYs
-         2Na48E0y4+Tdvqr4YJTNBaSn5H3pxrCX1nfx/7EKKVD0jr2QEAO7cjD+VK2tXoepOc/M
-         6k0+27G42NgUsBGDhf9d/oEJffDlyWoza8fX2+Mh3+hwi5nFyM+wBKLTviEDDe+wtdqu
-         6/uGMcfyVYREcguRKOZQZ7UFW7FvLluusvDvQ4FybbShTtVUvd3RsTTadSBClmcbH2bA
-         obqw==
-X-Forwarded-Encrypted: i=1; AJvYcCVP1MD1c0jjan8iYTdIVAFpTFnhtkhHXergSudpHixCwvOCf9MI5xt2CDKp0rwZAhcwUoULieGbLJ1MoU6Vfg1b@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzati4C3hTCWAZWJ39RiX2KMeVTdmZlUh60AjcYjXrHHihHLS0z
-	MKtlsJG30lLfCRgLcEF+vg8SLa+8muCCPLk8srVsZEC4tZ+GPDUPWrEoWcQRbgQ=
-X-Gm-Gg: ASbGncvuw2sMCWm4MoJZc295o0wDNXE0+be7t6zhkA22IiOtNBX2hVflcqnZC5f1686
-	mg7vzxVtW6Qukj2QfocbqfQwI+2KbZcJC3mrBA7XqsVu6TAmncbArqDPD3mzYpeN5scU/1sHKpL
-	smu45TtlZkzU+NWKW1WEx4YzBgMx2fbTkstZ5k3Mib+6wc4JsHCjSip7M9MrqErqIh4GjznHdVA
-	P/om8ljsi04spYTAPEJ+Ow2PD0ArfUGh0pmX2LxJR2Jq7t/NfV8qwub6tPXHXxe/zH2B4w=
-X-Google-Smtp-Source: AGHT+IH1zV4TdpuGEzXlmDKzlhTZeOglE/e6Vh0NhLYPgPb3r+w0Yshbz4UIzt3sqXZwggicjeJV+A==
-X-Received: by 2002:a05:6000:18a3:b0:38a:615c:8266 with SMTP id ffacd0b85a97d-38a872d2e1cmr9347396f8f.1.1736882084522;
-        Tue, 14 Jan 2025 11:14:44 -0800 (PST)
-Received: from krzk-bin.. ([178.197.223.165])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a8e4b80b2sm15415992f8f.80.2025.01.14.11.14.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jan 2025 11:14:43 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Doug Berger <opendmb@gmail.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Andy Shevchenko <andy@kernel.org>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Kuppuswamy Sathyanarayanan <sathyanarayanan.kuppuswamy@linux.intel.com>,
-	Nandor Han <nandor.han@ge.com>,
-	linux-gpio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-pwm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	patches@opensource.cirrus.com
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v2] gpio: Use str_enable_disable-like helpers
-Date: Tue, 14 Jan 2025 20:14:38 +0100
-Message-ID: <20250114191438.857656-1-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.43.0
+	id 1tXnOu-00000009elR-3MDJ;
+	Tue, 14 Jan 2025 20:20:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id A25C7A41BBD;
+	Tue, 14 Jan 2025 20:18:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6502AC4CEE5;
+	Tue, 14 Jan 2025 20:20:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736886035;
+	bh=I9Ekx6aq/CtvmHlK2JuDkCREj16AUwVV0szqwfvn2B8=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=JD22uIFW+fdCoYLcYeIsO2Txr02Nmv6PaD3vP9xJM7UUTueYcu0+ONzHQG06vXduq
+	 lkoMo+Ps9CQCr69LMbVC2r9TQ2pbJeuo+AKkJiGA41O1f7iirwWhLVUxRW/AUz8kuH
+	 jZpbpAJaemRr7wa9BNXuP5WR85oNMonECKjO4soOFO0HIZB1U6fpR0kVfbKf6g947P
+	 Y0CUnLeoKueHwxpK6IgZ0MpvJ1xE8c/iapkJ0dgX+jM1tRAv2LScMM/ZaftTdnfnDI
+	 dd1+xdcog1URclurHKunuZhxCOkXFYMDTm+uoXHKvSb/xOSY6nu/t6ezK5/fcoCUEJ
+	 DvZGIPiGaAZsg==
+Received: by mail-oi1-f181.google.com with SMTP id 5614622812f47-3eba559611aso1765144b6e.0;
+        Tue, 14 Jan 2025 12:20:35 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCU7HnT46gy4c7diljr/3qmUFelG2OpDxeur4Y73hmwTsnUxVNQw0ISEmkCRtB9HmvfB+BHPHU8ZS9LlUHY=@lists.infradead.org, AJvYcCUKhWyRRFmJBkA25vTSlf5keFvvw9tGsySe9TKv48vfpCspJhPsjeA55BDDGPTiSStDi/xYdb+u6A7K3CnMw/7k@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz4R7HDLms8Yd3J1A/Z3UVr9u6QJyK8wcP48RIukgyQuUWf4QHH
+	LY/JbS7sTxDyujUmJuzSv4dzJM6hzCE8O4rT4EmfHGWVEHPi/LQ7/MgA2xe95ydTPMiVTIlqjgI
+	SRFUB8NH5pbVDSljbGERkDd8qkHk=
+X-Google-Smtp-Source: AGHT+IHBdFDv09GmJQAPh9/RI61yRA+OUJBTYVfB4ZAfwslXJG+AQnvyEewTo5F7++0A17YOZNGuMRHAq8Q+xsm4lZ0=
+X-Received: by 2002:a05:6808:198d:b0:3eb:615a:ece5 with SMTP id
+ 5614622812f47-3ef2ec54eedmr15212295b6e.15.1736886034615; Tue, 14 Jan 2025
+ 12:20:34 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250103-wake_irq-v2-0-e3aeff5e9966@nxp.com> <20250103-wake_irq-v2-1-e3aeff5e9966@nxp.com>
+In-Reply-To: <20250103-wake_irq-v2-1-e3aeff5e9966@nxp.com>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Tue, 14 Jan 2025 21:20:22 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0hj7wUU3f_j5QH3fNUFKokaXr0octaP2M1Ho_L_BspoUA@mail.gmail.com>
+X-Gm-Features: AbW1kvZ2IsMpRpq9v9cu6FjARLwcHzjMVAJFZcTXGy5umUj9Q22VPlrSsSvyjVE
+Message-ID: <CAJZ5v0hj7wUU3f_j5QH3fNUFKokaXr0octaP2M1Ho_L_BspoUA@mail.gmail.com>
+Subject: Re: [PATCH v2 01/12] PM: sleep: wakeirq: Introduce device-managed
+ variant of dev_pm_set_wake_irq
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <len.brown@intel.com>, Pavel Machek <pavel@ucw.cz>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Linus Walleij <linus.walleij@linaro.org>, 
+	Conor Dooley <conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>, 
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-input@vger.kernel.org, linux-rtc@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_111446_466589_8864D437 
-X-CRM114-Status: GOOD (  14.40  )
+X-CRM114-CacheID: sfid-20250114_122036_967072_F77D43B7 
+X-CRM114-Status: GOOD (  22.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,265 +91,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace ternary (condition ? "enable" : "disable") syntax with helpers
-from string_choices.h because:
-1. Simple function call with one argument is easier to read.  Ternary
-   operator has three arguments and with wrapping might lead to quite
-   long code.
-2. Is slightly shorter thus also easier to read.
-3. It brings uniformity in the text - same string.
-4. Allows deduping by the linker, which results in a smaller binary
-   file.
+On Fri, Jan 3, 2025 at 9:42=E2=80=AFAM Peng Fan (OSS) <peng.fan@oss.nxp.com=
+> wrote:
+>
+> From: Peng Fan <peng.fan@nxp.com>
+>
+> Add device-managed variant of dev_pm_set_wake_irq which automatically
+> clear the wake irq on device destruction to simplify error handling
+> and resource management in drivers.
+>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  drivers/base/power/wakeirq.c | 26 ++++++++++++++++++++++++++
+>  include/linux/pm_wakeirq.h   |  6 ++++++
+>  2 files changed, 32 insertions(+)
+>
+> diff --git a/drivers/base/power/wakeirq.c b/drivers/base/power/wakeirq.c
+> index 5a5a9e978e85f3fc9d89cb7d43527dc1dd42a9b1..8aa28c08b2891f3af49017536=
+2cc1a759069bd50 100644
+> --- a/drivers/base/power/wakeirq.c
+> +++ b/drivers/base/power/wakeirq.c
+> @@ -103,6 +103,32 @@ void dev_pm_clear_wake_irq(struct device *dev)
+>  }
+>  EXPORT_SYMBOL_GPL(dev_pm_clear_wake_irq);
+>
+> +static void devm_pm_clear_wake_irq(void *dev)
+> +{
+> +       dev_pm_clear_wake_irq(dev);
+> +}
+> +
+> +/**
+> + * devm_pm_set_wake_irq - device-managed variant of dev_pm_set_wake_irq
+> + * @dev: Device entry
+> + * @irq: Device IO interrupt
+> + *
+> + *
+> + * Attach a device IO interrupt as a wake IRQ, same with dev_pm_set_wake=
+_irq,
+> + * but the device will be auto clear wake capability on driver detach.
+> + */
+> +int devm_pm_set_wake_irq(struct device *dev, int irq)
+> +{
+> +       int ret;
+> +
+> +       ret =3D dev_pm_set_wake_irq(dev, irq);
+> +       if (ret)
+> +               return ret;
+> +
+> +       return devm_add_action_or_reset(dev, devm_pm_clear_wake_irq, dev)=
+;
+> +}
+> +EXPORT_SYMBOL_GPL(devm_pm_set_wake_irq);
+> +
+>  /**
+>   * handle_threaded_wake_irq - Handler for dedicated wake-up interrupts
+>   * @irq: Device specific dedicated wake-up interrupt
+> diff --git a/include/linux/pm_wakeirq.h b/include/linux/pm_wakeirq.h
+> index d9642c6cf85211af603ce39e280a5b4de6617ee5..25b63ed51b765c2c6919f2596=
+68a12675330835e 100644
+> --- a/include/linux/pm_wakeirq.h
+> +++ b/include/linux/pm_wakeirq.h
+> @@ -10,6 +10,7 @@ extern int dev_pm_set_wake_irq(struct device *dev, int =
+irq);
+>  extern int dev_pm_set_dedicated_wake_irq(struct device *dev, int irq);
+>  extern int dev_pm_set_dedicated_wake_irq_reverse(struct device *dev, int=
+ irq);
+>  extern void dev_pm_clear_wake_irq(struct device *dev);
+> +extern int devm_pm_set_wake_irq(struct device *dev, int irq);
+>
+>  #else  /* !CONFIG_PM */
+>
+> @@ -32,5 +33,10 @@ static inline void dev_pm_clear_wake_irq(struct device=
+ *dev)
+>  {
+>  }
+>
+> +static inline int devm_pm_set_wake_irq(struct device *dev, int irq)
+> +{
+> +       return 0;
+> +}
+> +
+>  #endif /* CONFIG_PM */
+>  #endif /* _LINUX_PM_WAKEIRQ_H */
+>
+> --
 
-Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
+I can apply this patch for 6.14, but the rest of the series will need
+to be picked up by the respective driver maintainers.
 
-Changes in v2:
-1. Many more files changed.
----
- drivers/gpio/gpio-brcmstb.c     | 3 ++-
- drivers/gpio/gpio-crystalcove.c | 3 ++-
- drivers/gpio/gpio-grgpio.c      | 3 ++-
- drivers/gpio/gpio-mvebu.c       | 7 ++++---
- drivers/gpio/gpio-nomadik.c     | 3 ++-
- drivers/gpio/gpio-stmpe.c       | 6 +++---
- drivers/gpio/gpio-wcove.c       | 3 ++-
- drivers/gpio/gpio-wm831x.c      | 3 ++-
- drivers/gpio/gpio-xra1403.c     | 3 ++-
- drivers/gpio/gpiolib.c          | 3 ++-
- 10 files changed, 23 insertions(+), 14 deletions(-)
-
-diff --git a/drivers/gpio/gpio-brcmstb.c b/drivers/gpio/gpio-brcmstb.c
-index 491b529d25f8..ca3472977431 100644
---- a/drivers/gpio/gpio-brcmstb.c
-+++ b/drivers/gpio/gpio-brcmstb.c
-@@ -9,6 +9,7 @@
- #include <linux/irqchip/chained_irq.h>
- #include <linux/interrupt.h>
- #include <linux/platform_device.h>
-+#include <linux/string_choices.h>
- 
- enum gio_reg_index {
- 	GIO_REG_ODEN = 0,
-@@ -224,7 +225,7 @@ static int brcmstb_gpio_priv_set_wake(struct brcmstb_gpio_priv *priv,
- 		ret = disable_irq_wake(priv->parent_wake_irq);
- 	if (ret)
- 		dev_err(&priv->pdev->dev, "failed to %s wake-up interrupt\n",
--				enable ? "enable" : "disable");
-+			str_enable_disable(enable));
- 	return ret;
- }
- 
-diff --git a/drivers/gpio/gpio-crystalcove.c b/drivers/gpio/gpio-crystalcove.c
-index 25db014494a4..56effd0f50c7 100644
---- a/drivers/gpio/gpio-crystalcove.c
-+++ b/drivers/gpio/gpio-crystalcove.c
-@@ -15,6 +15,7 @@
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
- #include <linux/seq_file.h>
-+#include <linux/string_choices.h>
- #include <linux/types.h>
- 
- #define CRYSTALCOVE_GPIO_NUM	16
-@@ -317,7 +318,7 @@ static void crystalcove_gpio_dbg_show(struct seq_file *s, struct gpio_chip *chip
- 		offset = gpio % 8;
- 		seq_printf(s, " gpio-%-2d %s %s %s %s ctlo=%2x,%s %s %s\n",
- 			   gpio, ctlo & CTLO_DIR_OUT ? "out" : "in ",
--			   ctli & 0x1 ? "hi" : "lo",
-+			   str_hi_lo(ctli & 0x1),
- 			   ctli & CTLI_INTCNT_NE ? "fall" : "    ",
- 			   ctli & CTLI_INTCNT_PE ? "rise" : "    ",
- 			   ctlo,
-diff --git a/drivers/gpio/gpio-grgpio.c b/drivers/gpio/gpio-grgpio.c
-index 169f33c41c59..30a0522ae735 100644
---- a/drivers/gpio/gpio-grgpio.c
-+++ b/drivers/gpio/gpio-grgpio.c
-@@ -30,6 +30,7 @@
- #include <linux/platform_device.h>
- #include <linux/slab.h>
- #include <linux/spinlock.h>
-+#include <linux/string_choices.h>
- 
- #define GRGPIO_MAX_NGPIO 32
- 
-@@ -438,7 +439,7 @@ static int grgpio_probe(struct platform_device *ofdev)
- 	}
- 
- 	dev_info(dev, "regs=0x%p, base=%d, ngpio=%d, irqs=%s\n",
--		 priv->regs, gc->base, gc->ngpio, priv->domain ? "on" : "off");
-+		 priv->regs, gc->base, gc->ngpio, str_on_off(priv->domain));
- 
- 	return 0;
- }
-diff --git a/drivers/gpio/gpio-mvebu.c b/drivers/gpio/gpio-mvebu.c
-index 5ffb332e9849..363bad286c32 100644
---- a/drivers/gpio/gpio-mvebu.c
-+++ b/drivers/gpio/gpio-mvebu.c
-@@ -49,6 +49,7 @@
- #include <linux/pwm.h>
- #include <linux/regmap.h>
- #include <linux/slab.h>
-+#include <linux/string_choices.h>
- 
- /*
-  * GPIO unit register offsets.
-@@ -907,14 +908,14 @@ static void mvebu_gpio_dbg_show(struct seq_file *s, struct gpio_chip *chip)
- 
- 		if (is_out) {
- 			seq_printf(s, " out %s %s\n",
--				   out & msk ? "hi" : "lo",
-+				   str_hi_lo(out & msk),
- 				   blink & msk ? "(blink )" : "");
- 			continue;
- 		}
- 
- 		seq_printf(s, " in  %s (act %s) - IRQ",
--			   (data_in ^ in_pol) & msk  ? "hi" : "lo",
--			   in_pol & msk ? "lo" : "hi");
-+			   str_hi_lo((data_in ^ in_pol) & msk),
-+			   str_lo_hi(in_pol & msk));
- 		if (!((edg_msk | lvl_msk) & msk)) {
- 			seq_puts(s, " disabled\n");
- 			continue;
-diff --git a/drivers/gpio/gpio-nomadik.c b/drivers/gpio/gpio-nomadik.c
-index 836f1cc760c2..fa19a44943fd 100644
---- a/drivers/gpio/gpio-nomadik.c
-+++ b/drivers/gpio/gpio-nomadik.c
-@@ -30,6 +30,7 @@
- #include <linux/reset.h>
- #include <linux/seq_file.h>
- #include <linux/slab.h>
-+#include <linux/string_choices.h>
- #include <linux/types.h>
- 
- #include <linux/gpio/gpio-nomadik.h>
-@@ -430,7 +431,7 @@ void nmk_gpio_dbg_show_one(struct seq_file *s, struct pinctrl_dev *pctldev,
- 		seq_printf(s, " gpio-%-3d (%-20.20s) out %s           %s",
- 			   gpio,
- 			   label ?: "(none)",
--			   data_out ? "hi" : "lo",
-+			   str_hi_lo(data_out),
- 			   (mode < 0) ? "unknown" : modes[mode]);
- 	} else {
- 		int irq = chip->to_irq(chip, offset);
-diff --git a/drivers/gpio/gpio-stmpe.c b/drivers/gpio/gpio-stmpe.c
-index 75a3633ceddb..2e22e1eb7495 100644
---- a/drivers/gpio/gpio-stmpe.c
-+++ b/drivers/gpio/gpio-stmpe.c
-@@ -15,6 +15,7 @@
- #include <linux/platform_device.h>
- #include <linux/seq_file.h>
- #include <linux/slab.h>
-+#include <linux/string_choices.h>
- 
- /*
-  * These registers are modified under the irq bus lock and cached to avoid
-@@ -273,8 +274,7 @@ static void stmpe_dbg_show_one(struct seq_file *s,
- 
- 	if (dir) {
- 		seq_printf(s, " gpio-%-3d (%-20.20s) out %s",
--			   gpio, label ?: "(none)",
--			   val ? "hi" : "lo");
-+			   gpio, label ?: "(none)", str_hi_lo(val));
- 	} else {
- 		u8 edge_det_reg;
- 		u8 rise_reg;
-@@ -343,7 +343,7 @@ static void stmpe_dbg_show_one(struct seq_file *s,
- 
- 		seq_printf(s, " gpio-%-3d (%-20.20s) in  %s %13s %13s %25s %25s",
- 			   gpio, label ?: "(none)",
--			   val ? "hi" : "lo",
-+			   str_hi_lo(val),
- 			   edge_det_values[edge_det],
- 			   irqen ? "IRQ-enabled" : "IRQ-disabled",
- 			   rise_values[rise],
-diff --git a/drivers/gpio/gpio-wcove.c b/drivers/gpio/gpio-wcove.c
-index 94ca9d03c094..1ec24f6f9300 100644
---- a/drivers/gpio/gpio-wcove.c
-+++ b/drivers/gpio/gpio-wcove.c
-@@ -15,6 +15,7 @@
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
- #include <linux/seq_file.h>
-+#include <linux/string_choices.h>
- 
- /*
-  * Whiskey Cove PMIC has 13 physical GPIO pins divided into 3 banks:
-@@ -393,7 +394,7 @@ static void wcove_gpio_dbg_show(struct seq_file *s, struct gpio_chip *chip)
- 
- 		seq_printf(s, " gpio-%-2d %s %s %s %s ctlo=%2x,%s %s\n",
- 			   gpio, ctlo & CTLO_DIR_OUT ? "out" : "in ",
--			   ctli & 0x1 ? "hi" : "lo",
-+			   str_hi_lo(ctli & 0x1),
- 			   ctli & CTLI_INTCNT_NE ? "fall" : "    ",
- 			   ctli & CTLI_INTCNT_PE ? "rise" : "    ",
- 			   ctlo,
-diff --git a/drivers/gpio/gpio-wm831x.c b/drivers/gpio/gpio-wm831x.c
-index f7d5120ff8f1..61bb83a1e8ae 100644
---- a/drivers/gpio/gpio-wm831x.c
-+++ b/drivers/gpio/gpio-wm831x.c
-@@ -16,6 +16,7 @@
- #include <linux/mfd/core.h>
- #include <linux/platform_device.h>
- #include <linux/seq_file.h>
-+#include <linux/string_choices.h>
- 
- #include <linux/mfd/wm831x/core.h>
- #include <linux/mfd/wm831x/pdata.h>
-@@ -234,7 +235,7 @@ static void wm831x_gpio_dbg_show(struct seq_file *s, struct gpio_chip *chip)
- 		seq_printf(s, " %s %s %s %s%s\n"
- 			   "                                  %s%s (0x%4x)\n",
- 			   reg & WM831X_GPN_DIR ? "in" : "out",
--			   wm831x_gpio_get(chip, i) ? "high" : "low",
-+			   str_high_low(wm831x_gpio_get(chip, i)),
- 			   pull,
- 			   powerdomain,
- 			   reg & WM831X_GPN_POL ? "" : " inverted",
-diff --git a/drivers/gpio/gpio-xra1403.c b/drivers/gpio/gpio-xra1403.c
-index dc2710c21c50..842cf875bb92 100644
---- a/drivers/gpio/gpio-xra1403.c
-+++ b/drivers/gpio/gpio-xra1403.c
-@@ -13,6 +13,7 @@
- #include <linux/mutex.h>
- #include <linux/seq_file.h>
- #include <linux/spi/spi.h>
-+#include <linux/string_choices.h>
- #include <linux/regmap.h>
- 
- /* XRA1403 registers */
-@@ -140,7 +141,7 @@ static void xra1403_dbg_show(struct seq_file *s, struct gpio_chip *chip)
- 		seq_printf(s, " gpio-%-3d (%-12s) %s %s\n",
- 			   chip->base + i, label,
- 			   (gcr & BIT(i)) ? "in" : "out",
--			   (gsr & BIT(i)) ? "hi" : "lo");
-+			   str_hi_lo(gsr & BIT(i)));
- 	}
- }
- #else
-diff --git a/drivers/gpio/gpiolib.c b/drivers/gpio/gpiolib.c
-index 679ed764cb14..be3351583508 100644
---- a/drivers/gpio/gpiolib.c
-+++ b/drivers/gpio/gpiolib.c
-@@ -26,6 +26,7 @@
- #include <linux/slab.h>
- #include <linux/srcu.h>
- #include <linux/string.h>
-+#include <linux/string_choices.h>
- 
- #include <linux/gpio.h>
- #include <linux/gpio/driver.h>
-@@ -5007,7 +5008,7 @@ static void gpiolib_dbg_show(struct seq_file *s, struct gpio_device *gdev)
- 			seq_printf(s, " gpio-%-3u (%-20.20s|%-20.20s) %s %s %s%s\n",
- 				   gpio, desc->name ?: "", gpiod_get_label(desc),
- 				   is_out ? "out" : "in ",
--				   value >= 0 ? (value ? "hi" : "lo") : "?  ",
-+				   value >= 0 ? str_hi_lo(value) : "?  ",
- 				   is_irq ? "IRQ " : "",
- 				   active_low ? "ACTIVE LOW" : "");
- 		} else if (desc->name) {
--- 
-2.43.0
-
+I hope this works for you?
 
