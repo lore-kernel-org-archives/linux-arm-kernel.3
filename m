@@ -4,89 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4EB9C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 12:18:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6DCFE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 12:33:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8Ie4b99Xwh0aEWRWBEX58b0bMixe8tSP3T+iPjUb6uc=; b=HuErE28yVumxijOpbd3CfJl16G
-	Tv8N/Bm9GP7v6t72ze12cJRkyAhxamKnmO8MjgZZuC/d6o0gB44onTjp9yo8uYbCxpDhJCDRUU9Gn
-	axH7R7VILqhQgL1RnTPq9FZV0cXZsJpiMdul77GS+wxoZszKmOqOpS+wGMoQO3bom6p7aQPdDJ10U
-	PjDnxapeR1/RvWUgpTIbm7TN2CvVUvS8rXvUJGip316zsw2IMOd2q3MjRTa3HEKtjk2F3ATrEqIqb
-	6Upq/hjODr4jpMFpGbW0vcboC+1pBZMHvrVjAFrvkLj+wpHr8tyt3KQmYHzsaDdZaA8qpcfh3I25d
-	w26pyqyw==;
+	Content-Type:Subject:To:From:MIME-Version:Date:Message-ID:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MBaRwmy2V+eKGISjTuRyij6MDBcFzFVPGd7nNHXyEn0=; b=qNb8/odup5odsTqALfzxg9xa4t
+	afoo44iqdcklaHRbH4nNEQlUnL8mcnqhUlzEl2AFA6zkhMaqEwVHNpdG9R1Lhc4HUGVHfRrw5ezor
+	UJPeDLEpi58nuqlq6q0hGRkZqJNGP8mBdu9KKDkIMICMq18z9OpSgdjztZUaxUBZ0zS9W/WBnx0SL
+	kDIbetPPjZiqmNaDQl4fSqPF2FAMqRoFPJiLPsjfru022uEkwobLDbcLR3OXG/cNzmQq+r+dDUKWB
+	bL/gWf0DbqgfAHWJOg5dor5fWaAnuitPBgnRdFeb0k3rs4n153zeXL/hbWID7bx6Hcb63AlSYKI9z
+	m+Ltbssg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXfsQ-00000008N36-2Vb2;
-	Tue, 14 Jan 2025 12:18:34 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1tXg73-00000008PJk-3Weo;
+	Tue, 14 Jan 2025 12:33:41 +0000
+Received: from marcansoft.com ([212.63.210.85] helo=mail.marcansoft.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXfrA-00000008Mns-433X
+	id 1tXg5n-00000008P9u-0TMs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 12:17:18 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-5401c68b89eso5851167e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 04:17:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736857035; x=1737461835; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8Ie4b99Xwh0aEWRWBEX58b0bMixe8tSP3T+iPjUb6uc=;
-        b=C/iNPQT8ICeyj2uvvUxKfWYKkgfa6tYd1GEtUTQV3/5ZKpN8YM368C/vi811yuBGeh
-         Ga1zWTH8y7ZAkzUfV4fJ20cCmIEnq2p95/vjTogsG1HUm9JFIqHzBciIkmw0SQxkDzgh
-         CckT4Kn6estK8mTxrCtn/YhXmaY8VAqc+zrfw120sfJWyAunPvjNF8FhHtz6RrfLubZ/
-         wTJZO7RIFJu6YSXpQAu8hP33TzZeWDb/QAxY86ZdeEL3x2EuRCqDgkGaFHMNsPze7AQ6
-         6CBTSFyLTNWhA3xurMvBxfuNXpJ+Zf6ZW2dJ7AwwcL9YaA8e/dsNKzb57iDisA17A2ps
-         SNSQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736857035; x=1737461835;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=8Ie4b99Xwh0aEWRWBEX58b0bMixe8tSP3T+iPjUb6uc=;
-        b=gRXLhcTn2yh+FchqW9cqs4Cdb/Iv8Ol8uV71ruNVGDtb+PQYhTtx/XYMAbGaVa/MFX
-         ITYUc4UziTGlVir5pI2MMdrCHLIzk1OYU3g8pMWMdDQEESNiH26z4FAeAN1WSPzZp8vL
-         zgIEj393H8E0TMcScZqRxR/iniEtk14tX6i35YdneNlLY7gyYO5mOhjRZOG+oPRTUuLw
-         oYHmB1KntPMdyCDSRK/VSpOzMutml0DiOJW0p6pxAwNb2nuGsRUgT7lIt/NYZdSCax9d
-         RO0JO43stjCiZyWvXTlNoCVhCY8PFeHI0+K0DOU5nFCJJvc2GIFyDFZqW3UGtAlWFl7r
-         C38Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUP5I+x+O00IqilfT48nv98tO2y4hP6lQNkLQGN2tUXfOxIklrCMCjPx/DCDLuJSfB+a9QtgY3lsDX6QoeQh6YT@lists.infradead.org
-X-Gm-Message-State: AOJu0YzEEd5Grc8nGV238uGuj8tB1Rpi67JmB6j/ZWYDBI1CsB5Y0zIi
-	buFpLa41z+geqUp8oOFm9r20fGNFpq00nyn6TVXDModPAm4szMVb3bT4JC7TgJxqDUSo2+Fwyr8
-	0kQS8z36ygMSXf/gxt9zNjv0ZBVfi6/mJqQUwYQ==
-X-Gm-Gg: ASbGnctoC7CTVDVvfzxcaC1BFrNix6tYIEhnGYWNbhq0S92gMq8zjOAW+ntDTgEDTgl
-	SN+jAaPsA4L7M1npMW149KpzzAfIOQ/pnjdUL
-X-Google-Smtp-Source: AGHT+IG/nVzJ4usllSB7WeL3esJ0/+hz1rQx2YNWDFn17mueoKalfz6Uj0tzGOzfhZRqk49pDpDqslNG3Jdx7c4EaqI=
-X-Received: by 2002:a05:6512:b97:b0:542:986b:de08 with SMTP id
- 2adb3069b0e04-542986be0a1mr3961478e87.26.1736857034594; Tue, 14 Jan 2025
- 04:17:14 -0800 (PST)
+	Tue, 14 Jan 2025 12:32:24 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: marcan@marcan.st)
+	by mail.marcansoft.com (Postfix) with ESMTPSA id 661CD3FB5D;
+	Tue, 14 Jan 2025 12:32:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=marcan.st; s=default;
+	t=1736857935; bh=MBaRwmy2V+eKGISjTuRyij6MDBcFzFVPGd7nNHXyEn0=;
+	h=Date:From:To:Subject;
+	b=csH9S9x4zc2ljEtzpJMGjLGqrg61MBcXDNlquNyPCvpUoJAHqriXGvqW7GGLfrcWJ
+	 Gj3GjqbuvFS5Wc3mIxthHTJ4v6BWP8iJm1czVWWkUbe+6yco6UmBTj0LjbbPM75rAe
+	 8Fo26SAILqFph8ZpKWCd9Cnsv+s8as0uxHLKxMnrTFV9NuMdN99pXgaCtpuQK17OgI
+	 R+nRJ+v1qFX2inkrkTiewWIoD4EQZOCQ3fLXEjBGzkTQIvsWbHaSTfC/Vi52x7RzJs
+	 i5QL405uK8/Y5l5N8aVpE3VmD/uCJUH/GkpajFKuEcWv9Se4Xc6ZyisQYFpdhRZg0w
+	 93PDDALHgU/PQ==
+Message-ID: <fda8b831-1ffc-4087-8e7b-d97779b3ecc5@marcan.st>
+Date: Tue, 14 Jan 2025 21:32:11 +0900
 MIME-Version: 1.0
-References: <20250103-wake_irq-v2-0-e3aeff5e9966@nxp.com> <20250103-wake_irq-v2-9-e3aeff5e9966@nxp.com>
-In-Reply-To: <20250103-wake_irq-v2-9-e3aeff5e9966@nxp.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 14 Jan 2025 13:17:03 +0100
-X-Gm-Features: AbW1kvYSSgagqOIiggVP1rEX84eySXcyOvS8Yel1NcZ50o6oIQlw1NaD7KnQIZM
-Message-ID: <CACRpkdbFtLhGXwSbCF+v54eEdm0w=sDsseUPiRfc=xmak-DbhQ@mail.gmail.com>
-Subject: Re: [PATCH v2 09/12] rtc: pm8xxx: Use devm_pm_set_wake_irq
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <len.brown@intel.com>, Pavel Machek <pavel@ucw.cz>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Conor Dooley <conor.dooley@microchip.com>, 
-	Daire McNamara <daire.mcnamara@microchip.com>, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-input@vger.kernel.org, 
-	linux-rtc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+From: Hector Martin <marcan@marcan.st>
+Content-Language: en-US
+To: devicetree@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>,
+ linux-usb@vger.kernel.org, linux-embedded@vger.kernel.org,
+ Asahi Linux <asahi@lists.linux.dev>, linux-arm-kernel@lists.infradead.org,
+ dri-devel@lists.freedesktop.org
+Subject: Unified Type C PHYs and top-level port management
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_041717_010478_B56F5028 
-X-CRM114-Status: UNSURE (   8.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250114_043223_553823_BBDDB995 
+X-CRM114-Status: GOOD (  33.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,17 +73,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 3, 2025 at 9:42=E2=80=AFAM Peng Fan (OSS) <peng.fan@oss.nxp.com=
-> wrote:
+Hi all,
 
-> From: Peng Fan <peng.fan@nxp.com>
->
-> Use devm_pm_set_wake_irq, then the 'driver.remove()' could be cleaned up.
->
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+We're implementing Type C port support for Apple systems and we're
+running into impedance mismatches with the existing Linux subsystems. I
+want to throw a quick overview of the problem here and see if we can
+come up with solutions.
 
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+The short version is that Linux has a pile of (sub)subsystems that deal
+with multiple aspects of coordinating Type C port behavior:
 
-Yours,
-Linus Walleij
+- USB role switch
+- USB host
+- USB gadget
+- Type C mux
+- Type C PD
+- DRM/etc for DisplayPort
+- USB4/Thunderbolt (not even going there yet)
+- Individual PHYs for everything
+
+This evolved from, and is largely designed for, systems built from
+discrete components (separate USB3 controller, DP controller, external
+mux, PD stuff, etc.)
+
+What we actually on Apple systems is:
+
+- An external I2C USB-PD controller that handles the entire PD protocol
+and negotiation autonomously. We don't even get to pick the altmode, it
+does all the policy on its own and there is no override (we looked).
+- USB3/4/DP retimer and eUSB2 level shifter chips (not muxes) that are
+managed by the external USB-PD controller over I2C, invisible to Linux.
+- A single, unified, shared PHY (atcphy) that handles *everything*:
+USB2, USB3, DP, USB4/TBT, depending on configuration. It presents
+discrete interfaces to the DP, TBT, and USB controllers behind it.
+- A dwc3 controller per unified PHY, with host and device modes. Its
+USB3 PIPE interface can be switched (via registers in the PHY side, not
+the dwc3 side) between a dummy PHY, the USB3 PHY, or a virtual PHY that
+does USB4 tunneling.
+- A set of display controllers that are separate from the ports/PHYs
+- A DisplayPort router that can pair a display controller with a given
+unified PHY's physical DisplayPort interface, or one of two tunnels over
+TBT/USB4. The display controllers are n:m matched to the ports, they are
+not 1:1 (there may be fewer display controllers than ports).
+- The whole TBT/USB4 PCIe stuff which winds up in a PCIe root port
+controller per port/PHY (not going to consider this for now, leaving
+that for later).
+
+The current approach we have is a mess. The tipd driver (which manages
+the PD controller) directly does the role switching and mux calls. The
+role switching triggers dwc3 to asynchronously switch modes. Meanwhile
+the mux calls end up at our PHY driver which tries to reconfigure
+everything for the given lane mode. But since PHY configuration also has
+to negotiate with dwc3, it also acts as a PHY for that (two, actually,
+USB2 and USB3). However, the callbacks from dwc3 are all over the place,
+and we end up having to do things like handle USB3 configuration from
+the USB2 PHY callbacks because that happens to be the correct timing to
+make it work. Meanwhile DRM/DisplayPort is its own thing that is mostly
+asynchronous to everything else, only reacting to HPD, and we haven't
+even gotten to the dynamic assignment of display controllers to ports
+yet (that's a story for another day).
+
+To give an example of one of the quirks: Thanks to the USB-IF's
+amazingly braindead stateful and non-self-synchronizing eUSB2 protocol,
+we need to fully reset the dwc3 controller every time there is a hotplug
+event on the port from the PD controller. Otherwise USB2 breaks, since
+the PD controller will reset the eUSB2 level shifter on unplug and dwc3
+and the paired eUSB2 PHY can't recover from that without a full reset.
+
+A further complication is we do not have documentation for any of this.
+The PHY setup is all reverse engineered. That means all we can do is
+replicate the same register operations that macOS does, and then we have
+to *guess* how to fit it into Linux, and what can be moved around or
+reordered or not. There is no way to know if any given Linux
+implementation is correct and reliably configures the PHY, other than
+trial and error, unless we can exactly replicate what macOS does (which
+is infeasible in Linux today because the cross-driver sync points aren't
+in the same places, e.g. dwc3 and its phy callbacks do not match the
+interleaving of PHY register writes and dwc3 register writes in macOS).
+
+This is never going to be reliable, robust, or maintainable with the
+current approach. Even just getting it to work at all is a frustrating
+mess, where fixing one thing breaks another (e.g. if the dwc3 role
+switch happens first, that runs in a workqueue, and ends up racing with
+phy reconfig. We found out our current code was working by accident due
+to some msleep() calls in dwc3. And of course, hotplug is all kinds of
+racy and broken.). The sequencing requirements make this whole approach
+using different subsystems for different things without central
+coordination a nightmare, especially with hotplug involved and devices
+that like to switch their altmode negotiation rapidly on connect cycles.
+It all ends up depending of subtle implementation details of each part,
+and if anything changes, everything breaks.
+
+What we really want is a top-level, vendor-specific coordinator that
+*synchronously* (in a single logical thread) handles all
+hotplug/modeswitch operations for a single port, driving state
+transitions for all the other drivers. I.e. something that can:
+
+- Receive a data role/status change from tipd (this includes *all* port
+mode including data role, altmode config, etc.). This can be
+asynchronous/queued relative to tipd, but all config changes must be
+processed in sequence as a single queue.
+- Deconfigure the previous mode for consumers, e.g. shutting
+down/resetting dwc3 if required, unsetting HPD for the DisplayPort side
+so it knows to shut that side down, etc.
+- Change the unified PHY configuration for the new mode (this may
+require knowledge of everything about the port state including data
+role, not just altmode/mux state)
+- Start up the consumers again
+- React to PHY callbacks from the consumers to further drive PHY state
+changes (some things need to happen in a specific sequence or at request
+from dwc3 or the display controller firmware, and we may have to add
+extra callbacks for some points somehow, which doesn't fit well with the
+current PHY subsystem which is more rigid about operations...)
+
+Right now, I don't see any way this would fit into the existing
+subsystems well. The closest thing I can come up with, and what I will
+do to get by at least for the time being, is to:
+
+- Get rid of the asynchronous dwc3 role switching, making it synchronous
+(optionally if needed to not break other users)
+- Add a queue to tipd so it can handle state changes asynchronously from
+the actual PD protocol (and without blocking i2c bus interrupt handling
+so other ports can operate in parallel), but all state changes are
+handled sequentially without any overlap, and the ordering is carefully
+controlled (Connect: mux call first, then USB role switch, then
+DisplayPort HPD. Disconnect: DisplayPort HPD, then USB role switch, then
+mux call. There may be other complex cases for mode changes while
+already connected, this won't be fun.).
+- Put most of the PHY policy in the atcphy driver (which is all of a
+reset driver for dwc3, mux driver, and all the phys). This includes ugly
+things like deferring state changes while dwc3 is active in some cases.
+- On the DP/display side, we haven't implemented this yet, but in the
+future the single "apple,display-subsystem" driver (which actually
+provides the top-level DRM device for all the underlying discrete
+display controllers, and is already its own virtual device in the DT)
+will present virtual ports for the different PHYs, and handle the
+muxing/assignment between them and the display controllers on its side
+(there is potentially complex policy here too, since not all display
+controllers are equal and there may be a need to reassign a display for
+a lower-spec screen to a lower-spec display controller to free up a
+higher-spec controller for a higher-spec screen, but we need a
+controller assigned to a port to even read EDID to figure that out, so
+it's going to be messy).
+
+But I'm not happy at all with the weird, load-bearing intermingling of
+tipd/atcphy/dwc3 there. There's bound to be places where the
+abstractions leak and we end up with more and more horrible workarounds,
+or layering violations.
+
+A further question is how all this should be represented in the device
+tree. That might drive the software architecture to a point, or vice versa.
+
+Any ideas?
+
+Some further reading here:
+https://social.treehouse.systems/@marcan/113821266231103150
+
+- Hector
+
 
