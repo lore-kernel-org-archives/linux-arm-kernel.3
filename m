@@ -4,87 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8117E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 22:11:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF03FE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 22:12:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kvT1XISWemI7eWoTeyROmYKlBgLHtamPdwfYh7kIPQI=; b=4BYIRV1jL7cokDyxq6Z/X7i4bk
-	h91AGPBuVqDUyPjMXZnNUHD00hWMqzFESlX3HS0vmHnxYzmOLf2IsKYXaARaLrcXLNjVywEa4YIlO
-	36qRn1E2HD7d9jfPAVf2vF4qMz8QE4gP+VpnESOWFGFds4mPXNvsoEaQ/J/iyR7ebLFAbkeEombYl
-	JItZCgebkovJfuwFDFEo7vT37YkVsJ0ee2jqJdN09tyOEg6mE94oP1ePoW0VDkbuOtxKsP9CfQjF6
-	H6pT9GRu06hyxPGBSDhgUqM2pJ13WMjTCJ59BHBcJ+QgiG9PDJdorCbsf18g9w/pQnTaYenmW+ghe
-	uMM2lVYA==;
+	bh=zJ3XITMWT7pMwbAprF2XAaRfRk4pBMPEr9iYYHQbiEo=; b=edymIjN4o9MgE1ljPAFYTO2W7p
+	EIIT9bCHa6MYhfBOLVfrFmlKYBUdX0Gcmr57ixB2DAxMlvtWrnWPugZOH0UrvQ99bgkVpYQd78zG/
+	AMwimqo9zqsYWklmANYtGp8C7aEJnZsL8pl6y13hwPwC5hEwQH6GlaNZSQL+U542Vx5gTw/oIgd06
+	0DBTQ+ldCd7tAsw+0rBIDHxpuHJvH54iAqNN9YmPyy1DfoaeONa0HuqDHH9wQ3PdQmubV+MKoZXvy
+	yGIIYSMMIVIo3LoJJw9I88iKi8miFWA5+v1KfTaHVE9NB1VtqPtkkINbFvesM/RYFI2108quARVaD
+	U/CiwHhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXp87-00000009u7Y-34Fw;
-	Tue, 14 Jan 2025 22:11:23 +0000
+	id 1tXp9K-00000009uKi-1wLN;
+	Tue, 14 Jan 2025 22:12:38 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXozZ-00000009sdX-0ZVO
+	id 1tXozZ-00000009sdY-0ZX0
 	for linux-arm-kernel@bombadil.infradead.org;
 	Tue, 14 Jan 2025 22:02:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=kvT1XISWemI7eWoTeyROmYKlBgLHtamPdwfYh7kIPQI=; b=kxNry5tHB32/o9YAG7HzyNWaS1
-	NfAYtF/Q7WYnMPBSZIOvEhCUxq0Oj6qEe8UnTLCPz/xm+zqLnMkJwL5Jjn/0ujy/T5F7aquio3CA5
-	HIsp6OHzUxA5cZDQeuEFTwxy2ch/WVTBbLCUbVkcZju5H7lIARmV3mcbw67QnbAu6nDJm6C/6FG2u
-	bj/QKy2LRhezWipvyVLA637ma7BM5Oz2v87BgMKWx/FB6RSHgMJIDB2nY4i3QBFHGKLrTH6B8TMEk
-	0NMvRjqh1u1TDbQT1VY0wP1jC8GMgO/Ex5AWXK6SIvdoTdRiF7JqNVQzofxl0T21/QdYTCvCVu9yz
-	S8ETSIhw==;
+	bh=zJ3XITMWT7pMwbAprF2XAaRfRk4pBMPEr9iYYHQbiEo=; b=c+63gUA+AsRqAx+P0Kz06NNnn4
+	uVfhsoWpCdx3zOpHB9N5iTQVBJ4NGQLNEJ0msu8f32htVRPwbVZT4S2OiHeBqyeBaSZk2YtxigjeW
+	7xS1mcu4ODqzCjfxu0k9mgIWJ28DiesfrDwFRISSVHL3XFIKqSW2eqHbVRtANeBOZ29g2VGSwfpV1
+	SggNzYqSqNquZNaLscBLq1c/GiKXLtY3sfCmcRwGwY08EiDZBj8PTT9i8F0ERJMmwHTkEEd9oRd/A
+	iqye4SPBUYv5EVVQi7ExhUteDFwLU+KS0nU+bj/oxP1JzHesP3Uiiwqy9V/tv+nSSe0+/C/CMTyLg
+	tH8XN9uQ==;
 Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXozT-0000000AfAk-0Nlu
+	id 1tXozT-0000000AfAn-3gBi
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 14 Jan 2025 22:02:30 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50EClxMW029143;
-	Tue, 14 Jan 2025 22:01:54 GMT
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50EHujKg021171;
+	Tue, 14 Jan 2025 22:01:55 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=kvT1XISWemI7eWoTe
-	yROmYKlBgLHtamPdwfYh7kIPQI=; b=VcKAV7mng3f4FRKBTOaeKmdJ6y2pqVEdo
-	hW1Ef8EelcvAxpMD6blqPG+v4W0xpHb7v2wodtq0mzMYax+auAPshl9HAD3LV0mx
-	jqMfQ/Kv7v3ap7yOQVeaylrxnDOqSY8c7CY+x7/VsU4ukA0WZBvIOpEm5CQgqGbk
-	UfcTNjSdwHhqd6a+pa9hSHSl+fNNxD++1koo78zEtVDRcYUIOqVqn8W/ctfLzHe5
-	m2qw5MiKegoF0YwmCTjK9US3f9exGe2YEeYGIe7naL4a8uQwKwIMhg7mDhlgXcej
-	JI9U1ICj+PaPChmenKi1yqEvGY70Dbsh8NqsrPzrcbuydIL7CKCgw==
+	:mime-version:references:subject:to; s=pp1; bh=zJ3XITMWT7pMwbApr
+	F2XAaRfRk4pBMPEr9iYYHQbiEo=; b=YFIPMw5aDu2gGXaYDPmjXD+kMnmvLL6SR
+	B3FnkKxxfRWhGu7VOQyaOgOYuXnz3Rcvndvv+OgrdWK6PTXC5fdrSzrlEYeHQAGv
+	T0Wz5DbFh3Am0SNROJoxIjXM9TY8VAv8XVq3M+aIVaiBCb3mm2NOlubVRKqCUtUx
+	wRcOhu9wEtFjhrTzCkpF7UakKvtTzQtPc3rWKN8sOZRy1FH70e7BKnbhJdZaxX+V
+	pTBy81YVFVBQYY6c8o+hJUWbt/Si+wL9wAwj/VtH4+6mGVYOHCroZU4OiH7tBHFv
+	2b3UqDeAAlaax1dxJLxPR2F0dHPDTR6BLZmYIQcTq30qt/N2H5/8A==
 Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 445cnb4y8j-1
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 445m433cq2-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 14 Jan 2025 22:01:53 +0000 (GMT)
-Received: from m0356516.ppops.net (m0356516.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 50ELvFHm013472;
-	Tue, 14 Jan 2025 22:01:53 GMT
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 445cnb4y8d-1
+	Tue, 14 Jan 2025 22:01:55 +0000 (GMT)
+Received: from m0360072.ppops.net (m0360072.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 50EM1sCF018824;
+	Tue, 14 Jan 2025 22:01:54 GMT
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 445m433cq0-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 14 Jan 2025 22:01:53 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 50ELHmIw002734;
-	Tue, 14 Jan 2025 22:01:52 GMT
-Received: from smtprelay05.wdc07v.mail.ibm.com ([172.16.1.72])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4443by5dj4-1
+	Tue, 14 Jan 2025 22:01:54 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 50EKWGtq004551;
+	Tue, 14 Jan 2025 22:01:54 GMT
+Received: from smtprelay06.wdc07v.mail.ibm.com ([172.16.1.73])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4442ysnggm-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 14 Jan 2025 22:01:52 +0000
+	Tue, 14 Jan 2025 22:01:53 +0000
 Received: from smtpav06.dal12v.mail.ibm.com (smtpav06.dal12v.mail.ibm.com [10.241.53.105])
-	by smtprelay05.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 50EM1pQJ13238874
+	by smtprelay06.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 50EM1qQP25363100
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 14 Jan 2025 22:01:51 GMT
+	Tue, 14 Jan 2025 22:01:52 GMT
 Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 353365805D;
+	by IMSVA (Postfix) with ESMTP id 0DCAD58043;
+	Tue, 14 Jan 2025 22:01:52 +0000 (GMT)
+Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id C8BBD5805F;
 	Tue, 14 Jan 2025 22:01:51 +0000 (GMT)
-Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id E6A5D5805F;
-	Tue, 14 Jan 2025 22:01:50 +0000 (GMT)
 Received: from gfwa153.aus.stglabs.ibm.com (unknown [9.3.84.127])
 	by smtpav06.dal12v.mail.ibm.com (Postfix) with ESMTP;
-	Tue, 14 Jan 2025 22:01:50 +0000 (GMT)
+	Tue, 14 Jan 2025 22:01:51 +0000 (GMT)
 From: Ninad Palsule <ninad@linux.ibm.com>
 To: minyard@acm.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
         andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
@@ -95,28 +95,28 @@ To: minyard@acm.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
         linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
         linux-kernel@vger.kernel.org
 Cc: Ninad Palsule <ninad@linux.ibm.com>
-Subject: [PATCH v5 05/10] ARM: dts: aspeed: system1: Add GPIO line name
-Date: Tue, 14 Jan 2025 16:01:39 -0600
-Message-ID: <20250114220147.757075-6-ninad@linux.ibm.com>
+Subject: [PATCH v5 08/10] ARM: dts: aspeed: system1: Remove VRs max8952
+Date: Tue, 14 Jan 2025 16:01:42 -0600
+Message-ID: <20250114220147.757075-9-ninad@linux.ibm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250114220147.757075-1-ninad@linux.ibm.com>
 References: <20250114220147.757075-1-ninad@linux.ibm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: i06E3VT6US5i_cBUUY4GI9y965_73AMM
-X-Proofpoint-GUID: pkP5LmZoVsdNYoo5vwWMTKY97bEVmui0
+X-Proofpoint-ORIG-GUID: BrcmcTd1CnMGcpTWjSq5-6Zte0JQ-Xj6
+X-Proofpoint-GUID: zOKBipiPBF741SJJq89-JjINxGf5dDZU
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-01-14_07,2025-01-13_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0
- priorityscore=1501 bulkscore=0 phishscore=0 clxscore=1015 mlxscore=0
- mlxlogscore=720 spamscore=0 lowpriorityscore=0 adultscore=0 malwarescore=0
- suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0
+ lowpriorityscore=0 mlxscore=0 malwarescore=0 impostorscore=0 spamscore=0
+ bulkscore=0 mlxlogscore=999 phishscore=0 priorityscore=1501 clxscore=1015
+ adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
  engine=8.19.0-2411120000 definitions=main-2501140166
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_220228_219522_18D69F6A 
-X-CRM114-Status: GOOD (  13.16  )
+X-CRM114-CacheID: sfid-20250114_220228_866779_DAEF6CD0 
+X-CRM114-Status: GOOD (  11.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,28 +131,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add following GPIO line name so that userspace can control them
-    - Flash write override
-    - pch-reset
+Removing voltage regulators max8952 from device tree. Those are fully
+controlled by hardware and firmware should not touch them.
 
 Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
 ---
- arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ .../dts/aspeed/aspeed-bmc-ibm-system1.dts     | 34 -------------------
+ 1 file changed, 34 deletions(-)
 
 diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
-index 0d16987cfc80..973169679c8d 100644
+index 1e0b1111ea9a..089a8315753a 100644
 --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
 +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
-@@ -370,7 +370,7 @@ &gpio0 {
- 	/*K0-K7*/	"","","","","","","","",
- 	/*L0-L7*/	"","","","","","","","bmc-ready",
- 	/*M0-M7*/	"","","","","","","","",
--	/*N0-N7*/	"fpga-debug-enable","","","","","","","",
-+	/*N0-N7*/	"pch-reset","","","","","flash-write-override","","",
- 	/*O0-O7*/	"","","","","","","","",
- 	/*P0-P7*/	"","","","","","","","bmc-hb",
- 	/*Q0-Q7*/	"","","","","","","pch-ready","",
+@@ -486,23 +486,6 @@ eeprom@50 {
+ 		compatible = "atmel,24c64";
+ 		reg = <0x50>;
+ 	};
+-
+-	regulator@60 {
+-		compatible = "maxim,max8952";
+-		reg = <0x60>;
+-
+-		max8952,default-mode = <0>;
+-		max8952,dvs-mode-microvolt = <1250000>, <1200000>,
+-						<1050000>, <950000>;
+-		max8952,sync-freq = <0>;
+-		max8952,ramp-speed = <0>;
+-
+-		regulator-name = "VR_v77_1v4";
+-		regulator-min-microvolt = <770000>;
+-		regulator-max-microvolt = <1400000>;
+-		regulator-always-on;
+-		regulator-boot-on;
+-	};
+ };
+ 
+ &i2c1 {
+@@ -1198,23 +1181,6 @@ eeprom@50 {
+ 		compatible = "atmel,24c64";
+ 		reg = <0x50>;
+ 	};
+-
+-	regulator@60 {
+-		compatible = "maxim,max8952";
+-		reg = <0x60>;
+-
+-		max8952,default-mode = <0>;
+-		max8952,dvs-mode-microvolt = <1250000>, <1200000>,
+-						<1050000>, <950000>;
+-		max8952,sync-freq = <0>;
+-		max8952,ramp-speed = <0>;
+-
+-		regulator-name = "VR_v77_1v4";
+-		regulator-min-microvolt = <770000>;
+-		regulator-max-microvolt = <1400000>;
+-		regulator-always-on;
+-		regulator-boot-on;
+-	};
+ };
+ 
+ &i2c11 {
 -- 
 2.43.0
 
