@@ -4,65 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D0D7E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 09:57:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C04A7E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 09:58:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kx7ETai/eDcS1m4+BdzB4ue4gzoqN53kBc7tqmb9e/Q=; b=i0HWYwlcIyOZBV56lZRQfm1IT6
-	GXyUVSCfZygutiBMSlL4HiDxujPNE8K4k5aH1Lrmpp8SQsn09ktjEYRzBz/djlwGecocBGmXywaA0
-	Mq3pcW7bEgsUR9feLWAob424Cal9eVNGn7ewV191CLQw63/Khk0CP1ZiRVnyOri+h7HeUCLlHdzYj
-	7RmiKdrRYJ9k7re97h7nSP37epF2nLMHch4ioON7Pa/aAd1T1mFaLkwi1vGLyXkXpxjHGNaWs51vA
-	3SoOpNOjgY5O4zInT1KUd1XtNj5HBEET7RpR5/KVaeqsK1nMAWTNSNMUeSsH5kL1BCZswiQtPZ7Pz
-	ZqWOQ2ZA==;
+	bh=kZ2Ys4n7YpWJ+MkNI3A+iCHngSyL6MbGSCArR64zRwg=; b=ZYZpsTW32uRMkqTKkCoKbebtQ3
+	ieIMCS4fV+C2U3Gc2lNs3zlLHAVCpG4H3+LxjaSoJhXarRKFGoWHtqUqMWKFAqF7UGVUMmaj2o5M7
+	3Vj7ZlQRt0mMTRFbmNYdvBggkMr9IlmCOLBj85vtPh6HzCZV/rBYwr5Ha5gXJv7YmLT9FyUX/qiHO
+	QCPLMyeWLNFdeA6w+/96GRiGhNBdIHRR57uegOXRwDPAD1TvT16Em8QxmdxaTnGIL8w6K7S73UId2
+	vSVcAvxULKmZH+PrXrQBfMU/2wJQ/GEzmJbh4umfpmekCImNaKmgsDxTt/3zWmrX0GhBddCsj9qeB
+	ff6MEyFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXdfH-000000080WJ-0Ggf;
-	Tue, 14 Jan 2025 09:56:51 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXde1-000000080DG-3jX4
+	id 1tXdgT-000000080ld-2oo2;
+	Tue, 14 Jan 2025 09:58:05 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tXde5-000000080EN-1Qb6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 09:55:35 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tXddj-0003GN-6L; Tue, 14 Jan 2025 10:55:15 +0100
-Message-ID: <528b6695-387e-436d-98fc-6f576636d16f@pengutronix.de>
-Date: Tue, 14 Jan 2025 10:55:12 +0100
+	Tue, 14 Jan 2025 09:55:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1AD7D11FB;
+	Tue, 14 Jan 2025 01:56:04 -0800 (PST)
+Received: from [10.57.35.117] (unknown [10.57.35.117])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 8C9713F792;
+	Tue, 14 Jan 2025 01:55:33 -0800 (PST)
+Message-ID: <bfd6361b-1a6f-43e5-9ad1-80692c146d61@arm.com>
+Date: Tue, 14 Jan 2025 09:55:32 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/4] gpio: mxc: silence warning about GPIO base being
- statically allocated
-To: Andy Shevchenko <andy.shevchenko@gmail.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Andy Whitcroft <apw@canonical.com>,
- Joe Perches <joe@perches.com>, Dwaipayan Ray <dwaipayanray1@gmail.com>,
- Lukas Bulwahn <lukas.bulwahn@gmail.com>, Fabio Estevam <festevam@gmail.com>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Dario Binacchi <dario.binacchi@amarulasolutions.com>,
- Haibo Chen <haibo.chen@nxp.com>,
- Catalin Popescu <catalin.popescu@leica-geosystems.com>,
- linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20250113-b4-imx-gpio-base-warning-v1-0-0a28731a5cf6@pengutronix.de>
- <CAHp75Ve8d96Uw1obJVwRPyRE5E0eC8qU7uXe-UKuZeB-3XLPcA@mail.gmail.com>
-Content-Language: en-US
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-In-Reply-To: <CAHp75Ve8d96Uw1obJVwRPyRE5E0eC8qU7uXe-UKuZeB-3XLPcA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH v2 5/7] KVM: arm64: MTE: Use stage-2 NoTagAccess memory
+ attribute if supported
+Content-Language: en-GB
+To: Peter Collingbourne <pcc@google.com>,
+ Catalin Marinas <catalin.marinas@arm.com>
+Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, Steven Price <steven.price@arm.com>,
+ Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
+ Joey Gouly <joey.gouly@arm.com>, Zenghui Yu <yuzenghui@huawei.com>
+References: <20250110110023.2963795-1-aneesh.kumar@kernel.org>
+ <20250110110023.2963795-6-aneesh.kumar@kernel.org> <Z4Fk58k8YptDkVgm@arm.com>
+ <yq5amsfxtrlw.fsf@kernel.org> <Z4Vk5gTnd8o7VKWL@arm.com>
+ <CAMn1gO4huP4D_1mFdC8FsmvHkaQn+hC02ULcfBuS30VDM9=9gA@mail.gmail.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <CAMn1gO4huP4D_1mFdC8FsmvHkaQn+hC02ULcfBuS30VDM9=9gA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_015533_923915_AD88C832 
-X-CRM114-Status: GOOD (  20.26  )
+X-CRM114-CacheID: sfid-20250114_015537_463383_D5774119 
+X-CRM114-Status: GOOD (  27.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,45 +73,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andy,
+Hi,
 
-On 14.01.25 10:46, Andy Shevchenko wrote:
-> On Tue, Jan 14, 2025 at 12:19 AM Ahmad Fatoum <a.fatoum@pengutronix.de> wrote:
+
+On 13/01/2025 20:47, Peter Collingbourne wrote:
+> On Mon, Jan 13, 2025 at 11:09 AM Catalin Marinas
+> <catalin.marinas@arm.com> wrote:
 >>
->> The i.MX GPIO driver has had deterministic numbering for the GPIOs
->> for more than 12 years.
->>
->> Reverting this to dynamically numbered will break existing setups in the
->> worst manner possible: The build will succeed, the kernel will not print
->> warnings, but users will find their devices essentially toggling GPIOs
->> at random with the potential of permanent damage. We thus want to keep
->> the numbering as-is until the SysFS API is removed and script fail
->> instead of toggling GPIOs dependent on probe order.
-> 
-> While I understand the issue this tends to get never fixed until the
-> entire support of iMX boards will be dropped.
+>> On Sat, Jan 11, 2025 at 06:49:55PM +0530, Aneesh Kumar K.V wrote:
+>>> Catalin Marinas <catalin.marinas@arm.com> writes:
+>>>> On Fri, Jan 10, 2025 at 04:30:21PM +0530, Aneesh Kumar K.V (Arm) wrote:
+>>>>> Currently, the kernel won't start a guest if the MTE feature is enabled
+>>>
+>>> ...
+>>>
+>>>>> @@ -2152,7 +2162,8 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
+>>>>>             if (!vma)
+>>>>>                     break;
+>>>>>
+>>>>> -          if (kvm_has_mte(kvm) && !kvm_vma_mte_allowed(vma)) {
+>>>>> +          if (kvm_has_mte(kvm) &&
+>>>>> +              !kvm_has_mte_perm(kvm) && !kvm_vma_mte_allowed(vma)) {
+>>>>>                     ret = -EINVAL;
+>>>>>                     break;
+>>>>>             }
+>>>>
+>>>> I don't think we should change this, or at least not how it's done above
+>>>> (Suzuki raised a related issue internally relaxing this for VM_PFNMAP).
+>>>>
+>>>> For standard memory slots, we want to reject them upfront rather than
+>>>> deferring to the fault handler. An example here is file mmap() passed as
+>>>> standard RAM to the VM. It's an unnecessary change in behaviour IMHO.
+>>>> I'd only relax this for VM_PFNMAP mappings further down in this
+>>>> function (and move the VM_PFNMAP check above; see Suzuki's internal
+>>>> patch, unless he posted it publicly already).
 
-i.MX is an actively developed and widely used platform. Why should support
-be dropped?
-
-> Personally I do not like
-> this series at all. Rather let's try to go the hard way and understand
-> what's going on to fix the current issues.
-
-/sys/class/gpio is deprecated and when it is finally removed, this series can
-be reverted again. The alternatives are either do nothing and live with 6 kernel
-warnings cluttering every boot or show users the finger as described in
-the cover letter.
-
-Do you see a different path forward?
-
-Cheers,
-Ahmad
+For the record, here is the patch Catalin was referring to.
 
 
+--->8---
+
+kvm: arm64: Allow device mappings with MTE
+
+When a VM is configured to use MTE, we prevent mapping a "Device" to the VM.
+
+e.g: with kvmtool (with additional debugging to dump error code and 
+addresses)
+
+$ lkvm run ... --vfio 0000:01:00.0 ...
+
+  Info: Using IOMMU type 3 for VFIO container
+    Error: 0000:01:00.0: failed to register region with KVM 
+50020000-50022000: -22
+       Warning: [0abc:aced] Error activating emulation for BAR 0
+       Error: 0000:01:00.0: failed to configure regions
+       Warning: Failed init: vfio__init
+
+Only check for the MTE allowed for a VMA if it is not backed by "device"
+
+Fixes: ea7fc1bb1cd1b ("KVM: arm64: Introduce MTE VM feature")
+Cc: Steven Price <steven.price at arm.com>
+Cc: Marc Zyngier <maz at kernel.org>
+Signed-off-by: Suzuki K Poulose <suzuki.poulose at arm.com>
+---
+  arch/arm64/kvm/mmu.c | 8 +++-----
+  1 file changed, 3 insertions(+), 5 deletions(-)
+
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 8b2d803e558a..7e084f22e185 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -2295,17 +2295,15 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
+  		if (!vma)
+  			break;
+
+-		if (kvm_has_mte(kvm) && !kvm_vma_mte_allowed(vma)) {
+-			ret = -EINVAL;
+-			break;
+-		}
+-
+  		if (vma->vm_flags & VM_PFNMAP) {
+  			/* IO region dirty page logging not allowed */
+  			if (new->flags & KVM_MEM_LOG_DIRTY_PAGES) {
+  				ret = -EINVAL;
+  				break;
+  			}
++		} else if (kvm_has_mte(kvm) && !kvm_vma_mte_allowed(vma)) {
++			ret = -EINVAL;
++			break;
+  		}
+  		hva = min(reg_end, vma->vm_end);
+  	} while (hva < reg_end);
 -- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+2.34.1
+
+
+Suzuki
+
+
+>>>
+>>> But we want to handle memslots backed by pagecache pages for virtio-shm
+>>> here (virtiofs dax use case).
+>>
+>> Ah, I forgot about this use case. So with virtiofs DAX, does a host page
+>> cache page (host VMM mmap()) get mapped directly into the guest as a
+>> separate memory slot? In this case, the host vma would not have
+>> VM_MTE_ALLOWED set.
+>>
+>>> With MTE_PERM, we can essentially skip the
+>>> kvm_vma_mte_allowed(vma) check because we handle all types in the fault
+>>> handler.
+>>
+>> This was pretty much the early behaviour when we added KVM support for
+>> MTE, allow !VM_MTE_ALLOWED and trap them later. However, we disallowed
+>> VM_SHARED because of some non-trivial race. Commit d89585fbb308 ("KVM:
+>> arm64: unify the tests for VMAs in memslots when MTE is enabled")
+>> changed this behaviour and the VM_MTE_ALLOWED check happens upfront. A
+>> subsequent commit removed the VM_SHARED check.
+>>
+>> It's a minor ABI change but I'm trying to figure out why we needed this
+>> upfront check rather than simply dropping the VM_SHARED check. Adding
+>> Peter in case he remembers. I can't see any race if we simply skipped
+>> this check altogether, irrespective of FEAT_MTE_PERM.
+> 
+> I don't see a problem with removing the upfront check. The reason I
+> kept the check was IIRC just that there was already a check there and
+> its logic needed to be adjusted for my VM_SHARED changes.
+> 
+> Peter
+
 
