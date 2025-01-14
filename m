@@ -4,116 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56AC1E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 15:34:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2898CC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 15:46:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MLjFpMO8OjWpHXUFxGZ9Iesfrum3tNeCO1+fJ3cniw0=; b=csAQBNOomlxcXmspvjw2aQ6/ee
-	q3AjKyzWLdAzB6C6w/X6O2bFlFnQ9LKaMgB9eLVKVAYoAZlg4oqNJcEJyUNera6PAhaOrAorsWms4
-	bJiUvoFmPzcxLZw0aa9rYscteKDHfqfK3XTLUqi93AGen/QPCQqh1SuXhgwmbRBvwea8Y7GkjXDtV
-	Cj56rw9+OWwfH22IRJN3z+t3RBNxUIt5wr41YxQeEkzYh8+RC9xCwXCjNcuTmcmYlsXNIlMVHeFhk
-	gb+Ntvj7EB/CiGCKKGatYzRVzOdE3heUxEcaD7HTTdzczUQAVZVeJE83j+S88/xRQsbDgMcizzI6X
-	0VlkczVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZQA9ecdMH25SErsniG43mqcD8jU+sSVQYQQTTt4OqsU=; b=CTFFmOZXTOcCJq3I2JTJvKYVsP
+	E6wI2AZnQyS+RJ4OQagp9k9YD+SNZ0EBDHWqMu2AbK2usKIJM5CHWq05dzx3LdO+sMcdJ+YTgpjss
+	lQlK2q7VKS+QhEv67DEdnDCcO0wjncCQ0702NUwbxP9OmihwhYxaMKTz7awao3+Oz+py3dIB0R9CC
+	9bldsZBcVtS64DbIlr/AgbyQJYYuZc8i4L00Zx9YwUGxJaoAEk8EspPiKXDAMtUP8mtb8TZLBucT9
+	3jbVJUzB886xq41eMtATKogePEu077+CNB6Sb4jpQIC6DxUm4mDFCSwlX9HZUsaS1zF8aEAimn5R5
+	AECZi9eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXivk-00000008sCu-2TIk;
-	Tue, 14 Jan 2025 15:34:12 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1tXj7a-00000008uri-29Ip;
+	Tue, 14 Jan 2025 15:46:26 +0000
+Received: from exchange.fintech.ru ([195.54.195.159])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXiqa-00000008r64-47Sn
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 15:28:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1736868533; x=1768404533;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=oLOJQwjoOMagCDW7lcXuavWYJiJc/+lG4Bg7F22yM98=;
-  b=NDJmNqG51WRRPleok6vEtLFIL26ejMXWbzrwak+P8VtYNXr8xFRHGZYB
-   2BnEwj5Cz0/+KmK6lSH4md4wS3kHQXJancRfo3avxaQN/UiJAATgqrVpa
-   FYsgGZ8K5GDV9dFQX1T1B7XDr57hCH8zpz1od/8ZdbUMeWnMyikkTCJUr
-   sUygzV78ekDlSjMmMREFxxTRjAxRkIFMX+rmjXDw837hWLJF1qGtgq//i
-   09cIOtK1mYEOgJH8Di7atU9CUkPqrBcIXf1ia52hO+5RDIHYKLMDcCGvy
-   00wNBsRdio7Syo+9bpRdFeXL5mO8LrMv9jRc/gpeeT1HzBCeArlXu0vxY
-   w==;
-X-CSE-ConnectionGUID: 3K3EfJvVTTS6k9DGmXwYqA==
-X-CSE-MsgGUID: OaWPRmyKSGKXDOEgDSeTzA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11315"; a="37325419"
-X-IronPort-AV: E=Sophos;i="6.12,314,1728975600"; 
-   d="scan'208";a="37325419"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jan 2025 07:28:52 -0800
-X-CSE-ConnectionGUID: Z+YZJTMiS+6T+C5l8UqrXQ==
-X-CSE-MsgGUID: Obu5MGoBTCukqgaVBTU7yw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="142117820"
-Received: from p12ill20yoongsia.png.intel.com ([10.88.227.38])
-  by orviesa001.jf.intel.com with ESMTP; 14 Jan 2025 07:28:40 -0800
-From: Song Yoong Siang <yoong.siang.song@intel.com>
-To: "David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Willem de Bruijn <willemb@google.com>,
-	Florian Bezdeka <florian.bezdeka@siemens.com>,
-	Donald Hunter <donald.hunter@gmail.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Bjorn Topel <bjorn@kernel.org>,
-	Magnus Karlsson <magnus.karlsson@intel.com>,
-	Maciej Fijalkowski <maciej.fijalkowski@intel.com>,
-	Jonathan Lemon <jonathan.lemon@gmail.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Joe Damato <jdamato@fastly.com>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
-	Mina Almasry <almasrymina@google.com>,
-	Daniel Jurgens <danielj@nvidia.com>,
-	Song Yoong Siang <yoong.siang.song@intel.com>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Mykola Lysenko <mykolal@fb.com>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	KP Singh <kpsingh@kernel.org>,
-	Hao Luo <haoluo@google.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>
-Cc: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	bpf@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	intel-wired-lan@lists.osuosl.org,
-	xdp-hints@xdp-project.net
-Subject: [PATCH bpf-next v5 4/4] igc: Add launch time support to XDP ZC
-Date: Tue, 14 Jan 2025 23:27:18 +0800
-Message-Id: <20250114152718.120588-5-yoong.siang.song@intel.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250114152718.120588-1-yoong.siang.song@intel.com>
-References: <20250114152718.120588-1-yoong.siang.song@intel.com>
+	id 1tXj6K-00000008uIn-22yp;
+	Tue, 14 Jan 2025 15:45:09 +0000
+Received: from Ex16-01.fintech.ru (10.0.10.18) by exchange.fintech.ru
+ (195.54.195.169) with Microsoft SMTP Server (TLS) id 14.3.498.0; Tue, 14 Jan
+ 2025 18:44:45 +0300
+Received: from localhost (10.0.253.138) by Ex16-01.fintech.ru (10.0.10.18)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2242.4; Tue, 14 Jan
+ 2025 18:44:45 +0300
+From: Nikita Zhandarovich <n.zhandarovich@fintech.ru>
+To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>,
+	"Ryder Lee" <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>,
+	"Sean Wang" <sean.wang@mediatek.com>, Kalle Valo <kvalo@kernel.org>
+CC: Nikita Zhandarovich <n.zhandarovich@fintech.ru>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, <linux-wireless@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>, <lvc-project@linuxtesting.org>
+Subject: [PATCH] wifi: mt76: mt7915: fix possible integer overflows in mt7915_muru_stats_show()
+Date: Tue, 14 Jan 2025 07:44:41 -0800
+Message-ID: <20250114154441.16920-1-n.zhandarovich@fintech.ru>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.0.253.138]
+X-ClientProxiedBy: Ex16-02.fintech.ru (10.0.10.19) To Ex16-01.fintech.ru
+ (10.0.10.18)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_072853_030589_FB07690E 
-X-CRM114-Status: GOOD (  16.59  )
+X-CRM114-CacheID: sfid-20250114_074508_521786_106B2F7A 
+X-CRM114-Status: UNSURE (   9.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,171 +70,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable Launch Time Control (LTC) support to XDP zero copy via XDP Tx
-metadata framework.
+Assuming sums of values stored in variables such as sub_total_cnt
+and total_ppdu_cnt are big enough to warrant their u64 type, it
+makes sense to ensure that their calculation takes into account
+possible integer overflow issues.
 
-This patch is tested with tools/testing/selftests/bpf/xdp_hw_metadata on
-Intel I225-LM Ethernet controller. Below are the test steps and result.
+Play it safe and fix the problem by casting right hand expressions
+to u64 as well. Also, slightly adjust tabulation.
 
-Test Steps:
-1. At DUT, start xdp_hw_metadata selftest application:
-   $ sudo ./xdp_hw_metadata enp2s0 -l 1000000000 -L 1
+Found by Linux Verification Center (linuxtesting.org) with static
+analysis tool SVACE.
 
-2. At Link Partner, send an UDP packet with VLAN priority 1 to port 9091 of
-   DUT.
-
-When launch time is set to 1s in the future, the delta between launch time
-and transmit hardware timestamp is equal to 0.016us, as shown in result
-below:
-  0x562ff5dc8880: rx_desc[4]->addr=84110 addr=84110 comp_addr=84110 EoP
-  rx_hash: 0xE343384 with RSS type:0x1
-  HW RX-time:   1734578015467548904 (sec:1734578015.4675) delta to User RX-time sec:0.0002 (183.103 usec)
-  XDP RX-time:   1734578015467651698 (sec:1734578015.4677) delta to User RX-time sec:0.0001 (80.309 usec)
-  No rx_vlan_tci or rx_vlan_proto, err=-95
-  0x562ff5dc8880: ping-pong with csum=561c (want c7dd) csum_start=34 csum_offset=6
-  HW RX-time:   1734578015467548904 (sec:1734578015.4675) delta to HW Launch-time sec:1.0000 (1000000.000 usec)
-  0x562ff5dc8880: complete tx idx=4 addr=4018
-  HW Launch-time:   1734578016467548904 (sec:1734578016.4675) delta to HW TX-complete-time sec:0.0000 (0.016 usec)
-  HW TX-complete-time:   1734578016467548920 (sec:1734578016.4675) delta to User TX-complete-time sec:0.0000 (32.546 usec)
-  XDP RX-time:   1734578015467651698 (sec:1734578015.4677) delta to User TX-complete-time sec:0.9999 (999929.768 usec)
-  HW RX-time:   1734578015467548904 (sec:1734578015.4675) delta to HW TX-complete-time sec:1.0000 (1000000.016 usec)
-  0x562ff5dc8880: complete rx idx=132 addr=84110
-
-Signed-off-by: Song Yoong Siang <yoong.siang.song@intel.com>
+Fixes: 1966a5078f2d ("mt76: mt7915: add mu-mimo and ofdma debugfs knobs")
+Signed-off-by: Nikita Zhandarovich <n.zhandarovich@fintech.ru>
 ---
- drivers/net/ethernet/intel/igc/igc_main.c | 78 ++++++++++++++++-------
- 1 file changed, 56 insertions(+), 22 deletions(-)
+ .../net/wireless/mediatek/mt76/mt7915/debugfs.c    | 45 +++++++++++-----------
+ 1 file changed, 23 insertions(+), 22 deletions(-)
 
-diff --git a/drivers/net/ethernet/intel/igc/igc_main.c b/drivers/net/ethernet/intel/igc/igc_main.c
-index 56a35d58e7a6..3c7015cb5cb5 100644
---- a/drivers/net/ethernet/intel/igc/igc_main.c
-+++ b/drivers/net/ethernet/intel/igc/igc_main.c
-@@ -1566,6 +1566,26 @@ static bool igc_request_tx_tstamp(struct igc_adapter *adapter, struct sk_buff *s
- 	return false;
- }
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/debugfs.c b/drivers/net/wireless/mediatek/mt76/mt7915/debugfs.c
+index 578013884e43..4fec7d000a63 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7915/debugfs.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7915/debugfs.c
+@@ -303,9 +303,9 @@ static int mt7915_muru_stats_show(struct seq_file *file, void *data)
+ 		   phy->mib.dl_vht_3mu_cnt,
+ 		   phy->mib.dl_vht_4mu_cnt);
  
-+static void igc_insert_empty_packet(struct igc_ring *tx_ring)
-+{
-+	struct igc_tx_buffer *empty_info;
-+	struct sk_buff *empty;
-+	void *data;
-+
-+	empty_info = &tx_ring->tx_buffer_info[tx_ring->next_to_use];
-+	empty = alloc_skb(IGC_EMPTY_FRAME_SIZE, GFP_ATOMIC);
-+	if (!empty)
-+		return;
-+
-+	data = skb_put(empty, IGC_EMPTY_FRAME_SIZE);
-+	memset(data, 0, IGC_EMPTY_FRAME_SIZE);
-+
-+	igc_tx_ctxtdesc(tx_ring, 0, false, 0, 0, 0);
-+
-+	if (igc_init_tx_empty_descriptor(tx_ring, empty, empty_info) < 0)
-+		dev_kfree_skb_any(empty);
-+}
-+
- static netdev_tx_t igc_xmit_frame_ring(struct sk_buff *skb,
- 				       struct igc_ring *tx_ring)
- {
-@@ -1603,26 +1623,8 @@ static netdev_tx_t igc_xmit_frame_ring(struct sk_buff *skb,
- 	skb->tstamp = ktime_set(0, 0);
- 	launch_time = igc_tx_launchtime(tx_ring, txtime, &first_flag, &insert_empty);
+-	sub_total_cnt = phy->mib.dl_vht_2mu_cnt +
+-			phy->mib.dl_vht_3mu_cnt +
+-			phy->mib.dl_vht_4mu_cnt;
++	sub_total_cnt = (u64)phy->mib.dl_vht_2mu_cnt +
++			     phy->mib.dl_vht_3mu_cnt +
++			     phy->mib.dl_vht_4mu_cnt;
  
--	if (insert_empty) {
--		struct igc_tx_buffer *empty_info;
--		struct sk_buff *empty;
--		void *data;
--
--		empty_info = &tx_ring->tx_buffer_info[tx_ring->next_to_use];
--		empty = alloc_skb(IGC_EMPTY_FRAME_SIZE, GFP_ATOMIC);
--		if (!empty)
--			goto done;
--
--		data = skb_put(empty, IGC_EMPTY_FRAME_SIZE);
--		memset(data, 0, IGC_EMPTY_FRAME_SIZE);
--
--		igc_tx_ctxtdesc(tx_ring, 0, false, 0, 0, 0);
--
--		if (igc_init_tx_empty_descriptor(tx_ring,
--						 empty,
--						 empty_info) < 0)
--			dev_kfree_skb_any(empty);
--	}
-+	if (insert_empty)
-+		igc_insert_empty_packet(tx_ring);
+ 	seq_printf(file, "\nTotal non-HE MU-MIMO DL PPDU count: %lld",
+ 		   sub_total_cnt);
+@@ -353,26 +353,27 @@ static int mt7915_muru_stats_show(struct seq_file *file, void *data)
+ 		   phy->mib.dl_he_9to16ru_cnt,
+ 		   phy->mib.dl_he_gtr16ru_cnt);
  
- done:
- 	/* record the location of the first descriptor for this packet */
-@@ -2949,9 +2951,33 @@ static u64 igc_xsk_fill_timestamp(void *_priv)
- 	return *(u64 *)_priv;
- }
+-	sub_total_cnt = phy->mib.dl_he_2mu_cnt +
+-			phy->mib.dl_he_3mu_cnt +
+-			phy->mib.dl_he_4mu_cnt;
++	sub_total_cnt = (u64)phy->mib.dl_he_2mu_cnt +
++			     phy->mib.dl_he_3mu_cnt +
++			     phy->mib.dl_he_4mu_cnt;
+ 	total_ppdu_cnt = sub_total_cnt;
  
-+static void igc_xsk_request_launch_time(u64 launch_time, void *_priv)
-+{
-+	struct igc_metadata_request *meta_req = _priv;
-+	struct igc_ring *tx_ring = meta_req->tx_ring;
-+	__le32 launch_time_offset;
-+	bool insert_empty = false;
-+	bool first_flag = false;
-+
-+	if (!tx_ring->launchtime_enable)
-+		return;
-+
-+	launch_time_offset = igc_tx_launchtime(tx_ring,
-+					       ns_to_ktime(launch_time),
-+					       &first_flag, &insert_empty);
-+	if (insert_empty) {
-+		igc_insert_empty_packet(tx_ring);
-+		meta_req->tx_buffer =
-+			&tx_ring->tx_buffer_info[tx_ring->next_to_use];
-+	}
-+
-+	igc_tx_ctxtdesc(tx_ring, launch_time_offset, first_flag, 0, 0, 0);
-+}
-+
- const struct xsk_tx_metadata_ops igc_xsk_tx_metadata_ops = {
- 	.tmo_request_timestamp		= igc_xsk_request_timestamp,
- 	.tmo_fill_timestamp		= igc_xsk_fill_timestamp,
-+	.tmo_request_launch_time	= igc_xsk_request_launch_time,
- };
+ 	seq_printf(file, "\nTotal HE MU-MIMO DL PPDU count: %lld",
+ 		   sub_total_cnt);
  
- static void igc_xdp_xmit_zc(struct igc_ring *ring)
-@@ -2974,7 +3000,7 @@ static void igc_xdp_xmit_zc(struct igc_ring *ring)
- 	ntu = ring->next_to_use;
- 	budget = igc_desc_unused(ring);
+-	sub_total_cnt = phy->mib.dl_he_2ru_cnt +
+-			phy->mib.dl_he_3ru_cnt +
+-			phy->mib.dl_he_4ru_cnt +
+-			phy->mib.dl_he_5to8ru_cnt +
+-			phy->mib.dl_he_9to16ru_cnt +
+-			phy->mib.dl_he_gtr16ru_cnt;
++	sub_total_cnt = (u64)phy->mib.dl_he_2ru_cnt +
++			     phy->mib.dl_he_3ru_cnt +
++			     phy->mib.dl_he_4ru_cnt +
++			     phy->mib.dl_he_5to8ru_cnt +
++			     phy->mib.dl_he_9to16ru_cnt +
++			     phy->mib.dl_he_gtr16ru_cnt;
+ 	total_ppdu_cnt += sub_total_cnt;
  
--	while (xsk_tx_peek_desc(pool, &xdp_desc) && budget--) {
-+	while (xsk_tx_peek_desc(pool, &xdp_desc) && budget >= 4) {
- 		struct igc_metadata_request meta_req;
- 		struct xsk_tx_metadata *meta = NULL;
- 		struct igc_tx_buffer *bi;
-@@ -2998,6 +3024,12 @@ static void igc_xdp_xmit_zc(struct igc_ring *ring)
- 		xsk_tx_metadata_request(meta, &igc_xsk_tx_metadata_ops,
- 					&meta_req);
+ 	seq_printf(file, "\nTotal HE OFDMA DL PPDU count: %lld",
+ 		   sub_total_cnt);
  
-+		/* xsk_tx_metadata_request() may have updated next_to_use */
-+		ntu = ring->next_to_use;
-+
-+		/* xsk_tx_metadata_request() may have updated Tx buffer info */
-+		bi = meta_req.tx_buffer;
-+
- 		tx_desc = IGC_TX_DESC(ring, ntu);
- 		tx_desc->read.cmd_type_len = cpu_to_le32(meta_req.cmd_type);
- 		tx_desc->read.olinfo_status = cpu_to_le32(olinfo_status);
-@@ -3015,9 +3047,11 @@ static void igc_xdp_xmit_zc(struct igc_ring *ring)
- 		ntu++;
- 		if (ntu == ring->count)
- 			ntu = 0;
-+
-+		ring->next_to_use = ntu;
-+		budget = igc_desc_unused(ring);
- 	}
+-	total_ppdu_cnt += phy->mib.dl_he_su_cnt + phy->mib.dl_he_ext_su_cnt;
++	total_ppdu_cnt += (u64)phy->mib.dl_he_su_cnt +
++			       phy->mib.dl_he_ext_su_cnt;
  
--	ring->next_to_use = ntu;
- 	if (tx_desc) {
- 		igc_flush_tx_descriptors(ring);
- 		xsk_tx_release(pool);
--- 
-2.34.1
-
+ 	seq_printf(file, "\nAll HE DL PPDU count: %lld", total_ppdu_cnt);
+ 
+@@ -404,20 +405,20 @@ static int mt7915_muru_stats_show(struct seq_file *file, void *data)
+ 		   phy->mib.ul_hetrig_9to16ru_cnt,
+ 		   phy->mib.ul_hetrig_gtr16ru_cnt);
+ 
+-	sub_total_cnt = phy->mib.ul_hetrig_2mu_cnt +
+-			phy->mib.ul_hetrig_3mu_cnt +
+-			phy->mib.ul_hetrig_4mu_cnt;
++	sub_total_cnt = (u64)phy->mib.ul_hetrig_2mu_cnt +
++			     phy->mib.ul_hetrig_3mu_cnt +
++			     phy->mib.ul_hetrig_4mu_cnt;
+ 	total_ppdu_cnt = sub_total_cnt;
+ 
+ 	seq_printf(file, "\nTotal HE MU-MIMO UL TB PPDU count: %lld",
+ 		   sub_total_cnt);
+ 
+-	sub_total_cnt = phy->mib.ul_hetrig_2ru_cnt +
+-			phy->mib.ul_hetrig_3ru_cnt +
+-			phy->mib.ul_hetrig_4ru_cnt +
+-			phy->mib.ul_hetrig_5to8ru_cnt +
+-			phy->mib.ul_hetrig_9to16ru_cnt +
+-			phy->mib.ul_hetrig_gtr16ru_cnt;
++	sub_total_cnt = (u64)phy->mib.ul_hetrig_2ru_cnt +
++			     phy->mib.ul_hetrig_3ru_cnt +
++			     phy->mib.ul_hetrig_4ru_cnt +
++			     phy->mib.ul_hetrig_5to8ru_cnt +
++			     phy->mib.ul_hetrig_9to16ru_cnt +
++			     phy->mib.ul_hetrig_gtr16ru_cnt;
+ 	total_ppdu_cnt += sub_total_cnt;
+ 
+ 	seq_printf(file, "\nTotal HE OFDMA UL TB PPDU count: %lld",
 
