@@ -4,161 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F26FEE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 16:10:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C53DE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 16:17:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WFUoEtz0XiDEGb5seTALpvooz/jGIUCzq+KDfobbpv4=; b=ZIZNfXxgLsDvAohebqRrVsEzcL
-	KaJu8Y8E8OvJhqc2RMLHtywnVSBepTjmNdoiT6hwmvMasjBHLC6PHNXKY+KWguQxCtRHbLzKr7iJN
-	9jqUNopzN7QoTK42MX/xlt6OaIKEA8K0N2jb2p6pcblcz3EADe9GiiAJhB7f/X0aovas5HHozDO1m
-	U++AzvbSQm/SC2VTyYhygFXL4fcSZyXGbEJUY4sRw9Evj1kWQMWoIhEeihF4CEEazmIBjiT/jvPK3
-	eJJiJbkv5kMbQi+b/NhY8a84jGNrXa2CXr3DLoC9slKiEq1wXTbuQhbi2GxI8ZeWIPy4Yv9UI65KH
-	x5NrFTcA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BKZGegbns0oO2BiwJ3+f97YYTvSOiPn2dNKausDj72c=; b=oPk9o05zowbEMIDxzIJmEmligS
+	WMLZeulN35eWEl0VlL3ya/yHf0o1CAHZBxwNP7g8d21/FcbdaWUNZ6tvLDmHkVf9bj0kizz0OMpDh
+	La2Xy+DmRblLdOtRHQ9zcaQTiefmsUT/GtDtKliCkVg0ISzVJl3QJA9IWPgeYcmtYNlmmgtdct/ii
+	Z75tFHSfVyK4QUrOqIOttCoFCvX7u6V66iQs/7OFZGB125mrk5y/Ju81WTRoLXN7awdBjCnkMb88G
+	5MgW2yQoakgzSMoCf/2ytShuO5uy0J6y+Tea0nyHSK6Hbb5U/q6y1BVOLERwiifcgD8iR9fvF3gC5
+	XU7pNEhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXjV3-00000008zB8-2CIl;
-	Tue, 14 Jan 2025 16:10:41 +0000
-Received: from mail-db5eur02on2060b.outbound.protection.outlook.com ([2a01:111:f403:2608::60b] helo=EUR02-DB5-obe.outbound.protection.outlook.com)
+	id 1tXjbW-000000090dU-2apG;
+	Tue, 14 Jan 2025 16:17:22 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXjTm-00000008yvH-401p
+	id 1tXjaG-0000000903L-0vWX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 16:09:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QFC3Qr5wLHyqqrgRGoxppyzTMxa1HTraw66IfflVZbDJdl3VKEOo66nBGVOXWhbo/AFsypc78M8AoeTrE0c+xyJeoKW4X1qB8olcJZUUk6T8PlydgSVJJLvigO+bq1Blhjs17xX+Zf7bMqjglA3bVt574DvByprHyC8hmlU/nnwxqM2X/+eM+CcOz0PowWBUnoTEKEkGPUaGs0twzZuZET9LqD+Y7K7y41UjR7X2Gsxug2J/BoK1nZ2MPGMXjV2S87CJVBGyOKLxldy6QcO/sYckkMrgHN6uRsFm21wyPtop7IAOpuoni2wUxCw6ciFsXPwRCoMkqaHbiDZFgP/MIQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WFUoEtz0XiDEGb5seTALpvooz/jGIUCzq+KDfobbpv4=;
- b=lq4dL3OZvDWkRPX6QxU5fjsWc52IVgzXt3Pr2Ubt3PmGaZRHUG+SAhJzQE5WOELbY5yTejF39pnxMK3k+z8/0bjRuEimQP3dJJqIrGW/AMBM03/AP696tRiAc8dsKUtXw3MM5oD2UjgKwMsRq/mA2t0rQFl15QhXcrqwWSEzM/MNpPm3wK4h7toz1RXpAEJo44DvOnbEN1bhvhJresJwJ7E49t/WNiX3RKUfie5dxP3rnC5FA8nwa6VVfxuAEBtsQbnoXC7v7nn9w91vh3EO5J9PTyJlcplkK2mKMhUkB/kxWMEp5hZjbGdNmvX9jesnpSYRodEOOdMivRQWoMoFtQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WFUoEtz0XiDEGb5seTALpvooz/jGIUCzq+KDfobbpv4=;
- b=WK3tvJbY/GhSALu52uOYiJsa7k8r+0vIy2F2hKULVifveqjznnaV/EapSii2j7SIr1yiG4M6/J8RWwsqpXAFuMfvSif5Twkc4QPVFXidQGf+IkByqmP1ENC5wnbvkAWMkf7J51fAFSaUwhwaJXlOm9TtJItRC/MGb0FSKkBTLmCd90CVdofdWDn2W1Pvby2FqLwInE6t0YjpD4x7Sf82/ulok4KLNr32HuzPVJ+S9m5LrtjgKNkul4/bYzQdH+D3zjBJtv8aOAGUF8FE7XDsQOV7XT+bSXfUCaYkKDAy5Wr/gKO7hK+sh0+cEXgsq4pbmpME9ZHCVbR7mYCAazNWcg==
-Received: from PA4PR04MB9485.eurprd04.prod.outlook.com (2603:10a6:102:27d::18)
- by VI1PR04MB6895.eurprd04.prod.outlook.com (2603:10a6:803:13b::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.12; Tue, 14 Jan
- 2025 16:09:13 +0000
-Received: from PA4PR04MB9485.eurprd04.prod.outlook.com
- ([fe80::81e8:f7bb:dbd0:b0dd]) by PA4PR04MB9485.eurprd04.prod.outlook.com
- ([fe80::81e8:f7bb:dbd0:b0dd%5]) with mapi id 15.20.8335.017; Tue, 14 Jan 2025
- 16:09:13 +0000
-From: Ranjani Vaidyanathan <ranjani.vaidyanathan@nxp.com>
-To: Sudeep Holla <sudeep.holla@arm.com>
-CC: Peng Fan <peng.fan@nxp.com>, "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
-	"cristian.marussi@arm.com" <cristian.marussi@arm.com>,
-	"ulf.hansson@linaro.org" <ulf.hansson@linaro.org>, "arm-scmi@vger.kernel.org"
-	<arm-scmi@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-pm@vger.kernel.org"
-	<linux-pm@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [EXT] Re: [PATCH] pmdomain: arm: scmi_pm_domain: Initialize state
- as off
-Thread-Topic: [EXT] Re: [PATCH] pmdomain: arm: scmi_pm_domain: Initialize
- state as off
-Thread-Index: AQHbZa+EYgINd2mhkUSyLwfM7XAfOLMUuHsAgAAaEzCAACEAAIAAJ0wAgAFKc4CAAAqJcA==
-Date: Tue, 14 Jan 2025 16:09:13 +0000
-Message-ID: <PA4PR04MB9485507CCC21354B5ED55C3792182@PA4PR04MB9485.eurprd04.prod.outlook.com>
-References: <20250110061346.2440772-1-peng.fan@oss.nxp.com>
- <Z4TreQ5bA9qiMTgC@bogus>
- <PAXPR04MB8459F33BCC84CCA8F49F3B60881F2@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <Z4UZ2Au7KSFMibDW@bogus>
- <PA4PR04MB94855052830C8F4874237BA6921F2@PA4PR04MB9485.eurprd04.prod.outlook.com>
- <Z4VLZgAWR7ugDl7W@bogus>
- <PA4PR04MB9485E9C126E48A088D7E399B921F2@PA4PR04MB9485.eurprd04.prod.outlook.com>
- <Z4aBkezSWOPCXcUh@bogus>
-In-Reply-To: <Z4aBkezSWOPCXcUh@bogus>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PA4PR04MB9485:EE_|VI1PR04MB6895:EE_
-x-ms-office365-filtering-correlation-id: 6df97e09-64a7-452e-6afc-08dd34b5c9d9
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|366016|1800799024|7053199007|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?bTRqwsPrDDftJjIHxfV1XLHieoZb2SUN6Cmzos3v4Opf57taT8SuKP9+R2mN?=
- =?us-ascii?Q?b7K/qmz3mm2l2KZdQ7xsNpl7E3SZzM4cwpwPDznrFxIlXaekUldW/sL67H0q?=
- =?us-ascii?Q?qIrtqprs42/S2nhV+J2/8EOuUICTAMReRqdH08gs3iSEANPCKvk83SzQRH2n?=
- =?us-ascii?Q?IsbNDAcv88RBRs4FzD8R5sqKFuLSBUzEjSLOyR/YBz6RHfY8GV1B5e31eTh/?=
- =?us-ascii?Q?0+MeKXdWhU5bxreYMX/qz/BsxXYhlDgRkY3dDbFRAxg1AoXmibMyJLnn05G7?=
- =?us-ascii?Q?fgwIhnMFxpfMWeiXCKKkK2tI3gfw69ciwUMRhrAk8ssm+sByhf3Awbp+n4Cx?=
- =?us-ascii?Q?971MvIU7yQsyt8O9MfkoIQArSlWoCdolBZ3mBEsHPKVisVGM84IZZdlG4idn?=
- =?us-ascii?Q?z1kK0Gtyv8RMJqP3gyDsLdd0MRNlhqH3yecI5908RDtUHjOztxqPb31bJ/26?=
- =?us-ascii?Q?bKUbgxe9Skhb5RnT437S8emDr/s8bFyIpqFjC7r7RmWL0Cw8SvUPPr1oLL9K?=
- =?us-ascii?Q?xwH21sQhikrPEJVwAqKXzIPHubkwFTJjbbjH/HPnjK2RurLh4ylqgoJvQPiJ?=
- =?us-ascii?Q?SRmzyA5g3IuV/MFNwvW2spp97mwFMhJsW7RpwCZfAEGayplU9+hoRLjIPi2G?=
- =?us-ascii?Q?XNCqU/99kCje4m4f46WOdlqUmth1WO/xX9Vo+ZWNT49TxTcBJ8SzkR2FpLnq?=
- =?us-ascii?Q?2UctT0159ZfI9LfVIjj2YjhBhBZ02/Gy95LMCz7PgFFnqt+9RobAj5/2jMwj?=
- =?us-ascii?Q?IH0wpFntUaEA695fgViIGaMrAk/se3BaKEXXYCF3xSNXYIZduXcCSfXdNs+D?=
- =?us-ascii?Q?dEnfgtRV+dinyVRAFkfOrEFs/G6tZLdBvZwxhskPlUYSfQ8HkfHKYFUomNMa?=
- =?us-ascii?Q?iV/MXqVIHYMAdeN7VoVn6X0ZpIV+4fnmwI5WoVggoYBC0RlgXxKe4ADajwtc?=
- =?us-ascii?Q?UO8tATJkY5l6LSYZ9MLE7c8q3r39JAtYpaKp7obbxT78IJLqqbM5ET8Xm62s?=
- =?us-ascii?Q?ubUMBsl4Cdr/DuNPxYjd0BxHYuEz7A5SIx0GCzmQcnTPz/J9S8hWRAvkHwVz?=
- =?us-ascii?Q?Xzs0ix+qvmUkP2xhCKL9t6Wkb+dMCvWnKq42sbiU1FQ5aNUp689fegsOwAbX?=
- =?us-ascii?Q?6xv/8LWl11FYAVAk6V4Mst1JMoM2/NIwUkMys9z4lpquOaXOKPb63XHVUXId?=
- =?us-ascii?Q?KQKsMwZxLgLmBKQUvxrmOwnk+oRONJJ1CJrVIszgkA5+ZUuo3Tl/Ps4k/0M+?=
- =?us-ascii?Q?DMjOXBgN9rtAaRLkKRI4MED+KMH5R35a1Gs23v3Xl1TgcfzVHXDxY/xuBcH+?=
- =?us-ascii?Q?7wBg7WuyysnzsnhPkBqArrt5o9Ab07KKnSj+ABSLHireibuOYp0mlopN3QIg?=
- =?us-ascii?Q?5sTO0Hgj/25o7ANtDWs+49GjZeJRLcVi5NE1hLRaEr6W8+2D4nvayicrLhQI?=
- =?us-ascii?Q?VtnmwRXzz9UkPMzpGRRDc+uDEsUtE0bO?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9485.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(7053199007)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?F5M2V+gDt9nLAuwclREW3kxFvUkBIZiKrfHEWxkfhR7/2XXVcwq/gWIDlkf6?=
- =?us-ascii?Q?iKY4LIMACJkMt/yfKZxaowZ8crxcSQXCM5o+np5Gsf2aQJ09d+mQRvybgAK9?=
- =?us-ascii?Q?NDpQgiWi6de2KGZ0weIzbwhodltn+WzvPv1jZPibMSAUznUe9pRSmQsqmAnR?=
- =?us-ascii?Q?HxmKA0nZEps6V27248A3Rz+prfUAOM/naDNmkFHwP1i4QDpq2SFk8vhYZifp?=
- =?us-ascii?Q?EpeN9ypLU+rl2gXp2ebywCJAc9feq4kx8HFaEkJ+YjtCW74NwlXacNaq7nOF?=
- =?us-ascii?Q?3/R2e101dK3ygARLMB7YUrxDvWf9p3PYAr2C1d8iezkDAwCCeFqiy5gOpH5I?=
- =?us-ascii?Q?n++n+9WmSz6aUii16adyb2RGLH1ExxfzQEaj00YDYP3j3P9op1OCnfcH4QEX?=
- =?us-ascii?Q?jxsWzoQrdqz4ggcarJVtUU71l9ahG178gjBp9cngKAUaWbMNrMIDMISnoyJq?=
- =?us-ascii?Q?BF6KwPSGuHW0T8fAzINEo7pcYfZZt5Ou1jtpIisadALmoREFC1sUYxd51LWY?=
- =?us-ascii?Q?rRQip+jKF75iPtcQFcPlVLiXE5THjIC/NwmyKhncdQ/Cpb4/YpNDtpGfSBVy?=
- =?us-ascii?Q?Qxes5YqgBPDy4ZpUUSo19BomH5YR6X4wwZ2TsgAKatMvcwhwaMSUH+6lNO5L?=
- =?us-ascii?Q?OPPCWhCsaZ22QUVdfYk5EIe5ecP2HXgwK7cFy59y733P8W/VpSLqpsUVmlj9?=
- =?us-ascii?Q?+zDA1WO7PYbIFeQ79Z4yxOjbZIWnoTVGJsHiu5POAmzgskl7YZWPvGNdumx3?=
- =?us-ascii?Q?CQFpO0H1UQvlQ/nvmVO1Gd+3koo4MuFghSWL9ARJtprFAwCzf/2pfjnmEJ4V?=
- =?us-ascii?Q?Qstnmls1KYGpUd5gd8WEW9THN9SyhrBB9wJztJHy3kRNO8kBQorhck9K47/b?=
- =?us-ascii?Q?RM5RW9+ocWKUV/p03wt7GveXPgRNth8CQeZ3BaMFImARK2iaNxjyAFSoktWZ?=
- =?us-ascii?Q?KE1vNlUm9mbR2c1DYPGe1qYN7DwaJqCj00hdwYBWdn1WyXTG6ATudZBfWW6S?=
- =?us-ascii?Q?sqOCX9aw50IldAaeAzauhn2GtnqxO6CAstwspuMQkWIyqF+v3xgHTEYAbiWy?=
- =?us-ascii?Q?Yp2Bk3UJ5Sk27aSGhUsgvVdjTw7rDrlpjXQ2Z3reBJssg4qc4l0xxnUXjpZQ?=
- =?us-ascii?Q?jJelaMxMNBc4DCPLIWckFnqA19nHsP960qDQ4A5OO7UYS0Mwnia7zotHiiK3?=
- =?us-ascii?Q?5CSGa3+kYMZBPKfvqOEbzvtM/LNsZxVdjyEQQBhJ/ZmtD2uIW/V7au+gwk+g?=
- =?us-ascii?Q?C4E2V7vHHxCF12FmgJ1SbPo12LqweLB7rZ4dmQ6x917UE8fBmVHoJbliXwrS?=
- =?us-ascii?Q?POm/Zi52yjuK3qxJHZgolI5ElGVjL+fwhoAoQs1kjuDy9pVItUAdGiq2SDmp?=
- =?us-ascii?Q?aSLlIICmgglFOysSdfTPOCES2cQJVsEGmJm0Ab7ppsmseIuPhDxjTkK2wmqn?=
- =?us-ascii?Q?H1MvlPvenhxEDkBz051uMSE5z3tBm9TibrJIMcZaMJ3HNOe9wIgxUBAQQnR7?=
- =?us-ascii?Q?qSugcfY5rUDVTESFLKYVa3a+1NgwsAguHuzVeCiLK5/kGn7ppbuOih5T+kW4?=
- =?us-ascii?Q?BYrwsg7qGb90U8ctEcDCyQkGEsqgkyTvgRgTWR4D+uDKaCtceEn8/vfN3NrD?=
- =?us-ascii?Q?BA=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 14 Jan 2025 16:16:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1736871363;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=BKZGegbns0oO2BiwJ3+f97YYTvSOiPn2dNKausDj72c=;
+	b=P1lxoDPkXKNKNBVDz2v1N0qQc7NSclZbLL1IkvZ12xI5Zno5e3mi1DYdirWi2Z2otAur0W
+	5uWhNLU50QwBvEzqRgoEYbDptOF0vQEPI9t/AD4qyAVGrlvz4UR2RVl3f26BPohZgzHIwr
+	Dfv0TF3PigS4Lxoh3P4Uj55bWlnOfnY=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-379-8Bnk0JHJMaW8QGhzzZmRFA-1; Tue, 14 Jan 2025 11:16:00 -0500
+X-MC-Unique: 8Bnk0JHJMaW8QGhzzZmRFA-1
+X-Mimecast-MFC-AGG-ID: 8Bnk0JHJMaW8QGhzzZmRFA
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-4361efc9dc6so31031985e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 08:16:00 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736871359; x=1737476159;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:from:references:cc:to:subject:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=BKZGegbns0oO2BiwJ3+f97YYTvSOiPn2dNKausDj72c=;
+        b=MZsWdrKU/ZL5dv5F9vJdAudKx9EMmjQjPBBdhdJ7kjTuR8wXqQnrzSd8zFWA4GuNCU
+         w1HTp++DvAqdynWbj251IKPX0+wu+JzAOKfBYz/ZZ9izGWoFYm8CpcjY1z8jvL+5pyIq
+         07g/fbGfS9fVxhF2ybsCE03CLe0GimLLIg4n/6GA63+LeHA1A2EfSraG7GZiuJGqVQ87
+         Qjtz39onD8igAYB58XHxPA7f4AtD2kJdH7B7ZM18db5pFIduQUQWcB4cjGrTwXKs7Q+P
+         g8W6Zvowlg4GHZHSGtmMfjUJ2CkU/w7F06IaO3HvVAdr/mU43JwxeHQw688S+hJmvTKv
+         nlsA==
+X-Forwarded-Encrypted: i=1; AJvYcCVuPwTBmtnqUIw2uzxYZGfUSh9A8gXjEbI67L9cYaen9nWUU1oiVY+kt3tPqQhIt1oOP93R29nGXNOk5LMa5Fuq@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3dWX1ywZWGgf8sabkOlQ8XS9ZkmEPjzwfrGAG7V9e56JjtIxh
+	Fu3Qb9Virnjq4Ni7oHLi2LlHh9L5M6bAsqX5uu+V8KVj+PnycgLhG+qlGWPhTgIAp/P510oEyGb
+	GSYrGRIsDpQJvypPYxvXWnyB8neqRUHBDKYwmaIwPelwaHXLdhWomfMeKemvytGfc77E7D0Og
+X-Gm-Gg: ASbGncsOP1Nl/UPKJjk6ZylOWuVZQ4es6SfwMiFNmmDfUVYwmIGk6qS2Txo/kWxXqad
+	Qeh2mrb1sbUbahi/lQPU5OaYf3n5G/m/F+KkxqFHvDUSRD6xzMQ3yHtvJ+X9+PgJk8xWBp9ud3Q
+	oVY4ddcWPaHhLHodo2H5BZG9EVEcidloVoecGjpasmethr7HusdkirHnFZusIbO5i00K7ftE6+K
+	OfZDyhDRf3uY8WkZpuXOjwdaD414OZLCbeygCCP3ZtDEAlF47C+avGlvqRm3ZYyxZrOGqbKfZe0
+	B+8nnXRbIaRUAPxD8zw8tdfiB7dZbxNo67TcJDYHDApRsoSinRgZyzrpwMTxPV1q23Ajh7qRfkU
+	lhBbpxxvF
+X-Received: by 2002:a05:600c:5355:b0:436:ed33:1526 with SMTP id 5b1f17b1804b1-436ed33162amr182756875e9.9.1736871359376;
+        Tue, 14 Jan 2025 08:15:59 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFQbYca8iq/sXXNIyR3sSpTPcooFVjpwvneyEuVZssY7PhZf37hAnmkM55yUX0wAVqiodKD2A==
+X-Received: by 2002:a05:600c:5355:b0:436:ed33:1526 with SMTP id 5b1f17b1804b1-436ed33162amr182756535e9.9.1736871359013;
+        Tue, 14 Jan 2025 08:15:59 -0800 (PST)
+Received: from ?IPV6:2003:cb:c738:3100:8133:26cf:7877:94aa? (p200300cbc7383100813326cf787794aa.dip0.t-ipconnect.de. [2003:cb:c738:3100:8133:26cf:7877:94aa])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e9e6249csm178402255e9.38.2025.01.14.08.15.54
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 14 Jan 2025 08:15:57 -0800 (PST)
+Message-ID: <17d32dc8-39c1-4aa4-ab8c-873c78097fde@redhat.com>
+Date: Tue, 14 Jan 2025 17:15:54 +0100
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9485.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6df97e09-64a7-452e-6afc-08dd34b5c9d9
-X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Jan 2025 16:09:13.6040
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: GGKNzg6TWn+24x5H9oilrHsIdfZ9YMilClMi4gLrv3C4W4YbuwXHW9Mduv6nrcAyqSmJT0/2dIqIs1Vhtd4Vuft1jmSBjLG7uXyTfcLYS1E=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB6895
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 13/26] mm/memory: Add vmf_insert_page_mkwrite()
+To: Alistair Popple <apopple@nvidia.com>, akpm@linux-foundation.org,
+ dan.j.williams@intel.com, linux-mm@kvack.org
+Cc: alison.schofield@intel.com, lina@asahilina.net, zhang.lyra@gmail.com,
+ gerald.schaefer@linux.ibm.com, vishal.l.verma@intel.com,
+ dave.jiang@intel.com, logang@deltatee.com, bhelgaas@google.com,
+ jack@suse.cz, jgg@ziepe.ca, catalin.marinas@arm.com, will@kernel.org,
+ mpe@ellerman.id.au, npiggin@gmail.com, dave.hansen@linux.intel.com,
+ ira.weiny@intel.com, willy@infradead.org, djwong@kernel.org, tytso@mit.edu,
+ linmiaohe@huawei.com, peterx@redhat.com, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, nvdimm@lists.linux.dev,
+ linux-cxl@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+ linux-ext4@vger.kernel.org, linux-xfs@vger.kernel.org, jhubbard@nvidia.com,
+ hch@lst.de, david@fromorbit.com, chenhuacai@kernel.org, kernel@xen0n.name,
+ loongarch@lists.linux.dev
+References: <cover.11189864684e31260d1408779fac9db80122047b.1736488799.git-series.apopple@nvidia.com>
+ <e75232267bb9b5411b67df267e16aa27597eba33.1736488799.git-series.apopple@nvidia.com>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ WNyWQQ==
+Organization: Red Hat
+In-Reply-To: <e75232267bb9b5411b67df267e16aa27597eba33.1736488799.git-series.apopple@nvidia.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: eJ-hG0bAK9n1CcUGfyz1PvrcozU1DVoXT0zuhrxJfJI_1736871359
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_080923_183628_881BB41E 
-X-CRM114-Status: GOOD (  32.47  )
+X-CRM114-CacheID: sfid-20250114_081604_328762_B8551937 
+X-CRM114-Status: GOOD (  28.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,129 +169,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Sudeep,
+On 10.01.25 07:00, Alistair Popple wrote:
+> Currently to map a DAX page the DAX driver calls vmf_insert_pfn. This
+> creates a special devmap PTE entry for the pfn but does not take a
+> reference on the underlying struct page for the mapping. This is
+> because DAX page refcounts are treated specially, as indicated by the
+> presence of a devmap entry.
+> 
+> To allow DAX page refcounts to be managed the same as normal page
+> refcounts introduce vmf_insert_page_mkwrite(). This will take a
+> reference on the underlying page much the same as vmf_insert_page,
+> except it also permits upgrading an existing mapping to be writable if
+> requested/possible.
+> 
+> Signed-off-by: Alistair Popple <apopple@nvidia.com>
+> 
+> ---
+> 
+> Updates from v2:
+> 
+>   - Rename function to make not DAX specific
+> 
+>   - Split the insert_page_into_pte_locked() change into a separate
+>     patch.
+> 
+> Updates from v1:
+> 
+>   - Re-arrange code in insert_page_into_pte_locked() based on comments
+>     from Jan Kara.
+> 
+>   - Call mkdrity/mkyoung for the mkwrite case, also suggested by Jan.
+> ---
+>   include/linux/mm.h |  2 ++
+>   mm/memory.c        | 36 ++++++++++++++++++++++++++++++++++++
+>   2 files changed, 38 insertions(+)
+> 
+> diff --git a/include/linux/mm.h b/include/linux/mm.h
+> index e790298..f267b06 100644
+> --- a/include/linux/mm.h
+> +++ b/include/linux/mm.h
+> @@ -3620,6 +3620,8 @@ int vm_map_pages(struct vm_area_struct *vma, struct page **pages,
+>   				unsigned long num);
+>   int vm_map_pages_zero(struct vm_area_struct *vma, struct page **pages,
+>   				unsigned long num);
+> +vm_fault_t vmf_insert_page_mkwrite(struct vm_fault *vmf, struct page *page,
+> +			bool write);
+>   vm_fault_t vmf_insert_pfn(struct vm_area_struct *vma, unsigned long addr,
+>   			unsigned long pfn);
+>   vm_fault_t vmf_insert_pfn_prot(struct vm_area_struct *vma, unsigned long addr,
+> diff --git a/mm/memory.c b/mm/memory.c
+> index 8531acb..c60b819 100644
+> --- a/mm/memory.c
+> +++ b/mm/memory.c
+> @@ -2624,6 +2624,42 @@ static vm_fault_t __vm_insert_mixed(struct vm_area_struct *vma,
+>   	return VM_FAULT_NOPAGE;
+>   }
+>   
+> +vm_fault_t vmf_insert_page_mkwrite(struct vm_fault *vmf, struct page *page,
+> +			bool write)
+> +{
+> +	struct vm_area_struct *vma = vmf->vma;
+> +	pgprot_t pgprot = vma->vm_page_prot;
+> +	unsigned long pfn = page_to_pfn(page);
+> +	unsigned long addr = vmf->address;
+> +	int err;
+> +
+> +	if (addr < vma->vm_start || addr >= vma->vm_end)
+> +		return VM_FAULT_SIGBUS;
+> +
+> +	track_pfn_insert(vma, &pgprot, pfn_to_pfn_t(pfn));
 
-Comments below.
+I think I raised this before: why is this track_pfn_insert() in here? It 
+only ever does something to VM_PFNMAP mappings, and that cannot possibly 
+be the case here (nothing in VM_PFNMAP is refcounted, ever)?
 
-Regards,
-Ranjani Vaidyanathan
+> +
+> +	if (!pfn_modify_allowed(pfn, pgprot))
+> +		return VM_FAULT_SIGBUS;
 
------Original Message-----
-From: Sudeep Holla [mailto:sudeep.holla@arm.com]=20
-Sent: Tuesday, January 14, 2025 9:24 AM
-To: Ranjani Vaidyanathan <ranjani.vaidyanathan@nxp.com>
-Cc: Peng Fan <peng.fan@nxp.com>; Peng Fan (OSS) <peng.fan@oss.nxp.com>; cri=
-stian.marussi@arm.com; Sudeep Holla <sudeep.holla@arm.com>; ulf.hansson@lin=
-aro.org; arm-scmi@vger.kernel.org; linux-arm-kernel@lists.infradead.org; li=
-nux-pm@vger.kernel.org; linux-kernel@vger.kernel.org
-Subject: Re: [EXT] Re: [PATCH] pmdomain: arm: scmi_pm_domain: Initialize st=
-ate as off
+Why is that required? Why are we messing so much with PFNs? :)
 
-Caution: This is an external email. Please take care when clicking links or=
- opening attachments. When in doubt, report the message using the 'Report t=
-his email' button
+Note that x86 does in there
+
+	/* If it's real memory always allow */
+	if (pfn_valid(pfn))
+		return true;
+
+See below, when would we ever have a "struct page *" but !pfn_valid() ?
 
 
-Hi Ranjani,
+> +
+> +	/*
+> +	 * We refcount the page normally so make sure pfn_valid is true.
+> +	 */
+> +	if (!pfn_valid(pfn))
+> +		return VM_FAULT_SIGBUS;
 
-On Mon, Jan 13, 2025 at 07:54:06PM +0000, Ranjani Vaidyanathan wrote:
-> Hello Sudeep,
->
-> Will try to explain the situation we are facing.
-> 1. We have multiple agents running, Agent-A is booted up first before=20
-> Linux is booted and powers up a shared power domain PD-X.
-> 2. Linux boots and gets the power state of PD-X. And its already ON.=20
-> And then PD -X is initialized with a default ON state.
-> 3. When the driver that needs PD-X  is probed, Linux sees that the=20
-> power domain status is ON and never makes an SCMI call to power up the=20
-> PD-X for Linux Agent.
-> 4. Agent-A now is shutdown/suspends. Linux will crash because the=20
-> platform disables PD-X because it has no other requests for PD-X.
->
+Somebody gave us a "struct page", how could the pfn ever by invalid (not 
+have a struct page)?
 
-Thanks for the detailed explanation. I understand the issue now.
+I think all of the above regarding PFNs should be dropped -- unless I am 
+missing something important.
 
-I would like to discuss if the below alternative approach works for you.
-We can debate the pros and cons. I see with the approach in this patch prop=
-osed by Peng we would avoid querying and setting genpd all together during =
-the genpd initialisation which is good. But if there are any genpd left on =
-by the platform or bootloader(same agent), it will not get turned off when =
-Linux tries to turn off the unused genpds(IIRC this could be the reason for=
- the current state of code). While your platform may find sending those com=
-mands unnecessary, there was some usecase where SCMI platform kept all reso=
-urces ON by default for faster boot and expects OSPM to turn off unused res=
-ources. So we need to support both the cases. I hope my below patch should =
-suffice.
+> +
+> +	if (WARN_ON(is_zero_pfn(pfn) && write))
+> +		return VM_FAULT_SIGBUS;
 
-[RV] Linux can still make the call to disable unused power domains, even if=
- it never explicitly made a request to power it on. The platform will aggre=
-gate the request from all agents and will power off the resource if no othe=
-r agent has enabled it. From Linux point of view it has disabled all unused=
- power domains.=20
-Your patch below may also work, but feels like a workaround to artificially=
- (for lack of a better word) enable a resource. And also makes unnecessary =
-SCMI calls (expensive) for every resource immaterial of it power state (may=
-be can be improved by a conditional check).=20
+is_zero_page() if you already have the "page". But note that in 
+validate_page_before_insert() we do have a check that allows for 
+conditional insertion of the shared zeropage.
 
-Regards,
-Sudeep
+So maybe this hunk is also not required.
 
----->8
+> +
+> +	err = insert_page(vma, addr, page, pgprot, write);
+> +	if (err == -ENOMEM)
+> +		return VM_FAULT_OOM;
+> +	if (err < 0 && err != -EBUSY)
+> +		return VM_FAULT_SIGBUS;
+> +
+> +	return VM_FAULT_NOPAGE;
+> +}
+> +EXPORT_SYMBOL_GPL(vmf_insert_page_mkwrite);
 
-From dc755fa02d351e71c727da1c396e2d346b496096 Mon Sep 17 00:00:00 2001
-From: Sudeep Holla <sudeep.holla@arm.com>
-Date: Tue, 14 Jan 2025 15:08:44 +0000
-Subject: [PATCH] pmdomain: arm: scmi_pm_domain: Send an explicit request to=
-  set the current state
 
-On a system with multiple active SCMI agents, one agent(other than OSPM/ Li=
-nux or bootloader) would request to turn on a shared power domain before th=
-e Linux boots/initialise the genpds. So when the Linux boots and gets the p=
-ower state as already ON, it just registers the genpd with a default ON sta=
-te.
 
-However, when the driver that needs this shared power domain is probed genp=
-d sees that the power domain status is ON and never makes any SCMI call to =
-power it up which is correct. But, since Linux didn't make an explicit requ=
-est to turn on the shared power domain, the SCMI platform firmware will not=
- know if the OSPM agent is actively using it.
 
-Suppose the other agent that requested the shared power domain to be powere=
-d ON requests to power it OFF as it no longer needs it, the SCMI platform f=
-irmware needs to turn it off if there are no active users of it which in th=
-e above scenaro is the case.
 
-As a result of SCMI platform firmware turning off the resource, OSPM/ Linux=
- will crash the moment as it expects the shared power domain to be powered =
-ON.
+-- 
+Cheers,
 
-Send an explicit request to set the current state when setting up the genpd=
- power domains. The other option is to not read the state and set the genpd=
-s as default OFF, but it can't handle the scenario on certain platforms whe=
-re SCMI platform keeps all the power domains turned ON by default for faste=
-r boot and expect the OSPM to turn off the unused domains if power saving i=
-s required.
-
-Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
----
- drivers/pmdomain/arm/scmi_pm_domain.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/drivers/pmdomain/arm/scmi_pm_domain.c b/drivers/pmdomain/arm/s=
-cmi_pm_domain.c
-index a7784a8bb5db..255c8c36a15c 100644
---- a/drivers/pmdomain/arm/scmi_pm_domain.c
-+++ b/drivers/pmdomain/arm/scmi_pm_domain.c
-@@ -96,6 +96,8 @@ static int scmi_pm_domain_probe(struct scmi_device *sdev)
-                        continue;
-                }
-
-+               power_ops->state_set(ph, i, state);
-+
-                scmi_pd->domain =3D i;
-                scmi_pd->ph =3D ph;
-                scmi_pd->name =3D power_ops->name_get(ph, i);
---
-2.34.1
+David / dhildenb
 
 
