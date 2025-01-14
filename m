@@ -4,106 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0B3AE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 19:28:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A9CDE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 19:31:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=R8zbHHjDHwUKprLOJl/lBp+WlB/iIXKfc0w2QQvt1CM=; b=0F9wxgDtr+/VEBu2oETgq7pk/b
-	Mw8iOam8mIQj3SKHuB/tB1WzebDyuc/a1XFBrqfw7tLaM0MsBv/CTmGNg2VPq9ij1esAv3XGpzdgX
-	QTW9GbStD9w8k4u6m4gYy132iXQ+sKOLDD5NX2LOINkLA7k/kf+pQ+EToNjJq7nAc2t0eV4CLMs1K
-	+K1Li76PD46vOG2NVHj7aQgHtb7xFNXFcIUvbJ6tLt/Lz/zjZ1A8ZSzu42SljY8ZjoRmEfs27aGPw
-	0IvUg0jj9ywrVtXbkKt41nCLImKZ5aaPSnhYHpYEsNQJZRp4tJI/wfk3ySekhIC+f98f4OLbVHVBi
-	QUDANsZw==;
+	bh=HTSJOfzZPahbxlAY3P7hXeWy8oLFvuzfh5AkQx6x1+I=; b=Nz6K1Uum9PsI/ASAsk/pU2yZow
+	3eIIpLnDBMR1cXv9o73GOnsiRyqBXE16glt7giwWe2Ju60LlUSukE0bwPVSbKsyWZ2bJWez2G7/4g
+	lk4OCRVi5L5wQ6Ul6ls+jQExU4Xt1WkFOU6sdhaq6kNWCSdLBF9gP2igBKcFK2hVbL4FAgt2VeQVx
+	52SEwzaxaA5GDvv6PtJz781BBMV9ezoFNZuw6JrUXVD2CoCDZBsf199+qfsf2vjfo1TBTGFVqLnv0
+	zY8gmuJiaYAmUFlVF5NFx/uOf/0SL7W7poFs7hQOjwfi7JOxOBdiTrEeCRXR8x4g3a7VZmfPNxUGO
+	gGb/hLdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXmaC-00000009XVJ-2byp;
-	Tue, 14 Jan 2025 19:28:12 +0000
+	id 1tXmck-00000009XtL-273c;
+	Tue, 14 Jan 2025 19:30:50 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXmYu-00000009XGh-26ha
+	id 1tXmZf-00000009XOI-3eLx
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 14 Jan 2025 19:26:52 +0000
+	Tue, 14 Jan 2025 19:27:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
 	Content-Description:In-Reply-To:References;
-	bh=R8zbHHjDHwUKprLOJl/lBp+WlB/iIXKfc0w2QQvt1CM=; b=nvFwLYXvoWypbDA6HzRtGQvoS8
-	i2Pt0t5v3/sPz9anXnmoxQRrTsg9c9zq/7EpVVYa8Z156eDp/5dexXPgI6qV/Obm9P+mNm99BgsFz
-	SZJQxAE9T3woq1iRLSzambGnpNvkCIcpCvgassjwoI+ml0lFV29SC9Y4pxeENXEg2vLTd/MIA8kDk
-	0eC5aEm9bV5/8HC0/PDgyyBHWQj4gTCsYbR7cicMf2d4goj58Ti9thWcliUkpvdrbSymZVFNKryjx
-	ubVXtQNDDsiXUn/OQIg65D7kmrYYLUWQ9KTxXqxDkabLq0tNXm96B+2be8fHKXNukhNpKJCxEa/Pn
-	RJILbczQ==;
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	bh=HTSJOfzZPahbxlAY3P7hXeWy8oLFvuzfh5AkQx6x1+I=; b=gdCg1USQCkEgttO6S6Q2IjLNrl
+	/XG/PDYjDEr4NQ8TurDKClSooE6gYcQktq7aQT0WBpwHBM+pvcnME/p7FLD19zdOdie2cEM+p2Glv
+	CcuLVvUiyqsmgqJIWUaQVIsVMq3fgt8WFXOUQ+yfsOIOd3wjqdpOFEbSURpshx/qP7jPcDb+Du3Uq
+	E2AZptnv0c4f3Tw5nUMThm9qTx/X8gwEsp5QoddJB08Mbo2SaQAPKTFSIZOjPMu7CHxxPyKFfNjkz
+	PzCM3cqyFJ+FCDFcIqTS4A1ohGG7LFQR700N6j3h8IYRmUkdFUFpIDAs3HxY4K2GpvfQVKYijwHf6
+	N+lm8jhw==;
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXmYr-0000000AZzI-2SvH
+	id 1tXmZd-0000000Aa7f-0TNZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 19:26:51 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-43620a5f81bso6371105e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 11:26:48 -0800 (PST)
+	Tue, 14 Jan 2025 19:27:38 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-385d851e7c3so273881f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 11:27:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736882807; x=1737487607; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1736882855; x=1737487655; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=R8zbHHjDHwUKprLOJl/lBp+WlB/iIXKfc0w2QQvt1CM=;
-        b=u9dGA1kv4DmULqg4u+GlRcFYSMuse54M/u/92KZfwJty4nMXz266EzMHwjyV83m6Qb
-         khvNvyBOpToINfJW8OWTME8K701wbX/Vk1meUopDKeUuS52qg1n/ScweekFMAaDX6WY2
-         tXQMJv28PbXmwFCW8KpSvTSkeqP8AoICR/8lbj5H6JUk40yPa2kIWImxbWwbW9HolYpl
-         edYuQXwCWG6sgbyyoiBFLUsB1NjJr+wwpg56eynmWaauNb9wfYgbd1L3yCg2cdZDpbnt
-         TjCYId4JU9UKiHZG7hU0iFqjNDqKIJpuoviQaGuqC6LH3V0LOkxNcGjOFuKXtc636VhO
-         hYtQ==
+        bh=HTSJOfzZPahbxlAY3P7hXeWy8oLFvuzfh5AkQx6x1+I=;
+        b=koRyoSod7SzNeV99ohUGM7fCsXe6CZyBNuyFC45zgncpCrel2UYNx4qYsOBnRg2LN+
+         dO7mQeeZA02mHkAYOr+WnG/SR42E2toHeZV7T0znorvIHzs0tjauDw1uh7gasI3B7u4w
+         hRLYMMsV5mZIQhU70WAzRlBp/onYedlyO+Ilq0rjp6+bjAX/2f2lc/+uxBKHpFr8l93F
+         Pg+Ytqc0cWrwUycKIQPGp+GjKmo4aT0is2MBegWCD/lndgIF8AX6QxgQlsn4qN1pMHOy
+         MFUN1/lqoSLejjElS+lWxCr0nLRYxPqPU8qIBgGtKbPPm44v+Wt450N4FDTWJNSdAfhc
+         Q4sw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736882807; x=1737487607;
+        d=1e100.net; s=20230601; t=1736882855; x=1737487655;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=R8zbHHjDHwUKprLOJl/lBp+WlB/iIXKfc0w2QQvt1CM=;
-        b=jAstSK9P4Ya9WHSgg6Aq6NTw7ooyuJ9sJrk5VnbaGtbZLkdexRLnucJa7NDsz9Gg4o
-         faAThpYsJR3D0bONB8hj8yO4qr6muv2cL0XWpROJGssGkoPE/ZpOSuaNao/AHiOkRW7m
-         w3YRyUoVRgscCZEmE6Uv1PdE6JuYiLC8cYB7VPpAnVvWjOuFr+/G/c1+ZsU5Ol3xmLms
-         ucfLYxI5gIzBkzDwNydW1ZlC2I06bEc603gpvv8RMLpnXPL/Qug7cUhYvaSz082dV2h4
-         HsqdWVu4QDB8qrjwW9clINOHFIRumkW1Z5Fhk5lr5XqSxVbUzP1c61EXm8V+vymIsjMg
-         diLQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWqYWghv4QvXeN5h8SUMkmk29JrMsp+lwboR7bABU+vEFan5RVM0n8yKJBUC6ruCG/57eHHrHOsLaNWL/A9YzX2@lists.infradead.org
-X-Gm-Message-State: AOJu0YydCaPDKqRbFj9QIiO6ytqL23mPvEJFOYJ0DY7xuZGnFeK98uBX
-	Ka0wmVZtlr74Rtborvg9ve2L5AhU3vb/hP9XiHJCBhdjROG06WqK8rkUP1o4TJI=
-X-Gm-Gg: ASbGncv6YiHSxtjzkz9slR1kh68+I3VH/XskcQegVzsFNbl+Qxnm+2l2KTw0tYX3AvF
-	V3aYEKM24QQLUdUR42RsLwFYkSeK/pAuNTtE5gdFvUhQgRlm5LussW5ehsJCXijQ0JUGOctG/Wi
-	03hEtKeY7sVZGOEXZnTI7UGD2RaR5tgv2PgtjHmGaOMmHffWxKU/eKHlu2N1vvrWP3rQqSojtRd
-	fcArAJe6xUnlS4lY5YcApsA/Ol8WhaVFQiS+euUg8LTw3Vr4N7TWfvDR1aLrT8n/Fv/5tk=
-X-Google-Smtp-Source: AGHT+IEnD9Q/PlL16atUZuQr3zo7osv/8GJqa0PNvMI0cYgqaJuTOZ+Meucj00enp/jZftDOrIqvJQ==
-X-Received: by 2002:a05:600c:3c8f:b0:434:f7f0:189c with SMTP id 5b1f17b1804b1-436e27007e9mr105673595e9.7.1736882807013;
-        Tue, 14 Jan 2025 11:26:47 -0800 (PST)
+        bh=HTSJOfzZPahbxlAY3P7hXeWy8oLFvuzfh5AkQx6x1+I=;
+        b=KHGT4nLPDZCsDT/rUOh+eSxlfDeUIn0NXoRs2go8IAceWxmJTtu0pAPniGkSbuq5SO
+         zOXf85AWDbNmqndQGgIn9yp/utmBXAxcIO6gnY/Tu0xRRxLnP58hST8fTd+s9jFitJtR
+         P5/u/6FlOlDKsCqeRNPsaX1Tqz4obkPUKvEPEfTimjBu5Y7HdW93k+a5ssjJHAhpeCbX
+         ZbFiwoHFNJToEjjepHkiVKSy0GSvOjfSZ/+AonNxB2ksoB9zzMhQPYyWfqBz0K4Uc+78
+         ci19XgizRzq22NfGoyyntR0WtRGP7QUUSfw/yaIGR+56kK49Rnn4UQh9QirthUtKeb+I
+         8UyA==
+X-Forwarded-Encrypted: i=1; AJvYcCXk/0mTxjKSDsYfskbzQatL+DLuWbLjYDNmSTu2ZHOOXoySQRV+ikb026jS8cvf3cW2UgivzDpLdBaSrzeBBemI@lists.infradead.org
+X-Gm-Message-State: AOJu0YydGEcLsNGTljxgC4QAA0UXInbJ2ls5wbIaYgmrrh6W9B9h8j3R
+	HvntiLdNqlPUTG5qJNLjt7MEaU9qH9/KYYFkkhpdWl9BwAIFwJxUlhNrukeQx9DC3XjIvFb4ojz
+	p
+X-Gm-Gg: ASbGncvAYArWJfcH0Sx8YxPj0R6KoQbP38+7x/77AEB+1YcwKEcrQncNamWAWynbH+x
+	WZacEf/sFQOKhIZPtrphfF/uU3w5VD7m9rMEuHyMF2AhuG1OsxRVHHssF5p8nN5vu1B7cTpsQJ5
+	bgEyspDrtMV/aP1wcUWmzK4vIgUtA9ExVrnyree1wPlhMhh1FduUJC3pOLsHDK76+bl6Vmw7rUO
+	tPp8p3+Y9/CNwRpLmU0G32A5SYGpPpoEwXi27PquBywRtuYDXTal1qUNHO2XPFUS13TSUA=
+X-Google-Smtp-Source: AGHT+IGQkcr1cTwSTvAF2YE99vpYPyDtXZhOFWe+GMekQEoYqOpL4CVdJ4pQ1l8pqB2eNnBi3aKDCg==
+X-Received: by 2002:a05:6000:1f86:b0:38a:9118:c07f with SMTP id ffacd0b85a97d-38a9118c3b0mr7163744f8f.13.1736882854533;
+        Tue, 14 Jan 2025 11:27:34 -0800 (PST)
 Received: from krzk-bin.. ([178.197.223.165])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a8e4b8116sm15552826f8f.79.2025.01.14.11.26.44
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a8e4c1b44sm15813124f8f.90.2025.01.14.11.27.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jan 2025 11:26:45 -0800 (PST)
+        Tue, 14 Jan 2025 11:27:33 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Yong Wu <yong.wu@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Heiko Stuebner <heiko@sntech.de>,
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	coresight@lists.linaro.org,
 	linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
+	linux-kernel@vger.kernel.org
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH] iommu: Use str_enable_disable-like helpers
-Date: Tue, 14 Jan 2025 20:26:42 +0100
-Message-ID: <20250114192642.912331-1-krzysztof.kozlowski@linaro.org>
+Subject: [PATCH] coresight: Use str_enable_disable-like helpers
+Date: Tue, 14 Jan 2025 20:27:30 +0100
+Message-ID: <20250114192730.912515-1-krzysztof.kozlowski@linaro.org>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_192649_766667_B70C09D2 
-X-CRM114-Status: GOOD (  13.36  )
+X-CRM114-CacheID: sfid-20250114_192737_270687_9CDD9B67 
+X-CRM114-Status: GOOD (  11.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,137 +126,51 @@ from string_choices.h because:
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 3 ++-
- drivers/iommu/arm/arm-smmu/arm-smmu.c       | 3 ++-
- drivers/iommu/mtk_iommu.c                   | 9 +++++----
- drivers/iommu/mtk_iommu_v1.c                | 3 ++-
- drivers/iommu/rockchip-iommu.c              | 3 ++-
- 5 files changed, 13 insertions(+), 8 deletions(-)
+ drivers/hwtracing/coresight/coresight-config.c    | 3 ++-
+ drivers/hwtracing/coresight/coresight-cpu-debug.c | 3 ++-
+ 2 files changed, 4 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 0e4cbb2c64d7..358072b4e293 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -26,6 +26,7 @@
- #include <linux/pci.h>
- #include <linux/pci-ats.h>
- #include <linux/platform_device.h>
+diff --git a/drivers/hwtracing/coresight/coresight-config.c b/drivers/hwtracing/coresight/coresight-config.c
+index 4723bf7402a2..d39887f22df5 100644
+--- a/drivers/hwtracing/coresight/coresight-config.c
++++ b/drivers/hwtracing/coresight/coresight-config.c
+@@ -4,6 +4,7 @@
+  * Author: Mike Leach <mike.leach@linaro.org>
+  */
+ 
 +#include <linux/string_choices.h>
- #include <kunit/visibility.h>
- #include <uapi/linux/iommufd.h>
- 
-@@ -4321,7 +4322,7 @@ static int arm_smmu_device_hw_probe(struct arm_smmu_device *smmu)
- 	 */
- 	if (!!(reg & IDR0_COHACC) != coherent)
- 		dev_warn(smmu->dev, "IDR0.COHACC overridden by FW configuration (%s)\n",
--			 coherent ? "true" : "false");
-+			 str_true_false(coherent));
- 
- 	switch (FIELD_GET(IDR0_STALL_MODEL, reg)) {
- 	case IDR0_STALL_MODEL_FORCE:
-diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-index 79afc92e1d8b..de205a34ffc6 100644
---- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
-+++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-@@ -34,6 +34,7 @@
- #include <linux/pm_runtime.h>
- #include <linux/ratelimit.h>
- #include <linux/slab.h>
-+#include <linux/string_choices.h>
- 
- #include <linux/fsl/mc.h>
- 
-@@ -2106,7 +2107,7 @@ static void arm_smmu_rmr_install_bypass_smr(struct arm_smmu_device *smmu)
- 	}
- 
- 	dev_notice(smmu->dev, "\tpreserved %d boot mapping%s\n", cnt,
--		   cnt == 1 ? "" : "s");
-+		   str_plural(cnt));
- 	iort_put_rmr_sids(dev_fwnode(smmu->dev), &rmr_list);
- }
- 
-diff --git a/drivers/iommu/mtk_iommu.c b/drivers/iommu/mtk_iommu.c
-index ab60901f8f92..034b0e670384 100644
---- a/drivers/iommu/mtk_iommu.c
-+++ b/drivers/iommu/mtk_iommu.c
-@@ -29,6 +29,7 @@
- #include <linux/spinlock.h>
- #include <linux/soc/mediatek/infracfg.h>
- #include <linux/soc/mediatek/mtk_sip_svc.h>
-+#include <linux/string_choices.h>
- #include <asm/barrier.h>
- #include <soc/mediatek/smi.h>
- 
-@@ -510,7 +511,7 @@ static irqreturn_t mtk_iommu_isr(int irq, void *dev_id)
- 			bank->parent_dev,
- 			"fault type=0x%x iova=0x%llx pa=0x%llx master=0x%x(larb=%d port=%d) layer=%d %s\n",
- 			int_state, fault_iova, fault_pa, regval, fault_larb, fault_port,
--			layer, write ? "write" : "read");
-+			layer, str_write_read(write));
- 	}
- 
- 	/* Interrupt clear */
-@@ -602,7 +603,7 @@ static int mtk_iommu_config(struct mtk_iommu_data *data, struct device *dev,
- 			larb_mmu->bank[portid] = upper_32_bits(region->iova_base);
- 
- 		dev_dbg(dev, "%s iommu for larb(%s) port 0x%lx region %d rgn-bank %d.\n",
--			enable ? "enable" : "disable", dev_name(larb_mmu->dev),
-+			str_enable_disable(enable), dev_name(larb_mmu->dev),
- 			portid_msk, regionid, upper_32_bits(region->iova_base));
+ #include <linux/sysfs.h>
+ #include "coresight-config.h"
+ #include "coresight-priv.h"
+@@ -233,7 +234,7 @@ static int cscfg_prog_config(struct cscfg_config_csdev *config_csdev, bool enabl
+ 		feat_csdev = config_csdev->feats_csdev[i];
+ 		csdev = feat_csdev->csdev;
+ 		dev_dbg(&csdev->dev, "cfg %s;  %s feature:%s", config_csdev->config_desc->name,
+-			enable ? "enable" : "disable", feat_csdev->feat_desc->name);
++			str_enable_disable(enable), feat_csdev->feat_desc->name);
  
  		if (enable)
-@@ -630,8 +631,8 @@ static int mtk_iommu_config(struct mtk_iommu_data *data, struct device *dev,
- 		}
- 		if (ret)
- 			dev_err(dev, "%s iommu(%s) inframaster 0x%lx fail(%d).\n",
--				enable ? "enable" : "disable",
--				dev_name(data->dev), portid_msk, ret);
-+				str_enable_disable(enable), dev_name(data->dev),
-+				portid_msk, ret);
+ 			err = cscfg_set_on_enable(feat_csdev);
+diff --git a/drivers/hwtracing/coresight/coresight-cpu-debug.c b/drivers/hwtracing/coresight/coresight-cpu-debug.c
+index 342c3aaf414d..d93d8d480e05 100644
+--- a/drivers/hwtracing/coresight/coresight-cpu-debug.c
++++ b/drivers/hwtracing/coresight/coresight-cpu-debug.c
+@@ -23,6 +23,7 @@
+ #include <linux/pm_qos.h>
+ #include <linux/slab.h>
+ #include <linux/smp.h>
++#include <linux/string_choices.h>
+ #include <linux/types.h>
+ #include <linux/uaccess.h>
+ 
+@@ -496,7 +497,7 @@ static ssize_t debug_func_knob_write(struct file *f,
+ 
+ 	if (ret) {
+ 		pr_err("%s: unable to %s debug function: %d\n",
+-		       __func__, val ? "enable" : "disable", ret);
++		       __func__, str_enable_disable(val), ret);
+ 		goto err;
  	}
- 	return ret;
- }
-diff --git a/drivers/iommu/mtk_iommu_v1.c b/drivers/iommu/mtk_iommu_v1.c
-index b6de1ca00cef..a565b9e40f4a 100644
---- a/drivers/iommu/mtk_iommu_v1.c
-+++ b/drivers/iommu/mtk_iommu_v1.c
-@@ -25,6 +25,7 @@
- #include <linux/platform_device.h>
- #include <linux/slab.h>
- #include <linux/spinlock.h>
-+#include <linux/string_choices.h>
- #include <asm/barrier.h>
- #include <asm/dma-iommu.h>
- #include <dt-bindings/memory/mtk-memory-port.h>
-@@ -243,7 +244,7 @@ static void mtk_iommu_v1_config(struct mtk_iommu_v1_data *data,
- 		larb_mmu = &data->larb_imu[larbid];
- 
- 		dev_dbg(dev, "%s iommu port: %d\n",
--			enable ? "enable" : "disable", portid);
-+			str_enable_disable(enable), portid);
- 
- 		if (enable)
- 			larb_mmu->mmu |= MTK_SMI_MMU_EN(portid);
-diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iommu.c
-index 4b369419b32c..323cc665c357 100644
---- a/drivers/iommu/rockchip-iommu.c
-+++ b/drivers/iommu/rockchip-iommu.c
-@@ -25,6 +25,7 @@
- #include <linux/pm_runtime.h>
- #include <linux/slab.h>
- #include <linux/spinlock.h>
-+#include <linux/string_choices.h>
- 
- #include "iommu-pages.h"
- 
-@@ -611,7 +612,7 @@ static irqreturn_t rk_iommu_irq(int irq, void *dev_id)
- 
- 			dev_err(iommu->dev, "Page fault at %pad of type %s\n",
- 				&iova,
--				(flags == IOMMU_FAULT_WRITE) ? "write" : "read");
-+				str_write_read(flags == IOMMU_FAULT_WRITE));
- 
- 			log_iova(iommu, i, iova);
  
 -- 
 2.43.0
