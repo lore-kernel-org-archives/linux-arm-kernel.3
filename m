@@ -4,115 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C88CE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 09:31:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA5E1C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 09:38:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NrzqRRD5drj4hNI4LpuKOM8EgqULtzytg3pv490IuwE=; b=PuUNq7g5iOHPYsAOftazr5+tDI
-	hd4crTvuuKzOCwtDXOAhgb+26uM4iTlJk6z9Vbb7LDwbp4tGKcKXDf2RsrmRO4b5bUb55XOi1Y5Ze
-	MYmvVJ02FBiieYWzk7Q33OXi1++YngGT7nJHnvC2GqceiLjnO4ZWaFJ1IEwiWhZkow0Kjwnn547yG
-	c6NoeryFwMP2JWEgQU0tVCq4pllRFLTqHjTCDHHIBwkrZZMrexFb+hSM4OkdLUVlVnZ9cDx+LbdGp
-	SShK2GKCDyqwcq3QZ969IBksU7hRiJsBBpyI24Yyzx/nEQ4mTfKFiyKAbYag/W7N8YAbTCzD4Wa24
-	FKvK/54g==;
+	bh=l89tcIhQpLFA95BmF/dtjUV+SmX9AcHiGhoZt2rDB4Y=; b=vvAMM9NHTIUhUj1PStc5c0Gmne
+	KWx8u7YxIEFgnIN74ke3u00WhdJ75MRcTWkTi/aDd1cDX2sVeAhnsecSPHJ4FEUr0yOPGDISSDlQX
+	Qw2YqoLCRIZZ6VDKtB+FCG4qrI/KCTolr8t0769lWFhLiacteCxA13Tud53E+PNIM4kvATfEv96zq
+	pdKuGfHPKsAIoKWHBc51HoaRmPYx5J75iANTwkmyZWxxripYIXWqTbGcQejCuU3TWZ3bsxF18lYOB
+	KzeVLSTLeCrRQzHnIiVnTWrJtNa8fdbUytZan7Ii7zJETwYhKPLwxOLtWk/wjiyRN2JILkqx4A9vl
+	Yk7nmbOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXdGJ-00000007xND-2HYU;
-	Tue, 14 Jan 2025 09:31:03 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tXdNT-00000007yKp-2vR0;
+	Tue, 14 Jan 2025 09:38:27 +0000
+Received: from mail-yb1-xb32.google.com ([2607:f8b0:4864:20::b32])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXdEZ-00000007x5l-3nOY
+	id 1tXdMC-00000007y1c-42ad
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 09:29:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7F3845C57D6;
-	Tue, 14 Jan 2025 09:28:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3400CC4CEDD;
-	Tue, 14 Jan 2025 09:29:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736846955;
-	bh=T1sIry+8mI5T3ts4+Qf/PkZMMcr3MjrDvmE1fdOgRPs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=JtA0yHfgVGFQxZm46u0Yvaxe6YngCVxDpLWhr0IJ6ksDpjbHaSIX62blmV7+kn7Xr
-	 XsnorIIlVn4V0mfQmYuN349xfrktb3rnnN5FPkinwwbLDtB3grvxsIUjNSPdRNf8/j
-	 TwyEkNWcAAxEQfduPS4bg5DDKORcbMDRJ7UoJIdj8IjNF/X9lwDh3CMJL5a40wNCue
-	 6bjjLcKKB9CkwHkGzS/jxWJ1jUKhkbkUOEiGrPOX2PD0UAN/VSQMNPq3CjnG5YKX/5
-	 l2y5iBKyTRxv6sHOJSC1OZ4EAydD33Wq+3Qxxcc5BJJqfjRr5fTmwrEoNAstbLwXZY
-	 RLTFxYSwgNB9w==
-Message-ID: <79a90c01-9e21-4e3f-a334-6ba9e1df4150@kernel.org>
-Date: Tue, 14 Jan 2025 10:29:06 +0100
+	Tue, 14 Jan 2025 09:37:10 +0000
+Received: by mail-yb1-xb32.google.com with SMTP id 3f1490d57ef6-e5372a2fbddso8447774276.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 01:37:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1736847428; x=1737452228; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=l89tcIhQpLFA95BmF/dtjUV+SmX9AcHiGhoZt2rDB4Y=;
+        b=RakxHprVpuSi5H714B2h9KhocQBzkrd0PqgE9El9C9NvcvEeXMzOX8HfH6KhHWSy3N
+         hzi7xH9tZ9+JL1EQYBYpxaFhCP6Ij0jb0euOTcbL0S9zVb+vx0LXGZxZ5dx+UOwDkyQJ
+         /a5PWbxwDW75+O9ClX3N0zo/6gAW4bm0uD+os=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736847428; x=1737452228;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=l89tcIhQpLFA95BmF/dtjUV+SmX9AcHiGhoZt2rDB4Y=;
+        b=kHHPlsm43D1ODGvqIpVUo7TCX2ilP1lKpEPi0fUn5lZc52rKHYp2+MWMX43LwDFULP
+         3dTiQEua8rEvJOmOeCXEZvnfmTxSTMPEmo1z1t5r3Xo2JAm3Vdp0PLdszshlFn4tNzwN
+         QE579xvucUT25EMkyCSREa4oIrTsx+QgG3J+NRVzRpco1JPUD1injrCsMm3DfkHIlA97
+         MP5xOo7ouC7Vb7yN2fmgYh3PxB0+GcV3tjxIJzcLp/uj3ApO8+zuqiwVF5KoOHiq5PqM
+         uowFVZPzKTQwoP7XGGliu9nhwNkr+OTGR75KdusTHnrsZ4nlOri5obtGL3/U+Dp13iKe
+         OLkA==
+X-Forwarded-Encrypted: i=1; AJvYcCXTNpzojLlJiPUVeB+hkGIB/L4R95mQDdsTk+p/GgaRkr27zLsrYafAwMTxm8ewG819XA7Lk8nVioLj0R4HPkS/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHmucqNBYo9wHhMudq55EjKOsFFEGLrNI+U6Xza6QStPBHKjwP
+	J/xFU8inhrUs+QT/YRi4n296CqogX29vDPOltX+UeNkpH07+ZrO5AiZYkIzK60e6RmCt6BhZEqz
+	ww9oiaSdYkuUwrCxnyvtataf7HxLlaNgyPIGZHA==
+X-Gm-Gg: ASbGncveSM3VN+sXIxUGex/503Et0im3sXZZZAD1Ju1gwCgbTLgkZKbNNLVF1JbotkV
+	GYTa4+zDcvJgwwt2IheNV7F7Y3NWaezKPmuwb
+X-Google-Smtp-Source: AGHT+IF6e2gulZmmKMZM/9qfdCNmIYsXwgatFmybYBzO3L6nSNvtxPxQhBPTkQU3rmXIGx0U/IzVq/5dxO9CIKDtZus=
+X-Received: by 2002:a05:6902:12cd:b0:e57:2a07:a97b with SMTP id
+ 3f1490d57ef6-e572a07ab0bmr10989327276.19.1736847428039; Tue, 14 Jan 2025
+ 01:37:08 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/4] dt-bindings: clock: convert stm32 rcc bindings to
- json-schema
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
- linux-kernel@vger.kernel.org
-Cc: linux-amarula@amarulasolutions.com,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Michael Turquette <mturquette@baylibre.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Stephen Boyd <sboyd@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com
 References: <20250114091128.528757-1-dario.binacchi@amarulasolutions.com>
- <20250114091128.528757-2-dario.binacchi@amarulasolutions.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250114091128.528757-2-dario.binacchi@amarulasolutions.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+ <20250114091128.528757-2-dario.binacchi@amarulasolutions.com> <79a90c01-9e21-4e3f-a334-6ba9e1df4150@kernel.org>
+In-Reply-To: <79a90c01-9e21-4e3f-a334-6ba9e1df4150@kernel.org>
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Date: Tue, 14 Jan 2025 10:36:57 +0100
+X-Gm-Features: AbW1kvbHaMA7-gPSLKl8JCA0np6oyUkVl3x_8EI0Z9Yf3VmqaAgjofQDW5nCXfo
+Message-ID: <CABGWkvofUphcXTwBS5UBEoQ1GYpngP7gWi9Ax=WW28XKK0qoYA@mail.gmail.com>
+Subject: Re: [PATCH v3 1/4] dt-bindings: clock: convert stm32 rcc bindings to json-schema
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Conor Dooley <conor+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Michael Turquette <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Rob Herring <robh@kernel.org>, Stephen Boyd <sboyd@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_012916_033921_4AB703C3 
-X-CRM114-Status: GOOD (  12.37  )
+X-CRM114-CacheID: sfid-20250114_013709_825788_EC15F357 
+X-CRM114-Status: GOOD (  17.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,42 +97,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/01/2025 10:11, Dario Binacchi wrote:
-> The patch converts st,stm32-rcc.txt to the JSON schema, but it does more
-> than that. The old bindings, in fact, only covered the stm32f{4,7}
-> platforms and not the stm32h7. Therefore, to avoid patch submission tests
-> failing, it was necessary to add the corresponding compatible (i. e.
-> st,stm32h743-rcc) and specify that, in this case, 3 are the clocks instead
-> of the 2 required for the stm32f{4,7} platforms.
-> Additionally, the old bindings made no mention of the st,syscfg property,
-> which is used by both the stm32f{4,7} and the stm32h7 platforms.
-> 
-> The patch also fixes the files referencing to the old st,stm32-rcc.txt.
-> 
-> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+On Tue, Jan 14, 2025 at 10:29=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.o=
+rg> wrote:
+>
+> On 14/01/2025 10:11, Dario Binacchi wrote:
+> > The patch converts st,stm32-rcc.txt to the JSON schema, but it does mor=
+e
+> > than that. The old bindings, in fact, only covered the stm32f{4,7}
+> > platforms and not the stm32h7. Therefore, to avoid patch submission tes=
+ts
+> > failing, it was necessary to add the corresponding compatible (i. e.
+> > st,stm32h743-rcc) and specify that, in this case, 3 are the clocks inst=
+ead
+> > of the 2 required for the stm32f{4,7} platforms.
+> > Additionally, the old bindings made no mention of the st,syscfg propert=
+y,
+> > which is used by both the stm32f{4,7} and the stm32h7 platforms.
+> >
+> > The patch also fixes the files referencing to the old st,stm32-rcc.txt.
+> >
+> > Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+> > Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>
+>
+> Drop the tag. It was conditional.
+>
+> > +
+> > +properties:
+> > +  compatible:
+> > +    oneOf:
+> > +      - items:
+> > +          - const: st,stm32f42xx-rcc
+> > +          - const: st,stm32-rcc
+> > +      - items:
+> > +          - enum:
+> > +              - st,stm32f469-rcc
+> > +          - const: st,stm32f42xx-rcc
+> > +          - const: st,stm32-rcc
+> > +      - items:
+> > +          - const: st,stm32f746-rcc
+> > +          - const: st,stm32-rcc
+>
+> Nothing improved here.
+
+In my humble opinion, there is nothing to improve. Any modification
+made causes the tests to fail.
+
+$ git grep st,stm32f746-rcc arch/
+arch/arm/boot/dts/st/stm32f746.dtsi:                    compatible =3D
+"st,stm32f746-rcc", "st,stm32-rcc";
+arch/arm/boot/dts/st/stm32f769-disco.dts:       compatible =3D
+"st,stm32f769-rcc", "st,stm32f746-rcc", "st,stm32-rcc";
+
+Or am I missing something?
+
+Thanks and regards,
+Dario
+>
+> Best regards,
+> Krzysztof
 
 
-Drop the tag. It was conditional.
 
-> +
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - items:
-> +          - const: st,stm32f42xx-rcc
-> +          - const: st,stm32-rcc
-> +      - items:
-> +          - enum:
-> +              - st,stm32f469-rcc
-> +          - const: st,stm32f42xx-rcc
-> +          - const: st,stm32-rcc
-> +      - items:
-> +          - const: st,stm32f746-rcc
-> +          - const: st,stm32-rcc
+--=20
 
-Nothing improved here.
+Dario Binacchi
 
-Best regards,
-Krzysztof
+Senior Embedded Linux Developer
+
+dario.binacchi@amarulasolutions.com
+
+__________________________________
+
+
+Amarula Solutions SRL
+
+Via Le Canevare 30, 31100 Treviso, Veneto, IT
+
+T. +39 042 243 5310
+info@amarulasolutions.com
+
+www.amarulasolutions.com
 
