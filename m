@@ -4,71 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 913B9E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 23:38:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6035DE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jan 2025 23:59:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tc3Ep+dLYrxWDAVE5hbsYpi+HYF3ujM52ZOzbBYhtzI=; b=gQzHdKIBVXYHjaUFIVfBzF3aWr
-	vzGArfTl3S4cc50jqzlqsMOJOABYcGmsUPbVGHQ5U9IdITIxBIMfDXzq7ilNwaHgUyE5Nw9QicjVI
-	Ku8SjPwIqQaQsCykUViMWtOejQp53ZwYRz8bZXL+8KSV3PojAXbw/Yzqakdy0RaB82drLQgDNEMWd
-	xf7xcpt7eqfJZ7bYDVlPpb7C1rtTycoTCsWjn2FgBpgl5RAJ7VH+PMUlTxghPlC9GdpODW6MbnTVD
-	D3wKDiqrjwzQPp0gJDDxOP4X5/H2t+HDhxI5FMqKuXZE8w5ZuUuRibdn5a1YiBUcraWlpp5oJpEc2
-	LO+oWL1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Lgpd9qSYbSO27cTLVVtK32TzSRP1yS2DhHPZv759j/0=; b=SyzC9aDy0rGCcC+kXyTe9XCfJw
+	ufjHa+Mhvit3fsOUs4XYtfEHgd4KLkG1MHKj7tLXl9N7QJLKOrkcW2dRoBkmQn5Xbz1l13tYGw2MF
+	vxZNYxM/aDce/vxuvLq3QBkK95kVBDHHAP/Xp1hWwKmrwTKKjdkubt02uFmE+4YL2GrRURtosaaAL
+	qVNzT9Zw2wxrUjMUN00ruZCnBWTfSYTL0NJSbFRUx38EeElQXT4uGsbPQ2WGw0ncgOiiqzo2zyTCb
+	XvkzCbSzox34SDjTWLOv4f0GK3LG2cdIdxYDnMw+33cQIKwu/Q3PL/HVlZdpzpDvrIjh0NiN/8OAJ
+	swC7YktQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXqUa-0000000A8Dd-0THe;
-	Tue, 14 Jan 2025 23:38:40 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tXqoU-0000000A9sg-1rg9;
+	Tue, 14 Jan 2025 23:59:14 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXqRm-0000000A7dg-1dpE
+	id 1tXqnF-0000000A9iP-40z1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 23:35:47 +0000
+	Tue, 14 Jan 2025 23:57:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 05CDFA41B9B;
-	Tue, 14 Jan 2025 23:33:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEEF7C4CEDD;
-	Tue, 14 Jan 2025 23:35:43 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id A9B475C5944;
+	Tue, 14 Jan 2025 23:57:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E29BAC4CEDD;
+	Tue, 14 Jan 2025 23:57:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736897744;
-	bh=mAGMGtQrfQ3/Drlhgn5zGpK+PDYQqfFjj696cQz6oLc=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=LuMe8JFsedYcMeGaVXORNDg142CfYmNisZhtpqwVCaDZpjyHVd/hXlD/qXvosjt8I
-	 A/POYMUWNOMF8A6PZ2mQ4RofXjmzJMKcVB79uodPNCzRZaVJA8fiyr2ll3BZ/4IG7s
-	 KWAioX7Zj4HiHYTBKMOL5fz1c5swL5Vp1qad4HzDmQzlszZZ6rg9bBHqZDU0Nai7+S
-	 KSwyb2dFL1xQv9w78LBlSTP+dxZlyvM7xUu7ERqFcwUXujEJJCq7kn2iw4ByCVOQNn
-	 /CHuc6vQhTEleOA6ddE2V+QDmJN9DnL4YwlxMLHkoWVvOcl/PtRh4JTTjD5ICYGV33
-	 1eIaBKz8ypkWQ==
-Date: Tue, 14 Jan 2025 15:35:42 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Paul Menzel <pmenzel@molgen.mpg.de>
-Cc: Joey Lu <a0987203069@gmail.com>, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- mcoquelin.stm32@gmail.com, richardcochran@gmail.com,
- devicetree@vger.kernel.org, ychuang3@nuvoton.com, netdev@vger.kernel.org,
- openbmc@lists.ozlabs.org, alexandre.torgue@foss.st.com,
- linux-kernel@vger.kernel.org, joabreu@synopsys.com, Andrew Lunn
- <andrew@lunn.ch>, schung@nuvoton.com, peppe.cavallaro@st.com,
- yclu4@nuvoton.com, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net-next v7 3/3] net: stmmac: dwmac-nuvoton: Add dwmac
- glue for Nuvoton MA35 family
-Message-ID: <20250114153542.29d10a04@kernel.org>
-In-Reply-To: <a30b338f-0a6f-47e7-922b-c637a6648a6d@molgen.mpg.de>
-References: <20250113055434.3377508-1-a0987203069@gmail.com>
-	<20250113055434.3377508-4-a0987203069@gmail.com>
-	<a30b338f-0a6f-47e7-922b-c637a6648a6d@molgen.mpg.de>
+	s=k20201202; t=1736899077;
+	bh=qYcadH5zTVf6YXQcR12gkpEXX8NXXimDRL8MXEYl88I=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=jxngMlvI1aMH7uwkSNtEMSo14UCuU2hwadYpy8TGifVRhFKGYRXkjD8bHJaeDuGjp
+	 AeuWNlEeSkWvTVqZZHSyoVuIEOfWATWVpJfr1CTZkPcPUqxjNsTEQhSov8/KnowEL5
+	 CvQg9E8qJCtw9Il4ZjD2H2I9Cqly4JEQPTspsZBthQy65l6WPXtta9EFp6hG+9UKnI
+	 m9DFyGiLnsMunIEMMhHIEgusMkuF1M6leSBraIeKhJCHqf92d865JChCjeNBvTyU4f
+	 cdFhJabsFOTtH0IsfqAktwOWynpwEd9PBgziJ0YRbPkQaTNAXtDIM5zA+LO6T1/lM/
+	 pTET4Szz1XfIQ==
+Date: Tue, 14 Jan 2025 17:57:55 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: kuba@kernel.org, netdev@vger.kernel.org, andrew@codeconstruct.com.au, 
+ davem@davemloft.net, edumazet@google.com, 
+ openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org, 
+ joel@jms.id.au, linux-aspeed@lists.ozlabs.org, devicetree@vger.kernel.org, 
+ conor+dt@kernel.org, pabeni@redhat.com, andrew+netdev@lunn.ch, 
+ minyard@acm.org, eajames@linux.ibm.com, 
+ linux-arm-kernel@lists.infradead.org, krzk+dt@kernel.org
+To: Ninad Palsule <ninad@linux.ibm.com>
+In-Reply-To: <20250114220147.757075-3-ninad@linux.ibm.com>
+References: <20250114220147.757075-1-ninad@linux.ibm.com>
+ <20250114220147.757075-3-ninad@linux.ibm.com>
+Message-Id: <173689894057.1969633.10540050942005147267.robh@kernel.org>
+Subject: Re: [PATCH v5 02/10] bindings: ipmi: Add binding for IPMB device
+ intf
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_153546_498929_77F0C44B 
-X-CRM114-Status: UNSURE (   6.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250114_155758_039209_F85C8A2B 
+X-CRM114-Status: GOOD (  11.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,12 +78,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 14 Jan 2025 02:49:31 +0100 Paul Menzel wrote:
-> > +MODULE_AUTHOR("Joey Lu <yclu4@nuvoton.com>");  
-> 
-> Maybe Nuvoton can set up a generic address?
 
-FWIW we prefer people to mailing lists in netdev.
-Humans tend to have more of a sense of responsibility 
-than corporations :S
+On Tue, 14 Jan 2025 16:01:36 -0600, Ninad Palsule wrote:
+> Add device tree binding document for the IPMB device interface.
+> This device is already in use in both driver and .dts files.
+> 
+> Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
+> ---
+>  .../devicetree/bindings/ipmi/ipmb-dev.yaml    | 55 +++++++++++++++++++
+>  1 file changed, 55 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/ipmi/ipmb-dev.yaml
+> 
+
+My bot found errors running 'make dt_binding_check' on your patch:
+
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+Error: Documentation/devicetree/bindings/ipmi/ipmb-dev.example.dts:24.32-33 syntax error
+FATAL ERROR: Unable to parse input tree
+make[2]: *** [scripts/Makefile.dtbs:131: Documentation/devicetree/bindings/ipmi/ipmb-dev.example.dtb] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1506: dt_binding_check] Error 2
+make: *** [Makefile:251: __sub-make] Error 2
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250114220147.757075-3-ninad@linux.ibm.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
