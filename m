@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EEE2E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 01:30:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59053E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 01:31:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Snarum8RemNk17GrbLyNHBNd9vFMQQrcExzWnVGfdHE=; b=I/9MMPityyt9fWYCI6mLXrYcCP
-	yIK1c5cazM4E6zuxrmGzAhHI1tCr8EWP+6LErW52chPJL1miRxX6UEKdS/T2VCaVgAZyb58Lu9uj4
-	r+mCsOex0Yp2MNM8L2JIqqPeuYfOijWMJHolNUlAC66NUPLMCJNYgJIniqtAWcophOMIogn32/qU4
-	YYYjibWSNgKRvsUKUlbE5oEqhRto9K+LXRlCke9bg7f+vcusdHnB8NWT22Hnd7dN97vZbru8i7nr4
-	d9Vn+RpjE84/gGkYZga5TMTU/2D91Adts+FiZowDqoaORYZpSUH0o8ZNxYTm6xPe0SVzvIZZRnQZg
-	sy+aZ0eg==;
+	bh=TSu2ilieqgUO5zKTRGeUD5qv6+cUUmQ28sg6xpl/Ysk=; b=MhFucfv3mpLacqDS3S+uD54Drj
+	fwhSMkNLQvD9W5SpnUo/M+4zPENX5T3KW4GcD/nTXSTZ9igXd8CdYX+IByOEYm7B9dyPR8fMtJzZH
+	tLbcfD/zUhN7ikDrrciOXjSnN/qtx5d1o6OPF0/eja4+cMHzaJIHmu1JIKWizJHO4LFLHv7MRw+f3
+	N0ifyWbTNahch8PGzuOHN4mX0T3YGCLUaXjYaPcPuvOwshY5QgxrI+ANEMTZiUAnTpQ5RR701bDnp
+	KM3Vsj1qDS9ax+9A/WMjRA8VH8KiH6rAi0R2FU5Ci6RhWmAfERchiUrM+YSMRtEK2cYpJU03afZzV
+	Heaawsmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXsEo-0000000AIkl-0J4Z;
-	Wed, 15 Jan 2025 01:30:30 +0000
-Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
+	id 1tXsG0-0000000AIyz-2jar;
+	Wed, 15 Jan 2025 01:31:44 +0000
+Received: from mail-qv1-xf2f.google.com ([2607:f8b0:4864:20::f2f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXsBA-0000000AHoc-1xAb;
-	Wed, 15 Jan 2025 01:26:46 +0000
-Received: by mail-qt1-x835.google.com with SMTP id d75a77b69052e-467a1d43821so3505131cf.1;
-        Tue, 14 Jan 2025 17:26:44 -0800 (PST)
+	id 1tXsBD-0000000AHq3-2TKN;
+	Wed, 15 Jan 2025 01:26:49 +0000
+Received: by mail-qv1-xf2f.google.com with SMTP id 6a1803df08f44-6d89a727a19so3906586d6.0;
+        Tue, 14 Jan 2025 17:26:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736904403; x=1737509203; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1736904406; x=1737509206; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Snarum8RemNk17GrbLyNHBNd9vFMQQrcExzWnVGfdHE=;
-        b=RlBYqpQXSMclrLIkK5QJFbvI78cdqlLqLmzIAEK8cFPPMU4mvWWtX/hIuIqzzkLsDO
-         xEU+sESSometqu8KewDHVzsvUmFzLMyCyvWB/4qTQZ1IPO4RaPWTEebLpmpI9pGrGhWS
-         kQweic6NWvy9F4fdXGilhik/XRXFzv1F7eBfeiGfb3PBR32X/2iqe7asGlxf5rFeugLo
-         cn9XzVaik3yocq5h9il/eeB8tmIc8PDVxORK0Kzhnpl7IeoLnZwVUhdmL6JlEXQvL6oR
-         +IoOXYogUAgOcR2BrVFtLJZKEC+BlY00Yx3WOjMdofp/+wlD4lWz2g/NjKiSC0U8sAsd
-         qzxA==
+        bh=TSu2ilieqgUO5zKTRGeUD5qv6+cUUmQ28sg6xpl/Ysk=;
+        b=IROkqdszgkVIT/d8VdPq/YTtw/LmkUmrS9RA+5G+/wcng+/FWgyOkyk+KZLcsuCX84
+         L9ufRi+SKb4vA2H0jOQk33HTvp7LMdMDwSM8Qq6QRBSdPC6GX313iU3EF42DUmXx1gyb
+         4fLxC/Mne9CcGEbMfPEQjlfpMgfodyQMsXNEP4ktWBPjAHDO8QkM4ehh8GWqegoHD2eW
+         RFytNb8v33ni4piYqZGFSNb0Ay8ZOnD3ayyZ7Yz1EHqKyBHeTwE/IvzefTewR0sSFLqn
+         Jb+Fl0Ppgp7dfgqpht0FPX0Rnejjs6Pk5NlDfObSKtpvZVAUkFSJP0Wgunv1Qg3IDnAg
+         d7KQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736904403; x=1737509203;
+        d=1e100.net; s=20230601; t=1736904406; x=1737509206;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Snarum8RemNk17GrbLyNHBNd9vFMQQrcExzWnVGfdHE=;
-        b=sVvhPjA28tPYivE5MDrjaI5OQjsnjedvJekDrVjGWPFdTwYDvQGIHvtMpMdTYvhuIo
-         NZGA8MspeN3vfSfDTybS4vaLVs8hTCTUVzYjosckCPyXlIg7WQc24Ek0dRsSD3xHeKrC
-         vaMW4lAuNwsaZsPM2slPhMzx08EmQZeRZIuy1OrmnK5etmko+0zdcb7TGmnvHlo3jO/A
-         FTN+i6to4NqMOjv4GtCk8vl8pvQx261dzsMiFGhdeCdq5rYv2yBxc53cZlHagU0wtXo/
-         jX6H93kW0ajZipkFez2QQSYaWt3APpOhV++/fOCe/pGfO+hPU6JlqgwXivz9Jd1qJNsr
-         pfTA==
-X-Forwarded-Encrypted: i=1; AJvYcCUVpZf+lh5thWDhtyIBHsO0bUVslh16lz0dMUooTKyWy92CBdnSWoXc7cOTmUBUM+mT89udHobHjAAz@lists.infradead.org, AJvYcCV//CWQRPgwvJz0JQ3V+37ebRkbDeEFgZu0/i4dAOe6hk0A2jHczOkVgtrSAb8KWqkh4wZx2djO0ObAeoNzNEc=@lists.infradead.org, AJvYcCW41DwUIZxfTiYeT9Kv6jVCDNtp3ziAQcDu2wx3NosV4kdzyV/uU69Z8fgsavcerNk5iGDTspnmBPxhqxKGoj+w@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZuS99uVOjAi0nKWbpCXUsQ6txW8cWr8ohfMBQfD4Ub0uirQvd
-	DdPKvWR+Lmw2BeOY9nNbdVGfRjq/myjMGa1jw3W2IXott8B0PQYO
-X-Gm-Gg: ASbGncsjCrYjHUDHGAk49PXv6bdZL6mWi8xZ6qzeWZ73dzrzAZ5q6ZDQxINIqWbjVqg
-	IDCI9QB4NZNqwWidfORbIxevkz9eTdUNAyNPUDxnk7QOmiUQ0ffxrp0+osghJdjE2vN+cYKdBj2
-	A48E+jShSYHaEbUnO73WvdqRbJEhTc4gsYfL0oV6hZP2ArcH9dVbU4zvsBp90Ef+fo5m+cajo5x
-	kdqY0DMpyj02m0bCCZ43ySDZ+JF47Sf5yd8aju6wjwxZE/nq7E2nS8Q8gwRsp+mlmnq
-X-Google-Smtp-Source: AGHT+IGOUmK+RMSPaiPxBiaoCjQrSZ5Ap13SAxkBgzinR11U70sZUt737IPnaRgevXgbi2ZEV1eQwQ==
-X-Received: by 2002:a05:622a:181b:b0:466:9197:b4fa with SMTP id d75a77b69052e-46df5760914mr22651911cf.21.1736904403233;
-        Tue, 14 Jan 2025 17:26:43 -0800 (PST)
+        bh=TSu2ilieqgUO5zKTRGeUD5qv6+cUUmQ28sg6xpl/Ysk=;
+        b=ckcvfrB4KDboOsbF/iIy13C6OeLAw1yuVREo9Mh4qkMfHYROkNe4DX0P8mqEOpo0ln
+         qd9IHS867P1H/rruRizUa+sC9jnbjF9cVGBJjRzC4BGS0XmKPiUc4e7uKtDTL6UpAEm5
+         kD++VG39u7GOWI9XUKrEA6Yr0gLtC9dCVopHvEZ1YJvzAl9L7L+rVUVwcamFUAuFAeL4
+         ZhOsOESrbRP3JoPVT9MjqiyZpncZdZs9zuUYOdqF7dGnD+mOam8DRUZ1T7XB/yUHH1PM
+         biZeoDNfYh0YI+EIbUYRwxwtMGH57XH47I5CQZ5FXZtTqaGdrnztEOcI7ms+mvBQma1c
+         R3gQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVoXXY1razGeyYjYwIkQRprjOWpnvOATGDYriEJCC3dEVUdosJH5w/lPnl8/s7j1YTrZCL/SnVnZso6SInxODyb@lists.infradead.org, AJvYcCX6RqIJlFVpNEi+DbpzwJBwizPx4OuCIn9J+19WHZFpafissVOSX6lveSI1ydrRhCpIAuZPYJOJ/UHfgUGKZDg=@lists.infradead.org, AJvYcCXOzsTSEzATtsFRP+DPBtgisZ7t1igrCldnYgPhEUxuzRiXCirZ/YLtJqKGLcMAHUuFkkMxWbO8DSUq@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywwin7e7FHneLqmPpkivQoR3sQ/VpKvfcF7n1n7YILQH9etLuLX
+	swoiAr2G/NaLfQEluTVUVqvXXMdD9mdHbdIzn/kMtb/p7kUdrzyf
+X-Gm-Gg: ASbGnctWZlGtUwnDBFG/guB/AK1YnStZEHE2H4N/BX8VYAmXsAWwZjduheWq6sLlKmY
+	ziqITk0FcW6brCKSLYZT23JacSjFu/I6jMgG4SC84D8mMutI+NyjGcmYkx5wL2tK9O2B8XzoZnQ
+	FiEM1Vq8r2GdwLB6Fm7CY6OemgPwo5KVqCS2/8wCNc0SEXOa1TkR5NR4RAf7nbQltzabi0au2ag
+	D6gZ8kNSw99xkain91s496rif+U47NUV5clPZbJVwTczrTJ2Ln3+acGHiZJSl210O+5
+X-Google-Smtp-Source: AGHT+IGx11grCIzrhEM4SMHaq84/7LtIocdm3qvr8pA/OIlL6tsAfWKasVwNac41UogFfWfziivrKA==
+X-Received: by 2002:a05:6214:4d83:b0:6d8:99cf:d2d0 with SMTP id 6a1803df08f44-6e192cb7ecfmr18890756d6.19.1736904406049;
+        Tue, 14 Jan 2025 17:26:46 -0800 (PST)
 Received: from master-x64.sparksnet ([204.111.227.95])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-46c8733130dsm59933881cf.25.2025.01.14.17.26.40
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-46c8733130dsm59933881cf.25.2025.01.14.17.26.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jan 2025 17:26:42 -0800 (PST)
+        Tue, 14 Jan 2025 17:26:44 -0800 (PST)
 From: Peter Geis <pgwipeout@gmail.com>
 To: Heiko Stuebner <heiko@sntech.de>
 Cc: zyw@rock-chips.com,
@@ -75,26 +75,28 @@ Cc: zyw@rock-chips.com,
 	wulf@rock-chips.com,
 	linux-rockchip@lists.infradead.org,
 	Peter Geis <pgwipeout@gmail.com>,
-	Conor Dooley <conor+dt@kernel.org>,
+	Algea Cao <algea.cao@rock-chips.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
 	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
 	Vinod Koul <vkoul@kernel.org>,
-	devicetree@vger.kernel.org,
+	Zhang Yubing <yubing.zhang@rock-chips.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-phy@lists.infradead.org
-Subject: [RFC PATCH v1 2/6] dt-bindings: phy: rockchip: add rk3328 usb3 phy
-Date: Wed, 15 Jan 2025 01:26:23 +0000
-Message-Id: <20250115012628.1035928-3-pgwipeout@gmail.com>
+Subject: [RFC PATCH v1 3/6] phy: rockchip: add driver for rk3328 usb3 phy
+Date: Wed, 15 Jan 2025 01:26:24 +0000
+Message-Id: <20250115012628.1035928-4-pgwipeout@gmail.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250115012628.1035928-1-pgwipeout@gmail.com>
 References: <20250115012628.1035928-1-pgwipeout@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_172644_920456_D2226BC3 
-X-CRM114-Status: GOOD (  13.03  )
+X-CRM114-CacheID: sfid-20250114_172647_638527_63A7FF01 
+X-CRM114-Status: GOOD (  20.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,187 +111,940 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add documentation for the usb3 phy as implemented on the rk3328 SoC.
+The rk3328 has a combined usb2 and usb3 phy block for the usb3 dwc
+interface. The implementation up until now has been bugged, with
+multiple issues ranging from disconnect detection failures to low
+performance. This driver fixes the majority of the original issues and
+allows better performance for the rk3328 usb3 port.
+
+This driver sources data from multiple sources, including the rk3328
+trm, the rk3228h trm, emails from Rockchip, and both the 4.4 and 5.10
+downstream drivers. The current implementation allows for basic bring up
+of the phy block and fixes the detection issues. Interrupts are enabled,
+but currently only used for debugging. Features missing currently are
+power management, OTG handling, board specific tuning, regulator control,
+
+Currently the only known bugs are a AX88179 usb3 gigabit adapter crashes
+when operating at usb3 speeds and transmitting large amounts of data and
+full disconnection detections may be slower than expected (~5-10 seconds).
 
 Signed-off-by: Peter Geis <pgwipeout@gmail.com>
 ---
 
- .../bindings/phy/rockchip,inno-usb3phy.yaml   | 166 ++++++++++++++++++
- 1 file changed, 166 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/phy/rockchip,inno-usb3phy.yaml
+ drivers/phy/rockchip/Kconfig                  |  10 +
+ drivers/phy/rockchip/Makefile                 |   1 +
+ drivers/phy/rockchip/phy-rockchip-inno-usb3.c | 869 ++++++++++++++++++
+ 3 files changed, 880 insertions(+)
+ create mode 100644 drivers/phy/rockchip/phy-rockchip-inno-usb3.c
 
-diff --git a/Documentation/devicetree/bindings/phy/rockchip,inno-usb3phy.yaml b/Documentation/devicetree/bindings/phy/rockchip,inno-usb3phy.yaml
+diff --git a/drivers/phy/rockchip/Kconfig b/drivers/phy/rockchip/Kconfig
+index 2f7a05f21dc5..aac623e84f96 100644
+--- a/drivers/phy/rockchip/Kconfig
++++ b/drivers/phy/rockchip/Kconfig
+@@ -48,6 +48,16 @@ config PHY_ROCKCHIP_INNO_USB2
+ 	help
+ 	  Support for Rockchip USB2.0 PHY with Innosilicon IP block.
+ 
++config PHY_ROCKCHIP_INNO_USB3
++	tristate "Rockchip INNO USB3PHY Driver"
++	depends on (ARCH_ROCKCHIP || COMPILE_TEST) && OF
++	depends on COMMON_CLK
++	depends on USB_SUPPORT
++	select GENERIC_PHY
++	select USB_COMMON
++	help
++	  Support for Rockchip USB3.0 PHY with Innosilicon IP block.
++
+ config PHY_ROCKCHIP_INNO_CSIDPHY
+ 	tristate "Rockchip Innosilicon MIPI CSI PHY driver"
+ 	depends on (ARCH_ROCKCHIP || COMPILE_TEST) && OF
+diff --git a/drivers/phy/rockchip/Makefile b/drivers/phy/rockchip/Makefile
+index 010a824e32ce..ec15dcf37fba 100644
+--- a/drivers/phy/rockchip/Makefile
++++ b/drivers/phy/rockchip/Makefile
+@@ -6,6 +6,7 @@ obj-$(CONFIG_PHY_ROCKCHIP_INNO_CSIDPHY)	+= phy-rockchip-inno-csidphy.o
+ obj-$(CONFIG_PHY_ROCKCHIP_INNO_DSIDPHY)	+= phy-rockchip-inno-dsidphy.o
+ obj-$(CONFIG_PHY_ROCKCHIP_INNO_HDMI)	+= phy-rockchip-inno-hdmi.o
+ obj-$(CONFIG_PHY_ROCKCHIP_INNO_USB2)	+= phy-rockchip-inno-usb2.o
++obj-$(CONFIG_PHY_ROCKCHIP_INNO_USB3)	+= phy-rockchip-inno-usb3.o
+ obj-$(CONFIG_PHY_ROCKCHIP_NANENG_COMBO_PHY)	+= phy-rockchip-naneng-combphy.o
+ obj-$(CONFIG_PHY_ROCKCHIP_PCIE)		+= phy-rockchip-pcie.o
+ obj-$(CONFIG_PHY_ROCKCHIP_SAMSUNG_HDPTX)	+= phy-rockchip-samsung-hdptx.o
+diff --git a/drivers/phy/rockchip/phy-rockchip-inno-usb3.c b/drivers/phy/rockchip/phy-rockchip-inno-usb3.c
 new file mode 100644
-index 000000000000..cde489ca87ab
+index 000000000000..51b9f3b7fbfa
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/phy/rockchip,inno-usb3phy.yaml
-@@ -0,0 +1,166 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/phy/rockchip,inno-usb3phy.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/drivers/phy/rockchip/phy-rockchip-inno-usb3.c
+@@ -0,0 +1,869 @@
++// SPDX-License-Identifier: GPL-2.0+
 +
-+title: Rockchip USB 3.0 phy with Innosilicon IP block
++/*
++ * phy-rockchip-inno-usb3.c - USB3 PHY based on Innosilicon IP as
++ * implemented on Rockchip rk3328. Tuning data magic bits are taken as is
++ * from the downstream driver. Downstream driver is located at:
++ * https://github.com/rockchip-linux/kernel/blob/240a5660d7c23841ccf7b7cc489078bf521b9802/drivers/phy/rockchip/phy-rockchip-inno-usb3.c
++ *
++ * Author: Peter Geis <pgwipeout@gmail.com>
++ * TODO:
++ * - Find the rest of the register names / definitions.
++ * - Implement pm functions.
++ * - Implement board specific tuning from dts.
++ * - Implement regulator control.
++ */
 +
-+maintainers:
-+  - Heiko Stuebner <heiko@sntech.de>
++#include <linux/clk.h>
++#include <linux/delay.h>
++#include <linux/interrupt.h>
++#include <linux/io.h>
++#include <linux/kernel.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/of_address.h>
++#include <linux/of_device.h>
++#include <linux/of_irq.h>
++#include <linux/of_platform.h>
++#include <linux/phy/phy.h>
++#include <linux/platform_device.h>
++#include <linux/regmap.h>
++#include <linux/reset.h>
++#include <linux/mfd/syscon.h>
++#include <linux/usb/of.h>
 +
-+properties:
-+  compatible:
-+    enum:
-+      - rockchip,rk3328-usb3phy
++#define REG_WRITE_MASK		GENMASK(31, 16)
++#define REG_WRITE_SHIFT		16
++#define DISABLE_BITS		0x0
 +
-+  reg:
-+    maxItems: 1
++/* USB3PHY GRF Registers */
++#define USB3PHY_WAKEUP_CON_REG	0x40
++#define USB3PHY_WAKEUP_STAT_REG	0x44
++#define USB3_LINESTATE_IRQ_EN	BIT(0)
++#define USB3_RXDET_IRQ_EN		BIT(1)
++#define USB3_BVALID_RISE_IRQ_EN	BIT(2)
++#define USB3_BVALID_FALL_IRQ_EN	BIT(3)
++#define USB3_BVALID_CLEAR_MASK	GENMASK(3, 2)
++#define USB3_ID_RISE_IRQ_EN		BIT(4)
++#define USB3_ID_FALL_IRQ_EN		BIT(5)
++#define USB3_ID_CLEAR_MASK		GENMASK(5, 4)
++#define USB3_RXDET_EN			BIT(6)
 +
-+  clocks:
-+    minItems: 3
-+    maxItems: 3
++/* PIPE registers */
++/* 0x08 for SSC, default 0x0e */
++#define UNKNOWN_PIPE_REG_000			0x000
++#define UNKNOWN_SSC_000_MASK			GENMASK(2, 1)
++#define UNKNOWN_SSC_000_ENABLE			(0x00 << 1)
 +
-+  clock-names:
-+    items:
-+      - const: refclk-usb3otg
-+      - const: usb3phy-otg
-+      - const: usb3phy-pipe
++/* 0x83 for 24m, 0x01 for 25m, default 0x86 */
++#define PIPE_REG_020					0x020
++/* RX CDR multiplier high bits [7:6], as P, default 0x2, RX data rate = (2*refclk*P)/Q */
++#define PIPE_RX_CDR_MULT_HIGH_MASK		GENMASK(7, 6)
++/* TX PLL divider bits [4:0], as N, default 0x6, TX data rate = (2*refclk*M)/N */
++#define PIPE_TX_PLL_DIV_MASK			GENMASK(4, 0)
 +
-+  interrupts:
-+    minItems: 4
++/* 0x71 for 24m, 0x64 for 25m, default 0x71 */
++#define PIPE_REG_028					0x028
++/* RX CDR multiplier low bits [7:0], as P, default 0x71, RX data rate = (2*refclk*P)/Q */
++#define PIPE_RX_CDR_MULT_LOW_MASK		GENMASK(7, 0)
 +
-+  interrupt-names:
-+    items:
-+      - const: bvalid
-+      - const: id
-+      - const: linestate
-+      - const: rxdet
++/* 0x26 for 24m?, 0x21 for 25m, default 0x26 */
++#define PIPE_REG_030					0x030
++/* RX CDR divider bits [4:0], as Q, default 0x6, RX data rate = (2*refclk*P)/Q */
++#define PIPE_RX_CDR_DIV_MASK			GENMASK(4, 0)
 +
-+  resets:
-+    minItems: 6
++/* 1'b1 Disable bandgap power, default 0x00 */
++#define PIPE_REG_044					0x044
++#define BANDGAP_POWER_DISABLE			BIT(4)
 +
-+  reset-names:
-+    items:
-+      - const: usb3phy-u2-por
-+      - const: usb3phy-u3-por
-+      - const: usb3phy-pipe-mac
-+      - const: usb3phy-utmi-mac
-+      - const: usb3phy-utmi-apb
-+      - const: usb3phy-pipe-apb
++/* 0xe0 for rx tune?, default 0xe1 */
++#define PIPE_REG_060					0x060
++#define PIPE_TX_DETECT_BYPASS_DEBUG		BIT(4) /* enable to always force detection */
++/* RX CTLE frequency bandwidth response tuning bits [1:0], default 0x1 */
++#define PIPE_RX_CTLE_FREQ_BW_MASK		GENMASK(1, 0)
++#define PIPE_RX_CTLE_FREQ_BW_TUNE		0x0
 +
-+  "#address-cells":
-+    const: 2
++/* default 0x49 */
++#define PIPE_REG_064					0x064
++/* RX equalizer tail current control bits [6:4], default 0x4 */
++#define PIPE_RX_EQ_TAIL_CURR_MASK		GENMASK(6, 4)
 +
-+  "#size-cells":
-+    const: 2
++/* 0x08 for rx tune?, default 0x07 */
++#define PIPE_REG_068					0x068
++/* RX equalizer low frequency gain control bits [7:4], default 0x0 */
++#define PIPE_RX_EQ_LOW_GAIN_MASK		GENMASK(7, 4)
++#define PIPE_RX_EQ_LOW_GAIN_TUNE		(0x1 << 4)
++/* RX CTLE gain tuning bits [3:0], higher = more gain default 0x7 */
++#define PIPE_RX_CTLE_GAIN_MASK			GENMASK(3, 0)
++#define PIPE_RX_CTLE_GAIN_TUNE			0x7 /* 0x5 lowest functional value, 0xf highest */
 +
-+  ranges: true
++/* RX ODT manual resistance config, higher = less resistance, depends on REG_1C4 BIT(5) set */
++#define PIPE_REG_06C					0x06c
++/* RX ODT manual resistance high bits [3:0], default 0x0 */
++#define PIPE_RX_ODT_RES_HIGH_MASK		GENMASK(3, 0)
++#define PIPE_RX_ODT_RES_HIGH_TUNE		0xf
 +
-+patternProperties:
++#define PIPE_REG_070					0x070
++/* RX ODT manual resistance mid bits [7:0], default 0x03 */
++#define PIPE_RX_ODT_RES_MID_MASK		GENMASK(7, 0)
++#define PIPE_RX_ODT_RES_MID_TUNE		0xff
 +
-+  utmi-port@[0-9a-f]+$:
-+    type: object
-+    additionalProperties: false
++#define PIPE_REG_074					0x074
++/* RX ODT manual resistance low bits [7:0], default 0xff */
++#define PIPE_RX_ODT_RES_LOW_MASK		GENMASK(7, 0)
++#define PIPE_RX_ODT_RES_LOW_TUNE		0xff
 +
-+    properties:
-+      compatible:
-+        enum:
-+          - rockchip,rk3328-usb3phy-utmi
++/* default 0x08 */
++#define PIPE_REG_080					0x080
++#define PIPE_TX_COMMON_MODE_DIS			BIT(2)	/* 1'b1 disable TX common type */
 +
-+      reg:
-+        maxItems: 1
++/* default 0x33 */
++#define PIPE_REG_088					0x088
++#define PIPE_TX_DRIVER_PREEMP_EN		BIT(4)	/* 1'b1 enable pre-emphasis */
 +
-+      "#phy-cells":
-+        const: 0
++/* default 0x18 */
++#define PIPE_REG_0C0					0x0c0
++#define PIPE_RX_CM_EN					BIT(3)	/* 1'b1 enable RX CM */
++#define PIPE_TX_OBS_EN					BIT(4)	/* 1'b1 enable TX OBS */
 +
-+      phy-supply:
-+        description:
-+          Phandle to a regulator that provides power to VBUS.
-+          See ./phy-bindings.txt for details.
++/* 0x12 for rx tune?, default 0x14 */
++#define PIPE_REG_0C8					0x0c8
++/* RX CDR charge pump current bits [3:1], default 0x2 */
++#define PIPE_RX_CDR_CHG_PUMP_MASK		GENMASK(3, 1)
++#define PIPE_RX_CDR_CHG_PUMP_TUNE		(0x2 << 1)
 +
-+    required:
-+      - compatible
-+      - reg
-+      - "#phy-cells"
++/* 0x02 for 24m, 0x06 for 25m, default 0x06 */
++#define UNKNOWN_PIPE_REG_108			0x108
++#define UNKNOWN_REFCLK_108_24M			0x02
 +
-+  pipe-port@[0-9a-f]+$:
-+    type: object
-+    additionalProperties: false
++/* 0x80 for 24m, default 0x00 */
++#define UNKNOWN_PIPE_REG_10C			0x10c
++#define UNKNOWN_REFCLK_10C_24M			BIT(7)
 +
-+    properties:
-+      compatible:
-+        enum:
-+          - rockchip,rk3328-usb3phy-pipe
++/* 0x01 for 24m, 0x00 for 25m, default 0x02 */
++#define PIPE_REG_118					0x118
++/* TX PLL multiplier high bits [3:0], as M, default 0x2, TX data rate = (2*refclk*M)/N */
++#define PIPE_TX_PLL_MUL_HIGH_MASK		GENMASK(3, 0)
 +
-+      reg:
-+        maxItems: 1
++/* 0x38 for 24m, 0x64 for 25m, default 0x71 */
++#define PIPE_REG_11C					0x11c
++/* TX PLL multiplier low bits [7:0], as M, default 0x71, TX data rate = (2*refclk*M)/N */
++#define PIPE_TX_PLL_MUL_LOW_MASK		GENMASK(7, 0)
 +
-+      "#phy-cells":
-+        const: 0
++/* 0x0c for SSC, default 0x1c */
++#define UNKNOWN_PIPE_REG_120			0x120
++#define UNKNOWN_SSC_120_MASK			BIT(4)
++#define UNKNOWN_SSC_120_ENABLE			(0x0 << 4)
 +
-+      phy-supply:
-+        description:
-+          Phandle to a regulator that provides power to VBUS.
-+          See ./phy-bindings.txt for details.
++/* default 0x40 */
++#define PIPE_REG_12C					0x12c
++#define PIPE_TX_PLL_ALWAYS_ON			BIT(0) /* disable for PLL control by pipe_pd */
 +
-+    required:
-+      - compatible
-+      - reg
-+      - "#phy-cells"
++/* 0x05 for rx tune, default 0x01 */
++#define PIPE_REG_148					0x148
++#define PIPE_RX_CHG_PUMP_DIV_2			BIT(2) /* RX CDR charge pump div/2, default 0 */
 +
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - interrupts
-+  - interrupt-names
-+  - resets
-+  - reset-names
++/* 0x70 for rx tune, default 0x72 */
++#define PIPE_REG_150					0x150
++#define PIPE_TX_BIAS_EN					BIT(6)	/* 1'b1 Enable TX Bias */
++/* RX CDR phase tracking speed bits [3:0], default 0x2 */
++#define PIPE_RX_CDR_SPEED_MASK			GENMASK(3, 0)
++#define PIPE_RX_CDR_SPEED_TUNE			0x00
 +
-+additionalProperties: false
++/* default 0xd4 */
++#define PIPE_REG_160
++/* RX common mode voltage strength bits [5:4], default 0x1 */
++#define PIPE_RX_CDR_COM_VOLT_MASK		GENMASK(5, 4)
++#define PIPE_RX_CDR_COM_VOLT_TUNE		(0x1 << 4)
 +
-+examples:
-+  - |
-+    #include <dt-bindings/clock/rk3328-cru.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+    soc {
-+      #address-cells = <2>;
-+      #size-cells = <2>;
++/* default 0x00 */
++#define PIPE_REG_180					0x180
++/* TX driver bias reference voltage bits [3:2], in mv */
++#define PIPE_TX_BIAS_REF_VOLT_MASK		GENMASK(3, 2)
++#define PIPE_TX_BIAS_REF_VOLT_200		(0x0 << 2)
++#define PIPE_TX_BIAS_REF_VOLT_175		(0x1 << 2)
++#define PIPE_TX_BIAS_REF_VOLT_225		(0x2 << 2) /* downstream 5.10 driver setting */
++#define PIPE_TX_BIAS_REF_VOLT_250		(0x3 << 2)
 +
-+      usb3phy: usb3-phy@ff460000 {
-+        compatible = "rockchip,rk3328-usb3phy";
-+        reg = <0x0 0xff460000 0x0 0x10000>;
-+        clocks = <&cru SCLK_REF_USB3OTG>, <&cru PCLK_USB3PHY_OTG>, <&cru PCLK_USB3PHY_PIPE>;
-+        clock-names = "refclk-usb3otg", "usb3phy-otg", "usb3phy-pipe";
-+        interrupts = <GIC_SPI 75 IRQ_TYPE_LEVEL_HIGH>, <GIC_SPI 76 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 77 IRQ_TYPE_LEVEL_HIGH>, <GIC_SPI 78 IRQ_TYPE_LEVEL_HIGH>;
-+        interrupt-names = "bvalid", "id", "linestate", "rxdet";
-+        resets = <&cru SRST_USB3PHY_U2>,
-+                 <&cru SRST_USB3PHY_U3>,
-+                 <&cru SRST_USB3PHY_PIPE>,
-+                 <&cru SRST_USB3OTG_UTMI>,
-+                 <&cru SRST_USB3PHY_OTG_P>,
-+                 <&cru SRST_USB3PHY_PIPE_P>;
-+        reset-names = "usb3phy-u2-por", "usb3phy-u3-por",
-+                      "usb3phy-pipe-mac", "usb3phy-utmi-mac",
-+                      "usb3phy-utmi-apb", "usb3phy-pipe-apb";
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+        ranges;
++/* default 0x01 */
++#define PIPE_REG_1A8			0x1a8
++#define PIPE_LDO_POWER_DIS				BIT(4)	/* 1'b1 Disable LDO Power */
 +
-+        usb3phy_utmi: utmi-port@ff470000 {
-+          compatible = "rockchip,rk3328-usb3phy-utmi";
-+          reg = <0x0 0xff470000 0x0 0x8000>;
-+          #phy-cells = <0>;
-+        };
++/* default 0x07 */
++#define PIPE_REG_1AC			0x1ac
++/* TX driver output common voltage bits [5:4], in mv */
++#define PIPE_TX_COMMON_VOLT_MASK		GENMASK(5, 4)
++#define PIPE_TX_COMMON_VOLT_800			(0x0 << 4)
++#define PIPE_TX_COMMON_VOLT_750			(0x1 << 4)
++#define PIPE_TX_COMMON_VOLT_950			(0x2 << 4)
++#define PIPE_TX_COMMON_VOLT_1100		(0x3 << 4)
 +
-+        usb3phy_pipe: pipe-port@ff478000 {
-+          compatible = "rockchip,rk3328-usb3phy-pipe";
-+          reg = <0x0 0xff478000 0x0 0x8000>;
-+          #phy-cells = <0>;
-+        };
-+      };
-+    };
++/* default 0xfb */
++#define PIPE_REG_1B8					0x1b8
++/* TX driver swing strength bits [7:4], range 0x0 to 0xf */
++#define PIPE_TX_DRIVER_SWING_MASK		GENMASK(7, 4) /* 0x2 lowest functional value */
++/* TX driver pre-emphasis strength bits [1:0], default 0x3, enabled by REG 088 */
++#define PIPE_TX_DRIVER_PREEMP_STR_MASK	GENMASK(1, 0)
++
++/* set to 0xf0 for rx tune?, default 0xd0 */
++#define PIPE_REG_1C4					0x1c4
++#define PIPE_RX_ODT_AUTO_DIS			BIT(5) /* Disable RX ODT auto compensation */
++#define PIPE_TX_ODT_AUTO_DIS			BIT(3) /* Disable TX ODT auto compensation */
++
++/* UTMI registers */
++/* 0x0f for utmi tune, default 0x09*/
++#define UTMI_REG_030					0x030
++/* {bits[2:0]=111}: always enable pre-emphasis */
++#define UTMI_ENABLE_PRE_EMPH_MASK		GENMASK(2, 0)
++#define UTMI_ENABLE_PRE_EMPH			0x07
++
++/* 0x41 for utmi tune, default 0x49 */
++#define UTMI_REG_040					0x040
++/* TX HS pre-emphasis strength bits [5:3], default 0x1*/
++#define UTMI_TX_PRE_EMPH_STR_MASK		GENMASK(5, 3)
++#define UTMI_TX_PRE_EMPH_WEAKEST		(0x0 << 3)
++
++/* set to 0xb5 for utmi tune, default 0xb5 */
++#define UTMI_REG_11C					0x11c
++/* {bits[4:0]=10101}: odt 45ohm tuning */
++#define UTMI_ODT_45_OHM_MASK			GENMASK(4, 0)
++#define UTMI_ODT_45_OHM_TUNE			0x15
++
++enum rockchip_usb3phy_type {
++	USB3PHY_TYPE_USB2,
++	USB3PHY_TYPE_USB3,
++	USB3PHY_TYPE_MAX,
++};
++
++/**
++ * struct rockchip_usb3phy_port - usb-phy port data.
++ * @phy: port usb phy struct.
++ * @regmap: port regmap.
++ * @type: port usb phy type.
++ */
++struct rockchip_usb3phy_port {
++	struct phy					*phy;
++	struct regmap				*regmap;
++	enum rockchip_usb3phy_type	type;
++};
++
++struct rockchip_usb3phy {
++	struct device				*dev;
++	struct regmap				*regmap;
++	struct clk					*clk_pipe;
++	struct clk					*clk_otg;
++	struct clk					*clk_ref;
++	struct reset_control		*u3por_rst;
++	struct reset_control		*u2por_rst;
++	struct reset_control		*pipe_rst;
++	struct reset_control		*utmi_rst;
++	struct reset_control		*pipe_apb_rst;
++	struct reset_control		*utmi_apb_rst;
++	struct rockchip_usb3phy_port	ports[USB3PHY_TYPE_MAX];
++	int	bvalid_irq;
++	int	id_irq;
++	int	ls_irq;
++	int	rxdet_irq;
++};
++
++struct usb3phy_config {
++	unsigned int reg;
++	unsigned int mask;
++	u8 def;
++};
++
++static const struct usb3phy_config rk3328_rx_config[] = {
++	{ PIPE_REG_150, PIPE_RX_CDR_SPEED_MASK, PIPE_RX_CDR_SPEED_TUNE },
++	{ PIPE_REG_0C8, PIPE_RX_CDR_CHG_PUMP_MASK, PIPE_RX_CDR_CHG_PUMP_TUNE },
++	{ PIPE_REG_148, PIPE_RX_CHG_PUMP_DIV_2, PIPE_RX_CHG_PUMP_DIV_2 },
++	{ PIPE_REG_068, PIPE_RX_CTLE_GAIN_MASK, PIPE_RX_CTLE_GAIN_TUNE },
++//	{ PIPE_REG_1C4, PIPE_RX_ODT_AUTO_DIS, PIPE_RX_ODT_AUTO_DIS },
++	{ PIPE_REG_070, PIPE_RX_ODT_RES_MID_MASK, PIPE_RX_ODT_RES_MID_TUNE },
++	{ PIPE_REG_06C, PIPE_RX_ODT_RES_HIGH_MASK, PIPE_RX_ODT_RES_HIGH_TUNE },
++	{ PIPE_REG_060, PIPE_RX_CTLE_FREQ_BW_MASK, PIPE_RX_CTLE_FREQ_BW_TUNE },
++	{ UNKNOWN_PIPE_REG_10C, UNKNOWN_REFCLK_10C_24M, UNKNOWN_REFCLK_10C_24M },
++	{ PIPE_REG_060, PIPE_RX_CTLE_FREQ_BW_MASK, PIPE_RX_CTLE_FREQ_BW_TUNE },
++	{ PIPE_REG_068, PIPE_RX_EQ_LOW_GAIN_MASK, PIPE_RX_EQ_LOW_GAIN_TUNE },
++};
++
++static const struct usb3phy_config rk3328_tx_config[] = {
++	{ PIPE_REG_180, PIPE_TX_BIAS_REF_VOLT_MASK, PIPE_TX_BIAS_REF_VOLT_250 },
++};
++
++static const struct usb3phy_config rk3328_ssc_config[] = {
++	{ UNKNOWN_PIPE_REG_000, UNKNOWN_SSC_000_MASK, UNKNOWN_SSC_000_ENABLE },
++	{ UNKNOWN_PIPE_REG_120, UNKNOWN_SSC_120_MASK, UNKNOWN_SSC_120_ENABLE },
++};
++
++static const struct usb3phy_config rk3328_utmi_config[] = {
++	{ UTMI_REG_030, UTMI_ENABLE_PRE_EMPH_MASK, UTMI_ENABLE_PRE_EMPH },
++	{ UTMI_REG_040, UTMI_TX_PRE_EMPH_STR_MASK, UTMI_TX_PRE_EMPH_WEAKEST },
++	{ UTMI_REG_11C, UTMI_ODT_45_OHM_MASK, UTMI_ODT_45_OHM_TUNE },
++};
++
++static const struct usb3phy_config rk3328_pipe_pwr_en_config[] = {
++	{ PIPE_REG_1A8, PIPE_LDO_POWER_DIS, DISABLE_BITS },
++	{ PIPE_REG_044, BANDGAP_POWER_DISABLE, DISABLE_BITS },
++	{ PIPE_REG_150, PIPE_TX_BIAS_EN, PIPE_TX_BIAS_EN },
++	{ PIPE_REG_080, PIPE_TX_COMMON_MODE_DIS, DISABLE_BITS },
++	{ PIPE_REG_0C0, PIPE_TX_OBS_EN, PIPE_TX_OBS_EN },
++	{ PIPE_REG_0C0, PIPE_RX_CM_EN, PIPE_RX_CM_EN },
++};
++
++static int rockchip_usb3phy_reset(struct rockchip_usb3phy *usb3phy,
++				  bool reset, enum rockchip_usb3phy_type type)
++{
++	if (reset) {
++		if (type == USB3PHY_TYPE_USB2) {
++			clk_disable_unprepare(usb3phy->clk_otg);
++			reset_control_assert(usb3phy->utmi_rst);
++			reset_control_assert(usb3phy->u2por_rst);
++		}
++		if (type == USB3PHY_TYPE_USB3) {
++			clk_disable_unprepare(usb3phy->clk_pipe);
++			reset_control_assert(usb3phy->pipe_rst);
++			reset_control_assert(usb3phy->u3por_rst);
++		}
++	} else {
++		if (type == USB3PHY_TYPE_USB2) {
++			reset_control_deassert(usb3phy->u2por_rst);
++			fsleep(1000);
++			clk_prepare_enable(usb3phy->clk_otg);
++			fsleep(500);
++			reset_control_deassert(usb3phy->utmi_rst);
++			fsleep(100);
++		}
++		if (type == USB3PHY_TYPE_USB3) {
++			reset_control_deassert(usb3phy->u3por_rst);
++			fsleep(500);
++			clk_prepare_enable(usb3phy->clk_pipe);
++			fsleep(1000);
++			reset_control_deassert(usb3phy->pipe_rst);
++			fsleep(100);
++		}
++	}
++	return 0;
++}
++
++static irqreturn_t rockchip_usb3phy_linestate_irq(int irq, void *data)
++{
++	struct rockchip_usb3phy *usb3phy = data;
++	int tmp;
++
++	/* check if the interrupt is enabled */
++	regmap_read(usb3phy->regmap, USB3PHY_WAKEUP_CON_REG, &tmp);
++	if (!(tmp & USB3_LINESTATE_IRQ_EN)) {
++		dev_warn(usb3phy->dev, "invalid linestate irq received\n");
++		return IRQ_NONE;
++	}
++
++	regmap_read(usb3phy->regmap, USB3PHY_WAKEUP_STAT_REG, &tmp);
++	if (tmp & USB3_LINESTATE_IRQ_EN)
++		dev_dbg_ratelimited(usb3phy->dev, "linestate irq received\n");
++
++	/* clear the interrupt */
++	regmap_write(usb3phy->regmap, USB3PHY_WAKEUP_STAT_REG, USB3_LINESTATE_IRQ_EN);
++
++	return IRQ_HANDLED;
++}
++
++static irqreturn_t rockchip_usb3phy_bvalid_irq(int irq, void *data)
++{
++	struct rockchip_usb3phy *usb3phy = data;
++	int tmp;
++
++	/* check if the interrupt is enabled */
++	regmap_read(usb3phy->regmap, USB3PHY_WAKEUP_CON_REG, &tmp);
++	if (!((tmp & USB3_BVALID_FALL_IRQ_EN) | (tmp & USB3_BVALID_RISE_IRQ_EN))) {
++		dev_warn_ratelimited(usb3phy->dev, "invalid bvalid irq received\n");
++		return IRQ_NONE;
++	}
++
++	regmap_read(usb3phy->regmap, USB3PHY_WAKEUP_STAT_REG, &tmp);
++	if (tmp & USB3_BVALID_FALL_IRQ_EN)
++		dev_dbg(usb3phy->dev, "bvalid falling irq received\n");
++	if (tmp & USB3_BVALID_RISE_IRQ_EN)
++		dev_dbg(usb3phy->dev, "bvalid rising irq received\n");
++
++	/* clear the interrupt */
++	regmap_write(usb3phy->regmap, USB3PHY_WAKEUP_STAT_REG, USB3_BVALID_CLEAR_MASK);
++
++	return IRQ_HANDLED;
++}
++
++static irqreturn_t rockchip_usb3phy_id_irq(int irq, void *data)
++{
++	struct rockchip_usb3phy *usb3phy = data;
++	int tmp;
++
++	/* check if the interrupt is enabled */
++	regmap_read(usb3phy->regmap, USB3PHY_WAKEUP_CON_REG, &tmp);
++	if (!((tmp & USB3_ID_FALL_IRQ_EN) | (tmp & USB3_ID_RISE_IRQ_EN))) {
++		dev_warn(usb3phy->dev, "invalid id irq received\n");
++		return IRQ_NONE;
++	}
++
++	regmap_read(usb3phy->regmap, USB3PHY_WAKEUP_STAT_REG, &tmp);
++	if (tmp & USB3_ID_FALL_IRQ_EN)
++		dev_dbg(usb3phy->dev, "id falling irq received\n");
++	if (tmp & USB3_ID_RISE_IRQ_EN)
++		dev_dbg(usb3phy->dev, "id rising irq received\n");
++
++	/* clear the interrupt */
++	regmap_write(usb3phy->regmap, USB3PHY_WAKEUP_STAT_REG, USB3_ID_CLEAR_MASK);
++
++	return IRQ_HANDLED;
++}
++
++static irqreturn_t rockchip_usb3phy_rxdet_irq(int irq, void *data)
++{
++	struct rockchip_usb3phy *usb3phy = data;
++	int tmp;
++
++	/* check if the interrupt is enabled */
++	regmap_read(usb3phy->regmap, USB3PHY_WAKEUP_CON_REG, &tmp);
++	if (!(tmp & USB3_RXDET_IRQ_EN)) {
++		dev_warn(usb3phy->dev, "invalid rxdet irq received\n");
++		return IRQ_NONE;
++	}
++
++	regmap_read(usb3phy->regmap, USB3PHY_WAKEUP_STAT_REG, &tmp);
++	if (tmp & USB3_RXDET_IRQ_EN)
++		dev_dbg_ratelimited(usb3phy->dev, "rxdet irq received\n");
++
++	/* clear the interrupt */
++	regmap_write(usb3phy->regmap, USB3PHY_WAKEUP_STAT_REG, USB3_RXDET_IRQ_EN);
++
++	return IRQ_HANDLED;
++}
++
++static int rockchip_usb3phy_bulk_update(struct rockchip_usb3phy *usb3phy, struct regmap *regmap,
++					const struct usb3phy_config *config, unsigned int size)
++{
++	unsigned int i, val, tmp;
++	int ret = 0;
++
++	for (i = 0; i < size; i++) {
++		ret = regmap_read(regmap, config[i].reg, &val);
++		if (ret < 0) {
++			dev_err(usb3phy->dev, "failed to read addr: 0x%02x\n", config[i].reg);
++			return ret;
++		}
++		tmp = val & ~config[i].mask;
++		tmp |= config[i].def;
++		dev_dbg(usb3phy->dev, "write: 0x%03x old: 0x%02x new: 0x%02x\n",
++			config[i].reg, val, tmp);
++		ret = regmap_write(regmap, config[i].reg, tmp);
++		if (ret < 0) {
++			dev_err(usb3phy->dev, "failed to write addr: 0x%02x\n", config[i].reg);
++			return ret;
++		}
++	}
++
++	return ret;
++}
++
++static int rockchip_usb3phy_calc_rate(struct rockchip_usb3phy *usb3phy, struct regmap *regmap)
++{
++	long rate;
++	unsigned int mul, div, target = (5000000000 / 100000);
++
++	rate = clk_get_rate(usb3phy->clk_ref) / 100000;
++	if (rate < 0) {
++		dev_err(usb3phy->dev, "failed to get refclk, %ld\n", rate);
++		return rate;
++	/* lowest possible supported clock is 4.8MHZ, highest rk3328 can do is 1.6GHZ */
++	} else if ((rate < 48) | (rate > 16000)) {
++		goto error;
++	}
++
++	for (div = 1; div < 32; div++) {
++		for (mul = 1; mul < 1024; mul++) {
++			if (((2 * rate * mul) / div) == target)
++				goto done;
++			if (((2 * rate * mul) / div) > target)
++				break;
++		}
++	}
++
++error:
++	dev_err(usb3phy->dev, "invalid refclock rate, %ld\n", rate * 100000);
++	return -EINVAL;
++
++done:
++	dev_dbg(usb3phy->dev, "refclk rate mul: %x div: %x rate: %ld\n", mul, div, (rate * 100000));
++
++	regmap_write(regmap, PIPE_REG_020, (mul >> 2) & PIPE_RX_CDR_MULT_HIGH_MASK);
++	regmap_write(regmap, PIPE_REG_020, div & PIPE_TX_PLL_DIV_MASK);
++	regmap_write(regmap, PIPE_REG_028, mul & PIPE_RX_CDR_MULT_LOW_MASK);
++	regmap_write(regmap, PIPE_REG_030, div & PIPE_RX_CDR_DIV_MASK);
++	regmap_write(regmap, PIPE_REG_118, (mul >> 8) & PIPE_TX_PLL_MUL_HIGH_MASK);
++	regmap_write(regmap, PIPE_REG_11C, mul & PIPE_TX_PLL_MUL_LOW_MASK);
++
++	return 0;
++}
++
++static int rockchip_usb3phy_init(struct phy *phy)
++{
++	struct rockchip_usb3phy_port *port = phy_get_drvdata(phy);
++	struct rockchip_usb3phy *usb3phy = dev_get_drvdata(phy->dev.parent);
++	int tmp, ret;
++
++	dev_warn(usb3phy->dev, "usb3phy_init %s\n", dev_name(&phy->dev));
++	clk_prepare_enable(usb3phy->clk_ref);
++	rockchip_usb3phy_reset(usb3phy, false, port->type);
++
++	if (port->type == USB3PHY_TYPE_USB2) {
++		/*
++		 * "For RK3328 SoC, pre-emphasis and pre-emphasis strength must be
++		 * written as one fixed value. The ODT 45ohm value should be tuned
++		 * for different boards to adjust HS eye height."
++		 */
++		dev_dbg(usb3phy->dev, "tuning UTMI\n");
++		ret = rockchip_usb3phy_bulk_update(usb3phy, port->regmap, rk3328_utmi_config,
++						   ARRAY_SIZE(rk3328_utmi_config));
++	}
++
++	if (port->type == USB3PHY_TYPE_USB3) {
++		/* Enable interrupts */
++		tmp = (USB3_LINESTATE_IRQ_EN | USB3_ID_FALL_IRQ_EN | USB3_ID_RISE_IRQ_EN |
++			USB3_RXDET_IRQ_EN | USB3_BVALID_RISE_IRQ_EN | USB3_BVALID_FALL_IRQ_EN);
++		tmp |= (tmp << REG_WRITE_SHIFT);
++
++		ret = regmap_write(usb3phy->regmap, USB3PHY_WAKEUP_CON_REG, tmp);
++		if (ret < 0) {
++			/* interrupt write determines if we have write access */
++			dev_err(usb3phy->dev, "failed to write interrupts\n");
++			return ret;
++		}
++
++		/* Configure for 24M ref clk */
++		dev_dbg(usb3phy->dev, "setting pipe for 24M refclk\n");
++		if (rockchip_usb3phy_calc_rate(usb3phy, usb3phy->regmap))
++			return -EINVAL;
++
++		/* Enable SSC */
++		udelay(3);
++		dev_dbg(usb3phy->dev, "setting pipe for SSC\n");
++		ret = rockchip_usb3phy_bulk_update(usb3phy, port->regmap, rk3328_ssc_config,
++						   ARRAY_SIZE(rk3328_ssc_config));
++
++		/* "Tuning RX for compliance RJTL test" */
++		dev_dbg(usb3phy->dev, "setting pipe for RX tuning\n");
++		ret = rockchip_usb3phy_bulk_update(usb3phy, port->regmap, rk3328_rx_config,
++						   ARRAY_SIZE(rk3328_rx_config));
++		if (ret)
++			return ret;
++
++		/*
++		 * "Tuning TX to increase the bias current used in TX driver and RX EQ,
++		 * it can also increase the voltage of LFPS."
++		 */
++		dev_dbg(usb3phy->dev, "setting pipe for TX tuning\n");
++		ret = rockchip_usb3phy_bulk_update(usb3phy, port->regmap,
++						   rk3328_tx_config, ARRAY_SIZE(rk3328_tx_config));
++
++		/* Power up the pipe */
++		dev_dbg(usb3phy->dev, "setting pipe power on\n");
++		ret = rockchip_usb3phy_bulk_update(usb3phy, port->regmap, rk3328_pipe_pwr_en_config,
++						   ARRAY_SIZE(rk3328_pipe_pwr_en_config));
++	}
++
++	return 0;
++}
++
++static int rockchip_usb3phy_parse_dt(struct rockchip_usb3phy *usb3phy, struct device *dev)
++{
++	int ret;
++
++	usb3phy->clk_pipe = devm_clk_get(dev, "usb3phy-pipe");
++	if (IS_ERR(usb3phy->clk_pipe)) {
++		dev_err(dev, "could not get usb3phy pipe clock\n");
++		return PTR_ERR(usb3phy->clk_pipe);
++	}
++
++	usb3phy->clk_otg = devm_clk_get(dev, "usb3phy-otg");
++	if (IS_ERR(usb3phy->clk_otg)) {
++		dev_err(dev, "could not get usb3phy otg clock\n");
++		return PTR_ERR(usb3phy->clk_otg);
++	}
++
++	usb3phy->clk_ref = devm_clk_get(dev, "refclk-usb3otg");
++	if (IS_ERR(usb3phy->clk_ref)) {
++		dev_err(dev, "could not get usb3phy ref clock\n");
++		return PTR_ERR(usb3phy->clk_ref);
++	}
++
++	usb3phy->u2por_rst = devm_reset_control_get(dev, "usb3phy-u2-por");
++	if (IS_ERR(usb3phy->u2por_rst)) {
++		dev_err(dev, "no usb3phy-u2-por reset control found\n");
++		return PTR_ERR(usb3phy->u2por_rst);
++	}
++
++	usb3phy->u3por_rst = devm_reset_control_get(dev, "usb3phy-u3-por");
++	if (IS_ERR(usb3phy->u3por_rst)) {
++		dev_err(dev, "no usb3phy-u3-por reset control found\n");
++		return PTR_ERR(usb3phy->u3por_rst);
++	}
++
++	usb3phy->pipe_rst = devm_reset_control_get(dev, "usb3phy-pipe-mac");
++	if (IS_ERR(usb3phy->pipe_rst)) {
++		dev_err(dev, "no usb3phy_pipe_mac reset control found\n");
++		return PTR_ERR(usb3phy->pipe_rst);
++	}
++
++	usb3phy->utmi_rst = devm_reset_control_get(dev, "usb3phy-utmi-mac");
++	if (IS_ERR(usb3phy->utmi_rst)) {
++		dev_err(dev, "no usb3phy-utmi-mac reset control found\n");
++		return PTR_ERR(usb3phy->utmi_rst);
++	}
++
++	usb3phy->pipe_apb_rst = devm_reset_control_get(dev, "usb3phy-pipe-apb");
++	if (IS_ERR(usb3phy->pipe_apb_rst)) {
++		dev_err(dev, "no usb3phy-pipe-apb reset control found\n");
++		return PTR_ERR(usb3phy->pipe_apb_rst);
++	}
++
++	usb3phy->utmi_apb_rst = devm_reset_control_get(dev, "usb3phy-utmi-apb");
++	if (IS_ERR(usb3phy->utmi_apb_rst)) {
++		dev_err(dev, "no usb3phy-utmi-apb reset control found\n");
++		return PTR_ERR(usb3phy->utmi_apb_rst);
++	}
++
++	usb3phy->ls_irq = of_irq_get_byname(dev->of_node, "linestate");
++	if (usb3phy->ls_irq < 0) {
++		dev_err(dev, "no linestate irq provided\n");
++		return usb3phy->ls_irq;
++	}
++
++	ret = devm_request_threaded_irq(dev, usb3phy->ls_irq, NULL, rockchip_usb3phy_linestate_irq,
++					IRQF_ONESHOT, "rockchip_usb3phy_ls", usb3phy);
++	if (ret) {
++		dev_err(dev, "failed to request linestate irq handle\n");
++		return ret;
++	}
++
++	usb3phy->bvalid_irq = of_irq_get_byname(dev->of_node, "bvalid");
++	if (usb3phy->bvalid_irq < 0) {
++		dev_err(dev, "no bvalid irq provided\n");
++		return usb3phy->bvalid_irq;
++	}
++
++	ret = devm_request_threaded_irq(dev, usb3phy->bvalid_irq, NULL, rockchip_usb3phy_bvalid_irq,
++					IRQF_ONESHOT, "rockchip_usb3phy_bvalid", usb3phy);
++	if (ret) {
++		dev_err(dev, "failed to request bvalid irq handle\n");
++		return ret;
++	}
++
++	usb3phy->id_irq = of_irq_get_byname(dev->of_node, "id");
++	if (usb3phy->id_irq < 0) {
++		dev_err(dev, "no id irq provided\n");
++		return usb3phy->id_irq;
++	}
++
++	ret = devm_request_threaded_irq(dev, usb3phy->id_irq, NULL, rockchip_usb3phy_id_irq,
++					IRQF_ONESHOT, "rockchip_usb3phy-id", usb3phy);
++	if (ret) {
++		dev_err(dev, "failed to request id irq handle\n");
++		return ret;
++	}
++
++		usb3phy->rxdet_irq = of_irq_get_byname(dev->of_node, "rxdet");
++	if (usb3phy->rxdet_irq < 0) {
++		dev_err(dev, "no rxdet irq provided\n");
++		return usb3phy->rxdet_irq;
++	}
++
++	ret = devm_request_threaded_irq(dev, usb3phy->rxdet_irq, NULL, rockchip_usb3phy_rxdet_irq,
++					IRQF_ONESHOT, "rockchip_usb3phy-rxdet", usb3phy);
++	if (ret) {
++		dev_err(dev, "failed to request rxdet irq handle\n");
++		return ret;
++	}
++
++	return 0;
++}
++
++static int rockchip_usb3phy_exit(struct phy *phy)
++{
++	struct rockchip_usb3phy_port *port = phy_get_drvdata(phy);
++	struct rockchip_usb3phy *usb3phy = dev_get_drvdata(phy->dev.parent);
++
++	dev_dbg(usb3phy->dev, "usb3phy_shutdown\n");
++	rockchip_usb3phy_reset(usb3phy, true, port->type);
++
++	return 0;
++}
++
++static const struct phy_ops rockchip_usb3phy_ops = {
++	.init		= rockchip_usb3phy_init,
++	.exit		= rockchip_usb3phy_exit,
++	.owner		= THIS_MODULE,
++};
++
++static const struct regmap_config rockchip_usb3phy_utmi_port_regmap_config = {
++	.reg_bits = 32,
++	.val_bits = 32,
++	.reg_stride = 4,
++	.max_register = 0x400,
++	.cache_type = REGCACHE_NONE,
++	.fast_io = true,
++	.name = "utmi-port",
++};
++
++static const struct regmap_config rockchip_usb3phy_pipe_port_regmap_config = {
++	.reg_bits = 32,
++	.val_bits = 32,
++	.reg_stride = 4,
++	.max_register = 0x400,
++	.cache_type = REGCACHE_NONE,
++	.fast_io = true,
++	.name = "pipe-port",
++};
++
++static const struct regmap_config rockchip_usb3phy_regmap_config = {
++	.reg_bits = 32,
++	.val_bits = 32,
++	.reg_stride = 4,
++	.max_register = 0x400,
++	.write_flag_mask = REG_WRITE_MASK,
++	.cache_type = REGCACHE_NONE,
++	.fast_io = true,
++};
++
++static int rockchip_usb3phy_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct device_node *np = dev->of_node;
++	struct device_node *child_np;
++	struct phy_provider *provider;
++	struct rockchip_usb3phy *usb3phy;
++	const struct regmap_config regmap_config = rockchip_usb3phy_regmap_config;
++	void __iomem *base;
++	int i, ret;
++
++	dev_dbg(dev, "Probe usb3phy main block\n");
++	usb3phy = devm_kzalloc(dev, sizeof(*usb3phy), GFP_KERNEL);
++	if (!usb3phy)
++		return -ENOMEM;
++
++	ret = rockchip_usb3phy_parse_dt(usb3phy, dev);
++	if (ret) {
++		dev_err(dev, "parse dt failed %i\n", ret);
++		return ret;
++	}
++
++	base = devm_of_iomap(dev, np, 0, NULL);
++	if (IS_ERR(base)) {
++		dev_err(dev, "failed port ioremap\n");
++		return PTR_ERR(base);
++	}
++
++	usb3phy->regmap = devm_regmap_init_mmio(dev, base, &regmap_config);
++	if (IS_ERR(usb3phy->regmap)) {
++		dev_err(dev, "regmap init failed\n");
++		return PTR_ERR(usb3phy->regmap);
++	}
++
++	usb3phy->dev = dev;
++	platform_set_drvdata(pdev, usb3phy);
++
++	/* place block in reset */
++	reset_control_assert(usb3phy->pipe_rst);
++	reset_control_assert(usb3phy->utmi_rst);
++	reset_control_assert(usb3phy->u3por_rst);
++	reset_control_assert(usb3phy->u2por_rst);
++	reset_control_assert(usb3phy->pipe_apb_rst);
++	reset_control_assert(usb3phy->utmi_apb_rst);
++
++	fsleep(20);
++
++	/* take apb interface out of reset */
++	reset_control_deassert(usb3phy->utmi_apb_rst);
++	reset_control_deassert(usb3phy->pipe_apb_rst);
++
++	/* enable usb3phy rx detection to fix disconnection issues */
++	regmap_write(usb3phy->regmap, USB3PHY_WAKEUP_CON_REG,
++		     (USB3_RXDET_EN | (USB3_RXDET_EN << REG_WRITE_SHIFT)));
++
++	dev_dbg(dev, "Completed usb3phy core probe\n");
++
++	/* probe the actual ports */
++	i = 0;
++	for_each_available_child_of_node(np, child_np) {
++		const struct regmap_config *regmap_port_config;
++		struct rockchip_usb3phy_port *port = &usb3phy->ports[i];
++		struct phy *phy;
++
++		if (of_node_name_eq(child_np, "utmi-port")) {
++			port->type = USB3PHY_TYPE_USB2;
++			regmap_port_config = &rockchip_usb3phy_utmi_port_regmap_config;
++		} else if (of_node_name_eq(child_np, "pipe-port")) {
++			port->type	= USB3PHY_TYPE_USB3;
++			regmap_port_config = &rockchip_usb3phy_pipe_port_regmap_config;
++		} else {
++			dev_err(dev, "unknown child node port type %s\n", child_np->name);
++			goto err_port;
++		}
++
++		base = devm_of_iomap(dev, child_np, 0, NULL);
++		if (IS_ERR(base)) {
++			dev_err(dev, "failed port ioremap\n");
++			ret = PTR_ERR(base);
++			goto err_port;
++		}
++
++		port->regmap = devm_regmap_init_mmio(dev, base, regmap_port_config);
++		if (IS_ERR(port->regmap)) {
++			dev_err(dev, "regmap init failed\n");
++			ret = PTR_ERR(port->regmap);
++			goto err_port;
++		}
++
++		phy = devm_phy_create(dev, child_np, &rockchip_usb3phy_ops);
++		if (IS_ERR(phy)) {
++			dev_err_probe(dev, PTR_ERR(phy), "failed to create phy\n");
++			ret = PTR_ERR(phy);
++			goto err_port;
++		}
++
++		port->phy = phy;
++		phy_set_drvdata(port->phy, port);
++
++		/* to prevent out of boundary */
++		if (++i >= USB3PHY_TYPE_MAX) {
++			of_node_put(child_np);
++			break;
++		}
++
++		dev_info(dev, "Completed usb3phy %s port init\n", child_np->name);
++	}
++
++	provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
++	return PTR_ERR_OR_ZERO(provider);
++
++err_port:
++	of_node_put(child_np);
++	return ret;
++}
++
++static const struct of_device_id rockchip_usb3phy_dt_ids[] = {
++	{ .compatible = "rockchip,rk3328-usb3phy", },
++};
++
++MODULE_DEVICE_TABLE(of, rockchip_usb3phy_dt_ids);
++
++static struct platform_driver rockchip_usb3phy_driver = {
++	.probe		= rockchip_usb3phy_probe,
++	.driver		= {
++		.name	= "rockchip-usb3-phy",
++		.of_match_table = rockchip_usb3phy_dt_ids,
++	},
++};
++
++module_platform_driver(rockchip_usb3phy_driver);
++
++MODULE_AUTHOR("Peter Geis <pgwipeout@gmail.com>");
++MODULE_DESCRIPTION("Rockchip Innosilicon USB3PHY driver");
++MODULE_LICENSE("GPL");
 -- 
 2.39.5
 
