@@ -4,55 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BCCCC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 18:48:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8354C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 18:49:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DQ7y8MGFrOpBfXr2yEEyUvoXeDqQzDKRNTPS0ns5JAw=; b=QPtPVBtAHwfE4Cd5Yvj1ONv71/
-	QdNkQW7EaUf2f7VUyfRxGFXjCZwuE7ctH6YKDUgD9pKe5CrASI+ZLuYVYiK2kyC6TFqr/aK19twSq
-	PuZvcnNC6z3Pa1B2INSgJViu1J9muKb7nrdhqrbR+l/fzzbQZhhatunvU/kkJ1hzLg/2x3YbGK9dN
-	vtCDScpfq5YYVRoFTpel/eq9xb43S7Fn7DqmwT3Dj+ElrosOt5/myQdwXsNjlnr2bEep7lk55a3c0
-	KUJ0FJey6lYueUx1IQ7URMubu/rdRq52E/UVlSqSFbW/JdxmX86WBHHX1rG97GOJA/7quDvwb2c+6
-	Jh60XKfA==;
+	bh=cqRl3w4AtCKFBPHjOptg/HIVao4uiXyk5YEdQsWeC9M=; b=jbbMuGBkpRuogUEmQXwMkNYpoJ
+	Qm1RClDQPGnsMqJujo+QbA8B+lXE8sr6v+YDCUm3VnMRl5OMou//xbSy4ktJPSOMb6qtCXAIV90/R
+	OLs1BM6aFBnciUm3e6InzpmUWAIXAvY9E5Rp3OtTFMSqKhdT1JufYMkicWCWARLNrBkr4CmCVYmcq
+	fOfQvtVLm0+LVY1AaGd/tHP8F3I42I+Cy2gSQP14DsowuE8X1obHtsjZsYh5vLf8R1LYvZih6keBA
+	oj0oYV6bCd/GO1X5CpvOoh74gFdp6oq8NsdTywvY48u/qbw5SggoYUlXVCv5TRLxsrLwnyYIVNBzB
+	840lLPxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY8Qj-0000000CovA-3rRa;
-	Wed, 15 Jan 2025 18:47:53 +0000
+	id 1tY8Rz-0000000Cp4C-2jHL;
+	Wed, 15 Jan 2025 18:49:11 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tY8KG-0000000Cnfq-23kf
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 15 Jan 2025 18:41:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=cqRl3w4AtCKFBPHjOptg/HIVao4uiXyk5YEdQsWeC9M=; b=XxH+7YecwWTC8ZpWg8WXwklu3O
+	Uq8WvueruB7ez1TGWRoBIrzS+pshGbRXsNMNInvKLoZfOsKqSSmXKoQI2xX5uhIKcPf+IL/Z3vWDU
+	F+ABkkDS6qJSKilxd3hI8O86NCJ+usD16x6w+mYi6wb5dON115qMId16vLNnVa+EjdzrX2OewTtyo
+	2CwCkF76lzIWfyWVruflGUioV9uIK5kPwy2ctfAg7sOCOSgjCGzsjKR6DF19aM4jhlpjlizSHlzhr
+	ddS6L7wFgJ1XpECxLghHmt2zJcQwk5Gm8bCNcno9PH2GWLVVr8vDFc2XuqpuDDUWCRliGUs5A60HM
+	HvNXKnPQ==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY8JI-0000000CnMV-23a9
+	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tY8KA-0000000AuCO-2w4L
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 18:40:13 +0000
+	Wed, 15 Jan 2025 18:41:11 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5297512FC;
-	Wed, 15 Jan 2025 10:40:40 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 890F21F02;
+	Wed, 15 Jan 2025 10:41:32 -0800 (PST)
 Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7DDA23F73F;
-	Wed, 15 Jan 2025 10:40:10 -0800 (PST)
-Date: Wed, 15 Jan 2025 18:40:07 +0000
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A95E03F73F;
+	Wed, 15 Jan 2025 10:41:02 -0800 (PST)
+Date: Wed, 15 Jan 2025 18:41:00 +0000
 From: Andre Przywara <andre.przywara@arm.com>
 To: Marc Zyngier <maz@kernel.org>
 Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
  <suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu
  <yuzenghui@huawei.com>, Eric Auger <eric.auger@redhat.com>
-Subject: Re: [PATCH v2 02/17] arm64: sysreg: Add layout for ICH_VTR_EL2
-Message-ID: <20250115184007.356a1ae4@donnerap.manchester.arm.com>
-In-Reply-To: <20250112170845.1181891-3-maz@kernel.org>
+Subject: Re: [PATCH v2 03/17] arm64: sysreg: Add layout for ICH_MISR_EL2
+Message-ID: <20250115184100.3c2450cc@donnerap.manchester.arm.com>
+In-Reply-To: <20250112170845.1181891-4-maz@kernel.org>
 References: <20250112170845.1181891-1-maz@kernel.org>
-	<20250112170845.1181891-3-maz@kernel.org>
+	<20250112170845.1181891-4-maz@kernel.org>
 Organization: ARM
 X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_104012_632436_CA9AEACC 
-X-CRM114-Status: GOOD (  25.27  )
+X-CRM114-CacheID: sfid-20250115_184107_279915_B273A804 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,196 +82,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 12 Jan 2025 17:08:30 +0000
+On Sun, 12 Jan 2025 17:08:31 +0000
 Marc Zyngier <maz@kernel.org> wrote:
 
-> The ICH_VTR_EL2-related macros are missing a number of config
+> The ICH_MISR_EL2-related macros are missing a number of status
 > bits that we are about to handle. Take this opportunity to fully
 > describe the layout of that register as part of the automatic
 > generation infrastructure.
 > 
-> This results in a bit of churn to repaint constants that are now
-> generated with a different format.
-> 
 > Signed-off-by: Marc Zyngier <maz@kernel.org>
 
-Compared the new definitions against the ARM ARM and can confirm that the
-rest indeed just got repainted.
+Compared against the ARM ARM:
 
 Reviewed-by: Andre Przywara <andre.przywara@arm.com>
 
-Cheers,
+Thanks,
 Andre
 
 > ---
->  arch/arm64/include/asm/sysreg.h       | 13 -------------
->  arch/arm64/kvm/vgic-sys-reg-v3.c      |  8 ++++----
->  arch/arm64/kvm/vgic/vgic-v3.c         | 16 +++++++---------
->  arch/arm64/tools/sysreg               | 14 ++++++++++++++
->  tools/arch/arm64/include/asm/sysreg.h | 13 -------------
->  5 files changed, 25 insertions(+), 39 deletions(-)
+>  arch/arm64/include/asm/sysreg.h       |  5 -----
+>  arch/arm64/tools/sysreg               | 12 ++++++++++++
+>  tools/arch/arm64/include/asm/sysreg.h |  5 -----
+>  3 files changed, 12 insertions(+), 10 deletions(-)
 > 
 > diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-> index 3e84ef8f5b311..cf74ebcd46d95 100644
+> index cf74ebcd46d95..815e9b0bdff27 100644
 > --- a/arch/arm64/include/asm/sysreg.h
 > +++ b/arch/arm64/include/asm/sysreg.h
 > @@ -561,7 +561,6 @@
 >  
 >  #define SYS_ICH_VSEIR_EL2		sys_reg(3, 4, 12, 9, 4)
 >  #define SYS_ICC_SRE_EL2			sys_reg(3, 4, 12, 9, 5)
-> -#define SYS_ICH_VTR_EL2			sys_reg(3, 4, 12, 11, 1)
->  #define SYS_ICH_MISR_EL2		sys_reg(3, 4, 12, 11, 2)
+> -#define SYS_ICH_MISR_EL2		sys_reg(3, 4, 12, 11, 2)
 >  #define SYS_ICH_EISR_EL2		sys_reg(3, 4, 12, 11, 3)
 >  #define SYS_ICH_ELRSR_EL2		sys_reg(3, 4, 12, 11, 5)
-> @@ -1030,18 +1029,6 @@
->  #define ICH_VMCR_ENG1_SHIFT	1
->  #define ICH_VMCR_ENG1_MASK	(1 << ICH_VMCR_ENG1_SHIFT)
+>  #define SYS_ICH_VMCR_EL2		sys_reg(3, 4, 12, 11, 7)
+> @@ -991,10 +990,6 @@
+>  #define TRFCR_ELx_E0TRE			BIT(0)
 >  
-> -/* ICH_VTR_EL2 bit definitions */
-> -#define ICH_VTR_PRI_BITS_SHIFT	29
-> -#define ICH_VTR_PRI_BITS_MASK	(7 << ICH_VTR_PRI_BITS_SHIFT)
-> -#define ICH_VTR_ID_BITS_SHIFT	23
-> -#define ICH_VTR_ID_BITS_MASK	(7 << ICH_VTR_ID_BITS_SHIFT)
-> -#define ICH_VTR_SEIS_SHIFT	22
-> -#define ICH_VTR_SEIS_MASK	(1 << ICH_VTR_SEIS_SHIFT)
-> -#define ICH_VTR_A3V_SHIFT	21
-> -#define ICH_VTR_A3V_MASK	(1 << ICH_VTR_A3V_SHIFT)
-> -#define ICH_VTR_TDS_SHIFT	19
-> -#define ICH_VTR_TDS_MASK	(1 << ICH_VTR_TDS_SHIFT)
+>  /* GIC Hypervisor interface registers */
+> -/* ICH_MISR_EL2 bit definitions */
+> -#define ICH_MISR_EOI		(1 << 0)
+> -#define ICH_MISR_U		(1 << 1)
 > -
->  /*
->   * Permission Indirection Extension (PIE) permission encodings.
->   * Encodings with the _O suffix, have overlays applied (Permission Overlay Extension).
-> diff --git a/arch/arm64/kvm/vgic-sys-reg-v3.c b/arch/arm64/kvm/vgic-sys-reg-v3.c
-> index 9e7c486b48c2e..5eacb4b3250a1 100644
-> --- a/arch/arm64/kvm/vgic-sys-reg-v3.c
-> +++ b/arch/arm64/kvm/vgic-sys-reg-v3.c
-> @@ -35,12 +35,12 @@ static int set_gic_ctlr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
+>  /* ICH_LR*_EL2 bit definitions */
+>  #define ICH_LR_VIRTUAL_ID_MASK	((1ULL << 32) - 1)
 >  
->  	vgic_v3_cpu->num_id_bits = host_id_bits;
->  
-> -	host_seis = FIELD_GET(ICH_VTR_SEIS_MASK, kvm_vgic_global_state.ich_vtr_el2);
-> +	host_seis = FIELD_GET(ICH_VTR_EL2_SEIS, kvm_vgic_global_state.ich_vtr_el2);
->  	seis = FIELD_GET(ICC_CTLR_EL1_SEIS_MASK, val);
->  	if (host_seis != seis)
->  		return -EINVAL;
->  
-> -	host_a3v = FIELD_GET(ICH_VTR_A3V_MASK, kvm_vgic_global_state.ich_vtr_el2);
-> +	host_a3v = FIELD_GET(ICH_VTR_EL2_A3V, kvm_vgic_global_state.ich_vtr_el2);
->  	a3v = FIELD_GET(ICC_CTLR_EL1_A3V_MASK, val);
->  	if (host_a3v != a3v)
->  		return -EINVAL;
-> @@ -68,10 +68,10 @@ static int get_gic_ctlr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
->  	val |= FIELD_PREP(ICC_CTLR_EL1_PRI_BITS_MASK, vgic_v3_cpu->num_pri_bits - 1);
->  	val |= FIELD_PREP(ICC_CTLR_EL1_ID_BITS_MASK, vgic_v3_cpu->num_id_bits);
->  	val |= FIELD_PREP(ICC_CTLR_EL1_SEIS_MASK,
-> -			  FIELD_GET(ICH_VTR_SEIS_MASK,
-> +			  FIELD_GET(ICH_VTR_EL2_SEIS,
->  				    kvm_vgic_global_state.ich_vtr_el2));
->  	val |= FIELD_PREP(ICC_CTLR_EL1_A3V_MASK,
-> -			  FIELD_GET(ICH_VTR_A3V_MASK, kvm_vgic_global_state.ich_vtr_el2));
-> +			  FIELD_GET(ICH_VTR_EL2_A3V, kvm_vgic_global_state.ich_vtr_el2));
->  	/*
->  	 * The VMCR.CTLR value is in ICC_CTLR_EL1 layout.
->  	 * Extract it directly using ICC_CTLR_EL1 reg definitions.
-> diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
-> index 6c21be12959d6..0bdecbbe74898 100644
-> --- a/arch/arm64/kvm/vgic/vgic-v3.c
-> +++ b/arch/arm64/kvm/vgic/vgic-v3.c
-> @@ -283,12 +283,10 @@ void vgic_v3_enable(struct kvm_vcpu *vcpu)
->  		vgic_v3->vgic_sre = 0;
->  	}
->  
-> -	vcpu->arch.vgic_cpu.num_id_bits = (kvm_vgic_global_state.ich_vtr_el2 &
-> -					   ICH_VTR_ID_BITS_MASK) >>
-> -					   ICH_VTR_ID_BITS_SHIFT;
-> -	vcpu->arch.vgic_cpu.num_pri_bits = ((kvm_vgic_global_state.ich_vtr_el2 &
-> -					    ICH_VTR_PRI_BITS_MASK) >>
-> -					    ICH_VTR_PRI_BITS_SHIFT) + 1;
-> +	vcpu->arch.vgic_cpu.num_id_bits = FIELD_GET(ICH_VTR_EL2_IDbits,
-> +						    kvm_vgic_global_state.ich_vtr_el2);
-> +	vcpu->arch.vgic_cpu.num_pri_bits = FIELD_GET(ICH_VTR_EL2_PRIbits,
-> +						     kvm_vgic_global_state.ich_vtr_el2) + 1;
->  
->  	/* Get the show on the road... */
->  	vgic_v3->vgic_hcr = ICH_HCR_EL2_En;
-> @@ -632,7 +630,7 @@ static const struct midr_range broken_seis[] = {
->  
->  static bool vgic_v3_broken_seis(void)
->  {
-> -	return ((kvm_vgic_global_state.ich_vtr_el2 & ICH_VTR_SEIS_MASK) &&
-> +	return ((kvm_vgic_global_state.ich_vtr_el2 & ICH_VTR_EL2_SEIS) &&
->  		is_midr_in_range_list(read_cpuid_id(), broken_seis));
->  }
->  
-> @@ -706,10 +704,10 @@ int vgic_v3_probe(const struct gic_kvm_info *info)
->  	if (vgic_v3_broken_seis()) {
->  		kvm_info("GICv3 with broken locally generated SEI\n");
->  
-> -		kvm_vgic_global_state.ich_vtr_el2 &= ~ICH_VTR_SEIS_MASK;
-> +		kvm_vgic_global_state.ich_vtr_el2 &= ~ICH_VTR_EL2_SEIS;
->  		group0_trap = true;
->  		group1_trap = true;
-> -		if (ich_vtr_el2 & ICH_VTR_TDS_MASK)
-> +		if (ich_vtr_el2 & ICH_VTR_EL2_TDS)
->  			dir_trap = true;
->  		else
->  			common_trap = true;
 > diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-> index 9938926421b5c..f5927d345eea3 100644
+> index f5927d345eea3..a601231a088d7 100644
 > --- a/arch/arm64/tools/sysreg
 > +++ b/arch/arm64/tools/sysreg
-> @@ -2960,6 +2960,20 @@ Field	1	UIE
->  Field	0	En
+> @@ -2974,6 +2974,18 @@ Res0	17:5
+>  Field	4:0	ListRegs
 >  EndSysreg
 >  
-> +Sysreg	ICH_VTR_EL2	3	4	12	11	1
-> +Res0	63:32
-> +Field	31:29	PRIbits
-> +Field	28:26	PREbits
-> +Field	25:23	IDbits
-> +Field	22	SEIS
-> +Field	21	A3V
-> +Field	20	nV4
-> +Field	19	TDS
-> +Field	18	DVIM
-> +Res0	17:5
-> +Field	4:0	ListRegs
+> +Sysreg	ICH_MISR_EL2	3	4	12	11	2
+> +Res0	63:8
+> +Field	7	VGrp1D
+> +Field	6	VGrp1E
+> +Field	5	VGrp0D
+> +Field	4	VGrp0E
+> +Field	3	NP
+> +Field	2	LRENP
+> +Field	1	U
+> +Field	0	EOI
 > +EndSysreg
 > +
 >  Sysreg	CONTEXTIDR_EL2	3	4	13	0	1
 >  Fields	CONTEXTIDR_ELx
 >  EndSysreg
 > diff --git a/tools/arch/arm64/include/asm/sysreg.h b/tools/arch/arm64/include/asm/sysreg.h
-> index d314ccab7560a..f43e303d31d25 100644
+> index f43e303d31d25..0169bd3137caf 100644
 > --- a/tools/arch/arm64/include/asm/sysreg.h
 > +++ b/tools/arch/arm64/include/asm/sysreg.h
 > @@ -420,7 +420,6 @@
 >  
 >  #define SYS_ICH_VSEIR_EL2		sys_reg(3, 4, 12, 9, 4)
 >  #define SYS_ICC_SRE_EL2			sys_reg(3, 4, 12, 9, 5)
-> -#define SYS_ICH_VTR_EL2			sys_reg(3, 4, 12, 11, 1)
->  #define SYS_ICH_MISR_EL2		sys_reg(3, 4, 12, 11, 2)
+> -#define SYS_ICH_MISR_EL2		sys_reg(3, 4, 12, 11, 2)
 >  #define SYS_ICH_EISR_EL2		sys_reg(3, 4, 12, 11, 3)
 >  #define SYS_ICH_ELRSR_EL2		sys_reg(3, 4, 12, 11, 5)
-> @@ -673,18 +672,6 @@
->  #define ICH_VMCR_ENG1_SHIFT	1
->  #define ICH_VMCR_ENG1_MASK	(1 << ICH_VMCR_ENG1_SHIFT)
+>  #define SYS_ICH_VMCR_EL2		sys_reg(3, 4, 12, 11, 7)
+> @@ -634,10 +633,6 @@
+>  #define TRFCR_ELx_E0TRE			BIT(0)
 >  
-> -/* ICH_VTR_EL2 bit definitions */
-> -#define ICH_VTR_PRI_BITS_SHIFT	29
-> -#define ICH_VTR_PRI_BITS_MASK	(7 << ICH_VTR_PRI_BITS_SHIFT)
-> -#define ICH_VTR_ID_BITS_SHIFT	23
-> -#define ICH_VTR_ID_BITS_MASK	(7 << ICH_VTR_ID_BITS_SHIFT)
-> -#define ICH_VTR_SEIS_SHIFT	22
-> -#define ICH_VTR_SEIS_MASK	(1 << ICH_VTR_SEIS_SHIFT)
-> -#define ICH_VTR_A3V_SHIFT	21
-> -#define ICH_VTR_A3V_MASK	(1 << ICH_VTR_A3V_SHIFT)
-> -#define ICH_VTR_TDS_SHIFT	19
-> -#define ICH_VTR_TDS_MASK	(1 << ICH_VTR_TDS_SHIFT)
+>  /* GIC Hypervisor interface registers */
+> -/* ICH_MISR_EL2 bit definitions */
+> -#define ICH_MISR_EOI		(1 << 0)
+> -#define ICH_MISR_U		(1 << 1)
 > -
->  /*
->   * Permission Indirection Extension (PIE) permission encodings.
->   * Encodings with the _O suffix, have overlays applied (Permission Overlay Extension).
+>  /* ICH_LR*_EL2 bit definitions */
+>  #define ICH_LR_VIRTUAL_ID_MASK	((1ULL << 32) - 1)
+>  
 
 
