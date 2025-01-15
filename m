@@ -4,81 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A712BC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 10:45:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 709C0C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 10:46:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OX/Tra+iC1Y8QVUgMsncLLlp+FGKhTu9wrEl8cIWaXc=; b=n8xugYf+1sevIBvI0ByMvSD8Hb
-	6f15CsVFMa8UY9MgVvBqglqrhqJpKg0TH7sNLz8J22z8ZULpjEmJFgHDY1du71JCF+ciWN5Z+gtt7
-	RWEP7JHJpb6VaYMzKN0x/zFA0J0zN9ZyjgAJg5iI5fsZOFaPn7vIyhS+PjXtOwIh2MZstpIbkM629
-	XybeGJp8kyx+leKbX8QhPadzM6isieCzHWEW6V1vvAHSftOU/o0ztGVmEhNUcDsyBqpbse+eRm0+A
-	US243yVPDB+gdzYzfWNCc3cb2iCF8iJNd1ymjGBmM8UmT0tdKcpWvP5m3VwioHe/Y5ygIx5l0kUdP
-	ro7ulSqA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IuwpVltn309qfmL16lWjbYMBdtIq26uOZE014kztbkU=; b=Bi3+fyXRtwRL5d1K3gcxldmZAS
+	zsza5Zmn3dxtOTR9VgNg5u9JhnkA9nHIFA1Cb393l/9PK/u8qpNBCTBBqskZcHE4Behf1hCLrd4hY
+	IJ5rqWZQ3l34pK63VEZT8lGQIMGmuVcmnfkszI3Q1I5QuyO5KqqGzxQGxiWHmjChwsUjEhml0hNlQ
+	rcrrU4xiRlaI7MGDqjl24yRuqvZsdX0khb/8SKueMoxkjWNFKPU1WNvM+cSuazvhzCQCKq+HZRJF2
+	q/v9GRNatlNctxtWrnxRbT/HiBBARvkpTvAMTccR3ta80SGnKLJ4kz/yVyAZEsQ7BSknJIyoYIY1Z
+	C8clo1+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY0tK-0000000BYWh-1PqM;
-	Wed, 15 Jan 2025 10:44:54 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1tY0uY-0000000BYnX-13AA;
+	Wed, 15 Jan 2025 10:46:10 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY0oU-0000000BXdC-18LG
+	id 1tY0rf-0000000BY9s-01Kh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 10:39:55 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-2ef714374c0so1104707a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 02:39:53 -0800 (PST)
+	Wed, 15 Jan 2025 10:43:12 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-43618283dedso62614605e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 02:43:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736937593; x=1737542393; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=OX/Tra+iC1Y8QVUgMsncLLlp+FGKhTu9wrEl8cIWaXc=;
-        b=O7jhabW89CL72OIRPscDXTkJV6dSrBvY3iTaTThaFkWw2LlAzZgQg63lDUTEXvk9tE
-         VSKoGBepbWAT1jJcSuMH8fs8sA2laKhf/u0/R+9TdX5eVGayzsG/h7vavDpjeLXDMNAP
-         2ZP/WV1WfIWNCiJRcOGH4+bK5t9dEo4lbVIEYqWo3pQJuyRjdW7hnm5tTeoY2/3W4/g3
-         cpDCDuDz5nKj87ccWPIZ0YS7blawV/fOysaMT/BrisJiJJFjVANeOKNvTbIiyVan/N+H
-         PmdHOks0E1hXDjDnSTc5/ujM8zBG7jlA/iUxse2Yp6vMyqsVNTPNt7NjDfVyPMgGoa9w
-         QH3w==
+        d=linaro.org; s=google; t=1736937789; x=1737542589; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=IuwpVltn309qfmL16lWjbYMBdtIq26uOZE014kztbkU=;
+        b=vsnN1Zsoem9iSOFm2dJRVT1bQrb+GcfDKkcnCguhUZvtGA5YFPSPQTgDXbPWwe2+96
+         rMyrQGPdEe+sByjBHAECxlw7C+23TTORiB00k+O69sJkIz/tZ2aEb1ouFXpWdK/PieIe
+         L+rPqsQ+nKBHbDrGWua9k453owHAe1WKrP5uAfWEwG/xVKmuJF7GQJFy6acDBUQhGXnG
+         QZbkTJx/c/YzgEqL27wb3KyXfQvZJaQpCpkSFkbzxDNLLqtJu3N4GhOGxrRBFosw25Fm
+         0khqrZdDcATZRktJ468pVNXF3/a4rXycuRPLBiHjc5Ds+0qUydCzXC5FkefNfW4Alalp
+         Fb1A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736937593; x=1737542393;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=OX/Tra+iC1Y8QVUgMsncLLlp+FGKhTu9wrEl8cIWaXc=;
-        b=JtcrZw0YpCfH2d8nYAQyrS3MKA0zG2a5VMwGSmmPFRJSOBJGHQk3dZG43hGbl1MgWF
-         IXzYygDgn/ILsYiRf1qtEXN57Mr5KgR6xeG8jZp42AjPM7MQXWSq/kC7IVXfunApqGq/
-         l/8a1y+S+5AWdWGjyGuRzv9kcBU6NCSYTj1TA4GBgM3W+zs7Rapnc/B1BOBQsXKHzdh+
-         35Vw2rPn26AbFKUNwzcoNB3fP5xQWU08NPNcpJrJReAEgQLo6zPmzDcPqMfe6iDYNzHa
-         /Zu3p5XCWOYjrQNIW+FYiBaXkG3cGLKDsz3kvb0hK7nT0pt/rpCJkE671azmTMKCbE7j
-         WJpA==
-X-Gm-Message-State: AOJu0YzWJAlwJBN1RLv4LrHOGQfj8p5Pt9JE+MxaWA+sbXn2pd5qsjwG
-	Jzt4SXCqtDdHYXR6Lm0+LL9lsI3CCTwF7wYyO08qjojXFkckEv3KG7bn7w==
-X-Gm-Gg: ASbGncuek3qUILIG5wCM9pIX8M3Q3O5krxIzaA2sMZTOG7HDwhF1/tFHVBC2+CzYq32
-	y3RMrE7QNaDSFSi/mbFD3qtNdZNjoKbyyVuKZlbpdj2omG9cyTSSrzf86tpYO+VwFm415Lyz7/G
-	xnXzjqXza169Z2ahA/CrRxs/3YDZWSFS2eWxWD1Ab4flqcqCAYauLA8lem3x8PNW4up8fsEeaq+
-	NQicyNCbXIwaYeyU6x3gUiJPMY+7gi2g37j6FaBOwTx35GM9vIj
-X-Google-Smtp-Source: AGHT+IEKVN7WGT9GPcFhfkZNlMUXgmym0EXxg2Shkuwydza/uh70p46Sq7eJrL7kL3M/TYHp1jIa+g==
-X-Received: by 2002:a17:90b:534c:b0:2ee:c30f:33c9 with SMTP id 98e67ed59e1d1-2f728e1cedemr3692871a91.14.1736937593001;
-        Wed, 15 Jan 2025 02:39:53 -0800 (PST)
-Received: from prometheus.lan ([45.124.203.18])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f72c20a9bdsm1168040a91.31.2025.01.15.02.39.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jan 2025 02:39:52 -0800 (PST)
-From: Joel Stanley <joel@jms.id.au>
-To: Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org
-Subject: [PATCH] ARM: aspeed: Don't select SRAM
-Date: Wed, 15 Jan 2025 21:09:40 +1030
-Message-ID: <20250115103942.421429-1-joel@jms.id.au>
-X-Mailer: git-send-email 2.45.2
+        d=1e100.net; s=20230601; t=1736937789; x=1737542589;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=IuwpVltn309qfmL16lWjbYMBdtIq26uOZE014kztbkU=;
+        b=HHPptWYWwOkfsu5I7MAl73Bo9qiaF1VFRv2opxOT2duK7sRmX170agJvgefgO7mO3w
+         bzTkC1tFxAPbvm23EuLpIfGDq42RbM6VipzHLli3HrHfNysAFsSN75Ay5byWBTK1Y80h
+         lgNtO8qJtI4gdkROyyoBwtY+g56UuxhQNLF6b8+CtFYR2ci/5bhdKbV/uUL5Zb38OOTt
+         6HwFPD5CbAHmmLT5me7vPWN46YmdNeFtfDrj0G9cFBnYXlL8BeVGT6skLSC5g1zf63h5
+         Ul+534Fk9JFzHjuZsG2xIlCu7iyUHboM9YyIvJlH/okXaTWcdcu25Vw142AYaihPfrAU
+         PS4A==
+X-Forwarded-Encrypted: i=1; AJvYcCXtUjOlDSg5gweDeDp14ESaOSNbaQHkxG903vX/xpHiiWaJQ7ACFfTVvbpCi/HLS4CWXR1SvGEEqBuZ049Kg4t6@lists.infradead.org
+X-Gm-Message-State: AOJu0YxyCPakOA4iBYpxK7xgsx4bvulR618kLFtHyFVO5lLO5I9HecXG
+	U4sLiq0s5l47IGo69hzljvL7DrC8xeYUGBjO4XWwblVEgfRS+vIUS85I2K+renQ=
+X-Gm-Gg: ASbGncvtsPbl7ceRPzgOdjDXrm+fEi9kc0vUf0MrIjWuTwunnImXqniyqCoOFPM+o7D
+	CbFu1NwA3QyWukpewTLltOcgdZ/jn3Q0jWMzCZqIN77I+wALmMZftGyBgq91Ewqal4BzxKpBcij
+	pnejrVs5nIo2qSugtnjZNCqibvF7xhM0Smy3TL9HaOOpnYQc1L56Xa1U3VGVMrVDI+TUalRcZZP
+	4iU1nkANWrm9LP8Mo4qNpzDYMn5kGhaGKEnGJWFtn28gTaSrg5digq2yaJg+5XDaA==
+X-Google-Smtp-Source: AGHT+IH3uacZBQlbJPYFrF7NDg04bYz2rstXelNvRE0i6b50wPcyzW0FqOTBm1F5gkICT1asCeDs4A==
+X-Received: by 2002:a05:600c:4e8c:b0:434:f5c0:3288 with SMTP id 5b1f17b1804b1-436e271d355mr261062685e9.29.1736937789135;
+        Wed, 15 Jan 2025 02:43:09 -0800 (PST)
+Received: from [192.168.68.163] ([145.224.90.10])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38be2b0bf2esm3908161f8f.57.2025.01.15.02.43.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 15 Jan 2025 02:43:08 -0800 (PST)
+Message-ID: <b4082b98-e234-4825-9935-971a630f438b@linaro.org>
+Date: Wed, 15 Jan 2025 10:43:07 +0000
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 04/10] arm64/sysreg: Add a comment that the sysreg
+ file should be sorted
+To: Rob Herring <robh@kernel.org>, Marc Zyngier <maz@kernel.org>,
+ Mark Brown <broonie@kernel.org>
+Cc: kvmarm@lists.linux.dev, oliver.upton@linux.dev, suzuki.poulose@arm.com,
+ coresight@lists.linaro.org, James Clark <james.clark@arm.com>,
+ Joey Gouly <joey.gouly@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mike Leach <mike.leach@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Shiqi Liu <shiqiliu@hust.edu.cn>, James Morse <james.morse@arm.com>,
+ Fuad Tabba <tabba@google.com>, Raghavendra Rao Ananta <rananta@google.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250107113252.260631-1-james.clark@linaro.org>
+ <20250107113252.260631-5-james.clark@linaro.org>
+ <87frloqjso.wl-maz@kernel.org>
+ <760969b6-18b7-42ac-9524-2f1f845b3703@linaro.org>
+ <86jzaywtea.wl-maz@kernel.org>
+ <CAL_JsqJFgunOVqpXnj+0HQ_HYbbVrtjCTJ25KzJHhjay-0i5tQ@mail.gmail.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <CAL_JsqJFgunOVqpXnj+0HQ_HYbbVrtjCTJ25KzJHhjay-0i5tQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_023954_306701_03BEF24C 
-X-CRM114-Status: UNSURE (   9.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250115_024311_067431_E2444C70 
+X-CRM114-Status: GOOD (  22.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,28 +114,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ASPEED devices have SRAM, but don't require it for basic function
-(or any function; there's no known users of the driver).
 
-Fixes: 8c2ed9bcfbeb ("arm: Add Aspeed machine")
-Signed-off-by: Joel Stanley <joel@jms.id.au>
----
- arch/arm/mach-aspeed/Kconfig | 1 -
- 1 file changed, 1 deletion(-)
 
-diff --git a/arch/arm/mach-aspeed/Kconfig b/arch/arm/mach-aspeed/Kconfig
-index 080019aa6fcd..fcf287edd0e5 100644
---- a/arch/arm/mach-aspeed/Kconfig
-+++ b/arch/arm/mach-aspeed/Kconfig
-@@ -2,7 +2,6 @@
- menuconfig ARCH_ASPEED
- 	bool "Aspeed BMC architectures"
- 	depends on (CPU_LITTLE_ENDIAN && ARCH_MULTI_V5) || ARCH_MULTI_V6 || ARCH_MULTI_V7
--	select SRAM
- 	select WATCHDOG
- 	select ASPEED_WATCHDOG
- 	select MFD_SYSCON
--- 
-2.45.2
+On 14/01/2025 6:16 pm, Rob Herring wrote:
+> On Mon, Jan 13, 2025 at 10:49 AM Marc Zyngier <maz@kernel.org> wrote:
+>>
+>> On Mon, 13 Jan 2025 15:43:39 +0000,
+>> James Clark <james.clark@linaro.org> wrote:
+>>>
+>>>
+>>>
+>>> On 12/01/2025 12:49 pm, Marc Zyngier wrote:
+>>>> On Tue, 07 Jan 2025 11:32:41 +0000,
+>>>> James Clark <james.clark@linaro.org> wrote:
+>>>>>
+>>>>> From: James Clark <james.clark@arm.com>
+>>>>>
+>>>>> There are a few entries particularly at the end of the file that aren't
+>>>>> in order. To avoid confusion, add a comment that might help new entries
+>>>>> to be added in the right place.
+>>>>>
+>>>>> Reviewed-by: Mark Brown <broonie@kernel.org>
+>>>>> Signed-off-by: James Clark <james.clark@arm.com>
+>>>>> Signed-off-by: James Clark <james.clark@linaro.org>
+>>>>> ---
+>>>>>    arch/arm64/tools/sysreg | 2 ++
+>>>>>    1 file changed, 2 insertions(+)
+>>>>>
+>>>>> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+>>>>> index b081b54d6d22..4ba167089e2a 100644
+>>>>> --- a/arch/arm64/tools/sysreg
+>>>>> +++ b/arch/arm64/tools/sysreg
+>>>>> @@ -48,6 +48,8 @@
+>>>>>    # feature that introduces them (eg, FEAT_LS64_ACCDATA introduces enumeration
+>>>>>    # item ACCDATA) though it may be more taseful to do something else.
+>>>>>    +# Please try to keep entries in this file sorted by sysreg
+>>>>> encoding.
+>>>>> +
+>>>>>    Sysreg   OSDTRRX_EL1     2       0       0       0       2
+>>>>>    Res0     63:32
+>>>>>    Field    31:0    DTRRX
+>>>>
+>>>> "Do as I say, don't do as I do".
+>>>>
+>>>> I don't think this makes any sense if we don't actually sort the file
+>>>> the first place.
+>>>>
+>>>>      M.
+>>>>
+>>>
+>>> I think it's ok if it avoids review comments that new entries should
+>>> be sorted. Or maybe we do the opposite and the comment should say this
+>>> file is allowed to be unsorted...
+>>
+>> The better option would be to add the comment *and* sort the file.
+>> Leading by example has some value, it seems.
+> 
+> IME, it's better if documentation just states what the tools enforce.
+> 
+> Can't we add something like this to the header generation:
+> 
+> $ grep '^Sysreg\s' arch/arm64/tools/sysreg | sort -n -k3 -k4 -k5 -k6 -k7 -c
+> sort: -:22: disorder: Sysreg ID_MMFR4_EL1       3       0       0
+>   2       6
+> 
+> Rob
+
+Actually I updated gen-sysreg.awk to fail the build if it's not sorted, 
+was just about to post it. I don't know if a build failure or a warning 
+is preferred but I can do either.
+
+James
 
 
