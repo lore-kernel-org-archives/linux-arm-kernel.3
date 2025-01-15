@@ -4,70 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18745C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 16:05:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B03CC02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 16:09:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VtKelQz/78A8bo8Vg0JkYpThHcAAeYRmgdNPVPZFl4g=; b=K5y3Iwbh0KdL4A
-	k8RmshQMdgT6GlbxNvwOnlEz7VD78rOkVCUIERXzozRlpROjE1yb6vWOzEFuCxVL5ZzQNQ9ylaCWH
-	yC0kAuVlEjbcAWDQRaddvM5IKQNtzOmM0vSdAQhH92cJZT1QACQRQJ87Nt8sdUnP2TsStu//jcHZa
-	IN1k2aAvGTtMnH19bkANYgY5stJV9f3tU3MroHzlIpstuFUqSbddvDJbBlrZvMU6sh0XGfy+O7U/6
-	bmsfGBe+FABRFao0lyKc/FqitEPdRw0cG3328z/EaCGHhITSFiyDkKWEuL0aQq0NaIrKEnaT9f2Pi
-	TlYEzyRxzKNZFfVEEe5w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lQwVb4VlUu/DbFng1VxeCuTwj9Rvj/sTDqpyrtUiPp4=; b=0HXiNpINBck0PKNp4xir5kSs2M
+	LjRyaSAC7I4yO06jpG2FmmJ7ErsfpUI0Ez+SocP0W3yMr5QIO7e8zfye3Xbd9VhrxHDCB5PeQutNm
+	hAsFDPx5oUz95YqZFb2OtCwZlV2IFi9ZWqgtn1BQ29vBjzrmH3LQYceCU8CgnOyU6mWZz30g4A/V5
+	SXhzbHhDBBXd1dRuurjVWyjjs3rA1cXkzeG2kHXDq14M1m4jCGxF0M/RlMrO2qf1/4R2GWB7DVPVX
+	WmPz8knn1Q9Uki8zvddYBssBDaGo97EJ1UHbTUeduF68C4Ki/aVdDCEX8s7rCOUJoDe3GeW6wk0+t
+	J1cVtXaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY5tk-0000000CMxy-2aHb;
-	Wed, 15 Jan 2025 16:05:40 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
+	id 1tY5x7-0000000CNZU-1oTE;
+	Wed, 15 Jan 2025 16:09:09 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY5rB-0000000CMQJ-2xHl
+	id 1tY5vp-0000000CNIb-0Q80
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 16:03:03 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id D7E9FA099A;
-	Wed, 15 Jan 2025 17:02:49 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=VtKelQz/78A8bo8Vg0Jk
-	YpThHcAAeYRmgdNPVPZFl4g=; b=iJxIkM7HY0Tv8C0GXViAA/y5NpP4ovq3qhom
-	YPdXfZbhsQIaIBngULnL2S0ZtmTVWl9ETazZhmOKbSNlV74ZvhcfK+liDNBh0V58
-	KbXJZndvj8wv1NaW6pZpdgQBQEmoY6UWxANrpMFMk+u9/wn/UHnsiyboEmuL2Rhr
-	1/nvTbRd1YUT7id87nerGAhui88rJVOhnTJ1IqmfddgotpfJtnom8ZjDOriq5R09
-	RDL4Dc1ezQg2yQYPoOyWZ1rPJ6IPA7KLy9Slv1wjeDxvQPdIwuVNZ8+Ak+X6lYFE
-	RDdlpMKnHI0VFgXE2AAaghcARwfp/XVKejf/l5rv+l6M3XLkrDUiMt93pxSHzHuG
-	fmBS874EBAaw/CnMcE1fiN7i8a7/kUSlhtg4cbb33ftITg3khLQidf+0KMlzD85I
-	V5j9eABen5hdXpliVtcrVqgain3exWnvXgLjoNjUj7ry4cNompGmYoZfjiKPQtYr
-	EZiYNrjhHP56T8Ma/ceIB4y7B4U6UJLgMnlPp68SZUzF8mvz/Yr5FQUo3dS9Id6h
-	N3jXCFiN0HMc4SgXCPXsPxUBPy/i0fZ+bk0Q3HUwDEtYzteYxeDuVMEpiUWvZ4uU
-	nC6ocTv+ETgYiaWoOxn3Qn4Kms3eLDsMgrMgT3IdiSYB3eC2/VNPzdIQi/jClzxY
-	5oCVR04=
-From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
-To: Tudor Ambarus <tudor.ambarus@linaro.org>, Mark Brown <broonie@kernel.org>,
-	Varshini Rajendran <varshini.rajendran@microchip.com>,
-	=?UTF-8?q?Cs=C3=B3k=C3=A1s=2C=20Bence?= <csokas.bence@prolan.hu>,
-	<linux-spi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH 4/4] spi: atmel-quadspi: Fix unbalanced pm_runtime by using devm_ API
-Date: Wed, 15 Jan 2025 17:02:41 +0100
-Message-ID: <20250115160244.1102881-4-csokas.bence@prolan.hu>
-X-Mailer: git-send-email 2.48.0
-In-Reply-To: <20250115160244.1102881-1-csokas.bence@prolan.hu>
-References: <20250115160244.1102881-1-csokas.bence@prolan.hu>
+	Wed, 15 Jan 2025 16:07:50 +0000
+Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 4D7E1526;
+	Wed, 15 Jan 2025 17:06:48 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1736957209;
+	bh=8LUO9Jmy/Dz2Y4QEF+EdkOS6UY1yRx3T9tlUUWZ6dqQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=mh8fu9flwl7W3oMCVuSza9vlW6K/e0jcHGiJWzS2uml5qSp7dcRRk0P/LNrbLs45N
+	 a9yWUs370+u60xJs4V0Ii+AnLDli/c98NBz1LIky0yQZpQ6K6V/1LAMADoBz1jezhD
+	 ov6rDjeEUIyAE+HMeM+Wf9LUKnt2/zu71GZN/RII=
+Message-ID: <3bcc862d-f63c-41fc-89a5-74993b68d636@ideasonboard.com>
+Date: Wed, 15 Jan 2025 18:07:43 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 04/10] drm/fourcc: Add DRM_FORMAT_Y10_LE32
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Vishal Sagar <vishal.sagar@amd.com>,
+ Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Michal Simek <michal.simek@amd.com>, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20250115-xilinx-formats-v2-0-160327ca652a@ideasonboard.com>
+ <20250115-xilinx-formats-v2-4-160327ca652a@ideasonboard.com>
+ <CAMuHMdXwsdP3_3b_OWFZ8J=kuNCga0h5Vo+wR0fdquQjZNuzEw@mail.gmail.com>
+ <b7b8cdde-c189-4b9f-8423-c8ab4797b2f0@ideasonboard.com>
+ <CAMuHMdVnDBt9QbR2bPdKHWgQ7i-OYYJ14ndc270z-hejY=bUdA@mail.gmail.com>
+ <6b084e2c-100f-4563-8797-9fd6c862ed0c@ideasonboard.com>
+ <CAMuHMdX8EeKnV8et81i3UdOexhO3Ry5TTKqp18OvCpJpWT2CtQ@mail.gmail.com>
+ <0b0decd1-6f19-424a-84e5-fc71dceb983c@ideasonboard.com>
+ <CAMuHMdXrdV4YRo1nMCVMTga=M+16GT8GkWe+Rk1DkgDZ=abGag@mail.gmail.com>
+ <0004c685-b8c6-4df1-acb4-7c80a9d3255e@ideasonboard.com>
+ <CAMuHMdUSqiwGynNTCs7eVcr5EL4Toud90AVRb=85egWfDAc6Ew@mail.gmail.com>
+Content-Language: en-US
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
+ 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
+In-Reply-To: <CAMuHMdUSqiwGynNTCs7eVcr5EL4Toud90AVRb=85egWfDAc6Ew@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1736956969;VERSION=7983;MC=3460317179;ID=287150;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
-X-ESET-Antispam: OK
-X-EsetResult: clean, is OK
-X-EsetId: 37303A29ACD94852647067
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_080302_204875_7AB437A6 
-X-CRM114-Status: GOOD (  10.39  )
+X-CRM114-CacheID: sfid-20250115_080749_278570_A4B606E5 
+X-CRM114-Status: GOOD (  12.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,66 +124,45 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Alexander Dahl <ada@thorsis.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix unbalanced PM in error path of `atmel_qspi_probe()`
-by using `devm_pm_runtime_*()` functions.
+On 15/01/2025 16:49, Geert Uytterhoeven wrote:
+> Hi Tomi,
+> 
+> On Wed, Jan 15, 2025 at 3:34 PM Tomi Valkeinen
+> <tomi.valkeinen@ideasonboard.com> wrote:
+>> On 15/01/2025 16:08, Geert Uytterhoeven wrote:
+>>> On Wed, Jan 15, 2025 at 2:46 PM Tomi Valkeinen
+>>> <tomi.valkeinen@ideasonboard.com> wrote:
+>>>> On 15/01/2025 14:52, Geert Uytterhoeven wrote:
+>>>>> On Wed, Jan 15, 2025 at 1:42 PM Tomi Valkeinen
+>>>>> <tomi.valkeinen@ideasonboard.com> wrote:
+>>>>>> On 15/01/2025 14:33, Geert Uytterhoeven wrote:
+>>>>>>> On Wed, Jan 15, 2025 at 12:11 PM Tomi Valkeinen
+>>>>>>> <tomi.valkeinen@ideasonboard.com> wrote:
+>>>>>>>> On 15/01/2025 12:33, Geert Uytterhoeven wrote:
+>>>>>>>>> On Wed, Jan 15, 2025 at 10:04 AM Tomi Valkeinen
+>>>>>>>>> <tomi.valkeinen@ideasonboard.com> wrote:
+>>>>>>>>>> Add Y10_LE32, a 10 bit greyscale format, with 3 pixels packed into
+>>>>>>>>>> 32-bit container.
+> 
+>> Well, this is all somewhat beside the point. So is "_Y10_32" (or
+>> "_R10_32" if we use R) fine?
+> 
+> IAARDD[*], but "10_32" makes me think it stores one 10-bit pixel in a
+> 32-bit word (i.e. a 32-bit variant of R10). So [YR]PA4 would be better.
 
-Reported-by: Alexander Dahl <ada@thorsis.com>
-Closes: https://lore.kernel.org/linux-spi/20250110-paycheck-irregular-bcddab1276c7@thorsis.com/
-Fixes: 5af42209a4d2 ("spi: atmel-quadspi: Add support for sama7g5 QSPI")
-Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
----
- drivers/spi/atmel-quadspi.c | 18 +++++-------------
- 1 file changed, 5 insertions(+), 13 deletions(-)
+That would be a very silly format. So I think some HW guy is already 
+designing chips that have it.
 
-diff --git a/drivers/spi/atmel-quadspi.c b/drivers/spi/atmel-quadspi.c
-index b1fb4426c78d..f2164685d3d5 100644
---- a/drivers/spi/atmel-quadspi.c
-+++ b/drivers/spi/atmel-quadspi.c
-@@ -1426,22 +1426,18 @@ static int atmel_qspi_probe(struct platform_device *pdev)
- 
- 	pm_runtime_set_autosuspend_delay(&pdev->dev, 500);
- 	pm_runtime_use_autosuspend(&pdev->dev);
--	pm_runtime_set_active(&pdev->dev);
--	pm_runtime_enable(&pdev->dev);
--	pm_runtime_get_noresume(&pdev->dev);
-+	devm_pm_runtime_set_active(&pdev->dev);
-+	devm_pm_runtime_enable(&pdev->dev);
-+	devm_pm_runtime_get_noresume(&pdev->dev);
- 
- 	err = atmel_qspi_init(aq);
- 	if (err)
- 		return err;
- 
- 	err = spi_register_controller(ctrl);
--	if (err) {
--		pm_runtime_put_noidle(&pdev->dev);
--		pm_runtime_disable(&pdev->dev);
--		pm_runtime_set_suspended(&pdev->dev);
--		pm_runtime_dont_use_autosuspend(&pdev->dev);
-+	if (err)
- 		return err;
--	}
-+
- 	pm_runtime_mark_last_busy(&pdev->dev);
- 	pm_runtime_put_autosuspend(&pdev->dev);
- 
-@@ -1511,10 +1507,6 @@ static void atmel_qspi_remove(struct platform_device *pdev)
- 		 */
- 		dev_warn(&pdev->dev, "Failed to resume device on remove\n");
- 	}
--
--	pm_runtime_disable(&pdev->dev);
--	pm_runtime_dont_use_autosuspend(&pdev->dev);
--	pm_runtime_put_noidle(&pdev->dev);
- }
- 
- static int __maybe_unused atmel_qspi_suspend(struct device *dev)
--- 
-2.48.0
+[YR]10_PACKED_32? We can have longer names, we don't need to do encoding 
+like [YR]PA4.
 
+> [*] I am a rookie DRM developer...
+
+I haven't heard that before...
+
+  Tomi
 
 
