@@ -4,79 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85CABC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 15:48:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EB3CC02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 15:50:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S42DDkPynBO+hlx/lydV1Jlo7tr53yug/v0X8twoOEg=; b=nDJmxVlM/CqevEo91zWpNHb6Ze
-	ZqO3hXHEPky6dTifJCKgGqam30EX/PMe5+NTnaP4bEKFLdhKFoAxgad+tZrJ+zTfaltytHCZEWQAE
-	uoMPltwaRTLJ2tSAigT5+DbXN6nxtq2bxHxtJEHZd8Q8mOp+rOsdvKOcN3msCJeXa9FKnljyrTwef
-	iS7Y6TmmS/k9xwzGQn3V7/MRsO1jlEsYUouiJRWv5SbwPfgHIxayRrdfhDa6Q7CTRwUbtJnmsCdI6
-	LoXNxjOAlLEIxpHKbd1REL9bsWITROzBTy2zzZ5wjxhWZ4FUfPkVHrh3ftydEVEJWgmZkhhscXhmX
-	BGpq8HQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O+TEw22AVontHHqXfjSfeIvZxVbWvvoY4JYvVvO5hBk=; b=Jk4W44oVnWHwn3xJ3DWbp1hWf9
+	MTyOJ1g+3WzNPISMULBrTvSZhc9YMCABz+XerUyJKw0MMbo5CJhVTtJfuD3+3Zev2Xr3a5Ubk1gDs
+	WyV5TsoSwhbiX6/AFvT2O+dGhhcJSjMVduZ20uQAQO6ZMlBHHeiKefXntO/r+1e+o0qUFqEt2QhGY
+	lX4c38mKFPbn7hIm1fQqeXlJfGvDQPQeKJQ3zHaM9eD7aRv0d2pQMW9HhJL6sYVCfY85XZ17/PRgc
+	nF8wAXc8frMmfjvn33GwEhfkALKsLV4HeIU2jEr7YdTrdci+zCLPLVQn0Rki3E0Q+NtFd70miqHY6
+	l4qD6paQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY5cd-0000000CKGM-0JC9;
-	Wed, 15 Jan 2025 15:47:59 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tY5eS-0000000CKQl-3JO3;
+	Wed, 15 Jan 2025 15:49:52 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY5bM-0000000CKA1-0GRQ
+	id 1tY5dB-0000000CKJu-22Pz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 15:46:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=S42DDkPynBO+hlx/lydV1Jlo7tr53yug/v0X8twoOEg=; b=l8/w4QtnpRqEdettHBVyIuwDZc
-	FQUDLsKUwDsfX0FU+R6R6zH+4kJxJiXIusCizXwSzL9CDrdmB1o9Z80eWzDXY3N66R9sX1BOGThV5
-	sX1gWOwdxP/KtnYUtwHXW2nOh8mSgg0XoQWKHuQbEz6+sPBhg1Iw6bECzNYzayfHXc3/erhqLcMBX
-	iqnwITC6lTI+h+iZaiWVzf6cKHmOuZSHK537q+kFKlXc/fGWNpgwZM+1EN5oURRfVsdRn6gKBHK5z
-	lDFgQPB1PaDAZE9XwDJqu4ddD5hWi63LZ4/DkYq/Xbc6zn1UrxhsJtIgnb9EZFFPB/rKul1Wl/aK3
-	lIcmiF4Q==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:56716)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tY5b9-0001MY-2b;
-	Wed, 15 Jan 2025 15:46:27 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tY5b6-0006H7-2H;
-	Wed, 15 Jan 2025 15:46:24 +0000
-Date: Wed, 15 Jan 2025 15:46:24 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Bryan Whitehead <bryan.whitehead@microchip.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Marcin Wojtas <marcin.s.wojtas@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
-	UNGLinuxDriver@microchip.com, Vladimir Oltean <olteanv@gmail.com>
-Subject: Re: [PATCH RFC net-next 06/10] net: mvpp2: add EEE implementation
-Message-ID: <Z4fYUAxIG6k0Uuka@shell.armlinux.org.uk>
-References: <Z4ZtoeeHIXPucjUv@shell.armlinux.org.uk>
- <E1tXhUz-000n0k-IY@rmk-PC.armlinux.org.uk>
- <20250115155354.0acdacc7@fedora.home>
+	Wed, 15 Jan 2025 15:48:34 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-385e27c75f4so4867826f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 07:48:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1736956112; x=1737560912; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=O+TEw22AVontHHqXfjSfeIvZxVbWvvoY4JYvVvO5hBk=;
+        b=ruVSCFffKYJQobpzHRi6KzFBHTEx1kRrYNffpm3BfuGg+yPueT5LGRqYs5PUPrXB8L
+         YQCQkUzhjKg+Nxl+Re6eHNY5b2Ig7U+d7OE59A5D3KrTPipE06rsXAm05tjF+fI0HkkJ
+         s9UEV5H/sTeqSqyi2RxaaGF8c89pWzTuhMYDufoXs32Y3lVuJXGXd2iUOUrmGfGoIwpo
+         sJQT7J9n4BIiIx5xjp6AC4wRtrFhZYO3yr6lCQvDLqGoRkKuZwO9aJ5U1npPv1sw76mF
+         6GUs6VoBjoYIhuYsJkU7OaIzfL8b6mZLjxHdPcoDrRa5w5RZp5GL7/6GqSZ8lYwEonNz
+         4YQQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736956112; x=1737560912;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=O+TEw22AVontHHqXfjSfeIvZxVbWvvoY4JYvVvO5hBk=;
+        b=j7ERU29IQMkZUlqT5h6Ms7YMIO85oPioygjf9DuJFt2C3SatKC/UCSttw3ljj4dmNC
+         /3dwPHJeozqcLcflPsjap+z2kptbXBCj+D/N4o4t/H11t5m0wfld2sOIrkB/lNvCMjMk
+         ZXAFxa55Ud4wJA9ihQoqCrdAbpAqvjpj6C/cRe52sqIJR6EdHZ51c2BBnbKvfvgCkL5v
+         OOs7Cz6HIEtRtNrbvw41CGp6x9uXFiopFJ5FHwvlfz7i4fWt86SjxW03gdeYs2g29QFc
+         vSe6FrvEB1LVQ4GQRx8q8ITL+Ld8BXF5a39mXGsIQ+m/h6u2thkCsYpSR3bVbcY49YBF
+         6a4w==
+X-Gm-Message-State: AOJu0YyL0lWRtjanP+HOFF1jmgikQP/iw+x1ToMVTi2mmdMBAF2mAGi4
+	RvB0OGuh33QAIULhMmLzdtIL4+52LJAXAC8ZP2KoxwR9Bdo0aQt/0uq7B8cyhMY=
+X-Gm-Gg: ASbGncvcjRnJyMpcenoKsZOnLPzNKstKWZJ/TtVY0eAhMjev4lwkId1Fl7flpUiuPz+
+	UOMj9BwWAj9XD4LUyH0AJ6/qbPKZtbrir7tdzoUSeKWytcdw9v7ant5AiCUDOugVlVwYX5VuGSP
+	JhfppS19ztaDkSnPMviSDryhJujWMkxgVrgX4MCWsDNoUyTS3gPUNSJ+hin66PolXhmrkGWNTPm
+	YrpdgbltiHJGfEfPeVSX8Xi2tBXKBT5Ovc0OrQr7N2jsQQDIBr6MW/gSzoawK4iUw==
+X-Google-Smtp-Source: AGHT+IGjzi93xDbrH8PhQpZEWfFM4hz29cUNgLumlFwyXrcez1K1tWDWXeUmRwGwyfJJfyxns3HR9A==
+X-Received: by 2002:a5d:64c9:0:b0:385:f0dc:c9f4 with SMTP id ffacd0b85a97d-38a873066fcmr22815280f8f.20.1736956111746;
+        Wed, 15 Jan 2025 07:48:31 -0800 (PST)
+Received: from [192.168.68.163] ([145.224.90.10])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38be66b01c7sm2649024f8f.22.2025.01.15.07.48.30
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 15 Jan 2025 07:48:31 -0800 (PST)
+Message-ID: <65eb308e-6851-47b2-8fa8-31b093a0d25e@linaro.org>
+Date: Wed, 15 Jan 2025 15:48:30 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250115155354.0acdacc7@fedora.home>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/5] arm64/sysreg: Enforce whole line match for closing
+ blocks
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, robh@kernel.org,
+ broonie@kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org
+References: <20250115134259.1864060-1-james.clark@linaro.org>
+ <20250115134259.1864060-3-james.clark@linaro.org>
+ <867c6ww49g.wl-maz@kernel.org>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <867c6ww49g.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_074640_103863_672EAF53 
-X-CRM114-Status: GOOD (  21.01  )
+X-CRM114-CacheID: sfid-20250115_074833_576164_17EC6645 
+X-CRM114-Status: GOOD (  18.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,51 +104,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 15, 2025 at 03:53:54PM +0100, Maxime Chevallier wrote:
-> Hello Russell,
-> 
-> On Tue, 14 Jan 2025 14:02:29 +0000
-> "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk> wrote:
-> 
-> > Add EEE support for mvpp2, using phylink's EEE implementation, which
-> > means we just need to implement the two methods for LPI control, and
-> > with the initial configuration. Only SGMII mode is supported, so only
-> > 100M and 1G speeds.
-> > 
-> > Disabling LPI requires clearing a single bit. Enabling LPI needs a full
-> > configuration of several values, as the timer values are dependent on
-> > the MAC operating speed.
-> > 
-> > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> > --
-> > v3: split LPI timer limit and validation into separate patches
-> > ---
-> >  drivers/net/ethernet/marvell/mvpp2/mvpp2.h    |  5 ++
-> >  .../net/ethernet/marvell/mvpp2/mvpp2_main.c   | 86 +++++++++++++++++++
-> >  2 files changed, 91 insertions(+)
-> > 
-> > diff --git a/drivers/net/ethernet/marvell/mvpp2/mvpp2.h b/drivers/net/ethernet/marvell/mvpp2/mvpp2.h
-> > index 9e02e4367bec..364d038da7ea 100644
-> > --- a/drivers/net/ethernet/marvell/mvpp2/mvpp2.h
-> > +++ b/drivers/net/ethernet/marvell/mvpp2/mvpp2.h
-> > @@ -481,6 +481,11 @@
-> >  #define MVPP22_GMAC_INT_SUM_MASK		0xa4
-> >  #define     MVPP22_GMAC_INT_SUM_MASK_LINK_STAT	BIT(1)
-> >  #define	    MVPP22_GMAC_INT_SUM_MASK_PTP	BIT(2)
-> > +#define MVPP2_GMAC_LPI_CTRL0			0xc0
-> > +#define     MVPP2_GMAC_LPI_CTRL0_TS_MASK	GENMASK(8, 8)
-> 
-> I think this should be GENMASK(15, 8) :)
 
-Bah.
 
-Thanks for spotting... and people say GENMASK() is better than using
-hex. I've disagreed with that, but tried to conform, but I keep making
-mistakes with GENMASK(), but never have with hex notation. Maybe I'm
-just different from most people, having been programming computers in
-assembly since the 1980s, where the choices were decimal or hex!
+On 15/01/2025 2:17 pm, Marc Zyngier wrote:
+> On Wed, 15 Jan 2025 13:42:54 +0000,
+> James Clark <james.clark@linaro.org> wrote:
+>>
+>> Match on the whole line to prevent matching on prefixes like "Endsysreg"
+>> vs "EndsysregFields". This could potentially make the script go wrong
+>> in weird ways so make it fall through to the fatal unhandled statement
+>> catcher if it doesn't fully match the current block.
+>>
+>> Signed-off-by: James Clark <james.clark@linaro.org>
+>> ---
+>>   arch/arm64/tools/gen-sysreg.awk | 6 +++---
+>>   1 file changed, 3 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/arch/arm64/tools/gen-sysreg.awk b/arch/arm64/tools/gen-sysreg.awk
+>> index 1a2afc9fdd42..7c7412adf90e 100755
+>> --- a/arch/arm64/tools/gen-sysreg.awk
+>> +++ b/arch/arm64/tools/gen-sysreg.awk
+>> @@ -127,7 +127,7 @@ END {
+>>   	next
+>>   }
+>>   
+>> -/^EndSysregFields/ && block_current() == "SysregFields" {
+>> +/^EndSysregFields$/ && block_current() == "SysregFields" {
+> 
+> The problem with this sort of things is that it will now fail with
+> trailing spaces, which is both counter-intuitive and pretty hard to
+> spot.
+> 
+> Why don't you simply match the field number, like you do in patch 3?
+> 
+> 	M.
+> 
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+The intention was to ensure that the end tokens were the only thing on 
+the line (including whitespace). But yeah it is slightly inconsistent 
+compared to start tokens because as you mention "$1 ==" allows both 
+leading and trailing whitespace.
+
+I'll change it to "$1 ==" for end tokens as well and then add 
+expect_fields(1) which catches unexpected trailing stuff but has a 
+better warning.
+
+James
+
+
 
