@@ -4,113 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31F78C02188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 00:17:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EC00C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 00:25:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vL7HY0dEKrWKEMn+BoWLtPifTt6hhf+Eo5KcPrG96mI=; b=ZVlFf0DrBHpZuAxbFPnFL3OH8V
-	lY17QcyNsvM4XGQuQaa68VSVvL/s4i4Ll/l1a5nXtkUf7SwGRcC/cS64iyOOYSD7uKrkO+1iaAa47
-	4/lDaqDh064Mb8j/Gs45yb65T5zY/9pr0C5RbWifhf2wxXUo/bYYTmA0mhWHLuANQX6hSJ36CE88T
-	Pa3VST48F9FOZdtzooMAtyr+VGdMlnS9ohfpBqF5a2jAiHYk5yVKbuw/LYMCIYBbIDioH1epulv8g
-	h+S6RRTS+GdSn+rumKft5GidMqwttTxSQRMITXeEKUNF1PIoRc+8L/lzG+/q33dia1DyA328HQE9Q
-	bnDqhZJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:References:In-Reply-To:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XdkrQTRhznZOHJugzyblEZGatDWjWHhDWzWqyeJbNHU=; b=JUV3n90S24xTeZwy6H6Oj4TMgg
+	3ef8bqxHh8jzBxdfZUUsR4YmCR3DCFZ9Z7KxBqOj5xWIqp0nISUugVD4x+yhdJUeZ4HqEZ5PvLySo
+	kFweScO+3Mh2Fi/pLS0z2Llqtln7ETnPjAh1E+sPx8aNIKYECzmHItaaQPmjOLctGUlGjkuvkqdkY
+	zkOR1Kox5njfwd/TyyQWIEg7I0TnxWUVQqVl+TxB5mQ2N6H0S7g9GDqBOvFw1UGZjynJJINz1h4v3
+	qckOf9XgtT/VbIHUqeXgpsbypnhabt+K0aBsaM76UTGmA6sMZW0yPRcKIIHoHED55v+W3aFGSPtRc
+	QtLPDJmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXr6A-0000000ABTV-34qV;
-	Wed, 15 Jan 2025 00:17:30 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tXrDp-0000000ACFh-3Mw3;
+	Wed, 15 Jan 2025 00:25:25 +0000
+Received: from mail-qk1-x72a.google.com ([2607:f8b0:4864:20::72a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXprq-00000009zzw-3zPK
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 14 Jan 2025 22:58:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=vL7HY0dEKrWKEMn+BoWLtPifTt6hhf+Eo5KcPrG96mI=; b=HmORDVxOmfy3+IRD7uyRRlIIsu
-	1Keqfj+eZ4xxytzj0MVKrTnqH0PDEfVmvZeG7O0V95D12wM7zH9sgNF/e8ivD6Qd7NbCToFAciGWI
-	fxWiQ2pQnKy5XNnjLi/ov2iRlseeeLWNDecdKE96Nzv+VlXPF6bdU5vvmpauruvvRhz+lOMIIB2Yh
-	KskkifShDoxFhhmYUZPXPFlTnzkrLPRG3KRC9SHIWAVWfzdhkQyL8MSFkE5g+JI6+RKJhVSfCFx6O
-	dx1+9gO54Nv8ypvrewoaYjfmmqybaucRttVZB6LSxVhcQeUMOf9KkA3YwXDC/2xyWKgq3+TPzTTYU
-	zBOQwC3g==;
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXpri-0000000Afoh-22AS
+	id 1tXrCa-0000000ACAx-14bZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jan 2025 22:58:32 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-21675fd60feso134178415ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 14:58:29 -0800 (PST)
+	Wed, 15 Jan 2025 00:24:09 +0000
+Received: by mail-qk1-x72a.google.com with SMTP id af79cd13be357-7bcf33f698dso371111785a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 16:24:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1736895506; x=1737500306; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+        d=chromium.org; s=google; t=1736900647; x=1737505447; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:user-agent:from:references
+         :in-reply-to:mime-version:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=vL7HY0dEKrWKEMn+BoWLtPifTt6hhf+Eo5KcPrG96mI=;
-        b=jKgh3h73U3ueJBE13exDcdzjWZ06tuQQ9lFkbVtonpgn+qNqxG+YoYdg5LeoibpJ0x
-         dpZhcbAtUxasBitF4sCJCPEzLaxJbC+6epS3ktbbIzCQK1u7pljMA5ceEPbOtQ2c6F8E
-         BlPzhGu4ESzidXswryvWM7dm2XzM7KfL5J9EoyL+01Pvarpz18FPFepObgEwNgRsb7Ef
-         HQOOmv9XHwZuUC3rcCuIAH0Kjq583Uq5OdV8M8lm31rWwbdIWAVZkAlac+8YGOZTpo7F
-         MTpNvtxCu6UUXGn1pMZfzl8LWdIey+z0b0PukDP5zP9MhWPL+h127Vb8s3ehYX0Fl+Zn
-         MFsw==
+        bh=XdkrQTRhznZOHJugzyblEZGatDWjWHhDWzWqyeJbNHU=;
+        b=aaqJU2XyuBLsiDH+Et2iSaGUXnf40ynf8aKGyR7OBrQnjCWDQ09diIfntbhzgUzhkF
+         VdgNV9gSkNU6txi57Nt9JREBV0qy39w3TSzV3zwKUf0d/+6eqjx/AqKhVvtwiUi0lMRa
+         NE4pZlbREi6YPCPwi+uT0/4pfatTtIhVzeWAc=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736895506; x=1737500306;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=vL7HY0dEKrWKEMn+BoWLtPifTt6hhf+Eo5KcPrG96mI=;
-        b=PSov9Zzm63nLmK+AU2H4Kn+/fCJCMGVGC2tAJWNEONOM7k73ISU368k05JBWLJz+NG
-         VTsKzv0nVDF4aGmL4NJYUrkhULq9ajku9dyeb28+FMlEt3yyl8XY0S2hahFUyvhur0se
-         pUDCIuCNfHrTD7Nh3cGwNxhZvIRLIlUtU/ckcwNPLe0+xInmJhsqGbkKHsjSn1t/uTky
-         QrTFg7EEzQvvVwcngFr+m+Ftw6lkUwPSCVIUHcALC3gF1hbytk5d9f04QqK008qzVphi
-         DuiFVKINZz8roMJ0+qYjTjS1cFKl1slwyGUOC7SITl8ZaaJS4FG0/CnRCDamWmWvq9aw
-         1gUQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXTnLTJg35yEIxiymxsa2clkCgGZh1i9tbCPZ2LozVrg8X+8kHPEmLNeFBbEbyUX0o4+CmVIjSgXGnrdm9S0Pwg@lists.infradead.org
-X-Gm-Message-State: AOJu0YxQG8HNz1KdAaq32nsEgsU3TE8afUCyQQ+Qp5JD6rwAiER/Lcmy
-	mC8yM/GXUFh6Gqn2x71R6CTOTKXRIw0qjS8rlqDWiqCguCO0jcn1DlboRGfIExk=
-X-Gm-Gg: ASbGnctUxz16jN2VJrKbAO6MFkLYyz1c+4xoxDbWrVtDmwCkpRNPcEyMpQA5PNipAbx
-	gx1afZPZhlF2OH4jJqcAb7WpHJdbc5N20Y11rGChHf4h0qip1US7rj6Pbuzm/R3TI0eNgnX8dE6
-	5qDuuk3Mrvw0g+dlrWZLCxO6ef8LwFjwGixg3aQZ3uVDfyyOSRo6OGdjEpjtQ60TRzl+ERIzWI5
-	hPGFRDXRsBG6tqqnddm7bvK3q2/HCtyDC3l4GkAGsujc02YfBWQBIdpAMFPD5h6OZwbEA==
-X-Google-Smtp-Source: AGHT+IGcOgG1DqtPgRuq87OenfYeI7iqhHkrnix8fM+hMVbZ5ICFTggWxOV4+kwRFEcps2WSmP9bRg==
-X-Received: by 2002:a17:902:f685:b0:216:7761:cc36 with SMTP id d9443c01a7336-21a83fe4b6fmr435625665ad.43.1736895506247;
-        Tue, 14 Jan 2025 14:58:26 -0800 (PST)
-Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21a9f10df7asm71746105ad.47.2025.01.14.14.58.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jan 2025 14:58:25 -0800 (PST)
-From: Atish Patra <atishp@rivosinc.com>
-Date: Tue, 14 Jan 2025 14:57:30 -0800
-Subject: [PATCH v2 05/21] RISC-V: Define indirect CSR access helpers
+        d=1e100.net; s=20230601; t=1736900647; x=1737505447;
+        h=cc:to:subject:message-id:date:user-agent:from:references
+         :in-reply-to:mime-version:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=XdkrQTRhznZOHJugzyblEZGatDWjWHhDWzWqyeJbNHU=;
+        b=oMH2umnRnPDQsnAAtMmyaEq+XIzCCoFdGTJEjSWfP+I6c+aC9UNM9WeLyuwTHdrx+s
+         vKGioJAW2s2NVIHzXxrj/BMkTRbTj7vfR8Q/4Q0xWiWAK4lBrCG9ao1NM8DH9IDFFJKC
+         KQQP0dba5tpq56uWtl22rfy1Tvr/XoRV6r99XdOiCgVTKiYjXu4g2U9f4lt562n9z+hS
+         XP54msR7VK/G7utFVftliVfNb2+ydXtWVGgxoEXGXvGXeDUiJXgE3tHDEn4HO5rm5OEx
+         2kLcDCHgIQpagQxznD4qqN6Pv9Xtl+ROBxdrx3gxHulGGwqjS/5jiQ8A23BHjsPeOO+Y
+         kKmg==
+X-Forwarded-Encrypted: i=1; AJvYcCXtyuRkGgzl9cvF8Uv2SAIFFGFwj27IRGl+UkZ+yTfjmFAwYph1MzN8KyUjKov3h1CWxx6IIe5kxkvK/A40lsRw@lists.infradead.org
+X-Gm-Message-State: AOJu0YwZ9yxdCEfdoXnpkFAAMb1194ueSqOwO0sibB9hRnHeXZcxgGQW
+	rg8FCEhya+olJGVdze3gi2pWKpzkIAfcWUP1laahhurhP9XQ6LFKI996n5sG+VJxfxjLhuEKIQB
+	zZh3ukdV3q3K+hua1hTi0tM3DX/TLyyInPvjl
+X-Gm-Gg: ASbGncst+iW8up6HbhYOOTJ5QpmSFiKAZKHkLWUt5Q/oj26Nn4fbHC8MEzQphwZxV9d
+	ZTXBEOSNbyUwyfRvIvtaBPiHa5P5BVab0cUoWSwHyOfDkDGZojNxI3w7vg6eWj1aKfw==
+X-Google-Smtp-Source: AGHT+IGFlnDsW2kYH9Fj+I7/X5kk5DRoyvUl1Vg4TYrbwt2tYG+HP+0yjJ7qusb6i1E+hOnMy50XeRmYAHgeARPLxE8=
+X-Received: by 2002:a05:620a:1b8f:b0:7b6:6ffc:e972 with SMTP id
+ af79cd13be357-7bcd96fa261mr4559763085a.5.1736900646849; Tue, 14 Jan 2025
+ 16:24:06 -0800 (PST)
+Received: from 753933720722 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 14 Jan 2025 16:24:06 -0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250114-counter_delegation-v2-5-8ba74cdb851b@rivosinc.com>
-References: <20250114-counter_delegation-v2-0-8ba74cdb851b@rivosinc.com>
-In-Reply-To: <20250114-counter_delegation-v2-0-8ba74cdb851b@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Anup Patel <anup@brainfault.org>, 
- Atish Patra <atishp@atishpatra.org>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>, 
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, weilin.wang@intel.com
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
- devicetree@vger.kernel.org, kvm@vger.kernel.org, 
- kvm-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-perf-users@vger.kernel.org, Atish Patra <atishp@rivosinc.com>
-X-Mailer: b4 0.15-dev-13183
+In-Reply-To: <20250110140934.GB2630182-robh@kernel.org>
+References: <20250108012846.3275443-1-swboyd@chromium.org> <20250108012846.3275443-6-swboyd@chromium.org>
+ <20250110140934.GB2630182-robh@kernel.org>
+From: Stephen Boyd <swboyd@chromium.org>
+User-Agent: alot/0.12.dev1+gaa8c22fdeedb
+Date: Tue, 14 Jan 2025 16:24:06 -0800
+X-Gm-Features: AbW1kvavzIgI9aEsq8_mXYL0R-E63WYKH0DsECCwhvKpTHMjYrqscz7VM-RM9s4
+Message-ID: <CAE-0n51sr_D7e66WiSETiSuE3nZaAJwS5KfuYzdVWsLbL=q2zA@mail.gmail.com>
+Subject: Re: [RFC PATCH 5/6] bus: qcom-sc7180: Attach pm domain to watchdog device
+To: Rob Herring <robh@kernel.org>
+Cc: Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	linux-kernel@vger.kernel.org, patches@lists.linux.dev, 
+	devicetree@vger.kernel.org, Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, linux-arm-msm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>, 
+	Conor Dooley <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>, 
+	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_225831_223067_1750C30E 
-X-CRM114-Status: GOOD (  12.91  )
+X-CRM114-CacheID: sfid-20250114_162408_328837_7AC415D2 
+X-CRM114-Status: GOOD (  32.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,64 +98,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The indriect CSR requires multiple instructions to read/write CSR.
-Add a few helper functions for ease of usage.
+Quoting Rob Herring (2025-01-10 06:09:34)
+> > diff --git a/drivers/bus/qcom/qcom-sc7180.c b/drivers/bus/qcom/qcom-sc7180.c
+> > index a615cf5a2129..7dfe6b32efef 100644
+> > --- a/drivers/bus/qcom/qcom-sc7180.c
+> > +++ b/drivers/bus/qcom/qcom-sc7180.c
+> > @@ -3,18 +3,140 @@
+> >   * SoC bus driver for Qualcomm SC7180 SoCs
+> >   */
+> >
+> > +#include <linux/cleanup.h>
+> > +#include <linux/clk.h>
+> >  #include <linux/device.h>
+> > +#include <linux/dev_printk.h>
+[...]
+> > +
+> > +static int qcom_soc_domain_power_on(struct generic_pm_domain *domain)
+> > +{
+> > +     struct qcom_soc_pm_domain *soc_domain;
+> > +
+> > +     pr_info("Powering on device\n");
+> > +     soc_domain = gpd_to_qcom_soc_pm_domain(domain);
+> > +
+> > +     return clk_prepare_enable(soc_domain->clk);
+> > +}
+> > +
+> > +static int qcom_soc_domain_power_off(struct generic_pm_domain *domain)
+> > +{
+> > +     struct qcom_soc_pm_domain *soc_domain;
+> > +
+> > +     pr_info("Powering off device\n");
+> > +     soc_domain = gpd_to_qcom_soc_pm_domain(domain);
+> > +
+> > +     clk_disable_unprepare(soc_domain->clk);
+>
+> How's this going to scale when there are multiple clocks and it's not
+> just turn on/off all the clocks in any order? Or when there's ordering
+> requirements between different resources.
 
-Signed-off-by: Atish Patra <atishp@rivosinc.com>
----
- arch/riscv/include/asm/csr_ind.h | 42 ++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 42 insertions(+)
+We'll need different power_on/power_off functions when the ordering
+requirements are different. It would be similar to how we have different
+clk_ops for different types of clks.
 
-diff --git a/arch/riscv/include/asm/csr_ind.h b/arch/riscv/include/asm/csr_ind.h
-new file mode 100644
-index 000000000000..d36e1e06ed2b
---- /dev/null
-+++ b/arch/riscv/include/asm/csr_ind.h
-@@ -0,0 +1,42 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2024 Rivos Inc.
-+ */
-+
-+#ifndef _ASM_RISCV_CSR_IND_H
-+#define _ASM_RISCV_CSR_IND_H
-+
-+#include <asm/csr.h>
-+
-+#define csr_ind_read(iregcsr, iselbase, iseloff) ({	\
-+	unsigned long value = 0;			\
-+	unsigned long flags;				\
-+	local_irq_save(flags);				\
-+	csr_write(CSR_ISELECT, iselbase + iseloff);	\
-+	value = csr_read(iregcsr);			\
-+	local_irq_restore(flags);			\
-+	value;						\
-+})
-+
-+#define csr_ind_write(iregcsr, iselbase, iseloff, value) ({	\
-+	unsigned long flags;					\
-+	local_irq_save(flags);					\
-+	csr_write(CSR_ISELECT, iselbase + iseloff);		\
-+	csr_write(iregcsr, value);				\
-+	local_irq_restore(flags);				\
-+})
-+
-+#define csr_ind_warl(iregcsr, iselbase, iseloff, warl_val) ({	\
-+	unsigned long old_val = 0, value = 0;			\
-+	unsigned long flags;					\
-+	local_irq_save(flags);					\
-+	csr_write(CSR_ISELECT, iselbase + iseloff);		\
-+	old_val = csr_read(iregcsr);				\
-+	csr_write(iregcsr, warl_val);				\
-+	value = csr_read(iregcsr);				\
-+	csr_write(iregcsr, old_val);				\
-+	local_irq_restore(flags);				\
-+	value;							\
-+})
-+
-+#endif
+>
+> I'm pretty sure I've seen attempts to order clock entries in DT based on
+> the order they want to enable them.
 
--- 
-2.34.1
+Yes, I've seen that too. The order in DT shouldn't matter. The SoC PM
+driver will know what order of operations to take, including between
+different resources like resets, interconnects, power-domains, etc.
+That's the general idea of this driver, it will coordinate all the power
+for devices in the soc node, because it's written for that particular
+SoC. For example, if there are ordering requirements it can get clks by
+name and "do the right thing".
 
+Another goal I have is to power off devices that aren't bound to a
+driver, and/or never will be. If we can figure out the runtime PM state
+of devices before adding them to the platform bus it would allow us to
+power those devices off at runtime or during system suspend if userspace
+isn't actively trying to power down devices. Maybe to do that we'll have
+to be notified by subsystem frameworks when a provider is registered and
+then once all the providers are registered, get the PM resources like
+clks and interconnects, etc., figure out if they're on/off, set the
+runtime PM state of the device to match, and finally add the device to
+the bus. Then we can extend the driver PM core to allow userspace to
+turn off devices that aren't bound to a driver, because we've moved the
+SoC PM glue out of each driver into this one driver that both adds the
+devices to the system and manages the device power.
+
+If a node is status = "disabled" I'd like to still get all the PM
+resources for that device and either put them into one overall SoC PM
+domain, or in an "unused device" domain that we can have userspace tell
+the kernel it's safe to power down those devices that were left in a
+(semi-)powered state by the bootloader. Obviously I haven't gotten to
+this point yet, but it's another TODO item. We could also populate those
+devices but never let them be bound to a driver because they're marked
+disabled in DT. Then we don't have to do anything different from devices
+that are ok to use, but we waste kernel memory. Either way, the PM
+resources for disabled devices need to be dealt with.
+
+>
+> > +
+> > +     return 0;
+> > +}
+> > +
+> > +static int qcom_soc_add_clk_domain(struct platform_device *socdev,
+> > +                                struct platform_device *pdev)
+> > +{
+> > +     struct qcom_soc_pm_domain *domain;
+> > +     struct generic_pm_domain *pd;
+> > +     int ret;
+> > +
+> > +     domain = devm_kzalloc(&socdev->dev, sizeof(*domain), GFP_KERNEL);
+> > +     if (!domain)
+> > +             return -ENOMEM;
+> > +
+> > +     pd = &domain->pd;
+> > +     pd->name = "wdog";
+> > +     ret = pm_genpd_init(pd, NULL, false);
+> > +     if (ret)
+> > +             return ret;
+> > +
+> > +     /* TODO: Wrap this in a generic_pm_domain function similar to power_on() */
+> > +     pd->domain.activate = qcom_soc_domain_activate;
+> > +     pd->power_on = qcom_soc_domain_power_on;
+> > +     pd->power_off = qcom_soc_domain_power_off;
+> > +
+> > +     dev_info(&socdev->dev, "adding pm domain for %s\n", dev_name(&pdev->dev));
+> > +     dev_pm_domain_set(&pdev->dev, &pd->domain);
+> > +
+> > +     return 0;
+> > +}
+> >
+> >  static int qcom_soc_sc7180_probe(struct platform_device *pdev)
+> >  {
+> >       struct device *dev = &pdev->dev;
+> >       struct device_node *np = dev->of_node;
+> > +     struct platform_device *sdev;
+> > +     int ret;
+> > +
+> > +     sdev = qcom_soc_alloc_device(pdev, "qcom,apss-wdt-sc7180");
+>
+> We're going to have to have an explicit call for every child node?
+
+Probably! Or we can populate the "complicated" ones that require
+something different and then populate the rest of the nodes that didn't
+get populated explicitly with some sort of loop over non-populated nodes
+that attaches a simple pm domain that does generic on/off sequencing. I
+haven't gotten that far to know if populating everything explicitly will
+be a problem.
 
