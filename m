@@ -4,87 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFE48C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 17:24:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81771C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 17:27:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u5UG7QxVR++WRdYY+/35YW2yLibbafgum8u029E2OUk=; b=Mwx9XIc1/t3awiDwEZXF6v0RLT
-	CM8dWzgK08lyVuelA2/O2uySqSQOJt2cxTZJVLYQzriuXLfCwq3N2V1suA/yJfJ1OHlV6P7eB4jDz
-	xGnGN1J6JjzOk7YZALmlkhYsMlpokg/dWJkrFgWszwSiMWN0nApU54eSKgZ/YOAcv5BpqlONG1Oif
-	cs0wm5c0JM5Qn1FgJToqKITyduqxzYrFYMoxmLiLmcb3qubYI6F6Qi1w+7MSygG7PRP9FYcU1YXwA
-	sY497o82PoiPD8yrzXeYXp0P97H6vO29J7fpI6Sbc/4LcrzUen7sEpWV23IW/4Drds/irzgWtTewf
-	3Gy1HXZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=PG/z1baCojPuO4le7CXrUjhogclaWMbiGdswAWPTKTc=; b=gT7ahPnxY+Ozt9
+	HVwXIAhTZWW6zBcF7LnOxTR0qlQCQdsuUX7h+LOrd+glc0YPceBsSXpXa4+WDH+v2gVZaTzzii+Ex
+	JFAwoXs9A4ykYOhBPlO0T4qYOjl9ZagQ5WKggvHUBM/rkAqc7qSpA8N3PXCRTXGore4wMo5HKO8nn
+	lrekYYDNG/h4dbbj4nZfFMiZ8R+bNI5q4wvkZyQSD1Pjtw94A7GH0wEG+/NC8QI33xPAFHzw/UkcW
+	gfMcb83GjaptykOezmhfrWQGbL6w5Ub1wSACwcL1xeub//zAG8d2ERgGtiygIQWRJu78htpmL4H5d
+	hxQLKINKp2v6PH8LcWlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY77d-0000000CaDL-1tpZ;
-	Wed, 15 Jan 2025 17:24:05 +0000
-Received: from mail-oo1-xc31.google.com ([2607:f8b0:4864:20::c31])
+	id 1tY7AJ-0000000Cal3-2Tfr;
+	Wed, 15 Jan 2025 17:26:51 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY76L-0000000CZxe-1oCp
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 17:22:46 +0000
-Received: by mail-oo1-xc31.google.com with SMTP id 006d021491bc7-5f2ed0b70d6so2726508eaf.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 09:22:44 -0800 (PST)
+	id 1tY791-0000000CaQH-2wuN;
+	Wed, 15 Jan 2025 17:25:32 +0000
+Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-5401d3ea5a1so20037e87.3;
+        Wed, 15 Jan 2025 09:25:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736961764; x=1737566564; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=u5UG7QxVR++WRdYY+/35YW2yLibbafgum8u029E2OUk=;
-        b=ntJjoPEln4BeBy4nCbCfpzVrct790OGLVE3u52XCg0F7N/r5cdjhdAqbeTn+/HRMx5
-         zkSsu0YIEx8AGdrvMpgz/KHaBWwZOMaeVFh43u9HDt1r5hmpViQecZGeEU8jeZdoEfvs
-         sgeJFtA9KpKDTKXYsWZgH6XQE0zSE6mo/oHJ9YynMk6GF92GDB/fs00449JunyTcEPnN
-         ouCfpUnMakrw+mwM6pw+89slVK1ULJiJ1s4G4sbCrc+zv8e68lceP+L6kzEcmRCorzdm
-         J0ZeC8RNzOmM2/rCTakMxNwckwchXjQBXSEIemkfaj3uZSW8UoDzITePPHFG7Cv53EkP
-         /Uug==
+        d=gmail.com; s=20230601; t=1736961929; x=1737566729; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=PG/z1baCojPuO4le7CXrUjhogclaWMbiGdswAWPTKTc=;
+        b=b1yK6uYMRVsS13RmhgTwVZ3N8Feq+hvU2B/NaZCT1tsG6LEFyfO8kny49kVTCS6g/d
+         2mACf9E0VFQmJ+k0rXbTH8N/vSWVfH0omo4L344gf/ZfL4OyTH/HqJm/6glX2qXSTdjw
+         V+Lu7LxNduGPTn+4WNgEbVueI4jRt+KLbSmJT6mSTYotQ3xPhv8gvF3EIAohZw83Ow5y
+         L3JxAbFfS/KVVB58v3vZti8ZRZ0KkBJ6YlPvuzDvFBXzOBH4g5Rb7DL6qkwMSEXu4gfW
+         2KOrk+YVnsekBtfUWHP8A2z4BeG0eeu5SDI4q7PKJYkE5ZXNH2eRg53n2c385TkPxx/T
+         yGag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736961764; x=1737566564;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=u5UG7QxVR++WRdYY+/35YW2yLibbafgum8u029E2OUk=;
-        b=YuYewYjuSZhHvUdRRN5s3/kHVH25lHb2I5qV8bbVSByt1zYNIzjaNfdFnyJBOh52FJ
-         ItXEwP+zfuAZCHyOF9yoRvNRl0yYiXM2AaJCFgCrsX/Z6OfF7f2mpEtHxnqdKztnx7tM
-         RTseinu6OZDksVNZPUWq+wlItpbNPV3Qx28X9x2V5zVMB6LU7lJbA9CORpQIHzBGtVuf
-         lj1nBcm6EC4krm7cLDf3D5jroN109VQP5p2g46+NbcMSVvTFji9Vh3GDxTNd7bvtD1sl
-         5zmS+0exuW1a0yXZAE0AuLE8QThgkgIc1bF2SQ7h91hmCbo7TaORkzx7CgaA6etnLRgl
-         t9fQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX256EN+hSLPFHhyBDjCOx79TPUTBIJ7n+uW1FeqxiPtYSjLTAxkCp/okObfD4hWuslADGHzHCVryWJjZIoe9/9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxvvl63cXcnf0gUp2QzIBRUhhg8MZtBIaTEsjs50W1Zy7R4LN4n
-	zkIDhVLSl1G538+TIXpwAq+XCFb7dlV6wJjJnF99Drh1MI0zf7QlDe/MADRdoksbliJ7kYeJYp1
-	uGGoqIPf/ggeRb5VuGFgoUmYnGR4=
-X-Gm-Gg: ASbGncv6I281hNhKRZ4vUkQsK6IqOnCyNIjKTlqzsej5qpF/TLQSYoDap9qABlMvLD8
-	2E7bfRhz42kJuNSskTRDgnU3BWwFZbVJpJdp6Ahs=
-X-Google-Smtp-Source: AGHT+IHTdiOgOQ8loJ8iUlob993v8iSy5RRS4v9nUw0JLwCAvYfy9EWLVKdFgVIWtMBC+CDkgbJDOHm0KeGaXielf2s=
-X-Received: by 2002:a05:6871:d28b:b0:29e:255e:9540 with SMTP id
- 586e51a60fabf-2aa069ac21dmr18581926fac.35.1736961763883; Wed, 15 Jan 2025
- 09:22:43 -0800 (PST)
+        d=1e100.net; s=20230601; t=1736961929; x=1737566729;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=PG/z1baCojPuO4le7CXrUjhogclaWMbiGdswAWPTKTc=;
+        b=kizFIDtcr5N2x5tlyJIl7SX3TJzVNmESmEsZ3pkdkpGcxdRsxbFjneBctPveQohA54
+         xbTDorCPx+QhT8nXDGCRYJXpQQ840PbtOtX2iBE03PWpxxm63TwrOr+EEt+CaYU9kOuM
+         RoTwqXEszO4YEtQNZQwbxROG7FwhO6CFJIz+PinNeh7JXO+ZRUHhh7RL2C7HjE7liZIn
+         YRiUv1isTqrd9/lAEybCj5kMDtItMSw5iAtTV/ajQqIRmEr/ouR1opkEynWPj78BU6WU
+         EHkZpVjSE6zeRAFtFb3bNeAk9JvsSNSPjsxGZEbe5eR69dYPTV69tiVaIOllhNl0deCx
+         dGtw==
+X-Forwarded-Encrypted: i=1; AJvYcCVGZCJGn3iklUbaJBb+Esrts8s9MIaPVYMgS81NTgAOn/4TFvzThU2iTZxnQAFbywHdF6fub+ZQGCCbxPISoNq4@lists.infradead.org, AJvYcCVtZw7tZznpiMx+paF/Mp+UdGABE+p8r8yjptcKx/WlIq3cTuTBEXUXnWEXT0JeQFKNQKktJ/vyDYSvFw0jepc=@lists.infradead.org
+X-Gm-Message-State: AOJu0YyhfJamrFpSEjZnQpucxFfMWjQLgMsFvqdQ9v/eMRD1zEeinq7T
+	oyf11Bxerj7HJ9Ag88xW3ygVcMKoBNIvk3LEAB4GL9s7faawVCpn
+X-Gm-Gg: ASbGnctdOoq5H5bgp59tlMXv5FWw9WyDEAZDwrq4BpmeaVudP2RpojFaXNTnFDPoySZ
+	nGUS6iMmi+nYAwjx/33J7hR7yqNhqsCb+wABgefN4VjWWawu6lDodL/atJVmdVHo2Y+QeN8NA95
+	X8Zq0e8SXQ+xZh+Dn5Rys+r1049MdcI2wq+7AjaI7QC8FSaoygoUysoa3FxROl9Wxw1HNkTBDyQ
+	50v8rrefk1SjT8fAgFZFW3q76sHEHRgfmiL/EySpWoiLa9UVojyBC9lIQlM5/C9EzY7Df0ibSXJ
+	rCoUdGV/16AjRhibdtn8Tn6j/lXQ1mtAT2xiN1iENaiO3buQLZ00
+X-Google-Smtp-Source: AGHT+IFtcNnFisb7W8qriHPRdB3XZhFwcWwCCL/Jg5S8tXq5BqcpUH13lXdpxIr2CInw4dZiwF+IKQ==
+X-Received: by 2002:a05:6512:31d3:b0:53f:6c6a:f99f with SMTP id 2adb3069b0e04-54284507063mr8355270e87.8.1736961928964;
+        Wed, 15 Jan 2025 09:25:28 -0800 (PST)
+Received: from razdolb.local (static.248.157.217.95.clients.your-server.de. [95.217.157.248])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5428bea6778sm2105360e87.131.2025.01.15.09.25.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 Jan 2025 09:25:28 -0800 (PST)
+From: Mikhail Rudenko <mike.rudenko@gmail.com>
+Subject: [PATCH v2 0/2] Allow non-coherent video capture buffers on
+ Rockchip ISP V1
+Date: Wed, 15 Jan 2025 20:25:04 +0300
+Message-Id: <20250115-b4-rkisp-noncoherent-v2-0-0853e1a24012@gmail.com>
 MIME-Version: 1.0
-References: <20250115-acpm-v4-upstream-mbox-v7-0-948e09fcb5f2@linaro.org>
-In-Reply-To: <20250115-acpm-v4-upstream-mbox-v7-0-948e09fcb5f2@linaro.org>
-From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Wed, 15 Jan 2025 11:22:32 -0600
-X-Gm-Features: AbW1kvYjzVhFBXbtTBnJQ6T6zBUhDMPTiScx8oqCLHH6G7qIWKMnlkm5RSVwuPk
-Message-ID: <CABb+yY0+L0c_si3uHcmBQgwN-JWkb6ZzEDN0zk2Y6q1r+xnhEw@mail.gmail.com>
-Subject: Re: [PATCH v7 0/3] mailbox: add Samsung Exynos driver
-To: Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, linux-kernel@vger.kernel.org, 
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, andre.draszik@linaro.org, 
-	peter.griffin@linaro.org, kernel-team@android.com, willmcvicker@google.com, 
-	daniel.lezcano@linaro.org, vincent.guittot@linaro.org, ulf.hansson@linaro.org, 
-	arnd@arndb.de, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAHDvh2cC/22NQQ6CMBBFr0JmbU2nYDGuuIdhUcoAE6UlLSEa0
+ rtbWLt8P/nv7RApMEV4FDsE2jiydxnUpQA7GTeS4D4zKKkqVCWKrhLhxXERzjvrJwrkVmF6TbW
+ tjb53BvJ1CTTw59Q+28wTx9WH71nZ8FgP4U2iVP+FG4qc6gzqaqixVLYZZ8Pvq/UztCmlH5bfp
+ 1m4AAAA
+X-Change-ID: 20241231-b4-rkisp-noncoherent-ad6e7c7a68ba
+To: Dafna Hirschfeld <dafna@fastmail.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Tomasz Figa <tfiga@chromium.org>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>, 
+ Hans Verkuil <hverkuil@xs4all.nl>, 
+ Sergey Senozhatsky <senozhatsky@chromium.org>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, 
+ Mikhail Rudenko <mike.rudenko@gmail.com>, stable@vger.kernel.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_092245_468133_EFA62E8B 
-X-CRM114-Status: GOOD (  12.42  )
+X-CRM114-CacheID: sfid-20250115_092531_742924_9D3328B4 
+X-CRM114-Status: UNSURE (   8.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,24 +109,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 15, 2025 at 8:18=E2=80=AFAM Tudor Ambarus <tudor.ambarus@linaro=
-.org> wrote:
->
-> Hi,
->
-> Now that the channel identifiers are passed through 'void *data' in
-> send_data(), the clients now depend on the message format introduced in
-> include/linux/mailbox/exynos-message.h. If Jassi finds this set fine,
-> then he shall provide either an immutable tag so that Krzysztof uses it
-> if applying the ACPM interface driver, or to ACK this set and let Krzyszt=
-of
-> queue it.
->
-   v6  =3D>  11 files changed, 366 insertions(+), 2 deletions(-)
-   v7  =3D>    6 files changed, 268 insertions(+)
+This small series adds support for non-coherent video capture buffers
+on Rockchip ISP V1. Patch 1 fixes cache management for dmabuf's
+allocated by dma-contig allocator. Patch 2 allows non-coherent
+allocations on the rkisp1 capture queue. Some timing measurements are
+provided in the commit message of patch 2.
 
-Awesome! we have far fewer changes and no new api added.
-I will queue the driver.
+Signed-off-by: Mikhail Rudenko <mike.rudenko@gmail.com>
+---
+Changes in v2:
+- Fix vb2_dc_dmabuf_ops_{begin,end}_cpu_access() for non-coherent buffers.
+- Add cache management timing information to patch 2 commit message.
+- Link to v1: https://lore.kernel.org/r/20250102-b4-rkisp-noncoherent-v1-1-bba164f7132c@gmail.com
 
-Cheers!
+---
+Mikhail Rudenko (2):
+      media: videobuf2: Fix dmabuf cache sync/flush in dma-contig
+      media: rkisp1: Allow non-coherent video capture buffers
+
+ drivers/media/common/videobuf2/videobuf2-dma-contig.c   | 14 ++++++++++++++
+ drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c |  1 +
+ 2 files changed, 15 insertions(+)
+---
+base-commit: 94794b5ce4d90ab134b0b101a02fddf6e74c437d
+change-id: 20241231-b4-rkisp-noncoherent-ad6e7c7a68ba
+
+Best regards,
+-- 
+Mikhail Rudenko <mike.rudenko@gmail.com>
+
 
