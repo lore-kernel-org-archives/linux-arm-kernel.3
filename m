@@ -4,64 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFC2FC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 16:26:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58547C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 16:29:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Rt/FiGiWaoV/ETmmA43v61vSgTdbSa8IULrC3r6ZIE=; b=oc9pJISbtKZ1zXfpya4qtYYg/T
-	2+L5cAdSvOBgHrnRk66v8dsGVjvrFpaUIlgLwJhJltB4IOJ5oDRYtmhvcIziEao19zebZa5QFjcOc
-	YJ5U90Sc0N1I3grQQk3diXMuneiCBxcaM/KsIRru29yCwaitJJKUWDPEJzMjLI5LyFSXBpYugysrV
-	AwPOuGMPCi55/N+qSXhAGwFdSo2KXwOr07CbGcJsFFcGiwoyeezDa2J/XhsXEp2jhleUoG8t444qF
-	j/aDNx/FIVin2gQvSOR3XZJqf7Th6WUJ73ALDUgWm7nTycYN3WKlvvWjk32Gaa3ugOsoMbeelSEjh
-	bVyEcwEg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=plabT5XOu5+ZpcIlnaN3N88l9zG6oPXBDVLA38xbJrs=; b=e65cicllGPJHWMyNb5JVdisIad
+	z2hzJUW2zP14CJramwS3fIWqMkZaFpDMgiG8c5A7HTwPxhFVPp0mYqqUW2/HXUvVeH48/xTZAEhXs
+	D6aLf96gsmFiTfJXEqMNzhjQmGHoPHDgLkrcmSprJz0gLo6t7RIdbFsb5wyQUH3GrMpewYaXD6VGb
+	JYT7EnFfTTY3DLGw6zg0x3NxmtI+qrDU/455lv580f07VGKN2vPxpGY7RWCw/f2vWyrjn0RRhhduH
+	+O9jVoQpKiTK2qAAYvDcx+andWQM9x5lphPhVwNdmgKNS/HJ/apVA/dpZVt2TCfUk/Slf7nduhMpl
+	85YpazaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY6Da-0000000CRG4-23nj;
-	Wed, 15 Jan 2025 16:26:10 +0000
-Received: from out-172.mta1.migadu.com ([2001:41d0:203:375::ac])
+	id 1tY6Gv-0000000CRum-4317;
+	Wed, 15 Jan 2025 16:29:37 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY6CH-0000000CQyq-42yg
+	id 1tY6Fd-0000000CRc3-3KBS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 16:24:51 +0000
-Message-ID: <a6d4dd7c-3dd5-45b1-bd9c-5ec16d1564ff@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1736958287;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+Rt/FiGiWaoV/ETmmA43v61vSgTdbSa8IULrC3r6ZIE=;
-	b=fruPS3fE2nNX2DzJZIt7T8OGxUW9/D+0Er9moyG2kT4U60O93Ra1Ddjp2dGLDxkc/VquLq
-	lx1jN/KvUv08kZVrxQq/WVSO66rYTMLAoWGlddqpdrKdh3UYxh8p+HYwoTW5y/uh622o4f
-	4ZyQkIChBDwKi8tKTk4jjkZf7cClbhY=
-Date: Thu, 16 Jan 2025 00:24:06 +0800
+	Wed, 15 Jan 2025 16:28:19 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-38789e5b6a7so3800057f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 08:28:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1736958496; x=1737563296; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=plabT5XOu5+ZpcIlnaN3N88l9zG6oPXBDVLA38xbJrs=;
+        b=h8Cj4gGyVeYeplVJYYNGnDix66LStXv0WCjF0bu487XUigUIgaY/1fklI4bJ0msMc9
+         Zmm8R3T0dYSbYOU8MjgIks2l3Kj1ZoDVrhD8djvq+V6V1vllUFv6qXKa05RwJolmE6uf
+         dmeFuxYUnKv4Nzdb7obYtCHGJjjVTMwX0p7Uc8ZwkQ2DobiLn4h07CGZuUKpA2oK36Pj
+         H+3zXodVcmvyn9Uj+fXzyCcRorS2N4i8MQBt1xowpOBeL9iFenK7Pq6p3SKJqcCO2IPr
+         bJbg9kwfMWBK4wtpLZO74f3ZjuKgvQh7RDjVcnFilFjHS4HJktJ2QVad5PeUi3UrmX06
+         kqzw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736958496; x=1737563296;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=plabT5XOu5+ZpcIlnaN3N88l9zG6oPXBDVLA38xbJrs=;
+        b=p1EKOKaikat01X79EgxK3sgI42Oi1Qj455jz2lbm2kuabUs3M35W9MUU5HrK/WQ4Qs
+         e3BrOXlofdb3ll9AL1gg6F9x1+K9hAlFipc6jUBnNYyIjlejcP3Y/L4yYM6DPzbjOuSD
+         kaxN4sDEWQ4f5nJv5CaTVkMeL7TuD/9AhXFtpQg48GECv+CnliC2+WDtG7hyaJvfRmAt
+         xWVfbwAoqP92/rfUmsGP0WPk6O7edoqfjdie/5B3aFLNDAr6V7jFsoHdViVNn5dY/gSh
+         1yUgBU7KEhx5qXRhRxcQ0kp5Gk5K1QBYf55OXKISc/WPyWt2aOhOfaUZoPsGaDgpbLgF
+         Cf0Q==
+X-Gm-Message-State: AOJu0YxnSMgbbvqDdTExBk2fECSRK0QO3y7lmNhBYW7o66nxbVnOQ8XD
+	U+ZfbUJysRIKv7E6LOJzoKkFNLyVKcASG298GDv+J+beH3ATzUNSUkBvASHKJxqJdpRKfbnzWiX
+	j
+X-Gm-Gg: ASbGncs7FQCKwA5QR/ouMwazxMJn/Yx5iLnUKWVXRoSQ/syyIzw7JshbFMAA0ADqcz0
+	vY1Fnl0C9O+Fc/mH74f0eL5BXJxUDwf+uWIMkCTjXcJKWrA+Lr3V1Lcsxf25fdri8gY1uZr+s5o
+	hKsgvXZKAtvBpEHjFqmguXBoqXv0hMwevvRYqvEQQfH6453O+GsQMU4F5k/gk3HSrbBCN8FhEPn
+	qS0+3Af65tATttp20t5pRS0EGL8I1afpYwqw9xhOmZCd06h9NYgD0E=
+X-Google-Smtp-Source: AGHT+IGNo8LXpgSgdL9clzeN/N/p3MAEgP+iCFETpGf7EdJHOdrmZQh4369rW7qAYW0AC7M0NetGKw==
+X-Received: by 2002:a5d:6d87:0:b0:385:ef2f:92ad with SMTP id ffacd0b85a97d-38a872f7f80mr27383119f8f.10.1736958496035;
+        Wed, 15 Jan 2025 08:28:16 -0800 (PST)
+Received: from pop-os.. ([145.224.90.10])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-437c74ac61csm28620115e9.14.2025.01.15.08.28.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 Jan 2025 08:28:15 -0800 (PST)
+From: James Clark <james.clark@linaro.org>
+To: linux-arm-kernel@lists.infradead.org,
+	robh@kernel.org,
+	broonie@kernel.org,
+	maz@kernel.org
+Cc: James Clark <james.clark@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	James Morse <james.morse@arm.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/4] arm64/sysreg: Sort sysreg by encoding
+Date: Wed, 15 Jan 2025 16:25:54 +0000
+Message-Id: <20250115162600.2153226-1-james.clark@linaro.org>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Subject: Re: [PATCH net-next v3 3/4] net: stmmac: Optimize cache prefetch in
- RX path
-To: Furong Xu <0x1207@gmail.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: Alexander Lobakin <aleksander.lobakin@intel.com>,
- Joe Damato <jdamato@fastly.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com
-References: <cover.1736910454.git.0x1207@gmail.com>
- <2574b35be4a9ccf6c4b1788c854fe8c13951f9d5.1736910454.git.0x1207@gmail.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Yanteng Si <si.yanteng@linux.dev>
-In-Reply-To: <2574b35be4a9ccf6c4b1788c854fe8c13951f9d5.1736910454.git.0x1207@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_082450_328261_FE79EA96 
-X-CRM114-Status: GOOD (  13.13  )
+X-CRM114-CacheID: sfid-20250115_082817_885562_4718A394 
+X-CRM114-Status: UNSURE (   8.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,47 +103,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-在 1/15/25 11:27, Furong Xu 写道:
-> Current code prefetches cache lines for the received frame first, and
-> then dma_sync_single_for_cpu() against this frame, this is wrong.
-> Cache prefetch should be triggered after dma_sync_single_for_cpu().
-> 
-> This patch brings ~2.8% driver performance improvement in a TCP RX
-> throughput test with iPerf tool on a single isolated Cortex-A65 CPU
-> core, 2.84 Gbits/sec increased to 2.92 Gbits/sec.
-> 
-> Signed-off-by: Furong Xu <0x1207@gmail.com>
-> Reviewed-by: Alexander Lobakin <aleksander.lobakin@intel.com>
-Reviewed-by: Yanteng Si <si.yanteng@linux.dev>
+A few small fixes and then sort and ensure sysreg remains sorted due to
+the discussion here [1].
 
-Thanks,
-Yanteng
-> ---
->   drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 5 +----
->   1 file changed, 1 insertion(+), 4 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 811e2d372abf..ad928e8e21a9 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -5508,10 +5508,6 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
->   
->   		/* Buffer is good. Go on. */
->   
-> -		prefetch(page_address(buf->page) + buf->page_offset);
-> -		if (buf->sec_page)
-> -			prefetch(page_address(buf->sec_page));
-> -
->   		buf1_len = stmmac_rx_buf1_len(priv, p, status, len);
->   		len += buf1_len;
->   		buf2_len = stmmac_rx_buf2_len(priv, p, status, len);
-> @@ -5533,6 +5529,7 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
->   
->   			dma_sync_single_for_cpu(priv->device, buf->addr,
->   						buf1_len, dma_dir);
-> +			prefetch(page_address(buf->page) + buf->page_offset);
->   
->   			xdp_init_buff(&ctx.xdp, buf_sz, &rx_q->xdp_rxq);
->   			xdp_prepare_buff(&ctx.xdp, page_address(buf->page),
+Applies to next-20250115 for the review but I can repost after rc1.
+
+Changes since v1:
+
+  * Use same matching mechanism for both opening and closing tokens so
+    also collapse those commits to 1. This now allows trailing
+    whitespace on closing tokens which may have been hard to spot (Marc)
+
+[1]: https://lore.kernel.org/all/996c7843-7f51-49a0-9122-e688e37f9902@sirena.org.uk/
+
+James Clark (4):
+  arm64/sysreg: Fix unbalanced closing block
+  arm64/sysreg: Enforce whole word match for open/close tokens
+  arm64/sysreg: Sort sysreg by encoding
+  arm64/sysreg: Enforce sorting
+
+ arch/arm64/tools/gen-sysreg.awk |   38 +-
+ arch/arm64/tools/sysreg         | 1010 +++++++++++++++----------------
+ 2 files changed, 529 insertions(+), 519 deletions(-)
+
+-- 
+2.34.1
 
 
