@@ -4,69 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F498C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 17:38:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66FEDC02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 17:40:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZmGKfjxlT4o2JIXj1sDT8bEwEwluKLzjBiwPR0kyOwQ=; b=mhhjpJelF4nb5JjIGXV6NVC/K9
-	/UFzy9Mwjy+nxpaMG4P6nutA/d4VGyJdxDNTrK+s/OdB5LjpwVLQzHPLnEdXdi3vnLSA7ETBKCF0S
-	hxbWWUdRqa7gFFNMEvUnoy65eYfkhGsSQyl/ucrznOJt8PiYNtnNCQWPzn5Ijy+GmiOyhzddaFRm3
-	i4Hv8bLkj54EmBizoliEp0bzoJCvgpx1gCndv0vuEmCHz4gat4kbhs0Lysv3HfDnAtrx/aodER9ai
-	NrfiSjuWgzeyU8D3GZGavHUInMJNbGvZl+NvuuXJr5O88758T0thLPeAKVCjDD1bFknoWndDBh/o2
-	0g6n5cxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=drwGg6Ggv7y2iA4MXzxrkwRrSRb14xgzjKtqkAwh0hM=; b=k1o5IB1U9vJNksimeiLnML6Zpm
+	iZAUHc1lTvzZZoR6aM89DD/BYV2FF50zfYzsPy5ebQtfWdATCFATe40tYxUb0rgKC/0c53fBbo3SC
+	RJI970hDL/d17Hm7WjJmoYCLkaSzsSCayJeRKnc845CDHwK0I3WVRxoeKcVmCj8szvTjtd6fgdj/T
+	pntlx4PZz6S+qN5iURC/KHj4SN2qLJfegpqDhf4lmouRl+iNHDuTfvg6KEVOiyK9gPFtpgNngTPJR
+	e3lX52aFa7RijBCLjnjv9gjf18hcQ6Qs1YOH+3QENWRCfd4awbuTeJ6FLhKewiVGgMIAee01MNeuM
+	UXcpAhXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY7Ll-0000000Cd4H-2oob;
-	Wed, 15 Jan 2025 17:38:41 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tY7N3-0000000CdO9-09y4;
+	Wed, 15 Jan 2025 17:40:01 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY7Gr-0000000Cc53-0z5g;
-	Wed, 15 Jan 2025 17:33:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6AF80A41E80;
-	Wed, 15 Jan 2025 17:31:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5FE2C4CED1;
-	Wed, 15 Jan 2025 17:33:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736962416;
-	bh=X1iUr4Z3xOp2+2SXrinRazhxNTDYDO8wPhrfSPaaZSo=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ZeqyiJwQ9iZpAtxKr6wN9eWfGdHiYrJgQL5e7HznK240KZxasrQt6U6xrrjw5YbeB
-	 KL8uk4SpYvjRObFhZbtlabjwjceDWuzBI/6sVKgRxReM7ddari+RbEHrr4rVsRaZml
-	 +9j5GSHQlAARPemjSdclwryAtAJ743Ql6dNyiYy7MwZaH2exoCf5V/fBsRmHtMJfpS
-	 27lCE+0/Di4H6Wr6ej36NGPwHlkZPX7JGTcbb+dx3KH0u36EIE9u1HYWvlQ0KDbUMe
-	 GcOIEYVAe+TEAXcOjRFlxfUeXndppK0g8ArtOSBBvUYFN7hqPIj580FA/QGhJHKWF3
-	 jcmomyEPWN2tQ==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Wed, 15 Jan 2025 18:32:31 +0100
-Subject: [PATCH 2/2] PCI: mediatek-gen3: Configure PBUS_CSR registers for
- EN7581 SoC
+	id 1tY7Ih-0000000CcUa-1IoY
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Jan 2025 17:35:32 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2166651f752so159693985ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 09:35:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=fastly.com; s=google; t=1736962530; x=1737567330; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references
+         :mail-followup-to:message-id:subject:cc:to:from:date:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=drwGg6Ggv7y2iA4MXzxrkwRrSRb14xgzjKtqkAwh0hM=;
+        b=gYoPcHN66Kh+nQZD/jgPIzs4YI+db+klAp/qZG2FUsdy2rNDiuI/TWIRrBRXs3D2Xw
+         6qP7Rv/07lwl+AFgPCCN7+jriNl3KaHly1ZaLXtTvJORf5v9l0r81etXuTKgCF64+hVP
+         /5+iWZebefIhDPfzc0akZQ3gPjAya+wbG4Slw=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736962530; x=1737567330;
+        h=in-reply-to:content-disposition:mime-version:references
+         :mail-followup-to:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=drwGg6Ggv7y2iA4MXzxrkwRrSRb14xgzjKtqkAwh0hM=;
+        b=XzI4hPOFRyJ/bWHS4VNypCAi1AknAVlrDIG/zdTSIiWe+zRxxarqMFH7tbYBEiRZWl
+         0Z+ZtchIbTD9PCaSLhbhBuCEuG+gaGNWGIMV034i6gbLnupuEOeQSgE//0GwKo2qi9f/
+         NJq17qV1RCpr+tyP61ZEGGxAD1hRAHd/OLKvPJ0/aS1HXRwnxxByr+E2F2dGl5G9Fgi/
+         0BbJMEPcK8r81o+vUoTil/uIK55pn8j3IZABihiCn9yjXoHF8jLApP9Gudy8iE/yie3C
+         bS7O0V3yEYePQYQpeBC4arREaz7++/ELr8odBGHW6/k1RQDDWGVp1nIesvuXGylcPx92
+         v82Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXgC0o29sTGTfXkmMTX3vBG/edcaxBvvXk0u+6tWniZfmw1JGk+4T6ofShe+nOaYdXvSh69kz8PmSGNEI6BZKnX@lists.infradead.org
+X-Gm-Message-State: AOJu0YxyKD2LvnkjRmG2U/tAZZTMTxW5qPigo5PH0SkgpAcUBYsRCMzX
+	7iduuKYEcEhDJCg/GMbnv7QWIdULn1WvoG/m7nWRCwm9131jQ8eDv3s/kyaXwN4=
+X-Gm-Gg: ASbGncuh6hSU6BdsDc0RQNUVQ/i60anZ6N9QhgYoBWFOT1wIQjVfIaxkwsbuh8HmZDP
+	03aNLiA7T+S9rA+p6L7WGzuQ3ageUiht2Nn3uoRjCiitRfgyqMl+FivLbgWdJINevtM7igqUCZ3
+	bJ55RuoyFf6Yre18H3y6EpnIIQV/wgim1uscEyAZI8B92SPjjZuaVOYkRuk0LhitE4gNjqzK+BF
+	N969LI3s0ZPSpkz722R2FAN2fSASAdrYMcI5hgiY/FS4yw9/TheOhAgqE+YuvAPHyXPApta3m+R
+	AmvceyA7wXZayRcI1hfgDMI=
+X-Google-Smtp-Source: AGHT+IHh9H8PaJ6cgjJiGUCjtnIBHOrMsIR66gZMMMrlpxbHphZLN5joIg1CaCDzyN8qA1Kz6Fewvg==
+X-Received: by 2002:a05:6a00:2406:b0:72d:8fa2:9999 with SMTP id d2e1a72fcca58-72d8fa29fbdmr3989071b3a.11.1736962530490;
+        Wed, 15 Jan 2025 09:35:30 -0800 (PST)
+Received: from LQ3V64L9R2 (c-24-6-151-244.hsd1.ca.comcast.net. [24.6.151.244])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72d4067ede1sm9361054b3a.124.2025.01.15.09.35.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 Jan 2025 09:35:30 -0800 (PST)
+Date: Wed, 15 Jan 2025 09:35:27 -0800
+From: Joe Damato <jdamato@fastly.com>
+To: Furong Xu <0x1207@gmail.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Alexander Lobakin <aleksander.lobakin@intel.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com
+Subject: Re: [PATCH net-next v3 4/4] net: stmmac: Convert prefetch() to
+ net_prefetch() for received frames
+Message-ID: <Z4fx32HuqJk-0cQS@LQ3V64L9R2>
+Mail-Followup-To: Joe Damato <jdamato@fastly.com>,
+	Furong Xu <0x1207@gmail.com>, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Alexander Lobakin <aleksander.lobakin@intel.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com
+References: <cover.1736910454.git.0x1207@gmail.com>
+ <909631f38edfac07244ea62d94dc76953d52035e.1736910454.git.0x1207@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250115-en7581-pcie-pbus-csr-v1-2-40d8fcb9360f@kernel.org>
-References: <20250115-en7581-pcie-pbus-csr-v1-0-40d8fcb9360f@kernel.org>
-In-Reply-To: <20250115-en7581-pcie-pbus-csr-v1-0-40d8fcb9360f@kernel.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>, 
- Jianjun Wang <jianjun.wang@mediatek.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: devicetree@vger.kernel.org, linux-pci@vger.kernel.org, 
- linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <909631f38edfac07244ea62d94dc76953d52035e.1736910454.git.0x1207@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_093337_416405_D8C6AFC8 
-X-CRM114-Status: GOOD (  14.23  )
+X-CRM114-CacheID: sfid-20250115_093531_367415_614A92CC 
+X-CRM114-Status: GOOD (  12.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,84 +112,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Configure PBus base address and address mask in order to allow the hw
-detecting if a given address is on PCIE0, PCIE1 or PCIE2.
+On Wed, Jan 15, 2025 at 11:27:05AM +0800, Furong Xu wrote:
+> The size of DMA descriptors is 32 bytes at most.
+> net_prefetch() for received frames, and keep prefetch() for descriptors.
+> 
+> This patch brings ~4.8% driver performance improvement in a TCP RX
+> throughput test with iPerf tool on a single isolated Cortex-A65 CPU
+> core, 2.92 Gbits/sec increased to 3.06 Gbits/sec.
+> 
+> Suggested-by: Joe Damato <jdamato@fastly.com>
+> Signed-off-by: Furong Xu <0x1207@gmail.com>
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/pci/controller/pcie-mediatek-gen3.c | 29 ++++++++++++++++++++++++++++-
- 1 file changed, 28 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
-index aa24ac9aaecc749b53cfc4faf6399913d20cdbf2..b172a46cf95a9c728291c5b7a88457d3b725681a 100644
---- a/drivers/pci/controller/pcie-mediatek-gen3.c
-+++ b/drivers/pci/controller/pcie-mediatek-gen3.c
-@@ -15,6 +15,7 @@
- #include <linux/irqchip/chained_irq.h>
- #include <linux/irqdomain.h>
- #include <linux/kernel.h>
-+#include <linux/mfd/syscon.h>
- #include <linux/module.h>
- #include <linux/msi.h>
- #include <linux/of_device.h>
-@@ -24,6 +25,7 @@
- #include <linux/platform_device.h>
- #include <linux/pm_domain.h>
- #include <linux/pm_runtime.h>
-+#include <linux/regmap.h>
- #include <linux/reset.h>
- 
- #include "../pci.h"
-@@ -127,6 +129,13 @@
- 
- #define PCIE_MTK_RESET_TIME_US		10
- 
-+#define PCIE_EN7581_PBUS_ADDR(_n)	(0x00 + ((_n) << 3))
-+#define PCIE_EN7581_PBUS_ADDR_MASK(_n)	(0x04 + ((_n) << 3))
-+#define PCIE_EN7581_PBUS_BASE_ADDR(_n)	\
-+	((_n) == 2 ? 0x28000000 :	\
-+	 (_n) == 1 ? 0x24000000 : 0x20000000)
-+#define PCIE_EN7581_PBUS_BASE_ADDR_MASK	GENMASK(31, 26)
-+
- /* Time in ms needed to complete PCIe reset on EN7581 SoC */
- #define PCIE_EN7581_RESET_TIME_MS	100
- 
-@@ -931,7 +940,8 @@ static int mtk_pcie_parse_port(struct mtk_gen3_pcie *pcie)
- static int mtk_pcie_en7581_power_up(struct mtk_gen3_pcie *pcie)
- {
- 	struct device *dev = pcie->dev;
--	int err;
-+	struct regmap *map;
-+	int err, slot;
- 	u32 val;
- 
- 	/*
-@@ -945,6 +955,23 @@ static int mtk_pcie_en7581_power_up(struct mtk_gen3_pcie *pcie)
- 	/* Wait for the time needed to complete the reset lines assert. */
- 	msleep(PCIE_EN7581_RESET_TIME_MS);
- 
-+	map = syscon_regmap_lookup_by_compatible("airoha,en7581-pbus-csr");
-+	if (IS_ERR(map))
-+		return PTR_ERR(map);
-+
-+	/*
-+	 * Configure PBus base address and address mask in order to allow the
-+	 * hw detecting if a given address is on PCIE0, PCIE1 or PCIE2.
-+	 */
-+	slot = of_get_pci_domain_nr(dev->of_node);
-+	if (slot < 0)
-+		return slot;
-+
-+	regmap_write(map, PCIE_EN7581_PBUS_ADDR(slot),
-+		     PCIE_EN7581_PBUS_BASE_ADDR(slot));
-+	regmap_write(map, PCIE_EN7581_PBUS_ADDR_MASK(slot),
-+		     PCIE_EN7581_PBUS_BASE_ADDR_MASK);
-+
- 	/*
- 	 * Unlike the other MediaTek Gen3 controllers, the Airoha EN7581
- 	 * requires PHY initialization and power-on before PHY reset deassert.
-
--- 
-2.48.0
-
+Reviewed-by: Joe Damato <jdamato@fastly.com>
 
