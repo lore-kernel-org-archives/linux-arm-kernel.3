@@ -4,131 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7F8DC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 11:25:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B73EC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 11:26:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Upt/HfMdWGKSnxZ90iRw8HV4YDvibzUnc+Z+31Ue4g=; b=xNL8TuKcqxJgANAD91PMnD/Vie
-	6Z1iPR006RKJsntBMIitRb+qtBHQQTUugRlp/HvgXc0j5M0NrZE1NksGXJEEN3kiSDLdjvKxJXmji
-	HWtI96fdYmVbBXgcHTHG0x1QMXYD6eaau9r87hl3A3uPUlGUD8+R/JNGN91fLtd5X+tqinF9Lq5XZ
-	NbFqOZYGGfOySdhWxfRktDwEVxrTk57wyxrhER+PMuZC9avCFJua2SeukZjZN7dRDyXmzPephiBGv
-	T+Sf0XUCN6U0oUDsJYvm7OQ1aMOssi2JWnkhChcAHUvwLiqzCxWsBer+xwMTNECXcgLNTYXzy54Km
-	eLQblHsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NdHRAWZU5RvyobFuV6RTA7jKM1EALie4R5bJcqyxVa0=; b=nd1BtyQCxXy1FBhmt9yf3WbcJ4
+	MNe6oDIjGfVfcxjkinflJ1mTS5D1OS0YGCbZNYOnsWUgI+jPpTAOkc04bQr5dVWF/ol9E+D71fKnV
+	wNBCqkg1w0fK4TZMf2vNep/F3b8QVe2Cd6BQUhKjImzfpNKOPHdliJDuq8flcFa/xwGI8v3o9JWu1
+	8XhvY8cg19caJRwrgH0+ZYde1DY/8/M/MG06HBBK49vpq3kSHGMSr0b7uxh5jZbDiBKLacUrWN8F6
+	6WDOVeFnVflbavxNV+fzT8IapYg0m9FEP/zNr/9/zOQpJ3DHnun726wQCbXX6He7WfwFG8iN0t3qo
+	UboStG/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY1WI-0000000BfUn-3NUr;
-	Wed, 15 Jan 2025 11:25:10 +0000
+	id 1tY1XW-0000000Bfg3-2iwM;
+	Wed, 15 Jan 2025 11:26:26 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY1Tg-0000000BezW-08XI;
-	Wed, 15 Jan 2025 11:22:28 +0000
+	id 1tY1Tx-0000000Bf3C-3Jqp;
+	Wed, 15 Jan 2025 11:22:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Sender:Reply-To:Content-ID:Content-Description;
-	bh=0Upt/HfMdWGKSnxZ90iRw8HV4YDvibzUnc+Z+31Ue4g=; b=OtKUVPcauy/mpGTIcT93S7AyMD
-	q6JjBicgMqlETca4myab8LkFnt+9/zzeJf4gQ2w7LvCLogcDzb2T94FT8pFuGnXU0NfoaprTlUPRJ
-	SVYWdAc1ASkBWojmaCH67+GSFy3DaoL/HL8JYiCuCrjtvZ9AhbwgDoopmL+2JkrAbvCM0rTPJR6KV
-	56UymwJZVOaf0VEa7ITAXsAfr6f1AIKRd6sLP8+tzTqCvdH5yJK1T0QvC2O04S4N1RfF888xeC5TK
-	uk4AeLP54wgRIainAjAfRFrx9o+ie+5FN5yDFxIAGN3FDCGfcHY1nu502FFpLvwrpnWLhWGTrmSjH
-	vm5wfq9A==;
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=NdHRAWZU5RvyobFuV6RTA7jKM1EALie4R5bJcqyxVa0=; b=gf4pB3tZlJh9SByX6mSB8a4CKf
+	yGrZ1DkJhEPVi/9tSmcN+j0XCDY+AZvtQj6+2M2buuibbI6oy7O8jvwW3E9gKt9dV+cLM5lqAfTWf
+	hmVoo6VNWJU3XBIAhM5XQtZ7RMVWQh1WLooSMUbe7dUlc28MYSO/Stw7IMdROw9wy+v/1zNZywSBz
+	rQkEcXLMeHHRvUCCzzq6O1hAYOR8afIEIvJO8Th1IfJ3RcM5wRqTa1RdwKjyZ2PuCOG/6pfTUbKWZ
+	D8y6Rgw79WpCE8e+gQCnUCebgCjyPgkvvO842aIuq+Zi49A+m1z2bVR+klD0q/EG+QDK2TuI4Pj3U
+	ZNakMh5Q==;
+Received: from mail-pl1-f174.google.com ([209.85.214.174])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY1Td-0000000Ar9A-0Uog;
-	Wed, 15 Jan 2025 11:22:26 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-5d3e8f64d5dso12709139a12.3;
-        Wed, 15 Jan 2025 03:22:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736940142; x=1737544942; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0Upt/HfMdWGKSnxZ90iRw8HV4YDvibzUnc+Z+31Ue4g=;
-        b=htme1WZiUNks1Nb4AgEyQae2fpjLcNbLl0338sfbzzSoBP0Rki+x62zZ5ljo12VEDr
-         Ny6dkM4yULJ+iwAyM2HDI4g3LxQ+/cx1BHdfFHS5bTnjYO3ZXoLs01gOXRGr9Q6WSq8y
-         w4qACIw6jOg+DaXp7W+E2iRtgbE1dk8YdaZwDtWwKdLdomZBTkacQI2YUC34x53dz+Uh
-         t6gBwRsh43Lwji475EHsFdHc3V9lwHwiSbH5k0a+SmTlVsmuhebzJ4Xn6sif6sBlt+gQ
-         3WBFuAD4EtusPf1aQcjxgnypOuL7u4DB8MfHyo7WkQNgrVy1yQjSbJ2RNfS4fP87LILE
-         kxYA==
+	id 1tY1Tu-0000000ArB5-44Ml;
+	Wed, 15 Jan 2025 11:22:44 +0000
+Received: by mail-pl1-f174.google.com with SMTP id d9443c01a7336-2156e078563so97117135ad.2;
+        Wed, 15 Jan 2025 03:22:41 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736940142; x=1737544942;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=0Upt/HfMdWGKSnxZ90iRw8HV4YDvibzUnc+Z+31Ue4g=;
-        b=LYxY/FlLq32iTClrqhEWiXPZf6fxyLvuY0AOAo1j5rbLPdWzkv2Gh60YzdXZcZA4Ia
-         hvkDdAVhzS1LFOWnn5QIOBIX5Fzqzae/NXb6smSCePqqrRywqZBsu+puO6jT3B7ZSWCD
-         DKShooTlqNGhaLov4YjuNFfYvhHg5FtfEolqho6uHtrRTsKjJ6bk7U6n3M8BJ1mhIQg4
-         eBw9zBMhA8bZ50SHAhNynqiMh9FpvDjPjpubKPJluNN2dVETrq1zOpeQe7afF3MCkDfY
-         Dtvf2tNVQm8nZJmE/FUXumGkaiNM4eile4SoymNQ3UwRRwCzCZIA3RxAKXuU4WA09xBt
-         AmIA==
-X-Forwarded-Encrypted: i=1; AJvYcCUU/yyDUP7PlHwo/pAcqFpT0S697iUr5i8w1dbUdhq4rIU4SXyA/dpk8SnPxjpBVRgac+I/4VqXy4yD@lists.infradead.org, AJvYcCVXQ3/HIbWSfzQaKL7bnu8+YsPwwAqO2VCs/Hl7XA3zpY2/BwHQWsHy33WZ5I+TSEMoLBGFGCS0wFMKfbqyYLsB@lists.infradead.org, AJvYcCVgaSBfb+mzhubz6B4z4GDtj/8SDngoxMXYol4QflL5cCsWvs1igArSPf4sQ2deFJflSWaIuxovMp9r5iLYBgI=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yze1HcXeTULC/BkwyQqE8rvfy/aSE8QPVYB8sNCxzZUAFrbbbIA
-	f4gPbBcLm4CPUkri2wRWI9hauX7QRBjJd+7FL6URwmuBXlbqe6lU
-X-Gm-Gg: ASbGnctTNGT1769ZDo771xTTwJ5ATWMlfnEZeCNNLSLSFHeLNUbVyfXCeY6bEDd1Fzh
-	R18fDTP7mOlGn1+J4IkJt9CPCj5bpmPjx6HaQCHqmwx8kffLJzCQgnC3g05PpSb62oQJXI1bbJ7
-	sPRwWG6ip/mD2qhzMy8H6Df6MGQwkhYyH2bRZSWFDh6cnQfY8QEVQV4B7SoFmnpqxpNAc52V9og
-	FOnA6mC6vi8vmVFVLvRqrM0nOAnZi4G3z+5ZV7GwG/to9kdREhfXfOA2XYHLcb9OPw4I2IeDFDK
-	MOsbuMKpFg024IzBiKbSCOHCZrh30bQNiFzsPQ==
-X-Google-Smtp-Source: AGHT+IGWl/B1zVg3sTaIZCIqSaOylWRNJO6IX9a5vKaFN9b3NZrlex+SipGGEVJonU8ibV27hGe6lg==
-X-Received: by 2002:a17:907:781:b0:aa6:995d:9ef1 with SMTP id a640c23a62f3a-ab2ab6a84d3mr2804550766b.12.1736940142135;
-        Wed, 15 Jan 2025 03:22:22 -0800 (PST)
-Received: from smtpclient.apple (89-66-237-154.dynamic.chello.pl. [89.66.237.154])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab2c90dc6a8sm737651666b.72.2025.01.15.03.22.18
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 15 Jan 2025 03:22:21 -0800 (PST)
-Content-Type: text/plain;
-	charset=utf-8
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.300.87.4.3\))
-Subject: Re: [RFC PATCH v1 0/6] rockchip: add a functional usb3 phy driver for
- rk3328
-From: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
-In-Reply-To: <20250115012628.1035928-1-pgwipeout@gmail.com>
-Date: Wed, 15 Jan 2025 12:22:07 +0100
-Cc: Heiko Stuebner <heiko@sntech.de>,
- Algea Cao <algea.cao@rock-chips.com>,
- Michael Turquette <mturquette@baylibre.com>,
- kever.yang@rock-chips.com,
- linux-phy@lists.infradead.org,
- wulf@rock-chips.com,
- zyw@rock-chips.com,
- Dragan Simic <dsimic@manjaro.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>,
- Rob Herring <robh@kernel.org>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- linux-clk@vger.kernel.org,
- linux-rockchip@lists.infradead.org,
- devicetree@vger.kernel.org,
- Conor Dooley <conor+dt@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Arnd Bergmann <arnd@arndb.de>,
- Jonas Karlman <jonas@kwiboo.se>,
- frank.wang@rock-chips.com,
- Elaine Zhang <zhangqing@rock-chips.com>,
- Alex Bee <knaerzche@gmail.com>,
- william.wu@rock-chips.com,
- Zhang Yubing <yubing.zhang@rock-chips.com>,
- Johan Jonker <jbx6244@gmail.com>,
- linux-arm-kernel@lists.infradead.org,
- Trevor Woerner <twoerner@gmail.com>,
- Stephen Boyd <sboyd@kernel.org>,
- linux-kernel@vger.kernel.org,
- Vinod Koul <vkoul@kernel.org>,
- FUKAUMI Naoki <naoki@radxa.com>,
- Diederik de Haas <didi.debian@cknow.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <2EEA8028-8E4A-4588-A480-E5FF0F7BE82E@gmail.com>
-References: <20250115012628.1035928-1-pgwipeout@gmail.com>
-To: Peter Geis <pgwipeout@gmail.com>
-X-Mailer: Apple Mail (2.3826.300.87.4.3)
+        d=1e100.net; s=20230601; t=1736940160; x=1737544960;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=NdHRAWZU5RvyobFuV6RTA7jKM1EALie4R5bJcqyxVa0=;
+        b=st8dEMHmpZ08IjpmJZ55Ko1Cv+WwKeZ3+mk1Jk3XIarl1V149M2qhSyGk7ufY7qjs9
+         XFAvwx1gR2/VgXjGv1ekTY5b5U0iHhd/GwNdRwwgF/BUEFVJ7KIJxPwCEtQuZiGSFycu
+         Nlcs/iMRmZTqLEvOnVgsd3JWtiSPWGoQT/fHLmvnsbel9tZbe7B+AyCn7Bht4JKB7MIV
+         mBn+RiV2VkwfyFbGkC+2BfzlaWo5f+CMDLfxDKH2Yz7nil7yKscykmjaAvsb7KvW1jro
+         VTr0VSPydSII93ugOYrUagQUTNgmCUwkRP9TJHS/Zf+dyC+f2nIVHLeae2V2PNIoLZkZ
+         F1Jw==
+X-Forwarded-Encrypted: i=1; AJvYcCVza9tV7cooUsy1skTskFAyI0NNqW+z9hem3OdmvUQ6OVVDSZVZJ5HlLcR+oAK9cz82hxMzLTp1MYQlhHHvd/Y=@lists.infradead.org, AJvYcCWuN0Gcf73jYv80P+aXh+G8Q+FL5p81+MKSXXAhvNH3eVbGyHPE5pD1hx8UqcXQM4+fVExo8zmHJUauocBrqi1k@lists.infradead.org
+X-Gm-Message-State: AOJu0YzOTCBfB6PrL+qo5Q3TTqsKE+xZcoZjERreQPXZD96QcBX29B2Y
+	qW0o6l2Rp4wSv4b7HSY6HxaTA3V+STw/C2Ws1v+uJVCWbrarjEI9xi5Tcctc
+X-Gm-Gg: ASbGncuQyafdrz7NX+QT7WqiX/smPEIideQfWXqOFZndH8V8J+HKMUiBUK9w7sc0nQi
+	H2zaDUE39G0MaTtoQfAK6u09ljtg3AMZWldAMV3t+YyQX9aC5MiaU7GsaulCOn5CBGWy8lQH6Um
+	Wr4hY4w1qsjXnY7ezywkGDLTbG/0WXOcG7Z/AHmebfZAq2ibR9Kp0yrrCHMeYD7Clxh+MgYMu21
+	OLKasAnn/BrvK/zYeuKHdEdpjA8v94/HE6fvJFnjAo1J65MehWO0WqMs3kL4mm9Uis//mP8mj2s
+	0t+tFGTN08/ER/c=
+X-Google-Smtp-Source: AGHT+IFRI2XP02LwQUmY3pnma0SuabUzBgf9C62h7vyS9cRaTSJWkLia1YuVRcGizJq6nHLphMfk9g==
+X-Received: by 2002:a17:903:41c3:b0:215:9a73:6c45 with SMTP id d9443c01a7336-21a83f4cc87mr532263225ad.22.1736940159859;
+        Wed, 15 Jan 2025 03:22:39 -0800 (PST)
+Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21a9f137eccsm81322735ad.95.2025.01.15.03.22.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 Jan 2025 03:22:39 -0800 (PST)
+Date: Wed, 15 Jan 2025 20:22:37 +0900
+From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
+To: Niklas Cassel <cassel@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Bjorn Helgaas <helgaas@kernel.org>, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH] PCI: dw-rockchip: Replace magic values with defines
+Message-ID: <20250115112237.GG4176564@rocinante>
+References: <20250103095812.2408364-2-cassel@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250103095812.2408364-2-cassel@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_112225_267309_BB403447 
-X-CRM114-Status: GOOD (  23.40  )
+X-CRM114-CacheID: sfid-20250115_112243_089545_575790AA 
+X-CRM114-Status: UNSURE (   6.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,88 +104,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello,
 
+> Replace magic values with existing defines.
 
-> Wiadomo=C5=9B=C4=87 napisana przez Peter Geis <pgwipeout@gmail.com> w =
-dniu 15 sty 2025, o godz. 02:26:
->=20
->=20
-> This is my newly reworked phy driver for the rk3328 usb3 phy. It is
-> based loosely on my original version, but as of now almost nothing of
-> the original driver remains. The main fix here is the discovery of
-> BIT(6) in the interrupt enable grf register fixes the usb3 =
-disconnection
-> detection (mostly). On occasion an unpopulated usb3 hub will take
-> several seconds to disconnect. However this means all of the hack =
-around
-> work to reset the usb core manually is no longer required.
->=20
-> I did my best to document all registers I could find. A lot was taken
-> from emails between myself and Rockchip's engineers, much thanks to
-> William Wu <wulf@rock-chips.com> for their assistance here. The rest =
-of
-> the config bits were taken from the rk3328 and rk3228h TRMs and the
-> downstream driver. Everything that I couldn't find a definition for is
-> prefixed UNK_ or UNKNOWN_. There's a lot of obviously used =
-configuration
-> registers with the pipe interface that are also undocumented.
->=20
-> The only major bug I have so far is my AX88179 usb3 gigabit ethernet
-> adapter (Pluggable brand) crashes out when large amounts of data are
-> transmitted. I suspect this is related to the RX and TX tuning, as
-> leaving it at defaults makes things worse. As I am not a USB3 engineer
-> and I do not have the specialized knowledge and hardware to determine
-> what is going wrong, I am hoping the mailing list will have an answer
-> here.
->=20
-> Please test and review.
->=20
-> Very Respectfully,
-> Peter Geis
->=20
->=20
->=20
-> Peter Geis (6):
->  clk: rockchip: fix wrong clk_ref_usb3otg parent for rk3328
->  dt-bindings: phy: rockchip: add rk3328 usb3 phy
->  phy: rockchip: add driver for rk3328 usb3 phy
->  arm64: dts: rockchip: add rk3328 usb3 phy node
->  arm64: dts: rockchip: enable the usb3 phy on rk3328-roc boards
->  arm64: dts: rockchip: enable the usb3 phy on remaining rk3328 boards
->=20
-> .../bindings/phy/rockchip,inno-usb3phy.yaml   | 166 ++++
-> .../boot/dts/rockchip/rk3328-nanopi-r2.dtsi   |  12 +
-> .../dts/rockchip/rk3328-orangepi-r1-plus.dtsi |  12 +
-> arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi  |  12 +
-> .../boot/dts/rockchip/rk3328-rock-pi-e.dts    |  12 +
-> .../arm64/boot/dts/rockchip/rk3328-rock64.dts |  12 +
-> arch/arm64/boot/dts/rockchip/rk3328.dtsi      |  39 +
-> drivers/clk/rockchip/clk-rk3328.c             |   2 +-
-> drivers/phy/rockchip/Kconfig                  |  10 +
-> drivers/phy/rockchip/Makefile                 |   1 +
-> drivers/phy/rockchip/phy-rockchip-inno-usb3.c | 869 ++++++++++++++++++
-> 11 files changed, 1146 insertions(+), 1 deletion(-)
-> create mode 100644 =
-Documentation/devicetree/bindings/phy/rockchip,inno-usb3phy.yaml
-> create mode 100644 drivers/phy/rockchip/phy-rockchip-inno-usb3.c
->=20
-> --=20
-> 2.39.5
->=20
->=20
+Applied to controller/dwc for v6.14, thank you!
 
-Peter,
-I applied this as test run on 6.12.9 and dmesg says:
-
-[   16.368514] rockchip-usb3-phy ff460000.usb3-phy: could not get =
-usb3phy ref clock
-[   16.368534] rockchip-usb3-phy ff460000.usb3-phy: parse dt failed -2
-[   16.368543] rockchip-usb3-phy ff460000.usb3-phy: probe with driver =
-rockchip-usb3-phy failed with error -2
-
-This is on beelink a1 tvbox.
-
-Do I miss something?
-
-
+	Krzysztof
 
