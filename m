@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C80E9C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 09:33:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1C44C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 09:34:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LCgsY73vctF07UL0jpejFuqgl70gK02rg3oWbuscZtA=; b=bPsfGzHogRt5HPgmWFeYC3l6I4
-	73YHuSXCcTgoxHk7tzYQ1DuZicJ68DqMBomL8JGXozoE9FuKVyagDS/cxY+lT/G2Lnf4RKVd0wjxW
-	STrVYmJqQxBEDzgzcYJ0P8Mh/6kiAyCVuSR96Hj+Lucqg82qNDfO44WAecAqN6R84MsGQWb1DxVte
-	oPdDCZg3UiYl2Bt6PAYR+1inPejD5NC/PwzuaNxCI+oqtsfWyuZT82HxWWoCAQc+n9HnM9UZ1Dl5y
-	0smXW+kThibhQVTf7VmZnWe+YHKG+h3JJyHV1lrAiwbi4h33z2Mywf0t4Cq6NJYul5Jwxg3V9moCX
-	Jybsg0OA==;
+	bh=Yuse7uWBhtZ6b/kXx1LL2sBJrBAPLPk9y6kI3fEfjnY=; b=HHyAISIgX47WuZHeyhjY88rFX6
+	qnDpSHLfVDQNRTEdPegW9w/18/o5uD1tMVpC0I3kfZJJZaFvivGDsQij3CoUhjIsrnJQRcEQyZHWG
+	12v3/kOIUu0iLHYL7U1LoZClM8z8Y2IrBCGZU7+bxDz6e2szaH1DFb5e0b41jY6HCxpdWC3AMbY0c
+	BpN9GJBmDNruJrCBN9dn079vgFc179ygt8k/aA1LPr/NQPAMx1pB/7JkAu4XB2+iuMrgis92g0B0w
+	6AHaOSP1Mo7lX4/79j2EO1OEXX5Jcetg+0vNpyB7wtMnHZ6QWenzjSFoA+ItpUezSRBmMzrJP5wy9
+	ByPPdsVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXzls-0000000BLTz-2kgR;
-	Wed, 15 Jan 2025 09:33:08 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1tXzn6-0000000BLyj-1S4i;
+	Wed, 15 Jan 2025 09:34:24 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXzef-0000000BJ9W-1iGb
+	id 1tXzfY-0000000BJTQ-0myd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 09:25:42 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50F9BMmA032417;
-	Wed, 15 Jan 2025 10:25:21 +0100
+	Wed, 15 Jan 2025 09:26:37 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50F5MRD6014666;
+	Wed, 15 Jan 2025 10:26:26 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	LCgsY73vctF07UL0jpejFuqgl70gK02rg3oWbuscZtA=; b=77W+QIs5hYl1w1E4
-	af3I/Yw1+mCxE4qieETdXiZB0PsKsTnGfKM55rsmoO7h9idRA7IJcAbwdHF5nREp
-	Ir0gGCOkUdxr43fjr5MQWB2HrxPi00lo+LngLtFjAE9CRSScTeJNlRJrbZIvlZzt
-	SLdo2iu95WDerFbYRkd5qi/BDqu3T9zl/6eZYI7HjtcbccLldjQmRfJPbL+4DC1C
-	Y97/0r9OXErEJfluIHUWcYksur1SpJE4mjSCLJy4UOGYR0ifAcFC+nloh7py+fMH
-	ZMTqxpfJAHvOymjYZF580IDOOaqqYQI7TIsjXhiOJO3UWbwnEeUue9Dsuek/6A9u
-	jZzjKw==
+	Yuse7uWBhtZ6b/kXx1LL2sBJrBAPLPk9y6kI3fEfjnY=; b=P5qa9PFOV1StrgXO
+	0a4RMvS9Kffp4UgPxAxBKNJ2I1C6KHvpo3oACw/a60jxRlRvc+SwDk4kEjUbYG4i
+	87znaCsMKSDuKBEmsunU/jTsl8I+sHQpoZcGAYl52FYy51xwS0uZWn10pp8LhVpI
+	DauB23TBEpkRFBXfDs3LOpX/p2lwj0TDpCPIvy/2yAjIRCoDjhjQPZ1P2z8q9XRR
+	zpgcy9r64KvInYCXoTeEiXcmCeZsc2ihqnCrFUI/c0NepHLz59y3B2hSaFyXaNcA
+	JDiL3cAj3BOnChY2plKNgdT+d773R9fvTWDmciQqTxbjz2r4w1AUGRhJ35z290Ud
+	mzWJ/g==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 446a5wg26w-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4466tjrxrt-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 15 Jan 2025 10:25:21 +0100 (CET)
+	Wed, 15 Jan 2025 10:26:25 +0100 (CET)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 0D45A4004C;
-	Wed, 15 Jan 2025 10:23:54 +0100 (CET)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 1259840059;
+	Wed, 15 Jan 2025 10:24:58 +0100 (CET)
 Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 9A1D624645C;
-	Wed, 15 Jan 2025 10:22:41 +0100 (CET)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 44E6524698F;
+	Wed, 15 Jan 2025 10:23:45 +0100 (CET)
 Received: from localhost (10.129.178.212) by SHFDAG1NODE3.st.com
  (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 15 Jan
- 2025 10:22:41 +0100
+ 2025 10:23:45 +0100
 From: Christian Bruel <christian.bruel@foss.st.com>
 To: <christian.bruel@foss.st.com>, <bhelgaas@google.com>,
         <lpieralisi@kernel.org>, <kw@linux.com>,
@@ -67,9 +67,9 @@ CC: <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
         <linux-stm32@st-md-mailman.stormreply.com>,
         <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
         <fabrice.gasnier@foss.st.com>
-Subject: [PATCH v3 02/10] PCI: dwc: Add dw_pcie_wake_irq_handler helper
-Date: Wed, 15 Jan 2025 10:21:26 +0100
-Message-ID: <20250115092134.2904773-3-christian.bruel@foss.st.com>
+Subject: [PATCH v3 08/10] arm64: dts: st: Add PCIe Rootcomplex mode on stm32mp251
+Date: Wed, 15 Jan 2025 10:21:32 +0100
+Message-ID: <20250115092134.2904773-9-christian.bruel@foss.st.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250115092134.2904773-1-christian.bruel@foss.st.com>
 References: <20250115092134.2904773-1-christian.bruel@foss.st.com>
@@ -83,8 +83,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-01-15_03,2025-01-15_02,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_012541_733882_2712D55F 
-X-CRM114-Status: GOOD (  11.10  )
+X-CRM114-CacheID: sfid-20250115_012636_509416_E0D9AF53 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,58 +99,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce dw_pcie_wake_irq_handler function to support host wakeup from
-the WAKE# irq.
+Add pcie_rc node to support STM32 MP25 PCIe driver based on the
+DesignWare PCIe core configured as Rootcomplex mode
+
+Supports Gen1/Gen2, single lane, MSI interrupts using the ARM GICv2m
 
 Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
 ---
- drivers/pci/controller/dwc/pcie-designware-host.c | 15 +++++++++++++++
- drivers/pci/controller/dwc/pcie-designware.h      |  2 ++
- 2 files changed, 17 insertions(+)
+ arch/arm64/boot/dts/st/stm32mp251.dtsi | 45 +++++++++++++++++++++++++-
+ 1 file changed, 44 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-index bcbbe02f8f86..35cbb686d3f3 100644
---- a/drivers/pci/controller/dwc/pcie-designware-host.c
-+++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-@@ -16,6 +16,7 @@
- #include <linux/of_pci.h>
- #include <linux/pci_regs.h>
- #include <linux/platform_device.h>
-+#include <linux/suspend.h>
+diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+index f3c6cdfd7008..ee30bc516fbb 100644
+--- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
++++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+@@ -117,12 +117,20 @@ scmi_vdda18adc: regulator@7 {
+ 	intc: interrupt-controller@4ac00000 {
+ 		compatible = "arm,cortex-a7-gic";
+ 		#interrupt-cells = <3>;
+-		#address-cells = <1>;
++		#address-cells = <2>;
++		#size-cells = <2>;
+ 		interrupt-controller;
+ 		reg = <0x0 0x4ac10000 0x0 0x1000>,
+ 		      <0x0 0x4ac20000 0x0 0x2000>,
+ 		      <0x0 0x4ac40000 0x0 0x2000>,
+ 		      <0x0 0x4ac60000 0x0 0x2000>;
++		ranges;
++
++		v2m0: v2m@48090000 {
++			compatible = "arm,gic-v2m-frame";
++			reg = <0x0 0x48090000 0x0 0x1000>;
++			msi-controller;
++		};
+ 	};
  
- #include "../../pci.h"
- #include "pcie-designware.h"
-@@ -991,3 +992,17 @@ int dw_pcie_resume_noirq(struct dw_pcie *pci)
- 	return ret;
- }
- EXPORT_SYMBOL_GPL(dw_pcie_resume_noirq);
+ 	psci {
+@@ -900,6 +908,41 @@ stmmac_axi_config_1: stmmac-axi-config {
+ 					snps,wr_osr_lmt = <0x7>;
+ 				};
+ 			};
 +
-+irqreturn_t dw_pcie_wake_irq_handler(int irq, void *arg)
-+{
-+	struct device *dev = arg;
++			pcie_rc: pcie@48400000 {
++				compatible = "st,stm32mp25-pcie-rc";
++				device_type = "pci";
++				reg = <0x48400000 0x400000>,
++				      <0x10000000 0x10000>;
++				reg-names = "dbi", "config";
++				#interrupt-cells = <1>;
++				interrupt-map-mask = <0 0 0 7>;
++				interrupt-map = <0 0 0 1 &intc 0 0 GIC_SPI 264 IRQ_TYPE_LEVEL_HIGH>,
++						<0 0 0 2 &intc 0 0 GIC_SPI 265 IRQ_TYPE_LEVEL_HIGH>,
++						<0 0 0 3 &intc 0 0 GIC_SPI 266 IRQ_TYPE_LEVEL_HIGH>,
++						<0 0 0 4 &intc 0 0 GIC_SPI 267 IRQ_TYPE_LEVEL_HIGH>;
++				#address-cells = <3>;
++				#size-cells = <2>;
++				ranges = <0x01000000 0x0 0x00000000 0x10010000 0x0 0x10000>,
++					 <0x02000000 0x0 0x10020000 0x10020000 0x0 0x7fe0000>,
++					 <0x42000000 0x0 0x18000000 0x18000000 0x0 0x8000000>;
++				dma-ranges = <0x42000000 0x0 0x80000000 0x80000000 0x0 0x80000000>;
++				clocks = <&rcc CK_BUS_PCIE>;
++				resets = <&rcc PCIE_R>;
++				msi-parent = <&v2m0>;
++				access-controllers = <&rifsc 68>;
++				status = "disabled";
 +
-+	dev_dbg(dev, "host wakeup by EP");
-+
-+	/* Notify PM core we are wakeup source */
-+	pm_wakeup_event(dev, 0);
-+	pm_system_wakeup();
-+
-+	return IRQ_HANDLED;
-+}
-+EXPORT_SYMBOL_GPL(dw_pcie_wake_irq_handler);
-diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
-index 110cbac7dde1..434cb6a00f01 100644
---- a/drivers/pci/controller/dwc/pcie-designware.h
-+++ b/drivers/pci/controller/dwc/pcie-designware.h
-@@ -502,6 +502,8 @@ void dw_pcie_edma_remove(struct dw_pcie *pci);
- int dw_pcie_suspend_noirq(struct dw_pcie *pci);
- int dw_pcie_resume_noirq(struct dw_pcie *pci);
++				pcie@0,0 {
++					device_type = "pci";
++					reg = <0x0 0x0 0x0 0x0 0x0>;
++					phys = <&combophy PHY_TYPE_PCIE>;
++					phy-names = "pcie-phy";
++					#address-cells = <3>;
++					#size-cells = <2>;
++					ranges;
++				};
++			};
+ 		};
  
-+irqreturn_t dw_pcie_wake_irq_handler(int irq, void *arg);
-+
- static inline void dw_pcie_writel_dbi(struct dw_pcie *pci, u32 reg, u32 val)
- {
- 	dw_pcie_write_dbi(pci, reg, 0x4, val);
+ 		bsec: efuse@44000000 {
 -- 
 2.34.1
 
