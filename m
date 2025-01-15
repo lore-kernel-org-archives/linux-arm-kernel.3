@@ -4,90 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05177C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 12:54:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3113AC02185
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 13:01:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1iqtJoGXK8NCVQOAgXLn4RuPLDEZWgiNUfGioBEklG4=; b=Tdqw33B5+15giDZ5eHXHNaGVkb
-	58Kc39Mk74K4dullAS7FHyZvwCMNXD17VkWntPR5fMHMzhQVfGH+ljdMuce9VboF/J/C869qk3s6r
-	uissdyl8toI2TXAdsHfyB+jrI1Qblqi9800Y2Qls1upnfu2zRFfwOajmbCpKcaHtotYoF3mPSrTov
-	zQWrQKG8lXkKIwUiZENZ7pPfK5tDo1LOi1A8HS1yOxktghhWgk3UF4jFK5gz67otzC3TM4DD+ZvqP
-	9CIABAS3hvjFN+RIe0UQ9+a16kh1ROFRRCgDwOmQ1NpPj01OI4A7bG8cFhqNWmaG8Lvn01mQIYo8y
-	K56pgBDQ==;
+	bh=6SLQpzwmxyFpdnS0Qhwyf7oPOCOoHDHPhYDyk3jPItc=; b=csgmdcLzypQXKpfmbyyTMabsxF
+	rzn/AcEM/9zys/IuCF1pvfeWE2wB24XWYILj/QALQfgAaQRIq+vxc4fpzQ194N6n+tcJmqFgHXQoV
+	/rfAqxhP5oE758+rtByzWM8SALH6lXTU3CcUkphgPKUpkDEJknI5fhpHGEQchl3RE6XFnuWWIB0h4
+	YSUaNplzdGRzA4+gTNpcE5slNQGm6JVkEvjqGOswRnqloB5Zz5ORK6XrhHLl9gicH0susLRwGkxJn
+	gK9h/mCqAChwqNvMmE5us/cdQPi8Pmi7LX4OCOniGA4EqqMgC/OdU7Gdd+fqQitfkKQYT/baLi8XJ
+	Iq3krOXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY2uE-0000000Btdd-0jhY;
-	Wed, 15 Jan 2025 12:53:58 +0000
-Received: from mail-ej1-f53.google.com ([209.85.218.53])
+	id 1tY31c-0000000BunV-2YLK;
+	Wed, 15 Jan 2025 13:01:36 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY2sy-0000000BtH3-0bS1
+	id 1tY30N-0000000BuYX-022C
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 12:52:41 +0000
-Received: by mail-ej1-f53.google.com with SMTP id a640c23a62f3a-aaf3c3c104fso1141683266b.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 04:52:39 -0800 (PST)
+	Wed, 15 Jan 2025 13:00:20 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-3862de51d38so294369f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 05:00:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1736946017; x=1737550817; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=6SLQpzwmxyFpdnS0Qhwyf7oPOCOoHDHPhYDyk3jPItc=;
+        b=gUmzsEBtxs+fRdK3sD5BePMB0WOT/AJJGMJDiWB+QczwMsnGVC1XPEru5QB3p2oKEq
+         1WwuTPVVn9To5iHGEE9q641ZrC7syxZP7jRMTgRKlXJLywxJaErPh3Jlyhopdeh860o8
+         tixaa0TbJdhKxIhdZeh0BLZBGDysVP31pKRSYt+QQHBKFQQ5xpt8Uu6QiWu4/qs+iCnk
+         k0gxeUzkarjIZ4/rN6e2P7wQrJhJlXOLPjyC4wWHZfai4sMemcAXCZCvvp1jATAuVGGi
+         JiHMPuUltsnFypz1OgfcAzBZboYDTMYpMyb6CXNtQnkTgvkrmwHbvnK24DcBQke7YgBV
+         ojfA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736945557; x=1737550357;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=1iqtJoGXK8NCVQOAgXLn4RuPLDEZWgiNUfGioBEklG4=;
-        b=J1Tj15meXSdl0OLaQjXLGBPRa9jNu/eJRhUhs8A6E6zQjVx91T47IWLHYmtTjcvCXC
-         RcRB6D+fI5vpdHM7sQfrPQkBAIHSA1b5EhONXJ13SL0ADhLIrcqwprCnt/iDYbjpOoua
-         gXHDbMl9dYA5e2p/H2v48Wd6LvqHaVDmAIpLgvyiW+f2frogmvjaVHZx1nER/hPbTfTK
-         zdQZUsrOZ8Mbss6pAPtrHz5MAtS/gUWrRWSVl8O1k5OkRfSmB9D9h37ZPpk5LDbSc1QI
-         IWfgbXms73IYbSPkdH7ljB5WlaJ12BEZgkoYeWtHJMuk4uYyrE4Zivi7IIpKGQf2y9OJ
-         C0sQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXCeLcQXHNgMl19ECkcsnt8T7SRPaRv5oiwqFBgSpzMrGcScvS9z2zmMNp/zc9Ec5PxYa/CiPq5n9ft3a8x80K4@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFgeILZZhZxq9o2ikiWh8YvQKZlv1bBVkYVuwCc3hOGmEmE39/
-	+EtAH35er2CNRanDekr6+TqW9ktwoci3FPeP+ZyoHCNV+0PQjgcLIj3j6HqbohM=
-X-Gm-Gg: ASbGncuOrQHaJzAOwU6W8K+86AUKn+r5uyloVzXzwJVkBrqFDsgO+y/+Nr+J+5ntHXn
-	tAEIyxBqLweLQhS7k7m81VkrDx1IsO3XQUH+QusMUbKqyjzifnfSNnYlexT5QxR7kCGQ3D1RbXg
-	Te0IwR0t6LiDeZC9QxiIEzRz0vLaB4z7QSPzSEjjYM0N8lYQGg1z+3JxAfILbSJJ3ZIx80f6SkT
-	Mp7cxJidd+WoOOGokKox+QXqX6lTf4PqxBuWePS8iPvArJfm3HsRupLR2n/AyCMX9UZRRoSY9IL
-	rguue6ymQGgRtBZd7lo=
-X-Google-Smtp-Source: AGHT+IGgOcmIRCS3Zja3C+6R6Xu7T3eObtmQ3fLNrBKINiPS2B4OyYKu/XywBpPn7HSKz3KJ7skPQQ==
-X-Received: by 2002:a17:907:3fa6:b0:ab2:f74f:3f82 with SMTP id a640c23a62f3a-ab2f74f4afamr1798670566b.57.1736945556462;
-        Wed, 15 Jan 2025 04:52:36 -0800 (PST)
-Received: from mail-ed1-f44.google.com (mail-ed1-f44.google.com. [209.85.208.44])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab2c95b72ddsm754521966b.163.2025.01.15.04.52.35
-        for <linux-arm-kernel@lists.infradead.org>
+        d=1e100.net; s=20230601; t=1736946017; x=1737550817;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6SLQpzwmxyFpdnS0Qhwyf7oPOCOoHDHPhYDyk3jPItc=;
+        b=S9GR+bf5/OH96RDU8tgXmx4HsNWBhivACCVK3QC4PwtFoAyIwZLI2vq/KBYNfaULAE
+         4FarN0NCTASrhnYq+OQo8SfX22Y1PKG54+Dq6q0wtOKCdWamqCwyAM3JvxY2UEcV20+Y
+         heYmrO1kTQOT9abCm8mOAvTSEbdD6AJfriVcSOYcNuJpxS/TBGnhQpGGfjIRJnk1+f5a
+         2FIIF5QPlSGX9IQro5UN/EGqFSK9G8fe0ustCGpxe320MKuHyZJD/xhHlrc3+NWZ9WsT
+         uFnhb/Gs8O4QxKZu066VWV2OytIPO0qF/ek3vsEoJZq+vJ5Uj83xOMKOEMynzpxr6ivd
+         VbgQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUOv206BKe2oC2F1efEMuIrFoBq6lYuJZ6FzDnR4Kbd0oM5FoZOdNmPqWn3NfgdFIOJU+aLQMRGCBh4Ro/j3FB2@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQOCx2G40ymokemUgOO6LtzUa3er/ysb4JJ+0hCCpsc9Ljn29R
+	/xS34lDnT/C1KTypqlr0s4IQZgFAIHWDc8/f3+oJ212qqSvmOHuXXV3EJK/oi8w=
+X-Gm-Gg: ASbGncvbB4z1SxCsV5RRMjgVSEWN4rEfjS5yZ5e7ViAqmGvyWQ+02N7sjiFlHKcKrL5
+	xWMgsJDHU+mbSKEliAHFfNaWAjSTOQK27NbYOKCrDJJRrl2AjAseo/XNcOpfe++AbKuSZt1b76L
+	Auiu7JkXgZ/eAGG3TVdPgkDPE4cliQx7pQLYylSAoNxLq5pz3b16Bg8z4j1KOCaZVNSbtZw39M5
+	we9KlrszeEGJYyXEzWNAy5vKcSV/cyZMxcwVILh+am3wyrcy8jbxSYs4bJ6sWqgVArdpbzlycg/
+X-Google-Smtp-Source: AGHT+IHGXsmacyZvTLB1+zaeUtblvRQoTtrVI7XUlTrmBMIq4H1j0GTh8m9KEp0KmLuowI3RDVUF4g==
+X-Received: by 2002:a5d:648f:0:b0:385:fd31:ca24 with SMTP id ffacd0b85a97d-38a873105d7mr10755610f8f.12.1736946016850;
+        Wed, 15 Jan 2025 05:00:16 -0800 (PST)
+Received: from [192.168.1.20] ([178.197.223.165])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a8e38d008sm18004245f8f.59.2025.01.15.05.00.15
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 15 Jan 2025 04:52:35 -0800 (PST)
-Received: by mail-ed1-f44.google.com with SMTP id 4fb4d7f45d1cf-5d982de9547so13047576a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 04:52:35 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXwkqpNsc2lKvVhk8pzOKF7Yp0yXAmOm/IeoU+1PyPxGAOCMf058hatKcKrDZod7yJ+MntsZk7u196qmsUdLIAr@lists.infradead.org
-X-Received: by 2002:a17:907:d03:b0:aa6:730c:acb with SMTP id
- a640c23a62f3a-ab2ab16a3bamr2734655966b.8.1736945555374; Wed, 15 Jan 2025
- 04:52:35 -0800 (PST)
+        Wed, 15 Jan 2025 05:00:16 -0800 (PST)
+Message-ID: <110c9b58-9ac1-4a24-84da-4dfc722f1ea4@linaro.org>
+Date: Wed, 15 Jan 2025 14:00:14 +0100
 MIME-Version: 1.0
-References: <20250115-xilinx-formats-v2-0-160327ca652a@ideasonboard.com>
- <20250115-xilinx-formats-v2-4-160327ca652a@ideasonboard.com>
- <CAMuHMdXwsdP3_3b_OWFZ8J=kuNCga0h5Vo+wR0fdquQjZNuzEw@mail.gmail.com>
- <b7b8cdde-c189-4b9f-8423-c8ab4797b2f0@ideasonboard.com> <CAMuHMdVnDBt9QbR2bPdKHWgQ7i-OYYJ14ndc270z-hejY=bUdA@mail.gmail.com>
- <6b084e2c-100f-4563-8797-9fd6c862ed0c@ideasonboard.com>
-In-Reply-To: <6b084e2c-100f-4563-8797-9fd6c862ed0c@ideasonboard.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 15 Jan 2025 13:52:22 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdX8EeKnV8et81i3UdOexhO3Ry5TTKqp18OvCpJpWT2CtQ@mail.gmail.com>
-X-Gm-Features: AbW1kvauPbgf-uHZ3dw6OrY0NssZcC4ux914rffShhHxqYZVZgOZzgF5uFfUPkc
-Message-ID: <CAMuHMdX8EeKnV8et81i3UdOexhO3Ry5TTKqp18OvCpJpWT2CtQ@mail.gmail.com>
-Subject: Re: [PATCH v2 04/10] drm/fourcc: Add DRM_FORMAT_Y10_LE32
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Cc: Vishal Sagar <vishal.sagar@amd.com>, Anatoliy Klymenko <anatoliy.klymenko@amd.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Michal Simek <michal.simek@amd.com>, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] gpio: Use str_enable_disable-like helpers
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: Doug Berger <opendmb@gmail.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Bartosz Golaszewski
+ <brgl@bgdev.pl>, Andy Shevchenko <andy@kernel.org>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Kuppuswamy Sathyanarayanan <sathyanarayanan.kuppuswamy@linux.intel.com>,
+ Nandor Han <nandor.han@ge.com>, linux-gpio@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-pwm@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ patches@opensource.cirrus.com
+References: <20250114191438.857656-1-krzysztof.kozlowski@linaro.org>
+ <CACRpkdaer2vedtupM7QW6W2KZF6N+yKN2V93URd2PbT9xfZKeQ@mail.gmail.com>
+Content-Language: en-US
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ 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
+ D2GYIS41Kv4Isx2dEFh+/Q==
+In-Reply-To: <CACRpkdaer2vedtupM7QW6W2KZF6N+yKN2V93URd2PbT9xfZKeQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_045240_178340_B67C4055 
-X-CRM114-Status: GOOD (  32.83  )
+X-CRM114-CacheID: sfid-20250115_050019_056780_CF01FE81 
+X-CRM114-Status: GOOD (  11.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,83 +155,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Tomi,
+On 15/01/2025 12:51, Linus Walleij wrote:
+> On Tue, Jan 14, 2025 at 8:14 PM Krzysztof Kozlowski
+> <krzysztof.kozlowski@linaro.org> wrote:
+> 
+>> Replace ternary (condition ? "enable" : "disable") syntax with helpers
+>> from string_choices.h because:
+>> 1. Simple function call with one argument is easier to read.  Ternary
+>>    operator has three arguments and with wrapping might lead to quite
+>>    long code.
+>> 2. Is slightly shorter thus also easier to read.
+>> 3. It brings uniformity in the text - same string.
+>> 4. Allows deduping by the linker, which results in a smaller binary
+>>    file.
+>>
+>> Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+>> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> 
+> For a while I was critical about the string helpers but since both Andy
+> and Krzysztof like them, I will consider myself convinced and start to
+> like them instead.
 
-On Wed, Jan 15, 2025 at 1:42=E2=80=AFPM Tomi Valkeinen
-<tomi.valkeinen@ideasonboard.com> wrote:
-> On 15/01/2025 14:33, Geert Uytterhoeven wrote:
-> > On Wed, Jan 15, 2025 at 12:11=E2=80=AFPM Tomi Valkeinen
-> > <tomi.valkeinen@ideasonboard.com> wrote:
-> >> On 15/01/2025 12:33, Geert Uytterhoeven wrote:
-> >>> On Wed, Jan 15, 2025 at 10:04=E2=80=AFAM Tomi Valkeinen
-> >>> <tomi.valkeinen@ideasonboard.com> wrote:
-> >>>> Add Y10_LE32, a 10 bit greyscale format, with 3 pixels packed into
-> >>>> 32-bit container.
-> >>>>
-> >>>> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-> >>>
-> >>> Thanks for your patch!
-> >>>
-> >>>> --- a/include/uapi/drm/drm_fourcc.h
-> >>>> +++ b/include/uapi/drm/drm_fourcc.h
-> >>>> @@ -408,6 +408,7 @@ extern "C" {
-> >>>>    /* Greyscale formats */
-> >>>>
-> >>>>    #define DRM_FORMAT_Y8          fourcc_code('G', 'R', 'E', 'Y')  /=
-* 8-bit Y-only */
-> >>>> +#define DRM_FORMAT_Y10_LE32    fourcc_code('Y', 'P', 'A', '4')  /* =
-[31:0] x:Y2:Y1:Y0 2:10:10:10 little endian */
-> >>>
-> >>> R10_LE32? Or R10_PA4?
-> >>
-> >> Can we discuss the "R" vs "Y" question under the cover letter? There's
-> >> some more context about it in there.
-> >
-> > Sorry, hadn't read the cover letter. I got attracted by "Y8" and "Y10".
-> >
-> >> I took the "LE32" from Gstreamer's format. Maybe it's a bit pointless.
-> >>
-> >> I don't know if it makes sense to add the fourcc to the DRM format nam=
-e.
-> >> The fourcc is very limited. Rather, we could, say, have
-> >> DRM_FORMAT_Y10_PACKED_32 (or "R", if you insist =3D).
-> >>
-> >>> Does LE32 have a meaning?  My first guess just reading the subject
-> >>> was wrong ("little endian  32-bit" ;-)
-> >>
-> >> I'm not sure I follow. It's little-endian. The pixel group/unit is a
-> >> 32-bit number, where the leftmost pixel on the screen is in bits 9-0,
-> >> and the padding is in bits 31-30, and stored in memory as little-endia=
-n.
-> >
-> > Ah, the "LE" applies to the pixels inside each word.
->
-> No, to the 32-bit container.
->
-> > DRM formats stored in memory are always little-endian, unless the
-> > DRM_FORMAT_BIG_ENDIAN bit is set, which is what I was hinting
-> > at...
->
-> Indeed you're right. The "LE" is pointless. So back to the bike-shedding
-> about the name =3D).
+It is pretty subjective, so I also find reasonable not to accept them to
+your subsystem. To me they bring more benefits in complicated cases like:
+	(data_in ^ in_pol) & msk  ? "hi" : "lo",
 
-As the order inside the container is Y2:Y1:Y0, it _is_ little endian.
-Cfr.
+or from pinctr (note the line break):
 
-#define DRM_FORMAT_YUYV  fourcc_code('Y', 'U', 'Y', 'V') /* [31:0]
-Cr0:Y1:Cb0:Y0 8:8:8:8 little endian */
+			seq_puts(s, pin->output_value ?
+				 "high" : "low");
 
-Gr{oetje,eeting}s,
+Anyway, thanks for review!
 
-                        Geert
-
---=20
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
-
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
+Best regards,
+Krzysztof
 
