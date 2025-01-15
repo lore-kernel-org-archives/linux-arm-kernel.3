@@ -4,91 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F49C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 17:33:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83213C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 17:35:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mefQhuFSpESwaWyEeCQcodcETTlSwT/UegGsRwZi/b0=; b=T3Di/6+IFld37x6MHy0DGyDHTq
-	PsQsclTQIx50UQkkAVA0DoiXRhfI58IcnbG0dT0ROa8oe5/YUVoMuXZQSFHSU6YJn0DGQrs+dNHvs
-	/IA9OqgwEmyaYeoWy218DQif4Y3APyskyd98HScQHDfyvBG8aTO1lq7zPOPLo/8iEIMRax6iDtSX2
-	uljCRm6nf0bV4py+T3zSjRUq0xSoXZ2PmGk1uTzzAk5or/fZgWKYO4Obp8LzpzmSDZ3T0jf+l/KCY
-	9C0vyGeXm+JtWIctNzRFqLC7lpgscpwIWC2QM19p7oubhZ9fMldhxVBZwFfKo1B8ZOXBcns/fXxyY
-	A50Tz1Yw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:In-reply-to:Date:Subject:Cc:To:From:
+	References:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+tzwEHLf8s85+zyGb/tLCAPn4b62D9uaY7uMidIF++E=; b=gnLmeaP6Ih/+cTV3/QGxkqv7wT
+	2cGcJdDqsKt9QE0Nztcs6eYWcPxpmIw0H/MEeHyaEIQIlv/h3pfG5K9t/32pMzZH46V3vvtZ5sj8c
+	cBy9YW8LE4fShQGb4Ur4ar+yLH83vHHoM4DkWTYt4rZsoE6D+0YdyEJ58CznEsdgrVQ4ZZwyO87w7
+	xOFh/hgE6EjHllCR8vOedje8B+OuklwXEvW86gb7J3usrdrsBxqNQ3/f+bSECg5k8kohG4PWZdhmv
+	SFASN9q/FPqNDI/3+lXoWfMpTWFn5zUo0d1xTiA4pWPi6LUbxVMqkCUi6274pV7uYQf/zhjg+97fp
+	nu+MUnQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY7Gj-0000000Cc1w-43JN;
-	Wed, 15 Jan 2025 17:33:29 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1tY7Hz-0000000CcLP-2rzf;
+	Wed, 15 Jan 2025 17:34:47 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY7FR-0000000Cbn1-3v3K
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 17:32:11 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-2ee9a780de4so81815a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 09:32:09 -0800 (PST)
+	id 1tY7Gc-0000000Cbze-2TeJ;
+	Wed, 15 Jan 2025 17:33:23 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-54021daa6cbso51564e87.0;
+        Wed, 15 Jan 2025 09:33:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736962328; x=1737567128; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=mefQhuFSpESwaWyEeCQcodcETTlSwT/UegGsRwZi/b0=;
-        b=Y9Yj9mMLtDVcXfBVGb58eL8lJGE1EXHqFoXrfK10TPkrq1rkEihQUHThXkgIUmZLHd
-         ptO5PdElFbE/Doqty4i2HLJ/F7zA0Txda4MUOCBxlpX4ARBm+a3s/TPq4ryeJgRjX8RQ
-         5EOAe/7vQMV65ZSAjVL5m6mCoTzIqNJurniGYAiwIkWJkZijBB1pkxAndKslhLcatrLG
-         6+OfwV0Dj2esfQEYVOArhPIeTdvuttIzeAwBNJZaKnPeJwc0jdyAMmgckLaowPDSvN9S
-         9JZFYlGh51fxUYPoGbDzxV7TO/n4i5rTpn/0FIT/FDp5JwuwsHNlk8netYIVUWBZ66Lg
-         1D8g==
+        d=gmail.com; s=20230601; t=1736962401; x=1737567201; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:in-reply-to:date
+         :subject:cc:to:from:user-agent:references:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+tzwEHLf8s85+zyGb/tLCAPn4b62D9uaY7uMidIF++E=;
+        b=LfAvVFcs36a+8f8BL7f4u2I8B3BwwrsX0WBWroJhooUm7kVcKOlXJZaKwB3KgEiEp9
+         b6DleeGU665IGeA61OuiFNlNEOXd1mVIHY8NyvJK4ofpObfJQrxYqr8xIIlGXwKVXhCi
+         uvaWm30EgqgoVWoRs3H040oko0g8+vrGFA63EwUaah5s5o+cj56UQl/TYKEgs91l4rUb
+         HH9uYwncMbT86VszzcaviYmpMj/wekMXw7TPD4ESRlF5uvGtChnILDolkF64MyYRsKNg
+         UX+Gtd4eg4RxJD8Au+NDfJZEp492DaRdGV9MyqfPHFZ6MZ4jNUnaiSGAys6VjoAnJAtg
+         nv7w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736962328; x=1737567128;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=mefQhuFSpESwaWyEeCQcodcETTlSwT/UegGsRwZi/b0=;
-        b=RlUIe5zwNlsE1PoSmefXJtgLAUK7SrBa0Mnf3GrBHeSTgN8FwJl8ZWnbAUJI8jkt/V
-         e+w5sI9APDK4BF8gr/kpx5H/dlnUi0clmyNCvnL//hyWLB4XdnXVTVPuw2o0A3hoFpl6
-         FoUi7QREVG3p9pvbNTOVdJqyLxFok5DijwGAq2fHHojOolZiCGaUdDMFhOJEY9knzKpV
-         xOACdvBBi+QDeTt/+17EZnh2lt0cISL5vFfe1IVG02kC+/0BeRJxNEgENhzBl+vb/RDV
-         4r/4iIiqmmLVHWz0eRYtWERvTmnSPjpGqhTfznWVkbKUgCv3fnPPM118GxtMGR3EzVmm
-         MkGA==
-X-Forwarded-Encrypted: i=1; AJvYcCUzC4ndStjyHMCc+6qgh5gGvAsP6Zas6HlPm49mq4BMn8zbhBirZPa8cM+L5hOw4dp8MANVjM8Bp7U5elziABXQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwunQr294CWsgz9G0nq6kK9IpqFowJHXalfIIJ6iSOii4uiSkAG
-	4pJJfprOz6T0a1Ya/Ua8d6A9B06HXAMxF9IoU56ZEOu3hIJ0g9rtMfn5YZcJnA==
-X-Gm-Gg: ASbGncvFyOYkb03PXcRyOotWftbiLJzwKCAMwvk25rsLlJIfE8KBv/czuWweDw/jeyt
-	kfW8/9Jlc/qfJ7oSNTtVCH/1dUVs5RmMO2CGZKT/nBcB7TpDp1cvG126IC0lqiRX32HtlnBki1G
-	15Is55JfCkC77bwDuVZ3Lf0TTnOAJvrvXr6gbZBxckMbU24pNt2i/1LsN3tgVzYWDiFxsWFx53r
-	+sK188aqbMrQp3roOX9SssVwOzTInZfKvhhXrT6AdXbqdL22BSRS32rRtDuEuOiBR4=
-X-Google-Smtp-Source: AGHT+IFoPbnCjN1tgNPCYljOFQm2tsMB7bBFWGIOdh7Y1887G14VhNx7Fz3KiZvw9oD86u6cjeHF0g==
-X-Received: by 2002:a17:90a:e18f:b0:2ee:5bc9:75b5 with SMTP id 98e67ed59e1d1-2f548ea6493mr42162362a91.4.1736962328427;
-        Wed, 15 Jan 2025 09:32:08 -0800 (PST)
-Received: from thinkpad ([120.60.139.68])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f72c1cc867sm1643077a91.26.2025.01.15.09.32.03
+        d=1e100.net; s=20230601; t=1736962401; x=1737567201;
+        h=content-transfer-encoding:mime-version:message-id:in-reply-to:date
+         :subject:cc:to:from:user-agent:references:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=+tzwEHLf8s85+zyGb/tLCAPn4b62D9uaY7uMidIF++E=;
+        b=Eo1XOQDQYHpcMJAruENGJ1wloY60wVA1XoVUeT/9qFRZ0nZDZBbY4AMo2dHEJIpk4H
+         pID6ml78e+l0tIImwvf+40jeEiWrF1O+SpTCLAOG5jduyvB8E6Pl/Pls0M1imqVS+h1n
+         vGObeaqGb16v5xzeNwsX5MJW0QK6hMOMqoWuw7VKzay0IW/OEoGKjI3dVlRhSxEYqGt/
+         F4/NHDKV0ifOKHrA+ZjTxqa+CZ1HwN7ENkym8N2t6XUQRI5DdHR2wzvNeO7jj5PIHomn
+         wpLc8qQilxvUwcr7M80VKZZ3VT8TuHy8cPS0Ght9dGojoT0fHBHkeQiocf2poRsig1Wz
+         eHiw==
+X-Forwarded-Encrypted: i=1; AJvYcCVod/r6apidEzlPvO9Mbu97Kp0h6KBRzmbAIxl0lC8UzggGHd6WL+xZUQST349MrayTQPdR8Sonrnqdek6bFH0=@lists.infradead.org, AJvYcCXyXlx879YAm5mUuAWuW0cX8uuZaY+D6HIG32lv3QraFPP3dnUZwRiMmFtgkmLJjn1e8X70S0jSz1RBTId9qwm5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy2fanIuzfrVol4Oh/+TUuavU1vtbe0u0l5GJyZx+P8o+4F/89s
+	mJQzCI+zgmwECHXO5D/1ssNY54cFTfImpEYIuQFhbSso1W9ae7xm
+X-Gm-Gg: ASbGnctt0G8hfH/588IcL7p8En3EKKgHYL988UvTJZhsp7F2WxldeYlXf94ZcMuu4qM
+	l0/C5rcS7enZBCARzLup3R6HOdRCw90Z28Xhqip8aPAVlkjvsx7y2+DhQLYa3FUCui9yE8vzFMt
+	jiQ7KeYIypuTwkcNlakhlDG8E7cNx+6jaQnRI0b9HeSrP0jc7ajwDoXkmQ1HFrCBB5uytMw5gey
+	ehjSo50HXiHKULvfGDLHtS8PODZxJWuA7WGgUwVMnW9Wu3zndc/i8gCyaoEv6cB6EWy0WSE3TNA
+	zsFffYVzIadI4K9jp1b6zftgDtWvhv8MZB0FBVw8blAI
+X-Google-Smtp-Source: AGHT+IHVuITnk6uWqJC7r+dQL/h3YFb1nzsnse5J2mvy5M+/MKpOzVH47aIYncz/G8LBHPMH6ccR4w==
+X-Received: by 2002:a05:6512:2246:b0:540:1e7e:ca80 with SMTP id 2adb3069b0e04-542845d35d9mr9465671e87.30.1736962400482;
+        Wed, 15 Jan 2025 09:33:20 -0800 (PST)
+Received: from razdolb (static.248.157.217.95.clients.your-server.de. [95.217.157.248])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5428becbc25sm2051761e87.259.2025.01.15.09.33.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jan 2025 09:32:06 -0800 (PST)
-Date: Wed, 15 Jan 2025 23:01:56 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Jianjun Wang <jianjun.wang@mediatek.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Ryder Lee <ryder.lee@mediatek.com>, linux-pci@vger.kernel.org,
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] PCI: mediatek: Remove the usage of virt_to_phys
-Message-ID: <20250115173156.a73ntoyyn3xy52ze@thinkpad>
-References: <20250107052108.8643-1-jianjun.wang@mediatek.com>
+        Wed, 15 Jan 2025 09:33:19 -0800 (PST)
+References: <20250102-b4-rkisp-noncoherent-v1-1-bba164f7132c@gmail.com>
+ <20250103152326.GP554@pendragon.ideasonboard.com>
+ <87bjw9s4s3.fsf@gmail.com>
+ <CAAFQd5ACseSBg4WZnUnbtwh+i63xcKMBFKnfc4_Aqfmnz0s=7A@mail.gmail.com>
+ <877c6wryqn.fsf@gmail.com>
+ <CAAFQd5C89M1TtpaCoK56Jd2Kq+h6+z552KY6cAqiDjMjDCFdWQ@mail.gmail.com>
+User-agent: mu4e 1.10.9; emacs 29.4.50
+From: Mikhail Rudenko <mike.rudenko@gmail.com>
+To: Tomasz Figa <tfiga@chromium.org>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Dafna Hirschfeld
+ <dafna@fastmail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko
+ Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] media: rkisp1: allow non-coherent video capture buffers
+Date: Wed, 15 Jan 2025 20:29:58 +0300
+In-reply-to: <CAAFQd5C89M1TtpaCoK56Jd2Kq+h6+z552KY6cAqiDjMjDCFdWQ@mail.gmail.com>
+Message-ID: <87y0zcq8wy.fsf@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250107052108.8643-1-jianjun.wang@mediatek.com>
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_093209_966259_59232448 
-X-CRM114-Status: GOOD (  23.41  )
+X-CRM114-CacheID: sfid-20250115_093322_629867_383E88B5 
+X-CRM114-Status: GOOD (  21.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,98 +105,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 07, 2025 at 01:20:58PM +0800, Jianjun Wang wrote:
-> Remove the usage of virt_to_phys, as it will cause sparse warnings when
-> building on some platforms.
-> 
 
-Strange. What are those warnings and platforms?
+On 2025-01-15 at 23:46 +09, Tomasz Figa <tfiga@chromium.org> wrote:
 
-- Mani
+> On Wed, Jan 15, 2025 at 10:30=E2=80=AFPM Mikhail Rudenko <mike.rudenko@gm=
+ail.com> wrote:
+>>
+>> Hi Tomasz,
+>>
+>> On 2025-01-15 at 17:31 +09, Tomasz Figa <tfiga@chromium.org> wrote:
+>>
+>> > Hi Mikhail and Laurent,
+>> >
+>> > On Wed, Jan 15, 2025 at 2:07=E2=80=AFAM Mikhail Rudenko <mike.rudenko@=
+gmail.com> wrote:
+>> >>
+>> >>
+>> >> Hi Laurent,
+>> >>
+>> >> On 2025-01-03 at 17:23 +02, Laurent Pinchart <laurent.pinchart@ideaso=
+nboard.com> wrote:
+>> >>
+>> >> > On Thu, Jan 02, 2025 at 06:35:00PM +0300, Mikhail Rudenko wrote:
+>> >> >> Currently, the rkisp1 driver always uses coherent DMA allocations =
+for
+>> >> >> video capture buffers. However, on some platforms, using non-coher=
+ent
+>> >> >> buffers can improve performance, especially when CPU processing of
+>> >> >> MMAP'ed video buffers is required.
+>> >> >>
+>> >> >> For example, on the Rockchip RK3399 running at maximum CPU frequen=
+cy,
+>> >> >> the time to memcpy a frame from a 1280x720 XRGB32 MMAP'ed buffer t=
+o a
+>> >> >> malloc'ed userspace buffer decreases from 7.7 ms to 1.1 ms when us=
+ing
+>> >> >> non-coherent DMA allocation. CPU usage also decreases accordingly.
+>> >> >
+>> >> > What's the time taken by the cache management operations ?
+>> >>
+>> >> Sorry for the late reply, your question turned out a little more
+>> >> interesting than I expected initially. :)
+>> >>
+>> >> When capturing using Yavta with MMAP buffers under the conditions men=
+tioned
+>> >> in the commit message, ftrace gives 437.6 +- 1.1 us for
+>> >> dma_sync_sgtable_for_cpu and 409 +- 14 us for
+>> >> dma_sync_sgtable_for_device. Thus, it looks like using non-coherent
+>> >> buffers in this case is more CPU-efficient even when considering cache
+>> >> management overhead.
+>> >>
+>> >> When trying to do the same measurements with libcamera, I failed. In a
+>> >> typical libcamera use case when MMAP buffers are allocated from a
+>> >> device, exported as dmabufs and then used for capture on the same dev=
+ice
+>> >> with DMABUF memory type, cache management in kernel is skipped [1]
+>> >> [2]. Also, vb2_dc_dmabuf_ops_{begin,end}_cpu_access are no-ops [3], so
+>> >> DMA_BUF_IOCTL_SYNC from userspace does not work either.
+>> >
+>> > Oops, so I believe this is a bug. When an MMAP buffer is allocated in
+>> > the non-coherent mode, those ops should perform proper cache
+>> > maintenance.
+>>
+>> Thanks for pointing this out!
+>>
+>> > Let me send a patch to fix this in a couple of days unless someone
+>> > does it earlier.
+>>
+>> Now that we know that this is a bug, not an API misuse from my side, I
+>> can fix this myself and send a v2. Would this be okay for you?
+>
+> I'd be more than happy :)
 
-> Signed-off-by: Jianjun Wang <jianjun.wang@mediatek.com>
-> ---
->  drivers/pci/controller/pcie-mediatek.c | 19 ++++++++++++-------
->  1 file changed, 12 insertions(+), 7 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/pcie-mediatek.c b/drivers/pci/controller/pcie-mediatek.c
-> index 3bcfc4e58ba2..dc1e5fd6c7aa 100644
-> --- a/drivers/pci/controller/pcie-mediatek.c
-> +++ b/drivers/pci/controller/pcie-mediatek.c
-> @@ -178,6 +178,7 @@ struct mtk_pcie_soc {
->   * @phy: pointer to PHY control block
->   * @slot: port slot
->   * @irq: GIC irq
-> + * @msg_addr: MSI message address
->   * @irq_domain: legacy INTx IRQ domain
->   * @inner_domain: inner IRQ domain
->   * @msi_domain: MSI IRQ domain
-> @@ -198,6 +199,7 @@ struct mtk_pcie_port {
->  	struct phy *phy;
->  	u32 slot;
->  	int irq;
-> +	phys_addr_t msg_addr;
->  	struct irq_domain *irq_domain;
->  	struct irq_domain *inner_domain;
->  	struct irq_domain *msi_domain;
-> @@ -393,12 +395,10 @@ static struct pci_ops mtk_pcie_ops_v2 = {
->  static void mtk_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
->  {
->  	struct mtk_pcie_port *port = irq_data_get_irq_chip_data(data);
-> -	phys_addr_t addr;
->  
->  	/* MT2712/MT7622 only support 32-bit MSI addresses */
-> -	addr = virt_to_phys(port->base + PCIE_MSI_VECTOR);
->  	msg->address_hi = 0;
-> -	msg->address_lo = lower_32_bits(addr);
-> +	msg->address_lo = lower_32_bits(port->msg_addr);
->  
->  	msg->data = data->hwirq;
->  
-> @@ -510,10 +510,8 @@ static int mtk_pcie_allocate_msi_domains(struct mtk_pcie_port *port)
->  static void mtk_pcie_enable_msi(struct mtk_pcie_port *port)
->  {
->  	u32 val;
-> -	phys_addr_t msg_addr;
->  
-> -	msg_addr = virt_to_phys(port->base + PCIE_MSI_VECTOR);
-> -	val = lower_32_bits(msg_addr);
-> +	val = lower_32_bits(port->msg_addr);
->  	writel(val, port->base + PCIE_IMSI_ADDR);
->  
->  	val = readl(port->base + PCIE_INT_MASK);
-> @@ -913,6 +911,7 @@ static int mtk_pcie_parse_port(struct mtk_pcie *pcie,
->  	struct mtk_pcie_port *port;
->  	struct device *dev = pcie->dev;
->  	struct platform_device *pdev = to_platform_device(dev);
-> +	struct resource *regs;
->  	char name[10];
->  	int err;
->  
-> @@ -921,12 +920,18 @@ static int mtk_pcie_parse_port(struct mtk_pcie *pcie,
->  		return -ENOMEM;
->  
->  	snprintf(name, sizeof(name), "port%d", slot);
-> -	port->base = devm_platform_ioremap_resource_byname(pdev, name);
-> +	regs = platform_get_resource_byname(pdev, IORESOURCE_MEM, name);
-> +	if (!regs)
-> +		return -EINVAL;
-> +
-> +	port->base = devm_ioremap_resource(dev, regs);
->  	if (IS_ERR(port->base)) {
->  		dev_err(dev, "failed to map port%d base\n", slot);
->  		return PTR_ERR(port->base);
->  	}
->  
-> +	port->msg_addr = regs->start + PCIE_MSI_VECTOR;
-> +
->  	snprintf(name, sizeof(name), "sys_ck%d", slot);
->  	port->sys_ck = devm_clk_get(dev, name);
->  	if (IS_ERR(port->sys_ck)) {
-> -- 
-> 2.46.0
-> 
+Done, see [1]. A review would be appreciated. :)
 
--- 
-மணிவண்ணன் சதாசிவம்
+[1] https://lore.kernel.org/all/20250115-b4-rkisp-noncoherent-v2-0-0853e1a2=
+4012@gmail.com/
+
+
+--
+Best regards,
+Mikhail Rudenko
 
