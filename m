@@ -4,76 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2C1EC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 18:37:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF72AC02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 18:40:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hCeV16Tw9Ue2BbFuxP2Jm0elvtAXwe5u9EmpHjH7wzE=; b=U1ShEN27zC0BLSu2jKgjU1CvZK
-	6YCi8mxi71oln6KxMm2sBW7l3OBIZegi7GOWzhU9bNjPgm/2diUNaXPqtc+MIgfRuWOQCsf+J5aVp
-	e1Bo7f/93Ug1eyjJOUKcm2rpz6Sh8OWMKRrZkQ5U1e0AjUjRaBlrE5b1N4VJa0FnUucEK9E/gApYc
-	ierryPeWJX/TLG5YriiC9OlUG419BguqRr7GKH2Dh8ORVMLkGPuZwjPpWDmL7U7rQo853kEqrBqmQ
-	qN8qZg1g5q0JGqldLcWBL5Tk3ZxO8GjmdUC/eNV/YteIhUXhGtZruDEpovQM8rdtULMUyeJdp4DvA
-	5Vv7QnQQ==;
+	bh=YPQonIfRWz8q533cgyWsgSdgY3t/tGTd1rJqUG9L59Y=; b=LWn4hdvSJ8G88oXzvYrwhWRKAZ
+	hjXnf1z+DYaHKs7DFUR+c/yHyUCQzC369Lbo1N4H3c8STp12nCMUlsOQ9npp+lPTStLzQASh6oGIG
+	vTR2SwWjQ0ftVBUzS4uLk6lOZetabsDuXANOs0lakTyo8a/6hTd8KRE+FhOueT7jBnwdSjkLMKaJd
+	HmrlBmoWu+mtgPLXee+wArbNO/KPhu9TebKrETEORO2gHogYlRDH7fOTgFnAh/OSrTD+WZVv85Zyc
+	SmMyl9XHyIYlq+85ip0hrPj3l3DI9U8YVlL3doh7RUA+0LkeAdeg/r/wJTf7MRF4TngwZIZM9SZI2
+	qiPV+O3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY8Gg-0000000Cn4k-3aC0;
-	Wed, 15 Jan 2025 18:37:30 +0000
+	id 1tY8JB-0000000CnIp-2sYm;
+	Wed, 15 Jan 2025 18:40:05 +0000
 Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY8AO-0000000ClC5-3Jjy
+	id 1tY8AS-0000000ClGD-028B
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 18:31:03 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-21634338cfdso128148785ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 10:31:00 -0800 (PST)
+	Wed, 15 Jan 2025 18:31:05 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-216728b1836so125852845ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 10:31:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1736965860; x=1737570660; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1736965863; x=1737570663; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=hCeV16Tw9Ue2BbFuxP2Jm0elvtAXwe5u9EmpHjH7wzE=;
-        b=h8Yp7TE4M/x2CnoHbrQtjf0sxDOkhXQzJ5XdpO8HWEWW432Xtd6YnFejCEG7e1wWom
-         kXN/s7O6jQSpEtKFyKJB4AwD9TaUWJPqajSyDDwSTaTaNrug7mPMbkkGuEWUWKfsBuCO
-         lx2soA1Dq9oCKrCAGXKBbLI4B/W+M5I04sLYxkIi52g4NhDc3b8Qsp13YTU4movEWUQH
-         mhosY8j/NbmW15LLYi5plThDWbBNrhQgmB4RcMONX/yyNFZnXlkas38nDvCyBgaaGcoj
-         wuThcvgqNAQ9PI4lQZDPUgPBypdGZk0BMx52soz6CzMTrVb1UZuu7Ye+dGBrvIFWfrur
-         aVaw==
+        bh=YPQonIfRWz8q533cgyWsgSdgY3t/tGTd1rJqUG9L59Y=;
+        b=Fsm/ZpOAS5KuspMftZT5V0A9ai3TZIsKl6kjutZ3y3JLZEilW+kAGCUWojzXvbr3It
+         6KsGdSfWUJmTHfqm/yQi8Dn/GtzKOg0j6B4NNWmLCrDTp0b6j+OZrmw20Hhvqj0VLvUh
+         0SflRrZTgQNb1JYngWYKhXMf9VVdZ+OLzDHLyUrYKv3hsaMw48iLFhuKpiQG68eat/Wd
+         KLARQZyxgTD/ZXSBkKmScihH4kHD8cmka/DHa0B8ohl6WvBidfcFZL+eI4kB2gK0LyLk
+         bW8LHq8BwONK0gW96OxKj6lEbgOuvlufpseS2Rchq9vWFpfTvhlGohX8nWTEKUidPmNg
+         Briw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736965860; x=1737570660;
+        d=1e100.net; s=20230601; t=1736965863; x=1737570663;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=hCeV16Tw9Ue2BbFuxP2Jm0elvtAXwe5u9EmpHjH7wzE=;
-        b=TgJoPLnRnmlabp2rh7HDyjuugRQhsW6BHGbyJpxRgde/s14fbEeSnzhMNk4fMTF7/r
-         BRPiRoCtMce4BGttXUqs94PrhpvyjlOEUBabXiVu67M4ez/f4rm9xQw++pW8/7gs8fmq
-         OGhp0tjTIriBlObL3IdMRH2FxkrrzIkoxymBevce/ExW7AGbhDwUftFFNN1J8pTJVYIy
-         vojS0p3NrJMQDfzR2qIec7JZIZe+Rm/6/rxIcx/Fr0Jchru5VINSH2f6uLh9M6yPzz4e
-         N5GaeClud/zmgtidMgAiajAKXxJ6XZ/yJ3qvj6YFmsbzb/imN5e6FEW/FciRCOIsQcA/
-         Og0A==
-X-Forwarded-Encrypted: i=1; AJvYcCU0sA9GFmHdGIvGhs9ictjNSVAPq7YH7iQePJwZgOBYIrzvGf5lO1uxilHZy4QDCItUCBrJQO5lc+Kh5W/ff1QZ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yznnixb2IDA/6gObsrx6dV0CXCRsU7X5mhQYNryZDkFWm5CjOg+
-	uon37dDrmdO7cgtw/yuZK1hSYP2dGjfnAy67eE6csDE09G0JyaU+UEIL6VRtAaU=
-X-Gm-Gg: ASbGncuXB6F1tFnVQhhdArn7ICSGTKktXU+Mhj78MIZTOCRADUmLCWwEFq+LVqqEN9Z
-	Hdfnkc4J8X/G87fDJIUjEcPssPZ6XGHZfMj7d6FNzKLUMpjm+cxqFFwuttW49asXplpmSB4wXQ4
-	LRVMAXbROnJda+KpJfG7wJ8+E6/ZG7JnLEHya5jikDTqWDWWI9rZz70d0reYLr1cEO6K1Wc+Ved
-	tgnvs4YTrcZULBs6MEByCgjm3kGwjOmTV+jrbUDbqYf3x/jleOuxaJh7LtiZCfME7F83w==
-X-Google-Smtp-Source: AGHT+IFhv3d+iNN38adFn+dH29zIS7C6pmY5MPy1fONgMvFeK1H10VHPHqcDN6p90NhFpRdpeycXlA==
-X-Received: by 2002:a17:902:f68b:b0:216:32c4:f807 with SMTP id d9443c01a7336-21a83fdea82mr472230285ad.45.1736965858786;
-        Wed, 15 Jan 2025 10:30:58 -0800 (PST)
+        bh=YPQonIfRWz8q533cgyWsgSdgY3t/tGTd1rJqUG9L59Y=;
+        b=d7UmCs51Eohkrtb9V2nnYn10x/jSWYhwX/NQtLa6mQ5ycSTCRZ/KrqjsPvRJTOXCuw
+         U0ihqtsI/Vp/eqXIuJJPkduHarop7ekALh5JqrOJV13JlNkxwphvEeTg7i4u1GgxP7AC
+         r7xhq7RUcfkX3941+y50sXhKABdHCdvHa3F0wEe7RAzYmzFrEHNQsADmGi0HwMACO/8x
+         aDG7ohP8gBQqcy3xxeX6edS/KkYzX8EOQtmTsuabMSwC8B71TPIfBNPQ/DfOiaIFV4UP
+         4hl3PrsQu6bomXInplULIs8cOZ3VduBeXs0XdetyjtnH7x2MtJ270O7eDV9EHxh0qXmR
+         +RIQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXHPEiqfBl2IfidUH56YoyYVt5i+PmA79j8j3TwgtNQYreq3RF6bwXbgNbjlBgvoNacfhFufvVf9kd0257lDPXp@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRXhTGEwW0MEexukMolGKBm4P1AF9+GPhC56AsE836UdYJ1mIg
+	7qhAwHxtjNMOhmhjkt4kZpXoZn6pyG0wASFkQfJftDktN35ai101F6jI1GiuTNY=
+X-Gm-Gg: ASbGncvXxIZHCzkcamec/JtjrMU+zYc93WuQreKXTvUfGq0ZbSFoi8Xu+pb8k00+Xk+
+	ylWeL3xs1onzS8rS/0kJe/Fi9+3xbubP2c7W5EeAlKXzHCScd57+dS3PMHxONIqiK76a27QS4zS
+	gqgHtfJ3rurEIi+I198dSqzHr+Bo1QVQaeGT1T5te6Fj+Ksr34GzmIX6fH5CEPuMHrXgT+mZ/0F
+	2wj6ptk0u5dJu9Cy4pwHRJOiL4Oj2AoxNH1xJ7nZGN3NtuTKW7W8U0surJwmv6tkZihkg==
+X-Google-Smtp-Source: AGHT+IHrlKrKdeucl7zMxkF/5l3NHVR4wNF51oJC9P55Fo2f9FtCoIn3BV0XWsDAU93AJPqz/FttjQ==
+X-Received: by 2002:a17:902:ebc4:b0:21b:d105:26b9 with SMTP id d9443c01a7336-21bd10529e9mr125689755ad.16.1736965863474;
+        Wed, 15 Jan 2025 10:31:03 -0800 (PST)
 Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21a9f219f0dsm85333195ad.139.2025.01.15.10.30.57
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21a9f219f0dsm85333195ad.139.2025.01.15.10.31.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jan 2025 10:30:58 -0800 (PST)
+        Wed, 15 Jan 2025 10:31:03 -0800 (PST)
 From: Atish Patra <atishp@rivosinc.com>
-Date: Wed, 15 Jan 2025 10:30:43 -0800
-Subject: [PATCH v2 3/9] RISC-V: KVM: Add support for Raw event v2
+Date: Wed, 15 Jan 2025 10:30:47 -0800
+Subject: [PATCH v2 7/9] RISC-V: KVM: Use the new gpa range validate helper
+ function
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250115-pmu_event_info-v2-3-84815b70383b@rivosinc.com>
+Message-Id: <20250115-pmu_event_info-v2-7-84815b70383b@rivosinc.com>
 References: <20250115-pmu_event_info-v2-0-84815b70383b@rivosinc.com>
 In-Reply-To: <20250115-pmu_event_info-v2-0-84815b70383b@rivosinc.com>
 To: Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>, 
@@ -87,8 +88,8 @@ Cc: linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
  Atish Patra <atishp@rivosinc.com>
 X-Mailer: b4 0.15-dev-13183
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_103100_881143_C28E7E67 
-X-CRM114-Status: GOOD (  11.58  )
+X-CRM114-CacheID: sfid-20250115_103104_100029_C7C776BE 
+X-CRM114-Status: GOOD (  13.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,36 +104,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SBI v3.0 introuced a new raw event type v2 for wider mhpmeventX
-programming. Add the support in kvm for that.
+Remove the duplicate code and use the new helper function to validate
+the shared memory gpa address.
 
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- arch/riscv/kvm/vcpu_pmu.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/riscv/kvm/vcpu_pmu.c     | 5 +----
+ arch/riscv/kvm/vcpu_sbi_sta.c | 6 ++----
+ 2 files changed, 3 insertions(+), 8 deletions(-)
 
 diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
-index 2707a51b082c..efd66835c2b8 100644
+index efd66835c2b8..ca23427edfaa 100644
 --- a/arch/riscv/kvm/vcpu_pmu.c
 +++ b/arch/riscv/kvm/vcpu_pmu.c
-@@ -60,6 +60,7 @@ static u32 kvm_pmu_get_perf_event_type(unsigned long eidx)
- 		type = PERF_TYPE_HW_CACHE;
- 		break;
- 	case SBI_PMU_EVENT_TYPE_RAW:
-+	case SBI_PMU_EVENT_TYPE_RAW_V2:
- 	case SBI_PMU_EVENT_TYPE_FW:
- 		type = PERF_TYPE_RAW;
- 		break;
-@@ -128,6 +129,9 @@ static u64 kvm_pmu_get_perf_event_config(unsigned long eidx, uint64_t evt_data)
- 	case SBI_PMU_EVENT_TYPE_RAW:
- 		config = evt_data & RISCV_PMU_RAW_EVENT_MASK;
- 		break;
-+	case SBI_PMU_EVENT_TYPE_RAW_V2:
-+		config = evt_data & RISCV_PMU_RAW_EVENT_V2_MASK;
-+		break;
- 	case SBI_PMU_EVENT_TYPE_FW:
- 		if (ecode < SBI_PMU_FW_MAX)
- 			config = (1ULL << 63) | ecode;
+@@ -409,8 +409,6 @@ int kvm_riscv_vcpu_pmu_snapshot_set_shmem(struct kvm_vcpu *vcpu, unsigned long s
+ 	int snapshot_area_size = sizeof(struct riscv_pmu_snapshot_data);
+ 	int sbiret = 0;
+ 	gpa_t saddr;
+-	unsigned long hva;
+-	bool writable;
+ 
+ 	if (!kvpmu || flags) {
+ 		sbiret = SBI_ERR_INVALID_PARAM;
+@@ -432,8 +430,7 @@ int kvm_riscv_vcpu_pmu_snapshot_set_shmem(struct kvm_vcpu *vcpu, unsigned long s
+ 		goto out;
+ 	}
+ 
+-	hva = kvm_vcpu_gfn_to_hva_prot(vcpu, saddr >> PAGE_SHIFT, &writable);
+-	if (kvm_is_error_hva(hva) || !writable) {
++	if (kvm_vcpu_validate_gpa_range(vcpu, saddr, PAGE_SIZE, true)) {
+ 		sbiret = SBI_ERR_INVALID_ADDRESS;
+ 		goto out;
+ 	}
+diff --git a/arch/riscv/kvm/vcpu_sbi_sta.c b/arch/riscv/kvm/vcpu_sbi_sta.c
+index 5f35427114c1..67dfb613df6a 100644
+--- a/arch/riscv/kvm/vcpu_sbi_sta.c
++++ b/arch/riscv/kvm/vcpu_sbi_sta.c
+@@ -85,8 +85,6 @@ static int kvm_sbi_sta_steal_time_set_shmem(struct kvm_vcpu *vcpu)
+ 	unsigned long shmem_phys_hi = cp->a1;
+ 	u32 flags = cp->a2;
+ 	struct sbi_sta_struct zero_sta = {0};
+-	unsigned long hva;
+-	bool writable;
+ 	gpa_t shmem;
+ 	int ret;
+ 
+@@ -111,8 +109,8 @@ static int kvm_sbi_sta_steal_time_set_shmem(struct kvm_vcpu *vcpu)
+ 			return SBI_ERR_INVALID_ADDRESS;
+ 	}
+ 
+-	hva = kvm_vcpu_gfn_to_hva_prot(vcpu, shmem >> PAGE_SHIFT, &writable);
+-	if (kvm_is_error_hva(hva) || !writable)
++	/* The spec requires the shmem to be 64-byte aligned. */
++	if (kvm_vcpu_validate_gpa_range(vcpu, shmem, 64, true))
+ 		return SBI_ERR_INVALID_ADDRESS;
+ 
+ 	ret = kvm_vcpu_write_guest(vcpu, shmem, &zero_sta, sizeof(zero_sta));
 
 -- 
 2.34.1
