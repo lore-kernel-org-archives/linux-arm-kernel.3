@@ -4,90 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15978C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 19:15:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3C67C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 19:22:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zLPSjMEctNCr0CfmUH65A3G8flj6/XxbgTXl0MggbIs=; b=kA5kwVfNwaTHuyXyZcweQWxYm6
-	ng/1O1PorlEtrG9UCev7KmVAqn6FqEyQMPHFRGQREn4aDfIT/xVlNlrHshqGAO3/n38OnwcA7U+sw
-	GExX/8r11nRyUEOvTKHOL8XmZBwGr3WuVvkbk8ud8reZLLf+9RcV+3W5+zfMlyglH7RX+Qe/0fXQ+
-	Rvd2k22w22VuOPefpQfHm4w++6RAcyF066xYlFuzngl3alcoXf1Nkcr8YGKT77DeMRZ8l8SXlopNR
-	Fy2QxLa5tDOtnPAcT4r9uHnabwuZxbmYFO/8MdJ/I/otKTvstiCFbXhn/u/lInIB4khHOoCeK41Ma
-	GP/HhH2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nYIRfzMIoEey6eiQZC1qlV3nAdw1Yt+nNSYPyfY46Hk=; b=XWpAwDB8HX6cUpqfKjNSNdE2U1
+	CHaoEv24XxQiAYQ7kFuG5RzqatOIWe8qRepnUqUQ67k4QYK5T/aKn4uXu1opMWRXX8NzyyNsivIIy
+	W1xbcJtFQHmG9jg0B53g0yZdZ+AgNse1HCJ/2t6SzxStSAQ/1/E68KsFj2mcndWZCPAEcWxDm/2TO
+	IMK1UOVczVGBsDfNTWzBx1zEvDImJjT9s7dV7jVk9NMsdHWB9zv/CHaKddyksZmBjoRj6KSA8W6qt
+	CAbdeqbgI4c6U//MRoAzbpwy40RpseR6e0prhDWrIFhjq4OVlIJNd7oc2dGJBaIx+BLDVJ9dBkXhl
+	LSYooVKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY8rJ-0000000Cs7C-3bZD;
-	Wed, 15 Jan 2025 19:15:21 +0000
-Received: from mail-qk1-x72d.google.com ([2607:f8b0:4864:20::72d])
+	id 1tY8xo-0000000CtXE-1bGY;
+	Wed, 15 Jan 2025 19:22:04 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY8pW-0000000CrkN-08uk
+	id 1tY8wW-0000000CtH1-1iLK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 19:13:31 +0000
-Received: by mail-qk1-x72d.google.com with SMTP id af79cd13be357-7b6fc3e9e4aso4537285a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 11:13:29 -0800 (PST)
+	Wed, 15 Jan 2025 19:20:45 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-ab2f33766e6so2655766b.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 11:20:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1736968408; x=1737573208; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=zLPSjMEctNCr0CfmUH65A3G8flj6/XxbgTXl0MggbIs=;
-        b=DurtkCyvqP4VpfW3e5g3y/dXp6jRwPnNGZe2LAhGiBqSMBvrHejn/r3v6YkhCcwFlf
-         vY5wmkMxebkLcFOyLDD3yFN+khqGzCnmIx8WAE4E41Ir/3+VXzOj77zpYAskOVL8B1fo
-         nLnujlTB7j8xw0ybijIgQZ6/QD2r0WAgENnwnKcHSmCKM+T5GdGc2I11VeTm0VYUOzBn
-         IyOUPzeBhMLohO2r+1ivL+/EXx7pcUCHXkXQTtxWg7sPHp9UePD+1pODaHn19fu0btj5
-         ELL0dxi+lmeHo9n9Vb3G6nJxTvp87Nk2QMUPoy+zyWQglWgCK60NQJGn786kti5IYh6v
-         ok3A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736968408; x=1737573208;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+        d=linaro.org; s=google; t=1736968843; x=1737573643; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=zLPSjMEctNCr0CfmUH65A3G8flj6/XxbgTXl0MggbIs=;
-        b=xA/zQzBA3Mzhj7gNhGBkvCbJpwSe269zpvAdwxv5+093fXmu4wyFct8EUYi2xKW2t/
-         Mrng/gl4X7gjZIPYRK7dAsBHO3vO56+1a+4CClxYuxIp5o0QGYEUeJF90yptsyStoX6T
-         V6rNsMqekw0IbA0lRz4CfS3RHHD7g45d84lsHygvxObIOmAGAYN+fkqKLs2RZ+sH4Trl
-         zeQY9/9QW7R0GQ1jxnGiZbOFOU5Hy/XRl2h60FWXR/0lFwIpdcRzTQXNhuQRd+Wbpb7/
-         AywvL75TP6nQ4mpAI9hLxQW/xnktvnsKdJJtDOcEiMxY96t1fXvjPzz8jm5k/LGmhuau
-         poYg==
-X-Forwarded-Encrypted: i=1; AJvYcCXdEyoxHEl7hcUdzZx4VeErg6JTM3d+mw2pplR5cvNJww8hx/VgZ9FkI+z2cH/PFps0Zv5yupLcyh1YoAu5uM9C@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxln6Z93pBCRs74KejfJzJE0Ta3kzo7Wh7ypGx/rv504d7vPfTt
-	fdZKYPMMnJpSrCon0JoZORFHSHe13a0oavuAjrOE64uU61LwtP1AnjBfZPbSGcc=
-X-Gm-Gg: ASbGncv68BnzZFWsrUy3vdDoR1+seJw6P1b/al1xOOVtn3dTr++fmHb/mjBCJ+t7u1C
-	PlIydfMf5P5w51KQcXoecBmrolM7XAs2LIhi4ghGiLXiiys+rHlL+EadIa4/oXPL4yqE8g7kjNf
-	lgzSpqt9apBZT+Q56LWXqKX19AAVoCQivUZ2FXu9xnNmGFK7FwdwfXHGVvxdpts6y/fWc7qYXQD
-	c0ysK+70p79rRJLV4XSQj/SBPMhN4FaILyP0yNMGihu8NoG9kSmELwD+w==
-X-Google-Smtp-Source: AGHT+IFnsoiKe7uegsgPWYDB1RCuZQrLk0csHxrvV++7dz72d6AHNX8tJjks7RFtVLA5aLi/FpTAFQ==
-X-Received: by 2002:a05:6214:5192:b0:6d8:8f14:2f5b with SMTP id 6a1803df08f44-6df9b240540mr547388736d6.19.1736968408422;
-        Wed, 15 Jan 2025 11:13:28 -0800 (PST)
-Received: from nicolas-tpx395.localdomain ([2606:6d00:15:862e::7a9])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6dfade900c6sm67775316d6.111.2025.01.15.11.13.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jan 2025 11:13:28 -0800 (PST)
-Message-ID: <4eaae50515b46545de4ff399bc2365a3c4f9c44f.camel@ndufresne.ca>
-Subject: Re: [PATCH] media: rkisp1: allow non-coherent video capture buffers
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Mikhail Rudenko <mike.rudenko@gmail.com>, Laurent Pinchart
-	 <laurent.pinchart@ideasonboard.com>
-Cc: Dafna Hirschfeld <dafna@fastmail.com>, Mauro Carvalho Chehab
-	 <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Wed, 15 Jan 2025 14:13:27 -0500
-In-Reply-To: <87bjw9s4s3.fsf@gmail.com>
-References: <20250102-b4-rkisp-noncoherent-v1-1-bba164f7132c@gmail.com>
-	 <20250103152326.GP554@pendragon.ideasonboard.com>
-	 <87bjw9s4s3.fsf@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.54.2 (3.54.2-1.fc41) 
+        bh=nYIRfzMIoEey6eiQZC1qlV3nAdw1Yt+nNSYPyfY46Hk=;
+        b=dc61bTqgTJqVYwGB74OU4sie5OWfTK8Sp0hKe51u9oC+u0+9EufaT0iF1LXHQnj2Ns
+         A3um8fBN32EtGMB9iCsu5HYE2gY7u+97MLyxENrT6XWe+NGAADKPiHCnOKpdtuAiy5dF
+         9KTZWdyIQXBodvM8BdHKrsUDSM9fpzewKWfKefeTLIA7mKId14Zvg1jXlh6yvYhhb0bk
+         kscTM3otCPgjEL4GQ+CguttCoMMXeMQxHX7JSJNhuWMvXctPvVgdXE+cYo92+fO3Le4w
+         RBKcGHBupopyvQMVYaT7+CJahzZYNvGPSjq2DaU5e+pbOVDpkcdglH7UG0GzKGOJHMa5
+         AGKw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736968843; x=1737573643;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=nYIRfzMIoEey6eiQZC1qlV3nAdw1Yt+nNSYPyfY46Hk=;
+        b=TuV5HtUqEVG9tgAllt+A4p8TDurT7h+oYb0OWH7Krul5i/PAgm8ra2qYxUxbfEr3as
+         CjEveEQX83XLy+Fa4BS5oKYcEeoYJ47UEVA9jjrZJovqOo1OLyX8F+q/yZd5cXESheH9
+         RfiM8ObgGE6diU3BNiGYB4uWVO/Lbiht0ZroThwUmxpZ5Jhdcp49wSZWQyTuWM2NgmIP
+         RjA6HShEhgbBFzo2OPenihQ9O8erD5hlvZ7XIvfl2NqabRf5HTDvrg8S/gV6yKA4LMAL
+         ilEhJt8yjAhBFaWKVZxsKO1P1f9+TdYuxT+0opMVxgA52LqwX1ZPVYyuiGlSTkwyTbOy
+         aYBw==
+X-Forwarded-Encrypted: i=1; AJvYcCVm5KlGUgzx52bzTfmglCtOMWi4/TZN6+L/YCPu+0TfFFWGnOzbWVqjiB2Jbhr+IB5JdjVO5f2t0t69LUkMjnaZ@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywi/LLMvAW0jbF3JFKiYYlgdQKLZ3WiIf70O6L0h3qWUWcXPAGK
+	ZF2lHT0Y9LVqzaIVaopbzJTVdo79sfWqzkO0dQEdv2jNo7RFQ3IRAgGXQYyS6GLPIbRRPJsooCd
+	P
+X-Gm-Gg: ASbGncvW8cOaEmCmoM3qDbeOG9izF6ToR4vtbv7OI3St1iaCdjMfuuvZgxFlIobaG/B
+	sLu2Ss5/JauRDQp8p5Y9b4ga6IJ0AZBEXt+8CZyX7q21wkOGw6ji2sV+ldPkXV40U7oQQjspSyP
+	qozuYia6kIyiA2Imco9bVV5L8m76LwK5St1pxtMTZguOK/Ynu28wt8aoZNzPmHnsxZOshvzRB7u
+	cszxtURaNmxPRN5ybxbU9uKktl5YlWrLkC4C4l19TgOGYk8GHUN2+pFx6FV1/cB1mLhMAlrB9NM
+X-Google-Smtp-Source: AGHT+IEobeKPSb66dhQJB8BVuTHa5PVEBMft92rOBD4aCHAR3KxGt12rfIWH0l1xEEGi6zqG+032uw==
+X-Received: by 2002:a17:907:bb8d:b0:ab3:2719:ca30 with SMTP id a640c23a62f3a-ab32719d024mr384947066b.10.1736968842769;
+        Wed, 15 Jan 2025 11:20:42 -0800 (PST)
+Received: from [192.168.1.20] ([178.197.223.165])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab2c9565517sm800167966b.130.2025.01.15.11.20.41
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 15 Jan 2025 11:20:42 -0800 (PST)
+Message-ID: <37603c73-cab7-4973-8705-1deee6445a7d@linaro.org>
+Date: Wed, 15 Jan 2025 20:20:40 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ufs: Use str_enable_disable-like helpers
+To: Bart Van Assche <bvanassche@acm.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Avri Altman <avri.altman@wdc.com>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ "Martin K. Petersen" <martin.petersen@oracle.com>,
+ Peter Wang <peter.wang@mediatek.com>, Stanley Jhu <chu.stanley@gmail.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ linux-scsi@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+References: <20250114200716.969457-1-krzysztof.kozlowski@linaro.org>
+ <ca5482da-1612-4fab-bfeb-bdc72cd65662@acm.org>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Content-Language: en-US
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ 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
+ D2GYIS41Kv4Isx2dEFh+/Q==
+In-Reply-To: <ca5482da-1612-4fab-bfeb-bdc72cd65662@acm.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_111330_068355_0D5CFA3A 
-X-CRM114-Status: GOOD (  23.65  )
+X-CRM114-CacheID: sfid-20250115_112044_472738_EB0AEA8B 
+X-CRM114-Status: GOOD (  15.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,67 +150,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le mardi 14 janvier 2025 =C3=A0 19:00 +0300, Mikhail Rudenko a =C3=A9crit=
-=C2=A0:
-> Hi Laurent,
->=20
-> On 2025-01-03 at 17:23 +02, Laurent Pinchart <laurent.pinchart@ideasonboa=
-rd.com> wrote:
->=20
-> > On Thu, Jan 02, 2025 at 06:35:00PM +0300, Mikhail Rudenko wrote:
-> > > Currently, the rkisp1 driver always uses coherent DMA allocations for
-> > > video capture buffers. However, on some platforms, using non-coherent
-> > > buffers can improve performance, especially when CPU processing of
-> > > MMAP'ed video buffers is required.
-> > >=20
-> > > For example, on the Rockchip RK3399 running at maximum CPU frequency,
-> > > the time to memcpy a frame from a 1280x720 XRGB32 MMAP'ed buffer to a
-> > > malloc'ed userspace buffer decreases from 7.7 ms to 1.1 ms when using
-> > > non-coherent DMA allocation. CPU usage also decreases accordingly.
-> >=20
-> > What's the time taken by the cache management operations ?
->=20
-> Sorry for the late reply, your question turned out a little more
-> interesting than I expected initially. :)
->=20
-> When capturing using Yavta with MMAP buffers under the conditions mention=
-ed
-> in the commit message, ftrace gives 437.6 +- 1.1 us for
-> dma_sync_sgtable_for_cpu and 409 +- 14 us for
-> dma_sync_sgtable_for_device. Thus, it looks like using non-coherent
-> buffers in this case is more CPU-efficient even when considering cache
-> management overhead.
->=20
-> When trying to do the same measurements with libcamera, I failed. In a
-> typical libcamera use case when MMAP buffers are allocated from a
-> device, exported as dmabufs and then used for capture on the same device
-> with DMABUF memory type, cache management in kernel is skipped [1]
-> [2]. Also, vb2_dc_dmabuf_ops_{begin,end}_cpu_access are no-ops [3], so
-> DMA_BUF_IOCTL_SYNC from userspace does not work either.
->=20
-> So it looks like to make this change really useful, the above issue of
-> cache management for libcamera/DMABUF/videobuf2-dma-contig has to be
-> solved. I'm not an expert in this area, so any advice is kindly welcome. =
-:)
+On 15/01/2025 18:53, Bart Van Assche wrote:
+> On 1/14/25 12:07 PM, Krzysztof Kozlowski wrote:
+>> 2. Is slightly shorter thus also easier to read.
+> 
+> Does this change really make code easier to read? It forces readers
+> of the code to look up a function definition. Isn't there a general
+
+There is no general preference, up to you.
+
+> preference in the Linux kernel to inline function definitions if the
+> function body is shorter than or close to the length of the function
+> name? I'm referring to functions like this one:
+> 
+> static inline const char *str_up_down(bool v)
+> {
+> 	return v ? "up" : "down";
+> }
+> 
+> Bart.
 
 
-The manual coherency hints are not implemented for DMABuf, and libcamera on=
-ly do
-dmabuf. Someone will have to look into that. This is also why this API have=
- very
-low adoption, its breaks easily.
+It's subjective - in some places ternary is really complicating, from my
+other patch:
 
->=20
-> [1] https://git.linuxtv.org/media.git/tree/drivers/media/common/videobuf2=
-/videobuf2-core.c?id=3D94794b5ce4d90ab134b0b101a02fddf6e74c437d#n411
-> [2] https://git.linuxtv.org/media.git/tree/drivers/media/common/videobuf2=
-/videobuf2-core.c?id=3D94794b5ce4d90ab134b0b101a02fddf6e74c437d#n829
-> [3] https://git.linuxtv.org/media.git/tree/drivers/media/common/videobuf2=
-/videobuf2-dma-contig.c?id=3D94794b5ce4d90ab134b0b101a02fddf6e74c437d#n426
->=20
-> --
-> Best regards,
-> Mikhail Rudenko
->=20
+	data & XCSI_DLXINFR_SOTERR ? "true" : "false",
+	video->hq_mode ? "on" : "off", video->jpeg_hq_quality);
 
+note that's ternary is split here:
+
+	dstat & BT848_DSTATUS_HLOC
+	? "yes" : "no");
+
+I understand if you don't find the code here better.
+
+Best regards,
+Krzysztof
 
