@@ -4,92 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EB3CC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 15:50:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 302BDC02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 15:57:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O+TEw22AVontHHqXfjSfeIvZxVbWvvoY4JYvVvO5hBk=; b=Jk4W44oVnWHwn3xJ3DWbp1hWf9
-	MTyOJ1g+3WzNPISMULBrTvSZhc9YMCABz+XerUyJKw0MMbo5CJhVTtJfuD3+3Zev2Xr3a5Ubk1gDs
-	WyV5TsoSwhbiX6/AFvT2O+dGhhcJSjMVduZ20uQAQO6ZMlBHHeiKefXntO/r+1e+o0qUFqEt2QhGY
-	lX4c38mKFPbn7hIm1fQqeXlJfGvDQPQeKJQ3zHaM9eD7aRv0d2pQMW9HhJL6sYVCfY85XZ17/PRgc
-	nF8wAXc8frMmfjvn33GwEhfkALKsLV4HeIU2jEr7YdTrdci+zCLPLVQn0Rki3E0Q+NtFd70miqHY6
-	l4qD6paQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YMPOFGdyj84J2ye+wJ0aXvtsP3NEoSOPoej4rayVbzg=; b=0XIuPAPD8xcWBTNY+T8bKLrSW/
+	39p1I0X+staSQ2EuM5RuyxOpVI222MczG8UrcCDtjCX5a0eiu/IKgCNrByP6c1vaYqvzvoQUgFJxb
+	8oqN3+YbhrmfMQoCKpmCzs0p2Gd5OPzd8Ch7BtCaPgv0UKpEUp4yrRrO2ypbNDuLIHpGUvb0ZFiVN
+	JB+m566D3G1CxVoZ9GOj8+9N6dA05oQWnFyLCQTFxvl/wUdh+YnEMVTLJo4uNkqvddh19GR/iqLxN
+	5uWTb6vmOKCdTcVfOhIFStat9ue4umGnq0KfDsWfR/6fwXhw0Fx2SaQIvCAYcNxbXqUa54GO7mjU7
+	lZQsFvog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY5eS-0000000CKQl-3JO3;
-	Wed, 15 Jan 2025 15:49:52 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1tY5lB-0000000CLRR-1qc4;
+	Wed, 15 Jan 2025 15:56:49 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY5dB-0000000CKJu-22Pz
+	id 1tY5ju-0000000CLIH-1XiX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 15:48:34 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-385e27c75f4so4867826f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 07:48:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736956112; x=1737560912; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=O+TEw22AVontHHqXfjSfeIvZxVbWvvoY4JYvVvO5hBk=;
-        b=ruVSCFffKYJQobpzHRi6KzFBHTEx1kRrYNffpm3BfuGg+yPueT5LGRqYs5PUPrXB8L
-         YQCQkUzhjKg+Nxl+Re6eHNY5b2Ig7U+d7OE59A5D3KrTPipE06rsXAm05tjF+fI0HkkJ
-         s9UEV5H/sTeqSqyi2RxaaGF8c89pWzTuhMYDufoXs32Y3lVuJXGXd2iUOUrmGfGoIwpo
-         sJQT7J9n4BIiIx5xjp6AC4wRtrFhZYO3yr6lCQvDLqGoRkKuZwO9aJ5U1npPv1sw76mF
-         6GUs6VoBjoYIhuYsJkU7OaIzfL8b6mZLjxHdPcoDrRa5w5RZp5GL7/6GqSZ8lYwEonNz
-         4YQQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736956112; x=1737560912;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=O+TEw22AVontHHqXfjSfeIvZxVbWvvoY4JYvVvO5hBk=;
-        b=j7ERU29IQMkZUlqT5h6Ms7YMIO85oPioygjf9DuJFt2C3SatKC/UCSttw3ljj4dmNC
-         /3dwPHJeozqcLcflPsjap+z2kptbXBCj+D/N4o4t/H11t5m0wfld2sOIrkB/lNvCMjMk
-         ZXAFxa55Ud4wJA9ihQoqCrdAbpAqvjpj6C/cRe52sqIJR6EdHZ51c2BBnbKvfvgCkL5v
-         OOs7Cz6HIEtRtNrbvw41CGp6x9uXFiopFJ5FHwvlfz7i4fWt86SjxW03gdeYs2g29QFc
-         vSe6FrvEB1LVQ4GQRx8q8ITL+Ld8BXF5a39mXGsIQ+m/h6u2thkCsYpSR3bVbcY49YBF
-         6a4w==
-X-Gm-Message-State: AOJu0YyL0lWRtjanP+HOFF1jmgikQP/iw+x1ToMVTi2mmdMBAF2mAGi4
-	RvB0OGuh33QAIULhMmLzdtIL4+52LJAXAC8ZP2KoxwR9Bdo0aQt/0uq7B8cyhMY=
-X-Gm-Gg: ASbGncvcjRnJyMpcenoKsZOnLPzNKstKWZJ/TtVY0eAhMjev4lwkId1Fl7flpUiuPz+
-	UOMj9BwWAj9XD4LUyH0AJ6/qbPKZtbrir7tdzoUSeKWytcdw9v7ant5AiCUDOugVlVwYX5VuGSP
-	JhfppS19ztaDkSnPMviSDryhJujWMkxgVrgX4MCWsDNoUyTS3gPUNSJ+hin66PolXhmrkGWNTPm
-	YrpdgbltiHJGfEfPeVSX8Xi2tBXKBT5Ovc0OrQr7N2jsQQDIBr6MW/gSzoawK4iUw==
-X-Google-Smtp-Source: AGHT+IGjzi93xDbrH8PhQpZEWfFM4hz29cUNgLumlFwyXrcez1K1tWDWXeUmRwGwyfJJfyxns3HR9A==
-X-Received: by 2002:a5d:64c9:0:b0:385:f0dc:c9f4 with SMTP id ffacd0b85a97d-38a873066fcmr22815280f8f.20.1736956111746;
-        Wed, 15 Jan 2025 07:48:31 -0800 (PST)
-Received: from [192.168.68.163] ([145.224.90.10])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38be66b01c7sm2649024f8f.22.2025.01.15.07.48.30
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 15 Jan 2025 07:48:31 -0800 (PST)
-Message-ID: <65eb308e-6851-47b2-8fa8-31b093a0d25e@linaro.org>
-Date: Wed, 15 Jan 2025 15:48:30 +0000
+	Wed, 15 Jan 2025 15:55:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=YMPOFGdyj84J2ye+wJ0aXvtsP3NEoSOPoej4rayVbzg=; b=zWOfLaCmnzXYSVoMjQ65XsLomQ
+	IcHHOuuGVV4U1LNofDaBuYtPJ872hC2P7bJ9dVTjYZViHT9pRHxzFAHa8JYGoZLesYZwt+gq2iuQC
+	SF2SmXfmf30JI17Dc9MGpvmWUTnP2gdK7bwdpEgv6dBIY/wW9O4LyYBx1LYdx0GX809Y8LzPYeMLH
+	VPQ4KZu2U6PMzeluXFEHxXoF72rao1XtyR8+9E4KDcXjzp+Gzf2jxplgmvkS2p6Gez5ztBe/D7GRV
+	ht0r75ASPiJuASikd2K2BGADRs27BCcAwu+m+tJmbG0RsUyZgnumF6Ye+wRR1RsPbjL5LQJaytdz7
+	Q5V0C9Fw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:53616)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tY5jn-0001NL-2b;
+	Wed, 15 Jan 2025 15:55:23 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tY5jl-0006HS-1G;
+	Wed, 15 Jan 2025 15:55:21 +0000
+Date: Wed, 15 Jan 2025 15:55:21 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Bryan Whitehead <bryan.whitehead@microchip.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Marcin Wojtas <marcin.s.wojtas@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+	UNGLinuxDriver@microchip.com, Vladimir Oltean <olteanv@gmail.com>
+Subject: Re: [PATCH RFC net-next 04/10] net: phylink: add EEE management
+Message-ID: <Z4faaYXMD13tSlT5@shell.armlinux.org.uk>
+References: <Z4ZtoeeHIXPucjUv@shell.armlinux.org.uk>
+ <E1tXhUp-000n0Y-BA@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/5] arm64/sysreg: Enforce whole line match for closing
- blocks
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, robh@kernel.org,
- broonie@kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org
-References: <20250115134259.1864060-1-james.clark@linaro.org>
- <20250115134259.1864060-3-james.clark@linaro.org>
- <867c6ww49g.wl-maz@kernel.org>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <867c6ww49g.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <E1tXhUp-000n0Y-BA@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_074833_576164_17EC6645 
-X-CRM114-Status: GOOD (  18.84  )
+X-CRM114-CacheID: sfid-20250115_075530_407303_7727CF44 
+X-CRM114-Status: GOOD (  30.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,52 +89,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 15/01/2025 2:17 pm, Marc Zyngier wrote:
-> On Wed, 15 Jan 2025 13:42:54 +0000,
-> James Clark <james.clark@linaro.org> wrote:
->>
->> Match on the whole line to prevent matching on prefixes like "Endsysreg"
->> vs "EndsysregFields". This could potentially make the script go wrong
->> in weird ways so make it fall through to the fatal unhandled statement
->> catcher if it doesn't fully match the current block.
->>
->> Signed-off-by: James Clark <james.clark@linaro.org>
->> ---
->>   arch/arm64/tools/gen-sysreg.awk | 6 +++---
->>   1 file changed, 3 insertions(+), 3 deletions(-)
->>
->> diff --git a/arch/arm64/tools/gen-sysreg.awk b/arch/arm64/tools/gen-sysreg.awk
->> index 1a2afc9fdd42..7c7412adf90e 100755
->> --- a/arch/arm64/tools/gen-sysreg.awk
->> +++ b/arch/arm64/tools/gen-sysreg.awk
->> @@ -127,7 +127,7 @@ END {
->>   	next
->>   }
->>   
->> -/^EndSysregFields/ && block_current() == "SysregFields" {
->> +/^EndSysregFields$/ && block_current() == "SysregFields" {
+On Tue, Jan 14, 2025 at 02:02:19PM +0000, Russell King (Oracle) wrote:
+> Add EEE management to phylink, making use of the phylib implementation.
+> This will only be used where a MAC driver populates the methods and
+> capabilities bitfield, otherwise we keep our old behaviour.
 > 
-> The problem with this sort of things is that it will now fail with
-> trailing spaces, which is both counter-intuitive and pretty hard to
-> spot.
+> Phylink will keep track of the EEE configuration, including the clock
+> stop abilities at each end of the MAC to PHY link, programming the PHY
+> appropriately and preserving the LPI configuration should the PHY go
+> away.
 > 
-> Why don't you simply match the field number, like you do in patch 3?
+> Phylink will call into the MAC driver when LPI needs to be enabled or
+> disabled, with the requirement that the MAC have LPI disabled prior
+> to the netdev being brought up (in other words, it will only call
+> mac_disable_tx_lpi() if it has already called mac_enable_tx_lpi().)
 > 
-> 	M.
+> Support for phylink managed EEE is enabled by populating both tx_lpi
+> MAC operations method pointers, and filling in both LPI interfaces
+> and capabilities. If the methods are provided but the LPI interfaces
+> or capabilities remain empty, this indicates to phylink that EEE is
+> implemented by the driver but the hardware it is driving does not
+> support EEE, and thus the ethtool set_eee() and get_eee() methods will
+> return EOPNOTSUPP.
 > 
+> No validation of the LPI timer value is performed by this patch.
+> 
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> ---
+>  drivers/net/phy/phylink.c | 133 ++++++++++++++++++++++++++++++++++++--
+>  include/linux/phylink.h   |  45 +++++++++++++
+>  2 files changed, 174 insertions(+), 4 deletions(-)
 
-The intention was to ensure that the end tokens were the only thing on 
-the line (including whitespace). But yeah it is slightly inconsistent 
-compared to start tokens because as you mention "$1 ==" allows both 
-leading and trailing whitespace.
+In discussion with Herner, it came to my attention that the way I'm
+restricting EEE modes in this patch is actually buggy. I've been
+intending to update this patch once Herner's patch set has been merged,
+but this morning, Jakub asked for changes to it.
 
-I'll change it to "$1 ==" for end tokens as well and then add 
-expect_fields(1) which catches unexpected trailing stuff but has a 
-better warning.
+So, rather than waiting for that, I'm intending to use a different
+solution - rather than waiting for Herner's patch set and adapting mine
+to it. So, the patch below will change the way EEE modes are restricted
+in such a way that this is independent of Herner's series. We
+basically apply our own restriction to the supported modes after
+calling phylib's get_eee() method, and restrict the advertised modes
+before attaching the PHY and before calling phylib's set_eee() method.
 
-James
+Once Herner's patch set is merged, maybe I can manipulate the
+eee disabled modes mask instead, and leave this to phylib to deal
+with.
 
+diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
+index c430ac2e5e9f..b561a8228612 100644
+--- a/drivers/net/phy/phylink.c
++++ b/drivers/net/phy/phylink.c
+@@ -60,6 +60,7 @@ struct phylink {
+ 	u8 act_link_an_mode;		/* Active MLO_AN_xxx mode */
+ 	u8 link_port;			/* The current non-phy ethtool port */
+ 	__ETHTOOL_DECLARE_LINK_MODE_MASK(supported);
++	__ETHTOOL_DECLARE_LINK_MODE_MASK(supported_lpi);
+ 
+ 	/* The link configuration settings */
+ 	struct phylink_link_state link_config;
+@@ -1623,19 +1624,6 @@ static void phylink_activate_lpi(struct phylink *pl)
+ 			    pl->mac_ops->mac_enable_tx_lpi, ERR_PTR(err));
+ }
+ 
+-static void phylink_phy_restrict_eee(struct phylink *pl, struct phy_device *phy)
+-{
+-	__ETHTOOL_DECLARE_LINK_MODE_MASK(eee_supported);
+-
+-	/* Convert the MAC's LPI capabilities to linkmodes */
+-	linkmode_zero(eee_supported);
+-	phylink_caps_to_linkmodes(eee_supported, pl->config->lpi_capabilities);
+-
+-	/* Mask out EEE modes that are not supported */
+-	linkmode_and(phy->supported_eee, phy->supported_eee, eee_supported);
+-	linkmode_and(phy->advertising_eee, phy->advertising_eee, eee_supported);
+-}
+-
+ static void phylink_link_up(struct phylink *pl,
+ 			    struct phylink_link_state link_state)
+ {
+@@ -2242,10 +2230,16 @@ static int phylink_bringup_phy(struct phylink *pl, struct phy_device *phy,
+ 		phy->eee_cfg.tx_lpi_enabled = pl->eee_cfg.tx_lpi_enabled;
+ 		phy->eee_cfg.tx_lpi_timer = pl->eee_cfg.tx_lpi_timer;
+ 
++		/* Convert the MAC's LPI capabilities to linkmodes */
++		linkmode_zero(pl->supported_lpi);
++		phylink_caps_to_linkmodes(pl->supported_lpi,
++					  pl->config->lpi_capabilities);
++
+ 		/* Restrict the PHYs EEE support/advertisement to the modes
+ 		 * that the MAC supports.
+ 		 */
+-		phylink_phy_restrict_eee(pl, phy);
++		linkmode_and(phy->advertising_eee, phy->advertising_eee,
++			     pl->supported_lpi);
+ 	} else if (pl->mac_supports_eee_ops) {
+ 		/* MAC supports phylink EEE, but wants EEE always disabled. */
+ 		phy_disable_eee(phy);
+@@ -3188,8 +3182,13 @@ int phylink_ethtool_get_eee(struct phylink *pl, struct ethtool_keee *eee)
+ 	if (pl->mac_supports_eee_ops && !pl->mac_supports_eee)
+ 		return ret;
+ 
+-	if (pl->phydev)
++	if (pl->phydev) {
+ 		ret = phy_ethtool_get_eee(pl->phydev, eee);
++		/* Restrict supported linkmode mask */
++		if (ret == 0 && pl->mac_supports_eee_ops)
++			linkmode_and(eee->supported, eee->supported,
++				     pl->supported_lpi);
++	}
+ 
+ 	return ret;
+ }
+@@ -3232,6 +3231,10 @@ int phylink_ethtool_set_eee(struct phylink *pl, struct ethtool_keee *eee)
+ 	ret = -EOPNOTSUPP;
+ 
+ 	if (pl->phydev) {
++		/* Restrict advertisement mask */
++		if (pl->mac_supports_eee_ops)
++			linkmode_and(eee->advertised, eee->advertised,
++				     pl->supported_lpi);
+ 		ret = phy_ethtool_set_eee(pl->phydev, eee);
+ 		if (ret == 0)
+ 			eee_to_eeecfg(&pl->eee_cfg, eee);
 
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
