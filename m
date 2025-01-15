@@ -4,93 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE59FC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 08:41:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75F91C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 08:44:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4B/xQ2Yak+fpxIrk/GyFx/NQxbFsrazzrnNpKayLw2k=; b=PjzCU1h5tfkOwH3vYiKPpgkWqR
-	82ki+pKKotr6ATnYVwgaVq25aCsZ2RrCGsFuOKdqcHuYk7VMnjPTsAPsFt8I7Bo3eeIiATSBqK14Q
-	R95I8nFyOorXTZc1A/y5CnJNCiQRWCcyvv0XRWKyt5giNLzWYqYAOe/MzjydieqD2R+cvRQp+Q3BN
-	R/N0tdatBaxGeR9VBzzX/bAuIsrnNOb7TP5eAT2tVF2KnJSEYEyO4tiYHzVMo998EkV168lyuy8WQ
-	P52ubZYHMndQQcKs7ruJG0El8avdwoZgRjkaA+a5xmRxio8fkvgCQwJdBr9etjc9aVkWrxcgIKkAK
-	TwexPhMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fxwuU5+5VjORoJdAH0BmKUJFqT/pGkjGg93nT/pd0ao=; b=4Y9fMPb3h4gBvHfIJXB7oJqc0h
+	3QmQH6MVeLdCBSI1e6XujqPr2oYK0iKwtk9HYUKleMuSYla140Z7i9JwbCeUz7jrVdXxYqZrbwbpZ
+	/Czbpx8ZO1LHnqfXy1TLYJCMvlX/QQuWOprl5ixyRpDi7NAOC5M95WyS6fB4/sL4hSEwO9PZ5iFsa
+	+Va9J22I3YRPAVXsdc1eDkZp2OBlILcHay42eTlBJQm9uTfzpIv0KwIg1lkprZa588h1xdtb70tCE
+	t5TgOpYzEyxgV2VnSdpgj6IlXPBsSW63FC/5DtiCnYnYp0pfScDNcPB10eiTuNVNZQO2kqO9aMv3L
+	pu1E07EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXyxN-0000000B85Q-1E0n;
-	Wed, 15 Jan 2025 08:40:57 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1tXz0L-0000000B8Yc-2pyd;
+	Wed, 15 Jan 2025 08:44:01 +0000
+Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXyw7-0000000B7rR-2eeY;
-	Wed, 15 Jan 2025 08:39:40 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43625c4a50dso45770965e9.0;
-        Wed, 15 Jan 2025 00:39:39 -0800 (PST)
+	id 1tXyz3-0000000B8KW-3rVH
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Jan 2025 08:42:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736930378; x=1737535178; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=4B/xQ2Yak+fpxIrk/GyFx/NQxbFsrazzrnNpKayLw2k=;
-        b=c7Oht+b2JEy/DUD7ulZcwmLraFd+a7jPR1M5/qe/1X+snoyDzFYzQdheZoD3j0fkrx
-         6QD0KhX57O/WV2W+sZnoQVI9ExegCqeFn+TXPZIJVF+Zxts/Zpj6LXurptRlC2K4spic
-         wy0/GpePMtOov8TZlW6mxVd2bBm+z5fOz0TdfGhc7jLUvU744pl63dn+TFgdc15laml9
-         hGSgubGGV1mb0IxlgYviBZOa65HxidM21deFTJdmusedYL7bird3EO/5lIXRrQ1/lX6A
-         jkJMGUtWt69r4sD8p5UOHDcSHF9YogkhLoFcCQd+x9ZWptZVUk/YmD2M56uRStoTL8en
-         GcJw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736930378; x=1737535178;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4B/xQ2Yak+fpxIrk/GyFx/NQxbFsrazzrnNpKayLw2k=;
-        b=mZ+woCjFX0Eh7n9i476tfkmZ6gUbRtizcUAoe2O7P57fpWjSISNFaDOkm60IhCVdVw
-         OLhyIcRXtNrmR3qmEkSgGqW6PWMvo7o+BTAIlbvvzLBUcV5km8C0MF45oP+bj2HAyOOJ
-         PoDY423fe3/tZLZBCm9+fioWSFjuwDaGu00h0Fl/i4I+NB0avfJU+gzr7aCHSlTocFPZ
-         pQ3dno0IEfxUnyUKF2cvwUWgkNwQvEktTqfO4nCk12PTAlsJIJtEkNMJfVf3qbWpoQG2
-         4smMqGw6GMDJ+RL5GEDE3qpC4FaTMPfXQAZ6fkdmw07Ivn31YHezqixfasgeIZFqWwun
-         zh6Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUDZbhvkwamEnl94N8Irz9UpNmF4hA4u6OveRziIaU6tH5/kYAio3lPQ50/nxy1DHgTDgfNKhLNT3I+F+okFpdx@lists.infradead.org
-X-Gm-Message-State: AOJu0YzlvEvCM/JAeH7xr+5eFShMlw9ATzOu0UmPYaJodbWyyFECB1wU
-	xbmeyxzjAH7X4vLYHPd8px1WLzhaeVyWXCvHBCAUC8f7QF5XByBw
-X-Gm-Gg: ASbGncv0Dr4x4+toa/RAGixmng4sle1U+6PjHTgLcmbr4G2udau2u9ygIZ6+2hWgDLu
-	nq0lDZGZO0BdX70FYhAb3/l3QW3Vr9s+W+o0RQXJxBdrVr4vTap3t97B6frYkHFRkk4sYyLzbhG
-	JzA/WBts4f28Pl6XOySTIiPDkOcyxeXsp0oerKqBteBDSeS7DBVl8yvYUNzUYgujtUgCqNjIeB3
-	nxKNPpcv/kmWJBc1fW5nm/tDy/rxTVgivBOaVyUnaKG2Sd2K3L+eO1qgHLsDyKa7S4bYRgJ9qZl
-	wVj+FrrUVTNt
-X-Google-Smtp-Source: AGHT+IH1S/ypLo4sxdULxIVj7iio6j8QLiJZhFQomKltaJf5Ym2Wv7jn92KqFeZHfzoy72Wy7rxhkg==
-X-Received: by 2002:a05:6000:709:b0:38a:41c9:8544 with SMTP id ffacd0b85a97d-38a87336a6amr23435760f8f.37.1736930377805;
-        Wed, 15 Jan 2025 00:39:37 -0800 (PST)
-Received: from Ansuel-XPS. (93-34-91-161.ip49.fastwebnet.it. [93.34.91.161])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a8e4b81d7sm17016684f8f.73.2025.01.15.00.39.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jan 2025 00:39:37 -0800 (PST)
-Message-ID: <67877449.df0a0220.cdd29.8807@mx.google.com>
-X-Google-Original-Message-ID: <Z4d0RkjDxhtw_655@Ansuel-XPS.>
-Date: Wed, 15 Jan 2025 09:39:34 +0100
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-mediatek@lists.infradead.org,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	d=linux.alibaba.com; s=default;
+	t=1736930557; h=From:To:Subject:Date:Message-Id:MIME-Version:Content-Type;
+	bh=fxwuU5+5VjORoJdAH0BmKUJFqT/pGkjGg93nT/pd0ao=;
+	b=EJRwXBRNRSZfDocrToDDjPCer/XVOAH80XiyuDG0heWA1ScBY4oHHQM6h6ytQos+zruZ4dKQIW46rPpDUodOpeaKKijEU9wWPycP0Z+FkjUaYnhoHRiMhB0IskMl+H43ZnMlGV1xuT3XX5cTw/Vylfif/6HL+zV/j/LPUK2EBgs=
+Received: from localhost(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0WNi-.9S_1736930550 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Wed, 15 Jan 2025 16:42:32 +0800
+From: Ruidong Tian <tianruidong@linux.alibaba.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org,
+	lpieralisi@kernel.org,
+	guohanjun@huawei.com,
+	sudeep.holla@arm.com,
+	xueshuai@linux.alibaba.com,
+	baolin.wang@linux.alibaba.com,
+	linux-kernel@vger.kernel.org,
+	linux-acpi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-mmc@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Wenbin Mei <wenbin.mei@mediatek.com>,
-	Conor Dooley <conor+dt@kernel.org>, upstream@airoha.com,
-	Chaotian Jing <chaotian.jing@mediatek.com>
-Subject: Re: [PATCH 1/2] dt-bindings: mmc: mtk-sd: Add eMMC for AN7581
-References: <20250115073026.31552-1-ansuelsmth@gmail.com>
- <173693027082.3240418.16772447316188600820.robh@kernel.org>
+	rafael@kernel.org,
+	lenb@kernel.org,
+	tony.luck@intel.com,
+	bp@alien8.de,
+	yazen.ghannam@amd.com
+Cc: tianruidong@linux.alibaba.com
+Subject: [PATCH v3 0/5] ARM Error Source Table V2 Support
+Date: Wed, 15 Jan 2025 16:42:23 +0800
+Message-Id: <20250115084228.107573-1-tianruidong@linux.alibaba.com>
+X-Mailer: git-send-email 2.33.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <173693027082.3240418.16772447316188600820.robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_003939_668195_2E77861D 
-X-CRM114-Status: GOOD (  24.79  )
+X-CRM114-CacheID: sfid-20250115_004242_815119_C969CC43 
+X-CRM114-Status: GOOD (  14.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,62 +76,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 15, 2025 at 02:37:50AM -0600, Rob Herring (Arm) wrote:
-> 
-> On Wed, 15 Jan 2025 08:29:50 +0100, Christian Marangi wrote:
-> > Document eMMC compatible for AN7581. This eMMC controller doesn't have
-> > regulator exposed to the system and have a single clock only for source
-> > clock and only default pintctrl.
-> > 
-> > Rework the schema to permit these new requirements and make supply
-> > optional only for airoha,an7581-mmc compatible.
-> > 
-> > Also provide an example for airoha,an7581-mmc.
-> > 
-> > Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> > ---
-> > This depends on patch merged in clk-next
-> > bfe257f9780d8f77045a7da6ec959ee0659d2f98
-> > 
-> >  .../devicetree/bindings/mmc/mtk-sd.yaml       | 64 +++++++++++++++++--
-> >  1 file changed, 58 insertions(+), 6 deletions(-)
-> > 
-> 
-> My bot found errors running 'make dt_binding_check' on your patch:
-> 
-> yamllint warnings/errors:
-> 
-> dtschema/dtc warnings/errors:
-> Error: Documentation/devicetree/bindings/mmc/mtk-sd.example.dts:104.31-32 syntax error
-> FATAL ERROR: Unable to parse input tree
-> make[2]: *** [scripts/Makefile.dtbs:131: Documentation/devicetree/bindings/mmc/mtk-sd.example.dtb] Error 1
-> make[2]: *** Waiting for unfinished jobs....
-> make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1506: dt_binding_check] Error 2
-> make: *** [Makefile:251: __sub-make] Error 2
-> 
-> doc reference errors (make refcheckdocs):
-> 
-> See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250115073026.31552-1-ansuelsmth@gmail.com
-> 
-> The base for the series is generally the latest rc1. A different dependency
-> should be noted in *this* patch.
-> 
-> If you already ran 'make dt_binding_check' and didn't see the above
-> error(s), then make sure 'yamllint' is installed and dt-schema is up to
-> date:
-> 
-> pip3 install dtschema --upgrade
-> 
-> Please check and re-submit after running the above command yourself. Note
-> that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-> your schema. However, it must be unset to test all examples with your schema.
->
+AEST provides a mechanism for hardware to directly notify Kernel to
+handle RAS errors through interrupts, which is also known as Kernel-first
+mode.
 
-Hi Rob, I think this fails as the CLK define is still not merged as said
-this patch depends on bfe257f9780d8f77045a7da6ec959ee0659d2f98.
+AEST's Advantage
+========================
 
-Any hint how to make your bot work with that?
+1. AEST uses EL1 interrupts to report CE/DE, making it more lightweight
+   than GHES (the Firmware First solution on Arm).
+2. The lightweight AEST allows system to report each CE, enabling user
+    applications to utilize this information for memory error prediction.
+
+AEST Driver Architecture
+========================
+
+AEST Driver Device Mana
+The AEST driver consists of three components:
+  - AEST device: Handle interrupts and manage AEST nodes and records.
+  - AEST node: corresponding to RAS node in hardware[1],
+  - AEST record: RAS register sets.
+
+They are organized together as follows.
+
+ ┌──────────────────────────────────────────────────┐
+ │             AEST Driver Device Management        │
+ │┌─────────────┐    ┌──────────┐     ┌───────────┐ │
+ ││ AEST Device ├─┬─►│AEST Node ├──┬─►│AEST Record│ │
+ │└─────────────┘ │  └──────────┘  │  └───────────┘ │
+ │                │       .        │  ┌───────────┐ │
+ │                │       .        ├─►│AEST Record│ │
+ │                │       .        │  └───────────┘ │
+ │                │  ┌──────────┐  │        .       │
+ │                ├─►│AEST Node │  │        .       │
+ │                │  └──────────┘  │        .       │
+ │                │                │  ┌───────────┐ │
+ │                │  ┌──────────┐  └─►│AEST Record│ │
+ │                └─►│AEST Node │     └───────────┘ │
+ │                   └──────────┘                   │
+ └──────────────────────────────────────────────────┘
+
+
+AEST Interrupt Handle
+=====================
+
+Once AEST interrupt occur
+1. The AEST device traverses all AEST nodes to locate errored record.
+2. There are two types of records in each node：
+      - report record: node can locate errored record through bitmap in
+                       ERRGSR register.
+      - poll record: node need poll all record to check if it errored.
+3. process record:
+      - if error is corrected, reset ce threshold and print it
+      - if error is defered, dump register and call memory_fauilre
+      - if error is uncorrected, panic, in fact UE usually raise a
+        exception rather than interrupt.
+4. decode record: AEST driver notify other driver，like EDAC，to decode
+    RAS register.
+
+AEST Error Injection
+====================
+
+AEST driver provides error(Software simulation instead of real hardware errors)
+inject interface, details can be see in patch0003
+
+Address Translation
+===================
+
+AS describe in 2.2[0], error address reported by AEST record may be
+'''node-specific Logical Addresses''' rather than '''System Physical Address'''
+used by Kernel, driver need tracelate LA to SPA, these is similar to AMD ATL[2].
+So patch0004 introduce a common function both for AMD and ARM.
+
+I have tested this series on THead Yitian710 SOC.
+
+Future work:
+1. Add CE storm mitigation.
+2. Support AEST vendor node.
+
+This series is based on Tyler Baicar's patches [1], which do not have v2
+sended to mail list yet. Change from origin patch:
+1. Add a genpool to collect all AEST error, and log them in a workqueue
+other than in irq context.
+2. Just use the same one aest_proc function for system register interface
+and MMIO interface.
+3. Reconstruct some structures and functions to make it more clear.
+4. Accept all comments in Tyler Baicar's mail list.
+
+Change from V2:
+https://lore.kernel.org/all/20240321025317.114621-1-tianruidong@linux.alibaba.com/
+1. Tomohiro Misono
+    - dump register before panic
+2. Baolin Wang & Shuai Xue: accept all comment.
+3. Support AEST V2.
+
+Change from V1:
+https://lore.kernel.org/all/20240304111517.33001-1-tianruidong@linux.alibaba.com/
+1. Marc Zyngier
+  - Use readq/writeq_relaxed instead of readq/writeq for MMIO address.
+  - Add sync for system register operation.
+  - Use irq_is_percpu_devid() helper to identify a per-CPU interrupt.
+  - Other fix.
+2. Set RAS CE threshold in AEST driver.
+3. Enable RAS interrupt explicitly in driver.
+4. UER and UEO trigger memory_failure other than panic.
+
+[0]: https://developer.arm.com/documentation/den0085/0101/
+[1]: https://lore.kernel.org/all/20211124170708.3874-1-baicar@os.amperecomputing.com/
+[2]: https://lore.kernel.org/all/20240123041401.79812-2-yazen.ghannam@amd.com/
+
+Ruidong Tian (5):
+  ACPI/RAS/AEST: Initial AEST driver
+  RAS/AEST: Introduce AEST driver sysfs interface
+  RAS/AEST: Introduce AEST inject interface to test AEST driver
+  RAS/ATL: Unified ATL interface for ARM64 and AMD
+  trace, ras: add ARM RAS extension trace event
+
+ Documentation/ABI/testing/debugfs-aest |  115 +++
+ MAINTAINERS                            |   11 +
+ arch/arm64/include/asm/ras.h           |   95 +++
+ drivers/acpi/arm64/Kconfig             |   11 +
+ drivers/acpi/arm64/Makefile            |    1 +
+ drivers/acpi/arm64/aest.c              |  340 ++++++++
+ drivers/acpi/arm64/init.c              |    2 +
+ drivers/acpi/arm64/init.h              |    1 +
+ drivers/edac/amd64_edac.c              |    2 +-
+ drivers/ras/Kconfig                    |    1 +
+ drivers/ras/Makefile                   |    1 +
+ drivers/ras/aest/Kconfig               |   17 +
+ drivers/ras/aest/Makefile              |    7 +
+ drivers/ras/aest/aest-core.c           | 1017 ++++++++++++++++++++++++
+ drivers/ras/aest/aest-inject.c         |  151 ++++
+ drivers/ras/aest/aest-sysfs.c          |  230 ++++++
+ drivers/ras/aest/aest.h                |  338 ++++++++
+ drivers/ras/amd/atl/core.c             |    4 +-
+ drivers/ras/amd/atl/internal.h         |    2 +-
+ drivers/ras/amd/atl/umc.c              |    3 +-
+ drivers/ras/ras.c                      |   27 +-
+ include/linux/acpi_aest.h              |   68 ++
+ include/linux/cpuhotplug.h             |    1 +
+ include/linux/ras.h                    |   17 +-
+ include/ras/ras_event.h                |   71 ++
+ 25 files changed, 2510 insertions(+), 23 deletions(-)
+ create mode 100644 Documentation/ABI/testing/debugfs-aest
+ create mode 100644 arch/arm64/include/asm/ras.h
+ create mode 100644 drivers/acpi/arm64/aest.c
+ create mode 100644 drivers/ras/aest/Kconfig
+ create mode 100644 drivers/ras/aest/Makefile
+ create mode 100644 drivers/ras/aest/aest-core.c
+ create mode 100644 drivers/ras/aest/aest-inject.c
+ create mode 100644 drivers/ras/aest/aest-sysfs.c
+ create mode 100644 drivers/ras/aest/aest.h
+ create mode 100644 include/linux/acpi_aest.h
 
 -- 
-	Ansuel
+2.33.1
+
 
