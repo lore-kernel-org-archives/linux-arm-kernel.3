@@ -4,84 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CF76C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 13:33:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C055C02185
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 13:42:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7Jxfu41iCy3/Xl/2SlMHlq/E6+bEJVMK0dEbie6RGZA=; b=xF1A5RwFHZ+4m7BvulTjSo/7eY
-	DInk9tHvuanN4vxAqZIFjc2BYQB9dA1fNruDLI5WGpgtt2CNlrq8MQB89jWBV7wv+BwDnaCQffgI6
-	1+onnjLy8+PF5w9qW+rhv45uuIkcTKZ73Qvm44GZ7g9kSHgzwZ1TMBuCzSMBRGoYSrtZ7gt57RSKZ
-	KFNfZYektrtXw8jcyu3bGehoCC+yAhJAoj79S5Mb9ypLXHu/xjfWIrpB+mjrBQAGiaBTLz9HBuevM
-	xwNOh1PrVOx6T5ced8obzDAz4mKmUCRPIk2OpsphsrcR4NNu1O3ip8B6WMCRG4KU31i+/VePVjvHJ
-	2FoY14iA==;
+	bh=SjRxHp95fgWw/A/HfteiujvMA9qxAfC7IB/XFcENGNQ=; b=WRY6mDD43rOyCSs1o78m7l6jNs
+	+Dcrw+zjbvyEKhTxrKSjylOEcpO8hBKTeQxhpCp/t48yxkkVQ+E/a97V+p8wceB08+Rp3t9ikd73f
+	deStotxUdsqAXEtti3ITVjNYqL5Ccsd0AkvLjA8SCMtW0Ev89+fMbyy76RlSdH+r9lD1S3L5G8ury
+	PThMaJFFvxerekVZDuVA0KsgcKeoT2nKkhWhNPztHYe+lk+ZMN1Q9JXV4fqW+Drncy2K24SswxkXi
+	cArgr21BNHxk/sctwmTAvpE04Zm3OwBVdkOQpAgMok4XzwMnGphXKsvGmvSr19NtQNS4/RctGhbaM
+	+oTJrm1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY3Vn-0000000Bz9x-34vu;
-	Wed, 15 Jan 2025 13:32:47 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tY3em-0000000C182-2DFS;
+	Wed, 15 Jan 2025 13:42:04 +0000
+Received: from mail-pl1-f178.google.com ([209.85.214.178])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY3TT-0000000Bygz-1mp5
+	id 1tY3dX-0000000C0tZ-1JC6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 13:30:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=7Jxfu41iCy3/Xl/2SlMHlq/E6+bEJVMK0dEbie6RGZA=; b=Ij3Sj/Txb2dxOJgo3P6GgArB+/
-	dEwiCa+37ZNiUwU0vMWkSRkhXvTogV3InoFtWWh2wqagd9Zjs5v4p5SaaJBMjx4HbDjyeWCYxm17j
-	gkhD2tSn1E2sWqOKsblQoPD7u3iP/onq5igWETBEd8eJ9Cp0Wr9GQFrhWHjEi4xkdokI=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tY3TA-004nPe-5A; Wed, 15 Jan 2025 14:30:04 +0100
-Date: Wed, 15 Jan 2025 14:30:04 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Jacky Chou <jacky_chou@aspeedtech.com>
-Cc: Ninad Palsule <ninad@linux.ibm.com>,
-	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
-	"andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"davem@davemloft.net" <davem@davemloft.net>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"eajames@linux.ibm.com" <eajames@linux.ibm.com>,
-	"edumazet@google.com" <edumazet@google.com>,
-	"joel@jms.id.au" <joel@jms.id.au>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"kuba@kernel.org" <kuba@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"minyard@acm.org" <minyard@acm.org>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"openipmi-developer@lists.sourceforge.net" <openipmi-developer@lists.sourceforge.net>,
-	"pabeni@redhat.com" <pabeni@redhat.com>,
-	"ratbert@faraday-tech.com" <ratbert@faraday-tech.com>,
-	"robh@kernel.org" <robh@kernel.org>
-Subject: Re: =?utf-8?B?5Zue6KaGOiDlm57opoY6IOWbng==?=
- =?utf-8?B?6KaGOiDlm57opoY6IOWbnuimhjogW1BBVEM=?= =?utf-8?Q?H?= v2 05/10]
- ARM: dts: aspeed: system1: Add RGMII support
-Message-ID: <f28736b5-f4e4-488e-8c9b-55afc7316c5e@lunn.ch>
-References: <c0b653ea-3fe0-4bdb-9681-bf4e3ef1364a@linux.ibm.com>
- <c05c0476-c8bd-42f4-81da-7fe96e8e503b@lunn.ch>
- <SEYPR06MB5134A63DBE28AA1305967A0C9D1C2@SEYPR06MB5134.apcprd06.prod.outlook.com>
- <d80f5916-4918-4849-bf4e-2ef608ece09d@linux.ibm.com>
- <SEYPR06MB51340579A53502150F67ADEC9D1F2@SEYPR06MB5134.apcprd06.prod.outlook.com>
- <bcebe5ed-6080-4642-b6a5-5007d97fac71@linux.ibm.com>
- <26dec4b7-0c6d-4e8e-9df6-d644191e767f@lunn.ch>
- <SEYPR06MB5134DD6F514225EA8607DC979D192@SEYPR06MB5134.apcprd06.prod.outlook.com>
- <e5178acd-0b6f-4580-9892-0cca48b6898a@lunn.ch>
- <SEYPR06MB513402FD4735C602C5531F499D192@SEYPR06MB5134.apcprd06.prod.outlook.com>
+	Wed, 15 Jan 2025 13:40:48 +0000
+Received: by mail-pl1-f178.google.com with SMTP id d9443c01a7336-21644aca3a0so148844285ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 05:40:47 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736948446; x=1737553246;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SjRxHp95fgWw/A/HfteiujvMA9qxAfC7IB/XFcENGNQ=;
+        b=eid+WSBQjfDut1Cs1OjktdaTzM2YhX5wn6uW74EiHvBTrJQoRhmsTuJGIlX1Zjr8UF
+         V4Ahj9m6Wc315x3vb0PzUUS4IOwKO6NpXsdkeM+8HqBbQlez/riFovzthicQKwEpBsGK
+         0NBAi9X6Zmu+rAqvd+CcCfEJkUkakNkUqevpeED5+G8G3sDAKzlVRF1H96l3bwciklwg
+         Xmd8qayXSwVNFyeUsTOoC+Q10miNaUBqzFpqj4KbwwpJVSz9oMYgGL1nm1S8Mx9IN94Y
+         BkQTtS3uAeO81xWg/NjQPugqyd2+9aY5C+v+W1w8VTD0E+a4wuBRS7TAVLwGCpPuSnqG
+         A56w==
+X-Forwarded-Encrypted: i=1; AJvYcCXQTyzufzK5SnhRNFIspcK0AnIMhYTeNg6rX1zMPjuzBAnbSKdCwwGefsqlBxSHjraCFyTUos0/QAF5K7N6ET/n@lists.infradead.org
+X-Gm-Message-State: AOJu0YyOhxIXTGq6p9qgYFJ/meYi0ascaPutShMsSPks9lhwIs5kXxVH
+	XgiGdVe2c3wYiHdxFql+Qb49sIrEE1ToAvZ0cwNsMFdtB1RBveoA
+X-Gm-Gg: ASbGncsWXco+ZXaPgSfcI4gRlRwt8bFJ6JuDJhbb1VSNwan/WfImWLKjPNzXHkn3lTC
+	SdXZ2PU9AI5llAYaFkqeioGF1FIeCJLtprZqXRa2HIRQQFBeVEk/rHkTIeg/jyWy80mfZzqUGv5
+	l9xaj5kTY3FeKqHHfPrbpVhZnUAaWFRrGXpu0oj1/SqYCLQ6qSO9IeJBbSoJuFSjNxvOL3Y+OvN
+	GS1IbmWWslW8Thjy7JPyYc587pfMyjugZpez4aqTy1gyt9P3hxTrmgaKgSSbGiWfoab3dqPihz4
+	a5TDjQlb4QOb6MM=
+X-Google-Smtp-Source: AGHT+IFBc9u2m9CIKKe0EemdS8o4PhYCZliHYxexP/9pM9Xw1hjCmQoL6ghLKLnHjOXUvJ+g6cNyvQ==
+X-Received: by 2002:a17:902:cec3:b0:211:ce91:63ea with SMTP id d9443c01a7336-21a83f56f9emr450296855ad.15.1736948446445;
+        Wed, 15 Jan 2025 05:40:46 -0800 (PST)
+Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21a9f12f919sm82767655ad.69.2025.01.15.05.40.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 Jan 2025 05:40:45 -0800 (PST)
+Date: Wed, 15 Jan 2025 22:40:43 +0900
+From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: l.stach@pengutronix.de, bhelgaas@google.com, lpieralisi@kernel.org,
+	manivannan.sadhasivam@linaro.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
+	frank.li@nxp.com, s.hauer@pengutronix.de, festevam@gmail.com,
+	imx@lists.linux.dev, kernel@pengutronix.de,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v7 0/10] A bunch of changes to refine i.MX PCIe driver
+Message-ID: <20250115134043.GA1049031@rocinante>
+References: <20241126075702.4099164-1-hongxing.zhu@nxp.com>
+ <20250115130406.GS4176564@rocinante>
+ <20250115130609.GT4176564@rocinante>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <SEYPR06MB513402FD4735C602C5531F499D192@SEYPR06MB5134.apcprd06.prod.outlook.com>
+In-Reply-To: <20250115130609.GT4176564@rocinante>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_053023_460836_67A05748 
-X-CRM114-Status: GOOD (  12.02  )
+X-CRM114-CacheID: sfid-20250115_054047_354210_35A687C6 
+X-CRM114-Status: GOOD (  16.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,29 +92,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > I already explain how this works once. Please read this thread again.... The
-> > MAC can apply the delays, but it must mask the phy-mode it passes to the PHY.
+Hello,
+
+> > > A bunch of changes to refine i.MX PCIe driver.
+> > > - Add ref clock gate for i.MX95 PCIe.
+> > >   The changes of clock part are here [1], and had been applied by Abel.
+> > >   [1] https://lkml.org/lkml/2024/10/15/390
+> > > - Clean i.MX PCIe driver by removing useless codes.
+> > >   Patch #3 depends on dts changes. And the dts changes had been applied
+> > >   by Shawn, there is no dependecy now.
+> > > - Make core reset and enable_ref_clk symmetric for i.MX PCIe driver.
+> > > - Use dwc common suspend resume method, and enable i.MX8MQ, i.MX8Q and
+> > >   i.MX95 PCIe PM supports.
+> > 
+> > Applied to controller/imx6 for v6.14, thank you!
 > 
-> Yes. I have read these mails.
+> Richard and Frank, please have a look at the code to make sure that
+> everything looks fine to you.  There were some conflicts while I applied
+> the series, and I want to make sure that nothing is broken.
 > 
-> I understand what you mean.
-> "rgmii": delay on PCB, not MAC or PHY.
-> "rgmii-id": delay on MAC or PHY, not PCB.
-> 
-> ftgmac100 driver gets phy driver handle from of_phy_get_and_connect(), it will pass the phy-mode to
-> phy driver from the node of mac dts.
-> Therefore, I use "rgmii-id" and the phy will enable tx/rx internal delay.
-> If I use "rgmii-id" and configure the RGMII delay in ftgmac100 driver, I cannot pass the phy-mode to 
-> phy driver.
+> Thank you!
 
-Quoting myself, yet again:
+I moved this series to the controller/dwc branch as we have changes there
+on which this series depends.  Hopefully, this will solve the build failure
+we've seen on our next.
 
-> > MAC can apply the delays, but it must mask the phy-mode it passes to the PHY.
-
-If you decide the MAC does the RX clock delay, it needs to mask that
-from the phy-mode, otherwise the PHY will also do it. If you decide
-the MAC does the TX clock delay, its needs to mask that from the
-phy-mode.
-
-	Andrew
+	Krzysztof
 
