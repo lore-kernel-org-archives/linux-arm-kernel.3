@@ -4,136 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00A91C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 11:42:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D808FC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 11:49:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:From:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4WUzex5fHpwGtQnlSwIxsUhSFxGF3pEeVGqz8SDZU2s=; b=oEipiBzFng5OehG+PG8BujRrwc
-	JWecegTIZ21MCGWZp0DpgleR2VOFtLsLLYKJFqicu6w15pgaow/AOJ7InabytTodVJjTY5yyMfSD+
-	UUW24Fjt9N84ZHeAYFQCm3FA5m0OFQoMZ8SIEBBhhS3xJRh66YTOsNyFpIqU9jzfJlvdtSIuD77hI
-	uEKeBEGcMLQXS5zM1213cu40QNSCWRy46vJb2GKJcqLnZ7eH05uW6lmQ9h+l94di2L+Jg8qtutdIC
-	6ZcXCCE2hSi+fpTcLSrdJEg7wRRjZAOUfOpo2ne8kb0lCSwLnJGTq4E6Tzv450I2DwaBQ/7YKT4bC
-	yoyLJIag==;
+	bh=8uUbNfzpqxPt1PcWrOpI2ALqgDvkaqQWav9w9/zNJho=; b=NaZ+iewkh+HrEGbhNUT++Wb/AD
+	wK0YK48G6Ox6R6Bd912gMDKywSKNElbIPIUvu38oDnok1aFKpU27EOYjm2V3umb1C1RZ7XbtGcrfz
+	eIwmgqLY9pFGgFzSFFT05vBKYL5brsmTUJJ3v5Zdw9iuTNkD8UKZ1CIKznkVWQjmtdaF3gSnNLUR5
+	P4MZEEg872a07b8SmwUiDdPmkqbHq/scbsA0M1uQ6cvU6pmEFy6YDXfpOBKuZeGJo5VUPn8YZKROI
+	i7hEj47jXqpik8JPcV09b3+OfdU/VXXim0mkFmIjhp8YH9lsZ/Ln5yn+1Sk6UueL14XhkPUpeMgqZ
+	PYYCbLBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY1nD-0000000Bj6a-0knD;
-	Wed, 15 Jan 2025 11:42:39 +0000
-Received: from mail-mw2nam12on2060b.outbound.protection.outlook.com ([2a01:111:f403:200a::60b] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1tY1tf-0000000Bk4a-0cNU;
+	Wed, 15 Jan 2025 11:49:19 +0000
+Received: from mail-koreacentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c40f::7] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY1hp-0000000Bi32-40Sw
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 11:37:07 +0000
+	id 1tY1sP-0000000BjzI-3PGi;
+	Wed, 15 Jan 2025 11:48:03 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CwLfvoqbFT+Z0SEyPJYIz2eBxozgIKMv/8l1KWKA3rD+S0dijSHrDafL5he6AkEI3pjnHdV1oLoRvL3lVJaNYBh6VKimcqIvLo2hi7oB+LajpaBFUAwTr/U5aEy2Rp+Mp6JeW+ybBVCrCciEZV5kp5MIjSA913RAwNGfl+HS5osgg2IQftA/Xtvoi+4Uv5iIp25yyGxgoNG5JOPVhkOVmrWo9r5DRuA4QiU0WNmdc5C+6ai7VFzdtnT+PHNEuTJm6gNJxdXsbL5ETy991veH7zskmXmapJZgE4ANQpaD9XRAzE89v82QDPYDF0p02PVjjMoDJjJbCZxjHkCEviNdGQ==
+ b=dHcd2TDGYB6tK6vB3nuijlfm8zzkV+7O0iWpFl5vI2wNoRjl+c61glTrGf1lAOvykjMVyZYfH4C6YFpYdo9AHM0W7WGLrHFmtz50I4SgI1nafmYsEXiIhZrVElejEvSpYmcE7l60VxK4LV1kAp4uBqM3xUwMgZ0ROSYvNG7yHzQe85s2+F8m8Lhxyw5ENJYWyKDzwiFklExwfFBeWtQp4Bd7y+cHGAcPNhkfkltvcguyanPgc90vezbsuZR653t0phJ2Izq3EtTwRUM3dn52wUizgF6smud6djTdhqeQ581MQ/63aXNTdEj8EPBybW3gGH3kmpx4B3LLs6PS0xVxJA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4WUzex5fHpwGtQnlSwIxsUhSFxGF3pEeVGqz8SDZU2s=;
- b=WEXatho3pcDgXFrRct8Lm6uztBTIqbweu5ql1EhEsIpHgsMgCXxK2euPxQD5mpxO75m90oBz4YVrRYtaQR99tlcGz+Q4yVmPoff+op7AZ3IhIxvRgNb9wTu4iI574Av6fVFqYf4it+QZyrRCQBfqPBL9rPaTNVNSsI0njUyMdvM5vk+qnSIJrB3xB9aZOGMHbaAUDz0fEE/egHL2sD8dQeDP8h9jAp9K9LIoz+7PwlPJJxa0tphgMxIMawFIVKgdJFCDKSTgfP3Rq3Bg/SKa8JBcAg9Fub15fnLwQCLPuxOALhjXU5YZ2PH7FRrLklzapPwpokZjcUKO5GoS7C32SA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=linaro.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ bh=8uUbNfzpqxPt1PcWrOpI2ALqgDvkaqQWav9w9/zNJho=;
+ b=YMvjsfUP7BrekJhh3QzqveySkI/4hewQppL1UORIG/wa+SOzfb2YXez+LD6Fz6eyGsZYg+lsheERITaUBSmy0WgEQoN7CYk6LftV9DQ7Z1rns53jBLAQQuTDC51dAMvqEy/oRCw7iYSoXI6GVbJHfHvXFf+sUNVva8QbwlvhuBI/FsSTWSpolA7H+bdeM65RzVHDCQ3oZ097W0SuLoIWFhPaFrI6hMDgmzuUfTpmGvJXq8qDmTxmdmLxb7Q4rGmkfTD/orKL9HgD0o370cCOjiKvB0DUo8bx54ME06er9zVXRYlnlp/Vqf7WCYi6btZnVo4UhnihQLXKQtXJjsEVYg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4WUzex5fHpwGtQnlSwIxsUhSFxGF3pEeVGqz8SDZU2s=;
- b=nn+RJ0nsEmZns+ffgv7Y/eivMc082hQx3G/e8NtPxaMcLyUpySwwZ75Get3P+8prBZde825r+y0a4a+4c+d0QaANMuRGMYNM1Q+DTEI16Pxl0QhjVINW1X1JLDH7N8kg1tZu7QMCwozli17U+v9jKP0fwcUDAGKmxu9Ss7m+BQk=
-Received: from SN7PR04CA0060.namprd04.prod.outlook.com (2603:10b6:806:120::35)
- by PH7PR12MB5594.namprd12.prod.outlook.com (2603:10b6:510:134::13) with
+ bh=8uUbNfzpqxPt1PcWrOpI2ALqgDvkaqQWav9w9/zNJho=;
+ b=AH5RlOjr0UpADF2vubFDxS5ytAXlyNDjvbONcYDi0Om0Qxicb08R/ZeOmGrYssickKbMoAzm2zi9VZOYJ+tbKGRYNV3PkMoYPVYTiI9GeJqnFgmzUWAInf4nppUM9Zql12IOz+NFyxEQ5b8FU2Hf5C55EyPErghQfDahmoiVu2vPdl2qS72NZJBEjf3j3uzcJwN/UJ/fG3EY6K3MZemVmYL41nDiHH7M/pzXvqldH8WjQbFNYqsffzuYfXZKxF+pHl9p3vXY2Z+jGJZTx/kfhXFTqJXh10mk6iAtqE2L5XoOw4QygaHDOzxBRoHwyvZvSbip+blUwCSRTLiEUI1Lyw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from PUZPR03MB7135.apcprd03.prod.outlook.com (2603:1096:301:113::15)
+ by TYZPR03MB8557.apcprd03.prod.outlook.com (2603:1096:405:6e::14) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.13; Wed, 15 Jan
- 2025 11:36:57 +0000
-Received: from SA2PEPF00003AEB.namprd02.prod.outlook.com
- (2603:10b6:806:120:cafe::84) by SN7PR04CA0060.outlook.office365.com
- (2603:10b6:806:120::35) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8356.13 via Frontend Transport; Wed,
- 15 Jan 2025 11:36:57 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
-Received: from SATLEXMB04.amd.com (165.204.84.17) by
- SA2PEPF00003AEB.mail.protection.outlook.com (10.167.248.11) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8356.11 via Frontend Transport; Wed, 15 Jan 2025 11:36:57 +0000
-Received: from SATLEXMB06.amd.com (10.181.40.147) by SATLEXMB04.amd.com
- (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 15 Jan
- 2025 05:36:56 -0600
-Received: from SATLEXMB04.amd.com (10.181.40.145) by SATLEXMB06.amd.com
- (10.181.40.147) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 15 Jan
- 2025 05:36:55 -0600
-Received: from xhdmubinusm40.xilinx.com (10.180.168.240) by SATLEXMB04.amd.com
- (10.181.40.145) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
- Transport; Wed, 15 Jan 2025 05:36:52 -0600
-From: Mubin Sayyed <mubin.sayyed@amd.com>
-To: <krzysztof.kozlowski+dt@linaro.org>, <daniel.lezcano@linaro.org>,
-	<tglx@linutronix.de>, <michal.simek@amd.com>, <ukleinek@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-pwm@vger.kernel.org>, <git@amd.com>, Mubin Sayyed
-	<mubin.sayyed@amd.com>
-Subject: [PATCH v4 3/3] pwm: pwm-cadence: Add support for TTC PWM
-Date: Wed, 15 Jan 2025 17:05:56 +0530
-Message-ID: <20250115113556.2832282-4-mubin.sayyed@amd.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250115113556.2832282-1-mubin.sayyed@amd.com>
-References: <20250115113556.2832282-1-mubin.sayyed@amd.com>
-MIME-Version: 1.0
+ 2025 11:47:36 +0000
+Received: from PUZPR03MB7135.apcprd03.prod.outlook.com
+ ([fe80::ecac:a387:36d8:144d]) by PUZPR03MB7135.apcprd03.prod.outlook.com
+ ([fe80::ecac:a387:36d8:144d%3]) with mapi id 15.20.8356.010; Wed, 15 Jan 2025
+ 11:47:36 +0000
+Message-ID: <af4fde1c-281b-4826-a52c-a4e14727eb67@amlogic.com>
+Date: Wed, 15 Jan 2025 19:47:32 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] ASoC: meson: s4:support for the on-chip audio
+From: Jiebing Chen <jiebing.chen@amlogic.com>
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: jiebing chen via B4 Relay <devnull+jiebing.chen.amlogic.com@kernel.org>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org
+References: <20250113-audio_drvier-v1-0-8c14770f38a0@amlogic.com>
+ <20250113-audio_drvier-v1-2-8c14770f38a0@amlogic.com>
+ <1jwmey9451.fsf@starbuckisacylon.baylibre.com>
+ <e2f26ca2-4c38-4b07-bf17-95544588a2f2@amlogic.com>
+ <e69cd38e-898c-4cbc-a327-14148a71c764@amlogic.com>
+ <1j8qrd7aor.fsf@starbuckisacylon.baylibre.com>
+ <e5055b4d-7a10-4a5e-ad85-d94c1f64eb03@amlogic.com>
+ <1jr0545v8w.fsf@starbuckisacylon.baylibre.com>
+ <7cf4c53c-7cd2-402c-9e31-f85767ead932@amlogic.com>
+In-Reply-To: <7cf4c53c-7cd2-402c-9e31-f85767ead932@amlogic.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
+X-ClientProxiedBy: SI2PR02CA0002.apcprd02.prod.outlook.com
+ (2603:1096:4:194::22) To PUZPR03MB7135.apcprd03.prod.outlook.com
+ (2603:1096:301:113::15)
+MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF00003AEB:EE_|PH7PR12MB5594:EE_
-X-MS-Office365-Filtering-Correlation-Id: 34a2b934-8db6-4843-91f5-08dd3558eae9
+X-MS-TrafficTypeDiagnostic: PUZPR03MB7135:EE_|TYZPR03MB8557:EE_
+X-MS-Office365-Filtering-Correlation-Id: 85984c00-af9b-4b4e-9e1e-08dd355a67ac
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|1800799024|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ZWYt3FM49hNqrze4aRjsxwXc+bm7xoW/VSjcuOgB3lGL+rj6T0lL3G7qwJwB?=
- =?us-ascii?Q?inTzOMbTmLMN/XvEaGTqJNcFLT3e1iXNUfvwlS4T8KR7Skogb8Ap6isipVMC?=
- =?us-ascii?Q?qG3i5/tfYxDWH4/N+cQCCfwTuY3bSxL1ddi/87kWLT1IqF/GGC7RW0u7itE8?=
- =?us-ascii?Q?F4OkURwKvbfFfeV6yBmPY9JoCNe22V+PSv6WYC4DrR6WJowK0kkRbENjvz21?=
- =?us-ascii?Q?DFsnPcviRV9psA7n922hMj1en5eZNyQ3DCKm+qC9GIdE/QvoyqD8pu46YJbw?=
- =?us-ascii?Q?lXQa/0jZT1JMpp1P1W89kRS/dwC/N8PffQ4dN+oqBidFU7THnfYPBSa3tPKg?=
- =?us-ascii?Q?MX1dGvUqFVXdlvkmeLDGyqO90y70orgl9EdjNkFLDeM5AkMWRXV6hqJ0B4DP?=
- =?us-ascii?Q?8WSS0S7E0SJgg5A652WsYUCz0p1GthOj+vUdcvQAO2Vc9RofcOsXMmtaOGL5?=
- =?us-ascii?Q?1Fcbv+dPSSobmfRhk62VRb1DbOi+M8LHhlNmVUlXRv5e10MkT+w/2M0A/Bia?=
- =?us-ascii?Q?fZh0TwsrocWRWIXMeFZWfAl+E28uTjwzzSFO5CJI7KDx19RgOjUX9jHbRFT6?=
- =?us-ascii?Q?hKQvjMkk+VM7NNOgFOb15T4qi2LSlkWvg1iiqwI6yAtiSiCosIYDeLTv1x/z?=
- =?us-ascii?Q?IdL5ZeiP1aLc9575nJtk24ZA6LarotyPoBC5z1iahOMhqGcKZV5r7TmlPhPn?=
- =?us-ascii?Q?RcIH/NP/T6C2s8Nvs92Rg7lVanAX3d/FJOVJaAr/yGlZGz9gF/QsBLElcXaE?=
- =?us-ascii?Q?T+v0I4W0t+U/m9h8bD+gkF+BQvHc6lUd1fT0H3lE62uW/O6UyVzaEMjz1yMu?=
- =?us-ascii?Q?KIkONKsuCA1+pZ6JtY9w7oLe5CQt7tOSFfRF7w8+W80NpUAc3qP2On4d9V4n?=
- =?us-ascii?Q?q7LisWK5mvuT/fm+RZdCwm8JeQqwpzy/dIi+/drYtzQmJ32TQeyyKZbyYIdX?=
- =?us-ascii?Q?42DY6MBhlsTpz+zhj/7XMv+jYsBiqdVs2ElDTIYh6tko+resV7c55804/yXb?=
- =?us-ascii?Q?DSpDn25FSZQlTP8DO5//o3JhVJbCqS4/xEsCtbd/jOaQJlOkJp0trhm9S6AV?=
- =?us-ascii?Q?8A2NZaTaOesNbxJYt5GsNlyLpSFdZCbpo4WsNmc3iQ5QSNrsz4PsfNEEeIxp?=
- =?us-ascii?Q?v/RLFialHwKCujIgTY120VJIZsTWE6NzgQytLewPN6MZhJLTsfBX+PrrmdBt?=
- =?us-ascii?Q?DDlHSciEHeTz/gvBiiOQqxk0zfE90bmcJ5C9j5wcXzheprByNuzXUi/BBmnd?=
- =?us-ascii?Q?d3x9bOZFWcT5KJy+xHdgVMMexXW42Mv5zkbppJ27Ugq4gtWlREciG/iKb0ij?=
- =?us-ascii?Q?c25O5deUoa3cYWgs4zEVyDoS/mCe1w69nzUz9FLPx5ShYySJqmwuTrIMFXTp?=
- =?us-ascii?Q?mYXeeztihgxScsxH/umtnElqpWyS75HXwcWxzS9DUWdjYMPyALSiHCS1AjM5?=
- =?us-ascii?Q?GhNqKFWOgu4=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(1800799024)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jan 2025 11:36:57.0110
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?QW82aXl5WDlUM21GTWUwd0VTUHRwNjVJbmxqNzN6bnpQVHZyTyt3bms5TjRF?=
+ =?utf-8?B?bjNCbTRhOUhpYlQ1VWQ2T0tqc1lQVThIVzNxUEs5OGFVY1RqRkVOMzVSdTFU?=
+ =?utf-8?B?L0VVRmlxRlo4aDMzSldBeXVIcFZnSDcwMVgzd2I0MVhGNjFya0htQUZ0S0Rk?=
+ =?utf-8?B?ZVFscytrRWNHRXR5ZkMvZGY1dVc5dzhqUVpFcGRVUWpvTWdVTzhIYStUSW00?=
+ =?utf-8?B?S2xKSGxwdUFRRGhpZ01jTnpiV2Jjbklwbi9neWdGRk0vRTdMTlVFUlUwbmY2?=
+ =?utf-8?B?MUpvY2MvSllnTDV2SC9mcnVLSTNFYzlmOTJTMFhsMmRkL3lSMGRWdnBZRUI2?=
+ =?utf-8?B?OUFXaHNmQTlDbjFzN0JGU1NTTVR0TitRczBEdUxuR0N6RXZlZ1NVM0NLQ2FB?=
+ =?utf-8?B?L0xGQ09rcVJhTjhvNTFxQXA1cHdmSEx4UXlXeHFJMk1ZR2dLdkNtN1hOanZv?=
+ =?utf-8?B?VHRJRUJwNnZuT1FWY0NhNVMrUTV2SnVrcCswamVxZWdWVzBBU0FUcE5HUElF?=
+ =?utf-8?B?bDdmVmYzdUdTSU1mbXF6cEJ3NHQzcHVXUjhPeWNNQkdPREZ3SmhZYWUrSlFC?=
+ =?utf-8?B?QlRiZTd4amMwT2o1QXR0TVNqclVkNStzVS9pY3FaQ1d1WFNJYVBUZkFwYmtx?=
+ =?utf-8?B?bWdKZlpOOCt5ek5vYnl1dGtZMVRENS9oSkhrNXNUaTd5YlRYbUQzSEZrMnhp?=
+ =?utf-8?B?K09kNFI3Sk45WDBBSUR0ekJHQkZHcFRBN1BzZEFVQ1NqVTdpbWRWNTQ1QnFj?=
+ =?utf-8?B?MHRoV0xOMXdUdXJ2Y3QvOHdQN3p1MS9INWhUQTA0Y1czYzMvTFlXMVhzM280?=
+ =?utf-8?B?OTFaR0Nhc2orelJKUEZvcUxkVW5ZM2QwVzhLN1ZKZUlndmVZeXp1UmRFRk10?=
+ =?utf-8?B?Vmx4RzF5amRaK1BWZWU3UGRBempweXB5Y05WbVpNOVhZOHZHaDRMT3lqNkFn?=
+ =?utf-8?B?S2NiajdrUStRaldlWlZXU3RSZnBHeTFteXFDdjI3ZURkNjQ4ZnpmYklpQkww?=
+ =?utf-8?B?dlp4Tk1zemtQZzZzOC9jOElYYktkd3BwOUdhMDRDVjBMZGF5cjcveDIyelVB?=
+ =?utf-8?B?MXQ2MEhBQnlqOSs0b1dDT3pmd0Y0VWloYXpSbmRhMWZkdWVndVVTbE9JWkYx?=
+ =?utf-8?B?UEJtL1BOaklFcnJjN3lFdlNScTBuQ0oyRkxWWlpLdmNJWGRBMFlxZTVQS1gz?=
+ =?utf-8?B?dVNlYlI1c25MdDlRclJNWnlQdDU2MU54UWpyT2VkQXZjeWF1NW5yZ0FHNzJp?=
+ =?utf-8?B?SjJTVmxRRWxDd2ZDRnBEL2YwMWhQMWt3YXZWUkFmSmlWaGxOWGZTbnExWFdq?=
+ =?utf-8?B?amhmMUVaR3g0ZUlFRFUyWXd0TDVpM09WZXlmVnJZa08rb21CTVBjbDNxejNu?=
+ =?utf-8?B?elR2TS9zRHp5eDEyUU5tRzBGQVp4bGZTZmo1cW1VOXAvcFV4Z3ZXS2UzVEp2?=
+ =?utf-8?B?WDMxODRzbWFveDRtWUFiU0N6ZmdrNjEyTGFjOUJPaHNlUjg1MFI2b29NMUFU?=
+ =?utf-8?B?SHQ3TUx1d09UencrLzdxZW9vMkhTSHJJLzJQQ3ZmdXNGY2VvaXBkbENNdEJy?=
+ =?utf-8?B?VHl6b1U5VisxczkxQ2RjdGc4cmJHQUFSK1JUVGQ5bHE4VG9aUDVmRGtqUWdh?=
+ =?utf-8?B?cmM4R1FFMW4wNTM4VzlxTDgrYVlUT0FkVU5vZEh3NDE5VkI1dXEvclBzSDdl?=
+ =?utf-8?B?WndjdkFsYXRXMUFGeHNrSG5SaXloaDJ5NmZEbldjN080WElmY0ZrTTl0YUJJ?=
+ =?utf-8?B?VjhZeW10YUMxTmpDU01NYTYwVVE1LzVZVW55WmtlNmh2ck9oU3UxNXQ2L2FG?=
+ =?utf-8?B?bXpjOHZMMG9uS2h2NFRBMmh2WWRRTGxGMHNMOGlJRnNMd3JKKzg5cjZtMnNE?=
+ =?utf-8?Q?gPJsf3iopCWYq?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PUZPR03MB7135.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bmQrVmpBU2hzRHNPK1U5clAwRDB6aUg3dkhjSG4wdHZvMWs4SlE4cms5Sjd6?=
+ =?utf-8?B?TCtsMmJBZkNndDlZbm51bDhZcFdidXg0MFVkS0xFc0dHV2F2Q1hSRE9Vd1po?=
+ =?utf-8?B?eUdLSXVnYXNSaE9KUUdiSWtmdGFBUFkyWXZKbjFDazBWcUlPY3RySFBoYm9W?=
+ =?utf-8?B?Y1NyMUxqTTBOVktWYVRieVQyNTMxQ01TWi9YMHpyaFAzTTg0Rmx0SVNPYTA2?=
+ =?utf-8?B?ZG5mVWlQUVdHYmppa1RrOCtiR3Y0YmxFa0xHK1R5aUNBbStJczhJYWtKamJM?=
+ =?utf-8?B?WndkUEJKRzgwbklkaTFEQ2dpZnJodWtqaVNqSnZjQ29qcXpCSkNaVmpuSzF6?=
+ =?utf-8?B?QVdyOXZRVXJRMkR0OXlYZnZPcXd1R2dSaEhOVU1oYzB0R1VnVEVLbzBacVFn?=
+ =?utf-8?B?Z1ZvVmRNMnV4cjU0bzkwbWFrWVdTZnVtSUlCWHhPdFhWNGdEdy9qdDNjQlcz?=
+ =?utf-8?B?WTVjd05aQkxUaU1WQklhUkljYk1ybEVrOEZBVUZRMjQvWWJEQW93YjYvQ0tT?=
+ =?utf-8?B?MFhkTmwvLzV2cklodWVBSVlITjB2ZW5qRzdBWDJzYmZEV2w2TlowcnZVTUZv?=
+ =?utf-8?B?WGl3UmYwYmVlS29XdmV0S0ovdkE2aGVta25IQlJMTTd1VVBpTmpGMnpobXJt?=
+ =?utf-8?B?dmREczRHckdXdzd3bWFhMkkwZS9xaWk2eHgvNS9DZVBVMnU2U0V0MjRUR3gw?=
+ =?utf-8?B?aUFzYTBvUmQvV0JEQy9ZZmFXcVR2UFRNbm1ydkJ2dzFuSE9QcUZ5QjdTU2la?=
+ =?utf-8?B?VlRFTmwwTHZUQWllVWkwZStCMW1SaWU3enlZRVZFSUtHT2g5ZGtCYkZ2TmxT?=
+ =?utf-8?B?VHN6eXlWMDRiRE1rd0ptaW1ranpPRUdQWG9paHExVkpKaXRaZG96M0pEZytB?=
+ =?utf-8?B?eFFZTEtTYTV5TmRPOFN1eFVINUJaZTZ0WkcxQ2tvS0dDUGtkT3ZCeGZ4N0xC?=
+ =?utf-8?B?eGh5RUhxMW04TzFyQUhEVjB0SG1nbzQyanAzNHl4L0c3Q0V6MjV6ODFVa1JS?=
+ =?utf-8?B?L1pDaUc0M092b2ZTSWFsc0htV3NQdVdXaFg2b0ltZWdXdEEzNTRPYWVYRzYy?=
+ =?utf-8?B?SGo1cFZKV2ZESVdEL3BjblN4QytKcWFiM2lFbFg1dVVSdjBZM0N2dDFLV3c2?=
+ =?utf-8?B?QURjMnpiWm9NRzI2OWFzUDgzYzAxMzdlcWsyUmpLWndMVXEybGtnOXVPZWg3?=
+ =?utf-8?B?ZXBWMkNnM0JjTFpWdUFzKzdtbGVKOVhGYnE3cWhVSU5yay9tdHJEWFFFTUVq?=
+ =?utf-8?B?QXpBcmJSNlJDM3gzZkd0NEdNVDgxd2QyMnk2N0RyNUNYbU9yOEVKaVAxempW?=
+ =?utf-8?B?cTlMeEpJV2MvZ28zUWpLSk93czNBb0RsU3I2MnFUUkJNek51S0Q0cGxsWDZW?=
+ =?utf-8?B?Z2xCdGQrOWNMVDJHdWkrQkprVUg1T1l6ck5QS21WWXFsbXNiZHZxS0xicGpV?=
+ =?utf-8?B?RFprOWZNRXNtQ1BjRFIrVmcyY1VKQ2J2bXNzd2N5RmFvR3dJcE5LeElnbXlr?=
+ =?utf-8?B?eURSWlM2QzF4YitZVnBGMVRhU2ZFblViSHJYb1dvY29KUW1hVE5oczBoaW9Y?=
+ =?utf-8?B?aUVFYjE4ODVtcGFpbjBDSTljMjd5bFVUMW85bXhXN2REUnRHQVhjTVF2NWc1?=
+ =?utf-8?B?Y20vYWEreHc5WjJkVkZKSGxqNWltVzFSWlhvQTdqaEJHUXp5UmVsMEFBN1VE?=
+ =?utf-8?B?UU5ZQy8rajRlQUN4NjBlNjA2SE02WjNzU3JwUVovYzFLUnVjZWtEZEZGSXlo?=
+ =?utf-8?B?V2FGS2NJM3A0S0FEbWJ0TnFjcGxURytFeHdvVXVBZDMwdG04QS9FaHZ3Qno0?=
+ =?utf-8?B?OEFnTVJYYVlJSVRoaDUxbDM2enBFdWxMSzhGSk96TnI2VjQwdXNyVllqR0xH?=
+ =?utf-8?B?RktyMHI0SkowVTJrdHNmcm9LRklCcjI4SndJVTJyc3UyeUZZWUg0MHhDek9s?=
+ =?utf-8?B?OW9DWHIvRTlnWmJVYnQzR2d5MDFUbHViaWNmTEVDQTVkK3lod01xcHg4bHVJ?=
+ =?utf-8?B?SjBqWE1aZnlqRFdjcVcxTTJ6V0ZyVDJJbFFGM2lxSkQ3TmZESzhrTVZwaktI?=
+ =?utf-8?B?Tk9SYXFIM1RXY2JIT21vT2gwMXNJcHBwSk9WVkdxaUtEQkNuTWJleHJ1TE1H?=
+ =?utf-8?B?N0syZXRpUWsyTlVxcGxxVUxJRHZzemZsUU44SXV5anFIS1B6RnltSXprbkk3?=
+ =?utf-8?B?dXc9PQ==?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 85984c00-af9b-4b4e-9e1e-08dd355a67ac
+X-MS-Exchange-CrossTenant-AuthSource: PUZPR03MB7135.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jan 2025 11:47:36.1291
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 34a2b934-8db6-4843-91f5-08dd3558eae9
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003AEB.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5594
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: G7P3t6V7cSUgRJFMMYoOPdLIqtz/r7+rlN3UUvgqH9sARI61zv2ilm/bfdhB+DjJ+ku1Aa0eYnQjQltACIVk7Yan0F1KERkNshxTclPtbsc=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR03MB8557
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_033706_030574_0EBD346D 
-X-CRM114-Status: GOOD (  25.64  )
+X-CRM114-CacheID: sfid-20250115_034801_978438_884C571A 
+X-CRM114-Status: GOOD (  26.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,460 +189,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Cadence TTC timer can be configured as clocksource/clockevent or PWM
-device.Specific TTC device would be configured as PWM device, if
-pwm-cells property is present in the device tree node.
 
-In case of Zynq, ZynqMP and Versal SoC's, each TTC device has 3
-timers/counters, so maximum 3 PWM channels can be configured for each TTC
-IP instance. Also, output of 0th PWM channel of each TTC device can be
-routed to MIO or EMIO, and output of 2nd and 3rd PWM channel can be
-routed only to EMIO.
+在 2025/1/15 18:36, Jiebing Chen 写道:
+>
+> 在 2025/1/15 16:36, Jerome Brunet 写道:
+>> [ EXTERNAL EMAIL ]
+>>
+>> On Wed 15 Jan 2025 at 10:56, Jiebing Chen <jiebing.chen@amlogic.com> 
+>> wrote:
+>>
+>>> 在 2025/1/14 22:05, Jerome Brunet 写道:
+>>>> [ EXTERNAL EMAIL ]
+>>>>
+>>>> On Tue 14 Jan 2025 at 19:20, Jiebing Chen 
+>>>> <jiebing.chen@amlogic.com> wrote:
+>>>>
+>>>>>>>> +
+>>>>>>>> +MODULE_DESCRIPTION("Amlogic to codec driver");
+>>>>>>>> +MODULE_AUTHOR("jiebing.chen@amlogic.com");
+>>>>>>>> +MODULE_LICENSE("GPL");
+>>>>>>>> diff --git a/sound/soc/meson/t9015.c b/sound/soc/meson/t9015.c
+>>>>>>>> index
+>>>>>>>> 571f65788c592050abdca264f5656d4d1a9d99f6..2db1cd18cf2cea507f3d7282054e03d953586648 
+>>>>>>>>
+>>>>>>>> 100644
+>>>>>>>> --- a/sound/soc/meson/t9015.c
+>>>>>>>> +++ b/sound/soc/meson/t9015.c
+>>>>>>>> @@ -89,10 +89,7 @@ static struct snd_soc_dai_driver t9015_dai = {
+>>>>>>>>                  .channels_min = 1,
+>>>>>>>>                  .channels_max = 2,
+>>>>>>>>                  .rates = SNDRV_PCM_RATE_8000_96000,
+>>>>>>>> -             .formats = (SNDRV_PCM_FMTBIT_S8 |
+>>>>>>>> -                         SNDRV_PCM_FMTBIT_S16_LE |
+>>>>>>>> -                         SNDRV_PCM_FMTBIT_S20_LE |
+>>>>>>>> -                         SNDRV_PCM_FMTBIT_S24_LE),
+>>>>>>>> +             .formats = (SNDRV_PCM_FMTBIT_S16_LE |
+>>>>>>>> SNDRV_PCM_FMTBIT_S32_LE),
+>>>>>>> Again, mixed up changes with zero justification.
+>>>>>>>
+>>>>>>> This drops S8 and S16 format support for the existing SoCs (such 
+>>>>>>> as GXL)
+>>>>>>> which is known to work and add S32 support on an HW documented 
+>>>>>>> as 24bits
+>>>>>>> only. Can you explain ?
+>>>>> for g12a, sm1 etc, it is use new audio ip, GXL is old ip,
+>>>> If there are chips difference we did not know about, then you should
+>>>> introduce those difference, without breaking existing support -
+>>>> including for GXL, which is what you did IIUC.
+>>>>
+>>>>> the new ip not support 24 bit,
+>>>> Are sure about that ? that code has been there for a while.
+>>>>
+>>>> If sm1 does not support SNDRV_PCM_FMTBIT_S24_LE, you should a fix 
+>>>> up patch for
+>>>> that, with the proper "Fixes:" tag, how to reproduce the problem and
+>>>> explaining the fix.
+>>> maybe there are some gap , we support SNDRV_PCM_FMTBIT_S24, not 
+>>> support the
+>>>
+>>> SNDRV_PCM_FMTBIT_S24_3LE,  for SNDRV_PCM_FMTBIT_S24
+>>>
+>>> it is  Signed, 24-bit (32-bit in memory), little endian , the audio dma
+>>> busrt is 64bit
+>> It makes absolutely no sense to discuss memory layout for the codec.
+>>
+>>> it can get the full data. we send the 32 bit data  mclk = 32bit* 48k 
+>>> *4,
+>>> use the clk to send
+>>>
+>>> the  SNDRV_PCM_FMTBIT_S24,   the hadware always send the 32bit data
+>> No it does not. It send 24 bits of data over a 32 bits physical word 
+>> with
+>> 8 bits ignored.
+>
+> The original intention, we play 32bit data from tdmout, it play error, 
+> so we add the s32_le
+>
+> for tdmouta ,it can bind Multiple codec, one codec is the internal codec,
+>
+> other is external codec, tdmout can send the data to internal codec 
+> and external codec from the output pad
+>
+> for example, tdmout send 4 ch, 2 ch is send the internal codec, 2 ch 
+> send the data pad
+>
+> it aplay error, due to the internal codec fomat parameter limiting 
+> condition
+>
+> There is a contradiction here,  Considering our internal codec can 
+> process this it, drop 8bit, 24bit valid
+>
+> therefore software can set s24_le/s32_le, still  work ok for hardware, 
+> so Multiple ch can support for internal codec and external codec
+>
+>
+add the s32_le format for the t9015.c,  it can resovle Multiple codec 
+s32_le format case,  although hardware only process 24bit of 32bit, but 
+it can't affect the acodec hardware work, it still work fine
 
-Period for given PWM channel is configured through interval timer and
-duty cycle through match counter.
+usually we add the s32_le format support, if not allow to do it, think 
+of it as a limitation, we can  remove 32bit test for it
 
-Details for cadence TTC IP can be found in Zynq UltraScale+ TRM.
-
-Signed-off-by: Mubin Sayyed <mubin.sayyed@amd.com>
----
-Refer link given below for Zynq UltraScale+ TRM
-https://docs.xilinx.com/r/en-US/ug1085-zynq-ultrascale-trm
-
-Changes for v4:
- Configure it as part of TTC clocksource/clockevent driver
- drivers/clocksource/timer-cadence-ttc.c.
- Move probe/remove function to timer-cadence-ttc.c.
-Changes for v3:
- None
-Changes for v2:
- Use maybe_unused attribute for ttc_pwm_of_match_driver structure
- Add new function ttc_pwm_set_polarity
- Removed calls to pwm_get_state
- Replace DIV_ROUNF_CLOSEST with mul_u64_u64_div_u64
- Modify ttc_pwm_apply to remove while loop in prescalar logic
- and avoid glitch
- Calculate rate in probe and add it to private structure for further
- Drop ttc_pwm_of_xlate
- Replace of_clk_get with devm_clk_get_enabled
- Drop _OFFSET and _MASK from definitions
- Keep Kconfig and Makefile changes alphabetically sorted
- Use remove_new instead of remove
- Document limitations in driver file
----
- drivers/pwm/Kconfig               |  10 +
- drivers/pwm/Makefile              |   1 +
- drivers/pwm/pwm-cadence.c         | 323 ++++++++++++++++++++++++++++++
- include/linux/timer-cadence-ttc.h |  22 +-
- 4 files changed, 355 insertions(+), 1 deletion(-)
- create mode 100644 drivers/pwm/pwm-cadence.c
-
-diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-index 0915c1e7df16..b418e5d8fa42 100644
---- a/drivers/pwm/Kconfig
-+++ b/drivers/pwm/Kconfig
-@@ -202,6 +202,16 @@ config PWM_CROS_EC
- 	  PWM driver for exposing a PWM attached to the ChromeOS Embedded
- 	  Controller.
- 
-+config PWM_CADENCE
-+	bool "Cadence TTC PWM driver"
-+	depends on CADENCE_TTC_TIMER
-+	help
-+	  Generic PWM framework driver for cadence TTC IP found on
-+          Xilinx Zynq/ZynqMP/Versal SOCs. Each TTC device has 3 PWM
-+          channels. Output of 0th PWM channel of each TTC device can
-+          be routed to MIO or EMIO, and output of 1st and 2nd PWM
-+          channels can be routed only to EMIO.
-+
- config PWM_DWC_CORE
- 	tristate
- 	depends on HAS_IOMEM
-diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
-index 9081e0c0e9e0..246380391a63 100644
---- a/drivers/pwm/Makefile
-+++ b/drivers/pwm/Makefile
-@@ -12,6 +12,7 @@ obj-$(CONFIG_PWM_BCM_KONA)	+= pwm-bcm-kona.o
- obj-$(CONFIG_PWM_BCM2835)	+= pwm-bcm2835.o
- obj-$(CONFIG_PWM_BERLIN)	+= pwm-berlin.o
- obj-$(CONFIG_PWM_BRCMSTB)	+= pwm-brcmstb.o
-+obj-$(CONFIG_PWM_CADENCE)	+= pwm-cadence.o
- obj-$(CONFIG_PWM_CLK)		+= pwm-clk.o
- obj-$(CONFIG_PWM_CLPS711X)	+= pwm-clps711x.o
- obj-$(CONFIG_PWM_CRC)		+= pwm-crc.o
-diff --git a/drivers/pwm/pwm-cadence.c b/drivers/pwm/pwm-cadence.c
-new file mode 100644
-index 000000000000..e7c337fe956b
---- /dev/null
-+++ b/drivers/pwm/pwm-cadence.c
-@@ -0,0 +1,323 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Driver to configure cadence TTC timer as PWM
-+ * generator
-+ *
-+ * Limitations:
-+ * - When PWM is stopped, timer counter gets stopped immediately. This
-+ *   doesn't allow the current PWM period to complete and stops abruptly.
-+ * - Disabled PWM emits inactive level.
-+ * - When user requests a change in  any parameter of PWM (period/duty cycle/polarity)
-+ *   while PWM is in enabled state:
-+ *	- PWM is stopped abruptly.
-+ *	- Requested parameter is changed.
-+ *	- Fresh PWM cycle is started.
-+ *
-+ * Copyright (C) 2025, Advanced Micro Devices, Inc.
-+ */
-+
-+#include <linux/clk.h>
-+#include <linux/device.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/pwm.h>
-+#include <linux/of_address.h>
-+#include <linux/timer-cadence-ttc.h>
-+
-+/**
-+ * struct ttc_pwm_priv - Private data for TTC PWM drivers
-+ * @chip:	PWM chip structure representing PWM controller
-+ * @clk:	TTC input clock
-+ * @rate:	TTC input clock rate
-+ * @max:	Maximum value of the counters
-+ * @base:	Base address of TTC instance
-+ */
-+struct ttc_pwm_priv {
-+	struct pwm_chip chip;
-+	struct clk *clk;
-+	unsigned long rate;
-+	u32 max;
-+	void __iomem *base;
-+};
-+
-+static inline u32 ttc_pwm_readl(struct ttc_pwm_priv *priv,
-+				unsigned long offset)
-+{
-+	return readl_relaxed(priv->base + offset);
-+}
-+
-+static inline void ttc_pwm_writel(struct ttc_pwm_priv *priv,
-+				  unsigned long offset,
-+				  unsigned long val)
-+{
-+	writel_relaxed(val, priv->base + offset);
-+}
-+
-+static inline u32 ttc_pwm_ch_readl(struct ttc_pwm_priv *priv,
-+				   unsigned int chnum,
-+				   unsigned long offset)
-+{
-+	unsigned long pwm_ch_offset = offset +
-+				       (TTC_PWM_CHANNEL * chnum);
-+
-+	return ttc_pwm_readl(priv, pwm_ch_offset);
-+}
-+
-+static inline void ttc_pwm_ch_writel(struct ttc_pwm_priv *priv,
-+				     unsigned int chnum,
-+				     unsigned long offset,
-+				     unsigned long val)
-+{
-+	unsigned long pwm_ch_offset = offset +
-+				       (TTC_PWM_CHANNEL * chnum);
-+
-+	ttc_pwm_writel(priv, pwm_ch_offset, val);
-+}
-+
-+static inline struct ttc_pwm_priv *xilinx_pwm_chip_to_priv(struct pwm_chip *chip)
-+{
-+	return pwmchip_get_drvdata(chip);
-+}
-+
-+static void ttc_pwm_enable(struct ttc_pwm_priv *priv, struct pwm_device *pwm)
-+{
-+	u32 ctrl_reg;
-+
-+	ctrl_reg = ttc_pwm_ch_readl(priv, pwm->hwpwm, TTC_CNT_CNTRL_OFFSET);
-+	ctrl_reg |= (TTC_CNTR_CTRL_INTR_MODE_EN
-+				 | TTC_CNTR_CTRL_MATCH_MODE_EN | TTC_CNTR_CTRL_RST);
-+	ctrl_reg &= ~(TTC_CNTR_CTRL_DIS | TTC_CNTR_CTRL_WAVE_EN);
-+	ttc_pwm_ch_writel(priv, pwm->hwpwm, TTC_CNT_CNTRL_OFFSET, ctrl_reg);
-+}
-+
-+static void ttc_pwm_disable(struct ttc_pwm_priv *priv, struct pwm_device *pwm)
-+{
-+	u32 ctrl_reg;
-+
-+	ctrl_reg = ttc_pwm_ch_readl(priv, pwm->hwpwm, TTC_CNT_CNTRL_OFFSET);
-+	ctrl_reg |= TTC_CNTR_CTRL_DIS;
-+
-+	ttc_pwm_ch_writel(priv, pwm->hwpwm, TTC_CNT_CNTRL_OFFSET, ctrl_reg);
-+}
-+
-+static void ttc_pwm_set_polarity(struct ttc_pwm_priv *priv, struct pwm_device *pwm,
-+				 enum pwm_polarity polarity)
-+{
-+	u32 ctrl_reg;
-+
-+	ctrl_reg = ttc_pwm_ch_readl(priv, pwm->hwpwm, TTC_CNT_CNTRL_OFFSET);
-+
-+	if (polarity == PWM_POLARITY_NORMAL)
-+		ctrl_reg |= TTC_CNTR_CTRL_WAVE_POL;
-+	else
-+		ctrl_reg &= (~TTC_CNTR_CTRL_WAVE_POL);
-+
-+	ttc_pwm_ch_writel(priv, pwm->hwpwm, TTC_CNT_CNTRL_OFFSET, ctrl_reg);
-+}
-+
-+static void ttc_pwm_set_counters(struct ttc_pwm_priv *priv,
-+				 struct pwm_device *pwm,
-+				 u32 period_cycles,
-+				 u32 duty_cycles)
-+{
-+	/* Set up period */
-+	ttc_pwm_ch_writel(priv, pwm->hwpwm, TTC_INTR_VAL_OFFSET, period_cycles);
-+
-+	/* Set up duty cycle */
-+	ttc_pwm_ch_writel(priv, pwm->hwpwm, TTC_MATCH_CNT_VAL_OFFSET, duty_cycles);
-+}
-+
-+static void ttc_pwm_set_prescalar(struct ttc_pwm_priv *priv,
-+				  struct pwm_device *pwm,
-+				  u32 div, bool is_enable)
-+{
-+	u32 clk_reg;
-+
-+	if (is_enable) {
-+		/* Set up prescalar */
-+		clk_reg = ttc_pwm_ch_readl(priv, pwm->hwpwm, TTC_CLK_CNTRL_OFFSET);
-+		clk_reg &= ~TTC_CLK_CNTRL_PSV_MASK;
-+		clk_reg |= (div << TTC_CNTR_CTRL_PRESCALE_SHIFT);
-+		clk_reg |= TTC_CLK_CNTRL_PS_EN;
-+		ttc_pwm_ch_writel(priv, pwm->hwpwm, TTC_CLK_CNTRL_OFFSET, clk_reg);
-+	} else {
-+		/* Disable prescalar */
-+		clk_reg = ttc_pwm_ch_readl(priv, pwm->hwpwm, TTC_CLK_CNTRL_OFFSET);
-+		clk_reg &= ~TTC_CLK_CNTRL_PS_EN;
-+		ttc_pwm_ch_writel(priv, pwm->hwpwm, TTC_CLK_CNTRL_OFFSET, clk_reg);
-+	}
-+}
-+
-+static int ttc_pwm_apply(struct pwm_chip *chip,
-+			 struct pwm_device *pwm,
-+			 const struct pwm_state *state)
-+{
-+	struct ttc_pwm_priv *priv = xilinx_pwm_chip_to_priv(chip);
-+	u64 duty_cycles, period_cycles;
-+	struct pwm_state cstate;
-+	unsigned long rate;
-+	bool flag = false;
-+	u32 div = 0;
-+
-+	cstate = pwm->state;
-+
-+	if (state->polarity != cstate.polarity) {
-+		if (cstate.enabled)
-+			ttc_pwm_disable(priv, pwm);
-+
-+		ttc_pwm_set_polarity(priv, pwm, state->polarity);
-+	}
-+
-+	rate = priv->rate;
-+
-+	/* Prevent overflow by limiting to the maximum possible period */
-+	period_cycles = min_t(u64, state->period, ULONG_MAX * NSEC_PER_SEC);
-+	period_cycles = mul_u64_u64_div_u64(period_cycles, rate, NSEC_PER_SEC);
-+
-+	if (period_cycles > priv->max) {
-+		/*
-+		 * Prescale frequency to fit requested period cycles within limit.
-+		 * Prescalar divides input clock by 2^(prescale_value + 1). Maximum
-+		 * supported prescalar value is 15.
-+		 */
-+		div = mul_u64_u64_div_u64(state->period, rate, (NSEC_PER_SEC * priv->max));
-+		div = order_base_2(div);
-+		if (div)
-+			div -= 1;
-+
-+		if (div > 15)
-+			return -ERANGE;
-+
-+		rate = DIV_ROUND_CLOSEST(rate, BIT(div + 1));
-+		period_cycles = mul_u64_u64_div_u64(state->period, rate,
-+						    NSEC_PER_SEC);
-+		flag = true;
-+	}
-+
-+	if (cstate.enabled)
-+		ttc_pwm_disable(priv, pwm);
-+
-+	duty_cycles = mul_u64_u64_div_u64(state->duty_cycle, rate,
-+					  NSEC_PER_SEC);
-+	ttc_pwm_set_counters(priv, pwm, period_cycles, duty_cycles);
-+
-+	ttc_pwm_set_prescalar(priv, pwm, div, flag);
-+
-+	if (state->enabled)
-+		ttc_pwm_enable(priv, pwm);
-+	else
-+		ttc_pwm_disable(priv, pwm);
-+
-+	return 0;
-+}
-+
-+static int ttc_pwm_get_state(struct pwm_chip *chip,
-+			     struct pwm_device *pwm,
-+			     struct pwm_state *state)
-+{
-+	struct ttc_pwm_priv *priv = xilinx_pwm_chip_to_priv(chip);
-+	u32 value, pres_en, pres = 1;
-+	unsigned long rate;
-+	u64 tmp;
-+
-+	value = ttc_pwm_ch_readl(priv, pwm->hwpwm, TTC_CNT_CNTRL_OFFSET);
-+
-+	if (value & TTC_CNTR_CTRL_WAVE_POL)
-+		state->polarity = PWM_POLARITY_NORMAL;
-+	else
-+		state->polarity = PWM_POLARITY_INVERSED;
-+
-+	if (value & TTC_CNTR_CTRL_DIS)
-+		state->enabled = false;
-+	else
-+		state->enabled = true;
-+
-+	rate = priv->rate;
-+
-+	pres_en = ttc_pwm_ch_readl(priv, pwm->hwpwm, TTC_CLK_CNTRL_OFFSET);
-+	pres_en	&= TTC_CLK_CNTRL_PS_EN;
-+
-+	if (pres_en) {
-+		pres = ttc_pwm_ch_readl(priv, pwm->hwpwm, TTC_CLK_CNTRL_OFFSET)
-+					& TTC_CLK_CNTRL_PSV_MASK;
-+		pres >>= TTC_CNTR_CTRL_PRESCALE_SHIFT;
-+		/* If prescale is enabled, the count rate is divided by 2^(pres + 1) */
-+		pres = BIT(pres + 1);
-+	}
-+
-+	tmp = ttc_pwm_ch_readl(priv, pwm->hwpwm, TTC_INTR_VAL_OFFSET);
-+	tmp *= pres;
-+	state->period = DIV64_U64_ROUND_UP(tmp * NSEC_PER_SEC, rate);
-+
-+	tmp = ttc_pwm_ch_readl(priv, pwm->hwpwm, TTC_MATCH_CNT_VAL_OFFSET);
-+	tmp *= pres;
-+	state->duty_cycle = DIV64_U64_ROUND_UP(tmp * NSEC_PER_SEC, rate);
-+
-+	return 0;
-+}
-+
-+static const struct pwm_ops ttc_pwm_ops = {
-+	.apply = ttc_pwm_apply,
-+	.get_state = ttc_pwm_get_state,
-+};
-+
-+int ttc_pwm_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct device_node *np = dev->of_node;
-+	struct ttc_pwm_priv *priv;
-+	struct pwm_chip *chip;
-+	u32 timer_width;
-+	int ret;
-+
-+	ret = of_property_read_u32(np, "timer-width", &timer_width);
-+	if (ret)
-+		timer_width = 16;
-+
-+	chip = devm_pwmchip_alloc(dev, TTC_PWM_MAX_CH, sizeof(*priv));
-+	if (IS_ERR(chip))
-+		return PTR_ERR(chip);
-+
-+	priv = xilinx_pwm_chip_to_priv(chip);
-+	priv->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(priv->base))
-+		return PTR_ERR(priv->base);
-+
-+	priv->max = BIT(timer_width) - 1;
-+
-+	priv->clk = devm_clk_get_enabled(dev, NULL);
-+	if (IS_ERR(priv->clk)) {
-+		return dev_err_probe(dev, PTR_ERR(priv->clk),
-+				     "ERROR: timer input clock not found\n");
-+	}
-+
-+	priv->rate = clk_get_rate(priv->clk);
-+
-+	clk_rate_exclusive_get(priv->clk);
-+
-+	chip->ops = &ttc_pwm_ops;
-+	chip->npwm = TTC_PWM_MAX_CH;
-+
-+	ret = devm_pwmchip_add(dev, chip);
-+	if (ret) {
-+		clk_rate_exclusive_put(priv->clk);
-+		return dev_err_probe(dev, ret, "Could not register PWM chip\n");
-+	}
-+
-+	platform_set_drvdata(pdev, priv);
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(ttc_pwm_probe);
-+
-+void ttc_pwm_remove(struct platform_device *pdev)
-+{
-+	struct ttc_pwm_priv *priv = platform_get_drvdata(pdev);
-+
-+	pwmchip_remove(&priv->chip);
-+	clk_rate_exclusive_put(priv->clk);
-+}
-+EXPORT_SYMBOL_GPL(ttc_pwm_remove);
-+
-+MODULE_AUTHOR("Mubin Sayyed <mubin.sayyed@amd.com>");
-+MODULE_DESCRIPTION("Cadence TTC PWM driver");
-+MODULE_LICENSE("GPL");
-diff --git a/include/linux/timer-cadence-ttc.h b/include/linux/timer-cadence-ttc.h
-index d938991371e5..6b6135d0ba0c 100644
---- a/include/linux/timer-cadence-ttc.h
-+++ b/include/linux/timer-cadence-ttc.h
-@@ -12,13 +12,14 @@
- #define TTC_CNT_CNTRL_OFFSET            0x0C /* Counter Control Reg, RW */
- #define TTC_COUNT_VAL_OFFSET            0x18 /* Counter Value Reg, RO */
- #define TTC_INTR_VAL_OFFSET             0x24 /* Interval Count Reg, RW */
-+#define TTC_MATCH_CNT_VAL_OFFSET        0x30 /* Match Count Reg, RW */
- #define TTC_ISR_OFFSET          0x54 /* Interrupt Status Reg, RO */
- #define TTC_IER_OFFSET          0x60 /* Interrupt Enable Reg, RW */
- 
- #define TTC_CNT_CNTRL_DISABLE_MASK      0x1
- 
- #define TTC_CLK_CNTRL_CSRC_MASK         (1 << 5)        /* clock source */
--#define TTC_CLK_CNTRL_PSV_MASK          0x1e
-+#define TTC_CLK_CNTRL_PSV_MASK		0x1e
- #define TTC_CLK_CNTRL_PSV_SHIFT         1
- 
- /*
-@@ -33,3 +34,22 @@
- 
- #define MAX_F_ERR 50
- 
-+#define TTC_PWM_CHANNEL         0x4
-+
-+#define TTC_CLK_CNTRL_CSRC              BIT(5)
-+#define TTC_CLK_CNTRL_PS_EN             BIT(0)
-+#define TTC_CNTR_CTRL_DIS               BIT(0)
-+#define TTC_CNTR_CTRL_INTR_MODE_EN      BIT(1)
-+#define TTC_CNTR_CTRL_MATCH_MODE_EN     BIT(3)
-+#define TTC_CNTR_CTRL_RST               BIT(4)
-+#define TTC_CNTR_CTRL_WAVE_EN   BIT(5)
-+#define TTC_CNTR_CTRL_WAVE_POL  BIT(6)
-+#define TTC_CNTR_CTRL_WAVE_POL_SHIFT    6
-+#define TTC_CNTR_CTRL_PRESCALE_SHIFT    1
-+#define TTC_PWM_MAX_CH	3
-+
-+#if defined(CONFIG_PWM_CADENCE)
-+int ttc_pwm_probe(struct platform_device *pdev);
-+void ttc_pwm_remove(struct platform_device *pdev);
-+#endif
-+
--- 
-2.25.1
-
+>>
+>>> so, i think we only add the SNDRV_PCM_FMTBIT_S32 base on it
+>> That's wrong if the codec does not actually use the full 32bits ... and
+>> I have clear indication that's what the codec is doing, on GXL at least.
+>>
+>>> we think the 24 bit is the SNDRV_PCM_FMTBIT_S24_3LE, it is 24bit in 
+>>> memroy,
+>>>
+>>> due to the dma busrt 64 bit limit, it can't align the sample bit, if 
+>>> it is
+>>> 24 bit
+>> Again, memory layout makes no sense here.
+>>
+>>> so the clock configure can't 24bit clock,
+>> I disagree and this has been tested. If you have a test case showing
+>> otherwise please share it.
+>>
+>>> by the way, We discuss internally for gxl,
+>>>
+>>> it also support the SNDRV_PCM_FMTBIT_S32
+>>>
+>> Does it really ? If it is just to ignore the 8bits LSB, that not a 
+>> support.
+>>
+>>>>> usually support 16/32 bit for new audio ip , for 
+>>>>> SNDRV_PCM_FMTBIT_S24_LE,
+>>>>> it width =24, phy =32
+>>>> Yes physical of SNDRV_PCM_FMTBIT_S24_LE, so most chip supporting 32 
+>>>> bits
+>>>> width would support this S24_LE, unless there is something odd.
+>>>>
+>>>>> it was  treated as 32 bit to send for tdm, so we can only add the 
+>>>>> S32LE
+>>>>> base on it , right ?
+>>>> You are asking me ? How am I suppose to know ?
+>>>>
+>>>>> but if the gxl not support the 32bit
+>>>> I don't see a problem with a DAC taking input on 32bits physical
+>>>> interface and ignoring some bit on processing.
+>>>>
+>>>> If that's not the case, please send a proper fix change with some 
+>>>> explanation
+>>>>
+>>>>> we need add new snd_soc_dai_driver t9015_dai_s4 ?
+>>>>>
+>>>> If I understood correctly format depends on the chip and needs to
+>>>> adjusted including for sm1.
+>>>>
+>>>>>>>>          },
+>>>>>>>>          .ops = &t9015_dai_ops,
+>>>>>>>>     };
+>>>>>>> -- Jerome
+>>>> -- 
+>>>> Jerome
+>> -- 
+>> Jerome
 
