@@ -4,64 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CECBAC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 10:09:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 116D5C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 10:13:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+ryMO4/DGARz6dpCLQgFlxwCCK8jbknJTAtU+Z1iluM=; b=dAlttLp1QXclUQGWhQjBci7s8n
-	i0OkPizbq3OXlhpujz587r2ZOuFXfVKD7bZ+ce6HBve73Be2oRtPmDHftKk6OeAuuzyOkArSf9OtV
-	yH7EqKD/Pw2xnDzRLqnqZHmhF8V7sc3kWMdtxKn89R7e8+NCyyFNCLUB9FWgrzmx4DIbluddOz+i6
-	+ufian2B8ANs30cujIVjxOy3zLpUUAZcY+8Bj5PxX81mxvE4LZwOsNpPQhxhChbjylDiVLFDRsEFM
-	oLMK7h7FV+5l765qMjBwXZJgAZG+tONhFWR1dWY8HZowrNgsGhxVAoligppl7IJJsOIGzNXFio7T6
-	KlTWX49A==;
+	bh=a3f/WlowN54d9MMq+HK776E7FHhHlmdpQCtT88EoZsw=; b=PivUKJg5lG3j3cgMqHZvRPE+AN
+	ywXH9mPpj9r+vB7lHa2VYffbHZw8ovqfcXZi3YCZbjFRzKqJJWPFFXjXS/2Cs4Q4nKoZNKPYqpJJ/
+	vx41yqfS1tp6ExtJrPyBcXyVD3RUEpvkUTrzZuYmsvPzVSlW5JWp+01S+cIU6g5czkwAxbvlYDXS0
+	++mgerIL+BfKzoafRbnl5gjo1gblnvX6Sd6P7pTm+pdKnBDxgw5aZ+LWQwz2Sjr12KSZg04asn/vS
+	jpPR70fMAZaU91kp1IacsfKEfRz68vSuXT+9vMS3zMIccLkRFNMcaK1SWHQ8Xa0cEDZ96MdMDWQ9j
+	BYkuLvrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY0Kh-0000000BRcm-0bMC;
-	Wed, 15 Jan 2025 10:09:07 +0000
-Received: from out-171.mta1.migadu.com ([95.215.58.171])
+	id 1tY0Op-0000000BS0S-415F;
+	Wed, 15 Jan 2025 10:13:23 +0000
+Received: from [210.118.77.12] (helo=mailout2.w1.samsung.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY0JQ-0000000BRUt-45Im
+	id 1tY0NZ-0000000BRsB-320g
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 10:07:50 +0000
-Message-ID: <7b6acdc1-5151-427a-ac84-a6cb666f53ca@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1736935663;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+ryMO4/DGARz6dpCLQgFlxwCCK8jbknJTAtU+Z1iluM=;
-	b=sQ5UBkzG6Sa3qwVPFnRjJjSi78MlbdlIdHnotUb3Krv0djZP3ulfjNYrnAvnejXn9nljQU
-	SvZ+0x2kBc/MdnUJ3aGiOIqMwLFJVYJUtFNSTWSgld9Cfw7zvgM3nDN7uL4BSNBcKXVIVO
-	ZkT9vGUEOC1SEqDw/a7zktPocbQc8Pk=
-Date: Wed, 15 Jan 2025 18:07:32 +0800
+	Wed, 15 Jan 2025 10:12:08 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250115101200euoutp024f483ab7b4ca5be8bf39c365f6170ef1~a1gRPRndr1358513585euoutp02g
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 10:12:00 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250115101200euoutp024f483ab7b4ca5be8bf39c365f6170ef1~a1gRPRndr1358513585euoutp02g
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1736935920;
+	bh=a3f/WlowN54d9MMq+HK776E7FHhHlmdpQCtT88EoZsw=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=XUhmSOcytkfFPTDiu2skiKO5WRzgRGhJsrGhM3AuoKqdbFLmj9+HxEgdkXEX4fVqf
+	 TK0jAfy9djaFpEvFMTvsS+XIRClyIU383+XiQfOR5rKuBeOJ+zSdBOTC2dGs79SnmG
+	 /mCN1+2EiK9/kK7KMk9AsZlJDut4CYPZ+lqhrZl0=
+Received: from eusmges1new.samsung.com (unknown [203.254.199.242]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTP id
+	20250115101159eucas1p10a1c27976c5ca40fee0fc8a3c47f1008~a1gQwzywK0717307173eucas1p1C;
+	Wed, 15 Jan 2025 10:11:59 +0000 (GMT)
+Received: from eucas1p2.samsung.com ( [182.198.249.207]) by
+	eusmges1new.samsung.com (EUCPMTA) with SMTP id A7.5B.20821.FE987876; Wed, 15
+	Jan 2025 10:11:59 +0000 (GMT)
+Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250115101159eucas1p1261a8b3e78b83c4fec63e3ac00e4d59a~a1gQb45Wp0945009450eucas1p1x;
+	Wed, 15 Jan 2025 10:11:59 +0000 (GMT)
+Received: from eusmgms1.samsung.com (unknown [182.198.249.179]) by
+	eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20250115101159eusmtrp10e17eaa4b601066615ea8aa528053ee9~a1gQbUVXk1014710147eusmtrp1o;
+	Wed, 15 Jan 2025 10:11:59 +0000 (GMT)
+X-AuditID: cbfec7f2-b09c370000005155-b8-678789ef2d82
+Received: from eusmtip1.samsung.com ( [203.254.199.221]) by
+	eusmgms1.samsung.com (EUCPMTA) with SMTP id F8.32.19920.FE987876; Wed, 15
+	Jan 2025 10:11:59 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250115101158eusmtip102a81f1da0858257a3a3360a7e31d84b~a1gPY1sPl2461024610eusmtip1U;
+	Wed, 15 Jan 2025 10:11:58 +0000 (GMT)
+Message-ID: <01515ea0-c6f0-479f-9da5-764d9ee79ed6@samsung.com>
+Date: Wed, 15 Jan 2025 11:11:57 +0100
 MIME-Version: 1.0
-Subject: Re: [PATCH net-next v3 2/4] net: stmmac: Set page_pool_params.max_len
- to a precise size
-To: Furong Xu <0x1207@gmail.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: Alexander Lobakin <aleksander.lobakin@intel.com>,
- Joe Damato <jdamato@fastly.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com
-References: <cover.1736910454.git.0x1207@gmail.com>
- <538f87c8bdd0ba9e2b9cb5cd0e2964511c001890.1736910454.git.0x1207@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] ARM: implement cacheinfo support
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Sudeep Holla
+	<sudeep.holla@arm.com>, Ard Biesheuvel <ardb@kernel.org>, Russell King
+	<linux@armlinux.org.uk>
+Cc: linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Bjorn Andersson <andersson@kernel.org>, Konrad
+	Dybcio <konradybcio@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 'Linux
+	Samsung SOC' <linux-samsung-soc@vger.kernel.org>
 Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Yanteng Si <si.yanteng@linux.dev>
-In-Reply-To: <538f87c8bdd0ba9e2b9cb5cd0e2964511c001890.1736910454.git.0x1207@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <20241014-armv7-cacheinfo-v2-2-38ab76d2b7fa@linaro.org>
+Content-Transfer-Encoding: 7bit
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrNKsWRmVeSWpSXmKPExsWy7djP87rvO9vTDTp36lps67Cx+PnlPaPF
+	30nH2C0mnv/JZrFg/zQWi02Pr7FaTNx/lt3i8q45bBYzzu9jsjg0dS+jxfJTO1gcuD3WzFvD
+	6HH52kVmj9+/JjF6bFrVyeZx59oeNo/NS+o9Pm+SC2CP4rJJSc3JLEst0rdL4MqYvWUBY8Ed
+	hYoPDzYxNjAel+pi5OSQEDCRuD7tG3MXIxeHkMAKRontc18yQThfGCU+nT/MCuF8ZpQ4v3wq
+	C0zLyb+L2CESyxklNj15zwLhfGSU+L77B1sXIwcHr4CdxN3WIpAGFgFViXWPV4I18woISpyc
+	+QTMFhWQl7h/awY7iC0sYCNxZ94hsDkiAosZJT43fgY7illgMpPEyT9rmECqmAXEJW49mQ9m
+	swkYSnS97WIDsTkFXCSO7H/JCFEjL7H97RxmiFMnc0qcOBMLYbtIdMzaCxUXlnh1fAs7hC0j
+	cXpyD9hmCYF2RokFv+8zQTgTGCUant9ihKiylrhz7hfYa8wCmhLrd+lDhB0lDj77xQQSlhDg
+	k7jxVhDiBj6JSdumM0OEeSU62oQgqtUkZh1fB7f24IVLzBMYlWYhhcssJF/OQvLNLIS9CxhZ
+	VjGKp5YW56anFhvmpZbrFSfmFpfmpesl5+duYgSmr9P/jn/awTj31Ue9Q4xMHIyHGCU4mJVE
+	eJewtaYL8aYkVlalFuXHF5XmpBYfYpTmYFES5120HyglkJ5YkpqdmlqQWgSTZeLglGpgUldb
+	mng65XW23drSTLNohx16R+cvNlpW8r2xROHy73m1qye8KmzMcJ3BdOXDQZcnDcHh9d+0Ap02
+	LGF8yrooSWBmiJ99ncPND3mCC6+tvSzYNdN2+VdbVnO9kqOK61e0LPuasj5C8/7x6Om/1Fms
+	BebZHbA9znrIsFP3GK9JiILfRS5/DYu3nFpWZVndJxWlQna9+5WbLX5OT8koUlJv22mTZXrM
+	65yyFI8LL6udcPLVv+QNW/2qXZsWl79/bxtlJFdz5OrqIs8HWza8WJpgxa018cv+6U+elk/e
+	tH7Pxiu7DsyM4WqtK3+nOtH8mMbR5VeYZip5Hvy0wI2vLLEzen+q31/NvCQVqfXGsVZcSizF
+	GYmGWsxFxYkAX7gY3M4DAAA=
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrLIsWRmVeSWpSXmKPExsVy+t/xu7rvO9vTDdYsFLPY1mFj8fPLe0aL
+	v5OOsVtMPP+TzWLB/mksFpseX2O1mLj/LLvF5V1z2CxmnN/HZHFo6l5Gi+WndrA4cHusmbeG
+	0ePytYvMHr9/TWL02LSqk83jzrU9bB6bl9R7fN4kF8AepWdTlF9akqqQkV9cYqsUbWhhpGdo
+	aaFnZGKpZ2hsHmtlZKqkb2eTkpqTWZZapG+XoJcxe8sCxoI7ChUfHmxibGA8LtXFyMkhIWAi
+	cfLvIvYuRi4OIYGljBI7Z19khEjISJyc1sAKYQtL/LnWxQZR9J5RYumTj8xdjBwcvAJ2Endb
+	i0BqWARUJdY9XskCYvMKCEqcnPkEzBYVkJe4f2sGO4gtLGAjcWfeIRaQOSICixklzkxawwji
+	MAtMZpK4s2YCE0iVkECtxJ0z08CuYBYQl7j1ZD5YnE3AUKLrLcgVnBycAi4SR/a/hKoxk+ja
+	2gVly0tsfzuHeQKj0Cwkh8xCMmoWkpZZSFoWMLKsYhRJLS3OTc8tNtQrTswtLs1L10vOz93E
+	CIzXbcd+bt7BOO/VR71DjEwcjIcYJTiYlUR4l7C1pgvxpiRWVqUW5ccXleakFh9iNAWGxkRm
+	KdHkfGDCyCuJNzQzMDU0MbM0MLU0M1YS53W7fD5NSCA9sSQ1OzW1ILUIpo+Jg1OqgSm669Om
+	s3eqDq2/kTTp7rWKXTNNG4v2hont0Dh1If7TLMl7eyeyzX54V/wsZ53q96d3r0THN/u6HNRs
+	t5+00LwjyOHD1/OrH2wVquN+l+Uxaes0g58cuywbuHk1zh1Py367W857ze2Sq7f32Pgzt3hO
+	2LBoTsii1TNiN6bwNt10/lxl8lkj2Xfeb+YZoXNmqnKZGT5z0LZsblrkvNW/6/23WUaKtb02
+	375/a9snqMKvKOvklNhjFFmQ/Wv55ErVyLgLoU6HlZ7lpHJw8s1RPGo7LdRymVe4RsXSHq35
+	l2SKIkrunXqyaMsT5nPz7iobd4e8n7f+oFmIdP6KNdX9Sg4/3y7NfvD1QoB5/r3A93OVWIoz
+	Eg21mIuKEwHr2w7LYAMAAA==
+X-CMS-MailID: 20250115101159eucas1p1261a8b3e78b83c4fec63e3ac00e4d59a
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20250115101159eucas1p1261a8b3e78b83c4fec63e3ac00e4d59a
+X-EPHeader: CA
+CMS-TYPE: 201P
+X-CMS-RootMailID: 20250115101159eucas1p1261a8b3e78b83c4fec63e3ac00e4d59a
+References: <20241014-armv7-cacheinfo-v2-0-38ab76d2b7fa@linaro.org>
+	<20241014-armv7-cacheinfo-v2-2-38ab76d2b7fa@linaro.org>
+	<CGME20250115101159eucas1p1261a8b3e78b83c4fec63e3ac00e4d59a@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_020749_696008_D68F3382 
-X-CRM114-Status: GOOD (  11.31  )
+X-CRM114-CacheID: sfid-20250115_021206_288587_29B0CF08 
+X-CRM114-Status: GOOD (  26.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,29 +137,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-在 2025/1/15 11:27, Furong Xu 写道:
-> DMA engine will always write no more than dma_buf_sz bytes of a received
-> frame into a page buffer, the remaining spaces are unused or used by CPU
-> exclusively.
-> Setting page_pool_params.max_len to almost the full size of page(s) helps
-> nothing more, but wastes more CPU cycles on cache maintenance.
-> 
-> For a standard MTU of 1500, then dma_buf_sz is assigned to 1536, and this
-> patch brings ~16.9% driver performance improvement in a TCP RX
-> throughput test with iPerf tool on a single isolated Cortex-A65 CPU
-> core, from 2.43 Gbits/sec increased to 2.84 Gbits/sec.
-> 
-> Signed-off-by: Furong Xu <0x1207@gmail.com>
-> Reviewed-by: Alexander Lobakin <aleksander.lobakin@intel.com>
-Reviewed-by: Yanteng Si <si.yanteng@linux.dev>
-
-Thanks,
-Yanteng
-
+On 14.10.2024 15:55, Dmitry Baryshkov wrote:
+> On ARMv7 / v7m machines read CTR and CLIDR registers to provide
+> information regarding the cache topology. Earlier machines should
+> describe full cache topology in the device tree.
+>
+> Note, this follows the ARM64 cacheinfo support and provides only minimal
+> support required to bootstrap cache info. All useful properties should
+> be decribed in Device Tree.
+>
+> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 > ---
->   drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 2 +-
->   drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.h  | 1 -
->   2 files changed, 1 insertion(+), 2 deletions(-)
+>   arch/arm/Kconfig             |   1 +
+>   arch/arm/include/asm/cache.h |   6 ++
+>   arch/arm/kernel/Makefile     |   1 +
+>   arch/arm/kernel/cacheinfo.c  | 173 +++++++++++++++++++++++++++++++++++++++++++
+>   include/linux/cacheinfo.h    |   2 +-
+>   5 files changed, 182 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+> index 749179a1d162..e790543c3eaf 100644
+> --- a/arch/arm/Kconfig
+> +++ b/arch/arm/Kconfig
+> @@ -5,6 +5,7 @@ config ARM
+>   	select ARCH_32BIT_OFF_T
+>   	select ARCH_CORRECT_STACKTRACE_ON_KRETPROBE if HAVE_KRETPROBES && FRAME_POINTER && !ARM_UNWIND
+>   	select ARCH_HAS_BINFMT_FLAT
+> +	select ARCH_HAS_CACHE_LINE_SIZE if OF
+>   	select ARCH_HAS_CPU_CACHE_ALIASING
+>   	select ARCH_HAS_CPU_FINALIZE_INIT if MMU
+>   	select ARCH_HAS_CURRENT_STACK_POINTER
+> diff --git a/arch/arm/include/asm/cache.h b/arch/arm/include/asm/cache.h
+> index e3ea34558ada..ecbc100d22a5 100644
+> --- a/arch/arm/include/asm/cache.h
+> +++ b/arch/arm/include/asm/cache.h
+> @@ -26,4 +26,10 @@
+>   
+>   #define __read_mostly __section(".data..read_mostly")
+>   
+> +#ifndef __ASSEMBLY__
+> +#ifdef CONFIG_ARCH_HAS_CACHE_LINE_SIZE
+> +int cache_line_size(void);
+> +#endif
+> +#endif
+> +
+>   #endif
+> diff --git a/arch/arm/kernel/Makefile b/arch/arm/kernel/Makefile
+> index aaae31b8c4a5..b3333d070390 100644
+> --- a/arch/arm/kernel/Makefile
+> +++ b/arch/arm/kernel/Makefile
+> @@ -40,6 +40,7 @@ obj-y		+= entry-armv.o
+>   endif
+>   
+>   obj-$(CONFIG_MMU)		+= bugs.o
+> +obj-$(CONFIG_OF)		+= cacheinfo.o
+>   obj-$(CONFIG_CPU_IDLE)		+= cpuidle.o
+>   obj-$(CONFIG_ISA_DMA_API)	+= dma.o
+>   obj-$(CONFIG_FIQ)		+= fiq.o fiqasm.o
+> diff --git a/arch/arm/kernel/cacheinfo.c b/arch/arm/kernel/cacheinfo.c
+> new file mode 100644
+> index 000000000000..a8eabcaa18d8
+> --- /dev/null
+> +++ b/arch/arm/kernel/cacheinfo.c
+> @@ -0,0 +1,173 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + *  ARM cacheinfo support
+> + *
+> + *  Copyright (C) 2023 Linaro Ltd.
+> + *  Copyright (C) 2015 ARM Ltd.
+> + *  All Rights Reserved
+> + */
+> +
+> +#include <linux/bitfield.h>
+> +#include <linux/cacheinfo.h>
+> +#include <linux/of.h>
+> +
+> +#include <asm/cachetype.h>
+> +#include <asm/cputype.h>
+> +#include <asm/system_info.h>
+> +
+> +/* Ctypen, bits[3(n - 1) + 2 : 3(n - 1)], for n = 1 to 7 */
+> +#define CLIDR_CTYPE_SHIFT(level)	(3 * (level - 1))
+> +#define CLIDR_CTYPE_MASK(level)		(7 << CLIDR_CTYPE_SHIFT(level))
+> +#define CLIDR_CTYPE(clidr, level)	\
+> +	(((clidr) & CLIDR_CTYPE_MASK(level)) >> CLIDR_CTYPE_SHIFT(level))
+> +
+> +#define MAX_CACHE_LEVEL			7	/* Max 7 level supported */
+> +
+> +#define CTR_FORMAT_MASK	GENMASK(27, 24)
+> +#define CTR_FORMAT_ARMV6 0
+> +#define CTR_FORMAT_ARMV7 4
+> +#define CTR_CWG_MASK	GENMASK(27, 24)
+> +#define CTR_DSIZE_LEN_MASK GENMASK(13, 12)
+> +#define CTR_ISIZE_LEN_MASK GENMASK(1, 0)
+> +
+> +/* Also valid for v7m */
+> +static inline int cache_line_size_cp15(void)
+> +{
+> +	u32 ctr = read_cpuid_cachetype();
+> +	u32 format = FIELD_GET(CTR_FORMAT_MASK, ctr);
+> +
 
+On Samsung Exynos421x (CortexA9 based) format is read as 0x3, which 
+causes a warning later in the code. How such value should be handled to 
+avoid warning?
+
+> +	if (format == CTR_FORMAT_ARMV7) {
+> +		u32 cwg = FIELD_GET(CTR_CWG_MASK, ctr);
+> +
+> +		return cwg ? 4 << cwg : ARCH_DMA_MINALIGN;
+> +	} else if (WARN_ON_ONCE(format != CTR_FORMAT_ARMV6)) {
+> +		return ARCH_DMA_MINALIGN;
+> +	}
+> +
+> +	return 8 << max(FIELD_GET(CTR_ISIZE_LEN_MASK, ctr),
+> +			FIELD_GET(CTR_DSIZE_LEN_MASK, ctr));
+> +}
+> +
+
+> >...
+
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
 
 
