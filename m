@@ -4,63 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49DF3C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 08:17:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAC33C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 08:20:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4SaClx0Ad34mtg+r133Gl0Gu/isNenRm9UPRsEduuII=; b=mqaMeW9UKI2UYO6rO6lTC3bBHS
-	ZEW/7C90jNRpf8IUj9K1VzY5zfu3+1q5b226O17tmix7h5/Li1xyfePihoqx02AYuTNd53S25eQbX
-	xM5FLasNvph/cXUm/DPL/QxhAMx7kX8WEU7oHIDCmt+ZBa5UP00IE+0+etAtULYjVqCBlUcYGXndd
-	YSDzB4LZH8nvWomHjrDnAjt0Gd7DapGpOaQJ0kOZr6C0QcPmp+kmV76f/CMpbHAnf9GT0wVxapzK9
-	BYxNk83AKp5RVGuyMGhPNAWnIiLN151stdRvIittVYtTmD9pUoBjY9/HrcR+MQpF+Zk7V2Ob+8yUZ
-	5P9ssuiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jMktWQtgBLQ8cdlCbA+kTSiSpZHtnTanW9u8Zhs7GQc=; b=xIs3CZ38Xtur7qGcql+xM+5wNV
+	TIeYBtW/a2QS3CuFApDF7nDrFiVovzPXbYIummD7wfwMLh6rNdd2MiWXhvY094ML87cpFMcsS2Jw1
+	pcEMCWpKG/gkiBThuw3vSk2xvB6qSE5S+SqugEPauOQnIp8YxQ8wflXvnX9eZqda069OzN9whS3qF
+	FcivA5N+rhGslUbWNr5F1H8c43+hC4DeCx8njSTDdlyBJ1JgjZzTDMn4fhaC5rpqFu2LEPA0Ik/mv
+	z0bGAI9Vbqv0HSElnr2cwc77QKRNBxVIRjie2JWZ0OVqeEw20UdrihfDFjqL4eGMeOW/L/7hx4G0X
+	Jo6Sbusw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXyZz-0000000B3lA-45Pc;
-	Wed, 15 Jan 2025 08:16:47 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1tXydi-0000000B4LF-1Kps;
+	Wed, 15 Jan 2025 08:20:38 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXyYg-0000000B3P0-3cjQ
+	id 1tXycS-0000000B4C9-1jog
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 08:15:28 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1736928925;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=4SaClx0Ad34mtg+r133Gl0Gu/isNenRm9UPRsEduuII=;
-	b=sYstNEf/fG6QfvAFHzEhJ2v/b7VSYMpWICwhx8qDamL4DT4wZ0mgQmgK0riWlK3LngSJud
-	aP45QNx86f2vDBeWB9nXnucDcom/oIJBQM95bvJmmuY/jvZ2hGC6Gei20/E9W6ShaXqS6o
-	JIFsA8oZTQQTGs7+cWqyUQiGJq6LClnh6e8LQvAGjmO53WHFIRdY87OSf3VsNMLG8W6w+Q
-	PJtPp4dXcH94JJ9Di8txHXBxS7SpNOTS+iK2e4moJrVe6HiIk865Bh2y1wGlBTGJwL+gQ9
-	eVS1oL0n9hhlTZq4h8cq6Fdc5TfI5yuJsmlBTnSkqbnM5CazX0o1mrfuUflFHQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1736928925;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=4SaClx0Ad34mtg+r133Gl0Gu/isNenRm9UPRsEduuII=;
-	b=etpI9xiRyt4WGHiDMPLj3zeuITZDEjzURFCYZM8dBW1GEdcLbbvo72RNc/ezdATrNocHXC
-	jVyvvrJNM+ykoyCg==
-To: Stefan Eichenberger <eichest@gmail.com>, andrew@lunn.ch,
- gregory.clement@bootlin.com, sebastian.hesselbarth@gmail.com,
- shivamurthy.shastri@linutronix.de, anna-maria@linutronix.de
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] irqchip/irq-mvebu-icu: Fix irq_set_type for sei and nsr
-In-Reply-To: <20241217111623.92625-1-eichest@gmail.com>
-References: <20241217111623.92625-1-eichest@gmail.com>
-Date: Wed, 15 Jan 2025 09:15:24 +0100
-Message-ID: <87frlkcx2b.ffs@tglx>
+	Wed, 15 Jan 2025 08:19:21 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-385e44a1a2dso419220f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 00:19:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1736929159; x=1737533959; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=jMktWQtgBLQ8cdlCbA+kTSiSpZHtnTanW9u8Zhs7GQc=;
+        b=KzvJjVQ/GML5lwTaC0/eyZ1za1bla/JiirdZ8+ZAegLgb5quL/mXIiyZIFhpz6WEtE
+         q/bw06e7H7R/PrMs5dXj7w9j6oWl3VYyTxEkQLWy1//4wxYuiTyngXdqNi3E1R1tmHby
+         7fUYCsBI5VOKNlSy648RkSCZWrqM4rSuogYyDnskcf8gE2SSOk7MAnFHe3fpZm5hYeoB
+         ISZaupSm12p1+r9OwvqBAen04YjyaoZ2LZWSsMBbSL1IeCq+de94nC29yvXFZjwnnevN
+         9eyc0JP6IiHyRoqmeVe+G7PRCdP3YjEz/eCqC9uiNHjGiUmOHYjw0yOYJc7vObkB1Rks
+         dcOg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736929159; x=1737533959;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=jMktWQtgBLQ8cdlCbA+kTSiSpZHtnTanW9u8Zhs7GQc=;
+        b=LzGY1P0Ii8kDDP6YG6zA5o2+jWbU/3jhHm0I8WwRBFDqB9SFigUp/4LKvv4LygOuZW
+         w2yOxkJTDvjRfp2JmS3GvYZffoafGyuBJ6jXBcR6rxr5/EsgOcCXY4EdPmqh1KjQug7x
+         GQBt6GEa84cVs8lnVMkKoWO/mXCj1gTLXSqkeTMRjhY9WVUEJpf1abAqyvDmTgtAO7+8
+         ckItMtEsXxv91VvMgiuMzyGchucZUZax34CIp+i5BwbNna19AR1O/ik0n9wEbyFhnrA2
+         dW8tnDrgrQ3qxw19OGIQWStzp+9V9+904XLhHlZPWmX7xmoh4zYPZ3o9hYWxtpACJDCb
+         a8Ow==
+X-Forwarded-Encrypted: i=1; AJvYcCV5wKzMz+gBUp9YDnAjbuTgZnx5mhjICLd2s9M96EpUfHo6EjdPi/8WUM2gxxVuqQJ/o+vp07w9Nxp3nWcR4ztW@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy/rTG2lawaiMneIyUSDPvhu35VOYyjXeiD82nqXE411w7Sv0Tq
+	unTekd4mOLLbh9sbf8XaqPT7J22mnpn8wjTdB/74r09qkHv7ZuHzHi1wGkLWyMc=
+X-Gm-Gg: ASbGncvjNcQR1CpMASms2AWhEqikIBrXcfPuwDW9n7XwgR2VkLq52rR/XKM6Ic9Ow3T
+	4VoaROoUqA2UaiXEZeS56y3KfK+O+yVrLDKZOYyAP8nfJzVlpsZLTs2zZo9CrzU+gnYIVIxOwD0
+	GBVHw6cynk6SXDEGFHxzvugdq9oo1NPUE9pLfa7s4Sa/BLBRHe6NLnkUNYoStT6hrELoOUxNeVg
+	Na1xQ4i7EdWZKSiUiSm2ycdxXUG7KE5ACuv/B0fZwe/sQEt4r9hW2wL2upaPu5dTKCKKzA=
+X-Google-Smtp-Source: AGHT+IH82dvQPl7AJYMIZ5/7ubtM6u7ezR7aRuptO7pWHIlRw76Tgzx6Wrm4+Ge6XRuEgEY/v3wdyA==
+X-Received: by 2002:a05:600c:4fd6:b0:434:f5f8:22cd with SMTP id 5b1f17b1804b1-436e25603fdmr88744395e9.0.1736929158705;
+        Wed, 15 Jan 2025 00:19:18 -0800 (PST)
+Received: from krzk-bin.. ([178.197.223.165])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-437c74ab449sm14589755e9.10.2025.01.15.00.19.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 Jan 2025 00:19:18 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Linus Walleij <linus.walleij@linaro.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Stanislav Jakubek <stano.jakubek@gmail.com>
+Subject: [PATCH] clk: nomadik: Correct str_enabled_disabled() SXTALO case
+Date: Wed, 15 Jan 2025 09:19:14 +0100
+Message-ID: <20250115081914.12841-1-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_001527_074505_A4E52447 
-X-CRM114-Status: GOOD (  16.91  )
+X-CRM114-CacheID: sfid-20250115_001920_495992_13814D8F 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,59 +99,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 17 2024 at 12:15, Stefan Eichenberger wrote:
-> A regression was introduced in commit d929e4db22b6
-> ("irqchip/irq-mvebu-icu: Prepare for real per device MSI") that causes
-> the Armada thermal driver to fail during probe with the following error:
-> genirq: Setting trigger mode 4 for irq 85 failed (irq_chip_set_type_parent+0x0/0x34)
-> armada_thermal f2400000.system-controller:thermal-sensor@70: Cannot request threaded IRQ 85
-> armada_thermal f2400000.system-controller:thermal-sensor@70: probe with driver armada_thermal failed with error -22
->
-> The issue occurs because irq_set_type is assigned to
-> irq_chip_set_type_parent, but the parent IRQ chip does not implement the
-> irq_set_type operation. This causes the trigger mode configuration to
-> fail.
->
-> This patch resolves the issue by removing the irq_set_type assignment.
-> With no irq_set_type, __irq_set_trigger safely skips the trigger
-> configuration, restoring functionality to the thermal driver.
+Commit 1cd1c8f400e9 ("clk: Use str_enable_disable-like helpers") should
+use reversed check for SXTALO.
 
-I'm not convinced that this is correct.
+Reported-by: Stanislav Jakubek <stano.jakubek@gmail.com>
+Closes: https://lore.kernel.org/all/Z4diEj__bbQl4ULS@standask-GA-A55M-S2HP/
+Fixes: 1cd1c8f400e9 ("clk: Use str_enable_disable-like helpers")
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+---
+ drivers/clk/clk-nomadik.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-The original code had irq_chip_set_type_parent() for the NSR/SEI chips
-too and all what d929e4db22b6 does is to convert those chips over to the
-new platform MSI mechanism. Here are the original chips:
+diff --git a/drivers/clk/clk-nomadik.c b/drivers/clk/clk-nomadik.c
+index f3a73ac5a1b9..fc0aeb4247f2 100644
+--- a/drivers/clk/clk-nomadik.c
++++ b/drivers/clk/clk-nomadik.c
+@@ -117,7 +117,7 @@ static void __init nomadik_src_init(void)
+ 
+ 	val = readl(src_base + SRC_XTALCR);
+ 	pr_info("SXTALO is %s\n",
+-		str_enabled_disabled(val & SRC_XTALCR_SXTALDIS));
++		str_disabled_enabled(val & SRC_XTALCR_SXTALDIS));
+ 	pr_info("MXTAL is %s\n",
+ 		str_enabled_disabled(val & SRC_XTALCR_MXTALSTAT));
+ 	if (of_property_read_bool(np, "disable-sxtalo")) {
+-- 
+2.43.0
 
-static struct irq_chip mvebu_icu_nsr_chip = {
-	.name			= "ICU-NSR",
-        ...
-	.irq_set_type		= irq_chip_set_type_parent,
-        ...
-};
-
-static struct irq_chip mvebu_icu_sei_chip = {
-	.name			= "ICU-SEI",
-        ...
-	.irq_set_type		= irq_chip_set_type_parent,
-        ...
-};
-
-And looking at the potential platform MSI providers for MVEBU, then it
-turns out that GICP and SEI both have the irq_set_type() callback
-populated, though ODMI has not. So either this has never worked or there
-is something else fishy.
-
-Can you please enable CONFIG_GENERIC_IRQ_DEBUGFS, build/boot a 6.10
-kernel and provide the output of
-
-cat /sys/kernel/debug/irq/irq/$N
-
-where $N is the interrupt number of the thermal sensor.
-
-Then provide the same information for a current kernel with your patch
-applied.
-
-Thanks,
-
-        tglx
 
