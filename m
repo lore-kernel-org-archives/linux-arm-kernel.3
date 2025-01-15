@@ -4,143 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 939F1C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 14:58:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68F6FC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 15:03:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6me/X+4LxjEp+sy3R72SDp2DksDkpZRqq231Z/5RZqg=; b=szTNMI3uLsrtS6D7wMVUE5mFZI
-	OKlBc67hdpCNkTP+Sy0H2LriI+sElTUH9x2MLAFuR6C9kGj5lJ9e7lH/ydayVCrApaH4XkR7QJC6E
-	5c/AZuQeGcYHKniNCPpZwqJAzual98JV7P/CMHabwx5XenJhJTWSCOHOWmTSId+HPt5Awo0WWbqAY
-	qX5z/qHlb8gnts3FMvKT1WEmC0f/zspLJel5+XZ/WndBCtZ3J1myWqxUwTZUbrF3zkiTo3Li5Dc96
-	PIi4lPeZl3xlVLy3iRy7pmDFBndDokmk+37082C36WzvRFwz7kDjfwkWoqaIs9SsW0s6/hzsrFvhV
-	6Mn+wUTg==;
+	bh=G3mItwwv65F1XLd+7C5xh06PcIvQu+IvZ3f5R7pbjSQ=; b=rRZIN3MC0JoLgK/c1YvP9AMKjI
+	HM0/Vlr2dYKZKlHC04o3vG80/YwXcMUhPy5F6RZ8cR0oXHXkXng+cFbg2jTVYN2IUjhPqaXimP0vh
+	jAU9a2u1QqScsWdc3WQgn711XATV7ylyLjtbYZ0dACswQEyY1eMqlcyNDfb3qWog1eAInWyZ1Ab58
+	bqd3yxWfI5jR9j7tlVlymcNYTy6tsXznDwNs2RjimvfM9g+9zIa2g8IoKmLW00jl9VtmOa6d99xbY
+	RXEJoXaUWWtCjKe8YIVea3LQUxUmk1AnEz2SFaGhLL5KmVAGxJ6DDqLDwl7paCrEaYkldjanPcFTO
+	+1Ayl7iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY4qh-0000000CCZO-2Tp3;
-	Wed, 15 Jan 2025 14:58:27 +0000
-Received: from www62.your-server.de ([213.133.104.62])
+	id 1tY4vT-0000000CDPX-0KLv;
+	Wed, 15 Jan 2025 15:03:23 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY4pO-0000000CCNm-35N1
+	id 1tY4uB-0000000CDBW-0krY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 14:57:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=iogearbox.net; s=default2302; h=Content-Transfer-Encoding:Content-Type:
-	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=6me/X+4LxjEp+sy3R72SDp2DksDkpZRqq231Z/5RZqg=; b=b9Wb3wPnUeoGa4JpS9VfGXIW2c
-	H6SXqI+vab7bfcQ0PG4sfv1g53lVTuCGC4dSoYW3UhSWoqRbPZAMVc70tAqWM4y2aksHqKipl4tbt
-	JVX5YN0vJhyMwZ5FqBX396OvOM3QpfpGwtXhRwx+xkbJKuP6P3uzDwuILG5UN7YIFQPQcO6ei2vco
-	wsH6duhMKuWHvNE/kppAiqDITn/gWdpOTL2MsTAWGRo+vtJ764N1mJVV8d0R9knC2iiSwW2r0VG4c
-	F5uXCZFFFVW50YXxVcK8Pd3aIJrNzge5XM4Oj1R0FmTujnm5UYq8k+Ai270VqSGp1+84A3s9RR3kv
-	3xPlWFZA==;
-Received: from sslproxy05.your-server.de ([78.46.172.2])
-	by www62.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <daniel@iogearbox.net>)
-	id 1tY4p2-00018p-4k; Wed, 15 Jan 2025 15:56:44 +0100
-Received: from [85.1.206.226] (helo=[192.168.1.114])
-	by sslproxy05.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <daniel@iogearbox.net>)
-	id 1tY4oz-0004iu-19;
-	Wed, 15 Jan 2025 15:56:41 +0100
-Message-ID: <e273b1f1-868f-440e-b226-84b493ef7ee2@iogearbox.net>
-Date: Wed, 15 Jan 2025 15:56:40 +0100
+	Wed, 15 Jan 2025 15:02:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id E004EA416BF;
+	Wed, 15 Jan 2025 15:00:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 406B2C4CED1;
+	Wed, 15 Jan 2025 15:02:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736953321;
+	bh=oSgVQD0xpvqqlDYs9nEBaWNPRJOFZ0gODY4jWMuozSc=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=HU4IdaWE9T7LSDzSr52omxBfSAnoOD6hTdqDHxZUJnnswkLVpppcmpKrEf1j2jlP/
+	 ETr7bZH1kIA7yPIXV6Hk64SJU8Uy+L/+0+zddB0c+EyBcrmqsAgGYjReM8IBvhp5fM
+	 DF5d3mWzG3cqC6l1XCrriHa2JVYljDFN2PbkVuh52Uv93+8LM6cMG93eUFN+q8jYDC
+	 1Gji8mX7IAE37wjP9QsREvh4ozg0Pb24UFQJSdzlCALY/XVQuoOTUysV9UkMmttYlU
+	 On3yJbr5XBvkOXqPETPwMruSeNpVsPGJU4OuBwKCVpG3rLGOpDfDqsVmsAfFgDK4DP
+	 abXYofRqXYr3A==
+From: Lee Jones <lee@kernel.org>
+To: Heiko Stuebner <heiko@sntech.de>, Lee Jones <lee@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, Lukas Bulwahn <lbulwahn@redhat.com>
+Cc: kernel-janitors@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Lukas Bulwahn <lukas.bulwahn@redhat.com>
+In-Reply-To: <20250110120736.58831-1-lukas.bulwahn@redhat.com>
+References: <20250110120736.58831-1-lukas.bulwahn@redhat.com>
+Subject: Re: (subset) [PATCH] MAINTAINERS: Adjust the file entry for the
+ qnap-mcu header
+Message-Id: <173695331999.4116163.16095608205046775735.b4-ty@kernel.org>
+Date: Wed, 15 Jan 2025 15:01:59 +0000
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next v5 2/4] selftests/bpf: Add launch time request to
- xdp_hw_metadata
-To: Song Yoong Siang <yoong.siang.song@intel.com>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- Willem de Bruijn <willemb@google.com>,
- Florian Bezdeka <florian.bezdeka@siemens.com>,
- Donald Hunter <donald.hunter@gmail.com>, Jonathan Corbet <corbet@lwn.net>,
- Bjorn Topel <bjorn@kernel.org>, Magnus Karlsson <magnus.karlsson@intel.com>,
- Maciej Fijalkowski <maciej.fijalkowski@intel.com>,
- Jonathan Lemon <jonathan.lemon@gmail.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, Alexei Starovoitov <ast@kernel.org>,
- Jesper Dangaard Brouer <hawk@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>, Joe Damato <jdamato@fastly.com>,
- Stanislav Fomichev <sdf@fomichev.me>, Xuan Zhuo
- <xuanzhuo@linux.alibaba.com>, Mina Almasry <almasrymina@google.com>,
- Daniel Jurgens <danielj@nvidia.com>, Andrii Nakryiko <andrii@kernel.org>,
- Eduard Zingerman <eddyz87@gmail.com>, Mykola Lysenko <mykolal@fb.com>,
- Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
- Yonghong Song <yonghong.song@linux.dev>, KP Singh <kpsingh@kernel.org>,
- Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
- Shuah Khan <shuah@kernel.org>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Jose Abreu <joabreu@synopsys.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Tony Nguyen <anthony.l.nguyen@intel.com>,
- Przemek Kitszel <przemyslaw.kitszel@intel.com>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org, bpf@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, intel-wired-lan@lists.osuosl.org,
- xdp-hints@xdp-project.net
-References: <20250114152718.120588-1-yoong.siang.song@intel.com>
- <20250114152718.120588-3-yoong.siang.song@intel.com>
-Content-Language: en-US
-From: Daniel Borkmann <daniel@iogearbox.net>
-Autocrypt: addr=daniel@iogearbox.net; keydata=
- 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
-In-Reply-To: <20250114152718.120588-3-yoong.siang.song@intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-Authenticated-Sender: daniel@iogearbox.net
-X-Virus-Scanned: Clear (ClamAV 1.0.7/27519/Wed Jan 15 10:36:26 2025)
+X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_065707_225931_0B21A076 
-X-CRM114-Status: UNSURE (   7.45  )
+X-CRM114-CacheID: sfid-20250115_070203_279957_1DB05C31 
+X-CRM114-Status: UNSURE (   7.93  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -156,44 +75,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/14/25 4:27 PM, Song Yoong Siang wrote:
-[...]
-> +	/* Add mqprio qdisc with TC and hardware queue one-to-one mapping */
-> +	char map[256] = {0};
-> +	char queues[256] = {0};
-> +
-> +	for (i = 0; i < rxq; i++) {
-> +		char buf[8];
-> +
-> +		snprintf(buf, sizeof(buf), "%d ", i);
-> +		strcat(map, buf);
-> +
-> +		snprintf(buf, sizeof(buf), "1@%d ", i);
-> +		strcat(queues, buf);
-> +	}
-> +	run_command("sudo tc qdisc add dev %s handle 8001: parent root mqprio num_tc %d map %s queues %s hw 0",
-> +		    ifname, rxq, map, queues);
+On Fri, 10 Jan 2025 13:07:36 +0100, Lukas Bulwahn wrote:
+> Commit 998f70d1806b ("mfd: Add base driver for qnap-mcu devices") adds a
+> file entry in MAINTAINERS referring to the file include/linux/qnap-mcu.h,
+> whereas the file added in the commit is placed in include/linux/mfd/.
+> 
+> Adjust the file entry to the actual location of this header file.
+> 
+> 
+> [...]
 
-Fyi, above triggers selftest build errors:
+Applied, thanks!
 
-   xdp_hw_metadata.c: In function ‘main’:
-   xdp_hw_metadata.c:763:45: error: ‘%d’ directive output may be truncated writing between 1 and 10 bytes into a region of size 8 [-Werror=format-truncation=]
-     763 |                 snprintf(buf, sizeof(buf), "%d ", i);
-         |                                             ^~
-     TEST-OBJ [test_progs] arg_parsing.test.o
-   xdp_hw_metadata.c:763:44: note: directive argument in the range [0, 2147483646]
-     763 |                 snprintf(buf, sizeof(buf), "%d ", i);
-         |                                            ^~~~~
-   xdp_hw_metadata.c:763:17: note: ‘snprintf’ output between 3 and 12 bytes into a destination of size 8
-     763 |                 snprintf(buf, sizeof(buf), "%d ", i);
-         |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   xdp_hw_metadata.c:766:47: error: ‘%d’ directive output may be truncated writing between 1 and 10 bytes into a region of size 6 [-Werror=format-truncation=]
-     766 |                 snprintf(buf, sizeof(buf), "1@%d ", i);
-         |                                               ^~
-   xdp_hw_metadata.c:766:44: note: directive argument in the range [0, 2147483646]
-     766 |                 snprintf(buf, sizeof(buf), "1@%d ", i);
-         |                                            ^~~~~~~
-   xdp_hw_metadata.c:766:17: note: ‘snprintf’ output between 5 and 14 bytes into a destination of size 8
-     766 |                 snprintf(buf, sizeof(buf), "1@%d ", i);
-         |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[1/1] MAINTAINERS: Adjust the file entry for the qnap-mcu header
+      commit: 2816b0c949af89640b8dc05de53e650cbf1d55fb
+
+--
+Lee Jones [李琼斯]
+
 
