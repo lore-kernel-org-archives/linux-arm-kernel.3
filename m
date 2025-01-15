@@ -4,177 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4315FC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 06:18:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2313C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 06:28:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:From:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C/eQva/DYi9PRBY+HSHYY3bekf0p6/YWGhrFDPczrZY=; b=BY/sImYN2xObeYf8vc8siE6XvF
-	UQIgfSuYzbR4FaDmayEZaZibufqlABILCUfHwjKfro8QMDRxkHwpzgAqAafqPeNPwW0P7E9zatPKp
-	Z8rm5R9RE57C15oBzyw34AJUwZtRIonleMZbxQzATwPL1p1xchM/lolwlRoPsggiHXwb/TbvsgsT5
-	vmTUiUYcqzpsO78LbF5yAyXw65+ujPKlKsgq3+CwcP+PxFlWECQ7sorkG+9FS2T90UaycHudunuuO
-	cyu3oU8vjV3mfoUbbMKvamDD1srYFOeWrWWohYAgiuVHzXf0ZJzbXRFjw2hhvCt4fRHXDWe+CwgVh
-	fbyG8ERA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1QTHVErjQ8xeLIe3NUqxIk/8SXxlth+JV5nZQMI2kDg=; b=OdVzcG8V+odusOqVnoCbFBUQiO
+	TZsVa6ApCakFC2evsAcaDHjbTE05itVwPQcpLy7J6YaD26dHn53bTVwLFoJKMXlOl/uuWMmcbiDWl
+	A0IYjwIQIXQumYw7w3PXBW9FJPRiawwMRRnZilgUnKVPszVxcsf3sK5LFyBogX5v2gnUaCIXoCBP5
+	hgz0464QxWSeRTAOiof8kB8pMEmf1qcOmLlZHcrAqkbEoCbx16s0D0PWlmeka90g1hfcG1uQTlpmv
+	zbXQzi1jz7+tdWX48fYKXj7btszhon5Eojb8foLqIYVVZCsbpNfCpOEfyWELA+5tvSDqpDTxqehaH
+	+2yUwXuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXwjO-0000000AloW-40TF;
-	Wed, 15 Jan 2025 06:18:22 +0000
-Received: from mail-psaapc01on20708.outbound.protection.outlook.com ([2a01:111:f403:200e::708] helo=APC01-PSA-obe.outbound.protection.outlook.com)
+	id 1tXwt0-0000000AmkA-16Ww;
+	Wed, 15 Jan 2025 06:28:18 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXwhk-0000000AleW-1wvR;
-	Wed, 15 Jan 2025 06:16:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ulSh09mwBo0vWX2Wovbxo7nd3imJpXkTSnNo1xBfn9ea3+lWvtuwBsfVLZFtw5NemAzs2G5MZr8mQipstw1DSMf4SJccRMT3daiFh7VkJhru+Nz1s7xWcmHLAHzXXPIA8oSyg3rNO81u/lkKW3rJ21v0LxqYBt2ZQs/3A0FWHmfJ2O5g41s4AuULIKxDHRGk0M8xtRSieVEbkUVg7KpKAmRQosfSHT91RK/u7DKKxg9zZ9gUvdswdgwis3i9qVGy06opfk8NrTfdFCuEI4mtGpW4V65hn6N9qI2cMqd0zLhCCoAnKai/oAQGZ1kWHG3l8AShj0CCSITbcz709fYtTw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=C/eQva/DYi9PRBY+HSHYY3bekf0p6/YWGhrFDPczrZY=;
- b=GDgwJjixXnV1bmizvu0d74fy9M2CkQR/KOTQfTGN19mYvN10z+xD4p0fBlv+3DHhvFiyFFSZla338KiNfbp0y5yM41sLp6tA9cxx3kKE2eVcHhGgDwS3uTZFEVBYr6k7XBqyTPFz/9hf9pxpIHaU5lYkJrFX/LJgH/KcGrzAdnG8c8wlqGA+V5BpuEzhWkH6etV279je43crXmjfTqN/8BiREgnQZHNPQa656/WVnjtEEmqv5BC0rh47BIu3wkJ7HLlFwRIEV2DvpHSmIjwgpMjRLmgPvb/B6nXQ1pSmDRPQlU4MwRKTBCIbL/SpLHMAdLH9DtkdBsfgx7O50rd4VA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=C/eQva/DYi9PRBY+HSHYY3bekf0p6/YWGhrFDPczrZY=;
- b=eppMObiZyTdSqHhvO6Jp2O6xLJw3cWObPG2yzooNHEVsIV9jD9gTFKQXIleWHzwd0VOaTMcbFJSG7kE1H/P3JyJc71w/pZfjNBQ5iGAr3KErwHfDaSqOXhpjNSezp8WoauWHiYjOFNeXsVXXLiWm6aGCVm+tNW1YAngzGm5QEcqmd/oZtfWUjTjaRh+9EsO4a8k8bUaKRKrt0KXRP9NJYSJWQNy2Fo2vGdMucAX1cxdA9JlnZqefvJrYumM5KiMdqH610KemnBzBBWb4H8qApsE4cNLmrZBsqLQNJ1dPM9l9MhdF19ABpYFfmNzjd/ByBo/RWZnX+e3qNoR8Ob/d8g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from PUZPR03MB7135.apcprd03.prod.outlook.com (2603:1096:301:113::15)
- by JH0PR03MB7934.apcprd03.prod.outlook.com (2603:1096:990:30::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.13; Wed, 15 Jan
- 2025 06:16:30 +0000
-Received: from PUZPR03MB7135.apcprd03.prod.outlook.com
- ([fe80::ecac:a387:36d8:144d]) by PUZPR03MB7135.apcprd03.prod.outlook.com
- ([fe80::ecac:a387:36d8:144d%3]) with mapi id 15.20.8356.010; Wed, 15 Jan 2025
- 06:16:30 +0000
-Message-ID: <83a93dfc-2fcd-4166-98ed-e0491645f4e5@amlogic.com>
-Date: Wed, 15 Jan 2025 14:16:27 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] arm64: dts: amlogic: Add Amlogic S4 Audio
-From: Jiebing Chen <jiebing.chen@amlogic.com>
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: jiebing chen via B4 Relay <devnull+jiebing.chen.amlogic.com@kernel.org>,
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>, Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org
-References: <20250113-audio_drvier-v1-0-8c14770f38a0@amlogic.com>
- <20250113-audio_drvier-v1-3-8c14770f38a0@amlogic.com>
- <1jldve939f.fsf@starbuckisacylon.baylibre.com>
- <813e2564-8c4c-4adb-8184-ab88156e3e4c@amlogic.com>
- <1jmsft7ihz.fsf@starbuckisacylon.baylibre.com>
- <0e8b78c1-5c56-40e7-a2d8-41a7f49d52bc@amlogic.com>
- <1j34hl7a8b.fsf@starbuckisacylon.baylibre.com>
- <40aca60e-92e7-4344-8f7d-f62a61dd1898@amlogic.com>
-In-Reply-To: <40aca60e-92e7-4344-8f7d-f62a61dd1898@amlogic.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: TYCPR01CA0031.jpnprd01.prod.outlook.com
- (2603:1096:405:1::19) To PUZPR03MB7135.apcprd03.prod.outlook.com
- (2603:1096:301:113::15)
+	id 1tXwrj-0000000AmQs-3RGT;
+	Wed, 15 Jan 2025 06:27:01 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-5d3e8f64d5dso12214703a12.3;
+        Tue, 14 Jan 2025 22:26:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1736922417; x=1737527217; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1QTHVErjQ8xeLIe3NUqxIk/8SXxlth+JV5nZQMI2kDg=;
+        b=OxC+ZrxY4ymZREB5YuB/DNy7p1RT71zyYGPerlNmZgVaREEki/u190TE0U2SIdOTVE
+         jQ+lnnSTDWQpKQa3UDpoAFE0HFDweQZOylPNOxBT0A6iWGUwSt33hFlxc7RJE1Sy9Vgu
+         TPn4a2pmb0DcMo3EM921h2skr/e7k7jVqoEpcryGGL65g4ZhDdlqEcYKDU+oipasvqoJ
+         RFqnCkD68JUd7/qHPG86xi9AvHR3IrKN+nrNA4oYTOTTh1p3kMuNWUw3rugihUJc9RAm
+         SQyAxQ2PaoljtQg2d27DqYLwUB3zakOvYttyVybPePR1jRtmHO+DW848eCjkOlaA+l3p
+         AWkg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736922417; x=1737527217;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=1QTHVErjQ8xeLIe3NUqxIk/8SXxlth+JV5nZQMI2kDg=;
+        b=KqFeCXCk62relyGJpe8LWZqdjSpIepkqGfwOuP5gRoA285qpq8tRn7rHI70AM7hOZv
+         xCFBGbyG9DJairQf7KmBDDjtQiAQA/15lov1bihXVcIA/svjnuctUhPWpNBfmG0fIyAv
+         qGQjZFjKtUHnvUAOhg47rC6i44LvbV1O61Wstprb1tzXbekaR6t13TDbRGGun43iYm/J
+         eIiCtz0MF/8Urofa3bnCsnYylXYZwkZWRkp+FyOYV1LgxN+IazNR2VS2z0VlC6u0jy8i
+         F5Ap5/DYQzE93Idi9fAcXratq6CBncrBFHOtstudWjswrEE8I9NzomrBLut42o2lrguA
+         B1Gg==
+X-Forwarded-Encrypted: i=1; AJvYcCUc4P7t+VXOust4jNoDr7cyPiFWNkN/eyfrjSIFPiCtLyZrJegjQdpHGJxdxy80qhJLYrAGj48lDMd6MsDNMjw2@lists.infradead.org, AJvYcCV7KO7iLTtAcuSf+xqh9ilXNWMxe49MoKg/mp6CTTXIv7RqIS2WfNTqTysPMSeXxOaxXsU7JukisFa1xFg=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz6KZeGy0u7M7WIhwGR/H5h5ojNrBxS7xxEBg4HEvrFGSbxBuyx
+	ZouQi0HC9Kr7mgYXTjjGyymBczbqwZJW/s5TMMRWZ45bEqiCQkDIZlDmFP8PWJAh7Nxmkt/ZVDY
+	Z6IJcA9JnoB/zTLtJaGjn4ZschiU=
+X-Gm-Gg: ASbGncvgrE1yFMjHJ0PKr0J1ecyuGZcpnle8lFcLMhyqhUyR+aSS14KUv8vKg7J52oq
+	t9QmHJaOueMjPrLYADuth9YcUlw+zUEnWCquhJw==
+X-Google-Smtp-Source: AGHT+IGHWO4sDuakKEdHqUvfE3Z3gW5fp1poivDXuCJtfBJKYZ5Who81+3H48NTj/ik4DCaoT89yf2ZxFGDe0IRR18s=
+X-Received: by 2002:a05:6402:2105:b0:5d0:bf27:ef8a with SMTP id
+ 4fb4d7f45d1cf-5d972e4eeb6mr25379610a12.26.1736922417310; Tue, 14 Jan 2025
+ 22:26:57 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PUZPR03MB7135:EE_|JH0PR03MB7934:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9ff1126c-d43d-4165-bf41-08dd352c26f3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?RkpGMEFHU0FqUXFPVjFuZmltdVo2RlpTdlg4OTVrbUd1cXJ2YzFkS3RQNVBJ?=
- =?utf-8?B?YmRCaW5CMzBuQkI2NHJmcXd5ek9wSUN0M2lWV0ZGenZ1M3I0MStZeU1MQjFj?=
- =?utf-8?B?MUxwUVZZUHgrVzVkdE1sQUdaT3BBSXJYUnBwUDBuOXZhb1FhMysrUnhzRWpO?=
- =?utf-8?B?OStiUThHbllxMUtkZ2NacGJoN2NCMkpNTFUxN1JZV1FjVFJyWnJIVGl3WCtx?=
- =?utf-8?B?TVpacXlLVW1sTW5CeEwrVmpKWDRVZnNWWitBMko0dzhsbGV5N2VlU0N6dDF2?=
- =?utf-8?B?NUg3d0Vha2Y4R0NCYm1aUlFiZ1h2S1F0VXJNMG1BOXlNK0twTFVTNmhzaUsz?=
- =?utf-8?B?UnlMNVpKVTR4VkQ4NERjSjVzZU1uWVo5b2gzc2FZaTREMkJnaVpTN0pQWDY3?=
- =?utf-8?B?RUJnR3BzNUF3S1V1L1QvOCtwcUFrMTZpLzBSajVWaWJ5NnVUUDVFZzZURXFH?=
- =?utf-8?B?SWlJOUZ1Y0pHb1Njd1RzRkxUbGZXd0VLaXdSNUs3QUJrSWd6ZmpoZklMZUtO?=
- =?utf-8?B?Ui9JeVZJSVhKR1hqSGJLUGRYUkZRL0gwcy9MM2hHNTVjcnBGOWIvaTU3TStB?=
- =?utf-8?B?U0p2NTA5eVRPaDRGamhMOGRXMXJkdWxpM2o0ZE5SUklYSnpXOGc4d1lUUXhM?=
- =?utf-8?B?RVRIRkhqV1Zac3N1NXBrQTZESG1oWHNGQTU0YWZrWnhqVFVtL0cyczJYcDZx?=
- =?utf-8?B?ZW5OVTVYV3ZpUmlUTVhBbG51aW5jV3ZDRVBRMmdjRUxtRkZ5ZnNKSFRFQXJT?=
- =?utf-8?B?cWR0Ym50Z3pxUkxPbHFJTkFmVG8vdU5BZWNGSm4yYjNmb2JDYytaUEtZMWMx?=
- =?utf-8?B?ZUQ5YUJYY3VVd2NNc0VZNVJEZGQ5UFNuS2ZVVHhFOXNHYjd4YUV4alovK3B5?=
- =?utf-8?B?Y1BFcHlXTzJzbFJtRUtzS0V0Zm5kRUwwemdqSjUvNURHcERHVnN5dzhkdCtY?=
- =?utf-8?B?YTY5eEhBYStZdUQwNEtsNkJJNitoY0ZwTFkxakI5NjFSaEJ0SU1aSXgxaDc4?=
- =?utf-8?B?c1RWaTF2anN6c0RtaXNhTFNkVm82U0wrZ0ZMU0RFTDhaL3JuNzgrdkptNjVv?=
- =?utf-8?B?eFlHeDNPTkRnVXZMZC80cFgwMGZwVDZESU9zNXZ3SERvU004WWE2Ukd4V3Zs?=
- =?utf-8?B?dUJtdjUxN01WWVZpWjNaMEJKbmdhSFkwdzJNTnVmazh2TUZHNi9FRnR5Nkc0?=
- =?utf-8?B?d081SlRjOWgwcWpZKzYydjZENzRwTmNOWmVzc0xUSW40TWh3aWxHME0xODZK?=
- =?utf-8?B?eEJtWmRTK1YvMEM2aitGdUJqVDhyV2NabWgvb3RZR0dTck1jektWU0NjT1hU?=
- =?utf-8?B?S01ncWxHUDFtTE4wT2NYeUR1cDdKMnVucHpzNUtwZGZCdVVqWlhvbjB2ZWJy?=
- =?utf-8?B?UDNVbWtkdVhsbHdBYVZXRXBoOGpHdis4bm40TWtVdjVGVTBhbEp2V05rVjVV?=
- =?utf-8?B?V2I5L0ljdkRlWHlKOTMwMEg0bnZVREViN1ZCNmhLUjlzcFZZRmZSK1VPRFVT?=
- =?utf-8?B?WHppYmhKdTlUNWtDUGxteEdBTFlGTWNiR1RvekhnUmxOUE84aVd0TmJ4UFFX?=
- =?utf-8?B?UUlwbkttYjdaMVZSM1FLK0R4M3pIY1NYM0pTK3RiT1lhTkVCT2lVYjVjSmRH?=
- =?utf-8?B?THQ0S3dMN1BTYzRRT0dlMDFiKzROTk9rSEtCSmFhRkRHTFVpVWZoVjlmQkoy?=
- =?utf-8?B?M0JTT0F5Smh6MUpWbHBJb3ZoeFpYQkJXQlltV1FINEk1bTZEL1pJK0xYd1FX?=
- =?utf-8?B?a1VtOWZhTDJoRmZDd2RQYS9KY0drZWluRldFbktreVYzOHZHc2NiQXV1WDMy?=
- =?utf-8?B?WllPZGN3aTR0Q1pYSldxa0VYNkhoMEF1RitObnhZbFJQTzBpRDBvZnhRRHFs?=
- =?utf-8?Q?tVs9YsDaoiUkf?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PUZPR03MB7135.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SUVRQ04wRlVsSnBjZmNqUHl4eHhXQlYzakVhT0VkQkdtem96YWJTclJqS09j?=
- =?utf-8?B?cERRb2hVMVRzK3JnRXp5TUNEcVZ4Z2plWXFwZHJWdUIwMHhoRStBaGowVCtq?=
- =?utf-8?B?T2pNdkpkdnJYWExnbVBDTm1kdzNwSDRsY1I4Yno3ZFlpV1FZNlREWkhuS3Rl?=
- =?utf-8?B?bWhMM1BoR0VkZDRIQlMyYnphMDRsa0N1ei9aOWxVTk40OWtqVFQ4KzdUN3Rz?=
- =?utf-8?B?cnBiNmxQaGtHL2NPRU1SNUU5Umdqb3c4b0lvdkVjVGFtbEZ5VnRYQUNNdU0r?=
- =?utf-8?B?Wjl2dGxEd3lCb0N4Y3FIbkl4Vy9ML0w4a0pPOXM2VDZLL3ZkSXB0czBQRDcx?=
- =?utf-8?B?ZEYxakVCTGFXNncrVGdNY2g0NURiNmd6L3NmOGh3d2txYTBmaTM0YUNWZ1h1?=
- =?utf-8?B?ZitLQTFlQzg4VmE2QTJTaUphMUM1TFJoNlkvK1BVZ0FyVjhxRWJaYld5dURT?=
- =?utf-8?B?bjZUSGorcHZuSDlvTkFRd0RxRzRaZmt1bmwwVmEwTzRMOWNqTis4V2NyWFBj?=
- =?utf-8?B?WVJ2Nyt6UjQrOHNCaVpnbkoxb1BDRmU1V1FXZWswV0h6TmJTd2NwK2JldHdm?=
- =?utf-8?B?K0Fma2l2L0VVbHRvR0ZGSlR3YURwQ1NpejA4Yk9IV0tEQ3ZmeVFVWWZQajYv?=
- =?utf-8?B?OGFDc1ZWMWgzOWFEajdXeUdqVmVwYUJseUtEQUtlWEhCNTJUanhpcng2ZDE2?=
- =?utf-8?B?V2lnY1lMZ1FhUE1ORFRwUXB4bFYrWlBnSDU0c0Q5Z3NkT245Tm0vdk9JZkpY?=
- =?utf-8?B?bFZLbjFUamNCd25RRkxnK2FlVUtDWU5TZEU1dmNzK081bFZJQy9xdDh4RUti?=
- =?utf-8?B?NjQycjJGeGFGVEdBb0lCNmwwZFBsbDU2SG9tNkFwMkRGb1N1bVNXSlVPUml4?=
- =?utf-8?B?QmNwQm5BdUc3WTR5RjJrMG4wQnlHekZBZXBPaUcxejVzRzcwM2JEdGhKeWxJ?=
- =?utf-8?B?emdMWkEyU1VTemNqeVdsTlpBdDQ4UmFUYnhMc0tZdGZwQlNaWlhvMjIrYnc1?=
- =?utf-8?B?WGtSRm1kSDBvMm4rbGlRMnZMd3Q4bVJITTFLT1pQTSs0Y1VMcjRhbGlpSlZT?=
- =?utf-8?B?Q1hDVXEzODdxaGV2KzVUejJFR0ZvMTN2RTZoQnJPaDhzRUtYTVZYallyVUs3?=
- =?utf-8?B?S0ZzQ0JRbnl2QzdKMjc0S0VjVXNzc2drQmdpYXl3c2RGSHNPdmtNZXpjMkI3?=
- =?utf-8?B?ekpiYTZ5WXBEckR5QTlJUWtDQ3NRQlBKZVFaZzVTdTNXU1RKd2pJczRVRmdk?=
- =?utf-8?B?ZXR3OUZHZERtVC9mTkJoUis3YlR1WFZvWkFNTllPUmhXMWtWTE1pajFyZWJw?=
- =?utf-8?B?TGIxM3FUZjM5RDBDc1V6S3VtMG9hTmx1b2V5NzVkZWxRRE1JSnNjN1VZOHdE?=
- =?utf-8?B?ZjNuYkxTMlBkWTVLanpJeVI5TmZMaCtUc3pySFk3UlhTenk0cFRyOTg5bzEx?=
- =?utf-8?B?Y0l5N3hhTk1IcE5nMHhIRFd2a2U4Ky84NUs5YjVVL3d1bjVuei9XMUpkd3Ez?=
- =?utf-8?B?VkVFazRDT0FCMk5ORElBaCs0UU55WHFzdnV0UG95akpXVyt0RTgzcnhNQ1Qr?=
- =?utf-8?B?alc0cThkdHBKZThUTG9aVmIybWVSMlZmSXFoQmg0K0htRU5VSDNqRkdIbXJG?=
- =?utf-8?B?b1RCd0tqZzhwNHkzakdNcy9sa0VzblgreDhwcmlsRGV3dTRzakxzNE1wQWRZ?=
- =?utf-8?B?bFBNak9wWEZsNmpzMEtjbkpOQ1hLQStoejVpM05MdXJsbnUybTI3UjNsdmNH?=
- =?utf-8?B?SVRHb3l4cjEwZkRHRFpCcWpuY1I2QzVrMFprcVhRMTFlaWhNNDY3U0E3UFN2?=
- =?utf-8?B?MG9aOTBsSG0wRHVTTTQ4RUJuTTVTL0lZeEFoTkg5d1dISHhyQ2VDM2VCSkcw?=
- =?utf-8?B?S3UyS256OU43WFlKOE9VVDg3QkZneUFWcnpEb0hZTytCbkFRdStTRDRRZ2F3?=
- =?utf-8?B?K0V1YThvOUswOVdWcXZJYjZXL2ZvUFg2aWpubEFTbmJvVFhSY3J6eHJTelQw?=
- =?utf-8?B?YWxsMW5rZTdlbGpPN1NiZFBKKzNadEQ5eS9MdW5JVlJVYTdvMSt6aU5EUGtH?=
- =?utf-8?B?bWdyenluckNScExGNlp0VmlacWY4eHdXd2ZyWXZ6QlBhbTZ2OGtzdWZYNVJX?=
- =?utf-8?B?TkEwU00rcmJDSTV0Qm90Z0lucE5WU0crVm00NmhLeHVyS0FXREh0eXJFNDMv?=
- =?utf-8?B?aGc9PQ==?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9ff1126c-d43d-4165-bf41-08dd352c26f3
-X-MS-Exchange-CrossTenant-AuthSource: PUZPR03MB7135.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jan 2025 06:16:30.6501
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: OmXYeV7b1Cd2e/CevTZbDOWO3cmGVvRO4sEaH747zu/KFOMBzsPrKHvjIorEaek/PAj3N7vU0ABS8K+/TfI6wi4FmMRfWq9+dGb1vMticIo=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: JH0PR03MB7934
+References: <20250115033808.40641-1-21cnbao@gmail.com> <20250115033808.40641-5-21cnbao@gmail.com>
+ <CAK1f24=3LmQMzgosB0o9OKV-P8f6cPO2ZCPBA64QXQqZYPk=ww@mail.gmail.com> <CAGsJ_4xwHVmnKENYV6M6yMSUzeeR8tM7F8mbkAUd4eVHhfN_BA@mail.gmail.com>
+In-Reply-To: <CAGsJ_4xwHVmnKENYV6M6yMSUzeeR8tM7F8mbkAUd4eVHhfN_BA@mail.gmail.com>
+From: Lance Yang <ioworker0@gmail.com>
+Date: Wed, 15 Jan 2025 14:26:19 +0800
+X-Gm-Features: AbW1kvaPPmdSXN8eYcUNyJXVUpQa-l4-ZCcODmUNmLPk-TO5q5n5IpLZt77WFRA
+Message-ID: <CAK1f24mCYF4Ew0hHr2+a=98RbxmmHwXv8KeFARyMvnLi99c2fQ@mail.gmail.com>
+Subject: Re: [PATCH v3 4/4] mm: Avoid splitting pmd for lazyfree pmd-mapped
+ THP in try_to_unmap
+To: Barry Song <21cnbao@gmail.com>
+Cc: akpm@linux-foundation.org, linux-mm@kvack.org, 
+	baolin.wang@linux.alibaba.com, chrisl@kernel.org, david@redhat.com, 
+	kasong@tencent.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	lorenzo.stoakes@oracle.com, ryan.roberts@arm.com, v-songbaohua@oppo.com, 
+	x86@kernel.org, ying.huang@intel.com, zhengtangquan@oppo.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_221640_633069_9A75FA4B 
-X-CRM114-Status: UNSURE (   9.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250114_222659_861455_4ABF07A8 
+X-CRM114-Status: GOOD (  33.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,297 +98,251 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-在 2025/1/15 11:38, Jiebing Chen 写道:
+On Wed, Jan 15, 2025 at 1:09=E2=80=AFPM Barry Song <21cnbao@gmail.com> wrot=
+e:
 >
-> 在 2025/1/14 22:15, Jerome Brunet 写道:
->> [ EXTERNAL EMAIL ]
->>
->> On Tue 14 Jan 2025 at 20:34, Jiebing Chen <jiebing.chen@amlogic.com> 
->> wrote:
->>
->>> 在 2025/1/14 19:16, Jerome Brunet 写道:
->>>> [ EXTERNAL EMAIL ]
->>>>
->>>> On Tue 14 Jan 2025 at 16:52, Jiebing Chen 
->>>> <jiebing.chen@amlogic.com> wrote:
->>>>
->>>>> 在 2025/1/13 22:50, Jerome Brunet 写道:
->>>>>> [ EXTERNAL EMAIL ]
->>>>>>
->>>>>> On Mon 13 Jan 2025 at 14:35, jiebing chen via B4 Relay 
->>>>>> <devnull+jiebing.chen.amlogic.com@kernel.org> wrote:
->>>>>>
->>>>>>> From: jiebing chen <jiebing.chen@amlogic.com>
->>>>>>>
->>>>>>> Add basic audio driver support for the Amlogic S4 based Amlogic
->>>>>>> AQ222 board.
->>>>>>>
->>>>>>> Signed-off-by: jiebing chen <jiebing.chen@amlogic.com>
->>>>>>> ---
->>>>>>>     .../boot/dts/amlogic/meson-s4-s805x2-aq222.dts | 226 
->>>>>>> ++++++++++++
->>>>>>>     arch/arm64/boot/dts/amlogic/meson-s4.dtsi | 385 
->>>>>>> ++++++++++++++++++++-
->>>>>>>     2 files changed, 610 insertions(+), 1 deletion(-)
->>>>>>>
->>>>>>> diff --git a/arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dts
->>> b/arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dts
->>>>>>> index 
->>>>>>> 6730c44642d2910d42ec0c4adf49fefc3514dbec..32f50a5b860435d50d9c5528b43422b705b20130 
->>>>>>> 100644
->>>>>>> --- a/arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dts
->>>>>>> +++ b/arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dts
->>>>>>> @@ -75,6 +75,19 @@ vddio_ao1v8: regulator-vddio-ao1v8 {
->>>>>>>                 regulator-always-on;
->>>>>>>          };
->>>>>>>
->>>>>>> +     vcc5v_reg: regulator-vcc-5v {
->>>>>>> +             compatible = "regulator-fixed";
->>>>>>> +             vin-supply = <&main_12v>;
->>>>>>> +             regulator-name = "VCC5V";
->>>>>>> +             regulator-min-microvolt = <5000000>;
->>>>>>> +             regulator-max-microvolt = <5000000>;
->>>>>>> +             gpio = <&gpio GPIOH_7 GPIO_ACTIVE_HIGH>;
->>>>>>> +             startup-delay-us = <7000>;
->>>>>>> +             enable-active-high;
->>>>>>> +             regulator-boot-on;
->>>>>>> +             regulator-always-on;
->>>>>>> +     };
->>>>>>> +
->>>>>>>          /* SY8120B1ABC DC/DC Regulator. */
->>>>>>>          vddcpu: regulator-vddcpu {
->>>>>>>                  compatible = "pwm-regulator";
->>>>>>> @@ -129,6 +142,219 @@ vddcpu: regulator-vddcpu {
->>>>>>>                                  <699000 98>,
->>>>>>>                                  <689000 100>;
->>>>>>>          };
->>>>>>> +     dmics: audio-codec-1 {
->>>>>>> +             compatible = "dmic-codec";
->>>>>>> +             #sound-dai-cells = <0>;
->>>>>>> +             num-channels = <2>;
->>>>>>> +             wakeup-delay-ms = <50>;
->>>>>>> +             sound-name-prefix = "MIC";
->>>>>>> +     };
->>>>>>> +
->>>>>>> +     dioo2133: audio-amplifier-0 {
->>>>>>> +             compatible = "simple-audio-amplifier";
->>>>>>> +             enable-gpios = <&gpio GPIOH_8 GPIO_ACTIVE_HIGH>;
->>>>>>> +             VCC-supply = <&vcc5v_reg>;
->>>>>>> +             #sound-dai-cells = <0>;
->>>>>>> +             sound-name-prefix = "10U2";
->>>>>>> +     };
->>>>>>> +
->>>>>>> +     spdif_dir: audio-spdif-in {
->>>>>>> +             compatible = "linux,spdif-dir";
->>>>>>> +             #sound-dai-cells = <0>;
->>>>>>> +             sound-name-prefix = "DIR";
->>>>>>> +     };
->>>>>>> +
->>>>>>> +     spdif_dit: audio-spdif-out {
->>>>>>> +             compatible = "linux,spdif-dit";
->>>>>>> +             #sound-dai-cells = <0>;
->>>>>>> +             sound-name-prefix = "DIT";
->>>>>>> +     };
->>>>>>> +
->>>>>>> +     sound {
->>>>>>> +             compatible = "amlogic,axg-sound-card";
->>>>>>> +             model = "aq222";
->>>>>>> +             audio-widgets = "Line", "Lineout";
->>>>>>> +             audio-aux-devs = <&tdmout_a>, <&tdmout_b>, 
->>>>>>> <&tdmout_c>,
->>>>>>> +                              <&tdmin_a>, <&tdmin_b>, <&tdmin_c>,
->>>>>>> +                              <&tdmin_lb>, <&dioo2133>, 
->>>>>>> <&tdmout_pad>, <&toacodec>;
->>>>>>> +             audio-routing = "TDMOUT_A IN 0", "FRDDR_A OUT 0",
->>>>>>> +                             "TDMOUT_A IN 1", "FRDDR_B OUT 0",
->>>>>>> +                             "TDMOUT_A IN 2", "FRDDR_C OUT 0",
->>>>>>> +                             "TDM_A Playback", "TDMOUT_A OUT",
->>>>>>> +                             "TDMA_OUT SEL",   "TDM_A Playback",
->>>>>>> +                             "TDMOUT_B IN 0", "FRDDR_A OUT 1",
->>>>>>> +                             "TDMOUT_B IN 1", "FRDDR_B OUT 1",
->>>>>>> +                             "TDMOUT_B IN 2", "FRDDR_C OUT 1",
->>>>>>> +                             "TDM_B Playback", "TDMOUT_B OUT",
->>>>>>> +                             "TDMB_OUT SEL",   "TDM_B Playback",
->>>>>>> +                             "TDMOUT_C IN 0", "FRDDR_A OUT 2",
->>>>>>> +                             "TDMOUT_C IN 1", "FRDDR_B OUT 2",
->>>>>>> +                             "TDMOUT_C IN 2", "FRDDR_C OUT 2",
->>>>>>> +                             "TDM_C Playback", "TDMOUT_C OUT",
->>>>>>> +                             "TDMC_OUT SEL",   "TDM_C Playback",
->>>>>>> +                             "TOACODEC TDMA", "TDM_A Playback",
->>>>>>> +                             "TOACODEC TDMB", "TDM_B Playback",
->>>>>>> +                             "TOACODEC TDMC", "TDM_C Playback",
->>>>>>> +                             "SPDIFOUT_A IN 0", "FRDDR_A OUT 3",
->>>>>>> +                             "SPDIFOUT_A IN 1", "FRDDR_B OUT 3",
->>>>>>> +                             "SPDIFOUT_A IN 2", "FRDDR_C OUT 3",
->>>>>>> +                             "SPDIFOUT_B IN 0", "FRDDR_A OUT 4",
->>>>>>> +                             "SPDIFOUT_B IN 1", "FRDDR_B OUT 4",
->>>>>>> +                             "SPDIFOUT_B IN 2", "FRDDR_C OUT 4",
->>>>>>> +                             "TDMIN_A IN 0", "TDM_A Capture",
->>>>>>> +                             "TDMIN_A IN 1", "TDM_B Capture",
->>>>>>> +                             "TDMIN_A IN 2", "TDM_C Capture",
->>>>>>> +                             "TDMIN_A IN 3", "TDM_A Loopback",
->>>>>>> +                             "TDMIN_A IN 4", "TDM_B Loopback",
->>>>>>> +                             "TDMIN_A IN 5", "TDM_C Loopback",
->>>>>>> +                             "TDMIN_B IN 0", "TDM_A Capture",
->>>>>>> +                             "TDMIN_B IN 1", "TDM_B Capture",
->>>>>>> +                             "TDMIN_B IN 2", "TDM_C Capture",
->>>>>>> +                             "TDMIN_B IN 3", "TDM_A Loopback",
->>>>>>> +                             "TDMIN_B IN 4", "TDM_B Loopback",
->>>>>>> +                             "TDMIN_B IN 5", "TDM_C Loopback",
->>>>>>> +                             "TDMIN_C IN 0", "TDM_A Capture",
->>>>>>> +                             "TDMIN_C IN 1", "TDM_B Capture",
->>>>>>> +                             "TDMIN_C IN 2", "TDM_C Capture",
->>>>>>> +                             "TDMIN_C IN 3", "TDM_A Loopback",
->>>>>>> +                             "TDMIN_C IN 4", "TDM_B Loopback",
->>>>>>> +                             "TDMIN_C IN 5", "TDM_C Loopback",
->>>>>>> +                             "TDMIN_LB IN 3", "TDM_A Capture",
->>>>>>> +                             "TDMIN_LB IN 4", "TDM_B Capture",
->>>>>>> +                             "TDMIN_LB IN 5", "TDM_C Capture",
->>>>>>> +                             "TDMIN_LB IN 0", "TDM_A Loopback",
->>>>>>> +                             "TDMIN_LB IN 1", "TDM_B Loopback",
->>>>>>> +                             "TDMIN_LB IN 2", "TDM_C Loopback",
->>>>>>> +                             "TODDR_A IN 0", "TDMIN_A OUT",
->>>>>>> +                             "TODDR_B IN 0", "TDMIN_A OUT",
->>>>>>> +                             "TODDR_C IN 0", "TDMIN_A OUT",
->>>>>>> +                             "TODDR_A IN 1", "TDMIN_B OUT",
->>>>>>> +                             "TODDR_B IN 1", "TDMIN_B OUT",
->>>>>>> +                             "TODDR_C IN 1", "TDMIN_B OUT",
->>>>>>> +                             "TODDR_A IN 2", "TDMIN_C OUT",
->>>>>>> +                             "TODDR_B IN 2", "TDMIN_C OUT",
->>>>>>> +                             "TODDR_C IN 2", "TDMIN_C OUT",
->>>>>>> +                             "TODDR_A IN 3", "SPDIFIN Capture",
->>>>>>> +                             "TODDR_B IN 3", "SPDIFIN Capture",
->>>>>>> +                             "TODDR_C IN 3", "SPDIFIN Capture",
->>>>>>> +                             "TODDR_A IN 6", "TDMIN_LB OUT",
->>>>>>> +                             "TODDR_B IN 6", "TDMIN_LB OUT",
->>>>>>> +                             "TODDR_C IN 6", "TDMIN_LB OUT",
->>>>>>> +                             "10U2 INL", "ACODEC LOLP",
->>>>>>> +                             "10U2 INR", "ACODEC LORP",
->>>>>>> +                             "Lineout", "10U2 OUTL",
->>>>>>> +                             "Lineout", "10U2 OUTR";
->>>>>>> +             assigned-clocks = <&clkc_pll CLKID_HIFI_PLL>,
->>>>>>> +                               <&clkc_pll CLKID_MPLL2>,
->>>>>>> +                               <&clkc_pll CLKID_MPLL0>,
->>>>>>> +                               <&clkc_pll CLKID_MPLL1>;
->>>>>>> +             assigned-clock-rates = <491520000>,
->>>>>>> + <294912000>,
->>>>>>> + <270950400>,
->>>>>>> + <393216000>;
->>>>>> Why do you need 4 base rates ? Which rate family does each provide ?
->>>>> hifipll 49152000, mpll2 294912000 mpll0 270950400, mpll1 
->>>>> 393216000, the
->>>>> accuracy of hifipll
->>>>>
->>>>> is relatively high, for tdm/pdm/spdif 16/48/96/192k we can use it. 
->>>>> if the
->>>>> tdm and spdif work on
->>>> It is fine to use the HiFi. I'm glad this clock finally got fixed
->>>>
->>>>> the same time, for example ,tdm 48k. spdif 44.1k, we can't use the 
->>>>> same
->>>>> pll, so spdif need use the mpll 0
->>>>>
->>>>> other pll , only set a default value, at the latest chip, we 
->>>>> remove all
->>>>> mpll for hardware, only two hifipll
->>>> I'm not sure you understand how this works.
->>>> There is 3 families of audio rate: 48kHz, 44.1kHz and 32kHz
->>>>
->>>> Each family needs a PLL assigned, so you need 3, not 4, unless 
->>>> there is
->>>> another specific rate family you want to support. If that's the case,
->>>> document it.
->>>>
->>>> Setting the rate of the PLL should follow this principle:
->>>> * Family rate
->>>>     - multiplied by (32 x 24): to accomodate different sample sizes
->>>>     - multiplied by 2 until you reach the maximum rate of selected 
->>>> PLLs
->>>>       This allows to support rates such 192k or even 768k
->>>>
->>>> 491520000 is not dividable by 3, it won't allow 24 bits words. It is a
->>>> poor choice.
->>>>
->>>> Have a look at the s400 for an example using the HiFi PLL. The axg was
->>>> restricted to a 68 PLL multiplier but the S4 is not so you should be
->>>> able to use a higher base rate (4 718 592 000 Hz), providing better
->>>> accuracy in the end
->>> for new soc audio ip, the hardware will not support the 
->>> 24bit(include g12a,
->>> sm1,axg)
->> That may be what you chose to support in your BSP but that not how it
->> works in mainline. 24bits slot width is supported and has been tested on
->> axg, g12 and sm1. This is not going away.
->>
->> I would find extremely odd that 24 bits slot width is not supported 
->> on s4,
->> but as long you document this, it is fine by me.
+> On Wed, Jan 15, 2025 at 6:01=E2=80=AFPM Lance Yang <ioworker0@gmail.com> =
+wrote:
+> >
+> > On Wed, Jan 15, 2025 at 11:38=E2=80=AFAM Barry Song <21cnbao@gmail.com>=
+ wrote:
+> > >
+> > > From: Barry Song <v-songbaohua@oppo.com>
+> > >
+> > > The try_to_unmap_one() function currently handles PMD-mapped THPs
+> > > inefficiently. It first splits the PMD into PTEs, copies the dirty
+> > > state from the PMD to the PTEs, iterates over the PTEs to locate
+> > > the dirty state, and then marks the THP as swap-backed. This process
+> > > involves unnecessary PMD splitting and redundant iteration. Instead,
+> > > this functionality can be efficiently managed in
+> > > __discard_anon_folio_pmd_locked(), avoiding the extra steps and
+> > > improving performance.
+> > >
+> > > The following microbenchmark redirties folios after invoking MADV_FRE=
+E,
+> > > then measures the time taken to perform memory reclamation (actually
+> > > set those folios swapbacked again) on the redirtied folios.
+> > >
+> > >  #include <stdio.h>
+> > >  #include <sys/mman.h>
+> > >  #include <string.h>
+> > >  #include <time.h>
+> > >
+> > >  #define SIZE 128*1024*1024  // 128 MB
+> > >
+> > >  int main(int argc, char *argv[])
+> > >  {
+> > >         while(1) {
+> > >                 volatile int *p =3D mmap(0, SIZE, PROT_READ | PROT_WR=
+ITE,
+> > >                                 MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+> > >
+> > >                 memset((void *)p, 1, SIZE);
+> > >                 madvise((void *)p, SIZE, MADV_FREE);
+> > >                 /* redirty after MADV_FREE */
+> > >                 memset((void *)p, 1, SIZE);
+> > >
+> > >                 clock_t start_time =3D clock();
+> > >                 madvise((void *)p, SIZE, MADV_PAGEOUT);
+> > >                 clock_t end_time =3D clock();
+> > >
+> > >                 double elapsed_time =3D (double)(end_time - start_tim=
+e) / CLOCKS_PER_SEC;
+> > >                 printf("Time taken by reclamation: %f seconds\n", ela=
+psed_time);
+> > >
+> > >                 munmap((void *)p, SIZE);
+> > >         }
+> > >         return 0;
+> > >  }
+> > >
+> > > Testing results are as below,
+> > > w/o patch:
+> > > ~ # ./a.out
+> > > Time taken by reclamation: 0.007300 seconds
+> > > Time taken by reclamation: 0.007226 seconds
+> > > Time taken by reclamation: 0.007295 seconds
+> > > Time taken by reclamation: 0.007731 seconds
+> > > Time taken by reclamation: 0.007134 seconds
+> > > Time taken by reclamation: 0.007285 seconds
+> > > Time taken by reclamation: 0.007720 seconds
+> > > Time taken by reclamation: 0.007128 seconds
+> > > Time taken by reclamation: 0.007710 seconds
+> > > Time taken by reclamation: 0.007712 seconds
+> > > Time taken by reclamation: 0.007236 seconds
+> > > Time taken by reclamation: 0.007690 seconds
+> > > Time taken by reclamation: 0.007174 seconds
+> > > Time taken by reclamation: 0.007670 seconds
+> > > Time taken by reclamation: 0.007169 seconds
+> > > Time taken by reclamation: 0.007305 seconds
+> > > Time taken by reclamation: 0.007432 seconds
+> > > Time taken by reclamation: 0.007158 seconds
+> > > Time taken by reclamation: 0.007133 seconds
+> > > =E2=80=A6
+> > >
+> > > w/ patch
+> > >
+> > > ~ # ./a.out
+> > > Time taken by reclamation: 0.002124 seconds
+> > > Time taken by reclamation: 0.002116 seconds
+> > > Time taken by reclamation: 0.002150 seconds
+> > > Time taken by reclamation: 0.002261 seconds
+> > > Time taken by reclamation: 0.002137 seconds
+> > > Time taken by reclamation: 0.002173 seconds
+> > > Time taken by reclamation: 0.002063 seconds
+> > > Time taken by reclamation: 0.002088 seconds
+> > > Time taken by reclamation: 0.002169 seconds
+> > > Time taken by reclamation: 0.002124 seconds
+> > > Time taken by reclamation: 0.002111 seconds
+> > > Time taken by reclamation: 0.002224 seconds
+> > > Time taken by reclamation: 0.002297 seconds
+> > > Time taken by reclamation: 0.002260 seconds
+> > > Time taken by reclamation: 0.002246 seconds
+> > > Time taken by reclamation: 0.002272 seconds
+> > > Time taken by reclamation: 0.002277 seconds
+> > > Time taken by reclamation: 0.002462 seconds
+> > > =E2=80=A6
+> > >
+> > > This patch significantly speeds up try_to_unmap_one() by allowing it
+> > > to skip redirtied THPs without splitting the PMD.
+> > >
+> > > Suggested-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+> > > Suggested-by: Lance Yang <ioworker0@gmail.com>
+> > > Signed-off-by: Barry Song <v-songbaohua@oppo.com>
+> > > ---
+> > >  mm/huge_memory.c | 24 +++++++++++++++++-------
+> > >  mm/rmap.c        | 13 ++++++++++---
+> > >  2 files changed, 27 insertions(+), 10 deletions(-)
+> > >
+> > > diff --git a/mm/huge_memory.c b/mm/huge_memory.c
+> > > index 3d3ebdc002d5..47cc8c3f8f80 100644
+> > > --- a/mm/huge_memory.c
+> > > +++ b/mm/huge_memory.c
+> > > @@ -3070,8 +3070,12 @@ static bool __discard_anon_folio_pmd_locked(st=
+ruct vm_area_struct *vma,
+> > >         int ref_count, map_count;
+> > >         pmd_t orig_pmd =3D *pmdp;
+> > >
+> > > -       if (folio_test_dirty(folio) || pmd_dirty(orig_pmd))
+> > > +       if (pmd_dirty(orig_pmd))
+> > > +               folio_set_dirty(folio);
+> > > +       if (folio_test_dirty(folio) && !(vma->vm_flags & VM_DROPPABLE=
+)) {
+> > > +               folio_set_swapbacked(folio);
+> > >                 return false;
+> > > +       }
+> >
+> > If either the PMD or the folio is dirty, should we just return false ri=
+ght away,
+> > regardless of VM_DROPPABLE? There=E2=80=99s no need to proceed further =
+in that
+> > case, IMHO ;)
 >
-> i understand your meaning, you sad we configure the slot width 24bit 
-> for tdmout control
+> I don't quite understand you, but we need to proceed to clear pmd entry.
+> if vm_droppable is true, even if the folio is dirty, we still drop the fo=
+lio.
+
+Hey barry,
+
+One thing I still don=E2=80=99t quite understand is as follows:
+
+One of the semantics of VM_DROPPABLE is that, under memory pressure,
+the kernel can drop the pages. Similarly, for MADV_FREE, one of its
+semantics is that the kernel can free the pages when memory pressure
+occurs, but only if there is no subsequent write (i.e., the PMD is clean).
+
+So, if VM_DROPPABLE is true, we still drop the folio even if it's dirty. Th=
+is
+seems to conflict with the semantics of MADV_FREE, which requires the
+folio or PMD to be clean before being dropped. wdyt?
+
+Thanks,
+Lance
+
+
+
+
 >
-> if the format the SNDRV_PCM_FMTBIT_S24,  it send the 24bit data, for 
-> the format, and send the 24bit clock
->
-> if tdmout control can cut out [24:0] from the fddr, maybe your right, 
-> we can send the 24 bit accoring to the slot width
->
-> but it can't confirm by us, we are worried that there may be potential 
-> risks, so we don't use it thay way
->
-> so this why i sad can't support the 24bit slot clock, 16/32 sample bit 
-> is fully validated
->
->
-i did some tests for the S24_LE format use the tdm base drvier
-
-aplay -f S24_LE test.pcm -r48000 -c2
-
-  # cat /proc/asound/card0/pcm0p/sub0/hw_params
-access: RW_INTERLEAVED
-format: S24_LE
-subformat: STD
-channels: 2
-rate: 48000 (48000/1)
-period_size: 6000
-buffer_size: 24000
-
-we dump the mclk
-
-aud_mst_a_mclk       2       2        0        12288000 0          0     
-50000      Y audio-controller-0              mclk
-
-according to the base driver
-
-in the api axg_tdm_set_tdm_slots function
-switch (slot_width) {
-     case 0:
-         slot_width = 32;
-         fallthrough;
-         ...
-
-if dts not configure "dai-tdm-slot-width"
-
-it use the 32 bit slot width
-
-the api -> axg_tdm_iface_set_sclk
-
-srate = iface->slots * iface->slot_width * params_rate(params);
-
-set mclk rate
-
-we dump tdmout control register
-
-# devmem 0xfe330500
-0xB001003F
-
-it set 32bit slot width to send
-
-the base driver is the smae behavior that we wound expect,
-
-
->>> SNDRV_PCM_FMTBIT_S24_3LE, 24 bit in memory
->> I think you are mixing up slot width and memory representation
->>
+> >
+> > Thanks,
+> > Lance
+> >
+> > >
+> > >         orig_pmd =3D pmdp_huge_clear_flush(vma, addr, pmdp);
+> > >
+> > > @@ -3098,8 +3102,15 @@ static bool __discard_anon_folio_pmd_locked(st=
+ruct vm_area_struct *vma,
+> > >          *
+> > >          * The only folio refs must be one from isolation plus the rm=
+ap(s).
+> > >          */
+> > > -       if (folio_test_dirty(folio) || pmd_dirty(orig_pmd) ||
+> > > -           ref_count !=3D map_count + 1) {
+> > > +       if (pmd_dirty(orig_pmd))
+> > > +               folio_set_dirty(folio);
+> > > +       if (folio_test_dirty(folio) && !(vma->vm_flags & VM_DROPPABLE=
+)) {
+> > > +               folio_set_swapbacked(folio);
+> > > +               set_pmd_at(mm, addr, pmdp, orig_pmd);
+> > > +               return false;
+> > > +       }
+> > > +
+> > > +       if (ref_count !=3D map_count + 1) {
+> > >                 set_pmd_at(mm, addr, pmdp, orig_pmd);
+> > >                 return false;
+> > >         }
+> > > @@ -3119,12 +3130,11 @@ bool unmap_huge_pmd_locked(struct vm_area_str=
+uct *vma, unsigned long addr,
+> > >  {
+> > >         VM_WARN_ON_FOLIO(!folio_test_pmd_mappable(folio), folio);
+> > >         VM_WARN_ON_FOLIO(!folio_test_locked(folio), folio);
+> > > +       VM_WARN_ON_FOLIO(!folio_test_anon(folio), folio);
+> > > +       VM_WARN_ON_FOLIO(folio_test_swapbacked(folio), folio);
+> > >         VM_WARN_ON_ONCE(!IS_ALIGNED(addr, HPAGE_PMD_SIZE));
+> > >
+> > > -       if (folio_test_anon(folio) && !folio_test_swapbacked(folio))
+> > > -               return __discard_anon_folio_pmd_locked(vma, addr, pmd=
+p, folio);
+> > > -
+> > > -       return false;
+> > > +       return __discard_anon_folio_pmd_locked(vma, addr, pmdp, folio=
+);
+> > >  }
+> > >
+> > >  static void remap_page(struct folio *folio, unsigned long nr, int fl=
+ags)
+> > > diff --git a/mm/rmap.c b/mm/rmap.c
+> > > index be1978d2712d..a859c399ec7c 100644
+> > > --- a/mm/rmap.c
+> > > +++ b/mm/rmap.c
+> > > @@ -1724,9 +1724,16 @@ static bool try_to_unmap_one(struct folio *fol=
+io, struct vm_area_struct *vma,
+> > >                 }
+> > >
+> > >                 if (!pvmw.pte) {
+> > > -                       if (unmap_huge_pmd_locked(vma, pvmw.address, =
+pvmw.pmd,
+> > > -                                                 folio))
+> > > -                               goto walk_done;
+> > > +                       if (folio_test_anon(folio) && !folio_test_swa=
+pbacked(folio)) {
+> > > +                               if (unmap_huge_pmd_locked(vma, pvmw.a=
+ddress, pvmw.pmd, folio))
+> > > +                                       goto walk_done;
+> > > +                               /*
+> > > +                                * unmap_huge_pmd_locked has either a=
+lready marked
+> > > +                                * the folio as swap-backed or decide=
+d to retain it
+> > > +                                * due to GUP or speculative referenc=
+es.
+> > > +                                */
+> > > +                               goto walk_abort;
+> > > +                       }
+> > >
+> > >                         if (flags & TTU_SPLIT_HUGE_PMD) {
+> > >                                 /*
+> > > --
+> > > 2.39.3 (Apple Git-146)
+> > >
 
