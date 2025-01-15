@@ -4,100 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66FEDC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 17:40:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77828C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 17:41:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=drwGg6Ggv7y2iA4MXzxrkwRrSRb14xgzjKtqkAwh0hM=; b=k1o5IB1U9vJNksimeiLnML6Zpm
-	iZAUHc1lTvzZZoR6aM89DD/BYV2FF50zfYzsPy5ebQtfWdATCFATe40tYxUb0rgKC/0c53fBbo3SC
-	RJI970hDL/d17Hm7WjJmoYCLkaSzsSCayJeRKnc845CDHwK0I3WVRxoeKcVmCj8szvTjtd6fgdj/T
-	pntlx4PZz6S+qN5iURC/KHj4SN2qLJfegpqDhf4lmouRl+iNHDuTfvg6KEVOiyK9gPFtpgNngTPJR
-	e3lX52aFa7RijBCLjnjv9gjf18hcQ6Qs1YOH+3QENWRCfd4awbuTeJ6FLhKewiVGgMIAee01MNeuM
-	UXcpAhXw==;
+	bh=RSM2HZluyONZrn3gXP7oqGlR+tWUwLkG4z/EG2USxK4=; b=beg5v3hmlodjb1xGDKFhDZqeS4
+	W6KXKZx7rm1zHtHZKoe0yV5/CIUgiIBT8a+vEeRxOdBKpHZPbltVocks4LgdRE0DaHcEfSmbxdOfF
+	A/CmdF0DIX1FE0/WLQpzHQESIwYzyzo5yK5eAZvTykpIq63pFP8FsmcC/t9Rgs9p0OATCGTWeAtNy
+	/jAHGYv6LAglLEACVZbNUnGOn93qERM8iJSReyvnTBZH3kYrbGEFR1gRScnqMS4gL+XTEWyjy/qEY
+	aDD/OAMX18MNd/Kq8Fnr39QyCT1RYquDWLFBGDZAaa2XW2yn8ffSd4rjpRFbuHuHzWJ58BC+jA+jl
+	J6Yt3CyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY7N3-0000000CdO9-09y4;
-	Wed, 15 Jan 2025 17:40:01 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1tY7Of-0000000CdjP-2tIq;
+	Wed, 15 Jan 2025 17:41:41 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY7Ih-0000000CcUa-1IoY
+	id 1tY7NM-0000000CdSP-2ZIq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 17:35:32 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2166651f752so159693985ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 09:35:31 -0800 (PST)
+	Wed, 15 Jan 2025 17:40:22 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2166360285dso126648665ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 09:40:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=fastly.com; s=google; t=1736962530; x=1737567330; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references
-         :mail-followup-to:message-id:subject:cc:to:from:date:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=drwGg6Ggv7y2iA4MXzxrkwRrSRb14xgzjKtqkAwh0hM=;
-        b=gYoPcHN66Kh+nQZD/jgPIzs4YI+db+klAp/qZG2FUsdy2rNDiuI/TWIRrBRXs3D2Xw
-         6qP7Rv/07lwl+AFgPCCN7+jriNl3KaHly1ZaLXtTvJORf5v9l0r81etXuTKgCF64+hVP
-         /5+iWZebefIhDPfzc0akZQ3gPjAya+wbG4Slw=
+        d=linaro.org; s=google; t=1736962820; x=1737567620; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=RSM2HZluyONZrn3gXP7oqGlR+tWUwLkG4z/EG2USxK4=;
+        b=TDQ2WqH4yZ3e8uX7D7L7Tl5sbS/BLGGw+JCf7G9z78OSbUsdQ6g6fqAWbl3NIaosmn
+         40ZtXTSMncognbdULS2sXxmMBatGmNFsV3KyJAWOiwzEnmCv2fAPOQP4/Vc+FRWYagnZ
+         jO4JtBFFo6PZoujrUXM3l0Q8OKUS5EeQjQBfj3cD5BSXtFajiDtjjEV5NucnY5/xIuDd
+         MlS3QhjbE9pALM4YQJE7VlBOiESemzUnR46hdJVQr/yvNIfhcxj36pcY/WB1r90rM8/u
+         mUeKC471ychjezuNvi1Az1Bz1ekyS6VNNWVyWEF9M5V+upztYhESFkwgUPWwK6vVYN7a
+         rF0g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736962530; x=1737567330;
-        h=in-reply-to:content-disposition:mime-version:references
-         :mail-followup-to:message-id:subject:cc:to:from:date
+        d=1e100.net; s=20230601; t=1736962820; x=1737567620;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=drwGg6Ggv7y2iA4MXzxrkwRrSRb14xgzjKtqkAwh0hM=;
-        b=XzI4hPOFRyJ/bWHS4VNypCAi1AknAVlrDIG/zdTSIiWe+zRxxarqMFH7tbYBEiRZWl
-         0Z+ZtchIbTD9PCaSLhbhBuCEuG+gaGNWGIMV034i6gbLnupuEOeQSgE//0GwKo2qi9f/
-         NJq17qV1RCpr+tyP61ZEGGxAD1hRAHd/OLKvPJ0/aS1HXRwnxxByr+E2F2dGl5G9Fgi/
-         0BbJMEPcK8r81o+vUoTil/uIK55pn8j3IZABihiCn9yjXoHF8jLApP9Gudy8iE/yie3C
-         bS7O0V3yEYePQYQpeBC4arREaz7++/ELr8odBGHW6/k1RQDDWGVp1nIesvuXGylcPx92
-         v82Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXgC0o29sTGTfXkmMTX3vBG/edcaxBvvXk0u+6tWniZfmw1JGk+4T6ofShe+nOaYdXvSh69kz8PmSGNEI6BZKnX@lists.infradead.org
-X-Gm-Message-State: AOJu0YxyKD2LvnkjRmG2U/tAZZTMTxW5qPigo5PH0SkgpAcUBYsRCMzX
-	7iduuKYEcEhDJCg/GMbnv7QWIdULn1WvoG/m7nWRCwm9131jQ8eDv3s/kyaXwN4=
-X-Gm-Gg: ASbGncuh6hSU6BdsDc0RQNUVQ/i60anZ6N9QhgYoBWFOT1wIQjVfIaxkwsbuh8HmZDP
-	03aNLiA7T+S9rA+p6L7WGzuQ3ageUiht2Nn3uoRjCiitRfgyqMl+FivLbgWdJINevtM7igqUCZ3
-	bJ55RuoyFf6Yre18H3y6EpnIIQV/wgim1uscEyAZI8B92SPjjZuaVOYkRuk0LhitE4gNjqzK+BF
-	N969LI3s0ZPSpkz722R2FAN2fSASAdrYMcI5hgiY/FS4yw9/TheOhAgqE+YuvAPHyXPApta3m+R
-	AmvceyA7wXZayRcI1hfgDMI=
-X-Google-Smtp-Source: AGHT+IHh9H8PaJ6cgjJiGUCjtnIBHOrMsIR66gZMMMrlpxbHphZLN5joIg1CaCDzyN8qA1Kz6Fewvg==
-X-Received: by 2002:a05:6a00:2406:b0:72d:8fa2:9999 with SMTP id d2e1a72fcca58-72d8fa29fbdmr3989071b3a.11.1736962530490;
-        Wed, 15 Jan 2025 09:35:30 -0800 (PST)
-Received: from LQ3V64L9R2 (c-24-6-151-244.hsd1.ca.comcast.net. [24.6.151.244])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72d4067ede1sm9361054b3a.124.2025.01.15.09.35.28
+        bh=RSM2HZluyONZrn3gXP7oqGlR+tWUwLkG4z/EG2USxK4=;
+        b=k3QCk0oEM3KS95EcrQI3SceHLrCuKpLX23LJWkjkxP2ooxR/NVzCt/gWgldSSzZWpS
+         DgLw3QvVhtbBdiZSVkculNBV7weIUGwNFERH3oR0fmZpYXLFothUJVDMGxbQ8/gXb1wo
+         o8ZbHsJOcwcWVZrMTAg+d/hzWK2w8NmGR3a/1wzGBQpHJ+WnR9kGXfaNxmrJngJ+hUNU
+         YerAUkiuW+QJ01ZVOfAIvK9mAQ2SHaXrRWA4Mg7pSZMpTmLQowfTeUjnpvKv/GTrKw9E
+         0G7lxXPKUzgmkx092lmaggLG3484y7+1AT52D7ufwOBa6hoTxIu4gbxfuSa9ZsgEs7Sl
+         TljA==
+X-Forwarded-Encrypted: i=1; AJvYcCVeUKR3t0j5FXNGC4VZeVu1EAUeYAif6vx5l+EN4MaAuRitLQ8OkTKxs/WCoAP4e+6nYX7We5YVdUeY8elFG15s@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw8X6uTknx1Ys9u7FaJ1Op1g21ear8IkobtikXnSpQihFraRs9u
+	zmKJk6Hs/bP7EsTm9SppzRao+/llNpFwCr/QALo8ZRWFfINtvtkPRrJE2KkI7A==
+X-Gm-Gg: ASbGnctPpbrLBGFGM3TuYrR5mKyS+XkDmcjDdm19mSLVoFDSogDz/aovM++Ful601Ve
+	IZgoqRHjQS1C46aMvvfaHDVrTa/wBpsOAdPDjS3ahPtsPuzyO2fq+16ij7U09SmTgkM+Go6vvct
+	onnBrTBH0wcAT06e1eOA0VEEeP5Uo9uDQcWpvORiF+NWsMG48xK0nXlzNmF8DIfPt5uzE1v5Z7+
+	u/YJeLX+KqFaN7VQYUKa+EfXLaBNiwXnHwBluXhoIcpFDnnCgRSvmCdL0k1hF/Yl0o=
+X-Google-Smtp-Source: AGHT+IGd3FfUImkbuTIHualSl03iWhPCsK272UsBzIXbKjGtmziydc6ISX0oPJIXEIB8DvlCJBFtQw==
+X-Received: by 2002:a17:903:244d:b0:216:7175:41bd with SMTP id d9443c01a7336-21a83fb0b26mr432450835ad.39.1736962819934;
+        Wed, 15 Jan 2025 09:40:19 -0800 (PST)
+Received: from thinkpad ([120.60.139.68])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21a9f12eaadsm85327695ad.70.2025.01.15.09.40.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jan 2025 09:35:30 -0800 (PST)
-Date: Wed, 15 Jan 2025 09:35:27 -0800
-From: Joe Damato <jdamato@fastly.com>
-To: Furong Xu <0x1207@gmail.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Alexander Lobakin <aleksander.lobakin@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com
-Subject: Re: [PATCH net-next v3 4/4] net: stmmac: Convert prefetch() to
- net_prefetch() for received frames
-Message-ID: <Z4fx32HuqJk-0cQS@LQ3V64L9R2>
-Mail-Followup-To: Joe Damato <jdamato@fastly.com>,
-	Furong Xu <0x1207@gmail.com>, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Alexander Lobakin <aleksander.lobakin@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com
-References: <cover.1736910454.git.0x1207@gmail.com>
- <909631f38edfac07244ea62d94dc76953d52035e.1736910454.git.0x1207@gmail.com>
+        Wed, 15 Jan 2025 09:40:16 -0800 (PST)
+Date: Wed, 15 Jan 2025 23:10:12 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Anand Moon <linux.amoon@gmail.com>
+Cc: Shawn Lin <shawn.lin@rock-chips.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Dan Carpenter <dan.carpenter@linaro.org>, linux-pci@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH linux-next v1] PCI: rockchip: Improve error handling in
+ clock return value
+Message-ID: <20250115174012.bdny6nxxr4tuzyis@thinkpad>
+References: <20250106153041.55267-1-linux.amoon@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <909631f38edfac07244ea62d94dc76953d52035e.1736910454.git.0x1207@gmail.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250106153041.55267-1-linux.amoon@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_093531_367415_614A92CC 
-X-CRM114-Status: GOOD (  12.48  )
+X-CRM114-CacheID: sfid-20250115_094020_679173_5BFB9450 
+X-CRM114-Status: GOOD (  19.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,19 +104,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 15, 2025 at 11:27:05AM +0800, Furong Xu wrote:
-> The size of DMA descriptors is 32 bytes at most.
-> net_prefetch() for received frames, and keep prefetch() for descriptors.
-> 
-> This patch brings ~4.8% driver performance improvement in a TCP RX
-> throughput test with iPerf tool on a single isolated Cortex-A65 CPU
-> core, 2.92 Gbits/sec increased to 3.06 Gbits/sec.
-> 
-> Suggested-by: Joe Damato <jdamato@fastly.com>
-> Signed-off-by: Furong Xu <0x1207@gmail.com>
-> ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
+On Mon, Jan 06, 2025 at 09:00:38PM +0530, Anand Moon wrote:
 
-Reviewed-by: Joe Damato <jdamato@fastly.com>
+Subject should include the word 'fix' not 'improve'
+
+> Updates the error message to include the actual return value of
+
+s/Updates/Update (imperative form)
+
+> devm_clk_bulk_get_all, which provides more context for debugging
+> and troubleshooting the root cause of clock retrieval failures.
+> 
+
+Btw, it is not just updating the error message, it also returns the actual error
+code.
+
+- Mani
+
+> Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
+> Closes: https://lore.kernel.org/r/202501040409.SUV09R80-lkp@intel.com/
+> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+> ---
+>  drivers/pci/controller/pcie-rockchip.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/pci/controller/pcie-rockchip.c b/drivers/pci/controller/pcie-rockchip.c
+> index fea867c24f75..ca6163f9d2dd 100644
+> --- a/drivers/pci/controller/pcie-rockchip.c
+> +++ b/drivers/pci/controller/pcie-rockchip.c
+> @@ -99,7 +99,8 @@ int rockchip_pcie_parse_dt(struct rockchip_pcie *rockchip)
+>  
+>  	rockchip->num_clks = devm_clk_bulk_get_all(dev, &rockchip->clks);
+>  	if (rockchip->num_clks < 0)
+> -		return dev_err_probe(dev, err, "failed to get clocks\n");
+> +		return dev_err_probe(dev, rockchip->num_clks,
+> +				     "failed to get clocks\n");
+>  
+>  	return 0;
+>  }
+> -- 
+> 2.47.1
+> 
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
