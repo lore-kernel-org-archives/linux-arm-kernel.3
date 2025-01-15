@@ -4,141 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA768C02183
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 08:11:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49DF3C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 08:17:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2x8pd15zEdXV/nC469cdN0tUhzRio5oRNAxqPdMlKlY=; b=Ofx0qjEg97CLWKa1fyPkLUhnQQ
-	5Tkv00tdLuL0bHa2bZvzHSX6x57lTtBf0OrrAgeKXKRylPJ4VDM4Wex6TKjhmB7/FlUbagLZ0Sf2s
-	XzKg8dyRYd5rKcy0DbSHsyjRwg7x3Dzp6YtLeZ4leWN4qdOU8ZxJw69nFs5P556AWkueIIOdoV1T1
-	MRi9zkMp8jWXonCZSBtKAK0x4cmU8Eer8SO74WrYuelefJgM1v/aMO63+uLY93SZtLhTAVizvbcen
-	ca+qIqOz9SGiNnMYUBAOUu7OWgcL81FgHdgXwOGjP8yy9DL+pI7O65QKyzvzzcj1AUCnd3mFzlQlH
-	1WlLuFKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4SaClx0Ad34mtg+r133Gl0Gu/isNenRm9UPRsEduuII=; b=mqaMeW9UKI2UYO6rO6lTC3bBHS
+	ZEW/7C90jNRpf8IUj9K1VzY5zfu3+1q5b226O17tmix7h5/Li1xyfePihoqx02AYuTNd53S25eQbX
+	xM5FLasNvph/cXUm/DPL/QxhAMx7kX8WEU7oHIDCmt+ZBa5UP00IE+0+etAtULYjVqCBlUcYGXndd
+	YSDzB4LZH8nvWomHjrDnAjt0Gd7DapGpOaQJ0kOZr6C0QcPmp+kmV76f/CMpbHAnf9GT0wVxapzK9
+	BYxNk83AKp5RVGuyMGhPNAWnIiLN151stdRvIittVYtTmD9pUoBjY9/HrcR+MQpF+Zk7V2Ob+8yUZ
+	5P9ssuiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXyUr-0000000B2rK-4AHN;
-	Wed, 15 Jan 2025 08:11:30 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1tXyZz-0000000B3lA-45Pc;
+	Wed, 15 Jan 2025 08:16:47 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXyTc-0000000B2cA-1Y6f
+	id 1tXyYg-0000000B3P0-3cjQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 08:10:13 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5d3e5c225aaso1173383a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 00:10:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736928611; x=1737533411; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=2x8pd15zEdXV/nC469cdN0tUhzRio5oRNAxqPdMlKlY=;
-        b=WwSuS4IBjRtVrnKrkDwD0N9y3gAR6unQPSvARnaEMh4MuHqJqGly586YtX+ytACx4Q
-         w7B6dVrOY5T0Mak79OlZ3iKz96mWWQzuAEhj9HWB0Wxd5+0F+D2CBPbGQPD0aXJG2OAt
-         D7Ao/5e8i0U481ud94Prrf8uYPJm73sWodG3f+uNRwykGdJMrCH8efgYdpsTwzfC23cO
-         Rb92qX8MBOlK/Nx2N90fg7UOOEMo+65e7bkHXjUT+Mt2A3Q5O4VN/C3FBDexQcs6X6pu
-         GOtCfOBsaN3/zW17QT4HqjoKaTgXVqk8r1Fgox5F+0vOWNL71c22A5h0YOKs+IjkHydx
-         dTzg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736928611; x=1737533411;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=2x8pd15zEdXV/nC469cdN0tUhzRio5oRNAxqPdMlKlY=;
-        b=QNFpF6ErxUdjBawfoUmJNGZWiDeJXf+tMgYgPxuDbHVoJiZGoWDdtm38gZl4iLiUjE
-         wtnRxv24jOS3aFRZFeHRPS7YiuyqFFbJzaNU2n0qdP4g61Hj31cnYz51aaAbPXK2N1LU
-         4lOvDlsflLUb+9NRUogcwO/ao3poWPSIH554vPKpAn636F/9M9pMtAkjlvyxwu4LwUyT
-         V6UgHwiqatVhOv2IPF5W8sj+hh7tHIdaTOi7fE9nlle1TXK2V/9Dh5IcFA742SXndniX
-         JLvyhGBecO09hmSbmcOdKqRmEKOjp4RfFisjJI03lKss7dJKm/KaOOtZjjLOSlugj2aA
-         g8Pw==
-X-Forwarded-Encrypted: i=1; AJvYcCXxkihbZMHbotGMbHIx3q08CFGUpHit0Om3u+c8i4rWyORc9jqPRTqXdFlgWHiQu3uY2Kd4aBw7aCkGYLpvnXmO@lists.infradead.org
-X-Gm-Message-State: AOJu0YwE3YhUtQ7TeMsZyAzVmGoewEVUVKE15dfVDKTw4p2TlDWDodny
-	52T2t775HXb2EeTra/YlVHedOVpMVlSCXJUFh93VD0T4xCFH9a6BxnSznCpv0hmuiAJPTBiHsWq
-	/
-X-Gm-Gg: ASbGnctdbSLngdKNkpSS9qlQCQcF8/lI0TPrXmuTG+u3iU4li0hiKQ6+Yfx9iwxaGBl
-	ucqaynkqK9/tHjEPN7o0MVhnVSoD2MDH9TFNDgxlK7Y4pkMN3b400rG/Dch0/qLTHxR4lsof7M4
-	ZrJyd8IziAlG6XdVrqxAu6AuV41J7aOllRG73raiLxXDs3/VFYVepzRL1anINK+cqxuVwl8MCbT
-	weIqb5D+lE1cVpqlzrlqwxDAuFsRpTUfCRa8VuOFqwLWEZm/9/4dKxpjoU54q97Cb0JxmdwqiZ2
-X-Google-Smtp-Source: AGHT+IHZpaGL9nGZhARhY/bI9CN8fg77ZL6feb3p3onUCZo34QeqSggtoso0GFqHvFB4Oq1TvYuo0w==
-X-Received: by 2002:a05:6402:370c:b0:5da:b46:9395 with SMTP id 4fb4d7f45d1cf-5da0b46943bmr853479a12.3.1736928610732;
-        Wed, 15 Jan 2025 00:10:10 -0800 (PST)
-Received: from [192.168.1.20] ([178.197.223.165])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d99046a07bsm7164457a12.65.2025.01.15.00.10.09
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 15 Jan 2025 00:10:10 -0800 (PST)
-Message-ID: <29bd1baf-f1cb-4c74-9d31-051c2b8efae6@linaro.org>
-Date: Wed, 15 Jan 2025 09:10:08 +0100
+	Wed, 15 Jan 2025 08:15:28 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1736928925;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=4SaClx0Ad34mtg+r133Gl0Gu/isNenRm9UPRsEduuII=;
+	b=sYstNEf/fG6QfvAFHzEhJ2v/b7VSYMpWICwhx8qDamL4DT4wZ0mgQmgK0riWlK3LngSJud
+	aP45QNx86f2vDBeWB9nXnucDcom/oIJBQM95bvJmmuY/jvZ2hGC6Gei20/E9W6ShaXqS6o
+	JIFsA8oZTQQTGs7+cWqyUQiGJq6LClnh6e8LQvAGjmO53WHFIRdY87OSf3VsNMLG8W6w+Q
+	PJtPp4dXcH94JJ9Di8txHXBxS7SpNOTS+iK2e4moJrVe6HiIk865Bh2y1wGlBTGJwL+gQ9
+	eVS1oL0n9hhlTZq4h8cq6Fdc5TfI5yuJsmlBTnSkqbnM5CazX0o1mrfuUflFHQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1736928925;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=4SaClx0Ad34mtg+r133Gl0Gu/isNenRm9UPRsEduuII=;
+	b=etpI9xiRyt4WGHiDMPLj3zeuITZDEjzURFCYZM8dBW1GEdcLbbvo72RNc/ezdATrNocHXC
+	jVyvvrJNM+ykoyCg==
+To: Stefan Eichenberger <eichest@gmail.com>, andrew@lunn.ch,
+ gregory.clement@bootlin.com, sebastian.hesselbarth@gmail.com,
+ shivamurthy.shastri@linutronix.de, anna-maria@linutronix.de
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] irqchip/irq-mvebu-icu: Fix irq_set_type for sei and nsr
+In-Reply-To: <20241217111623.92625-1-eichest@gmail.com>
+References: <20241217111623.92625-1-eichest@gmail.com>
+Date: Wed, 15 Jan 2025 09:15:24 +0100
+Message-ID: <87frlkcx2b.ffs@tglx>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] clk: Use str_enable_disable-like helpers
-To: Stanislav Jakubek <stano.jakubek@gmail.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui
- <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- Linus Walleij <linus.walleij@linaro.org>,
- Bjorn Andersson <andersson@kernel.org>, linux-clk@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-arm-msm@vger.kernel.org
-References: <20250114190612.846696-1-krzysztof.kozlowski@linaro.org>
- <Z4diEj__bbQl4ULS@standask-GA-A55M-S2HP>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Content-Language: en-US
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- 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
- D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <Z4diEj__bbQl4ULS@standask-GA-A55M-S2HP>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_001012_425361_D7435AB2 
-X-CRM114-Status: GOOD (  12.79  )
+X-CRM114-CacheID: sfid-20250115_001527_074505_A4E52447 
+X-CRM114-Status: GOOD (  16.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,37 +75,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/01/2025 08:21, Stanislav Jakubek wrote:
-> Hi Krzysztof, 1 note below.
-> 
-> On Tue, Jan 14, 2025 at 08:06:12PM +0100, Krzysztof Kozlowski wrote:
->> Replace ternary (condition ? "enable" : "disable") syntax with helpers
->> from string_choices.h because:
-> 
-> [snip]
-> 
->> diff --git a/drivers/clk/clk-nomadik.c b/drivers/clk/clk-nomadik.c
->> index 06245681dac7..f3a73ac5a1b9 100644
->> --- a/drivers/clk/clk-nomadik.c
->> +++ b/drivers/clk/clk-nomadik.c
->> @@ -17,6 +17,7 @@
->>  #include <linux/debugfs.h>
->>  #include <linux/seq_file.h>
->>  #include <linux/spinlock.h>
->> +#include <linux/string_choices.h>
->>  #include <linux/reboot.h>
->>  
->>  /*
->> @@ -116,9 +117,9 @@ static void __init nomadik_src_init(void)
->>  
->>  	val = readl(src_base + SRC_XTALCR);
->>  	pr_info("SXTALO is %s\n",
->> -		(val & SRC_XTALCR_SXTALDIS) ? "disabled" : "enabled");
->> +		str_enabled_disabled(val & SRC_XTALCR_SXTALDIS));
-> 
-> It seems like you flipped the logic here. Was this intentional?
-No, overlook. Thanks for noticing.
+On Tue, Dec 17 2024 at 12:15, Stefan Eichenberger wrote:
+> A regression was introduced in commit d929e4db22b6
+> ("irqchip/irq-mvebu-icu: Prepare for real per device MSI") that causes
+> the Armada thermal driver to fail during probe with the following error:
+> genirq: Setting trigger mode 4 for irq 85 failed (irq_chip_set_type_parent+0x0/0x34)
+> armada_thermal f2400000.system-controller:thermal-sensor@70: Cannot request threaded IRQ 85
+> armada_thermal f2400000.system-controller:thermal-sensor@70: probe with driver armada_thermal failed with error -22
+>
+> The issue occurs because irq_set_type is assigned to
+> irq_chip_set_type_parent, but the parent IRQ chip does not implement the
+> irq_set_type operation. This causes the trigger mode configuration to
+> fail.
+>
+> This patch resolves the issue by removing the irq_set_type assignment.
+> With no irq_set_type, __irq_set_trigger safely skips the trigger
+> configuration, restoring functionality to the thermal driver.
 
-Best regards,
-Krzysztof
+I'm not convinced that this is correct.
+
+The original code had irq_chip_set_type_parent() for the NSR/SEI chips
+too and all what d929e4db22b6 does is to convert those chips over to the
+new platform MSI mechanism. Here are the original chips:
+
+static struct irq_chip mvebu_icu_nsr_chip = {
+	.name			= "ICU-NSR",
+        ...
+	.irq_set_type		= irq_chip_set_type_parent,
+        ...
+};
+
+static struct irq_chip mvebu_icu_sei_chip = {
+	.name			= "ICU-SEI",
+        ...
+	.irq_set_type		= irq_chip_set_type_parent,
+        ...
+};
+
+And looking at the potential platform MSI providers for MVEBU, then it
+turns out that GICP and SEI both have the irq_set_type() callback
+populated, though ODMI has not. So either this has never worked or there
+is something else fishy.
+
+Can you please enable CONFIG_GENERIC_IRQ_DEBUGFS, build/boot a 6.10
+kernel and provide the output of
+
+cat /sys/kernel/debug/irq/irq/$N
+
+where $N is the interrupt number of the thermal sensor.
+
+Then provide the same information for a current kernel with your patch
+applied.
+
+Thanks,
+
+        tglx
 
