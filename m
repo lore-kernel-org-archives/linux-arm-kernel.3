@@ -4,77 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 302BDC02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 15:57:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0311EC02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 16:00:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YMPOFGdyj84J2ye+wJ0aXvtsP3NEoSOPoej4rayVbzg=; b=0XIuPAPD8xcWBTNY+T8bKLrSW/
-	39p1I0X+staSQ2EuM5RuyxOpVI222MczG8UrcCDtjCX5a0eiu/IKgCNrByP6c1vaYqvzvoQUgFJxb
-	8oqN3+YbhrmfMQoCKpmCzs0p2Gd5OPzd8Ch7BtCaPgv0UKpEUp4yrRrO2ypbNDuLIHpGUvb0ZFiVN
-	JB+m566D3G1CxVoZ9GOj8+9N6dA05oQWnFyLCQTFxvl/wUdh+YnEMVTLJo4uNkqvddh19GR/iqLxN
-	5uWTb6vmOKCdTcVfOhIFStat9ue4umGnq0KfDsWfR/6fwXhw0Fx2SaQIvCAYcNxbXqUa54GO7mjU7
-	lZQsFvog==;
+	bh=kqI+5tYngrQZ8qcvDthiAqlsLEDhI5d+xlqNj7Uno+M=; b=Uo2XTv2E04Clbd30dRA2xhoLrC
+	fVdcThXMBLAlM3OcIuDh9InqfrH1dUePoFsM5ww1p4aURljXmioKo5t9qlB4sHS7MTVJDrDQ0u+kK
+	K9hchXwixZ5mRoV6fTEDvG8U4fqhWYPUVFQdgIdKb9m0rYZCcWql4NW18q++6spodUEFWtHtnPXHR
+	K20KVa49Y8LQwdE3jDpijVIayMiCdOe+HBsyzcLjQvoeexnI72nS4L1UGdgJPdiX4tMaZU1n/LDQ2
+	yrwQcf4aT2V3iH2Dy9nU2sLM2LSwmlVUeTkUC2dvjWt72s3sjhw+0G/0oBILDltOAt3WS1yIlRHwN
+	V16JBsyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY5lB-0000000CLRR-1qc4;
-	Wed, 15 Jan 2025 15:56:49 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tY5oZ-0000000CLs6-1wLe;
+	Wed, 15 Jan 2025 16:00:19 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY5ju-0000000CLIH-1XiX
+	id 1tY5nG-0000000CLfx-0UWb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 15:55:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=YMPOFGdyj84J2ye+wJ0aXvtsP3NEoSOPoej4rayVbzg=; b=zWOfLaCmnzXYSVoMjQ65XsLomQ
-	IcHHOuuGVV4U1LNofDaBuYtPJ872hC2P7bJ9dVTjYZViHT9pRHxzFAHa8JYGoZLesYZwt+gq2iuQC
-	SF2SmXfmf30JI17Dc9MGpvmWUTnP2gdK7bwdpEgv6dBIY/wW9O4LyYBx1LYdx0GX809Y8LzPYeMLH
-	VPQ4KZu2U6PMzeluXFEHxXoF72rao1XtyR8+9E4KDcXjzp+Gzf2jxplgmvkS2p6Gez5ztBe/D7GRV
-	ht0r75ASPiJuASikd2K2BGADRs27BCcAwu+m+tJmbG0RsUyZgnumF6Ye+wRR1RsPbjL5LQJaytdz7
-	Q5V0C9Fw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:53616)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tY5jn-0001NL-2b;
-	Wed, 15 Jan 2025 15:55:23 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tY5jl-0006HS-1G;
-	Wed, 15 Jan 2025 15:55:21 +0000
-Date: Wed, 15 Jan 2025 15:55:21 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Bryan Whitehead <bryan.whitehead@microchip.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Marcin Wojtas <marcin.s.wojtas@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
-	UNGLinuxDriver@microchip.com, Vladimir Oltean <olteanv@gmail.com>
-Subject: Re: [PATCH RFC net-next 04/10] net: phylink: add EEE management
-Message-ID: <Z4faaYXMD13tSlT5@shell.armlinux.org.uk>
-References: <Z4ZtoeeHIXPucjUv@shell.armlinux.org.uk>
- <E1tXhUp-000n0Y-BA@rmk-PC.armlinux.org.uk>
+	Wed, 15 Jan 2025 15:59:00 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-436ce2ab251so49565045e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 07:58:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1736956736; x=1737561536; darn=lists.infradead.org;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=kqI+5tYngrQZ8qcvDthiAqlsLEDhI5d+xlqNj7Uno+M=;
+        b=IxlyYJyscLxHqldz7IZZQl52TKDPinHQXCg39K2R8A5LO29d7bb6eE6GEPukkQj8pP
+         wT9LOEXwoBcIc/VRNNwHG00aVSdBU8IGQEpqbNAePD9Yzbb4zaDv4NpScuMUrsiotr+4
+         rDMZB4rCnhk5hxon2d744aNACSGL1e2EuNl8CpptU8V9rKc1FrJn0cRdLMgy72tTnP0i
+         qYhJu2hOnTi92l9efKOMY0I1ezjxLUktxoAGE+fl+DPRe1g9lLfS/Fy02NjPXfz7JhWW
+         Ch0wMacgq9rIqTk1lSMSFGV1yX1LL59u7J28/WEHr6J/OtD2y/kMO862jgJ2GWSTvn4O
+         otTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736956736; x=1737561536;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kqI+5tYngrQZ8qcvDthiAqlsLEDhI5d+xlqNj7Uno+M=;
+        b=TIMh9R0lICpPohNIrZEz/+ULTFlyum7xa9goJqGgfRknoM89OlB2pnShXyEOMpyKbi
+         WlZysSkLlUs5jTyjiVJGIHZS7/8GapJtLXX64IIFTIdi30jGIvTtuSraklrbw7JJqI9B
+         J7N3BiE56etEqzyZWFiMKJSfxeHJRSJVFMnZUC8O/bEUJDxioRyvamh26PISLMoFY6Pg
+         YRGNg3glRA1ZoLUQ+lHKCurjJdw88BSql3Hfk7jo4zkG320LuJPlrTz+ENnZDicztXVl
+         hGHSMf7eiH3DHDZTt5Hm3iMWpZDX22Nf5V2RdeKKE0dCuAp/op1V477IED0JANAIyShE
+         +Q/w==
+X-Forwarded-Encrypted: i=1; AJvYcCVX2GPZAle9mYlv3PzrhVlqybbB2MhMcLeig19SJPOXPQX6lejLy8O93AqSHljPgRANN3+ZMJ8VU5Cy8C5gWS+p@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx/xbgsYqqk01zZhdn4hlthbzGdBYa3ZdW/JNXmTuxetpDrnXWH
+	PnEf5rOBlSN9Kd9AjtqOfg7lfoFjkDQJp+RPM0kwHkkSzbFJAHspk60IXvceE+c=
+X-Gm-Gg: ASbGnctbs1TbxsqSDCT3wJkAJWfsW8ZPx+zVxeeOfZnUjLcx2GyoVF5UEDMuJoH5Pp+
+	8bdISJwPvOlA6HY2cNycCGXP0LSGkq3WfiZxlITCyY7WsovF7X118Av8dVxl4soH2WmajCtOErM
+	tOlsbt6l67DBKz88eIS5f7Ge3ksPuWZ6/8YrPOm34Ocse6FC945biMm/jeCMrUJ/zcTcGbh5q6k
+	8ceHejN8A1lY+mDFqFVolvAIc/taD4faO8HO3DQE3kN/OK2NGg4SSoK
+X-Google-Smtp-Source: AGHT+IGTWZcoa8XD12jSxjfVWwFjPhENVFnb3eU7ZCXjNrolCccgNcWPAZKi2S5+z1LypovQRe1hYQ==
+X-Received: by 2002:a05:600c:4f42:b0:434:a4a6:51f8 with SMTP id 5b1f17b1804b1-436e2555edcmr291354455e9.0.1736956736615;
+        Wed, 15 Jan 2025 07:58:56 -0800 (PST)
+Received: from localhost ([2a01:e0a:3c5:5fb1:e7b8:6186:fc23:f678])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-437c16610a0sm33309815e9.1.2025.01.15.07.58.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 Jan 2025 07:58:56 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Stephen Boyd <sboyd@kernel.org>
+Cc: Kevin Hilman <khilman@baylibre.com>,  Martin Blumenstingl
+ <martin.blumenstingl@googlemail.com>,  Michael Turquette
+ <mturquette@baylibre.com>,  Neil Armstrong <neil.armstrong@linaro.org>,
+  linux-clk@vger.kernel.org,  linux-kernel@vger.kernel.org,
+  linux-amlogic@lists.infradead.org,  linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/3] clk: amlogic: drop clk_regmap tables
+In-Reply-To: <697b634770d789ef8ff0e05cec9465f5.sboyd@kernel.org> (Stephen
+	Boyd's message of "Tue, 07 Jan 2025 13:28:50 -0800")
+References: <20241220-amlogic-clk-drop-clk-regmap-tables-v1-0-96dd657cbfbd@baylibre.com>
+	<20241220-amlogic-clk-drop-clk-regmap-tables-v1-2-96dd657cbfbd@baylibre.com>
+	<9f1d69ebe1ddce5dfc170e986c9213f2.sboyd@kernel.org>
+	<1ja5cp8f87.fsf@starbuckisacylon.baylibre.com>
+	<88fe909ab182d1f17f6ef18161c7f064.sboyd@kernel.org>
+	<1jfrlwb69r.fsf@starbuckisacylon.baylibre.com>
+	<ed20c67e7d1a91d7fd8b921f156f56fb.sboyd@kernel.org>
+	<1jmsg2adgu.fsf@starbuckisacylon.baylibre.com>
+	<697b634770d789ef8ff0e05cec9465f5.sboyd@kernel.org>
+User-Agent: mu4e 1.12.7; emacs 29.4
+Date: Wed, 15 Jan 2025 16:58:55 +0100
+Message-ID: <1j4j205ark.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <E1tXhUp-000n0Y-BA@rmk-PC.armlinux.org.uk>
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_075530_407303_7727CF44 
-X-CRM114-Status: GOOD (  30.33  )
+X-CRM114-CacheID: sfid-20250115_075858_421052_A32EB0A3 
+X-CRM114-Status: GOOD (  18.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,132 +107,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 14, 2025 at 02:02:19PM +0000, Russell King (Oracle) wrote:
-> Add EEE management to phylink, making use of the phylib implementation.
-> This will only be used where a MAC driver populates the methods and
-> capabilities bitfield, otherwise we keep our old behaviour.
-> 
-> Phylink will keep track of the EEE configuration, including the clock
-> stop abilities at each end of the MAC to PHY link, programming the PHY
-> appropriately and preserving the LPI configuration should the PHY go
-> away.
-> 
-> Phylink will call into the MAC driver when LPI needs to be enabled or
-> disabled, with the requirement that the MAC have LPI disabled prior
-> to the netdev being brought up (in other words, it will only call
-> mac_disable_tx_lpi() if it has already called mac_enable_tx_lpi().)
-> 
-> Support for phylink managed EEE is enabled by populating both tx_lpi
-> MAC operations method pointers, and filling in both LPI interfaces
-> and capabilities. If the methods are provided but the LPI interfaces
-> or capabilities remain empty, this indicates to phylink that EEE is
-> implemented by the driver but the hardware it is driving does not
-> support EEE, and thus the ethtool set_eee() and get_eee() methods will
-> return EOPNOTSUPP.
-> 
-> No validation of the LPI timer value is performed by this patch.
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> ---
->  drivers/net/phy/phylink.c | 133 ++++++++++++++++++++++++++++++++++++--
->  include/linux/phylink.h   |  45 +++++++++++++
->  2 files changed, 174 insertions(+), 4 deletions(-)
+On Tue 07 Jan 2025 at 13:28, Stephen Boyd <sboyd@kernel.org> wrote:
 
-In discussion with Herner, it came to my attention that the way I'm
-restricting EEE modes in this patch is actually buggy. I've been
-intending to update this patch once Herner's patch set has been merged,
-but this morning, Jakub asked for changes to it.
+> Quoting Jerome Brunet (2025-01-07 06:46:41)
+>> 
+>> So, if it's OK, I'll resend this series with a temporary solution to
+>> remove tables. Removing the table simplify the other clean-up I have
+>> already line-up and avoid some unnecessary diffs. I'll circle back to
+>> reworking the init_data afterward.
+>> 
+>
+> Ok, sure. Let's see how it goes.
 
-So, rather than waiting for that, I'm intending to use a different
-solution - rather than waiting for Herner's patch set and adapting mine
-to it. So, the patch below will change the way EEE modes are restricted
-in such a way that this is independent of Herner's series. We
-basically apply our own restriction to the supported modes after
-calling phylib's get_eee() method, and restrict the advertised modes
-before attaching the PHY and before calling phylib's set_eee() method.
 
-Once Herner's patch set is merged, maybe I can manipulate the
-eee disabled modes mask instead, and leave this to phylib to deal
-with.
+Hey Stephen,
 
-diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
-index c430ac2e5e9f..b561a8228612 100644
---- a/drivers/net/phy/phylink.c
-+++ b/drivers/net/phy/phylink.c
-@@ -60,6 +60,7 @@ struct phylink {
- 	u8 act_link_an_mode;		/* Active MLO_AN_xxx mode */
- 	u8 link_port;			/* The current non-phy ethtool port */
- 	__ETHTOOL_DECLARE_LINK_MODE_MASK(supported);
-+	__ETHTOOL_DECLARE_LINK_MODE_MASK(supported_lpi);
- 
- 	/* The link configuration settings */
- 	struct phylink_link_state link_config;
-@@ -1623,19 +1624,6 @@ static void phylink_activate_lpi(struct phylink *pl)
- 			    pl->mac_ops->mac_enable_tx_lpi, ERR_PTR(err));
- }
- 
--static void phylink_phy_restrict_eee(struct phylink *pl, struct phy_device *phy)
--{
--	__ETHTOOL_DECLARE_LINK_MODE_MASK(eee_supported);
--
--	/* Convert the MAC's LPI capabilities to linkmodes */
--	linkmode_zero(eee_supported);
--	phylink_caps_to_linkmodes(eee_supported, pl->config->lpi_capabilities);
--
--	/* Mask out EEE modes that are not supported */
--	linkmode_and(phy->supported_eee, phy->supported_eee, eee_supported);
--	linkmode_and(phy->advertising_eee, phy->advertising_eee, eee_supported);
--}
--
- static void phylink_link_up(struct phylink *pl,
- 			    struct phylink_link_state link_state)
- {
-@@ -2242,10 +2230,16 @@ static int phylink_bringup_phy(struct phylink *pl, struct phy_device *phy,
- 		phy->eee_cfg.tx_lpi_enabled = pl->eee_cfg.tx_lpi_enabled;
- 		phy->eee_cfg.tx_lpi_timer = pl->eee_cfg.tx_lpi_timer;
- 
-+		/* Convert the MAC's LPI capabilities to linkmodes */
-+		linkmode_zero(pl->supported_lpi);
-+		phylink_caps_to_linkmodes(pl->supported_lpi,
-+					  pl->config->lpi_capabilities);
-+
- 		/* Restrict the PHYs EEE support/advertisement to the modes
- 		 * that the MAC supports.
- 		 */
--		phylink_phy_restrict_eee(pl, phy);
-+		linkmode_and(phy->advertising_eee, phy->advertising_eee,
-+			     pl->supported_lpi);
- 	} else if (pl->mac_supports_eee_ops) {
- 		/* MAC supports phylink EEE, but wants EEE always disabled. */
- 		phy_disable_eee(phy);
-@@ -3188,8 +3182,13 @@ int phylink_ethtool_get_eee(struct phylink *pl, struct ethtool_keee *eee)
- 	if (pl->mac_supports_eee_ops && !pl->mac_supports_eee)
- 		return ret;
- 
--	if (pl->phydev)
-+	if (pl->phydev) {
- 		ret = phy_ethtool_get_eee(pl->phydev, eee);
-+		/* Restrict supported linkmode mask */
-+		if (ret == 0 && pl->mac_supports_eee_ops)
-+			linkmode_and(eee->supported, eee->supported,
-+				     pl->supported_lpi);
-+	}
- 
- 	return ret;
- }
-@@ -3232,6 +3231,10 @@ int phylink_ethtool_set_eee(struct phylink *pl, struct ethtool_keee *eee)
- 	ret = -EOPNOTSUPP;
- 
- 	if (pl->phydev) {
-+		/* Restrict advertisement mask */
-+		if (pl->mac_supports_eee_ops)
-+			linkmode_and(eee->advertised, eee->advertised,
-+				     pl->supported_lpi);
- 		ret = phy_ethtool_set_eee(pl->phydev, eee);
- 		if (ret == 0)
- 			eee_to_eeecfg(&pl->eee_cfg, eee);
+While implementing a temporary solution I've been thinking about the
+longer term one (I'd rather not end up stuck on a temporary one, so it
+has been bothering me a bit)
+
+I'll reformulate what I'm trying to acheive.
+
+I'd like to register controller init hook to apply on all the clocks of
+a particular type. The reason to do that is to drop the big clk_regmap
+table that are a pain to maintain (in addition to be ugly). I hoped it
+would also save a bit of memory.
+
+The solutions we've been discussing so far feels like we are moving
+around the problem, recreating the memory saved somewhere else,
+perhaps in a more complicated way. I'd like to find something more
+convinient to use, which does not scale the memory used with the number
+of clock registered. The point is not a different hook for clk_hw after
+all.
+
+Here is an idea, how about list of hook identified by ops and controller ?
+
+The node would look like this
+
+struct clk_type_init_node {
+       struct list_head	        entry;
+       
+       struct device_node	*of_node;
+       struct device		*dev;
+       const struct clk_ops	*ops;
+
+       int (*init_hook)(struct clk_hw *hw);
+};
+
+The change would be minimal in core CCF, just searching the list for a
+match in clk_register. On most platform the list would be empty so there
+is virtually no penalty when it is not used.
+
+From the controller, the usage would be very simple, just calling a
+function before registering the clocks, something like:
+
+int clk_type_register_dev_hook(struct device *dev,
+                               const struct clk_ops *ops,
+                               int (*init_hook)(struct clk_hw *hw))
+
+or the 'of_node' equivalent.
+
+I admit this is heavily inspired by how devres works :) but it does solve
+the early clock controller problem and does not scale with the number of
+clock registered.
+
+Would you be ok with this approach ?
 
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Jerome
 
