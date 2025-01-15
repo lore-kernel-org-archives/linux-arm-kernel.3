@@ -4,76 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 086D0C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 17:55:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CAC2C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 18:00:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=is/Az9xGToTsuvQhxSyLFLcXvYqhkADF/5ojbpYHtBU=; b=c5Hy7eoko66L2hJNZFLhWjnqTr
-	lPlwS1jXu7gW6OgGrIOgv6UXBemut6EFyvzWnLPPNyp+hbUTiIW7K69ckUoznG9JPm2HFo0XIm1Un
-	0KZq7h4406PKPDLIyrSec+oBQKYBUkF+6+4Fqad3I9mMteww2LwGT00gIUgtvYKyxxXyHSLHm5Idb
-	fI9EbreKno86TeTOPle/GpUCp4cZNshRo0sBYVOwLRbUadjSSuurgrLzrjxacowCMKAUuYMhYm6mZ
-	AerZIGnq5apbLfv4n/7vixnCvBELQQTDBvTDmtnryvkweR20Prb2U3V0HJwIE+2YvXq6Mp6La38HY
-	a6p7PMtg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ChwN7W5WW1L4KxE96DJ8H15Fstz1e2+SimsWbETS6tA=; b=qjjAt3qYlGMx1bZjF/2d0Y78Uf
+	8D3DlxI0GjfILbbkXDu2nvz2HyqyVCLXQrDnXpI8lEzvx0koEblggdJZMwEFeHq+5Ki3WRygv5f49
+	X5/WdQM9303kgy1IMWKgZZZpChRvtxyIF6QMKk1v63G6+Z1E43jGNVZQukJUNPu+mTfJfXAP9Q1hK
+	7qAEF91yBPGFSCQYhQKChpLyZSZRJ7JwWiZDTwwnCyeQ81MIXENZvvDoZKH+t6VooP63BYxP2J6uU
+	XDKYM3xaNpSx3E+xkoPDYgeXBFy9ajP2R5MYP7nBmBiI1LDN3ZFcgtLHPefKqDCck9rLhL9GUhVHX
+	XhLj39UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY7bw-0000000CghE-2bXv;
-	Wed, 15 Jan 2025 17:55:24 +0000
-Received: from 009.lax.mailroute.net ([199.89.1.12])
+	id 1tY7ge-0000000ChPE-15po;
+	Wed, 15 Jan 2025 18:00:16 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY7aL-0000000Cg0E-0I1K;
-	Wed, 15 Jan 2025 17:53:46 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by 009.lax.mailroute.net (Postfix) with ESMTP id 4YYDBc2k4gzlgMVW;
-	Wed, 15 Jan 2025 17:53:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
-	content-transfer-encoding:content-type:content-type:in-reply-to
-	:from:from:content-language:references:subject:subject
-	:user-agent:mime-version:date:date:message-id:received:received;
-	 s=mr01; t=1736963619; x=1739555620; bh=is/Az9xGToTsuvQhxSyLFLcX
-	vYqhkADF/5ojbpYHtBU=; b=Ng1loLEuc/xiqIXDqAxKT0RhMLuNdkB/9Ztk1mYg
-	n0Izfs2wFJeOI8t6HeumaGvHR/ZMQ57s34/kmp5CKve9jiZp7LxOGsqpgxBeAhDc
-	gXuzQ1VptPRYXKa7lq52Du9YpK6NchNqwhDtNWkSiUqJb0L2jPYugDgXrHXczv1z
-	KDrO4ji9MW/EE86h8Ak0ao3rSqvuiQ1XOTqcTPrXCeGWzqCELR0he/gxxjZLvVft
-	AHK/62cFZEUlRWvl/XjzCki6DA5xIwSl5vsxvV+Zfv7DENIOUaBrpfGqAMIaqZ87
-	9vKHr2cJ9RSbkMewHkPgVzOYKtVxHNQTE1Ha5y9hyLALPw==
-X-Virus-Scanned: by MailRoute
-Received: from 009.lax.mailroute.net ([127.0.0.1])
- by localhost (009.lax [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
- id 0lmg9n-RFN6D; Wed, 15 Jan 2025 17:53:39 +0000 (UTC)
-Received: from [100.66.154.22] (unknown [104.135.204.82])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: bvanassche@acm.org)
-	by 009.lax.mailroute.net (Postfix) with ESMTPSA id 4YYDBR19J1zlgT1M;
-	Wed, 15 Jan 2025 17:53:34 +0000 (UTC)
-Message-ID: <ca5482da-1612-4fab-bfeb-bdc72cd65662@acm.org>
-Date: Wed, 15 Jan 2025 09:53:33 -0800
+	id 1tY7fM-0000000ChFl-14TH;
+	Wed, 15 Jan 2025 17:58:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4ADEDA41FE5;
+	Wed, 15 Jan 2025 17:57:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CD11C4CED1;
+	Wed, 15 Jan 2025 17:58:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736963935;
+	bh=gZKYktDOO8kDP3psA1BVFTEyIt8B5t7fHIsUu2BTE+M=;
+	h=From:Date:Subject:To:Cc:From;
+	b=PP1l71W/lWn5a/5Wo8IGE+lxTF2vZAXcnb7GTVXUWvpuMjAKJNlyVD2tYQyKxAHVS
+	 RZRL7kxLOJzNqFetUCJLu8glLoVmXnJH1miFKcVAyKCwaUzFTe/mIzWyp3KOhS4akl
+	 GiJF0ByINvfr7QLNSROo7ZDW+mD1IZQ6t82vQ6/2gO5SW58JLYHN3OqtY/YPoFOtm2
+	 hXU9xbZgSKKN8NFgNKPBBR9vfJo3mcWZGolV1qCjZmeSA3T9HOBFzHoQ3oS7N1Y8ng
+	 okBwOdlkg/k+KMYBo3GTcxbNWeBW/bwAWoFKfYUrm6PGEOjs8JqWz6bbfg7e1WBOJN
+	 4jiGjzWjfi0Rw==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Wed, 15 Jan 2025 18:58:34 +0100
+Subject: [PATCH] PCI: mediatek-gen3: Remove leftover mac_reset assert for
+ Airoha EN7581 SoC.
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ufs: Use str_enable_disable-like helpers
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, Avri Altman <avri.altman@wdc.com>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- "Martin K. Petersen" <martin.petersen@oracle.com>,
- Peter Wang <peter.wang@mediatek.com>, Stanley Jhu <chu.stanley@gmail.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- linux-scsi@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-References: <20250114200716.969457-1-krzysztof.kozlowski@linaro.org>
-Content-Language: en-US
-From: Bart Van Assche <bvanassche@acm.org>
-In-Reply-To: <20250114200716.969457-1-krzysztof.kozlowski@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20250115-pcie-en7581-remove-mac_reset-v1-1-61c2652e189f@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAEn3h2cC/x3MQQqDMBAF0KvIrDvgCMG0VylSQvK1szDKREQQ7
+ 25w+TbvpAJTFPo0Jxl2LbrkCnk1FP8hT2BN1dS1nWtFHK9Rwci988KGednBc4g/Q8HGyQWP9yg
+ +RaFarIZRj6f/Dtd1A3zIoVFuAAAA
+X-Change-ID: 20250115-pcie-en7581-remove-mac_reset-d5a8e9f18dc1
+To: Ryder Lee <ryder.lee@mediatek.com>, 
+ Jianjun Wang <jianjun.wang@mediatek.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+ Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, Lorenzo Bianconi <lorenzo@kernel.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_095345_133091_B4D6A298 
-X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-CacheID: sfid-20250115_095856_360590_5D071A56 
+X-CRM114-Status: UNSURE (   8.88  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,19 +83,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/14/25 12:07 PM, Krzysztof Kozlowski wrote:
-> 2. Is slightly shorter thus also easier to read.
+Remove a leftover assert for mac_reset line in mtk_pcie_en7581_power_up().
+This is not armful since EN7581 does not requires mac_reset and
+mac_reset is not defined in EN7581 device tree.
 
-Does this change really make code easier to read? It forces readers
-of the code to look up a function definition. Isn't there a general
-preference in the Linux kernel to inline function definitions if the
-function body is shorter than or close to the length of the function
-name? I'm referring to functions like this one:
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ drivers/pci/controller/pcie-mediatek-gen3.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-static inline const char *str_up_down(bool v)
-{
-	return v ? "up" : "down";
-}
+diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
+index aa24ac9aaecc749b53cfc4faf6399913d20cdbf2..0f64e76e2111468e6a453889ead7fbc75804faf7 100644
+--- a/drivers/pci/controller/pcie-mediatek-gen3.c
++++ b/drivers/pci/controller/pcie-mediatek-gen3.c
+@@ -940,7 +940,6 @@ static int mtk_pcie_en7581_power_up(struct mtk_gen3_pcie *pcie)
+ 	 */
+ 	reset_control_bulk_assert(pcie->soc->phy_resets.num_resets,
+ 				  pcie->phy_resets);
+-	reset_control_assert(pcie->mac_reset);
+ 
+ 	/* Wait for the time needed to complete the reset lines assert. */
+ 	msleep(PCIE_EN7581_RESET_TIME_MS);
 
-Bart.
+---
+base-commit: d02e16e4e05d5d2530a4836ca92318c6a6b21b01
+change-id: 20250115-pcie-en7581-remove-mac_reset-d5a8e9f18dc1
+
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
+
 
