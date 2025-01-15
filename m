@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7389C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 20:54:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9932DC02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 20:55:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uH5HvqpI7O8I0HwVt2AfVlVjVwaDRRNCcggyM9zWH48=; b=Nq2h5bo/qjzAelYCYLCzdJ/U+G
-	msB4mYAKIyOE3CyxqWMoNvNwv+jljewZG5x1rPTCfhRKYVQIWwDaNvu14wrvXFAPsi6zYPhvBVegH
-	5UBYADy0LfT1fU5+ypOGn6XgztCscKUDigsbUA47f84vMjG0wnlTPDP8mPMB9Qtt3SYq/T549iC68
-	Sr8qefRL+VNEU3F4UYuIf/0/vAyO8owHSy2OsqpRi5xCEXXadsXcWuKBA5IbnHJofRayb5eMC+ZcD
-	YF3QgOXByuB7NJ47vvuCHGu+MX0othv/+lIFqY0v/0zKGf96VNGRXft8pLXI65SeTvzxPRI6HreiN
-	Lg1GOaMA==;
+	bh=Rz+XpBnmMvG/ye+c56phijalxyBjKCZ02lLP/GXNpEg=; b=e1lsrE/wA154wKA5Cqou5gi8Bb
+	lhsnR5eIVVqTcWaBwEtjVItMJQL5or0lDHImff+DvpSZw3+H6HHdelz49rWVSu+doIZaAfHPbdsL+
+	mYAombYYAbFgPOeZhg+6/59AEfFOwaFwolbjxuNFrsTq2nR1d0eCSM/3+6w32rbSQaI2XYOEPGwpv
+	O8e77yguN583blluaggIlQRL+30HmMzakEvnQAIpUzwakYu+gsxlpogReJNwVtqYXlsrAycCbkEJZ
+	cjXLN6XqUjb/Ke6MkmCNsBbpipGlkeEVv63d/mzHfRr60dBKHfQkqHIpWb3k7gbhxw63Bm1hOwUBe
+	74qIltfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYAOl-0000000D3dF-1Dae;
-	Wed, 15 Jan 2025 20:53:59 +0000
+	id 1tYAQ0-0000000D3pS-41u4;
+	Wed, 15 Jan 2025 20:55:16 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYAEM-0000000D1p2-1pBl
+	id 1tYAER-0000000D1pm-2Iqv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 20:43:15 +0000
+	Wed, 15 Jan 2025 20:43:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=uH5HvqpI7O8I0HwVt2AfVlVjVwaDRRNCcggyM9zWH48=; b=YQeOMGypOZf+YDl7L6Do8Xbu6i
-	25BrElSUhjJxEq+DKbPrJ5dJ/xGDFhIKxJPbykbdscjIPrYuDRa/Pr0s8HbxaZXGMrRaiWra0BsQ5
-	octk07R0u/eY9T/WSy+WewnqFDE0DjM5siQfu7LNZTVO1phAGC8BAV0MSc/XE2V/FwiUjh0dgSiHV
-	zg15gs8Je8cUhcziWwV5HjE9v2yokfd4FQ+fhpVLVJYDmtcxrKvKQ9EkclaXIhqherlZALpPPEGwO
-	jkn91nxzmsxrvJJAXF8ZJ3HkBHpmWj2D7FZ4n5xypRJPuY7qZCfN9VCnrANnxOdvWlKW6hE3TZI0Q
-	55fyvGvA==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:49872 helo=rmk-PC.armlinux.org.uk)
+	bh=Rz+XpBnmMvG/ye+c56phijalxyBjKCZ02lLP/GXNpEg=; b=ORWnCauJU0dRlsVRKGGPIrvXN/
+	QOEDnVyw3+XmsviKuxqxji9tCr/LYmg/JVOpsmUxs4Vsq2L1ZtgCqi0PKZ9oMOmAwz/kbvsRQ7QyJ
+	N7HBdc3J6TADqNrrZwLV97CQKiaVZ5O4JUanvU+fk8M3IkA5d7rLBoWwl19uVZJwgYWSxsFEchf3K
+	TM9Z3SkANipAIO/3cwogZSdHJ4/OQj1VAAGyjy6rpFGnHRrdSsmSYh8a5128cXIQieFQqh4MMZkKb
+	uogHkw4HZKuoEYTYMgLuNJtvgcBySj0J8ip4Gi+/20gG/PAWW78dTIIpxvPpNPQxAFkfo8vScgBM4
+	KDT8wh8w==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:46358 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tYAEF-0001jK-1T;
-	Wed, 15 Jan 2025 20:43:07 +0000
+	id 1tYAEK-0001jc-1J;
+	Wed, 15 Jan 2025 20:43:12 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tYADv-0014Pt-NO; Wed, 15 Jan 2025 20:42:47 +0000
+	id 1tYAE0-0014Pz-R9; Wed, 15 Jan 2025 20:42:52 +0000
 In-Reply-To: <Z4gdtOaGsBhQCZXn@shell.armlinux.org.uk>
 References: <Z4gdtOaGsBhQCZXn@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -66,17 +66,16 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>,
 	UNGLinuxDriver@microchip.com
-Subject: [PATCH net-next 5/9] net: mvneta: convert to phylink EEE
- implementation
+Subject: [PATCH net-next 6/9] net: mvpp2: add EEE implementation
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tYADv-0014Pt-NO@rmk-PC.armlinux.org.uk>
-Date: Wed, 15 Jan 2025 20:42:47 +0000
+Message-Id: <E1tYAE0-0014Pz-R9@rmk-PC.armlinux.org.uk>
+Date: Wed, 15 Jan 2025 20:42:52 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_124314_612695_54FE968D 
-X-CRM114-Status: GOOD (  17.75  )
+X-CRM114-CacheID: sfid-20250115_124319_736451_5E95F510 
+X-CRM114-Status: GOOD (  16.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,117 +90,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert mvneta to use phylink's EEE implementation by implementing the
-two LPI control methods, and adding the initial configuration and
-capabilities.
+Add EEE support for mvpp2, using phylink's EEE implementation, which
+means we just need to implement the two methods for LPI control, and
+with the initial configuration. Only SGMII mode is supported, so only
+100M and 1G speeds.
 
-Although disabling LPI requires clearing a single bit, for safety we
-clear the manual mode and force bits to ensure that auto mode will be
-used.
-
-Enabling LPI needs a full configuration of several values, as the timer
-values are dependent on the MAC operating speed, as per the original
-code.
-
-As Armada 388 states that EEE is only supported in "SGMII" modes, mark
-this in lpi_interfaces. Testing with RGMII on the Clearfog platform
-indicates that the receive path fails to detect LPI over RGMII.
+Disabling LPI requires clearing a single bit. Enabling LPI needs a full
+configuration of several values, as the timer values are dependent on
+the MAC operating speed.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 --
-v2: correct argument order to u32_replace_bits()
-v3: split out validation and limitation of the LPI timer.
+v3: split LPI timer limit and validation into separate patches
 ---
- drivers/net/ethernet/marvell/mvneta.c | 107 ++++++++++++++++----------
- 1 file changed, 65 insertions(+), 42 deletions(-)
+ drivers/net/ethernet/marvell/mvpp2/mvpp2.h    |  5 ++
+ .../net/ethernet/marvell/mvpp2/mvpp2_main.c   | 86 +++++++++++++++++++
+ 2 files changed, 91 insertions(+)
 
-diff --git a/drivers/net/ethernet/marvell/mvneta.c b/drivers/net/ethernet/marvell/mvneta.c
-index fe6261b81540..5fc078a0c4d5 100644
---- a/drivers/net/ethernet/marvell/mvneta.c
-+++ b/drivers/net/ethernet/marvell/mvneta.c
-@@ -284,8 +284,12 @@
- 					  MVNETA_TXQ_BUCKET_REFILL_PERIOD))
+diff --git a/drivers/net/ethernet/marvell/mvpp2/mvpp2.h b/drivers/net/ethernet/marvell/mvpp2/mvpp2.h
+index 9e02e4367bec..44fe9b68d1c2 100644
+--- a/drivers/net/ethernet/marvell/mvpp2/mvpp2.h
++++ b/drivers/net/ethernet/marvell/mvpp2/mvpp2.h
+@@ -481,6 +481,11 @@
+ #define MVPP22_GMAC_INT_SUM_MASK		0xa4
+ #define     MVPP22_GMAC_INT_SUM_MASK_LINK_STAT	BIT(1)
+ #define	    MVPP22_GMAC_INT_SUM_MASK_PTP	BIT(2)
++#define MVPP2_GMAC_LPI_CTRL0			0xc0
++#define     MVPP2_GMAC_LPI_CTRL0_TS_MASK	GENMASK(15, 8)
++#define MVPP2_GMAC_LPI_CTRL1			0xc4
++#define     MVPP2_GMAC_LPI_CTRL1_REQ_EN		BIT(0)
++#define     MVPP2_GMAC_LPI_CTRL1_TW_MASK	GENMASK(15, 4)
  
- #define MVNETA_LPI_CTRL_0                        0x2cc0
-+#define      MVNETA_LPI_CTRL_0_TS                (0xff << 8)
- #define MVNETA_LPI_CTRL_1                        0x2cc4
--#define      MVNETA_LPI_REQUEST_ENABLE           BIT(0)
-+#define      MVNETA_LPI_CTRL_1_REQUEST_ENABLE    BIT(0)
-+#define      MVNETA_LPI_CTRL_1_REQUEST_FORCE     BIT(1)
-+#define      MVNETA_LPI_CTRL_1_MANUAL_MODE       BIT(2)
-+#define      MVNETA_LPI_CTRL_1_TW                (0xfff << 4)
- #define MVNETA_LPI_CTRL_2                        0x2cc8
- #define MVNETA_LPI_STATUS                        0x2ccc
- 
-@@ -541,10 +545,6 @@ struct mvneta_port {
- 	struct mvneta_bm_pool *pool_short;
- 	int bm_win_id;
- 
--	bool eee_enabled;
--	bool eee_active;
--	bool tx_lpi_enabled;
--
- 	u64 ethtool_stats[ARRAY_SIZE(mvneta_statistics)];
- 
- 	u32 indir[MVNETA_RSS_LU_TABLE_SIZE];
-@@ -4213,18 +4213,6 @@ static int mvneta_mac_finish(struct phylink_config *config, unsigned int mode,
- 	return 0;
+ /* Per-port XGMAC registers. PPv2.2 and PPv2.3, only for GOP port 0,
+  * relative to port->base.
+diff --git a/drivers/net/ethernet/marvell/mvpp2/mvpp2_main.c b/drivers/net/ethernet/marvell/mvpp2/mvpp2_main.c
+index f85229a30844..a8c33417bb3e 100644
+--- a/drivers/net/ethernet/marvell/mvpp2/mvpp2_main.c
++++ b/drivers/net/ethernet/marvell/mvpp2/mvpp2_main.c
+@@ -5757,6 +5757,28 @@ static int mvpp2_ethtool_set_rxfh(struct net_device *dev,
+ 	return mvpp2_modify_rxfh_context(dev, NULL, rxfh, extack);
  }
  
--static void mvneta_set_eee(struct mvneta_port *pp, bool enable)
--{
--	u32 lpi_ctl1;
--
--	lpi_ctl1 = mvreg_read(pp, MVNETA_LPI_CTRL_1);
--	if (enable)
--		lpi_ctl1 |= MVNETA_LPI_REQUEST_ENABLE;
--	else
--		lpi_ctl1 &= ~MVNETA_LPI_REQUEST_ENABLE;
--	mvreg_write(pp, MVNETA_LPI_CTRL_1, lpi_ctl1);
--}
--
- static void mvneta_mac_link_down(struct phylink_config *config,
- 				 unsigned int mode, phy_interface_t interface)
- {
-@@ -4240,9 +4228,6 @@ static void mvneta_mac_link_down(struct phylink_config *config,
- 		val |= MVNETA_GMAC_FORCE_LINK_DOWN;
- 		mvreg_write(pp, MVNETA_GMAC_AUTONEG_CONFIG, val);
- 	}
--
--	pp->eee_active = false;
--	mvneta_set_eee(pp, false);
++static int mvpp2_ethtool_get_eee(struct net_device *dev,
++				 struct ethtool_keee *eee)
++{
++	struct mvpp2_port *port = netdev_priv(dev);
++
++	if (!port->phylink)
++		return -EOPNOTSUPP;
++
++	return phylink_ethtool_get_eee(port->phylink, eee);
++}
++
++static int mvpp2_ethtool_set_eee(struct net_device *dev,
++				 struct ethtool_keee *eee)
++{
++	struct mvpp2_port *port = netdev_priv(dev);
++
++	if (!port->phylink)
++		return -EOPNOTSUPP;
++
++	return phylink_ethtool_set_eee(port->phylink, eee);
++}
++
+ /* Device ops */
+ 
+ static const struct net_device_ops mvpp2_netdev_ops = {
+@@ -5802,6 +5824,8 @@ static const struct ethtool_ops mvpp2_eth_tool_ops = {
+ 	.create_rxfh_context	= mvpp2_create_rxfh_context,
+ 	.modify_rxfh_context	= mvpp2_modify_rxfh_context,
+ 	.remove_rxfh_context	= mvpp2_remove_rxfh_context,
++	.get_eee		= mvpp2_ethtool_get_eee,
++	.set_eee		= mvpp2_ethtool_set_eee,
+ };
+ 
+ /* Used for PPv2.1, or PPv2.2 with the old Device Tree binding that
+@@ -6672,6 +6696,55 @@ static void mvpp2_mac_link_down(struct phylink_config *config,
+ 	mvpp2_port_disable(port);
  }
  
- static void mvneta_mac_link_up(struct phylink_config *config,
-@@ -4291,11 +4276,56 @@ static void mvneta_mac_link_up(struct phylink_config *config,
- 	}
- 
- 	mvneta_port_up(pp);
-+}
- 
--	if (phy && pp->eee_enabled) {
--		pp->eee_active = phy_init_eee(phy, false) >= 0;
--		mvneta_set_eee(pp, pp->eee_active && pp->tx_lpi_enabled);
-+static void mvneta_mac_disable_tx_lpi(struct phylink_config *config)
++static void mvpp2_mac_disable_tx_lpi(struct phylink_config *config)
 +{
-+	struct mvneta_port *pp = netdev_priv(to_net_dev(config->dev));
-+	u32 lpi1;
++	struct mvpp2_port *port = mvpp2_phylink_to_port(config);
 +
-+	lpi1 = mvreg_read(pp, MVNETA_LPI_CTRL_1);
-+	lpi1 &= ~(MVNETA_LPI_CTRL_1_REQUEST_ENABLE |
-+		  MVNETA_LPI_CTRL_1_REQUEST_FORCE |
-+		  MVNETA_LPI_CTRL_1_MANUAL_MODE);
-+	mvreg_write(pp, MVNETA_LPI_CTRL_1, lpi1);
++	mvpp2_modify(port->base + MVPP2_GMAC_LPI_CTRL1,
++		     MVPP2_GMAC_LPI_CTRL1_REQ_EN, 0);
 +}
 +
-+static int mvneta_mac_enable_tx_lpi(struct phylink_config *config, u32 timer,
-+				    bool tx_clk_stop)
++static int mvpp2_mac_enable_tx_lpi(struct phylink_config *config, u32 timer,
++				   bool tx_clk_stop)
 +{
-+	struct mvneta_port *pp = netdev_priv(to_net_dev(config->dev));
-+	u32 ts, tw, lpi0, lpi1, status;
++	struct mvpp2_port *port = mvpp2_phylink_to_port(config);
++	u32 ts, tw, lpi1, status;
 +
-+	status = mvreg_read(pp, MVNETA_GMAC_STATUS);
-+	if (status & MVNETA_GMAC_SPEED_1000) {
++	status = readl(port->base + MVPP2_GMAC_STATUS0);
++	if (status & MVPP2_GMAC_STATUS0_GMII_SPEED) {
 +		/* At 1G speeds, the timer resolution are 1us, and
 +		 * 802.3 says tw is 16.5us. Round up to 17us.
 +		 */
@@ -213,99 +196,65 @@ index fe6261b81540..5fc078a0c4d5 100644
 +		 */
 +		tw = 3;
 +		ts = DIV_ROUND_UP(timer, 10);
- 	}
++	}
 +
 +	if (ts > 255)
 +		ts = 255;
 +
 +	/* Configure ts */
-+	lpi0 = mvreg_read(pp, MVNETA_LPI_CTRL_0);
-+	lpi0 = u32_replace_bits(lpi0, ts, MVNETA_LPI_CTRL_0_TS);
-+	mvreg_write(pp, MVNETA_LPI_CTRL_0, lpi0);
++	mvpp2_modify(port->base + MVPP2_GMAC_LPI_CTRL0,
++		     MVPP2_GMAC_LPI_CTRL0_TS_MASK,
++		     FIELD_PREP(MVPP2_GMAC_LPI_CTRL0_TS_MASK, ts));
 +
-+	/* Configure tw and enable LPI generation */
-+	lpi1 = mvreg_read(pp, MVNETA_LPI_CTRL_1);
-+	lpi1 = u32_replace_bits(lpi1, tw, MVNETA_LPI_CTRL_1_TW);
-+	lpi1 |= MVNETA_LPI_CTRL_1_REQUEST_ENABLE;
-+	mvreg_write(pp, MVNETA_LPI_CTRL_1, lpi1);
++	lpi1 = readl(port->base + MVPP2_GMAC_LPI_CTRL1);
++
++	/* Configure tw */
++	lpi1 = u32_replace_bits(lpi1, tw, MVPP2_GMAC_LPI_CTRL1_TW_MASK);
++
++	/* Enable LPI generation */
++	writel(lpi1 | MVPP2_GMAC_LPI_CTRL1_REQ_EN,
++	       port->base + MVPP2_GMAC_LPI_CTRL1);
 +
 +	return 0;
- }
- 
- static const struct phylink_mac_ops mvneta_phylink_ops = {
-@@ -4305,6 +4335,8 @@ static const struct phylink_mac_ops mvneta_phylink_ops = {
- 	.mac_finish = mvneta_mac_finish,
- 	.mac_link_down = mvneta_mac_link_down,
- 	.mac_link_up = mvneta_mac_link_up,
-+	.mac_disable_tx_lpi = mvneta_mac_disable_tx_lpi,
-+	.mac_enable_tx_lpi = mvneta_mac_enable_tx_lpi,
++}
++
+ static const struct phylink_mac_ops mvpp2_phylink_ops = {
+ 	.mac_select_pcs = mvpp2_select_pcs,
+ 	.mac_prepare = mvpp2_mac_prepare,
+@@ -6679,6 +6752,8 @@ static const struct phylink_mac_ops mvpp2_phylink_ops = {
+ 	.mac_finish = mvpp2_mac_finish,
+ 	.mac_link_up = mvpp2_mac_link_up,
+ 	.mac_link_down = mvpp2_mac_link_down,
++	.mac_enable_tx_lpi = mvpp2_mac_enable_tx_lpi,
++	.mac_disable_tx_lpi = mvpp2_mac_disable_tx_lpi,
  };
  
- static int mvneta_mdio_probe(struct mvneta_port *pp)
-@@ -5106,14 +5138,6 @@ static int mvneta_ethtool_get_eee(struct net_device *dev,
- 				  struct ethtool_keee *eee)
- {
- 	struct mvneta_port *pp = netdev_priv(dev);
--	u32 lpi_ctl0;
--
--	lpi_ctl0 = mvreg_read(pp, MVNETA_LPI_CTRL_0);
--
--	eee->eee_enabled = pp->eee_enabled;
--	eee->eee_active = pp->eee_active;
--	eee->tx_lpi_enabled = pp->tx_lpi_enabled;
--	eee->tx_lpi_timer = (lpi_ctl0) >> 8; // * scale;
+ /* Work-around for ACPI */
+@@ -6957,6 +7032,15 @@ static int mvpp2_port_probe(struct platform_device *pdev,
+ 		port->phylink_config.mac_capabilities =
+ 			MAC_2500FD | MAC_1000FD | MAC_100 | MAC_10;
  
- 	return phylink_ethtool_get_eee(pp->phylink, eee);
- }
-@@ -5122,7 +5146,6 @@ static int mvneta_ethtool_set_eee(struct net_device *dev,
- 				  struct ethtool_keee *eee)
- {
- 	struct mvneta_port *pp = netdev_priv(dev);
--	u32 lpi_ctl0;
- 
- 	/* The Armada 37x documents do not give limits for this other than
- 	 * it being an 8-bit register.
-@@ -5130,16 +5153,6 @@ static int mvneta_ethtool_set_eee(struct net_device *dev,
- 	if (eee->tx_lpi_enabled && eee->tx_lpi_timer > 255)
- 		return -EINVAL;
- 
--	lpi_ctl0 = mvreg_read(pp, MVNETA_LPI_CTRL_0);
--	lpi_ctl0 &= ~(0xff << 8);
--	lpi_ctl0 |= eee->tx_lpi_timer << 8;
--	mvreg_write(pp, MVNETA_LPI_CTRL_0, lpi_ctl0);
--
--	pp->eee_enabled = eee->eee_enabled;
--	pp->tx_lpi_enabled = eee->tx_lpi_enabled;
--
--	mvneta_set_eee(pp, eee->tx_lpi_enabled && eee->eee_enabled);
--
- 	return phylink_ethtool_set_eee(pp->phylink, eee);
- }
- 
-@@ -5453,6 +5466,9 @@ static int mvneta_port_power_up(struct mvneta_port *pp, int phy_mode)
- 	    !phy_interface_mode_is_rgmii(phy_mode))
- 		return -EINVAL;
- 
-+	/* Ensure LPI is disabled */
-+	mvneta_mac_disable_tx_lpi(&pp->phylink_config);
++		__set_bit(PHY_INTERFACE_MODE_SGMII,
++			  port->phylink_config.lpi_interfaces);
 +
- 	return 0;
- }
- 
-@@ -5544,6 +5560,13 @@ static int mvneta_probe(struct platform_device *pdev)
- 	pp->phylink_config.mac_capabilities = MAC_SYM_PAUSE | MAC_10 |
- 		MAC_100 | MAC_1000FD | MAC_2500FD;
- 
-+	/* Setup EEE. Choose 250us idle. Only supported in SGMII modes. */
-+	__set_bit(PHY_INTERFACE_MODE_QSGMII, pp->phylink_config.lpi_interfaces);
-+	__set_bit(PHY_INTERFACE_MODE_SGMII, pp->phylink_config.lpi_interfaces);
-+	pp->phylink_config.lpi_capabilities = MAC_100FD | MAC_1000FD;
-+	pp->phylink_config.lpi_timer_default = 250;
-+	pp->phylink_config.eee_enabled_default = true;
++		port->phylink_config.lpi_capabilities = MAC_1000FD | MAC_100FD;
 +
- 	phy_interface_set_rgmii(pp->phylink_config.supported_interfaces);
- 	__set_bit(PHY_INTERFACE_MODE_QSGMII,
- 		  pp->phylink_config.supported_interfaces);
++		/* Setup EEE.  Choose 250us idle. */
++		port->phylink_config.lpi_timer_default = 250;
++		port->phylink_config.eee_enabled_default = true;
++
+ 		if (port->priv->global_tx_fc)
+ 			port->phylink_config.mac_capabilities |=
+ 				MAC_SYM_PAUSE | MAC_ASYM_PAUSE;
+@@ -7031,6 +7115,8 @@ static int mvpp2_port_probe(struct platform_device *pdev,
+ 			goto err_free_port_pcpu;
+ 		}
+ 		port->phylink = phylink;
++
++		mvpp2_mac_disable_tx_lpi(&port->phylink_config);
+ 	} else {
+ 		dev_warn(&pdev->dev, "Use link irqs for port#%d. FW update required\n", port->id);
+ 		port->phylink = NULL;
 -- 
 2.30.2
 
