@@ -4,73 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 591EAE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 01:00:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C2DCE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 01:01:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6lgQGG/R5hjMl/ZKQkzNlORM+4weN/hrL2R2yFWaPFE=; b=lqA4qI/mv7vQNu3fIhe/MVXFi7
-	xk0OqqbDFJg22qTFaKnvXN7waQHcsnfGBtLxxFrijgR0X9AqjbWdOqz+3a1e+TsfXnbvuzCb1csEB
-	KjaNbK/KZbPiWR0+CHc5g/8gqeVuWEqB8/J2U8QOuZyRZdSiW2Amgo6z0C3Nieqs5WKzRZjIzXu3w
-	6IA91kZ/Dc35pkkEuaGeybgaVFaIfhKe0OOkxrOh+fZIOHaCT3ul0o2QSrqdCh3YIC7FPfv9OlMBc
-	o1dhZJw7hT/6kQGnRwOIBV/kCRaEp5EjMPTdIFoHtUat25i0sAdi4wLY58ITNydgzt4GqwKaJhLD3
-	bHIc96ow==;
+	bh=8c5G4NuASNEHfaEA9NDCeW64qXXCEIHPTCDJus6cTIk=; b=xTYvQaOXjGpbOP3ml7K+He0i3o
+	hPPZRi0q/hQOtnyV1WNPeUegZNn45Pf2Trn/1VCArJL/Jioi6UGcLspFmrGXJenc5CGZuM6FSKO9z
+	0ExhWgIVAeAY1piDL2rZJjBmryVGB72Ez5aQLi0FsVFGjglMbBySGwyQN/Zv2z3YUy82t+6qTXPvt
+	XNDvoYK0j6hxyUN8jWnqzMnF9U4oZYLLmWzFSuDmakKl6w3345uqHmXVA47KpxpBhYvju38e3CuJ3
+	Zbtv/lXt0YyXbyEVFw8kpsDVWP2Dv++U/nSYiEhJVkrbF113C9JckMK2F6e1a2OUbm/3sHJLRb4cq
+	l8UJvvUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXrlP-0000000AFhu-2CKx;
-	Wed, 15 Jan 2025 01:00:07 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tXrmb-0000000AFss-4AQz;
+	Wed, 15 Jan 2025 01:01:21 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXriw-0000000AFEM-2cRx;
-	Wed, 15 Jan 2025 00:57:35 +0000
+	id 1tXrj5-0000000AFHM-23wv;
+	Wed, 15 Jan 2025 00:57:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Subject:Message-Id:References:
+	In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:Content-Type:
+	Date:Sender:Reply-To:Content-ID:Content-Description;
+	bh=8c5G4NuASNEHfaEA9NDCeW64qXXCEIHPTCDJus6cTIk=; b=eeO4OU8U8k4auUuvVySl01g6Mm
+	KkyPHLSNEjlmeHbVNDCWFED+GLiwLljwyFCuV4utGXrNVGXUYE3BofSu6HdEhsivCg47xSg4admQy
+	s+j8imAbcNNP6+f0jHQSAFHdFE1OESoQDZZGuwQhKFXnhM7HmMJvELFGz35TVQQYC+BY9M9MjRepR
+	mzohFg9ZJcMSd44P7beUm1MmM3zdDzpZ+kgKyUAIeWPC3Hu1nJb+TsC67KKHfCBJEUMeqrn0q+Dva
+	XiCaNBrSgz82PDRgKN3AnzGyY/nS/sC6Dae4M/tH5HHlnCZwZM/gNN+5QpwnkKY1GWCzu8H2TfhfR
+	oFdZWTqg==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tXrj1-0000000AioC-3o44;
+	Wed, 15 Jan 2025 00:57:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 18C675C5705;
-	Wed, 15 Jan 2025 00:56:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64D69C4CEDD;
-	Wed, 15 Jan 2025 00:57:33 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B6AE25C5933;
+	Wed, 15 Jan 2025 00:56:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC13EC4CEE6;
+	Wed, 15 Jan 2025 00:57:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736902653;
-	bh=E5F1TruT3qFWIpE0gZRapnmjQqlLtDzwzVIONB+NJTE=;
+	s=k20201202; t=1736902655;
+	bh=l+9twYi0Uwgk+vxDb18woIEDFmtH67VIxPOkzuSyE9I=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=E8ZC0HYh+oK/S/g901Rmeb7kofhXSeYcTgsyYLyVs01V883b8eg+oCadnzsZvyeHp
-	 BBbx2G2QIX9txI1ZtB+hGYcFwvr/WDeGaNyPWrvJyOOo/YH2pRBGt43opN+oZ8yq1U
-	 qwx2J0scKU3mRlexxp5YzcFLMdMW5EtJKiVAc1ZM8kXrKNOeFmm7A4uGUgIobo4SZX
-	 ikraH3oUGbksFIpGx2qcBZ8cX59cEqLtYtIR2r/FABlpSbkEp1WBX0B/MjAEi6snUx
-	 YJv4kW7KwjO99j2P0HfBeK9q6LRNZU0Y/NJRo/nc2CXdPxEFtRIYEVHwcSTQoQUFHx
-	 fWa8rEKKXtaog==
-Date: Tue, 14 Jan 2025 18:57:32 -0600
+	b=rFiEz9sdhNL1vEEfFmlCwjSPfCJhRy58Tc5CsvZ05oGqRKI6H+gGqCXvMFxcwcYZg
+	 wQvdQgnB4miB73msApRp2XtVaIaznh/qWrPzZ30oWn8usbxBva2Y3t6cIUDkUxtT7u
+	 65qG2n2zNlS1V92zM5bQlfH1dMSY513GmD1wxhNPs6GRfmgT4SUl3Eu5/FO+Vgwu5W
+	 6CdBe8WoS53Q6akeOV6W3AArLH8y3iPvf5vp9NNQTdXpZM4/aSxoxvvARE+OJ4t8eM
+	 cWUAGlUtsX8m8POXWpXpKNlL0h4bn2zhxixyMxVeHzUsElPzgyuhpEqiojgv97JHLZ
+	 ZMD5n7EiLgGtA==
+Date: Tue, 14 Jan 2025 18:57:33 -0600
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Palmer Dabbelt <palmer@sifive.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Peter Zijlstra <peterz@infradead.org>, Will Deacon <will@kernel.org>, 
+Cc: Namhyung Kim <namhyung@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, Peter Zijlstra <peterz@infradead.org>, 
+ Mark Rutland <mark.rutland@arm.com>, linux-riscv@lists.infradead.org, 
+ weilin.wang@intel.com, Will Deacon <will@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Anup Patel <anup@brainfault.org>, 
  Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>, 
- linux-riscv@lists.infradead.org, Atish Patra <atishp@atishpatra.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup@brainfault.org>, 
- Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org, 
- Ingo Molnar <mingo@redhat.com>, kvm-riscv@lists.infradead.org, 
- linux-perf-users@vger.kernel.org, weilin.wang@intel.com, 
- Conor Dooley <conor@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, kvm@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>, 
  Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>, 
- linux-kernel@vger.kernel.org
+ Ingo Molnar <mingo@redhat.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Ian Rogers <irogers@google.com>, linux-perf-users@vger.kernel.org, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Conor Dooley <conor+dt@kernel.org>, Atish Patra <atishp@atishpatra.org>, 
+ kvm@vger.kernel.org, Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ kvm-riscv@lists.infradead.org
 To: Atish Patra <atishp@rivosinc.com>
-In-Reply-To: <20250114-counter_delegation-v2-8-8ba74cdb851b@rivosinc.com>
+In-Reply-To: <20250114-counter_delegation-v2-10-8ba74cdb851b@rivosinc.com>
 References: <20250114-counter_delegation-v2-0-8ba74cdb851b@rivosinc.com>
- <20250114-counter_delegation-v2-8-8ba74cdb851b@rivosinc.com>
-Message-Id: <173690251211.2066548.13200770896119335906.robh@kernel.org>
-Subject: Re: [PATCH v2 08/21] dt-bindings: riscv: add Ssccfg ISA extension
- description
+ <20250114-counter_delegation-v2-10-8ba74cdb851b@rivosinc.com>
+Message-Id: <173690265103.2069740.11443232308035656965.robh@kernel.org>
+Subject: Re: [PATCH v2 10/21] dt-bindings: riscv: add Smcntrpmf ISA
+ extension description
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_165734_705484_E4AA1EC5 
-X-CRM114-Status: GOOD (  10.91  )
+X-CRM114-CacheID: sfid-20250115_005740_272225_6A649379 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,27 +100,25 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 14 Jan 2025 14:57:33 -0800, Atish Patra wrote:
-> Add description for the Ssccfg extension.
+On Tue, 14 Jan 2025 14:57:35 -0800, Atish Patra wrote:
+> Add the description for Smcntrpmf ISA extension
 > 
 > Signed-off-by: Atish Patra <atishp@rivosinc.com>
 > ---
->  Documentation/devicetree/bindings/riscv/extensions.yaml | 13 +++++++++++++
->  1 file changed, 13 insertions(+)
+>  Documentation/devicetree/bindings/riscv/extensions.yaml | 7 +++++++
+>  1 file changed, 7 insertions(+)
 > 
 
 My bot found errors running 'make dt_binding_check' on your patch:
 
 yamllint warnings/errors:
-./Documentation/devicetree/bindings/riscv/extensions.yaml:131:1: [error] syntax error: found character '\t' that cannot start any token (syntax)
 
 dtschema/dtc warnings/errors:
-./Documentation/devicetree/bindings/riscv/extensions.yaml:131:1: found character '\t' that cannot start any token
-Documentation/devicetree/bindings/riscv/extensions.yaml:131:1: found character '\t' that cannot start any token
+
 
 doc reference errors (make refcheckdocs):
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250114-counter_delegation-v2-8-8ba74cdb851b@rivosinc.com
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250114-counter_delegation-v2-10-8ba74cdb851b@rivosinc.com
 
 The base for the series is generally the latest rc1. A different dependency
 should be noted in *this* patch.
