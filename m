@@ -4,86 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44213C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 07:54:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3580EC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 07:55:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v19hfaaGbXr2BhC980RfNTWymFHwvdpU89uVG63T0wg=; b=m0rFqvDklpyBqyFGXb9dL5JU9D
-	AcLKc6vfBy69cidYTANIWWU+t+rR5njk9X+2iPmXjFc7wdtaZKuuuP5oNLRt+n3JBdsayw1rJQpAo
-	WYLOVJeydowEaXQXzyMvuwyiNcWiszeUrkLU6AZ9FTjiDwzvFxLzPoyfq+xSUEuufIkw2C5eCoxna
-	ZFnmQWhXYwNrnzWpb+yeEyrzguAp8vNhKcKVPar2dKhj28hTHGJfcHv8/5CxG7/8G0xdDudisJumt
-	Oxr6Fm62195IiWeYYt3dB3tzuQ7u+4TCg/mCI3kOTqFqdB66fT/ZqLIbMHNoNKUS3ITO9GyLVhI0Y
-	8wiYE4CQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=caPnGGYLwZ+Eu8pRhYqq3TGZibCsx/1vFdgM7/A168g=; b=b8XRKqYJBUR+tV24FnerlmDUZE
+	A+983sfBwtIdtMn7z992cJIfuX/YK/iEjfcEWwM2XJKyRHIg6NYpDc3SK/yGyp4uQfkJ4Jnqh3j6Q
+	C9Rp8EdxV6llB/zd2PhuNtduWlnvJxDE7dPOpzJ+1vADdCkLOoucQZD5nh8kCq5egEWf4CSppKJJI
+	PGkWKkJpR4/W6k9BWBuInr+fK8mo+YlTiIlxh+hP7+DlTKFl04jjbGJqi4bARy9w1GJJXRmVzkpJ2
+	uCpDy33/L1rT1gV3LwTI9NZol8MtWzpwU5TBBtld+rJF3C8DvTKoR979i9rufkB6i9yzp0DMIko5e
+	MITdx4Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXyDk-0000000B0PM-45OG;
-	Wed, 15 Jan 2025 07:53:48 +0000
-Received: from mail-vs1-f43.google.com ([209.85.217.43])
+	id 1tXyEz-0000000B0YN-2OJp;
+	Wed, 15 Jan 2025 07:55:05 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXyBq-0000000B0Cz-46B5
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 07:51:52 +0000
-Received: by mail-vs1-f43.google.com with SMTP id ada2fe7eead31-4aff78a39e1so2099943137.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 23:51:50 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736927509; x=1737532309;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=v19hfaaGbXr2BhC980RfNTWymFHwvdpU89uVG63T0wg=;
-        b=OlRcnDie5niKBK5MSFL8EMbfqkkGe8eS8uOc9BxnYHvM5zvQJcIWxBRZfao+78Iopb
-         qO2k1W+ngjo+NbEMtX48t8cf9zIzsJmD2j5xFxpaXnqwJ25ETbMTVa1ZGwCAxCuQJ3AY
-         MmHDy/qSRY1YLXg/ZmhaThJBzzKGLE1dAdnHFzO+e2qrvjAwbiyw57NINUThhXU+kQzK
-         1ZEzZv71jJqMPzZ5vxpl+e3MrcQM9cqi8g44ihsBVV1c05IE6C21sqOJnc9BlEGDhGTP
-         pvuclVK1xQiixFjl73NePp/nMuQpF0rDXmpJBFP9idXLTFRNDSlDZ6Y6Bj6Yr+mMrKqQ
-         RlFQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXN9jxL/PaAsLtNb9INfrrET8x2UwXjytUvhwfzDEw+89l+2p0CaPZzNbtB4m/qyOicKYdhrRzhCysXnjFUvhaX@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxo8qoICwW/M5xDYqcZ0hNE6IiuLSpJsJNWr1lganRJVcetYWEe
-	WgIUDwrAgq/uYoX0bhSPD++58M7eFfXbCuKErdyfYD3BGlaeUiQngQ+r1qi5
-X-Gm-Gg: ASbGncvlfC0bVW2VBpWxz6FrOLel90ams/miupSzanSeks+HO2i4cGau47neOTRWIPc
-	T73tPMF7tF7n9UqbOm0GyjMjRKv0vh6eUCoNOvZl9n3wWTljuHAWfo0vyp4E036+SGvRYR4j/K6
-	e+ExXg43uD2SM5W9CTTQFMtn6WG+zPbmFOcJpwkCZNnWx/csu0Xj9+tErthzQOchj2kNttHtN3i
-	97S97iK+xkNXegHdP4VswfTLHfGN05wWfQAdbmQvDLKka1cuAj4OK/JYfo+Eezze97JxofV1jB5
-	cwmvAsEd2BhX+nORpc4KTrY=
-X-Google-Smtp-Source: AGHT+IGD1575O3jXWjexXlE6ilDGTTF1gtznNrtPtWvDXoGK9SttqYfz/dqwo6LSRpRsmrq6EbKYxQ==
-X-Received: by 2002:a05:6102:3910:b0:4b1:1abe:6131 with SMTP id ada2fe7eead31-4b3d1069d3cmr25218774137.25.1736927509315;
-        Tue, 14 Jan 2025 23:51:49 -0800 (PST)
-Received: from mail-vk1-f171.google.com (mail-vk1-f171.google.com. [209.85.221.171])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-862313620desm5670744241.9.2025.01.14.23.51.48
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 14 Jan 2025 23:51:48 -0800 (PST)
-Received: by mail-vk1-f171.google.com with SMTP id 71dfb90a1353d-51cccafb073so682661e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jan 2025 23:51:48 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWDgmB/11Dh5+ns83T9BCVn9cwQJ3njw5aKa663GkldgQeyA+SWr6xWe3Vgak9Lx3UwHgJS1OHCQNk2n2wPzI9O@lists.infradead.org
-X-Received: by 2002:a05:6102:370f:b0:4b2:5d10:29db with SMTP id
- ada2fe7eead31-4b3d0f91911mr23485805137.7.1736927508552; Tue, 14 Jan 2025
- 23:51:48 -0800 (PST)
+	id 1tXyBv-0000000B0E9-1ciX;
+	Wed, 15 Jan 2025 07:51:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 69D6E5C5B24;
+	Wed, 15 Jan 2025 07:51:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6238DC4CEE1;
+	Wed, 15 Jan 2025 07:51:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736927514;
+	bh=S+Nj9hWyHRIvjq4/IofNhfaffIn9jAcgTDLhxg1rvvY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Uvx066fLqOkq2FDBqACzgccc8KScMXLxd3zQL2qcA9RJrLq4iZ/CHhD78v5CxM1Yk
+	 Djx0jQGp96X5lQlvUP/UMAnHU6y8YWZWhkQ0jiP83h6FUNw8+AGjQi08OFNboPk2Hs
+	 0AO8kCkJFJuAOQC0W49As/pvzkQ89cPY+6YkcOt6MHq9EegqjowGZfWmoGY1v4uHLY
+	 AmaiUoDl8d4P1UklxcvjU9PA2McMP6jve23VVlvkHcY3PJ9YU7EkpQXB3qUuPF9B2e
+	 ocVh3yQEiLF2ZYFdFtwfkeyqbU2AmmaF7GBaUKjISO7EjPfLW/kIUsqxgw2Hii+OH4
+	 s+dpNfCHXZOhQ==
+Date: Wed, 15 Jan 2025 07:51:50 +0000
+From: Vinod Koul <vkoul@kernel.org>
+To: Andras Szemzo <szemzo.andras@gmail.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Maxime Ripard <mripard@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+	linux-gpio@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 10/12] dt-bindings: phy: allwinner: add v853 usb phy
+Message-ID: <Z4dpFqffMJ31ml2y@vaman>
+References: <20250110123923.270626-1-szemzo.andras@gmail.com>
+ <20250110123923.270626-11-szemzo.andras@gmail.com>
 MIME-Version: 1.0
-References: <20250114203547.1013010-1-krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20250114203547.1013010-1-krzysztof.kozlowski@linaro.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 15 Jan 2025 08:51:37 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdXJ57mATWW4AnBedn+D7TQ4PadkJ642daquFtAo=wZFrQ@mail.gmail.com>
-X-Gm-Features: AbW1kvbcwUXYFrN99m6XF1ITw2HmayWy5F5ubOu4slBH-XfFluPqW85u6cmBtL8
-Message-ID: <CAMuHMdXJ57mATWW4AnBedn+D7TQ4PadkJ642daquFtAo=wZFrQ@mail.gmail.com>
-Subject: Re: [PATCH] pmdomain: Use str_enable_disable-like helpers
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Magnus Damm <magnus.damm@gmail.com>, Ulf Hansson <ulf.hansson@linaro.org>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Walker Chen <walker.chen@starfivetech.com>, 
-	Changhuang Liang <changhuang.liang@starfivetech.com>, linux-renesas-soc@vger.kernel.org, 
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250110123923.270626-11-szemzo.andras@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_235151_016332_47233F42 
-X-CRM114-Status: GOOD (  17.38  )
+X-CRM114-CacheID: sfid-20250114_235155_465097_B41ECD77 
+X-CRM114-Status: GOOD (  13.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,33 +90,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 14, 2025 at 9:36=E2=80=AFPM Krzysztof Kozlowski
-<krzysztof.kozlowski@linaro.org> wrote:
-> Replace ternary (condition ? "enable" : "disable") syntax with helpers
-> from string_choices.h because:
-> 1. Simple function call with one argument is easier to read.  Ternary
->    operator has three arguments and with wrapping might lead to quite
->    long code.
-> 2. Is slightly shorter thus also easier to read.
-> 3. It brings uniformity in the text - same string.
-> 4. Allows deduping by the linker, which results in a smaller binary
->    file.
->
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+On 10-01-25, 13:39, Andras Szemzo wrote:
+> Document Allwinner v853 USB phy.
+> 
+> Signed-off-by: Andras Szemzo <szemzo.andras@gmail.com>
+> ---
+>  .../phy/allwinner,sun8i-v853-usb-phy.yaml     | 89 +++++++++++++++++++
+>  1 file changed, 89 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/phy/allwinner,sun8i-v853-usb-phy.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/phy/allwinner,sun8i-v853-usb-phy.yaml b/Documentation/devicetree/bindings/phy/allwinner,sun8i-v853-usb-phy.yaml
+> new file mode 100644
+> index 000000000000..773c3f476db8
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/phy/allwinner,sun8i-v853-usb-phy.yaml
+> @@ -0,0 +1,89 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/phy/allwinner,sun8i-v853-usb-phy.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Allwinner V853 USB PHY
+> +
+> +maintainers:
+> +  - Chen-Yu Tsai <wens@csie.org>
+> +  - Maxime Ripard <mripard@kernel.org>
+> +
+> +properties:
+> +  "#phy-cells":
+> +    const: 1
+> +
+> +  compatible:
+> +    const:
+> +	- allwinner,sun8i-v853-usb-phy
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+Does this really need a new binding document, if so why... Cant this be
+added to one of the existing docs which driver uses?
 
-Gr{oetje,eeting}s,
-
-                        Geert
-
---=20
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
-
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
+-- 
+~Vinod
 
