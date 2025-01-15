@@ -4,67 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A6C4C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 14:14:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85114C02187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 14:18:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HwWG4QVQ1mZL+ZKPudmUC2gYE7RFuNS4P6G2TDdyrvg=; b=aNit0zLgr8aEdV6y/MetstJYpo
-	QDLtsbvpTMxHht/qAxAwHLUHBbSBYFQwSZ83TY4R4bk8+GvX/YGa9BmGqh7X5fKbflK7xeSBcvhrr
-	HACqBT6jtLE6Wn/lNeIFF7j+Icr0KuhvGU1/vb4pfdf/g5vcwgLU3vjUa9cCQYxpF6n/0b1DgCjFP
-	jxJXOmYW9f+nr0WTTh0qJnRZeJwJTQTcrlAPQUh+lDwm9QqxIxZnj7aw3HTr0+IVVrUvPYZGuw2Eq
-	BwAmXwagIEM+Wb+tOr4i4X+7IjJzddyVDgAKFd04NcP9j4yZMZKWct/MT4buMbN0dG8RQXoq6tXnM
-	3XF8U7Jg==;
+	bh=fKYrxgsi0xcK9KoNHKx9XbEmYX2fzi9W8t5Qc32fgoc=; b=aYuDfBwVba5tfR2dgkb5eO1uP/
+	KSi0VXBjVg7heg4TuWhIrUx/OHzR5D9q01OJ82BnNpIpTVSNHbZaPH+wZqvN3l57/qKRMQffzl1pP
+	Lc5yQQHL2cdUvoCcLhjYiqXz9uE1+zaMh6e9w0Et/HBP4MBqOsD1zFZl27FVMxc06FuPFjS1SoIGN
+	f8Qd67rIVuNOBYWmQeVT1YGepLwqpDynBs09L1lAwIfVsFa5yiIwoLHmiPulVwFDBhSp4jM/6Pvnl
+	iKBooxw7c6Je2sJkDxA54+JsR9TlzxcMFCX6IbG2pFcrpIZzjBT8SOkXC13HEIBM0RwLLtiEs6AQp
+	eVV+SCPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY4A2-0000000C5IK-0T4W;
-	Wed, 15 Jan 2025 14:14:22 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tY4E9-0000000C5rr-43z9;
+	Wed, 15 Jan 2025 14:18:37 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY48l-0000000C59e-3JnK
+	id 1tY4Ct-0000000C5hf-2o0k
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 14:13:04 +0000
+	Wed, 15 Jan 2025 14:17:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7928D5C5B36;
-	Wed, 15 Jan 2025 14:12:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3B09C4CED1;
-	Wed, 15 Jan 2025 14:13:00 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 879DFA40233;
+	Wed, 15 Jan 2025 14:15:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C84DC4CED1;
+	Wed, 15 Jan 2025 14:17:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736950383;
-	bh=HwWG4QVQ1mZL+ZKPudmUC2gYE7RFuNS4P6G2TDdyrvg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=er4h4L75gfhJbai/B02+qfp7tdfAQeXzkFyqSaaX5lMEczdWI1z/TkOfH4rJ3AagS
-	 yhsp/Byww+1Zc3A3AY89UPDdromE2VWkpSd84eJ9isaYpbMIxAmBBQuJCjBD8iwmBl
-	 03ktVtOOhjlpgpaR030tEHcA/WEVBAgkmB7SJ9EdV+gjwcnyAZSpp7p5xWssgdDYLn
-	 +qvAUUGDDN0ZFalzhpQqJ18SOKaSFwbkvxUAYiztN9JkhXeykxEr4Ycts8u7sPsdEf
-	 BOzEUILtVE/jMIdm1q3PhPXcMlyipz2vm1G6B2JrS+BlnzNWpDJsuD2QZRmEg3/ulc
-	 a3l4oTGRgja2g==
-Date: Wed, 15 Jan 2025 14:12:58 +0000
-From: Mark Brown <broonie@kernel.org>
+	s=k20201202; t=1736950638;
+	bh=Ob0oswjFwEvQKzDjtvC3mgPatdmHimZJihQOAf60yPA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=M3me4SOaItmzlvbAxAEHYqJJixGrd0NQxn2pWFbYannP9qWBD2LBNCcvsd3GaZz9E
+	 ucZ7v0adQct3EBfMlPiL1q+zWW0z7uxmXP311QFCmpuLStgGbCOt9DUK0LhWQ3ULXB
+	 gbROXFBAfJ2S45cY/gY6SRuh3lPq0E8lous7Ec5bplHc5aWtNKv7SjJw2vGdOoZVK8
+	 eqPrvNuafAUFjy3tizM5oVRxhB8XjBFSU8/G0JLE/EWHx+fAfrvm64VDmPPUBx/SED
+	 e4Rdvw331d0R/Wcm90Mv4edqKCuUbs09VY/hQcUJnIXDOQmM4nJZgWrkh7YwsQyOpp
+	 RQfDm+041LnZg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tY4Cq-00CVsm-4Z;
+	Wed, 15 Jan 2025 14:17:16 +0000
+Date: Wed, 15 Jan 2025 14:17:15 +0000
+Message-ID: <867c6ww49g.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
 To: James Clark <james.clark@linaro.org>
-Cc: linux-arm-kernel@lists.infradead.org, robh@kernel.org, maz@kernel.org,
+Cc: linux-arm-kernel@lists.infradead.org,
+	robh@kernel.org,
+	broonie@kernel.org,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
 	Oliver Upton <oliver.upton@linux.dev>,
 	Anshuman Khandual <anshuman.khandual@arm.com>,
-	James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 5/5] arm64/sysreg: Enforce sorting
-Message-ID: <e2ce2707-89dc-4668-80d9-513cea80de75@sirena.org.uk>
+	James Morse <james.morse@arm.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/5] arm64/sysreg: Enforce whole line match for closing blocks
+In-Reply-To: <20250115134259.1864060-3-james.clark@linaro.org>
 References: <20250115134259.1864060-1-james.clark@linaro.org>
- <20250115134259.1864060-6-james.clark@linaro.org>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="q8eJHwiE91loMLYF"
-Content-Disposition: inline
-In-Reply-To: <20250115134259.1864060-6-james.clark@linaro.org>
-X-Cookie: Phasers locked on target, Captain.
+	<20250115134259.1864060-3-james.clark@linaro.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: james.clark@linaro.org, linux-arm-kernel@lists.infradead.org, robh@kernel.org, broonie@kernel.org, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, oliver.upton@linux.dev, anshuman.khandual@arm.com, james.morse@arm.com, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_061303_876667_03FDFF81 
-X-CRM114-Status: UNSURE (   9.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250115_061719_769288_47CD20EF 
+X-CRM114-Status: GOOD (  20.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,30 +92,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, 15 Jan 2025 13:42:54 +0000,
+James Clark <james.clark@linaro.org> wrote:
+> 
+> Match on the whole line to prevent matching on prefixes like "Endsysreg"
+> vs "EndsysregFields". This could potentially make the script go wrong
+> in weird ways so make it fall through to the fatal unhandled statement
+> catcher if it doesn't fully match the current block.
+> 
+> Signed-off-by: James Clark <james.clark@linaro.org>
+> ---
+>  arch/arm64/tools/gen-sysreg.awk | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/tools/gen-sysreg.awk b/arch/arm64/tools/gen-sysreg.awk
+> index 1a2afc9fdd42..7c7412adf90e 100755
+> --- a/arch/arm64/tools/gen-sysreg.awk
+> +++ b/arch/arm64/tools/gen-sysreg.awk
+> @@ -127,7 +127,7 @@ END {
+>  	next
+>  }
+>  
+> -/^EndSysregFields/ && block_current() == "SysregFields" {
+> +/^EndSysregFields$/ && block_current() == "SysregFields" {
 
---q8eJHwiE91loMLYF
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+The problem with this sort of things is that it will now fail with
+trailing spaces, which is both counter-intuitive and pretty hard to
+spot.
 
-On Wed, Jan 15, 2025 at 01:42:57PM +0000, James Clark wrote:
-> Make an unsorted sysreg file a build error so it stays sorted.
+Why don't you simply match the field number, like you do in patch 3?
 
-Reviewed-by: Mark Brown <broonie@kernel.org>
+	M.
 
---q8eJHwiE91loMLYF
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmeHwmkACgkQJNaLcl1U
-h9DXCAf+KsRn7OzcqbfuT+TgSNkJ+oG1eWWSvPmnQ7hsN2ogCl9PlZa88IkgLMxe
-nCiTOm756h2r2Wh6eP6Ov2Duj2eFGz+pXWAubGuGaDQnELmjstIfTTCJpvI1xqlx
-VmxpkD+dTb2IumBn+5fsFFrnWJx7KrkqB2DYTtK5QyHWSO2v5lyZ/8qLyyFF0P/k
-+CscY+lQHPQ3ta0bMpkmlQevV5rBsod/3t01EsZOSFOHbYsHY73e+YybluGW11HJ
-Hd1cqLkUm7GrAkG1ELQOGu4jUNOykoqyp/EBIL+uKP6LMGvRssb/fDOnCRgRCMXn
-9nCo/xqhb2gtHafsBJfnwf3PTNE69w==
-=k6pg
------END PGP SIGNATURE-----
-
---q8eJHwiE91loMLYF--
+-- 
+Without deviation from the norm, progress is not possible.
 
