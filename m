@@ -4,87 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAC33C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 08:20:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 212DDC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 08:27:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jMktWQtgBLQ8cdlCbA+kTSiSpZHtnTanW9u8Zhs7GQc=; b=xIs3CZ38Xtur7qGcql+xM+5wNV
-	TIeYBtW/a2QS3CuFApDF7nDrFiVovzPXbYIummD7wfwMLh6rNdd2MiWXhvY094ML87cpFMcsS2Jw1
-	pcEMCWpKG/gkiBThuw3vSk2xvB6qSE5S+SqugEPauOQnIp8YxQ8wflXvnX9eZqda069OzN9whS3qF
-	FcivA5N+rhGslUbWNr5F1H8c43+hC4DeCx8njSTDdlyBJ1JgjZzTDMn4fhaC5rpqFu2LEPA0Ik/mv
-	z0bGAI9Vbqv0HSElnr2cwc77QKRNBxVIRjie2JWZ0OVqeEw20UdrihfDFjqL4eGMeOW/L/7hx4G0X
-	Jo6Sbusw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N2HZee/DxITsDjKvf7pVPzWMCWhM6B7J58kgt70mgaE=; b=X+/PumJkgrSGguhZhWjeXoowPE
+	9Q3mzS/ZyiE1xn3ue/JxeA6mi4J2tMEoF/TdwL95iE8tRJw+vK69Z/1LyR22gwQTax+9Td7hk1emp
+	6rRxuMWL+yr/KHlnXqKyzceiWk+PXo6O6PgVOC6s6y64zK8u/y0GmYQsfs2Va3mXp/Ln10CCDJLSq
+	LYzxmbjx1qjA1aOJzLqQO54XWpKNJmPWwanUskobpkzUVe4I8h5aRO6wDb3CJg7iT08M0JU6CoHpC
+	yDb4TMmK8J1CvQUF+ZtExD0SBndNnh5KSJIzf7o17I9ZKYTlQJGL6DfD92XwXjEPV6ui9UUGyCOtV
+	d3XkNEvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXydi-0000000B4LF-1Kps;
-	Wed, 15 Jan 2025 08:20:38 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1tXykV-0000000B5NS-3YS5;
+	Wed, 15 Jan 2025 08:27:39 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXycS-0000000B4C9-1jog
+	id 1tXyig-0000000B4zW-29Wb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 08:19:21 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-385e44a1a2dso419220f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 00:19:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736929159; x=1737533959; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=jMktWQtgBLQ8cdlCbA+kTSiSpZHtnTanW9u8Zhs7GQc=;
-        b=KzvJjVQ/GML5lwTaC0/eyZ1za1bla/JiirdZ8+ZAegLgb5quL/mXIiyZIFhpz6WEtE
-         q/bw06e7H7R/PrMs5dXj7w9j6oWl3VYyTxEkQLWy1//4wxYuiTyngXdqNi3E1R1tmHby
-         7fUYCsBI5VOKNlSy648RkSCZWrqM4rSuogYyDnskcf8gE2SSOk7MAnFHe3fpZm5hYeoB
-         ISZaupSm12p1+r9OwvqBAen04YjyaoZ2LZWSsMBbSL1IeCq+de94nC29yvXFZjwnnevN
-         9eyc0JP6IiHyRoqmeVe+G7PRCdP3YjEz/eCqC9uiNHjGiUmOHYjw0yOYJc7vObkB1Rks
-         dcOg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736929159; x=1737533959;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=jMktWQtgBLQ8cdlCbA+kTSiSpZHtnTanW9u8Zhs7GQc=;
-        b=LzGY1P0Ii8kDDP6YG6zA5o2+jWbU/3jhHm0I8WwRBFDqB9SFigUp/4LKvv4LygOuZW
-         w2yOxkJTDvjRfp2JmS3GvYZffoafGyuBJ6jXBcR6rxr5/EsgOcCXY4EdPmqh1KjQug7x
-         GQBt6GEa84cVs8lnVMkKoWO/mXCj1gTLXSqkeTMRjhY9WVUEJpf1abAqyvDmTgtAO7+8
-         ckItMtEsXxv91VvMgiuMzyGchucZUZax34CIp+i5BwbNna19AR1O/ik0n9wEbyFhnrA2
-         dW8tnDrgrQ3qxw19OGIQWStzp+9V9+904XLhHlZPWmX7xmoh4zYPZ3o9hYWxtpACJDCb
-         a8Ow==
-X-Forwarded-Encrypted: i=1; AJvYcCV5wKzMz+gBUp9YDnAjbuTgZnx5mhjICLd2s9M96EpUfHo6EjdPi/8WUM2gxxVuqQJ/o+vp07w9Nxp3nWcR4ztW@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy/rTG2lawaiMneIyUSDPvhu35VOYyjXeiD82nqXE411w7Sv0Tq
-	unTekd4mOLLbh9sbf8XaqPT7J22mnpn8wjTdB/74r09qkHv7ZuHzHi1wGkLWyMc=
-X-Gm-Gg: ASbGncvjNcQR1CpMASms2AWhEqikIBrXcfPuwDW9n7XwgR2VkLq52rR/XKM6Ic9Ow3T
-	4VoaROoUqA2UaiXEZeS56y3KfK+O+yVrLDKZOYyAP8nfJzVlpsZLTs2zZo9CrzU+gnYIVIxOwD0
-	GBVHw6cynk6SXDEGFHxzvugdq9oo1NPUE9pLfa7s4Sa/BLBRHe6NLnkUNYoStT6hrELoOUxNeVg
-	Na1xQ4i7EdWZKSiUiSm2ycdxXUG7KE5ACuv/B0fZwe/sQEt4r9hW2wL2upaPu5dTKCKKzA=
-X-Google-Smtp-Source: AGHT+IH82dvQPl7AJYMIZ5/7ubtM6u7ezR7aRuptO7pWHIlRw76Tgzx6Wrm4+Ge6XRuEgEY/v3wdyA==
-X-Received: by 2002:a05:600c:4fd6:b0:434:f5f8:22cd with SMTP id 5b1f17b1804b1-436e25603fdmr88744395e9.0.1736929158705;
-        Wed, 15 Jan 2025 00:19:18 -0800 (PST)
-Received: from krzk-bin.. ([178.197.223.165])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-437c74ab449sm14589755e9.10.2025.01.15.00.19.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jan 2025 00:19:18 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Linus Walleij <linus.walleij@linaro.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Stanislav Jakubek <stano.jakubek@gmail.com>
-Subject: [PATCH] clk: nomadik: Correct str_enabled_disabled() SXTALO case
-Date: Wed, 15 Jan 2025 09:19:14 +0100
-Message-ID: <20250115081914.12841-1-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.43.0
+	Wed, 15 Jan 2025 08:25:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 294E25C5B10;
+	Wed, 15 Jan 2025 08:25:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E52F1C4CEE4;
+	Wed, 15 Jan 2025 08:25:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736929545;
+	bh=RdVMX+M7bTTToP03/qMEfXQX3C3yCjjqCO/xBjW6898=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=gXLD3ScFQ+HQHUoCCSZ31AO0BKwerb0AMkLDHuCWt7v29uKOZ6WhfaKCZH6eIIDGz
+	 jQe6KR6blRZ9KSOvPqK4F99jMUrSJAi2dtUKcOZ252Hbu5Rsot5SOkTnXbLixXSGMi
+	 fT4dVXlAUritel67ymU9uM/ktbuYmP7Y7DKzV8UdZspOZaKlEUMJ1KrElXpeSOgEdd
+	 CqpFlvb6dWWSz5PTt5MZZD6VbhpseXfz+aIl+MawfqxOYuul7IrqCFdbHBBBeZKtF4
+	 +WxWv++kQI+eXHpTtYDlYLUfMCPWIwBTrbs0YTa54PDzl34EgATjljDwKjzqo8yIoe
+	 peQiPZ8+zrzZw==
+Message-ID: <f5c471e9-56c2-4674-af3e-1d19b2241bc2@kernel.org>
+Date: Wed, 15 Jan 2025 09:25:39 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 2/4] soc: samsung: usi: add a routine for unconfiguring
+ the ip
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ Sam Protsenko <semen.protsenko@linaro.org>,
+ Peter Griffin <peter.griffin@linaro.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250109090325.595475-1-ivo.ivanov.ivanov1@gmail.com>
+ <20250109090325.595475-3-ivo.ivanov.ivanov1@gmail.com>
+ <26aa96ba-36e4-400c-a982-48344f2096e4@kernel.org>
+ <23d2ca03-5578-457c-ad80-778ac4347c04@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <23d2ca03-5578-457c-ad80-778ac4347c04@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_001920_495992_13814D8F 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20250115_002546_637495_DFD203B3 
+X-CRM114-Status: GOOD (  11.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,31 +124,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 1cd1c8f400e9 ("clk: Use str_enable_disable-like helpers") should
-use reversed check for SXTALO.
+On 14/01/2025 22:59, Ivaylo Ivanov wrote:
+> On 1/14/25 19:59, Krzysztof Kozlowski wrote:
+>> On 09/01/2025 10:03, Ivaylo Ivanov wrote:
+>>>  static int exynos_usi_parse_dt(struct device_node *np, struct exynos_usi *usi)
+>>>  {
+>>>  	int ret;
+>>> @@ -251,6 +268,10 @@ static int exynos_usi_probe(struct platform_device *pdev)
+>>>  			return PTR_ERR(usi->regs);
+>>>  	}
+>>>  
+>>> +	ret = devm_add_action_or_reset(&pdev->dev, exynos_usi_unconfigure, usi);
+>>> +	if (ret)
+>>> +		return ret;
+>> You should not reverse the action before the action actually takes place.
+>>
+>>> +
+>>>  	ret = exynos_usi_configure(usi);
+>>>  	if (ret)
+>>>  		return ret;
+>> Registering cleanup should therefore happen here.
+> 
+> Alright, will fix. I'll try to submit the next (and hopefully final, if that's
+> all the critique you have) version in the following days, but I'm currently
+> focused on working on exynos2200.
 
-Reported-by: Stanislav Jakubek <stano.jakubek@gmail.com>
-Closes: https://lore.kernel.org/all/Z4diEj__bbQl4ULS@standask-GA-A55M-S2HP/
-Fixes: 1cd1c8f400e9 ("clk: Use str_enable_disable-like helpers")
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- drivers/clk/clk-nomadik.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Yeah, rest looks good. Anyway it is too late for this cycle, so I will
+pick this (and everything else not picked up) after the merge window.
 
-diff --git a/drivers/clk/clk-nomadik.c b/drivers/clk/clk-nomadik.c
-index f3a73ac5a1b9..fc0aeb4247f2 100644
---- a/drivers/clk/clk-nomadik.c
-+++ b/drivers/clk/clk-nomadik.c
-@@ -117,7 +117,7 @@ static void __init nomadik_src_init(void)
- 
- 	val = readl(src_base + SRC_XTALCR);
- 	pr_info("SXTALO is %s\n",
--		str_enabled_disabled(val & SRC_XTALCR_SXTALDIS));
-+		str_disabled_enabled(val & SRC_XTALCR_SXTALDIS));
- 	pr_info("MXTAL is %s\n",
- 		str_enabled_disabled(val & SRC_XTALCR_MXTALSTAT));
- 	if (of_property_read_bool(np, "disable-sxtalo")) {
--- 
-2.43.0
-
+Best regards,
+Krzysztof
 
