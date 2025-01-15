@@ -4,83 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50F73C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 10:41:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9D4EC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 10:42:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EWoj2EnYU8pdqpEgmLb2/YRwbjJFFZInnM4IcyzbaYM=; b=hyyi1ghAyf9LwjU7JcFs+lu7ic
-	RJIAf9bLhkaE28RVdSYi5iXFDKybnVN2PRWDqrLCgQ8DOXz3Mw7w968CdAAtLaxYfina+8iRHEQWt
-	xwl82Rw8x9morq/UZQ4RtCzJDh5eFvn0wvlHOMRNcTwbn3xf73p1I1wVZvgJa8S7iZL19Dm/MO97W
-	ie9g593pHGBw6R/+ElgBvTsnyyPtr+joaFslnwuCFwfAkhPHgUcjD3qRUbfj/9vAbhUKakK34jJFQ
-	ngJnTFwdTG9iPBw5O2LHL+UkWB3VSaUAirHpSv7tn7RpesJ90122dqP1A7xeLJ4J9GSCVcyb1lc9c
-	kZeaTXjA==;
+	bh=eIGObzdz/VD66IyEas38efD8wsz6yh5kycSXh2tBod0=; b=zeEJXvXw+tFmMNbz9wKz/WJpk8
+	BWR3hfUHfiFm8FYKt7t74vPH6+1DMJFEu7UprxCrFV2E/MWE3OaG/eu+qAtv+l+QKNUhRD2KDTZof
+	TDUcN3/XaqC8G1ebMVqL1RieghZlZhz5RWVL0PrdVKy09Ml9CuIdz92GeTN9nslb8cPKbIMP4MGIo
+	m8XIJ0AtgptRB/FJ0UQWpVGR7sv6FTDuVm3Sj24fZMMNPXFqe0FWzI/8+L2retILJY5rbyzo8T+1O
+	uPtRP1+C3QhU+q4WoPXX0faswJ+WYQdMyPYaL3IqMQHAVrGNJ02pNJOyPpAFVqEBApwhjAMtiE8yq
+	AokeWXtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY0pg-0000000BXwO-137O;
-	Wed, 15 Jan 2025 10:41:08 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1tY0qt-0000000BY4O-0pqf;
+	Wed, 15 Jan 2025 10:42:23 +0000
+Received: from mail-eastasiaazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c400::] helo=HK2PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY0kH-0000000BWgz-0egi;
-	Wed, 15 Jan 2025 10:35:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1736937333; x=1768473333;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=srmbFPQOHGz4l0rqphK2ONGqHNDOAhI+wHcwQagKgAY=;
-  b=gTOsXL19XjQeysrb6m1j9prpEv2+gPdvJtv3bBF+KaInmxW0y9IqbInZ
-   Vfn+koGDVWs7XxRw6+ZnQ23L3bhlsiO/asIwWCMcfeeLkKsNPjLnuaSqG
-   7npolJyLQw05faQgzk5CtWDlpJvvjnnKjABSdzeXs8+x2z+GR8A9sa2/V
-   4YkhtkuexIZkq/Jh1XlbJcjlUx5k1+qqIs88aOq6YwMyvEKCWUSBzCiH9
-   Eagf60MUAp8RVHV0hYbMgetS0RAqu6TlzVoXRW17kT8Tu5GU5eMw95LHe
-   siE8J8Zj6sbxxvPf06fnT//cpF8cinEvfV/c80+goxcN8T4mRycZOjQZN
-   A==;
-X-CSE-ConnectionGUID: kmqtbzojSYaqqBIhfndD4g==
-X-CSE-MsgGUID: 14GSIo/6SCm7ul7J93Npcw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11315"; a="37293888"
-X-IronPort-AV: E=Sophos;i="6.12,317,1728975600"; 
-   d="scan'208";a="37293888"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jan 2025 02:35:31 -0800
-X-CSE-ConnectionGUID: yHD1Mg5hS+CA7ypCYlvO/A==
-X-CSE-MsgGUID: BCdZ7nwgR6K8jb4ux29lKA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,317,1728975600"; 
-   d="scan'208";a="110064450"
-Received: from bergbenj-mobl1.ger.corp.intel.com (HELO mdjait-mobl) ([10.245.244.123])
-  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jan 2025 02:35:26 -0800
-Date: Wed, 15 Jan 2025 11:35:19 +0100
-From: Mehdi Djait <mehdi.djait@linux.intel.com>
-To: Michael Riesch <michael.riesch@wolfvision.net>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
-	Maxime Chevallier <maxime.chevallier@bootlin.com>, =?utf-8?B?VGjDqW8=?= Lebrun <theo.lebrun@bootlin.com>, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Kever Yang <kever.yang@rock-chips.com>, Nicolas Dufresne <nicolas@ndufresne.ca>, 
-	Sebastian Fricke <sebastian.fricke@collabora.com>, Alexander Shiyan <eagle.alexander923@gmail.com>, 
-	Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	Mehdi Djait <mehdi.djait@bootlin.com>, Gerald Loacker <gerald.loacker@wolfvision.net>
-Subject: Re: [PATCH v2 0/6] media: rockchip: add a driver for the rockchip
- camera interface (cif)
-Message-ID: <2ktcdemu3og64vuvyxykpxrwquewubsqcpmhxykynkbl5ddwym@dsxaldpwu2u4>
-References: <20241217-v6-8-topic-rk3568-vicap-v2-0-b1d488fcc0d3@wolfvision.net>
- <20250109171232.GA17638@pendragon.ideasonboard.com>
- <6380144e-f0c4-4415-89d5-36ed3d5a4205@wolfvision.net>
+	id 1tY0lZ-0000000BX3S-44os;
+	Wed, 15 Jan 2025 10:36:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hOJkojCxE3rT4hb5lIA2R12X6WE5MRDl71PWNZ3w19wU/16tD3u5WtJadG7yzRpt4ubF3UfsclVuwWMSGmVoYUQQ93b898kzb0zVaRDOyfuG3NSetDCnjKdvtANKgAwd5wjou7uK9LTMWHI/LpWARXCH2X1ZWXO9diK3N0QTLrcKWQuozm4Sm/HH0WEf3vtBWYnLxU6acRI0EBHYGXKjBanyBmnY+14Ydhm20dzO8gnWLQnRZ+M86/zUXJNZ+ZSTWASnOD2BoLQXpkEAKGvGQHe/HmhoHhs8XAMvNdq1gVHyL6yOslYlNSf5xc8XTAjtRPWnTEps3FVj6192Vl2W/Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=eIGObzdz/VD66IyEas38efD8wsz6yh5kycSXh2tBod0=;
+ b=WGvD0uNDzNfz1wXoP8E5kotBG6C3HG2DzubpeBqZci/vQ7p7gIwgmocGVVY0KqPhw+KrEAd70u0txypz3p+FO5A3nssyjlMoQ582ZQEtLiEUtfwIK9B/ntXemkfpZe4i716G1jzt+qOJFGxt3AkfJVNhRzB26JwvwjiGWBtWkyFa7kAtmrGSL5BAvw6FWefhIf1yV33f7Cux2Wt30+GP7P8jxkaNK23VQ3qhx+q1U1KsAOPO8M2gms+Kyy71U0MJjZuIV3MDHE/ltGKcae9c0NZ12cZGQ1foCVN+Vhe09oui+Lo1XddtivrXjEYuXJ0RJSt5uRRQSiiRykTz58IvWw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=eIGObzdz/VD66IyEas38efD8wsz6yh5kycSXh2tBod0=;
+ b=RJATuHTjsXLJw7g05Af2KWPU5MWPXtpT/ib0oEPfoouCBugyGZKWARu9YqVAnmdqK/L+Qt6fbEyg3De1wxj47tq1M/gCbtFgeVsyHyqUWtFyTkCFh2gmoOAV5NXWBVjBWrEQSblcmdPht0q5Y0OtEWgo6WsyQpo2yUtpLcr8MtR8aVoXluogRhd4U93aKh2q8H5WmNJU8SBhB6cJApen26WPVHw3kStijlIxw0IrqyAI7WtInpZ7mPBNQkPD+ABaOsYNAIAywxdRcQMS0ulzjBoqL894H4006nLytCdLA9xrB7hTFnhTNwp11ZsUc31NeQf77WxpXWdl24iRZOuuiQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from PUZPR03MB7135.apcprd03.prod.outlook.com (2603:1096:301:113::15)
+ by TYSPR03MB7888.apcprd03.prod.outlook.com (2603:1096:400:47b::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.17; Wed, 15 Jan
+ 2025 10:36:37 +0000
+Received: from PUZPR03MB7135.apcprd03.prod.outlook.com
+ ([fe80::ecac:a387:36d8:144d]) by PUZPR03MB7135.apcprd03.prod.outlook.com
+ ([fe80::ecac:a387:36d8:144d%3]) with mapi id 15.20.8356.010; Wed, 15 Jan 2025
+ 10:36:37 +0000
+Message-ID: <7cf4c53c-7cd2-402c-9e31-f85767ead932@amlogic.com>
+Date: Wed, 15 Jan 2025 18:36:32 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] ASoC: meson: s4:support for the on-chip audio
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: jiebing chen via B4 Relay <devnull+jiebing.chen.amlogic.com@kernel.org>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org
+References: <20250113-audio_drvier-v1-0-8c14770f38a0@amlogic.com>
+ <20250113-audio_drvier-v1-2-8c14770f38a0@amlogic.com>
+ <1jwmey9451.fsf@starbuckisacylon.baylibre.com>
+ <e2f26ca2-4c38-4b07-bf17-95544588a2f2@amlogic.com>
+ <e69cd38e-898c-4cbc-a327-14148a71c764@amlogic.com>
+ <1j8qrd7aor.fsf@starbuckisacylon.baylibre.com>
+ <e5055b4d-7a10-4a5e-ad85-d94c1f64eb03@amlogic.com>
+ <1jr0545v8w.fsf@starbuckisacylon.baylibre.com>
+From: Jiebing Chen <jiebing.chen@amlogic.com>
+In-Reply-To: <1jr0545v8w.fsf@starbuckisacylon.baylibre.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: KL1P15301CA0036.APCP153.PROD.OUTLOOK.COM
+ (2603:1096:820:6::24) To PUZPR03MB7135.apcprd03.prod.outlook.com
+ (2603:1096:301:113::15)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <6380144e-f0c4-4415-89d5-36ed3d5a4205@wolfvision.net>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PUZPR03MB7135:EE_|TYSPR03MB7888:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8d5b5f2e-ab67-46da-f292-08dd35507d24
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?NjUwaXFlWW1HN0cyOHBOeWh0alBxMkwxN1R4dXlwZkd0VEtiSE4vSzhYcVFw?=
+ =?utf-8?B?S1V1bkFoUERoUDl4cUp4aWFpUlBTa09EV29zT2wyaExtNFNoSzMrMmxHcUxY?=
+ =?utf-8?B?SVIvUmZkRjRQOWpkVHNUM25kWVJUVkhpYk9IWGlmT29teGxsK05YcVJZTHd5?=
+ =?utf-8?B?cEx0NGhJbGZmdk9uSW9DU0RLV0dzOHU4dzNxbTV0QUE2Mkw1Z2w0aTlaMWJM?=
+ =?utf-8?B?cmRTck1YYWtGbU4reHNFbE1rdDBodllJTnVocTcrSi9JaG81eCs5V3pEcU1C?=
+ =?utf-8?B?SGFhdVV3UnJmWGhqYTdGNWNWTlkzSlIxQUhYQmxwOGExNUdmMDRTc1VKcjNZ?=
+ =?utf-8?B?SXV5eE5QV1I3VUJ3aEpsY1VKNE43emxORnBlVlF0Mm0rWGsyS1NTeWF5Q1Av?=
+ =?utf-8?B?cmRkNEhvMVFkYnRBU1h3M1cwN3JpMTV2K0pLN1RlcGpTZWtZK3N5Q004bHZy?=
+ =?utf-8?B?TnlETHZRQkR0aytEZGE2N0hWZGl4OUo2NjZ3Rnd1bU51ZUVKU3FzVENOQTNJ?=
+ =?utf-8?B?dXUwV2I1TCtYbzNxTEp3ZWMwb1h1OVRFUUVORDFMaEJTdW5tbUlGNG54aFlL?=
+ =?utf-8?B?NTZOQnc5RlRNWTZLVzVUbW1QUmF6elhDUDNqMXZWZHMrWG1WV2xRaVVDWnRs?=
+ =?utf-8?B?SFdsQmpHdFA3REx6Y1A3YmVmUnpyeDU0RzRENyswamk5RGxzODhnOUFndjJi?=
+ =?utf-8?B?aHg5a2RMcnlXeXNWN2tvVWdPcGVVOHZUbWw4RmQrd3lTT1B2Q3hHR3dxbnF1?=
+ =?utf-8?B?YXRUalFGcTdzNVhoS1JFOUdiZjl1b3Y3K3NpZUFTZWpDdGVqcTROa3VzV0N1?=
+ =?utf-8?B?bnJFbHZHT3RabUpWbFMyVTNJazQ4OTZkSVJ0OWtBamhkTE1PSmRXOEpHZnBw?=
+ =?utf-8?B?MWpvMmViUnFzRlhIS0J4RDR5bTVZa2doVWlqT3ZXTUR5UjhqdGxWUkx5WnEv?=
+ =?utf-8?B?Vm1yQkRwRFN2UjJZZUxLa3hGQzhnRXVoNSs1M2NONzZhdlpTRy9zNW1CaXN6?=
+ =?utf-8?B?YnNXaSt2YlQrenJQMHJJZ0cvWWdTZ0RFR0JHSjlyLytLOHU2Y3hya3JpS05w?=
+ =?utf-8?B?Wk8zTE51MktSU3NubEd1Tzdpc21TWFBwL05Xa3dDMWJ4YVUrb2lKSHlzc0gw?=
+ =?utf-8?B?YnlDbmR1eUl2STV1TVhDaFlQU242aWcxbHY2dms3eG1zY2orTUxZUEc3TUxU?=
+ =?utf-8?B?cnhSWDlTemJ6Y1hWNGlYZHRtSjg3bU1RSkVlNVZMaXRDb20xa2RtNHNjRmhN?=
+ =?utf-8?B?UzJIU00yazRIempzVTFYTm5EVzQ2TVNxZ0NJek85L1VQM2NySG5xL0k5Rzdp?=
+ =?utf-8?B?cm5OdGU1K3pLRTRkNDJnUGNEcW1CUkNuTEU1N21UQk9yTmllS2NidVQzSGdV?=
+ =?utf-8?B?MFo3ZTVRT09qbzZCdTljNkpaUFJ4NDBwelZnSVJWSzlqWG5jeG9hS0o4QU9z?=
+ =?utf-8?B?SGVka0ZnUXFzUkI0SUhRaThPZFV2VVg0T3dXd1ozQ1N5Qk9WR1ZQWUdnWVNE?=
+ =?utf-8?B?R3ltMXNMY21TRGJwZXlNSnhsSXFmcjlVS2RJYlpJTllUVmVUTFhsYmF3djEw?=
+ =?utf-8?B?NnFMMmNtTm5OUWxwc0hHVmtyWXBBNG9CenBkTjdva0grV1Z4N01aWHJ5TURS?=
+ =?utf-8?B?NHU3MGdjVytJdmVxQzBXTGphYmZHdjVkNjE1MjROM1ZEZEp4RUxKU3E5UlBt?=
+ =?utf-8?B?czk0MkZ6MHdkbnlDV0xkMGJOZDFmNnBpQzY4Vnd5ZzIvU2gxakJVRnNlMXlt?=
+ =?utf-8?B?M3NiNzB3K2Z3TXFiMHNPakFheGNTOWY3S3lBeS9Lc2w4SGdUZExmVmwzVW01?=
+ =?utf-8?B?YWJrRktTSS9ieHpFS2ZETytXV1VCc1NLL2M1dUdUVnJwNit6RTN5cFFSd1dw?=
+ =?utf-8?Q?X6T+4l8X45Bc+?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PUZPR03MB7135.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?a1N5RzhQRTYrRTlDNWVoS2lsa2ZmMnFiTi9UTWFNOWpwNjZQQ3RZY3IyWDZ4?=
+ =?utf-8?B?KzkzNFA0dmR4Z29iUHhiU0RlTjFHVlA0SGRJWHdENFZkMkZvVFhGZENwTzY0?=
+ =?utf-8?B?Q0w4QTBQbkR6MlFiL2FWb2duVjIzSVhBaWlIYjVWai9ybERBdXdJQ1Jqa0Uw?=
+ =?utf-8?B?enRPbmU3d3hpOVdyelcwYjhOU25KVDk4c3QrNGlyaVNQdFZwYk15akd0SDlp?=
+ =?utf-8?B?TjJHS2czTHZkdXNZUExPYm5xWlh6ZW9qcHdLUDAvOGdtWWdqRTJsN2FYZE1q?=
+ =?utf-8?B?ZHFKb09Xb2RPanJPejd3dWNVVGVtb29PanBNdXVwdWd4anNjTTM4RHNBTlNj?=
+ =?utf-8?B?SkczNkc3c2VPUDd0WEpGbURUU2NQaWRGRFI0ZVRsaEs4LzN1dnRxV3Fic1dm?=
+ =?utf-8?B?a1M5WjFqeE81QzBBREtJVUxQS0tqY2J2QnNLWUJIVzlIbnI0WHV0SkJoQmZD?=
+ =?utf-8?B?NWlmNDE3SytJVzBGWkRVUWtFRVNSVzJpaE1PdGcyUXhhOHpZVktNSW8xWXhV?=
+ =?utf-8?B?SG91RGFjK0o5Wk4yZHhHbFBLYVdKNkQ2V3FSK29NWFNueW9Uaks2QkRCbjd3?=
+ =?utf-8?B?Snl4SWcxcXk2RWF6UVpXOUU0d1ViVTVGdENDNVJWYk1pcVZaaXFGK1pLaG5v?=
+ =?utf-8?B?c2ErL1lENC83YXhQYTJSV3RPWUFMd2VETXg2TTZqSzA0WnNjbXNXOGFKdVBY?=
+ =?utf-8?B?Y3NPaUtsSURZTlZaZWFYWDhkQUlmbW9PQVJ3OEllNVNpRGh6eUtIajgrVzdj?=
+ =?utf-8?B?VnVmNm9zRENqaEwzL2VTMTBTc3duZzFRam5OQVlGL09ZRjhvVVR6Tm9zY0tO?=
+ =?utf-8?B?NG5TellkS1EzaTdXNGJDejZJcVpDaWlhRDlaNWlPYUxncXFHZnZqRFA3ejEr?=
+ =?utf-8?B?eVMzMkpLeGZBdmpjK2pwQXpiejZIWlArQ0tFMHljOGpsV056c0tWclpseDkw?=
+ =?utf-8?B?OTFnYURJVG1NVTFrakl3WVB0MXE0TW9VQVd0dWxObWxPQXZ4VlVXN3hhQ05Q?=
+ =?utf-8?B?SXVweXJTblZJc0MwSkFXbE9YOHp2aGw2dzdkcThsdkczYU1DUTIvclVabDZU?=
+ =?utf-8?B?bktiSmJ2dEF3UEZ0UlRlSjNLNU9LdlkzQjBEUjl1eTVNM2ZtSmVhaTRWNTVN?=
+ =?utf-8?B?UnNKeWpDQnJUSHRpa1ZPcFFXWGhWWHBJZzlpK2NueUg4QUt6bDM3eUhXNTN1?=
+ =?utf-8?B?UFoxaGtVdHQrS2FoOHUzSnlnZGRXbnFOdjJ0Mk41VTdzaEZSM1ZDYzJSZmhZ?=
+ =?utf-8?B?bG5EdmpzYUlSWW5IUFpUc2d4a3dUcCtvcUFTYmNMTWkrb2Nqb0tmTCtuMlJn?=
+ =?utf-8?B?VWwydGdYVit5eWZmL0lFZjB5NU9wdGprT2hBTS96Yk5wZjhtZDVOd1NXU3Yx?=
+ =?utf-8?B?YUZIaHA5MEx0cmVuMnhaZkhnSUkvWDc1cjQ1eEhXdVRnOWdYZHFUb2lJM3Z6?=
+ =?utf-8?B?OFNUbXBUWFlQSlZhYVZMSkZweFJzTDd0elhVc3VzaTFXNkdTY2UzTk55ODR5?=
+ =?utf-8?B?NW8vWVJhQllmRVlZT29XS0NUY1VQMDJLNmU4VkxHRXpBZ0htZHcrUjhaWkl6?=
+ =?utf-8?B?Y0VHdmQwU090STFKVWluOUh1SFhmWVM3MjBmalpTcmZsT0lEbktGM0NVSWVq?=
+ =?utf-8?B?bk8weXJhTDhQU2FpWTFULzNYNlpyeitZeC81cnpvM1ZzQ204ZC95emp3RzhE?=
+ =?utf-8?B?bkYxa3JaVXZpNU9NNGxDUWkwVTQ4dkxYaEtadVVld2VuakUxUUlqNXZudlpG?=
+ =?utf-8?B?VzMvemFXU0dWeWxJbWhOWlc1d3BZakRrUzN0b1Z1VEpjMWtOMVF3emd5YUhy?=
+ =?utf-8?B?M0VrZWNCY0l4UHVJUW9ZR05xODNNTW5NY2FHNnpIUktEOW5PN1h6YTJ2TXJh?=
+ =?utf-8?B?cUlsNFViUmN0ek9KaHVTblJ2ZStRRWJvWVkreUtINklrRHVRZTRoK2tWZnVW?=
+ =?utf-8?B?ZjdEZVN1VTVIQUJTNUs4QVh5R3hpa3ZkYVRuUkhPUmlraWpWTUVhTlJIdk9T?=
+ =?utf-8?B?VlN6b0srNnBiNFJjVUd6R3ArMWJaRmNWUFBQMjhkYVBDVm45cmhTT1lNazE3?=
+ =?utf-8?B?UjNUQ2Mwak9pQnczaVRXRlZ4NHN3dW03eVVIRTBhYm1BYUttZFg5S2xhdHBG?=
+ =?utf-8?B?YWwwMDNxcS81TDhxWk12VmFlUGx5KzhXcEZXeGFFUnZwUWRlV0sxRE1oSEZW?=
+ =?utf-8?B?WFE9PQ==?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8d5b5f2e-ab67-46da-f292-08dd35507d24
+X-MS-Exchange-CrossTenant-AuthSource: PUZPR03MB7135.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jan 2025 10:36:37.2030
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZO54oIQzz8A2+ZgjA2Gv5aVhQRixKTLJbEz4UUlT+e8cn481mS7I16BCbD99Sw1uSSIKwzstWKOFNuXfTyMHAxwk/D6DsNVGhP0xNT0Ylko=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR03MB7888
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_023533_278963_E3D66520 
-X-CRM114-Status: GOOD (  48.88  )
+X-CRM114-CacheID: sfid-20250115_023654_166136_D8BEF44B 
+X-CRM114-Status: GOOD (  31.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,125 +188,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Michael and Laurent,
 
-On Fri, Jan 10, 2025 at 09:48:04AM +0100, Michael Riesch wrote:
-> Hi Laurent,
-> 
-> On 1/9/25 18:12, Laurent Pinchart wrote:
-> > Hi Michael,
-> > 
-> > On Tue, Dec 17, 2024 at 04:55:12PM +0100, Michael Riesch wrote:
-> >> [...]
-> >> and refactor the whole thing. The resulting v2 of the series now adds a
-> >> basic media controller centric V4L2 driver for the Rockchip CIF with
-> >>  - support for the PX30 VIP (not tested, though, due to the lack of HW)
-> >>  - support for the RK3568 VICAP DVP
-> >>  - abstraction for the ping-pong scheme to allow for future extensions 
-> >>
-> >> However, several features are not yet addressed, such as
-> >>  - support for the RK3568 MIPI CSI-2 receiver
-> > 
-> > We've discussed this previously on IRC, but I don't think the issue has
-> > been raised on the list.
-> > 
-> > I'm puzzled by how this will work. As far as I understand, the RK3568
-> > has a CSI-2 receiver with 4 data lanes and 2 clock lanes. I assume this
-> > is used to support both 2x2 lanes and 1x4 lanes. Both the VICAP and ISP
-> > sections of the TRM list CSI2 RX registers, but it's not clear how the
-> > components are all connected. Does the ISP need to be part of the same
-> > media graph ?
-> 
-> Well you are not the only one to be puzzled by this HW :-) I started to
-> bring up the MIPI CSI-2 part and can describe the situation as I
-> understand it. No claim for correctness or completeness, though.
-> 
-> Indeed, the RK3568 MIPI CSI-2 PHY (TRM Chapter 28) has 4 data lanes and
-> 2 clock lanes. And indeed it is possible to attach one device (1x4) or
-> two devices (2x2) to it. In the latter case the PHY is operated in split
-> mode (and 1x4 would be the default full mode, then). The mode can be set
-> in a GRF register.
-> 
-> The RK3568 features a MIPI CSI-2 host controller (TRM Chapter 27) that
-> (apparently) is connected to the RK3568 VICAP but has its registers in a
-> separate memory region. Right now I am trying to clean up the downstream
-> V4L2 subdevice driver for this host controller, which shall be linked to
-> the PHY using the "phys" DT property, and linked to the VICAP using DT
-> endpoints. In the end, the media graph could look like
-> 
->   CC1 (V4L2 subdev) --> RK3568 VICAP DVP (V4L2 device)
-> 
->   CC2 (V4L2 subdev) --> RK3568 MIPI CSI-2 HOST (V4L2 subdev) -->
->   RK3568 VICAP MIPI (V4L2 device)
-> 
-> where CC denotes a companion chip, such as an image sensor or a video
-> decoder. Note that there are two disjoint subgraphs in this topology.
-> 
-> As you already pointed out, the RK3568 ISP features its integrated MIPI
-> CSI-2 host controller (as e.g. the RK3399 ISP does). This host
-> controller is represented by a V4L2 subdevice as well, and the
-> connection to the (same) MIPI PHY is established similarly. The
-> difference may be that this controller has its registers within the ISP
-> register block and is thus tightly coupled to the ISP (and the rkisp1
-> driver).
-> 
-> Now I guess that in split mode the ISP MIPI path works completely
-> independent and could be represented either by a separate media graph or
-> by another disjoint subgraph in the same media graph.
-> In split mode we need to define which host controller should handle
-> which set of lanes (there are two sets, clock 1 + data 1 + data 2 as
-> well as clock 2 + data 3 + data 4). Right now I am not sure how this
-> should be accomplished, but then the split mode can also wait a bit.
-> 
-> However, as you pointed out in our IRC discussion, it is mentioned in
-> TRM Chapter 12 that the RK3568 ISP can also process the DVP input. This
-> still needs some verification, the rest of the paragraph is pure
-> speculation. But maybe on simply needs to set the correct bits in
-> CTRL_0000_VI_DPCL. Now this would mean that there should be one large
-> media graph the includes the RK3568 VICAP as well as the RK3568 ISP,
-> i.e., something along the lines
-> 
->   CC0 (V4L2 subdev) --> RK3568 ISP MIPI CSI-2 HOST (V4L2 subdev)
->                             |
->                             v
->                      RK3568 ISP MUX (V4L2 subdev) --> RK3568 ISP...
->                             ^
->                             |
->   CC1 (V4L2 subdev) --> MAGIC V4L2 subdev? -->
->   RK3568 VICAP DVP (V4L2 device)
-> 
->   CC2 (V4L2 subdev) --> RK3568 MIPI CSI-2 HOST (V4L2 subdev) -->
->   RK3568 VICAP MIPI (V4L2 device)
-> 
-> where the MAGIC V4L2 subdev should be a fan out of some sort?!
-> 
-> Now to answer your question: I guess it is going to be one media graph
-> for RK3568 VICAP and RK3588 ISP. This shall be in perfect alignment with
-> the RK3588, where VICAP and ISPs are clearly connected.
+在 2025/1/15 16:36, Jerome Brunet 写道:
+> [ EXTERNAL EMAIL ]
+>
+> On Wed 15 Jan 2025 at 10:56, Jiebing Chen <jiebing.chen@amlogic.com> wrote:
+>
+>> 在 2025/1/14 22:05, Jerome Brunet 写道:
+>>> [ EXTERNAL EMAIL ]
+>>>
+>>> On Tue 14 Jan 2025 at 19:20, Jiebing Chen <jiebing.chen@amlogic.com> wrote:
+>>>
+>>>>>>> +
+>>>>>>> +MODULE_DESCRIPTION("Amlogic to codec driver");
+>>>>>>> +MODULE_AUTHOR("jiebing.chen@amlogic.com");
+>>>>>>> +MODULE_LICENSE("GPL");
+>>>>>>> diff --git a/sound/soc/meson/t9015.c b/sound/soc/meson/t9015.c
+>>>>>>> index
+>>>>>>> 571f65788c592050abdca264f5656d4d1a9d99f6..2db1cd18cf2cea507f3d7282054e03d953586648
+>>>>>>> 100644
+>>>>>>> --- a/sound/soc/meson/t9015.c
+>>>>>>> +++ b/sound/soc/meson/t9015.c
+>>>>>>> @@ -89,10 +89,7 @@ static struct snd_soc_dai_driver t9015_dai = {
+>>>>>>>                  .channels_min = 1,
+>>>>>>>                  .channels_max = 2,
+>>>>>>>                  .rates = SNDRV_PCM_RATE_8000_96000,
+>>>>>>> -             .formats = (SNDRV_PCM_FMTBIT_S8 |
+>>>>>>> -                         SNDRV_PCM_FMTBIT_S16_LE |
+>>>>>>> -                         SNDRV_PCM_FMTBIT_S20_LE |
+>>>>>>> -                         SNDRV_PCM_FMTBIT_S24_LE),
+>>>>>>> +             .formats = (SNDRV_PCM_FMTBIT_S16_LE |
+>>>>>>> SNDRV_PCM_FMTBIT_S32_LE),
+>>>>>> Again, mixed up changes with zero justification.
+>>>>>>
+>>>>>> This drops S8 and S16 format support for the existing SoCs (such as GXL)
+>>>>>> which is known to work and add S32 support on an HW documented as 24bits
+>>>>>> only. Can you explain ?
+>>>> for g12a, sm1 etc, it is use new audio ip, GXL is old ip,
+>>> If there are chips difference we did not know about, then you should
+>>> introduce those difference, without breaking existing support -
+>>> including for GXL, which is what you did IIUC.
+>>>
+>>>> the new ip not support 24 bit,
+>>> Are sure about that ? that code has been there for a while.
+>>>
+>>> If sm1 does not support SNDRV_PCM_FMTBIT_S24_LE, you should a fix up patch for
+>>> that, with the proper "Fixes:" tag, how to reproduce the problem and
+>>> explaining the fix.
+>> maybe there are some gap , we support SNDRV_PCM_FMTBIT_S24, not support the
+>>
+>> SNDRV_PCM_FMTBIT_S24_3LE,  for SNDRV_PCM_FMTBIT_S24
+>>
+>> it is  Signed, 24-bit (32-bit in memory), little endian , the audio dma
+>> busrt is 64bit
+> It makes absolutely no sense to discuss memory layout for the codec.
+>
+>> it can get the full data. we send the 32 bit data  mclk = 32bit* 48k *4,
+>> use the clk to send
+>>
+>> the  SNDRV_PCM_FMTBIT_S24,   the hadware always send the 32bit data
+> No it does not. It send 24 bits of data over a 32 bits physical word with
+> 8 bits ignored.
 
-From what I can gather online:
+The original intention, we play 32bit data from tdmout, it play error, 
+so we add the s32_le
 
-"For RV1126/RV1109 and RK356X platforms, VICAP and ISP are two independent image processing IPs,
-If the image collected by VICAP is to be processed by ISP , it is necessary to generate v4l2
-corresponding to the interface of VICAP at the driver level sub The device is linked to the node
-corresponding to the ISP to provide parameters for the ISP driver to use."
+for tdmouta ,it can bind Multiple codec, one codec is the internal codec,
 
-"For the RK356X chip, VICAP has only a single core and has both dvp/mipi interfaces. The dvp interface
-corresponds to a rkvicap_dvp node, and the mipi interface corresponds to a rkvicap_mipi_lvds node each
-node can be collected independently."
+other is external codec, tdmout can send the data to internal codec and 
+external codec from the output pad
 
-"In order to synchronize the VICAP collected data information to the isp driver, it is necessary to link the
-logical sditf node generated by the VICAP driver to the virtual node
-device generated by the isp"
+for example, tdmout send 4 ch, 2 ch is send the internal codec, 2 ch 
+send the data pad
 
-In a graph showing how ISP and VICAP are connected a virtual connection
-is used (as opposed to a Entitative connection, e.g., between the mipi
-sensor and the csi2 dphy)
+it aplay error, due to the internal codec fomat parameter limiting condition
 
-So from my understanding, VICAP/ISP2.1 of rk3568 seem to be different from the rk3588,
-where the VICAP is clearly connected to the two ISP3.0
+There is a contradiction here,  Considering our internal can process 
+this it, drop 8bit, 24bit valid
 
---
-Kind Regards
-Mehdi Djait
+therefore software can set s24_le/s32_le, still  work ok for hardware, 
+so Multiple ch can support for internal codec and external codec
+
+
+>
+>> so, i think we only add the SNDRV_PCM_FMTBIT_S32 base on it
+> That's wrong if the codec does not actually use the full 32bits ... and
+> I have clear indication that's what the codec is doing, on GXL at least.
+>
+>> we think the 24 bit is the SNDRV_PCM_FMTBIT_S24_3LE, it is 24bit in memroy,
+>>
+>> due to the dma busrt 64 bit limit, it can't align the sample bit, if it is
+>> 24 bit
+> Again, memory layout makes no sense here.
+>
+>> so the clock configure can't 24bit clock,
+> I disagree and this has been tested. If you have a test case showing
+> otherwise please share it.
+>
+>> by the way, We discuss internally for gxl,
+>>
+>> it also support the SNDRV_PCM_FMTBIT_S32
+>>
+> Does it really ? If it is just to ignore the 8bits LSB, that not a support.
+>
+>>>> usually support 16/32 bit for new audio ip , for SNDRV_PCM_FMTBIT_S24_LE,
+>>>> it width =24, phy =32
+>>> Yes physical of SNDRV_PCM_FMTBIT_S24_LE, so most chip supporting 32 bits
+>>> width would support this S24_LE, unless there is something odd.
+>>>
+>>>> it was  treated as 32 bit to send for tdm, so we can only add the S32LE
+>>>> base on it , right ?
+>>> You are asking me ? How am I suppose to know ?
+>>>
+>>>> but if the gxl not support the 32bit
+>>> I don't see a problem with a DAC taking input on 32bits physical
+>>> interface and ignoring some bit on processing.
+>>>
+>>> If that's not the case, please send a proper fix change with some explanation
+>>>
+>>>> we need add new snd_soc_dai_driver t9015_dai_s4 ?
+>>>>
+>>> If I understood correctly format depends on the chip and needs to
+>>> adjusted including for sm1.
+>>>
+>>>>>>>          },
+>>>>>>>          .ops = &t9015_dai_ops,
+>>>>>>>     };
+>>>>>> -- Jerome
+>>> --
+>>> Jerome
+> --
+> Jerome
 
