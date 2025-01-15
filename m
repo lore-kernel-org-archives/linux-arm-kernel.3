@@ -4,64 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B93FBC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 09:26:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAF62C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 09:28:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KX1cl8kFkV6v3FlomDcouieETC7cwlRt/6lNc9r/WBI=; b=haZ6A3MUCVoB01mRmhrWobGmy6
-	sotu1pAkbVYQTm0e6UOpt/uyg9390NlqCImCBkdEjw++5Sup0YH69uGVryKCOORWqxREDOsF3xTqx
-	XlWyev3tjpd2eXXDIFepYK1LUaOVdF9VbOFD+jheA0r5BAQ5NKYZBIlL4XLpswPMsV39Z7zply82+
-	6/qC7/AtwOQg9QHvO+w0VGU5aSYoVTIwD13hZ6LbHmCKaHMpkvEliJ5vMVLVi9qgS6/E4QW0aDsQI
-	mTlNI44T0wQb69WI9u5H2hCqWA0Sxbm1VzJJ2O9ZX/0WyeNa6pFhLz4ISk5KBHiQ5MrVf1oILLklT
-	/6zBrdiw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E7S85c4Y0E5TqsJR+kGhRM5uoFqDVJHSE8JHQoztWec=; b=jNezdowukrzeHyApdQCdi2R3cd
+	FUEctPYvXc3OR3rAHEmTpbAE9PUPfPyOQdJ23uqzG+fjLtMFcBMJ2K7i9dPSnLmkBEKVIJv2B5Pbs
+	xaWTT9rdmOiI8DGR7z2EFCHmIa9pWu1oswfg30Ax2FyLUnriTI3D0zzQPYTN6iScBMQnakuk/koBg
+	R/TkomqtIlnvHBtEo2rJliSWwp5cZT+Blrjbq8sq7ysjmRvrxj3Vnj9GNKmwqKJBbLqBn/Fu113/P
+	17NuvfLn5SWmUl4jkXGagnjVWwzQoDS942TH8cAuCdROR7tQbvRJfhsU3xfcCgOsAp+6Wh9ZyIHkJ
+	KCLXL0LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXzfk-0000000BJWf-0Roi;
-	Wed, 15 Jan 2025 09:26:48 +0000
-Received: from mx3.molgen.mpg.de ([141.14.17.11])
+	id 1tXzgx-0000000BJou-3Kzd;
+	Wed, 15 Jan 2025 09:28:03 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXzbu-0000000BILs-2GaS
+	id 1tXzdO-0000000BIob-3EmA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 09:22:52 +0000
-Received: from [192.168.0.2] (ip5f5af1b4.dynamic.kabel-deutschland.de [95.90.241.180])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: pmenzel)
-	by mx.molgen.mpg.de (Postfix) with ESMTPSA id 9D6D261E64783;
-	Wed, 15 Jan 2025 10:22:10 +0100 (CET)
-Message-ID: <990a3fc9-7fd6-49b6-8918-d5bf4ae48953@molgen.mpg.de>
-Date: Wed, 15 Jan 2025 10:22:09 +0100
+	Wed, 15 Jan 2025 09:24:24 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50F3vKUO006090;
+	Wed, 15 Jan 2025 10:24:08 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	E7S85c4Y0E5TqsJR+kGhRM5uoFqDVJHSE8JHQoztWec=; b=lEH+4YHaA9tXQocX
+	mRSkc3y9js/HlO6PzZEyajU2GGsXg7rjkZxohvBeSQoo+CYDT9NL4IUiaWkZaxHy
+	sTV3Yv0q3bzE0Ybu14ETfPS2lbCV7TFth6INqIWjnoMGxSQrPPkfrOSyhwGQ2RAQ
+	rfPigpam0HQepRskgiJNi58OIyFQAGZ2QuQM+5T1HCETe+Q0CvNU3LtPx6KXxOh1
+	mmGQgvJP0R/eKC8yVhdL53TEB/hcK7470m7nZXm1dDLsT6CsacxKK+8MYpDkt+fD
+	s3zRMYoGY5RyX7egDAWMn6pSXA02ehQ2FxjYE/KwXkObW+CplR5ZDyg+tx2QFDRr
+	OlrNUg==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4465jns5fn-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 15 Jan 2025 10:24:07 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 2858840046;
+	Wed, 15 Jan 2025 10:22:43 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id D2F4B2442A9;
+	Wed, 15 Jan 2025 10:22:42 +0100 (CET)
+Received: from localhost (10.129.178.212) by SHFDAG1NODE3.st.com
+ (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 15 Jan
+ 2025 10:22:42 +0100
+From: Christian Bruel <christian.bruel@foss.st.com>
+To: <christian.bruel@foss.st.com>, <bhelgaas@google.com>,
+        <lpieralisi@kernel.org>, <kw@linux.com>,
+        <manivannan.sadhasivam@linaro.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
+        <jingoohan1@gmail.com>, <p.zabel@pengutronix.de>,
+        <johan+linaro@kernel.org>, <quic_schintav@quicinc.com>,
+        <cassel@kernel.org>
+CC: <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <fabrice.gasnier@foss.st.com>
+Subject: [PATCH v3 04/10] dt-bindings: PCI: Add STM32MP25 PCIe Endpoint bindings
+Date: Wed, 15 Jan 2025 10:21:28 +0100
+Message-ID: <20250115092134.2904773-5-christian.bruel@foss.st.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250115092134.2904773-1-christian.bruel@foss.st.com>
+References: <20250115092134.2904773-1-christian.bruel@foss.st.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v7 3/3] net: stmmac: dwmac-nuvoton: Add dwmac
- glue for Nuvoton MA35 family
-To: Joey Lu <a0987203069@gmail.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, mcoquelin.stm32@gmail.com, richardcochran@gmail.com,
- devicetree@vger.kernel.org, ychuang3@nuvoton.com, netdev@vger.kernel.org,
- openbmc@lists.ozlabs.org, alexandre.torgue@foss.st.com,
- linux-kernel@vger.kernel.org, joabreu@synopsys.com,
- Andrew Lunn <andrew@lunn.ch>, schung@nuvoton.com, peppe.cavallaro@st.com,
- yclu4@nuvoton.com, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20250113055434.3377508-1-a0987203069@gmail.com>
- <20250113055434.3377508-4-a0987203069@gmail.com>
- <a30b338f-0a6f-47e7-922b-c637a6648a6d@molgen.mpg.de>
- <2cf758f2-529e-4ccd-9dc1-18fc29ad5ac0@gmail.com>
-Content-Language: en-US
-From: Paul Menzel <pmenzel@molgen.mpg.de>
-In-Reply-To: <2cf758f2-529e-4ccd-9dc1-18fc29ad5ac0@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.129.178.212]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-15_03,2025-01-15_02,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_012250_719054_1B9CD66A 
-X-CRM114-Status: GOOD (  17.30  )
+X-CRM114-CacheID: sfid-20250115_012423_282819_77332A33 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,77 +99,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dear Joey,
+STM32MP25 PCIe Controller is based on the DesignWare core configured as
+end point mode from the SYSCFG register.
 
+Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Acked-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+---
+ .../bindings/pci/st,stm32-pcie-ep.yaml        | 68 +++++++++++++++++++
+ 1 file changed, 68 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-ep.yaml
 
-Thank you for your prompt reply.
+diff --git a/Documentation/devicetree/bindings/pci/st,stm32-pcie-ep.yaml b/Documentation/devicetree/bindings/pci/st,stm32-pcie-ep.yaml
+new file mode 100644
+index 000000000000..457ceea2d215
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pci/st,stm32-pcie-ep.yaml
+@@ -0,0 +1,68 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pci/st,stm32-pcie-ep.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: STMicroelectronics STM32MP25 PCIe Endpoint
++
++maintainers:
++  - Christian Bruel <christian.bruel@foss.st.com>
++
++description:
++  PCIe endpoint controller based on the Synopsys DesignWare PCIe core.
++
++allOf:
++  - $ref: /schemas/pci/snps,dw-pcie-ep.yaml#
++  - $ref: /schemas/pci/st,stm32-pcie-common.yaml#
++
++properties:
++  compatible:
++    const: st,stm32mp25-pcie-ep
++
++  reg:
++    items:
++      - description: Data Bus Interface (DBI) registers.
++      - description: PCIe configuration registers.
++
++  reg-names:
++    items:
++      - const: dbi
++      - const: addr_space
++
++  phys:
++    maxItems: 1
++
++  phy-names:
++    const: pcie-phy
++
++required:
++  - phys
++  - phy-names
++  - reset-gpios
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/st,stm32mp25-rcc.h>
++    #include <dt-bindings/gpio/gpio.h>
++    #include <dt-bindings/phy/phy.h>
++    #include <dt-bindings/reset/st,stm32mp25-rcc.h>
++
++    pcie-ep@48400000 {
++        compatible = "st,stm32mp25-pcie-ep";
++        reg = <0x48400000 0x400000>,
++              <0x10000000 0x8000000>;
++        reg-names = "dbi", "addr_space";
++        clocks = <&rcc CK_BUS_PCIE>;
++        phys = <&combophy PHY_TYPE_PCIE>;
++        phy-names = "pcie-phy";
++        resets = <&rcc PCIE_R>;
++        pinctrl-names = "default", "init";
++        pinctrl-0 = <&pcie_pins_a>;
++        pinctrl-1 = <&pcie_init_pins_a>;
++        reset-gpios = <&gpioj 8 GPIO_ACTIVE_LOW>;
++        access-controllers = <&rifsc 68>;
++        power-domains = <&CLUSTER_PD>;
++    };
+-- 
+2.34.1
 
-
-Am 15.01.25 um 10:03 schrieb Joey Lu:
-
-> Paul Menzel 於 1/14/2025 9:49 AM 寫道:
-
-[…]
-
->> Am 13.01.25 um 00:54 schrieb Joey Lu:
->>> Add support for Gigabit Ethernet on Nuvoton MA35 series using dwmac 
->>> driver.
-
-[…]
-
->> Also, please document how tested the driver. Maybe even paste new log 
->> messages.
-> 
-> These are the kernel configurations for testing the MA35D1 GMAC driver: 
-> ARCH_MA35, STMMAC_PLATFORM, DWMAC_NUVOTON.
-> 
-> I'm not sure if this information is sufficient, so please provide some 
-> guidance on what else I should include to meet your requirements.
-
-I’d be interested on what hardware you tested it. Probably some 
-evaluation or customer reference board.
-
-> I will include the log messages at the end of the email.
-
-Awesome. Thank you. Personally, I also like to see those in the commit 
-message.
-
->>> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
->>> Signed-off-by: Joey Lu <a0987203069@gmail.com>
->>
->> As you use your company email address in the AUTHOR line below, please 
->> also add that email address to the commit message (and maybe even as 
->> the author).
->
-> I will update the AUTHOR to use my personal email address instead of the 
-> company email.
-
-Understood. (yclu4@nuvoton.com is also personal, but the Gmail address 
-is private, I guess. ;-)).
-
-For statistics, how companies contribute to the Linux kernel, having the 
-company address somewhere would be nice though, as you are doing this as 
-your work at Nuvoton, right?
-
->>> ---
->>>   drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 ++
->>>   drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
->>>   .../ethernet/stmicro/stmmac/dwmac-nuvoton.c   | 179 ++++++++++++++++++
->>>   3 files changed, 191 insertions(+)
->>>   create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c
-
-[…]
-
-> log:
-> 
-> [    T0] Booting Linux on physical CPU 0x0000000000 [0x411fd040]
-
-Out of curiosity, how do you get these timestamps T0, T1, …?
-
-[…]
-
-
-Thank you and kind regards,
-
-Paul
 
