@@ -4,82 +4,179 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 799CDC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 10:57:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F258C02183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 11:02:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ftYR0IXRwB+Qg2iPcAwEZzjBuQlkEkq8iRV4jBXsuNk=; b=C7g9gIDKuxPyfo0EZ9HBqe91Lv
-	NFbIMqKcpPWEFKR/eKuY6MJE/eQM04SvyqxPjyBJeHNk2wodqUsJdOZZNBpDOQTQJ6X5quTXj6lGe
-	vRk4LzY7Gofj/OxsFpEaAWZ+ld97xETxgSaEg9jefs/MCZmux8uSDcaY53bq2tSrkI5+mkLUsSMlP
-	FX/wBohTpIGWiamEEphjXC9qxwwUKyGK7QRG8UCS5aEy2764r9w/oheEu8jP/dmTR+NGckiOhyyvZ
-	mi7qDbIe8ag/3R5GdwUdi4z529zJ/27mp58dZWgpOOLqy4vx7m/pExasAMXx/PWkQ7iBN+vOM9tnb
-	7mENrbKw==;
+	bh=iEcS5THoSC8QPG0F4vSstZ5G0V8fYnnTgZOzDeqFLJg=; b=wCaC+LSO2vm1x9+utZEcSe1ca6
+	1Obp8ikvHByoB8f2fzDNPNitRWprb2WnKguaWMEqJQyFEFhm2ly1EMXaSlAkPvZZjYTwIsgRNz05Z
+	ez26ZQp0PO1yntrO78mfCGsTNqDFFumW4U+v/vYpS4jfQkL29RkTLTU+taf0JvrBakKr958DdPBqT
+	oZIKS67INV0vu0KKpYrXiKgCrDh30ugI1vgAZRrUi07qmqWcchnycMOtGElHQOjvRI4gpBLz3j95u
+	iNhIt2c6JrPdohUFv7y1+HnXIvriw+RYjaj45eG04ohBfeWP2cNVCa30HUq/78JEb6nS6SMz19UF/
+	bLnrnUUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY15M-0000000BaR0-0vCv;
-	Wed, 15 Jan 2025 10:57:20 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1tY1AP-0000000Bb5n-2hAS;
+	Wed, 15 Jan 2025 11:02:33 +0000
+Received: from mail-eastasiaazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c400::] helo=HK2PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY146-0000000BaKy-2Mi1;
-	Wed, 15 Jan 2025 10:56:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1736938563; x=1768474563;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=a21DYM9Y6e9dtyfgQrzamCDEH03wQiwkyZKuBps1SoA=;
-  b=j6KjQcUsuMel3bKX6w11kvEOhiE6ngxfKjRsyV5E8QWvruDteif8lHxL
-   6V8elAQa7Ug9KPakCqsvzbDoWomIKMgoy0NDca5UizL9CdTFq7AmwfU5p
-   Zt9Bh6WXFkYM9LaGLPPvG1MLSDt7QDzaVLDDZJN69qKLERg/fqpKYxzyd
-   El5nRi7e6UH8ptSQq9tFyul7URi9UfN31HAJ+Qj9OGLkgAlKoJHmrtNMK
-   WNeDJ9+Cb2g1BZ3eHsWz2ETNnWIll1nvlSUllP6uW1BsRiitRzrYuSWlV
-   S+6ZuUKbDj9msmB4YX1v07hhmHLGB/xfsKwXJQo50i3In//wcgr5T3nbW
-   Q==;
-X-CSE-ConnectionGUID: B1qZ6JkKRWKjo/wWXm/Tnw==
-X-CSE-MsgGUID: f+53aSimTUKCVP0XszElsA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="48676873"
-X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
-   d="scan'208";a="48676873"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jan 2025 02:56:02 -0800
-X-CSE-ConnectionGUID: TmEfFQvuR1ePkAM3ceV8tw==
-X-CSE-MsgGUID: dWdMibSbRlaXaN84cYZa8w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,317,1728975600"; 
-   d="scan'208";a="104936194"
-Received: from bergbenj-mobl1.ger.corp.intel.com (HELO mdjait-mobl) ([10.245.244.123])
-  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jan 2025 02:55:56 -0800
-Date: Wed, 15 Jan 2025 11:55:43 +0100
-From: Mehdi Djait <mehdi.djait@linux.intel.com>
-To: Michael Riesch <michael.riesch@wolfvision.net>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, 
-	=?utf-8?B?VGjDqW8=?= Lebrun <theo.lebrun@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Kever Yang <kever.yang@rock-chips.com>, Nicolas Dufresne <nicolas@ndufresne.ca>, 
-	Sebastian Fricke <sebastian.fricke@collabora.com>, Alexander Shiyan <eagle.alexander923@gmail.com>, 
-	Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	Mehdi Djait <mehdi.djait@bootlin.com>, Gerald Loacker <gerald.loacker@wolfvision.net>, 
-	Paul Kocialkowski <paulk@sys-base.io>, Sebastian Reichel <sebastian.reichel@collabora.com>
-Subject: Re: [PATCH v2 0/6] media: rockchip: add a driver for the rockchip
- camera interface (cif)
-Message-ID: <vbhqvvdjfjv2plavyd4gd2aypy6epybatq22mhgkcenndjgjly@73vacmvvv2fj>
-References: <20241217-v6-8-topic-rk3568-vicap-v2-0-b1d488fcc0d3@wolfvision.net>
+	id 1tY09A-0000000BQJ9-0shB;
+	Wed, 15 Jan 2025 09:57:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jaGS0KOba4aIz2BJy+phs6qmUGlgbBY9HynqVkFL2M+SJOgAFSAr7wp8Kb5FG8Sej2FNHwE7PNUIvqQYPRArjk0agd9IHZhkqWyGvkQeIEO2uz+CATIqRKX5gP7dwALddEILEXV5cMs7E97okJOBZGKlsT6j3LPI66hI0CSQ9ajX4VPYTDYALktNENG7DqTtYSAe/iTp9W9ytI06IfLEPPkz91unuorZsisvLNcRk9yrwSErPHdBiKmMsSPOejfMX3eOmbA8Ohb+NsEzIawuZ1PHdg0Zd1CIueauvnuB2xXv3dfCLKz4R1mWlDcR0FELyDCEs+vUvE308e30lZaNtg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=iEcS5THoSC8QPG0F4vSstZ5G0V8fYnnTgZOzDeqFLJg=;
+ b=hG0hHzDAtNZd+FhcNwf3kjzAGO4e0n6g5p7E7Jlu/H7aqiSKfoTh3QSfFJ8pe6BBuAzsuBIxzq7XZeQt9HSIxaCc0vZBqO8XjIaerjX6CPTPYd59G5tfLTW1wpWwFtkfxp2XokHLRk82jNMQuupg/1wiN4q4luJFhhTrP8eRhISLjAtAyzGYU7DLV4CUusqxtuFj2AmfPGBHi+EpfqDhVsSMfZ7/o2l23ZPlQZEwF/bo2nBYlk7lmhZZPXKo5Ajdyfy3zO0p9PVT+d17Zyn7r5EHs+EuI+NQ9SVASTJoz8BVjLQHqfqiImHur9LIrSpsdwCNFXkXkNcfIEpR4mpJ/w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=iEcS5THoSC8QPG0F4vSstZ5G0V8fYnnTgZOzDeqFLJg=;
+ b=OlhJ9ERTmnLNdyGLSG0OjwEqhaw18GyuLNXjuT4gaUqGqsRzpp9zrc3Cmj1/yOQ1vp9lFVsk8VkABWZJGd6eISCHCNhgscd4UxeioBktSQl75V0byIqAvxwKv0o9eGhuuwEwGJ2SlYvmdVj2JZK8mlM/ntNEY8EbjDuG6DTgujjZsEIJUkYmsrsJ1em5ouU7vZgkt8+FCL3sM3TswHeJY5KB9+UYzQAgSzXmPGU918BzDjek4NTb0fP6Nx4N1pmMcmZagLdKVAmDCN7F2y3Og2P+XKNC4dauy3h/jgSpTOji74fOlRIeLDDV1uVMwwPwU9IYNYGmlCdmNoujH6iKrg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from PUZPR03MB7135.apcprd03.prod.outlook.com (2603:1096:301:113::15)
+ by KL1PR03MB8195.apcprd03.prod.outlook.com (2603:1096:820:111::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.13; Wed, 15 Jan
+ 2025 09:56:58 +0000
+Received: from PUZPR03MB7135.apcprd03.prod.outlook.com
+ ([fe80::ecac:a387:36d8:144d]) by PUZPR03MB7135.apcprd03.prod.outlook.com
+ ([fe80::ecac:a387:36d8:144d%3]) with mapi id 15.20.8356.010; Wed, 15 Jan 2025
+ 09:56:58 +0000
+Message-ID: <550e0461-b564-496c-8fa9-78b2cbe9ba71@amlogic.com>
+Date: Wed, 15 Jan 2025 17:56:54 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] arm64: dts: amlogic: Add Amlogic S4 Audio
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: jiebing chen via B4 Relay <devnull+jiebing.chen.amlogic.com@kernel.org>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org
+References: <20250113-audio_drvier-v1-0-8c14770f38a0@amlogic.com>
+ <20250113-audio_drvier-v1-3-8c14770f38a0@amlogic.com>
+ <1jldve939f.fsf@starbuckisacylon.baylibre.com>
+ <813e2564-8c4c-4adb-8184-ab88156e3e4c@amlogic.com>
+ <1jmsft7ihz.fsf@starbuckisacylon.baylibre.com>
+ <0e8b78c1-5c56-40e7-a2d8-41a7f49d52bc@amlogic.com>
+ <1j34hl7a8b.fsf@starbuckisacylon.baylibre.com>
+ <40aca60e-92e7-4344-8f7d-f62a61dd1898@amlogic.com>
+ <83a93dfc-2fcd-4166-98ed-e0491645f4e5@amlogic.com>
+ <1jldvc5uwh.fsf@starbuckisacylon.baylibre.com>
+From: Jiebing Chen <jiebing.chen@amlogic.com>
+In-Reply-To: <1jldvc5uwh.fsf@starbuckisacylon.baylibre.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SI2PR02CA0043.apcprd02.prod.outlook.com
+ (2603:1096:4:196::12) To PUZPR03MB7135.apcprd03.prod.outlook.com
+ (2603:1096:301:113::15)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241217-v6-8-topic-rk3568-vicap-v2-0-b1d488fcc0d3@wolfvision.net>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PUZPR03MB7135:EE_|KL1PR03MB8195:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2276da6f-8eb4-4496-7a5d-08dd354af335
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?NWF1RGZSbVg4aS8xekhGbktsekNkZHJkamxsVFNGVDRUWE12eXpjdTRNMi9Y?=
+ =?utf-8?B?UXZ6N281VllUMDU0SFB1ZnBkUG1nWGZhR2hkWFJOTFA0SU5hN0x2cm5QZnRH?=
+ =?utf-8?B?ejJyNXJWZzUzZ2ZwWmo0QStOYm45U3poeXlMTUgvNkFhaTJLckEyWmNaWnhL?=
+ =?utf-8?B?Tll3eWxHeFhEbE9NV3ZKMmpDMmF4RXY3MmVJcGUxbGw4YzdVNmk2TlFEZWlL?=
+ =?utf-8?B?S0M5NGRSRTRmejlrY042L2tOYS94WDVwWHlDZENhZWt2UE9nbzFPWmcxczlo?=
+ =?utf-8?B?Vk5MVXNpZjkweVdMbUlxcGtXVXM4ckQ2QnVPYlB2TnVEaEtKRmMvWXltbmx0?=
+ =?utf-8?B?UURkSWorUXErR1NqeGVOeldsSWhGM0xhVlUzcnlQMWh5VFZCWDd1UWl6Mmcv?=
+ =?utf-8?B?cGY2MVJ1UE91UXJTWG9QeHlDNEJWdVZ6M0gxd1lPdzFwS3cvOUZrYk0yem96?=
+ =?utf-8?B?Zno0czFaL3lyUVVMRExLc3R0QU5DREoyd3JKQnF5RUNIVWd0eTlwRFpJYUxI?=
+ =?utf-8?B?R3dIWHEzczMvREZtZi9lOTlOc0w2eS8xczh5dmsxWHRZbHFxSHV3Y3ppUjhY?=
+ =?utf-8?B?Wll5empIMlA0YWxzYTh3Qm15SEdDZmFkREN6bCtLQURGbXVCS2RINk5uQnda?=
+ =?utf-8?B?UG5GR0MvUHZEWlBieXNjY1hUSUI2eGRpZEF1aXcxZGZPNFVXSDk0KzExQWEy?=
+ =?utf-8?B?ZU9OOWVTSjJKSDY0VDVhQ3NzWmRjbUF1QlZQS3VXOUxmbGx1WlBnWFlsN1Bw?=
+ =?utf-8?B?Zi9JVDVIbUpreU1IUXlVanRHL1dhU1M5SzRkbVIxWmk3cG9yYlcwVEowMG93?=
+ =?utf-8?B?YnhSYlMxazhZUUNLNWZpMXNVYlVZeHVFeWdBTjFZWEU0VVplZjd0ZTNlMlI0?=
+ =?utf-8?B?U0ZMZUFSQTBkbnIyMUp2UWthcGQyYWNhMjZpcnhwTGxVTitNYjFxSFFZVkZK?=
+ =?utf-8?B?RkFUalVNOC96UXRGaWV1enNrcHNSNW1VWUlpOGhFT3ZTeVhsZkhUWnVCWlc5?=
+ =?utf-8?B?SVo3TFNEUE1ZbkFXMDBxY0s4eVJTNFhXUklnVzB0ZENrMjI2c3ptTi85Q3NY?=
+ =?utf-8?B?aWJ1K0hONU8zdERPd0psaVZZQVA4VSszdm10MmR6Mm5IVkJBZXhCMGRvRkZx?=
+ =?utf-8?B?TmpOMkFRNEVPRTF6SEFKMExDK1BoUE1IdFlSUmsyTVVEWlFNT0VkWVZWSlBP?=
+ =?utf-8?B?dmJHQk5tZnAvcDNLUU85djVwTVo0MzFWMVdDOGpkQWR3dnhXWitWUEdpcmky?=
+ =?utf-8?B?aFhkOUtPa0REQ3ZzV1JUUlFOREdWZzB4aEY2LzIzMnBUb0tmU1IxRExiM2dO?=
+ =?utf-8?B?bE9qT0ozMlFsVFZsVU9JZnFMaHBqdTVxS29oZDAwVzN2Und1Y20zTjkvTVFm?=
+ =?utf-8?B?NHlwWFgwTElEZHBPZHVZV3cxWjBraFBrUlJqRWpHU3NWS2dhMXpoV3F5WHBS?=
+ =?utf-8?B?WEIwSUhjUExiZ29NSnlvU3lOcmo4d2hVcTBTVUpGL1ZMdkN5dERyZU9UbUJB?=
+ =?utf-8?B?cloxZWRxU0xTTk95MnRmZkpTay9WMnFJRVhhZ24vREQ1OU1meTlFNytYZnNI?=
+ =?utf-8?B?ODlPU0RoSjJrSWx6cnpBT1VueEx0VGdMVFpRR3RmNGZETFU4U0c2aG42eTZm?=
+ =?utf-8?B?ZEp0eisvM3VISldyNGtMNzRqNzBhK21EOGRxcVRZSUFtNVZpdnBzMDlGLzds?=
+ =?utf-8?B?eXJvV3c0R1JTMkhTOUdhOFF5S1JGaUQ5U2N4WmFWeFZMTjhhQWJ0SDBnNGxZ?=
+ =?utf-8?B?Ym4xWkZJc2VHRnE3eEtkMm9pQk1pNTZoZkZXUkRobUNiSFZSMXo5aFllRHM4?=
+ =?utf-8?B?T1RpSzI0ZkxITmJHRmhabCt1cTRLQW9JRkRvRDEvbm80clNSRWszZUFSaVBq?=
+ =?utf-8?Q?zpmdVi31xB4+k?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PUZPR03MB7135.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cmlENXZRZWs3NzlXUzZneEhIMVFHY096dWdCRURpNjYvdWZ0ektQTklxb1Uz?=
+ =?utf-8?B?MHFWTnNZaDVqTjlKYUNmVXZBM1FiNzNWbmdiQ01XU0xQelo1ZHFjN05Nek53?=
+ =?utf-8?B?RXZlYmw2eEFVQVRHeGRqNk5BTSs3R0VCOHlkQi92NlVsYVN5emN5VUFHempq?=
+ =?utf-8?B?YzJxMlIwd0s3RERwQit3VWdGeUwvOUNWY2UySE05WEJON08wTGJzazhFajJ3?=
+ =?utf-8?B?Q2lIUnB2YlNpN0ZNcjQvWDRqVDZKenpuTlFtVWhnNWZuSnI3YWgxOUVlYW8r?=
+ =?utf-8?B?NGNEcVpnSHBnK0dTalBmdnczNzJnZnljYVg4WVFaQUdIeDFIR3VHeWFYc3NX?=
+ =?utf-8?B?b0gzNlpXWjgveVpJZnpOWmlYRE4rL1JqbVp6dGJZcXE2SUhIUzM4VStoSVJt?=
+ =?utf-8?B?dnREbVd6RU9xdnkwdHgxUWRUNnFhc2lQMElKMWsyVHQycy8rK2xTM3Q3Ky9z?=
+ =?utf-8?B?UnpHTEJuMS9VRHl5OHZ3V1VoRUY2UWxBUE9uN2h6b1VmQWE2dDU1TGtaTzZM?=
+ =?utf-8?B?TUNxWU5qckRFS1k0TmxISVA5OUpKSDUwQkJTK3hlMi82NnU1bDNLTU9jTGJj?=
+ =?utf-8?B?elBWSFB4ZUsrNGNUZGJiSS90aHpXbWJybnFrQzcyUjFSb2gzbjBaaGZNRWQz?=
+ =?utf-8?B?bEdsRUF4bUdhNWl1eVN0MUl6MzVHd2ZsUEo3N1E1Y1hETUh6bWxhV2JzMHh6?=
+ =?utf-8?B?SzBHa0h0V25OR3g1b0gyLzJBOW1KWi9nOHZEUVZlQ3ExZ2JWWS9yaW5PNzdW?=
+ =?utf-8?B?azdSRlFiYzhBTUYvWndvUjByc0J5WlhMNlJIS3hUcUkrM25XbTNRVU55cDgv?=
+ =?utf-8?B?WC9KSGxhZDhiR2FhUTVDOHR5eTh3L05hQWZBZ2pFQURxNSs5SURBQjQxcG5r?=
+ =?utf-8?B?dmZURFU2UndQd2pNUFZoL2RJQ1pIS2hLSE4xMVU0VFExa0pOT2d3NENaT2Jl?=
+ =?utf-8?B?M29UcHA4RU1VSytJU2djeUZDODI5WVJ0K0Z3V2t0OGc5NGlRMyswUC9rbGRK?=
+ =?utf-8?B?NzIrNmw4M29mZWxsbHRPLzI1ZHo3WjVKN21ZV296aW1kRDMzbDRXU0YvMFZU?=
+ =?utf-8?B?ejduM25tY1YvZFNKbE91QXlBVSt4b0pwTyt3RHpPMWRsa05lcXBtS0JjakxL?=
+ =?utf-8?B?MFB2SUxMWHE1WE5vRVRjU1pIaml1TEVEdjAwVVR4R2g3YmQ0MnJFTHg1R0dS?=
+ =?utf-8?B?N3NTQ2p1VHdCVjhBY2kyeWN3OG40RDQ4cVFPRXBkeVBxMnMxNDZEQUtXSyto?=
+ =?utf-8?B?K0tORTBqS3kzc3N6S1JsbUtaQkU3bmlmN1o1bDBzczg4UW1ab2JUZWt1ZzJ6?=
+ =?utf-8?B?NHlmdEVoak1aUGtmRGx4b3Zuc3paaXl6UFZEUVNtVjk0Tm9WYnAyMU9JTDRu?=
+ =?utf-8?B?VzhZYityZmg2R3lGeXJsd0RZUTlpR3h5Nml0YVZqMmxnTWxpWFBqVG5VcmJF?=
+ =?utf-8?B?aXczbHh0V1F0bG5WaWFGN1h5OXhHNVlFbHBzTkxEbzY5VmluQWVxSGgxckMv?=
+ =?utf-8?B?c0RUcGJBVURHUkpKSUMyVjFwbm1wVGZBV0FyT2lML1QvQXU0MVdJTmxhWkhi?=
+ =?utf-8?B?ZDBwZ2F5KzBFaVRWb09pSDFWL3drMUtXWnpacGdKR00yem56ZXJzdFdwMVNs?=
+ =?utf-8?B?YTZMTkc2V3IxZTc2Z0ZFQmowenEvQmRod25nOFUwSWNDOWhvMmIwb3AxNWtD?=
+ =?utf-8?B?ZmU1OFNuZ1Nsa2p2STMrRXZEaUMwc28zcjU0WGNUUzUwQzJQNW9SSzBiWTJC?=
+ =?utf-8?B?NEc1Ly9ZR2NtZitOd0RyVjJsd1dYNnY2SmUrMFBURndmcmdRTS8xQ3V2a2l4?=
+ =?utf-8?B?OE5nN3UwQjllaG92NFZpSitKZUZmdkE4MHBHeWVQQUh2N0RpTVJqVWEzeGgr?=
+ =?utf-8?B?RHZqcXI3OTMwc0RvMmlRN0xqNTNCZ3lldklBQnY5dnRraXp4U2lxWnRRRk9J?=
+ =?utf-8?B?RFh6S29GYS8wYXVweDR0eVZVQW1mWUpDanVDeGNXZFB6NXNmQndOeVJkTlBK?=
+ =?utf-8?B?dHZSZmw3VEVFWThzL3ZPM09RbW5WNzJZN0pxemU0RmZRSEhjR3h5eVM0QkNi?=
+ =?utf-8?B?SVJMQU9WK3NvdjBlblhmc2lRdDZxVVJ3dVRhZFpFbHlhaVViQmVKckxGckQ2?=
+ =?utf-8?B?Qm1UaUxkdTdvb2pvWVJxNVZDUEwrSnBZblNNZWZqL1JYbk1lY3ZwSHJjd0lX?=
+ =?utf-8?B?NEE9PQ==?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2276da6f-8eb4-4496-7a5d-08dd354af335
+X-MS-Exchange-CrossTenant-AuthSource: PUZPR03MB7135.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jan 2025 09:56:58.2822
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: BpbKwsRKKwK4y83RX83n5kObvEmSCGf/Pzwsd+sDGlphCnYb5Vlp8VSh+cUAKSNQUfIP2gs9qhRBakkRTp/bEyDGeHjPh/xmFajFLG5vvSI=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR03MB8195
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_025602_642706_D23D187F 
-X-CRM114-Status: GOOD (  24.05  )
+X-CRM114-CacheID: sfid-20250115_015712_419387_3FB43AA9 
+X-CRM114-Status: UNSURE (   9.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,78 +191,340 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Michael,
 
-On Tue, Dec 17, 2024 at 04:55:12PM +0100, Michael Riesch wrote:
-> Habidere,
-> 
-> TL;DR:
-> 
-> This series introduces support for the Rockchip Camera Interface (CIF),
-> which can be found (in the form of variants that differ significantly) in
-> different Rockchip SoCs in general, and for the Rockchip RK3568 Video
-> Capture (VICAP) variant in particular.
-> 
-> The patches are functional and have been tested successfully on a
-> custom RK3568 board including the ITE Tech. IT6801 HDMI receiver as
-> attached subdevice. The IT6801 driver still needs some loving care but
-> shall be submitted as well at some point.
-> 
-> The long story (gather 'round children):
-> 
-> The Rockchip Camera Interface (CIF) is featured in many Rockchip SoCs
-> in different variations. For example, the PX30 Video Input Processor (VIP)
-> is able to receive video data via the Digital Video Port (DVP, a parallel
-> data interface and transfer it into system memory using a double-buffering
-> mechanism called ping-pong mode. The RK3568 Video Capture (VICAP) unit,
-> on the other hand, features a DVP and a MIPI CSI-2 receiver that can
-> receive video data independently (both using the ping-pong scheme).
-> The different variants may have additional features, such as scaling
-> and/or cropping.
-> Finally, the RK3588 VICAP unit constitutes an essential piece of the camera
-> interface with one DVP, six MIPI CSI-2 receivers, scale/crop units, and
-> different data path multiplexers (to system memory, to ISP, ...).
+在 2025/1/15 16:43, Jerome Brunet 写道:
+> [ EXTERNAL EMAIL ]
+>
+> On Wed 15 Jan 2025 at 14:16, Jiebing Chen <jiebing.chen@amlogic.com> wrote:
+>
+>> 在 2025/1/15 11:38, Jiebing Chen 写道:
+>>> 在 2025/1/14 22:15, Jerome Brunet 写道:
+>>>> [ EXTERNAL EMAIL ]
+>>>>
+>>>> On Tue 14 Jan 2025 at 20:34, Jiebing Chen <jiebing.chen@amlogic.com>
+>>>> wrote:
+>>>>
+>>>>> 在 2025/1/14 19:16, Jerome Brunet 写道:
+>>>>>> [ EXTERNAL EMAIL ]
+>>>>>>
+>>>>>> On Tue 14 Jan 2025 at 16:52, Jiebing Chen <jiebing.chen@amlogic.com>
+>>>>>> wrote:
+>>>>>>
+>>>>>>> 在 2025/1/13 22:50, Jerome Brunet 写道:
+>>>>>>>> [ EXTERNAL EMAIL ]
+>>>>>>>>
+>>>>>>>> On Mon 13 Jan 2025 at 14:35, jiebing chen via B4 Relay
+>>>>>>>> <devnull+jiebing.chen.amlogic.com@kernel.org> wrote:
+>>>>>>>>
+>>>>>>>>> From: jiebing chen <jiebing.chen@amlogic.com>
+>>>>>>>>>
+>>>>>>>>> Add basic audio driver support for the Amlogic S4 based Amlogic
+>>>>>>>>> AQ222 board.
+>>>>>>>>>
+>>>>>>>>> Signed-off-by: jiebing chen <jiebing.chen@amlogic.com>
+>>>>>>>>> ---
+>>>>>>>>>      .../boot/dts/amlogic/meson-s4-s805x2-aq222.dts | 226
+>>>>>>>>> ++++++++++++
+>>>>>>>>>      arch/arm64/boot/dts/amlogic/meson-s4.dtsi | 385
+>>>>>>>>> ++++++++++++++++++++-
+>>>>>>>>>      2 files changed, 610 insertions(+), 1 deletion(-)
+>>>>>>>>>
+>>>>>>>>> diff --git a/arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dts
+>>>>> b/arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dts
+>>>>>>>>> index
+>>>>>>>>> 6730c44642d2910d42ec0c4adf49fefc3514dbec..32f50a5b860435d50d9c5528b43422b705b20130
+>>>>>>>>> 100644
+>>>>>>>>> --- a/arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dts
+>>>>>>>>> +++ b/arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dts
+>>>>>>>>> @@ -75,6 +75,19 @@ vddio_ao1v8: regulator-vddio-ao1v8 {
+>>>>>>>>>                  regulator-always-on;
+>>>>>>>>>           };
+>>>>>>>>>
+>>>>>>>>> +     vcc5v_reg: regulator-vcc-5v {
+>>>>>>>>> +             compatible = "regulator-fixed";
+>>>>>>>>> +             vin-supply = <&main_12v>;
+>>>>>>>>> +             regulator-name = "VCC5V";
+>>>>>>>>> +             regulator-min-microvolt = <5000000>;
+>>>>>>>>> +             regulator-max-microvolt = <5000000>;
+>>>>>>>>> +             gpio = <&gpio GPIOH_7 GPIO_ACTIVE_HIGH>;
+>>>>>>>>> +             startup-delay-us = <7000>;
+>>>>>>>>> +             enable-active-high;
+>>>>>>>>> +             regulator-boot-on;
+>>>>>>>>> +             regulator-always-on;
+>>>>>>>>> +     };
+>>>>>>>>> +
+>>>>>>>>>           /* SY8120B1ABC DC/DC Regulator. */
+>>>>>>>>>           vddcpu: regulator-vddcpu {
+>>>>>>>>>                   compatible = "pwm-regulator";
+>>>>>>>>> @@ -129,6 +142,219 @@ vddcpu: regulator-vddcpu {
+>>>>>>>>>                                   <699000 98>,
+>>>>>>>>>                                   <689000 100>;
+>>>>>>>>>           };
+>>>>>>>>> +     dmics: audio-codec-1 {
+>>>>>>>>> +             compatible = "dmic-codec";
+>>>>>>>>> +             #sound-dai-cells = <0>;
+>>>>>>>>> +             num-channels = <2>;
+>>>>>>>>> +             wakeup-delay-ms = <50>;
+>>>>>>>>> +             sound-name-prefix = "MIC";
+>>>>>>>>> +     };
+>>>>>>>>> +
+>>>>>>>>> +     dioo2133: audio-amplifier-0 {
+>>>>>>>>> +             compatible = "simple-audio-amplifier";
+>>>>>>>>> +             enable-gpios = <&gpio GPIOH_8 GPIO_ACTIVE_HIGH>;
+>>>>>>>>> +             VCC-supply = <&vcc5v_reg>;
+>>>>>>>>> +             #sound-dai-cells = <0>;
+>>>>>>>>> +             sound-name-prefix = "10U2";
+>>>>>>>>> +     };
+>>>>>>>>> +
+>>>>>>>>> +     spdif_dir: audio-spdif-in {
+>>>>>>>>> +             compatible = "linux,spdif-dir";
+>>>>>>>>> +             #sound-dai-cells = <0>;
+>>>>>>>>> +             sound-name-prefix = "DIR";
+>>>>>>>>> +     };
+>>>>>>>>> +
+>>>>>>>>> +     spdif_dit: audio-spdif-out {
+>>>>>>>>> +             compatible = "linux,spdif-dit";
+>>>>>>>>> +             #sound-dai-cells = <0>;
+>>>>>>>>> +             sound-name-prefix = "DIT";
+>>>>>>>>> +     };
+>>>>>>>>> +
+>>>>>>>>> +     sound {
+>>>>>>>>> +             compatible = "amlogic,axg-sound-card";
+>>>>>>>>> +             model = "aq222";
+>>>>>>>>> +             audio-widgets = "Line", "Lineout";
+>>>>>>>>> +             audio-aux-devs = <&tdmout_a>, <&tdmout_b>,
+>>>>>>>>> <&tdmout_c>,
+>>>>>>>>> +                              <&tdmin_a>, <&tdmin_b>, <&tdmin_c>,
+>>>>>>>>> +                              <&tdmin_lb>, <&dioo2133>,
+>>>>>>>>> <&tdmout_pad>, <&toacodec>;
+>>>>>>>>> +             audio-routing = "TDMOUT_A IN 0", "FRDDR_A OUT 0",
+>>>>>>>>> +                             "TDMOUT_A IN 1", "FRDDR_B OUT 0",
+>>>>>>>>> +                             "TDMOUT_A IN 2", "FRDDR_C OUT 0",
+>>>>>>>>> +                             "TDM_A Playback", "TDMOUT_A OUT",
+>>>>>>>>> +                             "TDMA_OUT SEL",   "TDM_A Playback",
+>>>>>>>>> +                             "TDMOUT_B IN 0", "FRDDR_A OUT 1",
+>>>>>>>>> +                             "TDMOUT_B IN 1", "FRDDR_B OUT 1",
+>>>>>>>>> +                             "TDMOUT_B IN 2", "FRDDR_C OUT 1",
+>>>>>>>>> +                             "TDM_B Playback", "TDMOUT_B OUT",
+>>>>>>>>> +                             "TDMB_OUT SEL",   "TDM_B Playback",
+>>>>>>>>> +                             "TDMOUT_C IN 0", "FRDDR_A OUT 2",
+>>>>>>>>> +                             "TDMOUT_C IN 1", "FRDDR_B OUT 2",
+>>>>>>>>> +                             "TDMOUT_C IN 2", "FRDDR_C OUT 2",
+>>>>>>>>> +                             "TDM_C Playback", "TDMOUT_C OUT",
+>>>>>>>>> +                             "TDMC_OUT SEL",   "TDM_C Playback",
+>>>>>>>>> +                             "TOACODEC TDMA", "TDM_A Playback",
+>>>>>>>>> +                             "TOACODEC TDMB", "TDM_B Playback",
+>>>>>>>>> +                             "TOACODEC TDMC", "TDM_C Playback",
+>>>>>>>>> +                             "SPDIFOUT_A IN 0", "FRDDR_A OUT 3",
+>>>>>>>>> +                             "SPDIFOUT_A IN 1", "FRDDR_B OUT 3",
+>>>>>>>>> +                             "SPDIFOUT_A IN 2", "FRDDR_C OUT 3",
+>>>>>>>>> +                             "SPDIFOUT_B IN 0", "FRDDR_A OUT 4",
+>>>>>>>>> +                             "SPDIFOUT_B IN 1", "FRDDR_B OUT 4",
+>>>>>>>>> +                             "SPDIFOUT_B IN 2", "FRDDR_C OUT 4",
+>>>>>>>>> +                             "TDMIN_A IN 0", "TDM_A Capture",
+>>>>>>>>> +                             "TDMIN_A IN 1", "TDM_B Capture",
+>>>>>>>>> +                             "TDMIN_A IN 2", "TDM_C Capture",
+>>>>>>>>> +                             "TDMIN_A IN 3", "TDM_A Loopback",
+>>>>>>>>> +                             "TDMIN_A IN 4", "TDM_B Loopback",
+>>>>>>>>> +                             "TDMIN_A IN 5", "TDM_C Loopback",
+>>>>>>>>> +                             "TDMIN_B IN 0", "TDM_A Capture",
+>>>>>>>>> +                             "TDMIN_B IN 1", "TDM_B Capture",
+>>>>>>>>> +                             "TDMIN_B IN 2", "TDM_C Capture",
+>>>>>>>>> +                             "TDMIN_B IN 3", "TDM_A Loopback",
+>>>>>>>>> +                             "TDMIN_B IN 4", "TDM_B Loopback",
+>>>>>>>>> +                             "TDMIN_B IN 5", "TDM_C Loopback",
+>>>>>>>>> +                             "TDMIN_C IN 0", "TDM_A Capture",
+>>>>>>>>> +                             "TDMIN_C IN 1", "TDM_B Capture",
+>>>>>>>>> +                             "TDMIN_C IN 2", "TDM_C Capture",
+>>>>>>>>> +                             "TDMIN_C IN 3", "TDM_A Loopback",
+>>>>>>>>> +                             "TDMIN_C IN 4", "TDM_B Loopback",
+>>>>>>>>> +                             "TDMIN_C IN 5", "TDM_C Loopback",
+>>>>>>>>> +                             "TDMIN_LB IN 3", "TDM_A Capture",
+>>>>>>>>> +                             "TDMIN_LB IN 4", "TDM_B Capture",
+>>>>>>>>> +                             "TDMIN_LB IN 5", "TDM_C Capture",
+>>>>>>>>> +                             "TDMIN_LB IN 0", "TDM_A Loopback",
+>>>>>>>>> +                             "TDMIN_LB IN 1", "TDM_B Loopback",
+>>>>>>>>> +                             "TDMIN_LB IN 2", "TDM_C Loopback",
+>>>>>>>>> +                             "TODDR_A IN 0", "TDMIN_A OUT",
+>>>>>>>>> +                             "TODDR_B IN 0", "TDMIN_A OUT",
+>>>>>>>>> +                             "TODDR_C IN 0", "TDMIN_A OUT",
+>>>>>>>>> +                             "TODDR_A IN 1", "TDMIN_B OUT",
+>>>>>>>>> +                             "TODDR_B IN 1", "TDMIN_B OUT",
+>>>>>>>>> +                             "TODDR_C IN 1", "TDMIN_B OUT",
+>>>>>>>>> +                             "TODDR_A IN 2", "TDMIN_C OUT",
+>>>>>>>>> +                             "TODDR_B IN 2", "TDMIN_C OUT",
+>>>>>>>>> +                             "TODDR_C IN 2", "TDMIN_C OUT",
+>>>>>>>>> +                             "TODDR_A IN 3", "SPDIFIN Capture",
+>>>>>>>>> +                             "TODDR_B IN 3", "SPDIFIN Capture",
+>>>>>>>>> +                             "TODDR_C IN 3", "SPDIFIN Capture",
+>>>>>>>>> +                             "TODDR_A IN 6", "TDMIN_LB OUT",
+>>>>>>>>> +                             "TODDR_B IN 6", "TDMIN_LB OUT",
+>>>>>>>>> +                             "TODDR_C IN 6", "TDMIN_LB OUT",
+>>>>>>>>> +                             "10U2 INL", "ACODEC LOLP",
+>>>>>>>>> +                             "10U2 INR", "ACODEC LORP",
+>>>>>>>>> +                             "Lineout", "10U2 OUTL",
+>>>>>>>>> +                             "Lineout", "10U2 OUTR";
+>>>>>>>>> +             assigned-clocks = <&clkc_pll CLKID_HIFI_PLL>,
+>>>>>>>>> +                               <&clkc_pll CLKID_MPLL2>,
+>>>>>>>>> +                               <&clkc_pll CLKID_MPLL0>,
+>>>>>>>>> +                               <&clkc_pll CLKID_MPLL1>;
+>>>>>>>>> +             assigned-clock-rates = <491520000>,
+>>>>>>>>> + <294912000>,
+>>>>>>>>> + <270950400>,
+>>>>>>>>> + <393216000>;
+>>>>>>>> Why do you need 4 base rates ? Which rate family does each provide ?
+>>>>>>> hifipll 49152000, mpll2 294912000 mpll0 270950400, mpll1 393216000,
+>>>>>>> the
+>>>>>>> accuracy of hifipll
+>>>>>>>
+>>>>>>> is relatively high, for tdm/pdm/spdif 16/48/96/192k we can use it. if
+>>>>>>> the
+>>>>>>> tdm and spdif work on
+>>>>>> It is fine to use the HiFi. I'm glad this clock finally got fixed
+>>>>>>
+>>>>>>> the same time, for example ,tdm 48k. spdif 44.1k, we can't use the
+>>>>>>> same
+>>>>>>> pll, so spdif need use the mpll 0
+>>>>>>>
+>>>>>>> other pll , only set a default value, at the latest chip, we remove
+>>>>>>> all
+>>>>>>> mpll for hardware, only two hifipll
+>>>>>> I'm not sure you understand how this works.
+>>>>>> There is 3 families of audio rate: 48kHz, 44.1kHz and 32kHz
+>>>>>>
+>>>>>> Each family needs a PLL assigned, so you need 3, not 4, unless there
+>>>>>> is
+>>>>>> another specific rate family you want to support. If that's the case,
+>>>>>> document it.
+>>>>>>
+>>>>>> Setting the rate of the PLL should follow this principle:
+>>>>>> * Family rate
+>>>>>>      - multiplied by (32 x 24): to accomodate different sample sizes
+>>>>>>      - multiplied by 2 until you reach the maximum rate of selected
+>>>>>> PLLs
+>>>>>>        This allows to support rates such 192k or even 768k
+>>>>>>
+>>>>>> 491520000 is not dividable by 3, it won't allow 24 bits words. It is a
+>>>>>> poor choice.
+>>>>>>
+>>>>>> Have a look at the s400 for an example using the HiFi PLL. The axg was
+>>>>>> restricted to a 68 PLL multiplier but the S4 is not so you should be
+>>>>>> able to use a higher base rate (4 718 592 000 Hz), providing better
+>>>>>> accuracy in the end
+>>>>> for new soc audio ip, the hardware will not support the 24bit(include
+>>>>> g12a,
+>>>>> sm1,axg)
+>>>> That may be what you chose to support in your BSP but that not how it
+>>>> works in mainline. 24bits slot width is supported and has been tested on
+>>>> axg, g12 and sm1. This is not going away.
+>>>>
+>>>> I would find extremely odd that 24 bits slot width is not supported on
+>>>> s4,
+>>>> but as long you document this, it is fine by me.
+>>> i understand your meaning, you sad we configure the slot width 24bit for
+>>> tdmout control
+>>>
+>>> if the format the SNDRV_PCM_FMTBIT_S24,  it send the 24bit data, for the
+>>> format, and send the 24bit clock
+>>>
+>>> if tdmout control can cut out [24:0] from the fddr, maybe your right, we
+>>> can send the 24 bit accoring to the slot width
+>>>
+>>> but it can't confirm by us, we are worried that there may be potential
+>>> risks, so we don't use it thay way
+>>>
+>>> so this why i sad can't support the 24bit slot clock, 16/32 sample bit is
+>>> fully validated
+>>>
+>>>
+>> i did some tests for the S24_LE format use the tdm base drvier
+>>
+>> aplay -f S24_LE test.pcm -r48000 -c2
+>>
+>>   # cat /proc/asound/card0/pcm0p/sub0/hw_params
+>> access: RW_INTERLEAVED
+>> format: S24_LE
+>> subformat: STD
+>> channels: 2
+>> rate: 48000 (48000/1)
+>> period_size: 6000
+>> buffer_size: 24000
+>>
+>> we dump the mclk
+>>
+>> aud_mst_a_mclk       2       2        0        12288000 0          0
+>> 50000      Y audio-controller-0              mclk
+>>
+>> according to the base driver
+>>
+>> in the api axg_tdm_set_tdm_slots function
+>> switch (slot_width) {
+>>      case 0:
+>>          slot_width = 32;
+> 32 bits is the default slot width if none is specified, yes. So ?
+>
+>>          fallthrough;
+>>          ...
+>>
+>> if dts not configure "dai-tdm-slot-width"
+>>
+>> it use the 32 bit slot width
+>>
+>> the api -> axg_tdm_iface_set_sclk
+>>
+>> srate = iface->slots * iface->slot_width * params_rate(params);
+>>
+>> set mclk rate
+>>
+>> we dump tdmout control register
+>>
+>> # devmem 0xfe330500
+>> 0xB001003F
+>>
+>> it set 32bit slot width to send
+>>
+>> the base driver is the smae behavior that we wound expect,
+> The driver set a slot width of 32 bits because you did choose any and
+> then behave as it should.
+>
+> I don't get your point here or what such test is supposed to show.
+>
+> You did not test 24bits slot width at all.
 
-I wanted to CC Paul on this and add this really GOOD summary he provided
-while reviewing v6 of the CIF driver: Feel free to add (or not) some of
-the infos from it.
+we focus on why hifipll set 49152000 for S24_LE format, why not to  set 
+the slot width = 24
 
-----------------------------------------------------------------------------------
-So I have spent a bit of time trying to figure out the history of this unit
-and in which platform in was used. The takeaway is that the earliest Rockchip
-SoC that uses it is the RK3066 (2012) and the latest SoC is the RK3566/RK3568
-(2020). Earlier SoCs (RK29) do mention VIP but seems quite clear that this is
-a whole different unit and the recent RK3588 (2021) has a new VICAP_DVP unit
-(mixed with VICAP_MIPI) which also seems significantly different.
+we consider that 24-bit probably hasn't done a lot of testing, suggest  
+slot width =32
 
-Over the course of the existence of this unit, it is most often referred to
-as CIF. Since this is also the name for the driver in the Rockchip tree,
-I feel like it is best to use CIF as the mainline terminology instead of VIP.
-Note that the unit is also called VICAP in RK3566/RK3568.
+tdmout cut out fddr[23:0], set slot width = 24, fddr msb = 23
 
-Here is the detail of my research on the concerned chips. The + at the beginning
-of the line indicate support in Rockchip's 4.4 tree:
+we can support it, but can't sure the tdmout 24bit function can work for 
+long time
 
-- RK3566/RK3568 (2020): CIF pins + VICAP terminology
-+ RK1808 (2019): CIF pins + VIP registers + VIP_MIPI registers
-+ PX30 (2017): VIP pins + VIP registers
-+ RK3328 (2017): CIF pins + VIP terminology
-- RK3326 (2017): CIF pins + VIP terminology
-- RK3399 (2016): CIF pins
-- RK3368 (2015): CIF pins
-- PX2 (2014-11): CIF pins + CIF registers
-+ RK3126/RK3128 (2014-10): CIF pins + registers
-+ RK3288 (2014-05): CIF pins + VIP terminology
-- RK3026 (2013): CIF pins + CIF registers
-- RK3168/RK3188/PX3 (2012): CIF pins + CIF registers
-- RK3066 (2012): CIF pins + CIF registers
-----------------------------------------------------------------------------------
+it need to test for many time , so we just think it can send 24bit with 
+8 bit zero for data lane,
 
-I also CC'd Sebastian Reichel, as he might be interested in this, he is tracking 
-the upstream status of the RK3588: 
-https://gitlab.collabora.com/hardware-enablement/rockchip-3588/notes-for-rockchip-3588/-/blob/main/mainline-status.md?ref_type=heads
+if must be send 24 bit data with zero data
 
---
-Kind Regards
-Mehdi Djait
+we need support the 24 bit clock pll
+
+24 *32* 2 * 768k  = 1179.648M
+
+4 718 592 000 Hz you suggested maybe is out of range hififpll
+
+i think the 1179.648M is more suitable, Do you think so?
+
+if you agree, we ask clk owner to add it
+
+
+
+
+>
+>>
+>>>>> SNDRV_PCM_FMTBIT_S24_3LE, 24 bit in memory
+>>>> I think you are mixing up slot width and memory representation
+>>>>
+> --
+> Jerome
 
