@@ -4,83 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CBC3C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 11:31:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1334C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 11:33:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uTFP6ZpMn/k1zzIlbPVQLLkt/cLEj8+uvjfAYF6d4HQ=; b=uRwyWZUC04IK57tYNWM63R+QhN
-	gwKbT9u/+OLdqlqPT8fTW6aN6xXQFJ43APTF0+u87rP3qeaIgCj2qXyrwRdQl63vyUm2ayHEZKzRS
-	EoxH67SlHYJOEZJjull1XJAqqRj/ZSizmcBLmaN59CSEarpLaTTIzkl3yrVQZ0xwDe47G41UxdOer
-	3fy5w3joI80/x16n6FHZ2TM4YCYV6z5JMudml3/UNH7Eumcu9EUH3+HDUo95kj6TdaZHItjIhAHUC
-	THmeK291+qX1QYDYfDXv4I2me46DirE03Yel3R289PJoXUY9Xi6Xdr4NEOXZd/VUnaI0Y+tI3TgU3
-	lvKbzfAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lMf/gjH9CaGlznAM7Zrfe8YwB74BkxcaBNpx5Jp341k=; b=ucOKKvxgPVUnTxQoOqDHwYa8/2
+	vu4X0IzZdPMxE+KHQOg9gqh9gEha30N6olvdbgRmqoLxGZWQn9bwkjygcIV/1clXlnkNL2a4a+XjC
+	iIfOjVBiX+yzqW0PmuokanVXv3RtcyK2xsoQ67U2SoNBDA1y9jLq3O8glzDCzQaLWGm6twoxXhYrB
+	SlQBNXIutvKwwNsZizUuOWGwHi30O7pj0tAh51h57LOnFQOzQu1XohJA6GJbDjThHS8iXb2hwAxLn
+	jQoJ2suTWdr4LsAYvoR/7YDP+JC84kU9EzBF2PGfLjXW38NmjVnGyr+xYHgQvbL5ZXteBcXT5pzUm
+	RH/17VDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY1cP-0000000BgdV-0UlX;
-	Wed, 15 Jan 2025 11:31:29 +0000
-Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
+	id 1tY1e4-0000000Bgvc-3Mmt;
+	Wed, 15 Jan 2025 11:33:12 +0000
+Received: from mail-pl1-f172.google.com ([209.85.214.172])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY1a5-0000000BgHj-3bR5
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 11:29:07 +0000
-Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-3047818ac17so56163271fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 03:29:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1736940544; x=1737545344; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=uTFP6ZpMn/k1zzIlbPVQLLkt/cLEj8+uvjfAYF6d4HQ=;
-        b=gtQFkbGJ9ckuVcfdNRxVlSQ2//dVED0XiyqbrDgN8azvqc9KRlfcTEQf37yitI+YK5
-         0VteJwpXXGE5eeISRJmFOw8SswedofSImTk+rY1Iq1WEF2lGrhpu4zHHDqWPswWjRNi+
-         6HorDHGqeiBJBZDOYh82gWELju2fxV/puxMXBGazUn5Ooa0pworPKK+vdcFo4jSd44Ud
-         uzs7B6W6LJcrmetMfXFfezy6zcEY5s2xX5jk8433OPw13cmE7bSz4bzVldmTjDrB5WHs
-         B5J2JSvehgTL3JcbeaVXHWOIZZlQrjpvYpDd34u1fsKJ7m4hRpFOjmm8kPew6PsQdIwG
-         7jTg==
+	id 1tY1cg-0000000Bghi-21Qe;
+	Wed, 15 Jan 2025 11:31:47 +0000
+Received: by mail-pl1-f172.google.com with SMTP id d9443c01a7336-2163b0c09afso121390235ad.0;
+        Wed, 15 Jan 2025 03:31:46 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736940544; x=1737545344;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=uTFP6ZpMn/k1zzIlbPVQLLkt/cLEj8+uvjfAYF6d4HQ=;
-        b=JHoytVTsE88h8qi7JTCteeSpl2um7FNyebq7qWkUtWXMTSQ09l1SOQsrCEMsq+/7Zl
-         KuTNkbyfhghoryusagZ1Zr/9YzQSz1A/YUKoHgJgASabR/7bocEWEkSiTbol63IGHUm8
-         I/uo8RLr4m0rJKzPIYA6BF8TFLieKyC6e7aAxY+EygdP7yQTVk2tu4OZQW+Y3OCTnlu2
-         1kjanzxdCYv2LG+MfgsM2NjHhUeldNIba457Ou/xcE/Un0DSagG1Hy0SWCBSJWKdW4gH
-         s0sCRkrY15X4BMqLAiV5TiEIMvpmnQAw5hWvGy1X3dYKWU3aufvYpAYoKf+SUiXUY/4U
-         zQWg==
-X-Forwarded-Encrypted: i=1; AJvYcCUTQXzMXVVV28Nvyw5cqrBBccUII1j1mMu6SsVm/2o5Ogyx2X291FKVnxnya8HdxfLdPVe9S1aGn9DJH9q8o+og@lists.infradead.org
-X-Gm-Message-State: AOJu0YxOpobas9dqhNyZ6MnpM2PHuFuUFW1qfz9TN2U06rGBEsdrbYlx
-	PPscrsYLhszrY9ZgG6obSxpiyVB452EnAqVJ/vaWL3v8tDfF03wPHPLrKuKYZOWGs6qjzilF7WU
-	MBI1iv4E4T/Q6IzsMeZzcj/nqq41GqHJI6LlEzw==
-X-Gm-Gg: ASbGnctjrb7cX+hep7aupTk07js5OMqbj9SZEGn8ewer0S3OcBSeUJkGatNbQI7ZCnU
-	SAXQ/3KlE88qTyCrhIbAmBP+cWvnCqZTuz+nq1Q==
-X-Google-Smtp-Source: AGHT+IGozXlEMI3LBw/qY3E+yx+y/orU2yG5EeAWz02nrW7RaGJmBfZlWUTPktBH/YT5OusvKQ2aNuo9qsZVZYVAgKY=
-X-Received: by 2002:a05:651c:4cb:b0:2fb:8c9a:fe3f with SMTP id
- 38308e7fff4ca-305f459ab0amr99799851fa.22.1736940544130; Wed, 15 Jan 2025
- 03:29:04 -0800 (PST)
+        d=1e100.net; s=20230601; t=1736940706; x=1737545506;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lMf/gjH9CaGlznAM7Zrfe8YwB74BkxcaBNpx5Jp341k=;
+        b=BvZrEDF7ZUrDLqb2w4l6sf+aLqX4cbiaPHdWSF4//JZyisElkn9XH9iDG9YKyk2pvh
+         iPbkJrTcvkNb+F7T5fa6eq+lbU+pxS+jaQnzwml6G7ywFOagW1JvuhOip3Ed8gX7l1bv
+         yhiHBuH5eWSo2PjGTdUnjA02SYfgdPB/JQH4F4+yFU+4+nA0+D5FyNSo35wa38spnac+
+         RGF4YTp6tB3hAGnYHLaLQtBvrlhukpHn7YqGr7IS5jZxNGwCrthQ32SOlK3WdJ8twNKJ
+         8yDCFRmtzHAKeL5JNGnMgmdbhAwaRRr7g9MXfWA0OSiDfpAz/oC5Q93NFXCBQqa90Z7J
+         ymTg==
+X-Forwarded-Encrypted: i=1; AJvYcCUVBg22hiE+wrQT/KMC90hWjDcDCdlZxfKmVgN9gqqNvwerVFFuxdAtz/rszczl1/dg5XSSw6ML206mfWAbRpk=@lists.infradead.org, AJvYcCUWe88FBoq0BztAVDWC35QFQo4D4g8TuApmiIH+Ox/07j/KuRMfzUBFcXgAD0B8f9G1f+UXakfh0Nfn1w8QKI78@lists.infradead.org
+X-Gm-Message-State: AOJu0YzsM5ayTtpokLjcWwpxZzua7IVeLQmscY2QG4QdHg1P66qM/uR5
+	dC+W0WKGjPjLx0ClD+87nPgwx0/gw3OCzwLdnDjGNnIJzVjQB+5sVYcP53uo
+X-Gm-Gg: ASbGncuJUmIsZ36G3l71Dnij+fq+OGd9GyPpsU6jArn98/L/ooLt0GTn7sSvFTbkLu4
+	CawrUEa6F5bkiBcTPj+DDBRvqAWrnRJHPabnyyH7XwYs/mzsXc8gHwInF8LWyr1D5bvekhQx2os
+	oEa+/u6MIWE3ObiU/Ds0+fhGkmwbmQYq+lTcbcnHUHPvzuUPckY4eSklp1DVGGC9MBhuM+yUQmD
+	8SX9UITNs4igT+yqO7MLnNA0tKgEKSn/MYIfX0UcxXJ9MnCnZcOgfByydf6WXBmN2HJq3Ad9qYh
+	xxuN31uQZu5ncNI=
+X-Google-Smtp-Source: AGHT+IHH3vdl0SoO7I29qFqmrTAjmo+4RApDGp3zpjzEyS9KqQP4GKUQ7H0LW2xUTEH4LU28i+G6ew==
+X-Received: by 2002:a05:6a00:2c86:b0:726:41e:b313 with SMTP id d2e1a72fcca58-72d21fc659dmr36762604b3a.16.1736940705705;
+        Wed, 15 Jan 2025 03:31:45 -0800 (PST)
+Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72d40658db6sm9275820b3a.104.2025.01.15.03.31.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 Jan 2025 03:31:45 -0800 (PST)
+Date: Wed, 15 Jan 2025 20:31:43 +0900
+From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
+To: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: Damien Le Moal <dlemoal@kernel.org>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>, linux-pci@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel-janitors@vger.kernel.org
+Subject: Re: [PATCH v2] PCI: rockchip-ep: Fix error code in
+ rockchip_pcie_ep_init_ob_mem()
+Message-ID: <20250115113143.GK4176564@rocinante>
+References: <Z014ylYz_xrrgI4W@stanley.mountain>
 MIME-Version: 1.0
-References: <20250115081914.12841-1-krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20250115081914.12841-1-krzysztof.kozlowski@linaro.org>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 15 Jan 2025 12:28:52 +0100
-X-Gm-Features: AbW1kvauKuAE65tppT9sI3Z5Re3aLNOVxZNOfHCRFI6_U39r95LgRscj7MPl27o
-Message-ID: <CACRpkdacgLmfusCtN=beYoL=pM7_f7VzHa6pzRbmAdYoYPA7hQ@mail.gmail.com>
-Subject: Re: [PATCH] clk: nomadik: Correct str_enabled_disabled() SXTALO case
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Stanislav Jakubek <stano.jakubek@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z014ylYz_xrrgI4W@stanley.mountain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_032905_901681_0168B4D6 
-X-CRM114-Status: UNSURE (   8.73  )
+X-CRM114-CacheID: sfid-20250115_033146_531843_0C6EFA26 
+X-CRM114-Status: UNSURE (   7.01  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,21 +93,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 15, 2025 at 9:19=E2=80=AFAM Krzysztof Kozlowski
-<krzysztof.kozlowski@linaro.org> wrote:
+Hello,
 
-> Commit 1cd1c8f400e9 ("clk: Use str_enable_disable-like helpers") should
-> use reversed check for SXTALO.
->
-> Reported-by: Stanislav Jakubek <stano.jakubek@gmail.com>
-> Closes: https://lore.kernel.org/all/Z4diEj__bbQl4ULS@standask-GA-A55M-S2H=
-P/
-> Fixes: 1cd1c8f400e9 ("clk: Use str_enable_disable-like helpers")
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Return -ENOMEM if pci_epc_mem_alloc_addr() fails.  Don't return success.
 
-Thanks a lot for fixing up this Krzysztof!
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+Applied to controller/rockchip for v6.14, thank you!
 
-Yours,
-Linus Walleij
+Krzysztof
 
