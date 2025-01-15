@@ -4,63 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68F6FC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 15:03:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43F5AC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 15:15:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G3mItwwv65F1XLd+7C5xh06PcIvQu+IvZ3f5R7pbjSQ=; b=rRZIN3MC0JoLgK/c1YvP9AMKjI
-	HM0/Vlr2dYKZKlHC04o3vG80/YwXcMUhPy5F6RZ8cR0oXHXkXng+cFbg2jTVYN2IUjhPqaXimP0vh
-	jAU9a2u1QqScsWdc3WQgn711XATV7ylyLjtbYZ0dACswQEyY1eMqlcyNDfb3qWog1eAInWyZ1Ab58
-	bqd3yxWfI5jR9j7tlVlymcNYTy6tsXznDwNs2RjimvfM9g+9zIa2g8IoKmLW00jl9VtmOa6d99xbY
-	RXEJoXaUWWtCjKe8YIVea3LQUxUmk1AnEz2SFaGhLL5KmVAGxJ6DDqLDwl7paCrEaYkldjanPcFTO
-	+1Ayl7iQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PxOxLQAqxA5fLOFrL2rrUcbcDfk5v2mocy6A3xq1qNw=; b=TrVdANfVHQhYBdmCARFuyoZWRo
+	BMmG/LndIBbvholYnLh5JXPFlN81H7Syf8fKg0q4a5BQLovlvIoXtR8ltySKjGOhtFHn2rMnPWuGk
+	1QtUX3ibyeROi7X1+py4jCowHponVpvMwv2HIzVC3eNLyjs3zq9R6cMM19ytdJtiJqKSSAFMgKPTR
+	xsu5hYhs+9O8NjB2GmClKuShu/RzHwjZwwqdMoCSSp05yHWF5vauEtIh5DLdm1rS/Xq9ofteT1xsg
+	19mmWqFYvNh1vZvXZjMyHv47X87xwsOzydSsiyjw2d3HHWwxbwQb2RGHTsY3ISMyMHhVNYJePyVGH
+	bDkO8f0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY4vT-0000000CDPX-0KLv;
-	Wed, 15 Jan 2025 15:03:23 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tY570-0000000CEmt-1vof;
+	Wed, 15 Jan 2025 15:15:18 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY4uB-0000000CDBW-0krY
+	id 1tY55h-0000000CEcd-3zre
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 15:02:04 +0000
+	Wed, 15 Jan 2025 15:13:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E004EA416BF;
-	Wed, 15 Jan 2025 15:00:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 406B2C4CED1;
-	Wed, 15 Jan 2025 15:02:00 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 972105C5A41;
+	Wed, 15 Jan 2025 15:13:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09926C4CED1;
+	Wed, 15 Jan 2025 15:13:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736953321;
-	bh=oSgVQD0xpvqqlDYs9nEBaWNPRJOFZ0gODY4jWMuozSc=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=HU4IdaWE9T7LSDzSr52omxBfSAnoOD6hTdqDHxZUJnnswkLVpppcmpKrEf1j2jlP/
-	 ETr7bZH1kIA7yPIXV6Hk64SJU8Uy+L/+0+zddB0c+EyBcrmqsAgGYjReM8IBvhp5fM
-	 DF5d3mWzG3cqC6l1XCrriHa2JVYljDFN2PbkVuh52Uv93+8LM6cMG93eUFN+q8jYDC
-	 1Gji8mX7IAE37wjP9QsREvh4ozg0Pb24UFQJSdzlCALY/XVQuoOTUysV9UkMmttYlU
-	 On3yJbr5XBvkOXqPETPwMruSeNpVsPGJU4OuBwKCVpG3rLGOpDfDqsVmsAfFgDK4DP
-	 abXYofRqXYr3A==
-From: Lee Jones <lee@kernel.org>
-To: Heiko Stuebner <heiko@sntech.de>, Lee Jones <lee@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, Lukas Bulwahn <lbulwahn@redhat.com>
-Cc: kernel-janitors@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Lukas Bulwahn <lukas.bulwahn@redhat.com>
-In-Reply-To: <20250110120736.58831-1-lukas.bulwahn@redhat.com>
-References: <20250110120736.58831-1-lukas.bulwahn@redhat.com>
-Subject: Re: (subset) [PATCH] MAINTAINERS: Adjust the file entry for the
- qnap-mcu header
-Message-Id: <173695331999.4116163.16095608205046775735.b4-ty@kernel.org>
-Date: Wed, 15 Jan 2025 15:01:59 +0000
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.13.0
+	s=k20201202; t=1736954037;
+	bh=oKtr2yT6s/jpW26jhtHNEuBn/CVvDww104FyvMi+RVg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=PYlBD+ibBDE3C517s+7YxD2upXox0SGbqHhT/vXqSwXAvK7PFqBnF5F6RJdQMQFe5
+	 1nZ4xEAnTPl+T6rUzP8QtXAQ7rJRdVBe8VKyvquLCzrPQBlqGwvaI+hlqPwuAj5kEN
+	 gnIH7u0kId3CaDqIK8J5qtiYV20q0t7qWCrmPz+QQQ6HnAJwLwOLC9zBTOSPjAcJrt
+	 Wu90Ko8k2tHRks78HjuiIq6uJpoD8KJyuz2JzXFKY43+bafm08EsFPxKNwd5qskfiV
+	 4HzIQnYHUQrBocaS7/hPa/uV7lMt3+lw8Q3aMkAZ3iLghHpiEf2N+JY89iKYIOJJfJ
+	 RpERaWNrId5OA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tY55e-00CWmx-FH;
+	Wed, 15 Jan 2025 15:13:54 +0000
+Date: Wed, 15 Jan 2025 15:13:54 +0000
+Message-ID: <865xmgw1n1.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: =?UTF-8?B?TWlrb8WCYWo=?= Lenczewski <miko.lenczewski@arm.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	ryan.roberts@arm.com,
+	catalin.marinas@arm.com,
+	mark.rutland@arm.com,
+	james.morse@arm.com,
+	will@kernel.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com
+Subject: Re: [PATCH v1] arm64: Add TLB Conflict Abort Exception handler to KVM
+In-Reply-To: <20250110172411.39845-3-miko.lenczewski@arm.com>
+References: <20250110172411.39845-3-miko.lenczewski@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: miko.lenczewski@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, ryan.roberts@arm.com, catalin.marinas@arm.com, mark.rutland@arm.com, james.morse@arm.com, will@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_070203_279957_1DB05C31 
-X-CRM114-Status: UNSURE (   7.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250115_071358_073766_BFF2D1E1 
+X-CRM114-Status: GOOD (  27.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,22 +94,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 10 Jan 2025 13:07:36 +0100, Lukas Bulwahn wrote:
-> Commit 998f70d1806b ("mfd: Add base driver for qnap-mcu devices") adds a
-> file entry in MAINTAINERS referring to the file include/linux/qnap-mcu.h,
-> whereas the file added in the commit is placed in include/linux/mfd/.
-> 
-> Adjust the file entry to the actual location of this header file.
-> 
-> 
-> [...]
+On Fri, 10 Jan 2025 17:24:07 +0000,
+Miko=C5=82aj Lenczewski <miko.lenczewski@arm.com> wrote:
+>=20
+> Currently, KVM does not handle the case of a stage 2 TLB conflict abort
+> exception. This can legitimately occurs when the guest is eliding full
+> BBM semantics as permitted by BBM level 2. In this case it is possible
+> for a confclit abort to be delivered to EL2. We handle that by
+> invalidating the full TLB.
+>=20
+> The Arm ARM specifies that the worst-case invalidation is either a
+> `tlbi vmalls12e1` or a `tlbi alle1` (as per DDI0487K section D8.16.3).
+> We implement `tlbi alle1` by extending the existing
+> __kvm_flush_vm_context() helper to allow for differentiating between
+> inner-shareable and cpu-local invalidations.
+>=20
+> This commit applies on top of v6.13-rc2 (fac04efc5c79).
+>=20
+> Signed-off-by: Miko=C5=82aj Lenczewski <miko.lenczewski@arm.com>
+> ---
+>  arch/arm64/include/asm/esr.h       |  8 ++++++++
+>  arch/arm64/include/asm/kvm_asm.h   |  2 +-
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c |  2 +-
+>  arch/arm64/kvm/hyp/nvhe/tlb.c      |  9 +++++++--
+>  arch/arm64/kvm/hyp/vhe/tlb.c       |  9 +++++++--
+>  arch/arm64/kvm/mmu.c               | 13 +++++++++++++
+>  arch/arm64/kvm/vmid.c              |  2 +-
+>  7 files changed, 38 insertions(+), 7 deletions(-)
+>
 
-Applied, thanks!
+[...]
 
-[1/1] MAINTAINERS: Adjust the file entry for the qnap-mcu header
-      commit: 2816b0c949af89640b8dc05de53e650cbf1d55fb
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index c9d46ad57e52..7c0d97449d23 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -1756,6 +1756,19 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+>  	ipa =3D fault_ipa =3D kvm_vcpu_get_fault_ipa(vcpu);
+>  	is_iabt =3D kvm_vcpu_trap_is_iabt(vcpu);
+> =20
+> +	if (esr_fsc_is_tlb_conflict_abort(esr)) {
+> +
+> +		/* Architecturely, at this stage 2 tlb conflict abort, we must
+> +		 * either perform a `tlbi vmalls12e1`, or a `tlbi alle1`. Due
+> +		 * to nesting of VMs, we would have to iterate all flattened
+> +		 * VMIDs to clean out a single guest, so we perform a `tlbi alle1`
+> +		 * instead to save time.
+> +		 */
+> +		__kvm_flush_vm_context(true);
+> +
+> +		return 1;
+> +	}
+> +
 
---
-Lee Jones [李琼斯]
+This is broken. At this stage, you are preemptible, so whatever
+invalidation you are performing might be happening on the wrong CPU
+(and I really don't want to see a broadcast invalidation).
 
+I really don't see why this can't be handled as a fixup in the inner
+run loop, which would save *a lot* of cycles and do the right thing.
+
+Thanks,
+
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
