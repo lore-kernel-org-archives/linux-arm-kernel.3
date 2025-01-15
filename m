@@ -4,97 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E8AFC02183
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 09:19:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34B85C02180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 09:20:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GZu3RRCSZ6fAo+lWLsGDi7lH9XSyk6eapVHs6gKrrgo=; b=YBm2mNGci9M0TO3mMWRPufdZcx
-	ynznJIjTvq14ll0AVEoNkPO1kWBrhwYQyc/4nla/EKapF1423opNWFuNzrOesCPF7d+J+cXajCG1V
-	0nHK28xzwPoavWHeVMDMDxNi2Vde4X7tkKYeCnWz406pMtbxuwV/lnF80vADzbIEPMN3HhBrR/WKu
-	zSfGhIXayhAKEiAsfip7LoyF7H8aLrA0u1rTuVkcWHKxTzd9DppisZodlFXt66RjYu7LSCoTrtnKb
-	dXxyb51DCTvv6K3SZ5NUMISRFEEHowZkNHG1wSvaadKbxTTsfPCl75NHCKBLHbg2LAZKbWxzZEqB0
-	FTEoTKyw==;
+	bh=ssZI86T0A6XNN8hCXgMuMZMsnzteKeFLGvw1TpMOAQU=; b=AVPn9kUVQNERIizKds0nR8NpzC
+	IPpnbXIdFyKzLyzGXmFGtn2b6tOTQ3PW6NX+pQR0/lHhCgs4Qehy8/QEdcroZKJiWU2jhGwEF0i6f
+	nxewQHfyBAl+Cv/uK1b8kkz5CapF6lmCwbfwfMcnEr6HU3Yt2XJtxGlDfFV2Y/+9zrxuiXgjpzrwY
+	fgiK8xNEZ9dBkI+yrYTAfvd5FqJ2/x/8ishxU5e2JTprlB7/ftkwXruq1c0buekbt8usUD3j9YSq/
+	dUjowtbb/N2v+Dt957ZcD4+SBQmvsbID1ezv2nVBHcOo6MP5RLf1DvgvZvmnMMsXzZEeE2F/Fj/vQ
+	SXbWqUqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXzYN-0000000BGx8-3Anp;
-	Wed, 15 Jan 2025 09:19:11 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1tXzZb-0000000BHfY-1gCp;
+	Wed, 15 Jan 2025 09:20:27 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXzOk-0000000BEv4-2Bqh
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 09:09:15 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2166022c5caso100986585ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jan 2025 01:09:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736932154; x=1737536954; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=GZu3RRCSZ6fAo+lWLsGDi7lH9XSyk6eapVHs6gKrrgo=;
-        b=aFcahPMHVvvarpy66s7ZfHgvB/BzoU6qzrtlnrCxSnFt2wUnqD4vIG1yTNzQ97fc2p
-         0xbrDprakfPYQxW7Qii8uQlQZhgfBEBjghyLQIMgZnl3vrMNXaOlg46XKp7DEoTEghgE
-         YU/KEHDYmT4DBVFnZDTh2c/d5DdAxHQwzNmtooNup5/V5IxEINUrqINMNbUlEIta04J0
-         0nty4kgu+qLvaPhPHX0IOxvZI3x7ZG5PJ53m9/TXW3lmqZQHdcepq2B64uOyMy2n8KjE
-         TMr8LPxaRnp9X3+NkwFaA7rliwqnp/pDlnw9Q7mtxdHaKlOA5aQGPcKZGWMbk8DykeLQ
-         cOlw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736932154; x=1737536954;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=GZu3RRCSZ6fAo+lWLsGDi7lH9XSyk6eapVHs6gKrrgo=;
-        b=RrmGDvsVDvbBRpHuidud/VjxTaNidBeF4/lz1eizh9OoIjAgRZSe5h61TCvxcYqeFE
-         a44LhAtq+NlufIK+LBfB86D+s6sPmpWWK8sk2O+maK4PejHlIuOBSQ16ODxB7d+7mD8W
-         NNYeZC71t7gbv3zTVbIt3alcjzD0/TxwtcJQDfgeXFA5kPFK3+YpHX05AT0W7Nuib8ji
-         +KMOa56XBI+z/TcaZF8LJ1+EQaYfv4n1LiqD8yJSvIqYg538ULQC2DBqQJchoZGVCH2w
-         d4BiHP5SwVDMcARaA/naw+CNpVM57a7w/f24DPxbGCIiidaL4fgUtkCV56l+/GDk7ShU
-         h7JQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWBZYMjrVsWI3il85iFb6wWI+YEeVhA6DfpgVP+Tz7w/rY18RDZEVXuzwtV63PN5jKCR14wdyQtTpyjsbp+WWzc@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQubwbU3FgBgxKXVxd+hgQaNnLMJZmakbSfHM4qv6nPaOn6bHs
-	71Mj4J6muRvFgNouX0eVRs9xeoHQS7PEhH2Ds4IeZ2tSawvXfOT5FHvQug==
-X-Gm-Gg: ASbGncv5eqE712HnGsqILfYzYuZV3vK/ufbF4WmoJa4b/y17Sfklv4h1wDs4rCSjXA5
-	wMho/X8Y2+8SBrzIBvaSZDOnspdWRtEgNNUdBARz2N3hjkn/cl4G5uHxe7ZZgoc/pC11Jyy3TqN
-	nIzTKTA+sL40y6YC3EZnllqDFrOTvSM+6xrSi2oDqOBoKVbcCzYLWedR4oEEhuQKdI6HC+sQ0Zs
-	eD1LEPE07xpOLvVoeGCsfG+/q5OmMt1X+b54b6GM+8TYo1yknQ3b5+LBCIKdvP38ApPd70a5UMk
-	/OymMDs/AdK6BYm3+RgrmdmmQ/zgRto9iwQ=
-X-Google-Smtp-Source: AGHT+IFzyRepggFFHtQT8D4fkFN2tkBOOiPSmaRhjKsx+myOrF3U4xxdVBjzw1AHpDW/+2qMjfDQIg==
-X-Received: by 2002:a17:902:e747:b0:216:3c2b:a5d0 with SMTP id d9443c01a7336-21a84002a70mr352529525ad.51.1736932153585;
-        Wed, 15 Jan 2025 01:09:13 -0800 (PST)
-Received: from [192.168.0.100] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21a9f21a21csm78826285ad.109.2025.01.15.01.09.09
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 15 Jan 2025 01:09:13 -0800 (PST)
-Message-ID: <72e993f1-bb8d-43fb-a9cd-210f1f8f02c5@gmail.com>
-Date: Wed, 15 Jan 2025 17:09:08 +0800
+	id 1tXzOm-0000000BEuu-0Mt3;
+	Wed, 15 Jan 2025 09:09:17 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 4F1A8A0A27;
+	Wed, 15 Jan 2025 10:09:12 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=mail; bh=ssZI86T0A6XNN8hCXgMu
+	MZMsnzteKeFLGvw1TpMOAQU=; b=YwUsiqL+mnfGUW9j8eGYD/GWnYrYU4Lh23/R
+	Gk2lpKqoAoqRGyrHg00ogMYZOT6rBU2nNA0yllC476j3q3fUoYLJVNemN00UpP4s
+	RNSd3MN5utnVTVpVHhRiW7g18Rxvg6cg5Mbi0igsJ8aqMJi2LKMdPOWddsY+ja2X
+	HdVuwqmRkFUNTRYG+1vhShK2qKRzlVSPpPbLn1PZT3aeK6GviuuaHTod48xGpBct
+	xITp7DWK5gH6WgPA0466Hq4INt9RjJ3g9jWgF2DO4HcsvCXLUtYqm6VEJSF6skO4
+	QKwbsuC4d9czkpAnsIVGSJP89jgtxCsPE33/NZJaQbojtYFP5lBO/LYuskWxvMgF
+	L+IEVCzwQZ8fR5S7OdoyPZNYIudOpxHv82EgdF5wm/maN/qVoKiD6Jtr/4cSHgyp
+	A0d/IluO1KZddaESPZPCepvmVGSG8fa7b68lneLzG4o93UIraCbzM6rDLsfYHMtg
+	lpWj8ZVDnG6zZDLoLifMkms32GIpx/DhARP/Z8rZ3YYdqa0ClqgGgmZVhYHHRiLK
+	Xglikd9s9lg4opobT3B+ruWbtNC7nBY7dr1DfKu4PDOZqXWX80G3xcgPLCmXTtq1
+	pl4P9NrgOy1MtsywyJ4vVaQqbvy1t76OTxyKF32tbGpRU0vliKNBQ5DbgD/jZTwO
+	3/JuGtg=
+Message-ID: <81cbb273-a4b4-424c-9d25-f53ebc8ea82a@prolan.hu>
+Date: Wed, 15 Jan 2025 10:09:09 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v7 3/3] net: stmmac: dwmac-nuvoton: Add dwmac
- glue for Nuvoton MA35 family
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- mcoquelin.stm32@gmail.com, richardcochran@gmail.com,
- alexandre.torgue@foss.st.com, joabreu@synopsys.com, ychuang3@nuvoton.com,
- schung@nuvoton.com, yclu4@nuvoton.com, peppe.cavallaro@st.com,
- linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- openbmc@lists.ozlabs.org, linux-stm32@st-md-mailman.stormreply.com,
- Andrew Lunn <andrew@lunn.ch>
-References: <20250113055434.3377508-1-a0987203069@gmail.com>
- <20250113055434.3377508-4-a0987203069@gmail.com>
- <20250114153323.527d4f63@kernel.org>
+Subject: Re: [PATCH 12/12] ARM: dts: sun8i: add DTSI file for V853
+To: Krzysztof Kozlowski <krzk@kernel.org>, Andras Szemzo
+	<szemzo.andras@gmail.com>, Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Chen-Yu
+ Tsai" <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, "Samuel
+ Holland" <samuel@sholland.org>, Linus Walleij <linus.walleij@linaro.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>, Maxime Ripard <mripard@kernel.org>
+CC: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
+	<u.kleine-koenig@baylibre.com>, Florian Fainelli
+	<florian.fainelli@broadcom.com>, <linux-clk@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<linux-phy@lists.infradead.org>, <linux-gpio@vger.kernel.org>,
+	<linux-pm@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+References: <20250110123923.270626-1-szemzo.andras@gmail.com>
+ <20250110123923.270626-13-szemzo.andras@gmail.com>
+ <ff57cf8d-626e-4d35-a18f-1a89b4d9fa3e@kernel.org>
 Content-Language: en-US
-From: Joey Lu <a0987203069@gmail.com>
-In-Reply-To: <20250114153323.527d4f63@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+From: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
+In-Reply-To: <ff57cf8d-626e-4d35-a18f-1a89b4d9fa3e@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.254.7.14]
+X-ClientProxiedBy: ATLAS.intranet.prolan.hu (10.254.0.229) To
+ ATLAS.intranet.prolan.hu (10.254.0.229)
+X-EsetResult: clean, is OK
+X-EsetId: 37303A2980D94852647063
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_010914_560549_7BDA8552 
-X-CRM114-Status: UNSURE (   7.84  )
+X-CRM114-CacheID: sfid-20250115_010916_590009_870FA38E 
+X-CRM114-Status: UNSURE (   6.22  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -110,26 +98,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dear Jakub,
+Hi,
 
-Thank you for the reply.
+On 2025. 01. 10. 14:58, Krzysztof Kozlowski wrote:
+> On 10/01/2025 13:39, Andras Szemzo wrote:
+>> +// Copyright (C) 2024 Andras Szemzo <szemzo.andras@gmail.com>
+>> +
+>> +#include <dt-bindings/clock/sun6i-rtc.h>
+>> +#include <dt-bindings/clock/sun8i-v853-r-ccu.h>
+>> +#include <dt-bindings/reset/sun8i-v853-r-ccu.h>
+>> +#include <dt-bindings/clock/sun8i-v853-ccu.h>
+>> +#include <dt-bindings/reset/sun8i-v853-ccu.h>
+>> +#include <dt-bindings/interrupt-controller/arm-gic.h>
+>> +#include <dt-bindings/power/allwinner,sun8i-v853-ppu.h>
+>> +
+>> +/ {
+>> +	#address-cells = <1>;
+>> +	#size-cells = <1>;
+>> +
+>> +	osc24M: osc24M-clk {
+> 
+> Only lowercase node names.
 
-Jakub Kicinski 於 1/15/2025 7:33 AM 寫道:
-> On Mon, 13 Jan 2025 13:54:34 +0800 Joey Lu wrote:
->> +	regmap_write(bsp_priv->regmap,
->> +		     macid == 0 ? NVT_REG_SYS_GMAC0MISCR : NVT_REG_SYS_GMAC1MISCR, reg);
-> This is a pretty long line and you do it twice, so save the address
-> to a temp variable, pls
-Got it!
->> +MODULE_LICENSE("GPL v2");
-> checkpatch insists:
->
-> WARNING: Prefer "GPL" over "GPL v2" - see commit bf7fbeeae6db ("module: Cure the MODULE_LICENSE "GPL" vs. "GPL v2" bogosity")
+I don't agree. It is customary to write oscillator names with casing in 
+line with the SI prefixes of their frequency, i.e. lowercase k, 
+uppercase M/G/etc. (even though a millihertz oscillator rarely makes 
+sense, it is best to stay consistent).
 
-Understood. I will fix the warning.
-
-BR,
-
-Joey
+Bence
 
 
