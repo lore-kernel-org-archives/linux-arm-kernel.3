@@ -4,156 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B14D0C02180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 05:37:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 325AEC02183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jan 2025 05:44:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VFwMqah+UjKU7QuTF7xIO0fEkduIHJwzVI5tuC2FxZk=; b=r8CfifySOOI57NMdTPsiX7V8FR
-	oeU4cyV762js7IKfOD1J0vaTGj/TsjdA0zK8Or7XmWCGTmZHkRRJX8xjLU0txXi+AtyMOfClIqgl6
-	A234JS0m+h3mnj3hjeUVeRJmfpSV32oWjBiyFIEIuyAjMIyK3ooYtv07rnuc/E1b83hgquKs6wCoE
-	W5RSarzakcC+utsokEXQq2OD7O2MxQKrSZQCVNhT4g53qkYDEIu/EWZkEAPcE8SsYmgtT56GnQS/u
-	FfnXe3CLh0VCU7JQh1VOJG39cYZmQPLZXCMCPx0gzaRgHAHeiULI4AazIVfblU2p55AQSDTlYNCpa
-	KBeL+D9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DuBzISU5VFPAjsRkdsiFIlUcNiX/+1PtQJcrEZX9csg=; b=g/7//QYVgh8AE2i7B0c1bowSYZ
+	drqZQgmPn1ijJ1rHfc7WGs7OVhQgCN0iIpq+UkeTr6jV7aWuzRjXLr3hdzWei7v+eEKJyxak9ZIOg
+	7B+qcP2VdMSemknj6SISLBQw5+TbTkJWu2KdzrKqf+e+Ke4+eHVAqslO8i6XOSacfnFesKFk9bAMh
+	k32gF5ikM9TbbGTMJkp5bedAKzlJkaVLOYC3i6xAHxoKLUBcRjx1I3n0l9AENqzMCm4TnwgAHPQE5
+	9M47VS985GaTPZ60qWIDEG9dk3IexbJJNo7Z0NanDOrOJspWWeb1/DW+QpSy1N2u1diG+1TsU0+q1
+	vw6ISAZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXw5v-0000000Ahe9-3968;
-	Wed, 15 Jan 2025 05:37:35 +0000
-Received: from mail-sn1nam02on2061d.outbound.protection.outlook.com ([2a01:111:f403:2406::61d] helo=NAM02-SN1-obe.outbound.protection.outlook.com)
+	id 1tXwC0-0000000Ai8L-0RCm;
+	Wed, 15 Jan 2025 05:43:52 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXw4f-0000000AhSP-2zXH
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jan 2025 05:36:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XQFneUgtMgwf+zs6NrDp0eV8cawQlis1Tl+QPQEJQKyOzHgeUceJEhViklLwuf586sGiMVG4fQpex49+qkz3cytifq0Puq9oRJ6/3AR2wCCTh5ucQaN2ocZlaHbvgqptyn8bPaHMRyM/XIvfpupy2R2GLnQiejTOx5xAeWP6ErytT7gWpZeI80ZUu0hws4L3CQ50z5AVi6YUu8G+aWQkBcVVFSA+5GgUIU6ih64X0JLpL05xAqhFEESMAChee2MsDbKS8selTnM5ZCa6VkYVwL2nFrJ0EH8oYfRQJjLbpiKfTFZghbtXBskng5CFHOpoBRVMBy8J7wAMAJdfvsAGcg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VFwMqah+UjKU7QuTF7xIO0fEkduIHJwzVI5tuC2FxZk=;
- b=HQw4BJry5K90FAyrkrzZiksR6gMBmRvqeDUErEIl4eadydS/ElfKbYc7SVwWcI8xb4wXgtsqTxmOs7/dZVkaUTH2bXbScbIeDNNF21FQ/gRE9Z3zIx/i/jiD1P94I5Sp+53zwvgBsr3OEDSXxamD/EdeSHVDqjWAPp6q1EwNyxKwr/AiwjbM+WA5ZRDseZoYWgVF8f8/TD88PdheN0LNPrXigqCebvPWbjyN7KsxDf46BI1ikK3pVQmTRa4z4rOFPC0LPKC8VIoENno8AXmuWhDQJbIOinxGrobpYrLL64U6zZWN9ABaMCUJtk1vBbV5gl6od/tm/z4SsQNqmnRysA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VFwMqah+UjKU7QuTF7xIO0fEkduIHJwzVI5tuC2FxZk=;
- b=irWr9NnTbrtmaQwV9DmajfKzF5HeP8itKaPGytWvrTydLkWpEaFtHOChkIPYl6GidAtBS+bEe0wNa2rmhYaKRdW3+tsq++X7w/srj2cWnxvvc2hnDa9Jw5VTA2hTT1IRe2020SiKypdtHsTK5ia7KFTJqP9yrJnYpdcnNSyFHUmQmR5efUFh95ZyHrJbDhIiGUSgUl6OTk42Q/gfzPJwIzbGaZrv/XXOP1UpjDZi9OF0PhMP63A94N2F3e8/aaFxDT1dt5oT5pMF57HCmFFSRczpCXgN+t9zY7RPc61AoyXqjy68rYK+OYTO0lqRqMb5YzCmKNpqJG2G0oBDN3zY5A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DS0PR12MB7726.namprd12.prod.outlook.com (2603:10b6:8:130::6) by
- IA1PR12MB6355.namprd12.prod.outlook.com (2603:10b6:208:3e1::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.18; Wed, 15 Jan
- 2025 05:36:12 +0000
-Received: from DS0PR12MB7726.namprd12.prod.outlook.com
- ([fe80::953f:2f80:90c5:67fe]) by DS0PR12MB7726.namprd12.prod.outlook.com
- ([fe80::953f:2f80:90c5:67fe%7]) with mapi id 15.20.8335.017; Wed, 15 Jan 2025
- 05:36:11 +0000
-Date: Wed, 15 Jan 2025 16:36:07 +1100
-From: Alistair Popple <apopple@nvidia.com>
-To: Dan Williams <dan.j.williams@intel.com>
-Cc: akpm@linux-foundation.org, linux-mm@kvack.org, 
-	alison.schofield@intel.com, lina@asahilina.net, zhang.lyra@gmail.com, 
-	gerald.schaefer@linux.ibm.com, vishal.l.verma@intel.com, dave.jiang@intel.com, 
-	logang@deltatee.com, bhelgaas@google.com, jack@suse.cz, jgg@ziepe.ca, 
-	catalin.marinas@arm.com, will@kernel.org, mpe@ellerman.id.au, npiggin@gmail.com, 
-	dave.hansen@linux.intel.com, ira.weiny@intel.com, willy@infradead.org, djwong@kernel.org, 
-	tytso@mit.edu, linmiaohe@huawei.com, david@redhat.com, peterx@redhat.com, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, nvdimm@lists.linux.dev, 
-	linux-cxl@vger.kernel.org, linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org, 
-	linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de, david@fromorbit.com, 
-	chenhuacai@kernel.org, kernel@xen0n.name, loongarch@lists.linux.dev
-Subject: Re: [PATCH v6 12/26] mm/memory: Enhance
- insert_page_into_pte_locked() to create writable mappings
-Message-ID: <i76sf75dj6skqziydajr5dgvlwkt26f5oteajobwdx226joer2@6esrutdjyqsp>
-References: <cover.11189864684e31260d1408779fac9db80122047b.1736488799.git-series.apopple@nvidia.com>
- <68974d46091eea460f404f8ced3c6de5964c9ec4.1736488799.git-series.apopple@nvidia.com>
- <6785b90f300d8_20fa29465@dwillia2-xfh.jf.intel.com.notmuch>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <6785b90f300d8_20fa29465@dwillia2-xfh.jf.intel.com.notmuch>
-X-ClientProxiedBy: SY5PR01CA0101.ausprd01.prod.outlook.com
- (2603:10c6:10:207::11) To DS0PR12MB7726.namprd12.prod.outlook.com
- (2603:10b6:8:130::6)
+	id 1tXwAk-0000000Ai3A-1a5w;
+	Wed, 15 Jan 2025 05:42:35 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-aa6c0dbce1fso906633966b.2;
+        Tue, 14 Jan 2025 21:42:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1736919753; x=1737524553; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DuBzISU5VFPAjsRkdsiFIlUcNiX/+1PtQJcrEZX9csg=;
+        b=ed1YRSqgRaWZJzIisPRdx11i0pbxCCHaVddaoSZ347H0ORUHelvwI2BXlhgY6pyGvz
+         bY9kdjtZSn/i0m/GdEnaraNwK6HBDbs/ArC4igW38jwpwK2ZJ7d90/EtOYK2F2qzLFov
+         D02cCHeyRy0HpncHWxa/yQQVtPG9eE1AcVuOHzcnacPRgLP2u1VgiDiKlcbm9nNtGAE9
+         9rBe5pJppM3YjaudPfM+wj/Ib1OKf2bikPzwdgRuvrSjtoA44kfP8PsBhJvRnKY/GTpp
+         f/2o0IIOHS/+GwzKZdvlaYb9zeLlidmfHAzt9t8KxUwfuPuovbp8nnAJB3j0yehN+ZZ2
+         DlPA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736919753; x=1737524553;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=DuBzISU5VFPAjsRkdsiFIlUcNiX/+1PtQJcrEZX9csg=;
+        b=hgMK/L6yomRfDRitHUBiWsrnQgkO3t+8HashUynMvOqQfxYCvhNOiRq/Ek/DTuOfHY
+         nQWchi5fIl8jxA64ZidI0JMFo6Bt3kpK5rRZinNJBqFxf3AiPcvjJwN0FxqwBWxU54bk
+         lFvTDCZrEvOuUwc286e0Iya6nyHs0o147kLaeUEdWGXldqHdS60DYFQuoBWl59bpkygG
+         YpzK/oC/Gwhw9zCbObVIRpOsyMNuaX/FemCxu2EO+2nTsYl5Y4VdzGs8xItqHUHdC9Zd
+         fx409wSagkcne4KWpt2j1idxLodUyQ9tMLkwNQYToxY+U4hQETY7Jf1+siyO9wzcipd3
+         yvOw==
+X-Forwarded-Encrypted: i=1; AJvYcCUbvkbudpHki/8o2VNUExlPLnYyoWNu068J8/KnR6dMzzc2dV9uFusIwKJXZOdyIvYBLQF3SQ4FaPJpIrg=@lists.infradead.org, AJvYcCWHCKkCp85vkvPElxfq7oh/GNTw+e+0qERxjs9fCHwrPlWQwP8pwqtjPczDQkU8/Kmck0kDj7Uh9kFzHzB078oq@lists.infradead.org
+X-Gm-Message-State: AOJu0Yys6emLu6q/ey0wG5TdkON8h3gvoqk+cpBOSfFFlLfxLgUK3NqO
+	J6NY3EKsR7zhVCtydOv9+G42MVfEHlrOXR9LHjSYLdv4WOb4xG4CQWZo7T05mmu2y2nFfhkkrKa
+	Zqcc96bO/YNrhlCTGZsFPBJMLVVQ=
+X-Gm-Gg: ASbGncv5ZsYFGqZd5wGBu6/ybrSWxKB7/eBSlU/oF0zTcdwFmWaEwioimF5yurZ30QQ
+	F/H1ZEIJh1vSRqkSnLKjNTnr5K6/RT4rNAzi+vg==
+X-Google-Smtp-Source: AGHT+IFPndA0UnHuFvKNHji3gtntOaWwA5e+Fc7f8rILAQ7wRnmjAYYDRlAaokCLMY9u4f9Tm0Y1CgsH6jrpedhqsmg=
+X-Received: by 2002:a05:6402:35ca:b0:5d0:d818:559d with SMTP id
+ 4fb4d7f45d1cf-5d972e0b954mr70203434a12.11.1736919752505; Tue, 14 Jan 2025
+ 21:42:32 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS0PR12MB7726:EE_|IA1PR12MB6355:EE_
-X-MS-Office365-Filtering-Correlation-Id: 00ac9d4d-6b2c-433a-4c65-08dd3526852e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?DiaPjh2zL/3p7yq6qU64VAaTjw4YEGfi4UV9ChRpbHwCrZhg845NNAikQJLc?=
- =?us-ascii?Q?QuFNwaRbDYwH45wMDvK604w5t7zllhq/Lb8ajp6mvh6tsoiDPIh6yMTn+zaz?=
- =?us-ascii?Q?XqcuWJJYQK34SUoKgHb166wLoIiY1tBEOvdBup2e/txb3j4SuX+1UCnx643F?=
- =?us-ascii?Q?Tx37jVhXrhD8Mwb8hcs28HBupP4UhwV1DM4snb+9dftGrV+ZAjDE3OoeaF9z?=
- =?us-ascii?Q?y6VHdj495QxWsIrnq4Vnr8t3O5ha7gPV9FtyOeDMKBEZq10aahvG1/cZWTyR?=
- =?us-ascii?Q?pX/ddQdZdihUpaqjkDtjxNFK3wH5fFYCWG8oax7Y5B9auVRjJI+S8DkUKPda?=
- =?us-ascii?Q?90NidTTIsvBqjXjS9eidtM7J6SRyTqUqkcE7QNavXpEkkmb3fNm6K83NFQnN?=
- =?us-ascii?Q?1VmbjAlIm77apSHzp2/XZWDVELad8VclLKs88q9B3e3Iv8rfCSKhxgFRO8V/?=
- =?us-ascii?Q?+o6J4uoVrlDg9eMawzyBodI4RVfSbIaatpnrp4Pseho+UPjrZ3Zwy06Ugl6L?=
- =?us-ascii?Q?gP+auy5wTf3tLD0hUDZkhV/WfyEOXFfS1nRlXZlK/8fGkDnEYppn392lCjpP?=
- =?us-ascii?Q?l9UNyo8B1ZNdZMZJG+bLamKYn0KJfr6VNsushHZDAfzc1IZJaWjtnp6aLaVB?=
- =?us-ascii?Q?Ed+QNlEXK71OvXbZMKXK67vhojDkHCXgByAK9m9QtM7aP9/Z9HxZk1m3wzIg?=
- =?us-ascii?Q?vkx7+pP69a4O9k0HjTytWGnGLFrz/KdiL/0L/4cJpzMBvdRxrv0ts2fqnuoo?=
- =?us-ascii?Q?fHKZOz36YDNjfDelS+7ZLLQSrLn7EFRSbSumS8fhsqcWadI1VnfR4Q3Pg3sF?=
- =?us-ascii?Q?rnKjARP3iIMMOokdOoHM5NnF3KVu1iIViq7O+L0+oml5UcVrYfVRO8jMwcOy?=
- =?us-ascii?Q?Mn3QOoRdi8GE3a3tak+8PsUMmUY9HFC4jDa/J0iVInzeJnbGSW4cOwfUzVnI?=
- =?us-ascii?Q?FDPOVdkk+1ygAfS2S4OujqDM9/es0Iz1sgnyGMzbi1/vTWitVJW3z+ux2A7D?=
- =?us-ascii?Q?wSVMAYMDfbW43eHqMy7Kc77dxYJZ2RO2wKKLt9dV+8SxT92nf/k8vXrv9smr?=
- =?us-ascii?Q?Sbd/7uOsk4Wgnh3wrYm+tR7oAzd5zpI+86NbFzLk8hdxEI4t8otZFG1/2iWr?=
- =?us-ascii?Q?N4E7qyjr/jP2IsAc0KqeYdh1WatK5BW4XtZ+UHJgJBASZDvI0C8eg81WzoAB?=
- =?us-ascii?Q?7SQ7kEzYdl4Nq6OYfo5/OtHCznPw3KXQiWEv/Qd9cPPEDmbID8YKaFT1EkLB?=
- =?us-ascii?Q?SMKU3kI409XBDmoO82FNPxzfEJxVokuG1pfc7ShFzFS4KIfmpBpkw3u9JBAl?=
- =?us-ascii?Q?PEqlhAVXX3Dh3ohSGgYNR0Cz+sYl8tbsRnY6bfqZeZtSAq6bieGp6juA531e?=
- =?us-ascii?Q?2NX3XOuJkCiZ218Q65azgGWyhZnS?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB7726.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Fw9HbQk7fd6Kup6qXVibZqfxG6XXNeHNtMV4QM84e94neNNeEV4/t1aq46X8?=
- =?us-ascii?Q?HTRaIQda97zGnXiw7fsr0be+T63zBmbqwcYTbx+YDve340n9I3MD+lFZZYWh?=
- =?us-ascii?Q?5jO/HHHttPKBSQuye+jkbKRxw1NGgIS5XReKDm3FAPkBjOsBwlaz4wab8KzC?=
- =?us-ascii?Q?nFcmGtEcEeBNDkZqEmrJ5uUciFl6bKA7TTMTGstt/qEm9opRPKcMBOXofJ+u?=
- =?us-ascii?Q?KPwHjQiVrYiE3sA5/njdLfB58xVuHFW2sUe/o46KwJkhkZp/12mjlmZ1BbM7?=
- =?us-ascii?Q?umZ8828bvxRAeKMm+eSiqvSm+Rl/NslDbJqy7v7XOs6LSzK8yXcS8bpRJKyw?=
- =?us-ascii?Q?XeHAcAFHMEJut83G+oyOpacRRqu2okvayQaAMnWO8KJlmLvIOopo61h5FmAd?=
- =?us-ascii?Q?w/8QSV2i8/59UWUddz3+dk0FCQl9TOqU4mzdyJNgK7lUp+ksVdhgxQLP+iXm?=
- =?us-ascii?Q?wBvKn9Xzmk4E5y7zHkq0nhblna1SIvYJT+Lk/3XzyPif4QYxbWIcTopWoKxK?=
- =?us-ascii?Q?2UQZg0AQ6qN4IWsvPiLgkwg5PM+ZQR19CLaXwwxGzyHdbRhrpgcLVSE2MTA+?=
- =?us-ascii?Q?RJupwRQCVvbANI7zhhZbiClJhWhPgM+hMbR1C4XToGNlC+B4v0tzslzG9uEF?=
- =?us-ascii?Q?QfZNzJ+NHs/nzY6U7kOvDeZ9orOzoqK5zK5M9A7o2rE7mQxRL5wXGdkv18Uv?=
- =?us-ascii?Q?sR+4k+UZRGa40Q+6e3a+XkeHNz/bct1z1hWMlWnN0All9jaJZCByhNv4HNi/?=
- =?us-ascii?Q?qoK6qHmLZAFOkbqK3sqjjVh3yGy1SrDFtkLSKRKvqb9sOStGCCmc/KX4Uc2Y?=
- =?us-ascii?Q?0EGIK0DW5deaj6ua1VEpesugEu78apx8NHCC6UWjRzmaABOGvKvUEDwuDANH?=
- =?us-ascii?Q?U55DoG08InNQ0JeD0flsxuFecCR9gcBSYLdKJkc03/TOVnDDu5cv7d3s/Tu+?=
- =?us-ascii?Q?lM1sSprGBSZrZ+uCsFcNC5wYi4W574UO3dlrBoOBohX6nTckoc1iWOFphtBc?=
- =?us-ascii?Q?XImkp+47t5LHLWze5vBQfmubKdPuKnPyLiDa+lZAiZdCVIfaCeFHjJ0UfFG9?=
- =?us-ascii?Q?nEb+8ZUrdxV6wZBLzvVm7v8ctYtnhYYKbvOeNlrCz5SracdVFDTMEJjPgHwP?=
- =?us-ascii?Q?x/BQNa8K1ZYXFi9mn8lH1p3hLXCi7vItE+Ohja7/Ltx8Pgooc7eAi69akmer?=
- =?us-ascii?Q?6PDGCYan5HVCYFQl4Mj7AUdTXp2GcDKUBRCswPYdyGv7bjBhXlgQFRzCUM8c?=
- =?us-ascii?Q?sr27r68jdJ5ynS6N1OSdlYsbYKyhI+7qq4mpy7kQXUiw5WfiixpjKByY8P9e?=
- =?us-ascii?Q?qTFySXbh5q5UO/3VmzwfEdAZj2TniHrvCSe5gOjOWyIYSN15sWwUT4cCqcdT?=
- =?us-ascii?Q?5dqroovkilVfjDb299qOzX/nFru+k44Kf3R+Zau/yrGlS8xVtQhB4Odi+cxR?=
- =?us-ascii?Q?sSvGIYg+LUh1CAB1OdzKz83B/+d72AWyeGzgxKf1CVKEmn222Mb9hSjHnkMg?=
- =?us-ascii?Q?49jZnHNbnhwkhBQM+xw4rIxXSt2RzJyaqGLhAC88qLBsSflWgCZAcIgeOlA8?=
- =?us-ascii?Q?kJDafUJ0ewoCVsCwza3P7dFC5MJNb/kwSQEz/Ogn?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 00ac9d4d-6b2c-433a-4c65-08dd3526852e
-X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB7726.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jan 2025 05:36:11.8853
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Vyxg9vP8FjBRwgGdSb53ETAnYv/TWqIdwjK50OMau6MpS05bDFZxzCJ8xmOqOBnOzMygMBT/BVtHlcYFrNGrVQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6355
+References: <20250115033808.40641-1-21cnbao@gmail.com> <20250115033808.40641-5-21cnbao@gmail.com>
+ <CAK1f24=3LmQMzgosB0o9OKV-P8f6cPO2ZCPBA64QXQqZYPk=ww@mail.gmail.com> <CAGsJ_4xwHVmnKENYV6M6yMSUzeeR8tM7F8mbkAUd4eVHhfN_BA@mail.gmail.com>
+In-Reply-To: <CAGsJ_4xwHVmnKENYV6M6yMSUzeeR8tM7F8mbkAUd4eVHhfN_BA@mail.gmail.com>
+From: Lance Yang <ioworker0@gmail.com>
+Date: Wed, 15 Jan 2025 13:41:56 +0800
+X-Gm-Features: AbW1kvbgJbBDZ9E1MWxWALOwnicXwxZfzPZ7oAIJcXasjZxKMd8HDROy6TEL6hE
+Message-ID: <CAK1f24=9P7uz5q4GiB9Az4xebMLzqw_+YVX2Z9rG8fLVozcrQg@mail.gmail.com>
+Subject: Re: [PATCH v3 4/4] mm: Avoid splitting pmd for lazyfree pmd-mapped
+ THP in try_to_unmap
+To: Barry Song <21cnbao@gmail.com>
+Cc: akpm@linux-foundation.org, linux-mm@kvack.org, 
+	baolin.wang@linux.alibaba.com, chrisl@kernel.org, david@redhat.com, 
+	kasong@tencent.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	lorenzo.stoakes@oracle.com, ryan.roberts@arm.com, v-songbaohua@oppo.com, 
+	x86@kernel.org, ying.huang@intel.com, zhengtangquan@oppo.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_213617_753587_3B0C29A1 
-X-CRM114-Status: GOOD (  22.81  )
+X-CRM114-CacheID: sfid-20250114_214234_418250_8387803F 
+X-CRM114-Status: GOOD (  31.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,71 +98,236 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 13, 2025 at 05:08:31PM -0800, Dan Williams wrote:
-> Alistair Popple wrote:
-> > In preparation for using insert_page() for DAX, enhance
-> > insert_page_into_pte_locked() to handle establishing writable
-> > mappings.  Recall that DAX returns VM_FAULT_NOPAGE after installing a
-> > PTE which bypasses the typical set_pte_range() in finish_fault.
-> > 
-> > Signed-off-by: Alistair Popple <apopple@nvidia.com>
-> > Suggested-by: Dan Williams <dan.j.williams@intel.com>
-> > 
-> > ---
-> > 
-> > Changes for v5:
-> >  - Minor comment/formatting fixes suggested by David Hildenbrand
-> > 
-> > Changes since v2:
-> > 
-> >  - New patch split out from "mm/memory: Add dax_insert_pfn"
-> > ---
-> >  mm/memory.c | 37 +++++++++++++++++++++++++++++--------
-> >  1 file changed, 29 insertions(+), 8 deletions(-)
-> > 
-> > diff --git a/mm/memory.c b/mm/memory.c
-> > index 06bb29e..8531acb 100644
-> > --- a/mm/memory.c
-> > +++ b/mm/memory.c
-> > @@ -2126,19 +2126,40 @@ static int validate_page_before_insert(struct vm_area_struct *vma,
-> >  }
-> >  
-> >  static int insert_page_into_pte_locked(struct vm_area_struct *vma, pte_t *pte,
-> > -			unsigned long addr, struct page *page, pgprot_t prot)
-> > +				unsigned long addr, struct page *page,
-> > +				pgprot_t prot, bool mkwrite)
-> >  {
-> >  	struct folio *folio = page_folio(page);
-> > +	pte_t entry = ptep_get(pte);
-> >  	pte_t pteval;
-> >  
-> > -	if (!pte_none(ptep_get(pte)))
-> > -		return -EBUSY;
-> > +	if (!pte_none(entry)) {
-> > +		if (!mkwrite)
-> > +			return -EBUSY;
-> > +
-> > +		/* see insert_pfn(). */
-> > +		if (pte_pfn(entry) != page_to_pfn(page)) {
-> > +			WARN_ON_ONCE(!is_zero_pfn(pte_pfn(entry)));
-> > +			return -EFAULT;
-> > +		}
-> > +		entry = maybe_mkwrite(entry, vma);
-> > +		entry = pte_mkyoung(entry);
-> > +		if (ptep_set_access_flags(vma, addr, pte, entry, 1))
-> > +			update_mmu_cache(vma, addr, pte);
-> > +		return 0;
-> > +	}
-> 
-> This hunk feels like it is begging to be unified with insert_pfn() after
-> pfn_t dies. Perhaps a TODO to remember to come back and unify them, or
-> you can go append that work to your pfn_t removal series?
+On Wed, Jan 15, 2025 at 1:09=E2=80=AFPM Barry Song <21cnbao@gmail.com> wrot=
+e:
+>
+> On Wed, Jan 15, 2025 at 6:01=E2=80=AFPM Lance Yang <ioworker0@gmail.com> =
+wrote:
+> >
+> > On Wed, Jan 15, 2025 at 11:38=E2=80=AFAM Barry Song <21cnbao@gmail.com>=
+ wrote:
+> > >
+> > > From: Barry Song <v-songbaohua@oppo.com>
+> > >
+> > > The try_to_unmap_one() function currently handles PMD-mapped THPs
+> > > inefficiently. It first splits the PMD into PTEs, copies the dirty
+> > > state from the PMD to the PTEs, iterates over the PTEs to locate
+> > > the dirty state, and then marks the THP as swap-backed. This process
+> > > involves unnecessary PMD splitting and redundant iteration. Instead,
+> > > this functionality can be efficiently managed in
+> > > __discard_anon_folio_pmd_locked(), avoiding the extra steps and
+> > > improving performance.
+> > >
+> > > The following microbenchmark redirties folios after invoking MADV_FRE=
+E,
+> > > then measures the time taken to perform memory reclamation (actually
+> > > set those folios swapbacked again) on the redirtied folios.
+> > >
+> > >  #include <stdio.h>
+> > >  #include <sys/mman.h>
+> > >  #include <string.h>
+> > >  #include <time.h>
+> > >
+> > >  #define SIZE 128*1024*1024  // 128 MB
+> > >
+> > >  int main(int argc, char *argv[])
+> > >  {
+> > >         while(1) {
+> > >                 volatile int *p =3D mmap(0, SIZE, PROT_READ | PROT_WR=
+ITE,
+> > >                                 MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+> > >
+> > >                 memset((void *)p, 1, SIZE);
+> > >                 madvise((void *)p, SIZE, MADV_FREE);
+> > >                 /* redirty after MADV_FREE */
+> > >                 memset((void *)p, 1, SIZE);
+> > >
+> > >                 clock_t start_time =3D clock();
+> > >                 madvise((void *)p, SIZE, MADV_PAGEOUT);
+> > >                 clock_t end_time =3D clock();
+> > >
+> > >                 double elapsed_time =3D (double)(end_time - start_tim=
+e) / CLOCKS_PER_SEC;
+> > >                 printf("Time taken by reclamation: %f seconds\n", ela=
+psed_time);
+> > >
+> > >                 munmap((void *)p, SIZE);
+> > >         }
+> > >         return 0;
+> > >  }
+> > >
+> > > Testing results are as below,
+> > > w/o patch:
+> > > ~ # ./a.out
+> > > Time taken by reclamation: 0.007300 seconds
+> > > Time taken by reclamation: 0.007226 seconds
+> > > Time taken by reclamation: 0.007295 seconds
+> > > Time taken by reclamation: 0.007731 seconds
+> > > Time taken by reclamation: 0.007134 seconds
+> > > Time taken by reclamation: 0.007285 seconds
+> > > Time taken by reclamation: 0.007720 seconds
+> > > Time taken by reclamation: 0.007128 seconds
+> > > Time taken by reclamation: 0.007710 seconds
+> > > Time taken by reclamation: 0.007712 seconds
+> > > Time taken by reclamation: 0.007236 seconds
+> > > Time taken by reclamation: 0.007690 seconds
+> > > Time taken by reclamation: 0.007174 seconds
+> > > Time taken by reclamation: 0.007670 seconds
+> > > Time taken by reclamation: 0.007169 seconds
+> > > Time taken by reclamation: 0.007305 seconds
+> > > Time taken by reclamation: 0.007432 seconds
+> > > Time taken by reclamation: 0.007158 seconds
+> > > Time taken by reclamation: 0.007133 seconds
+> > > =E2=80=A6
+> > >
+> > > w/ patch
+> > >
+> > > ~ # ./a.out
+> > > Time taken by reclamation: 0.002124 seconds
+> > > Time taken by reclamation: 0.002116 seconds
+> > > Time taken by reclamation: 0.002150 seconds
+> > > Time taken by reclamation: 0.002261 seconds
+> > > Time taken by reclamation: 0.002137 seconds
+> > > Time taken by reclamation: 0.002173 seconds
+> > > Time taken by reclamation: 0.002063 seconds
+> > > Time taken by reclamation: 0.002088 seconds
+> > > Time taken by reclamation: 0.002169 seconds
+> > > Time taken by reclamation: 0.002124 seconds
+> > > Time taken by reclamation: 0.002111 seconds
+> > > Time taken by reclamation: 0.002224 seconds
+> > > Time taken by reclamation: 0.002297 seconds
+> > > Time taken by reclamation: 0.002260 seconds
+> > > Time taken by reclamation: 0.002246 seconds
+> > > Time taken by reclamation: 0.002272 seconds
+> > > Time taken by reclamation: 0.002277 seconds
+> > > Time taken by reclamation: 0.002462 seconds
+> > > =E2=80=A6
+> > >
+> > > This patch significantly speeds up try_to_unmap_one() by allowing it
+> > > to skip redirtied THPs without splitting the PMD.
+> > >
+> > > Suggested-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+> > > Suggested-by: Lance Yang <ioworker0@gmail.com>
+> > > Signed-off-by: Barry Song <v-songbaohua@oppo.com>
+> > > ---
+> > >  mm/huge_memory.c | 24 +++++++++++++++++-------
+> > >  mm/rmap.c        | 13 ++++++++++---
+> > >  2 files changed, 27 insertions(+), 10 deletions(-)
+> > >
+> > > diff --git a/mm/huge_memory.c b/mm/huge_memory.c
+> > > index 3d3ebdc002d5..47cc8c3f8f80 100644
+> > > --- a/mm/huge_memory.c
+> > > +++ b/mm/huge_memory.c
+> > > @@ -3070,8 +3070,12 @@ static bool __discard_anon_folio_pmd_locked(st=
+ruct vm_area_struct *vma,
+> > >         int ref_count, map_count;
+> > >         pmd_t orig_pmd =3D *pmdp;
+> > >
+> > > -       if (folio_test_dirty(folio) || pmd_dirty(orig_pmd))
+> > > +       if (pmd_dirty(orig_pmd))
+> > > +               folio_set_dirty(folio);
+> > > +       if (folio_test_dirty(folio) && !(vma->vm_flags & VM_DROPPABLE=
+)) {
+> > > +               folio_set_swapbacked(folio);
+> > >                 return false;
+> > > +       }
+> >
+> > If either the PMD or the folio is dirty, should we just return false ri=
+ght away,
+> > regardless of VM_DROPPABLE? There=E2=80=99s no need to proceed further =
+in that
+> > case, IMHO ;)
+>
+> I don't quite understand you, but we need to proceed to clear pmd entry.
+> if vm_droppable is true, even if the folio is dirty, we still drop the fo=
+lio.
 
-No one has complained about removing pfn_t so I do intend to clean that series
-up once this has all been merged somewhere, so I will just go append this
-work there.
+Ah, you're right, and I completely got it wrong ;(
 
-> Other than that you can add:
-> 
-> Reviewed-by: Dan Williams <dan.j.williams@intel.com>
+Thanks,
+Lance
+
+>
+> >
+> > Thanks,
+> > Lance
+> >
+> > >
+> > >         orig_pmd =3D pmdp_huge_clear_flush(vma, addr, pmdp);
+> > >
+> > > @@ -3098,8 +3102,15 @@ static bool __discard_anon_folio_pmd_locked(st=
+ruct vm_area_struct *vma,
+> > >          *
+> > >          * The only folio refs must be one from isolation plus the rm=
+ap(s).
+> > >          */
+> > > -       if (folio_test_dirty(folio) || pmd_dirty(orig_pmd) ||
+> > > -           ref_count !=3D map_count + 1) {
+> > > +       if (pmd_dirty(orig_pmd))
+> > > +               folio_set_dirty(folio);
+> > > +       if (folio_test_dirty(folio) && !(vma->vm_flags & VM_DROPPABLE=
+)) {
+> > > +               folio_set_swapbacked(folio);
+> > > +               set_pmd_at(mm, addr, pmdp, orig_pmd);
+> > > +               return false;
+> > > +       }
+> > > +
+> > > +       if (ref_count !=3D map_count + 1) {
+> > >                 set_pmd_at(mm, addr, pmdp, orig_pmd);
+> > >                 return false;
+> > >         }
+> > > @@ -3119,12 +3130,11 @@ bool unmap_huge_pmd_locked(struct vm_area_str=
+uct *vma, unsigned long addr,
+> > >  {
+> > >         VM_WARN_ON_FOLIO(!folio_test_pmd_mappable(folio), folio);
+> > >         VM_WARN_ON_FOLIO(!folio_test_locked(folio), folio);
+> > > +       VM_WARN_ON_FOLIO(!folio_test_anon(folio), folio);
+> > > +       VM_WARN_ON_FOLIO(folio_test_swapbacked(folio), folio);
+> > >         VM_WARN_ON_ONCE(!IS_ALIGNED(addr, HPAGE_PMD_SIZE));
+> > >
+> > > -       if (folio_test_anon(folio) && !folio_test_swapbacked(folio))
+> > > -               return __discard_anon_folio_pmd_locked(vma, addr, pmd=
+p, folio);
+> > > -
+> > > -       return false;
+> > > +       return __discard_anon_folio_pmd_locked(vma, addr, pmdp, folio=
+);
+> > >  }
+> > >
+> > >  static void remap_page(struct folio *folio, unsigned long nr, int fl=
+ags)
+> > > diff --git a/mm/rmap.c b/mm/rmap.c
+> > > index be1978d2712d..a859c399ec7c 100644
+> > > --- a/mm/rmap.c
+> > > +++ b/mm/rmap.c
+> > > @@ -1724,9 +1724,16 @@ static bool try_to_unmap_one(struct folio *fol=
+io, struct vm_area_struct *vma,
+> > >                 }
+> > >
+> > >                 if (!pvmw.pte) {
+> > > -                       if (unmap_huge_pmd_locked(vma, pvmw.address, =
+pvmw.pmd,
+> > > -                                                 folio))
+> > > -                               goto walk_done;
+> > > +                       if (folio_test_anon(folio) && !folio_test_swa=
+pbacked(folio)) {
+> > > +                               if (unmap_huge_pmd_locked(vma, pvmw.a=
+ddress, pvmw.pmd, folio))
+> > > +                                       goto walk_done;
+> > > +                               /*
+> > > +                                * unmap_huge_pmd_locked has either a=
+lready marked
+> > > +                                * the folio as swap-backed or decide=
+d to retain it
+> > > +                                * due to GUP or speculative referenc=
+es.
+> > > +                                */
+> > > +                               goto walk_abort;
+> > > +                       }
+> > >
+> > >                         if (flags & TTU_SPLIT_HUGE_PMD) {
+> > >                                 /*
+> > > --
+> > > 2.39.3 (Apple Git-146)
+> > >
 
